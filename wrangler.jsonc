@@ -2,6 +2,10 @@
   "name": "quidproquo",
   "account_id": "1ff43f0d4c3ad3bd98ce5ab767546a68",
   "compatibility_date": "2026-03-10",
+  "routes": [
+    { "pattern": "quidproquo.cc", "custom_domain": true },
+    { "pattern": "www.quidproquo.cc", "custom_domain": true }
+  ],
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS",
