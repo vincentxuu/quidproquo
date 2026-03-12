@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/create-cron-entry.mjs",
-    "deploy": "pnpm build && wrangler deploy",
+    "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs",
+    "deploy": "pnpm build && wrangler deploy --script dist/cron-entry.js",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "oxlint src/",
