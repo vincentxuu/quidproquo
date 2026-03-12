@@ -7,6 +7,10 @@
     "binding": "ASSETS",
     "directory": "./dist"
   },
+  "kv_namespaces": [{
+    "binding": "SESSION",
+    "id": "98171882182147d0b340b0b127c1e1cd"
+  }],
   "d1_databases": [{
     "binding": "DB",
     "database_name": "quidproquo-db",

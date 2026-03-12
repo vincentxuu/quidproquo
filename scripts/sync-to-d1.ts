@@ -93,7 +93,7 @@ ON CONFLICT(slug) DO UPDATE SET
   }
 
   const chunks = chunkArray(statements, 100);
-  const flag = IS_PROD ? '' : '--local';
+  const flag = IS_PROD ? '--remote' : '--local';
 
   for (const chunk of chunks) {
     const combined = chunk.join('\n');
