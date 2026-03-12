@@ -1,0 +1,60 @@
+---
+// src/layouts/PostLayout.astro
+import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+const { title, description, lang: langProp } = Astro.props;
+const lang = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const homeHref = lang === 'en' ? '/en' : '/';
+const categoriesHref = lang === 'en' ? '/en/categories' : '/categories';
+const tagsHref = lang === 'en' ? '/en/tags' : '/tags';
+const switchHref = t('lang.switch.href');
+const switchLabel = t('lang.switch');
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — quidproquo</title>
+  {description && <meta name="description" content={description} />}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href={homeHref} class="site-name">quidproquo</a>
+      <a href={categoriesHref}>{t('nav.categories')}</a>
+      <a href={tagsHref}>{t('nav.tags')}</a>
+      <a href={switchHref} class="lang-switch">{switchLabel}</a>
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <p>quidproquo.cc</p>
+  </footer>
+</body>
+</html>
+
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    color: #1a1a1a;
+  }
+  nav { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+  .site-name { font-weight: 600; text-decoration: none; color: #000; }
+  nav a { text-decoration: none; color: #555; }
+  nav a:hover { color: #000; }
+  .lang-switch { margin-left: auto; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; color: #888; font-size: 0.85rem; }
+</style>

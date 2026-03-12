@@ -1,0 +1,20 @@
+---
+// src/components/TagList.astro
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  tags: string[];
+  lang?: Lang;
+}
+const { tags, lang = 'zh-TW' } = Astro.props;
+const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
+---
+<div class="tags">
+  {tags.map(tag => <a href={`${tagsBase}/${tag}`} class="tag">#{tag}</a>)}
+</div>
+
+<style>
+  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tag { background: #f3f4f6; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.85rem; text-decoration: none; color: #374151; }
+  .tag:hover { background: #e5e7eb; }
+</style>
