@@ -1238,33 +1238,20 @@ git commit -m "feat: RSS feed at /rss.xml"
 npm install @astrojs/sitemap
 ```
 
-- [ ] **Step 2: Add sitemap to astro.config.mjs**
+- [ ] **Step 2: Add sitemap integration to existing astro.config.mjs**
 
+Open `astro.config.mjs` and make two additive changes (do NOT replace the whole file):
+
+1. Add import at top: `import sitemap from '@astrojs/sitemap';`
+2. Add `sitemap()` to the `integrations` array alongside the existing `mdx()` entry
+
+The resulting integrations array should look like:
 ```javascript
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-
-export default defineConfig({
-  site: 'https://quidproquo.cc',
-  output: 'server',
-  adapter: cloudflare({
-    platformProxy: { enabled: true }
-  }),
-  integrations: [
-    mdx(),
-    sitemap(),
-  ],
-  i18n: {
-    defaultLocale: 'zh-TW',
-    locales: ['zh-TW', 'en'],
-    routing: {
-      prefixDefaultLocale: false,
-    }
-  }
-});
+integrations: [
+  mdx(),
+  sitemap(),
+  // (Pagefind hook added in Task 13)
+],
 ```
 
 - [ ] **Step 3: Build and verify sitemap**
@@ -1294,7 +1281,20 @@ git commit -m "feat: sitemap via @astrojs/sitemap, add site URL to config"
 npm install satori @resvg/resvg-js
 ```
 
-- [ ] **Step 2: Create OG image endpoint**
+- [ ] **Step 2: Download Noto Sans TC TTF font for CJK support**
+
+Satori requires a raw OTF/TTF font buffer — woff2 is **not** supported. Posts have zh-TW titles, so a CJK font is required.
+
+```bash
+mkdir -p public/fonts
+# Download Noto Sans TC Medium TTF from Noto CJK releases
+curl -L "https://github.com/notofonts/noto-cjk/raw/main/Sans/OTF/TraditionalChinese/NotoSansTC-Medium.otf" \
+  -o public/fonts/NotoSansTC-Medium.otf
+```
+
+If the above URL is unavailable, download `NotoSansTC-Medium.otf` from the official Noto CJK GitHub releases page and place it at `public/fonts/NotoSansTC-Medium.otf`.
+
+- [ ] **Step 3: Create OG image endpoint**
 
 ```typescript
 // src/pages/og/[slug].png.ts
@@ -1303,6 +1303,8 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import type { APIRoute } from 'astro';
 
 export async function getStaticPaths() {
@@ -1315,6 +1317,10 @@ export async function getStaticPaths() {
     },
   }));
 }
+
+// Load font once at module level (build time only)
+const fontPath = resolve('public/fonts/NotoSansTC-Medium.otf');
+const fontData = readFileSync(fontPath);
 
 // Category badge colors (matches spec §3)
 const catColors: Record<string, string> = {
@@ -1341,43 +1347,34 @@ export const GET: APIRoute = async ({ props }) => {
           height: '630px',
           background: '#ffffff',
           padding: '60px 80px',
-          fontFamily: 'sans-serif',
+          fontFamily: 'Noto Sans TC',
           borderTop: '6px solid #1a2e1a',
         },
         children: [
           {
-            type: 'div',
+            type: 'span',
             props: {
-              style: { display: 'flex', alignItems: 'center', gap: '16px' },
-              children: [
-                {
-                  type: 'span',
-                  props: {
-                    style: {
-                      background: badgeColor,
-                      color: '#fff',
-                      fontSize: '18px',
-                      fontWeight: 700,
-                      padding: '4px 14px',
-                      borderRadius: '4px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                    },
-                    children: category,
-                  },
-                },
-              ],
+              style: {
+                background: badgeColor,
+                color: '#fff',
+                fontSize: '18px',
+                fontWeight: 500,
+                padding: '4px 14px',
+                borderRadius: '4px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+              },
+              children: category,
             },
           },
           {
             type: 'div',
             props: {
               style: {
-                fontSize: title.length > 40 ? '48px' : '60px',
-                fontWeight: 900,
+                fontSize: title.length > 40 ? '48px' : '58px',
+                fontWeight: 500,
                 color: '#1a1a1a',
-                lineHeight: 1.2,
-                letterSpacing: '-1px',
+                lineHeight: 1.25,
               },
               children: title,
             },
@@ -1385,7 +1382,7 @@ export const GET: APIRoute = async ({ props }) => {
           {
             type: 'div',
             props: {
-              style: { fontSize: '28px', color: '#4a7c59', fontWeight: 700, letterSpacing: '-0.5px' },
+              style: { fontSize: '26px', color: '#4a7c59', fontWeight: 500 },
               children: 'quidproquo.cc',
             },
           },
@@ -1395,7 +1392,14 @@ export const GET: APIRoute = async ({ props }) => {
     {
       width: 1200,
       height: 630,
-      fonts: [], // uses system sans-serif fallback
+      fonts: [
+        {
+          name: 'Noto Sans TC',
+          data: fontData,
+          weight: 500,
+          style: 'normal',
+        },
+      ],
     }
   );
 
@@ -1407,18 +1411,18 @@ export const GET: APIRoute = async ({ props }) => {
 };
 ```
 
-- [ ] **Step 3: Build and verify OG images**
+- [ ] **Step 4: Build and verify OG images**
 
 ```bash
-npm run build && ls dist/og/ | head -5
+npm run build && ls dist/og/
 ```
-Expected: PNG files for each post slug.
+Expected: Subdirectories named by category (e.g. `dist/og/tech/`, `dist/og/ai/`) containing PNG files per post.
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 5: Commit**
 
 ```bash
-git add src/pages/og/[slug].png.ts package.json package-lock.json
-git commit -m "feat: OG image generation via Satori at /og/[slug].png"
+git add src/pages/og/[slug].png.ts public/fonts/NotoSansTC-Medium.otf package.json package-lock.json
+git commit -m "feat: OG image generation via Satori, CJK font support"
 ```
 
 ---
@@ -1450,7 +1454,16 @@ npm install -D pagefind
 },
 ```
 
-- [ ] **Step 3: Create search page**
+- [ ] **Step 3: Add head slot to PostLayout**
+
+PostLayout needs a `<slot name="head">` inside `<head>` so pages can inject CSS links. Add this line inside the `<head>` block of `src/layouts/PostLayout.astro`, just before `</head>`:
+
+```astro
+  <slot name="head" />
+</head>
+```
+
+- [ ] **Step 4: Create search page**
 
 ```astro
 ---
@@ -1461,11 +1474,13 @@ import { useTranslations } from '../i18n/utils';
 const t = useTranslations('zh-TW');
 ---
 <PostLayout title={t('nav.search')} lang="zh-TW">
+  <Fragment slot="head">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  </Fragment>
   <h1>{t('nav.search')}</h1>
   <div id="search"></div>
 </PostLayout>
 
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script src="/pagefind/pagefind-ui.js" is:inline></script>
 <script is:inline>
   window.addEventListener('DOMContentLoaded', () => {
@@ -1474,17 +1489,17 @@ const t = useTranslations('zh-TW');
 </script>
 ```
 
-- [ ] **Step 4: Build and verify Pagefind index**
+- [ ] **Step 5: Build and verify Pagefind index**
 
 ```bash
 npm run build && ls dist/pagefind/
 ```
 Expected: `pagefind.js`, `pagefind-ui.js`, `pagefind-ui.css`, and index files.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
-git add astro.config.mjs src/pages/search.astro package.json package-lock.json
+git add astro.config.mjs src/layouts/PostLayout.astro src/pages/search.astro package.json package-lock.json
 git commit -m "feat: Pagefind static search at /search"
 ```
 
