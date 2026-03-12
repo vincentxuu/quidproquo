@@ -1,0 +1,27 @@
+{
+  "name": "quidproquo",
+  "account_id": "1ff43f0d4c3ad3bd98ce5ab767546a68",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-03-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "quidproquo-db",
+    "database_id": "c6ae78f5-3d07-44b9-854d-eb439c6902b1"
+  }],
+  "vectorize": [{
+    "binding": "VECTORIZE_INDEX",
+    "index_name": "quidproquo-embeddings"
+  }],
+  "ai": {
+    "binding": "AI"
+  },
+  "r2_buckets": [{
+    "binding": "IMAGES",
+    "bucket_name": "quidproquo-images"
+  }]
+}
