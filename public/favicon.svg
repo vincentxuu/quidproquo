@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Background: Forest brand-900 -->
+  <rect width="128" height="128" rx="20" fill="#1a2e1a"/>
+
+  <!-- Top arrow: left → right (white) -->
+  <line x1="22" y1="46" x2="90" y2="46" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  <polyline points="72,28 90,46 72,64" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bottom arrow: right → left (brand-300 #a7c4a0) -->
+  <line x1="106" y1="82" x2="38" y2="82" stroke="#a7c4a0" stroke-width="9" stroke-linecap="round"/>
+  <polyline points="56,64 38,82 56,100" fill="none" stroke="#a7c4a0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
