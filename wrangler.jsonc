@@ -1,7 +1,6 @@
 {
   "name": "quidproquo",
   "account_id": "1ff43f0d4c3ad3bd98ce5ab767546a68",
-  "main": "./dist/_worker.js/index.js",
   "compatibility_date": "2026-03-10",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
@@ -21,7 +20,7 @@
     "binding": "AI"
   },
   "r2_buckets": [{
-    "binding": "IMAGES",
+    "binding": "R2_IMAGES",
     "bucket_name": "quidproquo-images"
   }]
 }

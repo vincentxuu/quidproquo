@@ -1,0 +1,32 @@
+---
+// src/pages/categories/index.astro
+import { getCollection } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('zh-TW');
+const posts = await getCollection('posts', ({ data }) => !data.draft && data.lang === 'zh-TW');
+const categoryCounts = posts.reduce((acc, post) => {
+  acc[post.data.category] = (acc[post.data.category] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const categories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
+---
+<PostLayout title={`${t('nav.categories')} — quidproquo`} lang="zh-TW">
+  <h1>{t('nav.categories')}</h1>
+  <div class="categories">
+    {categories.map(([cat, count]) => (
+      <a href={`/categories/${cat}`} class="category-item">
+        <span class="name">{cat}</span>
+        <span class="count">{count}</span>
+      </a>
+    ))}
+  </div>
+</PostLayout>
+
+<style>
+  .categories { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .category-item { display: flex; align-items: center; gap: 0.5rem; background: #f0f9ff; border: 1px solid #bae6fd; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: #0369a1; }
+  .category-item:hover { background: #e0f2fe; }
+  .count { background: #0369a1; color: white; padding: 0.1rem 0.5rem; border-radius: 10px; font-size: 0.8rem; }
+</style>

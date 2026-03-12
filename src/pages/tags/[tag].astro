@@ -1,0 +1,45 @@
+---
+// src/pages/tags/[tag].astro
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('zh-TW');
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft && data.lang === 'zh-TW');
+  const tags = [...new Set(posts.flatMap(p => p.data.tags))];
+  return tags.map(tag => ({
+    params: { tag },
+    props: { posts: posts.filter(p => p.data.tags.includes(tag)) },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<PostLayout title={`#${tag} — quidproquo`} lang="zh-TW">
+  <p><a href="/tags">{t('post.backtotags')}</a></p>
+  <h1>#{tag}</h1>
+  <p class="count">{posts.length} {t('post.articles')}</p>
+  {posts.map(post => (
+    <PostCard
+      slug={post.id}
+      title={post.data.title}
+      date={post.data.date}
+      category={post.data.category}
+      tags={post.data.tags}
+      description={post.data.description}
+      tldr={post.data.tldr}
+      lang="zh-TW"
+    />
+  ))}
+</PostLayout>
+
+<style>
+  .count { color: #6b7280; margin-bottom: 1.5rem; }
+</style>

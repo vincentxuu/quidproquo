@@ -1,0 +1,64 @@
+---
+// src/pages/posts/[...slug].astro
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import type { Lang } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const lang = post.data.lang as Lang;
+---
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  lang={lang}
+>
+  <article>
+    <header>
+      <div class="meta">
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString(lang)}
+        </time>
+        <a href={`${lang === 'en' ? '/en' : ''}/categories/${post.data.category}`} class="category">
+          {post.data.category}
+        </a>
+      </div>
+      <h1>{post.data.title}</h1>
+      {post.data.tldr && (
+        <div class="tldr">
+          <strong>TL;DR：</strong>{post.data.tldr}
+        </div>
+      )}
+      <div class="tags">
+        {post.data.tags.map(tag => (
+          <a href={`${lang === 'en' ? '/en' : ''}/tags/${tag}`} class="tag">#{tag}</a>
+        ))}
+      </div>
+    </header>
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</PostLayout>
+
+<style>
+  .meta { display: flex; gap: 1rem; font-size: 0.85rem; color: #6b7280; margin-bottom: 1rem; align-items: center; }
+  .category { background: #f0f9ff; color: #0369a1; padding: 0.1rem 0.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; }
+  h1 { margin: 0.5rem 0 1rem; }
+  .tldr { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1rem; }
+  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .tag { background: #f3f4f6; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; text-decoration: none; color: #374151; }
+  .content { line-height: 1.8; }
+  .content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+  .content :not(pre) > code { background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em; }
+</style>

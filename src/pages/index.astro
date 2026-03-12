@@ -1,0 +1,34 @@
+---
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
+import PostLayout from '../layouts/PostLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('zh-TW');
+const posts = await getCollection('posts', ({ data }) =>
+  !data.draft && data.lang === 'zh-TW'
+);
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<PostLayout title="quidproquo" lang="zh-TW">
+  <h1>quidproquo</h1>
+  <p class="subtitle">{t('site.tagline')}</p>
+  {posts.map(post => (
+    <PostCard
+      slug={post.id}
+      title={post.data.title}
+      date={post.data.date}
+      category={post.data.category}
+      tags={post.data.tags}
+      description={post.data.description}
+      tldr={post.data.tldr}
+      lang="zh-TW"
+    />
+  ))}
+</PostLayout>
+
+<style>
+  h1 { margin-bottom: 0.25rem; }
+  .subtitle { color: #6b7280; margin-bottom: 2rem; }
+</style>

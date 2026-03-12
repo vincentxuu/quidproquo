@@ -1,0 +1,31 @@
+---
+// src/pages/en/tags/index.astro
+import { getCollection } from 'astro:content';
+import PostLayout from '../../../layouts/PostLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const t = useTranslations('en');
+const posts = await getCollection('posts', ({ data }) => !data.draft && data.lang === 'en');
+const tagCounts = posts.reduce((acc, post) => {
+  post.data.tags.forEach(tag => { acc[tag] = (acc[tag] || 0) + 1; });
+  return acc;
+}, {} as Record<string, number>);
+const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+<PostLayout title={`${t('nav.tags')} — quidproquo`} lang="en">
+  <h1>{t('nav.tags')}</h1>
+  <div class="tags">
+    {tags.map(([tag, count]) => (
+      <a href={`/en/tags/${tag}`} class="tag">
+        #{tag}<span class="count">{count}</span>
+      </a>
+    ))}
+  </div>
+</PostLayout>
+
+<style>
+  .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .tag { display: flex; align-items: center; gap: 0.4rem; background: #f3f4f6; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: #374151; }
+  .tag:hover { background: #e5e7eb; }
+  .count { background: #d1d5db; padding: 0.1rem 0.4rem; border-radius: 10px; font-size: 0.8rem; color: #4b5563; }
+</style>
