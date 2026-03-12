@@ -1,5 +1,6 @@
 {
   "name": "quidproquo",
+  "main": "./dist/cron-entry.js",
   "account_id": "1ff43f0d4c3ad3bd98ce5ab767546a68",
   "compatibility_date": "2026-03-10",
   "routes": [
@@ -7,6 +8,9 @@
     { "pattern": "www.quidproquo.cc", "custom_domain": true }
   ],
   "compatibility_flags": ["nodejs_compat"],
+  "triggers": {
+    "crons": ["0 2 * * 0"]
+  },
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
@@ -30,5 +34,10 @@
   "r2_buckets": [{
     "binding": "R2_IMAGES",
     "bucket_name": "quidproquo-images"
-  }]
+  }],
+  "env": {
+    "preview": {
+      "name": "quidproquo-preview"
+    }
+  }
 }
