@@ -11,7 +11,7 @@ const posts = await getCollection('posts', ({ data }) =>
 );
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<PostLayout title="quidproquo" lang="en">
+<PostLayout title="quidproquo" lang="en" description="Tech, climbing, surfing, coffee, and everything else." ogImage="https://quidproquo.cc/og/home.png">
   <h1>quidproquo</h1>
   <p class="subtitle">{t('site.tagline')}</p>
   {posts.map(post => (

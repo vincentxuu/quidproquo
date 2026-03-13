@@ -33,6 +33,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   {ogImage && <meta property="og:image" content={ogImage} />}
+  {ogImage && <meta property="og:image:width" content="1200" />}
+  {ogImage && <meta property="og:image:height" content="630" />}
+  <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+  <meta name="twitter:title" content={`${title} — quidproquo`} />
+  {description && <meta name="twitter:description" content={description} />}
+  {ogImage && <meta name="twitter:image" content={ogImage} />}
   <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href="/rss.xml" />
   <slot name="head" />
   <script is:inline>
@@ -251,6 +257,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     text-decoration: none;
   }
   .tag-pill:hover { background: var(--brand-300); }
+
+  /* ── Prose: all MDX/markdown rendered content ── */
+  .content { line-height: 1.8; margin-bottom: 3rem; }
+
+  /* Headings */
+  .content h1 { font-size: 1.7rem; font-weight: 900; margin: 2.5rem 0 1rem; color: var(--brand-900); }
+  .content h2 { font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--brand-900); }
+  .content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brand-900); }
+  .content h4 { font-size: 0.95rem; font-weight: 700; margin: 1.25rem 0 0.4rem; color: var(--brand-900); }
+  .content h5, .content h6 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.35rem; color: var(--text-secondary); }
+
+  /* Paragraph & inline */
+  .content p { margin-bottom: 1rem; }
+  .content strong { font-weight: 700; color: var(--text-primary); }
+  .content em { font-style: italic; }
+  .content del { text-decoration: line-through; color: var(--text-muted); }
+  .content mark { background: #fef08a; color: #1a1a1a; padding: 0.05em 0.2em; border-radius: 2px; }
+
+  /* Links */
+  .content a { color: var(--brand-500); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 2px; }
+  .content a:hover { color: var(--brand-900); text-decoration-color: var(--brand-500); }
+
+  /* Code */
+  .content pre { position: relative; background: #1e1e1e; color: #d4d4d4; padding: 1.25rem 1.75rem; border-radius: 6px; overflow-x: auto; margin-bottom: 1.25rem; }
+  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+  .content kbd { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 3px; padding: 0.1em 0.4em; font-size: 0.85em; font-family: monospace; }
+
+  /* Blockquote */
+  .content blockquote { border-left: 3px solid var(--brand-300); padding: 0.5rem 0 0.5rem 1rem; color: var(--text-secondary); margin: 1.25rem 0; font-style: italic; }
+  .content blockquote p { margin-bottom: 0; }
+
+  /* Lists */
+  .content ul, .content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .content ul { list-style-type: disc; }
+  .content ol { list-style-type: decimal; }
+  .content li { margin-bottom: 0.35rem; }
+  .content li > ul, .content li > ol { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+  .content input[type="checkbox"] { margin-right: 0.4rem; accent-color: var(--brand-500); }
+
+  /* Horizontal rule */
+  .content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  /* Images */
+  .content img { max-width: 100%; height: auto; border-radius: 6px; margin: 1rem 0; display: block; }
+  .content figure { margin: 1.5rem 0; }
+  .content figcaption { font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.4rem; }
+
+  /* Tables */
+  .content table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
+  .content th { background: var(--bg-subtle); font-weight: 700; text-align: left; padding: 0.6rem 0.85rem; border-bottom: 2px solid var(--border); color: var(--text-primary); }
+  .content td { padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text-primary); }
+  .content tr:last-child td { border-bottom: none; }
+  .content tbody tr:hover { background: var(--bg-subtle); }
 </style>
 
 <script>

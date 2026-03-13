@@ -118,6 +118,10 @@ async function main() {
   const fontData = readFileSync(FONT_PATH);
   mkdirSync(OUT_DIR, { recursive: true });
 
+  // Generate homepage OG image
+  const homePng = await generateOgImage({ title: 'quidproquo', category: 'tech', slug: 'home', fontData });
+  writeFileSync(join(OUT_DIR, 'home.png'), homePng);
+
   const markdownFiles = collectMarkdownFiles(POSTS_DIR);
   let count = 0;
 

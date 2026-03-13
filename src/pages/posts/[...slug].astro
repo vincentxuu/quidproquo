@@ -239,17 +239,6 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
   .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
   .series-prev:hover, .series-next:hover { color: var(--brand-900); }
 
-  /* Content */
-  .content { line-height: 1.8; margin-bottom: 3rem; }
-  .content h2 { font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--brand-900); }
-  .content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brand-900); }
-  .content p { margin-bottom: 1rem; }
-  .content a { color: var(--brand-500); }
-  .content a:hover { color: var(--brand-900); }
-  .content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; position: relative; }
-  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
-  .content blockquote { border-left: 3px solid var(--brand-300); padding-left: 1rem; color: var(--text-secondary); margin: 1rem 0; font-style: italic; }
-
   /* Post nav */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
@@ -288,6 +277,14 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 </script>
 
 <style is:global>
+  .content pre {
+    position: relative;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.25rem 1.75rem;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
   .copy-btn {
     position: absolute;
     top: 0.5rem;
@@ -305,4 +302,5 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
     transition: color 0.15s;
   }
   .copy-btn:hover { color: #fff; }
+
 </style>
