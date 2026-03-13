@@ -8,7 +8,7 @@ import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 export default defineConfig({
   site: 'https://quidproquo.cc',
   output: 'server',
-  adapter: cloudflare({ platformProxy: { enabled: true } }),
+  adapter: cloudflare({ platformProxy: { enabled: true }, remoteBindings: false }),
   integrations: [
     mdx(),
     sitemap(),
