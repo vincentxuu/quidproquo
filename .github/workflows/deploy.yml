@@ -26,6 +26,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Deploy to production
         uses: cloudflare/wrangler-action@v3
