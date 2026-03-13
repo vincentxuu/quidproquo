@@ -1,0 +1,21 @@
+---
+// src/pages/search.astro
+export const prerender = true;
+import PostLayout from '../layouts/PostLayout.astro';
+import { useTranslations } from '../i18n/utils';
+const t = useTranslations('zh-TW');
+---
+<PostLayout title={t('nav.search')} lang="zh-TW">
+  <Fragment slot="head">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  </Fragment>
+  <h1>{t('nav.search')}</h1>
+  <div id="search"></div>
+</PostLayout>
+
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({ element: '#search', showImages: false });
+  });
+</script>
