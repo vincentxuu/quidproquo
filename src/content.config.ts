@@ -13,6 +13,8 @@ const posts = defineCollection({
     description: z.string().optional(),
     tldr: z.string().optional(),
     draft: z.boolean().default(false),
+    pinned: z.boolean().default(false),
+    type: z.enum(['debug', 'deep-dive', 'guide', 'project']).optional(),
     readingTime: z.number().optional(),
     series: z.object({
       name: z.string(),

@@ -5,6 +5,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import Icons from '../../components/Icons.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const t = useTranslations('zh-TW');
@@ -23,9 +24,11 @@ const { posts } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <PostLayout title={`#${tag} — quidproquo`} lang="zh-TW">
-  <p><a href="/tags">{t('post.backtotags')}</a></p>
-  <h1>#{tag}</h1>
-  <p class="count">{posts.length} {t('post.articles')}</p>
+  <a href="/tags" class="back-link"><Icons name="chevron-left" size={13} />{t('post.backtotags')}</a>
+  <div class="tag-header">
+    <h1><span class="hash">#</span>{tag}</h1>
+    <span class="post-count">{posts.length} {t('post.articles')}</span>
+  </div>
   {posts.map(post => (
     <PostCard
       slug={post.id}
@@ -36,10 +39,42 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       description={post.data.description}
       tldr={post.data.tldr}
       lang="zh-TW"
+      type={post.data.type}
     />
   ))}
 </PostLayout>
 
 <style>
-  .count { color: #6b7280; margin-bottom: 1.5rem; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1.75rem;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--text-secondary); }
+
+  .tag-header {
+    border-left: 4px solid var(--brand-500);
+    padding-left: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+  .tag-header h1 {
+    margin: 0 0 0.2rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--brand-900);
+  }
+  .hash {
+    color: var(--brand-500);
+    margin-right: 0.05em;
+  }
+  .post-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
 </style>

@@ -49,8 +49,7 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
       <!-- Back + category -->
       <div class="back-row">
         <a href={lang === 'en' ? '/en' : '/'} class="back-link">
-          <Icons name="chevron-left" size={14} />
-          {t('nav.home')}
+          <Icons name="chevron-left" size={13} />{t('nav.home')}
         </a>
         <span class="sep">·</span>
         <a href={`${categoriesBase}/${post.data.category}`} class={`cat-badge cat-${post.data.category}`}>
@@ -206,8 +205,8 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 <style>
   /* Back row */
   .back-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.78rem; }
-  .back-link { display: flex; align-items: center; gap: 0.2rem; color: var(--text-secondary); text-decoration: none; }
-  .back-link:hover { color: var(--brand-500); }
+  .back-link { display: inline-flex; align-items: center; gap: 0.15rem; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+  .back-link:hover { color: var(--text-secondary); }
   .sep { color: var(--brand-300); }
 
   /* Title */

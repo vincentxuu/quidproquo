@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "wrangler.jsonc 的 routes 用 custom_domain: true，pattern 只填 hostname，不加 /*"
 description: "在 wrangler.jsonc 設定 custom domain 時的格式坑：不能帶路徑或萬用字元"
 draft: false
+type: debug
 ---
 
 ## TL;DR

@@ -2,7 +2,7 @@
 // src/components/Icons.astro
 // Usage: <Icons name="search" size={16} stroke="#555" />
 interface Props {
-  name: 'search' | 'clock' | 'chevron-left' | 'chevron-right' | 'list' | 'link' | 'moon' | 'sun' | 'book-open' | 'rss' | 'copy' | 'check';
+  name: 'search' | 'clock' | 'chevron-left' | 'chevron-right' | 'list' | 'link' | 'moon' | 'sun' | 'book-open' | 'rss' | 'copy' | 'check' | 'pin';
   size?: number;
   stroke?: string;
   class?: string;
@@ -22,6 +22,7 @@ const paths: Record<string, string> = {
   'rss': '<path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/>',
   'copy': '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
   'check': '<polyline points="20 6 9 12 4 10"/>',
+  'pin': '<line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>',
 };
 ---
 <Fragment set:html={`<svg ${attrs}>${paths[name]}</svg>`} />

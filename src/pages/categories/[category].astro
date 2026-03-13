@@ -5,6 +5,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import Icons from '../../components/Icons.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const t = useTranslations('zh-TW');
@@ -21,11 +22,24 @@ export async function getStaticPaths() {
 const { category } = Astro.params;
 const { posts } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const availableTypes = [...new Set(posts.map(p => p.data.type).filter(Boolean))] as string[];
+const showFilter = availableTypes.length > 1;
 ---
 <PostLayout title={`${category} — quidproquo`} lang="zh-TW">
-  <p><a href="/categories">{t('post.backtocategories')}</a></p>
-  <h1>{category}</h1>
-  <p class="count">{posts.length} {t('post.articles')}</p>
+  <a href="/categories" class="back-link"><Icons name="chevron-left" size={13} />{t('post.backtocategories')}</a>
+  <div class={`cat-header cat-header-${category}`}>
+    <h1>{category}</h1>
+    <span class="post-count">{posts.length} {t('post.articles')}</span>
+  </div>
+  {showFilter && (
+    <div class="type-filter" id="type-filter">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      {availableTypes.map(type => (
+        <button class={`filter-btn filter-type-${type}`} data-filter={type}>{type}</button>
+      ))}
+    </div>
+  )}
   {posts.map(post => (
     <PostCard
       slug={post.id}
@@ -37,10 +51,69 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       tldr={post.data.tldr}
       readingTime={post.data.readingTime}
       lang="zh-TW"
+      type={post.data.type}
     />
   ))}
 </PostLayout>
 
 <style>
-  .count { color: var(--text-muted); margin-bottom: 1.5rem; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1.75rem;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--text-secondary); }
+
+  .cat-header {
+    border-left: 4px solid var(--accent-color, var(--brand-500));
+    padding-left: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+  .cat-header h1 {
+    margin: 0 0 0.2rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--accent-color, var(--brand-900));
+  }
+  .post-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .cat-header-tech      { --accent-color: var(--cat-tech); }
+  .cat-header-ai        { --accent-color: var(--cat-ai); }
+  .cat-header-product   { --accent-color: var(--cat-product); }
+  .cat-header-education { --accent-color: var(--cat-education); }
+  .cat-header-life      { --accent-color: var(--cat-life); }
+
+  .filter-type-debug.active     { background: #d97706; border-color: #d97706; color: #fff; }
+  .filter-type-deep-dive.active { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+  .filter-type-guide.active     { background: #0d9488; border-color: #0d9488; color: #fff; }
+  .filter-type-project.active   { background: #64748b; border-color: #64748b; color: #fff; }
 </style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#type-filter .filter-btn');
+  const articles = document.querySelectorAll<HTMLElement>('article[data-type]');
+
+  function applyFilter(filter: string) {
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    articles.forEach(article => {
+      article.style.display = (filter === 'all' || article.dataset.type === filter) ? '' : 'none';
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter ?? 'all'));
+  });
+
+  // Auto-activate filter from URL ?type=
+  const urlType = new URLSearchParams(location.search).get('type');
+  if (urlType) applyFilter(urlType);
+</script>

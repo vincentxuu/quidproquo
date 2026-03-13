@@ -3,6 +3,7 @@
 import type { Lang } from '../i18n/utils';
 import Icons from './Icons.astro';
 
+
 interface Props {
   slug: string;
   title: string;
@@ -13,16 +14,20 @@ interface Props {
   tldr?: string;
   readingTime?: number;
   lang?: Lang;
+  type?: string;
+  pinned?: boolean;
 }
-const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW' } = Astro.props;
+const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW', type, pinned } = Astro.props;
 const excerpt = tldr || description || '';
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
-<article>
+<article data-type={type}>
+  {pinned && <div class="pin-bar"><Icons name="pin" size={12} /> 置頂</div>}
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
+    {type && <a href={`${categoriesBase}/${category}?type=${type}`} class={`type-badge type-${type}`}>{type}</a>}
     <time datetime={date.toISOString()}>{dateStr}</time>
     {readingTime && (
       <span class="reading-time">
@@ -44,6 +49,21 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   article {
     padding: 1.25rem 0;
     border-bottom: 1px solid var(--border);
+  }
+  .pin-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--brand-500);
+    background: var(--brand-100);
+    border: 1px solid var(--brand-300);
+    padding: 0.15rem 0.55rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   article:last-child { border-bottom: none; }
   .meta {

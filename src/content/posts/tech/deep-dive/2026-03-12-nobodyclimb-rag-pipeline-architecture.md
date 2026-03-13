@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "用 Cloudflare Workers AI（gemma-3-12b-it + bge-m3）打造可動態組裝的 RAG pipeline，13 個 step 分 5 個 phase，支援條件路由、迴圈回跳與並行分支。"
 description: "NobodyClimb AI 問答系統的完整架構筆記：模型選擇、13 步 pipeline 設計、PipelineEngine 實作、條件路由、self-reflection 迴圈與 Cloudflare Workers 上的部署取捨。"
 draft: false
+type: deep-dive
 ---
 
 NobodyClimb 是一個台灣攀岩社群平台。在加入 AI 問答功能之前，使用者要找「龍洞有哪些 5.10 的路線」這種問題，只能靠自己爬文章。現在這個問題可以直接問 AI，然後拿到附有來源連結的答案。

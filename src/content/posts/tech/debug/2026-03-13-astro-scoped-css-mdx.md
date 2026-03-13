@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "Astro scoped CSS 會加 scope hash，但 <Content /> 渲染的 MDX 元素沒有這個 hash，導致所有 prose 樣式失效。"
 description: "紀錄 Astro scoped CSS 的 scope hash 機制，以及為什麼 <Content /> 渲染的 MDX 內容不受 scoped 樣式影響。"
 draft: false
+type: debug
 ---
 
 ## TL;DR

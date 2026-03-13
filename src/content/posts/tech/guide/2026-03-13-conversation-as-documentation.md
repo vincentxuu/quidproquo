@@ -7,6 +7,8 @@ lang: zh-TW
 tldr: "Debug 完直接說「把錯誤寫成文章」，Claude Code 會從對話裡萃取內容，套用模板、生成 frontmatter、commit 到 repo。不需要額外寫任何東西。"
 description: "一個把技術文件摩擦力降到零的工作流：用 Claude Code 的 post skill，在 debug session 結束後直接把過程轉成結構化文章。"
 draft: false
+type: guide
+pinned: true
 ---
 
 每次解完一個問題，我都知道應該記下來。但大多數時候不會，因為要重新整理思緒、打開編輯器、想標題、寫 frontmatter，光是這些就夠讓人放棄了。

@@ -9,11 +9,31 @@ const t = useTranslations('zh-TW');
 const posts = await getCollection('posts', ({ data }) =>
   !data.draft && data.lang === 'zh-TW'
 );
-posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+posts.sort((a, b) => {
+  if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
-<PostLayout title="quidproquo" lang="zh-TW" description="技術、攀岩、衝浪、咖啡，以及其他一切。" ogImage="https://quidproquo.cc/og/home.png">
+<PostLayout title="quidproquo" lang="zh-TW" description="AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。" ogImage="https://quidproquo.cc/og/home.png">
   <h1>quidproquo</h1>
   <p class="subtitle">{t('site.tagline')}</p>
+  <div class="about">
+    <p>
+      <em>Quid pro quo</em> <span class="pronunciation">/ˌkwɪd proʊ ˈkwoʊ/</span> — 拉丁語，字面意思是「以某物換某物」，中文常譯作「等價交換」。
+      這個概念在哲學、法律、甚至流行文化裡反覆出現，核心是一種公平的互惠關係：你給我什麼，我回報同等的價值。
+    </p>
+    <p>
+      進擊的巨人裡，阿爾敏說：<em>「什麼都無法捨棄的人，什麼也改變不了。」</em>
+      等價交換有時意味著代價——為了得到某些東西，必須付出同等甚至更多的犧牲。
+    </p>
+    <p>
+      鋼之鍊金術師裡，阿爾馮斯說：<em>「為了得到什麼，就必須付出同等的代價——這就是鍊金術的等價交換原則，那時的我們堅信，這就是世界的真理。」</em>
+      但結局昇華了這句話：<em>如果得到十，就加上自己的一份心意，變成十一還給這個世界。</em>
+      打破冰冷的等價，帶出互助與無私的力量。
+    </p>
+    <p>我相信過程中的點點滴滴都會是一種收穫——這是等價交換的真理。這裡記錄 AI、技術、產品思考，以及實際打造產品的過程——同時也有攀岩、衝浪、咖啡和其他一切。不只是存起來，而是換成對別人也有用的東西，然後多給一點。</p>
+    <a href="/posts/product/2026-03-12-quidproquo-blog-from-scratch#名字的由來" class="name-link">名字的由來 →</a>
+  </div>
   {posts.map(post => (
     <PostCard
       slug={post.id}
@@ -25,11 +45,26 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       tldr={post.data.tldr}
       readingTime={post.data.readingTime}
       lang="zh-TW"
+      type={post.data.type}
+      pinned={post.data.pinned}
     />
   ))}
 </PostLayout>
 
 <style>
   h1 { margin-bottom: 0.25rem; font-size: 2rem; font-weight: 900; letter-spacing: -1px; color: var(--brand-900); }
-  .subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem; }
+  .subtitle { color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem; }
+  .about {
+    border-left: 3px solid var(--border);
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+  .about p { margin: 0 0 0.5rem; }
+  .about p:last-child { margin-bottom: 0; }
+  .name-link { display: inline-block; margin-top: 0.25rem; color: var(--brand-500); text-decoration: none; font-size: 0.85rem; }
+  .name-link:hover { color: var(--brand-900); }
+  .pronunciation { font-size: 0.8em; color: var(--text-muted); font-style: normal; letter-spacing: 0.02em; }
 </style>

@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "換模板 = 換整個專案底層；先搞清楚自己要什麼，再選 AstroPaper / Cactus / AstroWind"
 description: "Astro 沒有安裝主題的機制，換模板比你想的複雜。整理三個主流選項的取捨，以及什麼情況下根本不用換"
 draft: false
+type: guide
 ---
 
 ## TL;DR

@@ -247,6 +247,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   .cat-education { background: var(--cat-education); }
   .cat-life      { background: var(--cat-life); }
 
+  /* ── Type badges ── */
+  .type-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 1px solid currentColor;
+    text-decoration: none;
+  }
+  .type-badge:hover { opacity: 0.75; }
+  .type-debug     { color: #d97706; }
+  .type-deep-dive { color: #4f46e5; }
+  .type-guide     { color: #0d9488; }
+  .type-project   { color: #64748b; }
+
+  /* ── Type filter tabs ── */
+  .type-filter {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--brand-500); color: var(--brand-500); }
+  .filter-btn.active { background: var(--brand-900); border-color: var(--brand-900); color: var(--bg-page); }
+
   /* ── Tags ── */
   .tag-pill {
     background: var(--brand-100);

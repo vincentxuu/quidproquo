@@ -25,6 +25,7 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       tldr={post.data.tldr}
       readingTime={post.data.readingTime}
       lang="en"
+      type={post.data.type}
     />
   ))}
 </PostLayout>

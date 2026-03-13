@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "即使 route 有 prerender = true，Cloudflare Workers 的 Rollup 還是會嘗試打包 native module，導致 build 失敗。把需要 native module 的工作移到 postbuild script 才是正解。"
 description: "記錄在 Astro + Cloudflare Workers 環境下使用 @resvg/resvg-js 生成 OG image 失敗的過程，以及改用 postbuild script 的解法。"
 draft: false
+type: debug
 ---
 
 ## TL;DR

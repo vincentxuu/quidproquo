@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "一個攀岩社群平台，從 Web、Mobile 到 AI 問答全部跑在 Cloudflare 上，沒有獨立伺服器。"
 description: "NobodyClimb 的技術架構解析：Next.js 15 + Hono + D1 + RAG，為什麼選 Cloudflare-first，以及 AI 問答系統怎麼設計。"
 draft: false
+type: deep-dive
 ---
 
 NobodyClimb 是一個給攀岩者用的社群平台，讓大家記錄攀登紀錄、寫故事、分享一句話心得，也可以問 AI 攀岩相關的問題。整個系統從前端、後端到 AI，全部跑在 Cloudflare 的基礎設施上，沒有 EC2、沒有 RDS，也沒有獨立的 AI 推論伺服器。這篇記錄一下架構選擇背後的邏輯。

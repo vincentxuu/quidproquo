@@ -7,6 +7,7 @@ lang: zh-TW
 tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、三資料庫架構，加上 LLM 推薦引擎，島島如何用現代技術棧打造學習平台。"
 description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、Python FastAPI AI 服務，以及 PostgreSQL + MongoDB + Redis + Qdrant 的多資料庫策略。"
 draft: false
+type: deep-dive
 ---
 
 島島（DaoDAO）是一個學習平台，讓使用者設定目標、追蹤每日實踐、建立學習社群。它的技術架構比大多數同規模的產品複雜：前端是 Turborepo monorepo 管三個 app，後端拆成 Node.js 和 Python 兩個服務，資料庫用了四種。這篇拆解各層的設計邏輯，以及這些選擇背後的取捨。
