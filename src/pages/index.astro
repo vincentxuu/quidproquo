@@ -23,12 +23,13 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       tags={post.data.tags}
       description={post.data.description}
       tldr={post.data.tldr}
+      readingTime={post.data.readingTime}
       lang="zh-TW"
     />
   ))}
 </PostLayout>
 
 <style>
-  h1 { margin-bottom: 0.25rem; }
-  .subtitle { color: #6b7280; margin-bottom: 2rem; }
+  h1 { margin-bottom: 0.25rem; font-size: 2rem; font-weight: 900; letter-spacing: -1px; color: var(--brand-900); }
+  .subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem; }
 </style>

@@ -13,6 +13,11 @@ const posts = defineCollection({
     description: z.string().optional(),
     tldr: z.string().optional(),
     draft: z.boolean().default(false),
+    readingTime: z.number().optional(),
+    series: z.object({
+      name: z.string(),
+      order: z.number(),
+    }).optional(),
   }),
 });
 

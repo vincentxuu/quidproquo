@@ -1,13 +1,15 @@
 ---
 // src/layouts/PostLayout.astro
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
+import Icons from '../components/Icons.astro';
 
 interface Props {
   title: string;
   description?: string;
   lang?: Lang;
+  ogImage?: string;
 }
-const { title, description, lang: langProp } = Astro.props;
+const { title, description, lang: langProp, ogImage } = Astro.props;
 const lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -16,6 +18,7 @@ const categoriesHref = lang === 'en' ? '/en/categories' : '/categories';
 const tagsHref = lang === 'en' ? '/en/tags' : '/tags';
 const switchHref = t('lang.switch.href');
 const switchLabel = t('lang.switch');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproquo.cc');
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -23,38 +26,248 @@ const switchLabel = t('lang.switch');
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} — quidproquo</title>
+  <link rel="canonical" href={canonicalURL} />
   {description && <meta name="description" content={description} />}
+  <meta property="og:title" content={`${title} — quidproquo`} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href="/rss.xml" />
+  <slot name="head" />
+  <script is:inline>
+    // Apply theme before page renders to avoid flash
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </head>
 <body>
   <header>
     <nav>
-      <a href={homeHref} class="site-name">quidproquo</a>
-      <a href={categoriesHref}>{t('nav.categories')}</a>
-      <a href={tagsHref}>{t('nav.tags')}</a>
-      <a href={switchHref} class="lang-switch">{switchLabel}</a>
+      <a href={homeHref} class="logo">quidproquo</a>
+      <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
+      <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
+      <div class="nav-right">
+        <a href="/search" class="nav-icon" aria-label={t('nav.search')}>
+          <Icons name="search" size={16} />
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label={t('nav.toggle-theme')}>
+          <span class="icon-light"><Icons name="sun" size={15} /></span>
+          <span class="icon-dark"><Icons name="moon" size={15} /></span>
+        </button>
+        <a href={switchHref} class="lang-badge">{switchLabel}</a>
+      </div>
+      <div class="progress-bar" id="progress-bar"></div>
     </nav>
   </header>
   <main>
     <slot />
   </main>
   <footer>
-    <p>quidproquo.cc</p>
+    <span>quidproquo.cc</span>
+    <a href="/rss.xml" class="rss-link" aria-label="RSS">
+      <Icons name="rss" size={14} />
+      <span>RSS</span>
+    </a>
   </footer>
 </body>
 </html>
 
-<style>
+<style is:global>
+  /* ── Forest Design Tokens ── */
+  :root {
+    --brand-900: #1a2e1a;
+    --brand-700: #2d4a2d;
+    --brand-500: #4a7c59;
+    --brand-300: #a7c4a0;
+    --brand-100: #e8f5e8;
+    --brand-50:  #f0f7f0;
+    --border:    #d1e8d1;
+    --text-primary:    #1a1a1a;
+    --text-secondary:  #4a7c59;
+    --text-muted:      #a7c4a0;
+    --bg-page:   #ffffff;
+    --bg-subtle: #f0f7f0;
+
+    /* Category badge colors */
+    --cat-tech:      #1a1a1a;
+    --cat-ai:        #6d28d9;
+    --cat-product:   #0369a1;
+    --cat-education: #b45309;
+    --cat-life:      #15803d;
+  }
+
+  [data-theme="dark"] {
+    --brand-900: #e8e8e8;
+    --brand-700: #c0c0c0;
+    --brand-500: #6aaa7f;
+    --brand-300: #2d4a2d;
+    --brand-100: #1e2e1e;
+    --brand-50:  #1a231a;
+    --border:    #2d3d2d;
+    --text-primary:    #e8e8e8;
+    --text-secondary:  #6aaa7f;
+    --text-muted:      #555555;
+    --bg-page:   #141414;
+    --bg-subtle: #1a231a;
+  }
+
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; }
+
   body {
     font-family: system-ui, -apple-system, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem 1.5rem;
-    color: #1a1a1a;
+    color: var(--text-primary);
+    background: var(--bg-page);
+    transition: background 0.2s, color 0.2s;
   }
-  nav { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-  .site-name { font-weight: 600; text-decoration: none; color: #000; }
-  nav a { text-decoration: none; color: #555; }
-  nav a:hover { color: #000; }
-  .lang-switch { margin-left: auto; }
-  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; color: #888; font-size: 0.85rem; }
+
+  /* ── Nav ── */
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--brand-900);
+    position: relative;
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: var(--brand-900);
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
+  .nav-link:hover { color: var(--brand-900); }
+  .nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav-icon {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+  }
+  .nav-icon:hover { color: var(--brand-900); }
+
+  /* Dark mode toggle */
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+  }
+  .theme-toggle:hover { color: var(--brand-900); }
+  .icon-dark { display: none; }
+  [data-theme="dark"] .icon-light { display: none; }
+  [data-theme="dark"] .icon-dark  { display: flex; }
+
+  /* Language badge */
+  .lang-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .lang-badge:hover { border-color: var(--brand-500); }
+
+  /* Reading progress bar */
+  .progress-bar {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--brand-500);
+    transition: width 0.1s linear;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .rss-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+  }
+  .rss-link:hover { color: var(--brand-500); }
+
+  /* ── Category badges (global, used in PostCard + slug page) ── */
+  .cat-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.12rem 0.45rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-decoration: none;
+  }
+  .cat-tech      { background: var(--cat-tech); }
+  .cat-ai        { background: var(--cat-ai); }
+  .cat-product   { background: var(--cat-product); }
+  .cat-education { background: var(--cat-education); }
+  .cat-life      { background: var(--cat-life); }
+
+  /* ── Tags ── */
+  .tag-pill {
+    background: var(--brand-100);
+    font-size: 0.72rem;
+    padding: 0.08rem 0.45rem;
+    border-radius: 3px;
+    color: var(--brand-700);
+    text-decoration: none;
+  }
+  .tag-pill:hover { background: var(--brand-300); }
 </style>
+
+<script>
+  // Dark mode toggle
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  });
+
+  // Reading progress bar (only on article pages)
+  const bar = document.getElementById('progress-bar');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const max = document.body.scrollHeight - window.innerHeight;
+      if (max > 0) bar.style.width = `${(window.scrollY / max) * 100}%`;
+    }, { passive: true });
+  }
+</script>

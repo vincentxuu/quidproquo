@@ -35,11 +35,12 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       tags={post.data.tags}
       description={post.data.description}
       tldr={post.data.tldr}
+      readingTime={post.data.readingTime}
       lang="zh-TW"
     />
   ))}
 </PostLayout>
 
 <style>
-  .count { color: #6b7280; margin-bottom: 1.5rem; }
+  .count { color: var(--text-muted); margin-bottom: 1.5rem; }
 </style>

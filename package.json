@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs",
+    "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
     "deploy": "pnpm build && wrangler deploy --config dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
@@ -18,14 +18,20 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.0",
     "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "astro": "^6.0.3",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.7",
+    "@fontsource/noto-sans-tc": "^5.2.9",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^25.4.0",
     "gray-matter": "^4.0.3",
     "oxlint": "^1.54.0",
+    "pagefind": "^1.4.0",
+    "satori": "^0.25.0",
     "tsx": "^4.21.0"
   }
 }

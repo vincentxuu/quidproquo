@@ -1,6 +1,7 @@
 ---
 // src/components/PostCard.astro
 import type { Lang } from '../i18n/utils';
+import Icons from './Icons.astro';
 
 interface Props {
   slug: string;
@@ -10,36 +11,81 @@ interface Props {
   tags: string[];
   description?: string;
   tldr?: string;
+  readingTime?: number;
   lang?: Lang;
 }
-const { slug, title, date, category, tags, description, tldr, lang = 'zh-TW' } = Astro.props;
+const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW' } = Astro.props;
 const excerpt = tldr || description || '';
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
+const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 <article>
   <div class="meta">
-    <time datetime={date.toISOString()}>{date.toLocaleDateString(lang)}</time>
-    <a href={`${categoriesBase}/${category}`} class="category">{category}</a>
+    <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
+    <time datetime={date.toISOString()}>{dateStr}</time>
+    {readingTime && (
+      <span class="reading-time">
+        <Icons name="clock" size={12} />
+        {readingTime} min
+      </span>
+    )}
   </div>
   <h2><a href={`/posts/${slug}`}>{title}</a></h2>
   {excerpt && <p class="excerpt">{excerpt}</p>}
-  <div class="tags">
-    {tags.map(tag => <a href={`${tagsBase}/${tag}`} class="tag">#{tag}</a>)}
-  </div>
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map(tag => <a href={`${tagsBase}/${tag}`} class="tag-pill">#{tag}</a>)}
+    </div>
+  )}
 </article>
 
 <style>
-  article { border: 1px solid #e5e7eb; padding: 1.25rem; margin: 1rem 0; border-radius: 8px; }
-  article:hover { border-color: #9ca3af; }
-  .meta { display: flex; gap: 1rem; font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem; }
-  .category { background: #f0f9ff; color: #0369a1; padding: 0.1rem 0.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; }
-  .category:hover { background: #e0f2fe; }
-  h2 { margin: 0 0 0.5rem; font-size: 1.1rem; }
-  h2 a { text-decoration: none; color: inherit; }
-  h2 a:hover { color: #2563eb; }
-  .excerpt { margin: 0.5rem 0; color: #4b5563; font-size: 0.95rem; }
-  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
-  .tag { background: #f3f4f6; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; text-decoration: none; color: #374151; }
-  .tag:hover { background: #e5e7eb; }
+  article {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  article:last-child { border-bottom: none; }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+  .reading-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+  h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+  }
+  h2 a {
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  h2 a:hover { color: var(--brand-500); }
+  .excerpt {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+  }
 </style>
