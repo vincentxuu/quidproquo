@@ -118,9 +118,50 @@ async function main() {
   const fontData = readFileSync(FONT_PATH);
   mkdirSync(OUT_DIR, { recursive: true });
 
-  // Generate homepage OG image
-  const homePng = await generateOgImage({ title: 'quidproquo', category: 'tech', slug: 'home', fontData });
-  writeFileSync(join(OUT_DIR, 'home.png'), homePng);
+  // Generate homepage OG image with logo
+  const logoSvg = readFileSync(resolve('public/favicon.svg'), 'utf-8');
+  const logoDataUrl = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
+  const homeSvg = await satori(
+    {
+      type: 'div',
+      props: {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '32px',
+          width: '1200px',
+          height: '630px',
+          background: '#1a2e1a',
+          fontFamily: 'Noto Sans TC',
+        },
+        children: [
+          {
+            type: 'img',
+            props: { src: logoDataUrl, width: 160, height: 160, style: {} },
+          },
+          {
+            type: 'div',
+            props: {
+              style: { fontSize: '72px', fontWeight: 500, color: '#ffffff', letterSpacing: '-0.02em' },
+              children: 'quidproquo',
+            },
+          },
+          {
+            type: 'div',
+            props: {
+              style: { fontSize: '28px', color: '#a7c4a0', fontWeight: 500 },
+              children: 'AI、技術、產品、攀岩、衝浪、咖啡',
+            },
+          },
+        ],
+      },
+    },
+    { width: 1200, height: 630, fonts: [{ name: 'Noto Sans TC', data: fontData, weight: 500, style: 'normal' }] }
+  );
+  const homeResvg = new Resvg(homeSvg, { fitTo: { mode: 'width', value: 1200 } });
+  writeFileSync(join(OUT_DIR, 'home.png'), homeResvg.render().asPng());
 
   const markdownFiles = collectMarkdownFiles(POSTS_DIR);
   let count = 0;
