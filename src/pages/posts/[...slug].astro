@@ -4,61 +4,305 @@ export const prerender = true;
 
 import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
-import type { Lang } from '../../i18n/utils';
+import Icons from '../../components/Icons.astro';
+import { getRelatedPosts } from '../../utils/relatedPosts';
+import { getSeriesNav } from '../../utils/seriesNav';
+import { useTranslations, type Lang } from '../../i18n/utils';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return posts.map(post => ({
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+  return allPosts.map(post => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, allPosts },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { post, allPosts } = Astro.props;
+const { Content, headings } = await render(post);
 const lang = post.data.lang as Lang;
+const t = useTranslations(lang);
+
+const sortedPosts = allPosts
+  .filter(p => !p.data.draft && p.data.lang === lang)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const currentIndex = sortedPosts.findIndex(p => p.id === post.id);
+const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
+const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+
+const relatedPosts = getRelatedPosts(post, allPosts);
+const seriesNav = getSeriesNav(post, allPosts);
+const readingTime = post.data.readingTime ?? 1;
+const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
+const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
+const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 ---
 <PostLayout
   title={post.data.title}
-  description={post.data.description}
+  description={post.data.description ?? post.data.tldr}
   lang={lang}
+  ogImage={ogImage}
 >
   <article>
     <header>
-      <div class="meta">
-        <time datetime={post.data.date.toISOString()}>
-          {post.data.date.toLocaleDateString(lang)}
-        </time>
-        <a href={`${lang === 'en' ? '/en' : ''}/categories/${post.data.category}`} class="category">
+      <!-- Back + category -->
+      <div class="back-row">
+        <a href={lang === 'en' ? '/en' : '/'} class="back-link">
+          <Icons name="chevron-left" size={14} />
+          {t('nav.home')}
+        </a>
+        <span class="sep">·</span>
+        <a href={`${categoriesBase}/${post.data.category}`} class={`cat-badge cat-${post.data.category}`}>
           {post.data.category}
         </a>
       </div>
+
+      <!-- Title -->
       <h1>{post.data.title}</h1>
+
+      <!-- Meta -->
+      <div class="article-meta">
+        <time datetime={post.data.date.toISOString()}>{dateStr}</time>
+        <span class="sep">·</span>
+        <span class="reading-time">
+          <Icons name="clock" size={13} />
+          {readingTime} {t('post.reading-time')}
+        </span>
+      </div>
+
+      <!-- TL;DR -->
       {post.data.tldr && (
         <div class="tldr">
-          <strong>TL;DR：</strong>{post.data.tldr}
+          <span class="tldr-label">TL;DR</span>
+          {post.data.tldr}
         </div>
       )}
-      <div class="tags">
-        {post.data.tags.map(tag => (
-          <a href={`${lang === 'en' ? '/en' : ''}/tags/${tag}`} class="tag">#{tag}</a>
-        ))}
-      </div>
+
+      <!-- Tags -->
+      {post.data.tags.length > 0 && (
+        <div class="tags">
+          {post.data.tags.map(tag => (
+            <a href={`${tagsBase}/${tag}`} class="tag-pill">#{tag}</a>
+          ))}
+        </div>
+      )}
+
+      <!-- TOC -->
+      {headings.length > 0 && (
+        <div class="toc">
+          <div class="toc-header">
+            <Icons name="list" size={14} />
+            <span>{t('post.toc')}</span>
+          </div>
+          <ol>
+            {headings.filter(h => h.depth === 2).map(h => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+                {headings.filter(sub => {
+                  if (sub.depth !== 3) return false;
+                  const h2idx = headings.findIndex(x => x.slug === h.slug);
+                  const subidx = headings.findIndex(x => x.slug === sub.slug);
+                  if (subidx < h2idx) return false;
+                  const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
+                  return nextH2 === -1 || subidx < nextH2;
+                }).length > 0 && (
+                  <ol>
+                    {headings.filter(sub => {
+                      if (sub.depth !== 3) return false;
+                      const h2idx = headings.findIndex(x => x.slug === h.slug);
+                      const subidx = headings.findIndex(x => x.slug === sub.slug);
+                      if (subidx < h2idx) return false;
+                      const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
+                      return nextH2 === -1 || subidx < nextH2;
+                    }).map(sub => (
+                      <li><a href={`#${sub.slug}`}>{sub.text}</a></li>
+                    ))}
+                  </ol>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      <!-- Series nav -->
+      {seriesNav && (
+        <div class="series-box">
+          <div class="series-header">
+            <Icons name="book-open" size={14} />
+            <span>{t('post.series')}: {seriesNav.name} ({seriesNav.current} / {seriesNav.total})</span>
+          </div>
+          <div class="series-nav">
+            {seriesNav.prev ? (
+              <a href={`/posts/${seriesNav.prev.slug}`} class="series-prev">
+                <Icons name="chevron-left" size={12} />
+                {seriesNav.prev.title}
+              </a>
+            ) : <span />}
+            {seriesNav.next && (
+              <a href={`/posts/${seriesNav.next.slug}`} class="series-next">
+                {seriesNav.next.title}
+                <Icons name="chevron-right" size={12} />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </header>
+
+    <!-- Content -->
     <div class="content">
       <Content />
     </div>
+
+    <!-- Prev / Next -->
+    {(prevPost || nextPost) && (
+      <nav class="post-nav">
+        {prevPost ? (
+          <a href={`/posts/${prevPost.id}`} class="post-nav-prev">
+            <span class="post-nav-label">
+              <Icons name="chevron-left" size={13} />
+              {t('post.prev')}
+            </span>
+            <span class="post-nav-title">{prevPost.data.title}</span>
+          </a>
+        ) : <span />}
+        {nextPost && (
+          <a href={`/posts/${nextPost.id}`} class="post-nav-next">
+            <span class="post-nav-label">
+              {t('post.next')}
+              <Icons name="chevron-right" size={13} />
+            </span>
+            <span class="post-nav-title">{nextPost.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )}
+
+    <!-- Related articles -->
+    {relatedPosts.length > 0 && (
+      <section class="related">
+        <h3>
+          <Icons name="link" size={14} />
+          {t('post.related')} · #{post.data.tags[0]}
+        </h3>
+        <div class="related-list">
+          {relatedPosts.map(p => (
+            <a href={`/posts/${p.id}`} class="related-item">
+              <span class="related-title">{p.data.title}</span>
+              <span class="related-time">
+                <Icons name="clock" size={11} />
+                {p.data.readingTime ?? 1} min
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
   </article>
 </PostLayout>
 
 <style>
-  .meta { display: flex; gap: 1rem; font-size: 0.85rem; color: #6b7280; margin-bottom: 1rem; align-items: center; }
-  .category { background: #f0f9ff; color: #0369a1; padding: 0.1rem 0.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; }
-  h1 { margin: 0.5rem 0 1rem; }
-  .tldr { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1rem; }
-  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .tag { background: #f3f4f6; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; text-decoration: none; color: #374151; }
-  .content { line-height: 1.8; }
-  .content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; }
-  .content :not(pre) > code { background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em; }
+  /* Back row */
+  .back-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.78rem; }
+  .back-link { display: flex; align-items: center; gap: 0.2rem; color: var(--text-secondary); text-decoration: none; }
+  .back-link:hover { color: var(--brand-500); }
+  .sep { color: var(--brand-300); }
+
+  /* Title */
+  h1 { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 0.75rem; color: var(--brand-900); }
+
+  /* Meta */
+  .article-meta { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; }
+  .reading-time { display: flex; align-items: center; gap: 0.25rem; }
+
+  /* TL;DR */
+  .tldr { background: var(--bg-subtle); border-left: 3px solid var(--brand-500); padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-primary); }
+  .tldr-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-500); font-weight: 700; display: block; margin-bottom: 0.3rem; }
+
+  /* Tags */
+  .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+
+  /* TOC */
+  .toc { border: 1px solid var(--border); border-radius: 6px; padding: 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
+  .toc-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 0.6rem; }
+  .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
+  .toc ol ol { font-size: 0.78rem; color: var(--text-secondary); }
+  .toc a { color: inherit; text-decoration: none; }
+  .toc a:hover { color: var(--brand-500); }
+
+  /* Series box */
+  .series-box { border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
+  .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
+  .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
+  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
+  .series-prev:hover, .series-next:hover { color: var(--brand-900); }
+
+  /* Content */
+  .content { line-height: 1.8; margin-bottom: 3rem; }
+  .content h2 { font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--brand-900); }
+  .content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brand-900); }
+  .content p { margin-bottom: 1rem; }
+  .content a { color: var(--brand-500); }
+  .content a:hover { color: var(--brand-900); }
+  .content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; position: relative; }
+  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+  .content blockquote { border-left: 3px solid var(--brand-300); padding-left: 1rem; color: var(--text-secondary); margin: 1rem 0; font-style: italic; }
+
+  /* Post nav */
+  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); }
+  .post-nav-next { text-align: right; }
+  .post-nav-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .post-nav-next .post-nav-label { justify-content: flex-end; }
+  .post-nav-title { font-size: 0.85rem; font-weight: 600; line-height: 1.3; display: block; }
+
+  /* Related */
+  .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
+  .related-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .related-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .related-item:hover { border-color: var(--brand-500); }
+  .related-title { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
+  .related-time { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
+</style>
+
+<script>
+  // Attach copy buttons to all pre blocks in article content
+  document.querySelectorAll('.content pre').forEach(pre => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.setAttribute('aria-label', 'Copy code');
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+    btn.addEventListener('click', async () => {
+      const code = (pre.querySelector('code') as HTMLElement)?.innerText ?? (pre as HTMLElement).innerText;
+      await navigator.clipboard.writeText(code);
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+      }, 2000);
+    });
+    pre.appendChild(btn);
+  });
+</script>
+
+<style is:global>
+  .copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: #333;
+    color: #aaa;
+    border: none;
+    border-radius: 3px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.68rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.15s;
+  }
+  .copy-btn:hover { color: #fff; }
 </style>
