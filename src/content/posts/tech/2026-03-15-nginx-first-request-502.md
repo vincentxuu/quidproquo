@@ -76,11 +76,13 @@ nginx 1.27.3 把 `resolve` 參數從 NGINX Plus 開源出來了。改用 `upstre
 ```nginx
 # conf.d/upstreams.conf（集中管理所有 upstream）
 upstream production_app {
+    zone production_app 64k;
     server production_app:3000 resolve;
     keepalive 32;
 }
 
 upstream backend_prod {
+    zone backend_prod 64k;
     server backend-prod:8000 resolve;
     keepalive 16;
 }
@@ -96,6 +98,14 @@ location / {
 
 `resolver` 指令留在 `nginx.conf` 的 `http` block 即可，`resolve` 參數會使用它。
 
+**`zone` 是必要的，不能省略。** `resolve` 要求 upstream 必須有 `zone` 分配共享記憶體，讓多個 worker process 共享 DNS 解析狀態。少了它，nginx 啟動時會報錯：
+
+```
+[emerg] resolving names at run time requires upstream "production_app" to be in shared memory
+```
+
+`zone <name> 64k` 的大小對單一 server 的 upstream 來說 64k 已經足夠。
+
 ## 為什麼會這樣
 
 `set $variable` + `proxy_pass http://$variable` 的機制是：**每次請求進來時**，nginx 查 DNS 快取，若快取有效就直接用，若過期就發起非同步 DNS 查詢。
@@ -108,4 +118,4 @@ location / {
 
 ## 學到的事
 
-`set $variable` 是過渡方案，nginx 1.27.3 之後有更乾淨的解法。用之前先確認 nginx 版本。
+`set $variable` 是過渡方案，nginx 1.27.3 之後有更乾淨的解法。用之前先確認 nginx 版本。`resolve` + `zone` 要一起加，少一個就不能動。
