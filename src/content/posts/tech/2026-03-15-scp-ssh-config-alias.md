@@ -2,7 +2,7 @@
 title: "用 SSH config alias 下載 VPS 檔案"
 date: 2026-03-15
 category: tech
-tags: [ssh, scp, vps, cli]
+tags: [ssh, scp, vps, cli, docker]
 lang: zh-TW
 tldr: "設定好 SSH config 後，scp 可以直接用 alias，不用打完整 IP"
 description: "如何用 scp 搭配 SSH config alias 從 VPS 下載檔案到本機"
@@ -57,6 +57,28 @@ rsync -avz daodao:/path/to/dir ./local-destination
 - `-v`：顯示傳輸進度
 - `-z`：傳輸時壓縮，網路慢的時候有幫助
 
+## 進階：從 Docker 容器拿檔案
+
+如果檔案在 VPS 上的 Docker 容器裡，要多一個步驟。以 nginx 容器為例：
+
+**方法一：分兩步**
+
+```bash
+# 先把檔案從容器複製到 VPS
+ssh daodao "docker cp nginx:/etc/nginx/nginx.conf /tmp/nginx.conf"
+
+# 再從 VPS 拉到本機
+scp daodao:/tmp/nginx.conf .
+```
+
+**方法二：一行搞定**
+
+```bash
+ssh daodao "docker cp nginx:/etc/nginx/nginx.conf /tmp/nginx.conf" && scp daodao:/tmp/nginx.conf .
+```
+
+`docker cp <容器名>:<容器內路徑> <VPS路徑>` 負責把檔案從容器搬出來，之後就跟一般 VPS 檔案一樣用 `scp` 下載。
+
 ## 學到的事
 
-`scp` 和 `rsync` 都認 `~/.ssh/config`，設一次 alias，之後不管是 ssh 連線還是傳檔都能用同一個名字。
+`scp` 和 `rsync` 都認 `~/.ssh/config`，設一次 alias，之後不管是 ssh 連線還是傳檔都能用同一個名字。容器內的檔案先用 `docker cp` 搬出來，再用同樣的流程下載。
