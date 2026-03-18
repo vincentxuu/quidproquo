@@ -22,7 +22,6 @@
       "Bash(magick *)"
     ],
     "deny": [
-      "Bash(git push *)",
       "Bash(rm -rf *)",
       "Bash(git reset --hard *)"
     ]
