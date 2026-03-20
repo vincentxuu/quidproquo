@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # wrangler local dev state
 .wrangler/
+.worktrees/
