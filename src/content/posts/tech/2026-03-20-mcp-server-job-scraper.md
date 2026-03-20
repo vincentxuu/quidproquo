@@ -77,15 +77,28 @@ def filter_and_score_jobs(max_llm: int = 20) -> str:
     return build_report(scored, unscored, stats)
 
 @mcp.tool()
-def search_local_jobs(keyword: str) -> list:
+def search_local_jobs(
+    keyword: str,
+    source: str = "all",
+    limit: int = 50,
+    offset: int = 0,
+    include_description: bool = False,
+) -> dict:
     """在本地資料中搜尋職缺，不發網路請求。"""
     ...
+    return {"total": total, "by_source": by_source, "count": len(page), "results": page}
 
 if __name__ == "__main__":
     mcp.run()
 ```
 
 裝飾器 `@mcp.tool()` 就是全部，FastMCP 會自動從 docstring 和型別提示產生 schema，Claude 靠這個知道每個 tool 做什麼、接受什麼參數。
+
+有幾個細節值得注意：
+
+**控制回傳量**：本地有 1,000+ 筆職缺，全部塞進 tool response 會超出 context。`search_local_jobs` 預設 `include_description=False` 排掉最大的欄位，`limit=50` 控制筆數，需要更多再用 `offset` 分頁取。
+
+**回傳 metadata**：回傳 `dict` 而非 `list`，帶上 `total` 和 `by_source`，讓 Claude 知道總共有幾筆、來自哪個來源，方便它決定要不要繼續查。
 
 ## 註冊到 Claude Code
 
