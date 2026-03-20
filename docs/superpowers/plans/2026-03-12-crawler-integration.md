@@ -1,6 +1,6 @@
 # Phase 3: Crawler Integration Implementation Plan
 
-> **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 每週自動爬取外部技術文件（Cloudflare Docs、Astro Docs 等），chunking 後存進 D1 `doc_chunks` 表，為 Phase 4 RAG 系統建立知識庫。
 
@@ -50,7 +50,7 @@ package.json                   # 更新 build + deploy scripts
 **Files:**
 - Create: `src/lib/crawl/config.ts`
 
-- [ ] **Step 1: 寫 config.ts**
+- [x] **Step 1: 寫 config.ts**
 
 ```typescript
 // src/lib/crawl/config.ts
@@ -98,7 +98,7 @@ export const CRAWL_TARGETS: CrawlTarget[] = [
 export const MAX_CHUNK_CHARS = 2000;
 ```
 
-- [ ] **Step 2: 型別檢查**
+- [x] **Step 2: 型別檢查**
 
 ```bash
 cd /Users/xiaoxu/Projects/quidproquo
@@ -107,7 +107,7 @@ npx astro check
 
 Expected: No errors
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/crawl/config.ts
@@ -123,7 +123,7 @@ git commit -m "feat: add crawler config with Cloudflare and Astro doc targets"
 
 呼叫 Cloudflare Browser Rendering REST API `/crawl` endpoint。
 
-- [ ] **Step 1: 寫 browser-rendering.ts**
+- [x] **Step 1: 寫 browser-rendering.ts**
 
 ```typescript
 // src/lib/crawl/browser-rendering.ts
@@ -248,7 +248,7 @@ export async function crawlTarget(
 }
 ```
 
-- [ ] **Step 2: 型別檢查**
+- [x] **Step 2: 型別檢查**
 
 ```bash
 npx astro check
@@ -256,7 +256,7 @@ npx astro check
 
 Expected: No errors
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/crawl/browser-rendering.ts
@@ -272,7 +272,7 @@ git commit -m "feat: add Cloudflare Browser Rendering crawl client"
 
 將爬到的 markdown 依標題切成適合 embedding 的 chunks。
 
-- [ ] **Step 1: 寫 chunker.ts**
+- [x] **Step 1: 寫 chunker.ts**
 
 ```typescript
 // src/lib/crawl/chunker.ts
@@ -356,7 +356,7 @@ export function chunkMarkdown(
 }
 ```
 
-- [ ] **Step 2: 手動驗證 chunker（Node.js script）**
+- [x] **Step 2: 手動驗證 chunker（Node.js script）**
 
 ```bash
 node --input-type=module <<'EOF'
@@ -378,7 +378,7 @@ chunks.forEach(c => console.log(c.chunk_index, c.content.slice(0, 50)))
 
 Expected: 2 chunks，各對應一個標題 section
 
-- [ ] **Step 3: 型別檢查**
+- [x] **Step 3: 型別檢查**
 
 ```bash
 npx astro check
@@ -386,7 +386,7 @@ npx astro check
 
 Expected: No errors
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/lib/crawl/chunker.ts
@@ -402,7 +402,7 @@ git commit -m "feat: add markdown chunker (split by heading sections)"
 
 主流程：對每個 target 呼叫 crawl → chunk → upsert D1。
 
-- [ ] **Step 1: 寫 sync.ts**
+- [x] **Step 1: 寫 sync.ts**
 
 ```typescript
 // src/lib/crawl/sync.ts
@@ -487,7 +487,7 @@ export async function runCrawlSync(): Promise<SyncResult[]> {
 }
 ```
 
-- [ ] **Step 2: 型別檢查**
+- [x] **Step 2: 型別檢查**
 
 ```bash
 npx astro check
@@ -495,7 +495,7 @@ npx astro check
 
 Expected: No errors
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/crawl/sync.ts
@@ -513,7 +513,7 @@ git commit -m "feat: add crawl sync orchestrator (crawl → chunk → D1 upsert)
 
 受 `CRAWL_SECRET` header 保護的手動觸發 endpoint。
 
-- [ ] **Step 1: 寫 sync endpoint**
+- [x] **Step 1: 寫 sync endpoint**
 
 ```typescript
 // src/pages/api/crawl/sync.ts
@@ -558,7 +558,7 @@ export const POST: APIRoute = async ({ request }) => {
 };
 ```
 
-- [ ] **Step 2: 型別檢查**
+- [x] **Step 2: 型別檢查**
 
 ```bash
 npx astro check
@@ -566,7 +566,7 @@ npx astro check
 
 Expected: No errors
 
-- [ ] **Step 3: Build 驗證**
+- [x] **Step 3: Build 驗證**
 
 ```bash
 pnpm build
@@ -574,7 +574,7 @@ pnpm build
 
 Expected: Build success，`dist/` 正常產生
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/pages/api/crawl/sync.ts
@@ -594,7 +594,7 @@ git commit -m "feat: add POST /api/crawl/sync endpoint with secret auth"
 - Modify: `wrangler.jsonc`
 - Modify: `package.json`
 
-- [ ] **Step 1: 寫 create-cron-entry.mjs**
+- [x] **Step 1: 寫 create-cron-entry.mjs**
 
 ```javascript
 // scripts/create-cron-entry.mjs
@@ -651,7 +651,7 @@ writeFileSync(OUTPUT, content)
 console.log('✅ Created', OUTPUT)
 ```
 
-- [ ] **Step 2: 更新 wrangler.jsonc（加入 main + cron triggers）**
+- [x] **Step 2: 更新 wrangler.jsonc（加入 main + cron triggers）**
 
 ```jsonc
 {
@@ -696,7 +696,7 @@ console.log('✅ Created', OUTPUT)
 
 Cron 設定：每週日 UTC 02:00（台灣時間週日上午 10:00）執行。
 
-- [ ] **Step 3: 更新 package.json build + deploy scripts**
+- [x] **Step 3: 更新 package.json build + deploy scripts**
 
 ```json
 "scripts": {
@@ -711,7 +711,7 @@ Cron 設定：每週日 UTC 02:00（台灣時間週日上午 10:00）執行。
 }
 ```
 
-- [ ] **Step 4: Build 驗證**
+- [x] **Step 4: Build 驗證**
 
 ```bash
 pnpm build
@@ -724,7 +724,7 @@ Expected:
 ✅ Created ./dist/cron-entry.js
 ```
 
-- [ ] **Step 5: 確認 cron-entry.js 內容正確**
+- [x] **Step 5: 確認 cron-entry.js 內容正確**
 
 ```bash
 head -5 dist/cron-entry.js
@@ -732,7 +732,7 @@ head -5 dist/cron-entry.js
 
 Expected: 看到 `import astroWorker from './_worker.js/index.js'`
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/create-cron-entry.mjs wrangler.jsonc package.json
@@ -747,7 +747,7 @@ git commit -m "feat: add Cron Trigger with post-build worker wrapper (weekly cra
 
 **注意：** Secrets 不進 git，用 wrangler secret 指令設定。
 
-- [ ] **Step 1: 設定三個必要 secrets**
+- [x] **Step 1: 設定三個必要 secrets**
 
 ```bash
 # Cloudflare API Token（需要 Browser Rendering 權限）
@@ -764,7 +764,7 @@ wrangler secret put CRAWL_SECRET
 
 `CF_API_TOKEN` 需要有 `Account > Browser Rendering > Edit` 權限。
 
-- [ ] **Step 2: 確認 secrets 列表**
+- [x] **Step 2: 確認 secrets 列表**
 
 ```bash
 wrangler secret list
@@ -772,7 +772,7 @@ wrangler secret list
 
 Expected: 看到 `CF_API_TOKEN`、`CF_ACCOUNT_ID`、`CRAWL_SECRET` 三個 secrets
 
-- [ ] **Step 3: 本地開發設定（`.dev.vars`）**
+- [x] **Step 3: 本地開發設定（`.dev.vars`）**
 
 建立 `.dev.vars`（已在 `.gitignore` 不會進 git）：
 
@@ -788,7 +788,7 @@ EOF
 
 ### Task 8: 端對端測試
 
-- [ ] **Step 1: Deploy 到 production**
+- [x] **Step 1: Deploy 到 production**
 
 ```bash
 pnpm deploy
@@ -800,7 +800,7 @@ Expected: 部署成功，看到 cron trigger 被設定：
 ▶ Adding cron trigger: 0 2 * * 0
 ```
 
-- [ ] **Step 2: 手動觸發 crawl sync（先測單一 target）**
+- [x] **Step 2: 手動觸發 crawl sync（先測單一 target）**
 
 暫時把 `config.ts` 的 CRAWL_TARGETS 只保留一個（例如 Cloudflare D1）再 deploy，然後測試：
 
@@ -822,7 +822,7 @@ Expected（約 10-30 秒後回應）：
 }
 ```
 
-- [ ] **Step 3: 驗證 D1 資料寫入**
+- [x] **Step 3: 驗證 D1 資料寫入**
 
 ```bash
 wrangler d1 execute quidproquo-db --remote \
@@ -831,7 +831,7 @@ wrangler d1 execute quidproquo-db --remote \
 
 Expected: 看到 `Cloudflare D1 | 312`（數字會不同）
 
-- [ ] **Step 4: 測試未授權請求**
+- [x] **Step 4: 測試未授權請求**
 
 ```bash
 curl -X POST https://quidproquo.cc/api/crawl/sync \
@@ -840,11 +840,11 @@ curl -X POST https://quidproquo.cc/api/crawl/sync \
 
 Expected: `{"error":"Unauthorized"}` + HTTP 401
 
-- [ ] **Step 5: 恢復完整 CRAWL_TARGETS 並 deploy**
+- [x] **Step 5: 恢復完整 CRAWL_TARGETS 並 deploy**
 
 把 `config.ts` 改回所有 targets，再次 `pnpm deploy`。
 
-- [ ] **Step 6: Commit 最終狀態**
+- [x] **Step 6: Commit 最終狀態**
 
 ```bash
 git add -A
@@ -855,11 +855,11 @@ git commit -m "chore: complete Phase 3 crawler integration"
 
 ## 交付物確認
 
-- [ ] POST `/api/crawl/sync` 可手動觸發爬蟲，受 secret 保護
-- [ ] 爬取 Cloudflare D1、Workers、Vectorize、Astro Docs
-- [ ] markdown 自動 chunk 並 upsert 到 D1 `doc_chunks`
-- [ ] Cron Trigger 每週日 UTC 02:00 自動執行
-- [ ] Worker secrets 設定完成（不進 git）
+- [x] POST `/api/crawl/sync` 可手動觸發爬蟲，受 secret 保護
+- [x] 爬取 Cloudflare D1、Workers、Vectorize、Astro Docs
+- [x] markdown 自動 chunk 並 upsert 到 D1 `doc_chunks`
+- [x] Cron Trigger 每週日 UTC 02:00 自動執行
+- [x] Worker secrets 設定完成（不進 git）
 
 ---
 
