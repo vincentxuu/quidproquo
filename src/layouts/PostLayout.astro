@@ -114,6 +114,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     --success-icon:   #22c55e;
     --warning-bg:    #fffbeb;
     --warning-border: #f59e0b;
+    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
+    --code-dot-red: #ff5f57;
+    --code-dot-yellow: #febc2e;
+    --code-dot-green: #28c840;
 
     /* Category badge colors */
     --cat-tech:      #1a1a1a;
@@ -147,6 +152,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     --success-icon:   #4ade80;
     --warning-bg:    #1a1a0f;
     --warning-border: #f59e0b;
+    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
+    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
   }
 
   /* ── Reset & Base ── */
@@ -263,7 +270,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     transition: opacity 0.2s, transform 0.2s, color 0.15s;
     pointer-events: none;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-floating);
   }
   .scroll-top.visible {
     opacity: 1;
@@ -438,9 +445,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     display: block;
     padding: 0.6rem 1rem;
     background: rgba(0,0,0,0.15);
-    background-image: radial-gradient(circle at 16px 50%, #ff5f57 5px, transparent 5px),
-                      radial-gradient(circle at 36px 50%, #febc2e 5px, transparent 5px),
-                      radial-gradient(circle at 56px 50%, #28c840 5px, transparent 5px);
+    background-image: radial-gradient(circle at 16px 50%, var(--code-dot-red) 5px, transparent 5px),
+                      radial-gradient(circle at 36px 50%, var(--code-dot-yellow) 5px, transparent 5px),
+                      radial-gradient(circle at 56px 50%, var(--code-dot-green) 5px, transparent 5px);
     background-repeat: no-repeat;
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
@@ -541,6 +548,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   const bar = document.getElementById('progress-bar');
   const scrollBtn = document.getElementById('scroll-top');
   const scrollPct = document.getElementById('scroll-pct');
+  const SCROLL_VISIBLE_THRESHOLD = 300;
 
   function updateScroll() {
     const max = document.body.scrollHeight - window.innerHeight;
@@ -549,7 +557,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     if (bar) bar.style.width = `${pct}%`;
     if (scrollPct) scrollPct.textContent = `${pct}%`;
     if (scrollBtn) {
-      scrollBtn.classList.toggle('visible', window.scrollY > 300);
+      scrollBtn.classList.toggle('visible', window.scrollY > SCROLL_VISIBLE_THRESHOLD);
     }
   }
 
