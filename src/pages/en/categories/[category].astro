@@ -100,12 +100,13 @@ const showFilter = availableTypes.length > 1;
 
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>('#type-filter .filter-btn');
-  const articles = document.querySelectorAll<HTMLElement>('article[data-type]');
+  const articles = document.querySelectorAll<HTMLElement>('#type-filter ~ article');
 
   function applyFilter(filter: string) {
     buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
     articles.forEach(article => {
-      article.style.display = (filter === 'all' || article.dataset.type === filter) ? '' : 'none';
+      const type = article.dataset.type;
+      article.style.display = (filter === 'all' || type === filter) ? '' : 'none';
     });
   }
 
