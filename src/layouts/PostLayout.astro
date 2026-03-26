@@ -57,10 +57,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
       <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
       <div class="nav-right">
-        <a href="/search" class="nav-icon" aria-label={t('nav.search')}>
-          <Icons name="search" size={16} />
+        <a href="/search" class="nav-icon-btn" aria-label={t('nav.search')}>
+          <Icons name="search" size={15} />
         </a>
-        <button class="theme-toggle" id="theme-toggle" aria-label={t('nav.toggle-theme')}>
+        <button class="nav-icon-btn" id="theme-toggle" aria-label={t('nav.toggle-theme')}>
           <span class="icon-light"><Icons name="sun" size={15} /></span>
           <span class="icon-dark"><Icons name="moon" size={15} /></span>
         </button>
@@ -79,24 +79,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
       <span>RSS</span>
     </a>
   </footer>
+
+  <!-- Floating scroll-to-top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <span class="scroll-pct" id="scroll-pct">0%</span>
+  </button>
 </body>
 </html>
 
 <style is:global>
-  /* ── Forest Design Tokens ── */
+  /* ── Dark Navy Design Tokens (inspired by DJ MYG) ── */
   :root {
     --brand-900: #1a2e1a;
     --brand-700: #2d4a2d;
-    --brand-500: #4a7c59;
+    --brand-500: #4a9e6a;
     --brand-300: #a7c4a0;
     --brand-100: #e8f5e8;
     --brand-50:  #f0f7f0;
     --border:    #d1e8d1;
     --text-primary:    #1a1a1a;
     --text-secondary:  #4a7c59;
-    --text-muted:      #a7c4a0;
+    --text-muted:      #999;
     --bg-page:   #ffffff;
-    --bg-subtle: #f0f7f0;
+    --bg-subtle: #f5f7f5;
+    --bg-card:   #ffffff;
+    --bg-code:   #1e1e2e;
+    --heading-accent: #e8657a;
+    --info-bg:    #eef6ff;
+    --info-border: #3b82f6;
+    --info-icon:   #3b82f6;
+    --success-bg:    #eefbf3;
+    --success-border: #22c55e;
+    --success-icon:   #22c55e;
+    --warning-bg:    #fffbeb;
+    --warning-border: #f59e0b;
+    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
+    --code-dot-red: #ff5f57;
+    --code-dot-yellow: #febc2e;
+    --code-dot-green: #28c840;
 
     /* Category badge colors */
     --cat-tech:      #1a1a1a;
@@ -109,16 +131,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   [data-theme="dark"] {
     --brand-900: #e8e8e8;
     --brand-700: #c0c0c0;
-    --brand-500: #6aaa7f;
+    --brand-500: #5cb87a;
     --brand-300: #2d4a2d;
-    --brand-100: #1e2e1e;
-    --brand-50:  #1a231a;
-    --border:    #2d3d2d;
-    --text-primary:    #e8e8e8;
-    --text-secondary:  #6aaa7f;
-    --text-muted:      #555555;
-    --bg-page:   #141414;
-    --bg-subtle: #1a231a;
+    --brand-100: #1c2833;
+    --brand-50:  #151d26;
+    --border:    #2a3545;
+    --text-primary:    #d1d5db;
+    --text-secondary:  #5cb87a;
+    --text-muted:      #6b7280;
+    --bg-page:   #0f1419;
+    --bg-subtle: #151d26;
+    --bg-card:   #1a2332;
+    --bg-code:   #0d1117;
+    --heading-accent: #f472b6;
+    --info-bg:    #151d26;
+    --info-border: #3b82f6;
+    --info-icon:   #60a5fa;
+    --success-bg:    #151d26;
+    --success-border: #22c55e;
+    --success-icon:   #4ade80;
+    --warning-bg:    #1a1a0f;
+    --warning-border: #f59e0b;
+    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
+    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
   }
 
   /* ── Reset & Base ── */
@@ -141,7 +176,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     gap: 1.5rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--brand-900);
+    border-bottom: 2px solid var(--border);
     position: relative;
   }
   .logo {
@@ -161,26 +196,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
   }
-  .nav-icon {
-    color: var(--text-secondary);
+
+  /* Circular icon buttons (like DJ MYG) */
+  .nav-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
   }
-  .nav-icon:hover { color: var(--brand-900); }
+  .nav-icon-btn:hover {
+    color: var(--brand-500);
+    border-color: var(--brand-500);
+    background: var(--bg-card);
+  }
 
   /* Dark mode toggle */
-  .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-  }
-  .theme-toggle:hover { color: var(--brand-900); }
   .icon-dark { display: none; }
   [data-theme="dark"] .icon-light { display: none; }
   [data-theme="dark"] .icon-dark  { display: flex; }
@@ -207,6 +247,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     height: 2px;
     background: var(--brand-500);
     transition: width 0.1s linear;
+  }
+
+  /* ── Floating scroll-to-top ── */
+  .scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.35rem;
+    color: var(--heading-accent);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s, color 0.15s;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: var(--shadow-floating);
+  }
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .scroll-top:hover { color: var(--brand-500); }
+  .scroll-pct {
+    font-size: 0.6rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
   /* ── Footer ── */
@@ -301,12 +376,47 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   /* ── Prose: all MDX/markdown rendered content ── */
   .content { line-height: 1.8; margin-bottom: 3rem; }
 
-  /* Headings */
+  /* Headings — with colored underline accent (like DJ MYG) */
   .content h1 { font-size: 1.7rem; font-weight: 900; margin: 2.5rem 0 1rem; color: var(--brand-900); }
-  .content h2 { font-size: 1.3rem; font-weight: 800; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--brand-900); }
+  .content h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: none;
+    color: var(--brand-900);
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: var(--heading-accent);
+    border-radius: 2px;
+  }
   .content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brand-900); }
   .content h4 { font-size: 0.95rem; font-weight: 700; margin: 1.25rem 0 0.4rem; color: var(--brand-900); }
   .content h5, .content h6 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.35rem; color: var(--text-secondary); }
+
+  /* Heading anchor links */
+  .content h2 .heading-anchor,
+  .content h3 .heading-anchor {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.15s;
+    margin-left: 0.5rem;
+  }
+  .content h2:hover .heading-anchor,
+  .content h3:hover .heading-anchor { opacity: 1; }
 
   /* Paragraph & inline */
   .content p { margin-bottom: 1rem; }
@@ -319,14 +429,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   .content a { color: var(--brand-500); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 2px; }
   .content a:hover { color: var(--brand-900); text-decoration-color: var(--brand-500); }
 
-  /* Code */
-  .content pre { position: relative; background: #1e1e1e; color: #d4d4d4; padding: 1.25rem 1.75rem; border-radius: 6px; overflow-x: auto; margin-bottom: 1.25rem; }
+  /* ── macOS-style Code Blocks (like DJ MYG) ── */
+  .content pre {
+    position: relative;
+    background: var(--bg-code);
+    color: #d4d4d4;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
+  }
+  .content pre::before {
+    content: '';
+    display: block;
+    padding: 0.6rem 1rem;
+    background: rgba(0,0,0,0.15);
+    background-image: radial-gradient(circle at 16px 50%, var(--code-dot-red) 5px, transparent 5px),
+                      radial-gradient(circle at 36px 50%, var(--code-dot-yellow) 5px, transparent 5px),
+                      radial-gradient(circle at 56px 50%, var(--code-dot-green) 5px, transparent 5px);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .content pre code {
+    display: block;
+    padding: 1rem 1.5rem;
+    overflow-x: auto;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    counter-reset: line;
+  }
+
   .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
   .content kbd { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 3px; padding: 0.1em 0.4em; font-size: 0.85em; font-family: monospace; }
 
-  /* Blockquote */
-  .content blockquote { border-left: 3px solid var(--brand-300); padding: 0.5rem 0 0.5rem 1rem; color: var(--text-secondary); margin: 1.25rem 0; font-style: italic; }
-  .content blockquote p { margin-bottom: 0; }
+  /* ── Callout / Blockquote boxes (like DJ MYG info/success/warning) ── */
+  .content blockquote {
+    background: var(--info-bg);
+    border-left: 4px solid var(--info-border);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    color: var(--text-primary);
+    margin: 1.25rem 0;
+    font-style: normal;
+  }
+  .content blockquote p { margin-bottom: 0.35rem; }
+  .content blockquote p:last-child { margin-bottom: 0; }
+
+  /* Tip callout (blockquote starting with [!TIP] or > **tip**) */
+  .content blockquote.callout-success,
+  .content blockquote:has(> p:first-child > strong:first-child:is([data-type="success"])) {
+    background: var(--success-bg);
+    border-left-color: var(--success-border);
+  }
 
   /* Lists */
   .content ul, .content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
@@ -336,20 +491,48 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   .content li > ul, .content li > ol { margin-top: 0.25rem; margin-bottom: 0.25rem; }
   .content input[type="checkbox"] { margin-right: 0.4rem; accent-color: var(--brand-500); }
 
-  /* Horizontal rule */
-  .content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  /* Horizontal rule — dashed style (like DJ MYG) */
+  .content hr {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 2.5rem 0;
+  }
 
   /* Images */
-  .content img { max-width: 100%; height: auto; border-radius: 6px; margin: 1rem 0; display: block; }
+  .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; display: block; }
   .content figure { margin: 1.5rem 0; }
   .content figcaption { font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.4rem; }
 
-  /* Tables */
-  .content table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
-  .content th { background: var(--bg-subtle); font-weight: 700; text-align: left; padding: 0.6rem 0.85rem; border-bottom: 2px solid var(--border); color: var(--text-primary); }
-  .content td { padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text-primary); }
+  /* ── Dark styled Tables (like DJ MYG) ── */
+  .content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .content th {
+    background: var(--bg-subtle);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--text-primary);
+  }
+  .content td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+  }
   .content tr:last-child td { border-bottom: none; }
   .content tbody tr:hover { background: var(--bg-subtle); }
+  .content th:not(:last-child),
+  .content td:not(:last-child) {
+    border-right: 1px solid var(--border);
+  }
 </style>
 
 <script>
@@ -361,12 +544,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   });
 
-  // Reading progress bar (only on article pages)
+  // Reading progress bar + scroll-to-top with percentage
   const bar = document.getElementById('progress-bar');
-  if (bar) {
-    window.addEventListener('scroll', () => {
-      const max = document.body.scrollHeight - window.innerHeight;
-      if (max > 0) bar.style.width = `${(window.scrollY / max) * 100}%`;
-    }, { passive: true });
+  const scrollBtn = document.getElementById('scroll-top');
+  const scrollPct = document.getElementById('scroll-pct');
+  const SCROLL_VISIBLE_THRESHOLD = 300;
+
+  function updateScroll() {
+    const max = document.body.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = Math.round((window.scrollY / max) * 100);
+    if (bar) bar.style.width = `${pct}%`;
+    if (scrollPct) scrollPct.textContent = `${pct}%`;
+    if (scrollBtn) {
+      scrollBtn.classList.toggle('visible', window.scrollY > SCROLL_VISIBLE_THRESHOLD);
+    }
   }
+
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+
+  scrollBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>

@@ -26,7 +26,8 @@ const categories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
 
 <style>
   .categories { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-  .category-item { display: flex; align-items: center; gap: 0.5rem; background: #f0f9ff; border: 1px solid #bae6fd; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: #0369a1; }
-  .category-item:hover { background: #e0f2fe; }
-  .count { background: #0369a1; color: white; padding: 0.1rem 0.5rem; border-radius: 10px; font-size: 0.8rem; }
+  .category-item { display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: var(--brand-500); transition: border-color 0.15s; }
+  .category-item:hover { border-color: var(--brand-500); }
+  .name { font-weight: 600; }
+  .count { background: var(--brand-500); color: white; padding: 0.1rem 0.5rem; border-radius: 10px; font-size: 0.8rem; }
 </style>

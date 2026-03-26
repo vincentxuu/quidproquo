@@ -47,8 +47,16 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
 
 <style>
   article {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: var(--bg-card);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  article:hover {
+    border-color: var(--brand-500);
+    box-shadow: var(--shadow-card-hover);
   }
   .pin-bar {
     display: inline-flex;
@@ -65,7 +73,6 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-  article:last-child { border-bottom: none; }
   .meta {
     display: flex;
     align-items: center;
@@ -75,14 +82,14 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   }
   time {
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--text-muted);
   }
   .reading-time {
     display: flex;
     align-items: center;
     gap: 0.25rem;
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--text-muted);
   }
   h2 {
     margin: 0 0 0.4rem;
@@ -99,7 +106,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   .excerpt {
     margin: 0 0 0.5rem;
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     line-height: 1.6;
   }
   .tags {

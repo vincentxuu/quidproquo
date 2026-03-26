@@ -44,111 +44,119 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
   lang={lang}
   ogImage={ogImage}
 >
-  <article>
-    <header>
-      <!-- Back + category -->
-      <div class="back-row">
-        <a href={lang === 'en' ? '/en' : '/'} class="back-link">
-          <Icons name="chevron-left" size={13} />{t('nav.home')}
-        </a>
-        <span class="sep">·</span>
-        <a href={`${categoriesBase}/${post.data.category}`} class={`cat-badge cat-${post.data.category}`}>
-          {post.data.category}
-        </a>
-      </div>
-
-      <!-- Title -->
+  <!-- Hero Section (like DJ MYG) -->
+  <div class="hero">
+    <div class="hero-content">
       <h1>{post.data.title}</h1>
-
-      <!-- Meta -->
-      <div class="article-meta">
-        <time datetime={post.data.date.toISOString()}>{dateStr}</time>
-        <span class="sep">·</span>
-        <span class="reading-time">
-          <Icons name="clock" size={13} />
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <Icons name="clock" size={14} />
+          {dateStr}
+        </span>
+        <span class="hero-meta-item">
+          <Icons name="clock" size={14} />
           {readingTime} {t('post.reading-time')}
         </span>
       </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z" fill="var(--bg-page)"/>
+      </svg>
+    </div>
+  </div>
 
-      <!-- TL;DR -->
-      {post.data.tldr && (
-        <div class="tldr">
-          <span class="tldr-label">TL;DR</span>
-          {post.data.tldr}
+  <article>
+    <!-- Breadcrumb (like DJ MYG) -->
+    <div class="breadcrumb">
+      <a href={lang === 'en' ? '/en' : '/'} class="breadcrumb-link">
+        <Icons name="chevron-left" size={11} />
+        {t('nav.home')}
+      </a>
+      <span class="breadcrumb-sep">&rsaquo;</span>
+      <a href={`${categoriesBase}/${post.data.category}`} class="breadcrumb-cat">
+        {post.data.category}
+      </a>
+    </div>
+
+    <!-- TL;DR -->
+    {post.data.tldr && (
+      <div class="tldr">
+        <span class="tldr-label">TL;DR</span>
+        {post.data.tldr}
+      </div>
+    )}
+
+    <!-- Tags -->
+    {post.data.tags.length > 0 && (
+      <div class="tags">
+        {post.data.tags.map(tag => (
+          <a href={`${tagsBase}/${tag}`} class="tag-pill">#{tag}</a>
+        ))}
+      </div>
+    )}
+
+    <!-- TOC -->
+    {headings.length > 0 && (
+      <div class="toc">
+        <div class="toc-header">
+          <Icons name="list" size={14} />
+          <span>{t('post.toc')}</span>
         </div>
-      )}
-
-      <!-- Tags -->
-      {post.data.tags.length > 0 && (
-        <div class="tags">
-          {post.data.tags.map(tag => (
-            <a href={`${tagsBase}/${tag}`} class="tag-pill">#{tag}</a>
+        <ol>
+          {headings.filter(h => h.depth === 2).map(h => (
+            <li>
+              <a href={`#${h.slug}`}>{h.text}</a>
+              {headings.filter(sub => {
+                if (sub.depth !== 3) return false;
+                const h2idx = headings.findIndex(x => x.slug === h.slug);
+                const subidx = headings.findIndex(x => x.slug === sub.slug);
+                if (subidx < h2idx) return false;
+                const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
+                return nextH2 === -1 || subidx < nextH2;
+              }).length > 0 && (
+                <ol>
+                  {headings.filter(sub => {
+                    if (sub.depth !== 3) return false;
+                    const h2idx = headings.findIndex(x => x.slug === h.slug);
+                    const subidx = headings.findIndex(x => x.slug === sub.slug);
+                    if (subidx < h2idx) return false;
+                    const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
+                    return nextH2 === -1 || subidx < nextH2;
+                  }).map(sub => (
+                    <li><a href={`#${sub.slug}`}>{sub.text}</a></li>
+                  ))}
+                </ol>
+              )}
+            </li>
           ))}
-        </div>
-      )}
+        </ol>
+      </div>
+    )}
 
-      <!-- TOC -->
-      {headings.length > 0 && (
-        <div class="toc">
-          <div class="toc-header">
-            <Icons name="list" size={14} />
-            <span>{t('post.toc')}</span>
-          </div>
-          <ol>
-            {headings.filter(h => h.depth === 2).map(h => (
-              <li>
-                <a href={`#${h.slug}`}>{h.text}</a>
-                {headings.filter(sub => {
-                  if (sub.depth !== 3) return false;
-                  const h2idx = headings.findIndex(x => x.slug === h.slug);
-                  const subidx = headings.findIndex(x => x.slug === sub.slug);
-                  if (subidx < h2idx) return false;
-                  const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
-                  return nextH2 === -1 || subidx < nextH2;
-                }).length > 0 && (
-                  <ol>
-                    {headings.filter(sub => {
-                      if (sub.depth !== 3) return false;
-                      const h2idx = headings.findIndex(x => x.slug === h.slug);
-                      const subidx = headings.findIndex(x => x.slug === sub.slug);
-                      if (subidx < h2idx) return false;
-                      const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
-                      return nextH2 === -1 || subidx < nextH2;
-                    }).map(sub => (
-                      <li><a href={`#${sub.slug}`}>{sub.text}</a></li>
-                    ))}
-                  </ol>
-                )}
-              </li>
-            ))}
-          </ol>
+    <!-- Series nav -->
+    {seriesNav && (
+      <div class="series-box">
+        <div class="series-header">
+          <Icons name="book-open" size={14} />
+          <span>{t('post.series')}: {seriesNav.name} ({seriesNav.current} / {seriesNav.total})</span>
         </div>
-      )}
-
-      <!-- Series nav -->
-      {seriesNav && (
-        <div class="series-box">
-          <div class="series-header">
-            <Icons name="book-open" size={14} />
-            <span>{t('post.series')}: {seriesNav.name} ({seriesNav.current} / {seriesNav.total})</span>
-          </div>
-          <div class="series-nav">
-            {seriesNav.prev ? (
-              <a href={`/posts/${seriesNav.prev.slug}`} class="series-prev">
-                <Icons name="chevron-left" size={12} />
-                {seriesNav.prev.title}
-              </a>
-            ) : <span />}
-            {seriesNav.next && (
-              <a href={`/posts/${seriesNav.next.slug}`} class="series-next">
-                {seriesNav.next.title}
-                <Icons name="chevron-right" size={12} />
-              </a>
-            )}
-          </div>
+        <div class="series-nav">
+          {seriesNav.prev ? (
+            <a href={`/posts/${seriesNav.prev.slug}`} class="series-prev">
+              <Icons name="chevron-left" size={12} />
+              {seriesNav.prev.title}
+            </a>
+          ) : <span />}
+          {seriesNav.next && (
+            <a href={`/posts/${seriesNav.next.slug}`} class="series-next">
+              {seriesNav.next.title}
+              <Icons name="chevron-right" size={12} />
+            </a>
+          )}
         </div>
-      )}
-    </header>
+      </div>
+    )}
 
     <!-- Content -->
     <div class="content">
@@ -203,18 +211,79 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 </PostLayout>
 
 <style>
-  /* Back row */
-  .back-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.78rem; }
-  .back-link { display: inline-flex; align-items: center; gap: 0.15rem; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
-  .back-link:hover { color: var(--text-secondary); }
-  .sep { color: var(--brand-300); }
+  /* ── Hero Section (like DJ MYG) ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
+    margin: -1rem -1.5rem 0;
+    padding: 3rem 1.5rem 4rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  :global(:root:not([data-theme="dark"])) .hero {
+    background: linear-gradient(135deg, #2d4a2d 0%, #1a2e1a 50%, #2d4a2d 100%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+    color: #ffffff;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
 
-  /* Title */
-  h1 { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 0.75rem; color: var(--brand-900); }
+  /* Wave divider */
+  .hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    line-height: 0;
+  }
+  .hero-wave svg {
+    width: 100%;
+    height: 40px;
+  }
 
-  /* Meta */
-  .article-meta { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; }
-  .reading-time { display: flex; align-items: center; gap: 0.25rem; }
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+  }
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .breadcrumb-link:hover { color: var(--text-secondary); }
+  .breadcrumb-sep { color: var(--text-muted); }
+  .breadcrumb-cat {
+    color: var(--brand-500);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .breadcrumb-cat:hover { color: var(--brand-900); }
 
   /* TL;DR */
   .tldr { background: var(--bg-subtle); border-left: 3px solid var(--brand-500); padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-primary); }
@@ -224,7 +293,13 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
   .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 
   /* TOC */
-  .toc { border: 1px solid var(--border); border-radius: 6px; padding: 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
+  .toc {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    background: var(--bg-subtle);
+    margin-bottom: 1.5rem;
+  }
   .toc-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 0.6rem; }
   .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
   .toc ol ol { font-size: 0.78rem; color: var(--text-secondary); }
@@ -232,7 +307,7 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
   .toc a:hover { color: var(--brand-500); }
 
   /* Series box */
-  .series-box { border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
+  .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
   .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
@@ -240,7 +315,7 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 
   /* Post nav */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); }
   .post-nav-next { text-align: right; }
   .post-nav-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -250,25 +325,25 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
   /* Related */
   .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related-list { display: flex; flex-direction: column; gap: 0.5rem; }
-  .related-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .related-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .related-item:hover { border-color: var(--brand-500); }
   .related-title { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
   .related-time { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
 </style>
 
 <script>
-  // Attach copy buttons to all pre blocks in article content
+  // Attach copy buttons to all pre blocks (macOS-style, positioned in the header bar)
   document.querySelectorAll('.content pre').forEach(pre => {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.setAttribute('aria-label', 'Copy code');
-    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
     btn.addEventListener('click', async () => {
       const code = (pre.querySelector('code') as HTMLElement)?.innerText ?? (pre as HTMLElement).innerText;
       await navigator.clipboard.writeText(code);
-      btn.textContent = 'Copied!';
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
       setTimeout(() => {
-        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
       }, 2000);
     });
     pre.appendChild(btn);
@@ -276,30 +351,21 @@ const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 </script>
 
 <style is:global>
-  .content pre {
-    position: relative;
-    background: #1e1e1e;
-    color: #d4d4d4;
-    padding: 1.25rem 1.75rem;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
+  /* Copy button — positioned in the macOS header bar area */
   .copy-btn {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: #333;
-    color: #aaa;
+    top: 0.45rem;
+    right: 0.75rem;
+    background: transparent;
+    color: rgba(255,255,255,0.4);
     border: none;
-    border-radius: 3px;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.68rem;
+    border-radius: 4px;
+    padding: 0.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
     transition: color 0.15s;
+    z-index: 1;
   }
-  .copy-btn:hover { color: #fff; }
-
+  .copy-btn:hover { color: rgba(255,255,255,0.8); }
 </style>
