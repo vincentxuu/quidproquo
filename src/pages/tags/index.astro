@@ -25,7 +25,7 @@ const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 
 <style>
   .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .tag { display: flex; align-items: center; gap: 0.4rem; background: #f3f4f6; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: #374151; }
-  .tag:hover { background: #e5e7eb; }
-  .count { background: #d1d5db; padding: 0.1rem 0.4rem; border-radius: 10px; font-size: 0.8rem; color: #4b5563; }
+  .tag { display: flex; align-items: center; gap: 0.4rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .tag:hover { border-color: var(--brand-500); }
+  .count { background: var(--bg-subtle); padding: 0.1rem 0.4rem; border-radius: 10px; font-size: 0.8rem; color: var(--text-muted); }
 </style>
