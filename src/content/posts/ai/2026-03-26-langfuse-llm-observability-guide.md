@@ -57,17 +57,23 @@ cd langfuse
 docker compose up -d
 ```
 
-自架的好處是資料完全在自己手上，適合有合規需求的團隊（GDPR、資料落地）。代價是要維護 PostgreSQL 資料庫和應用更新。
+自架的完整架構包含：Web container（UI/API）、Worker container（非同步事件處理）、PostgreSQL、ClickHouse（OLAP，用於 trace 和 score 的分析查詢）、Redis（快取/佇列）、S3/Blob Store。
+
+自架的好處是資料完全在自己手上，適合有合規需求的團隊（GDPR、資料落地）。代價是要維護這些基礎設施。Docker Compose 適合測試，正式環境建議用 Kubernetes。
 
 ### SDK 安裝
 
 ```bash
-# TypeScript / Node.js
-npm install langfuse
+# TypeScript / Node.js（v4 基於 OpenTelemetry）
+npm install langfuse @langfuse/openai          # 核心 + OpenAI wrapper
+npm install @langfuse/langchain                # LangChain 整合（選用）
+npm install @langfuse/vercel                   # Vercel AI SDK 整合（選用）
 
 # Python
 pip install langfuse
 ```
+
+> **注意**：TypeScript SDK v4 重新架構在 OpenTelemetry 之上，如果你是從 v3 升級，API 有些變化。下面的範例以 v3 風格為主（目前大多數專案仍在使用），但也會標注 v4 的寫法。
 
 ---
 
@@ -170,14 +176,13 @@ async function handleUserQuery(query: string, userId: string) {
 
 ```typescript
 import OpenAI from "openai";
-import { observeOpenAI } from "langfuse";
+import { observeOpenAI } from "@langfuse/openai";
 
 const openai = observeOpenAI(new OpenAI(), {
-  clientInitParams: {
-    secretKey: process.env.LANGFUSE_SECRET_KEY,
-    publicKey: process.env.LANGFUSE_PUBLIC_KEY,
-    baseUrl: process.env.LANGFUSE_BASEURL,
-  },
+  generationName: "chat-completion",
+  sessionId: "session-123",
+  userId: "user-abc",
+  tags: ["production"],
 });
 
 // 像平常一樣呼叫，trace 自動產生
@@ -489,7 +494,9 @@ Langfuse 會根據 generation 記錄的 model 和 token usage 自動計算費用
 - **按用戶**的費用（找出高用量用戶）
 - **按功能**的費用（哪個 trace name 最燒錢）
 
-不需要額外設定，只要 generation 裡有記錄 model 和 token usage，費用就會自動算出來。
+不需要額外設定，只要 generation 裡有記錄 model 和 token usage，費用就會自動算出來。Langfuse 內建主流模型（OpenAI、Anthropic、Gemini 等）的定價資料，如果你用的是自架模型或 fine-tuned 模型，也可以在 Dashboard 上自訂定價。
+
+支援的 token 類型包括：`input_tokens`、`output_tokens`、`cached_tokens`、`reasoning_tokens`、`image_tokens` 等，能精確追蹤不同類型的消耗。
 
 ---
 
@@ -500,7 +507,7 @@ Langfuse 不只有低階 SDK，也和主流框架有現成的整合：
 ### LangChain
 
 ```typescript
-import { CallbackHandler } from "langfuse-langchain";
+import { CallbackHandler } from "@langfuse/langchain";
 
 const langfuseHandler = new CallbackHandler({
   secretKey: process.env.LANGFUSE_SECRET_KEY,
@@ -517,18 +524,29 @@ const result = await chain.invoke(
 
 ### Vercel AI SDK
 
+透過 OpenTelemetry exporter 整合，在 `generateText`、`streamText` 等函數中啟用 telemetry：
+
 ```typescript
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { LangfuseExporter } from "langfuse-vercel";
 
-// 透過 OpenTelemetry exporter 整合
-export const langfuseExporter = new LangfuseExporter({
-  secretKey: process.env.LANGFUSE_SECRET_KEY,
-  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
-  baseUrl: process.env.LANGFUSE_BASEURL,
+// 啟用 telemetry，Langfuse 透過 OTEL exporter 接收
+const { text } = await generateText({
+  model: openai("gpt-4o"),
+  prompt: "什麼是 RAG？",
+  experimental_telemetry: {
+    isEnabled: true,
+    functionId: "rag-answer",
+    metadata: {
+      sessionId: "session-123",
+      userId: "user-abc",
+      tags: ["production"],
+    },
+  },
 });
 ```
+
+搭配 `@langfuse/vercel` 的 `LangfuseExporter` 設定 OpenTelemetry，就能自動把所有 Vercel AI SDK 呼叫送到 Langfuse。支援所有 AI SDK provider（OpenAI、Anthropic、Google、Mistral 等）。
 
 ### LlamaIndex
 
