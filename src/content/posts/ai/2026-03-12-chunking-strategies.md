@@ -221,7 +221,7 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 ## 參考資料
 
 - [Anthropic - Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
-- [LangChain Text Splitters Documentation](https://python.langchain.com/docs/concepts/text_splitters/)
-- [LlamaIndex - Node Parsers / Text Splitters](https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/)
+- [LangChain Text Splitters Documentation](https://docs.langchain.com/oss/python/integrations/splitters/)
+- [LlamaIndex - Node Parsers / Text Splitters](https://developers.llamaindex.ai/python/framework/module_guides/loading/node_parsers/)
 - [Evaluating Chunking Strategies for Retrieval (arXiv:2406.14497)](https://arxiv.org/abs/2406.14497)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)

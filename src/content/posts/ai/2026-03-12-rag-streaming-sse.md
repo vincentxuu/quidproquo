@@ -215,4 +215,4 @@ SSE Streaming 對 RAG 系統的使用者體驗影響是最直接的：從「等 
 - [MDN - Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
 - [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
 - [OpenAI - Streaming API](https://platform.openai.com/docs/api-reference/streaming)
-- [Cloudflare Workers AI - Streaming](https://developers.cloudflare.com/workers-ai/configuration/streaming/)
+- [Cloudflare Workers AI - Streaming](https://developers.cloudflare.com/workers-ai/models/llama-3.1-8b-instruct/)

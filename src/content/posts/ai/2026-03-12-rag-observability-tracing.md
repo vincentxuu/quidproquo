@@ -208,4 +208,4 @@ WHERE created_at < unixepoch() - 30 * 86400;
 - [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
 - [OpenLLMetry - OpenTelemetry for LLM Applications (GitHub)](https://github.com/traceloop/openllmetry)
 - [Langfuse - Open Source LLM Observability](https://langfuse.com/docs)
-- [Observability for Large Language Models (arXiv:2404.15676)](https://arxiv.org/abs/2404.15676)
+- [AgentOps: Enabling Observability of LLM Agents (arXiv:2411.05285)](https://arxiv.org/abs/2411.05285)
