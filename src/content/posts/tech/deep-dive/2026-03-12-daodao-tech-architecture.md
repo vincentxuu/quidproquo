@@ -2,10 +2,10 @@
 title: "島島（DaoDAO）技術架構全覽：Monorepo、多語言後端與 AI 推薦系統"
 date: 2026-03-12
 category: tech
-tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript]
+tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript, bullmq, notification]
 lang: zh-TW
-tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、三資料庫架構，加上 LLM 推薦引擎，島島如何用現代技術棧打造學習平台。"
-description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、Python FastAPI AI 服務，以及 PostgreSQL + MongoDB + Redis + Qdrant 的多資料庫策略。"
+tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、三資料庫架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代技術棧打造學習社群平台。"
+description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI AI 服務，以及 PostgreSQL + MongoDB + Redis + Qdrant 的多資料庫策略。"
 draft: false
 type: deep-dive
 ---
@@ -91,6 +91,45 @@ routes → controllers → services → repositories（Prisma / Mongoose）
 
 這三層的組合讓每種資料都放在最適合它的儲存引擎，而不是強迫所有資料塞進同一個資料庫。代價是運維複雜度——需要同時管三個服務的連線、備份和監控。
 
+## 社交系統與通知系統
+
+島島在 2025 年加入了完整的社交與通知功能，這是平台從「工具」轉型為「社群」的關鍵一步。
+
+### 社交系統
+
+社交功能涵蓋追蹤（follow）、雙向連結（connection）、練習夥伴申請（buddy request）、Reaction（表情回應）和留言 mention。這些功能的資料模型都在 PostgreSQL 中，透過 Prisma 管理 schema migration。
+
+設計上有幾個值得說明的決策：
+
+- **Reaction 採用 upsert 模式**：每個使用者對同一個目標只能有一個 Reaction，重複操作是更新而非新增，避免重複資料
+- **留言 mention**：前端送出 `mentionedUserIds`，後端在建立留言時同步觸發 P1（即時）通知，被 mention 的人會立即收到提醒
+- **隱私控制**：社交功能內建隱私機制，使用者可以控制自己的實踐紀錄和學習內容的可見範圍
+
+### 通知系統
+
+通知系統是社交功能的基礎設施，基於 **BullMQ + Redis** 建構：
+
+```
+使用者操作（按讚、留言、追蹤、mention）
+        │
+        ▼
+  Notification Service（判斷通知類型與優先級）
+        │
+        ├── P1 即時通知 ──▶ BullMQ Worker ──▶ Email 即時發送
+        └── P2 彙整通知 ──▶ 週報排程 Worker ──▶ 每週摘要 Email
+```
+
+通知分為兩個優先級：
+
+| 優先級 | 觸發情境 | 處理方式 |
+|--------|---------|---------|
+| **P1 即時** | 被 mention、收到夥伴申請、被追蹤 | BullMQ worker 即時處理，送出 Email |
+| **P2 彙整** | 按讚、留言、實踐進度 | 彙整進每週摘要信，由排程 worker 定時發送 |
+
+Email 模板使用 HTML 模板引擎，支援多版本（例如歡迎信有不同的 referral group 版本）。週報包含當週完成的實踐項目、收到的互動統計，以及個人化的 CTA 連結。
+
+這套社交 + 通知架構的設計原則是：**即時性和資源消耗取平衡**。不是每個互動都需要即時通知，P1/P2 分級讓重要通知不被淹沒，也避免頻繁發信造成使用者疲勞。
+
 ## AI 後端
 
 AI 服務獨立成 Python FastAPI 應用（`daodao-ai-backend`），與 Node.js 後端分開部署。這個決策很合理：Python 在 ML 生態的工具鏈遠優於 Node.js，獨立服務也讓 AI 功能可以單獨 scale。
@@ -125,12 +164,12 @@ Node.js 後端透過 HTTP 呼叫 FastAPI 服務，兩邊各自維護自己的資
          │         │         │
          ▼         ▼         ▼
     PostgreSQL  MongoDB    Redis
-    (Prisma)              │    │
-                       BullMQ Cache
-                          │
-                          ▼
-                  Scheduled Jobs
-                  （到期實踐自動完成）
+    (Prisma)              │    │    │
+    ├─ 使用者          BullMQ Cache Session
+    ├─ 社交關係           │
+    ├─ 實踐記錄           ├── 通知 Worker（P1 即時 / P2 週報）
+    └─ 通知記錄           ├── Email 發送
+                          └── 排程任務（實踐自動完成）
 
         daodao-server ──HTTP──▶ daodao-ai-backend
                                 (Python FastAPI)
