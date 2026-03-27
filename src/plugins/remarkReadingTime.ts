@@ -19,7 +19,7 @@ export function remarkReadingTime() {
     const fm = (file.data as Record<string, unknown>);
     if (!fm.astro) fm.astro = {};
     (fm.astro as Record<string, unknown>).frontmatter = {
-      ...((fm.astro as Record<string, unknown>).frontmatter as object ?? {}),
+      ...((fm.astro as Record<string, unknown>).frontmatter as object),
       readingTime: minutes,
     };
   };
