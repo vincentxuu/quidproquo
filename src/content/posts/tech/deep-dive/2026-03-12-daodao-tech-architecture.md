@@ -2,10 +2,10 @@
 title: "島島（DaoDAO）技術架構全覽：Monorepo、多語言後端與 AI 推薦系統"
 date: 2026-03-12
 category: tech
-tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript, bullmq, notification]
+tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript, bullmq, notification, celery]
 lang: zh-TW
-tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、三資料庫架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代技術棧打造學習社群平台。"
-description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI AI 服務，以及 PostgreSQL + MongoDB + Redis + Qdrant 的多資料庫策略。"
+tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、PostgreSQL + Redis 核心架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代技術棧打造學習社群平台。"
+description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI + Celery AI 服務，以及 PostgreSQL + Redis + Qdrant + ClickHouse 的多資料庫策略。"
 draft: false
 type: deep-dive
 ---
@@ -138,6 +138,7 @@ AI 服務獨立成 Python FastAPI 應用（`daodao-ai-backend`），與 Node.js 
 - **Qdrant**：向量資料庫，儲存學習內容的 embedding，支援語意搜尋——不是關鍵字搜尋「TypeScript 教學」，而是找到「跟你的學習目標語意相近的內容」
 - **ClickHouse**：分析資料庫，記錄使用行為事件（頁面瀏覽、互動、學習進度），供推薦引擎的特徵工程使用
 - **Redis**：LLM 回應和搜尋結果快取，避免重複推論相同的 query
+- **Celery**：Redis-based 任務佇列，處理 AI 回饋生成等耗時的非同步任務
 
 Node.js 後端透過 HTTP 呼叫 FastAPI 服務，兩邊各自維護自己的資料來源。
 
@@ -159,29 +160,28 @@ Node.js 後端透過 HTTP 呼叫 FastAPI 服務，兩邊各自維護自己的資
                 │
                 ▼
         daodao-server (Node.js / Express)
-         │         │         │
-         ▼         ▼         ▼
-    PostgreSQL  MongoDB    Redis
-    (Prisma)              │    │    │
-    ├─ 使用者          BullMQ Cache Session
-    ├─ 社交關係           │
-    ├─ 實踐記錄           ├── 通知 Worker（P1 即時 / P2 週報）
-    └─ 通知記錄           ├── Email 發送
-                          └── 排程任務（實踐自動完成）
+         │                    │
+         ▼                    ▼
+    PostgreSQL              Redis
+    (Prisma)           │    │    │
+    ├─ 使用者       BullMQ Cache Session
+    ├─ 社交關係         │
+    ├─ 實踐記錄         ├── 通知 Worker（P1/P2 + Email 批次 + 週報）
+    └─ 通知記錄         └── 排程任務（實踐自動完成）
 
         daodao-server ──HTTP──▶ daodao-ai-backend
-                                (Python FastAPI)
+                                (Python FastAPI + Celery)
                                  │       │      │
                                  ▼       ▼      ▼
                               Qdrant  ClickHouse Redis
-                           （語意搜尋）（分析）  （快取）
+                           （語意搜尋）（分析）  （快取 + Celery broker）
 ```
 
 GitHub Actions 管 CI/CD，Discord 收通知。前端 monorepo 透過 Turborepo pipeline 管 build 相依順序。
 
 ## 整體來說
 
-島島這套架構的核心取捨是：**用較高的技術複雜度換取每一層的最佳化空間**。四種資料庫、兩個後端服務、三個前端 app——對小團隊來說，這是有代價的選擇。
+島島這套架構的核心取捨是：**用較高的技術複雜度換取每一層的最佳化空間**。兩個後端服務（Node.js + Python）、多個資料庫（PostgreSQL、Redis、Qdrant、ClickHouse）、三個前端 app——對小團隊來說，這是有代價的選擇。
 
 合理的前提是：
 1. 團隊對這些技術都有足夠熟悉度，維護成本可控
