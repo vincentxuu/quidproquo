@@ -372,7 +372,7 @@ AI agent 不是一個黑盒子，也不是「更聰明的 chatbot」。它是三
 
 ---
 
-## 延伸閱讀
+## 參考資料
 
 - [The Three Pillars of AI Agents: Context, Cognition, and Action](https://medium.com/@v31u/the-three-pillars-of-ai-agents-context-cognition-and-action-5f75c4d8534f) — Velu Sankaran
 - [Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain Blog

@@ -236,3 +236,12 @@ testset = generator.generate_with_langchain_docs(
 RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個查詢類型上低於閾值」。這個量化才能讓優化工作有針對性，而不是盲目試各種技術。
 
 先選一個框架（RAGAS 入門最快），建立一個 50-100 個測試案例的小資料集，建立基準分數，然後每次優化後對比分數變化。這個習慣建立起來，RAG 系統的迭代會有效率很多。
+
+---
+
+## 參考資料
+
+- [RAGAS: Automated Evaluation of Retrieval Augmented Generation (2023)](https://arxiv.org/abs/2309.15217)
+- [ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems (2023)](https://arxiv.org/abs/2311.09476)
+- [TruLens RAG Triad — Context Relevance, Groundedness, Answer Relevance](https://www.trulens.org/trulens_eval/core_concepts_rag_triad/)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

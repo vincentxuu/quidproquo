@@ -101,3 +101,9 @@ MMR 選取結果（Top-K 個）
 MMR 在 RAG 系統中經常被低估。把 Top-10 相關文件直接送進 LLM，和 MMR 選出 10 個多樣的相關文件，前者的 context 往往有很多重複資訊，後者能讓 LLM 看到問題的不同面向，回答更全面。
 
 加上熱門度加權，推薦結果既有語義相關性（向量搜尋 + 重排序），又有社群驗證（熱門度），是一個在算法嚴謹性和使用者體驗之間找到平衡的設計。
+
+---
+
+## 參考資料
+
+- [The Use of MMR, Diversity-Based Reranking for Reordering Documents and Producing Summaries (Carbonell & Goldstein, 1998)](https://dl.acm.org/doi/10.1145/290941.291025)

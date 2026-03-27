@@ -194,3 +194,10 @@ const hydeDoc = await generateHyDE(query, env);
 Modular Pipeline 解決的是 RAG 系統的**可維護性**問題。步驟越加越多時，模組化比大函數好維護；動態配置比重新部署調整參數更靈活；skipWhen 比滿屏 if-else 更清晰。
 
 這個架構的核心取捨：多了一層抽象（Pipeline Engine、Step Registry），換來了可測試性、可配置性、可觀測性。對一個持續演進的 RAG 系統，這個取捨是值得的。
+
+---
+
+## 參考資料
+
+- [Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks (2024)](https://arxiv.org/abs/2407.21059)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

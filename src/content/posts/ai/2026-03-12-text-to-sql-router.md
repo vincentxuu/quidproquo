@@ -130,3 +130,12 @@ if (sqlResults.length === 0) {
 Text-to-SQL Router 的本質是：**承認 LLM 的局限性，讓它做自己擅長的事**。LLM 很擅長意圖理解和自然語言生成，但不擅長精確計算。統計和計數交給資料庫，推理和表達交給 LLM，這個分工讓系統的準確度顯著提升。
 
 模板型設計也比自由 SQL 生成安全得多——SQL 注入風險、Schema 幻覺、效能問題都在模板層面解決，LLM 只做參數提取，責任邊界清晰。
+
+---
+
+## 參考資料
+
+- [DIN-SQL: Decomposed In-Context Learning of Text-to-SQL with Self-Correction](https://arxiv.org/abs/2304.11015)
+- [Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task](https://arxiv.org/abs/1809.08887)
+- [A Survey on Employing Large Language Models for Text-to-SQL Tasks](https://arxiv.org/html/2407.15186v5)
+- [Spider Benchmark: Yale Semantic Parsing and Text-to-SQL Challenge](https://yale-lily.github.io/spider)

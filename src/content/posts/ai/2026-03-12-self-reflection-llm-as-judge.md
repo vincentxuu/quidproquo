@@ -138,3 +138,11 @@ LLM-as-Judge 不是萬能的，有幾個已知問題：
 LLM-as-Judge 是 RAG 品質保證的核心機制。Groundedness 讓系統知道什麼時候該謙虛，Self-Reflection 提供一次自我修正的機會，自動標記建立了持續改善的回饋迴路。
 
 最重要的設計原則：**不信任任何單一評估**。Judge 分數低 → 標記等待人工。使用者評分差 → 也觸發標記。兩者一致才算真正確認有問題。多重信號比單一信號可靠。
+
+---
+
+## 參考資料
+
+- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (2023)](https://arxiv.org/abs/2310.11511)
+- [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (2023)](https://arxiv.org/abs/2306.05685)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

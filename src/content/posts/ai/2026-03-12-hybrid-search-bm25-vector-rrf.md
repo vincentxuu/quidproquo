@@ -145,3 +145,10 @@ User Query
 Hybrid Search 的本質是**召回率與精確度的互補**。向量搜尋提供語義覆蓋，BM25 提供關鍵字精準，RRF 以名次為基礎中立融合。這套組合在攀岩這種有大量專業術語（路線等級、岩場地名、技術術語）同時又需要語義理解（「適合初學者」、「風景優美」）的場景下，效果明顯優於任何單一搜尋方式。
 
 工程成本也不高：BM25 用 SQLite FTS5 就能搞定，不需要額外服務。真正的挑戰在 filter 提取的準確度，這部分依賴前一步的 NLP 解析品質。
+
+---
+
+## 參考資料
+
+- [Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods (Cormack et al., 2009)](https://dl.acm.org/doi/10.1145/1571941.1572114)
+- [The Probabilistic Relevance Framework: BM25 and Beyond (Robertson & Zaragoza, 2009)](https://dl.acm.org/doi/abs/10.1561/1500000019)

@@ -169,3 +169,15 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 向量資料庫的選型，70% 是由**部署平台和規模**決定的，30% 才是功能特性的比較。在 Cloudflare Workers 上，Vectorize 是自然選擇；在 AWS 上，Pinecone 有地利優勢；需要自架完全控制，Qdrant 是最成熟的開源選項。
 
 不要在「哪個 benchmark 最高」上花太多時間，先確認你的部署環境和規模，再做選型。
+
+---
+
+## 參考資料
+
+- [ANN Benchmarks - Benchmarking Nearest Neighbor Search](https://ann-benchmarks.com/)
+- [A Comprehensive Survey on Vector Database (arXiv:2310.11703)](https://arxiv.org/abs/2310.11703)
+- [Pinecone Documentation](https://docs.pinecone.io/)
+- [Weaviate Documentation](https://weaviate.io/developers/weaviate)
+- [Qdrant Documentation](https://qdrant.tech/documentation/)
+- [Chroma Documentation](https://docs.trychroma.com/)
+- [Cloudflare Vectorize Documentation](https://developers.cloudflare.com/vectorize/)

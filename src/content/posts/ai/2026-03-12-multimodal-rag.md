@@ -135,3 +135,10 @@ const response = await visionLlm.generate({
 ## 整體來說
 
 Multimodal RAG 擴展了 RAG 系統的知識邊界——不只是文字知識，也包括視覺知識。對攀岩這個視覺元素豐富的領域，這個擴展的價值是真實的。技術上已經可行（CLIP + Vision LLM），工程成本是主要的制約因素。
+
+---
+
+## 參考資料
+
+- [MuRAG: Multimodal Retrieval-Augmented Generator for Open Question Answering over Images and Text (2022)](https://arxiv.org/abs/2210.02928)
+- [A Survey of Multimodal Retrieval-Augmented Generation (2025)](https://arxiv.org/abs/2504.08748)

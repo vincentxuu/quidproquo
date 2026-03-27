@@ -101,3 +101,12 @@ Fine-tuning 值得投入的情況：
 ## 整體來說
 
 RAG 和 Fine-tuning 是互補的工具，不是競爭關係。RAG 是「知識的延伸」，Fine-tuning 是「能力的塑造」。一個高品質的 LLM 應用，通常需要用基礎能力強的模型（或 fine-tuned 的模型），加上精心設計的 RAG 系統，而不是只選其中一個。
+
+---
+
+## 參考資料
+
+- [RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture (2024)](https://arxiv.org/abs/2401.08406)
+- [Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge (2024)](https://arxiv.org/abs/2403.01432)
+- [Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs (2023)](https://arxiv.org/abs/2312.05934)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

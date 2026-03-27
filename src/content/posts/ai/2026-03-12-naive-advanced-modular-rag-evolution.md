@@ -132,3 +132,11 @@ Modular RAG 不只是重組了原有的步驟，也加入了 Advanced RAG 沒有
 三個世代不是「新的取代舊的」，而是**不同複雜度的解法**。Naive RAG 的核心思路在 Modular RAG 裡仍然存在，只是被更好地組織了。
 
 理解每個世代解決了什麼問題、引入了什麼複雜度，才能在「夠用就好」和「過度工程」之間找到對的平衡點。
+
+---
+
+## 參考資料
+
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
+- [Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks (2024)](https://arxiv.org/abs/2407.21059)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

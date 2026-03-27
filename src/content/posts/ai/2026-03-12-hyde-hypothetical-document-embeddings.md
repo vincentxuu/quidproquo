@@ -81,3 +81,9 @@ const [queryResults, hydeResults] = await Promise.all([
 - 對短查詢（3-5 個字）效益有限，語義已經很清晰
 
 整體來說，對複雜、模糊的自然語言查詢，HyDE 是低成本高效益的 recall 提升手段。
+
+---
+
+## 參考資料
+
+- [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (2022)](https://arxiv.org/abs/2212.10496)

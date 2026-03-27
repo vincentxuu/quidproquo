@@ -142,3 +142,10 @@ CRAG 是**零結果時的規則型修正**，Agentic RAG 是**有結果但不夠
 Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進。它不適合高流量、對延遲敏感的場景，但對複雜的規劃型和多跳推理型查詢，品質提升是顯著的。
 
 核心設計原則：**給 LLM 充分的資訊而不是讓它猜**。與其讓 LLM 從不完整的 context 中瞎猜，不如讓它多搜幾次拿到足夠的資訊再回答。Agentic RAG 就是把這個判斷權還給 LLM。
+
+---
+
+## 參考資料
+
+- [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)
+- [Toolformer: Language Models Can Teach Themselves to Use Tools (2023)](https://arxiv.org/abs/2302.04761)

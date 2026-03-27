@@ -215,3 +215,13 @@ async function semanticChunk(
 Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少 HyDE、Multi-Query、Reranker，都建立在「索引裡有正確的語義單元」這個前提上。索引本身有問題，搜尋再好也找不到正確答案。
 
 最務實的建議：從 Recursive Chunking + Contextual Retrieval 開始，然後根據實際的搜尋品質（查看 trace 裡命中的 chunk 是否有意義）決定要不要換策略。
+
+---
+
+## 參考資料
+
+- [Anthropic - Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
+- [LangChain Text Splitters Documentation](https://python.langchain.com/docs/concepts/text_splitters/)
+- [LlamaIndex - Node Parsers / Text Splitters](https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/)
+- [Evaluating Chunking Strategies for Retrieval (arXiv:2406.14497)](https://arxiv.org/abs/2406.14497)
+- [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)

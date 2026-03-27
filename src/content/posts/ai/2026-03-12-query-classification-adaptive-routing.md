@@ -124,3 +124,12 @@ Query Classification 是 adaptive RAG 的核心。不同問題有不同的最優
 2. 一定要有 regex fallback，防止 LLM 超時拖垮整個請求
 3. skipWhen 讓 pipeline 保持解耦，分類結果和步驟邏輯分離
 4. 動態模型選擇是成本優化的低掛果實
+
+---
+
+## 參考資料
+
+- [Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity](https://arxiv.org/abs/2403.14403)
+- [SymRAG: Efficient Neuro-Symbolic Retrieval-Augmented Generation through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
+- [Query Routing for Retrieval-Augmented Language Models](https://arxiv.org/html/2505.23052v1)
+- [Context Awareness Gate For Retrieval Augmented Generation](https://arxiv.org/abs/2411.16133)

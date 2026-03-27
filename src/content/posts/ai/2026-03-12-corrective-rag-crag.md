@@ -85,3 +85,10 @@ CRAG 解決的是「根本沒東西」的問題，Agentic RAG 解決的是「有
 ## 整體來說
 
 CRAG 是 RAG pipeline 的安全網，成本低（多一次搜尋），卻能防止系統在邊緣情況下靜默失敗。搭配 LLM-as-Judge 的 Groundedness 評分，即使放寬後取到的文件相關性較低，Judge 也會降低 groundedness 分數，讓系統加上適當的免責聲明。防禦是多層的，CRAG 是第一層。
+
+---
+
+## 參考資料
+
+- [Corrective Retrieval Augmented Generation (2024)](https://arxiv.org/abs/2401.15884)
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)

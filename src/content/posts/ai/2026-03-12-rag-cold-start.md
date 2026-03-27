@@ -172,3 +172,12 @@ if (searchResults.length === 0) {
 冷啟動是個工程問題，不是 RAG 演算法問題。解法很務實：先把現有的結構化資料索引進去，設計好優雅降級，讓使用者在資料稀疏時仍有合理體驗，然後靠使用量驅動資料的持續擴充。
 
 最重要的是：**不要等資料完整才上線**。系統上線 → 使用者使用 → 找到資料缺口 → 補充資料，這個迴圈比預先準備完整資料庫更有效。
+
+---
+
+## 參考資料
+
+- [RAGSys: Item-Cold-Start Recommender as RAG System](https://arxiv.org/abs/2405.17587)
+- [Cold-Start Recommendation with Knowledge-Guided Retrieval-Augmented Generation](https://arxiv.org/abs/2505.20773)
+- [From Zero-Shot Learning to Cold-Start Recommendation](https://arxiv.org/abs/1906.08511)
+- [KnowTrace: Bootstrapping Iterative Retrieval-Augmented Generation with Structured Knowledge Tracing](https://arxiv.org/abs/2505.20245)

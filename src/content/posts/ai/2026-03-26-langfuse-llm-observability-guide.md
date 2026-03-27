@@ -607,3 +607,14 @@ Settings.callback_manager = CallbackManager([langfuse_handler])
 - 比 Helicone 的 trace 深度更深——不只看到 LLM 呼叫，還能看到整個 pipeline
 
 如果你正在認真做一個 LLM 應用，Langfuse 值得花一個下午設定起來。看得見問題，才能修好問題。
+
+---
+
+## 參考資料
+
+- [Langfuse 官方文件](https://langfuse.com/docs)
+- [Langfuse GitHub](https://github.com/langfuse/langfuse)
+- [Langfuse Cloud](https://cloud.langfuse.com)
+- [Langfuse Cookbook（整合範例集）](https://langfuse.com/docs/guides)
+- [Langfuse TypeScript SDK](https://www.npmjs.com/package/langfuse)
+- [Langfuse Python SDK](https://pypi.org/project/langfuse/)

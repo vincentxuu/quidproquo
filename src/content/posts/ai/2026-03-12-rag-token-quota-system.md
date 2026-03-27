@@ -177,3 +177,13 @@ WHERE
 配額系統的難點不在限制本身，在邊緣情況的處理：並發請求的競爭條件（原子 UPDATE）、串流斷線的退還（避免虧待使用者）、估算與實際的差額校正（避免記帳偏差）、重置的時機（lazy reset vs 定時任務）。
 
 這些細節都做對，配額系統才能既控制成本，又不讓使用者有被剋扣的感覺。
+
+---
+
+## 參考資料
+
+- [OpenAI Tokenizer (tiktoken) GitHub Repository](https://github.com/openai/tiktoken)
+- [OpenAI Rate Limits Documentation](https://platform.openai.com/docs/guides/rate-limits)
+- [Anthropic API Rate Limits](https://docs.anthropic.com/en/api/rate-limits)
+- [Cloudflare D1 Documentation](https://developers.cloudflare.com/d1/)
+- [SQLite Atomic Commit (SQLite Documentation)](https://www.sqlite.org/atomiccommit.html)

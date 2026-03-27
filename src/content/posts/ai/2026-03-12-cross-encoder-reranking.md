@@ -92,3 +92,9 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 - Simple 查詢語義清晰，第一輪搜尋結果本來就不差
 
 整體來說，Reranking 是 RAG pipeline 中 precision 提升最直接的環節，成本也在可接受範圍內（對 30 個候選做 cross-attention 比一次 LLM 生成便宜很多）。
+
+---
+
+## 參考資料
+
+- [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks (2019)](https://arxiv.org/abs/1908.10084)

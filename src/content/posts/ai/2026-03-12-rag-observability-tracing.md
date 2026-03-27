@@ -199,3 +199,13 @@ WHERE created_at < unixepoch() - 30 * 86400;
 可觀測性是 RAG 系統從「能跑」到「可運營」的關鍵差距。沒有 trace，每次出問題都要靠猜；有了 trace，問題基本上都能定位到具體步驟。
 
 設計 trace 的時候，記錄「決策理由」比記錄「執行結果」更有價值。結果很多時候看答案就知道了，理由才是除錯的關鍵——LLM 為什麼這樣分類？CRAG 為什麼觸發？Self-Reflection 為什麼沒採用新回答？這些問題的答案都在 trace 裡。
+
+---
+
+## 參考資料
+
+- [OpenTelemetry Documentation](https://opentelemetry.io/docs/)
+- [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
+- [OpenLLMetry - OpenTelemetry for LLM Applications (GitHub)](https://github.com/traceloop/openllmetry)
+- [Langfuse - Open Source LLM Observability](https://langfuse.com/docs)
+- [Observability for Large Language Models (arXiv:2404.15676)](https://arxiv.org/abs/2404.15676)

@@ -217,3 +217,15 @@ const openai = new OpenAI({
 **自己寫 trace** → 適合有特殊需求或想完整控制 trace 資料結構的場景。成本是要自己維護 UI 和查詢介面，但完全客製化。
 
 NobodyClimb 的系統選擇了自訂 trace，主要原因是部署在 Cloudflare Workers（不能輕易跑外部 SDK 的 flush 機制），且 trace 資料需要和業務資料（攀岩路線、用戶資料）緊密整合。但如果是重新開始且沒有平台限制，Langfuse 會是第一個試的選項。
+
+---
+
+## 參考資料
+
+- [Langfuse Documentation](https://langfuse.com/docs)
+- [Langfuse GitHub Repository](https://github.com/langfuse/langfuse)
+- [Phoenix (Arize AI) Documentation](https://docs.arize.com/phoenix)
+- [Phoenix GitHub Repository](https://github.com/Arize-ai/phoenix)
+- [LangSmith Documentation](https://docs.smith.langchain.com/)
+- [Helicone Documentation](https://docs.helicone.ai/)
+- [OpenLLMetry - OpenTelemetry for LLMs (GitHub)](https://github.com/traceloop/openllmetry)

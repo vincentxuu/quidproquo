@@ -205,3 +205,14 @@ async function askQuestion(query: string, onToken: (t: string) => void) {
 SSE Streaming 對 RAG 系統的使用者體驗影響是最直接的：從「等 5 秒看到完整答案」變成「0.8 秒後看到字開始出現」。對 LLM 生成這種天然適合串流的場景，不做 streaming 是讓使用者白白等待。
 
 實作的關鍵不只是推送 token，而是：事件格式設計（`done` 包含完整的 metadata）、配額退還機制（斷線不虧待使用者）、前端的 buffer 處理（SSE 事件可能被 chunk 切斷）。這些細節做好了，串流體驗才是完整的。
+
+---
+
+## 參考資料
+
+- [MDN - Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+- [WHATWG - Server-Sent Events Specification](https://html.spec.whatwg.org/multipage/server-sent-events.html)
+- [MDN - Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
+- [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
+- [OpenAI - Streaming API](https://platform.openai.com/docs/api-reference/streaming)
+- [Cloudflare Workers AI - Streaming](https://developers.cloudflare.com/workers-ai/configuration/streaming/)

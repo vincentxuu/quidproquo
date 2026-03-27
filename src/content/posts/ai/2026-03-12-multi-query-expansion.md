@@ -106,3 +106,11 @@ Multi-Query 的主要成本是：
 ## 整體來說
 
 Multi-Query Expansion 本質上是在用 LLM 的語言能力來彌補向量搜尋的覆蓋盲點。單一查詢的 recall 受限於使用者的表達方式，多角度改寫打破這個限制。配合 RRF 融合，不同角度都命中的文件會排名更高，結果品質也更好。
+
+---
+
+## 參考資料
+
+- [RAG-Fusion: a New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367)
+- [Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods (Cormack et al., 2009)](https://dl.acm.org/doi/10.1145/1571941.1572114)
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020)](https://arxiv.org/abs/2005.11401)

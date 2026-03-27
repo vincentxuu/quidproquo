@@ -115,7 +115,7 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 
 「垃圾進，垃圾出」是 RAG 系統最常見的失敗原因。Contextual Retrieval 確保進去的每個 chunk 都是「有意義的資訊單元」，而不只是被截斷的文字片段。
 
-## 參考來源
+## 參考資料
 
 ### Anthropic Engineering — Introducing Contextual Retrieval
 

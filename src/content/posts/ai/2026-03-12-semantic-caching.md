@@ -119,3 +119,12 @@ Request
 Semantic Caching 是 RAG 系統效能優化中成本最低、效益最高的手段之一。實作簡單（一次向量比對），效果明顯（延遲從秒級降到毫秒級），對使用者體驗的提升立竿見影。
 
 唯一需要注意的是 privacy 考量（個性化查詢不快取）和 TTL 設定（資料更新的頻率）。其他方面，這是幾乎沒有缺點的優化。
+
+---
+
+## 參考資料
+
+- [GPTCache: An Open-Source Semantic Cache for LLM Applications (arXiv:2308.07138)](https://arxiv.org/abs/2308.07138)
+- [Meaning LLM Semantic Caching (arXiv:2407.02003)](https://arxiv.org/abs/2407.02003)
+- [Cloudflare Workers KV Documentation](https://developers.cloudflare.com/kv/)
+- [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)

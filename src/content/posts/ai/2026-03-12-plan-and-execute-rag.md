@@ -143,3 +143,10 @@ if (effectiveStrategy === 'plan-execute') {
 Plan-and-Execute 把「思考」和「執行」分開。Planner 做全局規劃，Executor 專注執行，兩個角色分離讓複雜問題的處理更系統化。
 
 代價是多一次 LLM 呼叫（生成計畫），以及計畫一旦生成就缺乏彈性。對結構清晰的複雜查詢，這個代價是值得的；對開放性的探索查詢，ReAct 的靈活性更合適。選擇哪種策略，取決於問題的性質，而不是一概而論。
+
+---
+
+## 參考資料
+
+- [Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models (2023)](https://arxiv.org/abs/2305.04091)
+- [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)

@@ -167,3 +167,12 @@ if (hasExactKeywords(query)) {
 RAG 成本優化的最高投資報酬率策略是：Semantic Cache 和動態模型選擇。前者完全省去重複查詢的成本，後者讓簡單查詢用便宜的模型。這兩個加起來，通常可以把平均成本降低 40-50%，且幾乎不影響整體品質。
 
 其他優化（context 長度控制、步驟跳過）是微調，效益有限但累積起來也值得。品質保護（Judge）是不應該輕易犧牲的，它的成本換來的是對系統品質的持續監控，這個監控的價值遠超過省下的那點 token 費用。
+
+---
+
+## 參考資料
+
+- [CompactRAG: Reducing LLM Calls and Token Overhead in Multi-Hop Question Answering](https://arxiv.org/abs/2602.05728)
+- [RAGO: Systematic Performance Optimization for Retrieval-Augmented Generation](https://arxiv.org/abs/2503.14649)
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833)
+- [Towards Understanding Systems Trade-offs in Retrieval-Augmented Generation Model Inference](https://arxiv.org/abs/2412.11854)

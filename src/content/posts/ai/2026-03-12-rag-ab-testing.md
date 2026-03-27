@@ -162,3 +162,12 @@ GROUP BY variant, query_type;
 RAG 的 A/B 測試不需要複雜的工具，核心是：清楚的對照設計（每次只動一個變量）、合適的指標（主要 + 護欄）、足夠的樣本量、子群體分析。
 
 最重要的習慣：**在系統上線時就埋下 experiment_id 欄位**，不要等到需要測試時才發現沒有資料可以分析。預先設計可觀測性，才能讓每次改動都有數據支撐。
+
+---
+
+## 參考資料
+
+- [Learning Metrics that Maximise Power for Accelerated A/B-Tests](https://arxiv.org/abs/2402.03915)
+- [Machine Learning Testing: Survey, Landscapes and Horizons](https://arxiv.org/abs/1906.10742)
+- [Dynamic Causal Effects Evaluation in A/B Testing with a Reinforcement Learning Framework](https://arxiv.org/abs/2002.01711)
+- [Large-Scale Validation and Analysis of Interleaved Search Evaluation (Chapelle et al., 2012)](https://www.cs.cornell.edu/~tj/publications/chapelle_etal_12a.pdf)

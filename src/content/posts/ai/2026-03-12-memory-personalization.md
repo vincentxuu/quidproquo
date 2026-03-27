@@ -152,3 +152,11 @@ ctx.waitUntil(
 個性化 RAG 的設計哲學是**觀察而不打擾**。不需要使用者填問卷，不需要明確設定偏好，系統從自然的使用行為中悄悄學習，逐漸提供更貼近個人需求的結果。
 
 在攀岩這個有明確程度分級的領域，個性化的效益特別顯著——一個讓高手和初學者都滿意的推薦，比一個平均值的回答更有價值。
+
+---
+
+## 參考資料
+
+- [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
+- [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174)
+- [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110)

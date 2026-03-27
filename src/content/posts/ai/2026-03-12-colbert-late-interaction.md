@@ -94,3 +94,10 @@ results = RAG.search(query="龍洞適合中級的路線", k=10)
 ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。但在實際部署時，索引大小的問題和工程生態系的不成熟（特別是 TypeScript 環境）讓它沒有 Bi-Encoder + Cross-Encoder 兩階段架構那麼實用。
 
 對大多數 RAG 系統，現有的 Bi-Encoder 搜尋 + Cross-Encoder 重排是更成熟的選擇。ColBERT 值得關注，特別是當 ColBERTv2 的壓縮技術讓索引成本降到可接受的範圍，以及更多平台開始原生支援的時候。
+
+---
+
+## 參考資料
+
+- [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT (2020)](https://arxiv.org/abs/2004.12832)
+- [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction (2021)](https://arxiv.org/abs/2112.01488)
