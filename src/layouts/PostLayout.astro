@@ -8,8 +8,11 @@ interface Props {
   description?: string;
   lang?: Lang;
   ogImage?: string;
+  articleDate?: Date;
+  articleTags?: string[];
 }
-const { title, description, lang: langProp, ogImage } = Astro.props;
+const { title, description, lang: langProp, ogImage, articleDate, articleTags } = Astro.props;
+const isArticle = !!articleDate;
 const lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -30,16 +33,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   {description && <meta name="description" content={description} />}
   <meta property="og:title" content={`${title} — quidproquo`} />
   {description && <meta property="og:description" content={description} />}
-  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_TW'} />
+  <meta property="og:type" content={isArticle ? 'article' : 'website'} />
   <meta property="og:url" content={canonicalURL} />
   {ogImage && <meta property="og:image" content={ogImage} />}
   {ogImage && <meta property="og:image:width" content="1200" />}
   {ogImage && <meta property="og:image:height" content="630" />}
+  {isArticle && <meta property="article:published_time" content={articleDate!.toISOString()} />}
+  {isArticle && <meta property="article:author" content="xiaoxu" />}
+  {isArticle && articleTags?.map(tag => <meta property="article:tag" content={tag} />)}
   <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
   <meta name="twitter:title" content={`${title} — quidproquo`} />
   {description && <meta name="twitter:description" content={description} />}
   {ogImage && <meta name="twitter:image" content={ogImage} />}
-  <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href="/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href={lang === 'en' ? '/en/rss.xml' : '/rss.xml'} />
   <slot name="head" />
   <script is:inline>
     // Apply theme before page renders to avoid flash
@@ -74,7 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   </main>
   <footer>
     <span>quidproquo.cc</span>
-    <a href="/rss.xml" class="rss-link" aria-label="RSS">
+    <a href={lang === 'en' ? '/en/rss.xml' : '/rss.xml'} class="rss-link" aria-label="RSS">
       <Icons name="rss" size={14} />
       <span>RSS</span>
     </a>

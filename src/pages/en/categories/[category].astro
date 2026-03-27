@@ -26,7 +26,7 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const availableTypes = [...new Set(posts.map(p => p.data.type).filter(Boolean))] as string[];
 const showFilter = availableTypes.length > 1;
 ---
-<PostLayout title={`${category} — quidproquo`} lang="en">
+<PostLayout title={`${category} — quidproquo`} lang="en" description={`quidproquo ${category} category — ${posts.length} articles.`}>
   <a href="/en/categories" class="back-link"><Icons name="chevron-left" size={13} />{t('post.backtocategories')}</a>
   <div class={`cat-header cat-header-${category}`}>
     <h1>{category}</h1>

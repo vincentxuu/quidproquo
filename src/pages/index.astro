@@ -15,6 +15,25 @@ posts.sort((a, b) => {
 });
 ---
 <PostLayout title="quidproquo" lang="zh-TW" description="AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。" ogImage="https://quidproquo.cc/og/home.png">
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="zh-TW" href="https://quidproquo.cc/" />
+    <link rel="alternate" hreflang="en" href="https://quidproquo.cc/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://quidproquo.cc/" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'quidproquo',
+      url: 'https://quidproquo.cc',
+      description: 'AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。',
+      inLanguage: 'zh-TW',
+      author: { '@type': 'Person', name: 'xiaoxu' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: { '@type': 'EntryPoint', urlTemplate: 'https://quidproquo.cc/search?q={search_term_string}' },
+        'query-input': 'required name=search_term_string',
+      },
+    }).replace(/</g, '\\u003c')} />
+  </Fragment>
   <h1>quidproquo</h1>
   <p class="subtitle">{t('site.tagline')}</p>
   <div class="about">
