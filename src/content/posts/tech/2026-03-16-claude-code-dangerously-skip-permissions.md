@@ -157,7 +157,9 @@ YOLO 模式是真正的自動化加速器，但它的設計前提是你信任要
 
 ---
 
-Sources:
+## 參考資料
+
+- [Claude Code - Permission modes](https://docs.anthropic.com/en/docs/claude-code/settings#permission-modes)
 - [claude --dangerously-skip-permissions - PromptLayer](https://blog.promptlayer.com/claude-dangerously-skip-permissions/)
 - [Dangerous Skip Permissions | ClaudeLog](https://claudelog.com/mechanics/dangerous-skip-permissions/)
 - [YOLO Mode Hidden Risks | UpGuard](https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions/)

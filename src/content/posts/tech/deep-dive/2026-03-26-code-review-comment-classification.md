@@ -175,3 +175,15 @@ SonarQube 10.3+ 開始轉向 Clean Code 屬性和軟體品質維度（Reliabilit
 最低成本的做法：用 `nit:` 前綴區分阻擋和不阻擋，就能解決八成問題。想要更完整就上 Conventional Comments。AI 工具的分類可以當作參考，但別指望它取代團隊自己的判斷標準。
 
 一個有趣的數據：CodeRabbit 發現 AI 生成的程式碼比人寫的多 1.7 倍問題/PR，邏輯錯誤多 75%。AI 寫 code、AI 做 review 已經是現實，但分類和判斷的最後一道防線還是人。
+
+## 參考資料
+
+- [Conventional Comments](https://conventionalcomments.org/)
+- [Google Engineering Practices — Review Comments](https://google.github.io/eng-practices/review/reviewer/comments.html)
+- [SonarQube Documentation](https://docs.sonarsource.com/sonarqube/)
+- [Claude Code Review 官方文件](https://docs.anthropic.com/en/docs/claude-code/github-actions#code-review)
+- [CodeRabbit](https://coderabbit.ai/)
+- [Qodo PR-Agent](https://github.com/Codium-ai/pr-agent)
+- [Greptile](https://www.greptile.com/)
+- [Modern Code Review: A Case Study at Google (2018)](https://sback.it/publications/icse2018seip.pdf)
+- [awesome-code-review](https://github.com/joho/awesome-code-review)

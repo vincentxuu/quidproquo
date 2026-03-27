@@ -97,3 +97,10 @@ import { Resvg } from '@resvg/resvg-js';
 ## 學到的事
 
 需要 native module 的工作，就在 build script 裡做，別放進 Astro 的模組圖。只要 import 了 native module，不管 route 是不是 prerender，Cloudflare Workers bundler 都會嘗試打包它，然後失敗。
+
+## 參考資料
+
+- [Astro Cloudflare Adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
+- [Satori - Enlightened library to convert HTML and CSS to SVG](https://github.com/vercel/satori)
+- [@resvg/resvg-js GitHub](https://github.com/nicolo-ribaudo/resvg-js)
+- [Cloudflare Workers Runtime APIs](https://developers.cloudflare.com/workers/runtime-apis/)

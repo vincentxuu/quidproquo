@@ -80,3 +80,11 @@ pinned: true
 - 試了幾個方向最後才找到對的解法
 
 這些情況下，對話本身就已經是一篇好文章的素材了。說一句話，讓它成為文章。
+
+## 參考資料
+
+- [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code)
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — 另一個從對話萃取資訊的 Skill 設計
+- [Claude Code 的三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Skill 機制的完整介紹
+- [這個部落格用了哪些工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — 本站技術棧，文章就是存在這個架構裡

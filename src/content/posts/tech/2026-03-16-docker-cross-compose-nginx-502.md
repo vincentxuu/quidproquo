@@ -63,3 +63,9 @@ Network alias 在同一個 network 上的所有容器都可見，不限 Compose 
 ## 學到的事
 
 跨 Compose 專案的容器互通，別靠 service name，要明確設定 network alias。
+
+## 參考資料
+
+- [Docker Compose networking](https://docs.docker.com/compose/how-tos/networking/)
+- [Docker network aliases](https://docs.docker.com/reference/cli/docker/network/connect/#aliases)
+- [nginx - Module ngx_http_upstream_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html)

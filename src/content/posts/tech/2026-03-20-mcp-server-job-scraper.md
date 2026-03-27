@@ -136,3 +136,11 @@ claude mcp list
 這兩個容易混淆。Skill 是給 Claude 看的 Markdown 說明文件，告訴它「遇到 X 要怎麼做」，執行者還是 Claude 自己。MCP tool 是真的程式碼，Claude 呼叫後由 server 執行，有真實的 I/O。
 
 用比喻說：Skill 是 SOP 文件，MCP 是機器。
+
+## 參考資料
+
+- [Model Context Protocol 規格](https://modelcontextprotocol.io/)
+- [FastMCP（Python MCP SDK）](https://github.com/modelcontextprotocol/python-sdk)
+- [Claude Code MCP 設定文件](https://docs.anthropic.com/en/docs/claude-code/tutorials#set-up-model-context-protocol-mcp)
+- [uv - Python 套件管理工具](https://docs.astral.sh/uv/)
+- [offernow 專案 GitHub](https://github.com/vincentxuu/offernow)

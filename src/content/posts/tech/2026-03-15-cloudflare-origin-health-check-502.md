@@ -123,3 +123,9 @@ docker exec nginx nginx -s reload
 ## 學到的事
 
 nginx access log 完全空白 = 請求沒有到 nginx。遇到 502 先確認 `server:` header，是 `cloudflare` 就去查 Cloudflare，是 `nginx` 才去查 nginx。
+
+## 參考資料
+
+- [Cloudflare Error 502 Bad Gateway](https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-502-bad-gateway-or-error-504-gateway-timeout)
+- [Cloudflare Health Checks](https://developers.cloudflare.com/health-checks/)
+- [nginx - Controlling nginx (reload vs restart)](https://nginx.org/en/docs/control.html)

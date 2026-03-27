@@ -153,3 +153,10 @@ syntax check 通過後才 SSH 進 VPS 執行 `nginx -s reload`，失敗就中斷
 - **出問題好定位**：nginx 報錯時會指出是哪個 conf 檔哪一行
 
 適合任何跑多個子域名或服務的單機 VPS 部署。
+
+## 參考資料
+
+- [nginx - Beginner's Guide](https://nginx.org/en/docs/beginners_guide.html)
+- [nginx - Module ngx_http_proxy_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html)
+- [nginx - Core functionality (include directive)](https://nginx.org/en/docs/ngx_core_module.html#include)
+- [Docker Compose volumes](https://docs.docker.com/compose/how-tos/volumes/)

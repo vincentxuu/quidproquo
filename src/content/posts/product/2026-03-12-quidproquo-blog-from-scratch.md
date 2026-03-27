@@ -102,3 +102,13 @@ Phase 1+2 完成：
 - Phase 4：Vectorize + Workers AI 做 RAG 搜尋
 
 先把寫作習慣建立起來，其他的事後加。
+
+## 參考資料
+
+- [Astro 官方文件](https://docs.astro.build/)
+- [Cloudflare Workers 文件](https://developers.cloudflare.com/workers/)
+- [Cloudflare D1 文件](https://developers.cloudflare.com/d1/)
+- [Astro Blog 模板建置指南](/posts/tech/guide/2026-03-12-astro-blog-template-guide)
+- [這個部落格背後的工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog)
+- [Cloudflare Workers 自訂網域除錯](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain)
+- [Astro + Cloudflare Native Module 問題](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module)

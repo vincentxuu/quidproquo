@@ -52,12 +52,12 @@ Next.js 15 + React 19 的組合帶來 Server Components 和 `use cache` directiv
 Node.js 後端（`daodao-server`）用 Express.js + TypeScript，分層清楚：
 
 ```
-routes → controllers → services → repositories（Prisma / Mongoose）
+routes → controllers → services → Prisma ORM
                 ↕
            middleware（auth、rate limit、validation）
 ```
 
-每一層職責分明：routes 只管路徑對應和 middleware 掛載，controllers 處理 HTTP request/response，services 放業務邏輯（不知道 HTTP 存在），repositories 負責資料庫操作。
+每一層職責分明：routes 只管路徑對應和 middleware 掛載，controllers 處理 HTTP request/response，services 放業務邏輯（不知道 HTTP 存在），services 內部直接透過 Prisma client 操作資料庫，沒有額外的 repository 抽象層——對目前的團隊規模來說，少一層間接層反而更直覺。
 
 所有 API 回應遵循統一格式：
 
@@ -78,18 +78,15 @@ routes → controllers → services → repositories（Prisma / Mongoose）
 
 ## 多資料庫策略
 
-這是架構裡最有趣的部分。島島同時跑 PostgreSQL、MongoDB、Redis 三種資料庫，各有明確職責：
+島島的資料層以 PostgreSQL + Redis 為核心，各有明確職責：
 
 **PostgreSQL（主資料庫，透過 Prisma ORM）**
-用於有明確關聯關係的結構化資料：使用者、目標、實踐記錄、社群關係。Prisma 提供型別安全的查詢，schema migration 有版本管理，適合需要 ACID 保證的操作。
+所有結構化資料的單一來源：使用者、目標、實踐記錄、社群關係、貼文、留言。Prisma 提供型別安全的查詢，schema migration 有版本管理，適合需要 ACID 保證的操作。
 
-**MongoDB（文件型資料）**
-用於結構彈性的內容，例如貼文、留言、學習筆記。這類資料的 schema 變動頻繁，文件模型比關聯式更自然——一篇貼文可能有不同的 metadata 欄位，不需要每次改 schema 就跑 migration。
+**Redis（快取 + 任務佇列 + Session）**
+做三件事：一是 API 回應快取和 session 儲存，降低資料庫查詢壓力；二是 **BullMQ** 的底層 broker，處理非同步任務（通知發送、排程檢查到期實踐並自動標記完成）；三是 OAuth state store，用於登入流程的防 CSRF 驗證。
 
-**Redis（快取 + 任務隊列）**
-做兩件事：一是 API 回應快取和 session 儲存，降低資料庫查詢壓力；二是 **BullMQ** 的底層 broker。BullMQ 是 Redis-based 的任務隊列，島島用它處理需要非同步執行的工作，例如每小時排程檢查到期實踐並自動標記完成。
-
-這三層的組合讓每種資料都放在最適合它的儲存引擎，而不是強迫所有資料塞進同一個資料庫。代價是運維複雜度——需要同時管三個服務的連線、備份和監控。
+這個組合的好處是概念清楚——PostgreSQL 負責所有持久化資料，Redis 負責所有暫態和非同步工作。不需要煩惱「這筆資料到底放哪個資料庫」的問題。
 
 ## 社交系統與通知系統
 
@@ -115,18 +112,19 @@ routes → controllers → services → repositories（Prisma / Mongoose）
         ▼
   Notification Service（判斷通知類型與優先級）
         │
-        ├── P1 即時通知 ──▶ BullMQ Worker ──▶ Email 即時發送
-        └── P2 彙整通知 ──▶ 週報排程 Worker ──▶ 每週摘要 Email
+        ├── In-App Worker ──▶ P1 個別通知 / P2 彙整通知
+        ├── Email Worker（每 4 小時批次）──▶ 合併 P1 + P2 發送
+        └── Weekly Worker（每週排程）──▶ 週報摘要 Email
 ```
 
 通知分為兩個優先級：
 
-| 優先級 | 觸發情境 | 處理方式 |
-|--------|---------|---------|
-| **P1 即時** | 被 mention、收到夥伴申請、被追蹤 | BullMQ worker 即時處理，送出 Email |
-| **P2 彙整** | 按讚、留言、實踐進度 | 彙整進每週摘要信，由排程 worker 定時發送 |
+| 優先級 | 觸發情境 | In-App 處理 | Email 處理 |
+|--------|---------|------------|-----------|
+| **P1** | 被 mention、收到夥伴申請、夥伴打卡活動 | 即時建立個別通知 | 每 4 小時批次發送，不彙整 |
+| **P2** | 追蹤、按讚、留言、實踐進度 | 即時建立彙整通知 | 每 4 小時批次發送，同類合併 |
 
-Email 模板使用 HTML 模板引擎，支援多版本（例如歡迎信有不同的 referral group 版本）。週報包含當週完成的實踐項目、收到的互動統計，以及個人化的 CTA 連結。
+Email 採用批次發送而非即時發送，避免高頻互動造成信箱轟炸。另有獨立的週報排程 worker，每週發送包含當週完成的實踐項目、收到的互動統計，以及個人化 CTA 連結的摘要信。Email 模板使用 HTML 模板引擎，支援多版本（例如歡迎信有不同的 referral group 版本）。
 
 這套社交 + 通知架構的設計原則是：**即時性和資源消耗取平衡**。不是每個互動都需要即時通知，P1/P2 分級讓重要通知不被淹沒，也避免頻繁發信造成使用者疲勞。
 
@@ -193,3 +191,17 @@ GitHub Actions 管 CI/CD，Discord 收通知。前端 monorepo 透過 Turborepo 
 如果是從零開始的早期 MVP，這套架構可能過重——PostgreSQL 單一資料庫加上簡單的 Node.js API 通常可以撐到相當規模。但對一個已經明確需要語意搜尋、行為分析和多平台支援的學習平台，這個架構選擇是合理的。
 
 Turborepo + Biome 的開發體驗確實好——lint 快、型別共用方便、多 app 的 build pipeline 清楚。這個部分是值得借鑑的，無論後端架構怎麼選。
+
+## 參考資料
+
+- [Turborepo 官方文件](https://turbo.build/repo/docs)
+- [Biome 官方網站](https://biomejs.dev/)
+- [Next.js 15 官方文件](https://nextjs.org/docs)
+- [Prisma ORM 官方文件](https://www.prisma.io/docs)
+- [BullMQ 官方文件](https://docs.bullmq.io/)
+- [Zod 官方文件](https://zod.dev/)
+- [FastAPI 官方文件](https://fastapi.tiangolo.com/)
+- [Qdrant 向量資料庫](https://qdrant.tech/documentation/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Expo 官方文件](https://docs.expo.dev/)
+- [NobodyClimb 技術架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — 另一個使用 monorepo 架構的專案對照

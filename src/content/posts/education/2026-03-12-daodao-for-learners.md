@@ -73,3 +73,10 @@ draft: false
 ---
 
 [島島官網](https://daodao.tw)
+
+## 參考資料
+
+- [島島阿學官網](https://daodao.tw)
+- [從「想學」到「真的在學」：島島的產品設計思維](/posts/product/2026-03-12-daodao-product-design)
+- [線上學習的下一個戰場：為什麼「完課率」才是真正的問題](/posts/product/2026-03-12-daodao-market-opportunity)
+- [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

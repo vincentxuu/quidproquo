@@ -61,6 +61,9 @@ docker compose up --scale backend-dev=2
 
 兩者不衝突，可以同時設定：container_name 給人看、給 CLI 用，alias 給容器之間的 DNS 用。
 
-## 延伸閱讀
+## 參考資料
 
+- [Docker 官方文件：Networking overview](https://docs.docker.com/network/)
+- [Docker Compose 官方文件：Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
+- [Docker 官方文件：docker compose up --scale](https://docs.docker.com/reference/cli/docker/compose/up/)
 - [nginx 502：跨 Compose 專案的容器 DNS 解析踩坑](/posts/tech/2026-03-16-docker-cross-compose-nginx-502)

@@ -83,3 +83,13 @@ draft: false
 缺的是一個把這些機制整合到學習行為上的產品。
 
 島島在做的，正是這件事。
+
+## 參考資料
+
+- [島島阿學官網](https://daodao.tw)
+- [Coursera](https://www.coursera.org/)
+- [Duolingo](https://www.duolingo.com/)
+- [Qdrant 向量資料庫](https://qdrant.tech/)
+- [你的學習為什麼半途而廢？島島想解決這件事](/posts/education/2026-03-12-daodao-for-learners)
+- [從「想學」到「真的在學」：島島的產品設計思維](/posts/product/2026-03-12-daodao-product-design)
+- [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

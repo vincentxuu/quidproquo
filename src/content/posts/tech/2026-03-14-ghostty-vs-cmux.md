@@ -100,7 +100,7 @@ brew tap manaflow-ai/cmux && brew install --cask cmux
 
 ---
 
-## 來源
+## 參考資料
 
 - [Ghostty 官網](https://ghostty.org/)
 - [Ghostty - About](https://ghostty.org/docs/about)

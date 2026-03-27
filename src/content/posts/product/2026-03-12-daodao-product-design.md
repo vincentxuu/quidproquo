@@ -96,3 +96,10 @@ draft: false
 學習平台最難的地方不是把課程做好，而是讓人們在沒有人逼他們的情況下，持續做一件對自己有益的事。這是行為設計的本質問題，也是島島試圖解決的核心。
 
 如果你在做類似的產品，或者你本身就是那個「想學但一直沒開始」的人，島島的這些設計決策或許值得你借鑒——或者反駁。
+
+## 參考資料
+
+- [島島阿學官網](https://daodao.tw)
+- [你的學習為什麼半途而廢？島島想解決這件事](/posts/education/2026-03-12-daodao-for-learners)
+- [線上學習的下一個戰場：為什麼「完課率」才是真正的問題](/posts/product/2026-03-12-daodao-market-opportunity)
+- [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

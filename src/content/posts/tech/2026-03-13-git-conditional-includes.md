@@ -107,3 +107,9 @@ git config user.email
 ## 整體來說
 
 `includeIf` 的核心優勢是**零認知負擔**——不需要記得切換，路徑決定帳號。適合有固定工作目錄結構的開發者。唯一要注意的是 `gitdir:` 路徑必須以 `/` 結尾，且不支援 `~` 展開在某些舊版 git，建議用絕對路徑確保相容性。
+
+## 參考資料
+
+- [git-config - Conditional includes](https://git-scm.com/docs/git-config#_conditional_includes)
+- [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+- [OpenSSH ssh_config manual](https://man.openbsd.org/ssh_config)

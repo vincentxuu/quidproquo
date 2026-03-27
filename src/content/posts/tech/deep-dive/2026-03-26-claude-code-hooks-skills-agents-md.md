@@ -344,3 +344,15 @@ CLAUDE.md 寫著「commit 前先跑 pre-commit-check skill」，Claude 讀到這
 2. **加 pre-commit-check Skill**——讓 Claude 能自動修 lint 和 type 錯誤
 3. **加 Claude Code Hook**——防止 Claude 跳過 Skill 直接 commit
 4. **CI 維持不變**——最終防線，不管本地做了什麼，PR 時都會完整檢查
+
+## 參考資料
+
+- [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code)
+- [Claude Code Hooks 文件](https://docs.anthropic.com/en/docs/claude-code/hooks)
+- [CLAUDE.md 指令檔文件](https://docs.anthropic.com/en/docs/claude-code/memory)
+- [husky 官方文件](https://typicode.github.io/husky/)
+- [lint-staged 官方文件](https://github.com/lint-staged/lint-staged)
+- [lefthook 官方文件](https://github.com/evilmartians/lefthook)
+- [Biome 官方網站](https://biomejs.dev/)
+- [從 OpenSpec 到自動部署的 AI 驅動開發流程](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — Hook 和 Skill 在完整開發流程中的實際應用
+- [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — 另一個 Skill 設計案例

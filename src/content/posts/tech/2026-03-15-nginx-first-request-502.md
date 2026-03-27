@@ -119,3 +119,9 @@ location / {
 ## 學到的事
 
 `set $variable` 是過渡方案，nginx 1.27.3 之後有更乾淨的解法。用之前先確認 nginx 版本。`resolve` + `zone` 要一起加，少一個就不能動。
+
+## 參考資料
+
+- [nginx - Module ngx_http_upstream_module (server directive, resolve parameter)](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#server)
+- [nginx - Module ngx_http_core_module (resolver directive)](https://nginx.org/en/docs/http/ngx_http_core_module.html#resolver)
+- [Docker embedded DNS server](https://docs.docker.com/engine/network/#dns-services)

@@ -102,4 +102,8 @@ copilot -i "/skills list" --allow-all --silent
 
 這次經驗的重點不是「安裝失敗」，而是理解 Copilot 的兩層：檔案層面（symlink、agents、instructions）與 registry 層（plugin marketplace / 已註冊 plugin）。單純把檔案放好並不足夠：要讓會話穩定使用，需要確保 plugin 被 Copilot「認可」並在會話中載入。處理這類問題的實務套路是：檢查檔案→查 logs→正式註冊 plugin→重啟會話→用非互動命令驗證。
 
----
+## 參考資料
+
+- [GitHub - obra/superpowers](https://github.com/obra/superpowers)
+- [GitHub - DwainTR/superpowers-copilot](https://github.com/DwainTR/superpowers-copilot)
+- [GitHub Copilot in the CLI](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line)

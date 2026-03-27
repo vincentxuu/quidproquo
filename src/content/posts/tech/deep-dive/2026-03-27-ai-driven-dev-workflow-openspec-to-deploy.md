@@ -157,3 +157,15 @@ Merge 到 main 後全自動：
 **適合的場景**：多個子專案需要維護品質一致性、一個人或小團隊要顧很多事、需求會持續進來且需要追蹤。
 
 關鍵不是流程多完整，而是每一步自動化能不能真正減少你的認知負擔。如果某一步讓你覺得在走形式，就該簡化或拿掉。流程是工具，不是目的。
+
+## 參考資料
+
+- [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code)
+- [Claude Code Hooks 文件](https://docs.anthropic.com/en/docs/claude-code/hooks)
+- [OpenSpec GitHub](https://github.com/openspec-dev/openspec)
+- [GitHub Actions 官方文件](https://docs.github.com/en/actions)
+- [Biome 官方網站](https://biomejs.dev/)
+- [Figma MCP](https://www.figma.com/blog/introducing-figma-mcp/)
+- [Claude Code 的三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Hook 和 Skill 機制的詳細說明
+- [用 Claude Code Remote Agent 做到半夜自動開發](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline) — Remote Agent 自動接 Issue 開 PR 的流程
+- [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — Debug 對話自動轉 GitHub Issue

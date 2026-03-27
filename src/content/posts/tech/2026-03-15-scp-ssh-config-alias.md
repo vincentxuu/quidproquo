@@ -82,3 +82,10 @@ ssh daodao "docker cp nginx:/etc/nginx/nginx.conf /tmp/nginx.conf" && scp daodao
 ## 學到的事
 
 `scp` 和 `rsync` 都認 `~/.ssh/config`，設一次 alias，之後不管是 ssh 連線還是傳檔都能用同一個名字。容器內的檔案先用 `docker cp` 搬出來，再用同樣的流程下載。
+
+## 參考資料
+
+- [OpenSSH ssh_config manual](https://man.openbsd.org/ssh_config)
+- [scp manual](https://man.openbsd.org/scp)
+- [rsync documentation](https://rsync.samba.org/documentation.html)
+- [docker cp reference](https://docs.docker.com/reference/cli/docker/container/cp/)

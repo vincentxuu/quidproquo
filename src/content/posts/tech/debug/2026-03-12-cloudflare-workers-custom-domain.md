@@ -57,3 +57,10 @@ Custom domain 和 route pattern 是兩種不同的機制。Route pattern（如 `
 ## 學到的事
 
 `custom_domain: true` 的 pattern 就是 hostname，加了路徑就壞。每次改 `wrangler.jsonc` 都要重新 build。
+
+## 參考資料
+
+- [Cloudflare Workers Custom Domains 文件](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
+- [Cloudflare Workers Routes 文件](https://developers.cloudflare.com/workers/configuration/routing/routes/)
+- [Wrangler 設定參考](https://developers.cloudflare.com/workers/wrangler/configuration/)
+- [Astro Cloudflare Adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)

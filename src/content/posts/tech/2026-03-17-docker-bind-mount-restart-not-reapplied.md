@@ -136,3 +136,10 @@ systemctl daemon-reload && systemctl restart docker
 ## 學到的事
 
 `docker restart` ≠ 重建容器。volumes 設定改了，一定要 `down + up`。
+
+## 參考資料
+
+- [Docker bind mounts](https://docs.docker.com/engine/storage/bind-mounts/)
+- [docker compose up reference](https://docs.docker.com/reference/cli/docker/compose/up/)
+- [docker compose down reference](https://docs.docker.com/reference/cli/docker/compose/down/)
+- [Docker restart policies](https://docs.docker.com/engine/containers/start-containers-automatically/)

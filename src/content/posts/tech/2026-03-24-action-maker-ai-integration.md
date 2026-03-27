@@ -266,3 +266,12 @@ const { data } = await createPractice({
 Qwen3 作為免費的 Workers AI 模型表現不錯，JSON 結構遵從度高，但 thinking block 是一定要處理的。如果之後換模型，只要改一行 `AI_MODEL` 常數。
 
 從產品角度，action-maker 從一個「玩完就沒了」的工具變成了「玩完可以直接開始做」的入口。AI 生成 → 選擇行動 → 建立 practice → 每天打卡追蹤，閉環了。
+
+## 參考資料
+
+- [Cloudflare Workers AI 文件](https://developers.cloudflare.com/workers-ai/)
+- [Hono - Web Framework for Cloudflare Workers](https://hono.dev/)
+- [Qwen3 模型介紹](https://huggingface.co/Qwen)
+- [Langfuse - LLM Observability](https://langfuse.com/)
+- [Cloudflare KV 文件](https://developers.cloudflare.com/kv/)
+- [Next.js 官方文件](https://nextjs.org/docs)

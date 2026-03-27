@@ -49,3 +49,11 @@ Biography 是平台的核心，也是最花時間思考的部分。
 攀岩在台灣是小眾運動，這個特性其實是優點：社群邊界清楚，口碑傳播快，核心用戶的需求很具體。
 
 一個平台能讓岩友覺得「這裡記錄的東西是我的」，就已經做到了一件很難的事。NobodyClimb 還在早期，但每個 Nobody 都值得被看見——這件事從一開始就沒有變過。
+
+## 參考資料
+
+- [Mountain Project](https://www.mountainproject.com/)
+- [8a.nu](https://www.8a.nu/)
+- [攀岩社群為什麼需要 AI？NobodyClimb 的實驗與學到的事](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what)
+- [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb RAG Pipeline 技術架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

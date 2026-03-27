@@ -128,3 +128,20 @@ data: {"message": "..."}
 這套架構的核心取捨是：**用 Cloudflare 的生態系換掉所有的 infra 管理成本**。D1 不是最強的資料庫，Workers AI 不是最豐富的 AI 平台，但對一個 side project 來說，不需要管 VPC、不需要設 auto-scaling、不需要監控 server uptime，這個換法是值得的。
 
 適合類似規模的專案：有一定的複雜度（monorepo、多平台、AI 功能），但還沒到需要獨立 infra 的量。如果 DAU 到了幾萬、寫入量變大，D1 和 Workers 的限制就會開始痛，那時候才是考慮換架構的時間點。
+
+## 參考資料
+
+- [Cloudflare Workers 官方文件](https://developers.cloudflare.com/workers/)
+- [Cloudflare D1 官方文件](https://developers.cloudflare.com/d1/)
+- [Cloudflare R2 官方文件](https://developers.cloudflare.com/r2/)
+- [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)
+- [Hono 框架官方文件](https://hono.dev/)
+- [Next.js 15 官方文件](https://nextjs.org/docs)
+- [@opennextjs/cloudflare adapter](https://opennext.js.org/cloudflare)
+- [Zustand 狀態管理](https://zustand-demo.pmnd.rs/)
+- [TanStack Query 官方文件](https://tanstack.com/query/latest)
+- [Tamagui 官方文件](https://tamagui.dev/)
+- [Expo 官方文件](https://docs.expo.dev/)
+- [BAAI/bge-m3 模型](https://huggingface.co/BAAI/bge-m3)
+- [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — AI 問答系統的完整設計細節
+- [島島技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — 另一個學習平台的架構對照

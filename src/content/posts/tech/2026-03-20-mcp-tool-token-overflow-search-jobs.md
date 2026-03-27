@@ -105,3 +105,9 @@ def search_local_jobs(
 ## 學到的事
 
 搜尋 API 回傳摘要欄位就夠了，description 留給 detail endpoint。
+
+## 參考資料
+
+- [Model Context Protocol 規格](https://modelcontextprotocol.io/)
+- [FastMCP（Python MCP SDK）](https://github.com/modelcontextprotocol/python-sdk)
+- [Claude Code MCP 設定文件](https://docs.anthropic.com/en/docs/claude-code/tutorials#set-up-model-context-protocol-mcp)

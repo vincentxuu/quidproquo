@@ -175,3 +175,14 @@ Phase 3.0  ???
 Phase 3.0 可能是 GitHub webhook 即時觸發（不用等 cron）、自動偵測新 issue、自動 merge 低風險 PR。但目前 Phase 2.0 已經夠用了。
 
 真正的瓶頸不是自動化程度，而是 issue 的品質。花時間把需求寫清楚，比花時間讓 AI 更快開始工作更有價值。
+
+## 參考資料
+
+- [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code)
+- [Claude Code Remote Agent 文件](https://docs.anthropic.com/en/docs/claude-code/remote-agents)
+- [OpenSpec GitHub](https://github.com/openspec-dev/openspec)
+- [GitHub CLI (gh) 官方文件](https://cli.github.com/manual/)
+- [GitHub Issues 官方文件](https://docs.github.com/en/issues)
+- [從 OpenSpec 到自動部署的 AI 驅動開發流程](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — 完整八階段流程，本文是其中「自動化」部分的進化
+- [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — 用 Skill 把 Debug 對話轉成 Issue，交給 Remote Agent 修
+- [Claude Code 的三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Skill 和 Hook 機制的詳細說明

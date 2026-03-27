@@ -137,3 +137,19 @@ Cloudflare Workers（Edge）
 這套架構的核心原則是**靜態優先，動態按需**。能在 build time 處理的就提前處理，不依賴 runtime。只有真正需要動態能力的地方才用 Edge Functions。
 
 Cloudflare 全家桶的整合成本很低——所有服務在同一個平台，binding 設定好就能互通，不需要管跨服務的認證和連線。免費方案的額度對個人專案也綽綽有餘。不足的地方是生態比 AWS 或 GCP 小，遇到比較進階的架構問題，文件和社群資源相對有限。
+
+## 參考資料
+
+- [Astro 官方文件](https://docs.astro.build/)
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- [Astro i18n Routing](https://docs.astro.build/en/guides/internationalization/)
+- [Cloudflare Workers 官方文件](https://developers.cloudflare.com/workers/)
+- [Cloudflare D1 官方文件](https://developers.cloudflare.com/d1/)
+- [Cloudflare R2 官方文件](https://developers.cloudflare.com/r2/)
+- [Cloudflare KV 官方文件](https://developers.cloudflare.com/kv/)
+- [Cloudflare Vectorize 官方文件](https://developers.cloudflare.com/vectorize/)
+- [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)
+- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
+- [pnpm 官方文件](https://pnpm.io/)
+- [Zod 官方文件](https://zod.dev/)
+- [Astro 部落格換模板前要知道的事](/posts/tech/guide/2026-03-12-astro-blog-template-guide) — Astro 模板選擇與換模板流程
