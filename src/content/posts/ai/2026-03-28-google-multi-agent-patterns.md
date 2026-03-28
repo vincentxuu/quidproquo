@@ -11,7 +11,7 @@ draft: false
 
 Google 在 2026 年初透過 Cloud Architecture Center 發布了一份 [multi-agent 設計模式指南](https://docs.google.com/architecture/choose-design-pattern-agentic-ai-system)，InfoQ 的 Sergio De Simone 做了一篇很好的 [整理報導](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/)。八種模式從簡單到複雜排列，每一種解決不同類型的問題。
 
-這篇把八種模式拆開，加上跟 [Anthropic harness design](/posts/ai/2026-03-28-anthropic-harness-design) 的對照。
+這篇把八種模式拆開，加上跟 [Anthropic 的 Harness Design：讓 AI Agent 像工程師一樣工作](/posts/ai/2026-03-28-anthropic-harness-design) 的對照。
 
 ---
 
