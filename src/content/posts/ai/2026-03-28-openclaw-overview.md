@@ -191,3 +191,14 @@ Agent              (Control UI)   (iOS/Android)
 OpenClaw 的文件量反映了它的野心：不只是「聊天機器人框架」，而是一套完整的 AI agent 營運系統。從模型供應商管理、沙箱安全、到 MITRE ATLAS 威脅分析都有。335 份文件看起來嚇人，但組織結構清楚——知道自己要什麼，就能快速找到對應的區塊。
 
 這個系列會把每塊都拆開來講。接下來從安裝開始。
+
+## 參考資料
+
+本篇整理自以下 OpenClaw 原始文件：
+
+- [docs/index.md](https://github.com/openclaw/openclaw/blob/main/docs/index.md) — 首頁與專案總覽
+- [docs/docs.json](https://github.com/openclaw/openclaw/blob/main/docs/docs.json) — 文件站導覽結構（Mintlify 設定）
+- [docs/start/getting-started.md](https://github.com/openclaw/openclaw/blob/main/docs/start/getting-started.md) — 快速上手指南
+- [docs/concepts/features.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/features.md) — 完整功能列表
+- [docs/concepts/architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/architecture.md) — 核心架構
+- [README.md](https://github.com/openclaw/openclaw/blob/main/README.md) — 專案 README

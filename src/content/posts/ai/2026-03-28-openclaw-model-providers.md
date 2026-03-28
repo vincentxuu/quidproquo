@@ -151,3 +151,17 @@ Stage 2: 切換到 fallback model
 ## 整體來說
 
 OpenClaw 對模型的底線是 **tool use + streaming**。在這之上，它用 auth 輪替、model fallback、thinking 降級三層機制確保服務不中斷。如果你有多個供應商的 API Key，設好 fallbacks 就能得到很高的可用性。本地模型也能接，但要確認 tool calling 支援。
+
+## 參考資料
+
+本篇整理自以下 OpenClaw 原始文件：
+
+- [docs/providers/index.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/index.md) — 供應商目錄總覽
+- [docs/providers/models.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/models.md) — 模型設定快速指南
+- [docs/providers/anthropic.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/anthropic.md) — Anthropic (Claude) 設定
+- [docs/providers/openai.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/openai.md) — OpenAI (GPT) 設定
+- [docs/providers/google.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/google.md) — Google (Gemini) 設定
+- [docs/concepts/models.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/models.md) — 模型核心概念
+- [docs/concepts/model-providers.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-providers.md) — 模型供應商概念
+- [docs/concepts/model-failover.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-failover.md) — 模型容錯機制
+- [docs/pi.md](https://github.com/openclaw/openclaw/blob/main/docs/pi.md) — Pi 嵌入式整合架構（Tool Use / Schema 需求）

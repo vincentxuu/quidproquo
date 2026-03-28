@@ -160,3 +160,16 @@ openclaw agents add delegate
 ## 整體來說
 
 OpenClaw 的多 Agent 架構核心取捨是**隔離優先**。每個 agent 都是完全獨立的實體，不共享認證、不共享 session、不能互相通訊（除非明確開放）。這對安全性很好，但也意味著跨 agent 協作需要額外設定。適合需要在同一台機器上運行多個用途明確、互不干擾的 AI 助手的場景。
+
+## 參考資料
+
+本篇整理自以下 OpenClaw 原始文件：
+
+- [docs/concepts/multi-agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/multi-agent.md) — 多 Agent 路由
+- [docs/concepts/delegate-architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/delegate-architecture.md) — Delegate 代理人架構
+- [docs/concepts/agent-loop.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-loop.md) — Agent Loop 執行迴圈
+- [docs/concepts/agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent.md) — Agent Runtime 總覽
+- [docs/concepts/agent-workspace.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-workspace.md) — Agent Workspace
+- [docs/concepts/session.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session.md) — Session 管理
+- [docs/concepts/model-failover.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-failover.md) — 模型容錯與 Auth 輪替
+- [docs/gateway/configuration.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/configuration.md) — Gateway 設定（多 Agent 相關）
