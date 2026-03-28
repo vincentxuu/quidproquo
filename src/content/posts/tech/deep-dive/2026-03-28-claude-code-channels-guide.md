@@ -9,7 +9,7 @@ description: "介紹 Claude Code Channels 功能：透過 MCP 協議把外部事
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 17
+  order: 18
 ---
 
 <!-- TODO: 待撰寫 -->

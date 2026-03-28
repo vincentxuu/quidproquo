@@ -9,7 +9,7 @@ description: "從 MCP 協議基礎開始，介紹如何在 Claude Code 中設定
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 9
+  order: 10
 ---
 
 <!-- TODO: 待撰寫 -->

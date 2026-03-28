@@ -9,7 +9,7 @@ description: "深入介紹 Claude Code 的 Sub-agent 系統：內建子代理類
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 10
+  order: 11
 ---
 
 <!-- TODO: 待撰寫 -->

@@ -9,7 +9,7 @@ description: "完整介紹 Claude Code 的 Plugin 系統：plugin 結構（manif
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 12
+  order: 13
 ---
 
 <!-- TODO: 待撰寫 -->

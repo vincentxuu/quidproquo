@@ -9,7 +9,7 @@ description: "介紹 Claude Code 的 Hook、Skill、指令檔（CLAUDE.md / AGEN
 draft: false
 series:
   name: "Claude Code 自動化指南"
-  order: 8
+  order: 9
 ---
 
 CI 跑在 GitHub Actions，push 之後才知道 lint 沒過、type 報錯。來回修一次要五到十分鐘，改一個 typo 又要再跑一輪。問題不在 CI 設計不好，而是檢查發生得太晚。

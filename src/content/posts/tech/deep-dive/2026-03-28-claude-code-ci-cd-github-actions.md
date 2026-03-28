@@ -9,7 +9,7 @@ description: "完整介紹 Claude Code GitHub Actions 的設定與使用：從 /
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 16
+  order: 17
 ---
 
 <!-- TODO: 待撰寫 -->

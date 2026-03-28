@@ -9,7 +9,7 @@ description: "從半自動到接近全自動的開發流程演化。用 Claude C
 draft: false
 series:
   name: "Claude Code 自動化指南"
-  order: 14
+  order: 15
 ---
 
 上一篇寫了從 OpenSpec 到自動部署的八個階段。那套流程能跑，但有一個問題：每一步都要人類觸發。

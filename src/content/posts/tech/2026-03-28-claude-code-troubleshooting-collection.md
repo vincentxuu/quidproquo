@@ -9,7 +9,7 @@ description: "彙整 Claude Code 常見的疑難排解情境，包含 Skill disc
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 19
+  order: 27
 ---
 
 <!-- TODO: 待撰寫 -->

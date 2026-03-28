@@ -1,11 +1,11 @@
 ---
-title: "Claude Code --dangerously-skip-permissions：YOLO 模式完整指南"
+title: "Claude Code Permission Modes 全解析：從預設到 Auto Mode 的五種權限模式"
 date: 2026-03-16
 category: tech
-tags: [claude-code, ai-tools, automation, cli]
+tags: [claude-code, ai-tools, automation, cli, permissions, auto-mode, security]
 lang: zh-TW
-tldr: "--dangerously-skip-permissions 讓 Claude Code 跳過所有權限提示全速執行，適合自動化大型任務，但要搭配 git checkpoint 和 Docker 才安全。"
-description: "介紹 Claude Code 的 --dangerously-skip-permissions flag，包含使用場景、設定方式、真實風險案例與安全使用方式。"
+tldr: "Claude Code 有五種權限模式：default（逐步確認）、acceptEdits（自動接受編輯）、plan（唯讀規劃）、auto（AI classifier 背景審查）、bypassPermissions（YOLO 全跳過）。用 Shift+Tab 切換，搭配 settings.json 精細控制。auto mode 是最佳平衡點——既不用每步確認，又有安全防護。"
+description: "完整介紹 Claude Code 的五種權限模式：default、acceptEdits、plan、auto、bypassPermissions（YOLO）和 dontAsk，包含每種模式的運作原理、適用場景、設定方式，以及 auto mode 的 classifier 機制和自訂規則。"
 draft: false
 series:
   name: "Claude Code 自動化指南"
@@ -14,62 +14,162 @@ series:
 
 ## TL;DR
 
-`--dangerously-skip-permissions` 讓 Claude Code 進入全自動執行模式，跳過所有權限提示。適合跑大型自動化任務，但繞過了所有安全機制。使用前務必建立 git checkpoint，最好跑在 Docker 裡。
+Claude Code 有五種權限模式，從最安全到最自由：`plan`（唯讀）→ `default`（逐步確認）→ `acceptEdits`（自動接受編輯）→ `auto`（AI classifier 審查）→ `bypassPermissions`（YOLO 全跳過）。大多數場景用 **auto mode** 就夠了——它用背景 classifier 自動判斷安全性，遇到危險操作才阻擋。
 
 ---
 
-`--dangerously-skip-permissions` 開啟的是 Anthropic 所稱的「Safe YOLO mode」——完全無人值守的執行模式，讓 Claude Code 跳過所有確認提示，一路跑到完成。
+## 五種模式一覽
 
-它在技術上等同於 `--permission-mode bypassPermissions`，兩者行為完全相同：
+| 模式 | Claude 可以不問你就做什麼 | 適合場景 |
+|------|--------------------------|---------|
+| `default` | 讀檔案 | 初次使用、敏感操作 |
+| `acceptEdits` | 讀寫檔案 | 快速迭代開發 |
+| `plan` | 讀檔案（不能改） | 探索 codebase、規劃重構 |
+| `auto` | 所有操作（有背景安全檢查） | 長時間任務、減少 prompt 疲勞 |
+| `bypassPermissions` | 所有操作（無任何檢查） | Docker / VM 隔離環境限定 |
+| `dontAsk` | 只有預先批准的工具 | 鎖定環境、CI pipeline |
+
+## 切換方式
+
+### 在 session 中切換
+
+CLI 裡按 **Shift+Tab** 循環切換：`default` → `acceptEdits` → `plan` → `auto`。
+
+VS Code 和 Desktop 直接點擊輸入框旁的模式選擇器。
+
+### 啟動時指定
+
+```bash
+claude --permission-mode plan
+claude --permission-mode auto --enable-auto-mode
+```
+
+### 設為預設
+
+```json
+// .claude/settings.json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits"
+  }
+}
+```
+
+---
+
+## Plan Mode：先規劃再動手
+
+Plan mode 讓 Claude 只讀不寫——分析 codebase、提出方案，但不改你的 source code。
+
+### 使用方式
+
+```bash
+# 整個 session 進入 plan mode
+claude --permission-mode plan
+
+# 或單次請求加 /plan 前綴
+/plan 重構 authentication 模組，給我遷移計畫
+```
+
+### 規劃完成後
+
+Claude 提出計畫後會問你怎麼做：
+- **Approve and start in auto mode** — 直接讓 Claude 用 auto mode 執行
+- **Approve and accept edits** — 自動接受編輯，手動確認指令
+- **Approve and manually review** — 每步都確認
+- **Keep planning** — 繼續修改計畫
+
+適合多步驟實作前先看清全貌：
+
+```
+我要把認證系統從 JWT 換成 OAuth2。
+先分析現有實作，給我完整的遷移計畫。
+```
+
+---
+
+## Auto Mode：最佳平衡點
+
+Auto mode 是 `bypassPermissions`（YOLO）的安全替代方案。它用一個獨立的 **classifier 模型**在背景審查每個操作，判斷是否安全。
+
+> 目前需要 Team plan + Claude Sonnet 4.6 或 Opus 4.6。Admin 需在 claude.ai 管理設定中啟用。
+
+### 運作原理
+
+每個操作依照固定順序判斷：
+
+1. 你的 allow/deny 規則 → 直接通過或阻擋
+2. 唯讀操作和工作目錄內的檔案編輯 → 自動通過
+3. 其他全部 → 送給 classifier 判斷
+4. Classifier 阻擋 → Claude 收到原因，嘗試替代方案
+
+### Classifier 預設阻擋什麼
+
+**會阻擋**：
+- 下載並執行程式碼（`curl | bash`）
+- 發送敏感資料到外部
+- 生產環境部署和 migration
+- 雲端儲存的大量刪除
+- 授予 IAM / repo 權限
+- 修改共享基礎設施
+- Force push、直接 push 到 main
+
+**會放行**：
+- 工作目錄內的檔案操作
+- 安裝 lock file 中已宣告的依賴
+- 讀取 `.env` 並發送 credentials 到對應 API
+- 唯讀 HTTP 請求
+- Push 到你的工作分支
+
+### 自訂 Classifier 規則
+
+如果 classifier 阻擋了你團隊的正常操作（push 到自家 org 的 repo、寫入公司 bucket），在 managed settings 中加入 `autoMode.environment` 告訴 classifier 這些是可信的。
+
+### Fallback 機制
+
+Classifier 連續阻擋 3 次或累計阻擋 20 次 → auto mode 暫停，恢復手動確認。你確認後重置計數器，繼續用 auto mode。
+
+### 對子代理的處理
+
+- 子代理啟動前：classifier 審查任務描述
+- 子代理執行中：同樣的 block/allow 規則
+- 子代理完成後：classifier 複查整個操作歷史
+
+---
+
+## bypassPermissions（YOLO Mode）
+
+`--dangerously-skip-permissions` 等同於 `--permission-mode bypassPermissions`：
 
 ```bash
 claude --dangerously-skip-permissions "Fix all lint errors"
 claude --permission-mode bypassPermissions "Fix all lint errors"
 ```
 
-## 為什麼需要它
+### 繞過什麼
 
-Claude Code 預設每個命令都需要你授權。安全沒錯，但這在自動化長任務時很痛苦——你設好任務去倒杯咖啡，回來發現它在第二步卡住了，因為需要你確認執行 `mkdir`。
+- 所有權限提示
+- 指令黑名單（`curl`、`wget` 等解禁）
+- 寫入限制（不限於工作目錄）
+- MCP server 信任驗證
+- 子代理繼承完整權限，無法覆蓋
 
-適合用的情境：
+### 真實事故
 
-- 修復整個專案的 lint 錯誤
-- 大規模多檔案重構
-- 自動產生測試套件
-- CI/CD pipeline 中的無人值守任務
-- 程式碼審計、效能分析等批次處理任務
+有人請 Claude 清理專案中多餘的套件，結果執行了 `rm -rf tests/ patches/ plan/ ~/`——結尾的 `~/` 把整個 home 目錄刪了。eesel AI 研究顯示，32% 使用 YOLO 模式的開發者遇過非預期的檔案修改，9% 發生過資料遺失。
 
-## 風險（認真的）
+### 三種安全等級
 
-這個 flag 會繞過整個安全機制：
-
-- **指令黑名單**：通常封鎖的 `curl`、`wget` 等全部解禁
-- **寫入限制**：原本限於當前工作目錄的限制消失
-- **所有權限提示**：不再詢問
-- **MCP server 信任驗證**：跳過
-
-更要注意的是**子代理繼承問題**：開啟 bypass 模式後，所有子代理都繼承完整自主存取權限，無法覆蓋。
-
-**真實事故**：有人請 Claude 清理專案中多餘的套件，結果 Claude 執行了 `rm -rf tests/ patches/ plan/ ~/`——那個結尾的 `~/` 把整個 home 目錄都刪了。eesel AI 的研究顯示，32% 使用 YOLO 模式的開發者遇到過非預期的檔案修改，9% 發生過資料遺失。
-
-## 三種安全等級的用法
-
-### 等級一：最基本保護（git checkpoint）
+#### 等級一：git checkpoint
 
 ```bash
-# 執行前先建立還原點
 git add -A && git commit -m "Checkpoint pre-Claude"
-
-# 執行任務
 claude --dangerously-skip-permissions "Refactor all API handlers"
-
 # 出問題時
 git reset --hard HEAD
 ```
 
-### 等級二：限制危險工具（--disallowedTools）
-
-用 `--disallowedTools` 明確封鎖高危操作。注意：`--allowedTools` 在 bypass 模式下有已知 bug 可能被忽略，但 `--disallowedTools` 可正常運作。
+#### 等級二：限制危險工具
 
 ```bash
 claude --dangerously-skip-permissions \
@@ -77,7 +177,7 @@ claude --dangerously-skip-permissions \
   "Refactor all API handlers"
 ```
 
-### 等級三：Docker 隔離（最安全）
+#### 等級三：Docker 隔離（最安全）
 
 ```bash
 docker run --rm \
@@ -87,16 +187,54 @@ docker run --rm \
   claude --dangerously-skip-permissions "Fix all lint errors"
 ```
 
-`--network none` 斷掉網路，即使 Claude 嘗試外連也無法成功。
+### YOLO vs Auto Mode
 
-## 比 YOLO 更好的替代方案：settings.json
+| | Auto Mode | YOLO Mode |
+|---|---|---|
+| 安全檢查 | Classifier 背景審查 | 無 |
+| Prompt injection 防護 | 有（classifier 獨立於主對話）| 無 |
+| Token 消耗 | 較高（classifier 呼叫）| 標準 |
+| 需要 | Team plan + Sonnet/Opus 4.6 | 任何 plan |
+| 子代理控制 | 有（spawn 前/後都審查）| 無 |
 
-與其用 `--dangerously-skip-permissions` 開全自動，不如在 `.claude/settings.json` 設定精細的白名單：
+**結論：能用 auto mode 就別用 YOLO。** 真的需要 YOLO，跑在 Docker 裡。
+
+---
+
+## dontAsk Mode：只允許白名單
+
+`dontAsk` 自動拒絕所有未明確允許的工具。適合 CI pipeline 或限制環境：
+
+```bash
+claude --permission-mode dontAsk
+```
+
+搭配 settings.json 精確控制：
 
 ```json
 {
   "permissions": {
-    "allowedTools": [
+    "allow": [
+      "Read",
+      "Write(src/**)",
+      "Bash(npm test)",
+      "Bash(npm run lint)"
+    ]
+  }
+}
+```
+
+---
+
+## 搭配 settings.json 精細控制
+
+不管用哪種模式，都可以用 `permissions` 設定疊加精細規則：
+
+```json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
       "Read",
       "Write(src/**)",
       "Bash(git *)",
@@ -113,58 +251,24 @@ docker run --rm \
 }
 ```
 
-這份設定可以 commit 進 repo，讓整個團隊共用相同的安全基準。個人設定用 `.claude/settings.local.json` 覆蓋即可。
+這份設定可以 commit 進 repo，讓團隊共用安全基準。個人設定用 `.claude/settings.local.json` 覆蓋。
 
-## 搭配 loop 模式的完整 pipeline
+---
 
-`--dangerously-skip-permissions` 解決「每步都要確認」的問題，搭配 shell loop 就能批次處理大量任務：
+## 模式比較總表
 
-```bash
-# Phase 1: 有監督的規劃
-claude "/architect"
-
-# Phase 2: 無人值守的自動實作
-claude --dangerously-skip-permissions "/dev story-1"
-claude --dangerously-skip-permissions "/dev story-2"
-```
-
-用 `-p` headless 模式跑迴圈，`--max-turns` 防止失控：
-
-```bash
-for file in $(cat files.txt); do
-  claude --dangerously-skip-permissions \
-    -p "Fix TypeScript errors in $file. Return OK or FAIL." \
-    --allowedTools "Read,Edit,Bash(tsc:*)" \
-    --max-turns 10
-done
-```
-
-CI/CD 任務建議 `--max-turns` 限制在 10 以內。
-
-## 設個 alias 提醒自己
-
-```bash
-# ~/.zshrc 或 ~/.bashrc
-alias clauded="claude --dangerously-skip-permissions"
-```
-
-## 整體來說
-
-YOLO 模式是真正的自動化加速器，但它的設計前提是你信任要執行的任務範圍。使用原則很簡單：
-
-1. **永遠先做 git checkpoint**
-2. **能用 settings.json 就別用 YOLO**
-3. **真的要用，跑在 Docker 裡**
-
-沒有這些保護的話，一個寫錯的 prompt 就能讓 Claude 把你的 home 目錄刪光。
+| | default | acceptEdits | auto | dontAsk | bypassPermissions |
+|---|---|---|---|---|---|
+| 權限提示 | 編輯+指令 | 只有指令 | 無（除非 fallback） | 無（未允許的直接拒絕）| 無 |
+| 安全檢查 | 你自己審查 | 你審查指令 | Classifier 審查 | 你的白名單規則 | 無 |
+| Token 消耗 | 標準 | 標準 | 較高 | 標準 | 標準 |
 
 ---
 
 ## 參考資料
 
-- [Claude Code - Permission modes](https://docs.anthropic.com/en/docs/claude-code/settings#permission-modes)
+- [Claude Code - Permission modes](https://code.claude.com/docs/en/permission-modes)
+- [Claude Code - Permissions](https://code.claude.com/docs/en/permissions)
+- [Auto Mode Announcement](https://claude.com/blog/auto-mode)
 - [claude --dangerously-skip-permissions - PromptLayer](https://blog.promptlayer.com/claude-dangerously-skip-permissions/)
-- [Dangerous Skip Permissions | ClaudeLog](https://claudelog.com/mechanics/dangerous-skip-permissions/)
 - [YOLO Mode Hidden Risks | UpGuard](https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions/)
-- [Claude Code --dangerously-skip-permissions: Safe Usage Guide | ksred](https://www.ksred.com/claude-code-dangerously-skip-permissions-when-to-use-it-and-when-you-absolutely-shouldnt/)
-- [Claude Code YOLO mode safely | codeagentswarm](https://www.codeagentswarm.com/en/guides/claude-code-yolo-turbo-mode)

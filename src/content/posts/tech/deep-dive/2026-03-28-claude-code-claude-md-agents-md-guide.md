@@ -9,7 +9,7 @@ description: "深入介紹 Claude Code 的指令檔系統：CLAUDE.md 與 AGENTS
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 2
+  order: 3
 ---
 
 <!-- TODO: 待撰寫 -->

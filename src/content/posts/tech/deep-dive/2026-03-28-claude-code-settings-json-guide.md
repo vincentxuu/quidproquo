@@ -9,7 +9,7 @@ description: "完整整理 Claude Code settings.json 的所有設定欄位、全
 draft: true
 series:
   name: "Claude Code 自動化指南"
-  order: 3
+  order: 4
 ---
 
 <!-- TODO: 待撰寫 -->
