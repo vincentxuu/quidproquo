@@ -62,6 +62,41 @@ Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台
 
 ---
 
+## 近期新功能（2025-2026）
+
+Ollama 在過去一年加了幾個值得注意的功能：
+
+### Web 搜尋
+
+2026 年新增。模型可以在對話中搜尋網路取得即時資訊，不再受限於訓練資料的知識截止日。這對需要最新資訊的場景（查文件版本、看新聞）很有用。
+
+### 思考/推理模式
+
+支援 DeepSeek R1 等推理模型的 thinking 模式。模型會先在內部展開推理鏈，再輸出最終答案。適合數學、邏輯、程式除錯等需要多步驟推理的任務。
+
+```bash
+ollama run deepseek-r1:32b
+```
+
+### OpenAI Responses API
+
+v0.13.3 新增 `/v1/responses` 端點，對齊 OpenAI 的 Responses API（非 stateful 版本）。這讓更多基於 OpenAI 新 API 格式的工具可以直接接入 Ollama。
+
+### Ollama Cloud
+
+2025 年 9 月上線的雲端託管服務。兩個方案：
+
+- **Pro**：$20/月
+- **Max**：$100/月
+
+適合不想管硬體但又想用 Ollama 生態系統的人。不過目前缺乏公開的 rate limit、per-token 計費、和企業 SLA 文件，還在早期階段。
+
+### Windows ARM64
+
+2026 年新增原生 ARM64 build，支援 Windows on ARM 裝置（如 Surface Pro with Snapdragon）。
+
+---
+
 ## 安裝
 
 ### macOS
