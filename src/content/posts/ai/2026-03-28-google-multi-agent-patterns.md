@@ -156,7 +156,7 @@ Google 和 Anthropic 有一個共同的建議：**從最簡單的模式開始，
 
 ## 整體來說
 
-這八種模式不是理論清單，而是實際可選的工具箱。讀完之後回頭看 [Anthropic 的 harness design](/posts/ai/2026-03-28-anthropic-harness-design)，你會發現他們的架構可以精確地用這些模式來描述。理論和實踐在這裡匯合了。
+這八種模式不是理論清單，而是實際可選的工具箱。讀完之後回頭看 [Anthropic 的 Harness Design：讓 AI Agent 像工程師一樣工作](/posts/ai/2026-03-28-anthropic-harness-design)，你會發現他們的架構可以精確地用這些模式來描述。理論和實踐在這裡匯合了。
 
 最重要的一點：**不是 agent 越多越好，而是模式選對最重要。** 一個設計精良的雙 agent 系統（Generator + Critic），可以打敗一個設計糟糕的五 agent 系統。
 
