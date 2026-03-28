@@ -32,6 +32,8 @@ server.tool(
     url: z.string().url().describe("The URL to fetch"),
     max_length: z
       .number()
+      .int()
+      .positive()
       .optional()
       .default(50000)
       .describe("Maximum response length in characters (default: 50000)"),
@@ -41,6 +43,7 @@ server.tool(
       const res = await fetch(url, {
         headers: BROWSER_HEADERS,
         redirect: "follow",
+        signal: AbortSignal.timeout(15000),
       });
 
       if (!res.ok) {
@@ -58,23 +61,16 @@ server.tool(
       const contentType = res.headers.get("content-type") || "";
       let body = await res.text();
 
-      if (body.length > max_length) {
-        body = body.slice(0, max_length) + "\n\n[...truncated]";
-      }
-
-      // 簡單移除 HTML 標籤，保留文字內容
+      // Strip HTML tags before truncating so the limit applies to text content
       if (contentType.includes("text/html")) {
-        // 移除 script 和 style
         body = body.replace(/<script[\s\S]*?<\/script>/gi, "");
         body = body.replace(/<style[\s\S]*?<\/style>/gi, "");
-        // 移除 HTML 標籤
         body = body.replace(/<[^>]+>/g, " ");
-        // 清理多餘空白
         body = body.replace(/\s+/g, " ").trim();
+      }
 
-        if (body.length > max_length) {
-          body = body.slice(0, max_length) + "\n\n[...truncated]";
-        }
+      if (body.length > max_length) {
+        body = body.slice(0, max_length) + "\n\n[...truncated]";
       }
 
       return {
@@ -85,7 +81,9 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `Fetch error: ${err.message}`,
+            text: err.name === "AbortError"
+              ? `Request to ${url} timed out.`
+              : `Fetch error for ${url}: ${err.message}`,
           },
         ],
         isError: true,
