@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "web-fetch": {
+      "command": "node",
+      "args": [".claude/mcp-servers/web-fetch/server.mjs"]
+    }
+  }
+}
