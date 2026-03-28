@@ -129,3 +129,4 @@ nginx access log 完全空白 = 請求沒有到 nginx。遇到 502 先確認 `se
 - [Cloudflare Error 502 Bad Gateway](https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-502-bad-gateway-or-error-504-gateway-timeout)
 - [Cloudflare Health Checks](https://developers.cloudflare.com/health-checks/)
 - [nginx - Controlling nginx (reload vs restart)](https://nginx.org/en/docs/control.html)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

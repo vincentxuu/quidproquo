@@ -69,3 +69,4 @@ Network alias 在同一個 network 上的所有容器都可見，不限 Compose 
 - [Docker Compose networking](https://docs.docker.com/compose/how-tos/networking/)
 - [Docker network aliases](https://docs.docker.com/reference/cli/docker/network/connect/#aliases)
 - [nginx - Module ngx_http_upstream_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

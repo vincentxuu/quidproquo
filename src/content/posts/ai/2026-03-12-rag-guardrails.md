@@ -182,3 +182,5 @@ Guardrails 不是「安全洗白」——沒有哪個系統是絕對安全的，
 - [NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails (2023)](https://arxiv.org/abs/2310.10501)
 - [Building Guardrails for Large Language Models (2024)](https://arxiv.org/abs/2402.01822)
 - [Prompt Injection Attack against LLM-integrated Applications (2023)](https://arxiv.org/abs/2306.05499)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

@@ -359,3 +359,4 @@ CLAUDE.md 寫著「commit 前先跑 pre-commit-check skill」，Claude 讀到這
 - [Biome 官方網站](https://biomejs.dev/)
 - [從 OpenSpec 到自動部署的 AI 驅動開發流程](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — Hook 和 Skill 在完整開發流程中的實際應用
 - [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — 另一個 Skill 設計案例
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

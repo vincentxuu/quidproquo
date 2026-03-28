@@ -121,3 +121,4 @@ Free Plan 每日 10 萬次請求，一般站台綽綽有餘。
 - [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare Custom Error Pages (Error Pages)](https://developers.cloudflare.com/rules/custom-error-responses/)
 - [Workers routing](https://developers.cloudflare.com/workers/configuration/routing/)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

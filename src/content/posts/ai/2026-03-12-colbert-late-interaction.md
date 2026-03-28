@@ -101,3 +101,5 @@ ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。
 
 - [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT (2020)](https://arxiv.org/abs/2004.12832)
 - [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction (2021)](https://arxiv.org/abs/2112.01488)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

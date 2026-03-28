@@ -67,3 +67,4 @@ docker compose up --scale backend-dev=2
 - [Docker Compose 官方文件：Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
 - [Docker 官方文件：docker compose up --scale](https://docs.docker.com/reference/cli/docker/compose/up/)
 - [nginx 502：跨 Compose 專案的容器 DNS 解析踩坑](/posts/tech/2026-03-16-docker-cross-compose-nginx-502)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

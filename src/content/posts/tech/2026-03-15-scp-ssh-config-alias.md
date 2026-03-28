@@ -89,3 +89,4 @@ ssh daodao "docker cp nginx:/etc/nginx/nginx.conf /tmp/nginx.conf" && scp daodao
 - [scp manual](https://man.openbsd.org/scp)
 - [rsync documentation](https://rsync.samba.org/documentation.html)
 - [docker cp reference](https://docs.docker.com/reference/cli/docker/container/cp/)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

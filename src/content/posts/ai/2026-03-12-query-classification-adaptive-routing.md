@@ -133,3 +133,5 @@ Query Classification 是 adaptive RAG 的核心。不同問題有不同的最優
 - [SymRAG: Efficient Neuro-Symbolic Retrieval-Augmented Generation through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
 - [Query Routing for Retrieval-Augmented Language Models](https://arxiv.org/html/2505.23052v1)
 - [Context Awareness Gate For Retrieval Augmented Generation](https://arxiv.org/abs/2411.16133)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

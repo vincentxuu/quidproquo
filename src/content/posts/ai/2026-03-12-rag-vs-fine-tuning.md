@@ -110,3 +110,5 @@ RAG 和 Fine-tuning 是互補的工具，不是競爭關係。RAG 是「知識�
 - [Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge (2024)](https://arxiv.org/abs/2403.01432)
 - [Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs (2023)](https://arxiv.org/abs/2312.05934)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

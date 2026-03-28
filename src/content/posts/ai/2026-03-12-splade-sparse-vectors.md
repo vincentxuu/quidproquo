@@ -93,3 +93,5 @@ SPLADE 是 BM25 的有力進化，但不是每個系統都需要它。Dense + BM
 ## 參考資料
 
 - [SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking (2021)](https://arxiv.org/abs/2109.10086)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

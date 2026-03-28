@@ -229,3 +229,5 @@ NobodyClimb 的系統選擇了自訂 trace，主要原因是部署在 Cloudflare
 - [LangSmith Documentation](https://docs.smith.langchain.com/)
 - [Helicone Documentation](https://docs.helicone.ai/)
 - [OpenLLMetry - OpenTelemetry for LLMs (GitHub)](https://github.com/traceloop/openllmetry)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

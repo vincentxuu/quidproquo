@@ -160,3 +160,4 @@ syntax check 通過後才 SSH 進 VPS 執行 `nginx -s reload`，失敗就中斷
 - [nginx - Module ngx_http_proxy_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html)
 - [nginx - Core functionality (include directive)](https://nginx.org/en/docs/ngx_core_module.html#include)
 - [Docker Compose volumes](https://docs.docker.com/compose/how-tos/volumes/)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

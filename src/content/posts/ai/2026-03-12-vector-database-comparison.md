@@ -181,3 +181,5 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 - [Qdrant Documentation](https://qdrant.tech/documentation/)
 - [Chroma Documentation](https://docs.trychroma.com/)
 - [Cloudflare Vectorize Documentation](https://developers.cloudflare.com/vectorize/)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

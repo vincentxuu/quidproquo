@@ -87,3 +87,5 @@ const [queryResults, hydeResults] = await Promise.all([
 ## 參考資料
 
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (2022)](https://arxiv.org/abs/2212.10496)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

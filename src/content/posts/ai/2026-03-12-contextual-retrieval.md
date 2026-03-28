@@ -132,3 +132,5 @@ Anthropic 官方技術文章，提出 Contextual Retrieval 的完整方法論。
 ### iThome 鐵人賽 — Contextual Retrieval 相關文章
 
 [https://ithelp.ithome.com.tw/articles/10389779](https://ithelp.ithome.com.tw/articles/10389779)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

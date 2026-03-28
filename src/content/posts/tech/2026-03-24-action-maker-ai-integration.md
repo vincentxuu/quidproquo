@@ -275,3 +275,4 @@ Qwen3 作為免費的 Workers AI 模型表現不錯，JSON 結構遵從度高，
 - [Langfuse - LLM Observability](https://langfuse.com/)
 - [Cloudflare KV 文件](https://developers.cloudflare.com/kv/)
 - [Next.js 官方文件](https://nextjs.org/docs)
+- [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

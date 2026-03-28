@@ -225,3 +225,5 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 - [LlamaIndex - Node Parsers / Text Splitters](https://developers.llamaindex.ai/python/framework/module_guides/loading/node_parsers/)
 - [Evaluating Chunking Strategies for Retrieval (arXiv:2406.14497)](https://arxiv.org/abs/2406.14497)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)
+- [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
