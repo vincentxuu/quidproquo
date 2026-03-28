@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "用 Claude Code 的 Scheduled Remote Agent，每 2 小時自動掃描 GitHub issues、實作功能、開 PR、修 review feedback。人類只需要寫 issue 和按 merge。搭配自製的 /publish-tasks skill，把 OpenSpec 的工程任務一鍵發成 GitHub issues。"
 description: "從半自動到接近全自動的開發流程演化。用 Claude Code Remote Trigger 建立雲端排程代理，自動處理 GitHub issues 和 PR review feedback，搭配 OpenSpec 的 /publish-tasks skill 串起完整的需求到交付流水線。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 12
 ---
 
 上一篇寫了從 OpenSpec 到自動部署的八個階段。那套流程能跑，但有一個問題：每一步都要人類觸發。

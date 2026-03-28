@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Skill 是寫給 AI 看的 SOP。一個 markdown 檔案定義步驟，Claude 照著執行。不用寫程式，不用學框架，只要把「有經驗的人會怎麼做」寫成步驟就好。"
 description: "從零開始介紹 Claude Code Skill 的設計哲學、檔案結構、實作方式，以及四個實際案例（format-commit、post、job-filter、file-bug-issue）的設計取捨。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 5
 ---
 
 每次 commit 都要想 message 格式、每次寫文章都要建檔案填 frontmatter、每次篩職缺都要跑同樣的流程。這些事情不難，但重複做很煩，而且每次都有可能漏掉某個步驟。

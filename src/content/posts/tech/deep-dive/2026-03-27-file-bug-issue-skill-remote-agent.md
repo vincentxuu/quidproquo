@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Debug 到一半發現修不了？用 /file-bug-issue 直接把對話中的錯誤分析、重現步驟、已嘗試的方案打包成一個結構完整的 GitHub issue。搭配 Remote Agent，還能讓 AI 自動接手修復。"
 description: "介紹自製的 /file-bug-issue Claude Code skill，如何從對話上下文自動收集錯誤資訊並建立結構化的 GitHub issue，以及它如何與 Scheduled Remote Agent 串接形成 bug 追蹤到自動修復的流水線。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 13
 ---
 
 CI 又紅了。PostgreSQL 在跑到第 20 個 schema 檔時 crash，錯誤訊息是 `FATAL: the database system is shutting down`。

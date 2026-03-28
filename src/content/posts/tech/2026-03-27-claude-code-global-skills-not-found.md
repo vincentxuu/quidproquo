@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Global skills 放在 ~/.claude/skills/ 但新 session 或 Desktop App 看不到？問題通常不是檔案不存在，而是 skill 描述沒被載入 context。本文釐清 CLI vs Desktop App 的差異、settings.json 的角色，以及最穩定的解法。"
 description: "分析 Claude Code global skills 在新 session 或 Desktop App 中找不到的常見原因，釐清 skill discovery 機制、settings.json vs settings.local.json 的差異，並提供排查步驟與最佳實踐。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 15
 ---
 
 裝好 global skills，CLI 用 `/` 斜線命令明明看得到，但開新 session 或換到 Desktop App，問 Claude「你有哪些 skills？」卻只回系統預設。每次都要手動提醒「去家目錄找一下」才行。

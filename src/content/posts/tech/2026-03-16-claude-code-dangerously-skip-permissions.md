@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "--dangerously-skip-permissions 讓 Claude Code 跳過所有權限提示全速執行，適合自動化大型任務，但要搭配 git checkpoint 和 Docker 才安全。"
 description: "介紹 Claude Code 的 --dangerously-skip-permissions flag，包含使用場景、設定方式、真實風險案例與安全使用方式。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 1
 ---
 
 ## TL;DR

@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "/loop 是 Claude Code 的原生 cron 功能，自然語言設定排程，讓 Claude 在背景持續監控、自動修 PR、定期執行任務。"
 description: "介紹 Claude Code 的 /loop 排程功能，包含語法、實際使用場景、限制，以及與 Desktop Scheduled Tasks 的差異。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 6
 ---
 
 ## TL;DR
