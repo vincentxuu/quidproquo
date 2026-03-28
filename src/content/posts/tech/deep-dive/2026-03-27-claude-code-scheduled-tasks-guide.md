@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Scheduled Task 是 Claude Code 的雲端排程系統。設定 cron、指定 repo、寫好 prompt，AI 就會定時自動執行——掃 issue、審 PR、跑檢查、開 PR，電腦關了也會跑。"
 description: "完整介紹 Claude Code 的三種排程方式（Cloud、Desktop、/loop），以及如何用 Cloud Scheduled Tasks 建立自動化開發代理，包含實際案例 daodao-auto-dev 的設計。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 8
 ---
 
 你寫了一個 prompt 告訴 Claude「掃描這四個 repo 的 GitHub issues，有標 `auto` 的就實作，完成後開 PR」。然後設定每 2 小時跑一次。

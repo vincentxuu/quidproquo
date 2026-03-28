@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "用 OpenSpec 把需求拆成工程任務，Claude Code 實作，hooks 自動格式化和保護，commit 前本地 review，PR 上三個 AI reviewer 平行審查，merge 後自動部署。整套流程讓一個人能維護六個子專案的品質。"
 description: "完整介紹一套 AI 驅動的開發工作流程：從 PRD/FRD 需求輸入、OpenSpec 規格拆解、Claude Code 輔助開發、多層品質檢查、到自動部署的八個階段，以及背後的設計取捨。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 14
 ---
 
 六個子專案，前端、後端、AI 服務、資料庫、基礎設施、背景任務，一個人要全部顧到。不是不可能，但如果每一步都手動做——寫 code、跑 lint、寫 commit message、review diff、產生 PR description——一天的時間有一半會花在「不是寫 code」的事情上。

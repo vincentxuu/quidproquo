@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Hook 是自動化安全網（擋住壞 commit），Skill 是互動式工作流程（跑檢查 + 自動修），指令檔（CLAUDE.md / AGENTS.md）是行為指引。三層各自獨立，組合起來讓 AI agent 在 commit 前自動完成 lint、typecheck、build 檢查。"
 description: "介紹 Claude Code 的 Hook、Skill、指令檔（CLAUDE.md / AGENTS.md）三種機制如何各司其職，組合成 commit 前的自動化品質檢查流程，包含實際設定範例與設計取捨。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 9
 ---
 
 CI 跑在 GitHub Actions，push 之後才知道 lint 沒過、type 報錯。來回修一次要五到十分鐘，改一個 typo 又要再跑一輪。問題不在 CI 設計不好，而是檢查發生得太晚。

@@ -7,6 +7,9 @@ lang: zh-TW
 tldr: "Hook 是 Claude Code 的事件系統。在 AI 執行工具前後、送出 prompt 時、結束任務時自動觸發 shell command、HTTP 請求或 LLM 判斷。用來擋住危險操作、自動審核、注入上下文、記錄 audit log。"
 description: "深入介紹 Claude Code Hook 的事件生命週期、四種 handler 類型、matcher 語法、進階模式（權限控制、動態環境變數、Stop 攔截），以及實際應用場景與設計取捨。"
 draft: false
+series:
+  name: "Claude Code 自動化指南"
+  order: 5
 ---
 
 Claude Code 的 Hook 是一套事件驅動系統。在 AI 的操作生命週期中，每個關鍵節點都會發出事件——你可以在這些節點掛上自動執行的動作：擋住危險指令、注入額外上下文、記錄操作日誌、甚至自動審批安全操作。
