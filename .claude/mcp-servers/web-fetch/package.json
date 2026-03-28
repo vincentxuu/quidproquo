@@ -1,0 +1,15 @@
+{
+  "name": "web-fetch",
+  "version": "1.0.0",
+  "description": "MCP server for fetching web pages with browser-like headers.",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.28.0"
+  }
+}

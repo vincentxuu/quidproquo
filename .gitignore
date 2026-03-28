@@ -29,3 +29,6 @@ pnpm-debug.log*
 # wrangler local dev state
 .wrangler/
 .worktrees/
+
+# MCP server dependencies
+.claude/mcp-servers/*/node_modules/
