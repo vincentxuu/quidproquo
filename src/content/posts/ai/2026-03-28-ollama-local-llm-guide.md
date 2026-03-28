@@ -95,6 +95,38 @@ v0.13.3 新增 `/v1/responses` 端點，對齊 OpenAI 的 Responses API（非 st
 
 2026 年新增原生 ARM64 build，支援 Windows on ARM 裝置（如 Surface Pro with Snapdragon）。
 
+### TUI 互動介面 + AI 工具啟動器（0.18.3）
+
+這是最大的定位轉變。從 0.18 開始，直接在終端機輸入 `ollama`（不帶任何參數）會進入一個互動式 TUI 選單：
+
+```
+Ollama 0.18.3
+
+▸ Run a model
+    Start an interactive chat with a model
+
+  Launch Claude Code
+    Anthropic's coding tool with subagents
+
+  Launch Codex
+    OpenAI's open-source coding agent
+
+  Launch OpenClaw
+    Personal AI with 100+ skills
+
+  Launch Visual Studio Code
+    Microsoft's open-source AI code editor
+
+  Launch Cline (not installed)
+    Install with: npm install -g cline
+
+↑/↓ navigate • enter launch • → configure • esc quit
+```
+
+Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。你可以從同一個介面啟動模型對話、Claude Code、Codex、OpenClaw、VS Code、Cline 等工具。沒安裝的工具會顯示安裝指令。
+
+這個設計很聰明——Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的 launcher 等於是在搶佔開發者工作流的入口位置。
+
 ---
 
 ## 安裝
