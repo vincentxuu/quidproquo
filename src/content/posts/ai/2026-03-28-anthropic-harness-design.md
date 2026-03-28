@@ -142,7 +142,16 @@ Anthropic 自己也承認還沒有定論的事：
 
 ## 延伸閱讀
 
+**Anthropic 原文與基礎**
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic 的 agent 設計哲學起點，6 種 composable pattern
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — 本文導讀的第一篇原文
+- [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — 本文導讀的第二篇原文
+- [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — Anthropic 的 agent 評估方法論，跟 evaluator agent 設計直接相關
+
+**Harness Engineering 趨勢**
+- [The Third Evolution: Why Harness Engineering Replaced Prompting — Epsilla](/posts/ai/2026-03-28-harness-engineering-evolution) — Prompt → Context → Harness 三個時代的演化
+- [The Importance of Agent Harness in 2026 — Phil Schmid](/posts/ai/2026-03-28-phil-schmid-agent-harness) — 為什麼 harness 才是決定 agent 成敗的關鍵
+- [Google's Eight Multi-Agent Design Patterns — InfoQ](/posts/ai/2026-03-28-google-multi-agent-patterns) — Google 的 8 種 multi-agent 設計模式，可與 Anthropic 做法對照
+
+**站內相關**
 - [AI Agent 的三個核心支柱：Context、Cognition、Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — 理解 agent 架構的理論框架，本文是它的實戰對照
-- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic 原文（第一篇）
-- [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic 原文（第二篇）
-- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic 的 agent 設計哲學基礎
