@@ -37,7 +37,7 @@ Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台
 - **自動 VRAM 管理** — 多模型同時載入，超過 VRAM 自動溢出到 RAM
 - **OpenAI 相容 API** — `localhost:11434/v1/` 可直接替換 OpenAI endpoint
 - **Modelfile 系統** — 類似 Dockerfile 的設定檔
-- **多模態** — 支援視覺模型（LLaVA、Llama 3.2 Vision）
+- **多模態** — 支援視覺模型（Gemma 3、Llama 3.2 Vision、LLaVA）
 - **結構化輸出** — JSON Schema 約束回應格式
 - **工具呼叫** — function calling 支援
 - **Embedding** — 內建 embedding 端點
@@ -48,15 +48,15 @@ Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台
 
 完整清單在 [ollama.com/library](https://ollama.com/library)，這裡列主要的：
 
-**通用對話**：Llama 3.1/3.2/4（Meta）、Mistral/Mixtral（Mistral AI）、Qwen 2.5/3（Alibaba）、Gemma 2/3（Google）、Phi-3/4（Microsoft）
+**通用對話**：Llama 3.1/3.2/4（Meta）、Mistral/Mixtral（Mistral AI）、Qwen 2.5/3（Alibaba）、Gemma 2/3（Google）、Phi-3/4（Microsoft）、GPT-OSS（OpenAI 開源模型）
 
-**推理**：DeepSeek R1（多種蒸餾大小）
+**推理**：DeepSeek R1、DeepSeek-v3.1（多種蒸餾大小）
 
 **程式碼**：Qwen 2.5-Coder、CodeLlama、Qwen3-Coder
 
-**視覺**：Llama 3.2 Vision、LLaVA、Gemma 3
+**視覺**：Gemma 3（官方推薦）、Llama 3.2 Vision、LLaVA
 
-**Embedding**：Nomic Embed（274 MB，效能接近 OpenAI ada-002）
+**Embedding**：embeddinggemma、qwen3-embedding、all-minilm（官方推薦三選一）
 
 不在官方 library 裡的模型，只要是 GGUF 格式就能手動匯入。
 
@@ -66,34 +66,86 @@ Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台
 
 Ollama 在過去一年加了幾個值得注意的功能：
 
-### Web 搜尋
-
-2026 年新增。模型可以在對話中搜尋網路取得即時資訊，不再受限於訓練資料的知識截止日。這對需要最新資訊的場景（查文件版本、看新聞）很有用。
-
 ### 思考/推理模式
 
-支援 DeepSeek R1 等推理模型的 thinking 模式。模型會先在內部展開推理鏈，再輸出最終答案。適合數學、邏輯、程式除錯等需要多步驟推理的任務。
+支援 Qwen 3、DeepSeek R1、DeepSeek-v3.1、GPT-OSS 等模型的 thinking 模式。回應會分成兩個欄位：`thinking`（推理過程）和 `content`（最終答案），你可以選擇顯示或隱藏推理鏈。
 
 ```bash
-ollama run deepseek-r1:32b
+# 啟用 thinking（相容模型預設開啟）
+ollama run deepseek-r1 --think "strawberry 有幾個 r？"
+
+# 隱藏推理過程，只看答案
+ollama run deepseek-r1 --hidethinking "解釋量子糾纏"
+
+# 互動模式中切換
+>>> /set think
+>>> /set nothink
 ```
 
-### OpenAI Responses API
+GPT-OSS 比較特別，thinking 不是 boolean 而是分 level（low/medium/high）：
 
-v0.13.3 新增 `/v1/responses` 端點，對齊 OpenAI 的 Responses API（非 stateful 版本）。這讓更多基於 OpenAI 新 API 格式的工具可以直接接入 Ollama。
+```bash
+ollama run gpt-oss --think=low "簡單問題"
+```
+
+API 層面，在 chat 或 generate 請求加 `think: true`，回應的 `message.thinking` 就會帶推理內容。
+
+### Tool Calling（三種模式）
+
+Ollama 的 tool calling 不只是單次呼叫，支援三種模式：
+
+1. **Single** — 模型呼叫一個工具，你執行後把結果餵回去
+2. **Parallel** — 模型同時呼叫多個工具，你全部執行完一起回傳
+3. **Agent Loop** — 多輪迴圈，模型自己決定什麼時候呼叫工具、什麼時候停止
+
+Python SDK 可以直接把 function 物件傳給 `tools` 參數，自動解析成 schema。JavaScript 則需要手動定義 JSON Schema。
+
+### 結構化輸出（JSON Schema）
+
+不只是 `format: "json"` 回傳任意 JSON，現在可以用完整的 JSON Schema 約束回應格式：
+
+```python
+from ollama import chat
+from pydantic import BaseModel
+
+class Country(BaseModel):
+    name: str
+    capital: str
+    languages: list[str]
+
+response = chat(
+    model='llama3.2',
+    messages=[{'role': 'user', 'content': '介紹台灣'}],
+    format=Country.model_json_schema(),
+)
+country = Country.model_validate_json(response.message.content)
+```
+
+JavaScript 端用 Zod + `zodToJsonSchema()` 達成同樣效果。Vision 模型也支援結構化輸出，可以用 schema 約束圖片描述的欄位。
+
+### Web 搜尋（雲端功能）
+
+注意：這不是本地功能，需要 Ollama 帳號和 API key（從 [ollama.com/settings/keys](https://ollama.com/settings/keys) 取得）。
+
+提供兩個雲端 API：
+- `POST https://ollama.com/api/web_search` — 搜尋查詢，回傳標題 + URL + 摘要
+- `POST https://ollama.com/api/web_fetch` — 抓取特定 URL 的完整內容
+
+```python
+import ollama
+response = ollama.web_search("Ollama 最新版本")
+```
+
+搭配 Qwen 3 等模型，可以建構搜尋 agent：模型自主決定何時搜尋、何時抓取、何時回答。官方建議用 32K+ context 的模型跑搜尋 agent。也可以透過 MCP Server 整合到 Cline、Codex 等工具。
 
 ### Ollama Cloud
 
-2025 年 9 月上線的雲端託管服務。兩個方案：
+2025 年 9 月上線的雲端託管服務：
 
 - **Pro**：$20/月
 - **Max**：$100/月
 
-適合不想管硬體但又想用 Ollama 生態系統的人。不過目前缺乏公開的 rate limit、per-token 計費、和企業 SLA 文件，還在早期階段。
-
-### Windows ARM64
-
-2026 年新增原生 ARM64 build，支援 Windows on ARM 裝置（如 Surface Pro with Snapdragon）。
+適合不想管硬體但又想用 Ollama 生態系統的人。Cloud 模型以完整 context 容量運行。不過目前缺乏公開的 rate limit、per-token 計費、和企業 SLA 文件，還在早期階段。
 
 ### TUI 互動介面 + AI 工具啟動器（0.18.3）
 
@@ -123,7 +175,7 @@ Ollama 0.18.3
 ↑/↓ navigate • enter launch • → configure • esc quit
 ```
 
-Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。你可以從同一個介面啟動模型對話、Claude Code、Codex、OpenClaw、VS Code、Cline 等工具。沒安裝的工具會顯示安裝指令。
+Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。官方文件列出 18 個整合工具：Claude Code、Codex、Cline、OpenClaw、VS Code、JetBrains、Xcode、Zed、Roo Code、OpenCode、Droid、Pi、Goose、Marimo、n8n、NemoClaw、Onyx 等。沒安裝的工具會顯示安裝指令。
 
 這個設計很聰明——Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的 launcher 等於是在搶佔開發者工作流的入口位置。
 
@@ -334,17 +386,18 @@ Ollama 和 LM Studio 底層都是 llama.cpp。Ollama 贏在自動 VRAM 管理和
 
 ## 生態系統
 
-Ollama 的 OpenAI 相容 API 讓它可以接入大量現有工具：
+Ollama 官方文件列出 18 個整合工具，加上社群生態已經相當完整：
 
 | 類型 | 工具 |
 |------|------|
 | Web UI | OpenWebUI（最像 ChatGPT 的本地介面） |
-| IDE 整合 | Continue（VS Code/JetBrains）、Cline |
-| CLI 工具 | aichat、oterm |
+| AI Coding | Claude Code、Codex、Cline、Roo Code、OpenCode、Droid、Pi、Goose |
+| IDE | VS Code、JetBrains、Xcode、Zed |
+| 自動化 | n8n、Marimo |
+| 個人助理 | OpenClaw、NemoClaw、Onyx |
 | RAG 框架 | LangChain、LlamaIndex |
-| 智慧家庭 | Home Assistant |
 
-常見搭配：Ollama + OpenWebUI 做本地聊天介面，Ollama + LangChain 做本地 RAG，Ollama + Continue 做本地 code completion。
+常見搭配：Ollama + OpenWebUI 做本地聊天介面，Ollama + LangChain 做本地 RAG，Ollama + Claude Code/Codex 用本地模型做 coding agent。0.18 版的 TUI launcher 讓這些工具的切換變得更無縫。
 
 ---
 
