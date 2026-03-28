@@ -87,7 +87,7 @@ Epsilla 整理了幾條規則：
 
 ## Generator-Evaluator：核心架構模式
 
-跟 [Anthropic 的 harness design](/posts/ai/2026-03-28-anthropic-harness-design) 一樣，Epsilla 也強調了 GAN 啟發的雙 agent 架構是 harness 的核心組件：
+跟 [Anthropic 的 Harness Design：讓 AI Agent 像工程師一樣工作](/posts/ai/2026-03-28-anthropic-harness-design) 一樣，Epsilla 也強調了 GAN 啟發的雙 agent 架構是 harness 的核心組件：
 
 - **Generator**：負責生成
 - **Evaluator**：獨立驗證，結果回饋給 generator
