@@ -19,8 +19,15 @@
       "Bash(git stash *)",
       "Bash(ls *)",
       "Bash(mkdir *)",
+      "Bash(cat *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
       "Bash(magick *)",
-      "mcp__web-fetch__fetch_page"
+      "mcp__web-fetch__fetch_page",
+      "mcp__stealth-fetch__stealth_fetch"
     ],
     "deny": [
       "Bash(rm -rf *)",

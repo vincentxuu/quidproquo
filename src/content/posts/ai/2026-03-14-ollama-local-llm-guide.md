@@ -1,6 +1,6 @@
 ---
 title: "Ollama 完整指南：一行指令在本地跑 LLM"
-date: 2026-03-28
+date: 2026-03-14
 category: ai
 tags: [ollama, llm, local-inference, llama-cpp, self-hosted, openai-compatible]
 lang: zh-TW

@@ -1,6 +1,6 @@
 ---
 title: "vLLM — 從 PagedAttention 到生產級 LLM 推論引擎"
-date: 2026-03-30
+date: 2026-03-14
 category: ai
 tags: [vllm, llm-inference, pagedattention, model-serving, gpu]
 lang: zh-TW
