@@ -140,13 +140,40 @@ MobileLLM-R1-950M 在 MATH benchmark 上是 OLMo 1.24B 的 5 倍準確率、Smol
 
 小模型的迭代速度很快，這篇寫完可能下個月又有新東西。幾個值得固定追蹤的管道：
 
-- **[Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)**：標準化 benchmark 排行，新模型上線幾乎都會先跑這裡的評測。目前超過 250 萬個模型，是比較 raw specs 最方便的地方
-- **[LMSYS Chatbot Arena](https://chat.lmsys.org/)**：群眾盲測 A/B 比較，產生 Elo 評分。比 benchmark 更接近「實際用起來的感覺」，但小模型的投票數可能不夠多
-- **[LLM Stats](https://llm-stats.com)**：每小時更新，聚合 TechCrunch、VentureBeat 等來源的模型發布新聞，可以看到過去 24 小時內的新模型
-- **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**：Reddit 上最活躍的本地模型社群，第一手的跑分、量化版本、手機實測心得大多從這裡出來
-- **各實驗室官方 Blog**：[Google AI Blog](https://blog.google/technology/ai/)、[Meta AI Blog](https://ai.meta.com/blog/)、[Microsoft Research Blog](https://www.microsoft.com/en-us/research/blog/)、[Mistral Blog](https://mistral.ai/news/)、[Qwen Blog](https://qwenlm.github.io/blog/)
+**Leaderboard / 比較站**
 
-建議策略：用 LLM Stats 或 RSS 追新發布，到 Hugging Face Leaderboard 比較數字，最後在 r/LocalLLaMA 看社群實測回饋。但最終還是要用你自己的資料測——benchmark 和實際表現不一定一致。
+- **[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)**：獨立測量，72 小時更新週期，314+ 模型，有速度（tokens/sec）和價格比較，可以按模型大小篩選，追蹤小模型的性價比特別好用
+- **[LiveBench](https://livebench.ai/)**：每月從最新 arXiv 論文和新聞出新題目，避免 benchmark gaming，數學、程式、推理都有覆蓋
+- **[LMSYS Chatbot Arena](https://chat.lmsys.org/)**：群眾盲測 A/B 比較，產生 Elo 評分。比 benchmark 更接近「實際用起來的感覺」，但小模型的投票數可能不夠多
+
+**即時追蹤**
+
+- **[Hugging Face Trending Models](https://huggingface.co/models?sort=trending)**：即時反映社群在下載什麼，新開源模型通常比新聞更早出現在這裡
+- **[Hugging Face Daily Papers](https://huggingface.co/papers)**：社群投票的每日論文精選，新模型的技術論文幾乎都會上榜
+- **[LLM Stats](https://llm-stats.com)**：每小時更新，聚合 TechCrunch、VentureBeat 等來源的模型發布新聞，可以看到過去 24 小時內的新模型
+
+**社群**
+
+- **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**：Reddit 上最活躍的本地模型社群，第一手的跑分、量化版本、手機實測心得大多從這裡出來
+- **[eugeneyan/open-llms](https://github.com/eugeneyan/open-llms)**：GitHub 上維護的可商用開源 LLM 清單，按授權分類，定期更新
+- **Hugging Face Discord / EleutherAI Discord**：開源模型討論，常有比官方公告更早的消息
+
+**Newsletter**
+
+- **[Import AI](https://importai.substack.com/)**（Jack Clark）：每週深度分析 AI 研究論文，對新模型架構的解讀特別好
+- **[Interconnects](https://www.interconnects.ai/)**（Nathan Lambert）：專注開源模型、RLHF、訓練方法論，對小模型生態有深入洞察
+
+**X/Twitter**
+
+- **[@\_akhaliq](https://x.com/_akhaliq)**：新模型和論文發布速度最快的個人帳號，幾乎即時
+- **[@rasbt](https://x.com/rasbt)**（Sebastian Raschka）：小模型架構拆解和實作教學
+- **[@TheAhmadOsman](https://x.com/TheAhmadOsman)**：專注本地跑 LLM，GPU benchmark、推論最佳化
+
+**各實驗室官方 Blog**
+
+- [Google AI Blog](https://blog.google/technology/ai/)、[Meta AI Blog](https://ai.meta.com/blog/)、[Microsoft Research Blog](https://www.microsoft.com/en-us/research/blog/)、[Mistral Blog](https://mistral.ai/news/)、[Qwen Blog](https://qwenlm.github.io/blog/)
+
+建議策略：用 Hugging Face Trending 和 LLM Stats 追新發布，到 Artificial Analysis 或 LiveBench 比較數字，在 r/LocalLLaMA 看社群實測回饋，再訂閱 Import AI 或 Interconnects 掌握趨勢。但最終還是要用你自己的資料測——benchmark 和實際表現不一定一致。
 
 ## 整體來說
 
@@ -177,6 +204,5 @@ MobileLLM-R1-950M 在 MATH benchmark 上是 OLMo 1.24B 的 5 倍準確率、Smol
 - [MLC LLM GitHub](https://github.com/mlc-ai/mlc-llm)
 - [On-Device LLMs in 2026: What Changed, What Matters, What's Next](https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/)
 - [The Best Open-Source Small Language Models in 2026 — BentoML](https://www.bentoml.com/blog/the-best-open-source-small-language-models)
-- [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
 - [LMSYS Chatbot Arena](https://chat.lmsys.org/)
 - [LLM Stats — AI Model Releases](https://llm-stats.com/ai-news)
