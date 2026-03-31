@@ -127,6 +127,18 @@ Mistral 的策略是「AI 的下一波不是靠規模，而是靠無所不在」
 └── 多模態（圖片+文字）→ Gemma 3n 或 Qwen 3.5 4B+
 ```
 
+## 怎麼追蹤最新模型
+
+小模型的迭代速度很快，這篇寫完可能下個月又有新東西。幾個值得固定追蹤的管道：
+
+- **[Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)**：標準化 benchmark 排行，新模型上線幾乎都會先跑這裡的評測。目前超過 250 萬個模型，是比較 raw specs 最方便的地方
+- **[LMSYS Chatbot Arena](https://chat.lmsys.org/)**：群眾盲測 A/B 比較，產生 Elo 評分。比 benchmark 更接近「實際用起來的感覺」，但小模型的投票數可能不夠多
+- **[LLM Stats](https://llm-stats.com)**：每小時更新，聚合 TechCrunch、VentureBeat 等來源的模型發布新聞，可以看到過去 24 小時內的新模型
+- **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**：Reddit 上最活躍的本地模型社群，第一手的跑分、量化版本、手機實測心得大多從這裡出來
+- **各實驗室官方 Blog**：[Google AI Blog](https://blog.google/technology/ai/)、[Meta AI Blog](https://ai.meta.com/blog/)、[Microsoft Research Blog](https://www.microsoft.com/en-us/research/blog/)、[Mistral Blog](https://mistral.ai/news/)、[Qwen Blog](https://qwenlm.github.io/blog/)
+
+建議策略：用 LLM Stats 或 RSS 追新發布，到 Hugging Face Leaderboard 比較數字，最後在 r/LocalLLaMA 看社群實測回饋。但最終還是要用你自己的資料測——benchmark 和實際表現不一定一致。
+
 ## 整體來說
 
 2026 年的 on-device LLM 已經從「技術 demo」進入「特定場景可用」的階段。跟一年前最大的差異是 Gemma 3n 的 PLE 技術和 Qwen 3.5 的原生多模態——前者讓大模型塞進小記憶體，後者讓手機上的 AI 能同時處理文字和圖片。
@@ -153,3 +165,6 @@ Mistral 的策略是「AI 的下一波不是靠規模，而是靠無所不在」
 - [MLC LLM GitHub](https://github.com/mlc-ai/mlc-llm)
 - [On-Device LLMs in 2026: What Changed, What Matters, What's Next](https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/)
 - [The Best Open-Source Small Language Models in 2026 — BentoML](https://www.bentoml.com/blog/the-best-open-source-small-language-models)
+- [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
+- [LMSYS Chatbot Arena](https://chat.lmsys.org/)
+- [LLM Stats — AI Model Releases](https://llm-stats.com/ai-news)
