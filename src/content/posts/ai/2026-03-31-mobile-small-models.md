@@ -2,7 +2,7 @@
 title: "能在手機上跑的小模型：2026 年的選擇與限制"
 date: 2026-03-31
 category: ai
-tags: [on-device-ai, small-models, mobile, quantization, llama, gemma, phi, qwen, mistral, smollm]
+tags: [on-device-ai, small-models, mobile, quantization, llama, gemma, phi, qwen, mistral, smollm, mobilellm]
 lang: zh-TW
 tldr: "2026 年行動端 LLM 主力是 Gemma 3n、Qwen 3.5 Small、Llama 3.2、Phi-4-mini、Ministral 3 和 SmolLM3。3B 以下量化模型在 8GB RAM 手機上能跑到 30–50 tokens/sec，但 RAM、散熱和 context window 仍是硬限制。"
 description: "盤點 2026 年能在手機上執行的小型 LLM，包含 Gemma 3n、Qwen 3.5 Small、Llama 3.2、Phi-4-mini、Ministral 3、SmolLM3，以及量化格式、推論框架和實際限制。"
@@ -46,6 +46,14 @@ Microsoft 還推出了 **Phi-4-mini-flash-reasoning**，針對邊緣裝置最佳
 2025 年 12 月 Mistral 3 家族的一部分，3B / 8B / 14B 三個尺寸。3B 量化後可以在 4GB VRAM 的裝置上跑。Apache 2.0 授權，商用無限制。
 
 Mistral 的策略是「AI 的下一波不是靠規模，而是靠無所不在」——讓模型小到能跑在無人機、車輛、機器人和手機上。搭配 2026 年初推出的 Voxtral TTS（4B 語音合成模型），Mistral 在語音 AI on-device 這塊也開始有佈局。
+
+### MobileLLM-R1（Meta）— 不到 1B 的推理怪物
+
+Meta 專為手機 CPU 設計的系列，140M 到 950M 四個尺寸。核心設計哲學是「深而窄」（deep-and-thin）——在 sub-billion 尺度下，更多層數搭配更小的 hidden dimension，比又寬又淺的架構效果好得多。
+
+MobileLLM-R1-950M 在 MATH benchmark 上是 OLMo 1.24B 的 5 倍準確率、SmolLM2 1.7B 的 2 倍，參數量卻更小。125M 版本在 iPhone 上跑到 50 tokens/sec，能處理基本任務。
+
+進階版 **MobileLLM-R1.5** 用 on-policy 知識蒸餾再提升 10–35 個百分點的推理準確率。如果你的場景是數學、程式碼或科學推理，而且裝置記憶體極度受限，這是目前最好的選擇。
 
 ### SmolLM3（Hugging Face）— 開源透明度最高
 
@@ -116,14 +124,15 @@ Mistral 的策略是「AI 的下一波不是靠規模，而是靠無所不在」
 └── 多語言     → Gemma 3n 或 Qwen 3.5 Small
 
 你的裝置 RAM？
-├── 4GB  → Gemma 3n E2B 子模型、Qwen 3.5 0.8B、Ministral 3 3B（Q4）
-├── 6GB  → Llama 3.2 1B、Qwen 3.5 2B、SmolLM3
+├── 4GB  → Gemma 3n E2B 子模型、Qwen 3.5 0.8B、MobileLLM-R1
+├── 6GB  → Llama 3.2 1B、Qwen 3.5 2B、SmolLM3、Ministral 3 3B（Q4）
 ├── 8GB+ → Gemma 3n E4B、Qwen 3.5 4B、Llama 3.2 3B、Phi-4-mini
 
 你需要什麼能力？
-├── 簡單分類/提取     → Qwen 3.5 0.8B
+├── 簡單分類/提取     → Qwen 3.5 0.8B、MobileLLM-R1 140M
 ├── 摘要/回覆         → 1B–3B
-├── 推理/數學         → Phi-4-mini-flash-reasoning
+├── 推理/數學（低資源）→ MobileLLM-R1.5 950M
+├── 推理/數學（8GB+） → Phi-4-mini-flash-reasoning
 └── 多模態（圖片+文字）→ Gemma 3n 或 Qwen 3.5 4B+
 ```
 
@@ -160,6 +169,9 @@ Mistral 的策略是「AI 的下一波不是靠規模，而是靠無所不在」
 - [SmolLM3-3B Hugging Face](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)
 - [Mistral 3 launches for open AI era — eWEEK](https://www.eweek.com/news/mistral-3-launch/)
 - [Mistral launches Mistral 3 for laptops, drones, and edge devices — VentureBeat](https://venturebeat.com/ai/mistral-launches-mistral-3-a-family-of-open-models-designed-to-run-on/)
+- [MobileLLM-R1: Exploring the Limits of Sub-Billion Language Model Reasoners — 論文](https://arxiv.org/abs/2509.24945)
+- [MobileLLM-R1-950M — Hugging Face](https://huggingface.co/facebook/MobileLLM-R1-950M)
+- [MobileLLM GitHub](https://github.com/facebookresearch/MobileLLM)
 - [ExecuTorch — Meta 行動端推論框架](https://github.com/pytorch/executorch)
 - [llama.cpp GitHub](https://github.com/ggml-org/llama.cpp)
 - [MLC LLM GitHub](https://github.com/mlc-ai/mlc-llm)
