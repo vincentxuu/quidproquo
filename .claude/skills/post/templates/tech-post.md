@@ -40,3 +40,7 @@ draft: false
 ## 學到的事
 
 {{一句話總結}}
+
+## 參考資料
+
+{{列出相關的官方文件、GitHub issue、Stack Overflow 等連結。格式：`- [顯示名稱](URL)`}}
