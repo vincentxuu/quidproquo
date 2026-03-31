@@ -107,3 +107,19 @@ draft: false
 ## 整體來說
 
 2026 年的 on-device LLM 已經從「技術 demo」進入「特定場景可用」的階段。關鍵的取捨是：你願意犧牲多少品質來換取離線能力和隱私。對大多數應用來說，最務實的策略是 on-device 處理簡單任務（分類、短回覆、隱私資料），複雜的留給雲端——混合架構比全押任何一邊都合理。
+
+## 參考資料
+
+- [Google Gemma 3 官方文件](https://ai.google.dev/gemma/docs/gemma3)
+- [Gemma 3 技術報告](https://arxiv.org/abs/2503.19786)
+- [Llama 3.2 Lightweight Models 發布](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/)
+- [ExecuTorch — Meta 行動端推論框架](https://github.com/pytorch/executorch)
+- [Phi-4-mini 技術報告](https://arxiv.org/abs/2503.01743)
+- [Qwen 2.5 技術報告](https://arxiv.org/abs/2412.15115)
+- [Qwen 2.5 Hugging Face](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e)
+- [SmolLM2 Hugging Face](https://huggingface.co/collections/HuggingFaceTB/smollm2-6723884218bcda64b34d7db9)
+- [llama.cpp GitHub](https://github.com/ggml-org/llama.cpp)
+- [MLC LLM GitHub](https://github.com/mlc-ai/mlc-llm)
+- [MediaPipe LLM Inference API](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference)
+- [ONNX Runtime Mobile](https://onnxruntime.ai/docs/tutorials/mobile/)
+- [GGUF 格式規格](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md)
