@@ -4,8 +4,8 @@ date: 2026-03-31
 category: ai
 tags: [on-device-ai, small-models, mobile, quantization, llama, gemma, phi, qwen]
 lang: zh-TW
-tldr: "3B 以下的量化模型已經能在主流手機上跑到 30+ tokens/sec，但 RAM、散熱和 context window 仍然是硬限制。選模型要看你的語言需求和裝置條件。"
-description: "盤點 2026 年能在手機上執行的小型 LLM，包含 Gemma 3、Llama 3.2、Phi-4-mini、Qwen 2.5 等，以及量化格式、推論框架和實際限制。"
+tldr: "2026 年行動端 LLM 主力是 Gemma 3n、Qwen 3.5 Small、Llama 3.2 和 Phi-4-mini。3B 以下量化模型在 8GB RAM 手機上能跑到 30–50 tokens/sec，但 RAM、散熱和 context window 仍是硬限制。"
+description: "盤點 2026 年能在手機上執行的小型 LLM，包含 Gemma 3n、Qwen 3.5 Small、Llama 3.2、Phi-4-mini 等，以及量化格式、推論框架和實際限制。"
 draft: false
 ---
 
@@ -13,25 +13,41 @@ draft: false
 
 ## 模型選項
 
-### Gemma 3（Google）
+### Gemma 3n（Google）— 行動端首選
 
-1B 和 4B 兩個行動端版本。1B 量化後不到 1GB，4B 約 2.5GB。Google 專門為 on-device 設計，透過 MediaPipe 直接支援 Android 和 iOS。4B 版本支援多模態（圖片輸入）。多語言表現不錯，繁中品質在小模型裡算好的。
+Google 在 2025 年 5 月推出 Gemma 3n，專為行動端設計。核心創新是 **Per-Layer Embeddings（PLE）**，讓 5B 參數的模型實際只佔 2GB RAM，8B 版本佔 3GB——相當於傳統 2B 和 4B 模型的記憶體用量。
 
-### Llama 3.2（Meta）
+支援文字、圖片和音頻輸入，內建巢狀子模型（4B 主模型裡包含 2B 子模型），可以依據延遲需求動態切換。與 Qualcomm、MediaTek、Samsung 合作最佳化硬體支援。透過 Google AI Edge 部署，Gemma 3 1B 在 prefill 階段可達 2,585 tok/sec。
 
-1B 和 3B。1B 量化後約 0.7GB，3B 約 1.8GB。Meta 官方透過 ExecuTorch 支援 Android/iOS 部署，iPhone 16 Pro 上 1B 模型跑到約 50 tokens/sec。英文表現強，但中文能力相對弱。
+前一代 Gemma 3（2025 年 3 月）的 1B 和 4B 版本仍然可用，1B 只有 529MB，適合極度受限的裝置。
 
-### Phi-4-mini（Microsoft）
+### Qwen 3.5 Small（阿里巴巴）— 多語言與繁中最強
 
-約 3.8B 參數，量化後 2.2GB。推理能力在同級距模型裡突出，常在 benchmark 上打贏更大的模型。ONNX Runtime 有最佳化路徑。適合需要邏輯推理的場景。
+2026 年 3 月剛發布，取代 Qwen 2.5 成為行動端主力。四個尺寸：0.8B / 2B / 4B / 9B。
 
-### Qwen 2.5（阿里巴巴）
+技術上的突破：混合架構（Gated Delta Networks + sparse MoE）、原生多模態訓練（4B 以上支援圖片和影片）、支援超過 200 種語言。Qwen3.5-4B 量化後約 2.5–3GB，可以在 8GB RAM 的手機上跑。社群測試 2B 模型在 iPhone 上開飛航模式能跑 30–50 tokens/sec。
 
-0.5B / 1.5B / 3B 三個尺寸。0.5B 量化後不到 400MB——目前最小的實用選項。中日韓語言表現特別好，如果你的應用場景是繁中，Qwen 值得優先測試。
+如果你的應用場景是繁中或多語言，Qwen 3.5 Small 是目前最值得測試的選項。
 
-### SmolLM2（Hugging Face）
+### Llama 3.2（Meta）— 英文生態系最成熟
 
-135M / 360M / 1.7B。極端輕量，360M 幾乎什麼裝置都跑得動。能力有限，但適合簡單分類、關鍵字提取這類輕任務。
+1B 和 3B，從 Llama 3.1 8B/70B 透過剪枝（pruning）和知識蒸餾（distillation）壓縮而來。支援 128K context window。1B 量化後約 0.7GB，3B 約 1.8GB。
+
+Meta 提供官方量化版本，比原始 BF16 格式快 2–4 倍、模型大小減少 56%、記憶體用量減少 41%。Snapdragon 8 Gen 4 上 Llama 3.2 3B 4-bit 量化據報可超過 200 tokens/sec。
+
+3B 在指令跟隨、摘要、工具呼叫上打贏 Gemma 2 2.6B 和 Phi 3.5-mini。英文表現最強，但中文能力相對弱。
+
+### Phi-4-mini（Microsoft）— 推理能力突出
+
+3.8B 參數，dense decoder-only transformer，支援 128K context。數學推理上甚至贏 GPT-4o。透過 Microsoft Olive + ONNX GenAI Runtime 可部署到 iPhone、Android 和 Windows。
+
+Microsoft 還推出了 **Phi-4-mini-flash-reasoning**，針對邊緣裝置最佳化，throughput 提升 10 倍、延遲降低 2–3 倍。如果你需要在手機上做推理密集的任務（數學解題、邏輯分析），Phi-4 系列是最佳選擇。
+
+### SmolLM2 / SmolLM3（Hugging Face）— 極端輕量
+
+SmolLM2 有 135M / 360M / 1.7B 三個尺寸，在 11 兆 tokens 上訓練，1.7B 打贏 Qwen2.5-1.5B 和 Llama3.2-1B。完全開源，包含訓練資料和程式碼。
+
+更新的 **SmolLM3-3B** 在 3B 級距打贏 Llama 3.2 3B 和 Qwen 2.5 3B，同時保持對 4B 級模型的競爭力。適合需要完全透明度（訓練資料公開）的場景。
 
 ## 推論框架
 
@@ -39,12 +55,14 @@ draft: false
 
 | 框架 | 平台 | 特色 |
 |------|------|------|
-| MediaPipe LLM Inference | Android / iOS | Google 官方，支援 Gemma、Llama、Phi，GPU 加速，最容易上手 |
+| Google AI Edge（MediaPipe） | Android / iOS | Google 官方，支援 Gemma 3n，GPU 加速，最容易上手 |
 | llama.cpp（GGUF） | 全平台 | 最通用，社群大，幾乎所有模型都有 GGUF 格式 |
 | MLC LLM | Android / iOS | 編譯成原生 GPU shader（Vulkan/Metal），速度通常最快 |
 | ExecuTorch | Android / iOS | Meta 官方，Llama 的最佳路徑，支援 CoreML 和 XNNPACK |
 | Core ML | iOS | Apple 原生，在 Apple Silicon 上效能最好，但只能用在 Apple 生態 |
 | ONNX Runtime Mobile | 全平台 | Microsoft 主推，Phi 模型的最佳化路徑 |
+
+手機上也有現成的 app 可以直接跑模型：**SmolChat**（支援任何 GGUF 模型）、**MNN Chat**（專注速度和效率）、**Off Grid**（完全離線、免帳號）。
 
 如果沒有特殊需求，llama.cpp + GGUF 是最安全的起點——模型選擇最多、社群資源最豐富。
 
@@ -66,9 +84,9 @@ draft: false
 
 在手機上跑 LLM 聽起來很酷，但硬體限制很現實：
 
-**RAM 是最大瓶頸**。模型要整個載入記憶體。4GB RAM 的手機只能穩定跑 1B 模型，8GB 的可以處理 3–4B。模型佔的記憶體以外，還要留給 OS 和其他 app。
+**RAM 是最大瓶頸**。模型要整個載入記憶體。4GB RAM 的手機只能穩定跑 1B 模型，8GB 的可以處理 3–4B。Gemma 3n 的 PLE 技術是目前唯一有效突破這個限制的方案。
 
-**Context window 受限**。KV cache 吃記憶體，實際上手機端大多只能用 2K–4K tokens 的 context。有些模型號稱支援 8K 以上，但記憶體開銷會讓其他東西被 kill 掉。
+**Context window 受限**。KV cache 吃記憶體，實際上手機端大多只能用 2K–4K tokens 的 context。有些模型號稱支援 128K，但在手機上根本用不到那麼多。
 
 **散熱會降速**。持續推論超過 30 秒，手機開始熱節流，速度可能掉 30–50%。這代表長文生成的體驗不會太好。
 
@@ -81,7 +99,7 @@ draft: false
 - **離線摘要**：在沒網路的地方幫文章、email 做重點整理
 - **智慧回覆**：短文本生成，像 Smart Reply 那種 1–2 句話的回應
 - **隱私敏感處理**：醫療筆記、法律文件等不想送到雲端的內容
-- **離線翻譯**：搭配 Qwen 這類多語言模型，基本翻譯可以離線做
+- **離線翻譯**：搭配 Qwen 3.5 這類多語言模型，基本翻譯可以離線做
 
 不太適合的：長文生成、複雜多輪對話、需要大 context 的 RAG——這些還是留給雲端。
 
@@ -89,37 +107,43 @@ draft: false
 
 ```
 你的主要語言是什麼？
-├── 中文（繁/簡）→ Qwen 2.5 或 Gemma 3
+├── 中文（繁/簡）→ Qwen 3.5 Small 或 Gemma 3n
 ├── 英文為主   → Llama 3.2 或 Phi-4-mini
-└── 多語言     → Gemma 3
+└── 多語言     → Gemma 3n 或 Qwen 3.5 Small
 
 你的裝置 RAM？
-├── 4GB  → 只考慮 1B 以下（Qwen 0.5B、SmolLM2）
-├── 6GB  → 1B–1.5B 安全區
-├── 8GB+ → 3B–4B 都可以
+├── 4GB  → Gemma 3n E2B 子模型、Qwen 3.5 0.8B、SmolLM2
+├── 6GB  → Llama 3.2 1B、Qwen 3.5 2B
+├── 8GB+ → Gemma 3n E4B、Qwen 3.5 4B、Llama 3.2 3B、Phi-4-mini
 
 你需要什麼能力？
-├── 簡單分類/提取 → SmolLM2 360M 就夠
-├── 摘要/回覆     → 1B–3B
-└── 推理/分析     → Phi-4-mini 或 Gemma 3 4B
+├── 簡單分類/提取     → SmolLM2 360M 就夠
+├── 摘要/回覆         → 1B–3B
+├── 推理/數學         → Phi-4-mini-flash-reasoning
+└── 多模態（圖片+文字）→ Gemma 3n 或 Qwen 3.5 4B+
 ```
 
 ## 整體來說
 
-2026 年的 on-device LLM 已經從「技術 demo」進入「特定場景可用」的階段。關鍵的取捨是：你願意犧牲多少品質來換取離線能力和隱私。對大多數應用來說，最務實的策略是 on-device 處理簡單任務（分類、短回覆、隱私資料），複雜的留給雲端——混合架構比全押任何一邊都合理。
+2026 年的 on-device LLM 已經從「技術 demo」進入「特定場景可用」的階段。跟一年前最大的差異是 Gemma 3n 的 PLE 技術和 Qwen 3.5 的原生多模態——前者讓大模型塞進小記憶體，後者讓手機上的 AI 能同時處理文字和圖片。
+
+關鍵的取捨仍然是：你願意犧牲多少品質來換取離線能力和隱私。對大多數應用來說，最務實的策略是 on-device 處理簡單任務（分類、短回覆、隱私資料），複雜的留給雲端——混合架構比全押任何一邊都合理。
 
 ## 參考資料
 
-- [Google Gemma 3 官方文件](https://ai.google.dev/gemma/docs/gemma3)
-- [Gemma 3 技術報告](https://arxiv.org/abs/2503.19786)
-- [Llama 3.2 Lightweight Models 發布](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/)
+- [Gemma 3n — Google DeepMind](https://deepmind.google/models/gemma/gemma-3n/)
+- [Announcing Gemma 3n preview: powerful, efficient, mobile-first AI](https://developers.googleblog.com/en/introducing-gemma-3n/)
+- [Gemma 3 on mobile and web with Google AI Edge](https://developers.googleblog.com/en/gemma-3-on-mobile-and-web-with-google-ai-edge/)
+- [Qwen 3.5 Small Model Series（阿里巴巴）](https://medium.com/data-science-in-your-pocket/qwen-3-5-small-model-series-released-7a5ed34fcbb3)
+- [Alibaba releases Qwen 3.5 Small models — MarkTechPost](https://www.marktechpost.com/2026/03/02/alibaba-just-released-qwen-3-5-small-models-a-family-of-0-8b-to-9b-parameters-built-for-on-device-applications/)
+- [Llama 3.2: Revolutionizing edge AI and vision with open, customizable models](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/)
+- [Meta quantized Llama models](https://ai.meta.com/blog/meta-llama-quantized-lightweight-models/)
+- [Phi-4-mini-flash-reasoning — Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/reasoning-reimagined-introducing-phi-4-mini-flash-reasoning/)
+- [Welcome to the new Phi-4 models — Microsoft](https://techcommunity.microsoft.com/blog/educatordeveloperblog/welcome-to-the-new-phi-4-models---microsoft-phi-4-mini--phi-4-multimodal/4386037)
+- [SmolLM2: When Smol Goes Big — 論文](https://arxiv.org/abs/2502.02737)
+- [SmolLM GitHub（含 SmolLM3）](https://github.com/huggingface/smollm)
 - [ExecuTorch — Meta 行動端推論框架](https://github.com/pytorch/executorch)
-- [Phi-4-mini 技術報告](https://arxiv.org/abs/2503.01743)
-- [Qwen 2.5 技術報告](https://arxiv.org/abs/2412.15115)
-- [Qwen 2.5 Hugging Face](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e)
-- [SmolLM2 Hugging Face](https://huggingface.co/collections/HuggingFaceTB/smollm2-6723884218bcda64b34d7db9)
 - [llama.cpp GitHub](https://github.com/ggml-org/llama.cpp)
 - [MLC LLM GitHub](https://github.com/mlc-ai/mlc-llm)
-- [MediaPipe LLM Inference API](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference)
-- [ONNX Runtime Mobile](https://onnxruntime.ai/docs/tutorials/mobile/)
-- [GGUF 格式規格](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md)
+- [On-Device LLMs in 2026: What Changed, What Matters, What's Next](https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/)
+- [The Best Open-Source Small Language Models in 2026 — BentoML](https://www.bentoml.com/blog/the-best-open-source-small-language-models)
