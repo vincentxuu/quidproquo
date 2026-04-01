@@ -155,7 +155,7 @@ MobileLLM-R1-950M 在 MATH benchmark 上是 OLMo 1.24B 的 5 倍準確率、Smol
 **社群**
 
 - **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**：Reddit 上最活躍的本地模型社群，第一手的跑分、量化版本、手機實測心得大多從這裡出來
-- **[eugeneyan/open-llms](https://github.com/eugeneyan/open-llms)**：GitHub 上維護的可商用開源 LLM 清單，按授權分類，定期更新
+- **[Hugging Face Daily Papers](https://huggingface.co/papers)** 的留言區也常有模型作者和社群的深度討論
 - **Hugging Face Discord / EleutherAI Discord**：開源模型討論，常有比官方公告更早的消息
 
 **Newsletter**
