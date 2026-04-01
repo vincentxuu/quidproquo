@@ -53,28 +53,46 @@ Q4_K_M
 └────── 4：每個權重用 4 bits
 ```
 
-- **Q** 系列（Q4_0、Q4_1、Q5_0、Q5_1、Q8_0）：基礎量化，逐 block 統一 scale
-- **K** 系列（Q3_K_S、Q4_K_M、Q5_K_M、Q6_K）：K-quant，對不同層用不同精度，重要的層（attention）用更多 bits
-- **IQ** 系列（IQ1_S、IQ2_XXS、IQ3_M、IQ4_NL）：importance-weighted quantization，根據 Hessian 矩陣判斷每個權重的重要性，精度更高但量化速度更慢
+- **Q** 系列（Q4_0、Q4_1、Q5_0、Q5_1、Q8_0）：基礎量化，逐 block 對稱或非對稱量化，統一 scale。Q4_0 每 32 個 float 存一個 fp16 scale + 32 個 4-bit 整數；Q4_1 額外存一個 offset（`w = d * q + m`），精度略高
+- **K** 系列（Q3_K_S、Q4_K_M、Q5_K_M、Q6_K）：K-quant，**對不同 tensor 類型用不同精度**——敏感的層（attention projection、output）用更多 bits，FFN 等層壓更低。S/M/L 後綴控制壓縮程度：**S**（Small）更激進、**M**（Medium）平衡、**L**（Large）更保守
+- **IQ** 系列（IQ1_S、IQ2_XXS、IQ3_M、IQ4_NL）：importance-weighted quantization，用校準數據集計算 importance matrix，搭配 lattice codebook 做向量量化。同 bit 下品質比 K 系列更好，但量化過程慢且需要校準數據
 
 ### 格式對照表
 
-| 格式 | bits/weight | 7B 模型大小 | 品質 | 速度 | 適合場景 |
-|------|------------|-----------|------|------|---------|
-| Q2_K | 2.6 | ~2.8 GB | 差 | 最快 | 極端記憶體限制 |
-| IQ3_M | 3.4 | ~3.5 GB | 堪用 | 快 | 記憶體吃緊但想要更好品質 |
-| Q4_0 | 4.5 | ~3.8 GB | 可用 | 快 | 基準量化 |
-| **Q4_K_M** | **4.8** | **~4.1 GB** | **好** | **快** | **多數人的最佳選擇** |
-| Q5_K_M | 5.7 | ~4.8 GB | 很好 | 中等 | 品質優先 |
-| Q6_K | 6.6 | ~5.5 GB | 接近 fp16 | 中等 | 記憶體夠就用這個 |
-| Q8_0 | 8.5 | ~7.2 GB | ≈ fp16 | 較慢 | 品質要求最高 |
-| F16 | 16 | ~13.5 GB | 原始品質 | 最慢 | 基準測試 |
+| 格式 | bits/weight | 7B 模型大小 | PPL 增量 | 適合場景 |
+|------|------------|-----------|---------|---------|
+| Q2_K | ~3.2 | ~2.95 GB | 高 | 極端記憶體限制 |
+| IQ3_M | ~3.8 | ~3.52 GB | 低 | 記憶體吃緊但想要更好品質 |
+| Q4_0 | ~4.5 | ~3.83 GB | +0.2499 | 舊版基準，不推薦 |
+| Q4_K_S | ~4.7 | ~4.36 GB | +0.1149 | 記憶體有限但想要 K-quant |
+| **Q4_K_M** | **~4.9** | **~4.58 GB** | **+0.0535** | **多數人的最佳選擇** |
+| Q5_K_M | ~5.7 | ~5.33 GB | 極低 | 品質優先 |
+| Q6_K | ~6.6 | ~6.14 GB | 近零 | 記憶體夠就用這個 |
+| Q8_0 | ~8.5 | ~7.95 GB | ≈ 0 | 品質要求最高 |
+| F16 | 16 | ~14.96 GB | 基準 | 參考用 |
 
-**怎麼選？** 記憶體夠就 Q6_K，一般用 Q4_K_M，極端省記憶體用 IQ3_M。Q4_K_M 是社群公認的甜蜜點——4-bit 量化搭配 K-quant 的分層精度分配，品質損失很小。
+注意 Q4_K_M 的 PPL 增量只有 +0.0535，而舊版 Q4_0 是 +0.2499——**同樣 4-bit，K-quant 的品質好了一個數量級**。
+
+**怎麼選？** 記憶體夠就 Q6_K，一般用 Q4_K_M，極端省記憶體用 IQ3_M。另一個經驗法則：**大模型低量化通常打敗小模型高量化**——14B Q4_K_M 通常比 7B Q8_0 更聰明。
 
 ### IQ 格式：極端壓縮的選擇
 
-IQ（importance quantization）格式使用校準數據集計算每個權重的 Hessian 矩陣，根據重要性分配精度。IQ2_XXS 可以把 7B 模型壓到 ~2 GB，品質比同 bit 的 Q 系列好，但量化過程慢很多（需要跑校準），而且目前只支援 CPU 和 Metal。
+IQ（importance quantization）格式的兩個核心創新：
+
+1. **Importance matrix（imatrix）**：跑校準數據集計算哪些權重對輸出影響最大，壓縮時優先保留這些權重
+2. **Lattice codebook**：用最佳化的向量量化碼本取代簡單的線性量化，同 bit 下表達能力更強
+
+| 格式 | bits/weight | 7B 模型大小 | 特點 |
+|------|------------|-----------|------|
+| IQ1_S | ~1.87 | ~1.87 GB | 極端壓縮，品質大幅下降 |
+| IQ2_XXS | ~2.4 | ~2.23 GB | 超低 bit，需要 imatrix |
+| IQ3_M | ~3.8 | ~3.52 GB | 同 bit 下品質優於 Q3_K |
+| IQ4_XS | ~4.3 | — | importance-weighted 4-bit |
+| IQ4_NL | ~4.5 | — | 非線性 4-bit 量化 |
+
+另外還有 **TQ（Ternary Quantization）** 格式：TQ1_0（1.69 bpw）和 TQ2_0（2.06 bpw），只用 -1/0/+1 三個值表示權重，是目前最極端的壓縮方式。
+
+IQ 格式的量化需要先用 `llama-imatrix` 產生校準數據，跳過這步 `llama-quantize` 會警告。解碼速度比 K 系列略慢，目前在 CPU 和 Metal 上支援最好。
 
 ## 硬體後端
 
@@ -168,13 +186,16 @@ llama-server \
 
 啟動後提供：
 
-- `POST /v1/chat/completions` — 對話
+- `POST /v1/chat/completions` — 對話（OpenAI 相容）
 - `POST /v1/completions` — 文字生成
 - `POST /v1/embeddings` — Embedding
+- `POST /v1/messages` — **Anthropic Messages API 相容**
+- `POST /reranking` — 文件重排序
 - `GET /health` — 健康檢查
+- `GET /metrics` — Prometheus 指標
 - 內建 Web UI（瀏覽器開 `http://localhost:8080`）
 
-任何支援 OpenAI API 的工具都能直接對接，改 `base_url` 就好。
+支援 function calling、structured output（JSON Schema）、vision 輸入、reasoning/thinking mode、LoRA 動態載入、SSL/TLS 和 API key 認證。任何支援 OpenAI 或 Anthropic API 的工具都能直接對接。
 
 ### llama-quantize：模型量化
 
@@ -200,19 +221,33 @@ llama-bench -m model.gguf -ngl 99 -t 8
 
 ### Speculative Decoding
 
-用一個小模型（draft model）快速產生候選 token，再用大模型一次驗證多個 token。命中率高時可以加速 1.5-2x。
+LLM decode 是記憶體頻寬瓶頸——一次算 N 個 token 的時間跟算 1 個差不多。Speculative decoding 利用這點：用便宜的方式快速猜多個候選 token，再用大模型一次驗證。
+
+llama.cpp 支援多種 speculation 方法：
+
+| 方法 | 原理 | 加速幅度 |
+|------|------|---------|
+| **Draft model** | 小模型（如 1B）產生 draft，大模型驗證 | 1.8-2x，最高 3x |
+| **ngram-simple** | 在已生成的 token 歷史中比對 n-gram，用後續 token 當 draft | 低開銷 |
+| **ngram-mod** | hash-based n-gram 統計，跨 server slot 共享，~16MB 記憶體 | 低開銷 |
 
 ```bash
-llama-speculative \
+# Draft model 方式
+llama-server \
   -m large-model.gguf \
   -md draft-model.gguf \
-  -ngl 99 \
-  -ngld 99 \
-  --draft-max 8 \     # 每次 draft 最多 8 個 token
-  -p "Your prompt"
+  -ngl 99 -ngld 99 \
+  --draft-max 16 \
+  --spec-type draft
+
+# N-gram 方式（不需要額外模型）
+llama-server \
+  -m model.gguf -ngl 99 \
+  --spec-type ngram-mod \
+  --spec-ngram-size-n 12
 ```
 
-最佳搭配：同家族的大小模型（如 Llama 3.1 70B + 8B）。draft model 的詞彙表必須和 target model 一致。
+Draft model 的最佳搭配：同家族的大小模型（如 Llama 3.1 8B + 1B），詞彙表必須一致。0.5-1B 的 draft model 效果最好，太大反而划不來。**程式碼生成**因為重複模式多，是 speculative decoding 收益最大的場景。
 
 ### Grammar-Constrained Sampling
 
@@ -226,11 +261,13 @@ llama-cli -m model.gguf --grammar 'root ::= "{" "\"name\":" [^}]+ "}"' -p "Gener
 
 ### Flash Attention
 
-```bash
-llama-cli -m model.gguf -fa -c 32768
-```
+Flash Attention 在 llama.cpp 中**已預設啟用**。如果需要關閉可用 `-fa off`。
 
-`-fa` 啟用 Flash Attention，大幅降低長 context 的記憶體用量（從 O(n²) 降到 O(n)）。在 Metal 和 CUDA 後端都有支援。長 context 場景（>8K tokens）強烈建議開啟。
+效果實測（M3 Max, Llama 3 8B, ~26K tokens）：
+- 無 FA：首 token 80s，生成 11 tok/s
+- 有 FA：首 token 72s，生成 32 tok/s — **生成速度約 3 倍**
+
+主要幫助在 prefill 階段（處理長 input），context 越長效果越明顯。少數模型在特定 GPU 上可能有品質差異，但 llama.cpp 會自動 fallback 處理不支援的情況。
 
 ### 多模態推論
 
