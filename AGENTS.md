@@ -62,6 +62,14 @@ draft: false        # 選填，true 時不顯示
 - film：不劇透開頭，說清楚為什麼值得看（或不值得）
 - career：誠實，包含猶豫和失敗的部分
 
+### 參考資料
+
+- 只要文章有明顯引用工具、框架、官方文件、論文、版本資訊、數據比較、外部說法，就要在文末補 `## 參考資料`
+- `## 參考資料` 至少要有 1 個有效 Markdown 連結；主題越廣，連結不能只放 1 個敷衍帶過
+- 參考資料要覆蓋文章主題本身，不是隨便貼幾個不相干連結
+- tech / ai / learning / education / policy / design / marketing / product 類文章，預設應該附參考資料
+- 可執行 `pnpm check:references` 檢查缺漏與覆蓋是否明顯不足
+
 ### Commit 格式
 
 ```

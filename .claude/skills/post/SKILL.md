@@ -29,6 +29,8 @@ description: Convert a conversation, notes, or experience into a structured post
    - 欄位說明見 `references/frontmatter-schema.md`
    - 檔名：`YYYY-MM-DD-<slug>.md`（slug 用英文 kebab-case）
    - 存到 `src/content/posts/<category>/`
+   - 如果文章引用工具、框架、官方文件、論文、版本資訊、數據比較或外部說法，文末必須補 `## 參考資料`
+   - `tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類，預設要附參考資料
 5. **請使用者 review**：展示草稿，詢問是否修改
 6. **確認後執行**：
    ```bash
