@@ -1,10 +1,10 @@
 ---
-title: "Agent CLI 訂閱方案全比較：打造可自由切換的多模型 Agent 使用模式"
+title: "AI Coding Agent 訂閱方案全比較：打造可自由切換的多模型使用模式"
 date: 2026-04-02
 category: ai
-tags: [agent-cli, multi-model-routing, claude-code, cursor, copilot, windsurf, codex, kiro, llm-router, cost-optimization]
+tags: [ai-coding-agent, multi-model-routing, claude-code, cursor, copilot, windsurf, codex, kiro, llm-router, cost-optimization]
 lang: zh-TW
-tldr: "比較 2026 年六大 Agent CLI 訂閱方案，並研究多模型路由模式——簡單任務給便宜模型、複雜任務給強模型，實測可省 40-85% 成本。"
+tldr: "比較 2026 年六大 AI Coding Agent（CLI + IDE）訂閱方案，並研究多模型路由模式——簡單任務給便宜模型、複雜任務給強模型，實測可省 40-85% 成本。"
 description: "完整比較 GitHub Copilot、Claude Code、Cursor、Windsurf、OpenAI Codex、Kiro 的訂閱方案與定價策略，並深入研究 Multi-Model Routing 模式的開源實作與架構設計。"
 draft: false
 ---
@@ -16,16 +16,18 @@ draft: false
 1. **橫向比較**六大 Agent CLI 的訂閱方案
 2. **深入研究** Multi-Model Routing 模式——讓簡單任務自動用便宜模型、複雜任務才動用旗艦模型
 
-## 六大 Agent CLI 訂閱方案總覽
+## 六大 AI Coding Agent 訂閱方案總覽
 
-| 工具 | 入門價 | 重度使用 | 內建模型路由 | 最適合 |
-|------|--------|---------|------------|--------|
-| **[GitHub Copilot](/posts/ai/2026-04-02-agent-cli-github-copilot/)** | $10/mo | $39/mo | Premium requests 機制 | 性價比、廣泛 IDE 支援 |
-| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
-| **[Cursor](/posts/ai/2026-04-02-agent-cli-cursor/)** | $20/mo | $60-200/mo | Auto mode | IDE 原生 agentic 編輯 |
-| **[Windsurf](/posts/ai/2026-04-02-agent-cli-windsurf/)** | $15/mo | $200/mo | Cascade agent | 預算友善 |
-| **[OpenAI Codex](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系整合 |
-| **[Kiro (AWS)](/posts/ai/2026-04-02-agent-cli-kiro/)** | 免費方案 | 付費方案 | Auto 模式自動切換 | AWS 生態系、免費入門 |
+> **CLI vs IDE**：Claude Code 和 Codex CLI 是終端原生 agent（Terminal CLI）；Cursor、Windsurf、Kiro 是 Agentic IDE；Copilot 則橫跨 IDE 插件與 GitHub 平台。
+
+| 工具 | 類型 | 入門價 | 重度使用 | 內建模型路由 | 最適合 |
+|------|------|--------|---------|------------|--------|
+| **[GitHub Copilot](/posts/ai/2026-04-02-agent-cli-github-copilot/)** | IDE 插件 + 平台 | $10/mo | $39/mo | Premium requests 機制 | 性價比、廣泛 IDE 支援 |
+| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** | Terminal CLI | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
+| **[Cursor](/posts/ai/2026-04-02-agent-cli-cursor/)** | Agentic IDE | $20/mo | $60-200/mo | Auto mode | IDE 原生 agentic 編輯 |
+| **[Windsurf](/posts/ai/2026-04-02-agent-cli-windsurf/)** | Agentic IDE | $15/mo | $200/mo | Cascade agent | 預算友善（無獨立 CLI） |
+| **[OpenAI Codex](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | Terminal CLI + Web | $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系整合 |
+| **[Kiro (AWS)](/posts/ai/2026-04-02-agent-cli-kiro/)** | Agentic IDE + CLI | 免費方案 | 付費方案 | Auto 模式自動切換 | AWS 生態系、免費入門 |
 
 > **務實建議**：多數團隊的最佳策略是混用——Cursor/Windsurf 做日常 IDE agent，Claude Code/Codex 做終端 agent 處理難題，Copilot 當 $10/月的安全網。
 
