@@ -10,21 +10,7 @@ draft: false
 
 2025 年，台灣 MarTech 工具數量達到 666 款，五年成長 264%。在這個百花齊放的市場裡，沒有一家公司能獨自解決所有問題。「串接」不再是附加功能，而是生存策略。
 
-漸強實驗室（Crescendo Lab）是觀察這個現象的最佳案例之一。
-
----
-
-## 漸強實驗室是誰
-
-漸強實驗室成立於 2017 年，核心產品圍繞 LINE 官方帳號的行銷科技：
-
-- **MAAC**（Messaging Analytics & Automation Cloud）：行銷自動化平台
-- **CAAC**（Conversation Analytics & Automation Cloud）：客服與銷售對話平台
-- **DAAC**（Data Analytics & Automation Cloud）：AI 數據分析平台
-
-公司連續四年（2022–2025）獲得 LINE 金級技術夥伴認證，是亞洲唯一同時取得台灣、日本、泰國 LINE 技術認證的服務商。目前服務超過 700 個品牌，客戶包括 H&M、GAP、IKEA、Skyscanner 等。
-
-但讓漸強真正站穩市場的，不只是產品功能，而是它的**生態系策略**。
+[漸強實驗室（Crescendo Lab）](https://www.cresclab.com/tw)是觀察這個現象的最佳案例之一——2017 年成立，以 LINE 行銷科技起家（MAAC 行銷自動化 / CAAC 客服對話 / DAAC 數據分析），連續四年 LINE 金級技術夥伴，服務 700+ 品牌。讓它站穩市場的不只是產品，而是**生態系策略**。
 
 ---
 
