@@ -95,3 +95,16 @@ DGX Spark 最適合這些場景：
 DGX Spark 代表的趨勢是 **AI 算力的民主化**。過去要跑大模型，你的選項是租雲端 GPU 或買一台幾十萬的工作站。現在用不到 15 萬台幣的價格，就能在桌上放一台跑得動 200B 模型的機器。
 
 它不是完美的——273 GB/s 的記憶體頻寬是瓶頸，記憶體不可升級，跑 training 的能力也有限。但作為一台本地推論和 fine-tune 的開發機，DGX Spark 在 2025–2026 年的 AI 硬體市場裡，找到了一個很精準的定位。
+
+## 參考來源
+
+- [NVIDIA DGX Spark 官方產品頁面](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+- [NVIDIA Newsroom — DGX Spark Arrives for World's AI Developers](https://nvidianews.nvidia.com/news/nvidia-dgx-spark-arrives-for-worlds-ai-developers)
+- [NVIDIA Blog — DGX Spark and DGX Station Power Open-Source and Frontier Models](https://blogs.nvidia.com/blog/dgx-spark-and-station-open-source-frontier-models/)
+- [NVIDIA DGX Spark 硬體規格文件](https://docs.nvidia.com/dgx/dgx-spark/hardware.html)
+- [NVIDIA DGX Spark Marketplace](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/dgx-spark/)
+- [NVIDIA DGX Spark Review — IntuitionLabs](https://intuitionlabs.ai/articles/nvidia-dgx-spark-review)
+- [DGX Spark vs DGX Station 完整比較 — TWOWIN](https://twowintech.com/nvidia-dgx-spark-vs-nvidia-dgx-station-a-comprehensive-comparison/)
+- [Nvidia DGX Spark: The Best Inventions of 2025 — TIME](https://time.com/collections/best-inventions-2025/7318247/nvidia-dgx-spark/)
+- [DGX Spark now available for $3,999 — Constellation Research](https://www.constellationr.com/blog-news/insights/nvidia-dgx-spark-now-available-3999-real-impact-will-be-ai-edge)
+- [DGX Spark vs. Mac Studio 價格比較 — Rost Glukhov](https://www.glukhov.org/post/2025/10/nvidia-dgx-spark-prices/)
