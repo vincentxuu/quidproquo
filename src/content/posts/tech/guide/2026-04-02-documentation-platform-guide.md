@@ -126,7 +126,7 @@ npm run docs:dev
 - 相對較新，生態系還在成長
 - 高度依賴 SaaS，不能 self-host
 
-**知名使用者**：Anthropic（Claude API docs）、Cursor、Resend、Turso、Trigger.dev
+**知名使用者**：OpenAI、Anthropic（Claude API docs）、Cohere、Mistral、Cursor、Resend、Turso、Trigger.dev
 
 **定價**：免費方案有限制 / Pro $150/月起（以專案計價）
 
@@ -253,6 +253,27 @@ npm create astro@latest -- --template starlight
 **定價**：免費最多 10 人 / Standard $5.75/月/人 / Premium $11/月/人
 
 **適合**：已經用 Atlassian 全家桶的企業、需要嚴格權限控管的組織。
+
+---
+
+## AI 公司都選了誰？
+
+值得特別拉出來看，因為 AI 公司的 API 文件需求最密集：
+
+| 公司 | 文件平台 | 備註 |
+|:---|:---|:---|
+| **OpenAI** | Mintlify | platform.openai.com/docs |
+| **Anthropic** | Mintlify | docs.anthropic.com |
+| **Google DeepMind** | 自建 | 整合在 Google Cloud 文件體系 |
+| **Cohere** | Mintlify | docs.cohere.com |
+| **Mistral** | Mintlify | docs.mistral.ai |
+| **Hugging Face** | 自建（Next.js） | huggingface.co/docs |
+| **LangChain** | Docusaurus | js.langchain.com/docs |
+| **Vercel AI SDK** | Nextra | sdk.vercel.ai/docs |
+
+結論很明顯：**Mintlify 幾乎壟斷了 AI 公司的 API 文件市場**。OpenAI、Anthropic、Cohere、Mistral 全都選它。原因不難理解 — API playground 內建、設計感好、MDX 支援讓程式碼範例的呈現很優。
+
+自建方案則是 Google 和 Hugging Face 這種本身就有龐大文件基礎設施的公司才會選的路。
 
 ---
 
