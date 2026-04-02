@@ -1,11 +1,11 @@
 ---
-title: "一句話發一篇 IG 輪播 — 從手動 3 小時到全自動的 Pipeline 拆解"
+title: "一句話發一篇 IG 輪播 — 從手動 3 小時到全自動的 Pipeline 實作教學"
 date: 2026-04-01
 category: ai
 tags: [claude-code, instagram, automation, playwright, github-actions, meta-graph-api]
 lang: zh-TW
 tldr: "用 Claude Code 當 orchestrator，串接 Playwright 截圖、catbox.moe 圖床、Meta Graph API 發布、Telegram 通知，一句話完成 IG 輪播圖文的生成與發布。"
-description: "完整拆解用 Claude Code + Playwright + GitHub Actions 自動化 IG 輪播圖文的 pipeline，從文案生成到自動發布，每個環節的工具選擇與設計邏輯。"
+description: "手把手教你建一條 IG 輪播自動化 pipeline：Claude Code 生成文案、Playwright 截圖、catbox.moe 圖床、Meta Graph API 發布、Telegram 通知，附完整程式碼。"
 draft: false
 type: guide
 ---
@@ -14,7 +14,7 @@ type: guide
 
 現在我跟 Claude 說一句話：「做一組 AI 自動化主題的 IG 輪播，5 張英文內文」，然後去倒咖啡。回來的時候 Telegram 通知已經跳出來了：發布成功。
 
-這篇拆解整條 pipeline 怎麼建的。
+這篇手把手拆解整條 pipeline 怎麼建，附完整程式碼。
 
 ---
 
@@ -24,208 +24,573 @@ type: guide
 你說一句話
     ↓
 Claude Code（orchestrator）
-    ↓ 生成文案
+    ↓ 生成文案（結構化 JSON）
     ↓ 填入 HTML 模板
-    ↓ Playwright 截圖 → PNG
-    ↓ 上傳 catbox.moe → 取得公開 URL
+    ↓ Playwright 截圖 → 5 張 1080×1080 PNG
+    ↓ 上傳 catbox.moe → 取得 5 個公開 URL
     ↓ 呼叫 Meta Graph API → 發布 IG 輪播
     ↓ Telegram Bot 通知
     ✓ 完成
 ```
 
-重點：**這不是一個工具，是一條 pipeline。** Claude Code 是 orchestrator，負責串接每個環節。每個環節都是獨立的，可以單獨替換。
+**這不是一個工具，是一條 pipeline。** Claude Code 是 orchestrator，負責串接每個環節。每個環節都是獨立的，可以單獨替換。
 
 ---
 
-## Step 1：說出你想發什麼
+## 前置準備：你需要先設定好什麼
 
-沒有表單、沒有設定檔。直接用自然語言描述：
+在開始之前，有幾個一次性的前置作業：
+
+### 1. Meta Developer 帳號與 Instagram Business Account
+
+這是最麻煩的一步，但只要做一次：
+
+1. 到 [Meta for Developers](https://developers.facebook.com/) 建立開發者帳號
+2. 建立一個 App（選「Business」類型）
+3. 在 App 設定裡加入「Instagram Graph API」產品
+4. 你的 Instagram 帳號必須是 **Business Account** 或 **Creator Account**，並且**連結到一個 Facebook Page**
+5. 在 Graph API Explorer 取得 access token，勾選以下權限：
+   - `instagram_basic`
+   - `instagram_content_publish`
+   - `pages_read_engagement`
+
+**取得長效 token：** 預設 token 只有 1 小時效期。到 Graph API Explorer 用短效 token 換長效 token（60 天）：
+
+```bash
+curl -X GET "https://graph.facebook.com/v21.0/oauth/access_token?\
+grant_type=fb_exchange_token&\
+client_id={app-id}&\
+client_secret={app-secret}&\
+fb_exchange_token={short-lived-token}"
+```
+
+### 2. 取得 Instagram User ID
+
+```bash
+curl -X GET "https://graph.facebook.com/v21.0/me/accounts?access_token={token}"
+# 從回傳的 page 資料中取得 page_id
+
+curl -X GET "https://graph.facebook.com/v21.0/{page-id}?fields=instagram_business_account&access_token={token}"
+# 回傳的 instagram_business_account.id 就是你的 IG User ID
+```
+
+把這個 ID 記下來，後面發布要用。
+
+### 3. Telegram Bot
+
+1. 在 Telegram 搜尋 `@BotFather`，發送 `/newbot`
+2. 照指示設定 bot 名稱，取得 `bot_token`
+3. 跟你的 bot 隨便發一則訊息
+4. 呼叫 `https://api.telegram.org/bot{token}/getUpdates` 取得你的 `chat_id`
+
+### 4. 安裝 Playwright
+
+```bash
+npm init -y
+npm install playwright
+npx playwright install chromium
+```
+
+---
+
+## Step 1：跟 Claude 說你要什麼
+
+直接用自然語言：
 
 > 「做一組 AI 自動化主題的 IG 輪播，5 張英文內文」
 
-Claude 會從這句話裡解析出：
+Claude Code 會把這句話解析成具體任務，然後開始逐步執行。不需要表單、不需要設定檔，自然語言就是介面。
 
-- **主題**：AI 自動化
-- **張數**：5 張
-- **語言**：英文
-- **風格**：預設（也可以指定，像「科技感深色背景」）
+你也可以更具體：
 
-這就是 LLM 當 orchestrator 最大的優勢——輸入介面就是自然語言，不需要定義 schema。
+> 「做一組輪播，主題是 5 個最常見的 RAG 錯誤，用深色科技風模板，中文」
+
+Claude 會根據描述調整文案內容和模板風格。
 
 ---
 
-## Step 2：Claude 生成文案
+## Step 2：Claude 生成結構化文案
 
-根據主題，Claude 自動產出每張圖的內容結構：
+Claude 根據主題產出結構化的 JSON，每張圖有明確的欄位：
 
-| 張數 | 內容 |
-|------|------|
-| 第 1 張 | Hook — 吸引停下滑的標題 |
-| 第 2-4 張 | 核心內容 — 每張一個重點，標題 + 說明 |
-| 第 5 張 | CTA — 行動呼籲（Follow / Save / Share） |
+```json
+{
+  "slides": [
+    {
+      "type": "hook",
+      "title": "You Don't Need 10 Tools",
+      "subtitle": "to automate your Instagram",
+      "body": ""
+    },
+    {
+      "type": "content",
+      "title": "1. Claude Code",
+      "subtitle": "The Orchestrator",
+      "body": "Generates copy, controls the pipeline, calls every tool in sequence."
+    },
+    {
+      "type": "content",
+      "title": "2. Playwright",
+      "subtitle": "HTML → Image",
+      "body": "Renders your template in a real browser and screenshots it at 1080×1080."
+    },
+    {
+      "type": "content",
+      "title": "3. Meta Graph API",
+      "subtitle": "Publish Directly",
+      "body": "No manual upload. Three API calls and your carousel is live."
+    },
+    {
+      "type": "cta",
+      "title": "Save This Post",
+      "subtitle": "",
+      "body": "Follow @youraccount for more automation breakdowns."
+    }
+  ],
+  "caption": "You don't need 10 tools to automate IG posting...",
+  "hashtags": "#automation #claudecode #instagram #ai"
+}
+```
 
-這裡的關鍵不是「AI 會寫文案」這件事，而是**結構化輸出**。每張圖的標題、副標題、內文、CTA 都是結構化的資料，後面才能自動填進模板。
+關鍵：**結構化輸出**。每張圖的欄位固定（title、subtitle、body、type），後面才能自動填進 HTML 模板。如果 Claude 只是生成一段散文，後面的步驟就沒辦法自動化。
 
 ---
 
 ## Step 3：HTML 模板 + Playwright 截圖
 
-這一步是整條 pipeline 最精巧的地方。
+這一步是整條 pipeline 最精巧的地方。圖片其實就是「固定版面的視覺呈現」——跟網頁一模一樣。所以用 HTML/CSS 寫模板，Playwright 截圖輸出 PNG。
 
-傳統做法是用 Canva 或 Figma 手動排版。但圖片其實就是「固定版面的視覺呈現」——跟網頁一模一樣。所以：
+### HTML 模板範例
 
-1. **用 HTML/CSS 寫模板**：定義好輪播圖的版面、字體、配色、間距
-2. **Claude 把文案填進模板**：每張圖對應一個 HTML 檔案
-3. **Playwright 開瀏覽器截圖**：把 HTML render 成 1080×1080 的 PNG
+建立一個 `templates/carousel-dark.html`：
 
-為什麼用 Playwright 而不是 Satori 或 Puppeteer？
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+  }
+  .slide-number {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+  .title {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .subtitle {
+    font-size: 32px;
+    color: #888;
+    margin-bottom: 40px;
+  }
+  .body {
+    font-size: 28px;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 800px;
+  }
+  .accent { color: #6366f1; }
+  .handle {
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+    font-size: 20px;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+  <div class="slide-number">{{slideNumber}}</div>
+  <div class="title">{{title}}</div>
+  <div class="subtitle">{{subtitle}}</div>
+  <div class="body">{{body}}</div>
+  <div class="handle">@youraccount</div>
+</body>
+</html>
+```
 
-- **Satori** 不支援完整 CSS（沒有 flexbox gap、沒有 grid）
-- **Puppeteer** 可以，但 Playwright 的 API 更乾淨，且原生支援多瀏覽器
-- Playwright 的 `page.screenshot()` 可以直接指定 viewport 大小，輸出就是精確的 1080×1080
+不同的 `type` 可以對應不同模板變體（hook 用超大字、CTA 加按鈕樣式），或者全部用同一個模板但靠 CSS class 切換。
+
+### Playwright 截圖腳本
+
+建立 `scripts/generate-carousel.js`：
 
 ```javascript
-const browser = await chromium.launch();
-const page = await browser.newPage();
-await page.setViewportSize({ width: 1080, height: 1080 });
-await page.setContent(htmlContent);
-await page.screenshot({ path: `slide-${i}.png` });
+import { chromium } from 'playwright';
+import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+
+// 從 Claude 生成的 JSON 讀取文案
+const data = JSON.parse(readFileSync('carousel-data.json', 'utf-8'));
+const template = readFileSync('templates/carousel-dark.html', 'utf-8');
+
+mkdirSync('output', { recursive: true });
+
+async function generateSlides() {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.setViewportSize({ width: 1080, height: 1080 });
+
+  for (let i = 0; i < data.slides.length; i++) {
+    const slide = data.slides[i];
+
+    // 把 placeholder 換成實際文案
+    const html = template
+      .replace('{{slideNumber}}', slide.type === 'hook' ? '' : `${i} / ${data.slides.length}`)
+      .replace('{{title}}', slide.title)
+      .replace('{{subtitle}}', slide.subtitle || '')
+      .replace('{{body}}', slide.body || '');
+
+    await page.setContent(html, { waitUntil: 'networkidle' });
+    await page.screenshot({ path: `output/slide-${i + 1}.png` });
+
+    console.log(`✓ slide-${i + 1}.png generated`);
+  }
+
+  await browser.close();
+  console.log(`\n${data.slides.length} slides generated in output/`);
+}
+
+generateSlides();
 ```
 
-模板是可以換的。想換風格，換一個 HTML 模板就好，文案邏輯完全不用動。
+執行後 `output/` 資料夾會有 5 張 1080×1080 的 PNG。
+
+**為什麼用 Playwright 而不是其他工具？**
+
+| 工具 | 問題 |
+|------|------|
+| Satori | 不支援完整 CSS（沒有 `gap`、沒有 `grid`、自訂字體麻煩） |
+| Puppeteer | 可以，但 Playwright API 更乾淨，原生支援多瀏覽器 |
+| Canvas（node-canvas） | 要手動算座標，排版地獄 |
+| Canva API | 要付費，且 API 限制多 |
+
+Playwright 直接用 HTML/CSS 排版，設計師也能改模板，不用碰 JavaScript。
 
 ---
 
-## Step 4：上傳圖床
+## Step 4：上傳 catbox.moe 圖床
 
-Meta Graph API 要求圖片必須是**公開可存取的 URL**。本地檔案不行、私有 URL 不行。
+Meta Graph API 要求圖片必須是**公開可存取的 URL**。本地檔案不行、需要認證的 URL 也不行。
 
-所以需要一個圖床。選 [catbox.moe](https://catbox.moe) 的原因：
+catbox.moe 是免費圖床，不需要註冊，API 一個 POST 搞定。
 
-- **免費**，不需要註冊
-- **API 簡單**，一個 POST 就能上傳
-- 回傳的 URL 是公開的，Meta API 能直接抓
-- 檔案保留時間足夠長（不會在 API 呼叫前就過期）
+### 上傳腳本
 
-```bash
-curl -F "reqtype=fileupload" -F "fileToUpload=@slide-1.png" https://catbox.moe/user/api.php
-# 回傳：https://files.catbox.moe/abc123.png
+在 `scripts/upload-and-publish.js` 裡加入上傳邏輯：
+
+```javascript
+import { readFileSync, readdirSync } from 'fs';
+
+async function uploadToCatbox(filePath) {
+  const formData = new FormData();
+  formData.append('reqtype', 'fileupload');
+  formData.append('fileToUpload', new Blob([readFileSync(filePath)]), filePath.split('/').pop());
+
+  const res = await fetch('https://catbox.moe/user/api.php', {
+    method: 'POST',
+    body: formData,
+  });
+
+  const url = await res.text();
+  console.log(`✓ ${filePath} → ${url}`);
+  return url.trim();
+}
+
+// 上傳所有 slides
+const files = readdirSync('output')
+  .filter(f => f.endsWith('.png'))
+  .sort()
+  .map(f => `output/${f}`);
+
+const imageUrls = [];
+for (const file of files) {
+  const url = await uploadToCatbox(file);
+  imageUrls.push(url);
+}
+
+console.log('\nAll images uploaded:', imageUrls);
 ```
 
-如果你需要更穩定的方案，可以換成 Cloudflare R2 或 S3——pipeline 裡只需要換掉上傳那一步，其他都不用動。
+執行後會拿到一組公開 URL，像是：
+
+```
+https://files.catbox.moe/abc123.png
+https://files.catbox.moe/def456.png
+...
+```
+
+**替代方案：** 如果需要更穩定的託管，可以換成 Cloudflare R2 或 AWS S3。只需要改 `uploadToCatbox` 這一個 function，其他邏輯不用動。
 
 ---
 
-## Step 5：Meta Graph API 發布
+## Step 5：Meta Graph API 發布 IG 輪播
 
-Instagram 的輪播發布透過 [Meta Graph API](https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/content-publishing) 完成，流程分三步：
+Instagram 輪播發布需要三步 API 呼叫。以下是完整實作：
 
-### 1. 為每張圖建立 media container
+```javascript
+const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
+const IG_USER_ID = process.env.IG_USER_ID;
+const API_BASE = `https://graph.facebook.com/v21.0`;
 
+// Step 5a：為每張圖建立 media container
+async function createMediaContainer(imageUrl) {
+  const res = await fetch(`${API_BASE}/${IG_USER_ID}/media`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      image_url: imageUrl,
+      is_carousel_item: true,
+      access_token: ACCESS_TOKEN,
+    }),
+  });
+  const data = await res.json();
+
+  if (data.error) throw new Error(`Container failed: ${data.error.message}`);
+  console.log(`✓ Container created: ${data.id}`);
+  return data.id;
+}
+
+// Step 5b：建立 carousel container
+async function createCarousel(containerIds, caption) {
+  const res = await fetch(`${API_BASE}/${IG_USER_ID}/media`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      media_type: 'CAROUSEL',
+      children: containerIds.join(','),
+      caption: caption,
+      access_token: ACCESS_TOKEN,
+    }),
+  });
+  const data = await res.json();
+
+  if (data.error) throw new Error(`Carousel failed: ${data.error.message}`);
+  console.log(`✓ Carousel container: ${data.id}`);
+  return data.id;
+}
+
+// Step 5c：發布
+async function publishCarousel(carouselId) {
+  const res = await fetch(`${API_BASE}/${IG_USER_ID}/media_publish`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      creation_id: carouselId,
+      access_token: ACCESS_TOKEN,
+    }),
+  });
+  const data = await res.json();
+
+  if (data.error) throw new Error(`Publish failed: ${data.error.message}`);
+  console.log(`✓ Published! Post ID: ${data.id}`);
+  return data.id;
+}
+
+// 串起來
+const containerIds = [];
+for (const url of imageUrls) {
+  const id = await createMediaContainer(url);
+  containerIds.push(id);
+}
+
+const caption = `${data.caption}\n\n${data.hashtags}`;
+const carouselId = await createCarousel(containerIds, caption);
+const postId = await publishCarousel(carouselId);
 ```
-POST /{ig-user-id}/media
-  image_url={公開URL}
-  is_carousel_item=true
-```
 
-### 2. 建立 carousel container
+### 常見踩坑
 
-```
-POST /{ig-user-id}/media
-  media_type=CAROUSEL
-  children={container_1_id},{container_2_id},...
-  caption={你的caption和hashtag}
-```
+- **container 建立後不能馬上用**：Meta 需要時間處理圖片。如果 carousel 建立失敗，可以加一個 polling 機制，每隔幾秒用 `GET /{container-id}?fields=status_code` 檢查狀態，等到 `FINISHED` 再繼續
+- **圖片必須是 JPEG 或 PNG**，尺寸建議 1080×1080（正方形）或 1080×1350（4:5）
+- **caption 最多 2200 字元**，hashtag 最多 30 個
+- **每 24 小時最多發 25 則貼文**（API rate limit）
 
-### 3. 發布
+加入 container 狀態檢查：
 
-```
-POST /{ig-user-id}/media_publish
-  creation_id={carousel_container_id}
-```
+```javascript
+async function waitForContainer(containerId, maxRetries = 10) {
+  for (let i = 0; i < maxRetries; i++) {
+    const res = await fetch(
+      `${API_BASE}/${containerId}?fields=status_code&access_token=${ACCESS_TOKEN}`
+    );
+    const data = await res.json();
 
-三步都是 REST API，Claude Code 直接用 `curl` 或 `fetch` 呼叫就好。需要的是一組 Instagram Business Account 的 access token，這個在 Meta Developer Portal 設定一次就行。
+    if (data.status_code === 'FINISHED') return true;
+    if (data.status_code === 'ERROR') throw new Error('Container processing failed');
+
+    console.log(`  ⏳ Container ${containerId} status: ${data.status_code}, retrying...`);
+    await new Promise(r => setTimeout(r, 3000));
+  }
+  throw new Error('Container processing timed out');
+}
+```
 
 ---
 
 ## Step 6：Telegram 通知
 
-發布成功後，打一個 Telegram Bot API：
+發布成功後，發一則 Telegram 通知給自己：
 
-```
-POST https://api.telegram.org/bot{token}/sendMessage
-  chat_id={your_chat_id}
-  text=✅ IG 輪播發布成功：{post_url}
-```
+```javascript
+async function sendTelegramNotification(postId) {
+  const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-為什麼用 Telegram 而不是 email 或 Slack？因為通知是給自己看的，Telegram 最輕量。要換成 Discord webhook 或 LINE Notify 也是一行的事。
+  const message = `✅ IG 輪播發布成功\nPost ID: ${postId}\nhttps://www.instagram.com/p/${postId}/`;
+
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message,
+    }),
+  });
+
+  console.log('✓ Telegram notification sent');
+}
+
+await sendTelegramNotification(postId);
+```
 
 ---
 
-## GitHub Actions：讓整條 pipeline 跑在 CI 上
+## GitHub Actions：讓 pipeline 跑在 CI 上
 
-上面所有步驟都可以在本地跑，但放到 GitHub Actions 上有幾個好處：
+把上面所有步驟放進 GitHub Actions，就不用佔本地資源，還能排程自動發文。
 
-- **不佔本地資源**：Playwright 吃記憶體，放 CI 跑比較乾淨
-- **可排程**：用 `cron` trigger 定時發文
-- **可追蹤**：每次執行都有 log，出錯知道斷在哪
-- **Secrets 管理**：Meta token、Telegram token 放在 GitHub Secrets
+### Workflow 檔案
+
+建立 `.github/workflows/ig-carousel.yml`：
 
 ```yaml
+name: Publish IG Carousel
+
 on:
-  workflow_dispatch:  # 手動觸發
-  schedule:
-    - cron: '0 9 * * 1'  # 每週一早上 9 點
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: '輪播主題'
+        required: true
+        default: 'AI automation tools'
+      slides:
+        description: '張數'
+        required: true
+        default: '5'
 
 jobs:
-  publish-carousel:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-      - run: npx playwright install chromium
-      - run: node scripts/generate-carousel.js
-      - run: node scripts/upload-and-publish.js
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx playwright install chromium --with-deps
+
+      - name: Generate carousel images
+        run: node scripts/generate-carousel.js
+        env:
+          TOPIC: ${{ github.event.inputs.topic }}
+          SLIDE_COUNT: ${{ github.event.inputs.slides }}
+
+      - name: Upload and publish to Instagram
+        run: node scripts/upload-and-publish.js
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+```
+
+### 設定 GitHub Secrets
+
+到 repo 的 Settings → Secrets and variables → Actions，加入：
+
+| Secret 名稱 | 值 |
+|---|---|
+| `META_ACCESS_TOKEN` | Meta Graph API 的長效 token |
+| `IG_USER_ID` | 你的 Instagram Business Account ID |
+| `TELEGRAM_BOT_TOKEN` | Telegram Bot 的 token |
+| `TELEGRAM_CHAT_ID` | 你的 Telegram chat ID |
+
+### 觸發方式
+
+- **手動觸發**：到 Actions 頁面點 "Run workflow"，填入主題和張數
+- **排程觸發**：加上 `schedule` 就能定時發文：
+
+```yaml
+on:
+  schedule:
+    - cron: '0 1 * * 1,4'  # 每週一、四 UTC 09:00（台灣時間）
 ```
 
 ---
 
-## 工具清單總整理
+## 完整檔案結構
 
-| 環節 | 工具 | 角色 |
-|------|------|------|
-| 流程控制 | Claude Code | Orchestrator，理解指令、生成文案、呼叫各工具 |
-| 文案生成 | Claude Code | 根據主題產出結構化的輪播內容 |
-| 圖片生成 | Playwright | HTML → PNG 截圖 |
-| 圖片託管 | catbox.moe | 提供公開 URL 給 Meta API |
-| IG 發布 | Meta Graph API | 建立 carousel 並發布 |
-| 通知 | Telegram Bot | 發布結果推播 |
-| 自動化執行 | GitHub Actions | CI/CD 環境，排程與 secrets 管理 |
+```
+your-repo/
+├── .github/
+│   └── workflows/
+│       └── ig-carousel.yml        # GitHub Actions workflow
+├── templates/
+│   ├── carousel-dark.html         # 深色模板
+│   └── carousel-light.html        # 淺色模板（可選）
+├── scripts/
+│   ├── generate-carousel.js       # Playwright 截圖
+│   └── upload-and-publish.js      # 上傳 + Meta API + Telegram
+├── output/                        # 生成的圖片（gitignore）
+└── carousel-data.json             # Claude 生成的文案（gitignore）
+```
 
 ---
 
-## 設計邏輯：為什麼這樣切
+## 工具清單與替代方案
 
-這條 pipeline 的設計有幾個刻意的選擇：
+| 環節 | 目前用 | 替代方案 | 替換成本 |
+|------|--------|---------|---------|
+| 流程控制 | Claude Code | — | — |
+| 文案生成 | Claude Code | GPT-4、Gemini | 換 API call |
+| 圖片生成 | Playwright | Puppeteer | 換截圖 API |
+| 圖床 | catbox.moe | Cloudflare R2、S3、Imgur | 換 upload function |
+| IG 發布 | Meta Graph API | — | 唯一選擇 |
+| 通知 | Telegram | Discord webhook、LINE Notify、Slack | 換一行 URL |
+| CI/CD | GitHub Actions | GitLab CI、本地 cron | 換 workflow 檔 |
 
-**每個環節都可以單獨替換。** 圖床從 catbox 換到 R2？改一個 function。通知從 Telegram 換到 Discord？改一行 URL。模板想換風格？換一個 HTML 檔案。這是 pipeline 思維，不是 monolith。
-
-**Claude Code 當 orchestrator，不當 runtime。** Claude 負責理解意圖、生成內容、決定流程。但實際的截圖、上傳、API 呼叫都是確定性的腳本在做。LLM 做它擅長的事（語言、推理），確定性工作交給確定性工具。
-
-**建完之後邊際成本趨近零。** 第一次建 pipeline 花時間，但建完之後每次發文就是一句話的事。模板可以重複用，文案自動生成，發布自動完成。時間成本從 2-3 小時降到接近零。
+每個環節都是獨立模組，換掉任何一個不影響其他部分。
 
 ---
 
 ## 整體來說
 
-這套 pipeline 解決的不是「AI 能不能寫文案」的問題，而是「從想法到發布之間有多少摩擦力」的問題。
+這套 pipeline 解決的不是「AI 能不能寫文案」的問題，而是**從想法到發布之間有多少摩擦力**的問題。
 
-每一步單獨看都不難——寫文案、做圖、上傳、發文。但串在一起要 2-3 小時，是因為每一步都需要人去操作、等待、切換工具。把這些摩擦力全部用自動化消除掉，剩下的就只有最有價值的那一步：決定要說什麼。
+每一步單獨看都不難——寫文案、做圖、上傳、發文。但串在一起要 2-3 小時，是因為每一步都需要人去操作、等待、切換工具。把這些摩擦力全部用自動化消除掉，剩下的就只有最有價值的那一步：**決定要說什麼。**
 
-這也是 Claude Code 作為 agent harness 的一個具體應用——它不只是聊天機器人，而是一個能串接工具、執行多步驟任務的 orchestrator。IG 輪播只是其中一個場景，同樣的架構可以套到任何「多步驟、跨工具」的工作流程上。
+第一次建 pipeline 需要花時間把每個環節串起來。但建完之後，每次發文的邊際成本趨近零。一句話進去，一篇輪播出來。
+
+這也是 Claude Code 作為 orchestrator 的具體應用——它不只是聊天機器人，而是能串接工具、執行多步驟任務的自動化引擎。IG 輪播只是其中一個場景，同樣的架構可以套到任何「多步驟、跨工具」的工作流程上。
 
 ---
 
