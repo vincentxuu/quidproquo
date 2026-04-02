@@ -21,8 +21,8 @@ draft: false
 | 工具 | 入門價 | 重度使用 | 模型策略 | 最適合 |
 |------|--------|---------|---------|--------|
 | **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
-| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** | $20/mo | $60-200/mo | Auto + 多供應商 | IDE ↔ CLI 無縫切換 |
-| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系 |
+| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** | 免費 / $20/mo | $60-200/mo | Auto + 多供應商 | IDE ↔ CLI 無縫切換 |
+| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | 免費 / $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系 |
 | **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro/)** | 免費 (50 credits) | $200/mo | Auto 模式自動切換 | AWS 生態系 |
 | **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)** | 免費 (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | 免費重度使用 |
 | **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode/)** | 免費 (開源) | 按 API 計費 | 75+ 模型供應商自由切換 | 模型自由、vendor 獨立 |
@@ -54,6 +54,8 @@ draft: false
 | Gemini CLI | 1,000 req/day | Gemini 2.5 Pro | 最慷慨，多數人夠用 |
 | OpenCode | 無限（開源） | 75+ 供應商 | 需自備 API key |
 | Kiro CLI | 50 credits（永久） | Auto 模式 | 額度用完就沒了 |
+| Codex CLI | 有限免費額度（ChatGPT Free） | GPT-5.4 mini | 需 ChatGPT 帳號，用量受限 |
+| Cursor CLI | 免費方案（Hobby） | Auto 模式（有限） | 每月 2,000 completions |
 
 ### $20/月：主流級
 
