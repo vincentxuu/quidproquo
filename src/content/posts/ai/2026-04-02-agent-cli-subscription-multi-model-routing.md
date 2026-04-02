@@ -2,25 +2,26 @@
 title: "Agent CLI 訂閱方案全比較：打造可自由切換的多模型使用模式"
 date: 2026-04-02
 category: ai
-tags: [agent-cli, multi-model-routing, claude-code, codex, kiro, gemini-cli, opencode, llm-router, cost-optimization]
+tags: [agent-cli, multi-model-routing, claude-code, cursor, codex, kiro, gemini-cli, opencode, llm-router, cost-optimization]
 lang: zh-TW
-tldr: "比較 2026 年五大 Agent CLI 訂閱方案（Claude Code、Codex、Kiro、Gemini CLI、OpenCode），並研究多模型路由模式——簡單任務給便宜模型、複雜任務給強模型，實測可省 40-85% 成本。"
-description: "完整比較五大終端原生 Agent CLI 的訂閱方案與定價策略，並深入研究 Multi-Model Routing 模式的開源實作與架構設計。"
+tldr: "比較 2026 年六大 Agent CLI 訂閱方案（Claude Code、Cursor CLI、Codex、Kiro、Gemini CLI、OpenCode），並研究多模型路由模式——簡單任務給便宜模型、複雜任務給強模型，實測可省 40-85% 成本。"
+description: "完整比較六大終端原生 Agent CLI 的訂閱方案與定價策略，並深入研究 Multi-Model Routing 模式的開源實作與架構設計。"
 draft: false
 ---
 
-2026 年，AI coding agent 已經從「輔助工具」變成「開發主力」。本文聚焦於**終端原生的 Agent CLI**——直接在 terminal 裡跑的 coding agent，不含純 IDE 工具（Cursor、Windsurf 等）。
+2026 年，AI coding agent 已經從「輔助工具」變成「開發主力」。本文聚焦於**有終端 CLI agent 的工具**——可以直接在 terminal 裡跑的 coding agent。
 
 這篇文章做兩件事：
 
-1. **橫向比較**五大 Agent CLI 的訂閱方案
+1. **橫向比較**六大 Agent CLI 的訂閱方案
 2. **深入研究** Multi-Model Routing 模式——讓簡單任務自動用便宜模型、複雜任務才動用旗艦模型
 
-## 五大 Agent CLI 訂閱方案總覽
+## 六大 Agent CLI 訂閱方案總覽
 
 | 工具 | 入門價 | 重度使用 | 模型策略 | 最適合 |
 |------|--------|---------|---------|--------|
 | **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
+| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** | $20/mo | $60-200/mo | Auto + 多供應商 | IDE ↔ CLI 無縫切換 |
 | **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系 |
 | **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro/)** | 免費 (50 credits) | $200/mo | Auto 模式自動切換 | AWS 生態系 |
 | **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)** | 免費 (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | 免費重度使用 |
@@ -31,6 +32,8 @@ draft: false
 ### 商業訂閱制
 
 **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** — Anthropic 的終端 agent，推理深度業界最強。Pro $20/mo（Sonnet 為主），Max $100-200/mo 解鎖 Opus 並吃到飽。有開發者 8 個月用了 100 億 tokens，月費 $100，同樣用量走 API 要 $15,000。Subagent 架構可指定 Haiku 處理簡單任務。
+
+**[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** — 將 Cursor IDE 的 Agent 帶入終端。Interactive TUI + headless 模式，支援 Plan/Ask/Agent 三種模式。獨家 **Cloud Handoff**：CLI 對話推上雲端繼續跑，手機或網頁接回。Pro $20/mo，Ultra $200/mo。Background Agents 可平行 8 個任務。
 
 **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** — 綁定 ChatGPT 訂閱，Plus $20/mo、Pro $200/mo。亮點是 **內建模型路由**：GPT-5.4 做規劃，GPT-5.4 mini 做子任務（只消耗 30% 配額）。CLI 支援 Plan 模式（用訂閱額度）與 API Key 模式（按 token 計費）雙軌。
 
@@ -54,14 +57,16 @@ draft: false
 
 ### $20/月：主流級
 
-Claude Code Pro、Codex Plus、Kiro Pro 都在這個價位。Claude Code 用 Sonnet，Codex 用 GPT-5.2，Kiro 用 Auto 模式。實際可用量差異大。
+Claude Code Pro、Cursor Pro、Codex Plus、Kiro Pro 都在這個價位。Claude Code 用 Sonnet，Cursor 用 Auto mode，Codex 用 GPT-5.2，Kiro 用 Auto 模式。實際可用量差異大。
 
 ### $100-200/月：重度使用
 
 | 方案 | 價格 | 相對 Pro 的用量 |
 |------|------|---------------|
+| Cursor Pro+ | $60 | 3x |
 | Claude Code Max 5x | $100 | 5x + Opus |
 | Claude Code Max 20x | $200 | 20x + Opus |
+| Cursor Ultra | $200 | 20x |
 | Codex Pro | $200 | 6-7x |
 | Kiro Power | $200 | 最高額度 |
 
@@ -154,6 +159,7 @@ Claude Code Max 方案的亮點是**吃到飽定價**，重度使用者的最佳
 ### 支援手動切換
 
 - **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)**：可在 Opus / Sonnet / Haiku 間切換，搭配 subagent 架構
+- **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)**：Auto mode 自動選模型，也可手動指定 Anthropic/OpenAI/Gemini
 - **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)**：可選擇不同 Gemini 模型，免費方案由系統自動分配
 
 ### 完全自由選擇
@@ -217,6 +223,7 @@ User Request
 ## 系列文章
 
 - [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code/)
+- [Cursor CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-cursor/)
 - [OpenAI Codex CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex/)
 - [Kiro CLI (AWS) 完整方案分析](/posts/ai/2026-04-02-agent-cli-kiro/)
 - [Gemini CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-gemini-cli/)
