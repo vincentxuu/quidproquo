@@ -83,6 +83,70 @@ draft: false
 
 ---
 
+## 文章沒列出但漸強已經有的能力
+
+截圖上的合作夥伴頁面只呈現了「第三方串接」，但漸強的生態系還有幾塊是自建或半自建的：
+
+### 廣告受眾匯出（Ad Audience Export）
+
+MAAC 可將分眾名單匯出為 CSV，自動轉換為三大廣告平台格式：
+
+| 平台 | 用途 | 最低名單數 |
+|------|------|-----------|
+| [**Meta Ads**](https://www.facebook.com/business/ads) | 自訂受眾 / Lookalike 再行銷 | 1,000 筆（建議 50,000+）|
+| [**Google Ads**](https://ads.google.com/) | 顧客名單 / 相似受眾 | 1,000 筆（建議 50,000+）|
+| [**LINE Ads**](https://admanager.line.biz/) | 自訂受眾精準投放 | 無最低限制 |
+
+所有匯出資料經 SHA-256 加密。這不是「串接」，而是**單向匯出**——品牌仍需手動上傳到各廣告平台。這是一個可以進一步深化的環節。
+
+### 簡訊（SMS）跨渠道
+
+MAAC 內建簡訊發送功能，平均開封率 95%、點擊率 19%。更關鍵的是**智慧跨渠道機制**：系統自動判斷顧客是否為 LINE 好友，選擇 LINE 推播、LINE 通知型訊息（PNP）或簡訊中成本最低的管道。通過 ISO 27001 認證，支援 API 大量發送。
+
+### Meta 渠道擴張
+
+2024 年起，漸強從純 LINE 擴展到 Meta（Facebook Messenger、Instagram DM），BigQuery 同時整合這些渠道數據。這代表「輪轂」正在從 LINE 擴大為「對話式商務」。
+
+### BigQuery 數據中樞（Crescendo BQ Database）
+
+不只是儲存層——BigQuery Connector 提供結構化的聯絡人屬性、標籤、開封/點擊數據、GA4 消費行為等，品牌可以直接在 BigQuery 上做進階分析或串接 BI 工具（Looker、Data Studio 等），不需要透過 MAAC 後台。
+
+---
+
+## 生態系完整度評估：對照 AMT MarTech 6.0 六大分類
+
+根據 AMT 亞太行銷數位轉型聯盟發布的 [2025 台灣 MarTech 地圖](https://www.bnext.com.tw/article/82628/martech-map-2025)，MarTech 分為六大領域。以下是漸強生態系的覆蓋狀況：
+
+| 領域 | 漸強覆蓋狀況 | 評價 |
+|------|-------------|------|
+| **廣告技術（AdTech）** | 受眾名單匯出到 Meta/Google/LINE Ads，但非直接串接 | 🟡 部分覆蓋 |
+| **內容與體驗（Content & Experience）** | AI 生成行銷文案、Rich Menu 個人化，但無 CMS/內容管理串接 | 🟡 部分覆蓋 |
+| **社群與關係（Social & Relationships）** | LINE + Meta 渠道、CAAC 客服、Zendesk 串接 | 🟢 強項 |
+| **商業與銷售（Commerce & Sales）** | 五大開店平台串接、購物車未結提醒、商品推薦 | 🟢 強項 |
+| **數據與分析（Data & Analytics）** | GA4、BigQuery、9 家 CDP/CRM 夥伴 | 🟢 最強項 |
+| **流程與管理（Management）** | Zapier 間接覆蓋，但無 ERP/專案管理/供應鏈直接串接 | 🔴 明顯缺口 |
+
+### 明顯的缺口
+
+1. **Email 行銷**：沒有與 Mailchimp、SendGrid、電子豹等 Email 平台串接。在「LINE + SMS」之外，Email 仍是許多品牌的重要渠道，特別是跨境電商
+2. **廣告投放自動化**：目前只能匯出受眾名單，無法從 MAAC 直接建立/管理廣告活動。相比之下，Insider 和 Emarsys 都有更深的 Ad Platform 整合
+3. **內容管理系統（CMS）**：沒有與 WordPress、Strapi 等 CMS 串接，無法將內容行銷與 LINE 行銷連動
+4. **支付/物流**：電商串接停留在「訂單通知」層級，未深入支付閘道（綠界、藍新）或物流追蹤（黑貓、超商取貨）
+5. **ERP / 後台管理**：FLAPS 是唯一有 ERP 背景的夥伴，但缺少 SAP、Oracle、鼎新等主流 ERP 的直接串接
+6. **社群聆聽（Social Listening）**：沒有與 Brandwatch、QSearch 等輿情監測工具串接
+
+### 刻意不做 vs. 尚未做到？
+
+有些缺口可能是策略選擇：
+
+- **Email**：漸強的定位是「對話式商務」，LINE 和 SMS 本質上是即時對話，Email 是不同範式。加入 Email 可能模糊定位
+- **支付/物流**：這是開店平台的領地，漸強透過串接開店平台間接覆蓋，自己做可能與夥伴衝突
+- **ERP**：企業級 ERP 串接需要大量客製化，透過 BigQuery + Zapier 可以覆蓋大部分場景
+
+但**廣告投放自動化**和**社群聆聽**的缺口，可能是真正的成長機會——前者能讓 MAAC 的分眾數據直接驅動廣告投放（閉環），後者能讓品牌在 LINE 外也能捕捉顧客聲音。
+
+---
+
 ## 生態系策略的三個觀察
 
 ### 1. 以 LINE 為核心的「輪轂模型」
