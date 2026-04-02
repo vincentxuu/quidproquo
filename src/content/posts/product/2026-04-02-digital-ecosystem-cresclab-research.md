@@ -36,15 +36,15 @@ draft: false
 
 | 夥伴 | 類型 | 串接價值 |
 |------|------|----------|
-| **Salesforce** | CRM | LINE 互動資料導入 Salesforce，打通線上線下會員數據 |
-| **Treasure Data** | CDP | 跨渠道顧客數據整合，共同拓展東南亞市場 |
-| **iKala CDP** | CDP | GA4 多平台數據收集與預測模型，iKala 同時是漸強的投資方 |
-| **Emarsys** | MA | SAP 旗下全通路行銷自動化平台 |
-| **FLAPS** | CDP/MA | 台灣本土顧客數據平台 |
-| **INSIDER ONE** | MA | 個人化行銷與用戶旅程優化 |
-| **Migo** | MA | Marketing with Intelligence，智慧行銷平台 |
-| **Data-DI** | CDP | Discover Infinity，數據探索與整合 |
-| **Vpon 威朋** | DMP/CDP | 大數據與行動廣告平台 |
+| [**Salesforce**](https://www.salesforce.com/) | CRM | LINE 互動資料導入 Salesforce，打通線上線下會員數據 |
+| [**Treasure Data**](https://www.treasuredata.com/) | CDP | 跨渠道顧客數據整合，共同拓展東南亞市場 |
+| [**iKala CDP**](https://ikala.cloud/customer-data-platform/) | CDP | GA4 多平台數據收集與預測模型，iKala 同時是漸強的投資方 |
+| [**Emarsys**](https://emarsys.com/) | MA | SAP 旗下全通路行銷自動化平台 |
+| [**FLAPS**](https://www.flaps.com.tw/) | CDP/MA | 台灣本土零售雲端 ERP 與會員經營平台 |
+| [**INSIDER ONE**](https://insiderone.com/) | MA | 個人化行銷與用戶旅程優化 |
+| [**Migo**](https://www.migocorp.com/) | MA | Marketing with Intelligence，智慧行銷平台 |
+| [**Data-DI**](https://www.data-di.com/) | CDP | Discover Infinity，數據探索與整合 |
+| [**Vpon 威朋**](https://www.vpon.com/) | DMP/CDP | 大數據與行動廣告平台 |
 
 這一層的核心邏輯是**打破數據孤島**。品牌的顧客數據散落在 LINE、官網、門市 POS、廣告平台等各處。漸強透過 Open API/Webhook 讓 MAAC 成為 LINE 數據的中轉站，與 CDP/CRM 雙向同步——LINE 互動數據（開封、點擊、標籤）流出到 CRM/CDP，會員屬性與分群則從外部系統流入，讓品牌在任何系統都能看到完整的顧客輪廓。底層數據統一存儲在 BigQuery Database，再串接到任意 CDP、CRM、MA 或 BI 工具。
 
@@ -52,11 +52,11 @@ draft: false
 
 | 夥伴 | 定位 |
 |------|------|
-| **91APP** | 台灣最大 OMO 開店平台，漸強的策略合作夥伴（2020 年起）|
-| **CYBERBIZ** | 台灣本土全通路電商平台 |
-| **SHOPLINE** | 亞洲跨境電商開店平台 |
-| **WACA** | 台灣中小型電商開店服務 |
-| **Shopify** | 全球最大獨立站平台，漸強是台灣 Meetup Partner |
+| [**91APP**](https://www.91app.com/) | 台灣最大 OMO 開店平台，漸強的策略合作夥伴（2020 年起）|
+| [**CYBERBIZ**](https://www.cyberbiz.io/) | 台灣本土全通路電商平台 |
+| [**SHOPLINE**](https://shopline.tw/) | 亞洲跨境電商開店平台 |
+| [**WACA**](https://www.waca.net/) | 台灣中小型電商開店服務 |
+| [**Shopify**](https://www.shopify.com/) | 全球最大獨立站平台，漸強是台灣 Meetup Partner |
 
 這一層解決的是**電商場景的即時需求**。品牌在 LINE 官方帳號上有 60% 的客服問題與訂單相關——查物流、查訂單、查優惠券。漸強與開店平台串接後，消費者可以直接在 LINE 上完成這些動作，不需要跳轉到其他平台。
 
@@ -73,11 +73,11 @@ draft: false
 
 | 夥伴 | 用途 |
 |------|------|
-| **Google Analytics** | 深度整合 GA4 電商事件數據，支援三種模式：GA4-only（48–72 小時延遲）、SDK-only（1 小時內即時）、GA4+SDK 混合模式，用於購物車未結、瀏覽行為再行銷 |
-| **SurveyCake** | 台灣最大雲端問卷平台，問卷回答自動匯入 MAAC 成為會員標籤，可觸發自動化行銷旅程（如填完問卷自動發優惠券）|
-| **Edenred** | 全球數位禮券與員工福利平台，透過 LINE 發放獎勵與忠誠度回饋 |
-| **Zapier** | 無程式碼自動化串接，擴展與數千種工具的連接 |
-| **Zendesk** | 客服工單系統整合 |
+| [**Google Analytics**](https://analytics.google.com/) | 深度整合 GA4 電商事件數據，支援三種模式：GA4-only（48–72 小時延遲）、SDK-only（1 小時內即時）、GA4+SDK 混合模式，用於購物車未結、瀏覽行為再行銷 |
+| [**SurveyCake**](https://www.surveycake.com/) | 台灣最大雲端問卷平台，問卷回答自動匯入 MAAC 成為會員標籤，可觸發自動化行銷旅程（如填完問卷自動發優惠券）|
+| [**Edenred**](https://www.edenred.com/) | 全球數位禮券與員工福利平台，透過 LINE 發放獎勵與忠誠度回饋 |
+| [**Zapier**](https://zapier.com/) | 無程式碼自動化串接，擴展與數千種工具的連接 |
+| [**Zendesk**](https://www.zendesk.com/) | 客服工單系統整合 |
 
 這一層是**長尾擴展**。Zapier 的存在尤其值得注意——它等於宣告漸強不打算自己串接所有工具，而是透過自動化平台讓用戶自助完成更多場景。
 
