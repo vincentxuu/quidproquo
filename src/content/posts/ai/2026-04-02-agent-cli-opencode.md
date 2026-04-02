@@ -123,3 +123,15 @@ OpenCode 最適合以下類型的開發者和團隊：
 - **預算有限的個人開發者**：工具本身免費，只付模型使用費
 
 如果你的需求是「用最強的模型做最複雜的任務」，Claude Code 可能更適合。但如果你的需求是「用最適合的模型做每一個任務」，OpenCode 的多供應商架構提供了其他工具無法比擬的彈性。
+
+## 系列文章
+
+**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+
+## 參考資料
+
+- [OpenCode | GitHub](https://github.com/opencode-ai/opencode)
+- [OpenCode Docs | AI coding agent built for the terminal](https://opencode.ai/docs/)
+- [OpenCode Review: Go CLI Terminal Coding Agent | OpenAIToolsHub](https://www.openaitoolshub.org/en/blog/opencode-review-terminal-ai-coding)
+- [OpenCode vs Claude Code | OpenAIToolsHub](https://www.openaitoolshub.org/en/blog/opencode-vs-claude-code)
+- [Aider vs OpenCode: Best Open-Source AI Coding CLI in 2026 | NxCode](https://www.nxcode.io/resources/news/aider-vs-opencode-ai-coding-cli-2026)

@@ -229,3 +229,14 @@ User Request
 - [Gemini CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-gemini-cli/)
 - [OpenCode 完整方案分析](/posts/ai/2026-04-02-agent-cli-opencode/)
 - [Multi-Model Routing 開源工具與實作](/posts/ai/2026-04-02-multi-model-routing-opensource-tools/)
+
+## 參考資料
+
+- [AI Coding Agents 2026: Pricing & Features Compared | Lushbinary](https://www.lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/)
+- [AI Coding Tools Pricing Comparison 2026 | NxCode](https://www.nxcode.io/resources/news/ai-coding-tools-pricing-comparison-2026)
+- [Best AI Coding CLI Tools in 2026: 7 Terminal Agents Compared | Awesome Agents](https://awesomeagents.ai/tools/best-ai-coding-cli-tools-2026/)
+- [Top 5 CLI Coding Agents in 2026 | DEV Community](https://dev.to/lightningdev123/top-5-cli-coding-agents-in-2026-3pia)
+- [The 2026 Guide to Coding CLI Tools: 15 AI Agents Compared | Tembo](https://www.tembo.io/blog/coding-cli-tools-comparison)
+- [awesome-cli-coding-agents | GitHub](https://github.com/bradAGI/awesome-cli-coding-agents)
+- [The Multi-Model Routing Pattern: Cut AI Agent Costs by 78% | DEV Community](https://dev.to/askpatrick/the-multi-model-routing-pattern-how-to-cut-ai-agent-costs-by-78-1631)
+- [Intelligent LLM Routing in Enterprise AI | Requesty](https://www.requesty.ai/blog/intelligent-llm-routing-in-enterprise-ai-uptime-cost-efficiency-and-model)

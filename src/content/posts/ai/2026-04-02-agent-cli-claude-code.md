@@ -145,3 +145,11 @@ Claude Code 特別適合以下工作模式：
 這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
 
 **→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+
+## 參考資料
+
+- [Plans & Pricing | Claude by Anthropic](https://claude.com/pricing)
+- [Claude Code Pricing Guide 2026 | LaoZhang AI](https://blog.laozhang.ai/en/posts/claude-code-pricing-guide)
+- [Claude Code Pricing in 2026: Every Plan Explained | SSD Nodes](https://www.ssdnodes.com/blog/claude-code-pricing-in-2026-every-plan-explained-pro-max-api-teams/)
+- [Claude Code Pricing Guide: Which Plan Saves You Money | ksred](https://www.ksred.com/claude-code-pricing-guide-which-plan-actually-saves-you-money/)
+- [Claude AI 2026: Complete Guide | NxCode](https://www.nxcode.io/resources/news/claude-ai-complete-guide-models-pricing-features-2026)

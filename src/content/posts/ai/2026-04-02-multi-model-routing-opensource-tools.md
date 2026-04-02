@@ -190,3 +190,14 @@ Haiku  Son  Opus
 ## 系列文章
 
 - [Agent CLI 訂閱制與多模型路由完整指南](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)
+
+## 參考資料
+
+- [The Multi-Model Routing Pattern: Cut AI Agent Costs by 78% | DEV Community](https://dev.to/askpatrick/the-multi-model-routing-pattern-how-to-cut-ai-agent-costs-by-78-1631)
+- [Building CostRouter — Route AI requests to the cheapest capable model | DEV Community](https://dev.to/rizzel7/building-costrouter-route-ai-requests-to-the-cheapest-capable-model-automatically-58gd)
+- [How to Optimize AI Agent Token Costs with Multi-Model Routing | MindStudio](https://www.mindstudio.ai/blog/ai-agent-token-cost-optimization-multi-model-routing)
+- [ruflo | GitHub](https://github.com/ruvnet/ruflo)
+- [iblai-openclaw-router | GitHub](https://github.com/iblai/iblai-openclaw-router)
+- [freerouter | GitHub](https://github.com/openfreerouter/freerouter)
+- [agent-router | GitHub](https://github.com/dabit3/agent-router)
+- [NVIDIA LLM Router Blueprint | GitHub](https://github.com/NVIDIA-AI-Blueprints/llm-router)

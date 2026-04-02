@@ -106,3 +106,11 @@ Gemini CLI 特別適合以下開發者：
 這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
 
 **→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+
+## 參考資料
+
+- [Gemini CLI | GitHub](https://github.com/google-gemini/gemini-cli)
+- [Gemini CLI: Quotas and Pricing](https://google-gemini.github.io/gemini-cli/docs/quota-and-pricing.html)
+- [Gemini Developer API Pricing | Google AI for Developers](https://ai.google.dev/gemini-api/docs/pricing)
+- [Set up your coding assistant with Gemini MCP and Skills | Google AI](https://ai.google.dev/gemini-api/docs/coding-agents)
+- [Gemini Pricing in 2026 for Individuals, Orgs & Developers | Finout](https://www.finout.io/blog/gemini-pricing-in-2026)

@@ -140,3 +140,12 @@ Codex 最適合以下情境：
 本文是 Agent CLI 訂閱與計費系列的一部分。完整的多工具比較與模型路由分析請參考：
 
 **→ [Agent CLI 訂閱方案與多模型路由完整比較](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+
+## 參考資料
+
+- [Pricing – Codex | OpenAI Developers](https://developers.openai.com/codex/pricing)
+- [Introducing Codex | OpenAI](https://openai.com/index/introducing-codex/)
+- [Codex | AI Coding Partner from OpenAI](https://openai.com/codex/)
+- [OpenAI Codex Pricing 2026 | Get AI Perks](https://www.getaiperks.com/en/articles/codex-pricing)
+- [OpenAI Codex in March 2026: What's New | LaoZhang AI](https://blog.laozhang.ai/en/posts/openai-codex-march-2026)
+- [Pricing | OpenAI API](https://developers.openai.com/api/docs/pricing)

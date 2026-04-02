@@ -158,4 +158,13 @@ Kiro 最適合以下團隊：
 ## 系列文章
 
 - [Agent CLI 訂閱方案與多模型路由全攻略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)
-- [GitHub Copilot 完整方案分析](/posts/ai/2026-04-02-agent-cli-github-copilot/)
+
+## 參考資料
+
+- [Kiro: Agentic AI development from prototype to production](https://kiro.dev/)
+- [Pricing - Kiro](https://kiro.dev/pricing/)
+- [Frequently Asked Questions - Kiro](https://kiro.dev/faq/)
+- [Hooks - IDE - Docs - Kiro](https://kiro.dev/docs/hooks/)
+- [Introducing Kiro - Kiro Blog](https://kiro.dev/blog/introducing-kiro/)
+- [Automate your development workflow with Kiro's AI agent hooks](https://kiro.dev/blog/automate-your-development-workflow-with-agent-hooks/)
+- [Amazon previews 3 AI agents, including 'Kiro' | TechCrunch](https://techcrunch.com/2025/12/02/amazon-previews-3-ai-agents-including-kiro-that-can-code-on-its-own-for-days/)

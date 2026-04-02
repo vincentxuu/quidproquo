@@ -160,3 +160,12 @@ Cursor CLI 特別適合以下族群：
 這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
 
 **→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+
+## 參考資料
+
+- [Cursor CLI Overview | Cursor Docs](https://cursor.com/docs/cli/overview)
+- [Using Agent in CLI | Cursor Docs](https://cursor.com/docs/cli/using)
+- [CLI Agent Modes and Cloud Handoff | Cursor Changelog](https://cursor.com/changelog/cli-jan-16-2026)
+- [Cursor Agent CLI | Cursor Blog](https://cursor.com/blog/cli)
+- [Models & Pricing | Cursor Docs](https://cursor.com/docs/models-and-pricing)
+- [Cursor Pricing | Cursor](https://cursor.com/pricing)
