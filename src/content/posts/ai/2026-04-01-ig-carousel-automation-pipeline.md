@@ -418,7 +418,7 @@ const postId = await publishCarousel(carouselId);
 - **container 建立後不能馬上用**：Meta 需要時間處理圖片。如果 carousel 建立失敗，可以加一個 polling 機制，每隔幾秒用 `GET /{container-id}?fields=status_code` 檢查狀態，等到 `FINISHED` 再繼續
 - **圖片必須是 JPEG 或 PNG**，尺寸建議 1080×1080（正方形）或 1080×1350（4:5）
 - **caption 最多 2200 字元**，hashtag 最多 30 個
-- **每 24 小時最多發 25 則貼文**（API rate limit）
+- **每 24 小時最多發 50 則貼文**（Instagram Graph API rate limit，使用 Instagram API with Instagram Login 的話上限是 100 則）
 
 加入 container 狀態檢查：
 
