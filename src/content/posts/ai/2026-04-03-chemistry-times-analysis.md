@@ -275,6 +275,88 @@ ChemistryTimes 的 AI 架構體現了幾個值得學習的模式：
 
 Phase 4 的分析師平行跑、中英寫手平行跑、教育版的 Phase 6 串流觸發——但每個平行段都有明確的匯合點和品質閘門。
 
+## 生態系比較：GitHub 上的 Multi-Agent 專案
+
+ChemistryTimes 不是唯一用 Claude Code agent teams 的專案。GitHub 上目前有超過 6,400 個 `.claude/agents/*.md` 檔案，但絕大多數用於程式開發。以下按模式分類比較。
+
+### Orchestrator-led Pipeline（跟 ChemistryTimes 最像）
+
+| 專案 | Agent 數 | 模式 | 特色 |
+|------|----------|------|------|
+| [zhsama/claude-sub-agent](https://github.com/zhsama/claude-sub-agent) | 8+ | 三階段 sequential pipeline | orchestrator → analyst → architect → planner → developer → tester → reviewer → validator，每階段有品質閘門 |
+| [skmtkytr/agentic](https://github.com/skmtkytr/agentic) | 6 | DAG 平行執行 | Planner → Validator → Executor → Reviewer → Integrator → Integration Reviewer，Temporal.io 排程 |
+| [badvision/clawed](https://github.com/badvision/clawed) | 多階段 | 品質閘門 + 角色分離 | 多階段開發工作流，human-in-the-loop escalation |
+
+### 團隊模擬（角色扮演式）
+
+| 專案 | Agent 數 | 模式 | 特色 |
+|------|----------|------|------|
+| [peterfei/ai-agent-team](https://github.com/peterfei/ai-agent-team) | 6 | 完整開發團隊 | PM、前端、後端、測試、DevOps、Tech Lead，支援中英文 |
+| [yosuke1114/scrum_team_agents](https://github.com/yosuke1114/scrum_team_agents) | 4 | Scrum 儀式驅動 | SM、PO、Developer、Reviewer，跑在 tmux panes |
+| [ethansadism/vs-copilot-multi-agent](https://github.com/ethansadism/vs-copilot-multi-agent) | 4 | PM(Opus) + Specialists(Sonnet) | Agent 完成任務前**必須**寫入知識文件，跟 ChemistryTimes 的 worklog 概念相似 |
+
+### Swarm / 大規模編排
+
+| 專案 | Stars | 模式 | 特色 |
+|------|-------|------|------|
+| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 29.6k | Queen-led 階層式 swarm | 100+ agent，Q-Learning router，Byzantine 容錯共識 |
+| [affaan-m/claude-swarm](https://github.com/affaan-m/claude-swarm) | 93 | Opus 架構師 + Haiku 執行者 | 預算控制、檔案鎖定、rich terminal UI |
+| [catlog22/Claude-Code-Workflow](https://github.com/catlog22/Claude-Code-Workflow) | — | Event-driven Beat Model | 22 agent，中央協調器只在 callback 啟動，宣稱減少 60% 協調開銷 |
+
+### PM 式任務路由
+
+| 專案 | Stars | 模式 | 特色 |
+|------|-------|------|------|
+| [bobmatnyc/claude-mpm](https://github.com/bobmatnyc/claude-mpm) | 99 | PM 分析需求 → 委派 | 47+ agent，auto-pause at 70/85/95% token，Slack/Notion 整合 |
+| [wshobson/agents](https://github.com/wshobson/agents) | — | Plugin marketplace | 182 agent + 147 skills + 16 orchestrator，三層 model 策略 |
+
+### 基礎設施 / Observability
+
+| 專案 | Stars | 用途 |
+|------|-------|------|
+| [disler/claude-code-hooks-multi-agent-observability](https://github.com/disler/claude-code-hooks-multi-agent-observability) | 1.3k | 即時 dashboard 監控 multi-agent 的 12 種 lifecycle event |
+| [cs50victor/claude-code-teams-mcp](https://github.com/cs50victor/claude-code-teams-mcp) | 229 | 把 agent teams 協議做成獨立 MCP server |
+| [baryhuang/claude-code-by-agents](https://github.com/baryhuang/claude-code-by-agents) | 826 | @mention 路由到本地/遠端 Claude Code 實例 |
+
+### Agent 集合（即插即用）
+
+| 專案 | Stars | 規模 |
+|------|-------|------|
+| [K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills) | 17.3k | 134 科研 skills，100+ 資料庫 |
+| [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 16.2k | 130+ 分類 subagent 目錄 |
+| [lst97/claude-code-sub-agents](https://github.com/lst97/claude-code-sub-agents) | 1.5k | 33 subagent，智能自動委派 |
+| [rohitg00/awesome-claude-code-toolkit](https://github.com/rohitg00/awesome-claude-code-toolkit) | 1k+ | 135 agent + 176 plugins + 35 skills |
+| [ChrisRoyse/610ClaudeSubagents](https://github.com/ChrisRoyse/610ClaudeSubagents) | 109 | 610+ agent（188 coding + 422 non-coding） |
+
+### 官方案例：Anthropic 的 C 編譯器
+
+Anthropic 用 **16 個平行 Claude agent** 寫了一個 10 萬行 Rust C 編譯器，能編譯 Linux kernel、FFmpeg、PostgreSQL。花了約 2,000 個 Claude Code session、$20K API 費用。每個 agent 負責獨立領域（重複程式碼合併、效能優化、Rust 風格審查、文件撰寫），最大化減少檔案衝突。
+
+詳見 [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler)。
+
+### 生態系設計趨勢
+
+從這些專案中可以歸納出幾個共同趨勢：
+
+1. **Model tiering 是標配**：幾乎所有專案都用 Opus 做 orchestrator、Sonnet/Haiku 做執行。ChemistryTimes 的總編輯用 sonnet 是成本考量——orchestrator 不需要最強生成能力
+2. **3-5 個 agent 是甜蜜點**：超過後協調開銷增長快於吞吐量。ChemistryTimes 用 10 個算偏多，但它用嚴格的 context 管理紀律來抵消這個代價
+3. **檔案驅動溝通 > 訊息傳遞**：用 workspace 檔案、structured artifacts 做 agent 間介面，比直接傳 context 更省 token
+4. **品質閘門是 pipeline 架構的標配**：幾乎所有 sequential pipeline 都在階段間加 gate
+5. **記憶持久化是新興模式**：markdown 檔案、MCP server、SQLite 用於跨 session 知識累積
+
+### ChemistryTimes 在生態系中的定位
+
+| 維度 | ChemistryTimes | 多數 GitHub 專案 |
+|------|----------------|------------------|
+| **用途** | 內容生產（新聞電子報） | 程式開發 |
+| **Context 管理** | 500 字上限 + workspace offload + worklog | 少數有，多數沒有明確策略 |
+| **品質閘門** | 3-4 道，任一失敗停止 pipeline | 1-2 道，多數較寬鬆 |
+| **降級策略** | 有（< 3 篇縮小範圍、跳過英文版） | 極少見 |
+| **雙版本架構** | 10 agent → 14 agent 可擴展 | 多數是固定配置 |
+| **每日生產環境** | 08:30 發刊的真實日報 | 多數是 demo 或開發工具 |
+
+ChemistryTimes 最獨特的不是 agent 數量或技術複雜度，而是它的**運營紀律**——context 管理、worklog、降級策略——這些在 demo 專案裡看不到，只有真正跑在生產環境的系統才會被迫發展出來。
+
 ## 技術棧快速參考
 
 | 層級 | 技術選型 |
@@ -292,5 +374,13 @@ Phase 4 的分析師平行跑、中英寫手平行跑、教育版的 Phase 6 串
 ## 參考資料
 
 - [chemistrywow31/chemistry-times - GitHub](https://github.com/chemistrywow31/chemistry-times)
-- [Claude Code Agent Teams Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [Orchestrator Pattern in Multi-Agent Systems](https://research.google/pubs/agents/)
+- [Claude Code Sub-agents Documentation](https://code.claude.com/docs/en/sub-agents)
+- [Claude Code Agent Teams Documentation](https://code.claude.com/docs/en/agent-teams)
+- [Building a C compiler with a team of parallel Claudes - Anthropic](https://www.anthropic.com/engineering/building-c-compiler)
+- [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents)
+- [ruvnet/ruflo](https://github.com/ruvnet/ruflo)
+- [disler/claude-code-hooks-multi-agent-observability](https://github.com/disler/claude-code-hooks-multi-agent-observability)
+- [zhsama/claude-sub-agent](https://github.com/zhsama/claude-sub-agent)
+- [skmtkytr/agentic](https://github.com/skmtkytr/agentic)
+- [bobmatnyc/claude-mpm](https://github.com/bobmatnyc/claude-mpm)
+- [wshobson/agents](https://github.com/wshobson/agents)
