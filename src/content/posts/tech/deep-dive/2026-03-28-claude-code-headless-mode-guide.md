@@ -82,3 +82,13 @@ claude -p "Continue that review" --resume "$session_id"
 - CLI 是 Agent SDK 的入口之一
 - Python / TypeScript SDK 提供更多控制
 - 結構化 output、tool approval callbacks、native message objects
+
+## 參考資料
+
+- [Claude Code CLI Reference — 官方文件](https://docs.anthropic.com/en/docs/claude-code/cli-reference) — claude -p、--bare、--output-format 等所有 CLI flags 的完整說明
+- [Claude Code Programmatic Usage — 官方文件](https://docs.anthropic.com/en/docs/claude-code/programmatic-usage) — Headless mode 與 Agent SDK 整合的官方指南
+- [Claude Code GitHub Actions — 官方文件](https://docs.anthropic.com/en/docs/claude-code/github-actions) — 在 CI/CD 環境中使用 claude -p 的實際範例
+- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) — 批次處理、pipe 資料、腳本自動化的實際案例
+- [Anthropic Agent SDK — 官方文件](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/sdk) — Python 與 TypeScript SDK 的完整 API 參考
+- [Claude Code Permission Rule Syntax](https://docs.anthropic.com/en/docs/claude-code/permissions#permission-rule-syntax) — --allowedTools 的規則語法，包含 Bash 前綴匹配
+- [jq 官方文件](https://jqlang.org/manual/) — 搭配 stream-json 輸出做資料過濾的工具參考

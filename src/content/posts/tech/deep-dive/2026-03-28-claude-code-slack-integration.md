@@ -63,3 +63,13 @@ series:
 - 具體描述（包含檔案名、函數名、錯誤訊息）
 - 定義完成標準（要不要寫測試？更新文件？開 PR？）
 - 用 thread 累積 context
+
+## 參考資料
+
+- [Claude Code in Slack — 官方文件](https://docs.anthropic.com/en/docs/claude-code/slack) — 安裝設定、路由模式、Session 流程與安全設定的完整說明
+- [Claude App — Slack App Marketplace](https://slack.com/marketplace/A07DNBDB84N-claude) — 在 Slack App Marketplace 安裝 Claude 的官方頁面
+- [Claude Code on the Web — 官方文件](https://docs.anthropic.com/en/docs/claude-code/claude-code-on-the-web) — Slack 整合所依賴的雲端 session 基礎說明
+- [Claude for Slack — 一般使用文件](https://www.anthropic.com/news/claude-for-slack) — Claude for Slack 的功能介紹與使用情境
+- [Claude Code GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions) — 另一種從外部工具觸發 Claude Code 任務的方式（CI/CD 整合）
+- [Claude Code Permissions — 官方文件](https://docs.anthropic.com/en/docs/claude-code/permissions) — 瞭解 Session 的權限控制機制
+- [Claude Plans & Pricing](https://claude.ai/upgrade) — 確認 Slack 整合所需的 Pro/Max/Teams/Enterprise 方案說明

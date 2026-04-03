@@ -46,3 +46,13 @@ series:
 - Context window 用滿導致行為異常
 - 大型 repo 的啟動慢問題
 - Token 用量異常高的排查
+
+## 參考資料
+
+- [Claude Code Troubleshooting](https://docs.anthropic.com/en/docs/claude-code/troubleshooting) — Anthropic 官方疑難排解文件，涵蓋常見安裝與執行問題
+- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 完整設定參考，包含 hooks、permissions、env 等欄位說明
+- [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) — Hook 事件類型、matcher 語法與 exit code 行為的官方說明
+- [Claude Code Permission Modes](https://docs.anthropic.com/en/docs/claude-code/permission-modes) — 各種權限模式（default、acceptEdits、auto、bypassPermissions）的行為差異
+- [Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) — MCP server 連線設定與 tool schema 說明
+- [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — 互動式 context 消耗模擬，理解各功能對 token 的影響
+- [Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/best-practices) — 官方推薦的使用模式，含 context 管理與除錯策略

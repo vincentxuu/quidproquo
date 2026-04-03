@@ -689,3 +689,14 @@ Ollama 的核心取捨很明確：**用一層抽象換取開發者體驗**。你
 不適合的場景：高並發生產環境（用 vLLM）、需要極致效能調整（用 llama.cpp）、非技術用戶（用 LM Studio）。
 
 如果你是開發者，想在本地跑 LLM 做開發測試，Ollama 目前是最低摩擦力的選擇。
+
+## 參考資料
+
+- [Ollama 官方文件](https://ollama.com/docs) — Ollama CLI、API、Modelfile 完整參考文件
+- [Ollama GitHub 儲存庫](https://github.com/ollama/ollama) — 原始碼、issue tracker 與 release notes
+- [llama.cpp GitHub 儲存庫](https://github.com/ggml-org/llama.cpp) — Ollama 底層推理引擎，支援 GGUF 格式的 C++ 實作
+- [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，本地 LLM 搭配 RAG 的最佳實踐研究
+- [OpenWebUI GitHub 儲存庫](https://github.com/open-webui/open-webui) — 最常與 Ollama 搭配使用的開源 Web UI
+- [vLLM Documentation](https://docs.vllm.ai/) — vLLM 官方文件，與 Ollama 的生產環境替代方案比較
+- [Meta Llama 官方頁面](https://llama.meta.com/) — Meta 官方 Llama 模型授權與技術細節
+- [Ollama — Modelfile 文件](https://github.com/ollama/ollama/blob/main/docs/modelfile.md) — Modelfile 語法完整規格，包含所有指令與參數說明

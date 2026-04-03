@@ -50,3 +50,13 @@ series:
 - 禁用 bypassPermissions
 - 統一 DevContainer 環境
 - 網路隔離策略
+
+## 參考資料
+
+- [Claude Code Development Containers — 官方文件](https://docs.anthropic.com/en/docs/claude-code/devcontainer) — Anthropic 官方 devcontainer 設定說明，含防火牆規則與 VS Code 整合
+- [Claude Code Sandboxing — 官方設定文件](https://docs.anthropic.com/en/docs/claude-code/settings#sandbox-settings) — settings.json 中 sandbox 完整欄位說明，含 filesystem 與 network 限制選項
+- [VS Code Dev Containers 官方文件](https://code.visualstudio.com/docs/devcontainers/containers) — VS Code Dev Containers extension 使用指南
+- [devcontainer.json 規格參考](https://containers.dev/implementors/json_reference/) — Dev Container 規格的官方 JSON reference
+- [GitHub Codespaces 快速入門](https://docs.github.com/en/codespaces/getting-started/quickstart) — 在 GitHub Codespaces 中使用 devcontainer 的官方教學
+- [Claude Code 權限模式說明](https://docs.anthropic.com/en/docs/claude-code/permissions) — bypassPermissions 與各種權限模式的完整比較
+- [Claude Code 企業網路設定](https://docs.anthropic.com/en/docs/claude-code/network-configuration) — 企業環境的網路設定與代理伺服器配置指南

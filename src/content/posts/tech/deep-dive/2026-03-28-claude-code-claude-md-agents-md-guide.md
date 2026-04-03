@@ -44,3 +44,13 @@ series:
 - 指令檔 = 建議（AI 可能忽略）
 - Hook = 強制（exit code 決定）
 - Skill = 流程（按步驟執行）
+
+## 參考資料
+
+- [Store Instructions and Memories](https://docs.anthropic.com/en/docs/claude-code/memory) — CLAUDE.md 與 AGENTS.md 的官方完整指南，含檔案位置、繼承規則與最佳寫法
+- [Claude Code Best Practices — Write an Effective CLAUDE.md](https://docs.anthropic.com/en/docs/claude-code/best-practices#write-an-effective-claudemd) — 官方說明 CLAUDE.md 的結構、精簡原則與常見錯誤
+- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — claudeMdExcludes 等設定，控制 monorepo 中 CLAUDE.md 的載入範圍
+- [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) — Hook 機制說明，理解與 CLAUDE.md「建議」的本質差異
+- [Extend Claude Code](https://docs.anthropic.com/en/docs/claude-code/extend-claude-code) — Skills、Hooks、MCP 的選擇與搭配指南，包含 CLAUDE.md 的定位
+- [OpenAI — AGENTS.md 規範](https://github.com/openai/openai-agents-python) — OpenAI 的 AGENTS.md 格式參考，了解跨工具的 AI 行為指引規範
+- [Claude Code — .claude 目錄結構](https://docs.anthropic.com/en/docs/claude-code/dot-claude-directory) — .claude/ 目錄完整說明，了解 CLAUDE.md 所在的設定體系

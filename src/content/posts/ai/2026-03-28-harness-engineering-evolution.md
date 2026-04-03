@@ -116,3 +116,13 @@ Epsilla 整理了幾條規則：
 - [Google 的八種 Multi-Agent 設計模式](/posts/ai/2026-03-28-google-multi-agent-patterns) — Generator-Critic 等模式的完整分類
 - [AI Agent 的三個核心支柱：Context、Cognition、Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Agent 架構的理論框架
 - [The Third Evolution — Epsilla 原文](https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents)
+
+## 參考資料
+
+- [The Third Evolution: Why Harness Engineering Replaced Prompting in 2026](https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents) — Epsilla 原文，三個演化階段的完整論述
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，「找最簡單方案」的核心原則
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Harness Engineering 的實戰案例，雙 Agent 架構
+- [The Importance of Agent Harness in 2026](https://www.philschmid.de/agent-harness-2026) — Phil Schmid 對 Harness 作為 AI 作業系統的定位論述
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 架構的學術綜述
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP，Harness Engineering 時代的工具標準化協議
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — 實作 harness 編排層的代表性框架

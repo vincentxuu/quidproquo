@@ -616,3 +616,13 @@ RAG 不是一個技術，是一個技術體系。
 不要試圖一次學完所有東西。找到你現在最需要解決的問題，沿著對應的路線走進去，把那一塊搞懂、搞穩，再往下一個主題前進。
 
 這篇指南會持續更新。每當有新的專文發布，這裡會同步加上連結。
+
+## 參考資料
+
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，涵蓋 Naive RAG、Advanced RAG、Modular RAG 三代演化的完整綜述
+- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511) — Asai et al. (2023)，Self-RAG 原始論文，自主決定是否檢索的反思機制
+- [Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884) — Yan et al. (2024)，CRAG 論文，透過評估器修正不良檢索結果
+- [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130) — Edge et al. (2024)，Microsoft GraphRAG 原始論文，知識圖譜加強全域查詢
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，Agentic RAG 系統分類學與演化路徑綜述
+- [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，RAG pipeline 各元件最佳組合的實驗性研究
+- [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，利用多頭注意力機制提升多面向查詢的檢索準確率

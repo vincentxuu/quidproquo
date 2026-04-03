@@ -996,3 +996,13 @@ Harness 跑起來之後，你需要知道它跑得好不好。以下是生產環
 - **可觀測性指標** 讓你知道什麼時候該介入
 
 這些不是理論。如果你正在建 Agent 系統，從 Guard System 和 Checkpoint 開始——它們的 ROI 最高、實作最直接、出事時最感謝自己當初有做。
+
+## 參考資料
+
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，Guard System 與 tool 設計的原則出處
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic 實戰，checkpoint 和 progress file 的具體實作
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 協議，Tool Registry 整合的標準介面
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — 內建 durable execution 和 checkpointing 的主流 agent 框架
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，agent 安全性與可控性的學術研究背景
+- [Circuit Breaker Pattern — Microsoft Azure Architecture](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) — Circuit Breaker 設計模式的權威說明，本文第 6 節的理論基礎
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — arXiv 論文，涵蓋 RAG 系統中的 hallucination 偵測和 output guard 設計

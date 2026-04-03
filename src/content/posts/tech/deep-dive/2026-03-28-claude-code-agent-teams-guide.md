@@ -120,3 +120,13 @@ Have them debate and disprove each other's theories.
 | 協調 | 主代理管理所有工作 | 共享任務清單，自我協調 |
 | 適合 | 專注任務，只需要結果 | 需要討論和協作的複雜工作 |
 | Token 成本 | 較低 | 較高 |
+
+## 參考資料
+
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Claude Code 官方概覽，介紹 agent 架構與多 session 協作能力
+- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) — 官方工作流程指南，含平行 session 與 git worktree 使用方式
+- [Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/best-practices) — 多 agent 平行開發的最佳實踐，包含 Writer/Reviewer 模式
+- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 中 teammateMode 等 agent teams 相關設定說明
+- [anthropics/claude-code-action on GitHub](https://github.com/anthropics/claude-code-action) — Claude Code Action 原始碼，展示多 agent 自動化協作的實作方式
+- [Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents) — Anthropic 研究文章，說明 multi-agent 系統的設計原則與協調模式
+- [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) — TeammateIdle、TaskCreated、TaskCompleted 等 agent teams 專屬 hook 事件說明

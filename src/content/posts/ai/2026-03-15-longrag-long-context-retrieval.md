@@ -735,3 +735,13 @@ LongRAG 重新分配了這個壓力：
 - [Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies/) — 傳統 chunking 策略的詳細比較
 - [Contextual Retrieval：讓每個 Chunk 自帶上下文](/posts/ai/2026-03-12-contextual-retrieval/) — Anthropic 提出的另一種解決碎片化的方法
 - [Cross-Encoder Reranking：用精排模型補救粗排的不足](/posts/ai/2026-03-12-cross-encoder-reranking/) — 當檢索不夠精確時的補救策略
+
+## 參考資料
+
+- [LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs](https://arxiv.org/abs/2406.15319) — Jiang et al. (2024)，LongRAG 原始論文，提出大 chunk 檢索配合長上下文模型的完整框架
+- [GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models](https://arxiv.org/abs/2406.14550) — Li et al. (2024, EMNLP)，圖結構 Agent 系統處理長文件，4K 視窗超越 GPT-4-128K
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 演化史與各代設計取捨的完整分析
+- [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，Chunking 策略與 RAG 效能關係的系統性實驗
+- [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic 工程部落格，長上下文 context 管理的 compaction 與壓縮策略
+- [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多頭注意力作為檢索鍵的創新方法，與 LongRAG 互補
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，Agentic RAG 在長文件場景的應用分析

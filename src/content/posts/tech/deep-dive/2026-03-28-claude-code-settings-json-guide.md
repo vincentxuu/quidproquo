@@ -44,3 +44,13 @@ series:
 - 設定不生效的常見原因
 - 如何確認哪個層級的設定被載入
 - JSON 語法錯誤的排查
+
+## 參考資料
+
+- [Claude Code Settings — 官方完整文件](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 所有欄位的完整說明，含全域、專案、本地三層設定
+- [Claude Code Permissions — 官方文件](https://docs.anthropic.com/en/docs/claude-code/permissions) — 權限規則語法、allow/deny 設定與工具特定規則
+- [Claude Code Hooks — 官方文件](https://docs.anthropic.com/en/docs/claude-code/hooks) — 自動化 hook 的事件類型、設定格式與實際案例
+- [Claude Code Environment Variables Reference](https://docs.anthropic.com/en/docs/claude-code/environment-variables) — 所有可用環境變數的完整清單
+- [Claude Code MCP Configuration](https://docs.anthropic.com/en/docs/claude-code/mcp#mcp-installation-scopes) — mcpServers 在不同 scope 的設定位置與格式
+- [JSON Schema for Claude Code Settings](https://json.schemastore.org/claude-code-settings.json) — settings.json 的官方 JSON Schema，可在 VS Code 中啟用自動補全
+- [Claude Code Managed Settings — 企業部署](https://docs.anthropic.com/en/docs/claude-code/settings#settings-precedence) — managed-settings.json 的優先層級與企業級設定方式

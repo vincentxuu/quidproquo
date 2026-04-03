@@ -92,3 +92,13 @@ jobs:
 - 本地 Hook：即時品質檢查
 - CI Claude：深度 review + 跨檔案分析
 - Scheduled Tasks：定期巡檢
+
+## 參考資料
+
+- [Claude Code GitHub Actions 官方文件](https://docs.anthropic.com/en/docs/claude-code/github-actions) — 完整的 GitHub Actions 整合指南，含快速設定、Action 參數與企業級配置
+- [anthropics/claude-code-action on GitHub](https://github.com/anthropics/claude-code-action) — claude-code-action 官方原始碼與 README，包含各種使用範例
+- [Claude Code — Code Review](https://docs.anthropic.com/en/docs/claude-code/code-review) — GitHub Code Review 功能說明，與 claude-code-action 的差異比較
+- [Store Instructions and Memories](https://docs.anthropic.com/en/docs/claude-code/memory) — CLAUDE.md 使用方式，在 CI 環境中定義團隊行為標準
+- [GitHub Actions 官方文件](https://docs.github.com/en/actions) — GitHub Actions 完整文件，含 workflow 語法、secrets 管理與觸發事件
+- [AWS Bedrock — Amazon Claude 整合](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html) — AWS Bedrock 上使用 Anthropic Claude 的官方文件
+- [Google Vertex AI — Claude 模型](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude) — Google Vertex AI 使用 Claude 的官方說明，適用於企業級 CI/CD 整合

@@ -80,3 +80,13 @@ series:
 - 不支援 Brave、Arc 等非主流 Chromium 瀏覽器
 - 不支援 WSL
 - 預設啟用會增加 context 消耗
+
+## 參考資料
+
+- [Use Claude Code with Chrome (beta)](https://docs.anthropic.com/en/docs/claude-code/chrome) — Anthropic 官方 Chrome 整合文件，涵蓋安裝設定、能力範圍與疑難排解
+- [Claude in Chrome — Chrome Web Store](https://chromewebstore.google.com/detail/claude-in-chrome/ghkclklbadheamoidpamljhmaopggfkf) — Claude in Chrome 擴充功能安裝頁面
+- [Claude Code Best Practices — Verify UI Changes](https://docs.anthropic.com/en/docs/claude-code/best-practices#give-claude-a-way-to-verify-its-work) — 官方說明如何用 Chrome 整合來驗證 UI 修改結果
+- [Chrome DevTools Protocol 文件](https://chromedevtools.github.io/devtools-protocol/) — Chrome 瀏覽器自動化底層協議，理解 Claude 如何操控瀏覽器
+- [Playwright 瀏覽器自動化](https://playwright.dev/docs/intro) — 主流瀏覽器自動化工具對比參考，了解 Claude Chrome 整合的能力邊界
+- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) — 官方工作流程，含 Chrome 整合應用的實際案例
+- [Model Context Protocol — Resources](https://modelcontextprotocol.io/docs/concepts/resources) — MCP 資源協議，Chrome 整合基於 MCP 架構實作

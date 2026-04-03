@@ -1742,3 +1742,13 @@ TypeScript 負責使用者接觸的「邊緣層」——低延遲、streaming、
 每一層的設計決策都會影響最終的使用者體驗。不要試圖一次做完所有層——先把核心的 State Management + Streaming 做好，讓使用者能流暢對話，再逐步加上 Guardrails、Memory 和 Observability。
 
 記住：**使用者不在乎你用了什麼模型。他們在乎的是：回覆快不快、記不記得住、安不安全。** 這三件事，都不是 API 呼叫能解決的。
+
+## 參考資料
+
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 系統設計全面綜述，涵蓋記憶與知識整合模式
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，推理與行動交織的 Agent 框架，聊天機器人工具呼叫的理論基礎
+- [Langfuse Documentation — Tracing](https://langfuse.com/docs/tracing) — Langfuse 官方文件，LLM 可觀測性與 trace 追蹤實作指南
+- [OpenAI Platform — Streaming](https://platform.openai.com/docs/api-reference/streaming) — OpenAI 官方 SSE Streaming API 參考文件
+- [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic 工程部落格，對話狀態與 context 管理的實作建議
+- [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，Write/Select/Compress/Isolate 四大策略
+- [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601) — Yao et al. (2023, NeurIPS)，多步推理框架，適用於複雜對話流程設計

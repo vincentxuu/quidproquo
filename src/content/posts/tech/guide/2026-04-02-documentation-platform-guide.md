@@ -299,3 +299,14 @@ npm create astro@latest -- --template starlight
 4. **最後問：API 文件是不是核心需求？** 是的話選 Mintlify 或 ReadMe。
 
 不用想太多。文件最重要的事情是「有人願意寫」，工具只是降低摩擦力。選一個你的團隊最不會抗拒的，比選功能最強的更重要。
+
+## 參考資料
+
+- [Docusaurus 官方網站](https://docusaurus.io/) — Meta 開源的靜態文件產生器，含快速入門指南與 MDX 支援說明
+- [VitePress 官方文件](https://vitepress.dev/) — Vue 官方文件框架，基於 Vite 驅動的效能優化靜態站產生器
+- [GitBook 官方網站](https://www.gitbook.com/) — managed 文件平台，含 GitHub 同步與 AI 搜尋功能說明
+- [Mintlify 官方文件](https://mintlify.com/docs) — 現代 API 文件平台，含 MDX 支援、API playground 與定價說明
+- [Starlight — Astro 文件框架](https://starlight.astro.build/) — Astro 官方文件框架，含 i18n、Pagefind 搜尋與 a11y 支援
+- [Nextra — GitHub](https://github.com/shuding/nextra) — 基於 Next.js 的輕量文件框架，Vercel 維護
+- [ReadMe 官方網站](https://readme.com/) — API 文件 SaaS 平台，含互動式 API explorer 與使用者行為分析
+- [Confluence 定價說明](https://www.atlassian.com/software/confluence/pricing) — Atlassian 企業 wiki 的方案與功能比較

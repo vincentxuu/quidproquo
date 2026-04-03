@@ -170,3 +170,13 @@ Google 和 Anthropic 有一個共同的建議：**從最簡單的模式開始，
 - [AI Agent 的三個核心支柱：Context、Cognition、Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Agent 架構理論框架
 - [Google's Eight Essential Multi-Agent Design Patterns — InfoQ 原文](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/)
 - [Choose a Design Pattern for Your Agentic AI System — Google Cloud](https://docs.google.com/architecture/choose-design-pattern-agentic-ai-system)
+
+## 參考資料
+
+- [Google's Eight Essential Multi-Agent Design Patterns — InfoQ](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/) — InfoQ 的報導，整理 Google 八種 multi-agent 模式
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic 的 agent 設計哲學，提供對照視角
+- [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic 實戰中的 Composite Pattern 範例
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 系統學術綜述，含多 agent 架構討論
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — 實作 orchestrator-workers 和 sequential pipeline 模式的主流框架
+- [CrewAI GitHub Repository](https://github.com/crewAIInc/crewAI) — 以角色協作實現 multi-agent 設計模式的框架
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 協議，agent 間工具標準化的基礎設施

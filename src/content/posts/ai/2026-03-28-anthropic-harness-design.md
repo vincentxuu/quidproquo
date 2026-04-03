@@ -155,3 +155,13 @@ Anthropic 自己也承認還沒有定論的事：
 
 **站內相關**
 - [AI Agent 的三個核心支柱：Context、Cognition、Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — 理解 agent 架構的理論框架，本文是它的實戰對照
+
+## 參考資料
+
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic 工程部落格原文，雙 Agent 架構與 claude-progress.txt 設計
+- [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic 工程部落格原文，GAN 啟發的 Generator-Evaluator 迴圈實戰
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，六種可組合模式的起點
+- [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — Anthropic agent 評估方法論，與 evaluator agent 設計直接相關
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) — Claude Agent SDK 官方文件，理解 harness 的具體實作基礎
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 系統的全面學術綜述
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 官方文件，理解 agent 工具標準化協議

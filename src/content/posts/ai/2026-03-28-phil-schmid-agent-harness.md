@@ -100,3 +100,13 @@ Phil 這篇的核心訊息用一句話總結：
 - [Google 的八種 Multi-Agent 設計模式](/posts/ai/2026-03-28-google-multi-agent-patterns) — 設計模式分類
 - [AI Agent 的三個核心支柱：Context、Cognition、Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Agent 架構理論框架
 - [The Importance of Agent Harness in 2026 — Phil Schmid 原文](https://www.philschmid.de/agent-harness-2026)
+
+## 參考資料
+
+- [The Importance of Agent Harness in 2026](https://www.philschmid.de/agent-harness-2026) — Phil Schmid 原文，CPU/OS/App 比喻與 model drift 概念完整論述
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic 的 agent 設計哲學，文中提到的「簡單優先」原則出處
+- [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic 實戰驗證 harness 設計對模型表現的影響
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) — Claude Code 官方文件，文中提及的 harness 典型案例
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 協議，harness 標準化工具管理的基礎
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — LangChain DeepAgents 的底層引擎，Phil 提及的 harness 標準化嘗試之一
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 架構與長任務可靠性的學術背景

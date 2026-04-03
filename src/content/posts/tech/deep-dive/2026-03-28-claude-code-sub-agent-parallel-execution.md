@@ -109,3 +109,13 @@ model: sonnet
 - Debugger：可編輯，root cause → fix → verify 流程
 - Data Scientist：SQL 分析專家
 - DB Reader：搭配 PreToolUse hook 限制唯讀查詢
+
+## 參考資料
+
+- [Claude Code Create Custom Subagents — 官方文件](https://docs.anthropic.com/en/docs/claude-code/sub-agents) — Sub-agent 的完整設定說明，含 frontmatter 欄位、工具控制、persistent memory
+- [Claude Code Run Agent Teams — 官方文件](https://docs.anthropic.com/en/docs/claude-code/agent-teams) — Agent Teams 與 Sub-agents 的差異，以及多代理並行架構
+- [Claude Code Hooks — 官方文件](https://docs.anthropic.com/en/docs/claude-code/hooks) — PreToolUse/PostToolUse hooks 用於條件驗證的完整說明
+- [Claude Code Programmatic Usage & SDK](https://docs.anthropic.com/en/docs/claude-code/programmatic-usage) — 用 SDK 控制 sub-agent 並行執行的方式
+- [Claude Code MCP Scoped to Subagent](https://docs.anthropic.com/en/docs/claude-code/sub-agents#scope-mcp-servers-to-a-subagent) — 將 MCP server 範圍限定在特定 sub-agent 的設定方式
+- [Claude Code Settings — Subagent Configuration](https://docs.anthropic.com/en/docs/claude-code/settings#subagent-configuration) — 在 settings.json 中配置 sub-agent 的相關欄位
+- [Anthropic 官方部落格 — Multi-agent frameworks](https://www.anthropic.com/research/building-effective-agents) — 多代理系統的設計模式與最佳實踐研究

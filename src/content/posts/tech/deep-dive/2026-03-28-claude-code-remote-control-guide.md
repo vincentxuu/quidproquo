@@ -71,3 +71,13 @@ claude --remote-control
 | Channels | Telegram/Discord/iMessage | 你的電腦 CLI | 回應外部事件 |
 | Slack | @Claude | Anthropic 雲端 | 從團隊對話啟動 |
 | Scheduled Tasks | Cron | 雲端或本地 | 定期自動化 |
+
+## 參考資料
+
+- [Claude Code Remote Control — 官方文件](https://docs.anthropic.com/en/docs/claude-code/remote-control) — Remote Control 的完整設定說明，含連線方式、安全機制與 troubleshooting
+- [Claude Code on the Web — 官方文件](https://docs.anthropic.com/en/docs/claude-code/claude-code-on-the-web) — Claude Code 雲端版說明，可與 Remote Control 對比使用情境
+- [Claude Code CLI Reference — remote-control 指令](https://docs.anthropic.com/en/docs/claude-code/cli-reference) — claude remote-control 的所有 flags，含 --name、--spawn、--capacity
+- [Claude Code in Slack — 官方文件](https://docs.anthropic.com/en/docs/claude-code/slack) — 從 Slack 遠端啟動任務的另一種方式
+- [Claude Code Channels — 官方文件](https://docs.anthropic.com/en/docs/claude-code/channels) — 透過 Telegram、Discord 等外部訊息觸發本地 Claude Code session
+- [Claude iOS/Android App](https://claude.ai/download) — 用手機控制 Remote Control session 所需的 Claude mobile app
+- [Claude Code Scheduled Tasks](https://docs.anthropic.com/en/docs/claude-code/scheduled-tasks) — 定期自動化任務的設定方式，可搭配遠端工作流程

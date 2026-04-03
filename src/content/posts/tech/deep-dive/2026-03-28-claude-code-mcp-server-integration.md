@@ -47,3 +47,14 @@ series:
 - MCP server 的信任模型
 - --dangerously-skip-permissions 對 MCP 的影響
 - 最小權限原則的實踐
+
+## 參考資料
+
+- [Claude Code MCP 整合 — 官方文件](https://docs.anthropic.com/en/docs/claude-code/mcp) — 從安裝到管理 MCP server 的完整官方指南，含 stdio/HTTP transport
+- [Model Context Protocol 官方介紹](https://modelcontextprotocol.io/introduction) — MCP 協議的設計理念、架構與使用情境
+- [MCP 規格文件](https://spec.modelcontextprotocol.io/) — MCP 協議的完整技術規格，含 tool、resource、prompt 定義
+- [MCP TypeScript SDK — GitHub](https://github.com/modelcontextprotocol/typescript-sdk) — 官方 TypeScript SDK，用於建立 MCP server
+- [MCP Python SDK — GitHub](https://github.com/modelcontextprotocol/python-sdk) — 官方 Python SDK，用於建立 MCP server
+- [Awesome MCP Servers — GitHub](https://github.com/punkpeye/awesome-mcp-servers) — 社群整理的 MCP server 清單，含 GitHub、Slack、資料庫等整合
+- [Claude Code Managed MCP Configuration](https://docs.anthropic.com/en/docs/claude-code/mcp#managed-mcp-configuration) — 企業環境集中管理 MCP server 的官方設定方式
+- [MCP Inspector — 除錯工具](https://modelcontextprotocol.io/docs/tools/inspector) — MCP server 的官方除錯工具

@@ -317,3 +317,13 @@ OpenAI Agents SDK 綁 OpenAI，Claude Agent SDK 綁 Claude，Google ADK 對 Gemi
 ### 一個務實建議
 
 框架的選擇成本不在學習曲線——所有框架都能在一天內跑起第一個 demo。真正的成本是遷移成本：你的 agent 邏輯、工具定義、記憶架構、部署模式都會跟框架耦合。先想清楚你的場景，再選框架。
+
+## 參考資料
+
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — 月下載量 38M+ 的 agent 編排框架，stateful workflow 與 durable execution 的代表
+- [CrewAI GitHub Repository](https://github.com/crewAIInc/crewAI) — 多角色協作框架，47k stars，Fortune 500 廣泛試用
+- [Hugging Face smolagents GitHub Repository](https://github.com/huggingface/smolagents) — Hugging Face 出品的極簡 agent 框架，Code Agent 模式
+- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 官方文件，2026 年幾乎所有框架的通用工具協議
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，「從最簡單方案開始」的框架選擇原則
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) — Claude Agent SDK 官方文件，驅動 Claude Code 的 harness 引擎
+- [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 系統的全面學術綜述，框架選擇的理論背景

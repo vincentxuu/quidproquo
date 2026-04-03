@@ -68,3 +68,14 @@ claude
 - 不看 diff 直接 accept
 - YOLO 模式裸跑（沒有 checkpoint）
 - 一個 session 跑太多不相關的任務
+
+## 參考資料
+
+- [Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic 官方最佳實踐指南，涵蓋 prompt 技巧、context 管理與自動化擴展
+- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) — 官方常見工作流程，含 Plan Mode、git worktree、sub-agent 使用方式
+- [Store Instructions and Memories](https://docs.anthropic.com/en/docs/claude-code/memory) — CLAUDE.md 寫法與最佳化建議，包含 auto memory 機制說明
+- [Claude Code Permission Modes](https://docs.anthropic.com/en/docs/claude-code/permission-modes) — default、acceptEdits、auto、bypassPermissions 各模式的行為與適用情境
+- [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — 互動式模擬，解析各功能在 session 中消耗的 token 量
+- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 完整設定參考，含 hooks、permissions、env 欄位
+- [Git Worktree 官方文件](https://git-scm.com/docs/git-worktree) — git worktree 指令完整說明，理解平行開發的底層機制
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Claude Code 功能概覽與各平台整合說明

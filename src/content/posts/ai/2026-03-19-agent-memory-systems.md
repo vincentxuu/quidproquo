@@ -939,11 +939,12 @@ RAG 讓 Agent 能讀取外部知識，Agentic RAG 讓它讀得更聰明，但 Ag
 
 最後一個想法：記憶不只是技術問題，也是產品問題。使用者對「AI 記住了什麼」這件事非常敏感。做好透明度和控制權，比做好檢索演算法更重要。
 
----
+## 參考資料
 
-**參考資料**
-
-- Leonie Monigatti, "The Evolution from RAG to Agentic RAG to Agent Memory" (2025)
-- Cognitive Science 的記憶分類：Procedural / Episodic / Semantic Memory
-- Letta (MemGPT) — 早期 Agent Memory 系統的開源實作
-- LangChain Memory module — 對話記憶的基礎實作
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，涵蓋 Agent Memory 在 Agentic RAG 系統中的角色與三種記憶類型的分類
+- [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，episodic/semantic/procedural memory 的 Write/Select 策略說明
+- [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic 工程部落格，structured note-taking 與跨 session 記憶的實作建議
+- [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560) — Packer et al. (2023)，將 LLM 的記憶管理類比作業系統的虛擬記憶體，Letta 的理論基礎
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 到 Agentic RAG 演化，是 Agent Memory 發展的前序背景
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Agent 在推理過程中記錄中間狀態的早期框架，與 scratchpad 概念相近
+- [Letta（MemGPT）GitHub 儲存庫](https://github.com/letta-ai/letta) — Agent Memory 開源實作，支援 Procedural/Episodic/Semantic 三層記憶架構

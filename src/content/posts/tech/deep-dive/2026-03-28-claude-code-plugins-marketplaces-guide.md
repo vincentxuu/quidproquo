@@ -75,3 +75,13 @@ my-plugin/
 - 團隊共用的 code review plugin
 - 專案模板 plugin（含 CLAUDE.md + skills + hooks）
 - 語言特定的 LSP plugin
+
+## 參考資料
+
+- [Claude Code Plugins Reference — 官方文件](https://docs.anthropic.com/en/docs/claude-code/plugins-reference) — plugin.json manifest 格式、plugin 結構與元件說明
+- [Create Plugins — 官方指南](https://docs.anthropic.com/en/docs/claude-code/create-plugins) — 從零建立 Claude Code plugin 的官方步驟說明
+- [Discover and Install Prebuilt Plugins — 官方文件](https://docs.anthropic.com/en/docs/claude-code/discover-and-install-prebuilt-plugins) — 從 Marketplace 安裝與管理 plugin 的使用說明
+- [Claude Code Settings — Plugin Configuration](https://docs.anthropic.com/en/docs/claude-code/settings#plugin-configuration) — settings.json 中 enabledPlugins 與 extraKnownMarketplaces 的設定方式
+- [Claude Code Hooks Reference — 官方文件](https://docs.anthropic.com/en/docs/claude-code/hooks-reference) — hooks.json 格式與各生命週期事件說明
+- [Claude Code Skills — 官方文件](https://docs.anthropic.com/en/docs/claude-code/skills) — 在 plugin 中加入 skill 的完整說明
+- [Claude Code MCP Plugin Integration](https://docs.anthropic.com/en/docs/claude-code/mcp#plugin-provided-mcp-servers) — plugin 如何捆綁 MCP server 的說明

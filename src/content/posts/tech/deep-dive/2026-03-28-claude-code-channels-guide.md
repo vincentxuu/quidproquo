@@ -73,3 +73,13 @@ series:
 - 用手機 Telegram 問 Claude 問題，在本機檔案上操作
 - CI 失敗時 webhook 推送到 session，Claude 自動分析修復
 - Discord 接收團隊指令，Claude 執行後回覆結果
+
+## 參考資料
+
+- [Claude Code Overview — Platforms and Integrations](https://docs.anthropic.com/en/docs/claude-code/overview) — 官方平台整合概覽，介紹 Channels 在整體生態中的定位
+- [Claude Code Remote Control](https://docs.anthropic.com/en/docs/claude-code/remote-control) — Remote Control 功能說明，與 Channels 互補的遠端操控機制
+- [Telegram BotFather 文件](https://core.telegram.org/bots#botfather) — 建立 Telegram Bot 的官方指南，Channels Telegram 整合的前置步驟
+- [Discord Developer Portal — Bot 設定](https://discord.com/developers/docs/intro) — Discord Bot 建立與 Message Content Intent 設定的官方文件
+- [Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) — MCP server 協議說明，Channels 底層基於 MCP 實作
+- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — channelsEnabled、allowedChannelPlugins 等 Channels 相關設定欄位
+- [Model Context Protocol 規範](https://modelcontextprotocol.io/introduction) — MCP 協議官方規範，理解 Channels 底層通訊架構的基礎

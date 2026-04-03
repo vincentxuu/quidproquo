@@ -59,3 +59,13 @@ series:
 - Skills 沒有正確觸發
 - 行為品質下降
 - 對策：開新 session、用 sub-agent、精簡 CLAUDE.md
+
+## 參考資料
+
+- [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — Anthropic 官方互動式 context 模擬，視覺化呈現各功能在 session 中的 token 消耗
+- [Claude Code Best Practices — Manage Context Aggressively](https://docs.anthropic.com/en/docs/claude-code/best-practices#manage-context-aggressively) — 官方 context 管理最佳實踐，含 /compact、/clear 與 subagent 使用策略
+- [Store Instructions and Memories](https://docs.anthropic.com/en/docs/claude-code/memory) — CLAUDE.md 精簡建議與 auto memory 機制，減少 session 啟動時的 context 佔用
+- [Claude API — Token 計費說明](https://docs.anthropic.com/en/docs/about-claude/models/overview) — Claude 模型的 context window 大小與計費方式
+- [Extend Claude Code](https://docs.anthropic.com/en/docs/claude-code/extend-claude-code) — Skills vs MCP vs Hooks 的 context 成本比較與選擇指南
+- [Claude Code Subagents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) — Subagent 機制說明，利用獨立 context window 保護主對話
+- [Claude Code Common Workflows — Use Subagents for Investigation](https://docs.anthropic.com/en/docs/claude-code/common-workflows#use-subagents-for-investigation) — 官方示範如何用 subagent 做 codebase 探索，避免污染主 context
