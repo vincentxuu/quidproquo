@@ -278,6 +278,12 @@ const breadcrumbLD = {
     text-align: center;
     overflow: hidden;
   }
+  @media (max-width: 640px) {
+    .hero { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+  @media (max-width: 400px) {
+    .hero { margin-left: -0.75rem; margin-right: -0.75rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+  }
   :global(:root:not([data-theme="dark"])) .hero {
     background: linear-gradient(135deg, #2d4a2d 0%, #1a2e1a 50%, #2d4a2d 100%);
   }
