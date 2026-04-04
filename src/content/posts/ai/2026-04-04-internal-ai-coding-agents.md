@@ -58,7 +58,7 @@ Slack 觸發（確定性）→ clone repo + 環境設定（確定性）
 
 CI 修復上限設為 2 次是刻意的設計——如果 LLM 兩次修不好，第三次也不會有幫助，只是在燒算力。此時系統會標記讓人類接手。
 
-針對不同任務類型（dependency 更新、API 遷移、測試���成、文件撰寫）有專門的 Blueprint，由 orchestration layer 自動路由。
+針對不同任務類型（dependency 更新、API 遷移、測試生成、文件撰寫）有專門的 Blueprint，由 orchestration layer 自動路由。
 
 ### Toolshed MCP Server
 
