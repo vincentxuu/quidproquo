@@ -173,15 +173,7 @@ Spotify 在 Part 3 blog 中詳述了三種最擔心的失敗模式：
 2. **PR 通過 CI 但功能錯誤**——最嚴重，會侵蝕團隊信任
 3. **產出不可預測**
 
-解法是 **verification loop**：agent 生成改動 → 跑 formatter/linter/build/test → 失敗就用錯誤訊息重新進入 loop，加上 verifier 和 judge 機制引導 agent 往正確方向走���
-
-### 主要用途
-
-Honk 的���手級應用是**大規模程式碼��移**——跨數百個 repo 的 deprecated API migration，至今已完成約 **50 次遷移**。
-
-CTO Gustav Söderström 對分析師說：
-
-> Spotify 最好的開發者從（2025 年���12 月起就沒有親手寫過���行程式��了。
+解法是 **verification loop**：agent 生成改動 → 跑 formatter/linter/build/test → 失敗就用錯誤訊息重新進入 loop，加上 verifier 和 judge 機制引導 agent 往正確方向走。\n\n### 主要用途\n\nHonk 的殺手級應用是**大規模程式碼遷移**——跨數百個 repo 的 deprecated API migration，至今已完成約 **50 次遷移**。\n\nCTO Gustav Söderström 對分析師說：\n\n> Spotify 最好的開發者從 2025 年 12 月起就沒有親手寫過一行程式碼了。
 
 ### 關鍵指標
 
