@@ -1,5 +1,7 @@
 ---
 // src/pages/en/index.astro
+export const prerender = true;
+
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';

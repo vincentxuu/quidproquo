@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIRoute } from 'astro';
 import { env } from 'cloudflare:workers';
 import { runCrawlSync } from '../../../lib/crawl/sync';
