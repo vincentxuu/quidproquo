@@ -44,7 +44,7 @@ Minions 的架構可以拆成五層：
 - **確定性節點（Deterministic Nodes）**：固定、可預測的操作——git push、linting、CI 執行、格式檢查
 - **Agent 節點（Agentic Nodes）**：LLM 驅動的推理和程式碼生成
 
-兩者交替執行形成 feedback loop：AI 生成程式碼 → 確定性節點驗證能��能編譯 → AI 提出重構 → 測試跑一次確認沒壞。不依賴 AI 每次都對，而是用確定性的 checkpoint 把錯誤攔住。
+兩者交替執行形成 feedback loop：AI 生成程式碼 → 確定性節點驗證能不能編譯 → AI 提出重構 → 測試跑一次確認沒壞。不依賴 AI 每次都對，而是用確定性的 checkpoint 把錯誤攔住。
 
 一個典型的 Blueprint 流程長這樣：
 
