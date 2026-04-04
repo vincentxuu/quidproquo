@@ -151,13 +151,7 @@ Cloudbot 不是單一 agent 獨立作業。它採用多 agent 組成的「counci
 
 ## Spotify Honk — 從手機描述需求到 Merged PR
 
-Spotify 的內部 coding agent 叫 Honk，透過三篇 Spotify Engineering Blog（2025 年 11-12 月）公���完整技術細節。
-
-### 起源
-
-Spotify 從 2022 年就開始建構 **Fleet Management** 框架，用來跨數百個 repo 批量套用程���碼改動。2025 年 7 月，他們把 Claude Agent SDK 整合進這個框架，Honk 就此誕生。
-
-在此之前 Spotify 試過自研 agent，但發現自研方案「需要過度嚴格的指令，遇到複雜的多步驟編輯就卡住」。換成 Claude Code 後，反而用**描述終態**的 prompt 風格���果更好——告訴 agent 你要什麼結果，而非一步步教它怎麼做。
+Spotify 的內部 coding agent 叫 Honk，透過三篇 Spotify Engineering Blog（2025 年 11-12 月）公開完整技術細節。\n\n### 起源\n\nSpotify 從 2022 年就開始建構 **Fleet Management** 框架，用來跨數百個 repo 批量套用程式碼改動。2025 年 7 月，他們把 Claude Agent SDK 整合進這個框架，Honk 就此誕生。\n\n在此之前 Spotify 試過自研 agent，但發現自研方案「需要過度嚴格的指令，遇到複雜的多步驟編輯就卡住」。換成 Claude Code 後，反而用**描述終態**的 prompt 風格效果更好——告訴 agent 你要什麼結果，而非一步步教它怎麼做。
 
 ### 工作流程
 
