@@ -373,6 +373,11 @@ const breadcrumbLD = {
 
   /* Post nav */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  @media (max-width: 480px) {
+    .post-nav { grid-template-columns: 1fr; }
+    .post-nav-next { text-align: left; }
+    .post-nav-next .post-nav-label { justify-content: flex-start; }
+  }
   .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); }
   .post-nav-next { text-align: right; }
@@ -390,6 +395,14 @@ const breadcrumbLD = {
 </style>
 
 <script>
+  // Wrap tables in scrollable container for mobile
+  document.querySelectorAll('.content table').forEach(table => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-scroll';
+    table.parentNode!.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+
   // Attach copy buttons to all pre blocks (macOS-style, positioned in the header bar)
   document.querySelectorAll('.content pre').forEach(pre => {
     const btn = document.createElement('button');
