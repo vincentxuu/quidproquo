@@ -4,8 +4,8 @@ date: 2026-04-04
 category: ai
 tags: [ai-agents, coding-agents, stripe-minions, agentic-coding, developer-tools, automation, meta, google, uber, amazon]
 lang: zh-TW
-tldr: "矽谷一線公司各自獨立打造內部 AI coding agent，從 Slack 訊息到 merged PR 全程自動化。深入拆解 Stripe、Ramp、Coinbase、Spotify 四家的架構，再擴展到 Google、Meta、Amazon、Uber、Goldman Sachs、Walmart 等十多家公司��做法與指標。"
-description: "深入介紹 Stripe Minions、Ramp Inspect、Coinbase Cloudbot、Spotify Honk 的架構設計���關鍵指標，再擴展到 Google Agent Smith、Meta DevMate、Amazon Q Developer 等十多家公司的內部 AI coding agent 全貌。"
+tldr: "矽谷一線公司各自獨立打造內部 AI coding agent，從 Slack 訊息到 merged PR 全程自動化。深入拆解 Stripe、Ramp、Coinbase、Spotify 四家的架構，再擴展到 Google、Meta、Amazon、Uber、Goldman Sachs、Walmart 等十多家公司的做法與指標。"
+description: "深入介紹 Stripe Minions、Ramp Inspect、Coinbase Cloudbot、Spotify Honk 的架構設計與關鍵指標，再擴展到 Google Agent Smith、Meta DevMate、Amazon Q Developer 等十多家公司的內部 AI coding agent 全貌。"
 draft: false
 ---
 
