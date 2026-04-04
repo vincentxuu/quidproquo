@@ -166,6 +166,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   /* ── Reset & Base ── */
   *, *::before, *::after { box-sizing: border-box; }
 
+  html {
+    overflow-x: hidden; /* prevent wide tables/code from expanding page width */
+  }
+
   body {
     font-family: system-ui, -apple-system, sans-serif;
     max-width: 800px;
@@ -528,12 +532,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     margin-bottom: 1.5rem;
   }
   .content table {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     font-size: 0.9rem;
     border-radius: 8px;
-    overflow: hidden;
   }
   .content th {
     background: var(--bg-subtle);
