@@ -2,10 +2,10 @@
 title: "從實戰整理：AI Native 團隊該做好的事"
 date: 2026-04-17
 category: ai
-tags: [ai-native, coding-agent, spec-driven-development, monorepo, ci-cd, code-review, agent-platform, security, observability, git-worktree, adr]
+tags: [ai-native, coding-agent, spec-driven-development, monorepo, ci-cd, code-review, agent-platform, security, observability, git-worktree, adr, human-in-the-loop, cost-management, model-selection]
 lang: zh-TW
 tldr: "不是每個人都該直接用 coding agent 改 code。AI Native 團隊要先搞定 interface 規格、測試先行、monorepo、專案級 rules、小 PR 文化、branch 隔離、security guardrail、agent 監控，在 coding agent 上面再建一層 agent platform 才是正途。"
-description: "從實戰踩坑歸納出 13 條 AI Native 開發團隊該做好的事：agent platform、interface 先行、測試先行、monorepo、專案級設定、CI/CD、code review、小 PR、context engineering、branch 隔離、security guardrail、agent observability、文件即 context，每條對應產業文獻佐證。"
+description: "從實戰踩坑歸納出 AI Native 開發團隊該做好的事：agent platform、interface 先行、測試先行、monorepo、專案級設定、CI/CD、code review、小 PR、context engineering、branch 隔離、security guardrail、agent observability、文件即 context、human-in-the-loop、token 預算管控、model 選擇策略、開發者角色轉型、agent 失敗處理，每條對應產業文獻佐證。"
 draft: false
 ---
 
@@ -141,11 +141,77 @@ Gartner 預測到 2028 年，60% 的軟體團隊會使用 AI evaluation 和 obse
 
 更進一步，[Agent Decision Records (AgDR)](https://github.com/me2resh/agent-decision-record) 擴展了 ADR 標準，專門記錄 AI agent 做的技術決策。當 agent 選擇了某個 library 或某種 pattern，AgDR 記下原因，下次其他 agent（或人類）就知道為什麼。
 
+## 14. Human-in-the-loop：不是所有決定都該讓 Agent 自己來
+
+Agentic workflow 最危險的誤解：以為自動化越多越好。
+
+有些操作 agent 絕對不能自己決定：
+- 部署到 production
+- 刪除資料或執行 migration
+- 修改 CI/CD pipeline
+- force push 或 rebase shared branch
+
+這些要設計成 **approval gate** — agent 跑到這步就暫停，等人確認才繼續。[HumanLayer](https://humanlayer.dev/) 是專門解決這個問題的工具，把 human approval 包成 API，agent 呼叫後等待回覆再繼續。
+
+Claude Code 的 permission mode 也是同一個邏輯：分清楚哪些 tool call 可以自動執行，哪些需要每次確認。
+
+設計 agentic workflow 時，先列出所有「如果 agent 判斷錯誤，損失多大」的操作，這些就是你的 approval gate 清單。
+
+## 15. Token 預算管控：AI 時代多了一種成本要顧
+
+以前工程成本主要是人力時間。AI Native 之後多了一個：token 費用。
+
+沒有管控機制，token 費用很容易失控：agent loop 跑太多輪、context 塞太大、開發者無節制地跑 session。
+
+幾個基本原則：
+- **設 per-task token budget**：每個 task 給 agent 的 token 上限，超過就中斷回報
+- **追蹤 cost per PR**：每個 PR 花了多少 token，讓 cost 可見
+- **Skill 的 progressive disclosure**：不要把所有 context 一次塞進去，按需載入
+
+這些數據最後要進到第 12 點的 observability dashboard，才能做有意義的優化。
+
+## 16. Model 選擇策略：對的任務配對的 Model
+
+不是所有任務都要用最強的 model。
+
+一個務實的分層：
+- **Haiku**：簡單格式化、boilerplate 生成、小範圍改動
+- **Sonnet**：日常 feature 開發、code review、測試生成
+- **Opus**：架構設計、複雜 debugging、ADR 撰寫、需要深度推理的任務
+
+在 agent platform 層做 **model routing** — 根據 task type 自動選擇 model，而不是讓每個人自己決定，或統一用最貴的。這樣既控制成本，又確保重要任務有足夠的推理能力。
+
+## 17. 開發者角色轉型：技能樹要跟著換
+
+這是最難的部分，因為它是人的問題，不是工具問題。
+
+工程師的核心價值從「寫得快、寫得好」轉向：
+- **Spec 能力**：把需求拆解成 agent 能執行的精確規格
+- **Eval 設計**：定義「什麼是對的」，寫出能真正驗收行為的測試
+- **Context Engineering**：知道怎麼給 agent 對的資訊，而不是對的指令
+- **Review 能力**：快速判斷 AI 產出的對錯、風險、架構合理性
+
+心態上也要調整：AI 寫的 code 不是「你的 code」，不要因為是自己下 prompt 產出的就有防衛心。review AI 的 code 要比 review 人寫的 code 更嚴格，因為 AI 不會覺得被質疑是人身攻擊。
+
+## 18. Agent 失敗處理：Loop 卡住、跑到一半出錯怎麼辦
+
+Agent 不會永遠成功。設計失敗處理和設計成功路徑一樣重要。
+
+幾個常見的失敗場景：
+- **Agent loop**：agent 反覆嘗試同樣的方法，卡在同一個錯誤出不來
+- **Context 爆掉**：task 太大，跑到一半 context window 滿了
+- **工具呼叫失敗**：外部 API、file system 錯誤導致 agent 中斷
+
+基本的防護機制：
+- **最大迭代次數限制**：超過就中斷，回報當前狀態讓人介入
+- **Checkpoint**：長任務分段，每段完成後 commit，失敗時從上個 checkpoint 恢復
+- **Git worktree 的天然優勢**：agent 失敗時，worktree 的改動不影響 main branch，清掉重來不會有殘留
+
 ---
 
 ## 整體來說
 
-這 13 條不是什麼新發明，很多在人類開發時代就是 best practice。但 AI Native 放大了不遵守這些規則的代價：沒有 spec 就是亂猜、沒有測試就是亂寫、沒有 review 就是亂 merge、沒有 monorepo 就是 context 斷裂、沒有 security guardrail 就是洩漏 secrets、沒有 observability 就是盲飛。
+這些實踐不是什麼新發明，很多在人類開發時代就是 best practice。但 AI Native 放大了不遵守這些規則的代價：沒有 spec 就是亂猜、沒有測試就是亂寫、沒有 review 就是亂 merge、沒有 monorepo 就是 context 斷裂、沒有 security guardrail 就是洩漏 secrets、沒有 observability 就是盲飛、沒有 human-in-the-loop 就是讓 agent 做了不該做的決定、沒有 token 預算就是成本失控。
 
 AI 讓寫 code 的成本趨近於零，但讓「確保 code 是對的」的成本變得更高。團隊的核心能力從「寫得快」轉向「規格清楚、驗收嚴格、review 到位、治理完善」。
 
