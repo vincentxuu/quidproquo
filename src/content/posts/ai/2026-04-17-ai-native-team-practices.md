@@ -1,5 +1,5 @@
 ---
-title: "轉向 AI Native 開發的 13 個慘痛教訓"
+title: "從實戰整理：AI Native 團隊該做好的事"
 date: 2026-04-17
 category: ai
 tags: [ai-native, coding-agent, spec-driven-development, monorepo, ci-cd, code-review, agent-platform, security, observability, git-worktree, adr]
