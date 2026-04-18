@@ -102,9 +102,31 @@ Karpathy 說得直白：「這裡有空間做一個 incredible new product，而
 
 ContextVault、Mnemex、Continuous-Claude-v3 等開源專案各自解決了一角，但還沒有人做出 Karpathy 口中的那個完整產品。這或許是 2026 年最值得關注的 AI 工具方向之一——不是讓 AI 寫更多程式碼，而是讓 AI 管理你的知識。
 
+## 補充：Gist 中的三層架構與社群延伸提案
+
+Karpathy 在 [GitHub Gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 裡比推文更詳細地描述了他的架構。他把系統拆成三層：
+
+1. **Raw Sources**——不可變的原始文件（文章、論文、資料集）
+2. **The Wiki**——LLM 生成的 markdown，包含摘要、實體頁、概念頁、交叉引用
+3. **The Schema**——定義 wiki 慣例和工作流程的設定文件（`CLAUDE.md` 或 `AGENTS.md`）
+
+Wiki 本身就是一個 git repo 的 markdown 檔案，免費獲得版本歷史、分支和協作能力。兩個關鍵的特殊檔案是 `index.md`（按分類組織的目錄，幫助 LLM 高效導航）和 `log.md`（append-only 的時序紀錄，用一致的 prefix 保持可解析性）。
+
+Gist 下方的討論串也催生了多個進階提案，值得關注：
+
+- **Provenance tracking**——對來源做 hash 和新鮮度驗證，確保知識可溯源
+- **Ontology system**——建立 typed entities 和 relations，把 wiki 從扁平文件升級為結構化知識圖譜
+- **Decision records**——記錄知識為什麼演變，不只記錄當前狀態
+- **Multi-LLM 策略**——針對敏感的機構內容，用不同 LLM 處理不同安全等級的資料
+- **Graph database**——用圖資料庫取代純 markdown，讓知識組織更乾淨
+- **Reflection layer**——讓系統分析自身 wiki 結構的後設認知層
+
+這些提案呼應了本文「社群經驗庫模式」的觀察：社群正在把 Karpathy 的原始框架往更完整的知識管理系統方向推進。
+
 ## 參考資料
 
 - [Karpathy — LLM Knowledge Bases 推文](https://x.com/karpathy/status/2039805659525644595)
+- [Karpathy — LLM Knowledge Bases Gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - [Karpathy — 2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/)
 - [Typeless — AI Voice Dictation](https://www.typeless.com/)
 - [Unsloth — Qwen3 Fine-tuning](https://unsloth.ai/docs/models/qwen3-how-to-run-and-fine-tune)
