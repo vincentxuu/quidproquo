@@ -2,7 +2,7 @@
 title: "你的 JSON-LD 和 schema 對 AI 搜尋引擎是隱形的嗎？各家管線拆解與 AEO/GEO 策略"
 date: 2026-04-18
 category: marketing
-tags: [aeo, geo, ai-seo, web-search, content-strategy]
+tags: [aeo, geo, ai-seo, web-search, content-strategy, seo, json-ld, schema, structured-data, llms-txt, claude-code, perplexity]
 lang: zh-TW
 tldr: "不同 AI 引擎讀網頁的方式差異很大。有的只看 body、有的靠預建索引。JSON-LD 和 schema 不是萬能的，正文品質和結構才是跨平台有效的基礎。"
 description: "拆解 ChatGPT、Perplexity、Gemini、Claude 四家 AI 搜尋引擎的網頁處理管線，分析 JSON-LD、schema、meta 標籤的實際效果，給出 2026 年可操作的 AEO/GEO 策略。"
