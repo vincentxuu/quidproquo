@@ -415,6 +415,6 @@ llama.cpp 是本地 LLM 推論的基礎設施。Ollama、LM Studio、GPT4All 底
 - [GGUF 格式規格](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md)
 - [HuggingFace GGUF 模型搜尋](https://huggingface.co/models?library=gguf)
 - [量化格式選擇研究（2026 年 1 月論文）](https://arxiv.org/html/2601.14277v1)
-- Ollama 完整指南：一行指令在本地跑 LLM（即將推出）
-- vLLM — 從 PagedAttention 到生產級 LLM 推論引擎（即將推出）
-- TurboQuant+ — KV Cache 兩階段量化壓縮（即將推出）
+- [Ollama 完整指南：一行指令在本地跑 LLM](/posts/ai/2026-03-14-ollama-local-llm-guide)
+- [vLLM — 從 PagedAttention 到生產級 LLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)
+- [TurboQuant+ — KV Cache 兩階段量化壓縮](/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression)
