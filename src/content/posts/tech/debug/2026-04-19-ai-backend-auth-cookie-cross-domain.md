@@ -2,7 +2,7 @@
 title: "本機開發 AI Backend API 永遠回空資料：Cookie Domain 隔離問題"
 date: 2026-04-19
 category: tech
-tags: [cookie, cors, fastapi, nextjs, auth, local-dev]
+tags: [cookie, cors, fastapi, nextjs, auth, local-dev, debug]
 lang: zh-TW
 tldr: "主後端跑在遠端 HTTPS，auth_token cookie 的 domain 是遠端，瀏覽器不會把它送到本機 AI backend，導致 API 認為未登入。"
 description: "本機開發時 AI backend 推薦 API 回傳空陣列，根本原因是 cookie domain 隔離：auth_token 由遠端伺服器設定，瀏覽器不會把它送到 localhost。"
