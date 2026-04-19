@@ -146,35 +146,35 @@ Claude Code 的核心優勢在於六層擴充機制帶來的客製化深度—�
 本站已有 20+ 篇 Claude Code 專題文章，以下是按主題分類的索引：
 
 **擴充機制：**
-- [Hooks 完整指南](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide/)
-- [Skill 完整指南](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide/)
-- [Sub-agents 完整指南](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution/)
-- [MCP Server 整合](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration/)
-- [Agent Teams 指南](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide/)
-- [Plugins & Marketplaces](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide/)
-- [三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md/)
+- [Hooks 完整指南](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide)
+- [Skill 完整指南](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
+- [Sub-agents 完整指南](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)
+- [MCP Server 整合](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)
+- [Agent Teams 指南](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide)
+- [Plugins & Marketplaces](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide)
+- [三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
 
 **設定與環境：**
-- [settings.json 設定大全](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide/)
-- [CLAUDE.md 與 agents.md 指南](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide/)
-- [Context Window 管理](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management/)
-- [DevContainer & Sandboxing](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing/)
-- [Permission Modes 全解析](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions/)
+- [settings.json 設定大全](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide)
+- [CLAUDE.md 與 agents.md 指南](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide)
+- [Context Window 管理](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)
+- [DevContainer & Sandboxing](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing)
+- [Permission Modes 全解析](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions)
 
 **整合與自動化：**
-- [CI/CD × GitHub Actions](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions/)
-- [Headless Mode](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide/)
-- [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide/)
-- [Slack 整合](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration/)
-- [Chrome 整合](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration/)
-- [Scheduled Tasks](/posts/tech/deep-dive/2026-03-27-claude-code-scheduled-tasks-guide/)
-- [Checkpointing](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide/)
+- [CI/CD × GitHub Actions](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)
+- [Headless Mode](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)
+- [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide)
+- [Slack 整合](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
+- [Chrome 整合](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration)
+- [Scheduled Tasks](/posts/tech/deep-dive/2026-03-27-claude-code-scheduled-tasks-guide)
+- [Checkpointing](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide)
 
 **其他：**
-- [Spinner Verbs 完整清單](/posts/tech/2026-03-30-claude-code-spinner-verbs/)
-- [除錯與疑難排解合集](/posts/tech/2026-03-28-claude-code-troubleshooting-collection/)
-- [/loop 排程功能](/posts/tech/2026-03-16-claude-code-loop-scheduling/)
-- [Skill vs Subagent 比較](/posts/ai/2026-03-30-skill-vs-subagent-comparison/)
+- [Spinner Verbs 完整清單](/posts/tech/2026-03-30-claude-code-spinner-verbs)
+- [除錯與疑難排解合集](/posts/tech/2026-03-28-claude-code-troubleshooting-collection)
+- [/loop 排程功能](/posts/tech/2026-03-16-claude-code-loop-scheduling)
+- [Skill vs Subagent 比較](/posts/ai/2026-03-30-skill-vs-subagent-comparison)
 
 ## 參考資源
 

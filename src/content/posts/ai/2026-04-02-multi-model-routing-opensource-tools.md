@@ -189,7 +189,7 @@ Haiku  Son  Opus
 
 ## 系列文章
 
-- [Agent CLI 訂閱制與多模型路由完整指南](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)
+- [Agent CLI 訂閱制與多模型路由完整指南](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
 
 ## 參考資料
 

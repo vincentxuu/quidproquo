@@ -732,9 +732,9 @@ LongRAG 重新分配了這個壓力：
 ## 延伸閱讀
 
 - [LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs](https://arxiv.org/abs/2406.15319) — LongRAG 原始論文
-- [Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies/) — 傳統 chunking 策略的詳細比較
-- [Contextual Retrieval：讓每個 Chunk 自帶上下文](/posts/ai/2026-03-12-contextual-retrieval/) — Anthropic 提出的另一種解決碎片化的方法
-- [Cross-Encoder Reranking：用精排模型補救粗排的不足](/posts/ai/2026-03-12-cross-encoder-reranking/) — 當檢索不夠精確時的補救策略
+- [Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies) — 傳統 chunking 策略的詳細比較
+- [Contextual Retrieval：讓每個 Chunk 自帶上下文](/posts/ai/2026-03-12-contextual-retrieval) — Anthropic 提出的另一種解決碎片化的方法
+- [Cross-Encoder Reranking：用精排模型補救粗排的不足](/posts/ai/2026-03-12-cross-encoder-reranking) — 當檢索不夠精確時的補救策略
 
 ## 參考資料
 

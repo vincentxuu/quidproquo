@@ -140,5 +140,5 @@ OmO 是整個 UltraWorkers 多 Agent 編碼生態系的**起源專案**。它最
 
 - [oh-my-openagent GitHub Repository](https://github.com/code-yeongyu/oh-my-openagent)
 - [OpenCode by SST](https://github.com/sst/opencode)
-- [oh-my-codex 工作流增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer/)
-- [Claw Code 開源 Rust 版 Claude Code 介紹](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation/)
+- [oh-my-codex 工作流增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [Claw Code 開源 Rust 版 Claude Code 介紹](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation)

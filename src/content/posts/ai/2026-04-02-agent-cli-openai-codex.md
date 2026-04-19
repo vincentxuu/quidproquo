@@ -139,7 +139,7 @@ Codex 最適合以下情境：
 
 本文是 Agent CLI 訂閱與計費系列的一部分。完整的多工具比較與模型路由分析請參考：
 
-**→ [Agent CLI 訂閱方案與多模型路由完整比較](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+**→ [Agent CLI 訂閱方案與多模型路由完整比較](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
 
 ## 參考資料
 

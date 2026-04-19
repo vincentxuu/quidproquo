@@ -147,4 +147,4 @@ OMX 的價值主張是：如果你已經在用 Codex CLI，而且常常遇到「
 
 - [oh-my-codex GitHub Repository](https://github.com/Yeachan-Heo/oh-my-codex)
 - [OpenAI Codex CLI](https://github.com/openai/codex)
-- [Codex CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex/)
+- [Codex CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex)

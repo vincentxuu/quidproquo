@@ -109,7 +109,7 @@ OpenCode 的 75+ 供應商支援，搭配第三方模型路由器（如 [freerou
 
 這個組合——OpenCode 作為前端 agent + 模型路由器作為後端調度——提供了目前 Agent CLI 生態系中最靈活的架構。
 
-更多關於多模型路由策略的討論，請參考 **[訂閱制 Agent CLI 的多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**。
+更多關於多模型路由策略的討論，請參考 **[訂閱制 Agent CLI 的多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**。
 
 ## 適用場景
 
@@ -126,7 +126,7 @@ OpenCode 最適合以下類型的開發者和團隊：
 
 ## 系列文章
 
-**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing/)**
+**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
 
 ## 參考資料
 

@@ -20,30 +20,30 @@ draft: false
 
 | 工具 | 入門價 | 重度使用 | 模型策略 | 最適合 |
 |------|--------|---------|---------|--------|
-| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
-| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** | 免費 / $20/mo | $60-200/mo | Auto + 多供應商 | IDE ↔ CLI 無縫切換 |
-| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** | 免費 / $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系 |
-| **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro/)** | 免費 (50 credits) | $200/mo | Auto 模式自動切換 | AWS 生態系 |
-| **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)** | 免費 (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | 免費重度使用 |
-| **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode/)** | 免費 (開源) | 按 API 計費 | 75+ 模型供應商自由切換 | 模型自由、vendor 獨立 |
+| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)** | $20/mo | $100-200/mo | Opus/Sonnet/Haiku 手動切換 | 深度推理、複雜任務 |
+| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)** | 免費 / $20/mo | $60-200/mo | Auto + 多供應商 | IDE ↔ CLI 無縫切換 |
+| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)** | 免費 / $20/mo | $200/mo | GPT-5.4 + mini 自動路由 | OpenAI 生態系 |
+| **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)** | 免費 (50 credits) | $200/mo | Auto 模式自動切換 | AWS 生態系 |
+| **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)** | 免費 (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | 免費重度使用 |
+| **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)** | 免費 (開源) | 按 API 計費 | 75+ 模型供應商自由切換 | 模型自由、vendor 獨立 |
 
 ## 各工具定位與特色
 
 ### 商業訂閱制
 
-**[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)** — Anthropic 的終端 agent，推理深度業界最強。Pro $20/mo（Sonnet 為主），Max $100-200/mo 解鎖 Opus 並吃到飽。有開發者 8 個月用了 100 億 tokens，月費 $100，同樣用量走 API 要 $15,000。Subagent 架構可指定 Haiku 處理簡單任務。
+**[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)** — Anthropic 的終端 agent，推理深度業界最強。Pro $20/mo（Sonnet 為主），Max $100-200/mo 解鎖 Opus 並吃到飽。有開發者 8 個月用了 100 億 tokens，月費 $100，同樣用量走 API 要 $15,000。Subagent 架構可指定 Haiku 處理簡單任務。
 
-**[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)** — 將 Cursor IDE 的 Agent 帶入終端。Interactive TUI + headless 模式，支援 Plan/Ask/Agent 三種模式。獨家 **Cloud Handoff**：CLI 對話推上雲端繼續跑，手機或網頁接回。Pro $20/mo，Ultra $200/mo。Background Agents 可平行 8 個任務。
+**[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)** — 將 Cursor IDE 的 Agent 帶入終端。Interactive TUI + headless 模式，支援 Plan/Ask/Agent 三種模式。獨家 **Cloud Handoff**：CLI 對話推上雲端繼續跑，手機或網頁接回。Pro $20/mo，Ultra $200/mo。Background Agents 可平行 8 個任務。
 
-**[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)** — 綁定 ChatGPT 訂閱，Plus $20/mo、Pro $200/mo。亮點是 **內建模型路由**：GPT-5.4 做規劃，GPT-5.4 mini 做子任務（只消耗 30% 配額）。CLI 支援 Plan 模式（用訂閱額度）與 API Key 模式（按 token 計費）雙軌。
+**[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)** — 綁定 ChatGPT 訂閱，Plus $20/mo、Pro $200/mo。亮點是 **內建模型路由**：GPT-5.4 做規劃，GPT-5.4 mini 做子任務（只消耗 30% 配額）。CLI 支援 Plan 模式（用訂閱額度）與 API Key 模式（按 token 計費）雙軌。
 
-**[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro/)** — AWS 出品，實作 Agent Client Protocol (ACP)。免費 50 credits，Pro $20/mo 起。Auto 模式自動混合 Sonnet/Opus 等模型。Spec-Driven 開發流程是獨特賣點，Agent Hooks 實現本地自動化。
+**[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)** — AWS 出品，實作 Agent Client Protocol (ACP)。免費 50 credits，Pro $20/mo 起。Auto 模式自動混合 Sonnet/Opus 等模型。Spec-Driven 開發流程是獨特賣點，Agent Hooks 實現本地自動化。
 
 ### 免費 / 開源
 
-**[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)** — Google 開源，免費額度業界最慷慨：60 req/min、1,000 req/day，含 Gemini 2.5 Pro 和 1M token context window。Google 分析內部開發者使用量後，免費額度設為最高使用量的兩倍，意味著大多數人根本不需要付費。
+**[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)** — Google 開源，免費額度業界最慷慨：60 req/min、1,000 req/day，含 Gemini 2.5 Pro 和 1M token context window。Google 分析內部開發者使用量後，免費額度設為最高使用量的兩倍，意味著大多數人根本不需要付費。
 
-**[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode/)** — 開源 Go 語言 CLI，95K+ GitHub stars。支援 75+ 模型供應商（含本地 Ollama），可用 GitHub Copilot 或 ChatGPT Plus 帳號認證。完全免費，只付你選的模型 API 費用。
+**[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)** — 開源 Go 語言 CLI，95K+ GitHub stars。支援 75+ 模型供應商（含本地 Ollama），可用 GitHub Copilot 或 ChatGPT Plus 帳號認證。完全免費，只付你選的模型 API 費用。
 
 ## 價格帶分析
 
@@ -155,22 +155,22 @@ Claude Code Max 方案的亮點是**吃到飽定價**，重度使用者的最佳
 
 ### 已內建自動路由
 
-- **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex/)**：GPT-5.4 做規劃與判斷，GPT-5.4 mini 處理子任務（只消耗 30% 配額）
-- **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro/)**：Auto 模式結合大小模型，自動意圖識別與快取優化
+- **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)**：GPT-5.4 做規劃與判斷，GPT-5.4 mini 處理子任務（只消耗 30% 配額）
+- **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)**：Auto 模式結合大小模型，自動意圖識別與快取優化
 
 ### 支援手動切換
 
-- **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code/)**：可在 Opus / Sonnet / Haiku 間切換，搭配 subagent 架構
-- **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor/)**：Auto mode 自動選模型，也可手動指定 Anthropic/OpenAI/Gemini
-- **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli/)**：可選擇不同 Gemini 模型，免費方案由系統自動分配
+- **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)**：可在 Opus / Sonnet / Haiku 間切換，搭配 subagent 架構
+- **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)**：Auto mode 自動選模型，也可手動指定 Anthropic/OpenAI/Gemini
+- **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)**：可選擇不同 Gemini 模型，免費方案由系統自動分配
 
 ### 完全自由選擇
 
-- **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode/)**：75+ 供應商，session 中途切換模型不丟上下文，搭配第三方路由器最靈活
+- **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)**：75+ 供應商，session 中途切換模型不丟上下文，搭配第三方路由器最靈活
 
 ## 開源路由工具
 
-詳細介紹請見 **[Multi-Model Routing 開源工具與實作](/posts/ai/2026-04-02-multi-model-routing-opensource-tools/)**，這裡列出重點：
+詳細介紹請見 **[Multi-Model Routing 開源工具與實作](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)**，這裡列出重點：
 
 | 工具 | 特色 | GitHub |
 |------|------|--------|
@@ -224,13 +224,13 @@ User Request
 
 ## 系列文章
 
-- [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code/)
-- [Cursor CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-cursor/)
-- [OpenAI Codex CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex/)
-- [Kiro CLI (AWS) 完整方案分析](/posts/ai/2026-04-02-agent-cli-kiro/)
-- [Gemini CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-gemini-cli/)
-- [OpenCode 完整方案分析](/posts/ai/2026-04-02-agent-cli-opencode/)
-- [Multi-Model Routing 開源工具與實作](/posts/ai/2026-04-02-multi-model-routing-opensource-tools/)
+- [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code)
+- [Cursor CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-cursor)
+- [OpenAI Codex CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex)
+- [Kiro CLI (AWS) 完整方案分析](/posts/ai/2026-04-02-agent-cli-kiro)
+- [Gemini CLI 完整方案分析](/posts/ai/2026-04-02-agent-cli-gemini-cli)
+- [OpenCode 完整方案分析](/posts/ai/2026-04-02-agent-cli-opencode)
+- [Multi-Model Routing 開源工具與實作](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)
 
 ## 參考資料
 
