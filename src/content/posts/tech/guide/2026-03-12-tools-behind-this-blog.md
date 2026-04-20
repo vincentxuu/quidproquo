@@ -66,7 +66,7 @@ D1 是 Cloudflare 的 serverless SQLite，跑在邊緣節點上。
 
 這個網站的 Markdown 檔案是唯一的 source of truth，D1 是衍生副本。build 時透過 `scripts/sync-to-d1.ts` 把文章內容同步進去，目的是支援後續的 RAG 搜尋——讓 AI 可以查詢文章內容來回答問題。
 
-D1 用起來就是 SQLite，熟悉 SQL 就能直接上手。`batch()` API 可以一次送多個 statement，但有每次 100 個的隱性上限，超過的部分會靜默丟棄（詳細說明：即將推出）。
+D1 用起來就是 SQLite，熟悉 SQL 就能直接上手。`batch()` API 可以一次送多個 statement，但有每次 100 個的隱性上限，超過的部分會靜默丟棄（更多 D1 用法見：[Cloudflare D1 完整介紹](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)）。
 
 跟 PlanetScale、Supabase 等獨立資料庫服務比，D1 的優勢是零配置——已經在 Cloudflare 生態裡，binding 設定好就能用，不需要管連線字串和憑證。
 
