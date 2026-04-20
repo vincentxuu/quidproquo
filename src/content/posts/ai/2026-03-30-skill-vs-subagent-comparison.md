@@ -112,8 +112,8 @@ memory: project
 
 **站內相關文章：**
 - [Claude Code Skill 完整指南：把重複的工作流程變成一句指令](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide) — Skill 的設計哲學、檔案結構、四個實際案例
-- Claude Code Sub-agents 完整指南：自訂 AI 子代理與平行執行（即將推出） — Sub-agent 的完整設定、工具控制、persistent memory
-- Claude Code Agent Teams：讓多個 AI 代理組隊協作（即將推出） — Agent Teams 的多代理協作架構
+- [Claude Code Sub-agents 完整指南：自訂 AI 子代理與平行執行](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution) — Sub-agent 的完整設定、工具控制、persistent memory
+- [Claude Code Agent Teams：讓多個 AI 代理組隊協作](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide) — Agent Teams 的多代理協作架構
 - [Claude Code 的三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Hook、Skill、指令檔如何組合使用
-- CLAUDE.md 與 AGENTS.md 完整指南（即將推出） — 寫給 AI 看的行為指引
+- [CLAUDE.md 與 AGENTS.md 完整指南](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide) — 寫給 AI 看的行為指引
 - [Google 的八種 Multi-Agent 設計模式](/posts/ai/2026-03-28-google-multi-agent-patterns) — 八種模式的適用場景與取捨
