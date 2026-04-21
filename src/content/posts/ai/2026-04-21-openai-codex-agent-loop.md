@@ -87,3 +87,5 @@ Codex agent loop 的設計核心是在幾個互相競爭的目標之間找平衡
 ## 參考資料
 
 - [Unrolling the Codex agent loop — OpenAI](https://openai.com/index/unrolling-the-codex-agent-loop/)（Michael Bolin，2026 年 1 月 23 日）
+- [OpenAI Codex CLI — Agent Loop 原始碼與 Prompt Caching 實作](https://github.com/openai/codex)
+- [OpenAI Responses API — Context Window 管理與 Agent Loop multi-turn 設計](https://platform.openai.com/docs/api-reference/responses)

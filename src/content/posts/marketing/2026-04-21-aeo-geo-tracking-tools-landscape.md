@@ -178,50 +178,37 @@ AEO 工具這個類別在 2025 上半年還是 SaaS 廠商的戰場，到 2026 �
 
 ## 參考資料
 
-### 輸入面
-- [isitagentready.com - Cloudflare](https://isitagentready.com/)
-- [Introducing the Agent Readiness score - Cloudflare Blog](https://blog.cloudflare.com/agent-readiness/)
+- [isitagentready.com — Cloudflare Agent Readiness 健檢](https://isitagentready.com/)
+- [Introducing the Agent Readiness score — Cloudflare Blog](https://blog.cloudflare.com/agent-readiness/)
 - [llms-txt.io Validator](https://llms-txt.io/validator)
 - [RankRay LLMs.txt Checker](https://rankray.com/free-seo-tools/llms-txt-checker/)
 - [llmstxtchecker.net](https://llmstxtchecker.net/)
-- [firecrawl/llmstxt-generator](https://github.com/firecrawl/llmstxt-generator)
+- [firecrawl/llmstxt-generator（開源 llms.txt 產生器）](https://github.com/firecrawl/llmstxt-generator)
 - [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator)
 - [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator)
-
-### 流量面
-- [Matomo 5.8 AI Chatbot Tracking](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)
+- [Matomo 5.8 AI Chatbot Tracking（流量面分析）](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)
 - [Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)
 - [aibottracker.com](https://www.aibottracker.com/)
 - [LLM Bot Tracker WordPress Plugin](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)
 - [Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots)
-- [How to Detect AI Crawlers - GetCito](https://getcito.com/how-to-detect-ai-crawlers-on-your-website)
-- [AI Bot Behavior Log Analysis - Wislr](https://www.wislr.com/articles/ai-bot-behavior-log-analysis)
-
-### 輸出面：開源
-- [hellowalt/aeo-radar（README 繁中）](https://github.com/hellowalt/aeo-radar/blob/main/README.zh-TW.md)
-- [AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)
+- [How to Detect AI Crawlers — GetCito](https://getcito.com/how-to-detect-ai-crawlers-on-your-website)
+- [hellowalt/aeo-radar（AEO 輸出面開源工具，README 繁中）](https://github.com/hellowalt/aeo-radar/blob/main/README.zh-TW.md)
+- [AICMO/ai-cmo（開源 GEO/AEO 追蹤平台）](https://github.com/AICMO/ai-cmo)
 - [danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)
-- [merdandt/geo-aeo-tracker-bright-data](https://github.com/merdandt/geo-aeo-tracker-bright-data)
 - [sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)
 - [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer)
-- [ai-search-guru/getcito](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool)
-
-### 輸出面：商業
-- [Profound](https://www.tryprofound.com/)
-- [AthenaHQ](https://athenahq.ai)
-- [Evertune](https://www.evertune.ai/)
-- [Ahrefs Brand Radar](https://ahrefs.com/brand-radar)
+- [Profound — AEO/GEO 企業級 SaaS](https://www.tryprofound.com/)
+- [AthenaHQ — YC 支持 GEO 工具](https://athenahq.ai)
+- [Ahrefs Brand Radar — AI 品牌知名度追蹤](https://ahrefs.com/brand-radar)
+- [Semrush AI Visibility Toolkit](https://www.semrush.com/)
 - [HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)
 - [Otterly.AI](https://otterly.ai)
-- [LLMrefs](https://llmrefs.com/)
-- [Sight AI](https://www.trysight.ai)
-- [Am I Cited](https://www.amicited.com)
+- [LLMrefs — LLM 品牌提及追蹤](https://llmrefs.com/)
+- [Am I Cited — AI Citation 追蹤](https://www.amicited.com)
 - [AI Citation Tracker Chrome Extension](https://chromewebstore.google.com/detail/ai-citation-tracker/mbnlbpijdjbnelpbijdaefhidmlbkiah)
 - [Decoding AI Citation Tracking](https://trydecoding.com/ai-citation-tracking/)
-
-### 資源目錄
-- [amplifying-ai/awesome-generative-engine-optimization](https://github.com/amplifying-ai/awesome-generative-engine-optimization)
+- [amplifying-ai/awesome-generative-engine-optimization（GEO 工具地圖）](https://github.com/amplifying-ai/awesome-generative-engine-optimization)
 - [geotoolco/AEO-Answer-Engine-Optimization](https://github.com/geotoolco/AEO-Answer-Engine-Optimization)
-- [DavidHuji/Awesome-GEO](https://github.com/DavidHuji/Awesome-GEO)
-- [Best AEO/GEO Tracking Tools (aiclicks)](https://aiclicks.io/blog/best-aeo-tracking-tools)
-- [Profound vs Ahrefs Brand Radar Review](https://www.tryprofound.com/blog/ahrefs-brand-radar-review)
+- [DavidHuji/Awesome-GEO（學術論文集）](https://github.com/DavidHuji/Awesome-GEO)
+- [Best AEO/GEO Tracking Tools — aiclicks](https://aiclicks.io/blog/best-aeo-tracking-tools)
+- [Profound vs Ahrefs Brand Radar 比較](https://www.tryprofound.com/blog/ahrefs-brand-radar-review)

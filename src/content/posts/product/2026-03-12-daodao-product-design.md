@@ -99,7 +99,7 @@ draft: false
 
 ## 參考資料
 
-- [島島阿學官網](https://daodao.tw)
+- [島島阿學官網 — DaoDAO 產品 Onboarding 設計與學習行為改變平台](https://daodao.tw)
 - [你的學習為什麼半途而廢？島島想解決這件事](/posts/education/2026-03-12-daodao-for-learners)
 - [線上學習的下一個戰場：為什麼「完課率」才是真正的問題](/posts/product/2026-03-12-daodao-market-opportunity)
 - [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

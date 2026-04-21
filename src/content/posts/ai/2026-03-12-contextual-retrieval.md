@@ -117,20 +117,10 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 
 ## 參考資料
 
-### Anthropic Engineering — Introducing Contextual Retrieval
-
-[https://www.anthropic.com/engineering/contextual-retrieval](https://www.anthropic.com/engineering/contextual-retrieval)
-
-Anthropic 官方技術文章，提出 Contextual Retrieval 的完整方法論。核心觀察是傳統 RAG 切割文件後片段缺乏背景（例如「公司收入成長 3%」但不知道是哪家公司、哪個年度），導致檢索失準。文章比較了四種策略的效果：
-
-- **Contextual Embeddings**（上下文嵌入）：向量化前為每個 chunk 自動注入背景說明，單獨使用降低 35% 失敗率
-- **Contextual BM25**（上下文詞彙索引）：與上下文嵌入合併使用降低 49% 失敗率
-- **加入 Reranking**（重排序）：進一步提升至 67% 的改善幅度
-
-實用數據：使用 Claude 生成上下文，每百萬 tokens 成本約 $1.02；建議一次檢索前 20 個最相關片段；知識庫若小於 200,000 tokens 可考慮直接塞入 prompt。
-
-### iThome 鐵人賽 — Contextual Retrieval 相關文章
-
-[https://ithelp.ithome.com.tw/articles/10389779](https://ithelp.ithome.com.tw/articles/10389779)
+- [Contextual Retrieval — Anthropic](https://www.anthropic.com/news/contextual-retrieval)
+- [Introducing Contextual Retrieval（Anthropic Engineering）](https://www.anthropic.com/engineering/contextual-retrieval)
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks（arXiv）](https://arxiv.org/abs/2501.07863)
+- [Full text queries（Elasticsearch / BM25 hybrid search）](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html)
+- [iThome 鐵人賽 — Contextual Retrieval 相關文章](https://ithelp.ithome.com.tw/articles/10389779)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

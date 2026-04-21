@@ -187,3 +187,4 @@ WHERE
 - [Anthropic API Rate Limits](https://docs.anthropic.com/en/api/rate-limits)
 - [Cloudflare D1 Documentation](https://developers.cloudflare.com/d1/)
 - [SQLite Atomic Commit (SQLite Documentation)](https://www.sqlite.org/atomiccommit.html)
+- [RAG Token Quota 設計與成本控制：LLM 配額系統最佳實踐 (RAG Survey 2024)](https://arxiv.org/abs/2312.10997)

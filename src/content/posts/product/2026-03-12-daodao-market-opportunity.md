@@ -86,10 +86,10 @@ draft: false
 
 ## 參考資料
 
-- [島島阿學官網](https://daodao.tw)
-- [Coursera](https://www.coursera.org/)
-- [Duolingo](https://www.duolingo.com/)
-- [Qdrant 向量資料庫](https://qdrant.tech/)
+- [島島阿學官網 — DaoDAO 線上學習完課率與社交學習平台](https://daodao.tw)
+- [Coursera — MOOC Learning Platform 完課率研究](https://www.coursera.org/)
+- [Duolingo — 遊戲化與社群機制驅動學習習慣養成](https://www.duolingo.com/)
+- [Qdrant 向量資料庫 — 島島 AI 推薦引擎的 LLM 知識庫](https://qdrant.tech/)
 - [你的學習為什麼半途而廢？島島想解決這件事](/posts/education/2026-03-12-daodao-for-learners)
 - [從「想學」到「真的在學」：島島的產品設計思維](/posts/product/2026-03-12-daodao-product-design)
 - [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

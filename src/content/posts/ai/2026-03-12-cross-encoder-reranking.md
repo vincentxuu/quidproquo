@@ -98,3 +98,6 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 ## 參考資料
 
 - [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks (2019)](https://arxiv.org/abs/1908.10084)
+- [Cross-Encoder Reranking — SBERT.net 官方文件](https://www.sbert.net/examples/applications/cross-encoder/README.html)
+- [BAAI/bge-reranker-base — Hugging Face](https://huggingface.co/BAAI/bge-reranker-base)
+- [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997)

@@ -82,3 +82,6 @@ Harness Engineering 這套方法最核心的取捨是：把工程師的時間從
 ## 參考資料
 
 - [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/de-DE/index/harness-engineering/) — Ryan Lopopolo, OpenAI (Feb 11, 2026)
+- [OpenAI Codex CLI — Harness Engineering 與 AGENTS.md agent-first 開發基底](https://github.com/openai/codex)
+- [OpenAI 介紹 Codex：Agentic Coding 與 agent-first 工程模式](https://openai.com/index/introducing-codex/)
+- [Unrolling the Codex agent loop — Codex Harness Engineering 的 agent loop 技術細節](https://openai.com/index/unrolling-the-codex-agent-loop/)

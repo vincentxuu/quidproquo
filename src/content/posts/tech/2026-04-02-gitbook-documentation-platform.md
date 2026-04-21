@@ -165,3 +165,10 @@ structure:
 ## 結語
 
 GitBook 的定位很清楚：用最低的設定成本，把 Markdown 文件變成一個專業的文件網站。Git 同步讓你不用離開熟悉的工作流，WYSIWYG 編輯器讓非工程師也能貢獻內容。免費方案的功能對大多數場景已經夠用，是目前技術文件平台裡上手最快的選項之一。
+
+## 參考資料
+
+- [GitBook 官方網站：Git-based 文件平台](https://www.gitbook.com/)
+- [GitBook 官方文件：GitHub 同步與 SUMMARY.md 設定](https://docs.gitbook.com/)
+- [GitBook vs Docusaurus：技術文件工具比較](https://www.gitbook.com/)
+- [GitBook 定價方案：Free、Plus、Pro、Enterprise](https://www.gitbook.com/pricing)

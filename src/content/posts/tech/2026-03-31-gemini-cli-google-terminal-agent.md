@@ -93,3 +93,10 @@ Gemini CLI 的核心優勢：免費額度慷慨、1M token 超長 context、Goog
 - [geminicli.com](https://geminicli.com/)
 - [Google 部落格公告](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-cli-open-source-ai-agent/)
 - [Hands-on Codelab](https://codelabs.developers.google.com/gemini-cli-hands-on)
+
+## 參考資料
+
+- [Gemini CLI GitHub：google-gemini/gemini-cli 開源終端機 AI agent](https://github.com/google-gemini/gemini-cli)
+- [Google Gemini 開發者文件：Gemini CLI 功能與 MCP 設定說明](https://developers.google.com/gemini/)
+- [Gemini CLI Hands-on Codelab：終端機 AI agent 實作教學](https://codelabs.developers.google.com/gemini-cli-hands-on)
+- [Google 官方公告：Gemini CLI 開源終端機 AI agent 發布](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-cli-open-source-ai-agent/)

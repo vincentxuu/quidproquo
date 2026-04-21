@@ -104,6 +104,7 @@ copilot -i "/skills list" --allow-all --silent
 
 ## 參考資料
 
-- [GitHub - obra/superpowers](https://github.com/obra/superpowers)
-- [GitHub - DwainTR/superpowers-copilot](https://github.com/DwainTR/superpowers-copilot)
-- [GitHub Copilot in the CLI](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line)
+- [GitHub - obra/superpowers — Copilot CLI Superpowers 技能庫上游](https://github.com/obra/superpowers)
+- [GitHub - DwainTR/superpowers-copilot — Copilot CLI Superpowers 安裝包](https://github.com/DwainTR/superpowers-copilot)
+- [GitHub Copilot in the CLI — 官方文件：安裝、驗證與 plugin 使用指南](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line)
+- [GitHub Copilot 官方文件 — CLI plugin marketplace 與 skills 載入機制](https://docs.github.com/en/copilot)

@@ -141,4 +141,7 @@ MarkItDown 的定位很清晰：格式轉換的瑞士刀，不做 chunking、不
 
 ## 參考資料
 
-- [microsoft/markitdown - GitHub](https://github.com/microsoft/markitdown)
+- [microsoft/markitdown — Microsoft 開源 Markdown 文件轉換工具 GitHub](https://github.com/microsoft/markitdown)
+- [MarkItDown PyPI — pip install markitdown 安裝說明](https://pypi.org/project/markitdown/)
+- [Anthropic Claude API — MarkItDown 搭配 LLM 文件前處理的整合方式](https://docs.anthropic.com/en/api/getting-started)
+- [Azure Document Intelligence — MarkItDown 複雜 PDF 處理後端](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview)

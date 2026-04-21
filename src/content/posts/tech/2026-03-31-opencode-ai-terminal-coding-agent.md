@@ -108,3 +108,10 @@ OpenCode 的核心優勢：完全免費開源、75+ 模型供應商不鎖定、T
 - [OpenCode 文件](https://opencode.ai/docs/)
 - [CLI 使用指南](https://opencode.ai/docs/cli/)
 - [freeCodeCamp 教學](https://www.freecodecamp.org/news/integrate-ai-into-your-terminal-using-opencode/)
+
+## 參考資料
+
+- [OpenCode GitHub：sst/opencode 開源 AI 終端機 coding agent（95K+ stars）](https://github.com/sst/opencode)
+- [OpenCode 官方網站：開源 AI 終端機 coding agent 介紹](https://opencode.ai/)
+- [OpenCode 官方文件：opencode terminal coding agent CLI 使用說明](https://opencode.ai/docs/)
+- [freeCodeCamp：使用 opencode 整合 AI 至終端機工作流程教學](https://www.freecodecamp.org/news/integrate-ai-into-your-terminal-using-opencode/)

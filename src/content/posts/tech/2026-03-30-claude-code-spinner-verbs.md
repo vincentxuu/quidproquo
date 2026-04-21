@@ -292,3 +292,10 @@ function getSpinnerVerbs() {
 Spinner verbs 是個純裝飾功能，不影響任何實際行為。但它是 Claude Code CLI 品牌個性的一部分——跟其他 AI coding assistant 的差異化不只在能力，也在這些小細節上。
 
 如果你覺得預設的 185 個不夠，用 `append` 加幾個自己的。如果你覺得 `Flibbertigibbeting` 太鬧，用 `replace` 換成你喜歡的。設定檔改完立即生效，不用重啟。
+
+## 參考資料
+
+- [Claude Code 官方文件：功能總覽與 spinner 設定](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Claude Code GitHub 原始碼（cli.js 的 spinner verbs 來源）](https://github.com/anthropics/claude-code)
+- [Anthropic 官方部落格：Claude Code 發布公告](https://www.anthropic.com/news/claude-code)
+- [npm - @anthropic-ai/claude-code（spinner verbs 自訂設定文件）](https://www.npmjs.com/package/@anthropic-ai/claude-code)

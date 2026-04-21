@@ -72,3 +72,8 @@ Codex CLI 的核心優勢在於 OpenAI 自家模型的深度整合（codex-1、G
 - [Codex CLI 功能頁](https://developers.openai.com/codex/cli/features)
 - [Introducing Codex](https://openai.com/index/introducing-codex/)
 - [Codex 產品頁](https://openai.com/codex/)
+
+## 參考資料
+
+- [OpenAI Codex CLI GitHub：openai/codex 開源終端機 coding agent](https://github.com/openai/codex)
+- [Introducing Codex：OpenAI 官方部落格發布 Codex CLI 公告](https://openai.com/index/introducing-codex/)

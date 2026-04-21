@@ -156,6 +156,7 @@ pnpm biome migrate prettier --write
 
 ## 參考資料
 
-- [Biome 官方文件](https://biomejs.dev/)
-- [Biome GitHub](https://github.com/biomejs/biome)
-- [島島技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDAO 採用 Biome 的實際案例與速度評估
+- [Biome 官方文件 — JavaScript/TypeScript Linter 與 Formatter 設定指南](https://biomejs.dev/)
+- [Biome GitHub — Rust 原生 ESLint + Prettier 替代工具](https://github.com/biomejs/biome)
+- [Biome 遷移指南 — 從 ESLint + Prettier 移轉到 Biome](https://biomejs.dev/guides/migrate-eslint-prettier/)
+- [島島技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDAO monorepo 採用 Biome 的實際案例與速度評估

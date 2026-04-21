@@ -323,53 +323,32 @@ Shopify 創始人 Tobi Lütke 定義了核心與生態的邊界：**「如果大
 
 ## 參考資料
 
-### 數位生態系與平台策略
 - [何謂數位生態系（Digital Ecosystem）？ — 臺灣行銷研究](https://tmrmds.co/article-business/17769/)
 - [數位轉型怎麼轉？你得搞懂的「生態系」策略 — INSIDE](https://www.inside.com.tw/article/37797-digital-transformation-success-requires-understanding-ecosystem-strategy)
 - [數位產業署 — 平臺經濟](https://moda.gov.tw/ADI/industry-counseling/platform-economy/568)
 - [千億美元 Shopify 的未來：電商界的「蘋果應用商店」](https://m.thepaper.cn/newsDetail_forward_17580398)
 - [復盤 Shopify，強生態領路 DTC 數位化](https://www.vzkoo.com/read/c465bd0ab2b118a000c161af547fbfbc.html)
-
-### LINE 生態系
 - [LINE Pay 台灣證券交易所介紹](https://www.twse.com.tw/market_insights/zh/preview/8a8216d6933460a40193705b290b01cc)
 - [LINE Bank 官方網站](https://www.linebank.com.tw/)
 - [LINE Biz-Solutions 漸強實驗室案例](https://tw.linebiz.com/case-study/cresclab-01/)
-
-### 台灣電商生態系
 - [2025 台灣電商：蝦皮、PChome、momo 比較](https://ez2.app/taiwan-platforms-2025/)
 - [電商 API 串接 — CMT 系統](https://www.cloudmaker.com.tw/erp/24589/)
 - [LINE Pay、綠界、藍新金流比較（2025）](https://ke2b.com/zh-hant/ec-payment-shipping-guide-local/)
-
-### 漸強實驗室與 MarTech
-- [漸強實驗室官網](https://www.cresclab.com/tw)
+- [漸強實驗室（Crescendo Lab）官網](https://www.cresclab.com/tw)
 - [漸強實驗室合作夥伴頁面](https://www.cresclab.com/tw/partner)
-- [打破數據孤島！漸強實驗室協助在 LINE 一站式整合數據](https://www.cresclab.com/tw/solution/data-integration)
+- [打破數據孤島！漸強實驗室 LINE 一站式整合數據](https://www.cresclab.com/tw/solution/data-integration)
 - [LINE 與 Salesforce 串接 CRM](https://blog.cresclab.com/line-salesforce-crm/)
 - [漸強實驗室 x 91APP 合作方案](https://www.cresclab.com/91app)
-- [2025 台灣 MarTech 地圖](https://www.bnext.com.tw/article/82628/martech-map-2025)
+- [2025 台灣 MarTech 地圖 — 數位時代](https://www.bnext.com.tw/article/82628/martech-map-2025)
 - [2025 MarTech 趨勢 — awoo](https://www.awoo.ai/zh-hant/blog/2025-martech-landscape/)
 - [企業數位化與 AI 浪潮，捲起 MarTech SaaS 三大趨勢 — INSIDE](https://www.inside.com.tw/article/33427-ai-martech)
-- [漸強實驗室串接夥伴 FAQ](https://crescendo.crisp.help/zh-tw/article/5ry45by35am6amx5a6k5pyj5zoq5lqb5zwg5qwt5zci5l2c5asl5ly044cb5yv5yga5liy5o6l55qe6zu75zwg5bmz5yw77yf-dm5kis/)
-- [Crescendo Lab BigQuery & Meta Expansion](https://www.prnewswire.com/apac/news-releases/breaking-boundaries-crescendo-lab-elevates-conversational-marketing-by-meta-expansion-and-bigquery-data-solution-302000032.html)
+- [Crescendo Lab BigQuery & Meta Expansion（PR Newswire）](https://www.prnewswire.com/apac/news-releases/breaking-boundaries-crescendo-lab-elevates-conversational-marketing-by-meta-expansion-and-bigquery-data-solution-302000032.html)
 - [MAAC x SurveyCake 串接](https://blog.cresclab.com/maacandsurveycake/)
-- [Crescendo Lab Singapore 擴張](https://www.cresclab.com/en/newsroom/cl-expands-to-sg-en)
-- [AI-Powered MAAC 發布](https://www.cresclab.com/en/newsroom/ai-maac-ef-en)
-- [MAAC 廣告受眾名單匯出功能](https://crescendolab.zendesk.com/hc/zh-tw/articles/44903986295961)
-- [漸強實驗室簡訊行銷](https://www.cresclab.com/tw/channels/sms)
 - [LINE 廠商比較：如何選擇官方帳號合作夥伴（2026）](https://blog.cresclab.com/zh-tw/line-oa-techpartner-comparison)
-- [台灣 8 個 LINE OA 與客服聊天系統推薦（2025）](https://simular.co/blog/line-oa-and-customer-service-platforms)
-- [BotBonnie 開店平台串接](https://www.botbonnie.com/zh/feature/ecintegration)
+- [BotBonnie 開店平台串接（Appier）](https://www.botbonnie.com/zh/feature/ecintegration)
 - [Omnichat 2025 產品發佈會](https://rise-mediacorp.com/archives/50637)
-- [2026 社群聆聽完整指南](https://zhenhe-dm.com/en/social-listening-guide/)
 - [QSearch 社群輿情分析](https://zh-tw.qsearch.cc/solution/social-media-listening)
-- [LINE Pay、綠界、藍新金流比較（2025）](https://ke2b.com/zh-hant/ec-payment-shipping-guide-local/)
-- [2026 電子報行銷完整攻略 — 電子豹](https://blog.newsleopard.com/email-marketing-index/)
-- [7 款 Email 行銷工具評價（2026）](https://leadingmrk.com/email-marketing-tools/)
 - [漸強實驗室定價方案](https://www.cresclab.com/tw/pricing)
-- [VEMAR 成功案例：LINE 通知型訊息](https://blog.cresclab.com/tw/vemarcasestudy/)
-
-### 台灣 MarTech 產業
-- [2025 台灣 MarTech 地圖 — 數位時代](https://www.bnext.com.tw/article/82628/martech-map-2025)
 - [AMT 台灣行銷科技地圖 v5](https://amt.org.tw/research/martech-map/237-taiwan-martech-landscape-v5)
 - [2025 台灣 AI 生態系地圖](https://edge.aif.tw/taiwan-ai-ecosystem-map-2025/)
 - [SaaS：台灣中小企業數位化轉型之鑰](https://www.telexpress.com/saas-the-key-to-digital-transformation-of-taiwanese-sme/)
