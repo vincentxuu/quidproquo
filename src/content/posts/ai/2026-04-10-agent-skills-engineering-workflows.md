@@ -2,7 +2,7 @@
 title: "Agent Skills：讓 AI 代理像資深工程師一樣工作的技能框架"
 date: 2026-04-10
 category: ai
-tags: [agent-skills, ai-agents, harness-engineering, claude-code, cursor, gemini-cli, development-workflow]
+tags: [agent-skills, ai-agent, harness-engineering, claude-code, cursor, gemini-cli, development-workflow]
 lang: zh-TW
 tldr: "Agent Skills 是 Addy Osmani 開源的 19 個生產級工程技能，透過 /spec → /plan → /build → /test → /review → /ship 的指令驅動 AI 代理遵循資深工程師的開發紀律，而不是走捷徑。"
 description: "介紹 Addy Osmani 的 Agent Skills 開源專案——一套為 AI 編碼代理設計的生產級工程工作流程，涵蓋 7 大開發階段指令、19 個核心技能、3 個專家角色，以及反合理化表格等獨特設計。"

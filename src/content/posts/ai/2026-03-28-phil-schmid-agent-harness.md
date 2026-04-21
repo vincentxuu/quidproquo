@@ -2,7 +2,7 @@
 title: "Phil Schmid：為什麼 Agent Harness 是 2026 年最重要的事"
 date: 2026-03-28
 category: ai
-tags: [harness-engineering, ai-agents, agent-harness, model-drift, benchmarks, claude-code]
+tags: [harness-engineering, ai-agent, agent-harness, model-drift, benchmarks, claude-code]
 lang: zh-TW
 tldr: "模型是 CPU，harness 是作業系統，agent 是應用程式。模型能力再強，沒有好的 harness 就只是 demo。Phil Schmid 認為 harness 是 2026 年 AI 工程最關鍵的基礎設施。"
 description: "導讀 Phil Schmid 的 The Importance of Agent Harness in 2026，從 CPU/OS/App 比喻到 model drift、context durability、benchmarks 的局限，理解為什麼 agent harness 是 2026 年 AI 工程的核心議題。"

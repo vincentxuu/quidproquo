@@ -2,7 +2,7 @@
 title: "Ticketing 已死，Review 才是新的 Planning"
 date: 2026-03-30
 category: ai
-tags: [code-review, software-engineering, ai-agents, adr, developer-workflow, ticketing]
+tags: [code-review, software-engineering, ai-agent, adr, developer-workflow, ticketing]
 lang: zh-TW
 tldr: "當 AI agent 能在幾分鐘內把 intent 變成 PR，軟體工程的瓶頸就從「規劃該做什麼」翻轉成「評估做出來的東西對不對」。Ticketing 時代的產物（sprint、story point、backlog grooming）正在壓縮歸零，取而代之的核心實踐是 review。"
 description: "導讀 Fayssal El Mofatiche 的 Ticketing Is Dead 文章。當 AI coding agent 把實作成本壓到趨近於零，軟體工程的價值鏈從 planning 翻轉到 review，ADR 取代 ticket 成為核心 artifact。"

@@ -2,7 +2,7 @@
 title: "Anthropic 的 Harness Design：讓 AI Agent 像工程師一樣工作"
 date: 2026-03-28
 category: ai
-tags: [harness-design, ai-agents, anthropic, claude, multi-agent, long-running-agents, agent-sdk]
+tags: [harness-design, ai-agent, anthropic, claude, multi-agent, long-running-agents, agent-sdk]
 lang: zh-TW
 tldr: "同一個模型在不同的 harness 設計下會產生截然不同的結果。Anthropic 用雙 Agent 架構、跨 session 狀態檔、GAN 式 generator-evaluator 迴圈，讓 Claude 能自主完成數小時的軟體開發任務。"
 description: "導讀 Anthropic 工程部落格的兩篇 harness design 文章，拆解長時間運行 AI agent 的架構設計：雙 Agent 架構、claude-progress.txt 狀態傳遞、GAN 啟發的生成-評估迴圈，以及模型進步如何改變框架設計。"

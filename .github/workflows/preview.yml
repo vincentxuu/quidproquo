@@ -26,6 +26,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Check post references
+        run: pnpm check:references
+
       - name: Build
         run: pnpm build
         env:

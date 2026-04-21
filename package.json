@@ -14,7 +14,8 @@
     "lint": "oxlint src/ --ignore-pattern '*.astro'",
     "check:references": "node scripts/check-post-references.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
-    "sync:prod": "tsx scripts/sync-to-d1.ts --prod"
+    "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.0",
@@ -37,6 +38,10 @@
     "oxlint": "^1.54.0",
     "pagefind": "^1.4.0",
     "satori": "^0.25.0",
+    "simple-git-hooks": "^2.13.1",
     "tsx": "^4.21.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint && pnpm check:references"
   }
 }

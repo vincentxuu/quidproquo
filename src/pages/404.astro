@@ -1,0 +1,23 @@
+---
+// src/pages/404.astro
+export const prerender = true;
+import PostLayout from '../layouts/PostLayout.astro';
+---
+<PostLayout title="404 — 找不到頁面" lang="zh-TW">
+  <Fragment slot="head">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  </Fragment>
+  <h1 style="color: var(--brand-900);">404</h1>
+  <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+    找不到這個頁面。試試用搜尋找你要的內容，或回到首頁。
+  </p>
+  <div id="search" style="margin-bottom: 2rem;"></div>
+  <a href="/" style="color: var(--brand-900);">← 回到首頁</a>
+</PostLayout>
+
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({ element: '#search', showImages: false });
+  });
+</script>

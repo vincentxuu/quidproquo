@@ -39,5 +39,5 @@ export const CRAWL_TARGETS: CrawlTarget[] = [
   },
 ];
 
-// chunk 大小上限（約 500 tokens ≈ 2000 字元）
-export const MAX_CHUNK_CHARS = 2000;
+// chunk 大小上限（約 375 tokens ≈ 1500 字元）
+export const MAX_CHUNK_CHARS = 1500;

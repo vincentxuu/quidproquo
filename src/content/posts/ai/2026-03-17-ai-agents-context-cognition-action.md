@@ -2,7 +2,7 @@
 title: "AI Agent 的三個核心支柱：Context、Cognition、Action"
 date: 2026-03-17
 category: ai
-tags: [ai-agents, context-engineering, llm, reasoning, ReAct, agentic-ai, memory, mcp]
+tags: [ai-agent, context-engineering, llm, reasoning, ReAct, agentic-ai, memory, mcp]
 lang: zh-TW
 tldr: "AI Agent 不是黑盒子——它由三層構成：知道什麼（Context）、怎麼想（Cognition）、能做什麼（Action）。搞清楚這三層，才能理解 agent 為什麼有時聰明、有時失控，以及怎麼設計一個真正好用的 agent 系統。"
 description: "深入解析 AI Agent 的三個核心支柱：Context（情境管理）、Cognition（推理規劃）、Action（行動執行），涵蓋 context engineering、記憶體架構、ReAct/ToT 推理框架、MCP 工具協定等實作細節。"
