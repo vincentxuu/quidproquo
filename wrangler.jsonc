@@ -24,8 +24,7 @@
     "database_id": "c6ae78f5-3d07-44b9-854d-eb439c6902b1"
   }],
   "vectorize": [
-    { "binding": "VECTORIZE_INDEX", "index_name": "quidproquo-embeddings" },
-    { "binding": "VECTORIZE_CACHE", "index_name": "quidproquo-cache" }
+    { "binding": "VECTORIZE_INDEX", "index_name": "quidproquo-embeddings" }
   ],
   "ai": {
     "binding": "AI"
