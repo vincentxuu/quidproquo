@@ -6,13 +6,13 @@ category: tech
 tags: [redis, cache, session, pub-sub]
 lang: zh-TW
 tldr: "Redis 是 in-memory key-value store，快到不像話，島島用它同時扛快取、Session、BullMQ 任務佇列三個職責，一台 Redis 幹三件事。"
-description: "Redis 不只是快取。這篇介紹 Redis 的核心用法：API 回應快取、Session 儲存、Pub/Sub 訊息發佈、以及作為 BullMQ 的底層 broker，並說明島島（DaoDAO）如何在實際架構中同時用這三種模式。"
+description: "Redis 不只是快取。這篇介紹 Redis 的核心用法：API 回應快取、Session 儲存、Pub/Sub 訊息發佈、以及作為 BullMQ 的底層 broker，並說明島島（DaoDao）如何在實際架構中同時用這三種模式。"
 draft: false
 ---
 
 Redis 是 in-memory 的 key-value 資料庫，預設所有資料都在記憶體裡，讀寫速度是磁碟資料庫的 10-100 倍。它不是要取代 PostgreSQL，而是用來擋住那些「不需要每次都去打資料庫」的查詢。
 
-島島（DaoDAO）用 Redis 同時做三件事：API 快取、Session 儲存、BullMQ 任務佇列的底層 broker。
+島島（DaoDao）用 Redis 同時做三件事：API 快取、Session 儲存、BullMQ 任務佇列的底層 broker。
 
 ---
 

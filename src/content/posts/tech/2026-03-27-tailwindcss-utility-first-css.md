@@ -14,7 +14,7 @@ CSS 有一個根本問題：它的作用域是全域的。你寫 `.button { colo
 
 TailwindCSS 選擇了另一條路：不用語義化 class，直接用描述視覺效果的 utility class。樣式和元件放在一起，沒有命名問題，也不用擔心改一個 class 影響其他地方。
 
-島島（DaoDAO）的 `packages/ui` 和兩個 Next.js app，以及 NobodyClimb 的 Next.js web 端，都用 TailwindCSS 做樣式。
+島島（DaoDao）的 `packages/ui` 和兩個 Next.js app，以及 NobodyClimb 的 Next.js web 端，都用 TailwindCSS 做樣式。
 
 ## 核心概念
 

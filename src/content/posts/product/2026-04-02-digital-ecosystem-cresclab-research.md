@@ -2,6 +2,7 @@
 title: "數位生態系研究：從 LINE、Shopify 到台灣 MarTech，拆解平台串接策略"
 date: 2026-04-02
 type: project
+tldr: "拆解數位生態系三層結構：LINE 超級應用、Shopify App Store 飛輪、台灣 MarTech 串接策略，核心是透過 API 與數據流讓參與者相互依賴、共同強化護城河。"
 category: product
 tags: [martech, digital-ecosystem, line, saas, platform-strategy, taiwan, shopify, super-app]
 lang: zh-TW

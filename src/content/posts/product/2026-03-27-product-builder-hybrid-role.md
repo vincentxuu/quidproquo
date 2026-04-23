@@ -2,6 +2,7 @@
 title: "Product Builder：當 AI 讓每個人都能從 0 到 1，產品開發的角色正在重組"
 date: 2026-03-27
 type: project
+tldr: "AI 讓一個人能跑完發現問題→設計→建造的完整循環。Product Builder 不靠權威影響團隊，而是直接產出可用產品，從 LinkedIn、Walmart 到新創都在設立這個角色。"
 category: product
 tags: [product-builder, product-management, ai, vibe-coding, career]
 lang: zh-TW

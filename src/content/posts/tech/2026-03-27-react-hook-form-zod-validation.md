@@ -6,7 +6,7 @@ category: tech
 tags: [react-hook-form, zod, validation, forms, typescript]
 lang: zh-TW
 tldr: "React Hook Form 處理表單效能，Zod 定義驗證 schema，兩者搭配讓表單開發幾乎不需要寫樣板程式碼。在 monorepo 裡共用 Zod schema，前後端驗證邏輯一份就夠。"
-description: "React Hook Form 與 Zod 的組合是現代 React 表單開發的最佳實踐。本文介紹為什麼選這個組合、怎麼整合、以及在 monorepo 裡共用 schema 的好處——DaoDAO 和 NobodyClimb 都採用這個模式。"
+description: "React Hook Form 與 Zod 的組合是現代 React 表單開發的最佳實踐。本文介紹為什麼選這個組合、怎麼整合、以及在 monorepo 裡共用 schema 的好處——DaoDao 和 NobodyClimb 都採用這個模式。"
 draft: false
 ---
 
@@ -95,7 +95,7 @@ const signupSchema = z
 
 ## Monorepo 共用 Schema
 
-DaoDAO 和 NobodyClimb 都採用 monorepo 架構，兩者都把 Zod schema 放在共用的 `packages/` 底下：
+DaoDao 和 NobodyClimb 都採用 monorepo 架構，兩者都把 Zod schema 放在共用的 `packages/` 底下：
 
 ```
 packages/
@@ -146,5 +146,5 @@ const result = loginSchema.safeParse(req.body)
 - [Zod 官方文件](https://zod.dev/)
 - [@hookform/resolvers](https://github.com/react-hook-form/resolvers)
 - [Zod：TypeScript 的 Runtime 型別驗證](/posts/tech/2026-03-27-zod-schema-validation) — Zod 完整介紹
-- [島島技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDAO 的 Zod 使用方式
+- [島島技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao 的 Zod 使用方式
 - [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — NobodyClimb 的共用 schema 設計

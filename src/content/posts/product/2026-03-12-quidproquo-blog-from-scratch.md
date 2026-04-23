@@ -2,6 +2,7 @@
 title: "用 Astro + Cloudflare Workers 從零建立低摩擦部落格"
 date: 2026-03-12
 type: project
+tldr: "為了集中散落筆記、展示多元興趣，選用 Astro + Cloudflare Workers D1 建立個人部落格，搭配 Claude post skill 讓寫作零阻力。"
 category: product
 tags: [astro, cloudflare, d1, claude-code, blog]
 lang: zh-TW

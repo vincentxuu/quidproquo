@@ -2,10 +2,11 @@
 title: "線上學習的下一個戰場：為什麼「完課率」才是真正的問題"
 date: 2026-03-12
 type: project
+tldr: "MOOC 完課率只有 5–15%，問題不在課程品質，在執行斷層。島島定位為「學習作業系統」，填補內容執行、行動追蹤、社會連結三個缺口。"
 category: product
 tags: [edtech, social-learning, market-opportunity, saas]
 lang: zh-TW
-description: "當線上課程普及後，真正的市場空白不在內容，而在執行。島島（DaoDAO）如何定位在社交學習與習慣養成的交叉點。"
+description: "當線上課程普及後，真正的市場空白不在內容，而在執行。島島（DaoDao）如何定位在社交學習與習慣養成的交叉點。"
 draft: false
 ---
 
@@ -33,7 +34,7 @@ draft: false
 
 ## 島島的定位：Learning OS
 
-島島（DaoDAO）不是另一個課程平台。它不販售內容，也不以「你學了多少」作為核心指標。
+島島（DaoDao）不是另一個課程平台。它不販售內容，也不以「你學了多少」作為核心指標。
 
 它的核心主張是：**學習的瓶頸在執行，執行的瓶頸在問責，問責的基礎是社群**。
 
@@ -87,7 +88,7 @@ draft: false
 
 ## 參考資料
 
-- [島島阿學官網 — DaoDAO 線上學習完課率與社交學習平台](https://daodao.tw)
+- [島島阿學官網 — DaoDao 線上學習完課率與社交學習平台](https://daodao.tw)
 - [Coursera — MOOC Learning Platform 完課率研究](https://www.coursera.org/)
 - [Duolingo — 遊戲化與社群機制驅動學習習慣養成](https://www.duolingo.com/)
 - [Qdrant 向量資料庫 — 島島 AI 推薦引擎的 LLM 知識庫](https://qdrant.tech/)

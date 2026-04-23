@@ -6,7 +6,7 @@ category: tech
 tags: [github-actions, ci-cd, automation, devops]
 lang: zh-TW
 tldr: "GitHub Actions 是目前最省設定成本的 CI/CD 工具，適合中小型專案。Monorepo 的關鍵是用 path filter 讓只有受影響的 app 觸發 build。"
-description: "GitHub Actions 的 workflow 語法、常用 pattern、secrets 管理，以及 monorepo 下的觸發策略。以島島（DaoDAO）的 CI/CD 設計說明實際的自動化部署流程。"
+description: "GitHub Actions 的 workflow 語法、常用 pattern、secrets 管理，以及 monorepo 下的觸發策略。以島島（DaoDao）的 CI/CD 設計說明實際的自動化部署流程。"
 draft: false
 ---
 
@@ -186,7 +186,7 @@ on:
   run: pnpm turbo build --filter=website
 ```
 
-## DaoDAO 的 CI/CD 設計
+## DaoDao 的 CI/CD 設計
 
 島島的 CI/CD 有幾個值得注意的設計：
 
@@ -248,4 +248,4 @@ jobs:
 - [dorny/paths-filter](https://github.com/dorny/paths-filter) — Monorepo path filter action
 - [appleboy/ssh-action](https://github.com/appleboy/ssh-action) — SSH 部署 action
 - [Turborepo Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) — CI 上的 build cache
-- [島島（DaoDAO）技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDAO 的 CI/CD 架構與 Discord 通知設計
+- [島島（DaoDao）技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao 的 CI/CD 架構與 Discord 通知設計

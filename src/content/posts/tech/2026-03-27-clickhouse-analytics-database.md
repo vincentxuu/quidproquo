@@ -6,7 +6,7 @@ category: tech
 tags: [clickhouse, analytics, olap, database]
 lang: zh-TW
 tldr: "ClickHouse 是欄導向 OLAP 資料庫，掃幾億行只要幾秒，島島用它記錄使用行為事件，供 AI 推薦引擎的特徵工程使用，讓 PostgreSQL 專心處理交易型資料。"
-description: "ClickHouse 是開源的欄導向分析資料庫，設計給大量資料的聚合查詢。這篇說明 OLAP vs OLTP 的差異、ClickHouse 的核心設計、基本 SQL 語法，以及島島（DaoDAO）為什麼在 PostgreSQL 旁邊另外加一個 ClickHouse 來處理行為分析。"
+description: "ClickHouse 是開源的欄導向分析資料庫，設計給大量資料的聚合查詢。這篇說明 OLAP vs OLTP 的差異、ClickHouse 的核心設計、基本 SQL 語法，以及島島（DaoDao）為什麼在 PostgreSQL 旁邊另外加一個 ClickHouse 來處理行為分析。"
 draft: false
 ---
 

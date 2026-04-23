@@ -6,7 +6,7 @@ category: tech
 tags: [zod, typescript, validation, schema]
 lang: zh-TW
 tldr: "TypeScript 的型別只存在編譯期，執行時消失。Zod 讓你在 runtime 驗證外部資料，同時推斷出 TypeScript 型別，一個 schema 兩件事都搞定。"
-description: "Zod 是 TypeScript-first 的 schema 驗證函式庫，讓你用一份定義同時做 runtime 驗證和型別推斷。DaoDAO 和 NobodyClimb 都用它做 API 驗證，並在 monorepo 的共用 packages 裡共享 schema。"
+description: "Zod 是 TypeScript-first 的 schema 驗證函式庫，讓你用一份定義同時做 runtime 驗證和型別推斷。DaoDao 和 NobodyClimb 都用它做 API 驗證，並在 monorepo 的共用 packages 裡共享 schema。"
 draft: false
 ---
 
@@ -117,9 +117,9 @@ const NotificationSchema = z.discriminatedUnion('type', [
 
 ## Monorepo 的 Schema 共用
 
-DaoDAO 和 NobodyClimb 都採用 monorepo，兩者都把 Zod schema 集中在 `packages/schemas`（或類似的共用 package）：
+DaoDao 和 NobodyClimb 都採用 monorepo，兩者都把 Zod schema 集中在 `packages/schemas`（或類似的共用 package）：
 
-**DaoDAO** 的 schema 定義在後端 service 層，用於 API request 驗證和 TypeScript 型別來源。前端的 OpenAPI client 自動生成型別，兩邊保持同步。
+**DaoDao** 的 schema 定義在後端 service 層，用於 API request 驗證和 TypeScript 型別來源。前端的 OpenAPI client 自動生成型別，兩邊保持同步。
 
 **NobodyClimb** 更進一步：`packages/schemas` 是前後端的共同資料，Hono 後端用它驗證 request body，Next.js 前端的 React Hook Form 用它做表單驗證，Mobile 端（React Native + Expo）也用同一份。一個 schema 改了，三個地方同時更新。
 

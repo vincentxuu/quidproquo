@@ -6,13 +6,13 @@ category: tech
 tags: [fastapi, python, api, async]
 lang: zh-TW
 tldr: "FastAPI 是基於 Python type hint 的現代 Web framework，自動生成 OpenAPI 文件、原生 async 支援、效能接近 Node.js。AI/ML 服務的首選，也是 Python 後端裡最值得學的框架。"
-description: "介紹 FastAPI：為什麼它在 AI 服務場景裡比 Flask 和 Django 更合適、Pydantic 型別驗證、async 設計，以及島島（DaoDAO）如何用它搭建獨立的 AI 推薦服務。"
+description: "介紹 FastAPI：為什麼它在 AI 服務場景裡比 Flask 和 Django 更合適、Pydantic 型別驗證、async 設計，以及島島（DaoDao）如何用它搭建獨立的 AI 推薦服務。"
 draft: false
 ---
 
 Python 後端框架的老問題：Flask 太簡陋、Django 太重。FastAPI 在 2018 年出現，補上了這個空缺——輕量、type-safe、async-first、自動文件。特別是在 AI/ML 服務這個場景，它幾乎已經是事實標準。
 
-島島（DaoDAO）把 AI 服務獨立成 Python FastAPI 應用（`daodao-ai-backend`），和 Node.js 主後端分開部署。這個決策很合理：Python 在 ML 生態的工具鏈遠優於 Node.js，LangChain、sentence-transformers、scikit-learn 都在 Python 生態，強行用 Node.js 跑 AI 是自找麻煩。
+島島（DaoDao）把 AI 服務獨立成 Python FastAPI 應用（`daodao-ai-backend`），和 Node.js 主後端分開部署。這個決策很合理：Python 在 ML 生態的工具鏈遠優於 Node.js，LangChain、sentence-transformers、scikit-learn 都在 Python 生態，強行用 Node.js 跑 AI 是自找麻煩。
 
 ## 它是什麼
 

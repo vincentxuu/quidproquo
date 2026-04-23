@@ -6,7 +6,7 @@ category: tech
 tags: [turborepo, monorepo, pnpm, build-system]
 lang: zh-TW
 tldr: "Turborepo 解決 monorepo 的 build 速度問題，pnpm workspaces 解決依賴共用問題。兩者搭配是目前 JS/TS monorepo 的最佳選擇。"
-description: "介紹 Turborepo 和 pnpm workspaces 的核心概念：pipeline 設定、任務快取、build 順序管理。以島島（DaoDAO）和 NobodyClimb 的實際使用方式說明何時值得導入。"
+description: "介紹 Turborepo 和 pnpm workspaces 的核心概念：pipeline 設定、任務快取、build 順序管理。以島島（DaoDao）和 NobodyClimb 的實際使用方式說明何時值得導入。"
 draft: false
 ---
 
@@ -100,11 +100,11 @@ Time:     312ms
 
 45 秒變 312ms，因為全部都是 cache hit。在 CI 上，可以設定 Remote Cache（Turborepo 的雲端快取或自架），讓不同機器共享 build cache。
 
-## 在 DaoDAO 和 NobodyClimb 的用法
+## 在 DaoDao 和 NobodyClimb 的用法
 
 兩個專案的 monorepo 結構相似：
 
-**DaoDAO：**
+**DaoDao：**
 ```
 apps/
   website/     # 行銷頁（Next.js）
@@ -178,12 +178,12 @@ Monorepo 不是默認選項，適合的情境：
 - Remote Cache 需要額外設定（Vercel 提供的是商業服務）
 - 大型 monorepo 的 `pnpm install` 仍然不快
 
-對像 DaoDAO 和 NobodyClimb 這樣的多 app 專案，Turborepo + pnpm workspaces 是值得的投資，開發體驗比多個獨立 repo 好很多。
+對像 DaoDao 和 NobodyClimb 這樣的多 app 專案，Turborepo + pnpm workspaces 是值得的投資，開發體驗比多個獨立 repo 好很多。
 
 ## 參考資料
 
 - [Turborepo 官方文件](https://turbo.build/repo/docs)
 - [pnpm workspaces 官方文件](https://pnpm.io/workspaces)
 - [Turborepo Pipeline 設定](https://turbo.build/repo/docs/crafting-your-repository/configuring-tasks)
-- [島島（DaoDAO）技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDAO 的 monorepo 結構與 Turborepo 使用方式
+- [島島（DaoDao）技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao 的 monorepo 結構與 Turborepo 使用方式
 - [NobodyClimb：用 Cloudflare 全端打造攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — NobodyClimb 的 monorepo 結構與共用 schema 設計

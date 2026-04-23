@@ -14,7 +14,7 @@ React Native 的想法一直很吸引人：一套 JavaScript 程式碼，iOS 和
 
 Expo 解決的主要是這個問題。它是 React Native 的 framework 和工具鏈，讓大部分的設定消失，讓開發者可以直接開始寫邏輯。
 
-島島（DaoDAO）和 NobodyClimb 都用 Expo + React Native 作為 mobile app 的技術棧，和 Next.js 前端共用同一個 monorepo 的型別和工具。
+島島（DaoDao）和 NobodyClimb 都用 Expo + React Native 作為 mobile app 的技術棧，和 Next.js 前端共用同一個 monorepo 的型別和工具。
 
 ## Expo 在做什麼
 

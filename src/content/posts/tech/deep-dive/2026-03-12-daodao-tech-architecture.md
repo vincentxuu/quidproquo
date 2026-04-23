@@ -1,16 +1,16 @@
 ---
-title: "島島（DaoDAO）技術架構全覽：Monorepo、多語言後端與 AI 推薦系統"
+title: "島島（DaoDao）技術架構全覽：Monorepo、多語言後端與 AI 推薦系統"
 date: 2026-03-12
 category: tech
 tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript, bullmq, notification, celery]
 lang: zh-TW
 tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、PostgreSQL + Redis 核心架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代技術棧打造學習社群平台。"
-description: "深入介紹島島（DaoDAO）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI + Celery AI 服務，以及 PostgreSQL + Redis + Qdrant + ClickHouse 的多資料庫策略。"
+description: "深入介紹島島（DaoDao）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI + Celery AI 服務，以及 PostgreSQL + Redis + Qdrant + ClickHouse 的多資料庫策略。"
 draft: false
 type: deep-dive
 ---
 
-島島（DaoDAO）是一個學習平台，讓使用者設定目標、追蹤每日實踐、建立學習社群。它的技術架構比大多數同規模的產品複雜：前端是 Turborepo monorepo 管三個 app，後端拆成 Node.js 和 Python 兩個服務，資料庫用了四種。這篇拆解各層的設計邏輯，以及這些選擇背後的取捨。
+島島（DaoDao）是一個學習平台，讓使用者設定目標、追蹤每日實踐、建立學習社群。它的技術架構比大多數同規模的產品複雜：前端是 Turborepo monorepo 管三個 app，後端拆成 Node.js 和 Python 兩個服務，資料庫用了四種。這篇拆解各層的設計邏輯，以及這些選擇背後的取捨。
 
 ## Monorepo 架構設計
 

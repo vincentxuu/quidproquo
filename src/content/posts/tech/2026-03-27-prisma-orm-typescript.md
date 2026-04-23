@@ -6,11 +6,11 @@ category: tech
 tags: [prisma, orm, typescript, postgresql, database]
 lang: zh-TW
 tldr: "Prisma 用 schema-first 設計讓資料庫 migration 有版本控制、查詢有完整 TypeScript 型別、關聯查詢直覺。代價是學習曲線和 ORM 的固有限制，但對多數 TypeScript 專案是值得的換法。"
-description: "介紹 Prisma ORM：schema 定義、migration 流程、型別安全查詢、關聯 include，以及島島（DaoDAO）為何選它管理 PostgreSQL，還有什麼情境下 Prisma 會讓你痛苦。"
+description: "介紹 Prisma ORM：schema 定義、migration 流程、型別安全查詢、關聯 include，以及島島（DaoDao）為何選它管理 PostgreSQL，還有什麼情境下 Prisma 會讓你痛苦。"
 draft: false
 ---
 
-「不用 ORM，直接寫 SQL」這個論點有道理，但有前提：你願意手動維護 migration、手動寫型別、手動處理關聯查詢。Prisma 把這些全部解決，代價是你要接受它的抽象層。對島島（DaoDAO）這種 TypeScript 專案，這個換法是值得的。
+「不用 ORM，直接寫 SQL」這個論點有道理，但有前提：你願意手動維護 migration、手動寫型別、手動處理關聯查詢。Prisma 把這些全部解決，代價是你要接受它的抽象層。對島島（DaoDao）這種 TypeScript 專案，這個換法是值得的。
 
 ## 它是什麼
 

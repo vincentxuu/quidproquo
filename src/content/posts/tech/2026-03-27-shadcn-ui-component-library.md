@@ -14,7 +14,7 @@ draft: false
 
 shadcn/ui 的模型不同：它不是套件，它是一個 CLI 工具，把元件的原始碼複製到你的專案裡。從那一刻起，這些程式碼就是你的，你可以直接改，不需要透過 prop API，不受套件版本限制。
 
-島島（DaoDAO）的 `packages/ui` 就是用這個模型建立的——把 shadcn/ui 的元件複製進來，視需要修改，讓三個 app（`website`、`product`、`mobile` 不含）共用。
+島島（DaoDao）的 `packages/ui` 就是用這個模型建立的——把 shadcn/ui 的元件複製進來，視需要修改，讓三個 app（`website`、`product`、`mobile` 不含）共用。
 
 ## 它的底層是什麼
 

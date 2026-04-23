@@ -12,7 +12,7 @@ draft: false
 
 Next.js 15 + App Router 不是 Next.js 的微調版本，它是一次架構方向的轉移：從「客戶端先渲染」到「伺服器先渲染，客戶端只負責互動」。這個轉移帶來的不只是效能差異，而是整個思考資料流的方式。
 
-島島（DaoDAO）和 NobodyClimb 都選了 Next.js 15 App Router，一個跑在傳統 VPS，一個透過 `@opennextjs/cloudflare` 跑在 Cloudflare Workers，兩者的需求差異不小，但前端技術棧的選擇一樣。
+島島（DaoDao）和 NobodyClimb 都選了 Next.js 15 App Router，一個跑在傳統 VPS，一個透過 `@opennextjs/cloudflare` 跑在 Cloudflare Workers，兩者的需求差異不小，但前端技術棧的選擇一樣。
 
 ## Server Components 在解決什麼問題
 

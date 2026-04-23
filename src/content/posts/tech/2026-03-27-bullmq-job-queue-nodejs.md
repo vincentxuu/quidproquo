@@ -6,7 +6,7 @@ category: tech
 tags: [bullmq, redis, queue, nodejs, background-jobs]
 lang: zh-TW
 tldr: "BullMQ 是 Node.js 生態裡最成熟的任務佇列，底層用 Redis，支援優先級、重試、排程、延遲任務。島島用它處理通知發送和實踐自動完成排程。"
-description: "BullMQ 讓 Node.js 應用把耗時工作丟進背景佇列，支援 P1/P2 優先級、自動重試、延遲任務、批次排程。這篇從基本概念到實際範例，說明島島（DaoDAO）通知系統如何用 BullMQ 處理 in-app 通知和 Email 批次發送。"
+description: "BullMQ 讓 Node.js 應用把耗時工作丟進背景佇列，支援 P1/P2 優先級、自動重試、延遲任務、批次排程。這篇從基本概念到實際範例，說明島島（DaoDao）通知系統如何用 BullMQ 處理 in-app 通知和 Email 批次發送。"
 draft: false
 ---
 

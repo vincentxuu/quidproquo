@@ -6,7 +6,7 @@ category: tech
 tags: [celery, python, task-queue, async]
 lang: zh-TW
 tldr: "Celery 是 Python 最主流的分散式任務佇列，用 Redis 或 RabbitMQ 當 broker，讓耗時工作跑在背景。島島的 AI 服務用它處理 LLM 回饋生成等非同步任務。"
-description: "Celery 讓 Python 應用輕鬆把任務推進背景執行，支援重試、排程、優先級、任務鏈。這篇介紹 Celery 的基本架構、設定方式，以及島島（DaoDAO）AI 服務（FastAPI + Celery）如何用它處理耗時的 AI 推論任務。"
+description: "Celery 讓 Python 應用輕鬆把任務推進背景執行，支援重試、排程、優先級、任務鏈。這篇介紹 Celery 的基本架構、設定方式，以及島島（DaoDao）AI 服務（FastAPI + Celery）如何用它處理耗時的 AI 推論任務。"
 draft: false
 ---
 

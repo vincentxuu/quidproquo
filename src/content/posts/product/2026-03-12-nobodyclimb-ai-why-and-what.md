@@ -2,6 +2,7 @@
 title: "攀岩社群為什麼需要 AI？NobodyClimb 的實驗與學到的事"
 date: 2026-03-12
 type: project
+tldr: "NobodyClimb 用 RAG 解決攀岩路線資訊分散的問題，配額制度與社群參與度綁定，Cloudflare Workers AI 讓推論成本趨近於零。"
 category: product
 tags: [ai, climbing, rag, community, product]
 lang: zh-TW

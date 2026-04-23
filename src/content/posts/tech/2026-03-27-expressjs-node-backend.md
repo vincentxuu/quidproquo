@@ -6,11 +6,11 @@ category: tech
 tags: [expressjs, nodejs, backend, api]
 lang: zh-TW
 tldr: "Express 是 Node.js 最成熟的 Web framework，middleware 生態完整、學習資源豐富。搭配 TypeScript 和清楚的分層架構，在 2026 年仍然是有理由選的選項。"
-description: "介紹 Express.js 的核心設計哲學、middleware pattern、TypeScript 整合，以及島島（DaoDAO）為何選它作為主後端框架——還有什麼時候你應該考慮其他選擇。"
+description: "介紹 Express.js 的核心設計哲學、middleware pattern、TypeScript 整合，以及島島（DaoDao）為何選它作為主後端框架——還有什麼時候你應該考慮其他選擇。"
 draft: false
 ---
 
-Express 在 2010 年發布，距今已經超過 15 年。每隔幾年就有人宣告它「死了」，換成 Fastify、Koa、NestJS，但 npm 下載數一直維持在前幾名。島島（DaoDAO）的主後端用的就是 Express + TypeScript，這個選擇有其道理。
+Express 在 2010 年發布，距今已經超過 15 年。每隔幾年就有人宣告它「死了」，換成 Fastify、Koa、NestJS，但 npm 下載數一直維持在前幾名。島島（DaoDao）的主後端用的就是 Express + TypeScript，這個選擇有其道理。
 
 ## 它是什麼
 

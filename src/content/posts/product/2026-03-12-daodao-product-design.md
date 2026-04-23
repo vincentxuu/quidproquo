@@ -2,10 +2,11 @@
 title: "從「想學」到「真的在學」：島島的產品設計思維"
 date: 2026-03-12
 type: project
+tldr: "完課率低不是內容問題，是執行問題。島島用公開行動檔案、問責夥伴、微承諾系統，從行為設計角度解決自主學習的三種執行癱瘓。"
 category: product
 tags: [product-design, learning-platform, behavioral-design, ux]
 lang: zh-TW
-description: "島島（DaoDAO）如何用行為設計、問責機制和刻意設計的社交功能，幫助學習者跨越從「想學」到「持續學習」的鴻溝。"
+description: "島島（DaoDao）如何用行為設計、問責機制和刻意設計的社交功能，幫助學習者跨越從「想學」到「持續學習」的鴻溝。"
 draft: false
 ---
 
@@ -13,7 +14,7 @@ draft: false
 
 它們花大量資源讓課程內容更好、更豐富、更有趣——然後發現使用者的課程完成率還是在 10% 以下徘徊。問題不在內容，從來都不是。問題在於：一個真心想學東西的人，為什麼最後沒有學？
 
-島島（DaoDAO）試圖回答的就是這個問題。
+島島（DaoDao）試圖回答的就是這個問題。
 
 ---
 
@@ -100,7 +101,7 @@ draft: false
 
 ## 參考資料
 
-- [島島阿學官網 — DaoDAO 產品 Onboarding 設計與學習行為改變平台](https://daodao.tw)
+- [島島阿學官網 — DaoDao 產品 Onboarding 設計與學習行為改變平台](https://daodao.tw)
 - [你的學習為什麼半途而廢？島島想解決這件事](/posts/education/2026-03-12-daodao-for-learners)
 - [線上學習的下一個戰場：為什麼「完課率」才是真正的問題](/posts/product/2026-03-12-daodao-market-opportunity)
 - [島島阿學技術架構](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
