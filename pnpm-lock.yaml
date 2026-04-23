@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  picomatch: 4.0.3
+
 importers:
 
   .:
@@ -28,13 +31,25 @@ importers:
         version: 3.7.1
       '@langchain/anthropic':
         specifier: ^1.3.27
-        version: 1.3.27(@langchain/core@1.1.41(ws@8.18.0))
+        version: 1.3.27(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))
+      '@langchain/cloudflare':
+        specifier: ^1.0.4
+        version: 1.0.4(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))
       '@langchain/core':
         specifier: ^1.1.41
-        version: 1.1.41(ws@8.18.0)
+        version: 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      '@langchain/google-genai':
+        specifier: ^2.1.28
+        version: 2.1.28(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))
       '@langchain/langgraph':
         specifier: ^1.2.9
-        version: 1.2.9(@langchain/core@1.1.41(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6)
+        version: 1.2.9(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6)
+      '@langchain/ollama':
+        specifier: ^1.2.6
+        version: 1.2.6(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))
+      '@langchain/openai':
+        specifier: ^1.4.4
+        version: 1.4.4(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(ws@8.18.0)
       '@playwright/test':
         specifier: ^1.58.2
         version: 1.58.2
@@ -521,6 +536,10 @@ packages:
   '@fontsource/noto-sans-tc@5.2.9':
     resolution: {integrity: sha512-Z+pXTvXYrip79lPV9X1lCYO3UTys55P25VqcifDStIzdZ86I4R6t8dz+NhGd09YdbvHWvOCB5Icw1m7glKHPNQ==}
 
+  '@google/generative-ai@0.24.1':
+    resolution: {integrity: sha512-MqO+MLfM6kjxcKoy0p1wRzG3b4ZZXtPI+z2IE26UogS2Cm/XHO+7gGRBh6gcJsOiIVoH93UwKvW4HdgiOZCy9Q==}
+    engines: {node: '>=18.0.0'}
+
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
     engines: {node: '>=18'}
@@ -683,9 +702,21 @@ packages:
     peerDependencies:
       '@langchain/core': ^1.1.41
 
+  '@langchain/cloudflare@1.0.4':
+    resolution: {integrity: sha512-Wns1CPcAPMpSvAdUAHiM7Kg43XPuRb61YhMNWuDwGfJKFSkSxRMrKc6DnmGmcdp2DHnfC05LEaNb3qgy1btLGA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.0.0
+
   '@langchain/core@1.1.41':
     resolution: {integrity: sha512-KdoNEf1YVJ9jnOP+smq4O6teu63tE7GDUryOnZ2lVfooHLrHK/ECUadjOcDSCK/yk/xBw/8nexJ3ZNBMtKnstw==}
     engines: {node: '>=20'}
+
+  '@langchain/google-genai@2.1.28':
+    resolution: {integrity: sha512-iTzNYWST8hTRqOXZdme18tq5GnCUwtrrJECE51ZCjg6Vg0mPsV44amdC+/bc+UK0+uphKWESGWs277aAyM2MlA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.1.41
 
   '@langchain/langgraph-checkpoint@1.0.1':
     resolution: {integrity: sha512-HM0cJLRpIsSlWBQ/xuDC67l52SqZ62Bh2Y61DX+Xorqwoh5e1KxYvfCD7GnSTbWWhjBOutvnR0vPhu4orFkZfw==}
@@ -723,6 +754,18 @@ packages:
     peerDependenciesMeta:
       zod-to-json-schema:
         optional: true
+
+  '@langchain/ollama@1.2.6':
+    resolution: {integrity: sha512-wEfjRjyB20SMduqjriIBEalXZf1twbfaNTxxLIjKCVrufHPtKJKGy1a0tQHqa+27HwektNNXlcMre7MTuaS5Rw==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.0.0
+
+  '@langchain/openai@1.4.4':
+    resolution: {integrity: sha512-mRr/X5rvlwPj6cSXPxbL+CtOqYANO1/+CQ3Z+5t48kWnrlgPYOazmA+UAWvqQOuwJ6LaYn3SFrt43rR4lte/Ow==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.1.39
 
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
@@ -1698,7 +1741,7 @@ packages:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
-      picomatch: ^3 || ^4
+      picomatch: 4.0.3
     peerDependenciesMeta:
       picomatch:
         optional: true
@@ -2245,6 +2288,9 @@ packages:
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
 
+  ollama@0.6.3:
+    resolution: {integrity: sha512-KEWEhIqE5wtfzEIZbDCLH51VFZ6Z3ZSa6sIOg/E/tBV8S51flyqBOXi+bRxlOYKDf8i327zG9eSTb8IJxvm3Zg==}
+
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
@@ -2253,6 +2299,18 @@ packages:
 
   oniguruma-to-es@4.3.4:
     resolution: {integrity: sha512-3VhUGN3w2eYxnTzHn+ikMI+fp/96KoRSVK9/kMTcFqj1NRDh2IhQCKvYxDnWePKRXY/AqH+Fuiyb7VHSzBjHfA==}
+
+  openai@6.34.0:
+    resolution: {integrity: sha512-yEr2jdGf4tVFYG6ohmr3pF6VJuveP0EA/sS8TBx+4Eq5NT10alu5zg2dmxMXMgqpihRDQlFGpRt2XwsGj+Fyxw==}
+    hasBin: true
+    peerDependencies:
+      ws: ^8.18.0
+      zod: ^3.25 || ^4.0
+    peerDependenciesMeta:
+      ws:
+        optional: true
+      zod:
+        optional: true
 
   oxlint@1.54.0:
     resolution: {integrity: sha512-ObSjVwf0ZYA5U5Cmelj0PsCuqCJXsm2TxZ40tgUSAY7Wu0lKAsNjor6cgXHXSys8jOwv1ICjtzouoWHdKGHbZg==}
@@ -2337,16 +2395,8 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
-  picomatch@2.3.1:
-    resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
-    engines: {node: '>=8.6'}
-
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
-    engines: {node: '>=12'}
-
-  picomatch@4.0.4:
-    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
   playwright-core@1.58.2:
@@ -3118,6 +3168,9 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
+  whatwg-fetch@3.6.20:
+    resolution: {integrity: sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==}
+
   which-pm-runs@1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
     engines: {node: '>=4'}
@@ -3271,7 +3324,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.9.0':
     dependencies:
-      picomatch: 4.0.4
+      picomatch: 4.0.3
 
   '@astrojs/language-server@2.16.4(prettier@3.8.1)(typescript@5.9.3)':
     dependencies:
@@ -3678,6 +3731,8 @@ snapshots:
 
   '@fontsource/noto-sans-tc@5.2.9': {}
 
+  '@google/generative-ai@0.24.1': {}
+
   '@img/colour@1.1.0': {}
 
   '@img/sharp-darwin-arm64@0.34.5':
@@ -3798,13 +3853,18 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@langchain/anthropic@1.3.27(@langchain/core@1.1.41(ws@8.18.0))':
+  '@langchain/anthropic@1.3.27(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))':
     dependencies:
       '@anthropic-ai/sdk': 0.90.0(zod@4.3.6)
-      '@langchain/core': 1.1.41(ws@8.18.0)
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
       zod: 4.3.6
 
-  '@langchain/core@1.1.41(ws@8.18.0)':
+  '@langchain/cloudflare@1.0.4(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))':
+    dependencies:
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      uuid: 10.0.0
+
+  '@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)':
     dependencies:
       '@cfworker/json-schema': 4.1.1
       '@standard-schema/spec': 1.1.0
@@ -3812,7 +3872,7 @@ snapshots:
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.21
-      langsmith: 0.5.22(ws@8.18.0)
+      langsmith: 0.5.22(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
       mustache: 4.2.0
       p-queue: 6.6.2
       uuid: 11.1.0
@@ -3824,27 +3884,33 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.41(ws@8.18.0))':
+  '@langchain/google-genai@2.1.28(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))':
     dependencies:
-      '@langchain/core': 1.1.41(ws@8.18.0)
+      '@google/generative-ai': 0.24.1
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      uuid: 11.1.0
+
+  '@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))':
+    dependencies:
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
       uuid: 10.0.0
 
-  '@langchain/langgraph-sdk@1.8.9(@langchain/core@1.1.41(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@langchain/langgraph-sdk@1.8.9(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
       '@types/json-schema': 7.0.15
       p-queue: 9.1.0
       p-retry: 7.1.1
       uuid: 13.0.0
     optionalDependencies:
-      '@langchain/core': 1.1.41(ws@8.18.0)
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
 
-  '@langchain/langgraph@1.2.9(@langchain/core@1.1.41(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6)':
+  '@langchain/langgraph@1.2.9(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6)':
     dependencies:
-      '@langchain/core': 1.1.41(ws@8.18.0)
-      '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.41(ws@8.18.0))
-      '@langchain/langgraph-sdk': 1.8.9(@langchain/core@1.1.41(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))
+      '@langchain/langgraph-sdk': 1.8.9(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@standard-schema/spec': 1.1.0
       uuid: 10.0.0
       zod: 4.3.6
@@ -3853,6 +3919,21 @@ snapshots:
       - react-dom
       - svelte
       - vue
+
+  '@langchain/ollama@1.2.6(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))':
+    dependencies:
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      ollama: 0.6.3
+      uuid: 10.0.0
+
+  '@langchain/openai@1.4.4(@langchain/core@1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0))(ws@8.18.0)':
+    dependencies:
+      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0)
+      js-tiktoken: 1.0.21
+      openai: 6.34.0(ws@8.18.0)(zod@4.3.6)
+      zod: 4.3.6
+    transitivePeerDependencies:
+      - ws
 
   '@mdx-js/mdx@3.1.1':
     dependencies:
@@ -4390,7 +4471,7 @@ snapshots:
   anymatch@3.1.3:
     dependencies:
       normalize-path: 3.0.0
-      picomatch: 2.3.1
+      picomatch: 4.0.3
 
   arg@5.0.2: {}
 
@@ -5145,11 +5226,12 @@ snapshots:
     dependencies:
       langfuse-core: 3.38.20
 
-  langsmith@0.5.22(ws@8.18.0):
+  langsmith@0.5.22(openai@6.34.0(ws@8.18.0)(zod@4.3.6))(ws@8.18.0):
     dependencies:
       p-queue: 6.6.2
       uuid: 10.0.0
     optionalDependencies:
+      openai: 6.34.0(ws@8.18.0)(zod@4.3.6)
       ws: 8.18.0
 
   lazy-cache@0.2.7: {}
@@ -5687,6 +5769,10 @@ snapshots:
 
   ohash@2.0.11: {}
 
+  ollama@0.6.3:
+    dependencies:
+      whatwg-fetch: 3.6.20
+
   once@1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -5698,6 +5784,11 @@ snapshots:
       oniguruma-parser: 0.12.1
       regex: 6.1.0
       regex-recursion: 6.0.2
+
+  openai@6.34.0(ws@8.18.0)(zod@4.3.6):
+    optionalDependencies:
+      ws: 8.18.0
+      zod: 4.3.6
 
   oxlint@1.54.0:
     optionalDependencies:
@@ -5802,11 +5893,7 @@ snapshots:
 
   picocolors@1.1.1: {}
 
-  picomatch@2.3.1: {}
-
   picomatch@4.0.3: {}
-
-  picomatch@4.0.4: {}
 
   playwright-core@1.58.2: {}
 
@@ -6452,7 +6539,7 @@ snapshots:
       magic-string: 0.30.21
       obug: 2.1.1
       pathe: 2.0.3
-      picomatch: 4.0.4
+      picomatch: 4.0.3
       std-env: 4.1.0
       tinybench: 2.9.0
       tinyexec: 1.0.2
@@ -6564,6 +6651,8 @@ snapshots:
   vscode-uri@3.1.0: {}
 
   web-namespaces@2.0.1: {}
+
+  whatwg-fetch@3.6.20: {}
 
   which-pm-runs@1.1.0: {}
 
