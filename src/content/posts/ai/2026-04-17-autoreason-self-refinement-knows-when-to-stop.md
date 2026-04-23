@@ -1,6 +1,7 @@
 ---
 title: "Autoreason：讓 LLM 自我修正時知道何時該停手"
 date: 2026-04-17
+type: guide
 category: ai
 tags: [autoreason, nous-research, self-refinement, llm, borda-count, iterative-reasoning, ai-agent]
 lang: zh-TW

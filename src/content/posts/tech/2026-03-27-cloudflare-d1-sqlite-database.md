@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare D1：跑在邊緣的 SQLite 關聯式資料庫"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [cloudflare-d1, sqlite, serverless, edge, cloudflare-workers, database]
 lang: zh-TW

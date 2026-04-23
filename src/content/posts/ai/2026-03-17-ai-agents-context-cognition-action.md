@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 的三個核心支柱：Context、Cognition、Action"
 date: 2026-03-17
+type: guide
 category: ai
 tags: [ai-agent, context-engineering, llm, reasoning, ReAct, agentic-ai, memory, mcp]
 lang: zh-TW

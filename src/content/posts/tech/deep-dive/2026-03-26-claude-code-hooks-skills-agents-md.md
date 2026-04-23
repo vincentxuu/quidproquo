@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 的三層品質防線：Hook、Skill、指令檔"
 date: 2026-03-26
+type: guide
 category: tech
 tags: [claude-code, ai-agent, dx, ci-cd, code-quality, claude-md, agents-md]
 lang: zh-TW

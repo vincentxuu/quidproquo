@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 維運篇：疑難排解與診斷"
 date: 2026-03-28
+type: debug
 category: ai
 tags: [openclaw, troubleshooting, doctor, diagnostics, operations]
 lang: zh-TW

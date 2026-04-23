@@ -1,6 +1,7 @@
 ---
 title: "DeerFlow：字節跳動開源的超級代理框架，把 Agent 做成可長跑的研究系統"
 date: 2026-04-21
+type: project
 category: tech
 tags: [deer-flow, bytedance, agent, langgraph, langchain, ai-agent, open-source, harness]
 lang: zh-TW

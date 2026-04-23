@@ -1,6 +1,7 @@
 ---
 title: "Claude Managed Agents：把 agent 外殼和沙箱都交給 Anthropic"
 date: 2026-04-12
+type: guide
 category: ai
 tags: [claude, managed-agents, anthropic, ai-agent, sandbox, serverless, beta]
 lang: zh-TW

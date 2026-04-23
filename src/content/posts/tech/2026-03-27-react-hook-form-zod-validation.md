@@ -1,6 +1,7 @@
 ---
 title: "React Hook Form + Zod：表單處理的最佳組合"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [react-hook-form, zod, validation, forms, typescript]
 lang: zh-TW

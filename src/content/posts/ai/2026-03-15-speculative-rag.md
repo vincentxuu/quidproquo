@@ -1,6 +1,7 @@
 ---
 title: "Speculative RAG：用小模型平行打草稿，大模型一次驗證"
 date: 2026-03-15
+type: guide
 category: ai
 tags: [rag, speculative-rag, dual-model, latency-optimization, accuracy]
 lang: zh-TW

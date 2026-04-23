@@ -1,6 +1,7 @@
 ---
 title: "Agent CLI 訂閱方案全比較：打造可自由切換的多模型使用模式"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, multi-model-routing, claude-code, cursor, codex, kiro, gemini-cli, opencode, llm-router, cost-optimization]
 lang: zh-TW

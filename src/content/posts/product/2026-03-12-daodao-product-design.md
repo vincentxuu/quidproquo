@@ -1,6 +1,7 @@
 ---
 title: "從「想學」到「真的在學」：島島的產品設計思維"
 date: 2026-03-12
+type: project
 category: product
 tags: [product-design, learning-platform, behavioral-design, ux]
 lang: zh-TW

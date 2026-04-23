@@ -1,6 +1,7 @@
 ---
 title: "RAG 系統模式完整指南：從 Naive 到 Multi-Agent 的十代演化與實戰導航"
 date: 2026-03-14
+type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
 lang: zh-TW

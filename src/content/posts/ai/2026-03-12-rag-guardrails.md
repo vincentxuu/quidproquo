@@ -1,6 +1,7 @@
 ---
 title: "RAG Guardrails：在輸入和輸出加一道防線"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, guardrails, security, prompt-injection, safety, llm]
 lang: zh-TW

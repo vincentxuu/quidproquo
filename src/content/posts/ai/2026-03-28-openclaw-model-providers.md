@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 的模型需求與供應商生態"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, llm, anthropic, openai, gemini, model-failover, tool-use]
 lang: zh-TW

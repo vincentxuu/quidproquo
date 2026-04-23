@@ -1,6 +1,7 @@
 ---
 title: "RAG 常見失敗模式：10 種問題和對應的解法"
 date: 2026-03-12
+type: debug
 category: ai
 tags: [rag, debugging, failure-modes, quality, troubleshooting]
 lang: zh-TW

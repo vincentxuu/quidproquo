@@ -1,6 +1,7 @@
 ---
 title: "Multi-Model Routing 開源工具與實作：讓對的模型做對的事"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [multi-model-routing, llm-router, cost-optimization, agent-router, freerouter, ruflo]
 lang: zh-TW

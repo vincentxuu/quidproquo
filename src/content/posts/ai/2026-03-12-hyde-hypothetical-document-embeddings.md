@@ -1,6 +1,7 @@
 ---
 title: "HyDE：用假設答案提升向量搜尋的 Recall"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, hyde, embedding, vector-search, query-enhancement]
 lang: zh-TW

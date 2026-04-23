@@ -1,6 +1,7 @@
 ---
 title: "YouTube to NotebookLM 擴充套件怎麼做到的？拆解逆向工程與跨 Tab 架構"
 date: 2026-04-20
+type: guide
 category: tech
 tags: [chrome-extension, notebooklm, reverse-engineering, manifest-v3, youtube]
 lang: zh-TW

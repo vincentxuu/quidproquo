@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 更多供應商：DeepSeek、Groq、Ollama、OpenRouter、Bedrock..."
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, deepseek, groq, ollama, openrouter, vllm, bedrock, sglang, mistral]
 lang: zh-TW

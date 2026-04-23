@@ -1,6 +1,7 @@
 ---
 title: "quidproquo 部落格改進完整規劃：從內容、技術、RAG 設計到 Harness 基礎建設"
 date: 2026-04-18
+type: project
 category: product
 tags:
   - quidproquo

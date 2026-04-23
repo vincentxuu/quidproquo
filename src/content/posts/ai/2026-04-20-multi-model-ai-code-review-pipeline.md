@@ -1,6 +1,7 @@
 ---
 title: "用 Codex + Gemini + Claude 做多引擎 Code Review：原理、模式與實作"
 date: 2026-04-20
+type: guide
 category: ai
 tags: [claude-code, gemini-cli, codex-cli, code-review, agentic-workflow, multi-model]
 lang: zh-TW

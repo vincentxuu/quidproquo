@@ -1,6 +1,7 @@
 ---
 title: "RAG 個性化：從對話中學習用戶偏好"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, personalization, memory, user-profile, async]
 lang: zh-TW

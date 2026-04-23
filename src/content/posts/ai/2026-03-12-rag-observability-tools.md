@@ -1,6 +1,7 @@
 ---
 title: "RAG 可觀測性工具全景：2026 年的選擇"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, observability, langfuse, phoenix, langsmith, tracing, monitoring]
 lang: zh-TW

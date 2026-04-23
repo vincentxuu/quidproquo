@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Agent Teams 怎麼用？從 GitHub 6,400+ 個 agent 看設計模式"
 date: 2026-04-04
+type: guide
 category: ai
 tags: [claude-code, agent-teams, subagent, multi-agent, orchestrator-pattern, ai-pipeline, context-engineering, harness-engineering, temporal, swarm, quality-gates]
 lang: zh-TW

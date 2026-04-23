@@ -1,6 +1,7 @@
 ---
 title: "TanStack Query：Server State 的標準解法"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [tanstack-query, react-query, data-fetching, caching]
 lang: zh-TW

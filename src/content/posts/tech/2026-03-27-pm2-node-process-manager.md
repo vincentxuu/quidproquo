@@ -1,6 +1,7 @@
 ---
 title: "PM2：Node.js 程序管理的實用選擇"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [pm2, nodejs, process-manager, deployment]
 lang: zh-TW

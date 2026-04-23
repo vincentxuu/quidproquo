@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Headless Mode：用 claude -p 程式化執行 AI 開發任務"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, headless, agent-sdk, cli, automation, scripting, ci-cd, dx]
 lang: zh-TW

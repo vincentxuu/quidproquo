@@ -1,6 +1,7 @@
 ---
 title: "Claude Code × GitHub Actions：在 CI/CD 裡放一個 AI 代理"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, ci-cd, github-actions, code-review, ai-agent, automation, dx]
 lang: zh-TW

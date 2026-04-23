@@ -1,6 +1,7 @@
 ---
 title: "本機開發 AI Backend API 永遠回空資料：Cookie Domain 隔離問題"
 date: 2026-04-19
+type: debug
 category: tech
 tags: [cookie, cors, fastapi, nextjs, auth, local-dev, debug]
 lang: zh-TW

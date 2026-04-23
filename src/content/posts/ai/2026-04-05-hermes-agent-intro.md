@@ -1,6 +1,7 @@
 ---
 title: "Hermes Agent：Nous Research 的自我改進 AI 代理"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [hermes-agent, nous-research, ai-agent, self-improving, gateway, multi-platform, openclaw]
 lang: zh-TW

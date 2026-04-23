@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Sub-agents 完整指南：自訂 AI 子代理與平行執行"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, sub-agent, parallel-execution, worktree, ai-agent, dx, plugins]
 lang: zh-TW

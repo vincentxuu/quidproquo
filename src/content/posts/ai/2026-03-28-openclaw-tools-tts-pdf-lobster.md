@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 工具篇（四）：TTS、PDF、Lobster 與 MCP"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, tts, pdf, lobster, mcp, media, elevenlabs, openai-tts]
 lang: zh-TW

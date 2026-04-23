@@ -1,6 +1,7 @@
 ---
 title: "Prompt Engineering 實戰：迭代方法論、常見錯誤與 Few-shot 最佳化"
 date: 2026-03-13
+type: guide
 category: ai
 tags: [prompt-engineering, few-shot, chain-of-thought, iteration, llm]
 lang: zh-TW

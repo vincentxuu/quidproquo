@@ -1,6 +1,7 @@
 ---
 title: "Turborepo + pnpm workspaces：Monorepo 的標準答案"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [turborepo, monorepo, pnpm, build-system]
 lang: zh-TW

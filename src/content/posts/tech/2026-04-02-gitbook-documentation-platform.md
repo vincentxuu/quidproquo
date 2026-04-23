@@ -1,6 +1,7 @@
 ---
 title: "GitBook：把文件變成產品的文件平台"
 date: 2026-04-02
+type: guide
 category: tech
 tags: [gitbook, documentation, knowledge-base, markdown, git, developer-tools]
 lang: zh-TW

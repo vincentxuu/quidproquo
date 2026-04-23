@@ -1,6 +1,7 @@
 ---
 title: "聊天機器人開發完整指南：狀態管理、記憶策略與技術棧選型"
 date: 2026-03-13
+type: guide
 category: ai
 tags: [chatbot, state-management, memory, streaming, guardrails, langfuse]
 lang: zh-TW

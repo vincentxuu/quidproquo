@@ -1,6 +1,7 @@
 ---
 title: "Expo + React Native：一套程式碼跑 iOS 和 Android，實際上是什麼體驗"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [expo, react-native, mobile, cross-platform]
 lang: zh-TW

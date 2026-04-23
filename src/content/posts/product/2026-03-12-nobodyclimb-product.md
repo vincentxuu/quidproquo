@@ -1,6 +1,7 @@
 ---
 title: "NobodyClimb：為什麼攀岩社群需要自己的平台"
 date: 2026-03-12
+type: project
 category: product
 tags: [side-project, community, climbing, product-design]
 lang: zh-TW

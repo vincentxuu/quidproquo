@@ -1,6 +1,7 @@
 ---
 title: "RAG vs Fine-tuning：不是非此即彼"
 date: 2026-03-12
+type: deep-dive
 category: ai
 tags: [rag, fine-tuning, llm, architecture, comparison]
 lang: zh-TW

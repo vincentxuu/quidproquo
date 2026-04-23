@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 除錯與疑難排解合集：常見問題一次解決"
 date: 2026-03-28
+type: debug
 category: tech
 tags: [claude-code, troubleshooting, debugging, dx, skills, hooks, settings]
 lang: zh-TW

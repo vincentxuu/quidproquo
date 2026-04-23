@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Channels：讓 Telegram、Discord、iMessage 推送事件到你的 AI 開發環境"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, channels, telegram, discord, imessage, webhooks, dx]
 lang: zh-TW

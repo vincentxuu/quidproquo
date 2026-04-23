@@ -1,6 +1,7 @@
 ---
 title: "把 AI Agent 接進開發流程：從 SDLC 五大階段看怎麼做"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [agentic-ai, sdlc, coding-agents, github-actions, claude-code, spec-driven-development, ai-workflow]
 lang: zh-TW

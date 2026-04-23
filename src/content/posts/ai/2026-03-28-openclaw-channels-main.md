@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 主力頻道：WhatsApp、Telegram、Discord"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, whatsapp, telegram, discord, channels]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "code-review-graph：用知識圖譜讓 AI Code Review 省下 8 倍 Token"
 date: 2026-04-02
+type: guide
 category: tech
 tags: [code-review, knowledge-graph, tree-sitter, mcp, ai-tools]
 lang: zh-TW

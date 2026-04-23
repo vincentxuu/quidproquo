@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 參考篇：Pi 整合與設定參考"
 date: 2026-03-28
+type: deep-dive
 category: ai
 tags: [openclaw, pi, reference, configuration, features, architecture]
 lang: zh-TW

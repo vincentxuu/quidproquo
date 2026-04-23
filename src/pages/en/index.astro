@@ -35,6 +35,9 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   </Fragment>
   <h1>quidproquo</h1>
   <p class="subtitle">{t('site.tagline')}</p>
+  <section class="about">
+    <p>A personal blog by xiaoxu — covering software engineering, AI agents, climbing, surfing, coffee, and whatever else I'm obsessing over. Written mostly in Traditional Chinese; posts tagged <code>en</code> are in English.</p>
+  </section>
   {posts.map(post => (
     <PostCard
       slug={post.id}
@@ -54,4 +57,24 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 <style>
   h1 { margin-bottom: 0.25rem; font-size: 2rem; font-weight: 900; letter-spacing: -1px; color: var(--brand-900); }
   .subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem; }
+  .about {
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-subtle);
+    border-radius: 8px;
+    border-left: 3px solid var(--brand-500);
+  }
+  .about p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .about code {
+    background: var(--brand-100);
+    color: var(--brand-700);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
 </style>

@@ -1,6 +1,7 @@
 ---
 title: "Langfuse 完整指南：LLM 應用的可觀測性從零開始"
 date: 2026-03-26
+type: guide
 category: ai
 tags: [langfuse, observability, tracing, llm, prompt-management, evaluation, monitoring]
 lang: zh-TW

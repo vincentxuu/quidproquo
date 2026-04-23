@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Free Plan 設維護頁：Custom Error Pages 不能用，改用 Worker"
 date: 2026-03-13
+type: guide
 category: tech
 tags: [cloudflare, workers, nginx, devops]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Context Window 管理：理解 AI 的記憶邊界"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, context-window, optimization, token, dx]
 lang: zh-TW

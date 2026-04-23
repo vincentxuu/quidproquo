@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 工具篇（一）：瀏覽器控制與網路搜尋"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, browser, web-search, deep-research, browserless, browserbase]
 lang: zh-TW

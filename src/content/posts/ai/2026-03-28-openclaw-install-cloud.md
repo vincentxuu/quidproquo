@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 安裝指南（下）：雲平台、K8s 與 VPS 部署"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, deployment, kubernetes, fly-io, hetzner, gcp, azure, ansible, vps]
 lang: zh-TW

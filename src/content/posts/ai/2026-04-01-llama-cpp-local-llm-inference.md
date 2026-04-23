@@ -1,6 +1,7 @@
 ---
 title: "llama.cpp — 從純 C++ 到消費級硬體上的 LLM 推論引擎"
 date: 2026-04-01
+type: guide
 category: ai
 tags: [llama-cpp, gguf, quantization, llm-inference, apple-silicon, metal, cuda, local-llm]
 lang: zh-TW

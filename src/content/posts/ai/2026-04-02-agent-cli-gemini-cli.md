@@ -1,6 +1,7 @@
 ---
 title: "Gemini CLI 完整方案分析：業界最慷慨免費額度的終端 Agent"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, gemini-cli, google, pricing, free-tier, terminal-agent]
 lang: zh-TW

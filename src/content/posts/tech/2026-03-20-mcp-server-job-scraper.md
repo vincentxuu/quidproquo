@@ -1,6 +1,7 @@
 ---
 title: "把爬蟲腳本做成 MCP Server，讓 Claude 直接用"
 date: 2026-03-20
+type: guide
 category: tech
 tags: [mcp, claude, python, fastmcp, ai-agent]
 lang: zh-TW

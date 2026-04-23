@@ -1,6 +1,7 @@
 ---
 title: "用 Astro + Cloudflare Workers 從零建立低摩擦部落格"
 date: 2026-03-12
+type: project
 category: product
 tags: [astro, cloudflare, d1, claude-code, blog]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Product Builder：當 AI 讓每個人都能從 0 到 1，產品開發的角色正在重組"
 date: 2026-03-27
+type: project
 category: product
 tags: [product-builder, product-management, ai, vibe-coding, career]
 lang: zh-TW

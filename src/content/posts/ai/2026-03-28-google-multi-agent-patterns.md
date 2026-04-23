@@ -1,6 +1,7 @@
 ---
 title: "Google 的八種 Multi-Agent 設計模式"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [multi-agent, design-patterns, google, agent-architecture, generator-critic, orchestration]
 lang: zh-TW

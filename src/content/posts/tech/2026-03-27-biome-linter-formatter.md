@@ -1,6 +1,7 @@
 ---
 title: "Biome：用 Rust 取代 ESLint + Prettier"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [biome, linter, formatter, rust, dx]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "gstack — Garry Tan 把 Claude Code 變成虛擬工程團隊的 20 個 Skills"
 date: 2026-03-29
+type: guide
 category: tech
 tags: [claude-code, ai, gstack, skills, vibe-coding]
 lang: zh-TW

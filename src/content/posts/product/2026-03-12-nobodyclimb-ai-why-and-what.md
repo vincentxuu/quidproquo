@@ -1,6 +1,7 @@
 ---
 title: "攀岩社群為什麼需要 AI？NobodyClimb 的實驗與學到的事"
 date: 2026-03-12
+type: project
 category: product
 tags: [ai, climbing, rag, community, product]
 lang: zh-TW

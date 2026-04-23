@@ -1,6 +1,7 @@
 ---
 title: "LLM 知識庫的三種模式：知識庫、經驗庫、部落格"
 date: 2026-04-03
+type: guide
 category: ai
 tags: [llm-knowledge-base, obsidian, knowledge-management, fine-tuning, rag, claude-code, karpathy]
 lang: zh-TW

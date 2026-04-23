@@ -1,6 +1,7 @@
 ---
 title: "Redis 入門：快取、Session、Pub/Sub 一次搞懂"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [redis, cache, session, pub-sub]
 lang: zh-TW

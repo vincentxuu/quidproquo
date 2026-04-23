@@ -1,6 +1,7 @@
 ---
 title: "Claude Code settings.json 設定大全：打造你的專屬開發環境"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, configuration, settings, dx, hooks, permissions]
 lang: zh-TW

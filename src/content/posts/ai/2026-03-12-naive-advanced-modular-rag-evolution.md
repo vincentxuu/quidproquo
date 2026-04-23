@@ -1,6 +1,7 @@
 ---
 title: "RAG 的三個世代：從 Naive 到 Modular"
 date: 2026-03-12
+type: deep-dive
 category: ai
 tags: [rag, naive-rag, advanced-rag, modular-rag, architecture, evolution]
 lang: zh-TW

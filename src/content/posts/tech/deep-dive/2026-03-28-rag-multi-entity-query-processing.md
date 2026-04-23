@@ -1,6 +1,7 @@
 ---
 title: "RAG 多實體查詢：當使用者一次丟五條路線，系統只看到第一條"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [rag, ner, query-decomposition, recommendation-system, multi-hop-qa]
 lang: zh-TW

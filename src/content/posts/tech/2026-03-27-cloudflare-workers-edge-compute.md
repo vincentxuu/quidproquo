@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers：不是 Lambda，不是容器，是 V8 Isolate"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [cloudflare-workers, edge-compute, hono, wrangler, serverless]
 lang: zh-TW

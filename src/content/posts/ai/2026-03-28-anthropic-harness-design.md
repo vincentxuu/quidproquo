@@ -1,6 +1,7 @@
 ---
 title: "Anthropic 的 Harness Design：讓 AI Agent 像工程師一樣工作"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [harness-design, ai-agent, anthropic, claude, multi-agent, long-running-agents, agent-sdk]
 lang: zh-TW

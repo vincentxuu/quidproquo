@@ -1,6 +1,7 @@
 ---
 title: "RAG A/B 測試：怎麼科學地比較兩個 Pipeline 配置"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, ab-testing, experimentation, metrics, pipeline]
 lang: zh-TW

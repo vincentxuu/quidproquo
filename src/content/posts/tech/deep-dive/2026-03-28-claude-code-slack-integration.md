@@ -1,6 +1,7 @@
 ---
 title: "Claude Code × Slack：從團隊對話直接啟動 AI 開發任務"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, slack, team-collaboration, ai-agent, automation, dx]
 lang: zh-TW

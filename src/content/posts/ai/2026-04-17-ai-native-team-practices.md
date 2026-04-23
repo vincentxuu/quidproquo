@@ -1,6 +1,7 @@
 ---
 title: "從實戰整理：AI Native 團隊該做好的事"
 date: 2026-04-17
+type: guide
 category: ai
 tags: [ai-native, coding-agent, spec-driven-development, monorepo, ci-cd, code-review, agent-platform, security, observability, git-worktree, adr, human-in-the-loop, cost-management, model-selection, developer-role, failure-handling]
 lang: zh-TW

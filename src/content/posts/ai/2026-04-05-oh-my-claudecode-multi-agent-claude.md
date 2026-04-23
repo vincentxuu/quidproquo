@@ -1,6 +1,7 @@
 ---
 title: "oh-my-claudecode：把 Claude Code 變成多 Agent 協作平台的增強層"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [agent-cli, claude-code, oh-my-claudecode, multi-agent, tmux, orchestration, ultraworkers]
 lang: zh-TW

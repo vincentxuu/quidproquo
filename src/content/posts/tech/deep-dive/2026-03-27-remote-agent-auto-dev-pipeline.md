@@ -1,6 +1,7 @@
 ---
 title: "讓 AI 自己接 Issue、寫 Code、開 PR：用 Claude Code Remote Agent 做到半夜自動開發"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, remote-agent, scheduled-trigger, openspec, github-issues, automation, dx]
 lang: zh-TW

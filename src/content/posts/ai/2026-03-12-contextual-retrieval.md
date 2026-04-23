@@ -1,6 +1,7 @@
 ---
 title: "Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
 lang: zh-TW

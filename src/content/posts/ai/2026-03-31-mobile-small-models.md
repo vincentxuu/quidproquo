@@ -1,6 +1,7 @@
 ---
 title: "能在手機上跑的小模型：2026 年的選擇與限制"
 date: 2026-03-31
+type: guide
 category: ai
 tags: [on-device-ai, small-models, mobile, quantization, llama, gemma, phi, qwen, mistral, smollm, mobilellm]
 lang: zh-TW

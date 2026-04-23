@@ -1,6 +1,7 @@
 ---
 title: "oh-my-codex：在 OpenAI Codex CLI 上疊加結構化工作流的增強層"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [agent-cli, openai-codex, oh-my-codex, workflow, multi-agent, tmux, developer-tools]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "docker restart 不會重新套用 volumes —— bind mount 失效排查記錄"
 date: 2026-03-17
+type: guide
 category: tech
 tags: [docker, docker-compose, bind-mount, devops]
 lang: zh-TW

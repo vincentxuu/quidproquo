@@ -1,6 +1,7 @@
 ---
 title: "Query Classification：讓 RAG 知道該怎麼回答這個問題"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, query-classification, adaptive-routing, tool-selection, llm]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Hybrid Search：用 BM25 + 向量搜尋彌補彼此的盲區"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, hybrid-search, bm25, vector-search, rrf, embedding]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "2026 個人 AI 硬體選購指南：DGX Spark、Mac Studio、MSI AI Edge 全比較"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [hardware, local-inference, dgx-spark, mac-studio, msi-ai-edge, asus-ascent-gx10, llm, edge-ai]
 lang: zh-TW

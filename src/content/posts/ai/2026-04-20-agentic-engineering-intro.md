@@ -1,6 +1,7 @@
 ---
 title: "Agentic Engineering：讓 AI Agent 像真實工程團隊一樣協作"
 date: 2026-04-20
+type: guide
 category: ai
 tags: [agentic-engineering, multi-agent, langgraph, langsmith, a2a, mcp, worker-agent, leader-agent]
 lang: zh-TW

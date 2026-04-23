@@ -1,6 +1,7 @@
 ---
 title: "SPLADE：比 BM25 更聰明的稀疏向量搜尋"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, splade, sparse-vector, bm25, retrieval, hybrid-search]
 lang: zh-TW

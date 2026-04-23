@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 存取控制：Authentication、Secrets 與 OAuth"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, authentication, secrets, oauth, trusted-proxy, secretref, security]
 lang: zh-TW

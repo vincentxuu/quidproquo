@@ -1,6 +1,7 @@
 ---
 title: "從 Stripe 到 Meta：矽谷一線公司如何用 AI Agent 取代鍵盤"
 date: 2026-04-04
+type: guide
 category: ai
 tags: [ai-agent, coding-agents, stripe-minions, agentic-coding, developer-tools, automation, meta, google, uber, amazon]
 lang: zh-TW

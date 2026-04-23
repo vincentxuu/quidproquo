@@ -1,6 +1,7 @@
 ---
 title: "Modular RAG Pipeline：把 RAG 設計成可組合的 DAG"
 date: 2026-03-12
+type: deep-dive
 category: ai
 tags: [rag, pipeline, architecture, modular, dag, cloudflare-workers]
 lang: zh-TW

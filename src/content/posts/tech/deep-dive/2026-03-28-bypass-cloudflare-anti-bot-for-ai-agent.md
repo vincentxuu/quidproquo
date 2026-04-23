@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 繞過 Cloudflare 反爬蟲完整指南：從踩坑到自建 MCP Server"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [cloudflare, anti-bot, playwright, nodriver, stealth, mcp, ai-agent, web-scraping]
 lang: zh-TW

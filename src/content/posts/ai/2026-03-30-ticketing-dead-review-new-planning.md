@@ -1,6 +1,7 @@
 ---
 title: "Ticketing 已死，Review 才是新的 Planning"
 date: 2026-03-30
+type: guide
 category: ai
 tags: [code-review, software-engineering, ai-agent, adr, developer-workflow, ticketing]
 lang: zh-TW

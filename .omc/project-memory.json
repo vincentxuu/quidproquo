@@ -1,0 +1,257 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776914118695,
+  "projectRoot": "/Users/xiaoxu/Projects/quidproquo",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": ">=22.12.0",
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "@playwright/test",
+        "version": "1.58.2",
+        "category": "testing"
+      },
+      {
+        "name": "astro",
+        "version": "6.0.3",
+        "category": "fullstack"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": "Node.js 22.12.0"
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": null,
+    "lintCommand": "pnpm lint",
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "astro dev",
+      "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
+      "deploy": "pnpm build && wrangler deploy --config dist/server/wrangler.json",
+      "preview": "astro preview",
+      "astro": "astro",
+      "lint": "oxlint src/ --ignore-pattern '*.astro'",
+      "check:references": "node scripts/check-post-references.mjs",
+      "sync": "tsx scripts/sync-to-d1.ts",
+      "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
+      "prepare": "simple-git-hooks"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "public",
+      "scripts",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 0,
+      "lastAccessed": 1776914118676,
+      "keyFiles": []
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 6,
+      "lastAccessed": 1776914118680,
+      "keyFiles": [
+        "TODO.md",
+        "blog-improvement-plan.md",
+        "data.md",
+        "plan.md",
+        "yt-to-post-pipeline.md"
+      ]
+    },
+    "migrations": {
+      "path": "migrations",
+      "purpose": "Database migrations",
+      "fileCount": 1,
+      "lastAccessed": 1776914118681,
+      "keyFiles": [
+        "0001_initial.sql"
+      ]
+    },
+    "openspec": {
+      "path": "openspec",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776914118681,
+      "keyFiles": [
+        "config.yaml"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 4,
+      "lastAccessed": 1776914118681,
+      "keyFiles": [
+        "favicon.ico",
+        "favicon.svg",
+        "robots.txt"
+      ]
+    },
+    "references": {
+      "path": "references",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1776914118684,
+      "keyFiles": [
+        "agent-patterns.md",
+        "chatbot-development.md",
+        "context-engineering.md",
+        "harness-engineering.md",
+        "open-source-llm-landscape-2026-03.md"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 7,
+      "lastAccessed": 1776914118686,
+      "keyFiles": [
+        "backfill-types.mjs",
+        "check-post-references.mjs",
+        "create-cron-entry.mjs",
+        "create-cron-stub.mjs",
+        "generate-og-images.mjs"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 2,
+      "lastAccessed": 1776914118687,
+      "keyFiles": [
+        "content.config.ts"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 3,
+      "lastAccessed": 1776914118689,
+      "keyFiles": [
+        "Icons.astro",
+        "PostCard.astro",
+        "TagList.astro"
+      ]
+    },
+    "src/lib": {
+      "path": "src/lib",
+      "purpose": "Library code",
+      "fileCount": 0,
+      "lastAccessed": 1776914118690,
+      "keyFiles": []
+    },
+    "src/pages": {
+      "path": "src/pages",
+      "purpose": "Page components",
+      "fileCount": 4,
+      "lastAccessed": 1776914118691,
+      "keyFiles": [
+        "404.astro",
+        "index.astro",
+        "rss.xml.ts"
+      ]
+    },
+    "src/utils": {
+      "path": "src/utils",
+      "purpose": "Utility functions",
+      "fileCount": 2,
+      "lastAccessed": 1776914118691,
+      "keyFiles": [
+        "relatedPosts.ts",
+        "seriesNav.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/layouts/PostLayout.astro",
+      "accessCount": 12,
+      "lastAccessed": 1776763466756,
+      "type": "file"
+    },
+    {
+      "path": "astro.config.mjs",
+      "accessCount": 7,
+      "lastAccessed": 1776763531894,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/en/index.astro",
+      "accessCount": 6,
+      "lastAccessed": 1776763467187,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.json",
+      "accessCount": 3,
+      "lastAccessed": 1776763467552,
+      "type": "file"
+    },
+    {
+      "path": "scripts/backfill-types.mjs",
+      "accessCount": 3,
+      "lastAccessed": 1776763505152,
+      "type": "file"
+    },
+    {
+      "path": "docs/TODO.md",
+      "accessCount": 1,
+      "lastAccessed": 1776762794438,
+      "type": "file"
+    },
+    {
+      "path": "scripts/check-post-references.mjs",
+      "accessCount": 1,
+      "lastAccessed": 1776763263338,
+      "type": "file"
+    },
+    {
+      "path": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture.md",
+      "accessCount": 1,
+      "lastAccessed": 1776914523436,
+      "type": "file"
+    },
+    {
+      "path": "src/content/posts/marketing/2026-04-23-akiraxclaw-content-model.md",
+      "accessCount": 1,
+      "lastAccessed": 1776914717305,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

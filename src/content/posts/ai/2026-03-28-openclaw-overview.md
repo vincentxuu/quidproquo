@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 文件導讀：200+ 份文件，從哪讀起？"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, ai-gateway, self-hosted, documentation, guide]
 lang: zh-TW

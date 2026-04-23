@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Global Skills 新 Session 找不到？釐清 Skill Discovery 機制與排查方法"
 date: 2026-03-27
+type: debug
 category: tech
 tags: [claude-code, skills, ai-agent, dx, troubleshooting, settings]
 lang: zh-TW

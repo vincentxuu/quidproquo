@@ -1,6 +1,7 @@
 ---
 title: "用 SSH config alias 下載 VPS 檔案"
 date: 2026-03-15
+type: guide
 category: tech
 tags: [ssh, scp, vps, cli, docker]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "nginx 第一個請求必定 502，之後全部正常"
 date: 2026-03-15
+type: guide
 category: tech
 tags: [nginx, docker, dns, upstream, reverse-proxy]
 lang: zh-TW

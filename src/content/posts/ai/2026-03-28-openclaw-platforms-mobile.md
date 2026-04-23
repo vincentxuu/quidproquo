@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 行動平台：iOS 與 Android"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, ios, android, mobile, node, canvas, camera, voice-wake]
 lang: zh-TW

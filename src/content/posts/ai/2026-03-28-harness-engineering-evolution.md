@@ -1,6 +1,7 @@
 ---
 title: "從 Prompt 到 Harness：AI 工程的三次演化"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [harness-engineering, prompt-engineering, context-engineering, ai-agent, agentic-ai]
 lang: zh-TW

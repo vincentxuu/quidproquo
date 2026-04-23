@@ -1,6 +1,7 @@
 ---
 title: "Claude Certified Architect Foundations 考試完整指南"
 date: 2026-03-20
+type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
 lang: zh-TW

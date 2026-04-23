@@ -1,6 +1,7 @@
 ---
 title: "一本由 AI 自己寫的書，教你怎麼跟 AI 一起寫軟體"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [agentic-coding, design-patterns, llm, ai-agent, software-engineering, claude-code]
 lang: zh-TW

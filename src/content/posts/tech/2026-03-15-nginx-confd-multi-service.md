@@ -1,6 +1,7 @@
 ---
 title: "用 nginx conf.d 管理多服務 reverse proxy：以島島為例"
 date: 2026-03-15
+type: guide
 category: tech
 tags: [nginx, devops, docker, reverse-proxy]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 工具篇（三）：Exec 工具、Thinking 層級與 Slash Commands"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, exec, thinking, slash-commands, fast-mode, verbose, reasoning]
 lang: zh-TW

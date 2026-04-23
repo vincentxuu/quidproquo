@@ -1,6 +1,7 @@
 ---
 title: "RAG Streaming：SSE 讓 LLM 回答邊生成邊顯示"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, streaming, sse, server-sent-events, cloudflare-workers, ux]
 lang: zh-TW

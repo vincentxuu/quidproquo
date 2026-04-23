@@ -1,6 +1,7 @@
 ---
 title: "Phil Schmid：為什麼 Agent Harness 是 2026 年最重要的事"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [harness-engineering, ai-agent, agent-harness, model-drift, benchmarks, claude-code]
 lang: zh-TW

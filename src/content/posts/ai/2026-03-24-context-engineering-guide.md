@@ -1,6 +1,7 @@
 ---
 title: "Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型"
 date: 2026-03-24
+type: guide
 category: ai
 tags: [context-engineering, prompt-engineering, ai-agent, rag, memory, agentic-ai]
 lang: zh-TW

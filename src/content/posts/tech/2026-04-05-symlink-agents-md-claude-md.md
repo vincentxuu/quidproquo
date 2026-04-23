@@ -1,6 +1,7 @@
 ---
 title: "Codex 和 Claude Code 的設定檔重複維護問題：用 symlink 一次解決"
 date: 2026-04-05
+type: guide
 category: tech
 tags: [claude-code, codex, agents-md, symlink, dx, ai-tools]
 lang: zh-TW

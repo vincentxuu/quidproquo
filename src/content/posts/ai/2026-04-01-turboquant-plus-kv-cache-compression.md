@@ -1,6 +1,7 @@
 ---
 title: "TurboQuant+ — 用兩階段量化把 KV Cache 壓到 2-bit，讓 MacBook 跑 100B 模型"
 date: 2026-04-01
+type: guide
 category: ai
 tags: [turboquant, kv-cache, quantization, llm-inference, llama-cpp, apple-silicon]
 lang: zh-TW

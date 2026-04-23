@@ -1,6 +1,7 @@
 ---
 title: "Semantic Caching：語義相近的問題只跑一次 RAG"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, semantic-cache, caching, vector-search, performance]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Remote Control：用手機繼續本地開發 Session"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, remote-control, mobile, cross-device, dx]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code /loop：把 AI 變成背景 worker 的排程功能"
 date: 2026-03-16
+type: guide
 category: tech
 tags: [claude-code, ai-tools, automation, scheduling]
 lang: zh-TW

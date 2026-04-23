@@ -1,6 +1,7 @@
 ---
 title: "Code Review Comment 怎麼分類？從 Conventional Comments 到 AI Review 工具的分類體系"
 date: 2026-03-26
+type: guide
 category: tech
 tags: [code-review, conventional-comments, ai-code-review, coderabbit, github-copilot, sonarqube, dx]
 lang: zh-TW

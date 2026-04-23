@@ -1,6 +1,7 @@
 ---
 title: "CRAG：檢索失敗時，自動放寬條件重試"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, crag, corrective-rag, retrieval, fallback]
 lang: zh-TW

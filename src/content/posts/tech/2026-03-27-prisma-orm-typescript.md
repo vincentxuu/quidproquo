@@ -1,6 +1,7 @@
 ---
 title: "Prisma ORM：TypeScript 專案的型別安全資料庫存取"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [prisma, orm, typescript, postgresql, database]
 lang: zh-TW

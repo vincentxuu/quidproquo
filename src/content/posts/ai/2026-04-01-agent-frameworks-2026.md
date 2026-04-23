@@ -1,6 +1,7 @@
 ---
 title: "2026 年 15 個值得關注的 Agent 框架"
 date: 2026-04-01
+type: guide
 category: ai
 tags: [agent, framework, langgraph, crewai, openai, anthropic, google-adk, mastra, openclaw, dify, n8n, llamaindex, metagpt, smolagents, agno, pydantic-ai]
 lang: zh-TW

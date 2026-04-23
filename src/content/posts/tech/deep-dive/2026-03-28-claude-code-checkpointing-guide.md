@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Checkpointing：用 Git 建立 AI 操作的安全還原點"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, checkpointing, git, safety, undo, dx]
 lang: zh-TW

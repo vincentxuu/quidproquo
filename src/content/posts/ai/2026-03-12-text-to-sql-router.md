@@ -1,6 +1,7 @@
 ---
 title: "Text-to-SQL Router：精確查詢不走 RAG"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, text-to-sql, sql, query-routing, structured-query]
 lang: zh-TW

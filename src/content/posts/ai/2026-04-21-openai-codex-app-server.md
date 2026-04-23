@@ -1,6 +1,7 @@
 ---
 title: "Codex App Server：OpenAI 如何把 Agent Harness 變成通用協議"
 date: 2026-04-21
+type: guide
 category: ai
 tags: [codex, app-server, json-rpc, agent-harness, openai, harness-engineering]
 lang: zh-TW

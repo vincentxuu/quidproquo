@@ -1,6 +1,7 @@
 ---
 title: "MarkItDown：把任何檔案餵給 LLM 之前，先讓它變成 Markdown"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [markitdown, llm, rag, document-processing, python]
 lang: zh-TW

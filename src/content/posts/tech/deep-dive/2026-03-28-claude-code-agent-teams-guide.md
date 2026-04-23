@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Agent Teams：讓多個 AI 代理組隊協作"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, agent-teams, multi-agent, parallel-execution, ai-agent, dx]
 lang: zh-TW

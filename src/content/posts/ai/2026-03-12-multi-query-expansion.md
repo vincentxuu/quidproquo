@@ -1,6 +1,7 @@
 ---
 title: "Multi-Query Expansion：一個問題，多個角度搜尋"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, multi-query, query-expansion, recall, rrf]
 lang: zh-TW

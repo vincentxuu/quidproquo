@@ -1,6 +1,7 @@
 ---
 title: "RAG 配額系統：用雙重限制控制 LLM 成本"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, quota, rate-limiting, token-budget, cost-control, cloudflare-workers]
 lang: zh-TW

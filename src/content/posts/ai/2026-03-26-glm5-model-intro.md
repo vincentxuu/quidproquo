@@ -1,6 +1,7 @@
 ---
 title: "GLM-5：智譜 AI 的 744B 開源模型，用華為晶片訓出來的前沿 AI"
 date: 2026-03-26
+type: project
 category: ai
 tags: [glm-5, zhipu-ai, 智譜ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
 lang: zh-TW

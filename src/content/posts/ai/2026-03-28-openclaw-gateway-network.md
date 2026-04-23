@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Gateway 篇（二）：遠端存取、Tailscale 與多 Gateway"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, gateway, remote-access, tailscale, ssh-tunnel, multi-gateway]
 lang: zh-TW

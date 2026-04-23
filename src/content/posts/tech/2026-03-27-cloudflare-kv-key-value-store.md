@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare KV：全球邊緣的 Key-Value Store"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [cloudflare-kv, key-value, cache, edge, cloudflare-workers]
 lang: zh-TW

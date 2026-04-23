@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 完整方案分析：終端 Agent 的深度推理之王"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, claude-code, pricing, opus, sonnet, haiku, subagent, anthropic]
 lang: zh-TW

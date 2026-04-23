@@ -1,6 +1,7 @@
 ---
 title: "OpenAI Codex 完整方案分析：ChatGPT 生態系的 Agent 整合"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, openai-codex, pricing, gpt-5, chatgpt, model-routing]
 lang: zh-TW

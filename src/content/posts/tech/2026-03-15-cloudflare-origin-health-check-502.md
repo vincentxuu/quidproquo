@@ -1,6 +1,7 @@
 ---
 title: "nginx 重啟後 Cloudflare 一直回 502，但 origin 明明是正常的"
 date: 2026-03-15
+type: guide
 category: tech
 tags: [nginx, cloudflare, docker, reverse-proxy, debugging]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "LangGraph：用圖結構管理 Agent 工作流程"
 date: 2026-03-27
+type: guide
 category: ai
 tags: [langgraph, agent, orchestration, rag, workflow]
 lang: zh-TW

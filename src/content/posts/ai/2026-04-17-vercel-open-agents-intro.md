@@ -1,6 +1,7 @@
 ---
 title: "Vercel Open Agents：把 coding agent 從你的筆電搬到雲端"
 date: 2026-04-17
+type: project
 category: ai
 tags: [coding-agent, vercel, open-source, agent-infrastructure, sandbox]
 lang: zh-TW

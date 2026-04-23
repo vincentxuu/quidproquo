@@ -1,6 +1,7 @@
 ---
 title: "數位生態系研究：從 LINE、Shopify 到台灣 MarTech，拆解平台串接策略"
 date: 2026-04-02
+type: project
 category: product
 tags: [martech, digital-ecosystem, line, saas, platform-strategy, taiwan, shopify, super-app]
 lang: zh-TW

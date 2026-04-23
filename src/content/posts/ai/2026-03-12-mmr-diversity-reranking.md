@@ -1,6 +1,7 @@
 ---
 title: "MMR + 熱門度加權：讓推薦結果既相關又多樣"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, mmr, diversity, reranking, popularity, recommendation]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "LLM Council：Karpathy 週末打造的多模型議會，三階段讓 LLM 互相評審"
 date: 2026-04-13
+type: guide
 category: ai
 tags: [llm-council, karpathy, multi-model, openrouter, fastapi, ensemble, peer-review]
 lang: zh-TW

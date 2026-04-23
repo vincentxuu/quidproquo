@@ -1,6 +1,7 @@
 ---
 title: "Claw Code：用 Rust 重寫 Claude Code 的開源 CLI Agent"
 date: 2026-04-05
+type: project
 category: ai
 tags: [agent-cli, claude-code, claw-code, rust, open-source, multi-agent, mcp]
 lang: zh-TW

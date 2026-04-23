@@ -1,6 +1,7 @@
 ---
 title: "深入 Codex Agent Loop：OpenAI 如何讓 AI Agent 持續迭代工作"
 date: 2026-04-21
+type: guide
 category: ai
 tags: [codex, agent-loop, openai, responses-api, prompt-caching, context-window]
 lang: zh-TW

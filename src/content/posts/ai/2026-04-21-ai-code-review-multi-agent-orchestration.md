@@ -1,6 +1,7 @@
 ---
 title: "AI Code Review 走到哪了：從 Cloudflare 的 Multi-Agent 系統看業界現況"
 date: 2026-04-21
+type: guide
 category: ai
 tags: [ai-code-review, multi-agent, cloudflare, claude-code, coderabbit, llm-ops, devops]
 lang: zh-TW

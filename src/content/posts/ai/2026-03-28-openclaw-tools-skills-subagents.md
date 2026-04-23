@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 工具篇（二）：Skills 系統與 Sub-Agent"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, skills, clawhub, sub-agents, skill-md, agent-skills]
 lang: zh-TW

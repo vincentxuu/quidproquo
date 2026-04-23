@@ -1,6 +1,7 @@
 ---
 title: "BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, embedding, bge-m3, multilingual, vector-search, cloudflare-workers-ai]
 lang: zh-TW

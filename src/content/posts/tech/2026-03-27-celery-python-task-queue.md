@@ -1,6 +1,7 @@
 ---
 title: "Celery：Python 生態裡分散式任務佇列的標準解法"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [celery, python, task-queue, async]
 lang: zh-TW

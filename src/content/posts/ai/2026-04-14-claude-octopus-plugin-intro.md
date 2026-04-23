@@ -1,6 +1,7 @@
 ---
 title: "Claude Octopus：把 8 個模型同時掛在 Claude Code 上的共識 Plugin"
 date: 2026-04-14
+type: guide
 category: ai
 tags: [claude-code, plugin, octopus, multi-model, consensus, orchestration, dark-factory]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "你的學習為什麼半途而廢？島島想解決這件事"
 date: 2026-03-12
+type: guide
 category: education
 tags: [self-learning, habit, accountability, learning-community]
 lang: zh-TW

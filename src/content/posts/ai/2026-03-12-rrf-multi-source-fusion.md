@@ -1,6 +1,7 @@
 ---
 title: "RRF：RAG 系統裡多路結果怎麼合併"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, rrf, fusion, ranking, multi-source, retrieval]
 lang: zh-TW

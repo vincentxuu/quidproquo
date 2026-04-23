@@ -1,6 +1,7 @@
 ---
 title: "CLAUDE.md 與 AGENTS.md 完整指南：寫給 AI 看的行為指引"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, claude-md, agents-md, ai-agent, dx, configuration]
 lang: zh-TW

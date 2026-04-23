@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 的全域 Skills 要放哪裡？.claude、Codex Skills、AGENTS.md 的分工"
 date: 2026-04-02
+type: guide
 category: tech
 tags: [ai-agent, skills, claude-code, codex, agents-md, developer-tools]
 lang: zh-TW

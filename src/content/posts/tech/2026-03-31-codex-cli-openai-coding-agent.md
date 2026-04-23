@@ -1,6 +1,7 @@
 ---
 title: "Codex CLI：OpenAI 開源終端機 Coding Agent 完整介紹"
 date: 2026-03-31
+type: project
 category: tech
 tags: [codex, openai, ai-tools, cli, coding-agent, open-source]
 lang: zh-TW

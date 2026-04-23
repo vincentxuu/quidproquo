@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Hooks 完整指南：用事件驅動控制 AI 的每一步"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, hooks, ai-agent, automation, dx, event-driven]
 lang: zh-TW

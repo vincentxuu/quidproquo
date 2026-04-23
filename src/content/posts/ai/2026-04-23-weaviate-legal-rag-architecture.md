@@ -1,6 +1,7 @@
 ---
 title: "36 小時建出法律合約 RAG：Weaviate Query Agent + ColQwen 架構拆解"
 date: 2026-04-23
+type: guide
 category: ai
 tags: [rag, weaviate, legal-ai, colqwen, muvera, vector-database, agentic-search]
 lang: zh-TW

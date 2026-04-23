@@ -1,6 +1,7 @@
 ---
 title: "nginx 502：跨 Compose 專案的容器 DNS 解析踩坑"
 date: 2026-03-16
+type: guide
 category: tech
 tags: [docker, nginx, dns, docker-compose]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 威脅模型：MITRE ATLAS 安全分析與形式驗證"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, security, mitre-atlas, threat-model, formal-verification, tla-plus]
 lang: zh-TW

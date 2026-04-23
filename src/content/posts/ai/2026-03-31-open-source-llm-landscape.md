@@ -1,6 +1,7 @@
 ---
 title: "2026 Q1 開源 LLM 全景圖：從前沿大模型到手機端，完整盤點"
 date: 2026-03-31
+type: project
 category: ai
 tags: [open-source, llm, glm-5, kimi, deepseek, qwen, llama, gemma, mistral, minimax, phi, smollm, gpt-oss, moe, on-device-ai, embedding, reranker, tts, stt, image-generation, video-generation, code-model, ollama, vllm]
 lang: zh-TW

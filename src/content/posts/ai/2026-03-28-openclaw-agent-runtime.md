@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Agent Runtime：Workspace、System Prompt 與 Bootstrap"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, agent, workspace, system-prompt, bootstrap, soul-md, agents-md]
 lang: zh-TW

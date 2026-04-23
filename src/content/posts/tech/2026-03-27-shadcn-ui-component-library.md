@@ -1,6 +1,7 @@
 ---
 title: "shadcn/ui：不是套件，是複製貼上的元件原始碼"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [shadcn-ui, tailwindcss, react, ui]
 lang: zh-TW

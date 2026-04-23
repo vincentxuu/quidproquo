@@ -1,6 +1,7 @@
 ---
 title: "Tamagui：React Native 的 UI framework，為什麼 NobodyClimb 選它而不是 NativeWind"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [tamagui, react-native, ui, styling]
 lang: zh-TW

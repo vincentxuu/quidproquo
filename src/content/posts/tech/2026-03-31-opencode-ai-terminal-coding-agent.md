@@ -1,6 +1,7 @@
 ---
 title: "OpenCode：開源 AI 終端機 Coding Agent 完整介紹"
 date: 2026-03-31
+type: project
 category: tech
 tags: [opencode, ai-tools, cli, coding-agent, open-source, tui]
 lang: zh-TW

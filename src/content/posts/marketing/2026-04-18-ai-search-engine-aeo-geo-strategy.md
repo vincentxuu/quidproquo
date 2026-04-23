@@ -1,6 +1,7 @@
 ---
 title: "你的 JSON-LD 和 schema 對 AI 搜尋引擎是隱形的嗎？各家管線拆解與 AEO/GEO 策略"
 date: 2026-04-18
+type: guide
 category: marketing
 tags: [aeo, geo, ai-seo, web-search, content-strategy, seo, json-ld, schema, structured-data, llms-txt, claude-code, perplexity]
 lang: zh-TW

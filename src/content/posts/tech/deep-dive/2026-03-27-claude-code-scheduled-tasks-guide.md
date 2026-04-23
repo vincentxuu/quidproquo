@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Scheduled Tasks：讓 AI 在雲端自動幫你做事"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, scheduled-tasks, remote-agent, automation, cron, dx]
 lang: zh-TW

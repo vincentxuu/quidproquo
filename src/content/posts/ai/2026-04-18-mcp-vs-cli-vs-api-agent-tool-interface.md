@@ -1,6 +1,7 @@
 ---
 title: "MCP vs CLI vs API：Agent 工具介面的真實分界"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [mcp, agent, cli, api, claude-code, tool-use]
 lang: zh-TW

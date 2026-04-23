@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 架構模式完整指南：從三支柱到 Multi-Agent 的系統化導航"
 date: 2026-03-18
+type: deep-dive
 category: ai
 tags: [agent, architecture, harness, multi-agent, mcp, context-engineering, guide]
 lang: zh-TW

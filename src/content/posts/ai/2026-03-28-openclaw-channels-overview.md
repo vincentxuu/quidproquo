@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 頻道總覽：配對、群組與路由"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, channels, pairing, groups, routing, broadcast]
 lang: zh-TW

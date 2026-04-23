@@ -1,6 +1,7 @@
 ---
 title: "Plan-and-Execute：先規劃再執行的 RAG 模式"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, plan-execute, agentic, multi-step, reasoning]
 lang: zh-TW

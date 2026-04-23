@@ -1,6 +1,7 @@
 ---
 title: "RAG 成本優化：把每次查詢的花費壓到最低"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, cost-optimization, performance, token-budget, caching]
 lang: zh-TW

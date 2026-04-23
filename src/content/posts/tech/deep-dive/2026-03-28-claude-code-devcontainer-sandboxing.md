@@ -1,6 +1,7 @@
 ---
 title: "Claude Code DevContainer & Sandboxing：在隔離環境中安全使用 AI"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, devcontainer, sandboxing, docker, security, dx]
 lang: zh-TW

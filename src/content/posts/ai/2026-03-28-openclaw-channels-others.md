@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 其他頻道：Signal、iMessage、LINE、IRC、Nostr 與更多"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, signal, imessage, bluebubbles, line, irc, nostr, twitch, zalo]
 lang: zh-TW

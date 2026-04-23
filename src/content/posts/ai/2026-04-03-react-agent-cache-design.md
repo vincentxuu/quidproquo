@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 的 Cache 不只一層：從 Claude Code 的 18 種快取到 ReAct Agent 的多層設計"
 date: 2026-04-03
+type: guide
 category: ai
 tags: [react-agent, cache, prompt-cache, semantic-cache, claude-code, cloudflare-kv, llm-cost-optimization]
 lang: zh-TW

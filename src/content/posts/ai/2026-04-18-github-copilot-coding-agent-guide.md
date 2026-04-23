@@ -1,6 +1,7 @@
 ---
 title: "GitHub Copilot Coding Agent：把 Issue 丟給 AI，讓它自己開 PR"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [github, copilot, coding-agent, ai-agent, github-actions, sandbox, pr-automation]
 lang: zh-TW

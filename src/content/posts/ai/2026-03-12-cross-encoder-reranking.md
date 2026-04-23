@@ -1,6 +1,7 @@
 ---
 title: "Cross-Encoder Reranking：讓最相關的文件排到前面"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
 lang: zh-TW

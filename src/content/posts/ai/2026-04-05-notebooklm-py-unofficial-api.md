@@ -1,6 +1,7 @@
 ---
 title: "notebooklm-py：用 Python 操控 Google NotebookLM 的非官方 API"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [notebooklm, google, reverse-engineering, python, rpc]
 lang: zh-TW

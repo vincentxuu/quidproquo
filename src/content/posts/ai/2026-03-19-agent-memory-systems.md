@@ -1,6 +1,7 @@
 ---
 title: "Agent Memory 系統：從 RAG 到 Read-Write 記憶的演化"
 date: 2026-03-19
+type: guide
 category: ai
 tags: [agent, memory, procedural-memory, episodic-memory, semantic-memory, rag]
 lang: zh-TW

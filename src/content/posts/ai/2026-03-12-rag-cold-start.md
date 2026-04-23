@@ -1,6 +1,7 @@
 ---
 title: "RAG 冷啟動：沒有資料時怎麼讓系統能用"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, cold-start, bootstrapping, indexing, data]
 lang: zh-TW

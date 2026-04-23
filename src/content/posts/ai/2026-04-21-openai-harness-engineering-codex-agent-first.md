@@ -1,6 +1,7 @@
 ---
 title: "OpenAI 用 Codex 寫了 100 萬行程式碼：Harness Engineering 實戰"
 date: 2026-04-21
+type: guide
 category: ai
 tags: [harness-engineering, codex, openai, agent-first, agents-md, agentic-coding]
 lang: zh-TW

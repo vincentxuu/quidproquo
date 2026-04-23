@@ -1,6 +1,7 @@
 ---
 title: "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, vector-database, pinecone, weaviate, qdrant, cloudflare-vectorize]
 lang: zh-TW

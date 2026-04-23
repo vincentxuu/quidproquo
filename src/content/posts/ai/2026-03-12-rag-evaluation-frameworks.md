@@ -1,6 +1,7 @@
 ---
 title: "RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, evaluation, ragas, deepeval, trulens, metrics, quality]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Multi-Agent RAG：多個專業 Agent 協作的分散式檢索架構"
 date: 2026-03-16
+type: guide
 category: ai
 tags: [rag, multi-agent, orchestration, distributed-retrieval, agent]
 lang: zh-TW

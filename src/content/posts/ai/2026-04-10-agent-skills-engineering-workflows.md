@@ -1,6 +1,7 @@
 ---
 title: "Agent Skills：讓 AI 代理像資深工程師一樣工作的技能框架"
 date: 2026-04-10
+type: guide
 category: ai
 tags: [agent-skills, ai-agent, harness-engineering, claude-code, cursor, gemini-cli, development-workflow]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "「推薦下一條」和「推薦類似的」不是同一件事 — RAG 推薦系統的意圖消歧"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [rag, intent-classification, nlp, recommendation-system, slot-filling]
 lang: zh-TW

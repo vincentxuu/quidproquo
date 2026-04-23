@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 企業頻道：Slack、Teams、Google Chat 與 Matrix"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, slack, microsoft-teams, google-chat, matrix, enterprise]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Nodes 深入：行動裝置與遠端主機"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, nodes, ios, android, macos, camera, canvas, location, sms]
 lang: zh-TW

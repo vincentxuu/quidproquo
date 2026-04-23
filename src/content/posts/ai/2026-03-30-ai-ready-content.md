@@ -1,6 +1,7 @@
 ---
 title: "AI-Ready Content：把網站變成 AI 可讀的資料來源，完整指南"
 date: 2026-03-30
+type: guide
 category: ai
 tags: [ai-ready-content, llms-txt, geo, rag, web-scraping, structured-data, mcp, seo, rsl, webmcp]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Skill vs Subagent：Claude Code 兩種 Agent 協作模式比較"
 date: 2026-03-30
+type: guide
 category: ai
 tags: [claude-code, multi-agent, subagent, skill]
 lang: zh-TW

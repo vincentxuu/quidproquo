@@ -1,6 +1,7 @@
 ---
 title: "@opennextjs/cloudflare：把 Next.js 跑在 Cloudflare Workers 上"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [opennextjs, cloudflare-workers, nextjs, deployment]
 lang: zh-TW

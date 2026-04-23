@@ -1,6 +1,7 @@
 ---
 title: "Kiro (AWS) 完整方案分析：Spec-Driven 開發的 Agentic IDE"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, kiro, aws, pricing, auto-mode, specs, hooks, bedrock]
 lang: zh-TW

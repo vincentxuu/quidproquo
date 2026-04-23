@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Gateway 篇（一）：設定系統與 Hot Reload"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, gateway, configuration, json5, hot-reload, openclaw-json]
 lang: zh-TW

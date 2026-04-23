@@ -1,6 +1,7 @@
 ---
 title: "用 Cloudflare Workers AI 把前端 mock 變成真的：action-maker AI 整合全記錄"
 date: 2026-03-24
+type: guide
 category: tech
 tags: [cloudflare-workers, hono, workers-ai, qwen3, langfuse, nextjs, postgresql]
 lang: zh-TW

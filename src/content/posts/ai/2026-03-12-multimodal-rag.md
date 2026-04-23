@@ -1,6 +1,7 @@
 ---
 title: "Multimodal RAG：把圖片也納入知識庫"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, multimodal, vision, image-embedding, clip]
 lang: zh-TW

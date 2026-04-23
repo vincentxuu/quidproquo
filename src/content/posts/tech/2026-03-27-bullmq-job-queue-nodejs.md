@@ -1,6 +1,7 @@
 ---
 title: "BullMQ：Node.js 最成熟的 Redis-backed 任務佇列"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [bullmq, redis, queue, nodejs, background-jobs]
 lang: zh-TW

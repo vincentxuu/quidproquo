@@ -1,6 +1,7 @@
 ---
 title: "Better Agent Terminal：把多個專案的 Terminal 和 Claude Code Agent 收進同一個視窗"
 date: 2026-04-13
+type: guide
 category: tech
 tags: [claude-code, electron, terminal, developer-tools, agent, xterm, tony1223]
 lang: zh-TW

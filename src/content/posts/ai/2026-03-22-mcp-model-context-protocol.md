@@ -1,6 +1,7 @@
 ---
 title: "MCP（Model Context Protocol）：AI Agent 工具呼叫的標準化協定"
 date: 2026-03-22
+type: guide
 category: ai
 tags: [mcp, model-context-protocol, tool-use, agent, anthropic]
 lang: zh-TW

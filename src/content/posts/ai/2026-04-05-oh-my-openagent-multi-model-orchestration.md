@@ -1,6 +1,7 @@
 ---
 title: "oh-my-openagent：用多模型 Agent 團隊取代單一 LLM 的編碼框架"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [agent-cli, oh-my-openagent, opencode, multi-agent, multi-model, orchestration, ultraworkers]
 lang: zh-TW

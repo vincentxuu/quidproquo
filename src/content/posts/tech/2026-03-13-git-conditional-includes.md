@@ -1,6 +1,7 @@
 ---
 title: "用 Git Conditional Includes 管理個人與工作帳號"
 date: 2026-03-13
+type: guide
 category: tech
 tags: [git, ssh, workflow]
 lang: zh-TW

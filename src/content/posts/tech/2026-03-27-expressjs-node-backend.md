@@ -1,6 +1,7 @@
 ---
 title: "Express.js：Node.js 後端的預設答案，以及它為什麼還值得選"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [expressjs, nodejs, backend, api]
 lang: zh-TW

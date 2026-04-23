@@ -1,6 +1,7 @@
 ---
 title: "Docker 實務入門：從開發到部署的容器化"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [docker, container, devops, deployment]
 lang: zh-TW

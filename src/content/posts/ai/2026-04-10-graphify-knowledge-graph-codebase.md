@@ -1,6 +1,7 @@
 ---
 title: "Graphify：把程式碼和文件變成可查詢的知識圖譜"
 date: 2026-04-10
+type: guide
 category: ai
 tags: [graphify, knowledge-graph, tree-sitter, ast, code-understanding, claude-code, mcp]
 lang: zh-TW

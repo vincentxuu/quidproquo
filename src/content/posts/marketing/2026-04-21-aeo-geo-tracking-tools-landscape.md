@@ -1,6 +1,7 @@
 ---
 title: "AEO / GEO 工具全景：輸入面、流量面、輸出面——從 isitagentready 到 aeo-radar 到 Profound"
 date: 2026-04-21
+type: project
 category: marketing
 tags: [aeo, geo, ai-visibility, brand-monitoring, open-source, self-hosted, llm, ai-seo, cloudflare, agent-readiness, llms-txt, mcp, ai-crawler, gptbot]
 lang: zh-TW

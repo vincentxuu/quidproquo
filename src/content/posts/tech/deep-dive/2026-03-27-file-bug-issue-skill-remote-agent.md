@@ -1,6 +1,7 @@
 ---
 title: "用 Claude Code Skill 把 Debug 對話變成 GitHub Issue：/file-bug-issue 的設計"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, skill, github-issues, bug-tracking, remote-agent, automation, dx]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Permission Modes 全解析：從預設到 Auto Mode 的五種權限模式"
 date: 2026-03-16
+type: guide
 category: tech
 tags: [claude-code, ai-tools, automation, cli, permissions, auto-mode, security]
 lang: zh-TW

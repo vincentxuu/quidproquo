@@ -1,6 +1,7 @@
 ---
 title: "RAG Prompt Engineering：System Prompt 和 Context 怎麼設計"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, prompt-engineering, system-prompt, context, llm]
 lang: zh-TW

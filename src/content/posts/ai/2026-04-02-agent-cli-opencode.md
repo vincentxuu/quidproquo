@@ -1,6 +1,7 @@
 ---
 title: "OpenCode 完整方案分析：75+ 模型供應商的開源終端 Agent"
 date: 2026-04-02
+type: project
 category: ai
 tags: [agent-cli, opencode, open-source, terminal-agent, multi-provider, ollama]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Plugin 系統：架構與開發指南"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, plugins, sdk, clawhub, channel-plugin, provider-plugin, typescript]
 lang: zh-TW

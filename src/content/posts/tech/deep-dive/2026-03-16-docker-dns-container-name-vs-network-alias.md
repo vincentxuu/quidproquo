@@ -1,6 +1,7 @@
 ---
 title: "Docker DNS 解析：container_name vs network alias"
 date: 2026-03-16
+type: guide
 category: tech
 tags: [docker, dns, docker-compose, networking]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "一個人的全端團隊：從 OpenSpec 到自動部署的 AI 驅動開發流程"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, openspec, ai-agent, ci-cd, code-review, dx, monorepo, github-actions]
 lang: zh-TW

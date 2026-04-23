@@ -1,0 +1,109 @@
+Ralph P0 Verification Session — 2026-04-21
+==========================================
+
+Task: Verify all P0 tasks are complete and working
+
+## Verification Results
+
+All 8 P0 stories verified PASSING with fresh evidence:
+
+US-001 Internal links fixed
+  - pnpm check:references → "checked 260 post files, no reference issues found"
+  - Evidence: exit code 0
+
+US-002 CI Gate (deploy.yml + preview.yml)
+  - Both workflows have `pnpm check:references` before build step
+  - This was the root cause fix: 49 broken links shipped because CI didn't check
+
+US-003 Pre-commit hook
+  - simple-git-hooks in package.json with "pre-commit": "pnpm lint && pnpm check:references"
+  - .git/hooks/pre-commit exists and is executable
+
+US-004 Tag unification ai-agents → ai-agent
+  - Zero frontmatter tag occurrences of "ai-agents" remain
+  - Remaining "ai-agents" strings are only in body text (article slugs/URLs)
+
+US-005 MAX_CHUNK_CHARS = 1500
+  - Verified in src/lib/crawl/config.ts
+  - Note: re-embed needed before RAG Phase 1 (P2)
+
+US-006 404 page at src/pages/404.astro — exists
+
+US-007 English search page at src/pages/en/search.astro — exists
+
+US-008 CLAUDE.md at project root — exists, 71 lines
+
+## Key Learnings
+
+- All P0 tasks were completed in commit 0f140b1 + 2bd8a0b
+- Reference check covers 260 posts (more than the 227 noted in snapshot)
+- MAX_CHUNK_CHARS change requires re-embed before RAG Phase 1 starts (P2 dependency)
+- ai-agents occurrences in body text are not tags, they're file slugs — expected and correct
+
+---
+
+Ralph P1 Implementation Session — 2026-04-21
+=============================================
+
+Task: Implement P1 automatable tasks from docs/TODO.md
+
+## What Was Already Done (discovered via explore)
+- Blog Task 1 (Icons + PostLayout): EXISTS
+- Blog Task 3 (PostCard): EXISTS
+- Blog Task 5 (i18n strings): EXISTS
+- Blog Task 8 (Article page in PostLayout): EXISTS
+- Blog Task 12 (OG Image script): EXISTS
+- Blog Task 13 (Pagefind): EXISTS
+
+## Implemented in This Session
+
+US-001 無障礙基本款 — src/layouts/PostLayout.astro
+  - Added skip-nav link (<a href="#main-content" class="skip-nav">) as first body element
+  - Added id="main-content" to <main>
+  - Added .skip-nav + .skip-nav:focus CSS (position absolute, visually hidden by default)
+  - Added :focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+  - Changed --text-muted: #999 → #767676 (WCAG AA: 4.54:1 contrast ratio)
+
+US-002 英文首頁 about 區塊 — src/pages/en/index.astro
+  - Added <section class="about"> with English intro before post list
+  - Explains blog covers: software engineering, AI agents, climbing, surfing, coffee
+  - Styled with bg-subtle + brand-500 left border
+
+US-003 Nav search link fix — src/layouts/PostLayout.astro
+  - Bug: search href was hardcoded /search for all languages
+  - Fixed: href={lang === 'en' ? '/en/search' : '/search'}
+
+US-004 圖片 lazy loading — astro.config.mjs
+  - Added inline rehypeLazyImages() function (recursive tree visitor)
+  - Added to markdown.rehypePlugins — all markdown img elements get loading="lazy"
+
+US-005 Session-start hook — .claude/settings.json
+  - SessionStart hook: displays last 40 lines of .omc/progress.txt
+  - Stop hook: runs pnpm lint to catch issues before session ends
+
+US-006 批次回填腳本 — scripts/backfill-types.mjs (new file, 130 lines)
+  - Dry-run by default (no file writes); --write flag required for actual changes
+  - Classifies 246 missing-type posts: guide/deep-dive/debug/project
+  - Based on category, tags, title heuristics (no external API)
+  - Outputs per-post reasoning + summary + sampling reminder (抽查 10% = 25 篇)
+
+## Files Changed
+- src/layouts/PostLayout.astro (US-001, US-003)
+- src/pages/en/index.astro (US-002)
+- astro.config.mjs (US-004)
+- .claude/settings.json (US-005)
+- scripts/backfill-types.mjs (US-006, new file)
+
+## Key Learnings
+- PostLayout.astro contains ALL global CSS — no separate .css files
+- Dark mode text-muted #6b7280 already passes WCAG AA; only light mode #999 was failing
+- Nav search link was the only hardcoded href not using lang-aware pattern
+- 246 of 260 posts (94.6%) are missing type field — backfill is high priority for P1
+- @fontsource/noto-sans-tc in package.json but body uses system-ui — font optimization task is moot for LCP (system-ui is fastest); no action needed
+
+## Next Steps (P1 remaining)
+- Human review: run `node scripts/backfill-types.mjs` → sample 25 posts → then `--write`
+- After backfill verified: change `type` to required in src/content.config.ts
+- P1 content tasks still pending: 7 missing tldr (needs Claude generation + review)
+- P1 blog redesign: Task 2 (Nav extraction) is cosmetic, deferred
+- P1 RAG design steps: deferred until RAG is operational (P2)

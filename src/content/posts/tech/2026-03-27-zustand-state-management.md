@@ -1,6 +1,7 @@
 ---
 title: "Zustand：React 最輕量的全域狀態管理"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [zustand, state-management, react]
 lang: zh-TW

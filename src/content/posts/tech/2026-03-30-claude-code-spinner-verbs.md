@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Spinner Verbs：從原始碼挖出 185 個狀態動詞的完整清單"
 date: 2026-03-30
+type: guide
 category: tech
 tags: [claude-code, ai-tools, cli, customization, spinner, ux]
 lang: zh-TW

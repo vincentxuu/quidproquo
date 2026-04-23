@@ -1,6 +1,7 @@
 ---
 title: "Claude Code × MCP Server：讓 AI 連上你的所有工具"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, mcp, mcp-server, ai-agent, integration, dx]
 lang: zh-TW

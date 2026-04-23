@@ -1,6 +1,7 @@
 ---
 title: "LongRAG：用長上下文模型重新思考 RAG 的 Chunking 策略"
 date: 2026-03-15
+type: guide
 category: ai
 tags: [rag, longrag, long-context, chunking, retrieval]
 lang: zh-TW

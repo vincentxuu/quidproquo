@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 安裝指南（上）：npm、Docker、Nix 與本機部署"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, installation, docker, nix, podman, raspberry-pi, bun]
 lang: zh-TW

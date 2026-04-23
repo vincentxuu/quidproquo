@@ -1,6 +1,7 @@
 ---
 title: "為 GitHub Copilot CLI 安裝並驗證 Superpowers：實作、診斷與驗證"
 date: 2026-03-16
+type: guide
 category: tech
 tags: [github-copilot,copilot-cli,superpowers,plugin-install,debugging]
 lang: zh-TW

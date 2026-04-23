@@ -1,6 +1,7 @@
 ---
 title: "Agentic RAG：讓 LLM 自己決定要不要再搜尋一次"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, agentic-rag, react, multi-hop, llm-agent]
 lang: zh-TW

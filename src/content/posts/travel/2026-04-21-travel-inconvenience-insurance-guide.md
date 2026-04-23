@@ -1,6 +1,7 @@
 ---
 title: "2026 旅遊不便險完整指南：新制重點、保障比較與購買方式"
 date: 2026-04-21
+type: guide
 category: travel
 tags: [insurance, travel, 不便險, 旅平險]
 lang: zh-TW

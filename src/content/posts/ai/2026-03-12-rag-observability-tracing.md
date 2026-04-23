@@ -1,6 +1,7 @@
 ---
 title: "RAG Observability：黑盒子變透明的 17 步追蹤"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, observability, tracing, debugging, pipeline, monitoring]
 lang: zh-TW

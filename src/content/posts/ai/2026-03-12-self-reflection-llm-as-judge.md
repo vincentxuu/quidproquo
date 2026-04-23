@@ -1,6 +1,7 @@
 ---
 title: "Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, llm-judge, self-reflection, groundedness, quality-assurance]
 lang: zh-TW

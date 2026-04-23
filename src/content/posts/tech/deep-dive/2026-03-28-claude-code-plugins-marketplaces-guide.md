@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Plugins & Marketplaces：打包分發你的 AI 工作流程"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, plugins, marketplace, skills, agents, hooks, dx]
 lang: zh-TW

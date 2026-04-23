@@ -1,6 +1,7 @@
 ---
 title: "Pi Coding Agent：極簡主義的開源終端機 Coding Harness"
 date: 2026-03-31
+type: project
 category: tech
 tags: [pi, coding-agent, ai-tools, cli, open-source, typescript, ollama, openclaw]
 lang: zh-TW

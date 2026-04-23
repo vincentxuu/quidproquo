@@ -1,6 +1,7 @@
 ---
 title: "OpenHarness：把 Agent Harness 完整開源的框架"
 date: 2026-04-05
+type: project
 category: ai
 tags: [agent-harness, open-source, multi-agent, tool-use, mcp]
 lang: zh-TW

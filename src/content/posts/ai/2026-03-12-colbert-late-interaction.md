@@ -1,6 +1,7 @@
 ---
 title: "ColBERT：向量搜尋的第三條路"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, colbert, late-interaction, retrieval, reranking]
 lang: zh-TW

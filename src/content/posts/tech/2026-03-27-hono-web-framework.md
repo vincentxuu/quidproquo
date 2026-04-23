@@ -1,6 +1,7 @@
 ---
 title: "Hono：為 Edge Runtime 而生的輕量 Web Framework"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [hono, cloudflare-workers, edge, web-framework]
 lang: zh-TW

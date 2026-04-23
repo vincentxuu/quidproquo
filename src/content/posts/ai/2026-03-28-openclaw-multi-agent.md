@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 多 Agent 與 Delegate 架構"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, multi-agent, delegate, session-management, routing]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "NVIDIA DGX Spark：桌上型 AI 超級電腦，把一個 petaFLOP 塞進你的桌面"
 date: 2026-04-02
+type: guide
 category: tech
 tags: [nvidia, dgx-spark, gpu, ai-hardware, blackwell, edge-ai, llm]
 lang: zh-TW

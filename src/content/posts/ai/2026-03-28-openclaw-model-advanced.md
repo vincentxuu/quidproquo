@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 模型進階：Failover、Prompt Caching 與 Token 計費"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, model-failover, prompt-caching, token-usage, cost-optimization]
 lang: zh-TW

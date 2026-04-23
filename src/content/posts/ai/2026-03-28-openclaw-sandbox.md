@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 沙箱機制：Docker、SSH 與 OpenShell"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, sandbox, docker, ssh, openshell, security, tool-policy, elevated]
 lang: zh-TW

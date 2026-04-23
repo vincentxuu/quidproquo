@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 自動化（一）：Cron、Heartbeat 與 Webhook"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, cron, heartbeat, webhook, automation, scheduling]
 lang: zh-TW

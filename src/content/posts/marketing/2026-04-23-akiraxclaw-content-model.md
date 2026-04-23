@@ -1,6 +1,7 @@
 ---
 title: "AKIRAXCLAW 的內容模式：每天 5 篇、三層漏斗、Agent 輔助發布"
 date: 2026-04-23
+type: guide
 category: marketing
 tags: ["content-strategy", "ai-tools", "indie-builder", "monetization", "content-funnel"]
 lang: zh-TW

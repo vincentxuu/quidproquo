@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 桌面平台：macOS、Linux 與 Windows"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, macos, linux, windows, wsl2, systemd, launchd]
 lang: zh-TW

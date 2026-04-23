@@ -1,6 +1,7 @@
 ---
 title: "Next.js 15 + App Router：Server Components 和 use cache 實際上在做什麼"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [nextjs, react, server-components, app-router]
 lang: zh-TW

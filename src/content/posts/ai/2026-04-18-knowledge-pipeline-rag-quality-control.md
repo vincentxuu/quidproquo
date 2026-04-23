@@ -1,6 +1,7 @@
 ---
 title: "knowledge-pipeline：六層管線幫你的 RAG 做品質管控"
 date: 2026-04-18
+type: guide
 category: ai
 tags: [rag, knowledge-management, pipeline, embedding, bge-m3, sqlite, quality-control]
 lang: zh-TW

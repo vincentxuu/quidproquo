@@ -1,6 +1,7 @@
 ---
 title: "MCP Tool 回傳 1M 字元：search_local_jobs 的 token 爆炸問題"
 date: 2026-03-20
+type: debug
 category: tech
 tags: [mcp, python, claude-code, debug]
 lang: zh-TW

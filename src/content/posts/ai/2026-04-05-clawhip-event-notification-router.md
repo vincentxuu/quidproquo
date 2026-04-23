@@ -1,6 +1,7 @@
 ---
 title: "clawhip：讓多 Agent 開發不再失控的事件通知路由器"
 date: 2026-04-05
+type: guide
 category: ai
 tags: [agent-cli, clawhip, notification, discord, slack, tmux, rust, multi-agent, ultraworkers]
 lang: zh-TW

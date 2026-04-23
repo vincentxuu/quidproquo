@@ -1,6 +1,7 @@
 ---
 title: "Zod：TypeScript 的 Runtime 型別驗證"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [zod, typescript, validation, schema]
 lang: zh-TW

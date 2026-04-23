@@ -1,6 +1,7 @@
 ---
 title: "GitHub Actions：CI/CD 的入門與 Monorepo 策略"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [github-actions, ci-cd, automation, devops]
 lang: zh-TW

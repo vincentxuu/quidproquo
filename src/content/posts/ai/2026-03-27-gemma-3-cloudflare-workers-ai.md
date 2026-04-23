@@ -1,6 +1,7 @@
 ---
 title: "Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇"
 date: 2026-03-27
+type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: zh-TW

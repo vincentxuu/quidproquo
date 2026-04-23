@@ -1,6 +1,7 @@
 ---
 title: "Claude Code × Chrome：從 CLI 操控瀏覽器做前端開發自動化"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, chrome, browser-automation, frontend, testing, dx]
 lang: zh-TW

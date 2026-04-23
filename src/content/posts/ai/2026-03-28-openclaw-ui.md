@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw UI：Control UI、TUI 與 Web Chat"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, control-ui, tui, web-chat, dashboard, terminal]
 lang: zh-TW

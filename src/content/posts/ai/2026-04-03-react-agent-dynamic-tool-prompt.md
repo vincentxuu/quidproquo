@@ -1,6 +1,7 @@
 ---
 title: "AI Agent 的 Tool 描述不該是靜態的：從 Claude Code 學到的動態 prompt() 設計"
 date: 2026-04-03
+type: guide
 category: ai
 tags: [react-agent, tool-use, prompt-engineering, claude-code, few-shot, dynamic-prompt]
 lang: zh-TW

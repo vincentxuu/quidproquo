@@ -1,6 +1,7 @@
 ---
 title: "Agentic Engineering 的記憶問題：從類型、實作到擁有權"
 date: 2026-04-20
+type: guide
 category: ai
 tags: [agentic-engineering, memory, langmem, agent-harness, context-engineering, multi-agent]
 lang: zh-TW

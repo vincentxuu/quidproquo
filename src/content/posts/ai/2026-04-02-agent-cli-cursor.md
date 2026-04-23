@@ -1,6 +1,7 @@
 ---
 title: "Cursor CLI 完整方案分析：從 IDE Agent 延伸到終端的全能選手"
 date: 2026-04-02
+type: guide
 category: ai
 tags: [agent-cli, cursor, pricing, cli-agent, cloud-handoff, plan-mode, tui]
 lang: zh-TW

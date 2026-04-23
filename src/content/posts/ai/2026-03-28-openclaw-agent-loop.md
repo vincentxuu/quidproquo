@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Agent Loop：執行迴圈、Streaming 與 Queue"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, agent-loop, streaming, queue, messages, debounce]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Agent CLI 完整指南：設計邏輯、工具比較與使用原則"
 date: 2026-04-01
+type: guide
 category: ai
 tags: [agent-cli, claude-code, codex-cli, gemini-cli, opencode, pi, kiro, aider, amp, cursor-cli, agentic-ai, developer-tools, cli, mcp, context-engineering]
 lang: zh-TW

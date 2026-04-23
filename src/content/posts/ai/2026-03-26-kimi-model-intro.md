@@ -1,6 +1,7 @@
 ---
 title: "Kimi：月之暗面的長文本 AI 模型，憑什麼挑戰 GPT 和 Claude？"
 date: 2026-03-26
+type: project
 category: ai
 tags: [kimi, moonshot-ai, llm, long-context, reasoning, 月之暗面, ai-model, moe, open-source]
 lang: zh-TW

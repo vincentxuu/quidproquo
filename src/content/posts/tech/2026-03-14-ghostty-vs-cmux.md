@@ -1,6 +1,7 @@
 ---
 title: "Ghostty 與 cmux：現代終端機的選擇指南"
 date: 2026-03-14
+type: guide
 category: tech
 tags: [ghostty, cmux, terminal, macos, ai-agent]
 lang: zh-TW

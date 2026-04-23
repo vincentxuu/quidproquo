@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 最佳實踐與常見工作流程：官方推薦的使用模式"
 date: 2026-03-28
+type: guide
 category: tech
 tags: [claude-code, best-practices, workflows, tips, productivity, dx]
 lang: zh-TW

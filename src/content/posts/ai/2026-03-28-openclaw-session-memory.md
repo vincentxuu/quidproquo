@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw Session、Memory 與 Compaction"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, session, memory, compaction, context-engine, pruning]
 lang: zh-TW

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Skill 完整指南：把重複的工作流程變成一句指令"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [claude-code, skill, ai-agent, dx, automation, workflow, agent-skills]
 lang: zh-TW

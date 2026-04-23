@@ -1,6 +1,7 @@
 ---
 title: "Harness Engineering 進階模式：Tool Registry、Guard System 與 Checkpoint-Resume"
 date: 2026-03-30
+type: guide
 category: ai
 tags: [harness-engineering, tool-registry, guard-system, checkpoint-resume, agent]
 lang: zh-TW

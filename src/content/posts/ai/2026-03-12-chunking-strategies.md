@@ -1,6 +1,7 @@
 ---
 title: "Chunking 策略：切塊方式決定 RAG 能不能找到答案"
 date: 2026-03-12
+type: guide
 category: ai
 tags: [rag, chunking, indexing, text-splitting, retrieval]
 lang: zh-TW

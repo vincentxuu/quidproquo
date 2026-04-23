@@ -1,6 +1,7 @@
 ---
 title: "Gemini CLI：Google 開源終端機 AI Agent 完整介紹"
 date: 2026-03-31
+type: project
 category: tech
 tags: [gemini, google, ai-tools, cli, coding-agent, open-source]
 lang: zh-TW

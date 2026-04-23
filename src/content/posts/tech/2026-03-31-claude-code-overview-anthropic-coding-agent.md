@@ -1,6 +1,7 @@
 ---
 title: "Claude Code：Anthropic 終端機 AI Coding Agent 完整介紹"
 date: 2026-03-31
+type: guide
 category: tech
 tags: [claude-code, anthropic, ai-tools, cli, coding-agent]
 lang: zh-TW

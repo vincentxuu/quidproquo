@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare R2：零 Egress 費用的 S3 替代方案"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [cloudflare-r2, object-storage, s3, cloudflare-workers]
 lang: zh-TW

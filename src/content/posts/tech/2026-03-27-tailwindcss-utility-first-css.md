@@ -1,6 +1,7 @@
 ---
 title: "TailwindCSS：utility-first 不只是風格偏好，是一種 CSS 管理策略"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [tailwindcss, css, utility-first, frontend]
 lang: zh-TW

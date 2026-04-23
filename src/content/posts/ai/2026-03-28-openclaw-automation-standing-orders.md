@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw 自動化（二）：Standing Orders 永久指令"
 date: 2026-03-28
+type: guide
 category: ai
 tags: [openclaw, standing-orders, automation, agents-md, autonomous]
 lang: zh-TW

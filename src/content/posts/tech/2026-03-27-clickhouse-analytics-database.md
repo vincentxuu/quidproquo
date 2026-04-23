@@ -1,6 +1,7 @@
 ---
 title: "ClickHouse：當 PostgreSQL 的分析查詢開始變慢，你需要 OLAP"
 date: 2026-03-27
+type: guide
 category: tech
 tags: [clickhouse, analytics, olap, database]
 lang: zh-TW

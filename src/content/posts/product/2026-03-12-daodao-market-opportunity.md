@@ -1,6 +1,7 @@
 ---
 title: "線上學習的下一個戰場：為什麼「完課率」才是真正的問題"
 date: 2026-03-12
+type: project
 category: product
 tags: [edtech, social-learning, market-opportunity, saas]
 lang: zh-TW

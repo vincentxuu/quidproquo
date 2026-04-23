@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers AI binding 全貌：不只是 run()"
 date: 2026-04-17
+type: guide
 category: tech
 tags: [cloudflare-workers-ai, cloudflare, rag, ai-gateway, tomarkdown]
 lang: zh-TW
