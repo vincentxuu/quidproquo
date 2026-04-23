@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 
 // Rehype plugin: add loading="lazy" to all img elements
@@ -28,6 +29,7 @@ export default defineConfig({
   output: 'server',
   adapter: cloudflare({ platformProxy: { enabled: true }, remoteBindings: false }),
   integrations: [
+    react(),
     mdx(),
     sitemap(),
     {

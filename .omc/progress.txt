@@ -107,3 +107,82 @@ US-006 批次回填腳本 — scripts/backfill-types.mjs (new file, 130 lines)
 - P1 content tasks still pending: 7 missing tldr (needs Claude generation + review)
 - P1 blog redesign: Task 2 (Nav extraction) is cosmetic, deferred
 - P1 RAG design steps: deferred until RAG is operational (P2)
+
+## P2 Phase 1A RAG 最小可用系統 (2026-04-23)
+
+### 實作內容
+
+**US-001 依賴 + 環境設定**
+- @langchain/langgraph, @langchain/anthropic, @langchain/core, langfuse, react, @astrojs/react, vitest 安裝
+- vitest.config.ts: cloudflare:workers mock alias → src/test/cloudflare-workers-mock.ts
+- RATE KV 建立 (id: 83f09dbb6f7a4135a84557a4b3f98596)
+- wrangler.jsonc: RATE KV + VECTORIZE_CACHE binding 加入
+- astro.config.mjs: react() integration 加入
+
+**US-002 D1 Migration**
+- migrations/0002_rag_phase1.sql: ALTER TABLE post_chunks/doc_chunks, chunks_fts (FTS5), chat_logs, feedback, settings
+- 本地 migration 執行成功，tables 驗證通過
+
+**US-003 Chunk ID + Contextual (TDD)**
+- src/lib/embed/chunk-id.ts + chunk-id.test.ts (4 tests)
+- src/lib/embed/contextual.ts + contextual.test.ts (3 tests)
+
+**US-004 Embedding Pipeline**
+- src/lib/embed/pipeline.ts: embedPosts/embedDocs/runEmbedPipeline, @cf/baai/bge-large-en-v1.5, batch 100
+- src/pages/api/embed/sync.ts: POST endpoint, session guard
+
+**US-005 Auth (TDD)**
+- src/lib/auth/session.ts + session.test.ts (4 tests)
+- src/lib/auth/rate-limit.ts + rate-limit.test.ts (3 tests)
+
+**US-006 Login Page**
+- src/pages/api/auth/login.ts + logout.ts
+- src/pages/login.astro
+
+**US-007 Langfuse Helper**
+- src/lib/langfuse.ts: createTrace/createSpan/updateTrace/scoreTrace
+
+**US-008 LangGraph State**
+- src/lib/rag/state.ts: StateAnnotation.Root, GraphState type
+
+**US-009 Research Tools**
+- src/lib/rag/tools/search-posts.ts (searchBlogPosts)
+- src/lib/rag/tools/search-docs.ts (searchDocs)
+- src/lib/rag/tools/get-post-detail.ts (getPostDetail)
+
+**US-010 normalize_results (TDD)**
+- src/lib/rag/agents/normalize-results.ts + normalize-results.test.ts (5 tests)
+
+**US-011 Agents**
+- src/lib/rag/agents/planner.ts, research.ts, writer.ts, critic.ts, related-posts.ts
+- src/lib/rag/agents/critic-routing.ts (shouldRetry pure fn, no LangChain dep)
+- critic.test.ts imports from critic-routing (4 tests)
+
+**US-012 Graph Builder**
+- src/lib/rag/graph.ts: planner→research→normalize_results→writer→critic→related
+- NOTE: node renamed 'related_posts'→'related' (conflict with state channel name)
+- src/lib/rag/graph.test.ts: smoke test compile
+
+**US-013 Chat SSE API**
+- src/pages/api/chat.ts: rate limit, admin bypass, SSE stream, chat_logs, langfuse
+
+**US-014 Chat UI**
+- src/components/Chat/AgentSteps.tsx, QuotaIndicator.tsx, MessageInput.tsx, MessageList.tsx, ChatWidget.tsx
+- src/pages/chat.astro
+
+### 測試結果
+- pnpm test: 24 passed (7 test files)
+- pnpm lint: clean
+- pnpm astro check: exit 0 (require CJS warning from Workers adapter, non-fatal)
+
+### 關鍵學習
+- LangGraph node 名稱不可與 StateAnnotation channel 名稱衝突
+- cloudflare:workers 在 Node.js test env 需要 vitest.config.ts alias mock
+- @langchain/core 需明確安裝（不隨 @langchain/langgraph 自動安裝）
+- graph.test.ts 不可 transitive import CloudflareWorkers-dependent code → shouldRetry 抽到 critic-routing.ts
+
+### Next Steps
+- 設定 wrangler secrets: ANTHROPIC_API_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, ADMIN_PASSWORD
+- pnpm sync → POST /api/embed/sync 觸發 embedding pipeline
+- Smoke test: pnpm dev → /chat 測試問答
+- P2 Phase 1B: RAGAS baseline, feature flags

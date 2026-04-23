@@ -1,87 +1,193 @@
 {
-  "title": "P1 任務實作",
-  "description": "完成 docs/TODO.md 中 P1 優先序的可自動化任務",
-  "created": "2026-04-21",
+  "title": "P2 Phase 1A — RAG 最小可用系統",
+  "description": "從零建立 quidproquo RAG chat 系統：依賴安裝 → D1 migration → embed pipeline → auth → LangGraph graph → Chat API → Chat UI → Build 驗證",
+  "created": "2026-04-23",
   "stories": [
     {
       "id": "US-001",
-      "title": "無障礙基本款",
-      "description": "Skip-nav 連結、:focus-visible 鍵盤樣式、--text-muted 對比度修正",
+      "title": "安裝依賴 + 環境設定",
       "acceptanceCriteria": [
-        "src/layouts/PostLayout.astro <body> 開頭有 skip-nav <a> 連結，href='#main-content'，class='skip-nav'",
-        "<main> 有 id='main-content'",
-        "全域 CSS 有 .skip-nav { position: absolute; transform: translateY(-100%); } 與 .skip-nav:focus { transform: translateY(0); } 樣式",
-        "全域 CSS 有 :focus-visible outline 樣式（非 outline: none）",
-        "--text-muted CSS variable 從 #999 改為至少 #767676（WCAG AA 4.54:1 對比度）",
-        "pnpm lint 無新增錯誤"
+        "@langchain/langgraph、@langchain/anthropic、langfuse、react、react-dom、@astrojs/react、vitest 出現在 package.json",
+        "vitest.config.ts 存在，test.environment='node'，include=['src/**/*.test.ts']",
+        "package.json scripts 有 'test' 和 'test:watch'",
+        "astro.config.mjs 加入 react() integration",
+        "wrangler.jsonc 有 RATE KV binding 和 VECTORIZE_CACHE vectorize binding",
+        "pnpm astro check 無 TS 錯誤"
       ],
       "passes": true,
-      "evidence": "PostLayout.astro line 61: skip-nav link; line 80: id=main-content; line 111: #767676; lines 179-196: .skip-nav + :focus-visible styles. pnpm lint: 0 warnings, 0 errors."
+      "evidence": "All deps in package.json. vitest.config.ts created with cloudflare:workers alias. test/test:watch scripts present. react() added to astro.config.mjs. RATE KV (83f09dbb) + VECTORIZE_CACHE added to wrangler.jsonc. astro check exit 0."
     },
     {
       "id": "US-002",
-      "title": "英文首頁 about 區塊",
-      "description": "英文讀者看不懂 Quid Pro Quo，需要一段介紹說明這個 blog 是什麼",
+      "title": "D1 Migration — RAG 資料表",
       "acceptanceCriteria": [
-        "src/pages/en/index.astro 有一個 about 區塊（section 或 div），用英文說明 blog 主題",
-        "介紹文字包含 blog 名稱 'quidproquo' 及內容範疇（tech/life/climbing/surfing 等）",
-        "about 區塊在文章列表之前顯示",
-        "pnpm lint 無新增錯誤"
+        "migrations/0002_rag_phase1.sql 存在，ALTER TABLE post_chunks/doc_chunks 加 image_description、sentence_window",
+        "0002 包含 CREATE VIRTUAL TABLE chunks_fts USING fts5",
+        "0002 包含 CREATE TABLE chat_logs、feedback、settings",
+        "wrangler d1 execute --local --file=migrations/0002_rag_phase1.sql 成功執行",
+        "wrangler d1 execute --local 查詢 sqlite_master 能看到 chunks_fts、chat_logs、feedback、settings"
       ],
       "passes": true,
-      "evidence": "en/index.astro line 38: <section class='about'>; line 39: intro mentioning climbing, surfing, AI agents; lines 60-79: styles. pnpm lint: 0 errors."
+      "evidence": "0002_rag_phase1.sql created. Migration ran successfully locally. Tables verified: chunks_fts, chat_logs, feedback, settings all present in sqlite_master."
     },
     {
       "id": "US-003",
-      "title": "Nav 搜尋連結語言修正",
-      "description": "PostLayout.astro 的搜尋按鈕 href 硬編碼為 /search，英文版應導向 /en/search",
+      "title": "Chunk ID + Contextual Retrieval（TDD）",
       "acceptanceCriteria": [
-        "src/layouts/PostLayout.astro 中搜尋連結 href 為 lang === 'en' ? '/en/search' : '/search'",
-        "其他 nav 連結（categories、tags）已正確使用 lang-aware hrefs 作為參考",
-        "pnpm lint 無新增錯誤"
+        "src/lib/embed/chunk-id.ts 存在，generateChunkId 回傳 16-char hex，穩定且唯一",
+        "src/lib/embed/chunk-id.test.ts 存在，4 個 tests 全過",
+        "src/lib/embed/contextual.ts 存在，buildContextualChunk 正確 prepend context",
+        "src/lib/embed/contextual.test.ts 存在，3 個 tests 全過",
+        "pnpm test 全部通過"
       ],
       "passes": true,
-      "evidence": "PostLayout.astro line 68: href={lang === 'en' ? '/en/search' : '/search'}. pnpm lint: 0 errors."
+      "evidence": "chunk-id.ts and contextual.ts created. 7 tests pass (4 chunk-id + 3 contextual). pnpm test: 24 passed."
     },
     {
       "id": "US-004",
-      "title": "圖片 lazy loading",
-      "description": "Markdown 內容中的圖片需加上 loading='lazy'，減少 CLS",
+      "title": "Embedding Pipeline",
       "acceptanceCriteria": [
-        "astro.config.mjs 的 markdown.rehypePlugins 或 markdown.remarkPlugins 加入自動為 img 補 loading='lazy' 的 plugin",
-        "OR: src/layouts/PostLayout.astro 的 .content img CSS 補上 content-visibility: auto 或其他 CLS 優化",
-        "實作方式不破壞現有 build（pnpm build 在本地可執行，或 pnpm check:references 無錯誤）",
-        "pnpm lint 無新增錯誤"
+        "src/lib/embed/pipeline.ts 存在，export runEmbedPipeline、embedPosts、embedDocs",
+        "pipeline 使用 @cf/baai/bge-large-en-v1.5，batch upsert 100 筆",
+        "src/pages/api/embed/sync.ts 存在，POST endpoint，需 verifySession 驗證，回傳 JSON 結果"
       ],
       "passes": true,
-      "evidence": "astro.config.mjs lines 8-15: rehypeLazyImages() function; line 45: rehypePlugins: [rehypeLazyImages]. pnpm lint: 0 errors."
+      "evidence": "pipeline.ts exports runEmbedPipeline/embedPosts/embedDocs with 100-batch upsert. sync.ts POST endpoint with verifySession guard."
     },
     {
       "id": "US-005",
-      "title": "Session-start hook（lint + progress.txt）",
-      "description": "每次 Claude Code session 啟動時，自動執行 pnpm lint 並讀取 progress.txt",
+      "title": "Auth — Session + Rate Limit（TDD）",
       "acceptanceCriteria": [
-        ".claude/settings.json 的 hooks 有 UserPromptSubmit 或 SessionStart 事件",
-        "hook 指令包含讀取 .omc/progress.txt 或執行 pnpm lint 的邏輯",
-        "設定格式符合 Claude Code hooks 規範（JSON 格式正確）"
+        "src/lib/auth/session.ts 存在，export generateToken、hashToken、createSession、verifySession、deleteSession",
+        "src/lib/auth/session.test.ts 存在，4 個 tests 全過",
+        "src/lib/auth/rate-limit.ts 存在，export checkAndIncrementRateLimit（接受可選 kv 參數）",
+        "src/lib/auth/rate-limit.test.ts 存在，3 個 tests 全過",
+        "pnpm test 全部通過"
       ],
       "passes": true,
-      "evidence": ".claude/settings.json: SessionStart hook reads .omc/progress.txt; Stop hook runs pnpm lint. JSON is valid."
+      "evidence": "session.ts + rate-limit.ts created. 7 auth tests pass. pnpm test: 24 passed."
     },
     {
       "id": "US-006",
-      "title": "批次回填腳本（type 欄位）",
-      "description": "213 篇缺少 type 欄位的文章，需要一個安全的批次處理腳本（dry-run 優先）",
+      "title": "Login Page",
       "acceptanceCriteria": [
-        "scripts/backfill-types.mjs 檔案存在",
-        "腳本預設為 dry-run 模式（不寫入任何文件），加 --write 參數才實際修改",
-        "腳本輸出每篇文章的推薦 type（debug/deep-dive/guide/project）及推斷理由",
-        "腳本基於文章 category、tags、title 進行分類，不呼叫外部 API",
-        "執行 node scripts/backfill-types.mjs 可正常運作（不 crash）",
-        "腳本包含採樣建議：輸出結束後提示人工抽查 10%（約 N 篇）確認分類正確後再執行 --write"
+        "src/pages/api/auth/login.ts 存在，POST handler，密碼正確 Set-Cookie session，redirect /chat",
+        "src/pages/api/auth/logout.ts 存在，POST handler，刪除 session，redirect /login",
+        "src/pages/login.astro 存在，form[method=POST][action=/api/auth/login]，input[type=password]",
+        "login.astro 驗證有效 session 後 redirect /chat",
+        "pnpm astro check 無 TS 錯誤"
       ],
       "passes": true,
-      "evidence": "node scripts/backfill-types.mjs: 260 posts scanned, 246 missing type, breakdown by type, sampling reminder '⚠️ 建議人工抽查 10%（約 25 篇）'. No crash. Dry-run confirmed."
+      "evidence": "login.ts/logout.ts API endpoints + login.astro page created. Astro check exit 0."
+    },
+    {
+      "id": "US-007",
+      "title": "Langfuse Helper",
+      "acceptanceCriteria": [
+        "src/lib/langfuse.ts 存在，export createTrace、createSpan、updateTrace、scoreTrace",
+        "所有函式 non-blocking（.catch() 忽略錯誤），LANGFUSE keys 未設定時靜默 skip",
+        "pnpm astro check 無型別錯誤"
+      ],
+      "passes": true,
+      "evidence": "langfuse.ts created with all 4 exports. All functions use .catch(()=>{}). Empty publicKey check silently returns. Astro check exit 0."
+    },
+    {
+      "id": "US-008",
+      "title": "LangGraph State Definition",
+      "acceptanceCriteria": [
+        "src/lib/rag/state.ts 存在，export StateAnnotation 和 GraphState type",
+        "StateAnnotation 包含 messages（append reducer）、plan、search_results（append reducer）、draft、critique、related_posts、final_response、langfuse_trace_id",
+        "pnpm astro check 無型別錯誤"
+      ],
+      "passes": true,
+      "evidence": "state.ts created with StateAnnotation.Root containing all required fields. Astro check exit 0."
+    },
+    {
+      "id": "US-009",
+      "title": "Research Tools",
+      "acceptanceCriteria": [
+        "src/lib/rag/tools/search-posts.ts 存在，export searchBlogPosts，查 Vectorize + D1 FTS5，回傳 SearchResult[]",
+        "src/lib/rag/tools/search-docs.ts 存在，export searchDocs",
+        "src/lib/rag/tools/get-post-detail.ts 存在，export getPostDetail，從 D1 by slug 取全文",
+        "pnpm astro check 無型別錯誤"
+      ],
+      "passes": true,
+      "evidence": "search-posts.ts, search-docs.ts, get-post-detail.ts all created as LangChain tools. Astro check exit 0."
+    },
+    {
+      "id": "US-010",
+      "title": "normalize_results Node（TDD）",
+      "acceptanceCriteria": [
+        "src/lib/rag/agents/normalize-results.ts 存在，export normalizeResultsNode",
+        "src/lib/rag/agents/normalize-results.test.ts 存在，JSON parse、position ordering、relevance scoring tests",
+        "pnpm test 全部通過"
+      ],
+      "passes": true,
+      "evidence": "normalize-results.ts + test created. 5 tests pass. pnpm test: 24 passed."
+    },
+    {
+      "id": "US-011",
+      "title": "Planner、Writer、Critic、Research、Related Posts Agents",
+      "acceptanceCriteria": [
+        "src/lib/rag/agents/planner.ts 存在，export plannerNode",
+        "src/lib/rag/agents/research.ts 存在，export researchNode",
+        "src/lib/rag/agents/writer.ts 存在，export writerNode",
+        "src/lib/rag/agents/critic.ts 存在，export criticNode 和 shouldRetry",
+        "src/lib/rag/agents/related-posts.ts 存在，export relatedPostsNode",
+        "src/lib/rag/agents/critic.test.ts 存在，shouldRetry routing tests 通過",
+        "pnpm test 全部通過"
+      ],
+      "passes": true,
+      "evidence": "All 5 agent files created. shouldRetry extracted to critic-routing.ts (pure). 4 critic routing tests pass. pnpm test: 24 passed."
+    },
+    {
+      "id": "US-012",
+      "title": "Graph Builder",
+      "acceptanceCriteria": [
+        "src/lib/rag/graph.ts 存在，export buildGraph",
+        "graph 節點順序：planner → research → normalizeResults → writer → critic（條件邊）→ relatedPosts",
+        "src/lib/rag/graph.test.ts 存在，smoke test graph compiles 通過",
+        "pnpm test 全部通過"
+      ],
+      "passes": true,
+      "evidence": "graph.ts created. Node renamed 'related_posts' → 'related' to avoid state channel conflict. graph.test.ts compiles without throwing. pnpm test: 24 passed."
+    },
+    {
+      "id": "US-013",
+      "title": "Chat SSE API Endpoint",
+      "acceptanceCriteria": [
+        "src/pages/api/chat.ts 存在，POST handler",
+        "訪客 IP rate limit 5 次/日，超限回傳 429",
+        "admin session 無 rate limit",
+        "SSE Content-Type text/event-stream 串流輸出",
+        "對話寫入 chat_logs 表",
+        "pnpm astro check 無型別錯誤"
+      ],
+      "passes": true,
+      "evidence": "chat.ts POST handler with rate limiting (429), admin bypass, SSE streaming, chat_logs INSERT, Langfuse tracing. Astro check exit 0."
+    },
+    {
+      "id": "US-014",
+      "title": "Chat UI（React Island）",
+      "acceptanceCriteria": [
+        "src/components/Chat/AgentSteps.tsx、QuotaIndicator.tsx、MessageInput.tsx、MessageList.tsx、ChatWidget.tsx 全部存在",
+        "src/pages/chat.astro 存在，import ChatWidget island，需 session 或 redirect /login",
+        "pnpm astro check 無 TS 錯誤"
+      ],
+      "passes": true,
+      "evidence": "All 5 Chat components created. chat.astro with ChatWidget client:load + session check. Astro check exit 0."
+    },
+    {
+      "id": "US-015",
+      "title": "Build 驗證 + 全部測試通過",
+      "acceptanceCriteria": [
+        "pnpm test 全部通過，無 FAIL",
+        "pnpm lint 無錯誤",
+        "pnpm astro check 無 TS 錯誤",
+        "pnpm build 成功完成"
+      ],
+      "passes": true,
+      "evidence": "pnpm test: 24 passed. pnpm lint: clean. pnpm astro check: exit 0. pnpm build: exit 0."
     }
   ]
 }

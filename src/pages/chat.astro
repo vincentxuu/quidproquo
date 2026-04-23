@@ -1,0 +1,39 @@
+---
+import { verifySession } from '../lib/auth/session'
+import { ChatWidget } from '../components/Chat/ChatWidget'
+const session = Astro.cookies.get('session')?.value
+const isAdmin = session ? await verifySession(session) : false
+---
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ask AI — quidproquo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #fafafa; min-height: 100vh; }
+    .page { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    nav { margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; }
+    nav a { color: #555; text-decoration: none; }
+    nav a:hover { color: #111; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="/">← 首頁</a>
+      {isAdmin && <a href="/api/auth/logout" data-logout>登出</a>}
+    </nav>
+    <ChatWidget client:load />
+  </div>
+  <script>
+    const logoutLink = document.querySelector('[data-logout]')
+    logoutLink?.addEventListener('click', async (e) => {
+      e.preventDefault()
+      await fetch('/api/auth/logout', { method: 'POST' })
+      location.href = '/login'
+    })
+  </script>
+</body>
+</html>
