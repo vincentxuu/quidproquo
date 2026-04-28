@@ -1,16 +1,18 @@
 ---
-title: "Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇"
-date: 2026-03-27
+title: "Gemma on Cloudflare Workers AI：繁中應用的務實選擇"
+date: 2026-04-28
 type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: zh-TW
-tldr: "在 Cloudflare Workers AI 上跑 LLM，gemma-3-12b-it 的繁體中文指令跟隨比 llama-3.1-8b-instruct 明顯更好，12B 參數對 RAG 問答這個 use case 夠用。"
-description: "為什麼選 gemma-3-12b-it 而不是 llama，Cloudflare Workers AI 的使用方式、限制與取捨，以及實際在 nobodyclimb 繁中 RAG 系統中的表現觀察。"
+tldr: "在 Cloudflare Workers AI 上跑 LLM，gemma-3-12b-it 的繁體中文指令跟隨比 llama-3.1-8b-instruct 明顯更好；2026 年 Gemma 4 上線後多了 Vision、Function calling 與 256K context，視需求升級。"
+description: "為什麼選 gemma-3-12b-it 而不是 llama，Cloudflare Workers AI 的使用方式、限制與取捨，以及實際在 nobodyclimb 繁中 RAG 系統中的表現觀察。2026 年更新：Gemma 4 (gemma-4-26b-a4b-it) 已上線，帶來 256K context 與多模態能力。"
 draft: false
 ---
 
 選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——`@cf/google/gemma-3-12b-it` 是在這個限制下最好用的選項。
+
+> **2026-04 更新**：Cloudflare Workers AI 已上線 `@cf/google/gemma-4-26b-a4b-it`，帶來 256K context window、Vision 與 Function calling 支援。本文底部有 [Gemma 4 對比章節](#gemma-4-2026-年更新)。
 
 ## Cloudflare Workers AI 是什麼
 
@@ -127,13 +129,16 @@ const evaluation = JSON.parse(result.response);
 
 ## 跟其他選項比較
 
-| | gemma-3-12b-it (Workers AI) | OpenAI GPT-4o-mini | 自架 Ollama |
-|---|---|---|---|
-| 繁中品質 | 好 | 很好 | 依模型 |
-| 維運成本 | 零 | 零 | 高 |
-| 延遲 | 中等 | 低 | 依硬體 |
-| 彈性 | 低（用 CF 提供的模型） | 中 | 高 |
-| 費用結構 | Token-based | Token-based | 固定硬體成本 |
+| | gemma-3-12b-it (Workers AI) | gemma-4-26b-a4b-it (Workers AI) | OpenAI GPT-4o-mini | 自架 Ollama |
+|---|---|---|---|---|
+| 繁中品質 | 好 | 好 | 很好 | 依模型 |
+| Context window | 8K tokens | 256K tokens | 128K tokens | 依模型 |
+| Vision | 無 | 有 | 有 | 依模型 |
+| Function calling | 無 | 有 | 有 | 依模型 |
+| 維運成本 | 零 | 零 | 零 | 高 |
+| 延遲 | 中等 | 快（MoE active 4B） | 低 | 依硬體 |
+| 彈性 | 低 | 低 | 中 | 高 |
+| 費用結構 | Token-based | $0.10/$0.30 per M tokens | Token-based | 固定硬體成本 |
 
 如果繁體中文品質是最高優先，GPT-4o 系列還是更強。但如果你已經在 Cloudflare 生態系，不想多維護一個 AI 服務的帳戶和 API key，Workers AI 是最順的選擇。
 
@@ -148,10 +153,46 @@ const evaluation = JSON.parse(result.response);
 
 整體判斷：在「不離開 Cloudflare 生態系」的限制下，這是目前最好的繁體中文 LLM 選項。
 
+## Gemma 4（2026 年更新）
+
+2026 年 Cloudflare Workers AI 上線了 `@cf/google/gemma-4-26b-a4b-it`，幾個關鍵升級值得注意：
+
+**架構變化：MoE**  
+Gemma 4 採用 Mixture-of-Experts 架構。總參數 26B，但每次推論只啟動約 4B（a4b = active 4 billion）。實際推論速度比 Gemma 3 12B 更快，同時在多數任務上表現更好。
+
+**256K context window**  
+Gemma 3 在 Workers AI 上只有 8K。Gemma 4 的 256K 是巨大的跳躍，對需要塞入大量文件的 RAG 場景直接受益。
+
+**Vision 支援**  
+可以傳入圖片做視覺理解，適合需要分析截圖、圖表的應用。
+
+**Function calling**  
+原生支援工具呼叫，比起用 prompt 硬塞 JSON 更可靠，適合 agentic workflow。
+
+```typescript
+// Gemma 4 使用方式與 Gemma 3 相同，只換 model ID
+const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+  messages: [
+    { role: "system", content: "你是一個台灣攀岩社群的 AI 助手。" },
+    { role: "user", content: "龍洞有哪些適合初學者的路線？" }
+  ],
+  max_tokens: 1024,
+  stream: true,
+});
+```
+
+**什麼時候升級到 Gemma 4？**
+
+- 需要處理長文件或多份 context → 256K 直接解決 Gemma 3 的 8K 限制
+- 需要 function calling 做 agentic 任務 → Gemma 4 原生支援
+- 需要理解圖片 → Gemma 4 支援 vision
+- 純文字 RAG、預算有限 → Gemma 3 12B 仍夠用，且費用結構不同（Gemma 3 沒有公開定價，Gemma 4 是 $0.10/$0.30 per M tokens）
+
 ## 參考資料
 
 - [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)
 - [Workers AI：Text Generation](https://developers.cloudflare.com/workers-ai/models/text-generation/)
 - [Workers AI：gemma-3-12b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI：gemma-4-26b-a4b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
 - [Google Gemma 3 技術報告](https://ai.google.dev/gemma/docs/gemma3)
 - [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — gemma-3-12b-it 在 20 節點 pipeline 中的完整應用
