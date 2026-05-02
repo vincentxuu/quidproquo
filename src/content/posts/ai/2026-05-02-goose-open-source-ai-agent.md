@@ -16,6 +16,40 @@ AI Coding Agent 工具越來越多，但大多數要嘛綁定特定 IDE、要嘛
 
 ---
 
+## 安裝與快速開始
+
+**Desktop App**：前往 [goose 官方安裝頁](https://goose-docs.ai/docs/getting-started/installation) 下載 macOS / Linux / Windows 版本，解壓縮後直接執行。
+
+**CLI**：
+
+```bash
+curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash
+```
+
+安裝完成後，設定 LLM provider：
+
+```bash
+goose configure
+```
+
+互動式介面會引導你選擇供應商並輸入 API Key。設定完成後開始第一個 session：
+
+```bash
+goose session
+```
+
+接著就像跟開發者對話一樣下指令：
+
+```
+> 幫我寫一個讀取 CSV 並輸出統計摘要的 Python script
+> 把剛才的 script 加上 argparse，讓檔案路徑可以從命令列傳入
+> 執行看看，用 sample.csv 測試
+```
+
+goose 會自動規劃、寫程式、執行，並把結果回報給你。
+
+---
+
 ## 架構與平台
 
 goose 的核心用 **Rust** 寫成，UI 層用 **TypeScript（React）**，這個選擇保證了跨平台的一致性和效能。
