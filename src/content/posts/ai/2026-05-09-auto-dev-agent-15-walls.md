@@ -31,6 +31,8 @@ Stripe Minions 講「The walls matter more than the model」，但〈[從 Stripe
 
 > 這 15 個 walls 是一個有 8 個 sub-repo + 一條既有 Claude Code routine 的小團隊實作版。Stripe Minions 跑在獨立 VM warm pool、Coinbase Cloudbot 有完整 sub-agent council，這些 walls 是抓著「真的會發生」的失敗模式落地，不是 paper design。
 
+> Walls 與「task source」（PM 工具）是解耦的。文中 Notion sync 只是 wall 之外的一個 module；要把 Notion 換成 Linear / Jira / Asana / GitHub Projects，這 15 條 walls 完全不用改。
+
 ---
 
 ## Tier 1：上線前必上的 7 條
