@@ -1,6 +1,6 @@
 ---
-title: "Claude Code /loop：把 AI 變成背景 worker 的排程功能"
-date: 2026-03-16
+title: "Claude Code /loop：把 AI 變成背景 worker 的排程功能（v2.1.72+ 新版）"
+date: 2026-05-09
 type: guide
 category: tech
 tags: [claude-code, ai-tools, automation, scheduling]
@@ -185,7 +185,7 @@ cancel task abc12345
 
 ### 7 天到期
 
-重複任務建立後 **7 天自動過期**，到期前最後跑一次再刪。需要更久的長期排程，到期前重建一次，或直接用 [Routines](/posts/tech/deep-dive/2026-03-27-claude-code-scheduled-tasks-guide) / Desktop scheduled tasks。
+重複任務建立後 **7 天自動過期**，到期前最後跑一次再刪。需要更久的長期排程，到期前重建一次，或直接用 [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide) / Desktop scheduled tasks。
 
 ### Resume 還原
 
@@ -220,7 +220,7 @@ cancel task abc12345
 
 `/loop` 不適合當真正的 overnight cron daemon。需要這些情境換工具：
 
-- **跨 session 的雲端排程**：用 [Routines](/posts/tech/deep-dive/2026-03-27-claude-code-scheduled-tasks-guide)（電腦關著也跑、支援 API/GitHub trigger）
+- **跨 session 的雲端排程**：用 [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)（電腦關著也跑、支援 API/GitHub trigger）
 - **本地長期排程**：用 Desktop scheduled tasks（要電腦開著但不用 session）
 - **CI 整合**：用 GitHub Actions
 
