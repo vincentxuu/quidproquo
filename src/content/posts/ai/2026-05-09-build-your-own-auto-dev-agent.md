@@ -38,7 +38,7 @@ draft: false
 
 - Claude Code 帳號（Pro / Max / Team / Enterprise）含 web 啟用
 - GitHub 帳號 + 至少一個你能 push 的 repo（以下用 8 個 sub-repo 為例）
-- Notion workspace + 一個任務 DB
+- Notion workspace + 一個任務 DB（**或** Linear / Asana / Jira / ClickUp / GitHub Projects 等替代品；後文以 Notion 為例，要換工具只需改 `bin/notion-sync/` 那一個 module）
 - 本機環境：Node 22+ / pnpm 9+ / `gh` CLI / `jq`
 
 ---
