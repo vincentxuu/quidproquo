@@ -11,6 +11,7 @@ export const defaultLang: Lang = 'zh-TW';
 export const ui = {
   'zh-TW': {
     'nav.home': '首頁',
+    'nav.about': '關於',
     'nav.categories': '分類',
     'nav.tags': '標籤',
     'nav.search': '搜尋',
@@ -30,6 +31,7 @@ export const ui = {
   },
   en: {
     'nav.home': 'Home',
+    'nav.about': 'About',
     'nav.categories': 'Categories',
     'nav.tags': 'Tags',
     'nav.search': 'Search',

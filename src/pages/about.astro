@@ -1,0 +1,593 @@
+---
+// src/pages/about.astro
+export const prerender = true;
+import PostLayout from '../layouts/PostLayout.astro';
+---
+
+<PostLayout
+  title="關於"
+  lang="zh-TW"
+  description="Vincent Xu — 財務官轉工程師，自學程式、共同創辦島島阿學，現在在 AI × 產品的邊界工作。攀岩、衝浪、咖啡。"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="zh-TW" href="https://quidproquo.cc/about" />
+    <link rel="alternate" hreflang="en" href="https://quidproquo.cc/en/about" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="content about-page">
+    <div class="about-grid">
+
+      <!-- ── Left sidebar ── -->
+      <aside class="about-sidebar">
+        <div class="about-sidebar-inner">
+          <p class="about-sidebar-name">Vincent<br />Xu</p>
+          <p class="about-sidebar-title">AI Agent Engineer</p>
+          <div class="about-sidebar-rule"></div>
+          <nav class="about-sidebar-nav">
+            <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:vincent.xu.work@gmail.com">Email</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- ── Right content ── -->
+      <div class="about-body">
+        <h1 class="about-h1">關於我</h1>
+
+        <p class="about-intro-lede">
+          我的路徑不典型。國防大學財務管理系畢業，在軍中當了將近六年財務官，管薪資、審憑證、跑預算。後來轉到台東做教育工作者，帶兒童哲學教育與體驗教育課程，同時投入政大實驗教育推動中心辦理的「實驗教育工作者培育計畫」——為期十個月、強調自主學習與場域實踐的培訓。投入教育工作的當下，我就開始真正體驗到：學習這件事，到底在哪裡出了問題。
+        </p>
+        <p>
+          2020 年，我和夥伴共同創辦了島島阿學，想做一個讓自主學習看得見的平台。為了讓想法能夠落地，我開始自學程式，從零寫出第一個 API、第一個 React 元件、第一套部署流程。這段自學的過程，讓我對「從零開始學一件事」有了比較直接的感受——那個鴻溝不是抽象的，我自己跨過來的。
+        </p>
+        <p>
+          2023 年正式轉職成為工程師，走過前後端，到現在在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發。軍中養成的對流程和細節的敏感、教育現場累積的跨角色溝通能力、自學工程時建立的把複雜問題拆解成可執行步驟的習慣——這三件事加在一起，大概就是我現在的樣子。對我來說，寫程式不是目的，而是手段——真正重要的，是做出對人帶來實質幫助的東西。能夠幫助到人，本身就是一件非常有成就感的事。
+        </p>
+        <p>
+          自主學習對我來說不只是個人習慣，是我認為最重要的能力之一。不是課程學完了就結束，而是持續問問題、找資源、動手試、從失敗裡調整——這個循環本身才是核心。我從財務轉教育、從教育轉工程，每一段都靠這個循環撐過去。島島阿學也是從這裡來的——我希望這種學習方式，不只是少數人能走到的路。
+        </p>
+        <p class="about-pullquote">
+          對學習這件事，我的看法是：學習不是囤積知識，是改變思考的方式。好的產品不是功能的堆疊，是對人類行為的深刻理解。<em>Quid pro quo</em>——等價交換。這個部落格是我把工作和思考整理成可以給別人用的形式的地方，然後多給一點。
+        </p>
+        <p>
+          工作之外：攀岩、衝浪、手沖咖啡。這三件事有個共同點——沒有辦法假裝你做到了。岩壁不會因為你充滿信心就讓你過去；浪也不會因為你理解理論就接住你。這種即時、誠實的回饋讓我著迷，也安靜地影響了我對工程和產品的看法。
+        </p>
+
+        <h2 class="about-section-h2"><span class="about-now-label"><span class="live-dot" aria-hidden="true"></span>現在</span></h2>
+        <ul class="about-now-list">
+          <li>在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發，把 AI Agent 接進真實的企業場景</li>
+          <li>和夥伴一起經營 <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">島島阿學</a>，陪伴更多人從「想學」到「完成目標」</li>
+          <li>持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，讓每個攀岩人的故事留下來</li>
+          <li>寫這個部落格，把真正想過的東西整理出來</li>
+        </ul>
+
+        <h2 class="about-section-h2">Projects</h2>
+        <div class="about-projects">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">島島阿學 DaoDao</span>
+              <span class="project-badge">共同創辦人</span>
+            </div>
+            <p class="project-desc">
+              陪伴自主學習者從「想學」到真正完成目標、體驗學習成就感的社群平台，致力打造自主學習的生態圈。透過公開實踐、共同挑戰、AI 推薦，讓學習進展看得見、讓行動持續發生。榮獲 g0v 公民科技競賽與親子天下教育創新 100 獎。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">Product</span>
+              <span class="ptag">Behavioral Design</span>
+              <span class="ptag">Node.js</span>
+              <span class="ptag">Next.js</span>
+              <span class="ptag">RAG</span>
+            </div>
+            <div class="project-links">
+              <a href="https://daodao.so/" class="project-link" target="_blank" rel="noopener noreferrer">官網 →</a>
+              <a href="https://app.daodao.so/" class="project-link" target="_blank" rel="noopener noreferrer">產品 →</a>
+              <a href="https://github.com/daodaoedu/daodao" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+              <a href="/posts/product/2026-03-12-daodao-product-design" class="project-link">文章 →</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">NobodyClimb</span>
+              <span class="project-badge">Side Project</span>
+            </div>
+            <p class="project-desc">
+              攀岩社群平台，讓每個攀岩人的故事留下來。台灣攀岩社群正在快速成長，但沒有一個地方真正屬於這群人——NobodyClimb 想填補這個空缺，讓每一段路線、每一次突破、每一個人的旅程都有地方被記住。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">Community</span>
+              <span class="ptag">Cloudflare Workers</span>
+              <span class="ptag">LangGraph</span>
+              <span class="ptag">RAG</span>
+              <span class="ptag">React Native</span>
+            </div>
+            <div class="project-links">
+              <a href="https://nobodyclimb.cc/" class="project-link" target="_blank" rel="noopener noreferrer">網站 →</a>
+              <a href="https://github.com/vincentxuu/nobodyclimb" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+              <a href="/posts/product/2026-03-12-nobodyclimb-product" class="project-link">文章 →</a>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="about-section-h2">技能 & 工具</h2>
+        <div class="about-skills">
+          <div class="skill-row">
+            <span class="skill-cat">Backend</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Node.js</span>
+              <span class="tag-pill">TypeScript</span>
+              <span class="tag-pill">Express.js</span>
+              <span class="tag-pill">Hono</span>
+              <span class="tag-pill">FastAPI</span>
+              <span class="tag-pill">Python</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">Frontend</span>
+            <div class="skill-tags">
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">Next.js</span>
+              <span class="tag-pill">React Native</span>
+              <span class="tag-pill">TailwindCSS</span>
+              <span class="tag-pill">Zustand</span>
+              <span class="tag-pill">TanStack Query</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">Database</span>
+            <div class="skill-tags">
+              <span class="tag-pill">PostgreSQL</span>
+              <span class="tag-pill">MySQL</span>
+              <span class="tag-pill">Redis</span>
+              <span class="tag-pill">ClickHouse</span>
+              <span class="tag-pill">D1 (SQLite)</span>
+              <span class="tag-pill">Qdrant</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">DevOps</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Docker</span>
+              <span class="tag-pill">GitHub Actions</span>
+              <span class="tag-pill">Cloudflare Workers</span>
+              <span class="tag-pill">Nginx</span>
+              <span class="tag-pill">PM2</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">AI / ML</span>
+            <div class="skill-tags">
+              <span class="tag-pill">LangGraph</span>
+              <span class="tag-pill">RAG Pipeline</span>
+              <span class="tag-pill">LangChain</span>
+              <span class="tag-pill">Vectorize</span>
+              <span class="tag-pill">LLM Evals</span>
+              <span class="tag-pill">Workers AI</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">AI 開發工具</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Claude Code</span>
+              <span class="tag-pill">GitHub Copilot</span>
+              <span class="tag-pill">Cursor</span>
+              <span class="tag-pill">OpenSpec</span>
+              <span class="tag-pill">Codex</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">Product</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Product Design</span>
+              <span class="tag-pill">UX Research</span>
+              <span class="tag-pill">Figma</span>
+              <span class="tag-pill">Community Building</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="about-section-h2">聯絡</h2>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" class="link-chip" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/vincentxuu" class="link-chip" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="mailto:vincent.xu.work@gmail.com" class="link-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</PostLayout>
+
+<style is:global>
+  .about-page {
+    max-width: 900px;
+    padding: 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  /* ── Sidebar ── */
+  .about-sidebar {
+    position: sticky;
+    top: 5.5rem;
+    align-self: start;
+  }
+
+  .about-sidebar-inner {
+    padding-right: 2rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .about-sidebar-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: 2rem;
+    line-height: 1.05;
+    color: var(--brand-900);
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .about-sidebar-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .about-sidebar-rule {
+    height: 1px;
+    background: var(--border);
+    margin: 0.9rem 0;
+  }
+
+  .about-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .about-sidebar-nav a {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.12s;
+  }
+
+  .about-sidebar-nav a:hover {
+    color: var(--brand-500);
+    text-decoration: none;
+  }
+
+  /* ── Right body ── */
+  .about-body {
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .about-h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--brand-900);
+    margin: 0 0 1.4rem;
+    line-height: 1.1;
+  }
+
+  /* Override global .content h2 for about page */
+  .about-section-h2 {
+    font-family: 'DM Serif Display', Georgia, serif !important;
+    font-size: 1.4rem !important;
+    font-weight: 400 !important;
+    color: var(--brand-900) !important;
+    margin: 2.5rem 0 1rem !important;
+    padding-bottom: 0.35rem !important;
+    border-bottom: 1px solid var(--border) !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    justify-content: unset !important;
+  }
+
+  .about-section-h2::after {
+    display: none !important;
+  }
+
+  /* ── Intro lede ── */
+  .about-intro-lede {
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: var(--text-primary);
+    border-left: 3px solid var(--brand-500);
+    padding-left: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── Pull quote ── */
+  .about-pullquote {
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+    color: var(--text-secondary) !important;
+    background: var(--bg-subtle) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    padding: 1rem 1.3rem !important;
+    margin: 1.3rem 0 !important;
+  }
+
+  .about-pullquote em {
+    font-style: italic;
+    color: var(--brand-500);
+    font-weight: 600;
+  }
+
+  /* ── Now section ── */
+  .about-now-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .about-now-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 1.4rem !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .about-now-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    transition: border-color 0.15s;
+    margin-bottom: 0 !important;
+  }
+
+  .about-now-list li::before {
+    content: "→";
+    color: var(--brand-500);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .about-now-list li:hover {
+    border-color: var(--brand-500);
+  }
+
+  /* Live dot */
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand-500);
+    display: inline-block;
+    flex-shrink: 0;
+    animation: live-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--brand-500); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 4px transparent; }
+  }
+
+  /* ── Projects ── */
+  .about-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-page .project-card {
+    padding: 1rem 1.15rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--brand-500);
+    border-radius: 0 8px 8px 0;
+    transition: border-left-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+
+  .about-page .project-card:hover {
+    border-left-color: var(--heading-accent);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateX(3px);
+  }
+
+  .about-page .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .about-page .project-name {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: var(--brand-900);
+  }
+
+  .about-page .project-badge {
+    font-size: 0.59rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+  }
+
+  .about-page .project-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0 0 0.55rem;
+  }
+
+  .about-page .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.28rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .about-page .project-links {
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .about-page .project-link {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--brand-500);
+    text-decoration: none;
+  }
+
+  .about-page .project-link:hover {
+    color: var(--brand-900);
+    text-decoration: none;
+  }
+
+  .about-page .ptag {
+    font-size: 0.62rem;
+    font-weight: 600;
+    background: var(--brand-100);
+    color: var(--brand-700);
+    padding: 0.1rem 0.42rem;
+    border-radius: 3px;
+  }
+
+  /* ── Skills ── */
+  .about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-page .skill-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .about-page .skill-cat {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    min-width: 88px;
+    padding-top: 0.18rem;
+    flex-shrink: 0;
+  }
+
+  .about-page .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  /* ── Contact ── */
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .about-page .link-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 0.36rem 0.82rem;
+    border-radius: 6px;
+    text-decoration: none;
+    background: var(--bg-subtle);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .about-page .link-chip:hover {
+    color: var(--brand-500);
+    border-color: var(--brand-500);
+    text-decoration: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-sidebar {
+      position: static;
+    }
+    .about-sidebar-inner {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding-right: 0;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .about-sidebar-rule {
+      display: none;
+    }
+    .about-sidebar-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .about-body {
+      padding-left: 0;
+    }
+    .about-page .skill-row {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .about-page .skill-cat {
+      min-width: unset;
+    }
+  }
+</style>
