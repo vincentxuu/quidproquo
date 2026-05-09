@@ -25,11 +25,21 @@ import PostLayout from '../layouts/PostLayout.astro';
         <div class="about-sidebar-inner">
           <p class="about-sidebar-name">Vincent<br />Xu</p>
           <p class="about-sidebar-title">AI Agent Engineer</p>
+          <p class="about-sidebar-blurb">做 AI 與產品，把想法做成真正能幫助別人的東西。</p>
           <div class="about-sidebar-rule"></div>
           <nav class="about-sidebar-nav">
-            <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:vincent.xu.work@gmail.com">Email</a>
+            <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.36 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06A9.4 9.4 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.92-1.34 2.77-1.06 2.77-1.06.55 1.42.21 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.09.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.85 0 .27.18.6.69.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1ZM5.6 9.67h2.68V18H5.6V9.67Zm4.36 0h2.57v1.14h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.2 1.84 3.2 4.22V18h-2.68v-3.88c0-.92-.02-2.1-1.24-2.1-1.25 0-1.44.99-1.44 2.03V18H9.96V9.67Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:vincent.xu.work@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16A1.5 1.5 0 0 1 21.5 8v8A1.5 1.5 0 0 1 20 17.5H4A1.5 1.5 0 0 1 2.5 16V8A1.5 1.5 0 0 1 4 6.5Zm0 1.5v.2l8 5.17 8-5.17V8H4Zm16 8V9.96l-7.59 4.91a.75.75 0 0 1-.82 0L4 9.96V16h16Z"/></svg>
+              <span>Email</span>
+            </a>
           </nav>
         </div>
       </aside>
@@ -38,32 +48,70 @@ import PostLayout from '../layouts/PostLayout.astro';
       <div class="about-body">
         <h1 class="about-h1">關於我</h1>
 
-        <p class="about-intro-lede">
-          我的路徑不典型。國防大學財務管理系畢業，在軍中當了將近六年財務官，管薪資、審憑證、跑預算。後來轉到台東做教育工作者，帶兒童哲學教育與體驗教育課程，同時投入政大實驗教育推動中心辦理的「實驗教育工作者培育計畫」——為期十個月、強調自主學習與場域實踐的培訓。投入教育工作的當下，我就開始真正體驗到：學習這件事，到底在哪裡出了問題。
-        </p>
-        <p>
-          2020 年，我和夥伴共同創辦了島島阿學，想做一個讓自主學習看得見的平台。為了讓想法能夠落地，我開始自學程式，從零寫出第一個 API、第一個 React 元件、第一套部署流程。這段自學的過程，讓我對「從零開始學一件事」有了比較直接的感受——那個鴻溝不是抽象的，我自己跨過來的。
-        </p>
-        <p>
-          2023 年正式轉職成為工程師，走過前後端，到現在在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發。軍中養成的對流程和細節的敏感、教育現場累積的跨角色溝通能力、自學工程時建立的把複雜問題拆解成可執行步驟的習慣——這三件事加在一起，大概就是我現在的樣子。對我來說，寫程式不是目的，而是手段——真正重要的，是做出對人帶來實質幫助的東西。能夠幫助到人，本身就是一件非常有成就感的事。
-        </p>
-        <p>
-          自主學習對我來說不只是個人習慣，是我認為最重要的能力之一。不是課程學完了就結束，而是持續問問題、找資源、動手試、從失敗裡調整——這個循環本身才是核心。我從財務轉教育、從教育轉工程，每一段都靠這個循環撐過去。島島阿學也是從這裡來的——我希望這種學習方式，不只是少數人能走到的路。
-        </p>
-        <p class="about-pullquote">
-          對學習這件事，我的看法是：學習不是囤積知識，是改變思考的方式。好的產品不是功能的堆疊，是對人類行為的深刻理解。<em>Quid pro quo</em>——等價交換。這個部落格是我把工作和思考整理成可以給別人用的形式的地方，然後多給一點。
-        </p>
-        <p>
-          工作之外：攀岩、衝浪、手沖咖啡。這三件事有個共同點——沒有辦法假裝你做到了。岩壁不會因為你充滿信心就讓你過去；浪也不會因為你理解理論就接住你。這種即時、誠實的回饋讓我著迷，也安靜地影響了我對工程和產品的看法。
-        </p>
-
         <h2 class="about-section-h2"><span class="about-now-label"><span class="live-dot" aria-hidden="true"></span>現在</span></h2>
         <ul class="about-now-list">
-          <li>在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發，把 AI Agent 接進真實的企業場景</li>
-          <li>和夥伴一起經營 <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">島島阿學</a>，陪伴更多人從「想學」到「完成目標」</li>
-          <li>持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，讓每個攀岩人的故事留下來</li>
-          <li>寫這個部落格，把真正想過的東西整理出來</li>
+          <li><span class="about-now-text">在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發，處理真實企業場景裡的 workflow 與落地問題</span></li>
+          <li><span class="about-now-text">和夥伴一起經營 <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">島島阿學</a>，把自主學習做成能持續發生的產品</span></li>
+          <li><span class="about-now-text">持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，記錄攀岩社群與路線故事</span></li>
+          <li><span class="about-now-text">寫這個部落格，整理 AI、產品、學習與實作裡真正想過的事</span></li>
         </ul>
+
+        <div class="about-prose">
+          <p class="about-intro-lede">
+            我的路徑不典型：財務官、教育工作者、共同創辦島島阿學、自學轉職工程師，到 AI Agent 開發。回頭看，主軸其實只有一條：持續學、持續做，讓抽象的想法變成能真的幫到人的東西。
+          </p>
+
+          <div class="about-timeline" aria-label="職涯時間線">
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2014–2019</div>
+              <div class="about-timeline-content">
+                <h3>軍中財務官</h3>
+                <p>管薪資、審憑證、跑預算。這段時間養成了我對流程、細節與執行落地的敏感。</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2019–2021</div>
+              <div class="about-timeline-content">
+                <h3>轉到教育現場</h3>
+                <p>在台東做教育，也進入實驗教育工作者培育計畫。那時我開始真正碰到「學習為什麼這麼難」這個問題。</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2020</div>
+              <div class="about-timeline-content">
+                <h3>共同創辦島島阿學</h3>
+                <p>因為想解決學習資源不平等的問題，我決定自學程式，自己把想法實踐出來。</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2023–Now</div>
+              <div class="about-timeline-content">
+                <h3>工程師 / AI Agent 開發</h3>
+                <p>轉職做工程師，是因為我發現這份工作很適合我：需要持續學習，也一直有新的挑戰，同時能帶來很直接的成就感。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-notes">
+            <div class="about-principles" aria-label="principles">
+              <p><strong>學習</strong>不是囤積知識，是改變思考方式。</p>
+              <p><strong>產品</strong>不是堆功能，是理解人怎麼行動。</p>
+              <p><strong><em>Quid pro quo</em></strong>：把真正做過、想過的東西整理成別人也能用的形式，然後多給一點。</p>
+            </div>
+
+            <div class="about-offwork">
+              <div class="about-offwork-tags" aria-label="outside of work">
+                <span class="about-offwork-tag">攀岩</span>
+                <span class="about-offwork-tag">衝浪</span>
+                <span class="about-offwork-tag">手沖咖啡</span>
+              </div>
+              <p>我喜歡這些事的直接，也喜歡它們帶來的挑戰。它們很誠實，也很能反映一個人怎麼面對自己。</p>
+            </div>
+          </div>
+        </div>
 
         <h2 class="about-section-h2">Projects</h2>
         <div class="about-projects">

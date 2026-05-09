@@ -25,11 +25,21 @@ import PostLayout from '../../layouts/PostLayout.astro';
         <div class="about-sidebar-inner">
           <p class="about-sidebar-name">Vincent<br />Xu</p>
           <p class="about-sidebar-title">AI Agent Engineer</p>
+          <p class="about-sidebar-blurb">Working across AI and product to make ideas usable.</p>
           <div class="about-sidebar-rule"></div>
           <nav class="about-sidebar-nav">
-            <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:vincent.xu.work@gmail.com">Email</a>
+            <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.36 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06A9.4 9.4 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.92-1.34 2.77-1.06 2.77-1.06.55 1.42.21 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.09.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.85 0 .27.18.6.69.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/vincent-xu-333b7a67/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1ZM5.6 9.67h2.68V18H5.6V9.67Zm4.36 0h2.57v1.14h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.2 1.84 3.2 4.22V18h-2.68v-3.88c0-.92-.02-2.1-1.24-2.1-1.25 0-1.44.99-1.44 2.03V18H9.96V9.67Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:vincent.xu.work@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16A1.5 1.5 0 0 1 21.5 8v8A1.5 1.5 0 0 1 20 17.5H4A1.5 1.5 0 0 1 2.5 16V8A1.5 1.5 0 0 1 4 6.5Zm0 1.5v.2l8 5.17 8-5.17V8H4Zm16 8V9.96l-7.59 4.91a.75.75 0 0 1-.82 0L4 9.96V16h16Z"/></svg>
+              <span>Email</span>
+            </a>
           </nav>
         </div>
       </aside>
@@ -38,32 +48,70 @@ import PostLayout from '../../layouts/PostLayout.astro';
       <div class="about-body">
         <h1 class="about-h1">About</h1>
 
-        <p class="about-intro-lede">
-          My path isn't typical. I graduated from a military university with a degree in financial management, then spent nearly six years as a finance officer in the armed forces — handling payroll, auditing vouchers, managing budgets. Then I moved to Taitung to work as an educator, teaching children's philosophy and experiential education. At the same time I committed to a ten-month educator training program run by NCCU's Taiwan Experimental Education Center — a serious undertaking built around self-directed learning and field practice. Being fully immersed in that work was when I started experiencing the question firsthand: where, exactly, does learning break down?
-        </p>
-        <p>
-          In 2020, I co-founded <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">DaoDao</a> with a team of educators and engineers, trying to build a platform that makes self-directed learning visible. To make the idea real, I taught myself to code from scratch — first API, first React component, first deployment pipeline. That process gave me a more concrete feel for what it means to learn something from scratch — the gap isn't abstract to me. I crossed it myself.
-        </p>
-        <p>
-          I transitioned into engineering professionally in 2023, working across frontend and backend, and now I'm doing AI agent development at <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a>. The attention to process and detail I built in the military, the cross-role communication instincts from education, and the habit of breaking complex problems into executable steps from self-teaching — put those three things together and you get roughly where I am today. For me, writing code isn't the point — it's a means to an end. What actually matters is building things that genuinely help people. And there's a very real satisfaction in knowing that something you made made someone's life a little better.
-        </p>
-        <p>
-          Self-directed learning isn't just a personal habit for me — I think it's one of the most important skills a person can build. Not finishing a course and moving on, but continuously asking questions, finding resources, trying things, and adjusting from failure. That loop is the point. It's what carried me through every transition: military to education, education to engineering. DaoDao came from the same place — I want this kind of learning to be something more people can reach, not just a path a few happen to stumble onto.
-        </p>
-        <p class="about-pullquote">
-          On learning: it's not about accumulating knowledge — it's about changing how you think. On product: it's not about stacking features — it's about deeply understanding how people actually behave. <em>Quid pro quo</em> — something for something. This blog is where I take what I've genuinely worked through and turn it into something useful for someone else. Then give a little extra.
-        </p>
-        <p>
-          Outside work: climbing, surfing, hand-brew coffee. All three share one thing — you can't fake your way through them. The wall doesn't care how confident you are. The wave doesn't care how well you understand the theory. That kind of honest, immediate feedback is something I find fascinating — and it's quietly shaped how I think about engineering and product.
-        </p>
-
         <h2 class="about-section-h2"><span class="about-now-label"><span class="live-dot" aria-hidden="true"></span>Now</span></h2>
         <ul class="about-now-list">
-          <li>Doing AI agent development at <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> — bringing AI agents into real enterprise workflows</li>
-          <li>Running <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">DaoDao</a> with the team — helping more people go from intention to completion</li>
-          <li>Continuing to build <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a> — so every climber's story sticks around</li>
-          <li>Writing this blog — putting things I've actually thought through into words</li>
+          <li><span class="about-now-text">Doing AI agent development at <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> — working on real enterprise workflows and implementation details</span></li>
+          <li><span class="about-now-text">Running <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">DaoDao</a> with the team — turning self-directed learning into a product that keeps people moving</span></li>
+          <li><span class="about-now-text">Continuing to build <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a> — documenting routes, climbers, and community stories</span></li>
+          <li><span class="about-now-text">Writing this blog — sorting through things I've actually tested in AI, product, learning, and craft</span></li>
         </ul>
+
+        <div class="about-prose">
+          <p class="about-intro-lede">
+            My path isn't typical: military finance officer, educator, co-founder, self-taught engineer, then AI agent builder. Looking back, the thread is simple: keep learning, keep building, and turn abstract ideas into things that genuinely help people.
+          </p>
+
+          <div class="about-timeline" aria-label="Career timeline">
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2014–2019</div>
+              <div class="about-timeline-content">
+                <h3>Military finance officer</h3>
+                <p>Handled payroll, voucher auditing, and budgeting. That period built my sensitivity to process, detail, and execution.</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2019–2021</div>
+              <div class="about-timeline-content">
+                <h3>Moved into education</h3>
+                <p>Worked in education in Taitung and joined an educator training program focused on self-directed learning and field practice.</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2020</div>
+              <div class="about-timeline-content">
+                <h3>Co-founded DaoDao</h3>
+                <p>Because I wanted to address unequal access to learning resources, I decided to teach myself how to code and build the idea myself.</p>
+              </div>
+            </div>
+
+            <div class="about-timeline-item">
+              <div class="about-timeline-year">2023–Now</div>
+              <div class="about-timeline-content">
+                <h3>Engineer / AI agent development</h3>
+                <p>I moved into engineering because I realized the work fits me well: it demands constant learning, keeps offering new challenges, and brings a very direct sense of accomplishment.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-notes">
+            <div class="about-principles" aria-label="principles">
+              <p><strong>Learning</strong> isn't collecting knowledge. It's changing how you think.</p>
+              <p><strong>Product</strong> isn't feature stacking. It's understanding how people move.</p>
+              <p><strong><em>Quid pro quo</em></strong>: take what I've genuinely worked through, turn it into something useful, then give a little extra.</p>
+            </div>
+
+            <div class="about-offwork">
+              <div class="about-offwork-tags" aria-label="outside of work">
+                <span class="about-offwork-tag">Climbing</span>
+                <span class="about-offwork-tag">Surfing</span>
+                <span class="about-offwork-tag">Hand-brew coffee</span>
+              </div>
+              <p>They're all honest. If you did it, you did it. If you didn't, you can't hide it. That kind of direct feedback has quietly shaped how I think about engineering and product.</p>
+            </div>
+          </div>
+        </div>
 
         <h2 class="about-section-h2">Projects</h2>
         <div class="about-projects">
