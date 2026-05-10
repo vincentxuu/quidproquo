@@ -2,6 +2,7 @@
 title: ""
 date: YYYY-MM-DD
 category: tech
+type: debug
 tags: []
 lang: zh-TW
 tldr: ""
