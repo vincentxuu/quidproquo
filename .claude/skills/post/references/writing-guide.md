@@ -50,6 +50,26 @@
 - 可以有情緒、可以說「不推薦」、「踩到坑」
 - 不需要介紹自己
 
+## AI 搜尋友善（GEO）
+
+依 Princeton / Georgia Tech / Allen AI / IIT Delhi 在 KDD 2024 發表的 GEO 論文（arxiv 2311.09735），這幾條會顯著影響 ChatGPT / Claude / Perplexity 引用你文章的機率：
+
+| 規則 | 量化效果 | 怎麼做 |
+|---|---|---|
+| **Inline 直接引用權威原文** | Quotation Addition +41% | 不要只放連結；把官方文件 / release note / 論文段落 quote 出來，標明出處 |
+| **數字 > 形容詞** | Statistics Addition +33%（Perplexity 上 +37%） | 「很貴」改「$30/M tokens」、「很多」改「5,000 stars in 3 days」 |
+| **流暢度 > 術語密度** | Fluency Optimization +29% | 簡潔通順比堆技術詞或唯一字更被引用 |
+| **Inline 標來源**（不是只在文末） | Cite Sources +28%（一般站）；對 SERP 第 5 名的網站 **+115.1%** | 引用就 inline 標：「依 Anthropic 文件...」、「KDD 2024 報告...」 |
+| **不要關鍵字塞詞** | Keyword Stuffing **−9%**（懲罰） | 同一關鍵字硬塞會被 GEO 打分扣回去 |
+
+### 在 quidproquo 怎麼落實
+
+- 引述外部研究、官方文件 → 直接 quote 原文段（一兩句），標明出處
+- 比較數字 → 用具體 metric 而非形容詞（速度差「快很多」→「快 3.2 倍 / TTFT 從 800ms 降到 250ms」）
+- 第一段就帶 1-2 個關鍵數字或名詞，方便被當成 snippet 抽取
+- 文末 `## 參考資料` 列完整來源清單**不能取代** inline 標來源
+- 寫長文時，每個主要章節都要至少一個可引用的事實點（數字、quote、版本號）
+
 ## 參考資料規則（硬性）
 
 - 文章引用外部工具、框架、模型、官方文件、論文、版本資訊、數據比較、外部說法 → 文末必須有 `## 參考資料`
