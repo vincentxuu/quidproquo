@@ -11,8 +11,6 @@ import type { GraphState } from './state'
 
 export function buildGraph() {
   const graph = new StateGraph(StateAnnotation)
-
-  graph
     .addNode('planner', plannerNode)
     .addNode('research', researchNode)
     .addNode('normalize_results', normalizeResultsNode)

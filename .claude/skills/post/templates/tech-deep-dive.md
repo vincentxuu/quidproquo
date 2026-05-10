@@ -2,6 +2,7 @@
 title: ""
 date: YYYY-MM-DD
 category: tech
+type: deep-dive
 tags: []
 lang: zh-TW
 tldr: ""

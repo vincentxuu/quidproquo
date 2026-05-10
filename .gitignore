@@ -32,3 +32,4 @@ pnpm-debug.log*
 
 # MCP server dependencies
 .claude/mcp-servers/*/node_modules/
+.research/
