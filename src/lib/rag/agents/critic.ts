@@ -1,10 +1,10 @@
 import type { Critique, GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createAnthropicModel } from '../model'
+import { createModel } from '../model'
 export { shouldRetry } from './critic-routing'
 
 export async function criticNode(state: GraphState): Promise<Partial<GraphState>> {
-  const model = createAnthropicModel()
+  const model = createModel()
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -14,28 +14,48 @@ export async function criticNode(state: GraphState): Promise<Partial<GraphState>
 Evaluate the draft response and return JSON only, no markdown:
 {
   "confidence": 0.0-1.0,
+  "answer_relevance": 0.0-1.0,
+  "intent_alignment": 0.0-1.0,
+  "drift_detected": boolean,
   "ungrounded_claims": ["claim not supported by sources"],
   "gaps": ["what question left unanswered"]
 }
 
 Available source URLs: ${sourceUrls.join(', ')}
-Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry`
+Validation status before review: ${state.validation.passed ? 'passed' : `failed - ${state.validation.errors.join('; ')}`}
+Original plan intent: ${state.plan.intent}
+Original plan complexity: ${state.plan.complexity}
+Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
+Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
+Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.`
 
   const response = await model.invoke([
     new SystemMessage(systemPrompt),
     new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
   ])
 
-  let critique: Critique = { confidence: 0.5, ungrounded_claims: [], gaps: [] }
+  let critique: Critique = {
+    confidence: 0.8,
+    answer_relevance: 1,
+    intent_alignment: 1,
+    drift_detected: false,
+    ungrounded_claims: [],
+    gaps: [],
+  }
   try {
-    critique = JSON.parse(String(response.content))
+    const raw = JSON.parse(String(response.content))
+    critique = {
+      confidence: raw.confidence ?? 0.8,
+      answer_relevance: raw.answer_relevance ?? 1,
+      intent_alignment: raw.intent_alignment ?? 1,
+      drift_detected: raw.drift_detected ?? false,
+      ungrounded_claims: Array.isArray(raw.ungrounded_claims) ? raw.ungrounded_claims : [],
+      gaps: Array.isArray(raw.gaps) ? raw.gaps : [],
+    }
   } catch { /* use default */ }
-
-  const newIteration = state.iteration + 1
 
   return {
     critique,
-    iteration: newIteration,
     token_usage: {
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,

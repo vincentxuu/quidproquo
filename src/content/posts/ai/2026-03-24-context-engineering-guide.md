@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Context Engineering 是 2025 年取代 Prompt Engineering 的核心概念：重點不再是「怎麼問」，而是「給什麼資訊」。把對的資訊在對的時機送進 context window，比換更強的模型更有效。這篇整理了定義、四大策略、實作技巧和常見失敗模式。"
 description: "深入解析 Context Engineering 的定義、起源、核心策略（Write、Select、Compress、Isolate），以及 Anthropic、LangChain、Karpathy 等人的實作建議。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 1
 ---
 
 2025 年中，AI 工程圈突然集體換了一個詞。

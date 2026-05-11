@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "同一個模型在不同的 harness 設計下會產生截然不同的結果。Anthropic 用雙 Agent 架構、跨 session 狀態檔、GAN 式 generator-evaluator 迴圈，讓 Claude 能自主完成數小時的軟體開發任務。"
 description: "導讀 Anthropic 工程部落格的兩篇 harness design 文章，拆解長時間運行 AI agent 的架構設計：雙 Agent 架構、claude-progress.txt 狀態傳遞、GAN 啟發的生成-評估迴圈，以及模型進步如何改變框架設計。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 2
 ---
 
 Anthropic 工程團隊在 2025 年底到 2026 年初陸續發了兩篇關於 harness design 的文章，分別是 [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) 和 [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps)。兩篇合在一起，幾乎是目前公開文獻中對「怎麼讓 AI agent 持續工作好幾個小時」最完整的實戰紀錄。

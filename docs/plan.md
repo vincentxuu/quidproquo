@@ -435,29 +435,29 @@ Cloudflare Browser Rendering `/crawl` endpoint，一個 API call 即可爬取整
 
 ### Phase 3 — 爬蟲整合（計畫見 `docs/superpowers/plans/2026-03-12-crawler-integration.md`）
 
-- [ ] 實作 `/api/crawl/sync` endpoint
-- [ ] 設定要爬取的技術文件站清單
-- [ ] 實作 Markdown → chunking pipeline
-- [ ] 設定 Cron Trigger 定期爬取
+- [x] 實作 `/api/crawl/sync` endpoint
+- [x] 設定要爬取的技術文件站清單
+- [x] 實作 Markdown → chunking pipeline
+- [x] 設定 Cron Trigger 定期爬取
 - [ ] 增量更新機制（modifiedSince）
 
 **交付物**：自動更新的外部技術文件知識庫
 
 ### Phase 4 — RAG 系統（計畫見 `docs/superpowers/plans/2026-03-12-rag-system.md`）
 
-- [ ] 建立 Vectorize index
-- [ ] 實作 chunk → embedding → upsert pipeline
-- [ ] 建立 `/api/rag/query` endpoint
-- [ ] 前端搜尋/問答 UI 元件
+- [x] 建立 Vectorize index
+- [x] 實作 chunk → embedding → upsert pipeline
+- [x] 建立聊天式查詢 endpoint（目前為 `/api/chat` SSE，而非舊規劃中的 `/api/rag/query`）
+- [x] 前端搜尋/問答 UI 元件（`/chat` + React ChatWidget）
 
 **交付物**：可查詢文章 + 技術文件的 RAG API
 
 ### Phase 5 — 進階功能
 
-- [ ] RSS feed（`@astrojs/rss`）
-- [ ] 靜態搜尋（Pagefind）
-- [ ] OG Image 自動產生
-- [ ] Langfuse observability 串接
+- [x] RSS feed（`@astrojs/rss`）
+- [x] 靜態搜尋（Pagefind）
+- [x] OG Image 自動產生
+- [x] Langfuse observability 串接
 - [ ] 進階 RAG 策略（reranking、HyDE）
 
 **交付物**：production-ready 的完整平台

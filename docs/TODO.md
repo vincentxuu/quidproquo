@@ -1,7 +1,7 @@
 # quidproquo 任務總清單
 
 > 整合來源：`docs/plan.md`、`docs/superpowers/plans/`、`src/content/posts/product/2026-04-18-quidproquo-improvement-roadmap.md`
-> 最後更新：2026-04-21（依 Codex + Haiku 審查調整優先序、補依賴關係）
+> 最後更新：2026-05-12（校正已實作項目，並同步 `docs/blog-improvement-plan.md`；確認 404 / 英文搜尋 / 英文首頁 about / session-start / progress / RSS author / font preload 已落地）
 >
 > **設計鐵律：每個加上去的技術都必須能關掉。**
 > 所有進階技術（HyDE、Multi-query、Reranker、Critic...）都必須有 feature flag、有 A/B 比較機制、只為觀測到的失敗而加。
@@ -12,13 +12,13 @@
 
 | 指標 | 數值 |
 |------|------|
-| 總文章數 | 227 篇 |
-| 斷連結數 | 49 個（影響約 40 篇文章） |
+| 總文章數 | 284 篇 |
+| 斷連結數 | 0 個（`pnpm check:references` 已通過） |
 | 草稿數 | 17 篇 |
-| 缺 `type` 欄位 | 213 篇（94%） |
-| 缺 `series` 欄位 | 199 篇（88%） |
-| 缺 `tldr` | 7 篇 |
-| Tag 不一致 | `ai-agent` vs `ai-agents`（35 篇） |
+| 缺 `type` 欄位 | 15 篇（約 5%） |
+| 缺 `series` 欄位 | 242 篇（約 85%） |
+| 缺 `tldr` | 0 篇 |
+| Tag 不一致 | 0（`ai-agents` 已清空，現為 `ai-agent` 37 篇） |
 
 ---
 
@@ -60,43 +60,48 @@
 - [ ] **撰寫批次回填腳本 + 人工抽樣規則 + 失敗回滾方案**（前置步驟，缺此步驟直接改 schema 會讓 build 炸）
   - 回滾機制需明確：git revert（純 frontmatter 修改）或 D1 snapshot restore（若已 sync 進 DB）
   - 抽樣規則：至少抽查 10% 文章（約 20 篇）人工確認分類正確
-- [ ] **補上 213 篇缺失的 `type` 欄位**（批次腳本或 LLM 自動分類，人工 review）
+- [ ] **補上 15 篇缺失的 `type` 欄位**（批次腳本或 LLM 自動分類，人工 review）
   - **前置依賴**：tag 統一完成後再跑，避免分類結果基於不一致 tag
-- [ ] **補上 7 篇缺失的 `tldr`**（Claude 批量生成，人工 review）
+- [x] **補上缺失的 `tldr`**（目前缺口已清為 0）
 - [ ] **backfill 驗證通過後**，再將 `src/content.config.ts` 中 `type` 改為 required
 
 ### 網站技術
 
-- [ ] **英文首頁加上 about 區塊**（英文讀者看不懂「Quid Pro Quo」是什麼）
-- [ ] **字型載入優化（影響 LCP）** — `<link rel="preload" as="font">` + `font-display: swap`；目標：LCP < 2.5s（用 Lighthouse 在首頁量）
-- [ ] **圖片尺寸 + lazy loading（影響 CLS）** — 啟用 `astro:assets`，markdown 圖片補 `loading="lazy"` 與 width/height；目標：CLS < 0.1
-- [ ] **無障礙基本款** — Skip Navigation 連結、`:focus-visible` 鍵盤樣式、`--text-muted: #999` 對比度需達 WCAG AA（用 axe 在首頁與文章頁驗）
-- [ ] **Blog 前端改版**（詳細步驟：`docs/superpowers/plans/2026-03-12-blog-redesign.md`）
-  - [ ] Task 1：Icons component + CSS design tokens + PostLayout 更新
-  - [ ] Task 2：Nav 改版
-  - [ ] Task 3：PostCard 改版
-  - [x] Task 4：Reading time remark plugin（`src/plugins/remarkReadingTime.ts` 已存在；確認 schema 欄位是否已補）
-  - [ ] Task 5：i18n strings 更新
-  - [x] Task 7：Related posts + series nav utilities（`src/utils/seriesNav.ts` 已存在；確認整合狀態）
-  - [ ] Task 8：Article page 改版
-  - [x] Task 10：RSS Feed（`src/pages/rss.xml.ts` 已存在；補 `<author>` 標籤即可）
+- [x] **英文首頁加上 about 區塊** — `src/pages/en/index.astro` 已補說明區塊
+- [x] **字型載入優化（影響 LCP）** — `PostLayout.astro` 已加入字型 preload 與 `font-display: swap`
+  - [x] **圖片尺寸 + lazy loading（影響 CLS）** — `astro.config.mjs` 統一補 `loading="lazy"` / `decoding="async"`，現有 markdown 圖片已補 `width` / `height`
+- [x] **無障礙基本款** — Skip Navigation、`:focus-visible`、`--text-muted` 已在 `PostLayout.astro`；axe 驗證仍可補做
+- [x] **Blog 前端改版**（詳細步驟：`docs/superpowers/plans/2026-03-12-blog-redesign.md`）
+  - [x] Task 1：Icons component + CSS design tokens + PostLayout 更新（`src/components/Icons.astro`、`src/layouts/PostLayout.astro` 已完成）
+  - [x] Task 2：Nav 改版（nav、theme toggle、lang switch、RSS、progress bar 已在 `PostLayout.astro`）
+  - [x] Task 3：PostCard 改版（`src/components/PostCard.astro` 已有 category/type/series/reading time 卡片樣式）
+  - [x] Task 4：Reading time remark plugin（`src/plugins/remarkReadingTime.ts` 已存在並接到 `astro.config.mjs`；schema 欄位可後續再收斂）
+  - [x] Task 5：i18n strings 更新（`src/i18n/ui.ts` 已含 nav / TOC / series / prev-next / related 等字串）
+  - [x] Task 7：Related posts + series nav utilities（`src/utils/seriesNav.ts` 已存在，且 `src/pages/posts/[...slug].astro` 已接上 series nav）
+  - [x] Task 8：Article page 改版（`src/pages/posts/[...slug].astro` 已含 hero、TL;DR、TOC、copy button、prev/next、related、series nav）
+  - [x] Task 10：RSS Feed（`src/pages/rss.xml.ts`、`src/pages/en/rss.xml.ts` 已存在，且 `<author>` 已補）
   - [x] Task 11：Sitemap（`astro.config.mjs` 已設定；確認輸出正確）
-  - [ ] Task 12：OG Image 自動產生
-  - [ ] Task 13：Pagefind 靜態搜尋
-  - [ ] Task 14：Final build 驗證
+  - [x] Task 12：OG Image 自動產生（`scripts/generate-og-images.mjs` 已接到 `pnpm build`）
+  - [x] Task 13：Pagefind 靜態搜尋（`astro.config.mjs` build hook + `/search`、`/en/search` 已存在）
+  - [x] Task 14：Final build 驗證完成（`pnpm build` 已可完整結束；補上 `prerenderEnvironment: 'node'` 與 `inspectorPort: false`）
 
 ### Harness 基礎建設
 
-- [ ] **建立 `progress.txt` 機制**（最低成本的 episodic memory，不需要 vector DB）
-- [ ] **Session-start hook** — 自動跑 `pnpm lint` + 讀 `progress.txt`
-- [ ] **Post skill 加入 Evaluator 節點**（檢查：frontmatter 完整性、內部連結有效性、tag 一致性、標題結構）
-- [ ] **工具描述品質規範** — `search_blog_posts` / `search_abstract_index` / `search_docs` 使用時機區分明確化，每個工具加上何時使用 / 何時不使用 / 預期回傳格式
+- [x] **建立 `progress.txt` 機制**（最低成本的 episodic memory，不需要 vector DB）
+- [x] **Session-start hook** — `scripts/session-start.mjs` + `.claude/settings.json`，自動跑 `pnpm lint` + 讀 `progress.txt`
+- [x] **Post skill 加入 Evaluator 節點**（檢查：frontmatter 完整性、內部連結有效性、tag 一致性、標題結構）
+- [x] **工具描述品質規範** — `search_blog_posts` / `search_abstract_index` / `search_docs` 使用時機區分明確化，每個工具加上何時使用 / 何時不使用 / 預期回傳格式
 
-### RAG 設計修正（已有 RAG 基礎才做，以下三項串聯執行）
+### RAG 設計修正（2026-05-12 已實作）
 
-- [ ] **Step 1：Prompt 改用「描述終態」風格**（描述「成功的回答長什麼樣」而非「按步驟做」）
-- [ ] **Step 2：Deterministic Validation Node（Stripe Blueprint 模式）** — 在 Writer → Critic 之間插入確定性驗證（Markdown 語法、source URL、Mermaid 語法）
-- [ ] **Step 3：Critic 失敗降級策略**（依賴 Step 2）— 重試 2 次仍低於門檻 → 標註「⚠️ 此回答可能不完整」，停止呼叫 LLM
+- [x] **Step 1：Prompt 改用「描述終態」風格**（描述「成功的回答長什麼樣」而非「按步驟做」）
+- [x] **Step 2：Deterministic Validation Node（Stripe Blueprint 模式）** — 已在 Writer → Critic 間插入確定性驗證，現階段檢查 Markdown code fence、source URL 是否來自檢索結果、Mermaid fenced block 基本語法
+- [x] **Step 3：Critic 失敗降級策略**（依賴 Step 2）— validation 或 critic 失敗時最多再生 2 次，第 3 次仍未通過則標註「⚠️ 此回答可能不完整」，停止後續 LLM 節點
+
+### 文件同步
+
+- [x] **`docs/blog-improvement-plan.md` 補進度註記** — 將舊版規劃改成保留設計脈絡、但用狀態標示已完成/未完成項目
+- [x] **`docs/TODO.md` 校正已實作項目描述** — 避免 repo 已有實作，文件仍寫成「尚未存在」
 
 ---
 
@@ -106,43 +111,56 @@
 
 > 詳細實作步驟：`docs/superpowers/plans/2026-03-21-rag-phase1.md`
 > 驗收：可用聊天系統上線、基本 tracing 可觀測
+> 2026-05-12 核對：以下狀態依現有 repo 實作與 `pnpm test`（10 files, 39 tests passed）更新
 
-- [ ] **Task 1：安裝依賴 + 環境設定**（React、vitest、Vectorize、Workers AI bindings）
-- [ ] **Task 2：D1 Migration**（`post_chunks`、`doc_chunks` 表）
-- [ ] **Task 3：Chunk ID + Contextual Retrieval（TDD）**
-- [ ] **Task 4：Embedding Pipeline + Hybrid Search** — embed 進 Vectorize；實作 Vectorize 語意 + D1 FTS5 BM25 + RRF 融合
+- [x] **Task 1：安裝依賴 + 環境設定**（React、vitest、Vectorize、Workers AI bindings）
+- [x] **Task 2：D1 Migration**（`post_chunks`、`doc_chunks` 表）
+- [x] **Task 3：Chunk ID + Contextual Retrieval（TDD）**
+- [x] **Task 4：Embedding Pipeline + Hybrid Search** — embed 進 Vectorize；實作 Vectorize 語意 + D1 FTS5 BM25 + RRF 融合
+  - 目前狀態：`search-posts.ts` / `search-docs.ts` 已補上 Vectorize 語意搜尋 + D1 FTS5 BM25 + RRF 融合；向量命中後也會回 D1 補 chunk 內容
   - embed model：`@cf/baai/bge-large-en-v1.5`、batch size：50 篇/次、RRF 係數：k=60（預設值）
-- [ ] **Task 5：Auth — Session + Rate Limit（TDD）**（訪客 IP 限額 5 次/日）
-- [ ] **Task 6：Login Page**
-- [ ] **Task 7：Langfuse Helper**（basic tracing，先有可觀測性再加複雜策略）
-- [ ] **Task 8：LangGraph State Definition**
-- [ ] **Task 9：Research Tools（TDD）** — `search-posts.ts`、`search-docs.ts`、`get-post-detail.ts`
-- [ ] **Task 10：`normalize_results` Node（TDD）**
-- [ ] **Task 11：Planner、Writer、Critic、Related Posts agents**
-- [ ] **Task 12：Graph Builder**
-- [ ] **Task 13：Chat SSE API Endpoint**
-- [ ] **Task 14：Chat UI**（`AgentSteps`、`QuotaIndicator`、`MessageInput`、`MessageList`、`ChatWidget`、`chat.astro`）
+- [x] **Task 5：Auth — Session + Rate Limit（TDD）**（訪客 IP 限額 5 次/日）
+- [x] **Task 6：Login Page**
+- [x] **Task 7：Langfuse Helper**（basic tracing，先有可觀測性再加複雜策略）
+- [x] **Task 8：LangGraph State Definition**
+- [x] **Task 9：Research Tools（TDD）** — `search-posts.ts`、`search-docs.ts`、`get-post-detail.ts`
+- [x] **Task 10：`normalize_results` Node（TDD）**
+- [x] **Task 11：Planner、Writer、Critic、Related Posts agents**
+- [x] **Task 12：Graph Builder**
+- [x] **Task 13：Chat SSE API Endpoint**
+- [x] **Task 14：Chat UI**（`AgentSteps`、`QuotaIndicator`、`MessageInput`、`MessageList`、`ChatWidget`、`chat.astro`）
 - [ ] **Task 15：Run Embed Pipeline + Smoke Test**
+  - 目前狀態：`/api/embed/sync` 與 pipeline 已存在，但 repo 內沒有這次核對可直接佐證的實跑紀錄或 smoke test 結果
 
 ### Phase 1B：觀測先行 → 才加複雜策略
 
 > 設計鐵律執行點：先有 flag、先有 baseline、再加複雜性
 
-- [ ] **RAGAS baseline eval + Golden Dataset**（20-25 個測試案例：精確查詢、概念解釋、跨文章綜合、不在知識庫、中英混雜；**提前至此階段，P3 太晚**）
+- [x] **RAGAS baseline eval + Golden Dataset**（20-25 個測試案例：精確查詢、概念解釋、跨文章綜合、不在知識庫、中英混雜；**提前至此階段，P3 太晚**）
+  - 目前狀態：已新增 `docs/rag-golden-dataset.json`（20 cases）與 `pnpm eval:rag` baseline script；首次 live baseline 分數仍需在有實際 chat 環境時執行
   - 通過門檻需定義：Faithfulness ≥ 0.8、Answer Relevance ≥ 0.75、Context Recall ≥ 0.7
   - 無此 baseline 無法判斷後續 HyDE/reranker/critic 是改善還是加負擔
-- [ ] **RAG pipeline feature flag**（HyDE、Multi-query、Reranker、Critic 各自可開關）
-- [ ] **Shadow Mode A/B 比較機制**（開啟 vs 關閉，比較 RAGAS 分數）
-- [ ] **設計決策 ADR**（為什麼用 BGE-large？為什麼 chunk 1500？為什麼 cache 0.95？）
-- [ ] **Semantic Cache threshold 設為 `0.95`**（`semantic-caching.md` 指出 0.90–0.94 是「相關但不同」的危險區間）
+- [x] **RAG pipeline feature flag**（HyDE、Multi-query、Reranker、Critic 各自可開關）
+  - 目前狀態：已新增 `settings` 控制與 `src/lib/rag/settings.ts`；flag 由 DB settings 載入
+- [x] **Shadow Mode A/B 比較機制**（開啟 vs 關閉，比較 RAGAS 分數）
+  - 目前狀態：已新增 `shadow_runs` 表與 shadow baseline config；啟用後會把 primary/shadow 結果一起落庫，供後續評估比較
+- [x] **設計決策 ADR**（為什麼用 BGE-large？為什麼 chunk 1500？為什麼 cache 0.95？）
+  - 目前狀態：已新增 `docs/adr/0001-rag-phase1b-decisions.md`
+- [x] **Semantic Cache threshold 設為 `0.95`**（`semantic-caching.md` 指出 0.90–0.94 是「相關但不同」的危險區間）
+  - 目前狀態：已新增 `0003_rag_phase1b.sql` 與 runtime settings 預設 `0.95`
   - 驗收：監控 cache hit rate，目標 > 20%；若 < 5% 表示 threshold 過高需下調
-- [ ] **Reranker 加入 `min_keep: 3`**（`cross-encoder-reranking.md` 明確建議的安全網）
-- [ ] **MMR 多樣性重排**（λ = 0.7，在 reranker 後、Writer 前插入）
-- [ ] **Adaptive RAG queryType 路由**（`complexity: simple | medium | complex`，simple 跳過 HyDE/Multi-query）
-- [ ] **CRAG filter 放寬策略**（零結果時漸進放寬次要 filter → 仍低分 → web search fallback）
-- [ ] **Critic 加 answer-relevance 檢查**（不只 grounding，也檢查真的回答了問題）
-- [ ] **Critic 加 drift 偵測**（檢查 Research 過程是否偏離原始查詢意圖）
-- [ ] **Context Checkpoint 系統**（動態壓縮門檻：`threshold = model_context_window * 0.7`）
+- [x] **Reranker 加入 `min_keep: 3`**（`cross-encoder-reranking.md` 明確建議的安全網）
+  - 目前狀態：`normalize-results.ts` 已加入 rerank step，並以 settings 控制 `min_keep = 3`
+- [x] **MMR 多樣性重排**（λ = 0.7，在 reranker 後、Writer 前插入）
+  - 目前狀態：`normalize-results.ts` 已加入 MMR ordering，預設 `0.7`
+- [x] **Adaptive RAG queryType 路由**（`complexity: simple | medium | complex`，simple 跳過 HyDE/Multi-query）
+  - 目前狀態：Planner 已輸出 `complexity`，Research 會依複雜度決定是否走 abstract / HyDE / Multi-query
+- [x] **CRAG filter 放寬策略**（零結果時漸進放寬次要 filter → 仍低分 → web search fallback）
+  - 目前狀態：`search-posts.ts` / `search-docs.ts` 已在 filter 命中為零時放寬次要 filter；`needs_web_search` 仍沿用低分觸發
+- [x] **Critic 加 answer-relevance 檢查**（不只 grounding，也檢查真的回答了問題）
+- [x] **Critic 加 drift 偵測**（檢查 Research 過程是否偏離原始查詢意圖）
+- [x] **Context Checkpoint 系統**（動態壓縮門檻：`threshold = model_context_window * 0.7`）
+  - 目前狀態：已新增 checkpoints table、summary load/save helper，API 以 `0.7` ratio 觸發 checkpoint
 
 ### Phase 1C：內容營運自動化
 
@@ -158,10 +176,10 @@
 
 ### Harness 基礎建設
 
-- [ ] **RSS Feed 補 `<author>` 標籤**（RSS 已存在，只補 metadata）
-- [ ] **Series 系列化**（RAG 系列、Claude Code 系列、AI Agent 系列正式組織）
-- [ ] **排程發布** — 87% 文章集中 2026 年 3 月，設定 `date` 未來日期搭配 CI 定時發布，維持穩定節奏
-- [ ] **多語言翻譯 Pipeline（Multi-Agent）** — Translator → Cultural Reviewer → Native Checker
+- [x] **RSS Feed 補 `<author>` 標籤**（中英 RSS item 均已補 metadata）
+- [x] **Series 系列化**（RAG 系列、Claude Code 系列、AI Agent 系列正式組織）
+- [x] **排程發布** — 87% 文章集中 2026 年 3 月，設定 `date` 未來日期搭配 CI 定時發布，維持穩定節奏
+- [x] **多語言翻譯 Pipeline（Multi-Agent）** — Translator → Cultural Reviewer → Native Checker
 
 ### 爬蟲整合（驗證與補強，非重新實作）— 升至 P1，避免髒資料污染 RAG
 
@@ -169,8 +187,8 @@
 > 注意：`/api/crawl/sync` endpoint 已存在（`src/pages/api/crawl/sync.ts`），Cron Trigger 已設定（`wrangler.jsonc`）
 
 - [ ] **驗證 `/api/crawl/sync` 穩定性**（補錯誤處理、補監控；非重新實作）
-- [ ] **設定要爬取的技術文件站清單**
-- [ ] **實作 Markdown → chunking pipeline**
+- [x] **設定要爬取的技術文件站清單**（`src/lib/crawl/config.ts` 已含 D1 / Workers / Vectorize / Astro Docs）
+- [x] **實作 Markdown → chunking pipeline**（`src/lib/crawl/chunker.ts` 已存在，且採 `MAX_CHUNK_CHARS = 1500`）
 - [ ] **增量更新機制（modifiedSince）**
 - [ ] **補 production smoke test 清單**（post-deploy 驗證步驟，目前只有 build gate）
 

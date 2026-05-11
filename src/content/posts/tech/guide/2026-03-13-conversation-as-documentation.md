@@ -55,9 +55,9 @@ pinned: true
 
 整個過程不需要我做任何事，除了確認草稿。
 
-![Claude Code 從對話萃取內容，產出完整文章草稿](/images/posts/2026-03-13/claude-code-post-skill.png)
+<img src="/images/posts/2026-03-13/claude-code-post-skill.png" alt="Claude Code 從對話萃取內容，產出完整文章草稿" width="2052" height="952" loading="lazy" decoding="async" />
 
-![commit 完成，兩個檔案進了 repo](/images/posts/2026-03-13/claude-code-commit.png)
+<img src="/images/posts/2026-03-13/claude-code-commit.png" alt="commit 完成，兩個檔案進了 repo" width="2074" height="820" loading="lazy" decoding="async" />
 
 ## 今天的例子
 
@@ -69,7 +69,7 @@ pinned: true
 
 兩個問題解決後，我說「兩個錯誤分開寫兩篇文章」，幾分鐘後兩篇都進了 repo。
 
-![文章出現在首頁](/images/posts/2026-03-13/blog-posts-live.png)
+<img src="/images/posts/2026-03-13/blog-posts-live.png" alt="文章出現在首頁" width="1784" height="590" loading="lazy" decoding="async" />
 
 ## 什麼時候用
 

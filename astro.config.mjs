@@ -15,6 +15,9 @@ function rehypeLazyImages() {
         if (!node.properties.loading) {
           node.properties.loading = 'lazy';
         }
+        if (!node.properties.decoding) {
+          node.properties.decoding = 'async';
+        }
       }
       if (node.children) {
         node.children.forEach(visit);
@@ -27,7 +30,12 @@ function rehypeLazyImages() {
 export default defineConfig({
   site: 'https://quidproquo.cc',
   output: 'server',
-  adapter: cloudflare({ platformProxy: { enabled: true }, remoteBindings: false }),
+  adapter: cloudflare({
+    platformProxy: { enabled: true },
+    remoteBindings: false,
+    inspectorPort: false,
+    prerenderEnvironment: 'node',
+  }),
   integrations: [
     react(),
     mdx(),

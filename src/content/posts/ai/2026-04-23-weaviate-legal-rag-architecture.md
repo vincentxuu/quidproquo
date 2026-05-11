@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "用 Weaviate Query Agent + ColQwen 多向量模型，一個 prompt 在 36 小時內搭出生產等級的法律合約搜尋系統——這篇拆解它的架構邏輯、技術選擇，以及你真正需要注意的事。"
 description: "拆解 Weaviate 法律合約 RAG 系統的完整架構：ColQwen 視覺嵌入、Muvera 多向量壓縮、Query Agent 動態推理搜尋，以及 CUAD dataset 的資料結構。"
 draft: false
+series:
+  name: "RAG 系統實戰"
+  order: 5
 ---
 
 法律文件搜尋是 RAG 最難的場景之一。不是因為資料量，而是因為精確度要求：使用者問的是 2024 年的合約，你不能回傳 2022 年語意相似的條款。日期、當事人、管轄法律、特定條款類型——任何一個維度出錯都是法律風險。

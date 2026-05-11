@@ -40,7 +40,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== progress.txt ===' && tail -40 .omc/progress.txt 2>/dev/null || echo '(no progress.txt)'"
+            "command": "node scripts/session-start.mjs"
           }
         ]
       }

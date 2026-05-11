@@ -32,6 +32,7 @@ pnpm dev              # Start dev server (with Cloudflare platform proxy)
 pnpm build            # Full production build (cron stubs + astro build + OG images)
 pnpm deploy           # Build then wrangler deploy
 pnpm lint             # oxlint src/ (excludes *.astro)
+pnpm session:start    # Print pwd, latest commit, progress.txt, then run lint
 pnpm check:references # Verify internal post cross-references
 pnpm sync             # Sync posts to D1 (local)
 pnpm sync:prod        # Sync posts to D1 (production)
@@ -63,6 +64,7 @@ pnpm sync:prod        # Sync posts to D1 (production)
 ## Important Decisions
 
 - **Feature flags are mandatory** for all advanced/experimental techniques (RAG, embeddings, AI features). Every such feature must be individually toggleable. Do not add unless an observed failure justifies it.
+- `progress.txt` at the repo root is the lightweight session memory. Update it when task status materially changes.
 - Never revert file changes without explicit user confirmation.
 - Use `stealth_fetch` MCP tool for all web scraping — never built-in WebFetch or playwright directly.
 

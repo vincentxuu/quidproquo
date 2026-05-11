@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Agent 的記憶不是一個插件，而是 harness 本身的一部分。選對記憶類型、估算資料量、再決定用什麼技術——最後，也要搞清楚你是否真的擁有那份記憶。"
 description: "從 Procedural/Episodic/Semantic 三種記憶類型出發，拆解 Agentic Engineering 的記憶實作選項，包含 LangMem 的優缺點、記憶量估算方式，以及開源 vs 封閉 harness 的擁有權問題。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 7
 ---
 
 Cisco 工程師今年四月在 LangChain blog 發了一篇文章，描述他們如何用多 agent 協作系統把 debug 工作流的 time-to-root-cause 縮短 93%，一個月省下 200 多人工小時。他們用的技術棧：LangGraph + LangSmith + LangMem。

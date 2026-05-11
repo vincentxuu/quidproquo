@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "AI 工程經歷三個階段：Prompt Engineering（寫好指令）→ Context Engineering（餵對資訊）→ Harness Engineering（設計整個工作環境）。每一次演化不是取代前者，而是在更高的抽象層級上操作。"
 description: "導讀 Epsilla 的 The Third Evolution 文章，整理 AI 互動從 prompt engineering 到 context engineering 再到 harness engineering 的演化脈絡，以及為什麼 2026 年的重點是設計 agent 的執行環境而非調整 prompt。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 3
 ---
 
 Epsilla 在 2026 年 3 月發了一篇 [The Third Evolution: Why Harness Engineering Replaced Prompting in 2026](https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents)，把過去四年 AI 工程的演化整理成三個清晰的階段。如果你一直有在跟 AI 工程的發展但覺得越來越碎片化，這篇能幫你把脈絡接起來。

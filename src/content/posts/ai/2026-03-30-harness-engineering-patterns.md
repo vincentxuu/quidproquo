@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Harness 不只是呼叫 LLM 的 wrapper。Tool Registry 管理工具的動態載入與選擇、Guard System 建立四層防護網、Checkpoint-Resume 讓長時間任務可以中斷恢復。這三個模式是生產級 Agent 系統的關鍵基礎設施。"
 description: "Harness Engineering 三個進階模式的深入設計：Tool Registry 的動態載入與 MCP 整合、四層 Guard System（Input/Output/Tool/Budget）、Checkpoint-Resume 的狀態快照與恢復機制，以及 Escalation 模式的分層降級策略。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 4
 ---
 
 前幾篇我們從不同角度看了 Harness Engineering 的概念：[三次演化](/posts/ai/2026-03-28-harness-engineering-evolution)拉出了從 Prompt 到 Context 到 Harness 的時間線，[Anthropic 的實戰](/posts/ai/2026-03-28-anthropic-harness-design)示範了雙 Agent 架構和跨 session 狀態管理，[Phil Schmid 的觀點](/posts/ai/2026-03-28-phil-schmid-agent-harness)把 Harness 定位為 AI 系統的作業系統。

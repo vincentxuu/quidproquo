@@ -1,7 +1,5 @@
 // src/utils/seriesNav.ts
-import type { CollectionEntry } from 'astro:content';
-
-type Post = CollectionEntry<'posts'>;
+import { isPublishedPost, type Post } from './content';
 
 export interface SeriesNav {
   name: string;
@@ -19,7 +17,7 @@ export function getSeriesNav(post: Post, allPosts: Post[]): SeriesNav | undefine
   if (!post.data.series) return undefined;
   const { name, order } = post.data.series;
   const seriesPosts = allPosts
-    .filter(p => p.data.series?.name === name)
+    .filter(p => isPublishedPost(p) && p.data.lang === post.data.lang && p.data.series?.name === name)
     .sort((a, b) => a.data.series!.order - b.data.series!.order);
   const total = seriesPosts.length;
   const prevPost = seriesPosts.find(p => p.data.series!.order === order - 1);

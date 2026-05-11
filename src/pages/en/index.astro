@@ -2,16 +2,14 @@
 // src/pages/en/index.astro
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import { useTranslations } from '../../i18n/utils';
+import { getSeriesHref } from '../../utils/series';
+import { getPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
 
 const t = useTranslations('en');
-const posts = await getCollection('posts', ({ data }) =>
-  !data.draft && data.lang === 'en'
-);
-posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('en'));
 ---
 <PostLayout title="quidproquo" lang="en" description="Tech, climbing, surfing, coffee, and everything else." ogImage="https://quidproquo.cc/og/home.png">
   <Fragment slot="head">
@@ -50,6 +48,9 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       readingTime={post.data.readingTime}
       lang="en"
       type={post.data.type}
+      pinned={post.data.pinned}
+      seriesName={post.data.series?.name}
+      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
     />
   ))}
 </PostLayout>

@@ -44,6 +44,7 @@
 | `pnpm build` | 建構正式版本至 `./dist/` |
 | `pnpm preview` | 本地預覽建構結果 |
 | `pnpm lint` | 執行 oxlint 靜態分析 |
+| `pnpm session:start` | 顯示最新 commit、`progress.txt`，並跑一次 lint |
 | `pnpm sync` | 同步文章資料到 D1（本地） |
 | `pnpm sync:prod` | 同步文章資料到 D1（正式環境） |
 

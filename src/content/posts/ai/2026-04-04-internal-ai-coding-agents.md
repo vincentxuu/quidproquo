@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "矽谷一線公司各自獨立打造內部 AI coding agent，從 Slack 訊息到 merged PR 全程自動化。深入拆解 Stripe、Ramp、Coinbase、Spotify 四家的架構，再擴展到 Google、Meta、Amazon、Uber、Goldman Sachs、Walmart 等十多家公司的做法與指標。"
 description: "深入介紹 Stripe Minions、Ramp Inspect、Coinbase Cloudbot、Spotify Honk 的架構設計與關鍵指標，再擴展到 Google Agent Smith、Meta DevMate、Amazon Q Developer 等十多家公司的內部 AI coding agent 全貌。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 5
 ---
 
 2026 年初，一個現象逐漸浮出水面：矽谷頂尖工程團隊不約而同地在內部打造自己的 AI coding agent。不是用 Copilot 做 autocomplete，而是真正的 end-to-end 自動化——從一句 Slack 訊息到一個 production-ready 的 PR，全程不需要人碰鍵盤。

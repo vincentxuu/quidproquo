@@ -2,16 +2,17 @@
 // src/pages/categories/[category].astro
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import Icons from '../../components/Icons.astro';
 import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts } from '../../utils/content';
+import { getSeriesHref } from '../../utils/series';
 
 const t = useTranslations('zh-TW');
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft && data.lang === 'zh-TW');
+  const posts = await getPublishedPosts('zh-TW');
   const categories = [...new Set(posts.map(p => p.data.category))];
   return categories.map(category => ({
     params: { category },
@@ -52,6 +53,8 @@ const showFilter = availableTypes.length > 1;
       readingTime={post.data.readingTime}
       lang="zh-TW"
       type={post.data.type}
+      seriesName={post.data.series?.name}
+      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'zh-TW') : undefined}
     />
   ))}
 </PostLayout>

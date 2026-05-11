@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "OpenAI 內部團隊 5 個月、3 人、0 行手寫程式碼，用 Codex 交付了一個完整產品。這篇整理他們在 AGENTS.md 設計、repo-local 知識庫、架構強制執行、entropy 管理上的核心心得。"
 description: "OpenAI 第一手分享用 Codex 做 agent-first 開發的實戰心得：AGENTS.md 應該是 TOC 而非百科、所有知識必須在 repo 裡、架構 invariant 用 linter 強制、用 garbage collection agent 對抗 code entropy。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 8
 ---
 
 OpenAI 工程師 Ryan Lopopolo 在 2026 年初發表了一篇第一手報告，描述他們內部用 Codex 打造一個完整產品的過程：3 人團隊、5 個月、0 行手寫程式碼、約 100 萬行程式碼產出，平均每人每天合出 3.5 個 PR。這不是概念驗證，而是一個真正上線的產品。這篇文章整理他們在這段過程中對 agent-first 開發模式的核心理解。

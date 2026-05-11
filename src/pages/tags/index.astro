@@ -2,12 +2,12 @@
 // src/pages/tags/index.astro
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts } from '../../utils/content';
 
 const t = useTranslations('zh-TW');
-const posts = await getCollection('posts', ({ data }) => !data.draft && data.lang === 'zh-TW');
+const posts = await getPublishedPosts('zh-TW');
 const tagCounts = posts.reduce((acc, post) => {
   post.data.tags.forEach(tag => { acc[tag] = (acc[tag] || 0) + 1; });
   return acc;

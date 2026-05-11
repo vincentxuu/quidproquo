@@ -1,0 +1,64 @@
+---
+export const prerender = true;
+
+import PostLayout from '../../layouts/PostLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts } from '../../utils/content';
+import { getSeriesHref, getSeriesSummaries } from '../../utils/series';
+
+const t = useTranslations('zh-TW');
+const posts = await getPublishedPosts('zh-TW');
+const seriesList = getSeriesSummaries(posts, 'zh-TW');
+---
+<PostLayout title={`${t('nav.series')} — quidproquo`} lang="zh-TW" description="quidproquo 上已整理好的系列文章。">
+  <h1>{t('nav.series')}</h1>
+  {seriesList.length === 0 ? (
+    <p class="empty">{t('series.empty')}</p>
+  ) : (
+    <div class="series-grid">
+      {seriesList.map(series => (
+        <a href={getSeriesHref(series.name, 'zh-TW')} class="series-card">
+          <div class="series-meta">
+            <span class="series-count">{series.count} {t('series.posts')}</span>
+            <span class="series-date">{series.latestDate.toLocaleDateString('zh-TW')}</span>
+          </div>
+          <h2>{series.name}</h2>
+          <p>{series.description}</p>
+        </a>
+      ))}
+    </div>
+  )}
+</PostLayout>
+
+<style>
+  .series-grid { display: grid; gap: 0.9rem; margin-top: 1.5rem; }
+  .series-card {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    background: var(--bg-card);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .series-card:hover {
+    border-color: var(--brand-500);
+    box-shadow: var(--shadow-card-hover);
+  }
+  .series-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+  }
+  h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+    color: var(--brand-900);
+  }
+  p { margin: 0; color: var(--text-secondary); line-height: 1.7; }
+  .empty { color: var(--text-muted); margin-top: 1.5rem; }
+</style>

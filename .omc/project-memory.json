@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1776914118695,
+  "lastScanned": 1778478435873,
   "projectRoot": "/Users/xiaoxu/Projects/quidproquo",
   "techStack": {
     "languages": [
@@ -31,6 +31,21 @@
         "name": "astro",
         "version": "6.0.3",
         "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.5",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.5",
+        "category": "frontend"
+      },
+      {
+        "name": "vitest",
+        "version": "4.1.5",
+        "category": "testing"
       }
     ],
     "packageManager": "pnpm",
@@ -38,7 +53,7 @@
   },
   "build": {
     "buildCommand": "pnpm build",
-    "testCommand": null,
+    "testCommand": "pnpm test",
     "lintCommand": "pnpm lint",
     "devCommand": "pnpm dev",
     "scripts": {
@@ -51,7 +66,9 @@
       "check:references": "node scripts/check-post-references.mjs",
       "sync": "tsx scripts/sync-to-d1.ts",
       "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
-      "prepare": "simple-git-hooks"
+      "prepare": "simple-git-hooks",
+      "test": "vitest run",
+      "test:watch": "vitest"
     }
   },
   "conventions": {
@@ -76,15 +93,15 @@
     "dist": {
       "path": "dist",
       "purpose": "Distribution/build output",
-      "fileCount": 0,
-      "lastAccessed": 1776914118676,
+      "fileCount": 1,
+      "lastAccessed": 1778478435839,
       "keyFiles": []
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
       "fileCount": 6,
-      "lastAccessed": 1776914118680,
+      "lastAccessed": 1778478435844,
       "keyFiles": [
         "TODO.md",
         "blog-improvement-plan.md",
@@ -96,17 +113,18 @@
     "migrations": {
       "path": "migrations",
       "purpose": "Database migrations",
-      "fileCount": 1,
-      "lastAccessed": 1776914118681,
+      "fileCount": 2,
+      "lastAccessed": 1778478435863,
       "keyFiles": [
-        "0001_initial.sql"
+        "0001_initial.sql",
+        "0002_rag_phase1.sql"
       ]
     },
     "openspec": {
       "path": "openspec",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1776914118681,
+      "lastAccessed": 1778478435864,
       "keyFiles": [
         "config.yaml"
       ]
@@ -115,7 +133,7 @@
       "path": "public",
       "purpose": "Public files",
       "fileCount": 4,
-      "lastAccessed": 1776914118681,
+      "lastAccessed": 1778478435865,
       "keyFiles": [
         "favicon.ico",
         "favicon.svg",
@@ -126,7 +144,7 @@
       "path": "references",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1776914118684,
+      "lastAccessed": 1778478435865,
       "keyFiles": [
         "agent-patterns.md",
         "chatbot-development.md",
@@ -139,7 +157,7 @@
       "path": "scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 7,
-      "lastAccessed": 1776914118686,
+      "lastAccessed": 1778478435866,
       "keyFiles": [
         "backfill-types.mjs",
         "check-post-references.mjs",
@@ -152,7 +170,7 @@
       "path": "src",
       "purpose": "Source code",
       "fileCount": 2,
-      "lastAccessed": 1776914118687,
+      "lastAccessed": 1778478435866,
       "keyFiles": [
         "content.config.ts"
       ]
@@ -161,7 +179,7 @@
       "path": "src/components",
       "purpose": "UI components",
       "fileCount": 3,
-      "lastAccessed": 1776914118689,
+      "lastAccessed": 1778478435869,
       "keyFiles": [
         "Icons.astro",
         "PostCard.astro",
@@ -171,85 +189,182 @@
     "src/lib": {
       "path": "src/lib",
       "purpose": "Library code",
-      "fileCount": 0,
-      "lastAccessed": 1776914118690,
-      "keyFiles": []
+      "fileCount": 1,
+      "lastAccessed": 1778478435869,
+      "keyFiles": [
+        "langfuse.ts"
+      ]
     },
     "src/pages": {
       "path": "src/pages",
       "purpose": "Page components",
-      "fileCount": 4,
-      "lastAccessed": 1776914118691,
+      "fileCount": 7,
+      "lastAccessed": 1778478435870,
       "keyFiles": [
         "404.astro",
-        "index.astro",
-        "rss.xml.ts"
+        "about.astro",
+        "chat.astro"
       ]
     },
-    "src/utils": {
-      "path": "src/utils",
-      "purpose": "Utility functions",
-      "fileCount": 2,
-      "lastAccessed": 1776914118691,
+    "src/test": {
+      "path": "src/test",
+      "purpose": "Test files",
+      "fileCount": 1,
+      "lastAccessed": 1778478435870,
       "keyFiles": [
-        "relatedPosts.ts",
-        "seriesNav.ts"
+        "cloudflare-workers-mock.ts"
       ]
     }
   },
   "hotPaths": [
     {
-      "path": "src/layouts/PostLayout.astro",
-      "accessCount": 12,
-      "lastAccessed": 1776763466756,
+      "path": "src/lib/rag/graph.ts",
+      "accessCount": 9,
+      "lastAccessed": 1778520056151,
       "type": "file"
     },
     {
-      "path": "astro.config.mjs",
+      "path": "src/lib/rag/agents/research.ts",
+      "accessCount": 8,
+      "lastAccessed": 1778519259423,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/embed/pipeline.ts",
       "accessCount": 7,
-      "lastAccessed": 1776763531894,
+      "lastAccessed": 1778514837806,
       "type": "file"
     },
     {
-      "path": "src/pages/en/index.astro",
+      "path": "scripts/sync-to-d1.ts",
       "accessCount": 6,
-      "lastAccessed": 1776763467187,
+      "lastAccessed": 1778513631479,
       "type": "file"
     },
     {
-      "path": ".claude/settings.json",
-      "accessCount": 3,
-      "lastAccessed": 1776763467552,
+      "path": "src/lib/rag/agents/writer.ts",
+      "accessCount": 6,
+      "lastAccessed": 1778519768367,
       "type": "file"
     },
     {
-      "path": "scripts/backfill-types.mjs",
+      "path": "src/pages/api/chat.ts",
+      "accessCount": 5,
+      "lastAccessed": 1778518606891,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/tools/search-posts.ts",
+      "accessCount": 5,
+      "lastAccessed": 1778519204080,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/agents/critic.ts",
+      "accessCount": 5,
+      "lastAccessed": 1778520047326,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/state.ts",
+      "accessCount": 4,
+      "lastAccessed": 1778518578604,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/tools/search-docs.ts",
+      "accessCount": 4,
+      "lastAccessed": 1778519210772,
+      "type": "file"
+    },
+    {
+      "path": ".dev.vars",
       "accessCount": 3,
-      "lastAccessed": 1776763505152,
+      "lastAccessed": 1778513334597,
+      "type": "file"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "accessCount": 3,
+      "lastAccessed": 1778514683619,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/model.ts",
+      "accessCount": 3,
+      "lastAccessed": 1778516893798,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/agents/validation.ts",
+      "accessCount": 3,
+      "lastAccessed": 1778519757810,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/agents/planner.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778479346592,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/tools/search-abstract-index.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778519253409,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/agents/critic-routing.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778520033371,
+      "type": "file"
+    },
+    {
+      "path": "src/content/posts/ai/2026-05-10-ai-agent-video-generation.md",
+      "accessCount": 1,
+      "lastAccessed": 1778422089644,
+      "type": "file"
+    },
+    {
+      "path": "docs/blog-improvement-plan.md",
+      "accessCount": 1,
+      "lastAccessed": 1778478483586,
       "type": "file"
     },
     {
       "path": "docs/TODO.md",
       "accessCount": 1,
-      "lastAccessed": 1776762794438,
+      "lastAccessed": 1778478483606,
       "type": "file"
     },
     {
-      "path": "scripts/check-post-references.mjs",
+      "path": "docs/superpowers/plans/2026-03-21-rag-phase1.md",
       "accessCount": 1,
-      "lastAccessed": 1776763263338,
+      "lastAccessed": 1778478774711,
       "type": "file"
     },
     {
-      "path": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture.md",
+      "path": "src/pages/api/auth/login.ts",
       "accessCount": 1,
-      "lastAccessed": 1776914523436,
+      "lastAccessed": 1778513460208,
       "type": "file"
     },
     {
-      "path": "src/content/posts/marketing/2026-04-23-akiraxclaw-content-model.md",
+      "path": "src/pages/api/embed/sync.ts",
       "accessCount": 1,
-      "lastAccessed": 1776914717305,
+      "lastAccessed": 1778514842678,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/agents/related-posts.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778518568730,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/mini-graph.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778519496491,
       "type": "file"
     }
   ],

@@ -16,8 +16,10 @@ interface Props {
   lang?: Lang;
   type?: string;
   pinned?: boolean;
+  seriesName?: string;
+  seriesHref?: string;
 }
-const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW', type, pinned } = Astro.props;
+const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW', type, pinned, seriesName, seriesHref } = Astro.props;
 const excerpt = tldr || description || '';
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
@@ -28,6 +30,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
     {type && <a href={`${categoriesBase}/${category}?type=${type}`} class={`type-badge type-${type}`}>{type}</a>}
+    {seriesName && seriesHref && <a href={seriesHref} class="series-badge">{seriesName}</a>}
     <time datetime={date.toISOString()}>{dateStr}</time>
     {readingTime && (
       <span class="reading-time">
@@ -79,6 +82,23 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     gap: 0.6rem;
     margin-bottom: 0.5rem;
     flex-wrap: wrap;
+  }
+  .series-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.14rem 0.45rem;
+    border-radius: 999px;
+    background: var(--brand-50);
+    color: var(--brand-700);
+    border: 1px solid var(--brand-300);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .series-badge:hover {
+    color: var(--brand-900);
+    border-color: var(--brand-500);
   }
   time {
     font-size: 0.75rem;

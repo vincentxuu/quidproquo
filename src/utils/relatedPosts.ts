@@ -1,7 +1,5 @@
 // src/utils/relatedPosts.ts
-import type { CollectionEntry } from 'astro:content';
-
-type Post = CollectionEntry<'posts'>;
+import { isPublishedPost, type Post } from './content';
 
 /**
  * Returns up to `max` posts related to the given post by tag overlap.
@@ -12,7 +10,7 @@ export function getRelatedPosts(post: Post, allPosts: Post[], max = 3): Post[] {
   if (!post.data.tags || post.data.tags.length === 0) return [];
   const tagSet = new Set(post.data.tags);
   return allPosts
-    .filter(p => p.id !== post.id && p.data.lang === post.data.lang)
+    .filter(p => p.id !== post.id && p.data.lang === post.data.lang && isPublishedPost(p))
     .map(p => ({
       post: p,
       overlap: p.data.tags.filter(t => tagSet.has(t)).length,

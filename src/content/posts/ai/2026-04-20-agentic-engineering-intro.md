@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Agentic Engineering 不是讓 AI 寫更快的程式碼，而是讓軟體更快走完整個交付流程——透過多 agent 協作，壓縮跨團隊的協作摩擦。"
 description: "Cisco 工程師的實戰報告：用 LangGraph + LangSmith + LangMem 建出 multi-agent 系統，debug 工作流縮短 93%、開發流程加速 65%。拆解 Worker Agent、Leader Agent 的架構設計，以及 A2A、MCP、CLI 的接入選擇。"
 draft: false
+series:
+  name: "AI Agent 實戰"
+  order: 6
 ---
 
 軟體開發裡有一個問題，AI coding agent 一直沒有真正解決：**跨團隊的協作摩擦**。

@@ -2,15 +2,17 @@
 // src/pages/posts/[...slug].astro
 export const prerender = true;
 
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import Icons from '../../components/Icons.astro';
 import { getRelatedPosts } from '../../utils/relatedPosts';
 import { getSeriesNav } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
+import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
+import { getSeriesHref } from '../../utils/series';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+  const allPosts = await getPublishedPosts();
   return allPosts.map(post => ({
     params: { slug: post.id },
     props: { post, allPosts },
@@ -22,15 +24,16 @@ const { Content, headings } = await render(post);
 const lang = post.data.lang as Lang;
 const t = useTranslations(lang);
 
-const sortedPosts = allPosts
-  .filter(p => !p.data.draft && p.data.lang === lang)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const sortedPosts = sortPostsByDateDesc(
+  allPosts.filter(p => isPublishedPost(p) && p.data.lang === lang)
+);
 const currentIndex = sortedPosts.findIndex(p => p.id === post.id);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
 
 const relatedPosts = getRelatedPosts(post, allPosts);
 const seriesNav = getSeriesNav(post, allPosts);
+const seriesHref = post.data.series ? getSeriesHref(post.data.series.name, lang) : undefined;
 const readingTime = post.data.readingTime ?? 1;
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
@@ -197,7 +200,13 @@ const breadcrumbLD = {
       <div class="series-box">
         <div class="series-header">
           <Icons name="book-open" size={14} />
-          <span>{t('post.series')}: {seriesNav.name} ({seriesNav.current} / {seriesNav.total})</span>
+          <span>
+            {t('post.series')}:
+            {' '}
+            {seriesHref ? <a href={seriesHref} class="series-link">{seriesNav.name}</a> : seriesNav.name}
+            {' '}
+            ({seriesNav.current} / {seriesNav.total})
+          </span>
         </div>
         <div class="series-nav">
           {seriesNav.prev ? (
@@ -373,6 +382,8 @@ const breadcrumbLD = {
   /* Series box */
   .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
+  .series-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+  .series-link:hover { border-bottom-color: currentColor; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
   .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
   .series-prev:hover, .series-next:hover { color: var(--brand-900); }

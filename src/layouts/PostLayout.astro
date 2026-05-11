@@ -18,6 +18,7 @@ const t = useTranslations(lang);
 
 const homeHref = lang === 'en' ? '/en' : '/';
 const categoriesHref = lang === 'en' ? '/en/categories' : '/categories';
+const seriesHref = lang === 'en' ? '/en/series' : '/series';
 const tagsHref = lang === 'en' ? '/en/tags' : '/tags';
 const switchHref = t('lang.switch.href');
 const switchLabel = t('lang.switch');
@@ -47,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   {description && <meta name="twitter:description" content={description} />}
   {ogImage && <meta name="twitter:image" content={ogImage} />}
   <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href={lang === 'en' ? '/en/rss.xml' : '/rss.xml'} />
+  <link rel="preload" href="/fonts/NotoSansTC-Medium.otf" as="font" type="font/otf" crossorigin />
   <slot name="head" />
   <script is:inline>
     // Apply theme before page renders to avoid flash
@@ -65,10 +67,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
       <a href={homeHref} class="logo">quidproquo</a>
       <a href={lang === 'en' ? '/en/about' : '/about'} class="nav-link">{t('nav.about')}</a>
       <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
+      <a href={seriesHref} class="nav-link">{t('nav.series')}</a>
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
       <div class="nav-right">
-        <a href={lang === 'en' ? '/en/search' : '/search'} class="nav-icon-btn" aria-label={t('nav.search')}>
+        <a href={lang === 'en' ? '/en/search' : '/search'} class="nav-search-link" aria-label={t('nav.search')}>
           <Icons name="search" size={15} />
+          <span>{t('nav.search')}</span>
         </a>
         <button class="nav-icon-btn" id="theme-toggle" aria-label={t('nav.toggle-theme')}>
           <span class="icon-light"><Icons name="sun" size={15} /></span>
@@ -98,6 +102,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: 'Noto Sans TC Local';
+    src: url('/fonts/NotoSansTC-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
   /* ── Dark Navy Design Tokens (inspired by DJ MYG) ── */
   :root {
     --brand-900: #1a2e1a;
@@ -207,7 +219,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   }
 
   body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem 1.5rem;
@@ -262,6 +274,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
     transition: color 0.15s, border-color 0.15s, background 0.15s;
   }
   .nav-icon-btn:hover {
+    color: var(--brand-500);
+    border-color: var(--brand-500);
+    background: var(--bg-card);
+  }
+  .nav-search-link {
+    min-height: 36px;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .nav-search-link:hover {
     color: var(--brand-500);
     border-color: var(--brand-500);
     background: var(--bg-card);
@@ -608,8 +643,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   }
 
   /* ── About page: two-column layout ── */
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
-
   .about-grid {
     display: grid;
     grid-template-columns: 180px 1fr;

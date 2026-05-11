@@ -181,9 +181,11 @@ START
               ├─→ Code Explainer     (if query contains code)
               ├─→ Diagram Agent      (if visual explanation needed)
               └─→ Writer
-                    └─→ Critic (answer grounding check)
-                          ├─→ Research (retry with targeted query, max 2x)
-                          └─→ Related Posts → END
+                    └─→ Deterministic Validation
+                          └─→ Critic (answer grounding check)
+                                ├─→ Research (retry with targeted query, max 2x)
+                                ├─→ Fallback (warning + stop LLM loop)
+                                └─→ Related Posts → END
 ```
 
 ### 5.2 Agent Definitions
@@ -261,6 +263,7 @@ Planner decides if diagram is needed. Diagram Agent decides which type.
 
 #### Writer
 - Assembles Research results into final response
+- Uses outcome-oriented prompting: defines what a successful final answer looks like instead of giving step-by-step instructions
 - Every claim linked to source chunk: `[claim](source_url)`
 - Images embedded as Markdown: `![description](image_url)`
 - Mermaid blocks wrapped in ` ```mermaid ` fences
@@ -269,17 +272,33 @@ Planner decides if diagram is needed. Diagram Agent decides which type.
 - Temporal relevance: notes if primary sources are old (>1 year) for technical topics
 - Responds in detected query language
 
+#### Deterministic Validation
+- Sits between Writer and Critic as a non-LLM node
+- Checks:
+  1. Markdown structure: balanced code fences
+  2. Citation URLs: every Markdown link/image must point to a retrieved source URL or retrieved image URL
+  3. Mermaid blocks: fenced as ` ```mermaid ` and start with a known Mermaid diagram type
+- If validation fails, route back to Research/Writer while retry budget remains
+- If validation still fails after the retry budget is exhausted, route to Fallback instead of another LLM step
+
 #### Critic
 - Evaluates Writer's draft:
   1. **Answer grounding:** every claim traceable to a chunk? (if not → flag as ungrounded)
   2. **Coverage:** does it answer the actual question?
   3. **Confidence score:** 0–1
+- Receives deterministic validation status as additional context
 - If confidence < 0.6 OR ungrounded claims found → retry Research with targeted follow-up query
-- **`iteration` incremented by Critic** before routing back to Research
-- Max 2 retries
-- If still low confidence/ungrounded after retries → Writer adds explicit disclaimer
+- Retry budget is counted at draft-generation time (`Writer` increments `iteration`)
+- Max 2 retries after the first draft (`MAX_DRAFT_ATTEMPTS = 3`)
+- If still low confidence/ungrounded after retries → route to Fallback and stop the LLM loop
 - **LLM-as-judge:** uses Claude claude-sonnet-4-6 to evaluate Claude's output with structured rubric
-- Conditional edge (see Section 5.3): routes back to Research if `confidence < 0.6 OR ungrounded_claims.length > 0` AND `iteration < 2`
+- Conditional edge (see Section 5.3): routes back to Research if quality checks fail and retry budget remains; otherwise routes to Fallback or Related Posts
+
+#### Fallback
+- Final non-LLM safety node
+- Prepends `⚠️ 此回答可能不完整` when deterministic validation or Critic still fails after the retry budget is exhausted
+- Lowers final confidence score and preserves validation errors / critique gaps for logging
+- Continues to Related Posts so the user still gets navigation help
 
 #### Related Posts
 - Queries Vectorize with conversation summary

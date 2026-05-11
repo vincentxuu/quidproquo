@@ -1,12 +1,12 @@
 import type { GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createAnthropicModel } from '../model'
+import { createModel } from '../model'
 
 export async function writerNode(state: GraphState): Promise<Partial<GraphState>> {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
-  const model = createAnthropicModel(2048)
+  const model = createModel(2048)
   const language = state.language === 'en' ? 'English' : '繁體中文'
 
   const contextParts = state.search_results.slice(0, 8).map((r, i) => {
@@ -14,19 +14,28 @@ export async function writerNode(state: GraphState): Promise<Partial<GraphState>
     return `[Source ${i + 1}] ${r.source_url}\n${r.evidence_excerpt}${imgs}`
   })
 
-  const needsDisclaimer = state.critique.confidence < 0.6
+  const needsDisclaimer = (state.critique?.confidence ?? 1) < 0.6 || state.validation?.passed === false
 
   const systemPrompt = `You are a writer for a personal blog Q&A system.
 Respond in ${language}.
-Use the provided sources to answer the question.
-Cite sources inline: [relevant text](source_url)
-Include images as: ![description](image_url)
-${needsDisclaimer ? 'Note: Limited information available. Add a disclaimer.' : ''}
-Coverage gaps to mention: ${state.coverage_gaps.join(', ') || 'none'}`
+
+Describe the successful end state by producing an answer that:
+- directly resolves the user's question before adding extra detail
+- stays grounded in the provided sources only
+- cites factual claims inline as [short label](source_url) using the EXACT source_url from the provided sources (always full absolute URLs)
+- uses images only as ![description](image_url) when an image materially helps
+- explicitly names uncertainty or missing evidence instead of guessing
+- is valid Markdown with balanced code fences
+- keeps Mermaid diagrams inside \`\`\`mermaid fenced blocks when used
+
+Avoid step-by-step self-instructions or meta commentary about your process.
+${needsDisclaimer ? 'Because prior checks found low confidence or formatting issues, include a brief limitation note near the start.' : ''}
+Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
+Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}`
 
   const response = await model.invoke([
     new SystemMessage(systemPrompt),
-    new HumanMessage(`Question: ${query}\n\nSources:\n${contextParts.join('\n\n')}`),
+    new HumanMessage(`Conversation summary:\n${state.conversation_summary ?? 'none'}\n\nQuestion: ${query}\n\nSources:\n${contextParts.join('\n\n')}`),
   ])
 
   const draft = typeof response.content === 'string' ? response.content : ''
@@ -34,6 +43,7 @@ Coverage gaps to mention: ${state.coverage_gaps.join(', ') || 'none'}`
   return {
     draft,
     final_response: draft,
+    iteration: state.iteration + 1,
     token_usage: {
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,

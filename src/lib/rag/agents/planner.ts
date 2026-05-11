@@ -1,6 +1,6 @@
 import type { GraphState, Plan } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
-import { createAnthropicModel } from '../model'
+import { createModel } from '../model'
 
 const INTENT_PROMPT = `You are a query planner for a personal blog RAG system.
 Analyze the user's query and respond with JSON only, no markdown.
@@ -8,6 +8,7 @@ Analyze the user's query and respond with JSON only, no markdown.
 Response format:
 {
   "intent": "factual" | "summary" | "code" | "comparison" | "exploratory" | "off-topic",
+  "complexity": "simple" | "medium" | "complex",
   "language": "zh-TW" | "en",
   "needs_clarification": boolean,
   "subtasks": string[],
@@ -22,13 +23,14 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
-  const model = createAnthropicModel()
+  const model = createModel()
   const response = await model.invoke([
-    new HumanMessage(`${INTENT_PROMPT}\n\nQuery: ${query}`),
+    new HumanMessage(`${INTENT_PROMPT}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
   ])
 
   let plan: Plan = {
     intent: 'factual',
+    complexity: 'medium',
     needs_clarification: false,
     subtasks: [],
     specialists: [],
@@ -40,6 +42,7 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
     language = parsed.language ?? 'zh-TW'
     plan = {
       intent: parsed.intent ?? 'factual',
+      complexity: parsed.complexity ?? 'medium',
       needs_clarification: parsed.needs_clarification ?? false,
       subtasks: parsed.subtasks ?? [],
       specialists: parsed.specialists ?? [],

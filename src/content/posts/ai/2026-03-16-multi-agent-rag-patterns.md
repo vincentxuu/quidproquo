@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "單一 RAG Agent 處理所有查詢會遇到知識邊界和效能瓶頸。Multi-Agent RAG 把檢索任務分派給多個專業化 Agent，每個 Agent 有自己的知識庫和檢索策略，由中央 Orchestrator 協調合併結果。"
 description: "Multi-Agent RAG 的架構設計：Orchestrator 協調模式、專業化 Agent 設計、非同步通訊與平行處理、結果融合策略，以及與單一 Agentic RAG 的比較。"
 draft: false
+series:
+  name: "RAG 系統實戰"
+  order: 4
 ---
 
 當你的 RAG 系統需要同時回答法律條文、財務報表、和技術文件的問題時，一個 Agent 做所有事情就開始出問題了。

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "RAG 已經從簡單的「搜尋+生成」演化成涵蓋十個世代的技術體系。本文是系統化導航：從 Naive RAG 到 Multi-Agent RAG 的十代演化、檢索策略、Chunking、Embedding、Reranking、評估框架、可觀測性、成本優化。每個主題都有對應專文深入。"
 description: "RAG 系統的完整導航指南：十代 RAG 演化（Naive → Advanced → Modular → Self-RAG → CRAG → Graph RAG → Speculative → Agentic → Multi-Agent → LongRAG）、檢索策略、Chunking、Embedding、向量資料庫、Reranking、評估框架、Guardrails、可觀測性和成本優化。"
 draft: false
+series:
+  name: "RAG 系統實戰"
+  order: 1
 ---
 
 你搜尋「RAG」，會得到幾百篇文章，每篇都在講不同的東西。

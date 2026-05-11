@@ -1,0 +1,81 @@
+---
+export const prerender = true;
+
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icons from '../../components/Icons.astro';
+import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts } from '../../utils/content';
+import { getSeriesHref, getSeriesSummaries } from '../../utils/series';
+
+const t = useTranslations('zh-TW');
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts('zh-TW');
+  const seriesList = getSeriesSummaries(posts, 'zh-TW');
+
+  return seriesList.map(series => ({
+    params: { series: series.slug },
+    props: { series },
+  }));
+}
+
+const { series } = Astro.props;
+---
+<PostLayout title={`${series.name} — quidproquo`} lang="zh-TW" description={series.description}>
+  <a href="/series" class="back-link"><Icons name="chevron-left" size={13} />{t('nav.series')}</a>
+  <div class="series-header">
+    <span class="series-count">{series.count} {t('series.posts')}</span>
+    <h1>{series.name}</h1>
+    <p>{series.description}</p>
+  </div>
+  {series.posts.map(post => (
+    <PostCard
+      slug={post.id}
+      title={post.data.title}
+      date={post.data.date}
+      category={post.data.category}
+      tags={post.data.tags}
+      description={post.data.description}
+      tldr={post.data.tldr}
+      readingTime={post.data.readingTime}
+      lang="zh-TW"
+      type={post.data.type}
+      pinned={post.data.pinned}
+      seriesName={post.data.series?.name}
+      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'zh-TW') : undefined}
+    />
+  ))}
+</PostLayout>
+
+<style>
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+  }
+  .series-header {
+    border-left: 4px solid var(--brand-500);
+    padding-left: 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+  .series-count {
+    display: inline-block;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  h1 {
+    margin: 0 0 0.35rem;
+    color: var(--brand-900);
+  }
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+</style>

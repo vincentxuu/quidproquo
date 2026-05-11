@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"grep -r \\\"langfuse\\\\|@langfuse\\\" src/ --include=\\\"*.ts\\\" -l; du -sh node_modules/langfuse 2>/dev/null; du -sh node_modules/langfuse-core 2>/dev/null\",\"description\":\"Check Langfuse size and...",
+  "error": "Exit code 1\nsrc/lib/langfuse.ts\nsrc/lib/rag/state.ts\nsrc/lib/rag/graph.ts\nsrc/pages/api/chat.ts\n  0B\tnode_modules/langfuse",
+  "timestamp": "2026-05-11T17:09:40.477Z",
+  "retry_count": 1
+}

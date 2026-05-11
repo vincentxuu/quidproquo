@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "向量搜尋抓語義，BM25 抓關鍵字，兩者用 RRF 融合才能同時照顧模糊查詢和精確術語。"
 description: "深入介紹 Hybrid Search 的設計原理：BM25 全文搜尋、向量搜尋、RRF 融合演算法，以及在攀岩社群平台的實際應用。"
 draft: false
+series:
+  name: "RAG 系統實戰"
+  order: 3
 ---
 
 向量搜尋（Vector Search）已經是 RAG 系統的標配，但只用它有個根本問題：**對精確關鍵字的掌握能力不如 BM25**。

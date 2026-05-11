@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "PageIndex 不切 chunk、不做 embedding、不存向量，靠 LLM 推理一份 LLM 自己寫的目錄樹，在 FinanceBench 拿到 98.7%（GPT-4o 直讀只有 31%）。它解的不是向量 RAG 的同一個問題——是『在一份結構清楚的厚文件裡找對的那一節』。"
 description: "VectifyAI 開源的 PageIndex 把『RAG = 向量檢索』這個假設拆開：用樹狀目錄＋LLM 推理取代向量相似度。整理它的運作方式、跟向量 RAG 的差異，以及什麼場景該用、什麼場景不該用。"
 draft: false
+series:
+  name: "RAG 系統實戰"
+  order: 6
 ---
 
 VectifyAI 開源的 PageIndex 走的是一條跟主流 RAG 不一樣的路線：不切 chunk、不做 embedding、不存向量，在 FinanceBench 上拿到 98.7% 準確率（同一份題目，GPT-4o 直接讀只有 31%）。它把「做 RAG = 做向量」這個被當成預設的假設重新拆開。

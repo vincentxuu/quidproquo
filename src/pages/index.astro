@@ -2,19 +2,14 @@
 // src/pages/index.astro
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
 import PostLayout from '../layouts/PostLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { useTranslations } from '../i18n/utils';
+import { getSeriesHref } from '../utils/series';
+import { getPublishedPosts, sortPostsByPinnedAndDateDesc } from '../utils/content';
 
 const t = useTranslations('zh-TW');
-const posts = await getCollection('posts', ({ data }) =>
-  !data.draft && data.lang === 'zh-TW'
-);
-posts.sort((a, b) => {
-  if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
-  return b.data.date.getTime() - a.data.date.getTime();
-});
+const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('zh-TW'));
 ---
 <PostLayout title="quidproquo" lang="zh-TW" description="AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。" ogImage="https://quidproquo.cc/og/home.png">
   <Fragment slot="head">
@@ -60,6 +55,8 @@ posts.sort((a, b) => {
       lang="zh-TW"
       type={post.data.type}
       pinned={post.data.pinned}
+      seriesName={post.data.series?.name}
+      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'zh-TW') : undefined}
     />
   ))}
 </PostLayout>

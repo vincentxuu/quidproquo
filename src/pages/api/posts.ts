@@ -38,10 +38,11 @@ export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const category = url.searchParams.get('category');
   const lang = url.searchParams.get('lang');
+  const now = new Date().toISOString();
 
   let query = 'SELECT id, slug, title, category, lang, description, tldr, tags, created_at FROM posts';
-  const conditions: string[] = [];
-  const bindings: string[] = [];
+  const conditions: string[] = ['created_at <= ?'];
+  const bindings: string[] = [now];
 
   if (category) {
     conditions.push('category = ?');

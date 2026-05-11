@@ -10,7 +10,9 @@ export function AgentSteps({ steps }: { steps: AgentStep[] }) {
     Planner: '分析問題',
     Research: '搜尋文章',
     Writer: '生成回應',
+    Validation: '格式驗證',
     Critic: '品質檢查',
+    Fallback: '降級輸出',
   }
   return (
     <div style={{ fontSize: '0.8rem', color: '#888', padding: '0.25rem 0' }}>
