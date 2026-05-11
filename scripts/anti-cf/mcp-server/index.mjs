@@ -3,8 +3,6 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { chromium } from "playwright-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import { z } from "zod";
-import fs from "fs";
-import path from "path";
 
 chromium.use(StealthPlugin());
 

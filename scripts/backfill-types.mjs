@@ -40,7 +40,6 @@ function parseFrontmatter(source) {
 
 function classify(category, tags, title) {
   const tagSet = new Set(tags);
-  const lowerTitle = title.toLowerCase();
 
   if (
     category.includes('debug') ||
