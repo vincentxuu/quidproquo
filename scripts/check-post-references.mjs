@@ -117,10 +117,14 @@ function extractReferenceSection(body) {
     return { exists: false, headingIndex: -1, content: '', links: [] };
   }
 
+  const headingMatch = lines[headingIndex].trim().match(/^(#+)/);
+  const headingLevel = headingMatch ? headingMatch[1].length : 2;
+  const breakPattern = new RegExp(`^#{1,${headingLevel}}\\s+`);
+
   const referenceLines = [];
   for (let i = headingIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
-    if (i > headingIndex + 1 && /^#{1,3}\s+/.test(trimmed)) {
+    if (breakPattern.test(trimmed)) {
       break;
     }
     referenceLines.push(lines[i]);

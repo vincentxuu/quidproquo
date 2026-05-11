@@ -5,7 +5,7 @@ import { searchBlogPosts } from '../tools/search-posts'
 import { searchDocs } from '../tools/search-docs'
 import { getPostDetail } from '../tools/get-post-detail'
 import type { GraphState, SearchResult } from '../state'
-import { HumanMessage } from '@langchain/core/messages'
+import { HumanMessage, ToolMessage } from '@langchain/core/messages'
 
 function getModel() {
   const apiKey = (env as unknown as { ANTHROPIC_API_KEY: string }).ANTHROPIC_API_KEY
@@ -41,7 +41,7 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
 
   const allResults: SearchResult[] = []
   for (const msg of result.messages) {
-    if (msg._getType() === 'tool') {
+    if (msg instanceof ToolMessage) {
       try {
         const content = typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content)
         const parsed = JSON.parse(content)

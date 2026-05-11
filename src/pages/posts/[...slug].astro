@@ -98,8 +98,8 @@ const breadcrumbLD = {
   articleTags={post.data.tags}
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(blogPostingLD).replace(/</g, '\\u003c')} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLD).replace(/</g, '\\u003c')} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(blogPostingLD).replace(/</g, '\\u003c')} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbLD).replace(/</g, '\\u003c')} />
   </Fragment>
 
   <!-- Hero Section (like DJ MYG) -->

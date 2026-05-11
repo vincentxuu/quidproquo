@@ -3,7 +3,7 @@
 // Run after: astro build
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
-import { resolve, join, basename, extname } from 'node:path';
+import { resolve, join } from 'node:path';
 import matter from 'gray-matter';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -39,7 +39,7 @@ function slugFromPath(fullPath) {
   return relative.replace(/\.md$/, '');
 }
 
-async function generateOgImage({ title, category, slug, fontData }) {
+async function generateOgImage({ title, category, slug: _slug, fontData }) {
   const badgeColor = catColors[category] ?? '#1a2e1a';
 
   const svg = await satori(

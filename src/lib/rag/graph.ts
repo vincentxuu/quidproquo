@@ -1,4 +1,4 @@
-import { StateGraph, MemorySaver, END } from '@langchain/langgraph'
+import { StateGraph, MemorySaver, START, END } from '@langchain/langgraph'
 import { StateAnnotation } from './state'
 import { plannerNode } from './agents/planner'
 import { researchNode } from './agents/research'
@@ -18,7 +18,7 @@ export function buildGraph() {
     .addNode('critic', criticNode)
     .addNode('related', relatedPostsNode)
 
-  graph.setEntryPoint('planner')
+  graph.addEdge(START, 'planner')
 
   graph.addConditionalEdges('planner', (state: GraphState) =>
     state.plan.needs_clarification || state.plan.intent === 'off-topic' ? END : 'research'
