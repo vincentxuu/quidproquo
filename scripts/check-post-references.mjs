@@ -124,7 +124,7 @@ function extractReferenceSection(body) {
   const referenceLines = [];
   for (let i = headingIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
-    if (i > headingIndex + 1 && breakPattern.test(trimmed)) {
+    if (breakPattern.test(trimmed)) {
       break;
     }
     referenceLines.push(lines[i]);
