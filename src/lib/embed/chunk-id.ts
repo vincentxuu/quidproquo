@@ -1,7 +1,7 @@
 type SourceType = 'post' | 'doc' | 'custom'
 
 export async function generateChunkId(
-  type: SourceType,
+  _type: SourceType,
   sourceKey: string,
   chunkIndex: number
 ): Promise<string> {

@@ -16,7 +16,7 @@ const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('zh-TW'));
     <link rel="alternate" hreflang="zh-TW" href="https://quidproquo.cc/" />
     <link rel="alternate" hreflang="en" href="https://quidproquo.cc/en/" />
     <link rel="alternate" hreflang="x-default" href="https://quidproquo.cc/" />
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'quidproquo',
