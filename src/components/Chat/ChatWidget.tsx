@@ -5,14 +5,14 @@ import { QuotaIndicator } from './QuotaIndicator'
 
 const DAILY_LIMIT = 5
 
-export function ChatWidget() {
+export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [messages, setMessages] = useState<Message[]>([{
     id: 'welcome',
     role: 'assistant',
     content: '你好！我可以回答關於這個部落格的問題。試著問我「你寫過哪些 AI 相關的文章？」',
   }])
   const [loading, setLoading] = useState(false)
-  const [remaining, setRemaining] = useState(DAILY_LIMIT)
+  const [remaining, setRemaining] = useState<number | null>(null)
   const threadId = useRef(
     typeof localStorage !== 'undefined'
       ? (localStorage.getItem('chat_thread_id') ?? crypto.randomUUID())
@@ -122,16 +122,24 @@ export function ChatWidget() {
     }
   }
 
+  const containerStyle = embedded
+    ? { display: 'flex', flexDirection: 'column' as const, flex: 1, overflow: 'hidden' }
+    : { display: 'flex', flexDirection: 'column' as const, height: '80vh', maxWidth: 800, margin: '0 auto', border: '1px solid #eee', borderRadius: 12, overflow: 'hidden', background: 'white' }
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '80vh', maxWidth: 800, margin: '0 auto', border: '1px solid #eee', borderRadius: 12, overflow: 'hidden', background: 'white' }}>
-      <div style={{ padding: '1rem', borderBottom: '1px solid #eee', fontWeight: 600 }}>
-        Ask AI
-      </div>
+    <div style={containerStyle}>
+      {!embedded && (
+        <div style={{ padding: '1rem', borderBottom: '1px solid #eee', fontWeight: 600 }}>
+          Ask AI
+        </div>
+      )}
       <MessageList messages={messages} />
       <div ref={bottomRef} />
-      <div style={{ padding: '0.5rem 1rem 0' }}>
-        <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
-      </div>
+      {remaining !== null && (
+        <div style={{ padding: '0.5rem 1rem 0' }}>
+          <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
+        </div>
+      )}
       <MessageInput onSend={sendMessage} disabled={loading} />
     </div>
   )
