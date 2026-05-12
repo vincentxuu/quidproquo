@@ -189,6 +189,20 @@
     - Search 與 Chat 共用同一套 retrieval 設定（feature flags、reranker、MMR）避免結果分裂
     - 至少 20 筆「找文章」查詢評估：`rag` 模式在相關性主觀評分優於純 keyword
   - 備註：UI 維持「先清單後對話」，避免搜尋頁直接變聊天頁
+- [ ] **RAG 後台管理頁（Admin Console）**
+  - 目標：集中管理策略開關、實驗、資料重建與品質檢查，不再靠手動改 DB setting
+  - 驗收：
+    - 可視化管理 flags（HyDE、Multi-query、Reranker、Critic、PageIndex、pipeline_engine）
+    - 可發起/停止 shadow run，並查看 primary vs shadow 差異摘要
+    - 可操作 embed/crawl/smoke test 任務（含最近執行紀錄、成功率、錯誤摘要）
+    - 具備角色權限（至少 admin-only）與操作審計紀錄
+- [ ] **每筆查詢 Observability Timeline（逐階段可視化）**
+  - 目標：每一筆 query 都能看到 Planner/Research/Writer/Validation/Critic 各階段耗時、輸入輸出摘要與決策路徑
+  - 驗收：
+    - trace 詳情頁可顯示每階段 timeline（開始時間、耗時、token、是否重試）
+    - 可查看關鍵中介產物（plan intent/complexity、檢索命中數、validation errors、critic 分數）
+    - 可比對同一 query 的 primary/shadow 執行差異（步驟、品質分數、延遲）
+    - 可依日期、query 類型、錯誤類型篩選，支援回放最近失敗案例
 
 ### Phase 1C：內容營運自動化
 
