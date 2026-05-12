@@ -21,19 +21,24 @@ if (!isLoggedIn) {
   return Astro.redirect(loginUrl);
 }
 
-// Navigation items
 const navItems = [
-  { href: '/admin', label: '總覽' },
-  { href: '/admin/ops', label: '維運' },
-  { href: '/admin/rag', label: 'RAG' },
-  { href: '/admin/content-pipelines', label: '流程' },
-  { href: '/admin/jobs', label: '任務' },
-  { href: '/admin/content', label: '內容' },
-  { href: '/admin/stats', label: '統計' },
-  { href: '/admin/providers', label: '模型供應商' },
-  { href: '/admin/traces', label: '追蹤紀錄' },
-  { href: '/admin/settings', label: '設定' },
+  { href: '/admin', label: '總覽', section: 'Monitor' },
+  { href: '/admin/content', label: '內容', section: 'Content' },
+  { href: '/admin/content-pipelines', label: '流程', section: 'Content' },
+  { href: '/admin/jobs', label: '任務', section: 'Content' },
+  { href: '/admin/stats', label: '統計', section: 'Insight' },
+  { href: '/admin/rag', label: 'RAG', section: 'AI' },
+  { href: '/admin/providers', label: '模型供應商', section: 'AI' },
+  { href: '/admin/traces', label: '追蹤紀錄', section: 'AI' },
+  { href: '/admin/ops', label: '維運', section: 'System' },
+  { href: '/admin/settings', label: '設定', section: 'System' },
 ];
+
+const groupedNav = navItems.reduce<Record<string, typeof navItems>>((groups, item) => {
+  groups[item.section] ??= [];
+  groups[item.section].push(item);
+  return groups;
+}, {});
 ---
 
 <!DOCTYPE html>
@@ -47,16 +52,28 @@ const navItems = [
   <div class="admin-container">
     <aside class="admin-sidebar">
       <div class="sidebar-header">
-        <h1>Admin</h1>
+        <a href="/admin" class="admin-brand" aria-label="Admin dashboard">
+          <span class="brand-mark">qp</span>
+          <span class="brand-text">
+            <strong>quidproquo</strong>
+            <span>Admin</span>
+          </span>
+        </a>
       </div>
-      <nav class="sidebar-nav">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class:list={['nav-item', { active: currentPath === item.href }]}
-          >
-            <span class="nav-label">{item.label}</span>
-          </a>
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        {Object.entries(groupedNav).map(([section, items]) => (
+          <div class="nav-group">
+            <span class="nav-section">{section}</span>
+            {items.map(item => (
+              <a
+                href={item.href}
+                class:list={['nav-item', { active: currentPath === item.href }]}
+                aria-current={currentPath === item.href ? 'page' : undefined}
+              >
+                <span class="nav-label">{item.label}</span>
+              </a>
+            ))}
+          </div>
         ))}
       </nav>
       <div class="sidebar-footer">
@@ -70,7 +87,10 @@ const navItems = [
     </aside>
     <main class="admin-main">
       <header class="admin-header">
-        <h2>{title}</h2>
+        <div>
+          <p class="admin-kicker">Workspace</p>
+          <h2>{title}</h2>
+        </div>
       </header>
       <div class="admin-content">
         <slot />
@@ -82,14 +102,24 @@ const navItems = [
 
 <style>
   :root {
-    --sidebar-width: 220px;
-    --admin-bg: #0f0f0f;
-    --admin-surface: #1a1a1a;
-    --admin-border: #2a2a2a;
-    --admin-text: #e0e0e0;
-    --admin-text-muted: #888;
-    --admin-accent: #3b82f6;
-    --admin-accent-hover: #2563eb;
+    color-scheme: light;
+    --sidebar-width: 248px;
+    --admin-bg: #f4f4f2;
+    --admin-surface: #ffffff;
+    --admin-surface-subtle: #fafaf8;
+    --admin-border: #d8d8d2;
+    --admin-border-strong: #b8b8b0;
+    --admin-text: #161615;
+    --admin-text-muted: #696964;
+    --admin-text-soft: #8a8a82;
+    --admin-accent: #2563eb;
+    --admin-accent-hover: #1d4ed8;
+    --admin-danger: #b42318;
+    --admin-success: #067647;
+    --admin-warning: #b54708;
+    --admin-radius: 8px;
+    --admin-shadow: 0 1px 2px rgba(22, 22, 21, 0.06);
+    --admin-focus: 0 0 0 3px rgba(37, 99, 235, 0.24);
   }
 
   * {
@@ -99,10 +129,26 @@ const navItems = [
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--admin-bg);
     color: var(--admin-text);
     min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  a,
+  button,
+  select,
+  input {
+    font: inherit;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible,
+  input:focus-visible {
+    outline: none;
+    box-shadow: var(--admin-focus);
   }
 
   .admin-container {
@@ -124,43 +170,89 @@ const navItems = [
   }
 
   .sidebar-header {
-    padding: 1.25rem;
+    padding: 1rem;
     border-bottom: 1px solid var(--admin-border);
   }
 
-  .sidebar-header h1 {
-    font-size: 1.25rem;
-    font-weight: 600;
+  .admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--admin-text);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--admin-border-strong);
+    border-radius: var(--admin-radius);
+    background: var(--admin-text);
+    color: var(--admin-surface);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+  }
+
+  .brand-text {
+    display: grid;
+    gap: 0.05rem;
+  }
+
+  .brand-text strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .brand-text span {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
   }
 
   .sidebar-nav {
     flex: 1;
-    padding: 0.75rem;
+    padding: 0.8rem;
+  }
+
+  .nav-group + .nav-group {
+    margin-top: 0.95rem;
+  }
+
+  .nav-section {
+    display: block;
+    padding: 0 0.65rem 0.35rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .nav-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 8px;
+    min-height: 38px;
+    padding: 0.55rem 0.65rem;
+    border-radius: var(--admin-radius);
     color: var(--admin-text);
     text-decoration: none;
-    margin-bottom: 0.25rem;
-    transition: background 0.15s;
+    margin-bottom: 0.15rem;
+    transition: background 0.15s ease, color 0.15s ease;
+    cursor: pointer;
   }
 
   .nav-item:hover {
-    background: var(--admin-border);
+    background: var(--admin-surface-subtle);
   }
 
   .nav-item.active {
-    background: var(--admin-accent);
-    color: white;
-  }
-
-  .nav-icon {
-    font-size: 1.1rem;
+    background: #e8efff;
+    color: #174ea6;
+    font-weight: 650;
   }
 
   .nav-label {
@@ -176,7 +268,7 @@ const navItems = [
     width: 100%;
     padding: 0.75rem;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--admin-radius);
     background: transparent;
     color: var(--admin-text-muted);
     cursor: pointer;
@@ -186,7 +278,7 @@ const navItems = [
   }
 
   .logout-btn:hover {
-    background: var(--admin-border);
+    background: var(--admin-surface-subtle);
     color: var(--admin-text);
   }
 
@@ -197,35 +289,76 @@ const navItems = [
   }
 
   .admin-header {
-    padding: 1.25rem 1.5rem;
+    min-height: 76px;
+    padding: 1rem 1.75rem;
     border-bottom: 1px solid var(--admin-border);
-    background: var(--admin-surface);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 10;
   }
 
   .admin-header h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .admin-kicker {
+    margin-bottom: 0.1rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .admin-content {
-    padding: 1.5rem;
+    width: min(100%, 1440px);
+    padding: 1.5rem 1.75rem 2.5rem;
   }
 
   @media (max-width: 768px) {
+    :root {
+      --sidebar-width: 72px;
+    }
+
     .admin-sidebar {
-      width: 60px;
+      width: var(--sidebar-width);
     }
 
     .nav-label,
-    .sidebar-header h1 {
+    .nav-section,
+    .brand-text {
       display: none;
     }
 
+    .sidebar-header,
+    .sidebar-nav,
+    .sidebar-footer {
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+    }
+
+    .nav-item {
+      justify-content: center;
+      min-height: 42px;
+      padding: 0.55rem;
+    }
+
     .admin-main {
-      margin-left: 60px;
+      margin-left: var(--sidebar-width);
+      min-width: 0;
+    }
+
+    .admin-header {
+      padding: 0.9rem 1rem;
+    }
+
+    .admin-content {
+      padding: 1rem;
     }
   }
 </style>

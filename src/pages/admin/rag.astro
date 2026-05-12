@@ -7,9 +7,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   <p class="page-desc">管理 RAG 策略開關、engine/provider 設定、shadow run 與最近 trace timeline。</p>
 
   <section class="admin-panel">
-    <h2>RAG 設定</h2>
+    <div class="panel-title">
+      <div>
+        <h2>RAG 設定</h2>
+        <p class="section-desc">可編輯 engine、provider、fallback、retrieval flags 與 trace retention。</p>
+      </div>
+      <span id="settings-status" class="save-status" aria-live="polite"></span>
+    </div>
     <form id="settings-form"></form>
-    <button id="save-settings" type="button">儲存設定</button>
+    <div class="form-actions">
+      <button id="save-settings" type="button">儲存設定</button>
+    </div>
   </section>
 
   <section class="admin-panel">
@@ -79,8 +87,36 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const evalLanggraphCheckbox = document.getElementById('eval-langgraph');
   const evalLlamaindexCheckbox = document.getElementById('eval-llamaindex');
   const evalCasesInput = document.getElementById('eval-cases');
+  const settingsStatus = document.getElementById('settings-status');
 
   const defaultCaseCount = Number((evalCasesInput && evalCasesInput.value) || '8');
+  const settingMeta = [
+    { key: 'rag_pipeline_engine', label: 'Pipeline engine', type: 'select', section: 'Routing', options: ['langgraph', 'manual', 'llamaindex'] },
+    { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['groq', 'openai', 'google'] },
+    { key: 'rag_default_model', label: 'Default model', type: 'text', section: 'Routing' },
+    { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'groq', 'openai', 'google'] },
+    { key: 'rag_fallback_model', label: 'Fallback model', type: 'text', section: 'Routing' },
+    { key: 'rag_stage_overrides', label: 'Stage overrides JSON', type: 'textarea', section: 'Routing' },
+    { key: 'rag_flag_hyde', label: 'HyDE', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_flag_multi_query', label: 'Multi-query', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_flag_reranker', label: 'Reranker', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_flag_critic', label: 'Critic', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_flag_pageindex', label: 'PageIndex', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_flag_bm25_short_circuit', label: 'BM25 short circuit', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_shadow_mode', label: 'Shadow mode', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_pageindex_max_steps', label: 'PageIndex max steps', type: 'number', section: 'Tuning', min: 1, max: 20, step: 1 },
+    { key: 'semantic_cache_threshold', label: 'Semantic cache threshold', type: 'number', section: 'Tuning', min: 0, max: 1, step: 0.01 },
+    { key: 'rag_reranker_min_keep', label: 'Reranker min keep', type: 'number', section: 'Tuning', min: 1, max: 20, step: 1 },
+    { key: 'rag_mmr_lambda', label: 'MMR lambda', type: 'number', section: 'Tuning', min: 0, max: 1, step: 0.05 },
+    { key: 'rag_checkpoint_threshold_ratio', label: 'Checkpoint threshold ratio', type: 'number', section: 'Tuning', min: 0, max: 1, step: 0.05 },
+    { key: 'rag_trace_retention_enabled', label: 'Trace retention enabled', type: 'boolean', section: 'Retention' },
+    { key: 'rag_trace_retention_prod_days', label: 'Production trace days', type: 'number', section: 'Retention', min: 1, max: 365, step: 1 },
+    { key: 'rag_trace_retention_admin_days', label: 'Admin trace days', type: 'number', section: 'Retention', min: 1, max: 365, step: 1 },
+    { key: 'rag_trace_retention_prod_native_days', label: 'Production native trace days', type: 'number', section: 'Retention', min: 1, max: 365, step: 1 },
+    { key: 'rag_trace_retention_admin_native_days', label: 'Admin native trace days', type: 'number', section: 'Retention', min: 1, max: 365, step: 1 },
+    { key: 'rag_trace_retention_native_sample_bps', label: 'Native trace sample bps', type: 'number', section: 'Retention', min: 0, max: 10000, step: 1 },
+    { key: 'rag_trace_retention_error_grace_days', label: 'Error grace days', type: 'number', section: 'Retention', min: 0, max: 365, step: 1 },
+  ];
 
   async function load() {
     const res = await fetch('/api/admin/rag');
@@ -100,17 +136,76 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   function renderSettings(settings) {
     form.replaceChildren();
-    for (const row of settings) {
-      const label = document.createElement('label');
-      label.className = 'setting-row';
-      const name = document.createElement('span');
-      name.textContent = row.key;
-      const input = document.createElement('input');
-      input.name = row.key;
-      input.value = row.value ?? '';
-      label.append(name, input);
-      form.append(label);
+    const byKey = new Map((settings || []).map(row => [row.key, row]));
+    const sections = new Map();
+    for (const meta of settingMeta) {
+      const group = sections.get(meta.section) || [];
+      group.push(meta);
+      sections.set(meta.section, group);
     }
+
+    for (const [section, metas] of sections) {
+      const fieldset = document.createElement('fieldset');
+      fieldset.className = 'settings-group';
+      const legend = document.createElement('legend');
+      legend.textContent = section;
+      fieldset.append(legend);
+
+      for (const meta of metas) {
+        const row = byKey.get(meta.key) || { key: meta.key, value: '' };
+        const label = document.createElement('label');
+        label.className = `setting-row setting-${meta.type}`;
+        const labelText = document.createElement('span');
+        labelText.textContent = meta.label;
+
+        const control = buildSettingControl(meta, row.value ?? '');
+        label.append(labelText, control);
+        fieldset.append(label);
+      }
+
+      form.append(fieldset);
+    }
+  }
+
+  function buildSettingControl(meta, value) {
+    if (meta.type === 'select') {
+      const select = document.createElement('select');
+      select.name = meta.key;
+      for (const optionValue of meta.options) {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        option.textContent = optionValue || 'none';
+        option.selected = optionValue === value;
+        select.append(option);
+      }
+      return select;
+    }
+
+    if (meta.type === 'textarea') {
+      const textarea = document.createElement('textarea');
+      textarea.name = meta.key;
+      textarea.rows = 4;
+      textarea.spellcheck = false;
+      textarea.value = value || '{}';
+      return textarea;
+    }
+
+    if (meta.type === 'boolean') {
+      const input = document.createElement('input');
+      input.name = meta.key;
+      input.type = 'checkbox';
+      input.checked = value === '1' || value === 'true';
+      return input;
+    }
+
+    const input = document.createElement('input');
+    input.name = meta.key;
+    input.type = meta.type || 'text';
+    if (meta.min !== undefined) input.min = String(meta.min);
+    if (meta.max !== undefined) input.max = String(meta.max);
+    if (meta.step !== undefined) input.step = String(meta.step);
+    input.value = value ?? '';
+    return input;
   }
 
   function renderTraceRows(root, rows, emptyText) {
@@ -179,13 +274,37 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   save.addEventListener('click', async () => {
-    const settings = Object.fromEntries(new FormData(form).entries());
-    await fetch('/api/admin/rag', {
+    const settings = {};
+    for (const meta of settingMeta) {
+      const control = form.elements[meta.key];
+      if (!control) continue;
+      if (meta.type === 'boolean') {
+        settings[meta.key] = control.checked ? '1' : '0';
+      } else {
+        settings[meta.key] = control.value;
+      }
+    }
+
+    try {
+      JSON.parse(settings.rag_stage_overrides || '{}');
+    } catch {
+      settingsStatus.textContent = 'Stage overrides 必須是有效 JSON。';
+      return;
+    }
+
+    settingsStatus.textContent = '儲存中...';
+    const res = await fetch('/api/admin/rag', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ settings }),
     });
+    if (!res.ok) {
+      settingsStatus.textContent = '儲存失敗。';
+      return;
+    }
+    settingsStatus.textContent = '已儲存。';
     await load();
+    setTimeout(() => { settingsStatus.textContent = ''; }, 2400);
   });
 
   document.getElementById('run-embed').addEventListener('click', async () => {
@@ -303,6 +422,43 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     color: var(--admin-text, #e0e0e0);
   }
 
+  .panel-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0;
+  }
+
+  .save-status {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+  }
+
+  #settings-form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .settings-group {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    padding: 0.8rem 1rem 1rem;
+  }
+
+  .settings-group legend {
+    padding: 0 0.35rem;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
   .setting-row {
     display: grid;
     grid-template-columns: minmax(200px, 280px) 1fr;
@@ -312,24 +468,39 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .setting-row span {
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.85rem;
     color: var(--admin-text-muted, #888);
   }
 
-  .setting-row input {
+  .setting-row input:not([type='checkbox']),
+  .setting-row select,
+  .setting-row textarea {
     width: 100%;
     border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
+    border-radius: var(--admin-radius, 8px);
     padding: 0.5rem 0.75rem;
     background: var(--admin-bg, #0f0f0f);
     color: var(--admin-text, #e0e0e0);
     font-size: 0.9rem;
   }
 
-  .setting-row input:focus {
-    outline: none;
-    border-color: var(--admin-accent, #3b82f6);
+  .setting-row textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    resize: vertical;
+  }
+
+  .setting-boolean input {
+    justify-self: start;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--admin-accent, #3b82f6);
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
   }
 
   .trace-row {

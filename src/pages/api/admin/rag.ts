@@ -21,6 +21,7 @@ const MANAGED_KEYS = [
   'rag_flag_critic',
   'rag_flag_pageindex',
   'rag_pageindex_max_steps',
+  'rag_flag_bm25_short_circuit',
   'rag_shadow_mode',
   'semantic_cache_threshold',
   'rag_reranker_min_keep',
@@ -35,12 +36,49 @@ const MANAGED_KEYS = [
   'rag_trace_retention_enabled',
 ]
 
+const DEFAULT_SETTINGS: Record<string, string> = {
+  rag_pipeline_engine: 'langgraph',
+  rag_default_provider: 'groq',
+  rag_default_model: 'llama-3.3-70b-versatile',
+  rag_stage_overrides: '{}',
+  rag_fallback_provider: '',
+  rag_fallback_model: '',
+  rag_flag_hyde: '0',
+  rag_flag_multi_query: '0',
+  rag_flag_reranker: '0',
+  rag_flag_critic: '1',
+  rag_flag_pageindex: '0',
+  rag_pageindex_max_steps: '5',
+  rag_flag_bm25_short_circuit: '1',
+  rag_shadow_mode: '0',
+  semantic_cache_threshold: '0.95',
+  rag_reranker_min_keep: '3',
+  rag_mmr_lambda: '0.7',
+  rag_checkpoint_threshold_ratio: '0.7',
+  rag_trace_retention_prod_days: '14',
+  rag_trace_retention_admin_days: '30',
+  rag_trace_retention_prod_native_days: '7',
+  rag_trace_retention_admin_native_days: '30',
+  rag_trace_retention_native_sample_bps: '100',
+  rag_trace_retention_error_grace_days: '3',
+  rag_trace_retention_enabled: '1',
+}
+
 export const GET: APIRoute = async ({ cookies }) => {
   if (!await isAdmin(cookies)) return unauthorized()
   const db = (env as unknown as Env).DB
   const settings = await db.prepare(
     `SELECT key, value, updated_at FROM settings WHERE key IN (${MANAGED_KEYS.map(() => '?').join(', ')}) ORDER BY key`
   ).bind(...MANAGED_KEYS).all<{ key: string; value: string; updated_at: string }>()
+  const rowsByKey = new Map((settings.results ?? []).map(row => [row.key, row]))
+  const mergedSettings = MANAGED_KEYS.map(key => {
+    const row = rowsByKey.get(key)
+    return {
+      key,
+      value: row?.value ?? DEFAULT_SETTINGS[key] ?? '',
+      updated_at: row?.updated_at ?? null,
+    }
+  })
   const traces = await db.prepare(
     `SELECT trace_id, thread_id, stage, started_at, duration_ms, output_summary, metadata_json
      FROM rag_trace_steps
@@ -133,7 +171,7 @@ export const GET: APIRoute = async ({ cookies }) => {
      LIMIT 20`
   ).all()
 
-  return json({ settings: settings.results, traces: traceRows, shadow_runs: shadow.results })
+  return json({ settings: mergedSettings, traces: traceRows, shadow_runs: shadow.results })
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {

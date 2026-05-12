@@ -4,7 +4,50 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
 <AdminLayout title="Providers">
-  <p class="page-desc">Aggregate view of all AI providers and models used across the system. Configure settings in individual pages.</p>
+  <p class="page-desc">Aggregate view of all AI providers and models used across the system. RAG routing can be edited here or from RAG 管理。</p>
+
+  <section class="providers-section editable-provider">
+    <div class="section-header">
+      <h2>RAG Routing Quick Edit</h2>
+      <span id="routing-save-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div class="routing-form">
+      <label>
+        Engine
+        <select id="edit-engine">
+          <option value="langgraph">langgraph</option>
+          <option value="manual">manual</option>
+          <option value="llamaindex">llamaindex</option>
+        </select>
+      </label>
+      <label>
+        Default provider
+        <select id="edit-provider">
+          <option value="groq">groq</option>
+          <option value="openai">openai</option>
+          <option value="google">google</option>
+        </select>
+      </label>
+      <label>
+        Default model
+        <input id="edit-model" type="text" autocomplete="off" />
+      </label>
+      <label>
+        Fallback provider
+        <select id="edit-fallback-provider">
+          <option value="">none</option>
+          <option value="groq">groq</option>
+          <option value="openai">openai</option>
+          <option value="google">google</option>
+        </select>
+      </label>
+      <label>
+        Fallback model
+        <input id="edit-fallback-model" type="text" autocomplete="off" />
+      </label>
+      <button id="save-routing" type="button">Save routing</button>
+    </div>
+  </section>
 
   <div class="providers-grid">
     <section class="providers-section">
@@ -39,6 +82,18 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     ]);
   }
 
+  const routingControls = {
+    engine: document.getElementById('edit-engine'),
+    provider: document.getElementById('edit-provider'),
+    model: document.getElementById('edit-model'),
+    fallbackProvider: document.getElementById('edit-fallback-provider'),
+    fallbackModel: document.getElementById('edit-fallback-model'),
+    save: document.getElementById('save-routing'),
+    status: document.getElementById('routing-save-status'),
+  };
+
+  let latestRagSettings = {};
+
   async function loadRagProviders() {
     const el = document.getElementById('rag-providers');
     try {
@@ -51,6 +106,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       for (const row of data.settings || []) {
         settings[row.key] = row.value;
       }
+      latestRagSettings = settings;
+      syncRoutingForm(settings);
 
       el.innerHTML = `
         <div class="provider-card">
@@ -102,6 +159,38 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       el.innerHTML = '<p class="error">Unable to load</p>';
     }
   }
+
+  function syncRoutingForm(settings) {
+    routingControls.engine.value = settings.rag_pipeline_engine || 'langgraph';
+    routingControls.provider.value = settings.rag_default_provider || 'groq';
+    routingControls.model.value = settings.rag_default_model || 'llama-3.3-70b-versatile';
+    routingControls.fallbackProvider.value = settings.rag_fallback_provider || '';
+    routingControls.fallbackModel.value = settings.rag_fallback_model || '';
+  }
+
+  routingControls.save.addEventListener('click', async () => {
+    routingControls.status.textContent = 'Saving...';
+    const settings = {
+      ...latestRagSettings,
+      rag_pipeline_engine: routingControls.engine.value,
+      rag_default_provider: routingControls.provider.value,
+      rag_default_model: routingControls.model.value.trim(),
+      rag_fallback_provider: routingControls.fallbackProvider.value,
+      rag_fallback_model: routingControls.fallbackModel.value.trim(),
+    };
+    const res = await fetch('/api/admin/rag', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ settings }),
+    });
+    if (!res.ok) {
+      routingControls.status.textContent = 'Save failed.';
+      return;
+    }
+    routingControls.status.textContent = 'Saved.';
+    await loadProviders();
+    setTimeout(() => { routingControls.status.textContent = ''; }, 2400);
+  });
 
   async function loadContentProviders() {
     const el = document.getElementById('content-providers');
@@ -220,6 +309,59 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .editable-provider {
+    margin-bottom: 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .save-status {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+  }
+
+  .routing-form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 0.8rem;
+    padding: 1rem;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    background: var(--admin-surface, #1a1a1a);
+  }
+
+  .routing-form label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.8rem;
+  }
+
+  .routing-form input,
+  .routing-form select,
+  .routing-form button {
+    min-height: 38px;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    padding: 0.5rem 0.7rem;
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .routing-form button {
+    align-self: end;
+    cursor: pointer;
+  }
+
+  .routing-form button:hover {
+    border-color: var(--admin-accent, #3b82f6);
   }
 
   .providers-section h2 {
@@ -358,4 +500,16 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .status-missing { background: #7f1d1d; color: #fecaca; }
 
   .error { color: #ef4444; }
+
+  @media (max-width: 900px) {
+    .routing-form {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .routing-form {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

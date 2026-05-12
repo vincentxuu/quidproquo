@@ -124,13 +124,28 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
 
   const containerStyle = embedded
     ? { display: 'flex', flexDirection: 'column' as const, flex: 1, overflow: 'hidden' }
-    : { display: 'flex', flexDirection: 'column' as const, height: '80vh', maxWidth: 800, margin: '0 auto', border: '1px solid #eee', borderRadius: 12, overflow: 'hidden', background: 'white' }
+    : {
+        display: 'flex',
+        flexDirection: 'column' as const,
+        height: 'min(82vh, 760px)',
+        minHeight: 560,
+        maxWidth: 860,
+        margin: '0 auto',
+        border: '1px solid #e4e4e7',
+        borderRadius: 8,
+        overflow: 'hidden',
+        background: 'white',
+        boxShadow: '0 18px 45px rgba(24, 24, 27, 0.08)',
+      }
 
   return (
     <div style={containerStyle}>
       {!embedded && (
-        <div style={{ padding: '1rem', borderBottom: '1px solid #eee', fontWeight: 600 }}>
-          Ask AI
+        <div style={{ padding: '0.95rem 1rem', borderBottom: '1px solid #e4e4e7', background: '#fff' }}>
+          <div style={{ fontWeight: 800, fontSize: '1rem', color: '#18181b' }}>Ask AI</div>
+          <div style={{ marginTop: '0.2rem', fontSize: '0.84rem', lineHeight: 1.45, color: '#52525b' }}>
+            搜尋這個部落格的文章脈絡、技術筆記與延伸閱讀。
+          </div>
         </div>
       )}
       <MessageList messages={messages} />

@@ -1,10 +1,147 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts
+  .map(post => {
+    const slug = post.id.replace(/\.md$/, '');
+    return {
+      slug,
+      title: post.data.title,
+      category: post.data.category,
+      lang: post.data.lang,
+      date: post.data.date,
+      draft: post.data.draft,
+      type: post.data.type,
+      tags: post.data.tags,
+      hasDescription: Boolean(post.data.description),
+      hasTldr: Boolean(post.data.tldr),
+      href: `/posts/${slug}`,
+      sourcePath: `src/content/posts/${post.id}`,
+    };
+  })
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
+
+const categories = [...new Set(posts.map(post => post.category))].sort();
+const publishedCount = posts.filter(post => !post.draft).length;
+const draftCount = posts.filter(post => post.draft).length;
+const missingDescriptionCount = posts.filter(post => !post.hasDescription).length;
+const missingTldrCount = posts.filter(post => !post.hasTldr).length;
 ---
 
 <AdminLayout title="Content">
-  <p class="page-desc">Content health status, quality suggestions, and operational insights.</p>
+  <div class="page-intro">
+    <p class="page-desc">文章庫、草稿狀態、metadata 缺漏與內容流程檢查。</p>
+    <a href="/admin/settings" class="settings-link">編輯內容相關設定</a>
+  </div>
+
+  <section class="inventory-panel" aria-labelledby="inventory-title">
+    <div class="panel-header">
+      <div>
+        <p class="section-kicker">Inventory</p>
+        <h2 id="inventory-title">文章管理</h2>
+      </div>
+      <span id="result-count" class="result-count">{posts.length} 篇</span>
+    </div>
+
+    <div class="metric-strip" aria-label="Content summary">
+      <div class="metric-card">
+        <span class="metric-value">{posts.length}</span>
+        <span class="metric-label">全部文章</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">{publishedCount}</span>
+        <span class="metric-label">已發布</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">{draftCount}</span>
+        <span class="metric-label">草稿</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">{missingDescriptionCount + missingTldrCount}</span>
+        <span class="metric-label">Metadata 缺漏</span>
+      </div>
+    </div>
+
+    <div class="toolbar" role="search">
+      <label class="field search-field">
+        <span>搜尋</span>
+        <input id="post-search" type="search" placeholder="標題、slug、tag" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span>分類</span>
+        <select id="category-filter">
+          <option value="">全部分類</option>
+          {categories.map(category => <option value={category}>{category}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        <span>狀態</span>
+        <select id="status-filter">
+          <option value="">全部狀態</option>
+          <option value="published">已發布</option>
+          <option value="draft">草稿</option>
+          <option value="missing">Metadata 缺漏</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="post-table-wrap">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th scope="col">文章</th>
+            <th scope="col">分類</th>
+            <th scope="col">狀態</th>
+            <th scope="col">日期</th>
+            <th scope="col">Metadata</th>
+            <th scope="col">操作</th>
+          </tr>
+        </thead>
+        <tbody id="post-rows">
+          {posts.map(post => (
+            <tr
+              data-title={post.title.toLowerCase()}
+              data-slug={post.slug.toLowerCase()}
+              data-tags={post.tags.join(' ').toLowerCase()}
+              data-category={post.category}
+              data-status={post.draft ? 'draft' : 'published'}
+              data-missing={(!post.hasDescription || !post.hasTldr) ? 'true' : 'false'}
+            >
+              <td class="post-main">
+                <a href={post.href} class="post-title">{post.title}</a>
+                <span class="post-slug">{post.slug}</span>
+                <span class="post-path">{post.sourcePath}</span>
+              </td>
+              <td><span class="pill">{post.category}</span></td>
+              <td>
+                <span class:list={['status-pill', post.draft ? 'is-draft' : 'is-published']}>
+                  {post.draft ? '草稿' : '已發布'}
+                </span>
+              </td>
+              <td><time datetime={post.date.toISOString()}>{post.date.toLocaleDateString('zh-TW')}</time></td>
+              <td>
+                <div class="metadata-list">
+                  <span class:list={['metadata-chip', { missing: !post.hasDescription }]}>description</span>
+                  <span class:list={['metadata-chip', { missing: !post.hasTldr }]}>tldr</span>
+                  {post.type && <span class="metadata-chip">{post.type}</span>}
+                </div>
+              </td>
+              <td>
+                <div class="row-actions">
+                  <a href={post.href} class="text-link">查看</a>
+                  <button type="button" class="text-link copy-path" data-path={post.sourcePath}>複製路徑</button>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p id="no-results" class="empty" hidden>找不到符合條件的文章。試著清除搜尋或改用其他分類。</p>
+    </div>
+  </section>
 
   <div class="content-grid">
     <section class="content-section">
@@ -174,12 +311,288 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   loadContent();
+
+  const searchInput = document.getElementById('post-search');
+  const categoryFilter = document.getElementById('category-filter');
+  const statusFilter = document.getElementById('status-filter');
+  const rows = Array.from(document.querySelectorAll('#post-rows tr'));
+  const resultCount = document.getElementById('result-count');
+  const noResults = document.getElementById('no-results');
+
+  function filterPosts() {
+    const query = searchInput.value.trim().toLowerCase();
+    const category = categoryFilter.value;
+    const status = statusFilter.value;
+    let visible = 0;
+
+    for (const row of rows) {
+      const matchesQuery = !query
+        || row.dataset.title.includes(query)
+        || row.dataset.slug.includes(query)
+        || row.dataset.tags.includes(query);
+      const matchesCategory = !category || row.dataset.category === category;
+      const matchesStatus = !status
+        || row.dataset.status === status
+        || (status === 'missing' && row.dataset.missing === 'true');
+      const shouldShow = matchesQuery && matchesCategory && matchesStatus;
+      row.hidden = !shouldShow;
+      if (shouldShow) visible += 1;
+    }
+
+    resultCount.textContent = `${visible} 篇`;
+    noResults.hidden = visible !== 0;
+  }
+
+  searchInput.addEventListener('input', filterPosts);
+  categoryFilter.addEventListener('change', filterPosts);
+  statusFilter.addEventListener('change', filterPosts);
+
+  document.querySelectorAll('.copy-path').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const path = button.dataset.path;
+      if (!path) return;
+      await navigator.clipboard.writeText(path);
+      const original = button.textContent;
+      button.textContent = '已複製';
+      setTimeout(() => { button.textContent = original; }, 1400);
+    });
+  });
 </script>
 
 <style>
+  .page-intro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
   .page-desc {
     color: var(--admin-text-muted, #888);
+    margin: 0;
+  }
+
+  .settings-link,
+  .text-link {
+    color: var(--admin-accent, #3b82f6);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .settings-link {
+    flex: 0 0 auto;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    padding: 0.45rem 0.7rem;
+    background: var(--admin-surface, #1a1a1a);
+    font-size: 0.85rem;
+  }
+
+  .settings-link:hover,
+  .text-link:hover {
+    color: var(--admin-accent-hover, #2563eb);
+    text-decoration: underline;
+  }
+
+  .inventory-panel,
+  .content-section {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    box-shadow: var(--admin-shadow, none);
+  }
+
+  .inventory-panel {
     margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1rem 0;
+  }
+
+  .section-kicker {
+    color: var(--admin-text-soft, #888);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 0.15rem;
+  }
+
+  .panel-header h2 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .result-count {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+  }
+
+  .metric-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding: 1rem;
+  }
+
+  .metric-card {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-right-width: 0;
+    padding: 0.85rem;
+    background: var(--admin-surface-subtle, var(--admin-bg, #0f0f0f));
+  }
+
+  .metric-card:first-child {
+    border-radius: var(--admin-radius, 8px) 0 0 var(--admin-radius, 8px);
+  }
+
+  .metric-card:last-child {
+    border-right-width: 1px;
+    border-radius: 0 var(--admin-radius, 8px) var(--admin-radius, 8px) 0;
+  }
+
+  .metric-value {
+    display: block;
+    color: var(--admin-text, #e0e0e0);
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .metric-label {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.78rem;
+  }
+
+  .toolbar {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(140px, 220px) minmax(140px, 220px);
+    gap: 0.75rem;
+    padding: 0 1rem 1rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .field span {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.75rem;
+  }
+
+  .field input,
+  .field select {
+    min-height: 38px;
+    width: 100%;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: var(--admin-radius, 8px);
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text, #e0e0e0);
+    padding: 0.45rem 0.65rem;
+  }
+
+  .post-table-wrap {
+    overflow-x: auto;
+  }
+
+  .post-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+  }
+
+  .post-table th,
+  .post-table td {
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .post-table th {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .post-main {
+    max-width: 420px;
+  }
+
+  .post-title,
+  .post-slug,
+  .post-path {
+    display: block;
+  }
+
+  .post-title {
+    color: var(--admin-text, #e0e0e0);
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .post-title:hover {
+    color: var(--admin-accent, #3b82f6);
+  }
+
+  .post-slug,
+  .post-path {
+    overflow: hidden;
+    color: var(--admin-text-muted, #888);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.76rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .post-path {
+    color: var(--admin-text-soft, #888);
+  }
+
+  .pill,
+  .status-pill,
+  .metadata-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .status-pill.is-published {
+    border-color: rgba(6, 118, 71, 0.35);
+    color: var(--admin-success, #86efac);
+  }
+
+  .status-pill.is-draft,
+  .metadata-chip.missing {
+    border-color: rgba(181, 71, 8, 0.35);
+    color: var(--admin-warning, #facc15);
+  }
+
+  .metadata-list,
+  .row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  button.text-link {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
   }
 
   .content-grid {
@@ -191,10 +604,14 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .content-section h2 {
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.75rem;
     color: var(--admin-text-muted, #888);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  .content-section {
+    padding: 1rem;
   }
 
   .section-desc {
@@ -212,7 +629,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .overview-card {
     background: var(--admin-surface, #1a1a1a);
     border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 10px;
+    border-radius: var(--admin-radius, 8px);
     padding: 1rem;
     text-align: center;
   }
@@ -236,9 +653,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .issue-item, .post-item, .link-item {
-    background: var(--admin-surface, #1a1a1a);
+    background: var(--admin-surface-subtle, var(--admin-surface, #1a1a1a));
     border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
+    border-radius: var(--admin-radius, 8px);
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
@@ -292,4 +709,43 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .error { color: #ef4444; }
   .empty { color: var(--admin-text-muted, #888); }
+
+  #no-results {
+    padding: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .metric-strip,
+    .toolbar {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .search-field {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-intro,
+    .panel-header {
+      display: grid;
+    }
+
+    .settings-link {
+      width: 100%;
+      text-align: center;
+    }
+
+    .metric-strip,
+    .toolbar {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-card,
+    .metric-card:first-child,
+    .metric-card:last-child {
+      border-right-width: 1px;
+      border-radius: var(--admin-radius, 8px);
+    }
+  }
 </style>

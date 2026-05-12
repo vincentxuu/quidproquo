@@ -17,7 +17,7 @@ export function MessageInput({ onSend, disabled }: Props) {
   }
 
   return (
-    <div style={{ display: 'flex', gap: '0.5rem', padding: '0.75rem', borderTop: '1px solid #eee' }}>
+    <div style={{ display: 'flex', gap: '0.55rem', padding: '0.75rem', borderTop: '1px solid #e4e4e7', background: '#fff' }}>
       <textarea
         value={value}
         onChange={e => setValue(e.target.value)}
@@ -25,12 +25,38 @@ export function MessageInput({ onSend, disabled }: Props) {
         placeholder="問我任何關於部落格的問題..."
         disabled={disabled}
         rows={1}
-        style={{ flex: 1, resize: 'none', padding: '0.5rem', borderRadius: 6, border: '1px solid #ccc', fontSize: '0.95rem', fontFamily: 'inherit' }}
+        aria-label="輸入問題"
+        style={{
+          flex: 1,
+          minHeight: '2.5rem',
+          maxHeight: '8rem',
+          resize: 'vertical',
+          padding: '0.65rem 0.75rem',
+          borderRadius: 8,
+          border: '1px solid #d4d4d8',
+          fontSize: '0.95rem',
+          lineHeight: 1.5,
+          fontFamily: 'inherit',
+          color: '#18181b',
+          background: disabled ? '#f4f4f5' : '#fff',
+          outlineColor: '#ec4899',
+        }}
       />
       <button
         onClick={submit}
         disabled={disabled || !value.trim()}
-        style={{ padding: '0.5rem 1rem', background: '#333', color: 'white', border: 'none', borderRadius: 6, cursor: 'pointer', opacity: disabled ? 0.5 : 1 }}
+        style={{
+          alignSelf: 'stretch',
+          minWidth: '4.5rem',
+          padding: '0.5rem 0.9rem',
+          background: '#18181b',
+          color: 'white',
+          border: 'none',
+          borderRadius: 8,
+          cursor: disabled || !value.trim() ? 'not-allowed' : 'pointer',
+          opacity: disabled || !value.trim() ? 0.45 : 1,
+          fontWeight: 700,
+        }}
       >
         送出
       </button>

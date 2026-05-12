@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { type CSSProperties, useEffect, useMemo, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { AgentSteps } from './AgentSteps'
@@ -39,7 +39,7 @@ export function MessageList({ messages }: { messages: Message[] }) {
   }, [messages])
 
   return (
-    <div className="message-container" style={styles.container}>
+    <div className="message-container chat-message-list" style={styles.container}>
       {messages.map((msg) => (
         <div
           key={msg.id}
@@ -49,12 +49,20 @@ export function MessageList({ messages }: { messages: Message[] }) {
             ...(msg.role === 'user' ? styles.userMessage : styles.assistantMessage),
           }}
         >
-          {msg.steps && <AgentSteps steps={msg.steps} />}
-          <div className="message-content" style={styles.content}>
+          <div style={msg.role === 'user' ? styles.userBubble : styles.assistantPanel}>
+            <div style={styles.messageHeader}>
+              <span style={styles.roleLabel}>{msg.role === 'user' ? '你' : 'Ask AI'}</span>
+              {typeof msg.confidence === 'number' && msg.role === 'assistant' && (
+                <span style={styles.confidence}>{formatConfidence(msg.confidence)}</span>
+              )}
+            </div>
+            {msg.steps && <AgentSteps steps={msg.steps} />}
+            <div className="message-content" style={styles.content}>
             {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
             {msg.streaming && <span className="streaming-indicator">▋</span>}
-            {msg.sources && msg.sources.length > 0 && <LinkSection icon="📎" links={msg.sources} />}
+            {msg.sources && msg.sources.length > 0 && <LinkSection label="參考來源" links={msg.sources} />}
             {msg.related && msg.related.length > 0 && <LinkSection label="延伸閱讀" links={msg.related} />}
+            </div>
           </div>
         </div>
       ))}
@@ -82,9 +90,18 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
         ol: ({ children }) => <ol style={styles.list}>{children}</ol>,
         li: ({ children }) => <li style={styles.listItem}>{children}</li>,
         strong: ({ children }) => <strong style={styles.strong}>{children}</strong>,
+        em: ({ children }) => <em style={styles.emphasis}>{children}</em>,
+        blockquote: ({ children }) => <blockquote style={styles.blockquote}>{children}</blockquote>,
         h1: ({ children }) => <h1 style={styles.h1}>{children}</h1>,
         h2: ({ children }) => <h2 style={styles.h2}>{children}</h2>,
         h3: ({ children }) => <h3 style={styles.h3}>{children}</h3>,
+        table: ({ children }) => (
+          <div style={styles.tableScroller}>
+            <table style={styles.table}>{children}</table>
+          </div>
+        ),
+        th: ({ children }) => <th style={styles.tableHeader}>{children}</th>,
+        td: ({ children }) => <td style={styles.tableCell}>{children}</td>,
         code: ({ children, className }) => {
           const isBlock = Boolean(className)
           return (
@@ -101,18 +118,21 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
   )
 }
 
-function LinkSection({ icon, label, links }: { icon?: string; label?: string; links: LinkLike[] }) {
+function LinkSection({ label, links }: { label: string; links: LinkLike[] }) {
   const normalizedLinks = normalizeLinks(links)
   if (normalizedLinks.length === 0) return null
 
   return (
     <div className="sources-container" style={styles.linkSection}>
-      <span style={styles.sectionLabel}>{icon ?? label}</span>
+      <div style={styles.sectionLabel}>{label}</div>
       <div style={styles.linkList}>
-        {normalizedLinks.map((link) => (
-          <a key={`${link.url}:${link.title}`} href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkChip}>
-            <span>{link.title}</span>
-            {link.description && <small style={styles.linkDescription}>{link.description}</small>}
+        {normalizedLinks.map((link, index) => (
+          <a key={`${link.url}:${link.title}`} href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkCard}>
+            <span style={styles.linkIndex}>{String(index + 1).padStart(2, '0')}</span>
+            <span style={styles.linkBody}>
+              <span style={styles.linkTitle}>{link.title}</span>
+              {link.description && <small style={styles.linkDescription}>{link.description}</small>}
+            </span>
           </a>
         ))}
       </div>
@@ -193,15 +213,21 @@ function stringValue(value: unknown): string {
   return typeof value === 'string' ? value.trim() : ''
 }
 
-const styles = {
+function formatConfidence(confidence: number): string {
+  const normalized = confidence <= 1 ? confidence * 100 : confidence
+  return `${Math.round(normalized)}% confidence`
+}
+
+const styles: Record<string, CSSProperties> = {
   container: {
     flex: 1,
     minHeight: 0,
     overflowY: 'auto' as const,
-    padding: '0.875rem',
+    padding: '1rem',
     display: 'flex',
     flexDirection: 'column' as const,
-    gap: '0.75rem',
+    gap: '1rem',
+    background: '#fafafa',
   },
   message: {
     maxWidth: '100%',
@@ -209,64 +235,111 @@ const styles = {
   },
   userMessage: {
     alignSelf: 'flex-end',
-    maxWidth: '88%',
+    width: 'fit-content',
+    maxWidth: '82%',
   },
   assistantMessage: {
     alignSelf: 'stretch',
   },
+  userBubble: {
+    padding: '0.75rem 0.875rem',
+    borderRadius: 8,
+    background: '#18181b',
+    color: '#fff',
+    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.08)',
+  },
+  assistantPanel: {
+    padding: '0.95rem 1rem',
+    borderRadius: 8,
+    background: '#fff',
+    border: '1px solid #e4e4e7',
+    boxShadow: '0 1px 2px rgba(24, 24, 27, 0.04)',
+  },
+  messageHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '0.75rem',
+    marginBottom: '0.35rem',
+  },
+  roleLabel: {
+    fontSize: '0.72rem',
+    lineHeight: 1,
+    fontWeight: 700,
+    letterSpacing: 0,
+    color: 'inherit',
+    opacity: 0.72,
+  },
+  confidence: {
+    flexShrink: 0,
+    fontSize: '0.72rem',
+    color: '#71717a',
+  },
   content: {
     minWidth: 0,
-    color: 'var(--text-primary, #222)',
+    color: 'inherit',
     fontSize: '0.95rem',
-    lineHeight: 1.65,
+    lineHeight: 1.7,
     overflowWrap: 'anywhere' as const,
     wordBreak: 'break-word' as const,
   },
   paragraph: {
-    margin: '0 0 0.75rem',
-    lineHeight: 1.65,
+    margin: '0 0 0.85rem',
+    lineHeight: 1.7,
     overflowWrap: 'anywhere' as const,
   },
   list: {
-    margin: '0 0 0.85rem',
-    paddingLeft: '1.25rem',
+    margin: '0 0 0.9rem',
+    paddingLeft: '1.35rem',
   },
   listItem: {
-    margin: '0.2rem 0',
+    margin: '0.28rem 0',
+    paddingLeft: '0.1rem',
   },
   strong: {
     fontWeight: 700,
   },
+  emphasis: {
+    color: 'inherit',
+  },
   link: {
     textDecoration: 'underline',
     textUnderlineOffset: '0.18em',
+    fontWeight: 600,
   },
   h1: {
-    fontSize: '1.12rem',
+    fontSize: '1.16rem',
     lineHeight: 1.4,
-    margin: '0 0 0.65rem',
+    margin: '0 0 0.7rem',
   },
   h2: {
-    fontSize: '1.05rem',
+    fontSize: '1.08rem',
     lineHeight: 1.45,
-    margin: '0.85rem 0 0.5rem',
+    margin: '1rem 0 0.55rem',
   },
   h3: {
     fontSize: '1rem',
     lineHeight: 1.45,
     margin: '0.75rem 0 0.45rem',
   },
+  blockquote: {
+    margin: '0 0 0.9rem',
+    padding: '0.05rem 0 0.05rem 0.85rem',
+    borderLeft: '3px solid #d4d4d8',
+    color: '#3f3f46',
+  },
   pre: {
-    margin: '0 0 0.85rem',
+    margin: '0 0 0.9rem',
     maxWidth: '100%',
     overflowX: 'auto' as const,
     borderRadius: 8,
-    background: '#1f2937',
+    background: '#18181b',
+    border: '1px solid #27272a',
   },
   codeBlock: {
     display: 'block',
-    padding: '0.85rem',
-    color: '#f9fafb',
+    padding: '0.9rem',
+    color: '#fafafa',
     fontSize: '0.82rem',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
     whiteSpace: 'pre' as const,
@@ -274,45 +347,89 @@ const styles = {
   inlineCode: {
     padding: '0.12rem 0.3rem',
     borderRadius: 4,
-    background: '#f1f5f9',
+    background: 'rgba(113, 113, 122, 0.14)',
     fontSize: '0.9em',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   },
-  linkSection: {
-    marginTop: '0.75rem',
-    padding: '0.65rem 0.75rem',
-    borderRadius: 8,
-    background: 'rgba(0, 0, 0, 0.035)',
-    display: 'flex',
-    gap: '0.55rem',
-    alignItems: 'flex-start',
-    minWidth: 0,
+  tableScroller: {
     maxWidth: '100%',
+    overflowX: 'auto',
+    margin: '0 0 0.95rem',
+    border: '1px solid #e4e4e7',
+    borderRadius: 8,
+  },
+  table: {
+    width: '100%',
+    borderCollapse: 'collapse',
+    fontSize: '0.88rem',
+    lineHeight: 1.55,
+  },
+  tableHeader: {
+    padding: '0.55rem 0.65rem',
+    textAlign: 'left',
+    background: '#f4f4f5',
+    borderBottom: '1px solid #e4e4e7',
+    fontWeight: 700,
+    whiteSpace: 'nowrap',
+  },
+  tableCell: {
+    padding: '0.55rem 0.65rem',
+    borderTop: '1px solid #f4f4f5',
+    verticalAlign: 'top',
+  },
+  linkSection: {
+    marginTop: '1rem',
+    paddingTop: '0.75rem',
+    borderTop: '1px solid #e4e4e7',
   },
   sectionLabel: {
-    flexShrink: 0,
+    marginBottom: '0.55rem',
+    color: '#52525b',
+    fontSize: '0.78rem',
+    lineHeight: 1.2,
     fontWeight: 700,
   },
   linkList: {
-    display: 'flex',
-    flexWrap: 'wrap' as const,
-    gap: '0.45rem',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+    gap: '0.5rem',
     minWidth: 0,
     maxWidth: '100%',
   },
-  linkChip: {
-    display: 'block',
+  linkCard: {
+    display: 'grid',
+    gridTemplateColumns: '2rem minmax(0, 1fr)',
+    gap: '0.55rem',
     minWidth: 0,
     maxWidth: '100%',
-    color: 'var(--text-primary, #222)',
+    padding: '0.65rem',
+    borderRadius: 8,
+    background: '#fafafa',
+    border: '1px solid #e4e4e7',
+    color: '#18181b',
     textDecoration: 'none',
-    fontWeight: 600,
     overflowWrap: 'anywhere' as const,
+  },
+  linkIndex: {
+    color: '#71717a',
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+    fontSize: '0.76rem',
+    lineHeight: 1.45,
+  },
+  linkBody: {
+    minWidth: 0,
+  },
+  linkTitle: {
+    display: 'block',
+    color: '#18181b',
+    fontWeight: 700,
+    lineHeight: 1.45,
   },
   linkDescription: {
     display: 'block',
-    marginTop: '0.1rem',
-    color: 'var(--text-secondary, #666)',
+    marginTop: '0.2rem',
+    color: '#52525b',
     fontWeight: 400,
+    lineHeight: 1.45,
   },
 }

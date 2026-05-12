@@ -14,8 +14,8 @@ export function ChatFloating() {
           width: 'min(420px, calc(100vw - 2rem))',
           height: 'min(560px, calc(100vh - 8rem))',
           zIndex: 1000,
-          borderRadius: '16px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
+          borderRadius: '8px',
+          boxShadow: '0 18px 45px rgba(24,24,27,0.18)',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
@@ -24,8 +24,8 @@ export function ChatFloating() {
           animation: 'chat-pop-in 0.18s ease',
         }}>
           <div style={{
-            padding: '0.75rem 1rem',
-            borderBottom: '1px solid var(--border, #eee)',
+            padding: '0.85rem 1rem',
+            borderBottom: '1px solid var(--border, #e4e4e7)',
             fontWeight: 700,
             fontSize: '0.875rem',
             display: 'flex',
@@ -74,12 +74,14 @@ export function ChatFloating() {
           justifyContent: 'center',
           boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
           transition: 'transform 0.15s, box-shadow 0.15s',
-          fontSize: '1.25rem',
+          fontSize: '0.82rem',
+          fontWeight: 800,
+          letterSpacing: 0,
         }}
         onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
       >
-        {open ? '✕' : '✦'}
+        {open ? '關' : 'AI'}
       </button>
 
       <style>{`
