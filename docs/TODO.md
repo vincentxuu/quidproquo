@@ -233,6 +233,7 @@
 
 > 詳細設計：`docs/plan.md` Phase 3、`docs/superpowers/plans/2026-03-12-crawler-integration.md`
 > 注意：`/api/crawl/sync` endpoint 已存在（`src/pages/api/crawl/sync.ts`），Cron Trigger 已設定（`wrangler.jsonc`）
+> 目前狀態：**部分完成（2/5）**。已完成「站點清單、chunking pipeline」；未完成「sync 穩定性驗證、modifiedSince 增量更新、production smoke test 清單」。
 
 - [ ] **驗證 `/api/crawl/sync` 穩定性**（補錯誤處理、補監控；非重新實作）
 - [x] **設定要爬取的技術文件站清單**（`src/lib/crawl/config.ts` 已含 D1 / Workers / Vectorize / Astro Docs）
