@@ -171,6 +171,14 @@
     - 設定新增 `pipeline_engine`
     - `/api/chat` 可依設定切換 engine，且輸出契約一致（`final_response`、`search_results`、`critique`、`token_usage`）
     - 既有 LangGraph 路徑不回歸（現有測試全綠）
+- [ ] **Provider / Model Router（分階段切換）**
+  - 目標：可依 pipeline 階段切換不同 provider 與 model（例如 Planner/Research/Writer/Critic 各自獨立）
+  - 驗收：
+    - 設定支援全域預設 + 階段覆寫（`default_provider/model` + `stage_overrides`）
+    - 至少支援 2 家 provider（例如 OpenAI / Anthropic 或 Workers AI）且可熱切換
+    - 後台可視化設定每階段 provider/model，並記錄變更審計
+    - trace 需落地每次請求的 provider/model（含版本）供事後比對
+    - 可做 fallback policy（主要 provider 失敗時自動切備援）
 - [ ] **RAG Eval 自動化（RAGAS / DeepEval）**
   - 驗收：
     - 每次策略或 prompt 變更可自動重跑 baseline
