@@ -229,8 +229,8 @@
   "hotPaths": [
     {
       "path": "src/components/Search/SearchWidget.tsx",
-      "accessCount": 14,
-      "lastAccessed": 1778606025059,
+      "accessCount": 18,
+      "lastAccessed": 1778606404371,
       "type": "file"
     },
     {

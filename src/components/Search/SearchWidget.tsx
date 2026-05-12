@@ -382,7 +382,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
 
 function ResultsSection({
   title,
-  icon,
   results,
   emptyMessage,
   showEmpty,
@@ -391,7 +390,6 @@ function ResultsSection({
   startIndex
 }: {
   title: string
-  icon: string
   results: SearchResult[]
   emptyMessage: string
   showEmpty: boolean
@@ -404,7 +402,6 @@ function ResultsSection({
   return (
     <section className="results-section">
       <h3 className="section-title">
-        <span className="section-icon">{icon}</span>
         {title}
         <span className="section-count">{results.length}</span>
       </h3>
