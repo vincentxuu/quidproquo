@@ -1,0 +1,1030 @@
+# quidproquo AI Agent 內容系統規劃
+
+這份文件把 `docs/content-pipeline-roadmap.md` 的 pipeline 規劃，整理成可落地的 Content Agent Harness。重點不是把部落格變成全自動 CMS，而是建立一層可觀測、可審核、可重跑的 agent 執行環境，讓不同內容 pipeline 都跑在同一套規則、工具、狀態與 guardrails 上。
+
+對外可以把一條 pipeline 稱為一個 agent，例如 Translation Agent、Metadata Agent、Freshness Agent。對內要更精準：
+
+```text
+Agent = 對外的產品能力名稱
+Pipeline = 這個 agent 的工作流程
+Stage = pipeline 裡的一步，可能是 LLM agent、deterministic tool 或 human gate
+Harness = 管理所有 pipeline/stage 的執行環境
+```
+
+核心判斷：
+
+- Markdown 仍是 source of truth。
+- AI agent 只產生建議、報告、草稿與修復清單。
+- Publish 仍由人決定，不做全自動發布。
+- 優先包裝 repo 已有功能，再新增 LLM stage。
+- 每條 pipeline 都要有輸入、輸出、狀態、錯誤、耗時與人工交接點。
+- 真正要先做的是 harness，不是先堆更多 agent prompt。
+
+## 目前已有能力
+
+專案已經有不少可直接被 agent/harness 重用的功能，不需要從零設計。
+
+| 能力 | 目前入口 | 可被 agent 重用的方式 |
+|---|---|---|
+| 文章格式檢查 | `pnpm check:post-quality` / `scripts/check-post-quality.mjs` | Quality Agent 的 deterministic check |
+| 參考資料檢查 | `pnpm check:references` / `scripts/check-post-references.mjs` | Reference Auditor 的第一層防線 |
+| 內容營運報告 | `pnpm content:ops` / `docs/content-ops-report.json` | Content Ops Agent 的資料來源 |
+| Markdown 同步到 D1 | `pnpm sync` / `scripts/sync-to-d1.ts` | Publish 後的衍生資料重建 |
+| RAG Chat | `/api/chat` / `src/lib/rag/pipeline.ts` | 既有 multi-agent pipeline 範例 |
+| RAG 搜尋 | `/api/search?mode=keyword\|hybrid\|rag` | 內部連結、研究、推薦 agent 的檢索工具 |
+| RAG admin | `/admin/rag` / `/api/admin/rag` | 後台操作模式、settings、audit、trace 範例 |
+| Embedding sync | `/api/embed/sync` / `src/lib/embed/pipeline.ts` | 知識庫更新任務 |
+| Crawl sync | `/api/crawl/sync` / `src/lib/crawl/sync.ts` | 外部 docs ingestion 任務 |
+| RAG eval | `pnpm eval:rag` / `docs/rag-eval-report.json` | 回答品質 regression check |
+| Glossary | `/api/glossary/explain` / `glossary_lookup_stats` | 內容缺口與讀者理解問題訊號 |
+| Auth / rate limit | `src/lib/auth/*` | admin-only pipeline 與 public endpoint 的安全基礎 |
+
+目前最成熟的是 RAG pipeline：
+
+```text
+Query
+  -> Planner
+  -> Research
+  -> Normalize
+  -> Writer
+  -> Deterministic Validation
+  -> Critic
+  -> Related / Fallback
+```
+
+內容系統應該沿用這個設計精神：LLM 負責模糊判斷，deterministic script 負責硬規則，後台負責狀態與審核。
+
+## Harness 設計原則
+
+### 1. Pipeline 是 app，harness 是 OS
+
+從 Harness Engineering 的角度看，Translation、Metadata、Freshness 這些 pipeline 都只是跑在 Content Agent Harness 上的 app。共同的 Tool Registry、Context Builder、Guard System、Budget Controller、Artifact Store 才是系統核心。
+
+```text
+Content Agent Harness
+  -> Pipeline Registry
+  -> Tool Registry
+  -> Context Builder
+  -> Guard System
+  -> Budget / Retry Controller
+  -> Checkpoint / Artifact Store
+  -> Evaluator Layer
+  -> Admin Console / Trace UI
+```
+
+這層穩了，新增 pipeline 才會便宜；這層沒做，後面每個 agent 都會各自長出一套不一致的安全邏輯。
+
+### 2. Agent 是 pipeline stage，不是自由工作者
+
+每個 agent 只做明確任務，例如「翻譯」、「檢查引用」、「產生 TL;DR」、「建議內部連結」。不要做一個萬能 Content Agent，否則 context、權限、錯誤歸因都會變差。
+
+### 3. Deterministic checks 優先
+
+已有腳本能判斷的事情，不交給 LLM：
+
+- frontmatter 是否完整
+- category/lang/tag 格式是否合法
+- 內部連結是否存在
+- 是否缺少參考資料
+- heading 層級是否跳太多
+- content ops report 的 metadata 缺漏
+
+LLM 應該處理 deterministic script 很難處理的事：
+
+- 摘要品質
+- 文章語氣
+- 內部連結插入位置
+- claim 風險
+- 技術版本是否可能過時
+- 研究 brief 的完整性
+
+### 4. Reviewer 不 auto-fix
+
+專案文章已經反覆提到這條：Reviewer 永不 auto-fix，Generator 永不 fabricate。對 quidproquo 來說具體意思是：
+
+- Quality Agent 只回報問題與建議，不直接改文章。
+- Reference Auditor 不補不存在的來源。
+- Freshness Agent 查不到最新資訊時要標 `needs_human_check`。
+- Draft Agent 缺少資訊時留下 `TODO`，不能補故事。
+
+### 5. Brief gate 早於 draft
+
+Research to Post、YouTube to Post 這類 pipeline 不應該直接從 topic 跳完整文章。流程應是：
+
+```text
+Topic / Source
+  -> Research Brief
+  -> Human Review
+  -> Outline
+  -> Draft
+  -> Quality / Reference Audit
+```
+
+brief 弱，文章一定弱。這比事後讓 critic 修更省成本。
+
+### 6. 後台只做營運控制台，不做完整 CMS
+
+`docs/plan.md` 已經定義後台方向：不是完整 CMS，而是營運控制台。內容 agent 也應遵守這個邊界：
+
+- 後台可顯示報告、觸發任務、下載或複製建議。
+- 後台可產生 draft markdown。
+- 後台不直接覆寫已發布文章。
+- 修改 source markdown 仍走 git workflow。
+
+## 系統架構
+
+```text
+                  ┌────────────────────────┐
+                  │     Admin Console       │
+                  │ /admin/content-pipelines│
+                  └───────────┬────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────┐
+│                 Content Agent Harness                       │
+│                                                            │
+│  ┌─────────────────┐  ┌─────────────────┐                 │
+│  │ Pipeline         │  │ Tool            │                 │
+│  │ Registry         │  │ Registry        │                 │
+│  └────────┬────────┘  └────────┬────────┘                 │
+│           │                    │                          │
+│  ┌────────▼────────┐  ┌────────▼────────┐                 │
+│  │ Context Builder │  │ Guard System    │                 │
+│  └────────┬────────┘  └────────┬────────┘                 │
+│           │                    │                          │
+│  ┌────────▼────────┐  ┌────────▼────────┐                 │
+│  │ Budget / Retry  │  │ Evaluator       │                 │
+│  │ Controller      │  │ Layer           │                 │
+│  └────────┬────────┘  └────────┬────────┘                 │
+│           │                    │                          │
+│  ┌────────▼────────────────────▼────────┐                 │
+│  │ Job Store / Trace / Artifact Store    │                 │
+│  │ admin_jobs, steps, artifacts, audit    │                 │
+│  └──────────────────┬───────────────────┘                 │
+└─────────────────────┼──────────────────────────────────────┘
+                      │
+                      ▼
+┌────────────────────────────────────────────────────────────┐
+│                    Execution Targets                        │
+│ Deterministic scripts / LLM providers / Admin APIs / Files   │
+└───────────┬────────────────────────────────────┬───────────┘
+            ▼                                    ▼
+┌──────────────────────┐              ┌────────────────────────┐
+│ Markdown / Drafts    │              │ D1 / Vectorize / Logs   │
+│ src/content/posts    │              │ posts, chunks, settings │
+└──────────────────────┘              └────────────────────────┘
+```
+
+## Harness 元件
+
+### 1. Pipeline Registry
+
+Pipeline Registry 定義「有哪些可執行的 agent workflow」。它不執行任務，只描述任務：
+
+- pipeline id、title、category、risk。
+- input schema。
+- stage sequence。
+- 每個 stage 的 kind：`script`、`api`、`llm`、`human_review`。
+- 允許使用的 tools。
+- 需要的 context bundle。
+- artifacts。
+- 是否會寫 markdown。
+- 是否需要 admin。
+- 是否需要 external research。
+
+對外命名可以維持 agent 心智，例如：
+
+| 對外名稱 | 對內 pipeline id | 說明 |
+|---|---|---|
+| Content Ops Agent | `content-ops` | 產生內容營運報告 |
+| Quality Agent | `post-quality` | 發布前品質檢查 |
+| Metadata Agent | `metadata-suggestions` | 產生 TL;DR、description、social snippet |
+| Translation Agent | `translation` | 中文文章轉英文 draft |
+| Freshness Agent | `freshness-review` | 找出應更新文章 |
+
+### 2. Tool Registry
+
+Tool Registry 管理每條 pipeline 能看到哪些工具。這是 harness 的核心安全邊界：不要把所有 scripts/API 都塞給所有 agent。
+
+第一批工具：
+
+| Tool | 類型 | 對應現有功能 |
+|---|---|---|
+| `read_markdown` | local read | 讀取 `src/content/posts/**/*.md` |
+| `write_draft_markdown` | local write | 只允許新增 draft，不覆寫既有文章 |
+| `write_artifact` | local write | 寫入 job artifact |
+| `run_content_ops` | script | `pnpm content:ops` |
+| `run_post_quality_check` | script | `pnpm check:post-quality` |
+| `run_reference_check` | script | `pnpm check:references` |
+| `rag_search_posts` | api/tool | `/api/search?mode=hybrid|rag` 或內部 search tools |
+| `run_embed_sync` | api | `/api/embed/sync` |
+| `run_crawl_sync` | api | `/api/crawl/sync` |
+| `read_glossary_stats` | db read | `glossary_lookup_stats` |
+
+每條 pipeline 只拿自己的工具子集：
+
+```yaml
+post-quality:
+  tools:
+    - read_markdown
+    - run_post_quality_check
+    - run_reference_check
+    - write_artifact
+
+metadata-suggestions:
+  tools:
+    - read_markdown
+    - run_content_ops
+    - write_artifact
+
+translation:
+  tools:
+    - read_markdown
+    - write_draft_markdown
+    - run_post_quality_check
+    - run_reference_check
+    - write_artifact
+
+internal-links:
+  tools:
+    - read_markdown
+    - rag_search_posts
+    - run_content_ops
+    - write_artifact
+```
+
+### 3. Context Builder
+
+Context Builder 負責在每個 stage 執行前，組出「剛好足夠」的 context。這層不要散落在 prompt 裡。
+
+Context bundle 可以包含：
+
+- project rules：AGENTS.md 的 frontmatter、分類、參考資料規則。
+- pipeline definition：目前 stage 的目標、輸出格式、禁止事項。
+- source markdown：文章內容與 frontmatter。
+- content ops report：metadata、tag、duplicate、freshness、link 建議。
+- related posts：站內 RAG/keyword search 結果。
+- previous artifacts：前一 stage 的輸出。
+- quality constraints：`check:post-quality`、`check:references` 的硬規則。
+- human notes：作者補充或審核意見。
+
+原則：
+
+- Generator 只拿完成任務需要的 context。
+- Evaluator 要拿輸出與檢查規則，但不一定拿 generator 的完整推理歷史。
+- Research / Freshness 需要外部查證時，artifact 必須記錄查證時間與來源。
+
+### 4. Guard System
+
+Guard System 不應只存在 prompt 裡，而要變成 runner 前後的檢查層。建議拆成四層：
+
+```text
+Input Guards
+  -> Tool Guards
+  -> Output Guards
+  -> Budget Guards
+```
+
+Input Guards：
+
+- path 必須在 `src/content/posts` 或允許的 artifact directory。
+- category/lang/tag 必須符合 AGENTS.md。
+- pipeline input 必須符合 schema。
+- high-risk pipeline 必須 admin session。
+
+Tool Guards：
+
+- 每條 pipeline 只能呼叫 registry 允許的 tools。
+- 不允許 silent overwrite。
+- 不允許產生 `draft: false`。
+- 不允許在非 draft pipeline 寫 markdown。
+
+Output Guards：
+
+- frontmatter schema check。
+- `pnpm check:post-quality`。
+- `pnpm check:references`。
+- 內部連結存在性檢查。
+- tech / ai / learning / education / policy / design / marketing / product 類外部 claim 必須有 references。
+- 缺來源時必須標 `needs_human_input`，不得補故事。
+
+Budget Guards：
+
+- max tokens。
+- max retries。
+- max runtime。
+- max external calls。
+- 失敗超過門檻進入 human escalation。
+
+### 5. Budget / Retry Controller
+
+內容 pipeline 的成本不像 coding agent 那麼容易失控，但 research、translation、freshness 仍需要硬上限。
+
+建議預設：
+
+| Risk | Max retries | Max runtime | Human escalation |
+|---|---:|---:|---|
+| low | 1 | 2 min | script fail |
+| medium | 2 | 10 min | output guard fail twice |
+| high | 1 | 20 min | missing source / external check fail |
+
+第一版不一定要精準 token accounting，但 job metadata 要預留：
+
+- token input/output。
+- provider/model。
+- external call count。
+- retry count。
+- guard failure reason。
+
+### 6. Checkpoint / Artifact Store
+
+Artifact 不是附屬 log，而是 harness 的狀態傳遞機制。每個有意義 stage 都要留下 artifact，方便 resume、review、debug。
+
+Translation 範例：
+
+```text
+artifacts/jobs/<job-id>/
+  01-source.md
+  02-translator-output.md
+  03-cultural-review.md
+  04-native-check.md
+  05-final-draft.md
+  06-quality-report.json
+  07-reference-report.json
+```
+
+Research brief 範例：
+
+```text
+artifacts/jobs/<job-id>/
+  01-topic.json
+  02-research-questions.md
+  03-source-candidates.json
+  04-claim-table.md
+  05-brief.md
+  06-human-review.md
+```
+
+原則：
+
+- 中斷後從最後成功 artifact resume。
+- 人工審核只看 artifact，不需要重跑 agent。
+- 每個 artifact 要知道是哪個 stage、哪個 model、哪個 input 產生。
+
+### 7. Evaluator Layer
+
+Generator 和 Evaluator 要分開。不要讓同一個 LLM 產出後自我背書。
+
+Generator 類：
+
+- Translator。
+- Metadata Writer。
+- Draft Skeleton Writer。
+- Internal Link Advisor。
+
+Evaluator 類：
+
+- Quality Checker。
+- Reference Auditor。
+- Claim Risk Reviewer。
+- Style Reviewer。
+- Freshness Verifier。
+
+Evaluator 原則：
+
+- 不 auto-fix。
+- 輸出 `approve` / `request_changes` / `needs_human_input`。
+- 指出具體檔案、段落、原因。
+- 對 high-risk pipeline，Evaluator fail 不能被 Generator 直接覆蓋。
+
+## Pipeline / Agent 分工
+
+### 1. Pipeline Orchestrator
+
+責任：
+
+- 接收後台或 CLI 的 pipeline request。
+- 載入 pipeline 定義。
+- 建立 run id。
+- 逐 stage 執行 deterministic tool 或 LLM agent。
+- 記錄 step input/output summary、耗時、錯誤。
+- 在人工審核點暫停。
+
+不負責：
+
+- 不直接寫文章內容。
+- 不判斷文章品質。
+- 不繞過權限執行危險操作。
+
+### 2. Content Inventory Agent
+
+對應 roadmap：Content Ops Pipeline。
+
+目前可直接用 `pnpm content:ops` 產出的 `docs/content-ops-report.json`。
+
+輸入：
+
+- 全站 Markdown posts。
+- 可選搜尋紀錄或 glossary lookup stats。
+
+輸出：
+
+- 缺 `tldr` / `description` / `difficulty` 清單。
+- tag 建議。
+- duplicate candidates。
+- freshness candidates。
+- internal link opportunities。
+- content gaps。
+
+MVP 不需要 LLM。先把 report 後台化。
+
+### 3. Quality Agent
+
+對應 roadmap：Post Quality Pipeline。
+
+流程：
+
+```text
+Markdown
+  -> check:post-quality
+  -> check:references
+  -> LLM Style / Claim Risk Review
+  -> Report
+```
+
+輸出格式：
+
+```json
+{
+  "status": "pass | warn | fail",
+  "blocking": [],
+  "warnings": [],
+  "suggestions": [],
+  "needs_human_review": true
+}
+```
+
+MVP：
+
+- 先只包 `pnpm check:post-quality` 與 `pnpm check:references`。
+- 後台顯示紅綠燈和錯誤清單。
+- 不做 autofix。
+
+進階：
+
+- 加 LLM 檢查「是否有未引用外部 claim」。
+- 加 LLM 檢查「tech/ai 文章是否缺少版本、限制、適用情境」。
+
+### 4. Metadata Agent
+
+對應 roadmap：Summary / Metadata Pipeline。
+
+流程：
+
+```text
+Post
+  -> Section Summary
+  -> One-line TLDR
+  -> SEO Description
+  -> Social Snippet
+  -> Human Apply
+```
+
+輸入：
+
+- 單篇 Markdown。
+- 現有 frontmatter。
+- AGENTS.md 的 category/tag/lang 規則。
+
+輸出：
+
+- `tldr` 建議。
+- `description` 建議。
+- 3-6 個 tags 建議。
+- social snippet。
+
+規則：
+
+- 不直接覆寫 frontmatter。
+- 已有 `tldr` / `description` 時只給替代版本。
+- tags 必須符合 lowercase kebab-case。
+
+### 5. Internal Link Agent
+
+對應 roadmap：Internal Link Pipeline。
+
+流程：
+
+```text
+Post
+  -> Extract Concepts
+  -> Search Related Posts
+  -> Recommend Anchor Text
+  -> Suggest Insert Locations
+```
+
+可重用：
+
+- `content:ops` 目前已有 internal link opportunities。
+- `/api/search?mode=hybrid|rag` 可作為語意搜尋工具。
+- `src/utils/relatedPosts.ts` 可作為 deterministic baseline。
+
+輸出：
+
+```json
+{
+  "target_post": "src/content/posts/ai/...",
+  "suggestions": [
+    {
+      "target_slug": "ai/2026-03-12-rag-cost-optimization",
+      "anchor_text": "RAG 成本優化",
+      "insert_after_heading": "## 為什麼會這樣",
+      "reason": "同樣討論 semantic cache 與 token 成本"
+    }
+  ]
+}
+```
+
+人工確認後再修改文章。
+
+### 6. Translation Agents
+
+對應 roadmap：Translation Pipeline。
+
+沿用 `docs/translation-pipeline.md`：
+
+```text
+Source Post
+  -> Translator
+  -> Cultural Reviewer
+  -> Native Checker
+  -> Markdown Draft
+```
+
+現況：
+
+- prompt 已存在於 `.github/prompts/translation-*.prompt.md`。
+- 還沒 CLI 化或後台化。
+
+MVP：
+
+- 新增 runner，輸入 source markdown path。
+- 產生 `lang: en`、`draft: true` 的英文 Markdown。
+- 每個 stage 都保留 artifact。
+- 最後跑 `pnpm check:post-quality <draft>` 與 `pnpm check:references <draft>`。
+
+關鍵規則：
+
+- 程式碼、錯誤訊息、API 名稱不可翻錯。
+- 不新增原文沒有的 claim。
+- 內部連結需要確認英文路由是否存在。
+
+### 7. Research Agent
+
+對應 roadmap：Research to Post Pipeline。
+
+流程：
+
+```text
+Topic
+  -> Research Questions
+  -> Source Collection
+  -> Claim Extraction
+  -> Brief
+  -> Human Review
+  -> Outline
+  -> Draft
+  -> Reference Audit
+```
+
+這條不能第一階段就做全自動。原因：
+
+- 外部搜尋和引用準確度是高風險區。
+- tech/ai 類文章需要有效 reference。
+- 缺資訊時 LLM 容易補故事。
+
+MVP 只做 brief：
+
+- 問題定義。
+- 讀者會得到什麼。
+- 主要 claims。
+- 每個 claim 對應 source。
+- 不確定處與需要人工補充處。
+
+### 8. YouTube to Post Agent
+
+對應 roadmap：YouTube to Post Pipeline。
+
+沿用 `docs/yt-to-post-pipeline.md`，但應調整為更保守的流程：
+
+```text
+YouTube URL
+  -> Transcript Source
+  -> Key Points
+  -> Quotes / Timestamp Notes
+  -> Draft Skeleton
+  -> Personal Notes Placeholder
+  -> Human Review
+```
+
+第一版不要承諾完整文章，只產出：
+
+- frontmatter draft。
+- 影片摘要。
+- 三到五個核心論點。
+- 可引用片段與 timestamp。
+- 個人觀點 placeholder。
+- 相關站內文章建議。
+
+原因是 transcript / NotebookLM 來源穩定性還沒確認。
+
+### 9. Freshness Agent
+
+對應 roadmap：Freshness / Update Pipeline。
+
+可重用：
+
+- `content:ops` 已有 freshness candidates。
+- 文章內日期、版本號、產品名可以 deterministic 掃描。
+
+流程：
+
+```text
+Published Posts
+  -> Detect Time-sensitive Claims
+  -> Rank Update Risk
+  -> Optional External Check
+  -> Refresh Task Brief
+```
+
+輸出：
+
+- 高風險文章清單。
+- 風險原因。
+- 建議更新段落。
+- 需要查證的外部來源。
+
+注意：
+
+- 若要查最新資訊，執行時必須標記 `uses_external_research: true`。
+- 沒有查證就不能改成「已更新」。
+
+### 10. RAG Answer Agent
+
+這是已存在功能，不應該被內容 pipeline 重寫。
+
+目前能力：
+
+- `/api/chat` SSE streaming。
+- semantic cache。
+- conversation checkpoint。
+- shadow mode。
+- trace steps。
+- provider/model/stage overrides。
+- related posts。
+- rate limit。
+
+下一步是納入統一 registry：
+
+- 在 `/admin/content-pipelines` 顯示 RAG pipeline 狀態。
+- 連到 `/admin/rag` 管設定。
+- 連到未來 `/admin/traces` 查詳細 trace。
+
+### 11. Knowledge Infrastructure Agents
+
+包含 Embedding Agent、Crawl Agent、未來 Knowledge Graph Agent。
+
+Embedding Agent：
+
+```text
+Posts / Docs
+  -> Chunk
+  -> Contextualize
+  -> Embed
+  -> Vectorize Upsert
+```
+
+現有入口：
+
+- `/api/embed/sync`
+- `src/lib/embed/pipeline.ts`
+
+Crawl Agent：
+
+```text
+Docs Site
+  -> Crawl / Render
+  -> Chunk
+  -> D1 doc_chunks
+  -> needsEmbedSync
+```
+
+現有入口：
+
+- `/api/crawl/sync`
+- `src/lib/crawl/sync.ts`
+
+短期只需要任務中心化，不需要重新設計 agent。
+
+## Pipeline Registry
+
+建議用 registry 定義每條 pipeline，而不是把流程寫死在後台頁面。這是 harness 的 app manifest，不是單純列表。
+
+概念型別：
+
+```ts
+type PipelineStageKind = 'script' | 'api' | 'llm' | 'human_review';
+
+interface PipelineDefinition {
+  id: string;
+  title: string;
+  category: 'production' | 'maintenance' | 'knowledge' | 'interaction' | 'ops';
+  risk: 'low' | 'medium' | 'high';
+  inputs: PipelineInput[];
+  context: ContextBundleDefinition;
+  tools: string[];
+  stages: PipelineStage[];
+  artifacts: PipelineArtifactDefinition[];
+  guards: GuardDefinition[];
+  budget: BudgetPolicy;
+  requiresAdmin: boolean;
+  writesMarkdown: boolean;
+  usesExternalResearch: boolean;
+}
+```
+
+第一批 registry：
+
+| Pipeline | Risk | Status | MVP |
+|---|---:|---|---|
+| `post-quality` | low | 已有 scripts | 後台化 |
+| `content-ops` | low | 已有 script/report | 後台化 |
+| `metadata-suggestions` | medium | 尚未實作 | 單篇建議 |
+| `translation` | medium | 已有 docs/prompts | runner + draft |
+| `internal-links` | medium | 部分已有 | 建議清單 |
+| `embed-sync` | medium | 已有 API | admin job 化 |
+| `crawl-sync` | medium | 已有 API | admin job 化 |
+| `research-brief` | high | 尚未實作 | brief-only |
+| `youtube-brief` | high | docs only | skeleton-only |
+| `freshness-review` | high | 部分已有 | refresh brief |
+
+## 資料模型
+
+`docs/plan.md` 已經提出 `admin_jobs`。內容 agent 建議拆成三層：job、step、artifact。
+
+```sql
+CREATE TABLE admin_jobs (
+  id TEXT PRIMARY KEY,
+  pipeline_id TEXT NOT NULL,
+  status TEXT NOT NULL, -- queued | running | waiting_review | succeeded | failed | cancelled
+  requested_by TEXT,
+  input_json TEXT NOT NULL,
+  output_summary TEXT,
+  error_summary TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  started_at TEXT,
+  finished_at TEXT
+);
+
+CREATE TABLE admin_job_steps (
+  id TEXT PRIMARY KEY,
+  job_id TEXT NOT NULL,
+  stage_id TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  status TEXT NOT NULL,
+  input_summary TEXT,
+  output_summary TEXT,
+  artifact_id TEXT,
+  duration_ms INTEGER,
+  error_summary TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  started_at TEXT,
+  finished_at TEXT,
+  FOREIGN KEY (job_id) REFERENCES admin_jobs(id)
+);
+
+CREATE TABLE admin_job_artifacts (
+  id TEXT PRIMARY KEY,
+  job_id TEXT NOT NULL,
+  step_id TEXT,
+  type TEXT NOT NULL, -- markdown_draft | json_report | diff_suggestion | brief | log
+  path TEXT,
+  content_json TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (job_id) REFERENCES admin_jobs(id)
+);
+```
+
+原則：
+
+- 大型 markdown artifact 優先寫檔案，DB 只記 path。
+- 小型 JSON report 可存在 DB。
+- 任何會寫 markdown 的 pipeline 都必須標 `draft: true` 或只產生 diff suggestion。
+
+## 後台頁面
+
+建議在既有 `/admin/rag` 之外新增：
+
+```text
+/admin
+├── /admin/rag
+├── /admin/content-pipelines
+├── /admin/jobs
+├── /admin/content
+└── /admin/traces
+```
+
+### `/admin/content-pipelines`
+
+顯示：
+
+- 可執行 pipeline 清單。
+- 每條 pipeline 的狀態、風險、輸入欄位。
+- 最近 10 次執行結果。
+- 需要人工 review 的 artifacts。
+
+第一版可只放三個按鈕：
+
+- Run content ops。
+- Run post quality check。
+- Run embed batch。
+
+### `/admin/content`
+
+顯示：
+
+- 文章健康狀態。
+- 缺 metadata。
+- 缺 references。
+- draft 清單。
+- freshness candidates。
+- internal link opportunities。
+
+資料來源先用 `docs/content-ops-report.json`，後續再接 DB。
+
+### `/admin/jobs`
+
+顯示：
+
+- job status。
+- step timeline。
+- error summary。
+- artifacts。
+- rerun 按鈕。
+
+## Guardrails
+
+內容 agent 的 walls 建議第一版就有，並落到 Guard System，而不是只寫在 prompt：
+
+| Wall | Guard layer | 規則 |
+|---|---|---|
+| No auto publish | Output | 任何 pipeline 都不得把 `draft: false` 當成自動輸出 |
+| No silent overwrite | Tool | 不得直接覆寫已存在 markdown；只能產生 draft 或 diff suggestion |
+| Reference required | Output | tech / ai / learning / education / policy / design / marketing / product 類外部 claim 必須有 `## 參考資料` |
+| Never fabricate | Output | 缺來源、缺 transcript、缺版本資訊時輸出 `needs_human_input` |
+| Reviewer no auto-fix | Evaluator | Quality / Reference / Freshness agents 只報告，不改文 |
+| Tool allowlist | Tool | runner 只能呼叫 pipeline registry 允許的 tools |
+| Budget cap | Budget | 每個 job 設定 max tokens、max retries、max runtime |
+| Human gate | Input/Output | translation、research、youtube、freshness 進入 markdown draft 前要人工 review gate |
+| Audit log | Trace | 所有 admin-triggered pipeline 都寫入 job/step log |
+| External research flag | Input/Output | 需要查最新資訊的任務，artifact 必須標明查證時間與來源 |
+
+## 實作順序
+
+### Phase 0：整理入口
+
+目標：不新增 LLM agent，先把 harness 骨架和既有功能接起來。
+
+- 新增 pipeline registry。
+- 新增 tool registry。
+- 新增 context builder 的最小版本。
+- 新增 input/tool/output/budget guard 介面。
+- 新增 `admin_jobs` / `admin_job_steps` / `admin_job_artifacts`。
+- 新增 `/admin/content-pipelines`。
+- 包裝 `pnpm content:ops`。
+- 包裝 `pnpm check:post-quality`。
+- 包裝 `pnpm check:references`。
+- 把 `/api/embed/sync` 的結果寫入 job log。
+
+完成標準：
+
+- 後台能看到 content ops report。
+- 後台能對單篇文章跑品質檢查。
+- 每次執行都有 job timeline。
+- 每次執行都知道使用了哪些 tools、哪些 guards pass/fail。
+
+### Phase 1：低風險內容建議
+
+目標：加入只讀型 LLM agent。
+
+- Metadata Agent：產生 `tldr` / `description` / social snippet 建議。
+- Internal Link Agent：產生站內連結建議。
+- Quality Agent LLM layer：補 style / claim risk review。
+- Evaluator Layer：針對 LLM 建議輸出 approve / request_changes / needs_human_input。
+
+完成標準：
+
+- 所有輸出都是 suggestion，不覆寫 markdown。
+- report 可下載或複製。
+- `pnpm check:post-quality` / `pnpm check:references` 仍是 blocking check。
+
+### Phase 2：草稿型 pipeline
+
+目標：開始產生 draft markdown，但仍不發布。
+
+- Translation runner。
+- YouTube brief/skeleton runner。
+- Research brief runner。
+
+完成標準：
+
+- 產生的 markdown 一律 `draft: true`。
+- 每篇 draft 都附人工補充清單。
+- 產生後自動跑品質與引用檢查。
+
+### Phase 3：營運與更新
+
+目標：處理內容新鮮度、series、knowledge graph。
+
+- Freshness Agent。
+- Series suggestion。
+- Knowledge graph prototype。
+- Glossary lookup stats 轉內容缺口。
+
+完成標準：
+
+- 每週產出 refresh task list。
+- 每個 refresh task 都有原因、受影響段落、需要查證來源。
+
+## 建議檔案位置
+
+```text
+src/lib/pipelines/
+  registry.ts
+  runner.ts
+  types.ts
+  context-builder.ts
+  tool-registry.ts
+  guards/
+    input.ts
+    tool.ts
+    output.ts
+    budget.ts
+  artifacts.ts
+  tools/
+    run-script.ts
+    run-api.ts
+    markdown-artifacts.ts
+  definitions/
+    content-ops.ts
+    post-quality.ts
+    metadata.ts
+    translation.ts
+    internal-links.ts
+
+src/lib/pipelines/evaluators/
+  quality.ts
+  references.ts
+  claim-risk.ts
+
+src/pages/admin/content-pipelines.astro
+src/pages/admin/jobs.astro
+src/pages/api/admin/pipelines.ts
+src/pages/api/admin/jobs/[id].ts
+
+migrations/
+  0007_admin_jobs.sql
+```
+
+## 與既有文章觀點的對應
+
+這份設計採納站內 AI agent 文章已經收斂出的幾條原則：
+
+- [AI Agent 架構模式完整指南](/posts/ai/2026-03-18-ai-agent-patterns-guide)：用 Context / Cognition / Action 與 Harness 分層，不把所有能力塞進單一 prompt。
+- [Harness Engineering 進階模式](/posts/ai/2026-03-30-harness-engineering-patterns)：需要 Tool Registry、Guard System、Checkpoint/Resume、Budget Tracker。
+- [別人怎麼用 LLM 寫文章](/posts/ai/2026-05-10-llm-writing-pipeline-learnings)：採納 multi-agent、brief gate、never fabricate、reviewer no auto-fix；不採納全自動 publish。
+- [自製 auto-dev agent 的 15 個 walls](/posts/ai/2026-05-09-auto-dev-agent-15-walls)：把 token budget、max retry、tool allowlist、observability、human escalation 放進第一版設計。
+- [Multi-Agent RAG 協作架構](/posts/ai/2026-03-16-multi-agent-rag-patterns)：RAG chat 已有 Planner / Research / Writer / Critic，可作為內容 pipeline 的實作參考。
+
+## MVP 結論
+
+第一版不要急著做「會寫文章的 agent」。最值得先做的是「Content Agent Harness + 既有 pipeline 後台化」：
+
+```text
+MVP =
+  Content Agent Harness
+  + Pipeline Registry
+  + Tool Registry
+  + Context Builder
+  + Guard System
+  + Admin Jobs
+  + Artifact Store
+  + Content Ops Report UI
+  + Post Quality Runner
+  + Reference Check Runner
+  + Embed/Crawl Job Logging
+```
+
+等 harness 層穩了，再加 Metadata Agent 和 Internal Link Agent。Translation 是第一條真正的 multi-agent draft pipeline，因為它已經有明確文件與 prompt，而且風險比 research/youtube 小。
+
+最晚再做 Research to Post 和 YouTube to Post，因為那兩條最容易牽涉外部來源、引用正確性與幻覺問題。

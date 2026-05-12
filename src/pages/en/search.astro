@@ -29,11 +29,21 @@ const t = useTranslations('en');
 <script src="/pagefind/pagefind-ui.js" is:inline></script>
 <script is:inline>
   window.addEventListener('DOMContentLoaded', () => {
-    new PagefindUI({ element: '#search', showImages: false });
+    if (window.PagefindUI) {
+      new PagefindUI({ element: '#search', showImages: false });
+    }
     const input = document.getElementById('rag-search-input');
     const mode = document.getElementById('rag-search-mode');
     const button = document.getElementById('rag-search-button');
     const results = document.getElementById('rag-search-results');
+    if (!input || !mode || !button || !results) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q')?.trim() ?? '';
+    const initialMode = params.get('mode') ?? '';
+    if (initialQuery) input.value = initialQuery;
+    if (['keyword', 'hybrid', 'rag'].includes(initialMode)) mode.value = initialMode;
+
     const run = async () => {
       const q = input.value.trim();
       if (!q) return;
@@ -48,6 +58,7 @@ const t = useTranslations('en');
     };
     button.addEventListener('click', run);
     input.addEventListener('keydown', event => { if (event.key === 'Enter') run(); });
+    if (initialQuery) run();
   });
 
   function renderResults(root, items, emptyText) {
@@ -67,7 +78,7 @@ const t = useTranslations('en');
       const evidence = document.createElement('p');
       evidence.textContent = item.evidence ?? '';
       const meta = document.createElement('small');
-      meta.textContent = `${item.category ?? ''} · ${item.reason ?? ''}`;
+      meta.textContent = [item.category, item.reason].filter(Boolean).join(' · ');
       article.append(link, evidence, meta);
       root.append(article);
     }
@@ -97,13 +108,19 @@ const t = useTranslations('en');
     background: var(--bg);
     color: var(--text);
   }
-  .rag-search-result {
+  #rag-search-results :global(.rag-search-result) {
     padding: .9rem 0;
     border-top: 1px solid var(--border);
+    overflow-wrap: anywhere;
   }
-  .rag-search-result p {
+  #rag-search-results :global(.rag-search-result p) {
     margin: .35rem 0;
     color: var(--text-muted);
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   @media (max-width: 640px) {
     .rag-search-controls {

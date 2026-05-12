@@ -50,14 +50,14 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     definition: 'SQLite 的全文搜尋功能，可以用關鍵字與 BM25 分數找文字內容。',
     advanced: 'FTS5 適合 lexical retrieval；與 embedding retrieval 融合時，可以補足專有名詞、錯誤碼、精確字串等語意模型容易漏掉的查詢。',
     context: 'Hybrid search 常把 FTS5 結果和向量搜尋結果一起排序。',
-    links: [{ label: '站內搜尋 FTS5', url: '/search?q=FTS5&mode=rag' }],
+    links: [{ label: 'Hybrid Search：BM25 + 向量搜尋', url: '/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf' }],
   },
   {
     term: 'BM25',
     definition: '一種關鍵字搜尋排序演算法，會看詞出現頻率、稀有程度和文件長度。',
     advanced: 'BM25 是 lexical retrieval 的常見 baseline；它不理解語意，但對錯誤碼、API 名稱、命令字串很可靠。',
     context: '在 RAG 系統裡常和向量搜尋互補。',
-    links: [{ label: '站內搜尋 BM25', url: '/search?q=BM25&mode=rag' }],
+    links: [{ label: 'Hybrid Search：BM25 + 向量搜尋', url: '/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf' }],
   },
   {
     term: 'reranker',

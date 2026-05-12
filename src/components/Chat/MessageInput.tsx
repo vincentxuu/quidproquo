@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { shouldSubmitMessage } from './keyboard'
 
 interface Props {
   onSend: (text: string) => void
@@ -20,7 +21,7 @@ export function MessageInput({ onSend, disabled }: Props) {
       <textarea
         value={value}
         onChange={e => setValue(e.target.value)}
-        onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit() } }}
+        onKeyDown={e => { if (shouldSubmitMessage(e)) { e.preventDefault(); submit() } }}
         placeholder="問我任何關於部落格的問題..."
         disabled={disabled}
         rows={1}

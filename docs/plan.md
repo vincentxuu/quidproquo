@@ -1,6 +1,7 @@
 # quidproquo.cc — 專案規劃書
 
 > 多主題個人部落格，整合 D1 資料庫與 post skill，部署於 Cloudflare Workers 的全端應用。
+> 最後更新：2026-05-12。此文件描述產品與架構方向；更細的任務狀態見 `docs/TODO.md`。
 
 ## 專案概述
 
@@ -19,14 +20,15 @@
 
 | 層級 | 技術 | 用途 |
 |------|------|------|
-| 前端框架 | Astro 5 (Hybrid Mode) | 文章頁 SSG + 動態 API SSR |
+| 前端框架 | Astro 6 (Hybrid Mode) | 文章頁 SSG + 動態 API SSR |
 | 部署 | Cloudflare Workers | 靜態資源 + Server-side 邏輯 |
 | 資料庫 | Cloudflare D1 | 文章與 chunk 原文儲存 |
-| 向量搜尋 | Cloudflare Vectorize | RAG 向量索引（Phase 4） |
-| AI 模型 | Cloudflare Workers AI | Embedding + LLM 回答（Phase 4） |
-| 爬蟲 | Cloudflare Browser Rendering `/crawl` | 爬取外部技術文件（Phase 3） |
+| 向量搜尋 | Cloudflare Vectorize | RAG 向量索引 |
+| AI 模型 | Workers AI + Groq/OpenAI/Google provider router | Embedding + LLM 回答 |
+| 爬蟲 | Cloudflare Browser Rendering `/crawl` | 爬取外部技術文件 |
 | 圖片儲存 | Cloudflare R2 | OG image、文章內圖片 |
 | 內容產生 | Claude Code + post skill | 從對話自動產生 markdown |
+| 後台 | Astro SSR admin pages + D1 settings | 管理 RAG、索引、爬蟲、觀測與內容營運 |
 
 ---
 
@@ -262,6 +264,97 @@ export const collections = { posts };
 
 ---
 
+## 後台設計與優化計畫
+
+目前後台只有 `/admin/rag`，可以管理 RAG settings、查看最近 trace / shadow run，並觸發 embed、crawl、search smoke test。這個版本能用來 debug，但不適合日常營運：入口不直覺、登入成功導到 `/chat`、設定全是字串、操作沒有任務紀錄、trace 只能看最近列表，文章發布仍完全依賴 git workflow。
+
+後台下一階段的目標不是做一個完整 CMS，而是做一個「營運控制台」：讓資料重建、RAG 實驗、品質檢查、內容營運狀態可以被安全地操作和追蹤。
+
+### 目標使用者
+
+| 使用者 | 主要需求 |
+|--------|----------|
+| 站長 / 作者 | 觸發 re-embed、crawl sync、查看失敗、調整 RAG 策略 |
+| 未來協作者 | 檢查文章品質、草稿狀態、索引同步狀態 |
+| Debug 時的自己 | 快速找到某次 query 的 trace、設定版本、provider/model 與錯誤原因 |
+
+### 後台資訊架構
+
+```
+/admin
+├── /admin                  # 主後台 dashboard：系統狀態、待處理事項、快捷入口
+├── /admin/rag              # RAG strategy flags、provider/model、shadow mode
+├── /admin/ops              # embed/crawl/search smoke/eval 任務中心
+├── /admin/traces           # query timeline、stage metadata、failure replay
+├── /admin/content          # 文章狀態、draft/type/series/tldr/reference 缺漏
+└── /admin/settings         # secrets readiness、rate limit、cache threshold、runtime config
+```
+
+### 主後台 `/admin`
+
+主後台是所有 admin workflow 的入口，不放深層設定，專注在「現在狀態如何」、「需要處理什麼」、「下一步去哪裡」。
+
+第一版 dashboard 模組：
+
+- System Status：D1、Vectorize、SESSION KV、RATE KV、AI/provider secrets readiness
+- RAG Health：最近 query 數、錯誤數、平均 latency、最近一次 eval 結果
+- Index Health：post/doc chunk 數、最近 embed 時間、是否有文章更新後尚未 re-embed
+- Recent Jobs：embed、crawl、search smoke、eval 最近執行狀態
+- Content Health：draft 數、缺 `type` / `series` / references 的文章數
+- Recent Admin Changes：最近 settings/audit 變更
+- Quick Actions：前往 RAG settings、跑 smoke test、跑 embed batch、看 traces、看 content health
+
+主後台首版驗收：
+
+- `/admin` 未登入時 redirect 到 `/login?next=/admin`
+- 登入後可看到所有子頁入口，不需要記住 `/admin/rag`
+- 每張狀態卡都能連到對應細節頁
+- 不做危險操作的一鍵執行；所有 full crawl / full re-embed 仍需進入子頁二次確認
+
+### P0：讓目前後台真的可用
+
+- [ ] 建立 `/admin` 主後台 dashboard，作為所有 admin workflow 入口
+- [ ] 登入後可帶 `next` 參數返回原頁，例如 `/login?next=/admin`
+- [ ] `/admin/*` server-side 檢查 session，未登入直接 redirect `/login?next=...`
+- [ ] 將 RAG settings 從純文字 input 改成對應控制：
+  - boolean：toggle
+  - provider / engine：select
+  - number threshold：number input + 合法範圍
+  - `rag_stage_overrides`：JSON textarea + parse validation
+- [ ] 儲存前顯示 diff，儲存後顯示成功/失敗 toast
+- [ ] 每次操作寫入 audit log，頁面可查最近 50 筆操作
+
+### P1：任務中心與可觀測性
+
+- [ ] 新增 `admin_jobs` 表，記錄 embed/crawl/smoke/eval 任務狀態、開始時間、結束時間、錯誤摘要
+- [ ] `/admin/ops` 顯示任務按鈕、最近執行結果、失敗原因與是否需要 re-run
+- [ ] embed batch 支援 offset/limit/source 選擇，並顯示目前 D1 chunk 與 Vectorize 索引狀態
+- [ ] crawl sync 不再要求每次手動輸入 `CRAWL_SECRET`；由 server-side admin endpoint 代為呼叫受保護流程
+- [ ] search smoke test 可選 query、mode、limit，並保存結果供比對
+- [ ] `/admin/traces` 支援依 trace id、日期、query、intent、provider、是否失敗篩選
+- [ ] trace detail 顯示每個 stage 的 duration、provider/model、input/output summary、validation/critic 結果
+
+### P2：內容營運控制台
+
+- [ ] `/admin/content` 顯示文章健康狀態：
+  - draft 數
+  - 缺 `type` / `series` / `description` / references
+  - 最近更新但尚未 sync/embed 的文章
+  - `pnpm content:ops` 產出的 tag、difficulty、duplicate、freshness 建議
+- [ ] 支援只讀預覽，不在後台直接改 markdown，避免破壞 git source of truth
+- [ ] 針對每篇文章提供「建議修正指令」，讓作者回到 repo 用 post skill 或手動修改
+- [ ] 顯示 internal link check 與 reference check 結果，避免品質問題上線後才發現
+
+### 權限與安全邊界
+
+- 後台使用 session cookie + `ADMIN_PASSWORD`，session 存在 Cloudflare KV，TTL 7 天。
+- 所有 `/api/admin/*` 都必須先驗證 session，不能只依賴前端隱藏。
+- 危險操作需要二次確認：full crawl、full re-embed、清索引、切換 provider/model、關閉 critic。
+- 後台不得顯示完整 secrets，只顯示是否已設定與最後檢查狀態。
+- Markdown 仍是文章 source of truth；後台只做觀測、建議與任務觸發，不直接變成 CMS。
+
+---
+
 ## D1 資料庫設計
 
 ### Schema
@@ -475,7 +568,9 @@ Cloudflare Browser Rendering `/crawl` endpoint，一個 API call 即可爬取整
 - [x] 靜態搜尋（Pagefind）
 - [x] OG Image 自動產生
 - [x] Langfuse observability 串接
-- [ ] 進階 RAG 策略（reranking、HyDE）
+- [x] 進階 RAG 策略（HyDE、multi-query、reranker、critic、MMR、semantic cache、shadow mode）
+- [x] RAG Admin 初版（`/admin/rag` + `/api/admin/rag`）
+- [ ] 後台 UX / Ops / Trace / Content Console 優化（見「後台設計與優化計畫」）
 
 **交付物**：production-ready 的完整平台
 

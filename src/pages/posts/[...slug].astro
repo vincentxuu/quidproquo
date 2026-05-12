@@ -600,6 +600,7 @@ const breadcrumbLD = {
     : [];
   const glossarySlug = glossaryData?.dataset.postSlug ?? '';
   const glossaryCache = new Map<string, GlossaryResponse>();
+  const glossaryPending = new Map<string, Promise<GlossaryResponse>>();
   let glossaryLevel = (localStorage.getItem('glossary-level') === 'advanced' ? 'advanced' : 'beginner') as 'beginner' | 'advanced';
   let glossaryHideTimer: number | undefined;
   let activeGlossaryButton: HTMLElement | null = null;
@@ -719,6 +720,23 @@ const breadcrumbLD = {
     });
   }
 
+  function localGlossaryResponse(term: string, level: 'beginner' | 'advanced', context: string, seed?: GlossaryEntry): GlossaryResponse {
+    const definition = level === 'advanced'
+      ? seed?.advanced ?? seed?.definition
+      : seed?.definition ?? seed?.advanced;
+
+    return {
+      term,
+      level,
+      definition: definition ?? `${term} 是本文中的技術名詞。`,
+      context: seed?.context ?? context,
+      reading: seed?.links?.length
+        ? seed.links
+        : [{ label: `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(term)}&mode=rag` }],
+      source: 'local',
+    };
+  }
+
   async function loadGlossary(button: HTMLElement) {
     if (!glossaryPopover) return;
     window.clearTimeout(glossaryHideTimer);
@@ -736,21 +754,30 @@ const breadcrumbLD = {
       return;
     }
 
+    const localResponse = localGlossaryResponse(term, glossaryLevel, context, seed);
     renderGlossary({
       term,
       level: glossaryLevel,
       definition: 'Loading...',
-      context,
+      context: '正在整理本文脈絡中的說明。',
       reading: [],
       source: 'local',
     });
 
-    const response = await fetch('/api/glossary/explain', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ term, level: glossaryLevel, context, slug: glossarySlug, seed }),
-    }).then(res => res.json()) as GlossaryResponse;
+    let pending = glossaryPending.get(cacheKey);
+    if (!pending) {
+      pending = fetch('/api/glossary/explain', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ term, level: glossaryLevel, context, slug: glossarySlug, seed }),
+      })
+        .then(res => res.ok ? res.json() : localResponse)
+        .catch(() => localResponse) as Promise<GlossaryResponse>;
+      glossaryPending.set(cacheKey, pending);
+    }
 
+    const response = await pending;
+    glossaryPending.delete(cacheKey);
     glossaryCache.set(cacheKey, response);
     if (activeGlossaryButton === button) {
       renderGlossary(response);

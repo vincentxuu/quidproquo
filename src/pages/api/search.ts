@@ -7,6 +7,7 @@ import { searchDocs } from '../../lib/rag/tools/search-docs'
 import { getSearchMetrics } from '../../lib/rag/tools/hybrid-search'
 import type { SearchMetrics } from '../../lib/rag/tools/hybrid-search'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
+import { dedupeSearchResultsByUrl, formatSearchExcerpt } from '../../lib/rag/search-result-format'
 
 interface Env {
   DB: D1Database
@@ -41,7 +42,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     const metrics = [getSearchMetrics(posts), getSearchMetrics(docs)]
       .filter((metric): metric is SearchMetrics => Boolean(metric))
 
-    const results = [...posts, ...docs]
+    const results = dedupeSearchResultsByUrl([...posts, ...docs])
       .sort((a, b) => b.relevance_score - a.relevance_score)
       .slice(0, limit)
       .map(result => ({
@@ -50,7 +51,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         url: result.source_url,
         slug: result.slug,
         score: result.relevance_score,
-        evidence: result.evidence_excerpt,
+        evidence: formatSearchExcerpt(result.evidence_excerpt),
         reason: buildReason(query, result.evidence_excerpt),
       }))
 

@@ -140,7 +140,7 @@ pnpm build
 
 互動檢查：
 
-1. 啟動 dev server：`pnpm dev -- --host 127.0.0.1 --port 4322`
+1. 啟動 dev server：`pnpm dev`，預設網址是 `http://localhost:4321/`
 2. 打開含 RAG / embedding / Vectorize 等詞彙的文章。
 3. hover 或 keyboard focus 詞彙。
 4. 確認 popover 顯示定義、上下文、延伸閱讀。
