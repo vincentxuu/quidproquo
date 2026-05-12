@@ -161,6 +161,26 @@
 - [x] **Critic 加 drift 偵測**（檢查 Research 過程是否偏離原始查詢意圖）
 - [x] **Context Checkpoint 系統**（動態壓縮門檻：`threshold = model_context_window * 0.7`）
   - 目前狀態：已新增 checkpoints table、summary load/save helper，API 以 `0.7` ratio 觸發 checkpoint
+- [ ] **Query Router：新增 recommendation/discovery intent（產品路由）**
+  - 驗收：
+    - Planner 可辨識「找文章 / 推薦文章 / 閱讀路線」查詢並輸出 recommendation intent
+    - 回答格式優先回傳結構化清單（標題、分類、連結、推薦理由）
+    - 對照舊流程，至少 10 筆測試查詢中主觀可用性提升（人工評估）
+- [ ] **Pipeline Engine 抽象：支援 `langgraph` / `manual` / `llamaindex` 選擇**
+  - 驗收：
+    - 設定新增 `pipeline_engine`
+    - `/api/chat` 可依設定切換 engine，且輸出契約一致（`final_response`、`search_results`、`critique`、`token_usage`）
+    - 既有 LangGraph 路徑不回歸（現有測試全綠）
+- [ ] **RAG Eval 自動化（RAGAS / DeepEval）**
+  - 驗收：
+    - 每次策略或 prompt 變更可自動重跑 baseline
+    - 輸出固定報表：faithfulness、answer_relevance、context_recall、latency
+    - 變更未達門檻時可阻擋升級（或標記為實驗）
+- [ ] **Reranker A/B（complex-only）**
+  - 驗收：
+    - complex query 可獨立開關 reranker
+    - shadow mode 可比較 primary/shadow 品質與延遲
+    - 產出「何時開 reranker 比較划算」的門檻建議
 
 ### Phase 1C：內容營運自動化
 
@@ -173,6 +193,12 @@
 - [ ] **內容缺口分析** — 分析站內搜尋紀錄，找出讀者在搜但你還沒寫的主題
 - [ ] **SEO 優化 agent** — 建議更好的標題、description、內部連結機會
 - [ ] **Ollama 本地模型整合** — 批次任務（自動 tag、難度分級、TL;DR 生成）改用本地模型，API 成本歸零；研究筆記：`docs/research/ollama-research.md`
+- [ ] **PageIndex 作為 Tool（單文件深挖）**
+  - 策略：先廣搜（hybrid）再深挖（PageIndex），僅在「長文件 + complex query」啟用
+  - 驗收：
+    - 新增 `rag_flag_pageindex` 與基本參數（如 `max_steps`）
+    - `research` 節點可條件性呼叫 PageIndex tool，回傳格式對齊 `SearchResult`
+    - 章節定位型問題（至少 20 題）比 baseline 提升 answer relevance
 
 ### Harness 基礎建設
 
