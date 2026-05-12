@@ -3,12 +3,15 @@ export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
-<AdminLayout title="Providers">
-  <p class="page-desc">Aggregate view of all AI providers and models used across the system. RAG routing can be edited here or from RAG 管理。</p>
+<AdminLayout title="模型供應商">
+  <p class="page-desc">管理 RAG 可選 provider/model 清單，並直接測試指定模型是否可用。</p>
 
-  <section class="providers-section editable-provider">
+  <section class="providers-section">
     <div class="section-header">
-      <h2>RAG Routing Quick Edit</h2>
+      <div>
+        <h2>RAG Routing Quick Edit</h2>
+        <p class="section-note">Default / fallback model 會優先從下方啟用的清單選取。</p>
+      </div>
       <span id="routing-save-status" class="save-status" aria-live="polite"></span>
     </div>
     <div class="routing-form">
@@ -22,30 +25,89 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       </label>
       <label>
         Default provider
-        <select id="edit-provider">
-          <option value="groq">groq</option>
-          <option value="openai">openai</option>
-          <option value="google">google</option>
-        </select>
+        <select id="edit-provider"></select>
       </label>
       <label>
         Default model
-        <input id="edit-model" type="text" autocomplete="off" />
+        <select id="edit-model"></select>
       </label>
       <label>
         Fallback provider
-        <select id="edit-fallback-provider">
-          <option value="">none</option>
-          <option value="groq">groq</option>
-          <option value="openai">openai</option>
-          <option value="google">google</option>
-        </select>
+        <select id="edit-fallback-provider"></select>
       </label>
       <label>
         Fallback model
-        <input id="edit-fallback-model" type="text" autocomplete="off" />
+        <select id="edit-fallback-model"></select>
       </label>
-      <button id="save-routing" type="button">Save routing</button>
+      <button id="save-routing" type="button">儲存 routing</button>
+    </div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Provider Model Catalog</h2>
+        <p class="section-note">啟用的模型會出現在 routing 與測試區；停用後仍保留紀錄。</p>
+      </div>
+      <span id="catalog-save-status" class="save-status" aria-live="polite"></span>
+    </div>
+
+    <form id="model-form" class="model-form">
+      <label>
+        Provider
+        <select id="model-provider"></select>
+      </label>
+      <label>
+        Model name
+        <input id="model-name" type="text" autocomplete="off" placeholder="llama-3.3-70b-versatile" />
+      </label>
+      <label>
+        Display name
+        <input id="model-display-name" type="text" autocomplete="off" placeholder="Llama 3.3 70B" />
+      </label>
+      <label>
+        Notes
+        <input id="model-notes" type="text" autocomplete="off" placeholder="用途、成本或限制" />
+      </label>
+      <label class="checkbox-label">
+        <input id="model-enabled" type="checkbox" checked />
+        啟用
+      </label>
+      <button type="submit">新增 / 更新</button>
+    </form>
+
+    <div id="model-catalog" class="catalog-list">載入中...</div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Test Model</h2>
+        <p class="section-note">使用目前環境 secret 呼叫模型，適合檢查 provider key、model name 與回應速度。</p>
+      </div>
+      <span id="test-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div class="test-panel">
+      <div class="test-controls">
+        <label>
+          Provider
+          <select id="test-provider"></select>
+        </label>
+        <label>
+          Model
+          <select id="test-model"></select>
+        </label>
+        <label>
+          Max tokens
+          <input id="test-max-tokens" type="number" min="16" max="512" value="96" />
+        </label>
+      </div>
+      <label class="prompt-label">
+        Prompt
+        <textarea id="test-prompt" rows="3">請用一句繁體中文回答：這個模型連線測試成功了嗎？</textarea>
+      </label>
+      <button id="run-model-test" type="button">執行測試</button>
+      <pre id="test-result" class="test-result">尚未測試。</pre>
     </div>
   </section>
 
@@ -53,11 +115,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <section class="providers-section">
       <h2>RAG Pipeline</h2>
       <div id="rag-providers" class="provider-cards">Loading...</div>
-    </section>
-
-    <section class="providers-section">
-      <h2>Content Pipeline</h2>
-      <div id="content-providers" class="provider-cards">Loading...</div>
     </section>
 
     <section class="providers-section">
@@ -73,15 +130,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </AdminLayout>
 
 <script is:inline>
-  async function loadProviders() {
-    await Promise.all([
-      loadRagProviders(),
-      loadContentProviders(),
-      loadEmbedProviders(),
-      loadSecretsStatus(),
-    ]);
-  }
-
   const routingControls = {
     engine: document.getElementById('edit-engine'),
     provider: document.getElementById('edit-provider'),
@@ -92,7 +140,89 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     status: document.getElementById('routing-save-status'),
   };
 
+  const catalogControls = {
+    form: document.getElementById('model-form'),
+    provider: document.getElementById('model-provider'),
+    model: document.getElementById('model-name'),
+    displayName: document.getElementById('model-display-name'),
+    notes: document.getElementById('model-notes'),
+    enabled: document.getElementById('model-enabled'),
+    list: document.getElementById('model-catalog'),
+    status: document.getElementById('catalog-save-status'),
+  };
+
+  const testControls = {
+    provider: document.getElementById('test-provider'),
+    model: document.getElementById('test-model'),
+    maxTokens: document.getElementById('test-max-tokens'),
+    prompt: document.getElementById('test-prompt'),
+    run: document.getElementById('run-model-test'),
+    status: document.getElementById('test-status'),
+    result: document.getElementById('test-result'),
+  };
+
   let latestRagSettings = {};
+  let providerCatalog = { providers: ['groq', 'openai', 'google'], models: [] };
+
+  async function loadProviders() {
+    await Promise.all([
+      loadProviderCatalog(),
+      loadRagProviders(),
+      loadEmbedProviders(),
+      loadSecretsStatus(),
+    ]);
+  }
+
+  async function loadProviderCatalog() {
+    const res = await fetch('/api/admin/providers');
+    if (!res.ok) throw new Error('Failed to load provider catalog');
+    const data = await res.json();
+    providerCatalog = {
+      providers: data.providers || ['groq', 'openai', 'google'],
+      models: data.catalog?.models || [],
+    };
+    renderProviderOptions();
+    renderModelCatalog();
+  }
+
+  function renderProviderOptions() {
+    const providerOptions = providerCatalog.providers.map((provider) =>
+      `<option value="${escapeHtml(provider)}">${escapeHtml(provider)}</option>`
+    ).join('');
+    const fallbackProviderOptions = `<option value="">none</option>${providerOptions}`;
+
+    catalogControls.provider.innerHTML = providerOptions;
+    routingControls.provider.innerHTML = providerOptions;
+    routingControls.fallbackProvider.innerHTML = fallbackProviderOptions;
+    testControls.provider.innerHTML = providerOptions;
+
+    syncRoutingForm(latestRagSettings);
+    syncModelOptions();
+  }
+
+  function syncModelOptions() {
+    const defaultProvider = routingControls.provider.value || providerCatalog.providers[0] || 'groq';
+    const fallbackProvider = routingControls.fallbackProvider.value;
+    const testProvider = testControls.provider.value || defaultProvider;
+
+    setModelSelectOptions(routingControls.model, defaultProvider, latestRagSettings.rag_default_model || '');
+    setModelSelectOptions(routingControls.fallbackModel, fallbackProvider, latestRagSettings.rag_fallback_model || '', true);
+    setModelSelectOptions(testControls.model, testProvider, testControls.model.value || latestRagSettings.rag_default_model || '');
+  }
+
+  function setModelSelectOptions(select, provider, selectedValue, allowNone = false) {
+    const models = providerCatalog.models.filter((model) => model.provider === provider && model.enabled);
+    const options = [];
+    if (allowNone) options.push('<option value="">none</option>');
+    for (const model of models) {
+      options.push(`<option value="${escapeHtml(model.model)}">${escapeHtml(model.displayName || model.model)}</option>`);
+    }
+    if (selectedValue && !models.some((model) => model.model === selectedValue)) {
+      options.push(`<option value="${escapeHtml(selectedValue)}">${escapeHtml(selectedValue)} (custom)</option>`);
+    }
+    select.innerHTML = options.join('') || '<option value="">No enabled models</option>';
+    select.value = selectedValue || (allowNone ? '' : models[0]?.model || '');
+  }
 
   async function loadRagProviders() {
     const el = document.getElementById('rag-providers');
@@ -101,7 +231,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
 
-      // Extract settings
       const settings = {};
       for (const row of data.settings || []) {
         settings[row.key] = row.value;
@@ -113,34 +242,19 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         <div class="provider-card">
           <div class="provider-header">
             <span class="provider-name">Chat / Answer</span>
-            <a href="/admin/rag" class="configure-link">Configure →</a>
+            <a href="/admin/rag" class="configure-link">Configure</a>
           </div>
-          <div class="provider-info">
-            <span class="provider-label">Provider:</span>
-            <span class="provider-value">${settings.rag_default_provider || 'groq'}</span>
-          </div>
-          <div class="provider-info">
-            <span class="provider-label">Model:</span>
-            <span class="provider-value">${settings.rag_default_model || 'llama-3.3-70b-versatile'}</span>
-          </div>
-          <div class="provider-info">
-            <span class="provider-label">Engine:</span>
-            <span class="provider-value">${settings.rag_pipeline_engine || 'langgraph'}</span>
-          </div>
+          ${infoRow('Provider', settings.rag_default_provider || 'groq')}
+          ${infoRow('Model', settings.rag_default_model || 'llama-3.3-70b-versatile')}
+          ${infoRow('Engine', settings.rag_pipeline_engine || 'langgraph')}
         </div>
 
         <div class="provider-card">
           <div class="provider-header">
             <span class="provider-name">Fallback</span>
           </div>
-          <div class="provider-info">
-            <span class="provider-label">Provider:</span>
-            <span class="provider-value">${settings.rag_fallback_provider || 'none'}</span>
-          </div>
-          <div class="provider-info">
-            <span class="provider-label">Model:</span>
-            <span class="provider-value">${settings.rag_fallback_model || 'none'}</span>
-          </div>
+          ${infoRow('Provider', settings.rag_fallback_provider || 'none')}
+          ${infoRow('Model', settings.rag_fallback_model || 'none')}
         </div>
 
         <div class="provider-card">
@@ -148,10 +262,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
             <span class="provider-name">Feature Flags</span>
           </div>
           <div class="flags-grid">
-            <span class="flag ${settings.rag_flag_hyde === '1' ? 'enabled' : 'disabled'}">HyDE</span>
-            <span class="flag ${settings.rag_flag_multi_query === '1' ? 'enabled' : 'disabled'}">Multi-Query</span>
-            <span class="flag ${settings.rag_flag_reranker === '1' ? 'enabled' : 'disabled'}">Reranker</span>
-            <span class="flag ${settings.rag_flag_critic === '1' ? 'enabled' : 'disabled'}">Critic</span>
+            ${flag('HyDE', settings.rag_flag_hyde === '1')}
+            ${flag('Multi-Query', settings.rag_flag_multi_query === '1')}
+            ${flag('Reranker', settings.rag_flag_reranker === '1')}
+            ${flag('Critic', settings.rag_flag_critic === '1')}
           </div>
         </div>
       `;
@@ -163,20 +277,131 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   function syncRoutingForm(settings) {
     routingControls.engine.value = settings.rag_pipeline_engine || 'langgraph';
     routingControls.provider.value = settings.rag_default_provider || 'groq';
-    routingControls.model.value = settings.rag_default_model || 'llama-3.3-70b-versatile';
     routingControls.fallbackProvider.value = settings.rag_fallback_provider || '';
-    routingControls.fallbackModel.value = settings.rag_fallback_model || '';
+    syncModelOptions();
   }
 
+  function renderModelCatalog() {
+    const grouped = providerCatalog.models.reduce((acc, model) => {
+      acc[model.provider] ||= [];
+      acc[model.provider].push(model);
+      return acc;
+    }, {});
+
+    catalogControls.list.innerHTML = providerCatalog.providers.map((provider) => {
+      const models = grouped[provider] || [];
+      const activeCount = models.filter((model) => model.enabled).length;
+      return `
+        <div class="catalog-provider">
+          <div class="catalog-provider-header">
+            <strong>${escapeHtml(provider)}</strong>
+            <span>${activeCount} / ${models.length} enabled</span>
+          </div>
+          ${models.length ? models.map(modelRow).join('') : '<p class="empty-note">尚未設定模型</p>'}
+        </div>
+      `;
+    }).join('');
+  }
+
+  function modelRow(model) {
+    const key = `${model.provider}:${model.model}`;
+    return `
+      <div class="model-row" data-key="${escapeHtml(key)}">
+        <button type="button" class="model-main" data-action="edit" data-key="${escapeHtml(key)}">
+          <span class="model-title">${escapeHtml(model.displayName || model.model)}</span>
+          <span class="model-name">${escapeHtml(model.model)}</span>
+          ${model.notes ? `<span class="model-notes">${escapeHtml(model.notes)}</span>` : ''}
+        </button>
+        <button type="button" class="model-state ${model.enabled ? 'enabled' : 'disabled'}" data-action="toggle" data-key="${escapeHtml(key)}">
+          ${model.enabled ? 'active' : 'inactive'}
+        </button>
+        <button type="button" class="model-delete" data-action="delete" data-key="${escapeHtml(key)}">刪除</button>
+      </div>
+    `;
+  }
+
+  async function saveCatalog() {
+    catalogControls.status.textContent = '儲存中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ models: providerCatalog.models }),
+    });
+    if (!res.ok) {
+      catalogControls.status.textContent = '儲存失敗。';
+      return;
+    }
+    catalogControls.status.textContent = '已儲存。';
+    await loadProviderCatalog();
+    setTimeout(() => { catalogControls.status.textContent = ''; }, 2400);
+  }
+
+  catalogControls.form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const provider = catalogControls.provider.value;
+    const model = catalogControls.model.value.trim();
+    if (!provider || !model) {
+      catalogControls.status.textContent = 'Provider 與 model name 必填。';
+      return;
+    }
+
+    const nextModel = {
+      provider,
+      model,
+      displayName: catalogControls.displayName.value.trim(),
+      enabled: catalogControls.enabled.checked,
+      notes: catalogControls.notes.value.trim(),
+    };
+    providerCatalog.models = [
+      ...providerCatalog.models.filter((item) => item.provider !== provider || item.model !== model),
+      nextModel,
+    ].sort((a, b) => a.provider.localeCompare(b.provider) || a.model.localeCompare(b.model));
+    await saveCatalog();
+    catalogControls.form.reset();
+    catalogControls.enabled.checked = true;
+  });
+
+  catalogControls.list.addEventListener('click', async (event) => {
+    const button = event.target.closest('button[data-action]');
+    if (!button) return;
+    const [provider, modelName] = button.dataset.key.split(':');
+    const model = providerCatalog.models.find((item) => item.provider === provider && item.model === modelName);
+    if (!model) return;
+
+    if (button.dataset.action === 'edit') {
+      catalogControls.provider.value = model.provider;
+      catalogControls.model.value = model.model;
+      catalogControls.displayName.value = model.displayName || '';
+      catalogControls.notes.value = model.notes || '';
+      catalogControls.enabled.checked = model.enabled;
+      return;
+    }
+
+    if (button.dataset.action === 'toggle') {
+      model.enabled = !model.enabled;
+      await saveCatalog();
+      return;
+    }
+
+    if (button.dataset.action === 'delete') {
+      providerCatalog.models = providerCatalog.models.filter((item) => item !== model);
+      await saveCatalog();
+    }
+  });
+
+  routingControls.provider.addEventListener('change', syncModelOptions);
+  routingControls.fallbackProvider.addEventListener('change', syncModelOptions);
+  testControls.provider.addEventListener('change', syncModelOptions);
+
   routingControls.save.addEventListener('click', async () => {
-    routingControls.status.textContent = 'Saving...';
+    routingControls.status.textContent = '儲存中...';
     const settings = {
       ...latestRagSettings,
       rag_pipeline_engine: routingControls.engine.value,
       rag_default_provider: routingControls.provider.value,
-      rag_default_model: routingControls.model.value.trim(),
+      rag_default_model: routingControls.model.value,
       rag_fallback_provider: routingControls.fallbackProvider.value,
-      rag_fallback_model: routingControls.fallbackModel.value.trim(),
+      rag_fallback_model: routingControls.fallbackModel.value,
     };
     const res = await fetch('/api/admin/rag', {
       method: 'POST',
@@ -184,44 +409,31 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       body: JSON.stringify({ settings }),
     });
     if (!res.ok) {
-      routingControls.status.textContent = 'Save failed.';
+      routingControls.status.textContent = '儲存失敗。';
       return;
     }
-    routingControls.status.textContent = 'Saved.';
-    await loadProviders();
+    routingControls.status.textContent = '已儲存。';
+    await loadRagProviders();
     setTimeout(() => { routingControls.status.textContent = ''; }, 2400);
   });
 
-  async function loadContentProviders() {
-    const el = document.getElementById('content-providers');
-    // Content pipeline providers would come from pipeline definitions
-    // For now, show placeholder
-    el.innerHTML = `
-      <div class="provider-card">
-        <div class="provider-header">
-          <span class="provider-name">Translation</span>
-          <span class="status-badge planned">Planned</span>
-        </div>
-        <div class="provider-info">
-          <span class="provider-label">Provider:</span>
-          <span class="provider-value">Not configured</span>
-        </div>
-        <p class="provider-note">Translation pipeline will use RAG default provider.</p>
-      </div>
-
-      <div class="provider-card">
-        <div class="provider-header">
-          <span class="provider-name">Metadata Agent</span>
-          <span class="status-badge planned">Planned</span>
-        </div>
-        <div class="provider-info">
-          <span class="provider-label">Provider:</span>
-          <span class="provider-value">Not configured</span>
-        </div>
-        <p class="provider-note">Will inherit RAG provider settings.</p>
-      </div>
-    `;
-  }
+  testControls.run.addEventListener('click', async () => {
+    testControls.status.textContent = '測試中...';
+    testControls.result.textContent = '等待模型回應...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        provider: testControls.provider.value,
+        model: testControls.model.value,
+        prompt: testControls.prompt.value,
+        maxTokens: Number(testControls.maxTokens.value),
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    testControls.status.textContent = res.ok ? `成功，${data.duration_ms}ms` : '測試失敗';
+    testControls.result.textContent = JSON.stringify(data, null, 2);
+  });
 
   async function loadEmbedProviders() {
     const el = document.getElementById('embed-providers');
@@ -229,40 +441,25 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch('/api/admin/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
+      const workersAiOk = data.statuses?.find((s) => s.name === 'Workers AI')?.ok;
+      const vectorizeOk = data.statuses?.find((s) => s.name === 'Vectorize Index')?.ok;
 
       el.innerHTML = `
         <div class="provider-card">
           <div class="provider-header">
             <span class="provider-name">Workers AI</span>
-            <span class="status-badge ${data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'active' : 'error'}">
-              ${data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'Active' : 'Error'}
-            </span>
+            <span class="status-badge ${workersAiOk ? 'active' : 'error'}">${workersAiOk ? 'Active' : 'Error'}</span>
           </div>
-          <div class="provider-info">
-            <span class="provider-label">Embedding Model:</span>
-            <span class="provider-value">@cf/baai/bge-base-en-v1.5</span>
-          </div>
-          <div class="provider-info">
-            <span class="provider-label">Post Chunks:</span>
-            <span class="provider-value">${data.index?.postChunks ?? 0}</span>
-          </div>
-          <div class="provider-info">
-            <span class="provider-label">Doc Chunks:</span>
-            <span class="provider-value">${data.index?.docChunks ?? 0}</span>
-          </div>
+          ${infoRow('Embedding Model', '@cf/baai/bge-base-en-v1.5')}
+          ${infoRow('Post Chunks', data.index?.postChunks ?? 0)}
+          ${infoRow('Doc Chunks', data.index?.docChunks ?? 0)}
         </div>
-
         <div class="provider-card">
           <div class="provider-header">
             <span class="provider-name">Vectorize</span>
-            <span class="status-badge ${data.statuses?.find(s => s.name === 'Vectorize Index')?.ok ? 'active' : 'error'}">
-              ${data.statuses?.find(s => s.name === 'Vectorize Index')?.ok ? 'Active' : 'Error'}
-            </span>
+            <span class="status-badge ${vectorizeOk ? 'active' : 'error'}">${vectorizeOk ? 'Active' : 'Error'}</span>
           </div>
-          <div class="provider-info">
-            <span class="provider-label">Index:</span>
-            <span class="provider-value">quidproquo-embeddings</span>
-          </div>
+          ${infoRow('Index', 'quidproquo-embeddings')}
         </div>
       `;
     } catch {
@@ -272,23 +469,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   async function loadSecretsStatus() {
     const el = document.getElementById('secrets-status');
-    // Check environment secrets status
-    // For now, show placeholder based on system status
     try {
       const res = await fetch('/api/admin/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-
       const secrets = [
         { name: 'ADMIN_PASSWORD', status: 'configured' },
         { name: 'CRAWL_SECRET', status: 'configured' },
-        { name: 'Workers AI Binding', status: data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'ready' : 'missing' },
+        { name: 'Workers AI Binding', status: data.statuses?.find((s) => s.name === 'Workers AI')?.ok ? 'ready' : 'missing' },
       ];
 
-      el.innerHTML = secrets.map(s => `
+      el.innerHTML = secrets.map((secret) => `
         <div class="secret-item">
-          <span class="secret-name">${s.name}</span>
-          <span class="secret-status status-${s.status}">${s.status}</span>
+          <span class="secret-name">${escapeHtml(secret.name)}</span>
+          <span class="secret-status status-${escapeHtml(secret.status)}">${escapeHtml(secret.status)}</span>
         </div>
       `).join('');
     } catch {
@@ -296,23 +490,53 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     }
   }
 
-  loadProviders();
+  function infoRow(label, value) {
+    return `
+      <div class="provider-info">
+        <span class="provider-label">${escapeHtml(label)}:</span>
+        <span class="provider-value">${escapeHtml(String(value))}</span>
+      </div>
+    `;
+  }
+
+  function flag(label, enabled) {
+    return `<span class="flag ${enabled ? 'enabled' : 'disabled'}">${escapeHtml(label)}</span>`;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+
+  loadProviders().catch(() => {
+    catalogControls.list.innerHTML = '<p class="error">Unable to load provider settings</p>';
+  });
 </script>
 
 <style>
   .page-desc {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     margin-bottom: 1.5rem;
   }
 
-  .providers-grid {
+  .providers-grid,
+  .providers-section {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
 
-  .editable-provider {
-    margin-bottom: 2rem;
+  .providers-grid {
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .providers-section {
+    margin-bottom: 1.5rem;
   }
 
   .section-header {
@@ -322,55 +546,207 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     gap: 1rem;
   }
 
+  .providers-section h2 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--admin-text-muted, #4a7c59);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .section-note,
   .save-status {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-soft, #767676);
     font-size: 0.85rem;
   }
 
-  .routing-form {
+  .routing-form,
+  .model-form,
+  .test-panel {
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
+    background: var(--admin-surface, #fff);
+    box-shadow: var(--admin-shadow, none);
+  }
+
+  .routing-form,
+  .model-form {
     display: grid;
     grid-template-columns: repeat(3, minmax(160px, 1fr));
     gap: 0.8rem;
     padding: 1rem;
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: var(--admin-radius, 8px);
-    background: var(--admin-surface, #1a1a1a);
   }
 
-  .routing-form label {
+  .model-form {
+    grid-template-columns: 140px 1fr 1fr 1fr 90px 120px;
+  }
+
+  label,
+  .prompt-label {
     display: grid;
     gap: 0.35rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.8rem;
   }
 
-  .routing-form input,
-  .routing-form select,
-  .routing-form button {
+  input,
+  select,
+  textarea,
+  button {
     min-height: 38px;
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: var(--admin-radius, 8px);
     padding: 0.5rem 0.7rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    color: var(--admin-text, #1a1a1a);
   }
 
-  .routing-form button {
-    align-self: end;
+  textarea {
+    resize: vertical;
+  }
+
+  button {
     cursor: pointer;
+    background: var(--admin-surface, #fff);
   }
 
-  .routing-form button:hover {
-    border-color: var(--admin-accent, #3b82f6);
+  button:hover {
+    border-color: var(--admin-accent, #4a9e6a);
   }
 
-  .providers-section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .routing-form button,
+  .model-form button,
+  #run-model-test {
+    align-self: end;
+    background: var(--admin-accent, #4a9e6a);
+    color: #fff;
+    border-color: var(--admin-accent, #4a9e6a);
+  }
+
+  .checkbox-label {
+    align-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 38px;
+  }
+
+  .checkbox-label input {
+    min-height: auto;
+  }
+
+  .catalog-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .catalog-provider {
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
+    background: var(--admin-surface, #fff);
+    overflow: hidden;
+  }
+
+  .catalog-provider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: var(--admin-muted, #f0f7f0);
+    color: var(--admin-text-muted, #4a7c59);
+    font-size: 0.86rem;
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-top: 1px solid var(--admin-border, #d1e8d1);
+  }
+
+  .model-main {
+    display: grid;
+    gap: 0.2rem;
+    text-align: left;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  .model-title {
+    font-weight: 650;
+  }
+
+  .model-name,
+  .model-notes {
+    color: var(--admin-text-soft, #767676);
+    font-size: 0.78rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .model-state,
+  .model-delete,
+  .status-badge,
+  .flag,
+  .secret-status {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+  }
+
+  .model-state.enabled,
+  .flag.enabled,
+  .status-badge.active,
+  .status-configured,
+  .status-ready {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
+  }
+
+  .model-state.disabled,
+  .flag.disabled {
+    background: #f3f4f6;
+    color: #6b7280;
+  }
+
+  .model-delete,
+  .status-badge.error,
+  .status-missing {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fecaca;
+  }
+
+  .empty-note {
+    padding: 0.9rem 1rem;
+    color: var(--admin-text-soft, #767676);
+    font-size: 0.85rem;
+  }
+
+  .test-panel {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+
+  .test-controls {
+    display: grid;
+    grid-template-columns: 160px minmax(220px, 1fr) 120px;
+    gap: 0.8rem;
+  }
+
+  .test-result {
+    min-height: 130px;
+    overflow: auto;
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
+    padding: 0.85rem;
+    background: #0f172a;
+    color: #e2e8f0;
+    font-size: 0.82rem;
   }
 
   .provider-cards {
@@ -379,33 +755,34 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     gap: 1rem;
   }
 
-  .provider-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 10px;
+  .provider-card,
+  .secret-item {
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1rem;
   }
 
-  .provider-header {
+  .provider-header,
+  .secret-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+  }
+
+  .provider-header {
     margin-bottom: 0.75rem;
   }
 
   .provider-name {
-    font-weight: 600;
-    color: var(--admin-text, #e0e0e0);
+    font-weight: 650;
   }
 
   .configure-link {
     font-size: 0.8rem;
-    color: var(--admin-accent, #3b82f6);
+    color: var(--admin-accent, #4a9e6a);
     text-decoration: none;
-  }
-
-  .configure-link:hover {
-    text-decoration: underline;
   }
 
   .provider-info {
@@ -415,100 +792,51 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .provider-label {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.85rem;
-    min-width: 80px;
+    min-width: 112px;
   }
 
-  .provider-value {
-    color: var(--admin-text, #e0e0e0);
+  .provider-value,
+  .secret-name {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.85rem;
-    font-family: monospace;
   }
 
-  .provider-note {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-    margin-top: 0.5rem;
-    font-style: italic;
-  }
-
-  .flags-grid {
+  .flags-grid,
+  .secrets-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0.5rem;
   }
-
-  .flag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .flag.enabled {
-    background: #166534;
-    color: #bbf7d0;
-  }
-
-  .flag.disabled {
-    background: var(--admin-border, #2a2a2a);
-    color: var(--admin-text-muted, #888);
-  }
-
-  .status-badge {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .status-badge.active { background: #166534; color: #bbf7d0; }
-  .status-badge.error { background: #7f1d1d; color: #fecaca; }
-  .status-badge.planned { background: #374151; color: #d1d5db; }
 
   .secrets-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 
-  .secret-item {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .error {
+    color: var(--admin-danger, #b42318);
   }
 
-  .secret-name {
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--admin-text, #e0e0e0);
+  @media (max-width: 1100px) {
+    .model-form {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
-
-  .secret-status {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .status-configured, .status-ready { background: #166534; color: #bbf7d0; }
-  .status-missing { background: #7f1d1d; color: #fecaca; }
-
-  .error { color: #ef4444; }
 
   @media (max-width: 900px) {
-    .routing-form {
+    .routing-form,
+    .test-controls {
       grid-template-columns: 1fr 1fr;
     }
   }
 
   @media (max-width: 640px) {
-    .routing-form {
+    .routing-form,
+    .model-form,
+    .test-controls,
+    .model-row {
       grid-template-columns: 1fr;
     }
   }

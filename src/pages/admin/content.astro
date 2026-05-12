@@ -61,6 +61,14 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
     <div class="post-table-wrap">
       <table class="post-table">
+        <colgroup>
+          <col class="col-post" />
+          <col class="col-category" />
+          <col class="col-status" />
+          <col class="col-date" />
+          <col class="col-metadata" />
+          <col class="col-actions" />
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">文章</th>
@@ -164,16 +172,16 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         >
           <td class="post-main">
             <a href="${escapeAttr(post.href)}" class="post-title">${escapeHTML(post.title)}</a>
-            <span class="post-slug">${escapeHTML(post.slug)}</span>
-            <span class="post-path">${escapeHTML(post.sourcePath)}</span>
+            <span class="post-slug" title="${escapeAttr(post.slug)}">${escapeHTML(post.slug)}</span>
+            <span class="post-path" title="${escapeAttr(post.sourcePath)}">${escapeHTML(post.sourcePath)}</span>
           </td>
-          <td><span class="pill">${escapeHTML(post.category)}</span></td>
-          <td>
+          <td class="post-category-cell"><span class="pill">${escapeHTML(post.category)}</span></td>
+          <td class="post-status-cell">
             <span class="status-pill ${post.draft ? 'is-draft' : 'is-published'}">
               ${post.draft ? '草稿' : '已發布'}
             </span>
           </td>
-          <td><time datetime="${dateTime}">${date}</time></td>
+          <td class="post-date-cell"><time datetime="${dateTime}">${date}</time></td>
           <td>
             <div class="metadata-list">
               <span class="metadata-chip ${post.hasDescription ? '' : 'missing'}">description</span>

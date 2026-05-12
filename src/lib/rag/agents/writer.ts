@@ -22,7 +22,8 @@ Describe the successful end state by producing an answer that:
 - directly resolves the user's question before adding extra detail
 - for recommendation intent, returns a structured list with title, category/link, and a concrete recommendation reason before any narrative
 - stays grounded in the provided sources only
-- cites factual claims inline as [short label](source_url) using the EXACT source_url from the provided sources (always full absolute URLs)
+- cites factual claims inline as [short human-readable label](source_url) using the EXACT source_url from the provided sources
+- never prints bare URLs, URL-only link text, or a separate "sources/articles/reference list"; the UI renders retrieved sources separately
 - uses images only as ![description](image_url) when an image materially helps
 - explicitly names uncertainty or missing evidence instead of guessing
 - is valid Markdown with balanced code fences

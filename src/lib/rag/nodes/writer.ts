@@ -19,7 +19,8 @@ export async function writerNode(state: GraphState): Promise<Partial<GraphState>
   const systemPrompt = `You are a writer for a personal blog Q&A system.
 Respond in ${language}.
 Use the provided sources to answer the question.
-Cite sources inline: [relevant text](source_url)
+Cite sources inline as [short human-readable label](source_url).
+Never print bare URLs, URL-only link text, or a separate sources/articles/reference list; the UI renders retrieved sources separately.
 Include images as: ![description](image_url)
 ${needsDisclaimer ? 'Note: Limited information available. Add a disclaimer.' : ''}
 Coverage gaps to mention: ${state.coverage_gaps.join(', ') || 'none'}`

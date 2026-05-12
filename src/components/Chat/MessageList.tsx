@@ -1,4 +1,4 @@
-import { type CSSProperties, useEffect, useMemo, useRef } from 'react'
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { AgentSteps } from './AgentSteps'
@@ -83,7 +83,7 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
         p: ({ children }) => <p style={styles.paragraph}>{children}</p>,
         a: ({ href, children }) => (
           <a href={href} target="_blank" rel="noopener noreferrer" style={{ ...styles.link, color: linkColor }}>
-            {children}
+            {formatLinkChildren(href, children)}
           </a>
         ),
         ul: ({ children }) => <ul style={styles.list}>{children}</ul>,
@@ -141,7 +141,7 @@ function LinkSection({ label, links }: { label: string; links: LinkLike[] }) {
 }
 
 function normalizeMarkdownInput(content: string): string {
-  return htmlFragmentsToMarkdown(decodeHtmlEntities(content)).trim()
+  return compactBareUrls(htmlFragmentsToMarkdown(decodeHtmlEntities(content))).trim()
 }
 
 function htmlFragmentsToMarkdown(input: string): string {
@@ -173,6 +173,55 @@ function decodeHtmlEntities(value: string): string {
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+}
+
+function compactBareUrls(input: string): string {
+  return input.replace(/(^|[\s(])((?:https?:\/\/|\/posts\/)[^\s<>)\]]+)/g, (match, prefix, url, offset, fullText) => {
+    if (prefix === '(' && fullText[offset - 1] === ']') return match
+    const trailing = String(url).match(/[.,;:!?]+$/)?.[0] ?? ''
+    const cleanUrl = String(url).slice(0, String(url).length - trailing.length)
+    if (!cleanUrl) return match
+    return `${prefix}[${linkTextFromUrl(cleanUrl)}](${cleanUrl})${trailing}`
+  })
+}
+
+function formatLinkChildren(href: string | undefined, children: ReactNode): ReactNode {
+  const text = reactText(children).trim()
+  if (!href || !isUrlLike(text)) return children
+
+  return linkTextFromUrl(href)
+}
+
+function reactText(node: ReactNode): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node)
+  if (Array.isArray(node)) return node.map(reactText).join('')
+  return ''
+}
+
+function isUrlLike(value: string): boolean {
+  return /^(https?:\/\/|\/posts\/)/.test(value)
+}
+
+function linkTextFromUrl(value: string): string {
+  const fallback = '查看來源'
+
+  try {
+    const url = value.startsWith('/posts/') ? new URL(value, 'https://quidproquo.cc') : new URL(value)
+    const postSlug = url.pathname.match(/\/posts\/(?:[^/]+\/)?([^/]+)\/?$/)?.[1]
+    if (postSlug) return slugToTitle(postSlug)
+    return url.hostname.replace(/^www\./, '')
+  } catch {
+    return fallback
+  }
+}
+
+function slugToTitle(slug: string): string {
+  return slug
+    .replace(/^\d{4}-\d{2}-\d{2}-/, '')
+    .split('-')
+    .filter(Boolean)
+    .map((part) => (part.length <= 3 ? part.toUpperCase() : part[0].toUpperCase() + part.slice(1)))
+    .join(' ') || '查看文章'
 }
 
 function normalizeLinks(items: LinkLike[]): NormalizedLink[] {
