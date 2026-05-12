@@ -51,6 +51,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const initialUrlSearchRan = useRef(false)
 
   const t = {
     placeholder: lang === 'en' ? 'Search posts, topics, questions...' : '搜尋文章、主題、問題...',
@@ -84,14 +85,16 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
 
   // Save search to history
   const saveToHistory = useCallback((searchQuery: string) => {
-    const newHistory = [searchQuery, ...searchHistory.filter(h => h !== searchQuery)].slice(0, MAX_HISTORY)
-    setSearchHistory(newHistory)
-    try {
-      localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory))
-    } catch {
-      // Ignore localStorage errors
-    }
-  }, [searchHistory])
+    setSearchHistory(currentHistory => {
+      const newHistory = [searchQuery, ...currentHistory.filter(h => h !== searchQuery)].slice(0, MAX_HISTORY)
+      try {
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory))
+      } catch {
+        // Ignore localStorage errors
+      }
+      return newHistory
+    })
+  }, [])
 
   // Clear history
   const clearHistory = useCallback(() => {
@@ -185,6 +188,28 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }, [t.error, t.rateLimited, saveToHistory])
 
+  // Hydrate searches opened from glossary links such as /search?q=MCP&mode=rag.
+  useEffect(() => {
+    if (initialUrlSearchRan.current) return
+    initialUrlSearchRan.current = true
+
+    const params = new URLSearchParams(window.location.search)
+    const urlQuery = params.get('q')?.trim() ?? ''
+    if (urlQuery.length < 2) return
+
+    setQuery(urlQuery)
+    runSearch(urlQuery)
+  }, [runSearch])
+
+  const updateSearchUrl = useCallback((searchQuery: string) => {
+    const params = new URLSearchParams(window.location.search)
+    params.set('q', searchQuery)
+    if (!params.get('mode')) {
+      params.set('mode', 'rag')
+    }
+    window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`)
+  }, [])
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -215,7 +240,9 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (query.trim()) {
-      runSearch(query.trim())
+      const nextQuery = query.trim()
+      updateSearchUrl(nextQuery)
+      runSearch(nextQuery)
     }
   }
 
@@ -239,6 +266,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
 
   const handleSuggestionClick = (suggestion: string) => {
     setQuery(suggestion)
+    updateSearchUrl(suggestion)
     runSearch(suggestion)
   }
 

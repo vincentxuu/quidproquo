@@ -1,42 +1,86 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import Icons from '../../components/Icons.astro';
 ---
 
 <AdminLayout title="Dashboard">
+  <section class="dashboard-hero">
+    <div>
+      <p class="hero-kicker">Operations Snapshot</p>
+      <h1>內容、RAG 與任務狀態總覽</h1>
+      <p>快速確認索引健康度、內容缺漏與近期 pipeline 執行結果。</p>
+    </div>
+    <div class="hero-actions">
+      <a href="/admin/content" class="command-button">
+        <Icons name="file-text" size={15} />
+        Content Ops
+      </a>
+      <a href="/admin/rag" class="command-button primary">
+        <Icons name="brain-circuit" size={15} />
+        RAG Console
+      </a>
+    </div>
+  </section>
+
   <div class="dashboard-grid">
-    <section class="status-card">
-      <h3>System Status</h3>
+    <section class="status-card metric-card">
+      <div class="card-head">
+        <span class="card-icon"><Icons name="server-cog" size={16} /></span>
+        <h3>System Status</h3>
+      </div>
       <div id="system-status" class="status-content">Loading...</div>
     </section>
 
-    <section class="status-card">
-      <h3>RAG Health</h3>
+    <section class="status-card metric-card">
+      <div class="card-head">
+        <span class="card-icon"><Icons name="brain-circuit" size={16} /></span>
+        <h3>RAG Health</h3>
+      </div>
       <div id="rag-health" class="status-content">Loading...</div>
     </section>
 
-    <section class="status-card">
-      <h3>Index Health</h3>
+    <section class="status-card metric-card">
+      <div class="card-head">
+        <span class="card-icon"><Icons name="bar-chart-3" size={16} /></span>
+        <h3>Index Health</h3>
+      </div>
       <div id="index-health" class="status-content">Loading...</div>
     </section>
 
-    <section class="status-card">
-      <h3>Content Health</h3>
+    <section class="status-card metric-card">
+      <div class="card-head">
+        <span class="card-icon"><Icons name="file-text" size={16} /></span>
+        <h3>Content Health</h3>
+      </div>
       <div id="content-health" class="status-content">Loading...</div>
     </section>
 
-    <section class="status-card wide">
-      <h3>Recent Jobs</h3>
+    <section class="status-card wide table-card">
+      <div class="section-heading">
+        <div>
+          <h3>Recent Jobs</h3>
+          <p>最近 5 筆 pipeline 執行紀錄。</p>
+        </div>
+        <a href="/admin/jobs" class="icon-button" title="開啟任務列表">
+          <Icons name="arrow-up-right" size={15} />
+        </a>
+      </div>
       <div id="recent-jobs" class="status-content">Loading...</div>
     </section>
 
     <section class="status-card wide">
-      <h3>Quick Actions</h3>
+      <div class="section-heading">
+        <div>
+          <h3>Quick Actions</h3>
+          <p>常用工作入口。</p>
+        </div>
+      </div>
       <div class="quick-actions">
-        <a href="/admin/ops" class="action-btn">Run Jobs</a>
-        <a href="/admin/rag" class="action-btn">RAG Settings</a>
-        <a href="/admin/content" class="action-btn">Content Ops</a>
-        <a href="/admin/stats" class="action-btn">View Stats</a>
+        <a href="/admin/ops" class="action-btn"><Icons name="refresh-cw" size={15} />Run Jobs</a>
+        <a href="/admin/rag" class="action-btn"><Icons name="settings" size={15} />RAG Settings</a>
+        <a href="/admin/content" class="action-btn"><Icons name="file-text" size={15} />Content Ops</a>
+        <a href="/admin/stats" class="action-btn"><Icons name="bar-chart-3" size={15} />View Stats</a>
       </div>
     </section>
   </div>
@@ -73,9 +117,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const data = await res.json();
       const recentTraces = data.traces?.slice(0, 5) || [];
       el.innerHTML = `
-        <p><strong>Queries (7d):</strong> ${recentTraces.length}</p>
-        <p><strong>Recent Errors:</strong> ${recentTraces.filter(t => t.output_summary?.includes('error')).length}</p>
-        <a href="/admin/rag" class="card-link">View RAG Settings →</a>
+        <div class="metric-line"><span>Queries (7d)</span><strong>${recentTraces.length}</strong></div>
+        <div class="metric-line"><span>Recent Errors</span><strong>${recentTraces.filter(t => t.output_summary?.includes('error')).length}</strong></div>
+        <a href="/admin/rag" class="card-link">View RAG Settings -></a>
       `;
     } catch {
       el.innerHTML = '<p class="error">Unable to load</p>';
@@ -89,9 +133,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       el.innerHTML = `
-        <p><strong>Post Chunks:</strong> ${data.index?.postChunks ?? 'N/A'}</p>
-        <p><strong>Doc Chunks:</strong> ${data.index?.docChunks ?? 'N/A'}</p>
-        <p><strong>Last Embed:</strong> ${data.index?.lastEmbed ?? 'Never'}</p>
+        <div class="metric-line"><span>Post Chunks</span><strong>${data.index?.postChunks ?? 'N/A'}</strong></div>
+        <div class="metric-line"><span>Doc Chunks</span><strong>${data.index?.docChunks ?? 'N/A'}</strong></div>
+        <div class="metric-line"><span>Last Embed</span><strong>${data.index?.lastEmbed ?? 'Never'}</strong></div>
       `;
     } catch {
       el.innerHTML = '<p class="error">Unable to load</p>';
@@ -105,10 +149,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       el.innerHTML = `
-        <p><strong>Total Posts:</strong> ${data.content?.total ?? 'N/A'}</p>
-        <p><strong>Drafts:</strong> ${data.content?.drafts ?? 'N/A'}</p>
-        <p><strong>Missing Type:</strong> ${data.content?.missingType ?? 'N/A'}</p>
-        <a href="/admin/content" class="card-link">View Content →</a>
+        <div class="metric-line"><span>Total Posts</span><strong>${data.content?.total ?? 'N/A'}</strong></div>
+        <div class="metric-line"><span>Drafts</span><strong>${data.content?.drafts ?? 'N/A'}</strong></div>
+        <div class="metric-line"><span>Missing Type</span><strong>${data.content?.missingType ?? 'N/A'}</strong></div>
+        <a href="/admin/content" class="card-link">View Content -></a>
       `;
     } catch {
       el.innerHTML = '<p class="error">Unable to load</p>';
@@ -129,6 +173,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         <div class="job-row">
           <span class="job-status status-${job.status}">${job.status}</span>
           <span class="job-pipeline">${job.pipeline_id}</span>
+          <code>${job.id}</code>
           <span class="job-time">${formatTime(job.created_at)}</span>
         </div>
       `).join('');
@@ -143,6 +188,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       <div class="status-item">
         <span class="status-indicator ${s.ok ? 'ok' : 'error'}"></span>
         <span>${s.name}</span>
+        <strong>${s.ok ? 'OK' : 'Issue'}</strong>
       </div>
     `).join('');
   }
@@ -157,30 +203,115 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </script>
 
 <style>
+  .dashboard-hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: linear-gradient(180deg, var(--admin-surface) 0%, var(--brand-50) 100%);
+    padding: 1.1rem;
+    box-shadow: var(--admin-shadow);
+  }
+
+  .hero-kicker {
+    margin: 0 0 0.2rem;
+    color: var(--admin-text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .dashboard-hero h1 {
+    margin: 0;
+    color: var(--admin-text);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  .dashboard-hero p {
+    margin: 0.35rem 0 0;
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .command-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 38px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 650;
+  }
+
+  .command-button.primary {
+    border-color: var(--brand-900);
+    background: var(--brand-900);
+    color: #fff;
+  }
+
   .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .status-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 12px;
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .status-card.wide {
-    grid-column: span 2;
+    grid-column: span 4;
+  }
+
+  .card-head,
+  .section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .card-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--brand-50);
+    color: var(--brand-700);
   }
 
   .status-card h3 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 0.92rem;
+    font-weight: 750;
+    margin: 0;
+  }
+
+  .section-heading p {
+    margin: 0.2rem 0 0;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
   }
 
   .status-content {
@@ -194,8 +325,21 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .status-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0;
+    gap: 0.55rem;
+    min-height: 34px;
+    border-top: 1px solid var(--admin-border);
+    padding: 0.45rem 0;
+  }
+
+  .status-item:first-child {
+    border-top: none;
+  }
+
+  .status-item strong {
+    margin-left: auto;
+    color: var(--admin-text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
   }
 
   .status-indicator {
@@ -205,19 +349,19 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .status-indicator.ok {
-    background: #22c55e;
+    background: var(--admin-success);
   }
 
   .status-indicator.error {
-    background: #ef4444;
+    background: var(--admin-danger);
   }
 
   .card-link {
     display: inline-block;
     margin-top: 0.75rem;
-    color: var(--admin-accent, #3b82f6);
     text-decoration: none;
     font-size: 0.85rem;
+    font-weight: 650;
   }
 
   .card-link:hover {
@@ -225,77 +369,149 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .quick-actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.75rem;
   }
 
   .action-btn {
-    display: inline-block;
-    padding: 0.6rem 1rem;
-    background: var(--admin-bg, #0f0f0f);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
-    color: var(--admin-text, #e0e0e0);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 42px;
+    padding: 0.6rem 0.8rem;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: border-color 0.15s;
-  }
-
-  .action-btn:hover {
-    border-color: var(--admin-accent, #3b82f6);
+    font-weight: 650;
   }
 
   .job-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px minmax(180px, 1fr) minmax(120px, 0.9fr) 160px;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--admin-border, #2a2a2a);
+    min-height: 44px;
+    padding: 0.55rem 0.75rem;
+    border-top: 1px solid var(--admin-border);
   }
 
-  .job-row:last-child {
-    border-bottom: none;
+  .job-row:first-child {
+    border-top: none;
   }
 
   .job-status {
-    font-size: 0.75rem;
+    width: max-content;
+    border-radius: 999px;
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 750;
     text-transform: uppercase;
   }
 
-  .status-succeeded { background: #166534; color: #bbf7d0; }
-  .status-failed { background: #7f1d1d; color: #fecaca; }
-  .status-running { background: #1e40af; color: #bfdbfe; }
-  .status-queued { background: #374151; color: #d1d5db; }
+  .status-succeeded { background: var(--brand-100); color: var(--admin-success); }
+  .status-failed { background: #fef3f2; color: var(--admin-danger); }
+  .status-running { background: #eef6ff; color: #2563eb; }
+  .status-queued { background: var(--admin-muted); color: var(--admin-text-muted); }
 
   .job-pipeline {
+    color: var(--admin-text);
     font-family: monospace;
     font-size: 0.85rem;
   }
 
+  .job-row code {
+    overflow: hidden;
+    color: var(--admin-text-soft);
+    font-size: 0.76rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .job-time {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted);
     font-size: 0.8rem;
-    margin-left: auto;
+    text-align: right;
+  }
+
+  .metric-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 32px;
+    border-top: 1px solid var(--admin-border);
+    padding: 0.42rem 0;
+  }
+
+  .metric-line:first-child {
+    border-top: none;
+  }
+
+  .metric-line span {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .metric-line strong {
+    color: var(--admin-text);
+    font-size: 0.95rem;
   }
 
   .error {
-    color: #ef4444;
+    color: var(--admin-danger);
   }
 
   .empty {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted);
+  }
+
+  @media (max-width: 1120px) {
+    .dashboard-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .status-card.wide {
+      grid-column: span 2;
+    }
+
+    .quick-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 768px) {
-    .dashboard-grid {
+    .dashboard-hero {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .hero-actions {
+      justify-content: stretch;
+    }
+
+    .command-button {
+      justify-content: center;
+      flex: 1;
+    }
+
+    .dashboard-grid,
+    .quick-actions {
       grid-template-columns: 1fr;
     }
 
     .status-card.wide {
       grid-column: span 1;
+    }
+
+    .job-row {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 0.3rem;
+    }
+
+    .job-time {
+      text-align: left;
     }
   }
 </style>

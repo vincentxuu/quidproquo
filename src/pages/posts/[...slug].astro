@@ -657,6 +657,7 @@ const breadcrumbLD = {
     });
 
     const nodes: Text[] = [];
+    const markedTerms = new Set<string>();
     while (walker.nextNode()) nodes.push(walker.currentNode as Text);
 
     nodes.forEach(node => {
@@ -670,6 +671,8 @@ const breadcrumbLD = {
         if (!isValidBoundary(text, index, value.length)) continue;
         const entry = glossaryEntryFor(value);
         if (!entry) continue;
+        const termKey = entry.term.toLowerCase();
+        if (markedTerms.has(termKey)) continue;
         fragment.append(document.createTextNode(text.slice(lastIndex, index)));
         const button = document.createElement('button');
         button.type = 'button';
@@ -677,6 +680,7 @@ const breadcrumbLD = {
         button.dataset.term = entry.term;
         button.textContent = value;
         fragment.append(button);
+        markedTerms.add(termKey);
         lastIndex = index + value.length;
       }
       if (lastIndex === 0) return;
