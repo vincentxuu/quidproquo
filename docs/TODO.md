@@ -181,6 +181,14 @@
     - complex query 可獨立開關 reranker
     - shadow mode 可比較 primary/shadow 品質與延遲
     - 產出「何時開 reranker 比較划算」的門檻建議
+- [ ] **站內搜尋 RAG 化（Search + Chat 共用檢索能力）**
+  - 目標：讓 `/search` 不只關鍵字比對，支援語意查詢與「先找文、再決定要不要開對話」流程
+  - 驗收：
+    - 新增搜尋模式切換：`keyword` / `hybrid` / `rag`
+    - `rag` 模式可回傳：文章清單、每篇命中理由（evidence）、可追蹤來源 URL
+    - Search 與 Chat 共用同一套 retrieval 設定（feature flags、reranker、MMR）避免結果分裂
+    - 至少 20 筆「找文章」查詢評估：`rag` 模式在相關性主觀評分優於純 keyword
+  - 備註：UI 維持「先清單後對話」，避免搜尋頁直接變聊天頁
 
 ### Phase 1C：內容營運自動化
 
