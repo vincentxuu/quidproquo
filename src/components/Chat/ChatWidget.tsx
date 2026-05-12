@@ -207,6 +207,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           <div style={styles.suggestions}>
             {visibleSuggestions.map((question) => (
               <button
+                className="chat-suggestion-button"
                 key={question}
                 type="button"
                 onClick={() => void sendMessage(question)}
