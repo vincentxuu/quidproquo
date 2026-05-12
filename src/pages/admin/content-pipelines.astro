@@ -275,10 +275,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .pipeline-card {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
     padding: 1rem;
-    background: var(--admin-bg, #0f0f0f);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    min-width: 0;
   }
 
   .pipeline-header,
@@ -291,21 +292,30 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .pipeline-header {
     justify-content: space-between;
+    min-width: 0;
   }
 
   .pipeline-header h3 {
     font-size: 0.95rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .pipeline-card code,
   .job-row code {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.78rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .pipeline-card p {
     margin: 0.75rem 0;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.88rem;
     line-height: 1.5;
   }
@@ -315,9 +325,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .job-status {
     border-radius: 4px;
     padding: 0.15rem 0.45rem;
-    background: var(--admin-border, #2a2a2a);
-    color: var(--admin-text-muted, #888);
+    background: var(--admin-muted, #f0f7f0);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.75rem;
+    white-space: nowrap;
   }
 
   .runtime-worker,
@@ -347,16 +358,16 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     margin: 0.8rem 0;
     padding: 0.75rem;
     border-radius: 8px;
-    border: 1px solid var(--admin-border, #2a2a2a);
-    background: rgba(255, 255, 255, 0.02);
-    color: var(--admin-text-muted, #888);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.78rem;
     line-height: 1.5;
   }
 
   .pipeline-schedule strong {
     display: block;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     margin-bottom: 0.25rem;
   }
 
@@ -377,17 +388,18 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .pipeline-inputs label {
     display: grid;
     gap: 0.35rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.8rem;
   }
 
   input,
   button {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
     padding: 0.55rem 0.7rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text, #1a1a1a);
+    min-width: 0;
   }
 
   button {
@@ -395,22 +407,25 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .job-row {
-    justify-content: space-between;
-    border-top: 1px solid var(--admin-border, #2a2a2a);
+    display: grid;
+    grid-template-columns: 120px minmax(160px, 0.9fr) minmax(180px, 1fr) 150px repeat(4, auto);
+    border-top: 1px solid var(--admin-border, #d1e8d1);
     padding: 0.75rem 0;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     text-decoration: none;
+    min-width: 0;
   }
 
   .mini-btn {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 999px;
     padding: 0.2rem 0.55rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text-muted, #888);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted, #4a7c59);
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .mini-btn:disabled {
@@ -431,6 +446,23 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   pre {
     white-space: pre-wrap;
     overflow-x: auto;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
+  }
+
+  @media (max-width: 1100px) {
+    .job-row {
+      grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 1fr);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .panel-title,
+    .pipeline-header,
+    .pipeline-meta,
+    .job-row {
+      align-items: start;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
 </style>

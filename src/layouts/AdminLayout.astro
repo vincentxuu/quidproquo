@@ -317,6 +317,7 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
     margin-left: var(--sidebar-width);
     min-height: 100vh;
     min-width: 0;
+    max-width: calc(100vw - var(--sidebar-width));
   }
 
   .admin-header {
@@ -351,7 +352,9 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
   }
 
   .admin-content {
-    width: min(100%, 1440px);
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
     padding: 1.25rem 1.75rem 2.5rem;
   }
 
@@ -391,6 +394,42 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
     border-radius: var(--admin-radius);
     background: var(--admin-surface);
     box-shadow: var(--admin-shadow);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  :global(.admin-content > *),
+  :global(.dashboard-grid > *),
+  :global(.stats-grid > *),
+  :global(.content-grid > *),
+  :global(.providers-grid > *),
+  :global(.pipeline-grid > *),
+  :global(.action-grid > *),
+  :global(.traces-container > *) {
+    min-width: 0;
+  }
+
+  :global(code),
+  :global(pre),
+  :global(.post-slug),
+  :global(.post-path),
+  :global(.job-pipeline),
+  :global(.trace-id),
+  :global(.trace-summary),
+  :global(.trace-error),
+  :global(.issue-slug),
+  :global(.link-from),
+  :global(.link-to) {
+    overflow-wrap: anywhere;
+  }
+
+  :global(pre) {
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  :global(table) {
+    max-width: 100%;
   }
 
   :global(.admin-panel h2),
@@ -497,6 +536,7 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
     .admin-main {
       margin-left: var(--sidebar-width);
       min-width: 0;
+      max-width: calc(100vw - var(--sidebar-width));
     }
 
     .admin-header {
@@ -509,6 +549,17 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
 
     .header-actions {
       display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
     }
   }
 </style>

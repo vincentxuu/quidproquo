@@ -408,18 +408,19 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .admin-panel {
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 12px;
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1.25rem;
     margin: 1rem 0;
-    background: var(--admin-surface, #1a1a1a);
+    background: var(--admin-surface, #fff);
+    min-width: 0;
   }
 
   .admin-panel h2 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .panel-title {
@@ -447,9 +448,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .settings-group {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: var(--admin-radius, 8px);
     padding: 0.8rem 1rem 1rem;
+    min-width: 0;
   }
 
   .settings-group legend {
@@ -461,10 +463,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .setting-row {
     display: grid;
-    grid-template-columns: minmax(200px, 280px) 1fr;
+    grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
     gap: 0.75rem;
     align-items: center;
     padding: 0.5rem 0;
+    min-width: 0;
   }
 
   .setting-row span {
@@ -477,12 +480,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .setting-row select,
   .setting-row textarea {
     width: 100%;
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: var(--admin-radius, 8px);
     padding: 0.5rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    color: var(--admin-text, #1a1a1a);
     font-size: 0.9rem;
+    min-width: 0;
   }
 
   .setting-row textarea {
@@ -504,8 +508,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .trace-row {
-    border-top: 1px solid var(--admin-border, #2a2a2a);
+    border-top: 1px solid var(--admin-border, #d1e8d1);
     padding: 0.75rem 0;
+    min-width: 0;
   }
 
   .trace-row strong {
@@ -537,6 +542,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     margin-top: 0.25rem;
     color: var(--admin-text-muted, #888);
     font-size: 0.8rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .trace-link {
@@ -551,12 +560,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .trace-row p {
     margin-top: 0.5rem;
     font-size: 0.9rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
+    overflow-wrap: anywhere;
   }
 
   .ops-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 0.75rem;
   }
 
@@ -573,30 +583,32 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .ops-grid input[type='number'],
   .select {
     width: 100%;
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
     padding: 0.5rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    color: var(--admin-text, #1a1a1a);
     font-size: 0.9rem;
+    min-width: 0;
   }
 
   .ops-grid input,
   .ops-grid button,
   #save-settings {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
     padding: 0.6rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text, #1a1a1a);
     cursor: pointer;
     font-size: 0.9rem;
     transition: background 0.15s, border-color 0.15s;
+    min-width: 0;
   }
 
   .ops-grid button:hover,
   #save-settings:hover {
-    background: var(--admin-border, #2a2a2a);
+    background: var(--brand-50, #f0f7f0);
     border-color: var(--admin-accent, #3b82f6);
   }
 
@@ -625,13 +637,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 8px;
-    background: var(--admin-bg, #0f0f0f);
-    border: 1px solid var(--admin-border, #2a2a2a);
+    background: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid var(--admin-border, #d1e8d1);
     font-size: 0.85rem;
     max-height: 300px;
   }
 
   @media (max-width: 720px) {
+    .panel-title,
+    .matrix-controls {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
     .setting-row {
       grid-template-columns: 1fr;
     }

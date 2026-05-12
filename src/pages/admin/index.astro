@@ -276,6 +276,7 @@ import Icons from '../../components/Icons.astro';
 
   .status-card {
     padding: 1rem;
+    min-width: 0;
   }
 
   .status-card.wide {
@@ -388,12 +389,13 @@ import Icons from '../../components/Icons.astro';
 
   .job-row {
     display: grid;
-    grid-template-columns: 120px minmax(180px, 1fr) minmax(120px, 0.9fr) 160px;
+    grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 0.9fr) 150px;
     align-items: center;
     gap: 0.75rem;
     min-height: 44px;
     padding: 0.55rem 0.75rem;
     border-top: 1px solid var(--admin-border);
+    min-width: 0;
   }
 
   .job-row:first-child {
@@ -418,6 +420,10 @@ import Icons from '../../components/Icons.astro';
     color: var(--admin-text);
     font-family: monospace;
     font-size: 0.85rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .job-row code {
@@ -432,6 +438,7 @@ import Icons from '../../components/Icons.astro';
     color: var(--admin-text-muted);
     font-size: 0.8rem;
     text-align: right;
+    white-space: nowrap;
   }
 
   .metric-line {
@@ -442,6 +449,15 @@ import Icons from '../../components/Icons.astro';
     min-height: 32px;
     border-top: 1px solid var(--admin-border);
     padding: 0.42rem 0;
+    min-width: 0;
+  }
+
+  .metric-line span,
+  .metric-line strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .metric-line:first-child {

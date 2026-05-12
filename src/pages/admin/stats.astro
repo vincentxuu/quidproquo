@@ -296,6 +296,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -306,7 +307,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .header-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
+    justify-content: flex-end;
   }
 
   .select {
@@ -335,15 +338,16 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
   .stats-section {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 12px;
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1.25rem;
+    min-width: 0;
   }
 
   .stats-section h2 {
@@ -357,24 +361,31 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   .metric-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 
   .metric {
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: 8px;
+    background: var(--admin-surface-subtle, #fbfdfb);
+    min-width: 0;
+    padding: 0.75rem;
     text-align: center;
   }
 
   .metric-value {
     display: block;
-    font-size: 1.5rem;
+    font-size: clamp(1.15rem, 1.6vw, 1.5rem);
     font-weight: 600;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
+    overflow-wrap: anywhere;
   }
 
   .metric-label {
     font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
+    overflow-wrap: anywhere;
   }
 
   .metric-note {
@@ -386,7 +397,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .breakdown {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--admin-border, #2a2a2a);
+    border-top: 1px solid var(--admin-border, #d1e8d1);
   }
 
   .breakdown h4 {
@@ -403,7 +414,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .breakdown-label {
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .breakdown-value {
@@ -426,15 +440,27 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     display: inline-block;
     padding: 0.2rem 0.5rem;
     margin: 0.25rem;
-    background: var(--admin-border, #2a2a2a);
+    background: var(--admin-muted, #f0f7f0);
     border-radius: 4px;
     font-size: 0.8rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .error { color: #ef4444; }
 
   @media (max-width: 768px) {
+    .stats-header {
+      display: grid;
+    }
+
+    .header-actions {
+      justify-content: stretch;
+    }
+
+    .header-actions > * {
+      flex: 1;
+    }
+
     .stats-grid {
       grid-template-columns: 1fr;
     }

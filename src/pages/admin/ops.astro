@@ -201,24 +201,25 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .action-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 12px;
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    min-width: 0;
   }
 
   .action-card h3 {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .action-card p {
     font-size: 0.85rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     margin: 0;
   }
 
@@ -229,15 +230,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .input-row {
     display: flex;
     gap: 0.5rem;
+    min-width: 0;
   }
 
   .input, .select {
     flex: 1;
+    min-width: 0;
     padding: 0.5rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    border: 1px solid var(--admin-border, #2a2a2a);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     font-size: 0.9rem;
   }
 
@@ -311,17 +314,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .job-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 10px;
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1rem;
+    min-width: 0;
   }
 
   .job-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 110px minmax(160px, 1fr) 150px;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 0.5rem;
+    min-width: 0;
   }
 
   .job-status {
@@ -342,13 +348,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .job-pipeline {
     font-family: monospace;
     font-size: 0.85rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .job-time {
-    margin-left: auto;
     font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
+    text-align: right;
   }
 
   .job-error {
@@ -358,17 +368,37 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .job-output {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.85rem;
     margin: 0.5rem 0;
+    overflow-wrap: anywhere;
   }
 
   .job-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 0.5rem;
   }
 
   .error { color: #ef4444; }
   .empty { color: var(--admin-text-muted, #888); }
+
+  @media (max-width: 720px) {
+    .input-row,
+    .section-header,
+    .job-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .input.small {
+      flex-basis: auto;
+    }
+
+    .job-time {
+      text-align: left;
+    }
+  }
 </style>

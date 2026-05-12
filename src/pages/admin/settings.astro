@@ -198,8 +198,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .secret-item {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 8px;
     padding: 0.75rem 1rem;
     display: flex;
@@ -211,9 +211,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .secret-name {
     font-family: monospace;
     font-size: 0.85rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     flex: 1;
     min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .secret-status {
@@ -222,8 +224,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     border-radius: 4px;
   }
 
-  .status-ready { background: #166534; color: #bbf7d0; }
-  .status-missing { background: #7f1d1d; color: #fecaca; }
+  .status-ready { background: #ecfdf3; color: #067647; }
+  .status-missing { background: #fef3f2; color: #b42318; }
 
   .secret-note {
     font-size: 0.75rem;
@@ -233,10 +235,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .setting-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 10px;
+    background: var(--admin-surface, #fff);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    border-radius: var(--admin-radius, 8px);
     padding: 1rem;
+    min-width: 0;
   }
 
   .setting-row {
@@ -244,7 +247,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--admin-border, #2a2a2a);
+    border-bottom: 1px solid var(--admin-border, #d1e8d1);
+    min-width: 0;
   }
 
   .setting-row:last-child {
@@ -255,7 +259,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .setting-row label {
     min-width: 180px;
     font-size: 0.9rem;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .setting-input {
@@ -263,14 +267,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     align-items: center;
     gap: 0.75rem;
     flex: 1;
+    min-width: 0;
   }
 
   .input {
     padding: 0.5rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    border: 1px solid var(--admin-border, #2a2a2a);
+    background: var(--admin-surface-subtle, #fbfdfb);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 6px;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     font-size: 0.9rem;
     width: 120px;
   }
@@ -288,9 +293,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .actions-bar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--admin-border, #2a2a2a);
+    border-top: 1px solid var(--admin-border, #d1e8d1);
   }
 
   .btn {
@@ -311,15 +317,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     padding: 0.6rem 1.25rem;
     background: transparent;
     color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
   }
 
   .btn-secondary:hover {
-    background: var(--admin-border, #2a2a2a);
-    color: var(--admin-text, #e0e0e0);
+    background: var(--brand-50, #f0f7f0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .status-text {
@@ -328,4 +334,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .error { color: #ef4444; }
+
+  @media (max-width: 720px) {
+    .setting-row,
+    .setting-input {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .setting-row label {
+      min-width: 0;
+    }
+
+    .input {
+      width: 100%;
+    }
+  }
 </style>

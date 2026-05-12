@@ -251,54 +251,70 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .job-row,
   .job-summary,
   .step-row {
-    border-top: 1px solid var(--admin-border, #2a2a2a);
+    border-top: 1px solid var(--admin-border, #d1e8d1);
     padding: 0.75rem 0;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
     text-decoration: none;
   }
 
   .job-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px minmax(160px, 0.9fr) minmax(180px, 1fr) 150px repeat(4, auto);
     align-items: center;
-    justify-content: space-between;
     gap: 0.75rem;
+    cursor: pointer;
+    min-width: 0;
   }
 
   .job-status {
     border-radius: 4px;
     padding: 0.15rem 0.45rem;
-    background: var(--admin-border, #2a2a2a);
-    color: var(--admin-text-muted, #888);
+    background: var(--admin-muted, #f0f7f0);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.75rem;
+    width: max-content;
   }
 
   .status-succeeded {
-    color: #86efac;
+    background: #ecfdf3;
+    color: #067647;
   }
 
   .status-waiting_review,
   .status-skipped {
-    color: #facc15;
+    background: #fffaeb;
+    color: #b54708;
   }
 
   .status-failed {
-    color: #fca5a5;
+    background: #fef3f2;
+    color: #b42318;
   }
 
   .status-dead_letter {
-    color: #fb923c;
+    background: #fff7ed;
+    color: #c2410c;
   }
 
   code,
   .step-row span {
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.8rem;
+  }
+
+  .job-row strong,
+  .job-row code,
+  .job-row time {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .job-summary p,
   .step-row p {
     margin-top: 0.5rem;
-    color: var(--admin-text-muted, #888);
+    color: var(--admin-text-muted, #4a7c59);
   }
 
   .artifact {
@@ -314,7 +330,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     margin-top: 0.75rem;
     white-space: pre-wrap;
     overflow-x: auto;
-    color: var(--admin-text, #e0e0e0);
+    color: var(--admin-text, #1a1a1a);
   }
 
   .job-actions {
@@ -349,18 +365,43 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .mini-btn {
-    border: 1px solid var(--admin-border, #2a2a2a);
+    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 999px;
     padding: 0.2rem 0.55rem;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text-muted, #888);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted, #4a7c59);
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .mini-btn:disabled {
     cursor: not-allowed;
     opacity: 0.55;
+  }
+
+  @media (max-width: 1100px) {
+    .job-row {
+      grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 1fr);
+    }
+
+    .job-row time,
+    .job-row .mini-btn {
+      grid-column: auto;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .job-row {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 0.4rem;
+    }
+
+    .job-actions {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
   }
 </style>
