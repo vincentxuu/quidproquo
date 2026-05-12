@@ -10,6 +10,7 @@ import { getSeriesNav } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
 import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
 import { getSeriesHref } from '../../utils/series';
+import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms } from '../../lib/glossary/terms';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -38,6 +39,10 @@ const readingTime = post.data.readingTime ?? 1;
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
+const glossaryEntries = normalizeGlossaryTerms([
+  ...(post.data.glossary ?? []),
+  ...DEFAULT_GLOSSARY_TERMS,
+]);
 
 const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://quidproquo.cc';
@@ -230,6 +235,30 @@ const breadcrumbLD = {
       <Content />
     </div>
 
+    <script
+      is:inline
+      id="glossary-data"
+      type="application/json"
+      data-post-slug={post.id}
+      set:html={JSON.stringify(glossaryEntries).replace(/</g, '\\u003c')}
+    />
+
+    <div class="glossary-popover" id="glossary-popover" role="dialog" aria-live="polite" hidden>
+      <div class="glossary-popover-head">
+        <div>
+          <div class="glossary-eyebrow">Glossary</div>
+          <div class="glossary-title" id="glossary-title"></div>
+        </div>
+        <div class="glossary-level" role="group" aria-label="Explanation depth">
+          <button type="button" data-glossary-level="beginner">初學</button>
+          <button type="button" data-glossary-level="advanced">進階</button>
+        </div>
+      </div>
+      <p class="glossary-definition" id="glossary-definition">Loading...</p>
+      <p class="glossary-context" id="glossary-context"></p>
+      <div class="glossary-reading" id="glossary-reading"></div>
+    </div>
+
     <!-- Prev / Next -->
     {(prevPost || nextPost) && (
       <nav class="post-nav">
@@ -409,6 +438,109 @@ const breadcrumbLD = {
   .related-item:hover { border-color: var(--brand-500); }
   .related-title { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
   .related-time { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
+
+  :global(.glossary-term) {
+    border: 0;
+    border-bottom: 1px dotted var(--brand-500);
+    background: color-mix(in srgb, var(--brand-100) 55%, transparent);
+    color: var(--text-primary);
+    padding: 0 0.08em;
+    border-radius: 3px;
+    font: inherit;
+    cursor: help;
+  }
+  :global(.glossary-term:hover),
+  :global(.glossary-term:focus-visible) {
+    background: var(--brand-100);
+    color: var(--brand-900);
+  }
+  .glossary-popover {
+    position: fixed;
+    z-index: 80;
+    width: min(360px, calc(100vw - 2rem));
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-floating);
+    padding: 0.9rem;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+  .glossary-popover-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.65rem;
+  }
+  .glossary-eyebrow {
+    font-size: 0.64rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  .glossary-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--brand-900);
+    overflow-wrap: anywhere;
+  }
+  .glossary-level {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .glossary-level button {
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0.22rem 0.45rem;
+    font: inherit;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  .glossary-level button.active {
+    background: var(--brand-900);
+    color: var(--bg-page);
+  }
+  .glossary-definition,
+  .glossary-context {
+    margin: 0 0 0.55rem;
+  }
+  .glossary-context {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+  .glossary-reading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .glossary-reading a {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--brand-500);
+    padding: 0.15rem 0.45rem;
+    text-decoration: none;
+    font-size: 0.74rem;
+  }
+  .glossary-reading a:hover {
+    border-color: var(--brand-500);
+    color: var(--brand-900);
+  }
+  @media (max-width: 520px) {
+    .glossary-popover {
+      left: 1rem !important;
+      right: 1rem;
+      width: auto;
+    }
+  }
 </style>
 
 <script>
@@ -436,6 +568,220 @@ const breadcrumbLD = {
     });
     pre.appendChild(btn);
   });
+
+  // Inline glossary: mark known terms and load contextual explanations on demand.
+  const glossaryData = document.getElementById('glossary-data') as HTMLScriptElement | null;
+  const glossaryPopover = document.getElementById('glossary-popover') as HTMLElement | null;
+  const glossaryTitle = document.getElementById('glossary-title');
+  const glossaryDefinition = document.getElementById('glossary-definition');
+  const glossaryContext = document.getElementById('glossary-context');
+  const glossaryReading = document.getElementById('glossary-reading');
+
+  type GlossaryEntry = {
+    term: string;
+    aliases?: string[];
+    definition?: string;
+    advanced?: string;
+    context?: string;
+    links?: Array<{ label: string; url: string }>;
+  };
+
+  type GlossaryResponse = {
+    term: string;
+    level: 'beginner' | 'advanced';
+    definition: string;
+    context: string;
+    reading: Array<{ label: string; url: string }>;
+    source: 'ai' | 'local';
+  };
+
+  const glossaryEntries: GlossaryEntry[] = glossaryData?.textContent
+    ? JSON.parse(glossaryData.textContent)
+    : [];
+  const glossarySlug = glossaryData?.dataset.postSlug ?? '';
+  const glossaryCache = new Map<string, GlossaryResponse>();
+  let glossaryLevel = (localStorage.getItem('glossary-level') === 'advanced' ? 'advanced' : 'beginner') as 'beginner' | 'advanced';
+  let glossaryHideTimer: number | undefined;
+  let activeGlossaryButton: HTMLElement | null = null;
+
+  function escapeRegExp(value: string) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function isAsciiWord(value: string) {
+    return /[A-Za-z0-9_-]/.test(value);
+  }
+
+  function isValidBoundary(text: string, index: number, length: number) {
+    const before = text[index - 1] ?? '';
+    const after = text[index + length] ?? '';
+    return !isAsciiWord(before) && !isAsciiWord(after);
+  }
+
+  function sentenceAround(node: HTMLElement) {
+    const text = node.closest('p, li, td, blockquote')?.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+    return text.length > 420 ? `${text.slice(0, 419)}…` : text;
+  }
+
+  function glossaryEntryFor(value: string) {
+    const key = value.toLowerCase();
+    return glossaryEntries.find(entry => {
+      if (entry.term.toLowerCase() === key) return true;
+      return entry.aliases?.some(alias => alias.toLowerCase() === key);
+    });
+  }
+
+  function markGlossaryTerms() {
+    if (!glossaryEntries.length) return;
+    const terms = glossaryEntries
+      .flatMap(entry => [entry.term, ...(entry.aliases ?? [])])
+      .filter(term => term.length >= 2)
+      .sort((a, b) => b.length - a.length);
+    if (!terms.length) return;
+
+    const pattern = new RegExp(terms.map(escapeRegExp).join('|'), 'gi');
+    const content = document.querySelector('.content');
+    if (!content) return;
+
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || !node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('a, button, pre, code, h1, h2, h3, h4, h5, h6, script, style, .glossary-term')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        pattern.lastIndex = 0;
+        return pattern.test(node.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      },
+    });
+
+    const nodes: Text[] = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+
+    nodes.forEach(node => {
+      const text = node.textContent ?? '';
+      const fragment = document.createDocumentFragment();
+      let lastIndex = 0;
+      pattern.lastIndex = 0;
+      for (const match of text.matchAll(pattern)) {
+        const value = match[0];
+        const index = match.index ?? 0;
+        if (!isValidBoundary(text, index, value.length)) continue;
+        const entry = glossaryEntryFor(value);
+        if (!entry) continue;
+        fragment.append(document.createTextNode(text.slice(lastIndex, index)));
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'glossary-term';
+        button.dataset.term = entry.term;
+        button.textContent = value;
+        fragment.append(button);
+        lastIndex = index + value.length;
+      }
+      if (lastIndex === 0) return;
+      fragment.append(document.createTextNode(text.slice(lastIndex)));
+      node.parentNode?.replaceChild(fragment, node);
+    });
+  }
+
+  function setGlossaryLevel(level: 'beginner' | 'advanced') {
+    glossaryLevel = level;
+    localStorage.setItem('glossary-level', level);
+    glossaryPopover?.querySelectorAll<HTMLButtonElement>('[data-glossary-level]').forEach(button => {
+      button.classList.toggle('active', button.dataset.glossaryLevel === level);
+    });
+  }
+
+  function positionGlossaryPopover(anchor: HTMLElement) {
+    if (!glossaryPopover) return;
+    const rect = anchor.getBoundingClientRect();
+    const gap = 8;
+    const width = Math.min(360, window.innerWidth - 32);
+    const left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16));
+    const top = rect.bottom + gap + 220 > window.innerHeight
+      ? Math.max(16, rect.top - gap - 220)
+      : rect.bottom + gap;
+    glossaryPopover.style.left = `${left}px`;
+    glossaryPopover.style.top = `${top}px`;
+  }
+
+  function renderGlossary(data: GlossaryResponse) {
+    if (!glossaryTitle || !glossaryDefinition || !glossaryContext || !glossaryReading) return;
+    glossaryTitle.textContent = data.term;
+    glossaryDefinition.textContent = data.definition;
+    glossaryContext.textContent = data.context;
+    glossaryReading.textContent = '';
+    data.reading.slice(0, 3).forEach(link => {
+      const anchor = document.createElement('a');
+      anchor.href = link.url;
+      anchor.textContent = link.label;
+      glossaryReading.append(anchor);
+    });
+  }
+
+  async function loadGlossary(button: HTMLElement) {
+    if (!glossaryPopover) return;
+    window.clearTimeout(glossaryHideTimer);
+    activeGlossaryButton = button;
+    const term = button.dataset.term ?? button.textContent?.trim() ?? '';
+    const seed = glossaryEntryFor(term);
+    const context = sentenceAround(button);
+    const cacheKey = `${term}:${glossaryLevel}:${context}`;
+    setGlossaryLevel(glossaryLevel);
+    glossaryPopover.hidden = false;
+    positionGlossaryPopover(button);
+
+    if (glossaryCache.has(cacheKey)) {
+      renderGlossary(glossaryCache.get(cacheKey)!);
+      return;
+    }
+
+    renderGlossary({
+      term,
+      level: glossaryLevel,
+      definition: 'Loading...',
+      context,
+      reading: [],
+      source: 'local',
+    });
+
+    const response = await fetch('/api/glossary/explain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ term, level: glossaryLevel, context, slug: glossarySlug, seed }),
+    }).then(res => res.json()) as GlossaryResponse;
+
+    glossaryCache.set(cacheKey, response);
+    if (activeGlossaryButton === button) {
+      renderGlossary(response);
+      positionGlossaryPopover(button);
+    }
+  }
+
+  function hideGlossarySoon() {
+    glossaryHideTimer = window.setTimeout(() => {
+      if (glossaryPopover) glossaryPopover.hidden = true;
+      activeGlossaryButton = null;
+    }, 180);
+  }
+
+  markGlossaryTerms();
+  document.querySelectorAll<HTMLElement>('.glossary-term').forEach(button => {
+    button.addEventListener('mouseenter', () => loadGlossary(button));
+    button.addEventListener('focus', () => loadGlossary(button));
+    button.addEventListener('mouseleave', hideGlossarySoon);
+    button.addEventListener('blur', hideGlossarySoon);
+    button.addEventListener('click', () => loadGlossary(button));
+  });
+  glossaryPopover?.addEventListener('mouseenter', () => window.clearTimeout(glossaryHideTimer));
+  glossaryPopover?.addEventListener('mouseleave', hideGlossarySoon);
+  glossaryPopover?.querySelectorAll<HTMLButtonElement>('[data-glossary-level]').forEach(button => {
+    button.addEventListener('click', () => {
+      setGlossaryLevel(button.dataset.glossaryLevel === 'advanced' ? 'advanced' : 'beginner');
+      if (activeGlossaryButton) loadGlossary(activeGlossaryButton);
+    });
+  });
+  setGlossaryLevel(glossaryLevel);
 </script>
 
 <style is:global>

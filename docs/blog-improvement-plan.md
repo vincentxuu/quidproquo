@@ -34,6 +34,7 @@
 | `progress.txt` | ✅ 已完成 | 作為 session memory 使用中 |
 | session-start hook | ✅ 已完成 | `scripts/session-start.mjs` + `.claude/settings.json` |
 | pre-commit + references CI gate | ✅ 已完成 | `simple-git-hooks` 與 workflow 已接上 |
+| 互動詞彙表 | ✅ 已完成 | hover/focus 詞彙卡、初學/進階切換、D1 查詢統計；見 `docs/interactive-glossary.md` |
 | `type` backfill + required schema | ⏳ 未完成 | `src/content.config.ts` 仍為 optional |
 | Post Evaluator | ✅ 已完成 | post skill 已要求跑 `pnpm check:post-quality` + `pnpm check:references` |
 | 相關文章演算法升級 | ⏳ 部分完成 | series nav 已接上；related posts 權重演算法仍待升級 |

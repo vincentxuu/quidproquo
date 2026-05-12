@@ -1,6 +1,14 @@
 import { env } from 'cloudflare:workers'
 import type { SearchResult } from '../state'
-import { buildFtsQuery, EMBED_MODEL, reciprocalRankFuse } from './hybrid-search'
+import {
+  attachSearchMetrics,
+  BM25_SHORT_CIRCUIT_THRESHOLD,
+  buildFtsQuery,
+  EMBED_MODEL,
+  isPrecisionQuery,
+  reciprocalRankFuse,
+  shouldShortCircuitBm25,
+} from './hybrid-search'
 
 interface Env { VECTORIZE_INDEX: VectorizeIndex; AI: Ai; DB: D1Database }
 interface DocSearchRow extends SearchResult {
@@ -115,7 +123,7 @@ async function searchBm25Docs(query: string, limit: number, sourceName?: string)
     ORDER BY bm25(chunks_fts), dc.chunk_index ASC
     LIMIT ?`
   )
-    .bind(ftsQuery, ...(sourceName ? [sourceName] : []), limit * 3)
+    .bind(ftsQuery, ...(sourceName ? [sourceName] : []), Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD))
     .all<{
       chunk_id: string
       content: string
@@ -137,12 +145,47 @@ export async function searchDocs(args: {
   query: string
   source_name?: string
   limit?: number
+  shortCircuit?: boolean
 }): Promise<SearchResult[]> {
-  const { query, source_name, limit = 8 } = args
-  const [vectorResults, bm25Results] = await Promise.all([
-    searchVectorDocs(query, limit, source_name),
-    searchBm25Docs(query, limit, source_name),
-  ])
+  const { query, source_name, limit = 8, shortCircuit = true } = args
+  const started = Date.now()
+  const bm25Started = Date.now()
+  const bm25Results = await searchBm25Docs(query, limit, source_name)
+  const bm25Ms = Date.now() - bm25Started
 
-  return reciprocalRankFuse([vectorResults, bm25Results], limit)
+  if (shouldShortCircuitBm25(bm25Results.length, shortCircuit)) {
+    const results = reciprocalRankFuse([bm25Results], limit)
+    return attachSearchMetrics(results, {
+      source: 'docs',
+      query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
+      bm25_results: bm25Results.length,
+      vector_results: 0,
+      result_count: results.length,
+      bm25_ms: bm25Ms,
+      vector_ms: null,
+      total_ms: Date.now() - started,
+      skipped_vector: true,
+      short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+      estimated_latency_saved_ms: null,
+    })
+  }
+
+  const vectorStarted = Date.now()
+  const vectorResults = await searchVectorDocs(query, limit, source_name).catch(() => [] as DocSearchRow[])
+  const vectorMs = Date.now() - vectorStarted
+
+  const results = reciprocalRankFuse([vectorResults, bm25Results], limit)
+  return attachSearchMetrics(results, {
+    source: 'docs',
+    query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
+    bm25_results: bm25Results.length,
+    vector_results: vectorResults.length,
+    result_count: results.length,
+    bm25_ms: bm25Ms,
+    vector_ms: vectorMs,
+    total_ms: Date.now() - started,
+    skipped_vector: false,
+    short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+    estimated_latency_saved_ms: 0,
+  })
 }

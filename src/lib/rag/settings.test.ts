@@ -3,10 +3,19 @@ import { buildShadowBaselineConfig, withConfigOverrides } from './settings'
 import type { RagRuntimeConfig } from './state'
 
 const baseConfig: RagRuntimeConfig = {
+  pipelineEngine: 'langgraph',
+  defaultProvider: 'groq',
+  defaultModel: 'llama-3.3-70b-versatile',
+  stageOverrides: {},
+  fallbackProvider: null,
+  fallbackModel: null,
   hydeEnabled: true,
   multiQueryEnabled: true,
   rerankerEnabled: true,
   criticEnabled: true,
+  pageIndexEnabled: true,
+  pageIndexMaxSteps: 5,
+  bm25ShortCircuitEnabled: true,
   shadowModeEnabled: true,
   semanticCacheThreshold: 0.95,
   rerankerMinKeep: 3,
@@ -27,6 +36,8 @@ describe('rag settings helpers', () => {
     expect(baseline.multiQueryEnabled).toBe(false)
     expect(baseline.rerankerEnabled).toBe(false)
     expect(baseline.criticEnabled).toBe(false)
+    expect(baseline.pageIndexEnabled).toBe(false)
+    expect(baseline.bm25ShortCircuitEnabled).toBe(false)
     expect(baseline.semanticCacheThreshold).toBe(0.95)
   })
 })

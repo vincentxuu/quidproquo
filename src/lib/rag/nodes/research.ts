@@ -25,7 +25,7 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
   const model = createModel(2048)
   const agent = createReactAgent({
     llm: model,
-    tools: [searchBlogPosts, searchDocs, getPostDetail],
+    tools: [searchBlogPosts, searchDocs, getPostDetail] as any,
     stateModifier: SYSTEM_PROMPT,
   })
 
@@ -46,5 +46,5 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
     }
   }
 
-  return { search_results: allResults }
+  return { search_results: allResults, retrieval_metrics: [] }
 }

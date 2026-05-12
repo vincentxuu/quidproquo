@@ -1,6 +1,23 @@
 export const EMBED_MODEL = '@cf/baai/bge-large-en-v1.5'
 export const EMBED_BATCH_SIZE = 50
 export const RRF_K = 60
+export const BM25_SHORT_CIRCUIT_THRESHOLD = 5
+
+export interface SearchMetrics {
+  source: 'posts' | 'docs'
+  query_kind: 'precision' | 'general'
+  bm25_results: number
+  vector_results: number
+  result_count: number
+  bm25_ms: number
+  vector_ms: number | null
+  total_ms: number
+  skipped_vector: boolean
+  short_circuit_threshold: number
+  estimated_latency_saved_ms: number | null
+}
+
+export type SearchResultsWithMetrics<T> = T[] & { metrics?: SearchMetrics }
 
 interface ChunkIdentified {
   chunk_id: string
@@ -17,6 +34,45 @@ export function buildFtsQuery(query: string): string | null {
   return tokens
     .map(token => `"${token.replace(/"/g, '""')}"`)
     .join(' OR ')
+}
+
+export function isPrecisionQuery(query: string): boolean {
+  const tokens = query.match(/[\p{L}\p{N}][\p{L}\p{N}._:/#-]*/gu) ?? []
+  return tokens.some(token =>
+    /\d/.test(token) ||
+    /[._:/#-]/.test(token) ||
+    /^[A-Z][A-Z0-9_-]{1,}$/.test(token)
+  )
+}
+
+export function shouldShortCircuitBm25(
+  bm25ResultCount: number,
+  enabled = true,
+  threshold = BM25_SHORT_CIRCUIT_THRESHOLD
+): boolean {
+  return enabled && bm25ResultCount >= threshold
+}
+
+export function attachSearchMetrics<T>(
+  results: T[],
+  metrics: SearchMetrics
+): SearchResultsWithMetrics<T> {
+  Object.defineProperty(results, 'metrics', {
+    value: metrics,
+    enumerable: false,
+    configurable: true,
+  })
+  return results as SearchResultsWithMetrics<T>
+}
+
+export function getSearchMetrics<T>(results: T[]): SearchMetrics | undefined {
+  return (results as SearchResultsWithMetrics<T>).metrics
+}
+
+export function collectSearchMetrics<T>(resultSets: T[][]): SearchMetrics[] {
+  return resultSets
+    .map(resultSet => getSearchMetrics(resultSet))
+    .filter((metrics): metrics is SearchMetrics => Boolean(metrics))
 }
 
 export function reciprocalRankFuse<T extends ChunkIdentified>(

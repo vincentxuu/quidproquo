@@ -7,7 +7,8 @@ Analyze the user's query and respond with JSON only, no markdown.
 
 Response format:
 {
-  "intent": "factual" | "summary" | "code" | "comparison" | "exploratory" | "off-topic",
+  "intent": "factual" | "summary" | "code" | "comparison" | "exploratory" | "recommendation" | "off-topic",
+  "complexity": "simple" | "medium" | "complex",
   "language": "zh-TW" | "en",
   "needs_clarification": boolean,
   "subtasks": string[],
@@ -29,6 +30,7 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
 
   let plan: Plan = {
     intent: 'factual',
+    complexity: 'medium',
     needs_clarification: false,
     subtasks: [],
     specialists: [],
@@ -40,6 +42,7 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
     language = parsed.language ?? 'zh-TW'
     plan = {
       intent: parsed.intent ?? 'factual',
+      complexity: parsed.complexity ?? 'medium',
       needs_clarification: parsed.needs_clarification ?? false,
       subtasks: parsed.subtasks ?? [],
       specialists: parsed.specialists ?? [],

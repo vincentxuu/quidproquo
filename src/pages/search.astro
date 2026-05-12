@@ -10,6 +10,19 @@ const t = useTranslations('zh-TW');
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   </Fragment>
   <h1>{t('nav.search')}</h1>
+  <section class="rag-search">
+    <label for="rag-search-input">RAG 搜尋</label>
+    <div class="rag-search-controls">
+      <input id="rag-search-input" type="search" placeholder="找文章、推薦閱讀路線、語意查詢..." />
+      <select id="rag-search-mode" aria-label="搜尋模式">
+        <option value="keyword">keyword</option>
+        <option value="hybrid">hybrid</option>
+        <option value="rag">rag</option>
+      </select>
+      <button id="rag-search-button" type="button">搜尋</button>
+    </div>
+    <div id="rag-search-results" aria-live="polite"></div>
+  </section>
   <div id="search"></div>
 </PostLayout>
 
@@ -17,5 +30,84 @@ const t = useTranslations('zh-TW');
 <script is:inline>
   window.addEventListener('DOMContentLoaded', () => {
     new PagefindUI({ element: '#search', showImages: false });
+    const input = document.getElementById('rag-search-input');
+    const mode = document.getElementById('rag-search-mode');
+    const button = document.getElementById('rag-search-button');
+    const results = document.getElementById('rag-search-results');
+    const run = async () => {
+      const q = input.value.trim();
+      if (!q) return;
+      results.textContent = '搜尋中...';
+      const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&mode=${encodeURIComponent(mode.value)}`);
+      const data = await res.json();
+      if (!res.ok) {
+        results.textContent = data.message ?? '搜尋失敗。';
+        return;
+      }
+      renderResults(results, data.results, '沒有結果。');
+    };
+    button.addEventListener('click', run);
+    input.addEventListener('keydown', event => { if (event.key === 'Enter') run(); });
   });
+
+  function renderResults(root, items, emptyText) {
+    root.replaceChildren();
+    if (!items.length) {
+      const empty = document.createElement('p');
+      empty.textContent = emptyText;
+      root.append(empty);
+      return;
+    }
+    for (const item of items) {
+      const article = document.createElement('article');
+      article.className = 'rag-search-result';
+      const link = document.createElement('a');
+      link.href = item.url ?? '#';
+      link.textContent = item.title ?? item.url ?? 'Untitled';
+      const evidence = document.createElement('p');
+      evidence.textContent = item.evidence ?? '';
+      const meta = document.createElement('small');
+      meta.textContent = `${item.category ?? ''} · ${item.reason ?? ''}`;
+      article.append(link, evidence, meta);
+      root.append(article);
+    }
+  }
 </script>
+
+<style>
+  .rag-search {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 1rem 0 2rem;
+    background: var(--surface);
+  }
+  .rag-search-controls {
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: 1fr auto auto;
+    margin-top: .5rem;
+  }
+  .rag-search input,
+  .rag-search select,
+  .rag-search button {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem .8rem;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .rag-search-result {
+    padding: .9rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .rag-search-result p {
+    margin: .35rem 0;
+    color: var(--text-muted);
+  }
+  @media (max-width: 640px) {
+    .rag-search-controls {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

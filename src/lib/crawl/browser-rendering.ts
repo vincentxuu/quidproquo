@@ -7,6 +7,19 @@ export interface CrawledPage {
   url: string;
   markdown: string;
   title?: string;
+  status?: string;
+  statusCode?: number;
+}
+
+export interface CrawlRunResult {
+  jobId: string;
+  pages: CrawledPage[];
+  statusCounts: Record<string, number>;
+  skippedPages: number;
+}
+
+export interface CrawlTargetOptions {
+  modifiedSince?: number;
 }
 
 interface BRCrawlRequest {
@@ -19,6 +32,7 @@ interface BRCrawlRequest {
   options: {
     includePatterns: string[];
   };
+  modifiedSince?: number;
 }
 
 interface BRJobPage {
@@ -33,6 +47,7 @@ interface BRJobPage {
 
 interface BRJobStatusResponse {
   success: boolean;
+  errors?: Array<{ message?: string; code?: number }>;
   result: {
     id: string;
     status: 'running' | 'completed' | 'cancelled_due_to_timeout' | 'cancelled_due_to_limits' | 'cancelled_by_user' | 'errored';
@@ -43,18 +58,12 @@ interface BRJobStatusResponse {
 const POLL_INTERVAL_MS = 3000;
 const POLL_TIMEOUT_MS = 5 * 60 * 1000; // 5 分鐘上限
 
-export async function crawlTarget(
-  target: CrawlTarget,
-  accountId: string,
-  apiToken: string
-): Promise<CrawledPage[]> {
-  const baseUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/browser-rendering`;
-  const headers = {
-    'Authorization': `Bearer ${apiToken}`,
-    'Content-Type': 'application/json',
-  };
+function formatCloudflareErrors(errors: Array<{ message?: string; code?: number }> | undefined): string {
+  if (!errors || errors.length === 0) return 'unknown Cloudflare API error';
+  return errors.map(error => error.message ?? `Cloudflare error ${error.code ?? 'unknown'}`).join('; ');
+}
 
-  // Step 1: 送出 crawl job
+export function createCrawlRequest(target: CrawlTarget, options: CrawlTargetOptions = {}): BRCrawlRequest {
   const body: BRCrawlRequest = {
     url: target.url,
     formats: ['markdown'],
@@ -67,6 +76,47 @@ export async function crawlTarget(
     },
   };
 
+  if (options.modifiedSince !== undefined) {
+    body.modifiedSince = options.modifiedSince;
+  }
+
+  return body;
+}
+
+function countStatuses(pages: BRJobPage[] = []): Record<string, number> {
+  return pages.reduce<Record<string, number>>((counts, page) => {
+    const status = page.status || 'unknown';
+    counts[status] = (counts[status] ?? 0) + 1;
+    return counts;
+  }, {});
+}
+
+async function getSkippedPageCount(baseUrl: string, jobId: string, headers: Record<string, string>): Promise<number> {
+  try {
+    const res = await fetch(`${baseUrl}/crawl/${jobId}?status=skipped`, { headers });
+    if (!res.ok) return 0;
+    const data = (await res.json()) as BRJobStatusResponse;
+    return data.result.pages?.length ?? 0;
+  } catch {
+    return 0;
+  }
+}
+
+export async function crawlTarget(
+  target: CrawlTarget,
+  accountId: string,
+  apiToken: string,
+  options: CrawlTargetOptions = {}
+): Promise<CrawlRunResult> {
+  const baseUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/browser-rendering`;
+  const headers = {
+    'Authorization': `Bearer ${apiToken}`,
+    'Content-Type': 'application/json',
+  };
+
+  // Step 1: 送出 crawl job
+  const body = createCrawlRequest(target, options);
+
   const submitRes = await fetch(`${baseUrl}/crawl`, {
     method: 'POST',
     headers,
@@ -78,10 +128,16 @@ export async function crawlTarget(
     throw new Error(`Crawl submit error ${submitRes.status}: ${text}`);
   }
 
-  const submitData = (await submitRes.json()) as { success: boolean; result: string };
-  if (!submitData.success) throw new Error(`Crawl submit failed`);
+  const submitData = (await submitRes.json()) as {
+    success: boolean;
+    result: string | { id?: string };
+    errors?: Array<{ message?: string; code?: number }>;
+  };
+  if (!submitData.success) throw new Error(`Crawl submit failed: ${formatCloudflareErrors(submitData.errors)}`);
 
-  const jobId = submitData.result;
+  const jobId = typeof submitData.result === 'string' ? submitData.result : submitData.result.id;
+  if (!jobId) throw new Error('Crawl submit failed: missing job id');
+
   console.log(`[crawl] Job submitted: ${jobId}`);
 
   // Step 2: 輪詢直到完成
@@ -97,16 +153,30 @@ export async function crawlTarget(
     }
 
     const statusData = (await statusRes.json()) as BRJobStatusResponse;
+    if (!statusData.success) {
+      throw new Error(`Crawl status failed: ${formatCloudflareErrors(statusData.errors)}`);
+    }
+
     const { status, pages } = statusData.result;
 
     if (status === 'completed') {
-      return (pages ?? [])
+      const skippedPages = await getSkippedPageCount(baseUrl, jobId, headers);
+      const completedPages = (pages ?? [])
         .filter(p => p.markdown && p.markdown.trim().length > 0)
         .map(p => ({
           url: p.url,
           markdown: p.markdown!,
           title: p.metadata?.title,
+          status: p.status,
+          statusCode: p.metadata?.status_code,
         }));
+
+      return {
+        jobId,
+        pages: completedPages,
+        statusCounts: countStatuses(pages),
+        skippedPages,
+      };
     }
 
     if (status !== 'running') {

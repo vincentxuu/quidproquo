@@ -14,6 +14,9 @@ export async function criticNode(state: GraphState): Promise<Partial<GraphState>
 Evaluate the draft response and return JSON only, no markdown:
 {
   "confidence": 0.0-1.0,
+  "answer_relevance": 0.0-1.0,
+  "intent_alignment": 0.0-1.0,
+  "drift_detected": boolean,
   "ungrounded_claims": ["claim not supported by sources"],
   "gaps": ["what question left unanswered"]
 }
@@ -26,9 +29,16 @@ Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry`
     new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
   ])
 
-  let critique: Critique = { confidence: 0.5, ungrounded_claims: [], gaps: [] }
+  let critique: Critique = {
+    confidence: 0.5,
+    answer_relevance: 0.5,
+    intent_alignment: 0.5,
+    drift_detected: false,
+    ungrounded_claims: [],
+    gaps: [],
+  }
   try {
-    critique = JSON.parse(String(response.content))
+    critique = { ...critique, ...JSON.parse(String(response.content)) }
   } catch { /* use default */ }
 
   const newIteration = state.iteration + 1

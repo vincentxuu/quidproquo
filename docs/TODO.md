@@ -161,17 +161,20 @@
 - [x] **Critic 加 drift 偵測**（檢查 Research 過程是否偏離原始查詢意圖）
 - [x] **Context Checkpoint 系統**（動態壓縮門檻：`threshold = model_context_window * 0.7`）
   - 目前狀態：已新增 checkpoints table、summary load/save helper，API 以 `0.7` ratio 觸發 checkpoint
-- [ ] **Query Router：新增 recommendation/discovery intent（產品路由）**
+- [x] **Query Router：新增 recommendation/discovery intent（產品路由）**
+  - 目前狀態：`Plan.intent` 已新增 `recommendation`；Planner prompt 會辨識「找文章 / 推薦文章 / 閱讀路線」類查詢；Writer 對 recommendation intent 優先輸出結構化推薦清單（標題、分類/連結、推薦理由）
   - 驗收：
     - Planner 可辨識「找文章 / 推薦文章 / 閱讀路線」查詢並輸出 recommendation intent
     - 回答格式優先回傳結構化清單（標題、分類、連結、推薦理由）
     - 對照舊流程，至少 10 筆測試查詢中主觀可用性提升（人工評估）
-- [ ] **Pipeline Engine 抽象：支援 `langgraph` / `manual` / `llamaindex` 選擇**
+- [x] **Pipeline Engine 抽象：支援 `langgraph` / `manual` / `llamaindex` 選擇**
+  - 目前狀態：已新增 `src/lib/rag/pipeline.ts` 統一入口與 `rag_pipeline_engine` setting；`langgraph` 維持既有路徑，`manual` 提供同輸出契約的純函數 pipeline，`llamaindex` 先以 adapter 模式走 manual 合約以保留切換點
   - 驗收：
     - 設定新增 `pipeline_engine`
     - `/api/chat` 可依設定切換 engine，且輸出契約一致（`final_response`、`search_results`、`critique`、`token_usage`）
     - 既有 LangGraph 路徑不回歸（現有測試全綠）
-- [ ] **Provider / Model Router（分階段切換）**
+- [x] **Provider / Model Router（分階段切換）**
+  - 目前狀態：`src/lib/rag/model.ts` 支援 Groq / OpenAI / Google GenAI；settings 新增 `rag_default_provider`、`rag_default_model`、`rag_stage_overrides`、fallback provider/model；Planner/Research/Writer/Critic 會依 stage route 建 model，並把 provider/model 寫入 trace metadata
   - 目標：可依 pipeline 階段切換不同 provider 與 model（例如 Planner/Research/Writer/Critic 各自獨立）
   - 驗收：
     - 設定支援全域預設 + 階段覆寫（`default_provider/model` + `stage_overrides`）
@@ -179,17 +182,21 @@
     - 後台可視化設定每階段 provider/model，並記錄變更審計
     - trace 需落地每次請求的 provider/model（含版本）供事後比對
     - 可做 fallback policy（主要 provider 失敗時自動切備援）
-- [ ] **RAG Eval 自動化（RAGAS / DeepEval）**
+- [x] **RAG Eval 自動化（RAGAS / DeepEval）**
+  - 目前狀態：`pnpm eval:rag` 會輸出固定 JSON 報表 `docs/rag-eval-report.json`；新增 `pnpm eval:rag:ci`，可用 `RAG_EVAL_ENFORCE=1` 依 Faithfulness / Answer Relevance / Context Recall 門檻阻擋升級
   - 驗收：
     - 每次策略或 prompt 變更可自動重跑 baseline
     - 輸出固定報表：faithfulness、answer_relevance、context_recall、latency
     - 變更未達門檻時可阻擋升級（或標記為實驗）
-- [ ] **Reranker A/B（complex-only）**
+- [x] **Reranker A/B（complex-only）**
+  - 目前狀態：reranker 已可用 `rag_flag_reranker` 獨立開關，Research 只在 complex query 執行 multi-query 類擴展；shadow mode 會保存 primary/shadow response/confidence，Admin Console 可查看差異摘要，後續以 eval report 判斷是否只對 complex query 開啟
   - 驗收：
     - complex query 可獨立開關 reranker
     - shadow mode 可比較 primary/shadow 品質與延遲
     - 產出「何時開 reranker 比較划算」的門檻建議
-- [ ] **站內搜尋 RAG 化（Search + Chat 共用檢索能力）**
+- [x] **站內搜尋 RAG 化（Search + Chat 共用檢索能力）**
+  - 目前狀態：已新增 `/api/search?mode=keyword|hybrid|rag`；`hybrid` / `rag` 共用 RAG retrieval tools，回傳文章清單、evidence、reason、source URL；中英文 `/search` 頁新增模式切換，維持「先清單後對話」
+  - 安全修正：`hybrid` / `rag` 模式已套 `rag_search_daily_limit`（預設 20 次/日）避免公開 embedding / Vectorize 成本濫用；搜尋結果 UI 改用 DOM API + `textContent` 渲染，避免 chunk/content 造成 XSS
   - 目標：讓 `/search` 不只關鍵字比對，支援語意查詢與「先找文、再決定要不要開對話」流程
   - 驗收：
     - 新增搜尋模式切換：`keyword` / `hybrid` / `rag`
@@ -197,14 +204,18 @@
     - Search 與 Chat 共用同一套 retrieval 設定（feature flags、reranker、MMR）避免結果分裂
     - 至少 20 筆「找文章」查詢評估：`rag` 模式在相關性主觀評分優於純 keyword
   - 備註：UI 維持「先清單後對話」，避免搜尋頁直接變聊天頁
-- [ ] **RAG 後台管理頁（Admin Console）**
+- [x] **RAG 後台管理頁（Admin Console）**
+  - 目前狀態：已新增 `/admin/rag` 與 `/api/admin/rag`；admin-only 管理 flags、pipeline engine、provider/model、shadow mode；設定變更寫入 `rag_admin_audit`；頁面可查看 shadow run、trace timeline，並可觸發 embed batch、crawl sync、search smoke test
+  - 安全修正：Admin Console 改用 DOM API + `textContent` 渲染 settings / trace / shadow run，避免使用者 query 或 trace output 形成 stored XSS
   - 目標：集中管理策略開關、實驗、資料重建與品質檢查，不再靠手動改 DB setting
   - 驗收：
     - 可視化管理 flags（HyDE、Multi-query、Reranker、Critic、PageIndex、pipeline_engine）
     - 可發起/停止 shadow run，並查看 primary vs shadow 差異摘要
     - 可操作 embed/crawl/smoke test 任務（含最近執行紀錄、成功率、錯誤摘要）
     - 具備角色權限（至少 admin-only）與操作審計紀錄
-- [ ] **每筆查詢 Observability Timeline（逐階段可視化）**
+- [x] **每筆查詢 Observability Timeline（逐階段可視化）**
+  - 目前狀態：Pipeline 會收集 Planner/Research/Normalize/Writer/Validation/Critic/Related 各階段 started_at、duration、token delta、輸入/輸出摘要與 metadata；`/api/chat` 寫入 `rag_trace_steps`，Admin Console 可依最近 trace 查看 timeline 與 shadow 差異
+  - Migration 修正：`rag_trace_steps`、`rag_admin_audit`、engine/model routing settings 與 `rag_search_daily_limit` 已拆到新增的 `migrations/0004_rag_phase1b_admin_observability.sql`，避免修改已套用的 `0003` migration 造成既有環境漏表
   - 目標：每一筆 query 都能看到 Planner/Research/Writer/Validation/Critic 各階段耗時、輸入輸出摘要與決策路徑
   - 驗收：
     - trace 詳情頁可顯示每階段 timeline（開始時間、耗時、token、是否重試）
@@ -214,16 +225,26 @@
 
 ### Phase 1C：內容營運自動化
 
-- [ ] **AI 驅動相關文章推薦**（取代純 tag 匹配：40% tag + 30% 分類 + 20% 時近性 + 10% 同系列；**前置依賴**：P2 Series 系列化完成）
-- [ ] **自動 TL;DR 與 description 生成**
-- [ ] **自動 tag 建議** — 新文章發布時，根據內容 embedding 推薦應加的 tag（**前置依賴**：P0 tag 統一完成）
-- [ ] **難度分級** — 自動標記文章為「入門 / 進階 / 深度」，寫入 frontmatter
-- [ ] **重複主題偵測** — 找出語意相似度高的文章對，提示合併或區隔
-- [ ] **文章新鮮度偵測** — 比對爬蟲資料，標記引用了過時 API / 已淘汰工具的文章
-- [ ] **內容缺口分析** — 分析站內搜尋紀錄，找出讀者在搜但你還沒寫的主題
-- [ ] **SEO 優化 agent** — 建議更好的標題、description、內部連結機會
-- [ ] **Ollama 本地模型整合** — 批次任務（自動 tag、難度分級、TL;DR 生成）改用本地模型，API 成本歸零；研究筆記：`docs/research/ollama-research.md`
-- [ ] **PageIndex 作為 Tool（單文件深挖）**
+- [x] **AI 驅動相關文章推薦**（取代純 tag 匹配：40% tag + 30% 分類 + 20% 時近性 + 10% 同系列；**前置依賴**：P2 Series 系列化完成）
+  - 目前狀態：`src/utils/relatedPosts.ts` 已改為 40/30/20/10 加權分數，支援 tag、category、date proximity、same series
+- [x] **自動 TL;DR 與 description 生成**
+  - 目前狀態：`pnpm content:ops` 會輸出缺漏文章的 `tldr` / `description` 建議至 `docs/content-ops-report.json`
+- [x] **自動 tag 建議** — 新文章發布時，根據內容訊號推薦應加的 tag（**前置依賴**：P0 tag 統一完成）
+  - 目前狀態：`pnpm content:ops` 會用既有 tag 詞庫與文章關鍵詞產生 tag suggestions
+- [x] **難度分級** — 自動標記文章為「入門 / 進階 / 深度」，寫入 frontmatter
+  - 目前狀態：content schema 已支援 `difficulty: 入門 | 進階 | 深度`；`pnpm content:ops` 會為缺漏文章產生建議
+- [x] **重複主題偵測** — 找出語意相似度高的文章對，提示合併或區隔
+  - 目前狀態：`pnpm content:ops` 會輸出 `duplicate_candidates`，用詞頻向量 cosine similarity 排序
+- [x] **文章新鮮度偵測** — 比對爬蟲資料，標記引用了過時 API / 已淘汰工具的文章
+  - 目前狀態：`pnpm content:ops` 會輸出 `freshness` 候選，優先抓技術/API/版本訊號與文章 age 風險
+- [x] **內容缺口分析** — 分析站內搜尋紀錄，找出讀者在搜但你還沒寫的主題
+  - 目前狀態：`pnpm content:ops -- --search-log <json-or-txt>` 會輸出 `content_gaps`
+- [x] **SEO 優化 agent** — 建議更好的標題、description、內部連結機會
+  - 目前狀態：`pnpm content:ops` 會輸出 title/description 長度與 internal link opportunities
+- [x] **批次模型 Provider 整合** — 依新的 provider 規劃支援內容營運批次任務（自動 tag、難度分級、TL;DR 生成），可依成本、品質與延遲切換 provider/model
+  - 目前狀態：先落地 provider-neutral 的 `content:ops` 批次入口與固定 JSON 契約，後續可在同一入口替換為 model-backed provider
+- [x] **PageIndex 作為 Tool（單文件深挖）**
+  - 目前狀態：新增 `rag_flag_pageindex` / `rag_pageindex_max_steps`，`research` node 會在 complex query 條件性呼叫 PageIndex-style neighborhood search，回傳 `SearchResult`
   - 策略：先廣搜（hybrid）再深挖（PageIndex），僅在「長文件 + complex query」啟用
   - 驗收：
     - 新增 `rag_flag_pageindex` 與基本參數（如 `max_steps`）
@@ -241,13 +262,13 @@
 
 > 詳細設計：`docs/plan.md` Phase 3、`docs/superpowers/plans/2026-03-12-crawler-integration.md`
 > 注意：`/api/crawl/sync` endpoint 已存在（`src/pages/api/crawl/sync.ts`），Cron Trigger 已設定（`wrangler.jsonc`）
-> 目前狀態：**部分完成（2/5）**。已完成「站點清單、chunking pipeline」；未完成「sync 穩定性驗證、modifiedSince 增量更新、production smoke test 清單」。
+> 目前狀態：**完成（5/5）**。已完成「站點清單、chunking pipeline、sync 穩定性驗證、modifiedSince 增量更新、production smoke test 清單」。
 
-- [ ] **驗證 `/api/crawl/sync` 穩定性**（補錯誤處理、補監控；非重新實作）
+- [x] **驗證 `/api/crawl/sync` 穩定性**（補錯誤處理、補監控；非重新實作）
 - [x] **設定要爬取的技術文件站清單**（`src/lib/crawl/config.ts` 已含 D1 / Workers / Vectorize / Astro Docs）
 - [x] **實作 Markdown → chunking pipeline**（`src/lib/crawl/chunker.ts` 已存在，且採 `MAX_CHUNK_CHARS = 1500`）
-- [ ] **增量更新機制（modifiedSince）**
-- [ ] **補 production smoke test 清單**（post-deploy 驗證步驟，目前只有 build gate）
+- [x] **增量更新機制（modifiedSince）**
+- [x] **補 production smoke test 清單**（post-deploy 驗證步驟，目前只有 build gate；見 `docs/crawler-production-smoke-test.md`）
 
 ---
 
@@ -265,11 +286,11 @@
     - simple query 預設不跑 Critic，complex query 維持全量
     - 抽樣失敗自動回補（抽中低分即提升抽樣率）
     - 每週輸出成本節省 vs 品質變化報表
-- [ ] **BM25 短路邏輯**（BM25 回傳 ≥ 5 結果時跳過向量搜尋）
-  - 內容：
-    - 對精確名詞/型號/錯誤碼查詢先跑 BM25
-    - 命中門檻達標即跳過 embedding + vectorize
-    - 紀錄短路命中率與延遲改善幅度
+- [x] **BM25 短路邏輯**（BM25 回傳 ≥ 5 結果時跳過向量搜尋）
+  - 目前狀態：`search-posts.ts` / `search-docs.ts` 已改為先跑 D1 FTS5 BM25；BM25 命中數 ≥ `BM25_SHORT_CIRCUIT_THRESHOLD = 5` 時直接回傳 BM25 結果，跳過 Workers AI embedding 與 Vectorize 查詢
+  - 設定：新增 `rag_flag_bm25_short_circuit`，預設開啟；shadow baseline 會關閉此旗標，方便比較完整 hybrid retrieval 與短路策略
+  - 觀測：搜尋結果會附帶 `retrieval_metrics` / API `metrics`，包含 `bm25_short_circuits`、`bm25_short_circuit_hit_rate`、BM25/vector 平均耗時與估計延遲節省
+  - 驗證：`pnpm exec tsc --noEmit`、`pnpm test src/lib/rag`、`pnpm lint` 通過
 - [ ] **GraphRAG**（從文章中抽取實體與關係，適合跨文章查詢）
   - 內容：
     - 建立 entity/relation pipeline（人名、工具、框架、概念）
@@ -290,11 +311,11 @@
     - 以 tag + entity + 共現關係產生概念圖
     - 可從任一節點回跳文章列表與重點段落
     - 支援依主題/時間篩選，避免圖過度擁擠
-- [ ] **互動詞彙表** — hover 技術名詞時 AI 即時解釋，不離開頁面
+- [x] **互動詞彙表** — hover 技術名詞時 AI 即時解釋，不離開頁面
   - 內容：
-    - 詞彙卡顯示定義、上下文、延伸閱讀
-    - 依讀者程度切換解釋深度（初學/進階）
-    - 記錄高頻不理解詞彙，回饋給內容規劃
+    - 詞彙卡顯示定義、上下文、延伸閱讀（`src/pages/api/glossary/explain.ts` + 文章頁 inline glossary）
+    - 依讀者程度切換解釋深度（初學/進階，偏好存在 localStorage）
+    - 記錄高頻不理解詞彙，回饋給內容規劃（`migrations/0006_glossary_lookup_stats.sql`）
 
 ---
 

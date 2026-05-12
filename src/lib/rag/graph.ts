@@ -24,6 +24,7 @@ export function buildGraph() {
       plan: { default: () => ({ intent: 'factual' as const, complexity: 'medium' as const, needs_clarification: false, subtasks: [], specialists: [] }) },
       needs_web_search: { default: () => false },
       search_results: { default: () => [] },
+      retrieval_metrics: { reducer: (a: GraphState['retrieval_metrics'], b: GraphState['retrieval_metrics']) => [...a, ...b], default: () => [] },
       coverage_gaps: { default: () => [] },
       diagram: { default: () => undefined },
       draft: { default: () => '' },
@@ -34,8 +35,10 @@ export function buildGraph() {
       final_response: { default: () => '' },
       langfuse_trace_id: { default: () => '' },
       token_usage: { default: () => ({ input: 0, output: 0 }) },
+      trace_steps: { default: () => [] },
+      model_usage: { default: () => [] },
     },
-  })
+  } as any) as any
 
   graph
     .addNode('planner', plannerNode)
@@ -101,12 +104,27 @@ export async function runPipeline(
   }
 
   let finalState: GraphState = initState as GraphState
+  const pipelineStartedAt = Date.now()
 
   const graphStream = compiledGraph.stream(initState, { streamMode: 'updates' })
 
   for await (const chunk of await graphStream) {
     const nodeName = Object.keys(chunk)[0]
     const update = chunk[nodeName] as Partial<GraphState>
+    const finishedAt = Date.now()
+    const previousStepEnd = finalState.trace_steps.at(-1)?.started_at
+      ? new Date(finalState.trace_steps.at(-1)!.started_at).getTime() + finalState.trace_steps.at(-1)!.duration_ms
+      : pipelineStartedAt
+    const traceStep = {
+      stage: nodeName,
+      started_at: new Date(previousStepEnd).toISOString(),
+      duration_ms: Math.max(0, finishedAt - previousStepEnd),
+      input_summary: input.message.slice(0, 240),
+      output_summary: summarizeNodeUpdate(nodeName, update),
+      tokens: tokenDelta(finalState.token_usage, update.token_usage),
+      retry: (update.iteration ?? finalState.iteration) > finalState.iteration + 1,
+      metadata: buildNodeMetadata(update),
+    }
 
     if (nodeName === 'planner') {
       callbacks.onStep('Planner')
@@ -126,8 +144,62 @@ export async function runPipeline(
       if (posts.length > 0) callbacks.onRelated(posts)
     }
 
-    if (update) finalState = { ...finalState, ...update }
+    if (update) finalState = { ...finalState, ...update, trace_steps: [...(finalState.trace_steps ?? []), traceStep] }
   }
 
   return finalState
+}
+
+function summarizeNodeUpdate(nodeName: string, update: Partial<GraphState>): string {
+  if (nodeName === 'planner') return `${update.plan?.intent ?? 'unknown'} / ${update.plan?.complexity ?? 'unknown'}`
+  if (nodeName === 'research') return `${update.search_results?.length ?? 0} results`
+  if (nodeName === 'normalize_results') return `${update.search_results?.length ?? 0} normalized; web=${update.needs_web_search ? 'yes' : 'no'}`
+  if (nodeName === 'writer') return `${update.final_response?.length ?? 0} chars`
+  if (nodeName === 'deterministic_validation') return update.validation?.passed ? 'passed' : `failed: ${update.validation?.errors.join('; ')}`
+  if (nodeName === 'critic') return `confidence=${update.critique?.confidence ?? 'n/a'} relevance=${update.critique?.answer_relevance ?? 'n/a'}`
+  if (nodeName === 'related') return `${update.related_posts?.length ?? 0} posts`
+  return 'completed'
+}
+
+function buildNodeMetadata(update: Partial<GraphState>): Record<string, unknown> {
+  const retrieval = summarizeRetrievalMetrics(update.retrieval_metrics ?? [])
+  return {
+    intent: update.plan?.intent,
+    complexity: update.plan?.complexity,
+    chunks_found: update.search_results?.length,
+    retrieval,
+    validation_errors: update.validation?.errors,
+    confidence: update.critique?.confidence,
+    answer_relevance: update.critique?.answer_relevance,
+  }
+}
+
+function summarizeRetrievalMetrics(metrics: GraphState['retrieval_metrics']): Record<string, unknown> | undefined {
+  if (metrics.length === 0) return undefined
+  const shortCircuits = metrics.filter(metric => metric.skipped_vector)
+  const vectorRuns = metrics.filter(metric => metric.vector_ms != null)
+  const averageVectorMs = vectorRuns.length > 0
+    ? Math.round(vectorRuns.reduce((sum, metric) => sum + (metric.vector_ms ?? 0), 0) / vectorRuns.length)
+    : null
+
+  return {
+    searches: metrics.length,
+    bm25_short_circuits: shortCircuits.length,
+    bm25_short_circuit_hit_rate: shortCircuits.length / metrics.length,
+    average_bm25_ms: Math.round(metrics.reduce((sum, metric) => sum + metric.bm25_ms, 0) / metrics.length),
+    average_vector_ms: averageVectorMs,
+    estimated_latency_saved_ms: averageVectorMs == null ? null : shortCircuits.length * averageVectorMs,
+    details: metrics,
+  }
+}
+
+function tokenDelta(
+  previous: GraphState['token_usage'],
+  next: GraphState['token_usage'] | undefined
+): GraphState['token_usage'] | undefined {
+  if (!next) return undefined
+  return {
+    input: Math.max(0, next.input - previous.input),
+    output: Math.max(0, next.output - previous.output),
+  }
 }

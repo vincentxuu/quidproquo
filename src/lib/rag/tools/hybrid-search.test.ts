@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { buildFtsQuery, reciprocalRankFuse, RRF_K } from './hybrid-search'
+import {
+  attachSearchMetrics,
+  BM25_SHORT_CIRCUIT_THRESHOLD,
+  buildFtsQuery,
+  getSearchMetrics,
+  isPrecisionQuery,
+  reciprocalRankFuse,
+  RRF_K,
+  shouldShortCircuitBm25,
+} from './hybrid-search'
 
 describe('buildFtsQuery', () => {
   it('quotes and OR-joins extracted tokens', () => {
@@ -13,6 +22,39 @@ describe('buildFtsQuery', () => {
   it('handles mixed CJK and latin tokens', () => {
     expect(buildFtsQuery('Context Engineering 跟 Prompt Engineering 差在哪'))
       .toBe('"Context" OR "Engineering" OR "Prompt" OR "差在哪"')
+  })
+})
+
+describe('BM25 short circuit helpers', () => {
+  it('detects precision-style queries', () => {
+    expect(isPrecisionQuery('D1 batch timeout')).toBe(true)
+    expect(isPrecisionQuery('ERR_CONNECTION_RESET')).toBe(true)
+    expect(isPrecisionQuery('適合初學者的文章')).toBe(false)
+  })
+
+  it('short-circuits when BM25 reaches the threshold', () => {
+    expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD)).toBe(true)
+    expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD - 1)).toBe(false)
+    expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD, false)).toBe(false)
+  })
+
+  it('attaches metrics without serializing them into tool results', () => {
+    const results = attachSearchMetrics([{ chunk_id: 'a' }], {
+      source: 'posts',
+      query_kind: 'precision',
+      bm25_results: 5,
+      vector_results: 0,
+      result_count: 1,
+      bm25_ms: 12,
+      vector_ms: null,
+      total_ms: 12,
+      skipped_vector: true,
+      short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+      estimated_latency_saved_ms: null,
+    })
+
+    expect(getSearchMetrics(results)?.skipped_vector).toBe(true)
+    expect(JSON.stringify(results)).not.toContain('skipped_vector')
   })
 })
 

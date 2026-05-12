@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { verifySession } from '../../lib/auth/session'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
-import { runPipeline } from '../../lib/rag/graph'
+import { runPipeline } from '../../lib/rag/pipeline'
 import { createTrace, updateTrace, scoreTrace } from '../../lib/langfuse'
 import { loadRagSettings, buildShadowBaselineConfig } from '../../lib/rag/settings'
 import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/rag/checkpoints'
@@ -172,6 +172,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
             drift_detected: state.critique?.drift_detected,
             chunks: state.search_results.length,
             config: ragConfig,
+            pipeline_engine: ragConfig.pipelineEngine,
+            model_usage: state.model_usage,
+            trace_steps: state.trace_steps,
           },
         })
         await scoreTrace(traceId, 'confidence', state.critique?.confidence ?? 1)
@@ -179,6 +182,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         await scoreTrace(traceId, 'intent_alignment', state.critique?.intent_alignment ?? 0)
         await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0).catch(() => {})
         await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
+        await persistTraceSteps(traceId, thread_id, state).catch(() => {})
 
       } catch (err) {
         const msg = err instanceof Error ? err.message : 'Internal error'
@@ -196,4 +200,28 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
       'Connection': 'keep-alive',
     },
   })
+}
+
+async function persistTraceSteps(traceId: string, threadId: string, state: Awaited<ReturnType<typeof runPipeline>>): Promise<void> {
+  const { DB } = env as unknown as Env
+  for (const step of state.trace_steps) {
+    await DB.prepare(
+      `INSERT INTO rag_trace_steps (
+        id, trace_id, thread_id, stage, started_at, duration_ms,
+        input_summary, output_summary, token_input, token_output, metadata_json
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    ).bind(
+      crypto.randomUUID(),
+      traceId,
+      threadId,
+      step.stage,
+      step.started_at,
+      step.duration_ms,
+      step.input_summary,
+      step.output_summary,
+      step.tokens?.input ?? null,
+      step.tokens?.output ?? null,
+      JSON.stringify({ ...step.metadata, model_usage: state.model_usage.filter(item => item.stage === step.stage) })
+    ).run()
+  }
 }

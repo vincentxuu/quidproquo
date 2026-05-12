@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1778478435873,
+  "lastScanned": 1778590323780,
   "projectRoot": "/Users/xiaoxu/Projects/quidproquo",
   "techStack": {
     "languages": [
@@ -63,12 +63,17 @@
       "preview": "astro preview",
       "astro": "astro",
       "lint": "oxlint src/ --ignore-pattern '*.astro'",
+      "session:start": "node scripts/session-start.mjs",
+      "check:post-quality": "node scripts/check-post-quality.mjs",
       "check:references": "node scripts/check-post-references.mjs",
+      "content:ops": "node scripts/content-ops.mjs",
       "sync": "tsx scripts/sync-to-d1.ts",
       "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
       "prepare": "simple-git-hooks",
       "test": "vitest run",
-      "test:watch": "vitest"
+      "test:watch": "vitest",
+      "eval:rag": "node scripts/eval-rag-baseline.mjs",
+      "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs"
     }
   },
   "conventions": {
@@ -94,37 +99,42 @@
       "path": "dist",
       "purpose": "Distribution/build output",
       "fileCount": 1,
-      "lastAccessed": 1778478435839,
-      "keyFiles": []
+      "lastAccessed": 1778590323736,
+      "keyFiles": [
+        "cron-entry.js"
+      ]
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
-      "fileCount": 6,
-      "lastAccessed": 1778478435844,
+      "fileCount": 12,
+      "lastAccessed": 1778590323737,
       "keyFiles": [
         "TODO.md",
         "blog-improvement-plan.md",
-        "data.md",
-        "plan.md",
-        "yt-to-post-pipeline.md"
+        "content-ops-report.json",
+        "crawler-production-smoke-test.md",
+        "data.md"
       ]
     },
     "migrations": {
       "path": "migrations",
       "purpose": "Database migrations",
-      "fileCount": 2,
-      "lastAccessed": 1778478435863,
+      "fileCount": 6,
+      "lastAccessed": 1778590323764,
       "keyFiles": [
         "0001_initial.sql",
-        "0002_rag_phase1.sql"
+        "0002_rag_phase1.sql",
+        "0003_rag_phase1b.sql",
+        "0004_rag_phase1b_admin_observability.sql",
+        "0005_rag_phase1c_pageindex.sql"
       ]
     },
     "openspec": {
       "path": "openspec",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1778478435864,
+      "lastAccessed": 1778590323765,
       "keyFiles": [
         "config.yaml"
       ]
@@ -133,7 +143,7 @@
       "path": "public",
       "purpose": "Public files",
       "fileCount": 4,
-      "lastAccessed": 1778478435865,
+      "lastAccessed": 1778590323765,
       "keyFiles": [
         "favicon.ico",
         "favicon.svg",
@@ -144,7 +154,7 @@
       "path": "references",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1778478435865,
+      "lastAccessed": 1778590323765,
       "keyFiles": [
         "agent-patterns.md",
         "chatbot-development.md",
@@ -156,21 +166,21 @@
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 7,
-      "lastAccessed": 1778478435866,
+      "fileCount": 11,
+      "lastAccessed": 1778590323765,
       "keyFiles": [
         "backfill-types.mjs",
+        "check-post-quality.mjs",
         "check-post-references.mjs",
-        "create-cron-entry.mjs",
-        "create-cron-stub.mjs",
-        "generate-og-images.mjs"
+        "content-ops.mjs",
+        "create-cron-entry.mjs"
       ]
     },
     "src": {
       "path": "src",
       "purpose": "Source code",
       "fileCount": 2,
-      "lastAccessed": 1778478435866,
+      "lastAccessed": 1778590323766,
       "keyFiles": [
         "content.config.ts"
       ]
@@ -179,7 +189,7 @@
       "path": "src/components",
       "purpose": "UI components",
       "fileCount": 3,
-      "lastAccessed": 1778478435869,
+      "lastAccessed": 1778590323767,
       "keyFiles": [
         "Icons.astro",
         "PostCard.astro",
@@ -190,7 +200,7 @@
       "path": "src/lib",
       "purpose": "Library code",
       "fileCount": 1,
-      "lastAccessed": 1778478435869,
+      "lastAccessed": 1778590323768,
       "keyFiles": [
         "langfuse.ts"
       ]
@@ -199,7 +209,7 @@
       "path": "src/pages",
       "purpose": "Page components",
       "fileCount": 7,
-      "lastAccessed": 1778478435870,
+      "lastAccessed": 1778590323769,
       "keyFiles": [
         "404.astro",
         "about.astro",
@@ -210,13 +220,19 @@
       "path": "src/test",
       "purpose": "Test files",
       "fileCount": 1,
-      "lastAccessed": 1778478435870,
+      "lastAccessed": 1778590323769,
       "keyFiles": [
         "cloudflare-workers-mock.ts"
       ]
     }
   },
   "hotPaths": [
+    {
+      "path": "src/layouts/PostLayout.astro",
+      "accessCount": 10,
+      "lastAccessed": 1778521399387,
+      "type": "file"
+    },
     {
       "path": "src/lib/rag/graph.ts",
       "accessCount": 9,
@@ -227,6 +243,12 @@
       "path": "src/lib/rag/agents/research.ts",
       "accessCount": 8,
       "lastAccessed": 1778519259423,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "accessCount": 8,
+      "lastAccessed": 1778521260527,
       "type": "file"
     },
     {
@@ -249,8 +271,8 @@
     },
     {
       "path": "src/pages/api/chat.ts",
-      "accessCount": 5,
-      "lastAccessed": 1778518606891,
+      "accessCount": 6,
+      "lastAccessed": 1778520617858,
       "type": "file"
     },
     {
@@ -263,6 +285,12 @@
       "path": "src/lib/rag/agents/critic.ts",
       "accessCount": 5,
       "lastAccessed": 1778520047326,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Chat/ChatWidget.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1778521472334,
       "type": "file"
     },
     {
@@ -365,6 +393,36 @@
       "path": "src/lib/rag/mini-graph.ts",
       "accessCount": 1,
       "lastAccessed": 1778519496491,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/settings.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778520630985,
+      "type": "file"
+    },
+    {
+      "path": "migrations/0003_rag_phase1b.sql",
+      "accessCount": 1,
+      "lastAccessed": 1778520641479,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/checkpoints.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778520641858,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/login.astro",
+      "accessCount": 1,
+      "lastAccessed": 1778520927443,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Chat/ChatFloating.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1778521207615,
       "type": "file"
     }
   ],

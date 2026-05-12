@@ -15,12 +15,14 @@
     "session:start": "node scripts/session-start.mjs",
     "check:post-quality": "node scripts/check-post-quality.mjs",
     "check:references": "node scripts/check-post-references.mjs",
+    "content:ops": "node scripts/content-ops.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
     "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
     "prepare": "simple-git-hooks",
     "test": "vitest run",
     "test:watch": "vitest",
-    "eval:rag": "node scripts/eval-rag-baseline.mjs"
+    "eval:rag": "node scripts/eval-rag-baseline.mjs",
+    "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.0",

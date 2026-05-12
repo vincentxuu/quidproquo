@@ -1,10 +1,9 @@
 import type { Critique, GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createModel } from '../model'
+import { invokeModel } from '../model'
 export { shouldRetry } from './critic-routing'
 
 export async function criticNode(state: GraphState): Promise<Partial<GraphState>> {
-  const model = createModel()
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -29,10 +28,10 @@ Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
 Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
 Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.`
 
-  const response = await model.invoke([
+  const { response, route } = await invokeModel(state.config, 'critic', [
     new SystemMessage(systemPrompt),
     new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
-  ])
+  ], 512)
 
   let critique: Critique = {
     confidence: 0.8,
@@ -60,5 +59,6 @@ Intent alignment guide: below 0.75 or drift_detected=true means the response wan
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,
     },
+    model_usage: [...state.model_usage, { stage: 'critic', ...route }],
   }
 }

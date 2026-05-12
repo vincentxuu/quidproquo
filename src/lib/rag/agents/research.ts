@@ -1,17 +1,18 @@
 import { searchBlogPosts } from '../tools/search-posts'
 import { searchAbstractIndex } from '../tools/search-abstract-index'
 import { searchDocs } from '../tools/search-docs'
+import { pageIndexSearch } from '../tools/pageindex'
 import type { GraphState, SearchResult } from '../state'
+import { collectSearchMetrics } from '../tools/hybrid-search'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createModel } from '../model'
+import { invokeModel, resolveModelRoute } from '../model'
 
-async function generateQueryAlternatives(query: string, maxQueries: number): Promise<string[]> {
-  const model = createModel(256)
-  const response = await model.invoke([
+async function generateQueryAlternatives(state: GraphState, query: string, maxQueries: number): Promise<string[]> {
+  const { response } = await invokeModel(state.config, 'research', [
     new SystemMessage(`Generate up to ${maxQueries} diverse search rewrites for a blog/documentation RAG system.
 Return JSON only: {"queries":["..."]}`),
     new HumanMessage(query),
-  ])
+  ], 256)
 
   try {
     const parsed = JSON.parse(String(response.content))
@@ -23,12 +24,11 @@ Return JSON only: {"queries":["..."]}`),
   }
 }
 
-async function generateHydeQuery(query: string): Promise<string | null> {
-  const model = createModel(256)
-  const response = await model.invoke([
+async function generateHydeQuery(state: GraphState, query: string): Promise<string | null> {
+  const { response } = await invokeModel(state.config, 'research', [
     new SystemMessage('Write a short hypothetical answer paragraph that would help retrieve the right supporting documents. Return plain text only.'),
     new HumanMessage(query),
-  ])
+  ], 256)
 
   const content = String(response.content ?? '').trim()
   return content.length > 0 ? content : null
@@ -58,12 +58,12 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
   const searchQueries = [baseQuery]
 
   if (state.config.hydeEnabled && state.plan.complexity !== 'simple') {
-    const hydeQuery = await generateHydeQuery(baseQuery).catch(() => null)
+    const hydeQuery = await generateHydeQuery(state, baseQuery).catch(() => null)
     if (hydeQuery) searchQueries.push(hydeQuery)
   }
 
   if (state.config.multiQueryEnabled && state.plan.complexity === 'complex') {
-    const alternates = await generateQueryAlternatives(baseQuery, 2).catch(() => [])
+    const alternates = await generateQueryAlternatives(state, baseQuery, 2).catch(() => [])
     searchQueries.push(...alternates)
   }
 
@@ -73,18 +73,50 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
       state.plan.complexity === 'simple'
         ? Promise.resolve([] as SearchResult[])
         : searchAbstractIndex({ query: searchQuery, limit: 4 }).catch(() => [] as SearchResult[]),
-      searchBlogPosts({ query: searchQuery, limit: 8 }).catch(() => [] as SearchResult[]),
-      searchDocs({ query: searchQuery, limit: 5 }).catch(() => [] as SearchResult[]),
+      searchBlogPosts({
+        query: searchQuery,
+        limit: 8,
+        shortCircuit: state.config.bm25ShortCircuitEnabled,
+      }).catch(() => [] as SearchResult[]),
+      searchDocs({
+        query: searchQuery,
+        limit: 5,
+        shortCircuit: state.config.bm25ShortCircuitEnabled,
+      }).catch(() => [] as SearchResult[]),
     ])
 
-    return [
-      ...(abstractResults as SearchResult[]),
-      ...(postResults as SearchResult[]),
-      ...(docResults as SearchResult[]),
-    ]
+    return {
+      results: [
+        ...(abstractResults as SearchResult[]),
+        ...(postResults as SearchResult[]),
+        ...(docResults as SearchResult[]),
+      ],
+      metrics: collectSearchMetrics([postResults as SearchResult[], docResults as SearchResult[]]),
+    }
   }))
 
-  const allResults = mergeUniqueResults(perQueryResults.flat())
+  const broadResults = mergeUniqueResults(perQueryResults.flatMap(item => item.results))
+  const pageIndexResults = state.config.pageIndexEnabled && state.plan.complexity === 'complex'
+    ? (await Promise.all(
+      broadResults
+        .filter(result => result.type === 'doc' || result.type === 'post')
+        .slice(0, 3)
+        .map(result => pageIndexSearch({
+          query: baseQuery,
+          seed: result,
+          maxSteps: state.config.pageIndexMaxSteps,
+          limit: 2,
+        }).catch(() => [] as SearchResult[]))
+    )).flat()
+    : []
 
-  return { search_results: allResults }
+  const allResults = mergeUniqueResults([...broadResults, ...pageIndexResults])
+
+  return {
+    search_results: allResults,
+    retrieval_metrics: perQueryResults.flatMap(item => item.metrics),
+    model_usage: state.config.hydeEnabled || state.config.multiQueryEnabled
+      ? [...state.model_usage, { stage: 'research', ...resolveModelRoute(state.config, 'research') }]
+      : state.model_usage,
+  }
 }

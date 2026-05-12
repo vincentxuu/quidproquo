@@ -555,14 +555,14 @@ Judge sampling：只對 30% 的查詢執行 Critic 評估，其餘直接放行
 
 建議：Phase 2+ 加入 sampling 策略——簡單查詢跳過 Critic，只對 complex 查詢執行。
 
-1. 缺少 BM25 短路邏輯
+1. BM25 短路邏輯已落地
 rag-cost-optimization.md 建議：
 
 精確關鍵字查詢（地名、專有名詞），如果 BM25 回傳 ≥ 5 個結果，跳過向量搜尋
 
-設計文件中 Hybrid Search 永遠兩路並行。對於像「LangGraph 是什麼？」這種精確名詞查詢，BM25 已經足夠。
+目前實作已不再永遠兩路並行。`search-posts.ts` / `search-docs.ts` 會先跑 D1 FTS5 BM25；若 BM25 命中數 ≥ 5，就跳過 Workers AI embedding 與 Vectorize，直接回傳 BM25 ranking。未達門檻時仍執行完整 hybrid search，並用 RRF 融合 BM25 + vector 結果。
 
-建議：加入 BM25 短路條件，減少不必要的 embedding + Vectorize 呼叫。
+觀測資料會寫入 retrieval metrics：短路次數、短路命中率、BM25/vector 延遲與估計節省延遲。`rag_flag_bm25_short_circuit` 可獨立關閉，供 shadow baseline 或回歸比較使用。
 
 1. Progressive Summarization 門檻未定義
 phil-schmid-agent-harness.md 警告：
@@ -636,7 +636,7 @@ RAGAS 評估 pipeline rag-evaluation-frameworks.md Phase 3: golden dataset
 8 Progressive summarization 改用動態門檻（70% context） 🟢 更靈活 改計算邏輯
 9 Critic 加入 drift 偵測（意圖對齊度） 🟢 長期品質 改 Critic prompt
 10 Judge sampling 30%（簡單查詢跳過 Critic） 🟢 省成本 Phase 2+
-11 BM25 短路（≥5 結果跳過向量搜尋） 🟢 省成本 條件判斷
+11 BM25 短路（≥5 結果跳過向量搜尋） ✅ 已落地 `rag_flag_bm25_short_circuit` + retrieval metrics
 12 站長端 episodic memory 🟢 提升體驗 Phase 3
 結論：設計文件的整體架構與文章高度一致（LangGraph 圖結構、Generator-Evaluator、Hybrid Search、Contextual Retrieval 等核心模式都正確實作），但在 具體參數（cache 門檻、chunk 大小）和 防禦性機制（min-keep、MMR、filter 放寬、drift 偵測）上有遺漏。前 3 項是改個數字就能修的，建議在 Phase 1 實作前先更新設計文件。
 
@@ -790,7 +790,7 @@ Rate limiting IP + KV + abuse detection ✅
 8 動態壓縮門檻（70% context） context-engineering-guide.md 🟢 P2
 9 Critic 加 drift 偵測 phil-schmid-agent-harness.md 🟢 P2
 10 Judge sampling 30% rag-cost-optimization.md 🟢 P2
-11 BM25 短路（≥5 結果跳過向量） rag-cost-optimization.md 🟢 P2
+11 BM25 短路（≥5 結果跳過向量） rag-cost-optimization.md ✅ 已落地
 12 站長端 episodic memory ai-agents-context-cognition-action.md 🟢 P3
 13 Deterministic validation node（Writer→Critic 間） internal-ai-coding-agents.md（Stripe Blueprint） 🔴 P1
 14 Critic 失敗 降級策略 internal-ai-coding-agents.md（Stripe 2-attempt cap） 🟡 P1

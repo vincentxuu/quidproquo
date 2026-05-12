@@ -1,13 +1,13 @@
 import type { GraphState, Plan } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
-import { createModel } from '../model'
+import { invokeModel } from '../model'
 
 const INTENT_PROMPT = `You are a query planner for a personal blog RAG system.
 Analyze the user's query and respond with JSON only, no markdown.
 
 Response format:
 {
-  "intent": "factual" | "summary" | "code" | "comparison" | "exploratory" | "off-topic",
+  "intent": "factual" | "summary" | "code" | "comparison" | "exploratory" | "recommendation" | "off-topic",
   "complexity": "simple" | "medium" | "complex",
   "language": "zh-TW" | "en",
   "needs_clarification": boolean,
@@ -17,16 +17,16 @@ Response format:
 
 Respond in the same language as the query.
 Mark "off-topic" if the question is unrelated to the blog content (e.g., weather, sports).
+Mark "recommendation" for article discovery requests such as "找文章", "推薦文章", "閱讀路線", "what should I read", or "learning path".
 Mark "needs_clarification" only if the query is genuinely ambiguous.`
 
 export async function plannerNode(state: GraphState): Promise<Partial<GraphState>> {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
-  const model = createModel()
-  const response = await model.invoke([
+  const { response, route } = await invokeModel(state.config, 'planner', [
     new HumanMessage(`${INTENT_PROMPT}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
-  ])
+  ], 512)
 
   let plan: Plan = {
     intent: 'factual',
@@ -40,8 +40,9 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
   try {
     const parsed = JSON.parse(String(response.content))
     language = parsed.language ?? 'zh-TW'
+    const intent = parsed.intent ?? 'factual'
     plan = {
-      intent: parsed.intent ?? 'factual',
+      intent: intent === 'recommendation' ? 'recommendation' : parsed.intent ?? 'factual',
       complexity: parsed.complexity ?? 'medium',
       needs_clarification: parsed.needs_clarification ?? false,
       subtasks: parsed.subtasks ?? [],
@@ -51,5 +52,9 @@ export async function plannerNode(state: GraphState): Promise<Partial<GraphState
     // fallback to defaults
   }
 
-  return { plan, language }
+  return {
+    plan,
+    language,
+    model_usage: [...state.model_usage, { stage: 'planner', ...route }],
+  }
 }

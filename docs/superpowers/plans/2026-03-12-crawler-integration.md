@@ -866,3 +866,84 @@ git commit -m "chore: complete Phase 3 crawler integration"
 ## 後續計畫
 
 - **Plan C** (`2026-03-12-rag-system.md`)：Phase 4 — embedding pipeline + `/api/rag/query` + 前端搜尋 UI
+
+## 2026-05-12 補強紀錄
+
+- `/api/crawl/sync` 回傳 `runId`、`durationMs`、per-target `jobId`、`statusCounts`、`skippedPages`、`modifiedSince` 與 `needsEmbedSync`，讓 cron log 和手動觸發能判斷穩定性。
+- `runCrawlSync()` 會以 `settings.crawl:last_success:<target>` 作為 checkpoint 傳入 Cloudflare Browser Rendering `/crawl` 的 `modifiedSince`；第一次或 `{"full":true}` 時執行 full crawl。
+- 每次更新頁面 chunks 時，先清掉同一 `source_url` 的舊 `doc_chunks` 與 `chunks_fts` rows，再插入新 chunks，避免頁面變短後留下髒 chunk 污染 RAG。
+- Production smoke test 清單已補在 `docs/crawler-production-smoke-test.md`。
+
+### Current API Contract
+
+`POST /api/crawl/sync`
+
+Headers:
+
+```http
+X-Crawl-Secret: <CRAWL_SECRET>
+Content-Type: application/json
+```
+
+Body is optional. Empty body means incremental sync using stored checkpoints.
+
+```json
+{
+  "full": false,
+  "modifiedSince": 1770000000
+}
+```
+
+- `full: true` bypasses checkpoints and runs a full crawl.
+- `modifiedSince` overrides stored checkpoints for all targets. It must be a Unix timestamp in seconds.
+- Invalid JSON or invalid `modifiedSince` returns HTTP 400.
+- Wrong `X-Crawl-Secret` returns HTTP 401.
+
+Successful responses use this shape:
+
+```json
+{
+  "ok": true,
+  "status": "ok",
+  "runId": "uuid",
+  "durationMs": 12345,
+  "results": [
+    {
+      "target": "Cloudflare D1",
+      "jobId": "browser-rendering-job-id",
+      "pages": 12,
+      "chunks": 80,
+      "skippedPages": 3,
+      "statusCounts": { "completed": 12 },
+      "modifiedSince": 1770000000,
+      "durationMs": 12345
+    }
+  ],
+  "totalChunks": 80,
+  "errors": 0,
+  "needsEmbedSync": true
+}
+```
+
+If one target fails but others complete, the endpoint returns HTTP 200 with `status: "partial_error"`, `ok: false`, and `error` on the failed target result. This keeps one bad upstream docs site from blocking the rest of the crawl.
+
+### Incremental Sync Details
+
+Checkpoint keys live in D1 `settings`:
+
+```text
+crawl:last_success:<target name>
+```
+
+Each successful target updates its checkpoint to the target start time. If the `settings` table is unavailable, the sync falls back to `MAX(doc_chunks.updated_at)` for that source name. If neither exists, the target runs as a full crawl.
+
+### Dirty Data Protection
+
+Crawler output is source-url scoped. For every crawled page:
+
+1. Delete existing `chunks_fts` rows for chunk ids belonging to the same `source_url`.
+2. Delete existing `doc_chunks` rows for that `source_url`.
+3. Insert fresh `doc_chunks`.
+4. Insert matching `chunks_fts` rows.
+
+This prevents stale chunks from remaining searchable when an upstream docs page is shortened, renamed, or restructured.

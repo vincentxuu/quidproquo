@@ -140,6 +140,22 @@ draft: false
 6. **為什麼會這樣** — 根本原因
 7. **學到的事** — 一句話總結
 
+### 互動詞彙表
+
+文章頁支援互動詞彙表。讀者 hover 或 keyboard focus 技術名詞時，頁面會顯示詞彙卡，包含定義、本文脈絡、延伸閱讀，並可切換「初學 / 進階」解釋深度。
+
+資料來源有兩層：
+
+1. 全站預設詞彙：`src/lib/glossary/terms.ts`
+2. 單篇文章 frontmatter：`glossary` 欄位，可補充文章專屬詞彙、別名、定義與延伸閱讀
+
+API 與統計：
+
+- `/api/glossary/explain`：優先使用 LLM provider 產生上下文化解釋；失敗時回退到本地定義。
+- `glossary_lookup_stats`：記錄詞彙、文章 slug、讀者選擇的解釋深度與查詢次數，用來找出內容規劃上的理解缺口。
+
+詳細使用方式與驗證步驟見 `docs/interactive-glossary.md`。
+
 ---
 
 ## Astro 部落格架構
@@ -439,7 +455,8 @@ Cloudflare Browser Rendering `/crawl` endpoint，一個 API call 即可爬取整
 - [x] 設定要爬取的技術文件站清單
 - [x] 實作 Markdown → chunking pipeline
 - [x] 設定 Cron Trigger 定期爬取
-- [ ] 增量更新機制（modifiedSince）
+- [x] 增量更新機制（modifiedSince）
+- [x] `/api/crawl/sync` 穩定性補強與 production smoke test 清單
 
 **交付物**：自動更新的外部技術文件知識庫
 

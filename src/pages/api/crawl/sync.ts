@@ -23,19 +23,70 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const results = await runCrawlSync();
+    const runId = crypto.randomUUID();
+    const startedAt = Date.now();
+    const options = await readSyncOptions(request);
+    console.log('[crawl] Sync run started', JSON.stringify({ runId, options }));
+
+    const results = await runCrawlSync(options);
     const totalChunks = results.reduce((sum, r) => sum + r.chunks, 0);
     const errors = results.filter(r => r.error);
+    const body = {
+      ok: errors.length === 0,
+      status: errors.length === 0 ? 'ok' : 'partial_error',
+      runId,
+      durationMs: Date.now() - startedAt,
+      results,
+      totalChunks,
+      errors: errors.length,
+      needsEmbedSync: totalChunks > 0,
+    };
 
-    return new Response(
-      JSON.stringify({ ok: true, results, totalChunks, errors: errors.length }),
-      { headers: { 'Content-Type': 'application/json' } }
-    );
+    console.log('[crawl] Sync run finished', JSON.stringify(body));
+    return json(body);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    if (err instanceof BadRequestError) {
+      return new Response(JSON.stringify({ ok: false, error: message }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     return new Response(JSON.stringify({ ok: false, error: message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 };
+
+async function readSyncOptions(request: Request): Promise<{ full?: boolean; modifiedSince?: number }> {
+  const text = await request.text();
+  if (!text.trim()) return {};
+
+  let body: { full?: boolean; modifiedSince?: number | string | null };
+  try {
+    body = JSON.parse(text) as { full?: boolean; modifiedSince?: number | string | null };
+  } catch {
+    throw new BadRequestError('Request body must be valid JSON');
+  }
+
+  const modifiedSince = body.modifiedSince === undefined || body.modifiedSince === null
+    ? undefined
+    : Number(body.modifiedSince);
+
+  if (modifiedSince !== undefined && (!Number.isInteger(modifiedSince) || modifiedSince <= 0)) {
+    throw new BadRequestError('modifiedSince must be a positive Unix timestamp in seconds');
+  }
+
+  return {
+    full: body.full === true,
+    modifiedSince,
+  };
+}
+
+function json(data: unknown): Response {
+  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
+}
+
+class BadRequestError extends Error {}

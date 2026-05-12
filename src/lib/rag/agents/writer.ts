@@ -1,12 +1,11 @@
 import type { GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createModel } from '../model'
+import { invokeModel } from '../model'
 
 export async function writerNode(state: GraphState): Promise<Partial<GraphState>> {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
-  const model = createModel(2048)
   const language = state.language === 'en' ? 'English' : '繁體中文'
 
   const contextParts = state.search_results.slice(0, 8).map((r, i) => {
@@ -21,6 +20,7 @@ Respond in ${language}.
 
 Describe the successful end state by producing an answer that:
 - directly resolves the user's question before adding extra detail
+- for recommendation intent, returns a structured list with title, category/link, and a concrete recommendation reason before any narrative
 - stays grounded in the provided sources only
 - cites factual claims inline as [short label](source_url) using the EXACT source_url from the provided sources (always full absolute URLs)
 - uses images only as ![description](image_url) when an image materially helps
@@ -33,10 +33,10 @@ ${needsDisclaimer ? 'Because prior checks found low confidence or formatting iss
 Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
 Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}`
 
-  const response = await model.invoke([
+  const { response, route } = await invokeModel(state.config, 'writer', [
     new SystemMessage(systemPrompt),
     new HumanMessage(`Conversation summary:\n${state.conversation_summary ?? 'none'}\n\nQuestion: ${query}\n\nSources:\n${contextParts.join('\n\n')}`),
-  ])
+  ], 2048)
 
   const draft = typeof response.content === 'string' ? response.content : ''
 
@@ -48,5 +48,6 @@ Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; 
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,
     },
+    model_usage: [...state.model_usage, { stage: 'writer', ...route }],
   }
 }

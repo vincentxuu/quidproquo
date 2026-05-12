@@ -80,8 +80,9 @@ export function applyMmrOrdering(results: SearchResult[], lambda: number): Searc
 }
 
 export async function normalizeResultsNode(state: GraphState): Promise<Partial<GraphState>> {
-  const query = typeof state.messages[state.messages.length - 1]?.content === 'string'
-    ? state.messages[state.messages.length - 1].content
+  const lastContent = state.messages[state.messages.length - 1]?.content
+  const query = typeof lastContent === 'string'
+    ? lastContent
     : ''
 
   let ordered = orderByRelevance(state.search_results)

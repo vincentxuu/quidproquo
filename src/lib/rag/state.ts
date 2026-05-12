@@ -1,4 +1,5 @@
 import type { BaseMessage } from '@langchain/core/messages'
+import type { SearchMetrics } from './tools/hybrid-search'
 
 export interface SearchResult {
   claim: string
@@ -15,10 +16,19 @@ export interface SearchResult {
 }
 
 export interface RagRuntimeConfig {
+  pipelineEngine: 'langgraph' | 'manual' | 'llamaindex'
+  defaultProvider: 'groq' | 'openai' | 'google'
+  defaultModel: string
+  stageOverrides: Record<string, { provider?: 'groq' | 'openai' | 'google'; model?: string }>
+  fallbackProvider: 'groq' | 'openai' | 'google' | null
+  fallbackModel: string | null
   hydeEnabled: boolean
   multiQueryEnabled: boolean
   rerankerEnabled: boolean
   criticEnabled: boolean
+  pageIndexEnabled: boolean
+  pageIndexMaxSteps: number
+  bm25ShortCircuitEnabled: boolean
   shadowModeEnabled: boolean
   semanticCacheThreshold: number
   rerankerMinKeep: number
@@ -27,7 +37,7 @@ export interface RagRuntimeConfig {
 }
 
 export interface Plan {
-  intent: 'factual' | 'summary' | 'code' | 'comparison' | 'exploratory' | 'off-topic'
+  intent: 'factual' | 'summary' | 'code' | 'comparison' | 'exploratory' | 'recommendation' | 'off-topic'
   complexity: 'simple' | 'medium' | 'complex'
   needs_clarification: boolean
   subtasks: string[]
@@ -57,6 +67,7 @@ export interface GraphState {
   plan: Plan
   needs_web_search: boolean
   search_results: SearchResult[]
+  retrieval_metrics: SearchMetrics[]
   coverage_gaps: string[]
   diagram: { type: 'mermaid' | 'image'; content: string } | undefined
   draft: string
@@ -67,6 +78,19 @@ export interface GraphState {
   final_response: string
   langfuse_trace_id: string
   token_usage: { input: number; output: number }
+  trace_steps: TraceStep[]
+  model_usage: { stage: string; provider: string; model: string; fallback: boolean }[]
+}
+
+export interface TraceStep {
+  stage: string
+  started_at: string
+  duration_ms: number
+  input_summary: string
+  output_summary: string
+  tokens?: { input: number; output: number }
+  retry?: boolean
+  metadata?: Record<string, unknown>
 }
 
 export function initialState(): GraphState {
@@ -76,10 +100,19 @@ export function initialState(): GraphState {
     language: 'zh-TW',
     conversation_summary: undefined,
     config: {
+      pipelineEngine: 'langgraph',
+      defaultProvider: 'groq',
+      defaultModel: 'llama-3.3-70b-versatile',
+      stageOverrides: {},
+      fallbackProvider: null,
+      fallbackModel: null,
       hydeEnabled: false,
       multiQueryEnabled: false,
       rerankerEnabled: false,
       criticEnabled: true,
+      pageIndexEnabled: false,
+      pageIndexMaxSteps: 5,
+      bm25ShortCircuitEnabled: true,
       shadowModeEnabled: false,
       semanticCacheThreshold: 0.95,
       rerankerMinKeep: 3,
@@ -89,6 +122,7 @@ export function initialState(): GraphState {
     plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], specialists: [] },
     needs_web_search: false,
     search_results: [],
+    retrieval_metrics: [],
     coverage_gaps: [],
     diagram: undefined,
     draft: '',
@@ -99,5 +133,7 @@ export function initialState(): GraphState {
     final_response: '',
     langfuse_trace_id: '',
     token_usage: { input: 0, output: 0 },
+    trace_steps: [],
+    model_usage: [],
   }
 }

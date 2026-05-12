@@ -16,7 +16,19 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     pinned: z.boolean().default(false),
     type: z.enum(['debug', 'deep-dive', 'guide', 'project']).optional(),
+    difficulty: z.enum(['入門', '進階', '深度']).optional(),
     readingTime: z.number().optional(),
+    glossary: z.array(z.object({
+      term: z.string(),
+      aliases: z.array(z.string()).optional(),
+      definition: z.string().optional(),
+      advanced: z.string().optional(),
+      context: z.string().optional(),
+      links: z.array(z.object({
+        label: z.string(),
+        url: z.string(),
+      })).optional(),
+    })).optional(),
     series: z.object({
       name: z.string(),
       order: z.number(),

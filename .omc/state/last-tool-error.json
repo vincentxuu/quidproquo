@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"grep -r \\\"langfuse\\\\|@langfuse\\\" src/ --include=\\\"*.ts\\\" -l; du -sh node_modules/langfuse 2>/dev/null; du -sh node_modules/langfuse-core 2>/dev/null\",\"description\":\"Check Langfuse size and...",
-  "error": "Exit code 1\nsrc/lib/langfuse.ts\nsrc/lib/rag/state.ts\nsrc/lib/rag/graph.ts\nsrc/pages/api/chat.ts\n  0B\tnode_modules/langfuse",
-  "timestamp": "2026-05-11T17:09:40.477Z",
-  "retry_count": 1
+  "tool_input_preview": "{\"command\":\"git pull --no-rebase && git push\",\"description\":\"Pull with merge then push\"}",
+  "error": "Exit code 1\nAuto-merging .gitignore\nAuto-merging package.json\nAuto-merging pnpm-lock.yaml\nAuto-merging src/lib/rag/agents/research.ts\nCONFLICT (content): Merge conflict in src/lib/rag/agents/research.ts\nAuto-merging src/lib/rag/graph.ts\nCONFLICT (content): Merge conflict in src/lib/rag/graph.ts\nAuto-merging src/lib/rag/state.ts\nCONFLICT (content): Merge conflict in src/lib/rag/state.ts\nAuto-merging src/pages/en/index.astro\nAuto-merging src/pages/index.astro\nAuto-merging src/pages/posts/[...slug]...",
+  "timestamp": "2026-05-11T17:24:13.215Z",
+  "retry_count": 2
 }
