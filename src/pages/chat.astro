@@ -11,13 +11,60 @@ const isAdmin = session ? await verifySession(session) : false
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ask AI — quidproquo</title>
   <style>
+    :root {
+      --brand-900: #1a2e1a;
+      --brand-700: #2d4a2d;
+      --brand-500: #4a9e6a;
+      --brand-300: #a7c4a0;
+      --brand-100: #e8f5e8;
+      --brand-50:  #f0f7f0;
+      --border:    #d1e8d1;
+      --text-primary:    #1a1a1a;
+      --text-secondary:  #4a7c59;
+      --text-muted:      #767676;
+      --bg-page:   #ffffff;
+      --bg-subtle: #f5f7f5;
+      --bg-card:   #ffffff;
+      --bg-code:   #1e1e2e;
+      --heading-accent: #e8657a;
+      --warning-border: #f59e0b;
+      --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+    [data-theme="dark"] {
+      --brand-900: #e8e8e8;
+      --brand-700: #c0c0c0;
+      --brand-500: #5cb87a;
+      --brand-300: #2d4a2d;
+      --brand-100: #1c2833;
+      --brand-50:  #151d26;
+      --border:    #2a3545;
+      --text-primary:    #d1d5db;
+      --text-secondary:  #5cb87a;
+      --text-muted:      #6b7280;
+      --bg-page:   #0f1419;
+      --bg-subtle: #151d26;
+      --bg-card:   #1a2332;
+      --bg-code:   #0d1117;
+      --heading-accent: #f472b6;
+      --warning-border: #f59e0b;
+      --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
+      --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, sans-serif; background: #fafafa; min-height: 100vh; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg-page); color: var(--text-primary); min-height: 100vh; }
     .page { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
     nav { margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; }
-    nav a { color: #555; text-decoration: none; }
-    nav a:hover { color: #111; }
+    nav a { color: var(--text-secondary); text-decoration: none; }
+    nav a:hover { color: var(--brand-900); }
   </style>
+  <script is:inline>
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </head>
 <body>
   <div class="page">

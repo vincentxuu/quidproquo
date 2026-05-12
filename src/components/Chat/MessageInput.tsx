@@ -17,7 +17,7 @@ export function MessageInput({ onSend, disabled }: Props) {
   }
 
   return (
-    <div style={{ display: 'flex', gap: '0.55rem', padding: '0.75rem', borderTop: '1px solid #e4e4e7', background: '#fff' }}>
+    <div style={{ display: 'flex', gap: '0.55rem', padding: '0.75rem', borderTop: '1px solid var(--border)', background: 'var(--bg-card)' }}>
       <textarea
         value={value}
         onChange={e => setValue(e.target.value)}
@@ -33,13 +33,13 @@ export function MessageInput({ onSend, disabled }: Props) {
           resize: 'vertical',
           padding: '0.65rem 0.75rem',
           borderRadius: 8,
-          border: '1px solid #d4d4d8',
+          border: '1px solid var(--border)',
           fontSize: '0.95rem',
           lineHeight: 1.5,
           fontFamily: 'inherit',
-          color: '#18181b',
-          background: disabled ? '#f4f4f5' : '#fff',
-          outlineColor: '#ec4899',
+          color: 'var(--text-primary)',
+          background: disabled ? 'var(--bg-subtle)' : 'var(--bg-page)',
+          outlineColor: 'var(--brand-500)',
         }}
       />
       <button
@@ -49,8 +49,8 @@ export function MessageInput({ onSend, disabled }: Props) {
           alignSelf: 'stretch',
           minWidth: '4.5rem',
           padding: '0.5rem 0.9rem',
-          background: '#18181b',
-          color: 'white',
+          background: 'var(--brand-900)',
+          color: 'var(--bg-page)',
           border: 'none',
           borderRadius: 8,
           cursor: disabled || !value.trim() ? 'not-allowed' : 'pointer',

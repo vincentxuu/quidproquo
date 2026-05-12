@@ -69,7 +69,7 @@ export const GET: APIRoute = async ({ cookies }) => {
   const db = (env as unknown as Env).DB
   const settings = await db.prepare(
     `SELECT key, value, updated_at FROM settings WHERE key IN (${MANAGED_KEYS.map(() => '?').join(', ')}) ORDER BY key`
-  ).bind(...MANAGED_KEYS).all<{ key: string; value: string; updated_at: string }>()
+  ).bind(...MANAGED_KEYS).all<{ key: string; value: string; updated_at: string }>().catch(() => ({ results: [] }))
   const rowsByKey = new Map((settings.results ?? []).map(row => [row.key, row]))
   const mergedSettings = MANAGED_KEYS.map(key => {
     const row = rowsByKey.get(key)
@@ -84,7 +84,7 @@ export const GET: APIRoute = async ({ cookies }) => {
      FROM rag_trace_steps
      ORDER BY started_at DESC
      LIMIT 300`
-  ).all<{ 
+  ).all<{
     trace_id: string
     thread_id: string
     stage: string
@@ -92,7 +92,7 @@ export const GET: APIRoute = async ({ cookies }) => {
     duration_ms: number
     output_summary: string | null
     metadata_json: string | null
-  }>()
+  }>().catch(() => ({ results: [] }))
   const dedupedRows = new Map<string, {
     trace_id: string
     thread_id: string
@@ -169,7 +169,7 @@ export const GET: APIRoute = async ({ cookies }) => {
      FROM shadow_runs
      ORDER BY created_at DESC
      LIMIT 20`
-  ).all()
+  ).all().catch(() => ({ results: [] }))
 
   return json({ settings: mergedSettings, traces: traceRows, shadow_runs: shadow.results })
 }
@@ -179,6 +179,14 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   const body = await request.json() as { settings?: Record<string, string> }
   const updates = body.settings ?? {}
   const db = (env as unknown as Env).DB
+
+  await db.prepare(`
+    CREATE TABLE IF NOT EXISTS settings (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL,
+      updated_at TEXT DEFAULT (datetime('now'))
+    )
+  `).run()
 
   for (const [key, value] of Object.entries(updates)) {
     if (!MANAGED_KEYS.includes(key)) continue
@@ -197,7 +205,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
       key,
       JSON.stringify({ value: before?.value ?? null }),
       JSON.stringify({ value })
-    ).run()
+    ).run().catch(() => undefined)
   }
 
   return json({ ok: true })

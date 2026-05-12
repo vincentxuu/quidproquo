@@ -73,7 +73,7 @@ export function MessageList({ messages }: { messages: Message[] }) {
 
 function MarkdownContent({ content, role }: { content: string; role: 'user' | 'assistant' }) {
   const normalized = useMemo(() => normalizeMarkdownInput(content), [content])
-  const linkColor = role === 'user' ? '#1d4ed8' : '#2563eb'
+  const linkColor = role === 'user' ? 'var(--brand-100)' : 'var(--brand-500)'
 
   return (
     <ReactMarkdown
@@ -227,7 +227,7 @@ const styles: Record<string, CSSProperties> = {
     display: 'flex',
     flexDirection: 'column' as const,
     gap: '1rem',
-    background: '#fafafa',
+    background: 'var(--bg-subtle)',
   },
   message: {
     maxWidth: '100%',
@@ -244,16 +244,16 @@ const styles: Record<string, CSSProperties> = {
   userBubble: {
     padding: '0.75rem 0.875rem',
     borderRadius: 8,
-    background: '#18181b',
-    color: '#fff',
-    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.08)',
+    background: 'var(--brand-900)',
+    color: 'var(--bg-page)',
+    boxShadow: 'var(--shadow-card-hover)',
   },
   assistantPanel: {
     padding: '0.95rem 1rem',
     borderRadius: 8,
-    background: '#fff',
-    border: '1px solid #e4e4e7',
-    boxShadow: '0 1px 2px rgba(24, 24, 27, 0.04)',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--border)',
+    boxShadow: 'var(--shadow-card-hover)',
   },
   messageHeader: {
     display: 'flex',
@@ -273,7 +273,7 @@ const styles: Record<string, CSSProperties> = {
   confidence: {
     flexShrink: 0,
     fontSize: '0.72rem',
-    color: '#71717a',
+    color: 'var(--text-muted)',
   },
   content: {
     minWidth: 0,
@@ -325,21 +325,21 @@ const styles: Record<string, CSSProperties> = {
   blockquote: {
     margin: '0 0 0.9rem',
     padding: '0.05rem 0 0.05rem 0.85rem',
-    borderLeft: '3px solid #d4d4d8',
-    color: '#3f3f46',
+    borderLeft: '3px solid var(--brand-300)',
+    color: 'var(--text-secondary)',
   },
   pre: {
     margin: '0 0 0.9rem',
     maxWidth: '100%',
     overflowX: 'auto' as const,
     borderRadius: 8,
-    background: '#18181b',
-    border: '1px solid #27272a',
+    background: 'var(--bg-code)',
+    border: '1px solid var(--border)',
   },
   codeBlock: {
     display: 'block',
     padding: '0.9rem',
-    color: '#fafafa',
+    color: '#f8fafc',
     fontSize: '0.82rem',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
     whiteSpace: 'pre' as const,
@@ -347,7 +347,8 @@ const styles: Record<string, CSSProperties> = {
   inlineCode: {
     padding: '0.12rem 0.3rem',
     borderRadius: 4,
-    background: 'rgba(113, 113, 122, 0.14)',
+    background: 'var(--brand-50)',
+    color: 'var(--brand-700)',
     fontSize: '0.9em',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   },
@@ -355,7 +356,7 @@ const styles: Record<string, CSSProperties> = {
     maxWidth: '100%',
     overflowX: 'auto',
     margin: '0 0 0.95rem',
-    border: '1px solid #e4e4e7',
+    border: '1px solid var(--border)',
     borderRadius: 8,
   },
   table: {
@@ -367,24 +368,24 @@ const styles: Record<string, CSSProperties> = {
   tableHeader: {
     padding: '0.55rem 0.65rem',
     textAlign: 'left',
-    background: '#f4f4f5',
-    borderBottom: '1px solid #e4e4e7',
+    background: 'var(--bg-subtle)',
+    borderBottom: '1px solid var(--border)',
     fontWeight: 700,
     whiteSpace: 'nowrap',
   },
   tableCell: {
     padding: '0.55rem 0.65rem',
-    borderTop: '1px solid #f4f4f5',
+    borderTop: '1px solid var(--border)',
     verticalAlign: 'top',
   },
   linkSection: {
     marginTop: '1rem',
     paddingTop: '0.75rem',
-    borderTop: '1px solid #e4e4e7',
+    borderTop: '1px solid var(--border)',
   },
   sectionLabel: {
     marginBottom: '0.55rem',
-    color: '#52525b',
+    color: 'var(--text-secondary)',
     fontSize: '0.78rem',
     lineHeight: 1.2,
     fontWeight: 700,
@@ -404,14 +405,14 @@ const styles: Record<string, CSSProperties> = {
     maxWidth: '100%',
     padding: '0.65rem',
     borderRadius: 8,
-    background: '#fafafa',
-    border: '1px solid #e4e4e7',
-    color: '#18181b',
+    background: 'var(--bg-subtle)',
+    border: '1px solid var(--border)',
+    color: 'var(--text-primary)',
     textDecoration: 'none',
     overflowWrap: 'anywhere' as const,
   },
   linkIndex: {
-    color: '#71717a',
+    color: 'var(--text-muted)',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
     fontSize: '0.76rem',
     lineHeight: 1.45,
@@ -421,14 +422,14 @@ const styles: Record<string, CSSProperties> = {
   },
   linkTitle: {
     display: 'block',
-    color: '#18181b',
+    color: 'var(--brand-900)',
     fontWeight: 700,
     lineHeight: 1.45,
   },
   linkDescription: {
     display: 'block',
     marginTop: '0.2rem',
-    color: '#52525b',
+    color: 'var(--text-secondary)',
     fontWeight: 400,
     lineHeight: 1.45,
   },

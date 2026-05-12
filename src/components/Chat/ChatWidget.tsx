@@ -136,19 +136,19 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         minHeight: 'min(560px, calc(100vh - 7rem))',
         maxWidth: 860,
         margin: '0 auto',
-        border: '1px solid #e4e4e7',
+        border: '1px solid var(--border)',
         borderRadius: 8,
         overflow: 'hidden',
-        background: 'white',
-        boxShadow: '0 18px 45px rgba(24, 24, 27, 0.08)',
+        background: 'var(--bg-card)',
+        boxShadow: 'var(--shadow-floating)',
       }
 
   return (
     <div style={containerStyle}>
       {!embedded && (
-        <div style={{ padding: '0.95rem 1rem', borderBottom: '1px solid #e4e4e7', background: '#fff' }}>
-          <div style={{ fontWeight: 800, fontSize: '1rem', color: '#18181b' }}>Ask AI</div>
-          <div style={{ marginTop: '0.2rem', fontSize: '0.84rem', lineHeight: 1.45, color: '#52525b' }}>
+        <div style={{ padding: '0.95rem 1rem', borderBottom: '1px solid var(--border)', background: 'var(--bg-card)' }}>
+          <div style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--brand-900)' }}>Ask AI</div>
+          <div style={{ marginTop: '0.2rem', fontSize: '0.84rem', lineHeight: 1.45, color: 'var(--text-secondary)' }}>
             搜尋這個部落格的文章脈絡、技術筆記與延伸閱讀。
           </div>
         </div>
@@ -185,15 +185,15 @@ const styles = {
     flexWrap: 'wrap' as const,
     gap: '0.5rem',
     padding: '0.75rem 1rem 0',
-    borderTop: '1px solid #e4e4e7',
-    background: '#fff',
+    borderTop: '1px solid var(--border)',
+    background: 'var(--bg-card)',
   },
   suggestionButton: {
     padding: '0.45rem 0.65rem',
     borderRadius: 8,
-    border: '1px solid #d4d4d8',
-    background: '#fafafa',
-    color: '#27272a',
+    border: '1px solid var(--border)',
+    background: 'var(--brand-50)',
+    color: 'var(--brand-700)',
     cursor: 'pointer',
     font: 'inherit',
     fontSize: '0.84rem',
