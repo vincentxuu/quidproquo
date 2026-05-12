@@ -4,6 +4,11 @@ import { MessageInput } from './MessageInput'
 import { QuotaIndicator } from './QuotaIndicator'
 
 const DAILY_LIMIT = 5
+const SUGGESTED_QUESTIONS = [
+  '你寫過哪些 AI agent 相關文章？',
+  '幫我找 RAG 成本優化的文章',
+  '這個部落格有哪些 Cloudflare 踩坑？',
+]
 
 export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [messages, setMessages] = useState<Message[]>([{
@@ -128,7 +133,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         display: 'flex',
         flexDirection: 'column' as const,
         height: 'min(82vh, 760px)',
-        minHeight: 560,
+        minHeight: 'min(560px, calc(100vh - 7rem))',
         maxWidth: 860,
         margin: '0 auto',
         border: '1px solid #e4e4e7',
@@ -150,6 +155,20 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       )}
       <MessageList messages={messages} />
       <div ref={bottomRef} />
+      {messages.length === 1 && !loading && (
+        <div style={styles.suggestions}>
+          {SUGGESTED_QUESTIONS.map((question) => (
+            <button
+              key={question}
+              type="button"
+              onClick={() => void sendMessage(question)}
+              style={styles.suggestionButton}
+            >
+              {question}
+            </button>
+          ))}
+        </div>
+      )}
       {remaining !== null && (
         <div style={{ padding: '0.5rem 1rem 0' }}>
           <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
@@ -158,4 +177,27 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       <MessageInput onSend={sendMessage} disabled={loading} />
     </div>
   )
+}
+
+const styles = {
+  suggestions: {
+    display: 'flex',
+    flexWrap: 'wrap' as const,
+    gap: '0.5rem',
+    padding: '0.75rem 1rem 0',
+    borderTop: '1px solid #e4e4e7',
+    background: '#fff',
+  },
+  suggestionButton: {
+    padding: '0.45rem 0.65rem',
+    borderRadius: 8,
+    border: '1px solid #d4d4d8',
+    background: '#fafafa',
+    color: '#27272a',
+    cursor: 'pointer',
+    font: 'inherit',
+    fontSize: '0.84rem',
+    lineHeight: 1.35,
+    textAlign: 'left' as const,
+  },
 }
