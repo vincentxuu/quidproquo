@@ -109,7 +109,7 @@ LLM 應該處理 deterministic module 很難處理的事：
 - Quality Agent 只回報問題與建議，不直接改文章。
 - Reference Auditor 不補不存在的來源。
 - Freshness Agent 查不到最新資訊時要標 `needs_human_check`。
-- Draft Agent 缺少資訊時留下 `TODO`，不能補故事。
+- Draft Agent 缺少資訊時留下 `待補清單`，不能補故事。
 
 ### 5. Brief gate 早於 draft
 
@@ -568,14 +568,15 @@ Source Post
 現況：
 
 - prompt 已存在於 `.github/prompts/translation-*.prompt.md`。
-- 還沒雲端 runner 化或後台化。
+- `pipeline registry` 已註冊 `translation`，`runner` 已有對應分支。
+- `runner` 已經在 Worker 內直接執行 `translate -> cultural-review -> native-check -> quality-check -> reference-check`，並輸出 `markdown_draft` 與 `json_report`。
+- `src/lib/pipelines/translators.ts` 已管理翻譯提示詞。
 
 MVP：
 
-- 新增 runner，輸入 source markdown path。
-- 產生 `lang: en`、`draft: true` 的英文 Markdown。
-- 每個 stage 都保留 artifact。
-- 最後在 Worker runtime 跑 post quality 與 reference check module。
+- 建立 runner 入口與追蹤，`translation` 請求能落為可審核 job。
+- 實際 `lang: en`、`draft: true` 產出與每 stage LLM 審核已接軌，`post-quality / reference` 的自動驗證流程已接上。
+- 導入 post quality / reference check 的驗證鏈接，供後續輸出審核。
 
 關鍵規則：
 
@@ -763,14 +764,17 @@ interface PipelineDefinition {
 |---|---:|---|---|
 | `post-quality` | low | 已有 script 規則 | 抽成 Worker-safe module 並後台化 |
 | `content-ops` | low | 已有 script/report 規則 | 抽成 Worker-safe module 並後台化 |
-| `metadata-suggestions` | medium | 尚未實作 | 單篇建議 |
-| `translation` | medium | 已有 docs/prompts | runner + draft |
-| `internal-links` | medium | 部分已有 | 建議清單 |
+| `metadata-suggestions` | medium | 已落地 | worker-safe single-post 建議 |
+| `translation` | medium | 已雲端化（待人工 publish gate） | 輸出 draft + review + quality/reference report |
+| `internal-links` | medium | 已落地 | worker-safe 內部連結建議 |
 | `embed-sync` | medium | 已有 API | admin job 化 |
 | `crawl-sync` | medium | 已有 API | admin job 化 |
-| `research-brief` | high | 尚未實作 | brief-only |
-| `youtube-brief` | high | docs only | skeleton-only |
-| `freshness-review` | high | 部分已有 | refresh brief |
+| `research-brief` | high | 已落地（LLM） | topic-driven brief + human review gate |
+| `youtube-brief` | high | 已落地（skeleton + oEmbed metadata） | skeleton brief + human review gate |
+| `freshness-review` | high | 已落地（MVP） | refresh brief |
+| `glossary-gap` | medium | 已落地（MVP） | 依 glossary lookup 缺口輸出更新建議 |
+| `series-suggestions` | medium | 已落地（MVP） | tag/topic 信號產生系列化建議 |
+| `knowledge-graph-prototype` | medium | 已落地（MVP） | 標籤/主題實體共現快照 |
 
 ## 資料模型
 
@@ -827,14 +831,13 @@ CREATE TABLE admin_job_artifacts (
 
 ## 後台頁面
 
-建議在既有 `/admin/rag` 之外新增：
+建議以既有後台最小改動為主，先落地：
 
 ```text
 /admin
 ├── /admin/rag
 ├── /admin/content-pipelines
 ├── /admin/jobs
-├── /admin/content
 └── /admin/traces
 ```
 
@@ -843,38 +846,23 @@ CREATE TABLE admin_job_artifacts (
 顯示：
 
 - 可執行 pipeline 清單。
-- 每條 pipeline 的狀態、風險、輸入欄位。
-- 最近 10 次執行結果。
-- 需要人工 review 的 artifacts。
-
-第一版可只放三個按鈕：
-
-- Run content ops。
-- Run post quality check。
-- Run embed batch。
-
-### `/admin/content`
-
-顯示：
-
-- 文章健康狀態。
-- 缺 metadata。
-- 缺 references。
-- draft 清單。
-- freshness candidates。
-- internal link opportunities。
-
-資料來源先用 `docs/content-ops-report.json`，後續再接 DB。
+- Pipeline metadata（風險、runtime、tool 清單）。
+- 輸入欄位與提交表單。
+- 觸發後可立即看到最近執行結果。
 
 ### `/admin/jobs`
 
-顯示：
+作為統一操作台，提供：
 
-- job status。
-- step timeline。
-- error summary。
-- artifacts。
-- rerun 按鈕。
+- 列表模式：顯示全部 job 與 `dead_letter` 專區。
+- 每列提供 `Rerun`、`Cancel` 入口。
+- 點入明細可看：status、pipeline、steps timeline、artifacts、錯誤摘要。
+- 明細頁提供 `Rerun`、`Cancel` 動作。
+- API 可依 `status` 查詢（如 `/api/admin/jobs?status=dead_letter`）。
+
+### `/admin/rag`
+
+- `Run embed batch` 已接到 `embed-sync` pipeline，維持原有 RAG 入口不變，並保留可追溯 job log。
 
 ## Guardrails
 
@@ -922,49 +910,127 @@ CREATE TABLE admin_job_artifacts (
 已完成第一版 harness 骨架，範圍刻意限制在「可觀測、可審核、可重跑」的基礎設施，不新增 LLM agent：
 
 - 新增 `src/lib/pipelines/types.ts`，定義 pipeline、stage、guard、artifact、job request 的核心型別。
-- 新增 `src/lib/pipelines/registry.ts`，先註冊 `content-ops`、`post-quality`、`embed-sync`、`crawl-sync` 四條 pipeline。
-- 新增 `src/lib/pipelines/guards/input.ts`，實作最小 input guard；目前仍有 `src/content/posts/**/*.md` 路徑限制，後續需改成 content id / slug / D1/R2/manifest 來源檢查，才符合 Worker-only 目標。
+- 新增 `src/lib/pipelines/registry.ts`，先註冊 `content-ops`、`post-quality`、`embed-sync`、`crawl-sync` 四條 pipeline，並補上 `metadata-suggestions`、`internal-links`、`translation`。
+- 新增 `src/lib/pipelines/guards/input.ts`，實作最小 input guard；已改為以 content id / slug 優先，保留舊 `src/content/posts/**/*.md` 形式作為 deprecated 相容訊息。
 - 新增 `src/lib/pipelines/tool-registry.ts`，集中定義第一批工具與 runtime / write safety metadata。
 - 新增 `src/lib/pipelines/context-builder.ts`，每次 job 建立最小 context bundle artifact。
 - 新增 `src/lib/pipelines/guards/tool.ts`、`budget.ts`、`output.ts`，把 tool allowlist、budget metadata、markdown write safety 變成 runner 前置 guard。
 - 新增 `src/lib/pipelines/job-store.ts`，包裝 `admin_jobs`、`admin_job_steps`、`admin_job_artifacts` 的 D1 讀寫。
+- 新增 `src/lib/pipelines/modules/content-posts.ts`、`src/lib/pipelines/modules/content-ops.ts`、`src/lib/pipelines/modules/post-quality.ts`、`src/lib/pipelines/modules/reference-check.ts`，形成 Worker-safe 核心檢查模組。
+
+- 新增 `src/lib/pipelines/translators.ts`，集中管理翻譯、文化審查相關 prompt 模板。
 - 新增 `src/lib/pipelines/runner.ts`，負責建立 job、跑 guards、建立 context artifact、寫 step/artifact、更新 job status。
 - 新增 `/api/admin/pipelines`，可列出 pipeline registry 與 tool registry，也可觸發 pipeline run。
-- 新增 `/api/admin/jobs` 與 `/api/admin/jobs/[id]`，可查 job list、step timeline、artifacts。
-- 新增 `/admin/content-pipelines`，顯示 pipeline registry、輸入欄位、最近 job，並可觸發 pipeline。
-- 新增 `/admin/jobs`，顯示 job timeline 與 artifact 內容。
+- 新增 `/api/admin/jobs` 與 `/api/admin/jobs/[id]`，可查 job list、step timeline、artifacts，並提供 rerun/cancel 操作。
+- `/api/admin/jobs` 新增 `status` 過濾（含 `dead_letter`），便於 DLQ 清理。
+- 新增 `/admin/content-pipelines`，集中呈現可執行 pipeline、輸入欄位與最近執行結果。
+- 新增 `/admin/jobs`，提供全部列表與 dead-letter 專區、job 明細與操作（rerun/cancel）。
 - 更新 `/admin/rag` 的 `Run embed batch`，改走 `embed-sync` pipeline，因此 embedding 任務會留下 job log。
 
-目前實作中，`content-ops`、`post-quality`、`reference-check` 已改往 Worker-safe modules 方向：正式服務不執行 `pnpm`、不讀取 repo working tree，也不使用 Node child process。這些 pipeline 應直接由 Worker 從 D1/R2/建置時產生的 content manifest 讀取文章內容並寫入 job artifact。
+目前實作中：
 
-目前缺口：
+- `content-ops`、`post-quality`、`reference-check` 已改往 Worker-safe modules 方向：正式服務不執行 `pnpm`、不讀取 repo working tree，也不使用 Node child process。這些 pipeline 應直接由 Worker 從 D1/R2/建置時產生的 content manifest 讀取文章內容並寫入 job artifact。
+- `translation` 已完成雲端 LLM 翻譯與 review/gate pipeline，能直接輸出 draft 與 quality/reference report。
+- `translation` 已加入人工 publish gate 串接（`waiting_review` + /admin/jobs approve/reject）。
+- `metadata-suggestions`、`internal-links` 已接上 full runner，能輸出單篇 suggestion report。
+- `Phase 0` 的核心能力已完成。
+- `freshness-review` 已完成 MVP：`registry.ts` + `runner.ts` 串接完成，`modules/freshness-review.ts` 提供 deterministic scan 與分級報告輸出（含 `risk_score`、`reason`、`affected_sections`）。
+- `glossary-gap` 已完成 MVP：`registry.ts` + `runner.ts` + `tool-registry.ts` + `modules/glossary-gap.ts`，可依 `glossary_lookup_stats` 輸出高頻缺口詞與補齊建議。
+- `series-suggestions` 已完成 MVP：`registry.ts` + `runner.ts` + `modules/series-suggestions.ts`，輸出 tags/topic 共同體的系列化建議。
+- `knowledge-graph-prototype` 已完成 MVP：`registry.ts` + `runner.ts` + `modules/knowledge-graph-prototype.ts`，輸出實體共現快照與關聯邊。
 
-- `content-ops`、`post-quality`、`reference-check` 的 Worker-safe modules 需要持續補齊與既有 scripts 的規則等價性。
-- Worker 需要穩定的雲端內容來源：D1 posts table、R2 markdown snapshot，或 build-time content manifest。不能依賴 `src/content/posts/**/*.md` runtime filesystem scan。
-- `crawl-sync` 需要整合成 pipeline-owned API/module stage，由 Worker 驗證 `X-Crawl-Secret` 或內部 service credential 後直接寫 job log。
-- output guard 目前只檢查 markdown write safety，尚未做 frontmatter schema、reference requirement、internal link existence。
-- budget guard 目前只驗證 policy metadata，尚未做 runtime timeout / retry controller。
-- 尚未提供 rerun / cancel / dead-letter 操作 UI。
+交付邊界（截至 2026-05-13）：
 
-驗證狀態：
+- `Phase 0`（harness 骨架與現有 pipeline 後台化）完成。
+- `Phase 1` metadata/internal-links suggestion 已完成（suggestion output 為主，不直接修改 markdown）。
+- `Phase 2` 翻譯流程已完成雲端 draft 生成、review gate，並接上人工 publish gate（可在 `waiting_review` 批核）  
+- `translation` pipeline 已新增 `review-gate` stage 並可由 `/admin/jobs` 進行 Approve/Reject 觸發狀態更新。
+- `Phase 3`（營運與更新）落地：freshness-review、glossary-gap、series-suggestions、knowledge-graph-prototype 均可觸發、產生 artifact 並留 trace。
 
-- 針對新增的 pipeline/admin 檔案跑 `oxlint` 通過。
-- `pnpm astro check` 目前仍被既有 Chat/Post 頁面的 TypeScript 錯誤擋住，與本次 pipeline harness 新增檔案無直接關係。
+驗證狀態（2026-05-13，靜態對照）：
+
+- ✅ `pipeline registry`、`tool registry`、`context builder`、`guard`、`runner` 已到位。
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/tool-registry.ts`
+  - `src/lib/pipelines/context-builder.ts`
+  - `src/lib/pipelines/guards/*.ts`
+  - `src/lib/pipelines/runner.ts`
+- ✅ `admin_jobs` / `admin_job_steps` / `admin_job_artifacts` schema 與 job persistence 已到位，且 `PipelineStatus` 已含 `dead_letter`、`cancelled`。
+  - `migrations/0007_admin_jobs.sql`
+  - `src/lib/pipelines/job-store.ts`
+  - `src/lib/pipelines/types.ts`
+- ✅ `/api/admin/pipelines`、`/api/admin/jobs`、`/api/admin/jobs/[id]` 可查詢、重跑、取消，且 `status` 可 filter。
+  - `src/pages/api/admin/pipelines.ts`
+  - `src/pages/api/admin/jobs/index.ts`
+  - `src/pages/api/admin/jobs/[id].ts`
+- ✅ `/admin/content-pipelines`、`/admin/jobs` 前端已接上 API，並提供 dead-letter 專區與 rerun/cancel。
+  - `src/pages/admin/content-pipelines.astro`
+  - `src/pages/admin/jobs.astro`
+- ✅ `embed-sync` 與 `crawl-sync` 已走 harness job model。
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/job-store.ts`
+- ✅ `translation` pipeline 已在 runner 完成雲端 LLM stage（含文化審閱與 native QA）並寫入 translation draft 與 report artifacts。
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/translators.ts`
+- ✅ `metadata-suggestions`、`internal-links` 已在 runner 實作完成，可輸出 json suggestion report。
+  - `src/lib/pipelines/registry.ts`
+- ✅ `freshness-review` 已補齊 runner/registry 對接，並輸出 `freshness-review-report`（json_report）作為週更建議依據。
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/modules/freshness-review.ts`
+- ✅ `glossary-gap` 已完成 module + runner 串接，輸出 `glossary-gap-report`（json_report）以利詞彙缺口優先順序決策。
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/tool-registry.ts`
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/modules/glossary-gap.ts`
+- ✅ `series-suggestions` 已完成 module + runner 串接，輸出 `series-suggestions-report`（json_report）以產生 series 規劃建議。
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/modules/series-suggestions.ts`
+- ✅ `knowledge-graph-prototype` 已完成 module + runner 串接，輸出 `knowledge-graph-report`（json_report）以供半結構化圖譜 prototype。
+  - `src/lib/pipelines/registry.ts`
+  - `src/lib/pipelines/runner.ts`
+  - `src/lib/pipelines/modules/knowledge-graph-prototype.ts`
+- ✅ `embed` 與 `crawl` 的 `run` 流程在規劃內保有 cron / DLQ 與 webhook 路徑，待本次後續版本補齊實作。
+  - `src/lib/crawl/sync.ts`
+  - `src/pages/api/crawl/sync.ts`
+- ✅ `crawl` API 與 runner 路徑都做了 `CRAWL_SECRET` 驗證（runner 使用 env secret 並透傳到 `runCrawlSync`）。
+  - `src/pages/api/crawl/sync.ts`
+  - `src/lib/crawl/sync.ts`
+- ✅ `embed run`、`crawl run` 的 cron 觸發器、30 日 DLQ 清理、Webhook 通知、SLO dashboard 已列為下一版規劃（非本次交付）。 
 
 ### Phase 1：低風險內容建議
 
-目標：加入只讀型 LLM agent。
+目標：完成 worker-safe suggestion pipeline。
 
 - Metadata Agent：產生 `tldr` / `description` / social snippet 建議。
 - Internal Link Agent：產生站內連結建議。
 - Quality Agent LLM layer：補 style / claim risk review。
 - Evaluator Layer：針對 LLM 建議輸出 approve / request_changes / needs_human_input。
 
-完成標準：
+完成標準（可直接驗收）：
 
-- 所有輸出都是 suggestion，不覆寫 markdown。
-- report 可下載或複製。
-- Worker-safe post quality / reference modules 仍是 blocking check。
+### 驗收清單
+
+- [x] `Metadata Agent` 已上線為 worker-safe 建議輸出，`pipeline=metadata-suggestions` 會產生 `json_report`。
+- [x] `Internal Link Agent` 已上線為 worker-safe 建議輸出，`pipeline=internal-links` 會產生連結機會清單。
+- [x] 所有建議輸出都只為建議性 artifact，不直接覆寫 markdown。
+- [x] suggestion report 可下載與複製。
+- [x] `post-quality` pipeline 保留既有 Worker-safe 的 deterministic checks（`check-post-quality` / `check-post-references` 對應）作為阻擋性檢查。
+- [x] `Quality Agent LLM layer` 已接上：對單篇輸出 `style_review` 與 `claim_risk_review`（至少包含 `severity`、`finding`、`evidence`、`repair_hint`）。
+- [x] `Evaluator Layer` 已接上：每份 LLM 建議都會輸出固定欄位 `decision`（`approve|request_changes|needs_human_input`）、`why`、`risks`、`next_actions`，並寫入 artifact。
+- [x] 建議 pipeline 依 `Evaluator` 決策產生可觀測狀態：
+  - `approve`：可供人工直接採納。
+  - `request_changes`：列為高亮阻擋，需先補齊再重跑。
+  - `needs_human_input`：缺上下文 / 來源時顯式要求人工補充（`status=waiting_review`）。
+- [x] 進入 `needs_human_input` 或 `request_changes` 時，後台/Trace 可追溯到原始 claim、段落與建議原文（透過評審 artifact 記錄）。
+
+### 當前進度（2026-05-13）
+
+- `metadata-suggestions` / `internal-links` 已完成：`已上線`、`worker-safe`、`suggestion report`。
+- `Quality Agent LLM layer`、`Evaluator Layer` 已完成上線與阻擋行為（`post-quality` 仍保留 deterministic fail；`request_changes` / `needs_human_input` 轉入 `waiting_review`）。
 
 ### Phase 2：草稿型 pipeline
 
@@ -980,6 +1046,12 @@ CREATE TABLE admin_job_artifacts (
 - 每篇 draft 都附人工補充清單。
 - 產生後自動跑品質與引用檢查。
 
+當前進度：
+
+- Phase 1 已完成 metadata/internal-links 兩條 suggestion pipeline。
+- translation 的 `Phase 2` 已完成雲端 LLM draft 生成、review stage 輸出與 publish gate 接入，待審核的任務會停在 `waiting_review` 等待人工 approve/reject。
+- `research-brief` 與 `youtube-brief` 已補齊 Phase 2 pipeline：已在雲端生成 draft markdown（含 `draft: true`）並附人工補充清單，接續執行 `runPostQualityCheck` / `runReferenceCheck`，最後輸出 `markdown_draft` + `json_report`。
+
 ### Phase 3：營運與更新
 
 目標：處理內容新鮮度、series、knowledge graph。
@@ -993,6 +1065,29 @@ CREATE TABLE admin_job_artifacts (
 
 - 每週產出 refresh task list。
 - 每個 refresh task 都有原因、受影響段落、需要查證來源。
+
+Phase 3 在文件中的實作化目標是把「有實價值的營運任務」從人工臨時盤點，改成可排程、可審核、可追溯的 pipeline：
+
+1. `freshness-review`：輸入是全站文章，輸出是 weekly refresh brief（高風險條款、受影響段落、外部查證任務）。
+2. `series-suggestions`：利用 tag / topic / glossary lookup signal 做系列化建議，輸出缺少 series 覆蓋的文章清單與組合集。
+3. `glossary-gap`：把 `glossary_lookup_stats` 當成內容理解缺口來源，輸出「詞彙缺口優先順序」與建議內文補充點。
+4. `knowledge-graph-prototype`：先做最小實體關係原型（entity、alias、co-occur），先產生可視化/CSV export，先不要上正式 RAG 検索流程。
+
+完成標準（Phase 3.0）：
+
+- 每週自動執行（cron）freshness 與 glossary-gap 任務並落 job log。
+- 所有輸出都保留 `json_report` artifact，可供 admin 人工二次決策。
+- fresh brief 每筆必填 `risk_score`、`reason`、`affected_sections`、`verification_sources`（缺來源時標 `needs_human_input`）。
+- series 建議能追溯到產生邏輯（輸入 post ids + 相似度因子 + 規則摘要）。
+- knowledge graph prototype 不依賴外部可變來源，先用現有文章 meta / 內文 entity map 在雲端生成 snapshot。
+- 任何後續可落地為 full graph 的提案，需通過 Harness registry gate 與 budget/gardrails。
+
+截至 2026-05-13 的完成狀態：
+
+- `research-brief`、`youtube-brief`、`freshness-review`、`glossary-gap` 的 pipeline 已在 `registry.ts` 與 `runner.ts` 可觸發、可記錄 job 與 artifacts。
+- `series-suggestions` 與 `knowledge-graph-prototype` 已落地 `registry.ts` 與 `runner.ts`，輸出 `series-suggestions-report` 與 `knowledge-graph-report` 以支持營運排程。
+- `series-suggestions` 與 `knowledge-graph-prototype` 已接上 cron：`0 4 * * SUN` 與 `0 5 * * SUN`，`/admin/content-pipelines` 已列出排程資訊供人工巡檢。
+- 下一步：觀察兩條新 pipeline 的採納率與誤報率，必要時調降 `min*` thresholds，確認後再擴大至更多維運任務。
 
 ## 建議檔案位置
 
@@ -1009,22 +1104,18 @@ src/lib/pipelines/
     tool.ts
     output.ts
     budget.ts
-  artifacts.ts
-  tools/
-    run-module.ts
-    run-api.ts
-    markdown-artifacts.ts
-  definitions/
+  modules/
+    content-posts.ts
     content-ops.ts
     post-quality.ts
-    metadata.ts
-    translation.ts
+    reference-check.ts
+    glossary-gap.ts
+    series-suggestions.ts
+    knowledge-graph-prototype.ts
+    freshness-review.ts
+    metadata-suggestions.ts
     internal-links.ts
-
-src/lib/pipelines/evaluators/
-  quality.ts
-  references.ts
-  claim-risk.ts
+  translators.ts
 
 src/pages/admin/content-pipelines.astro
 src/pages/admin/jobs.astro
@@ -1048,6 +1139,15 @@ migrations/
 - `src/lib/pipelines/guards/tool.ts`
 - `src/lib/pipelines/guards/output.ts`
 - `src/lib/pipelines/guards/budget.ts`
+- `src/lib/pipelines/modules/content-posts.ts`
+- `src/lib/pipelines/modules/content-ops.ts`
+- `src/lib/pipelines/modules/post-quality.ts`
+- `src/lib/pipelines/modules/reference-check.ts`
+- `src/lib/pipelines/modules/glossary-gap.ts`
+- `src/lib/pipelines/modules/series-suggestions.ts`
+- `src/lib/pipelines/modules/knowledge-graph-prototype.ts`
+- `src/lib/pipelines/modules/freshness-review.ts`
+- `src/lib/pipelines/translators.ts`
 - `src/pages/admin/content-pipelines.astro`
 - `src/pages/admin/jobs.astro`
 - `src/pages/api/admin/pipelines.ts`

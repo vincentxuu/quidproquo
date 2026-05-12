@@ -1,6 +1,20 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { SearchMetrics } from './tools/hybrid-search'
 
+export interface NativeTraceEvent {
+  stage: string
+  at: string
+  duration_ms?: number
+  metadata?: Record<string, unknown>
+}
+
+export interface NativeTrace {
+  engine: string
+  version: string
+  events: NativeTraceEvent[]
+  metadata?: Record<string, unknown>
+}
+
 export interface SearchResult {
   claim: string
   evidence_excerpt: string
@@ -80,6 +94,7 @@ export interface GraphState {
   token_usage: { input: number; output: number }
   trace_steps: TraceStep[]
   model_usage: { stage: string; provider: string; model: string; fallback: boolean }[]
+  native_trace?: NativeTrace
 }
 
 export interface TraceStep {
@@ -141,5 +156,6 @@ export function initialState(): GraphState {
     token_usage: { input: 0, output: 0 },
     trace_steps: [],
     model_usage: [],
+    native_trace: undefined,
   }
 }

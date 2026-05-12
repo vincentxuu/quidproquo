@@ -9,9 +9,16 @@ export interface PipelineJobRow {
   input_json: string
   output_summary: string | null
   error_summary: string | null
+  failure_reason: string | null
+  retry_count: number
   created_at: string
   started_at: string | null
   finished_at: string | null
+  token_input: number | null
+  token_output: number | null
+  provider: string | null
+  model: string | null
+  dead_letter_at: string | null
 }
 
 export interface PipelineStepRow {
@@ -137,20 +144,28 @@ export async function createArtifact(
   return id
 }
 
-export async function listJobs(db: D1Database, limit = 20): Promise<PipelineJobRow[]> {
-  const result = await db.prepare(
-    `SELECT id, pipeline_id, status, risk, requested_by, input_json, output_summary, error_summary,
-            created_at, started_at, finished_at
+export async function listJobs(
+  db: D1Database,
+  limit = 20,
+  status?: PipelineJobRow['status'],
+): Promise<PipelineJobRow[]> {
+  const normalizedLimit = Math.min(Math.max(limit, 1), 100)
+  const clause = status ? ' WHERE status = ?' : ''
+  const query = `SELECT id, pipeline_id, status, risk, requested_by, input_json, output_summary, error_summary,
+            failure_reason, retry_count, token_input, token_output, provider, model, dead_letter_at, created_at, started_at, finished_at
      FROM admin_jobs
+     ${clause}
      ORDER BY created_at DESC
-     LIMIT ?`,
-  ).bind(Math.min(Math.max(limit, 1), 100)).all<PipelineJobRow>()
+     LIMIT ?`
+
+  const result = await db.prepare(query).bind(...(status ? [status, normalizedLimit] : [normalizedLimit])).all<PipelineJobRow>()
   return result.results
 }
 
 export async function getJob(db: D1Database, id: string): Promise<PipelineJobRow | null> {
   return await db.prepare(
     `SELECT id, pipeline_id, status, risk, requested_by, input_json, output_summary, error_summary,
+            failure_reason, retry_count, token_input, token_output, provider, model, dead_letter_at,
             created_at, started_at, finished_at
      FROM admin_jobs
      WHERE id = ?`,
@@ -176,4 +191,27 @@ export async function listJobArtifacts(db: D1Database, jobId: string): Promise<P
      ORDER BY created_at ASC`,
   ).bind(jobId).all<PipelineArtifactRow>()
   return result.results
+}
+
+export async function incrementRetryCount(db: D1Database, id: string): Promise<number> {
+  await db.prepare(
+    `UPDATE admin_jobs
+     SET retry_count = COALESCE(retry_count, 0) + 1
+     WHERE id = ?`,
+  ).bind(id).run()
+  const row = await db.prepare(`SELECT COALESCE(retry_count, 0) AS count FROM admin_jobs WHERE id = ?`).bind(id).first<{ count: number }>()
+  return row?.count ?? 0
+}
+
+export async function markDeadLetter(
+  db: D1Database,
+  id: string,
+  summary: { error?: string; failureReason?: string },
+): Promise<void> {
+  await updateJobStatus(db, id, 'dead_letter', {
+    output: summary.error,
+    error: summary.error,
+    failureReason: summary.failureReason ?? 'retry_exhausted',
+  })
+  await db.prepare(`UPDATE admin_jobs SET dead_letter_at = datetime('now') WHERE id = ?`).bind(id).run()
 }

@@ -23,16 +23,16 @@ if (!isLoggedIn) {
 
 // Navigation items
 const navItems = [
-  { href: '/admin', label: 'Dashboard' },
-  { href: '/admin/ops', label: 'Ops' },
+  { href: '/admin', label: '總覽' },
+  { href: '/admin/ops', label: '維運' },
   { href: '/admin/rag', label: 'RAG' },
-  { href: '/admin/content-pipelines', label: 'Pipelines' },
-  { href: '/admin/jobs', label: 'Jobs' },
-  { href: '/admin/content', label: 'Content' },
-  { href: '/admin/stats', label: 'Stats' },
-  { href: '/admin/providers', label: 'Providers' },
-  { href: '/admin/traces', label: 'Traces' },
-  { href: '/admin/settings', label: 'Settings' },
+  { href: '/admin/content-pipelines', label: '流程' },
+  { href: '/admin/jobs', label: '任務' },
+  { href: '/admin/content', label: '內容' },
+  { href: '/admin/stats', label: '統計' },
+  { href: '/admin/providers', label: '模型供應商' },
+  { href: '/admin/traces', label: '追蹤紀錄' },
+  { href: '/admin/settings', label: '設定' },
 ];
 ---
 
@@ -61,10 +61,10 @@ const navItems = [
       </nav>
       <div class="sidebar-footer">
         <a href="/" class="nav-item">
-          <span class="nav-label">Back to Site</span>
+          <span class="nav-label">回到網站</span>
         </a>
         <form method="POST" action="/api/auth/logout">
-          <button type="submit" class="logout-btn">Logout</button>
+          <button type="submit" class="logout-btn">登出</button>
         </form>
       </div>
     </aside>

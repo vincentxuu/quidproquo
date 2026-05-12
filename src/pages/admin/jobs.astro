@@ -5,26 +5,35 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
 <AdminLayout title="Jobs">
   <section class="admin-panel">
+    <h2>Dead Letter Queue</h2>
+    <div id="dead-letter-list">Loading...</div>
+  </section>
+
+  <section class="admin-panel">
     <h2>Job Timeline</h2>
     <div id="job-detail">Loading...</div>
   </section>
 
-  <section class="admin-panel">
-    <h2>Artifacts</h2>
-    <div id="artifact-list">Loading...</div>
-  </section>
+<section class="admin-panel">
+  <h2>Artifacts</h2>
+  <div id="artifact-list">Loading...</div>
+</section>
 </AdminLayout>
 
 <script is:inline>
   const detail = document.getElementById('job-detail');
   const artifactList = document.getElementById('artifact-list');
+  const deadLetterList = document.getElementById('dead-letter-list');
   const id = new URL(location.href).searchParams.get('id');
+  const actions = document.createElement('div');
 
   async function load() {
     if (!id) {
       await loadList();
       return;
     }
+
+    deadLetterList && (deadLetterList.textContent = '');
 
     const res = await fetch(`/api/admin/jobs/${encodeURIComponent(id)}`);
     if (!res.ok) {
@@ -34,31 +43,79 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     }
     const data = await res.json();
     renderDetail(data.job, data.steps ?? []);
+    renderActions(data.job?.status);
     renderArtifacts(data.artifacts ?? []);
   }
 
   async function loadList() {
-    const res = await fetch('/api/admin/jobs?limit=50');
-    if (!res.ok) {
+    const [jobsRes, deadRes] = await Promise.all([
+      fetch('/api/admin/jobs?limit=50'),
+      fetch('/api/admin/jobs?limit=50&status=dead_letter'),
+    ])
+
+    if (!jobsRes.ok) {
       detail.textContent = 'Unable to load jobs.';
-      artifactList.textContent = '';
       return;
     }
-    const data = await res.json();
-    detail.replaceChildren();
-    for (const job of data.jobs ?? []) {
-      const row = document.createElement('a');
+    const jobsData = await jobsRes.json();
+    const deadData = deadRes.ok ? await deadRes.json() : { jobs: [] };
+
+    renderJobsList(detail, jobsData.jobs ?? []);
+    renderJobsList(deadLetterList, deadData.jobs ?? []);
+    artifactList.textContent = 'Select a job to inspect artifacts.';
+  }
+
+  function renderJobsList(container, jobs) {
+    container.replaceChildren();
+    if (!jobs.length) {
+      container.textContent = 'No jobs.';
+      return;
+    }
+
+    for (const job of jobs) {
+      const row = document.createElement('article');
       row.className = 'job-row';
-      row.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      const canCancel = job.status === 'queued' || job.status === 'running' || job.status === 'waiting_review';
+      const canApprove = job.status === 'waiting_review';
       row.innerHTML = `
         <span class="job-status status-${job.status}">${job.status}</span>
         <strong>${job.pipeline_id}</strong>
         <code>${job.id}</code>
         <time>${formatTime(job.created_at)}</time>
+        ${canApprove ? `<button type="button" class="mini-btn approve-btn" data-action="approve" data-job-id="${job.id}">Approve</button>` : ''}
+        ${canApprove ? `<button type="button" class="mini-btn reject-btn" data-action="reject" data-job-id="${job.id}">Reject</button>` : ''}
+        <button type="button" class="mini-btn rerun-btn" data-action="rerun" data-job-id="${job.id}">Rerun</button>
+        <button type="button" class="mini-btn cancel-btn" data-action="cancel" data-job-id="${job.id}" ${canCancel ? '' : 'disabled'}>
+          Cancel
+        </button>
       `;
-      detail.append(row);
+      row.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLButtonElement) return;
+        location.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      });
+      container.append(row);
     }
-    artifactList.textContent = 'Select a job to inspect artifacts.';
+
+    container.querySelectorAll('.mini-btn').forEach((button) => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const target = event.currentTarget;
+        if (!(target instanceof HTMLButtonElement)) return;
+        const action = target.dataset.action;
+        if (!action) return;
+        if (action === 'reject') {
+          const note = window.prompt('請輸入 reject 原因（必填）');
+          if (!note?.trim()) {
+            window.alert('請輸入 reject 原因後再送出。');
+            return;
+          }
+          await actOnJob(target.dataset.jobId, action, note.trim());
+          return;
+        }
+        await actOnJob(target.dataset.jobId, action);
+      });
+    });
   }
 
   function renderDetail(job, steps) {
@@ -85,6 +142,66 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       `;
       detail.append(row);
     }
+  }
+
+  function renderActions(status) {
+    const canCancel = status === 'queued' || status === 'running' || status === 'waiting_review';
+    const canApprove = status === 'waiting_review';
+    actions.className = 'job-actions';
+    actions.innerHTML = `
+      <button type="button" id="rerun-btn" class="action-btn">Rerun</button>
+      ${canApprove ? '<button type="button" id="approve-btn" class="action-btn approve">Approve</button>' : ''}
+      ${canApprove ? '<button type="button" id="reject-btn" class="action-btn reject">Reject</button>' : ''}
+      <button type="button" id="cancel-btn" class="action-btn" ${canCancel ? '' : 'disabled'}>
+        Cancel
+      </button>
+    `;
+
+    const rerunBtn = actions.querySelector('#rerun-btn');
+    const approveBtn = actions.querySelector('#approve-btn');
+    const rejectBtn = actions.querySelector('#reject-btn');
+    const cancelBtn = actions.querySelector('#cancel-btn');
+    rerunBtn.addEventListener('click', async () => {
+      if (!id) return;
+      await actOnJob(id, 'rerun');
+    });
+    if (approveBtn) {
+      approveBtn.addEventListener('click', async () => {
+        if (!id) return;
+        await actOnJob(id, 'approve');
+      });
+    }
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', async () => {
+        if (!id) return;
+        const note = window.prompt('請輸入 reject 原因（必填）');
+        if (!note?.trim()) {
+          window.alert('請輸入 reject 原因後再送出。');
+          return;
+        }
+        await actOnJob(id, 'reject', note.trim());
+      });
+    }
+    cancelBtn.addEventListener('click', async () => {
+      if (!id) return;
+      await actOnJob(id, 'cancel');
+    });
+
+    detail.prepend(actions);
+  }
+
+  async function actOnJob(jobId, action, reviewNote) {
+    const res = await fetch(`/api/admin/jobs/${encodeURIComponent(jobId)}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(reviewNote ? { action, reviewNote } : { action }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      window.alert(data.error || 'Job action failed');
+      return;
+    }
+    await load();
   }
 
   function renderArtifacts(artifacts) {
@@ -168,6 +285,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     color: #fca5a5;
   }
 
+  .status-dead_letter {
+    color: #fb923c;
+  }
+
   code,
   .step-row span {
     color: var(--admin-text-muted, #888);
@@ -194,5 +315,52 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     white-space: pre-wrap;
     overflow-x: auto;
     color: var(--admin-text, #e0e0e0);
+  }
+
+  .job-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    justify-content: flex-end;
+  }
+
+  .action-btn {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text, #e0e0e0);
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .action-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .action-btn.approve {
+    border-color: rgba(134, 239, 172, 0.6);
+    color: #86efac;
+  }
+
+  .action-btn.reject {
+    border-color: rgba(252, 165, 165, 0.6);
+    color: #fca5a5;
+  }
+
+  .mini-btn {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text-muted, #888);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+  }
+
+  .mini-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
   }
 </style>

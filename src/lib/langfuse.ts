@@ -4,6 +4,16 @@ interface LangfuseEnv {
   LANGFUSE_PUBLIC_KEY?: string
   LANGFUSE_SECRET_KEY?: string
   LANGFUSE_HOST?: string
+  LANGFUSE_BASE_URL?: string
+}
+
+const DEFAULT_HOST = 'https://cloud.langfuse.com'
+const REQUEST_TIMEOUT_MS = 4000
+const MAX_RETRIES = 3
+
+function normalizeHost(raw: string): string {
+  if (!raw) return DEFAULT_HOST
+  return raw.endsWith('/') ? raw.slice(0, -1) : raw
 }
 
 function getConfig() {
@@ -11,22 +21,80 @@ function getConfig() {
   return {
     publicKey: e.LANGFUSE_PUBLIC_KEY ?? '',
     secretKey: e.LANGFUSE_SECRET_KEY ?? '',
-    host: e.LANGFUSE_HOST ?? 'https://cloud.langfuse.com',
+    host: normalizeHost(e.LANGFUSE_HOST ?? e.LANGFUSE_BASE_URL ?? DEFAULT_HOST),
   }
+}
+
+export function getLangfuseHost(): string {
+  return getConfig().host
+}
+
+export function buildLangfuseTraceUrl(traceId: string): string {
+  if (!traceId.trim()) return ''
+  const base = getLangfuseHost().replace(/\/$/, '')
+  return `${base}/traces/${encodeURIComponent(traceId)}`
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+function shouldRetry(status: number): boolean {
+  return status >= 500 || status === 408 || status === 429
 }
 
 async function post(path: string, body: unknown): Promise<void> {
   const { publicKey, secretKey, host } = getConfig()
   if (!publicKey || !secretKey) return
 
-  await fetch(`${host}${path}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Basic ${btoa(`${publicKey}:${secretKey}`)}`,
-    },
-    body: JSON.stringify(body),
-  }).catch(() => {})
+  const url = `${host}${path}`
+  const auth = `Basic ${btoa(`${publicKey}:${secretKey}`)}`
+  let lastError = 'unknown'
+
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt += 1) {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => {
+      controller.abort('langfuse request timeout')
+    }, REQUEST_TIMEOUT_MS)
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: auth,
+        },
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      })
+      clearTimeout(timeout)
+
+      if (response.ok) return
+
+      const text = await response.text().catch(() => '')
+      lastError = `status ${response.status}: ${text || 'request failed'}`
+
+      if (!shouldRetry(response.status)) {
+        console.error(`[langfuse] ${path} non-retriable`, response.status)
+        return
+      }
+    } catch (err) {
+      clearTimeout(timeout)
+      lastError = err instanceof Error ? err.message : 'network error'
+      if (attempt + 1 >= MAX_RETRIES) {
+        console.error('[langfuse] request failed after retries', lastError)
+        return
+      }
+    }
+
+    if (attempt + 1 < MAX_RETRIES) {
+      await sleep(200 * (attempt + 1))
+    }
+  }
+
+  console.error('[langfuse] request failed', lastError)
 }
 
 export interface TraceOptions {

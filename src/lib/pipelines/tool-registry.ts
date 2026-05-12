@@ -38,6 +38,13 @@ export const toolDefinitions: ToolDefinition[] = [
     description: 'Run Worker-safe post quality checks for one post or the full corpus.',
   },
   {
+    id: 'read_glossary_stats',
+    title: 'Read glossary lookup stats',
+    kind: 'cloud_read',
+    runtime: 'worker',
+    description: 'Read glossary_lookup_stats for term frequency and context signals.',
+  },
+  {
     id: 'run_reference_check',
     title: 'Run reference check',
     kind: 'module',

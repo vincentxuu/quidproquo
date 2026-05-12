@@ -3,34 +3,62 @@ export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
-<AdminLayout title="RAG">
+<AdminLayout title="RAG 管理">
   <p class="page-desc">管理 RAG 策略開關、engine/provider 設定、shadow run 與最近 trace timeline。</p>
 
   <section class="admin-panel">
-    <h2>Settings</h2>
+    <h2>RAG 設定</h2>
     <form id="settings-form"></form>
-    <button id="save-settings" type="button">Save settings</button>
+    <button id="save-settings" type="button">儲存設定</button>
   </section>
 
   <section class="admin-panel">
-    <h2>Recent Trace Timeline</h2>
-    <div id="trace-list">Loading...</div>
+    <h2>最近追蹤紀錄</h2>
+    <div id="trace-list">載入中...</div>
   </section>
 
   <section class="admin-panel">
-    <h2>Operations</h2>
+    <h2>常用操作</h2>
     <div class="ops-grid">
-      <button id="run-embed" type="button">Run embed batch</button>
-      <button id="run-smoke" type="button">Run search smoke test</button>
+      <button id="run-embed" type="button">執行 embedding 批次</button>
+      <button id="run-smoke" type="button">執行搜尋 smoke test</button>
       <input id="crawl-secret" type="password" placeholder="CRAWL_SECRET for crawl sync" />
-      <button id="run-crawl" type="button">Run crawl sync</button>
+      <button id="run-crawl" type="button">執行 crawl sync</button>
     </div>
-    <pre id="ops-output">No operation run yet.</pre>
+  </section>
+
+  <section class="admin-panel">
+    <h2>Engine Smoke / Eval</h2>
+    <div class="ops-grid">
+      <label>
+        Engine
+        <select id="engine-select" class="select">
+          <option value="langgraph">langgraph</option>
+          <option value="manual">manual</option>
+          <option value="llamaindex">llamaindex</option>
+        </select>
+      </label>
+      <input id="engine-smoke-query" type="text" value="RAG 的核心步驟是什麼？" />
+      <button id="run-engine-smoke" type="button">執行 engine smoke</button>
+      <button id="run-engine-index-manual" type="button">執行 manual index probe</button>
+      <button id="run-engine-index-langgraph" type="button">執行 langgraph index probe</button>
+      <button id="run-engine-index-llamaindex" type="button">執行 llamaindex index probe</button>
+    </div>
+
+    <div class="matrix-controls">
+      <span>執行 eval matrix:</span>
+      <label><input type="checkbox" id="eval-manual" checked /> manual</label>
+      <label><input type="checkbox" id="eval-langgraph" checked /> langgraph</label>
+      <label><input type="checkbox" id="eval-llamaindex" checked /> llamaindex</label>
+      <input id="eval-cases" type="number" min="1" max="20" value="8" />
+      <button id="run-eval-matrix" type="button">執行 eval matrix</button>
+    </div>
+    <pre id="ops-output">尚未執行操作。</pre>
   </section>
 
   <section class="admin-panel">
     <h2>Shadow Runs</h2>
-    <div id="shadow-list">Loading...</div>
+    <div id="shadow-list">載入中...</div>
   </section>
 </AdminLayout>
 
@@ -40,12 +68,25 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const shadowList = document.getElementById('shadow-list');
   const save = document.getElementById('save-settings');
   const opsOutput = document.getElementById('ops-output');
+  const engineSelect = document.getElementById('engine-select');
+  const smokeQueryInput = document.getElementById('engine-smoke-query');
+  const runEngineSmokeBtn = document.getElementById('run-engine-smoke');
+  const runEngineMatrixBtn = document.getElementById('run-eval-matrix');
+  const runManualIndexBtn = document.getElementById('run-engine-index-manual');
+  const runLangGraphIndexBtn = document.getElementById('run-engine-index-langgraph');
+  const runLlamaIndexBtn = document.getElementById('run-engine-index-llamaindex');
+  const evalManualCheckbox = document.getElementById('eval-manual');
+  const evalLanggraphCheckbox = document.getElementById('eval-langgraph');
+  const evalLlamaindexCheckbox = document.getElementById('eval-llamaindex');
+  const evalCasesInput = document.getElementById('eval-cases');
+
+  const defaultCaseCount = Number((evalCasesInput && evalCasesInput.value) || '8');
 
   async function load() {
     const res = await fetch('/api/admin/rag');
     if (res.status === 401) {
       const message = document.createElement('p');
-      message.textContent = 'Admin session required. Login first.';
+      message.textContent = '需要管理員登入。請先登入後台。';
       form.replaceChildren(message);
       traceList.textContent = '';
       shadowList.textContent = '';
@@ -53,8 +94,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     }
     const data = await res.json();
     renderSettings(data.settings);
-    renderTraceRows(traceList, data.traces, 'No trace steps yet.');
-    renderShadowRows(shadowList, data.shadow_runs, 'No shadow runs yet.');
+      renderTraceRows(traceList, data.traces, '目前沒有追蹤步驟。');
+      renderShadowRows(shadowList, data.shadow_runs, '目前沒有 shadow run。');
   }
 
   function renderSettings(settings) {
@@ -81,15 +122,32 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     for (const row of rows) {
       const article = document.createElement('article');
       article.className = 'trace-row';
+      const engine = document.createElement('span');
       const stage = document.createElement('strong');
       stage.textContent = row.stage ?? 'unknown';
       const duration = document.createElement('span');
       duration.textContent = `${row.duration_ms ?? 0}ms`;
+      const nativeTrace = document.createElement('span');
+      if (row.native_trace_summary || row.native_trace) {
+        nativeTrace.textContent = 'native trace';
+        nativeTrace.className = 'native-badge';
+      }
+      if (row.pipeline_engine) {
+        engine.textContent = `engine=${row.pipeline_engine}`;
+      }
       const trace = document.createElement('code');
-      trace.textContent = row.trace_id ?? '';
+      const traceLink = document.createElement('a');
+      traceLink.className = 'trace-link';
+      traceLink.href = `/admin/traces?trace_id=${encodeURIComponent(row.trace_id ?? '')}`;
+      traceLink.textContent = row.trace_id ?? '';
+      traceLink.rel = 'noopener noreferrer';
+      trace.append(traceLink);
       const output = document.createElement('p');
       output.textContent = row.output_summary ?? '';
+
+      if (engine.textContent) article.append(engine);
       article.append(stage, duration, trace, output);
+      if (nativeTrace.textContent) article.append(nativeTrace);
       root.append(article);
     }
   }
@@ -131,7 +189,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   });
 
   document.getElementById('run-embed').addEventListener('click', async () => {
-    opsOutput.textContent = 'Running embed batch...';
+    opsOutput.textContent = '正在執行 embedding 批次...';
     const res = await fetch('/api/admin/pipelines', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -144,16 +202,81 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   });
 
   document.getElementById('run-smoke').addEventListener('click', async () => {
-    opsOutput.textContent = 'Running search smoke test...';
+    opsOutput.textContent = '正在執行搜尋 smoke test...';
     const res = await fetch('/api/search?q=RAG&mode=hybrid&limit=5');
     opsOutput.textContent = JSON.stringify(await res.json(), null, 2);
   });
 
   document.getElementById('run-crawl').addEventListener('click', async () => {
-    opsOutput.textContent = 'Running crawl sync...';
+    opsOutput.textContent = '正在執行 crawl sync...';
     const secret = document.getElementById('crawl-secret').value;
     const res = await fetch('/api/crawl/sync', { method: 'POST', headers: { 'X-Crawl-Secret': secret } });
     opsOutput.textContent = JSON.stringify(await res.json(), null, 2);
+  });
+
+  runEngineSmokeBtn.addEventListener('click', async () => {
+    const engine = engineSelect.value;
+    const query = smokeQueryInput.value.trim() || 'RAG 的核心步驟是什麼？';
+    opsOutput.textContent = `正在對 ${engine} 執行 smoke test...`;
+    const res = await fetch('/api/admin/rag-smoke', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ engine, query }),
+    });
+    opsOutput.textContent = JSON.stringify(await res.json(), null, 2);
+  });
+
+  async function runEngineProbe(engine) {
+    opsOutput.textContent = `正在對 ${engine} 執行 index probe...`;
+    const res = await fetch('/api/admin/rag-smoke', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        engine,
+        query: `index:${engine}`,
+        mode: 'index',
+        indexProfile: {
+          sourceFilters: ['posts', 'docs'],
+          offset: 0,
+          limit: 40,
+        },
+      }),
+    });
+    opsOutput.textContent = JSON.stringify(await res.json(), null, 2);
+  }
+
+  runManualIndexBtn.addEventListener('click', () => void runEngineProbe('manual'));
+  runLangGraphIndexBtn.addEventListener('click', () => void runEngineProbe('langgraph'));
+  runLlamaIndexBtn.addEventListener('click', () => void runEngineProbe('llamaindex'));
+
+  runEngineMatrixBtn.addEventListener('click', async () => {
+    const selectedEngines = [];
+    if (evalManualCheckbox.checked) selectedEngines.push('manual');
+    if (evalLanggraphCheckbox.checked) selectedEngines.push('langgraph');
+    if (evalLlamaindexCheckbox.checked) selectedEngines.push('llamaindex');
+    if (!selectedEngines.length) {
+      opsOutput.textContent = '請至少選一個 engine 再執行 matrix。';
+      return;
+    }
+    const caseCount = Math.max(1, Math.min(20, Number(evalCasesInput.value || defaultCaseCount)));
+    opsOutput.textContent = `正在對 ${selectedEngines.join(', ')} 執行 eval matrix...`;
+    const res = await fetch('/api/admin/rag-eval', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        engines: selectedEngines,
+        cases: caseCount,
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      opsOutput.textContent = JSON.stringify(data, null, 2);
+      return;
+    }
+    const perEngine = Object.entries(data.perEngine || {}).map(([engine, summary]) =>
+      `${engine}: faithfulness=${summary.faithfulness.toFixed(3)} relevance=${summary.answerRelevance.toFixed(3)} recall=${summary.contextRecall.toFixed(3)} passed=${summary.passed}/${summary.count}`
+    );
+    opsOutput.textContent = `${data.completedAt}\n${perEngine.join('\n')}\n\n${JSON.stringify(data.rows, null, 2)}`;
   });
 
   load();
@@ -229,11 +352,29 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     margin-right: 0.75rem;
   }
 
+  .native-badge {
+    color: var(--admin-text, #e0e0e0);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 999px;
+    padding: 0.02rem 0.45rem;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+
   .trace-row code {
     display: block;
     margin-top: 0.25rem;
     color: var(--admin-text-muted, #888);
     font-size: 0.8rem;
+  }
+
+  .trace-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .trace-link:hover {
+    text-decoration: underline;
   }
 
   .trace-row p {
@@ -246,6 +387,27 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0.75rem;
+  }
+
+  .ops-grid label {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .ops-grid input[type='text'],
+  .ops-grid input[type='password'],
+  .ops-grid input[type='number'],
+  .select {
+    width: 100%;
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.9rem;
   }
 
   .ops-grid input,
@@ -265,6 +427,26 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   #save-settings:hover {
     background: var(--admin-border, #2a2a2a);
     border-color: var(--admin-accent, #3b82f6);
+  }
+
+  .matrix-controls {
+    margin-top: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    align-items: center;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+  }
+
+  .matrix-controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .matrix-controls input[type='number'] {
+    width: 80px;
   }
 
   #ops-output {

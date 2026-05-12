@@ -30,21 +30,73 @@ export default {
       return
     }
 
-    console.log('[cron] Triggering crawl sync...')
+    const baseUrl = normalizeCronBaseUrl(env.APP_BASE_URL || env.CRAWL_BASE_URL || env.WORKER_URL || env.CF_PAGES_URL || 'https://quidproquo.cc')
+    const retentionUrl = baseUrl + '/api/admin/traces/retention'
+    const crawlUrl = baseUrl + '/api/crawl/sync'
+    const pipelineUrl = baseUrl + '/api/admin/pipelines/scheduled'
+
+    const isWeeklyCrawl = event.cron === '0 2 * * SUN'
+    const scheduledPipelineTasks = {
+      '0 4 * * SUN': [
+        { pipelineId: 'series-suggestions' },
+      ],
+      '0 5 * * SUN': [
+        { pipelineId: 'knowledge-graph-prototype' },
+      ],
+    }
+
+    const scheduledPipelines = scheduledPipelineTasks[event.cron] ?? []
+    const tasks = [
+      postWithSecret(retentionUrl, secret, { scope: 'all' }),
+    ]
+
+    if (isWeeklyCrawl) {
+      tasks.push(postWithSecret(crawlUrl, secret))
+    }
+    for (const task of scheduledPipelines) {
+      tasks.push(postWithSecret(pipelineUrl, secret, {
+        pipelineId: task.pipelineId,
+        source: 'cron',
+        cron: event.cron,
+      }))
+    }
+
+    console.log('[cron] Scheduling maintenance jobs', JSON.stringify({
+      cron: event.cron,
+      retention: true,
+      crawl: isWeeklyCrawl,
+      pipelines: scheduledPipelines.map((pipeline) => pipeline.pipelineId),
+      tasks: tasks.length,
+    }))
     ctx.waitUntil(
-      fetch('https://quidproquo.cc/api/crawl/sync', {
-        method: 'POST',
-        headers: {
-          'X-Crawl-Secret': secret,
-          'Content-Type': 'application/json',
-        },
-      }).then(async (res) => {
-        const body = await res.json()
-        console.log('[cron] Crawl sync result:', res.status, JSON.stringify(body))
-      }).catch((err) => {
-        console.error('[cron] Crawl sync failed:', err)
+      Promise.all(tasks).catch((err) => {
+        console.error('[cron] Maintenance failed:', err)
       })
     )
+
+    async function postWithSecret(url, secretValue, body = {}) {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'X-Crawl-Secret': secretValue,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        })
+        const payload = await response.text()
+        console.log('[cron] Result', url, response.status, payload)
+      } catch (err) {
+        console.error('[cron] Request failed', url, err)
+      }
+    }
+
+    function normalizeCronBaseUrl(value) {
+      if (!value) return 'https://quidproquo.cc'
+      const trimmed = String(value).trim()
+      if (!trimmed) return 'https://quidproquo.cc'
+      return trimmed.replace(/\\/$/, '')
+    }
   },
 }
 `

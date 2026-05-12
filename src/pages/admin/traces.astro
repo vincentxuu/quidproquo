@@ -3,9 +3,9 @@ export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
-<AdminLayout title="Traces">
+<AdminLayout title="追蹤紀錄">
   <div class="traces-header">
-    <p class="page-desc">Query trace timeline and RAG pipeline execution details.</p>
+    <p class="page-desc">查詢 RAG trace timeline、pipeline 執行細節，並管理 trace retention。</p>
   </div>
 
   <div class="filters-bar">
@@ -13,7 +13,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       <input type="text" id="filter-trace-id" placeholder="Trace ID" class="input" />
       <input type="date" id="filter-date" class="input" />
       <select id="filter-stage" class="select">
-        <option value="">All Stages</option>
+        <option value="">全部階段</option>
         <option value="planner">Planner</option>
         <option value="research">Research</option>
         <option value="normalize">Normalize</option>
@@ -21,23 +21,53 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         <option value="critic">Critic</option>
       </select>
       <select id="filter-status" class="select">
-        <option value="">All Status</option>
-        <option value="success">Success</option>
-        <option value="error">Error</option>
+        <option value="">全部狀態</option>
+        <option value="success">成功</option>
+        <option value="error">錯誤</option>
       </select>
-      <button id="apply-filters" class="btn">Search</button>
-      <button id="clear-filters" class="btn-secondary">Clear</button>
+      <button id="apply-filters" class="btn">搜尋</button>
+      <button id="clear-filters" class="btn-secondary">清除</button>
     </div>
   </div>
 
+  <section class="retention-panel">
+    <div>
+      <h2>Trace Retention</h2>
+      <p>依 RAG retention 設定清理過期 trace。先 dry run 查看預計刪除數，再執行清理。</p>
+    </div>
+    <div class="retention-controls">
+      <label>
+        範圍
+        <select id="retention-scope" class="select">
+          <option value="all">全部</option>
+          <option value="production">Production</option>
+          <option value="admin">Admin / Eval</option>
+        </select>
+      </label>
+      <button id="retention-dry-run" class="btn-secondary" type="button">預覽清理</button>
+      <button id="retention-run" class="btn danger" type="button">執行清理</button>
+    </div>
+    <pre id="retention-output">尚未執行 retention。</pre>
+  </section>
+
   <div class="traces-container">
     <section class="traces-list-section">
-      <h2>Recent Traces</h2>
-      <div id="traces-list" class="traces-list">Loading...</div>
+      <h2>最近追蹤紀錄</h2>
+      <div id="traces-list" class="traces-list">載入中...</div>
     </section>
 
     <section class="trace-detail-section" id="trace-detail" style="display: none;">
       <h2>Trace Timeline</h2>
+      <div id="trace-detail-actions" class="trace-detail-actions" style="display: none;">
+        <label class="trace-filter-toggle">
+          <input type="checkbox" id="filter-fallback-only" />
+          僅顯示 fallback 映射步驟
+        </label>
+        <label class="trace-filter-toggle">
+          <input type="checkbox" id="filter-unobserved-only" />
+          僅顯示未觀測步驟
+        </label>
+      </div>
       <div id="trace-timeline" class="timeline"></div>
     </section>
   </div>
@@ -45,6 +75,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
 <script is:inline>
   let currentFilters = {};
+  let currentTraceDetail = null;
 
   async function loadTraces() {
     const el = document.getElementById('traces-list');
@@ -53,42 +84,118 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (currentFilters.traceId) params.set('trace_id', currentFilters.traceId);
       if (currentFilters.date) params.set('date', currentFilters.date);
       if (currentFilters.stage) params.set('stage', currentFilters.stage);
+      if (currentFilters.status) params.set('status', currentFilters.status);
 
       const res = await fetch(`/api/admin/traces?${params.toString()}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      renderTraces(data.traces || []);
+      const traces = data.traces || [];
+      renderTraces(traces);
+      const traceFound = currentFilters.traceId
+        ? traces.some(trace => trace.trace_id === currentFilters.traceId)
+        : false;
+      if (!traces.length || (currentFilters.traceId && !traceFound)) {
+        hideTraceDetail();
+      }
+      syncFilterUrl();
     } catch {
-      el.innerHTML = '<p class="error">Unable to load traces</p>';
+      el.innerHTML = '<p class="error">無法載入追蹤紀錄</p>';
+      hideTraceDetail();
     }
+  }
+
+  function hideTraceDetail() {
+    const detailSection = document.getElementById('trace-detail');
+    const timeline = document.getElementById('trace-timeline');
+    const filterInput = document.getElementById('filter-fallback-only');
+    const unobservedFilterInput = document.getElementById('filter-unobserved-only');
+    const filterWrap = document.getElementById('trace-detail-actions');
+    currentTraceDetail = null;
+    if (filterInput) filterInput.checked = false;
+    if (unobservedFilterInput) unobservedFilterInput.checked = false;
+    if (filterWrap) filterWrap.style.display = 'none';
+    if (detailSection) detailSection.style.display = 'none';
+    if (timeline) timeline.innerHTML = '';
+  }
+
+  function syncFilterUrl() {
+    const search = new URLSearchParams();
+    if (currentFilters.traceId) search.set('trace_id', currentFilters.traceId);
+    if (currentFilters.date) search.set('date', currentFilters.date);
+    if (currentFilters.stage) search.set('stage', currentFilters.stage);
+    if (currentFilters.status) search.set('status', currentFilters.status);
+    const next = `${window.location.pathname}${search.toString() ? `?${search.toString()}` : ''}`;
+    window.history.replaceState({}, '', next);
+  }
+
+  function hydrateFiltersFromUrl() {
+    const search = new URLSearchParams(window.location.search);
+    currentFilters = {
+      traceId: search.get('trace_id') ?? '',
+      date: search.get('date') ?? '',
+      stage: search.get('stage') ?? '',
+      status: search.get('status') ?? '',
+    };
+
+    document.getElementById('filter-trace-id').value = currentFilters.traceId;
+    document.getElementById('filter-date').value = currentFilters.date;
+    document.getElementById('filter-stage').value = currentFilters.stage;
+    document.getElementById('filter-status').value = currentFilters.status;
   }
 
   function renderTraces(traces) {
     const el = document.getElementById('traces-list');
     if (!traces.length) {
-      el.innerHTML = '<p class="empty">No traces found.</p>';
+      el.innerHTML = '<p class="empty">找不到追蹤紀錄。</p>';
       return;
     }
 
     el.innerHTML = traces.map(trace => `
-      <div class="trace-card" data-trace-id="${trace.trace_id}" onclick="selectTrace('${trace.trace_id}')">
+      <div class="trace-card" data-trace-id="${escapeHtml(trace.trace_id ?? '')}">
         <div class="trace-header">
-          <span class="trace-stage">${trace.stage || 'unknown'}</span>
-          <span class="trace-duration">${trace.duration_ms ?? 0}ms</span>
-          <span class="trace-time">${formatTime(trace.started_at)}</span>
+          <span class="trace-stage">${escapeHtml(trace.stage || 'unknown')}</span>
+          <span class="trace-duration">${escapeHtml(String(trace.duration_ms ?? 0))}ms</span>
+          ${trace.pipeline_engine ? `<span class="meta-item">engine=${escapeHtml(String(trace.pipeline_engine))}</span>` : ''}
+          ${trace.trace_scope ? `<span class="meta-item">scope=${escapeHtml(String(trace.trace_scope))}</span>` : ''}
+          <span class="meta-item langfuse-status ${trace.has_langfuse_trace ? 'on' : 'off'}">
+            Langfuse: ${trace.has_langfuse_trace ? '已連結' : '未設定'}
+          </span>
+          ${(trace.native_trace || trace.native_trace_summary) ? '<span class="native-badge">native trace</span>' : ''}
+          <span class="status-pill status-${trace.status || 'success'}">${escapeHtml((trace.status || 'success').toUpperCase())}</span>
+          <span class="trace-time">${escapeHtml(formatTime(trace.started_at))}</span>
         </div>
         <div class="trace-id">
-          <code>${trace.trace_id}</code>
+          <code>${escapeHtml(trace.trace_id ?? '')}</code>
         </div>
-        ${trace.output_summary ? `<p class="trace-summary">${truncate(trace.output_summary, 100)}</p>` : ''}
-        ${trace.error_summary ? `<p class="trace-error">${truncate(trace.error_summary, 100)}</p>` : ''}
+        ${trace.langfuse_trace_url ? `
+          <div class="trace-links">
+            <a class="langfuse-link" href="${escapeHtml(trace.langfuse_trace_url)}" target="_blank" rel="noopener noreferrer">Langfuse</a>
+          </div>
+        ` : ''}
+        ${trace.output_summary ? `<p class="trace-summary">${escapeHtml(truncate(trace.output_summary, 100))}</p>` : ''}
+        ${trace.error_summary ? `<p class="trace-error">${escapeHtml(truncate(trace.error_summary, 100))}</p>` : ''}
       </div>
     `).join('');
+
+    el.querySelectorAll('.trace-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const traceId = card.getAttribute('data-trace-id') || '';
+        if (traceId) void selectTrace(traceId);
+      });
+    });
+
+    el.querySelectorAll('.langfuse-link').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.stopPropagation();
+      });
+    });
   }
 
   async function selectTrace(traceId) {
+    if (!traceId) return;
+    currentFilters.traceId = traceId;
+    document.getElementById('filter-trace-id').value = traceId;
     const detailSection = document.getElementById('trace-detail');
-    const timeline = document.getElementById('trace-timeline');
 
     // Highlight selected card
     document.querySelectorAll('.trace-card').forEach(el => el.classList.remove('selected'));
@@ -98,22 +205,75 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch(`/api/admin/traces/${traceId}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-
+      currentTraceDetail = data;
       detailSection.style.display = 'block';
-      timeline.innerHTML = renderTimeline(data.steps || []);
+      renderTraceDetail(data);
     } catch {
-      timeline.innerHTML = '<p class="error">Unable to load trace details</p>';
+      const timeline = document.getElementById('trace-timeline');
+      timeline.innerHTML = '<p class="error">無法載入 trace 細節</p>';
     }
+    syncFilterUrl();
   }
 
-  function renderTimeline(steps) {
-    if (!steps.length) {
-      return '<p class="empty">No steps recorded.</p>';
+  function renderTraceDetail(data) {
+    const timeline = document.getElementById('trace-timeline');
+    const detailActions = document.getElementById('trace-detail-actions');
+    if (!timeline) return;
+
+    const showFallbackOnly = document.getElementById('filter-fallback-only')?.checked;
+    const showUnobservedOnly = document.getElementById('filter-unobserved-only')?.checked;
+    const links = `
+      ${data.langfuse_trace_url ? `
+        <a class="langfuse-link" href="${escapeHtml(data.langfuse_trace_url)}" target="_blank" rel="noopener noreferrer">在 Langfuse 開啟</a>
+      ` : ''}
+    `;
+    const scopeBadge = data.trace_scope ? `<div class="trace-scope">${escapeHtml(String(data.trace_scope))}</div>` : '';
+    const timelineHtml = [
+      links ? `<div class="timeline-links">${links}</div>` : '',
+      scopeBadge,
+      renderNativeTraceBlock(data.native_trace),
+      renderTimeline(data.steps || [], showFallbackOnly, showUnobservedOnly),
+    ].join('');
+
+    timeline.innerHTML = timelineHtml;
+    if (detailActions) detailActions.style.display = 'flex';
+  }
+
+  function renderNativeTraceBlock(nativeTrace) {
+    if (!nativeTrace) return '';
+    return `
+      <div class="native-trace">
+        <h3>Native Trace</h3>
+        <pre class="step-code">${escapeHtml(JSON.stringify(nativeTrace, null, 2))}</pre>
+      </div>
+    `;
+  }
+
+  function renderTimeline(steps, showFallbackOnly = false, showUnobservedOnly = false) {
+    const filteredSteps = (steps || []).filter((step) => {
+      if (!showFallbackOnly && !showUnobservedOnly) return true;
+      const mappingMode = getStepMappingMode(step.metadata_json);
+      const spanObserved = getStepObserved(step.metadata_json);
+      if (showFallbackOnly && mappingMode !== 'fallback') return false;
+      if (showUnobservedOnly && spanObserved !== false) return false;
+      return true;
+    });
+
+    if (!filteredSteps.length) {
+      let emptyMessage = '目前沒有紀錄步驟。';
+      if (showFallbackOnly && showUnobservedOnly) {
+        emptyMessage = '找不到 fallback 且未觀測的步驟。';
+      } else if (showFallbackOnly) {
+        emptyMessage = '找不到 fallback 映射步驟。';
+      } else if (showUnobservedOnly) {
+        emptyMessage = '找不到未觀測步驟。';
+      }
+      return `<p class="empty">${emptyMessage}</p>`;
     }
 
     return `
       <div class="timeline-container">
-        ${steps.map((step, idx) => `
+        ${filteredSteps.map((step, idx) => `
           <div class="timeline-step">
             <div class="timeline-marker">${idx + 1}</div>
             <div class="timeline-content">
@@ -121,24 +281,24 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
                 <span class="step-stage">${step.stage || 'unknown'}</span>
                 <span class="step-duration">${step.duration_ms ?? 0}ms</span>
                 <span class="step-status status-${step.error_summary ? 'error' : 'success'}">
-                  ${step.error_summary ? 'Error' : 'Success'}
+                  ${step.error_summary ? '錯誤' : '成功'}
                 </span>
               </div>
               ${step.input_summary ? `
                 <div class="step-section">
-                  <h4>Input</h4>
+                  <h4>輸入</h4>
                   <pre class="step-code">${escapeHtml(truncate(step.input_summary, 200))}</pre>
                 </div>
               ` : ''}
               ${step.output_summary ? `
                 <div class="step-section">
-                  <h4>Output</h4>
+                  <h4>輸出</h4>
                   <pre class="step-code">${escapeHtml(truncate(step.output_summary, 200))}</pre>
                 </div>
               ` : ''}
               ${step.error_summary ? `
                 <div class="step-section error">
-                  <h4>Error</h4>
+                  <h4>錯誤</h4>
                   <pre class="step-code error">${escapeHtml(step.error_summary)}</pre>
                 </div>
               ` : ''}
@@ -154,14 +314,46 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     `;
   }
 
+  function getStepMappingMode(metadataJson) {
+    if (!metadataJson) return null;
+    try {
+      const meta = JSON.parse(metadataJson);
+      return meta?.span_mapping_mode ?? null;
+    } catch {
+      return null;
+    }
+  }
+
+  function getStepObserved(metadataJson) {
+    if (!metadataJson) return null;
+    try {
+      const meta = JSON.parse(metadataJson);
+      return meta?.span_observed ?? null;
+    } catch {
+      return null;
+    }
+  }
+
   function renderMetadata(jsonStr) {
     try {
       const meta = JSON.parse(jsonStr);
       const parts = [];
+      const pipeline = meta.pipeline_engine || meta.pipelineEngine;
+      if (pipeline) parts.push(`<span class="meta-item">Engine: ${pipeline}</span>`);
+      if (meta.trace_scope) parts.push(`<span class="meta-item">範圍: ${meta.trace_scope}</span>`);
       if (meta.provider) parts.push(`<span class="meta-item">Provider: ${meta.provider}</span>`);
       if (meta.model) parts.push(`<span class="meta-item">Model: ${meta.model}</span>`);
-      if (meta.tokens_in) parts.push(`<span class="meta-item">Tokens In: ${meta.tokens_in}</span>`);
-      if (meta.tokens_out) parts.push(`<span class="meta-item">Tokens Out: ${meta.tokens_out}</span>`);
+      if (meta.tokens?.input) parts.push(`<span class="meta-item">輸入 tokens: ${meta.tokens.input}</span>`);
+      if (meta.tokens?.output) parts.push(`<span class="meta-item">輸出 tokens: ${meta.tokens.output}</span>`);
+      if (meta.span_mapping_mode) {
+        const mode = meta.span_mapping_mode;
+        parts.push(`<span class="meta-item">Span mapping: ${escapeHtml(mode)}</span>`);
+      }
+      parts.push(`<span class="meta-item">Span observed: ${meta.span_observed ? '是' : '否'}</span>`);
+      if (Array.isArray(meta.model_usage) && meta.model_usage.length) {
+        const unique = [...new Set(meta.model_usage.map((item) => item.model))].filter(Boolean);
+        if (unique.length) parts.push(`<span class="meta-item">Models: ${escapeHtml(unique.join(', '))}</span>`);
+      }
       return parts.join('');
     } catch {
       return '';
@@ -180,7 +372,12 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   function escapeHtml(str) {
     if (!str) return '';
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   // Event handlers
@@ -203,11 +400,73 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     loadTraces();
   });
 
-  // Make selectTrace globally accessible
-  window.selectTrace = selectTrace;
+  document.getElementById('filter-fallback-only').addEventListener('change', () => {
+    if (!currentTraceDetail) return;
+    renderTraceDetail(currentTraceDetail);
+  });
 
+  document.getElementById('filter-unobserved-only').addEventListener('change', () => {
+    if (!currentTraceDetail) return;
+    renderTraceDetail(currentTraceDetail);
+  });
+
+  document.getElementById('retention-dry-run').addEventListener('click', async () => {
+    await runRetention(true);
+  });
+
+  document.getElementById('retention-run').addEventListener('click', async () => {
+    const ok = window.confirm('確定要依 retention 設定刪除過期 trace？這個動作無法從後台復原。');
+    if (!ok) return;
+    await runRetention(false);
+    await loadTraces();
+  });
+
+  async function runRetention(dryRun) {
+    const output = document.getElementById('retention-output');
+    const scope = document.getElementById('retention-scope').value;
+    output.textContent = dryRun ? '正在預覽 retention 清理...' : '正在執行 retention 清理...';
+    try {
+      const res = await fetch('/api/admin/traces/retention', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scope, dryRun }),
+      });
+      const data = await res.json();
+      output.textContent = formatRetentionResult(data);
+    } catch (error) {
+      output.textContent = `retention 執行失敗：${error instanceof Error ? error.message : '未知錯誤'}`;
+    }
+  }
+
+  function formatRetentionResult(data) {
+    if (!data?.ok) return JSON.stringify(data, null, 2);
+    const planned = data.planned || {};
+    const del = data.delete || {};
+    const settings = data.settings || {};
+    return [
+      data.dryRun ? '模式：預覽，不會刪除資料' : '模式：已執行清理',
+      `範圍：${data.scope}`,
+      `候選 traces：${planned.candidateTraceCount ?? 0}`,
+      `預計刪除 non-native traces：${planned.deleteNonNativeTraceCount ?? 0}`,
+      `預計刪除 native traces：${planned.deleteNativeTraceCount ?? 0}`,
+      `刪除 non-native steps：${del.nonNativeSteps ?? 0}`,
+      `刪除 native trace rows：${del.nativeTraceRows ?? 0}`,
+      `設定：production=${settings.prodDays ?? 'n/a'} 天，admin=${settings.adminDays ?? 'n/a'} 天，production native=${settings.prodNativeDays ?? 'n/a'} 天，admin native=${settings.adminNativeDays ?? 'n/a'} 天`,
+      data.completedAt ? `完成時間：${formatTime(data.completedAt)}` : '',
+    ].filter(Boolean).join('\n');
+  }
+
+  hydrateFiltersFromUrl();
   // Initial load
-  loadTraces();
+  if (currentFilters.traceId) {
+    loadTraces().then(() => {
+      if (currentFilters.traceId) {
+        void selectTrace(currentFilters.traceId);
+      }
+    });
+  } else {
+    loadTraces();
+  }
 </script>
 
 <style>
@@ -251,6 +510,14 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     font-size: 0.85rem;
   }
 
+  .btn.danger {
+    background: #b91c1c;
+  }
+
+  .btn.danger:hover {
+    background: #991b1b;
+  }
+
   .btn-secondary {
     padding: 0.5rem 1rem;
     background: transparent;
@@ -265,6 +532,57 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+  }
+
+  .retention-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(280px, 520px);
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+  }
+
+  .retention-panel h2 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .retention-panel p {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .retention-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: end;
+  }
+
+  .retention-controls label {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.78rem;
+  }
+
+  #retention-output {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 0.75rem;
+    border-radius: 6px;
+    background: var(--admin-bg, #0f0f0f);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    color: var(--admin-text, #e0e0e0);
+    white-space: pre-wrap;
+    font-size: 0.8rem;
   }
 
   .traces-list-section h2,
@@ -327,9 +645,43 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     color: var(--admin-text-muted, #888);
   }
 
+  .status-pill {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .native-badge {
+    font-size: 0.7rem;
+    border: 1px solid rgba(34, 197, 94, 0.55);
+    color: #a7f3d0;
+    border-radius: 999px;
+    padding: 0.15rem 0.45rem;
+    white-space: nowrap;
+  }
+
+  .native-trace h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.9rem;
+  }
+
   .trace-id code {
     font-size: 0.75rem;
     color: var(--admin-text-muted, #888);
+  }
+
+  .trace-links {
+    margin-top: 0.4rem;
+  }
+
+  .trace-scope {
+    margin-bottom: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .trace-summary {
@@ -446,9 +798,70 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .error { color: #ef4444; }
   .empty { color: var(--admin-text-muted, #888); }
 
+  .langfuse-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: var(--admin-accent, #3b82f6);
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .langfuse-link:hover {
+    background: rgba(59, 130, 246, 0.12);
+  }
+
+  .timeline-links {
+    margin-bottom: 0.5rem;
+  }
+
+  .trace-detail-actions {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .trace-filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.78rem;
+  }
+
+  .trace-filter-toggle input[type='checkbox'] {
+    accent-color: var(--admin-accent, #3b82f6);
+  }
+
+  .langfuse-status.on {
+    color: #93c5fd;
+  }
+
+  .langfuse-status.off {
+    color: #fca5a5;
+  }
+
+  .langfuse-status.on {
+    border-color: rgba(59, 130, 246, 0.45);
+  }
+
+  .langfuse-status.off {
+    border-color: rgba(239, 68, 68, 0.45);
+  }
+
   @media (max-width: 900px) {
     .traces-container {
       grid-template-columns: 1fr;
+    }
+
+    .retention-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .retention-controls {
+      justify-content: flex-start;
     }
   }
 </style>

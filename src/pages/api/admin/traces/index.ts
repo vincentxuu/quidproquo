@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro'
 import { verifySession } from '../../../../lib/auth/session'
+import { buildLangfuseTraceUrl } from '../../../../lib/langfuse'
 
 export const GET: APIRoute = async ({ cookies, url }) => {
   if (!await isAdmin(cookies)) return unauthorized()
@@ -13,6 +14,7 @@ export const GET: APIRoute = async ({ cookies, url }) => {
   const traceId = url.searchParams.get('trace_id')
   const date = url.searchParams.get('date')
   const stage = url.searchParams.get('stage')
+  const status = url.searchParams.get('status')
 
   try {
     let sql = `
@@ -64,9 +66,69 @@ export const GET: APIRoute = async ({ cookies, url }) => {
       status: row.has_error ? 'error' : 'success',
       output_summary: row.output_summary,
       error_summary: row.error_summary,
+      langfuse_trace_id: row.trace_id,
+      langfuse_trace_url: buildLangfuseTraceUrl(row.trace_id),
+      has_langfuse_trace: Boolean(buildLangfuseTraceUrl(row.trace_id)),
+      // metadata hydrated below
     }))
 
-    return new Response(JSON.stringify({ traces }), {
+    const filteredByStatus = status
+      ? traces.filter((row) => row.status === status)
+      : traces
+
+    const traceIds = filteredByStatus.map((row) => row.trace_id)
+    if (traceIds.length === 0) {
+      return new Response(JSON.stringify({ traces: [] }), {
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
+    const placeholders = traceIds.map(() => '?').join(',')
+    const stepMetadataResult = await db.prepare(
+      `
+        SELECT trace_id, metadata_json
+        FROM rag_trace_steps
+        WHERE trace_id IN (${placeholders}) AND stage != 'native_trace'
+        ORDER BY started_at DESC
+      `
+    ).bind(...traceIds).all<{ trace_id: string; metadata_json: string | null }>()
+
+    const nativeTraceRows = await db.prepare(
+      `
+        SELECT trace_id, metadata_json
+        FROM rag_trace_steps
+        WHERE trace_id IN (${placeholders}) AND stage = 'native_trace'
+        ORDER BY started_at DESC
+      `
+    ).bind(...traceIds).all<{ trace_id: string; metadata_json: string | null }>()
+
+    const latestMetadataByTrace = new Map<string, string | null>()
+    for (const step of stepMetadataResult.results ?? []) {
+      if (!latestMetadataByTrace.has(step.trace_id)) {
+        latestMetadataByTrace.set(step.trace_id, step.metadata_json)
+      }
+    }
+
+    const nativeTraceByTrace = new Map<string, string | null>()
+    for (const step of nativeTraceRows.results ?? []) {
+      if (!nativeTraceByTrace.has(step.trace_id)) {
+        nativeTraceByTrace.set(step.trace_id, step.metadata_json)
+      }
+    }
+
+    const hydratedTraces = filteredByStatus.map((row) => {
+      const metadata = safeParseJson(latestMetadataByTrace.get(row.trace_id) ?? null)
+      const nativeTrace = safeParseJson(nativeTraceByTrace.get(row.trace_id) ?? null)
+      return {
+        ...row,
+        pipeline_engine: metadata?.pipeline_engine ?? metadata?.pipelineEngine,
+        trace_scope: metadata?.trace_scope || 'production',
+        native_trace: metadata?.native_trace ?? nativeTrace,
+        native_trace_summary: metadata?.native_trace_summary ?? null,
+      }
+    })
+
+    return new Response(JSON.stringify({ traces: hydratedTraces }), {
       headers: { 'Content-Type': 'application/json' },
     })
   } catch (error) {
@@ -85,4 +147,14 @@ async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boo
 
 function unauthorized(): Response {
   return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
+}
+
+function safeParseJson(value: string | null): Record<string, unknown> | null {
+  if (!value) return null
+  try {
+    const parsed = JSON.parse(value)
+    return typeof parsed === 'object' && parsed !== null ? parsed as Record<string, unknown> : null
+  } catch {
+    return null
+  }
 }

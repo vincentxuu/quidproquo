@@ -1,371 +1,318 @@
-import { AgentSteps } from './AgentSteps'
-import React, { useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { convertBufferToMarkdown } from '@/lib/markdown-toc'
+import { AgentSteps } from './AgentSteps'
 
-interface Message {
+type LinkLike =
+  | string
+  | {
+      title?: unknown
+      label?: unknown
+      url?: unknown
+      source_url?: unknown
+      slug?: unknown
+      description?: unknown
+    }
+
+export interface Message {
   id: string
   role: 'user' | 'assistant'
   content: string
   steps?: { agent: string; status: 'started' | 'completed'; chunks_found?: number }[]
-  sources?: string[]
-  related?: string[]
+  sources?: LinkLike[]
+  related?: LinkLike[]
   confidence?: number
   streaming?: boolean
 }
 
+interface NormalizedLink {
+  title: string
+  url: string
+  description?: string
+}
+
 export function MessageList({ messages }: { messages: Message[] }) {
-  const [renderedSources, setRenderedSources] = useState<React.ReactNode[]>([])
+  const endRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ block: 'end' })
+  }, [messages])
 
   return (
-    <div className="message-container">
+    <div className="message-container" style={styles.container}>
       {messages.map((msg) => (
-        <div key={msg.id} className={msg.role === 'user' ? 'user-message' : 'assistant-message'}>
+        <div
+          key={msg.id}
+          className={msg.role === 'user' ? 'user-message' : 'assistant-message'}
+          style={{
+            ...styles.message,
+            ...(msg.role === 'user' ? styles.userMessage : styles.assistantMessage),
+          }}
+        >
           {msg.steps && <AgentSteps steps={msg.steps} />}
-          <div className="message-content">
-            {msg.content ? renderMarkdownContent(msg.content, msg.role) : null}
+          <div className="message-content" style={styles.content}>
+            {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
             {msg.streaming && <span className="streaming-indicator">▋</span>}
-            {msg.sources && msg.sources.length > 0 && renderSources(msg.sources)}
-            {msg.related && msg.related.length > 0 && renderRelated(msg.related)}
+            {msg.sources && msg.sources.length > 0 && <LinkSection icon="📎" links={msg.sources} />}
+            {msg.related && msg.related.length > 0 && <LinkSection label="延伸閱讀" links={msg.related} />}
           </div>
         </div>
       ))}
+      <div ref={endRef} />
     </div>
   )
+}
 
-  function renderMarkdownContent(content: string, role: 'user' | 'assistant'): React.ReactNode {
-    // Check for Markdown syntax
-    const hasMarkdown = /[#*_`\[\]]/.test(content)
+function MarkdownContent({ content, role }: { content: string; role: 'user' | 'assistant' }) {
+  const normalized = useMemo(() => normalizeMarkdownInput(content), [content])
+  const linkColor = role === 'user' ? '#1d4ed8' : '#2563eb'
 
-    if (!hasMarkdown) {
-      // Plain text - use text wrapping
-      return (
-        <p style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', lineHeight: 1.6 }}>
-          {content}
-        </p>
-      )
-    }
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      skipHtml
+      components={{
+        p: ({ children }) => <p style={styles.paragraph}>{children}</p>,
+        a: ({ href, children }) => (
+          <a href={href} target="_blank" rel="noopener noreferrer" style={{ ...styles.link, color: linkColor }}>
+            {children}
+          </a>
+        ),
+        ul: ({ children }) => <ul style={styles.list}>{children}</ul>,
+        ol: ({ children }) => <ol style={styles.list}>{children}</ol>,
+        li: ({ children }) => <li style={styles.listItem}>{children}</li>,
+        strong: ({ children }) => <strong style={styles.strong}>{children}</strong>,
+        h1: ({ children }) => <h1 style={styles.h1}>{children}</h1>,
+        h2: ({ children }) => <h2 style={styles.h2}>{children}</h2>,
+        h3: ({ children }) => <h3 style={styles.h3}>{children}</h3>,
+        code: ({ children, className }) => {
+          const isBlock = Boolean(className)
+          return (
+            <code style={isBlock ? styles.codeBlock : styles.inlineCode} className={className}>
+              {children}
+            </code>
+          )
+        },
+        pre: ({ children }) => <pre style={styles.pre}>{children}</pre>,
+      }}
+    >
+      {normalized}
+    </ReactMarkdown>
+  )
+}
 
-    try {
-      // Convert buffer markdown to HTML-safe format
-      const convertedContent = convertBufferToMarkdown(content)
+function LinkSection({ icon, label, links }: { icon?: string; label?: string; links: LinkLike[] }) {
+  const normalizedLinks = normalizeLinks(links)
+  if (normalizedLinks.length === 0) return null
 
-      return (
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            p: ({ children }) => (
-              <p style={{ marginBottom: '0.75rem', lineHeight: 1.6, wordBreak: 'break-word' }}>
-                {children}
-              </p>
-            ),
-            strong: ({ children }) => (
-              <strong style={{ fontWeight: 700, color: role === 'user' ? '#60a5fa' : '#2563eb' }}>
-                {children}
-              </strong>
-            ),
-            em: ({ children }) => (
-              <em style={{ fontFamily: 'system-ui, sans-serif', fontStyle: 'italic' }}>
-                {children}
-              </em>
-            ),
-            code: ({ node, inline, children, className, ...props }: any) => {
-              // Build custom props with inline flag
-              const customProps: any = {}
-              
-              // Set border-left for code blocks
-              if (!inline) {
-                'style' in customProps && typeof customProps.style === 'object'
-                  ? (customProps.style.borderLeft = '3px solid #333')
-                  : (customProps.style = { borderLeft: '3px solid #333' })
-              }
-              
-              // Add proper attributes
-              className && (customProps.className = className)
-              '...' in props && delete props['...']
-              'node' in props && delete props['node']
+  return (
+    <div className="sources-container" style={styles.linkSection}>
+      <span style={styles.sectionLabel}>{icon ?? label}</span>
+      <div style={styles.linkList}>
+        {normalizedLinks.map((link) => (
+          <a key={`${link.url}:${link.title}`} href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkChip}>
+            <span>{link.title}</span>
+            {link.description && <small style={styles.linkDescription}>{link.description}</small>}
+          </a>
+        ))}
+      </div>
+    </div>
+  )
+}
 
-              if (inline) {
-                return (
-                  <code
-                    style={{
-                      background: '#e9ecef',
-                      padding: '0.2rem 0.5rem',
-                      borderRadius: '4px',
-                      fontSize: '0.9em',
-                      fontFamily: 'monospace',
-                      whiteSpace: 'pre',
-                      wordBreak: 'break-all'
-                    }}
-                    {...customProps}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                )
-              }
+function normalizeMarkdownInput(content: string): string {
+  return htmlFragmentsToMarkdown(decodeHtmlEntities(content)).trim()
+}
 
-              return (
-                <code
-                  style={{
-                    display: 'block',
-                    background: '#212529',
-                    color: '#f8f9fa',
-                    padding: '1rem',
-                    borderRadius: '8px',
-                    overflowX: 'auto',
-                    fontSize: '0.875rem',
-                    fontFamily: 'monospace',
-                    maxWidth: '100%'
-                  }}
-                  className={className}
-                  htmlStyle={{ maxWidth: '100%', wordBreak: 'break-word' }}
-                  {...customProps}
-                  {...props}
-                >
-                  {children}
-                </code>
-              )
-            },
-            a: ({ href, children }: any) => (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: role === 'user' ? '#60a5fa' : '#2563eb',
-                  textDecoration: 'none',
-                  borderBottom: `1px dashed ${role === 'user' ? '#60a5fa' : '#2563eb'}`,
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                {children}
-              </a>
-            ),
-            ul: ({ children }: any) => (
-              <ul
-                style={{
-                  paddingLeft: '1.5rem',
-                  marginBottom: '1rem',
-                  lineHeight: 1.6,
-                  wordBreak: 'break-word'
-                }}
-              >
-                {children}
-              </ul>
-            ),
-            ol: ({ children }: any) => (
-              <ol
-                style={{
-                  paddingLeft: '1.5rem',
-                  marginBottom: '1rem',
-                  lineHeight: 1.6,
-                  wordBreak: 'break-word'
-                }}
-              >
-                {children}
-              </ol>
-            ),
-            blockquote: ({ children }: any) => (
-              <blockquote
-                style={{
-                  borderLeft: '3px solid #666',
-                  paddingLeft: '1rem',
-                  margin: '1rem 0',
-                  color: '#888',
-                  fontStyle: 'italic',
-                  wordBreak: 'break-word'
-                }}
-              >
-                {children}
-              </blockquote>
-            ),
-            h1: ({ children }: any) => (
-              <h1
-                style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 700,
-                  marginBottom: '0.75rem',
-                  lineHeight: 1.6
-                }}
-              >
-                {children}
-              </h1>
-            ),
-            h2: ({ children }: any) => (
-              <h2
-                style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  marginBottom: '0.75rem',
-                  lineHeight: 1.6
-                }}
-              >
-                {children}
-              </h2>
-            ),
-            h3: ({ children }: any) => (
-              <h3
-                style={{
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  marginBottom: '0.5rem',
-                  lineHeight: 1.6
-                }}
-              >
-                {children}
-              </h3>
-            ),
-            hr: () => (
-              <hr
-                style={{
-                  width: '100%',
-                  height: '1px',
-                  marginTop: '1rem',
-                  marginBottom: '1rem',
-                  border: 'none',
-                  borderTop: '1px solid #ddd'
-                }}
-              />
-            )
-          }}
-          componentsOverride={{
-            style: react => {
-              // Make sure style is properly handled
-              React.cloneElement(react.element as React.ReactElement<
-                any,
-                any
-              >, {
-                style: {
-                  ...react.element.props.style,
-                  wordBreak: 'break-word',
-                  maxWidth: '100%'
-                }
-              })
-            }
-          }}
-        >
-          {convertedContent}
-        </ReactMarkdown>
-      )
-    } catch (error) {
-      console.error('Markdown render error:', error)
-      return (
-        <div style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', lineHeight: 1.6 }}>
-          {content}
-        </div>
-      )
-    }
-  }
+function htmlFragmentsToMarkdown(input: string): string {
+  return input
+    .replace(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi, (_match, href, text) => {
+      const label = stripTags(String(text)).trim() || String(href)
+      return `[${label}](${href})`
+    })
+    .replace(/<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi, '**$2**')
+    .replace(/<(em|i)\b[^>]*>([\s\S]*?)<\/\1>/gi, '*$2*')
+    .replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, '`$1`')
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '')
+    .replace(/<\/?(ul|ol)\b[^>]*>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?(p|div)\b[^>]*>/gi, '\n\n')
+    .replace(/<\/?[^>]+>/g, '')
+    .replace(/\n{3,}/g, '\n\n')
+}
 
-  function renderSources(sources: string[]): React.ReactNode {
-    if (!sources || sources.length === 0) return null
+function stripTags(value: string): string {
+  return decodeHtmlEntities(value).replace(/<\/?[^>]+>/g, '')
+}
 
-    try {
-      const links = extractLinks(sources)
-      
-      if (links.length === 0) {
-        // Fallback: render as plain text
-        return (
-          <div
-            style={{
-              marginTop: '1rem',
-              fontSize: '0.8rem',
-              padding: '0.5rem 0.75rem',
-              background: 'rgba(0, 0, 0, 0.03)',
-              borderRadius: '6px',
-              wordBreak: 'break-word'
-            }}
-            className="sources-container"
-          >
-            📎 {sources.join(' · ')}
-          </div>
-        )
-      }
+function decodeHtmlEntities(value: string): string {
+  return value
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+}
 
-      return (
-        <div
-          style={{
-            marginTop: '1rem',
-            fontSize: '0.85rem',
-            fontFamily: 'system-ui, sans-serif'
-          }}
-          className="sources-container"
-        >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {links.map((link) => `[${link.title}](${link.url})`).join('\n')}
-          </ReactMarkdown>
-        </div>
-      )
-    } catch (error) {
-      console.error('Sources render error:', error)
-      return null
-    }
-  }
+function normalizeLinks(items: LinkLike[]): NormalizedLink[] {
+  return items
+    .map((item) => {
+      if (typeof item === 'string') return linkFromString(item)
+      if (!item || typeof item !== 'object') return null
 
-  function renderRelated(related: string[]): React.ReactNode {
-    if (!related || related.length === 0) return null
+      const url = stringValue(item.url) || stringValue(item.source_url) || slugToPostUrl(stringValue(item.slug))
+      if (!url) return null
 
-    try {
-      const links: { title: string; url: string }[] = []
-      const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
-      const fullText = related.join('\n')
-
-      let match
-      while ((match = linkRegex.exec(fullText)) !== null) {
-        links.push({ title: match[1], url: match[2] })
-      }
-
-      if (links.length === 0) {
-        return (
-          <div
-            style={{
-              marginTop: '1rem',
-              fontSize: '0.8rem',
-              padding: '0.5rem 0.75rem',
-              background: 'rgba(0, 0, 0, 0.03)',
-              borderRadius: '6px',
-              wordBreak: 'break-word'
-            }}
-            className="related-container"
-          >
-            延伸閱讀：{related.join(' · ')}
-          </div>
-        )
-      }
-
-      return (
-        <div
-          style={{
-            marginTop: '1rem',
-            fontSize: '0.85rem',
-            fontFamily: 'system-ui, sans-serif'
-          }}
-          className="related-container"
-        >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {links.map((link) => `[${link.title}](${link.url})`).join('\n')}
-          </ReactMarkdown>
-        </div>
-      )
-    } catch (error) {
-      console.error('Related render error:', error)
-      return null
-    }
-  }
-
-  function extractLinks(texts: string[]): { title: string; url: string }[] {
-    const links: { title: string; url: string }[] = []
-    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
-
-    texts.forEach((text) => {
-      let match
-      while ((match = linkRegex.exec(text)) !== null) {
-        links.push({ title: match[1], url: match[2] })
+      return {
+        title: stringValue(item.title) || stringValue(item.label) || url,
+        url,
+        description: stringValue(item.description),
       }
     })
+    .filter((link): link is NormalizedLink => Boolean(link))
+}
 
-    return links
-  }
+function linkFromString(value: string): NormalizedLink | null {
+  const markdownLink = value.match(/\[([^\]]+)\]\(([^)]+)\)/)
+  if (markdownLink) return { title: markdownLink[1], url: markdownLink[2] }
+
+  const trimmed = value.trim()
+  if (!trimmed) return null
+  if (/^https?:\/\//.test(trimmed) || trimmed.startsWith('/')) return { title: trimmed, url: trimmed }
+
+  return { title: trimmed, url: `#` }
+}
+
+function slugToPostUrl(slug: string): string {
+  if (!slug) return ''
+  return slug.startsWith('/posts/') ? slug : `/posts/${slug}`
+}
+
+function stringValue(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : ''
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    minHeight: 0,
+    overflowY: 'auto' as const,
+    padding: '0.875rem',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    gap: '0.75rem',
+  },
+  message: {
+    maxWidth: '100%',
+    minWidth: 0,
+  },
+  userMessage: {
+    alignSelf: 'flex-end',
+    maxWidth: '88%',
+  },
+  assistantMessage: {
+    alignSelf: 'stretch',
+  },
+  content: {
+    minWidth: 0,
+    color: 'var(--text-primary, #222)',
+    fontSize: '0.95rem',
+    lineHeight: 1.65,
+    overflowWrap: 'anywhere' as const,
+    wordBreak: 'break-word' as const,
+  },
+  paragraph: {
+    margin: '0 0 0.75rem',
+    lineHeight: 1.65,
+    overflowWrap: 'anywhere' as const,
+  },
+  list: {
+    margin: '0 0 0.85rem',
+    paddingLeft: '1.25rem',
+  },
+  listItem: {
+    margin: '0.2rem 0',
+  },
+  strong: {
+    fontWeight: 700,
+  },
+  link: {
+    textDecoration: 'underline',
+    textUnderlineOffset: '0.18em',
+  },
+  h1: {
+    fontSize: '1.12rem',
+    lineHeight: 1.4,
+    margin: '0 0 0.65rem',
+  },
+  h2: {
+    fontSize: '1.05rem',
+    lineHeight: 1.45,
+    margin: '0.85rem 0 0.5rem',
+  },
+  h3: {
+    fontSize: '1rem',
+    lineHeight: 1.45,
+    margin: '0.75rem 0 0.45rem',
+  },
+  pre: {
+    margin: '0 0 0.85rem',
+    maxWidth: '100%',
+    overflowX: 'auto' as const,
+    borderRadius: 8,
+    background: '#1f2937',
+  },
+  codeBlock: {
+    display: 'block',
+    padding: '0.85rem',
+    color: '#f9fafb',
+    fontSize: '0.82rem',
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+    whiteSpace: 'pre' as const,
+  },
+  inlineCode: {
+    padding: '0.12rem 0.3rem',
+    borderRadius: 4,
+    background: '#f1f5f9',
+    fontSize: '0.9em',
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  },
+  linkSection: {
+    marginTop: '0.75rem',
+    padding: '0.65rem 0.75rem',
+    borderRadius: 8,
+    background: 'rgba(0, 0, 0, 0.035)',
+    display: 'flex',
+    gap: '0.55rem',
+    alignItems: 'flex-start',
+    minWidth: 0,
+    maxWidth: '100%',
+  },
+  sectionLabel: {
+    flexShrink: 0,
+    fontWeight: 700,
+  },
+  linkList: {
+    display: 'flex',
+    flexWrap: 'wrap' as const,
+    gap: '0.45rem',
+    minWidth: 0,
+    maxWidth: '100%',
+  },
+  linkChip: {
+    display: 'block',
+    minWidth: 0,
+    maxWidth: '100%',
+    color: 'var(--text-primary, #222)',
+    textDecoration: 'none',
+    fontWeight: 600,
+    overflowWrap: 'anywhere' as const,
+  },
+  linkDescription: {
+    display: 'block',
+    marginTop: '0.1rem',
+    color: 'var(--text-secondary, #666)',
+    fontWeight: 400,
+  },
 }

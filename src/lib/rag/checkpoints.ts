@@ -18,11 +18,15 @@ function estimateTokenCount(state: Pick<GraphState, 'messages' | 'draft' | 'sear
 
 export async function loadLatestCheckpoint(threadId: string): Promise<string | undefined> {
   const { DB } = env as unknown as CheckpointEnv
-  const row = await DB.prepare(
-    'SELECT summary FROM checkpoints WHERE thread_id = ? ORDER BY created_at DESC LIMIT 1'
-  ).bind(threadId).first<{ summary: string }>()
+  try {
+    const row = await DB.prepare(
+      'SELECT summary FROM checkpoints WHERE thread_id = ? ORDER BY created_at DESC LIMIT 1'
+    ).bind(threadId).first<{ summary: string }>()
 
-  return row?.summary
+    return row?.summary
+  } catch {
+    return undefined
+  }
 }
 
 export async function maybeSaveCheckpoint(
@@ -41,10 +45,14 @@ export async function maybeSaveCheckpoint(
     state.coverage_gaps.length > 0 ? `Coverage gaps: ${state.coverage_gaps.join(', ')}` : '',
   ].filter(Boolean).join('\n')
 
-  await DB.prepare(
-    `INSERT INTO checkpoints (thread_id, checkpoint_id, summary, turn_count, created_at)
-     VALUES (?, ?, ?, ?, datetime('now'))`
-  )
-    .bind(state.thread_id, crypto.randomUUID(), summary, state.iteration)
-    .run()
+  try {
+    await DB.prepare(
+      `INSERT INTO checkpoints (thread_id, checkpoint_id, summary, turn_count, created_at)
+       VALUES (?, ?, ?, ?, datetime('now'))`
+    )
+      .bind(state.thread_id, crypto.randomUUID(), summary, state.iteration)
+      .run()
+  } catch {
+    // Ignore checkpoint persistence failure to keep chat available in local/dev without migrations.
+  }
 }

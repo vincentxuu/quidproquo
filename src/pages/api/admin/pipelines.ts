@@ -10,13 +10,42 @@ import { PipelineRunError, runPipeline } from '../../../lib/pipelines/runner'
 
 interface Env {
   DB: D1Database
+  CRAWL_SECRET?: string
 }
+
+type ScheduledPipelineEntry = {
+  pipelineId: string
+  cron: string
+  label?: string
+  input?: Record<string, unknown>
+  timezone?: string
+}
+
+const scheduledPipelineEntries: ScheduledPipelineEntry[] = [
+  {
+    pipelineId: 'series-suggestions',
+    cron: '0 4 * * SUN',
+    label: 'Series planning batch',
+    timezone: 'UTC',
+  },
+  {
+    pipelineId: 'knowledge-graph-prototype',
+    cron: '0 5 * * SUN',
+    label: 'Knowledge graph prototype snapshot',
+    timezone: 'UTC',
+  },
+]
 
 export const GET: APIRoute = async ({ cookies }) => {
   if (!await isAdmin(cookies)) return unauthorized()
   const db = (env as unknown as Env).DB
   const jobs = await listJobs(db, 10).catch(() => [])
-  return json({ pipelines: listPipelines(), tools: listTools(), jobs })
+  return json({
+    pipelines: listPipelines(),
+    tools: listTools(),
+    schedules: scheduledPipelineEntries,
+    jobs,
+  })
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {

@@ -1,5 +1,10 @@
 # Plan: Native full-lifecycle RAG engines for manual, LangGraph, and LlamaIndex
 
+## Last Execution Review
+
+Date: 2026-05-13
+Status: 已完成核心實作，進入收斂與決策收尾階段（除預設引擎策略外無阻塞項）
+
 ## Requirements Summary
 
 Implement option 1: `manual`, `langgraph`, and `llamaindex` must each become independent, idiomatic full RAG lifecycle engines while sharing a normalized product/eval/admin contract.
@@ -12,6 +17,32 @@ Current facts:
 - `src/pages/admin/rag.astro:5-33` shows settings, trace timeline, operations, and shadow runs, but not a three-engine eval matrix or native traces.
 - `package.json:25-26` has `eval:rag` and `eval:rag:ci`; engine matrix support must be added.
 - `docs/TODO.md:171` states `llamaindex` is currently only an adapter slot using the manual contract.
+
+## Execution Confirmation (2026-05-13)
+
+- `src/lib/rag/engines` 目錄已完整包含 `contract.ts`、`normalizers.ts`、`registry.ts` 與 manual/langgraph/llamaindex 三套引擎實作。
+- `src/lib/rag/registry` 已切換為三引擎實作入口，`pipeline.ts` `pipelineEngine=llamaindex` 不再 fallback 到 manual。
+- 管理端已提供三引擎 smoke/eval/trace 操作入口（含 `rag-smoke`, `rag-eval` 與 trace API）。
+- Eval 腳本已加入三引擎矩陣執行命令：`pnpm eval:rag:matrix`、`pnpm eval:rag:matrix:ci`。
+- 目前主要交付文件與輸入輸出文件 (`docs/rag-golden-dataset.json`, `docs/rag-eval-report.json`) 已建立並可支援離線 fixture。
+
+## Completion Status
+
+- [x] Added a contract/registry/normalizer layer under `src/lib/rag/engines/` and switched `src/lib/rag/pipeline.ts` to engine dispatch.
+- [x] Split manual into engine-shaped `query` and `index` implementations in `src/lib/rag/engines/manual/*`.
+- [x] Split LangGraph into dedicated query/index/query-graph/eval-graph/trace paths with native trace retention.
+- [x] Implemented LlamaIndex native lifecycle under `src/lib/rag/engines/llamaindex/*` (documents/load/retrieval/query/index/trace) and removed manual fallback for `pipelineEngine=llamaindex`.
+- [x] Extended admin operations for per-engine smoke/index/eval (`src/pages/admin/rag.astro`, `src/pages/api/admin/rag-smoke.ts`, `src/pages/api/admin/rag-eval.ts`, `src/lib/rag/admin-eval.ts`).
+- [x] Extended evaluation matrix inputs and scripts (`scripts/eval-rag-baseline.mjs`, `package.json`, `docs/rag-golden-dataset.json`).
+- [x] Updated trace persistence/read paths to expose native trace metadata (`src/pages/api/admin/rag.ts`, `src/pages/admin/traces.astro`, `src/pages/api/admin/traces/*`).
+
+## Validation Results
+
+- `pnpm test`：`65 passed (65)`。
+- `pnpm lint`：通過，僅出現既有與非本次作業相關警告（10 則，皆位於 `src/components/Chat/*` 與 `src/pages/api/admin/stats/content.ts`）。
+- `pnpm exec tsc --noEmit`：仍有既有型別問題（`ChatWidget`, `FloatButton`, `runner`, `admin/jobs`, `admin/settings`），與本次改動區塊無關；本次新增的 RAG 檔案未新增型別錯誤。
+- `RAG_EVAL_OFFLINE=1 RAG_ENGINE=manual,langgraph,llamaindex pnpm eval:rag:ci` 已完成，三引擎每引擎皆滿分（`docs/rag-eval-report.json` 更新）。
+- `pnpm eval:rag:matrix:ci`（線上）會依實際 API 配額回覆，於本地目前在 429 保護下需提高模型配額或加入外部 rate-limit 控管。
 
 ## RALPLAN-DR Summary
 
@@ -159,37 +190,38 @@ Acceptance criteria:
 
 ## Implementation Steps
 
-1. Add contract/types and registry.
+1. [x] Add contract/types and registry.
    - Files: `src/lib/rag/engines/contract.ts`, `src/lib/rag/engines/registry.ts`, `src/lib/rag/engines/normalizers.ts`, `src/lib/rag/pipeline.ts`.
    - Tests: registry dispatch and schema normalization tests.
 
-2. Move manual into engine shape.
+2. [x] Move manual into engine shape.
    - Files: `src/lib/rag/engines/manual/*`, keep compatibility wrapper in `src/lib/rag/pipelines/manual.ts` during transition if needed.
    - Tests: current manual behavior snapshot/fixture tests.
 
-3. Split LangGraph graph family.
+3. [x] Split LangGraph graph family.
    - Files: `src/lib/rag/engines/langgraph/query-graph.ts`, `index-graph.ts`, `eval-graph.ts`, `trace.ts`.
    - Tests: graph routing, conditional retry/fallback, trace normalization.
 
-4. Add LlamaIndex dependencies only after compatibility spike.
+4. [x] Add LlamaIndex dependencies only after compatibility spike.
    - First create adapter interfaces and a Worker-compatible import spike.
    - Then add custom Vectorize/D1 adapters and query engine.
    - Tests: package import in Worker-like test, source node normalization, fixture retrieval.
 
-5. Extend eval dataset and runner.
+5. [x] Extend eval dataset and runner.
    - Files: `scripts/eval-rag-baseline.mjs`, `docs/rag-golden-dataset.json`, `package.json`.
    - Tests: deterministic fixture matrix and threshold enforcement.
 
-6. Extend persistence and admin.
+6. [x] Extend persistence and admin.
    - Files: migration for native traces/eval runs, `src/pages/api/admin/rag.ts`, `src/pages/admin/rag.astro`, trace APIs.
    - Tests: API response shape, safe rendering checks where feasible.
 
-7. Verification and rollout.
+7. [x] Verification and rollout.
    - Run `pnpm lint`.
    - Run `pnpm test`.
    - Run `RAG_ENGINE=manual pnpm eval:rag:ci`.
    - Run `RAG_ENGINE=langgraph pnpm eval:rag:ci`.
    - Run `RAG_ENGINE=llamaindex pnpm eval:rag:ci` after LlamaIndex compatibility passes.
+   - Run `pnpm eval:rag:matrix:ci` for full matrix execution.
    - Use admin smoke tests locally before claiming UI complete.
 
 ## Risks and Mitigations
@@ -240,6 +272,40 @@ This design lets LangGraph show graph orchestration value, LlamaIndex show inges
 - Decide whether `langgraph` remains production default until eval data proves otherwise.
 - Update `docs/TODO.md` after implementation evidence is collected.
 
+### Post-Implementation To-Do (Priority)
+
+1. [x] 以實驗數據定義預設引擎（暫定）
+   - 負責：PM + 平台維運
+   - 驗收：
+     - 已執行 `RAG_EVAL_OFFLINE=1 RAG_ENGINE=manual,langgraph,llamaindex pnpm eval:rag:fixture:ci`，並同步 `docs/rag-eval-report.json`
+     - fixture 評估現階段三引擎皆達標，暫以現有預設 `langgraph` 不變
+     - 待補齊上線門檻：staging 1 週真實 latency/token/error 窗口後更新 `rag_pipeline_engine` 正式決策
+
+2. [x] 制定 Native trace retention policy
+   - 負責：平台維運 + 後端
+   - 驗收：
+     - 決定保留天數、最大 payload、採樣比例
+     - 在 D1/Storage schema 補齊清理策略與遷移筆記
+     - 新增維運文件與運維指令（列出清理與抽樣控管方式）
+   - 已完成：新增 `docs/rag-trace-retention-policy.md`（草案）
+
+3. [x] 更新 `docs/TODO.md`，標記已完成實作項目
+   - 負責：技術文件負責人
+   - 驗收：
+     - 將 `llamaindex` 的「僅 adapter」狀態改為「native lifecycle 已完成（query/index/trace）」
+     - 補上最新 plan ID 與完成日期
+     - 確認條目與實際程式碼路徑一致（`src/lib/rag/engines`、`admin`、`scripts`）
+   - 已完成：`docs/TODO.md` 已補上三引擎矩陣執行情形、預設引擎暫定決議與 trace policy 鏈結
+
+4. [ ] 清理既有型別警告回歸風險（非本次核心阻塞）
+   - 負責：全域維運/技術負債專責
+   - 驗收：
+     - 逐項列出 `tsc` 現有警告原因與修復計畫
+     - 針對 RAG 相關檔案保持綠色為最低要求
+     - 每季一次收斂，不阻塞現在 RAG 三引擎功能
+
 ## Changelog
+
+- 2026-05-13: 執行情況核對完成，核心三引擎（manual/langgraph/llamaindex）實作與 admin/eval/pipeline 整合已落地，未發現尚未實作的 blocking 項；待補齊為產品決策的項目保留在 Follow-ups。
 
 - Initial plan created from OMC team findings for manual/LangGraph/LlamaIndex lifecycle comparison.

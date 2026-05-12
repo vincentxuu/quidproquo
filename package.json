@@ -23,7 +23,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "eval:rag": "node scripts/eval-rag-baseline.mjs",
-    "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs"
+    "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",
+    "eval:rag:fixture": "RAG_EVAL_OFFLINE=1 node scripts/eval-rag-baseline.mjs",
+    "eval:rag:fixture:ci": "RAG_EVAL_OFFLINE=1 RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",
+    "eval:rag:matrix": "RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
+    "eval:rag:matrix:ci": "RAG_EVAL_ENFORCE=1 RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
+    "rag:trace-retention": "node scripts/rag-trace-retention.mjs",
+    "rag:trace-retention:dry-run": "RAG_TRACE_RETENTION_DRY_RUN=1 node scripts/rag-trace-retention.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.0",

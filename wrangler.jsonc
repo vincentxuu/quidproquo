@@ -8,7 +8,12 @@
   ],
   "compatibility_flags": ["nodejs_compat"],
   "triggers": {
-    "crons": ["0 2 * * SUN"]
+    "crons": [
+      "0 2 * * SUN",
+      "0 3 * * *",
+      "0 4 * * SUN",
+      "0 5 * * SUN"
+    ]
   },
   "assets": {
     "binding": "ASSETS",

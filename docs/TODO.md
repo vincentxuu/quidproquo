@@ -1,7 +1,7 @@
 # quidproquo 任務總清單
 
 > 整合來源：`docs/plan.md`、`docs/superpowers/plans/`、`src/content/posts/product/2026-04-18-quidproquo-improvement-roadmap.md`
-> 最後更新：2026-05-12（校正已實作項目，並同步 `docs/blog-improvement-plan.md`；確認 404 / 英文搜尋 / 英文首頁 about / session-start / progress / RSS author / font preload 已落地）
+> 最後更新：2026-05-13（RAG 三引擎 eval/trace follow-up 進入收斂：完成三引擎 fixture matrix，並新增 trace retention 政策草案）
 >
 > **設計鐵律：每個加上去的技術都必須能關掉。**
 > 所有進階技術（HyDE、Multi-query、Reranker、Critic...）都必須有 feature flag、有 A/B 比較機制、只為觀測到的失敗而加。
@@ -168,11 +168,16 @@
     - 回答格式優先回傳結構化清單（標題、分類、連結、推薦理由）
     - 對照舊流程，至少 10 筆測試查詢中主觀可用性提升（人工評估）
 - [x] **Pipeline Engine 抽象：支援 `langgraph` / `manual` / `llamaindex` 選擇**
-  - 目前狀態：已新增 `src/lib/rag/pipeline.ts` 統一入口與 `rag_pipeline_engine` setting；`langgraph` 維持既有路徑，`manual` 提供同輸出契約的純函數 pipeline，`llamaindex` 先以 adapter 模式走 manual 合約以保留切換點
+  - 目前狀態：已新增 `src/lib/rag/engines/` 內統一 contracts + registry；`runPipeline` 改為依 `pipelineEngine` 切引擎。`llamaindex` 現在有獨立 query/index 實作，不再走 manual adapter。
   - 驗收：
     - 設定新增 `pipeline_engine`
     - `/api/chat` 可依設定切換 engine，且輸出契約一致（`final_response`、`search_results`、`critique`、`token_usage`）
+    - 各 engine 保留 `native_trace` 與 index/probe 操作介面
     - 既有 LangGraph 路徑不回歸（現有測試全綠）
+- [x] **三引擎評估矩陣決策點**
+  - 2026-05-13：已完成 `RAG_EVAL_OFFLINE=1 RAG_ENGINE=manual,langgraph,llamaindex pnpm eval:rag:fixture:ci`
+  - 目前 `docs/rag-eval-report.json` 中三引擎 fixture 指標同為 1.00（`faithfulness` / `answerRelevance` / `contextRecall`），暫以 `pipelineEngine=langgraph` 作為預設
+  - 驗收（後續生效）：待 live 環境實際 `latency / token / error` 比較完後，更新預設決議與回退門檻
 - [x] **Provider / Model Router（分階段切換）**
   - 目前狀態：`src/lib/rag/model.ts` 支援 Groq / OpenAI / Google GenAI；settings 新增 `rag_default_provider`、`rag_default_model`、`rag_stage_overrides`、fallback provider/model；Planner/Research/Writer/Critic 會依 stage route 建 model，並把 provider/model 寫入 trace metadata
   - 目標：可依 pipeline 階段切換不同 provider 與 model（例如 Planner/Research/Writer/Critic 各自獨立）
@@ -183,11 +188,15 @@
     - trace 需落地每次請求的 provider/model（含版本）供事後比對
     - 可做 fallback policy（主要 provider 失敗時自動切備援）
 - [x] **RAG Eval 自動化（RAGAS / DeepEval）**
-  - 目前狀態：`pnpm eval:rag` 會輸出固定 JSON 報表 `docs/rag-eval-report.json`；新增 `pnpm eval:rag:ci`，可用 `RAG_EVAL_ENFORCE=1` 依 Faithfulness / Answer Relevance / Context Recall 門檻阻擋升級
+  - 目前狀態：`pnpm eval:rag` 會輸出固定 JSON 報表 `docs/rag-eval-report.json`；新增 `pnpm eval:rag:ci`，可用 `RAG_EVAL_ENFORCE=1` 依 Faithfulness / Answer Relevance / Context Recall 門檻阻擋升級；新增 `pnpm eval:rag:matrix` / `pnpm eval:rag:matrix:ci` 可跑三引擎比較
+  - 目前狀態（里程碑）：三引擎 fixture 比較已執行，並將結果同步到 `docs/rag-eval-report.json`
   - 驗收：
     - 每次策略或 prompt 變更可自動重跑 baseline
     - 輸出固定報表：faithfulness、answer_relevance、context_recall、latency
     - 變更未達門檻時可阻擋升級（或標記為實驗）
+- [x] **Native trace retention policy 落地**
+  - 目前狀態：建立 `docs/rag-trace-retention-policy.md`，定義生產/admin/eval 三類追蹤保留與清理策略（保留天數、摘要化、取樣比例、失敗樣本保留規則）
+  - 下一步：依政策補齊 D1 清理排程與設定開關
 - [x] **Reranker A/B（complex-only）**
   - 目前狀態：reranker 已可用 `rag_flag_reranker` 獨立開關，Research 只在 complex query 執行 multi-query 類擴展；shadow mode 會保存 primary/shadow response/confidence，Admin Console 可查看差異摘要，後續以 eval report 判斷是否只對 complex query 開啟
   - 驗收：

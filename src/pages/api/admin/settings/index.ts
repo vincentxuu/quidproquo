@@ -15,6 +15,21 @@ interface SettingRow {
   updated_at: string | null
 }
 
+interface SettingsUpdateBody {
+  rate_limit?: {
+    per_minute?: unknown
+    per_hour?: unknown
+  }
+  rag?: {
+    cache_ttl_seconds?: unknown
+    max_context_chunks?: unknown
+  }
+  pipeline?: {
+    max_retries?: unknown
+    max_runtime_ms?: unknown
+  }
+}
+
 export const GET: APIRoute = async ({ cookies }) => {
   if (!await isAdmin(cookies)) return unauthorized()
 
@@ -71,7 +86,7 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
   if (!await isAdmin(cookies)) return unauthorized()
 
   const e = env as unknown as Env
-  const body = await request.json()
+  const body = await request.json().catch(() => ({})) as SettingsUpdateBody
 
   // Validate input
   const updates: Record<string, string> = {}

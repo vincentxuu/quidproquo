@@ -1,5 +1,6 @@
-import type { GraphState, PipelineCallbacks, RagRuntimeConfig } from './state'
-import { runManualPipeline } from './pipelines/manual'
+import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig } from './state'
+import { normalizeRagLifecycleOutput } from './engines/normalizers'
+import { resolveRagEngine } from './engines/registry'
 
 export async function runPipeline(
   input: {
@@ -12,13 +13,28 @@ export async function runPipeline(
   callbacks: PipelineCallbacks
 ): Promise<GraphState> {
   const engine = input.config?.pipelineEngine ?? 'langgraph'
-  if (engine === 'langgraph') {
-    const { runPipeline: runLangGraphPipeline } = await import('./graph')
-    return runLangGraphPipeline(input, callbacks)
-  }
+  const engineConfig = input.config ?? initialState().config
+  const effectiveConfig = { ...engineConfig, pipelineEngine: engine }
+  const resolver = resolveRagEngine(effectiveConfig.pipelineEngine)
+  const output = await resolver.query(
+    {
+      message: input.message,
+      traceId: input.traceId,
+      threadId: input.threadId,
+      conversationSummary: input.conversationSummary,
+      config: effectiveConfig,
+    },
+    callbacks
+  )
 
-  // LlamaIndex is exposed as a selectable engine for contract testing while the
-  // implementation is still a manual pipeline adapter. This keeps runtime output
-  // stable before introducing another orchestration dependency.
-  return runManualPipeline(input, callbacks, engine)
+  return normalizeRagLifecycleOutput(
+    {
+      message: input.message,
+      traceId: input.traceId,
+      threadId: input.threadId,
+      conversationSummary: input.conversationSummary,
+      config: effectiveConfig,
+    },
+    output
+  )
 }

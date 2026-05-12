@@ -1,0 +1,168 @@
+{
+  "summary": {
+    "count": 12,
+    "faithfulness": 1,
+    "answerRelevance": 1,
+    "contextRecall": 1,
+    "passed": 12,
+    "thresholds": {
+      "faithfulness": 0.8,
+      "answerRelevance": 0.75,
+      "contextRecall": 0.7
+    },
+    "generatedAt": "2026-05-12T19:24:29.780Z",
+    "engines": [
+      "manual",
+      "langgraph",
+      "llamaindex"
+    ]
+  },
+  "perEngine": {
+    "manual": {
+      "count": 4,
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": 4,
+      "thresholds": {
+        "faithfulness": 0.8,
+        "answerRelevance": 0.75,
+        "contextRecall": 0.7
+      }
+    },
+    "langgraph": {
+      "count": 4,
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": 4,
+      "thresholds": {
+        "faithfulness": 0.8,
+        "answerRelevance": 0.75,
+        "contextRecall": 0.7
+      }
+    },
+    "llamaindex": {
+      "count": 4,
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": 4,
+      "thresholds": {
+        "faithfulness": 0.8,
+        "answerRelevance": 0.75,
+        "contextRecall": 0.7
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "q01",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "manual"
+    },
+    {
+      "id": "q02",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "manual"
+    },
+    {
+      "id": "q03",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "manual"
+    },
+    {
+      "id": "q04",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "manual"
+    },
+    {
+      "id": "q01",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "langgraph"
+    },
+    {
+      "id": "q02",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "langgraph"
+    },
+    {
+      "id": "q03",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "langgraph"
+    },
+    {
+      "id": "q04",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "langgraph"
+    },
+    {
+      "id": "q01",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "llamaindex"
+    },
+    {
+      "id": "q02",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "llamaindex"
+    },
+    {
+      "id": "q03",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "llamaindex"
+    },
+    {
+      "id": "q04",
+      "category": "fixture",
+      "faithfulness": 1,
+      "answerRelevance": 1,
+      "contextRecall": 1,
+      "passed": true,
+      "engine": "llamaindex"
+    }
+  ]
+}

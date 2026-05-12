@@ -1,0 +1,30 @@
+[
+  {
+    "id": "q01",
+    "query": "你寫過哪些 AI Agent 相關的文章？",
+    "language": "zh-TW",
+    "fixture_answer": "有寫過 AI Agent 相關主題：從 context engineering、tool calling、到 RAG 在 agent 系統中的應用都有整理，並在多篇文章中比較過不同實作取捨。",
+    "fixture_sources": ["posts/ai", "posts/tech"]
+  },
+  {
+    "id": "q02",
+    "query": "Context Engineering 跟 Prompt Engineering 差在哪？",
+    "language": "zh-TW",
+    "fixture_answer": "Context Engineering 著重在『給模型的上下文與工具行為設計』，不是單純調整 prompt 的文字；Prompt Engineering 主要側重提示詞本身的撰寫與技巧。",
+    "fixture_sources": ["posts/ai", "posts/learning"]
+  },
+  {
+    "id": "q03",
+    "query": "Cloudflare D1 batch timeout 要怎麼解？",
+    "language": "zh-TW",
+    "fixture_answer": "可以分批處理、縮小每批大小、加重試與回退，並調整 checkpoint 及重試策略；必要時改用非同步排程。",
+    "fixture_sources": ["posts/tech", "posts/ai"]
+  },
+  {
+    "id": "q04",
+    "query": "LangGraph 適合什麼情境？",
+    "language": "zh-TW",
+    "fixture_answer": "LangGraph 適合流程複雜、節點可拆、需要可視化追蹤與重試/條件分支的場景，像是多步驟檢索、規劃到生成一體化的 query pipeline。",
+    "fixture_sources": ["posts/ai", "posts/tech"]
+  }
+]

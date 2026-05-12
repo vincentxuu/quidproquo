@@ -575,7 +575,7 @@ const breadcrumbLD = {
   const glossaryTitle = document.getElementById('glossary-title');
   const glossaryDefinition = document.getElementById('glossary-definition');
   const glossaryContext = document.getElementById('glossary-context');
-  const glossaryReading = document.getElementById('glossary-reading');
+  const glossaryReading = document.getElementById('glossary-reading') as HTMLElement | null;
 
   type GlossaryEntry = {
     term: string;
@@ -716,7 +716,7 @@ const breadcrumbLD = {
       const anchor = document.createElement('a');
       anchor.href = link.url;
       anchor.textContent = link.label;
-      glossaryReading.append(anchor);
+      glossaryReading.appendChild(anchor);
     });
   }
 

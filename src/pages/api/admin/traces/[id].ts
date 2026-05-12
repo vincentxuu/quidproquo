@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro'
 import { verifySession } from '../../../../lib/auth/session'
+import { buildLangfuseTraceUrl } from '../../../../lib/langfuse'
 
 export const GET: APIRoute = async ({ cookies, params }) => {
   if (!await isAdmin(cookies)) return unauthorized()
@@ -50,19 +51,37 @@ export const GET: APIRoute = async ({ cookies, params }) => {
         metadata_json: string | null
       }>()
 
-    const steps = (result.results || []).map((row) => ({
-      id: row.id,
-      stage: row.stage || 'unknown',
-      started_at: row.started_at,
-      finished_at: row.finished_at,
-      duration_ms: row.duration_ms || 0,
-      input_summary: row.input_summary,
-      output_summary: row.output_summary,
-      error_summary: row.error_summary,
-      metadata_json: row.metadata_json,
-    }))
+    const rows = result.results || []
+    const nativeTrace = rows.find((row) => row.stage === 'native_trace')
+    const nativeTracePayload = safeParseJson(nativeTrace?.metadata_json ?? null)
+    const steps = rows
+      .filter((row) => row.stage !== 'native_trace')
+      .map((row) => ({
+        id: row.id,
+        stage: row.stage || 'unknown',
+        started_at: row.started_at,
+        finished_at: row.finished_at,
+        duration_ms: row.duration_ms || 0,
+        input_summary: row.input_summary,
+        output_summary: row.output_summary,
+        error_summary: row.error_summary,
+        metadata_json: row.metadata_json,
+      }))
+    const traceScope = rows
+      .filter((row) => row.stage !== 'native_trace')
+      .map((row) => safeParseJson(row.metadata_json ?? null)?.trace_scope)
+      .find((value) => typeof value === 'string' && value.length > 0) ??
+      (typeof nativeTracePayload?.trace_scope === 'string' ? nativeTracePayload.trace_scope : undefined) ??
+      'production'
 
-    return new Response(JSON.stringify({ traceId, steps }), {
+    return new Response(JSON.stringify({
+      traceId,
+      langfuse_trace_id: traceId,
+      langfuse_trace_url: buildLangfuseTraceUrl(traceId),
+      trace_scope: traceScope,
+      steps,
+      native_trace: nativeTracePayload,
+    }), {
       headers: { 'Content-Type': 'application/json' },
     })
   } catch (error) {
@@ -71,6 +90,16 @@ export const GET: APIRoute = async ({ cookies, params }) => {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     })
+  }
+}
+
+function safeParseJson(value: string | null): Record<string, unknown> | null {
+  if (!value) return null
+  try {
+    const parsed = JSON.parse(value)
+    return typeof parsed === 'object' && parsed !== null ? parsed as Record<string, unknown> : null
+  } catch {
+    return null
   }
 }
 

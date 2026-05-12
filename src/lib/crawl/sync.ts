@@ -3,12 +3,34 @@ import { CRAWL_TARGETS } from './config';
 import { crawlTarget } from './browser-rendering';
 import { chunkMarkdown, type DocChunk } from './chunker';
 
+interface EnvConfig {
+  CF_ACCOUNT_ID?: string;
+  CF_API_TOKEN?: string;
+  CRAWL_SECRET?: string;
+}
+
+function getEnvConfig(): EnvConfig {
+  return env as unknown as EnvConfig;
+}
+
 function getDB(): D1Database {
   return (env as unknown as { DB: D1Database }).DB;
 }
 
+function ensureCrawlSecret(expectedSecret: string | undefined, providedSecret: string | undefined): void {
+  if (!expectedSecret) {
+    throw new Error('CRAWL_SECRET secret not set')
+  }
+  if (!providedSecret) {
+    throw new Error('crawl secret is required');
+  }
+  if (providedSecret !== expectedSecret) {
+    throw new Error('invalid crawl secret');
+  }
+}
+
 function getEnvVars(): { accountId: string; apiToken: string } {
-  const e = env as unknown as { CF_ACCOUNT_ID?: string; CF_API_TOKEN?: string };
+  const e = getEnvConfig();
   if (!e.CF_ACCOUNT_ID) throw new Error('CF_ACCOUNT_ID secret not set');
   if (!e.CF_API_TOKEN) throw new Error('CF_API_TOKEN secret not set');
   return { accountId: e.CF_ACCOUNT_ID, apiToken: e.CF_API_TOKEN };
@@ -106,9 +128,13 @@ export interface SyncResult {
 export interface CrawlSyncOptions {
   full?: boolean;
   modifiedSince?: number;
+  secret?: string;
 }
 
 export async function runCrawlSync(options: CrawlSyncOptions = {}): Promise<SyncResult[]> {
+  const envConfig = getEnvConfig();
+  ensureCrawlSecret(envConfig.CRAWL_SECRET, options.secret);
+
   const db = getDB();
   const { accountId, apiToken } = getEnvVars();
   const results: SyncResult[] = [];

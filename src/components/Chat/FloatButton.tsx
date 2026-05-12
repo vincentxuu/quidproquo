@@ -48,7 +48,7 @@ export default function FloatButton({ onChatClick }: { onChatClick: () => void }
         borderRadius: '12px',
         fontSize: '20px',
         cursor: 'pointer',
-        shadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
     const options = await readSyncOptions(request);
     console.log('[crawl] Sync run started', JSON.stringify({ runId, options }));
 
-    const results = await runCrawlSync(options);
+    const results = await runCrawlSync({ ...options, secret: provided });
     const totalChunks = results.reduce((sum, r) => sum + r.chunks, 0);
     const errors = results.filter(r => r.error);
     const body = {

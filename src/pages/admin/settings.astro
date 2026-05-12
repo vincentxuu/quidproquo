@@ -3,70 +3,70 @@ export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
-<AdminLayout title="Settings">
-  <p class="page-desc">System configuration: secrets, rate limits, cache, and pipeline settings.</p>
+<AdminLayout title="系統設定">
+  <p class="page-desc">系統設定：secret 狀態、rate limit、cache 與流程執行限制。</p>
 
   <div class="settings-grid">
     <section class="settings-section">
-      <h2>Secrets Status</h2>
-      <div id="secrets-status" class="secrets-grid">Loading...</div>
+      <h2>Secret 狀態</h2>
+      <div id="secrets-status" class="secrets-grid">載入中...</div>
     </section>
 
     <section class="settings-section">
-      <h2>Rate Limits</h2>
+      <h2>Rate Limit</h2>
       <div class="setting-card">
         <div class="setting-row">
-          <label for="rate-limit-minute">Requests per minute</label>
+          <label for="rate-limit-minute">每分鐘請求數</label>
           <div class="setting-input">
             <input type="number" id="rate-limit-minute" class="input" min="1" max="1000" />
-            <span class="setting-note">Per-IP rate limit</span>
+            <span class="setting-note">依 IP 限制</span>
           </div>
         </div>
         <div class="setting-row">
-          <label for="rate-limit-hour">Requests per hour</label>
+          <label for="rate-limit-hour">每小時請求數</label>
           <div class="setting-input">
             <input type="number" id="rate-limit-hour" class="input" min="1" max="10000" />
-            <span class="setting-note">Per-IP rate limit</span>
+            <span class="setting-note">依 IP 限制</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="settings-section">
-      <h2>RAG Settings</h2>
+      <h2>RAG 設定</h2>
       <div class="setting-card">
         <div class="setting-row">
-          <label for="rag-cache-ttl">Cache TTL (seconds)</label>
+          <label for="rag-cache-ttl">Cache TTL（秒）</label>
           <div class="setting-input">
             <input type="number" id="rag-cache-ttl" class="input" min="0" max="86400" />
-            <span class="setting-note">RAG response cache duration</span>
+            <span class="setting-note">RAG 回應快取時間</span>
           </div>
         </div>
         <div class="setting-row">
-          <label for="rag-max-chunks">Max context chunks</label>
+          <label for="rag-max-chunks">最多 context chunks</label>
           <div class="setting-input">
             <input type="number" id="rag-max-chunks" class="input" min="1" max="50" />
-            <span class="setting-note">Chunks retrieved per query</span>
+            <span class="setting-note">每次查詢取回的 chunks 數</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="settings-section">
-      <h2>Pipeline Settings</h2>
+      <h2>流程設定</h2>
       <div class="setting-card">
         <div class="setting-row">
-          <label for="pipeline-retries">Max retries</label>
+          <label for="pipeline-retries">最多重試次數</label>
           <div class="setting-input">
             <input type="number" id="pipeline-retries" class="input" min="0" max="5" />
-            <span class="setting-note">Retry attempts on failure</span>
+            <span class="setting-note">失敗時的重試次數</span>
           </div>
         </div>
         <div class="setting-row">
-          <label for="pipeline-runtime">Max runtime (ms)</label>
+          <label for="pipeline-runtime">最長執行時間（ms）</label>
           <div class="setting-input">
             <input type="number" id="pipeline-runtime" class="input" min="1000" max="3600000" />
-            <span class="setting-note">Job timeout in milliseconds</span>
+            <span class="setting-note">任務 timeout，單位毫秒</span>
           </div>
         </div>
       </div>
@@ -74,8 +74,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   </div>
 
   <div class="actions-bar">
-    <button id="save-settings" class="btn">Save Settings</button>
-    <button id="reset-settings" class="btn-secondary">Reset to Defaults</button>
+    <button id="save-settings" class="btn">儲存設定</button>
+    <button id="reset-settings" class="btn-secondary">重設為預設值</button>
     <span id="save-status" class="status-text"></span>
   </div>
 </AdminLayout>
@@ -96,7 +96,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         <div class="secret-item">
           <span class="secret-name">${name}</span>
           <span class="secret-status status-${info.configured ? 'ready' : 'missing'}">
-            ${info.configured ? 'Configured' : 'Missing'}
+            ${info.configured ? '已設定' : '缺少'}
           </span>
           <span class="secret-note">${info.note}</span>
         </div>
@@ -111,13 +111,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       document.getElementById('pipeline-retries').value = currentConfig.pipeline?.max_retries || 2;
       document.getElementById('pipeline-runtime').value = currentConfig.pipeline?.max_runtime_ms || 600000;
     } catch {
-      document.getElementById('secrets-status').innerHTML = '<p class="error">Unable to load settings</p>';
+      document.getElementById('secrets-status').innerHTML = '<p class="error">無法載入設定</p>';
     }
   }
 
   async function saveSettings() {
     const statusEl = document.getElementById('save-status');
-    statusEl.textContent = 'Saving...';
+    statusEl.textContent = '儲存中...';
 
     const payload = {
       rate_limit: {
@@ -143,13 +143,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || 'Failed to save');
+        throw new Error(data.error || '儲存失敗');
       }
 
-      statusEl.textContent = 'Settings saved.';
+      statusEl.textContent = '設定已儲存。';
       setTimeout(() => { statusEl.textContent = ''; }, 3000);
     } catch (error) {
-      statusEl.textContent = 'Error: ' + (error instanceof Error ? error.message : 'Unknown error');
+      statusEl.textContent = '錯誤：' + (error instanceof Error ? error.message : '未知錯誤');
     }
   }
 
@@ -160,7 +160,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     document.getElementById('rag-max-chunks').value = 10;
     document.getElementById('pipeline-retries').value = 2;
     document.getElementById('pipeline-runtime').value = 600000;
-    document.getElementById('save-status').textContent = 'Reset to defaults. Click Save to apply.';
+    document.getElementById('save-status').textContent = '已重設為預設值，請按「儲存設定」套用。';
   }
 
   document.getElementById('save-settings').addEventListener('click', saveSettings);
