@@ -1,0 +1,21 @@
+---
+interface Props {
+  minWidth?: string;
+  flush?: boolean;
+  class?: string;
+}
+
+const { minWidth = '760px', flush = false, class: cls } = Astro.props;
+---
+
+<div class:list={['admin-table-wrap', { 'is-flush': flush }, cls]} style={`--admin-table-min-width: ${minWidth}`}>
+  <table class="admin-table">
+    <slot />
+  </table>
+</div>
+
+<style>
+  .admin-table {
+    min-width: var(--admin-table-min-width);
+  }
+</style>

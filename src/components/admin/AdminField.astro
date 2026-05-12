@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  for?: string;
+  class?: string;
+}
+
+const { label, for: htmlFor, class: cls } = Astro.props;
+---
+
+<label class:list={['admin-field', cls]} for={htmlFor}>
+  <span class="admin-field-label">{label}</span>
+  <slot />
+</label>

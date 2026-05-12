@@ -1,0 +1,14 @@
+---
+interface Props {
+  tone?: 'empty' | 'error' | 'loading';
+  id?: string;
+  hidden?: boolean;
+  class?: string;
+}
+
+const { tone = 'empty', id, hidden = false, class: cls } = Astro.props;
+---
+
+<p id={id} class:list={['admin-state', tone, cls]} hidden={hidden}>
+  <slot />
+</p>

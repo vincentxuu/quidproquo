@@ -1,15 +1,21 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import AdminButton from '../../components/admin/AdminButton.astro';
+import AdminField from '../../components/admin/AdminField.astro';
+import AdminMetric from '../../components/admin/AdminMetric.astro';
+import AdminPanel from '../../components/admin/AdminPanel.astro';
+import AdminState from '../../components/admin/AdminState.astro';
+import AdminTable from '../../components/admin/AdminTable.astro';
 ---
 
 <AdminLayout title="Content">
-  <div class="page-intro">
-    <p class="page-desc">文章庫、草稿狀態、metadata 缺漏與內容流程檢查。</p>
-    <a href="/admin/settings" class="settings-link">編輯內容相關設定</a>
+  <div class="admin-page-intro">
+    <p class="admin-page-desc">文章庫、草稿狀態、metadata 缺漏與內容流程檢查。</p>
+    <AdminButton href="/admin/settings" icon="settings">編輯內容相關設定</AdminButton>
   </div>
 
-  <section class="inventory-panel" aria-labelledby="inventory-title">
+  <section class="inventory-panel flush" aria-labelledby="inventory-title">
     <div class="panel-header">
       <div>
         <p class="section-kicker">Inventory</p>
@@ -19,48 +25,32 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     </div>
 
     <div class="metric-strip" aria-label="Content summary">
-      <div class="metric-card">
-        <span id="metric-total" class="metric-value">-</span>
-        <span class="metric-label">全部文章</span>
-      </div>
-      <div class="metric-card">
-        <span id="metric-published" class="metric-value">-</span>
-        <span class="metric-label">已發布</span>
-      </div>
-      <div class="metric-card">
-        <span id="metric-drafts" class="metric-value">-</span>
-        <span class="metric-label">草稿</span>
-      </div>
-      <div class="metric-card">
-        <span id="metric-missing" class="metric-value">-</span>
-        <span class="metric-label">Metadata 缺漏</span>
-      </div>
+      <AdminMetric id="metric-total" label="全部文章" />
+      <AdminMetric id="metric-published" label="已發布" />
+      <AdminMetric id="metric-drafts" label="草稿" />
+      <AdminMetric id="metric-missing" label="Metadata 缺漏" />
     </div>
 
     <div class="toolbar" role="search">
-      <label class="field search-field">
-        <span>搜尋</span>
+      <AdminField label="搜尋" class="search-field">
         <input id="post-search" type="search" placeholder="標題、slug、tag" autocomplete="off" />
-      </label>
-      <label class="field">
-        <span>分類</span>
+      </AdminField>
+      <AdminField label="分類">
         <select id="category-filter">
           <option value="">全部分類</option>
         </select>
-      </label>
-      <label class="field">
-        <span>狀態</span>
+      </AdminField>
+      <AdminField label="狀態">
         <select id="status-filter">
           <option value="">全部狀態</option>
           <option value="published">已發布</option>
           <option value="draft">草稿</option>
           <option value="missing">Metadata 缺漏</option>
         </select>
-      </label>
+      </AdminField>
     </div>
 
-    <div class="post-table-wrap">
-      <table class="post-table">
+    <AdminTable minWidth="1050px" flush class="post-table-shell">
         <colgroup>
           <col class="col-post" />
           <col class="col-category" />
@@ -80,38 +70,30 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
           </tr>
         </thead>
         <tbody id="post-rows"></tbody>
-      </table>
-      <p id="no-results" class="empty" hidden>找不到符合條件的文章。試著清除搜尋或改用其他分類。</p>
-    </div>
+    </AdminTable>
+    <AdminState id="no-results" hidden>找不到符合條件的文章。試著清除搜尋或改用其他分類。</AdminState>
   </section>
 
   <div class="content-grid">
-    <section class="content-section">
-      <h2>Content Overview</h2>
+    <AdminPanel title="Content Overview" class="content-section">
       <div id="overview" class="overview-cards">Loading...</div>
-    </section>
+    </AdminPanel>
 
-    <section class="content-section">
-      <h2>Missing Metadata</h2>
+    <AdminPanel title="Missing Metadata" class="content-section">
       <div id="missing-metadata" class="issue-list">Loading...</div>
-    </section>
+    </AdminPanel>
 
-    <section class="content-section">
-      <h2>Drafts</h2>
+    <AdminPanel title="Drafts" class="content-section">
       <div id="drafts" class="post-list">Loading...</div>
-    </section>
+    </AdminPanel>
 
-    <section class="content-section">
-      <h2>Freshness Candidates</h2>
-      <p class="section-desc">Posts that may need updates based on age or content type.</p>
+    <AdminPanel title="Freshness Candidates" description="Posts that may need updates based on age or content type." class="content-section">
       <div id="freshness" class="post-list">Loading...</div>
-    </section>
+    </AdminPanel>
 
-    <section class="content-section">
-      <h2>Internal Link Opportunities</h2>
-      <p class="section-desc">Suggested internal links from content ops analysis.</p>
+    <AdminPanel title="Internal Link Opportunities" description="Suggested internal links from content ops analysis." class="content-section">
       <div id="link-ops" class="link-list">Loading...</div>
-    </section>
+    </AdminPanel>
   </div>
 </AdminLayout>
 
@@ -396,51 +378,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </script>
 
 <style>
-  .page-intro {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .page-desc {
-    color: var(--admin-text-muted, #4a7c59);
-    margin: 0;
-    font-size: 0.95rem;
-  }
-
-  .settings-link,
-  .text-link {
-    color: var(--admin-accent, #4a9e6a);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
-  }
-
-  .settings-link {
-    flex: 0 0 auto;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 0.45rem 0.7rem;
-    background: var(--admin-surface, #fff);
-    font-size: 0.85rem;
-  }
-
-  .settings-link:hover,
-  .text-link:hover {
-    color: var(--admin-accent-hover, #2d4a2d);
-    text-decoration: underline;
-  }
-
-  .inventory-panel,
-  .content-section {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    box-shadow: var(--admin-shadow, none);
-  }
-
   .inventory-panel {
     margin-bottom: 1.5rem;
     overflow: hidden;
@@ -454,65 +391,14 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     padding: 1rem 1rem 0.25rem;
   }
 
-  .section-kicker {
-    color: var(--admin-text-soft, #767676);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0 0 0.15rem;
-  }
-
   .panel-header h2 {
     font-size: 1.05rem;
     margin: 0;
   }
 
   .result-count {
-    border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: 999px;
-    color: var(--admin-text-muted, #4a7c59);
     font-size: 0.85rem;
-    padding: 0.25rem 0.65rem;
-  }
-
-  .metric-strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    padding: 1rem;
-  }
-
-  .metric-card {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-right-width: 0;
-    padding: 0.85rem 1rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    min-width: 0;
-  }
-
-  .metric-card:first-child {
-    border-radius: var(--admin-radius, 8px) 0 0 var(--admin-radius, 8px);
-  }
-
-  .metric-card:last-child {
-    border-right-width: 1px;
-    border-radius: 0 var(--admin-radius, 8px) var(--admin-radius, 8px) 0;
-  }
-
-  .metric-value {
-    display: block;
-    color: var(--admin-text, #1a1a1a);
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
-    font-weight: 700;
-    line-height: 1.1;
-  }
-
-  .metric-label {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.78rem;
-    overflow-wrap: anywhere;
   }
 
   .toolbar {
@@ -522,39 +408,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     padding: 0 1rem 1rem;
   }
 
-  .field {
-    display: grid;
-    gap: 0.3rem;
-  }
-
-  .field span {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.75rem;
-    font-weight: 650;
-  }
-
-  .field input,
-  .field select {
-    min-height: 38px;
-    width: 100%;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    background: var(--admin-surface-subtle, #fbfdfb);
-    color: var(--admin-text, #1a1a1a);
-    padding: 0.45rem 0.65rem;
-  }
-
-  .post-table-wrap {
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-    overflow-x: auto;
-    max-width: 100%;
-  }
-
-  .post-table {
-    width: 100%;
+  .post-table-shell :global(.admin-table) {
     min-width: 1050px;
-    border-collapse: collapse;
-    table-layout: fixed;
   }
 
   .col-post { width: 46%; }
@@ -563,32 +418,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .col-date { width: 10%; }
   .col-metadata { width: 18%; }
   .col-actions { width: 10%; }
-
-  .post-table tbody tr {
-    transition: background-color 160ms ease;
-  }
-
-  .post-table tbody tr:hover {
-    background: var(--admin-surface-subtle, #fbfdfb);
-  }
-
-  .post-table th,
-  .post-table td {
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-    padding: 0.7rem 1rem;
-    text-align: left;
-    vertical-align: middle;
-  }
-
-  .post-table th {
-    background: var(--admin-surface-subtle, #fbfdfb);
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.75rem;
-    font-weight: 700;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
 
   .post-main {
     min-width: 0;
@@ -638,33 +467,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     white-space: nowrap;
   }
 
-  .pill,
-  .status-pill,
-  .metadata-chip {
-    display: inline-flex;
-    align-items: center;
-    min-height: 24px;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 6px;
-    padding: 0.15rem 0.45rem;
-    font-size: 0.72rem;
-    max-width: 100%;
-    white-space: nowrap;
-  }
-
-  .status-pill.is-published {
-    border-color: rgba(6, 118, 71, 0.35);
-    background: #ecfdf3;
-    color: var(--admin-success, #067647);
-  }
-
-  .status-pill.is-draft,
-  .metadata-chip.missing {
-    border-color: rgba(181, 71, 8, 0.35);
-    background: #fffaeb;
-    color: var(--admin-warning, #b54708);
-  }
-
   .metadata-list,
   .row-actions {
     display: flex;
@@ -686,23 +488,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     gap: 1rem;
   }
 
-  .content-section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .content-section {
-    padding: 1rem;
-    min-width: 0;
-  }
-
-  .section-desc {
-    font-size: 0.85rem;
-    color: var(--admin-text-muted, #888);
+  .content-section :global(.admin-panel-header) {
     margin-bottom: 0.75rem;
   }
 
@@ -713,23 +499,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   .overview-card {
-    background: var(--admin-surface, #1a1a1a);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1rem;
     text-align: center;
-  }
-
-  .overview-value {
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--admin-text, #e0e0e0);
-  }
-
-  .overview-label {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
   }
 
   .issue-list, .post-list, .link-list {
@@ -803,9 +573,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     font-style: italic;
   }
 
-  .error { color: #ef4444; }
-  .empty { color: var(--admin-text-muted, #888); }
-
   #no-results {
     padding: 1rem;
   }
@@ -826,26 +593,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   @media (max-width: 640px) {
-    .page-intro,
     .panel-header {
       display: grid;
-    }
-
-    .settings-link {
-      width: 100%;
-      text-align: center;
     }
 
     .metric-strip,
     .toolbar {
       grid-template-columns: 1fr;
-    }
-
-    .metric-card,
-    .metric-card:first-child,
-    .metric-card:last-child {
-      border-right-width: 1px;
-      border-radius: var(--admin-radius, 8px);
     }
   }
 </style>

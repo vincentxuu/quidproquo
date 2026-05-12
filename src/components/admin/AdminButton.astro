@@ -1,0 +1,53 @@
+---
+import Icons from '../Icons.astro';
+
+type IconName =
+  | 'search' | 'clock' | 'chevron-left' | 'chevron-right' | 'list' | 'link' | 'moon' | 'sun'
+  | 'book-open' | 'rss' | 'copy' | 'check' | 'pin' | 'layout-dashboard' | 'file-text'
+  | 'workflow' | 'list-checks' | 'bar-chart-3' | 'brain-circuit' | 'plug' | 'activity'
+  | 'server-cog' | 'settings' | 'home' | 'log-out' | 'arrow-up-right' | 'refresh-cw';
+
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
+  icon?: IconName;
+  title?: string;
+  id?: string;
+  class?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'secondary',
+  icon,
+  title,
+  id,
+  class: cls,
+} = Astro.props;
+const className = [
+  variant === 'primary' ? 'btn' : variant === 'danger' ? 'btn-danger' : 'btn-secondary',
+  variant === 'ghost' ? 'is-ghost' : '',
+  cls,
+];
+---
+
+{href ? (
+  <a id={id} href={href} title={title} class:list={className}>
+    {icon && <Icons name={icon} size={15} />}
+    <slot />
+  </a>
+) : (
+  <button id={id} type={type} title={title} class:list={className}>
+    {icon && <Icons name={icon} size={15} />}
+    <slot />
+  </button>
+)}
+
+<style>
+  .is-ghost {
+    border-color: transparent;
+    background: transparent;
+  }
+</style>

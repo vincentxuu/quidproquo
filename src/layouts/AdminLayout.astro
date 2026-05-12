@@ -1,6 +1,7 @@
 ---
 import { verifySession } from '../lib/auth/session';
 import Icons from '../components/Icons.astro';
+import '../styles/admin-tokens.css';
 
 export const prerender = false;
 
@@ -117,31 +118,7 @@ const groupedNav = navItems.reduce<Record<string, (typeof navItems)[number][]>>(
 
 <style>
   :root {
-    color-scheme: light;
     --sidebar-width: 264px;
-    --brand-900: #1a2e1a;
-    --brand-700: #2d4a2d;
-    --brand-500: #4a9e6a;
-    --brand-300: #a7c4a0;
-    --brand-100: #e8f5e8;
-    --brand-50: #f0f7f0;
-    --admin-bg: #f5f7f5;
-    --admin-surface: #ffffff;
-    --admin-surface-subtle: #fbfdfb;
-    --admin-muted: #f0f7f0;
-    --admin-border: #d1e8d1;
-    --admin-border-strong: #a7c4a0;
-    --admin-text: #1a1a1a;
-    --admin-text-muted: #4a7c59;
-    --admin-text-soft: #767676;
-    --admin-accent: #4a9e6a;
-    --admin-accent-hover: #2d4a2d;
-    --admin-danger: #b42318;
-    --admin-success: #067647;
-    --admin-warning: #b54708;
-    --admin-radius: 8px;
-    --admin-shadow: 0 1px 2px rgba(26, 46, 26, 0.06), 0 8px 24px rgba(26, 46, 26, 0.04);
-    --admin-focus: 0 0 0 3px rgba(74, 158, 106, 0.24);
   }
 
   * {

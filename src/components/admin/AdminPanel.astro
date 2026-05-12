@@ -1,0 +1,42 @@
+---
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  flush?: boolean;
+  class?: string;
+}
+
+const { title, eyebrow, description, flush = false, class: cls } = Astro.props;
+const hasHeader = title || eyebrow || description || Astro.slots.has('actions');
+---
+
+<section class:list={['admin-panel', { flush }, cls]}>
+  {hasHeader && (
+    <div class="admin-panel-header">
+      <div>
+        {eyebrow && <p class="section-kicker">{eyebrow}</p>}
+        {title && <h2 class="admin-panel-title">{title}</h2>}
+        {description && <p class="admin-section-desc">{description}</p>}
+      </div>
+      {Astro.slots.has('actions') && <div class="admin-panel-actions"><slot name="actions" /></div>}
+    </div>
+  )}
+  <slot />
+</section>
+
+<style>
+  .admin-panel-actions {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--admin-space-2);
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 640px) {
+    .admin-panel-actions {
+      justify-content: stretch;
+    }
+  }
+</style>

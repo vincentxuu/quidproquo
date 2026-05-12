@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  value?: string | number;
+  id?: string;
+  class?: string;
+}
+
+const { label, value = '-', id, class: cls } = Astro.props;
+---
+
+<div class:list={['admin-metric', cls]}>
+  <span id={id} class="admin-metric-value">{value}</span>
+  <span class="admin-metric-label">{label}</span>
+</div>
