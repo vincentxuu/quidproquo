@@ -161,6 +161,56 @@
 - [x] **Critic 加 drift 偵測**（檢查 Research 過程是否偏離原始查詢意圖）
 - [x] **Context Checkpoint 系統**（動態壓縮門檻：`threshold = model_context_window * 0.7`）
   - 目前狀態：已新增 checkpoints table、summary load/save helper，API 以 `0.7` ratio 觸發 checkpoint
+- [ ] **Query Router：新增 recommendation/discovery intent（產品路由）**
+  - 驗收：
+    - Planner 可辨識「找文章 / 推薦文章 / 閱讀路線」查詢並輸出 recommendation intent
+    - 回答格式優先回傳結構化清單（標題、分類、連結、推薦理由）
+    - 對照舊流程，至少 10 筆測試查詢中主觀可用性提升（人工評估）
+- [ ] **Pipeline Engine 抽象：支援 `langgraph` / `manual` / `llamaindex` 選擇**
+  - 驗收：
+    - 設定新增 `pipeline_engine`
+    - `/api/chat` 可依設定切換 engine，且輸出契約一致（`final_response`、`search_results`、`critique`、`token_usage`）
+    - 既有 LangGraph 路徑不回歸（現有測試全綠）
+- [ ] **Provider / Model Router（分階段切換）**
+  - 目標：可依 pipeline 階段切換不同 provider 與 model（例如 Planner/Research/Writer/Critic 各自獨立）
+  - 驗收：
+    - 設定支援全域預設 + 階段覆寫（`default_provider/model` + `stage_overrides`）
+    - 至少支援 2 家 provider（例如 OpenAI / Anthropic 或 Workers AI）且可熱切換
+    - 後台可視化設定每階段 provider/model，並記錄變更審計
+    - trace 需落地每次請求的 provider/model（含版本）供事後比對
+    - 可做 fallback policy（主要 provider 失敗時自動切備援）
+- [ ] **RAG Eval 自動化（RAGAS / DeepEval）**
+  - 驗收：
+    - 每次策略或 prompt 變更可自動重跑 baseline
+    - 輸出固定報表：faithfulness、answer_relevance、context_recall、latency
+    - 變更未達門檻時可阻擋升級（或標記為實驗）
+- [ ] **Reranker A/B（complex-only）**
+  - 驗收：
+    - complex query 可獨立開關 reranker
+    - shadow mode 可比較 primary/shadow 品質與延遲
+    - 產出「何時開 reranker 比較划算」的門檻建議
+- [ ] **站內搜尋 RAG 化（Search + Chat 共用檢索能力）**
+  - 目標：讓 `/search` 不只關鍵字比對，支援語意查詢與「先找文、再決定要不要開對話」流程
+  - 驗收：
+    - 新增搜尋模式切換：`keyword` / `hybrid` / `rag`
+    - `rag` 模式可回傳：文章清單、每篇命中理由（evidence）、可追蹤來源 URL
+    - Search 與 Chat 共用同一套 retrieval 設定（feature flags、reranker、MMR）避免結果分裂
+    - 至少 20 筆「找文章」查詢評估：`rag` 模式在相關性主觀評分優於純 keyword
+  - 備註：UI 維持「先清單後對話」，避免搜尋頁直接變聊天頁
+- [ ] **RAG 後台管理頁（Admin Console）**
+  - 目標：集中管理策略開關、實驗、資料重建與品質檢查，不再靠手動改 DB setting
+  - 驗收：
+    - 可視化管理 flags（HyDE、Multi-query、Reranker、Critic、PageIndex、pipeline_engine）
+    - 可發起/停止 shadow run，並查看 primary vs shadow 差異摘要
+    - 可操作 embed/crawl/smoke test 任務（含最近執行紀錄、成功率、錯誤摘要）
+    - 具備角色權限（至少 admin-only）與操作審計紀錄
+- [ ] **每筆查詢 Observability Timeline（逐階段可視化）**
+  - 目標：每一筆 query 都能看到 Planner/Research/Writer/Validation/Critic 各階段耗時、輸入輸出摘要與決策路徑
+  - 驗收：
+    - trace 詳情頁可顯示每階段 timeline（開始時間、耗時、token、是否重試）
+    - 可查看關鍵中介產物（plan intent/complexity、檢索命中數、validation errors、critic 分數）
+    - 可比對同一 query 的 primary/shadow 執行差異（步驟、品質分數、延遲）
+    - 可依日期、query 類型、錯誤類型篩選，支援回放最近失敗案例
 
 ### Phase 1C：內容營運自動化
 
@@ -173,6 +223,12 @@
 - [ ] **內容缺口分析** — 分析站內搜尋紀錄，找出讀者在搜但你還沒寫的主題
 - [ ] **SEO 優化 agent** — 建議更好的標題、description、內部連結機會
 - [ ] **Ollama 本地模型整合** — 批次任務（自動 tag、難度分級、TL;DR 生成）改用本地模型，API 成本歸零；研究筆記：`docs/research/ollama-research.md`
+- [ ] **PageIndex 作為 Tool（單文件深挖）**
+  - 策略：先廣搜（hybrid）再深挖（PageIndex），僅在「長文件 + complex query」啟用
+  - 驗收：
+    - 新增 `rag_flag_pageindex` 與基本參數（如 `max_steps`）
+    - `research` 節點可條件性呼叫 PageIndex tool，回傳格式對齊 `SearchResult`
+    - 章節定位型問題（至少 20 題）比 baseline 提升 answer relevance
 
 ### Harness 基礎建設
 
@@ -185,6 +241,7 @@
 
 > 詳細設計：`docs/plan.md` Phase 3、`docs/superpowers/plans/2026-03-12-crawler-integration.md`
 > 注意：`/api/crawl/sync` endpoint 已存在（`src/pages/api/crawl/sync.ts`），Cron Trigger 已設定（`wrangler.jsonc`）
+> 目前狀態：**部分完成（2/5）**。已完成「站點清單、chunking pipeline」；未完成「sync 穩定性驗證、modifiedSince 增量更新、production smoke test 清單」。
 
 - [ ] **驗證 `/api/crawl/sync` 穩定性**（補錯誤處理、補監控；非重新實作）
 - [x] **設定要爬取的技術文件站清單**（`src/lib/crawl/config.ts` 已含 D1 / Workers / Vectorize / Astro Docs）
@@ -199,13 +256,45 @@
 ### AI 進階功能
 
 - [ ] **站長端 episodic memory**（記住寫作偏好、常用範本；參考 Hermes Agent 的 user profile dialectic）
+  - 內容：
+    - 儲存站長偏好（語氣、段落長度、偏好結構）
+    - 追蹤近期連續任務脈絡（本週主題、未完成草稿、待補資料）
+    - 支援手動修正記憶，避免錯誤偏好長期污染
 - [ ] **Judge sampling 30%**（簡單查詢跳過 Critic，預期省 20-30% 成本）
+  - 內容：
+    - simple query 預設不跑 Critic，complex query 維持全量
+    - 抽樣失敗自動回補（抽中低分即提升抽樣率）
+    - 每週輸出成本節省 vs 品質變化報表
 - [ ] **BM25 短路邏輯**（BM25 回傳 ≥ 5 結果時跳過向量搜尋）
+  - 內容：
+    - 對精確名詞/型號/錯誤碼查詢先跑 BM25
+    - 命中門檻達標即跳過 embedding + vectorize
+    - 紀錄短路命中率與延遲改善幅度
 - [ ] **GraphRAG**（從文章中抽取實體與關係，適合跨文章查詢）
+  - 內容：
+    - 建立 entity/relation pipeline（人名、工具、框架、概念）
+    - 支援跨文章關聯查詢（例如「A 技術與 B 策略關係」）
+    - 提供關係圖查詢與來源可追溯連結
 - [ ] **自訂文件上傳功能**（PDF / Markdown / URL 三種來源）
+  - 內容：
+    - 上傳後自動切 chunk、抽 metadata、建立索引
+    - 支援文件版本更新與刪除（避免舊版污染）
+    - 每份文件顯示處理狀態與錯誤原因
 - [ ] **學習路徑生成** — 給定目標（如「我想學 RAG」），自動規劃文章閱讀順序
+  - 內容：
+    - 依目標與背景輸出分階段閱讀清單（入門→進階→實作）
+    - 每篇附「先修知識」與「完成後收穫」
+    - 支援估算總閱讀時間與進度追蹤
 - [ ] **知識地圖** — 視覺化文章之間的概念關係圖
+  - 內容：
+    - 以 tag + entity + 共現關係產生概念圖
+    - 可從任一節點回跳文章列表與重點段落
+    - 支援依主題/時間篩選，避免圖過度擁擠
 - [ ] **互動詞彙表** — hover 技術名詞時 AI 即時解釋，不離開頁面
+  - 內容：
+    - 詞彙卡顯示定義、上下文、延伸閱讀
+    - 依讀者程度切換解釋深度（初學/進階）
+    - 記錄高頻不理解詞彙，回饋給內容規劃
 
 ---
 
