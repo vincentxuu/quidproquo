@@ -57,6 +57,7 @@ export function ChatFloating() {
       <button
         onClick={() => setOpen(v => !v)}
         aria-label={open ? '關閉 AI 對話' : '開啟 AI 對話'}
+        className={open ? 'chat-float-button is-open' : 'chat-float-button'}
         style={{
           position: 'fixed',
           bottom: '1.5rem',
@@ -81,13 +82,41 @@ export function ChatFloating() {
         onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
       >
-        {open ? '關' : 'AI'}
+        {open ? <span className="chat-float-close" aria-hidden="true" /> : 'AI'}
       </button>
 
       <style>{`
         @keyframes chat-pop-in {
           from { opacity: 0; transform: translateY(12px) scale(0.97); }
           to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .chat-float-close {
+          position: relative;
+          width: 1.05rem;
+          height: 1.05rem;
+          display: block;
+        }
+
+        .chat-float-close::before,
+        .chat-float-close::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 1.05rem;
+          height: 2px;
+          border-radius: 999px;
+          background: currentColor;
+          transform-origin: center;
+        }
+
+        .chat-float-close::before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .chat-float-close::after {
+          transform: translate(-50%, -50%) rotate(-45deg);
         }
       `}</style>
     </>

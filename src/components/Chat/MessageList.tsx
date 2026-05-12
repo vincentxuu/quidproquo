@@ -1,4 +1,4 @@
-import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef } from 'react'
+import { type CSSProperties, type ReactNode, useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { AgentSteps } from './AgentSteps'
@@ -32,12 +32,6 @@ interface NormalizedLink {
 }
 
 export function MessageList({ messages }: { messages: Message[] }) {
-  const endRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ block: 'end' })
-  }, [messages])
-
   return (
     <div className="message-container chat-message-list" style={styles.container}>
       {messages.map((msg) => (
@@ -49,26 +43,189 @@ export function MessageList({ messages }: { messages: Message[] }) {
             ...(msg.role === 'user' ? styles.userMessage : styles.assistantMessage),
           }}
         >
+          {msg.role === 'assistant' && <Avatar role={msg.role} />}
           <div style={msg.role === 'user' ? styles.userBubble : styles.assistantPanel}>
-            <div style={styles.messageHeader}>
-              <span style={styles.roleLabel}>{msg.role === 'user' ? '你' : 'Ask AI'}</span>
-              {typeof msg.confidence === 'number' && msg.role === 'assistant' && (
+            {typeof msg.confidence === 'number' && msg.role === 'assistant' ? (
+              <div style={styles.messageHeader}>
                 <span style={styles.confidence}>{formatConfidence(msg.confidence)}</span>
-              )}
-            </div>
+              </div>
+            ) : null}
             {msg.steps && <AgentSteps steps={msg.steps} />}
             <div className="message-content" style={styles.content}>
-            {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
-            {msg.streaming && <span className="streaming-indicator">▋</span>}
-            {msg.sources && msg.sources.length > 0 && <LinkSection label="參考來源" links={msg.sources} />}
-            {msg.related && msg.related.length > 0 && <LinkSection label="延伸閱讀" links={msg.related} />}
+              {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
+              {msg.streaming && <ThinkingIndicator compact={Boolean(msg.content)} />}
+              {msg.sources && msg.sources.length > 0 && <LinkSection label="參考來源" links={msg.sources} />}
+              {msg.related && msg.related.length > 0 && <LinkSection label="延伸閱讀" links={msg.related} />}
             </div>
           </div>
+          {msg.role === 'user' && <Avatar role={msg.role} />}
         </div>
       ))}
-      <div ref={endRef} />
+      <style>{`
+        .chat-thinking {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          min-height: 2rem;
+          padding: 0.45rem 0.65rem;
+          border-radius: 8px;
+          background: color-mix(in srgb, var(--brand-50) 74%, var(--bg-card));
+          color: var(--text-secondary);
+          overflow: hidden;
+        }
+
+        .chat-thinking::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          width: 45%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+          animation: chat-thinking-shine 1.45s ease-in-out infinite;
+          transform: translateX(-120%);
+        }
+
+        .chat-thinking-orbit {
+          position: relative;
+          z-index: 1;
+          width: 1rem;
+          height: 1rem;
+          flex: 0 0 1rem;
+          border: 2px solid color-mix(in srgb, var(--brand-500) 28%, transparent);
+          border-top-color: var(--brand-500);
+          border-radius: 50%;
+          animation: chat-thinking-orbit 1s linear infinite;
+        }
+
+        .chat-thinking-orbit::after {
+          content: "";
+          position: absolute;
+          inset: 0.18rem;
+          border-radius: 50%;
+          background: color-mix(in srgb, var(--brand-500) 16%, transparent);
+          animation: chat-thinking-pulse 1.2s ease-in-out infinite;
+        }
+
+        .chat-thinking-orbit-dot {
+          position: absolute;
+          top: -0.16rem;
+          left: 50%;
+          width: 0.32rem;
+          height: 0.32rem;
+          border-radius: 50%;
+          background: var(--brand-500);
+          box-shadow: 0 0 0 0.18rem color-mix(in srgb, var(--brand-500) 14%, transparent);
+          transform: translateX(-50%);
+        }
+
+        .chat-thinking-label {
+          position: relative;
+          z-index: 1;
+          font-size: 0.82rem;
+          font-weight: 700;
+          line-height: 1;
+        }
+
+        .chat-thinking-dots {
+          position: relative;
+          z-index: 1;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.24rem;
+        }
+
+        .chat-thinking-dot {
+          width: 0.4rem;
+          height: 0.4rem;
+          border-radius: 50%;
+          background: var(--brand-500);
+          animation: chat-thinking-bounce 0.9s ease-in-out infinite;
+        }
+
+        .chat-thinking-dot:nth-child(2) {
+          animation-delay: 0.13s;
+        }
+
+        .chat-thinking-dot:nth-child(3) {
+          animation-delay: 0.26s;
+        }
+
+        .chat-thinking-compact {
+          min-height: auto;
+          margin-left: 0.25rem;
+          padding: 0;
+          vertical-align: baseline;
+          background: transparent;
+        }
+
+        .chat-thinking-compact::before,
+        .chat-thinking-compact .chat-thinking-orbit,
+        .chat-thinking-compact .chat-thinking-label {
+          display: none;
+        }
+
+        .chat-thinking-compact .chat-thinking-dot {
+          width: 0.32rem;
+          height: 0.32rem;
+          opacity: 0.85;
+        }
+
+        @keyframes chat-thinking-bounce {
+          0%, 80%, 100% { transform: translateY(0) scale(0.78); opacity: 0.45; }
+          40% { transform: translateY(-0.26rem) scale(1); opacity: 1; }
+        }
+
+        @keyframes chat-thinking-orbit {
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes chat-thinking-pulse {
+          0%, 100% { transform: scale(0.75); opacity: 0.45; }
+          50% { transform: scale(1.2); opacity: 0.9; }
+        }
+
+        @keyframes chat-thinking-shine {
+          0% { transform: translateX(-120%); opacity: 0; }
+          30% { opacity: 1; }
+          100% { transform: translateX(240%); opacity: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .chat-thinking::before,
+          .chat-thinking-orbit,
+          .chat-thinking-orbit::after,
+          .chat-thinking-dot {
+            animation: none;
+          }
+        }
+      `}</style>
     </div>
   )
+}
+
+function ThinkingIndicator({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className={compact ? 'chat-thinking chat-thinking-compact' : 'chat-thinking'} aria-label="正在產生回覆">
+      <span className="chat-thinking-orbit" aria-hidden="true">
+        <span className="chat-thinking-orbit-dot" />
+      </span>
+      <span className="chat-thinking-label">思考中</span>
+      <span className="chat-thinking-dots" aria-hidden="true">
+        <span className="chat-thinking-dot" />
+        <span className="chat-thinking-dot" />
+        <span className="chat-thinking-dot" />
+      </span>
+    </span>
+  )
+}
+
+function Avatar({ role }: { role: 'user' | 'assistant' }) {
+  const src = role === 'user'
+    ? 'https://api.dicebear.com/9.x/thumbs/svg?seed=quidproquo-reader&backgroundColor=d1e8d1&shapeColor=2d4a2d'
+    : 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=quidproquo-ask-ai&backgroundColor=e8f5e8&textureChance=0'
+  const alt = role === 'user' ? '你的頭像' : 'Ask AI 頭像'
+
+  return <img src={src} alt={alt} style={styles.avatar} loading="lazy" referrerPolicy="no-referrer" />
 }
 
 function MarkdownContent({ content, role }: { content: string; role: 'user' | 'assistant' }) {
@@ -281,16 +438,28 @@ const styles: Record<string, CSSProperties> = {
   message: {
     maxWidth: '100%',
     minWidth: 0,
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '0.6rem',
   },
   userMessage: {
     alignSelf: 'flex-end',
-    width: 'fit-content',
-    maxWidth: '82%',
+    justifyContent: 'flex-end',
+    width: 'min(100%, 82%)',
   },
   assistantMessage: {
     alignSelf: 'stretch',
   },
+  avatar: {
+    width: '2rem',
+    height: '2rem',
+    flex: '0 0 2rem',
+    borderRadius: '50%',
+    border: '1px solid var(--border)',
+    background: 'var(--bg-card)',
+  },
   userBubble: {
+    minWidth: 0,
     padding: '0.75rem 0.875rem',
     borderRadius: 8,
     background: 'var(--brand-900)',
@@ -298,6 +467,8 @@ const styles: Record<string, CSSProperties> = {
     boxShadow: 'var(--shadow-card-hover)',
   },
   assistantPanel: {
+    minWidth: 0,
+    flex: 1,
     padding: '0.95rem 1rem',
     borderRadius: 8,
     background: 'var(--bg-card)',
@@ -310,14 +481,6 @@ const styles: Record<string, CSSProperties> = {
     justifyContent: 'space-between',
     gap: '0.75rem',
     marginBottom: '0.35rem',
-  },
-  roleLabel: {
-    fontSize: '0.72rem',
-    lineHeight: 1,
-    fontWeight: 700,
-    letterSpacing: 0,
-    color: 'inherit',
-    opacity: 0.72,
   },
   confidence: {
     flexShrink: 0,
