@@ -1,0 +1,295 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Content">
+  <p class="page-desc">Content health status, quality suggestions, and operational insights.</p>
+
+  <div class="content-grid">
+    <section class="content-section">
+      <h2>Content Overview</h2>
+      <div id="overview" class="overview-cards">Loading...</div>
+    </section>
+
+    <section class="content-section">
+      <h2>Missing Metadata</h2>
+      <div id="missing-metadata" class="issue-list">Loading...</div>
+    </section>
+
+    <section class="content-section">
+      <h2>Drafts</h2>
+      <div id="drafts" class="post-list">Loading...</div>
+    </section>
+
+    <section class="content-section">
+      <h2>Freshness Candidates</h2>
+      <p class="section-desc">Posts that may need updates based on age or content type.</p>
+      <div id="freshness" class="post-list">Loading...</div>
+    </section>
+
+    <section class="content-section">
+      <h2>Internal Link Opportunities</h2>
+      <p class="section-desc">Suggested internal links from content ops analysis.</p>
+      <div id="link-ops" class="link-list">Loading...</div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  async function loadContent() {
+    await Promise.all([
+      loadOverview(),
+      loadMissingMetadata(),
+      loadDrafts(),
+      loadFreshness(),
+      loadLinkOpportunities(),
+    ]);
+  }
+
+  async function loadOverview() {
+    const el = document.getElementById('overview');
+    try {
+      const res = await fetch('/api/admin/content/overview');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="overview-card">
+          <span class="overview-value">${data.total ?? 0}</span>
+          <span class="overview-label">Total Posts</span>
+        </div>
+        <div class="overview-card">
+          <span class="overview-value">${data.drafts ?? 0}</span>
+          <span class="overview-label">Drafts</span>
+        </div>
+        <div class="overview-card">
+          <span class="overview-value">${data.missingType ?? 0}</span>
+          <span class="overview-label">Missing Type</span>
+        </div>
+        <div class="overview-card">
+          <span class="overview-value">${data.missingDescription ?? 0}</span>
+          <span class="overview-label">Missing Description</span>
+        </div>
+        <div class="overview-card">
+          <span class="overview-value">${data.missingTldr ?? 0}</span>
+          <span class="overview-label">Missing TL;DR</span>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadMissingMetadata() {
+    const el = document.getElementById('missing-metadata');
+    try {
+      const res = await fetch('/api/admin/content/issues');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!data.issues?.length) {
+        el.innerHTML = '<p class="empty">No missing metadata issues found.</p>';
+        return;
+      }
+      el.innerHTML = data.issues.slice(0, 10).map(issue => `
+        <div class="issue-item">
+          <span class="issue-type">${issue.type}</span>
+          <a href="/posts/${issue.slug}" class="issue-slug">${issue.slug}</a>
+          <span class="issue-detail">${issue.detail ?? ''}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadDrafts() {
+    const el = document.getElementById('drafts');
+    try {
+      const res = await fetch('/api/admin/content/drafts');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!data.drafts?.length) {
+        el.innerHTML = '<p class="empty">No drafts found.</p>';
+        return;
+      }
+      el.innerHTML = data.drafts.slice(0, 10).map(draft => `
+        <div class="post-item">
+          <a href="/posts/${draft.slug}" class="post-slug">${draft.slug}</a>
+          <span class="post-date">${formatDate(draft.date)}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadFreshness() {
+    const el = document.getElementById('freshness');
+    try {
+      const res = await fetch('/api/admin/content/freshness');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!data.candidates?.length) {
+        el.innerHTML = '<p class="empty">No freshness candidates found.</p>';
+        return;
+      }
+      el.innerHTML = data.candidates.slice(0, 10).map(item => `
+        <div class="post-item">
+          <a href="/posts/${item.slug}" class="post-slug">${item.slug}</a>
+          <span class="post-reason">${item.reason ?? 'May need update'}</span>
+          <span class="post-date">${formatDate(item.lastModified)}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadLinkOpportunities() {
+    const el = document.getElementById('link-ops');
+    try {
+      const res = await fetch('/api/admin/content/links');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!data.opportunities?.length) {
+        el.innerHTML = '<p class="empty">No internal link suggestions found.</p>';
+        return;
+      }
+      el.innerHTML = data.opportunities.slice(0, 10).map(opp => `
+        <div class="link-item">
+          <span class="link-from">${opp.from}</span>
+          <span class="link-arrow">→</span>
+          <span class="link-to">${opp.to}</span>
+          <span class="link-anchor">${opp.anchorText ?? ''}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  function formatDate(iso) {
+    if (!iso) return 'N/A';
+    return new Date(iso).toLocaleDateString('zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  loadContent();
+</script>
+
+<style>
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content-section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .section-desc {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 0.75rem;
+  }
+
+  .overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .overview-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .overview-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .overview-label {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .issue-list, .post-list, .link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .issue-item, .post-item, .link-item {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .issue-type {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--admin-border, #2a2a2a);
+    border-radius: 4px;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .issue-slug, .post-slug {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--admin-accent, #3b82f6);
+    text-decoration: none;
+  }
+
+  .issue-slug:hover, .post-slug:hover {
+    text-decoration: underline;
+  }
+
+  .issue-detail, .post-reason, .post-date {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .post-date {
+    margin-left: auto;
+  }
+
+  .link-from, .link-to {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .link-arrow {
+    color: var(--admin-text-muted, #888);
+  }
+
+  .link-anchor {
+    font-size: 0.8rem;
+    color: var(--admin-accent, #3b82f6);
+    font-style: italic;
+  }
+
+  .error { color: #ef4444; }
+  .empty { color: var(--admin-text-muted, #888); }
+</style>

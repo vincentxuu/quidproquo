@@ -1,0 +1,374 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Ops">
+  <p class="page-desc">Trigger and monitor pipeline jobs: embed, crawl, quality checks, and content operations.</p>
+
+  <div class="ops-container">
+    <section class="pipeline-section">
+      <h2>Quick Actions</h2>
+      <div class="action-grid">
+        <div class="action-card">
+          <h3>Content Ops</h3>
+          <p class="risk-low">Low Risk</p>
+          <p>Generate content operations report with tag, difficulty, and freshness suggestions.</p>
+          <button id="run-content-ops" class="btn">Run Content Ops</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Post Quality Check</h3>
+          <p class="risk-low">Low Risk</p>
+          <p>Run deterministic quality and reference checks on a specific post.</p>
+          <input type="text" id="quality-path" placeholder="src/content/posts/ai/example.md" class="input" />
+          <button id="run-quality" class="btn">Run Quality Check</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Embed Sync</h3>
+          <p class="risk-medium">Medium Risk</p>
+          <p>Sync posts and docs to Vectorize index.</p>
+          <div class="input-row">
+            <select id="embed-sources" class="select">
+              <option value="all">All Sources</option>
+              <option value="posts">Posts Only</option>
+              <option value="docs">Docs Only</option>
+            </select>
+            <input type="number" id="embed-limit" value="50" min="1" max="200" class="input small" placeholder="Limit" />
+          </div>
+          <button id="run-embed" class="btn">Run Embed Batch</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Crawl Sync</h3>
+          <p class="risk-medium">Medium Risk</p>
+          <p>Sync external documentation to D1.</p>
+          <div class="input-row">
+            <select id="crawl-source" class="select">
+              <option value="all">All Sources</option>
+              <option value="cloudflare">Cloudflare Docs</option>
+              <option value="astro">Astro Docs</option>
+            </select>
+          </div>
+          <button id="run-crawl" class="btn">Run Crawl Sync</button>
+          <p class="note">Requires CRAWL_SECRET via endpoint.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="jobs-section">
+      <div class="section-header">
+        <h2>Recent Jobs</h2>
+        <button id="refresh-jobs" class="btn-secondary">Refresh</button>
+      </div>
+      <div id="jobs-list" class="jobs-list">Loading...</div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  const jobsList = document.getElementById('jobs-list');
+  const outputEl = document.getElementById('ops-output');
+
+  // Load recent jobs
+  async function loadJobs() {
+    try {
+      const res = await fetch('/api/admin/jobs?limit=20');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      renderJobs(data.jobs || []);
+    } catch {
+      jobsList.innerHTML = '<p class="error">Unable to load jobs</p>';
+    }
+  }
+
+  function renderJobs(jobs) {
+    if (!jobs.length) {
+      jobsList.innerHTML = '<p class="empty">No jobs yet. Run a pipeline above.</p>';
+      return;
+    }
+
+    jobsList.innerHTML = jobs.map(job => `
+      <div class="job-card" data-job-id="${job.id}">
+        <div class="job-header">
+          <span class="job-status status-${job.status}">${job.status}</span>
+          <span class="job-pipeline">${job.pipeline_id}</span>
+          <span class="job-time">${formatTime(job.created_at)}</span>
+        </div>
+        ${job.error_summary ? `<p class="job-error">${job.error_summary}</p>` : ''}
+        ${job.output_summary ? `<p class="job-output">${job.output_summary}</p>` : ''}
+        <div class="job-actions">
+          <button class="btn-small" onclick="viewJobDetails('${job.id}')">View Details</button>
+          ${['failed', 'succeeded'].includes(job.status) ? `<button class="btn-small" onclick="rerunJob('${job.pipeline_id}', '${job.id}')">Rerun</button>` : ''}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function formatTime(iso) {
+    if (!iso) return 'N/A';
+    const d = new Date(iso);
+    return d.toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  async function runPipeline(pipelineId, input = {}) {
+    try {
+      const res = await fetch('/api/admin/pipelines/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pipelineId, input }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      await loadJobs();
+      return data;
+    } catch (err) {
+      alert(`Failed to start job: ${err.message}`);
+      throw err;
+    }
+  }
+
+  // Event handlers
+  document.getElementById('run-content-ops').addEventListener('click', async () => {
+    await runPipeline('content-ops', {});
+  });
+
+  document.getElementById('run-quality').addEventListener('click', async () => {
+    const path = document.getElementById('quality-path').value;
+    if (!path) {
+      alert('Please enter a post path');
+      return;
+    }
+    await runPipeline('post-quality', { path });
+  });
+
+  document.getElementById('run-embed').addEventListener('click', async () => {
+    const sourcesVal = document.getElementById('embed-sources').value;
+    const sources = sourcesVal === 'all' ? ['posts', 'docs'] : [sourcesVal];
+    const limit = parseInt(document.getElementById('embed-limit').value) || 50;
+    await runPipeline('embed-sync', { sources, offset: 0, limit });
+  });
+
+  document.getElementById('run-crawl').addEventListener('click', async () => {
+    const source = document.getElementById('crawl-source').value;
+    const full = false;
+    await runPipeline('crawl-sync', { source, full });
+  });
+
+  document.getElementById('refresh-jobs').addEventListener('click', loadJobs);
+
+  window.viewJobDetails = async (jobId) => {
+    // TODO: Navigate to job detail page or show modal
+    alert(`Job details: ${jobId}`);
+  };
+
+  window.rerunJob = async (pipelineId, oldJobId) => {
+    if (!confirm(`Rerun ${pipelineId}?`)) return;
+    await runPipeline(pipelineId, {});
+  };
+
+  // Initial load
+  loadJobs();
+</script>
+
+<style>
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 1.5rem;
+  }
+
+  .ops-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pipeline-section h2,
+  .jobs-section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .action-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .action-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .action-card p {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted, #888);
+    margin: 0;
+  }
+
+  .risk-low { color: #22c55e; font-size: 0.75rem; font-weight: 500; }
+  .risk-medium { color: #f59e0b; font-size: 0.75rem; font-weight: 500; }
+  .risk-high { color: #ef4444; font-size: 0.75rem; font-weight: 500; }
+
+  .input-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .input, .select {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    background: var(--admin-bg, #0f0f0f);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.9rem;
+  }
+
+  .input.small {
+    flex: 0 0 80px;
+  }
+
+  .input:focus, .select:focus {
+    outline: none;
+    border-color: var(--admin-accent, #3b82f6);
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    background: var(--admin-accent, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+
+  .btn:hover {
+    background: var(--admin-accent-hover, #2563eb);
+  }
+
+  .btn-secondary {
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    color: var(--admin-text-muted, #888);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--admin-accent, #3b82f6);
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .btn-small {
+    padding: 0.3rem 0.6rem;
+    background: transparent;
+    color: var(--admin-text-muted, #888);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  .note {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted, #888);
+    font-style: italic;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .job-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .job-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .job-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .status-succeeded { background: #166534; color: #bbf7d0; }
+  .status-failed { background: #7f1d1d; color: #fecaca; }
+  .status-running { background: #1e40af; color: #bfdbfe; }
+  .status-queued { background: #374151; color: #d1d5db; }
+  .status-waiting_review { background: #78350f; color: #fef3c7; }
+  .status-dead_letter { background: #450a0a; color: #fecaca; }
+
+  .job-pipeline {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .job-time {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .job-error {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+  }
+
+  .job-output {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+  }
+
+  .job-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .error { color: #ef4444; }
+  .empty { color: var(--admin-text-muted, #888); }
+</style>

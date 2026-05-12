@@ -1,0 +1,446 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Stats">
+  <div class="stats-header">
+    <p class="page-desc">System statistics and metrics overview.</p>
+    <div class="header-actions">
+      <select id="time-range" class="select">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+      </select>
+      <button id="export-csv" class="btn-secondary">Export CSV</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <section class="stats-section">
+      <h2>Content Volume</h2>
+      <div id="content-volume" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Knowledge Base</h2>
+      <div id="knowledge-base" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Pipeline Health</h2>
+      <div id="pipeline-health" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>RAG Usage</h2>
+      <div id="rag-usage" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Content Quality</h2>
+      <div id="content-quality" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Glossary Lookups</h2>
+      <div id="glossary-stats" class="stats-content">Loading...</div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  let currentRange = 30;
+
+  async function loadStats() {
+    await Promise.all([
+      loadContentVolume(),
+      loadKnowledgeBase(),
+      loadPipelineHealth(),
+      loadRagUsage(),
+      loadContentQuality(),
+      loadGlossaryStats(),
+    ]);
+  }
+
+  async function loadContentVolume() {
+    const el = document.getElementById('content-volume');
+    try {
+      const res = await fetch(`/api/admin/stats/content?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.totalPosts ?? 0}</span>
+            <span class="metric-label">Total Posts</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.categories?.length ?? 0}</span>
+            <span class="metric-label">Categories</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.tags?.length ?? 0}</span>
+            <span class="metric-label">Tags</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.typeComplete ?? 0}%</span>
+            <span class="metric-label">Type Complete</span>
+          </div>
+        </div>
+        ${renderCategoryBreakdown(data.categories || [])}
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadKnowledgeBase() {
+    const el = document.getElementById('knowledge-base');
+    try {
+      const res = await fetch('/api/admin/stats/knowledge');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.postChunks ?? 0}</span>
+            <span class="metric-label">Post Chunks</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.docChunks ?? 0}</span>
+            <span class="metric-label">Doc Chunks</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${formatBytes(data.vectorizeSize ?? 0)}</span>
+            <span class="metric-label">Vectorize Size</span>
+          </div>
+        </div>
+        <p class="metric-note">Last embed: ${data.lastEmbed ? formatDate(data.lastEmbed) : 'Never'}</p>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadPipelineHealth() {
+    const el = document.getElementById('pipeline-health');
+    try {
+      const res = await fetch(`/api/admin/stats/pipelines?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.successRate ?? 0}%</span>
+            <span class="metric-label">Success Rate</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.avgDuration ?? 0}ms</span>
+            <span class="metric-label">Avg Duration</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.pending ?? 0}</span>
+            <span class="metric-label">Pending</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.failed ?? 0}</span>
+            <span class="metric-label">Failed</span>
+          </div>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadRagUsage() {
+    const el = document.getElementById('rag-usage');
+    try {
+      const res = await fetch(`/api/admin/stats/rag?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.queries ?? 0}</span>
+            <span class="metric-label">Queries</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.avgLatency ?? 0}ms</span>
+            <span class="metric-label">Avg Latency</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.cacheHitRate ?? 0}%</span>
+            <span class="metric-label">Cache Hit Rate</span>
+          </div>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadContentQuality() {
+    const el = document.getElementById('content-quality');
+    try {
+      const res = await fetch('/api/admin/stats/quality');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.missingTldr ?? 0}</span>
+            <span class="metric-label">Missing TL;DR</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.missingType ?? 0}</span>
+            <span class="metric-label">Missing Type</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.missingDescription ?? 0}</span>
+            <span class="metric-label">Missing Description</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.brokenLinks ?? 0}</span>
+            <span class="metric-label">Broken Links</span>
+          </div>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadGlossaryStats() {
+    const el = document.getElementById('glossary-stats');
+    try {
+      const res = await fetch(`/api/admin/stats/glossary?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-value">${data.lookups ?? 0}</span>
+            <span class="metric-label">Lookups</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">${data.missingDefinitions ?? 0}</span>
+            <span class="metric-label">Missing Definitions</span>
+          </div>
+        </div>
+        ${data.topTerms?.length ? `
+          <div class="top-terms">
+            <h4>Top Looked Up Terms</h4>
+            ${data.topTerms.slice(0, 5).map(t => `
+              <span class="term-tag">${t.term} (${t.count})</span>
+            `).join('')}
+          </div>
+        ` : ''}
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  function renderCategoryBreakdown(categories) {
+    if (!categories?.length) return '';
+    return `
+      <div class="breakdown">
+        <h4>By Category</h4>
+        ${categories.slice(0, 8).map(c => `
+          <div class="breakdown-row">
+            <span class="breakdown-label">${c.name}</span>
+            <span class="breakdown-value">${c.count}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function formatDate(iso) {
+    if (!iso) return 'N/A';
+    return new Date(iso).toLocaleDateString('zh-TW', { month: 'short', day: 'numeric' });
+  }
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  }
+
+  // Event handlers
+  document.getElementById('time-range').addEventListener('change', (e) => {
+    currentRange = parseInt(e.target.value);
+    loadStats();
+  });
+
+  document.getElementById('export-csv').addEventListener('click', async () => {
+    const res = await fetch(`/api/admin/stats/export?days=${currentRange}`);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `stats-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  loadStats();
+</script>
+
+<style>
+  .stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .select {
+    padding: 0.4rem 0.75rem;
+    background: var(--admin-bg, #0f0f0f);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 6px;
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.85rem;
+  }
+
+  .btn-secondary {
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    color: var(--admin-text-muted, #888);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--admin-accent, #3b82f6);
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stats-section {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .stats-section h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .metric-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .breakdown {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+  }
+
+  .breakdown h4 {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 0.5rem;
+  }
+
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+  }
+
+  .breakdown-label {
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .breakdown-value {
+    color: var(--admin-text-muted, #888);
+  }
+
+  .top-terms {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+  }
+
+  .top-terms h4 {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 0.5rem;
+  }
+
+  .term-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin: 0.25rem;
+    background: var(--admin-border, #2a2a2a);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .error { color: #ef4444; }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

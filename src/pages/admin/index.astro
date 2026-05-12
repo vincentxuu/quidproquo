@@ -1,0 +1,301 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Dashboard">
+  <div class="dashboard-grid">
+    <section class="status-card">
+      <h3>System Status</h3>
+      <div id="system-status" class="status-content">Loading...</div>
+    </section>
+
+    <section class="status-card">
+      <h3>RAG Health</h3>
+      <div id="rag-health" class="status-content">Loading...</div>
+    </section>
+
+    <section class="status-card">
+      <h3>Index Health</h3>
+      <div id="index-health" class="status-content">Loading...</div>
+    </section>
+
+    <section class="status-card">
+      <h3>Content Health</h3>
+      <div id="content-health" class="status-content">Loading...</div>
+    </section>
+
+    <section class="status-card wide">
+      <h3>Recent Jobs</h3>
+      <div id="recent-jobs" class="status-content">Loading...</div>
+    </section>
+
+    <section class="status-card wide">
+      <h3>Quick Actions</h3>
+      <div class="quick-actions">
+        <a href="/admin/ops" class="action-btn">Run Jobs</a>
+        <a href="/admin/rag" class="action-btn">RAG Settings</a>
+        <a href="/admin/content" class="action-btn">Content Ops</a>
+        <a href="/admin/stats" class="action-btn">View Stats</a>
+      </div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  async function loadDashboard() {
+    await Promise.all([
+      loadSystemStatus(),
+      loadRAGHealth(),
+      loadIndexHealth(),
+      loadContentHealth(),
+      loadRecentJobs(),
+    ]);
+  }
+
+  async function loadSystemStatus() {
+    const el = document.getElementById('system-status');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = renderStatusList(data.statuses);
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadRAGHealth() {
+    const el = document.getElementById('rag-health');
+    try {
+      const res = await fetch('/api/admin/rag');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const recentTraces = data.traces?.slice(0, 5) || [];
+      el.innerHTML = `
+        <p><strong>Queries (7d):</strong> ${recentTraces.length}</p>
+        <p><strong>Recent Errors:</strong> ${recentTraces.filter(t => t.output_summary?.includes('error')).length}</p>
+        <a href="/admin/rag" class="card-link">View RAG Settings →</a>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadIndexHealth() {
+    const el = document.getElementById('index-health');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <p><strong>Post Chunks:</strong> ${data.index?.postChunks ?? 'N/A'}</p>
+        <p><strong>Doc Chunks:</strong> ${data.index?.docChunks ?? 'N/A'}</p>
+        <p><strong>Last Embed:</strong> ${data.index?.lastEmbed ?? 'Never'}</p>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadContentHealth() {
+    const el = document.getElementById('content-health');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      el.innerHTML = `
+        <p><strong>Total Posts:</strong> ${data.content?.total ?? 'N/A'}</p>
+        <p><strong>Drafts:</strong> ${data.content?.drafts ?? 'N/A'}</p>
+        <p><strong>Missing Type:</strong> ${data.content?.missingType ?? 'N/A'}</p>
+        <a href="/admin/content" class="card-link">View Content →</a>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadRecentJobs() {
+    const el = document.getElementById('recent-jobs');
+    try {
+      const res = await fetch('/api/admin/jobs?limit=5');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!data.jobs?.length) {
+        el.innerHTML = '<p class="empty">No jobs yet</p>';
+        return;
+      }
+      el.innerHTML = data.jobs.map(job => `
+        <div class="job-row">
+          <span class="job-status status-${job.status}">${job.status}</span>
+          <span class="job-pipeline">${job.pipeline_id}</span>
+          <span class="job-time">${formatTime(job.created_at)}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  function renderStatusList(statuses) {
+    if (!statuses?.length) return '<p class="empty">No status data</p>';
+    return statuses.map(s => `
+      <div class="status-item">
+        <span class="status-indicator ${s.ok ? 'ok' : 'error'}"></span>
+        <span>${s.name}</span>
+      </div>
+    `).join('');
+  }
+
+  function formatTime(iso) {
+    if (!iso) return 'N/A';
+    const d = new Date(iso);
+    return d.toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  loadDashboard();
+</script>
+
+<style>
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .status-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .status-card.wide {
+    grid-column: span 2;
+  }
+
+  .status-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .status-content {
+    font-size: 0.9rem;
+  }
+
+  .status-content p {
+    margin: 0.5rem 0;
+  }
+
+  .status-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .status-indicator.ok {
+    background: #22c55e;
+  }
+
+  .status-indicator.error {
+    background: #ef4444;
+  }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--admin-accent, #3b82f6);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .action-btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background: var(--admin-bg, #0f0f0f);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    color: var(--admin-text, #e0e0e0);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: border-color 0.15s;
+  }
+
+  .action-btn:hover {
+    border-color: var(--admin-accent, #3b82f6);
+  }
+
+  .job-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--admin-border, #2a2a2a);
+  }
+
+  .job-row:last-child {
+    border-bottom: none;
+  }
+
+  .job-status {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .status-succeeded { background: #166534; color: #bbf7d0; }
+  .status-failed { background: #7f1d1d; color: #fecaca; }
+  .status-running { background: #1e40af; color: #bfdbfe; }
+  .status-queued { background: #374151; color: #d1d5db; }
+
+  .job-pipeline {
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+
+  .job-time {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.8rem;
+    margin-left: auto;
+  }
+
+  .error {
+    color: #ef4444;
+  }
+
+  .empty {
+    color: var(--admin-text-muted, #888);
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .status-card.wide {
+      grid-column: span 1;
+    }
+  }
+</style>

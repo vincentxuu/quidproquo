@@ -1,0 +1,361 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Providers">
+  <p class="page-desc">Aggregate view of all AI providers and models used across the system. Configure settings in individual pages.</p>
+
+  <div class="providers-grid">
+    <section class="providers-section">
+      <h2>RAG Pipeline</h2>
+      <div id="rag-providers" class="provider-cards">Loading...</div>
+    </section>
+
+    <section class="providers-section">
+      <h2>Content Pipeline</h2>
+      <div id="content-providers" class="provider-cards">Loading...</div>
+    </section>
+
+    <section class="providers-section">
+      <h2>Embedding</h2>
+      <div id="embed-providers" class="provider-cards">Loading...</div>
+    </section>
+
+    <section class="providers-section">
+      <h2>Secrets Status</h2>
+      <div id="secrets-status" class="secrets-grid">Loading...</div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  async function loadProviders() {
+    await Promise.all([
+      loadRagProviders(),
+      loadContentProviders(),
+      loadEmbedProviders(),
+      loadSecretsStatus(),
+    ]);
+  }
+
+  async function loadRagProviders() {
+    const el = document.getElementById('rag-providers');
+    try {
+      const res = await fetch('/api/admin/rag');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      // Extract settings
+      const settings = {};
+      for (const row of data.settings || []) {
+        settings[row.key] = row.value;
+      }
+
+      el.innerHTML = `
+        <div class="provider-card">
+          <div class="provider-header">
+            <span class="provider-name">Chat / Answer</span>
+            <a href="/admin/rag" class="configure-link">Configure →</a>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Provider:</span>
+            <span class="provider-value">${settings.rag_default_provider || 'groq'}</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Model:</span>
+            <span class="provider-value">${settings.rag_default_model || 'llama-3.3-70b-versatile'}</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Engine:</span>
+            <span class="provider-value">${settings.rag_pipeline_engine || 'langgraph'}</span>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <span class="provider-name">Fallback</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Provider:</span>
+            <span class="provider-value">${settings.rag_fallback_provider || 'none'}</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Model:</span>
+            <span class="provider-value">${settings.rag_fallback_model || 'none'}</span>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <span class="provider-name">Feature Flags</span>
+          </div>
+          <div class="flags-grid">
+            <span class="flag ${settings.rag_flag_hyde === '1' ? 'enabled' : 'disabled'}">HyDE</span>
+            <span class="flag ${settings.rag_flag_multi_query === '1' ? 'enabled' : 'disabled'}">Multi-Query</span>
+            <span class="flag ${settings.rag_flag_reranker === '1' ? 'enabled' : 'disabled'}">Reranker</span>
+            <span class="flag ${settings.rag_flag_critic === '1' ? 'enabled' : 'disabled'}">Critic</span>
+          </div>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadContentProviders() {
+    const el = document.getElementById('content-providers');
+    // Content pipeline providers would come from pipeline definitions
+    // For now, show placeholder
+    el.innerHTML = `
+      <div class="provider-card">
+        <div class="provider-header">
+          <span class="provider-name">Translation</span>
+          <span class="status-badge planned">Planned</span>
+        </div>
+        <div class="provider-info">
+          <span class="provider-label">Provider:</span>
+          <span class="provider-value">Not configured</span>
+        </div>
+        <p class="provider-note">Translation pipeline will use RAG default provider.</p>
+      </div>
+
+      <div class="provider-card">
+        <div class="provider-header">
+          <span class="provider-name">Metadata Agent</span>
+          <span class="status-badge planned">Planned</span>
+        </div>
+        <div class="provider-info">
+          <span class="provider-label">Provider:</span>
+          <span class="provider-value">Not configured</span>
+        </div>
+        <p class="provider-note">Will inherit RAG provider settings.</p>
+      </div>
+    `;
+  }
+
+  async function loadEmbedProviders() {
+    const el = document.getElementById('embed-providers');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      el.innerHTML = `
+        <div class="provider-card">
+          <div class="provider-header">
+            <span class="provider-name">Workers AI</span>
+            <span class="status-badge ${data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'active' : 'error'}">
+              ${data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'Active' : 'Error'}
+            </span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Embedding Model:</span>
+            <span class="provider-value">@cf/baai/bge-base-en-v1.5</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Post Chunks:</span>
+            <span class="provider-value">${data.index?.postChunks ?? 0}</span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Doc Chunks:</span>
+            <span class="provider-value">${data.index?.docChunks ?? 0}</span>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <span class="provider-name">Vectorize</span>
+            <span class="status-badge ${data.statuses?.find(s => s.name === 'Vectorize Index')?.ok ? 'active' : 'error'}">
+              ${data.statuses?.find(s => s.name === 'Vectorize Index')?.ok ? 'Active' : 'Error'}
+            </span>
+          </div>
+          <div class="provider-info">
+            <span class="provider-label">Index:</span>
+            <span class="provider-value">quidproquo-embeddings</span>
+          </div>
+        </div>
+      `;
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  async function loadSecretsStatus() {
+    const el = document.getElementById('secrets-status');
+    // Check environment secrets status
+    // For now, show placeholder based on system status
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      const secrets = [
+        { name: 'ADMIN_PASSWORD', status: 'configured' },
+        { name: 'CRAWL_SECRET', status: 'configured' },
+        { name: 'Workers AI Binding', status: data.statuses?.find(s => s.name === 'Workers AI')?.ok ? 'ready' : 'missing' },
+      ];
+
+      el.innerHTML = secrets.map(s => `
+        <div class="secret-item">
+          <span class="secret-name">${s.name}</span>
+          <span class="secret-status status-${s.status}">${s.status}</span>
+        </div>
+      `).join('');
+    } catch {
+      el.innerHTML = '<p class="error">Unable to load</p>';
+    }
+  }
+
+  loadProviders();
+</script>
+
+<style>
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 1.5rem;
+  }
+
+  .providers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .providers-section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .provider-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .provider-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .provider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .provider-name {
+    font-weight: 600;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .configure-link {
+    font-size: 0.8rem;
+    color: var(--admin-accent, #3b82f6);
+    text-decoration: none;
+  }
+
+  .configure-link:hover {
+    text-decoration: underline;
+  }
+
+  .provider-info {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .provider-label {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
+  .provider-value {
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.85rem;
+    font-family: monospace;
+  }
+
+  .provider-note {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  .flags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .flag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .flag.enabled {
+    background: #166534;
+    color: #bbf7d0;
+  }
+
+  .flag.disabled {
+    background: var(--admin-border, #2a2a2a);
+    color: var(--admin-text-muted, #888);
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .status-badge.active { background: #166534; color: #bbf7d0; }
+  .status-badge.error { background: #7f1d1d; color: #fecaca; }
+  .status-badge.planned { background: #374151; color: #d1d5db; }
+
+  .secrets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .secret-item {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .secret-name {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .secret-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .status-configured, .status-ready { background: #166534; color: #bbf7d0; }
+  .status-missing { background: #7f1d1d; color: #fecaca; }
+
+  .error { color: #ef4444; }
+</style>

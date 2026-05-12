@@ -2,9 +2,11 @@
 import { verifySession } from '../lib/auth/session'
 const session = Astro.cookies.get('session')?.value
 if (session && await verifySession(session)) {
-  return Astro.redirect('/chat')
+  const next = Astro.url.searchParams.get('next') || '/admin'
+  return Astro.redirect(next)
 }
 const error = Astro.url.searchParams.get('error')
+const next = Astro.url.searchParams.get('next') || '/admin'
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -24,6 +26,7 @@ const error = Astro.url.searchParams.get('error')
   <form method="POST" action="/api/auth/login">
     <h2 style="margin:0">quidproquo</h2>
     {error && <p class="error">密碼錯誤</p>}
+    <input type="hidden" name="next" value={next} />
     <input type="password" name="password" placeholder="密碼" required autofocus />
     <button type="submit">登入</button>
   </form>

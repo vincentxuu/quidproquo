@@ -12,6 +12,7 @@ import { shouldRetry, shouldDegrade } from './agents/critic-routing'
 import { relatedPostsNode } from './agents/related-posts'
 import { fallbackNode } from './agents/fallback'
 import type { BaseMessage } from '@langchain/core/messages'
+import type { PipelineCallbacks } from './state'
 
 export function buildGraph() {
   const graph = new StateGraph<GraphState>({
@@ -77,12 +78,6 @@ export function buildGraph() {
 }
 
 const compiledGraph = buildGraph()
-
-export interface PipelineCallbacks {
-  onStep: (agent: string, extra?: Record<string, unknown>) => void
-  onToken: (text: string) => void
-  onRelated: (posts: { title: string; slug: string; description: string }[]) => void
-}
 
 export async function runPipeline(
   input: {

@@ -1,0 +1,298 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Content Pipelines">
+  <p class="page-desc">Content Agent Harness MVP：registry、guard、Worker module execution、job timeline 與 artifacts。</p>
+
+  <section class="admin-panel">
+    <div class="panel-title">
+      <h2>Pipeline Registry</h2>
+      <button id="refresh" type="button">Refresh</button>
+    </div>
+    <div id="pipeline-list" class="pipeline-grid">Loading...</div>
+  </section>
+
+  <section class="admin-panel">
+    <h2>Recent Jobs</h2>
+    <div id="job-list">Loading...</div>
+  </section>
+
+  <section class="admin-panel">
+    <h2>Run Output</h2>
+    <pre id="run-output">No pipeline run yet.</pre>
+  </section>
+</AdminLayout>
+
+<script is:inline>
+  const pipelineList = document.getElementById('pipeline-list');
+  const jobList = document.getElementById('job-list');
+  const output = document.getElementById('run-output');
+  const refresh = document.getElementById('refresh');
+
+  async function load() {
+    const res = await fetch('/api/admin/pipelines');
+    if (!res.ok) {
+      pipelineList.textContent = 'Unable to load pipelines.';
+      jobList.textContent = '';
+      return;
+    }
+    const data = await res.json();
+    renderPipelines(data.pipelines ?? []);
+    renderJobs(data.jobs ?? []);
+  }
+
+  function renderPipelines(pipelines) {
+    pipelineList.replaceChildren();
+    if (!pipelines.length) {
+      pipelineList.textContent = 'No pipelines registered.';
+      return;
+    }
+
+    for (const pipeline of pipelines) {
+      const card = document.createElement('article');
+      card.className = 'pipeline-card';
+
+      const header = document.createElement('div');
+      header.className = 'pipeline-header';
+      const title = document.createElement('h3');
+      title.textContent = pipeline.title;
+      const status = document.createElement('span');
+      status.className = `runtime runtime-${pipeline.runtime}`;
+      status.textContent = pipeline.runtime;
+      header.append(title, status);
+
+      const id = document.createElement('code');
+      id.textContent = pipeline.id;
+
+      const desc = document.createElement('p');
+      desc.textContent = pipeline.description;
+
+      const meta = document.createElement('div');
+      meta.className = 'pipeline-meta';
+      meta.innerHTML = `
+        <span>${pipeline.category}</span>
+        <span>${pipeline.risk} risk</span>
+        <span>${pipeline.stages.length} stages</span>
+      `;
+
+      const inputs = document.createElement('div');
+      inputs.className = 'pipeline-inputs';
+      const inputControls = [];
+      for (const field of pipeline.inputs ?? []) {
+        const label = document.createElement('label');
+        label.textContent = field.label;
+        const input = document.createElement('input');
+        input.dataset.inputId = field.id;
+        input.placeholder = field.placeholder ?? '';
+        input.value = field.defaultValue === undefined ? '' : JSON.stringify(field.defaultValue).replace(/^"|"$/g, '');
+        input.type = field.type === 'number' ? 'number' : 'text';
+        if (field.type === 'boolean') input.type = 'checkbox';
+        label.append(input);
+        inputs.append(label);
+        inputControls.push({ field, input });
+      }
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = 'Run pipeline';
+      button.addEventListener('click', () => runPipeline(pipeline, inputControls));
+
+      card.append(header, id, desc, meta, inputs, button);
+      pipelineList.append(card);
+    }
+  }
+
+  async function runPipeline(pipeline, inputControls) {
+    const input = {};
+    for (const { field, input: control } of inputControls) {
+      if (field.type === 'boolean') {
+        input[field.id] = control.checked;
+      } else if (field.type === 'number') {
+        input[field.id] = control.value === '' ? undefined : Number(control.value);
+      } else if (field.type === 'json') {
+        try {
+          input[field.id] = control.value ? JSON.parse(control.value) : field.defaultValue;
+        } catch {
+          output.textContent = `${field.label} must be valid JSON.`;
+          return;
+        }
+      } else {
+        input[field.id] = control.value;
+      }
+    }
+
+    output.textContent = `Running ${pipeline.id}...`;
+    const res = await fetch('/api/admin/pipelines', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pipelineId: pipeline.id, input }),
+    });
+    const data = await res.json();
+    output.textContent = JSON.stringify(data, null, 2);
+    await load();
+  }
+
+  function renderJobs(jobs) {
+    jobList.replaceChildren();
+    if (!jobs.length) {
+      jobList.textContent = 'No jobs yet.';
+      return;
+    }
+
+    for (const job of jobs) {
+      const row = document.createElement('a');
+      row.className = 'job-row';
+      row.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      row.innerHTML = `
+        <span class="job-status status-${job.status}">${job.status}</span>
+        <strong>${job.pipeline_id}</strong>
+        <code>${job.id}</code>
+        <time>${formatTime(job.created_at)}</time>
+      `;
+      jobList.append(row);
+    }
+  }
+
+  function formatTime(iso) {
+    if (!iso) return '';
+    return new Date(iso).toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  refresh.addEventListener('click', load);
+  load();
+</script>
+
+<style>
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 1.5rem;
+  }
+
+  .admin-panel {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    background: var(--admin-surface, #1a1a1a);
+  }
+
+  .panel-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .admin-panel h2 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .pipeline-card {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 1rem;
+    background: var(--admin-bg, #0f0f0f);
+  }
+
+  .pipeline-header,
+  .pipeline-meta,
+  .job-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .pipeline-header {
+    justify-content: space-between;
+  }
+
+  .pipeline-header h3 {
+    font-size: 0.95rem;
+  }
+
+  .pipeline-card code,
+  .job-row code {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.78rem;
+  }
+
+  .pipeline-card p {
+    margin: 0.75rem 0;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .runtime,
+  .pipeline-meta span,
+  .job-status {
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    background: var(--admin-border, #2a2a2a);
+    color: var(--admin-text-muted, #888);
+    font-size: 0.75rem;
+  }
+
+  .runtime-worker,
+  .status-succeeded {
+    color: #86efac;
+  }
+
+  .status-waiting_review {
+    color: #facc15;
+  }
+
+  .status-failed {
+    color: #fca5a5;
+  }
+
+  .pipeline-inputs {
+    display: grid;
+    gap: 0.65rem;
+    margin: 1rem 0;
+  }
+
+  .pipeline-inputs label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--admin-text-muted, #888);
+    font-size: 0.8rem;
+  }
+
+  input,
+  button {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    background: var(--admin-bg, #0f0f0f);
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .job-row {
+    justify-content: space-between;
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+    padding: 0.75rem 0;
+    color: var(--admin-text, #e0e0e0);
+    text-decoration: none;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: var(--admin-text, #e0e0e0);
+  }
+</style>

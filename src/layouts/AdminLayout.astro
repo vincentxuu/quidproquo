@@ -1,0 +1,231 @@
+---
+import { verifySession } from '../lib/auth/session';
+
+export const prerender = false;
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+// Check authentication
+const session = Astro.cookies.get('session')?.value;
+const isLoggedIn = session ? await verifySession(session) : false;
+
+// Get current path for redirect
+const currentPath = Astro.url.pathname;
+const loginUrl = `/login?next=${encodeURIComponent(currentPath)}`;
+
+if (!isLoggedIn) {
+  return Astro.redirect(loginUrl);
+}
+
+// Navigation items
+const navItems = [
+  { href: '/admin', label: 'Dashboard' },
+  { href: '/admin/ops', label: 'Ops' },
+  { href: '/admin/rag', label: 'RAG' },
+  { href: '/admin/content-pipelines', label: 'Pipelines' },
+  { href: '/admin/jobs', label: 'Jobs' },
+  { href: '/admin/content', label: 'Content' },
+  { href: '/admin/stats', label: 'Stats' },
+  { href: '/admin/providers', label: 'Providers' },
+  { href: '/admin/traces', label: 'Traces' },
+  { href: '/admin/settings', label: 'Settings' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Admin</title>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <h1>Admin</h1>
+      </div>
+      <nav class="sidebar-nav">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class:list={['nav-item', { active: currentPath === item.href }]}
+          >
+            <span class="nav-label">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+      <div class="sidebar-footer">
+        <a href="/" class="nav-item">
+          <span class="nav-label">Back to Site</span>
+        </a>
+        <form method="POST" action="/api/auth/logout">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      </div>
+    </aside>
+    <main class="admin-main">
+      <header class="admin-header">
+        <h2>{title}</h2>
+      </header>
+      <div class="admin-content">
+        <slot />
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+<style>
+  :root {
+    --sidebar-width: 220px;
+    --admin-bg: #0f0f0f;
+    --admin-surface: #1a1a1a;
+    --admin-border: #2a2a2a;
+    --admin-text: #e0e0e0;
+    --admin-text-muted: #888;
+    --admin-accent: #3b82f6;
+    --admin-accent-hover: #2563eb;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    min-height: 100vh;
+  }
+
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .sidebar-header {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .sidebar-header h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 0.75rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    color: var(--admin-text);
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    transition: background 0.15s;
+  }
+
+  .nav-item:hover {
+    background: var(--admin-border);
+  }
+
+  .nav-item.active {
+    background: var(--admin-accent);
+    color: white;
+  }
+
+  .nav-icon {
+    font-size: 1.1rem;
+  }
+
+  .nav-label {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-footer {
+    padding: 0.75rem;
+    border-top: 1px solid var(--admin-border);
+  }
+
+  .logout-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: left;
+    transition: background 0.15s;
+  }
+
+  .logout-btn:hover {
+    background: var(--admin-border);
+    color: var(--admin-text);
+  }
+
+  .admin-main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+  }
+
+  .admin-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .admin-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .admin-content {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .admin-sidebar {
+      width: 60px;
+    }
+
+    .nav-label,
+    .sidebar-header h1 {
+      display: none;
+    }
+
+    .admin-main {
+      margin-left: 60px;
+    }
+  }
+</style>

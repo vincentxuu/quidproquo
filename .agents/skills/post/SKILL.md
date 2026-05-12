@@ -19,6 +19,16 @@ description: Convert a conversation, notes, or experience into a structured post
 
 `tech` / `climbing` / `surf` / `film` / `life` / `coffee` / `learning` / `ai` / `product` / `marketing` / `travel` / `design` / `education` / `policy` / `anime` / `career`
 
+## Glossary 術語提示
+
+寫新文章時，順手檢查文中有沒有讀者可能不熟、但理解文章需要知道的詞。這些詞應該加入 glossary，讓讀者可以在文章裡看到簡短解釋。
+
+- 如果這個詞會在多篇文章重複出現，補到 `src/lib/glossary/terms.ts` 的 `DEFAULT_GLOSSARY_TERMS`，讓全站文章都能共用。
+- 如果這個詞只跟當篇文章有關，補到該篇 frontmatter 的 `glossary` 欄位。
+- 不需要把所有專有名詞都加進 glossary；只加「不解釋會影響理解」的詞。
+
+發布後或做內容維護時，再查看 `glossary_lookup_stats`。讀者常查的詞，代表可能需要補成全站詞彙，或回頭補到特定文章的 glossary。
+
 ## 執行步驟
 
 1. **判斷分類**：根據內容選擇最適合的 category
@@ -29,6 +39,7 @@ description: Convert a conversation, notes, or experience into a structured post
    - 欄位說明見 `references/frontmatter-schema.md`
    - 檔名：`YYYY-MM-DD-<slug>.md`（slug 用英文 kebab-case）
    - 存到 `src/content/posts/<category>/`
+   - 檢查文中術語，只補「不解釋會影響理解」的詞；通用詞放 `DEFAULT_GLOSSARY_TERMS`，當篇特有詞放 frontmatter `glossary`
    - 如果文章引用工具、框架、官方文件、論文、版本資訊、數據比較或外部說法，文末必須補 `## 參考資料`
    - `tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類，預設要附參考資料
 5. **跑 Evaluator**：

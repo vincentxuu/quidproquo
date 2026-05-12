@@ -241,14 +241,20 @@
     },
     {
       "path": "docs/plan.md",
-      "accessCount": 10,
-      "lastAccessed": 1778601501658,
+      "accessCount": 11,
+      "lastAccessed": 1778607420087,
       "type": "file"
     },
     {
       "path": "src/lib/rag/graph.ts",
-      "accessCount": 9,
-      "lastAccessed": 1778520056151,
+      "accessCount": 11,
+      "lastAccessed": 1778611190372,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/admin/rag.astro",
+      "accessCount": 10,
+      "lastAccessed": 1778611190426,
       "type": "file"
     },
     {
@@ -258,15 +264,15 @@
       "type": "file"
     },
     {
-      "path": "src/lib/rag/agents/research.ts",
-      "accessCount": 8,
-      "lastAccessed": 1778519259423,
+      "path": "docs/ai-agent-content-system.md",
+      "accessCount": 9,
+      "lastAccessed": 1778607610131,
       "type": "file"
     },
     {
-      "path": "docs/ai-agent-content-system.md",
+      "path": "src/lib/rag/agents/research.ts",
       "accessCount": 8,
-      "lastAccessed": 1778602888743,
+      "lastAccessed": 1778519259423,
       "type": "file"
     },
     {
@@ -291,6 +297,12 @@
       "path": "src/pages/api/chat.ts",
       "accessCount": 6,
       "lastAccessed": 1778520617858,
+      "type": "file"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-05-12-admin-harness-integration-design.md",
+      "accessCount": 6,
+      "lastAccessed": 1778611810062,
       "type": "file"
     },
     {
@@ -319,14 +331,26 @@
     },
     {
       "path": "src/lib/rag/state.ts",
-      "accessCount": 4,
-      "lastAccessed": 1778518578604,
+      "accessCount": 5,
+      "lastAccessed": 1778611190268,
       "type": "file"
     },
     {
       "path": "src/lib/rag/tools/search-docs.ts",
       "accessCount": 4,
       "lastAccessed": 1778519210772,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/login.astro",
+      "accessCount": 4,
+      "lastAccessed": 1778607920313,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/pipeline.ts",
+      "accessCount": 4,
+      "lastAccessed": 1778611176944,
       "type": "file"
     },
     {
@@ -354,15 +378,21 @@
       "type": "file"
     },
     {
-      "path": "src/pages/admin/rag.astro",
+      "path": "src/pages/api/auth/login.ts",
       "accessCount": 3,
-      "lastAccessed": 1778601501527,
+      "lastAccessed": 1778607761800,
       "type": "file"
     },
     {
-      "path": "docs/superpowers/specs/2026-05-12-admin-harness-integration-design.md",
+      "path": "src/lib/auth/session.ts",
       "accessCount": 3,
-      "lastAccessed": 1778602938657,
+      "lastAccessed": 1778610794822,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/settings.ts",
+      "accessCount": 3,
+      "lastAccessed": 1778611190329,
       "type": "file"
     },
     {
@@ -390,12 +420,6 @@
       "type": "file"
     },
     {
-      "path": "src/lib/rag/pipeline.ts",
-      "accessCount": 2,
-      "lastAccessed": 1778601501580,
-      "type": "file"
-    },
-    {
       "path": "src/components/Chat/MessageList.tsx",
       "accessCount": 2,
       "lastAccessed": 1778603306559,
@@ -420,6 +444,18 @@
       "type": "file"
     },
     {
+      "path": "src/pages/api/admin/rag.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778607469356,
+      "type": "file"
+    },
+    {
+      "path": "docs/TODO.md",
+      "accessCount": 2,
+      "lastAccessed": 1778608547736,
+      "type": "file"
+    },
+    {
       "path": "src/content/posts/ai/2026-05-10-ai-agent-video-generation.md",
       "accessCount": 1,
       "lastAccessed": 1778422089644,
@@ -432,21 +468,9 @@
       "type": "file"
     },
     {
-      "path": "docs/TODO.md",
-      "accessCount": 1,
-      "lastAccessed": 1778478483606,
-      "type": "file"
-    },
-    {
       "path": "docs/superpowers/plans/2026-03-21-rag-phase1.md",
       "accessCount": 1,
       "lastAccessed": 1778478774711,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/api/auth/login.ts",
-      "accessCount": 1,
-      "lastAccessed": 1778513460208,
       "type": "file"
     },
     {
@@ -468,12 +492,6 @@
       "type": "file"
     },
     {
-      "path": "src/lib/rag/settings.ts",
-      "accessCount": 1,
-      "lastAccessed": 1778520630985,
-      "type": "file"
-    },
-    {
       "path": "migrations/0003_rag_phase1b.sql",
       "accessCount": 1,
       "lastAccessed": 1778520641479,
@@ -486,27 +504,9 @@
       "type": "file"
     },
     {
-      "path": "src/pages/login.astro",
-      "accessCount": 1,
-      "lastAccessed": 1778520927443,
-      "type": "file"
-    },
-    {
       "path": "src/components/Chat/ChatFloating.tsx",
       "accessCount": 1,
       "lastAccessed": 1778521207615,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/api/admin/rag.ts",
-      "accessCount": 1,
-      "lastAccessed": 1778599451023,
-      "type": "file"
-    },
-    {
-      "path": "src/lib/auth/session.ts",
-      "accessCount": 1,
-      "lastAccessed": 1778599451130,
       "type": "file"
     },
     {

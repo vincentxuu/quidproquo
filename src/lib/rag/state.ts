@@ -93,6 +93,12 @@ export interface TraceStep {
   metadata?: Record<string, unknown>
 }
 
+export interface PipelineCallbacks {
+  onStep: (agent: string, extra?: Record<string, unknown>) => void
+  onToken: (text: string) => void
+  onRelated: (posts: { title: string; slug: string; description: string }[]) => void
+}
+
 export function initialState(): GraphState {
   return {
     messages: [],

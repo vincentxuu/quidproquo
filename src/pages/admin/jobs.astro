@@ -1,0 +1,198 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Jobs">
+  <section class="admin-panel">
+    <h2>Job Timeline</h2>
+    <div id="job-detail">Loading...</div>
+  </section>
+
+  <section class="admin-panel">
+    <h2>Artifacts</h2>
+    <div id="artifact-list">Loading...</div>
+  </section>
+</AdminLayout>
+
+<script is:inline>
+  const detail = document.getElementById('job-detail');
+  const artifactList = document.getElementById('artifact-list');
+  const id = new URL(location.href).searchParams.get('id');
+
+  async function load() {
+    if (!id) {
+      await loadList();
+      return;
+    }
+
+    const res = await fetch(`/api/admin/jobs/${encodeURIComponent(id)}`);
+    if (!res.ok) {
+      detail.textContent = 'Unable to load job.';
+      artifactList.textContent = '';
+      return;
+    }
+    const data = await res.json();
+    renderDetail(data.job, data.steps ?? []);
+    renderArtifacts(data.artifacts ?? []);
+  }
+
+  async function loadList() {
+    const res = await fetch('/api/admin/jobs?limit=50');
+    if (!res.ok) {
+      detail.textContent = 'Unable to load jobs.';
+      artifactList.textContent = '';
+      return;
+    }
+    const data = await res.json();
+    detail.replaceChildren();
+    for (const job of data.jobs ?? []) {
+      const row = document.createElement('a');
+      row.className = 'job-row';
+      row.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      row.innerHTML = `
+        <span class="job-status status-${job.status}">${job.status}</span>
+        <strong>${job.pipeline_id}</strong>
+        <code>${job.id}</code>
+        <time>${formatTime(job.created_at)}</time>
+      `;
+      detail.append(row);
+    }
+    artifactList.textContent = 'Select a job to inspect artifacts.';
+  }
+
+  function renderDetail(job, steps) {
+    detail.replaceChildren();
+    const header = document.createElement('article');
+    header.className = 'job-summary';
+    header.innerHTML = `
+      <span class="job-status status-${job.status}">${job.status}</span>
+      <strong>${job.pipeline_id}</strong>
+      <code>${job.id}</code>
+      <p>${job.output_summary ?? job.error_summary ?? ''}</p>
+    `;
+    detail.append(header);
+
+    for (const step of steps) {
+      const row = document.createElement('article');
+      row.className = 'step-row';
+      row.innerHTML = `
+        <span class="job-status status-${step.status}">${step.status}</span>
+        <strong>${step.stage_id}</strong>
+        <span>${step.kind}</span>
+        <span>${step.duration_ms ?? 0}ms</span>
+        <p>${step.output_summary ?? step.error_summary ?? ''}</p>
+      `;
+      detail.append(row);
+    }
+  }
+
+  function renderArtifacts(artifacts) {
+    artifactList.replaceChildren();
+    if (!artifacts.length) {
+      artifactList.textContent = 'No artifacts.';
+      return;
+    }
+
+    for (const artifact of artifacts) {
+      const item = document.createElement('details');
+      item.className = 'artifact';
+      const summary = document.createElement('summary');
+      summary.textContent = `${artifact.type}: ${artifact.name ?? artifact.id}`;
+      const pre = document.createElement('pre');
+      pre.textContent = artifact.content_json
+        ? JSON.stringify(JSON.parse(artifact.content_json), null, 2)
+        : artifact.path ?? '';
+      item.append(summary, pre);
+      artifactList.append(item);
+    }
+  }
+
+  function formatTime(iso) {
+    if (!iso) return '';
+    return new Date(iso).toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  load();
+</script>
+
+<style>
+  .admin-panel {
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    background: var(--admin-surface, #1a1a1a);
+  }
+
+  .admin-panel h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .job-row,
+  .job-summary,
+  .step-row {
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+    padding: 0.75rem 0;
+    color: var(--admin-text, #e0e0e0);
+    text-decoration: none;
+  }
+
+  .job-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .job-status {
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    background: var(--admin-border, #2a2a2a);
+    color: var(--admin-text-muted, #888);
+    font-size: 0.75rem;
+  }
+
+  .status-succeeded {
+    color: #86efac;
+  }
+
+  .status-waiting_review,
+  .status-skipped {
+    color: #facc15;
+  }
+
+  .status-failed {
+    color: #fca5a5;
+  }
+
+  code,
+  .step-row span {
+    color: var(--admin-text-muted, #888);
+    font-size: 0.8rem;
+  }
+
+  .job-summary p,
+  .step-row p {
+    margin-top: 0.5rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .artifact {
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+    padding: 0.75rem 0;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  pre {
+    margin-top: 0.75rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: var(--admin-text, #e0e0e0);
+  }
+</style>

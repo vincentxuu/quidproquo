@@ -1,0 +1,331 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Settings">
+  <p class="page-desc">System configuration: secrets, rate limits, cache, and pipeline settings.</p>
+
+  <div class="settings-grid">
+    <section class="settings-section">
+      <h2>Secrets Status</h2>
+      <div id="secrets-status" class="secrets-grid">Loading...</div>
+    </section>
+
+    <section class="settings-section">
+      <h2>Rate Limits</h2>
+      <div class="setting-card">
+        <div class="setting-row">
+          <label for="rate-limit-minute">Requests per minute</label>
+          <div class="setting-input">
+            <input type="number" id="rate-limit-minute" class="input" min="1" max="1000" />
+            <span class="setting-note">Per-IP rate limit</span>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label for="rate-limit-hour">Requests per hour</label>
+          <div class="setting-input">
+            <input type="number" id="rate-limit-hour" class="input" min="1" max="10000" />
+            <span class="setting-note">Per-IP rate limit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2>RAG Settings</h2>
+      <div class="setting-card">
+        <div class="setting-row">
+          <label for="rag-cache-ttl">Cache TTL (seconds)</label>
+          <div class="setting-input">
+            <input type="number" id="rag-cache-ttl" class="input" min="0" max="86400" />
+            <span class="setting-note">RAG response cache duration</span>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label for="rag-max-chunks">Max context chunks</label>
+          <div class="setting-input">
+            <input type="number" id="rag-max-chunks" class="input" min="1" max="50" />
+            <span class="setting-note">Chunks retrieved per query</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2>Pipeline Settings</h2>
+      <div class="setting-card">
+        <div class="setting-row">
+          <label for="pipeline-retries">Max retries</label>
+          <div class="setting-input">
+            <input type="number" id="pipeline-retries" class="input" min="0" max="5" />
+            <span class="setting-note">Retry attempts on failure</span>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label for="pipeline-runtime">Max runtime (ms)</label>
+          <div class="setting-input">
+            <input type="number" id="pipeline-runtime" class="input" min="1000" max="3600000" />
+            <span class="setting-note">Job timeout in milliseconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="actions-bar">
+    <button id="save-settings" class="btn">Save Settings</button>
+    <button id="reset-settings" class="btn-secondary">Reset to Defaults</button>
+    <span id="save-status" class="status-text"></span>
+  </div>
+</AdminLayout>
+
+<script is:inline>
+  let currentConfig = {};
+
+  async function loadSettings() {
+    try {
+      const res = await fetch('/api/admin/settings');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      // Render secrets
+      const secretsEl = document.getElementById('secrets-status');
+      const secrets = Object.entries(data.secrets || {});
+      secretsEl.innerHTML = secrets.map(([name, info]) => `
+        <div class="secret-item">
+          <span class="secret-name">${name}</span>
+          <span class="secret-status status-${info.configured ? 'ready' : 'missing'}">
+            ${info.configured ? 'Configured' : 'Missing'}
+          </span>
+          <span class="secret-note">${info.note}</span>
+        </div>
+      `).join('');
+
+      // Set form values
+      currentConfig = data.config || {};
+      document.getElementById('rate-limit-minute').value = currentConfig.rate_limit?.per_minute || 60;
+      document.getElementById('rate-limit-hour').value = currentConfig.rate_limit?.per_hour || 1000;
+      document.getElementById('rag-cache-ttl').value = currentConfig.rag?.cache_ttl_seconds || 3600;
+      document.getElementById('rag-max-chunks').value = currentConfig.rag?.max_context_chunks || 10;
+      document.getElementById('pipeline-retries').value = currentConfig.pipeline?.max_retries || 2;
+      document.getElementById('pipeline-runtime').value = currentConfig.pipeline?.max_runtime_ms || 600000;
+    } catch {
+      document.getElementById('secrets-status').innerHTML = '<p class="error">Unable to load settings</p>';
+    }
+  }
+
+  async function saveSettings() {
+    const statusEl = document.getElementById('save-status');
+    statusEl.textContent = 'Saving...';
+
+    const payload = {
+      rate_limit: {
+        per_minute: parseInt(document.getElementById('rate-limit-minute').value),
+        per_hour: parseInt(document.getElementById('rate-limit-hour').value),
+      },
+      rag: {
+        cache_ttl_seconds: parseInt(document.getElementById('rag-cache-ttl').value),
+        max_context_chunks: parseInt(document.getElementById('rag-max-chunks').value),
+      },
+      pipeline: {
+        max_retries: parseInt(document.getElementById('pipeline-retries').value),
+        max_runtime_ms: parseInt(document.getElementById('pipeline-runtime').value),
+      },
+    };
+
+    try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to save');
+      }
+
+      statusEl.textContent = 'Settings saved.';
+      setTimeout(() => { statusEl.textContent = ''; }, 3000);
+    } catch (error) {
+      statusEl.textContent = 'Error: ' + (error instanceof Error ? error.message : 'Unknown error');
+    }
+  }
+
+  function resetSettings() {
+    document.getElementById('rate-limit-minute').value = 60;
+    document.getElementById('rate-limit-hour').value = 1000;
+    document.getElementById('rag-cache-ttl').value = 3600;
+    document.getElementById('rag-max-chunks').value = 10;
+    document.getElementById('pipeline-retries').value = 2;
+    document.getElementById('pipeline-runtime').value = 600000;
+    document.getElementById('save-status').textContent = 'Reset to defaults. Click Save to apply.';
+  }
+
+  document.getElementById('save-settings').addEventListener('click', saveSettings);
+  document.getElementById('reset-settings').addEventListener('click', resetSettings);
+
+  loadSettings();
+</script>
+
+<style>
+  .page-desc {
+    color: var(--admin-text-muted, #888);
+    margin-bottom: 1.5rem;
+  }
+
+  .settings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .settings-section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--admin-text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .secrets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .secret-item {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .secret-name {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--admin-text, #e0e0e0);
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .secret-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .status-ready { background: #166534; color: #bbf7d0; }
+  .status-missing { background: #7f1d1d; color: #fecaca; }
+
+  .secret-note {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted, #888);
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .setting-card {
+    background: var(--admin-surface, #1a1a1a);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .setting-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--admin-border, #2a2a2a);
+  }
+
+  .setting-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .setting-row label {
+    min-width: 180px;
+    font-size: 0.9rem;
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .setting-input {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .input {
+    padding: 0.5rem 0.75rem;
+    background: var(--admin-bg, #0f0f0f);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 6px;
+    color: var(--admin-text, #e0e0e0);
+    font-size: 0.9rem;
+    width: 120px;
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--admin-accent, #3b82f6);
+  }
+
+  .setting-note {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--admin-border, #2a2a2a);
+  }
+
+  .btn {
+    padding: 0.6rem 1.25rem;
+    background: var(--admin-accent, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .btn:hover {
+    background: var(--admin-accent-hover, #2563eb);
+  }
+
+  .btn-secondary {
+    padding: 0.6rem 1.25rem;
+    background: transparent;
+    color: var(--admin-text-muted, #888);
+    border: 1px solid var(--admin-border, #2a2a2a);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-border, #2a2a2a);
+    color: var(--admin-text, #e0e0e0);
+  }
+
+  .status-text {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted, #888);
+  }
+
+  .error { color: #ef4444; }
+</style>

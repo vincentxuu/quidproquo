@@ -15,6 +15,7 @@
     "session:start": "node scripts/session-start.mjs",
     "check:post-quality": "node scripts/check-post-quality.mjs",
     "check:references": "node scripts/check-post-references.mjs",
+    "check:glossary": "node scripts/check-glossary-coverage.mjs",
     "content:ops": "node scripts/content-ops.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
     "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
