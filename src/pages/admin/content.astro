@@ -1,34 +1,6 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
-import { getCollection } from 'astro:content';
-
-const allPosts = await getCollection('posts');
-const posts = allPosts
-  .map(post => {
-    const slug = post.id.replace(/\.md$/, '');
-    return {
-      slug,
-      title: post.data.title,
-      category: post.data.category,
-      lang: post.data.lang,
-      date: post.data.date,
-      draft: post.data.draft,
-      type: post.data.type,
-      tags: post.data.tags,
-      hasDescription: Boolean(post.data.description),
-      hasTldr: Boolean(post.data.tldr),
-      href: `/posts/${slug}`,
-      sourcePath: `src/content/posts/${post.id}`,
-    };
-  })
-  .sort((a, b) => b.date.getTime() - a.date.getTime());
-
-const categories = [...new Set(posts.map(post => post.category))].sort();
-const publishedCount = posts.filter(post => !post.draft).length;
-const draftCount = posts.filter(post => post.draft).length;
-const missingDescriptionCount = posts.filter(post => !post.hasDescription).length;
-const missingTldrCount = posts.filter(post => !post.hasTldr).length;
 ---
 
 <AdminLayout title="Content">
@@ -43,24 +15,24 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
         <p class="section-kicker">Inventory</p>
         <h2 id="inventory-title">文章管理</h2>
       </div>
-      <span id="result-count" class="result-count">{posts.length} 篇</span>
+      <span id="result-count" class="result-count">載入中</span>
     </div>
 
     <div class="metric-strip" aria-label="Content summary">
       <div class="metric-card">
-        <span class="metric-value">{posts.length}</span>
+        <span id="metric-total" class="metric-value">-</span>
         <span class="metric-label">全部文章</span>
       </div>
       <div class="metric-card">
-        <span class="metric-value">{publishedCount}</span>
+        <span id="metric-published" class="metric-value">-</span>
         <span class="metric-label">已發布</span>
       </div>
       <div class="metric-card">
-        <span class="metric-value">{draftCount}</span>
+        <span id="metric-drafts" class="metric-value">-</span>
         <span class="metric-label">草稿</span>
       </div>
       <div class="metric-card">
-        <span class="metric-value">{missingDescriptionCount + missingTldrCount}</span>
+        <span id="metric-missing" class="metric-value">-</span>
         <span class="metric-label">Metadata 缺漏</span>
       </div>
     </div>
@@ -74,7 +46,6 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
         <span>分類</span>
         <select id="category-filter">
           <option value="">全部分類</option>
-          {categories.map(category => <option value={category}>{category}</option>)}
         </select>
       </label>
       <label class="field">
@@ -100,44 +71,7 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
             <th scope="col">操作</th>
           </tr>
         </thead>
-        <tbody id="post-rows">
-          {posts.map(post => (
-            <tr
-              data-title={post.title.toLowerCase()}
-              data-slug={post.slug.toLowerCase()}
-              data-tags={post.tags.join(' ').toLowerCase()}
-              data-category={post.category}
-              data-status={post.draft ? 'draft' : 'published'}
-              data-missing={(!post.hasDescription || !post.hasTldr) ? 'true' : 'false'}
-            >
-              <td class="post-main">
-                <a href={post.href} class="post-title">{post.title}</a>
-                <span class="post-slug">{post.slug}</span>
-                <span class="post-path">{post.sourcePath}</span>
-              </td>
-              <td><span class="pill">{post.category}</span></td>
-              <td>
-                <span class:list={['status-pill', post.draft ? 'is-draft' : 'is-published']}>
-                  {post.draft ? '草稿' : '已發布'}
-                </span>
-              </td>
-              <td><time datetime={post.date.toISOString()}>{post.date.toLocaleDateString('zh-TW')}</time></td>
-              <td>
-                <div class="metadata-list">
-                  <span class:list={['metadata-chip', { missing: !post.hasDescription }]}>description</span>
-                  <span class:list={['metadata-chip', { missing: !post.hasTldr }]}>tldr</span>
-                  {post.type && <span class="metadata-chip">{post.type}</span>}
-                </div>
-              </td>
-              <td>
-                <div class="row-actions">
-                  <a href={post.href} class="text-link">查看</a>
-                  <button type="button" class="text-link copy-path" data-path={post.sourcePath}>複製路徑</button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody id="post-rows"></tbody>
       </table>
       <p id="no-results" class="empty" hidden>找不到符合條件的文章。試著清除搜尋或改用其他分類。</p>
     </div>
@@ -176,12 +110,90 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
 <script is:inline>
   async function loadContent() {
     await Promise.all([
+      loadInventory(),
       loadOverview(),
       loadMissingMetadata(),
       loadDrafts(),
       loadFreshness(),
       loadLinkOpportunities(),
     ]);
+  }
+
+  async function loadInventory() {
+    try {
+      const res = await fetch('/api/admin/content/inventory');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      renderInventory(data);
+    } catch {
+      resultCount.textContent = '載入失敗';
+      document.getElementById('post-rows').innerHTML = '<tr><td colspan="6" class="error">Unable to load inventory</td></tr>';
+    }
+  }
+
+  function renderInventory(data) {
+    const posts = data.posts || [];
+    const summary = data.summary || {};
+    document.getElementById('metric-total').textContent = String(summary.total ?? posts.length);
+    document.getElementById('metric-published').textContent = String(summary.published ?? posts.length);
+    document.getElementById('metric-drafts').textContent = String(summary.drafts ?? 0);
+    document.getElementById('metric-missing').textContent = String(summary.metadataMissing ?? 0);
+
+    categoryFilter.innerHTML = '<option value="">全部分類</option>';
+    for (const category of data.categories || []) {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category;
+      categoryFilter.append(option);
+    }
+
+    const tbody = document.getElementById('post-rows');
+    tbody.innerHTML = posts.map(post => {
+      const date = post.date ? new Date(post.date).toLocaleDateString('zh-TW') : 'N/A';
+      const dateTime = post.date ? new Date(post.date).toISOString() : '';
+      const tags = Array.isArray(post.tags) ? post.tags : [];
+      const missing = !post.hasDescription || !post.hasTldr;
+      return `
+        <tr
+          data-title="${escapeAttr(post.title.toLowerCase())}"
+          data-slug="${escapeAttr(post.slug.toLowerCase())}"
+          data-tags="${escapeAttr(tags.join(' ').toLowerCase())}"
+          data-category="${escapeAttr(post.category)}"
+          data-status="${post.draft ? 'draft' : 'published'}"
+          data-missing="${missing ? 'true' : 'false'}"
+        >
+          <td class="post-main">
+            <a href="${escapeAttr(post.href)}" class="post-title">${escapeHTML(post.title)}</a>
+            <span class="post-slug">${escapeHTML(post.slug)}</span>
+            <span class="post-path">${escapeHTML(post.sourcePath)}</span>
+          </td>
+          <td><span class="pill">${escapeHTML(post.category)}</span></td>
+          <td>
+            <span class="status-pill ${post.draft ? 'is-draft' : 'is-published'}">
+              ${post.draft ? '草稿' : '已發布'}
+            </span>
+          </td>
+          <td><time datetime="${dateTime}">${date}</time></td>
+          <td>
+            <div class="metadata-list">
+              <span class="metadata-chip ${post.hasDescription ? '' : 'missing'}">description</span>
+              <span class="metadata-chip ${post.hasTldr ? '' : 'missing'}">tldr</span>
+              ${post.type ? `<span class="metadata-chip">${escapeHTML(post.type)}</span>` : ''}
+            </div>
+          </td>
+          <td>
+            <div class="row-actions">
+              <a href="${escapeAttr(post.href)}" class="text-link">查看</a>
+              <button type="button" class="text-link copy-path" data-path="${escapeAttr(post.sourcePath)}">複製路徑</button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    rows = Array.from(document.querySelectorAll('#post-rows tr'));
+    bindCopyButtons();
+    filterPosts();
   }
 
   async function loadOverview() {
@@ -310,12 +322,10 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
     return new Date(iso).toLocaleDateString('zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
-  loadContent();
-
   const searchInput = document.getElementById('post-search');
   const categoryFilter = document.getElementById('category-filter');
   const statusFilter = document.getElementById('status-filter');
-  const rows = Array.from(document.querySelectorAll('#post-rows tr'));
+  let rows = Array.from(document.querySelectorAll('#post-rows tr'));
   const resultCount = document.getElementById('result-count');
   const noResults = document.getElementById('no-results');
 
@@ -327,9 +337,9 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
 
     for (const row of rows) {
       const matchesQuery = !query
-        || row.dataset.title.includes(query)
-        || row.dataset.slug.includes(query)
-        || row.dataset.tags.includes(query);
+        || row.dataset.title?.includes(query)
+        || row.dataset.slug?.includes(query)
+        || row.dataset.tags?.includes(query);
       const matchesCategory = !category || row.dataset.category === category;
       const matchesStatus = !status
         || row.dataset.status === status
@@ -347,16 +357,34 @@ const missingTldrCount = posts.filter(post => !post.hasTldr).length;
   categoryFilter.addEventListener('change', filterPosts);
   statusFilter.addEventListener('change', filterPosts);
 
-  document.querySelectorAll('.copy-path').forEach((button) => {
-    button.addEventListener('click', async () => {
-      const path = button.dataset.path;
-      if (!path) return;
-      await navigator.clipboard.writeText(path);
-      const original = button.textContent;
-      button.textContent = '已複製';
-      setTimeout(() => { button.textContent = original; }, 1400);
+  loadContent();
+
+  function bindCopyButtons() {
+    document.querySelectorAll('.copy-path').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const path = button.dataset.path;
+        if (!path) return;
+        await navigator.clipboard.writeText(path);
+        const original = button.textContent;
+        button.textContent = '已複製';
+        setTimeout(() => { button.textContent = original; }, 1400);
+      });
     });
-  });
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }[char]));
+  }
+
+  function escapeAttr(value) {
+    return escapeHTML(value);
+  }
 </script>
 
 <style>
