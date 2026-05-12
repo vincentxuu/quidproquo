@@ -1,0 +1,7 @@
+{
+  "tool_name": "mcp__playwright__playwright_click",
+  "tool_input_preview": "{\"selector\":\".search-input\"}",
+  "error": "Operation failed: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.search-input')\u001b[22m",
+  "timestamp": "2026-05-12T17:00:35.417Z",
+  "retry_count": 1
+}

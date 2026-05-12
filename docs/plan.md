@@ -266,28 +266,49 @@ export const collections = { posts };
 
 ## 後台設計與優化計畫
 
+> 本章節的頁面功能基於 `docs/plan.md`（使用者體驗視角），底層由 `docs/ai-agent-content-system.md` 定義的 Content Agent Harness 支撐。兩個文件同時存在，方向為「共存」。
+
 目前後台只有 `/admin/rag`，可以管理 RAG settings、查看最近 trace / shadow run，並觸發 embed、crawl、search smoke test。這個版本能用來 debug，但不適合日常營運：入口不直覺、登入成功導到 `/chat`、設定全是字串、操作沒有任務紀錄、trace 只能看最近列表，文章發布仍完全依賴 git workflow。
 
 後台下一階段的目標不是做一個完整 CMS，而是做一個「營運控制台」：讓資料重建、RAG 實驗、品質檢查、內容營運狀態可以被安全地操作和追蹤。
+
+### 技術架構：Content Agent Harness
+
+後台底層是 Content Agent Harness，所有 pipeline（embed、crawl、quality、translation 等）都跑在這層之上。
+
+```
+Content Agent Harness
+  ├── Pipeline Registry          # 定義 pipeline id、title、風險、tools、stages
+  ├── Tool Registry              # pipeline 可使用的 tools（security boundary）
+  ├── Context Builder            # 每個 stage 執行前組出所需 context
+  ├── Guard System               # input / tool / output / budget 四層
+  ├── Budget / Retry Controller  # job 等級的 max retries / runtime / escalation
+  ├── Evaluator Layer            # Generator/Evaluator 分離，輸出 approve/request_changes
+  ├── Job Store                  # admin_jobs / admin_job_steps / admin_job_artifacts
+  └── Artifact Store             # 大型 artifact 寫檔，DB 只記 path
+```
+
+**與現有 RAG pipeline 的關係**：`/api/chat` 的 multi-agent pipeline（Planner / Research / Normalize / Writer / Critic）維持不動，透過 harness Tool Registry 被動暴露給 admin。
 
 ### 目標使用者
 
 | 使用者 | 主要需求 |
 |--------|----------|
-| 站長 / 作者 | 觸發 re-embed、crawl sync、查看失敗、調整 RAG 策略 |
-| 未來協作者 | 檢查文章品質、草稿狀態、索引同步狀態 |
+| 站長 / 作者 | 觸發 re-embed、crawl sync、查看失敗、調整 RAG 策略、管理 provider |
+| 未來協作者 | 檢查文章品質、草稿狀態、索引同步狀態、檢視營運統計 |
 | Debug 時的自己 | 快速找到某次 query 的 trace、設定版本、provider/model 與錯誤原因 |
 
 ### 後台資訊架構
 
 ```
-/admin
-├── /admin                  # 主後台 dashboard：系統狀態、待處理事項、快捷入口
-├── /admin/rag              # RAG strategy flags、provider/model、shadow mode
-├── /admin/ops              # embed/crawl/search smoke/eval 任務中心
-├── /admin/traces           # query timeline、stage metadata、failure replay
-├── /admin/content          # 文章狀態、draft/type/series/tldr/reference 缺漏
-└── /admin/settings         # secrets readiness、rate limit、cache threshold、runtime config
+/admin                           # 主後台 dashboard：系統狀態、Pipeline Registry overview、Quick Actions
+/admin/providers                 # Provider / Model 彙整視圖（設定仍在各自分散頁面）
+/admin/rag                       # RAG strategy flags、chat/embed/critic/search 設定
+/admin/ops                      # 任務中心：embed/crawl/smoke/eval job 按鈕與 history
+/admin/stats                     # 統計頁面：內容量、知識庫、Pipeline 健康、RAG 使用、內容品質
+/admin/traces                    # query timeline、stage metadata、failure replay
+/admin/content                   # 內容營運：quality / metadata / internal links pipeline UI
+/admin/settings                  # secrets readiness、rate limit、cache threshold、runtime config
 ```
 
 ### 主後台 `/admin`
@@ -301,8 +322,8 @@ export const collections = { posts };
 - Index Health：post/doc chunk 數、最近 embed 時間、是否有文章更新後尚未 re-embed
 - Recent Jobs：embed、crawl、search smoke、eval 最近執行狀態
 - Content Health：draft 數、缺 `type` / `series` / references 的文章數
-- Recent Admin Changes：最近 settings/audit 變更
-- Quick Actions：前往 RAG settings、跑 smoke test、跑 embed batch、看 traces、看 content health
+- Pipeline Overview：顯示可觸發的 pipeline 與風險等
+- Quick Actions：前往各子頁、跑 smoke test、跑 embed batch
 
 主後台首版驗收：
 
@@ -326,7 +347,8 @@ export const collections = { posts };
 
 ### P1：任務中心與可觀測性
 
-- [ ] 新增 `admin_jobs` 表，記錄 embed/crawl/smoke/eval 任務狀態、開始時間、結束時間、錯誤摘要
+- [ ] 建立 Content Agent Harness 骨架：Pipeline Registry + Tool Registry + Job Store
+- [ ] 新增 `admin_jobs` / `admin_job_steps` / `admin_job_artifacts` 表（見 ai-agent-content-system.md 資料模型）
 - [ ] `/admin/ops` 顯示任務按鈕、最近執行結果、失敗原因與是否需要 re-run
 - [ ] embed batch 支援 offset/limit/source 選擇，並顯示目前 D1 chunk 與 Vectorize 索引狀態
 - [ ] crawl sync 不再要求每次手動輸入 `CRAWL_SECRET`；由 server-side admin endpoint 代為呼叫受保護流程
@@ -345,6 +367,22 @@ export const collections = { posts };
 - [ ] 針對每篇文章提供「建議修正指令」，讓作者回到 repo 用 post skill 或手動修改
 - [ ] 顯示 internal link check 與 reference check 結果，避免品質問題上線後才發現
 
+### P3：彙整視圖與統計
+
+- [ ] `/admin/providers` 彙整視圖：
+  - 各 task 目前使用的 provider + model（chat、embedding、translation、metadata、eval、research）
+  - 各 provider 健康狀態（可達/已宕/未設定）與 secrets readiness
+  - 最近各 provider 被調用次數
+  - 設定操作連結回各自分散的頁面（`/admin/rag` 或 content pipeline job 設定）
+- [ ] `/admin/stats` 統計頁面：
+  - 內容量：總文章數、分類/tag 分佈、draft 數、`type` 完整率
+  - 知識庫：chunk 數、Vectorize 大小、最後 embed 時間
+  - Pipeline 健康：Jobs 成功/失敗率、平均執行時間、pending 數
+  - RAG 使用：查詢次數（7天/30天）、平均 latency、cache hit rate
+  - 內容品質：缺 tldr/type/description 比例、broken link 數
+  - 詞彙表：lookup 次數、缺少定義的術語
+  - 可按時間範圍篩選、可下載 CSV
+
 ### 權限與安全邊界
 
 - 後台使用 session cookie + `ADMIN_PASSWORD`，session 存在 Cloudflare KV，TTL 7 天。
@@ -352,6 +390,7 @@ export const collections = { posts };
 - 危險操作需要二次確認：full crawl、full re-embed、清索引、切換 provider/model、關閉 critic。
 - 後台不得顯示完整 secrets，只顯示是否已設定與最後檢查狀態。
 - Markdown 仍是文章 source of truth；後台只做觀測、建議與任務觸發，不直接變成 CMS。
+- Content Agent Harness 的 Guard System 落實：pipeline 只呼叫 registry 允許的 tools、不得產生 `draft: false` 的自動輸出、Reviewer 不 auto-fix。
 
 ---
 

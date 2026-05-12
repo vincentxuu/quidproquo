@@ -117,7 +117,7 @@ export function MessageList({ messages }: { messages: Message[] }) {
                     overflowX: 'auto',
                     fontSize: '0.875rem',
                     fontFamily: 'monospace',
-                    maxWidth: '100%'
+                    maxWidth: '100%"
                   }}
                   className={className}
                   htmlStyle={{ maxWidth: '100%', wordBreak: 'break-word' }}

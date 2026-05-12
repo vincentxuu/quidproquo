@@ -228,9 +228,21 @@
   },
   "hotPaths": [
     {
+      "path": "src/components/Search/SearchWidget.tsx",
+      "accessCount": 14,
+      "lastAccessed": 1778606025059,
+      "type": "file"
+    },
+    {
       "path": "src/layouts/PostLayout.astro",
+      "accessCount": 12,
+      "lastAccessed": 1778602916184,
+      "type": "file"
+    },
+    {
+      "path": "docs/plan.md",
       "accessCount": 10,
-      "lastAccessed": 1778521399387,
+      "lastAccessed": 1778601501658,
       "type": "file"
     },
     {
@@ -240,15 +252,21 @@
       "type": "file"
     },
     {
+      "path": "src/pages/index.astro",
+      "accessCount": 9,
+      "lastAccessed": 1778602903477,
+      "type": "file"
+    },
+    {
       "path": "src/lib/rag/agents/research.ts",
       "accessCount": 8,
       "lastAccessed": 1778519259423,
       "type": "file"
     },
     {
-      "path": "src/pages/index.astro",
+      "path": "docs/ai-agent-content-system.md",
       "accessCount": 8,
-      "lastAccessed": 1778521260527,
+      "lastAccessed": 1778602888743,
       "type": "file"
     },
     {
@@ -294,6 +312,12 @@
       "type": "file"
     },
     {
+      "path": "src/components/Search/SearchWidget.css",
+      "accessCount": 5,
+      "lastAccessed": 1778605057710,
+      "type": "file"
+    },
+    {
       "path": "src/lib/rag/state.ts",
       "accessCount": 4,
       "lastAccessed": 1778518578604,
@@ -330,6 +354,18 @@
       "type": "file"
     },
     {
+      "path": "src/pages/admin/rag.astro",
+      "accessCount": 3,
+      "lastAccessed": 1778601501527,
+      "type": "file"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-05-12-admin-harness-integration-design.md",
+      "accessCount": 3,
+      "lastAccessed": 1778602938657,
+      "type": "file"
+    },
+    {
       "path": "src/lib/rag/agents/planner.ts",
       "accessCount": 2,
       "lastAccessed": 1778479346592,
@@ -345,6 +381,42 @@
       "path": "src/lib/rag/agents/critic-routing.ts",
       "accessCount": 2,
       "lastAccessed": 1778520033371,
+      "type": "file"
+    },
+    {
+      "path": "scripts/content-ops.mjs",
+      "accessCount": 2,
+      "lastAccessed": 1778601501399,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/rag/pipeline.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778601501580,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Chat/MessageList.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1778603306559,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 2,
+      "lastAccessed": 1778603584506,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/search.astro",
+      "accessCount": 2,
+      "lastAccessed": 1778604090008,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/en/search.astro",
+      "accessCount": 2,
+      "lastAccessed": 1778604105383,
       "type": "file"
     },
     {
@@ -423,6 +495,36 @@
       "path": "src/components/Chat/ChatFloating.tsx",
       "accessCount": 1,
       "lastAccessed": 1778521207615,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/api/admin/rag.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778599451023,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/auth/session.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778599451130,
+      "type": "file"
+    },
+    {
+      "path": "astro.config.mjs",
+      "accessCount": 1,
+      "lastAccessed": 1778603558287,
+      "type": "file"
+    },
+    {
+      "path": "src/components/PostCard.astro",
+      "accessCount": 1,
+      "lastAccessed": 1778603974973,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/api/search.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778603975028,
       "type": "file"
     }
   ],

@@ -602,10 +602,48 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   /* ── Responsive: mobile ── */
   @media (max-width: 640px) {
     body { padding-left: 1rem; padding-right: 1rem; }
+    nav {
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      row-gap: 0.75rem;
+    }
+    .nav-link {
+      font-size: 0.75rem;
+    }
+    .nav-right {
+      gap: 0.5rem;
+    }
+    .nav-icon-btn,
+    .nav-search-link {
+      min-height: 32px;
+      height: 32px;
+      width: 32px;
+      padding: 0 0.6rem;
+    }
+    .lang-badge {
+      font-size: 0.65rem;
+      padding: 0.1rem 0.4rem;
+    }
   }
   @media (max-width: 400px) {
     body { padding-left: 0.75rem; padding-right: 0.75rem; }
-    nav { gap: 0.75rem; }
+    nav {
+      gap: 0.4rem 0.75rem;
+      row-gap: 0.6rem;
+    }
+    .logo {
+      font-size: 0.95rem;
+    }
+    .nav-link {
+      font-size: 0.7rem;
+    }
+    .nav-icon-btn,
+    .nav-search-link {
+      min-height: 30px;
+      height: 30px;
+      width: 30px;
+      padding: 0 0.5rem;
+    }
   }
 
   /* ── Dark styled Tables (like DJ MYG) ── */

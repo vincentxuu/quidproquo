@@ -1006,6 +1006,231 @@ migrations/
 - [自製 auto-dev agent 的 15 個 walls](/posts/ai/2026-05-09-auto-dev-agent-15-walls)：把 token budget、max retry、tool allowlist、observability、human escalation 放進第一版設計。
 - [Multi-Agent RAG 協作架構](/posts/ai/2026-03-16-multi-agent-rag-patterns)：RAG chat 已有 Planner / Research / Writer / Critic，可作為內容 pipeline 的實作參考。
 
+## 故障處理策略
+
+### 錯誤分類與處理原則
+
+不是所有錯誤都應該重試，需要區分「可重試」vs「需人工介入」：
+
+| 錯誤類型 | 範例 | 處理方式 |
+|----------|------|----------|
+| **可重試 (Transient)** | API timeout、provider rate limit、网络波动 | 指數退避重試 (exponential backoff) |
+| **需修復 (Retryable)** | 腳本語法錯誤、輸入格式問題 | 記錄錯誤並標記 status=failed，等待修復後重跑 |
+| **需人工介入 (Blocking)** | 缺少來源、引用失效、外部 API 永遠不可用 | 進入 `waiting_review` 或 `needs_human_input` |
+
+### Retry Policy 設計
+
+```typescript
+interface RetryPolicy {
+  maxRetries: number;           // 最大重試次數
+  initialDelayMs: number;       // 初始延遲 (預設 1000ms)
+  maxDelayMs: number;           // 最大延遲 (預設 60000ms)
+  backoffMultiplier: number;   // 退避倍數 (預設 2)
+  retryableErrors: string[];    // 可重試的錯誤碼清單
+}
+```
+
+建議預設：
+- **low risk pipeline**: maxRetries=1, 僅重試 timeout 類錯誤
+- **medium risk pipeline**: maxRetries=2, 重試 timeout + rate limit
+- **high risk pipeline**: maxRetries=0, 不自動重試，確保 fail-fast
+
+### Dead Letter Queue (DLQ)
+
+失敗超過 retry 上限的 job 進入 DLQ：
+
+```sql
+CREATE TABLE admin_jobs (
+  ...
+  status TEXT NOT NULL DEFAULT 'queued', -- queued | running | waiting_review | succeeded | failed | dead_letter
+  failure_reason TEXT,
+  retry_count INTEGER DEFAULT 0,
+  dead_letter_at TEXT,
+  ...
+);
+```
+
+DLQ 中的 job：
+- 不會自動重試
+- 需要管理員手動審視後選擇「重跑」或「放棄」
+- DLQ 保留 30 天後自動清理
+
+### Human Escalation 流程
+
+```text
+Job 失敗
+  │
+  ├── 可重試錯誤 → 進入 retry 迴圈
+  │     │
+  │     └── 達到 maxRetries → 進入 DLQ
+  │           │
+  │           └── 管理員審視 → 決定重跑 / 放棄 / 標記需人工處理
+  │
+  └── 需人工介入 → status = waiting_review / needs_human_input
+        │
+        └── 作者處理後 → 標記 status = pending_review → 重新觸發 pipeline
+```
+
+## 版本控制
+
+Pipeline 處理過的文章會產生多個版本，需要與 git 整合：
+
+### 版本追蹤原則
+
+- **不直接覆寫**：任何 pipeline 產生 draft 只寫新檔案或保留 diff suggestion
+- **每次修改都是 git commit**：draft 經人工確認後，手動或自動化 commit 到 repo
+- **Artifact 長期保存**：pipeline artifact（翻譯稿、品質報告、brief 等）保存在 `artifacts/` 或 D1，不依賴 git
+
+### 與 git 的互動方式
+
+| 場景 | 處理方式 |
+|------|----------|
+| Translation pipeline 產生英文 draft | 寫入 `src/content/posts/en/` (draft: true)，由人確認後 commit |
+| Metadata Agent 產生 tldr 建議 | 產出 diff suggestion 或 separate artifact，由人手動修改 |
+| Quality Agent 發現問題 | 產出 `blocking_issues.json` artifact，由人確認後修復 |
+
+### Rollback 機制
+
+- **Source of truth**: Markdown 本身，壞了可以直接從 git 拉回
+- **Pipeline state**: `admin_jobs` 中的 job status / artifacts 可重建
+- **不需要 rollback pipeline**：失敗的 job 重新跑即可，不會弄髒 source
+
+## 監控與告警
+
+### Pipeline 等級 SLO
+
+| 指標 | SLO | 告警閾值 |
+|------|-----|----------|
+| Job 成功率 | >= 95% (7天滾動) | < 90% |
+| Job 平均執行時間 | <= 2 min (low risk), <= 10 min (medium) | > 閾值 20% |
+| Job pending 時間 | <= 5 min | > 10 min |
+| API error rate | <= 1% | > 5% |
+
+### 監控儀表板
+
+`/admin/stats` 應顯示：
+
+```text
+Pipeline Health
+├── 成功率長條圖 (7天/30天)
+├── 執行時間分布 (p50/p95/p99)
+├── Pending job 數量
+└── DLQ job 數量
+
+Token Consumption
+├── 各 pipeline 每日 token 消耗 (input/output 分開)
+├── Provider 別消耗分布
+└── 預算使用率
+
+Content Quality
+├── 通過率 / 失敗率趨勢
+├── 常见失败类型分布
+└── 人均處理時間
+```
+
+### Alerting 規則
+
+| 觸發條件 | 動作 |
+|----------|------|
+| DLQ 有新 job 超過 24 小時未處理 | 發送 webhook 通知 |
+| 成功率跌破 SLO | 發送 webhook 通知 |
+| 執行時間異常飆高 | 記錄 warning，發送 webhook |
+| Token 消耗接近 monthly budget 80% | 發送 webhook 提醒 |
+
+## 排程與通知
+
+### 自動排程
+
+不是所有 pipeline 都需要手動觸發，部分應自動排程：
+
+| Pipeline | 排程頻率 | 觸發方式 |
+|----------|----------|----------|
+| `content-ops` | 每週一 09:00 | Cron Trigger |
+| `freshness-review` | 每週一 09:00 | Cron Trigger |
+| `embed-sync` | 每次 git push | Cloudflare Deploy Hook |
+| `crawl-sync` | 每週日 02:00 | Cron Trigger |
+
+Cron Trigger 實作方式：
+- 在 `wrangler.jsonc` 定義 cron trigger
+- 對應的 API endpoint 加上 `X-Cron-Signature` 驗證
+- 排程 job 標記 `scheduled_by: 'cron'`，與手動觸發區分
+
+### 排程與手動觸發的權限差異
+
+- **手動觸發**：任何登入 admin 的使用者
+- **排程觸發**：僅限 server-side cron（需要額外驗證）
+
+```typescript
+// API handler pseudo-code
+function handlePipelineTrigger(request) {
+  const isCron = request.headers.get('X-Cron-Signature');
+  if (isCron) {
+    verifyCronSignature(isCron); // 驗證 cron 請求
+    requireRole('system');
+  } else {
+    requireAdminSession(); // 驗證 admin session
+  }
+  // proceed...
+}
+```
+
+### 通知機制
+
+Pipeline 完成或失敗時，需要通知相關人員：
+
+```typescript
+interface NotificationConfig {
+  onSuccess?: boolean;      // 成功時是否通知
+  onFailure?: boolean;      // 失敗時是否通知
+  onReviewRequired?: boolean; // 需要人工審視時是否通知
+  webhookUrl?: string;      // 通知 webhook URL
+  notifyUsers?: string[];  // 要通知的使用者 ID 清單
+}
+
+interface PipelineDefinition {
+  ...
+  notifications: NotificationConfig;
+}
+```
+
+### Webhook Payload 範例
+
+```json
+{
+  "event": "job_completed",
+  "pipeline_id": "content-ops",
+  "job_id": "job_abc123",
+  "status": "succeeded",
+  "duration_ms": 45000,
+  "output_summary": "分析了 45 篇文章",
+  "triggered_by": "cron",
+  "timestamp": "2026-05-13T09:00:00Z"
+}
+```
+
+```json
+{
+  "event": "job_failed",
+  "pipeline_id": "translation",
+  "job_id": "job_def456",
+  "status": "dead_letter",
+  "failure_reason": "external_api_unavailable",
+  "retry_count": 2,
+  "triggered_by": "admin",
+  "timestamp": "2026-05-13T10:15:00Z"
+}
+```
+
+### 通知渠道
+
+第一版只支援 webhook：
+
+- 建立 `admin_settings` 表存放 webhook URL
+- 支援多個 webhook（Slack、Discord、自定義）
+- webhook 失敗時寫入 log，不 block job 完成
+
+未來可擴充：Email、Slack DM、Line Notify、Telegram Bot。
+
 ## MVP 結論
 
 第一版不要急著做「會寫文章的 agent」。最值得先做的是「Content Agent Harness + 既有 pipeline 後台化」：
