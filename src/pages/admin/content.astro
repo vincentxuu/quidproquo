@@ -98,6 +98,188 @@ import AdminTable from '../../components/admin/AdminTable.astro';
 </AdminLayout>
 
 <script is:inline>
+  function createOverviewValue(label, value) {
+    const item = document.createElement('div');
+    item.className = 'overview-card';
+    const v = document.createElement('span');
+    v.className = 'overview-value';
+    v.textContent = String(value ?? 0);
+    const l = document.createElement('span');
+    l.className = 'overview-label';
+    l.textContent = label;
+    item.append(v, l);
+    return item;
+  }
+
+  function createPostRow(post) {
+    const date = post.date ? new Date(post.date).toLocaleDateString('zh-TW') : 'N/A';
+    const dateTime = post.date ? new Date(post.date).toISOString() : '';
+    const tags = Array.isArray(post.tags) ? post.tags : [];
+    const missing = !post.hasDescription || !post.hasTldr;
+
+    const row = document.createElement('tr');
+    row.dataset.title = String(post.title ?? '').toLowerCase();
+    row.dataset.slug = String(post.slug ?? '').toLowerCase();
+    row.dataset.tags = tags.join(' ').toLowerCase();
+    row.dataset.category = String(post.category ?? '');
+    row.dataset.status = post.draft ? 'draft' : 'published';
+    row.dataset.missing = missing ? 'true' : 'false';
+
+    const main = document.createElement('td');
+    main.className = 'post-main';
+    const link = document.createElement('a');
+    link.href = String(post.href ?? '#');
+    link.className = 'post-title';
+    link.textContent = String(post.title ?? '');
+    const slug = document.createElement('span');
+    slug.className = 'post-slug';
+    slug.title = String(post.slug ?? '');
+    slug.textContent = String(post.slug ?? '');
+    const source = document.createElement('span');
+    source.className = 'post-path';
+    source.title = String(post.sourcePath ?? '');
+    source.textContent = String(post.sourcePath ?? '');
+    main.append(link, slug, source);
+
+    const category = document.createElement('td');
+    category.className = 'post-category-cell';
+    const categoryChip = document.createElement('span');
+    categoryChip.className = 'pill';
+    categoryChip.textContent = String(post.category ?? '');
+    category.append(categoryChip);
+
+    const statusCell = document.createElement('td');
+    statusCell.className = 'post-status-cell';
+    const status = document.createElement('span');
+    status.className = `status-pill ${post.draft ? 'is-draft' : 'is-published'}`;
+    status.textContent = post.draft ? '草稿' : '已發布';
+    statusCell.append(status);
+
+    const dateCell = document.createElement('td');
+    dateCell.className = 'post-date-cell';
+    const time = document.createElement('time');
+    time.dateTime = dateTime;
+    time.textContent = date;
+    dateCell.append(time);
+
+    const metadata = document.createElement('td');
+    const metadataList = document.createElement('div');
+    metadataList.className = 'metadata-list';
+    const description = document.createElement('span');
+    description.className = `metadata-chip ${post.hasDescription ? '' : 'missing'}`.trim();
+    description.textContent = 'description';
+    const tldr = document.createElement('span');
+    tldr.className = `metadata-chip ${post.hasTldr ? '' : 'missing'}`.trim();
+    tldr.textContent = 'tldr';
+    metadataList.append(description, tldr);
+    if (post.type) {
+      const typeChip = document.createElement('span');
+      typeChip.className = 'metadata-chip';
+      typeChip.textContent = String(post.type);
+      metadataList.append(typeChip);
+    }
+    metadata.append(metadataList);
+
+    const actionsCell = document.createElement('td');
+    const actions = document.createElement('div');
+    actions.className = 'row-actions';
+    const view = document.createElement('a');
+    view.href = String(post.href ?? '#');
+    view.className = 'text-link';
+    view.textContent = '查看';
+    const copy = document.createElement('button');
+    copy.type = 'button';
+    copy.className = 'text-link copy-path';
+    copy.dataset.path = String(post.sourcePath ?? '');
+    copy.textContent = '複製路徑';
+    actions.append(view, copy);
+    actionsCell.append(actions);
+
+    row.append(main, category, statusCell, dateCell, metadata, actionsCell);
+    return row;
+  }
+
+  function createIssueItem(issue) {
+    const item = document.createElement('div');
+    item.className = 'issue-item';
+    const type = document.createElement('span');
+    type.className = 'issue-type';
+    type.textContent = String(issue.type ?? '');
+    const slug = document.createElement('a');
+    slug.className = 'issue-slug';
+    slug.href = `/posts/${issue.slug ?? ''}`;
+    slug.textContent = issue.slug ?? '';
+    const detail = document.createElement('span');
+    detail.className = 'issue-detail';
+    detail.textContent = issue.detail ?? '';
+    item.append(type, slug, detail);
+    return item;
+  }
+
+  function createPostItem(post, includeReason = false) {
+    const item = document.createElement('div');
+    item.className = 'post-item';
+    const slug = document.createElement('a');
+    slug.className = 'post-slug';
+    slug.href = `/posts/${post.slug ?? ''}`;
+    slug.textContent = post.slug ?? '';
+    item.append(slug);
+
+    if (includeReason) {
+      const reason = document.createElement('span');
+      reason.className = 'post-reason';
+      reason.textContent = post.reason ?? 'May need update';
+      item.append(reason);
+    }
+
+    const date = document.createElement('span');
+    date.className = 'post-date';
+    date.textContent = formatDate(post.lastModified || post.date);
+    item.append(date);
+    return item;
+  }
+
+  function createLinkItem(link) {
+    const item = document.createElement('div');
+    item.className = 'link-item';
+    const from = document.createElement('span');
+    from.className = 'link-from';
+    from.textContent = link.from ?? '';
+    const arrow = document.createElement('span');
+    arrow.className = 'link-arrow';
+    arrow.textContent = '→';
+    const to = document.createElement('span');
+    to.className = 'link-to';
+    to.textContent = link.to ?? '';
+    const anchor = document.createElement('span');
+    anchor.className = 'link-anchor';
+    anchor.textContent = link.anchorText ?? '';
+    item.append(from, arrow, to, anchor);
+    return item;
+  }
+
+  function setLoadingState(el, message, tone = 'error') {
+    const p = document.createElement('p');
+    p.className = tone;
+    p.textContent = message;
+    el.replaceChildren(p);
+  }
+
+  function bindCopyButtons() {
+    document.querySelectorAll('.copy-path').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const path = button.dataset.path;
+        if (!path) return;
+        await navigator.clipboard.writeText(path);
+        const original = button.textContent;
+        button.textContent = '已複製';
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1400);
+      });
+    });
+  }
+
   async function loadContent() {
     await Promise.all([
       loadInventory(),
@@ -117,19 +299,30 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       renderInventory(data);
     } catch {
       resultCount.textContent = '載入失敗';
-      document.getElementById('post-rows').innerHTML = '<tr><td colspan="6" class="error">Unable to load inventory</td></tr>';
+      const row = document.createElement('tr');
+      const col = document.createElement('td');
+      col.colSpan = 6;
+      col.className = 'error';
+      col.textContent = 'Unable to load inventory';
+      row.append(col);
+      document.getElementById('post-rows').replaceChildren(row);
     }
   }
 
   function renderInventory(data) {
     const posts = data.posts || [];
     const summary = data.summary || {};
+
     document.getElementById('metric-total').textContent = String(summary.total ?? posts.length);
     document.getElementById('metric-published').textContent = String(summary.published ?? posts.length);
     document.getElementById('metric-drafts').textContent = String(summary.drafts ?? 0);
     document.getElementById('metric-missing').textContent = String(summary.metadataMissing ?? 0);
 
-    categoryFilter.innerHTML = '<option value="">全部分類</option>';
+    categoryFilter.textContent = '';
+    const allCategory = document.createElement('option');
+    allCategory.value = '';
+    allCategory.textContent = '全部分類';
+    categoryFilter.append(allCategory);
     for (const category of data.categories || []) {
       const option = document.createElement('option');
       option.value = category;
@@ -138,48 +331,11 @@ import AdminTable from '../../components/admin/AdminTable.astro';
     }
 
     const tbody = document.getElementById('post-rows');
-    tbody.innerHTML = posts.map(post => {
-      const date = post.date ? new Date(post.date).toLocaleDateString('zh-TW') : 'N/A';
-      const dateTime = post.date ? new Date(post.date).toISOString() : '';
-      const tags = Array.isArray(post.tags) ? post.tags : [];
-      const missing = !post.hasDescription || !post.hasTldr;
-      return `
-        <tr
-          data-title="${escapeAttr(post.title.toLowerCase())}"
-          data-slug="${escapeAttr(post.slug.toLowerCase())}"
-          data-tags="${escapeAttr(tags.join(' ').toLowerCase())}"
-          data-category="${escapeAttr(post.category)}"
-          data-status="${post.draft ? 'draft' : 'published'}"
-          data-missing="${missing ? 'true' : 'false'}"
-        >
-          <td class="post-main">
-            <a href="${escapeAttr(post.href)}" class="post-title">${escapeHTML(post.title)}</a>
-            <span class="post-slug" title="${escapeAttr(post.slug)}">${escapeHTML(post.slug)}</span>
-            <span class="post-path" title="${escapeAttr(post.sourcePath)}">${escapeHTML(post.sourcePath)}</span>
-          </td>
-          <td class="post-category-cell"><span class="pill">${escapeHTML(post.category)}</span></td>
-          <td class="post-status-cell">
-            <span class="status-pill ${post.draft ? 'is-draft' : 'is-published'}">
-              ${post.draft ? '草稿' : '已發布'}
-            </span>
-          </td>
-          <td class="post-date-cell"><time datetime="${dateTime}">${date}</time></td>
-          <td>
-            <div class="metadata-list">
-              <span class="metadata-chip ${post.hasDescription ? '' : 'missing'}">description</span>
-              <span class="metadata-chip ${post.hasTldr ? '' : 'missing'}">tldr</span>
-              ${post.type ? `<span class="metadata-chip">${escapeHTML(post.type)}</span>` : ''}
-            </div>
-          </td>
-          <td>
-            <div class="row-actions">
-              <a href="${escapeAttr(post.href)}" class="text-link">查看</a>
-              <button type="button" class="text-link copy-path" data-path="${escapeAttr(post.sourcePath)}">複製路徑</button>
-            </div>
-          </td>
-        </tr>
-      `;
-    }).join('');
+    const frag = document.createDocumentFragment();
+    for (const post of posts) {
+      frag.append(createPostRow(post));
+    }
+    tbody.replaceChildren(frag);
 
     rows = Array.from(document.querySelectorAll('#post-rows tr'));
     bindCopyButtons();
@@ -192,30 +348,17 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       const res = await fetch('/api/admin/content/overview');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="overview-card">
-          <span class="overview-value">${data.total ?? 0}</span>
-          <span class="overview-label">Total Posts</span>
-        </div>
-        <div class="overview-card">
-          <span class="overview-value">${data.drafts ?? 0}</span>
-          <span class="overview-label">Drafts</span>
-        </div>
-        <div class="overview-card">
-          <span class="overview-value">${data.missingType ?? 0}</span>
-          <span class="overview-label">Missing Type</span>
-        </div>
-        <div class="overview-card">
-          <span class="overview-value">${data.missingDescription ?? 0}</span>
-          <span class="overview-label">Missing Description</span>
-        </div>
-        <div class="overview-card">
-          <span class="overview-value">${data.missingTldr ?? 0}</span>
-          <span class="overview-label">Missing TL;DR</span>
-        </div>
-      `;
+      const frag = document.createDocumentFragment();
+      frag.append(
+        createOverviewValue('Total Posts', data.total ?? 0),
+        createOverviewValue('Drafts', data.drafts ?? 0),
+        createOverviewValue('Missing Type', data.missingType ?? 0),
+        createOverviewValue('Missing Description', data.missingDescription ?? 0),
+        createOverviewValue('Missing TL;DR', data.missingTldr ?? 0),
+      );
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingState(el, 'Unable to load', 'error');
     }
   }
 
@@ -226,18 +369,16 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.issues?.length) {
-        el.innerHTML = '<p class="empty">No missing metadata issues found.</p>';
+        setLoadingState(el, 'No missing metadata issues found.', 'empty');
         return;
       }
-      el.innerHTML = data.issues.slice(0, 10).map(issue => `
-        <div class="issue-item">
-          <span class="issue-type">${issue.type}</span>
-          <a href="/posts/${issue.slug}" class="issue-slug">${issue.slug}</a>
-          <span class="issue-detail">${issue.detail ?? ''}</span>
-        </div>
-      `).join('');
+      const frag = document.createDocumentFragment();
+      for (const issue of data.issues.slice(0, 10)) {
+        frag.append(createIssueItem(issue));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingState(el, 'Unable to load', 'error');
     }
   }
 
@@ -248,17 +389,16 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.drafts?.length) {
-        el.innerHTML = '<p class="empty">No drafts found.</p>';
+        setLoadingState(el, 'No drafts found.', 'empty');
         return;
       }
-      el.innerHTML = data.drafts.slice(0, 10).map(draft => `
-        <div class="post-item">
-          <a href="/posts/${draft.slug}" class="post-slug">${draft.slug}</a>
-          <span class="post-date">${formatDate(draft.date)}</span>
-        </div>
-      `).join('');
+      const frag = document.createDocumentFragment();
+      for (const draft of data.drafts.slice(0, 10)) {
+        frag.append(createPostItem(draft));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingState(el, 'Unable to load', 'error');
     }
   }
 
@@ -269,18 +409,16 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.candidates?.length) {
-        el.innerHTML = '<p class="empty">No freshness candidates found.</p>';
+        setLoadingState(el, 'No freshness candidates found.', 'empty');
         return;
       }
-      el.innerHTML = data.candidates.slice(0, 10).map(item => `
-        <div class="post-item">
-          <a href="/posts/${item.slug}" class="post-slug">${item.slug}</a>
-          <span class="post-reason">${item.reason ?? 'May need update'}</span>
-          <span class="post-date">${formatDate(item.lastModified)}</span>
-        </div>
-      `).join('');
+      const frag = document.createDocumentFragment();
+      for (const item of data.candidates.slice(0, 10)) {
+        frag.append(createPostItem(item, true));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingState(el, 'Unable to load', 'error');
     }
   }
 
@@ -291,19 +429,16 @@ import AdminTable from '../../components/admin/AdminTable.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.opportunities?.length) {
-        el.innerHTML = '<p class="empty">No internal link suggestions found.</p>';
+        setLoadingState(el, 'No internal link suggestions found.', 'empty');
         return;
       }
-      el.innerHTML = data.opportunities.slice(0, 10).map(opp => `
-        <div class="link-item">
-          <span class="link-from">${opp.from}</span>
-          <span class="link-arrow">→</span>
-          <span class="link-to">${opp.to}</span>
-          <span class="link-anchor">${opp.anchorText ?? ''}</span>
-        </div>
-      `).join('');
+      const frag = document.createDocumentFragment();
+      for (const opp of data.opportunities.slice(0, 10)) {
+        frag.append(createLinkItem(opp));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingState(el, 'Unable to load', 'error');
     }
   }
 
@@ -348,258 +483,6 @@ import AdminTable from '../../components/admin/AdminTable.astro';
   statusFilter.addEventListener('change', filterPosts);
 
   loadContent();
-
-  function bindCopyButtons() {
-    document.querySelectorAll('.copy-path').forEach((button) => {
-      button.addEventListener('click', async () => {
-        const path = button.dataset.path;
-        if (!path) return;
-        await navigator.clipboard.writeText(path);
-        const original = button.textContent;
-        button.textContent = '已複製';
-        setTimeout(() => { button.textContent = original; }, 1400);
-      });
-    });
-  }
-
-  function escapeHTML(value) {
-    return String(value ?? '').replace(/[&<>"']/g, (char) => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;',
-    }[char]));
-  }
-
-  function escapeAttr(value) {
-    return escapeHTML(value);
-  }
 </script>
 
-<style>
-  .inventory-panel {
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-  }
 
-  .panel-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 1rem 0.25rem;
-  }
-
-  .panel-header h2 {
-    font-size: 1.05rem;
-    margin: 0;
-  }
-
-  .result-count {
-    border-radius: 999px;
-    font-size: 0.85rem;
-  }
-
-  .toolbar {
-    display: grid;
-    grid-template-columns: minmax(220px, 1fr) minmax(140px, 220px) minmax(140px, 220px);
-    gap: 0.75rem;
-    padding: 0 1rem 1rem;
-  }
-
-  .post-table-shell :global(.admin-table) {
-    min-width: 1050px;
-  }
-
-  .col-post { width: 46%; }
-  .col-category { width: 8%; }
-  .col-status { width: 8%; }
-  .col-date { width: 10%; }
-  .col-metadata { width: 18%; }
-  .col-actions { width: 10%; }
-
-  .post-main {
-    min-width: 0;
-  }
-
-  .post-title,
-  .post-slug,
-  .post-path {
-    display: block;
-  }
-
-  .post-title {
-    color: var(--admin-text, #1a1a1a);
-    display: -webkit-box;
-    font-weight: 650;
-    line-height: 1.35;
-    max-width: 100%;
-    overflow: hidden;
-    text-decoration: none;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .post-title:hover {
-    color: var(--admin-accent-hover, #2d4a2d);
-  }
-
-  .post-slug,
-  .post-path {
-    overflow: hidden;
-    color: var(--admin-text-muted, #4a7c59);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.72rem;
-    line-height: 1.35;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .post-path {
-    color: var(--admin-text-soft, #767676);
-  }
-
-  .post-category-cell,
-  .post-status-cell,
-  .post-date-cell {
-    white-space: nowrap;
-  }
-
-  .metadata-list,
-  .row-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    min-width: 0;
-  }
-
-  button.text-link {
-    border: none;
-    background: transparent;
-    padding: 0;
-    font-size: inherit;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .content-section :global(.admin-panel-header) {
-    margin-bottom: 0.75rem;
-  }
-
-  .overview-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1rem;
-  }
-
-  .overview-card {
-    text-align: center;
-  }
-
-  .issue-list, .post-list, .link-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .issue-item, .post-item, .link-item {
-    background: var(--admin-surface-subtle, #fbfdfb);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 0.75rem 1rem;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 0.75rem;
-    min-width: 0;
-  }
-
-  .issue-type {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    background: var(--admin-border, #2a2a2a);
-    border-radius: 4px;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .issue-slug, .post-slug {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    color: var(--admin-accent, #4a9e6a);
-    min-width: 0;
-    overflow: hidden;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .issue-slug:hover, .post-slug:hover {
-    text-decoration: underline;
-  }
-
-  .issue-detail, .post-reason, .post-date {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .post-date {
-    margin-left: auto;
-    white-space: nowrap;
-  }
-
-  .link-from, .link-to {
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--admin-text, #1a1a1a);
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .link-arrow {
-    color: var(--admin-text-muted, #888);
-  }
-
-  .link-anchor {
-    font-size: 0.8rem;
-    color: var(--admin-accent, #3b82f6);
-    font-style: italic;
-  }
-
-  #no-results {
-    padding: 1rem;
-  }
-
-  @media (max-width: 900px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .metric-strip,
-    .toolbar {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .search-field {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .panel-header {
-      display: grid;
-    }
-
-    .metric-strip,
-    .toolbar {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

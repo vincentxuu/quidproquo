@@ -39,11 +39,15 @@ export function createModel(maxTokens = 512, options?: { config?: RagRuntimeConf
     return new ChatOpenAI({ model: route.model, apiKey: e.OPENAI_API_KEY, maxTokens })
   }
 
-  if (route.provider === 'google') {
+  if (route.provider === 'google' || route.provider === 'gemini') {
     return new ChatGoogleGenerativeAI({ model: route.model, apiKey: e.GOOGLE_API_KEY, maxOutputTokens: maxTokens })
   }
 
-  return new ChatGroq({ model: route.model, apiKey: e.GROQ_API_KEY, maxTokens })
+  if (route.provider === 'groq') {
+    return new ChatGroq({ model: route.model, apiKey: e.GROQ_API_KEY, maxTokens })
+  }
+
+  throw new Error(`Unsupported provider: ${route.provider}`)
 }
 
 export function resolveModelRoute(config: RagRuntimeConfig, stage: string): ModelRoute {

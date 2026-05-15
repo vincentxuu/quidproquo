@@ -9,7 +9,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   <section class="admin-panel">
     <div class="panel-title">
       <h2>流程清單</h2>
-      <button id="refresh" type="button">重新整理</button>
+      <button id="refresh" type="button" class="btn">重新整理</button>
     </div>
     <div id="pipeline-list" class="pipeline-grid">載入中...</div>
   </section>
@@ -80,11 +80,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
       const meta = document.createElement('div');
       meta.className = 'pipeline-meta';
-      meta.innerHTML = `
-        <span>${pipeline.category}</span>
-        <span>${pipeline.risk} 風險</span>
-        <span>${pipeline.stages.length} stages</span>
-      `;
+      meta.append(
+        createPill(pipeline.category),
+        createPill(`${pipeline.risk} 風險`),
+        createPill(`${pipeline.stages.length} stages`),
+      );
 
       const scheduleBlock = buildScheduleBlock(scheduleByPipeline.get(pipeline.id) || []);
 
@@ -111,6 +111,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
       const button = document.createElement('button');
       button.type = 'button';
+      button.className = 'btn';
       button.textContent = '執行流程';
       button.addEventListener('click', () => runPipeline(pipeline, inputControls));
 
@@ -157,35 +158,41 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     }
 
     for (const job of jobs) {
-      const row = document.createElement('a');
+      const row = document.createElement('article');
       row.className = 'job-row';
-      row.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
       const canCancel = job.status === 'queued' || job.status === 'running' || job.status === 'waiting_review';
       const canApprove = job.status === 'waiting_review';
-      row.innerHTML = `
-        <span class="job-status status-${job.status}">${job.status}</span>
-        <strong>${job.pipeline_id}</strong>
-        <code>${job.id}</code>
-        <time>${formatTime(job.created_at)}</time>
-        ${canApprove ? `<button type="button" class="mini-btn approve-btn" data-action="approve" data-job-id="${job.id}">核准</button>` : ''}
-        ${canApprove ? `<button type="button" class="mini-btn reject-btn" data-action="reject" data-job-id="${job.id}">拒絕</button>` : ''}
-        <button type="button" class="mini-btn rerun-btn" data-action="rerun" data-job-id="${job.id}">重跑</button>
-        <button type="button" class="mini-btn cancel-btn" data-action="cancel" data-job-id="${job.id}" ${canCancel ? '' : 'disabled'}>
-          取消
-        </button>
-      `;
+
+      const link = document.createElement('a');
+      link.className = 'mini-btn';
+      link.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      link.textContent = '編輯';
+      link.title = '前往該 job 明細，直接編輯 artifacts';
+
+      const pipelineName = document.createElement('strong');
+      pipelineName.textContent = job.pipeline_id;
+      const jobId = document.createElement('code');
+      jobId.textContent = job.id;
+      const createdAt = document.createElement('time');
+      createdAt.textContent = formatTime(job.created_at);
+
+      row.append(
+        createStatusPill(job.status),
+        link,
+        pipelineName,
+        jobId,
+        createdAt,
+      );
+
+      if (canApprove) {
+        row.append(createActionButton('核准', 'approve', job.id));
+        row.append(createActionButton('拒絕', 'reject', job.id));
+      }
+      row.append(createActionButton('重跑', 'rerun', job.id));
+      row.append(createActionButton('取消', 'cancel', job.id, !canCancel));
+
       jobList.append(row);
     }
-
-    jobList.querySelectorAll('.mini-btn').forEach((button) => {
-      button.addEventListener('click', async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const target = event.currentTarget;
-        if (!(target instanceof HTMLButtonElement)) return;
-        await actionJob(target.dataset.jobId, target.dataset.action);
-      });
-    });
   }
 
   async function actionJob(jobId, action) {
@@ -220,13 +227,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     const block = document.createElement('div');
     block.className = 'pipeline-schedule';
     if (!schedules.length) {
-      block.innerHTML = `<span class="pipeline-schedule-none">沒有排程</span>`;
+      const none = document.createElement('span');
+      none.className = 'pipeline-schedule-none';
+      none.textContent = '沒有排程';
+      block.append(none);
       return block;
     }
 
-    block.innerHTML = `
-      <strong>排程</strong>
-    `;
+    const heading = document.createElement('strong');
+    heading.textContent = '排程';
+    block.append(heading);
+
     const list = document.createElement('ul');
     for (const schedule of schedules) {
       const item = document.createElement('li');
@@ -237,232 +248,33 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     return block;
   }
 
+  function createPill(text) {
+    const span = document.createElement('span');
+    span.textContent = text;
+    return span;
+  }
+
+  function createStatusPill(status) {
+    const span = document.createElement('span');
+    span.className = `job-status status-${String(status || 'unknown')}`;
+    span.textContent = status;
+    return span;
+  }
+
+  function createActionButton(label, action, jobId, disabled = false) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `mini-btn ${action}-btn`;
+    button.textContent = label;
+    if (disabled) button.disabled = true;
+    button.addEventListener('click', async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      await actionJob(jobId, action);
+    });
+    return button;
+  }
+
   refresh.addEventListener('click', load);
   load();
 </script>
-
-<style>
-  .page-desc {
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 1.5rem;
-  }
-
-  .admin-panel {
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin: 1rem 0;
-    background: var(--admin-surface, #1a1a1a);
-  }
-
-  .panel-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .admin-panel h2 {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .pipeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .pipeline-card {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    padding: 1rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    min-width: 0;
-  }
-
-  .pipeline-header,
-  .pipeline-meta,
-  .job-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .pipeline-header {
-    justify-content: space-between;
-    min-width: 0;
-  }
-
-  .pipeline-header h3 {
-    font-size: 0.95rem;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .pipeline-card code,
-  .job-row code {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.78rem;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .pipeline-card p {
-    margin: 0.75rem 0;
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
-
-  .runtime,
-  .pipeline-meta span,
-  .job-status {
-    border-radius: 4px;
-    padding: 0.15rem 0.45rem;
-    background: var(--admin-muted, #f0f7f0);
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-
-  .runtime-worker,
-  .status-succeeded {
-    color: #86efac;
-  }
-
-  .status-waiting_review {
-    color: #facc15;
-  }
-
-  .status-failed {
-    color: #fca5a5;
-  }
-
-  .status-dead_letter {
-    color: #fb923c;
-  }
-
-  .pipeline-inputs {
-    display: grid;
-    gap: 0.65rem;
-    margin: 1rem 0;
-  }
-
-  .pipeline-schedule {
-    margin: 0.8rem 0;
-    padding: 0.75rem;
-    border-radius: 8px;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.78rem;
-    line-height: 1.5;
-  }
-
-  .pipeline-schedule strong {
-    display: block;
-    color: var(--admin-text, #1a1a1a);
-    margin-bottom: 0.25rem;
-  }
-
-  .pipeline-schedule ul {
-    margin: 0;
-    padding-left: 1.2rem;
-  }
-
-  .pipeline-schedule li {
-    margin: 0.15rem 0;
-  }
-
-  .pipeline-schedule-none {
-    display: inline-block;
-    margin-bottom: 0.2rem;
-  }
-
-  .pipeline-inputs label {
-    display: grid;
-    gap: 0.35rem;
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.8rem;
-  }
-
-  input,
-  button {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    padding: 0.55rem 0.7rem;
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text, #1a1a1a);
-    min-width: 0;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  .job-row {
-    display: grid;
-    grid-template-columns: 120px minmax(160px, 0.9fr) minmax(180px, 1fr) 150px repeat(4, auto);
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-    padding: 0.75rem 0;
-    color: var(--admin-text, #1a1a1a);
-    text-decoration: none;
-    min-width: 0;
-  }
-
-  .mini-btn {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 999px;
-    padding: 0.2rem 0.55rem;
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text-muted, #4a7c59);
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    white-space: nowrap;
-  }
-
-  .mini-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  .approve-btn {
-    border-color: rgba(134, 239, 172, 0.6);
-    color: #86efac;
-  }
-
-  .reject-btn {
-    border-color: rgba(252, 165, 165, 0.6);
-    color: #fca5a5;
-  }
-
-  pre {
-    white-space: pre-wrap;
-    overflow-x: auto;
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  @media (max-width: 1100px) {
-    .job-row {
-      grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 1fr);
-    }
-  }
-
-  @media (max-width: 720px) {
-    .panel-title,
-    .pipeline-header,
-    .pipeline-meta,
-    .job-row {
-      align-items: start;
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

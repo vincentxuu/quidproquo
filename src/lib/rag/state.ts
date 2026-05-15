@@ -1,5 +1,6 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { SearchMetrics } from './tools/hybrid-search'
+import type { RagProvider } from './providers'
 
 export interface NativeTraceEvent {
   stage: string
@@ -31,10 +32,10 @@ export interface SearchResult {
 
 export interface RagRuntimeConfig {
   pipelineEngine: 'langgraph' | 'manual' | 'llamaindex'
-  defaultProvider: 'groq' | 'openai' | 'google'
+  defaultProvider: RagProvider
   defaultModel: string
-  stageOverrides: Record<string, { provider?: 'groq' | 'openai' | 'google'; model?: string }>
-  fallbackProvider: 'groq' | 'openai' | 'google' | null
+  stageOverrides: Record<string, { provider?: RagProvider; model?: string }>
+  fallbackProvider: RagProvider | null
   fallbackModel: string | null
   hydeEnabled: boolean
   multiQueryEnabled: boolean

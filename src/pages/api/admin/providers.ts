@@ -6,6 +6,7 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { verifySession } from '../../../lib/auth/session'
 import { createModel } from '../../../lib/rag/model'
 import type { RagRuntimeConfig } from '../../../lib/rag/state'
+import { SUPPORTED_RAG_PROVIDERS } from '../../../lib/rag/providers'
 
 interface Env {
   DB: D1Database
@@ -23,7 +24,7 @@ interface ProviderCatalog {
   models: ProviderModel[]
 }
 
-const PROVIDERS = ['groq', 'openai', 'google'] as const
+export const SUPPORTED_PROVIDERS = SUPPORTED_RAG_PROVIDERS
 const CATALOG_KEY = 'provider_model_catalog'
 
 const DEFAULT_CATALOG: ProviderCatalog = {
@@ -54,7 +55,7 @@ export const GET: APIRoute = async ({ cookies }) => {
   if (!await isAdmin(cookies)) return unauthorized()
 
   const catalog = await loadCatalog((env as unknown as Env).DB)
-  return json({ providers: PROVIDERS, catalog })
+  return json({ providers: SUPPORTED_PROVIDERS, catalog })
 }
 
 export const PUT: APIRoute = async ({ cookies, request }) => {
@@ -68,11 +69,7 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
 
   const catalog: ProviderCatalog = { models }
   const db = (env as unknown as Env).DB
-  await ensureSettingsTable(db)
-  await db.prepare(
-    `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
-     ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-  ).bind(CATALOG_KEY, JSON.stringify(catalog)).run()
+  await saveCatalog(db, catalog)
 
   return json({ ok: true, catalog })
 }
@@ -123,7 +120,7 @@ export const POST: APIRoute = async ({ cookies, request }) => {
   }
 }
 
-async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
+export async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
   const row = await db.prepare('SELECT value FROM settings WHERE key = ?')
     .bind(CATALOG_KEY)
     .first<{ value: string }>()
@@ -139,7 +136,15 @@ async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
   }
 }
 
-function parseModels(value: unknown): ProviderModel[] | null {
+export async function saveCatalog(db: D1Database, catalog: ProviderCatalog): Promise<void> {
+  await ensureSettingsTable(db)
+  await db.prepare(
+    `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
+     ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
+  ).bind(CATALOG_KEY, JSON.stringify(catalog)).run()
+}
+
+export function parseModels(value: unknown): ProviderModel[] | null {
   if (!Array.isArray(value)) return null
 
   const seen = new Set<string>()
@@ -166,8 +171,8 @@ function parseModels(value: unknown): ProviderModel[] | null {
   return models
 }
 
-function isProvider(value: string): value is ProviderModel['provider'] {
-  return PROVIDERS.includes(value as ProviderModel['provider'])
+export function isProvider(value: string): value is ProviderModel['provider'] {
+  return (SUPPORTED_PROVIDERS as readonly string[]).includes(value)
 }
 
 async function ensureSettingsTable(db: D1Database): Promise<void> {

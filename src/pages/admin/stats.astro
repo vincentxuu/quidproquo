@@ -50,6 +50,72 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </AdminLayout>
 
 <script is:inline>
+  function createMetricGrid(items = []) {
+    const grid = document.createElement('div');
+    grid.className = 'metric-grid';
+    for (const item of items) {
+      const metric = document.createElement('div');
+      metric.className = 'metric';
+      const value = document.createElement('span');
+      value.className = 'metric-value';
+      value.textContent = String(item.value ?? 0);
+      const label = document.createElement('span');
+      label.className = 'metric-label';
+      label.textContent = item.label;
+      metric.append(value, label);
+      grid.append(metric);
+    }
+    return grid;
+  }
+
+  function createBreakdown(rows = []) {
+    const section = document.createElement('div');
+    section.className = 'breakdown';
+
+    const heading = document.createElement('h4');
+    heading.textContent = 'By Category';
+
+    section.append(heading);
+    for (const row of rows) {
+      const rowEl = document.createElement('div');
+      rowEl.className = 'breakdown-row';
+      const name = document.createElement('span');
+      name.className = 'breakdown-label';
+      name.textContent = row.name;
+      const count = document.createElement('span');
+      count.className = 'breakdown-value';
+      count.textContent = String(row.count);
+      rowEl.append(name, count);
+      section.append(rowEl);
+    }
+    return section;
+  }
+
+  function createTopTerms(topTerms = []) {
+    const section = document.createElement('div');
+    section.className = 'top-terms';
+
+    const heading = document.createElement('h4');
+    heading.textContent = 'Top Looked Up Terms';
+    section.append(heading);
+
+    for (const term of topTerms) {
+      const tag = document.createElement('span');
+      tag.className = 'term-tag';
+      tag.textContent = `${term.term} (${term.count})`;
+      section.append(tag);
+    }
+
+    return section;
+  }
+
+  function setLoadingError(el, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    el.replaceChildren(p);
+  }
+
   let currentRange = 30;
 
   async function loadStats() {
@@ -69,29 +135,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch(`/api/admin/stats/content?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.totalPosts ?? 0}</span>
-            <span class="metric-label">Total Posts</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.categories?.length ?? 0}</span>
-            <span class="metric-label">Categories</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.tags?.length ?? 0}</span>
-            <span class="metric-label">Tags</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.typeComplete ?? 0}%</span>
-            <span class="metric-label">Type Complete</span>
-          </div>
-        </div>
-        ${renderCategoryBreakdown(data.categories || [])}
-      `;
+      const grid = createMetricGrid([
+        { value: data.totalPosts ?? 0, label: 'Total Posts' },
+        { value: data.categories?.length ?? 0, label: 'Categories' },
+        { value: data.tags?.length ?? 0, label: 'Tags' },
+        { value: `${data.typeComplete ?? 0}%`, label: 'Type Complete' },
+      ]);
+      const frag = document.createDocumentFragment();
+      frag.append(grid);
+      if (Array.isArray(data.categories) && data.categories.length) {
+        frag.append(createBreakdown(data.categories.slice(0, 8)));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingError(el, 'Unable to load');
     }
   }
 
@@ -101,25 +158,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch('/api/admin/stats/knowledge');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.postChunks ?? 0}</span>
-            <span class="metric-label">Post Chunks</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.docChunks ?? 0}</span>
-            <span class="metric-label">Doc Chunks</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${formatBytes(data.vectorizeSize ?? 0)}</span>
-            <span class="metric-label">Vectorize Size</span>
-          </div>
-        </div>
-        <p class="metric-note">Last embed: ${data.lastEmbed ? formatDate(data.lastEmbed) : 'Never'}</p>
-      `;
+      const grid = createMetricGrid([
+        { value: data.postChunks ?? 0, label: 'Post Chunks' },
+        { value: data.docChunks ?? 0, label: 'Doc Chunks' },
+        { value: formatBytes(data.vectorizeSize ?? 0), label: 'Vectorize Size' },
+      ]);
+      const note = document.createElement('p');
+      note.className = 'metric-note';
+      note.textContent = `Last embed: ${data.lastEmbed ? formatDate(data.lastEmbed) : 'Never'}`;
+      el.replaceChildren(grid, note);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingError(el, 'Unable to load');
     }
   }
 
@@ -129,28 +178,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch(`/api/admin/stats/pipelines?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.successRate ?? 0}%</span>
-            <span class="metric-label">Success Rate</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.avgDuration ?? 0}ms</span>
-            <span class="metric-label">Avg Duration</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.pending ?? 0}</span>
-            <span class="metric-label">Pending</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.failed ?? 0}</span>
-            <span class="metric-label">Failed</span>
-          </div>
-        </div>
-      `;
+      const grid = createMetricGrid([
+        { value: `${data.successRate ?? 0}%`, label: 'Success Rate' },
+        { value: `${data.avgDuration ?? 0}ms`, label: 'Avg Duration' },
+        { value: data.pending ?? 0, label: 'Pending' },
+        { value: data.failed ?? 0, label: 'Failed' },
+      ]);
+      el.replaceChildren(grid);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingError(el, 'Unable to load');
     }
   }
 
@@ -160,24 +196,14 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch(`/api/admin/stats/rag?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.queries ?? 0}</span>
-            <span class="metric-label">Queries</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.avgLatency ?? 0}ms</span>
-            <span class="metric-label">Avg Latency</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.cacheHitRate ?? 0}%</span>
-            <span class="metric-label">Cache Hit Rate</span>
-          </div>
-        </div>
-      `;
+      const grid = createMetricGrid([
+        { value: data.queries ?? 0, label: 'Queries' },
+        { value: `${data.avgLatency ?? 0}ms`, label: 'Avg Latency' },
+        { value: `${data.cacheHitRate ?? 0}%`, label: 'Cache Hit Rate' },
+      ]);
+      el.replaceChildren(grid);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingError(el, 'Unable to load');
     }
   }
 
@@ -187,28 +213,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch('/api/admin/stats/quality');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.missingTldr ?? 0}</span>
-            <span class="metric-label">Missing TL;DR</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.missingType ?? 0}</span>
-            <span class="metric-label">Missing Type</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.missingDescription ?? 0}</span>
-            <span class="metric-label">Missing Description</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.brokenLinks ?? 0}</span>
-            <span class="metric-label">Broken Links</span>
-          </div>
-        </div>
-      `;
+      const grid = createMetricGrid([
+        { value: data.missingTldr ?? 0, label: 'Missing TL;DR' },
+        { value: data.missingType ?? 0, label: 'Missing Type' },
+        { value: data.missingDescription ?? 0, label: 'Missing Description' },
+        { value: data.brokenLinks ?? 0, label: 'Broken Links' },
+      ]);
+      el.replaceChildren(grid);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadingError(el, 'Unable to load');
     }
   }
 
@@ -218,44 +231,22 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const res = await fetch(`/api/admin/stats/glossary?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-grid">
-          <div class="metric">
-            <span class="metric-value">${data.lookups ?? 0}</span>
-            <span class="metric-label">Lookups</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">${data.missingDefinitions ?? 0}</span>
-            <span class="metric-label">Missing Definitions</span>
-          </div>
-        </div>
-        ${data.topTerms?.length ? `
-          <div class="top-terms">
-            <h4>Top Looked Up Terms</h4>
-            ${data.topTerms.slice(0, 5).map(t => `
-              <span class="term-tag">${t.term} (${t.count})</span>
-            `).join('')}
-          </div>
-        ` : ''}
-      `;
-    } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
-    }
-  }
+      const grid = createMetricGrid([
+        { value: data.lookups ?? 0, label: 'Lookups' },
+        { value: data.missingDefinitions ?? 0, label: 'Missing Definitions' },
+      ]);
 
-  function renderCategoryBreakdown(categories) {
-    if (!categories?.length) return '';
-    return `
-      <div class="breakdown">
-        <h4>By Category</h4>
-        ${categories.slice(0, 8).map(c => `
-          <div class="breakdown-row">
-            <span class="breakdown-label">${c.name}</span>
-            <span class="breakdown-value">${c.count}</span>
-          </div>
-        `).join('')}
-      </div>
-    `;
+      const frag = document.createDocumentFragment();
+      frag.append(grid);
+      const terms = (data.topTerms || []).slice(0, 5);
+      if (terms.length) {
+        frag.append(createTopTerms(terms));
+      }
+
+      el.replaceChildren(frag);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
   }
 
   function formatDate(iso) {
@@ -268,7 +259,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     const k = 1024;
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
   }
 
   // Event handlers
@@ -291,182 +282,4 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   loadStats();
 </script>
 
-<style>
-  .stats-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
 
-  .page-desc {
-    color: var(--admin-text-muted, #888);
-    margin: 0;
-  }
-
-  .header-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: flex-end;
-  }
-
-  .select {
-    padding: 0.4rem 0.75rem;
-    background: var(--admin-bg, #0f0f0f);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 6px;
-    color: var(--admin-text, #e0e0e0);
-    font-size: 0.85rem;
-  }
-
-  .btn-secondary {
-    padding: 0.4rem 0.75rem;
-    background: transparent;
-    color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--admin-accent, #3b82f6);
-    color: var(--admin-text, #e0e0e0);
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-
-  .stats-section {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1.25rem;
-    min-width: 0;
-  }
-
-  .stats-section h2 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .metric-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
-
-  .metric {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    min-width: 0;
-    padding: 0.75rem;
-    text-align: center;
-  }
-
-  .metric-value {
-    display: block;
-    font-size: clamp(1.15rem, 1.6vw, 1.5rem);
-    font-weight: 600;
-    color: var(--admin-text, #1a1a1a);
-    overflow-wrap: anywhere;
-  }
-
-  .metric-label {
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #4a7c59);
-    overflow-wrap: anywhere;
-  }
-
-  .metric-note {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .breakdown {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-  }
-
-  .breakdown h4 {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 0.5rem;
-  }
-
-  .breakdown-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.25rem 0;
-    font-size: 0.85rem;
-  }
-
-  .breakdown-label {
-    color: var(--admin-text, #1a1a1a);
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .breakdown-value {
-    color: var(--admin-text-muted, #888);
-  }
-
-  .top-terms {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--admin-border, #2a2a2a);
-  }
-
-  .top-terms h4 {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 0.5rem;
-  }
-
-  .term-tag {
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-    margin: 0.25rem;
-    background: var(--admin-muted, #f0f7f0);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  .error { color: #ef4444; }
-
-  @media (max-width: 768px) {
-    .stats-header {
-      display: grid;
-    }
-
-    .header-actions {
-      justify-content: stretch;
-    }
-
-    .header-actions > * {
-      flex: 1;
-    }
-
-    .stats-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .metric-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-</style>

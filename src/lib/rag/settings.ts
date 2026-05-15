@@ -1,5 +1,6 @@
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
+import { SUPPORTED_RAG_PROVIDERS } from './providers'
 
 interface SettingsEnv {
   DB: D1Database
@@ -88,11 +89,19 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
   const byKey = new Map(rows.results.map(row => [row.key, row.value]))
 
   return {
-    pipelineEngine: parseChoice(byKey.get(SETTINGS_KEYS.pipelineEngine), ['langgraph', 'manual', 'llamaindex'] as const, DEFAULTS.pipelineEngine),
-    defaultProvider: parseChoice(byKey.get(SETTINGS_KEYS.defaultProvider), ['groq', 'openai', 'google'] as const, DEFAULTS.defaultProvider),
+    pipelineEngine: parseChoice(
+      byKey.get(SETTINGS_KEYS.pipelineEngine),
+      ['langgraph', 'manual', 'llamaindex'] as const,
+      DEFAULTS.pipelineEngine,
+    ),
+    defaultProvider: parseChoice(
+      byKey.get(SETTINGS_KEYS.defaultProvider),
+      SUPPORTED_RAG_PROVIDERS,
+      DEFAULTS.defaultProvider,
+    ),
     defaultModel: byKey.get(SETTINGS_KEYS.defaultModel) ?? DEFAULTS.defaultModel,
     stageOverrides: parseJsonRecord(byKey.get(SETTINGS_KEYS.stageOverrides)),
-    fallbackProvider: parseNullableChoice(byKey.get(SETTINGS_KEYS.fallbackProvider), ['groq', 'openai', 'google'] as const),
+    fallbackProvider: parseNullableChoice(byKey.get(SETTINGS_KEYS.fallbackProvider), SUPPORTED_RAG_PROVIDERS),
     fallbackModel: byKey.get(SETTINGS_KEYS.fallbackModel) || DEFAULTS.fallbackModel,
     hydeEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.hydeEnabled), DEFAULTS.hydeEnabled),
     multiQueryEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.multiQueryEnabled), DEFAULTS.multiQueryEnabled),

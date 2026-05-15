@@ -69,7 +69,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
 <script is:inline>
   const jobsList = document.getElementById('jobs-list');
-  const outputEl = document.getElementById('ops-output');
 
   // Load recent jobs
   async function loadJobs() {
@@ -79,31 +78,87 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const data = await res.json();
       renderJobs(data.jobs || []);
     } catch {
-      jobsList.innerHTML = '<p class="error">Unable to load jobs</p>';
+      jobsList.textContent = '';
+      const msg = document.createElement('p');
+      msg.className = 'error';
+      msg.textContent = 'Unable to load jobs';
+      jobsList.append(msg);
     }
   }
 
   function renderJobs(jobs) {
+    jobsList.replaceChildren();
     if (!jobs.length) {
-      jobsList.innerHTML = '<p class="empty">No jobs yet. Run a pipeline above.</p>';
+      const msg = document.createElement('p');
+      msg.className = 'empty';
+      msg.textContent = 'No jobs yet. Run a pipeline above.';
+      jobsList.append(msg);
       return;
     }
 
-    jobsList.innerHTML = jobs.map(job => `
-      <div class="job-card" data-job-id="${job.id}">
-        <div class="job-header">
-          <span class="job-status status-${job.status}">${job.status}</span>
-          <span class="job-pipeline">${job.pipeline_id}</span>
-          <span class="job-time">${formatTime(job.created_at)}</span>
-        </div>
-        ${job.error_summary ? `<p class="job-error">${job.error_summary}</p>` : ''}
-        ${job.output_summary ? `<p class="job-output">${job.output_summary}</p>` : ''}
-        <div class="job-actions">
-          <button class="btn-small" onclick="viewJobDetails('${job.id}')">View Details</button>
-          ${['failed', 'succeeded'].includes(job.status) ? `<button class="btn-small" onclick="rerunJob('${job.pipeline_id}', '${job.id}')">Rerun</button>` : ''}
-        </div>
-      </div>
-    `).join('');
+    for (const job of jobs) {
+      const card = document.createElement('div');
+      card.className = 'job-card';
+
+      const header = document.createElement('div');
+      header.className = 'job-header';
+
+      const status = document.createElement('span');
+      status.className = `job-status status-${job.status}`;
+      status.textContent = job.status;
+
+      const pipeline = document.createElement('span');
+      pipeline.className = 'job-pipeline';
+      pipeline.textContent = job.pipeline_id;
+
+      const time = document.createElement('span');
+      time.className = 'job-time';
+      time.textContent = formatTime(job.created_at);
+
+      header.append(status, pipeline, time);
+      card.append(header);
+
+      if (job.error_summary) {
+        const errorSummary = document.createElement('p');
+        errorSummary.className = 'job-error';
+        errorSummary.textContent = job.error_summary;
+        card.append(errorSummary);
+      }
+
+      if (job.output_summary) {
+        const outputSummary = document.createElement('p');
+        outputSummary.className = 'job-output';
+        outputSummary.textContent = job.output_summary;
+        card.append(outputSummary);
+      }
+
+      const actions = document.createElement('div');
+      actions.className = 'job-actions';
+
+      const viewBtn = document.createElement('button');
+      viewBtn.type = 'button';
+      viewBtn.className = 'mini-btn';
+      viewBtn.textContent = 'View Details';
+      viewBtn.addEventListener('click', () => {
+        window.location.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      });
+      actions.append(viewBtn);
+
+      if (['failed', 'succeeded'].includes(job.status)) {
+        const rerunBtn = document.createElement('button');
+        rerunBtn.type = 'button';
+        rerunBtn.className = 'mini-btn';
+        rerunBtn.textContent = 'Rerun';
+        rerunBtn.addEventListener('click', async () => {
+          if (!window.confirm(`Rerun ${job.pipeline_id}?`)) return;
+          await runPipeline(job.pipeline_id, {});
+        });
+        actions.append(rerunBtn);
+      }
+
+      card.append(actions);
+      jobsList.append(card);
+    }
   }
 
   function formatTime(iso) {
@@ -158,247 +213,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   document.getElementById('refresh-jobs').addEventListener('click', loadJobs);
 
-  window.viewJobDetails = async (jobId) => {
-    // TODO: Navigate to job detail page or show modal
-    alert(`Job details: ${jobId}`);
-  };
-
-  window.rerunJob = async (pipelineId, oldJobId) => {
-    if (!confirm(`Rerun ${pipelineId}?`)) return;
-    await runPipeline(pipelineId, {});
-  };
-
   // Initial load
   loadJobs();
 </script>
-
-<style>
-  .page-desc {
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 1.5rem;
-  }
-
-  .ops-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .pipeline-section h2,
-  .jobs-section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .action-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .action-card {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    min-width: 0;
-  }
-
-  .action-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  .action-card p {
-    font-size: 0.85rem;
-    color: var(--admin-text-muted, #4a7c59);
-    margin: 0;
-  }
-
-  .risk-low { color: #22c55e; font-size: 0.75rem; font-weight: 500; }
-  .risk-medium { color: #f59e0b; font-size: 0.75rem; font-weight: 500; }
-  .risk-high { color: #ef4444; font-size: 0.75rem; font-weight: 500; }
-
-  .input-row {
-    display: flex;
-    gap: 0.5rem;
-    min-width: 0;
-  }
-
-  .input, .select {
-    flex: 1;
-    min-width: 0;
-    padding: 0.5rem 0.75rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    color: var(--admin-text, #1a1a1a);
-    font-size: 0.9rem;
-  }
-
-  .input.small {
-    flex: 0 0 80px;
-  }
-
-  .input:focus, .select:focus {
-    outline: none;
-    border-color: var(--admin-accent, #3b82f6);
-  }
-
-  .btn {
-    padding: 0.5rem 1rem;
-    background: var(--admin-accent, #3b82f6);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background 0.15s;
-  }
-
-  .btn:hover {
-    background: var(--admin-accent-hover, #2563eb);
-  }
-
-  .btn-secondary {
-    padding: 0.4rem 0.75rem;
-    background: transparent;
-    color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--admin-accent, #3b82f6);
-    color: var(--admin-text, #e0e0e0);
-  }
-
-  .btn-small {
-    padding: 0.3rem 0.6rem;
-    background: transparent;
-    color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
-  }
-
-  .note {
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-    font-style: italic;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .jobs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .job-card {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1rem;
-    min-width: 0;
-  }
-
-  .job-header {
-    display: grid;
-    grid-template-columns: 110px minmax(160px, 1fr) 150px;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-    min-width: 0;
-  }
-
-  .job-status {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .status-succeeded { background: #166534; color: #bbf7d0; }
-  .status-failed { background: #7f1d1d; color: #fecaca; }
-  .status-running { background: #1e40af; color: #bfdbfe; }
-  .status-queued { background: #374151; color: #d1d5db; }
-  .status-waiting_review { background: #78350f; color: #fef3c7; }
-  .status-dead_letter { background: #450a0a; color: #fecaca; }
-
-  .job-pipeline {
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--admin-text, #1a1a1a);
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .job-time {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #4a7c59);
-    text-align: right;
-  }
-
-  .job-error {
-    color: #f87171;
-    font-size: 0.85rem;
-    margin: 0.5rem 0;
-  }
-
-  .job-output {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.85rem;
-    margin: 0.5rem 0;
-    overflow-wrap: anywhere;
-  }
-
-  .job-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .error { color: #ef4444; }
-  .empty { color: var(--admin-text-muted, #888); }
-
-  @media (max-width: 720px) {
-    .input-row,
-    .section-header,
-    .job-header {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: start;
-    }
-
-    .input.small {
-      flex-basis: auto;
-    }
-
-    .job-time {
-      text-align: left;
-    }
-  }
-</style>

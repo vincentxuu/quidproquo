@@ -161,8 +161,153 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     result: document.getElementById('test-result'),
   };
 
+  const DEFAULT_PROVIDERS = [
+    'groq',
+    'openai',
+    'google',
+    'anthropic',
+    'gemini',
+    'cloudflare',
+    'nvidia',
+    'cerebras',
+    'openrouter',
+    'ollama_cloud',
+    'ollama',
+  ];
+  const providerSyncStatus = new Map();
+
   let latestRagSettings = {};
-  let providerCatalog = { providers: ['groq', 'openai', 'google'], models: [] };
+  let providerCatalog = { providers: DEFAULT_PROVIDERS, models: [] };
+
+  function makeOption(value, label) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label ?? String(value);
+    return option;
+  }
+
+  function makeInfoRow(label, value) {
+    const row = document.createElement('div');
+    row.className = 'provider-info';
+    const labelEl = document.createElement('span');
+    labelEl.className = 'provider-label';
+    labelEl.textContent = `${label}:`;
+    const valueEl = document.createElement('span');
+    valueEl.className = 'provider-value';
+    valueEl.textContent = String(value);
+    row.append(labelEl, valueEl);
+    return row;
+  }
+
+  function makeFlag(label, enabled) {
+    const flag = document.createElement('span');
+    flag.className = `flag ${enabled ? 'enabled' : 'disabled'}`;
+    flag.textContent = label;
+    return flag;
+  }
+
+  function makeProviderCard(title) {
+    const card = document.createElement('article');
+    card.className = 'provider-card';
+    const header = document.createElement('div');
+    header.className = 'provider-header';
+    const name = document.createElement('span');
+    name.className = 'provider-name';
+    name.textContent = title;
+    header.append(name);
+    card.append(header);
+    return card;
+  }
+
+  function makeProviderCardWithLink(title, linkText, linkHref) {
+    const card = makeProviderCard(title);
+    const header = card.querySelector('.provider-header');
+    const link = document.createElement('a');
+    link.className = 'configure-link';
+    link.href = linkHref;
+    link.textContent = linkText;
+    header.append(link);
+    return card;
+  }
+
+  function makeModelCatalogItem(model) {
+    const row = document.createElement('div');
+    row.className = 'model-row';
+
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.className = 'model-main';
+    editButton.dataset.action = 'edit';
+    editButton.dataset.provider = model.provider;
+    editButton.dataset.model = model.model;
+
+    const title = document.createElement('span');
+    title.className = 'model-title';
+    title.textContent = model.displayName || model.model;
+    const modelName = document.createElement('span');
+    modelName.className = 'model-name';
+    modelName.textContent = model.model;
+    editButton.append(title, modelName);
+    if (model.notes) {
+      const notes = document.createElement('span');
+      notes.className = 'model-notes';
+      notes.textContent = model.notes;
+      editButton.append(notes);
+    }
+
+    const stateButton = document.createElement('button');
+    stateButton.type = 'button';
+    stateButton.className = `model-state ${model.enabled ? 'enabled' : 'disabled'}`;
+    stateButton.dataset.action = 'toggle';
+    stateButton.dataset.provider = model.provider;
+    stateButton.dataset.model = model.model;
+    stateButton.textContent = model.enabled ? 'active' : 'inactive';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.className = 'model-delete';
+    deleteButton.dataset.action = 'delete';
+    deleteButton.dataset.provider = model.provider;
+    deleteButton.dataset.model = model.model;
+    deleteButton.textContent = '刪除';
+
+    row.append(editButton, stateButton, deleteButton);
+    return row;
+  }
+
+  function makeSecretItem(name, status) {
+    const item = document.createElement('div');
+    item.className = 'secret-item';
+    const nameEl = document.createElement('span');
+    nameEl.className = 'secret-name';
+    nameEl.textContent = name;
+    const statusEl = document.createElement('span');
+    statusEl.className = `secret-status status-${status}`;
+    statusEl.textContent = status;
+    item.append(nameEl, statusEl);
+    return item;
+  }
+
+  function setSelectValue(select, value) {
+    if (!select || !value) return;
+    const option = select.querySelector(`option[value="${CSS.escape(value)}"]`);
+    if (option) {
+      select.value = value;
+      return;
+    }
+    const fallback = document.createElement('option');
+    fallback.value = value;
+    fallback.textContent = `${value} (custom)`;
+    select.appendChild(fallback);
+    select.value = value;
+  }
+
+  function setLoadError(container, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    container.replaceChildren(p);
+  }
 
   async function loadProviders() {
     await Promise.all([
@@ -178,23 +323,55 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (!res.ok) throw new Error('Failed to load provider catalog');
     const data = await res.json();
     providerCatalog = {
-      providers: data.providers || ['groq', 'openai', 'google'],
+      providers: data.providers || DEFAULT_PROVIDERS,
       models: data.catalog?.models || [],
     };
     renderProviderOptions();
     renderModelCatalog();
   }
 
-  function renderProviderOptions() {
-    const providerOptions = providerCatalog.providers.map((provider) =>
-      `<option value="${escapeHtml(provider)}">${escapeHtml(provider)}</option>`
-    ).join('');
-    const fallbackProviderOptions = `<option value="">none</option>${providerOptions}`;
+  function setSyncStatus(provider, message, type = 'info') {
+    const entry = providerSyncStatus.get(provider);
+    if (!entry) return;
+    entry.textContent = message;
+    entry.dataset.type = type;
+  }
 
-    catalogControls.provider.innerHTML = providerOptions;
-    routingControls.provider.innerHTML = providerOptions;
-    routingControls.fallbackProvider.innerHTML = fallbackProviderOptions;
-    testControls.provider.innerHTML = providerOptions;
+  async function syncProviderModels(provider) {
+    const button = providerSyncStatus.get(`${provider}:button`);
+    if (button instanceof HTMLElement) button.disabled = true;
+    setSyncStatus(provider, '同步中...', 'info');
+    try {
+      const res = await fetch(`/api/admin/providers/sync/${encodeURIComponent(provider)}`, {
+        method: 'POST',
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSyncStatus(provider, data.error || '同步失敗', 'error');
+      } else {
+        setSyncStatus(provider, `同步完成：新增 ${data.added}，保留 ${data.existing}，共 ${data.total}`, 'success');
+        await loadProviderCatalog();
+      }
+    } catch {
+      setSyncStatus(provider, '同步失敗，請稍後再試', 'error');
+    } finally {
+      if (button instanceof HTMLElement) button.disabled = false;
+      window.setTimeout(() => setSyncStatus(provider, ''), 5000);
+    }
+  }
+
+  function renderProviderOptions() {
+    catalogControls.provider.replaceChildren();
+    routingControls.provider.replaceChildren();
+    routingControls.fallbackProvider.replaceChildren();
+    testControls.provider.replaceChildren();
+
+    const providerOptions = providerCatalog.providers.map((provider) => makeOption(provider, provider));
+    const none = makeOption('', 'none');
+    catalogControls.provider.append(...providerOptions);
+    routingControls.provider.append(...providerOptions.map((option) => option.cloneNode(true)));
+    routingControls.fallbackProvider.append(none, ...providerOptions.map((option) => option.cloneNode(true)));
+    testControls.provider.append(...providerOptions.map((option) => option.cloneNode(true)));
 
     syncRoutingForm(latestRagSettings);
     syncModelOptions();
@@ -211,17 +388,26 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   function setModelSelectOptions(select, provider, selectedValue, allowNone = false) {
+    select.replaceChildren();
+    if (allowNone) {
+      select.append(makeOption('', 'none'));
+    }
     const models = providerCatalog.models.filter((model) => model.provider === provider && model.enabled);
-    const options = [];
-    if (allowNone) options.push('<option value="">none</option>');
     for (const model of models) {
-      options.push(`<option value="${escapeHtml(model.model)}">${escapeHtml(model.displayName || model.model)}</option>`);
+      select.append(makeOption(model.model, model.displayName || model.model));
     }
-    if (selectedValue && !models.some((model) => model.model === selectedValue)) {
-      options.push(`<option value="${escapeHtml(selectedValue)}">${escapeHtml(selectedValue)} (custom)</option>`);
+    if (!models.length && !allowNone) {
+      select.append(makeOption('', 'No enabled models'));
+      select.value = '';
+      return;
     }
-    select.innerHTML = options.join('') || '<option value="">No enabled models</option>';
-    select.value = selectedValue || (allowNone ? '' : models[0]?.model || '');
+    if (selectedValue) {
+      setSelectValue(select, selectedValue);
+    } else if (allowNone) {
+      select.value = '';
+    } else {
+      select.value = models[0]?.model || '';
+    }
   }
 
   async function loadRagProviders() {
@@ -238,39 +424,36 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       latestRagSettings = settings;
       syncRoutingForm(settings);
 
-      el.innerHTML = `
-        <div class="provider-card">
-          <div class="provider-header">
-            <span class="provider-name">Chat / Answer</span>
-            <a href="/admin/rag" class="configure-link">Configure</a>
-          </div>
-          ${infoRow('Provider', settings.rag_default_provider || 'groq')}
-          ${infoRow('Model', settings.rag_default_model || 'llama-3.3-70b-versatile')}
-          ${infoRow('Engine', settings.rag_pipeline_engine || 'langgraph')}
-        </div>
+      const cards = [];
 
-        <div class="provider-card">
-          <div class="provider-header">
-            <span class="provider-name">Fallback</span>
-          </div>
-          ${infoRow('Provider', settings.rag_fallback_provider || 'none')}
-          ${infoRow('Model', settings.rag_fallback_model || 'none')}
-        </div>
+      const chat = makeProviderCardWithLink('Chat / Answer', 'Configure', '/admin/rag');
+      chat.append(
+        makeInfoRow('Provider', settings.rag_default_provider || 'groq'),
+        makeInfoRow('Model', settings.rag_default_model || 'llama-3.3-70b-versatile'),
+        makeInfoRow('Engine', settings.rag_pipeline_engine || 'langgraph'),
+      );
 
-        <div class="provider-card">
-          <div class="provider-header">
-            <span class="provider-name">Feature Flags</span>
-          </div>
-          <div class="flags-grid">
-            ${flag('HyDE', settings.rag_flag_hyde === '1')}
-            ${flag('Multi-Query', settings.rag_flag_multi_query === '1')}
-            ${flag('Reranker', settings.rag_flag_reranker === '1')}
-            ${flag('Critic', settings.rag_flag_critic === '1')}
-          </div>
-        </div>
-      `;
+      const fallback = makeProviderCard('Fallback');
+      fallback.append(
+        makeInfoRow('Provider', settings.rag_fallback_provider || 'none'),
+        makeInfoRow('Model', settings.rag_fallback_model || 'none'),
+      );
+
+      const feature = makeProviderCard('Feature Flags');
+      const grid = document.createElement('div');
+      grid.className = 'flags-grid';
+      grid.append(
+        makeFlag('HyDE', settings.rag_flag_hyde === '1'),
+        makeFlag('Multi-Query', settings.rag_flag_multi_query === '1'),
+        makeFlag('Reranker', settings.rag_flag_reranker === '1'),
+        makeFlag('Critic', settings.rag_flag_critic === '1'),
+      );
+      feature.append(grid);
+
+      cards.push(chat, fallback, feature);
+      el.replaceChildren(...cards);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -288,36 +471,56 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       return acc;
     }, {});
 
-    catalogControls.list.innerHTML = providerCatalog.providers.map((provider) => {
+    const frag = document.createDocumentFragment();
+    for (const provider of providerCatalog.providers) {
+      const providerBlock = document.createElement('div');
+      providerBlock.className = 'catalog-provider';
+      const header = document.createElement('div');
+      header.className = 'catalog-provider-header';
+      const titleWrap = document.createElement('div');
+      titleWrap.className = 'catalog-provider-title';
+      const title = document.createElement('strong');
+      title.textContent = provider;
+      const stats = document.createElement('span');
       const models = grouped[provider] || [];
       const activeCount = models.filter((model) => model.enabled).length;
-      return `
-        <div class="catalog-provider">
-          <div class="catalog-provider-header">
-            <strong>${escapeHtml(provider)}</strong>
-            <span>${activeCount} / ${models.length} enabled</span>
-          </div>
-          ${models.length ? models.map(modelRow).join('') : '<p class="empty-note">尚未設定模型</p>'}
-        </div>
-      `;
-    }).join('');
-  }
+      stats.textContent = `${activeCount} / ${models.length} enabled`;
+      titleWrap.append(title, stats);
 
-  function modelRow(model) {
-    const key = `${model.provider}:${model.model}`;
-    return `
-      <div class="model-row" data-key="${escapeHtml(key)}">
-        <button type="button" class="model-main" data-action="edit" data-key="${escapeHtml(key)}">
-          <span class="model-title">${escapeHtml(model.displayName || model.model)}</span>
-          <span class="model-name">${escapeHtml(model.model)}</span>
-          ${model.notes ? `<span class="model-notes">${escapeHtml(model.notes)}</span>` : ''}
-        </button>
-        <button type="button" class="model-state ${model.enabled ? 'enabled' : 'disabled'}" data-action="toggle" data-key="${escapeHtml(key)}">
-          ${model.enabled ? 'active' : 'inactive'}
-        </button>
-        <button type="button" class="model-delete" data-action="delete" data-key="${escapeHtml(key)}">刪除</button>
-      </div>
-    `;
+      const actionWrap = document.createElement('div');
+      actionWrap.className = 'catalog-provider-actions';
+      const syncStatus = document.createElement('span');
+      syncStatus.className = 'catalog-sync-status';
+      syncStatus.dataset.provider = provider;
+      const syncButton = document.createElement('button');
+      syncButton.type = 'button';
+      syncButton.className = 'catalog-sync-btn';
+      syncButton.dataset.action = 'sync';
+      syncButton.dataset.provider = provider;
+      syncButton.textContent = '同步模型';
+
+      syncButton.addEventListener('click', () => syncProviderModels(provider));
+      actionWrap.append(syncStatus, syncButton);
+      header.append(titleWrap, actionWrap);
+      providerSyncStatus.set(provider, syncStatus);
+      providerSyncStatus.set(`${provider}:button`, syncButton);
+
+      providerBlock.append(header);
+
+      if (models.length) {
+        for (const model of models) {
+          providerBlock.append(makeModelCatalogItem(model));
+        }
+      } else {
+        const empty = document.createElement('p');
+        empty.className = 'empty-note';
+        empty.textContent = '尚未設定模型';
+        providerBlock.append(empty);
+      }
+
+      frag.append(providerBlock);
+    }
+    catalogControls.list.replaceChildren(frag);
   }
 
   async function saveCatalog() {
@@ -364,7 +567,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   catalogControls.list.addEventListener('click', async (event) => {
     const button = event.target.closest('button[data-action]');
     if (!button) return;
-    const [provider, modelName] = button.dataset.key.split(':');
+    const provider = button.dataset.provider;
+    const modelName = button.dataset.model;
     const model = providerCatalog.models.find((item) => item.provider === provider && item.model === modelName);
     if (!model) return;
 
@@ -444,26 +648,27 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const workersAiOk = data.statuses?.find((s) => s.name === 'Workers AI')?.ok;
       const vectorizeOk = data.statuses?.find((s) => s.name === 'Vectorize Index')?.ok;
 
-      el.innerHTML = `
-        <div class="provider-card">
-          <div class="provider-header">
-            <span class="provider-name">Workers AI</span>
-            <span class="status-badge ${workersAiOk ? 'active' : 'error'}">${workersAiOk ? 'Active' : 'Error'}</span>
-          </div>
-          ${infoRow('Embedding Model', '@cf/baai/bge-base-en-v1.5')}
-          ${infoRow('Post Chunks', data.index?.postChunks ?? 0)}
-          ${infoRow('Doc Chunks', data.index?.docChunks ?? 0)}
-        </div>
-        <div class="provider-card">
-          <div class="provider-header">
-            <span class="provider-name">Vectorize</span>
-            <span class="status-badge ${vectorizeOk ? 'active' : 'error'}">${vectorizeOk ? 'Active' : 'Error'}</span>
-          </div>
-          ${infoRow('Index', 'quidproquo-embeddings')}
-        </div>
-      `;
+      const workers = makeProviderCard('Workers AI');
+      const workerStatus = document.createElement('span');
+      workerStatus.className = `status-badge ${workersAiOk ? 'active' : 'error'}`;
+      workerStatus.textContent = workersAiOk ? 'Active' : 'Error';
+      workers.querySelector('.provider-header')?.append(workerStatus);
+      workers.append(
+        makeInfoRow('Embedding Model', '@cf/baai/bge-base-en-v1.5'),
+        makeInfoRow('Post Chunks', data.index?.postChunks ?? 0),
+        makeInfoRow('Doc Chunks', data.index?.docChunks ?? 0),
+      );
+
+      const vectorize = makeProviderCard('Vectorize');
+      const vectorStatus = document.createElement('span');
+      vectorStatus.className = `status-badge ${vectorizeOk ? 'active' : 'error'}`;
+      vectorStatus.textContent = vectorizeOk ? 'Active' : 'Error';
+      vectorize.querySelector('.provider-header')?.append(vectorStatus);
+      vectorize.append(makeInfoRow('Index', 'quidproquo-embeddings'));
+
+      el.replaceChildren(workers, vectorize);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -478,379 +683,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         { name: 'CRAWL_SECRET', status: 'configured' },
         { name: 'Workers AI Binding', status: data.statuses?.find((s) => s.name === 'Workers AI')?.ok ? 'ready' : 'missing' },
       ];
-
-      el.innerHTML = secrets.map((secret) => `
-        <div class="secret-item">
-          <span class="secret-name">${escapeHtml(secret.name)}</span>
-          <span class="secret-status status-${escapeHtml(secret.status)}">${escapeHtml(secret.status)}</span>
-        </div>
-      `).join('');
+      const frag = document.createDocumentFragment();
+      for (const secret of secrets) {
+        frag.append(makeSecretItem(secret.name, secret.status));
+      }
+      el.replaceChildren(frag);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
-  }
-
-  function infoRow(label, value) {
-    return `
-      <div class="provider-info">
-        <span class="provider-label">${escapeHtml(label)}:</span>
-        <span class="provider-value">${escapeHtml(String(value))}</span>
-      </div>
-    `;
-  }
-
-  function flag(label, enabled) {
-    return `<span class="flag ${enabled ? 'enabled' : 'disabled'}">${escapeHtml(label)}</span>`;
-  }
-
-  function escapeHtml(value) {
-    return String(value)
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#039;');
   }
 
   loadProviders().catch(() => {
-    catalogControls.list.innerHTML = '<p class="error">Unable to load provider settings</p>';
+    setLoadError(catalogControls.list, 'Unable to load provider settings');
   });
 </script>
-
-<style>
-  .page-desc {
-    color: var(--admin-text-muted, #4a7c59);
-    margin-bottom: 1.5rem;
-  }
-
-  .providers-grid,
-  .providers-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .providers-grid {
-    margin-top: 1.5rem;
-    gap: 1.5rem;
-  }
-
-  .providers-section {
-    margin-bottom: 1.5rem;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .providers-section h2 {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--admin-text-muted, #4a7c59);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .section-note,
-  .save-status {
-    color: var(--admin-text-soft, #767676);
-    font-size: 0.85rem;
-  }
-
-  .routing-form,
-  .model-form,
-  .test-panel {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    background: var(--admin-surface, #fff);
-    box-shadow: var(--admin-shadow, none);
-  }
-
-  .routing-form,
-  .model-form {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(160px, 1fr));
-    gap: 0.8rem;
-    padding: 1rem;
-    min-width: 0;
-  }
-
-  .model-form {
-    grid-template-columns: 140px minmax(180px, 1fr) minmax(160px, 0.8fr) minmax(160px, 0.9fr) 90px 120px;
-  }
-
-  label,
-  .prompt-label {
-    display: grid;
-    gap: 0.35rem;
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.8rem;
-  }
-
-  input,
-  select,
-  textarea,
-  button {
-    min-width: 0;
-    min-height: 38px;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 0.5rem 0.7rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  button {
-    cursor: pointer;
-    background: var(--admin-surface, #fff);
-  }
-
-  button:hover {
-    border-color: var(--admin-accent, #4a9e6a);
-  }
-
-  .routing-form button,
-  .model-form button,
-  #run-model-test {
-    align-self: end;
-    background: var(--admin-accent, #4a9e6a);
-    color: #fff;
-    border-color: var(--admin-accent, #4a9e6a);
-  }
-
-  .checkbox-label {
-    align-self: end;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 38px;
-  }
-
-  .checkbox-label input {
-    min-height: auto;
-  }
-
-  .catalog-list {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .catalog-provider {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    background: var(--admin-surface, #fff);
-    overflow: hidden;
-    min-width: 0;
-  }
-
-  .catalog-provider-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    background: var(--admin-muted, #f0f7f0);
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.86rem;
-  }
-
-  .model-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 84px 68px;
-    gap: 0.75rem;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-  }
-
-  .model-main {
-    display: grid;
-    gap: 0.2rem;
-    text-align: left;
-    border: none;
-    padding: 0;
-    background: transparent;
-  }
-
-  .model-title {
-    font-weight: 650;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .model-name,
-  .model-notes {
-    color: var(--admin-text-soft, #767676);
-    font-size: 0.78rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .model-state,
-  .model-delete,
-  .status-badge,
-  .flag,
-  .secret-status {
-    font-size: 0.72rem;
-    padding: 0.25rem 0.55rem;
-    border-radius: 4px;
-  }
-
-  .model-state.enabled,
-  .flag.enabled,
-  .status-badge.active,
-  .status-configured,
-  .status-ready {
-    background: #dcfce7;
-    color: #166534;
-    border-color: #bbf7d0;
-  }
-
-  .model-state.disabled,
-  .flag.disabled {
-    background: #f3f4f6;
-    color: #6b7280;
-  }
-
-  .model-delete,
-  .status-badge.error,
-  .status-missing {
-    background: #fee2e2;
-    color: #991b1b;
-    border-color: #fecaca;
-  }
-
-  .empty-note {
-    padding: 0.9rem 1rem;
-    color: var(--admin-text-soft, #767676);
-    font-size: 0.85rem;
-  }
-
-  .test-panel {
-    display: grid;
-    gap: 0.85rem;
-    padding: 1rem;
-  }
-
-  .test-controls {
-    display: grid;
-    grid-template-columns: 160px minmax(220px, 1fr) 120px;
-    gap: 0.8rem;
-  }
-
-  .test-result {
-    min-height: 130px;
-    overflow: auto;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 0.85rem;
-    background: #0f172a;
-    color: #e2e8f0;
-    font-size: 0.82rem;
-  }
-
-  .provider-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .provider-card,
-  .secret-item {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1rem;
-  }
-
-  .provider-header,
-  .secret-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .provider-header {
-    margin-bottom: 0.75rem;
-  }
-
-  .provider-name {
-    font-weight: 650;
-  }
-
-  .configure-link {
-    font-size: 0.8rem;
-    color: var(--admin-accent, #4a9e6a);
-    text-decoration: none;
-  }
-
-  .provider-info {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.35rem;
-    min-width: 0;
-  }
-
-  .provider-label {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.85rem;
-    min-width: 112px;
-  }
-
-  .provider-value,
-  .secret-name {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .flags-grid,
-  .secrets-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .secrets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  }
-
-  .error {
-    color: var(--admin-danger, #b42318);
-  }
-
-  @media (max-width: 1100px) {
-    .model-form {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 900px) {
-    .routing-form,
-    .test-controls {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .routing-form,
-    .model-form,
-    .test-controls,
-    .model-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

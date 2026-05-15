@@ -87,6 +87,81 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
 </AdminLayout>
 
 <script is:inline>
+  function clearNode(el) {
+    el.textContent = '';
+  }
+
+  function makeLine(label, value) {
+    const row = document.createElement('div');
+    row.className = 'metric-line';
+
+    const labelEl = document.createElement('span');
+    labelEl.textContent = label;
+    const valueEl = document.createElement('strong');
+    valueEl.textContent = String(value);
+
+    row.append(labelEl, valueEl);
+    return row;
+  }
+
+  function renderStatusList(statuses) {
+    const frag = document.createDocumentFragment();
+    if (!statuses?.length) {
+      const empty = document.createElement('p');
+      empty.className = 'empty';
+      empty.textContent = 'No status data';
+      frag.append(empty);
+      return frag;
+    }
+    for (const s of statuses) {
+      const row = document.createElement('div');
+      row.className = 'status-item';
+      const dot = document.createElement('span');
+      dot.className = `status-indicator ${s?.ok ? 'ok' : 'error'}`;
+      const name = document.createElement('span');
+      name.textContent = s?.name ?? '';
+      const result = document.createElement('strong');
+      result.textContent = s?.ok ? 'OK' : 'Issue';
+      row.append(dot, name, result);
+      frag.append(row);
+    }
+    return frag;
+  }
+
+  function renderJobRows(jobs) {
+    const frag = document.createDocumentFragment();
+    for (const job of jobs) {
+      const row = document.createElement('article');
+      row.className = 'job-row';
+      const status = document.createElement('span');
+      status.className = `job-status status-${job.status}`;
+      status.textContent = job.status;
+
+      const pipeline = document.createElement('span');
+      pipeline.className = 'job-pipeline';
+      pipeline.textContent = job.pipeline_id;
+
+      const id = document.createElement('code');
+      id.textContent = job.id;
+
+      const time = document.createElement('span');
+      time.className = 'job-time';
+      time.textContent = formatTime(job.created_at);
+
+      row.append(status, pipeline, id, time);
+      frag.append(row);
+    }
+    return frag;
+  }
+
+  function setLoadError(target, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    clearNode(target);
+    target.append(p);
+  }
+
   async function loadDashboard() {
     await Promise.all([
       loadSystemStatus(),
@@ -103,9 +178,10 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       const res = await fetch('/api/admin/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = renderStatusList(data.statuses);
+      clearNode(el);
+      el.append(renderStatusList(data.statuses));
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -116,13 +192,18 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const recentTraces = data.traces?.slice(0, 5) || [];
-      el.innerHTML = `
-        <div class="metric-line"><span>Queries (7d)</span><strong>${recentTraces.length}</strong></div>
-        <div class="metric-line"><span>Recent Errors</span><strong>${recentTraces.filter(t => t.output_summary?.includes('error')).length}</strong></div>
-        <a href="/admin/rag" class="card-link">View RAG Settings -></a>
-      `;
+      clearNode(el);
+      el.append(
+        makeLine('Queries (7d)', recentTraces.length),
+        makeLine('Recent Errors', recentTraces.filter((t) => t.output_summary?.includes('error')).length),
+      );
+      const link = document.createElement('a');
+      link.href = '/admin/rag';
+      link.className = 'card-link';
+      link.textContent = 'View RAG Settings ->';
+      el.append(link);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -132,13 +213,14 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       const res = await fetch('/api/admin/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-line"><span>Post Chunks</span><strong>${data.index?.postChunks ?? 'N/A'}</strong></div>
-        <div class="metric-line"><span>Doc Chunks</span><strong>${data.index?.docChunks ?? 'N/A'}</strong></div>
-        <div class="metric-line"><span>Last Embed</span><strong>${data.index?.lastEmbed ?? 'Never'}</strong></div>
-      `;
+      clearNode(el);
+      el.append(
+        makeLine('Post Chunks', data.index?.postChunks ?? 'N/A'),
+        makeLine('Doc Chunks', data.index?.docChunks ?? 'N/A'),
+        makeLine('Last Embed', data.index?.lastEmbed ?? 'Never'),
+      );
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -148,14 +230,19 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       const res = await fetch('/api/admin/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      el.innerHTML = `
-        <div class="metric-line"><span>Total Posts</span><strong>${data.content?.total ?? 'N/A'}</strong></div>
-        <div class="metric-line"><span>Drafts</span><strong>${data.content?.drafts ?? 'N/A'}</strong></div>
-        <div class="metric-line"><span>Missing Type</span><strong>${data.content?.missingType ?? 'N/A'}</strong></div>
-        <a href="/admin/content" class="card-link">View Content -></a>
-      `;
+      clearNode(el);
+      el.append(
+        makeLine('Total Posts', data.content?.total ?? 'N/A'),
+        makeLine('Drafts', data.content?.drafts ?? 'N/A'),
+        makeLine('Missing Type', data.content?.missingType ?? 'N/A'),
+      );
+      const link = document.createElement('a');
+      link.href = '/admin/content';
+      link.className = 'card-link';
+      link.textContent = 'View Content ->';
+      el.append(link);
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
   }
 
@@ -166,31 +253,18 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.jobs?.length) {
-        el.innerHTML = '<p class="empty">No jobs yet</p>';
+        const empty = document.createElement('p');
+        empty.className = 'empty';
+        empty.textContent = 'No jobs yet';
+        clearNode(el);
+        el.append(empty);
         return;
       }
-      el.innerHTML = data.jobs.map(job => `
-        <div class="job-row">
-          <span class="job-status status-${job.status}">${job.status}</span>
-          <span class="job-pipeline">${job.pipeline_id}</span>
-          <code>${job.id}</code>
-          <span class="job-time">${formatTime(job.created_at)}</span>
-        </div>
-      `).join('');
+      clearNode(el);
+      el.append(renderJobRows(data.jobs));
     } catch {
-      el.innerHTML = '<p class="error">Unable to load</p>';
+      setLoadError(el, 'Unable to load');
     }
-  }
-
-  function renderStatusList(statuses) {
-    if (!statuses?.length) return '<p class="empty">No status data</p>';
-    return statuses.map(s => `
-      <div class="status-item">
-        <span class="status-indicator ${s.ok ? 'ok' : 'error'}"></span>
-        <span>${s.name}</span>
-        <strong>${s.ok ? 'OK' : 'Issue'}</strong>
-      </div>
-    `).join('');
   }
 
   function formatTime(iso) {
@@ -201,268 +275,3 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
 
   loadDashboard();
 </script>
-
-<style>
-  .dashboard-hero {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: linear-gradient(180deg, var(--admin-surface) 0%, var(--brand-50) 100%);
-    padding: 1.1rem;
-    box-shadow: var(--admin-shadow);
-  }
-
-  .hero-kicker {
-    margin: 0 0 0.2rem;
-    color: var(--admin-text-muted);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .dashboard-hero h1 {
-    margin: 0;
-    color: var(--admin-text);
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
-    line-height: 1.25;
-    letter-spacing: 0;
-  }
-
-  .dashboard-hero p {
-    margin: 0.35rem 0 0;
-    color: var(--admin-text-muted);
-    font-size: 0.9rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-end;
-  }
-
-  .dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .status-card.wide {
-    grid-column: span 4;
-  }
-
-  .card-head,
-  .section-heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.8rem;
-    margin-bottom: 0.9rem;
-  }
-
-  .status-card h3 {
-    font-size: 0.92rem;
-    font-weight: 750;
-    margin: 0;
-  }
-
-  .status-content {
-    font-size: 0.9rem;
-  }
-
-  .status-content p {
-    margin: 0.5rem 0;
-  }
-
-  .status-item {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    min-height: 34px;
-    border-top: 1px solid var(--admin-border);
-    padding: 0.45rem 0;
-  }
-
-  .status-item:first-child {
-    border-top: none;
-  }
-
-  .status-item strong {
-    margin-left: auto;
-    color: var(--admin-text-muted);
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-
-  .status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .status-indicator.ok {
-    background: var(--admin-success);
-  }
-
-  .status-indicator.error {
-    background: var(--admin-danger);
-  }
-
-  .card-link {
-    display: inline-block;
-    margin-top: 0.75rem;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 650;
-  }
-
-  .card-link:hover {
-    text-decoration: underline;
-  }
-
-  .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
-
-  .quick-actions .action-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    min-height: 42px;
-    padding: 0.6rem 0.8rem;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 650;
-  }
-
-  .job-row {
-    display: grid;
-    grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 0.9fr) 150px;
-    align-items: center;
-    gap: 0.75rem;
-    min-height: 44px;
-    padding: 0.55rem 0.75rem;
-    border-top: 1px solid var(--admin-border);
-    min-width: 0;
-  }
-
-  .job-row:first-child {
-    border-top: none;
-  }
-
-  .job-pipeline {
-    color: var(--admin-text);
-    font-family: monospace;
-    font-size: 0.85rem;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .job-row code {
-    overflow: hidden;
-    color: var(--admin-text-soft);
-    font-size: 0.76rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .job-time {
-    color: var(--admin-text-muted);
-    font-size: 0.8rem;
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  .metric-line {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    min-height: 32px;
-    border-top: 1px solid var(--admin-border);
-    padding: 0.42rem 0;
-    min-width: 0;
-  }
-
-  .metric-line span,
-  .metric-line strong {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .metric-line:first-child {
-    border-top: none;
-  }
-
-  .metric-line span {
-    color: var(--admin-text-muted);
-    font-size: 0.8rem;
-  }
-
-  .metric-line strong {
-    color: var(--admin-text);
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 1120px) {
-    .dashboard-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .status-card.wide {
-      grid-column: span 2;
-    }
-
-    .quick-actions {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 768px) {
-    .dashboard-hero {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .hero-actions {
-      justify-content: stretch;
-    }
-
-    .command-button {
-      justify-content: center;
-      flex: 1;
-    }
-
-    .dashboard-grid,
-    .quick-actions {
-      grid-template-columns: 1fr;
-    }
-
-    .status-card.wide {
-      grid-column: span 1;
-    }
-
-    .job-row {
-      grid-template-columns: 1fr;
-      align-items: start;
-      gap: 0.3rem;
-    }
-
-    .job-time {
-      text-align: left;
-    }
-  }
-</style>

@@ -83,6 +83,49 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 <script is:inline>
   let currentConfig = {};
 
+  function createSecretRow(name, info) {
+    const item = document.createElement('div');
+    item.className = 'secret-item';
+
+    const nameEl = document.createElement('span');
+    nameEl.className = 'secret-name';
+    nameEl.textContent = name;
+
+    const statusEl = document.createElement('span');
+    statusEl.className = `secret-status status-${info.configured ? 'ready' : 'missing'}`;
+    statusEl.textContent = info.configured ? '已設定' : '缺少';
+
+    const noteEl = document.createElement('span');
+    noteEl.className = 'secret-note';
+    noteEl.textContent = info.note;
+
+    item.append(nameEl, statusEl, noteEl);
+    return item;
+  }
+
+  function renderSecrets(container, secrets) {
+    if (!secrets.length) {
+      const p = document.createElement('p');
+      p.className = 'empty';
+      p.textContent = '沒有可顯示的 Secret。';
+      container.replaceChildren(p);
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    for (const [name, info] of secrets) {
+      frag.append(createSecretRow(name, info));
+    }
+    container.replaceChildren(frag);
+  }
+
+  function setLoadError(container, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    container.replaceChildren(p);
+  }
+
   async function loadSettings() {
     try {
       const res = await fetch('/api/admin/settings');
@@ -92,15 +135,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       // Render secrets
       const secretsEl = document.getElementById('secrets-status');
       const secrets = Object.entries(data.secrets || {});
-      secretsEl.innerHTML = secrets.map(([name, info]) => `
-        <div class="secret-item">
-          <span class="secret-name">${name}</span>
-          <span class="secret-status status-${info.configured ? 'ready' : 'missing'}">
-            ${info.configured ? '已設定' : '缺少'}
-          </span>
-          <span class="secret-note">${info.note}</span>
-        </div>
-      `).join('');
+      renderSecrets(secretsEl, secrets);
 
       // Set form values
       currentConfig = data.config || {};
@@ -111,7 +146,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       document.getElementById('pipeline-retries').value = currentConfig.pipeline?.max_retries || 2;
       document.getElementById('pipeline-runtime').value = currentConfig.pipeline?.max_runtime_ms || 600000;
     } catch {
-      document.getElementById('secrets-status').innerHTML = '<p class="error">無法載入設定</p>';
+      setLoadError(document.getElementById('secrets-status'), '無法載入設定');
     }
   }
 
@@ -168,186 +203,3 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   loadSettings();
 </script>
-
-<style>
-  .page-desc {
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 1.5rem;
-  }
-
-  .settings-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .settings-section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .secrets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .secret-item {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .secret-name {
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--admin-text, #1a1a1a);
-    flex: 1;
-    min-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .secret-status {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .status-ready { background: #ecfdf3; color: #067647; }
-  .status-missing { background: #fef3f2; color: #b42318; }
-
-  .secret-note {
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-    width: 100%;
-    margin-top: 0.25rem;
-  }
-
-  .setting-card {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: var(--admin-radius, 8px);
-    padding: 1rem;
-    min-width: 0;
-  }
-
-  .setting-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--admin-border, #d1e8d1);
-    min-width: 0;
-  }
-
-  .setting-row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .setting-row label {
-    min-width: 180px;
-    font-size: 0.9rem;
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  .setting-input {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .input {
-    padding: 0.5rem 0.75rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 6px;
-    color: var(--admin-text, #1a1a1a);
-    font-size: 0.9rem;
-    width: 120px;
-  }
-
-  .input:focus {
-    outline: none;
-    border-color: var(--admin-accent, #3b82f6);
-  }
-
-  .setting-note {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .actions-bar {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-  }
-
-  .btn {
-    padding: 0.6rem 1.25rem;
-    background: var(--admin-accent, #3b82f6);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .btn:hover {
-    background: var(--admin-accent-hover, #2563eb);
-  }
-
-  .btn-secondary {
-    padding: 0.6rem 1.25rem;
-    background: transparent;
-    color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .btn-secondary:hover {
-    background: var(--brand-50, #f0f7f0);
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  .status-text {
-    font-size: 0.85rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .error { color: #ef4444; }
-
-  @media (max-width: 720px) {
-    .setting-row,
-    .setting-input {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .setting-row label {
-      min-width: 0;
-    }
-
-    .input {
-      width: 100%;
-    }
-  }
-</style>

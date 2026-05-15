@@ -193,6 +193,22 @@ export async function listJobArtifacts(db: D1Database, jobId: string): Promise<P
   return result.results
 }
 
+export async function getJobArtifact(db: D1Database, jobId: string, artifactId: string): Promise<PipelineArtifactRow | null> {
+  return await db.prepare(
+    `SELECT id, job_id, step_id, type, name, path, content_json, created_at
+     FROM admin_job_artifacts
+     WHERE id = ? AND job_id = ?`,
+  ).bind(artifactId, jobId).first<PipelineArtifactRow>()
+}
+
+export async function updateArtifactContent(db: D1Database, artifactId: string, content: string): Promise<void> {
+  await db.prepare(
+    `UPDATE admin_job_artifacts
+     SET content_json = ?
+     WHERE id = ?`,
+  ).bind(content, artifactId).run()
+}
+
 export async function incrementRetryCount(db: D1Database, id: string): Promise<number> {
   await db.prepare(
     `UPDATE admin_jobs

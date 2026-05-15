@@ -26,6 +26,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const deadLetterList = document.getElementById('dead-letter-list');
   const id = new URL(location.href).searchParams.get('id');
   const actions = document.createElement('div');
+  let currentStatus = '';
 
   async function load() {
     if (!id) {
@@ -42,6 +43,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       return;
     }
     const data = await res.json();
+    currentStatus = data.job?.status ?? '';
     renderDetail(data.job, data.steps ?? []);
     renderActions(data.job?.status);
     renderArtifacts(data.artifacts ?? []);
@@ -77,69 +79,66 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       row.className = 'job-row';
       const canCancel = job.status === 'queued' || job.status === 'running' || job.status === 'waiting_review';
       const canApprove = job.status === 'waiting_review';
-      row.innerHTML = `
-        <span class="job-status status-${job.status}">${job.status}</span>
-        <strong>${job.pipeline_id}</strong>
-        <code>${job.id}</code>
-        <time>${formatTime(job.created_at)}</time>
-        ${canApprove ? `<button type="button" class="mini-btn approve-btn" data-action="approve" data-job-id="${job.id}">Approve</button>` : ''}
-        ${canApprove ? `<button type="button" class="mini-btn reject-btn" data-action="reject" data-job-id="${job.id}">Reject</button>` : ''}
-        <button type="button" class="mini-btn rerun-btn" data-action="rerun" data-job-id="${job.id}">Rerun</button>
-        <button type="button" class="mini-btn cancel-btn" data-action="cancel" data-job-id="${job.id}" ${canCancel ? '' : 'disabled'}>
-          Cancel
-        </button>
-      `;
+      const status = document.createElement('span');
+      status.className = `job-status status-${job.status}`;
+      status.textContent = job.status;
+
+      const pipelineName = document.createElement('strong');
+      pipelineName.textContent = job.pipeline_id;
+
+      const jobId = document.createElement('code');
+      jobId.textContent = job.id;
+
+      const createdAt = document.createElement('time');
+      createdAt.textContent = formatTime(job.created_at);
+
+      row.append(status, pipelineName, jobId, createdAt);
+
+      if (canApprove) {
+        row.append(createMiniActionButton('Approve', 'approve', job.id, job.id));
+        row.append(createMiniActionButton('Reject', 'reject', job.id, job.id));
+      }
+      row.append(createMiniActionButton('Rerun', 'rerun', job.id, job.id));
+      row.append(createMiniActionButton('Cancel', 'cancel', job.id, job.id, !canCancel));
       row.addEventListener('click', (event) => {
         if (event.target instanceof HTMLButtonElement) return;
         location.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
       });
       container.append(row);
     }
-
-    container.querySelectorAll('.mini-btn').forEach((button) => {
-      button.addEventListener('click', async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const target = event.currentTarget;
-        if (!(target instanceof HTMLButtonElement)) return;
-        const action = target.dataset.action;
-        if (!action) return;
-        if (action === 'reject') {
-          const note = window.prompt('請輸入 reject 原因（必填）');
-          if (!note?.trim()) {
-            window.alert('請輸入 reject 原因後再送出。');
-            return;
-          }
-          await actOnJob(target.dataset.jobId, action, note.trim());
-          return;
-        }
-        await actOnJob(target.dataset.jobId, action);
-      });
-    });
   }
 
   function renderDetail(job, steps) {
     detail.replaceChildren();
     const header = document.createElement('article');
     header.className = 'job-summary';
-    header.innerHTML = `
-      <span class="job-status status-${job.status}">${job.status}</span>
-      <strong>${job.pipeline_id}</strong>
-      <code>${job.id}</code>
-      <p>${job.output_summary ?? job.error_summary ?? ''}</p>
-    `;
+    const status = document.createElement('span');
+    status.className = `job-status status-${job.status}`;
+    status.textContent = job.status;
+    const pipelineName = document.createElement('strong');
+    pipelineName.textContent = job.pipeline_id;
+    const jobId = document.createElement('code');
+    jobId.textContent = job.id;
+    const summary = document.createElement('p');
+    summary.textContent = job.output_summary ?? job.error_summary ?? '';
+    header.append(status, pipelineName, jobId, summary);
     detail.append(header);
 
     for (const step of steps) {
       const row = document.createElement('article');
       row.className = 'step-row';
-      row.innerHTML = `
-        <span class="job-status status-${step.status}">${step.status}</span>
-        <strong>${step.stage_id}</strong>
-        <span>${step.kind}</span>
-        <span>${step.duration_ms ?? 0}ms</span>
-        <p>${step.output_summary ?? step.error_summary ?? ''}</p>
-      `;
+      const status = document.createElement('span');
+      status.className = `job-status status-${step.status}`;
+      status.textContent = step.status;
+      const stage = document.createElement('strong');
+      stage.textContent = step.stage_id;
+      const kind = document.createElement('span');
+      kind.textContent = step.kind;
+      const duration = document.createElement('span');
+      duration.textContent = `${step.duration_ms ?? 0}ms`;
+      const output = document.createElement('p');
+      output.textContent = step.output_summary ?? step.error_summary ?? '';
+      row.append(status, stage, kind, duration, output);
       detail.append(row);
     }
   }
@@ -148,60 +147,30 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     const canCancel = status === 'queued' || status === 'running' || status === 'waiting_review';
     const canApprove = status === 'waiting_review';
     actions.className = 'job-actions';
-    actions.innerHTML = `
-      <button type="button" id="rerun-btn" class="action-btn">Rerun</button>
-      ${canApprove ? '<button type="button" id="approve-btn" class="action-btn approve">Approve</button>' : ''}
-      ${canApprove ? '<button type="button" id="reject-btn" class="action-btn reject">Reject</button>' : ''}
-      <button type="button" id="cancel-btn" class="action-btn" ${canCancel ? '' : 'disabled'}>
-        Cancel
-      </button>
-    `;
-
-    const rerunBtn = actions.querySelector('#rerun-btn');
-    const approveBtn = actions.querySelector('#approve-btn');
-    const rejectBtn = actions.querySelector('#reject-btn');
-    const cancelBtn = actions.querySelector('#cancel-btn');
-    rerunBtn.addEventListener('click', async () => {
-      if (!id) return;
-      await actOnJob(id, 'rerun');
-    });
-    if (approveBtn) {
-      approveBtn.addEventListener('click', async () => {
-        if (!id) return;
-        await actOnJob(id, 'approve');
-      });
+    actions.replaceChildren();
+    actions.append(createActionButton('Rerun', 'rerun'));
+    if (canApprove) {
+      actions.append(createActionButton('Approve', 'approve'));
+      actions.append(createActionButton('Reject', 'reject'));
     }
-    if (rejectBtn) {
-      rejectBtn.addEventListener('click', async () => {
-        if (!id) return;
-        const note = window.prompt('請輸入 reject 原因（必填）');
-        if (!note?.trim()) {
-          window.alert('請輸入 reject 原因後再送出。');
-          return;
-        }
-        await actOnJob(id, 'reject', note.trim());
-      });
-    }
-    cancelBtn.addEventListener('click', async () => {
-      if (!id) return;
-      await actOnJob(id, 'cancel');
-    });
+    actions.append(createActionButton('Cancel', 'cancel', !canCancel));
 
     detail.prepend(actions);
   }
 
-  async function actOnJob(jobId, action, reviewNote) {
+  async function actOnJob(jobId, action, payload = {}) {
     const res = await fetch(`/api/admin/jobs/${encodeURIComponent(jobId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(reviewNote ? { action, reviewNote } : { action }),
+      body: JSON.stringify({ action, ...payload }),
     });
     const data = await res.json();
     if (!res.ok) {
       window.alert(data.error || 'Job action failed');
-      return;
+      return false;
     }
     await load();
+    return true;
   }
 
   function renderArtifacts(artifacts) {
@@ -210,18 +179,86 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       artifactList.textContent = 'No artifacts.';
       return;
     }
+    const isLocked = currentStatus === 'queued' || currentStatus === 'running';
 
     for (const artifact of artifacts) {
+      const typeLabel = artifact.type || 'artifact';
+      const hasEditableContent = !isLocked;
+      const rawContent = artifact.content_json ?? '';
+      const artifactContent = parseArtifactContent(rawContent, typeLabel);
+
       const item = document.createElement('details');
       item.className = 'artifact';
       const summary = document.createElement('summary');
-      summary.textContent = `${artifact.type}: ${artifact.name ?? artifact.id}`;
-      const pre = document.createElement('pre');
-      pre.textContent = artifact.content_json
-        ? JSON.stringify(JSON.parse(artifact.content_json), null, 2)
-        : artifact.path ?? '';
-      item.append(summary, pre);
+      summary.textContent = `${typeLabel}: ${artifact.name ?? artifact.id}`;
+
+      const body = document.createElement('div');
+      const textarea = document.createElement('textarea');
+      textarea.className = 'artifact-editor';
+      textarea.style.width = '100%';
+      textarea.style.minHeight = typeLabel === 'markdown_draft' ? '18rem' : '12rem';
+      textarea.value = artifactContent;
+      textarea.placeholder = isLocked
+        ? '此作業正在執行中，完成後才能編輯'
+        : rawContent == null || rawContent === ''
+          ? '尚未有內容，請在這裡輸入要儲存的內容。'
+          : 'Paste editable content JSON or markdown here';
+      textarea.disabled = isLocked;
+
+      const toolbar = document.createElement('div');
+      toolbar.className = 'artifact-toolbar';
+      toolbar.style.marginTop = '0.5rem';
+      const save = document.createElement('button');
+      save.type = 'button';
+      save.className = 'mini-btn';
+      save.textContent = hasEditableContent ? '儲存編輯' : 'No content to edit';
+      save.disabled = !hasEditableContent;
+      save.addEventListener('click', async () => {
+        if (!hasEditableContent) return;
+        const latestContent = textarea.value;
+        if (typeLabel === 'json_report') {
+          try {
+            JSON.parse(latestContent);
+          } catch {
+            window.alert('json_report 必須是有效 JSON，請修正後再儲存。');
+            return;
+          }
+        }
+
+        const ok = await actOnJob(id, 'update_artifact', {
+          artifactId: artifact.id,
+          artifactType: artifact.type,
+          content: latestContent,
+        });
+        if (ok) {
+          window.alert('Artifact 已儲存。');
+        }
+      });
+      toolbar.append(save);
+
+      const hint = document.createElement('small');
+      hint.className = 'artifact-hint';
+      hint.textContent = artifact.path ? `Path: ${artifact.path}` : '';
+
+      body.append(textarea, toolbar, hint);
+      if (artifact.path && !hasEditableContent) {
+        const pathOnly = document.createElement('pre');
+        pathOnly.textContent = artifact.path;
+        body.append(pathOnly);
+      }
+
+      item.append(summary, body);
       artifactList.append(item);
+    }
+  }
+
+  function parseArtifactContent(rawContent, typeLabel) {
+    if (!rawContent) return '';
+    try {
+      const parsed = JSON.parse(rawContent);
+      return typeLabel === 'json_report' ? JSON.stringify(parsed, null, 2) : String(parsed);
+    } catch {
+      return rawContent;
     }
   }
 
@@ -230,178 +267,50 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     return new Date(iso).toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
   }
 
+  function createMiniActionButton(label, action, jobId, rowJobId, disabled = false) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `mini-btn ${action}-btn`;
+    button.textContent = label;
+    if (disabled) button.disabled = true;
+    button.addEventListener('click', async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (action === 'reject') {
+        const note = window.prompt('請輸入 reject 原因（必填）');
+        if (!note?.trim()) {
+          window.alert('請輸入 reject 原因後再送出。');
+          return;
+        }
+        await actOnJob(rowJobId || jobId || '', 'reject', { reviewNote: note.trim() });
+        return;
+      }
+      await actOnJob(jobId, action);
+    });
+    return button;
+  }
+
+  function createActionButton(label, action, disabled = false) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `action-btn ${action}`;
+    button.textContent = label;
+    if (disabled) button.disabled = true;
+    button.addEventListener('click', async () => {
+      if (!id) return;
+      if (action === 'reject') {
+        const note = window.prompt('請輸入 reject 原因（必填）');
+        if (!note?.trim()) {
+          window.alert('請輸入 reject 原因後再送出。');
+          return;
+        }
+        await actOnJob(id, 'reject', { reviewNote: note.trim() });
+        return;
+      }
+      await actOnJob(id, action);
+    });
+    return button;
+  }
+
   load();
 </script>
-
-<style>
-  .admin-panel {
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin: 1rem 0;
-    background: var(--admin-surface, #1a1a1a);
-  }
-
-  .admin-panel h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .job-row,
-  .job-summary,
-  .step-row {
-    border-top: 1px solid var(--admin-border, #d1e8d1);
-    padding: 0.75rem 0;
-    color: var(--admin-text, #1a1a1a);
-    text-decoration: none;
-  }
-
-  .job-row {
-    display: grid;
-    grid-template-columns: 120px minmax(160px, 0.9fr) minmax(180px, 1fr) 150px repeat(4, auto);
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    min-width: 0;
-  }
-
-  .job-status {
-    border-radius: 4px;
-    padding: 0.15rem 0.45rem;
-    background: var(--admin-muted, #f0f7f0);
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.75rem;
-    width: max-content;
-  }
-
-  .status-succeeded {
-    background: #ecfdf3;
-    color: #067647;
-  }
-
-  .status-waiting_review,
-  .status-skipped {
-    background: #fffaeb;
-    color: #b54708;
-  }
-
-  .status-failed {
-    background: #fef3f2;
-    color: #b42318;
-  }
-
-  .status-dead_letter {
-    background: #fff7ed;
-    color: #c2410c;
-  }
-
-  code,
-  .step-row span {
-    color: var(--admin-text-muted, #4a7c59);
-    font-size: 0.8rem;
-  }
-
-  .job-row strong,
-  .job-row code,
-  .job-row time {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .job-summary p,
-  .step-row p {
-    margin-top: 0.5rem;
-    color: var(--admin-text-muted, #4a7c59);
-  }
-
-  .artifact {
-    border-top: 1px solid var(--admin-border, #2a2a2a);
-    padding: 0.75rem 0;
-  }
-
-  summary {
-    cursor: pointer;
-  }
-
-  pre {
-    margin-top: 0.75rem;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    color: var(--admin-text, #1a1a1a);
-  }
-
-  .job-actions {
-    display: flex;
-    gap: 0.6rem;
-    margin-bottom: 0.75rem;
-    justify-content: flex-end;
-  }
-
-  .action-btn {
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 8px;
-    background: var(--admin-bg, #0f0f0f);
-    color: var(--admin-text, #e0e0e0);
-    padding: 0.45rem 0.8rem;
-    cursor: pointer;
-  }
-
-  .action-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  .action-btn.approve {
-    border-color: rgba(134, 239, 172, 0.6);
-    color: #86efac;
-  }
-
-  .action-btn.reject {
-    border-color: rgba(252, 165, 165, 0.6);
-    color: #fca5a5;
-  }
-
-  .mini-btn {
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 999px;
-    padding: 0.2rem 0.55rem;
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text-muted, #4a7c59);
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    white-space: nowrap;
-  }
-
-  .mini-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  @media (max-width: 1100px) {
-    .job-row {
-      grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 1fr);
-    }
-
-    .job-row time,
-    .job-row .mini-btn {
-      grid-column: auto;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .job-row {
-      grid-template-columns: 1fr;
-      align-items: start;
-      gap: 0.4rem;
-    }
-
-    .job-actions {
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-  }
-</style>

@@ -56,9 +56,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       <div id="traces-list" class="traces-list">載入中...</div>
     </section>
 
-    <section class="trace-detail-section" id="trace-detail" style="display: none;">
+    <section class="trace-detail-section is-hidden" id="trace-detail">
       <h2>Trace Timeline</h2>
-      <div id="trace-detail-actions" class="trace-detail-actions" style="display: none;">
+      <div id="trace-detail-actions" class="trace-detail-actions is-hidden">
         <label class="trace-filter-toggle">
           <input type="checkbox" id="filter-fallback-only" />
           僅顯示 fallback 映射步驟
@@ -77,16 +77,47 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   let currentFilters = {};
   let currentTraceDetail = null;
 
+  function createStatusPill(status) {
+    const statusPill = document.createElement('span');
+    statusPill.className = `status-pill status-${status || 'success'}`;
+    statusPill.textContent = String(status || 'success').toUpperCase();
+    return statusPill;
+  }
+
+  function createMetaText(label, value, tone = 'meta-item') {
+    const span = document.createElement('span');
+    span.className = tone;
+    span.textContent = `${label}: ${value}`;
+    return span;
+  }
+
+  function renderEmptyState(container, message, tone = 'empty') {
+    const p = document.createElement('p');
+    p.className = tone;
+    p.textContent = message;
+    container.replaceChildren(p);
+  }
+
+  function renderTraceError(container, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    container.replaceChildren(p);
+  }
+
+  function buildTraceListUrlParams() {
+    const params = new URLSearchParams();
+    if (currentFilters.traceId) params.set('trace_id', currentFilters.traceId);
+    if (currentFilters.date) params.set('date', currentFilters.date);
+    if (currentFilters.stage) params.set('stage', currentFilters.stage);
+    if (currentFilters.status) params.set('status', currentFilters.status);
+    return params.toString();
+  }
+
   async function loadTraces() {
     const el = document.getElementById('traces-list');
     try {
-      const params = new URLSearchParams();
-      if (currentFilters.traceId) params.set('trace_id', currentFilters.traceId);
-      if (currentFilters.date) params.set('date', currentFilters.date);
-      if (currentFilters.stage) params.set('stage', currentFilters.stage);
-      if (currentFilters.status) params.set('status', currentFilters.status);
-
-      const res = await fetch(`/api/admin/traces?${params.toString()}`);
+      const res = await fetch(`/api/admin/traces?${buildTraceListUrlParams()}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const traces = data.traces || [];
@@ -99,7 +130,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       }
       syncFilterUrl();
     } catch {
-      el.innerHTML = '<p class="error">無法載入追蹤紀錄</p>';
+      renderTraceError(el, '無法載入追蹤紀錄');
       hideTraceDetail();
     }
   }
@@ -113,9 +144,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     currentTraceDetail = null;
     if (filterInput) filterInput.checked = false;
     if (unobservedFilterInput) unobservedFilterInput.checked = false;
-    if (filterWrap) filterWrap.style.display = 'none';
-    if (detailSection) detailSection.style.display = 'none';
-    if (timeline) timeline.innerHTML = '';
+    if (filterWrap) filterWrap.classList.add('is-hidden');
+    if (detailSection) detailSection.classList.add('is-hidden');
+    if (timeline) timeline.replaceChildren();
   }
 
   function syncFilterUrl() {
@@ -146,49 +177,105 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   function renderTraces(traces) {
     const el = document.getElementById('traces-list');
     if (!traces.length) {
-      el.innerHTML = '<p class="empty">找不到追蹤紀錄。</p>';
+      renderEmptyState(el, '找不到追蹤紀錄。');
       return;
     }
 
-    el.innerHTML = traces.map(trace => `
-      <div class="trace-card" data-trace-id="${escapeHtml(trace.trace_id ?? '')}">
-        <div class="trace-header">
-          <span class="trace-stage">${escapeHtml(trace.stage || 'unknown')}</span>
-          <span class="trace-duration">${escapeHtml(String(trace.duration_ms ?? 0))}ms</span>
-          ${trace.pipeline_engine ? `<span class="meta-item">engine=${escapeHtml(String(trace.pipeline_engine))}</span>` : ''}
-          ${trace.trace_scope ? `<span class="meta-item">scope=${escapeHtml(String(trace.trace_scope))}</span>` : ''}
-          <span class="meta-item langfuse-status ${trace.has_langfuse_trace ? 'on' : 'off'}">
-            Langfuse: ${trace.has_langfuse_trace ? '已連結' : '未設定'}
-          </span>
-          ${(trace.native_trace || trace.native_trace_summary) ? '<span class="native-badge">native trace</span>' : ''}
-          <span class="status-pill status-${trace.status || 'success'}">${escapeHtml((trace.status || 'success').toUpperCase())}</span>
-          <span class="trace-time">${escapeHtml(formatTime(trace.started_at))}</span>
-        </div>
-        <div class="trace-id">
-          <code>${escapeHtml(trace.trace_id ?? '')}</code>
-        </div>
-        ${trace.langfuse_trace_url ? `
-          <div class="trace-links">
-            <a class="langfuse-link" href="${escapeHtml(trace.langfuse_trace_url)}" target="_blank" rel="noopener noreferrer">Langfuse</a>
-          </div>
-        ` : ''}
-        ${trace.output_summary ? `<p class="trace-summary">${escapeHtml(truncate(trace.output_summary, 100))}</p>` : ''}
-        ${trace.error_summary ? `<p class="trace-error">${escapeHtml(truncate(trace.error_summary, 100))}</p>` : ''}
-      </div>
-    `).join('');
+    const frag = document.createDocumentFragment();
 
-    el.querySelectorAll('.trace-card').forEach((card) => {
+    for (const trace of traces) {
+      const card = document.createElement('div');
+      card.className = 'trace-card';
+      card.dataset.traceId = String(trace.trace_id ?? '');
+
+      const header = document.createElement('div');
+      header.className = 'trace-header';
+
+      const stage = document.createElement('span');
+      stage.className = 'trace-stage';
+      stage.textContent = trace.stage || 'unknown';
+
+      const duration = document.createElement('span');
+      duration.className = 'trace-duration';
+      duration.textContent = `${String(trace.duration_ms ?? 0)}ms`;
+
+      header.append(stage, duration);
+
+      if (trace.pipeline_engine) {
+        header.append(createMetaText('engine', String(trace.pipeline_engine), 'meta-item'));
+      }
+
+      if (trace.trace_scope) {
+        header.append(createMetaText('scope', String(trace.trace_scope), 'meta-item'));
+      }
+
+      const langfuse = document.createElement('span');
+      langfuse.className = `meta-item langfuse-status ${trace.has_langfuse_trace ? 'on' : 'off'}`;
+      langfuse.textContent = `Langfuse: ${trace.has_langfuse_trace ? '已連結' : '未設定'}`;
+      header.append(langfuse);
+
+      if (trace.native_trace || trace.native_trace_summary) {
+        const nativeBadge = document.createElement('span');
+        nativeBadge.className = 'native-badge';
+        nativeBadge.textContent = 'native trace';
+        header.append(nativeBadge);
+      }
+
+      header.append(createStatusPill(trace.status || 'success'));
+
+      const time = document.createElement('span');
+      time.className = 'trace-time';
+      time.textContent = formatTime(trace.started_at);
+      header.append(time);
+
+      const traceIdRow = document.createElement('div');
+      traceIdRow.className = 'trace-id';
+      const code = document.createElement('code');
+      code.textContent = String(trace.trace_id ?? '');
+      traceIdRow.append(code);
+
+      card.append(header, traceIdRow);
+
+      if (trace.langfuse_trace_url) {
+        const links = document.createElement('div');
+        links.className = 'trace-links';
+        const link = document.createElement('a');
+        link.className = 'langfuse-link';
+        link.href = String(trace.langfuse_trace_url);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Langfuse';
+        links.append(link);
+        card.append(links);
+
+        link.addEventListener('click', (event) => {
+          event.stopPropagation();
+        });
+      }
+
+      if (trace.output_summary) {
+        const summary = document.createElement('p');
+        summary.className = 'trace-summary';
+        summary.textContent = truncate(trace.output_summary, 100);
+        card.append(summary);
+      }
+
+      if (trace.error_summary) {
+        const err = document.createElement('p');
+        err.className = 'trace-error';
+        err.textContent = truncate(trace.error_summary, 100);
+        card.append(err);
+      }
+
       card.addEventListener('click', () => {
-        const traceId = card.getAttribute('data-trace-id') || '';
+        const traceId = card.dataset.traceId || '';
         if (traceId) void selectTrace(traceId);
       });
-    });
 
-    el.querySelectorAll('.langfuse-link').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.stopPropagation();
-      });
-    });
+      frag.append(card);
+    }
+
+    el.replaceChildren(frag);
   }
 
   async function selectTrace(traceId) {
@@ -198,19 +285,24 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     const detailSection = document.getElementById('trace-detail');
 
     // Highlight selected card
-    document.querySelectorAll('.trace-card').forEach(el => el.classList.remove('selected'));
-    document.querySelector(`.trace-card[data-trace-id="${traceId}"]`)?.classList.add('selected');
+    document.querySelectorAll('.trace-card').forEach((el) => {
+      if ((el.dataset?.traceId ?? '') === traceId) {
+        el.classList.add('selected');
+      } else {
+        el.classList.remove('selected');
+      }
+    });
 
     try {
       const res = await fetch(`/api/admin/traces/${traceId}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       currentTraceDetail = data;
-      detailSection.style.display = 'block';
+      detailSection.classList.remove('is-hidden');
       renderTraceDetail(data);
     } catch {
       const timeline = document.getElementById('trace-timeline');
-      timeline.innerHTML = '<p class="error">無法載入 trace 細節</p>';
+      renderTraceError(timeline, '無法載入 trace 細節');
     }
     syncFilterUrl();
   }
@@ -222,31 +314,48 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
     const showFallbackOnly = document.getElementById('filter-fallback-only')?.checked;
     const showUnobservedOnly = document.getElementById('filter-unobserved-only')?.checked;
-    const links = `
-      ${data.langfuse_trace_url ? `
-        <a class="langfuse-link" href="${escapeHtml(data.langfuse_trace_url)}" target="_blank" rel="noopener noreferrer">在 Langfuse 開啟</a>
-      ` : ''}
-    `;
-    const scopeBadge = data.trace_scope ? `<div class="trace-scope">${escapeHtml(String(data.trace_scope))}</div>` : '';
-    const timelineHtml = [
-      links ? `<div class="timeline-links">${links}</div>` : '',
-      scopeBadge,
-      renderNativeTraceBlock(data.native_trace),
-      renderTimeline(data.steps || [], showFallbackOnly, showUnobservedOnly),
-    ].join('');
+    const fragment = document.createDocumentFragment();
 
-    timeline.innerHTML = timelineHtml;
-    if (detailActions) detailActions.style.display = 'flex';
+    if (data.langfuse_trace_url) {
+      const links = document.createElement('div');
+      links.className = 'timeline-links';
+      const link = document.createElement('a');
+      link.className = 'langfuse-link';
+      link.href = String(data.langfuse_trace_url);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = '在 Langfuse 開啟';
+      links.append(link);
+      fragment.append(links);
+    }
+
+    if (data.trace_scope) {
+      const scopeBadge = document.createElement('div');
+      scopeBadge.className = 'trace-scope';
+      scopeBadge.textContent = String(data.trace_scope);
+      fragment.append(scopeBadge);
+    }
+
+    const nativeBlock = renderNativeTraceBlock(data.native_trace);
+    if (nativeBlock) fragment.append(nativeBlock);
+    fragment.append(renderTimeline(data.steps || [], showFallbackOnly, showUnobservedOnly));
+
+    timeline.replaceChildren(fragment);
+    if (detailActions) detailActions.classList.remove('is-hidden');
   }
 
   function renderNativeTraceBlock(nativeTrace) {
-    if (!nativeTrace) return '';
-    return `
-      <div class="native-trace">
-        <h3>Native Trace</h3>
-        <pre class="step-code">${escapeHtml(JSON.stringify(nativeTrace, null, 2))}</pre>
-      </div>
-    `;
+    if (!nativeTrace) return null;
+
+    const section = document.createElement('div');
+    section.className = 'native-trace';
+    const title = document.createElement('h3');
+    title.textContent = 'Native Trace';
+    const code = document.createElement('pre');
+    code.className = 'step-code';
+    code.textContent = JSON.stringify(nativeTrace, null, 2);
+    section.append(title, code);
+    return section;
   }
 
   function renderTimeline(steps, showFallbackOnly = false, showUnobservedOnly = false) {
@@ -268,95 +377,132 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       } else if (showUnobservedOnly) {
         emptyMessage = '找不到未觀測步驟。';
       }
-      return `<p class="empty">${emptyMessage}</p>`;
+      const empty = document.createElement('p');
+      empty.className = 'empty';
+      empty.textContent = emptyMessage;
+      return empty;
     }
 
-    return `
-      <div class="timeline-container">
-        ${filteredSteps.map((step, idx) => `
-          <div class="timeline-step">
-            <div class="timeline-marker">${idx + 1}</div>
-            <div class="timeline-content">
-              <div class="step-header">
-                <span class="step-stage">${step.stage || 'unknown'}</span>
-                <span class="step-duration">${step.duration_ms ?? 0}ms</span>
-                <span class="step-status status-${step.error_summary ? 'error' : 'success'}">
-                  ${step.error_summary ? '錯誤' : '成功'}
-                </span>
-              </div>
-              ${step.input_summary ? `
-                <div class="step-section">
-                  <h4>輸入</h4>
-                  <pre class="step-code">${escapeHtml(truncate(step.input_summary, 200))}</pre>
-                </div>
-              ` : ''}
-              ${step.output_summary ? `
-                <div class="step-section">
-                  <h4>輸出</h4>
-                  <pre class="step-code">${escapeHtml(truncate(step.output_summary, 200))}</pre>
-                </div>
-              ` : ''}
-              ${step.error_summary ? `
-                <div class="step-section error">
-                  <h4>錯誤</h4>
-                  <pre class="step-code error">${escapeHtml(step.error_summary)}</pre>
-                </div>
-              ` : ''}
-              ${step.metadata_json ? `
-                <div class="step-meta">
-                  ${renderMetadata(step.metadata_json)}
-                </div>
-              ` : ''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+    const timeline = document.createElement('div');
+    timeline.className = 'timeline-container';
+
+    for (const [index, step] of filteredSteps.entries()) {
+      const stepRow = document.createElement('div');
+      stepRow.className = 'timeline-step';
+
+      const marker = document.createElement('div');
+      marker.className = 'timeline-marker';
+      marker.textContent = String(index + 1);
+
+      const content = document.createElement('div');
+      content.className = 'timeline-content';
+
+      const header = document.createElement('div');
+      header.className = 'step-header';
+      const stage = document.createElement('span');
+      stage.className = 'step-stage';
+      stage.textContent = step.stage || 'unknown';
+      const duration = document.createElement('span');
+      duration.className = 'step-duration';
+      duration.textContent = `${step.duration_ms ?? 0}ms`;
+      const status = document.createElement('span');
+      status.className = `step-status status-${step.error_summary ? 'error' : 'success'}`;
+      status.textContent = step.error_summary ? '錯誤' : '成功';
+      header.append(stage, duration, status);
+      content.append(header);
+
+      if (step.input_summary) {
+        const section = document.createElement('div');
+        section.className = 'step-section';
+        const h4 = document.createElement('h4');
+        h4.textContent = '輸入';
+        const pre = document.createElement('pre');
+        pre.className = 'step-code';
+        pre.textContent = truncate(step.input_summary, 200);
+        section.append(h4, pre);
+        content.append(section);
+      }
+
+      if (step.output_summary) {
+        const section = document.createElement('div');
+        section.className = 'step-section';
+        const h4 = document.createElement('h4');
+        h4.textContent = '輸出';
+        const pre = document.createElement('pre');
+        pre.className = 'step-code';
+        pre.textContent = truncate(step.output_summary, 200);
+        section.append(h4, pre);
+        content.append(section);
+      }
+
+      if (step.error_summary) {
+        const section = document.createElement('div');
+        section.className = 'step-section error';
+        const h4 = document.createElement('h4');
+        h4.textContent = '錯誤';
+        const pre = document.createElement('pre');
+        pre.className = 'step-code error';
+        pre.textContent = step.error_summary;
+        section.append(h4, pre);
+        content.append(section);
+      }
+
+      if (step.metadata_json) {
+        const metadata = renderMetadata(step.metadata_json);
+        if (metadata.childNodes.length > 0) {
+          const metaWrap = document.createElement('div');
+          metaWrap.className = 'step-meta';
+          metaWrap.append(metadata);
+          content.append(metaWrap);
+        }
+      }
+
+      stepRow.append(marker, content);
+      timeline.append(stepRow);
+    }
+
+    return timeline;
   }
 
   function getStepMappingMode(metadataJson) {
-    if (!metadataJson) return null;
-    try {
-      const meta = JSON.parse(metadataJson);
-      return meta?.span_mapping_mode ?? null;
-    } catch {
-      return null;
-    }
+    const meta = parseMetadata(metadataJson);
+    return meta?.span_mapping_mode ?? null;
   }
 
   function getStepObserved(metadataJson) {
-    if (!metadataJson) return null;
-    try {
-      const meta = JSON.parse(metadataJson);
-      return meta?.span_observed ?? null;
-    } catch {
-      return null;
-    }
+    const meta = parseMetadata(metadataJson);
+    return meta?.span_observed ?? null;
   }
 
   function renderMetadata(jsonStr) {
+    const fragment = document.createDocumentFragment();
+    const meta = parseMetadata(jsonStr);
+    if (!meta) return fragment;
+
+    const pipeline = meta.pipeline_engine || meta.pipelineEngine;
+    if (pipeline) fragment.append(createMetaText('Engine', pipeline));
+    if (meta.trace_scope) fragment.append(createMetaText('範圍', meta.trace_scope));
+    if (meta.provider) fragment.append(createMetaText('Provider', meta.provider));
+    if (meta.model) fragment.append(createMetaText('Model', meta.model));
+    if (meta.tokens?.input) fragment.append(createMetaText('輸入 tokens', meta.tokens.input));
+    if (meta.tokens?.output) fragment.append(createMetaText('輸出 tokens', meta.tokens.output));
+    if (meta.span_mapping_mode) fragment.append(createMetaText('Span mapping', meta.span_mapping_mode));
+    fragment.append(createMetaText('Span observed', meta.span_observed ? '是' : '否'));
+
+    if (Array.isArray(meta.model_usage) && meta.model_usage.length) {
+      const unique = [...new Set(meta.model_usage.map((item) => item.model))].filter(Boolean);
+      if (unique.length) fragment.append(createMetaText('Models', unique.join(', ')));
+    }
+
+    return fragment;
+  }
+
+  function parseMetadata(jsonStr) {
+    if (!jsonStr) return null;
     try {
-      const meta = JSON.parse(jsonStr);
-      const parts = [];
-      const pipeline = meta.pipeline_engine || meta.pipelineEngine;
-      if (pipeline) parts.push(`<span class="meta-item">Engine: ${pipeline}</span>`);
-      if (meta.trace_scope) parts.push(`<span class="meta-item">範圍: ${meta.trace_scope}</span>`);
-      if (meta.provider) parts.push(`<span class="meta-item">Provider: ${meta.provider}</span>`);
-      if (meta.model) parts.push(`<span class="meta-item">Model: ${meta.model}</span>`);
-      if (meta.tokens?.input) parts.push(`<span class="meta-item">輸入 tokens: ${meta.tokens.input}</span>`);
-      if (meta.tokens?.output) parts.push(`<span class="meta-item">輸出 tokens: ${meta.tokens.output}</span>`);
-      if (meta.span_mapping_mode) {
-        const mode = meta.span_mapping_mode;
-        parts.push(`<span class="meta-item">Span mapping: ${escapeHtml(mode)}</span>`);
-      }
-      parts.push(`<span class="meta-item">Span observed: ${meta.span_observed ? '是' : '否'}</span>`);
-      if (Array.isArray(meta.model_usage) && meta.model_usage.length) {
-        const unique = [...new Set(meta.model_usage.map((item) => item.model))].filter(Boolean);
-        if (unique.length) parts.push(`<span class="meta-item">Models: ${escapeHtml(unique.join(', '))}</span>`);
-      }
-      return parts.join('');
+      return JSON.parse(jsonStr);
     } catch {
-      return '';
+      return null;
     }
   }
 
@@ -368,16 +514,6 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   function truncate(str, len) {
     if (!str) return '';
     return str.length > len ? str.slice(0, len) + '...' : str;
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
   }
 
   // Event handlers
@@ -468,438 +604,3 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     loadTraces();
   }
 </script>
-
-<style>
-  .page-desc {
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 1rem;
-  }
-
-  .filters-bar {
-    margin-bottom: 1.5rem;
-  }
-
-  .filter-group {
-    display: grid;
-    grid-template-columns: minmax(180px, 1fr) 160px 160px 160px auto auto;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .input, .select {
-    min-width: 0;
-    padding: 0.5rem 0.75rem;
-    background: var(--admin-surface-subtle, #fbfdfb);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 6px;
-    color: var(--admin-text, #1a1a1a);
-    font-size: 0.85rem;
-  }
-
-  .input:focus, .select:focus {
-    outline: none;
-    border-color: var(--admin-accent, #3b82f6);
-  }
-
-  .btn {
-    padding: 0.5rem 1rem;
-    background: var(--admin-accent, #3b82f6);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
-
-  .btn.danger {
-    background: #b91c1c;
-  }
-
-  .btn.danger:hover {
-    background: #991b1b;
-  }
-
-  .btn-secondary {
-    padding: 0.5rem 1rem;
-    background: transparent;
-    color: var(--admin-text-muted, #888);
-    border: 1px solid var(--admin-border, #2a2a2a);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
-
-  .traces-container {
-    display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-    gap: 1.5rem;
-  }
-
-  .retention-panel {
-    display: grid;
-    grid-template-columns: minmax(220px, 1fr) minmax(280px, 520px);
-    gap: 1rem;
-    align-items: start;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    min-width: 0;
-  }
-
-  .retention-panel h2 {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .retention-panel p {
-    color: var(--admin-text-muted, #888);
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  .retention-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-end;
-    align-items: end;
-  }
-
-  .retention-controls label {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    color: var(--admin-text-muted, #888);
-    font-size: 0.78rem;
-  }
-
-  #retention-output {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding: 0.75rem;
-    border-radius: 6px;
-    background: #0f172a;
-    border: 1px solid var(--admin-border, #d1e8d1);
-    color: #e2e8f0;
-    white-space: pre-wrap;
-    font-size: 0.8rem;
-    overflow: auto;
-  }
-
-  .traces-list-section h2,
-  .trace-detail-section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .traces-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-height: 70vh;
-    overflow-y: auto;
-    padding-right: 0.2rem;
-  }
-
-  .trace-card {
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    padding: 0.75rem;
-    cursor: pointer;
-    transition: border-color 0.15s;
-    min-width: 0;
-  }
-
-  .trace-card:hover {
-    border-color: var(--admin-accent, #3b82f6);
-  }
-
-  .trace-card.selected {
-    border-color: var(--admin-accent, #3b82f6);
-    background: var(--brand-50, #f0f7f0);
-  }
-
-  .trace-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 0.5rem;
-    min-width: 0;
-  }
-
-  .trace-stage {
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--admin-accent, #3b82f6);
-  }
-
-  .trace-duration {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .trace-time {
-    margin-left: 0;
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .status-pill {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.45rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-  }
-
-  .native-badge {
-    font-size: 0.7rem;
-    border: 1px solid rgba(34, 197, 94, 0.55);
-    color: #a7f3d0;
-    border-radius: 999px;
-    padding: 0.15rem 0.45rem;
-    white-space: nowrap;
-  }
-
-  .native-trace h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--admin-text, #e0e0e0);
-    font-size: 0.9rem;
-  }
-
-  .trace-id code {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .trace-links {
-    margin-top: 0.4rem;
-  }
-
-  .trace-scope {
-    margin-bottom: 0.5rem;
-    font-size: 0.78rem;
-    color: var(--admin-text-muted, #888);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .trace-summary {
-    font-size: 0.8rem;
-    color: var(--admin-text, #1a1a1a);
-    margin-top: 0.5rem;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .trace-error {
-    font-size: 0.8rem;
-    color: #f87171;
-    margin-top: 0.5rem;
-  }
-
-  .timeline-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .timeline-step {
-    display: flex;
-    gap: 1rem;
-    min-width: 0;
-  }
-
-  .timeline-marker {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--admin-accent, #3b82f6);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-
-  .timeline-content {
-    flex: 1;
-    background: var(--admin-surface, #fff);
-    border: 1px solid var(--admin-border, #d1e8d1);
-    border-radius: 8px;
-    padding: 1rem;
-    min-width: 0;
-  }
-
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .step-stage {
-    font-weight: 600;
-    color: var(--admin-text, #e0e0e0);
-  }
-
-  .step-duration {
-    font-size: 0.8rem;
-    color: var(--admin-text-muted, #888);
-  }
-
-  .step-status {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  .status-success { background: #166534; color: #bbf7d0; }
-  .status-error { background: #7f1d1d; color: #fecaca; }
-
-  .step-section {
-    margin-top: 0.75rem;
-  }
-
-  .step-section h4 {
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-    margin-bottom: 0.35rem;
-  }
-
-  .step-code {
-    background: #0f172a;
-    border-radius: 6px;
-    color: #e2e8f0;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
-
-  .step-code.error {
-    color: #f87171;
-  }
-
-  .step-meta {
-    margin-top: 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .meta-item {
-    font-size: 0.75rem;
-    color: var(--admin-text-muted, #888);
-    background: var(--admin-muted, #f0f7f0);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  .error { color: #ef4444; }
-  .empty { color: var(--admin-text-muted, #888); }
-
-  .langfuse-link {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-decoration: none;
-    color: var(--admin-accent, #3b82f6);
-    border: 1px solid rgba(59, 130, 246, 0.45);
-    border-radius: 999px;
-    padding: 0.15rem 0.5rem;
-  }
-
-  .langfuse-link:hover {
-    background: rgba(59, 130, 246, 0.12);
-  }
-
-  .timeline-links {
-    margin-bottom: 0.5rem;
-  }
-
-  .trace-detail-actions {
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .trace-filter-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    color: var(--admin-text-muted, #888);
-    font-size: 0.78rem;
-  }
-
-  .trace-filter-toggle input[type='checkbox'] {
-    accent-color: var(--admin-accent, #3b82f6);
-  }
-
-  .langfuse-status.on {
-    color: #93c5fd;
-  }
-
-  .langfuse-status.off {
-    color: #fca5a5;
-  }
-
-  .langfuse-status.on {
-    border-color: rgba(59, 130, 246, 0.45);
-  }
-
-  .langfuse-status.off {
-    border-color: rgba(239, 68, 68, 0.45);
-  }
-
-  @media (max-width: 900px) {
-    .filter-group {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .traces-container {
-      grid-template-columns: 1fr;
-    }
-
-    .retention-panel {
-      grid-template-columns: 1fr;
-    }
-
-    .retention-controls {
-      justify-content: flex-start;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .filter-group,
-    .retention-controls,
-    .trace-detail-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .timeline-step {
-      gap: 0.65rem;
-    }
-  }
-</style>
