@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../../lib/search-tools';
 ---
 
 <AdminLayout title="RAG 管理">
@@ -105,7 +106,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     { key: 'rag_flag_bm25_short_circuit', label: 'BM25 short circuit', type: 'boolean', section: 'Retrieval' },
     { key: 'rag_shadow_mode', label: 'Shadow mode', type: 'boolean', section: 'Retrieval' },
     { key: 'rag_search_tools_enabled', label: 'Search tools enabled', type: 'boolean', section: 'Search tools' },
-    { key: 'rag_search_tool_providers', label: 'Search tool providers', type: 'text', section: 'Search tools' },
+    {
+      key: 'rag_search_tool_providers',
+      label: 'Search tool providers',
+      type: 'search-tools-multi',
+      section: 'Search tools',
+      options: SUPPORTED_SEARCH_TOOL_PROVIDERS,
+    },
     { key: 'rag_search_tool_max_results', label: 'Search tool max results', type: 'number', section: 'Search tools', min: 1, max: 20, step: 1 },
     { key: 'rag_search_tool_timeout_ms', label: 'Search tool timeout ms', type: 'number', section: 'Search tools', min: 500, max: 30000, step: 100 },
     { key: 'rag_pageindex_max_steps', label: 'PageIndex max steps', type: 'number', section: 'Tuning', min: 1, max: 20, step: 1 },
@@ -172,6 +179,53 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   }
 
   function buildSettingControl(meta, value) {
+    const safeValue = value ?? '';
+
+    if (meta.type === 'search-tools-multi') {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'search-tools-provider-control';
+
+      const hiddenInput = document.createElement('input');
+      hiddenInput.type = 'hidden';
+      hiddenInput.name = meta.key;
+
+      const parsed = (() => {
+        if (typeof safeValue !== 'string') return [];
+        try {
+          const parsedValue = JSON.parse(safeValue);
+          if (!Array.isArray(parsedValue)) return [];
+          return parsedValue
+            .map((item) => String(item ?? '').trim().toLowerCase())
+            .filter((item) => !!item);
+        } catch {
+          return [];
+        }
+      })();
+
+      const selectedProviders = new Set(parsed);
+
+      for (const provider of (meta.options || [])) {
+        const label = document.createElement('label');
+        label.className = 'search-tool-check-row';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = provider;
+        checkbox.checked = selectedProviders.has(provider);
+        checkbox.addEventListener('change', () => {
+          const checked = wrapper.querySelectorAll('input[type=\"checkbox\"]:checked');
+          const next = Array.from(checked).map((item) => String(item.value || '').trim().toLowerCase()).filter(Boolean);
+          hiddenInput.value = JSON.stringify(next);
+        });
+        label.append(checkbox);
+        label.append(document.createTextNode(provider));
+        wrapper.append(label);
+      }
+
+      hiddenInput.value = JSON.stringify(Array.from(selectedProviders));
+      wrapper.append(hiddenInput);
+      return wrapper;
+    }
+
     if (meta.type === 'select') {
       const select = document.createElement('select');
       select.name = meta.key;
@@ -179,7 +233,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         const option = document.createElement('option');
         option.value = optionValue;
         option.textContent = optionValue || 'none';
-        option.selected = optionValue === value;
+        option.selected = optionValue === safeValue;
         select.append(option);
       }
       return select;
@@ -190,7 +244,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       textarea.name = meta.key;
       textarea.rows = 4;
       textarea.spellcheck = false;
-      textarea.value = value || '{}';
+      textarea.value = safeValue || '{}';
       return textarea;
     }
 
@@ -198,7 +252,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       const input = document.createElement('input');
       input.name = meta.key;
       input.type = 'checkbox';
-      input.checked = value === '1' || value === 'true';
+      input.checked = safeValue === '1' || safeValue === 'true';
       return input;
     }
 
@@ -208,7 +262,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (meta.min !== undefined) input.min = String(meta.min);
     if (meta.max !== undefined) input.max = String(meta.max);
     if (meta.step !== undefined) input.step = String(meta.step);
-    input.value = value ?? '';
+    input.value = safeValue ?? '';
     return input;
   }
 
@@ -300,12 +354,12 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (providers) {
         const parsed = JSON.parse(providers)
         if (!Array.isArray(parsed)) {
-          settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare"]）。';
+          settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare", "posts", "docs", "tavily", "firecrawl", "exa", "linkup", "brave", "bocha", "brightdata", "serper", "serpapi"]）。';
           return;
         }
       }
     } catch {
-      settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare"]）。';
+      settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare", "posts", "docs", "tavily", "firecrawl", "exa", "linkup", "brave", "bocha", "brightdata", "serper", "serpapi"]）。';
       return;
     }
 

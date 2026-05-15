@@ -3,6 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { verifySession } from '../../../lib/auth/session'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../../../lib/search-tools'
 
 interface Env {
   DB: D1Database
@@ -67,7 +68,7 @@ const DEFAULT_SETTINGS: Record<string, string> = {
   rag_trace_retention_error_grace_days: '3',
   rag_trace_retention_enabled: '1',
   rag_search_tools_enabled: '0',
-  rag_search_tool_providers: '["jina"]',
+  rag_search_tool_providers: JSON.stringify(SUPPORTED_SEARCH_TOOL_PROVIDERS),
   rag_search_tool_max_results: '4',
   rag_search_tool_timeout_ms: '8000',
 }

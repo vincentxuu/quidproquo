@@ -1,6 +1,7 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { SearchMetrics } from './tools/hybrid-search'
 import type { RagProvider } from './providers'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from './search-tools'
 
 export interface NativeTraceEvent {
   stage: string
@@ -146,14 +147,14 @@ export function initialState(): GraphState {
       plannerEnabled: true,
       researchEnabled: true,
       writerEnabled: true,
-    semanticCacheThreshold: 0.95,
-    rerankerMinKeep: 3,
-    mmrLambda: 0.7,
-    checkpointThresholdRatio: 0.7,
-    searchToolsEnabled: false,
-    searchToolProviders: ['jina'],
-    searchToolMaxResults: 4,
-    searchToolTimeoutMs: 8000,
+  semanticCacheThreshold: 0.95,
+  rerankerMinKeep: 3,
+  mmrLambda: 0.7,
+  checkpointThresholdRatio: 0.7,
+  searchToolsEnabled: false,
+  searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
+  searchToolMaxResults: 4,
+  searchToolTimeoutMs: 8000,
   },
     plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], specialists: [] },
     needs_web_search: false,

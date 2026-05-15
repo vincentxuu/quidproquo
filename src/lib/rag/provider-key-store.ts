@@ -28,6 +28,17 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'ollama', envKey: 'OLLAMA_URL', label: 'OLLAMA_URL', required: false, sensitive: false },
   { provider: 'search', envKey: 'JINA_API_KEY', label: 'JINA_API_KEY', required: false, sensitive: true },
   { provider: 'search', envKey: 'JINA_SEARCH_API_KEY', label: 'JINA_SEARCH_API_KEY', required: false, sensitive: true },
+  { provider: 'tavily', envKey: 'TAVILY_API_KEY', label: 'TAVILY_API_KEY', required: false, sensitive: true },
+  { provider: 'firecrawl', envKey: 'FIRECRAWL_API_KEY', label: 'FIRECRAWL_API_KEY', required: false, sensitive: true },
+  { provider: 'exa', envKey: 'EXA_API_KEY', label: 'EXA_API_KEY', required: false, sensitive: true },
+  { provider: 'linkup', envKey: 'LINKUP_API_KEY', label: 'LINKUP_API_KEY', required: false, sensitive: true },
+  { provider: 'brave', envKey: 'BRAVE_SEARCH_API_KEY', label: 'BRAVE_SEARCH_API_KEY', required: false, sensitive: true },
+  { provider: 'brave', envKey: 'BRAVE_API_KEY', label: 'BRAVE_API_KEY', required: false, sensitive: true },
+  { provider: 'bocha', envKey: 'BOCHA_API_KEY', label: 'BOCHA_API_KEY', required: false, sensitive: true },
+  { provider: 'brightdata', envKey: 'BRIGHT_DATA_API_KEY', label: 'BRIGHT_DATA_API_KEY', required: false, sensitive: true },
+  { provider: 'brightdata', envKey: 'BRIGHTDATA_API_KEY', label: 'BRIGHTDATA_API_KEY', required: false, sensitive: true },
+  { provider: 'serper', envKey: 'SERPER_API_KEY', label: 'SERPER_API_KEY', required: false, sensitive: true },
+  { provider: 'serpapi', envKey: 'SERPAPI_API_KEY', label: 'SERPAPI_API_KEY', required: false, sensitive: true },
 ]
 
 export const UNIQUE_PROVIDER_KEYS = Array.from(new Set(PROVIDER_SECRET_FIELDS.map((item) => item.envKey)))

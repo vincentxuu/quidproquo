@@ -1,7 +1,18 @@
 import type { SearchResult } from '../state'
+import { searchBlogPosts } from './search-posts'
+import { searchDocs } from './search-docs'
 
 const JINA_SEARCH_BASE = 'https://s.jina.ai/'
 const CLOUDFLARE_RENDER_BASE = 'https://api.cloudflare.com/client/v4/accounts'
+const TAVILY_SEARCH_URL = 'https://api.tavily.com/search'
+const FIRECRAWL_SEARCH_URL = 'https://api.firecrawl.dev/v1/search'
+const EXA_SEARCH_URL = 'https://api.exa.ai/search'
+const BRAVE_SEARCH_URL = 'https://api.search.brave.com/res/v1/web/search'
+const SERPER_SEARCH_URL = 'https://google.serper.dev/search'
+const SERPAPI_SEARCH_URL = 'https://serpapi.com/search'
+const LINKUP_SEARCH_URL = 'https://api.linkup.ai/search'
+const BOCHA_SEARCH_URL = 'https://api.bochaai.com/search'
+const BRIGHTDATA_SEARCH_URL = 'https://api.brightdata.com/search'
 const DEFAULT_MAX_RESULTS = 5
 const DEFAULT_TIMEOUT_MS = 8000
 
@@ -52,6 +63,115 @@ export async function searchExternalTools({
 
   if (providerSet.has('cloudflare')) {
     tasks.push(searchWithCloudflareBrowserRun({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('posts')) {
+    tasks.push(searchBlogPosts({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      shortCircuit: false,
+    }).then((results) => results.map((result) => ({
+      source_url: result.source_url,
+      title: result.title,
+      claim: result.claim,
+      evidence_excerpt: result.evidence_excerpt,
+      score: result.relevance_score,
+    }))))
+  }
+
+  if (providerSet.has('docs')) {
+    tasks.push(searchDocs({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      shortCircuit: false,
+    }).then((results) => results.map((result) => ({
+      source_url: result.source_url,
+      title: result.title,
+      claim: result.claim,
+      evidence_excerpt: result.evidence_excerpt,
+      score: result.relevance_score,
+    }))))
+  }
+
+  if (providerSet.has('tavily')) {
+    tasks.push(searchWithTavily({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('firecrawl')) {
+    tasks.push(searchWithFirecrawl({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('exa')) {
+    tasks.push(searchWithExa({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('linkup')) {
+    tasks.push(searchWithLinkup({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('brave')) {
+    tasks.push(searchWithBrave({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('bocha')) {
+    tasks.push(searchWithBocha({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('brightdata')) {
+    tasks.push(searchWithBrightData({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('serper')) {
+    tasks.push(searchWithSerper({
+      query: cleanQuery,
+      limit: Math.max(providerBudget, limit),
+      timeoutMs,
+      apiKeys,
+    }))
+  }
+
+  if (providerSet.has('serpapi')) {
+    tasks.push(searchWithSerpApi({
       query: cleanQuery,
       limit: Math.max(providerBudget, limit),
       timeoutMs,
@@ -240,6 +360,418 @@ async function crawlWithCloudflare({
     evidence_excerpt: evidence.slice(0, 2000),
     score: 0.9,
   }
+}
+
+async function searchWithTavily({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.TAVILY_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    TAVILY_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        max_results: limit,
+        include_answer: false,
+        include_raw_content: false,
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { results?: unknown[] } | null
+  const items = Array.isArray(payload?.results) ? payload.results : []
+  return items
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.link || item.source || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.content || item.raw_content || item.snippet || '').trim(),
+      evidence_excerpt: String(item.content || item.description || item.snippet || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithFirecrawl({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.FIRECRAWL_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    FIRECRAWL_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        limit,
+        timeout: Math.floor(timeoutMs / 1000),
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { data?: unknown[] } | null
+  const items = Array.isArray(payload?.data) ? payload.data : []
+  return items
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.source || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.content || item.markdown || item.text || '').trim(),
+      evidence_excerpt: String(item.content || item.markdown || item.text || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithExa({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.EXA_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    EXA_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        numResults: limit,
+        useAutoprompt: true,
+        type: 'keyword',
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { results?: unknown[] } | null
+  const items = Array.isArray(payload?.results) ? payload.results : []
+  return items
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.text || item.highlights || item.snippet || '').trim(),
+      evidence_excerpt: String(item.text || item.snippet || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithBrave({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.BRAVE_SEARCH_API_KEY || apiKeys.BRAVE_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    `${BRAVE_SEARCH_URL}?q=${encodeURIComponent(query)}&count=${Math.min(limit, 20)}`,
+    {
+      headers: {
+        'X-Subscription-Token': apiKey,
+      },
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { web?: { results?: unknown[] } } | null
+  const results = Array.isArray(payload?.web?.results) ? payload.web.results : []
+  return results
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.link || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.description || item.name || '').trim(),
+      evidence_excerpt: String(item.description || item.snippet || '').trim(),
+      score: typeof item.rank === 'number' ? 1 - item.rank / 100 : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithLinkup({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.LINKUP_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    LINKUP_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        q: query,
+        k: Math.min(limit, 20),
+        format: 'json',
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as {
+    results?: unknown[]
+    data?: unknown[]
+    hits?: { web?: unknown[] }
+  } | null
+  const rawItems = Array.isArray(payload?.results)
+    ? payload.results
+    : Array.isArray(payload?.data)
+      ? payload.data
+      : Array.isArray(payload?.hits?.web)
+        ? payload.hits.web
+        : []
+  return rawItems
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.link || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.description || item.snippet || '').trim(),
+      evidence_excerpt: String(item.description || item.snippet || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithBocha({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.BOCHA_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    BOCHA_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        size: Math.min(limit, 20),
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { data?: unknown[]; results?: unknown[] } | null
+  const rawItems = Array.isArray(payload?.data)
+    ? payload.data
+    : Array.isArray(payload?.results)
+      ? payload.results
+      : []
+  return rawItems
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.link || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.summary || item.snippet || item.description || '').trim(),
+      evidence_excerpt: String(item.summary || item.snippet || item.description || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithBrightData({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.BRIGHT_DATA_API_KEY || apiKeys.BRIGHTDATA_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    `${BRIGHTDATA_SEARCH_URL}?q=${encodeURIComponent(query)}&size=${Math.min(limit, 20)}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+      },
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { results?: unknown[]; data?: unknown[] } | null
+  const rawItems = Array.isArray(payload?.results) ? payload.results : Array.isArray(payload?.data) ? payload.data : []
+  return rawItems
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.url || item.link || '')),
+      title: String(item.title || item.url || '').trim(),
+      claim: String(item.description || item.snippet || '').trim(),
+      evidence_excerpt: String(item.description || item.snippet || '').trim(),
+      score: typeof item.score === 'number' ? item.score : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithSerper({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.SERPER_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    SERPER_SEARCH_URL,
+    {
+      method: 'POST',
+      headers: {
+        'X-API-KEY': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        q: query,
+        num: Math.min(limit, 20),
+      }),
+    },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { organic?: unknown[] } | null
+  const results = Array.isArray(payload?.organic) ? payload.organic : []
+  return results
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.link || item.url || '')),
+      title: String(item.title || item.link || '').trim(),
+      claim: String(item.snippet || '').trim(),
+      evidence_excerpt: String(item.snippet || '').trim(),
+      score: typeof item.position === 'number' ? 1 - item.position / 100 : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
+}
+
+async function searchWithSerpApi({
+  query,
+  limit,
+  timeoutMs,
+  apiKeys,
+}: {
+  query: string
+  limit: number
+  timeoutMs: number
+  apiKeys: SearchApiKeys
+}): Promise<ParsedSearchResult[]> {
+  const apiKey = apiKeys.SERPAPI_API_KEY
+  if (!apiKey) return []
+
+  const response = await fetchWithTimeout(
+    `${SERPAPI_SEARCH_URL}?engine=google&query=${encodeURIComponent(query)}&num=${Math.min(limit, 20)}&api_key=${encodeURIComponent(apiKey)}`,
+    { },
+    timeoutMs
+  )
+  if (!response.ok) return []
+
+  const payload = await response.json().catch(() => null) as { organic_results?: unknown[] } | null
+  const results = Array.isArray(payload?.organic_results) ? payload.organic_results : []
+  return results
+    .map((item) => asRecord(item))
+    .map((item) => ({
+      source_url: sanitizeUrl(String(item.link || '')),
+      title: String(item.title || item.link || '').trim(),
+      claim: String(item.snippet || '').trim(),
+      evidence_excerpt: String(item.snippet || '').trim(),
+      score: typeof item.position === 'number' ? 1 - item.position / 100 : undefined,
+    }))
+    .filter((item) => item.source_url)
+    .slice(0, limit)
 }
 
 function parseJinaJson(raw: string, limit: number): ParsedSearchResult[] {

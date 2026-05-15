@@ -1,0 +1,312 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Agent Skills">
+  <p class="page-desc">管理可被 Deep Research 與其他 agent 流程共用的 SKILL.md 定義。</p>
+
+  <section class="admin-panel agent-skills-panel">
+    <div class="admin-panel-header">
+      <div>
+        <h2>共用技能庫</h2>
+        <p class="admin-section-desc">每個 skill 使用一段 `---` frontmatter，至少包含 `name` 與 `description`。</p>
+      </div>
+      <span id="agent-skills-status" class="admin-section-desc" aria-live="polite">載入中...</span>
+    </div>
+
+    <div class="agent-skills-layout">
+      <label class="admin-field editor-field">
+        <span class="admin-field-label">agentSkills raw</span>
+        <textarea id="agent-skills-raw" class="textarea" rows="26" spellcheck="false"></textarea>
+      </label>
+
+      <aside class="agent-skills-side">
+        <div class="agent-skills-actions">
+          <button id="save-agent-skills" class="btn" type="button">儲存</button>
+          <button id="load-agent-skills-template" class="btn-secondary" type="button">載入範本</button>
+        </div>
+
+        <section class="agent-skills-card">
+          <h3>解析結果</h3>
+          <div id="agent-skills-summary" class="summary-grid">
+            <span>skills</span>
+            <strong>0</strong>
+          </div>
+          <div id="agent-skills-list" class="agent-skills-list"></div>
+        </section>
+
+        <section class="agent-skills-card">
+          <h3>格式規則</h3>
+          <pre class="format-example">---
+name: source-driven-research
+description: Use when research must cite primary sources.
+---
+## When to use
+- The answer depends on external evidence.
+
+## Instructions
+- Prefer primary sources.
+- Keep citations traceable.</pre>
+        </section>
+      </aside>
+    </div>
+  </section>
+</AdminLayout>
+
+<script is:inline>
+  const rawInput = document.getElementById('agent-skills-raw');
+  const statusEl = document.getElementById('agent-skills-status');
+  const summaryEl = document.getElementById('agent-skills-summary');
+  const listEl = document.getElementById('agent-skills-list');
+  const saveButton = document.getElementById('save-agent-skills');
+  const templateButton = document.getElementById('load-agent-skills-template');
+
+  const TEMPLATE = `---
+name: using-agent-skills
+description: Use when you need to pick the right skill workflow for the current task.
+---
+## When to use
+- The task benefits from a reusable workflow.
+- Multiple execution styles are possible and the agent should choose deliberately.
+
+## Instructions
+- Identify the matching skill before planning.
+- Follow the skill's constraints before tool use.
+---
+name: source-driven-research
+description: Use when claims must be grounded in source material.
+---
+## When to use
+- The task involves current facts, third-party claims, docs, or references.
+
+## Instructions
+- Prefer primary sources.
+- Preserve source traceability in the final output.
+`;
+
+  function normalize(value) {
+    return String(value ?? '').trim();
+  }
+
+  function parseAgentSkills(text) {
+    const source = normalize(text);
+    if (!source) return { valid: true, entries: [], error: '' };
+
+    const entries = [];
+    const seen = new Set();
+    const metaBlockRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---/gm;
+    let match;
+
+    while ((match = metaBlockRegex.exec(source)) !== null) {
+      const block = match[1] ?? '';
+      const nameMatch = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m);
+      const descriptionMatch = block.match(/(^|\r?\n)description:\s*(.+)\s*$/m);
+      if (!nameMatch || !descriptionMatch) continue;
+
+      const name = normalize(nameMatch[2]).toLowerCase();
+      const description = normalize(descriptionMatch[2]);
+      if (!name || !description) continue;
+      if (seen.has(name)) {
+        return { valid: false, entries, error: `skill name 重複：${name}` };
+      }
+      seen.add(name);
+      entries.push({ name, description });
+    }
+
+    if (!entries.length) {
+      return { valid: false, entries: [], error: '至少需要一個含 name/description 的 SKILL.md frontmatter。' };
+    }
+
+    return { valid: true, entries, error: '' };
+  }
+
+  function renderParsed() {
+    const parsed = parseAgentSkills(rawInput.value);
+    summaryEl.innerHTML = `<span>skills</span><strong>${parsed.entries.length}</strong>`;
+
+    if (!parsed.valid) {
+      listEl.innerHTML = `<p class="error">${parsed.error}</p>`;
+      return parsed;
+    }
+
+    if (!parsed.entries.length) {
+      listEl.innerHTML = '<p class="empty">尚未建立 skill。</p>';
+      return parsed;
+    }
+
+    listEl.replaceChildren(...parsed.entries.map((entry) => {
+      const item = document.createElement('article');
+      item.className = 'agent-skill-item';
+
+      const name = document.createElement('strong');
+      name.textContent = entry.name;
+
+      const description = document.createElement('p');
+      description.textContent = entry.description;
+
+      item.append(name, description);
+      return item;
+    }));
+    return parsed;
+  }
+
+  async function loadAgentSkills() {
+    try {
+      const response = await fetch('/api/admin/agent-skills');
+      if (!response.ok) throw new Error('load_failed');
+      const payload = await response.json();
+      rawInput.value = typeof payload.raw === 'string' ? payload.raw : '';
+      statusEl.textContent = payload.updatedAt ? `已載入，更新時間：${payload.updatedAt}` : '尚未儲存共用技能庫。';
+    } catch {
+      statusEl.textContent = '載入失敗。';
+    } finally {
+      renderParsed();
+    }
+  }
+
+  async function saveAgentSkills() {
+    const parsed = renderParsed();
+    if (!parsed.valid) {
+      statusEl.textContent = parsed.error;
+      return;
+    }
+
+    const originalText = saveButton.textContent;
+    saveButton.disabled = true;
+    saveButton.textContent = '儲存中...';
+    try {
+      const response = await fetch('/api/admin/agent-skills', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ raw: rawInput.value.trim() }),
+      });
+      if (!response.ok) throw new Error('save_failed');
+      const payload = await response.json();
+      statusEl.textContent = `已儲存 ${parseAgentSkills(payload.raw).entries.length} 個 skills。`;
+    } catch {
+      statusEl.textContent = '儲存失敗。';
+    } finally {
+      saveButton.disabled = false;
+      saveButton.textContent = originalText;
+    }
+  }
+
+  rawInput.addEventListener('input', renderParsed);
+  saveButton.addEventListener('click', saveAgentSkills);
+  templateButton.addEventListener('click', () => {
+    rawInput.value = TEMPLATE.trim();
+    statusEl.textContent = '已載入範本，尚未儲存。';
+    renderParsed();
+  });
+
+  loadAgentSkills();
+</script>
+
+<style>
+  .agent-skills-panel {
+    overflow: hidden;
+  }
+
+  .agent-skills-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    gap: var(--admin-space-4);
+    min-width: 0;
+  }
+
+  .editor-field,
+  .agent-skills-side {
+    min-width: 0;
+  }
+
+  #agent-skills-raw {
+    min-height: 620px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .agent-skills-side {
+    display: grid;
+    align-content: start;
+    gap: var(--admin-space-4);
+  }
+
+  .agent-skills-actions {
+    display: flex;
+    gap: var(--admin-space-2);
+  }
+
+  .agent-skills-card {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    background: var(--admin-surface-subtle);
+    padding: var(--admin-space-3);
+    min-width: 0;
+  }
+
+  .agent-skills-card h3 {
+    margin: 0 0 var(--admin-space-3);
+    font-size: 0.94rem;
+  }
+
+  .summary-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--admin-space-3);
+    margin-bottom: var(--admin-space-3);
+    color: var(--admin-text-muted);
+  }
+
+  .summary-grid strong {
+    color: var(--admin-text);
+  }
+
+  .agent-skills-list {
+    display: grid;
+    gap: var(--admin-space-2);
+  }
+
+  .agent-skill-item {
+    display: grid;
+    gap: 0.25rem;
+    border-top: 1px solid var(--admin-border);
+    padding-top: var(--admin-space-2);
+  }
+
+  .agent-skill-item strong {
+    overflow-wrap: anywhere;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .agent-skill-item p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 0.86rem;
+    overflow-wrap: anywhere;
+  }
+
+  .format-example {
+    margin: 0;
+    white-space: pre-wrap;
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 980px) {
+    .agent-skills-layout {
+      grid-template-columns: 1fr;
+    }
+
+    #agent-skills-raw {
+      min-height: 460px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .agent-skills-actions {
+      display: grid;
+    }
+  }
+</style>

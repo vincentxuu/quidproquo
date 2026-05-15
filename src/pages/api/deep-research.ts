@@ -10,6 +10,7 @@ import { resolveProviderApiKeys } from '../../lib/rag/provider-key-store'
 import { loadRagSettings, withConfigOverrides } from '../../lib/rag/settings'
 import { SUPPORTED_PROVIDERS } from '../../lib/rag/providers'
 import type { ProviderApiKeys } from '../../lib/rag/model'
+import type { AgentSkill } from '../../lib/agent-skills'
 
 interface Env {
   URL: string
@@ -34,6 +35,11 @@ type DeepResearchBody = {
     enableFlags?: unknown
     searchToolProfile?: unknown
     searchToolProfiles?: unknown
+    agentSkillsProfile?: unknown
+    agentSkillsProfiles?: unknown
+    agentSkillProfile?: unknown
+    agentSkillProfiles?: unknown
+    agentSkills?: unknown
     resultProfile?: unknown
   }
 }
@@ -63,6 +69,23 @@ type SearchToolProfiles = {
   research?: SearchToolProfile
   writer?: SearchToolProfile
   critic?: SearchToolProfile
+}
+type AgentSkillsProfile = {
+  skills?: AgentSkill[]
+}
+type AgentSkillsProfiles = {
+  planner?: AgentSkillsProfile
+  research?: AgentSkillsProfile
+  writer?: AgentSkillsProfile
+  critic?: AgentSkillsProfile
+}
+type AgentSkillSpecEntry = {
+  name: string
+  description: string
+}
+type AgentSkillSpecs = {
+  raw: string
+  entries: AgentSkillSpecEntry[]
 }
 type EnableFlags = {
   hydeEnabled?: boolean
@@ -107,6 +130,9 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
     const resultProfile = normalizeResultProfile(userConfig.resultProfile)
     const searchToolProfile = normalizeSearchToolProfile(userConfig.searchToolProfile)
     const searchToolProfiles = normalizeSearchToolProfiles(userConfig.searchToolProfiles)
+    const agentSkillsProfile = normalizeAgentSkillsProfile(userConfig.agentSkillsProfile ?? userConfig.agentSkillProfile)
+    const agentSkillsProfiles = normalizeAgentSkillsProfiles(userConfig.agentSkillsProfiles ?? userConfig.agentSkillProfiles)
+    const agentSkills = normalizeAgentSkills(userConfig.agentSkills)
     const enableFlags = normalizeEnableFlags(userConfig.enableFlags)
     const providerPref = normalizeProvider(typeof userConfig.providerPref === 'string' ? userConfig.providerPref : '')
     const preferredModel = typeof userConfig.model === 'string' ? userConfig.model.trim() : ''
@@ -276,6 +302,9 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
       resultProfile,
       searchToolProfile,
       searchToolProfiles,
+      agentSkillsProfile,
+      agentSkillsProfiles,
+      agentSkills,
     })
 
     let cacheSaved = false
@@ -359,7 +388,34 @@ function buildDeepResearchRecord(params: {
   resultProfile: ResultProfile
   searchToolProfile: SearchToolProfile
   searchToolProfiles: SearchToolProfiles
+  agentSkillsProfile: AgentSkillsProfile
+  agentSkillsProfiles: AgentSkillsProfiles
+  agentSkills: AgentSkillSpecs
 }) {
+  const searchToolProfileWithAgentSkills = {
+    ...searchToolProfile,
+    agentSkills: params.agentSkillsProfile.skills,
+    agentSkillsDefinitions: params.agentSkills,
+  };
+  const searchToolProfilesWithAgentSkills = {
+    ...searchToolProfiles,
+    planner: {
+      ...searchToolProfiles.planner,
+      agentSkills: params.agentSkillsProfiles.planner?.skills,
+    },
+    research: {
+      ...searchToolProfiles.research,
+      agentSkills: params.agentSkillsProfiles.research?.skills,
+    },
+    writer: {
+      ...searchToolProfiles.writer,
+      agentSkills: params.agentSkillsProfiles.writer?.skills,
+    },
+    critic: {
+      ...searchToolProfiles.critic,
+      agentSkills: params.agentSkillsProfiles.critic?.skills,
+    },
+  } as const;
   return {
     report_id: params.reportId,
     brief: params.brief,
@@ -375,8 +431,8 @@ function buildDeepResearchRecord(params: {
     search_profile: JSON.stringify(params.searchProfile),
     source_profile: JSON.stringify(params.sourceProfile),
     result_profile: JSON.stringify(params.resultProfile),
-    search_tool_profile: JSON.stringify(params.searchToolProfile),
-    search_tool_profiles: JSON.stringify(params.searchToolProfiles),
+    search_tool_profile: JSON.stringify(searchToolProfileWithAgentSkills),
+    search_tool_profiles: JSON.stringify(searchToolProfilesWithAgentSkills),
   } as const
 }
 
@@ -573,6 +629,96 @@ function normalizeSearchToolProfiles(searchToolProfiles: unknown): SearchToolPro
     writer: normalizeSearchToolProfile(profiles.writer),
     critic: normalizeSearchToolProfile(profiles.critic),
   }
+}
+
+function normalizeAgentSkillList(raw: unknown): AgentSkill[] {
+  if (!Array.isArray(raw)) return []
+  const normalized = new Set<AgentSkill>()
+  for (const item of raw) {
+    if (typeof item === 'string') {
+      const candidate = item.trim().toLowerCase()
+      if (candidate) {
+        normalized.add(candidate as AgentSkill)
+      }
+    }
+  }
+  return Array.from(normalized)
+}
+
+function normalizeAgentSkillsProfile(rawProfile: unknown): AgentSkillsProfile {
+  const profile = rawProfile as Record<string, unknown> | null
+  if (!rawProfile || typeof rawProfile !== 'object' || rawProfile === null || Array.isArray(rawProfile)) {
+    return {}
+  }
+
+  return {
+    skills: normalizeAgentSkillList(profile.skills),
+  }
+}
+
+function normalizeAgentSkillsProfiles(rawProfiles: unknown): AgentSkillsProfiles {
+  const profiles = rawProfiles as Record<string, unknown> | null
+  if (!rawProfiles || typeof rawProfiles !== 'object' || rawProfiles === null || Array.isArray(rawProfiles)) {
+    return {}
+  }
+  return {
+    planner: normalizeAgentSkillsProfile(profiles.planner),
+    research: normalizeAgentSkillsProfile(profiles.research),
+    writer: normalizeAgentSkillsProfile(profiles.writer),
+    critic: normalizeAgentSkillsProfile(profiles.critic),
+  }
+}
+
+function normalizeAgentSkills(rawSkills: unknown): AgentSkillSpecs {
+  if (typeof rawSkills === 'string') {
+    return parseAgentSkillsText(rawSkills)
+  }
+  if (!rawSkills || typeof rawSkills !== 'object' || Array.isArray(rawSkills)) {
+    return {
+      raw: '',
+      entries: [],
+    }
+  }
+  const candidate = rawSkills as Record<string, unknown>
+  if (typeof candidate.raw === 'string') {
+    return parseAgentSkillsText(candidate.raw)
+  }
+  return {
+    raw: '',
+    entries: [],
+  }
+}
+
+function parseAgentSkillsText(raw: string): AgentSkillSpecs {
+  const source = normalizeText(raw).trim()
+  if (!source) {
+    return {
+      raw: '',
+      entries: [],
+    }
+  }
+
+  const entries: AgentSkillSpecEntry[] = []
+  const metaBlockRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---/gm
+  let match: RegExpExecArray | null
+  while ((match = metaBlockRegex.exec(source)) !== null) {
+    const block = String(match[1] ?? '')
+    const nameMatch = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m)
+    const descriptionMatch = block.match(/(^|\r?\n)description:\s*(.+)\s*$/m)
+    if (!nameMatch || !descriptionMatch) continue
+
+    const name = String(nameMatch[2] ?? '').trim()
+    const description = String(descriptionMatch[2] ?? '').trim()
+    if (!name || !description) continue
+
+    entries.push({ name, description })
+  }
+
+  return { raw: source, entries }
+}
+
+function normalizeText(raw: unknown): string {
+  return typeof raw === 'string' ? raw.trim() : ''
 }
 
 function resolveSearchToolConfig(params: {

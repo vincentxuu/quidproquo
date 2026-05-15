@@ -1,5 +1,7 @@
 ---
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../../lib/search-tools';
+import { SUPPORTED_AGENT_SKILLS } from '../../lib/agent-skills';
 ---
 
 <AdminLayout title="Deep Research">
@@ -19,7 +21,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       前往登入
     </a>
 
-    <form id="deep-research-form" class="admin-grid">
+    <form id="deep-research-form" class="admin-grid" data-search-tool-providers={JSON.stringify(SUPPORTED_SEARCH_TOOL_PROVIDERS)}>
       <label class="admin-field">
         <span class="admin-field-label">研究主題（中/英皆可）</span>
         <textarea
@@ -164,23 +166,123 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
             </label>
             <label class="admin-field">
               <span class="admin-field-label">搜尋工具來源（全域）</span>
-              <select id="searchToolProviders" name="searchToolProviders" multiple size="2"></select>
+        <select id="searchToolProviders" name="searchToolProviders" multiple size="6"></select>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">Planner 搜尋工具</span>
-              <select id="plannerSearchToolProviders" name="plannerSearchToolProviders" multiple size="2"></select>
+              <select id="plannerSearchToolProviders" name="plannerSearchToolProviders" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-search-tool-sync"
+                data-stage="planner"
+              >
+                套用全域
+              </button>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">Research 搜尋工具</span>
-              <select id="researchSearchToolProviders" name="researchSearchToolProviders" multiple size="2"></select>
+              <select id="researchSearchToolProviders" name="researchSearchToolProviders" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-search-tool-sync"
+                data-stage="research"
+              >
+                套用全域
+              </button>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">Writer 搜尋工具</span>
-              <select id="writerSearchToolProviders" name="writerSearchToolProviders" multiple size="2"></select>
+              <select id="writerSearchToolProviders" name="writerSearchToolProviders" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-search-tool-sync"
+                data-stage="writer"
+              >
+                套用全域
+              </button>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">Critic 搜尋工具</span>
-              <select id="criticSearchToolProviders" name="criticSearchToolProviders" multiple size="2"></select>
+              <select id="criticSearchToolProviders" name="criticSearchToolProviders" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-search-tool-sync"
+                data-stage="critic"
+              >
+                套用全域
+              </button>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">可用 agentSkills（全域）</span>
+              <select id="agentSkills" name="agentSkills" multiple size="6"></select>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Planner agentSkills</span>
+              <select id="plannerAgentSkills" name="plannerAgentSkills" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-agent-skill-sync"
+                data-stage="planner"
+              >
+                套用全域
+              </button>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Research agentSkills</span>
+              <select id="researchAgentSkills" name="researchAgentSkills" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-agent-skill-sync"
+                data-stage="research"
+              >
+                套用全域
+              </button>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Writer agentSkills</span>
+              <select id="writerAgentSkills" name="writerAgentSkills" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-agent-skill-sync"
+                data-stage="writer"
+              >
+                套用全域
+              </button>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Critic agentSkills</span>
+              <select id="criticAgentSkills" name="criticAgentSkills" multiple size="6"></select>
+              <button
+                type="button"
+                class="btn btn-secondary stage-agent-skill-sync"
+                data-stage="critic"
+              >
+                套用全域
+              </button>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">agentSkills（SKILL.md）</span>
+              <div class="admin-actions">
+                <button id="fill-agent-skills-template" class="btn btn-secondary" type="button">
+                  載入範本
+                </button>
+                <button id="save-agent-skills" class="btn btn-primary" type="button">
+                  儲存到共用技能庫
+                </button>
+                <a class="btn btn-secondary" href="/admin/agent-skills">
+                  管理共用庫
+                </a>
+              </div>
+              <textarea
+                id="agentSkillsRaw"
+                name="agentSkillsRaw"
+                class="textarea"
+                rows="10"
+                placeholder="請貼 SKILL.md 片段（含 ---name/description--- frontmatter）"
+              ></textarea>
+              <p id="agent-skills-status" class="admin-section-desc">
+                標準格式規則：需要 `name` 與 `description`，並以 `---` 包住 frontmatter。每份 skill 會與清單中的名稱對應。
+              </p>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">搜尋工具回傳上限</span>
@@ -291,6 +393,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const researchSearchToolProvidersSelect = document.querySelector('#researchSearchToolProviders');
   const writerSearchToolProvidersSelect = document.querySelector('#writerSearchToolProviders');
   const criticSearchToolProvidersSelect = document.querySelector('#criticSearchToolProviders');
+  const agentSkillsSelect = document.querySelector('#agentSkills');
+  const plannerAgentSkillsSelect = document.querySelector('#plannerAgentSkills');
+  const researchAgentSkillsSelect = document.querySelector('#researchAgentSkills');
+  const writerAgentSkillsSelect = document.querySelector('#writerAgentSkills');
+  const criticAgentSkillsSelect = document.querySelector('#criticAgentSkills');
+  const agentSkillsInput = document.querySelector('#agentSkillsRaw');
+  const agentSkillsStatus = document.querySelector('#agent-skills-status');
+  const fillAgentSkillsTemplateButton = document.querySelector('#fill-agent-skills-template');
+  const saveAgentSkillsButton = document.querySelector('#save-agent-skills');
   const searchToolMaxResultsInput = document.querySelector('#searchToolMaxResults');
   const searchToolTimeoutMsInput = document.querySelector('#searchToolTimeoutMs');
   const enableBm25ShortCircuitInput = document.querySelector('#enableBm25ShortCircuit');
@@ -315,7 +426,48 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     providers: Object.keys(defaultProviderModels),
     catalog: [],
   };
-  const SEARCH_TOOL_OPTIONS = ['jina', 'cloudflare'];
+  const SEARCH_TOOL_PROVIDERS_FALLBACK = SUPPORTED_SEARCH_TOOL_PROVIDERS;
+  const SEARCH_TOOL_PROVIDERS = (() => {
+    const raw = form?.dataset?.searchToolProviders;
+    try {
+      const parsed = raw ? JSON.parse(raw) : null;
+      return Array.isArray(parsed) ? parsed : SEARCH_TOOL_PROVIDERS_FALLBACK;
+    } catch {
+      return SEARCH_TOOL_PROVIDERS_FALLBACK;
+    }
+  })();
+  const stageSearchToolProviderSelects = {
+    planner: plannerSearchToolProvidersSelect,
+    research: researchSearchToolProvidersSelect,
+    writer: writerSearchToolProvidersSelect,
+    critic: criticSearchToolProvidersSelect,
+  };
+  const stageAgentSkillSelects = {
+    planner: plannerAgentSkillsSelect,
+    research: researchAgentSkillsSelect,
+    writer: writerAgentSkillsSelect,
+    critic: criticAgentSkillsSelect,
+  };
+  const AGENT_SKILLS_TEMPLATE = `---
+name: using-agent-skills
+description: Use when you need to pick the right skill workflow for the current task.
+---
+## What this skill does
+Guide task execution and select the most suitable workflow.
+
+## When to use
+- User asks to inspect or improve code workflow.
+- User request is ambiguous and needs task decomposition.
+
+## Anti-rationalization
+- "I can skip planning." -> enforce explicit task decomposition first.
+---
+name: spec-driven-development
+description: Write an implementable PRD before changing code.
+---
+## What this skill does
+Collect requirements and create a constrained implementation spec.
+`;
   let customModelSnapshot = {
     providerPref: '',
     model: '',
@@ -367,7 +519,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         rerankerEnabled: false,
       },
       searchToolProfile: {
-        providers: ['jina'],
+        providers: SEARCH_TOOL_PROVIDERS_FALLBACK,
         maxResults: 4,
         timeoutMs: 8000,
       },
@@ -376,6 +528,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         research: { enabled: false },
         writer: { enabled: false },
         critic: { enabled: false },
+      },
+      agentSkillsProfile: {
+        skills: ['using-agent-skills'],
+      },
+      agentSkillsProfiles: {
+        planner: { skills: ['spec-driven-development', 'planning-and-task-breakdown'] },
+        research: { skills: ['source-driven-development', 'doubt-driven-development'] },
+        writer: { skills: ['context-engineering', 'api-and-interface-design'] },
+        critic: { skills: ['code-review-and-quality', 'code-simplification'] },
       },
     },
     balanced: {
@@ -416,7 +577,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         rerankerEnabled: false,
       },
       searchToolProfile: {
-        providers: ['jina', 'cloudflare'],
+        providers: SEARCH_TOOL_PROVIDERS_FALLBACK,
         maxResults: 4,
         timeoutMs: 8000,
       },
@@ -425,6 +586,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         research: { enabled: true },
         writer: { enabled: false },
         critic: { enabled: false },
+      },
+      agentSkillsProfile: {
+        skills: ['using-agent-skills', 'planning-and-task-breakdown'],
+      },
+      agentSkillsProfiles: {
+        planner: { skills: ['spec-driven-development', 'planning-and-task-breakdown'] },
+        research: { skills: ['source-driven-development', 'test-driven-development', 'doubt-driven-development'] },
+        writer: { skills: ['context-engineering', 'api-and-interface-design'] },
+        critic: { skills: ['code-review-and-quality', 'security-and-hardening'] },
       },
     },
     deep: {
@@ -465,7 +635,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         rerankerEnabled: true,
       },
       searchToolProfile: {
-        providers: ['jina', 'cloudflare'],
+        providers: SEARCH_TOOL_PROVIDERS_FALLBACK,
         maxResults: 6,
         timeoutMs: 8000,
       },
@@ -474,6 +644,15 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         research: { enabled: true },
         writer: { enabled: false },
         critic: { enabled: false },
+      },
+      agentSkillsProfile: {
+        skills: ['using-agent-skills', 'incremental-implementation'],
+      },
+      agentSkillsProfiles: {
+        planner: { skills: ['spec-driven-development', 'planning-and-task-breakdown'] },
+        research: { skills: ['source-driven-development', 'test-driven-development', 'doubt-driven-development'] },
+        writer: { skills: ['context-engineering', 'documentation-and-adrs'] },
+        critic: { skills: ['code-review-and-quality', 'performance-optimization'] },
       },
     },
   };
@@ -586,11 +765,16 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (enableSearchToolsResearchInput) enableSearchToolsResearchInput.checked = false;
     if (enableSearchToolsWriterInput) enableSearchToolsWriterInput.checked = false;
     if (enableSearchToolsCriticInput) enableSearchToolsCriticInput.checked = false;
-    setSearchToolProviderSelection(searchToolProvidersSelect, ['jina']);
+    setSearchToolProviderSelection(searchToolProvidersSelect, SEARCH_TOOL_PROVIDERS_FALLBACK);
     setSearchToolProviderSelection(plannerSearchToolProvidersSelect, []);
     setSearchToolProviderSelection(researchSearchToolProvidersSelect, []);
     setSearchToolProviderSelection(writerSearchToolProvidersSelect, []);
     setSearchToolProviderSelection(criticSearchToolProvidersSelect, []);
+    setAgentSkillSelection(agentSkillsSelect, ['using-agent-skills']);
+    setAgentSkillSelection(plannerAgentSkillsSelect, ['planning-and-task-breakdown']);
+    setAgentSkillSelection(researchAgentSkillsSelect, ['source-driven-development', 'doubt-driven-development']);
+    setAgentSkillSelection(writerAgentSkillsSelect, ['context-engineering']);
+    setAgentSkillSelection(criticAgentSkillsSelect, ['code-review-and-quality']);
     if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = '4';
     if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = '8000';
     if (enableBm25ShortCircuitInput) enableBm25ShortCircuitInput.checked = true;
@@ -600,6 +784,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (enableResearchAgentInput) enableResearchAgentInput.checked = true;
     if (enableWriterInput) enableWriterInput.checked = true;
     if (enableRerankerInput) enableRerankerInput.checked = false;
+    if (agentSkillsInput && !agentSkillsInput.value.trim()) {
+      setAgentSkillsTemplate();
+    } else {
+      refreshAgentSkillsSelects();
+    }
+    if (agentSkillsStatus) {
+      const statusText = toSelectValues(agentSkillsSelect).length
+        ? '已套用標準範例，請依專案需求修改每份 skill 的內容。'
+        : '可先貼上 SKILL.md，缺少 name/description 會影響使用效果。';
+      agentSkillsStatus.textContent = statusText;
+    }
   };
 
   const applyPresetProfile = (presetName) => {
@@ -628,6 +823,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (advancedProfile) {
       advancedProfile.checked = true;
       show(advancedSettings);
+      refreshAgentSkillsSelects();
       if (maxAbstractResultsInput) maxAbstractResultsInput.value = String(profile.searchProfile.maxAbstractResults);
       if (maxPostResultsInput) maxPostResultsInput.value = String(profile.searchProfile.maxPostResults);
       if (maxDocResultsInput) maxDocResultsInput.value = String(profile.searchProfile.maxDocResults);
@@ -638,7 +834,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (enableHydeInput) enableHydeInput.checked = profile.enableFlags.hydeEnabled;
       if (enableMultiQueryInput) enableMultiQueryInput.checked = profile.enableFlags.multiQueryEnabled;
       if (enableSearchToolsInput) enableSearchToolsInput.checked = profile.enableFlags.searchToolsEnabled;
-      const baseSearchToolProviders = profile.searchToolProfile?.providers || ['jina'];
+      const baseSearchToolProviders = profile.searchToolProfile?.providers || SEARCH_TOOL_PROVIDERS_FALLBACK;
       setSearchToolProviderSelection(searchToolProvidersSelect, baseSearchToolProviders);
       setSearchToolProviderSelection(plannerSearchToolProvidersSelect, profile.searchToolProfiles?.planner?.providers || baseSearchToolProviders);
       setSearchToolProviderSelection(researchSearchToolProvidersSelect, profile.searchToolProfiles?.research?.providers || baseSearchToolProviders);
@@ -646,6 +842,12 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       setSearchToolProviderSelection(criticSearchToolProvidersSelect, profile.searchToolProfiles?.critic?.providers || baseSearchToolProviders);
       if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = String(profile.searchToolProfile?.maxResults ?? 4);
       if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = String(profile.searchToolProfile?.timeoutMs ?? 8000);
+      const baseAgentSkills = profile.agentSkillsProfile?.skills || ['using-agent-skills'];
+      setAgentSkillSelection(agentSkillsSelect, baseAgentSkills);
+      setAgentSkillSelection(plannerAgentSkillsSelect, profile.agentSkillsProfiles?.planner?.skills || baseAgentSkills);
+      setAgentSkillSelection(researchAgentSkillsSelect, profile.agentSkillsProfiles?.research?.skills || baseAgentSkills);
+      setAgentSkillSelection(writerAgentSkillsSelect, profile.agentSkillsProfiles?.writer?.skills || baseAgentSkills);
+      setAgentSkillSelection(criticAgentSkillsSelect, profile.agentSkillsProfiles?.critic?.skills || baseAgentSkills);
       if (enableSearchToolsPlannerInput) enableSearchToolsPlannerInput.checked = !!profile.searchToolProfiles?.planner?.enabled;
       if (enableSearchToolsResearchInput) enableSearchToolsResearchInput.checked = !!profile.searchToolProfiles?.research?.enabled;
       if (enableSearchToolsWriterInput) enableSearchToolsWriterInput.checked = !!profile.searchToolProfiles?.writer?.enabled;
@@ -702,6 +904,79 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     });
   }
 
+  if (fillAgentSkillsTemplateButton) {
+    fillAgentSkillsTemplateButton.addEventListener('click', () => {
+      setAgentSkillsTemplate();
+      if (agentSkillsStatus) {
+        agentSkillsStatus.textContent = '已套用標準範例。';
+      }
+    });
+  }
+  if (saveAgentSkillsButton) {
+    saveAgentSkillsButton.addEventListener('click', async () => {
+      if (!agentSkillsInput) return;
+      const skillsParse = normalizeAgentSkillsText(agentSkillsInput.value);
+      if (!skillsParse.valid) {
+        if (agentSkillsStatus) {
+          agentSkillsStatus.textContent = skillsParse.error || 'SKILL 規格格式不正確';
+        }
+        return;
+      }
+      if (!saveAgentSkillsButton) return;
+      const originalLabel = saveAgentSkillsButton.textContent;
+      saveAgentSkillsButton.disabled = true;
+      if (originalLabel) {
+        saveAgentSkillsButton.textContent = '儲存中…';
+      }
+      try {
+        const response = await fetch('/api/admin/agent-skills', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ raw: agentSkillsInput.value.trim() }),
+        });
+        if (!response.ok) {
+          throw new Error('save_failed');
+        }
+        const payload = await response.json().catch(() => ({}));
+        if (agentSkillsStatus) {
+          agentSkillsStatus.textContent = payload?.raw ? `已儲存共用 agentSkills（${payload.raw.length} 字）` : '已儲存共用 agentSkills（空內容）';
+        }
+      } catch {
+        if (agentSkillsStatus) {
+          agentSkillsStatus.textContent = '儲存共用 agentSkills 失敗，請稍後再試。';
+        }
+      } finally {
+        saveAgentSkillsButton.disabled = false;
+        if (originalLabel) {
+          saveAgentSkillsButton.textContent = originalLabel;
+        }
+      }
+    });
+  }
+  if (agentSkillsInput) {
+    agentSkillsInput.addEventListener('input', () => {
+      refreshAgentSkillsSelects();
+    });
+  }
+
+  const loadAgentSkillsLibrary = async () => {
+    if (!agentSkillsInput || agentSkillsInput.value.trim()) return;
+    try {
+      const response = await fetch('/api/admin/agent-skills');
+      if (!response.ok) return;
+      const payload = await response.json().catch(() => null);
+      const raw = typeof payload?.raw === 'string' ? payload.raw.trim() : '';
+      if (!raw) return;
+      agentSkillsInput.value = raw;
+      refreshAgentSkillsSelects();
+      if (agentSkillsStatus) {
+        agentSkillsStatus.textContent = '已載入共用 agentSkills。';
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   const createOption = (value, label) => {
     const option = document.createElement('option');
     option.value = value;
@@ -710,6 +985,87 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   };
 
   const normalize = (value) => String(value ?? '').trim();
+  const normalizeAgentSkillsText = (text) => {
+    const source = normalize(text).trim();
+    if (!source) {
+      return {
+        raw: '',
+        entries: [],
+        valid: true,
+        error: '',
+      };
+    }
+
+    const blocks = [];
+    const metaBlockRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---/gm;
+    let match;
+    while ((match = metaBlockRegex.exec(source)) !== null) {
+      const block = match[1] ?? '';
+      const nameMatch = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m);
+      const descriptionMatch = block.match(/(^|\r?\n)description:\s*(.+)\s*$/m);
+      if (nameMatch && descriptionMatch) {
+        blocks.push({
+          name: nameMatch[2].trim(),
+          description: descriptionMatch[2].trim(),
+        });
+      }
+    }
+
+    if (!blocks.length) {
+      const looksLikeFrontMatter = /(^|\r?\n)---\r?\n/.test(source);
+      return {
+        raw: source,
+        entries: [],
+        valid: false,
+        error: looksLikeFrontMatter ? '未找到完整的 skill 定義欄位（name/description）。' : '請以 SKILL.md frontmatter 格式貼上，至少要有 `name` 與 `description`。',
+      };
+    }
+
+    return {
+      raw: source,
+      entries: blocks,
+      valid: true,
+      error: '',
+    };
+  };
+
+  const extractAgentSkillsFromText = (text) => {
+    const source = normalize(text).trim();
+    if (!source) return [];
+    const names = [];
+    const metaBlockRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---/gm;
+    let match;
+    while ((match = metaBlockRegex.exec(source)) !== null) {
+      const block = match[1] ?? '';
+      const nameMatch = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m);
+      if (!nameMatch) continue;
+      const name = String(nameMatch[2] ?? '').trim().toLowerCase();
+      if (name) names.push(name);
+    }
+    return Array.from(new Set(names));
+  };
+
+  const getAgentSkillsFromInput = () => extractAgentSkillsFromText(agentSkillsInput?.value ?? '');
+  const toSelectValues = (select) => {
+    const values = [];
+    for (const option of Array.from(select?.selectedOptions ?? [])) {
+      const value = String(option?.value ?? '').trim().toLowerCase();
+      if (value) values.push(value);
+    }
+    return values;
+  };
+  const setSelectValues = (select, values = []) => {
+    if (!select) return;
+    const normalized = new Set(
+      Array.from(values || [])
+        .map((value) => String(value ?? '').trim().toLowerCase())
+        .filter(Boolean),
+    );
+    for (const option of Array.from(select.options ?? [])) {
+      option.selected = normalized.has(option.value);
+    }
+  };
+  const setAgentSkillSelection = (select, values = []) => setSelectValues(select, values);
   const toSearchToolProviderValues = (select) => {
     const values = [];
     for (const option of Array.from(select?.selectedOptions ?? [])) {
@@ -720,19 +1076,21 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   };
 
   const setSearchToolProviderSelection = (select, values = []) => {
-    if (!select) return;
-    const normalized = new Set(values.map((value) => String(value ?? '').trim().toLowerCase()).filter(Boolean));
-    for (const option of Array.from(select.options)) {
-      option.selected = normalized.has(option.value);
-    }
+    setSelectValues(select, values);
   };
 
   const hydrateSearchToolProviderSelect = (select) => {
     if (!select) return;
     select.replaceChildren();
-    for (const provider of SEARCH_TOOL_OPTIONS) {
+    for (const provider of SEARCH_TOOL_PROVIDERS) {
       select.append(createOption(provider, provider));
     }
+  };
+
+  const setAgentSkillsTemplate = () => {
+    if (!agentSkillsInput) return;
+    agentSkillsInput.value = AGENT_SKILLS_TEMPLATE.trim();
+    refreshAgentSkillsSelects();
   };
 
   const hydrateSearchToolProviderSelects = () => {
@@ -741,6 +1099,52 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     hydrateSearchToolProviderSelect(researchSearchToolProvidersSelect);
     hydrateSearchToolProviderSelect(writerSearchToolProvidersSelect);
     hydrateSearchToolProviderSelect(criticSearchToolProvidersSelect);
+    hydrateAgentSkillsSelect(agentSkillsSelect);
+    hydrateAgentSkillsSelect(plannerAgentSkillsSelect);
+    hydrateAgentSkillsSelect(researchAgentSkillsSelect);
+    hydrateAgentSkillsSelect(writerAgentSkillsSelect);
+    hydrateAgentSkillsSelect(criticAgentSkillsSelect);
+  };
+
+  const hydrateAgentSkillsSelect = (select, customAgentSkills = []) => {
+    if (!select) return;
+    const previous = toSelectValues(select);
+    select.replaceChildren();
+    const customSkills = Array.from(new Set(Array.isArray(customAgentSkills) ? customAgentSkills : []));
+    const allSkills = [...SUPPORTED_AGENT_SKILLS];
+    for (const skill of customSkills) {
+      const normalized = String(skill).trim().toLowerCase();
+      if (normalized && !allSkills.includes(normalized)) {
+        allSkills.push(normalized);
+      }
+    }
+    for (const skill of allSkills) {
+      select.append(createOption(skill, skill));
+    }
+    setAgentSkillSelection(select, previous);
+  };
+
+  const refreshAgentSkillsSelects = () => {
+    const customAgentSkills = getAgentSkillsFromInput();
+    hydrateAgentSkillsSelect(agentSkillsSelect, customAgentSkills);
+    hydrateAgentSkillsSelect(plannerAgentSkillsSelect, customAgentSkills);
+    hydrateAgentSkillsSelect(researchAgentSkillsSelect, customAgentSkills);
+    hydrateAgentSkillsSelect(writerAgentSkillsSelect, customAgentSkills);
+    hydrateAgentSkillsSelect(criticAgentSkillsSelect, customAgentSkills);
+  };
+
+  const syncStageSearchToolsFromGlobal = (stage) => {
+    const key = String(stage || '').trim();
+    const stageSelect = stageSearchToolProviderSelects[key];
+    if (!stageSelect) return;
+    setSearchToolProviderSelection(stageSelect, toSearchToolProviderValues(searchToolProvidersSelect));
+  };
+
+  const syncStageAgentSkillsFromGlobal = (stage) => {
+    const key = String(stage || '').trim();
+    const stageSelect = stageAgentSkillSelects[key];
+    if (!stageSelect) return;
+    setAgentSkillSelection(stageSelect, toSelectValues(agentSkillsSelect));
   };
 
   const loadModelCatalog = async () => {
@@ -812,7 +1216,21 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   });
 
   hydrateSearchToolProviderSelects();
-  loadModelCatalog().then(() => {
+  for (const button of document.querySelectorAll('.stage-search-tool-sync')) {
+    button.addEventListener('click', () => {
+      const stage = button.dataset?.stage || '';
+      syncStageSearchToolsFromGlobal(stage);
+    });
+  }
+  for (const button of document.querySelectorAll('.stage-agent-skill-sync')) {
+    button.addEventListener('click', () => {
+      const stage = button.dataset?.stage || '';
+      syncStageAgentSkillsFromGlobal(stage);
+    });
+  }
+
+  loadModelCatalog().then(async () => {
+    await loadAgentSkillsLibrary();
     if (modeSelect) {
       applyPresetProfile(modeSelect.value);
     }
@@ -887,6 +1305,39 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
           enabled: !!enableSearchToolsCriticInput?.checked,
           providers: toSearchToolProviderValues(criticSearchToolProvidersSelect),
         },
+      };
+      payload.config.agentSkillsProfile = {
+        skills: toSelectValues(agentSkillsSelect),
+      };
+      payload.config.agentSkillsProfiles = {
+        planner: {
+          skills: toSelectValues(plannerAgentSkillsSelect),
+        },
+        research: {
+          skills: toSelectValues(researchAgentSkillsSelect),
+        },
+        writer: {
+          skills: toSelectValues(writerAgentSkillsSelect),
+        },
+        critic: {
+          skills: toSelectValues(criticAgentSkillsSelect),
+        },
+      };
+      const skillsParse = normalizeAgentSkillsText(agentSkillsInput?.value);
+      if (!skillsParse.valid) {
+        if (agentSkillsStatus) {
+          agentSkillsStatus.textContent = skillsParse.error || 'SKILL 規格格式不正確';
+        }
+        show(agentSkillsStatus);
+        errorBox.textContent = 'agentSkills 規格需要修正為標準格式。';
+        show(errorBox);
+        submitButton.disabled = false;
+        submitText.textContent = '產生研究報告';
+        return;
+      }
+      payload.config.agentSkills = {
+        raw: skillsParse.raw,
+        entries: skillsParse.entries,
       };
     }
 

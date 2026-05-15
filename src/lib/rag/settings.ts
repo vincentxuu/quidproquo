@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import { SUPPORTED_PROVIDERS } from './providers'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from './search-tools'
 
 interface SettingsEnv {
   DB: D1Database
@@ -29,7 +30,7 @@ const DEFAULTS: RagRuntimeConfig = {
   mmrLambda: 0.7,
   checkpointThresholdRatio: 0.7,
   searchToolsEnabled: false,
-  searchToolProviders: ['jina'],
+  searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
 }
@@ -149,7 +150,10 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
     mmrLambda: parseNumber(byKey.get(SETTINGS_KEYS.mmrLambda), DEFAULTS.mmrLambda),
     checkpointThresholdRatio: parseNumber(byKey.get(SETTINGS_KEYS.checkpointThresholdRatio), DEFAULTS.checkpointThresholdRatio),
     searchToolsEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.searchToolsEnabled), false),
-    searchToolProviders: parseSearchToolProviders(byKey.get(SETTINGS_KEYS.searchToolProviders), ['jina']),
+    searchToolProviders: parseSearchToolProviders(
+      byKey.get(SETTINGS_KEYS.searchToolProviders),
+      DEFAULTS.searchToolProviders,
+    ),
     searchToolMaxResults: parseNumber(byKey.get(SETTINGS_KEYS.searchToolMaxResults), 4),
     searchToolTimeoutMs: parseNumber(byKey.get(SETTINGS_KEYS.searchToolTimeoutMs), 8000),
   }

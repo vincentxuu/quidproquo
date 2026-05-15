@@ -1,0 +1,27 @@
+export const SUPPORTED_AGENT_SKILLS = [
+  'interview-me',
+  'idea-refine',
+  'spec-driven-development',
+  'planning-and-task-breakdown',
+  'incremental-implementation',
+  'test-driven-development',
+  'context-engineering',
+  'source-driven-development',
+  'doubt-driven-development',
+  'frontend-ui-engineering',
+  'api-and-interface-design',
+  'browser-testing-with-devtools',
+  'debugging-and-error-recovery',
+  'code-review-and-quality',
+  'code-simplification',
+  'security-and-hardening',
+  'performance-optimization',
+  'git-workflow-and-versioning',
+  'ci-cd-and-automation',
+  'deprecation-and-migration',
+  'documentation-and-adrs',
+  'shipping-and-launch',
+  'using-agent-skills',
+] as const
+
+export type AgentSkill = string
