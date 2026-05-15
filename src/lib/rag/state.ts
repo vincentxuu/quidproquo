@@ -1,7 +1,7 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { SearchMetrics } from './tools/hybrid-search'
 import type { RagProvider } from './providers'
-import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from './search-tools'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
 
 export interface NativeTraceEvent {
   stage: string

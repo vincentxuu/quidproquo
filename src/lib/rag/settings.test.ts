@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { buildShadowBaselineConfig, withConfigOverrides } from './settings'
 import type { RagRuntimeConfig } from './state'
-import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from './search-tools'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
 
 const baseConfig: RagRuntimeConfig = {
   pipelineEngine: 'langgraph',

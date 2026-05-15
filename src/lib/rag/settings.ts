@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import { SUPPORTED_PROVIDERS } from './providers'
-import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from './search-tools'
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
 
 interface SettingsEnv {
   DB: D1Database
