@@ -2,20 +2,30 @@ import type { GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
 
+type ResultProfile = {
+  writerContextSources?: number
+}
+
 export async function writerNode(
   state: GraphState,
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    resultProfile?: ResultProfile
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 2048
+  const writerContextSources = Math.max(1, Math.min(40, Math.round(
+    typeof options?.resultProfile?.writerContextSources === 'number' && Number.isFinite(options.resultProfile.writerContextSources)
+      ? options.resultProfile.writerContextSources
+      : 8
+  )))
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
   const language = state.language === 'en' ? 'English' : '繁體中文'
 
-  const contextParts = state.search_results.slice(0, 8).map((r, i) => {
+  const contextParts = state.search_results.slice(0, writerContextSources).map((r, i) => {
     const imgs = r.images.length > 0 ? `\nImages: ${r.images.join(', ')}` : ''
     return `[Source ${i + 1}] ${r.source_url}\n${r.evidence_excerpt}${imgs}`
   })

@@ -8,6 +8,21 @@ import { collectSearchMetrics } from '../tools/hybrid-search'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, resolveModelRoute, type ProviderApiKeys } from '../model'
 
+type SearchProfile = {
+  maxAbstractResults?: number
+  maxPostResults?: number
+  maxDocResults?: number
+  maxWebSearchResults?: number
+  maxPageIndexSeeds?: number
+}
+
+function clampProfileInt(raw: unknown, fallback: number, min: number, max: number): number {
+  if (typeof raw === 'number' && Number.isFinite(raw)) {
+    return Math.max(min, Math.min(max, Math.round(raw)))
+  }
+  return fallback
+}
+
 async function generateQueryAlternatives(
   state: GraphState,
   query: string,
@@ -70,9 +85,18 @@ export async function researchNode(
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    maxSearchCalls?: number
+    searchProfile?: SearchProfile
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 2048
+  const maxSearchCalls = Math.max(1, Math.min(8, Math.round(options?.maxSearchCalls ?? 2)))
+  const searchProfile = options?.searchProfile ?? {}
+  const abstractLimit = clampProfileInt(searchProfile.maxAbstractResults, 4, 1, 20)
+  const postLimit = clampProfileInt(searchProfile.maxPostResults, 8, 1, 30)
+  const docLimit = clampProfileInt(searchProfile.maxDocResults, 5, 1, 30)
+  const webLimit = clampProfileInt(searchProfile.maxWebSearchResults, state.config.searchToolMaxResults, 1, 20)
+  const pageIndexSeedLimit = clampProfileInt(searchProfile.maxPageIndexSeeds, 3, 1, 6)
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -82,13 +106,14 @@ export async function researchNode(
 
   const searchQueries = [baseQuery]
 
-  if (state.config.hydeEnabled && state.plan.complexity !== 'simple') {
+  if (state.config.hydeEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
     const hydeQuery = await generateHydeQuery(state, baseQuery, options).catch(() => null)
     if (hydeQuery) searchQueries.push(hydeQuery)
   }
 
-  if (state.config.multiQueryEnabled && state.plan.complexity === 'complex') {
-    const alternates = await generateQueryAlternatives(state, baseQuery, 2, options).catch(() => [])
+  if (state.config.multiQueryEnabled && state.plan.complexity === 'complex' && maxSearchCalls >= 3) {
+    const remainingSlots = Math.max(1, maxSearchCalls - searchQueries.length)
+    const alternates = await generateQueryAlternatives(state, baseQuery, remainingSlots, options).catch(() => [])
     searchQueries.push(...alternates)
   }
 
@@ -97,7 +122,7 @@ export async function researchNode(
   const webSearchResults = state.config.searchToolsEnabled
     ? await searchExternalTools({
       query: baseQuery,
-      limit: state.config.searchToolMaxResults,
+      limit: webLimit,
       timeoutMs: state.config.searchToolTimeoutMs,
       providers: state.config.searchToolProviders,
       apiKeys: options?.apiKeys,
@@ -108,15 +133,15 @@ export async function researchNode(
     const [abstractResults, postResults, docResults] = await Promise.all([
       state.plan.complexity === 'simple'
         ? Promise.resolve([] as SearchResult[])
-        : searchAbstractIndex({ query: searchQuery, limit: 4 }).catch(() => [] as SearchResult[]),
+        : searchAbstractIndex({ query: searchQuery, limit: abstractLimit }).catch(() => [] as SearchResult[]),
       searchBlogPosts({
         query: searchQuery,
-        limit: 8,
+        limit: postLimit,
         shortCircuit: state.config.bm25ShortCircuitEnabled,
       }).catch(() => [] as SearchResult[]),
       searchDocs({
         query: searchQuery,
-        limit: 5,
+        limit: docLimit,
         shortCircuit: state.config.bm25ShortCircuitEnabled,
       }).catch(() => [] as SearchResult[]),
     ])
@@ -139,7 +164,7 @@ export async function researchNode(
     ? (await Promise.all(
       broadResults
         .filter(result => result.type === 'doc' || result.type === 'post')
-        .slice(0, 3)
+        .slice(0, pageIndexSeedLimit)
         .map(result => pageIndexSearch({
           query: baseQuery,
           seed: result,

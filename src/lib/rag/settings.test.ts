@@ -13,6 +13,9 @@ const baseConfig: RagRuntimeConfig = {
   multiQueryEnabled: true,
   rerankerEnabled: true,
   criticEnabled: true,
+  plannerEnabled: true,
+  researchEnabled: true,
+  writerEnabled: true,
   pageIndexEnabled: true,
   pageIndexMaxSteps: 5,
   bm25ShortCircuitEnabled: true,
@@ -21,6 +24,10 @@ const baseConfig: RagRuntimeConfig = {
   rerankerMinKeep: 3,
   mmrLambda: 0.7,
   checkpointThresholdRatio: 0.7,
+  searchToolsEnabled: true,
+  searchToolProviders: ['jina'],
+  searchToolMaxResults: 4,
+  searchToolTimeoutMs: 8000,
 }
 
 describe('rag settings helpers', () => {

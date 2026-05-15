@@ -1,211 +1,881 @@
 ---
+import AdminLayout from '../../layouts/AdminLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>深度研究工具</title>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
-  </head>
-  <body class="bg-gray-50">
-    <div class="container mx-auto py-12 px-4 max-w-4xl">
-      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">🔎 深度研究請求產生器</h1>
+<AdminLayout title="Deep Research">
+  <p class="page-desc">將研究主題拆成子題，執行蒐證與寫作流程，回傳可追溯研究草稿。</p>
 
-      <div id="error-box" class="hidden p-4 mb-4 bg-red-100 text-red-800 rounded text-center"></div>
-      <a
-        id="login-cta"
-        href="/login"
-        class="hidden mb-4 inline-block bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
-      >
-        前往登入
-      </a>
-
-      <form id="deep-research-form" class="bg-white p-6 rounded-lg shadow-md space-y-6">
-        <div>
-          <label for="brief" class="block text-sm font-medium text-gray-700 mb-2">研究主題（中/英皆可）</label>
-          <textarea
-            id="brief"
-            name="brief"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-3 border"
-            rows="4"
-            placeholder="例如：AI 代理的最新趨勢是什麼？"
-            required
-          ></textarea>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="maxQueries" class="block text-sm font-medium text-gray-700 mb-2">最多子問題數</label>
-            <input
-              id="maxQueries"
-              name="maxQueries"
-              type="number"
-              min="1"
-              max="10"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
-              value="3"
-            />
-          </div>
-
-          <div>
-            <label for="maxTokens" class="block text-sm font-medium text-gray-700 mb-2">每次回覆的 Token 數上限</label>
-            <input
-              id="maxTokens"
-              name="maxTokens"
-              type="number"
-              min="64"
-              max="1024"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
-              value="256"
-            />
-          </div>
-
-          <div>
-            <label for="providerPref" class="block text-sm font-medium text-gray-700 mb-2">首選的模型提供者</label>
-            <select
-              id="providerPref"
-              name="providerPref"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
-            >
-              <option value="groq">Groq (最便宜)</option>
-              <option value="openai">OpenAI GPT-4</option>
-              <option value="google">Google Gemini</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="maxSearchCalls" class="block text-sm font-medium text-gray-700 mb-2">每個子問題最多搜尋次數</label>
-            <input
-              id="maxSearchCalls"
-              name="maxSearchCalls"
-              type="number"
-              min="1"
-              max="10"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
-              value="3"
-            />
-          </div>
-        </div>
-
-        <button
-          id="submit-btn"
-          type="submit"
-          class="w-full bg-indigo-600 text-white py-3 px-4 rounded-md hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <span id="submit-text">產生研究報告</span>
-        </button>
-      </form>
-
-      <section id="result-box" class="hidden mt-8 p-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4 text-gray-800">✅ 研究完成！</h2>
-        <p id="result-summary" class="mb-4 text-gray-700"><strong>簡短說明：</strong> </p>
-        <a
-          id="result-link"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          class="inline-block bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition-colors"
-        >
-          📄 開啟完整報告
-        </a>
-      </section>
+  <section class="admin-panel">
+    <div class="admin-panel-header">
+      <div>
+        <h2>深度研究任務</h2>
+        <p class="admin-section-desc">可在此指定 Provider 與模型，並控制子問題與輸出長度。</p>
+      </div>
     </div>
 
-    <script>
-      const form = document.querySelector('#deep-research-form');
-      const submitButton = document.querySelector('#submit-btn');
-      const submitText = document.querySelector('#submit-text');
-      const errorBox = document.querySelector('#error-box');
-      const loginCta = document.querySelector('#login-cta');
-      const resultBox = document.querySelector('#result-box');
-      const resultSummary = document.querySelector('#result-summary');
-      const resultLink = document.querySelector('#result-link');
+    <div id="error-box" class="admin-page-desc is-hidden" style="color: var(--admin-danger);"></div>
 
-      const getInputNumber = (name, fallback) => {
-        const raw = form.elements[name]?.value;
-        const parsed = Number.parseInt(raw, 10);
-        return Number.isFinite(parsed) ? parsed : fallback;
+    <a id="login-cta" href="/login?next=/deep-research" class="btn btn-danger is-hidden">
+      前往登入
+    </a>
+
+    <form id="deep-research-form" class="admin-grid">
+      <label class="admin-field">
+        <span class="admin-field-label">研究主題（中/英皆可）</span>
+        <textarea
+          id="brief"
+          name="brief"
+          class="textarea"
+          rows="4"
+          placeholder="例如：AI 代理工具與資料蒐證流程的新趨勢？"
+          required
+        ></textarea>
+      </label>
+
+      <div class="admin-grid cols-2">
+        <label class="admin-field">
+          <span class="admin-field-label">Provider</span>
+          <select id="providerPref" name="providerPref"></select>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">模型</span>
+          <select id="model" name="model"></select>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">研究模式</span>
+          <select id="research-mode">
+            <option value="balanced" selected>平衡（預設）</option>
+            <option value="light">輕量（快速）</option>
+            <option value="deep">深入（高品質）</option>
+            <option value="custom">自訂</option>
+          </select>
+          <p id="research-mode-desc" class="admin-section-desc">切換模式會同步對應預設參數（除「自訂」外）。</p>
+          <div id="custom-model-actions" class="admin-actions is-hidden">
+            <button id="apply-current-model-btn" class="btn btn-secondary" type="button">套用目前 Provider / 模型</button>
+            <p id="custom-model-status" class="admin-section-desc">自訂模式使用你目前手動選取的 Provider/模型。</p>
+          </div>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">最多子問題數</span>
+          <input id="maxQueries" name="maxQueries" type="number" min="1" max="10" value="3" />
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">每次回覆 token 上限</span>
+          <input id="maxTokens" name="maxTokens" type="number" min="256" max="4096" value="2048" />
+          <p class="admin-section-desc">這是總預算（256~4096），系統會自動分配給規劃/研究/寫作/評估階段。</p>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">進階：自訂各階段 token</span>
+          <label class="admin-field">
+            <span class="admin-field-label">啟用自訂配置</span>
+            <input id="custom-token-profile" type="checkbox" />
+          </label>
+
+          <div id="token-profile-settings" class="admin-grid cols-2 is-hidden">
+            <label class="admin-field">
+              <span class="admin-field-label">planner tokens</span>
+              <input id="plannerTokens" type="number" min="256" max="1024" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">research tokens</span>
+              <input id="researchTokens" type="number" min="256" max="2048" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">writer tokens</span>
+              <input id="writerTokens" type="number" min="1024" max="4096" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">critic tokens</span>
+              <input id="criticTokens" type="number" min="512" max="2048" />
+            </label>
+          </div>
+          <p class="admin-section-desc">啟用後可覆寫每階段上限（仍會被各階段的上下限保護）。</p>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">進階：研究行為控制</span>
+          <label class="admin-field">
+            <span class="admin-field-label">啟用進階設定</span>
+            <input id="enable-advanced-profile" type="checkbox" />
+          </label>
+
+          <div id="advanced-research-settings" class="admin-grid cols-2 is-hidden">
+            <label class="admin-field">
+              <span class="admin-field-label">單次查詢 abstract 上限</span>
+              <input id="maxAbstractResults" type="number" min="1" max="20" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">單次查詢 post 上限</span>
+              <input id="maxPostResults" type="number" min="1" max="30" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">單次查詢 doc 上限</span>
+              <input id="maxDocResults" type="number" min="1" max="30" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">網路搜尋結果上限</span>
+              <input id="maxWebSearchResults" type="number" min="1" max="20" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">PageIndex 起始 seed 上限</span>
+              <input id="maxPageIndexSeeds" type="number" min="1" max="6" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">PageIndex 最大步數</span>
+              <input id="pageIndexMaxSteps" type="number" min="1" max="10" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">寫作使用來源上限</span>
+              <input id="writerContextSources" type="number" min="1" max="40" />
+            </label>
+
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Hyde</span>
+              <input id="enableHyde" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Multi-Query</span>
+              <input id="enableMultiQuery" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用網路搜尋</span>
+              <input id="enableSearchTools" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Planner 階段使用網路搜尋</span>
+              <input id="enableSearchToolsPlanner" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Research 階段使用網路搜尋</span>
+              <input id="enableSearchToolsResearch" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Writer 階段使用網路搜尋</span>
+              <input id="enableSearchToolsWriter" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Critic 階段使用網路搜尋</span>
+              <input id="enableSearchToolsCritic" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">搜尋工具來源（逗號分隔）</span>
+              <input id="searchToolProviders" type="text" placeholder="jina,cloudflare" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">搜尋工具回傳上限</span>
+              <input id="searchToolMaxResults" type="number" min="1" max="20" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">搜尋工具逾時（毫秒）</span>
+              <input id="searchToolTimeoutMs" type="number" min="1000" max="60000" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用短路 BM25</span>
+              <input id="enableBm25ShortCircuit" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 PageIndex</span>
+              <input id="enablePageIndex" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Critic</span>
+              <input id="enableCritic" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Planner</span>
+              <input id="enablePlanner" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Research</span>
+              <input id="enableResearch" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Writer</span>
+              <input id="enableWriter" type="checkbox" />
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">啟用 Reranker</span>
+              <input id="enableReranker" type="checkbox" />
+            </label>
+          </div>
+          <p class="admin-section-desc">不勾選時沿用系統預設模型參數；勾選後可對研究流程逐項覆寫。</p>
+        </label>
+
+        <label class="admin-field">
+          <span class="admin-field-label">每個子問題搜尋變體數</span>
+          <input id="maxSearchCalls" name="maxSearchCalls" type="number" min="1" max="8" value="3" />
+        </label>
+
+        <p id="model-source" class="admin-field">
+          <span class="admin-field-label">模型目錄來源</span>
+          <span class="admin-section-desc">尚未載入目錄。</span>
+        </p>
+      </div>
+
+      <div class="form-actions">
+        <button id="submit-btn" class="btn primary" type="submit">
+          <span id="submit-text">產生研究報告</span>
+        </button>
+      </div>
+    </form>
+
+    <section id="result-box" class="admin-panel flush is-hidden">
+      <div class="admin-panel-header">
+        <h2>研究完成</h2>
+      </div>
+      <p id="result-summary" class="admin-page-desc"></p>
+      <a id="result-link" href="#" target="_blank" rel="noopener" class="btn">開啟完整報告</a>
+    </section>
+  </section>
+</AdminLayout>
+
+<script>
+  const form = document.querySelector('#deep-research-form');
+  const submitButton = document.querySelector('#submit-btn');
+  const submitText = document.querySelector('#submit-text');
+  const errorBox = document.querySelector('#error-box');
+  const loginCta = document.querySelector('#login-cta');
+  const resultBox = document.querySelector('#result-box');
+  const resultSummary = document.querySelector('#result-summary');
+  const resultLink = document.querySelector('#result-link');
+  const providerSelect = document.querySelector('#providerPref');
+  const modelSelect = document.querySelector('#model');
+  const modelSource = document.querySelector('#model-source span:last-child');
+  const customTokenProfile = document.querySelector('#custom-token-profile');
+  const tokenProfileSettings = document.querySelector('#token-profile-settings');
+  const advancedProfile = document.querySelector('#enable-advanced-profile');
+  const advancedSettings = document.querySelector('#advanced-research-settings');
+  const maxTokensInput = document.querySelector('#maxTokens');
+  const modeSelect = document.querySelector('#research-mode');
+  const plannerTokensInput = document.querySelector('#plannerTokens');
+  const researchTokensInput = document.querySelector('#researchTokens');
+  const writerTokensInput = document.querySelector('#writerTokens');
+  const criticTokensInput = document.querySelector('#criticTokens');
+  const maxAbstractResultsInput = document.querySelector('#maxAbstractResults');
+  const maxPostResultsInput = document.querySelector('#maxPostResults');
+  const maxDocResultsInput = document.querySelector('#maxDocResults');
+  const maxWebSearchResultsInput = document.querySelector('#maxWebSearchResults');
+  const maxPageIndexSeedsInput = document.querySelector('#maxPageIndexSeeds');
+  const pageIndexMaxStepsInput = document.querySelector('#pageIndexMaxSteps');
+  const writerContextSourcesInput = document.querySelector('#writerContextSources');
+  const enableHydeInput = document.querySelector('#enableHyde');
+  const enableMultiQueryInput = document.querySelector('#enableMultiQuery');
+  const enableSearchToolsInput = document.querySelector('#enableSearchTools');
+  const enableSearchToolsPlannerInput = document.querySelector('#enableSearchToolsPlanner');
+  const enableSearchToolsResearchInput = document.querySelector('#enableSearchToolsResearch');
+  const enableSearchToolsWriterInput = document.querySelector('#enableSearchToolsWriter');
+  const enableSearchToolsCriticInput = document.querySelector('#enableSearchToolsCritic');
+  const searchToolProvidersInput = document.querySelector('#searchToolProviders');
+  const searchToolMaxResultsInput = document.querySelector('#searchToolMaxResults');
+  const searchToolTimeoutMsInput = document.querySelector('#searchToolTimeoutMs');
+  const enableBm25ShortCircuitInput = document.querySelector('#enableBm25ShortCircuit');
+  const enablePageIndexInput = document.querySelector('#enablePageIndex');
+  const enableCriticInput = document.querySelector('#enableCritic');
+  const enablePlannerInput = document.querySelector('#enablePlanner');
+  const enableResearchAgentInput = document.querySelector('#enableResearch');
+  const enableWriterInput = document.querySelector('#enableWriter');
+  const enableRerankerInput = document.querySelector('#enableReranker');
+  const modeDescription = document.querySelector('#research-mode-desc');
+  const customModelActions = document.querySelector('#custom-model-actions');
+  const applyCurrentModelButton = document.querySelector('#apply-current-model-btn');
+  const customModelStatus = document.querySelector('#custom-model-status');
+  const defaultProviderModels = {
+    groq: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant'],
+    openai: ['gpt-4.1-mini', 'gpt-4o-mini'],
+    google: ['gemini-2.0-flash', 'gemini-1.5-flash'],
+    gemini: ['gemini-2.0-flash'],
+  };
+
+  const providerState = {
+    providers: Object.keys(defaultProviderModels),
+    catalog: [],
+  };
+  let customModelSnapshot = {
+    providerPref: '',
+    model: '',
+  };
+
+  const TOKEN_PROFILE_MULTIPLIERS = {
+    planner: 0.25,
+    research: 0.5,
+    writer: 1,
+    critic: 0.5,
+  };
+
+  const PRESET_PROFILES = {
+    light: {
+      providerPref: 'groq',
+      model: 'llama-3.1-8b-instant',
+      maxTokens: 1536,
+      maxQueries: 2,
+      maxSearchCalls: 2,
+      tokenProfile: {
+        planner: 384,
+        research: 512,
+        writer: 1024,
+        critic: 512,
+      },
+      searchProfile: {
+        maxAbstractResults: 3,
+        maxPostResults: 6,
+        maxDocResults: 4,
+        maxWebSearchResults: 3,
+        maxPageIndexSeeds: 2,
+      },
+      sourceProfile: {
+        pageIndexMaxSteps: 3,
+      },
+      resultProfile: {
+        writerContextSources: 5,
+      },
+      enableFlags: {
+        plannerEnabled: true,
+        hydeEnabled: false,
+        multiQueryEnabled: false,
+        searchToolsEnabled: false,
+        bm25ShortCircuitEnabled: true,
+        pageIndexEnabled: false,
+        researchEnabled: false,
+        writerEnabled: false,
+        criticEnabled: true,
+        rerankerEnabled: false,
+      },
+      searchToolProfile: {
+        providers: ['jina'],
+        maxResults: 4,
+        timeoutMs: 8000,
+      },
+      searchToolProfiles: {
+        planner: { enabled: false },
+        research: { enabled: false },
+        writer: { enabled: false },
+        critic: { enabled: false },
+      },
+    },
+    balanced: {
+      providerPref: 'openai',
+      model: 'gpt-4.1-mini',
+      maxTokens: 2048,
+      maxQueries: 3,
+      maxSearchCalls: 3,
+      tokenProfile: {
+        planner: 512,
+        research: 1024,
+        writer: 2048,
+        critic: 1024,
+      },
+      searchProfile: {
+        maxAbstractResults: 4,
+        maxPostResults: 8,
+        maxDocResults: 5,
+        maxWebSearchResults: 4,
+        maxPageIndexSeeds: 3,
+      },
+      sourceProfile: {
+        pageIndexMaxSteps: 5,
+      },
+      resultProfile: {
+        writerContextSources: 8,
+      },
+      enableFlags: {
+        plannerEnabled: true,
+        hydeEnabled: true,
+        multiQueryEnabled: true,
+        searchToolsEnabled: true,
+        bm25ShortCircuitEnabled: true,
+        pageIndexEnabled: true,
+        researchEnabled: true,
+        writerEnabled: true,
+        criticEnabled: true,
+        rerankerEnabled: false,
+      },
+      searchToolProfile: {
+        providers: ['jina', 'cloudflare'],
+        maxResults: 4,
+        timeoutMs: 8000,
+      },
+      searchToolProfiles: {
+        planner: { enabled: false },
+        research: { enabled: true },
+        writer: { enabled: false },
+        critic: { enabled: false },
+      },
+    },
+    deep: {
+      providerPref: 'openai',
+      model: 'gpt-4.1-mini',
+      maxTokens: 3072,
+      maxQueries: 5,
+      maxSearchCalls: 5,
+      tokenProfile: {
+        planner: 768,
+        research: 1536,
+        writer: 3072,
+        critic: 1536,
+      },
+      searchProfile: {
+        maxAbstractResults: 8,
+        maxPostResults: 12,
+        maxDocResults: 10,
+        maxWebSearchResults: 8,
+        maxPageIndexSeeds: 6,
+      },
+      sourceProfile: {
+        pageIndexMaxSteps: 8,
+      },
+      resultProfile: {
+        writerContextSources: 16,
+      },
+      enableFlags: {
+        plannerEnabled: true,
+        hydeEnabled: true,
+        multiQueryEnabled: true,
+        searchToolsEnabled: true,
+        bm25ShortCircuitEnabled: false,
+        pageIndexEnabled: true,
+        researchEnabled: true,
+        writerEnabled: true,
+        criticEnabled: true,
+        rerankerEnabled: true,
+      },
+      searchToolProfile: {
+        providers: ['jina', 'cloudflare'],
+        maxResults: 6,
+        timeoutMs: 8000,
+      },
+      searchToolProfiles: {
+        planner: { enabled: false },
+        research: { enabled: true },
+        writer: { enabled: false },
+        critic: { enabled: false },
+      },
+    },
+  };
+
+  const clampIntInRange = (raw, fallback, min, max) => {
+    const parsed = Number.parseInt(raw, 10);
+    if (!Number.isFinite(parsed)) return fallback;
+    return Math.max(min, Math.min(max, parsed));
+  };
+
+  const clampInt = (name, fallback) => {
+    const raw = form.elements[name]?.value;
+    const parsed = Number.parseInt(raw, 10);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  };
+
+  const applyTokenProfileDefaults = () => {
+    const baseTokens = clampInt('maxTokens', 2048);
+    const plannerBudget = clampIntInRange(Math.round(baseTokens * TOKEN_PROFILE_MULTIPLIERS.planner), 256, 256, 1024);
+    const researchBudget = clampIntInRange(Math.round(baseTokens * TOKEN_PROFILE_MULTIPLIERS.research), 256, 256, 2048);
+    const writerBudget = clampIntInRange(Math.round(baseTokens * TOKEN_PROFILE_MULTIPLIERS.writer), 1024, 1024, 4096);
+    const criticBudget = clampIntInRange(Math.round(baseTokens * TOKEN_PROFILE_MULTIPLIERS.critic), 512, 512, 2048);
+
+    if (plannerTokensInput) plannerTokensInput.value = String(plannerBudget);
+    if (researchTokensInput) researchTokensInput.value = String(researchBudget);
+    if (writerTokensInput) writerTokensInput.value = String(writerBudget);
+    if (criticTokensInput) criticTokensInput.value = String(criticBudget);
+  };
+
+  const hide = (el) => el.classList.add('is-hidden');
+  const show = (el) => el.classList.remove('is-hidden');
+
+  const setModeDescription = (presetName) => {
+    if (!modeDescription) return;
+    if (presetName === 'custom') {
+      modeDescription.textContent = '自訂模式：保留你手動設定的 Provider/模型與參數。';
+    } else {
+      modeDescription.textContent = '切換模式會同步對應預設參數（除「自訂」外）。';
+    }
+  };
+
+  const captureCustomModelSnapshot = () => {
+    if (!providerSelect || !modelSelect) return;
+    customModelSnapshot = {
+      providerPref: providerSelect.value,
+      model: modelSelect.value,
+    };
+    if (customModelStatus) {
+      customModelStatus.textContent = `已記錄：${customModelSnapshot.providerPref} / ${customModelSnapshot.model}`;
+    }
+  };
+
+  const updateCustomModelActions = (presetName) => {
+    if (!customModelActions) return;
+    if (presetName === 'custom') {
+      show(customModelActions);
+      if (!customModelSnapshot.providerPref) {
+        captureCustomModelSnapshot();
+      }
+    } else {
+      hide(customModelActions);
+    }
+  };
+
+  const applyModelProfile = (providerPref, model, forceModel = false) => {
+    if (!providerSelect || !modelSelect) return;
+    if (providerPref && providerState.providers.includes(providerPref)) {
+      providerSelect.value = providerPref;
+      syncModels();
+    }
+    if (forceModel && model) {
+      const targetModel = String(model).trim();
+      if (targetModel && modelSelect.querySelector(`option[value="${targetModel}"]`)) {
+        modelSelect.value = targetModel;
+      }
+    }
+  };
+
+  if (customTokenProfile && tokenProfileSettings) {
+    customTokenProfile.addEventListener('change', () => {
+      if (customTokenProfile.checked) {
+        show(tokenProfileSettings);
+        applyTokenProfileDefaults();
+      } else {
+        hide(tokenProfileSettings);
+      }
+    });
+  }
+
+  if (maxTokensInput) {
+    maxTokensInput.addEventListener('input', () => {
+      if (customTokenProfile?.checked) {
+        applyTokenProfileDefaults();
+      }
+    });
+  }
+
+  const applyAdvancedDefaults = () => {
+    if (maxAbstractResultsInput) maxAbstractResultsInput.value = '4';
+    if (maxPostResultsInput) maxPostResultsInput.value = '8';
+    if (maxDocResultsInput) maxDocResultsInput.value = '5';
+    if (maxWebSearchResultsInput) maxWebSearchResultsInput.value = '4';
+    if (maxPageIndexSeedsInput) maxPageIndexSeedsInput.value = '3';
+    if (pageIndexMaxStepsInput) pageIndexMaxStepsInput.value = '5';
+    if (writerContextSourcesInput) writerContextSourcesInput.value = '8';
+    if (enableHydeInput) enableHydeInput.checked = false;
+    if (enableMultiQueryInput) enableMultiQueryInput.checked = false;
+    if (enableSearchToolsInput) enableSearchToolsInput.checked = false;
+    if (enableSearchToolsPlannerInput) enableSearchToolsPlannerInput.checked = false;
+    if (enableSearchToolsResearchInput) enableSearchToolsResearchInput.checked = false;
+    if (enableSearchToolsWriterInput) enableSearchToolsWriterInput.checked = false;
+    if (enableSearchToolsCriticInput) enableSearchToolsCriticInput.checked = false;
+    if (searchToolProvidersInput) searchToolProvidersInput.value = 'jina';
+    if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = '4';
+    if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = '8000';
+    if (enableBm25ShortCircuitInput) enableBm25ShortCircuitInput.checked = true;
+    if (enablePageIndexInput) enablePageIndexInput.checked = false;
+    if (enableCriticInput) enableCriticInput.checked = true;
+    if (enablePlannerInput) enablePlannerInput.checked = true;
+    if (enableResearchAgentInput) enableResearchAgentInput.checked = true;
+    if (enableWriterInput) enableWriterInput.checked = true;
+    if (enableRerankerInput) enableRerankerInput.checked = false;
+  };
+
+  const applyPresetProfile = (presetName) => {
+    setModeDescription(presetName);
+    updateCustomModelActions(presetName);
+    if (presetName === 'custom') {
+      if (customModelSnapshot.providerPref) {
+        applyModelProfile(customModelSnapshot.providerPref, customModelSnapshot.model, true);
+      }
+      return;
+    }
+    const profile = PRESET_PROFILES[presetName];
+    if (!profile) return;
+
+    applyModelProfile(profile.providerPref, profile.model, true);
+    if (maxTokensInput) maxTokensInput.value = String(profile.maxTokens);
+    if (customTokenProfile) {
+      customTokenProfile.checked = true;
+      show(tokenProfileSettings);
+      if (plannerTokensInput) plannerTokensInput.value = String(profile.tokenProfile.planner);
+      if (researchTokensInput) researchTokensInput.value = String(profile.tokenProfile.research);
+      if (writerTokensInput) writerTokensInput.value = String(profile.tokenProfile.writer);
+      if (criticTokensInput) criticTokensInput.value = String(profile.tokenProfile.critic);
+    }
+
+    if (advancedProfile) {
+      advancedProfile.checked = true;
+      show(advancedSettings);
+      if (maxAbstractResultsInput) maxAbstractResultsInput.value = String(profile.searchProfile.maxAbstractResults);
+      if (maxPostResultsInput) maxPostResultsInput.value = String(profile.searchProfile.maxPostResults);
+      if (maxDocResultsInput) maxDocResultsInput.value = String(profile.searchProfile.maxDocResults);
+      if (maxWebSearchResultsInput) maxWebSearchResultsInput.value = String(profile.searchProfile.maxWebSearchResults);
+      if (maxPageIndexSeedsInput) maxPageIndexSeedsInput.value = String(profile.searchProfile.maxPageIndexSeeds);
+      if (pageIndexMaxStepsInput) pageIndexMaxStepsInput.value = String(profile.sourceProfile.pageIndexMaxSteps);
+      if (writerContextSourcesInput) writerContextSourcesInput.value = String(profile.resultProfile.writerContextSources);
+      if (enableHydeInput) enableHydeInput.checked = profile.enableFlags.hydeEnabled;
+      if (enableMultiQueryInput) enableMultiQueryInput.checked = profile.enableFlags.multiQueryEnabled;
+      if (enableSearchToolsInput) enableSearchToolsInput.checked = profile.enableFlags.searchToolsEnabled;
+      if (searchToolProvidersInput) searchToolProvidersInput.value = (profile.searchToolProfile?.providers || ['jina']).join(', ');
+      if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = String(profile.searchToolProfile?.maxResults ?? 4);
+      if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = String(profile.searchToolProfile?.timeoutMs ?? 8000);
+      if (enableSearchToolsPlannerInput) enableSearchToolsPlannerInput.checked = !!profile.searchToolProfiles?.planner?.enabled;
+      if (enableSearchToolsResearchInput) enableSearchToolsResearchInput.checked = !!profile.searchToolProfiles?.research?.enabled;
+      if (enableSearchToolsWriterInput) enableSearchToolsWriterInput.checked = !!profile.searchToolProfiles?.writer?.enabled;
+      if (enableSearchToolsCriticInput) enableSearchToolsCriticInput.checked = !!profile.searchToolProfiles?.critic?.enabled;
+      if (enableBm25ShortCircuitInput) enableBm25ShortCircuitInput.checked = profile.enableFlags.bm25ShortCircuitEnabled;
+      if (enablePageIndexInput) enablePageIndexInput.checked = profile.enableFlags.pageIndexEnabled;
+      if (enableCriticInput) enableCriticInput.checked = profile.enableFlags.criticEnabled;
+      if (enablePlannerInput) enablePlannerInput.checked = profile.enableFlags.plannerEnabled;
+      if (enableResearchAgentInput) enableResearchAgentInput.checked = profile.enableFlags.researchEnabled;
+      if (enableWriterInput) enableWriterInput.checked = profile.enableFlags.writerEnabled;
+      if (enableRerankerInput) enableRerankerInput.checked = profile.enableFlags.rerankerEnabled;
+    }
+
+    if (form.elements.maxQueries) form.elements.maxQueries.value = String(profile.maxQueries);
+    if (form.elements.maxSearchCalls) form.elements.maxSearchCalls.value = String(profile.maxSearchCalls);
+  };
+
+  if (advancedProfile && advancedSettings) {
+    advancedProfile.addEventListener('change', () => {
+      if (advancedProfile.checked) {
+        show(advancedSettings);
+        applyAdvancedDefaults();
+      } else {
+        hide(advancedSettings);
+      }
+    });
+  }
+
+  if (modeSelect) {
+    modeSelect.addEventListener('change', () => {
+      applyPresetProfile(modeSelect.value);
+    });
+  }
+
+  if (applyCurrentModelButton) {
+    applyCurrentModelButton.addEventListener('click', () => {
+      captureCustomModelSnapshot();
+    });
+  }
+
+  if (providerSelect) {
+    providerSelect.addEventListener('change', () => {
+      if (modeSelect?.value === 'custom') {
+        captureCustomModelSnapshot();
+      }
+    });
+  }
+
+  if (modelSelect) {
+    modelSelect.addEventListener('change', () => {
+      if (modeSelect?.value === 'custom') {
+        captureCustomModelSnapshot();
+      }
+    });
+  }
+
+  const createOption = (value, label) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label;
+    return option;
+  };
+
+  const parseSearchToolProviders = (raw) => Array.from(
+    new Set(
+      String(raw ?? '')
+        .split(',')
+        .map((item) => String(item ?? '').trim().toLowerCase())
+        .filter((item) => item.length > 0)
+    )
+  );
+
+  const normalize = (value) => String(value ?? '').trim();
+
+  const loadModelCatalog = async () => {
+    let providers = Object.keys(defaultProviderModels);
+    let catalog = [];
+
+    try {
+      const response = await fetch('/api/admin/providers');
+      if (!response.ok) throw new Error('provider catalog not available');
+      const payload = await response.json();
+      providers = Array.isArray(payload.providers) ? payload.providers : providers;
+      if (!providers.length) {
+        providers = Object.keys(defaultProviderModels);
+      }
+      catalog = Array.isArray(payload.catalog?.models) ? payload.catalog.models : [];
+    } catch {
+      // keep fallback defaults
+    }
+
+    providerSelect.replaceChildren();
+    for (const provider of providers) {
+      providerSelect.append(createOption(provider, provider));
+    }
+
+    if (providerSelect.options.length > 0) {
+      providerSelect.value = providerSelect.options[0].value;
+    }
+    providerState.catalog = catalog;
+    providerState.providers = providers;
+    syncModels();
+    if (catalog.length === 0) {
+      modelSource.textContent = '未能載入 provider catalog，使用預設模型清單。';
+    }
+  };
+
+  const syncModels = () => {
+    const provider = providerSelect.value;
+    const providerEntries = Array.isArray(providerState.catalog) ? providerState.catalog : [];
+    const options = [];
+
+    for (const item of providerEntries) {
+      if (item?.provider === provider && typeof item?.model === 'string' && item.model.trim()) {
+        const suffix = item.enabled === false ? '（未啟用）' : '';
+        options.push({ value: item.model.trim(), label: `${item.model.trim()}${suffix}` });
+      }
+    }
+
+    if (!options.length) {
+      for (const fallback of defaultProviderModels[provider] ?? []) {
+        options.push({ value: fallback, label: fallback });
+      }
+    }
+
+    modelSelect.replaceChildren();
+    for (const entry of options) {
+      modelSelect.append(createOption(entry.value, entry.label));
+    }
+    if (modelSelect.options.length > 0) {
+      modelSelect.value = modelSelect.options[0].value;
+      modelSource.textContent = `已載入 provider (${provider}) 模型清單：${modelSelect.options.length} 筆。`;
+    } else {
+      modelSelect.append(createOption('', '尚未可用模型'));
+      modelSource.textContent = `provider (${provider}) 目前未提供可用模型，請先在「模型供應商」頁面建立條目。`;
+    }
+  };
+
+  providerSelect.addEventListener('change', () => {
+    syncModels();
+  });
+
+  loadModelCatalog().then(() => {
+    if (modeSelect) {
+      applyPresetProfile(modeSelect.value);
+    }
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    errorBox.textContent = '';
+    hide(errorBox);
+    hide(loginCta);
+    hide(resultBox);
+    resultSummary.textContent = '';
+    submitButton.disabled = true;
+    submitText.textContent = '正在產生中…';
+
+    const payload = {
+      brief: normalize(form.elements.brief.value),
+      config: {
+        providerPref: providerSelect.value,
+        model: normalize(modelSelect.value),
+        maxQueries: clampInt('maxQueries', 3),
+        maxTokens: clampInt('maxTokens', 2048),
+        maxSearchCalls: clampInt('maxSearchCalls', 3),
+      },
+    };
+
+    if (advancedProfile?.checked) {
+      payload.config.searchProfile = {
+        maxAbstractResults: clampIntInRange(maxAbstractResultsInput?.value, 4, 1, 20),
+        maxPostResults: clampIntInRange(maxPostResultsInput?.value, 8, 1, 30),
+        maxDocResults: clampIntInRange(maxDocResultsInput?.value, 5, 1, 30),
+        maxWebSearchResults: clampIntInRange(maxWebSearchResultsInput?.value, 4, 1, 20),
+        maxPageIndexSeeds: clampIntInRange(maxPageIndexSeedsInput?.value, 3, 1, 6),
       };
-
-      const hide = (el) => {
-        el.classList.add('hidden');
+      payload.config.sourceProfile = {
+        pageIndexMaxSteps: clampIntInRange(pageIndexMaxStepsInput?.value, 5, 1, 10),
       };
-
-      const show = (el) => {
-        el.classList.remove('hidden');
+      payload.config.resultProfile = {
+        writerContextSources: clampIntInRange(writerContextSourcesInput?.value, 8, 1, 40),
       };
+      payload.config.enableFlags = {
+        hydeEnabled: !!enableHydeInput?.checked,
+        multiQueryEnabled: !!enableMultiQueryInput?.checked,
+        searchToolsEnabled: !!enableSearchToolsInput?.checked,
+        bm25ShortCircuitEnabled: !!enableBm25ShortCircuitInput?.checked,
+        pageIndexEnabled: !!enablePageIndexInput?.checked,
+        plannerEnabled: !!enablePlannerInput?.checked,
+        researchEnabled: !!enableResearchAgentInput?.checked,
+        writerEnabled: !!enableWriterInput?.checked,
+        criticEnabled: !!enableCriticInput?.checked,
+        rerankerEnabled: !!enableRerankerInput?.checked,
+      };
+      payload.config.searchToolProfile = {
+        providers: parseSearchToolProviders(searchToolProvidersInput?.value),
+        maxResults: clampIntInRange(searchToolMaxResultsInput?.value, 4, 1, 20),
+        timeoutMs: clampIntInRange(searchToolTimeoutMsInput?.value, 8000, 1000, 60000),
+      };
+      payload.config.searchToolProfiles = {
+        planner: { enabled: !!enableSearchToolsPlannerInput?.checked },
+        research: { enabled: !!enableSearchToolsResearchInput?.checked },
+        writer: { enabled: !!enableSearchToolsWriterInput?.checked },
+        critic: { enabled: !!enableSearchToolsCriticInput?.checked },
+      };
+    }
 
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        errorBox.textContent = '';
-        hide(errorBox);
-        hide(loginCta);
-        hide(resultBox);
-        resultSummary.textContent = '';
-        submitButton.disabled = true;
-        submitText.textContent = '🚀 正在產生中…';
+    if (customTokenProfile?.checked) {
+      payload.config.tokenProfile = {
+        planner: clampIntInRange(plannerTokensInput?.value, clampInt('maxTokens', 2048), 256, 1024),
+        research: clampIntInRange(researchTokensInput?.value, clampInt('maxTokens', 2048), 256, 2048),
+        writer: clampIntInRange(writerTokensInput?.value, 2048, 1024, 4096),
+        critic: clampIntInRange(criticTokensInput?.value, 1024, 512, 2048),
+      };
+    }
 
-        const payload = {
-          brief: form.elements.brief.value.trim(),
-          config: {
-            maxQueries: getInputNumber('maxQueries', 3),
-            maxTokens: getInputNumber('maxTokens', 256),
-            providerPref: form.elements.providerPref.value,
-            maxSearchCalls: getInputNumber('maxSearchCalls', 3),
-          },
-        };
+    if (!payload.brief) {
+      errorBox.textContent = '請先填寫研究主題。';
+      show(errorBox);
+      submitButton.disabled = false;
+      submitText.textContent = '產生研究報告';
+      return;
+    }
 
-        if (!payload.brief) {
-          errorBox.textContent = '請填寫研究主題。';
-          show(errorBox);
-          submitButton.disabled = false;
-          submitText.textContent = '產生研究報告';
-          return;
-        }
-
-        try {
-          const response = await fetch('/api/deep-research', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          });
-
-          if (!response.ok) {
-            if (response.status === 401 || response.status === 403) {
-              const loginCta = document.querySelector('#login-cta');
-              if (loginCta) {
-                loginCta.classList.remove('hidden');
-              }
-              throw new Error('請先登入或確認權限後再重試。');
-            }
-            if (response.status === 429) {
-              throw new Error('請求過於頻繁，請稍後再試。');
-            }
-
-            const text = await response.text();
-            throw new Error(text || '請求失敗');
-          }
-
-          const result = await response.json();
-          if (!result?.reportUrl) {
-            throw new Error('回傳資料格式不完整');
-          }
-
-          resultSummary.innerHTML = `<strong>簡短說明：</strong> ${result.summary}`;
-          resultLink.href = result.reportUrl;
-          show(resultBox);
-        } catch (err) {
-          errorBox.textContent = `⚠️ ${err.message || '發生未預期錯誤'}`;
-          show(errorBox);
-        } finally {
-          submitButton.disabled = false;
-          submitText.textContent = '產生研究報告';
-        }
+    try {
+      const response = await fetch('/api/deep-research', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
-    </script>
-  </body>
-</html>
+
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          show(loginCta);
+          throw new Error('請先登入或確認權限後再重試。');
+        }
+        if (response.status === 429) {
+          throw new Error('請求過於頻繁，請稍後再試。');
+        }
+        const text = await response.text();
+        throw new Error(text || '請求失敗');
+      }
+
+      const result = await response.json();
+      if (!result?.reportUrl) {
+        throw new Error('回傳資料格式不完整');
+      }
+
+      resultSummary.textContent = `簡短說明：${result.summary}`;
+      resultLink.href = result.reportUrl;
+      show(resultBox);
+    } catch (error) {
+      errorBox.textContent = `⚠️ ${error?.message || '發生未預期錯誤'}`;
+      show(errorBox);
+    } finally {
+      submitButton.disabled = false;
+      submitText.textContent = '產生研究報告';
+    }
+  });
+</script>

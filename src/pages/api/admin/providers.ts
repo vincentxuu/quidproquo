@@ -6,7 +6,7 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { verifySession } from '../../../lib/auth/session'
 import { createModel } from '../../../lib/rag/model'
 import type { RagRuntimeConfig } from '../../../lib/rag/state'
-import { SUPPORTED_RAG_PROVIDERS } from '../../../lib/rag/providers'
+import { SUPPORTED_PROVIDERS } from '../../../lib/rag/providers'
 import {
   getCurrentProviderKeyValues,
   isWhitelistedProviderKey,
@@ -55,7 +55,6 @@ interface ProviderSaveBody {
   maxTokens?: unknown
 }
 
-export const SUPPORTED_PROVIDERS = SUPPORTED_RAG_PROVIDERS
 const CATALOG_KEY = 'provider_model_catalog'
 const DEFAULT_CATALOG: ProviderCatalog = {
   models: [

@@ -45,6 +45,9 @@ export interface RagRuntimeConfig {
   pageIndexMaxSteps: number
   bm25ShortCircuitEnabled: boolean
   shadowModeEnabled: boolean
+  plannerEnabled: boolean
+  researchEnabled: boolean
+  writerEnabled: boolean
   semanticCacheThreshold: number
   rerankerMinKeep: number
   mmrLambda: number
@@ -140,6 +143,9 @@ export function initialState(): GraphState {
       pageIndexMaxSteps: 5,
       bm25ShortCircuitEnabled: true,
       shadowModeEnabled: false,
+      plannerEnabled: true,
+      researchEnabled: true,
+      writerEnabled: true,
     semanticCacheThreshold: 0.95,
     rerankerMinKeep: 3,
     mmrLambda: 0.7,

@@ -1,6 +1,6 @@
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
-import { SUPPORTED_RAG_PROVIDERS } from './providers'
+import { SUPPORTED_PROVIDERS } from './providers'
 
 interface SettingsEnv {
   DB: D1Database
@@ -20,11 +20,18 @@ const DEFAULTS: RagRuntimeConfig = {
   pageIndexEnabled: false,
   pageIndexMaxSteps: 5,
   bm25ShortCircuitEnabled: true,
+  plannerEnabled: true,
+  researchEnabled: true,
+  writerEnabled: true,
   shadowModeEnabled: false,
   semanticCacheThreshold: 0.95,
   rerankerMinKeep: 3,
   mmrLambda: 0.7,
   checkpointThresholdRatio: 0.7,
+  searchToolsEnabled: false,
+  searchToolProviders: ['jina'],
+  searchToolMaxResults: 4,
+  searchToolTimeoutMs: 8000,
 }
 
 const SETTINGS_KEYS = {
@@ -38,6 +45,9 @@ const SETTINGS_KEYS = {
   multiQueryEnabled: 'rag_flag_multi_query',
   rerankerEnabled: 'rag_flag_reranker',
   criticEnabled: 'rag_flag_critic',
+  plannerEnabled: 'rag_flag_planner',
+  researchEnabled: 'rag_flag_research',
+  writerEnabled: 'rag_flag_writer',
   pageIndexEnabled: 'rag_flag_pageindex',
   pageIndexMaxSteps: 'rag_pageindex_max_steps',
   bm25ShortCircuitEnabled: 'rag_flag_bm25_short_circuit',
@@ -113,17 +123,20 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
     ),
     defaultProvider: parseChoice(
       byKey.get(SETTINGS_KEYS.defaultProvider),
-      SUPPORTED_RAG_PROVIDERS,
+      SUPPORTED_PROVIDERS,
       DEFAULTS.defaultProvider,
     ),
     defaultModel: byKey.get(SETTINGS_KEYS.defaultModel) ?? DEFAULTS.defaultModel,
     stageOverrides: parseJsonRecord(byKey.get(SETTINGS_KEYS.stageOverrides)),
-    fallbackProvider: parseNullableChoice(byKey.get(SETTINGS_KEYS.fallbackProvider), SUPPORTED_RAG_PROVIDERS),
+    fallbackProvider: parseNullableChoice(byKey.get(SETTINGS_KEYS.fallbackProvider), SUPPORTED_PROVIDERS),
     fallbackModel: byKey.get(SETTINGS_KEYS.fallbackModel) || DEFAULTS.fallbackModel,
     hydeEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.hydeEnabled), DEFAULTS.hydeEnabled),
     multiQueryEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.multiQueryEnabled), DEFAULTS.multiQueryEnabled),
     rerankerEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.rerankerEnabled), DEFAULTS.rerankerEnabled),
     criticEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.criticEnabled), DEFAULTS.criticEnabled),
+    plannerEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.plannerEnabled), DEFAULTS.plannerEnabled),
+    researchEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.researchEnabled), DEFAULTS.researchEnabled),
+    writerEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.writerEnabled), DEFAULTS.writerEnabled),
     pageIndexEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.pageIndexEnabled), DEFAULTS.pageIndexEnabled),
     pageIndexMaxSteps: parseNumber(byKey.get(SETTINGS_KEYS.pageIndexMaxSteps), DEFAULTS.pageIndexMaxSteps),
     bm25ShortCircuitEnabled: parseBoolean(

@@ -1,4 +1,4 @@
-export const SUPPORTED_RAG_PROVIDERS = [
+export const SUPPORTED_PROVIDERS = [
   'groq',
   'openai',
   'google',
@@ -12,4 +12,4 @@ export const SUPPORTED_RAG_PROVIDERS = [
   'ollama',
 ] as const
 
-export type RagProvider = (typeof SUPPORTED_RAG_PROVIDERS)[number]
+export type RagProvider = (typeof SUPPORTED_PROVIDERS)[number]
