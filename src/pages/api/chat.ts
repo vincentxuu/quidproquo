@@ -8,6 +8,7 @@ import { loadRagSettings, buildShadowBaselineConfig } from '../../lib/rag/settin
 import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/rag/checkpoints'
 import { lookupSemanticCache, storeSemanticCache } from '../../lib/rag/cache'
 import type { GraphState, RagRuntimeConfig } from '../../lib/rag/state'
+import { resolveProviderApiKeys } from '../../lib/rag/provider-key-store'
 
 interface Env { DB: D1Database }
 type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
@@ -87,6 +88,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   const traceId = crypto.randomUUID()
   const ip = clientAddress ?? request.headers.get('CF-Connecting-IP') ?? 'unknown'
   const ragConfig = await loadRagSettings()
+  const providerApiKeys = await resolveProviderApiKeys((env as unknown as Env).DB)
   const requestedEngine = body.pipelineEngine
   if (requestedEngine && ['langgraph', 'manual', 'llamaindex'].includes(requestedEngine)) {
     ragConfig.pipelineEngine = requestedEngine
@@ -158,8 +160,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
               send('agent_step', { agent, status: 'completed', ...extra })
             },
             onToken: (text) => send('token', { text }),
-            onRelated: (posts) => send('related', posts),
-          }
+              onRelated: (posts) => send('related', posts),
+          },
+          { providerApiKeys }
         )
 
         if (ragConfig.shadowModeEnabled) {
@@ -175,7 +178,8 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
               onStep: () => {},
               onToken: () => {},
               onRelated: () => {},
-            }
+            },
+            { providerApiKeys }
           )
 
           const { DB } = env as unknown as Env

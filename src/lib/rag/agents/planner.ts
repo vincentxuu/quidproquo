@@ -1,6 +1,6 @@
 import type { GraphState, Plan } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
-import { invokeModel } from '../model'
+import { invokeModel, type ProviderApiKeys } from '../model'
 
 const INTENT_PROMPT = `You are a query planner for a personal blog RAG system.
 Analyze the user's query and respond with JSON only, no markdown.
@@ -20,13 +20,26 @@ Mark "off-topic" if the question is unrelated to the blog content (e.g., weather
 Mark "recommendation" for article discovery requests such as "找文章", "推薦文章", "閱讀路線", "what should I read", or "learning path".
 Mark "needs_clarification" only if the query is genuinely ambiguous.`
 
-export async function plannerNode(state: GraphState): Promise<Partial<GraphState>> {
+export async function plannerNode(
+  state: GraphState,
+  options?: {
+    apiKeys?: ProviderApiKeys
+    maxTokens?: number
+  }
+): Promise<Partial<GraphState>> {
+  const maxTokens = options?.maxTokens ?? 512
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
-  const { response, route } = await invokeModel(state.config, 'planner', [
+  const { response, route } = await invokeModel(
+    state.config,
+    'planner',
+    [
     new HumanMessage(`${INTENT_PROMPT}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
-  ], 512)
+    ],
+    maxTokens,
+    options?.apiKeys
+  )
 
   let plan: Plan = {
     intent: 'factual',

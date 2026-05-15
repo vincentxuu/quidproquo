@@ -1,6 +1,7 @@
 import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig } from './state'
 import { normalizeRagLifecycleOutput } from './engines/normalizers'
 import { resolveRagEngine } from './engines/registry'
+import type { ProviderApiKeys } from './model'
 
 export async function runPipeline(
   input: {
@@ -11,6 +12,10 @@ export async function runPipeline(
     config?: RagRuntimeConfig
   },
   callbacks: PipelineCallbacks
+,
+  options?: {
+    providerApiKeys?: ProviderApiKeys
+  }
 ): Promise<GraphState> {
   const engine = input.config?.pipelineEngine ?? 'langgraph'
   const engineConfig = input.config ?? initialState().config
@@ -23,6 +28,7 @@ export async function runPipeline(
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
       config: effectiveConfig,
+      providerApiKeys: options?.providerApiKeys,
     },
     callbacks
   )

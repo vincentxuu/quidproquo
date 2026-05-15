@@ -92,9 +92,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const defaultCaseCount = Number((evalCasesInput && evalCasesInput.value) || '8');
   const settingMeta = [
     { key: 'rag_pipeline_engine', label: 'Pipeline engine', type: 'select', section: 'Routing', options: ['langgraph', 'manual', 'llamaindex'] },
-    { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['groq', 'openai', 'google'] },
+    { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'] },
     { key: 'rag_default_model', label: 'Default model', type: 'text', section: 'Routing' },
-    { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'groq', 'openai', 'google'] },
+    { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'] },
     { key: 'rag_fallback_model', label: 'Fallback model', type: 'text', section: 'Routing' },
     { key: 'rag_stage_overrides', label: 'Stage overrides JSON', type: 'textarea', section: 'Routing' },
     { key: 'rag_flag_hyde', label: 'HyDE', type: 'boolean', section: 'Retrieval' },
@@ -104,6 +104,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     { key: 'rag_flag_pageindex', label: 'PageIndex', type: 'boolean', section: 'Retrieval' },
     { key: 'rag_flag_bm25_short_circuit', label: 'BM25 short circuit', type: 'boolean', section: 'Retrieval' },
     { key: 'rag_shadow_mode', label: 'Shadow mode', type: 'boolean', section: 'Retrieval' },
+    { key: 'rag_search_tools_enabled', label: 'Search tools enabled', type: 'boolean', section: 'Search tools' },
+    { key: 'rag_search_tool_providers', label: 'Search tool providers', type: 'text', section: 'Search tools' },
+    { key: 'rag_search_tool_max_results', label: 'Search tool max results', type: 'number', section: 'Search tools', min: 1, max: 20, step: 1 },
+    { key: 'rag_search_tool_timeout_ms', label: 'Search tool timeout ms', type: 'number', section: 'Search tools', min: 500, max: 30000, step: 100 },
     { key: 'rag_pageindex_max_steps', label: 'PageIndex max steps', type: 'number', section: 'Tuning', min: 1, max: 20, step: 1 },
     { key: 'semantic_cache_threshold', label: 'Semantic cache threshold', type: 'number', section: 'Tuning', min: 0, max: 1, step: 0.01 },
     { key: 'rag_reranker_min_keep', label: 'Reranker min keep', type: 'number', section: 'Tuning', min: 1, max: 20, step: 1 },
@@ -291,6 +295,19 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       settingsStatus.textContent = 'Stage overrides 必須是有效 JSON。';
       return;
     }
+    try {
+      const providers = settings.rag_search_tool_providers?.trim();
+      if (providers) {
+        const parsed = JSON.parse(providers)
+        if (!Array.isArray(parsed)) {
+          settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare"]）。';
+          return;
+        }
+      }
+    } catch {
+      settingsStatus.textContent = 'Search tool providers 必須是 JSON 陣列（例如 ["jina", "cloudflare"]）。';
+      return;
+    }
 
     settingsStatus.textContent = '儲存中...';
     const res = await fetch('/api/admin/rag', {
@@ -400,4 +417,3 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
   load();
 </script>
-

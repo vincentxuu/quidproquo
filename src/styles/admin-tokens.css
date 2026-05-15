@@ -1813,12 +1813,61 @@ pre {
     gap: 1rem;
   }
 
+  .catalog-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  .catalog-toolbar button {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--admin-radius-xs, 4px);
+    color: var(--admin-text-muted, #4a7c59);
+    border: 1px solid var(--admin-border, #d1e8d1);
+    background: var(--admin-surface, #fff);
+    cursor: pointer;
+  }
+
+  .catalog-toolbar button:hover {
+    border-color: var(--admin-accent, #4a9e6a);
+    color: var(--admin-accent-hover, #2f6f46);
+  }
+
   .catalog-provider {
     border: 1px solid var(--admin-border, #d1e8d1);
     border-radius: var(--admin-radius, 8px);
     background: var(--admin-surface, #fff);
     overflow: hidden;
     min-width: 0;
+  }
+
+  .catalog-provider-summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .catalog-provider-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .catalog-provider-summary::before {
+    content: '▸';
+    margin-left: 0.2rem;
+    margin-right: 0.45rem;
+    color: var(--admin-text-soft, #767676);
+    transition: transform 0.16s ease;
+    display: inline-block;
+  }
+
+  .catalog-provider[open] .catalog-provider-summary::before {
+    transform: rotate(90deg);
+  }
+
+  .catalog-provider-summary:focus-visible {
+    outline: 2px solid var(--admin-accent, #4a9e6a);
+    outline-offset: 0;
   }
 
   .catalog-provider-header {
@@ -1840,6 +1889,10 @@ pre {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
+  }
+
+  .catalog-provider-body {
+    border-top: 1px solid var(--admin-border, #d1e8d1);
   }
 
   .catalog-sync-status {

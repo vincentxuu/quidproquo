@@ -1,8 +1,15 @@
 import type { GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { invokeModel } from '../model'
+import { invokeModel, type ProviderApiKeys } from '../model'
 
-export async function writerNode(state: GraphState): Promise<Partial<GraphState>> {
+export async function writerNode(
+  state: GraphState,
+  options?: {
+    apiKeys?: ProviderApiKeys
+    maxTokens?: number
+  }
+): Promise<Partial<GraphState>> {
+  const maxTokens = options?.maxTokens ?? 2048
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -34,10 +41,16 @@ ${needsDisclaimer ? 'Because prior checks found low confidence or formatting iss
 Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
 Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}`
 
-  const { response, route } = await invokeModel(state.config, 'writer', [
+  const { response, route } = await invokeModel(
+    state.config,
+    'writer',
+    [
     new SystemMessage(systemPrompt),
     new HumanMessage(`Conversation summary:\n${state.conversation_summary ?? 'none'}\n\nQuestion: ${query}\n\nSources:\n${contextParts.join('\n\n')}`),
-  ], 2048)
+    ],
+    maxTokens,
+    options?.apiKeys
+  )
 
   const draft = typeof response.content === 'string' ? response.content : ''
 

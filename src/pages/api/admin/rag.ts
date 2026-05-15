@@ -27,6 +27,10 @@ const MANAGED_KEYS = [
   'rag_reranker_min_keep',
   'rag_mmr_lambda',
   'rag_checkpoint_threshold_ratio',
+  'rag_search_tools_enabled',
+  'rag_search_tool_providers',
+  'rag_search_tool_max_results',
+  'rag_search_tool_timeout_ms',
   'rag_trace_retention_prod_days',
   'rag_trace_retention_admin_days',
   'rag_trace_retention_prod_native_days',
@@ -62,6 +66,10 @@ const DEFAULT_SETTINGS: Record<string, string> = {
   rag_trace_retention_native_sample_bps: '100',
   rag_trace_retention_error_grace_days: '3',
   rag_trace_retention_enabled: '1',
+  rag_search_tools_enabled: '0',
+  rag_search_tool_providers: '["jina"]',
+  rag_search_tool_max_results: '4',
+  rag_search_tool_timeout_ms: '8000',
 }
 
 export const GET: APIRoute = async ({ cookies }) => {

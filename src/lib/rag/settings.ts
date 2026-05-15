@@ -46,6 +46,10 @@ const SETTINGS_KEYS = {
   rerankerMinKeep: 'rag_reranker_min_keep',
   mmrLambda: 'rag_mmr_lambda',
   checkpointThresholdRatio: 'rag_checkpoint_threshold_ratio',
+  searchToolsEnabled: 'rag_search_tools_enabled',
+  searchToolProviders: 'rag_search_tool_providers',
+  searchToolMaxResults: 'rag_search_tool_max_results',
+  searchToolTimeoutMs: 'rag_search_tool_timeout_ms',
 } as const
 
 function parseBoolean(value: string | undefined, fallback: boolean): boolean {
@@ -75,6 +79,19 @@ function parseJsonRecord(value: string | undefined): RagRuntimeConfig['stageOver
     return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : DEFAULTS.stageOverrides
   } catch {
     return DEFAULTS.stageOverrides
+  }
+}
+
+function parseSearchToolProviders(value: string | undefined, fallback: string[]): string[] {
+  if (value == null || value.trim() === '') return fallback
+  try {
+    const parsed = JSON.parse(value)
+    if (!Array.isArray(parsed)) return fallback
+    return parsed
+      .map((item) => (typeof item === 'string' ? item.trim().toLowerCase() : ''))
+      .filter((item) => item.length > 0)
+  } catch {
+    return fallback
   }
 }
 
@@ -118,6 +135,10 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
     rerankerMinKeep: parseNumber(byKey.get(SETTINGS_KEYS.rerankerMinKeep), DEFAULTS.rerankerMinKeep),
     mmrLambda: parseNumber(byKey.get(SETTINGS_KEYS.mmrLambda), DEFAULTS.mmrLambda),
     checkpointThresholdRatio: parseNumber(byKey.get(SETTINGS_KEYS.checkpointThresholdRatio), DEFAULTS.checkpointThresholdRatio),
+    searchToolsEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.searchToolsEnabled), false),
+    searchToolProviders: parseSearchToolProviders(byKey.get(SETTINGS_KEYS.searchToolProviders), ['jina']),
+    searchToolMaxResults: parseNumber(byKey.get(SETTINGS_KEYS.searchToolMaxResults), 4),
+    searchToolTimeoutMs: parseNumber(byKey.get(SETTINGS_KEYS.searchToolTimeoutMs), 8000),
   }
 }
 

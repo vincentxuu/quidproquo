@@ -4,7 +4,7 @@ import { searchDocs } from '../tools/search-docs'
 import { getPostDetail } from '../tools/get-post-detail'
 import type { GraphState, SearchResult } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
-import { createModel } from '../model'
+import { createModel, type ProviderApiKeys } from '../model'
 
 const SYSTEM_PROMPT = `You are a research agent for a personal blog. Your job is to find relevant content.
 
@@ -14,7 +14,12 @@ Use get_post_detail only when you need the full content of a specific article.
 You can call multiple tools in parallel for efficiency.
 Stop when you have enough information (max 5 tool calls).`
 
-export async function researchNode(state: GraphState): Promise<Partial<GraphState>> {
+export async function researchNode(
+  state: GraphState,
+  options?: {
+    apiKeys?: ProviderApiKeys
+  }
+): Promise<Partial<GraphState>> {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -22,7 +27,11 @@ export async function researchNode(state: GraphState): Promise<Partial<GraphStat
     ? `\n\nPlanner subtasks to address:\n${state.plan.subtasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}`
     : ''
 
-  const model = createModel(2048)
+  const model = createModel(2048, {
+    config: state.config,
+    stage: 'research',
+    apiKeys: options?.apiKeys,
+  })
   const agent = createReactAgent({
     llm: model,
     tools: [searchBlogPosts, searchDocs, getPostDetail] as any,

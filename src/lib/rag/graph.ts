@@ -13,8 +13,9 @@ import { relatedPostsNode } from './agents/related-posts'
 import { fallbackNode } from './agents/fallback'
 import type { BaseMessage } from '@langchain/core/messages'
 import type { PipelineCallbacks } from './state'
+import type { ProviderApiKeys } from './model'
 
-export function buildGraph() {
+export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   const graph = new StateGraph<GraphState>({
     channels: {
       messages: { reducer: (a: BaseMessage[], b: BaseMessage[]) => [...a, ...b], default: () => [] },
@@ -42,12 +43,12 @@ export function buildGraph() {
   } as any) as any
 
   graph
-    .addNode('planner', plannerNode)
-    .addNode('research', researchNode)
+    .addNode('planner', (state: GraphState) => plannerNode(state, { apiKeys: options?.providerApiKeys }))
+    .addNode('research', (state: GraphState) => researchNode(state, { apiKeys: options?.providerApiKeys }))
     .addNode('normalize_results', normalizeResultsNode)
-    .addNode('writer', writerNode)
+    .addNode('writer', (state: GraphState) => writerNode(state, { apiKeys: options?.providerApiKeys }))
     .addNode('deterministic_validation', validationNode)
-    .addNode('critic', criticNode)
+    .addNode('critic', (state: GraphState) => criticNode(state, { apiKeys: options?.providerApiKeys }))
     .addNode('fallback', fallbackNode)
     .addNode('related', relatedPostsNode)
 
@@ -87,7 +88,10 @@ export async function runPipeline(
     conversationSummary?: string
     config?: RagRuntimeConfig
   },
-  callbacks: PipelineCallbacks
+  callbacks: PipelineCallbacks,
+  options?: {
+    providerApiKeys?: ProviderApiKeys
+  }
 ): Promise<GraphState> {
   const initState: Partial<GraphState> = {
     ...initialState(),
@@ -100,8 +104,8 @@ export async function runPipeline(
 
   let finalState: GraphState = initState as GraphState
   const pipelineStartedAt = Date.now()
-
-  const graphStream = compiledGraph.stream(initState, { streamMode: 'updates' })
+  const graph = options?.providerApiKeys ? buildGraph(options) : compiledGraph
+  const graphStream = graph.stream(initState, { streamMode: 'updates' })
 
   for await (const chunk of await graphStream) {
     const nodeName = Object.keys(chunk)[0]
@@ -110,12 +114,13 @@ export async function runPipeline(
     const previousStepEnd = finalState.trace_steps.at(-1)?.started_at
       ? new Date(finalState.trace_steps.at(-1)!.started_at).getTime() + finalState.trace_steps.at(-1)!.duration_ms
       : pipelineStartedAt
+    const nodeSummary = summarizeNodeUpdate(nodeName, update)
     const traceStep = {
       stage: nodeName,
       started_at: new Date(previousStepEnd).toISOString(),
       duration_ms: Math.max(0, finishedAt - previousStepEnd),
       input_summary: input.message.slice(0, 240),
-      output_summary: summarizeNodeUpdate(nodeName, update),
+      output_summary: nodeSummary,
       tokens: tokenDelta(finalState.token_usage, update.token_usage),
       retry: (update.iteration ?? finalState.iteration) > finalState.iteration + 1,
       metadata: buildNodeMetadata(update),
@@ -139,7 +144,11 @@ export async function runPipeline(
       if (posts.length > 0) callbacks.onRelated(posts)
     }
 
-    if (update) finalState = { ...finalState, ...update, trace_steps: [...(finalState.trace_steps ?? []), traceStep] }
+    finalState = {
+      ...finalState,
+      ...update,
+      trace_steps: [...(finalState.trace_steps ?? []), traceStep],
+    }
   }
 
   return finalState

@@ -7,11 +7,6 @@ export async function runLangGraphQuery(
   input: RagLifecycleInput,
   callbacks: PipelineCallbacks
 ): Promise<RagLifecycleOutput> {
-  const state = await runLangGraphQueryGraph(
-    {
-      ...input,
-    },
-    callbacks
-  )
+  const state = await runLangGraphQueryGraph(input, callbacks)
   return { ...state, native_trace: buildLangGraphNativeTrace(state) }
 }

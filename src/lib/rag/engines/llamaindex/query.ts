@@ -15,6 +15,7 @@ export async function runLlamaIndexQuery(
       conversationSummary: input.conversationSummary,
       config: input.config,
     },
+    input.providerApiKeys,
     callbacks
   )
 

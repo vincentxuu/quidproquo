@@ -10,6 +10,7 @@ import { criticNode } from '../agents/critic'
 import { relatedPostsNode } from '../agents/related-posts'
 import { fallbackNode } from '../agents/fallback'
 import { shouldDegrade, shouldRetry } from '../agents/critic-routing'
+import type { ProviderApiKeys } from '../model'
 
 export async function runManualPipeline(
   input: {
@@ -20,7 +21,10 @@ export async function runManualPipeline(
     config?: RagRuntimeConfig
   },
   callbacks: PipelineCallbacks,
-  engine: RagRuntimeConfig['pipelineEngine'] = 'manual'
+  engine: RagRuntimeConfig['pipelineEngine'] = 'manual',
+  options?: {
+    providerApiKeys?: ProviderApiKeys
+  }
 ): Promise<GraphState> {
   let state: GraphState = {
     ...initialState(),
@@ -54,22 +58,22 @@ export async function runManualPipeline(
     return update
   }
 
-  await runStep('planner', plannerNode)
+  await runStep('planner', (state) => plannerNode(state, { apiKeys: options?.providerApiKeys }))
   callbacks.onStep('Planner')
   if (state.plan.needs_clarification || state.plan.intent === 'off-topic') return state
 
   for (let i = 0; i < 3; i += 1) {
-    const research = await runStep('research', researchNode)
+    const research = await runStep('research', (state) => researchNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Research', { chunks_found: research.search_results?.length ?? state.search_results.length })
     await runStep('normalize_results', normalizeResultsNode)
-    await runStep('writer', writerNode)
+    await runStep('writer', (state) => writerNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Writer')
     callbacks.onToken(state.final_response)
     await runStep('deterministic_validation', validationNode)
     callbacks.onStep('Validation')
     if (!state.validation.passed && shouldRetry(state)) continue
     if (!state.config.criticEnabled) break
-    await runStep('critic', criticNode)
+    await runStep('critic', (state) => criticNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Critic')
     if (!shouldRetry(state)) break
   }

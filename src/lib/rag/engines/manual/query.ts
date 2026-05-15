@@ -16,7 +16,8 @@ export async function runManualQuery(
       config: input.config,
     },
     callbacks,
-    'manual'
+    'manual',
+    { providerApiKeys: input.providerApiKeys }
   )
   return { ...state, native_trace: buildManualNativeTrace(state) }
 }

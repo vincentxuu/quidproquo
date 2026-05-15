@@ -1,6 +1,7 @@
 import { HumanMessage } from '@langchain/core/messages'
 import type { SearchResult } from '../../state'
 import { runLlamaIndexRetriever } from './retriever'
+import { searchExternalTools } from '../../tools/external-search'
 import { shouldDegrade, shouldRetry } from '../../agents/critic-routing'
 import { plannerNode } from '../../agents/planner'
 import { normalizeResultsNode } from '../../agents/normalize-results'
@@ -10,6 +11,7 @@ import { criticNode } from '../../agents/critic'
 import { fallbackNode } from '../../agents/fallback'
 import { relatedPostsNode } from '../../agents/related-posts'
 import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig } from '../../state'
+import type { ProviderApiKeys } from '../../model'
 
 export interface LlamaIndexNativeTraceEvent {
   stage: string
@@ -40,6 +42,16 @@ function tokenDelta(previous: GraphState['token_usage'], next: GraphState['token
   }
 }
 
+function mergeUniqueSearchResults(results: SearchResult[]): SearchResult[] {
+  const seen = new Set<string>()
+  return results.filter((result) => {
+    if (!result.chunk_id) return false
+    if (seen.has(result.chunk_id)) return false
+    seen.add(result.chunk_id)
+    return true
+  })
+}
+
 function buildIterationSummary(state: Pick<GraphState, 'token_usage' | 'trace_steps'>): string {
   return `${state.trace_steps.length} steps | tokens ${state.token_usage.input + state.token_usage.output}`
 }
@@ -51,6 +63,7 @@ export async function runLlamaIndexQueryEngine(
     threadId?: string
     conversationSummary?: string
     config: RagRuntimeConfig
+    providerApiKeys?: ProviderApiKeys
   },
   callbacks: PipelineCallbacks
 ): Promise<{
@@ -100,8 +113,18 @@ export async function runLlamaIndexQueryEngine(
     return update
   }
 
+  const webSearchResults = state.config.searchToolsEnabled
+    ? await searchExternalTools({
+      query: input.message,
+      limit: state.config.searchToolMaxResults,
+      timeoutMs: state.config.searchToolTimeoutMs,
+      providers: state.config.searchToolProviders,
+      apiKeys: input.providerApiKeys,
+    }).catch(() => [] as SearchResult[])
+    : []
+
   callbacks.onStep('Planner')
-  const plan = await runStep('planner', () => plannerNode(state), { stage: 'planner' })
+  const plan = await runStep('planner', () => plannerNode(state, { apiKeys: input.providerApiKeys }), { stage: 'planner' })
   if (plan.plan?.needs_clarification || plan.plan?.intent === 'off-topic') {
     return {
       state,
@@ -119,10 +142,12 @@ export async function runLlamaIndexQueryEngine(
     const { results, metrics, nativeTrace } = await runLlamaIndexRetriever(input.message, {
       topK: 8,
       shortCircuit: state.config.bm25ShortCircuitEnabled,
+      providerApiKeys: input.providerApiKeys,
     })
+    const mergedResults = mergeUniqueSearchResults(results.concat(webSearchResults))
     state = {
       ...state,
-      search_results: results,
+      search_results: mergedResults,
       retrieval_metrics: [metrics, ...(state.retrieval_metrics ?? [])],
       trace_steps: [
         ...state.trace_steps,
@@ -148,7 +173,7 @@ export async function runLlamaIndexQueryEngine(
     await runStep('normalize_results', () => normalizeResultsNode(state), { summary: summarizeSources(results) })
     callbacks.onStep('Normalize')
 
-    const written = await runStep('writer', () => writerNode(state))
+    const written = await runStep('writer', () => writerNode(state, { apiKeys: input.providerApiKeys }))
     callbacks.onStep('Writer')
     if (written.final_response) {
       callbacks.onToken(written.final_response)
@@ -170,7 +195,7 @@ export async function runLlamaIndexQueryEngine(
       break
     }
 
-    await runStep('critic', () => criticNode(state))
+    await runStep('critic', () => criticNode(state, { apiKeys: input.providerApiKeys }))
     callbacks.onStep('Critic')
 
     if (!shouldRetry(state)) {

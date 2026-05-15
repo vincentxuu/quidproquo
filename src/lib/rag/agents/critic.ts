@@ -1,9 +1,16 @@
 import type { Critique, GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { invokeModel } from '../model'
+import { invokeModel, type ProviderApiKeys } from '../model'
 export { shouldRetry } from './critic-routing'
 
-export async function criticNode(state: GraphState): Promise<Partial<GraphState>> {
+export async function criticNode(
+  state: GraphState,
+  options?: {
+    apiKeys?: ProviderApiKeys
+    maxTokens?: number
+  }
+): Promise<Partial<GraphState>> {
+  const maxTokens = options?.maxTokens ?? 512
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
 
@@ -28,10 +35,16 @@ Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
 Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
 Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.`
 
-  const { response, route } = await invokeModel(state.config, 'critic', [
+  const { response, route } = await invokeModel(
+    state.config,
+    'critic',
+    [
     new SystemMessage(systemPrompt),
     new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
-  ], 512)
+    ],
+    maxTokens,
+    options?.apiKeys
+  )
 
   let critique: Critique = {
     confidence: 0.8,

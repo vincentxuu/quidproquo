@@ -4,6 +4,7 @@ import { ChatGoogleGenerativeAI } from '@langchain/google-genai'
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import type { BaseMessageLike } from '@langchain/core/messages'
+import type { RagProvider } from './providers'
 
 type Env = {
   GROQ_API_KEY?: string
@@ -12,6 +13,7 @@ type Env = {
 }
 
 type ModelProvider = RagRuntimeConfig['defaultProvider']
+export type ProviderApiKeys = Partial<Record<string, string>>
 
 export interface ModelRoute {
   provider: ModelProvider
@@ -31,20 +33,32 @@ function resolveRoute(
   }
 }
 
-export function createModel(maxTokens = 512, options?: { config?: RagRuntimeConfig; stage?: string; route?: ModelRoute }) {
+export function createModel(
+  maxTokens = 512,
+  options?: {
+    config?: RagRuntimeConfig
+    stage?: string
+    route?: ModelRoute
+    apiKeys?: ProviderApiKeys
+  }
+) {
   const e = env as unknown as Env
   const route = options?.route ?? resolveRoute(options?.config, options?.stage)
+  const apiKeys = options?.apiKeys ?? {}
 
   if (route.provider === 'openai') {
-    return new ChatOpenAI({ model: route.model, apiKey: e.OPENAI_API_KEY, maxTokens })
+    const apiKey = apiKeys.openai || e.OPENAI_API_KEY
+    return new ChatOpenAI({ model: route.model, apiKey, maxTokens })
   }
 
   if (route.provider === 'google' || route.provider === 'gemini') {
-    return new ChatGoogleGenerativeAI({ model: route.model, apiKey: e.GOOGLE_API_KEY, maxOutputTokens: maxTokens })
+    const apiKey = apiKeys.google || apiKeys.gemini || e.GOOGLE_API_KEY
+    return new ChatGoogleGenerativeAI({ model: route.model, apiKey, maxOutputTokens: maxTokens })
   }
 
   if (route.provider === 'groq') {
-    return new ChatGroq({ model: route.model, apiKey: e.GROQ_API_KEY, maxTokens })
+    const apiKey = apiKeys.groq || e.GROQ_API_KEY
+    return new ChatGroq({ model: route.model, apiKey, maxTokens })
   }
 
   throw new Error(`Unsupported provider: ${route.provider}`)
@@ -63,16 +77,17 @@ export async function invokeModel(
   config: RagRuntimeConfig,
   stage: string,
   messages: BaseMessageLike[],
-  maxTokens = 512
+  maxTokens = 512,
+  apiKeys: ProviderApiKeys = {}
 ) {
   const primary = resolveModelRoute(config, stage)
   try {
-    const response = await createModel(maxTokens, { route: primary }).invoke(messages)
+    const response = await createModel(maxTokens, { route: primary, apiKeys }).invoke(messages)
     return { response, route: primary }
   } catch (error) {
     const fallback = resolveFallbackRoute(config)
     if (!fallback) throw error
-    const response = await createModel(maxTokens, { route: fallback }).invoke(messages)
+    const response = await createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages)
     return { response, route: fallback }
   }
 }

@@ -8,6 +8,7 @@ import { loadDocuments } from './documents'
 import { LlamaIndexD1DocStore } from './d1-docstore'
 import type { LlamaDocument } from './documents'
 import type { NativeTrace } from '../../state'
+import type { ProviderApiKeys } from '../../model'
 
 export interface LlamaIndexRetrieverCase {
   source: 'vector' | 'bm25'
@@ -59,6 +60,7 @@ export async function runLlamaIndexRetriever(
     topK?: number
     shortCircuit?: boolean
     sourceName?: string
+    providerApiKeys?: ProviderApiKeys
   } = {}
 ): Promise<LlamaIndexRetrievalResult> {
   const topK = options.topK ?? 8

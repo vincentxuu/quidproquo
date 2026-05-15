@@ -51,6 +51,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       </div>
       <span id="catalog-save-status" class="save-status" aria-live="polite"></span>
     </div>
+    <div class="catalog-toolbar">
+      <button id="expand-all-model-groups" type="button">全部展開</button>
+      <button id="collapse-all-model-groups" type="button">全部收合</button>
+    </div>
 
     <form id="model-form" class="model-form">
       <label>
@@ -83,7 +87,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <div class="section-header">
       <div>
         <h2>Test Model</h2>
-        <p class="section-note">使用目前環境 secret 呼叫模型，適合檢查 provider key、model name 與回應速度。</p>
+        <p class="section-note">使用環境變數 / Admin 設定的 key 呼叫模型，適合檢查 provider key、model name 與回應速度。</p>
       </div>
       <span id="test-status" class="save-status" aria-live="polite"></span>
     </div>
@@ -102,6 +106,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
           <input id="test-max-tokens" type="number" min="16" max="512" value="96" />
         </label>
       </div>
+      <label>
+        測試標題
+        <input id="test-title" type="text" autocomplete="off" placeholder="可選：例如『日誌模型可用性』" />
+      </label>
       <label class="prompt-label">
         Prompt
         <textarea id="test-prompt" rows="3">請用一句繁體中文回答：這個模型連線測試成功了嗎？</textarea>
@@ -109,6 +117,17 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       <button id="run-model-test" type="button">執行測試</button>
       <pre id="test-result" class="test-result">尚未測試。</pre>
     </div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Provider Secrets</h2>
+        <p class="section-note">可直接在後台維護 provider key（不會在前端暴露原值）；有設定值時會作為 env fallback。</p>
+      </div>
+      <span id="provider-key-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div id="provider-secrets" class="secrets-grid">載入中...</div>
   </section>
 
   <div class="providers-grid">
@@ -155,10 +174,21 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     provider: document.getElementById('test-provider'),
     model: document.getElementById('test-model'),
     maxTokens: document.getElementById('test-max-tokens'),
+    title: document.getElementById('test-title'),
     prompt: document.getElementById('test-prompt'),
     run: document.getElementById('run-model-test'),
     status: document.getElementById('test-status'),
     result: document.getElementById('test-result'),
+  };
+
+  const catalogToggleControls = {
+    expandAll: document.getElementById('expand-all-model-groups'),
+    collapseAll: document.getElementById('collapse-all-model-groups'),
+  };
+
+  const secretControls = {
+    list: document.getElementById('provider-secrets'),
+    status: document.getElementById('provider-key-status'),
   };
 
   const DEFAULT_PROVIDERS = [
@@ -176,8 +206,27 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   ];
   const providerSyncStatus = new Map();
 
+  const PROVIDER_SECRET_FIELDS = [
+    'GROQ_API_KEY',
+    'OPENAI_API_KEY',
+    'GOOGLE_API_KEY',
+    'ANTHROPIC_API_KEY',
+    'OPENROUTER_API_KEY',
+    'NVIDIA_API_KEY',
+    'CEREBRAS_API_KEY',
+    'CLOUDFLARE_API_TOKEN',
+    'CLOUDFLARE_ACCOUNT_ID',
+    'OLLAMA_API_KEY',
+    'OLLAMA_API_BASE',
+    'OLLAMA_HOST',
+    'OLLAMA_URL',
+    'JINA_API_KEY',
+    'JINA_SEARCH_API_KEY',
+  ];
+
   let latestRagSettings = {};
   let providerCatalog = { providers: DEFAULT_PROVIDERS, models: [] };
+  let providerSecrets = [];
 
   function makeOption(value, label) {
     const option = document.createElement('option');
@@ -288,6 +337,80 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     return item;
   }
 
+  function statusText(secret) {
+    if (secret.source === 'env') return 'env';
+    if (secret.source === 'both') return 'env+admin';
+    if (secret.source === 'admin') return 'admin';
+    return 'missing';
+  }
+
+  function makeProviderSecretRow(secret) {
+    const row = document.createElement('div');
+    row.className = 'secret-item';
+    const meta = document.createElement('div');
+    meta.className = 'provider-secret-meta';
+
+    const name = document.createElement('span');
+    name.className = 'secret-name';
+    name.textContent = `${secret.envKey}`;
+
+    const provider = document.createElement('span');
+    provider.className = 'provider-secret-provider';
+    provider.textContent = String(secret.provider || 'provider');
+    meta.append(name, provider);
+
+    const status = document.createElement('span');
+    status.className = `secret-status status-${statusText(secret)}`;
+    status.textContent = statusText(secret);
+
+    const controls = document.createElement('div');
+    controls.className = 'provider-secret-controls';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.className = 'provider-secret-value';
+    input.placeholder = secret.configured ? '已設定（僅供覆寫）' : '貼上新的 key';
+    input.dataset.key = secret.envKey;
+
+    const saveButton = document.createElement('button');
+    saveButton.type = 'button';
+    saveButton.textContent = '保存';
+    saveButton.dataset.action = 'save-secret';
+    saveButton.dataset.key = secret.envKey;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.textContent = '刪除 admin';
+    deleteButton.dataset.action = 'delete-secret';
+    deleteButton.dataset.key = secret.envKey;
+    if (!secret.hasDb) {
+      deleteButton.disabled = true;
+    }
+
+    controls.append(input, saveButton, deleteButton);
+    row.append(meta, status, controls);
+    row.style.gap = '0.5rem';
+    row.style.alignItems = 'center';
+    row.style.flexWrap = 'wrap';
+    return row;
+  }
+
+  function renderProviderKeys() {
+    if (!secretControls.list) return;
+    const statusByKey = new Map(providerSecrets.map((row) => [row.envKey, row]));
+    const frag = document.createDocumentFragment();
+    for (const key of Array.from(new Set(PROVIDER_SECRET_FIELDS))) {
+      const item = statusByKey.get(key);
+      if (item) {
+        frag.append(makeProviderSecretRow(item));
+      } else {
+        frag.append(makeProviderSecretRow({ envKey: key, provider: 'provider', hasEnv: false, hasDb: false, configured: false, source: 'missing' }));
+      }
+    }
+    secretControls.list.replaceChildren(frag);
+  }
+
   function setSelectValue(select, value) {
     if (!select || !value) return;
     const option = select.querySelector(`option[value="${CSS.escape(value)}"]`);
@@ -326,8 +449,10 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       providers: data.providers || DEFAULT_PROVIDERS,
       models: data.catalog?.models || [],
     };
+    providerSecrets = data.providerKeys || [];
     renderProviderOptions();
     renderModelCatalog();
+    renderProviderKeys();
   }
 
   function setSyncStatus(provider, message, type = 'info') {
@@ -473,8 +598,12 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 
     const frag = document.createDocumentFragment();
     for (const provider of providerCatalog.providers) {
-      const providerBlock = document.createElement('div');
+      const providerBlock = document.createElement('details');
       providerBlock.className = 'catalog-provider';
+      providerBlock.dataset.provider = provider;
+      providerBlock.open = false;
+      const summary = document.createElement('summary');
+      summary.className = 'catalog-provider-summary';
       const header = document.createElement('div');
       header.className = 'catalog-provider-header';
       const titleWrap = document.createElement('div');
@@ -499,25 +628,34 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       syncButton.dataset.provider = provider;
       syncButton.textContent = '同步模型';
 
-      syncButton.addEventListener('click', () => syncProviderModels(provider));
+      syncButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        syncProviderModels(provider);
+      });
       actionWrap.append(syncStatus, syncButton);
       header.append(titleWrap, actionWrap);
       providerSyncStatus.set(provider, syncStatus);
       providerSyncStatus.set(`${provider}:button`, syncButton);
 
-      providerBlock.append(header);
+      summary.append(header);
+      providerBlock.append(summary);
+
+      const body = document.createElement('div');
+      body.className = 'catalog-provider-body';
 
       if (models.length) {
         for (const model of models) {
-          providerBlock.append(makeModelCatalogItem(model));
+          body.append(makeModelCatalogItem(model));
         }
       } else {
         const empty = document.createElement('p');
         empty.className = 'empty-note';
         empty.textContent = '尚未設定模型';
-        providerBlock.append(empty);
+        body.append(empty);
       }
 
+      providerBlock.append(body);
       frag.append(providerBlock);
     }
     catalogControls.list.replaceChildren(frag);
@@ -562,6 +700,71 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     await saveCatalog();
     catalogControls.form.reset();
     catalogControls.enabled.checked = true;
+  });
+
+  async function saveProviderSecret(key, value) {
+    secretControls.status.textContent = '儲存中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'save-provider-key',
+        key,
+        value,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      secretControls.status.textContent = data.error || '儲存失敗。';
+      return;
+    }
+    await loadProviderCatalog();
+    secretControls.status.textContent = '已儲存。';
+    window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
+  }
+
+  async function deleteProviderSecret(key) {
+    secretControls.status.textContent = '刪除中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'delete-provider-key',
+        key,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      secretControls.status.textContent = data.error || '刪除失敗。';
+      return;
+    }
+    await loadProviderCatalog();
+    secretControls.status.textContent = '已刪除。';
+    window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
+  }
+
+  secretControls.list?.addEventListener('click', async (event) => {
+    const target = event.target.closest('button[data-action]');
+    if (!target) return;
+    const key = target.dataset.key;
+    if (!key) return;
+
+    const input = secretControls.list.querySelector(`input[data-key="${CSS.escape(key)}"]`);
+    const value = input ? input.value.trim() : '';
+
+    if (target.dataset.action === 'save-secret') {
+      if (!value) {
+        secretControls.status.textContent = '請輸入要儲存的 key。';
+        return;
+      }
+      await saveProviderSecret(key, value);
+      return;
+    }
+
+    if (target.dataset.action === 'delete-secret') {
+      await deleteProviderSecret(key);
+      return;
+    }
   });
 
   catalogControls.list.addEventListener('click', async (event) => {
@@ -631,11 +834,21 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         provider: testControls.provider.value,
         model: testControls.model.value,
         prompt: testControls.prompt.value,
+        title: testControls.title?.value,
         maxTokens: Number(testControls.maxTokens.value),
       }),
     });
     const data = await res.json().catch(() => ({}));
-    testControls.status.textContent = res.ok ? `成功，${data.duration_ms}ms` : '測試失敗';
+    if (!res.ok) {
+      testControls.status.textContent = '測試失敗';
+      testControls.result.textContent = JSON.stringify(data, null, 2);
+      return;
+    }
+    testControls.status.textContent = `成功，${data.duration_ms}ms`;
+    const title = testControls.title?.value?.trim();
+    if (title) {
+      data.testTitle = title;
+    }
     testControls.result.textContent = JSON.stringify(data, null, 2);
   });
 
@@ -696,4 +909,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   loadProviders().catch(() => {
     setLoadError(catalogControls.list, 'Unable to load provider settings');
   });
+
+  if (catalogToggleControls.expandAll) {
+    catalogToggleControls.expandAll.addEventListener('click', () => {
+      catalogControls.list.querySelectorAll('details.catalog-provider').forEach((providerBlock) => {
+        providerBlock.open = true;
+      });
+    });
+  }
+
+  if (catalogToggleControls.collapseAll) {
+    catalogToggleControls.collapseAll.addEventListener('click', () => {
+      catalogControls.list.querySelectorAll('details.catalog-provider').forEach((providerBlock) => {
+        providerBlock.open = false;
+      });
+    });
+  }
 </script>

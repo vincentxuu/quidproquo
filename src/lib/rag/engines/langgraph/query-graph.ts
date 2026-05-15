@@ -1,7 +1,6 @@
 import type { PipelineCallbacks } from '../../state'
 import { runPipeline as runLangGraphPipeline } from '../../graph'
-import type { RagLifecycleInput } from '../contract'
-import type { RagLifecycleOutput } from '../contract'
+import type { RagLifecycleInput, RagLifecycleOutput } from '../contract'
 
 export async function runLangGraphQueryGraph(
   input: RagLifecycleInput,
@@ -15,7 +14,8 @@ export async function runLangGraphQueryGraph(
       conversationSummary: input.conversationSummary,
       config: input.config,
     },
-    callbacks
+    callbacks,
+    { providerApiKeys: input.providerApiKeys }
   )
   return { ...state }
 }

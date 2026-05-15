@@ -21,6 +21,7 @@ export interface RagLifecycleInput {
   threadId?: string
   conversationSummary?: string
   config: GraphState['config']
+  providerApiKeys?: Record<string, string>
   indexProfile?: {
     sourceFilters?: Array<'posts' | 'docs'>
     offset?: number

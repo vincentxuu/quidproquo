@@ -49,6 +49,10 @@ export interface RagRuntimeConfig {
   rerankerMinKeep: number
   mmrLambda: number
   checkpointThresholdRatio: number
+  searchToolsEnabled: boolean
+  searchToolProviders: string[]
+  searchToolMaxResults: number
+  searchToolTimeoutMs: number
 }
 
 export interface Plan {
@@ -136,11 +140,15 @@ export function initialState(): GraphState {
       pageIndexMaxSteps: 5,
       bm25ShortCircuitEnabled: true,
       shadowModeEnabled: false,
-      semanticCacheThreshold: 0.95,
-      rerankerMinKeep: 3,
-      mmrLambda: 0.7,
-      checkpointThresholdRatio: 0.7,
-    },
+    semanticCacheThreshold: 0.95,
+    rerankerMinKeep: 3,
+    mmrLambda: 0.7,
+    checkpointThresholdRatio: 0.7,
+    searchToolsEnabled: false,
+    searchToolProviders: ['jina'],
+    searchToolMaxResults: 4,
+    searchToolTimeoutMs: 8000,
+  },
     plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], specialists: [] },
     needs_web_search: false,
     search_results: [],
