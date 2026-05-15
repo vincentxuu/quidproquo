@@ -121,9 +121,10 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
     const costKey = `dr_cost_${reportId}`
 
     const kv = (env as unknown as Env).DEEP_RESEARCH_KV ?? (env as unknown as Env).SESSION
-    if (!kv) {
+    const db = (env as unknown as Env).DB
+    if (!kv && !db) {
       return new Response(
-        JSON.stringify({ error: 'Deep research KV namespace is not configured' }),
+        JSON.stringify({ error: 'Deep research storage is not configured' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } },
       )
     }
@@ -257,19 +258,66 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
       })
     }
 
-    await kv.put(reportId, finalReport)
-    const reportUrl = `${env.URL}/api/deep-research/${reportId}`
+    const summary = finalReport.slice(0, 200) + (finalReport.length > 200 ? '…' : '')
+    const reportRecord = buildDeepResearchRecord({
+      reportId,
+      brief,
+      finalReport,
+      summary,
+      provider,
+      model,
+      maxQueries,
+      maxTokens,
+      maxSearchCalls,
+      enableFlags,
+      tokenProfile,
+      searchProfile,
+      sourceProfile,
+      resultProfile,
+      searchToolProfile,
+      searchToolProfiles,
+    })
 
-    const currentCostStr = await kv.get(costKey)
-    const currentCost = currentCostStr ? parseFloat(currentCostStr) : 0
-    const estimatedCost = 0.5
-    await kv.put(costKey, (currentCost + estimatedCost).toString())
+    let cacheSaved = false
+    let dbSaved = false
+    try {
+      if (kv) {
+        await kv.put(reportId, finalReport)
+        const currentCostStr = await kv.get(costKey)
+        const currentCost = currentCostStr ? parseFloat(currentCostStr) : 0
+        const estimatedCost = 0.5
+        await kv.put(costKey, (currentCost + estimatedCost).toString())
+        cacheSaved = true
+      }
+    } catch (error) {
+      console.error('Deep research KV persistence failed:', error)
+    }
+
+    try {
+      if ((env as unknown as Env).DB) {
+        await saveDeepResearchReport(db as D1Database, reportRecord)
+        dbSaved = true
+      }
+    } catch (error) {
+      console.error('Deep research D1 persistence failed:', error)
+    }
+
+    if (!cacheSaved && !dbSaved) {
+      return new Response(
+        JSON.stringify({ error: 'Deep research result persistence failed' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } },
+      )
+    }
+
+    const reportUrl = `${env.URL}/api/deep-research/${reportId}`
 
     return new Response(JSON.stringify({
       runId: reportId,
       reportUrl,
       status: 'completed',
-      summary: finalReport.slice(0, 200) + (finalReport.length > 200 ? '…' : ''),
+      summary,
+      persisted: dbSaved,
+      cached: cacheSaved,
       notes,
     }), {
       headers: { 'Content-Type': 'application/json' },
@@ -292,6 +340,87 @@ function dedupeSearchResults(results: SearchResult[]): SearchResult[] {
     deduped.push(result)
   }
   return deduped
+}
+
+function buildDeepResearchRecord(params: {
+  reportId: string
+  brief: string
+  finalReport: string
+  summary: string
+  provider: Provider
+  model: string
+  maxQueries: number
+  maxTokens: number
+  maxSearchCalls: number
+  enableFlags: EnableFlags
+  tokenProfile: StageTokenProfile
+  searchProfile: SearchProfile
+  sourceProfile: SourceProfile
+  resultProfile: ResultProfile
+  searchToolProfile: SearchToolProfile
+  searchToolProfiles: SearchToolProfiles
+}) {
+  return {
+    report_id: params.reportId,
+    brief: params.brief,
+    provider: params.provider,
+    model: params.model,
+    final_report: params.finalReport,
+    summary: params.summary,
+    max_queries: params.maxQueries,
+    max_tokens: params.maxTokens,
+    max_search_calls: params.maxSearchCalls,
+    enable_flags: JSON.stringify(params.enableFlags),
+    token_profile: JSON.stringify(params.tokenProfile),
+    search_profile: JSON.stringify(params.searchProfile),
+    source_profile: JSON.stringify(params.sourceProfile),
+    result_profile: JSON.stringify(params.resultProfile),
+    search_tool_profile: JSON.stringify(params.searchToolProfile),
+    search_tool_profiles: JSON.stringify(params.searchToolProfiles),
+  } as const
+}
+
+async function saveDeepResearchReport(db: D1Database, report: ReturnType<typeof buildDeepResearchRecord>): Promise<void> {
+  await db.prepare(`
+    INSERT OR REPLACE INTO deep_research_reports (
+      report_id,
+      brief,
+      provider,
+      model,
+      final_report,
+      summary,
+      max_queries,
+      max_tokens,
+      max_search_calls,
+      enable_flags,
+      token_profile,
+      search_profile,
+      source_profile,
+      result_profile,
+      search_tool_profile,
+      search_tool_profiles,
+      updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+  `)
+    .bind(
+      report.report_id,
+      report.brief,
+      report.provider,
+      report.model,
+      report.final_report,
+      report.summary,
+      report.max_queries,
+      report.max_tokens,
+      report.max_search_calls,
+      report.enable_flags,
+      report.token_profile,
+      report.search_profile,
+      report.source_profile,
+      report.result_profile,
+      report.search_tool_profile,
+      report.search_tool_profiles,
+    )
+    .run()
 }
 
 function safeLoadRagSettings(db?: D1Database): Promise<RagRuntimeConfig> {

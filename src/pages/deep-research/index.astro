@@ -163,8 +163,24 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
               <input id="enableSearchToolsCritic" type="checkbox" />
             </label>
             <label class="admin-field">
-              <span class="admin-field-label">搜尋工具來源（逗號分隔）</span>
-              <input id="searchToolProviders" type="text" placeholder="jina,cloudflare" />
+              <span class="admin-field-label">搜尋工具來源（全域）</span>
+              <select id="searchToolProviders" name="searchToolProviders" multiple size="2"></select>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Planner 搜尋工具</span>
+              <select id="plannerSearchToolProviders" name="plannerSearchToolProviders" multiple size="2"></select>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Research 搜尋工具</span>
+              <select id="researchSearchToolProviders" name="researchSearchToolProviders" multiple size="2"></select>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Writer 搜尋工具</span>
+              <select id="writerSearchToolProviders" name="writerSearchToolProviders" multiple size="2"></select>
+            </label>
+            <label class="admin-field">
+              <span class="admin-field-label">Critic 搜尋工具</span>
+              <select id="criticSearchToolProviders" name="criticSearchToolProviders" multiple size="2"></select>
             </label>
             <label class="admin-field">
               <span class="admin-field-label">搜尋工具回傳上限</span>
@@ -270,7 +286,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const enableSearchToolsResearchInput = document.querySelector('#enableSearchToolsResearch');
   const enableSearchToolsWriterInput = document.querySelector('#enableSearchToolsWriter');
   const enableSearchToolsCriticInput = document.querySelector('#enableSearchToolsCritic');
-  const searchToolProvidersInput = document.querySelector('#searchToolProviders');
+  const searchToolProvidersSelect = document.querySelector('#searchToolProviders');
+  const plannerSearchToolProvidersSelect = document.querySelector('#plannerSearchToolProviders');
+  const researchSearchToolProvidersSelect = document.querySelector('#researchSearchToolProviders');
+  const writerSearchToolProvidersSelect = document.querySelector('#writerSearchToolProviders');
+  const criticSearchToolProvidersSelect = document.querySelector('#criticSearchToolProviders');
   const searchToolMaxResultsInput = document.querySelector('#searchToolMaxResults');
   const searchToolTimeoutMsInput = document.querySelector('#searchToolTimeoutMs');
   const enableBm25ShortCircuitInput = document.querySelector('#enableBm25ShortCircuit');
@@ -295,6 +315,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     providers: Object.keys(defaultProviderModels),
     catalog: [],
   };
+  const SEARCH_TOOL_OPTIONS = ['jina', 'cloudflare'];
   let customModelSnapshot = {
     providerPref: '',
     model: '',
@@ -565,7 +586,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     if (enableSearchToolsResearchInput) enableSearchToolsResearchInput.checked = false;
     if (enableSearchToolsWriterInput) enableSearchToolsWriterInput.checked = false;
     if (enableSearchToolsCriticInput) enableSearchToolsCriticInput.checked = false;
-    if (searchToolProvidersInput) searchToolProvidersInput.value = 'jina';
+    setSearchToolProviderSelection(searchToolProvidersSelect, ['jina']);
+    setSearchToolProviderSelection(plannerSearchToolProvidersSelect, []);
+    setSearchToolProviderSelection(researchSearchToolProvidersSelect, []);
+    setSearchToolProviderSelection(writerSearchToolProvidersSelect, []);
+    setSearchToolProviderSelection(criticSearchToolProvidersSelect, []);
     if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = '4';
     if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = '8000';
     if (enableBm25ShortCircuitInput) enableBm25ShortCircuitInput.checked = true;
@@ -613,7 +638,12 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       if (enableHydeInput) enableHydeInput.checked = profile.enableFlags.hydeEnabled;
       if (enableMultiQueryInput) enableMultiQueryInput.checked = profile.enableFlags.multiQueryEnabled;
       if (enableSearchToolsInput) enableSearchToolsInput.checked = profile.enableFlags.searchToolsEnabled;
-      if (searchToolProvidersInput) searchToolProvidersInput.value = (profile.searchToolProfile?.providers || ['jina']).join(', ');
+      const baseSearchToolProviders = profile.searchToolProfile?.providers || ['jina'];
+      setSearchToolProviderSelection(searchToolProvidersSelect, baseSearchToolProviders);
+      setSearchToolProviderSelection(plannerSearchToolProvidersSelect, profile.searchToolProfiles?.planner?.providers || baseSearchToolProviders);
+      setSearchToolProviderSelection(researchSearchToolProvidersSelect, profile.searchToolProfiles?.research?.providers || baseSearchToolProviders);
+      setSearchToolProviderSelection(writerSearchToolProvidersSelect, profile.searchToolProfiles?.writer?.providers || baseSearchToolProviders);
+      setSearchToolProviderSelection(criticSearchToolProvidersSelect, profile.searchToolProfiles?.critic?.providers || baseSearchToolProviders);
       if (searchToolMaxResultsInput) searchToolMaxResultsInput.value = String(profile.searchToolProfile?.maxResults ?? 4);
       if (searchToolTimeoutMsInput) searchToolTimeoutMsInput.value = String(profile.searchToolProfile?.timeoutMs ?? 8000);
       if (enableSearchToolsPlannerInput) enableSearchToolsPlannerInput.checked = !!profile.searchToolProfiles?.planner?.enabled;
@@ -679,16 +709,39 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     return option;
   };
 
-  const parseSearchToolProviders = (raw) => Array.from(
-    new Set(
-      String(raw ?? '')
-        .split(',')
-        .map((item) => String(item ?? '').trim().toLowerCase())
-        .filter((item) => item.length > 0)
-    )
-  );
-
   const normalize = (value) => String(value ?? '').trim();
+  const toSearchToolProviderValues = (select) => {
+    const values = [];
+    for (const option of Array.from(select?.selectedOptions ?? [])) {
+      const value = String(option?.value ?? '').trim().toLowerCase();
+      if (value) values.push(value);
+    }
+    return values;
+  };
+
+  const setSearchToolProviderSelection = (select, values = []) => {
+    if (!select) return;
+    const normalized = new Set(values.map((value) => String(value ?? '').trim().toLowerCase()).filter(Boolean));
+    for (const option of Array.from(select.options)) {
+      option.selected = normalized.has(option.value);
+    }
+  };
+
+  const hydrateSearchToolProviderSelect = (select) => {
+    if (!select) return;
+    select.replaceChildren();
+    for (const provider of SEARCH_TOOL_OPTIONS) {
+      select.append(createOption(provider, provider));
+    }
+  };
+
+  const hydrateSearchToolProviderSelects = () => {
+    hydrateSearchToolProviderSelect(searchToolProvidersSelect);
+    hydrateSearchToolProviderSelect(plannerSearchToolProvidersSelect);
+    hydrateSearchToolProviderSelect(researchSearchToolProvidersSelect);
+    hydrateSearchToolProviderSelect(writerSearchToolProvidersSelect);
+    hydrateSearchToolProviderSelect(criticSearchToolProvidersSelect);
+  };
 
   const loadModelCatalog = async () => {
     let providers = Object.keys(defaultProviderModels);
@@ -758,6 +811,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     syncModels();
   });
 
+  hydrateSearchToolProviderSelects();
   loadModelCatalog().then(() => {
     if (modeSelect) {
       applyPresetProfile(modeSelect.value);
@@ -812,15 +866,27 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         rerankerEnabled: !!enableRerankerInput?.checked,
       };
       payload.config.searchToolProfile = {
-        providers: parseSearchToolProviders(searchToolProvidersInput?.value),
+        providers: toSearchToolProviderValues(searchToolProvidersSelect),
         maxResults: clampIntInRange(searchToolMaxResultsInput?.value, 4, 1, 20),
         timeoutMs: clampIntInRange(searchToolTimeoutMsInput?.value, 8000, 1000, 60000),
       };
       payload.config.searchToolProfiles = {
-        planner: { enabled: !!enableSearchToolsPlannerInput?.checked },
-        research: { enabled: !!enableSearchToolsResearchInput?.checked },
-        writer: { enabled: !!enableSearchToolsWriterInput?.checked },
-        critic: { enabled: !!enableSearchToolsCriticInput?.checked },
+        planner: {
+          enabled: !!enableSearchToolsPlannerInput?.checked,
+          providers: toSearchToolProviderValues(plannerSearchToolProvidersSelect),
+        },
+        research: {
+          enabled: !!enableSearchToolsResearchInput?.checked,
+          providers: toSearchToolProviderValues(researchSearchToolProvidersSelect),
+        },
+        writer: {
+          enabled: !!enableSearchToolsWriterInput?.checked,
+          providers: toSearchToolProviderValues(writerSearchToolProvidersSelect),
+        },
+        critic: {
+          enabled: !!enableSearchToolsCriticInput?.checked,
+          providers: toSearchToolProviderValues(criticSearchToolProvidersSelect),
+        },
       };
     }
 

@@ -1,0 +1,678 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Deep Research 歷史">
+  <p class="page-desc">
+    查詢已完成的 deep research 報告、開啟報告內容，並可依條件刪除舊資料（含保留預覽）。
+  </p>
+
+  <section class="admin-panel">
+    <div class="admin-panel-header">
+      <div>
+        <h2>查詢條件</h2>
+        <p class="admin-section-desc">可依關鍵字、provider、model、狀態與筆數查詢報告。</p>
+      </div>
+      <span id="query-status" aria-live="polite"></span>
+    </div>
+
+    <div class="filters-bar">
+      <div class="filter-group">
+        <input id="filter-q" class="input" type="text" placeholder="關鍵字（在 brief / report_id / model / summary）" />
+        <select id="filter-provider" class="select">
+          <option value="">全部 provider</option>
+        </select>
+        <input id="filter-model" class="input" type="text" list="filter-model-list" placeholder="模型（可輸入任意）" />
+        <select id="filter-status" class="select">
+          <option value="">全部狀態</option>
+          <option value="completed">completed</option>
+          <option value="failed">failed</option>
+          <option value="pending">pending</option>
+          <option value="running">running</option>
+          <option value="cancelled">cancelled</option>
+        </select>
+        <select id="filter-limit" class="select">
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        <button id="filter-apply" class="btn" type="button">查詢</button>
+        <button id="filter-reset" class="btn-secondary" type="button">重設</button>
+      </div>
+      <datalist id="filter-model-list"></datalist>
+    </div>
+  </section>
+
+  <section class="admin-panel">
+    <h2>報告清單</h2>
+    <div class="admin-table-wrap">
+      <table class="admin-table" aria-label="深度研究報告清單">
+        <thead>
+          <tr>
+            <th>建立時間</th>
+            <th>報告 ID</th>
+            <th>Brief</th>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Tokens / Queries / Calls</th>
+            <th>狀態</th>
+            <th>摘要</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="report-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="admin-pagination">
+      <div id="pagination-info" class="admin-section-desc">尚未載入</div>
+      <div class="pagination-actions">
+        <button id="prev-page" class="btn-secondary" type="button">上一頁</button>
+        <button id="next-page" class="btn-secondary" type="button">下一頁</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-panel retention-panel">
+    <div>
+      <h2>Retention 清理</h2>
+      <p>依 report 年齡與條件預覽清理數量，支援 dry run，確認後再執行刪除。</p>
+    </div>
+    <div class="retention-controls">
+      <label>
+        保留天數門檻（刪除 created_at 早於此天數）
+        <input id="retention-days" class="input" type="number" min="1" max="3650" value="30" />
+      </label>
+      <label>
+        Provider
+        <select id="retention-provider" class="select">
+          <option value="">全部</option>
+        </select>
+      </label>
+      <label>
+        Model
+        <input id="retention-model" class="input" type="text" list="filter-model-list" placeholder="可留空" />
+      </label>
+      <label>
+        Status
+        <select id="retention-status" class="select">
+          <option value="">全部</option>
+          <option value="completed">completed</option>
+          <option value="failed">failed</option>
+          <option value="pending">pending</option>
+          <option value="running">running</option>
+          <option value="cancelled">cancelled</option>
+        </select>
+      </label>
+      <button id="retention-preview" class="btn-secondary" type="button">預覽清理</button>
+      <button id="retention-run" class="btn-danger" type="button">執行清理</button>
+    </div>
+    <pre id="retention-output">尚未執行 retention。</pre>
+  </section>
+</AdminLayout>
+
+<style>
+  .admin-table th,
+  .admin-table td {
+    min-width: 0;
+  }
+
+  .dr-report-id,
+  .dr-report-id a,
+  .dr-report-summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 220px;
+  }
+
+  .dr-report-brief,
+  .dr-report-summary {
+    max-width: 320px;
+  }
+
+  .admin-pagination {
+    margin-top: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .admin-pagination .pagination-actions {
+    display: inline-flex;
+    gap: 0.5rem;
+  }
+
+  .retention-panel {
+    display: block;
+  }
+
+  #retention-output {
+    margin: 0.75rem 0 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 0.7rem;
+    white-space: pre-wrap;
+    max-height: 190px;
+    overflow: auto;
+  }
+
+  .status-pill {
+    white-space: nowrap;
+  }
+
+  .status-success {
+    border-color: rgba(6, 118, 71, 0.28);
+    background: var(--admin-color-success-soft);
+    color: var(--admin-success);
+  }
+
+  .status-failed {
+    border-color: rgba(180, 35, 24, 0.28);
+    background: var(--admin-color-danger-soft);
+    color: var(--admin-danger);
+  }
+
+  .status-running,
+  .status-pending,
+  .status-cancelled {
+    border-color: rgba(181, 71, 8, 0.28);
+    background: var(--admin-color-warning-soft);
+    color: var(--admin-warning);
+  }
+
+  .status-completed {
+    border-color: rgba(6, 118, 71, 0.28);
+    background: var(--admin-color-success-soft);
+    color: var(--admin-success);
+  }
+
+  .status-pill,
+  .text-link {
+    text-decoration: none;
+  }
+</style>
+
+<script is:inline>
+  const statusBadgeMap = {
+    completed: 'status-completed',
+    failed: 'status-failed',
+    pending: 'status-pending',
+    running: 'status-running',
+    cancelled: 'status-cancelled',
+  };
+
+  const state = {
+    q: '',
+    provider: '',
+    model: '',
+    status: '',
+    limit: 20,
+    offset: 0,
+    total: 0,
+    providers: [],
+    catalog: [],
+  };
+
+  const ui = {
+    rows: document.getElementById('report-rows'),
+    status: document.getElementById('query-status'),
+    q: document.getElementById('filter-q'),
+    provider: document.getElementById('filter-provider'),
+    model: document.getElementById('filter-model'),
+    modelList: document.getElementById('filter-model-list'),
+    statusSelect: document.getElementById('filter-status'),
+    limitSelect: document.getElementById('filter-limit'),
+    applyBtn: document.getElementById('filter-apply'),
+    resetBtn: document.getElementById('filter-reset'),
+    prevBtn: document.getElementById('prev-page'),
+    nextBtn: document.getElementById('next-page'),
+    info: document.getElementById('pagination-info'),
+    retention: {
+      days: document.getElementById('retention-days'),
+      provider: document.getElementById('retention-provider'),
+      model: document.getElementById('retention-model'),
+      status: document.getElementById('retention-status'),
+      preview: document.getElementById('retention-preview'),
+      run: document.getElementById('retention-run'),
+      output: document.getElementById('retention-output'),
+    },
+  };
+
+  const defaultCatalog = [
+    { provider: 'groq', model: 'llama-3.3-70b-versatile' },
+    { provider: 'openai', model: 'gpt-4.1-mini' },
+    { provider: 'google', model: 'gemini-2.0-flash' },
+  ];
+
+  function safeText(value) {
+    return value == null ? '' : String(value);
+  }
+
+  function clampInt(value, min, max, fallback) {
+    const parsed = Number.parseInt(String(value), 10);
+    if (!Number.isFinite(parsed)) return fallback;
+    return Math.max(min, Math.min(max, parsed));
+  }
+
+  function normalizeStatus(value) {
+    return typeof value === 'string' && value.trim() ? value.trim() : '';
+  }
+
+  function normalizeText(value) {
+    return typeof value === 'string' ? value.trim() : '';
+  }
+
+  function hydrateFilterStateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    state.q = normalizeText(params.get('q'));
+    state.provider = normalizeText(params.get('provider'));
+    state.model = normalizeText(params.get('model'));
+    state.status = normalizeText(params.get('status'));
+    state.limit = clampInt(params.get('limit'), 10, 100, 20);
+    state.offset = Math.max(0, Number.parseInt(params.get('offset') || '0', 10) || 0);
+
+    if (ui.q) ui.q.value = state.q;
+    if (ui.provider) ui.provider.value = state.provider;
+    if (ui.model) ui.model.value = state.model;
+    if (ui.statusSelect) ui.statusSelect.value = state.status;
+    if (ui.limitSelect) ui.limitSelect.value = String(state.limit);
+  }
+
+  async function loadProviderCatalog() {
+    try {
+      const res = await fetch('/api/admin/providers');
+      if (!res.ok) throw new Error('unable to load provider catalog');
+      const payload = await res.json();
+      state.providers = Array.isArray(payload.providers) ? payload.providers : [];
+      state.catalog = Array.isArray(payload.catalog?.models) ? payload.catalog.models : [];
+    } catch {
+      state.providers = ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'];
+      state.catalog = defaultCatalog;
+    }
+
+    for (const provider of state.providers) {
+      if (!provider) continue;
+      const option = document.createElement('option');
+      option.value = String(provider);
+      option.textContent = String(provider);
+      if (ui.provider) ui.provider.appendChild(option.cloneNode(true));
+      if (ui.retention && ui.retention.provider) ui.retention.provider.appendChild(option);
+    }
+
+    if (ui.provider && !Array.from(ui.provider.options).some((item) => item.value === state.provider)) {
+      ui.provider.value = '';
+    }
+    if (ui.retention.provider && !Array.from(ui.retention.provider.options).some((item) => item.value === state.provider)) {
+      ui.retention.provider.value = '';
+    }
+
+    hydrateModelList();
+  }
+
+  function hydrateModelList() {
+    if (!ui.modelList) return;
+
+    const selectedProvider = state.provider || ui.provider?.value || '';
+    const models = (state.catalog || [])
+      .filter((item) => {
+        if (!item || typeof item !== 'object') return false;
+        const provider = normalizeText(item.provider);
+        return !selectedProvider || provider === selectedProvider;
+      })
+      .map((item) => normalizeText(item.model));
+    const fallback = selectedProvider ? defaultCatalog.filter((item) => item.provider === selectedProvider).map((item) => item.model) : [];
+    const merged = Array.from(new Set([...fallback, ...models])).filter(Boolean).sort();
+
+    ui.modelList.replaceChildren();
+    const added = new Set();
+    for (const model of merged) {
+      if (added.has(model)) continue;
+      added.add(model);
+      const option = document.createElement('option');
+      option.value = model;
+      ui.modelList.append(option);
+    }
+    if (state.model) {
+      ui.model.value = state.model;
+    }
+  }
+
+  function syncUrl() {
+    const params = new URLSearchParams();
+    if (state.q) params.set('q', state.q);
+    if (state.provider) params.set('provider', state.provider);
+    if (state.model) params.set('model', state.model);
+    if (state.status) params.set('status', state.status);
+    if (state.limit) params.set('limit', String(state.limit));
+    if (state.offset) params.set('offset', String(state.offset));
+    const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
+    window.history.replaceState({}, '', next);
+  }
+
+  async function loadReports() {
+    if (!ui.rows) return;
+    ui.status.textContent = '載入中...';
+    ui.rows.replaceChildren(
+      (() => {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.colSpan = 9;
+        cell.textContent = '載入中...';
+        row.append(cell);
+        return row;
+      })(),
+    );
+
+    const params = new URLSearchParams();
+    if (state.q) params.set('q', state.q);
+    if (state.provider) params.set('provider', state.provider);
+    if (state.model) params.set('model', state.model);
+    if (state.status) params.set('status', state.status);
+    params.set('limit', String(state.limit));
+    params.set('offset', String(state.offset));
+
+    try {
+      const res = await fetch(`/api/admin/deep-research?${params.toString()}`);
+      if (res.status === 401) {
+        ui.status.textContent = '請先登入後台。';
+        ui.rows.replaceChildren(createEmptyRow('請先登入後台。'));
+        return;
+      }
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({ error: 'Failed to load reports' }));
+        throw new Error(error?.error || 'Failed to load reports');
+      }
+
+      const data = await res.json();
+      const reports = Array.isArray(data.reports) ? data.reports : [];
+      state.total = Number.parseInt(String(data.total || '0'), 10) || 0;
+      syncUrl();
+
+      renderReports(reports);
+      renderPagination();
+      ui.status.textContent = '';
+    } catch (error) {
+      ui.status.textContent = error instanceof Error ? error.message : '載入失敗';
+      ui.rows.replaceChildren(createEmptyRow(ui.status.textContent));
+    }
+  }
+
+  function createEmptyRow(message) {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    cell.colSpan = 9;
+    const p = document.createElement('p');
+    p.className = 'empty';
+    p.textContent = message || '找不到紀錄';
+    cell.append(p);
+    row.append(cell);
+    return row;
+  }
+
+  function renderReports(reports) {
+    ui.rows.replaceChildren();
+    if (!reports.length) {
+      ui.rows.append(createEmptyRow('目前沒有符合條件的報告。'));
+      return;
+    }
+
+    const reportRows = document.createDocumentFragment();
+    for (const report of reports) {
+      const row = document.createElement('tr');
+
+      const createdAt = document.createElement('td');
+      createdAt.textContent = formatDateTime(safeText(report.created_at));
+
+      const reportId = document.createElement('td');
+      reportId.className = 'dr-report-id';
+      const reportIdLink = document.createElement('a');
+      reportIdLink.href = `/api/deep-research/${encodeURIComponent(safeText(report.report_id))}`;
+      reportIdLink.target = '_blank';
+      reportIdLink.rel = 'noopener';
+      reportIdLink.className = 'text-link';
+      reportIdLink.textContent = safeText(report.report_id);
+      reportId.append(reportIdLink);
+
+      const brief = document.createElement('td');
+      brief.className = 'dr-report-brief';
+      brief.textContent = truncate(safeText(report.brief), 120);
+
+      const provider = document.createElement('td');
+      provider.textContent = safeText(report.provider);
+
+      const model = document.createElement('td');
+      model.className = 'dr-report-model';
+      model.textContent = safeText(report.model);
+
+      const budget = document.createElement('td');
+      budget.className = 'admin-section-desc';
+      budget.textContent = `${safeText(report.max_tokens)} / ${safeText(report.max_queries)} / ${safeText(report.max_search_calls)}`;
+
+      const status = document.createElement('td');
+      const statusText = safeText(report.status || 'completed');
+      const statusPill = document.createElement('span');
+      statusPill.className = `status-pill ${statusBadgeMap[statusText] || 'status-success'}`;
+      statusPill.textContent = statusText;
+      status.append(statusPill);
+
+      const summary = document.createElement('td');
+      summary.className = 'dr-report-summary';
+      summary.textContent = truncate(safeText(report.summary), 80);
+
+      const actions = document.createElement('td');
+      const deleteBtn = document.createElement('button');
+      deleteBtn.type = 'button';
+      deleteBtn.className = 'mini-btn';
+      deleteBtn.textContent = '刪除';
+      deleteBtn.addEventListener('click', () => {
+        void deleteReport(report.report_id);
+      });
+      actions.append(deleteBtn);
+
+      row.append(createdAt, reportId, brief, provider, model, budget, status, summary, actions);
+      reportRows.append(row);
+    }
+
+    ui.rows.append(reportRows);
+  }
+
+  function truncate(text, maxLength) {
+    if (!text) return '';
+    return text.length <= maxLength ? text : `${text.slice(0, maxLength)}…`;
+  }
+
+  function formatDateTime(value) {
+    const ms = Date.parse(value);
+    if (!Number.isFinite(ms)) return value || '-';
+    try {
+      return new Date(ms).toLocaleString('zh-TW', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      });
+    } catch {
+      return value || '-';
+    }
+  }
+
+  function renderPagination() {
+    const currentPage = Math.floor(state.offset / state.limit) + 1;
+    const totalPages = Math.max(1, Math.ceil(state.total / state.limit));
+    const hasNext = state.offset + state.limit < state.total;
+    const hasPrev = state.offset > 0;
+
+    if (ui.info) {
+      ui.info.textContent = `第 ${currentPage} / ${totalPages} 頁，總計 ${state.total} 筆`;
+    }
+    if (ui.prevBtn) {
+      ui.prevBtn.disabled = !hasPrev;
+    }
+    if (ui.nextBtn) {
+      ui.nextBtn.disabled = !hasNext;
+    }
+  }
+
+  function applyFilters() {
+    if (ui.q) state.q = normalizeText(ui.q.value);
+    if (ui.provider) state.provider = normalizeText(ui.provider.value);
+    if (ui.model) state.model = normalizeText(ui.model.value);
+    if (ui.statusSelect) state.status = normalizeStatus(ui.statusSelect.value);
+    if (ui.limitSelect) state.limit = clampInt(ui.limitSelect.value, 10, 100, 20);
+    state.offset = 0;
+    hydrateModelList();
+    syncUrl();
+    void loadReports();
+  }
+
+  function resetFilters() {
+    state.q = '';
+    state.provider = '';
+    state.model = '';
+    state.status = '';
+    state.limit = 20;
+    state.offset = 0;
+
+    if (ui.q) ui.q.value = '';
+    if (ui.provider) ui.provider.value = '';
+    if (ui.model) ui.model.value = '';
+    if (ui.statusSelect) ui.statusSelect.value = '';
+    if (ui.limitSelect) ui.limitSelect.value = '20';
+
+    hydrateModelList();
+    syncUrl();
+    void loadReports();
+  }
+
+  function setPaginationDirection(direction) {
+    if (direction === 'prev' && state.offset > 0) {
+      state.offset = Math.max(0, state.offset - state.limit);
+    }
+    if (direction === 'next' && state.offset + state.limit < state.total) {
+      state.offset += state.limit;
+    }
+    syncUrl();
+    void loadReports();
+  }
+
+  async function deleteReport(reportId) {
+    if (!reportId) return;
+    if (!window.confirm('確定刪除這份 deep research 報告？此動作無法復原。')) return;
+
+    try {
+      const res = await fetch('/api/admin/deep-research', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reportId }),
+      });
+
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        window.alert(payload?.error || '刪除失敗');
+        return;
+      }
+
+      ui.status.textContent = `已刪除 ${payload.deleted || 0} 筆。`;
+      await loadReports();
+    } catch (error) {
+      window.alert(error instanceof Error ? error.message : '刪除失敗');
+    }
+  }
+
+  async function runRetention({ dryRun }) {
+    const days = clampInt(ui.retention.days?.value || '30', 1, 3650, 30);
+    if (ui.retention.days) ui.retention.days.value = String(days);
+
+    const payload = {
+      olderThanDays: days,
+      dryRun,
+      provider: normalizeText(ui.retention.provider?.value || ''),
+      model: normalizeText(ui.retention.model?.value || ''),
+      status: normalizeStatus(ui.retention.status?.value || ''),
+    };
+
+    try {
+      if (!dryRun && !window.confirm(`確定要刪除符合條件的 deep research 報告嗎？共 ${days} 天以前。`)) {
+        return;
+      }
+
+      const res = await fetch('/api/admin/deep-research/retention', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        ui.retention.output.textContent = `失敗：${data?.error || 'unknown error'}`;
+        return;
+      }
+
+      if (dryRun) {
+        ui.retention.output.textContent = `預覽結果：\n${JSON.stringify(data, null, 2)}`;
+      } else {
+        ui.retention.output.textContent = `清理完成：\n${JSON.stringify(data, null, 2)}`;
+        await loadReports();
+      }
+    } catch (error) {
+      ui.retention.output.textContent = `執行失敗：${error instanceof Error ? error.message : 'unknown error'}`;
+    }
+  }
+
+  ui.applyBtn?.addEventListener('click', () => {
+    void applyFilters();
+  });
+  ui.resetBtn?.addEventListener('click', () => {
+    resetFilters();
+  });
+  ui.prevBtn?.addEventListener('click', () => {
+    setPaginationDirection('prev');
+  });
+  ui.nextBtn?.addEventListener('click', () => {
+    setPaginationDirection('next');
+  });
+
+  ui.retention.preview?.addEventListener('click', () => {
+    void runRetention({ dryRun: true });
+  });
+  ui.retention.run?.addEventListener('click', () => {
+    void runRetention({ dryRun: false });
+  });
+
+  ui.provider?.addEventListener('change', () => {
+    hydrateModelList();
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && document.activeElement === ui.q) {
+      event.preventDefault();
+      applyFilters();
+    }
+  });
+
+  (async function init() {
+    hydrateFilterStateFromUrl();
+    await loadProviderCatalog();
+    if (state.provider && ui.provider) {
+      ui.provider.value = state.provider;
+    }
+    if (state.status && ui.statusSelect) {
+      ui.statusSelect.value = state.status;
+    }
+    if (state.model && ui.model) {
+      ui.model.value = state.model;
+    }
+    if (state.limit && ui.limitSelect) {
+      ui.limitSelect.value = String(state.limit);
+    }
+    await loadReports();
+  })();
+</script>

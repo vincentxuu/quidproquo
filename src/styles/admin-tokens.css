@@ -577,6 +577,60 @@ input[type='radio'] {
   background: var(--admin-surface-subtle);
 }
 
+.admin-main,
+.admin-content,
+.admin-panel,
+.content-section,
+.status-card,
+.inventory-panel,
+.pipeline-grid,
+.admin-grid,
+.traces-container,
+.jobs-container,
+.providers-grid {
+  min-width: 0;
+}
+
+.admin-content {
+  width: min(100%, 1600px);
+  overflow-x: auto;
+}
+
+.admin-content button,
+.admin-content a,
+.admin-content input,
+.admin-content select,
+.admin-content textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-content .admin-panel,
+.admin-content .content-section,
+.admin-content .status-card,
+.admin-content .inventory-panel {
+  overflow: hidden;
+}
+
+.admin-table-wrap,
+.post-table-wrap {
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.admin-table,
+.post-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.admin-table th,
+.admin-table td,
+.post-table th,
+.post-table td {
+  min-width: 0;
+}
+
 .pill,
 .status-pill,
 .metadata-chip,
