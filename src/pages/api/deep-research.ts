@@ -1,38 +1,51 @@
-import type { APIRoute } from 'astro';
-import { v4 as uuidv4 } from 'uuid';
-import { verifySession } from '../../../../lib/auth/session';
-import { kv } from '../../../../lib/kv';
-import { resolveConfig } from '../../../../lib/config';
-import { plannerNode, researchNode, writerNode, criticNode } from '../../../../lib/rag/agents';
-import { invokeModel, resolveModelRoute } from '../../../../lib/rag/model';
+import type { APIRoute } from 'astro'
+import { verifySession } from '../../lib/auth/session'
+import { plannerNode } from '../../lib/rag/agents/planner'
+import { researchNode } from '../../lib/rag/agents/research'
+import { writerNode } from '../../lib/rag/agents/writer'
+import { criticNode } from '../../lib/rag/agents/critic'
 
-export const POST: APIRoute = async ({ request, env }) => {
+interface Env {
+  URL: string
+  SESSION?: KVNamespace
+  DEEP_RESEARCH_KV?: KVNamespace
+}
+
+export const POST: APIRoute = async ({ request, env, cookies }) => {
   try {
     // 1. Verify session
-    const { success: authSuccess } = await verifySession(request);
+    const sessionToken = cookies.get('session')?.value
+    const authSuccess = sessionToken ? await verifySession(sessionToken) : false
     if (!authSuccess) {
-      return new Response('Unauthorized', { status: 401 });
+      return new Response('Unauthorized', { status: 401 })
     }
 
     // 2. Parse request body
-    const payload = await request.json();
-    const brief = payload.brief;
-    const userConfig = payload.config || {};
+    const payload = await request.json()
+    const brief = payload.brief
+    const userConfig = payload.config || {}
 
     if (!brief || typeof brief !== 'string') {
-      return new Response('Brief is required and must be a string', { status: 400 });
+      return new Response('Brief is required and must be a string', { status: 400 })
     }
 
     // 3. Generate unique run ID
-    const hash = uuidv4();
-    const reportId = `dr_report_${hash}`;
-    const costKey = `dr_cost_${hash}`;
+    const hash = typeof crypto?.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`
+    const reportId = `dr_report_${hash}`
+    const costKey = `dr_cost_${hash}`
 
     // 4. Load configuration
-    const globalCfg = await resolveConfig(env);
-    const maxQueries = userConfig.maxQueries ?? globalCfg.maxQueries ?? 3;
-    const maxTokens = userConfig.maxTokens ?? globalCfg.maxTokens ?? 256;
-    const providerPref = userConfig.providerPref ?? globalCfg.defaultProvider ?? 'groq';
+    const maxQueries = userConfig.maxQueries ?? 3
+    const maxTokens = userConfig.maxTokens ?? 256
+    const providerPref = userConfig.providerPref ?? 'groq'
+
+    const kv = (env as unknown as Env).DEEP_RESEARCH_KV ?? (env as unknown as Env).SESSION
+    if (!kv) {
+      return new Response(
+        JSON.stringify({ error: 'Deep research KV namespace is not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } },
+      )
+    }
 
     // 5. Execute planning phase
     const plan = await plannerNode.invoke({ brief, maxAttempts: maxQueries });
@@ -61,7 +74,7 @@ export const POST: APIRoute = async ({ request, env }) => {
     // 9. Update cost counter
     const currentCostStr = await kv.get(costKey);
     const currentCost = currentCostStr ? parseFloat(currentCostStr) : 0;
-    const estimatedCost = globalCfg.estimatedCostPerRun ?? 0.5;
+    const estimatedCost = 0.5
     await kv.put(costKey, (currentCost + estimatedCost).toString());
 
     // 10. Return result
@@ -72,16 +85,16 @@ export const POST: APIRoute = async ({ request, env }) => {
       summary: finalReport.slice(0, 200) + '…',
     }), {
       headers: { 'Content-Type': 'application/json' },
-    });
+    })
 
   } catch (error) {
-    console.error('Deep research API error:', error);
+    console.error('Deep research API error:', error)
     return new Response(JSON.stringify({ error: error.message || 'Unknown error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
-    });
+    })
   }
-};
+}
 
 // Research loop helper function
 async function runResearchLoop(opts: {
@@ -101,7 +114,7 @@ async function runResearchLoop(opts: {
       provider,
       maxAttempts: maxSearchCalls,
       cacheKey: hash + ':' + sq,
-    });
+    })
 
     allNotes[sq] = searchResult.notes || [];
 
@@ -110,7 +123,7 @@ async function runResearchLoop(opts: {
       claim: sq,
       notes: searchResult.notes || [],
       threshold: 0.85,
-    });
+    })
     if (citeScore.confidence >= 0.85) continue;
   }
 

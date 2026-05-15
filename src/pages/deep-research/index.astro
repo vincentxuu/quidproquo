@@ -209,26 +209,3 @@
     </script>
   </body>
 </html>
-
-        const response = await fetch('/api/deep-research', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || '請求失敗');
-        }
-
-        setResult(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-  </script>
-</body>
-</html>

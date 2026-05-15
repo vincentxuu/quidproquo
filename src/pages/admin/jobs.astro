@@ -14,6 +14,11 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <div id="job-detail">Loading...</div>
   </section>
 
+  <section class="admin-panel">
+    <h2>Admin SQL 快查</h2>
+    <div id="admin-sql-queries">選取 job 後顯示可複製查詢。</div>
+  </section>
+
 <section class="admin-panel">
   <h2>Artifacts</h2>
   <div id="artifact-list">Loading...</div>
@@ -27,6 +32,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   const id = new URL(location.href).searchParams.get('id');
   const actions = document.createElement('div');
   let currentStatus = '';
+  const artifactSqlPrefix = 'SELECT id, job_id, step_id, type, name, path, content_json, created_at FROM admin_job_artifacts';
 
   async function load() {
     if (!id) {
@@ -47,6 +53,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     renderDetail(data.job, data.steps ?? []);
     renderActions(data.job?.status);
     renderArtifacts(data.artifacts ?? []);
+    renderAdminQueries(data.job?.id, data.artifacts ?? []);
   }
 
   async function loadList() {
@@ -143,6 +150,44 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     }
   }
 
+  function renderAdminQueries(jobId, artifacts) {
+    const existing = document.getElementById('admin-sql-queries');
+    if (!existing) return;
+
+    existing.replaceChildren();
+
+    const jobButton = document.createElement('button');
+    jobButton.type = 'button';
+    jobButton.className = 'mini-btn';
+    jobButton.textContent = '複製 SQL 查詢 (job 與步驟)';
+    const jobSql = `SELECT * FROM admin_jobs WHERE id = '${jobId ?? ''}';\nSELECT * FROM admin_job_steps WHERE job_id = '${jobId ?? ''}' ORDER BY created_at ASC;`;
+    jobButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(jobSql);
+        window.alert('已複製 job/sql 查詢。');
+      } catch {
+        window.alert('複製失敗，請手動複製查詢。');
+      }
+    });
+
+    const artifactButton = document.createElement('button');
+    artifactButton.type = 'button';
+    artifactButton.className = 'mini-btn';
+    artifactButton.textContent = '複製 SQL 查詢 (所有 artifacts)';
+    artifactButton.addEventListener('click', async () => {
+      const artifactIds = artifacts.map((artifact) => `'${artifact.id}'`).join(', ');
+      const sql = `SELECT id, job_id, step_id, type, name, path, content_json, created_at\nFROM admin_job_artifacts\nWHERE job_id = '${jobId ?? ''}'\n${artifacts.length ? `AND id IN (${artifactIds})\n` : ''}ORDER BY created_at ASC;`;
+      try {
+        await navigator.clipboard.writeText(sql);
+        window.alert('已複製 artifacts SQL 查詢。');
+      } catch {
+        window.alert('複製失敗，請手動複製查詢。');
+      }
+    });
+
+    existing.append(jobButton, artifactButton);
+  }
+
   function renderActions(status) {
     const canCancel = status === 'queued' || status === 'running' || status === 'waiting_review';
     const canApprove = status === 'waiting_review';
@@ -213,6 +258,42 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       save.className = 'mini-btn';
       save.textContent = hasEditableContent ? '儲存編輯' : 'No content to edit';
       save.disabled = !hasEditableContent;
+
+      const copy = document.createElement('button');
+      copy.type = 'button';
+      copy.className = 'mini-btn';
+      copy.textContent = '複製此 artifact SQL';
+      copy.addEventListener('click', async () => {
+        const sql = `${artifactSqlPrefix}\nWHERE id = '${artifact.id}' AND job_id = '${artifact.job_id ?? (id ?? '')}';`;
+        try {
+          await navigator.clipboard.writeText(sql);
+          window.alert('已複製 artifact SQL。');
+        } catch {
+          window.alert('複製失敗，請手動複製查詢。');
+        }
+      });
+
+      const download = document.createElement('button');
+      download.type = 'button';
+      download.className = 'mini-btn';
+      download.textContent = '下載原始 JSON';
+      download.addEventListener('click', () => {
+        const payload = JSON.stringify({
+          jobId: artifact.job_id ?? (id ?? ''),
+          artifactId: artifact.id,
+          name: artifact.name ?? '',
+          type: typeLabel,
+          path: artifact.path ?? '',
+          content: rawContent === '' ? '' : rawContent,
+        }, null, 2);
+        const blob = new Blob([payload], { type: 'application/json;charset=utf-8' });
+        const href = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = `artifact-${artifact.id}.json`;
+        a.click();
+        URL.revokeObjectURL(href);
+      });
       save.addEventListener('click', async () => {
         if (!hasEditableContent) return;
         const latestContent = textarea.value;
@@ -235,6 +316,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         }
       });
       toolbar.append(save);
+      toolbar.append(copy, download);
 
       const hint = document.createElement('small');
       hint.className = 'artifact-hint';

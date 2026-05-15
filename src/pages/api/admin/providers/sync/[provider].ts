@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { loadCatalog, isProvider, saveCatalog } from '../providers'
+import { loadCatalog, isProvider, saveCatalog } from '../../providers'
 import { verifySession } from '../../../../../lib/auth/session'
 
 interface Env {
