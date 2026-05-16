@@ -409,26 +409,26 @@ function buildDeepResearchRecord(params: {
   agentSkills: AgentSkillSpecs
 }) {
   const searchToolProfileWithAgentSkills = {
-    ...searchToolProfile,
+    ...params.searchToolProfile,
     agentSkills: params.agentSkillsProfile.skills,
     agentSkillsDefinitions: params.agentSkills,
   };
   const searchToolProfilesWithAgentSkills = {
-    ...searchToolProfiles,
+    ...params.searchToolProfiles,
     planner: {
-      ...searchToolProfiles.planner,
+      ...params.searchToolProfiles.planner,
       agentSkills: params.agentSkillsProfiles.planner?.skills,
     },
     research: {
-      ...searchToolProfiles.research,
+      ...params.searchToolProfiles.research,
       agentSkills: params.agentSkillsProfiles.research?.skills,
     },
     writer: {
-      ...searchToolProfiles.writer,
+      ...params.searchToolProfiles.writer,
       agentSkills: params.agentSkillsProfiles.writer?.skills,
     },
     critic: {
-      ...searchToolProfiles.critic,
+      ...params.searchToolProfiles.critic,
       agentSkills: params.agentSkillsProfiles.critic?.skills,
     },
   } as const;
