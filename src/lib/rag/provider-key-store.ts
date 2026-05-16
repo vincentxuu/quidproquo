@@ -15,6 +15,7 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'groq', envKey: 'GROQ_API_KEY', label: 'GROQ_API_KEY', required: false, sensitive: true },
   { provider: 'openai', envKey: 'OPENAI_API_KEY', label: 'OPENAI_API_KEY', required: false, sensitive: true },
   { provider: 'google', envKey: 'GOOGLE_API_KEY', label: 'GOOGLE_API_KEY', required: false, sensitive: true },
+  { provider: 'gemini', envKey: 'GEMINI_API_KEY', label: 'GEMINI_API_KEY', required: false, sensitive: true },
   { provider: 'gemini', envKey: 'GOOGLE_API_KEY', label: 'GOOGLE_API_KEY', required: false, sensitive: true },
   { provider: 'anthropic', envKey: 'ANTHROPIC_API_KEY', label: 'ANTHROPIC_API_KEY', required: false, sensitive: true },
   { provider: 'openrouter', envKey: 'OPENROUTER_API_KEY', label: 'OPENROUTER_API_KEY', required: false, sensitive: true },
@@ -23,6 +24,7 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_API_TOKEN', label: 'CLOUDFLARE_API_TOKEN', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_ACCOUNT_ID', label: 'CLOUDFLARE_ACCOUNT_ID', required: false, sensitive: false },
   { provider: 'ollama_cloud', envKey: 'OLLAMA_API_KEY', label: 'OLLAMA_API_KEY', required: false, sensitive: true },
+  { provider: 'ollama_cloud', envKey: 'OLLAMA_CLOUD_API_KEY', label: 'OLLAMA_CLOUD_API_KEY', required: false, sensitive: true },
   { provider: 'ollama', envKey: 'OLLAMA_API_BASE', label: 'OLLAMA_API_BASE', required: false, sensitive: false },
   { provider: 'ollama', envKey: 'OLLAMA_HOST', label: 'OLLAMA_HOST', required: false, sensitive: false },
   { provider: 'ollama', envKey: 'OLLAMA_URL', label: 'OLLAMA_URL', required: false, sensitive: false },
@@ -71,12 +73,21 @@ function normalizeProviderApiKeys(values: ProviderApiKeys): ProviderApiKeys {
     if (!values.google) normalized.google = values.GOOGLE_API_KEY
     if (!values.gemini) normalized.gemini = values.GOOGLE_API_KEY
   }
+  if (values.GEMINI_API_KEY) {
+    if (!values.GOOGLE_API_KEY) normalized.GOOGLE_API_KEY = values.GEMINI_API_KEY
+    if (!values.google) normalized.google = values.GEMINI_API_KEY
+    if (!values.gemini) normalized.gemini = values.GEMINI_API_KEY
+  }
   if (values.ANTHROPIC_API_KEY && !values.anthropic) normalized.anthropic = values.ANTHROPIC_API_KEY
   if (values.OPENROUTER_API_KEY && !values.openrouter) normalized.openrouter = values.OPENROUTER_API_KEY
   if (values.NVIDIA_API_KEY && !values.nvidia) normalized.nvidia = values.NVIDIA_API_KEY
   if (values.CEREBRAS_API_KEY && !values.cerebras) normalized.cerebras = values.CEREBRAS_API_KEY
   if (values.OLLAMA_API_KEY && !values.ollama) normalized.ollama = values.OLLAMA_API_KEY
   if (values.OLLAMA_API_KEY && !values.ollama_cloud) normalized.ollama_cloud = values.OLLAMA_API_KEY
+  if (values.OLLAMA_CLOUD_API_KEY) {
+    if (!values.OLLAMA_API_KEY) normalized.OLLAMA_API_KEY = values.OLLAMA_CLOUD_API_KEY
+    if (!values.ollama_cloud) normalized.ollama_cloud = values.OLLAMA_CLOUD_API_KEY
+  }
   if (!values.JINA_SEARCH_API_KEY && values.JINA_API_KEY) normalized.JINA_SEARCH_API_KEY = values.JINA_API_KEY
 
   return normalized
