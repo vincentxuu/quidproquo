@@ -71,6 +71,24 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
         </div>
       </div>
     </section>
+
+    <section class="settings-section">
+      <h2>Deep Research 儲存</h2>
+      <div class="setting-card">
+        <div class="setting-row">
+          <label for="deep-research-storage">儲存策略</label>
+          <div class="setting-input">
+            <select id="deep-research-storage" class="select">
+              <option value="auto">Auto（DEEP_RESEARCH_KV → SESSION → D1）</option>
+              <option value="d1">只用 D1</option>
+              <option value="deep_research_kv">只用 DEEP_RESEARCH_KV</option>
+              <option value="session">只用 SESSION KV</option>
+            </select>
+            <span id="deep-research-storage-note" class="setting-note">binding 仍需在 Cloudflare / wrangler 設定。</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="actions-bar">
@@ -145,6 +163,8 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       document.getElementById('rag-max-chunks').value = currentConfig.rag?.max_context_chunks || 10;
       document.getElementById('pipeline-retries').value = currentConfig.pipeline?.max_retries || 2;
       document.getElementById('pipeline-runtime').value = currentConfig.pipeline?.max_runtime_ms || 600000;
+      document.getElementById('deep-research-storage').value = currentConfig.deep_research?.storage_mode || 'auto';
+      renderDeepResearchStorageNote(currentConfig.deep_research);
     } catch {
       setLoadError(document.getElementById('secrets-status'), '無法載入設定');
     }
@@ -166,6 +186,9 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       pipeline: {
         max_retries: parseInt(document.getElementById('pipeline-retries').value),
         max_runtime_ms: parseInt(document.getElementById('pipeline-runtime').value),
+      },
+      deep_research: {
+        storage_mode: document.getElementById('deep-research-storage').value,
       },
     };
 
@@ -195,7 +218,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     document.getElementById('rag-max-chunks').value = 10;
     document.getElementById('pipeline-retries').value = 2;
     document.getElementById('pipeline-runtime').value = 600000;
+    document.getElementById('deep-research-storage').value = 'auto';
+    renderDeepResearchStorageNote(currentConfig.deep_research);
     document.getElementById('save-status').textContent = '已重設為預設值，請按「儲存設定」套用。';
+  }
+
+  function renderDeepResearchStorageNote(config) {
+    const note = document.getElementById('deep-research-storage-note');
+    const bindings = config?.bindings || {};
+    const parts = [
+      `D1: ${bindings.d1 ? 'ready' : 'missing'}`,
+      `DEEP_RESEARCH_KV: ${bindings.deep_research_kv ? 'ready' : 'missing'}`,
+      `SESSION: ${bindings.session ? 'ready' : 'missing'}`,
+    ];
+    note.textContent = `${parts.join(' / ')}。binding 仍需在 Cloudflare / wrangler 設定。`;
   }
 
   document.getElementById('save-settings').addEventListener('click', saveSettings);

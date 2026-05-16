@@ -7,6 +7,7 @@ import { verifySession } from '../../../../lib/auth/session'
 interface Env {
   DB: D1Database
   SESSION: KVNamespace
+  DEEP_RESEARCH_KV?: KVNamespace
 }
 
 interface SettingRow {
@@ -27,6 +28,9 @@ interface SettingsUpdateBody {
   pipeline?: {
     max_retries?: unknown
     max_runtime_ms?: unknown
+  }
+  deep_research?: {
+    storage_mode?: unknown
   }
 }
 
@@ -61,6 +65,7 @@ export const GET: APIRoute = async ({ cookies }) => {
     rag_max_context_chunks: '10',
     pipeline_max_retries: '2',
     pipeline_max_runtime_ms: '600000',
+    deep_research_storage_mode: 'auto',
   }
 
   // Merge with defaults
@@ -77,6 +82,23 @@ export const GET: APIRoute = async ({ cookies }) => {
       max_retries: parseInt(settings.pipeline_max_retries || defaults.pipeline_max_retries),
       max_runtime_ms: parseInt(settings.pipeline_max_runtime_ms || defaults.pipeline_max_runtime_ms),
     },
+    deep_research: {
+      storage_mode: normalizeStorageMode(settings.deep_research_storage_mode || defaults.deep_research_storage_mode),
+      bindings: {
+        d1: Boolean(e.DB),
+        deep_research_kv: Boolean((env as unknown as Env).DEEP_RESEARCH_KV),
+        session: Boolean(e.SESSION),
+      },
+    },
+  }
+
+  secrets.DEEP_RESEARCH_KV = {
+    configured: Boolean((env as unknown as Env).DEEP_RESEARCH_KV),
+    note: 'Optional dedicated KV binding for Deep Research reports',
+  }
+  secrets.DB = {
+    configured: Boolean(e.DB),
+    note: 'D1 fallback and report metadata storage',
   }
 
   return json({ secrets, config, defaults })
@@ -108,6 +130,9 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
   }
   if (typeof body.pipeline?.max_runtime_ms === 'number' && body.pipeline.max_runtime_ms > 0) {
     updates.pipeline_max_runtime_ms = String(body.pipeline.max_runtime_ms)
+  }
+  if (typeof body.deep_research?.storage_mode === 'string') {
+    updates.deep_research_storage_mode = normalizeStorageMode(body.deep_research.storage_mode)
   }
 
   if (Object.keys(updates).length === 0) {
@@ -157,4 +182,8 @@ function unauthorized(): Response {
 
 function json(data: unknown): Response {
   return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
+}
+
+function normalizeStorageMode(raw: string): string {
+  return ['auto', 'd1', 'deep_research_kv', 'session'].includes(raw) ? raw : 'auto'
 }

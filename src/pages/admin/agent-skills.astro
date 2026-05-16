@@ -1,29 +1,132 @@
 ---
 export const prerender = false;
 import AdminLayout from '../../layouts/AdminLayout.astro';
+
+type SkillCatalogEntry = {
+  id: string;
+  name: string;
+  description: string;
+  path: string;
+  source: '.agents' | '.codex';
+  raw: string;
+  bodyChars: number;
+  scripts: string[];
+  references: string[];
+  assets: string[];
+  agentConfigs: string[];
+  otherFiles: string[];
+};
+
+const agentSkillModules = import.meta.glob('../../../.agents/skills/**/SKILL.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+const codexSkillModules = import.meta.glob('../../../.codex/skills/**/SKILL.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+const agentSkillFiles = import.meta.glob('../../../.agents/skills/**/*', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+const codexSkillFiles = import.meta.glob('../../../.codex/skills/**/*', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+function normalizePath(path: string): string {
+  return path.replace(/^\.\.\/\.\.\/\.\.\//, '');
+}
+
+function parseSkillMeta(raw: string): { name: string; description: string } {
+  const match = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
+  const block = match?.[1] ?? '';
+  const name = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m)?.[2]?.trim() ?? '';
+  const description = block.match(/(^|\r?\n)description:\s*(.+)\s*$/m)?.[2]?.trim() ?? '';
+  return { name, description };
+}
+
+function buildCatalog(
+  source: '.agents' | '.codex',
+  modules: Record<string, string>,
+  fileModules: Record<string, string>,
+): SkillCatalogEntry[] {
+  const allFilePaths = Object.keys(fileModules);
+  return Object.entries(modules).map(([path, raw]) => {
+    const root = path.replace(/\/SKILL\.md$/, '');
+    const relativeRoot = normalizePath(root);
+    const relativePath = normalizePath(path);
+    const companionPaths = allFilePaths
+      .filter((filePath) => filePath.startsWith(`${root}/`) && !filePath.endsWith('/SKILL.md'))
+      .map(normalizePath)
+      .sort();
+    const bySegment = (segment: string) => companionPaths.filter((filePath) => filePath.startsWith(`${relativeRoot}/${segment}/`));
+    const agentConfigs = companionPaths.filter((filePath) => filePath.startsWith(`${relativeRoot}/agents/`));
+    const known = new Set([
+      ...bySegment('scripts'),
+      ...bySegment('references'),
+      ...bySegment('assets'),
+      ...agentConfigs,
+    ]);
+    const meta = parseSkillMeta(raw);
+    return {
+      id: relativePath,
+      name: meta.name || relativeRoot.split('/').at(-1) || relativePath,
+      description: meta.description,
+      path: relativePath,
+      source,
+      raw: raw.trim(),
+      bodyChars: raw.trim().length,
+      scripts: bySegment('scripts'),
+      references: bySegment('references'),
+      assets: bySegment('assets'),
+      agentConfigs,
+      otherFiles: companionPaths.filter((filePath) => !known.has(filePath)),
+    };
+  });
+}
+
+const fileSkillCatalog = [
+  ...buildCatalog('.agents', agentSkillModules, agentSkillFiles),
+  ...buildCatalog('.codex', codexSkillModules, codexSkillFiles),
+].sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <AdminLayout title="Agent Skills">
   <p class="page-desc">管理可被 Deep Research 與其他 agent 流程共用的 SKILL.md 定義。</p>
 
-  <section class="admin-panel agent-skills-panel">
+  <section
+    class="admin-panel agent-skills-panel"
+    data-file-skill-catalog={JSON.stringify(fileSkillCatalog)}
+  >
     <div class="admin-panel-header">
       <div>
         <h2>共用技能庫</h2>
-        <p class="admin-section-desc">每個 skill 使用一段 `---` frontmatter，至少包含 `name` 與 `description`。正式環境不會讀取本機 `.agents/skills/*/SKILL.md`，請貼上或儲存到共用庫。</p>
+        <p class="admin-section-desc">Skill 是資料夾：`SKILL.md` 加上選用的 `scripts/`、`references/`、`assets/`、`agents/openai.yaml`。檔案庫來自 repo，正式執行時使用儲存在 D1 的共用庫。</p>
       </div>
       <span id="agent-skills-status" class="admin-section-desc" aria-live="polite">載入中...</span>
     </div>
 
+    <div class="skill-overview" id="skill-overview">
+      <div><span>DB skills</span><strong id="db-skill-count">0</strong></div>
+      <div><span>檔案技能包</span><strong id="file-skill-count">0</strong></div>
+      <div><span>已選檔案</span><strong id="selected-file-count">0</strong></div>
+      <div><span>結構資源</span><strong id="resource-count">0</strong></div>
+    </div>
+
     <div class="agent-skills-layout">
       <label class="admin-field editor-field">
-        <span class="admin-field-label">agentSkills raw</span>
+        <span class="admin-field-label">D1 共用庫內容</span>
         <textarea
           id="agent-skills-raw"
           class="textarea"
           rows="26"
           spellcheck="false"
-          placeholder="貼上多份 SKILL.md 內容；此頁會存到 D1 共用庫，不會直接讀取本機檔案。"
+          placeholder="可以貼上多份 SKILL.md；或從右側檔案技能包選取後匯入。儲存後 Deep Research 使用這份 DB 內容。"
         ></textarea>
       </label>
 
@@ -32,6 +135,26 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
           <button id="save-agent-skills" class="btn" type="button">儲存</button>
           <button id="load-agent-skills-template" class="btn-secondary" type="button">載入範本</button>
         </div>
+
+        <section class="agent-skills-card file-library-card">
+          <div class="card-heading-row">
+            <h3>檔案技能包</h3>
+            <span id="file-library-count" class="mini-count">0</span>
+          </div>
+          <div class="library-controls">
+            <input id="file-skill-filter" class="input" type="search" placeholder="搜尋 name / path / description" />
+            <select id="file-skill-source" class="select">
+              <option value="">全部來源</option>
+              <option value=".agents">.agents</option>
+              <option value=".codex">.codex</option>
+            </select>
+          </div>
+          <div class="agent-skills-actions">
+            <button id="append-selected-skills" class="btn-secondary" type="button">附加選取</button>
+            <button id="replace-selected-skills" class="btn-secondary" type="button">以選取取代</button>
+          </div>
+          <div id="file-skills-list" class="file-skills-list"></div>
+        </section>
 
         <section class="agent-skills-card">
           <h3>解析結果</h3>
@@ -61,12 +184,33 @@ description: Use when research must cite primary sources.
 </AdminLayout>
 
 <script is:inline>
+  const panel = document.querySelector('.agent-skills-panel');
   const rawInput = document.getElementById('agent-skills-raw');
   const statusEl = document.getElementById('agent-skills-status');
   const summaryEl = document.getElementById('agent-skills-summary');
   const listEl = document.getElementById('agent-skills-list');
   const saveButton = document.getElementById('save-agent-skills');
   const templateButton = document.getElementById('load-agent-skills-template');
+  const fileSkillsListEl = document.getElementById('file-skills-list');
+  const fileSkillFilter = document.getElementById('file-skill-filter');
+  const fileSkillSource = document.getElementById('file-skill-source');
+  const appendSelectedButton = document.getElementById('append-selected-skills');
+  const replaceSelectedButton = document.getElementById('replace-selected-skills');
+  const dbSkillCount = document.getElementById('db-skill-count');
+  const fileSkillCount = document.getElementById('file-skill-count');
+  const selectedFileCount = document.getElementById('selected-file-count');
+  const resourceCount = document.getElementById('resource-count');
+  const fileLibraryCount = document.getElementById('file-library-count');
+
+  const FILE_SKILL_CATALOG = (() => {
+    try {
+      const parsed = JSON.parse(panel?.dataset?.fileSkillCatalog || '[]');
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  })();
+  const selectedFileSkillIds = new Set();
 
   const TEMPLATE = `---
 name: using-agent-skills
@@ -117,7 +261,7 @@ description: Use when claims must be grounded in source material.
         return { valid: false, entries, error: `skill name 重複：${name}` };
       }
       seen.add(name);
-      entries.push({ name, description });
+      entries.push({ name, description, source: 'db' });
     }
 
     if (!entries.length) {
@@ -130,6 +274,7 @@ description: Use when claims must be grounded in source material.
   function renderParsed() {
     const parsed = parseAgentSkills(rawInput.value);
     summaryEl.innerHTML = `<span>skills</span><strong>${parsed.entries.length}</strong>`;
+    dbSkillCount.textContent = String(parsed.entries.length);
 
     if (!parsed.valid) {
       listEl.innerHTML = `<p class="error">${parsed.error}</p>`;
@@ -155,6 +300,110 @@ description: Use when claims must be grounded in source material.
       return item;
     }));
     return parsed;
+  }
+
+  function countResources(skill) {
+    return (skill.scripts?.length || 0)
+      + (skill.references?.length || 0)
+      + (skill.assets?.length || 0)
+      + (skill.agentConfigs?.length || 0)
+      + (skill.otherFiles?.length || 0);
+  }
+
+  function renderFileSkillLibrary() {
+    const query = normalize(fileSkillFilter.value).toLowerCase();
+    const source = normalize(fileSkillSource.value);
+    const visible = FILE_SKILL_CATALOG.filter((skill) => {
+      if (source && skill.source !== source) return false;
+      if (!query) return true;
+      return [skill.name, skill.description, skill.path].some((value) => normalize(value).toLowerCase().includes(query));
+    });
+
+    fileSkillCount.textContent = String(FILE_SKILL_CATALOG.length);
+    selectedFileCount.textContent = String(selectedFileSkillIds.size);
+    resourceCount.textContent = String(FILE_SKILL_CATALOG.reduce((sum, skill) => sum + countResources(skill), 0));
+    fileLibraryCount.textContent = `${visible.length}/${FILE_SKILL_CATALOG.length}`;
+
+    if (!visible.length) {
+      fileSkillsListEl.innerHTML = '<p class="empty">找不到符合條件的技能包。</p>';
+      return;
+    }
+
+    fileSkillsListEl.replaceChildren(...visible.map((skill) => {
+      const item = document.createElement('article');
+      item.className = 'file-skill-item';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = selectedFileSkillIds.has(skill.id);
+      checkbox.addEventListener('change', () => {
+        if (checkbox.checked) selectedFileSkillIds.add(skill.id);
+        else selectedFileSkillIds.delete(skill.id);
+        selectedFileCount.textContent = String(selectedFileSkillIds.size);
+      });
+
+      const body = document.createElement('div');
+      body.className = 'file-skill-body';
+
+      const title = document.createElement('strong');
+      title.textContent = skill.name;
+
+      const desc = document.createElement('p');
+      desc.textContent = skill.description || '(missing description)';
+
+      const path = document.createElement('code');
+      path.textContent = skill.path;
+
+      const badges = document.createElement('div');
+      badges.className = 'skill-badges';
+      const badgeValues = [
+        skill.source,
+        `${skill.bodyChars} chars`,
+        skill.scripts?.length ? `scripts ${skill.scripts.length}` : '',
+        skill.references?.length ? `refs ${skill.references.length}` : '',
+        skill.assets?.length ? `assets ${skill.assets.length}` : '',
+        skill.agentConfigs?.length ? 'openai.yaml' : '',
+      ].filter(Boolean);
+      badges.replaceChildren(...badgeValues.map((value) => {
+        const badge = document.createElement('span');
+        badge.textContent = value;
+        return badge;
+      }));
+
+      body.append(title, desc, path, badges);
+      item.append(checkbox, body);
+      return item;
+    }));
+  }
+
+  function getSelectedFileSkills() {
+    return FILE_SKILL_CATALOG.filter((skill) => selectedFileSkillIds.has(skill.id));
+  }
+
+  function joinSkillBlocks(skills) {
+    return skills.map((skill) => skill.raw).filter(Boolean).join('\n\n');
+  }
+
+  function appendSelectedSkills() {
+    const raw = joinSkillBlocks(getSelectedFileSkills());
+    if (!raw) {
+      statusEl.textContent = '請先選取至少一個檔案技能包。';
+      return;
+    }
+    rawInput.value = [rawInput.value.trim(), raw].filter(Boolean).join('\n\n');
+    statusEl.textContent = `已附加 ${selectedFileSkillIds.size} 個檔案技能包，尚未儲存。`;
+    renderParsed();
+  }
+
+  function replaceWithSelectedSkills() {
+    const raw = joinSkillBlocks(getSelectedFileSkills());
+    if (!raw) {
+      statusEl.textContent = '請先選取至少一個檔案技能包。';
+      return;
+    }
+    rawInput.value = raw;
+    statusEl.textContent = `已載入 ${selectedFileSkillIds.size} 個檔案技能包，尚未儲存。`;
+    renderParsed();
   }
 
   async function loadAgentSkills() {
@@ -199,6 +448,10 @@ description: Use when claims must be grounded in source material.
   }
 
   rawInput.addEventListener('input', renderParsed);
+  fileSkillFilter.addEventListener('input', renderFileSkillLibrary);
+  fileSkillSource.addEventListener('change', renderFileSkillLibrary);
+  appendSelectedButton.addEventListener('click', appendSelectedSkills);
+  replaceSelectedButton.addEventListener('click', replaceWithSelectedSkills);
   saveButton.addEventListener('click', saveAgentSkills);
   templateButton.addEventListener('click', () => {
     rawInput.value = TEMPLATE.trim();
@@ -206,6 +459,7 @@ description: Use when claims must be grounded in source material.
     renderParsed();
   });
 
+  renderFileSkillLibrary();
   loadAgentSkills();
 </script>
 
@@ -214,9 +468,34 @@ description: Use when claims must be grounded in source material.
     overflow: hidden;
   }
 
+  .skill-overview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--admin-space-3);
+    margin-bottom: var(--admin-space-4);
+  }
+
+  .skill-overview div {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    background: var(--admin-surface-subtle);
+    padding: var(--admin-space-3);
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .skill-overview span {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .skill-overview strong {
+    font-size: 1.2rem;
+  }
+
   .agent-skills-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
     gap: var(--admin-space-4);
     min-width: 0;
   }
@@ -255,6 +534,81 @@ description: Use when claims must be grounded in source material.
   .agent-skills-card h3 {
     margin: 0 0 var(--admin-space-3);
     font-size: 0.94rem;
+  }
+
+  .card-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--admin-space-2);
+  }
+
+  .mini-count {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .library-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px;
+    gap: var(--admin-space-2);
+    margin-bottom: var(--admin-space-2);
+  }
+
+  .file-skills-list {
+    display: grid;
+    gap: var(--admin-space-2);
+    max-height: 480px;
+    overflow: auto;
+    padding-right: 0.25rem;
+  }
+
+  .file-skill-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--admin-space-2);
+    border-top: 1px solid var(--admin-border);
+    padding-top: var(--admin-space-2);
+  }
+
+  .file-skill-item input {
+    margin-top: 0.2rem;
+  }
+
+  .file-skill-body {
+    display: grid;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  .file-skill-body strong,
+  .file-skill-body code {
+    overflow-wrap: anywhere;
+  }
+
+  .file-skill-body p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 0.84rem;
+  }
+
+  .file-skill-body code {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+  }
+
+  .skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .skill-badges span {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    padding: 0.12rem 0.4rem;
+    color: var(--admin-text-muted);
+    font-size: 0.72rem;
   }
 
   .summary-grid {
@@ -301,6 +655,10 @@ description: Use when claims must be grounded in source material.
   }
 
   @media (max-width: 980px) {
+    .skill-overview {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .agent-skills-layout {
       grid-template-columns: 1fr;
     }

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { env as cloudflareEnv } from 'cloudflare:workers'
 import { HumanMessage } from '@langchain/core/messages'
 import { initialState, type GraphState, type RagRuntimeConfig, type SearchResult } from '../../lib/rag/state'
 import { verifySession } from '../../lib/auth/session'
@@ -100,14 +101,16 @@ type EnableFlags = {
   researchEnabled?: boolean
   writerEnabled?: boolean
 }
+type DeepResearchStorageMode = 'auto' | 'd1' | 'deep_research_kv' | 'session'
 
 const MAX_QUERIES = 10
 const MAX_TOKENS = 4096
 const MAX_SEARCH_CALLS = 8
 const DEFAULT_TOKENS = 2048
 
-export const POST: APIRoute = async ({ request, env, cookies }) => {
+export const POST: APIRoute = async ({ request, env: routeEnv, cookies }) => {
   try {
+    const runtimeEnv = ((routeEnv as unknown as Env | undefined) ?? (cloudflareEnv as unknown as Env))
     const sessionToken = cookies.get('session')?.value
     const authSuccess = sessionToken ? await verifySession(sessionToken) : false
     if (!authSuccess) {
@@ -147,17 +150,18 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
       : `${Date.now()}-${Math.random().toString(16).slice(2)}`)}`
     const costKey = `dr_cost_${reportId}`
 
-    const kv = (env as unknown as Env).DEEP_RESEARCH_KV ?? (env as unknown as Env).SESSION
-    const db = (env as unknown as Env).DB
-    if (!kv && !db) {
+    const db = runtimeEnv.DB
+    const storageMode = await loadDeepResearchStorageMode(db)
+    const storage = resolveDeepResearchStorage(runtimeEnv, storageMode)
+    if (!storage.kv && !storage.db) {
       return new Response(
-        JSON.stringify({ error: 'Deep research storage is not configured' }),
+        JSON.stringify({ error: `Deep research storage is not configured for mode: ${storageMode}` }),
         { status: 500, headers: { 'Content-Type': 'application/json' } },
       )
     }
 
-    const apiKeys = await loadProviderKeys((env as unknown as Env).DB)
-    const ragSettings = await safeLoadRagSettings((env as unknown as Env).DB)
+    const apiKeys = await loadProviderKeys(db)
+    const ragSettings = await safeLoadRagSettings(db)
     const provider = normalizeProvider(providerPref)
     const model = normalizeModel(preferredModel, ragSettings, provider)
     const resolvedResearchSearchTools = resolveSearchToolConfig({
@@ -321,12 +325,12 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
     let cacheSaved = false
     let dbSaved = false
     try {
-      if (kv) {
-        await kv.put(reportId, finalReport)
-        const currentCostStr = await kv.get(costKey)
+      if (storage.kv) {
+        await storage.kv.put(reportId, finalReport)
+        const currentCostStr = await storage.kv.get(costKey)
         const currentCost = currentCostStr ? parseFloat(currentCostStr) : 0
         const estimatedCost = 0.5
-        await kv.put(costKey, (currentCost + estimatedCost).toString())
+        await storage.kv.put(costKey, (currentCost + estimatedCost).toString())
         cacheSaved = true
       }
     } catch (error) {
@@ -334,8 +338,8 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
     }
 
     try {
-      if ((env as unknown as Env).DB) {
-        await saveDeepResearchReport(db as D1Database, reportRecord)
+      if (storage.db) {
+        await saveDeepResearchReport(storage.db, reportRecord)
         dbSaved = true
       }
     } catch (error) {
@@ -349,7 +353,8 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
       )
     }
 
-    const reportUrl = `${env.URL}/api/deep-research/${reportId}`
+    const origin = runtimeEnv.URL || new URL(request.url).origin
+    const reportUrl = `${origin}/api/deep-research/${reportId}`
 
     return new Response(JSON.stringify({
       runId: reportId,
@@ -536,6 +541,35 @@ function clampInt(raw: unknown, fallback: number, min: number, max: number): num
 async function loadProviderKeys(db?: D1Database): Promise<ProviderApiKeys> {
   if (!db) return {}
   return resolveProviderApiKeys(db)
+}
+
+async function loadDeepResearchStorageMode(db?: D1Database): Promise<DeepResearchStorageMode> {
+  if (!db) return 'auto'
+  try {
+    const row = await db.prepare('SELECT value FROM admin_settings WHERE key = ?')
+      .bind('deep_research_storage_mode')
+      .first<{ value: string }>()
+    return normalizeDeepResearchStorageMode(row?.value)
+  } catch {
+    return 'auto'
+  }
+}
+
+function normalizeDeepResearchStorageMode(raw: unknown): DeepResearchStorageMode {
+  return raw === 'd1' || raw === 'deep_research_kv' || raw === 'session' ? raw : 'auto'
+}
+
+function resolveDeepResearchStorage(runtimeEnv: Env, mode: DeepResearchStorageMode): {
+  kv?: KVNamespace
+  db?: D1Database
+} {
+  if (mode === 'd1') return { db: runtimeEnv.DB }
+  if (mode === 'deep_research_kv') return { kv: runtimeEnv.DEEP_RESEARCH_KV }
+  if (mode === 'session') return { kv: runtimeEnv.SESSION }
+  return {
+    kv: runtimeEnv.DEEP_RESEARCH_KV ?? runtimeEnv.SESSION,
+    db: runtimeEnv.DB,
+  }
 }
 
 function deriveTokenBudget(params: { stage: keyof typeof TOKEN_PROFILES; baseTokens: number }): number {
