@@ -25,6 +25,7 @@ export async function plannerNode(
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    skillInstructions?: string
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 512
@@ -35,7 +36,7 @@ export async function plannerNode(
     state.config,
     'planner',
     [
-    new HumanMessage(`${INTENT_PROMPT}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
+    new HumanMessage(`${INTENT_PROMPT}${options?.skillInstructions ? `\n\nAgent skill instructions:\n${options.skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
     ],
     maxTokens,
     options?.apiKeys

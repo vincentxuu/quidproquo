@@ -12,6 +12,7 @@ export async function writerNode(
     apiKeys?: ProviderApiKeys
     maxTokens?: number
     resultProfile?: ResultProfile
+    skillInstructions?: string
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 2048
@@ -49,7 +50,8 @@ Describe the successful end state by producing an answer that:
 Avoid step-by-step self-instructions or meta commentary about your process.
 ${needsDisclaimer ? 'Because prior checks found low confidence or formatting issues, include a brief limitation note near the start.' : ''}
 Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
-Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}`
+Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}
+${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}` : ''}`
 
   const { response, route } = await invokeModel(
     state.config,

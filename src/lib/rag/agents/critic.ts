@@ -8,6 +8,7 @@ export async function criticNode(
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    skillInstructions?: string
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 512
@@ -33,7 +34,8 @@ Original plan intent: ${state.plan.intent}
 Original plan complexity: ${state.plan.complexity}
 Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
 Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
-Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.`
+Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.
+${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}` : ''}`
 
   const { response, route } = await invokeModel(
     state.config,

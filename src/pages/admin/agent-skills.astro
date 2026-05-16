@@ -10,7 +10,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <div class="admin-panel-header">
       <div>
         <h2>共用技能庫</h2>
-        <p class="admin-section-desc">每個 skill 使用一段 `---` frontmatter，至少包含 `name` 與 `description`。</p>
+        <p class="admin-section-desc">每個 skill 使用一段 `---` frontmatter，至少包含 `name` 與 `description`。正式環境不會讀取本機 `.agents/skills/*/SKILL.md`，請貼上或儲存到共用庫。</p>
       </div>
       <span id="agent-skills-status" class="admin-section-desc" aria-live="polite">載入中...</span>
     </div>
@@ -18,7 +18,13 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <div class="agent-skills-layout">
       <label class="admin-field editor-field">
         <span class="admin-field-label">agentSkills raw</span>
-        <textarea id="agent-skills-raw" class="textarea" rows="26" spellcheck="false"></textarea>
+        <textarea
+          id="agent-skills-raw"
+          class="textarea"
+          rows="26"
+          spellcheck="false"
+          placeholder="貼上多份 SKILL.md 內容；此頁會存到 D1 共用庫，不會直接讀取本機檔案。"
+        ></textarea>
       </label>
 
       <aside class="agent-skills-side">

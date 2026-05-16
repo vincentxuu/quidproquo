@@ -21,7 +21,12 @@ import { SUPPORTED_AGENT_SKILLS } from '../../lib/agent-skills';
       前往登入
     </a>
 
-    <form id="deep-research-form" class="admin-grid" data-search-tool-providers={JSON.stringify(SUPPORTED_SEARCH_TOOL_PROVIDERS)}>
+    <form
+      id="deep-research-form"
+      class="admin-grid"
+      data-search-tool-providers={JSON.stringify(SUPPORTED_SEARCH_TOOL_PROVIDERS)}
+      data-agent-skills={JSON.stringify(SUPPORTED_AGENT_SKILLS)}
+    >
       <label class="admin-field">
         <span class="admin-field-label">研究主題（中/英皆可）</span>
         <textarea
@@ -422,20 +427,32 @@ import { SUPPORTED_AGENT_SKILLS } from '../../lib/agent-skills';
     gemini: ['gemini-2.0-flash'],
   };
 
+  const parseDatasetArray = (raw, fallback = []) => {
+    try {
+      const parsed = raw ? JSON.parse(raw) : null;
+      return Array.isArray(parsed) ? parsed : fallback;
+    } catch {
+      return fallback;
+    }
+  };
   const providerState = {
     providers: Object.keys(defaultProviderModels),
     catalog: [],
   };
-  const SEARCH_TOOL_PROVIDERS_FALLBACK = SUPPORTED_SEARCH_TOOL_PROVIDERS;
-  const SEARCH_TOOL_PROVIDERS = (() => {
-    const raw = form?.dataset?.searchToolProviders;
-    try {
-      const parsed = raw ? JSON.parse(raw) : null;
-      return Array.isArray(parsed) ? parsed : SEARCH_TOOL_PROVIDERS_FALLBACK;
-    } catch {
-      return SEARCH_TOOL_PROVIDERS_FALLBACK;
-    }
-  })();
+  const SEARCH_TOOL_PROVIDERS_FALLBACK = parseDatasetArray(form?.dataset?.searchToolProviders, [
+    'jina',
+    'cloudflare',
+    'posts',
+    'docs',
+  ]);
+  const SEARCH_TOOL_PROVIDERS = SEARCH_TOOL_PROVIDERS_FALLBACK;
+  const AGENT_SKILLS = parseDatasetArray(form?.dataset?.agentSkills, [
+    'using-agent-skills',
+    'planning-and-task-breakdown',
+    'source-driven-development',
+    'context-engineering',
+    'code-review-and-quality',
+  ]);
   const stageSearchToolProviderSelects = {
     planner: plannerSearchToolProvidersSelect,
     research: researchSearchToolProvidersSelect,
@@ -725,7 +742,8 @@ Collect requirements and create a constrained implementation spec.
     }
     if (forceModel && model) {
       const targetModel = String(model).trim();
-      if (targetModel && modelSelect.querySelector(`option[value="${targetModel}"]`)) {
+      const hasModel = Array.from(modelSelect.options ?? []).some((option) => option.value === targetModel);
+      if (targetModel && hasModel) {
         modelSelect.value = targetModel;
       }
     }
@@ -1111,7 +1129,7 @@ Collect requirements and create a constrained implementation spec.
     const previous = toSelectValues(select);
     select.replaceChildren();
     const customSkills = Array.from(new Set(Array.isArray(customAgentSkills) ? customAgentSkills : []));
-    const allSkills = [...SUPPORTED_AGENT_SKILLS];
+    const allSkills = [...AGENT_SKILLS];
     for (const skill of customSkills) {
       const normalized = String(skill).trim().toLowerCase();
       if (normalized && !allSkills.includes(normalized)) {
@@ -1215,6 +1233,50 @@ Collect requirements and create a constrained implementation spec.
     syncModels();
   });
 
+  const applyInitialQueryParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    const brief = params.get('brief');
+    const providerPref = normalize(params.get('providerPref') || params.get('provider') || '');
+    const model = normalize(params.get('model') || '');
+    const maxQueries = normalize(params.get('maxQueries') || '');
+    const maxTokens = normalize(params.get('maxTokens') || '');
+    const maxSearchCalls = normalize(params.get('maxSearchCalls') || '');
+    const agentSkillsRaw = params.get('agentSkillsRaw');
+
+    if (brief && form.elements.brief) {
+      form.elements.brief.value = brief;
+    }
+    if (maxQueries && form.elements.maxQueries) {
+      form.elements.maxQueries.value = String(clampIntInRange(maxQueries, 3, 1, 10));
+    }
+    if (maxTokens && form.elements.maxTokens) {
+      form.elements.maxTokens.value = String(clampIntInRange(maxTokens, 2048, 256, 4096));
+    }
+    if (maxSearchCalls && form.elements.maxSearchCalls) {
+      form.elements.maxSearchCalls.value = String(clampIntInRange(maxSearchCalls, 3, 1, 8));
+    }
+    if (agentSkillsRaw && agentSkillsInput) {
+      agentSkillsInput.value = agentSkillsRaw;
+      refreshAgentSkillsSelects();
+    }
+    if (providerPref && providerState.providers.includes(providerPref)) {
+      providerSelect.value = providerPref;
+      syncModels();
+    }
+    if (model) {
+      const hasModel = Array.from(modelSelect.options ?? []).some((option) => option.value === model);
+      if (hasModel) {
+        modelSelect.value = model;
+      }
+    }
+    if (providerPref || model || agentSkillsRaw) {
+      if (modeSelect) modeSelect.value = 'custom';
+      setModeDescription('custom');
+      updateCustomModelActions('custom');
+      captureCustomModelSnapshot();
+    }
+  };
+
   hydrateSearchToolProviderSelects();
   for (const button of document.querySelectorAll('.stage-search-tool-sync')) {
     button.addEventListener('click', () => {
@@ -1231,6 +1293,7 @@ Collect requirements and create a constrained implementation spec.
 
   loadModelCatalog().then(async () => {
     await loadAgentSkillsLibrary();
+    applyInitialQueryParams();
     if (modeSelect) {
       applyPresetProfile(modeSelect.value);
     }

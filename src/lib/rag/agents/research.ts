@@ -30,11 +30,13 @@ async function generateQueryAlternatives(
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    skillInstructions?: string
   }
 ): Promise<string[]> {
   const maxTokens = options?.maxTokens ?? 256
   const { response } = await invokeModel(state.config, 'research', [
     new SystemMessage(`Generate up to ${maxQueries} diverse search rewrites for a blog/documentation RAG system.
+${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}\n` : ''}
 Return JSON only: {"queries":["..."]}`),
     new HumanMessage(query),
   ], maxTokens, options?.apiKeys)
@@ -55,11 +57,14 @@ async function generateHydeQuery(
   options?: {
     apiKeys?: ProviderApiKeys
     maxTokens?: number
+    skillInstructions?: string
   }
 ): Promise<string | null> {
   const maxTokens = options?.maxTokens ?? 256
   const { response } = await invokeModel(state.config, 'research', [
-    new SystemMessage('Write a short hypothetical answer paragraph that would help retrieve the right supporting documents. Return plain text only.'),
+    new SystemMessage(`Write a short hypothetical answer paragraph that would help retrieve the right supporting documents.
+${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}\n` : ''}
+Return plain text only.`),
     new HumanMessage(query),
   ], maxTokens, options?.apiKeys)
 
@@ -87,6 +92,7 @@ export async function researchNode(
     maxTokens?: number
     maxSearchCalls?: number
     searchProfile?: SearchProfile
+    skillInstructions?: string
   }
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 2048

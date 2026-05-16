@@ -82,6 +82,7 @@ type AgentSkillsProfiles = {
 type AgentSkillSpecEntry = {
   name: string
   description: string
+  body?: string
 }
 type AgentSkillSpecs = {
   raw: string
@@ -186,6 +187,12 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
       config: finalConfig,
       messages: [new HumanMessage(brief)],
     }
+    const skillInstructions = {
+      planner: buildAgentSkillInstructions('planner', agentSkillsProfile, agentSkillsProfiles.planner, agentSkills),
+      research: buildAgentSkillInstructions('research', agentSkillsProfile, agentSkillsProfiles.research, agentSkills),
+      writer: buildAgentSkillInstructions('writer', agentSkillsProfile, agentSkillsProfiles.writer, agentSkills),
+      critic: buildAgentSkillInstructions('critic', agentSkillsProfile, agentSkillsProfiles.critic, agentSkills),
+    }
 
     const withSearchToolConfig = (stage: keyof SearchToolProfiles, state: GraphState): GraphState => {
       const resolved = resolveSearchToolConfig({
@@ -213,11 +220,12 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
     const plannerResult = isPlannerEnabled ? await plannerNode(withSearchToolConfig('planner', baseState), {
       apiKeys,
       maxTokens: deriveStageTokens({
-        stage: 'planner',
-        baseTokens: maxTokens,
-        override: tokenProfile.planner,
-      }),
-    }) : { plan: initialState().plan }
+          stage: 'planner',
+          baseTokens: maxTokens,
+          override: tokenProfile.planner,
+        }),
+        skillInstructions: skillInstructions.planner,
+      }) : { plan: initialState().plan }
     const plan = plannerResult.plan ?? initialState().plan
     const subtasks = plan.subtasks?.length ? plan.subtasks : [brief]
     const selectedSubtasks = subtasks.slice(0, maxQueries)
@@ -237,11 +245,12 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
           maxTokens: deriveStageTokens({
             stage: 'research',
             baseTokens: maxTokens,
-            override: tokenProfile.research,
-          }),
-          maxSearchCalls,
-          searchProfile,
-        })
+          override: tokenProfile.research,
+        }),
+        maxSearchCalls,
+        searchProfile,
+        skillInstructions: skillInstructions.research,
+      })
         const questionResults = researchResult.search_results ?? []
         allResults.push(...questionResults)
         notes[question] = questionResults
@@ -265,6 +274,7 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
           override: tokenProfile.writer,
         }),
         resultProfile,
+        skillInstructions: skillInstructions.writer,
       })
       finalReport = typeof writeResult.final_response === 'string' ? writeResult.final_response : finalReport
     }
@@ -281,6 +291,7 @@ export const POST: APIRoute = async ({ request, env, cookies }) => {
           baseTokens: maxTokens,
           override: tokenProfile.critic,
         }),
+        skillInstructions: skillInstructions.critic,
       })
     }
 
@@ -701,7 +712,9 @@ function parseAgentSkillsText(raw: string): AgentSkillSpecs {
   const entries: AgentSkillSpecEntry[] = []
   const metaBlockRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---/gm
   let match: RegExpExecArray | null
-  while ((match = metaBlockRegex.exec(source)) !== null) {
+  const matches = Array.from(source.matchAll(metaBlockRegex))
+  for (let index = 0; index < matches.length; index += 1) {
+    match = matches[index] as RegExpExecArray
     const block = String(match[1] ?? '')
     const nameMatch = block.match(/(^|\r?\n)name:\s*(.+)\s*$/m)
     const descriptionMatch = block.match(/(^|\r?\n)description:\s*(.+)\s*$/m)
@@ -711,10 +724,38 @@ function parseAgentSkillsText(raw: string): AgentSkillSpecs {
     const description = String(descriptionMatch[2] ?? '').trim()
     if (!name || !description) continue
 
-    entries.push({ name, description })
+    const bodyStart = (match.index ?? 0) + match[0].length
+    const nextMatch = matches[index + 1]
+    const bodyEnd = nextMatch?.index ?? source.length
+    const body = source.slice(bodyStart, bodyEnd).trim()
+    entries.push({ name, description, body })
   }
 
   return { raw: source, entries }
+}
+
+function buildAgentSkillInstructions(
+  stage: keyof AgentSkillsProfiles,
+  globalProfile: AgentSkillsProfile,
+  stageProfile: AgentSkillsProfile | undefined,
+  specs: AgentSkillSpecs,
+): string {
+  const selected = new Set([...(globalProfile.skills ?? []), ...(stageProfile?.skills ?? [])])
+  if (!selected.size || !specs.entries.length) return ''
+
+  const blocks = specs.entries
+    .filter((entry) => selected.has(entry.name.trim().toLowerCase()))
+    .map((entry) => {
+      const body = entry.body ? `\n${entry.body}` : ''
+      return `Skill: ${entry.name}\nDescription: ${entry.description}${body}`
+    })
+
+  if (!blocks.length) return ''
+  return [
+    `Apply these agent skill instructions for the ${stage} stage when they are relevant.`,
+    'They are operating guidance, not facts about the research topic.',
+    blocks.join('\n\n---\n\n'),
+  ].join('\n\n')
 }
 
 function normalizeText(raw: unknown): string {
