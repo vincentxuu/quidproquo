@@ -17,6 +17,7 @@
 	],
 	"triggers": {
 		"crons": [
+			"*/15 * * * *",
 			"0 2 * * SUN",
 			"0 3 * * *",
 			"0 4 * * SUN",
@@ -63,6 +64,15 @@
 			{
 				"binding": "AGENT_QUEUE",
 				"queue": "agent-queue"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "agent-queue",
+				"max_batch_size": 1,
+				"max_batch_timeout": 5,
+				"max_retries": 3,
+				"dead_letter_queue": "agent-queue-dlq"
 			}
 		]
 	},

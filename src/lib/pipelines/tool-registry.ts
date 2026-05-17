@@ -1,4 +1,8 @@
 import type { GuardResult, PipelineDefinition, ToolDefinition } from './types'
+import { list as listCentralTools } from '../tools/registry'
+import type { ToolDefinition as CentralToolDefinition } from '../tools/types'
+import { listDefaultSyscalls } from '../agent-os/tools/register-defaults'
+import { syscallToToolDefinition } from '../agent-os/tools/define'
 
 export const toolDefinitions: ToolDefinition[] = [
   {
@@ -76,11 +80,11 @@ export const toolDefinitions: ToolDefinition[] = [
 ]
 
 export function listTools(): ToolDefinition[] {
-  return toolDefinitions
+  return [...toolDefinitions, ...adaptAgentOsDefaultSyscalls(), ...adaptCentralRegistry()]
 }
 
 export function getToolDefinition(id: string): ToolDefinition | undefined {
-  return toolDefinitions.find((tool) => tool.id === id)
+  return listTools().find((tool) => tool.id === id)
 }
 
 export function validateToolAllowlist(definition: PipelineDefinition): GuardResult[] {
@@ -116,4 +120,34 @@ function getToolGuardMessage(toolId: string, registered: boolean, allowed: boole
   if (!allowed) return `Tool ${toolId} is not allowed for this pipeline`
   if (!runtimeOk) return `Tool ${toolId} cannot run in this pipeline runtime`
   return undefined
+}
+
+function adaptCentralRegistry(): ToolDefinition[] {
+  const defaultNames = new Set(listDefaultSyscalls().map((tool) => tool.name))
+  return listCentralTools()
+    .filter((tool) => !defaultNames.has(tool.name))
+    .map(adaptCentralTool)
+}
+
+function adaptAgentOsDefaultSyscalls(): ToolDefinition[] {
+  return listDefaultSyscalls()
+    .map(syscallToToolDefinition)
+    .map(adaptCentralTool)
+}
+
+function adaptCentralTool(tool: CentralToolDefinition): ToolDefinition {
+  return {
+    id: tool.name,
+    title: tool.name,
+    kind: getAdaptedKind(tool),
+    runtime: 'worker',
+    description: tool.description,
+    requiresExternalAccess: (tool.outboundDomains?.length ?? 0) > 0,
+  }
+}
+
+function getAdaptedKind(tool: CentralToolDefinition): ToolDefinition['kind'] {
+  if (tool.requiresApproval) return 'artifact'
+  if (tool.name === 'post.get-detail') return 'cloud_read'
+  return 'api'
 }

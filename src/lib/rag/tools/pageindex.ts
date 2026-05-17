@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { SearchResult } from '../state'
-
-interface Env { DB: D1Database }
+import type { Env } from '@/lib/config/env'
+import { defineSyscall } from '../../agent-os/tools/define'
 
 interface ChunkRow {
   chunk_id: string
@@ -129,3 +129,38 @@ export async function pageIndexSearch(args: {
     .slice(0, limit)
     .map(({ row, score }) => rowToResult(row, score))
 }
+
+export const searchPageIndexSyscall = defineSyscall<Parameters<typeof pageIndexSearch>[0], { results: SearchResult[] }>({
+  name: 'search.pageindex',
+  description: 'Search neighboring post/doc chunks around a seed search result.',
+  inputSchema: {
+    type: 'object',
+    required: ['query', 'seed'],
+    properties: {
+      query: { type: 'string' },
+      seed: {
+        type: 'object',
+        required: ['chunk_id', 'type', 'source_url'],
+        additionalProperties: true,
+        properties: {
+          chunk_id: { type: 'string' },
+          type: { type: 'string', enum: ['post', 'doc', 'abstract', 'custom'] },
+          source_url: { type: 'string' },
+        },
+      },
+      maxSteps: { type: 'number', default: 5 },
+      limit: { type: 'number', default: 3 },
+    },
+  },
+  outputSchema: {
+    type: 'object',
+    required: ['results'],
+    properties: {
+      results: { type: 'array', items: { type: 'object', additionalProperties: true } },
+    },
+  },
+  costModel: { kind: 'request', perCallUsd: 0 },
+  async handler(_ctx, input) {
+    return { results: await pageIndexSearch(input) }
+  },
+})

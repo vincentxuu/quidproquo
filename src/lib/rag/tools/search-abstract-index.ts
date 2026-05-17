@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { SearchResult } from '../state'
-
-interface Env { VECTORIZE_ABSTRACT?: VectorizeIndex; AI: Ai }
+import type { Env } from '@/lib/config/env'
+import { defineSyscall } from '../../agent-os/tools/define'
 
 export async function searchAbstractIndex(args: {
   query: string
@@ -37,3 +37,27 @@ export async function searchAbstractIndex(args: {
     }
   })
 }
+
+export const searchAbstractIndexSyscall = defineSyscall<Parameters<typeof searchAbstractIndex>[0], { results: SearchResult[] }>({
+  name: 'search.abstract-index',
+  description: 'Search the abstract Vectorize index for high-level post summaries.',
+  inputSchema: {
+    type: 'object',
+    required: ['query'],
+    properties: {
+      query: { type: 'string' },
+      limit: { type: 'number', default: 5 },
+    },
+  },
+  outputSchema: {
+    type: 'object',
+    required: ['results'],
+    properties: {
+      results: { type: 'array', items: { type: 'object', additionalProperties: true } },
+    },
+  },
+  costModel: { kind: 'token', inputPerKToken: 0, outputPerKToken: 0 },
+  async handler(_ctx, input) {
+    return { results: await searchAbstractIndex(input) }
+  },
+})

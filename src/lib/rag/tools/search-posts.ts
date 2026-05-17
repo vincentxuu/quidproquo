@@ -1,16 +1,18 @@
 import { env } from 'cloudflare:workers'
 import type { SearchResult } from '../state'
+import type { Env } from '@/lib/config/env'
+import { defineSyscall } from '../../agent-os/tools/define'
 import {
   attachSearchMetrics,
   BM25_SHORT_CIRCUIT_THRESHOLD,
   buildFtsQuery,
   EMBED_MODEL,
+  getSearchMetrics,
   isPrecisionQuery,
   reciprocalRankFuse,
   shouldShortCircuitBm25,
 } from './hybrid-search'
 
-interface Env { VECTORIZE_INDEX: VectorizeIndex; AI: Ai; DB: D1Database }
 interface PostSearchRow extends SearchResult {
   type: 'post'
   slug: string
@@ -228,3 +230,32 @@ export async function searchBlogPosts(args: {
     estimated_latency_saved_ms: 0,
   })
 }
+
+export const searchPostsSyscall = defineSyscall<Parameters<typeof searchBlogPosts>[0], { results: SearchResult[]; metrics?: ReturnType<typeof getSearchMetrics> }>({
+  name: 'search.posts',
+  description: 'Search blog posts with BM25 and optional Vectorize hybrid retrieval.',
+  inputSchema: {
+    type: 'object',
+    required: ['query'],
+    properties: {
+      query: { type: 'string' },
+      category: { type: 'string' },
+      lang: { type: 'string', enum: ['zh-TW', 'en'] },
+      limit: { type: 'number', default: 8 },
+      shortCircuit: { type: 'boolean', default: true },
+    },
+  },
+  outputSchema: {
+    type: 'object',
+    required: ['results'],
+    properties: {
+      results: { type: 'array', items: { type: 'object', additionalProperties: true } },
+      metrics: { type: 'object', additionalProperties: true },
+    },
+  },
+  costModel: { kind: 'token', inputPerKToken: 0, outputPerKToken: 0 },
+  async handler(_ctx, input) {
+    const results = await searchBlogPosts(input)
+    return { results, metrics: getSearchMetrics(results) }
+  },
+})
