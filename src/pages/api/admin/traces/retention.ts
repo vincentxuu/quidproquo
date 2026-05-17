@@ -2,12 +2,11 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
-
-interface Env {
-  DB: D1Database
-  CRAWL_SECRET?: string
-}
+import type { Env } from '@/lib/config/env'
+import { json, unauthorized } from '@/lib/api/response'
+import { nowIso as currentIso, toIsoDate } from '@/lib/utils/dates'
+import { requireScheduledAuth } from '@/lib/auth/scheduled-auth'
+import { RETENTION_KEYS } from '@/lib/config/settings-keys'
 
 interface RetentionSettings {
   enabled: boolean
@@ -31,16 +30,6 @@ interface TraceRow {
 
 const DAY_MS = 24 * 60 * 60 * 1000
 const BPS_MAX = 10_000
-const RETENTION_KEYS = [
-  'rag_trace_retention_enabled',
-  'rag_trace_retention_prod_days',
-  'rag_trace_retention_admin_days',
-  'rag_trace_retention_prod_native_days',
-  'rag_trace_retention_admin_native_days',
-  'rag_trace_retention_native_sample_bps',
-  'rag_trace_retention_error_grace_days',
-] as const
-
 const DEFAULT_RETENTION_SETTINGS: RetentionSettings = {
   enabled: true,
   prodDays: 14,
@@ -57,7 +46,11 @@ interface RequestBody {
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAuthorized(cookies, request)) return unauthorized()
+  try {
+    await requireScheduledAuth(cookies, request, env as unknown as Env)
+  } catch {
+    return unauthorized()
+  }
   const db = (env as unknown as Env).DB
   const body = await request.json().catch(() => ({})) as RequestBody
   const scope = normalizeScope(body.scope)
@@ -79,7 +72,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   }
 
   const now = Date.now()
-  const nowIso = new Date(now).toISOString()
+  const nowIso = toIsoDate(now)
   const maxWindowMs = Math.max(
     settings.prodDays,
     settings.adminDays,
@@ -87,7 +80,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     settings.adminNativeDays,
     settings.errorGraceDays
   ) * DAY_MS
-  const cursorIso = new Date(now - maxWindowMs).toISOString()
+  const cursorIso = toIsoDate(now - maxWindowMs)
 
   const result = await db.prepare(`
     SELECT
@@ -148,7 +141,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
       nonNativeSteps: deletedNonNative,
       nativeTraceRows: deletedNative,
     },
-    completedAt: new Date().toISOString(),
+    completedAt: currentIso(),
   })
 }
 
@@ -315,27 +308,4 @@ async function loadSettings(db: D1Database): Promise<RetentionSettings> {
     sampleBps: Math.max(0, Math.min(BPS_MAX, getNumber('rag_trace_retention_native_sample_bps', DEFAULT_RETENTION_SETTINGS.sampleBps))),
     errorGraceDays: getNumber('rag_trace_retention_error_grace_days', DEFAULT_RETENTION_SETTINGS.errorGraceDays),
   }
-}
-
-async function isAuthorized(cookies: Parameters<APIRoute>[0]['cookies'], request: Parameters<APIRoute>[0]['request']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  if (token && await verifySession(token)) return true
-
-  const secret = (env as unknown as Env).CRAWL_SECRET
-  if (!secret) return false
-  return request.headers.get('X-Crawl-Secret') === secret
-}
-
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), {
-    status: 401,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
 }

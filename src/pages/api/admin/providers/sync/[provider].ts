@@ -1,12 +1,10 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { loadCatalog, isProvider, saveCatalog } from '../../providers'
+import { loadCatalog, isProvider, saveCatalog, type ProviderModel } from '../../providers'
 import { resolveProviderApiKeys as resolveKeys } from '../../../../../lib/rag/provider-key-store'
-import { verifySession } from '../../../../../lib/auth/session'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
 const PRESET_MODELS: Record<string, string[]> = {
   groq: ['llama-3.3-70b-versatile', 'llama-3.3-70b-specdec', 'llama-3.1-70b-versatile', 'llama-3.2-90b-text-preview'],
@@ -23,7 +21,8 @@ const PRESET_MODELS: Record<string, string[]> = {
 }
 
 export const POST: APIRoute = async ({ cookies, params }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const provider = params.provider
   if (typeof provider !== 'string' || !isProvider(provider)) {
     return json({ error: 'Invalid provider' }, 400)
@@ -44,13 +43,7 @@ export const POST: APIRoute = async ({ cookies, params }) => {
       provider,
     }, 502)
   }
-  const merged: Array<{
-    provider: string
-    model: string
-    displayName?: string
-    enabled: boolean
-    notes?: string
-  }> = []
+  const merged: ProviderModel[] = []
   const seen = new Set<string>()
   let added = 0
   let existing = 0
@@ -118,7 +111,7 @@ export const POST: APIRoute = async ({ cookies, params }) => {
   return json({ provider, added, existing, total: merged.length })
 }
 
-async function fetchProviderModels(provider: string, envFallbacks: Record<string, string>): Promise<string[]> {
+async function fetchProviderModels(provider: string, envFallbacks: Partial<Record<string, string>>): Promise<string[]> {
   if (provider === 'groq' || provider === 'openai') {
     return fetchOpenAiLikeModels(
       provider === 'groq' ? `https://api.groq.com/openai/v1/models` : `https://api.openai.com/v1/models`,
@@ -323,18 +316,4 @@ function normalizeUrl(raw: string): string {
   return raw.trim().replace(/\/+$/, '').replace(/\/api\/generate$/i, '').replace(/\/v1$/i, '')
 }
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
-
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}

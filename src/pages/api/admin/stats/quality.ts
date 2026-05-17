@@ -1,10 +1,12 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
-import { verifySession } from '../../../../lib/auth/session'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
 export const GET: APIRoute = async ({ cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   // Placeholder - would need proper frontmatter tracking
   const missingTldr = 0
@@ -15,15 +17,5 @@ export const GET: APIRoute = async ({ cookies }) => {
   return json({ missingTldr, missingType, missingDescription, brokenLinks })
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
-}
 
-function json(data: unknown): Response {
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
-}

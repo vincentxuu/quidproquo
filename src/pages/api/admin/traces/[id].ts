@@ -1,13 +1,12 @@
 import type { APIRoute } from 'astro'
-import { verifySession } from '../../../../lib/auth/session'
 import { buildLangfuseTraceUrl } from '../../../../lib/langfuse'
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
 
 export const GET: APIRoute = async ({ cookies, params }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
-  interface Env {
-    DB: D1Database
-  }
   const env = (await import('cloudflare:workers')).env as unknown as Env
   const db = env.DB
   const traceId = params.id
@@ -103,11 +102,4 @@ function safeParseJson(value: string | null): Record<string, unknown> | null {
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
-}

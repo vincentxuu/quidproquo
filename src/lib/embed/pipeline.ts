@@ -2,12 +2,7 @@ import { env } from 'cloudflare:workers'
 import { generateChunkId } from './chunk-id'
 import { buildContextualChunk } from './contextual'
 import { EMBED_BATCH_SIZE, EMBED_MODEL } from '../rag/tools/hybrid-search'
-
-interface Env {
-  DB: D1Database
-  AI: Ai
-  VECTORIZE_INDEX: VectorizeIndex
-}
+import type { Env } from '@/lib/config/env'
 
 interface EmbedResult {
   source: string

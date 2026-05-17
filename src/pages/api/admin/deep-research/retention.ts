@@ -2,11 +2,10 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
+import { nowMs, toIsoDate } from '@/lib/utils/dates'
 
 interface RequestBody {
   provider?: unknown
@@ -33,7 +32,8 @@ const ALLOWED_STATUS = new Set(['pending', 'running', 'completed', 'failed', 'ca
 const MAX_DAYS = 3650
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
   await ensureDeepResearchTable(db)
@@ -115,7 +115,7 @@ function buildWhereClause(params: {
     bindings.push(params.status)
   }
 
-  const cutoff = new Date(Date.now() - params.olderThanDays * 24 * 60 * 60 * 1000).toISOString()
+  const cutoff = toIsoDate(nowMs() - params.olderThanDays * 24 * 60 * 60 * 1000)
   conditions.push('created_at < ?')
   bindings.push(cutoff)
 
@@ -183,18 +183,4 @@ async function ensureDeepResearchTable(db: D1Database): Promise<void> {
   `).run()
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}

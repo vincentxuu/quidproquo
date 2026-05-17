@@ -2,16 +2,13 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../lib/auth/session'
 import { listJobs } from '../../../lib/pipelines/job-store'
 import { listPipelines } from '../../../lib/pipelines/registry'
 import { listTools } from '../../../lib/pipelines/tool-registry'
 import { PipelineRunError, runPipeline } from '../../../lib/pipelines/runner'
-
-interface Env {
-  DB: D1Database
-  CRAWL_SECRET?: string
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
 type ScheduledPipelineEntry = {
   pipelineId: string
@@ -37,7 +34,8 @@ const scheduledPipelineEntries: ScheduledPipelineEntry[] = [
 ]
 
 export const GET: APIRoute = async ({ cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const db = (env as unknown as Env).DB
   const jobs = await listJobs(db, 10).catch(() => [])
   return json({
@@ -49,7 +47,8 @@ export const GET: APIRoute = async ({ cookies }) => {
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const db = (env as unknown as Env).DB
   const body = await request.json().catch(() => ({})) as { pipelineId?: string; input?: Record<string, unknown> }
 
@@ -68,18 +67,5 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}

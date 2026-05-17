@@ -2,19 +2,10 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
-
-interface Env {
-  DB: D1Database
-  SESSION: KVNamespace
-  DEEP_RESEARCH_KV?: KVNamespace
-}
-
-interface SettingRow {
-  key: string
-  value: string
-  updated_at: string | null
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
+import { listSettings, setSetting } from '@/lib/db/settings-store'
 
 interface SettingsUpdateBody {
   rate_limit?: {
@@ -35,23 +26,19 @@ interface SettingsUpdateBody {
 }
 
 export const GET: APIRoute = async ({ cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const e = env as unknown as Env
 
   // Get all settings from DB
   let settings: Record<string, string> = {}
-  try {
-    const result = await e.DB.prepare('SELECT key, value FROM admin_settings').all<SettingRow>()
-    for (const row of result.results || []) {
-      settings[row.key] = row.value
-    }
-  } catch {
-    // Table may not exist yet
+  for (const row of await listSettings(e.DB)) {
+    settings[row.key] = row.value
   }
 
   // Check secrets status (read-only, presence check only)
-  const secrets = {
+  const secrets: Record<string, { configured: boolean; note: string }> = {
     ADMIN_PASSWORD: { configured: true, note: 'Required for admin access' },
     CRAWL_SECRET: { configured: Boolean((env as unknown as { CRAWL_SECRET?: string }).CRAWL_SECRET), note: 'Required for crawl sync' },
     WORKERS_AI: { configured: Boolean((env as unknown as { AI?: unknown }).AI), note: 'Required for embeddings and RAG' },
@@ -105,7 +92,8 @@ export const GET: APIRoute = async ({ cookies }) => {
 }
 
 export const PUT: APIRoute = async ({ cookies, request }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const e = env as unknown as Env
   const body = await request.json().catch(() => ({})) as SettingsUpdateBody
@@ -143,22 +131,8 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
   }
 
   try {
-    // Ensure table exists
-    await e.DB.prepare(`
-      CREATE TABLE IF NOT EXISTS admin_settings (
-        key TEXT PRIMARY KEY,
-        value TEXT NOT NULL,
-        updated_at TEXT DEFAULT (datetime('now'))
-      )
-    `).run()
-
-    // Upsert each setting
     for (const [key, value] of Object.entries(updates)) {
-      await e.DB.prepare(`
-        INSERT INTO admin_settings (key, value, updated_at)
-        VALUES (?, ?, datetime('now'))
-        ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at
-      `).bind(key, value).run()
+      await setSetting(e.DB, key, value)
     }
 
     return json({ success: true, updated: Object.keys(updates) })
@@ -171,18 +145,8 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
-}
 
-function json(data: unknown): Response {
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
-}
 
 function normalizeStorageMode(raw: string): string {
   return ['auto', 'd1', 'deep_research_kv', 'session'].includes(raw) ? raw : 'auto'

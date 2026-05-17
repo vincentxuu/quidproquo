@@ -3,6 +3,8 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { env } from 'cloudflare:workers';
 import { runCrawlSync } from '../../../lib/crawl/sync';
+import { json } from '@/lib/api/response'
+import { CRAWL_SECRET_HEADER } from '@/lib/auth/scheduled-auth'
 
 export const POST: APIRoute = async ({ request }) => {
   // 驗證 secret
@@ -14,7 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const provided = request.headers.get('X-Crawl-Secret');
+  const provided = request.headers.get(CRAWL_SECRET_HEADER);
   if (provided !== secret) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
@@ -85,8 +87,5 @@ async function readSyncOptions(request: Request): Promise<{ full?: boolean; modi
   };
 }
 
-function json(data: unknown): Response {
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
-}
 
 class BadRequestError extends Error {}

@@ -1,10 +1,11 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
-import { verifySession } from '../../../lib/auth/session'
 import { runChatSmoke, type RagPipelineEngine } from '../../../lib/rag/admin-eval'
 import { initialState } from '../../../lib/rag/state'
 import { resolveRagEngine } from '../../../lib/rag/engines/registry'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
 const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph', 'llamaindex']
 const DEFAULT_QUERY = 'RAG 的核心步驟是什麼？'
@@ -21,7 +22,8 @@ interface SmokeRequestBody {
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const body = await request.json().catch(() => ({})) as SmokeRequestBody
   const engine = SUPPORTED_ENGINES.includes(body.engine ?? 'langgraph') ? body.engine ?? 'langgraph' : 'langgraph'
@@ -101,18 +103,5 @@ async function runEngineIndex(
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}

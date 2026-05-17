@@ -8,10 +8,8 @@ import { getSearchMetrics } from '../../lib/rag/tools/hybrid-search'
 import type { SearchMetrics } from '../../lib/rag/tools/hybrid-search'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
 import { dedupeSearchResultsByUrl, formatSearchExcerpt } from '../../lib/rag/search-result-format'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
+import { json } from '@/lib/api/response'
 
 export const GET: APIRoute = async ({ request, clientAddress }) => {
   const url = new URL(request.url)
@@ -121,6 +119,3 @@ function summarizeRetrievalMetrics(metrics: SearchMetrics[]) {
   }
 }
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json' } })
-}

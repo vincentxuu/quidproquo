@@ -1,5 +1,7 @@
 import { env as workerEnv } from 'cloudflare:workers'
 import type { ProviderApiKeys } from './model'
+import { PROVIDER_KEY_PREFIX } from '@/lib/config/settings-keys'
+export { PROVIDER_KEY_PREFIX }
 
 export interface ProviderSecretField {
   provider: string
@@ -8,8 +10,6 @@ export interface ProviderSecretField {
   required: boolean
   sensitive: boolean
 }
-
-export const PROVIDER_KEY_PREFIX = 'provider_key:'
 
 export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'groq', envKey: 'GROQ_API_KEY', label: 'GROQ_API_KEY', required: false, sensitive: true },

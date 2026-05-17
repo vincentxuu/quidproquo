@@ -3,6 +3,7 @@ import { env } from 'cloudflare:workers'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { createModel } from '../../../lib/rag/model'
 import { findDefaultGlossaryEntry, type GlossaryEntry, type GlossaryLink } from '../../../lib/glossary/terms'
+import { json } from '@/lib/api/response'
 
 interface D1StatementLike {
   bind: (...values: unknown[]) => {
@@ -41,15 +42,6 @@ interface GlossaryResponse {
 const MAX_TERM_LENGTH = 80
 const MAX_CONTEXT_LENGTH = 420
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'private, max-age=86400',
-    },
-  })
-}
 
 function truncate(value: string, max: number): string {
   return value.length > max ? `${value.slice(0, max - 1)}…` : value

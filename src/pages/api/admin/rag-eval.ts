@@ -1,12 +1,14 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
-import { verifySession } from '../../../lib/auth/session'
+import { requireAdmin } from '@/lib/auth/admin'
 import {
   DEFAULT_EVAL_CASES,
   runEvalBatch,
   type RagPipelineEngine,
 } from '../../../lib/rag/admin-eval'
+import { json } from '@/lib/api/response'
+import { nowIso } from '@/lib/utils/dates'
 
 const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph', 'llamaindex']
 const MAX_CASES = 12
@@ -17,7 +19,8 @@ interface EvalRequestBody {
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const body = await request.json().catch(() => ({})) as EvalRequestBody
   const engines = (body.engines || SUPPORTED_ENGINES)
@@ -31,13 +34,13 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   const caseCount = Math.max(1, Math.min(MAX_CASES, Number(body.cases) || DEFAULT_EVAL_CASES.length))
   const testCases = DEFAULT_EVAL_CASES.slice(0, caseCount)
   const origin = new URL(request.url).origin
-  const startedAt = new Date().toISOString()
+  const startedAt = nowIso()
 
   try {
     const result = await runEvalBatch(origin, testCases, engines)
     return json({
       startedAt,
-      completedAt: new Date().toISOString(),
+      completedAt: nowIso(),
       cases: caseCount,
       engines: engines.length === 1 ? engines[0] : engines,
       perEngine: result.perEngine,
@@ -59,18 +62,4 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}

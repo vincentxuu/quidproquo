@@ -4,7 +4,7 @@ import { HumanMessage } from '@langchain/core/messages'
 import { initialState, type GraphState, type RagRuntimeConfig, type SearchResult } from '../../lib/rag/state'
 import { verifySession } from '../../lib/auth/session'
 import { plannerNode } from '../../lib/rag/agents/planner'
-import { researchNode } from '../../lib/rag/agents/research'
+import { researchNode } from '../../lib/rag/nodes/research'
 import { writerNode } from '../../lib/rag/agents/writer'
 import { criticNode } from '../../lib/rag/agents/critic'
 import { resolveProviderApiKeys } from '../../lib/rag/provider-key-store'
@@ -12,13 +12,7 @@ import { loadRagSettings, withConfigOverrides } from '../../lib/rag/settings'
 import { SUPPORTED_PROVIDERS } from '../../lib/rag/providers'
 import type { ProviderApiKeys } from '../../lib/rag/model'
 import type { AgentSkill } from '../../lib/agent-skills'
-
-interface Env {
-  URL: string
-  DB?: D1Database
-  SESSION?: KVNamespace
-  DEEP_RESEARCH_KV?: KVNamespace
-}
+import type { Env } from '@/lib/config/env'
 
 type Provider = RagRuntimeConfig['defaultProvider']
 
@@ -108,8 +102,10 @@ const MAX_TOKENS = 4096
 const MAX_SEARCH_CALLS = 8
 const DEFAULT_TOKENS = 2048
 
-export const POST: APIRoute = async ({ request, env: routeEnv, cookies }) => {
+export const POST: APIRoute = async (context) => {
   try {
+    const { request, cookies } = context
+    const routeEnv = (context as unknown as { env?: Env }).env
     const runtimeEnv = ((routeEnv as unknown as Env | undefined) ?? (cloudflareEnv as unknown as Env))
     const sessionToken = cookies.get('session')?.value
     const authSuccess = sessionToken ? await verifySession(sessionToken) : false
@@ -369,7 +365,7 @@ export const POST: APIRoute = async ({ request, env: routeEnv, cookies }) => {
     })
   } catch (error) {
     console.error('Deep research API error:', error)
-    return new Response(JSON.stringify({ error: error?.message || 'Unknown error' }), {
+    return new Response(JSON.stringify({ error: error instanceof Error ? error.message : 'Unknown error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     })
@@ -575,8 +571,10 @@ function resolveDeepResearchStorage(runtimeEnv: Env, mode: DeepResearchStorageMo
 function deriveTokenBudget(params: { stage: keyof typeof TOKEN_PROFILES; baseTokens: number }): number {
   const { stage, baseTokens } = params
   const profile = TOKEN_PROFILES[stage]
+  const fallback = Math.round(baseTokens * profile.multiplier)
   return clampInt(
-    Math.round(baseTokens * profile.multiplier),
+    fallback,
+    fallback,
     profile.min,
     profile.max,
   )
@@ -590,16 +588,16 @@ function deriveStageTokens(params: {
   const { stage, baseTokens, override } = params
   if (typeof override === 'number' && Number.isFinite(override)) {
     const profile = TOKEN_PROFILES[stage]
-    return clampInt(Math.round(override), profile.min, profile.max)
+    return clampInt(Math.round(override), Math.round(baseTokens * profile.multiplier), profile.min, profile.max)
   }
   return deriveTokenBudget({ stage, baseTokens })
 }
 
 function normalizeTokenProfile(tokenProfile: unknown): StageTokenProfile {
-  const profile = tokenProfile as Record<string, unknown> | null
   if (!tokenProfile || typeof tokenProfile !== 'object' || tokenProfile === null || Array.isArray(tokenProfile)) {
     return {}
   }
+  const profile = tokenProfile as Record<string, unknown>
   return {
     planner: typeof profile.planner === 'number' ? profile.planner : undefined,
     research: typeof profile.research === 'number' ? profile.research : undefined,
@@ -609,10 +607,10 @@ function normalizeTokenProfile(tokenProfile: unknown): StageTokenProfile {
 }
 
 function normalizeSearchProfile(searchProfile: unknown): SearchProfile {
-  const profile = searchProfile as Record<string, unknown> | null
   if (!searchProfile || typeof searchProfile !== 'object' || searchProfile === null || Array.isArray(searchProfile)) {
     return {}
   }
+  const profile = searchProfile as Record<string, unknown>
 
   return {
     maxAbstractResults: numberIfFinite(profile.maxAbstractResults),
@@ -624,10 +622,10 @@ function normalizeSearchProfile(searchProfile: unknown): SearchProfile {
 }
 
 function normalizeSourceProfile(sourceProfile: unknown): SourceProfile {
-  const profile = sourceProfile as Record<string, unknown> | null
   if (!sourceProfile || typeof sourceProfile !== 'object' || sourceProfile === null || Array.isArray(sourceProfile)) {
     return {}
   }
+  const profile = sourceProfile as Record<string, unknown>
 
   return {
     pageIndexMaxSteps: numberIfFinite(profile.pageIndexMaxSteps),
@@ -635,10 +633,10 @@ function normalizeSourceProfile(sourceProfile: unknown): SourceProfile {
 }
 
 function normalizeResultProfile(resultProfile: unknown): ResultProfile {
-  const profile = resultProfile as Record<string, unknown> | null
   if (!resultProfile || typeof resultProfile !== 'object' || resultProfile === null || Array.isArray(resultProfile)) {
     return {}
   }
+  const profile = resultProfile as Record<string, unknown>
 
   return {
     writerContextSources: numberIfFinite(profile.writerContextSources),
@@ -646,10 +644,10 @@ function normalizeResultProfile(resultProfile: unknown): ResultProfile {
 }
 
 function normalizeSearchToolProfile(searchToolProfile: unknown): SearchToolProfile {
-  const profile = searchToolProfile as Record<string, unknown> | null
   if (!searchToolProfile || typeof searchToolProfile !== 'object' || searchToolProfile === null || Array.isArray(searchToolProfile)) {
     return {}
   }
+  const profile = searchToolProfile as Record<string, unknown>
 
   const rawProviders = Array.isArray(profile.providers)
     ? Array.from(new Set(profile.providers.map((provider) => String(provider ?? '').trim().toLowerCase()).filter(Boolean)))
@@ -664,10 +662,10 @@ function normalizeSearchToolProfile(searchToolProfile: unknown): SearchToolProfi
 }
 
 function normalizeSearchToolProfiles(searchToolProfiles: unknown): SearchToolProfiles {
-  const profiles = searchToolProfiles as Record<string, unknown> | null
   if (!searchToolProfiles || typeof searchToolProfiles !== 'object' || searchToolProfiles === null || Array.isArray(searchToolProfiles)) {
     return {}
   }
+  const profiles = searchToolProfiles as Record<string, unknown>
   return {
     planner: normalizeSearchToolProfile(profiles.planner),
     research: normalizeSearchToolProfile(profiles.research),
@@ -691,10 +689,10 @@ function normalizeAgentSkillList(raw: unknown): AgentSkill[] {
 }
 
 function normalizeAgentSkillsProfile(rawProfile: unknown): AgentSkillsProfile {
-  const profile = rawProfile as Record<string, unknown> | null
   if (!rawProfile || typeof rawProfile !== 'object' || rawProfile === null || Array.isArray(rawProfile)) {
     return {}
   }
+  const profile = rawProfile as Record<string, unknown>
 
   return {
     skills: normalizeAgentSkillList(profile.skills),
@@ -702,10 +700,10 @@ function normalizeAgentSkillsProfile(rawProfile: unknown): AgentSkillsProfile {
 }
 
 function normalizeAgentSkillsProfiles(rawProfiles: unknown): AgentSkillsProfiles {
-  const profiles = rawProfiles as Record<string, unknown> | null
   if (!rawProfiles || typeof rawProfiles !== 'object' || rawProfiles === null || Array.isArray(rawProfiles)) {
     return {}
   }
+  const profiles = rawProfiles as Record<string, unknown>
   return {
     planner: normalizeAgentSkillsProfile(profiles.planner),
     research: normalizeAgentSkillsProfile(profiles.research),
@@ -831,10 +829,10 @@ function resolveSearchToolConfig(params: {
 }
 
 function normalizeEnableFlags(rawFlags: unknown): EnableFlags {
-  const flags = rawFlags as Record<string, unknown> | null
   if (!rawFlags || typeof rawFlags !== 'object' || rawFlags === null || Array.isArray(rawFlags)) {
     return {}
   }
+  const flags = rawFlags as Record<string, unknown>
 
   return {
     hydeEnabled: booleanIfBoolean(flags.hydeEnabled),

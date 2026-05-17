@@ -9,8 +9,8 @@ import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/rag/checkpo
 import { lookupSemanticCache, storeSemanticCache } from '../../lib/rag/cache'
 import type { GraphState, RagRuntimeConfig } from '../../lib/rag/state'
 import { resolveProviderApiKeys } from '../../lib/rag/provider-key-store'
+import type { Env } from '@/lib/config/env'
 
-interface Env { DB: D1Database }
 type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
 type TraceScope = 'production' | 'admin' | 'eval'
 

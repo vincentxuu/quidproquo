@@ -1564,14 +1564,14 @@ const alertRules: AlertRule[] = [
 import { Hono } from 'hono';
 import { streamSSE } from 'hono/streaming';
 
-interface Env {
+interface WorkerEnv {
   OPENAI_API_KEY: string;
   VECTORIZE: VectorizeIndex;
   KV: KVNamespace;
   DB: D1Database;
 }
 
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono<{ Bindings: WorkerEnv }>();
 
 app.post('/api/chat', async (c) => {
   const { messages, userId, sessionId } = await c.req.json();

@@ -2,17 +2,15 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
-interface Env {
-  DB: D1Database
-}
-
-export const GET: APIRoute = async ({ cookies, url }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+export const GET: APIRoute = async ({ cookies }) => {
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
-  const days = parseInt(url.searchParams.get('days') || '30')
 
   let totalPosts = 0
   let categories: { name: string; count: number }[] = []
@@ -38,15 +36,4 @@ export const GET: APIRoute = async ({ cookies, url }) => {
   return json({ totalPosts, categories, tags, typeComplete })
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
-}
-
-function json(data: unknown): Response {
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
-}

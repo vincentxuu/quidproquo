@@ -2,44 +2,14 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../lib/auth/session'
 import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../../../lib/search-tools'
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
+import { MANAGED_RAG_KEYS as MANAGED_KEYS } from '@/lib/config/settings-keys'
+import { getSetting, getSettingRows, setSetting } from '@/lib/db/settings-store'
 
-interface Env {
-  DB: D1Database
-}
-
-const MANAGED_KEYS = [
-  'rag_pipeline_engine',
-  'rag_default_provider',
-  'rag_default_model',
-  'rag_stage_overrides',
-  'rag_fallback_provider',
-  'rag_fallback_model',
-  'rag_flag_hyde',
-  'rag_flag_multi_query',
-  'rag_flag_reranker',
-  'rag_flag_critic',
-  'rag_flag_pageindex',
-  'rag_pageindex_max_steps',
-  'rag_flag_bm25_short_circuit',
-  'rag_shadow_mode',
-  'semantic_cache_threshold',
-  'rag_reranker_min_keep',
-  'rag_mmr_lambda',
-  'rag_checkpoint_threshold_ratio',
-  'rag_search_tools_enabled',
-  'rag_search_tool_providers',
-  'rag_search_tool_max_results',
-  'rag_search_tool_timeout_ms',
-  'rag_trace_retention_prod_days',
-  'rag_trace_retention_admin_days',
-  'rag_trace_retention_prod_native_days',
-  'rag_trace_retention_admin_native_days',
-  'rag_trace_retention_native_sample_bps',
-  'rag_trace_retention_error_grace_days',
-  'rag_trace_retention_enabled',
-]
+const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 
 const DEFAULT_SETTINGS: Record<string, string> = {
   rag_pipeline_engine: 'langgraph',
@@ -74,12 +44,11 @@ const DEFAULT_SETTINGS: Record<string, string> = {
 }
 
 export const GET: APIRoute = async ({ cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const db = (env as unknown as Env).DB
-  const settings = await db.prepare(
-    `SELECT key, value, updated_at FROM settings WHERE key IN (${MANAGED_KEYS.map(() => '?').join(', ')}) ORDER BY key`
-  ).bind(...MANAGED_KEYS).all<{ key: string; value: string; updated_at: string }>().catch(() => ({ results: [] }))
-  const rowsByKey = new Map((settings.results ?? []).map(row => [row.key, row]))
+  const settings = await getSettingRows(db, MANAGED_KEYS, LEGACY_SETTINGS_TABLE)
+  const rowsByKey = new Map(settings.map(row => [row.key, row]))
   const mergedSettings = MANAGED_KEYS.map(key => {
     const row = rowsByKey.get(key)
     return {
@@ -184,26 +153,16 @@ export const GET: APIRoute = async ({ cookies }) => {
 }
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const body = await request.json() as { settings?: Record<string, string> }
   const updates = body.settings ?? {}
   const db = (env as unknown as Env).DB
 
-  await db.prepare(`
-    CREATE TABLE IF NOT EXISTS settings (
-      key TEXT PRIMARY KEY,
-      value TEXT NOT NULL,
-      updated_at TEXT DEFAULT (datetime('now'))
-    )
-  `).run()
-
   for (const [key, value] of Object.entries(updates)) {
-    if (!MANAGED_KEYS.includes(key)) continue
-    const before = await db.prepare('SELECT value FROM settings WHERE key = ?').bind(key).first<{ value: string }>()
-    await db.prepare(
-      `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
-       ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-    ).bind(key, String(value)).run()
+    if (!(MANAGED_KEYS as readonly string[]).includes(key)) continue
+    const before = await getSetting(db, key, LEGACY_SETTINGS_TABLE)
+    await setSetting(db, key, String(value), LEGACY_SETTINGS_TABLE)
     await db.prepare(
       `INSERT INTO rag_admin_audit (id, actor, action, target, before_json, after_json)
        VALUES (?, ?, ?, ?, ?, ?)`
@@ -220,18 +179,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   return json({ ok: true })
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } })
-}
 
-function json(data: unknown): Response {
-  return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
-}
 
 function safeParseJson(value: string | null): Record<string, unknown> | null {
   if (!value) return null

@@ -2,11 +2,10 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
+import { nowMs, toIsoDate } from '@/lib/utils/dates'
 
 interface QueryParams {
   provider?: string
@@ -43,7 +42,8 @@ const ALLOWED_STATUS = new Set(['pending', 'running', 'completed', 'failed', 'ca
 const MAX_LIMIT = 100
 
 export const GET: APIRoute = async ({ cookies, url }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
   try {
@@ -105,15 +105,16 @@ export const GET: APIRoute = async ({ cookies, url }) => {
 }
 
 export const DELETE: APIRoute = async ({ cookies, request }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
   const body = await request.json().catch(() => ({})) as ReportDeleteBody
 
   const reportId = typeof body.reportId === 'string' && body.reportId.trim() ? body.reportId.trim() : ''
-  const provider = normalizeText(body.provider)
-  const model = normalizeText(body.model)
-  const status = normalizeStatus(body.status)
+  const provider = typeof body.provider === 'string' ? normalizeText(body.provider) : ''
+  const model = typeof body.model === 'string' ? normalizeText(body.model) : ''
+  const status = typeof body.status === 'string' ? normalizeStatus(body.status) : ''
   const olderThanDays = parseInteger(body.olderThanDays, 0)
 
   if (!reportId && !provider && !model && !status && olderThanDays <= 0) {
@@ -145,7 +146,7 @@ export const DELETE: APIRoute = async ({ cookies, request }) => {
       bindings.push(status)
     }
     if (olderThanDays > 0) {
-      const cutoff = new Date(Date.now() - olderThanDays * 24 * 60 * 60 * 1000).toISOString()
+      const cutoff = toIsoDate(nowMs() - olderThanDays * 24 * 60 * 60 * 1000)
       conditions.push('created_at < ?')
       bindings.push(cutoff)
     }
@@ -298,18 +299,3 @@ function buildDeleteRequestSummary(params: {
   }
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
-
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}

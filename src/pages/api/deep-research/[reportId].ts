@@ -1,15 +1,12 @@
 import type { APIRoute } from 'astro'
 import { env as cloudflareEnv } from 'cloudflare:workers'
 import { verifySession } from '../../../lib/auth/session'
-
-interface Env {
-  DB?: D1Database
-  DEEP_RESEARCH_KV?: KVNamespace
-  SESSION?: KVNamespace
-}
+import type { Env } from '@/lib/config/env'
 type DeepResearchStorageMode = 'auto' | 'd1' | 'deep_research_kv' | 'session'
 
-export const GET: APIRoute = async ({ params, cookies, env: routeEnv }) => {
+export const GET: APIRoute = async (context) => {
+  const { params, cookies } = context
+  const routeEnv = (context as unknown as { env?: Env }).env
   const runtimeEnv = ((routeEnv as unknown as Env | undefined) ?? (cloudflareEnv as unknown as Env))
   const sessionToken = cookies.get('session')?.value
   const isAdmin = sessionToken ? await verifySession(sessionToken) : false

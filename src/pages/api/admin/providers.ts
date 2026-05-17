@@ -3,10 +3,12 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { verifySession } from '../../../lib/auth/session'
 import { createModel } from '../../../lib/rag/model'
 import type { RagRuntimeConfig } from '../../../lib/rag/state'
 import { SUPPORTED_PROVIDERS } from '../../../lib/rag/providers'
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { CATALOG_KEY } from '@/lib/config/settings-keys'
 import {
   getCurrentProviderKeyValues,
   isWhitelistedProviderKey,
@@ -14,14 +16,13 @@ import {
   PROVIDER_KEY_PREFIX,
   PROVIDER_SECRET_FIELDS,
   resolveProviderApiKeys,
-  UNIQUE_PROVIDER_KEYS,
 } from '../../../lib/rag/provider-key-store'
+import { json } from '@/lib/api/response'
+import { deleteSetting, getSetting, setSetting } from '@/lib/db/settings-store'
 
-interface Env {
-  DB: D1Database
-}
+const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 
-interface ProviderModel {
+export interface ProviderModel {
   provider: RagRuntimeConfig['defaultProvider']
   model: string
   displayName?: string
@@ -29,7 +30,7 @@ interface ProviderModel {
   notes?: string
 }
 
-interface ProviderCatalog {
+export interface ProviderCatalog {
   models: ProviderModel[]
 }
 
@@ -55,7 +56,6 @@ interface ProviderSaveBody {
   maxTokens?: unknown
 }
 
-const CATALOG_KEY = 'provider_model_catalog'
 const DEFAULT_CATALOG: ProviderCatalog = {
   models: [
     {
@@ -81,7 +81,8 @@ const DEFAULT_CATALOG: ProviderCatalog = {
 }
 
 export const GET: APIRoute = async ({ cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
   const catalog = await loadCatalog(db)
@@ -90,7 +91,8 @@ export const GET: APIRoute = async ({ cookies }) => {
 }
 
 export const PUT: APIRoute = async ({ cookies, request }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const body = await request.json().catch(() => ({})) as { models?: unknown }
   const models = parseModels(body.models)
@@ -106,7 +108,8 @@ export const PUT: APIRoute = async ({ cookies, request }) => {
 }
 
 export const POST: APIRoute = async ({ cookies, request }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
   const body = await request.json().catch(() => ({})) as ProviderSaveBody
@@ -170,10 +173,7 @@ export const POST: APIRoute = async ({ cookies, request }) => {
 }
 
 export async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
-  const row = await db.prepare('SELECT value FROM settings WHERE key = ?')
-    .bind(CATALOG_KEY)
-    .first<{ value: string }>()
-    .catch(() => null)
+  const row = await getSetting(db, CATALOG_KEY, LEGACY_SETTINGS_TABLE)
   if (!row?.value) return DEFAULT_CATALOG
 
   try {
@@ -186,11 +186,7 @@ export async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
 }
 
 export async function saveCatalog(db: D1Database, catalog: ProviderCatalog): Promise<void> {
-  await ensureSettingsTable(db)
-  await db.prepare(
-    `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
-     ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-  ).bind(CATALOG_KEY, JSON.stringify(catalog)).run()
+  await setSetting(db, CATALOG_KEY, JSON.stringify(catalog), LEGACY_SETTINGS_TABLE)
 }
 
 export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderSecretStatus[]> {
@@ -206,6 +202,7 @@ export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderS
     const field = PROVIDER_SECRET_FIELDS.find((item) => item.envKey === envKey)
     const hasEnv = !!envValues[envKey]
     const hasDb = !!saved[envKey]
+    const source: ProviderKeySource = hasEnv && hasDb ? 'both' : hasEnv ? 'env' : hasDb ? 'admin' : 'missing'
     return {
       envKey,
       provider: field?.provider || 'custom',
@@ -213,24 +210,19 @@ export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderS
       hasEnv,
       hasDb,
       configured: hasEnv || hasDb,
-      source: hasEnv && hasDb ? 'both' : hasEnv ? 'env' : hasDb ? 'admin' : 'missing',
+      source,
     }
   }).filter((item) => isWhitelistedProviderKey(item.envKey))
     .sort((a, b) => a.label.localeCompare(b.label))
 }
 
 async function saveProviderSecret(db: D1Database, envKey: string, value: string): Promise<void> {
-  await ensureSettingsTable(db)
   const storageKey = `${PROVIDER_KEY_PREFIX}${envKey}`
-  await db.prepare(
-    `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
-     ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-  ).bind(storageKey, value).run()
+  await setSetting(db, storageKey, value, LEGACY_SETTINGS_TABLE)
 }
 
 async function deleteProviderSecret(db: D1Database, envKey: string): Promise<void> {
-  await ensureSettingsTable(db)
-  await db.prepare(`DELETE FROM settings WHERE key = ?`).bind(`${PROVIDER_KEY_PREFIX}${envKey}`).run()
+  await deleteSetting(db, `${PROVIDER_KEY_PREFIX}${envKey}`, LEGACY_SETTINGS_TABLE)
 }
 
 export function parseModels(value: unknown): ProviderModel[] | null {
@@ -264,16 +256,6 @@ export function isProvider(value: string): value is ProviderModel['provider'] {
   return (SUPPORTED_PROVIDERS as readonly string[]).includes(value)
 }
 
-async function ensureSettingsTable(db: D1Database): Promise<void> {
-  await db.prepare(`
-    CREATE TABLE IF NOT EXISTS settings (
-      key TEXT PRIMARY KEY,
-      value TEXT NOT NULL,
-      updated_at TEXT DEFAULT (datetime('now'))
-    )
-  `).run()
-}
-
 function stringifyContent(content: unknown): string {
   if (typeof content === 'string') return content
   if (Array.isArray(content)) {
@@ -287,20 +269,4 @@ function stringifyContent(content: unknown): string {
     }).filter(Boolean).join('\n')
   }
   return JSON.stringify(content)
-}
-
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
-
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
 }

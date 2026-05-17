@@ -3,14 +3,14 @@ import { CRAWL_TARGETS } from './config';
 import { crawlTarget } from './browser-rendering';
 import { chunkMarkdown, type DocChunk } from './chunker';
 
-interface EnvConfig {
+interface CrawlSyncEnvConfig {
   CF_ACCOUNT_ID?: string;
   CF_API_TOKEN?: string;
   CRAWL_SECRET?: string;
 }
 
-function getEnvConfig(): EnvConfig {
-  return env as unknown as EnvConfig;
+function getEnvConfig(): CrawlSyncEnvConfig {
+  return env as unknown as CrawlSyncEnvConfig;
 }
 
 function getDB(): D1Database {

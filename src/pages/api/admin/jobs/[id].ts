@@ -2,7 +2,6 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { verifySession } from '../../../../lib/auth/session'
 import {
   getJob,
   getJobArtifact,
@@ -14,13 +13,13 @@ import { updateJobStatus } from '../../../../lib/pipelines/job-store'
 import { runPipeline } from '../../../../lib/pipelines/runner'
 import { getPipelineDefinition } from '../../../../lib/pipelines/registry'
 import type { PipelineRunRequest } from '../../../../lib/pipelines/types'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
 
 export const GET: APIRoute = async ({ params, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
   const id = params.id
   if (!id) return json({ error: 'job id is required' }, 400)
 
@@ -36,7 +35,8 @@ export const GET: APIRoute = async ({ params, cookies }) => {
 }
 
 export const PATCH: APIRoute = async ({ params, request, cookies }) => {
-  if (!await isAdmin(cookies)) return unauthorized()
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
 
   const id = params.id
   if (!id) return json({ error: 'job id is required' }, 400)
@@ -142,18 +142,5 @@ export const PATCH: APIRoute = async ({ params, request, cookies }) => {
   return json({ error: `unsupported action: ${body.action}` }, 400)
 }
 
-async function isAdmin(cookies: Parameters<APIRoute>[0]['cookies']): Promise<boolean> {
-  const token = cookies.get('session')?.value
-  return token ? verifySession(token) : false
-}
 
-function unauthorized(): Response {
-  return json({ error: 'unauthorized' }, 401)
-}
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
