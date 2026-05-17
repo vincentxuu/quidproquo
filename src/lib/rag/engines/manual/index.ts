@@ -5,10 +5,7 @@ import { runManualQuery } from './query'
 import type { RagLifecycleInput, RagLifecycleOutput } from '../contract'
 import type { RagLifecycleEngine } from '../contract'
 import { buildManualNativeTrace } from './trace'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
 
 interface IndexProfile {
   sourceFilters?: Array<'posts' | 'docs'>

@@ -18,6 +18,10 @@ export async function researchNode(
   state: GraphState,
   options?: {
     apiKeys?: ProviderApiKeys
+    maxTokens?: number
+    maxSearchCalls?: number
+    searchProfile?: unknown
+    skillInstructions?: string
   }
 ): Promise<Partial<GraphState>> {
   const lastMessage = state.messages[state.messages.length - 1]
@@ -27,13 +31,13 @@ export async function researchNode(
     ? `\n\nPlanner subtasks to address:\n${state.plan.subtasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}`
     : ''
 
-  const model = createModel(2048, {
+  const model = createModel(options?.maxTokens ?? 2048, {
     config: state.config,
     stage: 'research',
     apiKeys: options?.apiKeys,
   })
   const agent = createReactAgent({
-    llm: model,
+    llm: model as any,
     tools: [searchBlogPosts, searchDocs, getPostDetail] as any,
     stateModifier: SYSTEM_PROMPT,
   })

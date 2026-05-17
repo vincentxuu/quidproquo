@@ -1,5 +1,9 @@
 import { StateGraph, END } from '@langchain/langgraph'
 import { HumanMessage } from '@langchain/core/messages'
+import { env } from 'cloudflare:workers'
+import type { Env } from '../config/env'
+import { readFlags } from '../config/flags'
+import { runAgentNode } from '../agent-os/langgraph-adapter'
 import { initialState } from './state'
 import type { GraphState, RagRuntimeConfig } from './state'
 import { plannerNode } from './agents/planner'
@@ -14,6 +18,22 @@ import { fallbackNode } from './agents/fallback'
 import type { BaseMessage } from '@langchain/core/messages'
 import type { PipelineCallbacks } from './state'
 import type { ProviderApiKeys } from './model'
+
+type MigratedAgentId = 'planner' | 'research' | 'writer' | 'critic'
+type GraphNode = (state: GraphState) => Promise<Partial<GraphState>>
+
+function dispatchNode(agentId: MigratedAgentId, legacyFn: GraphNode, kernelFn: GraphNode): GraphNode {
+  return async (state) => {
+    const flags = readFlags(env as unknown as Env)
+    if (!flags.agentOs.enabled || !flags.agentOs[agentId]) return legacyFn(state)
+    return kernelFn(state).catch((error) => {
+      if (error instanceof Error && /Unknown agent|not registered/i.test(error.message)) {
+        return legacyFn(state)
+      }
+      throw error
+    })
+  }
+}
 
 export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   const graph = new StateGraph<GraphState>({
@@ -43,12 +63,28 @@ export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   } as any) as any
 
   graph
-    .addNode('planner', (state: GraphState) => plannerNode(state, { apiKeys: options?.providerApiKeys }))
-    .addNode('research', (state: GraphState) => researchNode(state, { apiKeys: options?.providerApiKeys }))
+    .addNode('planner', dispatchNode(
+      'planner',
+      (state: GraphState) => plannerNode(state, { apiKeys: options?.providerApiKeys }),
+      (state: GraphState) => runAgentNode('planner', state, { providerApiKeys: options?.providerApiKeys }),
+    ))
+    .addNode('research', dispatchNode(
+      'research',
+      (state: GraphState) => researchNode(state, { apiKeys: options?.providerApiKeys }),
+      (state: GraphState) => runAgentNode('research', state, { providerApiKeys: options?.providerApiKeys }),
+    ))
     .addNode('normalize_results', normalizeResultsNode)
-    .addNode('writer', (state: GraphState) => writerNode(state, { apiKeys: options?.providerApiKeys }))
+    .addNode('writer', dispatchNode(
+      'writer',
+      (state: GraphState) => writerNode(state, { apiKeys: options?.providerApiKeys }),
+      (state: GraphState) => runAgentNode('writer', state, { providerApiKeys: options?.providerApiKeys }),
+    ))
     .addNode('deterministic_validation', validationNode)
-    .addNode('critic', (state: GraphState) => criticNode(state, { apiKeys: options?.providerApiKeys }))
+    .addNode('critic', dispatchNode(
+      'critic',
+      (state: GraphState) => criticNode(state, { apiKeys: options?.providerApiKeys }),
+      (state: GraphState) => runAgentNode('critic', state, { providerApiKeys: options?.providerApiKeys }),
+    ))
     .addNode('fallback', fallbackNode)
     .addNode('related', relatedPostsNode)
 

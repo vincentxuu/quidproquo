@@ -1,10 +1,6 @@
 import { env } from 'cloudflare:workers'
 import type { LlamaDocument } from './documents'
-
-interface Env {
-  VECTORIZE_INDEX: VectorizeIndex
-  AI: Ai
-}
+import type { Env } from '@/lib/config/env'
 
 interface VectorizeMetadata {
   [key: string]: VectorizeMetadataValue

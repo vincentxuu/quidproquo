@@ -1,4 +1,5 @@
 import type { PipelineCallbacks, GraphState, NativeTrace } from '../state'
+import type { ProviderApiKeys } from '../model'
 
 export type RagPipelineEngine = GraphState['config']['pipelineEngine']
 export type RagEvaluationSummary = {
@@ -21,7 +22,7 @@ export interface RagLifecycleInput {
   threadId?: string
   conversationSummary?: string
   config: GraphState['config']
-  providerApiKeys?: Record<string, string>
+  providerApiKeys?: ProviderApiKeys
   indexProfile?: {
     sourceFilters?: Array<'posts' | 'docs'>
     offset?: number

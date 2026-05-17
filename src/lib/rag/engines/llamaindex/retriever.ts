@@ -9,6 +9,7 @@ import { LlamaIndexD1DocStore } from './d1-docstore'
 import type { LlamaDocument } from './documents'
 import type { NativeTrace } from '../../state'
 import type { ProviderApiKeys } from '../../model'
+import type { Env } from '@/lib/config/env'
 
 export interface LlamaIndexRetrieverCase {
   source: 'vector' | 'bm25'
@@ -19,10 +20,6 @@ export interface LlamaIndexRetrievalResult {
   results: SearchResult[]
   metrics: SearchMetrics
   nativeTrace: NativeTrace['events']
-}
-
-interface Env {
-  AI: Ai
 }
 
 function toSearchResult(doc: LlamaDocument): SearchResult {

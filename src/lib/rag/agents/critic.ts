@@ -1,23 +1,88 @@
 import type { Critique, GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
+import { defineAgent } from '../../agent-os/access'
 export { shouldRetry } from './critic-routing'
+
+type CriticModelResult = Awaited<ReturnType<typeof invokeModel>>
+
+interface CriticRunOptions {
+  apiKeys?: ProviderApiKeys
+  maxTokens?: number
+  skillInstructions?: string
+}
+
+interface AgentRuntimeOptions {
+  providerApiKeys?: ProviderApiKeys
+}
+
+interface AgentRuntime {
+  syscallContext: Parameters<import('../../agent-os/kernel').AgentOsKernel['syscall']>[0]
+  syscall: import('../../agent-os/kernel').AgentOsKernel['syscall']
+  runtimeOptions?: AgentRuntimeOptions
+}
 
 export async function criticNode(
   state: GraphState,
-  options?: {
-    apiKeys?: ProviderApiKeys
-    maxTokens?: number
-    skillInstructions?: string
-  }
+  options?: CriticRunOptions
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 512
+  const query = getQuery(state)
+  const systemPrompt = buildCriticSystemPrompt(state, options?.skillInstructions)
+  const result = await invokeModel(
+    state.config,
+    'critic',
+    [
+      new SystemMessage(systemPrompt),
+      new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
+    ],
+    maxTokens,
+    options?.apiKeys
+  )
+
+  return buildCriticUpdate(state, result)
+}
+
+export const criticAgent = defineAgent<GraphState, Partial<GraphState>>({
+  id: 'critic',
+  version: 1,
+  displayName: 'Critic',
+  description: 'Scores generated RAG drafts for grounding, relevance, and drift.',
+  syscalls: ['model.invoke', 'memory.read'],
+  memoryScopes: ['agent'],
+  secrets: [],
+  outboundDomains: [],
+  toolCallLimit: 5,
+  timeoutSeconds: 60,
+  irreversibleActionsRequireApproval: false,
+  async run(state, runtime) {
+    const { syscallContext, syscall, runtimeOptions } = runtime as AgentRuntime
+    const maxTokens = 512
+    const query = getQuery(state)
+    const systemPrompt = buildCriticSystemPrompt(state)
+    const result = await syscall(syscallContext, 'model.invoke', {
+      config: state.config,
+      stage: 'critic',
+      messages: [
+        new SystemMessage(systemPrompt),
+        new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
+      ],
+      maxTokens,
+      apiKeys: runtimeOptions?.providerApiKeys,
+    }) as CriticModelResult
+
+    return buildCriticUpdate(state, result)
+  },
+})
+
+function getQuery(state: GraphState): string {
   const lastMessage = state.messages[state.messages.length - 1]
-  const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
+  return typeof lastMessage?.content === 'string' ? lastMessage.content : ''
+}
 
+function buildCriticSystemPrompt(state: GraphState, skillInstructions?: string): string {
   const sourceUrls = state.search_results.map(r => r.source_url)
-
-  const systemPrompt = `You are a strict quality evaluator for a RAG system.
+  return `You are a strict quality evaluator for a RAG system.
 Evaluate the draft response and return JSON only, no markdown:
 {
   "confidence": 0.0-1.0,
@@ -35,19 +100,10 @@ Original plan complexity: ${state.plan.complexity}
 Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
 Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
 Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.
-${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}` : ''}`
+${skillInstructions ? `\nAgent skill instructions:\n${skillInstructions}` : ''}`
+}
 
-  const { response, route } = await invokeModel(
-    state.config,
-    'critic',
-    [
-    new SystemMessage(systemPrompt),
-    new HumanMessage(`Question: ${query}\n\nDraft: ${state.draft}`),
-    ],
-    maxTokens,
-    options?.apiKeys
-  )
-
+function parseCritique(content: unknown): Critique {
   let critique: Critique = {
     confidence: 0.8,
     answer_relevance: 1,
@@ -57,7 +113,7 @@ ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInst
     gaps: [],
   }
   try {
-    const raw = JSON.parse(String(response.content))
+    const raw = JSON.parse(String(content))
     critique = {
       confidence: raw.confidence ?? 0.8,
       answer_relevance: raw.answer_relevance ?? 1,
@@ -66,10 +122,16 @@ ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInst
       ungrounded_claims: Array.isArray(raw.ungrounded_claims) ? raw.ungrounded_claims : [],
       gaps: Array.isArray(raw.gaps) ? raw.gaps : [],
     }
-  } catch { /* use default */ }
+  } catch {
+    // Keep conservative defaults when the model response is malformed.
+  }
+  return critique
+}
 
+function buildCriticUpdate(state: GraphState, result: CriticModelResult): Partial<GraphState> {
+  const { response, route } = result
   return {
-    critique,
+    critique: parseCritique(response.content),
     token_usage: {
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,

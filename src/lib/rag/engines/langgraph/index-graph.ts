@@ -3,10 +3,7 @@ import type { PipelineCallbacks } from '../../state'
 import { runEmbedPipeline } from '../../../embed/pipeline'
 import type { RagLifecycleInput, RagLifecycleOutput } from '../contract'
 import type { NativeTrace } from '../../state'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
 
 interface StageEvent {
   stage: string

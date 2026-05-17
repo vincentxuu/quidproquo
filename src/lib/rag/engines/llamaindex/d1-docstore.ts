@@ -1,8 +1,5 @@
 import { env } from 'cloudflare:workers'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
 
 export interface LlamaDocStoreRecord {
   chunk_id: string

@@ -5,10 +5,7 @@ import { runLlamaIndexIngestion } from './ingestion'
 import type { GraphState, PipelineCallbacks } from '../../state'
 import { initialState } from '../../state'
 import { buildLlamaIndexNativeTrace } from './trace'
-
-interface Env {
-  DB: D1Database
-}
+import type { Env } from '@/lib/config/env'
 
 interface IndexProfile {
   sourceFilters?: Array<'posts' | 'docs'>

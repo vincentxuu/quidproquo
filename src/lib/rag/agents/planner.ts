@@ -1,6 +1,7 @@
 import type { GraphState, Plan } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
+import { defineAgent } from '../../agent-os/access'
 
 const INTENT_PROMPT = `You are a query planner for a personal blog RAG system.
 Analyze the user's query and respond with JSON only, no markdown.
@@ -20,28 +21,78 @@ Mark "off-topic" if the question is unrelated to the blog content (e.g., weather
 Mark "recommendation" for article discovery requests such as "找文章", "推薦文章", "閱讀路線", "what should I read", or "learning path".
 Mark "needs_clarification" only if the query is genuinely ambiguous.`
 
+type PlannerModelResult = Awaited<ReturnType<typeof invokeModel>>
+
+interface PlannerRunOptions {
+  apiKeys?: ProviderApiKeys
+  maxTokens?: number
+  skillInstructions?: string
+}
+
+interface AgentRuntimeOptions {
+  providerApiKeys?: ProviderApiKeys
+}
+
+interface AgentRuntime {
+  syscallContext: Parameters<import('../../agent-os/kernel').AgentOsKernel['syscall']>[0]
+  syscall: import('../../agent-os/kernel').AgentOsKernel['syscall']
+  runtimeOptions?: AgentRuntimeOptions
+}
+
 export async function plannerNode(
   state: GraphState,
-  options?: {
-    apiKeys?: ProviderApiKeys
-    maxTokens?: number
-    skillInstructions?: string
-  }
+  options?: PlannerRunOptions
 ): Promise<Partial<GraphState>> {
   const maxTokens = options?.maxTokens ?? 512
-  const lastMessage = state.messages[state.messages.length - 1]
-  const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
+  const prompt = buildPlannerPrompt(state, options?.skillInstructions)
 
   const { response, route } = await invokeModel(
     state.config,
     'planner',
     [
-    new HumanMessage(`${INTENT_PROMPT}${options?.skillInstructions ? `\n\nAgent skill instructions:\n${options.skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`),
+      new HumanMessage(prompt),
     ],
     maxTokens,
     options?.apiKeys
   )
 
+  return buildPlannerUpdate(state, { response, route })
+}
+
+export const plannerAgent = defineAgent<GraphState, Partial<GraphState>>({
+  id: 'planner',
+  version: 1,
+  displayName: 'Planner',
+  description: 'Plans the RAG route and extracts intent, complexity, and language.',
+  syscalls: ['model.invoke', 'memory.read'],
+  memoryScopes: ['agent'],
+  secrets: [],
+  outboundDomains: [],
+  toolCallLimit: 5,
+  timeoutSeconds: 30,
+  irreversibleActionsRequireApproval: false,
+  async run(state, runtime) {
+    const { syscallContext, syscall, runtimeOptions } = runtime as AgentRuntime
+    const result = await syscall(syscallContext, 'model.invoke', {
+      config: state.config,
+      stage: 'planner',
+      messages: [new HumanMessage(buildPlannerPrompt(state))],
+      maxTokens: 512,
+      apiKeys: runtimeOptions?.providerApiKeys,
+    }) as PlannerModelResult
+
+    return buildPlannerUpdate(state, result)
+  },
+})
+
+function buildPlannerPrompt(state: GraphState, skillInstructions?: string): string {
+  const lastMessage = state.messages[state.messages.length - 1]
+  const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
+  return `${INTENT_PROMPT}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
+}
+
+function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Partial<GraphState> {
+  const { response, route } = result
   let plan: Plan = {
     intent: 'factual',
     complexity: 'medium',

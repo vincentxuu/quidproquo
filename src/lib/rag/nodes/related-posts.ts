@@ -1,7 +1,6 @@
 import { env } from 'cloudflare:workers'
 import type { GraphState } from '../state'
-
-interface Env { VECTORIZE_INDEX: VectorizeIndex; AI: Ai; DB: D1Database }
+import type { Env } from '@/lib/config/env'
 
 export async function relatedPostsNode(state: GraphState): Promise<Partial<GraphState>> {
   const { VECTORIZE_INDEX, AI, DB } = env as unknown as Env
