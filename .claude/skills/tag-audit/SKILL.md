@@ -25,6 +25,18 @@ grep -h "^tags:" src/content/posts/**/*.md \
 
 存成表，按頻次排序。
 
+## tag canonical 規則
+
+`tag-audit` 與 `post-review` 都照這組規則判斷，不要各自發明標準：
+
+1. **全小寫 kebab-case**：`claude-code`，不要 `Claude Code` / `claude_code` / `claudecode`。
+2. **既有高頻優先**：同義詞合併時，通常保留站內使用次數最多、讀者已熟悉的 tag。
+3. **官方名稱優先於縮寫失真**：產品/框架/模型有清楚官方名稱時，保留不會誤解的形式，例如 `claude-code` 優於 `cc`。
+4. **通用縮寫可保留**：`llm`、`rag` 這種站內與業界都穩定的縮寫，可以優先於冗長全名。
+5. **category 不重複當 tag**：不要用 `tech`、`ai`、`learning` 這種只重複分類的 tag，除非它在該分類外有明確辨識價值。
+6. **核心主題在前**：單篇文章的 tags 以主要工具/概念/問題排序，不用按字母。
+7. **刪除比改名更保守**：太一般的 tag 先列成提案，不直接刪；可能影響 `/tags/<tag>` URL。
+
 ### 2. 找問題（四類）
 
 **A. 同義詞分裂**
@@ -38,7 +50,7 @@ grep -h "^tags:" src/content/posts/**/*.md \
 | `claude-code` (19) | `claudecode` (1) |
 | `rag` (45) | `retrieval-augmented-generation` (1) |
 
-合併到高頻那個。除非低頻那個更精確，那就反過來改。
+合併到 canonical tag。通常是高頻那個；如果低頻 tag 明顯更符合官方名稱或更不易誤解，就反過來改。
 
 **B. 太一般**
 

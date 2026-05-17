@@ -28,3 +28,4 @@ Next steps
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.
 - There is ongoing unrelated RAG work in the working tree; avoid reverting it.
+- agent-foundation: complete — 10 cross-cutting concerns centralized, settings tables reconciled (migration 0010 applied 2026-05-17, 0010b gated on soak), schema audit shipped in docs/schema-audit.md; ready for agent-os Phase 1

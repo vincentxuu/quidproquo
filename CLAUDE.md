@@ -25,6 +25,12 @@ src/
 scripts/             # Build-time Node scripts (OG images, D1 sync, cron stubs, reference checks)
 ```
 
+## Agent Skills
+
+`.agents/skills/` is the canonical source for project skills. Update `.agents/skills/<skill>/SKILL.md` and its bundled resources first.
+
+`.claude/skills/` is a Claude compatibility mirror. If a Claude-specific copy drifts, sync it from `.agents/skills/` instead of treating `.claude/skills/` as the source of truth. `.codex/skills/` is reserved for Codex-specific or experimental workflows.
+
 ## Dev Commands
 
 ```bash

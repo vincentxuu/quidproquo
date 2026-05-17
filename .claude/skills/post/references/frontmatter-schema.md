@@ -12,10 +12,33 @@
 | `description` | string | ❌ | SEO meta description，1-2 句，列表頁顯示 |
 | `tldr` | string | ❌ | 一句話摘要；`tech` / `ai` / `deep-dive` 類強烈建議填 |
 | `type` | enum | ❌ | `debug` / `deep-dive` / `guide` / `project`，沒對應就不填 |
+| `difficulty` | enum | ❌ | `入門` / `進階` / `深度`，只在文章確實需要標示閱讀難度時填 |
 | `draft` | boolean | ❌（預設 `false`） | `true` 時不會在列表頁/RSS 出現 |
 | `pinned` | boolean | ❌（預設 `false`） | `true` 時釘在分類首頁頂端 |
 | `series` | object | ❌ | `{ name: string, order: number }`，多篇連載用 |
+| `glossary` | object[] | ❌ | 當篇特有術語解釋；通用詞應放全站 glossary seed，不要塞進每篇 |
 | `readingTime` | number | ❌ | 由 remark plugin 自動填，不要手寫 |
+
+## glossary 欄位
+
+只補「不解釋會影響理解」的詞，不補所有專有名詞。
+
+```yaml
+glossary:
+  - term: "MCP"
+    aliases: ["Model Context Protocol"]
+    definition: "讓模型透過標準協定連接外部工具與資料來源。"
+    advanced: "可把工具、資源與 prompts 暴露給支援 MCP 的 client。"
+    context: "本文用它連接 research workflow 與外部資料來源。"
+    links:
+      - label: "MCP documentation"
+        url: "https://modelcontextprotocol.io/"
+```
+
+- `term` 必填。
+- `aliases` / `definition` / `advanced` / `context` / `links` 選填。
+- `links` 每個項目要有 `label` 與 `url`。
+- 會跨多篇文章重複出現的詞，優先補到 `src/lib/glossary/terms.ts`。
 
 ## tags 命名規則
 

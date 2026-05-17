@@ -27,23 +27,32 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 1. **判斷分類**：根據內容本質選 category，不是看使用者用的語言或情緒。
 2. **選擇模板**：依觸發方式照表對應，不混用。
-3. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
-4. **產生檔案**：
+3. **前置 metadata gate**：產文前先把必要決策補齊，缺關鍵資訊就問一個精準問題，**不要編造**。
+   - `category`：必須是支援分類之一。
+   - `type/template`：debug / deep-dive / guide / project / general，並對應模板。
+   - `title direction`：標題要包含主題、錯誤關鍵字或具體場景。
+   - `slug`：英文 kebab-case，2-4 個關鍵字。
+   - `tags`：3-7 個、全小寫 kebab-case、核心主題在前，優先沿用既有 tag。
+   - `lang`：`zh-TW` 或 `en`。
+   - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。
+   - `glossary needed`：只標出不解釋會影響理解的詞。
+4. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
+5. **產生檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>.md`
    - slug：英文 kebab-case，取關鍵詞（不是中翻英整段）
    - frontmatter 必填：`title`、`date`、`category`、`tags`、`lang`
    - 細節欄位請先讀 `references/frontmatter-schema.md`
    - 寫作風格請先讀 `references/writing-guide.md`
-5. **參考資料是硬要求**：如果文章引用工具、框架、官方文件、論文、版本、數據比較、外部說法 → 文末必須有 `## 參考資料` 段落。`tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類預設都要有。
-6. **驗證**（按順序跑，全綠才算完成）：
+6. **參考資料是硬要求**：如果文章引用工具、框架、官方文件、論文、版本、數據比較、外部說法 → 文末必須有 `## 參考資料` 段落。`tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類預設都要有。
+7. **驗證**（按順序跑，全綠才算完成）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
-7. **請使用者 review**：把草稿丟出來，確認再 commit。
-8. **commit**（取得明確同意後）：
+8. **請使用者 review**：把草稿丟出來，確認再 commit。
+9. **commit**（取得明確同意後）：
    ```bash
    git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md
    git commit -m "post(<category>): <title summary>"

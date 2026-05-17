@@ -55,16 +55,22 @@ description: Update an existing Markdown post under src/content/posts/<category>
    - 動到內容引用的工具 / 文件 → 同步檢查 `## 參考資料` 是否要新增或更新連結
    - 修壞掉的連結 → 一併補上
 
-6. **驗證**（按順序跑，全綠才算完成）：
+6. **查證觸發條件**：
+   - 如果更新內容包含價格、版本號、release 日期、API 名稱、命令旗標、統計數字、benchmark、法律/政策、研究結論，先提醒使用者這屬於 fact-layer update，建議跑 `post-verify`。
+   - 若使用者要求直接更新，不要憑記憶改；至少用官方文件 / release note / 論文 / 官方 blog 作為來源。
+   - 高風險資訊（價格、版本、日期、統計、研究結論）應在文中或 `## 參考資料` 明確留下來源。
+   - 找不到可靠來源時，不要把不確定內容寫成肯定句；改成「待確認」或停下請使用者決定。
+
+7. **驗證**（按順序跑，全綠才算完成）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
 
-7. **diff review**：把 `git diff` 給使用者看，**得到明確 OK 才 commit**。
+8. **diff review**：把 `git diff` 給使用者看，**得到明確 OK 才 commit**。
 
-8. **commit**：
+9. **commit**：
    ```bash
    git add src/content/posts/<category>/<檔名>.md
    git commit -m "post(<category>): update <精簡描述更新內容>"
@@ -79,6 +85,7 @@ description: Update an existing Markdown post under src/content/posts/<category>
 | 「順便改 slug 讓網址更好看」 | slug 是 URL，外站可能已經 link 過來，改了就 404 |
 | 「跳過更新紀錄，反正 git log 看得到」 | 讀者看不到 git log。內容性更動要讓讀者知道哪段是新的 |
 | 「直接動筆改，不問改動範圍」 | 大改可能應該開新文章，先問再做 |
+| 「版本/價格靠印象更新」 | 這類資訊容易過時，必須查官方來源或先跑 post-verify |
 | 「不跑驗證，反正只改一段」 | 改一段也可能弄壞參考資料連結，每次都要跑 |
 | 「commit 不給 diff review 直接送」 | 公開內容，使用者要看過才能送 |
 

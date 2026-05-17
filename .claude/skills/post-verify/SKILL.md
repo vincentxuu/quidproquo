@@ -57,13 +57,22 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 - 原句
 - 類別
 
-### 3. 逐條驗證（每條 ≥ 2 來源）
+### 3. 逐條驗證（依風險決定來源數）
 
 對每條 claim：
 
 1. `tavily_search` / `exa_web_search` 找權威來源（官方文件 / release note / 論文 / 官方 blog 為優先）
 2. `firecrawl_scrape` 或 `tavily_extract` 抓內容
 3. 跟 claim 比對
+
+不是所有 claim 都需要硬湊兩個來源；來源數取決於風險：
+
+| Claim 風險 | 例子 | 最低來源要求 |
+|---|---|---|
+| 高風險 | 價格、版本變更、release 日期、統計數字、benchmark、法律/政策、研究結論 | 2 個獨立來源；至少 1 個 authoritative source |
+| 中風險 | API 名稱、命令、設定旗標、產品能力、整合限制 | 1 個 authoritative source 可判 Confirmed；若來源模糊或互相矛盾，再找第 2 個 |
+| 低風險 | 官方文件明確列出的基本名詞、套件名稱、站內已驗證的命令片段 | 1 個 authoritative source 即可；報告中標明是 single-source confirmed |
+| 直接引用 | 名言、文件原文、論文句子 | 必須找到原始出處；找不到原文就是 Unverifiable |
 
 來源排序：
 
@@ -75,8 +84,9 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 
 | Verdict | 含義 |
 |---|---|
-| 🟢 Confirmed | 兩個獨立來源都符合 |
-| 🟡 Unverifiable | 找不到第二來源 / 內容已被改動 / 暫時搜不到 |
+| 🟢 Confirmed | 達到該風險等級的來源要求，內容符合 |
+| 🟢 Confirmed (single-source) | 低/中風險 claim 由一個明確 authoritative source 支持 |
+| 🟡 Unverifiable | 找不到必要來源 / 內容已被改動 / 暫時搜不到 |
 | 🟠 Outdated | 來源支持「以前是真的，現在已經變了」 |
 | 🔴 Contradicted | 來源直接打臉 |
 
@@ -121,8 +131,9 @@ post-verify report: <slug>
 
 | 想偷懶 | 為什麼不行 |
 |---|---|
-| 「LLM 知道答案就直接判 Confirmed」 | LLM 訓練資料截止；Confirmed 必須有兩個獨立 web 來源 |
-| 「找到一個來源就下判斷」 | 一手來源也會錯版本；至少兩源是底線 |
+| 「LLM 知道答案就直接判 Confirmed」 | LLM 訓練資料截止；Confirmed 必須有外部來源 |
+| 「每條都硬湊兩個來源」 | 低風險 API 名稱有官方文件即可；硬湊二手來源反而降低品質 |
+| 「高風險 claim 只找一個來源」 | 價格、版本、統計、研究結論容易過時或被轉述錯，至少兩源 |
 | 「直接幫他改錯誤」 | 是不是真錯只有作者知道；auto-fix 會導入新錯誤 |
 | 「Confirmed 的不報」 | 報告 Confirmed 的避免使用者重複自查 |
 | 「跳過 quoted 引用，反正引用一定對」 | 名言類引用最常被 LLM 誤記，要查原始出處 |

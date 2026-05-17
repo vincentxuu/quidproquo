@@ -58,13 +58,33 @@
 	"ai": {
 		"binding": "AI"
 	},
+	"queues": {
+		"producers": [
+			{
+				"binding": "AGENT_QUEUE",
+				"queue": "agent-queue"
+			}
+		]
+	},
 	"vars": {
-		"LLM_PROVIDER": "groq"
+		"LLM_PROVIDER": "groq",
+		"AGENT_OS_ENABLED": "false",
+		"AGENT_OS_PLANNER": "false",
+		"AGENT_OS_RESEARCH": "false",
+		"AGENT_OS_WRITER": "false",
+		"AGENT_OS_CRITIC": "false",
+		"AGENT_OS_MEMORY_R2": "false",
+		"AGENT_OS_TOOLS_MCP_EXTERNAL": "false",
+		"AGENT_OS_SCHEDULER_QUEUES": "false"
 	},
 	"r2_buckets": [
 		{
 			"binding": "R2_IMAGES",
 			"bucket_name": "quidproquo-images"
+		},
+		{
+			"binding": "R2_AGENT_MEMORY",
+			"bucket_name": "quidproquo-agent-memory"
 		}
 	],
 	"env": {

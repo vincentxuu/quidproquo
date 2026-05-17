@@ -62,6 +62,13 @@ grep -h "^tags:" src/content/posts/<category>/*.md | sort -u
 - 拼錯字
 - 該有沒有的核心 tag（題目主軸沒進 tag）
 
+Canonical 判斷跟 `tag-audit` 一致：
+- 全小寫 kebab-case。
+- 既有高頻 tag 優先，除非低頻 tag 明顯更符合官方名稱或更不易誤解。
+- 通用縮寫如 `llm` / `rag` 可保留；不穩定縮寫不要新增。
+- category 名稱不要重複當 tag，除非跨分類時有額外辨識價值。
+- 核心主題排在 tags 前面，不要求字母排序。
+
 ### 6. 結構
 
 按 `type` 對應預期：
@@ -73,14 +80,25 @@ grep -h "^tags:" src/content/posts/<category>/*.md | sort -u
 
 缺主要段落 → 列。
 
-### 7. 參考資料覆蓋
+### 7. 標題與清單可讀性
+
+對照 Google-style 的可掃讀原則，檢查文章是否容易被人和模型穩定解析：
+
+- [ ] heading 層級沒有跳級（例如 `##` 後直接 `####`）
+- [ ] heading 具體，不用「介紹」「補充」「其他」「一些想法」這種空標
+- [ ] heading 底下不是空段落，也不是只有一個孤立清單
+- [ ] 清單前有引導句，讀者知道這串項目在回答什麼問題
+- [ ] 同一個清單的項目語意平行，不混合步驟、原因、結論
+- [ ] 超過 6 項且需要比較的清單，評估是否改成表格
+
+### 8. 參考資料覆蓋
 
 - [ ] `tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類有沒有 `## 參考資料` 段
 - [ ] 文中提到的每個工具 / 框架 / 論文 / 模型有沒有對應條目
 - [ ] 每條連結是不是指向**該主題的官方頁**（不是某個泛用首頁）
-- [ ] 中文資源有沒有標 `(in Mandarin)`（如果是 en 版）
+- [ ] `lang: en` 的文章中，中文資源有沒有標 `(in Mandarin)`；`lang: zh-TW` 不需要
 
-### 8. 寫作品質（風格層）
+### 9. 寫作品質（風格層）
 
 對照 `../post/references/writing-guide.md`：
 
@@ -90,7 +108,7 @@ grep -h "^tags:" src/content/posts/<category>/*.md | sort -u
 - [ ] 程式碼塊有指定語言
 - [ ] 表格 / ASCII 圖如果有比較多項，比文字描述更清楚
 
-### 9. 報告格式
+### 10. 報告格式
 
 把所有 issue 分成三層回報：
 

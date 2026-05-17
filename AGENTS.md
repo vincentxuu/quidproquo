@@ -2,6 +2,23 @@
 
 這是 [quidproquo.cc](https://quidproquo.cc) 的部落格專案，以 Astro + Cloudflare Workers 建構。
 
+## Agent Skills
+
+`.agents/skills/` 是本專案 agent skill 的 canonical source。新增或修改專案 skill 時，先改 `.agents/skills/<skill>/SKILL.md` 與同資料夾下的 `references/`、`templates/`、`scripts/`。
+
+`.claude/skills/` 只作為 Claude 相容鏡像；`.codex/skills/` 只放 Codex 專用或實驗性 workflow。不要先改 `.claude/skills/` 再回填，避免 Codex 與 Claude 讀到不同規則。
+
+每個 skill 必須有 `SKILL.md` frontmatter：
+
+```yaml
+---
+name: skill-name
+description: 說清楚何時使用、何時不要使用
+---
+```
+
+Codex 主要靠 `name` 與 `description` 決定是否觸發 skill；body 只會在 skill 觸發後讀取。詳細流程放在 `SKILL.md`，大量規則或範例放 `references/`，模板放 `templates/`。
+
 ## 寫文章
 
 ### 存放位置與檔名
