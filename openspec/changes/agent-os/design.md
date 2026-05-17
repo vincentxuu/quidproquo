@@ -579,3 +579,9 @@ The kernel reads `definition.costModel` after each call, computes `cost_usd`, wr
 - **Pure logic** (RRF fusion, lifecycle state machine, permission resolver, cost computation): direct vitest unit tests
 - **Binding-touching code** (D1 writers, KV cancel signal, Vectorize calls): define a backend interface (e.g. `EventLogBackend`, `MemoryBackend`), production impl uses bindings, test impl is in-memory. Kernel code depends on the interface
 - **No Miniflare** in this change — keeps test infra unchanged. Re-evaluate only if a class of bug emerges that can only be caught with end-to-end binding behavior
+
+### Q7 → Generate the Worker-level queue/scheduled entry post-build
+
+**Investigation:** Astro's Cloudflare adapter generates the HTTP Worker at `dist/server/entry.mjs`, and this project already rewrites deployment to `dist/cron-entry.js` in `scripts/create-cron-entry.mjs` so existing cron jobs can call HTTP endpoints. A separate source `src/server/worker.ts` is not consumed by the current deploy script.
+
+**Resolution:** Keep `src/server/queue.ts` as durable queue-consumer logic, but wire Worker-level `queue()` and `scheduled()` inside the generated `dist/cron-entry.js`. The post-build script imports `handleQueueBatch`, `scheduledAgentEntries`, and `checkKernelHealth`, forwards Astro's fetch handler, and patches `dist/server/wrangler.json` with `main: '../cron-entry.js'`, `no_bundle: false`, and ES module rules for `.js`, `.mjs`, and `.ts` so Wrangler bundles those TypeScript imports.

@@ -463,7 +463,7 @@ Implementation plan. 6 phases, ~118 tasks. Builds the Flow DSL + runtime + refer
   - **Verify**: `pnpm wrangler types` regenerates; `wrangler dev` boots without binding errors
 - [ ] 5.1.2 Create the Workflow class `AgentFlowWorkflow` in `src/server/agent-flow-workflow.ts` — extends `WorkflowEntrypoint`, exposes `async run(event, step)` that delegates each flow step to `step.do(stepId, async () => stepExecutor.execute(...))` so Workflows persists output between steps automatically. Each step also captures `retries: { limit: step.retryPolicy.maxAttempts, backoff: 'exponential' }`
   - **Files**: `src/server/agent-flow-workflow.ts` (create)
-  - **Pattern**: Cloudflare Workflows `WorkflowEntrypoint` docs; existing Worker entrypoint at `src/server/worker.ts`
+  - **Pattern**: Cloudflare Workflows `WorkflowEntrypoint` docs; generated Worker entrypoint from `scripts/create-cron-entry.mjs`
   - **Verify**: `pnpm wrangler deploy --dry-run` exits 0 and lists `AgentFlowWorkflow` under workflow classes
 
 ### 5.2 Durable adapter

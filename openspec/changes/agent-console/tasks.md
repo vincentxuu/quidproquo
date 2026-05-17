@@ -339,7 +339,7 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
 
 **Goal**: Operators see per-flow, per-policy, per-user spend over time without slow ad-hoc SQL. Pre-aggregate via a nightly cron into rollup tables; show live last-24h overlay on top via the same `agent_tool_calls` queries already used by the run timeline.
 
-**Files touched**: ~9 new (migration, cron handler, dashboard page, chart island, alert config), ~2 modified (`wrangler.jsonc`, `src/server/worker.ts` scheduled handler)
+**Files touched**: ~9 new (migration, cron handler, dashboard page, chart island, alert config), ~2 modified (`wrangler.jsonc`, `scripts/create-cron-entry.mjs` scheduled handler)
 **Verification**: cron populates rollup table; dashboard renders 30-day trend within <500ms; live overlay refreshes every 60s.
 
 ### 5.1 Rollup migration `0017_agent_console_rollups.sql`
@@ -351,9 +351,9 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
 
 ### 5.2 Nightly cron handler
 
-- [ ] 5.2.1 Add `"0 3 * * *"` entry to `wrangler.jsonc` `triggers.crons` with handler key `console.rollup.daily`. Extend `src/server/worker.ts` `scheduled()` handler to dispatch to `runConsoleRollupDaily(env)`.
-  - **Files**: `wrangler.jsonc` (modify); `src/server/worker.ts` (modify)
-  - **Pattern (design D-cost)**: existing cron registry in `src/server/worker.ts`
+- [ ] 5.2.1 Add `"0 3 * * *"` entry to `wrangler.jsonc` `triggers.crons` with handler key `console.rollup.daily`. Extend the generated Worker entry in `scripts/create-cron-entry.mjs` to dispatch to `runConsoleRollupDaily(env)`.
+  - **Files**: `wrangler.jsonc` (modify); `scripts/create-cron-entry.mjs` (modify)
+  - **Pattern (design D-cost)**: existing cron registry in `scripts/create-cron-entry.mjs`
   - **Verify**: `wrangler deploy --dry-run` lists the new cron; manually trigger via `wrangler tail` after deploy
 - [ ] 5.2.2 Build `src/lib/agent-console/cost/rollup.ts` exporting `runConsoleRollupDaily(env)` — for each dimension, run aggregate SQL like `SELECT day, dimension, value, sum(tokens_in), ... FROM agent_tool_calls JOIN agent_runs ON ... WHERE day = ? GROUP BY day, dimension, value` and `INSERT OR REPLACE` into `cost_rollup_daily`. Walk forward from `cost_rollup_meta.last_built_day + 1` to yesterday; idempotent.
   - **Files**: `src/lib/agent-console/cost/rollup.ts` (create); `src/lib/agent-console/cost/dimensions.ts` (create — dimension config)
