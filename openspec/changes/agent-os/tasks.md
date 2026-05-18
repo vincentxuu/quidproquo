@@ -397,7 +397,7 @@ Implementation plan for the agent-os change. 6 phases, ~97 tasks, strict order.
 ### 5.1 Provision R2 bucket and binding
 
 - [x] 5.1.1 Run `wrangler r2 bucket create quidproquo-agent-memory` (production); verify with `wrangler r2 bucket list` that the bucket appears
-- [ ] 5.1.2 Add R2 binding to `wrangler.jsonc` `r2_buckets[]` alongside the existing `R2_IMAGES` entry: `{ "binding": "R2_AGENT_MEMORY", "bucket_name": "quidproquo-agent-memory" }`; deploy with `pnpm deploy` and confirm via `wrangler tail` that the Worker boots without binding errors (per agent-storage spec "Binding present, flag off" scenario, no R2 traffic should occur yet)
+- [x] 5.1.2 Add R2 binding to `wrangler.jsonc` `r2_buckets[]` alongside the existing `R2_IMAGES` entry: `{ "binding": "R2_AGENT_MEMORY", "bucket_name": "quidproquo-agent-memory" }`; deploy with `pnpm deploy` and confirm via `wrangler tail` that the Worker boots without binding errors (per agent-storage spec "Binding present, flag off" scenario, no R2 traffic should occur yet)
 - [x] 5.1.3 Verify the central `Env` type at `src/lib/config/env.ts` (shipped by agent-foundation) already includes `R2_AGENT_MEMORY: R2Bucket`; if missing, add it and re-run `pnpm lint` + `pnpm exec astro check`
 
 ### 5.2 Flip the flag and verify both paths
@@ -423,7 +423,7 @@ Implementation plan for the agent-os change. 6 phases, ~97 tasks, strict order.
 
 - [x] 6.1.1 Create `src/pages/api/admin/agents/health.ts` with `export const prerender = false` and `GET` handler gated by `requireAdmin` (from agent-foundation `src/lib/auth/admin.ts`); response shape: `{ processes: number, runs: { running: number, queued: number, failed_24h: number }, cost: { avg_usd_per_run_24h: number, total_usd_24h: number }, approvals: { pending: number, pending_over_24h: number }, memory: { items_total: number, r2_bytes: number | null } }`
 - [x] 6.1.2 Implement queries as a single `DB.batch([...])` for efficiency: see SQL in 6.2.2 for exact statements; `memory.r2_bytes` returns `null` when `flags.agentOs.memory.r2 === false`, else sums `length(body_text)` for rows where `r2_key IS NOT NULL` (cheap proxy without R2 list call)
-- [ ] 6.1.3 Smoke: `curl https://quidproquo.cc/api/admin/agents/health -b "session=..."` returns 200 with non-zero `processes` (matches `SELECT COUNT(*) FROM agent_processes`)
+- [x] 6.1.3 Smoke: `curl https://quidproquo.cc/api/admin/agents/health -b "session=..."` returns 200 with non-zero `processes` (matches `SELECT COUNT(*) FROM agent_processes`)
 
 ### 6.2 Runbook + dashboards
 

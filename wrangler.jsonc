@@ -78,11 +78,11 @@
 	},
 	"vars": {
 		"LLM_PROVIDER": "groq",
-		"AGENT_OS_ENABLED": "false",
+		"AGENT_OS_ENABLED": "true",
 		"AGENT_OS_PLANNER": "false",
 		"AGENT_OS_RESEARCH": "false",
 		"AGENT_OS_WRITER": "false",
-		"AGENT_OS_CRITIC": "false",
+		"AGENT_OS_CRITIC": "true",
 		"AGENT_OS_MEMORY_R2": "false",
 		"AGENT_OS_TOOLS_MCP_EXTERNAL": "false",
 		"AGENT_OS_SCHEDULER_QUEUES": "false"

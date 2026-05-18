@@ -5,9 +5,11 @@ import { createScheduler } from './scheduler'
 import type { AgentOsBackends } from './storage'
 import { createBackends } from './storage'
 import type { Env } from '../config/env'
+import { registerDefaultSyscalls } from './tools/register-defaults'
 import { createSyscallHelper } from './tools/syscall'
 
 export function createKernel(env: Env, providedBackends?: AgentOsBackends) {
+  registerDefaultSyscalls()
   const backends = providedBackends ?? createBackends(env)
   const registry = new Map<string, AgentDefinition<any, any>>()
   const access = createAccessManager(backends)
