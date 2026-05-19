@@ -134,6 +134,10 @@ pnpm tools-dev run web
 
 實務面對工程師的影響：如果你已經付 agent CLI 訂閱，預設假設應從「我需要另一個 design 工具」改成「我的 CLI 需要哪個 skill bundle 才能 design？」有時候答案還是「買 hosted product」，但 default 翻了。
 
+## 更新紀錄
+
+- 2026-05-19：補充 Codex 官方宣布 app 可以使用 Open Design，等於官方背書 OD 作為 Codex 上的 design 工具路徑。
+
 ## 參考資料
 
 - [nexu-io/open-design GitHub repository](https://github.com/nexu-io/open-design)
