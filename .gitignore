@@ -34,10 +34,6 @@ pnpm-debug.log*
 # MCP server dependencies
 .claude/mcp-servers/*/node_modules/
 
-# research notes: ignored by default, but keep specific ones the user wants preserved
-.research/*
-!.research/2026-05-21-antigravity-cli.md
-
 # omc runtime state (caches, session logs)
 .omc/state/hud-stdin-cache.json
 .omc/state/sessions/
