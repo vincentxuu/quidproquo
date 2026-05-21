@@ -3,12 +3,15 @@ title: "Gemini CLI 完整方案分析：業界最慷慨免費額度的終端 Age
 date: 2026-04-02
 type: guide
 category: ai
-tags: [agent-cli, gemini-cli, google, pricing, free-tier, terminal-agent]
+tags: [agent-cli, gemini-cli, google, pricing, free-tier, terminal-agent, antigravity]
 lang: zh-TW
-tldr: "Gemini CLI 免費提供 60 req/min、1,000 req/day，含 Gemini 2.5 Pro 和 1M token context window。Google 開源專案，多數開發者完全不需要付費。"
-description: "深入分析 Google Gemini CLI 的免費額度、三種認證方式、付費方案、核心功能與適用場景。"
+tldr: "⚠️ Gemini CLI 將於 2026/06/18 停服，官方接替方案為 Antigravity CLI。停服前：免費提供 60 req/min、1,000 req/day，含 Gemini 2.5 Pro 和 1M token context window。Skills、Hooks、Subagents 均可遷移延續。"
+description: "深入分析 Google Gemini CLI 的免費額度、三種認證方式、付費方案、核心功能，以及 2026/06/18 停服後的 Antigravity CLI 遷移說明。"
 draft: false
 ---
+
+> **⚠️ 停用公告（2026/05/19）**
+> Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 用戶。接替方案為 **Antigravity CLI**，Agent Skills、Hooks、Subagents 均可延續，Extensions 改名為 Antigravity plugins 並提供自動遷移工具。企業用戶（Gemini Code Assist Standard/Enterprise 授權或 Google Cloud API key）暫不受影響。遷移文件：[antigravity.google/docs/gcli-migration](https://antigravity.google/docs/gcli-migration)。
 
 Gemini CLI 是 Google 推出的開源終端機 AI coding agent，原始碼在 [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)。它把 Gemini 模型直接帶進你的 terminal，而且核心賣點非常直接：**大多數開發者完全不需要付費**。
 
@@ -102,6 +105,27 @@ Gemini CLI 特別適合以下開發者：
 
 如果你需要的是最深的推理能力（複雜架構設計、多步驟 debug），Claude Code 的 Opus 仍然是更好的選擇。但如果你的主要需求是「免費、夠好、context 夠大」，Gemini CLI 目前無人能出其右。
 
+## 遷移至 Antigravity CLI
+
+Gemini CLI 停服後，官方建議用戶遷移至 **Antigravity CLI**——Google Antigravity 2.0 平台的終端機介面。以 Go 重寫、執行速度更快，並支援非同步背景 agent。
+
+### 遷移重點
+
+- **Agent Skills**：全域 skills（`~/.gemini/skills/`）自動讀取，無需任何操作
+- **Extensions → Plugins**：執行 `agy plugin import gemini` 自動轉換
+- **MCP Servers**：設定檔從 `settings.json` 移至 `mcp_config.json`；遠端 server 欄位名稱由 `url` 改為 `serverUrl`
+- **額度方案**：遷移至 Antigravity 對應方案，詳情見官方遷移文件
+
+```bash
+# 安裝 Antigravity CLI（macOS / Linux）
+curl -fsSL https://antigravity.google/install.sh | sh
+
+# 遷移現有 Extensions
+agy plugin import gemini
+```
+
+完整遷移說明：[antigravity.google/docs/gcli-migration](https://antigravity.google/docs/gcli-migration)
+
 ## 系列文章
 
 這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
@@ -115,3 +139,9 @@ Gemini CLI 特別適合以下開發者：
 - [Gemini Developer API Pricing | Google AI for Developers](https://ai.google.dev/gemini-api/docs/pricing)
 - [Set up your coding assistant with Gemini MCP and Skills | Google AI](https://ai.google.dev/gemini-api/docs/coding-agents)
 - [Gemini Pricing in 2026 for Individuals, Orgs & Developers | Finout](https://www.finout.io/blog/gemini-pricing-in-2026)
+- [Google Developers Blog：Transitioning Gemini CLI to Antigravity CLI（官方停用公告）](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)
+- [Antigravity CLI 遷移文件：Migrating from Gemini CLI](https://antigravity.google/docs/gcli-migration)
+
+## 更新紀錄
+
+- 2026-05-21：補充 Gemini CLI 停用公告（2026/06/18）與 Antigravity CLI 遷移段落；更新 tldr、tags、參考資料
