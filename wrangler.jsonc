@@ -164,13 +164,6 @@
 			"bucket_name": "quidproquo-agent-artifact"
 		}
 	],
-	"workflows": [
-		{
-			"binding": "AGENT_FLOW_WORKFLOWS",
-			"name": "agent-flow-durable",
-			"class_name": "AgentFlowWorkflow"
-		}
-	],
 	"env": {
 		"preview": {
 			"name": "quidproquo-preview"

@@ -1,0 +1,77 @@
+---
+import type { FlowCardData } from '@/lib/agent-console/flow-selector'
+
+interface Props {
+  card: FlowCardData
+}
+
+const { card } = Astro.props
+
+const statusColors: Record<string, string> = {
+  succeeded: 'var(--color-success)',
+  failed: 'var(--color-error)',
+  running: 'var(--color-accent)',
+  queued: 'var(--color-muted)',
+  cancelled: 'var(--color-muted)',
+}
+
+const statusColor = card.lastStatus ? (statusColors[card.lastStatus] ?? 'var(--color-muted)') : 'var(--color-muted)'
+const lastRunLabel = card.lastRunAt
+  ? new Date(card.lastRunAt).toLocaleString('zh-TW', { dateStyle: 'short', timeStyle: 'short' })
+  : '—'
+---
+
+<a href={`/admin/console/flows/${card.id}`} class="flow-card">
+  <div class="flow-card__header">
+    <span class="flow-card__name">{card.name}</span>
+    {card.lastStatus && (
+      <span class="flow-card__status" style={`color: ${statusColor}`}>{card.lastStatus}</span>
+    )}
+  </div>
+  {card.description && <p class="flow-card__desc">{card.description}</p>}
+  <span class="flow-card__meta">Last run: {lastRunLabel}</span>
+</a>
+
+<style>
+  .flow-card {
+    display: block;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .flow-card:hover {
+    border-color: var(--color-accent, #4f46e5);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .flow-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .flow-card__name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .flow-card__status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .flow-card__desc {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-muted-text, #64748b);
+    line-height: 1.4;
+  }
+  .flow-card__meta {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-muted-text, #64748b);
+  }
+</style>
