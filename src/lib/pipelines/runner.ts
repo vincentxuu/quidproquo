@@ -31,6 +31,7 @@ import { runGlossaryGap } from './modules/glossary-gap'
 import { runKnowledgeGraphPrototype } from './modules/knowledge-graph-prototype'
 import { runTranslationDraft } from './modules/translation'
 import { buildResearchBriefDraft, buildResearchDraftSlug, runResearchBrief } from './modules/research-brief'
+import { buildArxivReadingDraft, buildArxivReadingSlug, runArxivReading, type ArxivPassDepth } from './modules/arxiv-reading'
 import { buildYouTubeBriefDraft, buildYouTubeDraftSlug, runYouTubeBrief } from './modules/youtube-brief'
 import { runSeriesSuggestions } from './modules/series-suggestions'
 import { getPipelineDefinition } from './registry'
@@ -159,6 +160,11 @@ async function runPipelineById(
 
   if (definition.id === 'research-brief') {
     const output = await runResearchBriefJob(db, jobId, input, definition, executionContext)
+    return output
+  }
+
+  if (definition.id === 'arxiv-reading') {
+    const output = await runArxivReadingJob(db, jobId, input, definition, executionContext)
     return output
   }
 
@@ -770,6 +776,170 @@ async function runResearchBriefJob(
   })
 
   return { status, output: outputSummary }
+}
+
+async function runArxivReadingJob(
+  db: D1Database,
+  jobId: string,
+  input: Record<string, unknown>,
+  definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+  executionContext: PipelineExecutionContext,
+): Promise<PipelineExecutionResult> {
+  const paperRef = typeof input.paperRef === 'string' ? input.paperRef.trim() : ''
+  if (!paperRef) {
+    const stepId = await createStep(db, jobId, 'arxiv-reading', 'module', 'Read paper with three-pass method')
+    const startedAt = Date.now()
+    await finishStep(db, stepId, 'failed', startedAt, {
+      output: 'Missing required paper reference.',
+      error: 'paperRef is required for arxiv-reading',
+    })
+    return { status: 'failed', output: 'Missing required paper reference.' }
+  }
+
+  const abstract = typeof input.abstract === 'string' ? input.abstract.trim() : ''
+  const language = typeof input.language === 'string' ? input.language : 'zh-TW'
+  const passDepth = normalizeArxivPassDepth(input.passDepth)
+
+  const generateStepId = await createStep(db, jobId, 'arxiv-reading', 'llm', 'Read paper with three-pass method')
+  const generateStartedAt = Date.now()
+  const reading = await runArxivReading(
+    { paperRef, abstract, language, passDepth },
+    {
+      onExternalCall: () => {
+        recordExternalCall(executionContext, 'arxiv-reading-stage')
+      },
+    },
+  )
+  await finishStep(db, generateStepId, 'succeeded', generateStartedAt, {
+    output: `Read paper ${reading.arxivId || paperRef} (depth: ${passDepth}).`,
+  })
+
+  const draftContext = {
+    date: reading.generatedAt.slice(0, 10),
+    language,
+    category: 'ai',
+    slug: buildArxivReadingSlug(paperRef, reading.arxivId, reading.generatedAt),
+  }
+  const draft = buildArxivReadingDraft(reading, draftContext)
+  const draftCloudPost = buildDraftCloudPost(draft.markdown, { ...draft, language })
+
+  const allPosts = await loadCloudPosts(db)
+  const knownRoutes = buildDraftKnownRoutes(allPosts, draft.slug)
+
+  const qualityStepId = await createStep(db, jobId, 'arxiv-quality', 'module', 'Run reading draft quality check')
+  const qualityStartedAt = Date.now()
+  const qualityReports = runPostQualityCheck([draftCloudPost], knownRoutes)
+  const qualityArtifactId = await createArtifact(
+    db,
+    jobId,
+    qualityStepId,
+    'json_report',
+    'Reading draft quality check',
+    qualityReports,
+  )
+  await finishStep(db, qualityStepId, 'succeeded', qualityStartedAt, {
+    artifactId: qualityArtifactId,
+    output: `Reading draft quality check returned ${qualityReports.length} item(s).`,
+  })
+
+  const referenceStepId = await createStep(db, jobId, 'arxiv-reference', 'module', 'Run reading draft reference check')
+  const referenceStartedAt = Date.now()
+  const referenceReports = runReferenceCheck([draftCloudPost])
+  const referenceArtifactId = await createArtifact(
+    db,
+    jobId,
+    referenceStepId,
+    'json_report',
+    'Reading draft reference check',
+    referenceReports,
+  )
+  await finishStep(db, referenceStepId, 'succeeded', referenceStartedAt, {
+    artifactId: referenceArtifactId,
+    output: `Reading draft reference check returned ${referenceReports.length} item(s).`,
+  })
+
+  const needsHumanInput = reading.requiresHumanInput
+  const reviewStepId = await createStep(db, jobId, 'arxiv-review', 'human_review', 'Reading review gate')
+  const reviewStartedAt = Date.now()
+  await finishStep(db, reviewStepId, needsHumanInput ? 'succeeded' : 'skipped', reviewStartedAt, {
+    output: needsHumanInput
+      ? `Human review required for ${reading.arxivId || paperRef}.`
+      : 'No human review required.',
+  })
+
+  const writeDraftStepId = await createStep(db, jobId, 'arxiv-write-draft', 'module', 'Write reading draft markdown')
+  const writeDraftStartedAt = Date.now()
+  const draftArtifactId = await createArtifact(
+    db,
+    jobId,
+    writeDraftStepId,
+    'markdown_draft',
+    'Reading brief draft markdown',
+    draft.markdown,
+  )
+  await finishStep(db, writeDraftStepId, 'succeeded', writeDraftStartedAt, {
+    artifactId: draftArtifactId,
+    output: `Reading draft markdown written for ${reading.arxivId || paperRef}.`,
+  })
+
+  const reportStepId = await createStep(db, jobId, 'arxiv-report', 'module', 'Write reading brief report')
+  const reportStartedAt = Date.now()
+  const report = {
+    pipelineId: definition.id,
+    source: {
+      paperRef,
+      arxivId: reading.arxivId,
+      language,
+      passDepth,
+      hasAbstract: reading.hasAbstract,
+    },
+    summary: {
+      verdict: reading.firstPass.verdict,
+      contributionsCount: reading.firstPass.contributions.length,
+      openQuestionsCount: reading.openQuestions.length,
+      requiresHumanInput: needsHumanInput,
+      qualityErrorCount: countFindings(qualityReports, 'error'),
+      referenceErrorCount: countFindings(referenceReports, 'error'),
+    },
+    reading,
+    draft,
+    qualityReports,
+    referenceReports,
+  }
+
+  const outputGuard = validateOutputSafety(definition, {
+    qualityReports,
+    referenceReports,
+  })
+  const outputGuardFailures = outputGuard.filter((item) => item.status === 'fail')
+  const failed =
+    outputGuardFailures.length > 0 ||
+    countFindings(qualityReports, 'error') > 0 ||
+    countFindings(referenceReports, 'error') > 0
+  const status: PipelineExecutionResult['status'] = failed
+    ? 'failed'
+    : needsHumanInput
+      ? 'waiting_review'
+      : 'succeeded'
+  const artifactId = await createArtifact(db, jobId, reportStepId, 'json_report', 'Reading brief report', report)
+  const outputSummary = failed
+    ? `Reading draft failed quality/reference checks for "${reading.arxivId || paperRef}".`
+    : needsHumanInput
+      ? `Reading draft generated for "${reading.arxivId || paperRef}" and waiting for human review.`
+      : `Reading draft generated for "${reading.arxivId || paperRef}".`
+  await finishStep(db, reportStepId, status === 'failed' ? 'failed' : 'succeeded', reportStartedAt, {
+    artifactId,
+    output: outputSummary,
+    error: outputGuardFailures.map((item) => item.id).join(', ') || undefined,
+  })
+
+  return { status, output: outputSummary }
+}
+
+function normalizeArxivPassDepth(value: unknown): ArxivPassDepth {
+  const text = typeof value === 'string' ? value.trim().toLowerCase() : ''
+  if (text === 'first' || text === 'second' || text === 'third') return text
+  return 'second'
 }
 
 async function runYouTubeBriefJob(
