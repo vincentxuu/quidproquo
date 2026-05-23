@@ -94,12 +94,12 @@ function formatTs(ms: number | null): string {
 }
 ---
 
-<AdminConsoleLayout title="RBAC" section="rbac">
+<AdminConsoleLayout title="權限管理" section="rbac">
   {!ready && (
-    <AdminState tone="empty">{`RBAC management ships in ${consolePhaseFor('rbac')}.`}</AdminState>
+    <AdminState tone="empty">{`權限管理將於 ${consolePhaseFor('rbac')} 上線。`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load RBAC data.</AdminState>
+    <AdminState tone="error">無法載入權限管理資料。</AdminState>
   )}
   {ready && !loadError && (
     <div class="rbac-layout">
@@ -109,33 +109,33 @@ function formatTs(ms: number | null): string {
           class:list={['tab', { active: tab === 'users' || (tab !== 'roles' && tab !== 'audit') }]}
           role="tab"
           aria-selected={tab === 'users' || (tab !== 'roles' && tab !== 'audit') ? 'true' : 'false'}
-        >Users</a>
+        >使用者</a>
         <a
           href={tabHref('roles')}
           class:list={['tab', { active: tab === 'roles' }]}
           role="tab"
           aria-selected={tab === 'roles' ? 'true' : 'false'}
-        >Roles</a>
+        >角色</a>
         <a
           href={tabHref('audit')}
           class:list={['tab', { active: tab === 'audit' }]}
           role="tab"
           aria-selected={tab === 'audit' ? 'true' : 'false'}
-        >Audit log</a>
+        >稽核日誌</a>
       </div>
 
       {(tab === 'users' || (tab !== 'roles' && tab !== 'audit')) && (
-        <AdminPanel title="Console Users">
+        <AdminPanel title="主控台使用者">
           {users.length === 0 ? (
-            <AdminState tone="empty">No users found.</AdminState>
+            <AdminState tone="empty">尚無使用者。</AdminState>
           ) : (
             <AdminTable minWidth="600px" flush>
               <thead>
                 <tr>
-                  <th>Email</th>
-                  <th>Roles</th>
-                  <th>Created</th>
-                  <th>Status</th>
+                  <th>電子郵件</th>
+                  <th>角色</th>
+                  <th>建立時間</th>
+                  <th>狀態</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,9 +150,9 @@ function formatTs(ms: number | null): string {
                     <td class="mono">{formatTs(u.created_at)}</td>
                     <td>
                       {u.disabled_at ? (
-                        <span class="badge disabled">Disabled</span>
+                        <span class="badge disabled">停用</span>
                       ) : (
-                        <span class="badge active">Active</span>
+                        <span class="badge active">啟用中</span>
                       )}
                     </td>
                   </tr>
@@ -164,15 +164,15 @@ function formatTs(ms: number | null): string {
       )}
 
       {tab === 'roles' && (
-        <AdminPanel title="Roles">
+        <AdminPanel title="角色">
           {roles.length === 0 ? (
-            <AdminState tone="empty">No roles found.</AdminState>
+            <AdminState tone="empty">尚無角色。</AdminState>
           ) : (
             <AdminTable minWidth="400px" flush>
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Description</th>
+                  <th>名稱</th>
+                  <th>描述</th>
                 </tr>
               </thead>
               <tbody>
@@ -193,18 +193,18 @@ function formatTs(ms: number | null): string {
       )}
 
       {tab === 'audit' && (
-        <AdminPanel title="Audit Log" eyebrow="Last 50 entries">
+        <AdminPanel title="稽核日誌" eyebrow="最近 50 筆記錄">
           {auditRows.length === 0 ? (
-            <AdminState tone="empty">No audit log entries found.</AdminState>
+            <AdminState tone="empty">尚無稽核日誌記錄。</AdminState>
           ) : (
             <AdminTable minWidth="700px" flush>
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Action</th>
-                  <th>Kind</th>
+                  <th>使用者</th>
+                  <th>操作</th>
+                  <th>類型</th>
                   <th>Resource ID</th>
-                  <th>Time</th>
+                  <th>時間</th>
                 </tr>
               </thead>
               <tbody>

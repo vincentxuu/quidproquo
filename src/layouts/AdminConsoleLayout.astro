@@ -31,23 +31,30 @@ if (!isLoggedIn) {
 
 const navItems = [
   // Operate
-  { href: '/admin/console', label: 'Flow Selector', section: 'flow-selector', group: 'Operate' },
-  { href: '/admin/console/runs', label: 'Runs', section: 'runs', group: 'Operate' },
+  { href: '/admin/console', label: '工作流程', section: 'flow-selector', group: 'Operate' },
+  { href: '/admin/console/runs', label: '執行記錄', section: 'runs', group: 'Operate' },
   // Inspect
-  { href: '/admin/console/evidence', label: 'Evidence', section: 'evidence', group: 'Inspect' },
-  { href: '/admin/console/artifacts', label: 'Artifacts', section: 'artifacts', group: 'Inspect' },
+  { href: '/admin/console/evidence', label: '來源證據', section: 'evidence', group: 'Inspect' },
+  { href: '/admin/console/artifacts', label: '產出物', section: 'artifacts', group: 'Inspect' },
   // Manage
-  { href: '/admin/console/flows', label: 'Flows', section: 'flows', group: 'Manage' },
-  { href: '/admin/console/providers', label: 'Providers', section: 'providers', group: 'Manage' },
-  { href: '/admin/console/policies', label: 'Policies', section: 'policies', group: 'Manage' },
+  { href: '/admin/console/flows', label: '工作流程', section: 'flows', group: 'Manage' },
+  { href: '/admin/console/providers', label: '提供者', section: 'providers', group: 'Manage' },
+  { href: '/admin/console/policies', label: '政策', section: 'policies', group: 'Manage' },
   // Observe
-  { href: '/admin/console/cost', label: 'Cost', section: 'cost', group: 'Observe' },
+  { href: '/admin/console/cost', label: '費用', section: 'cost', group: 'Observe' },
   // Admin
-  { href: '/admin/console/rbac', label: 'RBAC', section: 'rbac', group: 'Admin' },
+  { href: '/admin/console/rbac', label: '權限管理', section: 'rbac', group: 'Admin' },
 ] as const;
 
 type NavGroup = 'Operate' | 'Inspect' | 'Manage' | 'Observe' | 'Admin';
 const groups: NavGroup[] = ['Operate', 'Inspect', 'Manage', 'Observe', 'Admin'];
+const groupLabels: Record<NavGroup, string> = {
+  Operate: '操作',
+  Inspect: '檢視',
+  Manage: '管理',
+  Observe: '觀測',
+  Admin: '管理員',
+};
 
 const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((acc, g) => {
   acc[g] = navItems.filter((item) => item.group === g);
@@ -77,7 +84,7 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
       <nav class="sidebar-nav" aria-label="Console navigation">
         {groups.map((g) => (
           <div class="nav-group">
-            <span class="nav-section">{g}</span>
+            <span class="nav-section">{groupLabels[g]}</span>
             {groupedNav[g].map((item) => (
               <a
                 href={item.href}
@@ -92,18 +99,18 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
         ))}
       </nav>
       <div class="sidebar-footer">
-        <a href="/admin" class="nav-item" title="Back to Admin">
+        <a href="/admin" class="nav-item" title="返回管理後台">
           <Icons name="layout-dashboard" size={16} />
-          <span class="nav-label">Admin</span>
+          <span class="nav-label">管理後台</span>
         </a>
-        <a href="/" class="nav-item" title="Back to site">
+        <a href="/" class="nav-item" title="返回網站">
           <Icons name="home" size={16} />
-          <span class="nav-label">Site</span>
+          <span class="nav-label">返回網站</span>
         </a>
         <form method="POST" action="/api/auth/logout">
-          <button type="submit" class="logout-btn" title="Logout">
+          <button type="submit" class="logout-btn" title="登出">
             <Icons name="log-out" size={16} />
-            <span class="nav-label">Logout</span>
+            <span class="nav-label">登出</span>
           </button>
         </form>
       </div>
@@ -111,7 +118,7 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
     <main class="admin-main">
       <header class="admin-header">
         <div>
-          <p class="admin-kicker">Agent Console</p>
+          <p class="admin-kicker">操作主控台</p>
           {breadcrumb && breadcrumb.length > 0 ? (
             <nav class="breadcrumb" aria-label="Breadcrumb">
               {breadcrumb.map((crumb, i) => (
@@ -130,10 +137,10 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
           )}
         </div>
         <div class="header-actions" aria-label="Console shortcuts">
-          <a href="/admin/console/runs" class="admin-icon-button" title="Runs">
+          <a href="/admin/console/runs" class="admin-icon-button" title="執行記錄">
             <Icons name="activity" size={16} />
           </a>
-          <a href="/admin/console/cost" class="admin-icon-button" title="Cost">
+          <a href="/admin/console/cost" class="admin-icon-button" title="費用">
             <Icons name="bar-chart-3" size={16} />
           </a>
         </div>

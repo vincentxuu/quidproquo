@@ -31,41 +31,41 @@ if (ready && flowId) {
 
 const currentYaml = detail?.versions[0]?.yaml ?? '';
 const breadcrumb = [
-  { label: 'Flows', href: '/admin/console/flows' },
+  { label: '工作流程', href: '/admin/console/flows' },
   { label: detail?.definition.name ?? flowId },
 ];
 ---
 
-<AdminConsoleLayout title="Flow Detail" section="flows" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="工作流程詳情" section="flows" breadcrumb={breadcrumb}>
   {!ready && (
     <AdminState tone="empty">{`Flow management ships in ${consolePhaseFor('management')}.`}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">Could not load flow.</AdminState>}
-  {ready && !loadError && !detail && <AdminState tone="empty">{`Flow "${flowId}" not found.`}</AdminState>}
+  {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
+  {ready && !loadError && !detail && <AdminState tone="empty">{`找不到工作流程「${flowId}」。`}</AdminState>}
   {ready && detail && (
     <div class="flow-detail">
       <header class="detail-head">
         <h2>{detail.definition.name} <code>{detail.definition.id}</code></h2>
         {detail.definition.description && <p class="desc">{detail.definition.description}</p>}
         <div class="detail-actions">
-          <a href={`/admin/console/flows/${flowId}/edit`} class="btn-edit">Edit YAML</a>
+          <a href={`/admin/console/flows/${flowId}/edit`} class="btn-edit">編輯 YAML</a>
         </div>
       </header>
 
       <section aria-label="Current definition">
-        <h3>Current YAML (v{detail.definition.version})</h3>
-        <pre class="yaml-block">{currentYaml || 'No YAML stored for this version.'}</pre>
+        <h3>目前 YAML（v{detail.definition.version}）</h3>
+        <pre class="yaml-block">{currentYaml || '此版本尚未儲存 YAML。'}</pre>
       </section>
 
       <section aria-label="Inputs">
-        <h3>Inputs</h3>
+        <h3>輸入參數</h3>
         {detail.definition.inputs.length === 0 ? (
-          <p class="empty-note">No declared inputs.</p>
+          <p class="empty-note">尚未宣告輸入參數。</p>
         ) : (
           <ul class="inputs">
             {detail.definition.inputs.map((input) => (
               <li>
-                <code>{input.name}</code> <span class="muted">{input.type}{input.required ? ' · required' : ''}</span>
+                <code>{input.name}</code> <span class="muted">{input.type}{input.required ? ' · 必填' : ''}</span>
               </li>
             ))}
           </ul>
@@ -73,19 +73,19 @@ const breadcrumb = [
       </section>
 
       <section aria-label="Versions">
-        <h3>Versions</h3>
+        <h3>版本記錄</h3>
         <FlowVersionList versions={detail.versions} latestVersion={detail.definition.version} />
       </section>
 
       <section aria-label="Presets">
-        <h3>Presets</h3>
+        <h3>預設配置</h3>
         <FlowPresetList presets={detail.presets} />
       </section>
 
       <section aria-label="Recent runs">
-        <h3>Recent runs</h3>
+        <h3>近期執行記錄</h3>
         {detail.recentRuns.length === 0 ? (
-          <p class="empty-note">No runs yet.</p>
+          <p class="empty-note">尚無執行記錄。</p>
         ) : (
           <RunsTable runs={detail.recentRuns} />
         )}

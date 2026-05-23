@@ -62,19 +62,19 @@ if (preset?.overrides_json) {
 
 {loadError && (
   <aside class="preset-panel preset-panel--error" aria-label="Preset summary">
-    <p class="preset-panel__error">Could not load preset details.</p>
+    <p class="preset-panel__error">無法載入預設配置詳情。</p>
   </aside>
 )}
 
 {!loadError && !preset && (
 <aside class="preset-panel preset-panel--warn" aria-label="Preset summary">
-  <p class="preset-panel__error">Preset <code>{presetId}</code> not found for this flow.</p>
+  <p class="preset-panel__error">找不到此工作流程的預設配置 <code>{presetId}</code>。</p>
 </aside>
 )}
 
 {!loadError && preset && (
   <aside class="preset-panel" aria-label="Preset summary">
-    <h2 class="preset-panel__title">Preset: {preset.display_name}</h2>
+    <h2 class="preset-panel__title">預設配置：{preset.display_name}</h2>
     <code class="preset-panel__id">{preset.preset_id}</code>
 
     {overrides ? (
@@ -82,7 +82,7 @@ if (preset?.overrides_json) {
 
         {overrides.providerRouting && Object.keys(overrides.providerRouting).length > 0 && (
           <>
-            <dt class="preset-dl__term">Provider Routing</dt>
+            <dt class="preset-dl__term">提供者路由</dt>
             <dd class="preset-dl__def">
               <ul class="preset-routing-list">
                 {Object.entries(overrides.providerRouting).map(([role, cfg]) => (
@@ -99,7 +99,7 @@ if (preset?.overrides_json) {
 
         {overrides.retryPolicy && (
           <>
-            <dt class="preset-dl__term">Retry Policy</dt>
+            <dt class="preset-dl__term">重試政策</dt>
             <dd class="preset-dl__def">
               <ul class="preset-kv-list">
                 {overrides.retryPolicy.maxAttempts != null && (
@@ -115,7 +115,7 @@ if (preset?.overrides_json) {
 
         {overrides.budget && Object.keys(overrides.budget).length > 0 && (
           <>
-            <dt class="preset-dl__term">Budget Delta</dt>
+            <dt class="preset-dl__term">預算差異</dt>
             <dd class="preset-dl__def">
               <ul class="preset-kv-list">
                 {Object.entries(overrides.budget).map(([k, v]) => (
@@ -130,12 +130,12 @@ if (preset?.overrides_json) {
         )}
 
         {!overrides.providerRouting && !overrides.retryPolicy && !overrides.budget && (
-          <dt class="preset-dl__term"><em class="preset-panel__none">No structured overrides found.</em></dt>
+          <dt class="preset-dl__term"><em class="preset-panel__none">未找到結構化覆寫設定。</em></dt>
         )}
 
       </dl>
     ) : (
-      <p class="preset-panel__none">No overrides configured.</p>
+      <p class="preset-panel__none">尚未設定任何覆寫。</p>
     )}
   </aside>
 )}

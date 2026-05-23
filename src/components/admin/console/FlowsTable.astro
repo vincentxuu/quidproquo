@@ -12,9 +12,9 @@ const { rows } = Astro.props;
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Version</th>
-      <th scope="col">Description</th>
+      <th scope="col">名稱</th>
+      <th scope="col">版本</th>
+      <th scope="col">說明</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -26,8 +26,8 @@ const { rows } = Astro.props;
         <td>v{row.version}</td>
         <td class="desc">{row.description || '—'}</td>
         <td class="actions">
-          <a href={`/admin/console/flows/${encodeURIComponent(row.id)}`}>View</a>
-          <a href={`/admin/console/runs/launch?flowId=${encodeURIComponent(row.id)}`}>Launch</a>
+          <a href={`/admin/console/flows/${encodeURIComponent(row.id)}`}>檢視</a>
+          <a href={`/admin/console/runs/launch?flowId=${encodeURIComponent(row.id)}`}>啟動</a>
         </td>
       </tr>
     ))}

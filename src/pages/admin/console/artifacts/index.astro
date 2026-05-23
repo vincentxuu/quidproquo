@@ -150,47 +150,47 @@ function safeQ(input: string): string {
 }
 ---
 
-<AdminConsoleLayout title="Artifacts" section="artifacts">
+<AdminConsoleLayout title="產出物" section="artifacts">
   {!ready && (
-    <AdminState tone="empty">{`Artifact viewer ships in ${consolePhaseFor('artifactViewer')}.`}</AdminState>
+    <AdminState tone="empty">{`產出物檢視器將於 ${consolePhaseFor('artifactViewer')} 上線。`}</AdminState>
   )}
   {ready && backendUnavailable && (
     <AdminState tone="empty">
-      Artifact viewer requires AGENT_ARTIFACT_ENABLED=true and the artifact migrations to be applied.
+      產出物檢視器需要設定 AGENT_ARTIFACT_ENABLED=true 並套用 artifact 資料庫遷移。
     </AdminState>
   )}
   {ready && !backendUnavailable && loadError && (
-    <AdminState tone="error">Could not load artifacts.</AdminState>
+    <AdminState tone="error">無法載入產出物。</AdminState>
   )}
   {ready && !backendUnavailable && !loadError && (
     <>
-      <AdminPanel title="Artifacts">
+      <AdminPanel title="產出物">
         <form class="toolbar" method="GET" action="/admin/console/artifacts">
-          <label for="q" class="search-label">Search artifacts</label>
+          <label for="q" class="search-label">搜尋產出物</label>
           <input
             id="q"
             name="q"
             value={q}
             class="search-input"
-            placeholder="Search by artifact id, kind, logical name..."
+            placeholder="依 artifact id、類型、邏輯名稱搜尋..."
           />
-          <button type="submit" class="btn-secondary">Search</button>
-          {q && <a href="/admin/console/artifacts" class="btn-clear">Clear</a>}
+          <button type="submit" class="btn-secondary">搜尋</button>
+          {q && <a href="/admin/console/artifacts" class="btn-clear">清除</a>}
         </form>
 
         {artifacts.length === 0 ? (
-          <AdminState tone="empty">No artifacts found.</AdminState>
+          <AdminState tone="empty">尚無產出物。</AdminState>
         ) : (
           <AdminTable minWidth="860px" flush>
             <thead>
               <tr>
-                <th>Artifact</th>
-                <th>Kind</th>
-                <th>Flow</th>
-                <th>Latest Version</th>
-                <th>Run</th>
-                <th>Status</th>
-                <th>Updated</th>
+                <th>產出物</th>
+                <th>類型</th>
+                <th>工作流程</th>
+                <th>最新版本</th>
+                <th>執行</th>
+                <th>狀態</th>
+                <th>更新時間</th>
                 <th></th>
               </tr>
             </thead>
@@ -213,7 +213,7 @@ function safeQ(input: string): string {
                     <td>
                       {artifact.flow_run_id && artifact.latest_version ? (
                         <a href={`/admin/console/runs/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="btn-secondary">
-                          Open
+                          檢視
                         </a>
                       ) : (
                         <span class="muted">—</span>
@@ -228,10 +228,10 @@ function safeQ(input: string): string {
 
         {totalPages > 1 && (
           <div class="pagination">
-            {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
-            {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
-            <span class="page-info">Page {page} / {totalPages}</span>
-            {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+            {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
+            {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
+            <span class="page-info">第 {page} / {totalPages} 頁</span>
+            {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
           </div>
         )}
       </AdminPanel>

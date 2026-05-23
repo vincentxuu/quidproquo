@@ -11,11 +11,11 @@ const { rows } = Astro.props;
 <table class="mgmt-table admin-panel">
   <thead>
     <tr>
-      <th scope="col">Provider</th>
-      <th scope="col">Kind</th>
-      <th scope="col">Version</th>
-      <th scope="col">Enabled</th>
-      <th scope="col">Health</th>
+      <th scope="col">提供者</th>
+      <th scope="col">類別</th>
+      <th scope="col">版本</th>
+      <th scope="col">啟用</th>
+      <th scope="col">健康狀態</th>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +24,7 @@ const { rows } = Astro.props;
         <td>{row.displayName} <code>{row.id}</code></td>
         <td>{row.category}</td>
         <td>{row.version}</td>
-        <td>{row.enabled ? 'yes' : 'no'}</td>
+        <td>{row.enabled ? '是' : '否'}</td>
         <td><span class="health-badge" data-status={row.status}>{row.status}</span></td>
       </tr>
     ))}

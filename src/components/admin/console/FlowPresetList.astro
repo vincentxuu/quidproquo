@@ -9,7 +9,7 @@ const { presets } = Astro.props;
 ---
 
 {presets.length === 0 ? (
-  <p class="empty-note">No presets — base flow only.</p>
+  <p class="empty-note">尚無預設配置，僅使用基礎工作流程。</p>
 ) : (
   <ul class="preset-list">
     {presets.map((preset) => {
@@ -23,7 +23,7 @@ const { presets } = Astro.props;
           <div class="preset-meta">
             {preset.overrides?.retry && <span>retry {preset.overrides.retry.maxAttempts}×</span>}
             {preset.overrides?.timeout != null && <span>timeout {preset.overrides.timeout}s</span>}
-            {stepCount > 0 && <span>{stepCount} step override{stepCount === 1 ? '' : 's'}</span>}
+            {stepCount > 0 && <span>{stepCount} 個步驟覆寫</span>}
           </div>
         </li>
       );

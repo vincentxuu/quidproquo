@@ -65,14 +65,14 @@ try {
 }
 ---
 
-<AdminConsoleLayout title="Flow Console" section="flow-selector">
+<AdminConsoleLayout title="工作流程選擇器" section="flow-selector">
   <!-- Cost rollup: tokens_in/tokens_out/cost_usd aggregated from agent_tool_calls -->
   <!-- Updated live via SSE when a run is active — see runs/[id].astro -->
   {pendingApprovals.length > 0 && (
     <div class="approvals-banner" role="region" aria-label="Pending approvals">
       <div class="approvals-banner__body">
         <span class="approvals-banner__count">
-          {pendingApprovals.length} pending approval{pendingApprovals.length !== 1 ? 's' : ''} require attention
+          {pendingApprovals.length} 筆待核准項目需要處理
         </span>
         <ul class="approvals-banner__list">
           {pendingApprovals.map((a) => (
@@ -101,10 +101,10 @@ try {
     <AdminState tone="empty">{`Flow selector ships in ${consolePhaseFor('flowSelector')}.`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load flows.</AdminState>
+    <AdminState tone="error">無法載入工作流程。</AdminState>
   )}
   {ready && !loadError && cards.length === 0 && (
-    <AdminState tone="empty">No flows are registered yet.</AdminState>
+    <AdminState tone="empty">尚無已登錄的工作流程。</AdminState>
   )}
   {ready && !loadError && cards.length > 0 && (
   <section class="flow-grid" aria-label="Available flows">
@@ -113,9 +113,9 @@ try {
   )}
   <section class="flow-filter-bar">
     <form class="filter-form" method="GET" action="/admin/console">
-      <label for="category" class="filter-label">Category</label>
+      <label for="category" class="filter-label">類別</label>
       <select id="category" name="category">
-        <option value="" selected={selectedCategory === ''}>All</option>
+        <option value="" selected={selectedCategory === ''}>全部</option>
         {filterCategories.map((value) => (
           <option value={value} selected={selectedCategory === value}>
             {value}
@@ -123,9 +123,9 @@ try {
         ))}
       </select>
 
-      <label for="status" class="filter-label">Status</label>
+      <label for="status" class="filter-label">狀態</label>
       <select id="status" name="status">
-        <option value="" selected={selectedStatus === ''}>All</option>
+        <option value="" selected={selectedStatus === ''}>全部</option>
         {filterStatuses.map((value) => (
           <option value={value} selected={selectedStatus === value}>
             {value}
@@ -133,9 +133,9 @@ try {
         ))}
       </select>
 
-      <label for="cost" class="filter-label">Cost</label>
+      <label for="cost" class="filter-label">費用</label>
       <select id="cost" name="cost">
-        <option value="" selected={selectedCost === ''}>All</option>
+        <option value="" selected={selectedCost === ''}>全部</option>
         {filterCosts.map((item) => (
           <option value={item.value} selected={selectedCost === item.value}>
             {item.label}
@@ -143,9 +143,9 @@ try {
         ))}
       </select>
 
-      <button type="submit" class="btn-secondary">Apply</button>
+      <button type="submit" class="btn-secondary">套用</button>
       {(selectedCategory || selectedStatus || selectedCost) && (
-        <a href="/admin/console" class="btn-clear">Clear</a>
+        <a href="/admin/console" class="btn-clear">清除</a>
       )}
     </form>
   </section>

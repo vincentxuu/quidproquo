@@ -19,20 +19,20 @@ const result = ready
   : { ok: false, detail: null, assignments: [] };
 
 const breadcrumb = [
-  { label: 'Policies', href: '/admin/console/policies' },
+  { label: '政策', href: '/admin/console/policies' },
   { label: result.detail?.label ?? policyKey },
 ];
 ---
 
-<AdminConsoleLayout title="Policy Detail" section="policies" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="政策詳情" section="policies" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`Policy management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone="empty">{`政策管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
   )}
   {ready && !result.ok && (
-    <AdminState tone="error">Could not load policy. Ensure the agent-policy feature is enabled.</AdminState>
+    <AdminState tone="error">無法載入政策。請確認 agent-policy 功能已啟用。</AdminState>
   )}
   {ready && result.ok && !result.detail && (
-    <AdminState tone="empty">{`Policy "${policyKey}" not found.`}</AdminState>
+    <AdminState tone="empty">{`找不到政策「${policyKey}」。`}</AdminState>
   )}
   {ready && result.detail && (
     <div class="policy-detail">
@@ -44,22 +44,22 @@ const breadcrumb = [
         </p>
       </header>
 
-      <section aria-label="Definition">
-        <h3>Definition</h3>
+      <section aria-label="定義">
+        <h3>定義</h3>
         <pre class="body-block">{result.detail.body}</pre>
       </section>
 
-      <section aria-label="Assignments">
+      <section aria-label="指派">
         <div class="section-head">
-          <h3>Assignments</h3>
+          <h3>指派</h3>
           <FlowAssignIsland client:only="react" policyId={result.detail.policyKey} />
         </div>
         <PolicyAssignmentList assignments={result.assignments} />
       </section>
 
-      <section aria-label="Recent decisions">
-        <h3>Recent decisions</h3>
-        <p class="empty-note">Decision history requires the agent-policy violations read API (not yet available).</p>
+      <section aria-label="近期決策">
+        <h3>近期決策</h3>
+        <p class="empty-note">決策歷程需要 agent-policy violations 讀取 API（尚未開放）。</p>
       </section>
     </div>
   )}

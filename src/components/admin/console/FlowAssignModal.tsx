@@ -82,7 +82,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Assign policy to flows"
+      aria-label="將政策指派至工作流程"
       style={{
         position: 'fixed',
         inset: 0,
@@ -115,10 +115,10 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
             justifyContent: 'space-between',
           }}
         >
-          <h2 style={{ margin: 0, fontSize: '1rem', fontWeight: 600 }}>Assign to Flow</h2>
+          <h2 style={{ margin: 0, fontSize: '1rem', fontWeight: 600 }}>指派至工作流程</h2>
           <button
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label="關閉視窗"
             disabled={submitting}
             style={{
               background: 'none',
@@ -136,16 +136,16 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
         {/* Body */}
         <div style={{ overflowY: 'auto', flex: 1, padding: '0.75rem 1.25rem' }}>
           {loading && (
-            <p style={{ color: 'var(--color-muted, #6b7280)', fontSize: '0.875rem' }}>Loading flows...</p>
+            <p style={{ color: 'var(--color-muted, #6b7280)', fontSize: '0.875rem' }}>載入工作流程中…</p>
           )}
           {fetchError && (
             <p style={{ color: 'var(--color-error, #dc2626)', fontSize: '0.875rem' }}>
-              Failed to load flows: {fetchError}
+              無法載入工作流程：{fetchError}
             </p>
           )}
           {!loading && !fetchError && flows.length === 0 && (
             <p style={{ color: 'var(--color-muted, #6b7280)', fontSize: '0.875rem' }}>
-              No flows are registered yet.
+              尚無已登錄的工作流程。
             </p>
           )}
           {!loading && !fetchError && flows.length > 0 && (
@@ -153,10 +153,10 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
               <thead>
                 <tr>
                   <th style={{ width: '2rem', padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--color-muted, #6b7280)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--color-border, #e5e7eb)' }}>
-                    <span className="sr-only">Select</span>
+                    <span className="sr-only">選取</span>
                   </th>
                   <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--color-muted, #6b7280)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--color-border, #e5e7eb)' }}>
-                    Flow
+                    工作流程
                   </th>
                   <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--color-muted, #6b7280)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--color-border, #e5e7eb)' }}>
                     ID
@@ -179,7 +179,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
                         checked={selected.has(flow.id)}
                         onChange={() => toggleRow(flow.id)}
                         onClick={(e) => e.stopPropagation()}
-                        aria-label={`Select ${flow.name}`}
+                        aria-label={`選取 ${flow.name}`}
                       />
                     </td>
                     <td style={{ padding: '0.45rem 0.5rem', borderBottom: '1px solid var(--color-border, #e5e7eb)', fontWeight: 500 }}>
@@ -222,7 +222,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
               cursor: submitting ? 'not-allowed' : 'pointer',
             }}
           >
-            Cancel
+            取消
           </button>
           <button
             onClick={handleAssign}
@@ -238,7 +238,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
               opacity: submitting || selected.size === 0 ? 0.5 : 1,
             }}
           >
-            {submitting ? 'Assigning...' : `Assign${selected.size > 0 ? ` (${selected.size})` : ''}`}
+            {submitting ? '指派中…' : `指派${selected.size > 0 ? `（${selected.size}）` : ''}`}
           </button>
         </div>
       </div>
@@ -267,7 +267,7 @@ export function FlowAssignIsland({ policyId }: FlowAssignIslandProps) {
           fontWeight: 500,
         }}
       >
-        Assign to Flow
+        指派至工作流程
       </button>
       {open && (
         <FlowAssignModalInner

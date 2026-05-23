@@ -152,32 +152,32 @@ function statusClass(status: string): string {
 }
 ---
 
-<AdminConsoleLayout title="Runs" section="runs">
+<AdminConsoleLayout title="執行記錄" section="runs">
   {!ready && (
     <AdminState tone="empty">{`Run timeline ships in ${consolePhaseFor('runTimeline')}.`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load runs.</AdminState>
+    <AdminState tone="error">無法載入執行記錄。</AdminState>
   )}
   {ready && !loadError && runs.length === 0 && (
-    <AdminState tone="empty">No runs yet. Launch a flow from the <a href="/admin/console">Flow Selector</a>.</AdminState>
+    <AdminState tone="empty">尚無執行記錄，請從<a href="/admin/console">工作流程選擇器</a>啟動。</AdminState>
   )}
   {ready && !loadError && runs.length > 0 && (
-    <AdminPanel title="All Runs — Last 50">
+    <AdminPanel title="所有執行記錄 — 最近 50 筆">
       <form class="toolbar" method="GET" action="/admin/console/runs">
-        <label for="status">Status</label>
+        <label for="status">狀態</label>
         <select id="status" name="status">
-          <option value="">All</option>
-          <option value="queued" selected={selectedStatus === 'queued'}>Queued</option>
-          <option value="running" selected={selectedStatus === 'running'}>Running</option>
-          <option value="done" selected={selectedStatus === 'done'}>Done</option>
-          <option value="failed" selected={selectedStatus === 'failed'}>Failed</option>
-          <option value="cancelled" selected={selectedStatus === 'cancelled'}>Cancelled</option>
+          <option value="">全部</option>
+          <option value="queued" selected={selectedStatus === 'queued'}>排隊中</option>
+          <option value="running" selected={selectedStatus === 'running'}>執行中</option>
+          <option value="done" selected={selectedStatus === 'done'}>完成</option>
+          <option value="failed" selected={selectedStatus === 'failed'}>失敗</option>
+          <option value="cancelled" selected={selectedStatus === 'cancelled'}>已取消</option>
         </select>
 
-        <label for="flow">Flow</label>
+        <label for="flow">工作流程</label>
         <select id="flow" name="flow">
-          <option value="">All flows</option>
+          <option value="">所有工作流程</option>
           {flowOptions.map((item) => (
             <option value={item.flow_id} selected={selectedFlow === item.flow_id}>
               {item.display_name ?? item.flow_id}
@@ -185,27 +185,27 @@ function statusClass(status: string): string {
           ))}
         </select>
 
-        <label for="from">From</label>
+        <label for="from">開始日期</label>
         <input id="from" name="from" type="date" value={selectedFrom} />
 
-        <label for="to">To</label>
+        <label for="to">結束日期</label>
         <input id="to" name="to" type="date" value={selectedTo} />
 
-        <button type="submit" class="btn-secondary">Apply</button>
+        <button type="submit" class="btn-secondary">套用</button>
         {(selectedStatus || selectedFlow || selectedFrom || selectedTo) && (
-          <a href="/admin/console/runs" class="btn-clear">Clear</a>
+          <a href="/admin/console/runs" class="btn-clear">清除</a>
         )}
       </form>
       <AdminTable minWidth="640px" flush>
         <thead>
         <tr>
-            <th>Started</th>
-            <th>Flow</th>
-            <th>Status</th>
-            <th>Duration</th>
-            <th>Cost (USD)</th>
-            <th>Updated</th>
-            <th>Run ID</th>
+            <th>開始時間</th>
+            <th>工作流程</th>
+            <th>狀態</th>
+            <th>耗時</th>
+            <th>費用 (USD)</th>
+            <th>更新時間</th>
+            <th>執行 ID</th>
           </tr>
         </thead>
         <tbody>
@@ -231,9 +231,9 @@ function statusClass(status: string): string {
 
       {totalPages > 1 && (
         <div class="pagination">
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Previous</a> : <span class="page-btn disabled">Previous</span>}
-          <span class="page-info">Page {page} / {totalPages}</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
+          <span class="page-info">第 {page} / {totalPages} 頁</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
         </div>
       )}
     </AdminPanel>

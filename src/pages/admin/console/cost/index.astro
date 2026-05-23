@@ -15,18 +15,18 @@ if (gate) return gate;
 const ready = isPageEnabled('costDashboard');
 
 const dimensions = [
-  { value: 'flow_id', label: 'Flow' },
-  { value: 'policy_id', label: 'Policy' },
-  { value: 'user_id', label: 'User' },
-  { value: 'agent_id', label: 'Agent' },
-  { value: 'preset_id', label: 'Preset' },
-  { value: 'provider_id', label: 'Provider' },
+  { value: 'flow_id', label: '工作流程' },
+  { value: 'policy_id', label: '政策' },
+  { value: 'user_id', label: '使用者' },
+  { value: 'agent_id', label: '代理程式' },
+  { value: 'preset_id', label: '預設配置' },
+  { value: 'provider_id', label: '提供者' },
 ] as const;
 
 const periods = [
-  { value: 'daily', label: 'Daily', rangeDays: 30 },
-  { value: 'weekly', label: 'Weekly', rangeDays: 84 },
-  { value: 'monthly', label: 'Monthly', rangeDays: 365 },
+  { value: 'daily', label: '每日', rangeDays: 30 },
+  { value: 'weekly', label: '每週', rangeDays: 84 },
+  { value: 'monthly', label: '每月', rangeDays: 365 },
 ] as const;
 
 type Dimension = typeof dimensions[number]['value'];
@@ -289,24 +289,24 @@ const topEntities = Array.from(
 const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
 ---
 
-<AdminConsoleLayout title="Cost" section="cost">
+<AdminConsoleLayout title="費用總覽" section="cost">
   {!ready && (
-    <AdminState tone="empty">{`Cost dashboard ships in ${consolePhaseFor('costDashboard')}.`}</AdminState>
+    <AdminState tone="empty">{`費用儀表板將於 ${consolePhaseFor('costDashboard')} 推出。`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load cost data.</AdminState>
+    <AdminState tone="error">無法載入費用資料。</AdminState>
   )}
   {ready && !loadError && (
     <>
       <div class="metrics-row">
-        <AdminMetric label="Last 24 h" value={formatCost(cost24h)} id="metric-24h" />
-        <AdminMetric label="Last 7 days" value={formatCost(cost7d)} />
-        <AdminMetric label="Last 30 days" value={formatCost(cost30d)} />
-        <AdminMetric label="Month to date" value={formatCost(costMtd)} />
+        <AdminMetric label="近 24 小時" value={formatCost(cost24h)} id="metric-24h" />
+        <AdminMetric label="近 7 天" value={formatCost(cost7d)} />
+        <AdminMetric label="近 30 天" value={formatCost(cost30d)} />
+        <AdminMetric label="本月至今" value={formatCost(costMtd)} />
       </div>
 
       <div class="dimension-bar">
-        <span class="dimension-label">Group by:</span>
+        <span class="dimension-label">分組依據：</span>
         <div class="dimension-tabs" role="tablist">
           {dimensions.map((item) => (
             <a
@@ -317,7 +317,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
             >{item.label}</a>
           ))}
         </div>
-        <span class="dimension-label period-label">Period:</span>
+        <span class="dimension-label period-label">期間：</span>
         <div class="dimension-tabs" role="tablist">
           {periods.map((item) => (
             <a
@@ -331,19 +331,19 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       </div>
 
       <div class="cost-layout">
-        <AdminPanel title={`Cost by ${dimensionLabel} — ${activePeriod.label}`} class="cost-main">
+        <AdminPanel title={`依 ${dimensionLabel} 分類費用 — ${activePeriod.label}`} class="cost-main">
           {dailyRows.length === 0 ? (
-            <AdminState tone="empty">No rollup data yet. Run the cost backfill to populate this table.</AdminState>
+            <AdminState tone="empty">尚無彙總資料。請執行費用回填以填入此資料表。</AdminState>
           ) : (
             <AdminTable minWidth="640px" flush>
               <thead>
                 <tr>
-                  <th>Day</th>
+                  <th>日期</th>
                   <th>{dimensionLabel} ID</th>
-                  <th>Cost USD</th>
-                  <th>Tokens In</th>
-                  <th>Tokens Out</th>
-                  <th>Runs</th>
+                  <th>費用 (USD)</th>
+                  <th>輸入 tokens</th>
+                  <th>輸出 tokens</th>
+                  <th>執行次數</th>
                 </tr>
               </thead>
               <tbody>
@@ -352,7 +352,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                     <td class="mono">
                       {formatDay(row.day)}
                       {row.day === latestDay && (
-                        <span class="live-badge" id="live-badge" aria-live="polite">Live · updates every 60s</span>
+                        <span class="live-badge" id="live-badge" aria-live="polite">即時 · 每 60 秒更新</span>
                       )}
                     </td>
                     <td class="flow-id">{row.dimension_value}</td>
@@ -368,16 +368,16 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
         </AdminPanel>
 
         <div class="cost-rail-stack">
-          <AdminPanel title={`Top ${dimensionLabel} Spenders`} class="cost-rail">
+          <AdminPanel title={`${dimensionLabel} 費用排行`} class="cost-rail">
             {topEntities.length === 0 ? (
-              <AdminState tone="empty">No rollup data for this period.</AdminState>
+              <AdminState tone="empty">此期間無彙總資料。</AdminState>
             ) : (
               <AdminTable minWidth="320px" flush>
                 <thead>
                   <tr>
                     <th>{dimensionLabel}</th>
-                    <th>Cost</th>
-                    <th>Runs</th>
+                    <th>費用</th>
+                    <th>執行次數</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -393,9 +393,9 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
             )}
           </AdminPanel>
 
-          <AdminPanel title="Budget Alerts" class="cost-rail">
+          <AdminPanel title="預算警示" class="cost-rail">
             {budgetAlerts.length === 0 ? (
-              <AdminState tone="empty">No runs are above 80% of a budget ceiling.</AdminState>
+              <AdminState tone="empty">目前無執行項目超過預算上限的 80%。</AdminState>
             ) : (
               <div class="budget-list">
                 {budgetAlerts.map((alert) => (
@@ -415,16 +415,16 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
             )}
           </AdminPanel>
 
-          <AdminPanel title="Top Runs — Last 24 h" class="cost-rail">
+          <AdminPanel title="近 24 小時費用排行" class="cost-rail">
             {topRuns.length === 0 ? (
-              <AdminState tone="empty">No runs in the last 24 hours.</AdminState>
+              <AdminState tone="empty">近 24 小時內無執行記錄。</AdminState>
             ) : (
               <AdminTable minWidth="320px" flush>
                 <thead>
                   <tr>
-                    <th>Run ID</th>
-                    <th>Agent</th>
-                    <th>Cost</th>
+                    <th>執行 ID</th>
+                    <th>代理程式</th>
+                    <th>費用</th>
                     <th>Tokens</th>
                   </tr>
                 </thead>

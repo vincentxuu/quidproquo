@@ -215,32 +215,32 @@ function confidenceClass(confidence: number): string {
 }
 
 const breadcrumb = [
-  { label: 'Runs', href: '/admin/console/runs' },
+  { label: '執行記錄', href: '/admin/console/runs' },
   { label: flowRunId.slice(0, 8) + '…', href: `/admin/console/runs/${flowRunId}` },
-  { label: 'Evidence' },
+  { label: '來源證據' },
 ];
 ---
 
-<AdminConsoleLayout title="Evidence Viewer" section="evidence" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="來源證據檢視器" section="evidence" breadcrumb={breadcrumb}>
   {!consoleReady && (
     <AdminState tone="empty">{`Evidence viewer ships in ${consolePhaseFor('evidenceViewer')}.`}</AdminState>
   )}
   {consoleReady && !evidenceEnabled && (
-    <AdminState tone="empty">Agent evidence is disabled. Set <code>AGENT_EVIDENCE_ENABLED=true</code> to enable.</AdminState>
+    <AdminState tone="empty">代理程式證據功能已停用。請設定 <code>AGENT_EVIDENCE_ENABLED=true</code> 以啟用。</AdminState>
   )}
   {consoleReady && evidenceEnabled && loadError && (
-    <AdminState tone="error">Could not load evidence for this run.</AdminState>
+    <AdminState tone="error">無法載入此執行的來源證據。</AdminState>
   )}
   {consoleReady && evidenceEnabled && !loadError && (
     <div class="evidence-layout">
 
       {/* Left rail — source list */}
-      <aside class="source-rail" aria-label="Sources">
+      <aside class="source-rail" aria-label="來源">
         <div class="rail-header">
-          <h3>Sources <span class="rail-count">{sources.length}</span></h3>
+          <h3>來源 <span class="rail-count">{sources.length}</span></h3>
         </div>
         {sources.length === 0 ? (
-          <p class="rail-empty">No sources for this run.</p>
+          <p class="rail-empty">此執行尚無來源。</p>
         ) : (
           <div class="source-list">
             {Object.entries(sourcesByDomain).map(([domain, domainSources]) => (
@@ -270,12 +270,12 @@ const breadcrumb = [
       </aside>
 
       {/* Main panel — excerpts + claims */}
-      <main class="excerpt-panel" aria-label="Excerpts and claims">
+      <main class="excerpt-panel" aria-label="摘錄與聲明">
         <form class="claim-search" method="GET" action={`/admin/console/runs/${flowRunId}/evidence`}>
-          <label for="claim-q">Search claims</label>
+          <label for="claim-q">搜尋聲明</label>
           <input id="claim-q" name="q" type="search" value={claimSearchQuery} placeholder="cosine similarity" />
-          <button type="submit">Search</button>
-          {claimSearchQuery && <a href={`/admin/console/runs/${flowRunId}/evidence`}>Clear</a>}
+          <button type="submit">搜尋</button>
+          {claimSearchQuery && <a href={`/admin/console/runs/${flowRunId}/evidence`}>清除</a>}
         </form>
 
         {selectedClaim ? (
@@ -290,7 +290,7 @@ const breadcrumb = [
               </span>
             </header>
             {selectedClaimExcerptDetails.length === 0 ? (
-              <AdminState tone="empty">This claim has no citations.</AdminState>
+              <AdminState tone="empty">此聲明尚無引用。</AdminState>
             ) : (
               <div class="citation-chain">
                 {selectedClaimExcerptDetails.map(({ citation, excerpt, source }) => (
@@ -304,12 +304,12 @@ const breadcrumb = [
                       <>
                         <p class="excerpt-text">{excerpt.text}</p>
                         <div class="source-preview">
-                          <span class="preview-label">Source preview</span>
+                          <span class="preview-label">來源預覽</span>
                           <p>{source?.bodyText ?? excerpt.surroundingContext ?? excerpt.text}</p>
                         </div>
                       </>
                     ) : (
-                      <p class="rail-empty">Excerpt not found.</p>
+                      <p class="rail-empty">找不到摘錄。</p>
                     )}
                   </article>
                 ))}
@@ -317,13 +317,13 @@ const breadcrumb = [
             )}
           </section>
         ) : !selectedSource ? (
-          <section class="claim-list-panel" aria-label="Claims">
+          <section class="claim-list-panel" aria-label="聲明">
             <h3>
-              Claims
+              聲明
               <span class="rail-count">{claimSearchQuery ? visibleClaims.length : claims.length}</span>
             </h3>
             {visibleClaims.length === 0 ? (
-              <AdminState tone="empty">{claimSearchQuery ? 'No claims match this search.' : 'No claims for this run.'}</AdminState>
+              <AdminState tone="empty">{claimSearchQuery ? '無符合搜尋的聲明。' : '此執行尚無聲明。'}</AdminState>
             ) : (
               <div class="claim-cards">
                 {visibleClaims.map((claim) => {
@@ -349,13 +349,13 @@ const breadcrumb = [
                 </a>
               </h3>
               <p class="source-meta">
-                <span>Freshness: {selectedSource.freshnessScore.toFixed(2)}</span>
+                <span>新鮮度：{selectedSource.freshnessScore.toFixed(2)}</span>
                 {selectedSource.domain && <span class="domain-chip-sm">{selectedSource.domain}</span>}
               </p>
             </div>
 
             {selectedExcerpts.length === 0 ? (
-              <AdminState tone="empty">No excerpts for this source.</AdminState>
+              <AdminState tone="empty">此來源尚無摘錄。</AdminState>
             ) : (
               <div class="excerpt-list">
                 {selectedExcerpts.map((exc) => {
@@ -379,9 +379,9 @@ const breadcrumb = [
                                 <a
                                   href={claimHref(claim.claimId)}
                                   class="source-nav-link"
-                                  title="Open claim detail"
+                                  title="開啟聲明詳情"
                                 >
-                                  detail
+                                  詳情
                                 </a>
                                 <span class="confidence-badge" title="Confidence">
                                   {(claim.confidence * 100).toFixed(0)}%
@@ -401,12 +401,12 @@ const breadcrumb = [
       </main>
 
       {/* Right rail — conflicts */}
-      <aside class="conflicts-rail" aria-label="Conflicts">
+      <aside class="conflicts-rail" aria-label="衝突">
         <div class="rail-header">
-          <h3>Conflicts <span class="rail-count">{conflicts.length}</span></h3>
+          <h3>衝突 <span class="rail-count">{conflicts.length}</span></h3>
         </div>
         {conflicts.length === 0 ? (
-          <p class="rail-empty">No pending conflicts.</p>
+          <p class="rail-empty">目前無待處理衝突。</p>
         ) : (
           <div class="conflict-list">
             {conflictDetails.map((cf) => (

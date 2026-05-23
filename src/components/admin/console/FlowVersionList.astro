@@ -16,9 +16,9 @@ function formatTimestamp(ms: number): string {
 <table class="mgmt-table admin-panel">
   <thead>
     <tr>
-      <th scope="col">Version</th>
-      <th scope="col">Published</th>
-      <th scope="col">By</th>
+      <th scope="col">版本</th>
+      <th scope="col">發布時間</th>
+      <th scope="col">發布者</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -28,7 +28,7 @@ function formatTimestamp(ms: number): string {
         <td>v{row.version}</td>
         <td>{formatTimestamp(row.publishedAt)}</td>
         <td>{row.publishedBy ?? '—'}</td>
-        <td>{row.version === latestVersion ? <span class="latest-chip">latest</span> : ''}</td>
+        <td>{row.version === latestVersion ? <span class="latest-chip">最新</span> : ''}</td>
       </tr>
     ))}
   </tbody>

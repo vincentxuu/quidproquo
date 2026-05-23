@@ -131,46 +131,46 @@ function qHref(value: string) {
 }
 ---
 
-<AdminConsoleLayout title="Evidence" section="evidence">
+<AdminConsoleLayout title="來源證據" section="evidence">
   {!ready && (
-    <AdminState tone="empty">{`Evidence viewer ships in ${consolePhaseFor('evidenceViewer')}.`}</AdminState>
+    <AdminState tone="empty">{`來源證據檢視器將於 ${consolePhaseFor('evidenceViewer')} 上線。`}</AdminState>
   )}
   {ready && (
     <>
-      <AdminPanel title="Evidence Runs" eyebrow="Runs with collected evidence">
+      <AdminPanel title="來源證據執行記錄" eyebrow="含有收集到的來源證據之執行記錄">
         <form class="toolbar" method="GET" action="/admin/console/evidence">
-          <label for="q" class="search-label">Search runs</label>
+          <label for="q" class="search-label">搜尋執行記錄</label>
           <input
             id="q"
             name="q"
             type="text"
             value={q}
             class="search-input"
-            placeholder="Search by run id, flow name, status"
+            placeholder="依 run id、工作流程名稱、狀態搜尋"
           />
-          <button type="submit" class="btn-secondary">Search</button>
-          {q && <a href="/admin/console/evidence" class="btn-clear">Clear</a>}
+          <button type="submit" class="btn-secondary">搜尋</button>
+          {q && <a href="/admin/console/evidence" class="btn-clear">清除</a>}
         </form>
       </AdminPanel>
 
-      {loadError && <AdminState tone="error">Could not load evidence runs.</AdminState>}
+      {loadError && <AdminState tone="error">無法載入來源證據。</AdminState>}
 
       {(!loadError && runs.length === 0) && (
         <AdminState tone="empty">
-          No evidence rows found. Select a run from Runs list or ensure evidence logging is enabled.
+          尚無來源證據記錄。請從執行列表選擇一筆執行，或確認來源證據日誌記錄已啟用。
         </AdminState>
       )}
 
       {(!loadError && runs.length > 0) && (
-        <AdminPanel title={`Evidence by Run — ${totalCount} total`}>
+        <AdminPanel title={`依執行分類的來源證據 — 共 ${totalCount} 筆`}>
           <AdminTable minWidth="760px" flush>
             <thead>
               <tr>
-                <th>Run</th>
-                <th>Flow</th>
-                <th>Run Status</th>
-                <th>Evidence</th>
-                <th>Last Started</th>
+                <th>執行</th>
+                <th>工作流程</th>
+                <th>執行狀態</th>
+                <th>來源證據</th>
+                <th>最後啟動時間</th>
                 <th></th>
               </tr>
             </thead>
@@ -181,12 +181,12 @@ function qHref(value: string) {
                   <td>{formatName(run)}</td>
                   <td><span class={statusBadgeClass(run.status || run.flow_status)}>{run.status || run.flow_status || '—'}</span></td>
                   <td class="evidence-stats">
-                    S {run.source_count ?? 0} / C {run.claim_count ?? 0} / X {run.conflict_count ?? 0}
+                    來源 {run.source_count ?? 0} / 聲明 {run.claim_count ?? 0} / 衝突 {run.conflict_count ?? 0}
                   </td>
                   <td class="mono">{formatTs(run.started_at)}</td>
                   <td>
                     <a href={`/admin/console/runs/${run.flow_run_id}/evidence`} class="btn-secondary">
-                      Open
+                      檢視
                     </a>
                   </td>
                 </tr>
@@ -196,10 +196,10 @@ function qHref(value: string) {
 
           {totalPages > 1 && (
             <div class="pagination">
-              {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
-              {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
-              <span class="page-info">Page {page} / {totalPages}</span>
-              {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+              {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
+              {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
+              <span class="page-info">第 {page} / {totalPages} 頁</span>
+              {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
             </div>
           )}
         </AdminPanel>

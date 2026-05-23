@@ -14,8 +14,8 @@ if (gate) return gate;
 const ready = isPageEnabled('rbac');
 
 const breadcrumb = [
-  { label: 'RBAC', href: '/admin/console/rbac' },
-  { label: 'Audit Log' },
+  { label: '權限管理', href: '/admin/console/rbac' },
+  { label: '稽核日誌' },
 ];
 
 const url = Astro.url;
@@ -132,49 +132,49 @@ function filterHref(key: string, value: string): string {
 }
 ---
 
-<AdminConsoleLayout title="Audit Log" section="rbac" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="稽核日誌" section="rbac" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load audit log data.</AdminState>
+    <AdminState tone="error">無法載入稽核日誌資料。</AdminState>
   )}
   {ready && !loadError && (
     <div class="audit-layout">
 
-      <AdminPanel title="Filters" eyebrow="Narrow results">
+      <AdminPanel title="篩選條件" eyebrow="縮小搜尋範圍">
         <form method="GET" action="/admin/console/rbac/audit" class="filter-form">
           <div class="filter-row">
-            <label for="f-user" class="filter-label">User (email)</label>
+            <label for="f-user" class="filter-label">使用者（電子郵件）</label>
             <input
               id="f-user"
               type="text"
               name="user"
               value={filterUser}
               class="filter-input"
-              placeholder="Search email..."
+              placeholder="搜尋電子郵件..."
             />
           </div>
           <div class="filter-row">
-            <label for="f-action" class="filter-label">Action</label>
+            <label for="f-action" class="filter-label">操作</label>
             <select id="f-action" name="action" class="filter-select">
-              <option value="">All</option>
+              <option value="">全部</option>
               {['view','invoke','edit','delete','approve','reject','cancel','export'].map((a) => (
                 <option value={a} selected={filterAction === a}>{a}</option>
               ))}
             </select>
           </div>
           <div class="filter-row">
-            <label for="f-kind" class="filter-label">Resource kind</label>
+            <label for="f-kind" class="filter-label">資源類型</label>
             <select id="f-kind" name="kind" class="filter-select">
-              <option value="">All</option>
+              <option value="">全部</option>
               {['flow','policy','provider','run','approval','artifact','cost','rbac'].map((k) => (
                 <option value={k} selected={filterKind === k}>{k}</option>
               ))}
             </select>
           </div>
           <div class="filter-row">
-            <label for="f-from" class="filter-label">From date</label>
+            <label for="f-from" class="filter-label">起始日期</label>
             <input
               id="f-from"
               type="date"
@@ -184,7 +184,7 @@ function filterHref(key: string, value: string): string {
             />
           </div>
           <div class="filter-row">
-            <label for="f-to" class="filter-label">To date</label>
+            <label for="f-to" class="filter-label">結束日期</label>
             <input
               id="f-to"
               type="date"
@@ -194,28 +194,28 @@ function filterHref(key: string, value: string): string {
             />
           </div>
           <div class="filter-actions">
-            <button type="submit" class="btn-filter">Apply</button>
-            <a href="/admin/console/rbac/audit" class="btn-clear">Clear</a>
+            <button type="submit" class="btn-filter">套用</button>
+            <a href="/admin/console/rbac/audit" class="btn-clear">清除</a>
           </div>
         </form>
       </AdminPanel>
 
       <AdminPanel
-        title="Audit Log"
-        eyebrow={`${totalCount} total entries — page ${page} of ${totalPages}`}
+        title="稽核日誌"
+        eyebrow={`共 ${totalCount} 筆記錄 — 第 ${page} / ${totalPages} 頁`}
       >
         {auditRows.length === 0 ? (
-          <AdminState tone="empty">No audit log entries match the current filters.</AdminState>
+          <AdminState tone="empty">目前篩選條件下無稽核日誌記錄。</AdminState>
         ) : (
           <AdminTable minWidth="780px" flush>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>User</th>
-                <th>Action</th>
-                <th>Kind</th>
+                <th>使用者</th>
+                <th>操作</th>
+                <th>類型</th>
                 <th>Resource ID</th>
-                <th>Time</th>
+                <th>時間</th>
                 <th>Payload</th>
               </tr>
             </thead>
@@ -231,7 +231,7 @@ function filterHref(key: string, value: string): string {
                   <td>
                     {row.payload_json ? (
                       <details class="payload-details">
-                        <summary class="payload-summary">Show</summary>
+                        <summary class="payload-summary">顯示</summary>
                         <pre class="payload-pre">{row.payload_json}</pre>
                       </details>
                     ) : (
@@ -247,11 +247,11 @@ function filterHref(key: string, value: string): string {
         {totalPages > 1 && (
           <div class="pagination">
             {page > 1 && (
-              <a href={pageHref(page - 1)} class="page-btn">Previous</a>
+              <a href={pageHref(page - 1)} class="page-btn">上一頁</a>
             )}
-            <span class="page-info">Page {page} / {totalPages}</span>
+            <span class="page-info">第 {page} / {totalPages} 頁</span>
             {page < totalPages && (
-              <a href={pageHref(page + 1)} class="page-btn">Next</a>
+              <a href={pageHref(page + 1)} class="page-btn">下一頁</a>
             )}
           </div>
         )}

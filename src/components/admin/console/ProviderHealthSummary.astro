@@ -81,38 +81,38 @@ const total = statusCounts.reduce((sum, r) => sum + r.count, 0);
 ---
 
 {available && (
-  <div class="provider-health-summary" role="region" aria-label="Provider health summary">
+  <div class="provider-health-summary" role="region" aria-label="提供者健康狀態摘要">
     <div class="summary-body">
-      <span class="summary-title">Provider Health</span>
+      <span class="summary-title">提供者健康狀態</span>
       <div class="summary-counts">
-        <span class="count-chip healthy" title={`${healthy} healthy provider${healthy !== 1 ? 's' : ''}`}>
+        <span class="count-chip healthy" title={`${healthy} 個健康提供者`}>
           <span class="dot" />
-          {healthy} healthy
+          {healthy} 健康
         </span>
         {degraded > 0 && (
-          <span class="count-chip degraded" title={`${degraded} degraded provider${degraded !== 1 ? 's' : ''}`}>
+          <span class="count-chip degraded" title={`${degraded} 個效能降低提供者`}>
             <span class="dot" />
-            {degraded} degraded
+            {degraded} 效能降低
           </span>
         )}
         {down > 0 && (
-          <span class="count-chip down" title={`${down} provider${down !== 1 ? 's' : ''} down`}>
+          <span class="count-chip down" title={`${down} 個提供者離線`}>
             <span class="dot" />
-            {down} down
+            {down} 離線
           </span>
         )}
         {total === 0 && (
-          <span class="count-chip muted">No providers registered</span>
+          <span class="count-chip muted">尚無已登錄的提供者</span>
         )}
       </div>
       {failuresLastHour > 0 && (
         <span class="failure-note">
-          {failuresLastHour} failure event{failuresLastHour !== 1 ? 's' : ''} in last hour
+          過去 1 小時內有 {failuresLastHour} 個故障事件
         </span>
       )}
     </div>
-    <a href="/admin/console/providers" class="summary-link" aria-label="View all providers">
-      View all
+    <a href="/admin/console/providers" class="summary-link" aria-label="檢視所有提供者">
+      檢視全部
     </a>
   </div>
 )}

@@ -223,7 +223,7 @@ function NodePalette({ onAddNode }: { onAddNode: (type: StepType) => void }) {
           paddingBottom: '4px',
         }}
       >
-        Step Types
+        步驟類型
       </div>
       {STEP_TYPES.map(type => (
         <div
@@ -304,7 +304,7 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
   } catch {
     return (
       <div style={{ padding: '1rem', color: '#dc2626', fontFamily: 'monospace', fontSize: '13px' }}>
-        Invalid flow definition JSON
+        工作流程定義 JSON 格式無效
       </div>
     )
   }
@@ -480,11 +480,11 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
               transition: 'background 0.15s ease',
             }}
           >
-            {saving ? 'Saving…' : 'Save'}
+            {saving ? '儲存中…' : '儲存'}
           </button>
           {hasErrors && (
             <span style={{ fontSize: '12px', color: '#dc2626' }}>
-              Fix {validationErrors.length} error{validationErrors.length !== 1 ? 's' : ''} before saving
+              請先修正 {validationErrors.length} 個錯誤再儲存
             </span>
           )}
         </div>

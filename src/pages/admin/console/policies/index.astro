@@ -106,45 +106,45 @@ function formatTs(ms: number | null): string {
 }
 ---
 
-<AdminConsoleLayout title="Policies" section="policies">
+<AdminConsoleLayout title="政策" section="policies">
   {!ready && (
-    <AdminState tone="empty">{`Policies management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone="empty">{`政策管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load policies.</AdminState>
+    <AdminState tone="error">無法載入政策。</AdminState>
   )}
   {ready && !loadError && (
-    <AdminPanel title="Policy Library" eyebrow="Search and manage registered policy definitions">
+    <AdminPanel title="政策庫" eyebrow="搜尋及管理已登錄的政策定義">
       <form class="toolbar" method="GET" action="/admin/console/policies">
-        <label for="q" class="search-label">Search policies</label>
+        <label for="q" class="search-label">搜尋政策</label>
         <input
           id="q"
           name="q"
           type="search"
           value={q}
           class="search-input"
-          placeholder="Search by policy key, name, or version"
+          placeholder="依政策 key、名稱或版本搜尋"
         />
-        <button type="submit" class="btn-secondary">Search</button>
-        {q && <a href="/admin/console/policies" class="btn-clear">Clear</a>}
+        <button type="submit" class="btn-secondary">搜尋</button>
+        {q && <a href="/admin/console/policies" class="btn-clear">清除</a>}
       </form>
     </AdminPanel>
   )}
   {ready && !loadError && policies.length === 0 && (
     <AdminState tone="empty">
-      {q ? `No policy definitions match "${q}".` : 'No policy definitions registered yet.'}
+      {q ? `找不到符合「${q}」的政策定義。` : '尚無已登錄的政策。'}
     </AdminState>
   )}
   {ready && !loadError && policies.length > 0 && (
-    <AdminPanel title="Policy Definitions">
+    <AdminPanel title="政策定義">
       <AdminTable minWidth="560px" flush>
         <thead>
           <tr>
-            <th>Policy Key</th>
-            <th>Label</th>
-            <th>Version</th>
-            <th>Reference</th>
-            <th>Created At</th>
+            <th>政策 Key</th>
+            <th>標籤</th>
+            <th>版本</th>
+            <th>參考政策</th>
+            <th>建立時間</th>
           </tr>
         </thead>
         <tbody>
@@ -157,7 +157,7 @@ function formatTs(ms: number | null): string {
               </td>
               <td class="label-cell">{p.label ?? '—'}</td>
               <td class="mono">{p.version}</td>
-              <td>{isReferencePolicy(p.policy_key) ? <span class="ref-badge">Reference</span> : <span class="muted-text">—</span>}</td>
+              <td>{isReferencePolicy(p.policy_key) ? <span class="ref-badge">參考</span> : <span class="muted-text">—</span>}</td>
               <td class="mono">{formatTs(p.created_at)}</td>
             </tr>
           ))}
@@ -166,10 +166,10 @@ function formatTs(ms: number | null): string {
 
       {totalPages > 1 && (
         <div class="pagination">
-          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
-          <span class="page-info">Page {page} / {totalPages}</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+          {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
+          <span class="page-info">第 {page} / {totalPages} 頁</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
         </div>
       )}
     </AdminPanel>

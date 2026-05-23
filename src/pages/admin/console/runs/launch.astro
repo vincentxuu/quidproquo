@@ -88,18 +88,18 @@ function defaultValueFor(input: FlowInput): string {
 ---
 
 <AdminConsoleLayout
-  title={`Launch: ${flowName}`}
+  title={`啟動執行：${flowName}`}
   section="flow-selector"
   breadcrumb={[
-    { label: 'Flow Selector', href: '/admin/console' },
-    { label: `Launch ${flowName}` },
+    { label: '工作流程選擇器', href: '/admin/console' },
+    { label: `啟動 ${flowName}` },
   ]}
 >
   {loadError && (
-    <AdminState tone="error">Could not load flow definition.</AdminState>
+    <AdminState tone="error">無法載入工作流程定義。</AdminState>
   )}
   {!loadError && flow && (
-    <AdminPanel title={`Launch — ${flowName}`}>
+    <AdminPanel title={`啟動執行 — ${flowName}`}>
       {flow.description && (
         <p class="flow-desc">{flow.description}</p>
       )}
@@ -110,9 +110,9 @@ function defaultValueFor(input: FlowInput): string {
       )}
       {presets.length > 0 && (
         <div class="field">
-          <label for="presetId" class="field-label">Preset (optional)</label>
+          <label for="presetId" class="field-label">預設配置（選填）</label>
           <select id="presetId" name="presetId" class="field-select" form="launch-form">
-            <option value="">Use base configuration</option>
+            <option value="">使用基本配置</option>
             {presets.map((preset) => (
               <option value={preset.preset_id} selected={preset.preset_id === presetId}>
                 {preset.display_name}
@@ -145,7 +145,7 @@ function defaultValueFor(input: FlowInput): string {
                     </label>
                     <div class="boolean-wrap">
                       <input id={inputName} name={inputName} type="checkbox" value="true" checked={input.default === true} />
-                      <span class="field-hint">Toggle true / false</span>
+                      <span class="field-hint">切換 true / false</span>
                     </div>
                     <span class="field-hint">{input.default !== undefined ? `Default: ${String(input.default)}` : 'Default: false'}</span>
                   </div>
@@ -198,7 +198,7 @@ function defaultValueFor(input: FlowInput): string {
           </div>
         ) : (
           <div class="field">
-            <label for="inputsJson" class="field-label">Inputs (JSON)</label>
+            <label for="inputsJson" class="field-label">輸入參數 (JSON)</label>
             <textarea
               id="inputsJson"
               name="inputsJson"
@@ -207,13 +207,13 @@ function defaultValueFor(input: FlowInput): string {
               placeholder='{"key": "value"}'
               spellcheck="false"
             ></textarea>
-            <p class="field-hint">Provide a JSON object matching the flow's input schema, or leave empty for flows with no required inputs.</p>
+            <p class="field-hint">請提供符合工作流程輸入結構的 JSON 物件，若無必填輸入可留空。</p>
           </div>
         )}
         <p id="launch-status" class="launch-status" role="status" aria-live="polite" hidden></p>
         <div class="form-actions">
-          <a href="/admin/console" class="btn-secondary">Cancel</a>
-          <button type="submit" class="btn-primary" id="launch-submit">Launch Run</button>
+          <a href="/admin/console" class="btn-secondary">取消</a>
+          <button type="submit" class="btn-primary" id="launch-submit">啟動執行</button>
         </div>
       </form>
     </AdminPanel>
@@ -247,7 +247,7 @@ function defaultValueFor(input: FlowInput): string {
       submitBtn.setAttribute('disabled', 'disabled');
       statusEl.removeAttribute('hidden');
       statusEl.className = 'launch-status launch-status--info';
-      statusEl.textContent = 'Launching run...';
+      statusEl.textContent = '正在啟動執行…';
 
       const useSchema = form.dataset.hasSchema === 'true';
       let parsedInput = {};
@@ -275,7 +275,7 @@ function defaultValueFor(input: FlowInput): string {
             if (!raw) {
               if (required) {
                 statusEl.className = 'launch-status launch-status--error';
-                statusEl.textContent = `${name} is required`;
+                statusEl.textContent = `${name} 為必填欄位`;
                 submitBtn.removeAttribute('disabled');
                 return;
               }
@@ -302,7 +302,7 @@ function defaultValueFor(input: FlowInput): string {
           if (!controlValue) {
             if (required) {
               statusEl.className = 'launch-status launch-status--error';
-              statusEl.textContent = `${name} is required`;
+              statusEl.textContent = `${name} 為必填欄位`;
               submitBtn.removeAttribute('disabled');
               return;
             }
@@ -371,9 +371,9 @@ function defaultValueFor(input: FlowInput): string {
 
         const responseBody = await response.json().catch(() => ({}));
         if (!response.ok) {
-          const errorMessage = responseBody?.error ?? 'Could not launch run';
+          const errorMessage = responseBody?.error ?? '無法啟動執行';
           statusEl.className = 'launch-status launch-status--error';
-          statusEl.textContent = typeof errorMessage === 'string' ? errorMessage : 'Could not launch run';
+          statusEl.textContent = typeof errorMessage === 'string' ? errorMessage : '無法啟動執行';
           submitBtn.removeAttribute('disabled');
           return;
         }
@@ -381,17 +381,17 @@ function defaultValueFor(input: FlowInput): string {
         const flowRunId = responseBody?.flowRunId;
         if (typeof flowRunId === 'string' && flowRunId.trim()) {
           statusEl.className = 'launch-status launch-status--success';
-          statusEl.textContent = 'Run created. Redirecting to timeline...';
+          statusEl.textContent = '執行已建立，正在跳轉至時間軸…';
           window.location.assign(`/admin/console/runs/${flowRunId}`);
           return;
         }
 
         statusEl.className = 'launch-status launch-status--error';
-        statusEl.textContent = 'Missing flowRunId in server response';
+        statusEl.textContent = '伺服器回應中缺少 flowRunId';
         submitBtn.removeAttribute('disabled');
       } catch {
         statusEl.className = 'launch-status launch-status--error';
-        statusEl.textContent = 'Network error, please retry.';
+        statusEl.textContent = '網路錯誤，請重試。';
         submitBtn.removeAttribute('disabled');
       }
     });

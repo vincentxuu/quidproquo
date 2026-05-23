@@ -29,24 +29,24 @@ const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.
 ---
 
 <article class="flow-card">
-  <a href={flowHref} class="flow-card__title">Flow: {card.name}</a>
+  <a href={flowHref} class="flow-card__title">工作流程：{card.name}</a>
   <div class="flow-card__header">
     <span class="flow-card__status-wrap">
       {card.lastStatus && (
         <span class="flow-card__status" style={`color: ${statusColor}`}>{card.lastStatus}</span>
       )}
     </span>
-    <a href={launchHref} class="flow-card__launch">Launch</a>
+    <a href={launchHref} class="flow-card__launch">啟動</a>
   </div>
   <div class="flow-card__meta-grid">
-    <span>Category: {categoryLabel}</span>
-    <span>Status: {lastStatusLabel}</span>
-    <span>Version: {versionLabel}</span>
-    <span>Estimated cost: {costLabel}</span>
-    {card.costBand && <span>Band: {card.costBand}</span>}
+    <span>類別：{categoryLabel}</span>
+    <span>狀態：{lastStatusLabel}</span>
+    <span>版本：{versionLabel}</span>
+    <span>預估費用：{costLabel}</span>
+    {card.costBand && <span>費用級距：{card.costBand}</span>}
   </div>
   {card.description && <p class="flow-card__desc">{card.description}</p>}
-  <span class="flow-card__meta">Last run: {lastRunLabel}</span>
+  <span class="flow-card__meta">上次執行：{lastRunLabel}</span>
 </article>
 
 <style>

@@ -31,7 +31,7 @@ export function ApprovalCard({ approvalId, reason, context, ttlSeconds, createdA
       const res = await fetch(`/api/admin/agents/approvals/${approvalId}/${decision}`, { method: 'POST' })
       if (!res.ok) throw new Error(await res.text())
       setResolved(true)
-      success(`Action ${decision === 'approve' ? 'approved' : 'rejected'}`)
+      success(`操作已${decision === 'approve' ? '核准' : '拒絕'}`)
       onResolved?.(decision)
     } catch (e) {
       toastError(String(e))
@@ -40,14 +40,14 @@ export function ApprovalCard({ approvalId, reason, context, ttlSeconds, createdA
     }
   }
 
-  if (resolved) return <div className="approval-card approval-card--resolved">Resolved</div>
+  if (resolved) return <div className="approval-card approval-card--resolved">已處理</div>
 
   return (
     <div className="approval-card">
       <div className="approval-card__header">
         <span className="approval-card__reason">{reason}</span>
         <span className={`approval-card__ttl ${secondsLeft < 300 ? 'approval-card__ttl--urgent' : ''}`}>
-          {secondsLeft > 0 ? `${Math.floor(secondsLeft / 3600)}h ${Math.floor((secondsLeft % 3600) / 60)}m remaining` : 'Expired'}
+          {secondsLeft > 0 ? `剩餘 ${Math.floor(secondsLeft / 3600)}h ${Math.floor((secondsLeft % 3600) / 60)}m` : '已過期'}
         </span>
       </div>
       {Object.keys(context).length > 0 && (
@@ -58,17 +58,17 @@ export function ApprovalCard({ approvalId, reason, context, ttlSeconds, createdA
           onClick={() => resolve('approve')}
           disabled={loading || secondsLeft <= 0}
           className="approval-card__btn approval-card__btn--approve"
-          aria-label="Approve"
+          aria-label="核准"
         >
-          Approve
+          核准
         </button>
         <button
           onClick={() => resolve('reject')}
           disabled={loading || secondsLeft <= 0}
           className="approval-card__btn approval-card__btn--reject"
-          aria-label="Reject"
+          aria-label="拒絕"
         >
-          Reject
+          拒絕
         </button>
       </div>
     </div>

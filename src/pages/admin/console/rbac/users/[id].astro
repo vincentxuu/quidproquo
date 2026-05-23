@@ -15,8 +15,8 @@ const ready = isPageEnabled('rbac');
 const userId = Astro.params.id ?? '';
 
 const breadcrumb = [
-  { label: 'RBAC', href: '/admin/console/rbac' },
-  { label: `User ${userId}` },
+  { label: '權限管理', href: '/admin/console/rbac' },
+  { label: `使用者 ${userId}` },
 ];
 
 interface UserRow {
@@ -88,52 +88,52 @@ const sortedRoles = [
 ];
 ---
 
-<AdminConsoleLayout title={user ? user.email : `User ${userId}`} section="rbac" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={user ? user.email : `使用者 ${userId}`} section="rbac" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
   )}
   {ready && !userId && (
-    <AdminState tone="error">No user ID specified.</AdminState>
+    <AdminState tone="error">未指定使用者 ID。</AdminState>
   )}
   {ready && userId && loadError && (
-    <AdminState tone="error">Could not load user data.</AdminState>
+    <AdminState tone="error">無法載入使用者資料。</AdminState>
   )}
   {ready && userId && !loadError && !user && (
-    <AdminState tone="error">User not found.</AdminState>
+    <AdminState tone="error">找不到該使用者。</AdminState>
   )}
   {ready && userId && !loadError && user && (
     <div class="user-detail">
 
-      <AdminPanel title="User Info">
+      <AdminPanel title="使用者資訊">
         <div class="info-grid">
           <div class="info-row">
-            <span class="info-label">User ID</span>
+            <span class="info-label">使用者 ID</span>
             <code>{user.user_id}</code>
           </div>
           <div class="info-row">
-            <span class="info-label">Email</span>
+            <span class="info-label">電子郵件</span>
             <span>{user.email}</span>
           </div>
           <div class="info-row">
-            <span class="info-label">Created</span>
+            <span class="info-label">建立時間</span>
             <span class="mono">{formatTs(user.created_at)}</span>
           </div>
           <div class="info-row">
-            <span class="info-label">Last Login</span>
+            <span class="info-label">最後登入</span>
             <span class="muted">N/A</span>
           </div>
           <div class="info-row">
-            <span class="info-label">Status</span>
+            <span class="info-label">狀態</span>
             {user.disabled_at ? (
-              <span class="badge disabled">Disabled since {formatTs(user.disabled_at)}</span>
+              <span class="badge disabled">停用於 {formatTs(user.disabled_at)}</span>
             ) : (
-              <span class="badge active">Active</span>
+              <span class="badge active">啟用中</span>
             )}
           </div>
         </div>
       </AdminPanel>
 
-      <AdminPanel title="Role Assignment" eyebrow="Select roles for this user">
+      <AdminPanel title="角色指派" eyebrow="為此使用者選擇角色">
         <form
           method="POST"
           action={`/api/admin/console/rbac/users/${userId}/roles`}
@@ -156,28 +156,28 @@ const sortedRoles = [
             ))}
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn-primary">Save roles</button>
+            <button type="submit" class="btn-primary">儲存角色</button>
           </div>
         </form>
       </AdminPanel>
 
-      <AdminPanel title="Account Actions" eyebrow="Disable or re-enable this user">
+      <AdminPanel title="帳號操作" eyebrow="停用或重新啟用此使用者">
         <div class="actions-row">
           {user.disabled_at ? (
             <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
               <input type="hidden" name="action" value="enable" />
-              <button type="submit" class="btn-enable">Re-enable user</button>
+              <button type="submit" class="btn-enable">重新啟用使用者</button>
             </form>
           ) : (
             <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
               <input type="hidden" name="action" value="disable" />
-              <button type="submit" class="btn-danger">Disable user</button>
+              <button type="submit" class="btn-danger">停用使用者</button>
             </form>
           )}
           <span class="action-note">
             {user.disabled_at
-              ? 'User is currently disabled and cannot log in.'
-              : 'Disabling prevents this user from accessing the console.'}
+              ? '此使用者目前已停用，無法登入。'
+              : '停用後，此使用者將無法存取主控台。'}
           </span>
         </div>
       </AdminPanel>

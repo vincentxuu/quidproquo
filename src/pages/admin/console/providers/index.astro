@@ -181,7 +181,7 @@ function ms(value: number | null): string {
 
 function statusText(enabled: number | null): string {
   if (enabled === null) return '—';
-  return enabled === 1 ? 'Enabled' : 'Disabled';
+  return enabled === 1 ? '啟用' : '停用';
 }
 
 function healthFor(providerId: string): HealthStat {
@@ -195,46 +195,46 @@ function healthFor(providerId: string): HealthStat {
 }
 ---
 
-<AdminConsoleLayout title="Providers" section="providers">
+<AdminConsoleLayout title=”提供者” section=”providers”>
   {!ready && (
-    <AdminState tone="empty">{`Provider management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone=”empty”>{`提供者管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">Could not load providers.</AdminState>}
+  {ready && loadError && <AdminState tone=”error”>無法載入提供者資料。</AdminState>}
 
   {ready && !loadError && (
-    <AdminPanel title="Provider Definitions" eyebrow="Search and filter registered providers">
-      <form class="toolbar" method="GET" action="/admin/console/providers">
-        <label for="q" class="search-label">Search providers</label>
+    <AdminPanel title=”提供者定義” eyebrow=”搜尋及篩選已登錄的提供者”>
+      <form class=”toolbar” method=”GET” action=”/admin/console/providers”>
+        <label for=”q” class=”search-label”>搜尋提供者</label>
         <input
-          id="q"
-          name="q"
-          type="search"
+          id=”q”
+          name=”q”
+          type=”search”
           value={q}
-          class="search-input"
-          placeholder="Search by provider id, category, or name"
+          class=”search-input”
+          placeholder=”依提供者 ID、類別或名稱搜尋”
         />
-        <button type="submit" class="btn-secondary">Search</button>
-        {q && <a href="/admin/console/providers" class="btn-clear">Clear</a>}
+        <button type=”submit” class=”btn-secondary”>搜尋</button>
+        {q && <a href=”/admin/console/providers” class=”btn-clear”>清除</a>}
       </form>
     </AdminPanel>
   )}
 
   {ready && !loadError && providers.length === 0 && (
-    <AdminState tone="empty">{q ? `No providers match "${q}".` : 'No provider definitions registered yet.'}</AdminState>
+    <AdminState tone=”empty”>{q ? `找不到符合「${q}」的提供者。` : '尚無已登錄的提供者。'}</AdminState>
   )}
 
   {ready && !loadError && providers.length > 0 && (
-    <AdminPanel title="Provider Definitions" eyebrow={`${totalCount} total`}>
-      <AdminTable minWidth="840px" flush>
+    <AdminPanel title=”提供者定義” eyebrow={`共 ${totalCount} 筆`}>
+      <AdminTable minWidth=”840px” flush>
         <thead>
           <tr>
-            <th>Provider ID</th>
-            <th>Category</th>
-            <th>Name</th>
-            <th>Current Health</th>
-            <th>1m Success</th>
+            <th>提供者 ID</th>
+            <th>類別</th>
+            <th>名稱</th>
+            <th>目前健康狀態</th>
+            <th>1 分鐘成功率</th>
             <th>EWMA p50</th>
-            <th>Status</th>
+            <th>狀態</th>
           </tr>
         </thead>
         <tbody>
@@ -242,18 +242,18 @@ function healthFor(providerId: string): HealthStat {
             const health = healthFor(provider.provider_id);
             return (
               <tr>
-                <td class="mono">
-                  <a href={`/admin/console/providers/${provider.provider_id}`} class="link">
+                <td class=”mono”>
+                  <a href={`/admin/console/providers/${provider.provider_id}`} class=”link”>
                     {provider.provider_id}
                   </a>
                 </td>
-                <td class="category">{provider.category ?? '—'}</td>
-                <td class="provider-name">{provider.display_name ?? provider.provider_id}</td>
+                <td class=”category”>{provider.category ?? '—'}</td>
+                <td class=”provider-name”>{provider.display_name ?? provider.provider_id}</td>
                 <td>
                   <span class={statusClass(health.state)}>{health.state}</span>
                 </td>
-                <td class="mono">{pct(health.successRate1mPct)}</td>
-                <td class="mono">{ms(health.p50LatencyMs)}</td>
+                <td class=”mono”>{pct(health.successRate1mPct)}</td>
+                <td class=”mono”>{ms(health.p50LatencyMs)}</td>
                 <td>{statusText(provider.is_enabled)}</td>
               </tr>
             );
@@ -262,19 +262,19 @@ function healthFor(providerId: string): HealthStat {
       </AdminTable>
 
       {totalPages > 1 && (
-        <div class="pagination">
-          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
-          <span class="page-info">Page {page} / {totalPages}</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+        <div class=”pagination”>
+          {page > 1 ? <a href={listHref(1)} class=”page-btn”>第一頁</a> : <span class=”page-btn disabled”>第一頁</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class=”page-btn”>上一頁</a> : <span class=”page-btn disabled”>上一頁</span>}
+          <span class=”page-info”>第 {page} / {totalPages} 頁</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class=”page-btn”>下一頁</a> : <span class=”page-btn disabled”>下一頁</span>}
         </div>
       )}
     </AdminPanel>
   )}
 
   {!healthSnapshotAvailable && ready && !loadError && providers.length > 0 && (
-    <AdminState tone="empty">
-      Provider health snapshots table is not available yet; health metrics are shown as “unknown” until migration is applied.
+    <AdminState tone=”empty”>
+      提供者健康快照資料表尚未就緒；健康指標將顯示為「未知」，直到套用資料庫遷移後才會更新。
     </AdminState>
   )}
 </AdminConsoleLayout>

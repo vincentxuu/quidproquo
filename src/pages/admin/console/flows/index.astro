@@ -128,47 +128,47 @@ function categoryLabel(category: string): string {
 }
 ---
 
-<AdminConsoleLayout title="Flows" section="flows">
+<AdminConsoleLayout title="工作流程" section="flows">
   {!ready && (
     <AdminState tone="empty">{`Flows management ships in ${consolePhaseFor('management')}.`}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">Could not load flows.</AdminState>
+    <AdminState tone="error">無法載入工作流程。</AdminState>
   )}
   {ready && !loadError && (
-    <AdminPanel title="Flow Definitions" eyebrow="Search and manage registered flow definitions">
+    <AdminPanel title="工作流程定義" eyebrow="搜尋並管理已登錄的工作流程定義">
       <form class="toolbar" method="GET" action="/admin/console/flows">
-        <label for="q" class="search-label">Search flows</label>
+        <label for="q" class="search-label">搜尋工作流程</label>
         <input
           id="q"
           name="q"
           type="search"
           value={q}
           class="search-input"
-          placeholder="Search by id, name, version"
+          placeholder="依 id、名稱、版本搜尋"
         />
-        <button type="submit" class="btn-secondary">Search</button>
-        {q && <a href="/admin/console/flows" class="btn-clear">Clear</a>}
-        <a href="/admin/console/flows/new" class="btn-secondary">New Flow</a>
+        <button type="submit" class="btn-secondary">搜尋</button>
+        {q && <a href="/admin/console/flows" class="btn-clear">清除</a>}
+        <a href="/admin/console/flows/new" class="btn-secondary">新增工作流程</a>
       </form>
     </AdminPanel>
   )}
   {ready && !loadError && flows.length === 0 && (
     <AdminState tone="empty">
-      {q ? `No flow definitions match "${q}".` : 'No flow definitions registered yet.'}
+      {q ? `沒有符合「${q}」的工作流程定義。` : '尚無已登錄的工作流程定義。'}
     </AdminState>
   )}
   {ready && !loadError && flows.length > 0 && (
-    <AdminPanel title="Flow Definitions">
+    <AdminPanel title="工作流程定義">
       <AdminTable minWidth="640px" flush>
         <thead>
           <tr>
-            <th>Flow ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Version</th>
-            <th>Updated</th>
-            <th>Actions</th>
+            <th>工作流程 ID</th>
+            <th>名稱</th>
+            <th>類別</th>
+            <th>版本</th>
+            <th>更新時間</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
@@ -185,8 +185,8 @@ function categoryLabel(category: string): string {
               <td class="mono">{formatTs(flow.updated_at)}</td>
               <td>
                 <div class="row-actions">
-                  <a href={`/admin/console/flows/${flow.flow_id}`} class="action-link">View</a>
-                  <a href={`/admin/console/flows/${flow.flow_id}/edit`} class="action-link">Edit</a>
+                  <a href={`/admin/console/flows/${flow.flow_id}`} class="action-link">檢視</a>
+                  <a href={`/admin/console/flows/${flow.flow_id}/edit`} class="action-link">編輯</a>
                 </div>
               </td>
             </tr>
@@ -196,10 +196,10 @@ function categoryLabel(category: string): string {
 
       {totalPages > 1 && (
         <div class="pagination">
-          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
-          <span class="page-info">Page {page} / {totalPages}</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+          {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
+          <span class="page-info">第 {page} / {totalPages} 頁</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
         </div>
       )}
     </AdminPanel>

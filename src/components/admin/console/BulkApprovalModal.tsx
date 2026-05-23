@@ -39,7 +39,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
       })
       if (!res.ok) throw new Error(await res.text())
       setRow(approvalId, { status: 'done', decision })
-      success(`${approvalId.slice(0, 8)}… ${decision === 'approve' ? 'approved' : 'rejected'}`)
+      success(`${approvalId.slice(0, 8)}… 已${decision === 'approve' ? '核准' : '拒絕'}`)
     } catch (e) {
       setRow(approvalId, { status: 'error', decision, errorMsg: String(e) })
       toastError(`${approvalId.slice(0, 8)}… failed: ${String(e)}`)
@@ -64,7 +64,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Bulk resolve pending approvals"
+      aria-label="批次處理待審核項目"
       style={{
         position: 'fixed',
         inset: 0,
@@ -97,11 +97,11 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
           }}
         >
           <h2 style={{ margin: 0, fontSize: '1rem', fontWeight: 600 }}>
-            Bulk Resolve — {approvals.length} pending approval{approvals.length !== 1 ? 's' : ''}
+            批次處理 — {approvals.length} 筆待審核項目
           </h2>
           <button
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label="關閉對話框"
             disabled={submitting}
             style={{
               background: 'none',
@@ -119,7 +119,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
         <div style={{ overflowY: 'auto', flex: 1, padding: '0.75rem 1.25rem' }}>
           {approvals.length === 0 ? (
             <p style={{ color: 'var(--color-muted, #6b7280)', margin: '1rem 0' }}>
-              No pending approvals.
+              目前無待審核項目。
             </p>
           ) : (
             <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
@@ -159,7 +159,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                         <button
                           onClick={() => resolveOne(a.approvalId, 'approve')}
                           disabled={submitting}
-                          aria-label={`Approve ${a.approvalId}`}
+                          aria-label={`核准 ${a.approvalId}`}
                           style={{
                             padding: '0.25rem 0.625rem',
                             fontSize: '0.75rem',
@@ -170,12 +170,12 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                             cursor: 'pointer',
                           }}
                         >
-                          Approve
+                          核准
                         </button>
                         <button
                           onClick={() => resolveOne(a.approvalId, 'reject')}
                           disabled={submitting}
-                          aria-label={`Reject ${a.approvalId}`}
+                          aria-label={`拒絕 ${a.approvalId}`}
                           style={{
                             padding: '0.25rem 0.625rem',
                             fontSize: '0.75rem',
@@ -186,14 +186,14 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                             cursor: 'pointer',
                           }}
                         >
-                          Reject
+                          拒絕
                         </button>
                       </div>
                     )}
 
                     {row.status === 'loading' && (
                       <span style={{ fontSize: '0.75rem', color: 'var(--color-muted, #6b7280)', flexShrink: 0 }}>
-                        Resolving…
+                        處理中…
                       </span>
                     )}
 
@@ -206,13 +206,13 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                           flexShrink: 0,
                         }}
                       >
-                        {row.decision === 'approve' ? 'Approved' : 'Rejected'}
+                        {row.decision === 'approve' ? '已核准' : '已拒絕'}
                       </span>
                     )}
 
                     {row.status === 'error' && (
                       <span style={{ fontSize: '0.75rem', color: 'var(--color-error, #dc2626)', flexShrink: 0 }}>
-                        Failed
+                        失敗
                       </span>
                     )}
                   </li>
@@ -243,7 +243,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               cursor: 'pointer',
             }}
           >
-            Cancel
+            關閉
           </button>
           <button
             onClick={() => resolveAll('reject')}
@@ -259,7 +259,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               opacity: submitting || !anyIdle ? 0.5 : 1,
             }}
           >
-            Reject all
+            批次拒絕
           </button>
           <button
             onClick={() => resolveAll('approve')}
@@ -275,7 +275,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               opacity: submitting || !anyIdle ? 0.5 : 1,
             }}
           >
-            Approve all
+            批次核准
           </button>
         </div>
       </div>
@@ -316,7 +316,7 @@ export function PendingApprovalsBannerIsland({ approvals }: PendingApprovalsBann
           fontWeight: 500,
         }}
       >
-        Resolve all
+        批次處理
       </button>
       {open && (
         <BulkApprovalModal

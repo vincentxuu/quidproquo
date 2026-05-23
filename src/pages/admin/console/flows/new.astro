@@ -31,22 +31,22 @@ artifacts: []
 `;
 
 const breadcrumb = [
-  { label: 'Flows', href: '/admin/console/flows' },
-  { label: 'New Flow' },
+  { label: '工作流程', href: '/admin/console/flows' },
+  { label: '新增工作流程' },
 ];
 ---
 
-<AdminConsoleLayout title="New Flow" section="flows" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="新增工作流程" section="flows" breadcrumb={breadcrumb}>
   {!ready && (
     <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
   )}
   {ready && (
     <div class="editor-wrap">
       <p class="editor-hint">
-        Define your new flow in YAML. The <code>id</code> field must be unique across all flows.
+        以 YAML 定義新的工作流程。<code>id</code> 欄位在所有工作流程中必須唯一。
       </p>
       <form id="new-form" autocomplete="off">
-        <label for="yaml-editor" class="editor-label">Flow YAML</label>
+        <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
         <textarea
           id="yaml-editor"
           name="yaml"
@@ -56,8 +56,8 @@ const breadcrumb = [
         >{starterYaml}</textarea>
         <div id="validation-errors" class="validation-errors" aria-live="polite"></div>
         <div class="editor-actions">
-          <button type="button" id="validate-btn" class="btn btn-secondary">Validate</button>
-          <button type="button" id="create-btn" class="btn btn-primary">Create Flow</button>
+          <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
+          <button type="button" id="create-btn" class="btn btn-primary">建立工作流程</button>
           <span id="save-status" class="save-status" aria-live="polite"></span>
         </div>
       </form>
@@ -93,7 +93,7 @@ const breadcrumb = [
 
   async function doValidate(): Promise<boolean> {
     const yaml = textarea?.value ?? '';
-    setStatus('Validating…', '');
+    setStatus('驗證中…', '');
     setErrors([]);
     try {
       const res = await fetch('/api/admin/flows/validate', {
@@ -103,11 +103,11 @@ const breadcrumb = [
       });
       const data = await res.json() as { valid: boolean; errors?: Array<{ path: string; message: string }> };
       if (data.valid) {
-        setStatus('Valid', 'ok');
+        setStatus('驗證通過', 'ok');
         setErrors([]);
       } else {
         setStatus('', '');
-        setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+        setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
       }
       return data.valid;
     } catch (err) {
@@ -121,7 +121,7 @@ const breadcrumb = [
 
   createBtn?.addEventListener('click', async () => {
     const yaml = textarea?.value ?? '';
-    setStatus('Creating…', '');
+    setStatus('建立中…', '');
     setErrors([]);
     try {
       const res = await fetch('/api/admin/flows', {
@@ -131,14 +131,14 @@ const breadcrumb = [
       });
       const data = await res.json() as { flowId?: string; error?: string; errors?: Array<{ path: string; message: string }> };
       if (res.ok && data.flowId) {
-        setStatus('Created! Redirecting…', 'ok');
+        setStatus('已建立！正在跳轉…', 'ok');
         window.location.href = `/admin/console/flows/${data.flowId}/edit`;
       } else if (data.errors) {
         setStatus('', '');
         setErrors(data.errors);
       } else {
         setStatus('', '');
-        setErrors([{ path: '(server)', message: data.error ?? 'Create failed' }]);
+        setErrors([{ path: '(server)', message: data.error ?? '建立失敗' }]);
       }
     } catch (err) {
       setErrors([{ path: '(network)', message: String(err) }]);

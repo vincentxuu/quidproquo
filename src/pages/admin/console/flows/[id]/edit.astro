@@ -43,26 +43,26 @@ if (ready && flowId) {
 }
 
 const breadcrumb = [
-  { label: 'Flows', href: '/admin/console/flows' },
+  { label: '工作流程', href: '/admin/console/flows' },
   { label: flowName, href: `/admin/console/flows/${flowId}` },
-  { label: 'Edit' },
+  { label: '編輯' },
 ];
 ---
 
-<AdminConsoleLayout title="Edit Flow" section="management" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="編輯工作流程" section="management" breadcrumb={breadcrumb}>
   {!ready && (
     <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">Could not load flow.</AdminState>}
+  {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
   {ready && !loadError && (
     <div class="editor-wrap">
       <div class="editor-toolbar">
-        <button type="button" id="toggle-view-btn" class="btn btn-secondary">View as Graph</button>
+        <button type="button" id="toggle-view-btn" class="btn btn-secondary">以圖形檢視</button>
       </div>
 
       <div id="yaml-editor-panel">
         <form id="edit-form" autocomplete="off">
-          <label for="yaml-editor" class="editor-label">Flow YAML</label>
+          <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
           <textarea
             id="yaml-editor"
             name="yaml"
@@ -72,8 +72,8 @@ const breadcrumb = [
           >{definitionYaml}</textarea>
           <div id="error-panel" class="error-panel hidden" aria-live="polite"></div>
           <div class="editor-actions">
-            <button type="button" id="validate-btn" class="btn btn-secondary">Validate</button>
-            <button type="button" id="save-btn" class="btn btn-primary">Save</button>
+            <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
+            <button type="button" id="save-btn" class="btn btn-primary">儲存</button>
             <span id="save-status" class="save-status" aria-live="polite"></span>
           </div>
         </form>
@@ -148,15 +148,15 @@ const breadcrumb = [
 
   async function handleValidateClick() {
     const yaml = textarea?.value ?? '';
-    setStatus('Validating…', '');
+    setStatus('驗證中…', '');
     setErrors([]);
     const data = await doValidate(yaml);
     if (data.valid) {
-      setStatus('Valid', 'ok');
+      setStatus('驗證通過', 'ok');
       setErrors([]);
     } else {
       setStatus('', '');
-      setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+      setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
     }
     return data.valid;
   }
@@ -181,7 +181,7 @@ const breadcrumb = [
   // ── save ─────────────────────────────────────────────────────────────────────
 
   async function saveYaml(yaml) {
-    setStatus('Saving…', '');
+    setStatus('儲存中…', '');
     setErrors([]);
     try {
       const res = await fetch(`/api/admin/flows/${flowId}/version`, {
@@ -199,7 +199,7 @@ const breadcrumb = [
         setErrors(data.errors);
       } else {
         setStatus('', '');
-        setErrors([{ path: '(server)', message: data.error ?? 'Save failed' }]);
+        setErrors([{ path: '(server)', message: data.error ?? '儲存失敗' }]);
       }
     } catch (err) {
       setErrors([{ path: '(network)', message: String(err) }]);
@@ -220,17 +220,17 @@ const breadcrumb = [
       const data = await doValidate(yaml);
       if (!data.valid) {
         setErrors(data.errors ?? []);
-        setStatus('Fix errors before switching to graph view.', '');
+        setStatus('請先修正錯誤再切換至圖形檢視。', '');
         return;
       }
       isVisual = true;
-      toggleBtn.textContent = 'View as YAML';
+      toggleBtn.textContent = '以 YAML 檢視';
       yamlPanel?.classList.add('hidden');
       visualPanel?.classList.remove('hidden');
     } else {
       // Switch back to YAML
       isVisual = false;
-      toggleBtn.textContent = 'View as Graph';
+      toggleBtn.textContent = '以圖形檢視';
       visualPanel?.classList.add('hidden');
       yamlPanel?.classList.remove('hidden');
     }

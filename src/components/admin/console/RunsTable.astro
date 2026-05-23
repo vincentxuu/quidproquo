@@ -30,12 +30,12 @@ function fmtCost(usd: number): string {
 <table class="runs-table admin-panel">
   <thead>
     <tr>
-      <th scope="col">Run ID</th>
-      <th scope="col">Status</th>
-      <th scope="col">Started</th>
-      <th scope="col">Finished</th>
-      <th scope="col">Cost</th>
-      <th scope="col">Tokens</th>
+      <th scope="col">執行 ID</th>
+      <th scope="col">狀態</th>
+      <th scope="col">開始時間</th>
+      <th scope="col">結束時間</th>
+      <th scope="col">費用</th>
+      <th scope="col">輸出入 Tokens</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -53,7 +53,7 @@ function fmtCost(usd: number): string {
         <td>{fmtCost(run.costUsd)}</td>
         <td class="tokens">{run.tokensIn + run.tokensOut > 0 ? `${run.tokensIn}↑ ${run.tokensOut}↓` : '—'}</td>
         <td class="actions">
-          <a href={`/admin/console/runs/${run.runId}`}>View</a>
+          <a href={`/admin/console/runs/${run.runId}`}>檢視</a>
         </td>
       </tr>
     ))}

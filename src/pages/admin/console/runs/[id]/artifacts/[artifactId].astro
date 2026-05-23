@@ -263,7 +263,7 @@ const currentVersionId = targetVersion?.version_id ?? '';
 const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
 ---
 
-<AdminConsoleLayout title="Artifact Viewer" section="artifacts" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="產出物檢視器" section="artifacts" breadcrumb={breadcrumb}>
   {!ready && (
     <AdminState tone="empty">
       {`Artifact viewer ships in ${consolePhaseFor('artifactViewer')}.`}
@@ -277,7 +277,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
   )}
 
   {ready && !backendUnavailable && loadError && (
-    <AdminState tone="error">Could not load artifact.</AdminState>
+    <AdminState tone="error">無法載入產出物。</AdminState>
   )}
 
   {ready && !backendUnavailable && !loadError && artifactMissing && (
@@ -296,21 +296,21 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
         </div>
 
         <div class="artifact-actions" data-version-id={currentVersionId}>
-          <button type="button" class="action-btn approve" data-artifact-action="approved">Approve</button>
-          <button type="button" class="action-btn reject" data-artifact-action="rejected">Reject</button>
-          <label for="export-destination" class="version-label">Export</label>
+          <button type="button" class="action-btn approve" data-artifact-action="approved">核准</button>
+          <button type="button" class="action-btn reject" data-artifact-action="rejected">拒絕</button>
+          <label for="export-destination" class="version-label">匯出</label>
           <select id="export-destination" class="version-select">
             {exportDestinations.map((destination) => (
               <option value={destination}>{destination}</option>
             ))}
           </select>
-          <button type="button" class="action-btn export" data-export-action>Export</button>
+          <button type="button" class="action-btn export" data-export-action>匯出</button>
         </div>
 
         {/* Version dropdown */}
         {versions.length > 1 && (
           <div class="version-controls">
-            <label for="version-select" class="version-label">Version</label>
+            <label for="version-select" class="version-label">版本</label>
             <select
               id="version-select"
               class="version-select"
@@ -322,14 +322,14 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
                   selected={v.version_number === currentVersionNumber}
                 >
                   v{v.version_number} — {v.approval_status}
-                  {v.version_number === versions[0].version_number ? ' (latest)' : ''}
+                  {v.version_number === versions[0].version_number ? ' (最新)' : ''}
                 </option>
               ))}
             </select>
 
             {/* Diff control */}
             {currentVersionNumber !== null && versions.length > 1 && (
-              <label for="diff-select" class="version-label">Diff against</label>
+              <label for="diff-select" class="version-label">比對版本</label>
             )}
             {currentVersionNumber !== null && versions.length > 1 && (
               <select
@@ -337,7 +337,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
                 class="version-select"
                 onchange={`if(this.value){location.href='?version=${currentVersionNumber}&diff='+this.value}else{location.href='?version=${currentVersionNumber}'}`}
               >
-                <option value="">— none —</option>
+                <option value="">— 無 —</option>
                 {versions.filter((v) => v.version_number !== currentVersionNumber).map((v) => (
                   <option value={String(v.version_number)} selected={v.version_number === diffM}>
                     v{v.version_number}
@@ -353,7 +353,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
       {isDiffMode && (
         <section class="artifact-section" aria-label="Diff view">
           <h3 class="section-title">
-            Diff: v{diffM} → v{currentVersionNumber}
+            差異比對：v{diffM} → v{currentVersionNumber}
           </h3>
           <pre class="diff"><code>{diffLines.map((line) => {
             const prefix = line.tag === 'add' ? '+ ' : line.tag === 'del' ? '- ' : '  ';
@@ -375,14 +375,14 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
             <table class="artifact-table">
               <thead>
                 <tr>
-                  <th>Field</th>
-                  <th>Value</th>
+                  <th>欄位</th>
+                  <th>值</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Sources</td><td>{evidenceData.sources ?? '—'}</td></tr>
-                <tr><td>Claims count</td><td>{evidenceData.claims_count ?? '—'}</td></tr>
-                <tr><td>Conflicts count</td><td>{evidenceData.conflicts_count ?? '—'}</td></tr>
+                <tr><td>來源數</td><td>{evidenceData.sources ?? '—'}</td></tr>
+                <tr><td>聲明數</td><td>{evidenceData.claims_count ?? '—'}</td></tr>
+                <tr><td>衝突數</td><td>{evidenceData.conflicts_count ?? '—'}</td></tr>
               </tbody>
             </table>
           ) : (
@@ -418,7 +418,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
               </table>
             </div>
           ) : (
-            <AdminState tone="empty">Empty CSV.</AdminState>
+            <AdminState tone="empty">CSV 檔案為空。</AdminState>
           )}
         </section>
       )}
@@ -432,15 +432,15 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
       {/* Section list for multi-section artifacts */}
       {!isDiffMode && sections.length > 1 && kind !== 'csv_spreadsheet' && (
         <section class="artifact-section" aria-label="Sections">
-          <h3 class="section-title">Sections ({sections.length})</h3>
+          <h3 class="section-title">區段 ({sections.length})</h3>
           <table class="artifact-table">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Key</th>
-                <th>Heading</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th>標題</th>
+                <th>狀態</th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody>
@@ -452,8 +452,8 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
                   <td><span class="section-status">{s.approval_status}</span></td>
                   <td>
                     <div class="section-actions">
-                      <button type="button" class="mini-action" data-section-action="approved">Approve</button>
-                      <button type="button" class="mini-action" data-section-action="rejected">Reject</button>
+                      <button type="button" class="mini-action" data-section-action="approved">核准</button>
+                      <button type="button" class="mini-action" data-section-action="rejected">拒絕</button>
                     </div>
                   </td>
                 </tr>
@@ -484,7 +484,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
 
   async function updateVersionStatus(status) {
     if (!currentVersionId) return;
-    setActionStatus('Updating artifact status...');
+    setActionStatus('正在更新產出物狀態…');
     const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -492,7 +492,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      setActionStatus(data.error || 'Could not update artifact status', 'error');
+      setActionStatus(data.error || '無法更新產出物狀態', 'error');
       return;
     }
     if (statusEl) statusEl.textContent = status;
@@ -501,7 +501,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
 
   async function updateSectionStatus(sectionId, status) {
     if (!currentVersionId) return;
-    setActionStatus('Updating section status...');
+    setActionStatus('正在更新區段狀態…');
     const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -509,7 +509,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      setActionStatus(data.error || 'Could not update section status', 'error');
+      setActionStatus(data.error || '無法更新區段狀態', 'error');
       return;
     }
     const row = document.querySelector(`[data-section-id="${CSS.escape(sectionId)}"]`);

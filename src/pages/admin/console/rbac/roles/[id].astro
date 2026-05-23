@@ -15,8 +15,8 @@ const ready = isPageEnabled('rbac');
 const roleId = Astro.params.id ?? '';
 
 const breadcrumb = [
-  { label: 'RBAC', href: '/admin/console/rbac?tab=roles' },
-  { label: `Role ${roleId}` },
+  { label: '權限管理', href: '/admin/console/rbac?tab=roles' },
+  { label: `角色 ${roleId}` },
 ];
 
 interface RoleRow {
@@ -66,48 +66,48 @@ if (ready && roleId) {
 }
 ---
 
-<AdminConsoleLayout title={role ? `Role: ${role.name}` : `Role ${roleId}`} section="rbac" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={role ? `角色：${role.name}` : `角色 ${roleId}`} section="rbac" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
   )}
   {ready && !roleId && (
-    <AdminState tone="error">No role ID specified.</AdminState>
+    <AdminState tone="error">未指定角色 ID。</AdminState>
   )}
   {ready && roleId && loadError && (
-    <AdminState tone="error">Could not load role data.</AdminState>
+    <AdminState tone="error">無法載入角色資料。</AdminState>
   )}
   {ready && roleId && !loadError && !role && (
-    <AdminState tone="error">Role not found.</AdminState>
+    <AdminState tone="error">找不到該角色。</AdminState>
   )}
   {ready && roleId && !loadError && role && (
     <div class="role-detail">
 
-      <AdminPanel title="Role Info">
+      <AdminPanel title="角色資訊">
         <div class="info-grid">
           <div class="info-row">
-            <span class="info-label">Role ID</span>
+            <span class="info-label">角色 ID</span>
             <code>{role.role_id}</code>
           </div>
           <div class="info-row">
-            <span class="info-label">Name</span>
+            <span class="info-label">名稱</span>
             <code>{role.name}</code>
           </div>
           <div class="info-row">
-            <span class="info-label">Description</span>
+            <span class="info-label">描述</span>
             <span class="muted">{role.description ?? '—'}</span>
           </div>
         </div>
       </AdminPanel>
 
-      <AdminPanel title="Permissions" eyebrow={`${permissions.length} permission${permissions.length !== 1 ? 's' : ''}`}>
+      <AdminPanel title="權限" eyebrow={`共 ${permissions.length} 項權限`}>
         {permissions.length === 0 ? (
-          <AdminState tone="empty">No permissions assigned to this role.</AdminState>
+          <AdminState tone="empty">此角色尚未指派任何權限。</AdminState>
         ) : (
           <AdminTable minWidth="480px" flush>
             <thead>
               <tr>
-                <th>Resource Kind</th>
-                <th>Action</th>
+                <th>資源類型</th>
+                <th>操作</th>
                 <th>Resource ID</th>
               </tr>
             </thead>
@@ -124,14 +124,14 @@ if (ready && roleId) {
         )}
       </AdminPanel>
 
-      <AdminPanel title="Add Permission" eyebrow="Grant a new permission to this role">
+      <AdminPanel title="新增權限" eyebrow="授予此角色新的權限">
         <form
           method="POST"
           action={`/api/admin/console/rbac/roles/${roleId}/permissions`}
           class="add-perm-form"
         >
           <div class="form-row">
-            <label for="resource_kind" class="form-label">Resource kind</label>
+            <label for="resource_kind" class="form-label">資源類型</label>
             <select id="resource_kind" name="resource_kind" class="form-select">
               {RESOURCE_KINDS.map((k) => (
                 <option value={k}>{k}</option>
@@ -139,7 +139,7 @@ if (ready && roleId) {
             </select>
           </div>
           <div class="form-row">
-            <label for="action" class="form-label">Action</label>
+            <label for="action" class="form-label">操作</label>
             <select id="action" name="action" class="form-select">
               {ACTIONS.map((a) => (
                 <option value={a}>{a}</option>
@@ -147,18 +147,18 @@ if (ready && roleId) {
             </select>
           </div>
           <div class="form-row">
-            <label for="resource_id" class="form-label">Resource ID <span class="optional">(optional, leave blank for wildcard)</span></label>
+            <label for="resource_id" class="form-label">Resource ID <span class="optional">（選填，留空表示萬用字元）</span></label>
             <input
               id="resource_id"
               type="text"
               name="resource_id"
               class="form-input"
-              placeholder="* (wildcard)"
+              placeholder="* (萬用字元)"
               autocomplete="off"
             />
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn-primary">Add permission</button>
+            <button type="submit" class="btn-primary">新增權限</button>
           </div>
         </form>
       </AdminPanel>
