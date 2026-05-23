@@ -6,7 +6,7 @@ const FlowInputSchema = z.object({
   type: z.string().min(1),
   required: z.boolean().optional(),
   default: z.unknown().optional(),
-})
+}).passthrough()
 
 const FlowStepSchema = z.object({
   id: z.string().min(1),
@@ -23,7 +23,12 @@ const FlowArtifactSchema = z.object({
   id: z.string().min(1),
   type: z.string().min(1),
   description: z.string().optional(),
-})
+}).passthrough()
+
+const FlowArtifactRefSchema = z.object({
+  kind: z.string().min(1),
+  step: z.string().min(1),
+}).passthrough()
 
 const FlowArtifactBindingSchema = z.object({
   stepId: z.string().min(1),
@@ -44,7 +49,7 @@ const FlowDefinitionSchema = z.object({
   inputs: z.array(FlowInputSchema).default([]),
   steps: z.array(FlowStepSchema).min(1, 'Flow must have at least one step'),
   edges: z.array(FlowEdgeSchema).default([]),
-  artifacts: z.array(FlowArtifactSchema).default([]),
+  artifacts: z.array(z.union([FlowArtifactSchema, FlowArtifactRefSchema])).default([]),
   artifactBindings: z.array(FlowArtifactBindingSchema).optional(),
   durable: z.boolean().optional(),
   retry: FlowRetrySchema.optional(),
@@ -61,7 +66,7 @@ export interface ValidationError {
  * Returns the typed FlowDefinition on success, throws ValidationError[] on failure.
  */
 export function validateFlowSchema(raw: unknown): FlowDefinition {
-  const result = FlowDefinitionSchema.safeParse(raw)
+  const result = FlowDefinitionSchema.safeParse(normalizeFlowShape(raw))
   if (!result.success) {
     const errors: ValidationError[] = result.error.issues.map((issue) => ({
       path: issue.path.join('.') || '(root)',
@@ -78,7 +83,7 @@ export function validateFlowSchema(raw: unknown): FlowDefinition {
  * Try to validate without throwing. Returns errors array (empty = valid).
  */
 export function tryValidateFlowSchema(raw: unknown): ValidationError[] {
-  const result = FlowDefinitionSchema.safeParse(raw)
+  const result = FlowDefinitionSchema.safeParse(normalizeFlowShape(raw))
   if (!result.success) {
     return result.error.issues.map((issue) => ({
       path: issue.path.join('.') || '(root)',
@@ -86,6 +91,66 @@ export function tryValidateFlowSchema(raw: unknown): ValidationError[] {
     }))
   }
   return []
+}
+
+function normalizeFlowShape(raw: unknown): unknown {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return raw
+
+  const source = raw as Record<string, unknown>
+  return {
+    ...source,
+    inputs: normalizeNamedMap(source.inputs),
+    steps: normalizeStepList(source.steps),
+    artifacts: normalizeArtifactList(source.artifacts),
+  }
+}
+
+function normalizeNamedMap(value: unknown): unknown {
+  if (Array.isArray(value)) return value
+  if (!value || typeof value !== 'object') return value
+  return Object.entries(value as Record<string, unknown>).map(([name, config]) => {
+    if (!config || typeof config !== 'object' || Array.isArray(config)) {
+      return { name, type: 'string', default: config }
+    }
+    return { name, ...(config as Record<string, unknown>) }
+  })
+}
+
+function normalizeStepList(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map((step) => normalizeStep(step))
+  }
+  if (!value || typeof value !== 'object') return value
+  return Object.entries(value as Record<string, unknown>).map(([id, config]) => {
+    if (!config || typeof config !== 'object' || Array.isArray(config)) {
+      return { id, type: 'transform', value: config }
+    }
+    return normalizeStep({ id, ...(config as Record<string, unknown>) })
+  })
+}
+
+function normalizeStep(step: unknown): unknown {
+  if (!step || typeof step !== 'object' || Array.isArray(step)) return step
+  const obj = step as Record<string, unknown>
+  return {
+    ...obj,
+    type: typeof obj.type === 'string' ? obj.type : obj.kind,
+  }
+}
+
+function normalizeArtifactList(value: unknown): unknown {
+  if (!Array.isArray(value)) return value
+  return value.map((artifact) => {
+    if (!artifact || typeof artifact !== 'object' || Array.isArray(artifact)) return artifact
+    const obj = artifact as Record<string, unknown>
+    if (typeof obj.step === 'string' && typeof obj.kind === 'string' && obj.id === undefined) {
+      return obj
+    }
+    return {
+      ...obj,
+      type: typeof obj.type === 'string' ? obj.type : obj.kind,
+    }
+  })
 }
 
 /**

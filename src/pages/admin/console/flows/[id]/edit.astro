@@ -18,6 +18,10 @@ let definitionYaml = '';
 let definitionJson = '{}';
 let flowName = flowId;
 let loadError = false;
+let flowVersion = 1;
+let stepCount = 0;
+let edgeCount = 0;
+let inputCount = 0;
 
 if (ready && flowId) {
   try {
@@ -25,15 +29,18 @@ if (ready && flowId) {
     if (detail) {
       definitionYaml = detail.versions[0]?.yaml ?? '';
       flowName = detail.definition.name;
-      // Build a minimal JSON representation for the visual editor
       const def = detail.definition;
+      flowVersion = def.version;
+      stepCount = def.steps.length;
+      edgeCount = def.edges.length;
+      inputCount = def.inputs.length;
       definitionJson = JSON.stringify({
         id: def.id,
         name: def.name,
         version: def.version,
         description: def.description ?? '',
-        steps: def.inputs ? [] : [],
-        edges: [],
+        steps: def.steps,
+        edges: def.edges,
         inputs: def.inputs ?? [],
       });
     }
@@ -57,25 +64,44 @@ const breadcrumb = [
   {ready && !loadError && (
     <div class="editor-wrap">
       <div class="editor-toolbar">
-        <button type="button" id="toggle-view-btn" class="btn btn-secondary">以圖形檢視</button>
+        <div class="editor-title-block">
+          <h2>{flowName}</h2>
+          <div class="editor-meta">
+            <span>v{flowVersion}</span>
+            <span>{stepCount} steps</span>
+            <span>{edgeCount} edges</span>
+            <span>{inputCount} inputs</span>
+          </div>
+        </div>
+        <div class="toolbar-actions">
+          <select id="snippet-select" class="snippet-select" aria-label="插入片段">
+            <option value="">插入片段</option>
+            <option value="agent">Agent step</option>
+            <option value="tool_group">Tool group</option>
+            <option value="approval">Approval gate</option>
+            <option value="edge">Edge</option>
+          </select>
+          <button type="button" id="copy-btn" class="btn btn-secondary">複製</button>
+          <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
+          <button type="button" id="toggle-view-btn" class="btn btn-secondary">圖形檢視</button>
+          <button type="button" id="save-btn" class="btn btn-primary">儲存</button>
+        </div>
       </div>
 
       <div id="yaml-editor-panel">
         <form id="edit-form" autocomplete="off">
-          <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
+          <div class="status-row">
+            <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
+            <span id="save-status" class="save-status" aria-live="polite">尚未修改</span>
+          </div>
           <textarea
             id="yaml-editor"
             name="yaml"
-            rows={40}
+            rows={34}
             spellcheck={false}
             class="yaml-textarea"
           >{definitionYaml}</textarea>
           <div id="error-panel" class="error-panel hidden" aria-live="polite"></div>
-          <div class="editor-actions">
-            <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
-            <button type="button" id="save-btn" class="btn btn-primary">儲存</button>
-            <span id="save-status" class="save-status" aria-live="polite"></span>
-          </div>
         </form>
       </div>
 
@@ -98,13 +124,52 @@ const breadcrumb = [
   const validateBtn = document.getElementById('validate-btn');
   const saveBtn = document.getElementById('save-btn');
   const toggleBtn = document.getElementById('toggle-view-btn');
+  const copyBtn = document.getElementById('copy-btn');
+  const snippetSelect = document.getElementById('snippet-select');
   const yamlPanel = document.getElementById('yaml-editor-panel');
   const visualPanel = document.getElementById('visual-editor');
 
   let isVisual = false;
   let debounceTimer = null;
+  let lastSavedYaml = textarea?.value ?? '';
+  const snippets = {
+    agent: [
+      '  - id: new_agent_step',
+      '    type: agent',
+      '    agent: planner',
+      '    description: Describe what this agent should do.',
+      '',
+    ].join('\n'),
+    tool_group: [
+      '  - id: new_tool_group',
+      '    type: tool_group',
+      '    tools: [search.tavily]',
+      '    description: Describe which tools this step should call.',
+      '',
+    ].join('\n'),
+    approval: [
+      '  - id: approval_gate',
+      '    type: approval',
+      '    description: Review the intermediate output before continuing.',
+      '',
+    ].join('\n'),
+    edge: [
+      '  - from: previous_step',
+      '    to: next_step',
+      '',
+    ].join('\n'),
+  };
 
   // ── error panel ──────────────────────────────────────────────────────────────
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
 
   function setErrors(errors) {
     if (!errorPanel) return;
@@ -119,7 +184,7 @@ const breadcrumb = [
     errorPanel.classList.add('has-errors');
     if (textarea) textarea.classList.add('has-errors');
     errorPanel.innerHTML = '<ul>' + errors
-      .map((e) => `<li><strong>${e.path}</strong>: ${e.message}</li>`)
+      .map((e) => `<li><strong>${escapeHtml(e.path)}</strong>: ${escapeHtml(e.message)}</li>`)
       .join('') + '</ul>';
   }
 
@@ -127,6 +192,26 @@ const breadcrumb = [
     if (!saveStatus) return;
     saveStatus.textContent = msg;
     saveStatus.className = 'save-status ' + (tone ?? '');
+  }
+
+  function refreshDirtyState() {
+    const yaml = textarea?.value ?? '';
+    if (yaml === lastSavedYaml) {
+      setStatus('尚未修改', '');
+      return;
+    }
+    setStatus('有未儲存變更', 'dirty');
+  }
+
+  function insertAtCursor(value) {
+    if (!textarea) return;
+    const start = textarea.selectionStart ?? textarea.value.length;
+    const end = textarea.selectionEnd ?? start;
+    textarea.value = textarea.value.slice(0, start) + value + textarea.value.slice(end);
+    textarea.selectionStart = start;
+    textarea.selectionEnd = start + value.length;
+    textarea.focus();
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
   // ── validate ─────────────────────────────────────────────────────────────────
@@ -166,6 +251,7 @@ const breadcrumb = [
   // ── debounced validation on textarea input ────────────────────────────────────
 
   textarea?.addEventListener('input', () => {
+    refreshDirtyState();
     if (debounceTimer) clearTimeout(debounceTimer);
     debounceTimer = setTimeout(async () => {
       const yaml = textarea?.value ?? '';
@@ -191,6 +277,7 @@ const breadcrumb = [
       });
       const data = await res.json();
       if (res.ok) {
+        lastSavedYaml = yaml;
         setStatus(`Saved as v${data.version}`, 'ok');
         setErrors([]);
         setTimeout(() => { window.location.href = `/admin/console/flows/${flowId}`; }, 800);
@@ -211,6 +298,29 @@ const breadcrumb = [
     saveYaml(textarea?.value ?? '');
   });
 
+  copyBtn?.addEventListener('click', async () => {
+    const yaml = textarea?.value ?? '';
+    try {
+      await navigator.clipboard.writeText(yaml);
+      setStatus('已複製 YAML', 'ok');
+      setTimeout(refreshDirtyState, 1000);
+    } catch (err) {
+      setStatus('複製失敗', '');
+    }
+  });
+
+  snippetSelect?.addEventListener('change', () => {
+    const key = snippetSelect.value;
+    if (key && snippets[key]) insertAtCursor(snippets[key]);
+    snippetSelect.value = '';
+  });
+
+  textarea?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    event.preventDefault();
+    insertAtCursor('  ');
+  });
+
   // ── toggle: YAML ↔ Graph ──────────────────────────────────────────────────────
 
   toggleBtn?.addEventListener('click', async () => {
@@ -224,16 +334,22 @@ const breadcrumb = [
         return;
       }
       isVisual = true;
-      toggleBtn.textContent = '以 YAML 檢視';
+      toggleBtn.textContent = 'YAML 檢視';
       yamlPanel?.classList.add('hidden');
       visualPanel?.classList.remove('hidden');
     } else {
       // Switch back to YAML
       isVisual = false;
-      toggleBtn.textContent = '以圖形檢視';
+      toggleBtn.textContent = '圖形檢視';
       visualPanel?.classList.add('hidden');
       yamlPanel?.classList.remove('hidden');
     }
+  });
+
+  window.addEventListener('beforeunload', (event) => {
+    if ((textarea?.value ?? '') === lastSavedYaml) return;
+    event.preventDefault();
+    event.returnValue = '';
   });
 </script>
 
@@ -241,22 +357,69 @@ const breadcrumb = [
   .editor-wrap {
     display: grid;
     gap: 0.75rem;
-    max-width: 900px;
+    max-width: min(1180px, 100%);
   }
   .editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 0.75rem;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 0.65rem 0;
+    background: var(--admin-bg);
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .editor-title-block {
+    min-width: 220px;
+  }
+  .editor-title-block h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: var(--admin-text);
+  }
+  .editor-meta {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+    color: var(--admin-text-muted);
+    font-size: 0.78rem;
+  }
+  .toolbar-actions {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .snippet-select {
+    min-height: 34px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 0.35rem 0.55rem;
+    font-size: 0.82rem;
   }
   .hidden {
     display: none !important;
+  }
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 0.35rem;
   }
   .editor-label {
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--admin-text-soft);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0;
   }
   .yaml-textarea {
     width: 100%;
@@ -266,7 +429,8 @@ const breadcrumb = [
     padding: 0.75rem;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
-    background: var(--admin-bg);
+    min-height: min(72vh, 820px);
+    background: var(--admin-surface);
     color: var(--admin-text);
     resize: vertical;
     tab-size: 2;
@@ -284,6 +448,7 @@ const breadcrumb = [
     border-color: #fca5a5;
   }
   .error-panel {
+    margin-top: 0.65rem;
     padding: 0.6rem 0.75rem;
     border-radius: var(--admin-radius);
   }
@@ -299,12 +464,6 @@ const breadcrumb = [
   }
   .error-panel li {
     margin-bottom: 0.2rem;
-  }
-  .editor-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
   }
   .btn {
     display: inline-block;
@@ -339,6 +498,10 @@ const breadcrumb = [
   }
   .save-status.ok {
     color: #16a34a;
+    font-weight: 600;
+  }
+  .save-status.dirty {
+    color: #b45309;
     font-weight: 600;
   }
   #visual-editor {

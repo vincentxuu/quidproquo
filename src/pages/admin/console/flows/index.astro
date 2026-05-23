@@ -5,6 +5,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
+import { ensureConsoleBootstrap } from '@/lib/agent-console/bootstrap';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -37,7 +38,9 @@ let totalCount = 0;
 
 if (ready) {
   try {
-    const db = getEnv().DB;
+    const env = getEnv();
+    await ensureConsoleBootstrap(env);
+    const db = env.DB;
     const where = q
       ? `WHERE fd.flow_id LIKE ? OR fd.display_name LIKE ? OR CAST(fd.current_version AS TEXT) LIKE ?`
       : '';
