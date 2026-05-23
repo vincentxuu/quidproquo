@@ -1,0 +1,99 @@
+---
+import type { RunListRow } from '@/lib/agent-console/runs-list'
+
+interface Props {
+  runs: RunListRow[]
+}
+
+const { runs } = Astro.props
+
+const statusColors: Record<string, string> = {
+  succeeded: 'var(--color-success)',
+  failed: 'var(--color-error)',
+  running: 'var(--color-accent)',
+  queued: 'var(--color-muted)',
+  cancelled: 'var(--color-muted)',
+  done: 'var(--color-success)',
+}
+
+function fmtDate(ts: number | null): string {
+  if (!ts) return '—'
+  return new Date(ts).toLocaleString('zh-TW', { dateStyle: 'short', timeStyle: 'short' })
+}
+
+function fmtCost(usd: number): string {
+  if (!usd) return '—'
+  return `$${usd.toFixed(4)}`
+}
+---
+
+<table class="runs-table admin-panel">
+  <thead>
+    <tr>
+      <th scope="col">Run ID</th>
+      <th scope="col">Status</th>
+      <th scope="col">Started</th>
+      <th scope="col">Finished</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Tokens</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {runs.map((run) => (
+      <tr>
+        <td><code>{run.runId.slice(0, 8)}</code></td>
+        <td>
+          <span class="status" style={`color: ${statusColors[run.status] ?? 'var(--color-muted)'}`}>
+            {run.status}
+          </span>
+        </td>
+        <td>{fmtDate(run.startedAt)}</td>
+        <td>{fmtDate(run.finishedAt)}</td>
+        <td>{fmtCost(run.costUsd)}</td>
+        <td class="tokens">{run.tokensIn + run.tokensOut > 0 ? `${run.tokensIn}↑ ${run.tokensOut}↓` : '—'}</td>
+        <td class="actions">
+          <a href={`/admin/console/runs/${run.runId}`}>View</a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .runs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .runs-table th,
+  .runs-table td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .runs-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .runs-table tbody tr:hover {
+    background: var(--admin-surface-subtle);
+  }
+  .runs-table .status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .runs-table .tokens {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+  .runs-table .actions a {
+    color: var(--admin-accent);
+    text-decoration: none;
+  }
+</style>
