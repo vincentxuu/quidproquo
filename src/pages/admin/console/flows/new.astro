@@ -21,7 +21,8 @@ inputs:
 steps:
   - id: start
     type: agent
-    agentId: planner
+    agent: planner
+    description: Plan from the provided topic.
     input:
       topic: "{{ inputs.topic }}"
 edges:
@@ -41,59 +42,420 @@ const breadcrumb = [
     <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
   )}
   {ready && (
-    <div class="editor-wrap">
-      <p class="editor-hint">
-        以 YAML 定義新的工作流程。<code>id</code> 欄位在所有工作流程中必須唯一。
-      </p>
-      <form id="new-form" autocomplete="off">
-        <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
+    <form id="new-form" autocomplete="off" class="builder-shell">
+      <section class="setup-panel" aria-labelledby="setup-title">
+        <div class="panel-heading">
+          <span class="eyebrow">Setup</span>
+          <h2 id="setup-title">建立設定</h2>
+        </div>
+
+        <div class="field">
+          <label for="template-select">範本</label>
+          <select id="template-select" class="field-control">
+            <option value="single-agent">Single agent</option>
+            <option value="research">Research flow</option>
+            <option value="approval">Approval gate</option>
+            <option value="blank">Blank flow</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="flow-id">Flow ID <span class="required">必填</span></label>
+          <input id="flow-id" class="field-control mono" value="my-new-flow" spellcheck={false} />
+        </div>
+
+        <div class="field">
+          <label for="flow-name">名稱</label>
+          <input id="flow-name" class="field-control" value="New Flow" />
+        </div>
+
+        <div class="field">
+          <label for="flow-version">版本</label>
+          <input id="flow-version" class="field-control" type="number" min="1" step="1" value="1" />
+        </div>
+
+        <div class="field">
+          <label for="flow-description">描述</label>
+          <textarea id="flow-description" class="field-control description-field" rows="4">Describe your flow here</textarea>
+        </div>
+      </section>
+
+      <section class="editor-panel" aria-labelledby="editor-title">
+        <div class="editor-toolbar">
+          <div class="editor-title-block">
+            <span class="eyebrow">Definition</span>
+            <h2 id="editor-title">工作流程 YAML</h2>
+          </div>
+          <div class="toolbar-actions">
+            <select id="snippet-select" class="snippet-select" aria-label="插入片段">
+              <option value="">插入片段</option>
+              <option value="input">Input</option>
+              <option value="agent">Agent step</option>
+              <option value="tool_group">Tool group</option>
+              <option value="approval">Approval gate</option>
+              <option value="edge">Edge</option>
+              <option value="artifact">Artifact</option>
+            </select>
+            <button type="button" id="copy-btn" class="btn btn-secondary">複製</button>
+            <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
+            <button type="button" id="create-btn" class="btn btn-primary">建立</button>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <span id="save-status" class="save-status" aria-live="polite">尚未修改</span>
+          <span id="validation-pill" class="validation-pill unknown">未驗證</span>
+        </div>
+
         <textarea
           id="yaml-editor"
           name="yaml"
-          rows={40}
+          rows={34}
           spellcheck={false}
           class="yaml-textarea"
         >{starterYaml}</textarea>
-        <div id="validation-errors" class="validation-errors" aria-live="polite"></div>
-        <div class="editor-actions">
-          <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
-          <button type="button" id="create-btn" class="btn btn-primary">建立工作流程</button>
-          <span id="save-status" class="save-status" aria-live="polite"></span>
+
+        <div id="validation-errors" class="validation-errors" aria-live="polite" role="alert"></div>
+      </section>
+
+      <aside class="summary-panel" aria-labelledby="summary-title">
+        <div class="panel-heading">
+          <span class="eyebrow">Preview</span>
+          <h2 id="summary-title">建立摘要</h2>
         </div>
-      </form>
-    </div>
+        <dl class="summary-list">
+          <div>
+            <dt>Flow ID</dt>
+            <dd id="summary-id" class="mono">my-new-flow</dd>
+          </div>
+          <div>
+            <dt>名稱</dt>
+            <dd id="summary-name">New Flow</dd>
+          </div>
+          <div>
+            <dt>版本</dt>
+            <dd id="summary-version" class="mono">1</dd>
+          </div>
+          <div>
+            <dt>Inputs</dt>
+            <dd id="summary-inputs" class="mono">1</dd>
+          </div>
+          <div>
+            <dt>Steps</dt>
+            <dd id="summary-steps" class="mono">1</dd>
+          </div>
+          <div>
+            <dt>Edges</dt>
+            <dd id="summary-edges" class="mono">1</dd>
+          </div>
+          <div>
+            <dt>Artifacts</dt>
+            <dd id="summary-artifacts" class="mono">0</dd>
+          </div>
+        </dl>
+      </aside>
+    </form>
   )}
 </AdminConsoleLayout>
 
 <script>
+  const form = document.getElementById('new-form') as HTMLFormElement | null;
   const textarea = document.getElementById('yaml-editor') as HTMLTextAreaElement | null;
   const errorsEl = document.getElementById('validation-errors');
   const saveStatus = document.getElementById('save-status');
-  const validateBtn = document.getElementById('validate-btn');
-  const createBtn = document.getElementById('create-btn');
+  const validationPill = document.getElementById('validation-pill');
+  const validateBtn = document.getElementById('validate-btn') as HTMLButtonElement | null;
+  const createBtn = document.getElementById('create-btn') as HTMLButtonElement | null;
+  const copyBtn = document.getElementById('copy-btn');
+  const snippetSelect = document.getElementById('snippet-select') as HTMLSelectElement | null;
+  const templateSelect = document.getElementById('template-select') as HTMLSelectElement | null;
+  const idInput = document.getElementById('flow-id') as HTMLInputElement | null;
+  const nameInput = document.getElementById('flow-name') as HTMLInputElement | null;
+  const versionInput = document.getElementById('flow-version') as HTMLInputElement | null;
+  const descriptionInput = document.getElementById('flow-description') as HTMLTextAreaElement | null;
+
+  const summary = {
+    id: document.getElementById('summary-id'),
+    name: document.getElementById('summary-name'),
+    version: document.getElementById('summary-version'),
+    inputs: document.getElementById('summary-inputs'),
+    steps: document.getElementById('summary-steps'),
+    edges: document.getElementById('summary-edges'),
+    artifacts: document.getElementById('summary-artifacts'),
+  };
+
+  const templates: Record<string, string> = {
+    'single-agent': `id: my-new-flow
+name: New Flow
+version: 1
+description: Describe your flow here
+inputs:
+  - name: topic
+    type: string
+    required: true
+steps:
+  - id: start
+    type: agent
+    agent: planner
+    description: Plan from the provided topic.
+    input:
+      topic: "{{ inputs.topic }}"
+edges:
+  - from: start
+    to: __end__
+artifacts: []
+`,
+    research: `id: research-flow
+name: Research Flow
+version: 1
+description: Plan, research, synthesize, and export a markdown report.
+inputs:
+  - name: topic
+    type: string
+    required: true
+steps:
+  - id: plan
+    type: agent
+    agent: planner
+    description: Build the research plan.
+  - id: research
+    type: agent
+    agent: research
+    description: Collect and rank source evidence.
+  - id: synthesize
+    type: agent
+    agent: writer
+    description: Write the final report.
+edges:
+  - from: plan
+    to: research
+  - from: research
+    to: synthesize
+  - from: synthesize
+    to: __end__
+artifacts:
+  - kind: markdown_report
+    step: synthesize
+`,
+    approval: `id: approval-flow
+name: Approval Flow
+version: 1
+description: Generate a draft and pause for human approval.
+inputs:
+  - name: request
+    type: string
+    required: true
+steps:
+  - id: draft
+    type: agent
+    agent: writer
+    description: Create a draft response.
+  - id: review
+    type: approval
+    description: Review the draft before continuing.
+edges:
+  - from: draft
+    to: review
+  - from: review
+    to: __end__
+artifacts: []
+`,
+    blank: `id: blank-flow
+name: Blank Flow
+version: 1
+description: Start from an empty workflow definition.
+inputs: []
+steps:
+  - id: start
+    type: transform
+    description: Replace this step with your first action.
+edges:
+  - from: start
+    to: __end__
+artifacts: []
+`,
+  };
+
+  const snippets: Record<string, string> = {
+    input: [
+      '  - name: input_name',
+      '    type: string',
+      '    required: false',
+      '',
+    ].join('\n'),
+    agent: [
+      '  - id: new_agent_step',
+      '    type: agent',
+      '    agent: planner',
+      '    description: Describe what this agent should do.',
+      '',
+    ].join('\n'),
+    tool_group: [
+      '  - id: new_tool_group',
+      '    type: tool_group',
+      '    tools: [search.tavily]',
+      '    description: Describe which tools this step should call.',
+      '',
+    ].join('\n'),
+    approval: [
+      '  - id: approval_gate',
+      '    type: approval',
+      '    description: Review the intermediate output before continuing.',
+      '',
+    ].join('\n'),
+    edge: [
+      '  - from: previous_step',
+      '    to: next_step',
+      '',
+    ].join('\n'),
+    artifact: [
+      '  - kind: markdown_report',
+      '    step: step_id',
+      '',
+    ].join('\n'),
+  };
+
+  let lastSavedYaml = textarea?.value ?? '';
+  let metadataSyncing = false;
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function escapeHtml(value: unknown): string {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function setStatus(msg: string, tone = '') {
+    if (!saveStatus) return;
+    saveStatus.textContent = msg;
+    saveStatus.className = `save-status ${tone}`.trim();
+  }
+
+  function setValidationState(state: 'unknown' | 'valid' | 'invalid') {
+    if (!validationPill) return;
+    const text = state === 'valid' ? '驗證通過' : state === 'invalid' ? '有錯誤' : '未驗證';
+    validationPill.textContent = text;
+    validationPill.className = `validation-pill ${state}`;
+  }
 
   function setErrors(errors: Array<{ path: string; message: string }>) {
     if (!errorsEl) return;
-    if (!errors || errors.length === 0) {
+    if (!errors.length) {
       errorsEl.textContent = '';
       errorsEl.classList.remove('has-errors');
+      textarea?.classList.remove('has-errors');
       return;
     }
     errorsEl.classList.add('has-errors');
+    textarea?.classList.add('has-errors');
     errorsEl.innerHTML = errors
-      .map((e) => `<div class="error-item"><span class="error-path">${e.path}</span> ${e.message}</div>`)
+      .map((e) => `<div class="error-item"><span class="error-path">${escapeHtml(e.path)}</span>${escapeHtml(e.message)}</div>`)
       .join('');
   }
 
-  function setStatus(msg: string, tone?: string) {
-    if (!saveStatus) return;
-    saveStatus.textContent = msg;
-    saveStatus.className = 'save-status ' + (tone ?? '');
+  function refreshDirtyState() {
+    if ((textarea?.value ?? '') === lastSavedYaml) {
+      setStatus('尚未修改');
+      return;
+    }
+    setStatus('有未儲存變更', 'dirty');
+  }
+
+  function updateSummary() {
+    const yaml = textarea?.value ?? '';
+    const data = extractSummary(yaml);
+    if (summary.id) summary.id.textContent = data.id || '未設定';
+    if (summary.name) summary.name.textContent = data.name || '未設定';
+    if (summary.version) summary.version.textContent = data.version || '1';
+    if (summary.inputs) summary.inputs.textContent = String(data.inputs);
+    if (summary.steps) summary.steps.textContent = String(data.steps);
+    if (summary.edges) summary.edges.textContent = String(data.edges);
+    if (summary.artifacts) summary.artifacts.textContent = String(data.artifacts);
+  }
+
+  function extractSummary(yaml: string) {
+    return {
+      id: scalarValue(yaml, 'id'),
+      name: scalarValue(yaml, 'name'),
+      version: scalarValue(yaml, 'version'),
+      inputs: listCount(yaml, 'inputs'),
+      steps: listCount(yaml, 'steps'),
+      edges: listCount(yaml, 'edges'),
+      artifacts: listCount(yaml, 'artifacts'),
+    };
+  }
+
+  function scalarValue(yaml: string, key: string): string {
+    const match = yaml.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
+    return match?.[1]?.replace(/^["']|["']$/g, '').trim() ?? '';
+  }
+
+  function listCount(yaml: string, key: string): number {
+    const section = sectionBody(yaml, key);
+    if (!section.trim() || section.trim() === '[]' || section.trim() === '{}') return 0;
+    return (section.match(/^  - /gm) ?? []).length || (section.match(/^  [A-Za-z0-9_-]+:/gm) ?? []).length;
+  }
+
+  function sectionBody(yaml: string, key: string): string {
+    const start = yaml.match(new RegExp(`^${key}:\\s*(.*)$`, 'm'));
+    if (!start || start.index === undefined) return '';
+    const afterHeaderStart = start.index + start[0].length;
+    const rest = yaml.slice(afterHeaderStart);
+    const next = rest.search(/\n[A-Za-z_][A-Za-z0-9_-]*:/);
+    return start[1] && start[1].trim() ? start[1] : next >= 0 ? rest.slice(0, next) : rest;
+  }
+
+  function syncMetadataFieldsFromYaml() {
+    if (!textarea || metadataSyncing) return;
+    const data = extractSummary(textarea.value);
+    if (idInput && data.id) idInput.value = data.id;
+    if (nameInput && data.name) nameInput.value = data.name;
+    if (versionInput && data.version) versionInput.value = data.version;
+    if (descriptionInput) {
+      const description = scalarValue(textarea.value, 'description');
+      if (description) descriptionInput.value = description;
+    }
+  }
+
+  function syncYamlMetadata() {
+    if (!textarea) return;
+    metadataSyncing = true;
+    let yaml = textarea.value;
+    yaml = setTopLevelScalar(yaml, 'id', idInput?.value.trim() || 'my-new-flow');
+    yaml = setTopLevelScalar(yaml, 'name', nameInput?.value.trim() || 'New Flow');
+    yaml = setTopLevelScalar(yaml, 'version', versionInput?.value.trim() || '1');
+    yaml = setTopLevelScalar(yaml, 'description', descriptionInput?.value.trim() || 'Describe your flow here');
+    textarea.value = yaml;
+    metadataSyncing = false;
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  function setTopLevelScalar(yaml: string, key: string, value: string): string {
+    const escaped = value.includes(':') || value.includes('#') ? JSON.stringify(value) : value;
+    const line = `${key}: ${escaped}`;
+    const pattern = new RegExp(`^${key}:.*$`, 'm');
+    if (pattern.test(yaml)) return yaml.replace(pattern, line);
+    return `${line}\n${yaml}`;
+  }
+
+  function insertAtCursor(value: string) {
+    if (!textarea) return;
+    const start = textarea.selectionStart ?? textarea.value.length;
+    const end = textarea.selectionEnd ?? start;
+    textarea.value = textarea.value.slice(0, start) + value + textarea.value.slice(end);
+    textarea.selectionStart = start;
+    textarea.selectionEnd = start + value.length;
+    textarea.focus();
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
   async function doValidate(): Promise<boolean> {
     const yaml = textarea?.value ?? '';
-    setStatus('驗證中…', '');
+    setStatus('驗證中...');
+    setValidationState('unknown');
     setErrors([]);
     try {
       const res = await fetch('/api/admin/flows/validate', {
@@ -103,25 +465,26 @@ const breadcrumb = [
       });
       const data = await res.json() as { valid: boolean; errors?: Array<{ path: string; message: string }> };
       if (data.valid) {
+        setValidationState('valid');
         setStatus('驗證通過', 'ok');
         setErrors([]);
-      } else {
-        setStatus('', '');
-        setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
+        return true;
       }
-      return data.valid;
+      setValidationState('invalid');
+      setStatus('');
+      setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
+      return false;
     } catch (err) {
+      setValidationState('invalid');
       setErrors([{ path: '(network)', message: String(err) }]);
-      setStatus('', '');
+      setStatus('');
       return false;
     }
   }
 
-  validateBtn?.addEventListener('click', () => { doValidate(); });
-
-  createBtn?.addEventListener('click', async () => {
+  async function createFlow() {
     const yaml = textarea?.value ?? '';
-    setStatus('建立中…', '');
+    setStatus('建立中...');
     setErrors([]);
     try {
       const res = await fetch('/api/admin/flows', {
@@ -131,122 +494,415 @@ const breadcrumb = [
       });
       const data = await res.json() as { flowId?: string; error?: string; errors?: Array<{ path: string; message: string }> };
       if (res.ok && data.flowId) {
-        setStatus('已建立！正在跳轉…', 'ok');
+        lastSavedYaml = yaml;
+        setStatus('已建立，正在跳轉...', 'ok');
         window.location.href = `/admin/console/flows/${data.flowId}/edit`;
-      } else if (data.errors) {
-        setStatus('', '');
+        return;
+      }
+      setValidationState('invalid');
+      if (data.errors) {
+        setStatus('');
         setErrors(data.errors);
       } else {
-        setStatus('', '');
+        setStatus('');
         setErrors([{ path: '(server)', message: data.error ?? '建立失敗' }]);
       }
     } catch (err) {
       setErrors([{ path: '(network)', message: String(err) }]);
-      setStatus('', '');
+      setStatus('');
+    }
+  }
+
+  textarea?.addEventListener('input', () => {
+    refreshDirtyState();
+    updateSummary();
+    if (!metadataSyncing) syncMetadataFieldsFromYaml();
+    setValidationState('unknown');
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      doValidate();
+    }, 700);
+  });
+
+  textarea?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    event.preventDefault();
+    insertAtCursor('  ');
+  });
+
+  for (const input of [idInput, nameInput, versionInput, descriptionInput]) {
+    input?.addEventListener('input', syncYamlMetadata);
+  }
+
+  templateSelect?.addEventListener('change', () => {
+    if (!textarea || !templateSelect.value) return;
+    textarea.value = templates[templateSelect.value] ?? templates['single-agent'];
+    lastSavedYaml = textarea.value;
+    syncMetadataFieldsFromYaml();
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+
+  snippetSelect?.addEventListener('change', () => {
+    const key = snippetSelect.value;
+    if (key && snippets[key]) insertAtCursor(snippets[key]);
+    snippetSelect.value = '';
+  });
+
+  copyBtn?.addEventListener('click', async () => {
+    const yaml = textarea?.value ?? '';
+    try {
+      await navigator.clipboard.writeText(yaml);
+      setStatus('已複製 YAML', 'ok');
+      setTimeout(refreshDirtyState, 1000);
+    } catch {
+      setStatus('複製失敗');
     }
   });
+
+  validateBtn?.addEventListener('click', () => {
+    doValidate();
+  });
+
+  createBtn?.addEventListener('click', async () => {
+    const valid = await doValidate();
+    if (valid) await createFlow();
+  });
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const valid = await doValidate();
+    if (valid) await createFlow();
+  });
+
+  window.addEventListener('beforeunload', (event) => {
+    if ((textarea?.value ?? '') === lastSavedYaml) return;
+    event.preventDefault();
+    event.returnValue = '';
+  });
+
+  updateSummary();
 </script>
 
 <style>
-  .editor-wrap {
+  .builder-shell {
     display: grid;
-    gap: 0.75rem;
-    max-width: 900px;
+    grid-template-columns: minmax(220px, 280px) minmax(420px, 1fr) minmax(210px, 260px);
+    gap: 1rem;
+    align-items: start;
   }
-  .editor-hint {
-    font-size: 0.85rem;
+
+  .setup-panel,
+  .editor-panel,
+  .summary-panel {
+    min-width: 0;
+  }
+
+  .setup-panel,
+  .summary-panel {
+    position: sticky;
+    top: 0.75rem;
+    display: grid;
+    gap: 0.9rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.9rem;
+  }
+
+  .editor-panel {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .panel-heading {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .panel-heading h2,
+  .editor-title-block h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--admin-text);
+  }
+
+  .eyebrow {
     color: var(--admin-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
-  .editor-label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
+
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .field label {
     color: var(--admin-text-soft);
-    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 650;
   }
-  .yaml-textarea {
+
+  .required {
+    color: var(--admin-text-muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  .field-control,
+  .snippet-select {
     width: 100%;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 13px;
-    line-height: 1.55;
-    padding: 0.75rem;
+    min-height: 34px;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     background: var(--admin-bg);
     color: var(--admin-text);
+    padding: 0.42rem 0.55rem;
+    font: inherit;
+    font-size: 0.84rem;
+  }
+
+  .field-control:focus,
+  .snippet-select:focus,
+  .yaml-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: var(--admin-focus);
+  }
+
+  .description-field {
+    resize: vertical;
+    line-height: 1.45;
+  }
+
+  .editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.65rem 0;
+    background: var(--admin-bg);
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .toolbar-actions {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .snippet-select {
+    width: auto;
+    min-width: 132px;
+    background: var(--admin-surface);
+  }
+
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .save-status {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .save-status.ok {
+    color: #16a34a;
+    font-weight: 650;
+  }
+
+  .save-status.dirty {
+    color: #b45309;
+    font-weight: 650;
+  }
+
+  .validation-pill {
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    padding: 0.14rem 0.55rem;
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    font-size: 0.74rem;
+    font-weight: 650;
+  }
+
+  .validation-pill.valid {
+    border-color: #22c55e;
+    background: #f0fdf4;
+    color: #15803d;
+  }
+
+  .validation-pill.invalid {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+
+  .yaml-textarea {
+    width: 100%;
+    min-height: min(72vh, 820px);
+    box-sizing: border-box;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 0.8rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
     resize: vertical;
     tab-size: 2;
     white-space: pre;
     overflow-wrap: normal;
     overflow-x: auto;
   }
-  .yaml-textarea:focus {
-    outline: none;
-    border-color: var(--admin-accent);
-    box-shadow: var(--admin-focus);
+
+  .yaml-textarea.has-errors {
+    border-color: #fca5a5;
   }
+
   .validation-errors {
     display: none;
-    padding: 0.6rem 0.75rem;
+    padding: 0.65rem 0.75rem;
     border-radius: var(--admin-radius);
   }
+
   .validation-errors.has-errors {
     display: block;
-    background: #fef2f2;
     border: 1px solid #fca5a5;
+    background: #fef2f2;
     color: #b91c1c;
   }
+
   .error-item {
     font-size: 0.82rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
   }
+
   .error-item:last-child {
     margin-bottom: 0;
   }
+
   .error-path {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-weight: 600;
+    display: inline-block;
     margin-right: 0.35rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 700;
   }
-  .editor-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+
+  .summary-list {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
   }
+
+  .summary-list div {
+    display: grid;
+    gap: 0.18rem;
+  }
+
+  .summary-list dt {
+    color: var(--admin-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .summary-list dd {
+    margin: 0;
+    color: var(--admin-text);
+    font-size: 0.86rem;
+    overflow-wrap: anywhere;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
   .btn {
     display: inline-block;
-    padding: 0.4rem 1rem;
-    border-radius: var(--admin-radius);
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
     border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-weight: 650;
+    line-height: 1.2;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
+
   .btn-secondary {
     background: var(--admin-surface);
     color: var(--admin-text);
   }
+
   .btn-secondary:hover {
     border-color: var(--admin-accent);
     color: var(--brand-900);
   }
+
   .btn-primary {
     background: var(--brand-900);
-    color: #fff;
     border-color: var(--brand-900);
+    color: #fff;
   }
+
   .btn-primary:hover {
     background: var(--brand-700);
     border-color: var(--brand-700);
   }
-  .save-status {
-    font-size: 0.82rem;
-    color: var(--admin-text-muted);
+
+  @media (max-width: 1100px) {
+    .builder-shell {
+      grid-template-columns: minmax(220px, 300px) minmax(420px, 1fr);
+    }
+
+    .summary-panel {
+      position: static;
+      grid-column: 1 / -1;
+    }
+
+    .summary-list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
-  .save-status.ok {
-    color: #16a34a;
-    font-weight: 600;
+
+  @media (max-width: 760px) {
+    .builder-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .setup-panel,
+    .summary-panel {
+      position: static;
+    }
+
+    .summary-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .toolbar-actions {
+      width: 100%;
+    }
+
+    .toolbar-actions > * {
+      flex: 1 1 auto;
+    }
+
+    .snippet-select {
+      width: 100%;
+    }
   }
 </style>
