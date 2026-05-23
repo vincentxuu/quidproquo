@@ -1,0 +1,39 @@
+id: embed-sync
+name: Embedding Agent
+version: 1
+inputs:
+  sources:
+    type: string
+    required: false
+    default: '["posts","docs"]'
+    description: Sources JSON
+  offset:
+    type: number
+    required: false
+    default: 0
+    description: Offset
+  limit:
+    type: number
+    required: false
+    default: 50
+    description: Limit
+steps:
+  embed-sync:
+    kind: tool_group
+    tools: [run_embed_sync]
+    prompt: Run embed batch
+  embed-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: embed-sync
+    to: embed-report
+artifacts:
+  - id: embed-sync-result
+    kind: json_report
+    title: Embed sync result
+    stepId: embed-report
+budget:
+  maxRetries: 2
+  maxRuntimeMs: 600000
+  maxExternalCalls: 1

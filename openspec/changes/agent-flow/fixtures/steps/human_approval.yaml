@@ -1,0 +1,17 @@
+id: human-approval-step-fixture
+name: Human Approval Step Fixture
+version: 1
+description: Minimal flow demonstrating a human_approval step.
+
+inputs:
+  - name: draft
+    type: string
+    required: true
+
+steps:
+  - id: await_review
+    type: human_approval
+    description: Pause and wait for a human reviewer to approve the draft.
+    prompt: Please review the draft and approve or reject it.
+
+edges: []

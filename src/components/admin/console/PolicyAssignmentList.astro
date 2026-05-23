@@ -1,0 +1,55 @@
+---
+import type { PolicyAssignmentRow } from '@/lib/agent-console/management';
+
+interface Props {
+  assignments: PolicyAssignmentRow[];
+}
+
+const { assignments } = Astro.props;
+---
+
+{assignments.length === 0 ? (
+  <p class="empty-note">No assignments — this policy is not bound to any flow, agent, or run.</p>
+) : (
+  <table class="mgmt-table admin-panel">
+    <thead>
+      <tr>
+        <th scope="col">Scope</th>
+        <th scope="col">Target</th>
+      </tr>
+    </thead>
+    <tbody>
+      {assignments.map((row) => (
+        <tr data-binding-id={row.bindingId}>
+          <td>{row.scope}</td>
+          <td><code>{row.target}</code></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+
+<style>
+  .empty-note {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .mgmt-table th,
+  .mgmt-table td {
+    text-align: left;
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .mgmt-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

@@ -1,0 +1,94 @@
+id: deep-research
+name: Deep Research
+version: 1
+description: End-to-end deep research flow from topic to verified markdown report.
+policy_binding: research-standard
+
+evidence:
+  enabled: true
+  policy:
+    citation_required: true
+    min_sources: 2
+    stale_source_max_days: 365
+    conflict_check: true
+    enforcement: warn
+
+artifacts:
+  - kind: markdown_report
+    step: synthesize
+  - kind: evidence_bundle
+    step: extract_evidence
+
+inputs:
+  topic:
+    type: string
+    required: true
+  audience:
+    type: string
+    required: false
+  freshness_days:
+    type: number
+    default: 365
+
+steps:
+  - id: clarify
+    type: agent
+    agent: planner
+    description: Clarify and scope the research topic.
+
+  - id: build_brief
+    type: transform
+    description: Transform clarified topic into a research brief.
+    expression: '{"topic": inputs.topic, "scope": steps.clarify.outputs.scope}'
+
+  - id: plan
+    type: agent
+    agent: planner
+    description: Generate a research plan from the brief.
+
+  - id: research_loop
+    type: loop
+    maxIterations: 3
+    body:
+      - id: search
+        type: tool_group
+        tools: [search.tavily, search.exa]
+        description: Search for sources based on the plan.
+      - id: rank_sources
+        type: agent
+        agent: research
+        description: Rank and filter search results by relevance and freshness.
+      - id: read_sources
+        type: tool_group
+        tools: [read.url]
+        description: Fetch full content of top-ranked sources.
+      - id: extract_evidence
+        type: agent
+        agent: research
+        description: Extract and structure evidence from source content.
+      - id: synthesize
+        type: agent
+        agent: writer
+        description: Synthesize evidence into a coherent markdown report.
+      - id: verify
+        type: verifier
+        verifier: coverage
+        description: Verify the report covers the research plan adequately.
+        policy:
+          enforcement: warn
+    condition: verify.passed
+
+  - id: export
+    type: artifact
+    kind: markdown_report
+    description: Export the final verified report as an artifact.
+
+edges:
+  - from: clarify
+    to: build_brief
+  - from: build_brief
+    to: plan
+  - from: plan
+    to: research_loop
+  - from: research_loop
+    to: export

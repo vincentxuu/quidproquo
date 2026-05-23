@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "http://localhost:4321/admin/console",
+        "http://localhost:4321/admin/console/runs",
+        "http://localhost:4321/admin/console/providers",
+        "http://localhost:4321/admin/console/policies"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "onlyCategories": ["performance", "accessibility", "best-practices"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", {"minScore": 0.7}],
+        "categories:accessibility": ["error", {"minScore": 0.9}],
+        "categories:best-practices": ["warn", {"minScore": 0.8}],
+        "first-contentful-paint": ["warn", {"maxNumericValue": 2000}],
+        "largest-contentful-paint": ["warn", {"maxNumericValue": 2000}],
+        "total-blocking-time": ["warn", {"maxNumericValue": 300}],
+        "cumulative-layout-shift": ["warn", {"maxNumericValue": 0.1}]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

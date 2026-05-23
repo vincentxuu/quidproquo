@@ -1,0 +1,663 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('artifactViewer');
+
+const runId = Astro.params.id ?? '';
+const artifactId = Astro.params.artifactId ?? '';
+const versionParam = Astro.url.searchParams.get('version');
+const diffParam = Astro.url.searchParams.get('diff');
+
+const versionN = versionParam ? parseInt(versionParam, 10) : null;
+const diffM = diffParam ? parseInt(diffParam, 10) : null;
+
+// ── Types ────────────────────────────────────────────────────────────────────
+
+interface ArtifactVersionRow {
+  version_id: string;
+  artifact_id: string;
+  kind: string;
+  version_number: number;
+  parent_version_id: string | null;
+  approval_status: string;
+  created_at: number;
+}
+
+interface ArtifactSectionRow {
+  section_id: string;
+  section_key: string;
+  ordinal: number;
+  heading: string | null;
+  body_text: string | null;
+  body_json: string | null;
+}
+
+// ── Simple line diff ─────────────────────────────────────────────────────────
+
+function simpleDiff(aText: string, bText: string): Array<{ tag: 'eq' | 'add' | 'del'; text: string }> {
+  const aLines = aText.split('\n');
+  const bLines = bText.split('\n');
+  const maxLen = Math.max(aLines.length, bLines.length);
+  const result: Array<{ tag: 'eq' | 'add' | 'del'; text: string }> = [];
+  for (let i = 0; i < maxLen; i++) {
+    if (i >= bLines.length) {
+      result.push({ tag: 'del', text: aLines[i] });
+    } else if (i >= aLines.length) {
+      result.push({ tag: 'add', text: bLines[i] });
+    } else if (aLines[i] !== bLines[i]) {
+      result.push({ tag: 'del', text: aLines[i] });
+      result.push({ tag: 'add', text: bLines[i] });
+    } else {
+      result.push({ tag: 'eq', text: aLines[i] });
+    }
+  }
+  return result;
+}
+
+// ── Markdown → HTML (minimal regex transform) ────────────────────────────────
+
+function markdownToHtml(md: string): string {
+  let html = md
+    // Escape HTML entities first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Headings
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    // Bold / italic
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Code inline
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    // Horizontal rule
+    .replace(/^---+$/gm, '<hr />')
+    // Blank lines → paragraph breaks
+    .replace(/\n{2,}/g, '</p><p>')
+  return `<p>${html}</p>`
+}
+
+// ── CSV → HTML table ─────────────────────────────────────────────────────────
+
+function csvToTable(csv: string): { headers: string[]; rows: string[][] } {
+  const lines = csv.split(/\r?\n/).filter((l) => l.trim() !== '');
+  if (lines.length === 0) return { headers: [], rows: [] };
+
+  function parseRow(line: string): string[] {
+    const cells: string[] = [];
+    let current = '';
+    let inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuote) {
+        if (ch === '"' && line[i + 1] === '"') { current += '"'; i++; }
+        else if (ch === '"') { inQuote = false; }
+        else { current += ch; }
+      } else {
+        if (ch === '"') { inQuote = true; }
+        else if (ch === ',') { cells.push(current); current = ''; }
+        else { current += ch; }
+      }
+    }
+    cells.push(current);
+    return cells;
+  }
+
+  const [headerLine, ...dataLines] = lines;
+  return {
+    headers: parseRow(headerLine),
+    rows: dataLines.map(parseRow),
+  };
+}
+
+// ── Data loading ─────────────────────────────────────────────────────────────
+
+let versions: ArtifactVersionRow[] = [];
+let targetVersion: ArtifactVersionRow | null = null;
+let diffVersion: ArtifactVersionRow | null = null;
+let sections: ArtifactSectionRow[] = [];
+let diffSections: ArtifactSectionRow[] = [];
+let loadError = false;
+let artifactMissing = false;
+let backendUnavailable = false;
+
+if (ready && artifactId) {
+  try {
+    const db = getEnv().DB;
+
+    // Check if the artifact_versions table exists (feature may not be migrated yet)
+    const tableCheck = await db.prepare(
+      `SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`
+    ).first<{ name: string }>();
+
+    if (!tableCheck) {
+      backendUnavailable = true;
+    } else {
+      // Load all versions for this artifact
+      const versionsResult = await db.prepare(
+        `SELECT version_id, artifact_id, kind, version_number, parent_version_id, approval_status, created_at
+         FROM artifact_versions
+         WHERE artifact_id = ?
+         ORDER BY version_number DESC`
+      ).bind(artifactId).all<ArtifactVersionRow>();
+
+      versions = versionsResult.results ?? [];
+
+      if (versions.length === 0) {
+        artifactMissing = true;
+      } else {
+        // Pick the requested version or latest
+        if (versionN !== null) {
+          targetVersion = versions.find((v) => v.version_number === versionN) ?? versions[0];
+        } else {
+          targetVersion = versions[0];
+        }
+
+        // Load sections for target version
+        const sectionsResult = await db.prepare(
+          `SELECT section_id, section_key, ordinal, heading, body_text, body_json
+           FROM artifact_sections
+           WHERE version_id = ?
+           ORDER BY ordinal ASC`
+        ).bind(targetVersion.version_id).all<ArtifactSectionRow>();
+        sections = sectionsResult.results ?? [];
+
+        // Load diff version if requested
+        if (diffM !== null) {
+          diffVersion = versions.find((v) => v.version_number === diffM) ?? null;
+          if (diffVersion) {
+            const diffResult = await db.prepare(
+              `SELECT section_id, section_key, ordinal, heading, body_text, body_json
+               FROM artifact_sections
+               WHERE version_id = ?
+               ORDER BY ordinal ASC`
+            ).bind(diffVersion.version_id).all<ArtifactSectionRow>();
+            diffSections = diffResult.results ?? [];
+          }
+        }
+      }
+    }
+  } catch {
+    loadError = true;
+  }
+}
+
+// ── Derived content ───────────────────────────────────────────────────────────
+
+const kind = targetVersion?.kind ?? '';
+const bodyText = sections.map((s) => s.body_text ?? '').join('\n\n');
+const diffBodyText = diffSections.map((s) => s.body_text ?? '').join('\n\n');
+
+// Evidence bundle: try to parse body_json on sections
+interface EvidenceBundleData {
+  sources?: number;
+  claims_count?: number;
+  conflicts_count?: number;
+  sources_list?: Array<{ url?: string; title?: string }>;
+}
+let evidenceData: EvidenceBundleData | null = null;
+if (kind === 'evidence_bundle' && sections.length > 0) {
+  try {
+    const raw = sections[0].body_json;
+    if (raw) evidenceData = JSON.parse(raw) as EvidenceBundleData;
+  } catch {
+    // ignore parse errors
+  }
+}
+
+// CSV
+let csvTable: { headers: string[]; rows: string[][] } = { headers: [], rows: [] };
+if (kind === 'csv_spreadsheet' && bodyText) {
+  csvTable = csvToTable(bodyText);
+}
+
+// JSON pretty
+let jsonPretty = '';
+if ((kind === 'json_payload' || (!['markdown_report', 'evidence_bundle', 'csv_spreadsheet'].includes(kind))) && bodyText) {
+  try {
+    jsonPretty = JSON.stringify(JSON.parse(bodyText), null, 2);
+  } catch {
+    jsonPretty = bodyText;
+  }
+}
+
+// Markdown HTML
+let markdownHtml = '';
+if (kind === 'markdown_report' && bodyText) {
+  markdownHtml = markdownToHtml(bodyText);
+}
+
+// Diff lines (when diff mode active)
+type DiffLine = { tag: 'eq' | 'add' | 'del'; text: string };
+let diffLines: DiffLine[] = [];
+const isDiffMode = diffM !== null && diffVersion !== null;
+if (isDiffMode) {
+  diffLines = simpleDiff(diffBodyText, bodyText);
+}
+
+const breadcrumb = [
+  { label: 'Runs', href: '/admin/console/runs' },
+  { label: runId, href: `/admin/console/runs/${runId}` },
+  { label: `Artifact ${artifactId}` },
+];
+
+const currentVersionNumber = targetVersion?.version_number ?? null;
+---
+
+<AdminConsoleLayout title="Artifact Viewer" section="artifacts" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">
+      {`Artifact viewer ships in ${consolePhaseFor('artifactViewer')}.`}
+    </AdminState>
+  )}
+
+  {ready && backendUnavailable && (
+    <AdminState tone="empty">
+      Artifact viewer requires AGENT_ARTIFACT_ENABLED=true and the artifact migrations to be applied.
+    </AdminState>
+  )}
+
+  {ready && !backendUnavailable && loadError && (
+    <AdminState tone="error">Could not load artifact.</AdminState>
+  )}
+
+  {ready && !backendUnavailable && !loadError && artifactMissing && (
+    <AdminState tone="empty">{`Artifact "${artifactId}" not found.`}</AdminState>
+  )}
+
+  {ready && !backendUnavailable && !loadError && !artifactMissing && targetVersion && (
+    <div class="artifact-viewer">
+
+      {/* Header */}
+      <header class="artifact-header">
+        <div class="artifact-meta">
+          <span class="artifact-kind">{kind}</span>
+          <span class="artifact-status">{targetVersion.approval_status}</span>
+          <span class="artifact-id muted">{artifactId}</span>
+        </div>
+
+        {/* Version dropdown */}
+        {versions.length > 1 && (
+          <div class="version-controls">
+            <label for="version-select" class="version-label">Version</label>
+            <select
+              id="version-select"
+              class="version-select"
+              onchange={`location.href='?version='+this.value`}
+            >
+              {versions.map((v) => (
+                <option
+                  value={String(v.version_number)}
+                  selected={v.version_number === currentVersionNumber}
+                >
+                  v{v.version_number} — {v.approval_status}
+                  {v.version_number === versions[0].version_number ? ' (latest)' : ''}
+                </option>
+              ))}
+            </select>
+
+            {/* Diff control */}
+            {currentVersionNumber !== null && versions.length > 1 && (
+              <label for="diff-select" class="version-label">Diff against</label>
+            )}
+            {currentVersionNumber !== null && versions.length > 1 && (
+              <select
+                id="diff-select"
+                class="version-select"
+                onchange={`if(this.value){location.href='?version=${currentVersionNumber}&diff='+this.value}else{location.href='?version=${currentVersionNumber}'}`}
+              >
+                <option value="">— none —</option>
+                {versions.filter((v) => v.version_number !== currentVersionNumber).map((v) => (
+                  <option value={String(v.version_number)} selected={v.version_number === diffM}>
+                    v{v.version_number}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
+        )}
+      </header>
+
+      {/* Diff mode */}
+      {isDiffMode && (
+        <section class="artifact-section" aria-label="Diff view">
+          <h3 class="section-title">
+            Diff: v{diffM} → v{currentVersionNumber}
+          </h3>
+          <pre class="diff"><code>{diffLines.map((line) => {
+            const prefix = line.tag === 'add' ? '+ ' : line.tag === 'del' ? '- ' : '  ';
+            return `${prefix}${line.text}`;
+          }).join('\n')}</code></pre>
+        </section>
+      )}
+
+      {/* Normal content (no diff) */}
+      {!isDiffMode && kind === 'markdown_report' && (
+        <section class="artifact-section prose-section" aria-label="Markdown report">
+          <article class="prose" set:html={markdownHtml} />
+        </section>
+      )}
+
+      {!isDiffMode && kind === 'evidence_bundle' && (
+        <section class="artifact-section" aria-label="Evidence bundle">
+          {evidenceData ? (
+            <table class="artifact-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Sources</td><td>{evidenceData.sources ?? '—'}</td></tr>
+                <tr><td>Claims count</td><td>{evidenceData.claims_count ?? '—'}</td></tr>
+                <tr><td>Conflicts count</td><td>{evidenceData.conflicts_count ?? '—'}</td></tr>
+              </tbody>
+            </table>
+          ) : (
+            <div class="evidence-sections">
+              {sections.map((s) => (
+                <div class="evidence-item">
+                  {s.heading && <h4 class="evidence-heading">{s.heading}</h4>}
+                  <p class="evidence-body">{s.body_text ?? '—'}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {!isDiffMode && kind === 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="CSV spreadsheet">
+          {csvTable.headers.length > 0 ? (
+            <div class="table-scroll">
+              <table class="artifact-table csv-table">
+                <thead>
+                  <tr>
+                    {csvTable.headers.map((h) => <th>{h}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {csvTable.rows.map((row) => (
+                    <tr>
+                      {row.map((cell) => <td>{cell}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <AdminState tone="empty">Empty CSV.</AdminState>
+          )}
+        </section>
+      )}
+
+      {!isDiffMode && kind !== 'markdown_report' && kind !== 'evidence_bundle' && kind !== 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="JSON payload">
+          <pre class="json-block"><code>{jsonPretty || '(empty)'}</code></pre>
+        </section>
+      )}
+
+      {/* Section list for multi-section artifacts */}
+      {!isDiffMode && sections.length > 1 && kind !== 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="Sections">
+          <h3 class="section-title">Sections ({sections.length})</h3>
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Key</th>
+                <th>Heading</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sections.map((s, i) => (
+                <tr>
+                  <td class="muted">{i + 1}</td>
+                  <td><code>{s.section_key}</code></td>
+                  <td>{s.heading ?? '—'}</td>
+                  <td>—</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .artifact-viewer {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .artifact-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .artifact-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .artifact-kind {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--brand-900);
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .artifact-status {
+    font-size: 0.8rem;
+    color: var(--admin-text-soft);
+    text-transform: capitalize;
+  }
+
+  .artifact-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+  }
+
+  .version-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .version-label {
+    font-size: 0.8rem;
+    color: var(--admin-text-soft);
+    white-space: nowrap;
+  }
+
+  .version-select {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+
+  .artifact-section {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    overflow: hidden;
+  }
+
+  .section-title {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+    margin: 0;
+  }
+
+  /* Markdown prose */
+  .prose-section {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .prose {
+    line-height: 1.7;
+    max-width: 72ch;
+  }
+
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3) {
+    margin: 1.2em 0 0.4em;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .prose :global(h1) { font-size: 1.4rem; }
+  .prose :global(h2) { font-size: 1.2rem; }
+  .prose :global(h3) { font-size: 1.05rem; }
+
+  .prose :global(p) {
+    margin: 0.75em 0;
+  }
+
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    background: var(--admin-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--admin-border);
+    margin: 1.5em 0;
+  }
+
+  /* JSON / raw */
+  .json-block {
+    margin: 0;
+    padding: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    overflow: auto;
+    max-height: 600px;
+    background: var(--admin-bg);
+    border-radius: 0;
+  }
+
+  /* Diff */
+  .diff {
+    margin: 0;
+    padding: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    overflow: auto;
+    max-height: 600px;
+    background: var(--admin-bg);
+    line-height: 1.6;
+    white-space: pre;
+  }
+
+  /* Tables */
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  .artifact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+
+  .artifact-table th,
+  .artifact-table td {
+    padding: 0.45rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .artifact-table th {
+    font-weight: 600;
+    background: var(--admin-bg);
+    color: var(--admin-text-soft);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .artifact-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .artifact-table tbody tr:hover td {
+    background: var(--admin-surface-subtle, var(--admin-muted));
+  }
+
+  .csv-table {
+    white-space: nowrap;
+  }
+
+  /* Evidence */
+  .evidence-sections {
+    display: grid;
+    gap: 0;
+  }
+
+  .evidence-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .evidence-item:last-child {
+    border-bottom: none;
+  }
+
+  .evidence-heading {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .evidence-body {
+    font-size: 0.83rem;
+    color: var(--admin-text-muted);
+    line-height: 1.6;
+  }
+</style>

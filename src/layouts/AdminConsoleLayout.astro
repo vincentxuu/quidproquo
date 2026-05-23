@@ -1,0 +1,497 @@
+---
+import { verifySession } from '../lib/auth/session';
+import Icons from '../components/Icons.astro';
+import '../styles/admin-tokens.css';
+
+export const prerender = false;
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  section: string;
+  breadcrumb?: BreadcrumbItem[];
+}
+
+const { title, section, breadcrumb } = Astro.props;
+
+// Check authentication
+const session = Astro.cookies.get('session')?.value;
+const isLoggedIn = session ? await verifySession(session) : false;
+
+const currentPath = Astro.url.pathname;
+const loginUrl = `/login?next=${encodeURIComponent(currentPath)}`;
+
+if (!isLoggedIn) {
+  return Astro.redirect(loginUrl);
+}
+
+const navItems = [
+  // Operate
+  { href: '/admin/console', label: 'Flow Selector', section: 'flow-selector', group: 'Operate' },
+  { href: '/admin/console/runs', label: 'Runs', section: 'runs', group: 'Operate' },
+  // Inspect
+  { href: '/admin/console/evidence', label: 'Evidence', section: 'evidence', group: 'Inspect' },
+  { href: '/admin/console/artifacts', label: 'Artifacts', section: 'artifacts', group: 'Inspect' },
+  // Manage
+  { href: '/admin/console/flows', label: 'Flows', section: 'flows', group: 'Manage' },
+  { href: '/admin/console/providers', label: 'Providers', section: 'providers', group: 'Manage' },
+  { href: '/admin/console/policies', label: 'Policies', section: 'policies', group: 'Manage' },
+  // Observe
+  { href: '/admin/console/cost', label: 'Cost', section: 'cost', group: 'Observe' },
+  // Admin
+  { href: '/admin/console/rbac', label: 'RBAC', section: 'rbac', group: 'Admin' },
+] as const;
+
+type NavGroup = 'Operate' | 'Inspect' | 'Manage' | 'Observe' | 'Admin';
+const groups: NavGroup[] = ['Operate', 'Inspect', 'Manage', 'Observe', 'Admin'];
+
+const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((acc, g) => {
+  acc[g] = navItems.filter((item) => item.group === g);
+  return acc;
+}, {} as Record<string, (typeof navItems)[number][]>);
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Console</title>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <a href="/admin/console" class="admin-brand" aria-label="Agent Console">
+          <span class="brand-mark">qp</span>
+          <span class="brand-text">
+            <strong>quidproquo</strong>
+            <span>Console</span>
+          </span>
+        </a>
+      </div>
+      <nav class="sidebar-nav" aria-label="Console navigation">
+        {groups.map((g) => (
+          <div class="nav-group">
+            <span class="nav-section">{g}</span>
+            {groupedNav[g].map((item) => (
+              <a
+                href={item.href}
+                class:list={['nav-item', { active: section === item.section }]}
+                aria-current={section === item.section ? 'page' : undefined}
+                title={item.label}
+              >
+                <span class="nav-label">{item.label}</span>
+              </a>
+            ))}
+          </div>
+        ))}
+      </nav>
+      <div class="sidebar-footer">
+        <a href="/admin" class="nav-item" title="Back to Admin">
+          <Icons name="layout-dashboard" size={16} />
+          <span class="nav-label">Admin</span>
+        </a>
+        <a href="/" class="nav-item" title="Back to site">
+          <Icons name="home" size={16} />
+          <span class="nav-label">Site</span>
+        </a>
+        <form method="POST" action="/api/auth/logout">
+          <button type="submit" class="logout-btn" title="Logout">
+            <Icons name="log-out" size={16} />
+            <span class="nav-label">Logout</span>
+          </button>
+        </form>
+      </div>
+    </aside>
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="admin-kicker">Agent Console</p>
+          {breadcrumb && breadcrumb.length > 0 ? (
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              {breadcrumb.map((crumb, i) => (
+                <span class="breadcrumb-item">
+                  {i > 0 && <span class="breadcrumb-sep" aria-hidden="true">/</span>}
+                  {crumb.href ? (
+                    <a href={crumb.href} class="breadcrumb-link">{crumb.label}</a>
+                  ) : (
+                    <span aria-current="page">{crumb.label}</span>
+                  )}
+                </span>
+              ))}
+            </nav>
+          ) : (
+            <h2>{title}</h2>
+          )}
+        </div>
+        <div class="header-actions" aria-label="Console shortcuts">
+          <a href="/admin/console/runs" class="admin-icon-button" title="Runs">
+            <Icons name="activity" size={16} />
+          </a>
+          <a href="/admin/console/cost" class="admin-icon-button" title="Cost">
+            <Icons name="bar-chart-3" size={16} />
+          </a>
+        </div>
+      </header>
+      <div class="admin-content">
+        <slot />
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+<style>
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  a, button, select, input { font: inherit; }
+
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible,
+  input:focus-visible {
+    outline: none;
+    box-shadow: var(--admin-focus);
+  }
+
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 20;
+  }
+
+  .sidebar-header {
+    padding: 1rem 0.9rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--admin-text);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--brand-700);
+    border-radius: var(--admin-radius);
+    background: var(--brand-900);
+    color: var(--admin-surface);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+  }
+
+  .brand-text {
+    display: grid;
+    gap: 0.05rem;
+  }
+
+  .brand-text strong {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-text span {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 0.85rem 0.75rem;
+  }
+
+  .nav-group + .nav-group {
+    margin-top: 0.95rem;
+  }
+
+  .nav-section {
+    display: block;
+    padding: 0 0.65rem 0.35rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 36px;
+    padding: 0.4rem 0.65rem;
+    border-radius: var(--admin-radius);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    margin-bottom: 0.15rem;
+    transition: background 0.15s ease, color 0.15s ease;
+    cursor: pointer;
+  }
+
+  .nav-item:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  .nav-item.active {
+    background: var(--brand-900);
+    color: #ffffff;
+    font-weight: 650;
+    box-shadow: 0 1px 2px rgba(26, 46, 26, 0.16);
+  }
+
+  .nav-label {
+    font-size: 0.875rem;
+  }
+
+  .sidebar-footer {
+    padding: 0.75rem;
+    border-top: 1px solid var(--admin-border);
+  }
+
+  .logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 36px;
+    padding: 0.4rem 0.65rem;
+    border: none;
+    border-radius: var(--admin-radius);
+    background: transparent;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-align: left;
+    transition: background 0.15s;
+  }
+
+  .logout-btn:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  .admin-main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    min-width: 0;
+    max-width: calc(100vw - var(--sidebar-width));
+  }
+
+  .admin-header {
+    min-height: 60px;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .admin-header h2 {
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .admin-kicker {
+    margin-bottom: 0.1rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .breadcrumb-sep {
+    color: var(--admin-text-soft);
+    font-weight: 400;
+    margin: 0 0.1rem;
+  }
+
+  .breadcrumb-link {
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .breadcrumb-link:hover {
+    text-decoration: underline;
+  }
+
+  .admin-content {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
+    padding: 1.25rem 1.5rem 2.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .admin-icon-button {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+
+  .admin-icon-button:hover {
+    border-color: var(--admin-accent);
+    color: var(--brand-900);
+    background: var(--brand-50);
+  }
+
+  :global(.admin-panel),
+  :global(.status-card) {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  :global(code),
+  :global(pre) {
+    overflow-wrap: anywhere;
+  }
+
+  :global(pre) {
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  :global(table) {
+    max-width: 100%;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --sidebar-width: 60px;
+    }
+
+    .nav-label,
+    .nav-section,
+    .brand-text {
+      display: none;
+    }
+
+    .sidebar-header,
+    .sidebar-nav,
+    .sidebar-footer {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .nav-item {
+      justify-content: center;
+      min-height: 40px;
+      padding: 0.5rem;
+    }
+
+    .admin-main {
+      margin-left: var(--sidebar-width);
+      max-width: calc(100vw - var(--sidebar-width));
+    }
+
+    .admin-header {
+      padding: 0.75rem 1rem;
+    }
+
+    .admin-content {
+      padding: 1rem;
+    }
+
+    .header-actions {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>

@@ -36,26 +36,26 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 1.1 Flags + env
 
-- [ ] 1.1.1 Add `PIPELINES_PORTED_TO_FLOW` (global kill-switch), `ADMIN_PIPELINES_REDIRECT_TO_FLOW` (URL redirector toggle), `ADMIN_JOBS_WRITES_ENABLED` (legacy write toggle; defaults `true`, flipped `false` in Phase 6), plus 13 per-pipeline flags `PIPELINE_<ID>_USE_FLOW` (one per pipeline id from `src/lib/pipelines/registry.ts`) to `wrangler.jsonc` `vars` block all defaulting to `"false"` (except `ADMIN_JOBS_WRITES_ENABLED` → `"true"`); extend central `Env` type with the 16 new fields; register the `pipelinesUnify` sub-block in `src/lib/config/flags.ts` exposing `flags.pipelinesUnify.portedToFlow`, `flags.pipelinesUnify.adminRedirect`, `flags.pipelinesUnify.adminJobsWritesEnabled`, and `flags.pipelinesUnify.useFlow(pipelineId): boolean`
+- [x] 1.1.1 Add `PIPELINES_PORTED_TO_FLOW` (global kill-switch), `ADMIN_PIPELINES_REDIRECT_TO_FLOW` (URL redirector toggle), `ADMIN_JOBS_WRITES_ENABLED` (legacy write toggle; defaults `true`, flipped `false` in Phase 6), plus 13 per-pipeline flags `PIPELINE_<ID>_USE_FLOW` (one per pipeline id from `src/lib/pipelines/registry.ts`) to `wrangler.jsonc` `vars` block all defaulting to `"false"` (except `ADMIN_JOBS_WRITES_ENABLED` → `"true"`); extend central `Env` type with the 16 new fields; register the `pipelinesUnify` sub-block in `src/lib/config/flags.ts` exposing `flags.pipelinesUnify.portedToFlow`, `flags.pipelinesUnify.adminRedirect`, `flags.pipelinesUnify.adminJobsWritesEnabled`, and `flags.pipelinesUnify.useFlow(pipelineId): boolean`
   - **Files**: `wrangler.jsonc` (modify — append to `vars`), `src/lib/config/env.ts` (modify — append 16 fields), `src/lib/config/flags.ts` (modify — append `pipelinesUnify` sub-object)
   - **Pattern**: D1 (flag table); agent-flow Phase 1.1.1 (per-flow flag block style)
   - **Verify**: `pnpm wrangler types` regenerates clean; `src/lib/config/flags.test.ts` extended to assert each new flag defaults `false` (and `adminJobsWritesEnabled` defaults `true`); `flags.pipelinesUnify.useFlow('research-brief')` toggles based on `PIPELINE_RESEARCH_BRIEF_USE_FLOW`
 
 ### 1.2 Mapping doc
 
-- [ ] 1.2.1 Create `docs/pipeline-flow-mapping.md` — one section per pipeline (13 total) listing: (a) pipeline id, (b) source `src/lib/pipelines/registry.ts` line range, (c) target flow YAML path `flows/pipelines/<id>.yaml`, (d) step-by-step mapping table (pipeline stage id → flow step id, with `kind` translation: `module` → `tool_group`, `llm` → `agent`, `api` → `tool_group`, `human_review` → `human_approval`), (e) tools allowlist preserved verbatim from `tools: [...]`, (f) inputs preserved verbatim from `inputs: [...]`, (g) artifacts preserved from `artifacts: [...]`, (h) guards translation (most map to flow-level config; `tool_allowlist` becomes the per-step `tools` array, `budget_limit` becomes the flow-level `budget` block), (i) cron trigger if any (from `src/pages/api/admin/pipelines/scheduled.ts`)
+- [x] 1.2.1 Create `docs/pipeline-flow-mapping.md` — one section per pipeline (13 total) listing: (a) pipeline id, (b) source `src/lib/pipelines/registry.ts` line range, (c) target flow YAML path `flows/pipelines/<id>.yaml`, (d) step-by-step mapping table (pipeline stage id → flow step id, with `kind` translation: `module` → `tool_group`, `llm` → `agent`, `api` → `tool_group`, `human_review` → `human_approval`), (e) tools allowlist preserved verbatim from `tools: [...]`, (f) inputs preserved verbatim from `inputs: [...]`, (g) artifacts preserved from `artifacts: [...]`, (h) guards translation (most map to flow-level config; `tool_allowlist` becomes the per-step `tools` array, `budget_limit` becomes the flow-level `budget` block), (i) cron trigger if any (from `src/pages/api/admin/pipelines/scheduled.ts`)
   - **Files**: `docs/pipeline-flow-mapping.md` (create — ≥260 lines)
   - **Pattern**: design decision **D2-port-mapping** (one mapping section per pipeline drives one Phase 2 port task; missing pipeline → tasks file is incomplete); mirrors `openspec/changes/agent-flow/research-brief-mapping.md` shape from agent-flow Phase 3.4.2
   - **Verify**: `grep -c "^## " docs/pipeline-flow-mapping.md` returns ≥13 (one section per pipeline); `grep -oE "^## \`[a-z-]+\`" docs/pipeline-flow-mapping.md | sort -u | wc -l` matches `grep -oE "id: '[a-z-]+'" src/lib/pipelines/registry.ts | sort -u | wc -l` (every pipeline covered, none orphaned)
 
 ### 1.3 Parity harness
 
-- [ ] 1.3.1 Build `src/lib/agent-flow/pipelines-parity/harness.ts` — exports `runPipelineParity({ pipelineId, flowId, input, db, kernel, stubs }): Promise<ParityReport>` which (a) calls `runPipeline(db, { pipelineId, input })` from `src/lib/pipelines/runner.ts`, (b) calls `runFlow(db, { flowId, input })` from `src/lib/agent-flow/runtime/run.ts`, (c) extracts structural signatures from both — ordered step ids (mapped via the doc from 1.2.1), ordered artifact kinds, ordered tool calls (from the legacy `admin_jobs.step_logs` JSON vs flow's `flow_step_runs.outputs_json.tool_calls`), ordered source URLs cited, total LLM token spend (≤ ±15 % tolerance per design **D3-parity-tolerance**), (d) returns `{ matched: boolean, diffs: ParityDiff[] }`
+- [x] 1.3.1 Build `src/lib/agent-flow/pipelines-parity/harness.ts` — exports `runPipelineParity({ pipelineId, flowId, input, db, kernel, stubs }): Promise<ParityReport>` which (a) calls `runPipeline(db, { pipelineId, input })` from `src/lib/pipelines/runner.ts`, (b) calls `runFlow(db, { flowId, input })` from `src/lib/agent-flow/runtime/run.ts`, (c) extracts structural signatures from both — ordered step ids (mapped via the doc from 1.2.1), ordered artifact kinds, ordered tool calls (from the legacy `admin_jobs.step_logs` JSON vs flow's `flow_step_runs.outputs_json.tool_calls`), ordered source URLs cited, total LLM token spend (≤ ±15 % tolerance per design **D3-parity-tolerance**), (d) returns `{ matched: boolean, diffs: ParityDiff[] }`
   - **Files**: `src/lib/agent-flow/pipelines-parity/harness.ts` (create), `src/lib/agent-flow/pipelines-parity/types.ts` (create — `ParityReport`, `ParityDiff`)
   - **Pattern**: agent-flow Phase 3.4.1 structural-parity style (LLM nondeterminism: assert structural shape, not text equality); D3-parity-tolerance
   - **Verify**: `src/lib/agent-flow/pipelines-parity/harness.test.ts` covers (a) identical step sequences → `matched: true`, (b) divergent step ordering → `matched: false` with a `step-order` diff, (c) tool call sets differing → `matched: false` with a `tool-call-set` diff, (d) token spend within 15 % → no diff, outside 15 % → `cost-drift` diff
 
-- [ ] 1.3.2 Build `src/lib/agent-flow/pipelines-parity/fixtures.ts` — exports `loadParityFixture(pipelineId): { input, stubs }` reading from `openspec/changes/agent-pipelines-unify/fixtures/<id>/{input.json,stubs.json}`. Each Phase 2 port task seeds the matching fixture pair before flipping its per-pipeline flag
+- [x] 1.3.2 Build `src/lib/agent-flow/pipelines-parity/fixtures.ts` — exports `loadParityFixture(pipelineId): { input, stubs }` reading from `openspec/changes/agent-pipelines-unify/fixtures/<id>/{input.json,stubs.json}`. Each Phase 2 port task seeds the matching fixture pair before flipping its per-pipeline flag
   - **Files**: `src/lib/agent-flow/pipelines-parity/fixtures.ts` (create), `openspec/changes/agent-pipelines-unify/fixtures/.gitkeep` (create)
   - **Pattern**: fixture loader; D3-parity-tolerance (reproducible inputs)
   - **Verify**: `src/lib/agent-flow/pipelines-parity/fixtures.test.ts` covers missing-pipeline → throws with the fixture path expected; valid pipeline → returns the JSON
@@ -81,91 +81,91 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 2.1 Port `content-ops` (low risk, ops)
 
-- [ ] 2.1.1 Port `content-ops` per template. Stages: `run-content-ops(module) → write-report-artifact(module)` → flow: `run_content_ops(tool_group) → write_artifact(artifact)`. Tools: `run_content_ops`, `write_artifact`. Budget: `maxRetries:1`, `maxRuntimeMs:120_000`, `maxExternalCalls:0`. Artifact: `content-ops-report:json_report`
+- [x] 2.1.1 Port `content-ops` per template. Stages: `run-content-ops(module) → write-report-artifact(module)` → flow: `run_content_ops(tool_group) → write_artifact(artifact)`. Tools: `run_content_ops`, `write_artifact`. Budget: `maxRetries:1`, `maxRuntimeMs:120_000`, `maxExternalCalls:0`. Artifact: `content-ops-report:json_report`
   - **Files**: `flows/pipelines/content-ops.yaml` (create), `openspec/changes/agent-pipelines-unify/fixtures/content-ops/{input.json,stubs.json}` (create), `src/lib/agent-flow/pipelines-parity/content-ops.test.ts` (create)
   - **Pattern**: D2-port-mapping; section "content-ops" in `docs/pipeline-flow-mapping.md`
   - **Verify**: parity test green; prod-flip smoke: `flow_runs.status='done'` with the json_report artifact; `wrangler d1 execute --remote --command="SELECT step_id, status FROM flow_step_runs WHERE flow_run_id=?"` returns 2 rows both `done`
 
 ### 2.2 Port `glossary-gap` (medium risk, maintenance, scan-only)
 
-- [ ] 2.2.1 Port `glossary-gap` per template. Stages: `glossary-gap-scan(module) → glossary-gap-report(module)` → flow: `read_glossary_stats(tool_group) → write_artifact(artifact)`. Tools: `read_glossary_stats`, `read_post_content`, `write_artifact`. Inputs: `days:14`, `minLookupCount:3`, `topTerms:20`, `topPostsPerTerm:5`. Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:0`
+- [x] 2.2.1 Port `glossary-gap` per template. Stages: `glossary-gap-scan(module) → glossary-gap-report(module)` → flow: `read_glossary_stats(tool_group) → write_artifact(artifact)`. Tools: `read_glossary_stats`, `read_post_content`, `write_artifact`. Inputs: `days:14`, `minLookupCount:3`, `topTerms:20`, `topPostsPerTerm:5`. Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:0`
   - **Files**: `flows/pipelines/glossary-gap.yaml`, `openspec/changes/agent-pipelines-unify/fixtures/glossary-gap/{input.json,stubs.json}`, `src/lib/agent-flow/pipelines-parity/glossary-gap.test.ts` (create)
   - **Pattern**: D2-port-mapping
   - **Verify**: parity test green; production smoke: flow run completes `done`; report artifact byte-equal to legacy within 2-line whitespace diff
 
 ### 2.3 Port `series-suggestions` (medium risk, scan-only, draft_only guard)
 
-- [ ] 2.3.1 Port `series-suggestions` per template. Stages: `series-scan(module) → series-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `topSeriesCount:12`, `minPostsPerSeries:2`, `maxPostsPerSeries:8`, `minSignalLength:2`. Budget: `maxRetries:1`, `maxRuntimeMs:240_000`. Guards: `draft_only` (preserved as flow-level `draft_only: true` per D2-port-mapping)
+- [x] 2.3.1 Port `series-suggestions` per template. Stages: `series-scan(module) → series-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `topSeriesCount:12`, `minPostsPerSeries:2`, `maxPostsPerSeries:8`, `minSignalLength:2`. Budget: `maxRetries:1`, `maxRuntimeMs:240_000`. Guards: `draft_only` (preserved as flow-level `draft_only: true` per D2-port-mapping)
   - **Files**: `flows/pipelines/series-suggestions.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping
   - **Verify**: parity test green; production smoke `done`; existing cron `POST /api/admin/pipelines/scheduled` still hits the legacy URL (Phase 4 ships the redirector — no cron change here)
 
 ### 2.4 Port `knowledge-graph-prototype` (medium risk, scan-only)
 
-- [ ] 2.4.1 Port `knowledge-graph-prototype` per template. Stages: `knowledge-graph-scan(module) → knowledge-graph-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `minEntityFrequency:2`, `topNodes:80`, `minCoOccurrence:2`, `topEdges:180`. Budget: `maxRetries:1`, `maxRuntimeMs:240_000`
+- [x] 2.4.1 Port `knowledge-graph-prototype` per template. Stages: `knowledge-graph-scan(module) → knowledge-graph-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `minEntityFrequency:2`, `topNodes:80`, `minCoOccurrence:2`, `topEdges:180`. Budget: `maxRetries:1`, `maxRuntimeMs:240_000`
   - **Files**: `flows/pipelines/knowledge-graph-prototype.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping
   - **Verify**: parity test green; production smoke `done`; graph artifact node/edge counts within ±5 % (set-level structural parity per D3-parity-tolerance)
 
 ### 2.5 Port `freshness-review` (high risk, scan-only, weekly cron)
 
-- [ ] 2.5.1 Port `freshness-review` per template. Stages: `freshness-scan(module) → freshness-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `maxAgeDays:365`, `riskThreshold:40`, `categoryFilter:''`, `languageFilter:''`. Budget: `maxRetries:1`, `maxRuntimeMs:180_000`. Guards: `draft_only`. **High risk** because this drives the weekly refresh-task generation — drift here silently affects editorial calendar; require two consecutive parity runs against fresh prod inputs before flipping the flag
+- [x] 2.5.1 Port `freshness-review` per template. Stages: `freshness-scan(module) → freshness-report(module)`. Tools: `read_post_content`, `write_artifact`. Inputs: `maxAgeDays:365`, `riskThreshold:40`, `categoryFilter:''`, `languageFilter:''`. Budget: `maxRetries:1`, `maxRuntimeMs:180_000`. Guards: `draft_only`. **High risk** because this drives the weekly refresh-task generation — drift here silently affects editorial calendar; require two consecutive parity runs against fresh prod inputs before flipping the flag
   - **Files**: `flows/pipelines/freshness-review.yaml`, fixtures pair (2 distinct inputs), `src/lib/agent-flow/pipelines-parity/freshness-review.test.ts` (create — parameterised over 2 fixtures)
   - **Pattern**: D2-port-mapping; D3-parity-tolerance (high-risk → double-fixture)
   - **Verify**: parity green for both fixtures; production smoke `done`; **manual editorial spot-check** of the produced refresh-task list vs. a legacy run on the same day (record in `.omc/research/agent-pipelines-unify-phase2-freshness-review.md`)
 
 ### 2.6 Port `metadata-suggestions` (medium risk, production category)
 
-- [ ] 2.6.1 Port `metadata-suggestions` per template. Stages: `read-post(module) → metadata-suggestion(module) → metadata-suggestion-evaluation(llm)` → flow: `read_post_content(tool_group) → write_artifact(tool_group) → review_evaluation(agent)`. Tools: `read_post_content`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:1`. Artifacts: `metadata-suggestion-report`, `metadata-suggestion-evaluation`
+- [x] 2.6.1 Port `metadata-suggestions` per template. Stages: `read-post(module) → metadata-suggestion(module) → metadata-suggestion-evaluation(llm)` → flow: `read_post_content(tool_group) → write_artifact(tool_group) → review_evaluation(agent)`. Tools: `read_post_content`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:1`. Artifacts: `metadata-suggestion-report`, `metadata-suggestion-evaluation`
   - **Files**: `flows/pipelines/metadata-suggestions.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping (`llm` stage → `agent` step with `agentId: 'writer'` for the evaluation pass, per the kernel agents already registered in agent-os Phase 3.5)
   - **Verify**: parity green; production smoke `done`; both artifact kinds present
 
 ### 2.7 Port `internal-links` (medium risk, production category)
 
-- [ ] 2.7.1 Port `internal-links` per template. Stages: `read-post → run-content-ops → link-report → internal-link-evaluation(llm)`. Tools: `read_post_content`, `run_content_ops`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:1`. Artifacts: `internal-links-report`, `internal-link-evaluation`
+- [x] 2.7.1 Port `internal-links` per template. Stages: `read-post → run-content-ops → link-report → internal-link-evaluation(llm)`. Tools: `read_post_content`, `run_content_ops`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:180_000`, `maxExternalCalls:1`. Artifacts: `internal-links-report`, `internal-link-evaluation`
   - **Files**: `flows/pipelines/internal-links.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping
   - **Verify**: parity green; production smoke `done`; link-set jaccard ≥ 0.9 vs legacy on the same post (per D3-parity-tolerance for LLM nondeterminism)
 
 ### 2.8 Port `post-quality` (low risk, deterministic checks + 1 LLM stage)
 
-- [ ] 2.8.1 Port `post-quality` per template. Stages: `quality-check(module) → reference-check(module) → quality-evaluation(llm) → quality-report(module)`. Tools: `read_post_content`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Input: `slug` (optional). Budget: `maxRetries:1`, `maxRuntimeMs:120_000`, `maxExternalCalls:1`. Artifacts: `quality-report`, `quality-evaluation`
+- [x] 2.8.1 Port `post-quality` per template. Stages: `quality-check(module) → reference-check(module) → quality-evaluation(llm) → quality-report(module)`. Tools: `read_post_content`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Input: `slug` (optional). Budget: `maxRetries:1`, `maxRuntimeMs:120_000`, `maxExternalCalls:1`. Artifacts: `quality-report`, `quality-evaluation`
   - **Files**: `flows/pipelines/post-quality.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping
   - **Verify**: parity green (deterministic checks → exact equality possible for `quality-report.checks[]`); production smoke `done`
 
 ### 2.9 Port `embed-sync` (medium risk, knowledge category, write-side effect)
 
-- [ ] 2.9.1 Port `embed-sync` per template. Stages: `embed-sync(api) → embed-report(api)`. Tools: `run_embed_sync`, `write_artifact`. Inputs: `sources:['posts','docs']`, `offset:0`, `limit:50`. Budget: `maxRetries:2`, `maxRuntimeMs:600_000`, `maxExternalCalls:1`. **Write-side effect**: uses the Vectorize binding to upsert embeddings — parity test stubs the embed call and asserts (a) the same input batch is dispatched, (b) the result artifact JSON matches; production smoke flips the flag for one batch only and confirms via `wrangler d1 execute --remote --command="SELECT COUNT(*) FROM embed_log WHERE batch_id=?"` that the upsert happened exactly once (not duplicated by the dual write)
+- [x] 2.9.1 Port `embed-sync` per template. Stages: `embed-sync(api) → embed-report(api)`. Tools: `run_embed_sync`, `write_artifact`. Inputs: `sources:['posts','docs']`, `offset:0`, `limit:50`. Budget: `maxRetries:2`, `maxRuntimeMs:600_000`, `maxExternalCalls:1`. **Write-side effect**: uses the Vectorize binding to upsert embeddings — parity test stubs the embed call and asserts (a) the same input batch is dispatched, (b) the result artifact JSON matches; production smoke flips the flag for one batch only and confirms via `wrangler d1 execute --remote --command="SELECT COUNT(*) FROM embed_log WHERE batch_id=?"` that the upsert happened exactly once (not duplicated by the dual write)
   - **Files**: `flows/pipelines/embed-sync.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping; D4-write-side-effect-isolation (dual-path runs the side effect via the flow path; legacy `admin_jobs` row records the metadata only and skips re-dispatch — guarded by `ADMIN_JOBS_WRITES_ENABLED` legacy short-circuit)
   - **Verify**: parity green; production smoke `done` with embed count = legacy count for the same input batch
 
 ### 2.10 Port `crawl-sync` (medium risk, knowledge, dual-auth header)
 
-- [ ] 2.10.1 Port `crawl-sync` per template. Stages: `crawl-sync(api) → crawl-report(api)`. Tools: `run_crawl_sync`, `write_artifact`. Inputs: `full:false`, `modifiedSince:number`. Budget: `maxRetries:2`, `maxRuntimeMs:600_000`, `maxExternalCalls:1`. **Auth**: invoked via `X-Crawl-Secret` header in addition to admin session — flow YAML adds `triggers: { cron: true, scheduled: true }` so `requireScheduledAuth` from agent-foundation 1.7.1 accepts both. The actual crawl HTTP request stays on the Worker endpoint with `CRAWL_SECRET` validation; this port only changes how the **job record** is created
+- [x] 2.10.1 Port `crawl-sync` per template. Stages: `crawl-sync(api) → crawl-report(api)`. Tools: `run_crawl_sync`, `write_artifact`. Inputs: `full:false`, `modifiedSince:number`. Budget: `maxRetries:2`, `maxRuntimeMs:600_000`, `maxExternalCalls:1`. **Auth**: invoked via `X-Crawl-Secret` header in addition to admin session — flow YAML adds `triggers: { cron: true, scheduled: true }` so `requireScheduledAuth` from agent-foundation 1.7.1 accepts both. The actual crawl HTTP request stays on the Worker endpoint with `CRAWL_SECRET` validation; this port only changes how the **job record** is created
   - **Files**: `flows/pipelines/crawl-sync.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping; agent-foundation 1.7.1 dual-auth
   - **Verify**: parity green; production smoke via `curl -X POST -H 'X-Crawl-Secret: ...' /api/admin/pipelines/crawl-sync/run` returns 200 with a `flowRunId`; legacy admin job row continues to be written (dual-path)
 
 ### 2.11 Port `youtube-brief` (high risk, external network, human_review gate)
 
-- [ ] 2.11.1 Port `youtube-brief` per template. Stages: `youtube-brief(module) → youtube-quality(module) → youtube-reference(module) → youtube-review(human_review) → youtube-write-draft(module) → youtube-report(module)`. The `human_review` stage maps to flow's `human_approval` step (agent-flow Phase 4.3 executor). Tools: `write_draft_artifact`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Inputs: `videoUrl` (required), `language:zh-TW`, `includeTranscript:true`. Budget: `maxRetries:0`, `maxRuntimeMs:280_000`, `maxExternalCalls:2`. **High risk**: external oEmbed + timed-text fetch + writes a draft markdown file. Parity test stubs the network calls and asserts the draft markdown body shape matches; the human-approval gate is auto-approved in the parity fixture and exercised manually for the production smoke
+- [x] 2.11.1 Port `youtube-brief` per template. Stages: `youtube-brief(module) → youtube-quality(module) → youtube-reference(module) → youtube-review(human_review) → youtube-write-draft(module) → youtube-report(module)`. The `human_review` stage maps to flow's `human_approval` step (agent-flow Phase 4.3 executor). Tools: `write_draft_artifact`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Inputs: `videoUrl` (required), `language:zh-TW`, `includeTranscript:true`. Budget: `maxRetries:0`, `maxRuntimeMs:280_000`, `maxExternalCalls:2`. **High risk**: external oEmbed + timed-text fetch + writes a draft markdown file. Parity test stubs the network calls and asserts the draft markdown body shape matches; the human-approval gate is auto-approved in the parity fixture and exercised manually for the production smoke
   - **Files**: `flows/pipelines/youtube-brief.yaml`, fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping; agent-flow Phase 4.3 (`human_approval`); D4-write-side-effect-isolation (`write_draft_artifact` is the side effect — flow path owns it; legacy short-circuits)
   - **Verify**: parity green; production smoke with manual approval `done`; draft markdown frontmatter (`title`, `lang`, `tags`) deep-equals legacy
 
 ### 2.12 Port `translation` (high risk, multi-LLM, human_review gate, draft writes)
 
-- [ ] 2.12.1 Port `translation` per template. Stages: `read-source → translate(llm) → cultural-review(llm) → native-check(llm) → quality-check → reference-check → review-gate(human_review) → write-draft → translation-report`. Maps to a 9-step flow with three `agent` steps (translate/cultural/native using kernel `writer` agent with distinct prompts) and one `human_approval` step. Tools: `read_post_content`, `write_draft_artifact`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:1_200_000`, `maxExternalCalls:3`. **High risk**: highest LLM-call count, only stage that actually writes user-visible draft markdown to `src/content/posts/`. Require **three** consecutive parity runs against three distinct posts before flipping the flag; capture each in `.omc/research/agent-pipelines-unify-phase2-translation.md`
+- [x] 2.12.1 Port `translation` per template. Stages: `read-source → translate(llm) → cultural-review(llm) → native-check(llm) → quality-check → reference-check → review-gate(human_review) → write-draft → translation-report`. Maps to a 9-step flow with three `agent` steps (translate/cultural/native using kernel `writer` agent with distinct prompts) and one `human_approval` step. Tools: `read_post_content`, `write_draft_artifact`, `run_post_quality_check`, `run_reference_check`, `write_artifact`. Input: `slug` (required). Budget: `maxRetries:1`, `maxRuntimeMs:1_200_000`, `maxExternalCalls:3`. **High risk**: highest LLM-call count, only stage that actually writes user-visible draft markdown to `src/content/posts/`. Require **three** consecutive parity runs against three distinct posts before flipping the flag; capture each in `.omc/research/agent-pipelines-unify-phase2-translation.md`
   - **Files**: `flows/pipelines/translation.yaml`, `openspec/changes/agent-pipelines-unify/fixtures/translation/{input.{1,2,3}.json,stubs.{1,2,3}.json}` (3 fixture pairs), parity test parameterised over the 3 fixtures (create)
   - **Pattern**: D2-port-mapping; D3-parity-tolerance (high-risk → triple-fixture); D4-write-side-effect-isolation
   - **Verify**: parity green for all 3 fixtures; production smoke with one real post → `done` with human approval; draft markdown deep-equals legacy except LLM-nondeterministic prose (frontmatter must be exact)
 
 ### 2.13 Port `research-brief` (high risk — already largely covered by deep-research; explicit port for the standalone pipeline trigger path)
 
-- [ ] 2.13.1 Port `research-brief` per template. Stages: `research-brief(llm) → research-quality(module) → research-reference(module) → research-review(human_review) → research-write-draft(module) → research-report(module)`. Inputs: `topic` (required), `language:zh-TW`, `researchDepth:standard`, `includeExternalSources:true`. Budget: `maxRetries:0`, `maxRuntimeMs:360_000`, `maxExternalCalls:1`. **Note**: the agent-flow `deep-research` reference flow already covers most of this logic, but the pipeline-shaped invocation path still exists — this port creates `flows/pipelines/research-brief.yaml` as a thin wrapper that may eventually be retired in favor of `deep-research` directly. The wrapper preserves the legacy pipeline input shape so admin URLs work unchanged
+- [x] 2.13.1 Port `research-brief` per template. Stages: `research-brief(llm) → research-quality(module) → research-reference(module) → research-review(human_review) → research-write-draft(module) → research-report(module)`. Inputs: `topic` (required), `language:zh-TW`, `researchDepth:standard`, `includeExternalSources:true`. Budget: `maxRetries:0`, `maxRuntimeMs:360_000`, `maxExternalCalls:1`. **Note**: the agent-flow `deep-research` reference flow already covers most of this logic, but the pipeline-shaped invocation path still exists — this port creates `flows/pipelines/research-brief.yaml` as a thin wrapper that may eventually be retired in favor of `deep-research` directly. The wrapper preserves the legacy pipeline input shape so admin URLs work unchanged
   - **Files**: `flows/pipelines/research-brief.yaml` (wrapper invoking deep-research as a sub-flow per agent-flow Phase 4.4 `sub_flow` step), fixtures pair, parity test (create)
   - **Pattern**: D2-port-mapping; D5-research-brief-wrapper (document in mapping doc 1.2.1 that this is a sub-flow wrapper, not a fresh port — proves the `sub_flow` step type in production)
   - **Verify**: parity green; production smoke `done`; inner deep-research run id deep-linked via `parent_flow_run_id`
@@ -188,18 +188,18 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 3.1 Migration shape
 
-- [ ] 3.1.1 Write `migrations/0019_admin_jobs_to_flow_runs.sql` — forward-only migration that (a) confirms `flow_runs` has `parent_kind TEXT` and `parent_external_id TEXT` columns (add via `ALTER TABLE` if missing — guarded with `SELECT COUNT(*) FROM pragma_table_info('flow_runs') WHERE name='parent_kind'` pattern), (b) inserts one `flow_runs` row per `admin_jobs` row preserving: `flow_run_id` (new), `flow_id = 'pipeline-' || pipeline_id` (synthetic mapping per D6-synthetic-flow-id so legacy ids never collide with real flow ids), `status` (mapped: `'pending'→'queued'`, `'running'→'running'`, `'succeeded'→'done'`, `'failed'→'failed'`, `'cancelled'→'cancelled'`), `started_at`, `finished_at`, `latency_ms`, `input_json`, `output_json`, `error_json`, `parent_kind='pipeline'`, `parent_external_id=admin_job_id` (the original row's id, preserved for round-trip lookups). Step-level logs (`step_logs` JSON array) are exploded into `flow_step_runs` rows ordered by `step_index` with `parent_flow_run_id` set. Embed two `-- ASSERT: SELECT COUNT(*) FROM admin_jobs;` and `-- ASSERT: SELECT COUNT(*) FROM flow_runs WHERE parent_kind='pipeline';` lines so the runbook script can parse them
+- [x] 3.1.1 Write `migrations/0019_admin_jobs_to_flow_runs.sql` — forward-only migration that (a) confirms `flow_runs` has `parent_kind TEXT` and `parent_external_id TEXT` columns (add via `ALTER TABLE` if missing — guarded with `SELECT COUNT(*) FROM pragma_table_info('flow_runs') WHERE name='parent_kind'` pattern), (b) inserts one `flow_runs` row per `admin_jobs` row preserving: `flow_run_id` (new), `flow_id = 'pipeline-' || pipeline_id` (synthetic mapping per D6-synthetic-flow-id so legacy ids never collide with real flow ids), `status` (mapped: `'pending'→'queued'`, `'running'→'running'`, `'succeeded'→'done'`, `'failed'→'failed'`, `'cancelled'→'cancelled'`), `started_at`, `finished_at`, `latency_ms`, `input_json`, `output_json`, `error_json`, `parent_kind='pipeline'`, `parent_external_id=admin_job_id` (the original row's id, preserved for round-trip lookups). Step-level logs (`step_logs` JSON array) are exploded into `flow_step_runs` rows ordered by `step_index` with `parent_flow_run_id` set. Embed two `-- ASSERT: SELECT COUNT(*) FROM admin_jobs;` and `-- ASSERT: SELECT COUNT(*) FROM flow_runs WHERE parent_kind='pipeline';` lines so the runbook script can parse them
   - **Files**: `migrations/0019_admin_jobs_to_flow_runs.sql` (create)
   - **Pattern**: agent-foundation Phase 3.1.1 (migration shape, `-- ASSERT` style); D6-synthetic-flow-id
   - **Verify**: file parses with `sqlite3 :memory:` against a seeded admin_jobs+flow_runs schema; running it twice in a row is a no-op (idempotent via `INSERT OR IGNORE` keyed on `(parent_kind, parent_external_id)`); `-- ASSERT` comments present
-- [ ] 3.1.2 Append a documented down-migration recipe as a comment block: `-- DOWN: DELETE FROM flow_runs WHERE parent_kind='pipeline' AND parent_external_id IS NOT NULL; DELETE FROM flow_step_runs WHERE flow_run_id NOT IN (SELECT flow_run_id FROM flow_runs);` (admin_jobs rows are not deleted by the up migration so the down recipe just removes the imported flow_runs/flow_step_runs lineage)
+- [x] 3.1.2 Append a documented down-migration recipe as a comment block: `-- DOWN: DELETE FROM flow_runs WHERE parent_kind='pipeline' AND parent_external_id IS NOT NULL; DELETE FROM flow_step_runs WHERE flow_run_id NOT IN (SELECT flow_run_id FROM flow_runs);` (admin_jobs rows are not deleted by the up migration so the down recipe just removes the imported flow_runs/flow_step_runs lineage)
   - **Files**: `migrations/0019_admin_jobs_to_flow_runs.sql` (modify — append comment)
   - **Pattern**: agent-foundation Phase 3.1.2 (down-migration as documented comment)
   - **Verify**: comment present; recipe is verbatim executable
 
 ### 3.2 Local dry-run with row-count assertions
 
-- [ ] 3.2.1 Build `scripts/verify-0014-dry-run.mjs` — node script that (a) reads `SELECT COUNT(*) FROM admin_jobs` pre, (b) reads `SELECT SUM(json_array_length(step_logs)) FROM admin_jobs` pre (total expected `flow_step_runs` insertions), (c) applies the migration via `wrangler d1 migrations apply quidproquo-db --local`, (d) reads `SELECT COUNT(*) FROM flow_runs WHERE parent_kind='pipeline'` post and asserts equality with pre.admin_jobs_count, (e) reads `SELECT COUNT(*) FROM flow_step_runs WHERE flow_run_id IN (SELECT flow_run_id FROM flow_runs WHERE parent_kind='pipeline')` and asserts equality with pre.step_logs_total. Exits non-zero on mismatch with a diff message
+- [x] 3.2.1 Build `scripts/verify-0014-dry-run.mjs` — node script that (a) reads `SELECT COUNT(*) FROM admin_jobs` pre, (b) reads `SELECT SUM(json_array_length(step_logs)) FROM admin_jobs` pre (total expected `flow_step_runs` insertions), (c) applies the migration via `wrangler d1 migrations apply quidproquo-db --local`, (d) reads `SELECT COUNT(*) FROM flow_runs WHERE parent_kind='pipeline'` post and asserts equality with pre.admin_jobs_count, (e) reads `SELECT COUNT(*) FROM flow_step_runs WHERE flow_run_id IN (SELECT flow_run_id FROM flow_runs WHERE parent_kind='pipeline')` and asserts equality with pre.step_logs_total. Exits non-zero on mismatch with a diff message
   - **Files**: `scripts/verify-0014-dry-run.mjs` (create)
   - **Pattern**: agent-foundation Phase 3.2.1 (row-count assertion script style); proposal §"Risk: data preservation … lost history would be irrecoverable"
   - **Verify**: seed local D1 with `wrangler d1 execute quidproquo-db --local --command="INSERT INTO admin_jobs (pipeline_id, status, input_json, step_logs) VALUES ('test-pipeline','succeeded','{}','[{\"step\":\"a\"},{\"step\":\"b\"}]')"`; run the script; assert it prints `PASS pre=1 post=1 step_pre=2 step_post=2`
@@ -210,7 +210,7 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 3.3 Admin-jobs read-side union
 
-- [ ] 3.3.1 Update `src/pages/api/admin/jobs/index.ts` and `src/pages/api/admin/jobs/[id].ts` to read from `flow_runs WHERE parent_kind='pipeline'` UNION `admin_jobs` (deduped on `parent_external_id`/`id`) so the admin UI shows the imported history alongside any new flow runs. After Phase 5 (no more admin_jobs writes) the union is still required to render the legacy history; after Phase 8 (admin_jobs dropped) the union simplifies to `flow_runs` only
+- [x] 3.3.1 Update `src/pages/api/admin/jobs/index.ts` and `src/pages/api/admin/jobs/[id].ts` to read from `flow_runs WHERE parent_kind='pipeline'` UNION `admin_jobs` (deduped on `parent_external_id`/`id`) so the admin UI shows the imported history alongside any new flow runs. After Phase 5 (no more admin_jobs writes) the union is still required to render the legacy history; after Phase 8 (admin_jobs dropped) the union simplifies to `flow_runs` only
   - **Files**: `src/pages/api/admin/jobs/index.ts` (modify), `src/pages/api/admin/jobs/[id].ts` (modify)
   - **Pattern**: D7-jobs-union-read; proposal §"admin job-list endpoint reads from both during transition"
   - **Verify**: `curl -b 'session=...' /api/admin/jobs` returns the same job ids as before the migration (imported flow_runs surface with their original `admin_job_id` via `parent_external_id`); per-id detail at `/api/admin/jobs/:id` returns 200 for both new flow runs and legacy admin_job ids
@@ -237,25 +237,25 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 4.1 Payload translator
 
-- [ ] 4.1.1 Build `src/lib/pipelines/redirector.ts` — `translatePipelineToFlowInput(pipelineId, body): { flowId, input }` deriving `flowId = 'pipeline-' || pipelineId` (mirrors D6-synthetic-flow-id from migration 3.1.1) and mapping the legacy body shape (`{ inputs: {...}, options: {...} }`) to the flow input shape (`{ ...inputs, _options: options }`). Returns `null` if the pipeline id has no `flows/pipelines/<id>.yaml` registered, letting the redirector fall back to legacy
+- [x] 4.1.1 Build `src/lib/pipelines/redirector.ts` — `translatePipelineToFlowInput(pipelineId, body): { flowId, input }` deriving `flowId = 'pipeline-' || pipelineId` (mirrors D6-synthetic-flow-id from migration 3.1.1) and mapping the legacy body shape (`{ inputs: {...}, options: {...} }`) to the flow input shape (`{ ...inputs, _options: options }`). Returns `null` if the pipeline id has no `flows/pipelines/<id>.yaml` registered, letting the redirector fall back to legacy
   - **Files**: `src/lib/pipelines/redirector.ts` (create)
   - **Pattern**: D6-synthetic-flow-id; D8-redirector-payload-translation
   - **Verify**: `src/lib/pipelines/redirector.test.ts` covers (a) known pipeline → returns mapped shape, (b) unknown pipeline → returns `null`, (c) extra body keys preserved under `_options`
 
 ### 4.2 Endpoint redirector wiring
 
-- [ ] 4.2.1 Update `src/pages/api/admin/pipelines.ts` POST handler — when `flags.pipelinesUnify.adminRedirect === true` AND `flags.pipelinesUnify.useFlow(pipelineId) === true` AND `translatePipelineToFlowInput` returns non-null, dispatch via `runFlow` and return `{ jobId: flowRunId, flowRunId, redirected: true }` (preserves the `jobId` key for legacy UI clients). Otherwise fall through to the existing `runPipeline` path
+- [x] 4.2.1 Update `src/pages/api/admin/pipelines.ts` POST handler — when `flags.pipelinesUnify.adminRedirect === true` AND `flags.pipelinesUnify.useFlow(pipelineId) === true` AND `translatePipelineToFlowInput` returns non-null, dispatch via `runFlow` and return `{ jobId: flowRunId, flowRunId, redirected: true }` (preserves the `jobId` key for legacy UI clients). Otherwise fall through to the existing `runPipeline` path
   - **Files**: `src/pages/api/admin/pipelines.ts` (modify POST handler)
   - **Pattern**: D8-redirector-payload-translation; D9-flag-gated-dual-path
   - **Verify**: `curl -X POST -b 'session=...' /api/admin/pipelines/research-brief/run -d '{"inputs":{"topic":"x"}}'` returns 200 with `redirected: true` and a `flowRunId` matching a row in `flow_runs`; flipping flag off returns the legacy `jobId` shape with a row in `admin_jobs`
-- [ ] 4.2.2 Update `src/pages/api/admin/pipelines/scheduled.ts` POST handler — same redirector logic; preserves the dual-auth (`X-Crawl-Secret` header OR admin session) via `requireScheduledAuth` from agent-foundation 1.7.1. Cron jobs continue to hit the same URL; the body translation is invisible to the caller
+- [x] 4.2.2 Update `src/pages/api/admin/pipelines/scheduled.ts` POST handler — same redirector logic; preserves the dual-auth (`X-Crawl-Secret` header OR admin session) via `requireScheduledAuth` from agent-foundation 1.7.1. Cron jobs continue to hit the same URL; the body translation is invisible to the caller
   - **Files**: `src/pages/api/admin/pipelines/scheduled.ts` (modify POST handler)
   - **Pattern**: D8-redirector-payload-translation
   - **Verify**: `curl -X POST -H 'X-Crawl-Secret: $CRAWL_SECRET' /api/admin/pipelines/scheduled -d '{"pipelineId":"series-suggestions"}'` returns 200 with `flowRunId`; capture the run id and assert a row exists in `flow_runs` with `parent_kind='pipeline'` for the cron-triggered invocation
 
 ### 4.3 Per-URL smoke test
 
-- [ ] 4.3.1 Build `scripts/smoke-pipeline-redirectors.sh` — bash script that iterates all 13 pipeline ids and runs `curl -X POST -b 'session=$SESSION' /api/admin/pipelines/$id/run -d '{"inputs":{}}'` for each (with minimal required inputs from the fixtures dir from Phase 2); asserts 200 and a `flowRunId` in the response; prints PASS/FAIL per pipeline
+- [x] 4.3.1 Build `scripts/smoke-pipeline-redirectors.sh` — bash script that iterates all 13 pipeline ids and runs `curl -X POST -b 'session=$SESSION' /api/admin/pipelines/$id/run -d '{"inputs":{}}'` for each (with minimal required inputs from the fixtures dir from Phase 2); asserts 200 and a `flowRunId` in the response; prints PASS/FAIL per pipeline
   - **Files**: `scripts/smoke-pipeline-redirectors.sh` (create)
   - **Pattern**: agent-foundation Phase 5.2.1 (smoke-script style); per-URL coverage
   - **Verify**: script exits 0 with 13 PASS lines; capture output to `.omc/research/agent-pipelines-unify-phase4-smoke.log`
@@ -278,7 +278,7 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 5.1 Daily monitoring
 
-- [ ] 5.1.1 Build `scripts/observe-admin-jobs-writes.mjs` — node script that runs `SELECT date(started_at) AS day, COUNT(*) AS writes FROM admin_jobs WHERE started_at > date('now', '-1 day') GROUP BY day` against production D1 daily (invoked by an existing cron stub or manually); appends a single line `YYYY-MM-DD writes=N` to `.omc/research/agent-pipelines-unify-phase5-observation.md`. Threshold: writes must equal 0 (or the documented legacy-short-circuit metadata count from embed-sync/crawl-sync, capped at the daily expected cron frequency)
+- [x] 5.1.1 Build `scripts/observe-admin-jobs-writes.mjs` — node script that runs `SELECT date(started_at) AS day, COUNT(*) AS writes FROM admin_jobs WHERE started_at > date('now', '-1 day') GROUP BY day` against production D1 daily (invoked by an existing cron stub or manually); appends a single line `YYYY-MM-DD writes=N` to `.omc/research/agent-pipelines-unify-phase5-observation.md`. Threshold: writes must equal 0 (or the documented legacy-short-circuit metadata count from embed-sync/crawl-sync, capped at the daily expected cron frequency)
   - **Files**: `scripts/observe-admin-jobs-writes.mjs` (create), `.omc/research/agent-pipelines-unify-phase5-observation.md` (create — header)
   - **Pattern**: D9-flag-gated-dual-path observation; proposal §"running both paths in parallel for 4 weeks before flipping the cron"
   - **Verify**: `node scripts/observe-admin-jobs-writes.mjs --remote` exits 0 and appends today's line; ad-hoc validation `wrangler d1 execute quidproquo-db --remote --command="SELECT COUNT(*) FROM admin_jobs WHERE started_at > date('now','-7 day')"` returns 0 (or the expected legacy-short-circuit count)
@@ -301,14 +301,14 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 6.1 Deprecation markers
 
-- [ ] 6.1.1 Add `@deprecated` JSDoc comments on `runPipeline` in `src/lib/pipelines/runner.ts`, `listPipelines`/`getPipelineDefinition` in `src/lib/pipelines/registry.ts`, and `recordAdminJob`/`updateAdminJob` in `src/lib/pipelines/job-store.ts` with the message `@deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts; this module is scheduled for deletion in Phase 7`. Enable `noUnusedExports` warnings (or equivalent) so any new import surfaces as a lint warning
+- [x] 6.1.1 Add `@deprecated` JSDoc comments on `runPipeline` in `src/lib/pipelines/runner.ts`, `listPipelines`/`getPipelineDefinition` in `src/lib/pipelines/registry.ts`, and `recordAdminJob`/`updateAdminJob` in `src/lib/pipelines/job-store.ts` with the message `@deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts; this module is scheduled for deletion in Phase 7`. Enable `noUnusedExports` warnings (or equivalent) so any new import surfaces as a lint warning
   - **Files**: `src/lib/pipelines/runner.ts` (modify — add JSDoc), `src/lib/pipelines/registry.ts` (modify), `src/lib/pipelines/job-store.ts` (modify)
   - **Pattern**: standard JSDoc `@deprecated` tag with rationale + replacement pointer
   - **Verify**: `pnpm lint` warns on every existing caller (expected — phase 7 deletes those callers); `grep -rn "@deprecated" src/lib/pipelines/{runner,registry,job-store}.ts` returns ≥3 lines
 
 ### 6.2 Caller audit
 
-- [ ] 6.2.1 Run `grep -rn "from.*pipelines/runner\|from.*pipelines/registry\|from.*pipelines/job-store" src/ --include='*.ts' --include='*.astro'` and list every remaining caller. For each: confirm the caller is either (a) the admin endpoint redirector (fine — falls through only when the flag is off, which it never is after Phase 4), (b) the admin-jobs read-side union in `src/pages/api/admin/jobs/*.ts` (fine — read-side only), or (c) a stale caller to be fixed before Phase 7
+- [x] 6.2.1 Run `grep -rn "from.*pipelines/runner\|from.*pipelines/registry\|from.*pipelines/job-store" src/ --include='*.ts' --include='*.astro'` and list every remaining caller. For each: confirm the caller is either (a) the admin endpoint redirector (fine — falls through only when the flag is off, which it never is after Phase 4), (b) the admin-jobs read-side union in `src/pages/api/admin/jobs/*.ts` (fine — read-side only), or (c) a stale caller to be fixed before Phase 7
   - **Files**: `.omc/research/agent-pipelines-unify-phase6-caller-audit.md` (create — caller list with classification)
   - **Pattern**: pre-deletion safety audit
   - **Verify**: every caller classified; no `(c)` stale callers remain — fix any before proceeding
@@ -342,14 +342,14 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
   - **Files**: 3 primary deletions + N orphaned-helper deletions (audited and listed in 7.1.1)
   - **Pattern**: file deletion after grace period; agent-flow Phase 6.5.5 cleanup style
   - **Verify**: `pnpm tsc --noEmit` green (no broken imports); `pnpm vitest run` green
-- [ ] 7.2.2 Keep `src/lib/pipelines/tool-registry.ts` and `src/lib/pipelines/types.ts` — `tool-registry.ts` remains as the adapter shipped in agent-foundation 2.9.1 (in case any external caller still depends on the pipeline-shape view); `types.ts` may still be imported by stale code paths surfaced by Phase 7.1 — leave both until a follow-up cleanup. Document the decision in `docs/pipeline-flow-mapping.md` epilogue
+- [x] 7.2.2 Keep `src/lib/pipelines/tool-registry.ts` and `src/lib/pipelines/types.ts` — `tool-registry.ts` remains as the adapter shipped in agent-foundation 2.9.1 (in case any external caller still depends on the pipeline-shape view); `types.ts` may still be imported by stale code paths surfaced by Phase 7.1 — leave both until a follow-up cleanup. Document the decision in `docs/pipeline-flow-mapping.md` epilogue
   - **Files**: `docs/pipeline-flow-mapping.md` (modify — append epilogue: "what survives the deletion")
   - **Pattern**: D11-tool-registry-adapter-survives
   - **Verify**: `src/lib/pipelines/tool-registry.ts` still exists; epilogue present
 
 ### 7.3 Tool-registry test update
 
-- [ ] 7.3.1 Update `src/lib/pipelines/tool-registry.test.ts` — remove any assertion that depended on the now-deleted `runPipeline` / pipeline-definition imports; keep the 3 cases from agent-foundation 2.9.1 (pipeline-only listing, central listing, allowlist validation) but rewrite case (c) to validate against the flow YAMLs in `flows/pipelines/*.yaml` instead of the deleted `pipelineDefinitions` array. The adapter's pipeline-only entries become a read of flow YAML metadata where applicable
+- [x] 7.3.1 Update `src/lib/pipelines/tool-registry.test.ts` — remove any assertion that depended on the now-deleted `runPipeline` / pipeline-definition imports; keep the 3 cases from agent-foundation 2.9.1 (pipeline-only listing, central listing, allowlist validation) but rewrite case (c) to validate against the flow YAMLs in `flows/pipelines/*.yaml` instead of the deleted `pipelineDefinitions` array. The adapter's pipeline-only entries become a read of flow YAML metadata where applicable
   - **Files**: `src/lib/pipelines/tool-registry.test.ts` (modify)
   - **Pattern**: D11-tool-registry-adapter-survives
   - **Verify**: `pnpm vitest run src/lib/pipelines` green with the rewritten cases; coverage report shows the adapter still tested
@@ -372,14 +372,14 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 8.2 Simplify the read-side union
 
-- [ ] 8.2.1 Update `src/pages/api/admin/jobs/index.ts` and `src/pages/api/admin/jobs/[id].ts` to read from `flow_runs WHERE parent_kind='pipeline'` only (drop the UNION with `admin_jobs`). Imported history is fully visible via `parent_external_id` (from Phase 3 migration), so user-facing behavior is identical
+- [x] 8.2.1 Update `src/pages/api/admin/jobs/index.ts` and `src/pages/api/admin/jobs/[id].ts` to read from `flow_runs WHERE parent_kind='pipeline'` only (drop the UNION with `admin_jobs`). Imported history is fully visible via `parent_external_id` (from Phase 3 migration), so user-facing behavior is identical
   - **Files**: `src/pages/api/admin/jobs/index.ts` (modify), `src/pages/api/admin/jobs/[id].ts` (modify)
   - **Pattern**: D7-jobs-union-read (post-sunset simplification)
   - **Verify**: `curl -b 'session=...' /api/admin/jobs?limit=50` returns the same job ids and ordering as the pre-simplification call (verified against a captured baseline from earlier in Phase 8); the per-id endpoint still resolves legacy admin_job ids via `parent_external_id`
 
 ### 8.3 Drop migration
 
-- [ ] 8.3.1 Write `migrations/0020_drop_admin_jobs.sql` — `DROP TABLE IF EXISTS admin_jobs;`. Append a documented restore recipe as a comment: `-- DOWN: CREATE TABLE admin_jobs (id INTEGER PRIMARY KEY, pipeline_id TEXT, status TEXT, ...); INSERT INTO admin_jobs SELECT ... FROM flow_runs WHERE parent_kind='pipeline'; -- (full schema in /tmp/quidproquo-pre-0014.sql backup from Phase 3)`. Capture pre-drop backup: `wrangler d1 export quidproquo-db --remote --output /tmp/quidproquo-pre-0015.sql --table=admin_jobs` and record SHA256 in `.omc/research/agent-pipelines-unify-phase8-backup.md`
+- [x] 8.3.1 Write `migrations/0020_drop_admin_jobs.sql` — `DROP TABLE IF EXISTS admin_jobs;`. Append a documented restore recipe as a comment: `-- DOWN: CREATE TABLE admin_jobs (id INTEGER PRIMARY KEY, pipeline_id TEXT, status TEXT, ...); INSERT INTO admin_jobs SELECT ... FROM flow_runs WHERE parent_kind='pipeline'; -- (full schema in /tmp/quidproquo-pre-0014.sql backup from Phase 3)`. Capture pre-drop backup: `wrangler d1 export quidproquo-db --remote --output /tmp/quidproquo-pre-0015.sql --table=admin_jobs` and record SHA256 in `.omc/research/agent-pipelines-unify-phase8-backup.md`
   - **Files**: `migrations/0020_drop_admin_jobs.sql` (create), `.omc/research/agent-pipelines-unify-phase8-backup.md` (create)
   - **Pattern**: agent-foundation Phase 3.1.2 (down-migration as comment); proposal §"admin_jobs table sunset migration"
   - **Verify**: file parses with `sqlite3 :memory:` (against a seeded admin_jobs); backup captured with SHA256 recorded
@@ -424,7 +424,7 @@ Implementation plan. 9 phases, ~60 tasks. Ports every existing pipeline definiti
 
 ### 9.4 Archive
 
-- [ ] 9.4.1 Append to `progress.txt`: `agent-pipelines-unify: complete — 13 pipelines ported to flow YAMLs, runner+registry+job-store deleted, admin_jobs table dropped; single orchestrator (flow), single job table (flow_runs), single mental model`
+- [x] 9.4.1 Append to `progress.txt`: `agent-pipelines-unify: complete — 13 pipelines ported to flow YAMLs, runner+registry+job-store deleted, admin_jobs table dropped; single orchestrator (flow), single job table (flow_runs), single mental model`
   - **Files**: `progress.txt` (modify — append)
   - **Pattern**: project convention; agent-flow Phase 6.5.4
   - **Verify**: `tail -1 progress.txt` matches; commit via `format-commit` skill per `CLAUDE.md`

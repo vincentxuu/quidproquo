@@ -5,11 +5,25 @@ import { createScheduler } from './scheduler'
 import type { AgentOsBackends } from './storage'
 import { createBackends } from './storage'
 import type { Env } from '../config/env'
+import { readFlags } from '../config/flags'
 import { registerDefaultSyscalls } from './tools/register-defaults'
 import { createSyscallHelper } from './tools/syscall'
+import { registerDefaultLlmProviders } from '../agent-providers/providers/llm/register-defaults'
+import { registerDefaultSearchProviders } from '../agent-providers/providers/search/register-defaults'
+import { registerDefaultReaderProviders } from '../agent-providers/providers/reader/register-defaults'
+import { listAll } from '../agent-providers/registry'
 
 export function createKernel(env: Env, providedBackends?: AgentOsBackends) {
   registerDefaultSyscalls()
+
+  const flags = readFlags(env)
+  if (flags.providers.enabled) {
+    registerDefaultLlmProviders()
+    registerDefaultSearchProviders()
+    registerDefaultReaderProviders()
+    const ids = listAll().map((p) => p.providerId)
+    console.log('[kernel] registered providers:', ids.join(', '))
+  }
   const backends = providedBackends ?? createBackends(env)
   const registry = new Map<string, AgentDefinition<any, any>>()
   const access = createAccessManager(backends)

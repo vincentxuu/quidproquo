@@ -1,0 +1,45 @@
+id: post-quality
+name: Quality Agent
+version: 1
+inputs:
+  slug:
+    type: string
+    required: false
+    description: Post slug
+steps:
+  quality-check:
+    kind: tool_group
+    tools: [read_post_content, run_post_quality_check]
+    prompt: Run post quality check
+  reference-check:
+    kind: tool_group
+    tools: [run_reference_check]
+    prompt: Run reference check
+  quality-evaluation:
+    kind: agent
+    prompt: Run LLM quality evaluation
+    model: groq
+    maxTokens: 2000
+  quality-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: quality-check
+    to: reference-check
+  - from: reference-check
+    to: quality-evaluation
+  - from: quality-evaluation
+    to: quality-report
+artifacts:
+  - id: quality-report
+    kind: json_report
+    title: Quality report
+    stepId: quality-report
+  - id: quality-evaluation
+    kind: json_report
+    title: Quality evaluation
+    stepId: quality-evaluation
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 120000
+  maxExternalCalls: 1

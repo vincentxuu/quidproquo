@@ -1,0 +1,25 @@
+id: parallel-step-fixture
+name: Parallel Step Fixture
+version: 1
+description: Minimal flow demonstrating a parallel step with two branches.
+
+inputs:
+  - name: query
+    type: string
+    required: true
+
+steps:
+  - id: fan_out
+    type: parallel
+    description: Run two searches in parallel.
+    branches:
+      - id: search_tavily
+        type: tool_group
+        tools: [search.tavily]
+        description: Search via Tavily.
+      - id: search_exa
+        type: tool_group
+        tools: [search.exa]
+        description: Search via Exa.
+
+edges: []

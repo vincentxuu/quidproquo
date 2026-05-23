@@ -1,0 +1,63 @@
+---
+import type { FlowVersionRow } from '@/lib/agent-console/flow-detail';
+
+interface Props {
+  versions: FlowVersionRow[];
+  latestVersion: number;
+}
+
+const { versions, latestVersion } = Astro.props;
+
+function formatTimestamp(ms: number): string {
+  return ms ? new Date(ms).toISOString().replace('T', ' ').slice(0, 16) : '—';
+}
+---
+
+<table class="mgmt-table admin-panel">
+  <thead>
+    <tr>
+      <th scope="col">Version</th>
+      <th scope="col">Published</th>
+      <th scope="col">By</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {versions.map((row) => (
+      <tr data-version={row.version}>
+        <td>v{row.version}</td>
+        <td>{formatTimestamp(row.publishedAt)}</td>
+        <td>{row.publishedBy ?? '—'}</td>
+        <td>{row.version === latestVersion ? <span class="latest-chip">latest</span> : ''}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .mgmt-table th,
+  .mgmt-table td {
+    text-align: left;
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .mgmt-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .latest-chip {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--brand-700, #2a5);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    color: var(--brand-900, #163);
+  }
+</style>

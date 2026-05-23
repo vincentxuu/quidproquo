@@ -20,6 +20,8 @@ import astroWorker from './server/entry.mjs';
 import { scheduledAgentEntries } from '../src/lib/agent-os/scheduler/cron-registry.ts';
 import { checkKernelHealth } from '../src/lib/agent-os/observability/alerts.ts';
 import { handleQueueBatch } from '../src/server/queue.ts';
+import { runConsoleRollupDaily } from '../src/lib/agent-console/cost/rollup.ts';
+import { checkCostThresholds } from '../src/lib/agent-console/cost/threshold.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
@@ -35,6 +37,8 @@ export default {
 
     if (event.cron === '0 3 * * *') {
       ctx.waitUntil(checkKernelHealth(env))
+      ctx.waitUntil(runConsoleRollupDaily(env))
+      ctx.waitUntil(checkCostThresholds(env))
     }
 
     const baseUrl = normalizeCronBaseUrl(env.APP_BASE_URL || env.CRAWL_BASE_URL || env.WORKER_URL || env.CF_PAGES_URL || 'https://quidproquo.cc')

@@ -1,0 +1,249 @@
+---
+interface Props {
+  flowId: string;
+  presetId: string;
+  db: import('@cloudflare/workers-types').D1Database;
+}
+
+const { flowId, presetId, db } = Astro.props;
+
+interface PresetRow {
+  preset_id: string;
+  name: string;
+  overrides_json: string | null;
+}
+
+let preset: PresetRow | null = null;
+let loadError = false;
+
+try {
+  preset = await db
+    .prepare(
+      `SELECT preset_id, name, overrides_json
+       FROM flow_presets
+       WHERE flow_id = ? AND preset_id = ?
+       LIMIT 1`,
+    )
+    .bind(flowId, presetId)
+    .first<PresetRow>();
+} catch {
+  loadError = true;
+}
+
+interface ProviderRoutingEntry {
+  provider?: string;
+  model?: string;
+}
+
+interface RetryPolicy {
+  maxAttempts?: number;
+  backoff?: string;
+}
+
+interface BudgetDelta {
+  [key: string]: unknown;
+}
+
+interface Overrides {
+  providerRouting?: Record<string, ProviderRoutingEntry>;
+  retryPolicy?: RetryPolicy;
+  budget?: BudgetDelta;
+}
+
+let overrides: Overrides | null = null;
+if (preset?.overrides_json) {
+  try {
+    overrides = JSON.parse(preset.overrides_json) as Overrides;
+  } catch {
+    // Malformed JSON — skip structured display
+  }
+}
+---
+
+{loadError && (
+  <aside class="preset-panel preset-panel--error" aria-label="Preset summary">
+    <p class="preset-panel__error">Could not load preset details.</p>
+  </aside>
+)}
+
+{!loadError && !preset && (
+  <aside class="preset-panel preset-panel--warn" aria-label="Preset summary">
+    <p class="preset-panel__error">Preset <code>{presetId}</code> not found for this flow.</p>
+  </aside>
+)}
+
+{!loadError && preset && (
+  <aside class="preset-panel" aria-label="Preset summary">
+    <h2 class="preset-panel__title">Preset: {preset.name}</h2>
+    <code class="preset-panel__id">{preset.preset_id}</code>
+
+    {overrides ? (
+      <dl class="preset-dl">
+
+        {overrides.providerRouting && Object.keys(overrides.providerRouting).length > 0 && (
+          <>
+            <dt class="preset-dl__term">Provider Routing</dt>
+            <dd class="preset-dl__def">
+              <ul class="preset-routing-list">
+                {Object.entries(overrides.providerRouting).map(([role, cfg]) => (
+                  <li>
+                    <span class="preset-role">{role}</span>
+                    {cfg.provider && <span class="preset-tag">{cfg.provider}</span>}
+                    {cfg.model && <span class="preset-tag preset-tag--mono">{cfg.model}</span>}
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </>
+        )}
+
+        {overrides.retryPolicy && (
+          <>
+            <dt class="preset-dl__term">Retry Policy</dt>
+            <dd class="preset-dl__def">
+              <ul class="preset-kv-list">
+                {overrides.retryPolicy.maxAttempts != null && (
+                  <li><span class="preset-key">maxAttempts</span><span class="preset-val">{overrides.retryPolicy.maxAttempts}</span></li>
+                )}
+                {overrides.retryPolicy.backoff != null && (
+                  <li><span class="preset-key">backoff</span><span class="preset-val preset-val--mono">{overrides.retryPolicy.backoff}</span></li>
+                )}
+              </ul>
+            </dd>
+          </>
+        )}
+
+        {overrides.budget && Object.keys(overrides.budget).length > 0 && (
+          <>
+            <dt class="preset-dl__term">Budget Delta</dt>
+            <dd class="preset-dl__def">
+              <ul class="preset-kv-list">
+                {Object.entries(overrides.budget).map(([k, v]) => (
+                  <li>
+                    <span class="preset-key">{k}</span>
+                    <span class="preset-val preset-val--mono">{String(v)}</span>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </>
+        )}
+
+        {!overrides.providerRouting && !overrides.retryPolicy && !overrides.budget && (
+          <dt class="preset-dl__term"><em class="preset-panel__none">No structured overrides found.</em></dt>
+        )}
+
+      </dl>
+    ) : (
+      <p class="preset-panel__none">No overrides configured.</p>
+    )}
+  </aside>
+)}
+
+<style>
+  .preset-panel {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    padding: 1rem 1.125rem;
+    background: var(--admin-surface, #fff);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .preset-panel--error,
+  .preset-panel--warn {
+    background: var(--color-warning-bg, #fefce8);
+    border-color: var(--color-warning-border, #fde047);
+  }
+
+  .preset-panel__title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--admin-text);
+  }
+
+  .preset-panel__id {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .preset-panel__error {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-warning-text, #713f12);
+  }
+
+  .preset-panel__none {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted);
+    font-style: normal;
+  }
+
+  .preset-dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+  }
+
+  .preset-dl__term {
+    font-weight: 600;
+    color: var(--admin-text);
+    padding-top: 0.1rem;
+  }
+
+  .preset-dl__def {
+    margin: 0;
+  }
+
+  .preset-routing-list,
+  .preset-kv-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .preset-routing-list li,
+  .preset-kv-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    flex-wrap: wrap;
+  }
+
+  .preset-role {
+    font-weight: 600;
+    color: var(--admin-text);
+    min-width: 6rem;
+  }
+
+  .preset-tag {
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: var(--admin-muted, #f1f5f9);
+    border: 1px solid var(--admin-border, #e2e8f0);
+    font-size: 0.78rem;
+    color: var(--admin-text);
+  }
+
+  .preset-tag--mono,
+  .preset-val--mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .preset-key {
+    min-width: 7rem;
+    color: var(--admin-text-muted);
+  }
+
+  .preset-val {
+    color: var(--admin-text);
+  }
+</style>

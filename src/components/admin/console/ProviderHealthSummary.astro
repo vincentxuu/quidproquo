@@ -1,0 +1,204 @@
+---
+/**
+ * ProviderHealthSummary — compact provider health widget for the console index.
+ *
+ * Queries provider_health for a status breakdown (healthy / degraded / down)
+ * and the count of failures in the last hour. Gracefully degrades when the
+ * provider_health table is not yet available.
+ *
+ * Integration note: import this component into
+ * src/pages/admin/console/index.astro after the pending-approvals banner.
+ *
+ * Example:
+ *   import ProviderHealthSummary from
+ *     '@/components/admin/console/ProviderHealthSummary.astro';
+ *   <ProviderHealthSummary db={getEnv().DB} />
+ */
+import type { D1Database } from '@cloudflare/workers-types';
+
+interface Props {
+  db: D1Database;
+}
+
+const { db } = Astro.props;
+
+interface StatusCount {
+  status: string;
+  count: number;
+}
+
+interface FailureCount {
+  count: number;
+}
+
+let statusCounts: StatusCount[] = [];
+let failuresLastHour = 0;
+let available = false;
+
+try {
+  // Get count of providers per status from latest health check per provider
+  const statusResult = await db
+    .prepare(
+      `SELECT status, COUNT(*) AS count
+       FROM (
+         SELECT provider_id, status,
+                ROW_NUMBER() OVER (PARTITION BY provider_id ORDER BY checked_at DESC) AS rn
+         FROM provider_health
+       )
+       WHERE rn = 1
+       GROUP BY status`
+    )
+    .all<StatusCount>();
+
+  statusCounts = statusResult.results ?? [];
+
+  // Count failures in last hour (error_rate > 0.1 or status degraded/error/down)
+  const oneHourAgo = Date.now() - 3_600_000;
+  const failureResult = await db
+    .prepare(
+      `SELECT COUNT(*) AS count
+       FROM provider_health
+       WHERE checked_at >= ?
+         AND (error_rate > 0.1 OR status IN ('degraded', 'error', 'down'))`
+    )
+    .bind(oneHourAgo)
+    .first<FailureCount>();
+
+  failuresLastHour = failureResult?.count ?? 0;
+  available = true;
+} catch {
+  available = false;
+}
+
+function getCount(status: string): number {
+  return statusCounts.find((r) => r.status === status)?.count ?? 0;
+}
+
+const healthy = getCount('healthy');
+const degraded = getCount('degraded');
+const down = getCount('down') + getCount('error');
+const total = statusCounts.reduce((sum, r) => sum + r.count, 0);
+---
+
+{available && (
+  <div class="provider-health-summary" role="region" aria-label="Provider health summary">
+    <div class="summary-body">
+      <span class="summary-title">Provider Health</span>
+      <div class="summary-counts">
+        <span class="count-chip healthy" title={`${healthy} healthy provider${healthy !== 1 ? 's' : ''}`}>
+          <span class="dot" />
+          {healthy} healthy
+        </span>
+        {degraded > 0 && (
+          <span class="count-chip degraded" title={`${degraded} degraded provider${degraded !== 1 ? 's' : ''}`}>
+            <span class="dot" />
+            {degraded} degraded
+          </span>
+        )}
+        {down > 0 && (
+          <span class="count-chip down" title={`${down} provider${down !== 1 ? 's' : ''} down`}>
+            <span class="dot" />
+            {down} down
+          </span>
+        )}
+        {total === 0 && (
+          <span class="count-chip muted">No providers registered</span>
+        )}
+      </div>
+      {failuresLastHour > 0 && (
+        <span class="failure-note">
+          {failuresLastHour} failure event{failuresLastHour !== 1 ? 's' : ''} in last hour
+        </span>
+      )}
+    </div>
+    <a href="/admin/console/providers" class="summary-link" aria-label="View all providers">
+      View all
+    </a>
+  </div>
+)}
+
+<style>
+  .provider-health-summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    font-size: 0.875rem;
+  }
+
+  .summary-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  .summary-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .summary-counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .count-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .count-chip.muted {
+    color: var(--admin-text-muted);
+  }
+
+  .dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .count-chip.healthy .dot { background: #16a34a; }
+  .count-chip.healthy { color: #16a34a; }
+
+  .count-chip.degraded .dot { background: #a16207; }
+  .count-chip.degraded { color: #a16207; }
+
+  .count-chip.down .dot { background: #dc2626; }
+  .count-chip.down { color: #dc2626; }
+
+  .failure-note {
+    font-size: 0.78rem;
+    color: #a16207;
+  }
+
+  .summary-link {
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 0.8rem;
+    color: var(--admin-accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .summary-link:hover {
+    color: var(--admin-accent-hover);
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,40 @@
+id: metadata-suggestions
+name: Metadata Agent
+version: 1
+inputs:
+  slug:
+    type: string
+    required: true
+    description: Post slug
+steps:
+  read-post:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Read source post
+  metadata-suggestion:
+    kind: tool_group
+    tools: [write_artifact]
+    prompt: Generate metadata suggestion
+  metadata-suggestion-evaluation:
+    kind: agent
+    prompt: Review metadata suggestion
+    model: groq
+    maxTokens: 2000
+edges:
+  - from: read-post
+    to: metadata-suggestion
+  - from: metadata-suggestion
+    to: metadata-suggestion-evaluation
+artifacts:
+  - id: metadata-suggestion-report
+    kind: json_report
+    title: Metadata suggestions
+    stepId: metadata-suggestion
+  - id: metadata-suggestion-evaluation
+    kind: json_report
+    title: Metadata suggestion evaluation
+    stepId: metadata-suggestion-evaluation
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 180000
+  maxExternalCalls: 1

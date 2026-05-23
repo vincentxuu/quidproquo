@@ -1,0 +1,145 @@
+---
+export const prerender = false;
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('management');
+
+interface ProviderRow {
+  provider_id: string;
+  category: string | null;
+  display_name: string | null;
+  is_enabled: number | null;
+  updated_at: number | null;
+}
+
+let providers: ProviderRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+    const result = await db
+      .prepare(
+        `SELECT provider_id, category, display_name, is_enabled, updated_at
+         FROM provider_definitions
+         ORDER BY category, display_name ASC`,
+      )
+      .all<ProviderRow>();
+    providers = result.results ?? [];
+  } catch {
+    // Table may not exist yet — show empty state
+    loadError = false;
+    providers = [];
+  }
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+---
+
+<AdminConsoleLayout title="Providers" section="providers">
+  {!ready && (
+    <AdminState tone="empty">{`Providers management ships in ${consolePhaseFor('management')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load providers.</AdminState>
+  )}
+  {ready && !loadError && providers.length === 0 && (
+    <AdminState tone="empty">No provider definitions registered yet.</AdminState>
+  )}
+  {ready && !loadError && providers.length > 0 && (
+    <AdminPanel title="Provider Definitions">
+      <AdminTable minWidth="560px" flush>
+        <thead>
+          <tr>
+            <th>Provider ID</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {providers.map((p) => (
+            <tr>
+              <td class="mono">
+                <a href={`/admin/console/providers/${p.provider_id}`} class="link">
+                  {p.provider_id}
+                </a>
+              </td>
+              <td class="category">{p.category ?? '—'}</td>
+              <td class="provider-name">{p.display_name ?? p.provider_id}</td>
+              <td>
+                {p.is_enabled ? (
+                  <span class="badge enabled">Enabled</span>
+                ) : (
+                  <span class="badge disabled">Disabled</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </AdminTable>
+    </AdminPanel>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .category {
+    font-size: 0.85em;
+    color: var(--admin-text-muted);
+    text-transform: capitalize;
+  }
+
+  .provider-name {
+    font-size: 0.9em;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.1em 0.55em;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid;
+  }
+
+  .badge.enabled {
+    color: #16a34a;
+    border-color: #16a34a;
+    background: #f0fdf4;
+  }
+
+  .badge.disabled {
+    color: #dc2626;
+    border-color: #dc2626;
+    background: #fef2f2;
+  }
+</style>

@@ -1,0 +1,17 @@
+id: agent-step-fixture
+name: Agent Step Fixture
+version: 1
+description: Minimal flow demonstrating an agent step.
+
+inputs:
+  - name: topic
+    type: string
+    required: true
+
+steps:
+  - id: call_planner
+    type: agent
+    agent: planner
+    description: Call the planner agent to produce an output.
+
+edges: []

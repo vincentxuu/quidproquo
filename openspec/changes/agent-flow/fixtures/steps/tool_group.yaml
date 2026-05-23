@@ -1,0 +1,17 @@
+id: tool-group-step-fixture
+name: Tool Group Step Fixture
+version: 1
+description: Minimal flow demonstrating a tool_group step.
+
+inputs:
+  - name: query
+    type: string
+    required: true
+
+steps:
+  - id: search
+    type: tool_group
+    tools: [search.tavily, search.exa]
+    description: Search for sources using multiple tools.
+
+edges: []

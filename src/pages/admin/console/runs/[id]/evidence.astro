@@ -1,0 +1,720 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import { getEnv } from '@/lib/config/env';
+import { readFlags } from '@/lib/config/flags';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { D1SourceStoreBackend } from '@/lib/agent-evidence/storage/d1/source-store';
+import { D1ExcerptStoreBackend } from '@/lib/agent-evidence/storage/d1/excerpt-store';
+import { D1ClaimStoreBackend } from '@/lib/agent-evidence/storage/d1/claim-store';
+import { D1CitationStoreBackend } from '@/lib/agent-evidence/storage/d1/citation-store';
+import { D1ConflictStoreBackend } from '@/lib/agent-evidence/storage/d1/conflict-store';
+import type {
+  SourceRecord,
+  ExcerptRecord,
+  ClaimRecord,
+  CitationRecord,
+  ConflictRecord,
+} from '@/lib/agent-evidence/storage/types';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const consoleReady = isPageEnabled('evidenceViewer');
+
+const flowRunId = Astro.params.id ?? '';
+const selectedSourceId = Astro.url.searchParams.get('source');
+
+// Gate: evidence flag
+const env = getEnv();
+const flags = readFlags(env);
+const evidenceEnabled = flags.agentEvidence.enabled;
+
+// ---- data loading ----
+interface SourceWithMeta extends SourceRecord {
+  domain: string
+  excerptCount: number
+  conflictCount: number
+}
+
+let sources: SourceWithMeta[] = [];
+let excerpts: ExcerptRecord[] = [];
+let claims: ClaimRecord[] = [];
+let citations: CitationRecord[] = [];
+let conflicts: ConflictRecord[] = [];
+let loadError = false;
+
+if (consoleReady && evidenceEnabled && flowRunId) {
+  try {
+    const db = env.DB;
+    const sourceStore = new D1SourceStoreBackend(db);
+    const excerptStore = new D1ExcerptStoreBackend(db);
+    const claimStore = new D1ClaimStoreBackend(db);
+    const citationStore = new D1CitationStoreBackend(db);
+    const conflictStore = new D1ConflictStoreBackend(db);
+
+    const [rawSources, rawClaims] = await Promise.all([
+      sourceStore.listForFlowRun(flowRunId),
+      claimStore.listForFlowRun(flowRunId),
+    ]);
+
+    claims = rawClaims;
+
+    // Load excerpts for all sources in parallel
+    const excerptsBySource = await Promise.all(
+      rawSources.map((s) => excerptStore.listForSource(s.sourceId)),
+    );
+    excerpts = excerptsBySource.flat();
+
+    // Load citations for all claims in parallel
+    const citationsByClaim = await Promise.all(
+      rawClaims.map((c) => citationStore.listForClaim(c.claimId)),
+    );
+    citations = citationsByClaim.flat();
+
+    // Load pending conflicts for this flow
+    const claimIds = new Set(rawClaims.map((c) => c.claimId));
+    const { conflicts: pendingConflicts } = await conflictStore.listByStatus('pending', { limit: 200 });
+    conflicts = pendingConflicts.filter(
+      (cf) => claimIds.has(cf.claimAId) || claimIds.has(cf.claimBId),
+    );
+
+    // Build excerpt count map: sourceId -> count
+    const excerptCountBySource = new Map<number, number>();
+    for (const e of excerpts) {
+      excerptCountBySource.set(e.sourceId, (excerptCountBySource.get(e.sourceId) ?? 0) + 1);
+    }
+
+    // Build conflict count map: sourceId -> count
+    // A conflict touches a source if either claim references an excerpt from that source
+    const excerptToSource = new Map<number, number>();
+    for (const e of excerpts) {
+      excerptToSource.set(e.excerptId, e.sourceId);
+    }
+    const claimToExcerpts = new Map<number, number[]>();
+    for (const cit of citations) {
+      if (!claimToExcerpts.has(cit.claimId)) claimToExcerpts.set(cit.claimId, []);
+      claimToExcerpts.get(cit.claimId)!.push(cit.excerptId);
+    }
+    const conflictCountBySource = new Map<number, number>();
+    for (const cf of conflicts) {
+      for (const claimId of [cf.claimAId, cf.claimBId]) {
+        for (const excerptId of (claimToExcerpts.get(claimId) ?? [])) {
+          const sourceId = excerptToSource.get(excerptId);
+          if (sourceId !== undefined) {
+            conflictCountBySource.set(sourceId, (conflictCountBySource.get(sourceId) ?? 0) + 1);
+          }
+        }
+      }
+    }
+
+    sources = rawSources.map((s) => {
+      let domain = '';
+      try {
+        domain = new URL(s.url).hostname;
+      } catch {
+        domain = s.url;
+      }
+      return {
+        ...s,
+        domain,
+        excerptCount: excerptCountBySource.get(s.sourceId) ?? 0,
+        conflictCount: conflictCountBySource.get(s.sourceId) ?? 0,
+      };
+    });
+  } catch {
+    loadError = true;
+  }
+}
+
+// Group sources by domain
+const sourcesByDomain = sources.reduce<Record<string, SourceWithMeta[]>>((acc, s) => {
+  acc[s.domain] ??= [];
+  acc[s.domain].push(s);
+  return acc;
+}, {});
+
+// Selected source data
+const selectedSource = selectedSourceId
+  ? sources.find((s) => String(s.sourceId) === selectedSourceId) ?? null
+  : null;
+
+const selectedExcerpts = selectedSource
+  ? excerpts.filter((e) => e.sourceId === selectedSource.sourceId)
+  : [];
+
+// For each excerpt, find its citations and for each citation find the claim
+const claimById = new Map(claims.map((c) => [c.claimId, c]));
+const citationsByExcerpt = new Map<number, CitationRecord[]>();
+for (const cit of citations) {
+  if (!citationsByExcerpt.has(cit.excerptId)) citationsByExcerpt.set(cit.excerptId, []);
+  citationsByExcerpt.get(cit.excerptId)!.push(cit);
+}
+
+// For conflicts panel: resolve claim texts
+const conflictDetails = conflicts.map((cf) => ({
+  ...cf,
+  claimA: claimById.get(cf.claimAId) ?? null,
+  claimB: claimById.get(cf.claimBId) ?? null,
+}));
+
+function truncateUrl(url: string, max = 60): string {
+  if (url.length <= max) return url;
+  return url.slice(0, max) + '…';
+}
+
+const breadcrumb = [
+  { label: 'Runs', href: '/admin/console/runs' },
+  { label: flowRunId.slice(0, 8) + '…', href: `/admin/console/runs/${flowRunId}` },
+  { label: 'Evidence' },
+];
+---
+
+<AdminConsoleLayout title="Evidence Viewer" section="evidence" breadcrumb={breadcrumb}>
+  {!consoleReady && (
+    <AdminState tone="empty">{`Evidence viewer ships in ${consolePhaseFor('evidenceViewer')}.`}</AdminState>
+  )}
+  {consoleReady && !evidenceEnabled && (
+    <AdminState tone="empty">Agent evidence is disabled. Set <code>AGENT_EVIDENCE_ENABLED=true</code> to enable.</AdminState>
+  )}
+  {consoleReady && evidenceEnabled && loadError && (
+    <AdminState tone="error">Could not load evidence for this run.</AdminState>
+  )}
+  {consoleReady && evidenceEnabled && !loadError && (
+    <div class="evidence-layout">
+
+      {/* Left rail — source list */}
+      <aside class="source-rail" aria-label="Sources">
+        <div class="rail-header">
+          <h3>Sources <span class="rail-count">{sources.length}</span></h3>
+        </div>
+        {sources.length === 0 ? (
+          <p class="rail-empty">No sources for this run.</p>
+        ) : (
+          <div class="source-list">
+            {Object.entries(sourcesByDomain).map(([domain, domainSources]) => (
+              <div class="domain-group">
+                <div class="domain-chip">{domain}</div>
+                {domainSources.map((src) => (
+                  <a
+                    id={`source-${src.sourceId}`}
+                    href={`?source=${src.sourceId}`}
+                    class:list={['source-row', { selected: String(src.sourceId) === selectedSourceId }]}
+                    aria-current={String(src.sourceId) === selectedSourceId ? 'true' : undefined}
+                    title={src.url}
+                  >
+                    <span class="source-url">{truncateUrl(src.url)}</span>
+                    <div class="source-badges">
+                      <span class="badge badge-excerpt" title="Excerpts">{src.excerptCount} exc</span>
+                      {src.conflictCount > 0 && (
+                        <span class="badge badge-conflict" title="Conflicts">{src.conflictCount} !</span>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </aside>
+
+      {/* Main panel — excerpts + claims */}
+      <main class="excerpt-panel" aria-label="Excerpts and claims">
+        {!selectedSource ? (
+          <div class="no-selection">
+            <p>Select a source from the left to view its excerpts and claims.</p>
+          </div>
+        ) : (
+          <>
+            <div class="excerpt-panel-header">
+              <h3>
+                <a href={selectedSource.url} target="_blank" rel="noopener noreferrer" class="source-link">
+                  {truncateUrl(selectedSource.url, 80)}
+                </a>
+              </h3>
+              <p class="source-meta">
+                <span>Freshness: {selectedSource.freshnessScore.toFixed(2)}</span>
+                {selectedSource.domain && <span class="domain-chip-sm">{selectedSource.domain}</span>}
+              </p>
+            </div>
+
+            {selectedExcerpts.length === 0 ? (
+              <AdminState tone="empty">No excerpts for this source.</AdminState>
+            ) : (
+              <div class="excerpt-list">
+                {selectedExcerpts.map((exc) => {
+                  const excCitations = citationsByExcerpt.get(exc.excerptId) ?? [];
+                  return (
+                    <div class="excerpt-card">
+                      <p class="excerpt-text">{exc.text}</p>
+                      {exc.surroundingContext && (
+                        <p class="excerpt-context">{exc.surroundingContext}</p>
+                      )}
+                      {excCitations.length > 0 && (
+                        <div class="claim-list">
+                          {excCitations.map((cit) => {
+                            const claim = claimById.get(cit.claimId);
+                            return claim ? (
+                              <div class="claim-row">
+                                <span class:list={['relation-badge', `rel-${cit.relation}`]}>
+                                  {cit.relation}
+                                </span>
+                                <span class="claim-text">{claim.claimText}</span>
+                                <a
+                                  href={`?source=${selectedSource.sourceId}#source-${selectedSource.sourceId}`}
+                                  class="source-nav-link"
+                                  title="Go to source"
+                                >
+                                  source
+                                </a>
+                                <span class="confidence-badge" title="Confidence">
+                                  {(claim.confidence * 100).toFixed(0)}%
+                                </span>
+                              </div>
+                            ) : null;
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </>
+        )}
+      </main>
+
+      {/* Right rail — conflicts */}
+      <aside class="conflicts-rail" aria-label="Conflicts">
+        <div class="rail-header">
+          <h3>Conflicts <span class="rail-count">{conflicts.length}</span></h3>
+        </div>
+        {conflicts.length === 0 ? (
+          <p class="rail-empty">No pending conflicts.</p>
+        ) : (
+          <div class="conflict-list">
+            {conflictDetails.map((cf) => (
+              <div class="conflict-card">
+                <div class="conflict-claims">
+                  <div class="conflict-claim">
+                    <p class="conflict-claim-text">{cf.claimA?.claimText ?? `Claim #${cf.claimAId}`}</p>
+                  </div>
+                  <div class="conflict-vs" aria-hidden="true">vs</div>
+                  <div class="conflict-claim">
+                    <p class="conflict-claim-text">{cf.claimB?.claimText ?? `Claim #${cf.claimBId}`}</p>
+                  </div>
+                </div>
+                <div class="conflict-footer">
+                  <span class="detected-by" title="Detected by">{cf.detectedBy}</span>
+                  <span class:list={['verdict-badge', `verdict-${cf.status}`]}>{cf.status}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </aside>
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .evidence-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 260px;
+    gap: 1rem;
+    align-items: start;
+    min-height: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .evidence-layout {
+      grid-template-columns: 200px 1fr 220px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .evidence-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- Rail shared ---- */
+  .source-rail,
+  .conflicts-rail {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    overflow: hidden;
+  }
+
+  .rail-header {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+  }
+
+  .rail-header h3 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--admin-text-soft);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .rail-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.3em;
+    padding: 0 0.3em;
+    font-size: 0.78em;
+    font-weight: 700;
+    border-radius: 999px;
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .rail-empty {
+    padding: 1rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+  }
+
+  /* ---- Source list ---- */
+  .source-list {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .domain-group {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .domain-group:last-child {
+    border-bottom: none;
+  }
+
+  .domain-chip {
+    padding: 0.2rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .source-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    border-left: 3px solid transparent;
+    transition: background 0.12s;
+  }
+
+  .source-row:hover {
+    background: var(--admin-surface-hover, var(--admin-muted));
+  }
+
+  .source-row.selected {
+    border-left-color: var(--admin-accent, #2563eb);
+    background: var(--admin-surface-hover, var(--admin-muted));
+  }
+
+  .source-url {
+    font-size: 0.76rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    word-break: break-all;
+    color: var(--admin-text-muted);
+  }
+
+  .source-badges {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .badge-excerpt {
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+  }
+
+  .badge-conflict {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  /* ---- Excerpt panel ---- */
+  .excerpt-panel {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    overflow: hidden;
+  }
+
+  .no-selection {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--admin-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .excerpt-panel-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+  }
+
+  .excerpt-panel-header h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .source-link {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    word-break: break-all;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
+  .source-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .domain-chip-sm {
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .excerpt-list {
+    padding: 0.75rem 1rem;
+    display: grid;
+    gap: 0.75rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .excerpt-card {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: calc(var(--admin-radius) - 2px);
+    background: var(--admin-bg);
+  }
+
+  .excerpt-text {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--admin-text);
+    margin-bottom: 0.35rem;
+  }
+
+  .excerpt-context {
+    font-size: 0.76rem;
+    color: var(--admin-text-muted);
+    font-style: italic;
+    margin-bottom: 0.35rem;
+  }
+
+  .claim-list {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--admin-border);
+  }
+
+  .claim-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+  }
+
+  .relation-badge {
+    flex-shrink: 0;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .rel-supports {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .rel-refutes {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .rel-context {
+    background: #e0f2fe;
+    color: #075985;
+  }
+
+  .claim-text {
+    flex: 1;
+    min-width: 0;
+    color: var(--admin-text);
+    line-height: 1.4;
+  }
+
+  .source-nav-link {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+    padding: 0.05rem 0.3rem;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    opacity: 0.75;
+  }
+
+  .source-nav-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .confidence-badge {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--admin-text-muted);
+  }
+
+  /* ---- Conflicts panel ---- */
+  .conflict-list {
+    padding: 0.5rem;
+    display: grid;
+    gap: 0.5rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .conflict-card {
+    padding: 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: calc(var(--admin-radius) - 2px);
+    background: var(--admin-bg);
+  }
+
+  .conflict-claims {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.4rem;
+    align-items: start;
+    margin-bottom: 0.5rem;
+  }
+
+  .conflict-claim {
+    padding: 0.35rem 0.4rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+  }
+
+  .conflict-claim-text {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: var(--admin-text);
+  }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--admin-text-soft);
+    text-transform: uppercase;
+    padding-top: 0.35rem;
+  }
+
+  .conflict-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .detected-by {
+    font-size: 0.68rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--admin-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+  }
+
+  .verdict-badge {
+    flex-shrink: 0;
+    padding: 0.05rem 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: capitalize;
+  }
+
+  .verdict-pending {
+    background: #fef9c3;
+    color: #713f12;
+  }
+
+  .verdict-approved {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .verdict-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .verdict-expired {
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+  }
+</style>

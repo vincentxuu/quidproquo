@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1778590323780,
+  "lastScanned": 1779473010487,
   "projectRoot": "/Users/xiaoxu/Projects/quidproquo",
   "techStack": {
     "languages": [
@@ -66,6 +66,7 @@
       "session:start": "node scripts/session-start.mjs",
       "check:post-quality": "node scripts/check-post-quality.mjs",
       "check:references": "node scripts/check-post-references.mjs",
+      "check:glossary": "node scripts/check-glossary-coverage.mjs",
       "content:ops": "node scripts/content-ops.mjs",
       "sync": "tsx scripts/sync-to-d1.ts",
       "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
@@ -73,7 +74,13 @@
       "test": "vitest run",
       "test:watch": "vitest",
       "eval:rag": "node scripts/eval-rag-baseline.mjs",
-      "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs"
+      "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",
+      "eval:rag:fixture": "RAG_EVAL_OFFLINE=1 node scripts/eval-rag-baseline.mjs",
+      "eval:rag:fixture:ci": "RAG_EVAL_OFFLINE=1 RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",
+      "eval:rag:matrix": "RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
+      "eval:rag:matrix:ci": "RAG_EVAL_ENFORCE=1 RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
+      "rag:trace-retention": "node scripts/rag-trace-retention.mjs",
+      "rag:trace-retention:dry-run": "RAG_TRACE_RETENTION_DRY_RUN=1 node scripts/rag-trace-retention.mjs"
     }
   },
   "conventions": {
@@ -98,30 +105,28 @@
     "dist": {
       "path": "dist",
       "purpose": "Distribution/build output",
-      "fileCount": 1,
-      "lastAccessed": 1778590323736,
-      "keyFiles": [
-        "cron-entry.js"
-      ]
+      "fileCount": 0,
+      "lastAccessed": 1779473010474,
+      "keyFiles": []
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
-      "fileCount": 12,
-      "lastAccessed": 1778590323737,
+      "fileCount": 24,
+      "lastAccessed": 1779473010474,
       "keyFiles": [
         "TODO.md",
-        "blog-improvement-plan.md",
-        "content-ops-report.json",
-        "crawler-production-smoke-test.md",
-        "data.md"
+        "admin-episodic-memory.md",
+        "agent-artifact-runbook.md",
+        "agent-evidence-runbook.md",
+        "agent-os-runbook.md"
       ]
     },
     "migrations": {
       "path": "migrations",
       "purpose": "Database migrations",
-      "fileCount": 6,
-      "lastAccessed": 1778590323764,
+      "fileCount": 15,
+      "lastAccessed": 1779473010478,
       "keyFiles": [
         "0001_initial.sql",
         "0002_rag_phase1.sql",
@@ -134,7 +139,7 @@
       "path": "openspec",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1778590323765,
+      "lastAccessed": 1779473010478,
       "keyFiles": [
         "config.yaml"
       ]
@@ -143,7 +148,7 @@
       "path": "public",
       "purpose": "Public files",
       "fileCount": 4,
-      "lastAccessed": 1778590323765,
+      "lastAccessed": 1779473010478,
       "keyFiles": [
         "favicon.ico",
         "favicon.svg",
@@ -154,7 +159,7 @@
       "path": "references",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1778590323765,
+      "lastAccessed": 1779473010479,
       "keyFiles": [
         "agent-patterns.md",
         "chatbot-development.md",
@@ -166,21 +171,21 @@
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 11,
-      "lastAccessed": 1778590323765,
+      "fileCount": 14,
+      "lastAccessed": 1779473010479,
       "keyFiles": [
         "backfill-types.mjs",
+        "check-glossary-coverage.mjs",
         "check-post-quality.mjs",
         "check-post-references.mjs",
-        "content-ops.mjs",
-        "create-cron-entry.mjs"
+        "content-ops.mjs"
       ]
     },
     "src": {
       "path": "src",
       "purpose": "Source code",
       "fileCount": 2,
-      "lastAccessed": 1778590323766,
+      "lastAccessed": 1779473010479,
       "keyFiles": [
         "content.config.ts"
       ]
@@ -189,7 +194,7 @@
       "path": "src/components",
       "purpose": "UI components",
       "fileCount": 3,
-      "lastAccessed": 1778590323767,
+      "lastAccessed": 1779473010480,
       "keyFiles": [
         "Icons.astro",
         "PostCard.astro",
@@ -199,30 +204,23 @@
     "src/lib": {
       "path": "src/lib",
       "purpose": "Library code",
-      "fileCount": 1,
-      "lastAccessed": 1778590323768,
+      "fileCount": 4,
+      "lastAccessed": 1779473010481,
       "keyFiles": [
-        "langfuse.ts"
+        "agent-skills.ts",
+        "langfuse.ts",
+        "markdown-toc.ts"
       ]
     },
     "src/pages": {
       "path": "src/pages",
       "purpose": "Page components",
       "fileCount": 7,
-      "lastAccessed": 1778590323769,
+      "lastAccessed": 1779473010481,
       "keyFiles": [
         "404.astro",
         "about.astro",
         "chat.astro"
-      ]
-    },
-    "src/test": {
-      "path": "src/test",
-      "purpose": "Test files",
-      "fileCount": 1,
-      "lastAccessed": 1778590323769,
-      "keyFiles": [
-        "cloudflare-workers-mock.ts"
       ]
     }
   },
@@ -249,6 +247,12 @@
       "path": "src/lib/rag/graph.ts",
       "accessCount": 11,
       "lastAccessed": 1778611190372,
+      "type": "file"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "accessCount": 11,
+      "lastAccessed": 1779496919365,
       "type": "file"
     },
     {
@@ -357,12 +361,6 @@
       "path": ".dev.vars",
       "accessCount": 3,
       "lastAccessed": 1778513334597,
-      "type": "file"
-    },
-    {
-      "path": "wrangler.jsonc",
-      "accessCount": 3,
-      "lastAccessed": 1778514683619,
       "type": "file"
     },
     {

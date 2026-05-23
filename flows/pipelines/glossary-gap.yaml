@@ -1,0 +1,45 @@
+id: glossary-gap
+name: Glossary Gap Agent
+version: 1
+inputs:
+  days:
+    type: number
+    required: false
+    default: 14
+    description: Lookback days
+  minLookupCount:
+    type: number
+    required: false
+    default: 3
+    description: Min total lookup count
+  topTerms:
+    type: number
+    required: false
+    default: 20
+    description: Top terms
+  topPostsPerTerm:
+    type: number
+    required: false
+    default: 5
+    description: Top posts per term
+steps:
+  glossary-gap-scan:
+    kind: tool_group
+    tools: [read_glossary_stats, read_post_content]
+    prompt: Scan glossary lookup stats
+  glossary-gap-report:
+    kind: artifact
+    artifactKind: json_report
+    tools: [write_artifact]
+edges:
+  - from: glossary-gap-scan
+    to: glossary-gap-report
+artifacts:
+  - id: glossary-gap-report
+    kind: json_report
+    title: Glossary gap report
+    stepId: glossary-gap-report
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 180000
+  maxExternalCalls: 0

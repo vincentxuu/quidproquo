@@ -1,0 +1,69 @@
+---
+import type { FlowPreset } from '@/lib/agent-flow/dsl/ast';
+
+interface Props {
+  presets: FlowPreset[];
+}
+
+const { presets } = Astro.props;
+---
+
+{presets.length === 0 ? (
+  <p class="empty-note">No presets — base flow only.</p>
+) : (
+  <ul class="preset-list">
+    {presets.map((preset) => {
+      const stepCount = preset.overrides?.steps ? Object.keys(preset.overrides.steps).length : 0;
+      return (
+        <li class="preset-item" data-preset-id={preset.id}>
+          <div class="preset-head">
+            <strong>{preset.name}</strong>
+            <code>{preset.id}</code>
+          </div>
+          <div class="preset-meta">
+            {preset.overrides?.retry && <span>retry {preset.overrides.retry.maxAttempts}×</span>}
+            {preset.overrides?.timeout != null && <span>timeout {preset.overrides.timeout}s</span>}
+            {stepCount > 0 && <span>{stepCount} step override{stepCount === 1 ? '' : 's'}</span>}
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+)}
+
+<style>
+  .empty-note {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+  .preset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .preset-item {
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+  }
+  .preset-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .preset-head code {
+    font-size: 0.74rem;
+    color: var(--admin-text-soft);
+  }
+  .preset-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    color: var(--admin-text-muted);
+    font-size: 0.78rem;
+  }
+</style>

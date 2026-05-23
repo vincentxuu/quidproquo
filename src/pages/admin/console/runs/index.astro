@@ -1,0 +1,171 @@
+---
+export const prerender = false;
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('runTimeline');
+
+interface RunRow {
+  flow_run_id: string;
+  flow_id: string;
+  status: string;
+  started_at: number;
+  finished_at: number | null;
+  latency_ms: number | null;
+  display_name: string | null;
+}
+
+let runs: RunRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+    const result = await db
+      .prepare(
+        `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
+                fd.display_name
+         FROM flow_runs fr
+         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+         ORDER BY fr.started_at DESC
+         LIMIT 50`,
+      )
+      .all<RunRow>();
+    runs = result.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatRelative(ms: number): string {
+  const diffMs = Date.now() - ms;
+  const diffSec = Math.floor(diffMs / 1000);
+  if (diffSec < 60) return `${diffSec}s ago`;
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m ago`;
+  const diffHr = Math.floor(diffMin / 60);
+  if (diffHr < 24) return `${diffHr}h ago`;
+  const diffDay = Math.floor(diffHr / 24);
+  return `${diffDay}d ago`;
+}
+
+function formatDuration(ms: number | null): string {
+  if (ms === null) return '—';
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
+
+function statusClass(status: string): string {
+  switch (status) {
+    case 'done': return 'badge-success';
+    case 'failed': return 'badge-error';
+    case 'running': return 'badge-running';
+    case 'cancelled': return 'badge-muted';
+    default: return 'badge-muted';
+  }
+}
+---
+
+<AdminConsoleLayout title="Runs" section="runs">
+  {!ready && (
+    <AdminState tone="empty">{`Run timeline ships in ${consolePhaseFor('runTimeline')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load runs.</AdminState>
+  )}
+  {ready && !loadError && runs.length === 0 && (
+    <AdminState tone="empty">No runs yet. Launch a flow from the <a href="/admin/console">Flow Selector</a>.</AdminState>
+  )}
+  {ready && !loadError && runs.length > 0 && (
+    <AdminPanel title="All Runs — Last 50">
+      <AdminTable minWidth="640px" flush>
+        <thead>
+          <tr>
+            <th>Started</th>
+            <th>Flow</th>
+            <th>Status</th>
+            <th>Duration</th>
+            <th>Run ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {runs.map((run) => (
+            <tr>
+              <td class="mono">{formatRelative(run.started_at)}</td>
+              <td class="flow-name">{run.display_name ?? run.flow_id}</td>
+              <td>
+                <span class:list={['badge', statusClass(run.status)]}>{run.status}</span>
+              </td>
+              <td class="mono">{formatDuration(run.latency_ms)}</td>
+              <td class="mono run-id">
+                <a href={`/admin/console/runs/${run.flow_run_id}`}>
+                  {run.flow_run_id.slice(0, 8)}&hellip;
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </AdminTable>
+    </AdminPanel>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .flow-name {
+    font-size: 0.9em;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .run-id a {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .run-id a:hover {
+    text-decoration: underline;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15em 0.55em;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-success {
+    background: var(--admin-success-bg, #dcfce7);
+    color: var(--admin-success, #166534);
+  }
+
+  .badge-error {
+    background: var(--admin-error-bg, #fee2e2);
+    color: var(--admin-error, #991b1b);
+  }
+
+  .badge-running {
+    background: var(--admin-accent-bg, #dbeafe);
+    color: var(--admin-accent, #1d4ed8);
+  }
+
+  .badge-muted {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text-muted, #64748b);
+  }
+</style>

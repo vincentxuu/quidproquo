@@ -4,18 +4,32 @@ import { flagReaders, readFlags } from './flags'
 
 describe('readFlags', () => {
   it('defaults agent-os flags to false', () => {
-    expect(readFlags({} as Env)).toEqual({
-      agentOs: {
-        enabled: false,
-        planner: false,
-        research: false,
-        writer: false,
-        critic: false,
-        memory: { r2: false },
-        tools: { mcpExternal: false },
-        scheduler: { queues: false },
-      },
+    const flags = readFlags({} as Env)
+    expect(flags.agentOs).toEqual({
+      enabled: false,
+      planner: false,
+      research: false,
+      writer: false,
+      critic: false,
+      memory: { r2: false },
+      tools: { mcpExternal: false },
+      scheduler: { queues: false },
     })
+  })
+
+  it('defaults pipelinesUnify flags correctly', () => {
+    const flags = readFlags({} as Env)
+    expect(flags.pipelinesUnify.portedToFlow).toBe(false)
+    expect(flags.pipelinesUnify.adminRedirect).toBe(false)
+    expect(flags.pipelinesUnify.adminJobsWritesEnabled).toBe(true)
+    expect(flags.pipelinesUnify.useFlow('research-brief')).toBe(false)
+  })
+
+  it('parses pipelinesUnify useFlow per pipeline flag', () => {
+    const flags = readFlags({ PIPELINE_RESEARCH_BRIEF_USE_FLOW: 'true' } as Env)
+    expect(flags.pipelinesUnify.useFlow('research-brief')).toBe(true)
+    expect(flags.pipelinesUnify.useFlow('translation')).toBe(false)
+    expect(flags.pipelinesUnify.useFlow('unknown-pipeline')).toBe(false)
   })
 
   it('parses enabled agent-os flags', () => {

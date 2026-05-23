@@ -1,0 +1,443 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('management');
+const providerId = Astro.params.id ?? '';
+
+const breadcrumb = [
+  { label: 'Providers', href: '/admin/console/providers' },
+  { label: providerId },
+];
+
+interface HealthRow {
+  id: number;
+  provider_id: string;
+  status: string;
+  p95_latency_ms: number | null;
+  error_rate: number | null;
+  checked_at: number;
+}
+
+interface KeyRow {
+  env_key: string;
+  last_rotated_at: number | null;
+  masked_value: string | null;
+}
+
+let healthRows: HealthRow[] = [];
+let keyRow: KeyRow | null = null;
+let healthAvailable = false;
+let loadError = false;
+
+if (ready && providerId) {
+  const db = getEnv().DB;
+
+  // Try to load provider_health rows — table may not exist yet
+  try {
+    const result = await db
+      .prepare(
+        `SELECT id, provider_id, status, p95_latency_ms, error_rate, checked_at
+         FROM provider_health
+         WHERE provider_id = ?
+         ORDER BY checked_at DESC
+         LIMIT 100`
+      )
+      .bind(providerId)
+      .all<HealthRow>();
+    healthRows = result.results ?? [];
+    healthAvailable = true;
+  } catch {
+    healthAvailable = false;
+  }
+
+  // Try to load API key metadata — table may not exist yet
+  try {
+    const row = await db
+      .prepare(
+        `SELECT env_key, last_rotated_at, masked_value
+         FROM provider_keys
+         WHERE provider_id = ?
+         LIMIT 1`
+      )
+      .bind(providerId)
+      .first<KeyRow>();
+    keyRow = row ?? null;
+  } catch {
+    keyRow = null;
+  }
+}
+
+// Build 7-day daily summary from healthRows
+interface DaySummary {
+  date: string;
+  p95: number | null;
+  errorRate: number | null;
+  samples: number;
+}
+
+function msToDateLabel(ms: number): string {
+  return new Date(ms).toISOString().slice(0, 10);
+}
+
+const sevenDaysSummary: DaySummary[] = [];
+if (healthAvailable && healthRows.length > 0) {
+  const nowMs = Date.now();
+  const msPerDay = 86_400_000;
+
+  // Build daily buckets for last 7 days
+  const buckets = new Map<string, HealthRow[]>();
+  for (let i = 6; i >= 0; i--) {
+    const label = msToDateLabel(nowMs - i * msPerDay);
+    buckets.set(label, []);
+  }
+
+  for (const row of healthRows) {
+    const label = msToDateLabel(row.checked_at);
+    if (buckets.has(label)) {
+      buckets.get(label)!.push(row);
+    }
+  }
+
+  for (const [date, rows] of buckets) {
+    if (rows.length === 0) {
+      sevenDaysSummary.push({ date, p95: null, errorRate: null, samples: 0 });
+    } else {
+      const p95Values = rows
+        .map((r) => r.p95_latency_ms)
+        .filter((v): v is number => v !== null);
+      const errorValues = rows
+        .map((r) => r.error_rate)
+        .filter((v): v is number => v !== null);
+      const avgP95 =
+        p95Values.length > 0
+          ? p95Values.reduce((a, b) => a + b, 0) / p95Values.length
+          : null;
+      const avgError =
+        errorValues.length > 0
+          ? errorValues.reduce((a, b) => a + b, 0) / errorValues.length
+          : null;
+      sevenDaysSummary.push({ date, p95: avgP95, errorRate: avgError, samples: rows.length });
+    }
+  }
+}
+
+// Recent failure events: last 10 rows where error_rate > 0.1 or status in degraded/error
+const failureEvents = healthRows
+  .filter(
+    (r) =>
+      (r.error_rate !== null && r.error_rate > 0.1) ||
+      r.status === 'degraded' ||
+      r.status === 'error' ||
+      r.status === 'down'
+  )
+  .slice(0, 10);
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function pct(v: number | null): string {
+  if (v === null) return '—';
+  return (v * 100).toFixed(1) + '%';
+}
+
+function ms(v: number | null): string {
+  if (v === null) return '—';
+  return Math.round(v) + ' ms';
+}
+
+function maskKey(masked: string | null): string {
+  if (!masked) return '—';
+  return masked;
+}
+---
+
+<AdminConsoleLayout title={`Provider: ${providerId}`} section="providers" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">{`Provider management ships in ${consolePhaseFor('management')}.`}</AdminState>
+  )}
+
+  {ready && !providerId && (
+    <AdminState tone="error">No provider ID specified.</AdminState>
+  )}
+
+  {ready && providerId && (
+    <div class="provider-detail">
+
+      {/* ── Latency + error rate sparkline (7-day daily table) ── */}
+      <AdminPanel title="7-Day Health Trend" eyebrow="Latency + Error Rate">
+        {!healthAvailable ? (
+          <p class="placeholder-note">Provider health data not yet available. The <code>provider_health</code> table is populated by the agent-providers module once deployed.</p>
+        ) : sevenDaysSummary.length === 0 ? (
+          <p class="placeholder-note">No health data recorded for this provider yet.</p>
+        ) : (
+          <div class="table-wrap">
+            <table class="detail-table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">p95 Latency</th>
+                  <th scope="col">Error Rate</th>
+                  <th scope="col">Samples</th>
+                  <th scope="col">Trend</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sevenDaysSummary.map((day) => (
+                  <tr>
+                    <td class="mono">{day.date}</td>
+                    <td>{ms(day.p95)}</td>
+                    <td class:list={[
+                      'error-rate',
+                      day.errorRate !== null && day.errorRate > 0.1 ? 'high' : '',
+                    ]}>{pct(day.errorRate)}</td>
+                    <td>{day.samples === 0 ? '—' : day.samples}</td>
+                    <td class="sparkbar">
+                      {day.p95 !== null ? (
+                        <span
+                          class="bar"
+                          style={`width: ${Math.min(100, (day.p95 / 2000) * 100)}%`}
+                          title={`p95: ${ms(day.p95)}`}
+                        />
+                      ) : (
+                        <span class="bar-empty">no data</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </AdminPanel>
+
+      {/* ── Recent failure event log ── */}
+      <AdminPanel title="Recent Failure Events" eyebrow="Last 10 rows with error_rate > 10% or degraded/error status">
+        {!healthAvailable ? (
+          <p class="placeholder-note">Provider health data not yet available.</p>
+        ) : failureEvents.length === 0 ? (
+          <p class="placeholder-note">No failure events recorded — provider appears healthy.</p>
+        ) : (
+          <div class="table-wrap">
+            <table class="detail-table">
+              <thead>
+                <tr>
+                  <th scope="col">Checked At</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">p95 Latency</th>
+                  <th scope="col">Error Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                {failureEvents.map((evt) => (
+                  <tr>
+                    <td class="mono">{formatTs(evt.checked_at)}</td>
+                    <td>
+                      <span class="health-badge" data-status={evt.status}>{evt.status}</span>
+                    </td>
+                    <td>{ms(evt.p95_latency_ms)}</td>
+                    <td class="error-rate high">{pct(evt.error_rate)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </AdminPanel>
+
+      {/* ── API key health ── */}
+      <AdminPanel title="API Key Health" eyebrow="Key metadata (value is never exposed)">
+        <div class="key-info">
+          <div class="key-row">
+            <span class="key-label">Provider ID</span>
+            <code>{providerId}</code>
+          </div>
+          {keyRow ? (
+            <>
+              <div class="key-row">
+                <span class="key-label">Env key</span>
+                <code>{keyRow.env_key}</code>
+              </div>
+              <div class="key-row">
+                <span class="key-label">Masked value</span>
+                <code>{maskKey(keyRow.masked_value)}</code>
+              </div>
+              <div class="key-row">
+                <span class="key-label">Last rotated</span>
+                <span>{formatTs(keyRow.last_rotated_at)}</span>
+              </div>
+            </>
+          ) : (
+            <p class="placeholder-note">No API key metadata found. Key may be set via environment variable only.</p>
+          )}
+        </div>
+      </AdminPanel>
+
+      {/* ── Rotate key action ── */}
+      <AdminPanel title="Rotate API Key" eyebrow="Action">
+        <p class="placeholder-note">
+          Posting to <code>POST /api/admin/providers/{providerId}/rotate-key</code> will invalidate the current key and generate a replacement.
+          This action is logged.
+        </p>
+        <form method="POST" action={`/api/admin/providers/${providerId}/rotate-key`} class="rotate-form">
+          <button type="submit" class="rotate-btn">Rotate Key</button>
+          <span class="rotate-note">This action cannot be undone automatically.</span>
+        </form>
+      </AdminPanel>
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .provider-detail {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .placeholder-note {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    margin: 0;
+  }
+
+  .placeholder-note code {
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .detail-table th,
+  .detail-table td {
+    text-align: left;
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .detail-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+  }
+
+  .health-badge {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.74rem;
+    text-transform: capitalize;
+  }
+
+  .health-badge[data-status='healthy'] { color: #16a34a; border-color: #16a34a; }
+  .health-badge[data-status='degraded'] { color: #a16207; border-color: #a16207; }
+  .health-badge[data-status='down'],
+  .health-badge[data-status='error'] { color: #dc2626; border-color: #dc2626; }
+
+  .error-rate.high {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  /* CSS sparkbar */
+  .sparkbar {
+    width: 120px;
+  }
+
+  .bar {
+    display: inline-block;
+    height: 8px;
+    background: var(--admin-accent, #3b82f6);
+    border-radius: 2px;
+    min-width: 2px;
+    vertical-align: middle;
+    opacity: 0.75;
+  }
+
+  .bar-empty {
+    color: var(--admin-text-muted);
+    font-size: 0.72rem;
+  }
+
+  /* Key info */
+  .key-info {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .key-row {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: 0.85rem;
+  }
+
+  .key-label {
+    min-width: 120px;
+    color: var(--admin-text-soft);
+    font-size: 0.8rem;
+  }
+
+  .key-row code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+  }
+
+  /* Rotate form */
+  .rotate-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .rotate-btn {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+
+  .rotate-btn:hover {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #dc2626;
+  }
+
+  .rotate-note {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+</style>

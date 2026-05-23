@@ -1,0 +1,67 @@
+---
+import type { ProviderRow } from '@/lib/agent-console/management';
+
+interface Props {
+  rows: ProviderRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+<table class="mgmt-table admin-panel">
+  <thead>
+    <tr>
+      <th scope="col">Provider</th>
+      <th scope="col">Kind</th>
+      <th scope="col">Version</th>
+      <th scope="col">Enabled</th>
+      <th scope="col">Health</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((row) => (
+      <tr data-provider-id={row.id}>
+        <td>{row.displayName} <code>{row.id}</code></td>
+        <td>{row.category}</td>
+        <td>{row.version}</td>
+        <td>{row.enabled ? 'yes' : 'no'}</td>
+        <td><span class="health-badge" data-status={row.status}>{row.status}</span></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .mgmt-table th,
+  .mgmt-table td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .mgmt-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mgmt-table code {
+    color: var(--admin-text-soft);
+    font-size: 0.78rem;
+  }
+  .health-badge {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.74rem;
+    text-transform: capitalize;
+  }
+  .health-badge[data-status='healthy'] { color: #16a34a; border-color: #16a34a; }
+  .health-badge[data-status='degraded'] { color: #a16207; border-color: #a16207; }
+  .health-badge[data-status='down'] { color: #dc2626; border-color: #dc2626; }
+</style>

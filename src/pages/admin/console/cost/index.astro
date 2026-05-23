@@ -1,0 +1,433 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminMetric from '@/components/admin/AdminMetric.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('costDashboard');
+
+// --- dimension + range from URL ---
+const url = Astro.url;
+const dimension = url.searchParams.get('dimension') === 'agent_id' ? 'agent_id' : 'flow_id';
+const dimensionLabel = dimension === 'agent_id' ? 'Agent' : 'Flow';
+
+// --- time helpers ---
+const nowMs = Date.now();
+const todayDay = Math.floor(nowMs / 86_400_000);
+const day24hAgo = todayDay - 1;
+const day7dAgo = todayDay - 7;
+const day30dAgo = todayDay - 30;
+// month-to-date: days elapsed since start of current month
+const now = new Date();
+const daysMtd = now.getDate() - 1; // days back from today's start
+const dayMtdStart = todayDay - daysMtd;
+
+// started_at threshold for 24h ago in epoch ms
+const startedAt24hMs = nowMs - 86_400_000;
+
+interface RollupRow {
+  day: number;
+  dimension_value: string;
+  tokens_in: number;
+  tokens_out: number;
+  cost_usd: number;
+  run_count: number;
+}
+
+interface TopRunRow {
+  run_id: string;
+  agent_id: string;
+  total_cost: number;
+  total_tokens: number;
+}
+
+let cost24h = 0;
+let cost7d = 0;
+let cost30d = 0;
+let costMtd = 0;
+let dailyRows: RollupRow[] = [];
+let topRuns: TopRunRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+
+    const [metrics24h, metrics7d, metrics30d, metricsMtd, daily, runs] = await Promise.all([
+      // 24h total
+      db
+        .prepare(
+          `SELECT COALESCE(SUM(cost_usd), 0) as total
+           FROM cost_rollup_daily
+           WHERE dimension = ? AND day >= ?`,
+        )
+        .bind(dimension, day24hAgo)
+        .first<{ total: number }>(),
+
+      // 7d total
+      db
+        .prepare(
+          `SELECT COALESCE(SUM(cost_usd), 0) as total
+           FROM cost_rollup_daily
+           WHERE dimension = ? AND day >= ?`,
+        )
+        .bind(dimension, day7dAgo)
+        .first<{ total: number }>(),
+
+      // 30d total
+      db
+        .prepare(
+          `SELECT COALESCE(SUM(cost_usd), 0) as total
+           FROM cost_rollup_daily
+           WHERE dimension = ? AND day >= ?`,
+        )
+        .bind(dimension, day30dAgo)
+        .first<{ total: number }>(),
+
+      // month-to-date total
+      db
+        .prepare(
+          `SELECT COALESCE(SUM(cost_usd), 0) as total
+           FROM cost_rollup_daily
+           WHERE dimension = ? AND day >= ?`,
+        )
+        .bind(dimension, dayMtdStart)
+        .first<{ total: number }>(),
+
+      // last 30 days grouped by dimension, ordered by day desc then cost desc
+      db
+        .prepare(
+          `SELECT day, dimension_value, tokens_in, tokens_out, cost_usd, run_count
+           FROM cost_rollup_daily
+           WHERE dimension = ? AND day >= ?
+           ORDER BY day DESC, cost_usd DESC`,
+        )
+        .bind(dimension, day30dAgo)
+        .all<RollupRow>(),
+
+      // top-10 costliest runs in last 24h
+      db
+        .prepare(
+          `SELECT ar.run_id, ar.agent_id,
+                  SUM(tc.cost_usd) as total_cost,
+                  SUM(tc.tokens_in + tc.tokens_out) as total_tokens
+           FROM agent_runs ar
+           JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+           WHERE ar.started_at >= ?
+           GROUP BY ar.run_id
+           ORDER BY total_cost DESC
+           LIMIT 10`,
+        )
+        .bind(startedAt24hMs)
+        .all<TopRunRow>(),
+    ]);
+
+    cost24h = metrics24h?.total ?? 0;
+    cost7d = metrics7d?.total ?? 0;
+    cost30d = metrics30d?.total ?? 0;
+    costMtd = metricsMtd?.total ?? 0;
+    dailyRows = daily.results ?? [];
+    topRuns = runs.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatCost(usd: number): string {
+  return `$${usd.toFixed(4)}`;
+}
+
+function formatDay(day: number): string {
+  const ms = day * 86_400_000;
+  const d = new Date(ms);
+  const yyyy = d.getUTCFullYear();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+// Build the switcher URL helper
+function switcherHref(dim: string): string {
+  const u = new URL(url.toString());
+  u.searchParams.set('dimension', dim);
+  return u.pathname + u.search;
+}
+
+// Detect today's day value to identify the "latest" row for live badge
+const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
+---
+
+<AdminConsoleLayout title="Cost" section="cost">
+  {!ready && (
+    <AdminState tone="empty">{`Cost dashboard ships in ${consolePhaseFor('costDashboard')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load cost data.</AdminState>
+  )}
+  {ready && !loadError && (
+    <>
+      <div class="metrics-row">
+        <AdminMetric label="Last 24 h" value={formatCost(cost24h)} id="metric-24h" />
+        <AdminMetric label="Last 7 days" value={formatCost(cost7d)} />
+        <AdminMetric label="Last 30 days" value={formatCost(cost30d)} />
+        <AdminMetric label="Month to date" value={formatCost(costMtd)} />
+      </div>
+
+      <div class="dimension-bar">
+        <span class="dimension-label">Group by:</span>
+        <div class="dimension-tabs" role="tablist">
+          <a
+            href={switcherHref('flow_id')}
+            class:list={['dim-tab', { active: dimension === 'flow_id' }]}
+            role="tab"
+            aria-selected={dimension === 'flow_id' ? 'true' : 'false'}
+          >By Flow</a>
+          <a
+            href={switcherHref('agent_id')}
+            class:list={['dim-tab', { active: dimension === 'agent_id' }]}
+            role="tab"
+            aria-selected={dimension === 'agent_id' ? 'true' : 'false'}
+          >By Agent</a>
+        </div>
+      </div>
+
+      <div class="cost-layout">
+        <AdminPanel title={`Cost by ${dimensionLabel} — Last 30 Days`} class="cost-main">
+          {dailyRows.length === 0 ? (
+            <AdminState tone="empty">No rollup data yet. Run the cost backfill to populate this table.</AdminState>
+          ) : (
+            <AdminTable minWidth="640px" flush>
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>{dimensionLabel} ID</th>
+                  <th>Cost USD</th>
+                  <th>Tokens In</th>
+                  <th>Tokens Out</th>
+                  <th>Runs</th>
+                </tr>
+              </thead>
+              <tbody>
+                {dailyRows.map((row) => (
+                  <tr>
+                    <td class="mono">
+                      {formatDay(row.day)}
+                      {row.day === latestDay && (
+                        <span class="live-badge" id="live-badge" aria-live="polite">Live · updates every 60s</span>
+                      )}
+                    </td>
+                    <td class="flow-id">{row.dimension_value}</td>
+                    <td class="cost">{formatCost(row.cost_usd)}</td>
+                    <td class="num">{row.tokens_in.toLocaleString()}</td>
+                    <td class="num">{row.tokens_out.toLocaleString()}</td>
+                    <td class="num">{row.run_count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+
+        <AdminPanel title="Top Runs — Last 24 h" class="cost-rail">
+          {topRuns.length === 0 ? (
+            <AdminState tone="empty">No runs in the last 24 hours.</AdminState>
+          ) : (
+            <AdminTable minWidth="320px" flush>
+              <thead>
+                <tr>
+                  <th>Run ID</th>
+                  <th>Agent</th>
+                  <th>Cost</th>
+                  <th>Tokens</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topRuns.map((run) => (
+                  <tr>
+                    <td class="mono run-id">
+                      <a href={`/admin/console/runs/${run.run_id}`}>{run.run_id.slice(0, 8)}&hellip;</a>
+                    </td>
+                    <td class="flow-id">{run.agent_id}</td>
+                    <td class="cost">{formatCost(run.total_cost)}</td>
+                    <td class="num">{run.total_tokens.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      </div>
+    </>
+  )}
+</AdminConsoleLayout>
+
+<script>
+  // Live 24h polling — updates the "Last 24 h" metric tile every 60s
+  (function startLivePoll() {
+    const tile = document.getElementById('metric-24h');
+    if (!tile) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const dimension = params.get('dimension') ?? 'flow_id';
+
+    async function poll() {
+      try {
+        const res = await fetch(
+          `/api/admin/console/cost?dimension=${encodeURIComponent(dimension)}&range=24h&live=true`,
+        );
+        if (!res.ok) return;
+        const data = await res.json();
+        const rows = data.rows ?? [];
+        const total = rows.reduce((sum, r) => sum + (r.cost_usd ?? 0), 0);
+        const valueEl = tile.querySelector('[data-value], .metric-value, strong, span');
+        if (valueEl) {
+          valueEl.textContent = '$' + total.toFixed(4);
+        } else {
+          // Fallback: update any text node in the tile
+          tile.dataset.liveValue = '$' + total.toFixed(4);
+        }
+      } catch {
+        // silent — polling failures should not surface UI errors
+      }
+    }
+
+    setInterval(poll, 60_000);
+  })();
+</script>
+
+<style>
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--admin-space-3, 0.75rem);
+    margin-bottom: var(--admin-space-4, 1rem);
+  }
+
+  @media (max-width: 900px) {
+    .metrics-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .metrics-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .dimension-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--admin-space-3, 0.75rem);
+    margin-bottom: var(--admin-space-3, 0.75rem);
+  }
+
+  .dimension-label {
+    font-size: 0.85em;
+    color: var(--admin-text-muted);
+    white-space: nowrap;
+  }
+
+  .dimension-tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .dim-tab {
+    padding: 0.3rem 0.9rem;
+    font-size: 0.85em;
+    text-decoration: none;
+    color: var(--admin-text-muted, #64748b);
+    background: transparent;
+    border-right: 1px solid var(--admin-border, #e2e8f0);
+    transition: background 0.1s;
+  }
+
+  .dim-tab:last-child {
+    border-right: none;
+  }
+
+  .dim-tab:hover {
+    background: var(--admin-surface-hover, #f8fafc);
+    color: var(--admin-text, #0f172a);
+  }
+
+  .dim-tab.active {
+    background: var(--admin-accent, #2563eb);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .cost-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--admin-space-4, 1rem);
+    align-items: start;
+  }
+
+  @media (max-width: 1100px) {
+    .cost-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .run-id a {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .run-id a:hover {
+    text-decoration: underline;
+  }
+
+  .flow-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82em;
+    color: var(--admin-text-muted);
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cost {
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85em;
+  }
+
+  .live-badge {
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 0.1em 0.5em;
+    font-size: 0.75em;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    background: var(--admin-success-bg, #dcfce7);
+    color: var(--admin-success, #166534);
+    border-radius: 999px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,17 @@
+id: verifier-step-fixture
+name: Verifier Step Fixture
+version: 1
+description: Minimal flow demonstrating a verifier step.
+
+inputs:
+  - name: content
+    type: string
+    required: true
+
+steps:
+  - id: check_coverage
+    type: verifier
+    verifier: coverage
+    description: Verify the output covers the required topics.
+
+edges: []

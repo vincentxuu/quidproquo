@@ -1,0 +1,341 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled } from '../../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('rbac');
+const userId = Astro.params.id ?? '';
+
+const breadcrumb = [
+  { label: 'RBAC', href: '/admin/console/rbac' },
+  { label: `User ${userId}` },
+];
+
+interface UserRow {
+  user_id: number;
+  email: string;
+  created_at: number;
+  disabled_at: number | null;
+}
+
+interface RoleRow {
+  role_id: number;
+  name: string;
+  description: string | null;
+}
+
+interface UserRoleRow {
+  name: string;
+}
+
+const DEFAULT_ROLES = ['admin', 'operator', 'approver', 'viewer'];
+
+let user: UserRow | null = null;
+let allRoles: RoleRow[] = [];
+let assignedRoleNames: string[] = [];
+let loadError = false;
+
+if (ready && userId) {
+  try {
+    const db = getEnv().DB;
+
+    const [userResult, rolesResult, assignedResult] = await Promise.all([
+      db.prepare(`
+        SELECT user_id, email, created_at, disabled_at
+        FROM console_users
+        WHERE user_id = ?
+      `).bind(userId).first<UserRow>(),
+
+      db.prepare(`
+        SELECT role_id, name, description
+        FROM console_roles
+        ORDER BY name
+      `).all<RoleRow>(),
+
+      db.prepare(`
+        SELECT r.name
+        FROM console_user_roles ur
+        JOIN console_roles r ON r.role_id = ur.role_id
+        WHERE ur.user_id = ?
+      `).bind(userId).all<UserRoleRow>(),
+    ]);
+
+    user = userResult ?? null;
+    allRoles = rolesResult.results ?? [];
+    assignedRoleNames = (assignedResult.results ?? []).map((r) => r.name);
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+// Sort roles: default 4 first, then custom
+const sortedRoles = [
+  ...allRoles.filter((r) => DEFAULT_ROLES.includes(r.name)),
+  ...allRoles.filter((r) => !DEFAULT_ROLES.includes(r.name)),
+];
+---
+
+<AdminConsoleLayout title={user ? user.email : `User ${userId}`} section="rbac" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+  )}
+  {ready && !userId && (
+    <AdminState tone="error">No user ID specified.</AdminState>
+  )}
+  {ready && userId && loadError && (
+    <AdminState tone="error">Could not load user data.</AdminState>
+  )}
+  {ready && userId && !loadError && !user && (
+    <AdminState tone="error">User not found.</AdminState>
+  )}
+  {ready && userId && !loadError && user && (
+    <div class="user-detail">
+
+      <AdminPanel title="User Info">
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="info-label">User ID</span>
+            <code>{user.user_id}</code>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Email</span>
+            <span>{user.email}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Created</span>
+            <span class="mono">{formatTs(user.created_at)}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Last Login</span>
+            <span class="muted">N/A</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Status</span>
+            {user.disabled_at ? (
+              <span class="badge disabled">Disabled since {formatTs(user.disabled_at)}</span>
+            ) : (
+              <span class="badge active">Active</span>
+            )}
+          </div>
+        </div>
+      </AdminPanel>
+
+      <AdminPanel title="Role Assignment" eyebrow="Select roles for this user">
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/users/${userId}/roles`}
+          class="role-form"
+        >
+          <div class="role-checkboxes">
+            {sortedRoles.map((role) => (
+              <label class="role-label">
+                <input
+                  type="checkbox"
+                  name="roles"
+                  value={role.name}
+                  checked={assignedRoleNames.includes(role.name)}
+                />
+                <span class="role-name">{role.name}</span>
+                {role.description && (
+                  <span class="role-desc">{role.description}</span>
+                )}
+              </label>
+            ))}
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Save roles</button>
+          </div>
+        </form>
+      </AdminPanel>
+
+      <AdminPanel title="Account Actions" eyebrow="Disable or re-enable this user">
+        <div class="actions-row">
+          {user.disabled_at ? (
+            <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
+              <input type="hidden" name="action" value="enable" />
+              <button type="submit" class="btn-enable">Re-enable user</button>
+            </form>
+          ) : (
+            <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
+              <input type="hidden" name="action" value="disable" />
+              <button type="submit" class="btn-danger">Disable user</button>
+            </form>
+          )}
+          <span class="action-note">
+            {user.disabled_at
+              ? 'User is currently disabled and cannot log in.'
+              : 'Disabling prevents this user from accessing the console.'}
+          </span>
+        </div>
+      </AdminPanel>
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .user-detail {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .info-grid {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: 0.875rem;
+  }
+
+  .info-label {
+    min-width: 100px;
+    color: var(--admin-text-soft);
+    font-size: 0.8rem;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.1em 0.55em;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid;
+  }
+
+  .badge.active {
+    color: #16a34a;
+    border-color: #16a34a;
+    background: #f0fdf4;
+  }
+
+  .badge.disabled {
+    color: #dc2626;
+    border-color: #dc2626;
+    background: #fef2f2;
+  }
+
+  .role-form {
+    padding: 0.75rem 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .role-checkboxes {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .role-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .role-label input[type="checkbox"] {
+    margin-top: 0.05rem;
+  }
+
+  .role-name {
+    font-weight: 600;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .role-desc {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn-primary {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-accent);
+    border-radius: var(--admin-radius);
+    background: var(--admin-accent);
+    color: #fff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+
+  .actions-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-danger {
+    padding: 0.4rem 1rem;
+    border: 1px solid #dc2626;
+    border-radius: var(--admin-radius);
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .btn-danger:hover {
+    background: #fee2e2;
+  }
+
+  .btn-enable {
+    padding: 0.4rem 1rem;
+    border: 1px solid #16a34a;
+    border-radius: var(--admin-radius);
+    background: #f0fdf4;
+    color: #16a34a;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .btn-enable:hover {
+    background: #dcfce7;
+  }
+
+  .action-note {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+</style>

@@ -1,0 +1,45 @@
+id: freshness-review
+name: Freshness Review Agent
+version: 1
+inputs:
+  maxAgeDays:
+    type: number
+    required: false
+    default: 365
+    description: Max age in days
+  riskThreshold:
+    type: number
+    required: false
+    default: 40
+    description: Risk threshold
+  categoryFilter:
+    type: string
+    required: false
+    default: ''
+    description: Category filter (comma separated)
+  languageFilter:
+    type: string
+    required: false
+    default: ''
+    description: Language filter (comma separated)
+steps:
+  freshness-scan:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Scan posts for freshness risk
+  freshness-report:
+    kind: artifact
+    artifactKind: json_report
+    tools: [write_artifact]
+edges:
+  - from: freshness-scan
+    to: freshness-report
+artifacts:
+  - id: freshness-review-report
+    kind: json_report
+    title: Freshness review report
+    stepId: freshness-report
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 180000
+  maxExternalCalls: 0

@@ -1,0 +1,45 @@
+id: knowledge-graph-prototype
+name: Knowledge Graph Prototype Agent
+version: 1
+inputs:
+  minEntityFrequency:
+    type: number
+    required: false
+    default: 2
+    description: Min entity frequency
+  topNodes:
+    type: number
+    required: false
+    default: 80
+    description: Top nodes
+  minCoOccurrence:
+    type: number
+    required: false
+    default: 2
+    description: Min co-occurrence for edge
+  topEdges:
+    type: number
+    required: false
+    default: 180
+    description: Top edges
+steps:
+  knowledge-graph-scan:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Build knowledge graph snapshot
+  knowledge-graph-report:
+    kind: artifact
+    artifactKind: json_report
+    tools: [write_artifact]
+edges:
+  - from: knowledge-graph-scan
+    to: knowledge-graph-report
+artifacts:
+  - id: knowledge-graph-report
+    kind: json_report
+    title: Knowledge graph prototype report
+    stepId: knowledge-graph-report
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 240000
+  maxExternalCalls: 0

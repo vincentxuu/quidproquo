@@ -1,0 +1,350 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import { FlowEditorWithPalette } from '@/components/admin/console/FlowEditor';
+import { getEnv } from '@/lib/config/env';
+import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('flowEditor');
+const flowId = Astro.params.id ?? '';
+
+let definitionYaml = '';
+let definitionJson = '{}';
+let flowName = flowId;
+let loadError = false;
+
+if (ready && flowId) {
+  try {
+    const detail = await loadFlowDetail(getEnv().DB, flowId);
+    if (detail) {
+      definitionYaml = detail.versions[0]?.yaml ?? '';
+      flowName = detail.definition.name;
+      // Build a minimal JSON representation for the visual editor
+      const def = detail.definition;
+      definitionJson = JSON.stringify({
+        id: def.id,
+        name: def.name,
+        version: def.version,
+        description: def.description ?? '',
+        steps: def.inputs ? [] : [],
+        edges: [],
+        inputs: def.inputs ?? [],
+      });
+    }
+  } catch {
+    loadError = true;
+  }
+}
+
+const breadcrumb = [
+  { label: 'Flows', href: '/admin/console/flows' },
+  { label: flowName, href: `/admin/console/flows/${flowId}` },
+  { label: 'Edit' },
+];
+---
+
+<AdminConsoleLayout title="Edit Flow" section="management" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
+  )}
+  {ready && loadError && <AdminState tone="error">Could not load flow.</AdminState>}
+  {ready && !loadError && (
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <button type="button" id="toggle-view-btn" class="btn btn-secondary">View as Graph</button>
+      </div>
+
+      <div id="yaml-editor-panel">
+        <form id="edit-form" autocomplete="off">
+          <label for="yaml-editor" class="editor-label">Flow YAML</label>
+          <textarea
+            id="yaml-editor"
+            name="yaml"
+            rows={40}
+            spellcheck={false}
+            class="yaml-textarea"
+          >{definitionYaml}</textarea>
+          <div id="error-panel" class="error-panel hidden" aria-live="polite"></div>
+          <div class="editor-actions">
+            <button type="button" id="validate-btn" class="btn btn-secondary">Validate</button>
+            <button type="button" id="save-btn" class="btn btn-primary">Save</button>
+            <span id="save-status" class="save-status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+
+      <div id="visual-editor" class="hidden">
+        <div id="flow-editor-mount" data-readonly="false" data-definition={definitionJson}>
+          <FlowEditorWithPalette
+            definitionJson={definitionJson}
+            client:only="react"
+          />
+        </div>
+      </div>
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<script define:vars={{ flowId }}>
+  const textarea = document.getElementById('yaml-editor');
+  const errorPanel = document.getElementById('error-panel');
+  const saveStatus = document.getElementById('save-status');
+  const validateBtn = document.getElementById('validate-btn');
+  const saveBtn = document.getElementById('save-btn');
+  const toggleBtn = document.getElementById('toggle-view-btn');
+  const yamlPanel = document.getElementById('yaml-editor-panel');
+  const visualPanel = document.getElementById('visual-editor');
+
+  let isVisual = false;
+  let debounceTimer = null;
+
+  // ── error panel ──────────────────────────────────────────────────────────────
+
+  function setErrors(errors) {
+    if (!errorPanel) return;
+    if (!errors || errors.length === 0) {
+      errorPanel.innerHTML = '';
+      errorPanel.classList.add('hidden');
+      errorPanel.classList.remove('has-errors');
+      if (textarea) textarea.classList.remove('has-errors');
+      return;
+    }
+    errorPanel.classList.remove('hidden');
+    errorPanel.classList.add('has-errors');
+    if (textarea) textarea.classList.add('has-errors');
+    errorPanel.innerHTML = '<ul>' + errors
+      .map((e) => `<li><strong>${e.path}</strong>: ${e.message}</li>`)
+      .join('') + '</ul>';
+  }
+
+  function setStatus(msg, tone) {
+    if (!saveStatus) return;
+    saveStatus.textContent = msg;
+    saveStatus.className = 'save-status ' + (tone ?? '');
+  }
+
+  // ── validate ─────────────────────────────────────────────────────────────────
+
+  async function doValidate(yaml) {
+    const yamlStr = yaml ?? textarea?.value ?? '';
+    try {
+      const res = await fetch('/api/admin/flows/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ yaml: yamlStr }),
+      });
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      return { valid: false, errors: [{ path: '(network)', message: String(err) }] };
+    }
+  }
+
+  async function handleValidateClick() {
+    const yaml = textarea?.value ?? '';
+    setStatus('Validating…', '');
+    setErrors([]);
+    const data = await doValidate(yaml);
+    if (data.valid) {
+      setStatus('Valid', 'ok');
+      setErrors([]);
+    } else {
+      setStatus('', '');
+      setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+    }
+    return data.valid;
+  }
+
+  validateBtn?.addEventListener('click', handleValidateClick);
+
+  // ── debounced validation on textarea input ────────────────────────────────────
+
+  textarea?.addEventListener('input', () => {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      const yaml = textarea?.value ?? '';
+      const data = await doValidate(yaml);
+      if (data.valid) {
+        setErrors([]);
+      } else {
+        setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+      }
+    }, 500);
+  });
+
+  // ── save ─────────────────────────────────────────────────────────────────────
+
+  async function saveYaml(yaml) {
+    setStatus('Saving…', '');
+    setErrors([]);
+    try {
+      const res = await fetch(`/api/admin/flows/${flowId}/version`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ yaml }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus(`Saved as v${data.version}`, 'ok');
+        setErrors([]);
+        setTimeout(() => { window.location.href = `/admin/console/flows/${flowId}`; }, 800);
+      } else if (data.errors) {
+        setStatus('', '');
+        setErrors(data.errors);
+      } else {
+        setStatus('', '');
+        setErrors([{ path: '(server)', message: data.error ?? 'Save failed' }]);
+      }
+    } catch (err) {
+      setErrors([{ path: '(network)', message: String(err) }]);
+      setStatus('', '');
+    }
+  }
+
+  saveBtn?.addEventListener('click', () => {
+    saveYaml(textarea?.value ?? '');
+  });
+
+  // ── toggle: YAML ↔ Graph ──────────────────────────────────────────────────────
+
+  toggleBtn?.addEventListener('click', async () => {
+    if (!isVisual) {
+      // Switch to visual
+      const yaml = textarea?.value ?? '';
+      const data = await doValidate(yaml);
+      if (!data.valid) {
+        setErrors(data.errors ?? []);
+        setStatus('Fix errors before switching to graph view.', '');
+        return;
+      }
+      isVisual = true;
+      toggleBtn.textContent = 'View as YAML';
+      yamlPanel?.classList.add('hidden');
+      visualPanel?.classList.remove('hidden');
+    } else {
+      // Switch back to YAML
+      isVisual = false;
+      toggleBtn.textContent = 'View as Graph';
+      visualPanel?.classList.add('hidden');
+      yamlPanel?.classList.remove('hidden');
+    }
+  });
+</script>
+
+<style>
+  .editor-wrap {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 900px;
+  }
+  .editor-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .editor-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--admin-text-soft);
+    margin-bottom: 0.35rem;
+  }
+  .yaml-textarea {
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    resize: vertical;
+    tab-size: 2;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+  .yaml-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: var(--admin-focus);
+  }
+  .yaml-textarea.has-errors {
+    border-color: #fca5a5;
+  }
+  .error-panel {
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--admin-radius);
+  }
+  .error-panel.has-errors {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #b91c1c;
+  }
+  .error-panel ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.82rem;
+  }
+  .error-panel li {
+    margin-bottom: 0.2rem;
+  }
+  .editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: var(--admin-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--admin-border);
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary {
+    background: var(--admin-surface);
+    color: var(--admin-text);
+  }
+  .btn-secondary:hover {
+    border-color: var(--admin-accent);
+    color: var(--brand-900);
+  }
+  .btn-primary {
+    background: var(--brand-900);
+    color: #fff;
+    border-color: var(--brand-900);
+  }
+  .btn-primary:hover {
+    background: var(--brand-700);
+    border-color: var(--brand-700);
+  }
+  .save-status {
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+  }
+  .save-status.ok {
+    color: #16a34a;
+    font-weight: 600;
+  }
+  #visual-editor {
+    min-height: 600px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    overflow: hidden;
+  }
+</style>

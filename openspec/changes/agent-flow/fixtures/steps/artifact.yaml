@@ -1,0 +1,21 @@
+id: artifact-step-fixture
+name: Artifact Step Fixture
+version: 1
+description: Minimal flow demonstrating an artifact step.
+
+inputs:
+  - name: content
+    type: string
+    required: true
+
+artifacts:
+  - kind: markdown_report
+    step: export_report
+
+steps:
+  - id: export_report
+    type: artifact
+    kind: markdown_report
+    description: Export the final report as an artifact.
+
+edges: []

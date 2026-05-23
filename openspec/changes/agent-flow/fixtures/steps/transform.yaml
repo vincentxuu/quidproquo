@@ -1,0 +1,17 @@
+id: transform-step-fixture
+name: Transform Step Fixture
+version: 1
+description: Minimal flow demonstrating a transform step.
+
+inputs:
+  - name: topic
+    type: string
+    required: true
+
+steps:
+  - id: build_payload
+    type: transform
+    description: Build a payload object from flow inputs.
+    expression: '{"topic": inputs.topic}'
+
+edges: []

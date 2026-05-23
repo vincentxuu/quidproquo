@@ -1,0 +1,45 @@
+id: series-suggestions
+name: Series Suggestions Agent
+version: 1
+inputs:
+  topSeriesCount:
+    type: number
+    required: false
+    default: 12
+    description: Top series suggestions
+  minPostsPerSeries:
+    type: number
+    required: false
+    default: 2
+    description: Min posts per series
+  maxPostsPerSeries:
+    type: number
+    required: false
+    default: 8
+    description: Max posts listed per series
+  minSignalLength:
+    type: number
+    required: false
+    default: 2
+    description: Minimum signal length
+steps:
+  series-scan:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Scan post signals
+  series-report:
+    kind: artifact
+    artifactKind: json_report
+    tools: [write_artifact]
+edges:
+  - from: series-scan
+    to: series-report
+artifacts:
+  - id: series-suggestions-report
+    kind: json_report
+    title: Series suggestion report
+    stepId: series-report
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 240000
+  maxExternalCalls: 0

@@ -1,0 +1,23 @@
+id: loop-step-fixture
+name: Loop Step Fixture
+version: 1
+description: Minimal flow demonstrating a loop step with a body.
+
+inputs:
+  - name: items
+    type: array
+    required: true
+
+steps:
+  - id: process_items
+    type: loop
+    description: Process each item in the list sequentially.
+    over: inputs.items
+    as: item
+    body:
+      - id: handle_item
+        type: transform
+        description: Transform the current item.
+        expression: '{"processed": item}'
+
+edges: []

@@ -49,6 +49,10 @@ export interface PipelineArtifactRow {
   created_at: string
 }
 
+/**
+ * @deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts;
+ * this module is scheduled for deletion in Phase 7
+ */
 export async function createJob(
   db: D1Database,
   definition: PipelineDefinition,
@@ -63,6 +67,10 @@ export async function createJob(
   return id
 }
 
+/**
+ * @deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts;
+ * this module is scheduled for deletion in Phase 7
+ */
 export async function updateJobStatus(
   db: D1Database,
   id: string,

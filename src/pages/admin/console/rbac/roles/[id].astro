@@ -1,0 +1,261 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled } from '../../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('rbac');
+const roleId = Astro.params.id ?? '';
+
+const breadcrumb = [
+  { label: 'RBAC', href: '/admin/console/rbac?tab=roles' },
+  { label: `Role ${roleId}` },
+];
+
+interface RoleRow {
+  role_id: number;
+  name: string;
+  description: string | null;
+}
+
+interface PermissionRow {
+  permission_id: number;
+  resource_kind: string;
+  action: string;
+  resource_id: string | null;
+}
+
+const RESOURCE_KINDS = ['flow', 'policy', 'provider', 'run', 'approval', 'artifact', 'cost', 'rbac'] as const;
+const ACTIONS = ['view', 'invoke', 'edit', 'delete', 'approve', 'reject', 'cancel', 'export'] as const;
+
+let role: RoleRow | null = null;
+let permissions: PermissionRow[] = [];
+let loadError = false;
+
+if (ready && roleId) {
+  try {
+    const db = getEnv().DB;
+
+    const [roleResult, permResult] = await Promise.all([
+      db.prepare(`
+        SELECT role_id, name, description
+        FROM console_roles
+        WHERE role_id = ?
+      `).bind(roleId).first<RoleRow>(),
+
+      db.prepare(`
+        SELECT permission_id, resource_kind, action, resource_id
+        FROM console_permissions
+        WHERE role_id = ?
+        ORDER BY resource_kind, action
+      `).bind(roleId).all<PermissionRow>(),
+    ]);
+
+    role = roleResult ?? null;
+    permissions = permResult.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+---
+
+<AdminConsoleLayout title={role ? `Role: ${role.name}` : `Role ${roleId}`} section="rbac" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+  )}
+  {ready && !roleId && (
+    <AdminState tone="error">No role ID specified.</AdminState>
+  )}
+  {ready && roleId && loadError && (
+    <AdminState tone="error">Could not load role data.</AdminState>
+  )}
+  {ready && roleId && !loadError && !role && (
+    <AdminState tone="error">Role not found.</AdminState>
+  )}
+  {ready && roleId && !loadError && role && (
+    <div class="role-detail">
+
+      <AdminPanel title="Role Info">
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="info-label">Role ID</span>
+            <code>{role.role_id}</code>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Name</span>
+            <code>{role.name}</code>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Description</span>
+            <span class="muted">{role.description ?? '—'}</span>
+          </div>
+        </div>
+      </AdminPanel>
+
+      <AdminPanel title="Permissions" eyebrow={`${permissions.length} permission${permissions.length !== 1 ? 's' : ''}`}>
+        {permissions.length === 0 ? (
+          <AdminState tone="empty">No permissions assigned to this role.</AdminState>
+        ) : (
+          <AdminTable minWidth="480px" flush>
+            <thead>
+              <tr>
+                <th>Resource Kind</th>
+                <th>Action</th>
+                <th>Resource ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              {permissions.map((p) => (
+                <tr>
+                  <td class="mono">{p.resource_kind}</td>
+                  <td class="mono">{p.action}</td>
+                  <td class="mono muted">{p.resource_id ?? '*'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+        )}
+      </AdminPanel>
+
+      <AdminPanel title="Add Permission" eyebrow="Grant a new permission to this role">
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/roles/${roleId}/permissions`}
+          class="add-perm-form"
+        >
+          <div class="form-row">
+            <label for="resource_kind" class="form-label">Resource kind</label>
+            <select id="resource_kind" name="resource_kind" class="form-select">
+              {RESOURCE_KINDS.map((k) => (
+                <option value={k}>{k}</option>
+              ))}
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="action" class="form-label">Action</label>
+            <select id="action" name="action" class="form-select">
+              {ACTIONS.map((a) => (
+                <option value={a}>{a}</option>
+              ))}
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="resource_id" class="form-label">Resource ID <span class="optional">(optional, leave blank for wildcard)</span></label>
+            <input
+              id="resource_id"
+              type="text"
+              name="resource_id"
+              class="form-input"
+              placeholder="* (wildcard)"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Add permission</button>
+          </div>
+        </form>
+      </AdminPanel>
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .role-detail {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .info-grid {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: 0.875rem;
+  }
+
+  .info-label {
+    min-width: 100px;
+    color: var(--admin-text-soft);
+    font-size: 0.8rem;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+  }
+
+  .add-perm-form {
+    padding: 0.75rem 1rem;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .form-label {
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+    font-weight: 600;
+  }
+
+  .optional {
+    font-weight: 400;
+    color: var(--admin-text-muted);
+  }
+
+  .form-select,
+  .form-input {
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.875rem;
+    max-width: 320px;
+  }
+
+  .form-select:focus,
+  .form-input:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+  }
+
+  .form-actions {
+    margin-top: 0.25rem;
+  }
+
+  .btn-primary {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-accent);
+    border-radius: var(--admin-radius);
+    background: var(--admin-accent);
+    color: #fff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+</style>

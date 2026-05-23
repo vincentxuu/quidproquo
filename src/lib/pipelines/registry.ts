@@ -489,10 +489,18 @@ export const pipelineDefinitions: PipelineDefinition[] = [
   },
 ]
 
+/**
+ * @deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts;
+ * this module is scheduled for deletion in Phase 7
+ */
 export function listPipelines(): PipelineDefinition[] {
   return pipelineDefinitions
 }
 
+/**
+ * @deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts;
+ * this module is scheduled for deletion in Phase 7
+ */
 export function getPipelineDefinition(id: string): PipelineDefinition | undefined {
   return pipelineDefinitions.find((pipeline) => pipeline.id === id)
 }

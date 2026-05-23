@@ -48,6 +48,10 @@ type PipelineExecutionContext = {
 
 type PipelineExecutionResult = { status: 'succeeded' | 'failed' | 'waiting_review' | 'dead_letter'; output: string }
 
+/**
+ * @deprecated since agent-pipelines-unify Phase 6 — use src/lib/agent-flow/runtime/run.ts;
+ * this module is scheduled for deletion in Phase 7
+ */
 export async function runPipeline(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string }> {
   const definition = getPipelineDefinition(request.pipelineId)
   if (!definition) {

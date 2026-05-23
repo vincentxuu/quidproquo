@@ -1,0 +1,71 @@
+---
+import type { PolicyRow } from '@/lib/agent-console/management';
+
+interface Props {
+  rows: PolicyRow[];
+}
+
+const { rows } = Astro.props;
+
+function formatTimestamp(ms: number): string {
+  return ms ? new Date(ms).toISOString().replace('T', ' ').slice(0, 16) : '—';
+}
+---
+
+<table class="mgmt-table admin-panel">
+  <thead>
+    <tr>
+      <th scope="col">Key</th>
+      <th scope="col">Label</th>
+      <th scope="col">Category</th>
+      <th scope="col">Version</th>
+      <th scope="col">Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((row) => (
+      <tr data-policy-key={row.policyKey} data-category={row.category}>
+        <td><a href={`/admin/console/policies/${encodeURIComponent(row.policyKey)}`}><code>{row.policyKey}</code></a></td>
+        <td>{row.label}</td>
+        <td><span class="category-chip">{row.category}</span></td>
+        <td>v{row.version}</td>
+        <td>{formatTimestamp(row.updatedAt)}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .mgmt-table th,
+  .mgmt-table td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .mgmt-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mgmt-table code {
+    font-size: 0.78rem;
+  }
+  .mgmt-table a {
+    color: var(--admin-accent);
+    text-decoration: none;
+  }
+  .category-chip {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.74rem;
+    text-transform: capitalize;
+  }
+</style>

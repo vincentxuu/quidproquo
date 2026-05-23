@@ -1,0 +1,65 @@
+-- Drop admin_jobs table after 90-day zero-write proof
+-- Phase: agent-pipelines-unify Phase 8
+-- Pre-condition: admin_jobs.started_at > <phase6-flip-iso> COUNT(*) = 0
+-- Backup taken at: /tmp/quidproquo-pre-drop-admin_jobs.sql
+--
+-- DOWN (restore recipe):
+-- CREATE TABLE admin_jobs (
+--   id TEXT PRIMARY KEY,
+--   pipeline_id TEXT NOT NULL,
+--   status TEXT NOT NULL DEFAULT 'queued',
+--   risk TEXT NOT NULL DEFAULT 'low',
+--   requested_by TEXT,
+--   input_json TEXT NOT NULL,
+--   output_summary TEXT,
+--   error_summary TEXT,
+--   failure_reason TEXT,
+--   retry_count INTEGER DEFAULT 0,
+--   dead_letter_at TEXT,
+--   created_at TEXT NOT NULL DEFAULT (datetime('now')),
+--   started_at TEXT,
+--   finished_at TEXT,
+--   token_input INTEGER,
+--   token_output INTEGER,
+--   provider TEXT,
+--   model TEXT
+-- );
+-- CREATE TABLE admin_job_steps (
+--   id TEXT PRIMARY KEY,
+--   job_id TEXT NOT NULL,
+--   stage_id TEXT NOT NULL,
+--   kind TEXT NOT NULL,
+--   status TEXT NOT NULL DEFAULT 'pending',
+--   input_summary TEXT,
+--   output_summary TEXT,
+--   artifact_id TEXT,
+--   duration_ms INTEGER,
+--   error_summary TEXT,
+--   guard_results TEXT,
+--   created_at TEXT NOT NULL DEFAULT (datetime('now')),
+--   started_at TEXT,
+--   finished_at TEXT,
+--   FOREIGN KEY (job_id) REFERENCES admin_jobs(id)
+-- );
+-- CREATE TABLE admin_job_artifacts (
+--   id TEXT PRIMARY KEY,
+--   job_id TEXT NOT NULL,
+--   step_id TEXT,
+--   type TEXT NOT NULL,
+--   name TEXT,
+--   path TEXT,
+--   content_json TEXT,
+--   created_at TEXT NOT NULL DEFAULT (datetime('now')),
+--   FOREIGN KEY (job_id) REFERENCES admin_jobs(id)
+-- );
+-- CREATE INDEX idx_admin_jobs_pipeline ON admin_jobs(pipeline_id, created_at DESC);
+-- CREATE INDEX idx_admin_jobs_status ON admin_jobs(status, created_at DESC);
+-- CREATE INDEX idx_admin_jobs_created ON admin_jobs(created_at DESC);
+-- CREATE INDEX idx_admin_job_steps_job ON admin_job_steps(job_id, created_at);
+-- CREATE INDEX idx_admin_job_artifacts_job ON admin_job_artifacts(job_id);
+-- INSERT INTO admin_jobs SELECT ... FROM flow_runs WHERE parent_kind='pipeline';
+-- (Full schema in backup at /tmp/quidproquo-pre-0014.sql from Phase 3)
+
+DROP TABLE IF EXISTS admin_job_artifacts;
+DROP TABLE IF EXISTS admin_job_steps;
+DROP TABLE IF EXISTS admin_jobs;

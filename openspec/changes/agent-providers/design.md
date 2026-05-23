@@ -555,3 +555,7 @@ Action category retries exactly once because irreversible operations should not 
 ### Q5: Do we need a "fallback chain dry-run" admin endpoint before flipping a category live?
 
 **Default.** **Defer to admin-console.** The router exposes a `simulateChain(category, input)` function that returns the chain plan + per-provider latency EWMA + health snapshot without executing; surface it as an endpoint only when `agent-console` (#4) needs it.
+
+## Resolutions
+
+**Q-action-flags-permanent** — Action provider flags are NOT retired after the 7-day stabilization period because the blast radius (external user-visible artifacts: Slack messages, GitHub issues, emails) makes per-provider rollback a permanent requirement. The umbrella `AGENT_PROVIDERS_ENABLED` flag is the catastrophic-failure kill-switch; per-provider action flags (`AGENT_ARTIFACT_SLACK`, `AGENT_ARTIFACT_GITHUB_ISSUE`, `AGENT_ARTIFACT_EMAIL`, `AGENT_PROVIDERS_ACTION_*`) are the per-target rollback path and remain indefinitely.

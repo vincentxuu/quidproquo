@@ -1,0 +1,252 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from './_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('flowEditor');
+
+const starterYaml = `id: my-new-flow
+name: New Flow
+version: 1
+description: Describe your flow here
+inputs:
+  - name: topic
+    type: string
+    required: true
+steps:
+  - id: start
+    type: agent
+    agentId: planner
+    input:
+      topic: "{{ inputs.topic }}"
+edges:
+  - from: start
+    to: __end__
+artifacts: []
+`;
+
+const breadcrumb = [
+  { label: 'Flows', href: '/admin/console/flows' },
+  { label: 'New Flow' },
+];
+---
+
+<AdminConsoleLayout title="New Flow" section="flows" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
+  )}
+  {ready && (
+    <div class="editor-wrap">
+      <p class="editor-hint">
+        Define your new flow in YAML. The <code>id</code> field must be unique across all flows.
+      </p>
+      <form id="new-form" autocomplete="off">
+        <label for="yaml-editor" class="editor-label">Flow YAML</label>
+        <textarea
+          id="yaml-editor"
+          name="yaml"
+          rows={40}
+          spellcheck={false}
+          class="yaml-textarea"
+        >{starterYaml}</textarea>
+        <div id="validation-errors" class="validation-errors" aria-live="polite"></div>
+        <div class="editor-actions">
+          <button type="button" id="validate-btn" class="btn btn-secondary">Validate</button>
+          <button type="button" id="create-btn" class="btn btn-primary">Create Flow</button>
+          <span id="save-status" class="save-status" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<script>
+  const textarea = document.getElementById('yaml-editor') as HTMLTextAreaElement | null;
+  const errorsEl = document.getElementById('validation-errors');
+  const saveStatus = document.getElementById('save-status');
+  const validateBtn = document.getElementById('validate-btn');
+  const createBtn = document.getElementById('create-btn');
+
+  function setErrors(errors: Array<{ path: string; message: string }>) {
+    if (!errorsEl) return;
+    if (!errors || errors.length === 0) {
+      errorsEl.textContent = '';
+      errorsEl.classList.remove('has-errors');
+      return;
+    }
+    errorsEl.classList.add('has-errors');
+    errorsEl.innerHTML = errors
+      .map((e) => `<div class="error-item"><span class="error-path">${e.path}</span> ${e.message}</div>`)
+      .join('');
+  }
+
+  function setStatus(msg: string, tone?: string) {
+    if (!saveStatus) return;
+    saveStatus.textContent = msg;
+    saveStatus.className = 'save-status ' + (tone ?? '');
+  }
+
+  async function doValidate(): Promise<boolean> {
+    const yaml = textarea?.value ?? '';
+    setStatus('Validating…', '');
+    setErrors([]);
+    try {
+      const res = await fetch('/api/admin/flows/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ yaml }),
+      });
+      const data = await res.json() as { valid: boolean; errors?: Array<{ path: string; message: string }> };
+      if (data.valid) {
+        setStatus('Valid', 'ok');
+        setErrors([]);
+      } else {
+        setStatus('', '');
+        setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+      }
+      return data.valid;
+    } catch (err) {
+      setErrors([{ path: '(network)', message: String(err) }]);
+      setStatus('', '');
+      return false;
+    }
+  }
+
+  validateBtn?.addEventListener('click', () => { doValidate(); });
+
+  createBtn?.addEventListener('click', async () => {
+    const yaml = textarea?.value ?? '';
+    setStatus('Creating…', '');
+    setErrors([]);
+    try {
+      const res = await fetch('/api/admin/flows', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ yaml }),
+      });
+      const data = await res.json() as { flowId?: string; error?: string; errors?: Array<{ path: string; message: string }> };
+      if (res.ok && data.flowId) {
+        setStatus('Created! Redirecting…', 'ok');
+        window.location.href = `/admin/console/flows/${data.flowId}/edit`;
+      } else if (data.errors) {
+        setStatus('', '');
+        setErrors(data.errors);
+      } else {
+        setStatus('', '');
+        setErrors([{ path: '(server)', message: data.error ?? 'Create failed' }]);
+      }
+    } catch (err) {
+      setErrors([{ path: '(network)', message: String(err) }]);
+      setStatus('', '');
+    }
+  });
+</script>
+
+<style>
+  .editor-wrap {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 900px;
+  }
+  .editor-hint {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted);
+  }
+  .editor-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--admin-text-soft);
+    margin-bottom: 0.35rem;
+  }
+  .yaml-textarea {
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    resize: vertical;
+    tab-size: 2;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+  }
+  .yaml-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: var(--admin-focus);
+  }
+  .validation-errors {
+    display: none;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--admin-radius);
+  }
+  .validation-errors.has-errors {
+    display: block;
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #b91c1c;
+  }
+  .error-item {
+    font-size: 0.82rem;
+    margin-bottom: 0.2rem;
+  }
+  .error-item:last-child {
+    margin-bottom: 0;
+  }
+  .error-path {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 600;
+    margin-right: 0.35rem;
+  }
+  .editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: var(--admin-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--admin-border);
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary {
+    background: var(--admin-surface);
+    color: var(--admin-text);
+  }
+  .btn-secondary:hover {
+    border-color: var(--admin-accent);
+    color: var(--brand-900);
+  }
+  .btn-primary {
+    background: var(--brand-900);
+    color: #fff;
+    border-color: var(--brand-900);
+  }
+  .btn-primary:hover {
+    background: var(--brand-700);
+    border-color: var(--brand-700);
+  }
+  .save-status {
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+  }
+  .save-status.ok {
+    color: #16a34a;
+    font-weight: 600;
+  }
+</style>

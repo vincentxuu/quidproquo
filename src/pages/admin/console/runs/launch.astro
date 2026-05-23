@@ -1,0 +1,191 @@
+---
+export const prerender = false;
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import PresetSummaryPanel from '@/components/admin/console/PresetSummaryPanel.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+if (!isPageEnabled('flowSelector')) {
+  return Astro.redirect('/admin/console');
+}
+
+const flowId = Astro.url.searchParams.get('flowId');
+if (!flowId) {
+  return Astro.redirect('/admin/console');
+}
+
+const presetId = Astro.url.searchParams.get('presetId');
+
+interface FlowRow {
+  flow_id: string;
+  display_name: string | null;
+  description: string | null;
+}
+
+let flow: FlowRow | null = null;
+let loadError = false;
+
+try {
+  const db = getEnv().DB;
+  flow = await db
+    .prepare(
+      `SELECT flow_id, display_name, description
+       FROM flow_definitions
+       WHERE flow_id = ?
+       LIMIT 1`,
+    )
+    .bind(flowId)
+    .first<FlowRow>();
+} catch {
+  loadError = true;
+}
+
+if (!loadError && !flow) {
+  return Astro.redirect('/admin/console');
+}
+
+const flowName = flow?.display_name ?? flowId;
+---
+
+<AdminConsoleLayout
+  title={`Launch: ${flowName}`}
+  section="flow-selector"
+  breadcrumb={[
+    { label: 'Flow Selector', href: '/admin/console' },
+    { label: `Launch ${flowName}` },
+  ]}
+>
+  {loadError && (
+    <AdminState tone="error">Could not load flow definition.</AdminState>
+  )}
+  {!loadError && flow && (
+    <AdminPanel title={`Launch — ${flowName}`}>
+      {flow.description && (
+        <p class="flow-desc">{flow.description}</p>
+      )}
+      {presetId && (
+        <div class="preset-panel-wrapper">
+          <PresetSummaryPanel flowId={flowId} presetId={presetId} db={getEnv().DB} />
+        </div>
+      )}
+      <form method="POST" action={`/api/admin/flows/${flowId}/run`} class="launch-form">
+        <input type="hidden" name="flowId" value={flowId} />
+        <div class="field">
+          <label for="inputsJson" class="field-label">Inputs (JSON)</label>
+          <textarea
+            id="inputsJson"
+            name="inputsJson"
+            class="field-textarea"
+            rows="8"
+            placeholder='{"key": "value"}'
+            spellcheck="false"
+          ></textarea>
+          <p class="field-hint">Provide a JSON object matching the flow's input schema, or leave empty for flows with no required inputs.</p>
+        </div>
+        <div class="form-actions">
+          <a href="/admin/console" class="btn-secondary">Cancel</a>
+          <button type="submit" class="btn-primary">Launch Run</button>
+        </div>
+      </form>
+    </AdminPanel>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .flow-desc {
+    margin-bottom: 1.25rem;
+    color: var(--admin-text-muted);
+    font-size: 0.9em;
+  }
+
+  .preset-panel-wrapper {
+    margin-bottom: 1.25rem;
+    max-width: 640px;
+  }
+
+  .launch-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 640px;
+    padding: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--admin-text);
+  }
+
+  .field-textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-bg, #f8fafc);
+    color: var(--admin-text);
+    resize: vertical;
+    width: 100%;
+  }
+
+  .field-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent, #2563eb);
+    box-shadow: var(--admin-focus);
+  }
+
+  .field-hint {
+    font-size: 0.8em;
+    color: var(--admin-text-muted);
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: var(--admin-radius, 6px);
+    background: var(--brand-900, #1a2e1a);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-secondary {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
+  }
+</style>

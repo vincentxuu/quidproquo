@@ -1,0 +1,313 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('rbac');
+
+const url = Astro.url;
+const tab = url.searchParams.get('tab') ?? 'users';
+
+function tabHref(t: string): string {
+  const u = new URL(url.toString());
+  u.searchParams.set('tab', t);
+  return u.pathname + u.search;
+}
+
+interface UserRow {
+  user_id: number;
+  email: string;
+  created_at: number;
+  disabled_at: number | null;
+  roles: string | null;
+}
+
+interface RoleRow {
+  role_id: number;
+  name: string;
+  description: string | null;
+}
+
+interface AuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  resource_kind: string;
+  resource_id: string | null;
+  created_at: number;
+}
+
+let users: UserRow[] = [];
+let roles: RoleRow[] = [];
+let auditRows: AuditRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+
+    if (tab === 'users' || tab !== 'roles' && tab !== 'audit') {
+      const result = await db.prepare(`
+        SELECT u.user_id, u.email, u.created_at, u.disabled_at,
+               GROUP_CONCAT(r.name) as roles
+        FROM console_users u
+        LEFT JOIN console_user_roles ur ON ur.user_id = u.user_id
+        LEFT JOIN console_roles r ON r.role_id = ur.role_id
+        GROUP BY u.user_id
+        ORDER BY u.created_at DESC
+      `).all<UserRow>();
+      users = result.results ?? [];
+    } else if (tab === 'roles') {
+      const result = await db.prepare(`
+        SELECT role_id, name, description
+        FROM console_roles
+        ORDER BY name
+      `).all<RoleRow>();
+      roles = result.results ?? [];
+    } else if (tab === 'audit') {
+      const result = await db.prepare(`
+        SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
+               al.resource_id, al.created_at
+        FROM console_audit_log al
+        LEFT JOIN console_users u ON u.user_id = al.user_id
+        ORDER BY al.created_at DESC
+        LIMIT 50
+      `).all<AuditRow>();
+      auditRows = result.results ?? [];
+    }
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+---
+
+<AdminConsoleLayout title="RBAC" section="rbac">
+  {!ready && (
+    <AdminState tone="empty">{`RBAC management ships in ${consolePhaseFor('rbac')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load RBAC data.</AdminState>
+  )}
+  {ready && !loadError && (
+    <div class="rbac-layout">
+      <div class="tab-bar" role="tablist">
+        <a
+          href={tabHref('users')}
+          class:list={['tab', { active: tab === 'users' || (tab !== 'roles' && tab !== 'audit') }]}
+          role="tab"
+          aria-selected={tab === 'users' || (tab !== 'roles' && tab !== 'audit') ? 'true' : 'false'}
+        >Users</a>
+        <a
+          href={tabHref('roles')}
+          class:list={['tab', { active: tab === 'roles' }]}
+          role="tab"
+          aria-selected={tab === 'roles' ? 'true' : 'false'}
+        >Roles</a>
+        <a
+          href={tabHref('audit')}
+          class:list={['tab', { active: tab === 'audit' }]}
+          role="tab"
+          aria-selected={tab === 'audit' ? 'true' : 'false'}
+        >Audit log</a>
+      </div>
+
+      {(tab === 'users' || (tab !== 'roles' && tab !== 'audit')) && (
+        <AdminPanel title="Console Users">
+          {users.length === 0 ? (
+            <AdminState tone="empty">No users found.</AdminState>
+          ) : (
+            <AdminTable minWidth="600px" flush>
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Roles</th>
+                  <th>Created</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((u) => (
+                  <tr>
+                    <td>
+                      <a href={`/admin/console/rbac/users/${u.user_id}`} class="link">
+                        {u.email}
+                      </a>
+                    </td>
+                    <td class="roles-cell">{u.roles ?? '—'}</td>
+                    <td class="mono">{formatTs(u.created_at)}</td>
+                    <td>
+                      {u.disabled_at ? (
+                        <span class="badge disabled">Disabled</span>
+                      ) : (
+                        <span class="badge active">Active</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      )}
+
+      {tab === 'roles' && (
+        <AdminPanel title="Roles">
+          {roles.length === 0 ? (
+            <AdminState tone="empty">No roles found.</AdminState>
+          ) : (
+            <AdminTable minWidth="400px" flush>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {roles.map((r) => (
+                  <tr>
+                    <td>
+                      <a href={`/admin/console/rbac/roles/${r.role_id}`} class="link">
+                        {r.name}
+                      </a>
+                    </td>
+                    <td class="muted">{r.description ?? '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      )}
+
+      {tab === 'audit' && (
+        <AdminPanel title="Audit Log" eyebrow="Last 50 entries">
+          {auditRows.length === 0 ? (
+            <AdminState tone="empty">No audit log entries found.</AdminState>
+          ) : (
+            <AdminTable minWidth="700px" flush>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Action</th>
+                  <th>Kind</th>
+                  <th>Resource ID</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {auditRows.map((row) => (
+                  <tr>
+                    <td class="mono">{row.user_email ?? '—'}</td>
+                    <td>{row.action}</td>
+                    <td>{row.resource_kind}</td>
+                    <td class="mono">{row.resource_id ?? '—'}</td>
+                    <td class="mono">{formatTs(row.created_at)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      )}
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .rbac-layout {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .tab {
+    padding: 0.35rem 1rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--admin-text-muted);
+    background: transparent;
+    border-right: 1px solid var(--admin-border);
+    transition: background 0.1s;
+  }
+
+  .tab:last-child {
+    border-right: none;
+  }
+
+  .tab:hover {
+    background: var(--admin-muted);
+    color: var(--admin-text);
+  }
+
+  .tab.active {
+    background: var(--brand-900);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .link {
+    color: var(--admin-accent);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .roles-cell {
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.1em 0.55em;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid;
+  }
+
+  .badge.active {
+    color: #16a34a;
+    border-color: #16a34a;
+    background: #f0fdf4;
+  }
+
+  .badge.disabled {
+    color: #dc2626;
+    border-color: #dc2626;
+    background: #fef2f2;
+  }
+</style>

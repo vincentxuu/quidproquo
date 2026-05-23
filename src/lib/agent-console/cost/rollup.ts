@@ -1,0 +1,95 @@
+import type { Env } from '../../config/env'
+
+function epochDayOf(ms: number): number {
+  return Math.floor(ms / 86_400_000)
+}
+
+function yesterdayDay(): number {
+  return epochDayOf(Date.now()) - 1
+}
+
+const DIMENSIONS = ['flow_id', 'agent_id'] as const
+type Dimension = (typeof DIMENSIONS)[number]
+
+interface DimensionRow {
+  dimension_value: string
+  tokens_in: number
+  tokens_out: number
+  cost_usd: number
+  run_count: number
+}
+
+async function buildDayForDimension(
+  db: D1Database,
+  day: number,
+  dimension: Dimension,
+): Promise<DimensionRow[]> {
+  const dayStartMs = day * 86_400_000
+  const dayEndMs = dayStartMs + 86_400_000
+
+  if (dimension === 'flow_id') {
+    const result = await db.prepare(`
+      SELECT fr.flow_id AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT fr.flow_run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY fr.flow_id
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  if (dimension === 'agent_id') {
+    const result = await db.prepare(`
+      SELECT ar.agent_id AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT ar.run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY ar.agent_id
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  return []
+}
+
+async function upsertDailyRows(
+  db: D1Database,
+  day: number,
+  dimension: Dimension,
+  rows: DimensionRow[],
+): Promise<void> {
+  if (rows.length === 0) return
+  const stmts = rows.map(r =>
+    db.prepare(`
+      INSERT OR REPLACE INTO cost_rollup_daily
+        (day, dimension, dimension_value, tokens_in, tokens_out, cost_usd, run_count)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).bind(day, dimension, r.dimension_value, r.tokens_in, r.tokens_out, r.cost_usd, r.run_count),
+  )
+  await db.batch(stmts)
+}
+
+export async function runConsoleRollupDaily(env: Env, fromDayOverride?: number, toDayOverride?: number): Promise<void> {
+  const db = env.DB
+  const meta = await db.prepare('SELECT last_built_day FROM cost_rollup_meta').first<{ last_built_day: number }>()
+  const fromDay = fromDayOverride ?? (meta?.last_built_day ?? 0) + 1
+  const toDay = toDayOverride ?? yesterdayDay()
+
+  for (let day = fromDay; day <= toDay; day++) {
+    for (const dimension of DIMENSIONS) {
+      const rows = await buildDayForDimension(db, day, dimension)
+      await upsertDailyRows(db, day, dimension, rows)
+    }
+    await db.prepare('UPDATE cost_rollup_meta SET last_built_day = ?').bind(day).run()
+  }
+}

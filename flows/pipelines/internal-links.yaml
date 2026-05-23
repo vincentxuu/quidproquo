@@ -1,0 +1,46 @@
+id: internal-links
+name: Internal Link Agent
+version: 1
+inputs:
+  slug:
+    type: string
+    required: true
+    description: Post slug
+steps:
+  read-post:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Read source post
+  run-content-ops:
+    kind: tool_group
+    tools: [run_content_ops]
+    prompt: Run content ops helper
+  link-report:
+    kind: tool_group
+    tools: [write_artifact]
+    prompt: Write link opportunities
+  internal-link-evaluation:
+    kind: agent
+    prompt: Review internal link suggestions
+    model: groq
+    maxTokens: 2000
+edges:
+  - from: read-post
+    to: run-content-ops
+  - from: run-content-ops
+    to: link-report
+  - from: link-report
+    to: internal-link-evaluation
+artifacts:
+  - id: internal-links-report
+    kind: json_report
+    title: Internal link opportunities
+    stepId: link-report
+  - id: internal-link-evaluation
+    kind: json_report
+    title: Internal link evaluation
+    stepId: internal-link-evaluation
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 180000
+  maxExternalCalls: 1

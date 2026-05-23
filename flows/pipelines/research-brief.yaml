@@ -1,0 +1,72 @@
+id: research-brief
+name: Research Brief Agent
+version: 1
+inputs:
+  topic:
+    type: string
+    required: true
+    description: Research topic
+  language:
+    type: string
+    required: false
+    default: zh-TW
+    description: Language
+  researchDepth:
+    type: string
+    required: false
+    default: standard
+    description: Research depth
+  includeExternalSources:
+    type: boolean
+    required: false
+    default: true
+    description: Include external source suggestions
+steps:
+  research-brief:
+    kind: agent
+    prompt: Generate research brief and draft outline for topic-first content workflow
+    model: groq
+    maxTokens: 2000
+  research-quality:
+    kind: tool_group
+    tools: [run_post_quality_check]
+    prompt: Run research draft quality check
+  research-reference:
+    kind: tool_group
+    tools: [run_reference_check]
+    prompt: Run research draft reference check
+  research-review:
+    kind: human_approval
+    reason: Research review gate — approve brief before writing draft markdown
+    ttlSeconds: 86400
+  research-write-draft:
+    kind: tool_group
+    tools: [write_draft_artifact]
+    prompt: Write research draft markdown
+  research-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: research-brief
+    to: research-quality
+  - from: research-quality
+    to: research-reference
+  - from: research-reference
+    to: research-review
+  - from: research-review
+    to: research-write-draft
+  - from: research-write-draft
+    to: research-report
+artifacts:
+  - id: research-brief-draft
+    kind: markdown_draft
+    title: Research brief draft markdown
+    stepId: research-write-draft
+  - id: research-brief-report
+    kind: json_report
+    title: Research brief report
+    stepId: research-report
+budget:
+  maxRetries: 0
+  maxRuntimeMs: 360000
+  maxExternalCalls: 1

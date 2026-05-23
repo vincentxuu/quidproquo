@@ -2,6 +2,9 @@ import type { SearchResult } from '../../rag/state'
 import { searchBlogPosts } from '../../rag/tools/search-posts'
 import { searchDocs } from '../../rag/tools/search-docs'
 import { defineSyscall } from '../../agent-os/tools/define'
+import { listByCategory } from '../../agent-providers/registry'
+import { routeWithFallback } from '../../agent-providers/routing-fallback'
+import { createInMemoryProviderBackends } from '../../agent-providers/storage/test/in-memory'
 
 const JINA_SEARCH_BASE = 'https://s.jina.ai/'
 const CLOUDFLARE_RENDER_BASE = 'https://api.cloudflare.com/client/v4/accounts'
@@ -44,6 +47,29 @@ export async function searchExternalTools({
 }: ExternalSearchInput): Promise<SearchResult[]> {
   const cleanQuery = query.trim()
   if (!cleanQuery) return []
+
+  // Route through provider registry when search providers are registered
+  const registeredSearchProviders = listByCategory('search').filter((p) => p.isEnabled)
+  if (registeredSearchProviders.length > 0) {
+    try {
+      const backends = createInMemoryProviderBackends()
+      const result = await routeWithFallback({
+        category: 'search',
+        input: { query: cleanQuery, limit, timeoutMs, providers, apiKeys },
+        policy: { order: registeredSearchProviders.map((p) => p.providerId) },
+        backends,
+        dispatch: async (providerId, input) => {
+          const inp = input as ExternalSearchInput
+          const providerName = providerId.replace('search.', '')
+          return searchExternalTools({ ...inp, providers: [providerName] })
+        },
+      })
+      return result as SearchResult[]
+    } catch {
+      // Fall through to legacy path
+    }
+  }
+
   const providerSet = new Set(
     providers
       .map((provider) => String(provider ?? '').trim().toLowerCase())

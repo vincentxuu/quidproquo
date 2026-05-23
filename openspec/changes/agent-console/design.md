@@ -667,3 +667,8 @@ The plan ships **read-only views first**, then **mutation actions**, then **visu
 **Discussion.** A `sub_flow` step has `flow_id: deep-research` pointing at another flow file. The editor could either treat the sub-flow as a black box (single node) or expand into the parent canvas. Both have ergonomic costs.
 
 **Default if probe inconclusive.** **Black-box rendering with a "Open sub-flow" link.** Double-clicking a sub_flow node navigates to that flow's editor (with a "← back to parent" breadcrumb). This keeps each canvas single-flow-scoped, matches the flow-versioning model in `agent-flow` D5, and avoids the explosion of nodes in deeply nested compositions. Inline expansion can ship as a v2 enhancement if operators ask for it.
+
+## Resolutions
+
+### Q-per-page-flags-retired (2026-05-23, Phase 9.4.3)
+Per-page feature flags (`flowSelector`, `runTimeline`, `evidenceViewer`, `artifactViewer`, `management`, `costDashboard`, `flowEditor`, `rbac`) retired from `flags.ts`, `env.ts`, and `wrangler.jsonc`. The umbrella `agentConsole.enabled` remains the single kill-switch. `isPageEnabled()` in `_guard.ts` now always returns `true` when the umbrella is on. All 8 console pages are fully enabled when `AGENT_CONSOLE_ENABLED=true`.

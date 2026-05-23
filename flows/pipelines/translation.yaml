@@ -1,0 +1,78 @@
+id: translation
+name: Translation Agent
+version: 1
+draftOnly: true
+inputs:
+  slug:
+    type: string
+    required: true
+    description: Source post slug
+steps:
+  read-source:
+    kind: tool_group
+    tools: [read_post_content]
+    prompt: Read source post
+  translate:
+    kind: agent
+    prompt: Translate content from zh-TW to English
+    model: groq
+    maxTokens: 2000
+  cultural-review:
+    kind: agent
+    prompt: Cultural review of translated content
+    model: groq
+    maxTokens: 2000
+  native-check:
+    kind: agent
+    prompt: Native English checker pass
+    model: groq
+    maxTokens: 2000
+  quality-check:
+    kind: tool_group
+    tools: [run_post_quality_check]
+    prompt: Run quality check on translated draft
+  reference-check:
+    kind: tool_group
+    tools: [run_reference_check]
+    prompt: Run reference check on translated draft
+  review-gate:
+    kind: human_approval
+    reason: Publish review gate — approve translated draft before writing
+    ttlSeconds: 86400
+  write-draft:
+    kind: tool_group
+    tools: [write_draft_artifact]
+    prompt: Write draft artifact
+  translation-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: read-source
+    to: translate
+  - from: translate
+    to: cultural-review
+  - from: cultural-review
+    to: native-check
+  - from: native-check
+    to: quality-check
+  - from: quality-check
+    to: reference-check
+  - from: reference-check
+    to: review-gate
+  - from: review-gate
+    to: write-draft
+  - from: write-draft
+    to: translation-report
+artifacts:
+  - id: translation-draft
+    kind: markdown_draft
+    title: English draft
+    stepId: write-draft
+  - id: translation-report
+    kind: json_report
+    title: Translation report
+    stepId: translation-report
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 1200000
+  maxExternalCalls: 3

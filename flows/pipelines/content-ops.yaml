@@ -1,0 +1,25 @@
+id: content-ops
+name: Content Ops Agent
+version: 1
+inputs: {}
+steps:
+  run-content-ops:
+    kind: tool_group
+    tools: [run_content_ops]
+    prompt: Run content ops report
+  write-report-artifact:
+    kind: artifact
+    artifactKind: json_report
+    tools: [write_artifact]
+edges:
+  - from: run-content-ops
+    to: write-report-artifact
+artifacts:
+  - id: content-ops-report
+    kind: json_report
+    title: Content ops report
+    stepId: write-report-artifact
+budget:
+  maxRetries: 1
+  maxRuntimeMs: 120000
+  maxExternalCalls: 0

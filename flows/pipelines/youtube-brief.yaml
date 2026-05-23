@@ -1,0 +1,66 @@
+id: youtube-brief
+name: YouTube Brief Agent
+version: 1
+inputs:
+  videoUrl:
+    type: string
+    required: true
+    description: YouTube URL
+  language:
+    type: string
+    required: false
+    default: zh-TW
+    description: Language
+  includeTranscript:
+    type: boolean
+    required: false
+    default: true
+    description: Include transcript preview
+steps:
+  youtube-brief:
+    kind: tool_group
+    tools: [write_draft_artifact]
+    prompt: Build YouTube brief skeleton
+  youtube-quality:
+    kind: tool_group
+    tools: [run_post_quality_check]
+    prompt: Run YouTube draft quality check
+  youtube-reference:
+    kind: tool_group
+    tools: [run_reference_check]
+    prompt: Run YouTube draft reference check
+  youtube-review:
+    kind: human_approval
+    reason: Review YouTube brief draft before writing markdown
+    ttlSeconds: 86400
+  youtube-write-draft:
+    kind: tool_group
+    tools: [write_draft_artifact]
+    prompt: Write YouTube draft markdown
+  youtube-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: youtube-brief
+    to: youtube-quality
+  - from: youtube-quality
+    to: youtube-reference
+  - from: youtube-reference
+    to: youtube-review
+  - from: youtube-review
+    to: youtube-write-draft
+  - from: youtube-write-draft
+    to: youtube-report
+artifacts:
+  - id: youtube-brief-draft
+    kind: markdown_draft
+    title: YouTube draft markdown
+    stepId: youtube-write-draft
+  - id: youtube-brief-report
+    kind: json_report
+    title: YouTube brief report
+    stepId: youtube-report
+budget:
+  maxRetries: 0
+  maxRuntimeMs: 280000
+  maxExternalCalls: 2

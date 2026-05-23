@@ -1,0 +1,36 @@
+id: crawl-sync
+name: Crawl Agent
+version: 1
+triggers:
+  cron: true
+  scheduled: true
+inputs:
+  full:
+    type: boolean
+    required: false
+    default: false
+    description: Full crawl
+  modifiedSince:
+    type: number
+    required: false
+    description: Modified since
+steps:
+  crawl-sync:
+    kind: tool_group
+    tools: [run_crawl_sync]
+    prompt: Create crawl sync job record
+  crawl-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: crawl-sync
+    to: crawl-report
+artifacts:
+  - id: crawl-sync-record
+    kind: json_report
+    title: Crawl sync job record
+    stepId: crawl-report
+budget:
+  maxRetries: 2
+  maxRuntimeMs: 600000
+  maxExternalCalls: 1

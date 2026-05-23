@@ -1,0 +1,111 @@
+---
+export const prerender = false;
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('management');
+
+interface PolicyRow {
+  policy_id: number;
+  policy_key: string;
+  version: number;
+  label: string | null;
+  created_at: number | null;
+}
+
+let policies: PolicyRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+    const result = await db
+      .prepare(
+        `SELECT policy_id, policy_key, version, label, created_at
+         FROM policy_definitions
+         WHERE archived_at IS NULL
+         ORDER BY policy_key ASC`,
+      )
+      .all<PolicyRow>();
+    policies = result.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+---
+
+<AdminConsoleLayout title="Policies" section="policies">
+  {!ready && (
+    <AdminState tone="empty">{`Policies management ships in ${consolePhaseFor('management')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load policies.</AdminState>
+  )}
+  {ready && !loadError && policies.length === 0 && (
+    <AdminState tone="empty">No policy definitions registered yet.</AdminState>
+  )}
+  {ready && !loadError && policies.length > 0 && (
+    <AdminPanel title="Policy Definitions">
+      <AdminTable minWidth="560px" flush>
+        <thead>
+          <tr>
+            <th>Policy Key</th>
+            <th>Label</th>
+            <th>Version</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          {policies.map((p) => (
+            <tr>
+              <td class="mono">
+                <a href={`/admin/console/policies/${p.policy_key}`} class="link">
+                  {p.policy_key}
+                </a>
+              </td>
+              <td class="label-cell">{p.label ?? '—'}</td>
+              <td class="mono">{p.version}</td>
+              <td class="mono">{formatTs(p.created_at)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </AdminTable>
+    </AdminPanel>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .label-cell {
+    font-size: 0.9em;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+</style>

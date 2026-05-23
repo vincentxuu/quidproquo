@@ -1,0 +1,19 @@
+id: sub-flow-step-fixture
+name: Sub Flow Step Fixture
+version: 1
+description: Minimal flow demonstrating a sub_flow step.
+
+inputs:
+  - name: topic
+    type: string
+    required: true
+
+steps:
+  - id: run_research
+    type: sub_flow
+    flow: deep-research
+    description: Delegate to the deep-research sub-flow.
+    input:
+      topic: inputs.topic
+
+edges: []

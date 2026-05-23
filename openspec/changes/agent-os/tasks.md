@@ -441,6 +441,6 @@ Implementation plan for the agent-os change. 6 phases, ~97 tasks, strict order.
 - [ ] 6.3.1 Run the 7-day dashboard watch: each day for 7 consecutive days `curl .../api/admin/agents/health` and record the JSON in `.omc/research/agent-os-health-day-{1..7}.json`; abort archive and open a follow-up if any day shows red metrics
 - [ ] 6.3.2 Run `pnpm lint && pnpm exec astro check && pnpm vitest run && pnpm check:references` — all must pass clean
 - [ ] 6.3.3 Run `openspec validate agent-os --strict` and fix any drift between `specs/*/spec.md` and shipped behavior
-- [ ] 6.3.4 Update `progress.txt` at repo root with `agent-os: complete — kernel live, 4 agents migrated, scheduler+R2 enabled, archived YYYY-MM-DD`
+- [x] 6.3.4 Update `progress.txt` at repo root with `agent-os: complete — kernel live, 4 agents migrated, scheduler+R2 enabled, archived YYYY-MM-DD`
 - [ ] 6.3.5 Run `openspec archive agent-os` to move the change to `openspec/changes/archive/YYYY-MM-DD-agent-os/` and fold delta specs into main specs
-- [ ] 6.3.6 Open follow-up issues for deferred items surfaced during dogfood: any FIXMEs marked `// TODO(agent-os-followup)` in code, R8 mitigation (Durable Object alarm for approval wake-up), R3 mitigation (Vectorize archive-to-R2)
+- [x] 6.3.6 Open follow-up issues for deferred items surfaced during dogfood: any FIXMEs marked `// TODO(agent-os-followup)` in code, R8 mitigation (Durable Object alarm for approval wake-up), R3 mitigation (Vectorize archive-to-R2)

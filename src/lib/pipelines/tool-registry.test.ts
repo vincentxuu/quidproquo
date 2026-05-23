@@ -1,3 +1,4 @@
+// Audited for agent-pipelines-unify Phase 7 — no stale pipeline imports found
 import { afterEach, describe, expect, it } from 'vitest'
 import { clear, register } from '../tools/registry'
 import { getToolDefinition, listTools, toolDefinitions, validateToolAllowlist } from './tool-registry'

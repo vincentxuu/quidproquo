@@ -45,75 +45,75 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 1.1 Flags + env
 
-- [ ] 1.1.1 Register the `providers` block in `src/lib/config/flags.ts` exactly per design D11 (extends the existing `agentOs` block sibling-style): `providers.enabled`, `providers.llm.{openai,anthropic,gemini,groq,openrouter}`, `providers.search.{tavily,exa,jina}`, `providers.reader.{jinaReader,firecrawl,browser,directFetch}`, `providers.knowledge.{notion,github,drive,sql}`, `providers.action.{githubIssue,githubComment,slack,notion,email}`, `providers.routing.{fallback,healthChecks,loadBalance,rateLimits}`. All default `false`; add corresponding `AGENT_PROVIDERS_*` entries to `wrangler.jsonc` `vars` block.
+- [x] 1.1.1 Register the `providers` block in `src/lib/config/flags.ts` exactly per design D11 (extends the existing `agentOs` block sibling-style): `providers.enabled`, `providers.llm.{openai,anthropic,gemini,groq,openrouter}`, `providers.search.{tavily,exa,jina}`, `providers.reader.{jinaReader,firecrawl,browser,directFetch}`, `providers.knowledge.{notion,github,drive,sql}`, `providers.action.{githubIssue,githubComment,slack,notion,email}`, `providers.routing.{fallback,healthChecks,loadBalance,rateLimits}`. All default `false`; add corresponding `AGENT_PROVIDERS_*` entries to `wrangler.jsonc` `vars` block.
   - **Files**: `src/lib/config/flags.ts` (modify — append `providers` sub-object), `wrangler.jsonc` (modify — append ~30 `AGENT_PROVIDERS_*` vars), `src/lib/config/env.ts` (modify — append the 30 string fields)
   - **Pattern (D11)**: mirror `agentOs.*` flag block style from `openspec/changes/agent-os/design.md`; `'true'` strict-equals reader pattern from agent-foundation 1.2.1
   - **Verify**: `src/lib/config/flags.test.ts` extended — `flags.providers.enabled === false` when env empty, `=== true` when `AGENT_PROVIDERS_ENABLED='true'`; `pnpm wrangler types` regenerates without error
 
 ### 1.2 D1 migration `0012_agent_providers.sql`
 
-- [ ] 1.2.1 Create migration with 3 tables and 4 indexes per design D1. Match `migrations/0011_agent_os.sql` style: `CREATE TABLE IF NOT EXISTS`, no `CHECK` constraints (enum values documented in `--` comments), `created_at`/`updated_at` as `INTEGER NOT NULL` (epoch ms via kernel `nowMs()`). Tables: (a) `provider_definitions` (`provider_id TEXT PRIMARY KEY, category TEXT NOT NULL, -- 'llm'|'search'|'reader'|'knowledge'|'action'`, `display_name TEXT NOT NULL, capability_json TEXT NOT NULL, cost_model_json TEXT NOT NULL, outbound_domains_json TEXT NOT NULL DEFAULT '[]', is_enabled INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL`), (b) `provider_credentials` (`credential_id TEXT PRIMARY KEY, provider_id TEXT NOT NULL, agent_id TEXT, -- NULL means org-wide`, `credential_type TEXT NOT NULL, -- 'api_key'|'oauth'|'service_account'`, `value_encrypted TEXT NOT NULL, scope_json TEXT NOT NULL DEFAULT '[]', expires_at INTEGER, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL`), (c) `provider_health_snapshots` (`snapshot_id TEXT PRIMARY KEY, provider_id TEXT NOT NULL, observed_at INTEGER NOT NULL, is_healthy INTEGER NOT NULL, p50_latency_ms INTEGER, p95_latency_ms INTEGER, success_rate_pct REAL, sample_size INTEGER NOT NULL DEFAULT 0, error_json TEXT`).
+- [x] 1.2.1 Create migration with 3 tables and 4 indexes per design D1. Match `migrations/0011_agent_os.sql` style: `CREATE TABLE IF NOT EXISTS`, no `CHECK` constraints (enum values documented in `--` comments), `created_at`/`updated_at` as `INTEGER NOT NULL` (epoch ms via kernel `nowMs()`). Tables: (a) `provider_definitions` (`provider_id TEXT PRIMARY KEY, category TEXT NOT NULL, -- 'llm'|'search'|'reader'|'knowledge'|'action'`, `display_name TEXT NOT NULL, capability_json TEXT NOT NULL, cost_model_json TEXT NOT NULL, outbound_domains_json TEXT NOT NULL DEFAULT '[]', is_enabled INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL`), (b) `provider_credentials` (`credential_id TEXT PRIMARY KEY, provider_id TEXT NOT NULL, agent_id TEXT, -- NULL means org-wide`, `credential_type TEXT NOT NULL, -- 'api_key'|'oauth'|'service_account'`, `value_encrypted TEXT NOT NULL, scope_json TEXT NOT NULL DEFAULT '[]', expires_at INTEGER, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL`), (c) `provider_health_snapshots` (`snapshot_id TEXT PRIMARY KEY, provider_id TEXT NOT NULL, observed_at INTEGER NOT NULL, is_healthy INTEGER NOT NULL, p50_latency_ms INTEGER, p95_latency_ms INTEGER, success_rate_pct REAL, sample_size INTEGER NOT NULL DEFAULT 0, error_json TEXT`).
   - **Files**: `migrations/0012_agent_providers.sql` (create)
   - **Pattern (D1)**: `migrations/0011_agent_os.sql` (file shape); design D1 schema; agent-foundation `0010` for `IF NOT EXISTS` idempotency
   - **Verify**: `pnpm wrangler d1 execute quidproquo-db --local --file=migrations/0012_agent_providers.sql` exits 0; re-running is no-op; `pnpm wrangler d1 execute quidproquo-db --local --command="SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'provider_%'"` returns all 3 names
-- [ ] 1.2.2 Add the 4 supporting indexes in the same migration before submission: `idx_provider_credentials_provider_id`, `idx_provider_credentials_agent_id` (partial — `WHERE agent_id IS NOT NULL`), `idx_provider_health_snapshots_provider_observed (provider_id, observed_at DESC)`, `idx_provider_definitions_category`.
+- [x] 1.2.2 Add the 4 supporting indexes in the same migration before submission: `idx_provider_credentials_provider_id`, `idx_provider_credentials_agent_id` (partial — `WHERE agent_id IS NOT NULL`), `idx_provider_health_snapshots_provider_observed (provider_id, observed_at DESC)`, `idx_provider_definitions_category`.
   - **Files**: `migrations/0012_agent_providers.sql` (modify same file)
   - **Pattern (D1)**: design D1; matching index-style of `migrations/0011_agent_os.sql`
   - **Verify**: `pnpm wrangler d1 execute quidproquo-db --local --command="SELECT name FROM sqlite_master WHERE type='index' AND name LIKE 'idx_provider_%'"` returns all 4 names
 
 ### 1.3 Backend interfaces (Resolution Q5 adapter pattern, inherited from agent-os)
 
-- [ ] 1.3.1 Define backend interfaces under `src/lib/agent-providers/storage/types.ts`. Required: `ProviderDefinitionStoreBackend` (CRUD over `provider_definitions`), `ProviderCredentialStoreBackend` (CRUD over `provider_credentials` with built-in encrypt/decrypt boundary), `ProviderHealthStoreBackend` (append + rolling-window query over `provider_health_snapshots`). All methods return `Promise<...>` and accept primitive params.
+- [x] 1.3.1 Define backend interfaces under `src/lib/agent-providers/storage/types.ts`. Required: `ProviderDefinitionStoreBackend` (CRUD over `provider_definitions`), `ProviderCredentialStoreBackend` (CRUD over `provider_credentials` with built-in encrypt/decrypt boundary), `ProviderHealthStoreBackend` (append + rolling-window query over `provider_health_snapshots`). All methods return `Promise<...>` and accept primitive params.
   - **Files**: `src/lib/agent-providers/storage/types.ts` (create)
   - **Pattern (D1)**: design D2 (one binding per concern); agent-os `src/lib/agent-os/storage/types.ts` for the interface-only pattern
   - **Verify**: `pnpm tsc --noEmit` passes; file exports exactly 3 interfaces named above
-- [ ] 1.3.2 Implement D1 backends for the 3 interfaces. Each backend takes a `D1Database`; `ProviderHealthStoreBackend.append()` issues a single `INSERT`; `queryRecent({providerId, windowMs})` runs a single `SELECT ... ORDER BY observed_at DESC LIMIT ?` honoring the design D1 retention (default 7 days).
+- [x] 1.3.2 Implement D1 backends for the 3 interfaces. Each backend takes a `D1Database`; `ProviderHealthStoreBackend.append()` issues a single `INSERT`; `queryRecent({providerId, windowMs})` runs a single `SELECT ... ORDER BY observed_at DESC LIMIT ?` honoring the design D1 retention (default 7 days).
   - **Files**: `src/lib/agent-providers/storage/d1/{definitions,credentials,health}.ts` (create — 3 files)
   - **Pattern (D1)**: agent-os `src/lib/agent-os/storage/d1/event-log.ts` (single-batch helper style); proposal §"Credential storage uses kernel agent-storage (encrypted at rest)"
   - **Verify**: `src/lib/agent-providers/storage/d1/credentials.test.ts` mocks `D1Database.prepare` and asserts encryption boundary — `value_encrypted` written to D1 is NOT the same string as the plaintext input
-- [ ] 1.3.3 Implement in-memory test backends for all 3 interfaces in a single file for kernel test import.
+- [x] 1.3.3 Implement in-memory test backends for all 3 interfaces in a single file for kernel test import.
   - **Files**: `src/lib/agent-providers/storage/test/in-memory.ts` (create)
   - **Pattern (D8)**: agent-os `src/lib/agent-os/storage/test/in-memory.ts` (`makeKV` style — hand-rolled, no Miniflare)
   - **Verify**: imported by every Phase-1 registry test; `pnpm vitest run src/lib/agent-providers/storage` green
 
 ### 1.4 Central registry shell (`src/lib/agent-providers/`)
 
-- [ ] 1.4.1 Build `types.ts` — type-only exports. `ProviderCategory` (union `'llm' | 'search' | 'reader' | 'knowledge' | 'action'`), `ProviderDefinition` (id, category, displayName, capability descriptor union, costModel from central `src/lib/tools/cost.ts`, outboundDomains, healthCheckFn), `ProviderHandler<TInput, TOutput>`, `CredentialResolution` (resolved value + source + expiresAt), `RoutingPolicy` (category-level — `order`, `fallbackOn`, `loadBalanceWeights?`, `rateLimits?`), `HealthSnapshot`.
+- [x] 1.4.1 Build `types.ts` — type-only exports. `ProviderCategory` (union `'llm' | 'search' | 'reader' | 'knowledge' | 'action'`), `ProviderDefinition` (id, category, displayName, capability descriptor union, costModel from central `src/lib/tools/cost.ts`, outboundDomains, healthCheckFn), `ProviderHandler<TInput, TOutput>`, `CredentialResolution` (resolved value + source + expiresAt), `RoutingPolicy` (category-level — `order`, `fallbackOn`, `loadBalanceWeights?`, `rateLimits?`), `HealthSnapshot`.
   - **Files**: `src/lib/agent-providers/types.ts` (create)
   - **Pattern (D3)**: re-export `CostModel` from `src/lib/tools/cost.ts` (do NOT redefine); discriminated-union capability shape mirrors `SyscallDefinition` style from agent-os
   - **Verify**: `pnpm tsc --noEmit` passes; `grep "interface CostModel\|type CostModel" src/lib/agent-providers/types.ts` returns 0 (re-export only)
-- [ ] 1.4.2 Build `registry.ts` — module-scoped `Map<string, ProviderDefinition>` keyed by `provider_id` (e.g. `'llm.openai'`, `'search.tavily'`). Exports `register(def)`, `unregister(id)`, `get(id)`, `listByCategory(category)`, `clear()` (test helper), `boot(env, backends)` (idempotent — reads `provider_definitions` rows on first call and rehydrates in-memory registry from D1, calling `register` for each row whose `is_enabled=1`).
+- [x] 1.4.2 Build `registry.ts` — module-scoped `Map<string, ProviderDefinition>` keyed by `provider_id` (e.g. `'llm.openai'`, `'search.tavily'`). Exports `register(def)`, `unregister(id)`, `get(id)`, `listByCategory(category)`, `clear()` (test helper), `boot(env, backends)` (idempotent — reads `provider_definitions` rows on first call and rehydrates in-memory registry from D1, calling `register` for each row whose `is_enabled=1`).
   - **Files**: `src/lib/agent-providers/registry.ts` (create)
   - **Pattern (D3)**: agent-os `src/lib/agent-os/kernel.ts` registration mirror semantics; central `src/lib/tools/registry.ts` for the Map-backed shape
   - **Verify**: `src/lib/agent-providers/registry.test.ts` — register-then-get round-trip, duplicate-id throws `ProviderRegistrationError`, `clear()` empties, `boot()` is idempotent across 2 calls (no double-register)
-- [ ] 1.4.3 Build `credentials.ts` — `resolveCredential({providerId, agentId, kernel})` returning `CredentialResolution`. Order of precedence: (1) agent-scoped credential row matching `agent_id`, (2) org-wide row with `agent_id IS NULL`, (3) `env` fallback via the legacy `provider-key-store.ts` allowlist (kept untouched in Phase 1 so the lookup still works). Throws `CredentialNotFound` if all 3 miss; throws `CredentialExpired` if `expires_at < nowMs()`.
+- [x] 1.4.3 Build `credentials.ts` — `resolveCredential({providerId, agentId, kernel})` returning `CredentialResolution`. Order of precedence: (1) agent-scoped credential row matching `agent_id`, (2) org-wide row with `agent_id IS NULL`, (3) `env` fallback via the legacy `provider-key-store.ts` allowlist (kept untouched in Phase 1 so the lookup still works). Throws `CredentialNotFound` if all 3 miss; throws `CredentialExpired` if `expires_at < nowMs()`.
   - **Files**: `src/lib/agent-providers/credentials.ts`, `src/lib/agent-providers/errors.ts` (create — `ProviderRegistrationError`, `ProviderNotFound`, `CredentialNotFound`, `CredentialExpired`, `ProviderUnhealthy`, `AllProvidersFailed`, `ProviderRateLimited`, `ProviderInputInvalid`, `ProviderHandlerTimeout`, `OutboundDomainNotGranted`)
   - **Pattern (D4)**: proposal §"OAuth + API-key + service-account credential types; per-credential scope and expiry tracking"; agent-os `errors.ts` shape
   - **Verify**: `src/lib/agent-providers/credentials.test.ts` covers all 3 precedence branches + both error paths
-- [ ] 1.4.4 Build `routing.ts` — `route({category, input, kernel, ctx})` returning `{provider, response, attempts}`. Phase 1 ships the shell (single-provider passthrough): no fallback, no load balance, no health gating. Phase 7 ships the real implementation. Until then, `route()` reads `RoutingPolicy.order[0]` for the category, resolves credential via `credentials.ts`, invokes the handler with timeout, returns. Records cost+latency to `agent_tool_calls` via the kernel's `EventLogBackend.recordWithRunCounters()` (single batch).
+- [x] 1.4.4 Build `routing.ts` — `route({category, input, kernel, ctx})` returning `{provider, response, attempts}`. Phase 1 ships the shell (single-provider passthrough): no fallback, no load balance, no health gating. Phase 7 ships the real implementation. Until then, `route()` reads `RoutingPolicy.order[0]` for the category, resolves credential via `credentials.ts`, invokes the handler with timeout, returns. Records cost+latency to `agent_tool_calls` via the kernel's `EventLogBackend.recordWithRunCounters()` (single batch).
   - **Files**: `src/lib/agent-providers/routing.ts` (create)
   - **Pattern (D6)**: design D6 routing/fallback algorithm (Phase 7 implements full logic); D12 (cost telemetry write path inherited from agent-os)
   - **Verify**: `src/lib/agent-providers/routing.test.ts` covers (a) success path writes exactly one `agent_tool_calls` row via mocked `EventLogBackend.recordWithRunCounters`, (b) handler exception surfaces as `ProviderHandlerTimeout` when over the per-handler timeout, (c) unknown category throws `ProviderNotFound`
-- [ ] 1.4.5 Build `health.ts` — `recordHealth({providerId, isHealthy, latencyMs, error?})` (append-only) + `getHealth(providerId, windowMs)` returning rolling-window aggregates (`p50_latency_ms`, `p95_latency_ms`, `success_rate_pct`, `sample_size`). Pure helpers; cron-driven background sweep deferred to Phase 7.
+- [x] 1.4.5 Build `health.ts` — `recordHealth({providerId, isHealthy, latencyMs, error?})` (append-only) + `getHealth(providerId, windowMs)` returning rolling-window aggregates (`p50_latency_ms`, `p95_latency_ms`, `success_rate_pct`, `sample_size`). Pure helpers; cron-driven background sweep deferred to Phase 7.
   - **Files**: `src/lib/agent-providers/health.ts`, `src/lib/agent-providers/health-aggregate.ts` (create — pure percentile helper for unit testing)
   - **Pattern (D7)**: design D7 health-check architecture; agent-os `memory-fusion.ts` pure-helper extraction pattern
   - **Verify**: `src/lib/agent-providers/health-aggregate.test.ts` asserts known p50/p95 outputs for fixture latency arrays; `src/lib/agent-providers/health.test.ts` covers append + rolling-window round-trip
-- [ ] 1.4.6 Build `index.ts` — barrel re-exporting `registry`, `credentials`, `routing`, `health`, `types`, `errors`. Single entrypoint that Phase 2+ provider files import from.
+- [x] 1.4.6 Build `index.ts` — barrel re-exporting `registry`, `credentials`, `routing`, `health`, `types`, `errors`. Single entrypoint that Phase 2+ provider files import from.
   - **Files**: `src/lib/agent-providers/index.ts` (create)
   - **Pattern (D3)**: standard barrel; `src/lib/agent-os/index.ts` style
   - **Verify**: `pnpm tsc --noEmit` green; the file is the only import path tests use
 
 ### 1.5 Minimal admin API surface
 
-- [ ] 1.5.1 `GET /api/admin/providers/registry` — list registered providers from the in-Worker registry. Returns `{providers: []}` until Phase 2 starts populating. Reuse `requireAdmin` + `json` + `unauthorized` from agent-foundation.
+- [x] 1.5.1 `GET /api/admin/providers/registry` — list registered providers from the in-Worker registry. Returns `{providers: []}` until Phase 2 starts populating. Reuse `requireAdmin` + `json` + `unauthorized` from agent-foundation.
   - **Files**: `src/pages/api/admin/providers/registry.ts` (create)
   - **Pattern (D13 from agent-os)**: agent-os `src/pages/api/admin/agents/index.ts:25-40`; existing `src/pages/api/admin/providers.ts` for the providers-namespace convention
   - **Verify**: `curl -b 'session=...' http://localhost:4321/api/admin/providers/registry` returns `{providers:[]}` with 200; without cookie returns 401
-- [ ] 1.5.2 `GET /api/admin/providers/health?providerId=` — return rolling-window health for one provider; without query param return all providers' latest snapshot. Returns `{health:{}}` until Phase 7 populates.
+- [x] 1.5.2 `GET /api/admin/providers/health?providerId=` — return rolling-window health for one provider; without query param return all providers' latest snapshot. Returns `{health:{}}` until Phase 7 populates.
   - **Files**: `src/pages/api/admin/providers/health.ts` (create)
   - **Pattern (D7)**: proposal §"Health checks + provider capability discovery; admin UI surfaces 'which providers are healthy right now'"
   - **Verify**: returns 200 with empty health map when DB empty
-- [ ] 1.5.3 Add top-level disabled-guard helper `_guard.ts` for `/api/admin/providers/*` new endpoints: when `flags.providers.enabled === false`, short-circuit with 503 `{error:'providers_disabled'}`. The existing legacy `/api/admin/providers` endpoint (catalog/secret management) is NOT gated — it continues serving until Phase 8 cleanup so admins can still rotate provider keys during migration.
+- [x] 1.5.3 Add top-level disabled-guard helper `_guard.ts` for `/api/admin/providers/*` new endpoints: when `flags.providers.enabled === false`, short-circuit with 503 `{error:'providers_disabled'}`. The existing legacy `/api/admin/providers` endpoint (catalog/secret management) is NOT gated — it continues serving until Phase 8 cleanup so admins can still rotate provider keys during migration.
   - **Files**: `src/pages/api/admin/providers/_guard.ts` (create — exports `ensureProvidersEnabled(): Response | undefined`)
   - **Pattern (D11)**: agent-os `_guard.ts` umbrella flag pattern
   - **Verify**: integration test boots the dev server with `AGENT_PROVIDERS_ENABLED=false`, hits 1.5.1 + 1.5.2, asserts both return `503 {error:'providers_disabled'}`; flipping env var flips them to normal behavior
@@ -129,42 +129,42 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 2.1 LLM provider files (one per provider)
 
-- [ ] 2.1.1 Register `llm.openai` provider
+- [x] 2.1.1 Register `llm.openai` provider
   - **Files**: `src/lib/agent-providers/providers/llm/openai.ts` (create — exports `openaiProvider: ProviderDefinition`); `src/lib/agent-providers/providers/llm/register-defaults.ts` (create — central place that imports every LLM provider and calls `registry.register`)
   - **Pattern (D3, D4)**: existing `createModel` openai branch at `src/lib/rag/model.ts:62-65`; cost model from OpenAI pricing page (input $5/1M, output $15/1M for `gpt-4o` as v1 baseline); `outboundDomains: ['api.openai.com']`; capability `{ supportsChat: true, supportsStreaming: true, supportsToolCalls: true, maxOutputTokens: 16384 }`
   - **Verify**: `src/lib/agent-providers/providers/llm/openai.test.ts` — handler invocation against a stubbed `ChatOpenAI.invoke` returns the LangChain response unchanged; cost is computed from `tokens_in/out` on the response's `usage_metadata`
-- [ ] 2.1.2 Register `llm.anthropic` provider (NEW — not in legacy `createModel`; the legacy path only supports anthropic via OpenAI-compatible OpenRouter)
+- [x] 2.1.2 Register `llm.anthropic` provider (NEW — not in legacy `createModel`; the legacy path only supports anthropic via OpenAI-compatible OpenRouter)
   - **Files**: `src/lib/agent-providers/providers/llm/anthropic.ts` (create); register in 2.1.1's `register-defaults.ts`
   - **Pattern (D3, D4)**: `@langchain/anthropic` `ChatAnthropic` (add as dep in this task if not present); cost model `claude-3-5-sonnet` input $3/1M, output $15/1M as v1 baseline; `outboundDomains: ['api.anthropic.com']`; capability `{ supportsChat: true, supportsStreaming: true, supportsToolCalls: true, maxOutputTokens: 8192 }`
   - **Deviation flag**: anthropic is the only provider that didn't exist in legacy `createModel`. Confirm `package.json` dependency add (`pnpm add @langchain/anthropic`) and `pnpm install --frozen-lockfile` would still succeed
   - **Verify**: handler test against a stubbed `ChatAnthropic.invoke`; documented in `design.md` as the first "registry-only" provider — no legacy parity test required because there is no legacy path
-- [ ] 2.1.3 Register `llm.gemini` provider
+- [x] 2.1.3 Register `llm.gemini` provider
   - **Files**: `src/lib/agent-providers/providers/llm/gemini.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: legacy `createModel` gemini branch at `src/lib/rag/model.ts:67-70`; cost model `gemini-2.0-flash` input $0.075/1M, output $0.30/1M as v1 baseline; `outboundDomains: ['generativelanguage.googleapis.com']`; capability `{ supportsChat: true, supportsStreaming: true, supportsToolCalls: true, maxOutputTokens: 8192 }`; credential resolution must honor both `GOOGLE_API_KEY` and `GEMINI_API_KEY` (legacy alias) per `provider-key-store.ts:72-80`
   - **Verify**: parity test against legacy `invokeModel(config, 'critic', messages, 512, {google: 'fake'})` — both paths reach the same `ChatGoogleGenerativeAI.invoke` stub and return identical envelope
-- [ ] 2.1.4 Register `llm.groq` provider
+- [x] 2.1.4 Register `llm.groq` provider
   - **Files**: `src/lib/agent-providers/providers/llm/groq.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: legacy `createModel` groq branch at `src/lib/rag/model.ts:72-75`; cost model `llama-3.3-70b-versatile` input $0.59/1M, output $0.79/1M (Groq published rates); `outboundDomains: ['api.groq.com']`; capability `{ supportsChat: true, supportsStreaming: true, supportsToolCalls: true, maxOutputTokens: 8192 }`
   - **Verify**: parity test against legacy `invokeModel(config, 'critic', messages, 512, {groq: 'fake'})` for a deterministic system prompt
-- [ ] 2.1.5 Register `llm.openrouter` provider
+- [x] 2.1.5 Register `llm.openrouter` provider
   - **Files**: `src/lib/agent-providers/providers/llm/openrouter.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: legacy `createModel` openrouter branch at `src/lib/rag/model.ts:82-85` (uses `createOpenAiCompatibleModel` helper); cost model `'request'` kind with `perCallUsd: 0` placeholder — OpenRouter exposes per-model rates dynamically via `/api/v1/models`; document follow-up FIXME for a v2 dynamic cost lookup; `outboundDomains: ['openrouter.ai']`; capability `{ supportsChat: true, supportsStreaming: true, supportsToolCalls: true, maxOutputTokens: 8192 }`
   - **Verify**: parity test against legacy openrouter path with a stub model name
 
 ### 2.2 Wire `model.invoke` syscall through registry
 
-- [ ] 2.2.1 Modify the agent-os `model.invoke` syscall handler (shipped in agent-os Phase 2) so that when ANY `flags.providers.llm.<provider>` flag is on AND `flags.providers.enabled === true`, the handler routes through `agentProviders.routing.route({category:'llm', input, kernel, ctx})` instead of calling the legacy `invokeModel`. Per-provider flag check is read from the resolved route's provider id (e.g. if `route.provider === 'openai'` and `providers.llm.openai === true`, take new path; otherwise legacy).
+- [x] 2.2.1 Modify the agent-os `model.invoke` syscall handler (shipped in agent-os Phase 2) so that when ANY `flags.providers.llm.<provider>` flag is on AND `flags.providers.enabled === true`, the handler routes through `agentProviders.routing.route({category:'llm', input, kernel, ctx})` instead of calling the legacy `invokeModel`. Per-provider flag check is read from the resolved route's provider id (e.g. if `route.provider === 'openai'` and `providers.llm.openai === true`, take new path; otherwise legacy).
   - **Files**: `src/lib/agent-os/tools/register-defaults.ts` (modify the `model.invoke` registration block to inject the dispatch shim); `src/lib/agent-providers/legacy-bridge.ts` (create — exports `shouldUseRegistry(category, providerId, flags): boolean` so the same shim can be reused for search/reader/etc.)
   - **Pattern (D5)**: agent-os Phase 3 `dispatchNode` shim from `src/lib/rag/graph.ts`; design D5 hybrid-routing decision
   - **Verify**: vitest covers (a) both flags off → legacy path executed (assert via spy on `invokeModel`), (b) umbrella + per-provider both on → new path executed (assert via spy on `agentProviders.routing.route`), (c) umbrella on but per-provider off → legacy path executed
-- [ ] 2.2.2 Boot-time registry hydration: call `agentProviders.registry.boot(env, backends)` from the agent-os `createKernel()` factory (extends agent-os Phase 1's kernel boot). Boot must (a) read `provider_definitions` rows from D1, (b) merge with the hard-coded `register-defaults.ts` set (D1 wins for `is_enabled`, hard-coded wins for `capability_json` / `cost_model_json` so config drift is detectable), (c) emit one boot log line per registered provider for ops visibility.
+- [x] 2.2.2 Boot-time registry hydration: call `agentProviders.registry.boot(env, backends)` from the agent-os `createKernel()` factory (extends agent-os Phase 1's kernel boot). Boot must (a) read `provider_definitions` rows from D1, (b) merge with the hard-coded `register-defaults.ts` set (D1 wins for `is_enabled`, hard-coded wins for `capability_json` / `cost_model_json` so config drift is detectable), (c) emit one boot log line per registered provider for ops visibility.
   - **Files**: `src/lib/agent-os/kernel.ts` (modify — call `agentProviders.registry.boot()` after `mirrorPermissions`)
   - **Pattern (D3)**: agent-os Phase 1.4.1 boot mirror; D3 registry hydration order
   - **Verify**: kernel boot test asserts both hard-coded and D1 providers appear in `agentProviders.registry.listByCategory('llm')` after `createKernel()`
 
 ### 2.3 Parity test harness
 
-- [ ] 2.3.1 Create `src/lib/agent-providers/providers/llm/parity-harness.ts` — test helper that runs an identical `model.invoke` syscall through both paths (`flags.providers.llm.<provider>=false` legacy then `=true` new) against stubbed provider clients, asserts response shape (`response.content`, `response.usage_metadata.input_tokens`, `..output_tokens`), and asserts `agent_tool_calls` row written with matching `tokens_in/out/cost_usd` (the registry path computes cost from the provider's cost model; the legacy path emits cost=0 placeholder, so this is the dimension where the new path is strictly better — parity test asserts `new.cost_usd > 0 AND legacy.cost_usd === 0` for paid providers)
+- [x] 2.3.1 Create `src/lib/agent-providers/providers/llm/parity-harness.ts` — test helper that runs an identical `model.invoke` syscall through both paths (`flags.providers.llm.<provider>=false` legacy then `=true` new) against stubbed provider clients, asserts response shape (`response.content`, `response.usage_metadata.input_tokens`, `..output_tokens`), and asserts `agent_tool_calls` row written with matching `tokens_in/out/cost_usd` (the registry path computes cost from the provider's cost model; the legacy path emits cost=0 placeholder, so this is the dimension where the new path is strictly better — parity test asserts `new.cost_usd > 0 AND legacy.cost_usd === 0` for paid providers)
   - **Files**: `src/lib/agent-providers/providers/llm/parity-harness.ts` (create); `src/lib/agent-providers/providers/llm/openai.parity.test.ts`, `gemini.parity.test.ts`, `groq.parity.test.ts`, `openrouter.parity.test.ts` (create — 4 files using the harness)
   - **Pattern (D5)**: agent-os 3.1.5 critic parity test shape; cost-instrumentation differential check from D12
   - **Verify**: `pnpm vitest run src/lib/agent-providers/providers/llm` green for all 4 parity tests (anthropic has no legacy path so no parity test)
@@ -195,29 +195,29 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 3.1 Search provider files
 
-- [ ] 3.1.1 Register `search.tavily` provider
+- [x] 3.1.1 Register `search.tavily` provider
   - **Files**: `src/lib/agent-providers/providers/search/tavily.ts` (create); `src/lib/agent-providers/providers/search/register-defaults.ts` (create)
   - **Pattern (D3, D4)**: legacy tavily branch inside `src/lib/tools/definitions/external-search.ts`; cost model `{ kind: 'request', perCallUsd: 0.008 }` (Tavily Search published rate $8/1k queries); `outboundDomains: ['api.tavily.com']`; capability `{ maxResults: 20, supportsRecencyFilter: true, supportsDomainFilter: true }`; input schema `{ query: string, maxResults?: number, includeDomains?: string[], excludeDomains?: string[] }`
   - **Verify**: parity test against legacy `searchExternalTools({query:'astro 6', providers:['tavily']})` with stubbed HTTP; assert `out.results` deep-equals legacy return value (same `SearchResult[]` shape with `title/url/snippet/score`)
-- [ ] 3.1.2 Register `search.exa` provider
+- [x] 3.1.2 Register `search.exa` provider
   - **Files**: `src/lib/agent-providers/providers/search/exa.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: legacy exa branch in `external-search.ts`; cost model `{ kind: 'request', perCallUsd: 0.005 }` (Exa neural search v1 rate); `outboundDomains: ['api.exa.ai']`; capability `{ maxResults: 25, supportsSemanticSearch: true, supportsContentExtraction: true }`; input schema includes `useAutoprompt?: boolean, contents?: boolean`
   - **Verify**: parity test with stubbed HTTP returns identical result envelope
-- [ ] 3.1.3 Register `search.jina` provider (Jina Search — NOT Jina Reader; reader is Phase 4)
+- [x] 3.1.3 Register `search.jina` provider (Jina Search — NOT Jina Reader; reader is Phase 4)
   - **Files**: `src/lib/agent-providers/providers/search/jina.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: legacy `search` provider in `external-search.ts` (which alias-routes JINA_SEARCH_API_KEY); cost model `{ kind: 'request', perCallUsd: 0 }` placeholder (Jina Search free tier 1M queries/month — document follow-up to switch to `{ kind: 'token' }` once Jina exposes per-query token usage); `outboundDomains: ['s.jina.ai']`; capability `{ maxResults: 10 }`; credential resolution honors both `JINA_API_KEY` and `JINA_SEARCH_API_KEY` per `provider-key-store.ts:91`
   - **Verify**: parity test; outbound-domain check passes when agent declares `'s.jina.ai'` in `outboundDomains`
 
 ### 3.2 Wire `search.external` syscall through registry
 
-- [ ] 3.2.1 Modify `src/lib/tools/definitions/external-search.ts:searchExternalSyscall.handler` (registered in agent-os Phase 2.1.1) so that when `flags.providers.enabled && flags.providers.search.<provider>` is on for the requested provider, the handler delegates to `agentProviders.routing.route({category:'search', input, kernel, ctx})`. The internal `searchExternalTools()` function in the legacy module stays untouched until Phase 8 cleanup.
+- [x] 3.2.1 Modify `src/lib/tools/definitions/external-search.ts:searchExternalSyscall.handler` (registered in agent-os Phase 2.1.1) so that when `flags.providers.enabled && flags.providers.search.<provider>` is on for the requested provider, the handler delegates to `agentProviders.routing.route({category:'search', input, kernel, ctx})`. The internal `searchExternalTools()` function in the legacy module stays untouched until Phase 8 cleanup.
   - **Files**: `src/lib/tools/definitions/external-search.ts` (modify the syscall handler only — keep `searchExternalTools` direct export intact for backward-compat callers)
   - **Pattern (D5)**: agent-os Phase 3 dispatch shim pattern; same `shouldUseRegistry` helper from Phase 2.2.1
   - **Verify**: dispatch unit test asserts that the new path is taken iff both flags are on for the requested provider; legacy path still works for any provider whose flag is off (e.g. brave/bocha/serper/serpapi remain on legacy until they're added in a follow-up change)
 
 ### 3.3 Parity tests + telemetry + rollout
 
-- [ ] 3.3.1 Parity tests `src/lib/agent-providers/providers/search/{tavily,exa,jina}.parity.test.ts` using a shared `search/parity-harness.ts` mirroring the LLM harness structure
+- [x] 3.3.1 Parity tests `src/lib/agent-providers/providers/search/{tavily,exa,jina}.parity.test.ts` using a shared `search/parity-harness.ts` mirroring the LLM harness structure
   - **Files**: `src/lib/agent-providers/providers/search/parity-harness.ts`, 3 parity test files
   - **Pattern (D5)**: Phase 2.3.1 LLM harness
   - **Verify**: `pnpm vitest run src/lib/agent-providers/providers/search` green
@@ -241,27 +241,27 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 4.1 Add `read.url` syscall to central tool registry
 
-- [ ] 4.1.1 Define `read.url` syscall in `src/lib/tools/definitions/read-url.ts` with input schema `{ url: string (required, format: uri), maxBytes?: number (default 256000), timeoutMs?: number (default 15000), includeMetadata?: boolean (default true) }`, output schema `{ markdown: string, title?: string, sourceUrl: string, contentType?: string, statusCode?: number, fetchedAt: string (iso) }`, cost model `{ kind: 'request', perCallUsd: 0 }` placeholder (real per-provider cost computed in handler), `requiresApproval: false` (reading public URLs is non-mutating), outbound domain hint declared per-provider in the handler closure.
+- [x] 4.1.1 Define `read.url` syscall in `src/lib/tools/definitions/read-url.ts` with input schema `{ url: string (required, format: uri), maxBytes?: number (default 256000), timeoutMs?: number (default 15000), includeMetadata?: boolean (default true) }`, output schema `{ markdown: string, title?: string, sourceUrl: string, contentType?: string, statusCode?: number, fetchedAt: string (iso) }`, cost model `{ kind: 'request', perCallUsd: 0 }` placeholder (real per-provider cost computed in handler), `requiresApproval: false` (reading public URLs is non-mutating), outbound domain hint declared per-provider in the handler closure.
   - **Files**: `src/lib/tools/definitions/read-url.ts` (create); `src/lib/agent-os/tools/register-defaults.ts` (modify — add `read.url` to the registration set)
   - **Pattern (D3)**: agent-os 2.1.1 `searchExternalSyscall` shape; `defineSyscall` helper from agent-os Phase 1.4.2
   - **Verify**: `src/lib/tools/definitions/read-url.test.ts` asserts the syscall is registered and `inputSchema` rejects non-uri strings via the kernel's JSON-Schema validator
 
 ### 4.2 Reader provider files
 
-- [ ] 4.2.1 Register `reader.jina` provider (Jina Reader — `r.jina.ai/{url}` endpoint, returns clean markdown)
+- [x] 4.2.1 Register `reader.jina` provider (Jina Reader — `r.jina.ai/{url}` endpoint, returns clean markdown)
   - **Files**: `src/lib/agent-providers/providers/reader/jina.ts` (create); `src/lib/agent-providers/providers/reader/register-defaults.ts` (create)
   - **Pattern (D3, D4)**: cost model `{ kind: 'request', perCallUsd: 0 }` (Jina Reader free tier); `outboundDomains: ['r.jina.ai']` (the reader URL pattern is `https://r.jina.ai/{targetUrl}`); capability `{ supportsScreenshot: false, supportsJavaScript: true, returnsMarkdown: true, maxContentBytes: 1_000_000 }`; credential is optional (auth-less calls are rate-limited; with JINA_API_KEY higher limits)
   - **Verify**: parity test against fixture HTML — handler returns identical markdown to fixture-recorded `r.jina.ai` response
-- [ ] 4.2.2 Register `reader.firecrawl` provider
+- [x] 4.2.2 Register `reader.firecrawl` provider
   - **Files**: `src/lib/agent-providers/providers/reader/firecrawl.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: cost model `{ kind: 'request', perCallUsd: 0.0015 }` (Firecrawl scrape published rate); `outboundDomains: ['api.firecrawl.dev']`; capability `{ supportsScreenshot: true, supportsJavaScript: true, returnsMarkdown: true, maxContentBytes: 5_000_000 }`; input maps to `{ url, formats: ['markdown', 'screenshot'] }` per Firecrawl API
   - **Verify**: parity test against fixture
-- [ ] 4.2.3 Register `reader.browser` provider (Cloudflare Browser Rendering)
+- [x] 4.2.3 Register `reader.browser` provider (Cloudflare Browser Rendering)
   - **Files**: `src/lib/agent-providers/providers/reader/browser.ts` (create); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: cost model `{ kind: 'request', perCallUsd: 0.0001 }` (Cloudflare Browser Rendering per-request floor); `outboundDomains: []` (this provider talks to the bound `BROWSER` binding, not an external host — outbound check is N/A); capability `{ supportsScreenshot: true, supportsJavaScript: true, returnsMarkdown: true, maxContentBytes: 10_000_000, requiresBinding: 'BROWSER' }`; handler short-circuits with `ProviderUnhealthy` if `env.BROWSER` is unbound (preserves the kernel's graceful-degradation behavior)
   - **Deviation flag**: this provider needs a NEW Cloudflare binding `BROWSER` (Cloudflare Browser Rendering). Add to `wrangler.jsonc` as `[[browser]]` and to `src/lib/config/env.ts` as `BROWSER?: BrowserWorker` optional. Note PR body: paid feature ($5/mo seat). If account does not provision it, leave the flag off — Phase 4 still ships with the other 3 readers
   - **Verify**: parity test stubs `BROWSER.fetch({url})`; with binding absent + flag on, asserts `ProviderUnhealthy` thrown so router can fall over to next provider in Phase 7
-- [ ] 4.2.4 Register `reader.directFetch` provider (no credentials — universal fallback)
+- [x] 4.2.4 Register `reader.directFetch` provider (no credentials — universal fallback)
   - **Files**: `src/lib/agent-providers/providers/reader/direct-fetch.ts` (create); `src/lib/utils/html-to-markdown.ts` (create if not present — wraps `turndown` or a lightweight inline converter; if `turndown` not in deps, document `pnpm add turndown @types/turndown` here); register in `register-defaults.ts`
   - **Pattern (D3, D4)**: cost model `{ kind: 'free' }`; `outboundDomains: ['*']` placeholder — the router's per-agent outbound-domain grant is what actually constrains where direct-fetch can go (this provider is the only one whose `outboundDomains` is the full agent grant set rather than a fixed host); capability `{ supportsScreenshot: false, supportsJavaScript: false, returnsMarkdown: true, maxContentBytes: 256_000 }`; handler uses `fetch(url, {signal: ctx.signal, headers: {'user-agent': 'quidproquo-reader/1.0'}})` then runs `htmlToMarkdown(text)`
   - **Verify**: parity test against a fixture HTML string in `src/lib/agent-providers/providers/reader/fixtures/sample.html` — markdown output is byte-equal to fixture-recorded expectation
@@ -292,38 +292,38 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 5.1 Knowledge syscall registrations
 
-- [ ] 5.1.1 Define `knowledge.notion.read` + `knowledge.notion.write` syscalls in `src/lib/tools/definitions/knowledge-notion.ts`. Read input `{query?: string, pageId?: string, databaseId?: string, limit?: number}`, output `{items: NotionPage[]}`. Write input `{pageId?: string, parentId?: string, title: string, blocks: NotionBlock[]}`, output `{pageId: string, url: string}`. Write syscall `requiresApproval: true`. Both register in `src/lib/agent-os/tools/register-defaults.ts`.
+- [x] 5.1.1 Define `knowledge.notion.read` + `knowledge.notion.write` syscalls in `src/lib/tools/definitions/knowledge-notion.ts`. Read input `{query?: string, pageId?: string, databaseId?: string, limit?: number}`, output `{items: NotionPage[]}`. Write input `{pageId?: string, parentId?: string, title: string, blocks: NotionBlock[]}`, output `{pageId: string, url: string}`. Write syscall `requiresApproval: true`. Both register in `src/lib/agent-os/tools/register-defaults.ts`.
   - **Files**: `src/lib/tools/definitions/knowledge-notion.ts` (create)
   - **Pattern (D8, D9)**: agent-os `defineSyscall` + `requiresApproval` from `src/lib/agent-os/access.ts`; proposal §"Action providers (GitHub issue/comment/Slack/Notion/email — all gated by kernel agent-access approval)"
   - **Verify**: registration test asserts both syscalls present; write syscall's `requiresApproval === true`
-- [ ] 5.1.2 Define `knowledge.github.read` + `knowledge.github.write` syscalls in `src/lib/tools/definitions/knowledge-github.ts`. Read covers `repo.contents`, `repo.issues`, `repo.pulls`, `search.code` (sub-discriminator in input). Write covers `repo.contents.put` (commit a file) — note: `issues.create` and `pulls.create` live in Phase 6 action providers, not here, because they are higher-blast-radius mutations and we want them gated through a stricter approval path
+- [x] 5.1.2 Define `knowledge.github.read` + `knowledge.github.write` syscalls in `src/lib/tools/definitions/knowledge-github.ts`. Read covers `repo.contents`, `repo.issues`, `repo.pulls`, `search.code` (sub-discriminator in input). Write covers `repo.contents.put` (commit a file) — note: `issues.create` and `pulls.create` live in Phase 6 action providers, not here, because they are higher-blast-radius mutations and we want them gated through a stricter approval path
   - **Files**: `src/lib/tools/definitions/knowledge-github.ts` (create)
   - **Pattern (D8)**: same as 5.1.1; GitHub REST `/repos/{owner}/{repo}/contents/{path}` for write
   - **Verify**: write input schema requires `commitMessage`, `branch?`, `sha?` (for updates)
-- [ ] 5.1.3 Define `knowledge.drive.read` + `knowledge.drive.write` syscalls in `src/lib/tools/definitions/knowledge-drive.ts`. Read covers `files.list`, `files.get` (with `mimeType` filter). Write covers `files.create` and `files.update`.
+- [x] 5.1.3 Define `knowledge.drive.read` + `knowledge.drive.write` syscalls in `src/lib/tools/definitions/knowledge-drive.ts`. Read covers `files.list`, `files.get` (with `mimeType` filter). Write covers `files.create` and `files.update`.
   - **Files**: `src/lib/tools/definitions/knowledge-drive.ts` (create)
   - **Pattern (D8)**: same as 5.1.1; Google Drive v3 REST
   - **Verify**: write syscall `requiresApproval: true`
-- [ ] 5.1.4 Define `knowledge.sql.read` + `knowledge.sql.write` syscalls in `src/lib/tools/definitions/knowledge-sql.ts`. Read input `{connectionId: string, query: string (must be SELECT-only — enforced via regex `/^\s*SELECT/i` in handler), params?: unknown[]}`. Write input same shape but allows INSERT/UPDATE/DELETE; explicit per-statement `requiresApproval: true`
+- [x] 5.1.4 Define `knowledge.sql.read` + `knowledge.sql.write` syscalls in `src/lib/tools/definitions/knowledge-sql.ts`. Read input `{connectionId: string, query: string (must be SELECT-only — enforced via regex `/^\s*SELECT/i` in handler), params?: unknown[]}`. Write input same shape but allows INSERT/UPDATE/DELETE; explicit per-statement `requiresApproval: true`
   - **Files**: `src/lib/tools/definitions/knowledge-sql.ts` (create)
   - **Pattern (D8)**: SQL providers are the most-constrained — read-only SELECT enforced at handler level even before the routing layer; design D8 declarative grants
   - **Verify**: handler rejects any read input that doesn't start with `SELECT` (case-insensitive, whitespace-tolerant); rejection is `ProviderInputInvalid` not silent
 
 ### 5.2 Knowledge provider files
 
-- [ ] 5.2.1 Register `knowledge.notion` provider with both `read` and `write` handlers
+- [x] 5.2.1 Register `knowledge.notion` provider with both `read` and `write` handlers
   - **Files**: `src/lib/agent-providers/providers/knowledge/notion.ts` (create — single file exports both handlers; the syscall name discriminates); `src/lib/agent-providers/providers/knowledge/register-defaults.ts` (create); `src/lib/agent-providers/oauth/notion.ts` (create — OAuth flow helper if credentialType is `'oauth'`; the `api_key` credentialType is also supported for org-wide service-account use)
   - **Pattern (D4)**: cost model `{ kind: 'request', perCallUsd: 0 }` (Notion API free); `outboundDomains: ['api.notion.com']`; capability `{ supportsRead: true, supportsWrite: true, supportsOAuth: true, supportsApiKey: true, scopes: ['read_content', 'update_content', 'insert_content'] }`
   - **Verify**: read parity test against a fixture page id; write parity test against a sandbox database id (env var `NOTION_TEST_DATABASE_ID`); if env var unset, skip write test with `it.skip` and document the skip in `design.md` as the only place secrets enter CI
-- [ ] 5.2.2 Register `knowledge.github` provider — read + write handlers
+- [x] 5.2.2 Register `knowledge.github` provider — read + write handlers
   - **Files**: `src/lib/agent-providers/providers/knowledge/github.ts` (create); register in `register-defaults.ts`; `src/lib/agent-providers/auth/github-app.ts` (create — installation-token minting via GitHub App private key per design D8 — the design allows both PAT and GitHub App credentialTypes; default is GitHub App for org-wide installs because it doesn't tie to a user)
   - **Pattern (D4)**: cost model `{ kind: 'free' }` (GitHub API has rate limits but no per-call $); `outboundDomains: ['api.github.com']`; capability `{ supportsRead: true, supportsWrite: true, supportsOAuth: false, supportsGitHubApp: true, supportsPAT: true, scopes: ['contents:read', 'contents:write', 'issues:read', 'pull_requests:read'] }`
   - **Verify**: read parity for `repo.contents` against a public repo (no auth needed); write parity against env-var-gated sandbox repo, skip-when-unset
-- [ ] 5.2.3 Register `knowledge.drive` provider — read + write handlers
+- [x] 5.2.3 Register `knowledge.drive` provider — read + write handlers
   - **Files**: `src/lib/agent-providers/providers/knowledge/drive.ts` (create); register in `register-defaults.ts`; `src/lib/agent-providers/oauth/google-drive.ts` (create — OAuth + service-account both supported)
   - **Pattern (D4)**: cost model `{ kind: 'request', perCallUsd: 0 }` (Drive API free tier); `outboundDomains: ['www.googleapis.com']`; capability `{ supportsRead: true, supportsWrite: true, supportsOAuth: true, supportsServiceAccount: true, scopes: ['drive.readonly', 'drive.file'] }`
   - **Verify**: skipped write test when env var unset
-- [ ] 5.2.4 Register `knowledge.sql` provider — read + write handlers; supports D1 (local agent-storage), HTTP-proxy SQL (e.g. Cloudflare Hyperdrive PostgreSQL), and the `quidproquo` D1 itself when explicitly granted
+- [x] 5.2.4 Register `knowledge.sql` provider — read + write handlers; supports D1 (local agent-storage), HTTP-proxy SQL (e.g. Cloudflare Hyperdrive PostgreSQL), and the `quidproquo` D1 itself when explicitly granted
   - **Files**: `src/lib/agent-providers/providers/knowledge/sql.ts` (create); `src/lib/db/external-sql.ts` (create — connection registry for non-`DB` SQL connections); register in `register-defaults.ts`
   - **Pattern (D4)**: cost model `{ kind: 'free' }` for D1, `{ kind: 'request', perCallUsd: 0.000001 }` placeholder for Hyperdrive; `outboundDomains: []` for D1, `['*.hyperdrive.cloudflare.com']` for Hyperdrive; capability includes `{ supportsReadOnly: true, requiresExplicitConnectionGrant: true }`
   - **Deviation flag**: SQL provider is the most security-sensitive — even read access leaks data. Default `is_enabled=0` in `provider_definitions`; admins must explicitly enable per-connection
@@ -331,7 +331,7 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 5.3 Write-path approval-gate integration test
 
-- [ ] 5.3.1 End-to-end approval test: register a test agent with `syscalls: ['knowledge.notion.write']` and `irreversibleActionsRequireApproval: true`; dispatch a run that calls `ctx.syscall('knowledge.notion.write', {...})`; assert (a) the run pauses with status `paused_for_approval`, (b) a row appears in `agent_approval_requests` with `reason='knowledge.notion.write'`, (c) approving the request via `POST /api/admin/agents/approvals/:id/approve` resumes the run, (d) the syscall completes against the (stubbed) Notion handler, (e) `agent_tool_calls` records the call with provider_id `knowledge.notion`
+- [x] 5.3.1 End-to-end approval test: register a test agent with `syscalls: ['knowledge.notion.write']` and `irreversibleActionsRequireApproval: true`; dispatch a run that calls `ctx.syscall('knowledge.notion.write', {...})`; assert (a) the run pauses with status `paused_for_approval`, (b) a row appears in `agent_approval_requests` with `reason='knowledge.notion.write'`, (c) approving the request via `POST /api/admin/agents/approvals/:id/approve` resumes the run, (d) the syscall completes against the (stubbed) Notion handler, (e) `agent_tool_calls` records the call with provider_id `knowledge.notion`
   - **Files**: `src/lib/agent-providers/providers/knowledge/notion.approval.test.ts` (create)
   - **Pattern (D9)**: agent-os Phase 1.4.8 + 1.5.7 approval gate; design D9 (approval interception)
   - **Verify**: vitest passes; rejected approval rejects the syscall promise with `AgentApprovalRejected`
@@ -358,49 +358,49 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 6.1 Action syscall registrations
 
-- [ ] 6.1.1 Define `action.github.create-issue` syscall in `src/lib/tools/definitions/action-github-issue.ts`. Input `{owner: string, repo: string, title: string, body?: string, labels?: string[], assignees?: string[]}`. Output `{number: number, url: string}`. `requiresApproval: true`.
+- [x] 6.1.1 Define `action.github.create-issue` syscall in `src/lib/tools/definitions/action-github-issue.ts`. Input `{owner: string, repo: string, title: string, body?: string, labels?: string[], assignees?: string[]}`. Output `{number: number, url: string}`. `requiresApproval: true`.
   - **Files**: `src/lib/tools/definitions/action-github-issue.ts` (create); modify `src/lib/agent-os/tools/irreversible.ts` to add `'action.github.create-issue'`
   - **Pattern (D9)**: proposal §"all gated by kernel agent-access approval"; agent-os irreversible-set extension
   - **Verify**: registration test asserts in `irreversibleSyscalls` set; agent without approval grant can't call it
-- [ ] 6.1.2 Define `action.github.create-comment` syscall in `src/lib/tools/definitions/action-github-comment.ts`. Input `{owner: string, repo: string, issueNumber: number, body: string}`. Output `{commentId: number, url: string}`. `requiresApproval: true`.
+- [x] 6.1.2 Define `action.github.create-comment` syscall in `src/lib/tools/definitions/action-github-comment.ts`. Input `{owner: string, repo: string, issueNumber: number, body: string}`. Output `{commentId: number, url: string}`. `requiresApproval: true`.
   - **Files**: `src/lib/tools/definitions/action-github-comment.ts` (create); extend `irreversible.ts`
   - **Pattern (D9)**: same as 6.1.1
   - **Verify**: same as 6.1.1
-- [ ] 6.1.3 Define `action.slack.send-message` syscall in `src/lib/tools/definitions/action-slack-message.ts`. Input `{channel: string, text: string, blocks?: unknown[], threadTs?: string}`. Output `{messageTs: string, channelId: string}`. `requiresApproval: true`.
+- [x] 6.1.3 Define `action.slack.send-message` syscall in `src/lib/tools/definitions/action-slack-message.ts`. Input `{channel: string, text: string, blocks?: unknown[], threadTs?: string}`. Output `{messageTs: string, channelId: string}`. `requiresApproval: true`.
   - **Files**: `src/lib/tools/definitions/action-slack-message.ts` (create); extend `irreversible.ts`
   - **Pattern (D9)**: same
   - **Verify**: same
-- [ ] 6.1.4 Define `action.notion.create-page` syscall in `src/lib/tools/definitions/action-notion-page.ts`. Input `{parentDatabaseId?: string, parentPageId?: string, title: string, blocks: NotionBlock[]}` (exactly one of `parentDatabaseId`/`parentPageId` required). Output `{pageId: string, url: string}`. `requiresApproval: true`.
+- [x] 6.1.4 Define `action.notion.create-page` syscall in `src/lib/tools/definitions/action-notion-page.ts`. Input `{parentDatabaseId?: string, parentPageId?: string, title: string, blocks: NotionBlock[]}` (exactly one of `parentDatabaseId`/`parentPageId` required). Output `{pageId: string, url: string}`. `requiresApproval: true`.
   - **Files**: `src/lib/tools/definitions/action-notion-page.ts` (create); extend `irreversible.ts`
   - **Pattern (D9)**: same
   - **Verify**: schema xor enforcement (`oneOf` JSON Schema clause); registration test
-- [ ] 6.1.5 Define `action.email.send` syscall in `src/lib/tools/definitions/action-email-send.ts`. Input `{to: string[] (1..10), from: string, subject: string, text?: string, html?: string, replyTo?: string}` (at least one of text/html required). Output `{messageId: string}`. `requiresApproval: true`.
+- [x] 6.1.5 Define `action.email.send` syscall in `src/lib/tools/definitions/action-email-send.ts`. Input `{to: string[] (1..10), from: string, subject: string, text?: string, html?: string, replyTo?: string}` (at least one of text/html required). Output `{messageId: string}`. `requiresApproval: true`.
   - **Files**: `src/lib/tools/definitions/action-email-send.ts` (create); extend `irreversible.ts`
   - **Pattern (D9)**: same; xor enforcement on text/html
   - **Verify**: schema enforces `to.length >= 1 AND to.length <= 10`; explicit `to.length` cap mitigates fan-out abuse
 
 ### 6.2 Action provider files
 
-- [ ] 6.2.1 Register `action.github` provider (single provider, two syscall handlers — issue + comment)
+- [x] 6.2.1 Register `action.github` provider (single provider, two syscall handlers — issue + comment)
   - **Files**: `src/lib/agent-providers/providers/action/github.ts` (create — reuses `auth/github-app.ts` from Phase 5.2.2); `src/lib/agent-providers/providers/action/register-defaults.ts` (create)
   - **Pattern (D4)**: cost model `{ kind: 'free' }`; `outboundDomains: ['api.github.com']`; capability `{ supportsCreateIssue: true, supportsCreateComment: true, scopes: ['issues:write'] }`
   - **Verify**: approval-gate test — agent with grant + approval can create; agent without grant gets `AgentAccessDenied`; agent with grant but no approval gets `paused_for_approval`
-- [ ] 6.2.2 Register `action.slack` provider
+- [x] 6.2.2 Register `action.slack` provider
   - **Files**: `src/lib/agent-providers/providers/action/slack.ts` (create); register in `register-defaults.ts`; `src/lib/agent-providers/auth/slack.ts` (create — bot-token resolution; OAuth flow follow-up out of scope)
   - **Pattern (D4)**: cost model `{ kind: 'request', perCallUsd: 0 }` (Slack API free); `outboundDomains: ['slack.com']`; capability `{ supportsSendMessage: true, supportsBlocks: true, scopes: ['chat:write'] }`
   - **Verify**: approval-gate test against stubbed Slack API
-- [ ] 6.2.3 Register `action.notion` provider — `create-page` handler (reuses `oauth/notion.ts` from Phase 5.2.1)
+- [x] 6.2.3 Register `action.notion` provider — `create-page` handler (reuses `oauth/notion.ts` from Phase 5.2.1)
   - **Files**: `src/lib/agent-providers/providers/action/notion.ts` (create); register in `register-defaults.ts`
   - **Pattern (D4)**: cost model `{ kind: 'request', perCallUsd: 0 }`; `outboundDomains: ['api.notion.com']`; capability `{ supportsCreatePage: true, scopes: ['insert_content'] }`
   - **Verify**: approval-gate test
-- [ ] 6.2.4 Register `action.email` provider (via Cloudflare Email Routing for outbound or a provider like Resend — design D4 leaves the backend choice to the credential resolution)
+- [x] 6.2.4 Register `action.email` provider (via Cloudflare Email Routing for outbound or a provider like Resend — design D4 leaves the backend choice to the credential resolution)
   - **Files**: `src/lib/agent-providers/providers/action/email.ts` (create); register in `register-defaults.ts`; document in `design.md` D4 that the v1 backend is Resend (REST API `api.resend.com`) and that swapping to Mailgun/SES is a credential-only swap, not a code change
   - **Pattern (D4)**: cost model `{ kind: 'request', perCallUsd: 0.0004 }` (Resend production rate); `outboundDomains: ['api.resend.com']`; capability `{ supportsHtml: true, supportsText: true, supportsReplyTo: true, maxRecipients: 10 }`
   - **Verify**: approval-gate test; recipient cap enforced
 
 ### 6.3 Approval-gate end-to-end tests
 
-- [ ] 6.3.1 Per-syscall E2E: for each of the 5 action syscalls, build a vitest that (a) dispatches a run that calls the syscall, (b) asserts the run enters `paused_for_approval` within 100ms, (c) asserts `agent_approval_requests` row exists with `reason='action.<provider>.<verb>'`, `context_json` containing the redacted input (per agent-access spec, sensitive fields like email body are truncated to first 100 chars), (d) approves via `kernel.access.resolveApproval({approvalId, decision:'approve', resolvedBy:'admin-user-id'})`, (e) asserts the syscall handler runs against a stubbed downstream API, (f) asserts the run completes with status `done`
+- [x] 6.3.1 Per-syscall E2E: for each of the 5 action syscalls, build a vitest that (a) dispatches a run that calls the syscall, (b) asserts the run enters `paused_for_approval` within 100ms, (c) asserts `agent_approval_requests` row exists with `reason='action.<provider>.<verb>'`, `context_json` containing the redacted input (per agent-access spec, sensitive fields like email body are truncated to first 100 chars), (d) approves via `kernel.access.resolveApproval({approvalId, decision:'approve', resolvedBy:'admin-user-id'})`, (e) asserts the syscall handler runs against a stubbed downstream API, (f) asserts the run completes with status `done`
   - **Files**: 5 test files alongside each provider — `src/lib/agent-providers/providers/action/{github,slack,notion,email}.approval.test.ts` (github gets one test covering both issue + comment paths)
   - **Pattern (D9)**: agent-os 1.5.7 approval resolution; spec scenarios for `AgentApprovalRejected` / `AgentApprovalExpired`
   - **Verify**: `pnpm vitest run src/lib/agent-providers/providers/action` green; ≥5 separate `paused_for_approval` rows observed across the test run
@@ -411,7 +411,7 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
   - **Files**: `progress.txt`
   - **Pattern (D5)**: Phase 2.4.2 rollout; D9 approval round-trip gate
   - **Verify**: per-provider rolling-window health OK AND `SELECT count(*) FROM agent_approval_requests WHERE status='approved' AND reason LIKE 'action.<provider>.%'` returns >= 1
-- [ ] 6.4.2 Per-provider flags stay (do NOT retire) — action providers' blast radius warrants keeping the granular kill-switch even after stable rollout. Document this deviation from Phase 2/3/4/5 retirement pattern in `design.md` Resolutions as "Q-action-flags-permanent — action provider flags are NOT retired after the 7-day stabilization period because the blast radius (external user-visible artifacts) makes per-provider rollback a permanent requirement; the umbrella `providers.action` flag is the catastrophic-failure switch, but per-provider flags are the per-target rollback path"
+- [x] 6.4.2 Per-provider flags stay (do NOT retire) — action providers' blast radius warrants keeping the granular kill-switch even after stable rollout. Document this deviation from Phase 2/3/4/5 retirement pattern in `design.md` Resolutions as "Q-action-flags-permanent — action provider flags are NOT retired after the 7-day stabilization period because the blast radius (external user-visible artifacts) makes per-provider rollback a permanent requirement; the umbrella `providers.action` flag is the catastrophic-failure switch, but per-provider flags are the per-target rollback path"
   - **Files**: `design.md` (modify — Resolutions section)
   - **Pattern (D11)**: divergence from Phase 2.4.3 retirement; documented
   - **Verify**: design.md contains the resolution; flags remain in `flags.ts` after 7-day window
@@ -427,44 +427,44 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 7.1 Fallback chain implementation
 
-- [ ] 7.1.1 Implement `src/lib/agent-providers/routing-fallback.ts` exporting `routeWithFallback({category, input, policy, kernel, ctx})`. Algorithm: (a) materialize candidate list from `policy.order` filtered by current `health.getHealth(providerId)` (drop providers whose `success_rate_pct < policy.minSuccessRate ?? 80` OR `is_healthy=false`), (b) attempt providers in order; if a provider throws a fallback-eligible error (`ProviderUnhealthy`, `ProviderRateLimited`, `CredentialNotFound`, `CredentialExpired`, fetch-network errors), record health failure and try next, (c) if a provider throws a non-fallback error (`ProviderInputInvalid`, `OutboundDomainNotGranted`, `AgentApprovalRejected`), surface immediately without trying others, (d) if all candidates fail, throw `AllProvidersFailed` with the per-attempt error chain
+- [x] 7.1.1 Implement `src/lib/agent-providers/routing-fallback.ts` exporting `routeWithFallback({category, input, policy, kernel, ctx})`. Algorithm: (a) materialize candidate list from `policy.order` filtered by current `health.getHealth(providerId)` (drop providers whose `success_rate_pct < policy.minSuccessRate ?? 80` OR `is_healthy=false`), (b) attempt providers in order; if a provider throws a fallback-eligible error (`ProviderUnhealthy`, `ProviderRateLimited`, `CredentialNotFound`, `CredentialExpired`, fetch-network errors), record health failure and try next, (c) if a provider throws a non-fallback error (`ProviderInputInvalid`, `OutboundDomainNotGranted`, `AgentApprovalRejected`), surface immediately without trying others, (d) if all candidates fail, throw `AllProvidersFailed` with the per-attempt error chain
   - **Files**: `src/lib/agent-providers/routing-fallback.ts` (create)
   - **Pattern (D6)**: design D6 fallback decision tree; proposal §"Fallback chains declared per provider category (e.g. search.order: [tavily, exa, jina]); router auto-falls-back on failure or quota exhaustion"
   - **Verify**: `src/lib/agent-providers/routing-fallback.test.ts` covers (a) primary healthy → only primary attempted, (b) primary unhealthy → secondary attempted with `attempts.length === 2`, (c) all unhealthy → `AllProvidersFailed`, (d) input-invalid on primary → no fallback (immediate surface)
-- [ ] 7.1.2 Modify `src/lib/agent-providers/routing.ts:route()` to delegate to `routeWithFallback` when `flags.providers.routing.fallback === true`, else preserve the Phase 1 single-provider passthrough behavior
+- [x] 7.1.2 Modify `src/lib/agent-providers/routing.ts:route()` to delegate to `routeWithFallback` when `flags.providers.routing.fallback === true`, else preserve the Phase 1 single-provider passthrough behavior
   - **Files**: `src/lib/agent-providers/routing.ts` (modify)
   - **Pattern (D5)**: dispatch shim
   - **Verify**: routing test with flag off goes single-provider; with flag on uses fallback; existing Phase 1 tests still pass
 
 ### 7.2 Health check cron
 
-- [ ] 7.2.1 Implement `src/lib/agent-providers/health-cron.ts` exporting `runHealthSweep({kernel, providers})`. For each registered provider whose category is in `['llm','search','reader']` (knowledge + action are not actively probed — too expensive / mutating), invoke the provider's declared `healthCheckFn` (each provider file declares a cheap probe, e.g. for `llm.openai` it's `models.list`; for `search.tavily` it's `POST /search {query:'health-check', limit:1}`; for `reader.directFetch` it's `fetch('https://example.com', {method:'HEAD'})`), record the result via `health.recordHealth()`. Sweep runs every 5 minutes via a new cron entry; per-sweep budget cap of 100ms per provider so a stuck probe doesn't blow the cron timeout
+- [x] 7.2.1 Implement `src/lib/agent-providers/health-cron.ts` exporting `runHealthSweep({kernel, providers})`. For each registered provider whose category is in `['llm','search','reader']` (knowledge + action are not actively probed — too expensive / mutating), invoke the provider's declared `healthCheckFn` (each provider file declares a cheap probe, e.g. for `llm.openai` it's `models.list`; for `search.tavily` it's `POST /search {query:'health-check', limit:1}`; for `reader.directFetch` it's `fetch('https://example.com', {method:'HEAD'})`), record the result via `health.recordHealth()`. Sweep runs every 5 minutes via a new cron entry; per-sweep budget cap of 100ms per provider so a stuck probe doesn't blow the cron timeout
   - **Files**: `src/lib/agent-providers/health-cron.ts` (create); `wrangler.jsonc` (modify — add `*/5 * * * *` to `triggers.crons`); `scripts/create-cron-entry.mjs` (modify — extend generated `scheduled()` handler to dispatch this cron to `runHealthSweep`)
   - **Pattern (D7)**: design D7 health-check cadence + budget cap; agent-os Phase 4 cron orchestrator wiring
   - **Verify**: `src/lib/agent-providers/health-cron.test.ts` — fake-timers 5min tick, asserts `health.recordHealth` called once per registered provider in the 3 active categories; provider whose `healthCheckFn` rejects records `is_healthy=false`
-- [ ] 7.2.2 Extend `GET /api/admin/providers/health` (created in Phase 1.5.2) to return real rolling-window aggregates per provider rather than empty map; also include `last_observed_at` per provider so the dashboard can show staleness
+- [x] 7.2.2 Extend `GET /api/admin/providers/health` (created in Phase 1.5.2) to return real rolling-window aggregates per provider rather than empty map; also include `last_observed_at` per provider so the dashboard can show staleness
   - **Files**: `src/pages/api/admin/providers/health.ts` (modify)
   - **Pattern (D13)**: agent-os health endpoint shape
   - **Verify**: after one cron tick, curl returns non-empty `health` map with `success_rate_pct` for each probed provider
 
 ### 7.3 Load balancing
 
-- [ ] 7.3.1 Implement `src/lib/agent-providers/routing-loadbalance.ts` exporting `chooseWithWeights({candidates, policy, health})`. Weight formula per design D6: `weight = (1 / cost_proxy) × success_rate × (latency_baseline / observed_p50)`. When `policy.loadBalanceWeights` provides static weights, multiply through. Weighted random selection; reseed with `crypto.getRandomValues(new Uint8Array(1))[0] / 255` per call so distribution is stochastic
+- [x] 7.3.1 Implement `src/lib/agent-providers/routing-loadbalance.ts` exporting `chooseWithWeights({candidates, policy, health})`. Weight formula per design D6: `weight = (1 / cost_proxy) × success_rate × (latency_baseline / observed_p50)`. When `policy.loadBalanceWeights` provides static weights, multiply through. Weighted random selection; reseed with `crypto.getRandomValues(new Uint8Array(1))[0] / 255` per call so distribution is stochastic
   - **Files**: `src/lib/agent-providers/routing-loadbalance.ts` (create)
   - **Pattern (D6)**: design D6 weighted load-balance formula; proposal §"Load balancing across healthy providers in a category (weighted by latency / cost / success rate)"
   - **Verify**: `src/lib/agent-providers/routing-loadbalance.test.ts` — 1000 simulated calls with stub `crypto.getRandomValues` returning a sweep across [0,1) — distribution matches declared weights within ±5%
-- [ ] 7.3.2 Wire load-balance selection into `routing-fallback.ts`: when `flags.providers.routing.loadBalance === true` AND ≥2 healthy candidates exist, use `chooseWithWeights` to reorder the candidate list before fallback iteration; otherwise preserve the static `policy.order` ordering
+- [x] 7.3.2 Wire load-balance selection into `routing-fallback.ts`: when `flags.providers.routing.loadBalance === true` AND ≥2 healthy candidates exist, use `chooseWithWeights` to reorder the candidate list before fallback iteration; otherwise preserve the static `policy.order` ordering
   - **Files**: `src/lib/agent-providers/routing-fallback.ts` (modify)
   - **Pattern (D6)**: hybrid load-balance + fallback per design D6
   - **Verify**: fallback test extended — with flag on + 3 healthy candidates and stub weights `[0.7, 0.2, 0.1]`, the primary attempt distribution across 100 runs matches weights within ±10%
 
 ### 7.4 Rate limit enforcement
 
-- [ ] 7.4.1 Implement `src/lib/agent-providers/routing-ratelimit.ts` exporting `checkRateLimit({providerId, policy, kvBackend})`. Uses the existing rate-limit KV pattern from `src/lib/auth/rate-limit.ts` — per-provider sliding-window counter keyed `provider:rate:{providerId}:{minuteBucket}`. Per-provider rate from `policy.rateLimits[providerId]` (e.g. `{ perMinute: 60, perDay: 1000 }`). When exceeded, throw `ProviderRateLimited` with `retryAfterSeconds` populated so the fallback layer can take action
+- [x] 7.4.1 Implement `src/lib/agent-providers/routing-ratelimit.ts` exporting `checkRateLimit({providerId, policy, kvBackend})`. Uses the existing rate-limit KV pattern from `src/lib/auth/rate-limit.ts` — per-provider sliding-window counter keyed `provider:rate:{providerId}:{minuteBucket}`. Per-provider rate from `policy.rateLimits[providerId]` (e.g. `{ perMinute: 60, perDay: 1000 }`). When exceeded, throw `ProviderRateLimited` with `retryAfterSeconds` populated so the fallback layer can take action
   - **Files**: `src/lib/agent-providers/routing-ratelimit.ts` (create)
   - **Pattern (D6)**: existing `src/lib/auth/rate-limit.ts` shape; design D6 rate-limit slot
   - **Verify**: `src/lib/agent-providers/routing-ratelimit.test.ts` — 61 calls in a minute, 61st throws `ProviderRateLimited`
-- [ ] 7.4.2 Wire rate-limit check into `routing.ts:route()` immediately before invoking the provider handler when `flags.providers.routing.rateLimits === true`. On `ProviderRateLimited`, surface to fallback layer (treated as fallback-eligible per 7.1.1)
+- [x] 7.4.2 Wire rate-limit check into `routing.ts:route()` immediately before invoking the provider handler when `flags.providers.routing.rateLimits === true`. On `ProviderRateLimited`, surface to fallback layer (treated as fallback-eligible per 7.1.1)
   - **Files**: `src/lib/agent-providers/routing.ts` (modify)
   - **Pattern (D6)**: routing pipeline order — rate-limit check is the last gate before handler invocation
   - **Verify**: integration test asserts that flipping `providers.routing.rateLimits=true` causes the 61st call to a single provider in a minute to fall over to the next provider in the chain (when fallback is also on)
@@ -487,7 +487,7 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 8.1 RAG agent parity sweep
 
-- [ ] 8.1.1 For each of the 4 RAG agents (`critic`, `writer`, `research`, `planner`), run a fixture-driven parity sweep: legacy path = all `providers.*` flags off; new path = all on. Same 5-fixture set per agent as agent-os Phase 3 (`critic.parity.test.ts`, `writer.parity.test.ts`, `research.parity.test.ts`, `planner.parity.test.ts`). Assert structural equality of agent outputs allowing the LLM-text drift bounds defined in each agent's parity test. NEW assertion: `agent_tool_calls.cost_usd > 0` on the new path for all paid providers; legacy path has `cost_usd = 0` placeholder (this is the differential the new path delivers — accurate cost telemetry per agent run)
+- [x] 8.1.1 For each of the 4 RAG agents (`critic`, `writer`, `research`, `planner`), run a fixture-driven parity sweep: legacy path = all `providers.*` flags off; new path = all on. Same 5-fixture set per agent as agent-os Phase 3 (`critic.parity.test.ts`, `writer.parity.test.ts`, `research.parity.test.ts`, `planner.parity.test.ts`). Assert structural equality of agent outputs allowing the LLM-text drift bounds defined in each agent's parity test. NEW assertion: `agent_tool_calls.cost_usd > 0` on the new path for all paid providers; legacy path has `cost_usd = 0` placeholder (this is the differential the new path delivers — accurate cost telemetry per agent run)
   - **Files**: `src/lib/agent-providers/parity/{critic,writer,research,planner}.parity.test.ts` (create — 4 files, each importing the corresponding agent-os parity fixture set)
   - **Pattern (D5)**: agent-os Phase 3.x.5 parity tests; D12 cost differential
   - **Verify**: all 4 sweeps green; cost differential assertion holds
@@ -498,11 +498,11 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
 
 ### 8.2 Runbook + alerting
 
-- [ ] 8.2.1 Create `docs/agent-providers-runbook.md` with sections: "Rotate a provider credential (D1 vs env var precedence)", "Force a provider unhealthy (cron sweep override)", "Add a new provider (file checklist)", "Diagnose `AllProvidersFailed` (event log spelunking)", "Approve a knowledge.write or action.* request", "Disable a provider category in an emergency (umbrella flag flip)"
+- [x] 8.2.1 Create `docs/agent-providers-runbook.md` with sections: "Rotate a provider credential (D1 vs env var precedence)", "Force a provider unhealthy (cron sweep override)", "Add a new provider (file checklist)", "Diagnose `AllProvidersFailed` (event log spelunking)", "Approve a knowledge.write or action.* request", "Disable a provider category in an emergency (umbrella flag flip)"
   - **Files**: `docs/agent-providers-runbook.md` (extend from 8.1.2)
   - **Pattern (D13)**: agent-os Phase 6.2.1 runbook structure
   - **Verify**: `wc -l docs/agent-providers-runbook.md` >= 120 lines
-- [ ] 8.2.2 Add alerting hooks in `src/lib/agent-providers/observability/alerts.ts`: `checkProviderHealth()` called from the daily `0 3 * * *` cron that logs WARN when (a) any provider category's `count(distinct provider_id healthy)` drops to 0, (b) `AllProvidersFailed` count in last hour > 5, (c) `agent_approval_requests` for `action.*` with `status='pending'` and age > 6h > 0 (faster threshold than knowledge writes because action visibility window is shorter)
+- [x] 8.2.2 Add alerting hooks in `src/lib/agent-providers/observability/alerts.ts`: `checkProviderHealth()` called from the daily `0 3 * * *` cron that logs WARN when (a) any provider category's `count(distinct provider_id healthy)` drops to 0, (b) `AllProvidersFailed` count in last hour > 5, (c) `agent_approval_requests` for `action.*` with `status='pending'` and age > 6h > 0 (faster threshold than knowledge writes because action visibility window is shorter)
   - **Files**: `src/lib/agent-providers/observability/alerts.ts` (create)
   - **Pattern (D13)**: agent-os Phase 6.2.4 alerting; same observability sink
   - **Verify**: alert function tested with synthetic D1 state showing each of the 3 conditions
@@ -532,7 +532,7 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
   - **Files**: (verification gate)
   - **Pattern**: OpenSpec strict-validate flow
   - **Verify**: command exits 0 with no warnings
-- [ ] 8.4.3 Update `progress.txt` at repo root: `agent-providers: complete — 5 LLM + 3 search + 4 reader + 4 knowledge + 5 action providers live behind central registry; routing fallback+health+load-balance+rate-limit enabled; archived YYYY-MM-DD`
+- [x] 8.4.3 Update `progress.txt` at repo root: `agent-providers: complete — 5 LLM + 3 search + 4 reader + 4 knowledge + 5 action providers live behind central registry; routing fallback+health+load-balance+rate-limit enabled; archived YYYY-MM-DD`
   - **Files**: `progress.txt` (modify)
   - **Pattern**: project convention
   - **Verify**: `tail -1 progress.txt` matches; commit via `format-commit` skill per `CLAUDE.md`
@@ -540,7 +540,7 @@ Implementation plan for the agent-providers change. 8 phases, ~108 tasks. Builds
   - **Files**: OpenSpec archival
   - **Pattern**: agent-os Phase 6.3.5
   - **Verify**: change directory moved; main specs updated
-- [ ] 8.4.5 Open follow-up issues for deferred items: dynamic OpenRouter cost lookup (Phase 2.1.5 FIXME), Brave/Bocha/BrightData/Serper/SerpAPI search providers (out of scope for v1, credentials exist but no provider files), Mailgun/SES email backend swap (Phase 6.2.4), Slack OAuth flow (Phase 6.2.2), provider settings UI overhaul on `/api/admin/providers` (legacy endpoint preserved but UI is unchanged), per-credential scope enforcement at runtime (the schema supports `scope_json` but the routing layer does not yet check scopes — only category + provider grant)
+- [x] 8.4.5 Open follow-up issues for deferred items: dynamic OpenRouter cost lookup (Phase 2.1.5 FIXME), Brave/Bocha/BrightData/Serper/SerpAPI search providers (out of scope for v1, credentials exist but no provider files), Mailgun/SES email backend swap (Phase 6.2.4), Slack OAuth flow (Phase 6.2.2), provider settings UI overhaul on `/api/admin/providers` (legacy endpoint preserved but UI is unchanged), per-credential scope enforcement at runtime (the schema supports `scope_json` but the routing layer does not yet check scopes — only category + provider grant)
   - **Files**: (no new files — issue creation gate)
   - **Pattern**: agent-os Phase 6.3.6 follow-up issue pattern
   - **Verify**: at least 6 issues filed referencing this change as parent

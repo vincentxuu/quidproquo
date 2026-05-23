@@ -1,0 +1,309 @@
+---
+export const prerender = false;
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('runTimeline');
+
+const runId = Astro.params.id;
+if (!runId) return Astro.redirect('/admin/console/runs');
+
+interface FlowRunRow {
+  flow_run_id: string;
+  flow_id: string;
+  status: string;
+  started_at: number;
+  finished_at: number | null;
+  latency_ms: number | null;
+  display_name: string | null;
+}
+
+interface StepRunRow {
+  step_run_id: string;
+  step_id: string;
+  kind: string;
+  status: string;
+  started_at: number | null;
+  finished_at: number | null;
+  latency_ms: number | null;
+}
+
+let run: FlowRunRow | null = null;
+let steps: StepRunRow[] = [];
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+    const [runResult, stepsResult] = await Promise.all([
+      db
+        .prepare(
+          `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
+                  fd.display_name
+           FROM flow_runs fr
+           LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+           WHERE fr.flow_run_id = ?
+           LIMIT 1`,
+        )
+        .bind(runId)
+        .first<FlowRunRow>(),
+      db
+        .prepare(
+          `SELECT step_run_id, step_id, kind, status, started_at, finished_at, latency_ms
+           FROM flow_step_runs
+           WHERE flow_run_id = ?
+           ORDER BY started_at ASC`,
+        )
+        .bind(runId)
+        .all<StepRunRow>(),
+    ]);
+    run = runResult;
+    steps = stepsResult.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+function formatRelative(ms: number): string {
+  const diffMs = Date.now() - ms;
+  const diffSec = Math.floor(diffMs / 1000);
+  if (diffSec < 60) return `${diffSec}s ago`;
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m ago`;
+  const diffHr = Math.floor(diffMin / 60);
+  if (diffHr < 24) return `${diffHr}h ago`;
+  const diffDay = Math.floor(diffHr / 24);
+  return `${diffDay}d ago`;
+}
+
+function formatDuration(ms: number | null): string {
+  if (ms === null) return '—';
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
+
+function statusClass(status: string): string {
+  switch (status) {
+    case 'done': return 'badge-success';
+    case 'failed': return 'badge-error';
+    case 'running': return 'badge-running';
+    case 'cancelled': return 'badge-muted';
+    case 'pending': return 'badge-pending';
+    default: return 'badge-muted';
+  }
+}
+
+const flowName = run?.display_name ?? run?.flow_id ?? runId;
+---
+
+<AdminConsoleLayout
+  title={`Run: ${runId.slice(0, 8)}…`}
+  section="runs"
+  breadcrumb={[
+    { label: 'Runs', href: '/admin/console/runs' },
+    { label: run ? (run.display_name ?? run.flow_id) : runId, href: run ? `/admin/console/flows/${run.flow_id}` : undefined },
+    { label: runId.slice(0, 8) + '…' },
+  ]}
+>
+  {!ready && (
+    <AdminState tone="empty">{`Run timeline ships in ${consolePhaseFor('runTimeline')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load run data.</AdminState>
+  )}
+  {ready && !loadError && !run && (
+    <AdminState tone="empty">Run not found.</AdminState>
+  )}
+  {ready && !loadError && run && (
+    <>
+      <div class="run-header">
+        <div class="run-meta">
+          <div class="run-meta-item">
+            <span class="meta-label">Flow</span>
+            <span class="meta-value">
+              <a href={`/admin/console/flows/${run.flow_id}`}>{flowName}</a>
+            </span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">Status</span>
+            <span class:list={['badge', statusClass(run.status)]}>{run.status}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">Started</span>
+            <span class="meta-value mono">{formatRelative(run.started_at)}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value mono">{formatDuration(run.latency_ms)}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">Run ID</span>
+            <span class="meta-value mono">{run.flow_run_id}</span>
+          </div>
+        </div>
+        <div class="run-actions">
+          <a href={`/admin/console/runs/${runId}/evidence`} class="btn-secondary">Evidence</a>
+        </div>
+      </div>
+
+      <AdminPanel title="Step Timeline">
+        {steps.length === 0 ? (
+          <AdminState tone="empty">No steps recorded yet.</AdminState>
+        ) : (
+          <AdminTable minWidth="560px" flush>
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Kind</th>
+                <th>Status</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              {steps.map((step) => (
+                <tr data-step={step.step_id} data-status={step.status}>
+                  <td class="mono step-id">{step.step_id}</td>
+                  <td class="kind">{step.kind}</td>
+                  <td>
+                    <span class:list={['badge', statusClass(step.status)]}>{step.status}</span>
+                  </td>
+                  <td class="mono">{formatDuration(step.latency_ms)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+        )}
+      </AdminPanel>
+    </>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .run-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    box-shadow: var(--admin-shadow);
+  }
+
+  .run-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+
+  .run-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--admin-text-soft, #94a3b8);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .meta-value {
+    font-size: 0.9em;
+    color: var(--admin-text);
+  }
+
+  .meta-value a {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .meta-value a:hover {
+    text-decoration: underline;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .step-id {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kind {
+    font-size: 0.85em;
+    color: var(--admin-text-muted);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15em 0.55em;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-success {
+    background: var(--admin-success-bg, #dcfce7);
+    color: var(--admin-success, #166534);
+  }
+
+  .badge-error {
+    background: var(--admin-error-bg, #fee2e2);
+    color: var(--admin-error, #991b1b);
+  }
+
+  .badge-running {
+    background: var(--admin-accent-bg, #dbeafe);
+    color: var(--admin-accent, #1d4ed8);
+  }
+
+  .badge-pending {
+    background: var(--color-warning-bg, #fefce8);
+    color: var(--color-warning-text, #713f12);
+  }
+
+  .badge-muted {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .run-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
+  }
+</style>

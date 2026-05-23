@@ -1,0 +1,140 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import ConsoleFlowCard from '@/components/admin/ConsoleFlowCard.astro';
+import { getEnv } from '@/lib/config/env';
+import { loadFlowCards, type FlowCardData } from '@/lib/agent-console/flow-selector';
+import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from './_guard';
+import { createBackends } from '@/lib/agent-os/storage';
+import type { ApprovalRecord } from '@/lib/agent-os/storage';
+import { PendingApprovalsBannerIsland } from '@/components/admin/console/BulkApprovalModal';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('flowSelector');
+
+let cards: FlowCardData[] = [];
+let loadError = false;
+if (ready) {
+  try {
+    cards = await loadFlowCards(getEnv().DB);
+  } catch {
+    loadError = true;
+  }
+}
+
+// Fetch pending approvals at SSR time — always shown regardless of flowSelector flag
+let pendingApprovals: ApprovalRecord[] = [];
+try {
+  const backends = createBackends(getEnv());
+  pendingApprovals = await backends.approvals.listByStatus('pending');
+} catch {
+  // Non-fatal: banner simply won't render if D1 is unavailable
+}
+---
+
+<AdminConsoleLayout title="Flow Console" section="flow-selector">
+  <!-- Cost rollup: tokens_in/tokens_out/cost_usd aggregated from agent_tool_calls -->
+  <!-- Updated live via SSE when a run is active — see runs/[id].astro -->
+  {pendingApprovals.length > 0 && (
+    <div class="approvals-banner" role="region" aria-label="Pending approvals">
+      <div class="approvals-banner__body">
+        <span class="approvals-banner__count">
+          {pendingApprovals.length} pending approval{pendingApprovals.length !== 1 ? 's' : ''} require attention
+        </span>
+        <ul class="approvals-banner__list">
+          {pendingApprovals.map((a) => (
+            <li>
+              <a href={`/admin/console/runs/${a.runId}`}>
+                {a.reason || a.approvalId}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="approvals-banner__actions">
+        <PendingApprovalsBannerIsland
+          client:only="react"
+          approvals={pendingApprovals.map((a) => ({
+            approvalId: a.approvalId,
+            runId: a.runId,
+            reason: a.reason,
+            stepId: undefined,
+          }))}
+        />
+      </div>
+    </div>
+  )}
+  {!ready && (
+    <AdminState tone="empty">{`Flow selector ships in ${consolePhaseFor('flowSelector')}.`}</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load flows.</AdminState>
+  )}
+  {ready && !loadError && cards.length === 0 && (
+    <AdminState tone="empty">No flows are registered yet.</AdminState>
+  )}
+  {ready && !loadError && cards.length > 0 && (
+    <section class="flow-grid" aria-label="Available flows">
+      {cards.map((card) => <ConsoleFlowCard card={card} />)}
+    </section>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .approvals-banner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.375rem;
+    background: var(--color-warning-bg, #fefce8);
+    border: 1px solid var(--color-warning-border, #fde047);
+    color: var(--color-warning-text, #713f12);
+  }
+
+  .approvals-banner__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .approvals-banner__count {
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .approvals-banner__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .approvals-banner__list a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .approvals-banner__actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+</style>

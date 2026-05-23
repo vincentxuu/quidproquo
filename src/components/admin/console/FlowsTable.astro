@@ -1,0 +1,70 @@
+---
+import type { FlowRow } from '@/lib/agent-console/management';
+
+interface Props {
+  rows: FlowRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+<table class="mgmt-table admin-panel">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Version</th>
+      <th scope="col">Description</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((row) => (
+      <tr data-flow-id={row.id}>
+        <td><code>{row.id}</code></td>
+        <td>{row.name}</td>
+        <td>v{row.version}</td>
+        <td class="desc">{row.description || '—'}</td>
+        <td class="actions">
+          <a href={`/admin/console/flows/${encodeURIComponent(row.id)}`}>View</a>
+          <a href={`/admin/console/runs/launch?flowId=${encodeURIComponent(row.id)}`}>Launch</a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    overflow: hidden;
+  }
+  .mgmt-table th,
+  .mgmt-table td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .mgmt-table th {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mgmt-table tbody tr:hover {
+    background: var(--admin-surface-subtle);
+  }
+  .mgmt-table .desc {
+    color: var(--admin-text-muted);
+    max-width: 420px;
+  }
+  .mgmt-table a {
+    color: var(--admin-accent);
+    text-decoration: none;
+  }
+  .mgmt-table .actions a + a {
+    margin-left: 0.7rem;
+  }
+</style>

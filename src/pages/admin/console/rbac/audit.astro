@@ -1,0 +1,402 @@
+---
+import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { ensureConsoleUmbrella, isPageEnabled } from '../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const ready = isPageEnabled('rbac');
+
+const breadcrumb = [
+  { label: 'RBAC', href: '/admin/console/rbac' },
+  { label: 'Audit Log' },
+];
+
+const url = Astro.url;
+const PAGE_SIZE = 50;
+
+const pageParam = parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
+const offset = (page - 1) * PAGE_SIZE;
+
+const filterUser = url.searchParams.get('user') ?? '';
+const filterAction = url.searchParams.get('action') ?? '';
+const filterKind = url.searchParams.get('kind') ?? '';
+const filterFrom = url.searchParams.get('from') ?? '';
+const filterTo = url.searchParams.get('to') ?? '';
+
+interface AuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  resource_kind: string;
+  resource_id: string | null;
+  payload_json: string | null;
+  created_at: number;
+}
+
+let auditRows: AuditRow[] = [];
+let totalCount = 0;
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+
+    // Build WHERE clauses dynamically
+    const conditions: string[] = [];
+    const bindings: (string | number)[] = [];
+
+    if (filterUser) {
+      conditions.push('u.email LIKE ?');
+      bindings.push(`%${filterUser}%`);
+    }
+    if (filterAction) {
+      conditions.push('al.action = ?');
+      bindings.push(filterAction);
+    }
+    if (filterKind) {
+      conditions.push('al.resource_kind = ?');
+      bindings.push(filterKind);
+    }
+    if (filterFrom) {
+      const fromMs = new Date(filterFrom).getTime();
+      if (!Number.isNaN(fromMs)) {
+        conditions.push('al.created_at >= ?');
+        bindings.push(fromMs);
+      }
+    }
+    if (filterTo) {
+      const toMs = new Date(filterTo).getTime();
+      if (!Number.isNaN(toMs)) {
+        conditions.push('al.created_at <= ?');
+        bindings.push(toMs + 86_400_000 - 1); // end of day
+      }
+    }
+
+    const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
+
+    const countResult = await db.prepare(`
+      SELECT COUNT(*) as cnt
+      FROM console_audit_log al
+      LEFT JOIN console_users u ON u.user_id = al.user_id
+      ${where}
+    `).bind(...bindings).first<{ cnt: number }>();
+
+    totalCount = countResult?.cnt ?? 0;
+
+    const rowsResult = await db.prepare(`
+      SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
+             al.resource_id, al.payload_json, al.created_at
+      FROM console_audit_log al
+      LEFT JOIN console_users u ON u.user_id = al.user_id
+      ${where}
+      ORDER BY al.created_at DESC
+      LIMIT ${PAGE_SIZE} OFFSET ${offset}
+    `).bind(...bindings).all<AuditRow>();
+
+    auditRows = rowsResult.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function pageHref(p: number): string {
+  const u = new URL(url.toString());
+  u.searchParams.set('page', String(p));
+  return u.pathname + u.search;
+}
+
+function filterHref(key: string, value: string): string {
+  const u = new URL(url.toString());
+  if (value) {
+    u.searchParams.set(key, value);
+  } else {
+    u.searchParams.delete(key);
+  }
+  u.searchParams.delete('page');
+  return u.pathname + u.search;
+}
+---
+
+<AdminConsoleLayout title="Audit Log" section="rbac" breadcrumb={breadcrumb}>
+  {!ready && (
+    <AdminState tone="empty">RBAC management is not enabled.</AdminState>
+  )}
+  {ready && loadError && (
+    <AdminState tone="error">Could not load audit log data.</AdminState>
+  )}
+  {ready && !loadError && (
+    <div class="audit-layout">
+
+      <AdminPanel title="Filters" eyebrow="Narrow results">
+        <form method="GET" action="/admin/console/rbac/audit" class="filter-form">
+          <div class="filter-row">
+            <label for="f-user" class="filter-label">User (email)</label>
+            <input
+              id="f-user"
+              type="text"
+              name="user"
+              value={filterUser}
+              class="filter-input"
+              placeholder="Search email..."
+            />
+          </div>
+          <div class="filter-row">
+            <label for="f-action" class="filter-label">Action</label>
+            <select id="f-action" name="action" class="filter-select">
+              <option value="">All</option>
+              {['view','invoke','edit','delete','approve','reject','cancel','export'].map((a) => (
+                <option value={a} selected={filterAction === a}>{a}</option>
+              ))}
+            </select>
+          </div>
+          <div class="filter-row">
+            <label for="f-kind" class="filter-label">Resource kind</label>
+            <select id="f-kind" name="kind" class="filter-select">
+              <option value="">All</option>
+              {['flow','policy','provider','run','approval','artifact','cost','rbac'].map((k) => (
+                <option value={k} selected={filterKind === k}>{k}</option>
+              ))}
+            </select>
+          </div>
+          <div class="filter-row">
+            <label for="f-from" class="filter-label">From date</label>
+            <input
+              id="f-from"
+              type="date"
+              name="from"
+              value={filterFrom}
+              class="filter-input"
+            />
+          </div>
+          <div class="filter-row">
+            <label for="f-to" class="filter-label">To date</label>
+            <input
+              id="f-to"
+              type="date"
+              name="to"
+              value={filterTo}
+              class="filter-input"
+            />
+          </div>
+          <div class="filter-actions">
+            <button type="submit" class="btn-filter">Apply</button>
+            <a href="/admin/console/rbac/audit" class="btn-clear">Clear</a>
+          </div>
+        </form>
+      </AdminPanel>
+
+      <AdminPanel
+        title="Audit Log"
+        eyebrow={`${totalCount} total entries — page ${page} of ${totalPages}`}
+      >
+        {auditRows.length === 0 ? (
+          <AdminState tone="empty">No audit log entries match the current filters.</AdminState>
+        ) : (
+          <AdminTable minWidth="780px" flush>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Action</th>
+                <th>Kind</th>
+                <th>Resource ID</th>
+                <th>Time</th>
+                <th>Payload</th>
+              </tr>
+            </thead>
+            <tbody>
+              {auditRows.map((row) => (
+                <tr>
+                  <td class="mono muted">{row.audit_id}</td>
+                  <td class="mono">{row.user_email ?? '—'}</td>
+                  <td>{row.action}</td>
+                  <td>{row.resource_kind}</td>
+                  <td class="mono muted">{row.resource_id ?? '—'}</td>
+                  <td class="mono">{formatTs(row.created_at)}</td>
+                  <td>
+                    {row.payload_json ? (
+                      <details class="payload-details">
+                        <summary class="payload-summary">Show</summary>
+                        <pre class="payload-pre">{row.payload_json}</pre>
+                      </details>
+                    ) : (
+                      <span class="muted">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+        )}
+
+        {totalPages > 1 && (
+          <div class="pagination">
+            {page > 1 && (
+              <a href={pageHref(page - 1)} class="page-btn">Previous</a>
+            )}
+            <span class="page-info">Page {page} / {totalPages}</span>
+            {page < totalPages && (
+              <a href={pageHref(page + 1)} class="page-btn">Next</a>
+            )}
+          </div>
+        )}
+      </AdminPanel>
+
+    </div>
+  )}
+</AdminConsoleLayout>
+
+<style>
+  .audit-layout {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .filter-form {
+    padding: 0.75rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    align-items: end;
+  }
+
+  .filter-row {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .filter-label {
+    font-size: 0.78rem;
+    color: var(--admin-text-soft);
+    font-weight: 600;
+  }
+
+  .filter-input,
+  .filter-select {
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.875rem;
+  }
+
+  .filter-input:focus,
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .btn-filter {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--admin-accent);
+    border-radius: var(--admin-radius);
+    background: var(--admin-accent);
+    color: #fff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-filter:hover {
+    opacity: 0.85;
+  }
+
+  .btn-clear {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: transparent;
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.1s;
+  }
+
+  .btn-clear:hover {
+    background: var(--admin-muted);
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+  }
+
+  .payload-details {
+    display: inline-block;
+  }
+
+  .payload-summary {
+    cursor: pointer;
+    color: var(--admin-accent);
+    font-size: 0.8rem;
+    user-select: none;
+  }
+
+  .payload-pre {
+    margin-top: 0.4rem;
+    padding: 0.5rem;
+    background: var(--admin-muted);
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-width: 400px;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--admin-border);
+    font-size: 0.85rem;
+  }
+
+  .page-btn {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    transition: border-color 0.1s, color 0.1s;
+  }
+
+  .page-btn:hover {
+    border-color: var(--admin-accent);
+    color: var(--admin-accent);
+  }
+
+  .page-info {
+    color: var(--admin-text-soft);
+  }
+</style>
