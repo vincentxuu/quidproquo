@@ -7,7 +7,7 @@ tags: [a2ui, google, generative-ui, agent-protocol, mcp, ag-ui]
 lang: zh-TW
 tldr: "A2UI 是 Google 在 2025-12-15 開源的 agent 生成式 UI 協定：agent 只送宣告式 JSON 描述 UI 意圖，client 用自己的元件 catalog 白名單渲染成原生畫面，疊在 A2A 之上。發布時 format v0.8，3 個月後已迭代到 v0.9。"
 description: "拆解 Google A2UI 協定：『UI 即資料』的設計哲學、catalog 白名單安全模型、四種訊息與 booking flow，以及它跟 MCP Apps、AG-UI、OpenAI ChatKit 的分工與已知限制。"
-draft: true
+draft: false
 ---
 
 當 AI agent 碰到「幫我訂位」這種結構化任務時，純文字 chat 會退化成冗長的一問一答。更好的體驗是 agent 直接生出一張帶日期選擇器、時間下拉、送出按鈕的表單。問題是：在多 agent 協作的時代，真正做事的 agent 常常是遠端、跨組織、碰不到你 DOM 的——它要怎麼把「介面」安全地送到你的前端？這就是 Google 在 2025-12-15 開源的 **A2UI（Agent-to-User Interface）** 協定想解的事。這篇拆解它的設計哲學、訊息格式，以及它跟 MCP Apps、AG-UI、ChatKit 的分工。
