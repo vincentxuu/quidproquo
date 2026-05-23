@@ -37,3 +37,6 @@ pnpm-debug.log*
 # omc runtime state (caches, session logs)
 .omc/state/hud-stdin-cache.json
 .omc/state/sessions/
+
+# deep-research scratch notes (not version-controlled)
+.research/
