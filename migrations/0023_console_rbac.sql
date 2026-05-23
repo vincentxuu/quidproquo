@@ -51,32 +51,109 @@ INSERT OR IGNORE INTO console_roles (name, description) VALUES
   ('approver', 'View and approve/reject approvals only'),
   ('viewer', 'Read-only access to all resources');
 
--- Seed full permissions for admin role
-INSERT OR IGNORE INTO console_permissions (role_id, resource_kind, resource_id, action)
-SELECT r.role_id, ck.resource_kind, NULL, a.action
-FROM console_roles r
-CROSS JOIN (VALUES ('flow'),('policy'),('provider'),('run'),('approval'),('artifact'),('cost'),('rbac')) AS ck(resource_kind)
-CROSS JOIN (VALUES ('view'),('invoke'),('edit'),('delete'),('approve'),('reject'),('cancel'),('export')) AS a(action)
-WHERE r.name = 'admin';
+-- Seed permissions through a transient table. D1 rejects VALUES-in-FROM and
+-- large UNION chains in migrations, so keep this intentionally plain.
+DROP TABLE IF EXISTS _rbac_seed_permissions;
+CREATE TABLE _rbac_seed_permissions (
+  role_name TEXT NOT NULL,
+  resource_kind TEXT NOT NULL,
+  action TEXT NOT NULL
+);
 
--- Operator: view+invoke+cancel on flows/runs/approvals
-INSERT OR IGNORE INTO console_permissions (role_id, resource_kind, resource_id, action)
-SELECT r.role_id, ck.resource_kind, NULL, a.action
-FROM console_roles r
-CROSS JOIN (VALUES ('flow'),('run'),('approval')) AS ck(resource_kind)
-CROSS JOIN (VALUES ('view'),('invoke'),('cancel')) AS a(action)
-WHERE r.name = 'operator';
+-- Admin: all actions on all resources.
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'flow', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'policy', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'provider', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'run', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'approval', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'artifact', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'cost', 'export');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'edit');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'delete');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'reject');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('admin', 'rbac', 'export');
 
--- Approver: view+approve+reject on approvals only
-INSERT OR IGNORE INTO console_permissions (role_id, resource_kind, resource_id, action)
-SELECT r.role_id, 'approval', NULL, a.action
-FROM console_roles r
-CROSS JOIN (VALUES ('view'),('approve'),('reject')) AS a(action)
-WHERE r.name = 'approver';
+-- Operator: view+invoke+cancel on flows/runs/approvals.
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'flow', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'flow', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'flow', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'run', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'run', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'run', 'cancel');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'approval', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'approval', 'invoke');
+INSERT INTO _rbac_seed_permissions VALUES ('operator', 'approval', 'cancel');
 
--- Viewer: view-only on all resources
+-- Approver: view+approve+reject on approvals only.
+INSERT INTO _rbac_seed_permissions VALUES ('approver', 'approval', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('approver', 'approval', 'approve');
+INSERT INTO _rbac_seed_permissions VALUES ('approver', 'approval', 'reject');
+
+-- Viewer: view-only on all non-RBAC console resources.
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'flow', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'policy', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'provider', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'run', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'approval', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'artifact', 'view');
+INSERT INTO _rbac_seed_permissions VALUES ('viewer', 'cost', 'view');
+
 INSERT OR IGNORE INTO console_permissions (role_id, resource_kind, resource_id, action)
-SELECT r.role_id, ck.resource_kind, NULL, 'view'
-FROM console_roles r
-CROSS JOIN (VALUES ('flow'),('policy'),('provider'),('run'),('approval'),('artifact'),('cost')) AS ck(resource_kind)
-WHERE r.name = 'viewer';
+SELECT r.role_id, s.resource_kind, NULL, s.action
+FROM _rbac_seed_permissions s
+JOIN console_roles r ON r.name = s.role_name;
+
+DROP TABLE IF EXISTS _rbac_seed_permissions;
