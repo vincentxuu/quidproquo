@@ -1,0 +1,937 @@
+---
+---
+
+<p class="page-desc">管理 RAG 可選 provider/model 清單，並直接測試指定模型是否可用。</p>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>RAG Routing Quick Edit</h2>
+        <p class="section-note">Default / fallback model 會優先從下方啟用的清單選取。</p>
+      </div>
+      <span id="routing-save-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div class="routing-form">
+      <label>
+        Engine
+        <select id="edit-engine">
+          <option value="langgraph">langgraph</option>
+          <option value="manual">manual</option>
+          <option value="llamaindex">llamaindex</option>
+        </select>
+      </label>
+      <label>
+        Default provider
+        <select id="edit-provider"></select>
+      </label>
+      <label>
+        Default model
+        <select id="edit-model"></select>
+      </label>
+      <label>
+        Fallback provider
+        <select id="edit-fallback-provider"></select>
+      </label>
+      <label>
+        Fallback model
+        <select id="edit-fallback-model"></select>
+      </label>
+      <button id="save-routing" type="button">儲存 routing</button>
+    </div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Provider Model Catalog</h2>
+        <p class="section-note">啟用的模型會出現在 routing 與測試區；停用後仍保留紀錄。</p>
+      </div>
+      <span id="catalog-save-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div class="catalog-toolbar">
+      <button id="expand-all-model-groups" type="button">全部展開</button>
+      <button id="collapse-all-model-groups" type="button">全部收合</button>
+    </div>
+
+    <form id="model-form" class="model-form">
+      <label>
+        Provider
+        <select id="model-provider"></select>
+      </label>
+      <label>
+        Model name
+        <input id="model-name" type="text" autocomplete="off" placeholder="llama-3.3-70b-versatile" />
+      </label>
+      <label>
+        Display name
+        <input id="model-display-name" type="text" autocomplete="off" placeholder="Llama 3.3 70B" />
+      </label>
+      <label>
+        Notes
+        <input id="model-notes" type="text" autocomplete="off" placeholder="用途、成本或限制" />
+      </label>
+      <label class="checkbox-label">
+        <input id="model-enabled" type="checkbox" checked />
+        啟用
+      </label>
+      <button type="submit">新增 / 更新</button>
+    </form>
+
+    <div id="model-catalog" class="catalog-list">載入中...</div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Test Model</h2>
+        <p class="section-note">使用環境變數 / Admin 設定的 key 呼叫模型，適合檢查 provider key、model name 與回應速度。</p>
+      </div>
+      <span id="test-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div class="test-panel">
+      <div class="test-controls">
+        <label>
+          Provider
+          <select id="test-provider"></select>
+        </label>
+        <label>
+          Model
+          <select id="test-model"></select>
+        </label>
+        <label>
+          Max tokens
+          <input id="test-max-tokens" type="number" min="16" max="512" value="96" />
+        </label>
+      </div>
+      <label>
+        測試標題
+        <input id="test-title" type="text" autocomplete="off" placeholder="可選：例如『日誌模型可用性』" />
+      </label>
+      <label class="prompt-label">
+        Prompt
+        <textarea id="test-prompt" rows="3">請用一句繁體中文回答：這個模型連線測試成功了嗎？</textarea>
+      </label>
+      <button id="run-model-test" type="button">執行測試</button>
+      <pre id="test-result" class="test-result">尚未測試。</pre>
+    </div>
+  </section>
+
+  <section class="providers-section">
+    <div class="section-header">
+      <div>
+        <h2>Provider Secrets</h2>
+        <p class="section-note">可直接在後台維護 provider key（不會在前端暴露原值）；有設定值時會作為 env fallback。</p>
+      </div>
+      <span id="provider-key-status" class="save-status" aria-live="polite"></span>
+    </div>
+    <div id="provider-secrets" class="secrets-grid">載入中...</div>
+  </section>
+
+  <div class="providers-grid">
+    <section class="providers-section">
+      <h2>RAG Pipeline</h2>
+      <div id="rag-providers" class="provider-cards">Loading...</div>
+    </section>
+
+    <section class="providers-section">
+      <h2>Embedding</h2>
+      <div id="embed-providers" class="provider-cards">Loading...</div>
+    </section>
+
+    <section class="providers-section">
+      <h2>Secrets Status</h2>
+      <div id="secrets-status" class="secrets-grid">Loading...</div>
+    </section>
+  </div>
+
+<script is:inline>
+  const routingControls = {
+    engine: document.getElementById('edit-engine'),
+    provider: document.getElementById('edit-provider'),
+    model: document.getElementById('edit-model'),
+    fallbackProvider: document.getElementById('edit-fallback-provider'),
+    fallbackModel: document.getElementById('edit-fallback-model'),
+    save: document.getElementById('save-routing'),
+    status: document.getElementById('routing-save-status'),
+  };
+
+  const catalogControls = {
+    form: document.getElementById('model-form'),
+    provider: document.getElementById('model-provider'),
+    model: document.getElementById('model-name'),
+    displayName: document.getElementById('model-display-name'),
+    notes: document.getElementById('model-notes'),
+    enabled: document.getElementById('model-enabled'),
+    list: document.getElementById('model-catalog'),
+    status: document.getElementById('catalog-save-status'),
+  };
+
+  const testControls = {
+    provider: document.getElementById('test-provider'),
+    model: document.getElementById('test-model'),
+    maxTokens: document.getElementById('test-max-tokens'),
+    title: document.getElementById('test-title'),
+    prompt: document.getElementById('test-prompt'),
+    run: document.getElementById('run-model-test'),
+    status: document.getElementById('test-status'),
+    result: document.getElementById('test-result'),
+  };
+
+  const catalogToggleControls = {
+    expandAll: document.getElementById('expand-all-model-groups'),
+    collapseAll: document.getElementById('collapse-all-model-groups'),
+  };
+
+  const secretControls = {
+    list: document.getElementById('provider-secrets'),
+    status: document.getElementById('provider-key-status'),
+  };
+
+  const DEFAULT_PROVIDERS = [
+    'groq',
+    'openai',
+    'google',
+    'anthropic',
+    'gemini',
+    'cloudflare',
+    'nvidia',
+    'cerebras',
+    'openrouter',
+    'ollama_cloud',
+    'ollama',
+  ];
+  const providerSyncStatus = new Map();
+
+  const PROVIDER_SECRET_FIELDS = [
+    'GROQ_API_KEY',
+    'OPENAI_API_KEY',
+    'GOOGLE_API_KEY',
+    'GEMINI_API_KEY',
+    'ANTHROPIC_API_KEY',
+    'OPENROUTER_API_KEY',
+    'NVIDIA_API_KEY',
+    'CEREBRAS_API_KEY',
+    'CLOUDFLARE_API_TOKEN',
+    'CLOUDFLARE_ACCOUNT_ID',
+    'OLLAMA_API_KEY',
+    'OLLAMA_CLOUD_API_KEY',
+    'OLLAMA_API_BASE',
+    'OLLAMA_HOST',
+    'OLLAMA_URL',
+    'JINA_API_KEY',
+    'JINA_SEARCH_API_KEY',
+    'TAVILY_API_KEY',
+    'FIRECRAWL_API_KEY',
+    'EXA_API_KEY',
+    'BRAVE_SEARCH_API_KEY',
+    'BRAVE_API_KEY',
+    'SERPER_API_KEY',
+    'SERPAPI_API_KEY',
+    'BOCHA_API_KEY',
+    'BRIGHT_DATA_API_KEY',
+    'BRIGHTDATA_API_KEY',
+    'LINKUP_API_KEY',
+  ];
+
+  let latestRagSettings = {};
+  let providerCatalog = { providers: DEFAULT_PROVIDERS, models: [] };
+  let providerSecrets = [];
+
+  function makeOption(value, label) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label ?? String(value);
+    return option;
+  }
+
+  function makeInfoRow(label, value) {
+    const row = document.createElement('div');
+    row.className = 'provider-info';
+    const labelEl = document.createElement('span');
+    labelEl.className = 'provider-label';
+    labelEl.textContent = `${label}:`;
+    const valueEl = document.createElement('span');
+    valueEl.className = 'provider-value';
+    valueEl.textContent = String(value);
+    row.append(labelEl, valueEl);
+    return row;
+  }
+
+  function makeFlag(label, enabled) {
+    const flag = document.createElement('span');
+    flag.className = `flag ${enabled ? 'enabled' : 'disabled'}`;
+    flag.textContent = label;
+    return flag;
+  }
+
+  function makeProviderCard(title) {
+    const card = document.createElement('article');
+    card.className = 'provider-card';
+    const header = document.createElement('div');
+    header.className = 'provider-header';
+    const name = document.createElement('span');
+    name.className = 'provider-name';
+    name.textContent = title;
+    header.append(name);
+    card.append(header);
+    return card;
+  }
+
+  function makeProviderCardWithLink(title, linkText, linkHref) {
+    const card = makeProviderCard(title);
+    const header = card.querySelector('.provider-header');
+    const link = document.createElement('a');
+    link.className = 'configure-link';
+    link.href = linkHref;
+    link.textContent = linkText;
+    header.append(link);
+    return card;
+  }
+
+  function makeModelCatalogItem(model) {
+    const row = document.createElement('div');
+    row.className = 'model-row';
+
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.className = 'model-main';
+    editButton.dataset.action = 'edit';
+    editButton.dataset.provider = model.provider;
+    editButton.dataset.model = model.model;
+
+    const title = document.createElement('span');
+    title.className = 'model-title';
+    title.textContent = model.displayName || model.model;
+    const modelName = document.createElement('span');
+    modelName.className = 'model-name';
+    modelName.textContent = model.model;
+    editButton.append(title, modelName);
+    if (model.notes) {
+      const notes = document.createElement('span');
+      notes.className = 'model-notes';
+      notes.textContent = model.notes;
+      editButton.append(notes);
+    }
+
+    const stateButton = document.createElement('button');
+    stateButton.type = 'button';
+    stateButton.className = `model-state ${model.enabled ? 'enabled' : 'disabled'}`;
+    stateButton.dataset.action = 'toggle';
+    stateButton.dataset.provider = model.provider;
+    stateButton.dataset.model = model.model;
+    stateButton.textContent = model.enabled ? 'active' : 'inactive';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.className = 'model-delete';
+    deleteButton.dataset.action = 'delete';
+    deleteButton.dataset.provider = model.provider;
+    deleteButton.dataset.model = model.model;
+    deleteButton.textContent = '刪除';
+
+    row.append(editButton, stateButton, deleteButton);
+    return row;
+  }
+
+  function makeSecretItem(name, status) {
+    const item = document.createElement('div');
+    item.className = 'secret-item';
+    const nameEl = document.createElement('span');
+    nameEl.className = 'secret-name';
+    nameEl.textContent = name;
+    const statusEl = document.createElement('span');
+    statusEl.className = `secret-status status-${status}`;
+    statusEl.textContent = status;
+    item.append(nameEl, statusEl);
+    return item;
+  }
+
+  function statusText(secret) {
+    if (secret.source === 'env') return 'env';
+    if (secret.source === 'both') return 'env+admin';
+    if (secret.source === 'admin') return 'admin';
+    return 'missing';
+  }
+
+  function makeProviderSecretRow(secret) {
+    const row = document.createElement('div');
+    row.className = 'secret-item';
+    const meta = document.createElement('div');
+    meta.className = 'provider-secret-meta';
+
+    const name = document.createElement('span');
+    name.className = 'secret-name';
+    name.textContent = `${secret.envKey}`;
+
+    const provider = document.createElement('span');
+    provider.className = 'provider-secret-provider';
+    provider.textContent = String(secret.provider || 'provider');
+    meta.append(name, provider);
+
+    const status = document.createElement('span');
+    status.className = `secret-status status-${statusText(secret)}`;
+    status.textContent = statusText(secret);
+
+    const controls = document.createElement('div');
+    controls.className = 'provider-secret-controls';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.className = 'provider-secret-value';
+    input.placeholder = secret.configured ? '已設定（僅供覆寫）' : '貼上新的 key';
+    input.dataset.key = secret.envKey;
+
+    const saveButton = document.createElement('button');
+    saveButton.type = 'button';
+    saveButton.textContent = '保存';
+    saveButton.dataset.action = 'save-secret';
+    saveButton.dataset.key = secret.envKey;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.textContent = '刪除 admin';
+    deleteButton.dataset.action = 'delete-secret';
+    deleteButton.dataset.key = secret.envKey;
+    if (!secret.hasDb) {
+      deleteButton.disabled = true;
+    }
+
+    controls.append(input, saveButton, deleteButton);
+    row.append(meta, status, controls);
+    row.style.gap = '0.5rem';
+    row.style.alignItems = 'center';
+    row.style.flexWrap = 'wrap';
+    return row;
+  }
+
+  function renderProviderKeys() {
+    if (!secretControls.list) return;
+    const statusByKey = new Map(providerSecrets.map((row) => [row.envKey, row]));
+    const frag = document.createDocumentFragment();
+    for (const key of Array.from(new Set(PROVIDER_SECRET_FIELDS))) {
+      const item = statusByKey.get(key);
+      if (item) {
+        frag.append(makeProviderSecretRow(item));
+      } else {
+        frag.append(makeProviderSecretRow({ envKey: key, provider: 'provider', hasEnv: false, hasDb: false, configured: false, source: 'missing' }));
+      }
+    }
+    secretControls.list.replaceChildren(frag);
+  }
+
+  function setSelectValue(select, value) {
+    if (!select || !value) return;
+    const option = select.querySelector(`option[value="${CSS.escape(value)}"]`);
+    if (option) {
+      select.value = value;
+      return;
+    }
+    const fallback = document.createElement('option');
+    fallback.value = value;
+    fallback.textContent = `${value} (custom)`;
+    select.appendChild(fallback);
+    select.value = value;
+  }
+
+  function setLoadError(container, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    container.replaceChildren(p);
+  }
+
+  async function loadProviders() {
+    await Promise.all([
+      loadProviderCatalog(),
+      loadRagProviders(),
+      loadEmbedProviders(),
+      loadSecretsStatus(),
+    ]);
+  }
+
+  async function loadProviderCatalog() {
+    const res = await fetch('/api/admin/providers');
+    if (!res.ok) throw new Error('Failed to load provider catalog');
+    const data = await res.json();
+    providerCatalog = {
+      providers: data.providers || DEFAULT_PROVIDERS,
+      models: data.catalog?.models || [],
+    };
+    providerSecrets = data.providerKeys || [];
+    renderProviderOptions();
+    renderModelCatalog();
+    renderProviderKeys();
+  }
+
+  function setSyncStatus(provider, message, type = 'info') {
+    const entry = providerSyncStatus.get(provider);
+    if (!entry) return;
+    entry.textContent = message;
+    entry.dataset.type = type;
+  }
+
+  async function syncProviderModels(provider) {
+    const button = providerSyncStatus.get(`${provider}:button`);
+    if (button instanceof HTMLElement) button.disabled = true;
+    setSyncStatus(provider, '同步中...', 'info');
+    try {
+      const res = await fetch(`/api/admin/providers/sync/${encodeURIComponent(provider)}`, {
+        method: 'POST',
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSyncStatus(provider, data.error || '同步失敗', 'error');
+      } else {
+        setSyncStatus(provider, `同步完成：新增 ${data.added}，保留 ${data.existing}，共 ${data.total}`, 'success');
+        await loadProviderCatalog();
+      }
+    } catch {
+      setSyncStatus(provider, '同步失敗，請稍後再試', 'error');
+    } finally {
+      if (button instanceof HTMLElement) button.disabled = false;
+      window.setTimeout(() => setSyncStatus(provider, ''), 5000);
+    }
+  }
+
+  function renderProviderOptions() {
+    catalogControls.provider.replaceChildren();
+    routingControls.provider.replaceChildren();
+    routingControls.fallbackProvider.replaceChildren();
+    testControls.provider.replaceChildren();
+
+    const providerOptions = providerCatalog.providers.map((provider) => makeOption(provider, provider));
+    const none = makeOption('', 'none');
+    catalogControls.provider.append(...providerOptions);
+    routingControls.provider.append(...providerOptions.map((option) => option.cloneNode(true)));
+    routingControls.fallbackProvider.append(none, ...providerOptions.map((option) => option.cloneNode(true)));
+    testControls.provider.append(...providerOptions.map((option) => option.cloneNode(true)));
+
+    syncRoutingForm(latestRagSettings);
+    syncModelOptions();
+  }
+
+  function syncModelOptions() {
+    const defaultProvider = routingControls.provider.value || providerCatalog.providers[0] || 'groq';
+    const fallbackProvider = routingControls.fallbackProvider.value;
+    const testProvider = testControls.provider.value || defaultProvider;
+
+    setModelSelectOptions(routingControls.model, defaultProvider, latestRagSettings.rag_default_model || '');
+    setModelSelectOptions(routingControls.fallbackModel, fallbackProvider, latestRagSettings.rag_fallback_model || '', true);
+    setModelSelectOptions(testControls.model, testProvider, testControls.model.value || latestRagSettings.rag_default_model || '');
+  }
+
+  function setModelSelectOptions(select, provider, selectedValue, allowNone = false) {
+    select.replaceChildren();
+    if (allowNone) {
+      select.append(makeOption('', 'none'));
+    }
+    const models = providerCatalog.models.filter((model) => model.provider === provider && model.enabled);
+    for (const model of models) {
+      select.append(makeOption(model.model, model.displayName || model.model));
+    }
+    if (!models.length && !allowNone) {
+      select.append(makeOption('', 'No enabled models'));
+      select.value = '';
+      return;
+    }
+    if (selectedValue) {
+      setSelectValue(select, selectedValue);
+    } else if (allowNone) {
+      select.value = '';
+    } else {
+      select.value = models[0]?.model || '';
+    }
+  }
+
+  async function loadRagProviders() {
+    const el = document.getElementById('rag-providers');
+    try {
+      const res = await fetch('/api/admin/rag');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      const settings = {};
+      for (const row of data.settings || []) {
+        settings[row.key] = row.value;
+      }
+      latestRagSettings = settings;
+      syncRoutingForm(settings);
+
+      const cards = [];
+
+      const chat = makeProviderCardWithLink('Chat / Answer', 'Configure', '/admin/rag');
+      chat.append(
+        makeInfoRow('Provider', settings.rag_default_provider || 'groq'),
+        makeInfoRow('Model', settings.rag_default_model || 'llama-3.3-70b-versatile'),
+        makeInfoRow('Engine', settings.rag_pipeline_engine || 'langgraph'),
+      );
+
+      const fallback = makeProviderCard('Fallback');
+      fallback.append(
+        makeInfoRow('Provider', settings.rag_fallback_provider || 'none'),
+        makeInfoRow('Model', settings.rag_fallback_model || 'none'),
+      );
+
+      const feature = makeProviderCard('Feature Flags');
+      const grid = document.createElement('div');
+      grid.className = 'flags-grid';
+      grid.append(
+        makeFlag('HyDE', settings.rag_flag_hyde === '1'),
+        makeFlag('Multi-Query', settings.rag_flag_multi_query === '1'),
+        makeFlag('Reranker', settings.rag_flag_reranker === '1'),
+        makeFlag('Critic', settings.rag_flag_critic === '1'),
+      );
+      feature.append(grid);
+
+      cards.push(chat, fallback, feature);
+      el.replaceChildren(...cards);
+    } catch {
+      setLoadError(el, 'Unable to load');
+    }
+  }
+
+  function syncRoutingForm(settings) {
+    routingControls.engine.value = settings.rag_pipeline_engine || 'langgraph';
+    routingControls.provider.value = settings.rag_default_provider || 'groq';
+    routingControls.fallbackProvider.value = settings.rag_fallback_provider || '';
+    syncModelOptions();
+  }
+
+  function renderModelCatalog() {
+    const grouped = providerCatalog.models.reduce((acc, model) => {
+      acc[model.provider] ||= [];
+      acc[model.provider].push(model);
+      return acc;
+    }, {});
+
+    const frag = document.createDocumentFragment();
+    for (const provider of providerCatalog.providers) {
+      const providerBlock = document.createElement('details');
+      providerBlock.className = 'catalog-provider';
+      providerBlock.dataset.provider = provider;
+      providerBlock.open = false;
+      const summary = document.createElement('summary');
+      summary.className = 'catalog-provider-summary';
+      const header = document.createElement('div');
+      header.className = 'catalog-provider-header';
+      const titleWrap = document.createElement('div');
+      titleWrap.className = 'catalog-provider-title';
+      const title = document.createElement('strong');
+      title.textContent = provider;
+      const stats = document.createElement('span');
+      const models = grouped[provider] || [];
+      const activeCount = models.filter((model) => model.enabled).length;
+      stats.textContent = `${activeCount} / ${models.length} enabled`;
+      titleWrap.append(title, stats);
+
+      const actionWrap = document.createElement('div');
+      actionWrap.className = 'catalog-provider-actions';
+      const syncStatus = document.createElement('span');
+      syncStatus.className = 'catalog-sync-status';
+      syncStatus.dataset.provider = provider;
+      const syncButton = document.createElement('button');
+      syncButton.type = 'button';
+      syncButton.className = 'catalog-sync-btn';
+      syncButton.dataset.action = 'sync';
+      syncButton.dataset.provider = provider;
+      syncButton.textContent = '同步模型';
+
+      syncButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        syncProviderModels(provider);
+      });
+      actionWrap.append(syncStatus, syncButton);
+      header.append(titleWrap, actionWrap);
+      providerSyncStatus.set(provider, syncStatus);
+      providerSyncStatus.set(`${provider}:button`, syncButton);
+
+      summary.append(header);
+      providerBlock.append(summary);
+
+      const body = document.createElement('div');
+      body.className = 'catalog-provider-body';
+
+      if (models.length) {
+        for (const model of models) {
+          body.append(makeModelCatalogItem(model));
+        }
+      } else {
+        const empty = document.createElement('p');
+        empty.className = 'empty-note';
+        empty.textContent = '尚未設定模型';
+        body.append(empty);
+      }
+
+      providerBlock.append(body);
+      frag.append(providerBlock);
+    }
+    catalogControls.list.replaceChildren(frag);
+  }
+
+  async function saveCatalog() {
+    catalogControls.status.textContent = '儲存中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ models: providerCatalog.models }),
+    });
+    if (!res.ok) {
+      catalogControls.status.textContent = '儲存失敗。';
+      return;
+    }
+    catalogControls.status.textContent = '已儲存。';
+    await loadProviderCatalog();
+    setTimeout(() => { catalogControls.status.textContent = ''; }, 2400);
+  }
+
+  catalogControls.form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const provider = catalogControls.provider.value;
+    const model = catalogControls.model.value.trim();
+    if (!provider || !model) {
+      catalogControls.status.textContent = 'Provider 與 model name 必填。';
+      return;
+    }
+
+    const nextModel = {
+      provider,
+      model,
+      displayName: catalogControls.displayName.value.trim(),
+      enabled: catalogControls.enabled.checked,
+      notes: catalogControls.notes.value.trim(),
+    };
+    providerCatalog.models = [
+      ...providerCatalog.models.filter((item) => item.provider !== provider || item.model !== model),
+      nextModel,
+    ].sort((a, b) => a.provider.localeCompare(b.provider) || a.model.localeCompare(b.model));
+    await saveCatalog();
+    catalogControls.form.reset();
+    catalogControls.enabled.checked = true;
+  });
+
+  async function saveProviderSecret(key, value) {
+    secretControls.status.textContent = '儲存中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'save-provider-key',
+        key,
+        value,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      secretControls.status.textContent = data.error || '儲存失敗。';
+      return;
+    }
+    await loadProviderCatalog();
+    secretControls.status.textContent = '已儲存。';
+    window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
+  }
+
+  async function deleteProviderSecret(key) {
+    secretControls.status.textContent = '刪除中...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'delete-provider-key',
+        key,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      secretControls.status.textContent = data.error || '刪除失敗。';
+      return;
+    }
+    await loadProviderCatalog();
+    secretControls.status.textContent = '已刪除。';
+    window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
+  }
+
+  secretControls.list?.addEventListener('click', async (event) => {
+    const target = event.target.closest('button[data-action]');
+    if (!target) return;
+    const key = target.dataset.key;
+    if (!key) return;
+
+    const input = secretControls.list.querySelector(`input[data-key="${CSS.escape(key)}"]`);
+    const value = input ? input.value.trim() : '';
+
+    if (target.dataset.action === 'save-secret') {
+      if (!value) {
+        secretControls.status.textContent = '請輸入要儲存的 key。';
+        return;
+      }
+      await saveProviderSecret(key, value);
+      return;
+    }
+
+    if (target.dataset.action === 'delete-secret') {
+      await deleteProviderSecret(key);
+      return;
+    }
+  });
+
+  catalogControls.list.addEventListener('click', async (event) => {
+    const button = event.target.closest('button[data-action]');
+    if (!button) return;
+    const provider = button.dataset.provider;
+    const modelName = button.dataset.model;
+    const model = providerCatalog.models.find((item) => item.provider === provider && item.model === modelName);
+    if (!model) return;
+
+    if (button.dataset.action === 'edit') {
+      catalogControls.provider.value = model.provider;
+      catalogControls.model.value = model.model;
+      catalogControls.displayName.value = model.displayName || '';
+      catalogControls.notes.value = model.notes || '';
+      catalogControls.enabled.checked = model.enabled;
+      return;
+    }
+
+    if (button.dataset.action === 'toggle') {
+      model.enabled = !model.enabled;
+      await saveCatalog();
+      return;
+    }
+
+    if (button.dataset.action === 'delete') {
+      providerCatalog.models = providerCatalog.models.filter((item) => item !== model);
+      await saveCatalog();
+    }
+  });
+
+  routingControls.provider.addEventListener('change', syncModelOptions);
+  routingControls.fallbackProvider.addEventListener('change', syncModelOptions);
+  testControls.provider.addEventListener('change', syncModelOptions);
+
+  routingControls.save.addEventListener('click', async () => {
+    routingControls.status.textContent = '儲存中...';
+    const settings = {
+      ...latestRagSettings,
+      rag_pipeline_engine: routingControls.engine.value,
+      rag_default_provider: routingControls.provider.value,
+      rag_default_model: routingControls.model.value,
+      rag_fallback_provider: routingControls.fallbackProvider.value,
+      rag_fallback_model: routingControls.fallbackModel.value,
+    };
+    const res = await fetch('/api/admin/rag', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ settings }),
+    });
+    if (!res.ok) {
+      routingControls.status.textContent = '儲存失敗。';
+      return;
+    }
+    routingControls.status.textContent = '已儲存。';
+    await loadRagProviders();
+    setTimeout(() => { routingControls.status.textContent = ''; }, 2400);
+  });
+
+  testControls.run.addEventListener('click', async () => {
+    testControls.status.textContent = '測試中...';
+    testControls.result.textContent = '等待模型回應...';
+    const res = await fetch('/api/admin/providers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        provider: testControls.provider.value,
+        model: testControls.model.value,
+        prompt: testControls.prompt.value,
+        title: testControls.title?.value,
+        maxTokens: Number(testControls.maxTokens.value),
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      testControls.status.textContent = '測試失敗';
+      testControls.result.textContent = JSON.stringify(data, null, 2);
+      return;
+    }
+    testControls.status.textContent = `成功，${data.duration_ms}ms`;
+    const title = testControls.title?.value?.trim();
+    if (title) {
+      data.testTitle = title;
+    }
+    testControls.result.textContent = JSON.stringify(data, null, 2);
+  });
+
+  async function loadEmbedProviders() {
+    const el = document.getElementById('embed-providers');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const workersAiOk = data.statuses?.find((s) => s.name === 'Workers AI')?.ok;
+      const vectorizeOk = data.statuses?.find((s) => s.name === 'Vectorize Index')?.ok;
+
+      const workers = makeProviderCard('Workers AI');
+      const workerStatus = document.createElement('span');
+      workerStatus.className = `status-badge ${workersAiOk ? 'active' : 'error'}`;
+      workerStatus.textContent = workersAiOk ? 'Active' : 'Error';
+      workers.querySelector('.provider-header')?.append(workerStatus);
+      workers.append(
+        makeInfoRow('Embedding Model', '@cf/baai/bge-base-en-v1.5'),
+        makeInfoRow('Post Chunks', data.index?.postChunks ?? 0),
+        makeInfoRow('Doc Chunks', data.index?.docChunks ?? 0),
+      );
+
+      const vectorize = makeProviderCard('Vectorize');
+      const vectorStatus = document.createElement('span');
+      vectorStatus.className = `status-badge ${vectorizeOk ? 'active' : 'error'}`;
+      vectorStatus.textContent = vectorizeOk ? 'Active' : 'Error';
+      vectorize.querySelector('.provider-header')?.append(vectorStatus);
+      vectorize.append(makeInfoRow('Index', 'quidproquo-embeddings'));
+
+      el.replaceChildren(workers, vectorize);
+    } catch {
+      setLoadError(el, 'Unable to load');
+    }
+  }
+
+  async function loadSecretsStatus() {
+    const el = document.getElementById('secrets-status');
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const secrets = [
+        { name: 'ADMIN_PASSWORD', status: 'configured' },
+        { name: 'CRAWL_SECRET', status: 'configured' },
+        { name: 'Workers AI Binding', status: data.statuses?.find((s) => s.name === 'Workers AI')?.ok ? 'ready' : 'missing' },
+      ];
+      const frag = document.createDocumentFragment();
+      for (const secret of secrets) {
+        frag.append(makeSecretItem(secret.name, secret.status));
+      }
+      el.replaceChildren(frag);
+    } catch {
+      setLoadError(el, 'Unable to load');
+    }
+  }
+
+  loadProviders().catch(() => {
+    setLoadError(catalogControls.list, 'Unable to load provider settings');
+  });
+
+  if (catalogToggleControls.expandAll) {
+    catalogToggleControls.expandAll.addEventListener('click', () => {
+      catalogControls.list.querySelectorAll('details.catalog-provider').forEach((providerBlock) => {
+        providerBlock.open = true;
+      });
+    });
+  }
+
+  if (catalogToggleControls.collapseAll) {
+    catalogToggleControls.collapseAll.addEventListener('click', () => {
+      catalogControls.list.querySelectorAll('details.catalog-provider').forEach((providerBlock) => {
+        providerBlock.open = false;
+      });
+    });
+  }
+</script>
