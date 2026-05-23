@@ -13,7 +13,10 @@ export const POST: APIRoute = async ({ params, request, cookies }) => {
   const typedEnv = env as unknown as Env
   const flags = readFlags(typedEnv)
 
-  if (!flags.agentConsole.enabled || !flags.agentConsole.rbac) {
+  if (
+    !flags.agentConsole.enabled
+    || (flags.agentConsole.rbac !== undefined && !flags.agentConsole.rbac)
+  ) {
     return new Response(JSON.stringify({ error: 'RBAC disabled' }), { status: 503 })
   }
 

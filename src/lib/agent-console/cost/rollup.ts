@@ -8,7 +8,7 @@ function yesterdayDay(): number {
   return epochDayOf(Date.now()) - 1
 }
 
-const DIMENSIONS = ['flow_id', 'agent_id'] as const
+const DIMENSIONS = ['flow_id', 'agent_id', 'policy_id', 'user_id', 'preset_id', 'provider_id'] as const
 type Dimension = (typeof DIMENSIONS)[number]
 
 interface DimensionRow {
@@ -55,6 +55,76 @@ async function buildDayForDimension(
       JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
       WHERE fr.started_at >= ? AND fr.started_at < ?
       GROUP BY ar.agent_id
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  if (dimension === 'preset_id') {
+    const result = await db.prepare(`
+      SELECT COALESCE(fr.preset_id, '(none)') AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT fr.flow_run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY COALESCE(fr.preset_id, '(none)')
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  if (dimension === 'policy_id') {
+    const result = await db.prepare(`
+      SELECT COALESCE(pd.policy_key, CAST(pb.policy_id AS TEXT), '(unbound)') AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT fr.flow_run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      LEFT JOIN policy_bindings pb ON CAST(pb.flow_run_id AS TEXT) = fr.flow_run_id
+      LEFT JOIN policy_definitions pd ON pd.policy_id = pb.policy_id
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY COALESCE(pd.policy_key, CAST(pb.policy_id AS TEXT), '(unbound)')
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  if (dimension === 'user_id') {
+    const result = await db.prepare(`
+      SELECT COALESCE(CAST(al.user_id AS TEXT), '(unknown)') AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT fr.flow_run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      LEFT JOIN console_audit_log al
+        ON al.resource_kind = 'run'
+       AND al.resource_id = fr.flow_run_id
+       AND al.action IN ('flow.run.invoke', 'run.start', 'invoke')
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY COALESCE(CAST(al.user_id AS TEXT), '(unknown)')
+    `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
+    return result.results
+  }
+
+  if (dimension === 'provider_id') {
+    const result = await db.prepare(`
+      SELECT COALESCE(tc.syscall_name, '(unknown)') AS dimension_value,
+             COALESCE(SUM(tc.tokens_in), 0) AS tokens_in,
+             COALESCE(SUM(tc.tokens_out), 0) AS tokens_out,
+             COALESCE(SUM(tc.cost_usd), 0.0) AS cost_usd,
+             COUNT(DISTINCT ar.run_id) AS run_count
+      FROM flow_runs fr
+      JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+      JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+      WHERE fr.started_at >= ? AND fr.started_at < ?
+      GROUP BY COALESCE(tc.syscall_name, '(unknown)')
     `).bind(dayStartMs, dayEndMs).all<DimensionRow>()
     return result.results
   }

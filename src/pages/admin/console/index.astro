@@ -16,11 +16,40 @@ if (gate) return gate;
 
 const ready = isPageEnabled('flowSelector');
 
+const url = new URL(Astro.url);
+const selectedCategory = url.searchParams.get('category')?.trim() ?? '';
+const selectedStatus = url.searchParams.get('status')?.trim() ?? '';
+const selectedCost = url.searchParams.get('cost')?.trim() ?? '';
+
+const urlFor = (patch: Record<string, string>) => {
+  const next = new URL(url);
+  for (const [k, v] of Object.entries(patch)) {
+    if (v) {
+      next.searchParams.set(k, v);
+    } else {
+      next.searchParams.delete(k);
+    }
+  }
+  return next.pathname + next.search;
+};
+
+const filterCategories = ['research', 'content', 'system', 'analysis', 'general'];
+const filterStatuses = ['published', 'draft', 'archived'];
+const filterCosts = [
+  { value: 'lt_0_10', label: '<$0.10' },
+  { value: '0_10_1', label: '$0.10 – $1.00' },
+  { value: 'gt_1', label: '>$1.00' },
+];
+
 let cards: FlowCardData[] = [];
 let loadError = false;
 if (ready) {
   try {
-    cards = await loadFlowCards(getEnv().DB);
+    cards = await loadFlowCards(getEnv().DB, {
+      category: selectedCategory,
+      status: selectedStatus,
+      cost: selectedCost,
+    });
   } catch {
     loadError = true;
   }
@@ -78,17 +107,99 @@ try {
     <AdminState tone="empty">No flows are registered yet.</AdminState>
   )}
   {ready && !loadError && cards.length > 0 && (
-    <section class="flow-grid" aria-label="Available flows">
+  <section class="flow-grid" aria-label="Available flows">
       {cards.map((card) => <ConsoleFlowCard card={card} />)}
     </section>
   )}
+  <section class="flow-filter-bar">
+    <form class="filter-form" method="GET" action="/admin/console">
+      <label for="category" class="filter-label">Category</label>
+      <select id="category" name="category">
+        <option value="" selected={selectedCategory === ''}>All</option>
+        {filterCategories.map((value) => (
+          <option value={value} selected={selectedCategory === value}>
+            {value}
+          </option>
+        ))}
+      </select>
+
+      <label for="status" class="filter-label">Status</label>
+      <select id="status" name="status">
+        <option value="" selected={selectedStatus === ''}>All</option>
+        {filterStatuses.map((value) => (
+          <option value={value} selected={selectedStatus === value}>
+            {value}
+          </option>
+        ))}
+      </select>
+
+      <label for="cost" class="filter-label">Cost</label>
+      <select id="cost" name="cost">
+        <option value="" selected={selectedCost === ''}>All</option>
+        {filterCosts.map((item) => (
+          <option value={item.value} selected={selectedCost === item.value}>
+            {item.label}
+          </option>
+        ))}
+      </select>
+
+      <button type="submit" class="btn-secondary">Apply</button>
+      {(selectedCategory || selectedStatus || selectedCost) && (
+        <a href="/admin/console" class="btn-clear">Clear</a>
+      )}
+    </form>
+  </section>
 </AdminConsoleLayout>
 
 <style>
+  .flow-filter-bar {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
   .flow-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1rem;
+  }
+
+  .filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .filter-form select {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    padding: 0.35rem 0.6rem;
+    min-width: 120px;
+  }
+
+  .btn-clear,
+  .btn-secondary {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    background: var(--admin-surface, #fff);
+    padding: 0.38rem 0.75rem;
+    border-radius: var(--admin-radius, 6px);
+    color: var(--admin-text, #1e293b);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+  }
+
+  .btn-secondary:hover,
+  .btn-clear:hover {
+    background: var(--admin-muted, #f1f5f9);
   }
 
   .approvals-banner {

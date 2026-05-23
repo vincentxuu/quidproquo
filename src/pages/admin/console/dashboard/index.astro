@@ -1,0 +1,11 @@
+---
+import { ensureConsoleUmbrella } from '../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const search = Astro.url.search;
+return Astro.redirect(`/admin/console/cost${search}`);
+---

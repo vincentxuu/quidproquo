@@ -34,6 +34,9 @@ export interface Env {
   AGENT_EVIDENCE_ENABLED?: string
   // agent-console
   AGENT_CONSOLE_ENABLED?: string
+  AGENT_CONSOLE_RBAC?: string
+  AGENT_CONSOLE_COST_DASHBOARD?: string
+  AGENT_CONSOLE_FLOW_EDITOR?: string
   // agent-artifact
   AGENT_ARTIFACT_ENABLED?: string
   AGENT_ARTIFACT_R2_OFFLOAD?: string

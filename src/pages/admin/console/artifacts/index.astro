@@ -2,19 +2,344 @@
 export const prerender = false;
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('artifactViewer');
+
+const PAGE_SIZE = 25;
+const url = new URL(Astro.url);
+const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const q = url.searchParams.get('q')?.trim() ?? '';
+const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+const offset = (page - 1) * PAGE_SIZE;
+
+interface ArtifactRunRow {
+  artifact_id: string;
+  definition_id: string;
+  kind: string | null;
+  flow_run_id: string | null;
+  flow_id: string | null;
+  flow_display_name: string | null;
+  logical_name: string | null;
+  latest_version: number | null;
+  status: string | null;
+  last_seen_at: number | null;
+}
+
+interface CountRow {
+  total: number;
+}
+
+let artifacts: ArtifactRunRow[] = [];
+let totalCount = 0;
+let loadError = false;
+let backendUnavailable = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+
+    const tableCheck = await db
+      .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`)
+      .first<{ name: string }>();
+    if (!tableCheck) {
+      backendUnavailable = true;
+    } else {
+      const like = `%${q}%`;
+      const where = `
+        WHERE (
+          d.definition_id LIKE ? OR
+          d.logical_name LIKE ? OR
+          COALESCE(d.flow_id, '') LIKE ? OR
+          COALESCE(d.kind, '') LIKE ?
+        )
+      `;
+
+      const countResult = await db
+        .prepare(
+          `SELECT COUNT(*) as total
+           FROM artifact_definitions d
+           ${where}`,
+        )
+        .bind(like, like, like, like)
+        .first<CountRow>();
+      totalCount = countResult?.total ?? 0;
+
+      const artifactResult = await db
+        .prepare(
+          `SELECT d.definition_id AS artifact_id,
+                  d.definition_id,
+                  d.kind,
+                  d.flow_run_id,
+                  d.flow_id,
+                  f.display_name AS flow_display_name,
+                  d.logical_name,
+                  v.version_number AS latest_version,
+                  v.status,
+                  v.created_at AS last_seen_at
+           FROM artifact_definitions d
+           LEFT JOIN flow_runs fr ON fr.flow_run_id = d.flow_run_id
+           LEFT JOIN flow_definitions f ON f.flow_id = fr.flow_id
+           LEFT JOIN artifact_versions v
+             ON v.definition_id = d.definition_id
+            AND v.version_number = (
+              SELECT MAX(v2.version_number)
+              FROM artifact_versions v2
+              WHERE v2.definition_id = d.definition_id
+            )
+           ${where}
+           ORDER BY d.updated_at DESC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(like, like, like, like, PAGE_SIZE, offset)
+        .all<ArtifactRunRow>();
+      artifacts = artifactResult.results ?? [];
+    }
+  } catch {
+    loadError = true;
+  }
+}
+
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+function listHref(p: number): string {
+  const u = new URL(Astro.url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function statusClass(status: string | null): string {
+  if (!status) return 'pending';
+  const norm = status.toLowerCase();
+  if (norm === 'approved') return 'approved';
+  if (norm === 'rejected') return 'rejected';
+  if (norm === 'exported' || norm === 'published') return 'published';
+  return 'pending';
+}
+
+function statusLabel(status: string | null): string {
+  return status ? status : 'pending';
+}
+
+function artifactLink(row: ArtifactRunRow): string {
+  if (!row.latest_version || !row.artifact_id || !row.flow_run_id) return '';
+  return `/admin/console/runs/${row.flow_run_id}/artifacts/${row.artifact_id}`;
+}
+
+function rowLabel(row: ArtifactRunRow): string {
+  return row.logical_name || row.artifact_id;
+}
+
+function safeQ(input: string): string {
+  return input;
+}
 ---
 
 <AdminConsoleLayout title="Artifacts" section="artifacts">
   {!ready && (
     <AdminState tone="empty">{`Artifact viewer ships in ${consolePhaseFor('artifactViewer')}.`}</AdminState>
   )}
-  {ready && (
-    <AdminState tone="empty">Select a run to view its artifacts.</AdminState>
+  {ready && backendUnavailable && (
+    <AdminState tone="empty">
+      Artifact viewer requires AGENT_ARTIFACT_ENABLED=true and the artifact migrations to be applied.
+    </AdminState>
+  )}
+  {ready && !backendUnavailable && loadError && (
+    <AdminState tone="error">Could not load artifacts.</AdminState>
+  )}
+  {ready && !backendUnavailable && !loadError && (
+    <>
+      <AdminPanel title="Artifacts">
+        <form class="toolbar" method="GET" action="/admin/console/artifacts">
+          <label for="q" class="search-label">Search artifacts</label>
+          <input
+            id="q"
+            name="q"
+            value={q}
+            class="search-input"
+            placeholder="Search by artifact id, kind, logical name..."
+          />
+          <button type="submit" class="btn-secondary">Search</button>
+          {q && <a href="/admin/console/artifacts" class="btn-clear">Clear</a>}
+        </form>
+
+        {artifacts.length === 0 ? (
+          <AdminState tone="empty">No artifacts found.</AdminState>
+        ) : (
+          <AdminTable minWidth="860px" flush>
+            <thead>
+              <tr>
+                <th>Artifact</th>
+                <th>Kind</th>
+                <th>Flow</th>
+                <th>Latest Version</th>
+                <th>Run</th>
+                <th>Status</th>
+                <th>Updated</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {artifacts.map((artifact) => {
+                const link = artifactLink(artifact);
+                return (
+                  <tr>
+                    <td class="mono">
+                      <a href={link || '#'} class:list={{ disabled: !link }} aria-disabled={link ? 'false' : 'true'}>
+                        {rowLabel(artifact)}
+                      </a>
+                    </td>
+                    <td>{artifact.kind || '—'}</td>
+                    <td>{artifact.flow_display_name || artifact.flow_id || '—'}</td>
+                    <td>{artifact.latest_version ?? '—'}</td>
+                    <td>{artifact.flow_run_id ? artifact.flow_run_id.slice(0, 8) + '…' : '—'}</td>
+                    <td><span class={`artifact-status ${statusClass(artifact.status)}`}>{statusLabel(artifact.status)}</span></td>
+                    <td class="mono">{formatTs(artifact.last_seen_at)}</td>
+                    <td>
+                      {artifact.flow_run_id && artifact.latest_version ? (
+                        <a href={`/admin/console/runs/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="btn-secondary">
+                          Open
+                        </a>
+                      ) : (
+                        <span class="muted">—</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </AdminTable>
+        )}
+
+        {totalPages > 1 && (
+          <div class="pagination">
+            {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
+            {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
+            <span class="page-info">Page {page} / {totalPages}</span>
+            {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+          </div>
+        )}
+      </AdminPanel>
+    </>
   )}
 </AdminConsoleLayout>
+
+<style>
+  .toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .search-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    min-width: 260px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.42rem 0.65rem;
+    color: var(--admin-text);
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .artifact-status {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    font-size: 0.72rem;
+    text-transform: capitalize;
+  }
+
+  .artifact-status.pending {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #64748b;
+  }
+
+  .artifact-status.approved {
+    background: #f0fdf4;
+    border-color: #86efac;
+    color: #166534;
+  }
+
+  .artifact-status.rejected {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+  }
+
+  .artifact-status.published {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+  }
+
+  .btn-secondary,
+  .btn-clear,
+  .page-btn {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .btn-secondary:hover,
+  .btn-clear:hover,
+  .page-btn:hover:not(.disabled) {
+    background: var(--admin-muted);
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+  }
+
+  a.disabled,
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  .pagination {
+    margin-top: 0.9rem;
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .page-info {
+    color: var(--admin-text-muted);
+    font-size: 0.83rem;
+  }
+</style>

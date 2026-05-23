@@ -11,85 +11,271 @@ const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('management');
+const PAGE_SIZE = 25;
+
+const url = new URL(Astro.url);
+const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+const offset = (page - 1) * PAGE_SIZE;
+const q = url.searchParams.get('q')?.trim() ?? '';
+
+const windowMs = 60_000;
+const windowSince = Date.now() - windowMs;
 
 interface ProviderRow {
   provider_id: string;
   category: string | null;
   display_name: string | null;
   is_enabled: number | null;
-  updated_at: number | null;
+}
+
+interface ProviderSnapshotRow {
+  is_healthy: number;
+  p50_latency_ms: number | null;
+}
+
+interface HealthStat {
+  state: 'healthy' | 'degraded' | 'down' | 'unknown';
+  p50LatencyMs: number | null;
+  successRate1mPct: number | null;
+}
+
+interface CountRow {
+  total: number;
 }
 
 let providers: ProviderRow[] = [];
 let loadError = false;
+let totalCount = 0;
+let healthByProvider: Map<string, HealthStat> = new Map();
+let healthSnapshotAvailable = true;
 
 if (ready) {
   try {
     const db = getEnv().DB;
-    const result = await db
-      .prepare(
-        `SELECT provider_id, category, display_name, is_enabled, updated_at
-         FROM provider_definitions
-         ORDER BY category, display_name ASC`,
-      )
-      .all<ProviderRow>();
-    providers = result.results ?? [];
+    const where = q
+      ? `WHERE provider_id LIKE ? OR category LIKE ? OR display_name LIKE ?`
+      : '';
+
+    if (q) {
+      const like = `%${q}%`;
+      const countResult = await db
+        .prepare(`SELECT COUNT(*) as total FROM provider_definitions ${where}`)
+        .bind(like, like, like)
+        .first<CountRow>();
+      totalCount = countResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT provider_id, category, display_name, is_enabled
+           FROM provider_definitions
+           ${where}
+           ORDER BY category ASC, display_name ASC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(like, like, like, PAGE_SIZE, offset)
+        .all<ProviderRow>();
+      providers = result.results ?? [];
+    } else {
+      const countResult = await db
+        .prepare(`SELECT COUNT(*) as total FROM provider_definitions`)
+        .first<CountRow>();
+      totalCount = countResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT provider_id, category, display_name, is_enabled
+           FROM provider_definitions
+           ORDER BY category ASC, display_name ASC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(PAGE_SIZE, offset)
+        .all<ProviderRow>();
+      providers = result.results ?? [];
+    }
+
+    const table = await db
+      .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='provider_health_snapshots' LIMIT 1`)
+      .first<{ name: string }>();
+    if (!table) {
+      healthSnapshotAvailable = false;
+    } else {
+      for (const provider of providers) {
+        const snapshotRows = await db
+          .prepare(
+            `SELECT is_healthy, p50_latency_ms
+             FROM provider_health_snapshots
+             WHERE provider_id = ? AND observed_at >= ?
+             ORDER BY observed_at DESC`,
+          )
+          .bind(provider.provider_id, windowSince)
+          .all<ProviderSnapshotRow>();
+
+        const rows = snapshotRows.results ?? [];
+        if (!rows.length) {
+          healthByProvider.set(provider.provider_id, {
+            state: 'unknown',
+            p50LatencyMs: null,
+            successRate1mPct: null,
+          });
+          continue;
+        }
+
+        const total = rows.length;
+        const healthy = rows.filter((row) => row.is_healthy === 1).length;
+        const successRate = (healthy / total) * 100;
+
+        let ewma = null as number | null;
+        const alpha = 0.3;
+        for (const row of rows) {
+          if (row.p50_latency_ms == null) continue;
+          const latency = row.p50_latency_ms;
+          if (ewma === null) {
+            ewma = latency;
+          } else {
+            ewma = alpha * latency + (1 - alpha) * ewma;
+          }
+        }
+
+        let state: HealthStat['state'] = 'degraded';
+        if (successRate >= 95) state = 'healthy';
+        else if (successRate < 80) state = 'down';
+
+        healthByProvider.set(provider.provider_id, {
+          state,
+          p50LatencyMs: ewma,
+          successRate1mPct: Number.isFinite(successRate) ? successRate : null,
+        });
+      }
+    }
   } catch {
-    // Table may not exist yet — show empty state
-    loadError = false;
-    providers = [];
+    loadError = true;
   }
 }
 
-function formatTs(ms: number | null): string {
-  if (!ms) return '—';
-  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+function listHref(p: number): string {
+  const u = new URL(Astro.url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
+}
+
+function statusClass(state: HealthStat['state']): string {
+  return `health-badge ${state}`;
+}
+
+function pct(value: number | null): string {
+  if (value === null) return '—';
+  return `${value.toFixed(1)}%`;
+}
+
+function ms(value: number | null): string {
+  if (value === null) return '—';
+  return `${Math.round(value)} ms`;
+}
+
+function statusText(enabled: number | null): string {
+  if (enabled === null) return '—';
+  return enabled === 1 ? 'Enabled' : 'Disabled';
+}
+
+function healthFor(providerId: string): HealthStat {
+  return (
+    healthByProvider.get(providerId) ?? {
+      state: 'unknown',
+      p50LatencyMs: null,
+      successRate1mPct: null,
+    }
+  );
 }
 ---
 
 <AdminConsoleLayout title="Providers" section="providers">
   {!ready && (
-    <AdminState tone="empty">{`Providers management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone="empty">{`Provider management ships in ${consolePhaseFor('management')}.`}</AdminState>
   )}
-  {ready && loadError && (
-    <AdminState tone="error">Could not load providers.</AdminState>
+  {ready && loadError && <AdminState tone="error">Could not load providers.</AdminState>}
+
+  {ready && !loadError && (
+    <AdminPanel title="Provider Definitions" eyebrow="Search and filter registered providers">
+      <form class="toolbar" method="GET" action="/admin/console/providers">
+        <label for="q" class="search-label">Search providers</label>
+        <input
+          id="q"
+          name="q"
+          type="search"
+          value={q}
+          class="search-input"
+          placeholder="Search by provider id, category, or name"
+        />
+        <button type="submit" class="btn-secondary">Search</button>
+        {q && <a href="/admin/console/providers" class="btn-clear">Clear</a>}
+      </form>
+    </AdminPanel>
   )}
+
   {ready && !loadError && providers.length === 0 && (
-    <AdminState tone="empty">No provider definitions registered yet.</AdminState>
+    <AdminState tone="empty">{q ? `No providers match "${q}".` : 'No provider definitions registered yet.'}</AdminState>
   )}
+
   {ready && !loadError && providers.length > 0 && (
-    <AdminPanel title="Provider Definitions">
-      <AdminTable minWidth="560px" flush>
+    <AdminPanel title="Provider Definitions" eyebrow={`${totalCount} total`}>
+      <AdminTable minWidth="840px" flush>
         <thead>
           <tr>
             <th>Provider ID</th>
             <th>Category</th>
             <th>Name</th>
+            <th>Current Health</th>
+            <th>1m Success</th>
+            <th>EWMA p50</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {providers.map((p) => (
-            <tr>
-              <td class="mono">
-                <a href={`/admin/console/providers/${p.provider_id}`} class="link">
-                  {p.provider_id}
-                </a>
-              </td>
-              <td class="category">{p.category ?? '—'}</td>
-              <td class="provider-name">{p.display_name ?? p.provider_id}</td>
-              <td>
-                {p.is_enabled ? (
-                  <span class="badge enabled">Enabled</span>
-                ) : (
-                  <span class="badge disabled">Disabled</span>
-                )}
-              </td>
-            </tr>
-          ))}
+          {providers.map((provider) => {
+            const health = healthFor(provider.provider_id);
+            return (
+              <tr>
+                <td class="mono">
+                  <a href={`/admin/console/providers/${provider.provider_id}`} class="link">
+                    {provider.provider_id}
+                  </a>
+                </td>
+                <td class="category">{provider.category ?? '—'}</td>
+                <td class="provider-name">{provider.display_name ?? provider.provider_id}</td>
+                <td>
+                  <span class={statusClass(health.state)}>{health.state}</span>
+                </td>
+                <td class="mono">{pct(health.successRate1mPct)}</td>
+                <td class="mono">{ms(health.p50LatencyMs)}</td>
+                <td>{statusText(provider.is_enabled)}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </AdminTable>
+
+      {totalPages > 1 && (
+        <div class="pagination">
+          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
+          <span class="page-info">Page {page} / {totalPages}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+        </div>
+      )}
     </AdminPanel>
+  )}
+
+  {!healthSnapshotAvailable && ready && !loadError && providers.length > 0 && (
+    <AdminState tone="empty">
+      Provider health snapshots table is not available yet; health metrics are shown as “unknown” until migration is applied.
+    </AdminState>
   )}
 </AdminConsoleLayout>
 
@@ -122,24 +308,97 @@ function formatTs(ms: number | null): string {
     text-decoration: underline;
   }
 
-  .badge {
+  .toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .search-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    min-width: 260px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.42rem 0.65rem;
+    color: var(--admin-text);
+  }
+
+  .btn-clear,
+  .btn-secondary,
+  .page-btn {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .btn-clear:hover,
+  .btn-secondary:hover,
+  .page-btn:hover:not(.disabled) {
+    background: var(--admin-muted);
+  }
+
+  .pagination {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .page-info {
+    color: var(--admin-text-muted);
+    font-size: 0.83rem;
+  }
+
+  .disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .health-badge {
     display: inline-block;
     padding: 0.1em 0.55em;
     border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 600;
     border: 1px solid;
+    font-size: 0.74rem;
+    font-weight: 500;
+    text-transform: capitalize;
   }
 
-  .badge.enabled {
-    color: #16a34a;
-    border-color: #16a34a;
+  .health-badge.healthy {
+    color: #15803d;
+    border-color: #22c55e;
     background: #f0fdf4;
   }
 
-  .badge.disabled {
-    color: #dc2626;
-    border-color: #dc2626;
+  .health-badge.degraded {
+    color: #b45309;
+    border-color: #f59e0b;
+    background: #fefce8;
+  }
+
+  .health-badge.down {
+    color: #991b1b;
+    border-color: #ef4444;
     background: #fef2f2;
+  }
+
+  .health-badge.unknown {
+    color: #475569;
+    border-color: #94a3b8;
+    background: #f8fafc;
   }
 </style>

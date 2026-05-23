@@ -1,8 +1,7 @@
 import type { Env } from '../config/env'
+import { readFlags } from '../config/flags'
 import { ExporterRegistry } from './exporters/registry'
-import { csvFileExporter } from './exporters/csv-file'
-import { createPdfExporter } from './exporters/pdf'
-import { createPptxExporter } from './exporters/pptx'
+import { registerDefaultExporters } from './exporters/register-defaults'
 import { registerDefaultKinds } from './kinds'
 import { ArtifactRegeneration } from './regeneration'
 import { ArtifactRegistry } from './registry'
@@ -57,21 +56,7 @@ export function createArtifact(env: Env, backends: ArtifactBackends): ArtifactMo
   if (enabled) {
     // Register all kinds
     registerDefaultKinds(registry)
-
-    // Register exporters behind their flags
-    const csvEnabled = readBool(env.AGENT_ARTIFACT_CSV)
-    const pdfEnabled = readBool(env.AGENT_ARTIFACT_PDF)
-    const pptxEnabled = readBool(env.AGENT_ARTIFACT_PPTX)
-
-    if (csvEnabled) {
-      exporters.register(csvFileExporter)
-    }
-    if (pdfEnabled) {
-      exporters.register(createPdfExporter(true))
-    }
-    if (pptxEnabled) {
-      exporters.register(createPptxExporter(true))
-    }
+    registerDefaultExporters(exporters, readFlags(env).agentArtifact)
   }
 
   return { registry, versioning, regeneration, exporters, storage: backends }

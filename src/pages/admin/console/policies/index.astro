@@ -11,6 +11,13 @@ const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('management');
+const PAGE_SIZE = 25;
+
+const url = new URL(Astro.url);
+const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+const offset = (page - 1) * PAGE_SIZE;
+const q = url.searchParams.get('q')?.trim() ?? '';
 
 interface PolicyRow {
   policy_id: number;
@@ -22,22 +29,75 @@ interface PolicyRow {
 
 let policies: PolicyRow[] = [];
 let loadError = false;
+let totalCount = 0;
 
 if (ready) {
   try {
     const db = getEnv().DB;
-    const result = await db
-      .prepare(
-        `SELECT policy_id, policy_key, version, label, created_at
-         FROM policy_definitions
-         WHERE archived_at IS NULL
-         ORDER BY policy_key ASC`,
-      )
-      .all<PolicyRow>();
-    policies = result.results ?? [];
+    const where = q ? `WHERE archived_at IS NULL AND (policy_key LIKE ? OR label LIKE ? OR CAST(version AS TEXT) LIKE ?)` : 'WHERE archived_at IS NULL';
+
+    if (q) {
+      const like = `%${q}%`;
+      const totalResult = await db
+        .prepare(`SELECT COUNT(*) as total FROM policy_definitions ${where}`)
+        .bind(like, like, like)
+        .first<{ total: number }>();
+      totalCount = totalResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT policy_id, policy_key, version, label, created_at
+           FROM policy_definitions
+           ${where}
+           ORDER BY policy_key ASC, version DESC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(like, like, like, PAGE_SIZE, offset)
+        .all<PolicyRow>();
+      policies = result.results ?? [];
+    } else {
+      const totalResult = await db
+        .prepare(`SELECT COUNT(*) as total FROM policy_definitions WHERE archived_at IS NULL`)
+        .first<{ total: number }>();
+      totalCount = totalResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT policy_id, policy_key, version, label, created_at
+           FROM policy_definitions
+           WHERE archived_at IS NULL
+           ORDER BY policy_key ASC, version DESC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(PAGE_SIZE, offset)
+        .all<PolicyRow>();
+      policies = result.results ?? [];
+    }
   } catch {
     loadError = true;
   }
+}
+
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+const referencePolicyKeys = new Set([
+  'research-quick',
+  'research-standard',
+  'research-enterprise',
+]);
+
+function listHref(p: number): string {
+  const u = new URL(Astro.url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
+}
+
+function isReferencePolicy(policyKey: string): boolean {
+  return referencePolicyKeys.has(policyKey);
 }
 
 function formatTs(ms: number | null): string {
@@ -53,8 +113,27 @@ function formatTs(ms: number | null): string {
   {ready && loadError && (
     <AdminState tone="error">Could not load policies.</AdminState>
   )}
+  {ready && !loadError && (
+    <AdminPanel title="Policy Library" eyebrow="Search and manage registered policy definitions">
+      <form class="toolbar" method="GET" action="/admin/console/policies">
+        <label for="q" class="search-label">Search policies</label>
+        <input
+          id="q"
+          name="q"
+          type="search"
+          value={q}
+          class="search-input"
+          placeholder="Search by policy key, name, or version"
+        />
+        <button type="submit" class="btn-secondary">Search</button>
+        {q && <a href="/admin/console/policies" class="btn-clear">Clear</a>}
+      </form>
+    </AdminPanel>
+  )}
   {ready && !loadError && policies.length === 0 && (
-    <AdminState tone="empty">No policy definitions registered yet.</AdminState>
+    <AdminState tone="empty">
+      {q ? `No policy definitions match "${q}".` : 'No policy definitions registered yet.'}
+    </AdminState>
   )}
   {ready && !loadError && policies.length > 0 && (
     <AdminPanel title="Policy Definitions">
@@ -64,6 +143,7 @@ function formatTs(ms: number | null): string {
             <th>Policy Key</th>
             <th>Label</th>
             <th>Version</th>
+            <th>Reference</th>
             <th>Created At</th>
           </tr>
         </thead>
@@ -77,11 +157,21 @@ function formatTs(ms: number | null): string {
               </td>
               <td class="label-cell">{p.label ?? '—'}</td>
               <td class="mono">{p.version}</td>
+              <td>{isReferencePolicy(p.policy_key) ? <span class="ref-badge">Reference</span> : <span class="muted-text">—</span>}</td>
               <td class="mono">{formatTs(p.created_at)}</td>
             </tr>
           ))}
         </tbody>
       </AdminTable>
+
+      {totalPages > 1 && (
+        <div class="pagination">
+          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
+          <span class="page-info">Page {page} / {totalPages}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+        </div>
+      )}
     </AdminPanel>
   )}
 </AdminConsoleLayout>
@@ -107,5 +197,82 @@ function formatTs(ms: number | null): string {
 
   .link:hover {
     text-decoration: underline;
+  }
+
+  .toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .search-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    min-width: 220px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.42rem 0.65rem;
+    color: var(--admin-text);
+  }
+
+  .btn-clear,
+  .btn-secondary,
+  .page-btn {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  .btn-clear:hover,
+  .btn-secondary:hover,
+  .page-btn:hover:not(.disabled) {
+    background: var(--admin-muted);
+  }
+
+  .pagination {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .page-info {
+    color: var(--admin-text-muted);
+    font-size: 0.83rem;
+  }
+
+  .disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .ref-badge {
+    display: inline-block;
+    border: 1px solid #0f766e;
+    border-radius: 999px;
+    color: #0f766e;
+    background: #ccfbf1;
+    font-size: 0.72rem;
+    padding: 0.05rem 0.55rem;
+    font-weight: 500;
+  }
+
+  .muted-text {
+    color: var(--admin-text-muted);
+    font-size: 0.84rem;
   }
 </style>

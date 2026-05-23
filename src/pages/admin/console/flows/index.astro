@@ -11,29 +11,95 @@ const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('management');
+const PAGE_SIZE = 25;
+
+const url = new URL(Astro.url);
+const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+const offset = (page - 1) * PAGE_SIZE;
+const q = url.searchParams.get('q')?.trim() ?? '';
 
 interface FlowRow {
   flow_id: string;
   display_name: string | null;
   current_version: number | null;
-  description: string | null;
+  category: string;
   updated_at: number | null;
+}
+
+interface CountRow {
+  total: number;
 }
 
 let flows: FlowRow[] = [];
 let loadError = false;
+let totalCount = 0;
 
 if (ready) {
   try {
     const db = getEnv().DB;
-    const result = await db
-      .prepare(
-        `SELECT flow_id, display_name, current_version, description, updated_at
-         FROM flow_definitions
-         ORDER BY display_name ASC`,
-      )
-      .all<FlowRow>();
-    flows = result.results ?? [];
+    const where = q
+      ? `WHERE fd.flow_id LIKE ? OR fd.display_name LIKE ? OR CAST(fd.current_version AS TEXT) LIKE ?`
+      : '';
+
+    if (q) {
+      const like = `%${q}%`;
+      const countResult = await db
+        .prepare(
+          `SELECT COUNT(*) as total
+           FROM flow_definitions fd
+           ${where}`,
+        )
+        .bind(like, like, like)
+        .first<CountRow>();
+      totalCount = countResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT fd.flow_id,
+                  fd.display_name,
+                  fd.current_version,
+                  fd.description,
+                  fd.updated_at,
+                  CASE
+                    WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
+                    WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
+                    ELSE 'general'
+                  END AS category
+           FROM flow_definitions fd
+           ${where}
+           ORDER BY updated_at DESC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(like, like, like, PAGE_SIZE, offset)
+        .all<FlowRow>();
+      flows = result.results ?? [];
+    } else {
+      const countResult = await db
+        .prepare(`SELECT COUNT(*) as total FROM flow_definitions`)
+        .first<CountRow>();
+      totalCount = countResult?.total ?? 0;
+
+      const result = await db
+        .prepare(
+          `SELECT fd.flow_id,
+                  fd.display_name,
+                  fd.current_version,
+                  fd.description,
+                  fd.updated_at,
+                  CASE
+                    WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
+                    WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
+                    ELSE 'general'
+                  END AS category
+           FROM flow_definitions fd
+           ORDER BY fd.updated_at DESC
+           LIMIT ? OFFSET ?`,
+        )
+        .bind(PAGE_SIZE, offset)
+        .all<FlowRow>();
+      flows = result.results ?? [];
+    }
   } catch {
     loadError = true;
   }
@@ -42,6 +108,23 @@ if (ready) {
 function formatTs(ms: number | null): string {
   if (!ms) return '—';
   return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+function listHref(p: number): string {
+  const u = new URL(Astro.url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
+}
+
+function categoryLabel(category: string): string {
+  if (!category) return 'general';
+  return category.replace(/-/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
 }
 ---
 
@@ -52,8 +135,28 @@ function formatTs(ms: number | null): string {
   {ready && loadError && (
     <AdminState tone="error">Could not load flows.</AdminState>
   )}
+  {ready && !loadError && (
+    <AdminPanel title="Flow Definitions" eyebrow="Search and manage registered flow definitions">
+      <form class="toolbar" method="GET" action="/admin/console/flows">
+        <label for="q" class="search-label">Search flows</label>
+        <input
+          id="q"
+          name="q"
+          type="search"
+          value={q}
+          class="search-input"
+          placeholder="Search by id, name, version"
+        />
+        <button type="submit" class="btn-secondary">Search</button>
+        {q && <a href="/admin/console/flows" class="btn-clear">Clear</a>}
+        <a href="/admin/console/flows/new" class="btn-secondary">New Flow</a>
+      </form>
+    </AdminPanel>
+  )}
   {ready && !loadError && flows.length === 0 && (
-    <AdminState tone="empty">No flow definitions registered yet.</AdminState>
+    <AdminState tone="empty">
+      {q ? `No flow definitions match "${q}".` : 'No flow definitions registered yet.'}
+    </AdminState>
   )}
   {ready && !loadError && flows.length > 0 && (
     <AdminPanel title="Flow Definitions">
@@ -62,27 +165,43 @@ function formatTs(ms: number | null): string {
           <tr>
             <th>Flow ID</th>
             <th>Name</th>
+            <th>Category</th>
             <th>Version</th>
-            <th>Description</th>
-            <th>Last Updated</th>
+            <th>Updated</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {flows.map((flow) => (
             <tr>
               <td class="mono">
-                <a href={`/admin/console/flows/${flow.flow_id}`} class="link">
+                <a href={`/admin/console/flows/${flow.flow_id}`} class="link flow-id">
                   {flow.flow_id}
                 </a>
               </td>
               <td class="flow-name">{flow.display_name ?? flow.flow_id}</td>
+              <td class="category">{categoryLabel(flow.category)}</td>
               <td class="mono">{flow.current_version ?? '—'}</td>
-              <td class="desc">{flow.description ?? '—'}</td>
               <td class="mono">{formatTs(flow.updated_at)}</td>
+              <td>
+                <div class="row-actions">
+                  <a href={`/admin/console/flows/${flow.flow_id}`} class="action-link">View</a>
+                  <a href={`/admin/console/flows/${flow.flow_id}/edit`} class="action-link">Edit</a>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
       </AdminTable>
+
+      {totalPages > 1 && (
+        <div class="pagination">
+          {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
+          <span class="page-info">Page {page} / {totalPages}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+        </div>
+      )}
     </AdminPanel>
   )}
 </AdminConsoleLayout>
@@ -101,13 +220,10 @@ function formatTs(ms: number | null): string {
     white-space: nowrap;
   }
 
-  .desc {
-    font-size: 0.85em;
+  .category {
+    font-size: 0.84em;
     color: var(--admin-text-muted);
-    max-width: 260px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .link {
@@ -117,5 +233,85 @@ function formatTs(ms: number | null): string {
 
   .link:hover {
     text-decoration: underline;
+  }
+
+  .toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .search-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    min-width: 240px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.42rem 0.65rem;
+    color: var(--admin-text);
+  }
+
+  .btn-clear,
+  .btn-secondary,
+  .page-btn {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  .btn-clear:hover,
+  .btn-secondary:hover,
+  .page-btn:hover:not(.disabled) {
+    background: var(--admin-muted);
+  }
+
+  .row-actions {
+    display: flex;
+    gap: 0.45rem;
+  }
+
+  .action-link {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+
+  .action-link:hover {
+    text-decoration: underline;
+  }
+
+  .pagination {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .page-info {
+    color: var(--admin-text-muted);
+    font-size: 0.83rem;
+  }
+
+  .disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .flow-id {
+    font-weight: 700;
   }
 </style>

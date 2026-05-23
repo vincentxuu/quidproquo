@@ -5,6 +5,8 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import PresetSummaryPanel from '@/components/admin/console/PresetSummaryPanel.astro';
 import { getEnv } from '@/lib/config/env';
+import { getFlowDefinition } from '@/lib/agent-flow/store/definitions';
+import type { FlowInput } from '@/lib/agent-flow/dsl/ast';
 import { ensureConsoleUmbrella, isPageEnabled } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -27,8 +29,15 @@ interface FlowRow {
   description: string | null;
 }
 
+interface PresetRow {
+  preset_id: string;
+  display_name: string;
+}
+
 let flow: FlowRow | null = null;
+let flowInputs: FlowInput[] = [];
 let loadError = false;
+let presets: PresetRow[] = [];
 
 try {
   const db = getEnv().DB;
@@ -41,6 +50,21 @@ try {
     )
     .bind(flowId)
     .first<FlowRow>();
+
+  presets = (
+    await db
+      .prepare(
+        `SELECT preset_id, display_name
+         FROM flow_presets
+         WHERE flow_id = ?
+        ORDER BY display_name ASC`,
+      )
+      .bind(flowId)
+      .all<PresetRow>()
+  ).results ?? [];
+
+  const definition = await getFlowDefinition(db, flowId);
+  flowInputs = definition?.inputs ?? [];
 } catch {
   loadError = true;
 }
@@ -50,6 +74,17 @@ if (!loadError && !flow) {
 }
 
 const flowName = flow?.display_name ?? flowId;
+const hasSchemaInputs = flowInputs.length > 0;
+
+const renderedFlowInputs = flowInputs.filter((item) => item?.name && item.type);
+
+function defaultValueFor(input: FlowInput): string {
+  if (input.default === undefined || input.default === null) return '';
+  if (input.type === 'string') return String(input.default);
+  if (input.type === 'number' && typeof input.default === 'number') return String(input.default);
+  if (input.type === 'boolean' && typeof input.default === 'boolean') return input.default ? 'true' : 'false';
+  return JSON.stringify(input.default, null, 2);
+}
 ---
 
 <AdminConsoleLayout
@@ -73,28 +108,295 @@ const flowName = flow?.display_name ?? flowId;
           <PresetSummaryPanel flowId={flowId} presetId={presetId} db={getEnv().DB} />
         </div>
       )}
-      <form method="POST" action={`/api/admin/flows/${flowId}/run`} class="launch-form">
-        <input type="hidden" name="flowId" value={flowId} />
+      {presets.length > 0 && (
         <div class="field">
-          <label for="inputsJson" class="field-label">Inputs (JSON)</label>
-          <textarea
-            id="inputsJson"
-            name="inputsJson"
-            class="field-textarea"
-            rows="8"
-            placeholder='{"key": "value"}'
-            spellcheck="false"
-          ></textarea>
-          <p class="field-hint">Provide a JSON object matching the flow's input schema, or leave empty for flows with no required inputs.</p>
+          <label for="presetId" class="field-label">Preset (optional)</label>
+          <select id="presetId" name="presetId" class="field-select" form="launch-form">
+            <option value="">Use base configuration</option>
+            {presets.map((preset) => (
+              <option value={preset.preset_id} selected={preset.preset_id === presetId}>
+                {preset.display_name}
+              </option>
+            ))}
+          </select>
         </div>
+      )}
+      <form
+        method="POST"
+        action={`/api/admin/flows/${flowId}/run`}
+        class="launch-form"
+        id="launch-form"
+        data-has-schema={hasSchemaInputs}
+      >
+        <input type="hidden" name="flowId" value={flowId} />
+        {renderedFlowInputs.length > 0 ? (
+          <div class="field-grid" id="flow-input-grid">
+            {renderedFlowInputs.map((input) => {
+              const fieldRequired = input.required === true;
+              const inputName = `input.${input.name}`;
+              const kind = input.type;
+              const requiredLabel = fieldRequired ? ' *' : '';
+              if (kind === 'boolean') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="boolean" data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <div class="boolean-wrap">
+                      <input id={inputName} name={inputName} type="checkbox" value="true" checked={input.default === true} />
+                      <span class="field-hint">Toggle true / false</span>
+                    </div>
+                    <span class="field-hint">{input.default !== undefined ? `Default: ${String(input.default)}` : 'Default: false'}</span>
+                  </div>
+                );
+              }
+              if (kind === 'number') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="number" data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <input id={inputName} name={inputName} class="field-input" type="number" value={defaultValueFor(input)} placeholder="0" />
+                    <span class="field-hint">{input.default !== undefined ? `Default: ${defaultValueFor(input)}` : 'Type: number'}</span>
+                  </div>
+                );
+              }
+              if (kind === 'object' || kind === 'array') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type={kind} data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <textarea
+                      id={inputName}
+                      name={inputName}
+                      class="field-textarea"
+                      rows="6"
+                      spellcheck="false"
+                      placeholder={kind === 'array' ? '["item"]' : '{"key": "value"}'}
+                    >
+                      {defaultValueFor(input)}
+                    </textarea>
+                    <span class="field-hint">Type: {kind}</span>
+                  </div>
+                );
+              }
+              return (
+                <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="string" data-input-required={fieldRequired ? 'true' : 'false'}>
+                  <label for={inputName} class="field-label">
+                    {input.name}
+                    {requiredLabel}
+                  </label>
+                  <input id={inputName} name={inputName} class="field-input" type="text" value={defaultValueFor(input)} placeholder="value" />
+                  <span class="field-hint">Type: string</span>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="field">
+            <label for="inputsJson" class="field-label">Inputs (JSON)</label>
+            <textarea
+              id="inputsJson"
+              name="inputsJson"
+              class="field-textarea"
+              rows="8"
+              placeholder='{"key": "value"}'
+              spellcheck="false"
+            ></textarea>
+            <p class="field-hint">Provide a JSON object matching the flow's input schema, or leave empty for flows with no required inputs.</p>
+          </div>
+        )}
+        <p id="launch-status" class="launch-status" role="status" aria-live="polite" hidden></p>
         <div class="form-actions">
           <a href="/admin/console" class="btn-secondary">Cancel</a>
-          <button type="submit" class="btn-primary">Launch Run</button>
+          <button type="submit" class="btn-primary" id="launch-submit">Launch Run</button>
         </div>
       </form>
     </AdminPanel>
   )}
 </AdminConsoleLayout>
+
+<script>
+  const form = document.getElementById('launch-form');
+  const statusEl = document.getElementById('launch-status');
+  const submitBtn = document.getElementById('launch-submit');
+
+  if (!form || !statusEl || !submitBtn) {
+    // Safety fallback for unexpected render states
+  } else {
+    const presetSelect = document.getElementById('presetId');
+    if (presetSelect instanceof HTMLSelectElement) {
+      presetSelect.addEventListener('change', () => {
+        const next = new URL(window.location.href);
+        next.searchParams.delete('presetId');
+        if (presetSelect.value) {
+          next.searchParams.set('presetId', presetSelect.value);
+        }
+        next.searchParams.delete('flowId');
+        next.searchParams.set('flowId', new URLSearchParams(window.location.search).get('flowId') || '');
+        window.location.assign(next.toString());
+      });
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      submitBtn.setAttribute('disabled', 'disabled');
+      statusEl.removeAttribute('hidden');
+      statusEl.className = 'launch-status launch-status--info';
+      statusEl.textContent = 'Launching run...';
+
+      const useSchema = form.dataset.hasSchema === 'true';
+      let parsedInput = {};
+      const formData = new FormData(form);
+
+      if (useSchema) {
+        const inputFields = form.querySelectorAll('[data-input-field="1"]');
+        const payload: Record<string, unknown> = {};
+
+        for (const field of Array.from(inputFields)) {
+          if (!(field instanceof HTMLElement)) continue;
+          const name = field.dataset.inputName;
+          const type = field.dataset.inputType;
+          const required = field.dataset.inputRequired === 'true';
+          if (!name || !type) continue;
+
+          const control = form.elements.namedItem(`input.${name}`);
+          if (control instanceof HTMLInputElement && type === 'boolean') {
+            payload[name] = control.checked;
+            continue;
+          }
+
+          if (control instanceof HTMLInputElement && type === 'number') {
+            const raw = control.value.trim();
+            if (!raw) {
+              if (required) {
+                statusEl.className = 'launch-status launch-status--error';
+                statusEl.textContent = `${name} is required`;
+                submitBtn.removeAttribute('disabled');
+                return;
+              }
+              continue;
+            }
+            const parsedNumber = Number(raw);
+            if (Number.isNaN(parsedNumber)) {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} 必須是數字`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            payload[name] = parsedNumber;
+            continue;
+          }
+
+          const controlValue =
+            control instanceof HTMLInputElement
+              ? control.value.trim()
+              : control instanceof HTMLTextAreaElement
+                ? control.value.trim()
+                : '';
+
+          if (!controlValue) {
+            if (required) {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} is required`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            continue;
+          }
+
+          if (type === 'string') {
+            payload[name] = controlValue;
+            continue;
+          }
+
+          if (type === 'object' || type === 'array') {
+            try {
+              const parsed = JSON.parse(controlValue);
+              if (type === 'object' && (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed))) {
+                throw new Error('invalid');
+              }
+              if (type === 'array' && !Array.isArray(parsed)) {
+                throw new Error('invalid');
+              }
+              payload[name] = parsed;
+            } catch {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} 必須是合法 JSON (${type})`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            continue;
+          }
+        }
+
+        parsedInput = payload;
+      } else {
+        const rawInputs = formData.get('inputsJson');
+        if (typeof rawInputs === 'string' && rawInputs.trim()) {
+          try {
+            const parsed = JSON.parse(rawInputs);
+            if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+              throw new Error('invalid');
+            }
+            parsedInput = parsed;
+          } catch {
+            statusEl.className = 'launch-status launch-status--error';
+            statusEl.textContent = 'inputsJson 必須是合法 JSON 物件';
+            submitBtn.removeAttribute('disabled');
+            return;
+          }
+        }
+      }
+
+      const payload = { input: parsedInput };
+      const presetId = formData.get('presetId');
+      if (typeof presetId === 'string' && presetId.trim()) {
+        payload.presetId = presetId.trim();
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const responseBody = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const errorMessage = responseBody?.error ?? 'Could not launch run';
+          statusEl.className = 'launch-status launch-status--error';
+          statusEl.textContent = typeof errorMessage === 'string' ? errorMessage : 'Could not launch run';
+          submitBtn.removeAttribute('disabled');
+          return;
+        }
+
+        const flowRunId = responseBody?.flowRunId;
+        if (typeof flowRunId === 'string' && flowRunId.trim()) {
+          statusEl.className = 'launch-status launch-status--success';
+          statusEl.textContent = 'Run created. Redirecting to timeline...';
+          window.location.assign(`/admin/console/runs/${flowRunId}`);
+          return;
+        }
+
+        statusEl.className = 'launch-status launch-status--error';
+        statusEl.textContent = 'Missing flowRunId in server response';
+        submitBtn.removeAttribute('disabled');
+      } catch {
+        statusEl.className = 'launch-status launch-status--error';
+        statusEl.textContent = 'Network error, please retry.';
+        submitBtn.removeAttribute('disabled');
+      }
+    });
+  }
+</script>
 
 <style>
   .flow-desc {
@@ -187,5 +489,27 @@ const flowName = flow?.display_name ?? flowId;
   .btn-secondary:hover {
     background: var(--admin-muted, #f1f5f9);
     color: var(--admin-text);
+  }
+
+  .launch-status {
+    min-height: 1.2rem;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--admin-radius, 6px);
+  }
+
+  .launch-status--info {
+    color: var(--admin-text);
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .launch-status--error {
+    color: #991b1b;
+    background: #fee2e2;
+  }
+
+  .launch-status--success {
+    color: #166534;
+    background: #dcfce7;
   }
 </style>

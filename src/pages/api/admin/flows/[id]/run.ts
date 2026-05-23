@@ -28,14 +28,102 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   if (!flow) return json({ error: 'not_found' }, 404)
 
   let body: Record<string, unknown> = {}
-  try {
-    body = (await request.json()) as Record<string, unknown>
-  } catch {
-    /* ok — empty body is fine */
+  let input = {} as Record<string, unknown>
+  let presetId: string | null = null
+
+  const contentType = request.headers.get('content-type') ?? ''
+  const isJson = contentType.includes('application/json')
+
+  if (isJson) {
+    try {
+      body = (await request.json()) as Record<string, unknown>
+    } catch {
+      /* empty body is acceptable */
+    }
+  } else {
+    try {
+      const formData = await request.formData()
+      const inputJson = formData.get('inputsJson')
+      const directInput = formData.get('input')
+      const preset = formData.get('presetId')
+      body = {}
+      if (typeof inputJson === 'string' && inputJson.trim()) {
+        try {
+          const parsed = JSON.parse(inputJson)
+          if (parsed && typeof parsed === 'object') {
+            input = parsed as Record<string, unknown>
+          } else {
+            return json({ error: 'inputsJson must be an object' }, 400)
+          }
+        } catch {
+          return json({ error: 'invalid inputsJson payload' }, 400)
+        }
+      } else if (typeof directInput === 'string' && directInput.trim()) {
+        try {
+          const parsed = JSON.parse(directInput)
+          if (parsed && typeof parsed === 'object') {
+            input = parsed as Record<string, unknown>
+          } else {
+            return json({ error: 'input must be an object' }, 400)
+          }
+        } catch {
+          return json({ error: 'invalid input payload' }, 400)
+        }
+      }
+
+      if (typeof preset === 'string' && preset.trim()) {
+        presetId = preset.trim()
+      }
+    } catch {
+      /* non-form request with no body is acceptable */
+    }
   }
 
-  const input = (body.input ?? {}) as Record<string, unknown>
-  const presetId = typeof body.presetId === 'string' ? body.presetId : null
+  if (!isJson) {
+    // body remains empty in form-data mode
+  } else if (Object.keys(body).length > 0) {
+    const payloadInput = body.input
+    if (payloadInput && typeof payloadInput === 'object') {
+      input = payloadInput as Record<string, unknown>
+    } else if (typeof payloadInput === 'string' && payloadInput.trim()) {
+      try {
+        const parsed = JSON.parse(payloadInput)
+        if (parsed && typeof parsed === 'object') {
+          input = parsed as Record<string, unknown>
+        } else {
+          return json({ error: 'input must be an object' }, 400)
+        }
+      } catch {
+        return json({ error: 'invalid input payload' }, 400)
+      }
+    }
+
+    if (typeof body.inputsJson === 'string' && !('input' in body)) {
+      const rawInput = body.inputsJson
+      if (rawInput.trim()) {
+        try {
+          const parsed = JSON.parse(rawInput)
+          if (parsed && typeof parsed === 'object') {
+            input = parsed as Record<string, unknown>
+          } else {
+            return json({ error: 'inputsJson must be an object' }, 400)
+          }
+        } catch {
+          return json({ error: 'invalid inputsJson payload' }, 400)
+        }
+      }
+    }
+
+    if (typeof body.presetId === 'string') {
+      presetId = body.presetId
+    } else if (typeof body.presetId !== 'undefined') {
+      return json({ error: 'presetId must be a string' }, 400)
+    }
+  }
+
+  if (Object.keys(input).length === 0 && body.input === undefined && body.inputsJson === undefined) {
+    input = {}
+  }
   const flowRunId = crypto.randomUUID()
   const now = nowMs()
 
@@ -46,6 +134,17 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
     )
     .bind(flowRunId, flowId, presetId, JSON.stringify(input), now, now, now)
     .run()
+
+  const accept = request.headers.get('accept') ?? ''
+  const wantsHtml = accept.includes('text/html')
+  if (!isJson && wantsHtml) {
+    return new Response('', {
+      status: 303,
+      headers: {
+        Location: `/admin/console/runs/${flowRunId}`,
+      },
+    })
+  }
 
   return json({ flowRunId, status: 'queued' }, 201)
 }

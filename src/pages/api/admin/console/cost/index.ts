@@ -22,6 +22,57 @@ interface LiveRow {
   run_count: number
 }
 
+const DIMENSIONS = ['flow_id', 'agent_id', 'policy_id', 'user_id', 'preset_id', 'provider_id'] as const
+type Dimension = (typeof DIMENSIONS)[number]
+
+const DIMENSION_SET = new Set<string>(DIMENSIONS)
+
+function parseDimension(value: string | null): Dimension {
+  return value != null && DIMENSION_SET.has(value) ? value as Dimension : 'flow_id'
+}
+
+function liveQueryForDimension(dimension: Dimension): string {
+  const dimensionSql: Record<Dimension, string> = {
+    flow_id: 'fr.flow_id',
+    agent_id: 'ar.agent_id',
+    policy_id: "COALESCE(pd.policy_key, CAST(pb.policy_id AS TEXT), '(unbound)')",
+    user_id: "COALESCE(cu.email, CAST(al.user_id AS TEXT), '(unknown)')",
+    preset_id: "COALESCE(fr.preset_id, '(none)')",
+    provider_id: "COALESCE(tc.syscall_name, '(unknown)')",
+  }
+
+  const joins = dimension === 'policy_id'
+    ? `
+             LEFT JOIN policy_bindings pb ON CAST(pb.flow_run_id AS TEXT) = fr.flow_run_id
+             LEFT JOIN policy_definitions pd ON pd.policy_id = pb.policy_id`
+    : dimension === 'user_id'
+      ? `
+             LEFT JOIN console_audit_log al
+               ON al.resource_kind = 'run'
+              AND al.resource_id = fr.flow_run_id
+              AND al.action IN ('flow.run.invoke', 'run.start', 'invoke')
+             LEFT JOIN console_users cu ON cu.user_id = al.user_id`
+      : ''
+
+  const expr = dimensionSql[dimension]
+
+  return `SELECT ${expr} AS dimension_value,
+                 COALESCE(SUM(tc.cost_usd), 0) AS cost_usd,
+                 COALESCE(SUM(tc.tokens_in + tc.tokens_out), 0) AS tokens_total,
+                 COUNT(DISTINCT ${dimension === 'agent_id' || dimension === 'provider_id' ? 'ar.run_id' : 'fr.flow_run_id'}) AS run_count
+          FROM flow_runs fr
+          JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+          JOIN agent_tool_calls tc ON tc.run_id = ar.run_id${joins}
+          WHERE fr.started_at >= ?
+          GROUP BY ${expr}
+          ORDER BY cost_usd DESC`
+}
+
+function isSchemaNotReadyError(err: unknown): boolean {
+  const message = String(err)
+  return message.includes('no such table') || message.includes('no such column')
+}
+
 export const GET: APIRoute = async ({ request, cookies }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
@@ -29,12 +80,15 @@ export const GET: APIRoute = async ({ request, cookies }) => {
   const typedEnv = env as unknown as Env
   const flags = readFlags(typedEnv)
 
-  if (!flags.agentConsole.enabled || !flags.agentConsole.costDashboard) {
+  if (
+    !flags.agentConsole.enabled
+    || (flags.agentConsole.costDashboard !== undefined && !flags.agentConsole.costDashboard)
+  ) {
     return new Response(JSON.stringify({ error: 'console disabled' }), { status: 503 })
   }
 
   const url = new URL(request.url)
-  const dimension = url.searchParams.get('dimension') === 'agent_id' ? 'agent_id' : 'flow_id'
+  const dimension = parseDimension(url.searchParams.get('dimension'))
   const range = url.searchParams.get('range') ?? '30d'
   const live = url.searchParams.get('live') === 'true'
 
@@ -46,42 +100,11 @@ export const GET: APIRoute = async ({ request, cookies }) => {
     if (live || range === '24h') {
       const startMs = nowMs - 86_400_000
 
-      let rows: LiveRow[]
-
-      if (dimension === 'flow_id') {
-        const result = await db
-          .prepare(
-            `SELECT fr.flow_id AS dimension_value,
-                    COALESCE(SUM(tc.cost_usd), 0) AS cost_usd,
-                    COALESCE(SUM(tc.tokens_in + tc.tokens_out), 0) AS tokens_total,
-                    COUNT(DISTINCT fr.flow_run_id) AS run_count
-             FROM flow_runs fr
-             JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
-             JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
-             WHERE fr.started_at >= ?
-             GROUP BY fr.flow_id
-             ORDER BY cost_usd DESC`,
-          )
-          .bind(startMs)
-          .all<LiveRow>()
-        rows = result.results ?? []
-      } else {
-        const result = await db
-          .prepare(
-            `SELECT ar.agent_id AS dimension_value,
-                    COALESCE(SUM(tc.cost_usd), 0) AS cost_usd,
-                    COALESCE(SUM(tc.tokens_in + tc.tokens_out), 0) AS tokens_total,
-                    COUNT(DISTINCT ar.run_id) AS run_count
-             FROM agent_runs ar
-             JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
-             WHERE ar.started_at >= ?
-             GROUP BY ar.agent_id
-             ORDER BY cost_usd DESC`,
-          )
-          .bind(startMs)
-          .all<LiveRow>()
-        rows = result.results ?? []
-      }
+      const result = await db
+        .prepare(liveQueryForDimension(dimension))
+        .bind(startMs)
+        .all<LiveRow>()
+      const rows = result.results ?? []
 
       // Return with day = 0 sentinel to indicate live data
       const todayDay = Math.floor(nowMs / 86_400_000)
@@ -101,6 +124,10 @@ export const GET: APIRoute = async ({ request, cookies }) => {
     let fromDay: number
     if (range === '7d') {
       fromDay = todayDay - 7
+    } else if (range === '12w') {
+      fromDay = todayDay - 84
+    } else if (range === '12m') {
+      fromDay = todayDay - 365
     } else {
       // default 30d
       fromDay = todayDay - 30
@@ -121,6 +148,9 @@ export const GET: APIRoute = async ({ request, cookies }) => {
 
     return json({ rows: result.results ?? [] })
   } catch (err) {
+    if (isSchemaNotReadyError(err)) {
+      return json({ rows: [], schemaReady: false })
+    }
     return new Response(JSON.stringify({ error: String(err) }), { status: 500 })
   }
 }

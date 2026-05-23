@@ -5,6 +5,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
+import { createBackends } from '@/lib/agent-os/storage';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -30,13 +31,51 @@ interface StepRunRow {
   step_id: string;
   kind: string;
   status: string;
+  attempt: number;
   started_at: number | null;
   finished_at: number | null;
   latency_ms: number | null;
+  step_order: number;
+  created_at: number;
+  updated_at: number | null;
+  inputs_json: string | null;
+  outputs_json: string | null;
+  error_json: string | null;
+  agent_run_id: string | null;
+}
+
+interface ToolCallRow {
+  call_id: number;
+  run_id: string;
+  syscall_name: string;
+  tokens_in: number | null;
+  tokens_out: number | null;
+  cost_usd: number | null;
+  latency_ms: number | null;
+  error: string | null;
+}
+
+interface AgentEventRow {
+  event_id: number;
+  run_id: string;
+  kind: string;
+  step_id: string | null;
+  payload_json: string;
+  at: number;
+}
+
+interface PendingApproval {
+  approvalId: string;
+  reason: string;
+  context: unknown;
+  createdAt: number;
 }
 
 let run: FlowRunRow | null = null;
 let steps: StepRunRow[] = [];
+let pendingApprovals: PendingApproval[] = [];
+let toolCallsByRun = new Map<string, ToolCallRow[]>();
+let eventsByRun = new Map<string, AgentEventRow[]>();
 let loadError = false;
 
 if (ready) {
@@ -56,16 +95,78 @@ if (ready) {
         .first<FlowRunRow>(),
       db
         .prepare(
-          `SELECT step_run_id, step_id, kind, status, started_at, finished_at, latency_ms
+          `SELECT step_run_id,
+                  step_id,
+                  step_type AS kind,
+                  status,
+                  attempt,
+                  started_at,
+                  finished_at,
+                  latency_ms,
+                  step_order,
+                  created_at,
+                  updated_at,
+                  inputs_json,
+                  outputs_json,
+                  error_json,
+                  agent_run_id
            FROM flow_step_runs
            WHERE flow_run_id = ?
-           ORDER BY started_at ASC`,
+           ORDER BY step_order ASC, attempt ASC, created_at ASC`,
         )
         .bind(runId)
         .all<StepRunRow>(),
     ]);
+
     run = runResult;
     steps = stepsResult.results ?? [];
+
+    const backends = createBackends(getEnv());
+    const approvals = await backends.approvals.listByStatus('pending');
+    pendingApprovals = approvals
+      .filter((approval) => approval.runId === runId)
+      .map((approval) => ({
+        approvalId: approval.approvalId,
+        reason: approval.reason,
+        context: approval.context,
+        createdAt: approval.createdAt,
+      }));
+
+    const agentRunIds = [...new Set(steps.map((step) => step.agent_run_id).filter((id): id is string => Boolean(id)))];
+    if (agentRunIds.length > 0) {
+      const placeholders = agentRunIds.map(() => '?').join(', ');
+      const [toolResult, eventResult] = await Promise.all([
+        db
+          .prepare(
+            `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
+             FROM agent_tool_calls
+             WHERE run_id IN (${placeholders})
+             ORDER BY started_at ASC`,
+          )
+          .bind(...agentRunIds)
+          .all<ToolCallRow>(),
+        db
+          .prepare(
+            `SELECT event_id, run_id, kind, step_id, payload_json, at
+             FROM agent_run_events
+             WHERE run_id IN (${placeholders})
+             ORDER BY event_id ASC`,
+          )
+          .bind(...agentRunIds)
+          .all<AgentEventRow>(),
+      ]);
+
+      for (const call of toolResult.results ?? []) {
+        const list = toolCallsByRun.get(call.run_id) ?? [];
+        list.push(call);
+        toolCallsByRun.set(call.run_id, list);
+      }
+      for (const event of eventResult.results ?? []) {
+        const list = eventsByRun.get(event.run_id) ?? [];
+        list.push(event);
+        eventsByRun.set(event.run_id, list);
+      }
+    }
   } catch {
     loadError = true;
   }
@@ -89,6 +190,18 @@ function formatDuration(ms: number | null): string {
   return `${(ms / 1000).toFixed(1)}s`;
 }
 
+function isTerminalStatus(status: string): boolean {
+  return status === 'done' || status === 'failed' || status === 'cancelled';
+}
+
+function isCancellableRun(status: string): boolean {
+  return status === 'queued' || status === 'running';
+}
+
+function canRetryStep(status: string): boolean {
+  return status === 'failed' || status === 'cancelled';
+}
+
 function statusClass(status: string): string {
   switch (status) {
     case 'done': return 'badge-success';
@@ -100,7 +213,34 @@ function statusClass(status: string): string {
   }
 }
 
+function prettyJson(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    return JSON.stringify(JSON.parse(raw), null, 2);
+  } catch {
+    return raw;
+  }
+}
+
 const flowName = run?.display_name ?? run?.flow_id ?? runId;
+const bootstrap = run
+  ? {
+      run: {
+        flowRunId: run.flow_run_id,
+        flowId: run.flow_id,
+        status: run.status,
+        startedAt: run.started_at,
+        latencyMs: run.latency_ms,
+        displayName: flowName,
+      },
+      steps,
+      pendingApprovals,
+      uiFlags: {
+        ready,
+        cancellable: isCancellableRun(run.status),
+      },
+    }
+  : null;
 ---
 
 <AdminConsoleLayout
@@ -133,7 +273,7 @@ const flowName = run?.display_name ?? run?.flow_id ?? runId;
           </div>
           <div class="run-meta-item">
             <span class="meta-label">Status</span>
-            <span class:list={['badge', statusClass(run.status)]}>{run.status}</span>
+            <span id="run-status" class:list={['badge', statusClass(run.status)]}>{run.status}</span>
           </div>
           <div class="run-meta-item">
             <span class="meta-label">Started</span>
@@ -148,35 +288,147 @@ const flowName = run?.display_name ?? run?.flow_id ?? runId;
             <span class="meta-value mono">{run.flow_run_id}</span>
           </div>
         </div>
-        <div class="run-actions">
+        <div class="run-actions" id="run-actions">
           <a href={`/admin/console/runs/${runId}/evidence`} class="btn-secondary">Evidence</a>
+          <button id="cancel-run-btn" type="button" class="btn-danger" disabled={!isCancellableRun(run.status)}>Cancel</button>
         </div>
       </div>
+
+      <div id="run-action-status" class="run-action-status" role="status" aria-live="polite" hidden></div>
+
+      {pendingApprovals.length > 0 && (
+        <AdminPanel title="Pending Approval">
+          <div id="approval-panel" class="approval-panel">
+            {pendingApprovals.map((approval) => (
+              <div class="approval-card" data-approval-id={approval.approvalId}>
+                <div class="approval-header">
+                  <span class="approval-reason">{approval.reason}</span>
+                  <small class="approval-time">{new Date(approval.createdAt).toLocaleString('zh-TW')}</small>
+                </div>
+                <pre class="approval-context">{JSON.stringify(approval.context, null, 2)}</pre>
+                <textarea class="approval-comment" placeholder="Comment (optional)"></textarea>
+                <div class="approval-actions">
+                  <button type="button" data-action="approve" class="mini-btn mini-btn-approve">Approve</button>
+                  <button type="button" data-action="reject" class="mini-btn mini-btn-reject">Reject</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </AdminPanel>
+      )}
 
       <AdminPanel title="Step Timeline">
         {steps.length === 0 ? (
           <AdminState tone="empty">No steps recorded yet.</AdminState>
         ) : (
-          <AdminTable minWidth="560px" flush>
+          <AdminTable minWidth="640px" flush>
             <thead>
               <tr>
                 <th>Step</th>
                 <th>Kind</th>
                 <th>Status</th>
+                <th>Attempt</th>
                 <th>Duration</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              {steps.map((step) => (
-                <tr data-step={step.step_id} data-status={step.status}>
-                  <td class="mono step-id">{step.step_id}</td>
-                  <td class="kind">{step.kind}</td>
-                  <td>
-                    <span class:list={['badge', statusClass(step.status)]}>{step.status}</span>
-                  </td>
-                  <td class="mono">{formatDuration(step.latency_ms)}</td>
-                </tr>
-              ))}
+            <tbody id="timeline-body">
+              {steps.map((step) => {
+                const toolCalls = step.agent_run_id ? toolCallsByRun.get(step.agent_run_id) ?? [] : [];
+                const events = step.agent_run_id ? eventsByRun.get(step.agent_run_id) ?? [] : [];
+                return (
+                  <>
+                    <tr
+                      class="timeline-row"
+                      data-step-run-id={step.step_run_id}
+                      data-step-status={step.status}
+                      data-step-attempt={step.attempt}
+                    >
+                      <td class="mono step-id">{step.step_id}</td>
+                      <td class="kind">{step.kind}</td>
+                      <td>
+                        <span class:list={['badge', statusClass(step.status)]}>{step.status}</span>
+                      </td>
+                      <td class="mono">{step.attempt}</td>
+                      <td class="mono">{formatDuration(step.latency_ms)}</td>
+                      <td class="timeline-actions-cell">
+                        {canRetryStep(step.status) && (
+                          <button
+                            type="button"
+                            class="btn-small"
+                            data-action="retry"
+                            data-step-run-id={step.step_run_id}
+                          >
+                            Retry
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                    <tr class="step-detail-row">
+                      <td colspan="6">
+                        <details class="step-detail">
+                          <summary>Step details</summary>
+                          <div class="step-detail-grid">
+                            <div>
+                              <h4>Inputs</h4>
+                              <pre>{prettyJson(step.inputs_json)}</pre>
+                            </div>
+                            <div>
+                              <h4>Outputs</h4>
+                              <pre>{prettyJson(step.outputs_json)}</pre>
+                            </div>
+                            {step.error_json && (
+                              <div class="detail-wide">
+                                <h4>Error</h4>
+                                <pre>{prettyJson(step.error_json)}</pre>
+                              </div>
+                            )}
+                            <div class="detail-wide">
+                              <h4>Tool Calls ({toolCalls.length})</h4>
+                              {toolCalls.length === 0 ? (
+                                <p class="detail-empty">No tool calls recorded.</p>
+                              ) : (
+                                <table class="detail-table">
+                                  <thead>
+                                    <tr>
+                                      <th>ID</th>
+                                      <th>Syscall</th>
+                                      <th>Tokens</th>
+                                      <th>Cost</th>
+                                      <th>Latency</th>
+                                      <th>Error</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {toolCalls.map((call) => (
+                                      <tr>
+                                        <td class="mono">{call.call_id}</td>
+                                        <td>{call.syscall_name}</td>
+                                        <td class="mono">{(call.tokens_in ?? 0) + (call.tokens_out ?? 0)}</td>
+                                        <td class="mono">{call.cost_usd == null ? '—' : call.cost_usd.toFixed(4)}</td>
+                                        <td class="mono">{call.latency_ms == null ? '—' : `${call.latency_ms}ms`}</td>
+                                        <td>{call.error ?? '—'}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              )}
+                            </div>
+                            <div class="detail-wide">
+                              <h4>Events ({events.length})</h4>
+                              {events.length === 0 ? (
+                                <p class="detail-empty">No events recorded.</p>
+                              ) : (
+                                <pre>{events.map((event) => `${event.event_id} ${event.kind} ${event.payload_json}`).join('\n')}</pre>
+                              )}
+                            </div>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
             </tbody>
           </AdminTable>
         )}
@@ -184,6 +436,338 @@ const flowName = run?.display_name ?? run?.flow_id ?? runId;
     </>
   )}
 </AdminConsoleLayout>
+
+<script is:inline>
+  const bootstrap = document.getElementById('run-bootstrap')?.textContent;
+  const initialData = bootstrap ? JSON.parse(bootstrap) : null;
+  if (!initialData?.run) {
+    // no run data means render is already in fallback state
+    // keep script no-op
+  } else {
+    const runId = initialData.run.flowRunId;
+    const flowId = initialData.run.flowId;
+    const statusBadge = document.getElementById('run-status');
+    const cancelBtn = document.getElementById('cancel-run-btn');
+    const timelineBody = document.getElementById('timeline-body');
+    const runActionStatus = document.getElementById('run-action-status');
+    const approvalPanel = document.getElementById('approval-panel');
+
+    const runActionsRoot = document.getElementById('run-actions');
+
+    function setStatusText(message, type = '') {
+      if (!runActionStatus) return;
+      runActionStatus.hidden = false;
+      runActionStatus.textContent = message;
+      runActionStatus.className = `run-action-status ${type}`;
+      if (type === 'success' || type === 'error') {
+        setTimeout(() => {
+          if (runActionStatus) {
+            runActionStatus.textContent = '';
+            runActionStatus.hidden = true;
+          }
+        }, 5000);
+      }
+    }
+
+    function cssStatusClass(status) {
+      switch (status) {
+        case 'done': return 'badge-success';
+        case 'failed': return 'badge-error';
+        case 'running': return 'badge-running';
+        case 'cancelled': return 'badge-muted';
+        case 'pending': return 'badge-pending';
+        default: return 'badge-muted';
+      }
+    }
+
+    function canCancelRun(status) {
+      return status === 'queued' || status === 'running';
+    }
+
+    function canRetryStep(status) {
+      return status === 'failed' || status === 'cancelled';
+    }
+
+    function setRunStatus(status) {
+      if (!statusBadge) return;
+      statusBadge.classList.remove('badge-success', 'badge-error', 'badge-running', 'badge-muted', 'badge-pending');
+      statusBadge.classList.add(cssStatusClass(status));
+      statusBadge.textContent = status;
+      if (cancelBtn) cancelBtn.disabled = !canCancelRun(status);
+    }
+
+    function renderTimeline(steps) {
+      if (!timelineBody) return;
+      timelineBody.replaceChildren();
+
+      if (!steps.length) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.setAttribute('colspan', '6');
+        cell.textContent = 'No steps recorded yet.';
+        row.append(cell);
+        timelineBody.append(row);
+        return;
+      }
+
+      for (const step of steps) {
+        const row = document.createElement('tr');
+        row.dataset.stepRunId = String(step.step_run_id);
+        row.dataset.stepStatus = String(step.status);
+        row.dataset.stepAttempt = String(step.attempt);
+        row.className = 'timeline-row';
+
+        const idCell = document.createElement('td');
+        idCell.className = 'mono step-id';
+        idCell.textContent = String(step.step_id);
+
+        const kindCell = document.createElement('td');
+        kindCell.className = 'kind';
+        kindCell.textContent = String(step.kind);
+
+        const statusCell = document.createElement('td');
+        const statusBadge = document.createElement('span');
+        statusBadge.className = `badge ${cssStatusClass(step.status)}`;
+        statusBadge.textContent = String(step.status);
+        statusCell.append(statusBadge);
+
+        const attemptCell = document.createElement('td');
+        attemptCell.className = 'mono';
+        attemptCell.textContent = String(step.attempt);
+
+        const durationCell = document.createElement('td');
+        durationCell.className = 'mono';
+        const latency = step.latency_ms;
+        if (latency === null) {
+          durationCell.textContent = '—';
+        } else if (latency < 1000) {
+          durationCell.textContent = `${latency}ms`;
+        } else {
+          durationCell.textContent = `${(latency / 1000).toFixed(1)}s`;
+        }
+
+        const actionCell = document.createElement('td');
+        actionCell.className = 'timeline-actions-cell';
+        if (canRetryStep(step.status)) {
+          const retryBtn = document.createElement('button');
+          retryBtn.type = 'button';
+          retryBtn.className = 'btn-small';
+          retryBtn.textContent = 'Retry';
+          retryBtn.dataset.action = 'retry';
+          retryBtn.dataset.stepRunId = String(step.step_run_id);
+          actionCell.append(retryBtn);
+        }
+
+        row.append(idCell, kindCell, statusCell, attemptCell, durationCell, actionCell);
+        timelineBody.append(row);
+      }
+    }
+
+    function renderApprovals(approvals) {
+      if (!approvalPanel) return;
+      approvalPanel.innerHTML = '';
+      if (!approvals.length) {
+        const empty = document.createElement('div');
+        empty.className = 'approval-empty';
+        empty.textContent = 'No pending approvals.';
+        approvalPanel.append(empty);
+        if (runActionsRoot) {
+          const existing = runActionsRoot.querySelector('.run-idle-approval-hint');
+          if (existing) existing.remove();
+        }
+        return;
+      }
+
+      for (const approval of approvals) {
+        const card = document.createElement('div');
+        card.className = 'approval-card';
+        card.dataset.approvalId = String(approval.approvalId);
+
+        const header = document.createElement('div');
+        header.className = 'approval-header';
+
+        const reason = document.createElement('span');
+        reason.className = 'approval-reason';
+        reason.textContent = String(approval.reason);
+
+        const ts = document.createElement('small');
+        ts.className = 'approval-time';
+        ts.textContent = new Date(Number(approval.createdAt)).toLocaleString('zh-TW');
+
+        const context = document.createElement('pre');
+        context.className = 'approval-context';
+        context.textContent = JSON.stringify(approval.context, null, 2);
+
+        const comment = document.createElement('textarea');
+        comment.className = 'approval-comment';
+        comment.placeholder = 'Comment (optional)';
+
+        const actions = document.createElement('div');
+        actions.className = 'approval-actions';
+
+        const approve = document.createElement('button');
+        approve.type = 'button';
+        approve.className = 'mini-btn mini-btn-approve';
+        approve.dataset.action = 'approve';
+        approve.textContent = 'Approve';
+
+        const reject = document.createElement('button');
+        reject.type = 'button';
+        reject.className = 'mini-btn mini-btn-reject';
+        reject.dataset.action = 'reject';
+        reject.textContent = 'Reject';
+
+        actions.append(approve, reject);
+        header.append(reason, ts);
+        card.append(header, context, comment, actions);
+        approvalPanel.append(card);
+      }
+    }
+
+    async function doApproveReject(event) {
+      const button = event.target;
+      if (!(button instanceof HTMLElement)) return;
+      const action = button.dataset.action;
+      if (action !== 'approve' && action !== 'reject') return;
+
+      const card = button.closest('.approval-card');
+      if (!card || !(card instanceof HTMLElement)) return;
+      const approvalId = card.dataset.approvalId;
+      if (!approvalId) return;
+
+      button.disabled = true;
+      const originalText = button.textContent;
+      button.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch(`/api/admin/agents/approvals/${encodeURIComponent(approvalId)}/${action}`, {
+          method: 'POST',
+        });
+        if (!res.ok) throw new Error('request failed');
+        card.remove();
+        setStatusText(`Approval ${action}d`, 'success');
+      } catch {
+        setStatusText(`Could not ${action} this approval`, 'error');
+        button.disabled = false;
+        button.textContent = originalText;
+        return;
+      }
+
+      const eventSource = new EventSource(`/api/admin/console/runs/${runId}/events`);
+      eventSource.addEventListener('timeline', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        renderApprovals(data.approvals);
+        eventSource.close();
+      });
+      eventSource.onerror = () => eventSource.close();
+    }
+
+    async function doCancelRun() {
+      if (!cancelBtn) return;
+      cancelBtn.disabled = true;
+
+      try {
+        const res = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}/runs/${encodeURIComponent(runId)}/cancel`, {
+          method: 'POST',
+        });
+        if (!res.ok) throw new Error('cancel failed');
+        setRunStatus('cancelled');
+        setStatusText('Run cancelled', 'success');
+      } catch {
+        setStatusText('Failed to cancel run', 'error');
+        cancelBtn.disabled = false;
+      }
+    }
+
+    async function doRetryStep(stepRunId) {
+      const button = timelineBody?.querySelector(`[data-step-run-id="${CSS.escape(stepRunId)}"] [data-action="retry"]`);
+      if (!(button instanceof HTMLButtonElement)) return;
+      button.disabled = true;
+      button.textContent = 'Retrying...';
+
+      try {
+        const res = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}/runs/${encodeURIComponent(runId)}/steps/${encodeURIComponent(stepRunId)}/retry`, {
+          method: 'POST',
+        });
+        if (!res.ok) throw new Error('retry failed');
+        setStatusText('Retry submitted', 'success');
+      } catch {
+        setStatusText('Failed to retry step', 'error');
+        button.disabled = false;
+        button.textContent = 'Retry';
+      }
+    }
+
+    function parsePayload(raw) {
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    }
+
+    const eventSource = new EventSource(`/api/admin/console/runs/${runId}/events`);
+    eventSource.addEventListener('timeline', (message) => {
+      const data = parsePayload(message.data);
+      if (!data) return;
+      if (!data.run || !data.run.status || !Array.isArray(data.steps)) return;
+
+      renderTimeline(data.steps);
+      setRunStatus(data.run.status);
+      if (Array.isArray(data.approvals)) {
+        renderApprovals(data.approvals);
+      }
+
+      if (data.terminal) {
+        setStatusText(`Run finished: ${data.run.status}`, 'success');
+        eventSource.close();
+      }
+    });
+
+    eventSource.addEventListener('terminal', (message) => {
+      const data = parsePayload(message.data);
+      if (!data) return;
+      if (data.run?.status) {
+        setRunStatus(data.run.status);
+        renderApprovals(data.approvals || []);
+        eventSource.close();
+      }
+    });
+
+    eventSource.onerror = () => {
+      // keep retrying by browser EventSource
+    };
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', doCancelRun);
+    }
+
+    if (timelineBody) {
+      timelineBody.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLButtonElement)) return;
+        if (target.dataset.action === 'retry' && target.dataset.stepRunId) {
+          void doRetryStep(target.dataset.stepRunId);
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement)) return;
+      if (target.dataset.action) {
+        void doApproveReject(event);
+      }
+    });
+
+    renderApprovals(initialData.pendingApprovals || []);
+  }
+</script>
+
+<script id="run-bootstrap" type="application/json" is:inline>
+  {bootstrap ? JSON.stringify(bootstrap) : ''}
+</script>
 
 <style>
   .run-header {
@@ -291,6 +875,25 @@ const flowName = run?.display_name ?? run?.flow_id ?? runId;
     gap: 0.5rem;
   }
 
+  .run-action-status {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.9em;
+    display: inline-block;
+  }
+
+  .run-action-status.success {
+    color: var(--admin-success, #166534);
+    background: var(--admin-success-bg, #dcfce7);
+  }
+
+  .run-action-status.error {
+    color: var(--admin-error, #991b1b);
+    background: var(--admin-error-bg, #fee2e2);
+  }
+
   .btn-secondary {
     padding: 0.4rem 1rem;
     border: 1px solid var(--admin-border, #e2e8f0);
@@ -305,5 +908,197 @@ const flowName = run?.display_name ?? run?.flow_id ?? runId;
   .btn-secondary:hover {
     background: var(--admin-muted, #f1f5f9);
     color: var(--admin-text);
+  }
+
+  .btn-danger {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-error, #dc2626);
+    border-radius: var(--admin-radius, 6px);
+    background: transparent;
+    color: var(--admin-error, #dc2626);
+    cursor: pointer;
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    background: var(--admin-error-bg, #fee2e2);
+  }
+
+  .btn-danger:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-small {
+    padding: 0.27rem 0.7rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    background: #fff;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .btn-small:hover {
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .approval-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .approval-card {
+    width: min(100%, 680px);
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    background: var(--admin-surface-alt, #ffffff);
+  }
+
+  .approval-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .approval-reason {
+    font-weight: 600;
+    color: var(--admin-text);
+  }
+
+  .approval-time {
+    color: var(--admin-text-muted);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .approval-context {
+    white-space: pre-wrap;
+    max-height: 240px;
+    overflow: auto;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    background: var(--admin-muted, #f8fafc);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .approval-comment {
+    width: 100%;
+    resize: vertical;
+    margin-top: 0.5rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.4rem;
+    padding: 0.45rem;
+    min-height: 56px;
+    font-size: 0.85rem;
+  }
+
+  .approval-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 0.55rem;
+  }
+
+  .mini-btn {
+    border-radius: 0.35rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    background: #fff;
+  }
+
+  .mini-btn-approve {
+    color: var(--admin-success, #16a34a);
+    border-color: var(--admin-success, #16a34a);
+  }
+
+  .mini-btn-reject {
+    color: var(--admin-error, #dc2626);
+    border-color: var(--admin-error, #dc2626);
+  }
+
+  .approval-empty {
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .timeline-actions-cell {
+    white-space: nowrap;
+  }
+
+  .step-detail-row td {
+    background: var(--admin-bg);
+    padding: 0;
+  }
+
+  .step-detail {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .step-detail summary {
+    cursor: pointer;
+    color: var(--admin-accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .step-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.65rem;
+  }
+
+  .step-detail h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.78rem;
+    color: var(--admin-text-soft);
+    text-transform: uppercase;
+  }
+
+  .step-detail pre {
+    margin: 0;
+    max-height: 240px;
+    overflow: auto;
+    white-space: pre-wrap;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .detail-wide {
+    grid-column: 1 / -1;
+  }
+
+  .detail-empty {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+  }
+
+  .detail-table th,
+  .detail-table td {
+    padding: 0.35rem 0.45rem;
+    border-bottom: 1px solid var(--admin-border);
+    text-align: left;
+  }
+
+  @media (max-width: 760px) {
+    .step-detail-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -19,26 +19,43 @@ const statusColor = card.lastStatus ? (statusColors[card.lastStatus] ?? 'var(--c
 const lastRunLabel = card.lastRunAt
   ? new Date(card.lastRunAt).toLocaleString('zh-TW', { dateStyle: 'short', timeStyle: 'short' })
   : '—'
+const lastStatusLabel = card.lastStatus ?? '—'
+const versionLabel = card.currentVersion != null ? `v${card.currentVersion}` : '—'
+const costLabel = card.estimatedCostUsd == null ? '—' : `$${card.estimatedCostUsd.toFixed(2)}`
+const categoryLabel = card.category ?? 'general'
+
+const flowHref = `/admin/console/flows/${encodeURIComponent(card.id)}`
+const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.id)}`
 ---
 
-<a href={`/admin/console/flows/${card.id}`} class="flow-card">
+<article class="flow-card">
+  <a href={flowHref} class="flow-card__title">Flow: {card.name}</a>
   <div class="flow-card__header">
-    <span class="flow-card__name">{card.name}</span>
-    {card.lastStatus && (
-      <span class="flow-card__status" style={`color: ${statusColor}`}>{card.lastStatus}</span>
-    )}
+    <span class="flow-card__status-wrap">
+      {card.lastStatus && (
+        <span class="flow-card__status" style={`color: ${statusColor}`}>{card.lastStatus}</span>
+      )}
+    </span>
+    <a href={launchHref} class="flow-card__launch">Launch</a>
+  </div>
+  <div class="flow-card__meta-grid">
+    <span>Category: {categoryLabel}</span>
+    <span>Status: {lastStatusLabel}</span>
+    <span>Version: {versionLabel}</span>
+    <span>Estimated cost: {costLabel}</span>
+    {card.costBand && <span>Band: {card.costBand}</span>}
   </div>
   {card.description && <p class="flow-card__desc">{card.description}</p>}
   <span class="flow-card__meta">Last run: {lastRunLabel}</span>
-</a>
+</article>
 
 <style>
   .flow-card {
-    display: block;
+    display: grid;
+    gap: 0.45rem;
     padding: 1rem 1.25rem;
     border: 1px solid var(--color-border, #e2e8f0);
     border-radius: 8px;
-    text-decoration: none;
     color: inherit;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
@@ -52,11 +69,40 @@ const lastRunLabel = card.lastRunAt
     align-items: center;
     gap: 0.5rem;
   }
-  .flow-card__name {
-    font-weight: 600;
-    font-size: 0.95rem;
+
+  .flow-card__meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.75rem;
+    font-size: 0.74rem;
+    color: var(--color-muted-text, #64748b);
   }
-  .flow-card__status {
+
+  .flow-card__title {
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .flow-card__status-wrap {
+    display: inline-flex;
+  }
+
+  .flow-card__launch {
+    font-size: 0.74rem;
+    line-height: 1.4;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-accent, #4f46e5);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--color-accent, #4f46e5);
+  }
+
+  .flow-card__launch:hover {
+    background: rgba(79, 70, 229, 0.08);
+  }
+
+  .flow-card__status-wrap .flow-card__status {
     font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;

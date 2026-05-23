@@ -20,28 +20,107 @@ interface RunRow {
   finished_at: number | null;
   latency_ms: number | null;
   display_name: string | null;
+  cost_usd: number | null;
+  updated_at: number | null;
+}
+
+interface FlowOption {
+  flow_id: string;
+  display_name: string | null;
 }
 
 let runs: RunRow[] = [];
 let loadError = false;
+let flowOptions: FlowOption[] = [];
+let totalRuns = 0;
+
+const url = new URL(Astro.url);
+const selectedStatus = url.searchParams.get('status')?.trim().toLowerCase() ?? '';
+const selectedFlow = url.searchParams.get('flow')?.trim() ?? '';
+const selectedFrom = url.searchParams.get('from')?.trim() ?? '';
+const selectedTo = url.searchParams.get('to')?.trim() ?? '';
+const selectedPage = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(selectedPage) && selectedPage > 0 ? selectedPage : 1;
+const offset = (page - 1) * 50;
+const PAGE_SIZE = 50;
 
 if (ready) {
   try {
     const db = getEnv().DB;
+
+    const whereParts: string[] = []
+    const bindings: Array<string | number> = []
+
+    if (selectedStatus) {
+      whereParts.push('fr.status = ?')
+      bindings.push(selectedStatus)
+    }
+
+    if (selectedFlow) {
+      whereParts.push('fr.flow_id = ?')
+      bindings.push(selectedFlow)
+    }
+
+    if (selectedFrom) {
+      const fromMs = new Date(selectedFrom).getTime()
+      if (!Number.isNaN(fromMs)) {
+        whereParts.push('fr.started_at >= ?')
+        bindings.push(fromMs)
+      }
+    }
+
+    if (selectedTo) {
+      const toMs = new Date(selectedTo)
+      toMs.setHours(23, 59, 59, 999)
+      const toTs = toMs.getTime()
+      if (!Number.isNaN(toTs)) {
+        whereParts.push('fr.started_at <= ?')
+        bindings.push(toTs)
+      }
+    }
+
+    const whereClause = whereParts.length > 0 ? `WHERE ${whereParts.join(' AND ')}` : ''
+
     const result = await db
       .prepare(
         `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
-                fd.display_name
+                fr.cost_usd, fr.updated_at, fd.display_name
          FROM flow_runs fr
          LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+         ${whereClause}
          ORDER BY fr.started_at DESC
-         LIMIT 50`,
+         LIMIT ? OFFSET ?`,
       )
+      .bind(...bindings, PAGE_SIZE, offset)
       .all<RunRow>();
     runs = result.results ?? [];
+
+    const flowRows = await db
+      .prepare('SELECT flow_id, display_name FROM flow_definitions ORDER BY flow_id ASC')
+      .all<FlowOption>();
+    flowOptions = flowRows.results ?? [];
+
+    const countResult = await db
+      .prepare(`SELECT COUNT(*) AS total
+        FROM flow_runs fr ${whereClause}`)
+      .bind(...bindings)
+      .first<{ total: number }>()
+    totalRuns = Number(countResult?.total ?? 0)
   } catch {
     loadError = true;
   }
+}
+
+const totalPages = Math.max(1, Math.ceil(totalRuns / PAGE_SIZE));
+
+function listHref(p: number) {
+  const u = new URL(url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
 }
 
 function formatRelative(ms: number): string {
@@ -85,13 +164,47 @@ function statusClass(status: string): string {
   )}
   {ready && !loadError && runs.length > 0 && (
     <AdminPanel title="All Runs — Last 50">
+      <form class="toolbar" method="GET" action="/admin/console/runs">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="">All</option>
+          <option value="queued" selected={selectedStatus === 'queued'}>Queued</option>
+          <option value="running" selected={selectedStatus === 'running'}>Running</option>
+          <option value="done" selected={selectedStatus === 'done'}>Done</option>
+          <option value="failed" selected={selectedStatus === 'failed'}>Failed</option>
+          <option value="cancelled" selected={selectedStatus === 'cancelled'}>Cancelled</option>
+        </select>
+
+        <label for="flow">Flow</label>
+        <select id="flow" name="flow">
+          <option value="">All flows</option>
+          {flowOptions.map((item) => (
+            <option value={item.flow_id} selected={selectedFlow === item.flow_id}>
+              {item.display_name ?? item.flow_id}
+            </option>
+          ))}
+        </select>
+
+        <label for="from">From</label>
+        <input id="from" name="from" type="date" value={selectedFrom} />
+
+        <label for="to">To</label>
+        <input id="to" name="to" type="date" value={selectedTo} />
+
+        <button type="submit" class="btn-secondary">Apply</button>
+        {(selectedStatus || selectedFlow || selectedFrom || selectedTo) && (
+          <a href="/admin/console/runs" class="btn-clear">Clear</a>
+        )}
+      </form>
       <AdminTable minWidth="640px" flush>
         <thead>
-          <tr>
+        <tr>
             <th>Started</th>
             <th>Flow</th>
             <th>Status</th>
             <th>Duration</th>
+            <th>Cost (USD)</th>
+            <th>Updated</th>
             <th>Run ID</th>
           </tr>
         </thead>
@@ -104,6 +217,8 @@ function statusClass(status: string): string {
                 <span class:list={['badge', statusClass(run.status)]}>{run.status}</span>
               </td>
               <td class="mono">{formatDuration(run.latency_ms)}</td>
+              <td class="mono">{run.cost_usd == null ? '—' : run.cost_usd.toFixed(4)}</td>
+              <td class="mono">{formatRelative(run.updated_at ?? run.started_at)}</td>
               <td class="mono run-id">
                 <a href={`/admin/console/runs/${run.flow_run_id}`}>
                   {run.flow_run_id.slice(0, 8)}&hellip;
@@ -113,11 +228,56 @@ function statusClass(status: string): string {
           ))}
         </tbody>
       </AdminTable>
+
+      {totalPages > 1 && (
+        <div class="pagination">
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Previous</a> : <span class="page-btn disabled">Previous</span>}
+          <span class="page-info">Page {page} / {totalPages}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+        </div>
+      )}
     </AdminPanel>
   )}
 </AdminConsoleLayout>
 
 <style>
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.toolbar label {
+  font-size: 0.8rem;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.toolbar select,
+.toolbar input {
+  border: 1px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius, 6px);
+  background: var(--admin-surface, #fff);
+  padding: 0.35rem 0.6rem;
+}
+
+.btn-clear,
+.btn-secondary {
+  border: 1px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius, 6px);
+  padding: 0.35rem 0.7rem;
+  text-decoration: none;
+  color: var(--admin-text, #1e293b);
+  background: var(--admin-surface, #fff);
+  font-size: 0.82rem;
+}
+
+.btn-clear:hover,
+.btn-secondary:hover {
+  background: var(--admin-muted, #f1f5f9);
+}
+
   .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.85em;
@@ -166,6 +326,39 @@ function statusClass(status: string): string {
 
   .badge-muted {
     background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .filter-chip {
+    margin-left: auto;
+    font-size: 0.72rem;
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .pagination {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .page-btn {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    padding: 0.32rem 0.6rem;
+    background: var(--admin-surface, #fff);
+    text-decoration: none;
+    color: var(--admin-text, #1e293b);
+    font-size: 0.82rem;
+  }
+
+  .page-btn.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .page-info {
+    font-size: 0.82rem;
     color: var(--admin-text-muted, #64748b);
   }
 </style>

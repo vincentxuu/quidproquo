@@ -2,12 +2,133 @@
 export const prerender = false;
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { getEnv } from '@/lib/config/env';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('evidenceViewer');
+
+const PAGE_SIZE = 25;
+const url = new URL(Astro.url);
+const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+const offset = (page - 1) * PAGE_SIZE;
+const q = url.searchParams.get('q')?.trim() ?? '';
+
+interface EvidenceRunRow {
+  flow_run_id: string;
+  display_name: string | null;
+  flow_status: string | null;
+  status: string | null;
+  started_at: number | null;
+  source_count: number;
+  claim_count: number;
+  conflict_count: number;
+}
+
+interface CountRow {
+  total: number;
+}
+
+let runs: EvidenceRunRow[] = [];
+let totalCount = 0;
+let loadError = false;
+
+if (ready) {
+  try {
+    const db = getEnv().DB;
+    const like = `%${q}%`;
+    const where = `
+      WHERE EXISTS (
+        SELECT 1 FROM evidence_sources es
+        WHERE es.flow_run_id = fr.flow_run_id
+      ) AND (
+        fr.flow_run_id LIKE ? OR
+        COALESCE(fd.display_name, fr.flow_id) LIKE ? OR
+        fr.status LIKE ?
+      )
+    `;
+    const countRows = await db
+      .prepare(
+        `SELECT COUNT(*) as total
+         FROM flow_runs fr
+         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+         ${where}`,
+      )
+      .bind(like, like, like)
+      .first<CountRow>();
+    totalCount = countRows?.total ?? 0;
+
+    const result = await db
+      .prepare(
+        `SELECT fr.flow_run_id,
+                fd.display_name,
+                fr.status AS flow_status,
+                fr.started_at,
+                (SELECT COUNT(*) FROM evidence_sources es WHERE es.flow_run_id = fr.flow_run_id) AS source_count,
+                (SELECT COUNT(*) FROM evidence_claims ec WHERE ec.flow_run_id = fr.flow_run_id) AS claim_count,
+                (SELECT COUNT(*) FROM evidence_conflicts econf
+                 WHERE econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec2 WHERE ec2.flow_run_id = fr.flow_run_id)
+                    OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec3 WHERE ec3.flow_run_id = fr.flow_run_id)
+                ) AS conflict_count
+         FROM flow_runs fr
+         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+         ${where}
+         ORDER BY fr.started_at DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(like, like, like, PAGE_SIZE, offset)
+      .all<EvidenceRunRow>();
+    runs = result.results ?? [];
+  } catch {
+    loadError = true;
+  }
+}
+
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+function listHref(p: number) {
+  const u = new URL(Astro.url);
+  if (p <= 1) {
+    u.searchParams.delete('page');
+  } else {
+    u.searchParams.set('page', String(p));
+  }
+  return u.pathname + u.search;
+}
+
+function statusBadgeClass(status: string | null): string {
+  if (!status) return 'badge muted';
+  const norm = status.toLowerCase();
+  if (norm === 'failed' || norm === 'cancelled') return 'badge muted';
+  if (norm === 'running') return 'badge running';
+  if (norm === 'queued' || norm === 'pending') return 'badge pending';
+  return 'badge ok';
+}
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function formatName(row: EvidenceRunRow): string {
+  return row.display_name || row.flow_run_id;
+}
+
+function qHref(value: string) {
+  const u = new URL(Astro.url);
+  if (value) {
+    u.searchParams.set('q', value);
+  } else {
+    u.searchParams.delete('q');
+  }
+  u.searchParams.delete('page');
+  return u.pathname + u.search;
+}
 ---
 
 <AdminConsoleLayout title="Evidence" section="evidence">
@@ -15,6 +136,178 @@ const ready = isPageEnabled('evidenceViewer');
     <AdminState tone="empty">{`Evidence viewer ships in ${consolePhaseFor('evidenceViewer')}.`}</AdminState>
   )}
   {ready && (
-    <AdminState tone="empty">Select a run to view its evidence.</AdminState>
+    <>
+      <AdminPanel title="Evidence Runs" eyebrow="Runs with collected evidence">
+        <form class="toolbar" method="GET" action="/admin/console/evidence">
+          <label for="q" class="search-label">Search runs</label>
+          <input
+            id="q"
+            name="q"
+            type="text"
+            value={q}
+            class="search-input"
+            placeholder="Search by run id, flow name, status"
+          />
+          <button type="submit" class="btn-secondary">Search</button>
+          {q && <a href="/admin/console/evidence" class="btn-clear">Clear</a>}
+        </form>
+      </AdminPanel>
+
+      {loadError && <AdminState tone="error">Could not load evidence runs.</AdminState>}
+
+      {(!loadError && runs.length === 0) && (
+        <AdminState tone="empty">
+          No evidence rows found. Select a run from Runs list or ensure evidence logging is enabled.
+        </AdminState>
+      )}
+
+      {(!loadError && runs.length > 0) && (
+        <AdminPanel title={`Evidence by Run — ${totalCount} total`}>
+          <AdminTable minWidth="760px" flush>
+            <thead>
+              <tr>
+                <th>Run</th>
+                <th>Flow</th>
+                <th>Run Status</th>
+                <th>Evidence</th>
+                <th>Last Started</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {runs.map((run) => (
+                <tr>
+                  <td class="mono"><a href={`/admin/console/runs/${run.flow_run_id}`}>{run.flow_run_id}</a></td>
+                  <td>{formatName(run)}</td>
+                  <td><span class={statusBadgeClass(run.status || run.flow_status)}>{run.status || run.flow_status || '—'}</span></td>
+                  <td class="evidence-stats">
+                    S {run.source_count ?? 0} / C {run.claim_count ?? 0} / X {run.conflict_count ?? 0}
+                  </td>
+                  <td class="mono">{formatTs(run.started_at)}</td>
+                  <td>
+                    <a href={`/admin/console/runs/${run.flow_run_id}/evidence`} class="btn-secondary">
+                      Open
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+
+          {totalPages > 1 && (
+            <div class="pagination">
+              {page > 1 ? <a href={listHref(1)} class="page-btn">First</a> : <span class="page-btn disabled">First</span>}
+              {page > 1 ? <a href={listHref(page - 1)} class="page-btn">Prev</a> : <span class="page-btn disabled">Prev</span>}
+              <span class="page-info">Page {page} / {totalPages}</span>
+              {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">Next</a> : <span class="page-btn disabled">Next</span>}
+            </div>
+          )}
+        </AdminPanel>
+      )}
+    </>
   )}
 </AdminConsoleLayout>
+
+<style>
+  .toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .search-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    min-width: 240px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.42rem 0.65rem;
+    color: var(--admin-text);
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+  }
+
+  .evidence-stats {
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+  }
+
+  .btn-clear,
+  .btn-secondary,
+  .page-btn {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .btn-clear:hover,
+  .btn-secondary:hover,
+  .page-btn:hover:not(.disabled) {
+    background: var(--admin-muted);
+  }
+
+  .pagination {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .page-info {
+    color: var(--admin-text-muted);
+    font-size: 0.83rem;
+  }
+
+  .disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.08rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    border: 1px solid transparent;
+  }
+
+  .badge.ok {
+    color: #166534;
+    border-color: #86efac;
+    background: #f0fdf4;
+  }
+
+  .badge.running {
+    color: #1d4ed8;
+    border-color: #93c5fd;
+    background: #eff6ff;
+  }
+
+  .badge.pending {
+    color: #b45309;
+    border-color: #fcd34d;
+    background: #fffbeb;
+  }
+
+  .badge.muted {
+    color: #64748b;
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+  }
+</style>

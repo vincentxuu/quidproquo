@@ -60,6 +60,9 @@ export interface Flags {
   }
   agentConsole: {
     enabled: boolean
+    rbac?: boolean
+    costDashboard?: boolean
+    flowEditor?: boolean
   }
   agentArtifact: {
     enabled: boolean
@@ -159,6 +162,9 @@ export function readFlags(env: Env): Flags {
     },
     agentConsole: {
       enabled: readBoolean(env.AGENT_CONSOLE_ENABLED),
+      rbac: env.AGENT_CONSOLE_RBAC === undefined ? undefined : readBoolean(env.AGENT_CONSOLE_RBAC),
+      costDashboard: env.AGENT_CONSOLE_COST_DASHBOARD === undefined ? undefined : readBoolean(env.AGENT_CONSOLE_COST_DASHBOARD),
+      flowEditor: env.AGENT_CONSOLE_FLOW_EDITOR === undefined ? undefined : readBoolean(env.AGENT_CONSOLE_FLOW_EDITOR),
     },
     agentArtifact: {
       enabled: readBoolean(env.AGENT_ARTIFACT_ENABLED),

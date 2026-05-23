@@ -9,7 +9,7 @@ const { flowId, presetId, db } = Astro.props;
 
 interface PresetRow {
   preset_id: string;
-  name: string;
+  display_name: string;
   overrides_json: string | null;
 }
 
@@ -19,7 +19,7 @@ let loadError = false;
 try {
   preset = await db
     .prepare(
-      `SELECT preset_id, name, overrides_json
+      `SELECT preset_id, display_name, overrides_json
        FROM flow_presets
        WHERE flow_id = ? AND preset_id = ?
        LIMIT 1`,
@@ -67,14 +67,14 @@ if (preset?.overrides_json) {
 )}
 
 {!loadError && !preset && (
-  <aside class="preset-panel preset-panel--warn" aria-label="Preset summary">
-    <p class="preset-panel__error">Preset <code>{presetId}</code> not found for this flow.</p>
-  </aside>
+<aside class="preset-panel preset-panel--warn" aria-label="Preset summary">
+  <p class="preset-panel__error">Preset <code>{presetId}</code> not found for this flow.</p>
+</aside>
 )}
 
 {!loadError && preset && (
   <aside class="preset-panel" aria-label="Preset summary">
-    <h2 class="preset-panel__title">Preset: {preset.name}</h2>
+    <h2 class="preset-panel__title">Preset: {preset.display_name}</h2>
     <code class="preset-panel__id">{preset.preset_id}</code>
 
     {overrides ? (

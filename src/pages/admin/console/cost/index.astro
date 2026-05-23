@@ -14,10 +14,36 @@ if (gate) return gate;
 
 const ready = isPageEnabled('costDashboard');
 
+const dimensions = [
+  { value: 'flow_id', label: 'Flow' },
+  { value: 'policy_id', label: 'Policy' },
+  { value: 'user_id', label: 'User' },
+  { value: 'agent_id', label: 'Agent' },
+  { value: 'preset_id', label: 'Preset' },
+  { value: 'provider_id', label: 'Provider' },
+] as const;
+
+const periods = [
+  { value: 'daily', label: 'Daily', rangeDays: 30 },
+  { value: 'weekly', label: 'Weekly', rangeDays: 84 },
+  { value: 'monthly', label: 'Monthly', rangeDays: 365 },
+] as const;
+
+type Dimension = typeof dimensions[number]['value'];
+type Period = typeof periods[number]['value'];
+
 // --- dimension + range from URL ---
 const url = Astro.url;
-const dimension = url.searchParams.get('dimension') === 'agent_id' ? 'agent_id' : 'flow_id';
-const dimensionLabel = dimension === 'agent_id' ? 'Agent' : 'Flow';
+const requestedDimension = url.searchParams.get('dimension');
+const dimension = dimensions.some((item) => item.value === requestedDimension)
+  ? requestedDimension as Dimension
+  : 'flow_id';
+const dimensionLabel = dimensions.find((item) => item.value === dimension)?.label ?? 'Flow';
+const requestedPeriod = url.searchParams.get('period');
+const period = periods.some((item) => item.value === requestedPeriod)
+  ? requestedPeriod as Period
+  : 'daily';
+const activePeriod = periods.find((item) => item.value === period) ?? periods[0];
 
 // --- time helpers ---
 const nowMs = Date.now();
@@ -49,19 +75,45 @@ interface TopRunRow {
   total_tokens: number;
 }
 
+interface BudgetRunRow {
+  flow_run_id: string;
+  flow_id: string;
+  cost_usd: number;
+  policy_key: string | null;
+  frozen_effective_json: string | null;
+}
+
+interface BudgetAlert {
+  runId: string;
+  flowId: string;
+  policyKey: string;
+  costUsd: number;
+  limitUsd: number;
+  ratio: number;
+}
+
+function emptyAll<T>(): D1Result<T> {
+  return {
+    results: [],
+    success: true,
+    meta: {} as D1Meta,
+  };
+}
+
 let cost24h = 0;
 let cost7d = 0;
 let cost30d = 0;
 let costMtd = 0;
 let dailyRows: RollupRow[] = [];
 let topRuns: TopRunRow[] = [];
+let budgetAlerts: BudgetAlert[] = [];
 let loadError = false;
 
 if (ready) {
   try {
     const db = getEnv().DB;
 
-    const [metrics24h, metrics7d, metrics30d, metricsMtd, daily, runs] = await Promise.all([
+    const [metrics24h, metrics7d, metrics30d, metricsMtd, daily, runs, budgetRuns] = await Promise.all([
       // 24h total
       db
         .prepare(
@@ -70,7 +122,8 @@ if (ready) {
            WHERE dimension = ? AND day >= ?`,
         )
         .bind(dimension, day24hAgo)
-        .first<{ total: number }>(),
+        .first<{ total: number }>()
+        .catch(() => null),
 
       // 7d total
       db
@@ -80,7 +133,8 @@ if (ready) {
            WHERE dimension = ? AND day >= ?`,
         )
         .bind(dimension, day7dAgo)
-        .first<{ total: number }>(),
+        .first<{ total: number }>()
+        .catch(() => null),
 
       // 30d total
       db
@@ -90,7 +144,8 @@ if (ready) {
            WHERE dimension = ? AND day >= ?`,
         )
         .bind(dimension, day30dAgo)
-        .first<{ total: number }>(),
+        .first<{ total: number }>()
+        .catch(() => null),
 
       // month-to-date total
       db
@@ -100,9 +155,10 @@ if (ready) {
            WHERE dimension = ? AND day >= ?`,
         )
         .bind(dimension, dayMtdStart)
-        .first<{ total: number }>(),
+        .first<{ total: number }>()
+        .catch(() => null),
 
-      // last 30 days grouped by dimension, ordered by day desc then cost desc
+      // selected period grouped by dimension, ordered by day desc then cost desc
       db
         .prepare(
           `SELECT day, dimension_value, tokens_in, tokens_out, cost_usd, run_count
@@ -110,8 +166,9 @@ if (ready) {
            WHERE dimension = ? AND day >= ?
            ORDER BY day DESC, cost_usd DESC`,
         )
-        .bind(dimension, day30dAgo)
-        .all<RollupRow>(),
+        .bind(dimension, todayDay - activePeriod.rangeDays)
+        .all<RollupRow>()
+        .catch(() => emptyAll<RollupRow>()),
 
       // top-10 costliest runs in last 24h
       db
@@ -127,7 +184,30 @@ if (ready) {
            LIMIT 10`,
         )
         .bind(startedAt24hMs)
-        .all<TopRunRow>(),
+        .all<TopRunRow>()
+        .catch(() => emptyAll<TopRunRow>()),
+
+      // recent runs nearing policy budget ceilings
+      db
+        .prepare(
+          `SELECT fr.flow_run_id,
+                  fr.flow_id,
+                  COALESCE(SUM(tc.cost_usd), fr.cost_usd, 0) AS cost_usd,
+                  pd.policy_key,
+                  pb.frozen_effective_json
+           FROM flow_runs fr
+           LEFT JOIN agent_runs ar ON ar.flow_run_id = fr.flow_run_id
+           LEFT JOIN agent_tool_calls tc ON tc.run_id = ar.run_id
+           LEFT JOIN policy_bindings pb ON CAST(pb.flow_run_id AS TEXT) = fr.flow_run_id
+           LEFT JOIN policy_definitions pd ON pd.policy_id = pb.policy_id
+           WHERE fr.started_at >= ?
+           GROUP BY fr.flow_run_id, fr.flow_id, pd.policy_key, pb.frozen_effective_json
+           ORDER BY cost_usd DESC
+           LIMIT 40`,
+        )
+        .bind(nowMs - 30 * 86_400_000)
+        .all<BudgetRunRow>()
+        .catch(() => emptyAll<BudgetRunRow>()),
     ]);
 
     cost24h = metrics24h?.total ?? 0;
@@ -136,6 +216,34 @@ if (ready) {
     costMtd = metricsMtd?.total ?? 0;
     dailyRows = daily.results ?? [];
     topRuns = runs.results ?? [];
+    budgetAlerts = (budgetRuns.results ?? [])
+      .map((run) => {
+        let limitUsd = 0;
+        try {
+          const policy = JSON.parse(run.frozen_effective_json ?? '{}') as {
+            budget?: { max_cost_usd?: number };
+          };
+          limitUsd = Number(policy.budget?.max_cost_usd ?? 0);
+        } catch {
+          limitUsd = 0;
+        }
+
+        if (!Number.isFinite(limitUsd) || limitUsd <= 0) return null;
+        const costUsd = Number(run.cost_usd ?? 0);
+        const ratio = costUsd / limitUsd;
+        if (ratio < 0.8) return null;
+
+        return {
+          runId: run.flow_run_id,
+          flowId: run.flow_id,
+          policyKey: run.policy_key ?? '(bound policy)',
+          costUsd,
+          limitUsd,
+          ratio,
+        };
+      })
+      .filter((alert): alert is BudgetAlert => alert !== null)
+      .slice(0, 8);
   } catch {
     loadError = true;
   }
@@ -161,6 +269,22 @@ function switcherHref(dim: string): string {
   return u.pathname + u.search;
 }
 
+function periodHref(nextPeriod: string): string {
+  const u = new URL(url.toString());
+  u.searchParams.set('period', nextPeriod);
+  return u.pathname + u.search;
+}
+
+const topEntities = Array.from(
+  dailyRows.reduce((map, row) => {
+    const current = map.get(row.dimension_value) ?? { value: row.dimension_value, cost: 0, runs: 0 };
+    current.cost += Number(row.cost_usd ?? 0);
+    current.runs += Number(row.run_count ?? 0);
+    map.set(row.dimension_value, current);
+    return map;
+  }, new Map<string, { value: string; cost: number; runs: number }>()).values(),
+).sort((a, b) => b.cost - a.cost).slice(0, 10);
+
 // Detect today's day value to identify the "latest" row for live badge
 const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
 ---
@@ -184,23 +308,30 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       <div class="dimension-bar">
         <span class="dimension-label">Group by:</span>
         <div class="dimension-tabs" role="tablist">
-          <a
-            href={switcherHref('flow_id')}
-            class:list={['dim-tab', { active: dimension === 'flow_id' }]}
-            role="tab"
-            aria-selected={dimension === 'flow_id' ? 'true' : 'false'}
-          >By Flow</a>
-          <a
-            href={switcherHref('agent_id')}
-            class:list={['dim-tab', { active: dimension === 'agent_id' }]}
-            role="tab"
-            aria-selected={dimension === 'agent_id' ? 'true' : 'false'}
-          >By Agent</a>
+          {dimensions.map((item) => (
+            <a
+              href={switcherHref(item.value)}
+              class:list={['dim-tab', { active: dimension === item.value }]}
+              role="tab"
+              aria-selected={dimension === item.value ? 'true' : 'false'}
+            >{item.label}</a>
+          ))}
+        </div>
+        <span class="dimension-label period-label">Period:</span>
+        <div class="dimension-tabs" role="tablist">
+          {periods.map((item) => (
+            <a
+              href={periodHref(item.value)}
+              class:list={['dim-tab', { active: period === item.value }]}
+              role="tab"
+              aria-selected={period === item.value ? 'true' : 'false'}
+            >{item.label}</a>
+          ))}
         </div>
       </div>
 
       <div class="cost-layout">
-        <AdminPanel title={`Cost by ${dimensionLabel} — Last 30 Days`} class="cost-main">
+        <AdminPanel title={`Cost by ${dimensionLabel} — ${activePeriod.label}`} class="cost-main">
           {dailyRows.length === 0 ? (
             <AdminState tone="empty">No rollup data yet. Run the cost backfill to populate this table.</AdminState>
           ) : (
@@ -236,40 +367,89 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
           )}
         </AdminPanel>
 
-        <AdminPanel title="Top Runs — Last 24 h" class="cost-rail">
-          {topRuns.length === 0 ? (
-            <AdminState tone="empty">No runs in the last 24 hours.</AdminState>
-          ) : (
-            <AdminTable minWidth="320px" flush>
-              <thead>
-                <tr>
-                  <th>Run ID</th>
-                  <th>Agent</th>
-                  <th>Cost</th>
-                  <th>Tokens</th>
-                </tr>
-              </thead>
-              <tbody>
-                {topRuns.map((run) => (
+        <div class="cost-rail-stack">
+          <AdminPanel title={`Top ${dimensionLabel} Spenders`} class="cost-rail">
+            {topEntities.length === 0 ? (
+              <AdminState tone="empty">No rollup data for this period.</AdminState>
+            ) : (
+              <AdminTable minWidth="320px" flush>
+                <thead>
                   <tr>
-                    <td class="mono run-id">
-                      <a href={`/admin/console/runs/${run.run_id}`}>{run.run_id.slice(0, 8)}&hellip;</a>
-                    </td>
-                    <td class="flow-id">{run.agent_id}</td>
-                    <td class="cost">{formatCost(run.total_cost)}</td>
-                    <td class="num">{run.total_tokens.toLocaleString()}</td>
+                    <th>{dimensionLabel}</th>
+                    <th>Cost</th>
+                    <th>Runs</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {topEntities.map((entity) => (
+                    <tr>
+                      <td class="flow-id">{entity.value}</td>
+                      <td class="cost">{formatCost(entity.cost)}</td>
+                      <td class="num">{entity.runs.toLocaleString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </AdminTable>
+            )}
+          </AdminPanel>
+
+          <AdminPanel title="Budget Alerts" class="cost-rail">
+            {budgetAlerts.length === 0 ? (
+              <AdminState tone="empty">No runs are above 80% of a budget ceiling.</AdminState>
+            ) : (
+              <div class="budget-list">
+                {budgetAlerts.map((alert) => (
+                  <a class="budget-alert" href={`/admin/console/runs/${alert.runId}`}>
+                    <span class="budget-head">
+                      <span class="flow-id">{alert.flowId}</span>
+                      <strong>{Math.round(alert.ratio * 100)}%</strong>
+                    </span>
+                    <span class="budget-meta">{alert.policyKey}</span>
+                    <span class="budget-bar" aria-hidden="true">
+                      <span style={`width: ${Math.min(alert.ratio * 100, 100)}%`}></span>
+                    </span>
+                    <span class="budget-cost">{formatCost(alert.costUsd)} / {formatCost(alert.limitUsd)}</span>
+                  </a>
                 ))}
-              </tbody>
-            </AdminTable>
-          )}
-        </AdminPanel>
+              </div>
+            )}
+          </AdminPanel>
+
+          <AdminPanel title="Top Runs — Last 24 h" class="cost-rail">
+            {topRuns.length === 0 ? (
+              <AdminState tone="empty">No runs in the last 24 hours.</AdminState>
+            ) : (
+              <AdminTable minWidth="320px" flush>
+                <thead>
+                  <tr>
+                    <th>Run ID</th>
+                    <th>Agent</th>
+                    <th>Cost</th>
+                    <th>Tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {topRuns.map((run) => (
+                    <tr>
+                      <td class="mono run-id">
+                        <a href={`/admin/console/runs/${run.run_id}`}>{run.run_id.slice(0, 8)}&hellip;</a>
+                      </td>
+                      <td class="flow-id">{run.agent_id}</td>
+                      <td class="cost">{formatCost(run.total_cost)}</td>
+                      <td class="num">{run.total_tokens.toLocaleString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </AdminTable>
+            )}
+          </AdminPanel>
+        </div>
       </div>
     </>
   )}
 </AdminConsoleLayout>
 
-<script>
+<script is:inline>
   // Live 24h polling — updates the "Last 24 h" metric tile every 60s
   (function startLivePoll() {
     const tile = document.getElementById('metric-24h');
@@ -328,6 +508,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     align-items: center;
     gap: var(--admin-space-3, 0.75rem);
     margin-bottom: var(--admin-space-3, 0.75rem);
+    flex-wrap: wrap;
   }
 
   .dimension-label {
@@ -342,6 +523,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     border: 1px solid var(--admin-border, #e2e8f0);
     border-radius: 6px;
     overflow: hidden;
+    flex-wrap: wrap;
   }
 
   .dim-tab {
@@ -369,11 +551,20 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     font-weight: 600;
   }
 
+  .period-label {
+    margin-left: var(--admin-space-2, 0.5rem);
+  }
+
   .cost-layout {
     display: grid;
     grid-template-columns: 1fr 340px;
     gap: var(--admin-space-4, 1rem);
     align-items: start;
+  }
+
+  .cost-rail-stack {
+    display: grid;
+    gap: var(--admin-space-4, 1rem);
   }
 
   @media (max-width: 1100px) {
@@ -416,6 +607,54 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     text-align: right;
     font-variant-numeric: tabular-nums;
     font-size: 0.85em;
+  }
+
+  .budget-list {
+    display: grid;
+    gap: var(--admin-space-3, 0.75rem);
+  }
+
+  .budget-alert {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 6px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .budget-alert:hover {
+    border-color: var(--admin-accent, #2563eb);
+    background: var(--admin-surface-hover, #f8fafc);
+  }
+
+  .budget-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .budget-meta,
+  .budget-cost {
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.82em;
+  }
+
+  .budget-bar {
+    display: block;
+    height: 6px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--admin-border, #e2e8f0);
+  }
+
+  .budget-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--admin-warning, #d97706);
   }
 
   .live-badge {

@@ -10,6 +10,7 @@ import { D1ExcerptStoreBackend } from '@/lib/agent-evidence/storage/d1/excerpt-s
 import { D1ClaimStoreBackend } from '@/lib/agent-evidence/storage/d1/claim-store';
 import { D1CitationStoreBackend } from '@/lib/agent-evidence/storage/d1/citation-store';
 import { D1ConflictStoreBackend } from '@/lib/agent-evidence/storage/d1/conflict-store';
+import { D1ClaimFtsBackend } from '@/lib/agent-evidence/storage/d1/claim-fts';
 import type {
   SourceRecord,
   ExcerptRecord,
@@ -27,6 +28,8 @@ const consoleReady = isPageEnabled('evidenceViewer');
 
 const flowRunId = Astro.params.id ?? '';
 const selectedSourceId = Astro.url.searchParams.get('source');
+const selectedClaimId = Number(Astro.url.searchParams.get('claim') ?? '');
+const claimSearchQuery = Astro.url.searchParams.get('q')?.trim() ?? '';
 
 // Gate: evidence flag
 const env = getEnv();
@@ -45,6 +48,7 @@ let excerpts: ExcerptRecord[] = [];
 let claims: ClaimRecord[] = [];
 let citations: CitationRecord[] = [];
 let conflicts: ConflictRecord[] = [];
+let searchedClaimIds: number[] | null = null;
 let loadError = false;
 
 if (consoleReady && evidenceEnabled && flowRunId) {
@@ -55,6 +59,7 @@ if (consoleReady && evidenceEnabled && flowRunId) {
     const claimStore = new D1ClaimStoreBackend(db);
     const citationStore = new D1CitationStoreBackend(db);
     const conflictStore = new D1ConflictStoreBackend(db);
+    const ftsStore = new D1ClaimFtsBackend(db);
 
     const [rawSources, rawClaims] = await Promise.all([
       sourceStore.listForFlowRun(flowRunId),
@@ -62,6 +67,11 @@ if (consoleReady && evidenceEnabled && flowRunId) {
     ]);
 
     claims = rawClaims;
+
+    if (claimSearchQuery) {
+      const searchResults = await ftsStore.search(claimSearchQuery, flowRunId, 50);
+      searchedClaimIds = searchResults.map((item) => item.claimId);
+    }
 
     // Load excerpts for all sources in parallel
     const excerptsBySource = await Promise.all(
@@ -148,11 +158,29 @@ const selectedExcerpts = selectedSource
 
 // For each excerpt, find its citations and for each citation find the claim
 const claimById = new Map(claims.map((c) => [c.claimId, c]));
+const sourceById = new Map(sources.map((s) => [s.sourceId, s]));
+const excerptById = new Map(excerpts.map((e) => [e.excerptId, e]));
 const citationsByExcerpt = new Map<number, CitationRecord[]>();
+const citationsByClaim = new Map<number, CitationRecord[]>();
 for (const cit of citations) {
   if (!citationsByExcerpt.has(cit.excerptId)) citationsByExcerpt.set(cit.excerptId, []);
   citationsByExcerpt.get(cit.excerptId)!.push(cit);
+  if (!citationsByClaim.has(cit.claimId)) citationsByClaim.set(cit.claimId, []);
+  citationsByClaim.get(cit.claimId)!.push(cit);
 }
+
+const visibleClaims = (searchedClaimIds
+  ? searchedClaimIds.map((claimId) => claimById.get(claimId)).filter((claim): claim is ClaimRecord => Boolean(claim))
+  : [...claims].sort((a, b) => b.confidence - a.confidence)
+).slice(0, 25);
+
+const selectedClaim = Number.isFinite(selectedClaimId) ? claimById.get(selectedClaimId) ?? null : null;
+const selectedClaimCitations = selectedClaim ? citationsByClaim.get(selectedClaim.claimId) ?? [] : [];
+const selectedClaimExcerptDetails = selectedClaimCitations.map((citation) => {
+  const excerpt = excerptById.get(citation.excerptId) ?? null;
+  const source = excerpt ? sourceById.get(excerpt.sourceId) ?? null : null;
+  return { citation, excerpt, source };
+});
 
 // For conflicts panel: resolve claim texts
 const conflictDetails = conflicts.map((cf) => ({
@@ -164,6 +192,26 @@ const conflictDetails = conflicts.map((cf) => ({
 function truncateUrl(url: string, max = 60): string {
   if (url.length <= max) return url;
   return url.slice(0, max) + '…';
+}
+
+function claimHref(claimId: number): string {
+  const u = new URL(Astro.url);
+  u.searchParams.set('claim', String(claimId));
+  u.searchParams.delete('source');
+  return u.pathname + u.search;
+}
+
+function sourceHref(sourceId: number): string {
+  const u = new URL(Astro.url);
+  u.searchParams.set('source', String(sourceId));
+  u.searchParams.delete('claim');
+  return u.pathname + u.search;
+}
+
+function confidenceClass(confidence: number): string {
+  if (confidence < 0.4) return 'low';
+  if (confidence <= 0.7) return 'mid';
+  return 'high';
 }
 
 const breadcrumb = [
@@ -223,10 +271,75 @@ const breadcrumb = [
 
       {/* Main panel — excerpts + claims */}
       <main class="excerpt-panel" aria-label="Excerpts and claims">
-        {!selectedSource ? (
-          <div class="no-selection">
-            <p>Select a source from the left to view its excerpts and claims.</p>
-          </div>
+        <form class="claim-search" method="GET" action={`/admin/console/runs/${flowRunId}/evidence`}>
+          <label for="claim-q">Search claims</label>
+          <input id="claim-q" name="q" type="search" value={claimSearchQuery} placeholder="cosine similarity" />
+          <button type="submit">Search</button>
+          {claimSearchQuery && <a href={`/admin/console/runs/${flowRunId}/evidence`}>Clear</a>}
+        </form>
+
+        {selectedClaim ? (
+          <section class="claim-drawer" aria-label="Claim detail">
+            <header class="claim-drawer-head">
+              <div>
+                <h3>Claim #{selectedClaim.claimId}</h3>
+                <p>{selectedClaim.claimText}</p>
+              </div>
+              <span class:list={['confidence-score', confidenceClass(selectedClaim.confidence)]}>
+                {selectedClaim.confidence.toFixed(2)}
+              </span>
+            </header>
+            {selectedClaimExcerptDetails.length === 0 ? (
+              <AdminState tone="empty">This claim has no citations.</AdminState>
+            ) : (
+              <div class="citation-chain">
+                {selectedClaimExcerptDetails.map(({ citation, excerpt, source }) => (
+                  <article class="citation-card" data-excerpt-id={excerpt?.excerptId}>
+                    <div class="citation-meta">
+                      <span class:list={['relation-badge', `rel-${citation.relation}`]}>{citation.relation}</span>
+                      {source && <a href={sourceHref(source.sourceId)}>{source.domain}</a>}
+                      {source && <span>{new Date(source.retrievedAt).toLocaleString('zh-TW')}</span>}
+                    </div>
+                    {excerpt ? (
+                      <>
+                        <p class="excerpt-text">{excerpt.text}</p>
+                        <div class="source-preview">
+                          <span class="preview-label">Source preview</span>
+                          <p>{source?.bodyText ?? excerpt.surroundingContext ?? excerpt.text}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <p class="rail-empty">Excerpt not found.</p>
+                    )}
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
+        ) : !selectedSource ? (
+          <section class="claim-list-panel" aria-label="Claims">
+            <h3>
+              Claims
+              <span class="rail-count">{claimSearchQuery ? visibleClaims.length : claims.length}</span>
+            </h3>
+            {visibleClaims.length === 0 ? (
+              <AdminState tone="empty">{claimSearchQuery ? 'No claims match this search.' : 'No claims for this run.'}</AdminState>
+            ) : (
+              <div class="claim-cards">
+                {visibleClaims.map((claim) => {
+                  const cited = (citationsByClaim.get(claim.claimId) ?? []).length > 0;
+                  return (
+                    <a href={claimHref(claim.claimId)} class="claim-card">
+                      <span class:list={['confidence-score', confidenceClass(claim.confidence)]}>{claim.confidence.toFixed(2)}</span>
+                      <span class="claim-card-text">{claim.claimText}</span>
+                      {!cited && <span class="uncited-tag">uncited</span>}
+                      <span class="confidence-bar"><span style={`width: ${Math.max(0, Math.min(100, claim.confidence * 100))}%`}></span></span>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </section>
         ) : (
           <>
             <div class="excerpt-panel-header">
@@ -264,11 +377,11 @@ const breadcrumb = [
                                 </span>
                                 <span class="claim-text">{claim.claimText}</span>
                                 <a
-                                  href={`?source=${selectedSource.sourceId}#source-${selectedSource.sourceId}`}
+                                  href={claimHref(claim.claimId)}
                                   class="source-nav-link"
-                                  title="Go to source"
+                                  title="Open claim detail"
                                 >
-                                  source
+                                  detail
                                 </a>
                                 <span class="confidence-badge" title="Confidence">
                                   {(claim.confidence * 100).toFixed(0)}%
@@ -311,6 +424,13 @@ const breadcrumb = [
                   <span class="detected-by" title="Detected by">{cf.detectedBy}</span>
                   <span class:list={['verdict-badge', `verdict-${cf.status}`]}>{cf.status}</span>
                 </div>
+                {cf.status === 'pending' && (
+                  <div class="conflict-actions" data-conflict-id={cf.conflictId}>
+                    <button type="button" data-resolution="accepted_a">Accept A</button>
+                    <button type="button" data-resolution="accepted_b">Accept B</button>
+                    <button type="button" data-resolution="dismissed">Dismiss</button>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -320,6 +440,37 @@ const breadcrumb = [
     </div>
   )}
 </AdminConsoleLayout>
+
+<script is:inline>
+  const conflictsRail = document.querySelector('.conflicts-rail');
+  conflictsRail?.addEventListener('click', async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const resolution = target.dataset.resolution;
+    if (!resolution) return;
+    const root = target.closest('[data-conflict-id]');
+    if (!(root instanceof HTMLElement)) return;
+    const conflictId = root.dataset.conflictId;
+    if (!conflictId) return;
+
+    target.disabled = true;
+    const res = await fetch(`/api/admin/console/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ resolution }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      target.disabled = false;
+      target.textContent = data.error || 'Failed';
+      return;
+    }
+    const card = root.closest('.conflict-card');
+    const badge = card?.querySelector('.verdict-badge');
+    if (badge) badge.textContent = data.status;
+    root.remove();
+  });
+</script>
 
 <style>
   .evidence-layout {
@@ -473,6 +624,186 @@ const breadcrumb = [
     background: var(--admin-surface);
     box-shadow: var(--admin-shadow);
     overflow: hidden;
+  }
+
+  .claim-search {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .claim-search label {
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+  }
+
+  .claim-search input {
+    min-width: 240px;
+    flex: 1;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.38rem 0.6rem;
+  }
+
+  .claim-search button,
+  .claim-search a,
+  .conflict-actions button {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    min-height: 34px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.82rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .claim-list-panel,
+  .claim-drawer {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .claim-list-panel h3 {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .claim-cards {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .claim-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.55rem;
+    align-items: center;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    text-decoration: none;
+  }
+
+  .claim-card-text {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .confidence-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+  }
+
+  .confidence-score.low {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .confidence-score.mid {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .confidence-score.high {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .confidence-bar {
+    grid-column: 1 / -1;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--admin-muted);
+    overflow: hidden;
+  }
+
+  .confidence-bar span {
+    display: block;
+    height: 100%;
+    background: var(--admin-accent);
+  }
+
+  .uncited-tag {
+    color: #92400e;
+    font-size: 0.76rem;
+  }
+
+  .claim-drawer-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .claim-drawer-head h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .claim-drawer-head p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .citation-chain {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .citation-card {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.75rem;
+  }
+
+  .citation-meta {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--admin-text-muted);
+  }
+
+  .source-preview {
+    margin-top: 0.6rem;
+    padding: 0.65rem;
+    background: var(--admin-bg);
+    border-radius: var(--admin-radius);
+    border: 1px solid var(--admin-border);
+  }
+
+  .preview-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--admin-text-soft);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 
   .no-selection {
@@ -677,6 +1008,13 @@ const breadcrumb = [
     justify-content: space-between;
     gap: 0.4rem;
     flex-wrap: wrap;
+  }
+
+  .conflict-actions {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.55rem;
   }
 
   .detected-by {

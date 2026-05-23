@@ -23,7 +23,7 @@ const diffM = diffParam ? parseInt(diffParam, 10) : null;
 
 interface ArtifactVersionRow {
   version_id: string;
-  artifact_id: string;
+  definition_id: string;
   kind: string;
   version_number: number;
   parent_version_id: string | null;
@@ -38,6 +38,7 @@ interface ArtifactSectionRow {
   heading: string | null;
   body_text: string | null;
   body_json: string | null;
+  approval_status: string;
 }
 
 // ── Simple line diff ─────────────────────────────────────────────────────────
@@ -144,9 +145,16 @@ if (ready && artifactId) {
     } else {
       // Load all versions for this artifact
       const versionsResult = await db.prepare(
-        `SELECT version_id, artifact_id, kind, version_number, parent_version_id, approval_status, created_at
-         FROM artifact_versions
-         WHERE artifact_id = ?
+        `SELECT v.version_id,
+                v.definition_id,
+                d.kind,
+                v.version_number,
+                v.parent_version_id,
+                v.status AS approval_status,
+                v.created_at
+         FROM artifact_versions v
+         JOIN artifact_definitions d ON d.definition_id = v.definition_id
+         WHERE v.definition_id = ?
          ORDER BY version_number DESC`
       ).bind(artifactId).all<ArtifactVersionRow>();
 
@@ -164,7 +172,7 @@ if (ready && artifactId) {
 
         // Load sections for target version
         const sectionsResult = await db.prepare(
-          `SELECT section_id, section_key, ordinal, heading, body_text, body_json
+          `SELECT section_id, section_key, ordinal, heading, body_text, body_json, approval_status
            FROM artifact_sections
            WHERE version_id = ?
            ORDER BY ordinal ASC`
@@ -176,7 +184,7 @@ if (ready && artifactId) {
           diffVersion = versions.find((v) => v.version_number === diffM) ?? null;
           if (diffVersion) {
             const diffResult = await db.prepare(
-              `SELECT section_id, section_key, ordinal, heading, body_text, body_json
+              `SELECT section_id, section_key, ordinal, heading, body_text, body_json, approval_status
                FROM artifact_sections
                WHERE version_id = ?
                ORDER BY ordinal ASC`
@@ -251,6 +259,8 @@ const breadcrumb = [
 ];
 
 const currentVersionNumber = targetVersion?.version_number ?? null;
+const currentVersionId = targetVersion?.version_id ?? '';
+const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
 ---
 
 <AdminConsoleLayout title="Artifact Viewer" section="artifacts" breadcrumb={breadcrumb}>
@@ -281,8 +291,20 @@ const currentVersionNumber = targetVersion?.version_number ?? null;
       <header class="artifact-header">
         <div class="artifact-meta">
           <span class="artifact-kind">{kind}</span>
-          <span class="artifact-status">{targetVersion.approval_status}</span>
+          <span id="artifact-status" class="artifact-status">{targetVersion.approval_status}</span>
           <span class="artifact-id muted">{artifactId}</span>
+        </div>
+
+        <div class="artifact-actions" data-version-id={currentVersionId}>
+          <button type="button" class="action-btn approve" data-artifact-action="approved">Approve</button>
+          <button type="button" class="action-btn reject" data-artifact-action="rejected">Reject</button>
+          <label for="export-destination" class="version-label">Export</label>
+          <select id="export-destination" class="version-select">
+            {exportDestinations.map((destination) => (
+              <option value={destination}>{destination}</option>
+            ))}
+          </select>
+          <button type="button" class="action-btn export" data-export-action>Export</button>
         </div>
 
         {/* Version dropdown */}
@@ -418,15 +440,22 @@ const currentVersionNumber = targetVersion?.version_number ?? null;
                 <th>Key</th>
                 <th>Heading</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {sections.map((s, i) => (
-                <tr>
+                <tr data-section-id={s.section_id}>
                   <td class="muted">{i + 1}</td>
                   <td><code>{s.section_key}</code></td>
                   <td>{s.heading ?? '—'}</td>
-                  <td>—</td>
+                  <td><span class="section-status">{s.approval_status}</span></td>
+                  <td>
+                    <div class="section-actions">
+                      <button type="button" class="mini-action" data-section-action="approved">Approve</button>
+                      <button type="button" class="mini-action" data-section-action="rejected">Reject</button>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -434,9 +463,97 @@ const currentVersionNumber = targetVersion?.version_number ?? null;
         </section>
       )}
 
+      <p id="artifact-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
+
     </div>
   )}
 </AdminConsoleLayout>
+
+<script define:vars={{ currentVersionId }}>
+  const statusEl = document.getElementById('artifact-status');
+  const actionStatus = document.getElementById('artifact-action-status');
+  const actionsRoot = document.querySelector('.artifact-actions');
+  const exportSelect = document.getElementById('export-destination');
+
+  function setActionStatus(message, tone = '') {
+    if (!actionStatus) return;
+    actionStatus.hidden = false;
+    actionStatus.textContent = message;
+    actionStatus.className = `action-status ${tone}`;
+  }
+
+  async function updateVersionStatus(status) {
+    if (!currentVersionId) return;
+    setActionStatus('Updating artifact status...');
+    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      setActionStatus(data.error || 'Could not update artifact status', 'error');
+      return;
+    }
+    if (statusEl) statusEl.textContent = status;
+    setActionStatus(`Artifact ${status}`, 'success');
+  }
+
+  async function updateSectionStatus(sectionId, status) {
+    if (!currentVersionId) return;
+    setActionStatus('Updating section status...');
+    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sectionId, status }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      setActionStatus(data.error || 'Could not update section status', 'error');
+      return;
+    }
+    const row = document.querySelector(`[data-section-id="${CSS.escape(sectionId)}"]`);
+    const sectionStatus = row?.querySelector('.section-status');
+    if (sectionStatus) sectionStatus.textContent = status;
+    setActionStatus(`Section ${status}`, 'success');
+  }
+
+  async function exportArtifact() {
+    if (!currentVersionId || !(exportSelect instanceof HTMLSelectElement)) return;
+    const destination = exportSelect.value;
+    setActionStatus(`Exporting to ${destination}...`);
+    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/export/${encodeURIComponent(destination)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ options: { path: `artifact-${currentVersionId}.txt` } }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.ok === false) {
+      setActionStatus(data.error || `Export to ${destination} failed`, 'error');
+      return;
+    }
+    setActionStatus(`Export queued: ${data.externalRef || data.exportId || destination}`, 'success');
+  }
+
+  actionsRoot?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const status = target.dataset.artifactAction;
+    if (status) void updateVersionStatus(status);
+    if (target.dataset.exportAction !== undefined) void exportArtifact();
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const status = target.dataset.sectionAction;
+    if (!status) return;
+    const row = target.closest('[data-section-id]');
+    if (!(row instanceof HTMLElement)) return;
+    const sectionId = row.dataset.sectionId;
+    if (sectionId) void updateSectionStatus(sectionId, status);
+  });
+</script>
 
 <style>
   .artifact-viewer {
@@ -495,6 +612,77 @@ const currentVersionNumber = targetVersion?.version_number ?? null;
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+  }
+
+  .artifact-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .action-btn,
+  .mini-action {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font-size: 0.8rem;
+    min-height: 34px;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .action-btn.approve,
+  .mini-action[data-section-action="approved"] {
+    border-color: #16a34a;
+    color: #166534;
+    background: #f0fdf4;
+  }
+
+  .action-btn.reject,
+  .mini-action[data-section-action="rejected"] {
+    border-color: #dc2626;
+    color: #991b1b;
+    background: #fef2f2;
+  }
+
+  .action-btn.export {
+    border-color: var(--admin-accent);
+    color: var(--admin-accent);
+  }
+
+  .section-actions {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .section-status {
+    text-transform: capitalize;
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+  }
+
+  .action-status {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    font-size: 0.86rem;
+  }
+
+  .action-status.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .action-status.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
   }
 
   .version-label {
