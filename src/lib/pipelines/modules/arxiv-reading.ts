@@ -309,9 +309,11 @@ async function fetchArxivFullText(arxivId: string, onExternalCall?: () => void):
   onExternalCall?.()
   try {
     const response = await fetch(`${ARXIV_HTML_ENDPOINT}/${encodeURIComponent(arxivId)}`, {
-      headers: { Accept: 'text/html' },
+      headers: { Accept: 'text/html', 'User-Agent': 'ArxivReadingAgent/1.0' },
     })
     if (!response.ok) return null
+    const contentLength = response.headers.get('content-length')
+    if (contentLength && parseInt(contentLength, 10) > 10 * 1024 * 1024) return null
     const html = await response.text()
     const bodyRaw = htmlToText(html)
     if (!bodyRaw) return null
@@ -356,7 +358,7 @@ async function fetchArxivMetadata(arxivId: string, onExternalCall?: () => void):
   onExternalCall?.()
   try {
     const response = await fetch(`${ARXIV_API_ENDPOINT}?id_list=${encodeURIComponent(arxivId)}&max_results=1`, {
-      headers: { Accept: 'application/atom+xml' },
+      headers: { Accept: 'application/atom+xml', 'User-Agent': 'ArxivReadingAgent/1.0' },
     })
     if (!response.ok) return null
     const xml = await response.text()
@@ -499,7 +501,7 @@ export function buildArxivReadingDraft(result: ArxivReadingResult, context: Draf
 
 function extractArxivId(ref: string): string {
   const trimmed = ref.trim()
-  const fromUrl = trimmed.match(/arxiv\.org\/(?:abs|pdf|html)\/([0-9]{4}\.[0-9]{4,5})(v[0-9]+)?/i)
+  const fromUrl = trimmed.match(/arxiv\.org\/(?:abs|pdf|html)\/([0-9]{4}\.[0-9]{4,5}|[a-z-]+(?:\.[A-Z]{2})?\/[0-9]{7})(v[0-9]+)?/i)
   if (fromUrl) return `${fromUrl[1]}${fromUrl[2] ?? ''}`
   const bare = trimmed.match(/^([0-9]{4}\.[0-9]{4,5})(v[0-9]+)?$/)
   if (bare) return `${bare[1]}${bare[2] ?? ''}`
