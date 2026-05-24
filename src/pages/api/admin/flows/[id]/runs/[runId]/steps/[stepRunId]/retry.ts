@@ -2,7 +2,6 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import type { D1Database } from '@cloudflare/workers-types'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
@@ -10,15 +9,11 @@ import { nowMs } from '@/lib/utils/dates'
 import { ensureAgentFlowEnabled } from '../../../../../_guard'
 import { requirePermission, auditLog, PermissionDenied } from '@/lib/agent-console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
+import { getTableColumns } from '@/lib/admin-console/schema'
 
 function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
   const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
   return cfContext?.waitUntil?.bind(cfContext)
-}
-
-async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
-  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>()
-  return new Set((result.results ?? []).map((column) => column.name))
 }
 
 export const POST: APIRoute = async ({ cookies, params, locals }) => {

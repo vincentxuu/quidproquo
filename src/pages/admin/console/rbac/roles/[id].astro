@@ -4,6 +4,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
+import { PERMISSION_PRESETS, formatGrant } from '@/lib/admin-console/rbac/presets';
 import { ensureConsoleUmbrella, isPageEnabled } from '../../_guard';
 
 export const prerender = false;
@@ -54,33 +55,6 @@ interface RoleNameRow {
 const RESOURCE_KINDS = ['flow', 'policy', 'provider', 'run', 'approval', 'artifact', 'cost', 'rbac'] as const;
 const ACTIONS = ['view', 'invoke', 'edit', 'delete', 'approve', 'reject', 'cancel', 'export'] as const;
 const RESERVED_ROLES = ['admin', 'operator', 'approver', 'viewer'];
-const PERMISSION_PRESETS = [
-  {
-    id: 'viewer',
-    title: '唯讀檢視',
-    description: '加入 flow / policy / provider / run / approval / artifact / cost 的 view 權限。',
-    grants: ['flow view', 'policy view', 'provider view', 'run view', 'approval view', 'artifact view', 'cost view'],
-  },
-  {
-    id: 'operator',
-    title: '執行操作',
-    description: '加入啟動 flow、查看 run、取消 run、處理 approval 的常用操作權限。',
-    grants: ['flow view', 'flow invoke', 'run view', 'run invoke', 'run cancel', 'approval view', 'approval approve', 'approval reject'],
-  },
-  {
-    id: 'artifactReviewer',
-    title: '產出物審核',
-    description: '加入查看 run、審核/匯出 artifact、處理 approval 的權限。',
-    grants: ['run view', 'artifact view', 'artifact approve', 'artifact reject', 'artifact export', 'approval view', 'approval approve', 'approval reject'],
-  },
-  {
-    id: 'rbacAdmin',
-    title: 'RBAC 管理',
-    description: '加入查看、編輯與刪除 RBAC 設定的權限。',
-    grants: ['rbac view', 'rbac edit', 'rbac delete'],
-  },
-] as const;
-
 let role: RoleRow | null = null;
 let permissions: PermissionRow[] = [];
 let assignedUsers: AssignedUserRow[] = [];
@@ -340,17 +314,17 @@ const unassignedUsersJson = JSON.stringify(
               method="POST"
               action={`/api/admin/console/rbac/roles/${roleId}/permissions/preset`}
               class="preset-card"
-              data-confirm={`確定要將「${preset.title}」權限範本套用到角色 ${role.name}？已存在的權限會略過。`}
+              data-confirm={`確定要將「${preset.label}」權限範本套用到角色 ${role.name}？已存在的權限會略過。`}
               data-preset-form
             >
               <input type="hidden" name="preset" value={preset.id} />
               <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
-              <strong>{preset.title}</strong>
+              <strong>{preset.label}</strong>
               <span>{preset.description}</span>
               <span class="preset-count">{preset.grants.length} 項權限</span>
-              <ul class="preset-grants" aria-label={`${preset.title} 權限明細`}>
+              <ul class="preset-grants" aria-label={`${preset.label} 權限明細`}>
                 {preset.grants.map((grant) => (
-                  <li>{grant}</li>
+                  <li>{formatGrant(grant)}</li>
                 ))}
               </ul>
               <button type="submit" class="btn-secondary">套用範本</button>

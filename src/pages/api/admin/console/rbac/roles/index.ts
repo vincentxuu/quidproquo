@@ -80,21 +80,22 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       return new Response(JSON.stringify({ error: 'Role already exists', roleId: existing.role_id }), { status: 409 })
     }
 
-    await typedEnv.DB.prepare(`
+    const insertResult = await typedEnv.DB.prepare(`
       INSERT INTO console_roles (name, description)
       VALUES (?, ?)
     `).bind(name, description).run()
-
-    const role = await typedEnv.DB.prepare(
-      'SELECT role_id FROM console_roles WHERE name = ?'
-    ).bind(name).first<{ role_id: number }>()
+    const roleId = Number(insertResult.meta.last_row_id)
+    if (!Number.isFinite(roleId) || roleId <= 0) {
+      if (!isJson) return redirectWithNotice(redirectTo, 'error', '無法建立角色。')
+      return new Response(JSON.stringify({ error: 'Unable to create role' }), { status: 500 })
+    }
 
     auditLog({
       db: typedEnv.DB,
       email: 'admin',
       action: 'rbac.role.upsert',
       kind: 'rbac',
-      id: role?.role_id != null ? String(role.role_id) : undefined,
+      id: String(roleId),
       payload: { name, description },
       waitUntil: getWaitUntil(locals),
     }).catch(() => {})
@@ -103,7 +104,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       return redirectWithNotice(redirectTo, 'success', `已儲存角色 ${name}。`)
     }
 
-    return new Response(JSON.stringify({ ok: true, roleId: role?.role_id }), { status: 201 })
+    return new Response(JSON.stringify({ ok: true, roleId }), { status: 201 })
   } catch (err) {
     if (!isJson) return redirectWithNotice(redirectTo, 'error', String(err))
     return new Response(JSON.stringify({ error: String(err) }), { status: 500 })

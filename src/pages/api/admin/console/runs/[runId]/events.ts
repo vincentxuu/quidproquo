@@ -2,9 +2,9 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import type { D1Database } from '@cloudflare/workers-types'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
+import { columnExpr, getTableColumns } from '@/lib/admin-console/schema'
 
 interface StepRow {
   step_run_id: string
@@ -59,16 +59,6 @@ interface CursorParts {
   approvalUpdatedAt: number
   stepCount: number
   approvalCount: number
-}
-
-async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
-  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>()
-  return new Set((result.results ?? []).map((column) => column.name))
-}
-
-function columnExpr(columns: Set<string>, column: string, fallback: string, alias?: string): string {
-  const expr = columns.has(column) ? column : fallback
-  return alias ? `${expr} AS ${alias}` : expr
 }
 
 function encodeCursor(parts: CursorParts): string {
@@ -133,6 +123,7 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
   }
 
   const encoder = new TextEncoder()
+  let lastSentCursor = lastSeenCursorRaw
   const send = (
     controller: ReadableStreamDefaultController<Uint8Array>,
     payload: EventPayload,
@@ -148,7 +139,7 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       const poll = async () => {
-    const [runResult, stepResult, approvalResult] = await Promise.all([
+        const [runResult, stepResult, approvalResult] = await Promise.all([
           db
             .prepare('SELECT status, started_at FROM flow_runs WHERE flow_run_id = ? LIMIT 1')
             .bind(runId)
@@ -207,9 +198,9 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
         const cursorParts = buildCursor(payload.run.status, runResult.started_at, payload.steps as StepRow[], payload.approvals)
         payload.cursor = encodeCursor(cursorParts)
 
-        const shouldSend = lastSeenCursorRaw === null || payload.cursor !== lastSeenCursorRaw
-        if (shouldSend) {
+        if (payload.cursor !== lastSentCursor) {
           send(controller, payload, 'timeline')
+          lastSentCursor = payload.cursor
         }
 
         if (terminalStatuses.has(payload.run.status)) {

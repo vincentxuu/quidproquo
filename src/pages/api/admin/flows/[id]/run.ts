@@ -1,18 +1,13 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
-import type { D1Database } from '@cloudflare/workers-types'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentFlowEnabled } from '../_guard'
 import { nowMs } from '@/lib/utils/dates'
-
-async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
-  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>()
-  return new Set((result.results ?? []).map((column) => column.name))
-}
+import { getTableColumns } from '@/lib/admin-console/schema'
 
 export const POST: APIRoute = async ({ cookies, params, request }) => {
   const auth = await requireAdmin(cookies)

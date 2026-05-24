@@ -76,17 +76,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       return new Response(JSON.stringify({ error: 'User already exists', userId: existing.user_id }), { status: 409 })
     }
 
-    await db.prepare(`
+    const insertResult = await db.prepare(`
       INSERT INTO console_users (email, created_at)
       VALUES (?, ?)
     `).bind(email, now).run()
-
-    const result = await db.prepare(
-      'SELECT user_id FROM console_users WHERE email = ?'
-    ).bind(email).first<{ user_id: number }>()
-
-    const userId = result?.user_id
-    if (!userId) {
+    const userId = Number(insertResult.meta.last_row_id)
+    if (!Number.isFinite(userId) || userId <= 0) {
       if (!isJson) return redirectWithNotice(redirectTo, 'error', '無法建立使用者。')
       return new Response(JSON.stringify({ error: 'Unable to create user' }), { status: 500 })
     }

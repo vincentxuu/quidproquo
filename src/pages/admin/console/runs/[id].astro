@@ -4,9 +4,9 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
-import type { D1Database } from '@cloudflare/workers-types';
 import { getEnv } from '@/lib/config/env';
 import { createBackends } from '@/lib/agent-os/storage';
+import { columnExpr, getTableColumns } from '@/lib/admin-console/schema';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -99,16 +99,6 @@ let auditRows: RunAuditRow[] = [];
 let toolCallsByRun = new Map<string, ToolCallRow[]>();
 let eventsByRun = new Map<string, AgentEventRow[]>();
 let loadError = false;
-
-async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
-  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>();
-  return new Set((result.results ?? []).map((column) => column.name));
-}
-
-function columnExpr(columns: Set<string>, column: string, fallback: string, alias?: string): string {
-  const expr = columns.has(column) ? column : fallback;
-  return alias ? `${expr} AS ${alias}` : expr;
-}
 
 if (ready) {
   try {

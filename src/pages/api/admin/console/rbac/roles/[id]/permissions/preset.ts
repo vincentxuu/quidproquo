@@ -8,57 +8,7 @@ import { readFlags } from '@/lib/config/flags'
 import { auditLog } from '@/lib/agent-console/rbac/permissions'
 import { redirectWithNotice } from '@/lib/admin-console/rbac/redirect'
 import { requireRbacMutationPermission } from '@/lib/admin-console/rbac/guard'
-
-type PermissionGrant = {
-  resourceKind: string
-  action: string
-  resourceId: string | null
-}
-
-const PRESETS: Record<string, { label: string; grants: PermissionGrant[] }> = {
-  viewer: {
-    label: '唯讀檢視',
-    grants: ['flow', 'policy', 'provider', 'run', 'approval', 'artifact', 'cost'].map((resourceKind) => ({
-      resourceKind,
-      action: 'view',
-      resourceId: null,
-    })),
-  },
-  operator: {
-    label: '執行操作',
-    grants: [
-      { resourceKind: 'flow', action: 'view', resourceId: null },
-      { resourceKind: 'flow', action: 'invoke', resourceId: null },
-      { resourceKind: 'run', action: 'view', resourceId: null },
-      { resourceKind: 'run', action: 'invoke', resourceId: null },
-      { resourceKind: 'run', action: 'cancel', resourceId: null },
-      { resourceKind: 'approval', action: 'view', resourceId: null },
-      { resourceKind: 'approval', action: 'approve', resourceId: null },
-      { resourceKind: 'approval', action: 'reject', resourceId: null },
-    ],
-  },
-  artifactReviewer: {
-    label: '產出物審核',
-    grants: [
-      { resourceKind: 'run', action: 'view', resourceId: null },
-      { resourceKind: 'artifact', action: 'view', resourceId: null },
-      { resourceKind: 'artifact', action: 'approve', resourceId: null },
-      { resourceKind: 'artifact', action: 'reject', resourceId: null },
-      { resourceKind: 'artifact', action: 'export', resourceId: null },
-      { resourceKind: 'approval', action: 'view', resourceId: null },
-      { resourceKind: 'approval', action: 'approve', resourceId: null },
-      { resourceKind: 'approval', action: 'reject', resourceId: null },
-    ],
-  },
-  rbacAdmin: {
-    label: 'RBAC 管理',
-    grants: [
-      { resourceKind: 'rbac', action: 'view', resourceId: null },
-      { resourceKind: 'rbac', action: 'edit', resourceId: null },
-      { resourceKind: 'rbac', action: 'delete', resourceId: null },
-    ],
-  },
-}
+import { PERMISSION_PRESETS_BY_ID } from '@/lib/admin-console/rbac/presets'
 
 function rbacDisabled(typedEnv: Env): boolean {
   const flags = readFlags(typedEnv)
@@ -126,7 +76,7 @@ export const POST: APIRoute = async ({ params, request, cookies, locals }) => {
   })
   if (permissionResponse) return permissionResponse
 
-  const preset = PRESETS[body.preset]
+  const preset = PERMISSION_PRESETS_BY_ID[body.preset]
   if (!preset) {
     if (!body.isJson) return redirectWithNotice(redirectTo, 'error', '未知的權限範本。')
     return jsonResponse({ error: 'Unknown permission preset' }, 400)
@@ -142,44 +92,34 @@ export const POST: APIRoute = async ({ params, request, cookies, locals }) => {
     return jsonResponse({ error: 'Role not found' }, 404)
   }
 
-  let inserted = 0
-  for (const grant of preset.grants) {
-    const existing = grant.resourceId === null
-      ? await db
-          .prepare(
-            `SELECT permission_id
-             FROM console_permissions
-             WHERE role_id = ?
-               AND resource_kind = ?
-               AND action = ?
-               AND resource_id IS NULL
-             LIMIT 1`,
-          )
-          .bind(roleId, grant.resourceKind, grant.action)
-          .first<{ permission_id: number }>()
-      : await db
-          .prepare(
-            `SELECT permission_id
-             FROM console_permissions
-             WHERE role_id = ?
-               AND resource_kind = ?
-               AND action = ?
-               AND resource_id = ?
-             LIMIT 1`,
-          )
-          .bind(roleId, grant.resourceKind, grant.action, grant.resourceId)
-          .first<{ permission_id: number }>()
-    if (existing) continue
-
-    await db
+  const existingResult = await db
+    .prepare(
+      `SELECT resource_kind, action, resource_id
+       FROM console_permissions
+       WHERE role_id = ?`,
+    )
+    .bind(roleId)
+    .all<{ resource_kind: string; action: string; resource_id: string | null }>()
+  const existingKeys = new Set(
+    (existingResult.results ?? []).map((grant) => permissionKey({
+      resourceKind: grant.resource_kind,
+      action: grant.action,
+      resourceId: grant.resource_id,
+    })),
+  )
+  const inserts = preset.grants
+    .filter((grant) => !existingKeys.has(permissionKey(grant)))
+    .map((grant) => db
       .prepare(
         `INSERT INTO console_permissions (role_id, resource_kind, resource_id, action)
          VALUES (?, ?, ?, ?)`,
       )
-      .bind(roleId, grant.resourceKind, grant.resourceId, grant.action)
-      .run()
-    inserted += 1
+      .bind(roleId, grant.resourceKind, grant.resourceId, grant.action))
+
+  if (inserts.length > 0) {
+    await db.batch(inserts)
   }
+  const inserted = inserts.length
 
   const waitUntil = getWaitUntil(locals)
   auditLog({
@@ -207,4 +147,8 @@ export const POST: APIRoute = async ({ params, request, cookies, locals }) => {
   }
 
   return jsonResponse({ ok: true, preset: body.preset, inserted })
+}
+
+function permissionKey(grant: { resourceKind: string; action: string; resourceId: string | null }): string {
+  return `${grant.resourceKind}:${grant.action}:${grant.resourceId ?? ''}`
 }
