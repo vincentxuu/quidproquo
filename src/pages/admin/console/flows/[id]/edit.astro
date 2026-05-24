@@ -1,12 +1,12 @@
 ---
+export const prerender = false;
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
-import { FlowEditorWithPalette } from '@/components/admin/console/FlowEditor';
+import { FlowBuilder } from '@/components/admin/console/flow-builder/FlowBuilder';
 import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
+import { flowDefinitionToDag } from '@/lib/agent-flow/dsl/yaml-to-dag';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
-
-export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
@@ -14,34 +14,32 @@ if (gate) return gate;
 const ready = isPageEnabled('flowEditor');
 const flowId = Astro.params.id ?? '';
 
-let definitionYaml = '';
-let definitionJson = '{}';
+let initialNodesJson = '[]';
+let initialEdgesJson = '[]';
+let metaJson = '{}';
 let flowName = flowId;
 let loadError = false;
-let flowVersion = 1;
-let stepCount = 0;
-let edgeCount = 0;
-let inputCount = 0;
 
 if (ready && flowId) {
   try {
     const detail = await loadFlowDetail(getEnv().DB, flowId);
     if (detail) {
-      definitionYaml = detail.versions[0]?.yaml ?? '';
-      flowName = detail.definition.name;
       const def = detail.definition;
-      flowVersion = def.version;
-      stepCount = def.steps.length;
-      edgeCount = def.edges.length;
-      inputCount = def.inputs.length;
-      definitionJson = JSON.stringify({
+      flowName = def.name;
+      const dag = flowDefinitionToDag(def);
+      initialNodesJson = JSON.stringify(dag.nodes);
+      initialEdgesJson = JSON.stringify(dag.edges);
+      metaJson = JSON.stringify({
         id: def.id,
         name: def.name,
         version: def.version,
         description: def.description ?? '',
-        steps: def.steps,
-        edges: def.edges,
         inputs: def.inputs ?? [],
+        artifacts: def.artifacts ?? [],
+        artifactBindings: def.artifactBindings,
+        durable: def.durable,
+        retry: def.retry,
+        timeout: def.timeout,
       });
     }
   } catch {
@@ -56,456 +54,29 @@ const breadcrumb = [
 ];
 ---
 
-<AdminConsoleLayout title="編輯工作流程" section="management" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title="編輯工作流程" section="flows" breadcrumb={breadcrumb}>
   {!ready && (
     <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
   )}
   {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
   {ready && !loadError && (
-    <div class="editor-wrap">
-      <div class="editor-toolbar">
-        <div class="editor-title-block">
-          <h2>{flowName}</h2>
-          <div class="editor-meta">
-            <span>v{flowVersion}</span>
-            <span>{stepCount} steps</span>
-            <span>{edgeCount} edges</span>
-            <span>{inputCount} inputs</span>
-          </div>
-        </div>
-        <div class="toolbar-actions">
-          <select id="snippet-select" class="snippet-select" aria-label="插入片段">
-            <option value="">插入片段</option>
-            <option value="agent">Agent step</option>
-            <option value="tool_group">Tool group</option>
-            <option value="approval">Approval gate</option>
-            <option value="edge">Edge</option>
-          </select>
-          <button type="button" id="copy-btn" class="btn btn-secondary">複製</button>
-          <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
-          <button type="button" id="toggle-view-btn" class="btn btn-secondary">圖形檢視</button>
-          <button type="button" id="save-btn" class="btn btn-primary">儲存</button>
-        </div>
-      </div>
-
-      <div id="yaml-editor-panel">
-        <form id="edit-form" autocomplete="off">
-          <div class="status-row">
-            <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
-            <span id="save-status" class="save-status" aria-live="polite">尚未修改</span>
-          </div>
-          <textarea
-            id="yaml-editor"
-            name="yaml"
-            rows={34}
-            spellcheck={false}
-            class="yaml-textarea"
-          >{definitionYaml}</textarea>
-          <div id="error-panel" class="error-panel hidden" aria-live="polite"></div>
-        </form>
-      </div>
-
-      <div id="visual-editor" class="hidden">
-        <div id="flow-editor-mount" data-readonly="false" data-definition={definitionJson}>
-          <FlowEditorWithPalette
-            definitionJson={definitionJson}
-            client:only="react"
-          />
-        </div>
-      </div>
+    <div class="builder-wrap">
+      <FlowBuilder
+        initialNodes={JSON.parse(initialNodesJson)}
+        initialEdges={JSON.parse(initialEdgesJson)}
+        meta={JSON.parse(metaJson)}
+        flowId={flowId}
+        client:only="react"
+      />
     </div>
   )}
 </AdminConsoleLayout>
 
-<script define:vars={{ flowId }}>
-  const textarea = document.getElementById('yaml-editor');
-  const errorPanel = document.getElementById('error-panel');
-  const saveStatus = document.getElementById('save-status');
-  const validateBtn = document.getElementById('validate-btn');
-  const saveBtn = document.getElementById('save-btn');
-  const toggleBtn = document.getElementById('toggle-view-btn');
-  const copyBtn = document.getElementById('copy-btn');
-  const snippetSelect = document.getElementById('snippet-select');
-  const yamlPanel = document.getElementById('yaml-editor-panel');
-  const visualPanel = document.getElementById('visual-editor');
-
-  let isVisual = false;
-  let debounceTimer = null;
-  let lastSavedYaml = textarea?.value ?? '';
-  const snippets = {
-    agent: [
-      '  - id: new_agent_step',
-      '    type: agent',
-      '    agent: planner',
-      '    description: Describe what this agent should do.',
-      '',
-    ].join('\n'),
-    tool_group: [
-      '  - id: new_tool_group',
-      '    type: tool_group',
-      '    tools: [search.tavily]',
-      '    description: Describe which tools this step should call.',
-      '',
-    ].join('\n'),
-    approval: [
-      '  - id: approval_gate',
-      '    type: approval',
-      '    description: Review the intermediate output before continuing.',
-      '',
-    ].join('\n'),
-    edge: [
-      '  - from: previous_step',
-      '    to: next_step',
-      '',
-    ].join('\n'),
-  };
-
-  // ── error panel ──────────────────────────────────────────────────────────────
-
-  function escapeHtml(value) {
-    return String(value)
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#39;');
-  }
-
-  function setErrors(errors) {
-    if (!errorPanel) return;
-    if (!errors || errors.length === 0) {
-      errorPanel.innerHTML = '';
-      errorPanel.classList.add('hidden');
-      errorPanel.classList.remove('has-errors');
-      if (textarea) textarea.classList.remove('has-errors');
-      return;
-    }
-    errorPanel.classList.remove('hidden');
-    errorPanel.classList.add('has-errors');
-    if (textarea) textarea.classList.add('has-errors');
-    errorPanel.innerHTML = '<ul>' + errors
-      .map((e) => `<li><strong>${escapeHtml(e.path)}</strong>: ${escapeHtml(e.message)}</li>`)
-      .join('') + '</ul>';
-  }
-
-  function setStatus(msg, tone) {
-    if (!saveStatus) return;
-    saveStatus.textContent = msg;
-    saveStatus.className = 'save-status ' + (tone ?? '');
-  }
-
-  function refreshDirtyState() {
-    const yaml = textarea?.value ?? '';
-    if (yaml === lastSavedYaml) {
-      setStatus('尚未修改', '');
-      return;
-    }
-    setStatus('有未儲存變更', 'dirty');
-  }
-
-  function insertAtCursor(value) {
-    if (!textarea) return;
-    const start = textarea.selectionStart ?? textarea.value.length;
-    const end = textarea.selectionEnd ?? start;
-    textarea.value = textarea.value.slice(0, start) + value + textarea.value.slice(end);
-    textarea.selectionStart = start;
-    textarea.selectionEnd = start + value.length;
-    textarea.focus();
-    textarea.dispatchEvent(new Event('input', { bubbles: true }));
-  }
-
-  // ── validate ─────────────────────────────────────────────────────────────────
-
-  async function doValidate(yaml) {
-    const yamlStr = yaml ?? textarea?.value ?? '';
-    try {
-      const res = await fetch('/api/admin/flows/validate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ yaml: yamlStr }),
-      });
-      const data = await res.json();
-      return data;
-    } catch (err) {
-      return { valid: false, errors: [{ path: '(network)', message: String(err) }] };
-    }
-  }
-
-  async function handleValidateClick() {
-    const yaml = textarea?.value ?? '';
-    setStatus('驗證中…', '');
-    setErrors([]);
-    const data = await doValidate(yaml);
-    if (data.valid) {
-      setStatus('驗證通過', 'ok');
-      setErrors([]);
-    } else {
-      setStatus('', '');
-      setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
-    }
-    return data.valid;
-  }
-
-  validateBtn?.addEventListener('click', handleValidateClick);
-
-  // ── debounced validation on textarea input ────────────────────────────────────
-
-  textarea?.addEventListener('input', () => {
-    refreshDirtyState();
-    if (debounceTimer) clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(async () => {
-      const yaml = textarea?.value ?? '';
-      const data = await doValidate(yaml);
-      if (data.valid) {
-        setErrors([]);
-      } else {
-        setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
-      }
-    }, 500);
-  });
-
-  // ── save ─────────────────────────────────────────────────────────────────────
-
-  async function saveYaml(yaml) {
-    setStatus('儲存中…', '');
-    setErrors([]);
-    try {
-      const res = await fetch(`/api/admin/flows/${flowId}/version`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ yaml }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        lastSavedYaml = yaml;
-        setStatus(`Saved as v${data.version}`, 'ok');
-        setErrors([]);
-        setTimeout(() => { window.location.href = `/admin/console/flows/${flowId}`; }, 800);
-      } else if (data.errors) {
-        setStatus('', '');
-        setErrors(data.errors);
-      } else {
-        setStatus('', '');
-        setErrors([{ path: '(server)', message: data.error ?? '儲存失敗' }]);
-      }
-    } catch (err) {
-      setErrors([{ path: '(network)', message: String(err) }]);
-      setStatus('', '');
-    }
-  }
-
-  saveBtn?.addEventListener('click', () => {
-    saveYaml(textarea?.value ?? '');
-  });
-
-  copyBtn?.addEventListener('click', async () => {
-    const yaml = textarea?.value ?? '';
-    try {
-      await navigator.clipboard.writeText(yaml);
-      setStatus('已複製 YAML', 'ok');
-      setTimeout(refreshDirtyState, 1000);
-    } catch (err) {
-      setStatus('複製失敗', '');
-    }
-  });
-
-  snippetSelect?.addEventListener('change', () => {
-    const key = snippetSelect.value;
-    if (key && snippets[key]) insertAtCursor(snippets[key]);
-    snippetSelect.value = '';
-  });
-
-  textarea?.addEventListener('keydown', (event) => {
-    if (event.key !== 'Tab') return;
-    event.preventDefault();
-    insertAtCursor('  ');
-  });
-
-  // ── toggle: YAML ↔ Graph ──────────────────────────────────────────────────────
-
-  toggleBtn?.addEventListener('click', async () => {
-    if (!isVisual) {
-      // Switch to visual
-      const yaml = textarea?.value ?? '';
-      const data = await doValidate(yaml);
-      if (!data.valid) {
-        setErrors(data.errors ?? []);
-        setStatus('請先修正錯誤再切換至圖形檢視。', '');
-        return;
-      }
-      isVisual = true;
-      toggleBtn.textContent = 'YAML 檢視';
-      yamlPanel?.classList.add('hidden');
-      visualPanel?.classList.remove('hidden');
-    } else {
-      // Switch back to YAML
-      isVisual = false;
-      toggleBtn.textContent = '圖形檢視';
-      visualPanel?.classList.add('hidden');
-      yamlPanel?.classList.remove('hidden');
-    }
-  });
-
-  window.addEventListener('beforeunload', (event) => {
-    if ((textarea?.value ?? '') === lastSavedYaml) return;
-    event.preventDefault();
-    event.returnValue = '';
-  });
-</script>
-
 <style>
-  .editor-wrap {
-    display: grid;
-    gap: 0.75rem;
-    max-width: min(1180px, 100%);
-  }
-  .editor-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
+  .builder-wrap {
+    height: calc(100vh - 100px);
     display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0.65rem 0;
-    background: var(--admin-bg);
-    border-bottom: 1px solid var(--admin-border);
-  }
-  .editor-title-block {
-    min-width: 220px;
-  }
-  .editor-title-block h2 {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.3;
-    color: var(--admin-text);
-  }
-  .editor-meta {
-    display: flex;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-    margin-top: 0.2rem;
-    color: var(--admin-text-muted);
-    font-size: 0.78rem;
-  }
-  .toolbar-actions {
-    display: flex;
-    gap: 0.45rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .snippet-select {
-    min-height: 34px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    padding: 0.35rem 0.55rem;
-    font-size: 0.82rem;
-  }
-  .hidden {
-    display: none !important;
-  }
-  .status-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    align-items: center;
-    margin-bottom: 0.35rem;
-  }
-  .editor-label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--admin-text-soft);
-    margin-bottom: 0;
-  }
-  .yaml-textarea {
-    width: 100%;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 13px;
-    line-height: 1.55;
-    padding: 0.75rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    min-height: min(72vh, 820px);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    resize: vertical;
-    tab-size: 2;
-    white-space: pre;
-    overflow-wrap: normal;
-    overflow-x: auto;
-    box-sizing: border-box;
-  }
-  .yaml-textarea:focus {
-    outline: none;
-    border-color: var(--admin-accent);
-    box-shadow: var(--admin-focus);
-  }
-  .yaml-textarea.has-errors {
-    border-color: #fca5a5;
-  }
-  .error-panel {
-    margin-top: 0.65rem;
-    padding: 0.6rem 0.75rem;
-    border-radius: var(--admin-radius);
-  }
-  .error-panel.has-errors {
-    background: #fef2f2;
-    border: 1px solid #fca5a5;
-    color: #b91c1c;
-  }
-  .error-panel ul {
-    margin: 0;
-    padding-left: 1.2rem;
-    font-size: 0.82rem;
-  }
-  .error-panel li {
-    margin-bottom: 0.2rem;
-  }
-  .btn {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    border-radius: var(--admin-radius);
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1px solid var(--admin-border);
-    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-  }
-  .btn-secondary {
-    background: var(--admin-surface);
-    color: var(--admin-text);
-  }
-  .btn-secondary:hover {
-    border-color: var(--admin-accent);
-    color: var(--brand-900);
-  }
-  .btn-primary {
-    background: var(--brand-900);
-    color: #fff;
-    border-color: var(--brand-900);
-  }
-  .btn-primary:hover {
-    background: var(--brand-700);
-    border-color: var(--brand-700);
-  }
-  .save-status {
-    font-size: 0.82rem;
-    color: var(--admin-text-muted);
-  }
-  .save-status.ok {
-    color: #16a34a;
-    font-weight: 600;
-  }
-  .save-status.dirty {
-    color: #b45309;
-    font-weight: 600;
-  }
-  #visual-editor {
-    min-height: 600px;
+    flex-direction: column;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     overflow: hidden;
