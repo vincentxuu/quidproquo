@@ -21,6 +21,11 @@ inputs:
     required: false
     default: second
     description: Reading depth (first | second | third)
+  autoFetch:
+    type: boolean
+    required: false
+    default: true
+    description: Auto-fetch the abstract from the arXiv API when none is pasted
 steps:
   arxiv-reading:
     kind: agent
@@ -69,4 +74,4 @@ artifacts:
 budget:
   maxRetries: 0
   maxRuntimeMs: 360000
-  maxExternalCalls: 1
+  maxExternalCalls: 2

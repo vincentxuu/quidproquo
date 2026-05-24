@@ -46,11 +46,20 @@ For shallower depths, return the deeper objects as empty objects/arrays.
 
 export type ArxivPassDepth = 'first' | 'second' | 'third'
 
+export type ArxivFetchStatus = 'pasted' | 'fetched' | 'fetch_failed' | 'no_id' | 'disabled'
+
+export interface ArxivMetadata {
+  title: string
+  abstract: string
+  authors: string[]
+}
+
 interface ArxivReadingInput {
   paperRef: string
   abstract?: string
   language?: string
   passDepth?: ArxivPassDepth
+  autoFetch?: boolean
 }
 
 interface DraftContext {
@@ -89,9 +98,12 @@ export interface ArxivThirdPass {
 export interface ArxivReadingResult {
   paperRef: string
   arxivId: string
+  resolvedTitle: string
   language: string
   passDepth: ArxivPassDepth
   hasAbstract: boolean
+  fetchStatus: ArxivFetchStatus
+  authors: string[]
   generatedAt: string
   firstPass: ArxivFirstPass
   secondPass: ArxivSecondPass
@@ -121,17 +133,43 @@ const PASS_ORDER: Record<ArxivPassDepth, number> = { first: 1, second: 2, third:
 
 export async function runArxivReading(
   input: ArxivReadingInput,
-  options: { onExternalCall?: () => void } = {},
+  options: {
+    onExternalCall?: () => void
+    fetchMetadata?: (arxivId: string, onExternalCall?: () => void) => Promise<ArxivMetadata | null>
+  } = {},
 ): Promise<ArxivReadingResult> {
   const paperRef = normalizeText(input.paperRef)
-  const abstract = normalizeText(input.abstract)
+  const pastedAbstract = normalizeText(input.abstract)
   const language = normalizeText(input.language) || 'zh-TW'
   const passDepth = normalizePassDepth(input.passDepth)
+  const autoFetch = input.autoFetch !== false
   const arxivId = extractArxivId(paperRef)
 
+  let abstract = pastedAbstract
+  let fetchStatus: ArxivFetchStatus = pastedAbstract ? 'pasted' : 'disabled'
+  let fetchedTitle = ''
+  let authors: string[] = []
+
+  if (!pastedAbstract && autoFetch) {
+    if (!arxivId) {
+      fetchStatus = 'no_id'
+    } else {
+      const fetcher = options.fetchMetadata ?? fetchArxivMetadata
+      const meta = await fetcher(arxivId, options.onExternalCall)
+      if (meta && meta.abstract) {
+        abstract = meta.abstract
+        fetchedTitle = meta.title
+        authors = meta.authors
+        fetchStatus = 'fetched'
+      } else {
+        fetchStatus = 'fetch_failed'
+      }
+    }
+  }
+
   const abstractBlock = abstract
-    ? `Abstract / notes provided by the user:\n"""\n${abstract}\n"""`
-    : 'No abstract was provided. Work only from the reference and common, stable knowledge; do not invent specific results.'
+    ? `Abstract${fetchStatus === 'fetched' ? ' (fetched from arXiv)' : ''}:\n"""\n${abstract}\n"""`
+    : 'No abstract is available. Work only from the reference and common, stable knowledge; do not invent specific results.'
 
   const run = await runModel(
     'arxiv_reading',
@@ -168,9 +206,12 @@ Return a JSON object in the strict format described above.`,
   return {
     paperRef,
     arxivId,
+    resolvedTitle: formatTitle(paperRef, arxivId, fetchedTitle),
     language,
     passDepth,
     hasAbstract: Boolean(abstract),
+    fetchStatus,
+    authors,
     generatedAt: new Date().toISOString(),
     firstPass,
     secondPass,
@@ -183,6 +224,48 @@ Return a JSON object in the strict format described above.`,
   }
 }
 
+const ARXIV_API_ENDPOINT = 'https://export.arxiv.org/api/query'
+
+async function fetchArxivMetadata(arxivId: string, onExternalCall?: () => void): Promise<ArxivMetadata | null> {
+  if (!arxivId) return null
+  onExternalCall?.()
+  try {
+    const response = await fetch(`${ARXIV_API_ENDPOINT}?id_list=${encodeURIComponent(arxivId)}&max_results=1`, {
+      headers: { Accept: 'application/atom+xml' },
+    })
+    if (!response.ok) return null
+    const xml = await response.text()
+    return parseArxivAtom(xml)
+  } catch {
+    return null
+  }
+}
+
+/** Minimal Atom parser for the arXiv API: pulls the first entry's title, summary, and authors. */
+export function parseArxivAtom(xml: string): ArxivMetadata | null {
+  const entry = xml.match(/<entry\b[\s\S]*?<\/entry>/i)?.[0]
+  if (!entry) return null
+  const title = decodeXml(entry.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '')
+  const abstract = decodeXml(entry.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/i)?.[1] ?? '')
+  const authors = [...entry.matchAll(/<name\b[^>]*>([\s\S]*?)<\/name>/gi)]
+    .map((m) => decodeXml(m[1]))
+    .filter(Boolean)
+  if (!abstract && !title) return null
+  return { title, abstract, authors }
+}
+
+function decodeXml(value: string): string {
+  return value
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 export function buildArxivReadingSlug(paperRef: string, arxivId: string, generatedAt: string): string {
   const datePrefix = generatedAt.slice(0, 10)
   const ref = arxivId || slugify(paperRef)
@@ -190,10 +273,11 @@ export function buildArxivReadingSlug(paperRef: string, arxivId: string, generat
 }
 
 export function buildArxivReadingDraft(result: ArxivReadingResult, context: DraftContext): ArxivReadingDraftResult {
-  const title = formatTitle(result.paperRef, result.arxivId)
+  const title = result.resolvedTitle || formatTitle(result.paperRef, result.arxivId)
   const wantsSecond = PASS_ORDER[result.passDepth] >= 2
   const wantsThird = PASS_ORDER[result.passDepth] >= 3
   const paperUrl = result.arxivId ? `https://arxiv.org/abs/${result.arxivId}` : ''
+  const authorsLine = result.authors.length ? `作者：${result.authors.join(', ')}` : ''
 
   const lines: string[] = [
     '---',
@@ -209,10 +293,11 @@ export function buildArxivReadingDraft(result: ArxivReadingResult, context: Draf
     '',
     '## 來源',
     `論文：${title}`,
+    ...(authorsLine ? [authorsLine] : []),
     paperUrl ? `連結：${paperUrl}` : '連結：（未提供 arXiv 連結，請補上）',
     `閱讀深度：${result.passDepth}`,
     `語言：${context.language}`,
-    result.hasAbstract ? '（已根據提供的摘要整理）' : '（未提供摘要，內容偏保守，請務必對照原文）',
+    abstractSourceNote(result.fetchStatus),
     '',
     '## 第一遍：取捨（5-10 分鐘）',
     `- 類型：${fallback(result.firstPass.category)}`,
@@ -401,7 +486,24 @@ function fallback(value: string): string {
   return value || '待補'
 }
 
-function formatTitle(paperRef: string, arxivId: string): string {
+function abstractSourceNote(status: ArxivFetchStatus): string {
+  switch (status) {
+    case 'fetched':
+      return '（已自動抓取 arXiv 摘要整理，仍須對照全文確認）'
+    case 'pasted':
+      return '（已根據提供的摘要整理）'
+    case 'fetch_failed':
+      return '（自動抓取失敗，內容偏保守，請務必對照原文）'
+    case 'no_id':
+      return '（無法解析 arXiv ID、未抓取，請貼上摘要或補連結）'
+    default:
+      return '（未提供摘要，內容偏保守，請務必對照原文）'
+  }
+}
+
+function formatTitle(paperRef: string, arxivId: string, fetchedTitle = ''): string {
+  const fetched = fetchedTitle.trim()
+  if (fetched) return fetched
   const ref = paperRef.trim()
   if (ref && !/^https?:\/\//i.test(ref) && !/^[0-9]{4}\.[0-9]{4,5}/.test(ref)) return ref
   if (arxivId) return `arXiv:${arxivId}`

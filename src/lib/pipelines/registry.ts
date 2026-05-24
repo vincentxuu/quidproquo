@@ -230,6 +230,12 @@ export const pipelineDefinitions: PipelineDefinition[] = [
         defaultValue: 'second',
         options: ['first', 'second', 'third'],
       },
+      {
+        id: 'autoFetch',
+        label: 'Auto-fetch abstract from arXiv',
+        type: 'boolean',
+        defaultValue: true,
+      },
     ],
     tools: ['write_draft_artifact', 'run_post_quality_check', 'run_reference_check', 'write_artifact'],
     stages: [
@@ -245,10 +251,10 @@ export const pipelineDefinitions: PipelineDefinition[] = [
       { id: 'arxiv-reading-report', type: 'json_report', title: 'Reading brief report' },
     ],
     guards: ['admin_required', 'reviewer_never_auto_fix', 'no_fabrication', 'tool_allowlist', 'budget_limit'],
-    budget: { maxRetries: 0, maxRuntimeMs: 360_000, maxExternalCalls: 1 },
+    budget: { maxRetries: 0, maxRuntimeMs: 360_000, maxExternalCalls: 2 },
     requiresAdmin: true,
     writesMarkdown: true,
-    usesExternalResearch: false,
+    usesExternalResearch: true,
   },
   {
     id: 'youtube-brief',
