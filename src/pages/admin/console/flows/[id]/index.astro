@@ -9,6 +9,7 @@ import FlowPresetList from '@/components/admin/console/FlowPresetList.astro';
 import RunsTable from '@/components/admin/console/RunsTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail, type FlowDetail } from '@/lib/agent-console/flow-detail';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
 
 export const prerender = false;
@@ -18,6 +19,8 @@ if (gate) return gate;
 
 const ready = isPageEnabled('management');
 const flowId = Astro.params.id ?? '';
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 let detail: FlowDetail | null = null;
 let loadError = false;
@@ -31,41 +34,48 @@ if (ready && flowId) {
 
 const currentYaml = detail?.versions[0]?.yaml ?? '';
 const breadcrumb = [
-  { label: '工作流程', href: '/admin/console/flows' },
+  { label: t('flows.title'), href: consoleHref('/admin/console/flows', lang) },
   { label: detail?.definition.name ?? flowId },
 ];
 ---
 
-<AdminConsoleLayout title="工作流程詳情" section="flows" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('flows.detailTitle')} section="flows" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`Flow management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone="empty">{t('flows.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
-  {ready && !loadError && !detail && <AdminState tone="empty">{`找不到工作流程「${flowId}」。`}</AdminState>}
+  {ready && loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
+  {ready && !loadError && !detail && <AdminState tone="empty">{t('flows.notFound', { id: flowId })}</AdminState>}
   {ready && detail && (
     <div class="flow-detail">
       <header class="detail-head">
         <h2>{detail.definition.name} <code>{detail.definition.id}</code></h2>
         {detail.definition.description && <p class="desc">{detail.definition.description}</p>}
         <div class="detail-actions">
-          <a href={`/admin/console/flows/${flowId}/edit`} class="btn-edit">編輯</a>
+          <a href={consoleHref(`/admin/console/flows/${flowId}/edit`, lang)} class="btn-edit">{t('common.edit')}</a>
+          <button
+            type="button"
+            class="btn-danger"
+            id="archive-flow-btn"
+            data-flow-id={flowId}
+            data-confirm={t('flows.archiveConfirm', { id: flowId })}
+          >{t('flows.archiveFlow')}</button>
         </div>
       </header>
 
       <section aria-label="Current definition">
-        <h3>目前 YAML（v{detail.definition.version}）</h3>
-        <pre class="yaml-block">{currentYaml || '此版本尚未儲存 YAML。'}</pre>
+        <h3>{t('flows.currentYaml', { version: detail.definition.version })}</h3>
+        <pre class="yaml-block">{currentYaml || t('flows.noYaml')}</pre>
       </section>
 
       <section aria-label="Inputs">
-        <h3>輸入參數</h3>
+        <h3>{t('flows.inputs')}</h3>
         {detail.definition.inputs.length === 0 ? (
-          <p class="empty-note">尚未宣告輸入參數。</p>
+          <p class="empty-note">{t('flows.noInputs')}</p>
         ) : (
           <ul class="inputs">
             {detail.definition.inputs.map((input) => (
               <li>
-                <code>{input.name}</code> <span class="muted">{input.type}{input.required ? ' · 必填' : ''}</span>
+                <code>{input.name}</code> <span class="muted">{input.type}{input.required ? ` · ${t('flows.required')}` : ''}</span>
               </li>
             ))}
           </ul>
@@ -73,19 +83,19 @@ const breadcrumb = [
       </section>
 
       <section aria-label="Versions">
-        <h3>版本記錄</h3>
+        <h3>{t('flows.versions')}</h3>
         <FlowVersionList versions={detail.versions} latestVersion={detail.definition.version} />
       </section>
 
       <section aria-label="Presets">
-        <h3>預設配置</h3>
+        <h3>{t('flows.presets')}</h3>
         <FlowPresetList presets={detail.presets} />
       </section>
 
       <section aria-label="Recent runs">
-        <h3>近期執行記錄</h3>
+        <h3>{t('flows.recentRuns')}</h3>
         {detail.recentRuns.length === 0 ? (
-          <p class="empty-note">尚無執行記錄。</p>
+          <p class="empty-note">{t('flows.noRuns')}</p>
         ) : (
           <RunsTable runs={detail.recentRuns} />
         )}
@@ -93,6 +103,27 @@ const breadcrumb = [
     </div>
   )}
 </AdminConsoleLayout>
+
+<script define:vars={{ lang, archiveFailed: t('flows.archiveFailed') }}>
+  const archiveButton = document.getElementById('archive-flow-btn');
+  archiveButton?.addEventListener('click', async () => {
+    const flowId = archiveButton.getAttribute('data-flow-id');
+    const message = archiveButton.getAttribute('data-confirm') ?? '';
+    if (!flowId || !window.confirm(message)) return;
+
+    archiveButton.setAttribute('disabled', 'true');
+    try {
+      const response = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error(await response.text());
+      window.location.href = lang === 'en' ? '/admin/console/flows?lang=en' : '/admin/console/flows';
+    } catch (error) {
+      window.alert(`${archiveFailed}: ${error instanceof Error ? error.message : String(error)}`);
+      archiveButton.removeAttribute('disabled');
+    }
+  });
+</script>
 
 <style>
   .flow-detail {
@@ -115,7 +146,8 @@ const breadcrumb = [
     display: flex;
     gap: 0.5rem;
   }
-  .btn-edit {
+  .btn-edit,
+  .btn-danger {
     display: inline-block;
     padding: 0.35rem 0.85rem;
     border: 1px solid var(--admin-border);
@@ -130,6 +162,15 @@ const breadcrumb = [
   .btn-edit:hover {
     border-color: var(--admin-accent);
     color: var(--brand-900);
+  }
+  .btn-danger {
+    color: #b91c1c;
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+  .btn-danger:hover {
+    border-color: #ef4444;
+    color: #991b1b;
   }
   .flow-detail h3 {
     font-size: 0.95rem;

@@ -1,4 +1,4 @@
-import type { ProviderPolicy } from '../../schema/categories/provider'
+import type { ProviderPolicy } from '../../schema/body'
 import { checkProvider, type ProviderInfo } from './check'
 
 export interface ProviderEnforcementWire {

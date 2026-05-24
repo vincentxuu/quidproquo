@@ -1,19 +1,23 @@
 ---
+import { createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
+
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 ---
 
-<p class="page-desc">管理 RAG 可選 provider/model 清單，並直接測試指定模型是否可用。</p>
+<p class="page-desc">{t('providers.description')}</p>
 
   <section class="providers-section">
     <div class="section-header">
       <div>
-        <h2>RAG Routing Quick Edit</h2>
-        <p class="section-note">Default / fallback model 會優先從下方啟用的清單選取。</p>
+        <h2>{t('providers.routingTitle')}</h2>
+        <p class="section-note">{t('providers.routingNote')}</p>
       </div>
       <span id="routing-save-status" class="save-status" aria-live="polite"></span>
     </div>
     <div class="routing-form">
       <label>
-        Engine
+        {t('providers.engine')}
         <select id="edit-engine">
           <option value="langgraph">langgraph</option>
           <option value="manual">manual</option>
@@ -21,130 +25,163 @@
         </select>
       </label>
       <label>
-        Default provider
+        {t('providers.defaultProvider')}
         <select id="edit-provider"></select>
       </label>
       <label>
-        Default model
+        {t('providers.defaultModel')}
         <select id="edit-model"></select>
       </label>
       <label>
-        Fallback provider
+        {t('providers.fallbackProvider')}
         <select id="edit-fallback-provider"></select>
       </label>
       <label>
-        Fallback model
+        {t('providers.fallbackModel')}
         <select id="edit-fallback-model"></select>
       </label>
-      <button id="save-routing" type="button">儲存 routing</button>
+      <button id="save-routing" type="button">{t('providers.saveRouting')}</button>
     </div>
   </section>
 
   <section class="providers-section">
     <div class="section-header">
       <div>
-        <h2>Provider Model Catalog</h2>
-        <p class="section-note">啟用的模型會出現在 routing 與測試區；停用後仍保留紀錄。</p>
+        <h2>{t('providers.catalogTitle')}</h2>
+        <p class="section-note">{t('providers.catalogNote')}</p>
       </div>
       <span id="catalog-save-status" class="save-status" aria-live="polite"></span>
     </div>
     <div class="catalog-toolbar">
-      <button id="expand-all-model-groups" type="button">全部展開</button>
-      <button id="collapse-all-model-groups" type="button">全部收合</button>
+      <button id="expand-all-model-groups" type="button">{t('providers.expandAll')}</button>
+      <button id="collapse-all-model-groups" type="button">{t('providers.collapseAll')}</button>
     </div>
 
     <form id="model-form" class="model-form">
       <label>
-        Provider
+        {t('providers.provider')}
         <select id="model-provider"></select>
       </label>
       <label>
-        Model name
+        {t('providers.modelName')}
         <input id="model-name" type="text" autocomplete="off" placeholder="llama-3.3-70b-versatile" />
       </label>
       <label>
-        Display name
+        {t('providers.displayName')}
         <input id="model-display-name" type="text" autocomplete="off" placeholder="Llama 3.3 70B" />
       </label>
       <label>
-        Notes
-        <input id="model-notes" type="text" autocomplete="off" placeholder="用途、成本或限制" />
+        {t('providers.notes')}
+        <input id="model-notes" type="text" autocomplete="off" placeholder={t('providers.notesPlaceholder')} />
       </label>
       <label class="checkbox-label">
         <input id="model-enabled" type="checkbox" checked />
-        啟用
+        {t('common.enabled')}
       </label>
-      <button type="submit">新增 / 更新</button>
+      <button type="submit">{t('providers.addUpdate')}</button>
     </form>
 
-    <div id="model-catalog" class="catalog-list">載入中...</div>
+    <div id="model-catalog" class="catalog-list">{t('common.loading')}</div>
   </section>
 
   <section class="providers-section">
     <div class="section-header">
       <div>
-        <h2>Test Model</h2>
-        <p class="section-note">使用環境變數 / Admin 設定的 key 呼叫模型，適合檢查 provider key、model name 與回應速度。</p>
+        <h2>{t('providers.testTitle')}</h2>
+        <p class="section-note">{t('providers.testNote')}</p>
       </div>
       <span id="test-status" class="save-status" aria-live="polite"></span>
     </div>
     <div class="test-panel">
       <div class="test-controls">
         <label>
-          Provider
+          {t('providers.provider')}
           <select id="test-provider"></select>
         </label>
         <label>
-          Model
+          {t('providers.modelName')}
           <select id="test-model"></select>
         </label>
         <label>
-          Max tokens
+          {t('providers.maxTokens')}
           <input id="test-max-tokens" type="number" min="16" max="512" value="96" />
         </label>
       </div>
       <label>
-        測試標題
-        <input id="test-title" type="text" autocomplete="off" placeholder="可選：例如『日誌模型可用性』" />
+        {t('providers.testName')}
+        <input id="test-title" type="text" autocomplete="off" placeholder={t('providers.testNamePlaceholder')} />
       </label>
       <label class="prompt-label">
-        Prompt
-        <textarea id="test-prompt" rows="3">請用一句繁體中文回答：這個模型連線測試成功了嗎？</textarea>
+        {t('providers.prompt')}
+        <textarea id="test-prompt" rows="3">{t('flows.testPrompt')}</textarea>
       </label>
-      <button id="run-model-test" type="button">執行測試</button>
-      <pre id="test-result" class="test-result">尚未測試。</pre>
+      <button id="run-model-test" type="button">{t('providers.runTest')}</button>
+      <pre id="test-result" class="test-result">{t('common.notTested')}</pre>
     </div>
   </section>
 
   <section class="providers-section">
     <div class="section-header">
       <div>
-        <h2>Provider Secrets</h2>
-        <p class="section-note">可直接在後台維護 provider key（不會在前端暴露原值）；有設定值時會作為 env fallback。</p>
+        <h2>{t('providers.secretsTitle')}</h2>
+        <p class="section-note">{t('providers.secretsNote')}</p>
       </div>
       <span id="provider-key-status" class="save-status" aria-live="polite"></span>
     </div>
-    <div id="provider-secrets" class="secrets-grid">載入中...</div>
+    <div id="provider-secrets" class="secrets-grid">{t('common.loading')}</div>
   </section>
 
   <div class="providers-grid">
     <section class="providers-section">
-      <h2>RAG Pipeline</h2>
-      <div id="rag-providers" class="provider-cards">Loading...</div>
+      <h2>{t('providers.ragPipeline')}</h2>
+      <div id="rag-providers" class="provider-cards">{t('common.loading')}</div>
     </section>
 
     <section class="providers-section">
-      <h2>Embedding</h2>
-      <div id="embed-providers" class="provider-cards">Loading...</div>
+      <h2>{t('providers.embedding')}</h2>
+      <div id="embed-providers" class="provider-cards">{t('common.loading')}</div>
     </section>
 
     <section class="providers-section">
-      <h2>Secrets Status</h2>
-      <div id="secrets-status" class="secrets-grid">Loading...</div>
+      <h2>{t('providers.secretsStatus')}</h2>
+      <div id="secrets-status" class="secrets-grid">{t('common.loading')}</div>
     </section>
   </div>
 
-<script is:inline>
+<script define:vars={{
+  messages: {
+    active: t('providers.active'),
+    inactive: t('providers.inactive'),
+    delete: t('providers.delete'),
+    saveSecret: t('providers.saveSecret'),
+    deleteAdmin: t('providers.deleteAdmin'),
+    secretConfiguredPlaceholder: t('providers.secretConfiguredPlaceholder'),
+    secretEmptyPlaceholder: t('providers.secretEmptyPlaceholder'),
+    syncModels: t('providers.syncModels'),
+    syncing: t('providers.syncing'),
+    syncFailed: t('providers.syncFailed'),
+    syncFailedRetry: t('providers.syncFailedRetry'),
+    syncDone: t('providers.syncDone'),
+    modelsEnabled: t('providers.modelsEnabled'),
+    noModels: t('providers.noModels'),
+    saving: t('providers.saving'),
+    saved: t('providers.saved'),
+    saveFailed: t('providers.saveFailed'),
+    deleting: t('providers.deleting'),
+    deleted: t('providers.deleted'),
+    deleteFailed: t('providers.deleteFailed'),
+    modelRequired: t('providers.modelRequired'),
+    secretRequired: t('providers.secretRequired'),
+    testing: t('providers.testing'),
+    waitingModel: t('providers.waitingModel'),
+    testFailed: t('providers.testFailed'),
+    successMs: t('providers.successMs'),
+    unableToLoad: t('providers.unableToLoad'),
+    unableSettings: t('providers.unableSettings'),
+    noEnabledModels: t('providers.noEnabledModels'),
+    configure: t('providers.configure'),
+  },
+}}>
   const routingControls = {
     engine: document.getElementById('edit-engine'),
     provider: document.getElementById('edit-provider'),
@@ -319,7 +356,7 @@
     stateButton.dataset.action = 'toggle';
     stateButton.dataset.provider = model.provider;
     stateButton.dataset.model = model.model;
-    stateButton.textContent = model.enabled ? 'active' : 'inactive';
+    stateButton.textContent = model.enabled ? messages.active : messages.inactive;
 
     const deleteButton = document.createElement('button');
     deleteButton.type = 'button';
@@ -327,7 +364,7 @@
     deleteButton.dataset.action = 'delete';
     deleteButton.dataset.provider = model.provider;
     deleteButton.dataset.model = model.model;
-    deleteButton.textContent = '刪除';
+    deleteButton.textContent = messages.delete;
 
     row.append(editButton, stateButton, deleteButton);
     return row;
@@ -379,18 +416,18 @@
     input.type = 'text';
     input.autocomplete = 'off';
     input.className = 'provider-secret-value';
-    input.placeholder = secret.configured ? '已設定（僅供覆寫）' : '貼上新的 key';
+    input.placeholder = secret.configured ? messages.secretConfiguredPlaceholder : messages.secretEmptyPlaceholder;
     input.dataset.key = secret.envKey;
 
     const saveButton = document.createElement('button');
     saveButton.type = 'button';
-    saveButton.textContent = '保存';
+    saveButton.textContent = messages.saveSecret;
     saveButton.dataset.action = 'save-secret';
     saveButton.dataset.key = secret.envKey;
 
     const deleteButton = document.createElement('button');
     deleteButton.type = 'button';
-    deleteButton.textContent = '刪除 admin';
+    deleteButton.textContent = messages.deleteAdmin;
     deleteButton.dataset.action = 'delete-secret';
     deleteButton.dataset.key = secret.envKey;
     if (!secret.hasDb) {
@@ -474,20 +511,23 @@
   async function syncProviderModels(provider) {
     const button = providerSyncStatus.get(`${provider}:button`);
     if (button instanceof HTMLElement) button.disabled = true;
-    setSyncStatus(provider, '同步中...', 'info');
+    setSyncStatus(provider, messages.syncing, 'info');
     try {
       const res = await fetch(`/api/admin/providers/sync/${encodeURIComponent(provider)}`, {
         method: 'POST',
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setSyncStatus(provider, data.error || '同步失敗', 'error');
+        setSyncStatus(provider, data.error || messages.syncFailed, 'error');
       } else {
-        setSyncStatus(provider, `同步完成：新增 ${data.added}，保留 ${data.existing}，共 ${data.total}`, 'success');
+        setSyncStatus(provider, messages.syncDone
+          .replace('{added}', data.added)
+          .replace('{existing}', data.existing)
+          .replace('{total}', data.total), 'success');
         await loadProviderCatalog();
       }
     } catch {
-      setSyncStatus(provider, '同步失敗，請稍後再試', 'error');
+      setSyncStatus(provider, messages.syncFailedRetry, 'error');
     } finally {
       if (button instanceof HTMLElement) button.disabled = false;
       window.setTimeout(() => setSyncStatus(provider, ''), 5000);
@@ -531,7 +571,7 @@
       select.append(makeOption(model.model, model.displayName || model.model));
     }
     if (!models.length && !allowNone) {
-      select.append(makeOption('', 'No enabled models'));
+      select.append(makeOption('', messages.noEnabledModels));
       select.value = '';
       return;
     }
@@ -560,7 +600,7 @@
 
       const cards = [];
 
-      const chat = makeProviderCardWithLink('Chat / Answer', 'Configure', '/admin/rag');
+      const chat = makeProviderCardWithLink('Chat / Answer', messages.configure, '/admin/rag');
       chat.append(
         makeInfoRow('Provider', settings.rag_default_provider || 'groq'),
         makeInfoRow('Model', settings.rag_default_model || 'llama-3.3-70b-versatile'),
@@ -587,7 +627,7 @@
       cards.push(chat, fallback, feature);
       el.replaceChildren(...cards);
     } catch {
-      setLoadError(el, 'Unable to load');
+      setLoadError(el, messages.unableToLoad);
     }
   }
 
@@ -622,7 +662,9 @@
       const stats = document.createElement('span');
       const models = grouped[provider] || [];
       const activeCount = models.filter((model) => model.enabled).length;
-      stats.textContent = `${activeCount} / ${models.length} enabled`;
+      stats.textContent = messages.modelsEnabled
+        .replace('{active}', activeCount)
+        .replace('{total}', models.length);
       titleWrap.append(title, stats);
 
       const actionWrap = document.createElement('div');
@@ -635,7 +677,7 @@
       syncButton.className = 'catalog-sync-btn';
       syncButton.dataset.action = 'sync';
       syncButton.dataset.provider = provider;
-      syncButton.textContent = '同步模型';
+      syncButton.textContent = messages.syncModels;
 
       syncButton.addEventListener('click', (event) => {
         event.preventDefault();
@@ -660,7 +702,7 @@
       } else {
         const empty = document.createElement('p');
         empty.className = 'empty-note';
-        empty.textContent = '尚未設定模型';
+        empty.textContent = messages.noModels;
         body.append(empty);
       }
 
@@ -671,17 +713,17 @@
   }
 
   async function saveCatalog() {
-    catalogControls.status.textContent = '儲存中...';
+    catalogControls.status.textContent = messages.saving;
     const res = await fetch('/api/admin/providers', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ models: providerCatalog.models }),
     });
     if (!res.ok) {
-      catalogControls.status.textContent = '儲存失敗。';
+      catalogControls.status.textContent = messages.saveFailed;
       return;
     }
-    catalogControls.status.textContent = '已儲存。';
+    catalogControls.status.textContent = messages.saved;
     await loadProviderCatalog();
     setTimeout(() => { catalogControls.status.textContent = ''; }, 2400);
   }
@@ -691,7 +733,7 @@
     const provider = catalogControls.provider.value;
     const model = catalogControls.model.value.trim();
     if (!provider || !model) {
-      catalogControls.status.textContent = 'Provider 與 model name 必填。';
+      catalogControls.status.textContent = messages.modelRequired;
       return;
     }
 
@@ -712,7 +754,7 @@
   });
 
   async function saveProviderSecret(key, value) {
-    secretControls.status.textContent = '儲存中...';
+    secretControls.status.textContent = messages.saving;
     const res = await fetch('/api/admin/providers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -724,16 +766,16 @@
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      secretControls.status.textContent = data.error || '儲存失敗。';
+      secretControls.status.textContent = data.error || messages.saveFailed;
       return;
     }
     await loadProviderCatalog();
-    secretControls.status.textContent = '已儲存。';
+    secretControls.status.textContent = messages.saved;
     window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
   }
 
   async function deleteProviderSecret(key) {
-    secretControls.status.textContent = '刪除中...';
+    secretControls.status.textContent = messages.deleting;
     const res = await fetch('/api/admin/providers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -744,11 +786,11 @@
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      secretControls.status.textContent = data.error || '刪除失敗。';
+      secretControls.status.textContent = data.error || messages.deleteFailed;
       return;
     }
     await loadProviderCatalog();
-    secretControls.status.textContent = '已刪除。';
+    secretControls.status.textContent = messages.deleted;
     window.setTimeout(() => { secretControls.status.textContent = ''; }, 1800);
   }
 
@@ -763,7 +805,7 @@
 
     if (target.dataset.action === 'save-secret') {
       if (!value) {
-        secretControls.status.textContent = '請輸入要儲存的 key。';
+        secretControls.status.textContent = messages.secretRequired;
         return;
       }
       await saveProviderSecret(key, value);
@@ -810,7 +852,7 @@
   testControls.provider.addEventListener('change', syncModelOptions);
 
   routingControls.save.addEventListener('click', async () => {
-    routingControls.status.textContent = '儲存中...';
+    routingControls.status.textContent = messages.saving;
     const settings = {
       ...latestRagSettings,
       rag_pipeline_engine: routingControls.engine.value,
@@ -825,17 +867,17 @@
       body: JSON.stringify({ settings }),
     });
     if (!res.ok) {
-      routingControls.status.textContent = '儲存失敗。';
+      routingControls.status.textContent = messages.saveFailed;
       return;
     }
-    routingControls.status.textContent = '已儲存。';
+    routingControls.status.textContent = messages.saved;
     await loadRagProviders();
     setTimeout(() => { routingControls.status.textContent = ''; }, 2400);
   });
 
   testControls.run.addEventListener('click', async () => {
-    testControls.status.textContent = '測試中...';
-    testControls.result.textContent = '等待模型回應...';
+    testControls.status.textContent = messages.testing;
+    testControls.result.textContent = messages.waitingModel;
     const res = await fetch('/api/admin/providers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -849,11 +891,11 @@
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      testControls.status.textContent = '測試失敗';
+      testControls.status.textContent = messages.testFailed;
       testControls.result.textContent = JSON.stringify(data, null, 2);
       return;
     }
-    testControls.status.textContent = `成功，${data.duration_ms}ms`;
+    testControls.status.textContent = messages.successMs.replace('{ms}', data.duration_ms);
     const title = testControls.title?.value?.trim();
     if (title) {
       data.testTitle = title;
@@ -890,7 +932,7 @@
 
       el.replaceChildren(workers, vectorize);
     } catch {
-      setLoadError(el, 'Unable to load');
+      setLoadError(el, messages.unableToLoad);
     }
   }
 
@@ -911,12 +953,12 @@
       }
       el.replaceChildren(frag);
     } catch {
-      setLoadError(el, 'Unable to load');
+      setLoadError(el, messages.unableToLoad);
     }
   }
 
   loadProviders().catch(() => {
-    setLoadError(catalogControls.list, 'Unable to load provider settings');
+    setLoadError(catalogControls.list, messages.unableSettings);
   });
 
   if (catalogToggleControls.expandAll) {

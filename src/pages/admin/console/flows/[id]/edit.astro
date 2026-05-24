@@ -6,6 +6,7 @@ import { FlowBuilder } from '@/components/admin/console/flow-builder/FlowBuilder
 import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
 import { flowDefinitionToDag } from '@/lib/agent-flow/dsl/yaml-to-dag';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -13,6 +14,8 @@ if (gate) return gate;
 
 const ready = isPageEnabled('flowEditor');
 const flowId = Astro.params.id ?? '';
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 let initialNodesJson = '[]';
 let initialEdgesJson = '[]';
@@ -48,17 +51,17 @@ if (ready && flowId) {
 }
 
 const breadcrumb = [
-  { label: '工作流程', href: '/admin/console/flows' },
-  { label: flowName, href: `/admin/console/flows/${flowId}` },
-  { label: '編輯' },
+  { label: t('flows.title'), href: consoleHref('/admin/console/flows', lang) },
+  { label: flowName, href: consoleHref(`/admin/console/flows/${flowId}`, lang) },
+  { label: t('common.edit') },
 ];
 ---
 
-<AdminConsoleLayout title="編輯工作流程" section="flows" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('flows.editTitle')} section="flows" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
+    <AdminState tone="empty">{t('flows.editorUnavailable', { phase: consolePhaseFor('flowEditor') })}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
+  {ready && loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
   {ready && !loadError && (
     <div class="builder-wrap">
       <FlowBuilder

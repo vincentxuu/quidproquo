@@ -23,10 +23,12 @@ export interface QualityPolicy {
   enforcement?: 'block' | 'warn'
 }
 
+export type RedactionPatternKind = 'email' | 'phone' | 'api-key' | 'ssn' | 'credit-card'
+
 export interface RedactionPattern {
   /** Short-hand kind alias resolved by the built-in scanner (e.g. 'email', 'api-key').
    *  Either `kind` or `name`+`pattern` must be provided. */
-  kind?: string
+  kind?: RedactionPatternKind
   name?: string
   pattern?: string
   action?: 'redact' | 'block' | 'log'

@@ -1,8 +1,8 @@
 import type { ArtifactVersionRecord, VersionStoreBackend } from '../types'
 
 function rowToRecord(row: Record<string, unknown>): ArtifactVersionRecord {
-  const definitionId = row.definition_id as string
-  const status = row.status as ArtifactVersionRecord['status']
+  const definitionId = (row.definition_id ?? row.artifact_id) as string
+  const status = (row.status ?? row.approval_status) as ArtifactVersionRecord['status']
   return {
     versionId: row.version_id as string,
     definitionId,
@@ -24,7 +24,17 @@ function rowToRecord(row: Record<string, unknown>): ArtifactVersionRecord {
 }
 
 export class D1VersionStoreBackend implements VersionStoreBackend {
+  private columnCache: Promise<Set<string>> | null = null
+
   constructor(private readonly db: D1Database) {}
+
+  private async columns(): Promise<Set<string>> {
+    this.columnCache ??= this.db
+      .prepare('PRAGMA table_info(artifact_versions)')
+      .all<{ name: string }>()
+      .then((result) => new Set((result.results ?? []).map((column) => column.name)))
+    return this.columnCache
+  }
 
   async insert(opts: Parameters<VersionStoreBackend['insert']>[0]): Promise<string> {
     const now = Date.now()
@@ -62,16 +72,20 @@ export class D1VersionStoreBackend implements VersionStoreBackend {
   }
 
   async getLatestForDefinition(definitionId: string): Promise<ArtifactVersionRecord | null> {
+    const columns = await this.columns()
+    const definitionColumn = columns.has('definition_id') ? 'definition_id' : 'artifact_id'
     const row = await this.db
-      .prepare('SELECT * FROM artifact_versions WHERE definition_id = ? ORDER BY version_number DESC LIMIT 1')
+      .prepare(`SELECT * FROM artifact_versions WHERE ${definitionColumn} = ? ORDER BY version_number DESC LIMIT 1`)
       .bind(definitionId)
       .first<Record<string, unknown>>()
     return row ? rowToRecord(row) : null
   }
 
   async listChain(definitionId: string): Promise<ArtifactVersionRecord[]> {
+    const columns = await this.columns()
+    const definitionColumn = columns.has('definition_id') ? 'definition_id' : 'artifact_id'
     const result = await this.db
-      .prepare('SELECT * FROM artifact_versions WHERE definition_id = ? ORDER BY version_number ASC')
+      .prepare(`SELECT * FROM artifact_versions WHERE ${definitionColumn} = ? ORDER BY version_number ASC`)
       .bind(definitionId)
       .all<Record<string, unknown>>()
     return (result.results ?? []).map(rowToRecord)
@@ -82,11 +96,13 @@ export class D1VersionStoreBackend implements VersionStoreBackend {
   }
 
   async listByFlowRun(flowRunId: string): Promise<ArtifactVersionRecord[]> {
+    const columns = await this.columns()
+    const definitionColumn = columns.has('definition_id') ? 'definition_id' : 'artifact_id'
     const result = await this.db
       .prepare(
-        `SELECT v.*, d.kind, d.definition_id AS artifact_id
+        `SELECT v.*, d.kind, d.${definitionColumn} AS artifact_id
          FROM artifact_versions v
-         JOIN artifact_definitions d ON v.definition_id = d.definition_id
+         JOIN artifact_definitions d ON v.${definitionColumn} = d.${definitionColumn}
          WHERE v.flow_run_id = ?
          ORDER BY v.created_at ASC`,
       )
@@ -96,8 +112,10 @@ export class D1VersionStoreBackend implements VersionStoreBackend {
   }
 
   async updateStatus(versionId: string, status: string, resolvedBy?: string): Promise<void> {
+    const columns = await this.columns()
+    const statusColumn = columns.has('status') ? 'status' : 'approval_status'
     await this.db
-      .prepare('UPDATE artifact_versions SET status = ?, resolved_by = ? WHERE version_id = ?')
+      .prepare(`UPDATE artifact_versions SET ${statusColumn} = ?, resolved_by = ? WHERE version_id = ?`)
       .bind(status, resolvedBy ?? null, versionId)
       .run()
   }

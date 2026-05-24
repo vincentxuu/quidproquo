@@ -7,6 +7,7 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentFlowEnabled } from '../_guard'
 import { nowMs } from '@/lib/utils/dates'
+import { getTableColumns } from '@/lib/admin-console/schema'
 
 export const POST: APIRoute = async ({ cookies, params, request }) => {
   const auth = await requireAdmin(cookies)
@@ -126,13 +127,23 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   }
   const flowRunId = crypto.randomUUID()
   const now = nowMs()
+  const flowRunColumns = await getTableColumns(db, 'flow_runs')
+  const inputColumn = flowRunColumns.has('input_json') ? 'input_json' : 'inputs_json'
+  const insertColumns = ['flow_run_id', 'flow_id', 'preset_id', 'status', inputColumn, 'created_at', 'started_at', 'updated_at']
+  const values: unknown[] = [flowRunId, flowId, presetId, 'queued', JSON.stringify(input), now, now, now]
+
+  if (flowRunColumns.has('flow_version')) {
+    insertColumns.push('flow_version')
+    values.push(1)
+  }
+  if (flowRunColumns.has('trigger')) {
+    insertColumns.push('trigger')
+    values.push('console')
+  }
 
   await db
-    .prepare(
-      `INSERT INTO flow_runs (flow_run_id, flow_id, preset_id, status, input_json, created_at, started_at, updated_at)
-       VALUES (?, ?, ?, 'queued', ?, ?, ?, ?)`,
-    )
-    .bind(flowRunId, flowId, presetId, JSON.stringify(input), now, now, now)
+    .prepare(`INSERT INTO flow_runs (${insertColumns.join(', ')}) VALUES (${insertColumns.map(() => '?').join(', ')})`)
+    .bind(...values)
     .run()
 
   const accept = request.headers.get('accept') ?? ''

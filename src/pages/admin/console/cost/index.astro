@@ -92,6 +92,13 @@ interface BudgetAlert {
   ratio: number;
 }
 
+interface BackfillAuditRow {
+  audit_id: number;
+  user_email: string | null;
+  payload_json: string | null;
+  created_at: number;
+}
+
 function emptyAll<T>(): D1Result<T> {
   return {
     results: [],
@@ -107,13 +114,14 @@ let costMtd = 0;
 let dailyRows: RollupRow[] = [];
 let topRuns: TopRunRow[] = [];
 let budgetAlerts: BudgetAlert[] = [];
+let recentBackfills: BackfillAuditRow[] = [];
 let loadError = false;
 
 if (ready) {
   try {
     const db = getEnv().DB;
 
-    const [metrics24h, metrics7d, metrics30d, metricsMtd, daily, runs, budgetRuns] = await Promise.all([
+    const [metrics24h, metrics7d, metrics30d, metricsMtd, daily, runs, budgetRuns, backfillAudit] = await Promise.all([
       // 24h total
       db
         .prepare(
@@ -208,6 +216,21 @@ if (ready) {
         .bind(nowMs - 30 * 86_400_000)
         .all<BudgetRunRow>()
         .catch(() => emptyAll<BudgetRunRow>()),
+
+      db
+        .prepare(
+          `SELECT al.audit_id,
+                  u.email as user_email,
+                  al.payload_json,
+                  al.created_at
+           FROM console_audit_log al
+           LEFT JOIN console_users u ON u.user_id = al.user_id
+           WHERE al.action = 'cost.backfill'
+           ORDER BY al.created_at DESC
+           LIMIT 8`,
+        )
+        .all<BackfillAuditRow>()
+        .catch(() => emptyAll<BackfillAuditRow>()),
     ]);
 
     cost24h = metrics24h?.total ?? 0;
@@ -216,6 +239,7 @@ if (ready) {
     costMtd = metricsMtd?.total ?? 0;
     dailyRows = daily.results ?? [];
     topRuns = runs.results ?? [];
+    recentBackfills = backfillAudit.results ?? [];
     budgetAlerts = (budgetRuns.results ?? [])
       .map((run) => {
         let limitUsd = 0;
@@ -262,6 +286,44 @@ function formatDay(day: number): string {
   return `${yyyy}-${mm}-${dd}`;
 }
 
+function formatTs(ms: number): string {
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function parseBackfillPayload(raw: string | null): {
+  range: string;
+  fromDay: number | null;
+  toDay: number | null;
+  rows: string;
+  cost: string;
+  tokens: string;
+} {
+  if (!raw) return { range: '—', fromDay: null, toDay: null, rows: '—', cost: '—', tokens: '—' };
+  try {
+    const summary = JSON.parse(raw) as {
+      fromDay?: number;
+      toDay?: number;
+      rowsWritten?: number;
+      costUsd?: number;
+      tokensIn?: number;
+      tokensOut?: number;
+    };
+    const from = typeof summary.fromDay === 'number' ? formatDay(summary.fromDay) : '?';
+    const to = typeof summary.toDay === 'number' ? formatDay(summary.toDay) : '?';
+    const tokens = Number(summary.tokensIn ?? 0) + Number(summary.tokensOut ?? 0);
+    return {
+      range: `${from} → ${to}`,
+      fromDay: typeof summary.fromDay === 'number' ? summary.fromDay : null,
+      toDay: typeof summary.toDay === 'number' ? summary.toDay : null,
+      rows: Number(summary.rowsWritten ?? 0).toLocaleString(),
+      cost: formatCost(Number(summary.costUsd ?? 0)),
+      tokens: tokens.toLocaleString(),
+    };
+  } catch {
+    return { range: '—', fromDay: null, toDay: null, rows: '—', cost: '—', tokens: '—' };
+  }
+}
+
 // Build the switcher URL helper
 function switcherHref(dim: string): string {
   const u = new URL(url.toString());
@@ -275,6 +337,10 @@ function periodHref(nextPeriod: string): string {
   return u.pathname + u.search;
 }
 
+function budgetWidthStyle(ratio: number): string {
+  return `width: ${Math.min(ratio * 100, 100)}%`;
+}
+
 const topEntities = Array.from(
   dailyRows.reduce((map, row) => {
     const current = map.get(row.dimension_value) ?? { value: row.dimension_value, cost: 0, runs: 0 };
@@ -284,6 +350,13 @@ const topEntities = Array.from(
     return map;
   }, new Map<string, { value: string; cost: number; runs: number }>()).values(),
 ).sort((a, b) => b.cost - a.cost).slice(0, 10);
+
+const recentBackfillRows = recentBackfills.map((row) => ({
+  auditId: row.audit_id,
+  userEmail: row.user_email ?? 'admin',
+  createdAt: formatTs(row.created_at),
+  ...parseBackfillPayload(row.payload_json),
+}));
 
 // Detect today's day value to identify the "latest" row for live badge
 const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
@@ -329,6 +402,84 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
           ))}
         </div>
       </div>
+
+      <AdminPanel title="費用彙總回填" eyebrow="修補缺漏日期或首次部署後建立 rollup">
+        <form id="cost-backfill-form" class="backfill-form">
+          <div class="backfill-presets" aria-label="常用回填區間">
+            <button type="button" class="backfill-preset" value="7">近 7 天</button>
+            <button type="button" class="backfill-preset" value="30">近 30 天</button>
+            <button type="button" class="backfill-preset" value="90">近 90 天</button>
+          </div>
+          <p id="cost-backfill-preview" class="backfill-preview" aria-live="polite">
+            <span>回填區間</span>
+            <strong id="cost-backfill-preview-range">—</strong>
+            <span id="cost-backfill-preview-risk">請選擇日期。</span>
+            <small id="cost-backfill-preview-estimate">估計寫入列數會在選擇日期後顯示。</small>
+          </p>
+          <div class="backfill-row">
+            <label for="backfill-from">起始日期</label>
+            <input id="backfill-from" name="from" type="date" required />
+          </div>
+          <div class="backfill-row">
+            <label for="backfill-to">結束日期</label>
+            <input id="backfill-to" name="to" type="date" required />
+          </div>
+          <button type="submit" class="backfill-button">執行回填</button>
+          <p id="cost-backfill-warning" class="backfill-warning" hidden></p>
+          <p id="cost-backfill-status" class="backfill-status" role="status" aria-live="polite" hidden></p>
+          <dl id="cost-backfill-summary" class="backfill-summary" hidden>
+            <div>
+              <dt>處理天數</dt>
+              <dd data-summary="days">—</dd>
+            </div>
+            <div>
+              <dt>寫入列數</dt>
+              <dd data-summary="rows">—</dd>
+            </div>
+            <div>
+              <dt>費用</dt>
+              <dd data-summary="cost">—</dd>
+            </div>
+            <div>
+              <dt>Tokens</dt>
+              <dd data-summary="tokens">—</dd>
+            </div>
+          </dl>
+        </form>
+        <div
+          id="cost-backfill-history"
+          class={recentBackfills.length === 0 ? 'backfill-history is-empty' : 'backfill-history'}
+        >
+          <h3>最近回填</h3>
+          <div id="cost-backfill-history-body" class="backfill-history-list">
+            {recentBackfillRows.length === 0 ? (
+              <p data-empty-history>尚無回填紀錄。</p>
+            ) : (
+              recentBackfillRows.map((row) => (
+                <div class="backfill-history-row">
+                  <span class="mono">{row.createdAt}</span>
+                  <strong class="mono">{row.range}</strong>
+                  <span>{row.rows} 列</span>
+                  <span class="cost">{row.cost}</span>
+                  <span>{row.tokens} tokens</span>
+                  <span>{row.userEmail}</span>
+                  <button
+                    type="button"
+                    class="backfill-repeat"
+                    data-repeat-backfill
+                    data-from-day={row.fromDay ?? ''}
+                    data-to-day={row.toDay ?? ''}
+                    disabled={row.fromDay === null || row.toDay === null}
+                    aria-label={`重跑回填區間 ${row.range}`}
+                  >
+                    重跑
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </AdminPanel>
 
       <div class="cost-layout">
         <AdminPanel title={`依 ${dimensionLabel} 分類費用 — ${activePeriod.label}`} class="cost-main">
@@ -406,7 +557,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                     </span>
                     <span class="budget-meta">{alert.policyKey}</span>
                     <span class="budget-bar" aria-hidden="true">
-                      <span style={`width: ${Math.min(alert.ratio * 100, 100)}%`}></span>
+                      <span style={budgetWidthStyle(alert.ratio)}></span>
                     </span>
                     <span class="budget-cost">{formatCost(alert.costUsd)} / {formatCost(alert.limitUsd)}</span>
                   </a>
@@ -480,6 +631,222 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     }
 
     setInterval(poll, 60_000);
+  })();
+
+  (function setupBackfillForm() {
+    const form = document.getElementById('cost-backfill-form');
+    const status = document.getElementById('cost-backfill-status');
+    const summaryBox = document.getElementById('cost-backfill-summary');
+    const warning = document.getElementById('cost-backfill-warning');
+    const history = document.getElementById('cost-backfill-history');
+    const historyBody = document.getElementById('cost-backfill-history-body');
+    if (!(form instanceof HTMLFormElement) || !status) return;
+
+    const fromInput = document.getElementById('backfill-from');
+    const toInput = document.getElementById('backfill-to');
+    const today = new Date();
+    const toDate = today.toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 90 * 86_400_000).toISOString().slice(0, 10);
+    if (fromInput instanceof HTMLInputElement && !fromInput.value) fromInput.value = fromDate;
+    if (toInput instanceof HTMLInputElement && !toInput.value) toInput.value = toDate;
+    if (fromInput instanceof HTMLInputElement) fromInput.max = toDate;
+    if (toInput instanceof HTMLInputElement) toInput.max = toDate;
+
+    function dayNumber(value) {
+      const ms = Date.parse(`${value}T00:00:00Z`);
+      return Number.isFinite(ms) ? Math.floor(ms / 86_400_000) : null;
+    }
+
+    function setStatus(message, tone = '') {
+      status.hidden = false;
+      status.textContent = message;
+      status.className = `backfill-status ${tone}`;
+    }
+
+    function setWarning(message) {
+      if (!warning) return;
+      warning.hidden = !message;
+      warning.textContent = message;
+    }
+
+    function formatDay(day) {
+      return new Date(day * 86_400_000).toISOString().slice(0, 10);
+    }
+
+    function setRangeFromPreset(days) {
+      if (!(fromInput instanceof HTMLInputElement) || !(toInput instanceof HTMLInputElement)) return;
+      const end = new Date();
+      const start = new Date(end.getTime() - (Number(days) - 1) * 86_400_000);
+      fromInput.value = start.toISOString().slice(0, 10);
+      toInput.value = end.toISOString().slice(0, 10);
+      updateRangeWarning();
+    }
+
+    function setRangeFromDays(fromDay, toDay) {
+      if (!(fromInput instanceof HTMLInputElement) || !(toInput instanceof HTMLInputElement)) return;
+      if (!Number.isFinite(fromDay) || !Number.isFinite(toDay)) return;
+      fromInput.value = formatDay(fromDay);
+      toInput.value = formatDay(toDay);
+      updateRangeWarning();
+      setStatus(`已帶入歷史回填區間：${formatDay(fromDay)} → ${formatDay(toDay)}。確認後可重新執行。`);
+      fromInput.focus();
+    }
+
+    function updateRangeWarning() {
+      if (!(fromInput instanceof HTMLInputElement) || !(toInput instanceof HTMLInputElement)) return;
+      const fromDay = dayNumber(fromInput.value);
+      const toDay = dayNumber(toInput.value);
+      const previewRange = document.getElementById('cost-backfill-preview-range');
+      const previewRisk = document.getElementById('cost-backfill-preview-risk');
+      const previewEstimate = document.getElementById('cost-backfill-preview-estimate');
+      if (fromDay == null || toDay == null || fromDay > toDay) {
+        setWarning('');
+        if (previewRange) previewRange.textContent = '—';
+        if (previewRisk) previewRisk.textContent = '日期區間無效。';
+        if (previewEstimate) previewEstimate.textContent = '請修正日期後再送出。';
+        return;
+      }
+      const days = toDay - fromDay + 1;
+      const estimatedMaxRows = days * 6;
+      if (previewRange) previewRange.textContent = `${formatDay(fromDay)} → ${formatDay(toDay)} · ${days} 天`;
+      if (previewRisk) {
+        previewRisk.textContent = days > 366
+          ? '超過 366 天上限，請縮小區間。'
+          : days > 120
+            ? '大型區間，建議分批執行。'
+            : days > 31
+              ? '送出前會再次確認，並重寫既有 rollup。'
+              : '會重寫此區間既有 rollup，可直接執行。';
+      }
+      if (previewEstimate) {
+        previewEstimate.textContent = `最多會重建 ${estimatedMaxRows.toLocaleString()} 個每日維度 bucket；實際列數取決於此區間是否有 tool calls。`;
+      }
+
+      const submit = form.querySelector('button[type="submit"]');
+      if (submit instanceof HTMLButtonElement) submit.disabled = days > 366;
+
+      if (days > 366) {
+        setWarning(`目前選擇 ${days} 天，超過單次回填 366 天上限。`);
+      } else if (days > 120) {
+        setWarning(`目前選擇 ${days} 天。大型回填可能需要較久，建議分批執行。`);
+      } else if (days > 31) {
+        setWarning(`目前選擇 ${days} 天，送出前會再次確認。`);
+      } else {
+        setWarning('');
+      }
+    }
+
+    function setSummary(summary) {
+      if (!summaryBox) return;
+      const days = summaryBox.querySelector('[data-summary="days"]');
+      const rows = summaryBox.querySelector('[data-summary="rows"]');
+      const cost = summaryBox.querySelector('[data-summary="cost"]');
+      const tokens = summaryBox.querySelector('[data-summary="tokens"]');
+      const tokensTotal = Number(summary.tokensIn || 0) + Number(summary.tokensOut || 0);
+      if (days) days.textContent = `${summary.daysProcessed ?? 0}`;
+      if (rows) rows.textContent = `${summary.rowsWritten ?? 0}`;
+      if (cost) cost.textContent = `$${Number(summary.costUsd || 0).toFixed(4)}`;
+      if (tokens) tokens.textContent = tokensTotal.toLocaleString();
+      summaryBox.hidden = false;
+    }
+
+    function prependHistory(summary, opts = {}) {
+      if (!(historyBody instanceof HTMLElement)) return;
+      history?.classList.remove('is-empty');
+      historyBody.querySelector('[data-empty-history]')?.remove();
+      const tokensTotal = Number(summary.tokensIn || 0) + Number(summary.tokensOut || 0);
+      const row = document.createElement('div');
+      row.className = opts.failed ? 'backfill-history-row failed' : 'backfill-history-row';
+      row.innerHTML = `
+        <span class="mono">剛剛</span>
+        <strong class="mono">${formatDay(summary.fromDay)} → ${formatDay(summary.toDay)}</strong>
+        <span>${opts.failed ? '失敗' : `${Number(summary.rowsWritten || 0).toLocaleString()} 列`}</span>
+        <span class="cost">${opts.failed ? String(opts.error || '—') : `$${Number(summary.costUsd || 0).toFixed(4)}`}</span>
+        <span>${opts.failed ? '—' : `${tokensTotal.toLocaleString()} tokens`}</span>
+        <span>admin</span>
+        <button type="button" class="backfill-repeat" data-repeat-backfill data-from-day="${summary.fromDay}" data-to-day="${summary.toDay}">重跑</button>
+      `;
+      historyBody.prepend(row);
+    }
+
+    form.querySelectorAll('.backfill-preset').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLButtonElement)) return;
+        setRangeFromPreset(button.value || '90');
+      });
+    });
+
+    fromInput?.addEventListener('change', updateRangeWarning);
+    toInput?.addEventListener('change', updateRangeWarning);
+    historyBody?.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement)) return;
+      if (target.dataset.repeatBackfill === undefined) return;
+      const fromDay = Number(target.dataset.fromDay);
+      const toDay = Number(target.dataset.toDay);
+      setRangeFromDays(fromDay, toDay);
+    });
+    updateRangeWarning();
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (summaryBox) summaryBox.hidden = true;
+      const data = new FormData(form);
+      const fromDay = dayNumber(String(data.get('from') ?? ''));
+      const toDay = dayNumber(String(data.get('to') ?? ''));
+      if (fromDay == null || toDay == null || fromDay > toDay) {
+        setStatus('日期區間無效。', 'error');
+        return;
+      }
+      const todayDay = dayNumber(toDate);
+      if (todayDay != null && (fromDay > todayDay || toDay > todayDay)) {
+        setStatus('不能回填未來日期。', 'error');
+        return;
+      }
+      const days = toDay - fromDay + 1;
+      if (days > 366) {
+        setStatus('單次回填不能超過 366 天，請縮小區間。', 'error');
+        return;
+      }
+      if (days > 31 && !window.confirm(`確定要回填 ${days} 天？大型區間可能耗時較久，也會重寫既有 rollup。`)) {
+        return;
+      }
+
+      const submit = form.querySelector('button[type="submit"]');
+      if (submit instanceof HTMLButtonElement) {
+        submit.disabled = true;
+        submit.dataset.originalText = submit.textContent || '';
+        submit.textContent = '回填中…';
+      }
+      setStatus('正在執行費用回填...');
+      try {
+        const res = await fetch('/api/admin/console/cost/backfill', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fromDay, toDay }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          prependHistory({ fromDay, toDay }, { failed: true, error: body.error || res.status });
+          setStatus(body.error || '費用回填失敗。', 'error');
+          return;
+        }
+        if (body.summary) setSummary(body.summary);
+        if (body.summary) prependHistory(body.summary);
+        const days = body.summary?.daysProcessed ?? (toDay - fromDay + 1);
+        const rows = body.summary?.rowsWritten ?? 0;
+        setStatus(`費用回填完成：處理 ${days} 天，寫入 ${rows} 列。重新整理後可檢視最新彙總。`, 'success');
+      } catch {
+        prependHistory({ fromDay, toDay }, { failed: true, error: 'network' });
+        setStatus('費用回填失敗。', 'error');
+      } finally {
+        if (submit instanceof HTMLButtonElement) {
+          submit.disabled = false;
+          submit.textContent = submit.dataset.originalText || '執行回填';
+          delete submit.dataset.originalText;
+        }
+      }
+    });
   })();
 </script>
 
@@ -562,6 +929,241 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     align-items: start;
   }
 
+  .backfill-form {
+    display: flex;
+    align-items: end;
+    gap: var(--admin-space-3, 0.75rem);
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .backfill-presets {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .backfill-presets button {
+    min-height: 2.75rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text, #0f172a);
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .backfill-presets button:hover {
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .backfill-preview {
+    display: grid;
+    grid-template-columns: auto minmax(160px, 1fr) minmax(220px, 1.5fr);
+    gap: 0.45rem 0.75rem;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface-subtle, #f8fafc);
+    padding: 0.6rem 0.75rem;
+  }
+
+  .backfill-preview span:first-child {
+    color: var(--admin-text-soft, #64748b);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .backfill-preview strong {
+    color: var(--admin-text, #0f172a);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86rem;
+  }
+
+  #cost-backfill-preview-risk {
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.84rem;
+  }
+
+  #cost-backfill-preview-estimate {
+    grid-column: 2 / -1;
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .backfill-row {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .backfill-row label {
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .backfill-row input {
+    min-height: 2.75rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text, #0f172a);
+    padding: 0.35rem 0.55rem;
+  }
+
+  .backfill-button {
+    min-height: 2.75rem;
+    border: 1px solid var(--admin-accent, #2563eb);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-accent, #2563eb);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .backfill-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .backfill-status {
+    margin: 0;
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.85rem;
+  }
+
+  .backfill-warning {
+    width: 100%;
+    margin: 0;
+    color: #92400e;
+    font-size: 0.84rem;
+  }
+
+  .backfill-warning[hidden] {
+    display: none;
+  }
+
+  .backfill-status.success {
+    color: #15803d;
+  }
+
+  .backfill-status.error {
+    color: #b91c1c;
+  }
+
+  .backfill-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(90px, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    margin: 0;
+  }
+
+  .backfill-summary[hidden] {
+    display: none;
+  }
+
+  .backfill-summary div {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface-subtle, #f8fafc);
+    padding: 0.55rem 0.65rem;
+  }
+
+  .backfill-summary dt {
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .backfill-summary dd {
+    margin: 0.15rem 0 0;
+    color: var(--admin-text, #0f172a);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+  }
+
+  .backfill-history {
+    border-top: 1px solid var(--admin-border, #e2e8f0);
+  }
+
+  .backfill-history.is-empty .backfill-history-list {
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .backfill-history-list {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0 1rem 1rem;
+  }
+
+  .backfill-history-list p {
+    margin: 0;
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.86rem;
+  }
+
+  .backfill-history-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 1.4fr) repeat(4, minmax(80px, auto)) auto;
+    gap: 0.65rem;
+    align-items: center;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface-subtle, #f8fafc);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.84rem;
+  }
+
+  .backfill-history-row strong {
+    color: var(--admin-text, #0f172a);
+  }
+
+  .backfill-history-row.failed {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .backfill-repeat {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-accent, #2563eb);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .backfill-repeat:hover {
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .backfill-repeat:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .backfill-history h3 {
+    margin: 0;
+    padding: 0.75rem 1rem 0.45rem;
+    color: var(--admin-text-soft, #64748b);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
   .cost-rail-stack {
     display: grid;
     gap: var(--admin-space-4, 1rem);
@@ -570,6 +1172,22 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
   @media (max-width: 1100px) {
     .cost-layout {
       grid-template-columns: 1fr;
+    }
+
+    .backfill-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .backfill-preview {
+      grid-template-columns: 1fr;
+    }
+
+    .backfill-history-row {
+      grid-template-columns: 1fr;
+    }
+
+    .backfill-repeat {
+      width: 100%;
     }
   }
 

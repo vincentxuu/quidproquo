@@ -1,5 +1,5 @@
 import type { PolicyBody } from '../../schema/body'
-import { scan, redact } from './scanner'
+import { scan, redact, type PatternKind } from './scanner'
 import { intersectGrants } from './tool-allowlist'
 
 export interface SecurityWire {
@@ -23,8 +23,9 @@ export function wireSecurityEnforcement(policy: PolicyBody['security']): Securit
       if (!policy?.sensitive_data_redaction?.patterns?.length) return { violations: [] }
       const text = typeof output === 'string' ? output : JSON.stringify(output)
       const kinds = policy.sensitive_data_redaction.patterns
-        .filter((p): p is { kind: string } => typeof p.kind === 'string')
-        .map((p) => p.kind as import('./scanner').PatternKind)
+        .map((pattern) => pattern.kind)
+        .filter((kind): kind is PatternKind => Boolean(kind))
+      if (!kinds.length) return { violations: [] }
       const matches = scan(text, kinds)
       if (!matches.length) return { violations: [] }
       const { redacted } = redact(text, matches)

@@ -47,6 +47,25 @@ const PAGE_SIZE = 50;
 if (ready) {
   try {
     const db = getEnv().DB;
+    const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
+    const flowRunInfo = await db.prepare('PRAGMA table_info(flow_runs)').all<{ name: string }>();
+    const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+    const flowRunColumns = new Set((flowRunInfo.results ?? []).map((column) => column.name));
+    const flowNameExpr = flowDefinitionColumns.has('display_name')
+      ? 'fd.display_name'
+      : flowDefinitionColumns.has('name')
+        ? 'fd.name'
+        : 'fd.flow_id';
+    const flowOptionNameExpr = flowDefinitionColumns.has('display_name')
+      ? 'display_name'
+      : flowDefinitionColumns.has('name')
+        ? 'name'
+        : 'flow_id';
+    const costExpr = flowRunColumns.has('cost_usd')
+      ? 'fr.cost_usd'
+      : flowRunColumns.has('total_cost_usd')
+        ? 'fr.total_cost_usd'
+        : 'NULL';
 
     const whereParts: string[] = []
     const bindings: Array<string | number> = []
@@ -84,7 +103,7 @@ if (ready) {
     const result = await db
       .prepare(
         `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
-                fr.cost_usd, fr.updated_at, fd.display_name
+                ${costExpr} AS cost_usd, fr.updated_at, ${flowNameExpr} AS display_name
          FROM flow_runs fr
          LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
          ${whereClause}
@@ -96,7 +115,7 @@ if (ready) {
     runs = result.results ?? [];
 
     const flowRows = await db
-      .prepare('SELECT flow_id, display_name FROM flow_definitions ORDER BY flow_id ASC')
+      .prepare(`SELECT flow_id, ${flowOptionNameExpr} AS display_name FROM flow_definitions ORDER BY flow_id ASC`)
       .all<FlowOption>();
     flowOptions = flowRows.results ?? [];
 
@@ -112,6 +131,15 @@ if (ready) {
 }
 
 const totalPages = Math.max(1, Math.ceil(totalRuns / PAGE_SIZE));
+const activeFilters = [
+  selectedStatus ? `狀態=${selectedStatus}` : '',
+  selectedFlow ? `工作流程=${flowOptions.find((item) => item.flow_id === selectedFlow)?.display_name ?? selectedFlow}` : '',
+  selectedFrom ? `從 ${selectedFrom}` : '',
+  selectedTo ? `到 ${selectedTo}` : '',
+].filter(Boolean);
+const hasActiveFilters = activeFilters.length > 0;
+const visibleStart = totalRuns === 0 ? 0 : offset + 1;
+const visibleEnd = Math.min(offset + runs.length, totalRuns);
 
 function listHref(p: number) {
   const u = new URL(url);
@@ -146,9 +174,17 @@ function statusClass(status: string): string {
     case 'done': return 'badge-success';
     case 'failed': return 'badge-error';
     case 'running': return 'badge-running';
+    case 'queued':
+    case 'paused':
+    case 'cancelling':
+      return 'badge-pending';
     case 'cancelled': return 'badge-muted';
     default: return 'badge-muted';
   }
+}
+
+function isCancellableRun(status: string): boolean {
+  return status === 'queued' || status === 'running' || status === 'paused';
 }
 ---
 
@@ -164,12 +200,13 @@ function statusClass(status: string): string {
   )}
   {ready && !loadError && runs.length > 0 && (
     <AdminPanel title="所有執行記錄 — 最近 50 筆">
-      <form class="toolbar" method="GET" action="/admin/console/runs">
+      <form class="toolbar" method="GET" action="/admin/console/runs" data-runs-filter-form>
         <label for="status">狀態</label>
         <select id="status" name="status">
           <option value="">全部</option>
           <option value="queued" selected={selectedStatus === 'queued'}>排隊中</option>
           <option value="running" selected={selectedStatus === 'running'}>執行中</option>
+          <option value="paused" selected={selectedStatus === 'paused'}>暫停中</option>
           <option value="done" selected={selectedStatus === 'done'}>完成</option>
           <option value="failed" selected={selectedStatus === 'failed'}>失敗</option>
           <option value="cancelled" selected={selectedStatus === 'cancelled'}>已取消</option>
@@ -196,6 +233,15 @@ function statusClass(status: string): string {
           <a href="/admin/console/runs" class="btn-clear">清除</a>
         )}
       </form>
+      <div class="filter-summary" role="status" aria-live="polite">
+        <span>
+          {hasActiveFilters
+            ? `目前篩選：${activeFilters.join('、')}`
+            : '目前篩選：全部執行記錄'}
+        </span>
+        <span>共 {totalRuns.toLocaleString()} 筆，顯示 {visibleStart.toLocaleString()}–{visibleEnd.toLocaleString()} 筆</span>
+        {hasActiveFilters && <a href="/admin/console/runs">清除篩選</a>}
+      </div>
       <AdminTable minWidth="640px" flush>
         <thead>
         <tr>
@@ -206,15 +252,20 @@ function statusClass(status: string): string {
             <th>費用 (USD)</th>
             <th>更新時間</th>
             <th>執行 ID</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
           {runs.map((run) => (
-            <tr>
+            <tr
+              data-run-id={run.flow_run_id}
+              data-run-flow={run.display_name ?? run.flow_id}
+              data-run-status-value={run.status}
+            >
               <td class="mono">{formatRelative(run.started_at)}</td>
               <td class="flow-name">{run.display_name ?? run.flow_id}</td>
               <td>
-                <span class:list={['badge', statusClass(run.status)]}>{run.status}</span>
+                <span class:list={['badge', statusClass(run.status)]} data-run-status>{run.status}</span>
               </td>
               <td class="mono">{formatDuration(run.latency_ms)}</td>
               <td class="mono">{run.cost_usd == null ? '—' : run.cost_usd.toFixed(4)}</td>
@@ -224,10 +275,34 @@ function statusClass(status: string): string {
                   {run.flow_run_id.slice(0, 8)}&hellip;
                 </a>
               </td>
+              <td class="run-actions-cell">
+                <a href={`/admin/console/runs/${run.flow_run_id}`} class="table-action">檢視</a>
+                <a href={`/admin/console/runs/${run.flow_run_id}/evidence`} class="table-action">證據</a>
+                {isCancellableRun(run.status) && (
+                  <button
+                    type="button"
+                    class="table-action danger"
+                    data-cancel-run
+                    data-run-id={run.flow_run_id}
+                    data-run-label={(run.display_name ?? run.flow_id)}
+                    data-run-current-status={run.status}
+                    aria-label={`取消執行 ${run.flow_run_id}`}
+                  >
+                    取消
+                  </button>
+                )}
+                {isCancellableRun(run.status) && (
+                  <span class="row-operation-preview" data-cancel-operation-preview>
+                    取消會將此執行標記為 cancelled，已完成的步驟與稽核紀錄會保留。
+                  </span>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
       </AdminTable>
+
+      <p id="runs-list-action-status" class="runs-list-action-status" role="status" aria-live="polite" hidden></p>
 
       {totalPages > 1 && (
         <div class="pagination">
@@ -239,6 +314,118 @@ function statusClass(status: string): string {
     </AdminPanel>
   )}
 </AdminConsoleLayout>
+
+<script is:inline>
+  (function setupRunsListActions() {
+    const status = document.getElementById('runs-list-action-status');
+    const table = document.querySelector('[data-run-id]')?.closest('table');
+    const filterForm = document.querySelector('[data-runs-filter-form]');
+
+    filterForm?.addEventListener('submit', () => {
+      const button = filterForm.querySelector('button[type="submit"]');
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+        button.textContent = '篩選中';
+      }
+    });
+
+    if (!table || !status) return;
+
+    function setStatus(message, tone = '') {
+      status.hidden = false;
+      status.textContent = message;
+      status.className = `runs-list-action-status ${tone}`;
+    }
+
+    function errorLabel(error) {
+      switch (error) {
+        case 'run_terminal':
+          return '此執行已結束，不能取消。';
+        case 'flow_run_id_required':
+          return '缺少執行 ID，不能取消。';
+        case 'permission_denied':
+          return '目前帳號沒有取消此執行的權限。';
+        default:
+          return error || '無法取消執行。';
+      }
+    }
+
+    function cssStatusClass(nextStatus) {
+      switch (nextStatus) {
+        case 'done': return 'badge-success';
+        case 'failed': return 'badge-error';
+        case 'running': return 'badge-running';
+        case 'queued':
+        case 'paused':
+        case 'cancelling':
+          return 'badge-pending';
+        case 'cancelled': return 'badge-muted';
+        default: return 'badge-muted';
+      }
+    }
+
+    function setBadge(row, nextStatus) {
+      const badge = row.querySelector('[data-run-status]');
+      if (!badge) return;
+      badge.textContent = nextStatus;
+      badge.className = `badge ${cssStatusClass(nextStatus)}`;
+    }
+
+    table.addEventListener('click', async (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement)) return;
+      if (target.dataset.cancelRun === undefined) return;
+      event.preventDefault();
+      event.stopPropagation();
+
+      const runId = target.dataset.runId;
+      const runLabel = target.dataset.runLabel || runId || '此執行';
+      const currentStatus = target.dataset.runCurrentStatus || 'running';
+      const row = target.closest('tr[data-run-id]');
+      if (!runId || !(row instanceof HTMLElement)) return;
+      const message = [
+        `確定要取消 ${runLabel}（${runId.slice(0, 8)}）？`,
+        `目前狀態：${currentStatus}。`,
+        '取消後不會自動重跑；已完成的步驟、成本與稽核紀錄會保留。',
+      ].join('\n');
+      setStatus(`準備取消 ${runId.slice(0, 8)}：會停止後續步驟並保留已完成紀錄。`);
+      if (!window.confirm(message)) {
+        setStatus('已取消操作。');
+        return;
+      }
+      const previousStatus = row.querySelector('[data-run-status]')?.textContent || 'running';
+
+      target.disabled = true;
+      target.textContent = '取消中';
+      setBadge(row, 'cancelling');
+      setStatus(`正在取消 ${runId.slice(0, 8)}...`);
+      try {
+        const res = await fetch(`/api/admin/console/runs/${encodeURIComponent(runId)}/cancel`, {
+          method: 'POST',
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          target.disabled = false;
+          target.textContent = '取消';
+          setBadge(row, previousStatus);
+          setStatus(errorLabel(body.error), 'error');
+          return;
+        }
+        setBadge(row, body.status || 'cancelled');
+        row.dataset.runStatusValue = body.status || 'cancelled';
+        const preview = row.querySelector('[data-cancel-operation-preview]');
+        if (preview) preview.textContent = '已送出取消；此執行不會再顯示取消操作。';
+        target.remove();
+        setStatus(`已取消 ${runId.slice(0, 8)}。`, 'success');
+      } catch {
+        target.disabled = false;
+        target.textContent = '取消';
+        setBadge(row, previousStatus);
+        setStatus('無法取消執行。', 'error');
+      }
+    });
+  })();
+</script>
 
 <style>
 .toolbar {
@@ -256,17 +443,22 @@ function statusClass(status: string): string {
 
 .toolbar select,
 .toolbar input {
+  min-height: 2.75rem;
   border: 1px solid var(--admin-border, #e2e8f0);
   border-radius: var(--admin-radius, 6px);
   background: var(--admin-surface, #fff);
-  padding: 0.35rem 0.6rem;
+  padding: 0.45rem 0.6rem;
 }
 
 .btn-clear,
 .btn-secondary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--admin-border, #e2e8f0);
   border-radius: var(--admin-radius, 6px);
-  padding: 0.35rem 0.7rem;
+  padding: 0.45rem 0.7rem;
   text-decoration: none;
   color: var(--admin-text, #1e293b);
   background: var(--admin-surface, #fff);
@@ -292,6 +484,9 @@ function statusClass(status: string): string {
   }
 
   .run-id a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
     color: var(--admin-accent, #2563eb);
     text-decoration: none;
   }
@@ -324,15 +519,98 @@ function statusClass(status: string): string {
     color: var(--admin-accent, #1d4ed8);
   }
 
+  .badge-pending {
+    background: #fefce8;
+    color: #713f12;
+  }
+
   .badge-muted {
     background: var(--admin-muted, #f1f5f9);
     color: var(--admin-text-muted, #64748b);
   }
 
-  .filter-chip {
-    margin-left: auto;
-    font-size: 0.72rem;
+  .run-actions-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .table-action {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-accent, #2563eb);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.45rem 0.7rem;
+    text-decoration: none;
+  }
+
+  .table-action.danger {
+    border-color: #fecaca;
+    color: #b91c1c;
+    background: #fef2f2;
+  }
+
+  .table-action:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .runs-list-action-status {
+    margin: 0.75rem 1rem 1rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-muted, #f1f5f9);
     color: var(--admin-text-muted, #64748b);
+    font-size: 0.85rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .runs-list-action-status.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #15803d;
+  }
+
+  .runs-list-action-status.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+
+  .filter-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    align-items: center;
+    border-top: 1px solid var(--admin-border, #e2e8f0);
+    padding: 0.7rem 1rem;
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .filter-summary a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--admin-accent, #2563eb);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .row-operation-preview {
+    flex-basis: 100%;
+    color: var(--admin-text-muted, #64748b);
+    font-size: 0.76rem;
+    line-height: 1.35;
   }
 
   .pagination {
@@ -343,9 +621,13 @@ function statusClass(status: string): string {
   }
 
   .page-btn {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--admin-border, #e2e8f0);
     border-radius: var(--admin-radius, 6px);
-    padding: 0.32rem 0.6rem;
+    padding: 0.45rem 0.7rem;
     background: var(--admin-surface, #fff);
     text-decoration: none;
     color: var(--admin-text, #1e293b);
@@ -360,5 +642,33 @@ function statusClass(status: string): string {
   .page-info {
     font-size: 0.82rem;
     color: var(--admin-text-muted, #64748b);
+  }
+
+  @media (max-width: 720px) {
+    .toolbar {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 0.75rem 1rem 0;
+    }
+
+    .toolbar select,
+    .toolbar input,
+    .btn-clear,
+    .btn-secondary,
+    .table-action,
+    .run-actions-cell,
+    .page-btn {
+      width: 100%;
+    }
+
+    .filter-summary,
+    .pagination {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .run-actions-cell {
+      align-items: stretch;
+    }
   }
 </style>

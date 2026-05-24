@@ -1,4 +1,4 @@
-import type { ProviderPolicy } from '../../schema/categories/provider'
+import type { ProviderPolicy } from '../../schema/body'
 import { matchesRegion } from './region-matcher'
 
 export type DenialReason = 'not_in_allowlist' | 'in_denylist' | 'region_mismatch' | 'residency_mismatch'

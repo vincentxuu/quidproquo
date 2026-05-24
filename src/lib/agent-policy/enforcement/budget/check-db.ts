@@ -4,7 +4,7 @@ import type { PolicyBindingBackend, PolicyViolationBackend } from '../../storage
 export interface PolicyContext {
   flowRunId: number | string
   db: D1Database
-  violations?: PolicyViolationBackend
+  violations?: Pick<PolicyViolationBackend, 'insert'>
 }
 
 export interface BudgetCheckDbResult {
@@ -20,7 +20,11 @@ export interface BudgetCheckDbResult {
  */
 export async function checkBudget(
   flowRunId: number | string,
-  ctx: { db: D1Database; bindings: PolicyBindingBackend; violations?: PolicyViolationBackend },
+  ctx: {
+    db: D1Database
+    bindings: PolicyBindingBackend
+    violations?: Pick<PolicyViolationBackend, 'insert'>
+  },
 ): Promise<BudgetCheckDbResult> {
   // 1. Load frozen policy for this run via storage backend
   const binding = await ctx.bindings.getByFlowRun(Number(flowRunId))

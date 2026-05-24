@@ -7,8 +7,15 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json, notFound } from '@/lib/api/response'
 import { nowMs } from '@/lib/utils/dates'
 import { cancelFlow } from '@/lib/agent-flow/runtime/cancel'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { readFlags } from '@/lib/config/flags'
 
-export const POST: APIRoute = async ({ cookies, params }) => {
+function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
+  const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
+  return cfContext?.waitUntil?.bind(cfContext)
+}
+
+export const POST: APIRoute = async ({ cookies, params, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
@@ -17,6 +24,8 @@ export const POST: APIRoute = async ({ cookies, params }) => {
 
   const workerEnv = env as unknown as Env
   const db = workerEnv.DB
+  const flags = readFlags(workerEnv)
+  const actor = 'admin'
 
   const run = await db
     .prepare(
@@ -34,6 +43,13 @@ export const POST: APIRoute = async ({ cookies, params }) => {
 
   if (run.status === 'done' || run.status === 'failed' || run.status === 'cancelled') {
     return json({ error: 'run_terminal' }, 409)
+  }
+
+  try {
+    await requirePermission({ db, email: actor, kind: 'run', id: runId, action: 'cancel', flags })
+  } catch (err) {
+    if (err instanceof PermissionDenied) return json({ error: err.message }, 403)
+    throw err
   }
 
   const now = nowMs()
@@ -58,6 +74,20 @@ export const POST: APIRoute = async ({ cookies, params }) => {
     600,
     workerEnv as unknown as Record<string, unknown>,
   )
+
+  auditLog({
+    db,
+    email: actor,
+    action: 'flow.run.cancel',
+    kind: 'run',
+    id: runId,
+    payload: {
+      flowId: run.flow_id,
+      previousStatus: run.status,
+      nextStatus: 'cancelled',
+    },
+    waitUntil: getWaitUntil(locals),
+  }).catch(() => {})
 
   return json({ ok: true, status: 'cancelled', runId, flowId: run.flow_id })
 }

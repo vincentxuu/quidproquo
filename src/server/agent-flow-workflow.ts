@@ -4,6 +4,7 @@
 
 // @ts-ignore — cloudflare:workers types are runtime-only; not available during tsc checks
 import { WorkflowEntrypoint } from 'cloudflare:workers'
+import type { WorkflowEvent, WorkflowStep } from 'cloudflare:workers'
 import type { Env } from '../lib/config/env'
 import { runFlowInWorker } from '../lib/agent-flow/runtime/run'
 
@@ -14,7 +15,7 @@ interface FlowWorkflowParams {
 }
 
 export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParams> {
-  async run(event: CloudflareWorkersModule.WorkflowEvent<FlowWorkflowParams>, step: CloudflareWorkersModule.WorkflowStep): Promise<void> {
+  async run(event: WorkflowEvent<FlowWorkflowParams>, step: WorkflowStep): Promise<void> {
     const { flowId, input, flowRunId } = event.payload
 
     // Each major step delegates to the in-Worker executor with Workflow checkpointing

@@ -6,8 +6,16 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { nowMs } from '@/lib/utils/dates'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { readFlags } from '@/lib/config/flags'
+import { getTableColumns } from '@/lib/admin-console/schema'
 
-export const POST: APIRoute = async ({ cookies, params }) => {
+function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
+  const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
+  return cfContext?.waitUntil?.bind(cfContext)
+}
+
+export const POST: APIRoute = async ({ cookies, params, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
@@ -18,10 +26,17 @@ export const POST: APIRoute = async ({ cookies, params }) => {
 
   const workerEnv = env as unknown as Env
   const db = workerEnv.DB
+  const flags = readFlags(workerEnv)
+  const actor = 'admin'
+  const stepRunColumns = await getTableColumns(db, 'flow_step_runs')
+  const stepTypeSelect = stepRunColumns.has('step_type') ? 'step_type' : 'kind AS step_type'
+  const iterationSelect = stepRunColumns.has('iteration') ? 'iteration' : '0 AS iteration'
+  const parentStepSelect = stepRunColumns.has('parent_step_run_id') ? 'parent_step_run_id' : 'NULL AS parent_step_run_id'
+  const attemptSelect = stepRunColumns.has('attempt') ? 'attempt' : '1 AS attempt'
 
   const stepRun = await db
     .prepare(
-      `SELECT step_run_id, flow_run_id, step_id, step_order, step_type, iteration, status, parent_step_run_id, attempt
+      `SELECT step_run_id, flow_run_id, step_id, step_order, ${stepTypeSelect}, ${iterationSelect}, status, ${parentStepSelect}, ${attemptSelect}
        FROM flow_step_runs
        WHERE step_run_id = ?`,
     )
@@ -69,40 +84,79 @@ export const POST: APIRoute = async ({ cookies, params }) => {
     return json({ error: 'downstream_steps_succeeded' }, 409)
   }
 
-  const maxAttempt = await db
-    .prepare(
-      `SELECT MAX(attempt) AS max_attempt
-       FROM flow_step_runs
-       WHERE flow_run_id = ? AND step_id = ?`,
-    )
-    .bind(runId, stepRun.step_id)
-    .first<{ max_attempt: number | null }>()
+  try {
+    await requirePermission({ db, email: actor, kind: 'run', id: runId, action: 'invoke', flags })
+  } catch (err) {
+    if (err instanceof PermissionDenied) return json({ error: err.message }, 403)
+    throw err
+  }
 
-  const newAttempt = (maxAttempt?.max_attempt ?? stepRun.attempt) + 1
+  const maxAttempt = stepRunColumns.has('attempt')
+    ? await db
+      .prepare(
+        `SELECT MAX(attempt) AS max_attempt
+         FROM flow_step_runs
+         WHERE flow_run_id = ? AND step_id = ?`,
+      )
+      .bind(runId, stepRun.step_id)
+      .first<{ max_attempt: number | null }>()
+    : null
+
+  const latestAttempt = maxAttempt?.max_attempt ?? stepRun.attempt
+  if (stepRunColumns.has('attempt') && latestAttempt > stepRun.attempt) {
+    return json({ error: 'step_retry_superseded', latestAttempt }, 409)
+  }
+
+  const newAttempt = latestAttempt + 1
   const newStepRunId = crypto.randomUUID()
   const now = nowMs()
+  const insertColumns: string[] = ['step_run_id', 'flow_run_id', 'step_id', 'step_order', 'status', 'started_at', 'created_at']
+  const insertValues: unknown[] = [newStepRunId, runId, stepRun.step_id, stepRun.step_order, 'pending', now, now]
+  if (stepRunColumns.has('parent_step_run_id')) {
+    insertColumns.push('parent_step_run_id')
+    insertValues.push(stepRun.parent_step_run_id)
+  }
+  if (stepRunColumns.has('step_type')) {
+    insertColumns.push('step_type')
+    insertValues.push(stepRun.step_type)
+  } else if (stepRunColumns.has('kind')) {
+    insertColumns.push('kind')
+    insertValues.push(stepRun.step_type)
+  }
+  if (stepRunColumns.has('iteration')) {
+    insertColumns.push('iteration')
+    insertValues.push(stepRun.iteration)
+  }
+  if (stepRunColumns.has('attempt')) {
+    insertColumns.push('attempt')
+    insertValues.push(newAttempt)
+  }
+  if (stepRunColumns.has('updated_at')) {
+    insertColumns.push('updated_at')
+    insertValues.push(now)
+  }
 
   await db
-    .prepare(
-      `INSERT INTO flow_step_runs (
-        step_run_id, flow_run_id, parent_step_run_id, step_id, step_order, step_type,
-        iteration, status, attempt, started_at, created_at, updated_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', ?, ?, ?, ?, ?)`,
-    )
-    .bind(
-      newStepRunId,
-      runId,
-      stepRun.parent_step_run_id,
-      stepRun.step_id,
-      stepRun.step_order,
-      stepRun.step_type,
-      stepRun.iteration,
-      newAttempt,
-      now,
-      now,
-      now,
-    )
+    .prepare(`INSERT INTO flow_step_runs (${insertColumns.join(', ')}) VALUES (${insertColumns.map(() => '?').join(', ')})`)
+    .bind(...insertValues)
     .run()
+
+  auditLog({
+    db,
+    email: actor,
+    action: 'flow.step.retry',
+    kind: 'run',
+    id: runId,
+    payload: {
+      stepRunId,
+      newStepRunId,
+      stepId: stepRun.step_id,
+      previousAttempt: stepRun.attempt,
+      attempt: newAttempt,
+      previousStatus: stepRun.status,
+    },
+    waitUntil: getWaitUntil(locals),
+  }).catch(() => {})
 
   // Re-run is surfaced through polling in run timeline / SSE refresh loop.
   return json({

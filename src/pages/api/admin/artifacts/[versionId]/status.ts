@@ -7,6 +7,7 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest, notFound } from '@/lib/api/response'
 import { ensureAgentArtifactEnabled } from '../_guard'
 import { createBackends } from '@/lib/agent-artifact/storage'
+import { auditLog } from '@/lib/agent-console/rbac/permissions'
 
 const VERSION_STATUSES = new Set(['draft', 'approved', 'rejected', 'published'])
 const SECTION_STATUSES = new Set(['draft', 'approved', 'rejected'])
@@ -16,7 +17,12 @@ interface StatusBody {
   sectionId?: string
 }
 
-export const POST: APIRoute = async ({ cookies, params, request }) => {
+function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
+  const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
+  return cfContext?.waitUntil?.bind(cfContext)
+}
+
+export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
@@ -33,6 +39,7 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const e = env as unknown as Env
   const backends = createBackends(e)
   const actor = 'admin'
+  const waitUntil = getWaitUntil(locals)
 
   if (body.sectionId) {
     if (!SECTION_STATUSES.has(status)) return badRequest(`invalid section status: ${status}`)
@@ -42,6 +49,19 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
       resolvedBy: actor,
       resolvedAt: Date.now(),
     })
+    auditLog({
+      db: e.DB,
+      email: actor,
+      action: 'artifact.section.status.update',
+      kind: 'artifact',
+      id: versionId,
+      payload: {
+        sectionId: body.sectionId,
+        previousStatus: section.approvalStatus,
+        nextStatus: status,
+      },
+      waitUntil,
+    }).catch(() => {})
     return json({ ok: true, scope: 'section', sectionId: body.sectionId, status })
   }
 
@@ -49,5 +69,20 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const version = await backends.versions.getById(versionId)
   if (!version) return notFound('version not found')
   await backends.versions.updateStatus(versionId, status, actor)
+  auditLog({
+    db: e.DB,
+    email: actor,
+    action: 'artifact.version.status.update',
+    kind: 'artifact',
+    id: versionId,
+    payload: {
+      artifactId: version.definitionId,
+      flowRunId: version.flowRunId,
+      previousStatus: version.status,
+      nextStatus: status,
+      versionNumber: version.versionNumber,
+    },
+    waitUntil,
+  }).catch(() => {})
   return json({ ok: true, scope: 'version', versionId, status })
 }

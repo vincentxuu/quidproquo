@@ -4,6 +4,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
+import { columnExpr, getTableColumns } from '@/lib/admin-console/schema'
 
 interface StepRow {
   step_run_id: string
@@ -99,6 +100,19 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
 
   const db = (env as unknown as Env).DB
   const lastSeenCursorRaw = request.headers.get('last-event-id')
+  const stepRunColumns = await getTableColumns(db, 'flow_step_runs')
+  const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind'
+  const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt')
+  const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at')
+  const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at')
+  const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms')
+  const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at')
+  const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at')
+  const stepOrderBy = [
+    'step_order ASC',
+    stepRunColumns.has('attempt') ? 'attempt ASC' : '',
+    stepRunColumns.has('created_at') ? 'created_at ASC' : '',
+  ].filter(Boolean).join(', ')
 
   const run = await db
     .prepare('SELECT status FROM flow_runs WHERE flow_run_id = ? LIMIT 1')
@@ -109,8 +123,7 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
   }
 
   const encoder = new TextEncoder()
-  let lastSentCursor = ''
-
+  let lastSentCursor = lastSeenCursorRaw
   const send = (
     controller: ReadableStreamDefaultController<Uint8Array>,
     payload: EventPayload,
@@ -126,7 +139,7 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       const poll = async () => {
-    const [runResult, stepResult, approvalResult] = await Promise.all([
+        const [runResult, stepResult, approvalResult] = await Promise.all([
           db
             .prepare('SELECT status, started_at FROM flow_runs WHERE flow_run_id = ? LIMIT 1')
             .bind(runId)
@@ -135,18 +148,18 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
             .prepare(
               `SELECT step_run_id,
                       step_id,
-                      step_type AS kind,
+                      ${stepKindExpr},
                       status,
-                      attempt,
-                      started_at,
-                      finished_at,
-                      latency_ms,
-                      created_at,
-                      updated_at,
+                      ${stepAttemptExpr},
+                      ${stepStartedExpr},
+                      ${stepFinishedExpr},
+                      ${stepLatencyExpr},
+                      ${stepCreatedExpr},
+                      ${stepUpdatedExpr},
                       step_order
                FROM flow_step_runs
                WHERE flow_run_id = ?
-               ORDER BY step_order ASC, attempt ASC, created_at ASC`,
+               ORDER BY ${stepOrderBy}`,
             )
             .bind(runId)
             .all<StepRow>(),
@@ -185,9 +198,7 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
         const cursorParts = buildCursor(payload.run.status, runResult.started_at, payload.steps as StepRow[], payload.approvals)
         payload.cursor = encodeCursor(cursorParts)
 
-        const cursorChanged = payload.cursor !== lastSentCursor
-        const shouldSend = lastSeenCursorRaw === null || payload.cursor !== lastSeenCursorRaw
-        if (shouldSend) {
+        if (payload.cursor !== lastSentCursor) {
           send(controller, payload, 'timeline')
           lastSentCursor = payload.cursor
         }

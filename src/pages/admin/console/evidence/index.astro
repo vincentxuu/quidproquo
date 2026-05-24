@@ -28,6 +28,7 @@ interface EvidenceRunRow {
   source_count: number;
   claim_count: number;
   conflict_count: number;
+  pending_conflict_count: number;
 }
 
 interface CountRow {
@@ -41,6 +42,9 @@ let loadError = false;
 if (ready) {
   try {
     const db = getEnv().DB;
+    const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
+    const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+    const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
     const like = `%${q}%`;
     const where = `
       WHERE EXISTS (
@@ -48,7 +52,7 @@ if (ready) {
         WHERE es.flow_run_id = fr.flow_run_id
       ) AND (
         fr.flow_run_id LIKE ? OR
-        COALESCE(fd.display_name, fr.flow_id) LIKE ? OR
+        COALESCE(fd.${flowDisplayNameColumn}, fr.flow_id) LIKE ? OR
         fr.status LIKE ?
       )
     `;
@@ -66,7 +70,7 @@ if (ready) {
     const result = await db
       .prepare(
         `SELECT fr.flow_run_id,
-                fd.display_name,
+                fd.${flowDisplayNameColumn} AS display_name,
                 fr.status AS flow_status,
                 fr.started_at,
                 (SELECT COUNT(*) FROM evidence_sources es WHERE es.flow_run_id = fr.flow_run_id) AS source_count,
@@ -74,7 +78,14 @@ if (ready) {
                 (SELECT COUNT(*) FROM evidence_conflicts econf
                  WHERE econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec2 WHERE ec2.flow_run_id = fr.flow_run_id)
                     OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec3 WHERE ec3.flow_run_id = fr.flow_run_id)
-                ) AS conflict_count
+                ) AS conflict_count,
+                (SELECT COUNT(*) FROM evidence_conflicts econf
+                 WHERE econf.status = 'pending'
+                   AND (
+                     econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec4 WHERE ec4.flow_run_id = fr.flow_run_id)
+                     OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec5 WHERE ec5.flow_run_id = fr.flow_run_id)
+                   )
+                ) AS pending_conflict_count
          FROM flow_runs fr
          LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
          ${where}
@@ -119,16 +130,6 @@ function formatName(row: EvidenceRunRow): string {
   return row.display_name || row.flow_run_id;
 }
 
-function qHref(value: string) {
-  const u = new URL(Astro.url);
-  if (value) {
-    u.searchParams.set('q', value);
-  } else {
-    u.searchParams.delete('q');
-  }
-  u.searchParams.delete('page');
-  return u.pathname + u.search;
-}
 ---
 
 <AdminConsoleLayout title="來源證據" section="evidence">
@@ -182,12 +183,29 @@ function qHref(value: string) {
                   <td><span class={statusBadgeClass(run.status || run.flow_status)}>{run.status || run.flow_status || '—'}</span></td>
                   <td class="evidence-stats">
                     來源 {run.source_count ?? 0} / 聲明 {run.claim_count ?? 0} / 衝突 {run.conflict_count ?? 0}
+                    {run.pending_conflict_count > 0 && (
+                      <span class="pending-conflict-pill">待處理 {run.pending_conflict_count}</span>
+                    )}
                   </td>
                   <td class="mono">{formatTs(run.started_at)}</td>
-                  <td>
-                    <a href={`/admin/console/runs/${run.flow_run_id}/evidence`} class="btn-secondary">
-                      檢視
-                    </a>
+                  <td class="evidence-actions-cell">
+                    {run.pending_conflict_count > 0 ? (
+                      <>
+                        <a href={`/admin/console/runs/${run.flow_run_id}/evidence#conflicts`} class="btn-danger">
+                          處理 {run.pending_conflict_count} 個衝突
+                        </a>
+                        <span class="row-operation-preview">進入右側衝突面板，可採用、排除或批次標記不處理。</span>
+                      </>
+                    ) : (
+                      <>
+                        <a href={`/admin/console/runs/${run.flow_run_id}/evidence`} class="btn-secondary">
+                          {run.conflict_count > 0 ? '查看處理紀錄' : '檢視'}
+                        </a>
+                        <span class="row-operation-preview">
+                          {run.conflict_count > 0 ? '此執行沒有待處理衝突。' : '此執行目前沒有衝突。'}
+                        </span>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -241,9 +259,41 @@ function qHref(value: string) {
     color: var(--admin-text-muted);
   }
 
+  .pending-conflict-pill {
+    display: inline-flex;
+    min-height: 1.45rem;
+    align-items: center;
+    margin-left: 0.35rem;
+    border: 1px solid #facc15;
+    border-radius: 999px;
+    background: #fefce8;
+    color: #713f12;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.08rem 0.45rem;
+  }
+
+  .evidence-actions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+
+  .row-operation-preview {
+    color: var(--admin-text-muted);
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
   .btn-clear,
   .btn-secondary,
+  .btn-danger,
   .page-btn {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     padding: 0.35rem 0.7rem;
@@ -254,8 +304,14 @@ function qHref(value: string) {
     line-height: 1.2;
   }
 
+  .btn-danger {
+    border-color: var(--admin-danger, #b42318);
+    color: var(--admin-danger, #b42318);
+  }
+
   .btn-clear:hover,
   .btn-secondary:hover,
+  .btn-danger:hover,
   .page-btn:hover:not(.disabled) {
     background: var(--admin-muted);
   }

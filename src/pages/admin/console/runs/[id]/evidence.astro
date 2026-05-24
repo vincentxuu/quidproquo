@@ -1,7 +1,6 @@
 ---
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
-import AdminPanel from '@/components/admin/AdminPanel.astro';
 import { getEnv } from '@/lib/config/env';
 import { readFlags } from '@/lib/config/flags';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
@@ -50,6 +49,7 @@ let citations: CitationRecord[] = [];
 let conflicts: ConflictRecord[] = [];
 let searchedClaimIds: number[] | null = null;
 let loadError = false;
+const CONFLICT_STATUSES = ['pending', 'approved', 'rejected', 'expired'] as const;
 
 if (consoleReady && evidenceEnabled && flowRunId) {
   try {
@@ -85,12 +85,19 @@ if (consoleReady && evidenceEnabled && flowRunId) {
     );
     citations = citationsByClaim.flat();
 
-    // Load pending conflicts for this flow
+    // Load conflicts for this flow, including resolved history so reviewers can audit decisions.
     const claimIds = new Set(rawClaims.map((c) => c.claimId));
-    const { conflicts: pendingConflicts } = await conflictStore.listByStatus('pending', { limit: 200 });
-    conflicts = pendingConflicts.filter(
-      (cf) => claimIds.has(cf.claimAId) || claimIds.has(cf.claimBId),
+    const conflictsByStatus = await Promise.all(
+      CONFLICT_STATUSES.map((status) => conflictStore.listByStatus(status, { limit: 100 })),
     );
+    conflicts = conflictsByStatus
+      .flatMap((result) => result.conflicts)
+      .filter((cf) => claimIds.has(cf.claimAId) || claimIds.has(cf.claimBId))
+      .sort((a, b) => {
+        if (a.status === 'pending' && b.status !== 'pending') return -1;
+        if (a.status !== 'pending' && b.status === 'pending') return 1;
+        return b.updatedAt - a.updatedAt;
+      });
 
     // Build excerpt count map: sourceId -> count
     const excerptCountBySource = new Map<number, number>();
@@ -188,6 +195,8 @@ const conflictDetails = conflicts.map((cf) => ({
   claimA: claimById.get(cf.claimAId) ?? null,
   claimB: claimById.get(cf.claimBId) ?? null,
 }));
+const pendingConflictCount = conflicts.filter((cf) => cf.status === 'pending').length;
+const resolvedConflictCount = conflicts.length - pendingConflictCount;
 
 function truncateUrl(url: string, max = 60): string {
   if (url.length <= max) return url;
@@ -212,6 +221,25 @@ function confidenceClass(confidence: number): string {
   if (confidence < 0.4) return 'low';
   if (confidence <= 0.7) return 'mid';
   return 'high';
+}
+
+function conflictStatusLabel(status: string): string {
+  switch (status) {
+    case 'pending': return '待處理';
+    case 'approved': return '已採用';
+    case 'rejected': return '已排除';
+    case 'expired': return '已逾期';
+    default: return status;
+  }
+}
+
+function resolutionLabel(resolution: string | null): string {
+  switch (resolution) {
+    case 'accepted_a': return '採用左側';
+    case 'accepted_b': return '採用右側';
+    case 'dismissed': return '標記不處理';
+    default: return resolution ?? '—';
+  }
 }
 
 const breadcrumb = [
@@ -401,16 +429,45 @@ const breadcrumb = [
       </main>
 
       {/* Right rail — conflicts */}
-      <aside class="conflicts-rail" aria-label="衝突">
+      <aside id="conflicts" class="conflicts-rail" aria-label="衝突">
         <div class="rail-header">
           <h3>衝突 <span class="rail-count">{conflicts.length}</span></h3>
+          <p class="rail-subtitle">待處理 {pendingConflictCount} / 已處理 {resolvedConflictCount}</p>
+          {conflicts.length > 0 && (
+            <div class="conflict-toolbar" aria-label="衝突檢視與批次操作">
+              <div class="conflict-view-toggle" role="group" aria-label="衝突檢視">
+                <button type="button" data-conflict-filter="pending" class="active" aria-pressed="true">待處理</button>
+                <button type="button" data-conflict-filter="all" aria-pressed="false">全部</button>
+              </div>
+              {pendingConflictCount > 0 && (
+                <div class="conflict-bulk-actions">
+                  <span class="conflict-selection-count" data-conflict-selection-count>已選 0</span>
+                  <button type="button" class="conflict-bulk-dismiss" data-bulk-selected-resolution="dismissed" disabled>
+                    標記所選不處理
+                  </button>
+                  <button type="button" class="conflict-bulk-dismiss" data-bulk-resolution="dismissed">
+                    全部標記不處理
+                  </button>
+                </div>
+              )}
+              <p class="conflict-operation-preview" data-conflict-operation-preview role="status" aria-live="polite">
+                選取衝突後可批次標記不處理；單筆可採用左側、採用右側或標記不處理。
+              </p>
+            </div>
+          )}
         </div>
         {conflicts.length === 0 ? (
-          <p class="rail-empty">目前無待處理衝突。</p>
+          <p class="rail-empty">目前無衝突。</p>
         ) : (
           <div class="conflict-list">
             {conflictDetails.map((cf) => (
-              <div class="conflict-card">
+              <div class="conflict-card" data-conflict-card data-conflict-status={cf.status} hidden={cf.status !== 'pending'}>
+                {cf.status === 'pending' && (
+                  <label class="conflict-select">
+                    <input type="checkbox" data-conflict-select value={String(cf.conflictId)} />
+                    <span>加入批次處理</span>
+                  </label>
+                )}
                 <div class="conflict-claims">
                   <div class="conflict-claim">
                     <p class="conflict-claim-text">{cf.claimA?.claimText ?? `Claim #${cf.claimAId}`}</p>
@@ -422,19 +479,25 @@ const breadcrumb = [
                 </div>
                 <div class="conflict-footer">
                   <span class="detected-by" title="Detected by">{cf.detectedBy}</span>
-                  <span class:list={['verdict-badge', `verdict-${cf.status}`]}>{cf.status}</span>
+                  <span class:list={['verdict-badge', `verdict-${cf.status}`]}>{conflictStatusLabel(cf.status)}</span>
                 </div>
                 {cf.status === 'pending' && (
                   <div class="conflict-actions" data-conflict-id={cf.conflictId}>
-                    <button type="button" data-resolution="accepted_a">Accept A</button>
-                    <button type="button" data-resolution="accepted_b">Accept B</button>
-                    <button type="button" data-resolution="dismissed">Dismiss</button>
+                    <button type="button" data-resolution="accepted_a">採用左側</button>
+                    <button type="button" data-resolution="accepted_b">採用右側</button>
+                    <button type="button" data-resolution="dismissed">標記不處理</button>
+                  </div>
+                )}
+                {cf.status !== 'pending' && (
+                  <div class="conflict-resolved-note">
+                    已處理：{resolutionLabel(cf.resolvedBy) || conflictStatusLabel(cf.status)}
                   </div>
                 )}
               </div>
             ))}
           </div>
         )}
+        <p id="conflict-action-status" class="conflict-action-status" role="status" aria-live="polite" hidden></p>
       </aside>
 
     </div>
@@ -443,9 +506,237 @@ const breadcrumb = [
 
 <script is:inline>
   const conflictsRail = document.querySelector('.conflicts-rail');
+  const conflictStatus = document.getElementById('conflict-action-status');
+  const operationPreview = document.querySelector('[data-conflict-operation-preview]');
+  let activeConflictFilter = 'pending';
+
+  const resolutionLabels = {
+    accepted_a: '採用左側',
+    accepted_b: '採用右側',
+    dismissed: '標記不處理',
+  };
+
+  const statusLabels = {
+    pending: '待處理',
+    approved: '已採用',
+    rejected: '已排除',
+    expired: '已逾期',
+  };
+
+  function setConflictStatus(message, tone = '') {
+    if (!conflictStatus) return;
+    conflictStatus.hidden = false;
+    conflictStatus.textContent = message;
+    conflictStatus.className = `conflict-action-status ${tone}`;
+  }
+
+  function updateConflictCounts() {
+    if (!conflictsRail) return;
+    const headerSubtitle = conflictsRail.querySelector('.rail-subtitle');
+    const pendingCards = conflictsRail.querySelectorAll('[data-conflict-status="pending"]').length;
+    const allCards = conflictsRail.querySelectorAll('[data-conflict-card]').length;
+    if (headerSubtitle) {
+      headerSubtitle.textContent = `待處理 ${pendingCards} / 已處理 ${Math.max(0, allCards - pendingCards)}`;
+    }
+
+    const bulkButton = conflictsRail.querySelector('[data-bulk-resolution]');
+    if (bulkButton instanceof HTMLButtonElement) {
+      bulkButton.hidden = pendingCards === 0;
+    }
+    updateConflictSelection();
+  }
+
+  function selectedConflictRoots() {
+    if (!conflictsRail) return [];
+    return Array.from(conflictsRail.querySelectorAll('[data-conflict-select]:checked'))
+      .map((input) => {
+        if (!(input instanceof HTMLInputElement)) return null;
+        const card = input.closest('[data-conflict-card]');
+        return card?.querySelector('[data-conflict-id]') ?? null;
+      })
+      .filter((root) => root instanceof HTMLElement && root.closest('[data-conflict-status="pending"]'));
+  }
+
+  function updateConflictSelection() {
+    const selected = selectedConflictRoots();
+    const label = conflictsRail?.querySelector('[data-conflict-selection-count]');
+    if (label) label.textContent = `已選 ${selected.length}`;
+    const pendingCount = conflictsRail?.querySelectorAll('[data-conflict-status="pending"]').length ?? 0;
+    const selectedBulk = conflictsRail?.querySelector('[data-bulk-selected-resolution]');
+    if (selectedBulk instanceof HTMLButtonElement) {
+      selectedBulk.disabled = selected.length === 0;
+      selectedBulk.hidden = pendingCount === 0;
+    }
+    if (operationPreview) {
+      operationPreview.textContent = selected.length > 0
+        ? `已選 ${selected.length} 個衝突；按「標記所選不處理」會把它們更新為已排除。`
+        : pendingCount > 0
+          ? `目前有 ${pendingCount} 個待處理衝突；可逐筆處理或先勾選再批次處理。`
+          : '目前沒有待處理衝突；切到「全部」可檢視已處理紀錄。';
+    }
+  }
+
+  function markConflictResolved(root, data) {
+    const card = root.closest('.conflict-card');
+    const status = String(data.status || 'resolved');
+    if (card instanceof HTMLElement) {
+      card.dataset.conflictStatus = status;
+      card.hidden = activeConflictFilter === 'pending';
+    }
+    const selector = card?.querySelector('[data-conflict-select]');
+    if (selector instanceof HTMLInputElement) {
+      selector.checked = false;
+      selector.disabled = true;
+    }
+    const selectLabel = selector?.closest('.conflict-select');
+    if (selectLabel) selectLabel.remove();
+    const badge = card?.querySelector('.verdict-badge');
+    if (badge) {
+      badge.textContent = statusLabels[status] || status;
+      badge.className = `verdict-badge verdict-${status}`;
+    }
+    root.replaceChildren(Object.assign(document.createElement('span'), {
+      className: 'conflict-resolved-note',
+      textContent: `已處理：${resolutionLabels[data.resolution] || data.resolution || statusLabels[status] || status}`,
+    }));
+    updateConflictCounts();
+  }
+
+  function applyConflictFilter(filter) {
+    activeConflictFilter = filter;
+    conflictsRail?.querySelectorAll('[data-conflict-filter]').forEach((button) => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      const active = button.dataset.conflictFilter === filter;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    conflictsRail?.querySelectorAll('[data-conflict-card]').forEach((card) => {
+      if (!(card instanceof HTMLElement)) return;
+      card.hidden = filter === 'pending' && card.dataset.conflictStatus !== 'pending';
+    });
+    updateConflictSelection();
+  }
+
+  async function resolveConflict(root, conflictId, resolution, trigger, opts = {}) {
+    const label = resolutionLabels[resolution] || resolution;
+    if (!opts.skipConfirm && !window.confirm(`確定要「${label}」 conflict #${conflictId}？此動作會寫入處理結果。`)) {
+      return false;
+    }
+
+    if (trigger instanceof HTMLButtonElement) {
+      trigger.disabled = true;
+      trigger.dataset.originalText = trigger.textContent || '';
+      trigger.textContent = '處理中';
+    }
+    root.querySelectorAll('button').forEach((button) => {
+      button.disabled = true;
+    });
+    setConflictStatus(`正在處理 conflict #${conflictId}...`);
+
+    try {
+      const res = await fetch(`/api/admin/console/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ resolution }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (res.status === 409 && data.status) {
+          markConflictResolved(root, data);
+        }
+        root.querySelectorAll('button').forEach((button) => {
+          button.disabled = false;
+        });
+        if (trigger instanceof HTMLButtonElement) {
+          trigger.textContent = trigger.dataset.originalText || label;
+          delete trigger.dataset.originalText;
+        }
+        setConflictStatus(data.error || '無法處理此衝突。', 'error');
+        return false;
+      }
+
+      markConflictResolved(root, data);
+      setConflictStatus(`Conflict #${conflictId} 已更新為 ${data.status}。`, 'success');
+      return true;
+    } catch {
+      root.querySelectorAll('button').forEach((button) => {
+        button.disabled = false;
+      });
+      if (trigger instanceof HTMLButtonElement) {
+        trigger.textContent = trigger.dataset.originalText || label;
+        delete trigger.dataset.originalText;
+      }
+      setConflictStatus('無法處理此衝突。', 'error');
+      return false;
+    }
+  }
+
   conflictsRail?.addEventListener('click', async (event) => {
     const target = event.target;
     if (!(target instanceof HTMLButtonElement)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const filter = target.dataset.conflictFilter;
+    if (filter) {
+      applyConflictFilter(filter);
+      return;
+    }
+
+    const bulkResolution = target.dataset.bulkResolution;
+    if (bulkResolution) {
+      const pendingRoots = Array.from(conflictsRail.querySelectorAll('[data-conflict-id]'))
+        .filter((root) => root instanceof HTMLElement && root.closest('[data-conflict-status="pending"]'));
+      if (pendingRoots.length === 0) {
+        setConflictStatus('目前沒有待處理衝突。');
+        return;
+      }
+      if (!window.confirm(`確定要將 ${pendingRoots.length} 個待處理衝突全部標記不處理？`)) return;
+      target.disabled = true;
+      target.dataset.originalText = target.textContent || '';
+      target.textContent = '批次處理中';
+      let resolved = 0;
+      for (const root of pendingRoots) {
+        if (!(root instanceof HTMLElement)) continue;
+        const conflictId = root.dataset.conflictId;
+        if (!conflictId) continue;
+        const ok = await resolveConflict(root, conflictId, bulkResolution, target, { skipConfirm: true });
+        if (ok) resolved += 1;
+      }
+      target.disabled = false;
+      target.textContent = target.dataset.originalText || '全部標記不處理';
+      delete target.dataset.originalText;
+      setConflictStatus(`批次處理完成：${resolved} / ${pendingRoots.length} 個衝突。`, resolved === pendingRoots.length ? 'success' : 'error');
+      return;
+    }
+
+    const selectedBulkResolution = target.dataset.bulkSelectedResolution;
+    if (selectedBulkResolution) {
+      const selectedRoots = selectedConflictRoots();
+      if (selectedRoots.length === 0) {
+        setConflictStatus('請先選擇要批次處理的衝突。');
+        return;
+      }
+      if (!window.confirm(`確定要將 ${selectedRoots.length} 個所選衝突標記不處理？`)) return;
+      target.disabled = true;
+      target.dataset.originalText = target.textContent || '';
+      target.textContent = '批次處理中';
+      let resolved = 0;
+      for (const root of selectedRoots) {
+        if (!(root instanceof HTMLElement)) continue;
+        const conflictId = root.dataset.conflictId;
+        if (!conflictId) continue;
+        const ok = await resolveConflict(root, conflictId, selectedBulkResolution, target, { skipConfirm: true });
+        if (ok) resolved += 1;
+      }
+      target.disabled = false;
+      target.textContent = target.dataset.originalText || '標記所選不處理';
+      delete target.dataset.originalText;
+      updateConflictSelection();
+      setConflictStatus(`所選批次處理完成：${resolved} / ${selectedRoots.length} 個衝突。`, resolved === selectedRoots.length ? 'success' : 'error');
+      return;
+    }
+
     const resolution = target.dataset.resolution;
     if (!resolution) return;
     const root = target.closest('[data-conflict-id]');
@@ -453,23 +744,16 @@ const breadcrumb = [
     const conflictId = root.dataset.conflictId;
     if (!conflictId) return;
 
-    target.disabled = true;
-    const res = await fetch(`/api/admin/console/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ resolution }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      target.disabled = false;
-      target.textContent = data.error || 'Failed';
-      return;
-    }
-    const card = root.closest('.conflict-card');
-    const badge = card?.querySelector('.verdict-badge');
-    if (badge) badge.textContent = data.status;
-    root.remove();
+    await resolveConflict(root, conflictId, resolution, target);
   });
+
+  conflictsRail?.addEventListener('change', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement) || !target.matches('[data-conflict-select]')) return;
+    updateConflictSelection();
+  });
+
+  updateConflictSelection();
 </script>
 
 <style>
@@ -532,6 +816,12 @@ const breadcrumb = [
     background: var(--admin-muted);
     color: var(--admin-text-muted);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .rail-subtitle {
+    margin-top: 0.2rem;
+    color: var(--admin-text-muted);
+    font-size: 0.74rem;
   }
 
   .rail-empty {
@@ -963,11 +1253,106 @@ const breadcrumb = [
     overflow-y: auto;
   }
 
+  .conflict-toolbar {
+    display: grid;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
+  }
+
+  .conflict-bulk-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .conflict-selection-count {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .conflict-operation-preview {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    padding: 0.5rem 0.6rem;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .conflict-view-toggle {
+    display: flex;
+    width: fit-content;
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+  }
+
+  .conflict-view-toggle button,
+  .conflict-bulk-dismiss {
+    min-height: 2rem;
+    border: 0;
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .conflict-view-toggle button + button {
+    border-left: 1px solid var(--admin-border);
+  }
+
+  .conflict-view-toggle button.active {
+    background: var(--admin-accent);
+    color: #fff;
+  }
+
+  .conflict-bulk-dismiss {
+    width: fit-content;
+    border: 1px solid #fecaca;
+    border-radius: var(--admin-radius);
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .conflict-bulk-dismiss:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
   .conflict-card {
     padding: 0.6rem;
     border: 1px solid var(--admin-border);
     border-radius: calc(var(--admin-radius) - 2px);
     background: var(--admin-bg);
+  }
+
+  .conflict-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2rem;
+    margin-bottom: 0.45rem;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .conflict-select input {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .conflict-card[data-conflict-status="approved"],
+  .conflict-card[data-conflict-status="rejected"],
+  .conflict-card[data-conflict-status="expired"] {
+    opacity: 0.82;
   }
 
   .conflict-claims {
@@ -1015,6 +1400,39 @@ const breadcrumb = [
     gap: 0.35rem;
     flex-wrap: wrap;
     margin-top: 0.55rem;
+  }
+
+  .conflict-actions button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .conflict-resolved-note {
+    display: inline-flex;
+    margin-top: 0.55rem;
+    border: 1px solid #86efac;
+    border-radius: var(--admin-radius);
+    background: #f0fdf4;
+    color: #166534;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .conflict-action-status {
+    border-top: 1px solid var(--admin-border);
+    margin: 0;
+    padding: 0.6rem 0.75rem;
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .conflict-action-status.success {
+    color: #15803d;
+  }
+
+  .conflict-action-status.error {
+    color: #b91c1c;
   }
 
   .detected-by {

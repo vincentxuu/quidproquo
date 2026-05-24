@@ -43,6 +43,8 @@ interface AuditRow {
 
 let auditRows: AuditRow[] = [];
 let totalCount = 0;
+let actionOptions: string[] = [];
+let kindOptions: string[] = [];
 let loadError = false;
 
 if (ready) {
@@ -82,14 +84,30 @@ if (ready) {
 
     const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
-    const countResult = await db.prepare(`
-      SELECT COUNT(*) as cnt
-      FROM console_audit_log al
-      LEFT JOIN console_users u ON u.user_id = al.user_id
-      ${where}
-    `).bind(...bindings).first<{ cnt: number }>();
+    const [countResult, actionResult, kindResult] = await Promise.all([
+      db.prepare(`
+        SELECT COUNT(*) as cnt
+        FROM console_audit_log al
+        LEFT JOIN console_users u ON u.user_id = al.user_id
+        ${where}
+      `).bind(...bindings).first<{ cnt: number }>(),
+      db.prepare(`
+        SELECT DISTINCT action
+        FROM console_audit_log
+        WHERE action IS NOT NULL AND action != ''
+        ORDER BY action
+      `).all<{ action: string }>(),
+      db.prepare(`
+        SELECT DISTINCT resource_kind
+        FROM console_audit_log
+        WHERE resource_kind IS NOT NULL AND resource_kind != ''
+        ORDER BY resource_kind
+      `).all<{ resource_kind: string }>(),
+    ]);
 
     totalCount = countResult?.cnt ?? 0;
+    actionOptions = (actionResult.results ?? []).map((row) => row.action);
+    kindOptions = (kindResult.results ?? []).map((row) => row.resource_kind);
 
     const rowsResult = await db.prepare(`
       SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
@@ -108,10 +126,29 @@ if (ready) {
 }
 
 const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+const activeFilters = [
+  filterUser ? `使用者包含 ${filterUser}` : '',
+  filterAction ? `操作=${filterAction}` : '',
+  filterKind ? `類型=${filterKind}` : '',
+  filterFrom ? `從 ${filterFrom}` : '',
+  filterTo ? `到 ${filterTo}` : '',
+].filter(Boolean);
+const hasActiveFilters = activeFilters.length > 0;
+const visibleStart = totalCount === 0 ? 0 : offset + 1;
+const visibleEnd = Math.min(offset + auditRows.length, totalCount);
 
 function formatTs(ms: number | null): string {
   if (!ms) return '—';
   return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function prettyPayload(raw: string | null): string {
+  if (!raw) return '';
+  try {
+    return JSON.stringify(JSON.parse(raw), null, 2);
+  } catch {
+    return raw;
+  }
 }
 
 function pageHref(p: number): string {
@@ -120,16 +157,6 @@ function pageHref(p: number): string {
   return u.pathname + u.search;
 }
 
-function filterHref(key: string, value: string): string {
-  const u = new URL(url.toString());
-  if (value) {
-    u.searchParams.set(key, value);
-  } else {
-    u.searchParams.delete(key);
-  }
-  u.searchParams.delete('page');
-  return u.pathname + u.search;
-}
 ---
 
 <AdminConsoleLayout title="稽核日誌" section="rbac" breadcrumb={breadcrumb}>
@@ -143,7 +170,7 @@ function filterHref(key: string, value: string): string {
     <div class="audit-layout">
 
       <AdminPanel title="篩選條件" eyebrow="縮小搜尋範圍">
-        <form method="GET" action="/admin/console/rbac/audit" class="filter-form">
+        <form method="GET" action="/admin/console/rbac/audit" class="filter-form" data-audit-filter-form>
           <div class="filter-row">
             <label for="f-user" class="filter-label">使用者（電子郵件）</label>
             <input
@@ -159,18 +186,24 @@ function filterHref(key: string, value: string): string {
             <label for="f-action" class="filter-label">操作</label>
             <select id="f-action" name="action" class="filter-select">
               <option value="">全部</option>
-              {['view','invoke','edit','delete','approve','reject','cancel','export'].map((a) => (
+              {actionOptions.map((a) => (
                 <option value={a} selected={filterAction === a}>{a}</option>
               ))}
+              {filterAction && !actionOptions.includes(filterAction) && (
+                <option value={filterAction} selected>{filterAction}</option>
+              )}
             </select>
           </div>
           <div class="filter-row">
             <label for="f-kind" class="filter-label">資源類型</label>
             <select id="f-kind" name="kind" class="filter-select">
               <option value="">全部</option>
-              {['flow','policy','provider','run','approval','artifact','cost','rbac'].map((k) => (
+              {kindOptions.map((k) => (
                 <option value={k} selected={filterKind === k}>{k}</option>
               ))}
+              {filterKind && !kindOptions.includes(filterKind) && (
+                <option value={filterKind} selected>{filterKind}</option>
+              )}
             </select>
           </div>
           <div class="filter-row">
@@ -198,6 +231,15 @@ function filterHref(key: string, value: string): string {
             <a href="/admin/console/rbac/audit" class="btn-clear">清除</a>
           </div>
         </form>
+        <div class="filter-summary" role="status" aria-live="polite">
+          <span>
+            {hasActiveFilters
+              ? `目前篩選：${activeFilters.join('、')}`
+              : '目前篩選：全部稽核記錄'}
+          </span>
+          <span>共 {totalCount.toLocaleString()} 筆，顯示 {visibleStart.toLocaleString()}–{visibleEnd.toLocaleString()} 筆</span>
+          {hasActiveFilters && <a href="/admin/console/rbac/audit">清除篩選</a>}
+        </div>
       </AdminPanel>
 
       <AdminPanel
@@ -207,41 +249,81 @@ function filterHref(key: string, value: string): string {
         {auditRows.length === 0 ? (
           <AdminState tone="empty">目前篩選條件下無稽核日誌記錄。</AdminState>
         ) : (
-          <AdminTable minWidth="780px" flush>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>使用者</th>
-                <th>操作</th>
-                <th>類型</th>
-                <th>Resource ID</th>
-                <th>時間</th>
-                <th>Payload</th>
-              </tr>
-            </thead>
-            <tbody>
+          <>
+            <div class="audit-table-wrap">
+              <AdminTable minWidth="780px" flush>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>使用者</th>
+                    <th>操作</th>
+                    <th>類型</th>
+                    <th>Resource ID</th>
+                    <th>時間</th>
+                    <th>Payload</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {auditRows.map((row) => (
+                    <tr>
+                      <td class="mono muted">{row.audit_id}</td>
+                      <td class="mono">{row.user_email ?? '—'}</td>
+                      <td>{row.action}</td>
+                      <td>{row.resource_kind}</td>
+                      <td class="mono muted">{row.resource_id ?? '—'}</td>
+                      <td class="mono">{formatTs(row.created_at)}</td>
+                      <td>
+                        {row.payload_json ? (
+                          <details class="payload-details">
+                            <summary class="payload-summary">顯示</summary>
+                            <pre class="payload-pre">{prettyPayload(row.payload_json)}</pre>
+                          </details>
+                        ) : (
+                          <span class="muted">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </AdminTable>
+            </div>
+            <div class="audit-card-list" aria-label="稽核日誌手機版清單">
               {auditRows.map((row) => (
-                <tr>
-                  <td class="mono muted">{row.audit_id}</td>
-                  <td class="mono">{row.user_email ?? '—'}</td>
-                  <td>{row.action}</td>
-                  <td>{row.resource_kind}</td>
-                  <td class="mono muted">{row.resource_id ?? '—'}</td>
-                  <td class="mono">{formatTs(row.created_at)}</td>
-                  <td>
-                    {row.payload_json ? (
-                      <details class="payload-details">
-                        <summary class="payload-summary">顯示</summary>
-                        <pre class="payload-pre">{row.payload_json}</pre>
-                      </details>
-                    ) : (
-                      <span class="muted">—</span>
-                    )}
-                  </td>
-                </tr>
+                <article class="audit-card">
+                  <div class="audit-card-head">
+                    <strong>{row.action}</strong>
+                    <span class="mono muted">#{row.audit_id}</span>
+                  </div>
+                  <dl>
+                    <div>
+                      <dt>使用者</dt>
+                      <dd class="mono">{row.user_email ?? '—'}</dd>
+                    </div>
+                    <div>
+                      <dt>類型</dt>
+                      <dd>{row.resource_kind}</dd>
+                    </div>
+                    <div>
+                      <dt>Resource ID</dt>
+                      <dd class="mono">{row.resource_id ?? '—'}</dd>
+                    </div>
+                    <div>
+                      <dt>時間</dt>
+                      <dd class="mono">{formatTs(row.created_at)}</dd>
+                    </div>
+                  </dl>
+                  {row.payload_json ? (
+                    <details class="payload-details">
+                      <summary class="payload-summary">顯示 Payload</summary>
+                      <pre class="payload-pre">{prettyPayload(row.payload_json)}</pre>
+                    </details>
+                  ) : (
+                    <p class="muted payload-empty">無 Payload</p>
+                  )}
+                </article>
               ))}
-            </tbody>
-          </AdminTable>
+            </div>
+          </>
         )}
 
         {totalPages > 1 && (
@@ -260,6 +342,17 @@ function filterHref(key: string, value: string): string {
     </div>
   )}
 </AdminConsoleLayout>
+
+<script>
+  const filterForm = document.querySelector('[data-audit-filter-form]');
+  filterForm?.addEventListener('submit', () => {
+    const button = filterForm.querySelector('button[type="submit"]');
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = true;
+      button.textContent = '篩選中…';
+    }
+  });
+</script>
 
 <style>
   .audit-layout {
@@ -288,7 +381,10 @@ function filterHref(key: string, value: string): string {
 
   .filter-input,
   .filter-select {
-    padding: 0.35rem 0.65rem;
+    box-sizing: border-box;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.65rem;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     background: var(--admin-surface);
@@ -309,7 +405,9 @@ function filterHref(key: string, value: string): string {
   }
 
   .btn-filter {
-    padding: 0.35rem 0.9rem;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.9rem;
     border: 1px solid var(--admin-accent);
     border-radius: var(--admin-radius);
     background: var(--admin-accent);
@@ -324,7 +422,9 @@ function filterHref(key: string, value: string): string {
   }
 
   .btn-clear {
-    padding: 0.35rem 0.9rem;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.9rem;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     background: transparent;
@@ -332,6 +432,9 @@ function filterHref(key: string, value: string): string {
     font-size: 0.85rem;
     text-decoration: none;
     transition: background 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn-clear:hover {
@@ -341,6 +444,7 @@ function filterHref(key: string, value: string): string {
   .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.8rem;
+    overflow-wrap: anywhere;
   }
 
   .muted {
@@ -355,6 +459,9 @@ function filterHref(key: string, value: string): string {
     cursor: pointer;
     color: var(--admin-accent);
     font-size: 0.8rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
     user-select: none;
   }
 
@@ -383,12 +490,16 @@ function filterHref(key: string, value: string): string {
   }
 
   .page-btn {
-    padding: 0.3rem 0.8rem;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.8rem;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     color: var(--admin-text-muted);
     text-decoration: none;
     transition: border-color 0.1s, color 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .page-btn:hover {
@@ -398,5 +509,111 @@ function filterHref(key: string, value: string): string {
 
   .page-info {
     color: var(--admin-text-soft);
+  }
+
+  .filter-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    align-items: center;
+    border-top: 1px solid var(--admin-border);
+    padding: 0.7rem 1rem;
+    color: var(--admin-text-muted);
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .filter-summary a {
+    color: var(--admin-accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .audit-card-list {
+    display: none;
+  }
+
+  .audit-card {
+    display: grid;
+    gap: 0.75rem;
+    border-top: 1px solid var(--admin-border);
+    padding: 1rem;
+  }
+
+  .audit-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+
+  .audit-card dl {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+  }
+
+  .audit-card dl div {
+    display: grid;
+    gap: 0.18rem;
+  }
+
+  .audit-card dt {
+    color: var(--admin-text-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .audit-card dd {
+    margin: 0;
+    color: var(--admin-text);
+    overflow-wrap: anywhere;
+  }
+
+  .payload-empty {
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .filter-form {
+      grid-template-columns: 1fr;
+      padding: 0.85rem;
+    }
+
+    .filter-actions,
+    .btn-filter,
+    .btn-clear,
+    .page-btn {
+      width: 100%;
+    }
+
+    .filter-actions,
+    .pagination {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .filter-summary {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .audit-table-wrap {
+      display: none;
+    }
+
+    .audit-card-list {
+      display: grid;
+    }
+
+    .payload-details,
+    .payload-summary {
+      width: 100%;
+    }
+
+    .payload-pre {
+      max-width: 100%;
+    }
   }
 </style>
