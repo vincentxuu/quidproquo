@@ -33,15 +33,20 @@ export async function cancelFlow(
     const db = env.DB as { prepare(sql: string): { bind(...args: unknown[]): { all(): Promise<{ results?: unknown[] }> } } }
     const sessionKv = env.SESSION as { put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void> }
 
-    const inFlightAgentRuns = await db
-      .prepare(`SELECT run_id FROM agent_runs WHERE flow_run_id=? AND status='running'`)
-      .bind(flowRunId)
-      .all()
+    try {
+      const inFlightAgentRuns = await db
+        .prepare(`SELECT run_id FROM agent_runs WHERE flow_run_id=? AND status='running'`)
+        .bind(flowRunId)
+        .all()
 
-    if (inFlightAgentRuns?.results) {
-      for (const row of inFlightAgentRuns.results as { run_id: string }[]) {
-        await sessionKv.put(`agent:cancel:${row.run_id}`, '1', { expirationTtl: 300 })
+      if (inFlightAgentRuns?.results) {
+        for (const row of inFlightAgentRuns.results as { run_id: string }[]) {
+          await sessionKv.put(`agent:cancel:${row.run_id}`, '1', { expirationTtl: 300 })
+        }
       }
+    } catch {
+      // Older local D1 snapshots can predate agent_runs.flow_run_id. The flow-run cancel flag above
+      // is still authoritative; sub-run propagation resumes automatically once the migration exists.
     }
   }
 }

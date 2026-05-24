@@ -13,6 +13,8 @@ if (gate) return gate;
 
 const ready = isPageEnabled('rbac');
 const roleId = Astro.params.id ?? '';
+const rbacSuccess = Astro.url.searchParams.get('rbac_success');
+const rbacError = Astro.url.searchParams.get('rbac_error');
 
 const breadcrumb = [
   { label: '權限管理', href: '/admin/console/rbac?tab=roles' },
@@ -32,18 +34,65 @@ interface PermissionRow {
   resource_id: string | null;
 }
 
+interface AssignedUserRow {
+  user_id: number;
+  email: string;
+  disabled_at: number | null;
+  assigned_at: number | null;
+}
+
+interface UserOptionRow {
+  user_id: number;
+  email: string;
+  disabled_at: number | null;
+}
+
+interface RoleNameRow {
+  name: string;
+}
+
 const RESOURCE_KINDS = ['flow', 'policy', 'provider', 'run', 'approval', 'artifact', 'cost', 'rbac'] as const;
 const ACTIONS = ['view', 'invoke', 'edit', 'delete', 'approve', 'reject', 'cancel', 'export'] as const;
+const RESERVED_ROLES = ['admin', 'operator', 'approver', 'viewer'];
+const PERMISSION_PRESETS = [
+  {
+    id: 'viewer',
+    title: '唯讀檢視',
+    description: '加入 flow / policy / provider / run / approval / artifact / cost 的 view 權限。',
+    grants: ['flow view', 'policy view', 'provider view', 'run view', 'approval view', 'artifact view', 'cost view'],
+  },
+  {
+    id: 'operator',
+    title: '執行操作',
+    description: '加入啟動 flow、查看 run、取消 run、處理 approval 的常用操作權限。',
+    grants: ['flow view', 'flow invoke', 'run view', 'run invoke', 'run cancel', 'approval view', 'approval approve', 'approval reject'],
+  },
+  {
+    id: 'artifactReviewer',
+    title: '產出物審核',
+    description: '加入查看 run、審核/匯出 artifact、處理 approval 的權限。',
+    grants: ['run view', 'artifact view', 'artifact approve', 'artifact reject', 'artifact export', 'approval view', 'approval approve', 'approval reject'],
+  },
+  {
+    id: 'rbacAdmin',
+    title: 'RBAC 管理',
+    description: '加入查看、編輯與刪除 RBAC 設定的權限。',
+    grants: ['rbac view', 'rbac edit', 'rbac delete'],
+  },
+] as const;
 
 let role: RoleRow | null = null;
 let permissions: PermissionRow[] = [];
+let assignedUsers: AssignedUserRow[] = [];
+let unassignedUsers: UserOptionRow[] = [];
+let otherRoleNames: string[] = [];
 let loadError = false;
 
 if (ready && roleId) {
   try {
     const db = getEnv().DB;
 
-    const [roleResult, permResult] = await Promise.all([
+    const [roleResult, permResult, assignedResult, unassignedResult, otherRolesResult] = await Promise.all([
       db.prepare(`
         SELECT role_id, name, description
         FROM console_roles
@@ -56,14 +105,68 @@ if (ready && roleId) {
         WHERE role_id = ?
         ORDER BY resource_kind, action
       `).bind(roleId).all<PermissionRow>(),
+
+      db.prepare(`
+        SELECT u.user_id, u.email, u.disabled_at, ur.assigned_at
+        FROM console_user_roles ur
+        JOIN console_users u ON u.user_id = ur.user_id
+        WHERE ur.role_id = ?
+        ORDER BY u.email
+      `).bind(roleId).all<AssignedUserRow>(),
+
+      db.prepare(`
+        SELECT u.user_id, u.email, u.disabled_at
+        FROM console_users u
+        WHERE NOT EXISTS (
+          SELECT 1
+          FROM console_user_roles ur
+          WHERE ur.user_id = u.user_id
+            AND ur.role_id = ?
+        )
+        ORDER BY u.disabled_at IS NOT NULL, u.email
+      `).bind(roleId).all<UserOptionRow>(),
+
+      db.prepare(`
+        SELECT name
+        FROM console_roles
+        WHERE role_id != ?
+        ORDER BY name
+      `).bind(roleId).all<RoleNameRow>(),
     ]);
 
     role = roleResult ?? null;
     permissions = permResult.results ?? [];
+    assignedUsers = assignedResult.results ?? [];
+    unassignedUsers = unassignedResult.results ?? [];
+    otherRoleNames = (otherRolesResult.results ?? []).map((row) => row.name);
   } catch {
     loadError = true;
   }
 }
+
+const isReservedRole = role ? RESERVED_ROLES.includes(role.name) : false;
+
+function formatTs(ms: number | null): string {
+  if (!ms) return '—';
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+const permissionGrantsJson = JSON.stringify(
+  permissions.map((permission) => ({
+    id: permission.permission_id,
+    kind: permission.resource_kind,
+    action: permission.action,
+    resourceId: permission.resource_id ?? '',
+  })),
+);
+const otherRoleNamesJson = JSON.stringify(otherRoleNames);
+const unassignedUsersJson = JSON.stringify(
+  unassignedUsers.map((user) => ({
+    id: String(user.user_id),
+    email: user.email,
+    disabled: Boolean(user.disabled_at),
+  })),
+);
 ---
 
 <AdminConsoleLayout title={role ? `角色：${role.name}` : `角色 ${roleId}`} section="rbac" breadcrumb={breadcrumb}>
@@ -81,6 +184,14 @@ if (ready && roleId) {
   )}
   {ready && roleId && !loadError && role && (
     <div class="role-detail">
+      {(rbacSuccess || rbacError) && (
+        <p
+          class:list={['notice', { success: Boolean(rbacSuccess), error: Boolean(rbacError) }]}
+          role="status"
+        >
+          {rbacSuccess ?? rbacError}
+        </p>
+      )}
 
       <AdminPanel title="角色資訊">
         <div class="info-grid">
@@ -99,6 +210,155 @@ if (ready && roleId) {
         </div>
       </AdminPanel>
 
+      <AdminPanel title="已指派使用者" eyebrow={`共 ${assignedUsers.length} 位使用者擁有此角色`}>
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/roles/${roleId}/users/add`}
+          class="assign-user-form"
+          data-confirm={`確定要將選取的使用者加入角色 ${role.name}？`}
+          data-assign-user-form
+          data-role-name={role.name}
+          data-unassigned-users={unassignedUsersJson}
+        >
+          <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+          <label for="assign-user" class="form-label">加入既有使用者</label>
+          <select id="assign-user" name="user_id" class="form-select" disabled={unassignedUsers.length === 0} required>
+            <option value="">選擇使用者</option>
+            {unassignedUsers.map((user) => (
+              <option value={user.user_id}>
+                {user.email}{user.disabled_at ? ' (已停用)' : ''}
+              </option>
+            ))}
+          </select>
+          <button type="submit" class="btn-primary" disabled={unassignedUsers.length === 0}>加入角色</button>
+          <p class="operation-preview" data-assign-user-preview role="status" aria-live="polite">
+            選擇使用者後會顯示角色指派預覽。
+          </p>
+          {unassignedUsers.length === 0 && (
+            <span class="muted">所有使用者都已擁有此角色。</span>
+          )}
+        </form>
+        {assignedUsers.length === 0 ? (
+          <AdminState tone="empty">目前沒有使用者被指派此角色。</AdminState>
+        ) : (
+          <AdminTable minWidth="560px" flush>
+            <thead>
+              <tr>
+                <th>電子郵件</th>
+                <th>狀態</th>
+                <th>指派時間</th>
+                <th>管理</th>
+              </tr>
+            </thead>
+            <tbody>
+              {assignedUsers.map((user) => (
+                <tr>
+                  <td>
+                    <a href={`/admin/console/rbac/users/${user.user_id}`} class="link">
+                      {user.email}
+                    </a>
+                  </td>
+                  <td>
+                    {user.disabled_at ? (
+                      <span class="badge disabled">停用</span>
+                    ) : (
+                      <span class="badge active">啟用中</span>
+                    )}
+                  </td>
+                  <td class="mono">{formatTs(user.assigned_at)}</td>
+                  <td>
+                    <form
+                      method="POST"
+                      action={`/api/admin/console/rbac/roles/${roleId}/users/${user.user_id}/remove`}
+                      class="inline-form"
+                      data-confirm={`確定要從 ${user.email} 移除角色 ${role.name}？`}
+                      data-remove-role-form
+                    >
+                      <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+                      <button type="submit" class="btn-danger">移除此角色</button>
+                    </form>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+        )}
+      </AdminPanel>
+
+      <AdminPanel
+        title="編輯角色"
+        eyebrow={isReservedRole ? '內建角色可更新描述，但不可改名或刪除' : '更新角色名稱與描述'}
+      >
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/roles/${roleId}`}
+          class="edit-role-form"
+          data-role-edit-form
+          data-initial-name={role.name}
+          data-initial-description={role.description ?? ''}
+          data-other-role-names={otherRoleNamesJson}
+        >
+          <input type="hidden" name="action" value="update" />
+          <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+          <div class="form-row">
+            <label for="role_name" class="form-label">名稱</label>
+            <input
+              id="role_name"
+              type="text"
+              name="name"
+              class="form-input"
+              value={role.name}
+              pattern="[a-z][a-z0-9_-]{1,63}"
+              autocomplete="off"
+              readonly={isReservedRole}
+              required
+            />
+          </div>
+          <div class="form-row">
+            <label for="role_description" class="form-label">描述</label>
+            <textarea
+              id="role_description"
+              name="description"
+              class="form-input"
+              rows="3"
+              maxlength="500"
+            >{role.description ?? ''}</textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">儲存角色</button>
+          </div>
+          <p class="operation-preview" data-role-edit-preview role="status" aria-live="polite">
+            角色資料尚未變更。
+          </p>
+        </form>
+      </AdminPanel>
+
+      <AdminPanel title="權限範本" eyebrow="一鍵套用常見權限組合，已存在的權限會略過">
+        <div class="preset-grid">
+          {PERMISSION_PRESETS.map((preset) => (
+            <form
+              method="POST"
+              action={`/api/admin/console/rbac/roles/${roleId}/permissions/preset`}
+              class="preset-card"
+              data-confirm={`確定要將「${preset.title}」權限範本套用到角色 ${role.name}？已存在的權限會略過。`}
+              data-preset-form
+            >
+              <input type="hidden" name="preset" value={preset.id} />
+              <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+              <strong>{preset.title}</strong>
+              <span>{preset.description}</span>
+              <span class="preset-count">{preset.grants.length} 項權限</span>
+              <ul class="preset-grants" aria-label={`${preset.title} 權限明細`}>
+                {preset.grants.map((grant) => (
+                  <li>{grant}</li>
+                ))}
+              </ul>
+              <button type="submit" class="btn-secondary">套用範本</button>
+            </form>
+          ))}
+        </div>
+      </AdminPanel>
+
       <AdminPanel title="權限" eyebrow={`共 ${permissions.length} 項權限`}>
         {permissions.length === 0 ? (
           <AdminState tone="empty">此角色尚未指派任何權限。</AdminState>
@@ -109,14 +369,75 @@ if (ready && roleId) {
                 <th>資源類型</th>
                 <th>操作</th>
                 <th>Resource ID</th>
+                <th>管理</th>
               </tr>
             </thead>
             <tbody>
               {permissions.map((p) => (
                 <tr>
-                  <td class="mono">{p.resource_kind}</td>
-                  <td class="mono">{p.action}</td>
-                  <td class="mono muted">{p.resource_id ?? '*'}</td>
+                  <td colspan="3">
+                    <form
+                      method="POST"
+                      action={`/api/admin/console/rbac/roles/${roleId}/permissions/${p.permission_id}`}
+                      class="permission-row-form"
+                      data-permission-row-form
+                      data-permission-id={p.permission_id}
+                      data-existing-permissions={permissionGrantsJson}
+                    >
+                      <input type="hidden" name="form_action" value="update" />
+                      <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+                      <label class="sr-only" for={`perm-kind-${p.permission_id}`}>資源類型</label>
+                      <select
+                        id={`perm-kind-${p.permission_id}`}
+                        name="resource_kind"
+                        class="form-select compact"
+                      >
+                        {RESOURCE_KINDS.map((k) => (
+                          <option value={k} selected={k === p.resource_kind}>{k}</option>
+                        ))}
+                      </select>
+                      <label class="sr-only" for={`perm-action-${p.permission_id}`}>操作</label>
+                      <select
+                        id={`perm-action-${p.permission_id}`}
+                        name="permission_action"
+                        class="form-select compact"
+                      >
+                        {ACTIONS.map((a) => (
+                          <option value={a} selected={a === p.action}>{a}</option>
+                        ))}
+                      </select>
+                      <label class="sr-only" for={`perm-resource-${p.permission_id}`}>Resource ID</label>
+                      <input
+                        id={`perm-resource-${p.permission_id}`}
+                        name="resource_id"
+                        type="text"
+                        class="form-input compact"
+                        value={p.resource_id ?? ''}
+                        placeholder="*"
+                        autocomplete="off"
+                      />
+                      <button type="submit" class="btn-primary compact">儲存</button>
+                      <p class="permission-preview" data-permission-preview role="status" aria-live="polite"></p>
+                    </form>
+                  </td>
+                  <td>
+                    <form
+                      method="POST"
+                      action={`/api/admin/console/rbac/roles/${roleId}/permissions/${p.permission_id}`}
+                      class="inline-form"
+                      data-confirm={`確定移除 ${p.resource_kind} ${p.action} 權限？`}
+                    >
+                      <input type="hidden" name="form_action" value="delete" />
+                      <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
+                      <button
+                        type="submit"
+                        class="btn-danger"
+                        aria-label={`移除 ${p.resource_kind} ${p.action} 權限`}
+                      >
+                        移除
+                      </button>
+                    </form>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -129,7 +450,10 @@ if (ready && roleId) {
           method="POST"
           action={`/api/admin/console/rbac/roles/${roleId}/permissions`}
           class="add-perm-form"
+          data-add-perm-form
+          data-existing-permissions={permissionGrantsJson}
         >
+          <input type="hidden" name="redirect" value={`/admin/console/rbac/roles/${roleId}`} />
           <div class="form-row">
             <label for="resource_kind" class="form-label">資源類型</label>
             <select id="resource_kind" name="resource_kind" class="form-select">
@@ -157,20 +481,271 @@ if (ready && roleId) {
               autocomplete="off"
             />
           </div>
+          <p class="operation-preview" data-add-perm-preview role="status" aria-live="polite">
+            留空 Resource ID 會授予此資源類型的所有對象。
+          </p>
           <div class="form-actions">
             <button type="submit" class="btn-primary">新增權限</button>
           </div>
         </form>
       </AdminPanel>
 
+      {!isReservedRole && (
+        <AdminPanel title="刪除角色" eyebrow="移除自訂角色與其權限">
+          <form
+            method="POST"
+            action={`/api/admin/console/rbac/roles/${roleId}`}
+            class="danger-form"
+            data-confirm={`確定要刪除角色 ${role.name}？這會移除 ${assignedUsers.length} 位使用者指派與 ${permissions.length} 項權限。`}
+            data-delete-role-form
+          >
+            <input type="hidden" name="action" value="delete" />
+            <input type="hidden" name="redirect" value="/admin/console/rbac?tab=roles" />
+            <button type="submit" class="btn-danger">刪除角色</button>
+            <span class="muted">刪除後無法從主控台還原。</span>
+          </form>
+        </AdminPanel>
+      )}
+
     </div>
   )}
 </AdminConsoleLayout>
+
+<script
+  is:inline
+  set:html={`function parseExistingPermissions(form) {
+  try {
+    return JSON.parse(form.dataset.existingPermissions || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function parseJsonDataset(form, key, fallback) {
+  try {
+    return JSON.parse(form.dataset[key] || JSON.stringify(fallback));
+  } catch {
+    return fallback;
+  }
+}
+
+function setSubmitBusy(form) {
+  var button = form.querySelector('button[type="submit"]');
+  if (!(button instanceof HTMLButtonElement)) return;
+  button.disabled = true;
+  if (form.matches('[data-assign-user-form]')) button.textContent = '加入中...';
+  else if (form.matches('[data-role-edit-form]')) button.textContent = '儲存中...';
+  else if (form.matches('[data-preset-form]')) button.textContent = '套用中...';
+  else if (form.matches('[data-delete-role-form]')) button.textContent = '刪除中...';
+  else if (form.matches('[data-remove-role-form]')) button.textContent = '移除中...';
+  else button.textContent = '處理中...';
+}
+
+function updateAssignUserPreview() {
+  var form = document.querySelector('[data-assign-user-form]');
+  if (!(form instanceof HTMLFormElement)) return;
+  var preview = form.querySelector('[data-assign-user-preview]');
+  var select = form.querySelector('select[name="user_id"]');
+  var button = form.querySelector('button[type="submit"]');
+  if (!preview || !(select instanceof HTMLSelectElement)) return;
+  var users = parseJsonDataset(form, 'unassignedUsers', []);
+  var selected = users.find(function (user) { return user.id === select.value; });
+  if (!selected) {
+    preview.textContent = '選擇使用者後會顯示角色指派預覽。';
+    preview.className = 'operation-preview';
+    if (button instanceof HTMLButtonElement) button.disabled = true;
+    return;
+  }
+  var roleName = form.dataset.roleName || '此角色';
+  preview.textContent = '將 ' + selected.email + ' 加入角色 ' + roleName + (selected.disabled ? '。此使用者目前已停用，啟用前不會取得有效權限。' : '。');
+  preview.className = selected.disabled ? 'operation-preview warning' : 'operation-preview';
+  if (button instanceof HTMLButtonElement) button.disabled = false;
+}
+
+function updateRoleEditPreview() {
+  var form = document.querySelector('[data-role-edit-form]');
+  if (!(form instanceof HTMLFormElement)) return;
+  var preview = form.querySelector('[data-role-edit-preview]');
+  var nameInput = form.querySelector('input[name="name"]');
+  var descriptionInput = form.querySelector('textarea[name="description"]');
+  var button = form.querySelector('button[type="submit"]');
+  if (!preview || !(nameInput instanceof HTMLInputElement) || !(descriptionInput instanceof HTMLTextAreaElement)) return;
+  var initialName = form.dataset.initialName || '';
+  var initialDescription = form.dataset.initialDescription || '';
+  var nextName = nameInput.value.trim();
+  var nextDescription = descriptionInput.value.trim();
+  var otherNames = parseJsonDataset(form, 'otherRoleNames', []);
+  if (otherNames.includes(nextName)) {
+    preview.textContent = '角色名稱已存在：' + nextName + '。';
+    preview.className = 'operation-preview error';
+    if (button instanceof HTMLButtonElement) button.disabled = true;
+    return;
+  }
+  if (nextName === initialName && nextDescription === initialDescription) {
+    preview.textContent = '角色資料尚未變更。';
+    preview.className = 'operation-preview';
+    if (button instanceof HTMLButtonElement) button.disabled = false;
+    return;
+  }
+  var parts = [];
+  if (nextName !== initialName) parts.push('名稱：' + initialName + ' → ' + nextName);
+  if (nextDescription !== initialDescription) parts.push('描述將更新');
+  preview.textContent = parts.join('；') + '。';
+  preview.className = 'operation-preview warning';
+  if (button instanceof HTMLButtonElement) button.disabled = false;
+}
+
+function formPermissionValue(form) {
+  var kind = form.querySelector('select[name="resource_kind"]');
+  var action = form.querySelector('select[name="action"], select[name="permission_action"]');
+  var resource = form.querySelector('input[name="resource_id"]');
+  return {
+    kind: kind instanceof HTMLSelectElement ? kind.value : '',
+    action: action instanceof HTMLSelectElement ? action.value : '',
+    resourceId: resource instanceof HTMLInputElement ? resource.value.trim() : '',
+  };
+}
+
+function permissionLabel(value) {
+  return value.kind + ':' + (value.resourceId || '*') + ':' + value.action;
+}
+
+function findDuplicate(form, value) {
+  var permissionId = form.dataset.permissionId || '';
+  return parseExistingPermissions(form).find(function (permission) {
+    return String(permission.id) !== permissionId
+      && permission.kind === value.kind
+      && permission.action === value.action
+      && (permission.resourceId || '') === (value.resourceId || '');
+  });
+}
+
+function updateAddPermissionPreview() {
+  var form = document.querySelector('[data-add-perm-form]');
+  if (!(form instanceof HTMLFormElement)) return;
+  var preview = form.querySelector('[data-add-perm-preview]');
+  if (!preview) return;
+  var value = formPermissionValue(form);
+  var duplicate = findDuplicate(form, value);
+  if (duplicate) {
+    preview.textContent = '權限已存在：' + permissionLabel(value) + '。';
+    preview.className = 'operation-preview error';
+    form.querySelector('button[type="submit"]')?.setAttribute('disabled', '');
+    return;
+  }
+  var wildcard = !value.resourceId;
+  preview.textContent = wildcard
+    ? '將新增 wildcard 權限：' + permissionLabel(value) + '。此角色會套用到所有 ' + value.kind + '。'
+    : '將新增 scoped 權限：' + permissionLabel(value) + '。';
+  preview.className = wildcard ? 'operation-preview warning' : 'operation-preview';
+  form.querySelector('button[type="submit"]')?.removeAttribute('disabled');
+}
+
+function updatePermissionRowPreview(form) {
+  if (!(form instanceof HTMLFormElement)) return;
+  var preview = form.querySelector('[data-permission-preview]');
+  if (!preview) return;
+  var button = form.querySelector('button[type="submit"]');
+  var value = formPermissionValue(form);
+  var duplicate = findDuplicate(form, value);
+  if (duplicate) {
+    preview.textContent = '已和另一筆權限重複：' + permissionLabel(value) + '。';
+    preview.className = 'permission-preview error';
+    if (button instanceof HTMLButtonElement) button.disabled = true;
+    return;
+  }
+  preview.textContent = value.resourceId
+    ? 'Scoped：只套用到 ' + value.resourceId + '。'
+    : 'Wildcard：套用到所有 ' + value.kind + '。';
+  preview.className = value.resourceId ? 'permission-preview' : 'permission-preview warning';
+  if (button instanceof HTMLButtonElement) button.disabled = false;
+}
+
+document.querySelector('[data-add-perm-form]')?.addEventListener('input', updateAddPermissionPreview);
+document.querySelector('[data-add-perm-form]')?.addEventListener('change', updateAddPermissionPreview);
+document.querySelector('[data-assign-user-form]')?.addEventListener('change', updateAssignUserPreview);
+document.querySelector('[data-role-edit-form]')?.addEventListener('input', updateRoleEditPreview);
+document.querySelector('[data-role-edit-form]')?.addEventListener('change', updateRoleEditPreview);
+document.querySelectorAll('[data-permission-row-form]').forEach(function (form) {
+  form.addEventListener('input', function () { updatePermissionRowPreview(form); });
+  form.addEventListener('change', function () { updatePermissionRowPreview(form); });
+  updatePermissionRowPreview(form);
+});
+updateAddPermissionPreview();
+updateAssignUserPreview();
+updateRoleEditPreview();
+
+document.addEventListener('submit', function (event) {
+  var form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+  var message = form.dataset.confirm;
+  if (message && !window.confirm(message)) {
+    event.preventDefault();
+    return;
+  }
+  if (form.matches('[data-add-perm-form]')) {
+    var value = formPermissionValue(form);
+    var duplicate = findDuplicate(form, value);
+    if (duplicate) {
+      event.preventDefault();
+      updateAddPermissionPreview();
+      return;
+    }
+    if (!window.confirm('確定新增權限 ' + permissionLabel(value) + '？' + (!value.resourceId ? '這是 wildcard 權限。' : ''))) {
+      event.preventDefault();
+      return;
+    }
+  }
+  if (form.matches('[data-permission-row-form]')) {
+    var rowValue = formPermissionValue(form);
+    var rowDuplicate = findDuplicate(form, rowValue);
+    if (rowDuplicate) {
+      event.preventDefault();
+      updatePermissionRowPreview(form);
+      return;
+    }
+    if (!window.confirm('確定更新權限為 ' + permissionLabel(rowValue) + '？' + (!rowValue.resourceId ? '這是 wildcard 權限。' : ''))) {
+      event.preventDefault();
+      return;
+    }
+  }
+  if (form.matches('[data-role-edit-form]')) {
+    updateRoleEditPreview();
+    var editPreview = form.querySelector('[data-role-edit-preview]');
+    if (editPreview?.classList.contains('error')) {
+      event.preventDefault();
+      return;
+    }
+  }
+  setSubmitBusy(form);
+});`}
+></script>
 
 <style>
   .role-detail {
     display: grid;
     gap: 1.25rem;
+  }
+
+  .notice {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.65rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .notice.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .notice.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
   }
 
   .info-grid {
@@ -201,10 +776,109 @@ if (ready && roleId) {
     color: var(--admin-text-muted);
   }
 
-  .add-perm-form {
+  .link {
+    color: var(--admin-accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .badge.active {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .badge.disabled {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .add-perm-form,
+  .edit-role-form,
+  .assign-user-form {
     padding: 0.75rem 1rem;
     display: grid;
     gap: 0.85rem;
+  }
+
+  .assign-user-form {
+    grid-template-columns: minmax(140px, 0.45fr) minmax(180px, 1fr) auto;
+    align-items: end;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .assign-user-form .muted {
+    align-self: center;
+    font-size: 0.82rem;
+  }
+
+  .assign-user-form .operation-preview {
+    grid-column: 1 / -1;
+  }
+
+  .preset-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .preset-card {
+    display: grid;
+    gap: 0.45rem;
+    align-content: start;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.75rem;
+  }
+
+  .preset-card strong {
+    color: var(--admin-text);
+    font-size: 0.9rem;
+  }
+
+  .preset-card span {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .preset-card .preset-count {
+    color: var(--admin-text-soft);
+    font-weight: 700;
+  }
+
+  .preset-grants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+  }
+
+  .preset-grants li {
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    background: var(--admin-muted);
+    color: var(--admin-text-soft);
+    font-family: var(--admin-font-mono);
+    font-size: 0.78rem;
+    line-height: 1.2;
+    padding: 0.22rem 0.45rem;
   }
 
   .form-row {
@@ -223,6 +897,36 @@ if (ready && roleId) {
     color: var(--admin-text-muted);
   }
 
+  .operation-preview,
+  .permission-preview {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .permission-preview {
+    grid-column: 1 / -1;
+  }
+
+  .operation-preview.warning,
+  .permission-preview.warning {
+    border-color: #facc15;
+    background: #fefce8;
+    color: #713f12;
+  }
+
+  .operation-preview.error,
+  .permission-preview.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
   .form-select,
   .form-input {
     padding: 0.35rem 0.65rem;
@@ -234,17 +938,66 @@ if (ready && roleId) {
     max-width: 320px;
   }
 
+  .form-select.compact,
+  .form-input.compact {
+    max-width: none;
+    min-width: 0;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .permission-row-form {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.8fr) minmax(100px, 0.7fr) minmax(120px, 1fr) auto;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .form-select:focus,
   .form-input:focus {
     outline: none;
     border-color: var(--admin-accent);
   }
 
+  .form-input[readonly] {
+    color: var(--admin-text-muted);
+    background: var(--admin-muted);
+  }
+
+  textarea.form-input {
+    resize: vertical;
+  }
+
   .form-actions {
     margin-top: 0.25rem;
   }
 
+  .danger-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .inline-form {
+    display: inline;
+  }
+
   .btn-primary {
+    min-height: 44px;
     padding: 0.4rem 1rem;
     border: 1px solid var(--admin-accent);
     border-radius: var(--admin-radius);
@@ -255,7 +1008,85 @@ if (ready && roleId) {
     transition: opacity 0.15s;
   }
 
+  .btn-secondary {
+    width: fit-content;
+    min-height: 44px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-muted);
+  }
+
+  .btn-primary.compact {
+    min-height: 44px;
+    padding: 0.28rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
   .btn-primary:hover {
     opacity: 0.85;
+  }
+
+  .btn-primary:disabled,
+  .btn-secondary:disabled,
+  .btn-danger:disabled,
+  .form-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .btn-danger {
+    min-height: 44px;
+    border: 1px solid #dc2626;
+    border-radius: var(--admin-radius);
+    background: #fef2f2;
+    color: #b91c1c;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .btn-danger:hover {
+    background: #fee2e2;
+  }
+
+  @media (max-width: 720px) {
+    .preset-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .assign-user-form {
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
+    .permission-row-form {
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
+    .form-select,
+    .form-input,
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .danger-form {
+      width: 100%;
+      max-width: none;
+    }
+
+    .inline-form {
+      display: block;
+      width: 100%;
+    }
   }
 </style>

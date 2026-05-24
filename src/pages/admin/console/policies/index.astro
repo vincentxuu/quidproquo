@@ -5,6 +5,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -14,6 +15,8 @@ const ready = isPageEnabled('management');
 const PAGE_SIZE = 25;
 
 const url = new URL(Astro.url);
+const lang = getConsoleLang(url);
+const t = createConsoleTranslator(lang);
 const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
 const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
 const offset = (page - 1) * PAGE_SIZE;
@@ -106,59 +109,96 @@ function formatTs(ms: number | null): string {
 }
 ---
 
-<AdminConsoleLayout title="政策" section="policies">
+<AdminConsoleLayout title={t('policies.title')} section="policies">
   {!ready && (
-    <AdminState tone="empty">{`政策管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
+    <AdminState tone="empty">{t('policies.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">無法載入政策。</AdminState>
+    <AdminState tone="error">{t('policies.loadError')}</AdminState>
   )}
   {ready && !loadError && (
-    <AdminPanel title="政策庫" eyebrow="搜尋及管理已登錄的政策定義">
-      <form class="toolbar" method="GET" action="/admin/console/policies">
-        <label for="q" class="search-label">搜尋政策</label>
+    <AdminPanel title={t('policies.library')} eyebrow={t('policies.libraryEyebrow')}>
+      <form class="toolbar" method="GET" action={consoleHref('/admin/console/policies', lang)}>
+        {lang === 'en' && <input type="hidden" name="lang" value="en" />}
+        <label for="q" class="search-label">{t('policies.searchLabel')}</label>
         <input
           id="q"
           name="q"
           type="search"
           value={q}
           class="search-input"
-          placeholder="依政策 key、名稱或版本搜尋"
+          placeholder={t('policies.searchPlaceholder')}
         />
-        <button type="submit" class="btn-secondary">搜尋</button>
-        {q && <a href="/admin/console/policies" class="btn-clear">清除</a>}
+        <button type="submit" class="btn-secondary">{t('common.search')}</button>
+        {q && <a href={consoleHref('/admin/console/policies', lang)} class="btn-clear">{t('common.clear')}</a>}
+      </form>
+    </AdminPanel>
+  )}
+  {ready && !loadError && (
+    <AdminPanel title={t('policies.createPolicy')} eyebrow={t('policies.createEyebrow')}>
+      <form id="policy-create-form" class="create-policy-form">
+        <div class="field-row">
+          <label>
+            {t('policies.policyKey')}
+            <input id="policy-key" name="policy_key" type="text" required placeholder="research-custom" />
+          </label>
+          <label>
+            {t('policies.label')}
+            <input id="policy-label" name="label" type="text" required placeholder="Research Custom" />
+          </label>
+        </div>
+        <label>
+          {t('policies.bodyJson')}
+          <textarea id="policy-body" name="policy_body" rows="7" spellcheck={false} placeholder={t('policies.bodyPlaceholder')}></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">{t('common.create')}</button>
+          <span id="policy-create-status" class="form-status" aria-live="polite"></span>
+        </div>
       </form>
     </AdminPanel>
   )}
   {ready && !loadError && policies.length === 0 && (
     <AdminState tone="empty">
-      {q ? `找不到符合「${q}」的政策定義。` : '尚無已登錄的政策。'}
+      {q ? t('policies.emptySearch', { q }) : t('policies.empty')}
     </AdminState>
   )}
   {ready && !loadError && policies.length > 0 && (
-    <AdminPanel title="政策定義">
+    <AdminPanel title={t('policies.library')}>
       <AdminTable minWidth="560px" flush>
         <thead>
           <tr>
-            <th>政策 Key</th>
-            <th>標籤</th>
-            <th>版本</th>
-            <th>參考政策</th>
-            <th>建立時間</th>
+            <th>{t('policies.policyKey')}</th>
+            <th>{t('policies.label')}</th>
+            <th>{t('common.version')}</th>
+            <th>{t('policies.referencePolicy')}</th>
+            <th>{t('common.createdAt')}</th>
+            <th>{t('common.actions')}</th>
           </tr>
         </thead>
         <tbody>
           {policies.map((p) => (
-            <tr>
+            <tr data-policy-row={p.policy_key}>
               <td class="mono">
-                <a href={`/admin/console/policies/${p.policy_key}`} class="link">
+                <a href={consoleHref(`/admin/console/policies/${p.policy_key}`, lang)} class="link">
                   {p.policy_key}
                 </a>
               </td>
-              <td class="label-cell">{p.label ?? '—'}</td>
+              <td class="label-cell">{p.label ?? t('common.none')}</td>
               <td class="mono">{p.version}</td>
-              <td>{isReferencePolicy(p.policy_key) ? <span class="ref-badge">參考</span> : <span class="muted-text">—</span>}</td>
+              <td>{isReferencePolicy(p.policy_key) ? <span class="ref-badge">{t('policies.reference')}</span> : <span class="muted-text">{t('common.none')}</span>}</td>
               <td class="mono">{formatTs(p.created_at)}</td>
+              <td>
+                <div class="row-actions">
+                  <a href={consoleHref(`/admin/console/policies/${p.policy_key}`, lang)} class="action-link">{t('common.view')}</a>
+                  <button
+                    type="button"
+                    class="action-link danger"
+                    data-delete-policy={p.policy_key}
+                    data-confirm={t('policies.archiveConfirm', { key: p.policy_key })}
+                  >{t('common.archive')}</button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -166,15 +206,70 @@ function formatTs(ms: number | null): string {
 
       {totalPages > 1 && (
         <div class="pagination">
-          {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
-          <span class="page-info">第 {page} / {totalPages} 頁</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
+          {page > 1 ? <a href={listHref(1)} class="page-btn">{t('common.firstPage')}</a> : <span class="page-btn disabled">{t('common.firstPage')}</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">{t('common.previousPage')}</a> : <span class="page-btn disabled">{t('common.previousPage')}</span>}
+          <span class="page-info">{t('common.pageOf', { page, total: totalPages })}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">{t('common.nextPage')}</a> : <span class="page-btn disabled">{t('common.nextPage')}</span>}
         </div>
       )}
     </AdminPanel>
   )}
 </AdminConsoleLayout>
+
+<script define:vars={{
+  lang,
+  messages: {
+    created: t('policies.created'),
+    createFailed: t('policies.createFailed'),
+    archiveFailed: t('policies.archiveFailed'),
+  },
+}}>
+  const form = document.getElementById('policy-create-form');
+  const status = document.getElementById('policy-create-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const key = document.getElementById('policy-key')?.value?.trim();
+    const label = document.getElementById('policy-label')?.value?.trim();
+    const rawBody = document.getElementById('policy-body')?.value?.trim() || '{}';
+    if (status) status.textContent = '';
+    try {
+      const policyBody = JSON.parse(rawBody);
+      const response = await fetch('/api/admin/policies', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ policy_key: key, label, policy_body: policyBody }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || messages.createFailed);
+      if (status) status.textContent = messages.created;
+      window.location.href = lang === 'en'
+        ? `/admin/console/policies/${encodeURIComponent(key)}?lang=en`
+        : `/admin/console/policies/${encodeURIComponent(key)}`;
+    } catch (error) {
+      if (status) status.textContent = `${messages.createFailed}: ${error instanceof Error ? error.message : String(error)}`;
+    }
+  });
+
+  document.querySelectorAll('[data-delete-policy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const policyKey = button.getAttribute('data-delete-policy');
+      const message = button.getAttribute('data-confirm') ?? '';
+      if (!policyKey || !window.confirm(message)) return;
+      button.setAttribute('disabled', 'true');
+      try {
+        const response = await fetch(`/api/admin/policies/${encodeURIComponent(policyKey)}`, {
+          method: 'DELETE',
+        });
+        if (!response.ok) throw new Error(await response.text());
+        document.querySelector(`[data-policy-row="${CSS.escape(policyKey)}"]`)?.remove();
+      } catch (error) {
+        window.alert(`${messages.archiveFailed}: ${error instanceof Error ? error.message : String(error)}`);
+        button.removeAttribute('disabled');
+      }
+    });
+  });
+</script>
 
 <style>
   .mono {
@@ -207,6 +302,54 @@ function formatTs(ms: number | null): string {
     margin-bottom: 0.75rem;
   }
 
+  .create-policy-form {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .create-policy-form label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  .create-policy-form input,
+  .create-policy-form textarea {
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 0.45rem 0.65rem;
+    font: inherit;
+  }
+
+  .create-policy-form textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .form-status {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
   .search-label {
     color: var(--admin-text-muted);
     font-size: 0.85rem;
@@ -223,6 +366,7 @@ function formatTs(ms: number | null): string {
 
   .btn-clear,
   .btn-secondary,
+  .btn-primary,
   .page-btn {
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
@@ -233,6 +377,12 @@ function formatTs(ms: number | null): string {
     font-size: 0.8rem;
     line-height: 1.2;
     cursor: pointer;
+  }
+
+  .btn-primary {
+    border-color: var(--brand-900);
+    background: var(--brand-900);
+    color: #fff;
   }
 
   .btn-clear:hover,
@@ -247,6 +397,29 @@ function formatTs(ms: number | null): string {
     align-items: center;
     gap: 0.45rem;
     flex-wrap: wrap;
+  }
+
+  .row-actions {
+    display: flex;
+    gap: 0.45rem;
+  }
+
+  .action-link {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .action-link:hover {
+    text-decoration: underline;
+  }
+
+  .action-link.danger {
+    color: #b91c1c;
   }
 
   .page-info {
@@ -274,5 +447,11 @@ function formatTs(ms: number | null): string {
   .muted-text {
     color: var(--admin-text-muted);
     font-size: 0.84rem;
+  }
+
+  @media (max-width: 700px) {
+    .field-row {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

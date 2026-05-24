@@ -109,7 +109,7 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
 
 ### 1.5 Shell smoke gate
 
-- [ ] 1.5.1 Run `pnpm dev` and click through every nav item in a real browser; capture a baseline screenshot `tests/console/screenshots/shell-baseline.png` for Phase 8 regression diff.
+- [x] 1.5.1 Run `pnpm dev` and click through every nav item in a real browser; capture a baseline screenshot `tests/console/screenshots/shell-baseline.png` for Phase 8 regression diff.
   - **Files**: `tests/console/screenshots/shell-baseline.png` (create — checked into git as the baseline)
   - **Pattern (design D-shell)**: shell-only baseline
   - **Verify**: screenshot exists; `pnpm exec astro check` clean; `pnpm lint` clean
@@ -159,7 +159,7 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
   - **Files**: `src/components/admin/console/RunTimeline.tsx` (modify); `src/components/admin/console/StepRow.tsx` (create)
   - **Pattern (design D-timeline)**: Gateway Console §5.2 timeline shape; agent-os event-log structure
   - **Verify**: Playwright — expand a step, assert `[data-testid="step-detail"]` contains both `inputs_json` and `outputs_json` text
-- [ ] 2.3.3 Live SSE smoke — Playwright test that launches a flow run via the admin API, immediately navigates to its timeline, and asserts that the in-progress step's status transitions to `done` in the DOM within 5s of completing (verifies the SSE stream is wired and the React island re-renders).
+- [x] 2.3.3 Live SSE smoke — Playwright test that launches a flow run via the admin API, immediately navigates to its timeline, and asserts that the in-progress step's status transitions to `done` in the DOM within 5s of completing (verifies the SSE stream is wired and the React island re-renders).
   - **Files**: `tests/console/run-timeline-live.spec.ts` (create)
   - **Pattern (design D-timeline)**: live-update gate
   - **Verify**: test runs <30s, asserts `await expect(page.locator('[data-step="plan"][data-status="done"]')).toBeVisible({ timeout: 5000 })`
@@ -533,7 +533,7 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
   - **Files**: `tests/console/a11y.spec.ts` (create); `package.json` (modify)
   - **Pattern (design D-polish)**: axe-core integration
   - **Verify**: spec runs across all 8 sections; 0 violations
-- [ ] 8.1.2 Fix every reported violation from 8.1.1 — most likely: missing `aria-label` on icon-only buttons (cancel, retry, approve), insufficient color contrast in status badges, missing `<label for>` on form inputs, missing `role="status"` on the toast region.
+- [x] 8.1.2 Fix every reported violation from 8.1.1 — most likely: missing `aria-label` on icon-only buttons (cancel, retry, approve), insufficient color contrast in status badges, missing `<label for>` on form inputs, missing `role="status"` on the toast region.
   - **Files**: ~15 component files (modify)
   - **Pattern (design D-polish)**: WCAG AA
   - **Verify**: 8.1.1 spec passes; manual screen-reader spot-check via VoiceOver records a note in `.omc/research/agent-console-a11y-notes.md`
@@ -544,7 +544,7 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
 
 ### 8.2 Mobile responsive
 
-- [ ] 8.2.1 Visual responsive pass on all 8 sections at 375px viewport — top-nav collapses to a hamburger menu; tables become card lists; the flow editor falls back to a read-only YAML view (the visual canvas is desktop-only with a banner).
+- [x] 8.2.1 Visual responsive pass on all 8 sections at 375px viewport — top-nav collapses to a hamburger menu; tables become card lists; the flow editor falls back to a read-only YAML view (the visual canvas is desktop-only with a banner).
   - **Files**: ~widespread CSS in `src/styles/admin-tokens.css` and component-level styles
   - **Pattern (design D-polish)**: mobile-first reuse of existing breakpoints
   - **Verify**: Playwright per page with `await page.setViewportSize({ width: 375, height: 812 })`; screenshots saved as `tests/console/screenshots/mobile-{section}.png`; **screenshot expectation** = no horizontal scroll, hamburger visible, primary action accessible
@@ -618,11 +618,11 @@ Per-page flags retire after Phase 9 archival; the umbrella flag remains the sing
 
 ### 9.4 Final cleanup + archive
 
-- [ ] 9.4.1 Run `pnpm lint && pnpm exec astro check && pnpm vitest run && pnpm check:references && pnpm build && pnpm exec playwright test tests/console/`; capture output to `.omc/research/agent-console-phase9-suite.log`. Fix any drift.
+- [x] 9.4.1 Run `pnpm lint && pnpm exec astro check && pnpm vitest run && pnpm check:references && pnpm build && pnpm exec playwright test tests/console/`; capture output to `.omc/research/agent-console-phase9-suite.log`. Fix any drift.
   - **Files**: log
   - **Pattern (design D-dogfood)**: zero-regression gate
   - **Verify**: every command exits 0
-- [ ] 9.4.2 Run `openspec validate agent-console --strict`; reconcile spec drift. Confirm the 8 capability specs (one per page area) live under `openspec/changes/agent-console/specs/`.
+- [x] 9.4.2 Run `openspec validate agent-console --strict`; reconcile spec drift. Confirm the 8 capability specs (one per page area) live under `openspec/changes/agent-console/specs/`.
   - **Files**: verification gate
   - **Pattern (design D-dogfood)**: OpenSpec strict gate
   - **Verify**: command exits 0

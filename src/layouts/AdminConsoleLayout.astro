@@ -1,6 +1,7 @@
 ---
 import { verifySession } from '../lib/auth/session';
 import Icons from '../components/Icons.astro';
+import { consoleHref, createConsoleTranslator, getConsoleLang, switchConsoleLangHref } from '../lib/admin-console/i18n';
 import '../styles/admin-tokens.css';
 
 export const prerender = false;
@@ -17,43 +18,43 @@ interface Props {
 }
 
 const { title, section, breadcrumb } = Astro.props;
+const lang = getConsoleLang(Astro.url);
+const targetLang = lang === 'en' ? 'zh-TW' : 'en';
+const t = createConsoleTranslator(lang);
 
 // Check authentication
 const session = Astro.cookies.get('session')?.value;
 const isLoggedIn = session ? await verifySession(session) : false;
 
-const currentPath = Astro.url.pathname;
-const loginUrl = `/login?next=${encodeURIComponent(currentPath)}`;
-
 if (!isLoggedIn) {
-  return Astro.redirect(loginUrl);
+  return Astro.redirect(`/login?next=${encodeURIComponent(Astro.url.pathname)}`);
 }
 
 const navItems = [
   // Operate
-  { href: '/admin/console', label: '工作流程', section: 'flow-selector', group: 'Operate' },
-  { href: '/admin/console/runs', label: '執行記錄', section: 'runs', group: 'Operate' },
+  { href: '/admin/console', label: t('nav.launch'), section: 'flow-selector', group: 'Operate' },
+  { href: '/admin/console/runs', label: t('nav.runs'), section: 'runs', group: 'Operate' },
   // Inspect
-  { href: '/admin/console/evidence', label: '來源證據', section: 'evidence', group: 'Inspect' },
-  { href: '/admin/console/artifacts', label: '產出物', section: 'artifacts', group: 'Inspect' },
+  { href: '/admin/console/evidence', label: t('nav.evidence'), section: 'evidence', group: 'Inspect' },
+  { href: '/admin/console/artifacts', label: t('nav.artifacts'), section: 'artifacts', group: 'Inspect' },
   // Manage
-  { href: '/admin/console/flows', label: '工作流程', section: 'flows', group: 'Manage' },
-  { href: '/admin/console/providers', label: '提供者', section: 'providers', group: 'Manage' },
-  { href: '/admin/console/policies', label: '政策', section: 'policies', group: 'Manage' },
+  { href: '/admin/console/flows', label: t('nav.flows'), section: 'flows', group: 'Manage' },
+  { href: '/admin/console/providers', label: t('nav.providers'), section: 'providers', group: 'Manage' },
+  { href: '/admin/console/policies', label: t('nav.policies'), section: 'policies', group: 'Manage' },
   // Observe
-  { href: '/admin/console/cost', label: '費用', section: 'cost', group: 'Observe' },
+  { href: '/admin/console/cost', label: t('nav.cost'), section: 'cost', group: 'Observe' },
   // Admin
-  { href: '/admin/console/rbac', label: '權限管理', section: 'rbac', group: 'Admin' },
+  { href: '/admin/console/rbac', label: t('nav.rbac'), section: 'rbac', group: 'Admin' },
 ] as const;
 
 type NavGroup = 'Operate' | 'Inspect' | 'Manage' | 'Observe' | 'Admin';
 const groups: NavGroup[] = ['Operate', 'Inspect', 'Manage', 'Observe', 'Admin'];
 const groupLabels: Record<NavGroup, string> = {
-  Operate: '操作',
-  Inspect: '檢視',
-  Manage: '管理',
-  Observe: '觀測',
-  Admin: '管理員',
+  Operate: t('nav.operate'),
+  Inspect: t('nav.inspect'),
+  Manage: t('nav.manage'),
+  Observe: t('nav.observe'),
+  Admin: t('nav.admin'),
 };
 
 const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((acc, g) => {
@@ -63,7 +64,7 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
 ---
 
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -87,7 +88,7 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
             <span class="nav-section">{groupLabels[g]}</span>
             {groupedNav[g].map((item) => (
               <a
-                href={item.href}
+                href={consoleHref(item.href, lang)}
                 class:list={['nav-item', { active: section === item.section }]}
                 aria-current={section === item.section ? 'page' : undefined}
                 title={item.label}
@@ -99,26 +100,58 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
         ))}
       </nav>
       <div class="sidebar-footer">
-        <a href="/admin" class="nav-item" title="返回管理後台">
+        <a href="/admin" class="nav-item" title={t('nav.adminHome')}>
           <Icons name="layout-dashboard" size={16} />
-          <span class="nav-label">管理後台</span>
+          <span class="nav-label">{t('nav.adminHome')}</span>
         </a>
-        <a href="/" class="nav-item" title="返回網站">
+        <a href="/" class="nav-item" title={t('nav.siteHome')}>
           <Icons name="home" size={16} />
-          <span class="nav-label">返回網站</span>
+          <span class="nav-label">{t('nav.siteHome')}</span>
         </a>
         <form method="POST" action="/api/auth/logout">
-          <button type="submit" class="logout-btn" title="登出">
+          <button type="submit" class="logout-btn" title={t('nav.logout')}>
             <Icons name="log-out" size={16} />
-            <span class="nav-label">登出</span>
+            <span class="nav-label">{t('nav.logout')}</span>
           </button>
         </form>
       </div>
     </aside>
     <main class="admin-main">
       <header class="admin-header">
+        <details class="mobile-nav">
+          <summary class="mobile-nav-trigger" aria-label={t('common.menu')}>
+            <Icons name="list" size={18} />
+            <span>{t('common.menu')}</span>
+          </summary>
+          <div class="mobile-nav-panel">
+            {groups.map((g) => (
+              <div class="mobile-nav-group">
+                <span class="mobile-nav-section">{groupLabels[g]}</span>
+                {groupedNav[g].map((item) => (
+                  <a
+                    href={consoleHref(item.href, lang)}
+                    class:list={['mobile-nav-item', { active: section === item.section }]}
+                    aria-current={section === item.section ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+            <div class="mobile-nav-actions">
+              <a href="/admin" class="mobile-nav-item">{t('nav.adminHome')}</a>
+              <a href="/" class="mobile-nav-item">{t('nav.siteHome')}</a>
+              <a href={switchConsoleLangHref(Astro.url, targetLang)} class="mobile-nav-item">
+                {t('common.language')} · {targetLang === 'en' ? 'EN' : '繁'}
+              </a>
+              <form method="POST" action="/api/auth/logout">
+                <button type="submit" class="mobile-nav-item mobile-nav-button">{t('nav.logout')}</button>
+              </form>
+            </div>
+          </div>
+        </details>
         <div>
-          <p class="admin-kicker">操作主控台</p>
+          <p class="admin-kicker">{t('common.console')}</p>
           {breadcrumb && breadcrumb.length > 0 ? (
             <nav class="breadcrumb" aria-label="Breadcrumb">
               {breadcrumb.map((crumb, i) => (
@@ -137,11 +170,14 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
           )}
         </div>
         <div class="header-actions" aria-label="Console shortcuts">
-          <a href="/admin/console/runs" class="admin-icon-button" title="執行記錄">
+          <a href={consoleHref('/admin/console/runs', lang)} class="admin-icon-button" title={t('nav.runs')} aria-label={t('nav.runs')}>
             <Icons name="activity" size={16} />
           </a>
-          <a href="/admin/console/cost" class="admin-icon-button" title="費用">
+          <a href={consoleHref('/admin/console/cost', lang)} class="admin-icon-button" title={t('nav.cost')} aria-label={t('nav.cost')}>
             <Icons name="bar-chart-3" size={16} />
+          </a>
+          <a href={switchConsoleLangHref(Astro.url, targetLang)} class="admin-lang-switch" title={t('common.language')} aria-label={t('common.language')}>
+            {targetLang === 'en' ? 'EN' : '繁'}
           </a>
         </div>
       </header>
@@ -382,6 +418,9 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
   }
 
   .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--admin-accent);
     text-decoration: none;
     font-weight: 600;
@@ -404,6 +443,92 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
     gap: 0.5rem;
   }
 
+  .mobile-nav {
+    display: none;
+    position: relative;
+  }
+
+  .mobile-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font-size: 0.86rem;
+    font-weight: 700;
+    list-style: none;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .mobile-nav-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: min(86vw, 340px);
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: 0 18px 45px rgba(23, 32, 23, 0.16);
+    padding: 0.75rem;
+  }
+
+  .mobile-nav-group + .mobile-nav-group,
+  .mobile-nav-actions {
+    margin-top: 0.85rem;
+  }
+
+  .mobile-nav-section {
+    display: block;
+    padding: 0 0.35rem 0.35rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    border-radius: var(--admin-radius-sm);
+    color: var(--admin-text-muted);
+    font-size: 0.92rem;
+    font-weight: 650;
+    padding: 0.55rem 0.65rem;
+    text-decoration: none;
+  }
+
+  .mobile-nav-item:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  .mobile-nav-item.active {
+    background: var(--brand-900);
+    color: #ffffff;
+  }
+
+  .mobile-nav-button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+
   .admin-icon-button {
     display: inline-grid;
     place-items: center;
@@ -416,6 +541,27 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
     text-decoration: none;
     cursor: pointer;
     transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+
+  .admin-lang-switch {
+    display: inline-grid;
+    place-items: center;
+    min-width: 34px;
+    height: 34px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .admin-lang-switch:hover {
+    border-color: var(--admin-accent);
+    color: var(--brand-900);
+    background: var(--brand-50);
   }
 
   .admin-icon-button:hover {
@@ -454,34 +600,25 @@ const groupedNav = groups.reduce<Record<string, (typeof navItems)[number][]>>((a
 
   @media (max-width: 768px) {
     :root {
-      --sidebar-width: 60px;
+      --sidebar-width: 0px;
     }
 
-    .nav-label,
-    .nav-section,
-    .brand-text {
+    .admin-sidebar {
       display: none;
     }
 
-    .sidebar-header,
-    .sidebar-nav,
-    .sidebar-footer {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-
-    .nav-item {
-      justify-content: center;
-      min-height: 40px;
-      padding: 0.5rem;
+    .mobile-nav {
+      display: block;
+      flex: 0 0 auto;
     }
 
     .admin-main {
-      margin-left: var(--sidebar-width);
-      max-width: calc(100vw - var(--sidebar-width));
+      margin-left: 0;
+      max-width: 100vw;
     }
 
     .admin-header {
+      align-items: flex-start;
       padding: 0.75rem 1rem;
     }
 

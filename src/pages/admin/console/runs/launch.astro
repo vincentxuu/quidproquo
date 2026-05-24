@@ -225,7 +225,7 @@ function defaultValueFor(input: FlowInput): string {
   const statusEl = document.getElementById('launch-status');
   const submitBtn = document.getElementById('launch-submit');
 
-  if (!form || !statusEl || !submitBtn || !(form instanceof HTMLFormElement)) {
+  if (!(form instanceof HTMLFormElement) || !(statusEl instanceof HTMLElement) || !(submitBtn instanceof HTMLButtonElement)) {
     // Safety fallback for unexpected render states
   } else {
     const presetSelect = document.getElementById('presetId');
@@ -255,7 +255,7 @@ function defaultValueFor(input: FlowInput): string {
 
       if (useSchema) {
         const inputFields = form.querySelectorAll('[data-input-field="1"]');
-        const payload: Record<string, unknown> = {};
+        const payloadEntries = [];
 
         for (const field of Array.from(inputFields)) {
           if (!(field instanceof HTMLElement)) continue;
@@ -266,7 +266,7 @@ function defaultValueFor(input: FlowInput): string {
 
           const control = form.elements.namedItem(`input.${name}`);
           if (control instanceof HTMLInputElement && type === 'boolean') {
-            payload[name] = control.checked;
+            payloadEntries.push([name, control.checked]);
             continue;
           }
 
@@ -288,7 +288,7 @@ function defaultValueFor(input: FlowInput): string {
               submitBtn.removeAttribute('disabled');
               return;
             }
-            payload[name] = parsedNumber;
+            payloadEntries.push([name, parsedNumber]);
             continue;
           }
 
@@ -310,7 +310,7 @@ function defaultValueFor(input: FlowInput): string {
           }
 
           if (type === 'string') {
-            payload[name] = controlValue;
+            payloadEntries.push([name, controlValue]);
             continue;
           }
 
@@ -323,7 +323,7 @@ function defaultValueFor(input: FlowInput): string {
               if (type === 'array' && !Array.isArray(parsed)) {
                 throw new Error('invalid');
               }
-              payload[name] = parsed;
+              payloadEntries.push([name, parsed]);
             } catch {
               statusEl.className = 'launch-status launch-status--error';
               statusEl.textContent = `${name} 必須是合法 JSON (${type})`;
@@ -334,7 +334,7 @@ function defaultValueFor(input: FlowInput): string {
           }
         }
 
-        parsedInput = payload;
+        parsedInput = Object.fromEntries(payloadEntries);
       } else {
         const rawInputs = formData.get('inputsJson');
         if (typeof rawInputs === 'string' && rawInputs.trim()) {
@@ -353,11 +353,11 @@ function defaultValueFor(input: FlowInput): string {
         }
       }
 
-      const payload: Record<string, unknown> = { input: parsedInput };
       const presetId = formData.get('presetId');
-      if (typeof presetId === 'string' && presetId.trim()) {
-        payload.presetId = presetId.trim();
-      }
+      const presetIdValue = typeof presetId === 'string' ? presetId.trim() : '';
+      const payload = presetIdValue
+        ? { input: parsedInput, presetId: presetIdValue }
+        : { input: parsedInput };
 
       try {
         const response = await fetch(form.action, {
@@ -371,14 +371,20 @@ function defaultValueFor(input: FlowInput): string {
 
         const responseBody = await response.json().catch(() => ({})) as Record<string, unknown>;
         if (!response.ok) {
-          const errorMessage = responseBody?.error ?? '無法啟動執行';
+          const errorMessage =
+            responseBody && typeof responseBody === 'object' && 'error' in responseBody
+              ? responseBody.error
+              : '無法啟動執行';
           statusEl.className = 'launch-status launch-status--error';
           statusEl.textContent = typeof errorMessage === 'string' ? errorMessage : '無法啟動執行';
           submitBtn.removeAttribute('disabled');
           return;
         }
 
-        const flowRunId = responseBody?.flowRunId;
+        const flowRunId =
+          responseBody && typeof responseBody === 'object' && 'flowRunId' in responseBody
+            ? responseBody.flowRunId
+            : undefined;
         if (typeof flowRunId === 'string' && flowRunId.trim()) {
           statusEl.className = 'launch-status launch-status--success';
           statusEl.textContent = '執行已建立，正在跳轉至時間軸…';

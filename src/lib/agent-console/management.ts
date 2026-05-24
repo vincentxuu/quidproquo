@@ -147,15 +147,25 @@ export function mapPolicyDetail(json: unknown): PolicyDetail | null {
   const policy = (json as { policy?: unknown })?.policy
   if (!policy || typeof policy !== 'object') return null
   const record = policy as Record<string, unknown>
-  const body = (record.body ?? {}) as Record<string, unknown>
+  const rawBody = record.body ?? record.policy_body ?? record.category_json ?? {}
+  let body: Record<string, unknown> = {}
+  if (typeof rawBody === 'string') {
+    try {
+      body = JSON.parse(rawBody) as Record<string, unknown>
+    } catch {
+      body = {}
+    }
+  } else if (rawBody && typeof rawBody === 'object') {
+    body = rawBody as Record<string, unknown>
+  }
   return {
-    policyKey: str(record.policyKey),
-    label: str(record.label, str(record.policyKey)),
+    policyKey: str(record.policyKey ?? record.policy_key),
+    label: str(record.label, str(record.policyKey ?? record.policy_key)),
     version: num(record.version, 1),
     category: str(body.category ?? body.kind, '—'),
-    body: JSON.stringify(record.body ?? {}, null, 2),
-    createdAt: num(record.createdAt),
-    updatedAt: num(record.updatedAt),
+    body: JSON.stringify(body, null, 2),
+    createdAt: num(record.createdAt ?? record.created_at),
+    updatedAt: num(record.updatedAt ?? record.updated_at),
   }
 }
 

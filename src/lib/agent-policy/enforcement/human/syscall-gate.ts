@@ -1,6 +1,27 @@
-import type { PolicyApprovalGates } from '../../approval-gates'
 import type { HumanPolicy } from '../../schema/body'
 import type { Flags } from '../../../config/flags'
+
+interface PolicyGateRequest {
+  runId: string
+  stepId: string
+  mode: NonNullable<HumanPolicy['mode']>
+  syscallName: string
+  input: unknown
+  kernel: unknown
+  ttlSeconds: number
+  windowSeconds?: number
+  riskThreshold?: number
+}
+
+interface PolicyGateResult {
+  decision: 'approve' | 'reject'
+  skipped?: boolean
+  editedPayload?: unknown
+}
+
+export interface PolicyApprovalGates {
+  requestGate(request: PolicyGateRequest): Promise<PolicyGateResult>
+}
 
 export function wrapSyscallWithGate(
   syscall: (name: string, input: unknown) => Promise<unknown>,

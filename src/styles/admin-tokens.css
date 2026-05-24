@@ -4,7 +4,7 @@
 
   --admin-color-ink: #172017;
   --admin-color-ink-muted: #46614d;
-  --admin-color-ink-soft: #6c7f70;
+  --admin-color-ink-soft: #5f7063;
   --admin-color-canvas: #f5f7f4;
   --admin-color-surface: #ffffff;
   --admin-color-surface-subtle: #f8fbf7;
@@ -2037,7 +2037,7 @@ pre {
   .model-state.disabled,
   .flag.disabled {
     background: #f3f4f6;
-    color: #6b7280;
+    color: #5f6976;
   }
 
   .model-delete,
@@ -2328,7 +2328,7 @@ pre {
     color: var(--admin-text, #1a1a1a);
   }
 
-  .error { color: #ef4444; }
+  .error { color: var(--admin-danger, #b42318); }
 
   @media (max-width: 768px) {
     .stats-header {
@@ -2699,7 +2699,7 @@ pre {
     overflow-wrap: anywhere;
   }
 
-  .error { color: #ef4444; }
+  .error { color: var(--admin-danger, #b42318); }
   .empty { color: var(--admin-text-muted, #888); }
 
   .langfuse-link {
@@ -3205,7 +3205,7 @@ pre {
     color: var(--admin-text-muted, #888);
   }
 
-  .error { color: #ef4444; }
+  .error { color: var(--admin-danger, #b42318); }
 
   @media (max-width: 720px) {
     .setting-row,

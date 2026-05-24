@@ -4,6 +4,7 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
+import type { D1Database } from '@cloudflare/workers-types';
 import { getEnv } from '@/lib/config/env';
 import { createBackends } from '@/lib/agent-os/storage';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
@@ -71,101 +72,230 @@ interface PendingApproval {
   createdAt: number;
 }
 
+interface ArtifactSummaryRow {
+  artifact_id: string;
+  kind: string;
+  label: string | null;
+  logical_name: string | null;
+  version_id: string;
+  version_number: number;
+  status: string;
+  created_at: number;
+}
+
+interface RunAuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  payload_json: string | null;
+  created_at: number;
+}
+
 let run: FlowRunRow | null = null;
 let steps: StepRunRow[] = [];
 let pendingApprovals: PendingApproval[] = [];
+let artifacts: ArtifactSummaryRow[] = [];
+let auditRows: RunAuditRow[] = [];
 let toolCallsByRun = new Map<string, ToolCallRow[]>();
 let eventsByRun = new Map<string, AgentEventRow[]>();
 let loadError = false;
 
+async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
+  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>();
+  return new Set((result.results ?? []).map((column) => column.name));
+}
+
+function columnExpr(columns: Set<string>, column: string, fallback: string, alias?: string): string {
+  const expr = columns.has(column) ? column : fallback;
+  return alias ? `${expr} AS ${alias}` : expr;
+}
+
 if (ready) {
   try {
     const db = getEnv().DB;
-    const [runResult, stepsResult] = await Promise.all([
+    const [flowDefinitionColumns, flowRunColumns, stepRunColumns] = await Promise.all([
+      getTableColumns(db, 'flow_definitions'),
+      getTableColumns(db, 'flow_runs'),
+      getTableColumns(db, 'flow_step_runs'),
+    ]);
+    const displayNameExpr = flowDefinitionColumns.has('display_name') ? 'fd.display_name' : 'fd.name AS display_name';
+    const runLatencyExpr = flowRunColumns.has('latency_ms') ? 'fr.latency_ms' : 'NULL AS latency_ms';
+    const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind';
+    const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt');
+    const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at');
+    const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at');
+    const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms');
+    const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at');
+    const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at');
+    const stepInputsExpr = columnExpr(stepRunColumns, 'inputs_json', 'NULL', 'inputs_json');
+    const stepOutputsExpr = columnExpr(stepRunColumns, 'outputs_json', 'NULL', 'outputs_json');
+    const stepErrorExpr = columnExpr(stepRunColumns, 'error_json', 'NULL', 'error_json');
+    const stepAgentRunExpr = columnExpr(stepRunColumns, 'agent_run_id', 'NULL', 'agent_run_id');
+    const stepOrderBy = [
+      'step_order ASC',
+      stepRunColumns.has('attempt') ? 'attempt ASC' : '',
+      stepRunColumns.has('created_at') ? 'created_at ASC' : '',
+    ].filter(Boolean).join(', ');
+    const runResultPromise = db
+      .prepare(
+        `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, ${runLatencyExpr},
+                ${displayNameExpr}
+         FROM flow_runs fr
+         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+         WHERE fr.flow_run_id = ?
+         LIMIT 1`,
+      )
+      .bind(runId)
+      .first<FlowRunRow>();
+    const stepsResultPromise = db
+      .prepare(
+        `SELECT step_run_id,
+                step_id,
+                ${stepKindExpr},
+                status,
+                ${stepAttemptExpr},
+                ${stepStartedExpr},
+                ${stepFinishedExpr},
+                ${stepLatencyExpr},
+                step_order,
+                ${stepCreatedExpr},
+                ${stepUpdatedExpr},
+                ${stepInputsExpr},
+                ${stepOutputsExpr},
+                ${stepErrorExpr},
+                ${stepAgentRunExpr}
+         FROM flow_step_runs
+         WHERE flow_run_id = ?
+         ORDER BY ${stepOrderBy}`,
+      )
+      .bind(runId)
+      .all<StepRunRow>();
+    const [runResult, stepsResult, auditResult] = await Promise.all([
+      runResultPromise,
+      stepsResultPromise,
       db
         .prepare(
-          `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
-                  fd.display_name
-           FROM flow_runs fr
-           LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-           WHERE fr.flow_run_id = ?
-           LIMIT 1`,
+          `SELECT al.audit_id,
+                  u.email as user_email,
+                  al.action,
+                  al.payload_json,
+                  al.created_at
+           FROM console_audit_log al
+           LEFT JOIN console_users u ON u.user_id = al.user_id
+           WHERE al.resource_kind = 'run'
+             AND al.resource_id = ?
+           ORDER BY al.created_at DESC
+           LIMIT 20`,
         )
         .bind(runId)
-        .first<FlowRunRow>(),
-      db
-        .prepare(
-          `SELECT step_run_id,
-                  step_id,
-                  step_type AS kind,
-                  status,
-                  attempt,
-                  started_at,
-                  finished_at,
-                  latency_ms,
-                  step_order,
-                  created_at,
-                  updated_at,
-                  inputs_json,
-                  outputs_json,
-                  error_json,
-                  agent_run_id
-           FROM flow_step_runs
-           WHERE flow_run_id = ?
-           ORDER BY step_order ASC, attempt ASC, created_at ASC`,
-        )
-        .bind(runId)
-        .all<StepRunRow>(),
+        .all<RunAuditRow>()
+        .catch(() => ({
+          results: [],
+          success: true,
+          meta: {} as D1Meta & Record<string, unknown>,
+        })),
     ]);
 
     run = runResult;
     steps = stepsResult.results ?? [];
+    auditRows = auditResult.results ?? [];
 
-    const backends = createBackends(getEnv());
-    const approvals = await backends.approvals.listByStatus('pending');
-    pendingApprovals = approvals
-      .filter((approval) => approval.runId === runId)
-      .map((approval) => ({
-        approvalId: approval.approvalId,
-        reason: approval.reason,
-        context: approval.context,
-        createdAt: approval.createdAt,
-      }));
+    try {
+      const backends = createBackends(getEnv());
+      const approvals = await backends.approvals.listByStatus('pending');
+      pendingApprovals = approvals
+        .filter((approval) => approval.runId === runId)
+        .map((approval) => ({
+          approvalId: approval.approvalId,
+          reason: approval.reason,
+          context: approval.context,
+          createdAt: approval.createdAt,
+        }));
+    } catch {
+      pendingApprovals = [];
+    }
 
     const agentRunIds = [...new Set(steps.map((step) => step.agent_run_id).filter((id): id is string => Boolean(id)))];
     if (agentRunIds.length > 0) {
       const placeholders = agentRunIds.map(() => '?').join(', ');
-      const [toolResult, eventResult] = await Promise.all([
-        db
-          .prepare(
-            `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
-             FROM agent_tool_calls
-             WHERE run_id IN (${placeholders})
-             ORDER BY started_at ASC`,
-          )
-          .bind(...agentRunIds)
-          .all<ToolCallRow>(),
-        db
-          .prepare(
-            `SELECT event_id, run_id, kind, step_id, payload_json, at
-             FROM agent_run_events
-             WHERE run_id IN (${placeholders})
-             ORDER BY event_id ASC`,
-          )
-          .bind(...agentRunIds)
-          .all<AgentEventRow>(),
-      ]);
+      try {
+        const [toolResult, eventResult] = await Promise.all([
+          db
+            .prepare(
+              `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
+               FROM agent_tool_calls
+               WHERE run_id IN (${placeholders})
+               ORDER BY started_at ASC`,
+            )
+            .bind(...agentRunIds)
+            .all<ToolCallRow>(),
+          db
+            .prepare(
+              `SELECT event_id, run_id, kind, step_id, payload_json, at
+               FROM agent_run_events
+               WHERE run_id IN (${placeholders})
+               ORDER BY event_id ASC`,
+            )
+            .bind(...agentRunIds)
+            .all<AgentEventRow>(),
+        ]);
 
-      for (const call of toolResult.results ?? []) {
-        const list = toolCallsByRun.get(call.run_id) ?? [];
-        list.push(call);
-        toolCallsByRun.set(call.run_id, list);
+        for (const call of toolResult.results ?? []) {
+          const list = toolCallsByRun.get(call.run_id) ?? [];
+          list.push(call);
+          toolCallsByRun.set(call.run_id, list);
+        }
+        for (const event of eventResult.results ?? []) {
+          const list = eventsByRun.get(event.run_id) ?? [];
+          list.push(event);
+          eventsByRun.set(event.run_id, list);
+        }
+      } catch {
+        toolCallsByRun = new Map();
+        eventsByRun = new Map();
       }
-      for (const event of eventResult.results ?? []) {
-        const list = eventsByRun.get(event.run_id) ?? [];
-        list.push(event);
-        eventsByRun.set(event.run_id, list);
+    }
+
+    try {
+      const artifactTables = await db
+        .prepare(
+          `SELECT COUNT(*) AS cnt
+           FROM sqlite_master
+           WHERE type = 'table'
+             AND name IN ('artifact_definitions', 'artifact_versions')`,
+        )
+        .first<{ cnt: number }>();
+
+      if ((artifactTables?.cnt ?? 0) === 2) {
+        const artifactResult = await db
+          .prepare(
+            `SELECT d.definition_id AS artifact_id,
+                    d.kind,
+                    d.label,
+                    d.logical_name,
+                    v.version_id,
+                    v.version_number,
+                    v.status,
+                    v.created_at
+             FROM artifact_versions v
+             JOIN artifact_definitions d ON d.definition_id = v.definition_id
+             JOIN (
+               SELECT definition_id, MAX(version_number) AS max_version
+               FROM artifact_versions
+               WHERE flow_run_id = ?
+               GROUP BY definition_id
+             ) latest
+               ON latest.definition_id = v.definition_id
+              AND latest.max_version = v.version_number
+             WHERE v.flow_run_id = ?
+             ORDER BY v.created_at DESC`,
+          )
+          .bind(runId, runId)
+          .all<ArtifactSummaryRow>();
+        artifacts = artifactResult.results ?? [];
       }
+    } catch {
+      artifacts = [];
     }
   } catch {
     loadError = true;
@@ -190,16 +320,24 @@ function formatDuration(ms: number | null): string {
   return `${(ms / 1000).toFixed(1)}s`;
 }
 
-function isTerminalStatus(status: string): boolean {
-  return status === 'done' || status === 'failed' || status === 'cancelled';
-}
-
 function isCancellableRun(status: string): boolean {
-  return status === 'queued' || status === 'running';
+  return status === 'queued' || status === 'running' || status === 'paused';
 }
 
 function canRetryStep(status: string): boolean {
   return status === 'failed' || status === 'cancelled';
+}
+
+function latestAttemptsByStep(steps: StepRunRow[]): Map<string, number> {
+  return steps.reduce((attempts, step) => {
+    attempts.set(step.step_id, Math.max(attempts.get(step.step_id) ?? 0, Number(step.attempt ?? 1)));
+    return attempts;
+  }, new Map<string, number>());
+}
+
+function canRetryStepAttempt(step: StepRunRow, latestAttempts: Map<string, number>): boolean {
+  return canRetryStep(step.status)
+    && Number(step.attempt ?? 1) === (latestAttempts.get(step.step_id) ?? Number(step.attempt ?? 1));
 }
 
 function statusClass(status: string): string {
@@ -207,8 +345,12 @@ function statusClass(status: string): string {
     case 'done': return 'badge-success';
     case 'failed': return 'badge-error';
     case 'running': return 'badge-running';
+    case 'queued':
+    case 'paused':
+    case 'pending':
+    case 'cancelling':
+      return 'badge-pending';
     case 'cancelled': return 'badge-muted';
-    case 'pending': return 'badge-pending';
     default: return 'badge-muted';
   }
 }
@@ -222,7 +364,33 @@ function prettyJson(raw: string | null): string {
   }
 }
 
+function formatTs(ms: number): string {
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function auditPayloadLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const payload = JSON.parse(raw) as {
+      stepId?: string;
+      attempt?: number;
+      previousStatus?: string;
+      nextStatus?: string;
+    };
+    const parts = [
+      payload.stepId ? `step ${payload.stepId}` : '',
+      payload.attempt ? `attempt ${payload.attempt}` : '',
+      payload.previousStatus && payload.nextStatus ? `${payload.previousStatus} → ${payload.nextStatus}` : '',
+    ].filter(Boolean);
+    return parts.join(' · ') || raw;
+  } catch {
+    return raw;
+  }
+}
+
 const flowName = run?.display_name ?? run?.flow_id ?? runId;
+const latestStepAttempts = latestAttemptsByStep(steps);
+const retryableStepCount = steps.filter((step) => canRetryStepAttempt(step, latestStepAttempts)).length;
 const bootstrap = run
   ? {
       run: {
@@ -238,9 +406,11 @@ const bootstrap = run
       uiFlags: {
         ready,
         cancellable: isCancellableRun(run.status),
+        retryableStepCount,
       },
     }
   : null;
+const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c');
 ---
 
 <AdminConsoleLayout
@@ -290,11 +460,75 @@ const bootstrap = run
         </div>
         <div class="run-actions" id="run-actions">
           <a href={`/admin/console/runs/${runId}/evidence`} class="btn-secondary">來源證據</a>
-          <button id="cancel-run-btn" type="button" class="btn-danger" disabled={!isCancellableRun(run.status)}>取消執行</button>
+          {artifacts.length > 0 && (
+            <a href="#run-artifacts" class="btn-secondary">產出物</a>
+          )}
+          <button
+            id="cancel-run-btn"
+            type="button"
+            class="btn-danger"
+            hidden={!isCancellableRun(run.status)}
+            aria-label={`取消執行 ${run.flow_run_id}`}
+          >
+            取消執行
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="run-operation-preview"
+        class="run-operation-preview"
+        data-run-status={run.status}
+        data-retryable-count={retryableStepCount}
+      >
+        <div>
+          <span class="operation-preview-label">取消</span>
+          <strong data-preview-field="cancel">
+            {isCancellableRun(run.status) ? '可取消目前執行' : '目前狀態不可取消'}
+          </strong>
+          <small>
+            {isCancellableRun(run.status)
+              ? '會送出 cooperative cancel；已完成或已失敗的 run 不會被覆寫。'
+              : '只有 queued / running / paused 狀態會顯示取消操作。'}
+          </small>
+        </div>
+        <div>
+          <span class="operation-preview-label">重試</span>
+          <strong data-preview-field="retry">{retryableStepCount} 個步驟可重試</strong>
+          <small>重試單一步驟可能產生新的 provider 呼叫與費用，且不會重跑已成功的下游步驟。</small>
         </div>
       </div>
 
       <div id="run-action-status" class="run-action-status" role="status" aria-live="polite" hidden></div>
+
+      <AdminPanel title="操作紀錄" eyebrow="最近 20 筆針對此 run 的管理操作">
+        <div id="run-audit-history">
+          {auditRows.length === 0 ? (
+            <AdminState tone="empty">尚無管理操作紀錄。</AdminState>
+          ) : (
+            <AdminTable minWidth="560px" flush>
+              <thead>
+                <tr>
+                  <th>時間</th>
+                  <th>動作</th>
+                  <th>摘要</th>
+                  <th>操作者</th>
+                </tr>
+              </thead>
+              <tbody id="run-audit-history-body">
+                {auditRows.map((row) => (
+                  <tr>
+                    <td class="mono">{formatTs(row.created_at)}</td>
+                    <td class="mono">{row.action}</td>
+                    <td>{auditPayloadLabel(row.payload_json)}</td>
+                    <td>{row.user_email ?? 'admin'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </div>
+      </AdminPanel>
 
       {pendingApprovals.length > 0 && (
         <AdminPanel title="待審核">
@@ -316,6 +550,59 @@ const bootstrap = run
           </div>
         </AdminPanel>
       )}
+
+      <div id="run-artifacts">
+        <AdminPanel title="產出物" eyebrow={`共 ${artifacts.length} 個最新版本`}>
+          {artifacts.length === 0 ? (
+            <AdminState tone="empty">這次執行尚無產出物。</AdminState>
+          ) : (
+            <AdminTable minWidth="640px" flush>
+              <thead>
+                <tr>
+                  <th>名稱</th>
+                  <th>類型</th>
+                  <th>版本</th>
+                  <th>狀態</th>
+                  <th>建立時間</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {artifacts.map((artifact) => (
+                  <tr>
+                    <td>
+                      <div class="artifact-title">
+                        <span>{artifact.label ?? artifact.logical_name ?? artifact.artifact_id}</span>
+                        <code>{artifact.artifact_id}</code>
+                      </div>
+                    </td>
+                    <td class="mono">{artifact.kind}</td>
+                    <td class="mono">v{artifact.version_number}</td>
+                    <td><span class:list={['badge', statusClass(artifact.status)]}>{artifact.status}</span></td>
+                    <td class="mono">{formatRelative(artifact.created_at)}</td>
+                    <td>
+                      <div class="artifact-actions">
+                        <a
+                          class="btn-small-link"
+                          href={`/admin/console/runs/${runId}/artifacts/${artifact.artifact_id}`}
+                        >
+                          檢視
+                        </a>
+                        <a
+                          class="btn-small-link"
+                          href={`/admin/console/runs/${runId}/artifacts/${artifact.artifact_id}#artifact-export`}
+                        >
+                          匯出
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      </div>
 
       <AdminPanel title="步驟時間軸">
         {steps.length === 0 ? (
@@ -352,12 +639,13 @@ const bootstrap = run
                       <td class="mono">{step.attempt}</td>
                       <td class="mono">{formatDuration(step.latency_ms)}</td>
                       <td class="timeline-actions-cell">
-                        {canRetryStep(step.status) && (
+                        {canRetryStepAttempt(step, latestStepAttempts) && (
                           <button
                             type="button"
                             class="btn-small"
                             data-action="retry"
                             data-step-run-id={step.step_run_id}
+                            aria-label={`重試步驟 ${step.step_id} 第 ${step.attempt} 次嘗試`}
                           >
                             重試
                           </button>
@@ -437,6 +725,8 @@ const bootstrap = run
   )}
 </AdminConsoleLayout>
 
+<script id="run-bootstrap" type="application/json" is:inline set:html={bootstrapJson}></script>
+
 <script is:inline>
   const bootstrap = document.getElementById('run-bootstrap')?.textContent;
   const initialData = bootstrap ? JSON.parse(bootstrap) : null;
@@ -445,14 +735,17 @@ const bootstrap = run
     // keep script no-op
   } else {
     const runId = initialData.run.flowRunId;
-    const flowId = initialData.run.flowId;
     const statusBadge = document.getElementById('run-status');
     const cancelBtn = document.getElementById('cancel-run-btn');
     const timelineBody = document.getElementById('timeline-body');
     const runActionStatus = document.getElementById('run-action-status');
     const approvalPanel = document.getElementById('approval-panel');
+    const operationPreview = document.getElementById('run-operation-preview');
+    const auditHistory = document.getElementById('run-audit-history');
 
     const runActionsRoot = document.getElementById('run-actions');
+    let currentRunStatus = initialData.run.status;
+    let retryableStepCount = Number(initialData.uiFlags?.retryableStepCount ?? 0);
 
     function setStatusText(message, type = '') {
       if (!runActionStatus) return;
@@ -474,30 +767,139 @@ const bootstrap = run
         case 'done': return 'badge-success';
         case 'failed': return 'badge-error';
         case 'running': return 'badge-running';
+        case 'cancelling': return 'badge-pending';
         case 'cancelled': return 'badge-muted';
         case 'pending': return 'badge-pending';
+        case 'queued': return 'badge-pending';
+        case 'paused': return 'badge-pending';
         default: return 'badge-muted';
       }
     }
 
     function canCancelRun(status) {
-      return status === 'queued' || status === 'running';
+      return status === 'queued' || status === 'running' || status === 'paused';
     }
 
     function canRetryStep(status) {
       return status === 'failed' || status === 'cancelled';
     }
 
+    function latestAttemptsByStep(steps) {
+      const attempts = new Map();
+      if (!Array.isArray(steps)) return attempts;
+      for (const step of steps) {
+        const stepId = String(step.step_id);
+        const attempt = Number(step.attempt ?? 1);
+        attempts.set(stepId, Math.max(attempts.get(stepId) ?? 0, attempt));
+      }
+      return attempts;
+    }
+
+    function canRetryStepAttempt(step, latestAttempts) {
+      const stepId = String(step.step_id);
+      const attempt = Number(step.attempt ?? 1);
+      return canRetryStep(step.status) && attempt === (latestAttempts.get(stepId) ?? attempt);
+    }
+
+    function countRetryableSteps(steps) {
+      if (!Array.isArray(steps)) return 0;
+      const latestAttempts = latestAttemptsByStep(steps);
+      return steps.filter((step) => canRetryStepAttempt(step, latestAttempts)).length;
+    }
+
+    function updateOperationPreview() {
+      if (!operationPreview) return;
+      const canCancel = canCancelRun(currentRunStatus);
+      operationPreview.dataset.runStatus = currentRunStatus;
+      operationPreview.dataset.retryableCount = String(retryableStepCount);
+
+      const cancelField = operationPreview.querySelector('[data-preview-field="cancel"]');
+      if (cancelField) {
+        cancelField.textContent = canCancel ? '可取消目前執行' : '目前狀態不可取消';
+      }
+
+      const retryField = operationPreview.querySelector('[data-preview-field="retry"]');
+      if (retryField) {
+        retryField.textContent = `${retryableStepCount} 個步驟可重試`;
+      }
+    }
+
     function setRunStatus(status) {
-      if (!statusBadge) return;
-      statusBadge.classList.remove('badge-success', 'badge-error', 'badge-running', 'badge-muted', 'badge-pending');
-      statusBadge.classList.add(cssStatusClass(status));
-      statusBadge.textContent = status;
-      if (cancelBtn) cancelBtn.disabled = !canCancelRun(status);
+      currentRunStatus = status;
+      if (statusBadge) {
+        statusBadge.classList.remove('badge-success', 'badge-error', 'badge-running', 'badge-muted', 'badge-pending');
+        statusBadge.classList.add(cssStatusClass(status));
+        statusBadge.textContent = status;
+      }
+      if (cancelBtn) {
+        const canCancel = canCancelRun(status);
+        cancelBtn.hidden = !canCancel;
+        cancelBtn.disabled = !canCancel;
+      }
+      updateOperationPreview();
+    }
+
+    function ensureAuditHistoryBody() {
+      let body = document.getElementById('run-audit-history-body');
+      if (body instanceof HTMLTableSectionElement) return body;
+      if (!auditHistory) return null;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'run-audit-table-wrap';
+      wrap.innerHTML = `
+        <table class="run-audit-table">
+          <thead>
+            <tr>
+              <th>時間</th>
+              <th>動作</th>
+              <th>摘要</th>
+              <th>操作者</th>
+            </tr>
+          </thead>
+          <tbody id="run-audit-history-body"></tbody>
+        </table>
+      `;
+      auditHistory.replaceChildren(wrap);
+      body = document.getElementById('run-audit-history-body');
+      return body instanceof HTMLTableSectionElement ? body : null;
+    }
+
+    function formatAuditTime(ms) {
+      return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+    }
+
+    function prependRunAuditHistory(action, summary) {
+      const body = ensureAuditHistoryBody();
+      if (!body) return;
+
+      const row = document.createElement('tr');
+      const time = document.createElement('td');
+      time.className = 'mono';
+      time.dataset.label = '時間';
+      time.textContent = formatAuditTime(Date.now());
+
+      const actionCell = document.createElement('td');
+      actionCell.className = 'mono';
+      actionCell.dataset.label = '動作';
+      actionCell.textContent = action;
+
+      const summaryCell = document.createElement('td');
+      summaryCell.dataset.label = '摘要';
+      summaryCell.textContent = summary;
+
+      const actor = document.createElement('td');
+      actor.dataset.label = '操作者';
+      actor.textContent = 'admin';
+
+      row.append(time, actionCell, summaryCell, actor);
+      body.prepend(row);
     }
 
     function renderTimeline(steps) {
       if (!timelineBody) return;
+      retryableStepCount = countRetryableSteps(steps);
+      const latestAttempts = latestAttemptsByStep(steps);
+      updateOperationPreview();
       timelineBody.replaceChildren();
 
       if (!steps.length) {
@@ -548,13 +950,14 @@ const bootstrap = run
 
         const actionCell = document.createElement('td');
         actionCell.className = 'timeline-actions-cell';
-        if (canRetryStep(step.status)) {
+        if (canRetryStepAttempt(step, latestAttempts)) {
           const retryBtn = document.createElement('button');
           retryBtn.type = 'button';
           retryBtn.className = 'btn-small';
           retryBtn.textContent = '重試';
           retryBtn.dataset.action = 'retry';
           retryBtn.dataset.stepRunId = String(step.step_run_id);
+          retryBtn.setAttribute('aria-label', `重試步驟 ${step.step_id} 第 ${step.attempt} 次嘗試`);
           actionCell.append(retryBtn);
         }
 
@@ -665,35 +1068,59 @@ const bootstrap = run
 
     async function doCancelRun() {
       if (!cancelBtn) return;
+      if (!canCancelRun(currentRunStatus)) {
+        setStatusText(`目前狀態 ${currentRunStatus} 不可取消。`, 'error');
+        return;
+      }
+      if (!window.confirm(`確定要取消執行 ${runId.slice(0, 8)}？取消後不會自動重跑，已送出的 provider 呼叫可能仍會完成。`)) return;
       cancelBtn.disabled = true;
+      const previousStatus = currentRunStatus;
+      const originalText = cancelBtn.textContent;
+      cancelBtn.textContent = '取消中…';
+      setRunStatus('cancelling');
+      setStatusText('正在取消執行…');
 
       try {
-        const res = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}/runs/${encodeURIComponent(runId)}/cancel`, {
+        const res = await fetch(`/api/admin/console/runs/${encodeURIComponent(runId)}/cancel`, {
           method: 'POST',
         });
-        if (!res.ok) throw new Error('cancel failed');
-        setRunStatus('cancelled');
-        setStatusText('執行已取消', 'success');
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || 'cancel failed');
+        setRunStatus(body.status || 'cancelled');
+        prependRunAuditHistory('flow.run.cancel', `${previousStatus} → ${body.status || 'cancelled'}`);
+        setStatusText('執行已取消。', 'success');
       } catch {
-        setStatusText('無法取消執行', 'error');
+        setStatusText('無法取消執行。', 'error');
+        setRunStatus(previousStatus);
         cancelBtn.disabled = false;
+        cancelBtn.textContent = originalText;
       }
     }
 
     async function doRetryStep(stepRunId) {
       const button = timelineBody?.querySelector(`[data-step-run-id="${CSS.escape(stepRunId)}"] [data-action="retry"]`);
       if (!(button instanceof HTMLButtonElement)) return;
+      const row = button.closest('.timeline-row');
+      const stepId = row?.querySelector('.step-id')?.textContent?.trim() || stepRunId;
+      const attempt = row instanceof HTMLElement ? row.dataset.stepAttempt : undefined;
+      if (!window.confirm(`確定要重試步驟 ${stepId}${attempt ? `（目前第 ${attempt} 次嘗試）` : ''}？重試可能產生新的 provider 呼叫與費用。`)) return;
       button.disabled = true;
       button.textContent = '重試中…';
 
       try {
-        const res = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}/runs/${encodeURIComponent(runId)}/steps/${encodeURIComponent(stepRunId)}/retry`, {
+        const res = await fetch(`/api/admin/console/runs/${encodeURIComponent(runId)}/steps/${encodeURIComponent(stepRunId)}/retry`, {
           method: 'POST',
         });
-        if (!res.ok) throw new Error('retry failed');
-        setStatusText('重試已送出', 'success');
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || 'retry failed');
+        button.textContent = '已送出';
+        prependRunAuditHistory(
+          'flow.step.retry',
+          `${stepId}${body.attempt ? ` · attempt ${body.attempt}` : ''}`,
+        );
+        setStatusText(`重試已送出${body.attempt ? `：第 ${body.attempt} 次嘗試` : ''}。`, 'success');
       } catch {
-        setStatusText('無法重試此步驟', 'error');
+        setStatusText('無法重試此步驟。', 'error');
         button.disabled = false;
         button.textContent = '重試';
       }
@@ -740,7 +1167,11 @@ const bootstrap = run
     };
 
     if (cancelBtn) {
-      cancelBtn.addEventListener('click', doCancelRun);
+      cancelBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        void doCancelRun();
+      });
     }
 
     if (timelineBody) {
@@ -748,6 +1179,8 @@ const bootstrap = run
         const target = event.target;
         if (!(target instanceof HTMLButtonElement)) return;
         if (target.dataset.action === 'retry' && target.dataset.stepRunId) {
+          event.preventDefault();
+          event.stopPropagation();
           void doRetryStep(target.dataset.stepRunId);
         }
       });
@@ -757,16 +1190,15 @@ const bootstrap = run
       const target = event.target;
       if (!(target instanceof HTMLButtonElement)) return;
       if (target.dataset.action) {
+        event.preventDefault();
+        event.stopPropagation();
         void doApproveReject(event);
       }
     });
 
     renderApprovals(initialData.pendingApprovals || []);
+    updateOperationPreview();
   }
-</script>
-
-<script id="run-bootstrap" type="application/json" is:inline>
-  {bootstrap ? JSON.stringify(bootstrap) : ''}
 </script>
 
 <style>
@@ -872,7 +1304,46 @@ const bootstrap = run
   .run-actions {
     flex-shrink: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .run-operation-preview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .run-operation-preview > div {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    padding: 0.85rem 1rem;
+  }
+
+  .operation-preview-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .run-operation-preview strong {
+    display: block;
+    color: var(--admin-text);
+    font-size: 0.92rem;
+  }
+
+  .run-operation-preview small {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--admin-text-muted);
+    line-height: 1.45;
   }
 
   .run-action-status {
@@ -894,7 +1365,38 @@ const bootstrap = run
     background: var(--admin-error-bg, #fee2e2);
   }
 
+  .run-audit-table-wrap {
+    overflow-x: auto;
+  }
+
+  .run-audit-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .run-audit-table th,
+  .run-audit-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border, #e2e8f0);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .run-audit-table th {
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
   .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
     padding: 0.4rem 1rem;
     border: 1px solid var(--admin-border, #e2e8f0);
     border-radius: var(--admin-radius, 6px);
@@ -911,12 +1413,20 @@ const bootstrap = run
   }
 
   .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
     padding: 0.4rem 1rem;
     border: 1px solid var(--admin-error, #dc2626);
     border-radius: var(--admin-radius, 6px);
     background: transparent;
     color: var(--admin-error, #dc2626);
     cursor: pointer;
+  }
+
+  .btn-danger[hidden] {
+    display: none !important;
   }
 
   .btn-danger:hover:not(:disabled) {
@@ -929,6 +1439,7 @@ const bootstrap = run
   }
 
   .btn-small {
+    min-height: 2.75rem;
     padding: 0.27rem 0.7rem;
     border-radius: 0.375rem;
     border: 1px solid var(--admin-border, #e2e8f0);
@@ -939,6 +1450,40 @@ const bootstrap = run
 
   .btn-small:hover {
     background: var(--admin-muted, #f1f5f9);
+  }
+
+  .artifact-title {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .artifact-title code {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+  }
+
+  .artifact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .btn-small-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.375rem;
+    background: #fff;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    text-decoration: none;
+  }
+
+  .btn-small-link:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
   }
 
   .approval-panel {
@@ -1004,6 +1549,7 @@ const bootstrap = run
   }
 
   .mini-btn {
+    min-height: 2.75rem;
     border-radius: 0.35rem;
     border: 1px solid var(--admin-border, #e2e8f0);
     padding: 0.35rem 0.7rem;
@@ -1097,6 +1643,64 @@ const bootstrap = run
   }
 
   @media (max-width: 760px) {
+    .run-header,
+    .run-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .run-operation-preview {
+      grid-template-columns: 1fr;
+    }
+
+    .run-actions > * {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .run-audit-table {
+      min-width: 0;
+    }
+
+    .run-audit-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .run-audit-table tbody {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .run-audit-table tr {
+      display: block;
+      border: 1px solid var(--admin-border, #e2e8f0);
+      border-radius: var(--admin-radius, 6px);
+      background: var(--admin-surface, #fff);
+      overflow: hidden;
+    }
+
+    .run-audit-table td {
+      display: grid;
+      grid-template-columns: minmax(5.5rem, 34%) minmax(0, 1fr);
+      gap: 0.65rem;
+      border-bottom: 1px solid var(--admin-border, #e2e8f0);
+      overflow-wrap: anywhere;
+    }
+
+    .run-audit-table td::before {
+      content: attr(data-label);
+      color: var(--admin-text-soft, #94a3b8);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
     .step-detail-grid {
       grid-template-columns: 1fr;
     }

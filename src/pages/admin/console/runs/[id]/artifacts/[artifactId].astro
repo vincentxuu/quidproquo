@@ -2,6 +2,9 @@
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import { getEnv } from '@/lib/config/env';
+import { createArtifact } from '@/lib/agent-artifact';
+import { createBackends as createArtifactBackends } from '@/lib/agent-artifact/storage';
+import { createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../../_guard';
 
 export const prerender = false;
@@ -15,6 +18,8 @@ const runId = Astro.params.id ?? '';
 const artifactId = Astro.params.artifactId ?? '';
 const versionParam = Astro.url.searchParams.get('version');
 const diffParam = Astro.url.searchParams.get('diff');
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 const versionN = versionParam ? parseInt(versionParam, 10) : null;
 const diffM = diffParam ? parseInt(diffParam, 10) : null;
@@ -29,6 +34,7 @@ interface ArtifactVersionRow {
   parent_version_id: string | null;
   approval_status: string;
   created_at: number;
+  body_text?: string | null;
 }
 
 interface ArtifactSectionRow {
@@ -39,6 +45,23 @@ interface ArtifactSectionRow {
   body_text: string | null;
   body_json: string | null;
   approval_status: string;
+}
+
+interface ArtifactExportRow {
+  export_id: string;
+  destination: string;
+  status: string;
+  export_metadata_json: string | null;
+  created_at: number;
+  updated_at: number;
+}
+
+interface ArtifactAuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  payload_json: string | null;
+  created_at: number;
 }
 
 // ── Simple line diff ─────────────────────────────────────────────────────────
@@ -127,13 +150,19 @@ let targetVersion: ArtifactVersionRow | null = null;
 let diffVersion: ArtifactVersionRow | null = null;
 let sections: ArtifactSectionRow[] = [];
 let diffSections: ArtifactSectionRow[] = [];
+let exports: ArtifactExportRow[] = [];
+let auditRows: ArtifactAuditRow[] = [];
 let loadError = false;
 let artifactMissing = false;
 let backendUnavailable = false;
+let exportDestinations: string[] = [];
 
 if (ready && artifactId) {
   try {
-    const db = getEnv().DB;
+    const env = getEnv();
+    const db = env.DB;
+    const artifact = createArtifact(env, createArtifactBackends(env));
+    exportDestinations = artifact.exporters.listDestinations();
 
     // Check if the artifact_versions table exists (feature may not be migrated yet)
     const tableCheck = await db.prepare(
@@ -151,12 +180,28 @@ if (ready && artifactId) {
                 v.version_number,
                 v.parent_version_id,
                 v.status AS approval_status,
-                v.created_at
+                v.created_at,
+                v.body_text
          FROM artifact_versions v
          JOIN artifact_definitions d ON d.definition_id = v.definition_id
          WHERE v.definition_id = ?
          ORDER BY version_number DESC`
-      ).bind(artifactId).all<ArtifactVersionRow>();
+      ).bind(artifactId).all<ArtifactVersionRow>().catch(() =>
+        db.prepare(
+          `SELECT v.version_id,
+                  v.artifact_id AS definition_id,
+                  v.kind,
+                  v.version_number,
+                  v.parent_version_id,
+                  v.approval_status,
+                  v.created_at,
+                  v.body_inline AS body_text
+           FROM artifact_versions v
+           JOIN artifact_definitions d ON d.artifact_id = v.artifact_id
+           WHERE v.artifact_id = ?
+           ORDER BY version_number DESC`
+        ).bind(artifactId).all<ArtifactVersionRow>()
+      );
 
       versions = versionsResult.results ?? [];
 
@@ -169,6 +214,7 @@ if (ready && artifactId) {
         } else {
           targetVersion = versions[0];
         }
+        const targetVersionId = targetVersion.version_id;
 
         // Load sections for target version
         const sectionsResult = await db.prepare(
@@ -176,8 +222,60 @@ if (ready && artifactId) {
            FROM artifact_sections
            WHERE version_id = ?
            ORDER BY ordinal ASC`
-        ).bind(targetVersion.version_id).all<ArtifactSectionRow>();
+        ).bind(targetVersionId).all<ArtifactSectionRow>();
         sections = sectionsResult.results ?? [];
+        if (sections.length === 0 && targetVersion.body_text) {
+          sections = [{
+            section_id: `${targetVersion.version_id}:body`,
+            section_key: 'body',
+            ordinal: 1,
+            heading: null,
+            body_text: targetVersion.body_text,
+            body_json: null,
+            approval_status: targetVersion.approval_status,
+          }];
+        }
+
+        const exportsResult = await db.prepare(
+          `SELECT export_id, destination, status, export_metadata_json, created_at, updated_at
+           FROM artifact_exports
+           WHERE version_id = ?
+           ORDER BY created_at DESC
+           LIMIT 20`
+        ).bind(targetVersionId).all<ArtifactExportRow>().catch(() =>
+          db.prepare(
+            `SELECT export_id,
+                    exporter_id AS destination,
+                    status,
+                    COALESCE(last_error_json, external_id, target_config_json) AS export_metadata_json,
+                    requested_at AS created_at,
+                    COALESCE(completed_at, requested_at) AS updated_at
+             FROM artifact_exports
+             WHERE version_id = ?
+             ORDER BY requested_at DESC
+             LIMIT 20`
+          ).bind(targetVersionId).all<ArtifactExportRow>()
+        );
+        exports = exportsResult.results ?? [];
+
+        const auditResult = await db.prepare(
+          `SELECT al.audit_id,
+                  u.email as user_email,
+                  al.action,
+                  al.payload_json,
+                  al.created_at
+           FROM console_audit_log al
+           LEFT JOIN console_users u ON u.user_id = al.user_id
+           WHERE al.resource_kind = 'artifact'
+             AND al.resource_id = ?
+           ORDER BY al.created_at DESC
+           LIMIT 20`
+        ).bind(targetVersionId).all<ArtifactAuditRow>().catch(() => ({
+          results: [],
+          success: true,
+          meta: {} as D1Meta & Record<string, unknown>,
+        }));
+        auditRows = auditResult.results ?? [];
 
         // Load diff version if requested
         if (diffM !== null) {
@@ -190,6 +288,17 @@ if (ready && artifactId) {
                ORDER BY ordinal ASC`
             ).bind(diffVersion.version_id).all<ArtifactSectionRow>();
             diffSections = diffResult.results ?? [];
+            if (diffSections.length === 0 && diffVersion.body_text) {
+              diffSections = [{
+                section_id: `${diffVersion.version_id}:body`,
+                section_key: 'body',
+                ordinal: 1,
+                heading: null,
+                body_text: diffVersion.body_text,
+                body_json: null,
+                approval_status: diffVersion.approval_status,
+              }];
+            }
           }
         }
       }
@@ -258,9 +367,93 @@ const breadcrumb = [
   { label: `Artifact ${artifactId}` },
 ];
 
+function formatTs(ms: number): string {
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function exportMetadataLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const parsed = JSON.parse(raw) as { externalRef?: string; externalId?: string; path?: string };
+    return parsed.externalRef ?? parsed.externalId ?? parsed.path ?? raw;
+  } catch {
+    return raw;
+  }
+}
+
+function auditPayloadLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const payload = JSON.parse(raw) as {
+      destination?: string;
+      sectionId?: string;
+      previousStatus?: string;
+      nextStatus?: string;
+      status?: string;
+      error?: string;
+      externalRef?: string;
+    };
+    const parts = [
+      payload.destination ? `destination ${payload.destination}` : '',
+      payload.sectionId ? `section ${payload.sectionId}` : '',
+      payload.previousStatus && payload.nextStatus ? `${payload.previousStatus} → ${payload.nextStatus}` : '',
+      payload.status ? `status ${payload.status}` : '',
+      payload.externalRef ? `ref ${payload.externalRef}` : '',
+      payload.error ? payload.error : '',
+    ].filter(Boolean);
+    return parts.join(' · ') || raw;
+  } catch {
+    return raw;
+  }
+}
+
 const currentVersionNumber = targetVersion?.version_number ?? null;
 const currentVersionId = targetVersion?.version_id ?? '';
-const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
+const canExport = exportDestinations.length > 0;
+
+function exportLabel(destination: string): string {
+  switch (destination) {
+    case 'file': return 'File';
+    case 'csv_file': return 'CSV file';
+    case 'pdf': return 'PDF';
+    case 'pptx': return 'PowerPoint';
+    case 'notion': return 'Notion';
+    case 'github_issue': return 'GitHub issue';
+    case 'github_pr_review': return 'GitHub PR review';
+    case 'email': return 'Email';
+    case 'slack': return 'Slack';
+    default: return destination;
+  }
+}
+
+function exportStatusLabel(status: string): string {
+  switch (status) {
+    case 'done': return t('artifacts.exportStatus.done');
+    case 'pending': return t('artifacts.exportStatus.pending');
+    case 'failed': return t('artifacts.exportStatus.failed');
+    case 'rejected': return t('artifacts.exportStatus.rejected');
+    case 'expired': return t('artifacts.exportStatus.expired');
+    default: return status;
+  }
+}
+
+const artifactExportMessages = {
+  exportStatuses: {
+    done: t('artifacts.exportStatus.done'),
+    pending: t('artifacts.exportStatus.pending'),
+    failed: t('artifacts.exportStatus.failed'),
+    rejected: t('artifacts.exportStatus.rejected'),
+    expired: t('artifacts.exportStatus.expired'),
+  },
+  retryExport: t('artifacts.retryExport'),
+  retryingExport: t('artifacts.retryingExport'),
+  exporting: t('artifacts.exporting'),
+  selectExportDestination: t('artifacts.selectExportDestination'),
+  retryingTo: t('artifacts.retryingTo', { destination: '{destination}' }),
+  exportingTo: t('artifacts.exportingTo', { destination: '{destination}' }),
+  retryStarted: t('artifacts.retryStarted', { result: '{result}' }),
+  exportStarted: t('artifacts.exportStarted', { result: '{result}' }),
+};
 ---
 
 <AdminConsoleLayout title="產出物檢視器" section="artifacts" breadcrumb={breadcrumb}>
@@ -295,16 +488,31 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
           <span class="artifact-id muted">{artifactId}</span>
         </div>
 
-        <div class="artifact-actions" data-version-id={currentVersionId}>
-          <button type="button" class="action-btn approve" data-artifact-action="approved">核准</button>
-          <button type="button" class="action-btn reject" data-artifact-action="rejected">拒絕</button>
+        <div
+          id="artifact-export"
+          class="artifact-actions"
+          data-version-id={currentVersionId}
+          data-current-status={targetVersion.approval_status}
+        >
+          <button type="button" class="action-btn approve" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
+          <button type="button" class="action-btn reject" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
           <label for="export-destination" class="version-label">匯出</label>
-          <select id="export-destination" class="version-select">
+          <select id="export-destination" class="version-select" disabled={!canExport}>
             {exportDestinations.map((destination) => (
-              <option value={destination}>{destination}</option>
+              <option value={destination}>{exportLabel(destination)}</option>
             ))}
           </select>
-          <button type="button" class="action-btn export" data-export-action>匯出</button>
+          <button
+            type="button"
+            class="action-btn export"
+            data-export-action
+            aria-label={`匯出產出物 ${artifactId}`}
+            disabled={!canExport}
+          >匯出</button>
+          {!canExport && (
+            <span class="export-hint" role="status">目前沒有啟用的匯出器。</span>
+          )}
+          <p id="artifact-operation-preview" class="operation-preview" aria-live="polite"></p>
         </div>
 
         {/* Version dropdown */}
@@ -463,17 +671,116 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
         </section>
       )}
 
+      <section id="artifact-export-history-section" class="artifact-section" aria-label="Export history">
+        <h3 class="section-title">匯出紀錄</h3>
+        {exports.length === 0 ? (
+          <div id="artifact-export-empty">
+            <AdminState tone="empty">此版本尚無匯出紀錄。</AdminState>
+          </div>
+        ) : (
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Export ID</th>
+                <th>Result</th>
+                <th>Updated</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="artifact-export-history">
+              {exports.map((row) => (
+                <tr data-export-history-row data-export-history-status={row.status} data-export-history-destination={row.destination}>
+                  <td class="mono">{row.destination}</td>
+                  <td><span class:list={['export-status', `export-${row.status}`]}>{exportStatusLabel(row.status)}</span></td>
+                  <td class="mono">{row.export_id}</td>
+                  <td class="mono">{exportMetadataLabel(row.export_metadata_json)}</td>
+                  <td class="mono">{formatTs(row.updated_at || row.created_at)}</td>
+                  <td>
+                    {row.status === 'failed' ? (
+                      <button type="button" class="mini-action retry-export" data-export-history-retry>
+                        {t('artifacts.retryExport')}
+                      </button>
+                    ) : (
+                      <span class="muted">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+
+      <section id="artifact-audit-history-section" class="artifact-section" aria-label="Artifact operation history">
+        <h3 class="section-title">操作紀錄</h3>
+        {auditRows.length === 0 ? (
+          <div id="artifact-audit-empty">
+            <AdminState tone="empty">此版本尚無管理操作紀錄。</AdminState>
+          </div>
+        ) : (
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Action</th>
+                <th>Summary</th>
+                <th>Actor</th>
+              </tr>
+            </thead>
+            <tbody id="artifact-audit-history">
+              {auditRows.map((row) => (
+                <tr>
+                  <td class="mono">{formatTs(row.created_at)}</td>
+                  <td class="mono">{row.action}</td>
+                  <td>{auditPayloadLabel(row.payload_json)}</td>
+                  <td>{row.user_email ?? 'admin'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+
       <p id="artifact-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
 
     </div>
   )}
 </AdminConsoleLayout>
 
-<script define:vars={{ currentVersionId }}>
+<script is:inline define:vars={{ currentVersionId, artifactExportMessages }}>
   const statusEl = document.getElementById('artifact-status');
   const actionStatus = document.getElementById('artifact-action-status');
   const actionsRoot = document.querySelector('.artifact-actions');
   const exportSelect = document.getElementById('export-destination');
+  const exportHistorySection = document.getElementById('artifact-export-history-section');
+  const auditHistorySection = document.getElementById('artifact-audit-history-section');
+  const operationPreview = document.getElementById('artifact-operation-preview');
+
+  const statusLabels = {
+    approved: '核准',
+    rejected: '拒絕',
+    draft: '草稿',
+    published: '發布',
+  };
+
+  const destinationLabels = {
+    notion: 'Notion',
+    slack: 'Slack',
+    email: 'Email',
+    file: '檔案',
+    csv_file: 'CSV 檔案',
+    github_pr_review: 'GitHub PR Review',
+    pdf: 'PDF',
+    pptx: 'PowerPoint',
+  };
+
+  const exportStatusLabels = artifactExportMessages.exportStatuses || {};
+
+  function message(template, values = {}) {
+    return String(template || '').replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? `{${key}}`));
+  }
 
   function setActionStatus(message, tone = '') {
     if (!actionStatus) return;
@@ -482,66 +789,361 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     actionStatus.className = `action-status ${tone}`;
   }
 
-  async function updateVersionStatus(status) {
+  function currentApprovalStatus() {
+    return actionsRoot instanceof HTMLElement
+      ? actionsRoot.dataset.currentStatus || statusEl?.textContent?.trim() || ''
+      : statusEl?.textContent?.trim() || '';
+  }
+
+  function selectedExportDestination() {
+    return exportSelect instanceof HTMLSelectElement ? exportSelect.value : '';
+  }
+
+  function exportDestinationLabel(destination) {
+    return destinationLabels[destination] || destination || '—';
+  }
+
+  function exportStatusLabel(status) {
+    return exportStatusLabels[status] || status || '—';
+  }
+
+  function updateOperationPreview() {
+    if (!operationPreview) return;
+    const destination = selectedExportDestination();
+    const status = currentApprovalStatus();
+    if (!destination) {
+      operationPreview.textContent = artifactExportMessages.selectExportDestination;
+      operationPreview.className = 'operation-preview warning';
+      return;
+    }
+    const warning = status !== 'approved' && status !== 'published'
+      ? `目前版本狀態為 ${status || 'unknown'}，匯出前會再次確認。`
+      : '此版本已核准，可送出匯出。';
+    operationPreview.textContent = `匯出目的地：${exportDestinationLabel(destination)}。${warning}`;
+    operationPreview.className = status !== 'approved' && status !== 'published'
+      ? 'operation-preview warning'
+      : 'operation-preview success';
+  }
+
+  function humanExportError(error, destination) {
+    switch (error) {
+      case 'export_requires_kernel':
+        return `${destination} 匯出需要 kernel 或外部服務設定，無法從目前的管理頁直接執行。`;
+      case 'exporter not found':
+        return `目前未啟用 ${destination} 匯出器。`;
+      case 'version not found':
+        return '找不到要匯出的產出物版本。';
+      default:
+        return error || `匯出到 ${destination} 失敗`;
+    }
+  }
+
+  function setButtonBusy(button, busy, busyText) {
+    if (!(button instanceof HTMLButtonElement)) return;
+    if (busy) {
+      button.dataset.originalText = button.textContent || '';
+      button.disabled = true;
+      button.textContent = busyText;
+    } else {
+      button.disabled = false;
+      button.textContent = button.dataset.originalText || button.textContent;
+      delete button.dataset.originalText;
+    }
+  }
+
+  function formatExportTs(ms) {
+    return new Date(Number(ms || Date.now())).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+  }
+
+  function ensureAuditHistoryBody() {
+    let body = document.getElementById('artifact-audit-history');
+    if (body instanceof HTMLTableSectionElement) return body;
+    if (!auditHistorySection) return null;
+
+    const empty = document.getElementById('artifact-audit-empty');
+    empty?.remove();
+
+    const table = document.createElement('table');
+    table.className = 'artifact-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Action</th>
+          <th>Summary</th>
+          <th>Actor</th>
+        </tr>
+      </thead>
+      <tbody id="artifact-audit-history"></tbody>
+    `;
+    auditHistorySection.append(table);
+    body = document.getElementById('artifact-audit-history');
+    return body instanceof HTMLTableSectionElement ? body : null;
+  }
+
+  function prependAuditHistory(row) {
+    const body = ensureAuditHistoryBody();
+    if (!body) return;
+    const tr = document.createElement('tr');
+
+    const time = document.createElement('td');
+    time.className = 'mono';
+    time.textContent = formatExportTs(row.createdAt || Date.now());
+
+    const action = document.createElement('td');
+    action.className = 'mono';
+    action.textContent = String(row.action || 'artifact.operation');
+
+    const summary = document.createElement('td');
+    summary.textContent = String(row.summary || '—');
+
+    const actor = document.createElement('td');
+    actor.textContent = String(row.actor || 'admin');
+
+    tr.append(time, action, summary, actor);
+    body.prepend(tr);
+  }
+
+  function ensureExportHistoryBody() {
+    let body = document.getElementById('artifact-export-history');
+    if (body instanceof HTMLTableSectionElement) return body;
+    if (!exportHistorySection) return null;
+
+    const empty = document.getElementById('artifact-export-empty');
+    empty?.remove();
+
+    const table = document.createElement('table');
+    table.className = 'artifact-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Status</th>
+          <th>Export ID</th>
+          <th>Result</th>
+          <th>Updated</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="artifact-export-history"></tbody>
+    `;
+    exportHistorySection.append(table);
+    body = document.getElementById('artifact-export-history');
+    return body instanceof HTMLTableSectionElement ? body : null;
+  }
+
+  function prependExportHistory(row) {
+    const body = ensureExportHistoryBody();
+    if (!body) return;
+    const tr = document.createElement('tr');
+    tr.dataset.exportHistoryRow = '';
+    tr.dataset.exportHistoryStatus = String(row.status || 'pending');
+    tr.dataset.exportHistoryDestination = String(row.destination || row.exporterId || '');
+
+    const destination = document.createElement('td');
+    destination.className = 'mono';
+    destination.textContent = String(row.destination || row.exporterId || '—');
+
+    const statusCell = document.createElement('td');
+    const status = document.createElement('span');
+    const statusValue = String(row.status || 'pending');
+    status.className = `export-status export-${statusValue}`;
+    status.textContent = exportStatusLabel(statusValue);
+    statusCell.append(status);
+
+    const exportId = document.createElement('td');
+    exportId.className = 'mono';
+    exportId.textContent = String(row.exportId || '—');
+
+    const result = document.createElement('td');
+    result.className = 'mono';
+    result.textContent = String(row.externalRef || row.externalId || row.destination || '—');
+
+    const updated = document.createElement('td');
+    updated.className = 'mono';
+    updated.textContent = formatExportTs(row.updatedAt || row.createdAt || Date.now());
+
+    const action = document.createElement('td');
+    if (statusValue === 'failed') {
+      const retry = document.createElement('button');
+      retry.type = 'button';
+      retry.className = 'mini-action retry-export';
+      retry.dataset.exportHistoryRetry = '';
+      retry.textContent = artifactExportMessages.retryExport;
+      action.append(retry);
+    } else {
+      const empty = document.createElement('span');
+      empty.className = 'muted';
+      empty.textContent = '—';
+      action.append(empty);
+    }
+
+    tr.append(destination, statusCell, exportId, result, updated, action);
+    body.prepend(tr);
+  }
+
+  async function updateVersionStatus(status, button) {
     if (!currentVersionId) return;
+    const current = currentApprovalStatus();
+    if (current === status) {
+      setActionStatus(`產出物已經是 ${status}。`);
+      return;
+    }
+    const label = statusLabels[status] || status;
+    if (!window.confirm(`確定要將此產出物標記為「${label}」？此操作會寫入審核紀錄。`)) {
+      return;
+    }
+    setButtonBusy(button, true, '送出中');
     setActionStatus('正在更新產出物狀態…');
-    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      setActionStatus(data.error || '無法更新產出物狀態', 'error');
-      return;
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setActionStatus(data.error || '無法更新產出物狀態', 'error');
+        return;
+      }
+      if (statusEl) statusEl.textContent = status;
+      if (actionsRoot instanceof HTMLElement) actionsRoot.dataset.currentStatus = status;
+      updateOperationPreview();
+      prependAuditHistory({
+        action: 'artifact.version.status.update',
+        summary: `${data.scope || 'version'} → ${status}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(`產出物已更新為 ${status}`, 'success');
+    } finally {
+      setButtonBusy(button, false);
     }
-    if (statusEl) statusEl.textContent = status;
-    setActionStatus(`Artifact ${status}`, 'success');
   }
 
-  async function updateSectionStatus(sectionId, status) {
+  async function updateSectionStatus(sectionId, status, button) {
     if (!currentVersionId) return;
-    setActionStatus('正在更新區段狀態…');
-    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sectionId, status }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      setActionStatus(data.error || '無法更新區段狀態', 'error');
+    const label = statusLabels[status] || status;
+    if (!window.confirm(`確定要將此區段標記為「${label}」？`)) {
       return;
     }
-    const row = document.querySelector(`[data-section-id="${CSS.escape(sectionId)}"]`);
-    const sectionStatus = row?.querySelector('.section-status');
-    if (sectionStatus) sectionStatus.textContent = status;
-    setActionStatus(`Section ${status}`, 'success');
+    setButtonBusy(button, true, '送出中');
+    setActionStatus('正在更新區段狀態…');
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sectionId, status }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setActionStatus(data.error || '無法更新區段狀態', 'error');
+        return;
+      }
+      const row = document.querySelector(`[data-section-id="${CSS.escape(sectionId)}"]`);
+      const sectionStatus = row?.querySelector('.section-status');
+      if (sectionStatus) sectionStatus.textContent = status;
+      prependAuditHistory({
+        action: 'artifact.section.status.update',
+        summary: `section ${sectionId} → ${status}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(`區段已更新為 ${status}`, 'success');
+    } finally {
+      setButtonBusy(button, false);
+    }
   }
 
-  async function exportArtifact() {
-    if (!currentVersionId || !(exportSelect instanceof HTMLSelectElement)) return;
-    const destination = exportSelect.value;
-    setActionStatus(`Exporting to ${destination}...`);
-    const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/export/${encodeURIComponent(destination)}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ options: { path: `artifact-${currentVersionId}.txt` } }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok || data.ok === false) {
-      setActionStatus(data.error || `Export to ${destination} failed`, 'error');
+  async function exportArtifact(button, destinationOverride) {
+    if (!currentVersionId) return;
+    const destination = destinationOverride || (exportSelect instanceof HTMLSelectElement ? exportSelect.value : '');
+    if (!destination) {
+      setActionStatus(artifactExportMessages.selectExportDestination, 'error');
       return;
     }
-    setActionStatus(`Export queued: ${data.externalRef || data.exportId || destination}`, 'success');
+    if (destinationOverride && exportSelect instanceof HTMLSelectElement) {
+      exportSelect.value = destinationOverride;
+      updateOperationPreview();
+    }
+    const current = currentApprovalStatus();
+    const needsConfirm = current !== 'approved' && current !== 'published';
+    const confirmMessage = needsConfirm
+      ? `目前版本狀態為「${current || 'unknown'}」。仍要匯出到 ${destination}？`
+      : `確定要匯出到 ${destination}？`;
+    if (!window.confirm(confirmMessage)) return;
+    setButtonBusy(button, true, destinationOverride ? artifactExportMessages.retryingExport : artifactExportMessages.exporting);
+    setActionStatus(message(
+      destinationOverride ? artifactExportMessages.retryingTo : artifactExportMessages.exportingTo,
+      { destination }
+    ));
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/export/${encodeURIComponent(destination)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ options: { path: `artifact-${currentVersionId}.txt` } }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        prependExportHistory({
+          destination,
+          exportId: data.exportId || '—',
+          status: 'failed',
+          externalRef: data.error || res.status,
+          updatedAt: Date.now(),
+        });
+        prependAuditHistory({
+          action: 'artifact.export.denied',
+          summary: `${destination} · ${data.error || res.status}`,
+          createdAt: Date.now(),
+        });
+        setActionStatus(humanExportError(data.error, destination), 'error');
+        return;
+      }
+      prependExportHistory({
+        destination,
+        exportId: data.exportId,
+        status: data.status || 'pending',
+        externalRef: data.externalRef,
+        updatedAt: Date.now(),
+      });
+      prependAuditHistory({
+        action: 'artifact.export',
+        summary: `${destination} · ${data.status || 'pending'}${data.externalRef ? ` · ${data.externalRef}` : ''}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(message(
+        destinationOverride ? artifactExportMessages.retryStarted : artifactExportMessages.exportStarted,
+        { result: data.externalRef || data.exportId || destination }
+      ), 'success');
+    } finally {
+      setButtonBusy(button, false);
+    }
   }
 
   actionsRoot?.addEventListener('click', (event) => {
     const target = event.target;
     if (!(target instanceof HTMLButtonElement)) return;
     const status = target.dataset.artifactAction;
-    if (status) void updateVersionStatus(status);
-    if (target.dataset.exportAction !== undefined) void exportArtifact();
+    if (status || target.dataset.exportAction !== undefined) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (status) void updateVersionStatus(status, target);
+    if (target.dataset.exportAction !== undefined) void exportArtifact(target);
   });
+
+  exportHistorySection?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement) || target.dataset.exportHistoryRetry === undefined) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const row = target.closest('[data-export-history-row]');
+    if (!(row instanceof HTMLElement)) return;
+    const destination = row.dataset.exportHistoryDestination || '';
+    if (destination) void exportArtifact(target, destination);
+  });
+
+  exportSelect?.addEventListener('change', updateOperationPreview);
+  updateOperationPreview();
 
   document.addEventListener('click', (event) => {
     const target = event.target;
@@ -551,7 +1153,7 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     const row = target.closest('[data-section-id]');
     if (!(row instanceof HTMLElement)) return;
     const sectionId = row.dataset.sectionId;
-    if (sectionId) void updateSectionStatus(sectionId, status);
+    if (sectionId) void updateSectionStatus(sectionId, status, target);
   });
 </script>
 
@@ -652,6 +1254,41 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     color: var(--admin-accent);
   }
 
+  .action-btn:disabled,
+  .version-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .export-hint {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .operation-preview {
+    flex-basis: 100%;
+    margin: 0.15rem 0 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-bg);
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .operation-preview.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .operation-preview.warning {
+    border-color: #facc15;
+    background: #fefce8;
+    color: #713f12;
+  }
+
   .section-actions {
     display: flex;
     gap: 0.35rem;
@@ -662,6 +1299,38 @@ const exportDestinations = ['file', 'csv_file', 'pdf', 'pptx'];
     text-transform: capitalize;
     font-size: 0.82rem;
     color: var(--admin-text-soft);
+  }
+
+  .export-status {
+    display: inline-flex;
+    min-height: 1.45rem;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .export-done {
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .export-pending {
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  .export-failed {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .export-rejected,
+  .export-expired {
+    background: #f1f5f9;
+    color: #475569;
   }
 
   .action-status {

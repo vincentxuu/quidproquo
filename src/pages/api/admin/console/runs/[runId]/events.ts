@@ -2,6 +2,7 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
+import type { D1Database } from '@cloudflare/workers-types'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
 
@@ -60,6 +61,16 @@ interface CursorParts {
   approvalCount: number
 }
 
+async function getTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
+  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all<{ name: string }>()
+  return new Set((result.results ?? []).map((column) => column.name))
+}
+
+function columnExpr(columns: Set<string>, column: string, fallback: string, alias?: string): string {
+  const expr = columns.has(column) ? column : fallback
+  return alias ? `${expr} AS ${alias}` : expr
+}
+
 function encodeCursor(parts: CursorParts): string {
   return `${parts.runUpdatedAt}|${parts.runStatus}|${parts.stepVersion}|${parts.stepUpdatedAt}|${parts.approvalUpdatedAt}|${parts.stepCount}|${parts.approvalCount}`
 }
@@ -99,6 +110,19 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
 
   const db = (env as unknown as Env).DB
   const lastSeenCursorRaw = request.headers.get('last-event-id')
+  const stepRunColumns = await getTableColumns(db, 'flow_step_runs')
+  const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind'
+  const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt')
+  const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at')
+  const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at')
+  const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms')
+  const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at')
+  const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at')
+  const stepOrderBy = [
+    'step_order ASC',
+    stepRunColumns.has('attempt') ? 'attempt ASC' : '',
+    stepRunColumns.has('created_at') ? 'created_at ASC' : '',
+  ].filter(Boolean).join(', ')
 
   const run = await db
     .prepare('SELECT status FROM flow_runs WHERE flow_run_id = ? LIMIT 1')
@@ -109,8 +133,6 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
   }
 
   const encoder = new TextEncoder()
-  let lastSentCursor = ''
-
   const send = (
     controller: ReadableStreamDefaultController<Uint8Array>,
     payload: EventPayload,
@@ -135,18 +157,18 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
             .prepare(
               `SELECT step_run_id,
                       step_id,
-                      step_type AS kind,
+                      ${stepKindExpr},
                       status,
-                      attempt,
-                      started_at,
-                      finished_at,
-                      latency_ms,
-                      created_at,
-                      updated_at,
+                      ${stepAttemptExpr},
+                      ${stepStartedExpr},
+                      ${stepFinishedExpr},
+                      ${stepLatencyExpr},
+                      ${stepCreatedExpr},
+                      ${stepUpdatedExpr},
                       step_order
                FROM flow_step_runs
                WHERE flow_run_id = ?
-               ORDER BY step_order ASC, attempt ASC, created_at ASC`,
+               ORDER BY ${stepOrderBy}`,
             )
             .bind(runId)
             .all<StepRow>(),
@@ -185,11 +207,9 @@ export const GET: APIRoute = async ({ cookies, params, request }) => {
         const cursorParts = buildCursor(payload.run.status, runResult.started_at, payload.steps as StepRow[], payload.approvals)
         payload.cursor = encodeCursor(cursorParts)
 
-        const cursorChanged = payload.cursor !== lastSentCursor
         const shouldSend = lastSeenCursorRaw === null || payload.cursor !== lastSeenCursorRaw
         if (shouldSend) {
           send(controller, payload, 'timeline')
-          lastSentCursor = payload.cursor
         }
 
         if (terminalStatuses.has(payload.run.status)) {

@@ -1,4 +1,4 @@
-import type { BudgetPolicy } from '../../schema/categories/budget'
+import type { BudgetPolicy } from '../../schema/body'
 import { check as checkCostUsd } from './max-cost-usd'
 import { check as checkTokens } from './max-tokens'
 import { check as checkIterations } from './max-iterations'

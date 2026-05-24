@@ -2,7 +2,7 @@ import type { PolicyViolationBackend } from '../../storage/types'
 
 export async function logProviderViolation(
   opts: {
-    flowRunId: string
+    flowRunId: number | string
     policyId: number
     requestedProvider: string
     deniedBy: string

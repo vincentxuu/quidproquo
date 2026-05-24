@@ -15,6 +15,9 @@ const ready = isPageEnabled('rbac');
 
 const url = Astro.url;
 const tab = url.searchParams.get('tab') ?? 'users';
+const rbacSuccess = url.searchParams.get('rbac_success');
+const rbacError = url.searchParams.get('rbac_error');
+const RESERVED_ROLES = ['admin', 'operator', 'approver', 'viewer'];
 
 function tabHref(t: string): string {
   const u = new URL(url.toString());
@@ -34,6 +37,8 @@ interface RoleRow {
   role_id: number;
   name: string;
   description: string | null;
+  permission_count: number;
+  user_count: number;
 }
 
 interface AuditRow {
@@ -53,6 +58,30 @@ let loadError = false;
 if (ready) {
   try {
     const db = getEnv().DB;
+    const roleResult = await db.prepare(`
+      SELECT role_id, name, description
+             , (
+               SELECT COUNT(*)
+               FROM console_permissions p
+               WHERE p.role_id = console_roles.role_id
+             ) AS permission_count
+             , (
+               SELECT COUNT(*)
+               FROM console_user_roles ur
+               WHERE ur.role_id = console_roles.role_id
+             ) AS user_count
+      FROM console_roles
+      ORDER BY
+        CASE name
+          WHEN 'admin' THEN 1
+          WHEN 'operator' THEN 2
+          WHEN 'approver' THEN 3
+          WHEN 'viewer' THEN 4
+          ELSE 5
+        END,
+        name
+    `).all<RoleRow>();
+    roles = roleResult.results ?? [];
 
     if (tab === 'users' || tab !== 'roles' && tab !== 'audit') {
       const result = await db.prepare(`
@@ -65,13 +94,6 @@ if (ready) {
         ORDER BY u.created_at DESC
       `).all<UserRow>();
       users = result.results ?? [];
-    } else if (tab === 'roles') {
-      const result = await db.prepare(`
-        SELECT role_id, name, description
-        FROM console_roles
-        ORDER BY name
-      `).all<RoleRow>();
-      roles = result.results ?? [];
     } else if (tab === 'audit') {
       const result = await db.prepare(`
         SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
@@ -92,6 +114,9 @@ function formatTs(ms: number | null): string {
   if (!ms) return '—';
   return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
 }
+
+const existingRoleNames = JSON.stringify(roles.map((role) => role.name));
+const existingUserEmails = JSON.stringify(users.map((user) => user.email));
 ---
 
 <AdminConsoleLayout title="權限管理" section="rbac">
@@ -103,6 +128,15 @@ function formatTs(ms: number | null): string {
   )}
   {ready && !loadError && (
     <div class="rbac-layout">
+      {(rbacSuccess || rbacError) && (
+        <p
+          class:list={['notice', { success: Boolean(rbacSuccess), error: Boolean(rbacError) }]}
+          role="status"
+        >
+          {rbacSuccess ?? rbacError}
+        </p>
+      )}
+
       <div class="tab-bar" role="tablist">
         <a
           href={tabHref('users')}
@@ -125,71 +159,274 @@ function formatTs(ms: number | null): string {
       </div>
 
       {(tab === 'users' || (tab !== 'roles' && tab !== 'audit')) && (
-        <AdminPanel title="主控台使用者">
-          {users.length === 0 ? (
-            <AdminState tone="empty">尚無使用者。</AdminState>
-          ) : (
-            <AdminTable minWidth="600px" flush>
-              <thead>
-                <tr>
-                  <th>電子郵件</th>
-                  <th>角色</th>
-                  <th>建立時間</th>
-                  <th>狀態</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((u) => (
+        <div class="split-layout">
+          <AdminPanel title="主控台使用者">
+            <div class="list-tools" aria-label="使用者清單工具">
+              <label class="tool-field">
+                <span>搜尋</span>
+                <input
+                  type="search"
+                  data-rbac-search="users"
+                  placeholder="email 或角色"
+                  autocomplete="off"
+                />
+              </label>
+              <label class="tool-field">
+                <span>狀態</span>
+                <select data-rbac-status-filter>
+                  <option value="all">全部</option>
+                  <option value="active">啟用中</option>
+                  <option value="disabled">停用</option>
+                </select>
+              </label>
+              <span class="list-count" data-rbac-count="users">{users.length} 位使用者</span>
+            </div>
+            {users.length === 0 ? (
+              <AdminState tone="empty">尚無使用者。</AdminState>
+            ) : (
+              <AdminTable minWidth="600px" flush>
+                <thead>
                   <tr>
-                    <td>
-                      <a href={`/admin/console/rbac/users/${u.user_id}`} class="link">
-                        {u.email}
-                      </a>
-                    </td>
-                    <td class="roles-cell">{u.roles ?? '—'}</td>
-                    <td class="mono">{formatTs(u.created_at)}</td>
-                    <td>
-                      {u.disabled_at ? (
-                        <span class="badge disabled">停用</span>
-                      ) : (
-                        <span class="badge active">啟用中</span>
-                      )}
-                    </td>
+                    <th>電子郵件</th>
+                    <th>角色</th>
+                    <th>建立時間</th>
+                    <th>狀態</th>
+                    <th>管理</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {users.map((u) => (
+                    <tr
+                      data-rbac-row="users"
+                      data-rbac-status={u.disabled_at ? 'disabled' : 'active'}
+                      data-rbac-search-text={`${u.email} ${u.roles ?? ''}`.toLowerCase()}
+                    >
+                      <td>
+                        <a href={`/admin/console/rbac/users/${u.user_id}`} class="link">
+                          {u.email}
+                        </a>
+                      </td>
+                      <td class="roles-cell">
+                        {u.roles ? (
+                          <span class="role-chip-list">
+                            {u.roles.split(',').map((role) => <span class="role-chip">{role}</span>)}
+                          </span>
+                        ) : (
+                          '—'
+                        )}
+                      </td>
+                      <td class="mono">{formatTs(u.created_at)}</td>
+                      <td>
+                        {u.disabled_at ? (
+                          <span class="badge disabled">停用</span>
+                        ) : (
+                          <span class="badge active">啟用中</span>
+                        )}
+                      </td>
+                      <td>
+                        <div class="table-actions">
+                          <a href={`/admin/console/rbac/users/${u.user_id}`} class="btn-small-link">編輯</a>
+                          <form
+                            method="POST"
+                            action={`/api/admin/console/rbac/users/${u.user_id}/disable`}
+                            class="inline-form"
+                            data-confirm={u.disabled_at ? `確定重新啟用 ${u.email}？` : `確定停用 ${u.email}？停用後將無法存取主控台。`}
+                            data-list-operation-form
+                            data-operation-impact={u.disabled_at ? `${u.email} 將恢復主控台存取；角色指派不會變更。` : `${u.email} 將無法存取主控台；角色指派會保留，之後可重新啟用。`}
+                            data-pending-label={u.disabled_at ? '啟用中…' : '停用中…'}
+                          >
+                            <input type="hidden" name="redirect" value="/admin/console/rbac?tab=users" />
+                            {u.disabled_at ? (
+                              <>
+                                <input type="hidden" name="action" value="enable" />
+                                <button type="submit" class="btn-small" aria-label={`重新啟用 ${u.email}`}>啟用</button>
+                              </>
+                            ) : (
+                              <>
+                                <input type="hidden" name="action" value="disable" />
+                                <button type="submit" class="btn-small danger" aria-label={`停用 ${u.email}`}>停用</button>
+                              </>
+                            )}
+                          </form>
+                          <form
+                            method="POST"
+                            action={`/api/admin/console/rbac/users/${u.user_id}`}
+                            class="inline-form"
+                            data-confirm={`刪除 ${u.email}？這會移除角色指派，稽核記錄會保留但清空 user_id。`}
+                            data-list-operation-form
+                            data-operation-impact={`${u.email} 會被刪除，角色指派會移除；既有稽核記錄會保留但不再連到此 user_id。`}
+                            data-pending-label="刪除中…"
+                          >
+                            <input type="hidden" name="action" value="delete" />
+                            <input type="hidden" name="redirect" value="/admin/console/rbac?tab=users" />
+                            <button type="submit" class="btn-small danger" aria-label={`刪除 ${u.email}`}>刪除</button>
+                          </form>
+                          <span class="row-operation-preview" data-operation-preview>
+                            {u.disabled_at ? '啟用會恢復主控台存取。' : '停用會立即阻擋主控台存取。'}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </AdminTable>
+            )}
+          </AdminPanel>
+
+          <AdminPanel title="新增使用者" eyebrow="建立主控台帳號並指派初始角色">
+            <form
+              method="POST"
+              action="/api/admin/console/rbac/users"
+              class="crud-form"
+              data-rbac-create-user-form
+              data-existing-user-emails={existingUserEmails}
+            >
+              <input type="hidden" name="redirect" value="/admin/console/rbac?tab=users" />
+              <div class="form-row">
+                <label for="new-user-email" class="form-label">電子郵件</label>
+                <input
+                  id="new-user-email"
+                  name="email"
+                  type="email"
+                  class="form-input"
+                  placeholder="admin@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <fieldset class="role-fieldset">
+                <legend>初始角色</legend>
+                {roles.map((role) => (
+                  <label class="check-row">
+                    <input type="checkbox" name="roles" value={role.name} />
+                    <span>
+                      <strong>{role.name}</strong>
+                      {role.description && <small>{role.description}</small>}
+                    </span>
+                  </label>
                 ))}
-              </tbody>
-            </AdminTable>
-          )}
-        </AdminPanel>
+              </fieldset>
+              <p class="operation-preview" data-rbac-user-preview role="status" aria-live="polite">
+                輸入 email 並選擇初始角色。若不選角色，使用者建立後仍無法操作主控台。
+              </p>
+              <button type="submit" class="btn-primary">新增使用者</button>
+            </form>
+          </AdminPanel>
+        </div>
       )}
 
       {tab === 'roles' && (
-        <AdminPanel title="角色">
-          {roles.length === 0 ? (
-            <AdminState tone="empty">尚無角色。</AdminState>
-          ) : (
-            <AdminTable minWidth="400px" flush>
-              <thead>
-                <tr>
-                  <th>名稱</th>
-                  <th>描述</th>
-                </tr>
-              </thead>
-              <tbody>
-                {roles.map((r) => (
+        <div class="split-layout">
+          <AdminPanel title="角色">
+            <div class="list-tools" aria-label="角色清單工具">
+              <label class="tool-field">
+                <span>搜尋</span>
+                <input
+                  type="search"
+                  data-rbac-search="roles"
+                  placeholder="角色名稱或描述"
+                  autocomplete="off"
+                />
+              </label>
+              <span class="list-count" data-rbac-count="roles">{roles.length} 個角色</span>
+            </div>
+            {roles.length === 0 ? (
+              <AdminState tone="empty">尚無角色。</AdminState>
+            ) : (
+              <AdminTable minWidth="560px" flush>
+                <thead>
                   <tr>
-                    <td>
-                      <a href={`/admin/console/rbac/roles/${r.role_id}`} class="link">
-                        {r.name}
-                      </a>
-                    </td>
-                    <td class="muted">{r.description ?? '—'}</td>
+                    <th>名稱</th>
+                    <th>描述</th>
+                    <th>權限</th>
+                    <th>使用者</th>
+                    <th>管理</th>
                   </tr>
-                ))}
-              </tbody>
-            </AdminTable>
-          )}
-        </AdminPanel>
+                </thead>
+                <tbody>
+                  {roles.map((r) => (
+                    <tr
+                      data-rbac-row="roles"
+                      data-rbac-search-text={`${r.name} ${r.description ?? ''}`.toLowerCase()}
+                    >
+                      <td>
+                        <a href={`/admin/console/rbac/roles/${r.role_id}`} class="link">
+                          {r.name}
+                        </a>
+                      </td>
+                      <td class="muted">{r.description ?? '—'}</td>
+                      <td class="num">{r.permission_count.toLocaleString()}</td>
+                      <td class="num">{r.user_count.toLocaleString()}</td>
+                      <td>
+                        <div class="table-actions">
+                          <a href={`/admin/console/rbac/roles/${r.role_id}`} class="btn-small-link">編輯</a>
+                          {!RESERVED_ROLES.includes(r.name) && (
+                            <form
+                              method="POST"
+                              action={`/api/admin/console/rbac/roles/${r.role_id}`}
+                              class="inline-form"
+                              data-confirm={`刪除角色 ${r.name}？這會移除角色權限與所有使用者指派。`}
+                              data-list-operation-form
+                              data-operation-impact={`角色 ${r.name} 會被刪除，${r.permission_count.toLocaleString()} 個權限與 ${r.user_count.toLocaleString()} 位使用者指派會一併移除。`}
+                              data-pending-label="刪除中…"
+                            >
+                              <input type="hidden" name="action" value="delete" />
+                              <input type="hidden" name="redirect" value="/admin/console/rbac?tab=roles" />
+                              <button type="submit" class="btn-small danger" aria-label={`刪除角色 ${r.name}`}>刪除</button>
+                            </form>
+                          )}
+                          <span class="row-operation-preview" data-operation-preview>
+                            {RESERVED_ROLES.includes(r.name)
+                              ? '系統角色只能在詳情頁調整權限。'
+                              : `${r.permission_count.toLocaleString()} 個權限、${r.user_count.toLocaleString()} 位使用者會受刪除影響。`}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </AdminTable>
+            )}
+          </AdminPanel>
+
+          <AdminPanel title="新增角色" eyebrow="建立自訂角色後再到角色詳情新增權限">
+            <form
+              method="POST"
+              action="/api/admin/console/rbac/roles"
+              class="crud-form"
+              data-rbac-create-role-form
+              data-existing-role-names={existingRoleNames}
+            >
+              <input type="hidden" name="redirect" value="/admin/console/rbac?tab=roles" />
+              <div class="form-row">
+                <label for="new-role-name" class="form-label">角色名稱</label>
+                <input
+                  id="new-role-name"
+                  name="name"
+                  type="text"
+                  class="form-input"
+                  placeholder="ops_lead"
+                  pattern="[a-z][a-z0-9_-]{1,63}"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="new-role-description" class="form-label">描述</label>
+                <textarea
+                  id="new-role-description"
+                  name="description"
+                  class="form-textarea"
+                  placeholder="此角色的使用情境"
+                  rows="3"
+                ></textarea>
+              </div>
+              <p class="operation-preview" data-rbac-role-preview role="status" aria-live="polite">
+                新角色建立後沒有任何權限，需進入角色詳情新增權限或套用範本。
+              </p>
+              <button type="submit" class="btn-primary">新增角色</button>
+            </form>
+          </AdminPanel>
+        </div>
       )}
 
       {tab === 'audit' && (
@@ -220,16 +457,172 @@ function formatTs(ms: number | null): string {
               </tbody>
             </AdminTable>
           )}
+          <div class="panel-actions">
+            <a href="/admin/console/rbac/audit" class="btn-secondary">開啟完整稽核搜尋</a>
+          </div>
         </AdminPanel>
       )}
     </div>
   )}
 </AdminConsoleLayout>
 
+<script
+  is:inline
+  set:html={`(function () {
+  function updateRows(scope) {
+    var input = document.querySelector('[data-rbac-search="' + scope + '"]');
+    var query = input instanceof HTMLInputElement ? input.value.trim().toLowerCase() : '';
+    var statusFilter = scope === 'users' ? document.querySelector('[data-rbac-status-filter]') : null;
+    var status = statusFilter instanceof HTMLSelectElement ? statusFilter.value : 'all';
+    var rows = Array.prototype.slice.call(document.querySelectorAll('[data-rbac-row="' + scope + '"]'));
+    var visible = 0;
+    rows.forEach(function (row) {
+      if (!(row instanceof HTMLElement)) return;
+      var text = row.dataset.rbacSearchText || '';
+      var rowStatus = row.dataset.rbacStatus || 'active';
+      var matchesQuery = !query || text.indexOf(query) !== -1;
+      var matchesStatus = status === 'all' || rowStatus === status;
+      var show = matchesQuery && matchesStatus;
+      row.hidden = !show;
+      if (show) visible += 1;
+    });
+    var count = document.querySelector('[data-rbac-count="' + scope + '"]');
+    if (count) {
+      count.textContent = scope === 'users'
+        ? visible + ' / ' + rows.length + ' 位使用者'
+        : visible + ' / ' + rows.length + ' 個角色';
+    }
+  }
+
+  document.querySelectorAll('[data-rbac-search]').forEach(function (input) {
+    input.addEventListener('input', function () {
+      if (!(input instanceof HTMLInputElement)) return;
+      updateRows(input.dataset.rbacSearch || '');
+    });
+  });
+  var statusFilter = document.querySelector('[data-rbac-status-filter]');
+  statusFilter?.addEventListener('change', function () {
+    updateRows('users');
+  });
+
+  function selectedRoleNames(form) {
+    return Array.prototype.slice.call(form.querySelectorAll('input[name="roles"]:checked'))
+      .map(function (input) { return input instanceof HTMLInputElement ? input.value : ''; })
+      .filter(Boolean);
+  }
+
+  function updateUserPreview() {
+    var form = document.querySelector('[data-rbac-create-user-form]');
+    if (!(form instanceof HTMLFormElement)) return;
+    var preview = form.querySelector('[data-rbac-user-preview]');
+    if (!preview) return;
+    var email = form.querySelector('input[name="email"]');
+    var emailValue = email instanceof HTMLInputElement ? email.value.trim().toLowerCase() : '';
+    var roles = selectedRoleNames(form);
+    var existing = [];
+    try {
+      existing = JSON.parse(form.dataset.existingUserEmails || '[]');
+    } catch {}
+    if (email instanceof HTMLInputElement) email.setCustomValidity('');
+    if (!emailValue) {
+      preview.textContent = '輸入 email 並選擇初始角色。若不選角色，使用者建立後仍無法操作主控台。';
+      preview.className = 'operation-preview';
+      return;
+    }
+    if (existing.indexOf(emailValue) !== -1) {
+      preview.textContent = emailValue + ' 已存在，請從使用者清單進入詳情頁編輯角色。';
+      preview.className = 'operation-preview warning';
+      if (email instanceof HTMLInputElement) email.setCustomValidity('使用者已存在。');
+      return;
+    }
+    preview.textContent = roles.length > 0
+      ? '將建立 ' + emailValue + '，初始角色：' + roles.join(', ') + '。'
+      : '將建立 ' + emailValue + '，但目前未指派角色；建立後仍無法操作主控台。';
+    preview.className = roles.length > 0 ? 'operation-preview' : 'operation-preview warning';
+  }
+
+  function updateRolePreview() {
+    var form = document.querySelector('[data-rbac-create-role-form]');
+    if (!(form instanceof HTMLFormElement)) return;
+    var preview = form.querySelector('[data-rbac-role-preview]');
+    if (!preview) return;
+    var input = form.querySelector('input[name="name"]');
+    var name = input instanceof HTMLInputElement ? input.value.trim() : '';
+    var reserved = ['admin', 'operator', 'approver', 'viewer'];
+    var existing = [];
+    try {
+      existing = JSON.parse(form.dataset.existingRoleNames || '[]');
+    } catch {}
+    if (input instanceof HTMLInputElement) input.setCustomValidity('');
+    if (!name) {
+      preview.textContent = '新角色建立後沒有任何權限，需進入角色詳情新增權限或套用範本。';
+      preview.className = 'operation-preview';
+      return;
+    }
+    if (reserved.indexOf(name) !== -1) {
+      preview.textContent = '角色 ' + name + ' 是系統保留角色，不能從新增角色表單修改。';
+      preview.className = 'operation-preview error';
+      if (input instanceof HTMLInputElement) input.setCustomValidity('系統保留角色不能從新增角色表單修改。');
+      return;
+    }
+    if (existing.indexOf(name) !== -1) {
+      preview.textContent = '角色 ' + name + ' 已存在，請從角色清單進入詳情頁編輯。';
+      preview.className = 'operation-preview warning';
+      if (input instanceof HTMLInputElement) input.setCustomValidity('角色已存在。');
+      return;
+    }
+    preview.textContent = '將建立自訂角色 ' + name + '；建立後請到角色詳情新增權限。';
+    preview.className = 'operation-preview';
+  }
+
+  document.querySelector('[data-rbac-create-user-form]')?.addEventListener('input', updateUserPreview);
+  document.querySelector('[data-rbac-create-user-form]')?.addEventListener('change', updateUserPreview);
+  document.querySelector('[data-rbac-create-role-form]')?.addEventListener('input', updateRolePreview);
+  document.querySelector('[data-rbac-create-role-form]')?.addEventListener('change', updateRolePreview);
+
+  document.addEventListener('submit', function (event) {
+    var form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    var message = form.dataset.confirm;
+    if (form.dataset.listOperationForm !== undefined && form.dataset.operationImpact) {
+      message = form.dataset.operationImpact + ' 確定執行？';
+    }
+    if (message && !window.confirm(message)) {
+      event.preventDefault();
+      return;
+    }
+    var button = form.querySelector('button[type="submit"]');
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = true;
+      button.dataset.originalText = button.textContent || '';
+      button.textContent = form.dataset.pendingLabel || '處理中…';
+    }
+  });
+
+  updateUserPreview();
+  updateRolePreview();
+  updateRows('users');
+  updateRows('roles');
+})();`}
+></script>
+
 <style>
   .rbac-layout {
     display: grid;
     gap: 1rem;
+  }
+
+  .split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .split-layout {
+      grid-template-columns: 1fr;
+    }
   }
 
   .tab-bar {
@@ -239,6 +632,50 @@ function formatTs(ms: number | null): string {
     border-radius: 6px;
     overflow: hidden;
     width: fit-content;
+  }
+
+  .notice {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.65rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .notice.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .notice.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .operation-preview {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    padding: 0.65rem 0.75rem;
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .operation-preview.warning {
+    border-color: #facc15;
+    background: #fefce8;
+    color: #713f12;
+  }
+
+  .operation-preview.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
   }
 
   .tab {
@@ -267,6 +704,9 @@ function formatTs(ms: number | null): string {
   }
 
   .link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
     color: var(--admin-accent);
     text-decoration: none;
   }
@@ -290,6 +730,67 @@ function formatTs(ms: number | null): string {
     color: var(--admin-text-soft);
   }
 
+  .list-tools {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border-top: 1px solid var(--admin-border);
+    padding: 0.75rem 1rem;
+  }
+
+  .tool-field {
+    display: grid;
+    gap: 0.3rem;
+    min-width: min(220px, 100%);
+  }
+
+  .tool-field span,
+  .list-count {
+    color: var(--admin-text-soft);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .tool-field input,
+  .tool-field select {
+    min-height: 2.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 0.86rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .list-count {
+    margin-left: auto;
+    padding-bottom: 0.45rem;
+  }
+
+  .role-chip-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .role-chip {
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    background: var(--admin-bg);
+    color: var(--admin-text-muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+  }
+
+  .num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    text-align: right;
+  }
+
   .badge {
     display: inline-block;
     padding: 0.1em 0.55em;
@@ -309,5 +810,189 @@ function formatTs(ms: number | null): string {
     color: #dc2626;
     border-color: #dc2626;
     background: #fef2f2;
+  }
+
+  .crud-form {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .form-label,
+  .role-fieldset legend {
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 0.875rem;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .form-textarea {
+    resize: vertical;
+  }
+
+  .role-fieldset {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .check-row {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    font-size: 0.86rem;
+    min-height: 2.75rem;
+    padding: 0.25rem 0;
+  }
+
+  .check-row small {
+    display: block;
+    color: var(--admin-text-muted);
+    font-size: 0.78rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--admin-radius);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    border: 1px solid var(--admin-accent);
+    background: var(--admin-accent);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+  }
+
+  .table-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .inline-form {
+    display: inline-flex;
+  }
+
+  .btn-small,
+  .btn-small-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-small:hover,
+  .btn-small-link:hover {
+    background: var(--admin-muted);
+  }
+
+  .btn-small.danger {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+
+  .btn-small.danger:hover {
+    background: #fee2e2;
+  }
+
+  .row-operation-preview {
+    flex-basis: 100%;
+    color: var(--admin-text-soft);
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .panel-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  @media (max-width: 720px) {
+    .tab-bar {
+      width: 100%;
+    }
+
+    .tab {
+      flex: 1;
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.5rem;
+    }
+
+    .list-tools {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .tool-field {
+      min-width: 100%;
+    }
+
+    .list-count {
+      margin-left: 0;
+      padding-bottom: 0;
+    }
+
+    .table-actions,
+    .inline-form,
+    .btn-small,
+    .btn-small-link,
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+
+    .table-actions {
+      align-items: stretch;
+    }
+
+    .panel-actions {
+      justify-content: stretch;
+    }
   }
 </style>
