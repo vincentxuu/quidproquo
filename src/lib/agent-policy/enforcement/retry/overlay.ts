@@ -1,4 +1,4 @@
-import type { RetryPolicy } from '../../schema/categories/retry'
+import type { RetryPolicy } from '../../schema/body'
 
 export function overlayRetry(
   stepRetryConfig: RetryPolicy | undefined,

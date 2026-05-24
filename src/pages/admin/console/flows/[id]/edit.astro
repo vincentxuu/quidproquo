@@ -4,6 +4,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import { FlowEditorWithPalette } from '@/components/admin/console/FlowEditor';
 import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
 
 export const prerender = false;
@@ -13,6 +14,8 @@ if (gate) return gate;
 
 const ready = isPageEnabled('flowEditor');
 const flowId = Astro.params.id ?? '';
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 let definitionYaml = '';
 let definitionJson = '{}';
@@ -50,17 +53,17 @@ if (ready && flowId) {
 }
 
 const breadcrumb = [
-  { label: '工作流程', href: '/admin/console/flows' },
-  { label: flowName, href: `/admin/console/flows/${flowId}` },
-  { label: '編輯' },
+  { label: t('flows.title'), href: consoleHref('/admin/console/flows', lang) },
+  { label: flowName, href: consoleHref(`/admin/console/flows/${flowId}`, lang) },
+  { label: t('common.edit') },
 ];
 ---
 
-<AdminConsoleLayout title="編輯工作流程" section="management" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('flows.editTitle')} section="flows" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
+    <AdminState tone="empty">{t('flows.editorUnavailable', { phase: consolePhaseFor('flowEditor') })}</AdminState>
   )}
-  {ready && loadError && <AdminState tone="error">無法載入工作流程。</AdminState>}
+  {ready && loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
   {ready && !loadError && (
     <div class="editor-wrap">
       <div class="editor-toolbar">
@@ -74,25 +77,25 @@ const breadcrumb = [
           </div>
         </div>
         <div class="toolbar-actions">
-          <select id="snippet-select" class="snippet-select" aria-label="插入片段">
-            <option value="">插入片段</option>
+          <select id="snippet-select" class="snippet-select" aria-label={t('flows.insertSnippet')}>
+            <option value="">{t('flows.insertSnippet')}</option>
             <option value="agent">Agent step</option>
             <option value="tool_group">Tool group</option>
             <option value="approval">Approval gate</option>
             <option value="edge">Edge</option>
           </select>
-          <button type="button" id="copy-btn" class="btn btn-secondary">複製</button>
-          <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
-          <button type="button" id="toggle-view-btn" class="btn btn-secondary">圖形檢視</button>
-          <button type="button" id="save-btn" class="btn btn-primary">儲存</button>
+          <button type="button" id="copy-btn" class="btn btn-secondary">{t('common.copy')}</button>
+          <button type="button" id="validate-btn" class="btn btn-secondary">{t('common.validate')}</button>
+          <button type="button" id="toggle-view-btn" class="btn btn-secondary">{t('flows.graphView')}</button>
+          <button type="button" id="save-btn" class="btn btn-primary">{t('common.save')}</button>
         </div>
       </div>
 
       <div id="yaml-editor-panel">
         <form id="edit-form" autocomplete="off">
           <div class="status-row">
-            <label for="yaml-editor" class="editor-label">工作流程 YAML</label>
-            <span id="save-status" class="save-status" aria-live="polite">尚未修改</span>
+            <label for="yaml-editor" class="editor-label">{t('flows.yamlLabel')}</label>
+            <span id="save-status" class="save-status" aria-live="polite">{t('common.unchanged')}</span>
           </div>
           <textarea
             id="yaml-editor"
@@ -117,7 +120,23 @@ const breadcrumb = [
   )}
 </AdminConsoleLayout>
 
-<script define:vars={{ flowId }}>
+<script define:vars={{
+  flowId,
+  messages: {
+    unchanged: t('common.unchanged'),
+    unsaved: t('common.unsaved'),
+    validating: `${t('common.validate')}...`,
+    validationPassed: t('common.validationPassed'),
+    validationFailed: t('common.validationFailed'),
+    saving: t('flows.saving'),
+    savedAs: t('flows.savedAs'),
+    copiedYaml: t('flows.copiedYaml'),
+    copyFailed: t('flows.copyFailed'),
+    graphView: t('flows.graphView'),
+    yamlView: t('flows.yamlView'),
+    fixBeforeGraph: t('flows.fixBeforeGraph'),
+  },
+}}>
   const textarea = document.getElementById('yaml-editor');
   const errorPanel = document.getElementById('error-panel');
   const saveStatus = document.getElementById('save-status');
@@ -197,10 +216,10 @@ const breadcrumb = [
   function refreshDirtyState() {
     const yaml = textarea?.value ?? '';
     if (yaml === lastSavedYaml) {
-      setStatus('尚未修改', '');
+      setStatus(messages.unchanged, '');
       return;
     }
-    setStatus('有未儲存變更', 'dirty');
+    setStatus(messages.unsaved, 'dirty');
   }
 
   function insertAtCursor(value) {
@@ -233,15 +252,15 @@ const breadcrumb = [
 
   async function handleValidateClick() {
     const yaml = textarea?.value ?? '';
-    setStatus('驗證中…', '');
+    setStatus(messages.validating, '');
     setErrors([]);
     const data = await doValidate(yaml);
     if (data.valid) {
-      setStatus('驗證通過', 'ok');
+      setStatus(messages.validationPassed, 'ok');
       setErrors([]);
     } else {
       setStatus('', '');
-      setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
+      setErrors(data.errors ?? [{ path: '(unknown)', message: messages.validationFailed }]);
     }
     return data.valid;
   }
@@ -259,7 +278,7 @@ const breadcrumb = [
       if (data.valid) {
         setErrors([]);
       } else {
-        setErrors(data.errors ?? [{ path: '(unknown)', message: 'Validation failed' }]);
+        setErrors(data.errors ?? [{ path: '(unknown)', message: messages.validationFailed }]);
       }
     }, 500);
   });
@@ -267,7 +286,7 @@ const breadcrumb = [
   // ── save ─────────────────────────────────────────────────────────────────────
 
   async function saveYaml(yaml) {
-    setStatus('儲存中…', '');
+    setStatus(messages.saving, '');
     setErrors([]);
     try {
       const res = await fetch(`/api/admin/flows/${flowId}/version`, {
@@ -278,7 +297,7 @@ const breadcrumb = [
       const data = await res.json();
       if (res.ok) {
         lastSavedYaml = yaml;
-        setStatus(`Saved as v${data.version}`, 'ok');
+        setStatus(messages.savedAs.replace('{version}', data.version), 'ok');
         setErrors([]);
         setTimeout(() => { window.location.href = `/admin/console/flows/${flowId}`; }, 800);
       } else if (data.errors) {
@@ -286,7 +305,7 @@ const breadcrumb = [
         setErrors(data.errors);
       } else {
         setStatus('', '');
-        setErrors([{ path: '(server)', message: data.error ?? '儲存失敗' }]);
+        setErrors([{ path: '(server)', message: data.error ?? messages.validationFailed }]);
       }
     } catch (err) {
       setErrors([{ path: '(network)', message: String(err) }]);
@@ -302,10 +321,10 @@ const breadcrumb = [
     const yaml = textarea?.value ?? '';
     try {
       await navigator.clipboard.writeText(yaml);
-      setStatus('已複製 YAML', 'ok');
+      setStatus(messages.copiedYaml, 'ok');
       setTimeout(refreshDirtyState, 1000);
     } catch (err) {
-      setStatus('複製失敗', '');
+      setStatus(messages.copyFailed, '');
     }
   });
 
@@ -330,17 +349,17 @@ const breadcrumb = [
       const data = await doValidate(yaml);
       if (!data.valid) {
         setErrors(data.errors ?? []);
-        setStatus('請先修正錯誤再切換至圖形檢視。', '');
+        setStatus(messages.fixBeforeGraph, '');
         return;
       }
       isVisual = true;
-      toggleBtn.textContent = 'YAML 檢視';
+      toggleBtn.textContent = messages.yamlView;
       yamlPanel?.classList.add('hidden');
       visualPanel?.classList.remove('hidden');
     } else {
       // Switch back to YAML
       isVisual = false;
-      toggleBtn.textContent = '圖形檢視';
+      toggleBtn.textContent = messages.graphView;
       visualPanel?.classList.add('hidden');
       yamlPanel?.classList.remove('hidden');
     }
@@ -509,5 +528,16 @@ const breadcrumb = [
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     overflow: hidden;
+  }
+
+  @media (max-width: 760px) {
+    #toggle-view-btn,
+    #visual-editor {
+      display: none !important;
+    }
+
+    #yaml-editor-panel {
+      display: block;
+    }
   }
 </style>

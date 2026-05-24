@@ -9,6 +9,12 @@ import { nowMs } from '@/lib/utils/dates'
 import { ensureAgentFlowEnabled } from '../../../../../_guard'
 import { requirePermission, auditLog, PermissionDenied } from '@/lib/agent-console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
+import { getTableColumns } from '@/lib/admin-console/schema'
+
+function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
+  const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
+  return cfContext?.waitUntil?.bind(cfContext)
+}
 
 export const POST: APIRoute = async ({ cookies, params, locals }) => {
   const auth = await requireAdmin(cookies)
@@ -24,6 +30,11 @@ export const POST: APIRoute = async ({ cookies, params, locals }) => {
   const workerEnv = env as unknown as Env
   const db = workerEnv.DB
   const flags = readFlags(workerEnv)
+  const stepRunColumns = await getTableColumns(db, 'flow_step_runs')
+  const stepTypeSelect = stepRunColumns.has('step_type') ? 'step_type' : 'kind AS step_type'
+  const iterationSelect = stepRunColumns.has('iteration') ? 'iteration' : '0 AS iteration'
+  const attemptSelect = stepRunColumns.has('attempt') ? 'attempt' : '1 AS attempt'
+  const parentStepSelect = stepRunColumns.has('parent_step_run_id') ? 'parent_step_run_id' : 'NULL AS parent_step_run_id'
 
   // TODO: session does not store email; replace 'admin' with real email once sessions carry identity
   const adminEmail = 'admin'
@@ -38,8 +49,8 @@ export const POST: APIRoute = async ({ cookies, params, locals }) => {
   // Load the step run and verify it belongs to this run
   const stepRun = await db
     .prepare(
-      `SELECT step_run_id, flow_run_id, step_id, step_order, step_type,
-              iteration, attempt, status, parent_step_run_id
+      `SELECT step_run_id, flow_run_id, step_id, step_order, ${stepTypeSelect},
+              ${iterationSelect}, ${attemptSelect}, status, ${parentStepSelect}
        FROM flow_step_runs
        WHERE step_run_id = ?`,
     )
@@ -79,43 +90,52 @@ export const POST: APIRoute = async ({ cookies, params, locals }) => {
   }
 
   // Find the current max attempt for this step_id in this run
-  const maxAttemptRow = await db
-    .prepare(
-      `SELECT MAX(attempt) AS max_attempt
-       FROM flow_step_runs
-       WHERE flow_run_id = ? AND step_id = ?`,
-    )
-    .bind(runId, stepRun.step_id)
-    .first<{ max_attempt: number | null }>()
+  const maxAttemptRow = stepRunColumns.has('attempt')
+    ? await db
+      .prepare(
+        `SELECT MAX(attempt) AS max_attempt
+         FROM flow_step_runs
+         WHERE flow_run_id = ? AND step_id = ?`,
+      )
+      .bind(runId, stepRun.step_id)
+      .first<{ max_attempt: number | null }>()
+    : null
 
   const newAttempt = (maxAttemptRow?.max_attempt ?? stepRun.attempt) + 1
   const newStepRunId = crypto.randomUUID()
   const now = nowMs()
+  const insertColumns: string[] = ['step_run_id', 'flow_run_id', 'step_id', 'step_order', 'status', 'started_at', 'created_at']
+  const insertValues: unknown[] = [newStepRunId, runId, stepRun.step_id, stepRun.step_order, 'pending', now, now]
+  if (stepRunColumns.has('parent_step_run_id')) {
+    insertColumns.push('parent_step_run_id')
+    insertValues.push(stepRun.parent_step_run_id)
+  }
+  if (stepRunColumns.has('step_type')) {
+    insertColumns.push('step_type')
+    insertValues.push(stepRun.step_type)
+  } else if (stepRunColumns.has('kind')) {
+    insertColumns.push('kind')
+    insertValues.push(stepRun.step_type)
+  }
+  if (stepRunColumns.has('iteration')) {
+    insertColumns.push('iteration')
+    insertValues.push(stepRun.iteration)
+  }
+  if (stepRunColumns.has('attempt')) {
+    insertColumns.push('attempt')
+    insertValues.push(newAttempt)
+  }
+  if (stepRunColumns.has('updated_at')) {
+    insertColumns.push('updated_at')
+    insertValues.push(now)
+  }
 
   await db
-    .prepare(
-      `INSERT INTO flow_step_runs (
-        step_run_id, flow_run_id, parent_step_run_id, step_id, step_order, step_type,
-        iteration, status, attempt, started_at, created_at, updated_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', ?, ?, ?, ?)`,
-    )
-    .bind(
-      newStepRunId,
-      runId,
-      stepRun.parent_step_run_id,
-      stepRun.step_id,
-      stepRun.step_order,
-      stepRun.step_type,
-      stepRun.iteration,
-      newAttempt,
-      now,
-      now,
-      now,
-    )
+    .prepare(`INSERT INTO flow_step_runs (${insertColumns.join(', ')}) VALUES (${insertColumns.map(() => '?').join(', ')})`)
+    .bind(...insertValues)
     .run()
 
-  const ctx = (locals as { runtime?: { ctx?: { waitUntil?: (p: Promise<unknown>) => void } } }).runtime?.ctx
-  auditLog({ db, email: adminEmail, action: 'flow.step.retry', kind: 'run', id: stepRunId, waitUntil: ctx?.waitUntil?.bind(ctx) }).catch(() => {})
+  auditLog({ db, email: adminEmail, action: 'flow.step.retry', kind: 'run', id: stepRunId, waitUntil: getWaitUntil(locals) }).catch(() => {})
 
   return json({ stepRunId: newStepRunId, attempt: newAttempt }, 202)
 }

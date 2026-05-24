@@ -8,6 +8,33 @@ import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 const ASTRO_WORKER = './dist/server/entry.mjs'
 const OUTPUT = './dist/cron-entry.js'
 const SERVER_WRANGLER = './dist/server/wrangler.json'
+const SOURCE_WRANGLER = './wrangler.jsonc'
+
+const NON_INHERITABLE_ENV_KEYS = [
+  'vars',
+  'durable_objects',
+  'workflows',
+  'kv_namespaces',
+  'cloudchamber',
+  'send_email',
+  'queues',
+  'r2_buckets',
+  'd1_databases',
+  'vectorize',
+  'hyperdrive',
+  'services',
+  'analytics_engine_datasets',
+  'dispatch_namespaces',
+  'mtls_certificates',
+  'ai',
+  'images',
+  'pipelines',
+  'secrets_store_secrets',
+  'unsafe_hello_world',
+  'worker_loaders',
+  'ratelimits',
+  'vpc_services',
+]
 
 if (!existsSync(ASTRO_WORKER)) {
   console.error('Astro worker not found. Run astro build first.')
@@ -134,6 +161,12 @@ console.log('✅ Created', OUTPUT)
 // Patch dist/server/wrangler.json to point main to cron-entry.js
 if (existsSync(SERVER_WRANGLER)) {
   const wranglerConfig = JSON.parse(readFileSync(SERVER_WRANGLER, 'utf-8'))
+  if (existsSync(SOURCE_WRANGLER)) {
+    const sourceConfig = JSON.parse(readFileSync(SOURCE_WRANGLER, 'utf-8'))
+    if (sourceConfig.env) {
+      wranglerConfig.env = hydrateEnvConfig(wranglerConfig, sourceConfig.env)
+    }
+  }
   wranglerConfig.main = '../cron-entry.js'
   wranglerConfig.no_bundle = false
   wranglerConfig.rules = [
@@ -141,4 +174,22 @@ if (existsSync(SERVER_WRANGLER)) {
   ]
   writeFileSync(SERVER_WRANGLER, JSON.stringify(wranglerConfig, null, 2))
   console.log('✅ Patched dist/server/wrangler.json main -> ../cron-entry.js')
+}
+
+function hydrateEnvConfig(baseConfig, sourceEnv) {
+  return Object.fromEntries(
+    Object.entries(sourceEnv).map(([envName, envConfig]) => {
+      const next = { ...clone(envConfig) }
+      for (const key of NON_INHERITABLE_ENV_KEYS) {
+        if (next[key] === undefined && baseConfig[key] !== undefined) {
+          next[key] = clone(baseConfig[key])
+        }
+      }
+      return [envName, next]
+    })
+  )
+}
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value))
 }

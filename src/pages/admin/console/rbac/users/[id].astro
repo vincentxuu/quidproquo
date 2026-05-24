@@ -13,6 +13,8 @@ if (gate) return gate;
 
 const ready = isPageEnabled('rbac');
 const userId = Astro.params.id ?? '';
+const rbacSuccess = Astro.url.searchParams.get('rbac_success');
+const rbacError = Astro.url.searchParams.get('rbac_error');
 
 const breadcrumb = [
   { label: '權限管理', href: '/admin/console/rbac' },
@@ -36,18 +38,27 @@ interface UserRoleRow {
   name: string;
 }
 
+interface AuditRow {
+  audit_id: number;
+  action: string;
+  resource_id: string | null;
+  payload_json: string | null;
+  created_at: number;
+}
+
 const DEFAULT_ROLES = ['admin', 'operator', 'approver', 'viewer'];
 
 let user: UserRow | null = null;
 let allRoles: RoleRow[] = [];
 let assignedRoleNames: string[] = [];
+let auditRows: AuditRow[] = [];
 let loadError = false;
 
 if (ready && userId) {
   try {
     const db = getEnv().DB;
 
-    const [userResult, rolesResult, assignedResult] = await Promise.all([
+    const [userResult, rolesResult, assignedResult, auditResult] = await Promise.all([
       db.prepare(`
         SELECT user_id, email, created_at, disabled_at
         FROM console_users
@@ -66,11 +77,25 @@ if (ready && userId) {
         JOIN console_roles r ON r.role_id = ur.role_id
         WHERE ur.user_id = ?
       `).bind(userId).all<UserRoleRow>(),
+
+      db.prepare(`
+        SELECT audit_id, action, resource_id, payload_json, created_at
+        FROM console_audit_log
+        WHERE resource_kind = 'rbac'
+          AND (
+            resource_id = ?
+            OR payload_json LIKE ?
+            OR payload_json LIKE ?
+          )
+        ORDER BY created_at DESC
+        LIMIT 20
+      `).bind(userId, `%"userId":"${userId}"%`, `%"userId":${userId}%`).all<AuditRow>(),
     ]);
 
     user = userResult ?? null;
     allRoles = rolesResult.results ?? [];
     assignedRoleNames = (assignedResult.results ?? []).map((r) => r.name);
+    auditRows = auditResult.results ?? [];
   } catch {
     loadError = true;
   }
@@ -81,11 +106,32 @@ function formatTs(ms: number | null): string {
   return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
 }
 
+function auditPayloadLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const payload = JSON.parse(raw) as {
+      email?: string;
+      roles?: string[];
+      role?: string;
+      before?: string;
+      after?: string;
+    };
+    if (Array.isArray(payload.roles)) return `roles: ${payload.roles.join(', ') || '—'}`;
+    if (payload.role && payload.email) return `${payload.email} · ${payload.role}`;
+    if (payload.before || payload.after) return `${payload.before ?? '—'} → ${payload.after ?? '—'}`;
+    if (payload.email) return payload.email;
+    return raw;
+  } catch {
+    return raw;
+  }
+}
+
 // Sort roles: default 4 first, then custom
 const sortedRoles = [
   ...allRoles.filter((r) => DEFAULT_ROLES.includes(r.name)),
   ...allRoles.filter((r) => !DEFAULT_ROLES.includes(r.name)),
 ];
+const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
 ---
 
 <AdminConsoleLayout title={user ? user.email : `使用者 ${userId}`} section="rbac" breadcrumb={breadcrumb}>
@@ -103,6 +149,14 @@ const sortedRoles = [
   )}
   {ready && userId && !loadError && user && (
     <div class="user-detail">
+      {(rbacSuccess || rbacError) && (
+        <p
+          class:list={['notice', { success: Boolean(rbacSuccess), error: Boolean(rbacError) }]}
+          role="status"
+        >
+          {rbacSuccess ?? rbacError}
+        </p>
+      )}
 
       <AdminPanel title="使用者資訊">
         <div class="info-grid">
@@ -133,12 +187,48 @@ const sortedRoles = [
         </div>
       </AdminPanel>
 
+      <AdminPanel title="編輯使用者" eyebrow="更新登入識別資料">
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/users/${userId}`}
+          class="edit-form"
+          data-confirm="確定更新此使用者 email？"
+          data-email-form
+        >
+          <input type="hidden" name="action" value="update" />
+          <input type="hidden" name="redirect" value={`/admin/console/rbac/users/${userId}`} />
+          <div class="form-row">
+            <label for="user-email" class="form-label">電子郵件</label>
+            <input
+              id="user-email"
+              name="email"
+              type="email"
+              class="form-input"
+              value={user.email}
+              autocomplete="email"
+              required
+              data-initial-email={user.email}
+            />
+          </div>
+          <p class="operation-preview" data-email-preview role="status" aria-live="polite">
+            目前 email：{user.email}
+          </p>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">儲存使用者</button>
+          </div>
+        </form>
+      </AdminPanel>
+
       <AdminPanel title="角色指派" eyebrow="為此使用者選擇角色">
         <form
           method="POST"
           action={`/api/admin/console/rbac/users/${userId}/roles`}
           class="role-form"
+          data-confirm="確定儲存此使用者的角色指派？"
+          data-role-form
+          data-initial-roles={assignedRoleNamesJson}
         >
+          <input type="hidden" name="redirect" value={`/admin/console/rbac/users/${userId}`} />
           <div class="role-checkboxes">
             {sortedRoles.map((role) => (
               <label class="role-label">
@@ -155,6 +245,9 @@ const sortedRoles = [
               </label>
             ))}
           </div>
+          <p class="operation-preview" data-role-preview role="status" aria-live="polite">
+            目前角色：{assignedRoleNames.join(', ') || '尚未指派角色'}
+          </p>
           <div class="form-actions">
             <button type="submit" class="btn-primary">儲存角色</button>
           </div>
@@ -164,13 +257,25 @@ const sortedRoles = [
       <AdminPanel title="帳號操作" eyebrow="停用或重新啟用此使用者">
         <div class="actions-row">
           {user.disabled_at ? (
-            <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
+            <form
+              method="POST"
+              action={`/api/admin/console/rbac/users/${userId}/disable`}
+              data-confirm="確定重新啟用此使用者？"
+              data-account-action="enable"
+            >
               <input type="hidden" name="action" value="enable" />
+              <input type="hidden" name="redirect" value={`/admin/console/rbac/users/${userId}`} />
               <button type="submit" class="btn-enable">重新啟用使用者</button>
             </form>
           ) : (
-            <form method="POST" action={`/api/admin/console/rbac/users/${userId}/disable`}>
+            <form
+              method="POST"
+              action={`/api/admin/console/rbac/users/${userId}/disable`}
+              data-confirm="確定停用此使用者？停用後將無法存取主控台。"
+              data-account-action="disable"
+            >
               <input type="hidden" name="action" value="disable" />
+              <input type="hidden" name="redirect" value={`/admin/console/rbac/users/${userId}`} />
               <button type="submit" class="btn-danger">停用使用者</button>
             </form>
           )}
@@ -180,16 +285,184 @@ const sortedRoles = [
               : '停用後，此使用者將無法存取主控台。'}
           </span>
         </div>
+        <form
+          method="POST"
+          action={`/api/admin/console/rbac/users/${userId}`}
+          class="danger-form"
+          data-confirm="刪除此使用者會移除角色指派，並保留稽核記錄但清空 user_id。確定刪除？"
+          data-account-action="delete"
+        >
+          <input type="hidden" name="action" value="delete" />
+          <input type="hidden" name="redirect" value="/admin/console/rbac?tab=users" />
+          <button type="submit" class="btn-danger">刪除使用者</button>
+          <span class="action-note">刪除後無法從主控台還原。</span>
+        </form>
+      </AdminPanel>
+
+      <AdminPanel title="操作紀錄" eyebrow="最近 20 筆與此使用者相關的 RBAC 操作">
+        {auditRows.length === 0 ? (
+          <AdminState tone="empty">尚無操作紀錄。</AdminState>
+        ) : (
+          <AdminTable minWidth="560px" flush>
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>動作</th>
+                <th>摘要</th>
+                <th>Resource ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              {auditRows.map((row) => (
+                <tr>
+                  <td class="mono">{formatTs(row.created_at)}</td>
+                  <td class="mono">{row.action}</td>
+                  <td>{auditPayloadLabel(row.payload_json)}</td>
+                  <td class="mono">{row.resource_id ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </AdminTable>
+        )}
       </AdminPanel>
 
     </div>
   )}
 </AdminConsoleLayout>
 
+<script
+  is:inline
+  set:html={`function selectedRoleNames(form) {
+  return Array.from(form.querySelectorAll('input[name="roles"]:checked'))
+    .map(function (input) { return input.value; })
+    .filter(Boolean)
+    .sort();
+}
+
+function initialRoleNames(form) {
+  try {
+    return JSON.parse(form.dataset.initialRoles || '[]').sort();
+  } catch {
+    return [];
+  }
+}
+
+function diffRoles(before, after) {
+  var beforeSet = new Set(before);
+  var afterSet = new Set(after);
+  return {
+    added: after.filter(function (role) { return !beforeSet.has(role); }),
+    removed: before.filter(function (role) { return !afterSet.has(role); }),
+  };
+}
+
+function rolePreviewMessage(form) {
+  var before = initialRoleNames(form);
+  var after = selectedRoleNames(form);
+  var diff = diffRoles(before, after);
+  if (after.length === 0) return '將移除此使用者所有角色，儲存後會失去主控台權限。';
+  if (diff.added.length === 0 && diff.removed.length === 0) {
+    return '角色沒有變更。';
+  }
+  var parts = [];
+  if (diff.added.length > 0) parts.push('新增 ' + diff.added.join(', '));
+  if (diff.removed.length > 0) parts.push('移除 ' + diff.removed.join(', '));
+  return parts.join('；');
+}
+
+function updateRolePreview(form) {
+  var preview = form.querySelector('[data-role-preview]');
+  if (!preview) return;
+  var message = rolePreviewMessage(form);
+  preview.textContent = message;
+  preview.classList.toggle('warning', selectedRoleNames(form).length === 0);
+  preview.classList.toggle('success', message === '角色沒有變更。');
+}
+
+function updateEmailPreview(form) {
+  var input = form.querySelector('[data-initial-email]');
+  var preview = form.querySelector('[data-email-preview]');
+  if (!(input instanceof HTMLInputElement) || !preview) return;
+  var initial = (input.dataset.initialEmail || '').trim().toLowerCase();
+  var next = input.value.trim().toLowerCase();
+  if (!next || next === initial) {
+    preview.textContent = '目前 email：' + initial;
+    preview.classList.add('success');
+    preview.classList.remove('warning');
+    return;
+  }
+  preview.textContent = '將 email 從 ' + initial + ' 更新為 ' + next + '。';
+  preview.classList.remove('success', 'warning');
+}
+
+function pendingSubmit(form) {
+  var button = form.querySelector('button[type="submit"]');
+  if (!(button instanceof HTMLButtonElement)) return;
+  button.disabled = true;
+  button.dataset.originalText = button.textContent || '';
+  if (form.dataset.roleForm !== undefined) button.textContent = '儲存角色中...';
+  else if (form.dataset.emailForm !== undefined) button.textContent = '儲存使用者中...';
+  else button.textContent = '處理中...';
+}
+
+document.querySelectorAll('[data-role-form]').forEach(function (form) {
+  if (!(form instanceof HTMLFormElement)) return;
+  updateRolePreview(form);
+  form.addEventListener('change', function () { updateRolePreview(form); });
+});
+
+document.querySelectorAll('[data-email-form]').forEach(function (form) {
+  if (!(form instanceof HTMLFormElement)) return;
+  updateEmailPreview(form);
+  form.addEventListener('input', function () { updateEmailPreview(form); });
+});
+
+document.addEventListener('submit', function (event) {
+  var form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+
+  var message = form.dataset.confirm;
+  if (form.dataset.roleForm !== undefined) {
+    var selected = selectedRoleNames(form);
+    var roleMessage = rolePreviewMessage(form);
+    message = selected.length === 0
+      ? roleMessage + ' 確定儲存？'
+      : roleMessage + ' 確定儲存角色指派？';
+  }
+
+  if (message && !window.confirm(message)) {
+    event.preventDefault();
+    return;
+  }
+  pendingSubmit(form);
+});`}
+></script>
+
 <style>
   .user-detail {
     display: grid;
     gap: 1.25rem;
+  }
+
+  .notice {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.65rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .notice.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .notice.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
   }
 
   .info-grid {
@@ -242,10 +515,34 @@ const sortedRoles = [
     background: #fef2f2;
   }
 
-  .role-form {
+  .role-form,
+  .edit-form {
     padding: 0.75rem 1rem;
     display: grid;
     gap: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .form-label {
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 360px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 0.875rem;
+    padding: 0.45rem 0.6rem;
   }
 
   .role-checkboxes {
@@ -259,6 +556,8 @@ const sortedRoles = [
     gap: 0.6rem;
     font-size: 0.875rem;
     cursor: pointer;
+    min-width: 0;
+    flex-wrap: wrap;
   }
 
   .role-label input[type="checkbox"] {
@@ -281,7 +580,31 @@ const sortedRoles = [
     gap: 0.75rem;
   }
 
+  .operation-preview {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface-subtle);
+    color: var(--admin-text-soft);
+    padding: 0.55rem 0.7rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .operation-preview.warning {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    color: #92400e;
+  }
+
+  .operation-preview.success {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
   .btn-primary {
+    min-height: 44px;
     padding: 0.4rem 1rem;
     border: 1px solid var(--admin-accent);
     border-radius: var(--admin-radius);
@@ -296,6 +619,13 @@ const sortedRoles = [
     opacity: 0.85;
   }
 
+  .btn-primary:disabled,
+  .btn-danger:disabled,
+  .btn-enable:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
   .actions-row {
     display: flex;
     align-items: center;
@@ -304,7 +634,17 @@ const sortedRoles = [
     flex-wrap: wrap;
   }
 
+  .danger-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--admin-border);
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
   .btn-danger {
+    min-height: 44px;
     padding: 0.4rem 1rem;
     border: 1px solid #dc2626;
     border-radius: var(--admin-radius);
@@ -320,6 +660,7 @@ const sortedRoles = [
   }
 
   .btn-enable {
+    min-height: 44px;
     padding: 0.4rem 1rem;
     border: 1px solid #16a34a;
     border-radius: var(--admin-radius);
@@ -337,5 +678,27 @@ const sortedRoles = [
   .action-note {
     color: var(--admin-text-muted);
     font-size: 0.82rem;
+  }
+
+  @media (max-width: 640px) {
+    .info-row,
+    .actions-row,
+    .danger-form {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .info-label {
+      min-width: 0;
+    }
+
+    .form-actions,
+    .actions-row form,
+    .btn-primary,
+    .btn-danger,
+    .btn-enable {
+      width: 100%;
+    }
   }
 </style>

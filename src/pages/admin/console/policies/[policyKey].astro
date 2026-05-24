@@ -4,6 +4,7 @@ import AdminState from '@/components/admin/AdminState.astro';
 import PolicyAssignmentList from '@/components/admin/console/PolicyAssignmentList.astro';
 import { FlowAssignIsland } from '@/components/admin/console/FlowAssignModal';
 import { fetchPolicyDetail } from '@/lib/agent-console/management';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 export const prerender = false;
@@ -13,26 +14,28 @@ if (gate) return gate;
 
 const ready = isPageEnabled('management');
 const policyKey = Astro.params.policyKey ?? '';
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 const result = ready
   ? await fetchPolicyDetail(Astro.request, policyKey)
   : { ok: false, detail: null, assignments: [] };
 
 const breadcrumb = [
-  { label: '政策', href: '/admin/console/policies' },
+  { label: t('policies.title'), href: consoleHref('/admin/console/policies', lang) },
   { label: result.detail?.label ?? policyKey },
 ];
 ---
 
-<AdminConsoleLayout title="政策詳情" section="policies" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('policies.detailTitle')} section="policies" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`政策管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
+    <AdminState tone="empty">{t('policies.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
   )}
   {ready && !result.ok && (
-    <AdminState tone="error">無法載入政策。請確認 agent-policy 功能已啟用。</AdminState>
+    <AdminState tone="error">{t('policies.featureDisabled')}</AdminState>
   )}
   {ready && result.ok && !result.detail && (
-    <AdminState tone="empty">{`找不到政策「${policyKey}」。`}</AdminState>
+    <AdminState tone="empty">{t('policies.notFound', { key: policyKey })}</AdminState>
   )}
   {ready && result.detail && (
     <div class="policy-detail">
@@ -42,28 +45,102 @@ const breadcrumb = [
           <span class="category-chip">{result.detail.category}</span>
           <span>v{result.detail.version}</span>
         </p>
+        <div class="detail-actions">
+          <button
+            type="button"
+            id="archive-policy-btn"
+            class="btn-danger"
+            data-policy-key={result.detail.policyKey}
+            data-confirm={t('policies.archiveConfirm', { key: result.detail.policyKey })}
+          >{t('policies.archivePolicy')}</button>
+        </div>
       </header>
 
       <section aria-label="定義">
-        <h3>定義</h3>
-        <pre class="body-block">{result.detail.body}</pre>
+        <div class="section-head">
+          <h3>{t('policies.definition')}</h3>
+          <button type="button" id="save-policy-btn" class="btn-primary">{t('policies.saveDefinition')}</button>
+        </div>
+        <form id="policy-edit-form" class="policy-edit-form">
+          <label>
+            {t('policies.label')}
+            <input id="policy-label" value={result.detail.label} />
+          </label>
+          <label>
+            {t('policies.bodyJson')}
+            <textarea id="policy-body" rows="16" spellcheck={false}>{result.detail.body}</textarea>
+          </label>
+          <span id="policy-save-status" class="form-status" aria-live="polite"></span>
+        </form>
       </section>
 
       <section aria-label="指派">
         <div class="section-head">
-          <h3>指派</h3>
+          <h3>{t('policies.assignments')}</h3>
           <FlowAssignIsland client:only="react" policyId={result.detail.policyKey} />
         </div>
         <PolicyAssignmentList assignments={result.assignments} />
       </section>
 
       <section aria-label="近期決策">
-        <h3>近期決策</h3>
-        <p class="empty-note">決策歷程需要 agent-policy violations 讀取 API（尚未開放）。</p>
+        <h3>{t('policies.recentDecisions')}</h3>
+        <p class="empty-note">{t('policies.decisionsUnavailable')}</p>
       </section>
     </div>
   )}
 </AdminConsoleLayout>
+
+<script define:vars={{
+  policyKey,
+  lang,
+  messages: {
+    saved: t('policies.saved'),
+    saveFailed: t('policies.saveFailed'),
+    archiveFailed: t('policies.archiveFailed'),
+  },
+}}>
+  const saveButton = document.getElementById('save-policy-btn');
+  const archiveButton = document.getElementById('archive-policy-btn');
+  const status = document.getElementById('policy-save-status');
+
+  saveButton?.addEventListener('click', async () => {
+    const label = /** @type {HTMLInputElement | null} */ (document.getElementById('policy-label'))?.value?.trim();
+    const rawBody = /** @type {HTMLTextAreaElement | null} */ (document.getElementById('policy-body'))?.value?.trim() || '{}';
+    if (status) status.textContent = '';
+    saveButton.setAttribute('disabled', 'true');
+    try {
+      const policyBody = JSON.parse(rawBody);
+      const response = await fetch(`/api/admin/policies/${encodeURIComponent(policyKey)}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ label, policy_body: policyBody }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || messages.saveFailed);
+      if (status) status.textContent = messages.saved.replace('{version}', data.version);
+      window.setTimeout(() => window.location.reload(), 700);
+    } catch (error) {
+      if (status) status.textContent = `${messages.saveFailed}: ${error instanceof Error ? error.message : String(error)}`;
+    } finally {
+      saveButton.removeAttribute('disabled');
+    }
+  });
+
+  archiveButton?.addEventListener('click', async () => {
+    const key = archiveButton.getAttribute('data-policy-key');
+    const message = archiveButton.getAttribute('data-confirm') ?? '';
+    if (!key || !window.confirm(message)) return;
+    archiveButton.setAttribute('disabled', 'true');
+    try {
+      const response = await fetch(`/api/admin/policies/${encodeURIComponent(key)}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error(await response.text());
+      window.location.href = lang === 'en' ? '/admin/console/policies?lang=en' : '/admin/console/policies';
+    } catch (error) {
+      window.alert(`${messages.archiveFailed}: ${error instanceof Error ? error.message : String(error)}`);
+      archiveButton.removeAttribute('disabled');
+    }
+  });
+</script>
 
 <style>
   .policy-detail {
@@ -84,6 +161,9 @@ const breadcrumb = [
     margin-top: 0.3rem;
     color: var(--admin-text-muted);
     font-size: 0.85rem;
+  }
+  .detail-actions {
+    margin-top: 0.75rem;
   }
   .category-chip {
     padding: 0.05rem 0.5rem;
@@ -114,6 +194,55 @@ const breadcrumb = [
     font-size: 0.8rem;
     overflow: auto;
     max-height: 420px;
+  }
+  .policy-edit-form {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .policy-edit-form label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--admin-text-soft);
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+  .policy-edit-form input,
+  .policy-edit-form textarea {
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 0.5rem 0.65rem;
+    font: inherit;
+  }
+  .policy-edit-form textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .btn-primary,
+  .btn-danger {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-weight: 650;
+  }
+  .btn-primary {
+    border-color: var(--brand-900);
+    background: var(--brand-900);
+    color: #fff;
+  }
+  .btn-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+  }
+  .form-status {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
   }
   .empty-note {
     color: var(--admin-text-muted);

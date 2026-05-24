@@ -3,6 +3,7 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import { getEnv } from '@/lib/config/env';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 export const prerender = false;
@@ -12,9 +13,11 @@ if (gate) return gate;
 
 const ready = isPageEnabled('management');
 const providerId = Astro.params.id ?? '';
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 const breadcrumb = [
-  { label: '提供者', href: '/admin/console/providers' },
+  { label: t('providers.title'), href: consoleHref('/admin/console/providers', lang) },
   { label: providerId },
 ];
 
@@ -162,34 +165,34 @@ function maskKey(masked: string | null): string {
 }
 ---
 
-<AdminConsoleLayout title={`提供者：${providerId}`} section="providers" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('providers.detailTitle', { id: providerId })} section="providers" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`提供者管理功能將於 ${consolePhaseFor('management')} 推出。`}</AdminState>
+    <AdminState tone="empty">{t('providers.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
   )}
 
   {ready && !providerId && (
-    <AdminState tone="error">未指定提供者 ID。</AdminState>
+    <AdminState tone="error">{t('providers.missingId')}</AdminState>
   )}
 
   {ready && providerId && (
     <div class="provider-detail">
 
       {/* ── Latency + error rate sparkline (7-day daily table) ── */}
-      <AdminPanel title="7 天健康趨勢" eyebrow="延遲 + 錯誤率">
+      <AdminPanel title={t('providers.healthTrend')} eyebrow={t('providers.latencyError')}>
         {!healthAvailable ? (
-          <p class="placeholder-note">提供者健康資料尚未就緒。<code>provider_health</code> 資料表將在 agent-providers 模組部署後開始填入資料。</p>
+          <p class="placeholder-note">{t('providers.healthNotReady')}</p>
         ) : sevenDaysSummary.length === 0 ? (
-          <p class="placeholder-note">此提供者尚無健康資料記錄。</p>
+          <p class="placeholder-note">{t('providers.noHealth')}</p>
         ) : (
           <div class="table-wrap">
             <table class="detail-table">
               <thead>
                 <tr>
-                  <th scope="col">日期</th>
-                  <th scope="col">p95 延遲</th>
-                  <th scope="col">錯誤率</th>
-                  <th scope="col">樣本數</th>
-                  <th scope="col">趨勢</th>
+                  <th scope="col">{t('providers.date')}</th>
+                  <th scope="col">{t('providers.p95Latency')}</th>
+                  <th scope="col">{t('providers.errorRate')}</th>
+                  <th scope="col">{t('providers.samples')}</th>
+                  <th scope="col">{t('providers.trend')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -210,7 +213,7 @@ function maskKey(masked: string | null): string {
                           title={`p95: ${ms(day.p95)}`}
                         />
                       ) : (
-                        <span class="bar-empty">無資料</span>
+                        <span class="bar-empty">{t('providers.noData')}</span>
                       )}
                     </td>
                   </tr>
@@ -222,20 +225,20 @@ function maskKey(masked: string | null): string {
       </AdminPanel>
 
       {/* ── Recent failure event log ── */}
-      <AdminPanel title="近期故障事件" eyebrow="最近 10 筆 error_rate > 10% 或狀態為 degraded/error 的記錄">
+      <AdminPanel title={t('providers.recentFailures')} eyebrow={t('providers.recentFailuresEyebrow')}>
         {!healthAvailable ? (
-          <p class="placeholder-note">提供者健康資料尚未就緒。</p>
+          <p class="placeholder-note">{t('providers.healthNotReady')}</p>
         ) : failureEvents.length === 0 ? (
-          <p class="placeholder-note">無故障事件記錄 — 提供者目前運作正常。</p>
+          <p class="placeholder-note">{t('providers.noFailures')}</p>
         ) : (
           <div class="table-wrap">
             <table class="detail-table">
               <thead>
                 <tr>
-                  <th scope="col">檢查時間</th>
-                  <th scope="col">狀態</th>
-                  <th scope="col">p95 延遲</th>
-                  <th scope="col">錯誤率</th>
+                  <th scope="col">{t('providers.checkTime')}</th>
+                  <th scope="col">{t('common.status')}</th>
+                  <th scope="col">{t('providers.p95Latency')}</th>
+                  <th scope="col">{t('providers.errorRate')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -256,42 +259,41 @@ function maskKey(masked: string | null): string {
       </AdminPanel>
 
       {/* ── API key health ── */}
-      <AdminPanel title="API 金鑰狀態" eyebrow="金鑰中繼資料（實際值不會顯示）">
+      <AdminPanel title={t('providers.apiKeyStatus')} eyebrow={t('providers.keyMetadata')}>
         <div class="key-info">
           <div class="key-row">
-            <span class="key-label">提供者 ID</span>
+            <span class="key-label">{t('providers.providerId')}</span>
             <code>{providerId}</code>
           </div>
           {keyRow ? (
             <>
               <div class="key-row">
-                <span class="key-label">環境變數金鑰</span>
+                <span class="key-label">{t('providers.envKey')}</span>
                 <code>{keyRow.env_key}</code>
               </div>
               <div class="key-row">
-                <span class="key-label">遮罩值</span>
+                <span class="key-label">{t('providers.maskedValue')}</span>
                 <code>{maskKey(keyRow.masked_value)}</code>
               </div>
               <div class="key-row">
-                <span class="key-label">上次更換時間</span>
+                <span class="key-label">{t('providers.lastRotated')}</span>
                 <span>{formatTs(keyRow.last_rotated_at)}</span>
               </div>
             </>
           ) : (
-            <p class="placeholder-note">找不到 API 金鑰中繼資料。金鑰可能僅透過環境變數設定。</p>
+            <p class="placeholder-note">{t('providers.noKeyMetadata')}</p>
           )}
         </div>
       </AdminPanel>
 
       {/* ── Rotate key action ── */}
-      <AdminPanel title="更換 API 金鑰" eyebrow="操作">
+      <AdminPanel title={t('providers.rotateKey')} eyebrow={t('providers.operation')}>
         <p class="placeholder-note">
-          發送 <code>POST /api/admin/providers/{providerId}/rotate-key</code> 將使目前的金鑰失效並產生新金鑰。
-          此操作會被記錄。
+          {t('providers.rotateNote', { id: providerId })}
         </p>
         <form method="POST" action={`/api/admin/providers/${providerId}/rotate-key`} class="rotate-form">
-          <button type="submit" class="rotate-btn">更換金鑰</button>
-          <span class="rotate-note">此操作無法自動還原。</span>
+          <button type="submit" class="rotate-btn">{t('providers.rotateButton')}</button>
+          <span class="rotate-note">{t('providers.irreversible')}</span>
         </form>
       </AdminPanel>
 

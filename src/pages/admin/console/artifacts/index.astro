@@ -5,6 +5,8 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
+import { createArtifact } from '@/lib/agent-artifact';
+import { createBackends as createArtifactBackends } from '@/lib/agent-artifact/storage';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -27,6 +29,7 @@ interface ArtifactRunRow {
   flow_id: string | null;
   flow_display_name: string | null;
   logical_name: string | null;
+  latest_version_id: string | null;
   latest_version: number | null;
   status: string | null;
   last_seen_at: number | null;
@@ -40,10 +43,14 @@ let artifacts: ArtifactRunRow[] = [];
 let totalCount = 0;
 let loadError = false;
 let backendUnavailable = false;
+let exportDestinations: string[] = [];
 
 if (ready) {
   try {
-    const db = getEnv().DB;
+    const env = getEnv();
+    const db = env.DB;
+    const artifact = createArtifact(env, createArtifactBackends(env));
+    exportDestinations = artifact.exporters.listDestinations();
 
     const tableCheck = await db
       .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`)
@@ -51,10 +58,23 @@ if (ready) {
     if (!tableCheck) {
       backendUnavailable = true;
     } else {
+      const [definitionInfo, versionInfo, flowDefinitionInfo] = await Promise.all([
+        db.prepare('PRAGMA table_info(artifact_definitions)').all<{ name: string }>(),
+        db.prepare('PRAGMA table_info(artifact_versions)').all<{ name: string }>(),
+        db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>(),
+      ]);
+      const definitionColumns = new Set((definitionInfo.results ?? []).map((column) => column.name));
+      const versionColumns = new Set((versionInfo.results ?? []).map((column) => column.name));
+      const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+      const definitionIdColumn = definitionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
+      const versionDefinitionColumn = versionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
+      const definitionFlowRunExpr = definitionColumns.has('flow_run_id') ? 'd.flow_run_id' : 'v.flow_run_id';
+      const versionStatusExpr = versionColumns.has('status') ? 'v.status' : 'v.approval_status';
+      const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
       const like = `%${q}%`;
       const where = `
         WHERE (
-          d.definition_id LIKE ? OR
+          d.${definitionIdColumn} LIKE ? OR
           d.logical_name LIKE ? OR
           COALESCE(d.flow_id, '') LIKE ? OR
           COALESCE(d.kind, '') LIKE ?
@@ -73,26 +93,27 @@ if (ready) {
 
       const artifactResult = await db
         .prepare(
-          `SELECT d.definition_id AS artifact_id,
-                  d.definition_id,
+          `SELECT d.${definitionIdColumn} AS artifact_id,
+                  d.${definitionIdColumn} AS definition_id,
                   d.kind,
-                  d.flow_run_id,
+                  ${definitionFlowRunExpr} AS flow_run_id,
                   d.flow_id,
-                  f.display_name AS flow_display_name,
+                  f.${flowDisplayNameColumn} AS flow_display_name,
                   d.logical_name,
+                  v.version_id AS latest_version_id,
                   v.version_number AS latest_version,
-                  v.status,
+                  ${versionStatusExpr} AS status,
                   v.created_at AS last_seen_at
            FROM artifact_definitions d
-           LEFT JOIN flow_runs fr ON fr.flow_run_id = d.flow_run_id
-           LEFT JOIN flow_definitions f ON f.flow_id = fr.flow_id
            LEFT JOIN artifact_versions v
-             ON v.definition_id = d.definition_id
+             ON v.${versionDefinitionColumn} = d.${definitionIdColumn}
             AND v.version_number = (
               SELECT MAX(v2.version_number)
               FROM artifact_versions v2
-              WHERE v2.definition_id = d.definition_id
+              WHERE v2.${versionDefinitionColumn} = d.${definitionIdColumn}
             )
+           LEFT JOIN flow_runs fr ON fr.flow_run_id = ${definitionFlowRunExpr}
+           LEFT JOIN flow_definitions f ON f.flow_id = fr.flow_id
            ${where}
            ORDER BY d.updated_at DESC
            LIMIT ? OFFSET ?`,
@@ -145,8 +166,19 @@ function rowLabel(row: ArtifactRunRow): string {
   return row.logical_name || row.artifact_id;
 }
 
-function safeQ(input: string): string {
-  return input;
+function exportLabel(destination: string): string {
+  switch (destination) {
+    case 'file': return 'File';
+    case 'csv_file': return 'CSV file';
+    case 'pdf': return 'PDF';
+    case 'pptx': return 'PowerPoint';
+    case 'notion': return 'Notion';
+    case 'github_issue': return 'GitHub issue';
+    case 'github_pr_review': return 'GitHub PR review';
+    case 'email': return 'Email';
+    case 'slack': return 'Slack';
+    default: return destination;
+  }
 }
 ---
 
@@ -191,7 +223,7 @@ function safeQ(input: string): string {
                 <th>執行</th>
                 <th>狀態</th>
                 <th>更新時間</th>
-                <th></th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody>
@@ -210,11 +242,40 @@ function safeQ(input: string): string {
                     <td>{artifact.flow_run_id ? artifact.flow_run_id.slice(0, 8) + '…' : '—'}</td>
                     <td><span class={`artifact-status ${statusClass(artifact.status)}`}>{statusLabel(artifact.status)}</span></td>
                     <td class="mono">{formatTs(artifact.last_seen_at)}</td>
-                    <td>
+                    <td class="artifact-actions-cell">
                       {artifact.flow_run_id && artifact.latest_version ? (
-                        <a href={`/admin/console/runs/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="btn-secondary">
-                          檢視
-                        </a>
+                        <>
+                          <a href={`/admin/console/runs/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="btn-secondary">
+                            檢視
+                          </a>
+                          {artifact.latest_version_id && exportDestinations.length > 0 && (
+                            <div
+                              class="quick-export"
+                              data-quick-export
+                              data-version-id={artifact.latest_version_id}
+                              data-artifact-label={rowLabel(artifact)}
+                              data-current-status={artifact.status ?? 'pending'}
+                            >
+                              <label class="sr-only" for={`export-${artifact.latest_version_id}`}>匯出目的地</label>
+                              <select id={`export-${artifact.latest_version_id}`} class="quick-export-select" data-export-destination>
+                                {exportDestinations.map((destination) => (
+                                  <option value={destination}>{exportLabel(destination)}</option>
+                                ))}
+                              </select>
+                              <button
+                                type="button"
+                                class="btn-secondary export"
+                                data-export-button
+                                aria-label={`匯出 ${rowLabel(artifact)}`}
+                              >
+                                匯出
+                              </button>
+                              <span class="row-operation-preview" data-export-preview>
+                                快速匯出最新版本 v{artifact.latest_version}。
+                              </span>
+                            </div>
+                          )}
+                        </>
                       ) : (
                         <span class="muted">—</span>
                       )}
@@ -234,10 +295,120 @@ function safeQ(input: string): string {
             {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
           </div>
         )}
+        <p id="artifact-list-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
       </AdminPanel>
     </>
   )}
 </AdminConsoleLayout>
+
+<script is:inline>
+  (function setupArtifactListExport() {
+    const status = document.getElementById('artifact-list-action-status');
+
+    function setStatus(message, tone = '') {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = message;
+      status.className = `action-status ${tone}`;
+    }
+
+    function destinationLabel(destination) {
+      const labels = {
+        file: 'File',
+        csv_file: 'CSV file',
+        pdf: 'PDF',
+        pptx: 'PowerPoint',
+        notion: 'Notion',
+        github_issue: 'GitHub issue',
+        github_pr_review: 'GitHub PR review',
+        email: 'Email',
+        slack: 'Slack',
+      };
+      return labels[destination] || destination || '—';
+    }
+
+    function humanExportError(error, destination) {
+      switch (error) {
+        case 'export_requires_kernel':
+          return `${destinationLabel(destination)} 匯出需要 kernel 或外部服務設定，無法從目前的管理頁直接執行。`;
+        case 'exporter not found':
+          return `目前未啟用 ${destinationLabel(destination)} 匯出器。`;
+        case 'version not found':
+          return '找不到要匯出的產出物版本。';
+        default:
+          return error || `匯出到 ${destinationLabel(destination)} 失敗。`;
+      }
+    }
+
+    function setButtonBusy(button, busy) {
+      if (!(button instanceof HTMLButtonElement)) return;
+      if (busy) {
+        button.dataset.originalText = button.textContent || '';
+        button.disabled = true;
+        button.textContent = '匯出中';
+      } else {
+        button.disabled = false;
+        button.textContent = button.dataset.originalText || '匯出';
+        delete button.dataset.originalText;
+      }
+    }
+
+    document.addEventListener('change', (event) => {
+      const select = event.target;
+      if (!(select instanceof HTMLSelectElement) || select.dataset.exportDestination === undefined) return;
+      const root = select.closest('[data-quick-export]');
+      const preview = root?.querySelector('[data-export-preview]');
+      if (!preview) return;
+      preview.textContent = `將最新版本匯出到 ${destinationLabel(select.value)}。`;
+    });
+
+    document.addEventListener('click', async (event) => {
+      const button = event.target;
+      if (!(button instanceof HTMLButtonElement) || button.dataset.exportButton === undefined) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const root = button.closest('[data-quick-export]');
+      if (!(root instanceof HTMLElement)) return;
+      const versionId = root.dataset.versionId;
+      const artifactLabel = root.dataset.artifactLabel || '此產出物';
+      const currentStatus = root.dataset.currentStatus || 'pending';
+      const select = root.querySelector('[data-export-destination]');
+      const destination = select instanceof HTMLSelectElement ? select.value : '';
+      if (!versionId || !destination) {
+        setStatus('缺少版本或匯出目的地。', 'error');
+        return;
+      }
+
+      const needsConfirm = currentStatus !== 'approved' && currentStatus !== 'published';
+      const message = needsConfirm
+        ? `目前 ${artifactLabel} 狀態為「${currentStatus}」。仍要匯出到 ${destinationLabel(destination)}？`
+        : `確定要將 ${artifactLabel} 匯出到 ${destinationLabel(destination)}？`;
+      if (!window.confirm(message)) return;
+
+      setButtonBusy(button, true);
+      setStatus(`正在匯出 ${artifactLabel} 到 ${destinationLabel(destination)}...`);
+      try {
+        const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(versionId)}/export/${encodeURIComponent(destination)}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ options: { path: `artifact-${versionId}.txt` } }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok || body.ok === false) {
+          setStatus(humanExportError(body.error, destination), 'error');
+          return;
+        }
+        setStatus(`匯出已送出：${body.externalRef || body.exportId || destinationLabel(destination)}。`, 'success');
+        const preview = root.querySelector('[data-export-preview]');
+        if (preview) preview.textContent = `最近匯出：${destinationLabel(destination)} · ${body.status || 'pending'}。`;
+      } catch {
+        setStatus(`匯出到 ${destinationLabel(destination)} 失敗。`, 'error');
+      } finally {
+        setButtonBusy(button, false);
+      }
+    });
+  })();
+</script>
 
 <style>
   .toolbar {
@@ -255,11 +426,17 @@ function safeQ(input: string): string {
 
   .search-input {
     min-width: 260px;
+    min-height: 2.75rem !important;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     background: var(--admin-surface);
     padding: 0.42rem 0.65rem;
     color: var(--admin-text);
+  }
+
+  :global(.admin-table-wrap) {
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   .mono {
@@ -303,6 +480,10 @@ function safeQ(input: string): string {
   .btn-secondary,
   .btn-clear,
   .page-btn {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     padding: 0.35rem 0.7rem;
@@ -311,6 +492,10 @@ function safeQ(input: string): string {
     background: var(--admin-surface);
     font-size: 0.8rem;
     line-height: 1.2;
+  }
+
+  .btn-secondary.export {
+    color: var(--admin-accent);
   }
 
   .btn-secondary:hover,
@@ -341,5 +526,140 @@ function safeQ(input: string): string {
   .page-info {
     color: var(--admin-text-muted);
     font-size: 0.83rem;
+  }
+
+  .artifact-actions-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .quick-export {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .quick-export-select {
+    min-height: 2.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .row-operation-preview {
+    flex-basis: 100%;
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .action-status {
+    margin: 0.75rem 1rem 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .action-status.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .action-status.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 720px) {
+    .toolbar,
+    .artifact-actions-cell,
+    .quick-export,
+    .pagination {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .search-input,
+    .btn-secondary,
+    .btn-clear,
+    .page-btn,
+    .quick-export-select,
+    .quick-export {
+      width: 100%;
+    }
+
+    :global(.admin-table) {
+      min-width: 0;
+    }
+
+    :global(.admin-table thead) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    :global(.admin-table tbody) {
+      display: grid;
+      gap: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    :global(.admin-table tr) {
+      display: block;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--admin-radius);
+      background: var(--admin-surface);
+      overflow: hidden;
+    }
+
+    :global(.admin-table td) {
+      display: grid;
+      grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: start;
+      border-top: 1px solid var(--admin-border);
+      padding: 0.65rem 0.75rem;
+      overflow-wrap: anywhere;
+    }
+
+    :global(.admin-table td:first-child) {
+      border-top: 0;
+    }
+
+    :global(.admin-table td::before) {
+      content: attr(data-label);
+      color: var(--admin-text-soft);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
   }
 </style>

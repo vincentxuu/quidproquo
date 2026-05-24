@@ -1,6 +1,7 @@
 ---
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 export const prerender = false;
@@ -9,6 +10,8 @@ const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
 const ready = isPageEnabled('flowEditor');
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 
 const starterYaml = `id: my-new-flow
 name: New Flow
@@ -32,25 +35,25 @@ artifacts: []
 `;
 
 const breadcrumb = [
-  { label: '工作流程', href: '/admin/console/flows' },
-  { label: '新增工作流程' },
+  { label: t('flows.title'), href: consoleHref('/admin/console/flows', lang) },
+  { label: t('flows.newTitle') },
 ];
 ---
 
-<AdminConsoleLayout title="新增工作流程" section="flows" breadcrumb={breadcrumb}>
+<AdminConsoleLayout title={t('flows.newTitle')} section="flows" breadcrumb={breadcrumb}>
   {!ready && (
-    <AdminState tone="empty">{`The flow editor ships in ${consolePhaseFor('flowEditor')}.`}</AdminState>
+    <AdminState tone="empty">{t('flows.editorUnavailable', { phase: consolePhaseFor('flowEditor') })}</AdminState>
   )}
   {ready && (
     <form id="new-form" autocomplete="off" class="builder-shell">
       <section class="setup-panel" aria-labelledby="setup-title">
         <div class="panel-heading">
-          <span class="eyebrow">Setup</span>
-          <h2 id="setup-title">建立設定</h2>
+          <span class="eyebrow">{t('flows.setup')}</span>
+          <h2 id="setup-title">{t('flows.setup')}</h2>
         </div>
 
         <div class="field">
-          <label for="template-select">範本</label>
+          <label for="template-select">{t('flows.template')}</label>
           <select id="template-select" class="field-control">
             <option value="single-agent">Single agent</option>
             <option value="research">Research flow</option>
@@ -60,22 +63,22 @@ const breadcrumb = [
         </div>
 
         <div class="field">
-          <label for="flow-id">Flow ID <span class="required">必填</span></label>
+          <label for="flow-id">Flow ID <span class="required">{t('flows.idRequired')}</span></label>
           <input id="flow-id" class="field-control mono" value="my-new-flow" spellcheck={false} />
         </div>
 
         <div class="field">
-          <label for="flow-name">名稱</label>
+          <label for="flow-name">{t('common.name')}</label>
           <input id="flow-name" class="field-control" value="New Flow" />
         </div>
 
         <div class="field">
-          <label for="flow-version">版本</label>
+          <label for="flow-version">{t('common.version')}</label>
           <input id="flow-version" class="field-control" type="number" min="1" step="1" value="1" />
         </div>
 
         <div class="field">
-          <label for="flow-description">描述</label>
+          <label for="flow-description">{t('common.description')}</label>
           <textarea id="flow-description" class="field-control description-field" rows="4">Describe your flow here</textarea>
         </div>
       </section>
@@ -83,12 +86,12 @@ const breadcrumb = [
       <section class="editor-panel" aria-labelledby="editor-title">
         <div class="editor-toolbar">
           <div class="editor-title-block">
-            <span class="eyebrow">Definition</span>
-            <h2 id="editor-title">工作流程 YAML</h2>
+            <span class="eyebrow">{t('flows.definition')}</span>
+            <h2 id="editor-title">{t('flows.yamlLabel')}</h2>
           </div>
           <div class="toolbar-actions">
-            <select id="snippet-select" class="snippet-select" aria-label="插入片段">
-              <option value="">插入片段</option>
+            <select id="snippet-select" class="snippet-select" aria-label={t('flows.insertSnippet')}>
+              <option value="">{t('flows.insertSnippet')}</option>
               <option value="input">Input</option>
               <option value="agent">Agent step</option>
               <option value="tool_group">Tool group</option>
@@ -96,15 +99,15 @@ const breadcrumb = [
               <option value="edge">Edge</option>
               <option value="artifact">Artifact</option>
             </select>
-            <button type="button" id="copy-btn" class="btn btn-secondary">複製</button>
-            <button type="button" id="validate-btn" class="btn btn-secondary">驗證</button>
-            <button type="button" id="create-btn" class="btn btn-primary">建立</button>
+            <button type="button" id="copy-btn" class="btn btn-secondary">{t('common.copy')}</button>
+            <button type="button" id="validate-btn" class="btn btn-secondary">{t('common.validate')}</button>
+            <button type="button" id="create-btn" class="btn btn-primary">{t('common.create')}</button>
           </div>
         </div>
 
         <div class="status-row">
-          <span id="save-status" class="save-status" aria-live="polite">尚未修改</span>
-          <span id="validation-pill" class="validation-pill unknown">未驗證</span>
+          <span id="save-status" class="save-status" aria-live="polite">{t('common.unchanged')}</span>
+          <span id="validation-pill" class="validation-pill unknown">{lang === 'en' ? 'Not validated' : '未驗證'}</span>
         </div>
 
         <textarea
@@ -120,8 +123,8 @@ const breadcrumb = [
 
       <aside class="summary-panel" aria-labelledby="summary-title">
         <div class="panel-heading">
-          <span class="eyebrow">Preview</span>
-          <h2 id="summary-title">建立摘要</h2>
+          <span class="eyebrow">{t('flows.preview')}</span>
+          <h2 id="summary-title">{t('flows.preview')}</h2>
         </div>
         <dl class="summary-list">
           <div>
@@ -129,11 +132,11 @@ const breadcrumb = [
             <dd id="summary-id" class="mono">my-new-flow</dd>
           </div>
           <div>
-            <dt>名稱</dt>
+            <dt>{t('common.name')}</dt>
             <dd id="summary-name">New Flow</dd>
           </div>
           <div>
-            <dt>版本</dt>
+            <dt>{t('common.version')}</dt>
             <dd id="summary-version" class="mono">1</dd>
           </div>
           <div>
@@ -158,21 +161,38 @@ const breadcrumb = [
   )}
 </AdminConsoleLayout>
 
-<script>
-  const form = document.getElementById('new-form') as HTMLFormElement | null;
-  const textarea = document.getElementById('yaml-editor') as HTMLTextAreaElement | null;
+<script define:vars={{
+  lang,
+  messages: {
+    unknown: lang === 'en' ? 'Not validated' : '未驗證',
+    invalid: lang === 'en' ? 'Has errors' : '有錯誤',
+    unset: lang === 'en' ? 'Not set' : '未設定',
+    unchanged: t('common.unchanged'),
+    unsaved: t('common.unsaved'),
+    validating: `${t('common.validate')}...`,
+    validationPassed: t('common.validationPassed'),
+    validationFailed: t('common.validationFailed'),
+    creating: t('flows.creating'),
+    createdRedirect: t('flows.createdRedirect'),
+    createFailed: lang === 'en' ? 'Create failed' : '建立失敗',
+    copiedYaml: t('flows.copiedYaml'),
+    copyFailed: t('flows.copyFailed'),
+  },
+}}>
+  const form = /** @type {HTMLFormElement | null} */ (document.getElementById('new-form'));
+  const textarea = /** @type {HTMLTextAreaElement | null} */ (document.getElementById('yaml-editor'));
   const errorsEl = document.getElementById('validation-errors');
   const saveStatus = document.getElementById('save-status');
   const validationPill = document.getElementById('validation-pill');
-  const validateBtn = document.getElementById('validate-btn') as HTMLButtonElement | null;
-  const createBtn = document.getElementById('create-btn') as HTMLButtonElement | null;
+  const validateBtn = /** @type {HTMLButtonElement | null} */ (document.getElementById('validate-btn'));
+  const createBtn = /** @type {HTMLButtonElement | null} */ (document.getElementById('create-btn'));
   const copyBtn = document.getElementById('copy-btn');
-  const snippetSelect = document.getElementById('snippet-select') as HTMLSelectElement | null;
-  const templateSelect = document.getElementById('template-select') as HTMLSelectElement | null;
-  const idInput = document.getElementById('flow-id') as HTMLInputElement | null;
-  const nameInput = document.getElementById('flow-name') as HTMLInputElement | null;
-  const versionInput = document.getElementById('flow-version') as HTMLInputElement | null;
-  const descriptionInput = document.getElementById('flow-description') as HTMLTextAreaElement | null;
+  const snippetSelect = /** @type {HTMLSelectElement | null} */ (document.getElementById('snippet-select'));
+  const templateSelect = /** @type {HTMLSelectElement | null} */ (document.getElementById('template-select'));
+  const idInput = /** @type {HTMLInputElement | null} */ (document.getElementById('flow-id'));
+  const nameInput = /** @type {HTMLInputElement | null} */ (document.getElementById('flow-name'));
+  const versionInput = /** @type {HTMLInputElement | null} */ (document.getElementById('flow-version'));
+  const descriptionInput = /** @type {HTMLTextAreaElement | null} */ (document.getElementById('flow-description'));
 
   const summary = {
     id: document.getElementById('summary-id'),
@@ -184,7 +204,7 @@ const breadcrumb = [
     artifacts: document.getElementById('summary-artifacts'),
   };
 
-  const templates: Record<string, string> = {
+  const templates = {
     'single-agent': `id: my-new-flow
 name: New Flow
 version: 1
@@ -276,7 +296,7 @@ artifacts: []
 `,
   };
 
-  const snippets: Record<string, string> = {
+  const snippets = {
     input: [
       '  - name: input_name',
       '    type: string',
@@ -317,9 +337,9 @@ artifacts: []
 
   let lastSavedYaml = textarea?.value ?? '';
   let metadataSyncing = false;
-  let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+  let debounceTimer = null;
 
-  function escapeHtml(value: unknown): string {
+  function escapeHtml(value) {
     return String(value)
       .replaceAll('&', '&amp;')
       .replaceAll('<', '&lt;')
@@ -328,20 +348,20 @@ artifacts: []
       .replaceAll("'", '&#39;');
   }
 
-  function setStatus(msg: string, tone = '') {
+  function setStatus(msg, tone = '') {
     if (!saveStatus) return;
     saveStatus.textContent = msg;
     saveStatus.className = `save-status ${tone}`.trim();
   }
 
-  function setValidationState(state: 'unknown' | 'valid' | 'invalid') {
+  function setValidationState(state) {
     if (!validationPill) return;
-    const text = state === 'valid' ? '驗證通過' : state === 'invalid' ? '有錯誤' : '未驗證';
+    const text = state === 'valid' ? messages.validationPassed : state === 'invalid' ? messages.invalid : messages.unknown;
     validationPill.textContent = text;
     validationPill.className = `validation-pill ${state}`;
   }
 
-  function setErrors(errors: Array<{ path: string; message: string }>) {
+  function setErrors(errors) {
     if (!errorsEl) return;
     if (!errors.length) {
       errorsEl.textContent = '';
@@ -358,17 +378,17 @@ artifacts: []
 
   function refreshDirtyState() {
     if ((textarea?.value ?? '') === lastSavedYaml) {
-      setStatus('尚未修改');
+      setStatus(messages.unchanged);
       return;
     }
-    setStatus('有未儲存變更', 'dirty');
+    setStatus(messages.unsaved, 'dirty');
   }
 
   function updateSummary() {
     const yaml = textarea?.value ?? '';
     const data = extractSummary(yaml);
-    if (summary.id) summary.id.textContent = data.id || '未設定';
-    if (summary.name) summary.name.textContent = data.name || '未設定';
+    if (summary.id) summary.id.textContent = data.id || messages.unset;
+    if (summary.name) summary.name.textContent = data.name || messages.unset;
     if (summary.version) summary.version.textContent = data.version || '1';
     if (summary.inputs) summary.inputs.textContent = String(data.inputs);
     if (summary.steps) summary.steps.textContent = String(data.steps);
@@ -376,7 +396,7 @@ artifacts: []
     if (summary.artifacts) summary.artifacts.textContent = String(data.artifacts);
   }
 
-  function extractSummary(yaml: string) {
+  function extractSummary(yaml) {
     return {
       id: scalarValue(yaml, 'id'),
       name: scalarValue(yaml, 'name'),
@@ -388,18 +408,18 @@ artifacts: []
     };
   }
 
-  function scalarValue(yaml: string, key: string): string {
+  function scalarValue(yaml, key) {
     const match = yaml.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
     return match?.[1]?.replace(/^["']|["']$/g, '').trim() ?? '';
   }
 
-  function listCount(yaml: string, key: string): number {
+  function listCount(yaml, key) {
     const section = sectionBody(yaml, key);
     if (!section.trim() || section.trim() === '[]' || section.trim() === '{}') return 0;
     return (section.match(/^  - /gm) ?? []).length || (section.match(/^  [A-Za-z0-9_-]+:/gm) ?? []).length;
   }
 
-  function sectionBody(yaml: string, key: string): string {
+  function sectionBody(yaml, key) {
     const start = yaml.match(new RegExp(`^${key}:\\s*(.*)$`, 'm'));
     if (!start || start.index === undefined) return '';
     const afterHeaderStart = start.index + start[0].length;
@@ -433,7 +453,7 @@ artifacts: []
     textarea.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
-  function setTopLevelScalar(yaml: string, key: string, value: string): string {
+  function setTopLevelScalar(yaml, key, value) {
     const escaped = value.includes(':') || value.includes('#') ? JSON.stringify(value) : value;
     const line = `${key}: ${escaped}`;
     const pattern = new RegExp(`^${key}:.*$`, 'm');
@@ -441,7 +461,7 @@ artifacts: []
     return `${line}\n${yaml}`;
   }
 
-  function insertAtCursor(value: string) {
+  function insertAtCursor(value) {
     if (!textarea) return;
     const start = textarea.selectionStart ?? textarea.value.length;
     const end = textarea.selectionEnd ?? start;
@@ -452,9 +472,9 @@ artifacts: []
     textarea.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
-  async function doValidate(): Promise<boolean> {
+  async function doValidate() {
     const yaml = textarea?.value ?? '';
-    setStatus('驗證中...');
+    setStatus(messages.validating);
     setValidationState('unknown');
     setErrors([]);
     try {
@@ -463,16 +483,16 @@ artifacts: []
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ yaml }),
       });
-      const data = await res.json() as { valid: boolean; errors?: Array<{ path: string; message: string }> };
+      const data = await res.json();
       if (data.valid) {
         setValidationState('valid');
-        setStatus('驗證通過', 'ok');
+        setStatus(messages.validationPassed, 'ok');
         setErrors([]);
         return true;
       }
       setValidationState('invalid');
       setStatus('');
-      setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }]);
+      setErrors(data.errors ?? [{ path: '(unknown)', message: messages.validationFailed }]);
       return false;
     } catch (err) {
       setValidationState('invalid');
@@ -484,7 +504,7 @@ artifacts: []
 
   async function createFlow() {
     const yaml = textarea?.value ?? '';
-    setStatus('建立中...');
+    setStatus(messages.creating);
     setErrors([]);
     try {
       const res = await fetch('/api/admin/flows', {
@@ -492,11 +512,11 @@ artifacts: []
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ yaml }),
       });
-      const data = await res.json() as { flowId?: string; error?: string; errors?: Array<{ path: string; message: string }> };
+      const data = await res.json();
       if (res.ok && data.flowId) {
         lastSavedYaml = yaml;
-        setStatus('已建立，正在跳轉...', 'ok');
-        window.location.href = `/admin/console/flows/${data.flowId}/edit`;
+        setStatus(messages.createdRedirect, 'ok');
+        window.location.href = lang === 'en' ? `/admin/console/flows/${data.flowId}/edit?lang=en` : `/admin/console/flows/${data.flowId}/edit`;
         return;
       }
       setValidationState('invalid');
@@ -505,7 +525,7 @@ artifacts: []
         setErrors(data.errors);
       } else {
         setStatus('');
-        setErrors([{ path: '(server)', message: data.error ?? '建立失敗' }]);
+        setErrors([{ path: '(server)', message: data.error ?? messages.createFailed }]);
       }
     } catch (err) {
       setErrors([{ path: '(network)', message: String(err) }]);
@@ -552,10 +572,10 @@ artifacts: []
     const yaml = textarea?.value ?? '';
     try {
       await navigator.clipboard.writeText(yaml);
-      setStatus('已複製 YAML', 'ok');
+      setStatus(messages.copiedYaml, 'ok');
       setTimeout(refreshDirtyState, 1000);
     } catch {
-      setStatus('複製失敗');
+      setStatus(messages.copyFailed);
     }
   });
 

@@ -2,12 +2,16 @@
 export const prerender = false;
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import ProviderManagement from '@/components/admin/ProviderManagement.astro';
+import { createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
+
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
 ---
 
-<AdminConsoleLayout title="模型供應商" section="providers">
+<AdminConsoleLayout title={t('providers.title')} section="providers">
   <ProviderManagement />
 </AdminConsoleLayout>

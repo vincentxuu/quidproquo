@@ -6,6 +6,7 @@ import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { ensureConsoleBootstrap } from '@/lib/agent-console/bootstrap';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
 import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
@@ -15,6 +16,8 @@ const ready = isPageEnabled('management');
 const PAGE_SIZE = 25;
 
 const url = new URL(Astro.url);
+const lang = getConsoleLang(url);
+const t = createConsoleTranslator(lang);
 const pageRaw = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
 const page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
 const offset = (page - 1) * PAGE_SIZE;
@@ -131,54 +134,55 @@ function categoryLabel(category: string): string {
 }
 ---
 
-<AdminConsoleLayout title="工作流程" section="flows">
+<AdminConsoleLayout title={t('flows.title')} section="flows">
   {!ready && (
-    <AdminState tone="empty">{`Flows management ships in ${consolePhaseFor('management')}.`}</AdminState>
+    <AdminState tone="empty">{t('flows.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
   )}
   {ready && loadError && (
-    <AdminState tone="error">無法載入工作流程。</AdminState>
+    <AdminState tone="error">{t('flows.loadError')}</AdminState>
   )}
   {ready && !loadError && (
-    <AdminPanel title="工作流程定義" eyebrow="搜尋並管理已登錄的工作流程定義">
-      <form class="toolbar" method="GET" action="/admin/console/flows">
-        <label for="q" class="search-label">搜尋工作流程</label>
+    <AdminPanel title={t('flows.library')} eyebrow={t('flows.libraryEyebrow')}>
+      <form class="toolbar" method="GET" action={consoleHref('/admin/console/flows', lang)}>
+        {lang === 'en' && <input type="hidden" name="lang" value="en" />}
+        <label for="q" class="search-label">{t('flows.searchLabel')}</label>
         <input
           id="q"
           name="q"
           type="search"
           value={q}
           class="search-input"
-          placeholder="依 id、名稱、版本搜尋"
+          placeholder={t('flows.searchPlaceholder')}
         />
-        <button type="submit" class="btn-secondary">搜尋</button>
-        {q && <a href="/admin/console/flows" class="btn-clear">清除</a>}
-        <a href="/admin/console/flows/new" class="btn-secondary">新增工作流程</a>
+        <button type="submit" class="btn-secondary">{t('common.search')}</button>
+        {q && <a href={consoleHref('/admin/console/flows', lang)} class="btn-clear">{t('common.clear')}</a>}
+        <a href={consoleHref('/admin/console/flows/new', lang)} class="btn-primary">{t('flows.newFlow')}</a>
       </form>
     </AdminPanel>
   )}
   {ready && !loadError && flows.length === 0 && (
     <AdminState tone="empty">
-      {q ? `沒有符合「${q}」的工作流程定義。` : '尚無已登錄的工作流程定義。'}
+      {q ? t('flows.emptySearch', { q }) : t('flows.empty')}
     </AdminState>
   )}
   {ready && !loadError && flows.length > 0 && (
-    <AdminPanel title="工作流程定義">
+    <AdminPanel title={t('flows.library')}>
       <AdminTable minWidth="640px" flush>
         <thead>
           <tr>
-            <th>工作流程 ID</th>
-            <th>名稱</th>
-            <th>類別</th>
-            <th>版本</th>
-            <th>更新時間</th>
-            <th>操作</th>
+            <th>{t('flows.flowId')}</th>
+            <th>{t('common.name')}</th>
+            <th>{t('flows.category')}</th>
+            <th>{t('common.version')}</th>
+            <th>{t('common.updatedAt')}</th>
+            <th>{t('common.actions')}</th>
           </tr>
         </thead>
         <tbody>
           {flows.map((flow) => (
-            <tr>
+            <tr data-flow-row={flow.flow_id}>
               <td class="mono">
-                <a href={`/admin/console/flows/${flow.flow_id}`} class="link flow-id">
+                <a href={consoleHref(`/admin/console/flows/${flow.flow_id}`, lang)} class="link flow-id">
                   {flow.flow_id}
                 </a>
               </td>
@@ -188,8 +192,14 @@ function categoryLabel(category: string): string {
               <td class="mono">{formatTs(flow.updated_at)}</td>
               <td>
                 <div class="row-actions">
-                  <a href={`/admin/console/flows/${flow.flow_id}`} class="action-link">檢視</a>
-                  <a href={`/admin/console/flows/${flow.flow_id}/edit`} class="action-link">編輯</a>
+                  <a href={consoleHref(`/admin/console/flows/${flow.flow_id}`, lang)} class="action-link">{t('common.view')}</a>
+                  <a href={consoleHref(`/admin/console/flows/${flow.flow_id}/edit`, lang)} class="action-link">{t('common.edit')}</a>
+                  <button
+                    type="button"
+                    class="action-link danger"
+                    data-delete-flow={flow.flow_id}
+                    data-confirm={t('flows.archiveConfirm', { id: flow.flow_id })}
+                  >{t('common.archive')}</button>
                 </div>
               </td>
             </tr>
@@ -199,15 +209,38 @@ function categoryLabel(category: string): string {
 
       {totalPages > 1 && (
         <div class="pagination">
-          {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
-          <span class="page-info">第 {page} / {totalPages} 頁</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
+          {page > 1 ? <a href={listHref(1)} class="page-btn">{t('common.firstPage')}</a> : <span class="page-btn disabled">{t('common.firstPage')}</span>}
+          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">{t('common.previousPage')}</a> : <span class="page-btn disabled">{t('common.previousPage')}</span>}
+          <span class="page-info">{t('common.pageOf', { page, total: totalPages })}</span>
+          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">{t('common.nextPage')}</a> : <span class="page-btn disabled">{t('common.nextPage')}</span>}
         </div>
       )}
     </AdminPanel>
   )}
 </AdminConsoleLayout>
+
+<script define:vars={{ archiveFailed: t('flows.archiveFailed') }}>
+  document.querySelectorAll('[data-delete-flow]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const flowId = button.getAttribute('data-delete-flow');
+      const message = button.getAttribute('data-confirm') ?? '';
+      if (!flowId || !window.confirm(message)) return;
+
+      button.setAttribute('disabled', 'true');
+      try {
+        const response = await fetch(`/api/admin/flows/${encodeURIComponent(flowId)}`, {
+          method: 'DELETE',
+        });
+        if (!response.ok) throw new Error(await response.text());
+        const row = document.querySelector(`[data-flow-row="${CSS.escape(flowId)}"]`);
+        row?.remove();
+      } catch (error) {
+        window.alert(`${archiveFailed}: ${error instanceof Error ? error.message : String(error)}`);
+        button.removeAttribute('disabled');
+      }
+    });
+  });
+</script>
 
 <style>
   .mono {
@@ -262,6 +295,7 @@ function categoryLabel(category: string): string {
 
   .btn-clear,
   .btn-secondary,
+  .btn-primary,
   .page-btn {
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
@@ -272,6 +306,12 @@ function categoryLabel(category: string): string {
     font-size: 0.8rem;
     line-height: 1.2;
     cursor: pointer;
+  }
+
+  .btn-primary {
+    border-color: var(--brand-900);
+    background: var(--brand-900);
+    color: #fff;
   }
 
   .btn-clear:hover,
@@ -286,13 +326,21 @@ function categoryLabel(category: string): string {
   }
 
   .action-link {
+    border: 0;
+    background: transparent;
+    padding: 0;
     color: var(--admin-accent, #2563eb);
     text-decoration: none;
     font-size: 0.8rem;
+    cursor: pointer;
   }
 
   .action-link:hover {
     text-decoration: underline;
+  }
+
+  .action-link.danger {
+    color: #b91c1c;
   }
 
   .pagination {

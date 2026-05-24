@@ -8,14 +8,99 @@ interface Props {
 const { minWidth = '760px', flush = false, class: cls } = Astro.props;
 ---
 
-<div class:list={['admin-table-wrap', { 'is-flush': flush }, cls]} style={`--admin-table-min-width: ${minWidth}`}>
+<div class:list={['admin-table-wrap', { 'is-flush': flush }, cls]} style={`--admin-table-min-width: ${minWidth}`} data-admin-table-wrap>
   <table class="admin-table">
     <slot />
   </table>
 </div>
 
+<script
+  is:inline
+  set:html={`(function () {
+  var script = document.currentScript;
+  if (!script) return;
+  var wrap = script.previousElementSibling;
+  if (!wrap || !wrap.matches('[data-admin-table-wrap]')) return;
+  var table = wrap.querySelector('table');
+  if (!table) return;
+  var headers = Array.prototype.map.call(table.querySelectorAll('thead th'), function (th) {
+    return (th.textContent || '').trim();
+  });
+  Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (row) {
+    Array.prototype.forEach.call(row.children, function (cell, index) {
+      if (!cell.hasAttribute('data-label') && headers[index]) {
+        cell.setAttribute('data-label', headers[index]);
+      }
+    });
+  });
+})();`}
+></script>
+
 <style>
   .admin-table {
     min-width: var(--admin-table-min-width);
+  }
+
+  @media (max-width: 640px) {
+    .admin-table {
+      min-width: 0;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .admin-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .admin-table tbody {
+      display: grid;
+      gap: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    .admin-table tr {
+      display: block;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--admin-radius);
+      background: var(--admin-surface);
+      overflow: hidden;
+    }
+
+    .admin-table td {
+      display: grid;
+      grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: start;
+      border-top: 1px solid var(--admin-border);
+      padding: 0.65rem 0.75rem;
+      overflow-wrap: anywhere;
+    }
+
+    .admin-table td:first-child {
+      border-top: 0;
+    }
+
+    .admin-table td::before {
+      content: attr(data-label);
+      color: var(--admin-text-soft);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .admin-table td[colspan] {
+      display: block;
+    }
+
+    .admin-table td[colspan]::before,
+    .admin-table td:empty::before {
+      content: none;
+    }
   }
 </style>

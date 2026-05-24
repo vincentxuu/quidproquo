@@ -166,7 +166,28 @@
 	],
 	"env": {
 		"preview": {
-			"name": "quidproquo-preview"
+			"name": "quidproquo-preview",
+			"routes": [],
+			"triggers": {
+				"crons": []
+			},
+			"queues": {
+				"producers": [
+					{
+						"binding": "AGENT_QUEUE",
+						"queue": "agent-queue-preview"
+					}
+				],
+				"consumers": [
+					{
+						"queue": "agent-queue-preview",
+						"max_batch_size": 1,
+						"max_batch_timeout": 5,
+						"max_retries": 3,
+						"dead_letter_queue": "agent-queue-preview-dlq"
+					}
+				]
+			}
 		}
 	}
 }
