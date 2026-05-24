@@ -1,4 +1,4 @@
-import { PolicyApprovalGates } from '../../approval-gates'
+import type { PolicyApprovalGates } from '../../approval-gates'
 import type { HumanPolicy } from '../../schema/body'
 import type { Flags } from '../../../config/flags'
 

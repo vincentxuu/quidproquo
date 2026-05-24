@@ -63,7 +63,7 @@ describe('budget enforcement', () => {
   it('inserts a violations row when budget is breached and violations backend provided', async () => {
     const db = makeDb(0.01)
     const bindings = makeBindings({ budget: { max_cost_usd: 0.001 } })
-    const violations = { insert: vi.fn().mockResolvedValue(undefined) }
+    const violations = { insert: vi.fn().mockResolvedValue(undefined) } as unknown as import('../../storage/types').PolicyViolationBackend
 
     const result = await checkBudget('run-42', { db, bindings, violations })
 

@@ -15,7 +15,7 @@ describe('knowledge provider approval gate', () => {
   it('knowledge syscall definition has correct requiresApproval flags', async () => {
     // Read the actual syscall definition
     const { knowledgeNotionReadSyscall, knowledgeNotionWriteSyscall } =
-      await import('../../../../tools/definitions/knowledge-notion').catch(() => ({
+      await import('../../../tools/definitions/knowledge-notion').catch(() => ({
         knowledgeNotionReadSyscall: null,
         knowledgeNotionWriteSyscall: null,
       }))

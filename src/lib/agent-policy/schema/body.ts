@@ -24,9 +24,12 @@ export interface QualityPolicy {
 }
 
 export interface RedactionPattern {
-  name: string
-  pattern: string
-  action: 'redact' | 'block' | 'log'
+  /** Short-hand kind alias resolved by the built-in scanner (e.g. 'email', 'api-key').
+   *  Either `kind` or `name`+`pattern` must be provided. */
+  kind?: string
+  name?: string
+  pattern?: string
+  action?: 'redact' | 'block' | 'log'
 }
 
 export interface SecurityPolicy {

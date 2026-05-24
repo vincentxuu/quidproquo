@@ -15,7 +15,7 @@ export async function logProviderViolation(
 ): Promise<void> {
   try {
     await opts.violationBackend.insert({
-      flowRunId: opts.flowRunId,
+      flowRunId: Number(opts.flowRunId),
       policyId: opts.policyId,
       category: 'provider',
       ruleKey: 'provider_check',

@@ -22,7 +22,9 @@ export function wireSecurityEnforcement(policy: PolicyBody['security']): Securit
     checkAfterCall(_syscallName, output) {
       if (!policy?.sensitive_data_redaction?.patterns?.length) return { violations: [] }
       const text = typeof output === 'string' ? output : JSON.stringify(output)
-      const kinds = policy.sensitive_data_redaction.patterns.map((p: { kind: string }) => p.kind as import('./scanner').PatternKind)
+      const kinds = policy.sensitive_data_redaction.patterns
+        .filter((p): p is { kind: string } => typeof p.kind === 'string')
+        .map((p) => p.kind as import('./scanner').PatternKind)
       const matches = scan(text, kinds)
       if (!matches.length) return { violations: [] }
       const { redacted } = redact(text, matches)

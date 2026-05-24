@@ -4,11 +4,11 @@ describe('action syscall definitions', () => {
   it('all action syscalls require approval', async () => {
     // Read actual syscall definitions
     const defs = await Promise.all([
-      import('../../../../tools/definitions/action-slack-message').catch(() => null),
-      import('../../../../tools/definitions/action-github-issue').catch(() => null),
-      import('../../../../tools/definitions/action-github-comment').catch(() => null),
-      import('../../../../tools/definitions/action-notion-page').catch(() => null),
-      import('../../../../tools/definitions/action-email-send').catch(() => null),
+      import('../../../tools/definitions/action-slack-message').catch(() => null),
+      import('../../../tools/definitions/action-github-issue').catch(() => null),
+      import('../../../tools/definitions/action-github-comment').catch(() => null),
+      import('../../../tools/definitions/action-notion-page').catch(() => null),
+      import('../../../tools/definitions/action-email-send').catch(() => null),
     ])
 
     for (const mod of defs) {
@@ -23,7 +23,7 @@ describe('action syscall definitions', () => {
   })
 
   it('action syscalls have output schema', async () => {
-    const mod = await import('../../../../tools/definitions/action-slack-message').catch(() => null)
+    const mod = await import('../../../tools/definitions/action-slack-message').catch(() => null)
     if (!mod) return
     // Find the first exported object with outputSchema
     const syscall = Object.values(mod).find(

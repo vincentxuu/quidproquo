@@ -96,7 +96,7 @@ function emptyAll<T>(): D1Result<T> {
   return {
     results: [],
     success: true,
-    meta: {} as D1Meta,
+    meta: {} as unknown as D1Meta & Record<string, unknown>,
   };
 }
 

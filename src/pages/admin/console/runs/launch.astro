@@ -225,7 +225,7 @@ function defaultValueFor(input: FlowInput): string {
   const statusEl = document.getElementById('launch-status');
   const submitBtn = document.getElementById('launch-submit');
 
-  if (!form || !statusEl || !submitBtn) {
+  if (!form || !statusEl || !submitBtn || !(form instanceof HTMLFormElement)) {
     // Safety fallback for unexpected render states
   } else {
     const presetSelect = document.getElementById('presetId');
@@ -353,7 +353,7 @@ function defaultValueFor(input: FlowInput): string {
         }
       }
 
-      const payload = { input: parsedInput };
+      const payload: Record<string, unknown> = { input: parsedInput };
       const presetId = formData.get('presetId');
       if (typeof presetId === 'string' && presetId.trim()) {
         payload.presetId = presetId.trim();
@@ -369,7 +369,7 @@ function defaultValueFor(input: FlowInput): string {
           body: JSON.stringify(payload),
         });
 
-        const responseBody = await response.json().catch(() => ({}));
+        const responseBody = await response.json().catch(() => ({})) as Record<string, unknown>;
         if (!response.ok) {
           const errorMessage = responseBody?.error ?? '無法啟動執行';
           statusEl.className = 'launch-status launch-status--error';
