@@ -44,7 +44,7 @@
     "@langchain/openai": "^1.4.4",
     "@playwright/test": "^1.58.2",
     "@xyflow/react": "^12.10.2",
-    "astro": "^6.0.3",
+    "astro": "^6.3.7",
     "langfuse": "^3.38.20",
     "mdast-util-to-string": "^4.0.0",
     "playwright-extra": "^4.3.6",
