@@ -1,6 +1,6 @@
 import { HumanMessage } from '@langchain/core/messages'
 import { initialState } from '../state'
-import type { GraphState, PipelineCallbacks, RagRuntimeConfig } from '../state'
+import type { GraphState, PipelineCallbacks, RagRuntimeConfig, RagMessage } from '../state'
 import { plannerNode } from '../agents/planner'
 import { researchNode } from '../agents/research'
 import { normalizeResultsNode } from '../agents/normalize-results'
@@ -31,7 +31,7 @@ export async function runManualPipeline(
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
     config: input.config ?? initialState().config,
-    messages: [new HumanMessage(input.message)],
+    messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,
   }
 

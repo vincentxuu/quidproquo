@@ -10,7 +10,7 @@ import { validationNode } from '../../agents/validation'
 import { criticNode } from '../../agents/critic'
 import { fallbackNode } from '../../agents/fallback'
 import { relatedPostsNode } from '../../agents/related-posts'
-import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig } from '../../state'
+import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig, type RagMessage } from '../../state'
 import type { ProviderApiKeys } from '../../model'
 
 export interface LlamaIndexNativeTraceEvent {
@@ -75,7 +75,7 @@ export async function runLlamaIndexQueryEngine(
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
     config: input.config,
-    messages: [new HumanMessage(input.message)],
+    messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,
   }
   const started = Date.now()

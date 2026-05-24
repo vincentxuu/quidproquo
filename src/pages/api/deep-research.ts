@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { env as cloudflareEnv } from 'cloudflare:workers'
 import { HumanMessage } from '@langchain/core/messages'
-import { initialState, type GraphState, type RagRuntimeConfig, type SearchResult } from '../../lib/rag/state'
+import { initialState, type GraphState, type RagRuntimeConfig, type SearchResult, type RagMessage } from '../../lib/rag/state'
 import { verifySession } from '../../lib/auth/session'
 import { plannerNode } from '../../lib/rag/agents/planner'
 import { researchNode } from '../../lib/rag/nodes/research'
@@ -185,7 +185,7 @@ export const POST: APIRoute = async (context) => {
     const baseState = {
       ...initialState(),
       config: finalConfig,
-      messages: [new HumanMessage(brief)],
+      messages: [new HumanMessage(brief)] as RagMessage[],
     }
     const skillInstructions = {
       planner: buildAgentSkillInstructions('planner', agentSkillsProfile, agentSkillsProfiles.planner, agentSkills),
@@ -236,7 +236,7 @@ export const POST: APIRoute = async (context) => {
       for (const question of selectedSubtasks) {
         const researchState = {
           ...baseState,
-          messages: [new HumanMessage(question)],
+          messages: [new HumanMessage(question)] as RagMessage[],
           plan,
         } as GraphState
 

@@ -1,6 +1,6 @@
 import { HumanMessage } from '@langchain/core/messages'
 import { describe, expect, it, vi } from 'vitest'
-import { initialState, type GraphState, type Plan } from '../state'
+import { initialState, type GraphState, type Plan, type RagMessage } from '../state'
 import { plannerAgent, plannerNode } from './planner'
 import { invokeModel } from '../model'
 
@@ -88,7 +88,7 @@ describe('planner agent parity', () => {
 function makeState(query: string): GraphState {
   return {
     ...initialState(),
-    messages: [new HumanMessage(query)],
+    messages: [new HumanMessage(query)] as RagMessage[],
     model_usage: [{ stage: 'critic', ...route }],
   }
 }
@@ -113,7 +113,7 @@ function makeInvokeResult(content: unknown): MockInvokeResult {
   return {
     response: { content: JSON.stringify(content) },
     route,
-  } as MockInvokeResult
+  } as unknown as MockInvokeResult
 }
 
 function plannerBranch(state: Pick<GraphState, 'plan'>): 'END' | 'research' {

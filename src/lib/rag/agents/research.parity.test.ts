@@ -1,6 +1,6 @@
 import { HumanMessage } from '@langchain/core/messages'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { initialState, type GraphState, type SearchResult } from '../state'
+import { initialState, type GraphState, type SearchResult, type RagMessage } from '../state'
 import { researchAgent, researchNode } from './research'
 import { invokeModel } from '../model'
 import { searchBlogPosts } from '../tools/search-posts'
@@ -79,7 +79,7 @@ describe('research agent parity', () => {
     vi.mocked(invokeModel).mockResolvedValue({
       response: { content: 'hypothetical retrieval paragraph' },
       route,
-    } as Awaited<ReturnType<typeof invokeModel>>)
+    } as unknown as Awaited<ReturnType<typeof invokeModel>>)
 
     const state = makeState({
       config: {
@@ -137,7 +137,7 @@ async function expectParity(state: GraphState) {
 function makeState(overrides: Partial<GraphState>): GraphState {
   return {
     ...initialState(),
-    messages: [new HumanMessage('How does Agent OS mediate tools?')],
+    messages: [new HumanMessage('How does Agent OS mediate tools?')] as RagMessage[],
     token_usage: { input: 80, output: 40 },
     ...overrides,
   }

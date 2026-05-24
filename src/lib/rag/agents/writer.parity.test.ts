@@ -1,6 +1,6 @@
 import { HumanMessage } from '@langchain/core/messages'
 import { describe, expect, it, vi } from 'vitest'
-import { initialState, type GraphState } from '../state'
+import { initialState, type GraphState, type RagMessage } from '../state'
 import { writerAgent, writerNode } from './writer'
 import { invokeModel } from '../model'
 
@@ -106,7 +106,7 @@ describe('writer agent parity', () => {
 function makeState(overrides: Partial<GraphState>): GraphState {
   return {
     ...initialState(),
-    messages: [new HumanMessage('How should we migrate this RAG agent?')],
+    messages: [new HumanMessage('How should we migrate this RAG agent?')] as RagMessage[],
     search_results: [{
       claim: 'Agent OS routes tools through mediated syscalls.',
       evidence_excerpt: 'All tool calls are logged through the kernel.',
@@ -134,5 +134,5 @@ function makeInvokeResult(markdown: string): MockInvokeResult {
       },
     },
     route,
-  } as MockInvokeResult
+  } as unknown as MockInvokeResult
 }

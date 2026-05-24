@@ -1,6 +1,6 @@
 import { HumanMessage } from '@langchain/core/messages'
 import { describe, expect, it, vi } from 'vitest'
-import { initialState, type GraphState } from '../state'
+import { initialState, type GraphState, type RagMessage } from '../state'
 import { shouldDegrade, shouldRetry } from './critic-routing'
 import { criticAgent, criticNode } from './critic'
 import { invokeModel } from '../model'
@@ -112,7 +112,7 @@ describe('critic agent parity', () => {
 function makeState(overrides: Partial<GraphState>): GraphState {
   return {
     ...initialState(),
-    messages: [new HumanMessage('What changed in the agent architecture?')],
+    messages: [new HumanMessage('What changed in the agent architecture?')] as RagMessage[],
     plan: {
       intent: 'factual',
       complexity: 'medium',
@@ -147,5 +147,5 @@ function makeInvokeResult(critique: unknown): MockInvokeResult {
       },
     },
     route,
-  } as MockInvokeResult
+  } as unknown as MockInvokeResult
 }

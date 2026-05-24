@@ -14,7 +14,7 @@ export async function getPostDetailMarkdown(slug: string, db = (env as unknown a
 }
 
 export const getPostDetail = tool(
-  async ({ slug }): Promise<string> => getPostDetailMarkdown(slug),
+  async ({ slug }: { slug: string }): Promise<string> => getPostDetailMarkdown(slug),
   {
     name: 'get_post_detail',
     description: 'Retrieve the full content of a specific blog post by its slug. Use when you need the complete text of an article.',

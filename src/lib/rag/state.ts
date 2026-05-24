@@ -1,4 +1,14 @@
-import type { BaseMessage } from '@langchain/core/messages'
+import type { BaseMessage, MessageStructure } from '@langchain/core/messages'
+
+/**
+ * Langchain v1 made `BaseMessage` invariant in its `TRole` generic via
+ * `$InferMessageContent<TStructure, TRole>`. That breaks the natural
+ * `HumanMessage extends BaseMessage` substitutability and produces
+ * "missing 14 more properties" errors when we mix message subclasses in one
+ * array. Using `any` for the role parameter keeps the array structurally
+ * compatible with every concrete message subclass we construct.
+ */
+export type RagMessage = BaseMessage<MessageStructure, any>
 import type { SearchMetrics } from './tools/hybrid-search'
 import type { RagProvider } from './providers'
 import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
@@ -82,7 +92,7 @@ export interface ValidationResult {
 }
 
 export interface GraphState {
-  messages: BaseMessage[]
+  messages: RagMessage[]
   thread_id: string
   language: string
   conversation_summary: string | undefined

@@ -1,11 +1,44 @@
 import { ChatGroq } from '@langchain/groq'
 import { ChatOpenAI } from '@langchain/openai'
+import type { ChatOpenAIFields } from '@langchain/openai'
 import { ChatGoogleGenerativeAI } from '@langchain/google-genai'
 import { AIMessage } from '@langchain/core/messages'
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
-import type { BaseMessageLike } from '@langchain/core/messages'
+import type { BaseMessageLike, MessageStructure } from '@langchain/core/messages'
 import type { RagProvider } from './providers'
+
+/**
+ * Structural response type for chat model invocations.
+ *
+ * We define this as an explicit interface rather than using `AIMessage<MessageStructure>`
+ * directly because langchain v1's `$InferMessageContent` generic makes `.content`
+ * invisible to TypeScript when the structure generic is in play. Callers across
+ * the codebase read `response.content` and `response.usage_metadata`, so we
+ * expose exactly those fields with their runtime-correct types.
+ *
+ * `usage_metadata` is only present on AI-role responses; it is optional here so
+ * that callers already guard with `?? 0` as expected.
+ */
+export interface ChatModelResponse {
+  content: string | unknown[]
+  usage_metadata?: {
+    input_tokens: number
+    output_tokens: number
+    total_tokens?: number
+  }
+}
+
+/**
+ * Common chat model surface unified across all providers (ChatOpenAI, ChatGroq,
+ * ChatGoogleGenerativeAI, Cloudflare Workers AI). Each provider class extends
+ * langchain's BaseChatModel and adds its own generic args, so the raw union
+ * type isn't easy for TS to narrow. This minimal interface only exposes the
+ * surface we actually call.
+ */
+export interface ChatModel {
+  invoke(input: BaseMessageLike[]): Promise<ChatModelResponse>
+}
 
 type Env = {
   AI?: {
@@ -46,6 +79,43 @@ function resolveRoute(
   }
 }
 
+/**
+ * Adapt a langchain chat-model instance (whose `invoke` signature is widened
+ * to `BaseLanguageModelInput` with a provider-specific generic return type) to
+ * the minimal `ChatModel` interface we expose to the rest of the codebase.
+ * All providers accept `BaseMessageLike[]` at runtime; we only need to relax
+ * TS' view so it unifies them behind one type.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type InvokableModel = { invoke: (...args: any[]) => Promise<unknown> }
+function adapt(model: InvokableModel): ChatModel {
+  return {
+    invoke: (input) => (model.invoke as (i: BaseMessageLike[]) => Promise<ChatModelResponse>).call(model, input),
+  }
+}
+
+/**
+ * Widen the `@langchain/openai` 1.4.x `ChatOpenAIFields` constructor type so
+ * we can pass `apiKey` and `maxTokens`. The package ships broken `.d.ts`
+ * files (internal type modules import from `../../src/types.js` paths absent
+ * from the published artefact), so `Partial<OpenAIChatInput>` resolves to
+ * nothing and TS sees `ChatOpenAIFields` as only its four explicit literal
+ * members. Until upstream is fixed, we intersect with the runtime-valid
+ * fields we actually need.
+ */
+type OpenAIConstructorFields =
+  Omit<ChatOpenAIFields, 'model'> & { apiKey?: string; maxTokens?: number; configuration?: { baseURL?: string } }
+
+/**
+ * The `@langchain/openai` 1.4.x published `Omit<ChatOpenAIFields, 'model'>`
+ * resolves to its four literal members (TS sees the rest as `never`). Cast our
+ * runtime-valid intersection through a permissive shape so the
+ * `constructor(model, fields)` overload still resolves.
+ */
+function asOpenAIFields(fields: OpenAIConstructorFields): Omit<ChatOpenAIFields, 'model'> {
+  return fields as unknown as Omit<ChatOpenAIFields, 'model'>
+}
+
 export function createModel(
   maxTokens = 512,
   options?: {
@@ -54,24 +124,25 @@ export function createModel(
     route?: ModelRoute
     apiKeys?: ProviderApiKeys
   }
-) {
+): ChatModel {
   const e = env as unknown as Env
   const route = options?.route ?? resolveRoute(options?.config, options?.stage)
   const apiKeys = options?.apiKeys ?? {}
 
   if (route.provider === 'openai') {
     const apiKey = apiKeys.openai || e.OPENAI_API_KEY
-    return new ChatOpenAI({ model: route.model, apiKey, maxTokens })
+    const fields: OpenAIConstructorFields = { apiKey, maxTokens }
+    return adapt(new ChatOpenAI(route.model, asOpenAIFields(fields)) as unknown as InvokableModel)
   }
 
   if (route.provider === 'google' || route.provider === 'gemini') {
     const apiKey = apiKeys.google || apiKeys.gemini || apiKeys.GOOGLE_API_KEY || apiKeys.GEMINI_API_KEY || e.GOOGLE_API_KEY || e.GEMINI_API_KEY
-    return new ChatGoogleGenerativeAI({ model: route.model, apiKey, maxOutputTokens: maxTokens })
+    return adapt(new ChatGoogleGenerativeAI(route.model, { apiKey, maxOutputTokens: maxTokens }))
   }
 
   if (route.provider === 'groq') {
     const apiKey = apiKeys.groq || e.GROQ_API_KEY
-    return new ChatGroq({ model: route.model, apiKey, maxTokens })
+    return adapt(new ChatGroq(route.model, { apiKey, maxTokens } as unknown as import('@langchain/groq').ChatGroqInput))
   }
 
   if (route.provider === 'cloudflare') {
@@ -108,24 +179,20 @@ export function createModel(
   throw new Error(`Unsupported provider: ${route.provider}`)
 }
 
-function createOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string) {
+function createOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): ChatModel {
   if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
-  return new ChatOpenAI({
-    model,
-    apiKey,
-    maxTokens,
-    configuration: { baseURL },
-  })
+  const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
+  return adapt(new ChatOpenAI(model, asOpenAIFields(fields)) as unknown as InvokableModel)
 }
 
-function createCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, maxTokens: number) {
+function createCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, maxTokens: number): ChatModel {
   return {
-    async invoke(messages: BaseMessageLike[]) {
+    async invoke(messages: BaseMessageLike[]): Promise<ChatModelResponse> {
       const result = await ai.run(model, {
         messages: toCloudflareMessages(messages),
         max_tokens: maxTokens,
       })
-      return new AIMessage(extractCloudflareText(result))
+      return new AIMessage(extractCloudflareText(result)) as unknown as ChatModelResponse
     },
   }
 }

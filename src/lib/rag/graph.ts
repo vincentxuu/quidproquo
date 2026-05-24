@@ -15,8 +15,7 @@ import { criticNode } from './agents/critic'
 import { shouldRetry, shouldDegrade } from './agents/critic-routing'
 import { relatedPostsNode } from './agents/related-posts'
 import { fallbackNode } from './agents/fallback'
-import type { BaseMessage } from '@langchain/core/messages'
-import type { PipelineCallbacks } from './state'
+import type { RagMessage, PipelineCallbacks } from './state'
 import type { ProviderApiKeys } from './model'
 
 type MigratedAgentId = 'planner' | 'research' | 'writer' | 'critic'
@@ -38,7 +37,7 @@ function dispatchNode(agentId: MigratedAgentId, legacyFn: GraphNode, kernelFn: G
 export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   const graph = new StateGraph<GraphState>({
     channels: {
-      messages: { reducer: (a: BaseMessage[], b: BaseMessage[]) => [...a, ...b], default: () => [] },
+      messages: { reducer: (a: RagMessage[], b: RagMessage[]) => [...a, ...b], default: () => [] },
       thread_id: { default: () => crypto.randomUUID() },
       language: { default: () => 'zh-TW' },
       conversation_summary: { default: () => undefined },
@@ -134,7 +133,7 @@ export async function runPipeline(
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
     config: input.config ?? initialState().config,
-    messages: [new HumanMessage(input.message)],
+    messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,
   }
 
