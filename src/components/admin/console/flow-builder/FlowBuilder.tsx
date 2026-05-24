@@ -37,23 +37,27 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
   const [showImport, setShowImport] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   const lastSavedYaml = useRef<string>('')
+  const isDirtyRef = useRef(false)
 
-  // Unsaved changes guard
+  // Unsaved changes guard — only fires after the user has actually made a change
   useEffect(() => {
     const handler = (e: BeforeUnloadEvent) => {
-      if (saveStatus !== 'saved') {
+      if (isDirtyRef.current) {
         e.preventDefault()
         e.returnValue = ''
       }
     }
     window.addEventListener('beforeunload', handler)
     return () => window.removeEventListener('beforeunload', handler)
-  }, [saveStatus])
+  }, [])
 
   const selectedNode = nodes.find(n => n.id === selectedId) ?? null
 
   const onConnect = useCallback(
-    (connection: Connection) => setEdges(eds => addEdge(connection, eds)),
+    (connection: Connection) => {
+      isDirtyRef.current = true
+      setEdges(eds => addEdge(connection, eds))
+    },
     [setEdges],
   )
 
@@ -64,7 +68,8 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
   const onPaneClick = useCallback(() => setSelectedId(null), [])
 
   function addStep(type: StepType, position?: { x: number; y: number }) {
-    const id = `${type}-${Date.now()}`
+    isDirtyRef.current = true
+    const id = `${type}-${crypto.randomUUID().slice(0, 8)}`
     const newNode: BuilderNode = {
       id,
       type: 'step',
@@ -84,6 +89,7 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
   }
 
   function handleUpdateNode(nodeId: string, config: FlowStep) {
+    isDirtyRef.current = true
     setNodes(ns => ns.map(n =>
       n.id === nodeId
         ? { ...n, data: { ...n.data, config, stepId: String(config.id ?? n.data.stepId), label: String(config.id ?? n.data.stepId) } }
@@ -92,6 +98,7 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
   }
 
   function handleDeleteNode(nodeId: string) {
+    isDirtyRef.current = true
     setNodes(ns => ns.filter(n => n.id !== nodeId))
     setEdges(es => es.filter(e => e.source !== nodeId && e.target !== nodeId))
     setSelectedId(null)
@@ -121,6 +128,7 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
       const data = await res.json() as { version?: number; error?: string }
       if (res.ok) {
         lastSavedYaml.current = yaml
+        isDirtyRef.current = false
         setSaveStatus('saved')
         setTimeout(() => { window.location.href = `/admin/console/flows/${flowId}` }, 800)
       } else {
@@ -134,6 +142,7 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
   }
 
   function handleImport(importedNodes: BuilderNode[], importedEdges: BuilderEdge[]) {
+    isDirtyRef.current = true
     setNodes(importedNodes)
     setEdges(importedEdges)
     setSelectedId(null)

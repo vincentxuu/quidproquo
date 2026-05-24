@@ -23,7 +23,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
     }
     setDraft(next)
     setTab('props')
-  }, [node?.id])
+  }, [node])
 
   if (!node) {
     return (
@@ -46,8 +46,11 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
       const raw = draft[field.key] ?? ''
       if (!raw && field.optional) continue
       if (field.type === 'number') {
-        const n = Number(raw)
-        if (!Number.isNaN(n)) updated[field.key] = n
+        const trimmed = raw.trim()
+        if (trimmed !== '') {
+          const n = Number(trimmed)
+          if (!Number.isNaN(n)) updated[field.key] = n
+        }
       } else if (field.type === 'tags') {
         updated[field.key] = raw.split(',').map(s => s.trim()).filter(Boolean)
       } else {

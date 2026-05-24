@@ -20,6 +20,10 @@ export function ImportYamlModal({ onImport, onClose }: ImportYamlModalProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ yaml }),
       })
+      if (!res.ok) {
+        setErrors([{ path: '(server)', message: `驗證請求失敗 (${res.status})` }])
+        return
+      }
       const data = await res.json() as { valid: boolean; errors?: { path: string; message: string }[] }
       if (!data.valid) {
         setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }])
