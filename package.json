@@ -74,7 +74,8 @@
     "simple-git-hooks": "^2.13.1",
     "tsx": "^4.21.0",
     "vfile": "^6.0.3",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.5",
+    "wrangler": "4.72.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint && pnpm check:references"
