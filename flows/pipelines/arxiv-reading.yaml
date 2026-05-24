@@ -1,0 +1,82 @@
+id: arxiv-reading
+name: arXiv Reading Agent
+version: 1
+description: Read an arXiv paper with Keshav's three-pass method and produce a structured reading-brief draft.
+inputs:
+  paperRef:
+    type: string
+    required: true
+    description: arXiv ID, URL, or paper title
+  abstract:
+    type: string
+    required: false
+    description: Abstract or notes pasted for grounding (lowers hallucination)
+  language:
+    type: string
+    required: false
+    default: zh-TW
+    description: Language for free-text fields
+  passDepth:
+    type: string
+    required: false
+    default: second
+    description: Reading depth (first | second | third)
+  autoFetch:
+    type: boolean
+    required: false
+    default: true
+    description: Auto-fetch the abstract from the arXiv API when none is pasted
+  fullText:
+    type: boolean
+    required: false
+    default: false
+    description: Fetch the full text from arXiv HTML (truncated) instead of just the abstract
+steps:
+  arxiv-reading:
+    kind: agent
+    prompt: Read the paper with the three-pass method and return structured first/second/third-pass notes
+    model: groq
+    maxTokens: 2600
+  arxiv-quality:
+    kind: tool_group
+    tools: [run_post_quality_check]
+    prompt: Run reading draft quality check
+  arxiv-reference:
+    kind: tool_group
+    tools: [run_reference_check]
+    prompt: Run reading draft reference check
+  arxiv-review:
+    kind: human_approval
+    reason: Reading review gate — verify findings against the source before writing draft markdown
+    ttlSeconds: 86400
+  arxiv-write-draft:
+    kind: tool_group
+    tools: [write_draft_artifact]
+    prompt: Write reading brief draft markdown
+  arxiv-report:
+    kind: artifact
+    artifactKind: json_report
+edges:
+  - from: arxiv-reading
+    to: arxiv-quality
+  - from: arxiv-quality
+    to: arxiv-reference
+  - from: arxiv-reference
+    to: arxiv-review
+  - from: arxiv-review
+    to: arxiv-write-draft
+  - from: arxiv-write-draft
+    to: arxiv-report
+artifacts:
+  - id: arxiv-reading-draft
+    kind: markdown_draft
+    title: Reading brief draft markdown
+    stepId: arxiv-write-draft
+  - id: arxiv-reading-report
+    kind: json_report
+    title: Reading brief report
+    stepId: arxiv-report
+budget:
+  maxRetries: 0
+  maxRuntimeMs: 420000
+  maxExternalCalls: 3

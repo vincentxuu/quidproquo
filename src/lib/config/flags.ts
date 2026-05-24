@@ -8,6 +8,7 @@ const pipelineIdToEnvKey: Record<string, keyof import('./env').Env> = {
   'crawl-sync': 'PIPELINE_CRAWL_SYNC_USE_FLOW',
   'translation': 'PIPELINE_TRANSLATION_USE_FLOW',
   'research-brief': 'PIPELINE_RESEARCH_BRIEF_USE_FLOW',
+  'arxiv-reading': 'PIPELINE_ARXIV_READING_USE_FLOW',
   'youtube-brief': 'PIPELINE_YOUTUBE_BRIEF_USE_FLOW',
   'glossary-gap': 'PIPELINE_GLOSSARY_GAP_USE_FLOW',
   'freshness-review': 'PIPELINE_FRESHNESS_REVIEW_USE_FLOW',
