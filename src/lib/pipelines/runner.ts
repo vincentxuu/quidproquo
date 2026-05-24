@@ -800,11 +800,12 @@ async function runArxivReadingJob(
   const language = typeof input.language === 'string' ? input.language : 'zh-TW'
   const passDepth = normalizeArxivPassDepth(input.passDepth)
   const autoFetch = input.autoFetch === undefined ? true : toBoolean(input.autoFetch)
+  const fullText = input.fullText === undefined ? false : toBoolean(input.fullText)
 
   const generateStepId = await createStep(db, jobId, 'arxiv-reading', 'llm', 'Read paper with three-pass method')
   const generateStartedAt = Date.now()
   const reading = await runArxivReading(
-    { paperRef, abstract, language, passDepth, autoFetch },
+    { paperRef, abstract, language, passDepth, autoFetch, fullText },
     {
       onExternalCall: () => {
         recordExternalCall(executionContext, 'arxiv-reading-stage')
@@ -812,7 +813,7 @@ async function runArxivReadingJob(
     },
   )
   await finishStep(db, generateStepId, 'succeeded', generateStartedAt, {
-    output: `Read paper ${reading.arxivId || paperRef} (depth: ${passDepth}, abstract: ${reading.fetchStatus}).`,
+    output: `Read paper ${reading.arxivId || paperRef} (depth: ${passDepth}, source: ${reading.sourceMode}/${reading.fetchStatus}, ${reading.contentChars} chars${reading.truncated ? ', truncated' : ''}).`,
   })
 
   const draftContext = {
@@ -894,7 +895,11 @@ async function runArxivReadingJob(
       language,
       passDepth,
       autoFetch,
+      fullText,
       fetchStatus: reading.fetchStatus,
+      sourceMode: reading.sourceMode,
+      contentChars: reading.contentChars,
+      truncated: reading.truncated,
       hasAbstract: reading.hasAbstract,
     },
     summary: {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { parseArxivAtom } from './arxiv-reading'
+import { parseArxivAtom, htmlToText } from './arxiv-reading'
 
 const SAMPLE_ATOM = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -41,5 +41,23 @@ describe('parseArxivAtom', () => {
 
   it('returns null when there is no entry', () => {
     expect(parseArxivAtom('<feed><title>empty</title></feed>')).toBeNull()
+  })
+})
+
+describe('htmlToText', () => {
+  it('strips scripts, styles, and tags and collapses whitespace', () => {
+    const html = `<html><head><style>.x{color:red}</style><script>var a=1<2;</script></head>
+      <body><h1>Title</h1><p>Hello   world</p></body></html>`
+    const text = htmlToText(html)
+    expect(text).not.toContain('color:red')
+    expect(text).not.toContain('var a')
+    expect(text).toContain('Title')
+    expect(text).toContain('Hello world')
+  })
+
+  it('drops nav/header/footer chrome and decodes entities', () => {
+    const html = '<nav>menu</nav><main>A &amp; B &lt;x&gt;</main><footer>copyright</footer>'
+    const text = htmlToText(html)
+    expect(text).toBe('A & B <x>')
   })
 })

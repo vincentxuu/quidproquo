@@ -26,6 +26,11 @@ inputs:
     required: false
     default: true
     description: Auto-fetch the abstract from the arXiv API when none is pasted
+  fullText:
+    type: boolean
+    required: false
+    default: false
+    description: Fetch the full text from arXiv HTML (truncated) instead of just the abstract
 steps:
   arxiv-reading:
     kind: agent
@@ -73,5 +78,5 @@ artifacts:
     stepId: arxiv-report
 budget:
   maxRetries: 0
-  maxRuntimeMs: 360000
-  maxExternalCalls: 2
+  maxRuntimeMs: 420000
+  maxExternalCalls: 3

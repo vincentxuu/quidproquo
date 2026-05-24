@@ -46,12 +46,20 @@ For shallower depths, return the deeper objects as empty objects/arrays.
 
 export type ArxivPassDepth = 'first' | 'second' | 'third'
 
-export type ArxivFetchStatus = 'pasted' | 'fetched' | 'fetch_failed' | 'no_id' | 'disabled'
+export type ArxivFetchStatus = 'pasted' | 'fetched' | 'fetched_fulltext' | 'fetch_failed' | 'no_id' | 'disabled'
+
+export type ArxivSourceMode = 'abstract' | 'fulltext' | 'none'
 
 export interface ArxivMetadata {
   title: string
   abstract: string
   authors: string[]
+}
+
+export interface ArxivFullText {
+  title: string
+  bodyText: string
+  truncated: boolean
 }
 
 interface ArxivReadingInput {
@@ -60,6 +68,7 @@ interface ArxivReadingInput {
   language?: string
   passDepth?: ArxivPassDepth
   autoFetch?: boolean
+  fullText?: boolean
 }
 
 interface DraftContext {
@@ -103,6 +112,9 @@ export interface ArxivReadingResult {
   passDepth: ArxivPassDepth
   hasAbstract: boolean
   fetchStatus: ArxivFetchStatus
+  sourceMode: ArxivSourceMode
+  contentChars: number
+  truncated: boolean
   authors: string[]
   generatedAt: string
   firstPass: ArxivFirstPass
@@ -136,6 +148,7 @@ export async function runArxivReading(
   options: {
     onExternalCall?: () => void
     fetchMetadata?: (arxivId: string, onExternalCall?: () => void) => Promise<ArxivMetadata | null>
+    fetchFullText?: (arxivId: string, onExternalCall?: () => void) => Promise<ArxivFullText | null>
   } = {},
 ): Promise<ArxivReadingResult> {
   const paperRef = normalizeText(input.paperRef)
@@ -143,33 +156,20 @@ export async function runArxivReading(
   const language = normalizeText(input.language) || 'zh-TW'
   const passDepth = normalizePassDepth(input.passDepth)
   const autoFetch = input.autoFetch !== false
+  const wantsFullText = input.fullText === true
   const arxivId = extractArxivId(paperRef)
 
-  let abstract = pastedAbstract
-  let fetchStatus: ArxivFetchStatus = pastedAbstract ? 'pasted' : 'disabled'
-  let fetchedTitle = ''
-  let authors: string[] = []
+  const source = await resolvePaperSource(
+    { pastedAbstract, autoFetch, wantsFullText, arxivId },
+    {
+      onExternalCall: options.onExternalCall,
+      fetchMetadata: options.fetchMetadata ?? fetchArxivMetadata,
+      fetchFullText: options.fetchFullText ?? fetchArxivFullText,
+    },
+  )
 
-  if (!pastedAbstract && autoFetch) {
-    if (!arxivId) {
-      fetchStatus = 'no_id'
-    } else {
-      const fetcher = options.fetchMetadata ?? fetchArxivMetadata
-      const meta = await fetcher(arxivId, options.onExternalCall)
-      if (meta && meta.abstract) {
-        abstract = meta.abstract
-        fetchedTitle = meta.title
-        authors = meta.authors
-        fetchStatus = 'fetched'
-      } else {
-        fetchStatus = 'fetch_failed'
-      }
-    }
-  }
-
-  const abstractBlock = abstract
-    ? `Abstract${fetchStatus === 'fetched' ? ' (fetched from arXiv)' : ''}:\n"""\n${abstract}\n"""`
-    : 'No abstract is available. Work only from the reference and common, stable knowledge; do not invent specific results.'
+  const { content, sourceMode, truncated, fetchStatus, fetchedTitle, authors } = source
+  const contentBlock = buildContentBlock(content, sourceMode, truncated)
 
   const run = await runModel(
     'arxiv_reading',
@@ -179,7 +179,7 @@ ${arxivId ? `arXiv ID: ${arxivId}` : ''}
 Language for free-text fields: ${language}
 Depth: ${passDepth}
 
-${abstractBlock}
+${contentBlock}
 
 Return a JSON object in the strict format described above.`,
     options.onExternalCall,
@@ -198,7 +198,8 @@ Return a JSON object in the strict format described above.`,
   const relatedWorkToRead = normalizeStringList(parsed?.relatedWorkToRead)
 
   const requiresHumanInput =
-    !abstract ||
+    !content ||
+    truncated ||
     firstPass.contributions.length === 0 ||
     firstPass.verdict.toLowerCase() === 'maybe' ||
     openQuestions.length > 0
@@ -209,8 +210,11 @@ Return a JSON object in the strict format described above.`,
     resolvedTitle: formatTitle(paperRef, arxivId, fetchedTitle),
     language,
     passDepth,
-    hasAbstract: Boolean(abstract),
+    hasAbstract: Boolean(content),
     fetchStatus,
+    sourceMode,
+    contentChars: content.length,
+    truncated,
     authors,
     generatedAt: new Date().toISOString(),
     firstPass,
@@ -225,6 +229,127 @@ Return a JSON object in the strict format described above.`,
 }
 
 const ARXIV_API_ENDPOINT = 'https://export.arxiv.org/api/query'
+const ARXIV_HTML_ENDPOINT = 'https://arxiv.org/html'
+/** Cap on full-text characters fed to the model (~6k tokens) to bound cost and context. */
+const MAX_FULLTEXT_CHARS = 24_000
+
+interface ResolvedSource {
+  content: string
+  sourceMode: ArxivSourceMode
+  truncated: boolean
+  fetchStatus: ArxivFetchStatus
+  fetchedTitle: string
+  authors: string[]
+}
+
+async function resolvePaperSource(
+  input: { pastedAbstract: string; autoFetch: boolean; wantsFullText: boolean; arxivId: string },
+  deps: {
+    onExternalCall?: () => void
+    fetchMetadata: (arxivId: string, onExternalCall?: () => void) => Promise<ArxivMetadata | null>
+    fetchFullText: (arxivId: string, onExternalCall?: () => void) => Promise<ArxivFullText | null>
+  },
+): Promise<ResolvedSource> {
+  const { pastedAbstract, autoFetch, wantsFullText, arxivId } = input
+  const empty: ResolvedSource = {
+    content: pastedAbstract,
+    sourceMode: pastedAbstract ? 'abstract' : 'none',
+    truncated: false,
+    fetchStatus: pastedAbstract ? 'pasted' : 'disabled',
+    fetchedTitle: '',
+    authors: [],
+  }
+
+  if (pastedAbstract || !autoFetch) return empty
+  if (!arxivId) return { ...empty, fetchStatus: 'no_id' }
+
+  if (wantsFullText) {
+    const ft = await deps.fetchFullText(arxivId, deps.onExternalCall)
+    if (ft && ft.bodyText) {
+      return {
+        content: ft.bodyText,
+        sourceMode: 'fulltext',
+        truncated: ft.truncated,
+        fetchStatus: 'fetched_fulltext',
+        fetchedTitle: ft.title,
+        authors: [],
+      }
+    }
+    // Fall through to abstract API when HTML full text is unavailable.
+  }
+
+  const meta = await deps.fetchMetadata(arxivId, deps.onExternalCall)
+  if (meta && meta.abstract) {
+    return {
+      content: meta.abstract,
+      sourceMode: 'abstract',
+      truncated: false,
+      fetchStatus: 'fetched',
+      fetchedTitle: meta.title,
+      authors: meta.authors,
+    }
+  }
+
+  return { ...empty, fetchStatus: 'fetch_failed' }
+}
+
+function buildContentBlock(content: string, sourceMode: ArxivSourceMode, truncated: boolean): string {
+  if (!content) {
+    return 'No paper content is available. Work only from the reference and common, stable knowledge; do not invent specific results.'
+  }
+  if (sourceMode === 'fulltext') {
+    const note = truncated ? ' (full text, TRUNCATED — later sections may be missing)' : ' (full text)'
+    return `Paper body${note}:\n"""\n${content}\n"""`
+  }
+  return `Abstract:\n"""\n${content}\n"""`
+}
+
+async function fetchArxivFullText(arxivId: string, onExternalCall?: () => void): Promise<ArxivFullText | null> {
+  if (!arxivId) return null
+  onExternalCall?.()
+  try {
+    const response = await fetch(`${ARXIV_HTML_ENDPOINT}/${encodeURIComponent(arxivId)}`, {
+      headers: { Accept: 'text/html' },
+    })
+    if (!response.ok) return null
+    const html = await response.text()
+    const bodyRaw = htmlToText(html)
+    if (!bodyRaw) return null
+    const truncated = bodyRaw.length > MAX_FULLTEXT_CHARS
+    return {
+      title: extractHtmlTitle(html),
+      bodyText: truncated ? bodyRaw.slice(0, MAX_FULLTEXT_CHARS) : bodyRaw,
+      truncated,
+    }
+  } catch {
+    return null
+  }
+}
+
+/** Strip an HTML document down to readable text: drop scripts/styles/tags, decode entities, collapse space. */
+export function htmlToText(html: string): string {
+  return html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<(?:nav|header|footer|aside)\b[\s\S]*?<\/(?:nav|header|footer|aside)>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function extractHtmlTitle(html: string): string {
+  const raw = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? ''
+  return raw
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
 
 async function fetchArxivMetadata(arxivId: string, onExternalCall?: () => void): Promise<ArxivMetadata | null> {
   if (!arxivId) return null
@@ -297,7 +422,7 @@ export function buildArxivReadingDraft(result: ArxivReadingResult, context: Draf
     paperUrl ? `連結：${paperUrl}` : '連結：（未提供 arXiv 連結，請補上）',
     `閱讀深度：${result.passDepth}`,
     `語言：${context.language}`,
-    abstractSourceNote(result.fetchStatus),
+    contentSourceNote(result),
     '',
     '## 第一遍：取捨（5-10 分鐘）',
     `- 類型：${fallback(result.firstPass.category)}`,
@@ -486,10 +611,14 @@ function fallback(value: string): string {
   return value || '待補'
 }
 
-function abstractSourceNote(status: ArxivFetchStatus): string {
-  switch (status) {
+function contentSourceNote(result: ArxivReadingResult): string {
+  switch (result.fetchStatus) {
+    case 'fetched_fulltext':
+      return result.truncated
+        ? `（已自動抓取 arXiv HTML 全文，但內容過長已截斷至約 ${result.contentChars} 字，後段可能未讀，請對照原文）`
+        : `（已自動抓取 arXiv HTML 全文整理，約 ${result.contentChars} 字，仍建議對照原文核對數字）`
     case 'fetched':
-      return '（已自動抓取 arXiv 摘要整理，仍須對照全文確認）'
+      return '（已自動抓取 arXiv 摘要整理，僅摘要層級，須對照全文確認）'
     case 'pasted':
       return '（已根據提供的摘要整理）'
     case 'fetch_failed':

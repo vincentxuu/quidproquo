@@ -236,6 +236,12 @@ export const pipelineDefinitions: PipelineDefinition[] = [
         type: 'boolean',
         defaultValue: true,
       },
+      {
+        id: 'fullText',
+        label: 'Fetch full text (arXiv HTML) instead of abstract',
+        type: 'boolean',
+        defaultValue: false,
+      },
     ],
     tools: ['write_draft_artifact', 'run_post_quality_check', 'run_reference_check', 'write_artifact'],
     stages: [
@@ -251,7 +257,7 @@ export const pipelineDefinitions: PipelineDefinition[] = [
       { id: 'arxiv-reading-report', type: 'json_report', title: 'Reading brief report' },
     ],
     guards: ['admin_required', 'reviewer_never_auto_fix', 'no_fabrication', 'tool_allowlist', 'budget_limit'],
-    budget: { maxRetries: 0, maxRuntimeMs: 360_000, maxExternalCalls: 2 },
+    budget: { maxRetries: 0, maxRuntimeMs: 420_000, maxExternalCalls: 3 },
     requiresAdmin: true,
     writesMarkdown: true,
     usesExternalResearch: true,
