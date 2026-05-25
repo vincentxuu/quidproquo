@@ -51,7 +51,7 @@ const breadcrumb = [
         <h2>{detail.definition.name} <code>{detail.definition.id}</code></h2>
         {detail.definition.description && <p class="desc">{detail.definition.description}</p>}
         <div class="detail-actions">
-          <a href={consoleHref(`/admin/console/flows/${flowId}/edit`, lang)} class="btn-edit">{t('flows.editYaml')}</a>
+          <a href={consoleHref(`/admin/console/flows/${flowId}/edit`, lang)} class="btn-edit">{t('common.edit')}</a>
           <button
             type="button"
             class="btn-danger"
