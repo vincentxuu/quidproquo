@@ -1,12 +1,14 @@
 # quidproquo progress
 
-Last updated: 2026-05-23
+Last updated: 2026-06-04
 
 Current focus
 - Close short-term blog infrastructure gaps from `docs/TODO.md`.
 - Keep RAG work incremental; do not add complexity without feature flags and evaluation.
 
 Recently completed
+- 13 new AI posts published (2026-06-04 agent series + arXiv paper guide).
+- Glossary expanded: 13 site-wide terms (terms.ts now 113) + frontmatter glossary on 7 new posts; density check shows median 11 terms/post, next signal is monthly glossary_lookup_stats review.
 - Internal broken post references fixed and enforced in CI.
 - Pre-commit hook added for `pnpm lint` and `pnpm check:references`.
 - Root `CLAUDE.md` added.
