@@ -31,6 +31,12 @@ export const ui = {
     'series.posts': '篇文章',
     'lang.switch': 'EN',
     'lang.switch.href': '/en',
+    'untranslated.banner': '這篇文章目前沒有中文版本，先為你顯示中文首頁。',
+    'untranslated.dismiss': '關閉',
+    'glossary.beginner': '初學',
+    'glossary.advanced': '進階',
+    'glossary.fallback': '是本文中的技術名詞。',
+    'glossary.search': '搜尋',
   },
   en: {
     'nav.home': 'Home',
@@ -54,6 +60,12 @@ export const ui = {
     'series.posts': 'posts',
     'lang.switch': '中文',
     'lang.switch.href': '/',
+    'untranslated.banner': "This article isn't available in English yet — showing the English home instead.",
+    'untranslated.dismiss': 'Dismiss',
+    'glossary.beginner': 'Beginner',
+    'glossary.advanced': 'Advanced',
+    'glossary.fallback': 'is a technical term used in this article.',
+    'glossary.search': 'Search',
   },
 } as const;
 

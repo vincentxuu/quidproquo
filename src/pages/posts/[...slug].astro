@@ -9,8 +9,9 @@ import { getRelatedPosts } from '../../utils/relatedPosts';
 import { getSeriesNav } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
 import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
+import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref } from '../../utils/series';
-import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms } from '../../lib/glossary/terms';
+import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -39,14 +40,32 @@ const readingTime = post.data.readingTime ?? 1;
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
-const glossaryEntries = normalizeGlossaryTerms([
-  ...(post.data.glossary ?? []),
-  ...DEFAULT_GLOSSARY_TERMS,
-]);
+const glossaryEntries = resolveGlossaryForLang(
+  normalizeGlossaryTerms([
+    ...(post.data.glossary ?? []),
+    ...DEFAULT_GLOSSARY_TERMS,
+  ]),
+  lang,
+);
 
 const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://quidproquo.cc';
 const postUrl = `${siteUrl}/posts/${post.id}`;
+
+// Translation pairing: link to the counterpart if it exists, else fall back to
+// the other language's home with an `untranslated` hint for the fallback banner.
+const counterpart = getTranslation(post.id, allPosts);
+const hasTranslation = counterpart !== null;
+const switchHref = counterpart
+  ? `/posts/${counterpart.id}`
+  : lang === 'en'
+    ? `/?untranslated=${encodeURIComponent(post.id)}`
+    : `/en?untranslated=${encodeURIComponent(post.id)}`;
+// hreflang alternates: emit only when the pair exists. x-default points at zh-TW.
+const enId = lang === 'en' ? post.id : counterpart?.id;
+const zhId = lang === 'en' ? counterpart?.id : post.id;
+const enHref = enId ? `${siteUrl}/posts/${enId}` : undefined;
+const zhHref = zhId ? `${siteUrl}/posts/${zhId}` : undefined;
 
 const blogPostingLD = {
   '@context': 'https://schema.org',
@@ -104,6 +123,10 @@ const breadcrumbLD = {
   ogImage={ogImage}
   articleDate={post.data.date}
   articleTags={post.data.tags}
+  switchHref={switchHref}
+  hasTranslation={hasTranslation}
+  hreflangEn={enHref}
+  hreflangZh={zhHref}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(blogPostingLD).replace(/</g, '\\u003c')} />
@@ -240,6 +263,7 @@ const breadcrumbLD = {
       id="glossary-data"
       type="application/json"
       data-post-slug={post.id}
+      data-lang={lang}
       set:html={JSON.stringify(glossaryEntries).replace(/</g, '\\u003c')}
     />
 
@@ -250,8 +274,8 @@ const breadcrumbLD = {
           <div class="glossary-title" id="glossary-title"></div>
         </div>
         <div class="glossary-level" role="group" aria-label="Explanation depth">
-          <button type="button" data-glossary-level="beginner">初學</button>
-          <button type="button" data-glossary-level="advanced">進階</button>
+          <button type="button" data-glossary-level="beginner">{t('glossary.beginner')}</button>
+          <button type="button" data-glossary-level="advanced">{t('glossary.advanced')}</button>
         </div>
       </div>
       <p class="glossary-definition" id="glossary-definition">Loading...</p>
@@ -599,6 +623,7 @@ const breadcrumbLD = {
     ? JSON.parse(glossaryData.textContent)
     : [];
   const glossarySlug = glossaryData?.dataset.postSlug ?? '';
+  const glossaryLang = glossaryData?.dataset.lang ?? 'zh-TW';
   const glossaryCache = new Map<string, GlossaryResponse>();
   const glossaryPending = new Map<string, Promise<GlossaryResponse>>();
   let glossaryLevel = (localStorage.getItem('glossary-level') === 'advanced' ? 'advanced' : 'beginner') as 'beginner' | 'advanced';
@@ -732,11 +757,11 @@ const breadcrumbLD = {
     return {
       term,
       level,
-      definition: definition ?? `${term} 是本文中的技術名詞。`,
+      definition: definition ?? (glossaryLang === 'en' ? `${term} is a technical term used in this article.` : `${term} 是本文中的技術名詞。`),
       context: seed?.context ?? context,
       reading: seed?.links?.length
         ? seed.links
-        : [{ label: `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(term)}&mode=rag` }],
+        : [{ label: glossaryLang === 'en' ? `Search ${term}` : `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(term)}&mode=rag` }],
       source: 'local',
     };
   }
