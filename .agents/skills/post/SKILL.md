@@ -37,24 +37,32 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。
    - `glossary needed`：只標出不解釋會影響理解的詞。
 4. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
-5. **產生檔案**：
+5. **產生中文版檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>.md`
    - slug：英文 kebab-case，取關鍵詞（不是中翻英整段）
    - frontmatter 必填：`title`、`date`、`category`、`tags`、`lang`
    - 細節欄位請先讀 `references/frontmatter-schema.md`
    - 寫作風格請先讀 `references/writing-guide.md`
-6. **參考資料是硬要求**：如果文章引用工具、框架、官方文件、論文、版本、數據比較、外部說法 → 文末必須有 `## 參考資料` 段落。`tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類預設都要有。
-7. **驗證**（按順序跑，全綠才算完成）：
+   - 在 frontmatter `---` 後加跨語言連結：`> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)`
+6. **產生英文版檔案**：
+   - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md`
+   - frontmatter：`lang: en`，title / tldr / description 翻成自然英文，其餘欄位不動
+   - 在 frontmatter `---` 後加跨語言連結：`> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)`
+   - 全文翻成清晰的技術英文；code block 不動（只翻中文註解）
+   - URL、檔案路徑、指令範例維持原樣
+   - 參考資料：翻譯描述文字；純中文來源保留原連結並標注 `(in Chinese)`
+7. **參考資料是硬要求**：如果文章引用工具、框架、官方文件、論文、版本、數據比較、外部說法 → 文末必須有 `## 參考資料`（英文版用 `## References`）段落。`tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類預設都要有。
+8. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
-8. **請使用者 review**：把草稿丟出來，確認再 commit。
-9. **commit**（取得明確同意後）：
+9. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
+10. **commit**（取得明確同意後）：
    ```bash
-   git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md
+   git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md
    git commit -m "post(<category>): <title summary>"
    ```
    commit 訊息照專案格式生成：`post(<category>): <title summary>`。
