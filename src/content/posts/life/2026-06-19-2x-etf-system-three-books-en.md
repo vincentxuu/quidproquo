@@ -37,7 +37,7 @@ The key insight: the longer the holding period, and with regular rebalancing, th
 
 The most important thing Morgan Housel says in *The Psychology of Money*: smart planning isn't about being more precise — it's about deliberately leaving room for error.
 
-In practice, this means: don't go all-in on leverage. Hold low-volatility assets alongside 2x ETFs to cushion extreme scenarios. This book established my "2x ETF + low-volatility asset" portfolio blend rather than betting everything on leverage.
+In practice, this means: don't go all-in on leverage. Hold low-volatility assets (e.g. bond ETFs or cash) alongside 2x ETFs to cushion extreme scenarios. This book established my "2x ETF + low-volatility asset" portfolio blend rather than betting everything on leverage.
 
 ---
 
@@ -45,7 +45,7 @@ In practice, this means: don't go all-in on leverage. Hold low-volatility assets
 
 The three books gave me the philosophy. Rebalancing gives me the execution.
 
-Periodically resetting portfolio weights to the target allocation automatically achieves:
+Resetting portfolio weights to the target allocation every quarter automatically achieves:
 - After a big run-up: trim 2x exposure (sell some near the highs)
 - After a big drop: add to 2x exposure (buy more near the lows)
 
