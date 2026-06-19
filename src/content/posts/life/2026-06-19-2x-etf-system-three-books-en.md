@@ -53,16 +53,11 @@ No need to call the top or bottom. The mechanism itself does the "buy low, sell 
 
 ---
 
-## The System
+## Why These Three Books Form a System
 
-| Question | Answer | Source |
-|---|---|---|
-| What to hold? | Index ETF (2x leveraged) | *A Random Walk Down Wall Street* |
-| How to accelerate? | Moderate leverage | *The Leveraged ETF Investing Method* |
-| How to manage risk? | Safety margin + low-vol assets | *The Psychology of Money* |
-| How to execute? | Quarterly rebalancing | — |
+Each book answers a different question: what to hold, how to accelerate, how to manage risk. Rebalancing connects all three into a mechanism that can keep running on its own.
 
-The premise of this system: no market prediction, no guessing tops and bottoms, no chasing trends. Build a mechanism that keeps running regardless of market direction — and let time do the work.
+Remove any one piece and the system breaks down — holding the index without leverage leaves returns mediocre; adding leverage without a risk buffer means one crash could end the game; without rebalancing, there's no automatic mechanism to buy low and sell high. Together, the three books form an investment system that requires neither market prediction nor willpower.
 
 ---
 
