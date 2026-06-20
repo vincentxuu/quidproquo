@@ -38,6 +38,8 @@ When an AI agent needs to control a browser, there are three mainstream MCP serv
 
 ## CDP MCP: Finest Grain, Highest Barrier
 
+> **Naming note**: "CDP MCP" and "Chrome DevTools MCP" are two names for the same thing. Chrome DevTools Protocol is the full name; CDP is the abbreviation. Wrapping it as an MCP server gives you a "CDP MCP" or "Chrome DevTools MCP" — there is no difference between the two terms.
+
 There is no single "official" CDP MCP package — it typically means wrapping `chrome-remote-interface` or a similar library as an MCP server. The advantage is access to Domains that Playwright and Puppeteer don't expose: `Profiler` (CPU profiling), `HeapProfiler` (memory analysis), `Security` (certificate management), and `Fetch` (low-level request interception).
 
 Appropriate when you're building DevTools utilities, performance analysis pipelines, or need to attach to an existing Chrome instance. Not suitable as a first choice for AI agents navigating ordinary web pages — just knowing which Domain Method to call requires significant prompt engineering overhead.
