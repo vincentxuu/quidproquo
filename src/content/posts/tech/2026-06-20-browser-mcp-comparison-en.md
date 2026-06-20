@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)
 
-When an AI agent needs to control a browser, there are three mainstream MCP server options: direct [Chrome DevTools Protocol (CDP)](/posts/tech/2026-06-20-chrome-cdp-en), Microsoft's official [@playwright/mcp](https://github.com/microsoft/playwright-mcp), and the [@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer) from the MCP official repository. The three operate at very different abstraction levels, with significant differences in AI-agent friendliness.
+When an AI agent needs to control a browser, there are three mainstream MCP server options: [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en) (wrapping Chrome DevTools Protocol as an MCP server), Microsoft's official [@playwright/mcp](https://github.com/microsoft/playwright-mcp), and the [@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer) from the MCP official repository. The three operate at very different abstraction levels, with significant differences in AI-agent friendliness.
 
 ## What Each One Is
 
@@ -82,6 +82,6 @@ The core difference isn't about which one is most powerful — it's about where 
 
 - [@playwright/mcp — GitHub](https://github.com/microsoft/playwright-mcp)
 - [@modelcontextprotocol/server-puppeteer — GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)
-- [Chrome DevTools Protocol Introduction](/posts/tech/2026-06-20-chrome-cdp-en)
+- [Chrome DevTools MCP Introduction](/posts/tech/2026-06-20-chrome-devtools-mcp-en)
 - [Playwright Documentation](https://playwright.dev/)
 - [Model Context Protocol — Official Docs](https://modelcontextprotocol.io/)

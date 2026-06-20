@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-06-20-browser-mcp-comparison-en)
 
-AI agent 要控制瀏覽器，現在有三個主流的 MCP server 路線：直連 [Chrome DevTools Protocol（CDP）](/posts/tech/2026-06-20-chrome-cdp)、微軟官方的 [@playwright/mcp](https://github.com/microsoft/playwright-mcp)、以及 MCP 官方倉庫的 [@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)。三者抽象層級不同，對 AI agent 的友善程度差很多。
+AI agent 要控制瀏覽器，現在有三個主流的 MCP server 路線：[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)（把 Chrome DevTools Protocol 包成 MCP server）、微軟官方的 [@playwright/mcp](https://github.com/microsoft/playwright-mcp)、以及 MCP 官方倉庫的 [@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)。三者抽象層級不同，對 AI agent 的友善程度差很多。
 
 ## 三者定位
 
@@ -82,6 +82,6 @@ Puppeteer MCP 的工具集精簡（navigate、screenshot、click、fill、select
 
 - [@playwright/mcp — GitHub](https://github.com/microsoft/playwright-mcp)
 - [@modelcontextprotocol/server-puppeteer — GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)
-- [Chrome DevTools Protocol 介紹](/posts/tech/2026-06-20-chrome-cdp)
+- [Chrome DevTools MCP 介紹](/posts/tech/2026-06-20-chrome-devtools-mcp)
 - [Playwright 官方文件](https://playwright.dev/)
 - [Model Context Protocol — 官方文件](https://modelcontextprotocol.io/)
