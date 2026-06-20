@@ -38,7 +38,13 @@ When an AI agent needs to control a browser, there are three mainstream MCP serv
 
 ## CDP MCP: Finest Grain, Highest Barrier
 
-> **Naming note**: "CDP MCP" and "Chrome DevTools MCP" are two names for the same thing. Chrome DevTools Protocol is the full name; CDP is the abbreviation. Wrapping it as an MCP server gives you a "CDP MCP" or "Chrome DevTools MCP" — there is no difference between the two terms.
+Three terms that often get conflated are worth separating before going further:
+
+- **Chrome DevTools**: The browser's built-in developer panel — the one you open with F12, with its Network, Sources, and Console tabs.
+- **Chrome DevTools Protocol (CDP)**: The WebSocket protocol that the DevTools panel uses under the hood to communicate with the browser engine. When you inspect network traffic or set a breakpoint in DevTools, it's sending CDP commands behind the scenes.
+- **CDP MCP / Chrome DevTools MCP**: An MCP server that wraps the CDP protocol so an AI agent can control the browser through the same channel. It controls the browser engine directly — not the DevTools panel UI.
+
+So "CDP MCP" and "Chrome DevTools MCP" point to the same approach (controlling the browser via the CDP protocol), just named from different angles: one uses the abbreviation, the other borrows "DevTools" from the protocol's full name. Neither is about automating the DevTools panel itself — they're about using the same protocol that DevTools runs on.
 
 There is no single "official" CDP MCP package — it typically means wrapping `chrome-remote-interface` or a similar library as an MCP server. The advantage is access to Domains that Playwright and Puppeteer don't expose: `Profiler` (CPU profiling), `HeapProfiler` (memory analysis), `Security` (certificate management), and `Fetch` (low-level request interception).
 
