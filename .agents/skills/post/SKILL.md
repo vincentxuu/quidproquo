@@ -35,7 +35,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - `tags`：3-7 個、全小寫 kebab-case、核心主題在前，優先沿用既有 tag。
    - `lang`：`zh-TW` 或 `en`。
    - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。**其他 category 也不例外**——只要標題 ≥ 4 個、有 code block、inline code ≥ 3、已有外部連結、或包含引用關鍵字（「官方」「論文」「比較」等）≥ 2 個，腳本同樣觸發要求。寫前先預估文章結構，確認是否需要先備好連結。
-   - `glossary needed`：只標出不解釋會影響理解的詞。
+   - `glossary needed`：標出不解釋會影響理解的專有名詞（見下方 glossary 步驟）。
 4. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
 5. **產生中文版檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>.md`
@@ -60,15 +60,21 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - 含「官方」「文件」「論文」「比較」等引用關鍵字 ≥ 2 個
 
    觸發後，文末必須有 `## 參考資料`（英文版 `## References`）段落，且包含至少一個有效 Markdown 連結 `[text](url)`——純文字書名或「待補連結」都會報 error。
-8. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
+8. **補齊 glossary**：回頭看步驟 3 標出的 `glossary needed` 詞彙，逐一確認是否已有定義：
+   - 先查 `src/lib/glossary/terms.ts`（全站 glossary），看 term 和 aliases 是否已涵蓋。
+   - **跨文章通用的術語**（如 ETF、再平衡、RAG）→ 補到 `src/lib/glossary/terms.ts`，格式照既有 entry（含中英雙語 definition / advanced / context / links）。
+   - **僅限這篇文章的特殊詞**（如某個冷門工具的內部術語）→ 補到該篇 frontmatter 的 `glossary` 欄位，格式見 `references/frontmatter-schema.md`。
+   - 判斷標準：「這個詞會不會在其他文章也出現？」→ 是就放全站，否就放 frontmatter。
+   - 每個術語都要有中英雙語定義（`definition` + `definition_en`），讓英文版文章也能用。
+9. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
-9. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
-10. **commit**（取得明確同意後）：
+10. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
+11. **commit**（取得明確同意後）：
    ```bash
    git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md
    git commit -m "post(<category>): <title summary>"
@@ -124,6 +130,7 @@ series:                # 選填，多篇連載用
 | 「直接 commit 不給 review」 | post 是公開內容，發出去前必須使用者點頭 |
 | 「沒參考資料就算了」 | 引用就一定要附來源，這是站規 |
 | 「life / climbing 類不用參考資料」 | 標題 ≥ 4 個就會觸發 check:references，不論 category；純文字書名也不算連結 |
+| 「glossary 之後再補」 | 讀者第一次看到不懂的詞就會離開，hover tooltip 是即時救援，不是事後補丁 |
 
 ## 詳細參考
 
