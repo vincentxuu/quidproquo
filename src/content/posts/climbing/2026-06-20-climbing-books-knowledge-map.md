@@ -32,6 +32,61 @@ glossary:
     aliases: ["redpoint"]
     definition: "經過多次嘗試和練習後，最終一次不墜落地完攀一條路線。相對於 onsight（第一次嘗試就完攀）和 flash（看過別人爬或獲得提示後第一次完攀）。"
     context: "本文提及的訓練書多以提升紅點能力為主要目標。"
+  - term: "運動攀岩"
+    aliases: ["sport climbing"]
+    definition: "路線上已預先打好膨脹螺栓（bolt）作為保護點的攀岩形式。攀岩者只需攜帶快扣，不用自行放置保護裝備。相較於傳統攀登，風險較低，可專注於動作難度。"
+    context: "本文的訓練書大多以運動攀岩為主要應用場景。"
+  - term: "傳統攀登"
+    aliases: ["trad climbing", "traditional climbing"]
+    definition: "攀岩者在攀爬過程中自行將可回收的保護裝備（如岩楔、凸輪）塞入岩縫作為保護點。需要更多技術判斷和裝備知識，路線結束後保護點全部回收，不留痕跡。"
+    context: "本文提及的 Dave MacLeod 是史上首位完成 E11 傳統攀路線的人，Climbing Anchors 一書專門講解固定點架設。"
+  - term: "自由攀登"
+    aliases: ["free climbing"]
+    definition: "僅靠身體力量攀爬，繩索和保護裝備只用於安全防護、不用於向上移動。與人工攀登（aid climbing，踩在裝備上往上爬）相對。注意：自由攀登不等於無繩獨攀（free solo）。"
+    context: "Lynn Hill 在 1993 年首次自由攀登酋長岩 The Nose 路線是攀岩史的里程碑。"
+  - term: "Free Solo"
+    aliases: ["無繩獨攀"]
+    definition: "不使用任何繩索或保護裝備的獨自攀登。墜落即死亡，是攀岩中風險最高的形式。Alex Honnold 在 2017 年無繩獨攀酋長岩是攀岩史上最知名的壯舉。"
+    context: "本文介紹的 Alone on the Wall 即是 Honnold 的無繩獨攀自傳。"
+  - term: "校園板"
+    aliases: ["campus board"]
+    definition: "一面向外傾斜的木板，上面裝有不同大小的木條橫檔。訓練者不用腳、純靠雙手在橫檔間跳躍移動，專門訓練上肢爆發力和指力。由德國傳奇攀岩者 Wolfgang Güllich 在 The Campus 健身房發明。"
+    context: "本文提及的多本訓練書都包含校園板訓練方案。"
+  - term: "CBT"
+    aliases: ["認知行為治療"]
+    definition: "Cognitive Behavioral Therapy。透過改變思維模式來改變情緒和行為反應的心理治療方法。在攀岩心理訓練中，用於重建攀岩者對墜落和失敗的認知。"
+    context: "本文的心理訓練流派 2（Vertical Mind）和流派 4（Strong Mind）都以 CBT 為基礎方法之一。"
+  - term: "正念"
+    aliases: ["mindfulness"]
+    definition: "有意識地、不帶評判地覺察當下的注意力訓練。在攀岩中，正念幫助攀岩者專注於當前動作，而不被對墜落的恐懼或對結果的焦慮帶走。"
+    context: "本文的戰士哲學流派（Rock Warrior's Way）和 ACT 教練流派都將正念作為核心訓練工具。"
+  - term: "心流"
+    aliases: ["flow state"]
+    definition: "一種完全沉浸在活動中的最佳心理狀態，特徵是高度專注、時間感消失、動作自然流暢。通常發生在挑戰難度與個人能力恰好匹配的邊界。"
+    context: "攀岩心理訓練的終極目標之一是學會進入心流狀態。"
+  - term: "墜落練習"
+    aliases: ["fall practice"]
+    definition: "攀岩心理訓練中的核心練習：在安全環境下刻意練習先鋒墜落，逐步降低對墜落的恐懼反應。需要正確的心理指導，執行不當可能反而加深恐懼。"
+    context: "本文指出墜落練習是攀岩心理學與一般運動心理學最大的差異之一。"
+  - term: "Onsight"
+    definition: "在事前沒有任何路線資訊（沒看過別人爬、沒有 beta）的情況下，第一次嘗試就不墜落地完攀路線。被視為攀岩中最純粹的完攀風格。"
+    context: "onsight 能力是衡量攀岩者綜合實力的重要指標，多本訓練書都有專門的 onsight 策略章節。"
+  - term: "V 等級"
+    aliases: ["V-scale", "Hueco scale"]
+    definition: "抱石難度分級系統，從 V0（入門）到 V17（目前人類極限）。由美國攀岩者 John Sherman 在 Hueco Tanks 岩場制定。日本的段級制（初段≈V4、二段≈V7）是另一套常用系統。"
+    context: "本文提及日本業餘攀岩者平均水準 V7-V8，遠高於美國的 V4-V5。"
+  - term: "5.X 等級"
+    aliases: ["YDS", "Yosemite Decimal System"]
+    definition: "北美路線攀登難度分級系統，5.0-5.15d。5.10 以上再細分 a/b/c/d。5.10 是中階門檻，5.12 是進階門檻，5.15 是目前人類極限。"
+    context: "本文提及的 How to Climb 5.12 書名即以此等級為目標，社群評價也常用 5.X 描述各書能幫你達到的程度。"
+  - term: "チバトレ"
+    aliases: ["四足二軸理論", "Chibatore"]
+    definition: "日本訓練師千葉啟史提出的原創訓練方法論。核心概念是模仿四足動物的動作模式，使用同側軸運動，強調身體感覺的培養而非單純肌力訓練。野口啟代和楢崎智亞都是實踐者。"
+    context: "本文日本章節的核心發現之一，這套方法論目前完全沒有英文或中文翻譯。"
+  - term: "Kindle Unlimited"
+    aliases: ["KU"]
+    definition: "Amazon 的電子書訂閱服務，月費約 US$11.99，可免費借閱加入此方案的書籍。部分攀岩書（如 The Climbing Bible）有加入 KU。"
+    context: "本文在電子書可用性標註中，標記了哪些書可透過 KU 免費借閱。"
 ---
 
 攀岩書很多，但多數書單只是把書名排在一起，沒告訴你這些書之間的關係。
