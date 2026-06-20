@@ -34,7 +34,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - `slug`：英文 kebab-case，2-4 個關鍵字。
    - `tags`：3-7 個、全小寫 kebab-case、核心主題在前，優先沿用既有 tag。
    - `lang`：`zh-TW` 或 `en`。
-   - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。
+   - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。**其他 category 也不例外**——只要標題 ≥ 4 個、有 code block、inline code ≥ 3、已有外部連結、或包含引用關鍵字（「官方」「論文」「比較」等）≥ 2 個，腳本同樣觸發要求。寫前先預估文章結構，確認是否需要先備好連結。
    - `glossary needed`：只標出不解釋會影響理解的詞。
 4. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
 5. **產生中文版檔案**：
@@ -51,7 +51,15 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - 全文翻成清晰的技術英文；code block 不動（只翻中文註解）
    - URL、檔案路徑、指令範例維持原樣
    - 參考資料：翻譯描述文字；純中文來源保留原連結並標注 `(in Chinese)`
-7. **參考資料是硬要求**：如果文章引用工具、框架、官方文件、論文、版本、數據比較、外部說法 → 文末必須有 `## 參考資料`（英文版用 `## References`）段落。`tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product` 類預設都要有。
+7. **參考資料是硬要求**：`pnpm check:references` 在以下任一條件成立時就會要求參考資料（不論 category）：
+   - category 是 `tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product`
+   - 文章 `##` 標題 ≥ 4 個
+   - 有 code fence（` ``` `）
+   - inline code ≥ 3 個
+   - 已有外部連結
+   - 含「官方」「文件」「論文」「比較」等引用關鍵字 ≥ 2 個
+
+   觸發後，文末必須有 `## 參考資料`（英文版 `## References`）段落，且包含至少一個有效 Markdown 連結 `[text](url)`——純文字書名或「待補連結」都會報 error。
 8. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
    ```bash
    pnpm check:references
@@ -115,6 +123,7 @@ series:                # 選填，多篇連載用
 | 「跳過 pnpm check:references」 | 內部連結壞了使用者點到 404，沒人會幫你抓 |
 | 「直接 commit 不給 review」 | post 是公開內容，發出去前必須使用者點頭 |
 | 「沒參考資料就算了」 | 引用就一定要附來源，這是站規 |
+| 「life / climbing 類不用參考資料」 | 標題 ≥ 4 個就會觸發 check:references，不論 category；純文字書名也不算連結 |
 
 ## 詳細參考
 
