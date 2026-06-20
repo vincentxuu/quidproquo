@@ -87,6 +87,54 @@ glossary:
     aliases: ["KU"]
     definition: "Amazon 的電子書訂閱服務，月費約 US$11.99，可免費借閱加入此方案的書籍。部分攀岩書（如 The Climbing Bible）有加入 KU。"
     context: "本文在電子書可用性標註中，標記了哪些書可透過 KU 免費借閱。"
+  - term: "Beta"
+    definition: "攀岩路線的動作提示或攻略資訊，包括手腳順序、身體姿勢、休息點位置等。可以來自觀察別人攀爬、口頭交流或路線指南。「有 beta」意味著事先知道怎麼爬。"
+    context: "Onsight 的定義就是在完全沒有 beta 的情況下完攀路線。"
+  - term: "Flash"
+    definition: "在有路線資訊（看過別人爬、獲得 beta 提示）的情況下，第一次嘗試就不墜落地完攀路線。難度介於 onsight（無資訊）和 redpoint（多次嘗試）之間。"
+    context: "本文紅點詞條中提及 flash 作為對比。"
+  - term: "快扣"
+    aliases: ["quickdraw"]
+    definition: "兩個鉤環用一條尼龍織帶連接的保護裝備。先鋒攀登時，將一端掛入岩壁上的螺栓，另一端扣入攀登繩，用於保護攀岩者墜落。"
+    context: "本文運動攀岩詞條中提及快扣是唯一需要攜帶的裝備。"
+  - term: "確保"
+    aliases: ["belaying"]
+    definition: "攀岩搭檔在地面（或固定點）操作確保器控制繩索，在攀岩者墜落時制動繩索、減緩衝擊力。確保者的技術直接關係攀岩者的安全。"
+    context: "本文提及的多本攀岩入門書都涵蓋確保技術教學。"
+  - term: "上方確保"
+    aliases: ["top-rope"]
+    definition: "繩索事先從路線頂端的固定點垂下，攀岩者墜落時只會原地停住、不會往下掉。是最安全的攀岩方式，適合初學者。"
+    context: "本文先鋒攀登詞條中以上方確保作為對比。"
+  - term: "酋長岩"
+    aliases: ["El Capitan", "El Cap"]
+    definition: "位於美國加州優勝美地國家公園的花崗岩大岩壁，垂直落差約 900 公尺。是全世界最具代表性的大岩壁攀登目標，攀岩史上許多里程碑事件都發生在這裡。"
+    context: "本文提及的 The Push（Dawn Wall 首攀）、Alone on the Wall（Honnold 無繩獨攀）、Climbing Free（Lynn Hill 首次自由攀登 The Nose）都以酋長岩為舞台。"
+  - term: "Dawn Wall"
+    definition: "酋長岩東南面的一條路線，因為面向日出方向而得名。被認為是世界上最難的大岩壁自由攀登路線之一。Tommy Caldwell 和 Kevin Jorgeson 在 2015 年花了 19 天完成首次自由攀登。"
+    context: "本文推薦的 The Push 即是 Caldwell 記述攀登 Dawn Wall 的自傳。"
+  - term: "大岩壁"
+    aliases: ["big wall"]
+    definition: "通常指落差超過 300 公尺、需要多天才能完攀的巨大岩壁。攀岩者需在岩壁上睡覺（使用吊帳 portaledge），自帶水和食物。酋長岩是最經典的大岩壁。"
+    context: "本文繁中譯本《獨行大岩壁》書名即指大岩壁攀登。"
+  - term: "8a/8b/8c 等級"
+    aliases: ["法式等級", "French grade"]
+    definition: "歐洲（主要是法國）的攀岩難度分級系統。8a 約等於 5.13b（YDS），8c 約等於 5.14b，8c+ 約等於 5.14c。歐洲攀岩社群和國際賽事普遍使用此系統。"
+    context: "本文提及 The Climbing Bible 作者 Mobraten 攀至 8c+，Dave MacLeod 完成 E11/8c+ 傳統攀路線。"
+  - term: "Camp 4"
+    definition: "優勝美地國家公園內的一處露營地，1950-70 年代成為全球攀岩者的聖地和精神中心。Warren Harding、Royal Robbins、Yvon Chouinard 等傳奇人物都以此為據點，形成了獨特的反文化攀岩社群。"
+    context: "本文文學分類中的優勝美地時代以 Camp 4 為核心，Steve Roper 的同名著作記錄了這段歷史。"
+  - term: "定線"
+    aliases: ["route setting"]
+    definition: "在室內攀岩館設計並安裝攀岩路線（將不同形狀的岩點固定到岩壁上）的專業工作。好的定線需要兼顧動作邏輯、難度遞進和趣味性。"
+    context: "本文指出日本定線風格即使在簡單等級也強調高複雜度，是日本攀岩者實力突出的結構性因素之一。"
+  - term: "Kaizen"
+    aliases: ["改善"]
+    definition: "日文「改善」的羅馬拼音，指持續不斷的漸進式改善。源自日本製造業管理哲學，強調每天進步一點點，而非追求一次性的巨大突破。"
+    context: "本文分析日本攀岩者強勢的原因之一，就是 Kaizen 文化滲透到日常攀岩訓練中。"
+  - term: "暴露療法"
+    aliases: ["exposure therapy"]
+    definition: "一種心理治療方法：在安全環境下漸進式接觸引發恐懼的情境，讓恐懼反應逐漸降低。在攀岩中體現為系統化的墜落練習。"
+    context: "本文介紹的 Strong Mind 流派將暴露療法作為核心方法之一。"
 ---
 
 攀岩書很多，但多數書單只是把書名排在一起，沒告訴你這些書之間的關係。
