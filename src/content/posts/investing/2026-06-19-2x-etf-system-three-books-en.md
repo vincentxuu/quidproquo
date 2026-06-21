@@ -1,13 +1,13 @@
 ---
 title: "I Saw This 2x ETF System on Threads — It Comes From 3 Books"
 date: 2026-06-19
-category: life
+category: investing
 tags: [leveraged-etf, index-investing, asset-allocation, rebalancing, books]
 lang: en
 description: "A Threads post by @jj.investnote laid out a 2x leveraged ETF system built on three books: 60% 2x ETF + 40% cash, Beta=1.2 target, ±10% rebalancing trigger, and a crash protocol."
 ---
 
-> 🌏 [中文版](/posts/life/2026-06-19-2x-etf-system-three-books)
+> 🌏 [中文版](/posts/investing/2026-06-19-2x-etf-system-three-books)
 
 I came across a post by [@jj.investnote](https://www.threads.com/@jj.investnote) on Threads describing a long-term leveraged ETF system.
 

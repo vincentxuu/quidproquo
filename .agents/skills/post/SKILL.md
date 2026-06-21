@@ -19,7 +19,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 ## 支援的分類
 
-`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime`
+`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime` / `investing`
 
 不要自己發明新分類。如果使用者描述的內容找不到合適分類，**先問使用者**，不要逕自建立新目錄。
 

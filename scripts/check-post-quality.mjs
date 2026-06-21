@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 const POSTS_ROOT = path.resolve('src/content/posts');
 const VALID_CATEGORIES = new Set([
   'tech', 'climbing', 'surf', 'film', 'life', 'coffee', 'learning', 'ai',
-  'product', 'marketing', 'travel', 'design', 'education', 'policy', 'anime', 'career',
+  'product', 'marketing', 'travel', 'design', 'education', 'policy', 'anime', 'career', 'investing',
 ]);
 const VALID_LANGS = new Set(['zh-TW', 'en']);
 const TAG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
