@@ -8,7 +8,7 @@ Current focus
 - TW stock screening: four-criteria framework evaluation of AI supply chain topology chart stocks.
 
 Recently completed
-- Stock screening Rounds 1-4 complete: 61 new stocks evaluated against four-criteria framework (AI供應鏈拓撲圖 sections A/B/C). Results in `.claude/skills/tw-stock-screen/references/four-criteria.md`.
+- Stock screening Rounds 1-5 complete: 76 new stocks evaluated against four-criteria framework (AI供應鏈拓撲圖 all sections). Five-star verification done — 世芯/京元電降至3.5星、聯亞降至4.5星、6檔五星分數微調。Results in `.claude/skills/tw-stock-screen/references/four-criteria.md`. PR #107.
 - 13 new AI posts published (2026-06-04 agent series + arXiv paper guide).
 - Glossary expanded: 13 site-wide terms (terms.ts now 113) + frontmatter glossary on 7 new posts; density check shows median 11 terms/post, next signal is monthly glossary_lookup_stats review.
 - Internal broken post references fixed and enforced in CI.
