@@ -6,25 +6,6 @@ tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: en
 tldr: "Saw a trading post about going from NT$150k to NT$2.4M in half a year. Didn't understand a word of it — warrants, stock futures, maintenance ratio — so I looked them all up."
 description: "Starting from a post about a 16x return in six months, this explains what warrants, stock futures, maintenance margin ratio, and position scaling actually mean."
-glossary:
-  - term: "股期"
-    aliases: ["股票期貨"]
-    definition: "以個別股票為標的的期貨合約，可做多也可做空，保證金比股票低，槓桿比權證小且不會歸零。"
-    definition_en: "Futures contracts based on individual stocks. Can be long or short; margin requirements are lower than stocks, with less leverage than warrants and no risk of going to zero."
-    context: "本文從外行人角度解釋這個詞。"
-    context_en: "This post explains this term from a non-trader's perspective."
-  - term: "維持率"
-    aliases: ["保證金維持率"]
-    definition: "帳戶淨值除以未平倉部位所需保證金的比例。低於 100% 會被追繳保證金；實務上通常保持在 150% 以上當緩衝。"
-    definition_en: "Account equity divided by the margin required for open positions. Falls below 100% triggers a margin call; in practice, keeping above 150% provides a safety buffer."
-    context: "本文從外行人角度解釋這個詞。"
-    context_en: "This post explains this term from a non-trader's perspective."
-  - term: "權證"
-    aliases: ["認購權證", "認售權證"]
-    definition: "由券商發行的選擇權型商品，可以用低成本押注股票方向，但有時間值損耗，且流動性通常較差。"
-    definition_en: "Option-like instruments issued by brokerages, allowing low-cost directional bets on stocks, but with time decay and typically poor liquidity."
-    context: "本文從外行人角度解釋這個詞。"
-    context_en: "This post explains this term from a non-trader's perspective."
 ---
 
 > 🌏 [中文版](/posts/investing/2026-06-21-trading-performance-stock-futures)
