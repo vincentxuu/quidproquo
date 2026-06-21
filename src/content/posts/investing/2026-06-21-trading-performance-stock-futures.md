@@ -1,7 +1,7 @@
 ---
 title: "從零看懂這篇交易貼文：權證、股期、維持率一次解釋清楚"
 date: 2026-06-21
-category: life
+category: investing
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: zh-TW
 tldr: "看到一篇交易紀錄貼文，裡面全是我不懂的詞：權證、股期、維持率。查了一圈，整理給同樣看不懂的人。"
@@ -27,7 +27,7 @@ glossary:
     context_en: "This post explains this term from a non-trader's perspective."
 ---
 
-> 🌏 [English version](/posts/life/2026-06-21-trading-performance-stock-futures-en)
+> 🌏 [English version](/posts/investing/2026-06-21-trading-performance-stock-futures-en)
 
 最近看到一篇貼文，有人說他年初操盤 15 萬，半年後變成 240 萬。
 

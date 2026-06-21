@@ -1,7 +1,7 @@
 ---
 title: "Understanding a Trading Post from Scratch: Warrants, Stock Futures, and Maintenance Ratio Explained"
 date: 2026-06-21
-category: life
+category: investing
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: en
 tldr: "Saw a trading post about going from NT$150k to NT$2.4M in half a year. Didn't understand a word of it — warrants, stock futures, maintenance ratio — so I looked them all up."
@@ -27,7 +27,7 @@ glossary:
     context_en: "This post explains this term from a non-trader's perspective."
 ---
 
-> 🌏 [中文版](/posts/life/2026-06-21-trading-performance-stock-futures)
+> 🌏 [中文版](/posts/investing/2026-06-21-trading-performance-stock-futures)
 
 I recently came across a post where someone said they went from NT$150,000 to NT$2,400,000 in six months of trading.
 
