@@ -1,5 +1,5 @@
 ---
-title: "看到有人半年從 15 萬做到 240 萬，我去查了他說的那些詞"
+title: "從零看懂這篇交易貼文：權證、股期、維持率一次解釋清楚"
 date: 2026-06-21
 category: life
 tags: [stock-futures, trading, warrants, portfolio-management, margin]

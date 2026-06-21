@@ -1,5 +1,5 @@
 ---
-title: "Someone Made 16x in Six Months — I Looked Up Every Term I Didn't Understand"
+title: "Understanding a Trading Post from Scratch: Warrants, Stock Futures, and Maintenance Ratio Explained"
 date: 2026-06-21
 category: life
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
