@@ -37,28 +37,46 @@ Warrants, stock futures, maintenance ratio, scaling positions — each term vagu
 
 ## What warrants are, and why he switched away from them
 
-Warrants are products issued by brokerages that let you bet on a stock's direction using much less money than buying the stock outright. The concept is "small money, big bet" — if a stock costs NT$100,000 per lot, you might only need NT$3,000 to buy a call warrant on it. If the stock rises, your percentage return is much higher than if you'd bought the stock directly.
+In Taiwan's stock market, shares are traded in units called "lots" (張). One lot equals 1,000 shares. Many popular stocks cost tens of thousands — sometimes over NT$100,000 — for a single lot, which puts them out of reach for small investors.
 
-Sounds appealing, but there are three problems: **time value decays every day** (warrants have expiry dates, and their value shrinks naturally as expiry approaches), **poor liquidity** (when you want to sell, you might not be able to, or the price is far below what you expected), and the core frustration the post's author described — **even when you get the direction right, you can't meaningfully scale up your position when things are going well**.
+Warrants exist to solve this problem. Issued by brokerages, they let you bet on whether a stock will rise or fall using just a few hundred to a few thousand NT dollars. If you bet correctly, your percentage return is far higher than if you'd bought the stock outright.
+
+Appealing, but there are three real problems:
+
+- **Time value decays every day**: Warrants have expiry dates. Even if the stock you're betting on doesn't move, the warrant itself loses value as expiry approaches.
+- **Buying and selling is awkward**: When you want to exit, you might not find a buyer, or the price you get is far below what you expected. This is what "poor liquidity" means — not enough people in the market willing to trade with you at a fair price.
+- **Being right doesn't mean profiting much**: This was the post author's core frustration. Even when he called the direction correctly, the amount he could invest upfront was so small that the actual profit was tiny relative to the time and effort involved.
 
 That's why he switched to stock futures.
 
 ## What stock futures and the maintenance ratio are
 
-Stock futures (股票期貨, abbreviated 股期) are futures contracts where the underlying asset is an individual stock. A futures contract is an agreement to buy or sell something at a fixed price at a future date — for Taiwan stock futures, one contract typically represents 2,000 shares.
+Stock futures (股票期貨) are futures contracts where the underlying asset is an individual stock.
 
-The key difference from buying stock directly: you don't pay the full price. You put up a fraction of the value as "margin." For Taiwan stock futures, this is roughly 13% of the underlying stock's value. Compared to warrants, stock futures have no time decay, better liquidity, and let you go short.
+A futures contract is an agreement to buy or sell something at a fixed price at a future date. For Taiwan stock futures, one contract represents 2,000 shares. The key difference from buying shares directly: you don't pay the full price up front. You put up a fraction of the value as "margin," and that lets you hold the contract. For Taiwan stock futures, the margin is roughly 13% of the underlying stock's value — meaning NT$130,000 in margin controls a NT$1,000,000 stock position. (A "position" is just how many contracts you currently hold.)
 
-**Maintenance ratio** is the risk management number at the heart of this: maintenance ratio = account equity ÷ margin required for open positions. If it falls below 100%, your broker demands you add money (a margin call). If you can't top it up, they close your positions by force.
+Compared to warrants, stock futures have no time decay, better liquidity, and the ability to "go short" — meaning if you think a stock will fall, you can enter a trade that profits from that decline.
 
-The post's author kept a rule: **maintenance ratio must stay above 150% before market close**, raised higher on weak market days. In short: never open positions so large that a sudden drop leaves no room to react.
+---
 
-## What scaling positions means, and why he couldn't do it before
+**Maintenance ratio** is the most important number in futures trading.
 
-Scaling up means adding to a position; scaling down means reducing it; a stop-loss means accepting a loss and getting out. The logic sounds obvious: add when right, cut when wrong.
+Maintenance ratio = Account equity ÷ Margin required for your current positions
 
-But he said he "couldn't do this at all" when trading warrants — because of time decay and liquidity constraints, once you're in, you're basically committed. You can't easily add or reduce, and the initial position size on small capital is too small to make adding more meaningful.
+Example: your account has NT$200,000, and your open contracts require NT$100,000 in margin. Your maintenance ratio is 200%.
 
-With stock futures, he could: start with a partial position, add once the direction confirmed, reduce first if wrong, then cut completely. Trading went from "place a bet and hope" to a flexible, adjustable process — and that's when consistent returns started showing up.
+If this ratio drops below 100%, your broker will demand you add money immediately — this is called a "margin call." If you can't top it up in time, the broker will forcibly close your contracts regardless of whether you're up or down. This is called "forced liquidation," and it means you lose all control at the worst possible moment.
 
-His final point was "futures aren't scary, understand them and you can use them well." I take that to mean: the risk isn't the product itself, it's using it without understanding the maintenance ratio or when to cut losses, and running your margin down to nothing. Understand how to control the ratio and scale positions, and futures are just a more flexible tool.
+So the higher your maintenance ratio, the larger your safety buffer. The post author's rule: keep it above 150% before market close, and raise that threshold even higher on days when the broader market looks weak — by closing some contracts and reducing exposure. The goal is always to have room left to breathe.
+
+## What position scaling means, and why he couldn't do it before
+
+"Scaling up" means adding to your position. "Scaling down" means reducing it. A "stop-loss" means accepting the loss and closing everything out.
+
+The logic sounds obvious: add when you're right, cut when you're wrong.
+
+But the post author said he "couldn't do this at all" when trading warrants. Time decay meant every day of waiting cost him money, so he couldn't hold calmly and wait for the market to confirm a direction before adding more. Poor liquidity made entering and exiting clunky. The whole setup wasn't built for flexible, incremental adjustment.
+
+With stock futures, he could: start with a small position, add more once the market confirmed his view, scale down if wrong, and stop out completely if necessary. Trading went from "place a bet and hope" to "adjust based on what the market is telling you" — and that's where consistent performance came from.
+
+His final point was "futures aren't scary — understand them and you can use them well." After going through all this, I get it: the risk isn't the instrument itself. It's operating without understanding the maintenance ratio, without a stop-loss plan, running your margin down to zero. Manage the ratio, manage your position size, and futures are just a more flexible tool.
