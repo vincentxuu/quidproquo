@@ -1,68 +1,64 @@
 ---
-title: "半年績效爆炸：從 15 萬到 240 萬的股期之路"
+title: "看到有人半年從 15 萬做到 240 萬，我去查了他說的那些詞"
 date: 2026-06-21
 category: life
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: zh-TW
-tldr: "年初 15 萬，半年後 240 萬。從權證轉股期，才第一次能在看對時真的放大部位。"
-description: "記錄半年交易轉折：從權證的限制到股票期貨的靈活，以及讓績效跑出來的加減碼邏輯與維持率管理。"
+tldr: "看到一篇交易紀錄貼文，裡面全是我不懂的詞：權證、股期、維持率。查了一圈，整理給同樣看不懂的人。"
+description: "從一篇半年 16 倍報酬的貼文出發，解釋權證、股票期貨、維持率、加減碼是什麼意思。"
 glossary:
   - term: "股期"
     aliases: ["股票期貨"]
     definition: "以個別股票為標的的期貨合約，可做多也可做空，保證金比股票低，槓桿比權證小且不會歸零。"
     definition_en: "Futures contracts based on individual stocks. Can be long or short; margin requirements are lower than stocks, with less leverage than warrants and no risk of going to zero."
-    context: "本文的核心操作工具，從權證轉過來之後績效才真正跑出來。"
-    context_en: "The core trading instrument in this post; performance only improved after switching from warrants."
+    context: "本文從外行人角度解釋這個詞。"
+    context_en: "This post explains this term from a non-trader's perspective."
   - term: "維持率"
     aliases: ["保證金維持率"]
-    definition: "帳戶淨值除以未平倉部位所需保證金的比例。低於 100% 會被追繳保證金；實務上通常設高於 150% 當緩衝。"
-    definition_en: "Account equity divided by the margin required for open positions. Falls below 100% triggers a margin call; in practice, keeping above 150% provides a buffer."
-    context: "本文用它當風控基準線：收盤前維持率必須在 150% 以上，大盤弱時再拉高。"
-    context_en: "Used as a risk management baseline in this post: must stay above 150% before close, raised higher on weak market days."
+    definition: "帳戶淨值除以未平倉部位所需保證金的比例。低於 100% 會被追繳保證金；實務上通常保持在 150% 以上當緩衝。"
+    definition_en: "Account equity divided by the margin required for open positions. Falls below 100% triggers a margin call; in practice, keeping above 150% provides a safety buffer."
+    context: "本文從外行人角度解釋這個詞。"
+    context_en: "This post explains this term from a non-trader's perspective."
   - term: "權證"
     aliases: ["認購權證", "認售權證"]
     definition: "由券商發行的選擇權型商品，可以用低成本押注股票方向，但有時間值損耗，且流動性通常較差。"
     definition_en: "Option-like instruments issued by brokerages, allowing low-cost directional bets on stocks, but with time decay and typically poor liquidity."
-    context: "本文的第一階段工具，後來因為無法在看對時放大部位而轉向股期。"
-    context_en: "The first-stage instrument in this post, later abandoned because it couldn't scale up on winning trades."
+    context: "本文從外行人角度解釋這個詞。"
+    context_en: "This post explains this term from a non-trader's perspective."
 ---
 
 > 🌏 [English version](/posts/life/2026-06-21-trading-performance-stock-futures-en)
 
-年初操盤資金大概 15 萬，今天算了一下帳戶，約 240 萬。
+最近看到一篇貼文，有人說他年初操盤 15 萬，半年後變成 240 萬。
 
-半年，16 倍。
+我的第一反應不是羨慕，是完全看不懂他說的那些詞。
 
-這是我交易生涯裡最快的一段成長，記錄下來是因為不想忘記當初是怎麼做到的，也因為這段路有幾個關鍵轉折，每次想起來都覺得如果早點懂就好了。
+權證、股期、維持率、加減碼——每個詞單獨拆開好像有點印象，但他怎麼用這些東西做到 16 倍，我一點概念都沒有。於是去查了一圈，整理出來給同樣看不懂的人。
 
-## 從權證開始，也卡在權證
+## 權證是什麼，他為什麼換掉它
 
-剛入場時主要用權證操作。
+權證是券商發行的商品，讓你用比較少的錢去押某支股票會漲或會跌。概念類似「用小錢下大注」——假設某股票一張要 10 萬，你可能只要 3,000 元就能買到對應的認購權證，如果股票漲了，獲利比例比直接買股票高很多。
 
-權證有一個根本問題：時間值每天都在消耗，小資金就算方向看對了，也很難在對的位置加大。看到大好機會，卻只能帶一點小部位進去，股票真的上去了，最後利潤跟帳戶規模完全不成比例。
+聽起來不錯，但有三個問題：**時間值每天在消耗**（有到期日，越接近到期價值自然縮水）、**流動性差**（想賣的時候賣不掉，或賣出價遠低於預期）、還有他說的核心困境——**就算判斷方向對了，也沒辦法在對的時候把資金真正放大**。
 
-看錯方向也是，權證歸零的速度讓人根本來不及反應，加上流動性差，出的時候常常滑一大截。
+所以他後來轉到股期。
 
-小資金用權證的困境是：看對放不大，看錯虧太快。
+## 股期和維持率是什麼
 
-## 轉到股期，才第一次真正能加減碼
+股期是股票期貨的簡稱。期貨是一種合約：你和對方約定在未來某個時間，以現在談好的價格買賣某支股票，一口合約通常對應 2,000 股。
 
-後來慢慢把重心轉到股票期貨。
+跟直接買股票的差別是，你不需要付全額，只要付一部分「保證金」就能持有部位，台股股期大概是標的市值的 13% 左右。跟權證比，它沒有時間值損耗、流動性更好、也可以做空。
 
-股期最大的不同，是它讓我可以在「確認看對方向」之後真的去加碼。看對標的，加；看錯，減碼或停損。這件事說起來很簡單，但之前完全做不到。以前的邏輯是下單就全押，對就笑，錯就認。
+**維持率**就是這裡的風控關鍵：維持率 = 帳戶淨值 ÷ 持有部位所需保證金。掉到 100% 以下，券商會追繳保證金，補不進去就強制平倉。所以維持率越高，緩衝越大。
 
-有了股期之後，邏輯改變了：建立初始部位不全壓，市場確認方向後加碼，看錯先減碼再停損。
+貼文作者的規則是收盤前至少維持 150% 以上，大盤不好時拉更高——本質上就是不要把倉開太滿，永遠留空間應對突發下跌。
 
-績效就是從這裡開始慢慢跑出來的。
+## 加減碼是什麼，為什麼換了商品才做得到
 
-風控上也有一條固定規則：**收盤前維持率必須在 150% 以上**。若大盤偏弱，門檻再往上拉，出掉一些部位。目的只有一個：保持資金彈性，讓自己下一筆永遠還有子彈。
+加碼是加大部位，減碼是縮小，停損是認賠出場。這套邏輯說起來很基本：看對就加，看錯就減。
 
-## 期貨不是猛獸，是你不懂它才可怕
+但他說以前用權證時「完全做不到」——因為權證有時間值和流動性限制，進場就是押一個方向，沒辦法靈活追加或縮減，而且初始部位小，就算對了也很難在中間繼續放大。
 
-很多人對期貨的第一印象是「高槓桿、爆倉、不碰」。
+換成股期之後，他可以：先進一部分，方向確認後再加，看錯了先減再停損。操作從「押一把」變成「有彈性的流程」，績效才開始穩定出來。
 
-我以前也這樣想。但用了之後才明白，期貨可怕的地方不是它本身，是不懂它的人拿它去賭。
-
-如果你懂得維持率代表什麼（不是叫你壓到底，是讓你看到警戒線在哪），懂得加減碼要跟著確信度走而不是情緒走，懂得資金彈性比當下報酬更重要，期貨就只是一個很好用的工具。
-
-半年過去，帳戶從 15 萬到 240 萬，我最大的感謝不是運氣好，是終於找到了一個讓做對的事可以被放大、做錯的事可以被控制的商品。
+最後他說「期貨不可怕，只要懂它就能好好利用」——我理解是：期貨的風險不是產品本身，是不懂維持率、不懂停損、把保證金開到快見底的用法。懂得控制維持率、懂得加減碼，它就只是一個更靈活的工具。
