@@ -13,6 +13,8 @@ series:
   order: 8
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en)
+
 你寫了一個 prompt 告訴 Claude「掃描這四個 repo 的 GitHub issues，有標 `auto` 的就實作，完成後開 PR」。然後設定每 2 小時跑一次。
 
 接下來你去睡覺。半夜 2 點、4 點、6 點，Claude 自己 clone repo、讀 issue、寫 code、跑測試、開 PR。你早上起來，收件匣裡躺著三個等你 review 的 PR。

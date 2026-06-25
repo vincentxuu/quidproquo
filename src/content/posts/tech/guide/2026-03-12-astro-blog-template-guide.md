@@ -10,6 +10,8 @@ draft: false
 type: guide
 ---
 
+🌏 [English version](/posts/tech/guide/2026-03-12-astro-blog-template-guide-en)
+
 ## TL;DR
 
 換模板 = 換整個專案底層；先搞清楚自己要什麼，再選 AstroPaper / Cactus / AstroWind。

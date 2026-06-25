@@ -10,6 +10,8 @@ draft: false
 type: guide
 ---
 
+🌏 [English version](/posts/tech/guide/2026-04-02-documentation-platform-guide-en)
+
 選文件平台跟選框架一樣，沒有最好的，只有最適合的。這篇整理九個主流選項，從「你的情境是什麼」出發，幫你快速收斂。
 
 ## 快速選擇

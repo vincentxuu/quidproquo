@@ -10,6 +10,8 @@ description: "拆解 YouTube to NotebookLM Chrome 擴充套件的實作細節：
 draft: false
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-04-20-youtube-to-notebooklm-extension-internals-en)
+
 Chrome Web Store 上有個擴充套件叫 [YouTube to NotebookLM](https://chromewebstore.google.com/detail/youtube-to-notebooklm/kobncfkmjelbefaoohoblamnbackjggk)，裝了 30 萬人，可以一鍵把 YouTube 影片、播放清單、頻道送進 NotebookLM。看起來很簡單，但 NotebookLM 根本沒有官方 API——這東西到底怎麼做到的？
 
 ## NotebookLM 沒有官方 API

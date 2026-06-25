@@ -10,6 +10,8 @@ description: "深入分析攀岩路線推薦系統中兩種語義相近但意圖
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation-en)
+
 做攀岩路線推薦的 RAG 系統時踩了一個坑：使用者說「推薦下一條路線」和「推薦類似路線」，表面上都是在要推薦，但背後的意圖完全不同。系統卻用同一個 keyword matching 函式處理兩者，結果就是推薦品質很差。
 
 這篇記錄問題的根因分析、學術界怎麼處理這類意圖消歧、以及最後選擇的實作方案。
