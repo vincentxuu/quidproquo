@@ -1079,6 +1079,24 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: 'Search knowledge graph on this site', url: '/search?q=knowledge%20graph&mode=rag' }],
   },
   {
+    term: 'Tree-sitter',
+    aliases: ['tree-sitter', 'tree sitter'],
+    definition: '開源的增量式語法解析器生成器，能為程式語言產生 AST（抽象語法樹），支援多語言且解析速度極快。',
+    definition_en: 'An open-source incremental parser generator that produces abstract syntax trees (ASTs) for programming languages, with support for many languages and very fast parsing speeds.',
+    advanced: '因為是增量解析，只重新解析被修改的部分，適合在 IDE / linter / 靜態分析工具中即時使用。許多 codebase 理解工具用它做結構分析，再搭配 LLM 補語意層。',
+    advanced_en: 'Because parsing is incremental, only modified sections are re-parsed, making it suitable for real-time use in IDEs, linters, and static analysis tools. Many codebase understanding tools use it for structural analysis paired with an LLM semantic layer.',
+    context: '本站用 Tree-sitter 討論靜態程式碼分析與 codebase 知識圖工具（如 Understand-Anything）。',
+    context_en: 'This site uses Tree-sitter in the context of static code analysis and codebase knowledge graph tools such as Understand-Anything.',
+    links: [
+      { label: 'Tree-sitter 官方文件', url: 'https://tree-sitter.github.io/' },
+      { label: 'Tree-sitter GitHub', url: 'https://github.com/tree-sitter/tree-sitter' },
+    ],
+    links_en: [
+      { label: 'Tree-sitter documentation', url: 'https://tree-sitter.github.io/' },
+      { label: 'Tree-sitter GitHub', url: 'https://github.com/tree-sitter/tree-sitter' },
+    ],
+  },
+  {
     term: 'LLM-as-judge',
     aliases: ['LLM as judge', 'self-reflection'],
     definition: '讓另一個模型或同一模型用評審角色檢查答案品質、事實性或是否符合規格。',
