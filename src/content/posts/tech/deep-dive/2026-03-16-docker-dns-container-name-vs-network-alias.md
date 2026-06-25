@@ -10,6 +10,8 @@ description: "說明 Docker DNS 解析在同專案與跨專案的行為差異，
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-16-docker-dns-container-name-vs-network-alias-en)
+
 在 Docker 裡，容器之間靠 DNS 互相找到對方。但 DNS 能解析什麼名稱，取決於容器之間的關係——是同一個 Compose 專案，還是跨專案共用 network。
 
 ## Docker DNS 解析規則

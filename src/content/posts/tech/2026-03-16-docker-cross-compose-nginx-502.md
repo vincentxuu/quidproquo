@@ -10,6 +10,8 @@ description: "記錄 nginx upstream 解析跨 Compose 專案容器失敗導致 5
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-16-docker-cross-compose-nginx-502-en)
+
 ## TL;DR
 
 跨 Docker Compose 專案時，nginx 無法用 service name 解析容器。要在容器的 network 設定加上 alias，nginx 才能找到它。

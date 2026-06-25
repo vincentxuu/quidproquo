@@ -10,6 +10,8 @@ description: "NobodyClimb 的產品思考：為什麼攀岩社群需要自己的
 draft: false
 ---
 
+🌏 [English version](/posts/product/2026-03-12-nobodyclimb-product-en)
+
 「在攀岩的路上，我們都是小人物。」
 
 這是 NobodyClimb 的起點。不論你是剛踏進岩館的新手，還是征戰各大岩場的老手，每個人都有屬於自己的掙扎與突破。Nobody，不是沒沒無聞，而是還在路上的每一個人。

@@ -10,6 +10,8 @@ draft: false
 type: debug
 ---
 
+> 🌏 [English version](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en)
+
 ## TL;DR
 
 Cloudflare Workers 不支援 native Node.js module（`.node` binary）。即使 route 有 `prerender = true`，只要 import 了 native module，整個 build 就會失敗。解法是把需要 native module 的工作完全移出 Astro，改成 postbuild script。

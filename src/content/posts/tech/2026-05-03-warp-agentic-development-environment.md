@@ -9,6 +9,8 @@ description: "Warp 不只是終端機——它是一套以 AI Agent 為核心的
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-05-03-warp-agentic-development-environment-en)
+
 如果你最近幾年有在 Twitter / X 上看到開發者曬終端機截圖，十之八九是 Warp。但 Warp 不只是個漂亮的終端機——2025 年底它發布了 Warp 2.0，正式轉型為 **Agentic Development Environment（ADE）**，把 AI Agent 直接嵌進開發工作流裡。2026 年 4 月，Warp 更宣布以 AGPL 授權開源，由 OpenAI 擔任創始贊助商。
 
 ## 為什麼不用 iTerm2 / tmux 就好

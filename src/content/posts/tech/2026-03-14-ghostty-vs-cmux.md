@@ -10,6 +10,8 @@ description: "介紹 Ghostty 終端機模擬器與 cmux 的核心特色，並比
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-14-ghostty-vs-cmux-en)
+
 如果你最近在找 iTerm2 的替代品，Ghostty 幾乎是標準答案。但如果你同時跑多個 AI coding agents，cmux 更值得看一眼。這篇整理兩者的設計邏輯、功能差異，以及怎麼選。
 
 ## Ghostty

@@ -10,6 +10,8 @@ draft: false
 type: debug
 ---
 
+🌏 [English version](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en)
+
 ## TL;DR
 
 `routes` 的 `pattern` 只填 hostname，不加 `/*`，搭配 `custom_domain: true`。

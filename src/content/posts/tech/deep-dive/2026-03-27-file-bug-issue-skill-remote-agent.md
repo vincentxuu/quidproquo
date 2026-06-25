@@ -13,6 +13,8 @@ series:
   order: 16
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)
+
 CI 又紅了。PostgreSQL 在跑到第 20 個 schema 檔時 crash，錯誤訊息是 `FATAL: the database system is shutting down`。
 
 花了二十分鐘分析：Docker 預設 `/dev/shm` 只有 64MB，schema 檔案越加越多，shared memory 不夠用。加上 `docker-compose.dev.yml` 掛了 `initdb.d`，啟動時自動跑一次 schema，CI 又手動跑第二次，雙重執行直接把記憶體壓爆。

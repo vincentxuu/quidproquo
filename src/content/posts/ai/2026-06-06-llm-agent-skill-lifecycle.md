@@ -9,6 +9,8 @@ tldr: "MUSE-Autoskill（2026）提出五階段 skill 生命週期框架，自創
 description: "整合 MUSE-Autoskill、Voyager、EvoSkill、SkillOS、Skill1、SkillRet 六篇論文，解析 LLM agent skill 從一次性輸出走向完整生命週期管理的研究脈絡與設計差異。"
 ---
 
+🌏 [English version](/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
+
 LLM agent 靠「skill」解決複雜任務——可重用的 workflow、程式碼、或 prompt 組合。問題是，大多數系統把 skill 當成一次性產出物：生成完就靜止不動，沒有驗證、沒有精進、沒有跨任務記憶。2026 年 5 月，ByteDance ByteBrain 團隊發表 [MUSE-Autoskill](https://arxiv.org/abs/2605.27366)（arXiv:2605.27366），明確把這個缺口定義為「Skill Lifecycle」問題，提出完整的五階段框架。同月前後，還有四到五篇論文從不同角度攻同一塊——形成了這個領域近年最密集的一次論文爆發。
 
 ## 問題的根源：Skill 為什麼一直是靜態的？

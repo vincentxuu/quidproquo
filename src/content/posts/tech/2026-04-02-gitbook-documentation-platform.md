@@ -10,6 +10,8 @@ description: "GitBook 介紹：Git-based 文件平台，核心功能、使用場
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-04-02-gitbook-documentation-platform-en)
+
 GitBook 是一個讓你用寫 code 的方式管理文件的平台。底層用 Git 做版本控制，內容用 Markdown 寫，最後產出一個有搜尋、有導覽、可以自訂域名的文件網站。如果你曾經為了寫技術文件在 Notion、Confluence、自架 wiki 之間猶豫，GitBook 值得認真考慮。
 
 ## 核心特性

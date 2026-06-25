@@ -10,6 +10,8 @@ description: "整理 code review comment 的主流分類標準（Conventional Co
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-26-code-review-comment-classification-en)
+
 Code review 留 comment 最常見的問題：reviewer 覺得是 blocking issue，author 當成建議就跳過了。不是誰的錯，是 comment 本身沒帶分類資訊，雙方各自解讀。
 
 這篇整理三件事：主流的 comment 分類標準有哪些、AI review 工具各自怎麼分類、以及值得讀的經典文章和研究。

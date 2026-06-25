@@ -10,6 +10,8 @@ description: "HyDE（Hypothetical Document Embeddings）的設計原理、適用
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
+
 向量搜尋有個根本的不對稱問題：**使用者的查詢和資料庫中的文件，語言模式差距很大**。
 
 使用者問：「龍洞哪條路線適合第一次戶外攀岩？」

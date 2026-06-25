@@ -10,6 +10,8 @@ description: "code-review-graph 的核心概念、架構設計、技術棧、效
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-04-02-code-review-graph-knowledge-graph-ai-review-en)
+
 AI code review 最大的浪費是什麼？每次都把整個 repo 餵給 LLM。改了一個函式，AI 卻要讀完幾百個檔案才能給回饋。code-review-graph 要解決的就是這件事——建一張程式碼的結構圖譜，變更發生時只提取真正受影響的部分。
 
 ## 核心概念：程式碼即圖譜

@@ -10,6 +10,8 @@ description: "OpenAI Codex CLI 的安裝、核心功能、模型演進、與 Cod
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en)
+
 Codex CLI 是 OpenAI 推出的開源 coding agent，直接跑在你的終端機裡。它能讀取、修改、執行你機器上的程式碼，用 Rust 寫成，啟動快、效能好。
 
 ## 安裝

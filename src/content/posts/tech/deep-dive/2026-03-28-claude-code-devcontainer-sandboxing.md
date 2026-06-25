@@ -13,6 +13,8 @@ series:
   order: 25
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing-en)
+
 <!-- TODO: 待撰寫 -->
 <!-- 參考官方文件：https://code.claude.com/docs/en/devcontainer.md -->
 <!-- 參考官方文件：https://code.claude.com/docs/en/sandboxing.md -->

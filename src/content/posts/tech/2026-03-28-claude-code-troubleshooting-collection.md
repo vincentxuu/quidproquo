@@ -13,6 +13,8 @@ series:
   order: 27
 ---
 
+🌏 [English version](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
+
 <!-- TODO: 待撰寫 -->
 
 ## 預計大綱

@@ -13,6 +13,8 @@ series:
   order: 14
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en)
+
 六個子專案，前端、後端、AI 服務、資料庫、基礎設施、背景任務，一個人要全部顧到。不是不可能，但如果每一步都手動做——寫 code、跑 lint、寫 commit message、review diff、產生 PR description——一天的時間有一半會花在「不是寫 code」的事情上。
 
 這篇記錄的是我目前在用的開發流程。核心想法很簡單：把每一個環節的重複工作自動化，但在每一個關鍵決策點保留人類的判斷。

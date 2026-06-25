@@ -13,6 +13,8 @@ series:
   order: 1
 ---
 
+🌏 [English version](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en)
+
 ## TL;DR
 
 Claude Code 有五種權限模式，從最安全到最自由：`plan`（唯讀）→ `default`（逐步確認）→ `acceptEdits`（自動接受編輯）→ `auto`（AI classifier 審查）→ `bypassPermissions`（YOLO 全跳過）。大多數場景用 **auto mode** 就夠了——它用背景 classifier 自動判斷安全性，遇到危險操作才阻擋。

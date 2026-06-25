@@ -10,6 +10,8 @@ description: "@opennextjs/cloudflare adapter 的工作原理：如何把 Next.js
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en)
+
 Cloudflare Workers 跑的是 V8 isolate，不是標準 Node.js 環境。Next.js 本身依賴不少 Node.js API（`fs`、`crypto`、`net`、`http`），所以直接部署到 Workers 行不通。`@opennextjs/cloudflare` 是一個 adapter，把 Next.js build 的輸出轉換成 Cloudflare Workers 能跑的格式。
 
 ## 為什麼需要這個 adapter

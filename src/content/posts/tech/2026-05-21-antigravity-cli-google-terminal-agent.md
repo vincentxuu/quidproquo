@@ -10,6 +10,8 @@ description: "Antigravity CLI 的定位、安裝與 SSH 認證、非同步 subag
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en)
+
 Antigravity CLI 是 Google 在 2026 年 5 月 19 日 I/O 上發表的終端機 AI agent。重點不是「又一個 coding CLI」，而是它背後的策略：Google 把原本獨立的 Gemini CLI 收進 Antigravity 這個「四介面平台」，讓終端機、桌面 app、SDK、IDE 全部跑在**同一套 agent harness** 上。這篇講清楚它是什麼、怎麼裝、和 Gemini CLI 的遷移關係，以及該不該現在就換過去。
 
 ## Antigravity CLI 是什麼

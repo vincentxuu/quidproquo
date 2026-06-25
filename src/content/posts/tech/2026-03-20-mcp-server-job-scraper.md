@@ -10,6 +10,8 @@ description: "一步步把 104 職缺爬蟲做成 MCP Server，說明 MCP 是什
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-20-mcp-server-job-scraper-en)
+
 我有一個爬 104 和 LinkedIn 職缺的腳本，跑完之後用 LLM 幫我評分、過濾、產報告。流程是這樣：
 
 ```

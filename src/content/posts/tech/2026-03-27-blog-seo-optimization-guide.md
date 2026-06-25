@@ -10,6 +10,8 @@ draft: false
 type: guide
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-blog-seo-optimization-guide-en)
+
 SEO（Search Engine Optimization）的技術面優化，核心目標只有一個：**讓搜尋引擎用最低成本理解你的內容**。這篇以 Astro 靜態部落格為例，走一遍從 meta tags 到結構化資料的完整實作，讀完你會知道每個優化項目「做什麼」和「為什麼做」。
 
 ## 搜尋引擎怎麼看你的頁面

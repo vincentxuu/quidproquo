@@ -10,6 +10,8 @@ description: "DeerFlow 是字節跳動開源的超級代理框架，主打深度
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-04-21-bytedance-deer-flow-super-agent-harness-en)
+
 過去一年 Agent 框架遍地開花，但「能跑 10 分鐘的 demo」和「能跑 10 小時的研究任務」是兩件完全不同的事。DeerFlow 就是字節跳動針對後者給出的答案——一個結合沙箱、長期記憶、子代理、技能與 IM 閘道的完整 Harness。這篇介紹它的定位、架構選擇，以及和直接用 LangGraph 比起來多做了什麼。
 
 ## DeerFlow 是什麼

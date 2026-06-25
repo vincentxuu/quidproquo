@@ -10,6 +10,8 @@ description: "介紹 nginx 作為 reverse proxy 的基本概念，以及用 conf
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-15-nginx-confd-multi-service-en)
+
 部署多個服務時，nginx 幾乎是標配的入口層。但隨著服務增加，單一 `nginx.conf` 會快速膨脹成幾百行、難以 review 的配置文件。這篇介紹 nginx 的 `include` 機制，以及島島如何用 `conf.d/` 結構管理十幾個子域名的路由配置。
 
 ## nginx 是什麼

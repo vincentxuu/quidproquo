@@ -13,6 +13,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en)
+
 <!-- TODO: 待撰寫 -->
 <!-- 參考官方文件：https://code.claude.com/docs/en/sub-agents.md -->
 

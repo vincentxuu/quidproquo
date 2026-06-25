@@ -10,6 +10,8 @@ description: "Cloudflare KV 介紹：全球分散式 key-value store，邊緣讀
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)
+
 KV 是 Cloudflare Workers 的全球 key-value store。資料同步到全球所有 Cloudflare PoP（Point of Presence），讀取從最近的節點回應，通常幾毫秒。如果你需要一個 serverless 的快取層，不想管 Redis，KV 是最直接的選擇。
 
 ## 核心特性

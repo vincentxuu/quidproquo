@@ -13,6 +13,8 @@ series:
   order: 19
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-claude-code-global-skills-not-found-en)
+
 裝好 global skills，CLI 用 `/` 斜線命令明明看得到，但開新 session 或換到 Desktop App，問 Claude「你有哪些 skills？」卻只回系統預設。每次都要手動提醒「去家目錄找一下」才行。
 
 這個問題不少人踩過。核心原因通常不是「檔案不存在」，而是 **skill 描述沒被正確載入 Claude 的 context window（單次對話能看到的資訊範圍）**。

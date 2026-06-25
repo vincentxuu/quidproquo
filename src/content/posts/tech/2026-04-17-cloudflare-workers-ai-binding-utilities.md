@@ -10,6 +10,8 @@ description: "從 markdown.new 這個服務切入，拆解 Cloudflare Workers AI
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities-en)
+
 最近看到 [markdown.new](https://markdown.new) — 丟任何檔案進去（PDF、DOCX、XLSX、圖片、網頁），吐出 LLM 友善的 Markdown，免費、不用註冊。拆開一看，核心其實就是一行 `env.AI.toMarkdown()`。
 
 這讓我意識到：Cloudflare Workers AI 的 `env.AI` binding 被多數教學窄化成「就是呼叫 `run()` 跑模型」，但實際上它上面掛了好幾組 managed utility — 很多時候你根本不用自己寫 RAG、不用自己解 PDF、不用自己接 OpenAI API。

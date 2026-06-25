@@ -10,6 +10,8 @@ description: "RAG 系統三個世代的演進：Naive RAG 的問題、Advanced R
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en)
+
 RAG 系統在 2023-2026 年間快速演進，從最初的三步流程發展成複雜的模組化管線。了解這個演進路徑，有助於理解每個技術選擇背後解決的是什麼問題。
 
 ## Naive RAG（第一世代）

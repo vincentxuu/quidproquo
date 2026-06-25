@@ -10,6 +10,8 @@ description: "Google Gemini CLI 的安裝、免費方案、核心功能，以及
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
+
 > **⚠️ 停用公告（2026/05/19）**
 > Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 用戶。官方接替方案為 [Antigravity CLI](#遷移至-antigravity-cli)。企業用戶（Gemini Code Assist Standard/Enterprise 或 Google Cloud API key）不受此次截止日影響。詳情請見[官方遷移公告](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)。
 

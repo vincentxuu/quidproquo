@@ -10,6 +10,8 @@ description: "記錄一次 MCP search tool 超出 token 上限的除錯過程，
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs-en)
+
 ## TL;DR
 
 `search_local_jobs("AI")` 回傳 1,033 筆職缺，含 `description` 共 1,082,675 字元，超出 MCP token 上限。結果被存成檔案，Claude 連續三次因格式誤解而解析失敗，才在第五次拿到正確答案。根本解法：預設不回傳 `description`，改成摘要欄位 + 分頁。

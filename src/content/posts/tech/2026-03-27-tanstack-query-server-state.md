@@ -10,6 +10,8 @@ description: "TanStack Query（前身 React Query）是 React 生態最成熟的
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-tanstack-query-server-state-en)
+
 很多 React 開發者習慣用 `useState` + `useEffect` 管 API 資料：fetch 資料、處理 loading 狀態、catch error、存到 state。這樣寫沒有問題，但你很快就會發現需要：重複 fetch 的去重、資料快取、背景更新、分頁……每個需求都要自己實作。
 
 TanStack Query 解決的就是這些問題。

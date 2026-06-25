@@ -137,6 +137,8 @@ glossary:
     context: "本文介紹的 Strong Mind 流派將暴露療法作為核心方法之一。"
 ---
 
+🌏 [English version](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+
 攀岩書很多，但多數書單只是把書名排在一起，沒告訴你這些書之間的關係。
 
 Training for Climbing 跟 The Rock Climber's Training Manual 有什麼不同？9 Out of 10 Climbers 為什麼跟其他訓練書唱反調？The Rock Warrior's Way 跟 Vertical Mind 明明都在講心理，但背後的哲學完全不一樣？

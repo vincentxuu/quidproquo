@@ -10,6 +10,8 @@ draft: false
 type: deep-dive
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+
 NobodyClimb 是一個給攀岩者用的社群平台，讓大家記錄攀登紀錄、寫故事、分享一句話心得，也可以問 AI 攀岩相關的問題。整個系統從前端、後端到 AI，全部跑在 Cloudflare 的基礎設施上，沒有 EC2、沒有 RDS，也沒有獨立的 AI 推論伺服器。這篇記錄一下架構選擇背後的邏輯。
 
 ## 為什麼選 Cloudflare-first

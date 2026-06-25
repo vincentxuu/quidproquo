@@ -13,6 +13,8 @@ series:
   order: 26
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows-en)
+
 <!-- TODO: 待撰寫 -->
 <!-- 參考官方文件：https://code.claude.com/docs/en/best-practices.md -->
 <!-- 參考官方文件：https://code.claude.com/docs/en/common-workflows.md -->

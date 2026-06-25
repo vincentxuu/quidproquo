@@ -10,6 +10,8 @@ description: "Multimodal RAG 的設計：圖片 Embedding（CLIP）、文字+圖
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-multimodal-rag-en)
+
 攀岩社群裡有大量視覺資訊：路線圖（topo）、岩壁照片、動作示範影片截圖。這些圖片包含了文字描述很難完整傳達的資訊——岩壁的形態、路線的走向、關鍵動作的身體位置。
 
 標準 RAG 只能處理文字，這些視覺資訊都被排除在外。使用者問「龍洞 5.11a 的關鍵動作怎麼做」，系統只能從文字描述回答，但真正有用的是那張手抓點的示意圖。

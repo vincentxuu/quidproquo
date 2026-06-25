@@ -10,6 +10,8 @@ description: "Contextual Retrieval 的設計：chunk 孤島問題、文件級別
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-contextual-retrieval-en)
+
 RAG 系統的索引通常是把長文件切成小段（chunk），分別 embedding 後存入向量資料庫。這個做法有個根本問題：**切塊之後，每個 chunk 失去了它在原文件中的脈絡**。
 
 一個路線描述文件可能包含：

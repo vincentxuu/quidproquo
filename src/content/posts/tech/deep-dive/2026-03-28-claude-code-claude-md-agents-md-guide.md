@@ -13,6 +13,8 @@ series:
   order: 3
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en)
+
 <!-- TODO: 待撰寫 -->
 
 ## 預計大綱

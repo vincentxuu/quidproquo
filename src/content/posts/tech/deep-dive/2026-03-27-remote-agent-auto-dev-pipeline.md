@@ -13,6 +13,8 @@ series:
   order: 15
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en)
+
 上一篇寫了從 OpenSpec 到自動部署的八個階段。那套流程能跑，但有一個問題：每一步都要人類觸發。
 
 「幫我開發這個功能」→ AI 寫 code →「幫我 commit」→ AI commit →「幫我 push」→ AI push →「幫我開 PR」→ AI 開 PR → CI 跑完 →「幫我收集 feedback」→ AI 收集 →「幫我修」→ AI 修。

@@ -13,6 +13,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en)
+
 <!-- TODO: 待撰寫 -->
 
 ## 預計大綱

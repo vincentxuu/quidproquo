@@ -10,6 +10,8 @@ description: "記錄一次手機 Chrome 登入 loop 的排查：從後端 auth l
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-05-24-chrome-cookie-https-en)
+
 ## TL;DR
 
 手機 Chrome 登入後跳回登入頁，不一定是 OAuth 或前端狀態壞掉；這次根因是 `app-dev.daodao.so` 的 HTTP 入口沒有 301 到 HTTPS，導致 `/auth/me` 以 `http` origin 發出時沒有帶 `auth_token`。

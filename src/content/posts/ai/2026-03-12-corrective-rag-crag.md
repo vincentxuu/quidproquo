@@ -10,6 +10,8 @@ description: "Corrective RAG（CRAG）的設計：檢測零結果、漸進式放
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-corrective-rag-crag-en)
+
 RAG 系統的一個靜默失敗模式：**過濾條件過嚴，沒有候選文件通過，但 pipeline 繼續跑，LLM 只能用通用知識回答**。
 
 使用者問「龍洞有沒有 5.14 的路線」，系統正確提取了 `crag_id = longtung` 和 `grade_numeric ≥ 140`，但龍洞根本沒有這個難度的路線，搜尋零結果。如果系統直接把空 context 送給 LLM，有兩種糟糕的結果：

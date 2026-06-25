@@ -19,6 +19,8 @@ description: "從 Notion 任務板到 GitHub PR 自動化：daodao 內部 auto-d
 draft: false
 ---
 
+🌏 [English version](/posts/ai/2026-05-09-daodao-auto-dev-agent-build-en)
+
 ## TL;DR
 
 用 5 輪 consensus 寫 plan、再用 team mode 5 worker 並行做完 12 個 task；中間踩了不少坑，記下來給未來的自己跟同樣在嘗試的人看。

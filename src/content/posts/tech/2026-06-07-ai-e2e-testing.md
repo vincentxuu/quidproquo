@@ -10,6 +10,8 @@ description: "canary、Stagehand、Shortest、Magnitude 與 Playwright 官方 AI
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-06-07-ai-e2e-testing-en)
+
 E2E 測試長期卡在兩個極端：讓 AI agent 跑測試，每次結果不同、每次燒 token、失敗時看不出原因；自己寫 Playwright script，selector 跟著 UI 一起壞，維護成本比功能開發還高。2024-2025 年出現一批工具試圖打破這個二選一，各自的解法差很多。
 
 ## [canary](https://github.com/wizenheimer/canary)：AI 跑完給你 script

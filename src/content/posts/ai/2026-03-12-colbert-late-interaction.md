@@ -10,6 +10,8 @@ description: "ColBERT Late Interaction 的設計原理：與 Bi-Encoder、Cross-
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-colbert-late-interaction-en)
+
 向量搜尋的架構可以分三類，理解三者的取捨，才能選到最適合的方案。
 
 **Bi-Encoder**（雙塔模型）：查詢和文件分別 embed 成單一向量，cosine similarity 評分。速度快，可以做 ANN 搜尋，但查詢和文件的 token 之間沒有互動，精度有限。

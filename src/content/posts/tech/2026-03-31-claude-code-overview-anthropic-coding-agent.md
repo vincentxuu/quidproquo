@@ -10,6 +10,8 @@ description: "Claude Code 的安裝方式、核心功能、六層擴充機制、
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en)
+
 Claude Code 是 Anthropic 推出的 agentic coding 工具。它能理解你的 codebase，透過自然語言指令執行日常任務、解釋複雜程式碼、處理 git workflow。可以在終端機、IDE（VS Code / JetBrains）、Slack、GitHub、或 Web 上使用。
 
 ## 安裝

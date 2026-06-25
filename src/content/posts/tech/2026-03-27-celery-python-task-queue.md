@@ -10,6 +10,8 @@ description: "Celery 讓 Python 應用輕鬆把任務推進背景執行，支援
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-celery-python-task-queue-en)
+
 Python 的 async/await 可以處理 I/O 並發，但 CPU 密集或需要長時間等待外部 API（像是呼叫 LLM）的任務，塞在 request/response 週期裡一樣會讓 API 變慢。解法是把這些任務推進背景佇列，讓 worker process 非同步消化。
 
 Celery 是 Python 生態裡做這件事的標準工具，成熟、有完整生態、FastAPI / Django / Flask 都支援。

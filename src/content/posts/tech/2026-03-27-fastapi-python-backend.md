@@ -10,6 +10,8 @@ description: "介紹 FastAPI：為什麼它在 AI 服務場景裡比 Flask 和 D
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-fastapi-python-backend-en)
+
 Python 後端框架的老問題：Flask 太簡陋、Django 太重。FastAPI 在 2018 年出現，補上了這個空缺——輕量、type-safe、async-first、自動文件。特別是在 AI/ML 服務這個場景，它幾乎已經是事實標準。
 
 島島（DaoDao）把 AI 服務獨立成 Python FastAPI 應用（`daodao-ai-backend`），和 Node.js 主後端分開部署。這個決策很合理：Python 在 ML 生態的工具鏈遠優於 Node.js，LangChain、sentence-transformers、scikit-learn 都在 Python 生態，強行用 Node.js 跑 AI 是自找麻煩。

@@ -10,6 +10,8 @@ description: "Zustand 是一個極簡的 React 狀態管理函式庫，沒有 bo
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-zustand-state-management-en)
+
 React 的狀態管理選擇太多了：Redux、MobX、Recoil、Jotai、Zustand……每個都能用，但選哪個是有觀點的。這篇說 Zustand，以及為什麼它是多數專案 client state 管理的最佳選擇。
 
 ## 什麼是 Zustand

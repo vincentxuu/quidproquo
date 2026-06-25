@@ -10,6 +10,8 @@ draft: false
 type: deep-dive
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)
+
 島島（DaoDao）是一個學習平台，讓使用者設定目標、追蹤每日實踐、建立學習社群。它的技術架構比大多數同規模的產品複雜：前端是 Turborepo monorepo 管三個 app，後端拆成 Node.js 和 Python 兩個服務，資料庫用了四種。這篇拆解各層的設計邏輯，以及這些選擇背後的取捨。
 
 ## Monorepo 架構設計

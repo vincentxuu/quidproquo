@@ -13,6 +13,8 @@ series:
   order: 9
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
+
 CI 跑在 GitHub Actions，push 之後才知道 lint 沒過、type 報錯。來回修一次要五到十分鐘，改一個 typo 又要再跑一輪。問題不在 CI 設計不好，而是檢查發生得太晚。
 
 如果 Claude Code 在幫你 commit 之前，就先跑完 lint、typecheck、build，發現問題直接修掉再 commit——這件事不需要改 CI，只要搞懂 Claude Code 的三個機制怎麼用。

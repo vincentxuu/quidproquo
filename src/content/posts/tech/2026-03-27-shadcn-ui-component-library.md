@@ -10,6 +10,8 @@ description: "介紹 shadcn/ui 的設計哲學：copy-paste 模型而非 npm dep
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-shadcn-ui-component-library-en)
+
 大多數 UI 套件的模型是這樣：裝 npm 套件，import 元件，用 props 客製化，遇到套件沒有的功能就找 workaround 或等作者更新。你的彈性上限由套件的 API 決定。
 
 shadcn/ui 的模型不同：它不是套件，它是一個 CLI 工具，把元件的原始碼複製到你的專案裡。從那一刻起，這些程式碼就是你的，你可以直接改，不需要透過 prop API，不受套件版本限制。

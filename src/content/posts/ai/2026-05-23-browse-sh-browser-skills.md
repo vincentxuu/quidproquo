@@ -10,6 +10,8 @@ description: "解讀 Browserbase 的 browse.sh:瀏覽器技能目錄、Browse CL
 draft: false
 ---
 
+🌏 [English version](/posts/ai/2026-05-23-browse-sh-browser-skills-en)
+
 如果你搜「browse.sh」第一個反應是「喔那個終端機文字瀏覽器」,先停一下——**那是另一個東西**。本文要講的 browse.sh 是 Browserbase 在 2026 年 5 月推出的「瀏覽器技能(browser skills)目錄 + CLI」,目標是讓 AI Agent 別再每次都從零摸索同一個網站。它的一句話賣點很直接:瀏覽器 Agent 的瓶頸從來不是智商,是健忘症。
 
 ## 先講清楚:這不是 2018 年那個 Browsh

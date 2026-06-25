@@ -10,6 +10,8 @@ description: "拆解 Perplexity 開源工具 Bumblebee 的內部設計：path-sh
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-05-25-bumblebee-supply-chain-scanner-en)
+
 Perplexity 在 2026 年 5 月開源了 [Bumblebee](https://github.com/perplexityai/bumblebee)，一個跑在開發者筆電上的「唯讀」套件盤點器。它要回答一個很窄、但事件當下很急的問題：當某份 advisory 點名某個套件、版本、擴充或 MCP 設定被汙染時，**我的機隊裡哪幾台現在硬碟上就裝著它？** 這篇拆解它的內部設計——為什麼每個「不做」都是刻意的，以及它跟 OSV-Scanner、Syft、osquery 這些工具的分界在哪。基準版本是 v0.1.1，用 Go 寫成、零非 stdlib 依賴、只支援 macOS 與 Linux。
 
 ## 它補的是 SBOM 與 EDR 中間那道縫

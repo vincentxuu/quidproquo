@@ -10,6 +10,8 @@ description: "研究數位生態系的運作模式——從 LINE 超級應用、
 draft: false
 ---
 
+🌏 [English version](/posts/product/2026-04-02-digital-ecosystem-cresclab-research-en)
+
 波士頓顧問公司（BCG）指出，全球十大最有價值的企業中，有七家是以「數位生態系」作為商業模式的核心。所謂[數位生態系（Digital Ecosystem）](https://tmrmds.co/article-business/17769/)，是由一群企業、人、物件（IoT）組成的數位平台，彼此相互依賴，共同提供整合性的產品和服務。
 
 它不是單一公司的產品線，而是**跨公司的價值網絡**——每個參與者貢獻自己的專長，透過 API、數據共享、商業合作形成比單獨行動更強的整體。關鍵特徵包括：

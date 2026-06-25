@@ -10,6 +10,8 @@ description: "記錄修 AI agent attachment 工具的三個 bug：binary format 
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-05-18-llm-tool-description-hard-rules-en)
+
 ## TL;DR
 
 把 tool description 從軟建議改成硬規則（白名單 + 後果說明），LLM 亂選 tool 的問題消失了；另外加 `skip_signal=True` 修掉 vector store 雙重 indexing。

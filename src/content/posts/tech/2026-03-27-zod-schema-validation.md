@@ -10,6 +10,8 @@ description: "Zod 是 TypeScript-first 的 schema 驗證函式庫，讓你用一
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-zod-schema-validation-en)
+
 TypeScript 很強大，但有一個根本限制：**型別只在編譯時存在，執行時完全消失**。這意味著當你的 API 回傳的資料、使用者的表單輸入、或是環境變數進來的時候，TypeScript 無法保證它們符合你定義的型別。
 
 Zod 解決的就是這個問題。

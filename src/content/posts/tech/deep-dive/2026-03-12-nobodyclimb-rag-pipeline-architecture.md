@@ -11,6 +11,8 @@ draft: false
 type: deep-dive
 ---
 
+🌏 [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
+
 NobodyClimb 是一個台灣攀岩社群平台。在加入 AI 問答功能之前，使用者要找「龍洞有哪些 5.10 的路線」這種問題，只能靠自己爬文章。現在這個問題可以直接問 AI，然後拿到附有來源連結的答案。
 
 這篇記錄整個 AI 系統的架構設計，包括為什麼選這些模型、pipeline 怎麼設計、以及在 Cloudflare Workers 的限制下踩了哪些坑。

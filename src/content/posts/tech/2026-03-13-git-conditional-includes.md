@@ -10,6 +10,8 @@ description: "同時維護個人和工作 GitHub 帳號？用 Git Conditional In
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-13-git-conditional-includes-en)
+
 同時使用個人與工作 GitHub 帳號時，最常遇到的問題是：commit 用錯 email、push 用錯帳號。手動每次 `git config` 很麻煩，忘記設定又會留下錯誤的 commit 作者。Git 提供的 `includeIf` 加上 SSH Host alias，可以讓這件事完全自動化。
 
 ## 確認現況

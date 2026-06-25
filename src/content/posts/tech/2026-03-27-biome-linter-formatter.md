@@ -10,6 +10,8 @@ description: "Biome 是用 Rust 寫的 JavaScript/TypeScript linter 和 formatte
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-biome-linter-formatter-en)
+
 前端工具鏈有一個老問題：ESLint 負責 linting，Prettier 負責 formatting，兩個工具各有設定、各有 plugin、偶爾還會互相衝突。在 monorepo 裡，三個 app 各跑一次，時間更長。
 
 Biome 一個工具解決兩個問題，而且快很多。

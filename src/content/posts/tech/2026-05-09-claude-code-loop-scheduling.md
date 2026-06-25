@@ -13,6 +13,8 @@ series:
   order: 7
 ---
 
+🌏 [English version](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
+
 ## TL;DR
 
 `/loop` 讓你用自然語言設定 Claude Code 的定期任務——不用寫 cron expression，直接說「每 10 分鐘檢查部署狀態」就行。也可以只給 prompt 不給間隔，讓 Claude 自己根據觀察到的狀況動態決定下一次什麼時候跑。Session 範圍、最長 7 天，適合 session 內的監控和提醒；不適合跨 session 的長期排程。

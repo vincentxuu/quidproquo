@@ -10,6 +10,8 @@ description: "介紹 Express.js 的核心設計哲學、middleware pattern、Typ
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-expressjs-node-backend-en)
+
 Express 在 2010 年發布，距今已經超過 15 年。每隔幾年就有人宣告它「死了」，換成 Fastify、Koa、NestJS，但 npm 下載數一直維持在前幾名。島島（DaoDao）的主後端用的就是 Express + TypeScript，這個選擇有其道理。
 
 ## 它是什麼

@@ -10,6 +10,8 @@ description: "Docker 核心概念、Dockerfile multi-stage build、Docker Compos
 draft: false
 ---
 
+🌏 [English version](/posts/tech/2026-03-27-docker-container-basics-en)
+
 Docker 解決一個根本問題：應用程式依賴的環境太多了——Node.js 版本、OS library、環境變數——而 Docker 把這些全部打包進 image，讓每個環境跑的都是同一個東西。
 
 ## 核心概念

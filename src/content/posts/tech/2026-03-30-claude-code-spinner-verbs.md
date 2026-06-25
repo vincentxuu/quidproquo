@@ -13,6 +13,8 @@ series:
   order: 10
 ---
 
+🌏 [English version](/posts/tech/2026-03-30-claude-code-spinner-verbs-en)
+
 用 Claude Code 的時候，輸入指令後終端機會出現一個旋轉的 `✻`，旁邊跟一個動詞——有時是正經的 `Thinking...`，有時是莫名其妙的 `Flibbertigibbeting...`。這些動詞到底有幾個？怎麼選的？能不能換？直接去翻原始碼最快。
 
 ## 資料來源

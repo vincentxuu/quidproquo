@@ -10,6 +10,8 @@ draft: false
 type: debug
 ---
 
+🌏 [English version](/posts/tech/debug/2026-03-13-astro-scoped-css-mdx-en)
+
 ## TL;DR
 
 Astro scoped CSS 對 `<Content />` 渲染的 MDX HTML 沒有作用。解法是把 prose 樣式放進 `<style is:global>`。
