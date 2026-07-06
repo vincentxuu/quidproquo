@@ -1815,6 +1815,28 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     context: '常用來評估 CLI 工具、SDK、API 與開發框架的設計品質。',
     context_en: 'Commonly used to evaluate the design quality of CLI tools, SDKs, APIs, and development frameworks.',
   },
+  {
+    term: 'FFmpeg',
+    aliases: ['ffmpeg'],
+    definition: '開源的多媒體處理工具，支援影音格式轉換、剪輯、編碼與串流。',
+    definition_en: 'An open-source multimedia framework for format conversion, editing, encoding, and streaming of audio and video.',
+    advanced: '核心包含 libavcodec（編解碼）、libavformat（容器格式）與 libavfilter（濾鏡）；幾乎所有影音處理工具鏈的底層都依賴它。',
+    advanced_en: 'Core components include libavcodec (encoding/decoding), libavformat (container formats), and libavfilter (filters). Nearly all audio/video processing toolchains depend on it under the hood.',
+    context: '常見於影片渲染管線、串流伺服器、媒體轉檔與自動化影片處理。',
+    context_en: 'Commonly found in video rendering pipelines, streaming servers, media transcoding, and automated video processing.',
+    links: [{ label: 'FFmpeg Official', url: 'https://ffmpeg.org/' }],
+    links_en: [{ label: 'FFmpeg Official', url: 'https://ffmpeg.org/' }],
+  },
+  {
+    term: 'headless browser',
+    aliases: ['headless Chrome', '無頭瀏覽器'],
+    definition: '沒有圖形介面的瀏覽器，在背景執行網頁渲染和 JavaScript，常用於自動化測試和網頁截圖。',
+    definition_en: 'A browser without a graphical interface that renders web pages and executes JavaScript in the background, commonly used for automated testing and web screenshots.',
+    advanced: '主流工具包括 Puppeteer（Chrome DevTools Protocol）和 Playwright（多瀏覽器支援）；在影片渲染中用來逐幀截取網頁畫面。',
+    advanced_en: 'Popular tools include Puppeteer (Chrome DevTools Protocol) and Playwright (multi-browser support). In video rendering, used for frame-by-frame web page capture.',
+    context: '用於 E2E 測試、網頁爬蟲、PDF 生成、OG 圖片產生與程式化影片渲染。',
+    context_en: 'Used in E2E testing, web scraping, PDF generation, OG image generation, and programmatic video rendering.',
+  },
 ]
 
 export function normalizeGlossaryTerms(entries: GlossaryEntry[]): GlossaryEntry[] {
