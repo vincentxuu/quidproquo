@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "pnpm lint 2>&1 | tail -3"
+            "command": "pnpm verify 2>&1 | tail -10"
           }
         ]
       }
