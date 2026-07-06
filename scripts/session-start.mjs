@@ -39,5 +39,5 @@ if (existsSync(PROGRESS_PATH)) {
   printSection('progress.txt', '(missing progress.txt)');
 }
 
-const lintOk = runCommand('pnpm lint', 'pnpm lint');
-process.exitCode = lintOk ? 0 : 1;
+const verifyOk = runCommand('pnpm verify', 'pnpm verify');
+process.exitCode = verifyOk ? 0 : 1;

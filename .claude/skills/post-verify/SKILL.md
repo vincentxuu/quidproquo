@@ -1,6 +1,6 @@
 ---
 name: post-verify
-description: Fact-layer verification for a post draft under src/content/posts/<category>/ — extract every technical claim (version numbers, API names, prices, commands, dates, metrics, quoted statistics), cross-check each against current authoritative sources via MCP search/scrape (tavily / exa / firecrawl), and produce a verdict report (Confirmed / Outdated / Unverifiable / Contradicted). Does NOT modify the file. Complementary to `post-review` (which covers style/structure). Use when user says verify 一下 / 查證 / 對一下事實 / fact check / 確認版本 / 驗證 and references a draft post.
+description: Fact-layer verification for a post draft under src/content/posts/<category>/ — extract every technical claim (version numbers, API names, prices, commands, dates, metrics, quoted statistics), cross-check each against current authoritative sources via the agent's search/scrape tools, and produce a verdict report (Confirmed / Outdated / Unverifiable / Contradicted). Does NOT modify the file. Complementary to `post-review` (which covers style/structure). Use when user says verify 一下 / 查證 / 對一下事實 / fact check / 確認版本 / 驗證 and references a draft post.
 ---
 
 # post-verify skill
@@ -22,7 +22,7 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 
 ## 工具映射
 
-跟 `deep-research` 一樣的工具家族；目的不同。CLAUDE.md 規定：**不用內建 WebFetch / Playwright，只用 MCP**。
+跟 `deep-research` 一樣的工具家族；目的不同。Codex 用 `web.run` 搜尋/開頁；Claude 只用 MCP（CLAUDE.md 規定**不用內建 WebFetch / Playwright**）。MCP 首選映射：
 
 | 用途 | 首選 |
 |---|---|

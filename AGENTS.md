@@ -2,11 +2,22 @@
 
 這是 [quidproquo.cc](https://quidproquo.cc) 的部落格專案，以 Astro + Cloudflare Workers 建構。
 
+## 治理（先讀）
+
+完整規則：`docs/governance/operating-charter.md`。摘要：
+
+- **`pnpm verify` 是唯一品質閘門**（lint + references + skills-sync + progress 協定），pre-commit 自動跑；紅了修真問題，不准繞過。
+- **行動分級**：schema 變更、D1 migration、production flag flip、deploy、改已發佈文章的 slug/date、改 CI/hooks、新 dependency、>20 檔批次改動——這些**先問使用者**。手改 `.claude/skills/`、為了變綠而弱化檢查——**禁止**。
+- 需要人拍板或做不動的事 → 登錄 `docs/governance/escalation-queue.md`，不要硬做。
+- `progress.txt` 是 working memory（≤ 90 行），狀態變了就更新；完成條目歸檔到 `docs/progress-archive.md`。
+
 ## Agent Skills
 
-`.agents/skills/` 是本專案 agent skill 的 canonical source。新增或修改專案 skill 時，先改 `.agents/skills/<skill>/SKILL.md` 與同資料夾下的 `references/`、`templates/`、`scripts/`。
+`.agents/skills/` 是**唯一**編輯處。新增或修改 skill 時，改 `.agents/skills/<skill>/SKILL.md` 與同資料夾下的 `references/`、`templates/`、`scripts/`。
 
-`.claude/skills/` 只作為 Claude 相容鏡像；`.codex/skills/` 只放 Codex 專用或實驗性 workflow。不要先改 `.claude/skills/` 再回填，避免 Codex 與 Claude 讀到不同規則。
+`.claude/skills/` 是 `pnpm skills:sync` 產生的逐位元組鏡像，**不要手改**（`pnpm verify` 會擋）。Runtime 差異（Claude 用 MCP、Codex 用 `web.run`）寫在 skill 內文的條件式段落，不用分岔檔案。`.codex/skills/` 只放 Codex 專用或實驗性 workflow，不在同步範圍。
+
+修 skill 流程：改 `.agents/skills/<skill>/` → `pnpm skills:sync` → `pnpm verify` → 兩份一起 commit。
 
 每個 skill 必須有 `SKILL.md` frontmatter：
 

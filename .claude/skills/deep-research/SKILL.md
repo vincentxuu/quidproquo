@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Multi-source research using MCP search/scrape tools. Plans sub-questions, fetches primary sources, cross-validates facts, then outputs a structured research note ready to feed into the `post` skill as a deep-dive draft. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼 and the topic is a tool, framework, paper, model, product, or trend. Skip for single-fact lookups (no synthesis needed) or implementation tasks (use ai-expert instead).
+description: Multi-source research for tools, frameworks, papers, models, products, or trends. Plans sub-questions, fetches primary sources, cross-validates facts, then outputs a structured research note ready to feed into the `post` skill as a deep-dive draft. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼. Skip for single-fact lookups (no synthesis needed) or implementation tasks (use ai-expert instead).
 ---
 
 # deep-research skill
@@ -19,7 +19,10 @@ description: Multi-source research using MCP search/scrape tools. Plans sub-ques
 
 ## 工具選擇原則
 
-一律用 MCP 工具，**不要用**內建 `WebFetch` / `Playwright`。
+用當前 agent 可用的搜尋與抓取工具：
+
+- Codex：優先用 `web.run` search/open；需要官方文件或最新資訊時必須查網路。
+- Claude：一律用 MCP search/scrape 工具，**不要用**內建 `WebFetch` / `Playwright`；依 `references/mcp-tools.md` 選工具。
 
 **能搜就不用爬、能爬單頁就不用整站、能整站就不用瀏覽器**。每升一階成本與失敗率都升一階。
 
@@ -37,7 +40,7 @@ description: Multi-source research using MCP search/scrape tools. Plans sub-ques
 
 對每個子問題：
 
-1. `tavily_search` / `exa_web_search` 找候選 URL（拿前 5-8 個）
+1. 搜尋候選 URL（Claude：`tavily_search` / `exa_web_search`；Codex：`web.run`），拿前 5-8 個
 2. 按來源品質排序：**官方 > 一手作者 > 高品質二手 > 內容農場**
    - 官方文件、release notes、論文、官方 blog、官方 GitHub repo
    - 作者本人 X / 個人 blog / Mastodon
@@ -88,7 +91,7 @@ description: Multi-source research using MCP search/scrape tools. Plans sub-ques
 | 跳過拆子問題，直接搜題目 | 廣搜回來都是 SEO 內容，沒結構，最後寫不出導讀 |
 | 用一個來源就下結論 | 一手來源也會錯版本 / 講未公開細節；至少兩源是底線 |
 | 直接 `firecrawl_crawl` 整站 | 多數題目 search + 單頁 scrape 就夠，整站爬慢、貴、易被 rate limit |
-| 用內建 `WebFetch` 比較快 | CLAUDE.md 明確禁用，只用 MCP 工具 |
+| （Claude）用內建 `WebFetch` 比較快 | CLAUDE.md 明確禁用，只用 MCP 工具；Codex 改用 `web.run` |
 | 省略事實交叉表 | 沒這步就會把 LLM 幻覺當事實寫進文章 |
 | Research note 跟發文一起做 | 兩件事混在一起，材料還沒齊就在套句子，最後事實對不上 |
 

@@ -1,6 +1,6 @@
 ---
 name: post-review
-description: Self-review a Markdown post draft under src/content/posts/<category>/ before publishing — run validators (check:references / lint / astro check), score frontmatter / tldr / references coverage / tag hygiene against the writing guide, and return a structured issue list. Does NOT modify the file. Use when user says review 一下 / 審稿 / 發文前看一下 / 幫我檢查這篇 and references a draft post by path.
+description: Self-review a Markdown post draft under src/content/posts/<category>/ before publishing — run validators (check:references / lint / astro check), score frontmatter / tldr / references coverage / tag hygiene / heading-list readability against the writing guide, and return a structured issue list. Does NOT modify the file. Use when user says review 一下 / 審稿 / 發文前看一下 / 幫我檢查這篇 and references a draft post by path, slug, or title.
 ---
 
 # post-review skill
@@ -11,7 +11,7 @@ description: Self-review a Markdown post draft under src/content/posts/<category
 
 ### 1. 定位草稿
 
-使用者指定的路徑或關鍵字。多個候選 → 列出讓使用者挑。
+使用者指定的路徑、slug 或關鍵字。多個候選 → 列出讓使用者挑，**不要自己選**。
 
 ### 2. 機械檢查（先跑命令）
 

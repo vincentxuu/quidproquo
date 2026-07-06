@@ -26,11 +26,8 @@ jobs:
 
       - run: pnpm install
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Check post references
-        run: pnpm check:references
+      - name: Verify (lint + references + skills-sync + progress)
+        run: pnpm verify
 
       - name: Build
         run: pnpm build

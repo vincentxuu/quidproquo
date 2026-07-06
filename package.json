@@ -12,6 +12,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "oxlint src/ --ignore-pattern '*.astro'",
+    "verify": "node scripts/verify.mjs",
+    "check:skills-sync": "node scripts/check-skills-sync.mjs",
+    "skills:sync": "node scripts/check-skills-sync.mjs --fix",
     "session:start": "node scripts/session-start.mjs",
     "check:post-quality": "node scripts/check-post-quality.mjs",
     "check:references": "node scripts/check-post-references.mjs",
@@ -79,7 +82,7 @@
     "wrangler": "4.72.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm check:references"
+    "pre-commit": "pnpm verify"
   },
   "pnpm": {
     "overrides": {

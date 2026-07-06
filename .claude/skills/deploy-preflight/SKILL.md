@@ -75,7 +75,7 @@ Build 成功才表示 cron stub、OG image 生成、astro build 都 OK。Build a
 
 ### 8. Wrangler / secrets 自查
 
-讀 `wrangler.toml` 或 `wrangler.jsonc`，列出：
+讀 `wrangler.toml` / `wrangler.jsonc` / `dist/server/wrangler.json`（build 後實際部署用的設定），列出：
 
 - D1 binding（資料庫名、id）
 - Vectorize binding

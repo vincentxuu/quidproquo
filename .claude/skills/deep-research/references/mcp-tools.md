@@ -1,8 +1,23 @@
-# MCP 工具映射
+# Research 工具映射
 
-`CLAUDE.md` 規定**不要用**內建 `WebFetch` / `Playwright`，一律用 MCP 工具。
+依當前 agent 可用工具選擇，不綁定單一平台。
 
-## 按用途選工具
+## Codex
+
+Codex 有 `web.run` 時：
+
+| 用途 | 工具 |
+|---|---|
+| 廣域搜尋 | `web.run` search_query |
+| 開官方文件 / 論文 / release note | `web.run` open |
+| 找頁內關鍵字 | `web.run` find |
+| 需要最新價格、版本、政策 | 必須查網路，不靠模型記憶 |
+
+Codex 搜尋技術問題時，優先使用 primary sources：官方文件、官方 blog、release note、GitHub repo、論文。
+
+## Claude / MCP
+
+Claude 的規則（`CLAUDE.md`）：**不要用**內建 `WebFetch` / `Playwright`，一律用 MCP 工具。
 
 | 用途 | 首選 | 備援 |
 |---|---|---|
@@ -27,3 +42,6 @@
 | 搜尋結果都是 SEO 農場 | 加 `site:` 限定官方域名，或改用 `exa_web_search`（語義搜尋更乾淨） |
 | 整站爬卡住 | 先用 `firecrawl_map` 拿站點地圖，挑頁面後逐個 `scrape` |
 | 需要 JS render 但 `firecrawl_browser_*` 太慢 | 確認真的需要 JS；很多 SPA 其實有 SSR fallback |
+| 官方文件版本混淆 | 找 release note / changelog / versioned docs |
+| 找不到第二來源 | 標 `⚠️ unverified`，不要硬湊低品質來源 |
+| 來源互相矛盾 | 標 `❌ conflict`，列出差異 |
