@@ -39,7 +39,7 @@ description: Update an existing Markdown post under src/content/posts/<category>
    - frontmatter `date`（原始發文日期，**不是**今天）
    - frontmatter `category`（除非使用者明確說要搬分類）
    - frontmatter `lang`、`series`
-   可以動的：`title`、`tags`、`tldr`、`description`、`type`、`pinned`、`draft`、文章內容。
+   可以動的：`title`、`tags`、`tldr`、`description`、`type`、`difficulty`、`pinned`、`draft`、`glossary`、文章內容。
 
 4. **記錄更新**（預設行為）：
    - 小幅修字 → 直接改，不留痕
