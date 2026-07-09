@@ -1,12 +1,12 @@
 ---
-title: "PostgreSQL 就夠了？從島島的四個資料庫回頭看這個問題"
+title: "PostgreSQL 就夠了？別急著上專用資料庫"
 date: 2026-07-09
 type: deep-dive
 category: tech
 tags: [postgresql, database, redis, clickhouse, architecture, pgvector]
 lang: zh-TW
 tldr: "大部分團隊不需要五種資料庫。PostgreSQL 的擴充生態已經能覆蓋快取、佇列、全文搜尋、向量搜尋，但真正的判斷標準不是「能不能做」，而是「維運成本 vs 效能需求」的交叉點在哪裡。"
-description: "「Just Use Postgres」運動的實戰評估：逐一分析 PostgreSQL 替代 Redis、Elasticsearch、MongoDB、向量資料庫的可行性與取捨，以島島（DaoDao）從 PostgreSQL 出發、最終用了四個資料庫的經驗，提出什麼時候該繼續撐、什麼時候該上專用方案的判斷框架。"
+description: "「Just Use Postgres」運動的實戰評估：逐一分析 PostgreSQL 替代 Redis、Elasticsearch、MongoDB、向量資料庫的可行性與取捨，提出什麼時候該繼續撐、什麼時候該上專用方案的判斷框架。"
 draft: false
 ---
 
@@ -14,9 +14,7 @@ draft: false
 
 「Just Use Postgres」這個口號最近在技術社群很流行。論點很簡單：你的快取不需要 Redis，佇列不需要 RabbitMQ，搜尋不需要 Elasticsearch，向量不需要 Pinecone——PostgreSQL 一個就能扛。
 
-這個說法對不對？看你的規模。
-
-島島（DaoDao）現在用四個資料庫：PostgreSQL、Redis、ClickHouse、Qdrant。但如果重新開始，前六個月我只會用 PostgreSQL。不是因為其他資料庫不好，而是在真正碰到瓶頸之前，多管一套系統的維運成本，遠大於那點效能差距。
+這個說法對不對？對大部分團隊來說，是的。但前提是你搞清楚哪些替換幾乎無痛、哪些只是堪用、哪些會讓你後悔。
 
 ---
 
@@ -38,7 +36,7 @@ draft: false
 
 ### 幾乎無痛的替換
 
-**JSONB 取代 MongoDB**——這個在多數場景下甚至更好。你拿到 JSONB 的 GIN 索引、`@>`containment 查詢、jsonpath，同時保留 ACID transaction 和 JOIN 的能力。MongoDB 的 document model 強迫你把相關資料塞在同一個 document 裡避免跨 collection 查詢，但現實世界的資料關係不總是能嵌套的。PostgreSQL 讓你混用關聯和文件兩種模型。
+**JSONB 取代 MongoDB**——這個在多數場景下甚至更好。你拿到 JSONB 的 GIN 索引、`@>` containment 查詢、jsonpath，同時保留 ACID transaction 和 JOIN 的能力。MongoDB 的 document model 強迫你把相關資料塞在同一個 document 裡避免跨 collection 查詢，但現實世界的資料關係不總是能嵌套的。PostgreSQL 讓你混用關聯和文件兩種模型。
 
 **pgvector 取代專用向量資料庫**——pgvectorscale 在 50M 向量的 benchmark 上做到比 Pinecone 低 28 倍的 p95 延遲。對大部分應用來說，把向量和業務資料放在同一個資料庫裡、用一條 SQL 做 JOIN，比維護兩個系統之間的同步管線省事太多了。
 
@@ -79,29 +77,29 @@ draft: false
 
 ---
 
-## 島島的經驗：為什麼最後用了四個
+## 別人怎麼做的
 
-島島從 PostgreSQL 起步，後來加了 Redis、ClickHouse、Qdrant。每一個都是碰到具體瓶頸才加的：
+幾個值得參考的案例：
 
-**Redis**——不是因為 PostgreSQL 做不了快取，而是因為 BullMQ。島島的通知系統（email、push notification、in-app）用 BullMQ 做非同步任務佇列，BullMQ 底層綁定 Redis，沒有 PostgreSQL 的替代方案。同時 Redis 也順便扛了 API response 快取和 Session 儲存——既然已經跑了一個 Redis，讓它多做兩件事的邊際成本趨近零。
+**Instacart** 把商品搜尋從 Elasticsearch 遷回 PostgreSQL + pgvector + ts_rank——寫入工作量降了 10 倍、成本省 80%、搜不到東西的比例還少了 6%。他們發現 Elasticsearch 的維運複雜度遠超它帶來的搜尋品質優勢。
 
-**ClickHouse**——使用者行為事件（瀏覽頁面、點擊、停留時間）每天寫入幾百萬筆，AI 推薦引擎需要對這些事件做聚合分析。PostgreSQL 跑 `GROUP BY event_type, date_trunc('hour', created_at)` 在幾千萬行上開始拖慢其他 OLTP 查詢。ClickHouse 的欄導向儲存對這種聚合查詢快 10-50 倍，而且跟 PostgreSQL 的 OLTP 工作負載完全隔離。
+**Supabase** 整個平台建在 PostgreSQL 上——向量搜尋、身份驗證、即時推播、邊緣函數，全部用 PostgreSQL 的擴充生態搞定。
 
-**Qdrant**——AI 推薦引擎需要在幾百萬個向量裡做 nearest neighbor 搜尋，同時支援多租戶的 metadata filtering。當時 pgvector 還不夠成熟（沒有 DiskANN 索引、filtering 效能不好），Qdrant 已經有穩定的 HNSW 實作和 payload filtering。
+有人在 HN 分享用單台 PostgreSQL 撐 40 億筆記錄，靠 partition 和 partial index——公司後來被收購了，所以他同意 PostgreSQL 確實夠了。
 
-**如果是現在重新選**——pgvector + pgvectorscale 已經追上來了，我會認真考慮直接用 PostgreSQL 取代 Qdrant，少管一套系統。ClickHouse 和 Redis 的使用場景比較難替換——前者是真正的 OLAP 工作負載，後者是被生態綁定（BullMQ）。
+反面的例子也有：**OpenAI** 在 PostgreSQL 旁邊加了 Azure Cosmos DB，因為 8 億 ChatGPT 使用者的寫入量超過了 PostgreSQL 單一寫入節點能扛的上限。讀取靠 50 個 read replica 撐住，但寫入沒辦法水平擴展。
+
+重點是：OpenAI 是先用 PostgreSQL 撐到撐不住，才加新系統的。他們很清楚瓶頸在哪、為什麼需要換。
 
 ---
 
 ## 判斷框架：什麼時候該繼續撐
 
-做決策時我會問三個問題：
+做決策時問三個問題：
 
 ### 1. 瓶頸是真的還是想像的？
 
 「我們以後可能需要處理大量搜尋」不是加 Elasticsearch 的理由。先用 PostgreSQL 的 tsvector 跑起來，等它真的變慢了、你有具體的 query plan 和延遲數字可以分析，再評估替代方案。
-
-你會驚訝 PostgreSQL 能撐多久。有人在 HN 分享用單台 PostgreSQL 撐 40 億筆記錄、適當的 partition 和 partial index——公司後來被收購了，所以他同意 PostgreSQL 確實夠了。
 
 ### 2. 新系統解決的是 PostgreSQL 的限制，還是你用 PostgreSQL 的方式有問題？
 
@@ -170,6 +168,5 @@ Notion 用的是「無聊」的技術。Instagram 早期整個架構就是 Postg
 - [You Don't Need All Those Databases](https://www.postgresql.org/about/news/posette-2025/) — POSETTE 2025 Postgres Conference
 - [pgvectorscale: 28x lower p95 latency than Pinecone](https://www.timescale.com/blog/pgvector-is-now-as-fast-as-pinecone-at-75-less-cost/) — Timescale
 - [Instacart: Migrating from Elasticsearch to PostgreSQL](https://tech.instacart.com/) — Instacart Engineering
-- [島島（DaoDao）技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — quidproquo
 - [ClickHouse：當 PostgreSQL 的分析查詢開始變慢](/posts/tech/2026-03-27-clickhouse-analytics-database) — quidproquo
 - [Redis 入門：快取、Session、Pub/Sub 一次搞懂](/posts/tech/2026-03-27-redis-cache-queue-overview) — quidproquo

@@ -1,12 +1,12 @@
 ---
-title: "Is PostgreSQL Really Enough? Lessons from Running Four Databases"
+title: "Is PostgreSQL Really Enough? Don't Rush to Adopt Specialized Databases"
 date: 2026-07-09
 type: deep-dive
 category: tech
 tags: [postgresql, database, redis, clickhouse, architecture, pgvector]
 lang: en
 tldr: "Most teams don't need five databases. PostgreSQL's extension ecosystem covers caching, queues, full-text search, and vector search — but the real decision isn't 'can it do it' but 'where does ops cost cross performance needs.'"
-description: "A practical assessment of the 'Just Use Postgres' movement: analyzing PostgreSQL's ability to replace Redis, Elasticsearch, MongoDB, and vector databases, with lessons from DaoDao's journey from one database to four, and a framework for when to stick with Postgres vs. adopt specialized tools."
+description: "A practical assessment of the 'Just Use Postgres' movement: analyzing PostgreSQL's ability to replace Redis, Elasticsearch, MongoDB, and vector databases, with a framework for when to stick with Postgres vs. adopt specialized tools."
 draft: false
 ---
 
@@ -14,9 +14,7 @@ draft: false
 
 "Just Use Postgres" has become a rallying cry in tech circles. The argument: you don't need Redis for caching, RabbitMQ for queues, Elasticsearch for search, or Pinecone for vectors — PostgreSQL handles all of it.
 
-Is it right? Depends on your scale.
-
-DaoDao currently runs four databases: PostgreSQL, Redis, ClickHouse, and Qdrant. But if I were starting over, I'd use only PostgreSQL for the first six months. Not because the other databases aren't good — but because the operational cost of managing an extra system far exceeds the performance gap until you hit a real bottleneck.
+Is it right? For most teams, yes. But only if you understand which swaps are painless, which are workable, and which you'll regret.
 
 ---
 
@@ -79,29 +77,29 @@ The most overlooked cost is **data synchronization**. When your search index liv
 
 ---
 
-## DaoDao's Experience: Why We Ended Up with Four
+## How Others Have Done It
 
-DaoDao started with PostgreSQL and added Redis, ClickHouse, and Qdrant over time. Each addition was driven by a concrete bottleneck:
+A few cases worth studying:
 
-**Redis** — not because PostgreSQL couldn't cache, but because of BullMQ. DaoDao's notification system (email, push, in-app) uses BullMQ for async task queuing, and BullMQ is hard-wired to Redis with no PostgreSQL alternative. Since Redis was already running, having it also handle API response caching and session storage was nearly zero marginal cost.
+**Instacart** migrated product search from Elasticsearch back to PostgreSQL + pgvector + ts_rank — 10x reduction in write workload, 80% cost savings, and 6% fewer dead-end searches. They found Elasticsearch's operational complexity far exceeded its search quality advantage.
 
-**ClickHouse** — user behavior events (page views, clicks, dwell time) were writing millions of rows daily, and the AI recommendation engine needed aggregate analytics over those events. PostgreSQL running `GROUP BY event_type, date_trunc('hour', created_at)` across tens of millions of rows started slowing down other OLTP queries. ClickHouse's columnar storage handles these aggregations 10-50x faster, fully isolated from PostgreSQL's OLTP workload.
+**Supabase** built their entire platform on PostgreSQL — vector search, auth, realtime, edge functions, all powered by PostgreSQL's extension ecosystem.
 
-**Qdrant** — the AI recommendation engine needed nearest-neighbor search across millions of vectors with multi-tenant metadata filtering. At the time, pgvector wasn't mature enough (no DiskANN index, poor filtering performance), while Qdrant had a stable HNSW implementation and payload filtering.
+Someone on HN shared running a single PostgreSQL instance with 4 billion records using partitioning and partial indexes — the company got acquired, so they agreed PostgreSQL was indeed enough.
 
-**If I were choosing today** — pgvector + pgvectorscale have caught up significantly. I'd seriously consider using PostgreSQL directly instead of Qdrant, eliminating one system to manage. ClickHouse and Redis are harder to replace — the former handles a genuine OLAP workload, the latter is ecosystem-locked (BullMQ).
+On the other side: **OpenAI** added Azure Cosmos DB alongside PostgreSQL because 800 million ChatGPT users' write volume exceeded what PostgreSQL's single-writer architecture could handle. Reads scaled fine with ~50 read replicas, but writes couldn't scale horizontally.
+
+The key point: OpenAI pushed PostgreSQL until it actually broke, then added a new system. They knew exactly where the bottleneck was and why they needed to switch.
 
 ---
 
 ## Decision Framework: When to Keep Pushing PostgreSQL
 
-When making the call, I ask three questions:
+When making the call, ask three questions:
 
 ### 1. Is the bottleneck real or imagined?
 
 "We might need to handle heavy search traffic someday" isn't a reason to add Elasticsearch. Start with PostgreSQL's tsvector, run it in production, and when it actually slows down — with concrete query plans and latency numbers to analyze — then evaluate alternatives.
-
-You'd be surprised how far PostgreSQL can go. Someone on HN shared running a single PostgreSQL instance with 4 billion records, with proper partitioning and partial indexes — the company got acquired, so they agreed PostgreSQL was indeed enough.
 
 ### 2. Is the new system solving a PostgreSQL limitation, or a usage problem?
 
@@ -170,6 +168,5 @@ Start with PostgreSQL. When you actually need something else, you'll know — be
 - [You Don't Need All Those Databases](https://www.postgresql.org/about/news/posette-2025/) — POSETTE 2025 Postgres Conference
 - [pgvectorscale: 28x lower p95 latency than Pinecone](https://www.timescale.com/blog/pgvector-is-now-as-fast-as-pinecone-at-75-less-cost/) — Timescale
 - [Instacart: Migrating from Elasticsearch to PostgreSQL](https://tech.instacart.com/) — Instacart Engineering
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — quidproquo
 - [ClickHouse: When PostgreSQL Analytics Queries Slow Down](/posts/tech/2026-03-27-clickhouse-analytics-database-en) — quidproquo
 - [Redis Primer: Cache, Session, Pub/Sub](/posts/tech/2026-03-27-redis-cache-queue-overview-en) — quidproquo
