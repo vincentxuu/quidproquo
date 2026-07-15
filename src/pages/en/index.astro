@@ -31,6 +31,10 @@ const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('en'));
       },
     }).replace(/</g, '\\u003c')} />
   </Fragment>
+  <div class="untranslated-banner" id="untranslated-banner" role="status" hidden>
+    <span>{t('untranslated.banner')}</span>
+    <button type="button" id="untranslated-dismiss" aria-label={t('untranslated.dismiss')}>&times;</button>
+  </div>
   <h1>quidproquo</h1>
   <p class="subtitle">{t('site.tagline')}</p>
   <section class="about">
@@ -55,7 +59,47 @@ const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('en'));
   ))}
 </PostLayout>
 
+<script is:inline>
+  (function () {
+    const url = new URL(window.location.href);
+    if (!url.searchParams.has('untranslated')) return;
+    const banner = document.getElementById('untranslated-banner');
+    if (!banner) return;
+    banner.hidden = false;
+    const dismiss = document.getElementById('untranslated-dismiss');
+    dismiss?.addEventListener('click', function () {
+      banner.remove();
+      url.searchParams.delete('untranslated');
+      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    });
+  })();
+</script>
+
 <style>
+  .untranslated-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.7rem 1rem;
+    background: var(--info-bg);
+    border: 1px solid var(--info-border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+  }
+  .untranslated-banner button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    flex-shrink: 0;
+  }
+  .untranslated-banner button:hover { color: var(--text-primary); }
   h1 { margin-bottom: 0.25rem; font-size: 2rem; font-weight: 900; letter-spacing: -1px; color: var(--brand-900); }
   .subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem; }
   .about {

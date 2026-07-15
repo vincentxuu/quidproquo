@@ -243,7 +243,7 @@ function lintPost(file) {
     });
   }
 
-  if (referenceSection.exists && /{{|待補|todo/i.test(referenceSection.content)) {
+  if (referenceSection.exists && /{{|待補|\btodo\b/i.test(referenceSection.content)) {
     findings.push({
       severity: 'error',
       message: '參考資料區段仍有 placeholder 或待補標記',
