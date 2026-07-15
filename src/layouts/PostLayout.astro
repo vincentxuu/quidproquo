@@ -16,7 +16,18 @@ interface Props {
   hreflangEn?: string;
   hreflangZh?: string;
 }
-const { title, description, lang: langProp, ogImage, articleDate, articleTags, switchHref: switchHrefProp, hreflangEn, hreflangZh } = Astro.props;
+const {
+  title,
+  description,
+  lang: langProp,
+  ogImage,
+  articleDate,
+  articleTags,
+  switchHref: switchHrefProp,
+  hasTranslation,
+  hreflangEn,
+  hreflangZh,
+} = Astro.props;
 const isArticle = !!articleDate;
 const lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,8 +36,11 @@ const homeHref = lang === 'en' ? '/en' : '/';
 const categoriesHref = lang === 'en' ? '/en/categories' : '/categories';
 const seriesHref = lang === 'en' ? '/en/series' : '/series';
 const tagsHref = lang === 'en' ? '/en/tags' : '/tags';
+// Post pages pass an explicit switchHref (translation pairing); other pages fall back.
 const switchHref = switchHrefProp ?? t('lang.switch.href');
 const switchLabel = t('lang.switch');
+// Emit hreflang alternates only when a translation pair exists. x-default -> zh-TW.
+const showHreflang = hasTranslation && !!hreflangEn && !!hreflangZh;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproquo.cc');
 ---
 <!DOCTYPE html>
@@ -53,9 +67,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
   {description && <meta name="twitter:description" content={description} />}
   {ogImage && <meta name="twitter:image" content={ogImage} />}
   <link rel="alternate" type="application/rss+xml" title="quidproquo RSS" href={lang === 'en' ? '/en/rss.xml' : '/rss.xml'} />
-  {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
-  {hreflangZh && <link rel="alternate" hreflang="zh-TW" href={hreflangZh} />}
-  {hreflangZh && <link rel="alternate" hreflang="x-default" href={hreflangZh} />}
+  {showHreflang && <link rel="alternate" hreflang="en" href={hreflangEn} />}
+  {showHreflang && <link rel="alternate" hreflang="zh-Hant" href={hreflangZh} />}
+  {showHreflang && <link rel="alternate" hreflang="x-default" href={hreflangZh} />}
   <link rel="preload" href="/fonts/NotoSansTC-Medium.otf" as="font" type="font/otf" crossorigin />
   <slot name="head" />
   <script is:inline>
