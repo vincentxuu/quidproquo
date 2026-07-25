@@ -21,6 +21,10 @@ glossary:
 faq:
   - q: "What is a Product Builder?"
     a: "A Product Builder is someone who can take an idea from concept to a working product with minimal dependency on other teams. They combine product judgement, basic design ability, and enough hands-on building skill with AI tools to run the full loop — discover a problem, design a solution, build and validate it — without handoffs between PM, design, and engineering."
+  - q: "What are Boris Cherny's five archetypes?"
+    a: "Claude Code creator Boris Cherny observed how his team works and identified five role archetypes: Prototyper (constantly generates new ideas, most won't ship), Builder (turns a surviving prototype into production-grade product), Sweeper (cleans up the UI, simplifies the system, unships unnecessary features), Grower (iterates on a shipped product to improve PMF), and Maintainer (keeps a mature system secure and reliable). These archetypes are not tied to job titles — at Anthropic, designers, engineers, and PMs can each be any of the five."
+  - q: "How do the five archetypes relate to the Product Builder role?"
+    a: "Boris's five archetypes describe how someone contributes to a product. Product Builder describes whether someone can run the full product loop independently. The two are complementary: the archetypes are a lens (are you prototyping, building, or sweeping right now?), while Product Builder is a role claim (one person should be able to move across multiple archetypes). In practice, a good Product Builder usually spans Prototyper + Builder, but without Sweeper skills, what they ship bloats into unmaintainability."
   - q: "How is a Product Builder different from a Product Manager?"
     a: "The core difference is where influence comes from. PMs influence team execution through authority, and their deliverable is a PRD or roadmap. Product Builders contribute output directly through capability, and their deliverable is a working prototype or shipped feature. A PM has to convince a team to build it; a Product Builder can build it first and discuss afterward."
   - q: "What skills does a Product Builder need?"

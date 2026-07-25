@@ -21,6 +21,10 @@ glossary:
 faq:
   - q: "Product Builder 是什麼？"
     a: "Product Builder 是能把想法從概念推到可用產品、對其他團隊依賴降到最低的人。他同時具備產品判斷、基本設計、以及用 AI 工具動手建造的能力，能獨立跑完「發現問題 → 設計解法 → 建造驗證」的完整循環，而不需要在 PM、設計、工程之間層層交接。"
+  - q: "Boris Cherny 的五種原型是什麼？"
+    a: "Claude Code 創造者 Boris Cherny 觀察自己團隊的工作方式，歸納出五種角色原型：Prototyper（不斷產出新想法，多數不會上線）、Builder（把存活的 prototype 推進到 production-grade）、Sweeper（清理 UI、簡化系統、下架不必要的功能）、Grower（迭代已上線的產品以改善 PMF）、Maintainer（確保成熟系統的安全性與可靠性）。這些原型不綁定職稱——在 Anthropic，設計師、工程師、PM 都可能是其中任何一種。"
+  - q: "五種原型跟 Product Builder 是什麼關係？"
+    a: "Boris 的五種原型描述的是一個人在產品裡怎麼貢獻，Product Builder 描述的是一個人能不能獨立跑完整個產品循環。兩者互補：五種原型是透鏡（你現在在 prototype、build、還是 sweep？），Product Builder 是角色主張（一個人應該能跨越多種原型）。實務上，一個好的 Product Builder 通常橫跨 Prototyper + Builder，但如果缺了 Sweeper 的能力，做出來的東西會臃腫到無法維護。"
   - q: "Product Builder 跟 Product Manager 差在哪？"
     a: "最核心的差別是影響力的來源。PM 透過權威影響團隊執行，產出是 PRD 和 roadmap；Product Builder 透過能力直接貢獻產出，交付的直接就是可用的 prototype 或功能。PM 需要說服團隊去做，Product Builder 可以自己先做出來再談。"
   - q: "成為 Product Builder 需要哪些能力？"
