@@ -209,8 +209,6 @@ PM → 挑 backlog 裡一個真實問題，用 Claude Code 或 Codex 做 5 個�
 
 Product Builder 不是一個職稱，是一種工作方式。在 AI 讓每個人都能做更多事的時代，能夠獨立從問題走到解法的人，會越來越有價值。
 
-最小可行的起手式是：挑一個你自己真的會用的小工具，從頭做到能上線。這個部落格本身就是這樣來的 — 選型、實作到部署的完整過程記錄在 [用 Astro + Cloudflare Workers 從零建立低摩擦部落格](/posts/product/2026-03-12-quidproquo-blog-from-scratch)。想看 Product Builder 思維套用在平台策略層級的例子，可以看 [數位生態系研究：從 LINE、Shopify 到台灣 MarTech](/posts/product/2026-04-02-digital-ecosystem-cresclab-research)。
-
 ---
 
 ## 參考資料

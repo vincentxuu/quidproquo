@@ -204,18 +204,6 @@ Engineer → Do 3 fifteen-minute user interviews this week. Watch 5 session reco
 
 Product Builder isn't a job title — it's a way of working. In an era where AI enables everyone to do more, people who can independently move from problem to solution will become increasingly valuable.
 
-The smallest viable starting move: pick one small tool you'd genuinely use yourself and take it all the way to production. This blog came about exactly that way — the full path from stack selection to deployment is written up in [Building a Low-Friction Blog from Scratch with Astro + Cloudflare Workers](/posts/product/2026-03-12-quidproquo-blog-from-scratch-en). For the same builder mindset applied at platform-strategy scale, see [Digital Ecosystem Research: From LINE and Shopify to Taiwan's MarTech](/posts/product/2026-04-02-digital-ecosystem-cresclab-research-en).
-
----
-
-## Changelog
-
-- **2026-07-25**: Retitled and rewrote the description to focus on the Product Builder vs PM distinction; added an FAQ section and internal further-reading links.
-- **2026-07-25**: Three corrections after fact-checking. GitLab's 78% covers "already using **or** planning within two years" — actual implementation was 26%, where this post had said "already using." LinkedIn **ended** its APM program and created a separate Associate Product Builder track rather than renaming it. McKinsey's 40% refers to individual PM productivity (n=40), now presented alongside the 5% time-to-market figure it sits in tension with. Also replaced the overly wide 25-70% AI-code-security range with Veracode's 2025 measurements, and cut the low-information "A Day in the Life" section.
-- **2026-07-25**: Corrected the Walmart item. The formal title is **Agent Developer** — which Walmart calls its first biz/tech role — not "Agent Builder," which was its chief people officer's descriptive phrasing. The original claim that the role was staffed entirely by internal employees does not hold either; it is publicly posted.
-- **2026-07-25**: Added a full counter-argument section (Pichler on distributed intelligence, SVPG on outcomes failing to improve, Userpilot's 2026 practitioner-concern data) and a new section on the Builder PM / Integrator PM fork, replacing the original single narrative that every PM should become a builder.
-- **2026-07-25**: Added three pieces of original material. A six-company comparison table showing that the same title means entirely different jobs at LinkedIn (entry-level training), Mews (senior engineering track), Walmart (non-technical operations), and PayFit (low-code domain configuration since 2019). A critique of LogRocket's cost math covering three costs it omits. And a survey of the Traditional Chinese discussion and its optimistic slant.
-
 ---
 
 ## References
