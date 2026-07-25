@@ -142,6 +142,8 @@ Patterns 給你的，是更快抵達判斷的路徑。你更快認出眼前的�
 
 Agent 是放大器。這本書的目標，是讓被放大的東西值得被放大。
 
+而當這些 pattern 讓一個人就能跑完整個產品循環，職位本身也開始改變 — 見 [Product Builder 是什麼？跟 PM 的差別與轉型路徑](/posts/product/2026-03-27-product-builder-hybrid-role)。
+
 ---
 
 ## 參考資料
