@@ -179,6 +179,42 @@ Khan Academy 的 Sal Khan 說得很直接：
 
 > The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
 
+## 2026 年 7 月職缺快照
+
+以下是撰文時（2026 年 7 月）實際在招的 Product Builder 職缺，不是歷史案例。職缺會關，這裡的用途是呈現市場現狀，不是即時招聘資訊。
+
+### 國際
+
+| 公司 | 職稱 | 地點 | 薪資 | 一句話重點 |
+|------|------|------|------|-----------|
+| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder（多個 domain） | Remote US | $151k–$290k | 「AI Builders 是 ShipBob 的新 job family」——要讀 data model、evaluate AI-generated code、寫能讓 AI 直接執行的 spec。向 Director of AI Product Builder 報告 |
+| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote 全球 | US $119k–$231k | Enterprise agentic orchestration。明確要「AI-native delivery habits」，pod 制 |
+| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech，AI 臨床 OS。要 founder-mindset |
+| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr 工程背景，用 Cursor/Claude Code 做 prototype |
+| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | 未公開 | 「Two builders per pod. No specialist.」7+ yr，要有 startup/founder 背景 |
+| [Go.Shop](https://builtin.com/job/product-builder-creator-brand-ai-platform/9477419) | Product Builder | Remote GMT–GMT+8 | 面議 + equity | 第三個 Product Builder hire，PM + designer + engineer 三合一 |
+| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | 未公開 | Andrew Ng 的 venture studio，entry level，快速驗證創業點子 |
+| [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | 未公開 | Enterprise BPO，1-3 yr，用 vibe coding 做企業內部工具 |
+| [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | 第一個 product hire，要 PM + Design 雙能力 |
+
+### 台灣
+
+| 公司 | 職稱 | 地點 | 薪資 | 一句話重點 |
+|------|------|------|------|-----------|
+| [菜蟲農食](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Forward-Deployed Product Builder | 台北松山 | 月薪 6–12 萬 | 農產流通數位化，FDE × Product Builder 混合角色 |
+| [全曜財經 CMoney](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Associate Product Builder (APB) | 新北板橋 | 面議 | 新鮮人計畫，明確仿 LinkedIn APB 模式——「為未來能獨立做出產品的人設計」 |
+| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | 台北內湖 | 面議 | 一人從 firmware 到 mobile app，AI-native 開發 |
+| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder / AI-Native Software Engineer | 台北中山 | 月薪 5–7 萬 | 明確用 Claude Code 開發，在資深 AI Builder 帶領下 |
+| [摩速科技](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Senior AI Product Manager (Cortex) | 台北大安 | 面議 | JD 裡自稱「AI-native product builder」 |
+
+### 幾個觀察
+
+**ShipBob 最值得注意**。他們不是加一個職缺，而是建了一整個 job family 叫「AI Builders」——有自己的職級（向 Director of AI Product Builder 報告）、自己的 pod 結構（AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder）、自己的工作模式（discovery → spec → prototype → production PR，全部一個人）。這是目前市場上把 Product Builder 制度化做得最徹底的案例。
+
+**台灣已經有人在用這個職稱招人**，而且跨度很大：CMoney 的是新鮮人培訓（類似 LinkedIn APB），菜蟲農食的是 forward-deployed 實戰角色，光時代的本質是 AI-native 工程師。跟國際市場一樣，同一個職稱指的不是同一種工作。
+
+**薪資帶的落差**反映了角色定義的分歧：ShipBob 的 senior 開到 $290k，Foundever 的 junior 要求只有 1-3 年經驗。台灣這邊從月薪 5 萬到 12 萬都有。
+
 ## 需要什麼能力
 
 Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨立推進：

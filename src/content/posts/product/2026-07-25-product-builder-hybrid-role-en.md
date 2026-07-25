@@ -172,6 +172,42 @@ Khan Academy's Sal Khan put it plainly:
 
 > The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
 
+## July 2026 Job Snapshot
+
+These are Product Builder positions actively hiring at the time of writing (July 2026). Job postings close — this section captures the market as-is, not a permanent directory.
+
+### International
+
+| Company | Title | Location | Salary | Key Detail |
+|---------|-------|----------|--------|------------|
+| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder (multiple domains) | Remote US | $151k–$290k | "AI Builders is ShipBob's new job family" — must read data models, evaluate AI-generated code, write specs AI tools can act on directly. Reports to Director of AI Product Builder |
+| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote global | US $119k–$231k | Enterprise agentic orchestration. Requires "AI-native delivery habits," pod-based |
+| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech, AI clinical OS. Founder-mindset required |
+| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr engineering, builds prototypes with Cursor/Claude Code |
+| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | Not disclosed | "Two builders per pod. No specialist." 7+ yr, startup/founder background |
+| [Go.Shop](https://builtin.com/job/product-builder-creator-brand-ai-platform/9477419) | Product Builder | Remote GMT–GMT+8 | Negotiable + equity | Third Product Builder hire; PM + designer + engineer in one person |
+| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | Not disclosed | Andrew Ng's venture studio, entry level, rapid startup idea validation |
+| [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | Not disclosed | Enterprise BPO, 1-3 yr, vibe coding for internal/customer-facing apps |
+| [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | First product hire, requires PM + Design dual capability |
+
+### Taiwan
+
+| Company | Title | Location | Salary | Key Detail |
+|---------|-------|----------|--------|------------|
+| [菜蟲農食](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Forward-Deployed Product Builder | Taipei Songshan | NT$60k–120k/mo | Agricultural supply chain digitization, FDE × Product Builder hybrid |
+| [全曜財經 CMoney](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Associate Product Builder (APB) | New Taipei Banqiao | Negotiable | New grad program modeled on LinkedIn's APB — "designed for people who can independently build products" |
+| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | Taipei Neihu | Negotiable | One person from firmware to mobile app, AI-native development |
+| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder / AI-Native Software Engineer | Taipei Zhongshan | NT$50k–70k/mo | Explicitly uses Claude Code, mentored by senior AI Builder |
+| [摩速科技](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Senior AI Product Manager (Cortex) | Taipei Da'an | Negotiable | JD self-describes as "AI-native product builder" |
+
+### Observations
+
+**ShipBob stands out.** They didn't add one job posting — they built an entire job family called "AI Builders" with its own career ladder (reporting to a Director of AI Product Builder), its own pod structure (AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder), and its own operating model (discovery → spec → prototype → production PR, owned end-to-end by one person). This is the most institutionalized version of the Product Builder role on the market right now.
+
+**Taiwan already has companies hiring under this title**, and the spread is wide: CMoney's is a new-grad training program (mirroring LinkedIn's APB), 菜蟲農食's is a forward-deployed hands-on role, and 光時代's is essentially an AI-native engineer. Same pattern as the international market — same title, different jobs.
+
+**The salary range reflects the definitional divergence**: ShipBob's senior role goes up to $290k; Foundever's junior version requires only 1-3 years of experience. In Taiwan, monthly salaries range from NT$50k to NT$120k.
+
 ## What Skills Does It Take
 
 Product Builders don't need to master everything — just know each domain well enough to move independently:
