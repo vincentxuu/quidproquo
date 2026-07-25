@@ -134,88 +134,83 @@ The math is persuasive, but it only counts the savings. At least three costs nev
 
 The honest financial argument for this model is not "one person is cheaper than three." It is "**under what conditions is one person's judgement not worse than three people's**." That is an operating question, not a headcount question.
 
-## Who's Already Doing This
+## The Market Right Now: Who's Hiring, How They Define It, What They Pay
+
+### Big Companies Leading
 
 This isn't experimentation at small companies — large organizations are already moving:
 
-- **LinkedIn** ended its long-running APM (Associate Product Manager) program and stood up a separate **Associate Product Builder (APB)** track, training generalists who span product, design, and engineering. CPO Tomer Cohen's framing on Lenny's Podcast: they intend to teach them to code, design, and PM at LinkedIn
-- **Walmart** opened **Agent Developer** roles — which the company calls its first "biz/tech" position — using low-code and natural-language interfaces so one person can design and deploy agents without a team or a technical background. Its chief people officer put it this way: a year ago we would not have had any dedicated agent builders, today we do
+- **[LinkedIn](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)** ended its APM program and stood up an **Associate Product Builder (APB)** track. CPO Tomer Cohen's framing: teach them to code, design, and PM
+- **[Walmart](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)** opened **Agent Developer** roles (self-described as its first "biz/tech" position), no technical background required. [Chief people officer](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders): a year ago we had no dedicated agent builders, today we do
 - **Meta** PMs have started calling themselves "AI Builders"
-- **PayFit** defined the Product Builder role as far back as 2019, combining PM, UX, and Dev capabilities, using their in-house low-code language JetLang to build features directly
-- **SoFi** posted openings carrying the Product Builder name in early 2026 (postings close — treat this as evidence the title has entered formal job architecture, not as live hiring information)
+- **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** defined the Product Builder role back in 2019, using their in-house low-code language JetLang — nothing to do with the AI wave
 
-## One Title, Four Different Jobs
+### One Title, Different Jobs
 
-Line these postings up side by side and something rarely pointed out becomes obvious: **"Product Builder" does not describe the same role across companies.**
+Line these up and something rarely pointed out becomes obvious: **"Product Builder" does not describe the same role across companies.**
 
-| Company | Formal title | Where the role grew from | Technical background required | Externally hired | Published salary band (USD) |
-|---|---|---|---|---|---|
-| LinkedIn | Associate Product Builder (APB) | Early-career training, replacing the APM program | Hands-on, but not an engineering expert | Yes (Mountain View, hybrid) | $126k–$207k |
-| Mews | Product Builder | **Senior engineers moving upstream** — an engineering track | Yes, explicitly framed as high-agency engineers | Yes | Not published |
-| Walmart | Agent Developer | Internal operations, low-code / natural-language tooling | **Not required** | Yes (Bentonville) | $110k–$220k |
-| PayFit | Product Builder | Exists since 2019, domain configuration via JetLang | Low-code platform, not conventional engineering | Yes (including a 2026 internship) | Not published |
-| SoFi | Product Builder (Sandbox) | AI-tooling oriented | LLM and AI coding tool proficiency | Yes (San Francisco) | Not published |
-| Meta | No formal title | Employees self-describe as "AI Builder" | — | — | — |
+| Company | Formal title | Where the role grew from | Technical background | Salary band |
+|---------|-------------|------------------------|---------------------|------------|
+| LinkedIn | Associate Product Builder (APB) | Early-career training, replacing APM | Hands-on, not an engineering expert | $126k–$207k |
+| [Mews](https://developers.mews.com/what-it-means-to-be-a-product-builder-at-mews/) | Product Builder | Senior engineers moving upstream | Yes, high-agency engineers | Undisclosed |
+| Walmart | Agent Developer | Operations, low-code tooling | Not required | $110k–$220k |
+| PayFit | Product Builder | Exists since 2019, JetLang domain config | Low-code, not conventional engineering | Undisclosed |
 
-The contradiction sits in the middle two columns:
+LinkedIn hires people with no product experience yet. Mews hires senior engineers. Walmart explicitly requires no technical background. PayFit's has nothing to do with AI. **Asking which department a role grew out of tells you more than the title does.**
 
-- **LinkedIn's** is entry-level training, hiring people with no formal product experience yet
-- **Mews'** is a senior engineering track — their own framing is that it covers not just *how* things get built but *what* and *why*
-- **Walmart's** explicitly does not require a technical background, using low-code tooling so operations people can build agents themselves
-- **PayFit's** predates ChatGPT by four years and is fundamentally about configuring labor-law rules on an in-house low-code platform — **it has nothing to do with the AI wave**
+### July 2026 Job Snapshot
 
-So a job posting titled "Product Builder" cannot be read with one set of expectations. It might ask a PM to learn to code, ask a senior engineer to own product decisions, or have nothing to do with AI at all. **Asking which department the role grew out of tells you more than the title does.**
+Positions actively hiring at the time of writing. Postings close — this captures the market as-is, not a permanent directory.
 
-On market rate: ZipRecruiter puts the US average for product builder at $159,405, with most between $141k and $197k. Treat that loosely — when one title covers four different jobs, the average means very little.
-
-Khan Academy's Sal Khan put it plainly:
-
-> The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
-
-## July 2026 Job Snapshot
-
-These are Product Builder positions actively hiring at the time of writing (July 2026). Job postings close — this section captures the market as-is, not a permanent directory.
-
-### International
+#### International
 
 | Company | Title | Location | Salary | Key Detail |
 |---------|-------|----------|--------|------------|
-| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder (multiple domains) | Remote US | $151k–$290k | "AI Builders is ShipBob's new job family" — must read data models, evaluate AI-generated code, write specs AI tools can act on directly. Reports to Director of AI Product Builder |
-| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote global | US $119k–$231k | Enterprise agentic orchestration. Requires "AI-native delivery habits," pod-based |
-| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech, AI clinical OS. Founder-mindset required |
-| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr engineering, builds prototypes with Cursor/Claude Code |
-| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | Not disclosed | "Two builders per pod. No specialist." 7+ yr, startup/founder background |
+| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder (multiple domains) | Remote US | $151k–$290k | Built an entire job family "AI Builders" — must read data models, evaluate AI-generated code, reports to Director of AI Product Builder |
+| [Abnormal Security](https://remotive.com/remote/jobs/product/ai-product-builder-4687819) | AI Product Builder | Remote US | $141k–$203k | Cybersecurity unicorn, AI Transformation Pod reporting directly to CEO |
+| [ShopMy](https://careerport.is-great.net/job/senior-product-builder-creator) | Senior Product Builder-Creator | Remote US | $175k–$225k | $1.5B-valuation creator commerce unicorn, second Product Builder hire |
+| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote global | US $119k–$231k | Enterprise agentic orchestration, pod-based, requires "AI-native delivery habits" |
+| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech, AI clinical OS |
+| [Apollo.io](https://jobsy.42web.io/job/remote-product-builder-product-manager-ai-agents) | Product Builder, AI Agents | Remote US | Undisclosed | GTM platform with 500k+ companies, owns Autonomous AI Agents |
+| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr engineering, "AI is your ultimate execution engine" |
+| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | Undisclosed | "Two builders per pod. No specialist." 7+ yr |
+| [Whalar Group](https://careersync.liveblog365.com/remote-jobs/product-builder-1) | Product Builder (Ops Labs) | Remote US | Undisclosed | First hire in a new AI-native internal tools division |
 | [Go.Shop](https://builtin.com/job/product-builder-creator-brand-ai-platform/9477419) | Product Builder | Remote GMT–GMT+8 | Negotiable + equity | Third Product Builder hire; PM + designer + engineer in one person |
-| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | Not disclosed | Andrew Ng's venture studio, entry level, rapid startup idea validation |
-| [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | Not disclosed | Enterprise BPO, 1-3 yr, vibe coding for internal/customer-facing apps |
-| [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | First product hire, requires PM + Design dual capability |
-| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | Wealth tech startup: "traditional PM spec → designer render → engineer build is how most product ends up mediocre" |
-| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | Undisclosed | Most extreme framing: one person = one squad, AI-native SaaS with 1M+ businesses |
-| [Sairr](https://in.linkedin.com/jobs/view/founding-product-builder-at-sairr-4430265170) | Founding Product Builder | Gurugram, India | Cash + equity flexible | Travel startup for 50+; first 12 months: no app — understand real journeys before deciding what deserves to become software |
-| [Alps2Alps / Amitours](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | Undisclosed | Travel group, 2-4 yr PM experience, must understand performance marketing and growth hacking |
-| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder / Prompt Engineer | Remote US | Undisclosed | SaaS portfolio; build end-to-end with Claude Code / Cursor / Lovable |
-| [Motion Recruitment](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | Undisclosed | B2B SaaS; time split: 35% discovery + 30% AI prototyping + 20% collaboration + 15% iteration |
-| [Optamark](https://vibehackers.io/jobs/ai-product-builder-optamark) | AI Product Builder | Remote India | ₹30k+/mo | E-commerce sourcing platform; explicitly requires "vibe coding skills" |
+| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | Undisclosed | Andrew Ng's venture studio, entry level |
+| [Alan](https://www.linkedin.com/posts/vincent-l-8633bb7_were-hiring-a-senior-ops-product-builder-activity-7462913537007415296-v3zv) | Senior Ops & Product Builder | France / Belgium / Spain | Undisclosed | European healthtech, 1M+ members, 10-15 yr experience |
+| [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | Undisclosed | Enterprise BPO, 1-3 yr, vibe coding for internal/customer-facing apps |
+| [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | First product hire, PM + Design dual capability |
+| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | "Traditional division is how most product ends up mediocre" |
+| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | Undisclosed | One person = one squad |
+| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder | Remote US | Undisclosed | SaaS portfolio, Claude Code / Cursor / Lovable end-to-end |
+| [Alps2Alps](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | Undisclosed | Travel group, must understand growth hacking |
+| [Motion Recruitment](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | Undisclosed | 35% discovery + 30% AI prototyping + 20% collaboration + 15% iteration |
 
-### Taiwan
+#### Taiwan
 
 | Company | Title | Location | Salary | Key Detail |
 |---------|-------|----------|--------|------------|
 | [菜蟲農食](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Forward-Deployed Product Builder | Taipei Songshan | NT$60k–120k/mo | Agricultural supply chain digitization, FDE × Product Builder hybrid |
 | [全曜財經 CMoney](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Associate Product Builder (APB) | New Taipei Banqiao | Negotiable | New grad program modeled on LinkedIn's APB — "designed for people who can independently build products" |
-| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | Taipei Neihu | Negotiable | One person from firmware to mobile app, AI-native development |
-| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder / AI-Native Software Engineer | Taipei Zhongshan | NT$50k–70k/mo | Explicitly uses Claude Code, mentored by senior AI Builder |
+| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | Taipei Neihu | Negotiable | One person from firmware to mobile app |
+| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder | Taipei Zhongshan | NT$50k–70k/mo | Explicitly uses Claude Code, mentored by senior AI Builder |
 | [摩速科技](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Senior AI Product Manager (Cortex) | Taipei Da'an | Negotiable | JD self-describes as "AI-native product builder" |
 
-### Observations
+### What the Listings Show
 
-**ShipBob stands out.** They didn't add one job posting — they built an entire job family called "AI Builders" with its own career ladder (reporting to a Director of AI Product Builder), its own pod structure (AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder), and its own operating model (discovery → spec → prototype → production PR, owned end-to-end by one person). This is the most institutionalized version of the Product Builder role on the market right now.
+**ShipBob is the most instructive case.** They built an entire job family called "AI Builders" — its own career ladder (Director of AI Product Builder), pod structure (AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder), and operating model (discovery → spec → prototype → production PR, one person end-to-end). This is the most institutionalized version on the market.
 
-**Taiwan already has companies hiring under this title**, and the spread is wide: CMoney's is a new-grad training program (mirroring LinkedIn's APB), 菜蟲農食's is a forward-deployed hands-on role, and 光時代's is essentially an AI-native engineer. Same pattern as the international market — same title, different jobs.
+**Unicorns are adopting the title.** Abnormal Security (cybersecurity) and ShopMy (creator commerce, $1.5B valuation) are both hiring Product Builders at $141k–$225k. This is no longer a small-startup experiment.
 
-**India is especially active.** Optima, HighLevel, Sairr, and Optamark are all hiring Product Builders in India, with compensation ranging from ₹30k/month to ₹1Cr/year — a wider spread than even the US market. HighLevel's "Team of One" is the most extreme framing out there: one person is the entire squad.
+**Taiwan already has 5 open positions**, with the same spread as the international market: CMoney's is new-grad training (mirroring LinkedIn's APB), 菜蟲農食's is forward-deployed hands-on, 光時代's is essentially an AI-native engineer.
 
-**The salary range reflects the definitional divergence**: ShipBob's senior role goes up to $290k; Foundever's junior version requires only 1-3 years of experience; Optamark's monthly pay starts at ₹30k. In Taiwan, monthly salaries range from NT$50k to NT$120k.
+**India is especially active.** Optima, HighLevel, and others are hiring in India with compensation from ₹30k/month to ₹1Cr/year. HighLevel's "Team of One" is the most extreme framing.
+
+**The salary range reflects the definitional divergence**: ShipBob senior goes up to $290k; Foundever junior requires only 1-3 years. ZipRecruiter's US average of $159k is directional at best — the title covers different jobs.
+
+Khan Academy's Sal Khan put it plainly:
+
+> The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
 
 ## What Skills Does It Take
 
