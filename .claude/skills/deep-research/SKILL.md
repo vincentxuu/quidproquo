@@ -41,13 +41,14 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 對每個子問題：
 
 1. 搜尋候選 URL（Claude：`tavily_search` / `exa_web_search`；Codex：`web.run`），拿前 5-8 個
-2. 按來源品質排序：**官方 > 一手作者 > 高品質二手 > 內容農場**
+2. **GitHub topics 掃描**：研究工具 / 框架 / library 類題目時，用相關關鍵字查 `github.com/topics/<keyword>?o=desc&s=stars`（按星數排序）。一個子問題通常對應 2-4 個 topic（例如研究爬蟲就查 `web-scraping`、`ai-scraping`、`web-crawling`）。這條線能撈到搜尋引擎和推薦文漏掉的高星但低曝光專案。
+3. 按來源品質排序：**官方 > 一手作者 > 高品質二手 > 內容農場**
    - 官方文件、release notes、論文、官方 blog、官方 GitHub repo
    - 作者本人 X / 個人 blog / Mastodon
    - HN / Reddit / 高 star repo issue
    - 內容農場（Medium 抄稿、SEO blog）通常跳過
-3. `firecrawl_scrape` 或 `tavily_extract` 抓單頁內容
-4. **每個事實至少要 2 個獨立來源**才寫進結論。只有單源就標 `[unverified]`
+4. `firecrawl_scrape` 或 `tavily_extract` 抓單頁內容
+5. **每個事實至少要 2 個獨立來源**才寫進結論。只有單源就標 `[unverified]`
 
 ### 3. 交叉驗證
 

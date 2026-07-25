@@ -1837,6 +1837,30 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     context: '用於 E2E 測試、網頁爬蟲、PDF 生成、OG 圖片產生與程式化影片渲染。',
     context_en: 'Used in E2E testing, web scraping, PDF generation, OG image generation, and programmatic video rendering.',
   },
+  {
+    term: 'AGPL',
+    aliases: ['AGPL-3.0', 'GNU Affero General Public License'],
+    definition: '一種 copyleft 開源授權。如果你用 AGPL 軟體對外提供網路服務，你的整合程式碼也必須以相同授權開源。',
+    definition_en: 'A copyleft open-source license. If you use AGPL software to provide a network service, your integration code must also be open-sourced under the same license.',
+    advanced: '跟 GPL 的差別在於「網路服務」也觸發開源義務（不只是散布二進制檔），因此對 SaaS 和 API 服務影響最大。',
+    advanced_en: 'Unlike GPL, AGPL triggers the open-source obligation for network services (not just binary distribution), making it most impactful for SaaS and API services.',
+    context: '選型開源工具時，AGPL 授權對商業部署有重大影響，需要特別評估。',
+    context_en: 'When selecting open-source tools, AGPL licensing has significant implications for commercial deployment and requires careful evaluation.',
+    links: [{ label: 'AGPL-3.0 全文', url: 'https://www.gnu.org/licenses/agpl-3.0.html' }],
+    links_en: [{ label: 'AGPL-3.0 Full Text', url: 'https://www.gnu.org/licenses/agpl-3.0.html' }],
+  },
+  {
+    term: 'TLS 指紋',
+    aliases: ['TLS fingerprint', 'JA3 fingerprint', 'JA3'],
+    definition: '瀏覽器建立 HTTPS 連線時的握手參數組合。反爬蟲系統用它判斷請求是否來自真實瀏覽器。',
+    definition_en: 'The combination of handshake parameters a browser uses when establishing an HTTPS connection. Anti-bot systems use TLS fingerprints to determine whether a request comes from a real browser.',
+    advanced: '常見的 TLS 指紋包含 JA3（Client Hello 的雜湊）和 JA4；偽裝方式包括修改 TLS 擴充順序、密碼套件、支援的曲線等。',
+    advanced_en: 'Common TLS fingerprints include JA3 (hash of the Client Hello) and JA4. Spoofing techniques include modifying TLS extension order, cipher suites, and supported curves.',
+    context: '在網頁爬蟲領域，TLS 指紋是反爬蟲系統偵測自動化工具的主要手段之一。',
+    context_en: 'In web scraping, TLS fingerprinting is one of the primary methods anti-bot systems use to detect automation tools.',
+    links: [{ label: '繞過 Cloudflare 反爬蟲指南', url: '/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent' }],
+    links_en: [{ label: 'Bypassing Cloudflare Anti-Bot Guide', url: '/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent' }],
+  },
 ]
 
 export function normalizeGlossaryTerms(entries: GlossaryEntry[]): GlossaryEntry[] {
