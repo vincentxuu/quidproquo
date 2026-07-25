@@ -34,8 +34,8 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     }
 
     const [posts, docs] = await Promise.all([
-      searchBlogPosts({ query, limit }).catch(() => []),
-      mode === 'rag' ? searchDocs({ query, limit: 5 }).catch(() => []) : Promise.resolve([]),
+      searchBlogPosts({ query, limit, shortCircuit: false }).catch(() => []),
+      mode === 'rag' ? searchDocs({ query, limit: 5, shortCircuit: false }).catch(() => []) : Promise.resolve([]),
     ])
     const metrics = [getSearchMetrics(posts), getSearchMetrics(docs)]
       .filter((metric): metric is SearchMetrics => Boolean(metric))
