@@ -32,7 +32,7 @@ faq:
   - q: "What are the criticisms and risks of the Product Builder role?"
     a: "Three main ones. First, the loss of distributed intelligence that Roman Pichler describes — when one person does all the work, fewer expert perspectives are involved, so you move faster on narrower assumptions. Second, SVPG's observation that teams are delivering faster with AI while their outcomes are not improving: what accelerates is output, not judgement. Third, the practical fallout of unclear boundaries — in Userpilot's 2026 survey, 46.7% of PMs worried about being asked to do too much with too little support, and 31.6% worried that doing everything means doing nothing particularly well."
   - q: "How does a PM start transitioning into a Product Builder role?"
-    a: "Start by filling the gap you have. PMs should learn to prototype with AI tools so they can validate their own ideas instead of waiting. Designers should pick up basic coding so designs do not stop at Figma. Engineers should talk to customers directly rather than only reading PRDs. Pick one small, real problem and take it end to end with Claude Code or Cursor — that beats reading ten articles about it."
+    a: "Start by filling the gap you have. PMs should learn to prototype with AI tools so they can validate their own ideas instead of waiting. Designers should pick up basic coding so designs do not stop at Figma. Engineers should talk to customers directly rather than only reading PRDs. Pick one small, real problem and take it end to end with Claude Code or Codex — that beats reading ten articles about it."
 draft: false
 ---
 
