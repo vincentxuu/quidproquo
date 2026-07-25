@@ -4,6 +4,7 @@ date: 2026-06-21
 category: investing
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: en
+type: deep-dive
 tldr: "Saw a trading post about going from NT$150k to NT$2.4M in half a year. Didn't understand a word of it — warrants, stock futures, maintenance ratio — so I looked them all up."
 description: "Starting from a post about a 16x return in six months, this explains what warrants, stock futures, maintenance margin ratio, and position scaling actually mean."
 ---

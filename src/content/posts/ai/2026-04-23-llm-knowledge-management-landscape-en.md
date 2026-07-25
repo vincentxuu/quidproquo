@@ -4,6 +4,7 @@ date: 2026-04-23
 category: ai
 tags: [llm-wiki, knowledge-management, karpathy, obsidian, cloudflare, second-brain]
 lang: en
+type: deep-dive
 tldr: "Karpathy proposed the llm-wiki pattern in 2026, having LLMs proactively maintain a markdown wiki instead of running RAG from scratch every time. Over 100 open-source implementations now exist, ranging from local CLI tools to serverless Telegram bots."
 description: "An overview of Karpathy's llm-wiki pattern and the 100+ derivative projects from the open-source community, categorized by automation level and deployment approach."
 draft: false

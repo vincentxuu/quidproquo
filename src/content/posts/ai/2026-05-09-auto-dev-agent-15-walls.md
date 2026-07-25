@@ -14,6 +14,7 @@ tags:
   - pre-commit
   - sub-agent-council
 lang: zh-TW
+type: deep-dive
 tldr: "Stripe Minions 講『The walls matter more than the model』，但矽谷四家 case study 沒講具體要怎麼蓋這些 walls。這篇把 daodao auto-dev agent 實際落地的 15 個 walls 拆給你看：每個 wall 防什麼、檔案放哪、tradeoff 在哪。Tier 1 必上、Tier 2 強化、Tier 3 嚴肅治理。"
 description: "自製 auto-dev agent 的 15 個 walls — 從 Stripe Minions / Spotify Honk / AI Native 18 條收斂出的具體實作清單，每個都附檔案路徑、防範的失敗模式、tradeoff。"
 draft: false

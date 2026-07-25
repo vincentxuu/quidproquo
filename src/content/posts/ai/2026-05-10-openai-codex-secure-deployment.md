@@ -4,6 +4,7 @@ date: 2026-05-10
 category: ai
 tags: [openai, codex, ai-agent, security, sandbox, enterprise]
 lang: zh-TW
+type: deep-dive
 tldr: "OpenAI 在 2026 年 5 月公開 Codex 內部部署實踐：沙箱劃技術邊界、審批決定何時停下、Auto-review 用子代理代替人類審批、Managed configuration 由企業管理員強制下發。核心理念是：低風險動作零摩擦，高風險動作必經審查。"
 description: "OpenAI 公開 Codex 在內部的安全部署實踐，從沙箱模式、審批策略、Auto-review、網路政策到企業 Managed configuration 的完整框架。"
 draft: false

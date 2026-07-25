@@ -4,6 +4,7 @@ date: 2026-04-23
 category: ai
 tags: [llm-wiki, knowledge-management, karpathy, obsidian, cloudflare, second-brain]
 lang: zh-TW
+type: deep-dive
 tldr: "Karpathy 在 2026 年提出 llm-wiki 模式，讓 LLM 主動維護 markdown wiki 而非每次從頭 RAG；目前已有 100+ 開源實作，從本機 CLI 到 serverless Telegram bot 各有差異。"
 description: "整理 Karpathy llm-wiki 模式的核心概念，以及目前開源社群的 100+ 個衍生專案，按自動化程度與部署方式分類比較。"
 draft: false

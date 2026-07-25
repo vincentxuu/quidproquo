@@ -4,6 +4,7 @@ date: 2026-05-07
 category: ai
 tags: [mcp, search, web-search, tavily, firecrawl, exa, bocha, claude-code, agent]
 lang: zh-TW
+type: guide
 tldr: "用 Claude Code、Cursor 等 AI agent 時，內建 WebFetch / WebSearch 常被 Cloudflare、地理限制或 rate limit 擋住。接一個 search MCP server 是最直接的解法，這篇比較 2026 年實際能用的選項。"
 description: "比較 AI agent 可以接的搜尋類 MCP server：Tavily、Firecrawl、Exa、Linkup、Brave、博查、Bright Data 等，標註各自的場景與限制。"
 draft: false

@@ -4,6 +4,7 @@ date: 2026-07-10
 category: learning
 tags: [books, book-list, reading, self-growth, community-signals]
 lang: en
+type: deep-dive
 tldr: "24 evergreen books across productivity, life design, brain science, psychology, and money — selected using actual discussion evidence from Threads, Dcard, PTT, and Vocus between late 2025 and mid-2026. Strongest signal: Rewire by Nicole Vignola hit top 3 on both Eslite and Books.com.tw H1 2026 bestseller charts."
 description: "A five-category evergreen book study that filters by real 2026 community discussion activity on Threads, Dcard, PTT, Vocus, and Medium, with evidence links for every book and three reusable book-scouting patterns."
 draft: false

@@ -4,6 +4,7 @@ date: 2026-05-07
 category: ai
 tags: [mcp, search, web-search, tavily, firecrawl, exa, bocha, claude-code, agent]
 lang: en
+type: guide
 tldr: "When using AI agents like Claude Code or Cursor, built-in WebFetch / WebSearch often gets blocked by Cloudflare, geo-restrictions, or rate limits. Connecting a search MCP server is the most direct fix. This post compares the options actually available in 2026."
 description: "Comparing search MCP servers for AI agents: Tavily, Firecrawl, Exa, Linkup, Brave, Bocha, Bright Data, and more, with use cases and limitations for each."
 draft: false

@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [llm, inference, pricing, free-tier, cerebras, groq, cloudflare-workers-ai, gemini, openrouter, deepseek, nvidia-nim, modal, ollama, mistral]
 lang: zh-TW
+type: deep-dive
 tldr: "個人專案、玩具 demo、做 RAG 原型，不想第一步就掏卡。整理 2026/05 還在運作的 40+ 家 LLM inference 服務商，按免費資源「是持續補充還是一次性」分梯，標註綁卡需求、模型清單、付費起價，數字全部從官方 pricing 頁驗證。中國原廠含智谱 GLM（永久免費）、豆包（每日 200 萬 tokens）、Kimi、百煉、Ollama 本地跑法一併收錄。"
 description: "比較 Cerebras、Groq、Cloudflare Workers AI、Google Gemini、OpenRouter、GitHub Models、Modal、NVIDIA NIM、Ollama、Mistral、智谱 GLM、Volcengine Doubao、Moonshot Kimi、Qwen DashScope 等 40+ 家 LLM inference 服務商的免費額度與定價。"
 draft: false

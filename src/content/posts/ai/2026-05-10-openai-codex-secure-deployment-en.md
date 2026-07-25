@@ -4,6 +4,7 @@ date: 2026-05-10
 category: ai
 tags: [openai, codex, ai-agent, security, sandbox, enterprise]
 lang: en
+type: deep-dive
 tldr: "In May 2026, OpenAI published its internal Codex deployment practices: sandboxes define technical boundaries, approval policies determine when to pause, Auto-review delegates approval decisions to a sub-agent instead of a human, and Managed configuration lets enterprise admins enforce policies top-down. The core philosophy: zero friction for low-risk actions, mandatory review for high-risk ones."
 description: "OpenAI's complete framework for deploying Codex securely — covering sandbox modes, approval policies, Auto-review, network policies, and enterprise Managed configuration."
 draft: false

@@ -14,6 +14,7 @@ tags:
   - pre-commit
   - sub-agent-council
 lang: en
+type: deep-dive
 tldr: "Stripe Minions says 'The walls matter more than the model,' but the case studies from four Silicon Valley companies never explained how to actually build those walls. This post breaks down the 15 walls we implemented in the daodao auto-dev agent: what each wall prevents, where the files live, and what the tradeoffs are. Tier 1 is mandatory, Tier 2 strengthens governance, Tier 3 is serious governance."
 description: "15 walls for building your own auto-dev agent — a concrete implementation checklist distilled from Stripe Minions / Spotify Honk / AI Native 18 practices, each with file paths, failure modes prevented, and tradeoffs."
 draft: false

@@ -4,6 +4,7 @@ date: 2026-06-21
 category: investing
 tags: [stock-futures, trading, warrants, portfolio-management, margin]
 lang: zh-TW
+type: deep-dive
 tldr: "看到一篇交易紀錄貼文，裡面全是我不懂的詞：權證、股期、維持率。查了一圈，整理給同樣看不懂的人。"
 description: "從一篇半年 16 倍報酬的貼文出發，解釋權證、股票期貨、維持率、加減碼是什麼意思。"
 ---

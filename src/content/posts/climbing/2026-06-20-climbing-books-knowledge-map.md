@@ -4,6 +4,7 @@ date: 2026-06-20
 category: climbing
 tags: [climbing, books, training, mental-training, review]
 lang: zh-TW
+type: deep-dive
 description: "不只是書單推薦，而是一張攀岩知識的地圖。整理六大訓練學派、五種心理流派、中日英三語書籍的脈絡關係與電子書取得管道。"
 tldr: "攀岩書不是一本本獨立存在的——它們背後有學派之爭、有哲學差異、有知識斷層。這篇整理了 60+ 本書之間的關係，幫你選對下一本該讀的書。"
 draft: false

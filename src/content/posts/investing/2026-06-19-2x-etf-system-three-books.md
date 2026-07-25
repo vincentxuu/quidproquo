@@ -4,6 +4,7 @@ date: 2026-06-19
 category: investing
 tags: [leveraged-etf, index-investing, asset-allocation, rebalancing, books]
 lang: zh-TW
+type: deep-dive
 description: "在 Threads 看到 @jj.investnote 分享了一套正2投資系統：60% 正2 + 40% 現金、Beta=1.2 目標、±10% 觸發再平衡。追溯哲學根源，是三本書各自回答了一個問題。"
 ---
 

@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [ai-agent, chrome-extension, claude, codex, chatgpt-atlas, gemini, browser-agent]
 lang: en
+type: deep-dive
 tldr: "Anthropic builds an extension, OpenAI builds its own browser, Google welds AI directly into Chrome — three completely different approaches. Here's a comparison of the current landscape, key differences, and a selection guide."
 description: "A comparison of Claude for Chrome, ChatGPT Atlas + Codex extension, and Gemini in Chrome — three AI browser agent strategies and how to choose between them."
 draft: false

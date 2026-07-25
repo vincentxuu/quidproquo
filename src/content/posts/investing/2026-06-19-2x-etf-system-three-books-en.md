@@ -4,6 +4,7 @@ date: 2026-06-19
 category: investing
 tags: [leveraged-etf, index-investing, asset-allocation, rebalancing, books]
 lang: en
+type: deep-dive
 description: "A Threads post by @jj.investnote laid out a 2x leveraged ETF system built on three books: 60% 2x ETF + 40% cash, Beta=1.2 target, ±10% rebalancing trigger, and a crash protocol."
 ---
 

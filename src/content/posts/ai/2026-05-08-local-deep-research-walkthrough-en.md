@@ -4,6 +4,7 @@ date: 2026-05-08
 category: ai
 tags: [rag, agent, langgraph, deep-research, local-llm, langchain]
 lang: en
+type: guide
 tldr: "Local Deep Research is a privacy-first deep research agent built on LangChain + LangGraph, integrating 20+ search engines and 30+ research strategies. Its flagship langgraph_agent_strategy takes the LLM-autonomous tool-calling approach, offering a fundamentally different paradigm from fixed-pipeline RAG graphs."
 description: "A walkthrough of LearningCircuit/local-deep-research: positioning, architecture, directory map, 30+ research strategies, and how it differs from typical RAG systems."
 draft: false

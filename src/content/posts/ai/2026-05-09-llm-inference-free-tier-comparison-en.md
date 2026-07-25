@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [llm, inference, pricing, free-tier, cerebras, groq, cloudflare-workers-ai, gemini, openrouter, deepseek, nvidia-nim, modal, ollama, mistral]
 lang: en
+type: deep-dive
 tldr: "For side projects, toy demos, and RAG prototypes, nobody wants to swipe a credit card on day one. This is a verified roundup of 40+ LLM inference providers still operating as of 2026/05, tiered by whether free resources auto-replenish or are one-time grants. Each entry notes credit-card requirements, supported models, paid starting prices, and catches. Chinese-origin providers including Zhipu GLM (permanently free), Doubao (2M tokens/day), Kimi, DashScope, and the Ollama local option are all included."
 description: "Comparing free tiers and pricing across 40+ LLM inference providers including Cerebras, Groq, Cloudflare Workers AI, Google Gemini, OpenRouter, GitHub Models, Modal, NVIDIA NIM, Ollama, Mistral, Zhipu GLM, Volcengine Doubao, Moonshot Kimi, and Qwen DashScope."
 draft: false
