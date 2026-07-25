@@ -142,7 +142,7 @@ This isn't experimentation at small companies — large organizations are alread
 
 - **[LinkedIn](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)** ended its APM program and stood up an **Associate Product Builder (APB)** track. CPO Tomer Cohen's framing: teach them to code, design, and PM
 - **[Walmart](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)** opened **Agent Developer** roles (self-described as its first "biz/tech" position), no technical background required. [Chief people officer](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders): a year ago we had no dedicated agent builders, today we do
-- **Meta** PMs have started calling themselves "AI Builders"
+- **Meta** went beyond self-description — a [1,000-person team within Reality Labs formally restructured](https://africa.businessinsider.com/news/inside-metas-push-to-turn-employees-into-ai-builders-and-reorganize-teams-around/3zlhdt5), leaving only three titles: **AI Builder, AI Pod Lead, AI Org Lead**. [PM Jeremie Guedj](https://www.businessinsider.com/meta-pms-ai-builders-tech-industry-2026-2) (10+ years as PM) went public first in February 2026
 - **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** defined the Product Builder role back in 2019, using their in-house low-code language JetLang — nothing to do with the AI wave
 
 ### One Title, Different Jobs

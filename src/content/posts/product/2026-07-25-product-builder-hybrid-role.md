@@ -149,7 +149,7 @@ Product Builder 是一個能把想法從概念推到可用產品的人，對其�
 
 - **[LinkedIn](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)** 結束了行之有年的 APM 計畫，另設 **Associate Product Builder（APB）** track。CPO Tomer Cohen 的說法：要教他們怎麼寫程式、做設計、做 PM
 - **[Walmart](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)** 開出 **Agent Developer** 職位（自稱第一個「biz/tech」職位），不需要技術背景。[人資長](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)：一年前我們沒有任何專職的 agent builder，今天有了
-- **Meta** 的 PM 開始自稱「AI Builder」
+- **Meta** 不只是自稱——Reality Labs 內一個 [1,000 人的團隊正式改制](https://africa.businessinsider.com/news/inside-metas-push-to-turn-employees-into-ai-builders-and-reorganize-teams-around/3zlhdt5)，所有人只剩三個頭銜：**AI Builder、AI Pod Lead、AI Org Lead**。[最早公開的是 PM Jeremie Guedj](https://www.businessinsider.com/meta-pms-ai-builders-tech-industry-2026-2)，十年 PM 資歷，2026 年 2 月宣布全職轉為 AI Builder
 - **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** 早在 2019 年就定義了 Product Builder 角色，用自研的 low-code 語言 JetLang 直接建構功能——跟 AI 浪潮無關
 
 ### 同一個職稱，不同的工作
