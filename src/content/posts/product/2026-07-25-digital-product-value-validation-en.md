@@ -113,6 +113,10 @@ There is a fix, and almost nobody uses it. A [2025 meta-analysis in Marketing Le
 
 On Van Westendorp specifically, practitioner Michaela Mora's critique is blunt: no theoretical foundation, direct price questions invite lowballing, no competitive context, no track record of predictive success, and no way to optimize revenue or profit. She cites her own case where the PSM-derived "optimal price" came out **$10 below** the product's actual selling price, with the real price falling entirely outside the PSM's recommended "acceptable range." Lipovetsky et al. add the technical critique: results are unstable, and small changes in the sample produce large shifts in the price curves.
 
+In fairness, there's a genuinely strong case for VW worth putting on the table: [Kloss and Kunter (2016)](https://iabe.org/IABE-DOI/article.aspx?DOI=EJM-16-2.4) found that VW's optimal pricing point reproduces the measurements from the **BDM mechanism** — a design where respondents have real money at stake, generally treated as the closest available proxy for true WTP. If that holds, a two-to-three-minute survey buys you something near the accuracy of an incentive-aligned experiment.
+
+But the authors' own caveat is the more instructive part: the agreement **may be two biases cancelling out** — hypothetical bias pushing the price up while the PSM's focus on minimum customer resistance pushes it down — and the finding comes from a single product. In other words, there is currently no way to distinguish VW being *right* from VW being *accidentally right*. A tool that is accurate because two errors offset has no reason to stay accurate in a different product category.
+
 **The actionable conclusion: use surveys to narrow the search space, and use pre-sales, paid pilots, and LOIs to make the decision.** This also explains why even people arguing that painted door tests should be retired concede that behavioral testing beats surveys specifically on price points — survey respondents have a strong incentive to pick the cheapest option.
 
 ## What Counts as "Validated": The Sean Ellis 40% Test
@@ -130,7 +134,7 @@ The tool is useful, but four failure modes need stating:
 1. **Survivorship bias is designed in.** It surveys current users only; churned users are excluded by definition. A metric that can't see churn has a hard time claiming to detect fit.
 2. **The question is negatively framed.** "How would you feel if you could no longer use it" can trigger loss aversion, habit, and switching friction rather than a value judgment. A user who is indifferent and actively shopping alternatives can still answer "very disappointed" at the prospect of abrupt removal.
 3. **Above 40% produces false positives.** Tristan Kromer documented his own case: [StartupSquare scored above 40% and clearly had no PMF](https://kromatic.com/blog/false-positives-and-product-market-fit/) — respondents were reacting to the *promise* of a solution rather than the product, which barely did anything. His conclusion: below 40% probably means no PMF, but above 40% doesn't guarantee it.
-4. **The number 40 itself has no public validation.** It comes from Ellis benchmarking roughly a hundred startups, but this research (covering Ellis's own writing, the Superhuman article, Reforge material, and multiple critiques) found no publicly available dataset, peer-reviewed study, or independently reproducible analysis behind it.
+4. **The number 40 itself has no public validation.** It comes from Ellis benchmarking roughly a hundred startups, but this research (covering Ellis's own writing, the Superhuman article, Reforge material, and multiple critiques) found no publicly available dataset, peer-reviewed study, or independently reproducible analysis behind it. **If you know of a public source, tell me and I'll update this section.**
 
 So the reasonable use is: **treat it as a diagnostic gauge for tracking your own change over time, not as a cross-company go/no-go gate.** Dropping from 47% to 31% this quarter means something broke, and the signal is extremely cheap to obtain. That's where its value lies.
 
@@ -263,7 +267,7 @@ If only one line survives: **validation isn't there to prove you right, it's the
 
 ## Changelog
 
-- 2026-07-25: Added the section "The B2B Criterion Is Different: Six Reference Customers" (Cagan's four conditions for a reference customer, and the inference not to turn on sales before you have six); added Nubank's cultural recalibration of the 40% threshold to 50%; added Zendesk's $1.50 per automated resolution and its LLM verification mechanism to the AI pricing section.
+- 2026-07-25: Added the section "The B2B Criterion Is Different: Six Reference Customers" (Cagan's four conditions for a reference customer, and the inference not to turn on sales before you have six); added Nubank's cultural recalibration of the 40% threshold to 50%; added Zendesk's $1.50 per automated resolution and its LLM verification mechanism to the AI pricing section; added Kloss & Kunter (2016) as positive evidence for Van Westendorp along with the authors' own "two biases cancelling out" caveat, since the section previously presented only the critical side.
 
 ## References
 
