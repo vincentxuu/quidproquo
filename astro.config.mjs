@@ -6,6 +6,25 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 
+// Rehype plugin: external links open in new tab
+function rehypeExternalLinks() {
+  return function(tree) {
+    function visit(node) {
+      if (node.type === 'element' && node.tagName === 'a') {
+        const href = node.properties?.href;
+        if (typeof href === 'string' && /^https?:\/\//.test(href)) {
+          node.properties.target = '_blank';
+          node.properties.rel = 'noopener noreferrer';
+        }
+      }
+      if (node.children) {
+        node.children.forEach(visit);
+      }
+    }
+    visit(tree);
+  };
+}
+
 // Rehype plugin: add loading="lazy" to all img elements
 function rehypeLazyImages() {
   return function(tree) {
@@ -53,7 +72,7 @@ export default defineConfig({
   markdown: {
     smartypants: false,
     remarkPlugins: [remarkReadingTime],
-    rehypePlugins: [rehypeLazyImages],
+    rehypePlugins: [rehypeExternalLinks, rehypeLazyImages],
   },
   i18n: {
     defaultLocale: 'zh-TW',
