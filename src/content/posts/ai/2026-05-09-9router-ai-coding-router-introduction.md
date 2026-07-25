@@ -14,6 +14,7 @@ tags:
   - oauth
   - fallback
 lang: zh-TW
+type: guide
 tldr: "本地起一支 OpenAI 相容端點 localhost:20128，把 Claude Code / Cursor / Cline / Codex / Copilot 等 CLI 的請求，自動依 訂閱 → 便宜 → 免費 三層 fallback 路由到 40+ 家供應商。內建 RTK 壓縮 tool_result（省 20–40% input token）、Caveman mode 壓 output、OAuth 自動 refresh、多帳號輪詢，npm install -g 9router 兩條指令裝完。"
 description: "9Router 是把 Claude Code / Cursor / Cline 等 AI coding CLI 統一路由到 40+ 家 LLM 供應商的本地路由器，提供三層 fallback、RTK token 壓縮、format translation 與多帳號管理。"
 draft: false

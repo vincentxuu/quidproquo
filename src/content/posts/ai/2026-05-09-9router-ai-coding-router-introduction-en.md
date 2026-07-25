@@ -14,6 +14,7 @@ tags:
   - oauth
   - fallback
 lang: en
+type: guide
 tldr: "Spin up a local OpenAI-compatible endpoint at localhost:20128 that automatically routes requests from Claude Code / Cursor / Cline / Codex / Copilot through a Subscription → Cheap → Free 3-tier fallback to 40+ providers. Built-in RTK compresses tool_result (saving 20–40% input tokens), Caveman mode compresses output, OAuth auto-refresh, multi-account round-robin — install with npm install -g 9router and two commands."
 description: "9Router is a local router that unifies Claude Code / Cursor / Cline and other AI coding CLIs to 40+ LLM providers, offering 3-tier fallback, RTK token compression, format translation, and multi-account management."
 draft: false

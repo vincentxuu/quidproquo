@@ -4,6 +4,7 @@ date: 2026-05-10
 category: ai
 tags: [ai-agent, video-generation, hyperframes, heygen, mcp, claude-code, cursor]
 lang: zh-TW
+type: deep-dive
 tldr: "AI agent 可透過 Skills、MCP Connector、直接 API 三種方式操作影片生成工具，選對整合方式比選對工具更重要。"
 description: "介紹如何用 Claude Code、Cursor、Codex 等 AI coding agent，透過 Skills 和 MCP 整合 HyperFrames、HeyGen、Runway 等影片生成工具，打造可程式化的影片製作流水線。"
 draft: false

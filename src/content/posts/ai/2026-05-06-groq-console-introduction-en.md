@@ -4,6 +4,7 @@ date: 2026-05-06
 category: ai
 tags: [groq, lpu, inference, llm, openai-compatible, developer-platform]
 lang: en
+type: guide
 tldr: "Groq Console is the developer portal for Groq's in-house LPU chip, offering an OpenAI-compatible API, Playground, and free tier credits. Its selling point is running open-source models like Llama, Qwen, and DeepSeek at the fastest tokens/second on the market."
 description: "An introduction to Groq Console's core features, how LPU differs from GPU, how to use the OpenAI-compatible API, and trade-offs compared to inference platforms like OpenAI, Together, and Fireworks."
 ---

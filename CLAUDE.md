@@ -87,7 +87,7 @@ pnpm sync:prod        # Sync posts to D1 (production)
 - **Feature flags are mandatory** for all advanced/experimental techniques (RAG, embeddings, AI features). Every such feature must be individually toggleable. Do not add unless an observed failure justifies it.
 - `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`.
 - Never revert file changes without explicit user confirmation.
-- Use `stealth_fetch` MCP tool for all web scraping — never built-in WebFetch or playwright directly.
+- 網頁抓取優先順序：`stealth_fetch` MCP tool（CLI 環境，繞反爬蟲）→ 若不可用則依序使用 `mcp__claude_ai_Exa__*`、`mcp__claude_ai_Tavily__*`、`mcp__claude_ai_linkup__*`、`mcp__claude_ai_jina__*` 等雲端 MCP → 最後才用內建 `WebFetch`。
 
 ## Commit Convention
 

@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [claude, agents, mcp, rag, langgraph, multi-agent]
 lang: en
+type: deep-dive
 tldr: "Anthropic open-sourced 12 financial-industry Agents and 11 MCP connectors. The real takeaway isn't the Agents themselves but the layered design of 'one prompt, two runtimes' and 'pure-file extensibility.'"
 description: "A teardown of the anthropics/financial-services repo's dual-deployment model, Named Agent decomposition logic, and MCP connector swap philosophy, compared against quidproquo's LangGraph planner-research-writer-critic architecture, with actionable design trade-offs."
 draft: false

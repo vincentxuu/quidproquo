@@ -4,6 +4,7 @@ date: 2026-04-23
 category: ai
 tags: [openai, chatgpt, agent, workspace-agents, codex, enterprise-ai]
 lang: zh-TW
+type: deep-dive
 tldr: "OpenAI 2026/4/22 推出 Workspace Agents,以 Codex 為底、可長時間在雲端執行、能串 Slack/Salesforce/Google Drive,是 Custom GPT 的企業版後繼者。"
 description: "Workspace Agents 的設計定位、核心能力、與 Custom GPTs 的差異、整合生態、治理機制、適用情境與限制。"
 draft: false

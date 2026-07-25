@@ -12,6 +12,7 @@ tags:
   - github
   - pipeline
 lang: en
+type: guide
 tldr: "A PM checks a task card in Notion → the system syncs it to a GitHub issue → writes a plan → writes code → opens a PR for human review. This post explains what the system does, what it doesn't do, and why it's feasible now — written for people who don't write code."
 description: "What is an auto-dev agent? An introductory guide for PMs, designers, and founders: the automated pipeline from Notion tasks to GitHub PRs, 4 intervention modes, safety design, and limitations."
 draft: false

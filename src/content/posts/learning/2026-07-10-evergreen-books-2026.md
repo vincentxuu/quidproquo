@@ -4,6 +4,7 @@ date: 2026-07-10
 category: learning
 tags: [books, book-list, reading, self-growth, community-signals]
 lang: zh-TW
+type: deep-dive
 tldr: "用 Threads、Dcard、PTT、方格子 2025 下半年到 2026 的討論證據，從生產力、人生設計、腦科學、心理、理財五個分類篩出 24 本還在被熱議的長青書。最強訊號：《Rewire—神經可塑性》擠進 2026 誠品、博客來上半年雙榜前三。"
 description: "五大分類長青書單研究：以 2026 年華文社群（Threads、Dcard、PTT、方格子、Medium）的實際討論熱度為篩選標準，附每本書的社群證據連結，以及三個可複製的選書趨勢觀察。"
 draft: false

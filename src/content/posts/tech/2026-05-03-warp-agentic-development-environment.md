@@ -4,6 +4,7 @@ date: 2026-05-03
 category: tech
 tags: [warp, terminal, ai, agent, developer-tools, open-source]
 lang: zh-TW
+type: guide
 tldr: "Warp 從一個用 Rust 打造的現代終端機，演化成整合 AI Agent 的開發環境（ADE），2026 年 4 月開源，目前擁有 70 萬開發者用戶。"
 description: "Warp 不只是終端機——它是一套以 AI Agent 為核心的開發環境。本文介紹 Warp 的核心設計、主要功能、與傳統終端機的差異，以及它如何從工具變成平台。"
 draft: false

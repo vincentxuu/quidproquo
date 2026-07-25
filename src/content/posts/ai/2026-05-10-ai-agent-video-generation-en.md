@@ -4,6 +4,7 @@ date: 2026-05-10
 category: ai
 tags: [ai-agent, video-generation, hyperframes, heygen, mcp, claude-code, cursor]
 lang: en
+type: deep-dive
 tldr: "AI agents can operate video generation tools through three approaches — Skills, MCP Connectors, and direct APIs. Choosing the right integration method matters more than choosing the right tool."
 description: "Learn how to use AI coding agents like Claude Code, Cursor, and Codex to integrate video generation tools such as HyperFrames, HeyGen, and Runway through Skills and MCP, building a programmable video production pipeline."
 draft: false

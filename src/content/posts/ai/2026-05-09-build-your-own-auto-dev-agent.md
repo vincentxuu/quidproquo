@@ -14,6 +14,7 @@ tags:
   - cloud-environment
   - github-automation
 lang: zh-TW
+type: guide
 tldr: "從零建一條 Notion 任務 → GitHub issue → spec PR → code PR 的 auto-dev agent。用 daodao 案例為範本，講清楚每一步要做什麼、要驗證什麼、踩到問題怎麼處理。Notion DB schema → bin/ scaffold → 兩條 Claude Code routine → cloud env vars → staging 測試。"
 description: "把 daodao auto-dev agent 拆成可複製的 12 步教學：從 Notion DB schema、bin/ scaffold、兩條 routine、cloud env vars 到 staging 驗證。"
 draft: false

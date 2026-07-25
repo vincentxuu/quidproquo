@@ -12,6 +12,7 @@ tags:
   - github
   - pipeline
 lang: zh-TW
+type: guide
 tldr: "PM 在 Notion 勾選一張任務卡 → 系統自己同步成 GitHub issue → 寫成 plan → 寫成 code → 開 PR 給人類 review。這篇講這套系統做什麼、不做什麼、為什麼現在可行，給沒在寫 code 的人看。"
 description: "auto-dev agent 是什麼？PM、設計師、創辦人入門解說：從 Notion 任務到 GitHub PR 的自動化流程、4 種介入模式、安全設計、與限制。"
 draft: false

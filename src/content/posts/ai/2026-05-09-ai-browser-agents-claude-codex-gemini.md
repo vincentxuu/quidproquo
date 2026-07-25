@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [ai-agent, chrome-extension, claude, codex, chatgpt-atlas, gemini, browser-agent]
 lang: zh-TW
+type: deep-dive
 tldr: "Anthropic 做擴充、OpenAI 蓋自己的瀏覽器、Google 直接焊進 Chrome——三家走的是三條完全不同的路線。整理現況、差異與選擇指南。"
 description: "Claude for Chrome、ChatGPT Atlas + Codex extension、Gemini in Chrome 三家 AI 瀏覽器 agent 的路線比較與選擇建議。"
 draft: false

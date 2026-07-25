@@ -14,6 +14,7 @@ tags:
   - cloud-environment
   - github-automation
 lang: en
+type: guide
 tldr: "Build a Notion task → GitHub issue → spec PR → code PR auto-dev agent from scratch. Using the daodao case as a template, this guide walks through every step — what to do, what to verify, and how to handle problems. Notion DB schema → bin/ scaffold → two Claude Code routines → cloud env vars → staging tests."
 description: "Breaking the daodao auto-dev agent into a reproducible 12-step tutorial: from Notion DB schema, bin/ scaffold, two routines, cloud env vars, to staging verification."
 draft: false

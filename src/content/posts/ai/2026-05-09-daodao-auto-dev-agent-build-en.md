@@ -14,6 +14,7 @@ tags:
   - internal-coding-agent
   - defense-in-depth
 lang: en
+type: guide
 tldr: "5 rounds of consensus to write the plan, then team mode with 5 workers running 12 tasks in parallel — with plenty of pitfalls along the way. Writing it down for my future self and anyone else trying the same thing."
 description: "From Notion task board to GitHub PR automation: the plan, implementation, and lessons learned building daodao's internal auto-dev agent"
 draft: false

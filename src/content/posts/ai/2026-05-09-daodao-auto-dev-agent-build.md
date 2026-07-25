@@ -14,6 +14,7 @@ tags:
   - internal-coding-agent
   - defense-in-depth
 lang: zh-TW
+type: guide
 tldr: "用 5 輪 consensus 寫 plan、再用 team mode 5 worker 並行做完 12 個 task；中間踩了不少坑，記下來給未來的自己跟同樣在嘗試的人看。"
 description: "從 Notion 任務板到 GitHub PR 自動化：daodao 內部 auto-dev agent 的 plan、實作、踩坑紀錄"
 draft: false

@@ -13,6 +13,7 @@ tags:
   - ai-agent
   - prompt-engineering
 lang: zh-TW
+type: guide
 tldr: "把 OpenAI、Anthropic、Google 三家官方課程平台，加上 Stanford CS146S/CS336、Elements of AI、Hugging Face、MIT 6.S191、李宏毅等資源實際逐頁抓過一遍，按「不懂 AI / vibe coding / 讓它能上 production / 底層 AI」四層重排。結論：課幾乎全部免費，稀缺的不是課，是選課的判斷力；而第四層不會解決第三層的問題。"
 description: "2026 年 AI 課程總覽，依不懂 AI、vibe coding、上 production、底層 AI 四層分類：OpenAI Academy、Anthropic Academy、Google 免費與付費課、Elements of AI、Stanford CS146S 與 CS336、MIT 6.S191、Hugging Face、李宏毅課程的實際內容、費用、時長與適用對象"
 draft: false

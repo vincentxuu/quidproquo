@@ -4,6 +4,7 @@ date: 2026-06-20
 category: climbing
 tags: [climbing, books, training, mental-training, review]
 lang: en
+type: deep-dive
 description: "More than a reading list — this is a map of climbing knowledge. It charts the relationships between six training schools, five mental frameworks, and books in Chinese, Japanese, and English, along with where to find ebooks."
 tldr: "Climbing books don't exist in isolation — they represent competing schools of thought, philosophical differences, and knowledge gaps. This post maps the relationships between 60+ books to help you pick the right one to read next."
 draft: false

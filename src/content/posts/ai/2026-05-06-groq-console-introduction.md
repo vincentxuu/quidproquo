@@ -4,6 +4,7 @@ date: 2026-05-06
 category: ai
 tags: [groq, lpu, inference, llm, openai-compatible, developer-platform]
 lang: zh-TW
+type: guide
 tldr: "Groq Console 是 Groq 自家 LPU 晶片的開發者入口，提供 OpenAI 相容 API、Playground、免費額度，主打把 Llama、Qwen、DeepSeek 等開源模型跑出市面上最快的 token/秒。"
 description: "介紹 Groq Console 的核心功能、LPU 與 GPU 的差異、OpenAI 相容 API 的使用方式，以及和 OpenAI、Together、Fireworks 等推論平台的取捨。"
 ---

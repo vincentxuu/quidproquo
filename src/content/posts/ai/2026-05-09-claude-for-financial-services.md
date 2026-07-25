@@ -4,6 +4,7 @@ date: 2026-05-09
 category: ai
 tags: [claude, agents, mcp, rag, langgraph, multi-agent]
 lang: zh-TW
+type: deep-dive
 tldr: "Anthropic 開源了 12 個金融業 Agent + 11 個 MCP connector，最值得抄的不是 Agent 本身，而是『同一份 prompt 雙 runtime』和『純檔案擴充』的分層設計。"
 description: "拆解 anthropics/financial-services repo 的雙部署模式、Named Agent 切分邏輯、MCP connector 抽換哲學，並對照 quidproquo 的 LangGraph planner→research→writer→critic 架構，提出可借鏡的設計取捨。"
 draft: false

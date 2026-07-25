@@ -4,6 +4,7 @@ date: 2026-04-23
 category: ai
 tags: [openai, chatgpt, agent, workspace-agents, codex, enterprise-ai]
 lang: en
+type: deep-dive
 tldr: "On 2026/4/22 OpenAI launched Workspace Agents — powered by Codex, capable of long-running cloud execution, and integrating with Slack/Salesforce/Google Drive. They are the enterprise successor to Custom GPTs."
 description: "The design philosophy, core capabilities, differences from Custom GPTs, integration ecosystem, governance mechanisms, ideal use cases, and limitations of Workspace Agents."
 draft: false
