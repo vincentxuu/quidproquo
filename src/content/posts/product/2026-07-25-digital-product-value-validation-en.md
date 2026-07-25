@@ -115,7 +115,7 @@ On Van Westendorp specifically, practitioner Michaela Mora's critique is blunt: 
 
 **The actionable conclusion: use surveys to narrow the search space, and use pre-sales, paid pilots, and LOIs to make the decision.** This also explains why even people arguing that painted door tests should be retired concede that behavioral testing beats surveys specifically on price points — survey respondents have a strong incentive to pick the cheapest option.
 
-## What Counts as "Validated": The 40% Test and Retention Curves
+## What Counts as "Validated": The Sean Ellis 40% Test
 
 The most widely circulated criterion is Sean Ellis's 40% test. [In his own words](https://medium.com/growthhackers/using-product-market-fit-to-drive-sustainable-growth-58e9124ee8db):
 
@@ -133,6 +133,25 @@ The tool is useful, but four failure modes need stating:
 4. **The number 40 itself has no public validation.** It comes from Ellis benchmarking roughly a hundred startups, but this research (covering Ellis's own writing, the Superhuman article, Reforge material, and multiple critiques) found no publicly available dataset, peer-reviewed study, or independently reproducible analysis behind it.
 
 So the reasonable use is: **treat it as a diagnostic gauge for tracking your own change over time, not as a cross-company go/no-go gate.** Dropping from 47% to 31% this quarter means something broke, and the signal is extremely cheap to obtain. That's where its value lies.
+
+Supporting evidence from practice: Nubank CPO Jag Duggal noted on [Lenny's Podcast](https://www.lennysnewsletter.com/p/be-fundamentally-different-jag-duggal) that they run the 40% test on every feature they intend to launch, but raised the bar to **50%** because Brazilians are culturally more upbeat and agreeable than the global average. A number that has to be recalibrated per culture was never suited to being a universal pass mark.
+
+## The B2B Criterion Is Different: Six Reference Customers
+
+The 40% test has a more fundamental limitation — it was designed for B2C. Cagan's criterion for B2B products is entirely different: [at least six live reference customers](https://www.svpg.com/the-power-of-reference-customers/), counted separately for each vertical market (six in financial services first, then six in manufacturing, and so on).
+
+His definition of a "reference customer" is strict, and all four conditions must hold:
+
+1. **A real customer** — not friends, family, or insiders
+2. **Running your product in production** — not a trial, not a POC
+3. **Has paid real money** — not given away to entice them to use it
+4. **Willing to tell others how much they love your product, voluntarily and sincerely**
+
+The fourth is the hardest and the most important. The first three can be manufactured with sales discounts; the fourth cannot — it requires the customer to stake their own reputation on you. Back on the evidence-strength axis, that's the highest grade of the "reputation" currency.
+
+Cagan himself says six [isn't meant to be statistically significant — it's meant to instill confidence](https://www.svpg.com/product-market-fit/). The more valuable takeaway is his inference: **don't turn on the sales and marketing machine until you have those six**, because you don't yet have evidence that you can make customers successful, and scaling acquisition at that point only scales the failure.
+
+## The Behavioral Criterion: Retention Curves
 
 The behavioral criterion is retention curve flattening. Casey Winters is specific about it in [Casey's Guide to Finding Product/Market Fit](https://www.caseyaccidental.com/p/caseys-guide-to-finding-product-market-fit): the y-axis of the cohort analysis should be the **key action** of the product (saving a piece of content for Pinterest, ordering food for Grubhub), and the x-axis should be the product's **natural frequency** (weekly for Pinterest, once or twice a month for Grubhub). Get those two axes wrong and the curve is meaningless.
 
@@ -185,6 +204,8 @@ First, what doesn't change: the four-risk taxonomy, the evidence-strength ladder
 
 The contrast is [Salesforce Agentforce](https://www.salesforce.com/agentforce/pricing/): $2 per conversation, or Flex Credits ($500 per 100k credits, a standard action costing 20 credits ≈ $0.10) — **billed regardless of whether the issue is resolved**.
 
+Zendesk takes a third path: [$1.50 per automated resolution](https://www.zendesk.com/blog/ai/productivity/cost-per-resolution/), billed only when the AI resolves the issue on its own without escalating to a human. The interesting part is how "resolved" gets established — [official documentation](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents) states that conversations flagged as resolved are verified by an LLM, paired with a quiet period (the customer has to not reopen the conversation for it to count). In other words, **once outcome becomes the billing unit, whether the outcome actually happened becomes a judgment that itself needs evaluating** — a thread that runs straight into the evals section below.
+
 The implication for value validation is bigger than it looks: when the billing unit equals the value unit, **revenue itself becomes the value metric** and you don't need to design a proxy. The cost is that viability risk shifts entirely to gross margin — every unpaid attempt still burned tokens.
 
 **(2) Retention distribution is extremely bimodal, and the median will mislead you.**
@@ -234,11 +255,15 @@ Eight things worth taking away:
 3. **Set the criterion before you launch**, or the experiment degrades into a confirmation-bias machine.
 4. **Surveys narrow the range; behavior makes the decision.** Every WTP survey is biased, and the direction depends on the method — direct questions get lowballed, hypothetical choices get inflated. If you can calibrate with a pre-sale, calibrate.
 5. **Compute your base rate.** At a 10% success rate, a p<0.05 "win" has roughly a 22% chance of being fake. Skip this and you'll mistake noise for product insight.
-6. **Use the 40% test as a diagnostic gauge, not a gate.** Tracking your own change over time works; the cross-company pass mark has no public evidence behind it.
+6. **Use the 40% test as a diagnostic gauge, not a gate.** Tracking your own change over time works; the cross-company pass mark has no public evidence behind it, and even Nubank had to shift it to 50% for cultural reasons. It's also a B2C tool — **B2B should use six reference customers**, where the hardest condition is that they'll recommend you by name, unprompted.
 7. **The behavioral PMF criterion is a conjunction of three things**: the curve flattens + new-customer cohorts grow + you can acquire within your payback period. Missing one means it doesn't count.
 8. **Three corrections for AI products**: rebase retention to M3; use price band rather than "is it AI" to pick your comparison group; treat evals as the inner layer of value validation, and periodically verify that the eval is a good proxy.
 
 If only one line survives: **validation isn't there to prove you right, it's there to make being wrong cheaper.** A process that always validates successfully has only proven that it isn't validating.
+
+## Changelog
+
+- 2026-07-25: Added the section "The B2B Criterion Is Different: Six Reference Customers" (Cagan's four conditions for a reference customer, and the inference not to turn on sales before you have six); added Nubank's cultural recalibration of the 40% threshold to 50%; added Zendesk's $1.50 per automated resolution and its LLM verification mechanism to the AI pricing section.
 
 ## References
 
@@ -274,6 +299,9 @@ If only one line survives: **validation isn't there to prove you right, it's the
 - [What is good retention — Lenny Rachitsky × Casey Winters](https://www.lennysnewsletter.com/p/what-is-good-retention-issue-29)
 - [Product Market Fit Survey: Why the 40% Test Gives False Positives — Tristan Kromer / Kromatic](https://kromatic.com/blog/false-positives-and-product-market-fit/)
 - [PMF: Product/Market Folklore — Ian Reppel](https://ianreppel.org/product-market-folklore/)
+- [The Power of Reference Customers — Marty Cagan / SVPG](https://www.svpg.com/the-power-of-reference-customers/)
+- [Product Market Fit — Marty Cagan / SVPG](https://www.svpg.com/product-market-fit/)
+- [Be fundamentally different, not incrementally better — Jag Duggal (Nubank) / Lenny's Podcast](https://www.lennysnewsletter.com/p/be-fundamentally-different-jag-duggal)
 
 **Experiment validity**
 
@@ -288,6 +316,8 @@ If only one line survives: **validation isn't there to prove you right, it's the
 - [Fin AI Agent outcomes — Intercom official docs](https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes)
 - [From resolutions to outcomes — Intercom Blog](https://www.intercom.com/blog/from-resolutions-to-outcomes-evolving-how-fin-delivers-value/)
 - [Agentforce Pricing — Salesforce](https://www.salesforce.com/agentforce/pricing/)
+- [Cost per resolution — Zendesk](https://www.zendesk.com/blog/ai/productivity/cost-per-resolution/)
+- [About automated resolutions for AI agents — Zendesk official docs](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents)
 - [Retention Is All You Need — a16z](https://a16z.com/ai-retention-benchmarks/)
 - [The AI churn wave? — Kyle Poyar / Growth Unhinged](https://www.growthunhinged.com/p/the-ai-churn-wave)
 - [State of Subscription Apps 2026 — RevenueCat](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026)

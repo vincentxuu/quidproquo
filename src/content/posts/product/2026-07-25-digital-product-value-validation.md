@@ -115,7 +115,7 @@ WTP（willingness to pay）的量測有四種常見方法，各有各的位子�
 
 **可操作的結論：問卷用來縮小搜尋範圍，pre-sale、paid pilot、LOI 用來下決定。** 這也解釋了為什麼連主張「該讓 painted door 退休」的人都承認，在測價格點這一項上，行為式測試贏過問卷——因為問卷受訪者有強烈誘因選最低價的那個選項。
 
-## 什麼算「驗過了」：40% test 與 retention curve
+## 什麼算「驗過了」：Sean Ellis 的 40% test
 
 最廣為流傳的判準是 Sean Ellis 的 40% test。[Ellis 本人的說法](https://medium.com/growthhackers/using-product-market-fit-to-drive-sustainable-growth-58e9124ee8db)是：
 
@@ -133,6 +133,25 @@ WTP（willingness to pay）的量測有四種常見方法，各有各的位子�
 4. **40% 這個數字本身查不到公開驗證。** 它來自 Ellis benchmark 約上百家新創的觀察，但本次查找（含 Ellis 本人文章、Superhuman 原文、Reforge 教材、多篇批評文）找不到任何公開資料集、同儕審查研究或可獨立複現的分析。
 
 所以合理的用法是：**把它當追蹤自身變化的診斷儀表，不要當跨公司的 go/no-go 閘門。** 本季 47% 掉到 31% 代表出事了，而且這個訊號取得成本極低——這才是它的價值。
+
+有個實務上的旁證：Nubank 的 CPO Jag Duggal 在 [Lenny's Podcast](https://www.lennysnewsletter.com/p/be-fundamentally-different-jag-duggal) 上提到，他們對每個要上線的新功能都跑 40% test，但因為巴西人在文化上比全球平均更樂觀友善，他們把門檻拉到 **50%**。一個需要按文化重新校準的數字，本來就不適合當普世及格線。
+
+## B2B 的判準不一樣：六個 reference customer
+
+40% test 還有一個更根本的限制——它是為 B2C 設計的。Cagan 對 B2B 產品給的判準完全不同：[至少六個 live 的 reference customer](https://www.svpg.com/the-power-of-reference-customers/)，而且每個垂直市場各算各的（先湊滿金融業的六個，再湊製造業的六個）。
+
+他對「reference customer」的定義很嚴，四個條件缺一不可：
+
+1. **真實顧客**——不是親友、不是內部人
+2. **在 production 環境實際使用**——不是試用、不是 POC
+3. **付過真金白銀**——不是為了拉人用而免費送的
+4. **願意主動且真誠地告訴別人他有多喜歡這個產品**
+
+第四條是最難也最關鍵的一條。前三條都可以靠銷售折扣硬湊，第四條不行——它要的是顧客願意拿自己的名譽為你背書，回到前面那條證據強度軸上，這是「名譽」這個貨幣的最高規格。
+
+Cagan 自己說六這個數字[不具統計顯著性，目的是建立信心](https://www.svpg.com/product-market-fit/)。更值得抄走的是他的推論：**在拿到這六個之前不要啟動銷售與行銷機器**——因為你還沒有證據顯示你能讓顧客成功，這時候放大獲客只會放大失敗。
+
+## 行為面的判準：retention curve
 
 行為面的判準則是 retention curve flattening。Casey Winters 在 [Casey's Guide to Finding Product/Market Fit](https://www.caseyaccidental.com/p/caseys-guide-to-finding-product-market-fit) 講得很具體：cohort 分析的 y 軸要放**產品的核心動作**（Pinterest 是儲存一則內容、Grubhub 是線上點餐），x 軸要放**該產品的自然使用頻率**（Pinterest 週、Grubhub 月一到兩次）。用錯這兩個軸，曲線就沒有意義。
 
@@ -185,6 +204,8 @@ Kohavi 在 [Online Experimentation at Microsoft](https://ai.stanford.edu/~ronnyk
 
 對照組是 [Salesforce Agentforce](https://www.salesforce.com/agentforce/pricing/)：$2 / conversation，或 Flex Credits（$500 / 100k credits，標準 action 20 credits ≈ $0.10）——**不論是否解決都計費**。
 
+Zendesk 走的是第三條路：[$1.50 per automated resolution](https://www.zendesk.com/blog/ai/productivity/cost-per-resolution/)，只在 AI 獨立解決、沒有轉人工時才計費。有意思的是它怎麼認定「解決了」——[官方文件](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents)說標記為已解決的對話要由 LLM 驗證，並搭配一段靜默期（顧客沒有回頭重開對話才算數）。換句話說，**當 outcome 變成計價單位，「outcome 到底成不成立」本身就變成一個需要被評測的判斷**——這條線會直接接到後面 evals 那一節。
+
 這件事對價值驗證的意義比表面上大：當計價單位＝價值單位，**營收本身就變成價值指標**，不需要另外設計代理指標。代價是 viability risk 整個轉移到毛利端——每一次沒收到錢的嘗試都燒了 token。
 
 **（二）留存的分佈極度分化，中位數會騙你。**
@@ -234,11 +255,15 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 3. **判準要在開跑前訂死**，否則實驗會退化成確認偏誤製造機。
 4. **問卷縮小範圍，行為下決定。** WTP 問卷全都有偏誤，而且方向依方法而異——直接問會被報低、假設性選擇會被高估。能用 pre-sale 校準就一定要校準。
 5. **算你的 base rate。** 成功率 10% 的環境下，p<0.05 的「贏」有約 22% 機率是假的。不算這個就會把雜訊當成產品洞見。
-6. **40% test 當診斷儀表，不當閘門。** 追蹤自己隨時間的變化有效；跨公司的及格線沒有公開證據支撐。
+6. **40% test 當診斷儀表，不當閘門。** 追蹤自己隨時間的變化有效；跨公司的及格線沒有公開證據支撐，連 Nubank 都得按文化把它調到 50%。而且它是 B2C 的工具——**B2B 該用的是六個 reference customer**，其中最硬的一條是對方願意主動具名推薦你。
 7. **PMF 的行為判準是三件事的合取**：曲線變平 ＋ 新客 cohort 成長 ＋ payback period 內能獲客。少一件都不算。
 8. **AI 產品的三個修正**：留存起算點改 M3；用價格帶而非「是不是 AI」找對照組；把 eval 當成價值驗證的內層，並定期驗證 eval 本身是不是好的 proxy。
 
 如果只能記一句：**驗證不是為了證明你對，是為了讓你錯得便宜一點。** 一個永遠驗證成功的流程，只證明了它沒有在驗證。
+
+## 更新紀錄
+
+- 2026-07-25：新增「B2B 的判準不一樣：六個 reference customer」一節（Cagan 的 reference customer 四條件與「湊滿六個之前不要啟動銷售機器」的推論）；補上 Nubank 把 40% 門檻按文化調到 50% 的例子；AI 定價一節補上 Zendesk 的 $1.50 per automated resolution 與其 LLM 驗證機制。
 
 ## 參考資料
 
@@ -274,6 +299,9 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 - [What is good retention — Lenny Rachitsky × Casey Winters](https://www.lennysnewsletter.com/p/what-is-good-retention-issue-29)
 - [Product Market Fit Survey: Why the 40% Test Gives False Positives — Tristan Kromer / Kromatic](https://kromatic.com/blog/false-positives-and-product-market-fit/)
 - [PMF: Product/Market Folklore — Ian Reppel](https://ianreppel.org/product-market-folklore/)
+- [The Power of Reference Customers — Marty Cagan / SVPG](https://www.svpg.com/the-power-of-reference-customers/)
+- [Product Market Fit — Marty Cagan / SVPG](https://www.svpg.com/product-market-fit/)
+- [Be fundamentally different, not incrementally better — Jag Duggal（Nubank）/ Lenny's Podcast](https://www.lennysnewsletter.com/p/be-fundamentally-different-jag-duggal)
 
 **實驗信效度**
 
@@ -288,6 +316,8 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 - [Fin AI Agent outcomes — Intercom 官方文件](https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes)
 - [From resolutions to outcomes — Intercom Blog](https://www.intercom.com/blog/from-resolutions-to-outcomes-evolving-how-fin-delivers-value/)
 - [Agentforce Pricing — Salesforce](https://www.salesforce.com/agentforce/pricing/)
+- [Cost per resolution — Zendesk](https://www.zendesk.com/blog/ai/productivity/cost-per-resolution/)
+- [About automated resolutions for AI agents — Zendesk 官方文件](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents)
 - [Retention Is All You Need — a16z](https://a16z.com/ai-retention-benchmarks/)
 - [The AI churn wave? — Kyle Poyar / Growth Unhinged](https://www.growthunhinged.com/p/the-ai-churn-wave)
 - [State of Subscription Apps 2026 — RevenueCat](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026)
