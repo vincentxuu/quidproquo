@@ -24,7 +24,7 @@ faq:
   - q: "Product Builder 跟 Product Manager 差在哪？"
     a: "最核心的差別是影響力的來源。PM 透過權威影響團隊執行，產出是 PRD 和 roadmap；Product Builder 透過能力直接貢獻產出，交付的直接就是可用的 prototype 或功能。PM 需要說服團隊去做，Product Builder 可以自己先做出來再談。"
   - q: "成為 Product Builder 需要哪些能力？"
-    a: "四塊：技術面要有基本的 Python／JavaScript 和 API 串接能力，能跟 AI pair programming；設計面要能用 v0、Lovable 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好；產品面要會用戶研究、SQL 數據分析和假設驗證；AI 素養則包含 prompt engineering 和判斷 AI 產出邊界的能力。重點不是每項精通，而是每項都懂到足以獨立推進。"
+    a: "四塊：技術面要有基本的 Python／JavaScript 和 API 串接能力，能跟 AI pair programming；設計面要能用 v0、Lovable、Claude Design 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好；產品面要會用戶研究、SQL 數據分析和假設驗證；AI 素養則包含 prompt engineering 和判斷 AI 產出邊界的能力。重點不是每項精通，而是每項都懂到足以獨立推進。"
   - q: "Product Builder 會取代 PM、設計師和工程師嗎？"
     a: "不會。當產品複雜度提高、需要大規模系統架構或深度用戶研究時，專業分工仍不可取代。Product Builder 最適合的是早期產品探索、內部工具、快速功能迭代這類「先驗證再投入」的階段。"
   - q: "不同公司的 Product Builder 職缺是同一種工作嗎？"
@@ -32,7 +32,7 @@ faq:
   - q: "Product Builder 這個角色有什麼批評或風險？"
     a: "主要有三類。一是 Roman Pichler 指出的「分散式智慧消失」——當一個人做完所有事，參與的專業視角變少，等於帶著更窄的假設跑得更快。二是 SVPG 的觀察：團隊靠 AI 交付變快了，但 outcome 沒有跟著變好，被加速的是產出而不是判斷。三是角色邊界不清造成的實務問題，Userpilot 2026 年調查中有 46.7% 的 PM 擔心被要求用不足的支援做過多的事，31.6% 擔心什麼都做等於什麼都不精。"
   - q: "PM 想轉型成 Product Builder 該從哪裡開始？"
-    a: "從補上你缺的那一塊開始。PM 挑 backlog 裡一個問題，用 Claude Code 或 Codex 做 5 個方案各花 30 分鐘，砍掉 4 個留 1 個——練的是用可運行的東西取代會議室裡的爭論。設計師用 v0 或 Claude Artifacts 把設計直接變成可互動的 prototype，在 working code 層級判斷 UX，不再只交 Figma 截圖。工程師這週做 3 場用戶訪談、看 5 段 session recording，然後認領一個用戶面指標。先挑一個小範圍的真實問題從頭做到能上線，比讀十篇文章有用。"
+    a: "從補上你缺的那一塊開始。PM 挑 backlog 裡一個問題，用 Claude Code 或 Codex 做 5 個方案各花 30 分鐘，砍掉 4 個留 1 個——練的是用可運行的東西取代會議室裡的爭論。設計師用 v0、Claude Design 或 Claude Artifacts 把設計直接變成可互動的 prototype，在 working code 層級判斷 UX，不再只交 Figma 截圖。工程師這週做 3 場用戶訪談、看 5 段 session recording，然後認領一個用戶面指標。先挑一個小範圍的真實問題從頭做到能上線，比讀十篇文章有用。"
 draft: false
 ---
 
@@ -136,7 +136,7 @@ Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨�
 
 **技術面**：基本的 Python / JavaScript、API 串接、能用 AI 工具寫出堪用的程式。不需要是 senior engineer，但要能跟 AI pair programming。
 
-**設計面**：能用 v0、Lovable 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好——不是畫靜態稿，是跑起來看。
+**設計面**：能用 v0、Lovable、Claude Design 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好——不是畫靜態稿，是跑起來看。
 
 **產品面**：用戶研究、數據分析（SQL）、假設驗證、優先序排定。
 
@@ -203,7 +203,7 @@ LinkedIn 的 Aneesh Raman 說：
 
 PM → 挑 backlog 裡一個真實問題，用 Claude Code 或 Codex 做 5 個不同方案各花 30 分鐘，砍掉 4 個留 1 個。這就是 Prototyper 的肌肉記憶。練的不是寫程式，是用可運行的東西取代會議室裡的爭論。
 
-設計師 → 用 v0、Lovable 或 Claude Artifacts 把你的設計直接變成可互動的 prototype，在 working code 層級判斷 UX——layout 對不對、flow 順不順、回饋感夠不夠。Anthropic 的設計師已經在送 PR 了，靜態 Figma 截圖不再是交付物。
+設計師 → 用 v0、Lovable、Claude Design 或 Claude Artifacts 把你的設計直接變成可互動的 prototype，在 working code 層級判斷 UX——layout 對不對、flow 順不順、回饋感夠不夠。Anthropic 的設計師已經在送 PR 了，靜態 Figma 截圖不再是交付物。
 
 工程師 → 這週做 3 場 15 分鐘的用戶訪談，看 5 段 session recording，然後自己認領一個用戶面指標。不是「花時間理解用戶」這種空話，是把 customer signal 變成你每天盯的數字。
 
