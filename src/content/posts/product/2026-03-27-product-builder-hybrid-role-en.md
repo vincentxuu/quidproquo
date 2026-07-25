@@ -7,7 +7,7 @@ tldr: "A Product Builder runs the full loop from problem discovery to design to 
 category: product
 tags: [product-builder, product-management, ai, vibe-coding, career]
 lang: en
-description: "What a Product Builder is, how the role differs from a Product Manager, the skills it takes, and how PMs, designers, and engineers each transition into it. With real examples from LinkedIn, Walmart, and PayFit, plus a FAQ."
+description: "What a Product Builder is, how the role differs from a Product Manager, the skills it takes, and how PMs, designers, and engineers each transition into it. With sourced examples from LinkedIn, Walmart, and PayFit, plus a FAQ."
 glossary:
   - term: "vibe coding"
     aliases: ["Vibe Coding"]
@@ -70,7 +70,7 @@ LogRocket ran the numbers: a traditional three-person product team costs roughly
 This isn't experimentation at small companies — large organizations are already moving:
 
 - **LinkedIn** ended its long-running APM (Associate Product Manager) program and stood up a separate **Associate Product Builder (APB)** track, training generalists who span product, design, and engineering. CPO Tomer Cohen's framing on Lenny's Podcast: they intend to teach them to code, design, and PM at LinkedIn
-- **Walmart** created **Agent Builder** positions, staffed entirely by internal employees — including non-technical ones
+- **Walmart** opened **Agent Developer** roles — which the company calls its first "biz/tech" position — using low-code and natural-language interfaces so one person can design and deploy agents without a team or a technical background. Its chief people officer put it this way: a year ago we would not have had any dedicated agent builders, today we do
 - **Meta** PMs have started calling themselves "AI Builders"
 - **PayFit** defined the Product Builder role as far back as 2019, combining PM, UX, and Dev capabilities, using their in-house low-code language JetLang to build features directly
 - **SoFi** posted openings carrying the Product Builder name in early 2026 (postings close — treat this as evidence the title has entered formal job architecture, not as live hiring information)
@@ -128,6 +128,7 @@ The smallest viable starting move: pick one small tool you'd genuinely use yours
 
 - **2026-07-25**: Retitled and rewrote the description to focus on the Product Builder vs PM distinction; added an FAQ section and internal further-reading links.
 - **2026-07-25**: Three corrections after fact-checking. GitLab's 78% covers "already using **or** planning within two years" — actual implementation was 26%, where this post had said "already using." LinkedIn **ended** its APM program and created a separate Associate Product Builder track rather than renaming it. McKinsey's 40% refers to individual PM productivity (n=40), now presented alongside the 5% time-to-market figure it sits in tension with. Also replaced the overly wide 25-70% AI-code-security range with Veracode's 2025 measurements, and cut the low-information "A Day in the Life" section.
+- **2026-07-25**: Corrected the Walmart item. The formal title is **Agent Developer** — which Walmart calls its first biz/tech role — not "Agent Builder," which was its chief people officer's descriptive phrasing. The original claim that the role was staffed entirely by internal employees does not hold either; it is publicly posted.
 
 ---
 
@@ -144,3 +145,5 @@ The smallest viable starting move: pick one small tool you'd genuinely use yours
 - [2024 Global DevSecOps Report - GitLab](https://about.gitlab.com/resources/developer-survey/2024/)
 - [2025 GenAI Code Security Report - Veracode](https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/)
 - [Why LinkedIn is replacing PMs with AI-powered "full-stack builders" - Lenny's Newsletter](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)
+- [All in on Agents - Walmart Global Tech](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)
+- [How Walmart is securing a new cohort of AI builders - IT Brew](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)

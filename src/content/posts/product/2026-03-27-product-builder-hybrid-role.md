@@ -7,7 +7,7 @@ tldr: "Product Builder 是能獨立跑完「發現問題→設計→建造」完
 category: product
 tags: [product-builder, product-management, ai, vibe-coding, career]
 lang: zh-TW
-description: "Product Builder 是什麼、跟 Product Manager 差在哪、需要什麼能力、以及 PM／設計師／工程師各自該怎麼轉型。附 LinkedIn、Walmart、PayFit 的實際案例與常見問題整理。"
+description: "Product Builder 是什麼、跟 Product Manager 差在哪、需要什麼能力、以及 PM／設計師／工程師各自該怎麼轉型。附 LinkedIn、Walmart、PayFit 的實際案例與常見問題整理，並標註各項說法的一手來源。"
 glossary:
   - term: "vibe coding"
     aliases: ["Vibe Coding"]
@@ -70,7 +70,7 @@ LogRocket 的文章算了一筆帳：傳統三人組一年成本約 120-150 萬�
 這不是小公司的實驗，大公司已經在動了：
 
 - **LinkedIn** 結束了行之有年的 APM（Associate Product Manager）計畫，另設 **Associate Product Builder（APB）** track，訓練跨產品、設計、工程的通才。CPO Tomer Cohen 在 Lenny's Podcast 上的說法是：要教他們在 LinkedIn 怎麼寫程式、做設計、做 PM
-- **Walmart** 設立了 **Agent Builder** 職位，全部由內部員工（包含非技術人員）轉任
+- **Walmart** 開出了 **Agent Developer** 職位（公司自稱是第一個「biz/tech」職位），用低程式碼與自然語言介面，讓一個人不靠團隊、也不需要技術背景就能設計並部署 agent。人資長的說法是：一年前我們沒有任何專職的 agent builder，今天有了
 - **Meta** 的 PM 開始自稱「AI Builder」
 - **PayFit** 早在 2019 年就定義了 Product Builder 角色，結合 PM、UX、Dev 三種能力，用自研的 low-code 語言 JetLang 直接建構功能
 - **SoFi** 在 2026 年初開出過掛 Product Builder 名稱的職缺（職缺會關，這裡只當作「這個名稱已進入正式職稱體系」的證據，不是即時招聘資訊）
@@ -128,6 +128,7 @@ Product Builder 不是一個職稱，是一種工作方式。在 AI 讓每個人
 
 - **2026-07-25**：重寫標題與描述聚焦「Product Builder 與 PM 的差別」，新增常見問題整理與站內延伸閱讀連結。
 - **2026-07-25**：事實查證後修正三處。GitLab 的 78% 原文是「已導入**或**計畫兩年內導入」，實際已導入為 26%，原文誤植為「已經在用」；LinkedIn 是**結束** APM 計畫另設 Associate Product Builder track，不是改名；McKinsey 的 40% 是 PM 個人生產力（n=40），補上與「上市時間僅縮短 5%」的張力。另將 AI 程式碼安全的引用從過寬的 25–70% 區間換成 Veracode 2025 的實測數字，並移除資訊量不足的「Product Builder 的一天」一節。
+- **2026-07-25**：修正 Walmart 一項。該職位的正式名稱是 **Agent Developer**（Walmart 稱為第一個 biz/tech 職位），不是「Agent Builder」——後者是人資長的描述性說法；另原文寫「全部由內部員工轉任」並不成立，該職位有對外公開招募。
 
 ---
 
@@ -144,3 +145,5 @@ Product Builder 不是一個職稱，是一種工作方式。在 AI 讓每個人
 - [2024 Global DevSecOps Report - GitLab](https://about.gitlab.com/resources/developer-survey/2024/)
 - [2025 GenAI Code Security Report - Veracode](https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/)
 - [Why LinkedIn is replacing PMs with AI-powered "full-stack builders" - Lenny's Newsletter](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)
+- [All in on Agents - Walmart Global Tech](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)
+- [How Walmart is securing a new cohort of AI builders - IT Brew](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)
