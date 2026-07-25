@@ -44,6 +44,20 @@ Anthropic's Boris Cherny, the creator of Claude Code, said something worth sitti
 
 This isn't a prediction. It's already happening.
 
+In June 2026, Boris unpacked that statement into a concrete framework. [Observing how the Claude Code team actually works](https://x.com/bcherny/status/2071379474277613732), he found that roles aren't divided by job title — they operate along five archetypes:
+
+> 1. **Prototyper**: constantly generates brand-new ideas; most won't ship
+> 2. **Builder**: quickly turns a surviving prototype into production-grade product or infrastructure
+> 3. **Sweeper**: cleans up the UI, simplifies the code and system, unships unnecessary features, optimizes performance
+> 4. **Grower**: takes a shipped product and iterates on it to improve Product-Market Fit
+> 5. **Maintainer**: owns a mature system's security, reliability, speed, and efficiency
+
+Boris emphasized that many people span 2–3 archetypes, and these archetypes are **not tied to job function** — at Anthropic, some designers are Prototypers, some are Sweepers; the same spread appears among engineers, PMs, and data scientists. He also mapped archetype mixes to product stages: pre-PMF needs heavy 1+2+3, growth needs 2+3+4 plus some 5, and mature products run on 3+4+5 with some 2.
+
+[Aakash Gupta's follow-up analysis](https://x.com/aakashgupta/status/2071692050714501494) added the cultural context that makes this work at Anthropic: everyone shares the title Member of Technical Staff, they don't write PRDs — they build first, most prototypes are expected to die (the Claude Code spinner animation went through 50–100 iterations with ~80% never shipping), Claude Code reviews every PR before a human does the final check, and there's a framed copy of [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) on the wall where the team sits.
+
+The tweet accumulated over 3 million views and sparked extensive discussion across Chinese and English-language communities (see references at the end). This article approaches from the broader "Product Builder" role and places Boris's five archetypes within the industry context.
+
 ## What Is a Product Builder
 
 A Product Builder is someone who can take an idea from concept to a working product with minimal dependency on other teams. Not a PM, not a designer, not an engineer — but capable of doing all three.

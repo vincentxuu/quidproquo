@@ -44,6 +44,20 @@ Anthropic 的 Boris Cherny（Claude Code 的創造者）說了一句話：
 
 這不是預測，這是正在發生的事。
 
+而在 2026 年 6 月，Boris 進一步把這句話展開成一套具體的框架。他[觀察 Claude Code 團隊的工作方式](https://x.com/bcherny/status/2071379474277613732)，發現角色不是按職稱劃分的，而是按五種原型運作：
+
+> 1. **Prototyper**：不斷產出全新想法，大量嘗試但多數不會上線
+> 2. **Builder**：把存活的 prototype 快速推進到 production-grade 的產品或基礎設施
+> 3. **Sweeper**：清理 UI、簡化程式碼和系統、下架不必要的功能、優化效能
+> 4. **Grower**：接手已上線的產品，持續迭代以改善 Product-Market Fit
+> 5. **Maintainer**：負責成熟系統的安全性、可靠性、速度和效率
+
+Boris 強調：很多人會橫跨 2–3 種原型，而且這些原型**不綁定職能**——在 Anthropic，有些設計師是 Prototyper，有些是 Sweeper；工程師、PM、資料科學家也一樣。他還提出不同產品階段需要不同的原型組合：pre-PMF 需要大量 1+2+3，成長期需要 2+3+4 加上一些 5，成熟期則以 3+4+5 為主力。
+
+[Aakash Gupta 的延伸分析](https://x.com/aakashgupta/status/2071692050714501494)補充了 Anthropic 讓這套模式運作的文化背景：全員統一頭銜 Member of Technical Staff、不寫 PRD 先做再說、預期多數 prototype 會死（Claude Code 的 spinner 動畫做了 50–100 個版本，80% 從未出貨）、Claude Code 先 review 每個 PR 再由人做最後把關，以及團隊座位旁掛了一張裱框的 [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)。
+
+這則推文累積超過 300 萬次觀看，在中英文圈都引發大量討論（見文末參考資料）。以下這篇文章從「Product Builder」這個更廣的角色切入，把 Boris 的五種原型放在產業脈絡裡看。
+
 ## 什麼是 Product Builder
 
 Product Builder 是一個能把想法從概念推到可用產品的人，對其他團隊的依賴降到最低。不是 PM，不是設計師，也不是工程師，但三件事都做得到。
