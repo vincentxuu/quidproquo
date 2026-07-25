@@ -196,6 +196,13 @@ Khan Academy 的 Sal Khan 說得很直接：
 | [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | 未公開 | Andrew Ng 的 venture studio，entry level，快速驗證創業點子 |
 | [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | 未公開 | Enterprise BPO，1-3 yr，用 vibe coding 做企業內部工具 |
 | [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | 第一個 product hire，要 PM + Design 雙能力 |
+| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | 財富管理新創，「傳統 PM spec → designer render → engineer build 是產品變平庸的原因」 |
+| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | 未公開 | 最極端的定位：一個人 = 一個 squad，百萬企業用戶的 AI-native SaaS |
+| [Sairr](https://in.linkedin.com/jobs/view/founding-product-builder-at-sairr-4430265170) | Founding Product Builder | Gurugram, India | Cash + equity 彈性 | 50+ 歲旅遊新創，前 12 個月不做 app，先理解真實旅程再決定什麼該變成軟體 |
+| [Alps2Alps / Amitours](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | 未公開 | 旅遊集團，2-4 yr PM 經驗，要懂 performance marketing 和 growth hacking |
+| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder / Prompt Engineer | Remote US | 未公開 | SaaS portfolio，用 Claude Code / Cursor / Lovable 端到端做產品 |
+| [Motion Recruitment 代招](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | 未公開 | B2B SaaS，日常時間分配：35% discovery + 30% AI prototyping + 20% 協作 + 15% 迭代 |
+| [Optamark](https://vibehackers.io/jobs/ai-product-builder-optamark) | AI Product Builder | Remote India | ₹30k+/mo | 電商 sourcing 平台，明確標示「vibe coding skills required」 |
 
 ### 台灣
 
@@ -213,7 +220,9 @@ Khan Academy 的 Sal Khan 說得很直接：
 
 **台灣已經有人在用這個職稱招人**，而且跨度很大：CMoney 的是新鮮人培訓（類似 LinkedIn APB），菜蟲農食的是 forward-deployed 實戰角色，光時代的本質是 AI-native 工程師。跟國際市場一樣，同一個職稱指的不是同一種工作。
 
-**薪資帶的落差**反映了角色定義的分歧：ShipBob 的 senior 開到 $290k，Foundever 的 junior 要求只有 1-3 年經驗。台灣這邊從月薪 5 萬到 12 萬都有。
+**印度市場特別活躍**。Optima、HighLevel、Sairr、Optamark 都在印度招 Product Builder，薪資帶從 ₹30k/月到 ₹1Cr/年，跨度比美國還大。HighLevel 的「Team of One」是目前最極端的定位——一個人就是一個 squad。
+
+**薪資帶的落差**反映了角色定義的分歧：ShipBob 的 senior 開到 $290k，Foundever 的 junior 要求只有 1-3 年經驗，Optamark 的月薪只有 ₹30k。台灣這邊從月薪 5 萬到 12 萬都有。
 
 ## 需要什麼能力
 

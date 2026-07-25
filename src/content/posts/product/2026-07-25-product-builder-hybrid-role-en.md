@@ -189,6 +189,13 @@ These are Product Builder positions actively hiring at the time of writing (July
 | [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | Not disclosed | Andrew Ng's venture studio, entry level, rapid startup idea validation |
 | [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | Not disclosed | Enterprise BPO, 1-3 yr, vibe coding for internal/customer-facing apps |
 | [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | First product hire, requires PM + Design dual capability |
+| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | Wealth tech startup: "traditional PM spec → designer render → engineer build is how most product ends up mediocre" |
+| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | Undisclosed | Most extreme framing: one person = one squad, AI-native SaaS with 1M+ businesses |
+| [Sairr](https://in.linkedin.com/jobs/view/founding-product-builder-at-sairr-4430265170) | Founding Product Builder | Gurugram, India | Cash + equity flexible | Travel startup for 50+; first 12 months: no app — understand real journeys before deciding what deserves to become software |
+| [Alps2Alps / Amitours](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | Undisclosed | Travel group, 2-4 yr PM experience, must understand performance marketing and growth hacking |
+| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder / Prompt Engineer | Remote US | Undisclosed | SaaS portfolio; build end-to-end with Claude Code / Cursor / Lovable |
+| [Motion Recruitment](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | Undisclosed | B2B SaaS; time split: 35% discovery + 30% AI prototyping + 20% collaboration + 15% iteration |
+| [Optamark](https://vibehackers.io/jobs/ai-product-builder-optamark) | AI Product Builder | Remote India | ₹30k+/mo | E-commerce sourcing platform; explicitly requires "vibe coding skills" |
 
 ### Taiwan
 
@@ -206,7 +213,9 @@ These are Product Builder positions actively hiring at the time of writing (July
 
 **Taiwan already has companies hiring under this title**, and the spread is wide: CMoney's is a new-grad training program (mirroring LinkedIn's APB), 菜蟲農食's is a forward-deployed hands-on role, and 光時代's is essentially an AI-native engineer. Same pattern as the international market — same title, different jobs.
 
-**The salary range reflects the definitional divergence**: ShipBob's senior role goes up to $290k; Foundever's junior version requires only 1-3 years of experience. In Taiwan, monthly salaries range from NT$50k to NT$120k.
+**India is especially active.** Optima, HighLevel, Sairr, and Optamark are all hiring Product Builders in India, with compensation ranging from ₹30k/month to ₹1Cr/year — a wider spread than even the US market. HighLevel's "Team of One" is the most extreme framing out there: one person is the entire squad.
+
+**The salary range reflects the definitional divergence**: ShipBob's senior role goes up to $290k; Foundever's junior version requires only 1-3 years of experience; Optamark's monthly pay starts at ₹30k. In Taiwan, monthly salaries range from NT$50k to NT$120k.
 
 ## What Skills Does It Take
 
