@@ -24,7 +24,7 @@ faq:
   - q: "How is a Product Builder different from a Product Manager?"
     a: "The core difference is where influence comes from. PMs influence team execution through authority, and their deliverable is a PRD or roadmap. Product Builders contribute output directly through capability, and their deliverable is a working prototype or shipped feature. A PM has to convince a team to build it; a Product Builder can build it first and discuss afterward."
   - q: "What skills does a Product Builder need?"
-    a: "Four areas: technical (basic Python/JavaScript, API integration, effective AI pair programming), design (wireframes and prototypes in Figma, basic UX principles), product (user research, SQL and data analysis, hypothesis validation), and AI literacy (prompt engineering, judging the limits of AI output). The point is not mastery of each — it is knowing each well enough to move independently."
+    a: "Four areas: technical (basic Python/JavaScript, API integration, effective AI pair programming), design (interactive prototypes via v0, Lovable, or Claude Artifacts, judging UX in working code), product (user research, SQL and data analysis, hypothesis validation), and AI literacy (prompt engineering, judging the limits of AI output). The point is not mastery of each — it is knowing each well enough to move independently."
   - q: "Will Product Builders replace PMs, designers, and engineers?"
     a: "No. Specialization remains irreplaceable as product complexity grows, when large-scale system architecture is needed, or when deep user research matters. Product Builders fit best in early product exploration, internal tools, and fast feature iteration — the validate-before-you-commit stage."
   - q: "Do Product Builder job postings at different companies mean the same thing?"
@@ -32,7 +32,7 @@ faq:
   - q: "What are the criticisms and risks of the Product Builder role?"
     a: "Three main ones. First, the loss of distributed intelligence that Roman Pichler describes — when one person does all the work, fewer expert perspectives are involved, so you move faster on narrower assumptions. Second, SVPG's observation that teams are delivering faster with AI while their outcomes are not improving: what accelerates is output, not judgement. Third, the practical fallout of unclear boundaries — in Userpilot's 2026 survey, 46.7% of PMs worried about being asked to do too much with too little support, and 31.6% worried that doing everything means doing nothing particularly well."
   - q: "How does a PM start transitioning into a Product Builder role?"
-    a: "Start by filling the gap you have. PMs should learn to prototype with AI tools so they can validate their own ideas instead of waiting. Designers should pick up basic coding so designs do not stop at Figma. Engineers should talk to customers directly rather than only reading PRDs. Pick one small, real problem and take it end to end with Claude Code or Codex — that beats reading ten articles about it."
+    a: "Start by filling the gap you have. PMs: pick one backlog problem, build 5 approaches in Claude Code or Codex at 30 minutes each, kill 4, keep 1 — you're learning to replace arguments with running software. Designers: use v0 or Claude Artifacts to turn designs into interactive prototypes and judge UX at the working-code level, not in static Figma screenshots. Engineers: do 3 user interviews this week, watch 5 session recordings, then own one user-facing metric. Pick one small, real problem and take it end to end — that beats reading ten articles about it."
 draft: false
 ---
 
@@ -136,7 +136,7 @@ Product Builders don't need to master everything — just know each domain well 
 
 **Technical**: Basic Python / JavaScript, API integration, ability to write serviceable code with AI assistance. Not a senior engineer, but capable of AI pair programming.
 
-**Design**: Using Figma to create wireframes and prototypes, understanding core UX principles.
+**Design**: Using v0, Lovable, or Claude Artifacts to produce interactive prototypes, and judging UX at the working-code level — not in static mockups.
 
 **Product**: User research, data analysis (SQL), hypothesis validation, prioritization.
 
@@ -196,11 +196,11 @@ One observation: these pieces lean consistently optimistic, treating the role as
 
 Whether you're currently a PM, designer, or engineer, the path is the same: **fill in the gaps you're missing**. Worth noting: LinkedIn's APB program explicitly welcomes a career pivot — no formal product experience required, open to people already working full time. That alone says the entry point to this career path is wider than traditional PM.
 
-PM → Learn to prototype with AI tools so you can validate ideas yourself instead of waiting for someone else to build them.
+PM → Pick one real problem from your backlog. Build 5 different approaches in Claude Code or Codex, 30 minutes each. Kill 4, keep 1. This is Prototyper muscle memory. You're not learning to code — you're learning to replace meeting-room arguments with something that runs.
 
-Designer → Pick up basic coding skills so your designs don't stay locked inside Figma.
+Designer → Use v0, Lovable, or Claude Artifacts to turn your designs directly into interactive prototypes. Judge UX at the working-code level — does the layout hold up, does the flow feel right, is the feedback loop fast enough? Anthropic's designers already submit PRs. Static Figma handoffs are no longer the deliverable.
 
-Engineer → Invest time in understanding users, talk directly with customers, and don't just read the PRD.
+Engineer → Do 3 fifteen-minute user interviews this week. Watch 5 session recordings. Then claim ownership of one user-facing metric. Not "spend time understanding users" — turn customer signal into a number you check daily.
 
 Product Builder isn't a job title — it's a way of working. In an era where AI enables everyone to do more, people who can independently move from problem to solution will become increasingly valuable.
 
