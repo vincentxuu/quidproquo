@@ -314,7 +314,7 @@ From LINE's super-app to Shopify's open platform to Crescendo Lab's MarTech inte
 
 ## Implications for Product Builders
 
-From these ecosystem case studies, several universal principles emerge (for the definition of the Product Builder role itself and the skills it requires, see [Product Builder vs PM: What the Role Is and How to Get There](/posts/product/2026-03-27-product-builder-hybrid-role-en)):
+From these ecosystem case studies, several universal principles emerge (for the definition of the Product Builder role itself and the skills it requires, see [Product Builder vs PM: What the Role Is and How to Get There](/posts/product/2026-07-25-product-builder-hybrid-role-en)):
 
 1. **Choose your ecosystem position**: Do you want to be the platform (like Shopify), the super-app (like LINE), or a participant in someone else's ecosystem (like Crescendo Lab)? These three roles have completely different resource requirements and growth trajectories
 2. **Find your "hub"**: First become the best at one specific use case, then expand through integrations. Crescendo Lab chose LINE marketing; Shopify chose e-commerce storefronts

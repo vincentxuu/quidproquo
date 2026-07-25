@@ -144,7 +144,7 @@ The book's core trade-off is breadth over depth. 190 entries means no single ent
 
 Agents are amplifiers. This book's goal is to make sure what gets amplified is worth amplifying.
 
-And once these patterns let one person run an entire product loop, the job titles start shifting too — see [Product Builder vs PM: What the Role Is and How to Get There](/posts/product/2026-03-27-product-builder-hybrid-role-en).
+And once these patterns let one person run an entire product loop, the job titles start shifting too — see [Product Builder vs PM: What the Role Is and How to Get There](/posts/product/2026-07-25-product-builder-hybrid-role-en).
 
 ---
 

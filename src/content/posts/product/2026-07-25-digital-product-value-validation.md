@@ -331,4 +331,4 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 **站內相關**
 
 - [拆解 Anthropic Founder's Playbook：四階段、三條 moat、一個 Cowork 合規坑](/posts/ai/2026-05-18-anthropic-founders-playbook)
-- [Product Builder：當 AI 讓每個人都能從 0 到 1，產品開發的角色正在重組](/posts/product/2026-03-27-product-builder-hybrid-role)
+- [Product Builder：當 AI 讓每個人都能從 0 到 1，產品開發的角色正在重組](/posts/product/2026-07-25-product-builder-hybrid-role)

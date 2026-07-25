@@ -1,7 +1,6 @@
 ---
 title: "Product Builder 是什麼？跟 PM 的差別與轉型路徑"
-date: 2026-03-27
-updated: 2026-07-25
+date: 2026-07-25
 type: deep-dive
 tldr: "Product Builder 是能獨立跑完「發現問題→設計→建造」完整循環的人。跟 PM 最大的差別是：PM 靠權威影響團隊執行，Product Builder 靠能力直接產出可用產品。LinkedIn 已用 Associate Product Builder track 取代原本的 APM 計畫，PayFit 早在 2019 年就定義了這個角色。"
 category: product
@@ -37,7 +36,7 @@ faq:
 draft: false
 ---
 
-🌏 [English version](/posts/product/2026-03-27-product-builder-hybrid-role-en)
+🌏 [English version](/posts/product/2026-07-25-product-builder-hybrid-role-en)
 
 Anthropic 的 Boris Cherny（Claude Code 的創造者）說了一句話：
 

@@ -331,4 +331,4 @@ If only one line survives: **validation isn't there to prove you right, it's the
 **Related posts on this site**
 
 - [Dissecting Anthropic's Founder's Playbook: Four Stages, Three Moats, and One Cowork Compliance Pitfall](/posts/ai/2026-05-18-anthropic-founders-playbook-en)
-- [Product Builder: As AI Enables Anyone to Build from 0 to 1, Product Roles Are Being Reorganized](/posts/product/2026-03-27-product-builder-hybrid-role-en)
+- [Product Builder: As AI Enables Anyone to Build from 0 to 1, Product Roles Are Being Reorganized](/posts/product/2026-07-25-product-builder-hybrid-role-en)

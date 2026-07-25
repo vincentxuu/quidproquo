@@ -1,7 +1,6 @@
 ---
 title: "Product Builder vs PM: What the Role Is and How to Get There"
-date: 2026-03-27
-updated: 2026-07-25
+date: 2026-07-25
 type: deep-dive
 tldr: "A Product Builder runs the full loop from problem discovery to design to build, alone. The core difference from a PM: PMs influence execution through authority, Product Builders influence it by directly shipping working products. LinkedIn replaced its APM program with an Associate Product Builder track, and PayFit defined the role back in 2019."
 category: product
@@ -37,7 +36,7 @@ faq:
 draft: false
 ---
 
-🌏 [中文版](/posts/product/2026-03-27-product-builder-hybrid-role)
+🌏 [中文版](/posts/product/2026-07-25-product-builder-hybrid-role)
 
 Anthropic's Boris Cherny, the creator of Claude Code, said something worth sitting with:
 
