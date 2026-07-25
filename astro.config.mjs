@@ -51,6 +51,7 @@ export default defineConfig({
     },
   ],
   markdown: {
+    smartypants: false,
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [rehypeLazyImages],
   },
