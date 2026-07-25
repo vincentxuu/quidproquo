@@ -27,7 +27,9 @@
       "Bash(mv *)",
       "Bash(magick *)",
       "mcp__web-fetch__fetch_page",
-      "mcp__stealth-fetch__stealth_fetch"
+      "mcp__stealth-fetch__stealth_fetch",
+      "mcp__Exa__web_search_exa",
+      "mcp__Exa__web_fetch_exa"
     ],
     "deny": [
       "Bash(rm -rf *)",
