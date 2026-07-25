@@ -12,6 +12,7 @@ import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../u
 import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref } from '../../utils/series';
 import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -341,25 +342,24 @@ const breadcrumbLD = {
     )}
 
     <!-- Related articles -->
-    {relatedPosts.length > 0 && (
-      <section class="related">
-        <h3>
-          <Icons name="link" size={14} />
-          {t('post.related')} · #{post.data.tags[0]}
-        </h3>
-        <div class="related-list">
-          {relatedPosts.map(p => (
-            <a href={`/posts/${p.id}`} class="related-item">
-              <span class="related-title">{p.data.title}</span>
-              <span class="related-time">
-                <Icons name="clock" size={11} />
-                {p.data.readingTime ?? 1} min
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
+    <section class="related">
+      <h3>
+        <Icons name="link" size={14} />
+        {t('post.related')}
+      </h3>
+      <RelatedPosts client:idle slug={post.id} />
+      <div class="related-list related-fallback">
+        {relatedPosts.map(p => (
+          <a href={`/posts/${p.id}`} class="related-item">
+            <span class="related-title">{p.data.title}</span>
+            <span class="related-time">
+              <Icons name="clock" size={11} />
+              {p.data.readingTime ?? 1} min
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
   </article>
 </PostLayout>
 
