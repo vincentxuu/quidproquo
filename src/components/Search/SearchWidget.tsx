@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react'
-import ReactMarkdown from 'react-markdown'
 import './SearchWidget.css'
 
 interface SearchResult {
@@ -15,12 +14,6 @@ interface SearchResponse {
   mode: string
   query: string
   results: SearchResult[]
-  metrics?: {
-    searches: number
-    bm25_short_circuits: number
-    average_bm25_ms: number
-    average_vector_ms: number | null
-  }
   error?: string
   message?: string
 }
@@ -32,7 +25,6 @@ interface Props {
 const HISTORY_KEY = 'search-history'
 const MAX_HISTORY = 5
 
-// Popular/trending search suggestions
 const POPULAR_SEARCHES: Record<'zh-TW' | 'en', string[]> = {
   'zh-TW': ['RAG', 'Claude', 'MCP', 'Agent', 'Astro', 'Cloudflare'],
   'en': ['RAG', 'Claude', 'MCP', 'Agent', 'Astro', 'Cloudflare']
@@ -41,10 +33,7 @@ const POPULAR_SEARCHES: Record<'zh-TW' | 'en', string[]> = {
 export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [rawKeywordResults, setRawKeywordResults] = useState<SearchResult[]>([])
-  const [rawHybridResults, setRawHybridResults] = useState<SearchResult[]>([])
-  const [rawRagResults, setRawRagResults] = useState<SearchResult[]>([])
-  const [ragAnswer, setRagAnswer] = useState<string>('')
+  const [results, setResults] = useState<SearchResult[]>([])
   const [error, setError] = useState<string | null>(null)
   const [searchAttempted, setSearchAttempted] = useState(false)
   const [searchHistory, setSearchHistory] = useState<string[]>([])
@@ -55,13 +44,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
 
   const t = {
     placeholder: lang === 'en' ? 'Search posts, topics, questions...' : '搜尋文章、主題、問題...',
-    keywordSection: lang === 'en' ? 'Keyword Matches' : '關鍵字匹配',
-    hybridSection: lang === 'en' ? 'Semantic Results' : '語意相關',
-    ragSection: lang === 'en' ? 'AI Recommendations' : 'AI 問答',
     noResults: lang === 'en' ? 'No results found' : '沒有找到結果',
-    noKeywordResults: lang === 'en' ? 'No keyword matches' : '沒有關鍵字匹配',
-    noSemanticResults: lang === 'en' ? 'No semantic matches' : '沒有語意相關結果',
-    noAiResults: lang === 'en' ? 'No AI recommendations' : '沒有 AI 推薦',
     searching: lang === 'en' ? 'Searching...' : '搜尋中...',
     error: lang === 'en' ? 'Search failed. Please try again.' : '搜尋失敗，請重試。',
     minChars: lang === 'en' ? 'Type at least 2 characters' : '請輸入至少 2 個字元',
@@ -69,9 +52,9 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     recentSearches: lang === 'en' ? 'Recent' : '最近搜尋',
     popularSearches: lang === 'en' ? 'Popular' : '熱門搜尋',
     clearHistory: lang === 'en' ? 'Clear history' : '清除記錄',
+    resultsTitle: lang === 'en' ? 'Results' : '搜尋結果',
   }
 
-  // Load search history from localStorage
   useEffect(() => {
     try {
       const stored = localStorage.getItem(HISTORY_KEY)
@@ -83,7 +66,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }, [])
 
-  // Save search to history
   const saveToHistory = useCallback((searchQuery: string) => {
     setSearchHistory(currentHistory => {
       const newHistory = [searchQuery, ...currentHistory.filter(h => h !== searchQuery)].slice(0, MAX_HISTORY)
@@ -96,7 +78,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     })
   }, [])
 
-  // Clear history
   const clearHistory = useCallback(() => {
     setSearchHistory([])
     try {
@@ -106,51 +87,9 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }, [])
 
-  // Deduplicate results: track which slugs have been shown
-  const { keywordResults, hybridResults, ragResults } = useMemo(() => {
-    const seenSlugs = new Set<string>()
-
-    // Keyword results are always shown first
-    const keyword = rawKeywordResults.filter(result => {
-      if (seenSlugs.has(result.slug)) return false
-      seenSlugs.add(result.slug)
-      return true
-    })
-
-    // Hybrid results: exclude any already shown in keyword
-    const hybrid = rawHybridResults.filter(result => {
-      if (seenSlugs.has(result.slug)) return false
-      seenSlugs.add(result.slug)
-      return true
-    })
-
-    // RAG results: exclude any already shown in keyword or hybrid
-    const rag = rawRagResults.filter(result => {
-      if (seenSlugs.has(result.slug)) return false
-      seenSlugs.add(result.slug)
-      return true
-    })
-
-    return { keywordResults: keyword, hybridResults: hybrid, ragResults: rag }
-  }, [rawKeywordResults, rawHybridResults, rawRagResults])
-
-  // Flatten all results for keyboard navigation
-  const allResults = useMemo(() => [
-    ...keywordResults,
-    ...hybridResults,
-    ...ragResults
-  ], [keywordResults, hybridResults, ragResults])
-
-  // Computed values for rendering
-  const hasAnyResults = keywordResults.length > 0 || hybridResults.length > 0 || ragResults.length > 0
-  const showResults = searchAttempted && !isLoading
-
   const runSearch = useCallback(async (searchQuery: string) => {
     if (searchQuery.length < 2) {
-      setRawKeywordResults([])
-      setRawHybridResults([])
-      setRawRagResults([])
-      setRagAnswer('')
+      setResults([])
       setSearchAttempted(false)
       return
     }
@@ -162,23 +101,15 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     setFocusedIndex(-1)
 
     try {
-      // Run all three searches in parallel
-      const [keywordRes, hybridRes, ragRes] = await Promise.all([
-        fetch(`/api/search?q=${encodeURIComponent(searchQuery)}&mode=keyword&limit=6`).then(r => r.json()) as Promise<SearchResponse>,
-        fetch(`/api/search?q=${encodeURIComponent(searchQuery)}&mode=hybrid&limit=6`).then(r => r.json()) as Promise<SearchResponse>,
-        fetch(`/api/search?q=${encodeURIComponent(searchQuery)}&mode=rag&limit=6`).then(r => r.json()) as Promise<SearchResponse>,
-      ])
+      const res: SearchResponse = await fetch(
+        `/api/search?q=${encodeURIComponent(searchQuery)}&mode=hybrid&limit=12`
+      ).then(r => r.json())
 
-      // Check for rate limit or other errors
-      if (hybridRes.error === 'rate_limit' || ragRes.error === 'rate_limit') {
+      if (res.error === 'rate_limit') {
         setError(t.rateLimited)
       }
 
-      setRawKeywordResults(keywordRes.results || [])
-      setRawHybridResults(hybridRes.results || [])
-      setRawRagResults(ragRes.results || [])
-
-      // Save successful search to history
+      setResults(res.results || [])
       saveToHistory(searchQuery)
     } catch (err) {
       console.error('Search error:', err)
@@ -188,7 +119,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }, [t.error, t.rateLimited, saveToHistory])
 
-  // Hydrate searches opened from glossary links such as /search?q=MCP&mode=rag.
   useEffect(() => {
     if (initialUrlSearchRan.current) return
     initialUrlSearchRan.current = true
@@ -204,26 +134,23 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const updateSearchUrl = useCallback((searchQuery: string) => {
     const params = new URLSearchParams(window.location.search)
     params.set('q', searchQuery)
-    if (!params.get('mode')) {
-      params.set('mode', 'rag')
-    }
+    params.delete('mode')
     window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`)
   }, [])
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!showResults || allResults.length === 0) return
+      if (!searchAttempted || isLoading || results.length === 0) return
 
       if (e.key === 'ArrowDown') {
         e.preventDefault()
-        setFocusedIndex(prev => Math.min(prev + 1, allResults.length - 1))
+        setFocusedIndex(prev => Math.min(prev + 1, results.length - 1))
       } else if (e.key === 'ArrowUp') {
         e.preventDefault()
         setFocusedIndex(prev => Math.max(prev - 1, -1))
       } else if (e.key === 'Enter' && focusedIndex >= 0) {
         e.preventDefault()
-        const result = allResults[focusedIndex]
+        const result = results[focusedIndex]
         if (result) {
           window.location.href = result.url
         }
@@ -235,7 +162,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [showResults, allResults, focusedIndex])
+  }, [searchAttempted, isLoading, results, focusedIndex])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -260,7 +187,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   }
 
   const handleBlur = () => {
-    // Delay to allow clicking on suggestions
     setTimeout(() => setShowSuggestions(false), 200)
   }
 
@@ -269,6 +195,8 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     updateSearchUrl(suggestion)
     runSearch(suggestion)
   }
+
+  const showResults = searchAttempted && !isLoading
 
   return (
     <div className="search-widget">
@@ -294,7 +222,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         </div>
       </form>
 
-      {/* Search suggestions */}
       {showSuggestions && query.length === 0 && (searchHistory.length > 0 || POPULAR_SEARCHES[lang].length > 0) && (
         <div className="search-suggestions">
           {searchHistory.length > 0 && (
@@ -345,7 +272,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         <div className="search-hint">{t.minChars}</div>
       )}
 
-      {/* Loading skeleton */}
       {isLoading && query.length >= 2 && (
         <div className="search-results">
           <div className="results-section">
@@ -359,45 +285,31 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         </div>
       )}
 
-      {/* Actual results */}
-      {showResults && (
+      {showResults && results.length > 0 && (
         <div className="search-results">
-          <ResultsSection
-            title={t.keywordSection}
-            results={keywordResults}
-            emptyMessage={t.noKeywordResults}
-            showEmpty={true}
-            focusedIndex={focusedIndex}
-            startIndex={0}
-          />
-
-          <ResultsSection
-            title={t.hybridSection}
-            results={hybridResults}
-            emptyMessage={t.noSemanticResults}
-            showEmpty={searchAttempted}
-            focusedIndex={focusedIndex}
-            startIndex={keywordResults.length}
-          />
-
-          <ResultsSection
-            title={t.ragSection}
-            results={ragResults}
-            emptyMessage={t.noAiResults}
-            showEmpty={searchAttempted}
-            ragAnswer={ragAnswer}
-            focusedIndex={focusedIndex}
-            startIndex={keywordResults.length + hybridResults.length}
-          />
+          <section className="results-section">
+            <h3 className="section-title">
+              {t.resultsTitle}
+              <span className="section-count">{results.length}</span>
+            </h3>
+            <div className="results-grid">
+              {results.map((result, i) => (
+                <ResultCard
+                  key={result.slug}
+                  result={result}
+                  isFocused={focusedIndex === i}
+                />
+              ))}
+            </div>
+          </section>
         </div>
       )}
 
-      {!isLoading && searchAttempted && !hasAnyResults && !error && (
+      {!isLoading && searchAttempted && results.length === 0 && !error && (
         <div className="search-empty">{t.noResults}</div>
       )}
 
-      {/* Keyboard navigation hint */}
-      {showResults && allResults.length > 0 && (
+      {showResults && results.length > 0 && (
         <div className="keyboard-hint">
           <span>↑↓ Navigate</span>
           <span>Enter Open</span>
@@ -405,53 +317,6 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         </div>
       )}
     </div>
-  )
-}
-
-function ResultsSection({
-  title,
-  results,
-  emptyMessage,
-  showEmpty,
-  ragAnswer,
-  focusedIndex,
-  startIndex
-}: {
-  title: string
-  results: SearchResult[]
-  emptyMessage: string
-  showEmpty: boolean
-  ragAnswer?: string
-  focusedIndex: number
-  startIndex: number
-}) {
-  if (results.length === 0 && !showEmpty) return null
-
-  return (
-    <section className="results-section">
-      <h3 className="section-title">
-        {title}
-        <span className="section-count">{results.length}</span>
-      </h3>
-      {ragAnswer && (
-        <div className="rag-answer">
-          <ReactMarkdown>{ragAnswer}</ReactMarkdown>
-        </div>
-      )}
-      {results.length > 0 ? (
-        <div className="results-grid">
-          {results.map((result, i) => (
-            <ResultCard
-              key={result.slug}
-              result={result}
-              isFocused={focusedIndex === startIndex + i}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="empty-section">{emptyMessage}</div>
-      )}
-    </section>
   )
 }
 
