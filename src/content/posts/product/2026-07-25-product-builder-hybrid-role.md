@@ -13,6 +13,51 @@ glossary:
     definition: "不逐行寫程式，而是用自然語言描述你要什麼、讓 AI 生成實作，人負責看結果對不對。Andrej Karpathy 在 2025 年 2 月提出這個說法。"
     advanced: "實務上的瓶頸不在生成而在驗證：模型產出能跑的程式碼的能力持續進步，產出安全程式碼的能力卻幾乎沒有改善，所以審查與測試的成本會回到人身上。"
     context: "常出現在 Claude Code、Cursor、Lovable、Replit 這類 AI 編碼工具的討論。"
+  - term: "PRD"
+    aliases: ["Product Requirements Document"]
+    definition: "產品需求文件，PM 用來定義一個功能「要做什麼、為什麼做、怎麼驗收」的書面規格。傳統流程中，PRD 是工程團隊開始動工的前提。"
+    advanced: "Anthropic 的做法是幾乎不寫 PRD——直接做出 working prototype，用可運行的東西取代書面規格。Cat Wu 說他們用 team principles 取代 PRD，只有特別模糊或需要重基建的專案才會寫一頁式文件。"
+    context: "本文用來對比 PM（產出是 PRD）和 Product Builder（產出是可用的 prototype）。"
+  - term: "prototype"
+    aliases: ["原型"]
+    definition: "一個可以實際操作、用來測試想法的早期版本。在本文的語境裡，prototype 不是紙上草圖或靜態 Figma 截圖，而是能跑、能點、能讓用戶試用的 working version。"
+    advanced: "Boris Cherny 的團隊在出貨前會做上百個 prototype 進行測試，其中約 80% 不會上線。prototype 的價值不在於完美，在於讓你用最低成本驗證假設是否成立。"
+    context: "注意本文同時用了「原型」的兩個意思：Boris 的五種「角色原型（archetype）」和產品開發的「原型（prototype）」，兩者不同。"
+  - term: "outcome"
+    aliases: ["成果"]
+    definition: "產品上線後實際產生的商業或用戶結果——留存率有沒有提高、營收有沒有成長、用戶問題有沒有被解決。跟 output（產出量，例如上了幾個功能、寫了多少行程式碼）是不同的概念。"
+    advanced: "SVPG 觀察到的核心問題就是 output 和 outcome 的脫鉤：團隊靠 AI 交付得更快（output 增加），但 outcome 沒有跟著變好。被加速的是產出，不是判斷。"
+    context: "本文在討論 AI 是否真的讓產品開發變好時，反覆用到這個 output vs outcome 的對比。"
+  - term: "OWASP Top 10"
+    definition: "開放網路應用安全計畫（OWASP）整理的十大最常見、最危險的網頁應用程式安全風險清單，包含 SQL injection、XSS、身分驗證漏洞等。是業界衡量程式碼安全性的基準。"
+    advanced: "Veracode 2025 年報告以 OWASP Top 10 為基準測試 AI 生成的程式碼，發現 45% 引入了這個等級的漏洞。這個數字的嚴重性在於：這不是冷門邊緣的攻擊手法，而是最基本、最該被擋下的那一層。"
+    context: "本文引用這個標準來說明 Product Builder 不能盲目信任 AI 產出的程式碼。"
+  - term: "XSS"
+    aliases: ["Cross-Site Scripting", "跨站腳本攻擊"]
+    definition: "一種網頁安全漏洞，攻擊者把惡意腳本注入到其他用戶會看到的頁面裡，可以竊取登入憑證、冒充用戶操作。是 OWASP Top 10 的常客。"
+    context: "本文提到 Veracode 報告中 XSS 在相關樣本裡有 86% 沒被 AI 擋下。"
+  - term: "用戶訪談"
+    aliases: ["user interview"]
+    definition: "產品團隊跟真實用戶一對一對話，了解他們的使用情境、痛點和期待。通常 15–30 分鐘，重點是聽用戶描述行為和動機，不是推銷功能或要求評分。"
+    advanced: "跟問卷調查的差別在於深度：問卷告訴你「多少人碰到這個問題」，訪談告訴你「為什麼會碰到、碰到時在想什麼、目前怎麼繞過去」。Product Builder 需要這個能力，因為沒有 PM 幫你翻譯用戶需求。"
+    context: "本文建議工程師每週做 3 場 15 分鐘的用戶訪談作為轉型起步。"
+  - term: "用戶面指標"
+    aliases: ["user-facing metric"]
+    definition: "直接反映用戶行為或感受的量化指標，例如 activation rate（啟用率）、retention（留存率）、NPS（淨推薦值）、task completion rate（任務完成率）。跟工程指標（latency、uptime、error rate）不同，後者衡量系統健康，前者衡量用戶是否得到價值。"
+    context: "本文建議工程師認領一個用戶面指標，把 customer signal 變成每天盯的數字。"
+  - term: "session recording"
+    aliases: ["工作階段錄影"]
+    definition: "用工具（如 Hotjar、FullStory、PostHog）錄下真實用戶在你的產品上的操作過程——滑鼠移動、點擊、捲動、猶豫、放棄。不需要用戶知情以外的設定，就能看到「用戶實際怎麼用」而不是「用戶說他怎麼用」。"
+    context: "本文建議工程師每週看 5 段 session recording，作為培養產品感的起步。"
+  - term: "production-grade"
+    aliases: ["生產等級"]
+    definition: "程式碼或產品已經達到可以面對真實用戶、承受真實流量的品質——包含錯誤處理、安全性、效能、監控和部署流程都到位。跟 prototype（能跑就好）的差別在於：壞掉的時候會不會傷到用戶。"
+    context: "Boris 定義 Builder 原型的核心能力就是把 prototype 推進到 production-grade。"
+  - term: "技術債"
+    aliases: ["technical debt"]
+    definition: "為了短期速度而在程式碼品質上做的妥協，像是跳過測試、硬寫繞過去、複製貼上而不重構。就像借錢一樣，現在省時間，之後要連本帶利地用更多時間還。"
+    advanced: "在 Product Builder 的語境裡特別值得注意：一個人快速出貨的模式天生容易累積技術債，因為沒有其他工程師在旁邊擋住品質。這也是文章裡 LogRocket 成本試算漏掉的一項。"
+    context: "本文在分析 Product Builder 模式的隱藏成本時提到。"
   - term: "APM"
     aliases: ["Associate Product Manager"]
     definition: "大型科技公司培訓初階產品經理的輪調計畫，通常招收應屆畢業生，兩年內輪過數個產品團隊。Google、LinkedIn、Meta 都有類似制度。"
