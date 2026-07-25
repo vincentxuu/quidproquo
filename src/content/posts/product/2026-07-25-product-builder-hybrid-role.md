@@ -141,88 +141,83 @@ Product Builder 是一個能把想法從概念推到可用產品的人，對其�
 
 換句話說，這個模式真正的財務論證不該是「一個人比三個人便宜」，而是「**在什麼條件下，一個人的判斷不會比三個人差**」。這是個經營問題，不是人力成本問題。
 
-## 誰已經在做
+## 市場現狀：誰在做、怎麼定義、開多少錢
+
+### 大公司帶頭
 
 這不是小公司的實驗，大公司已經在動了：
 
-- **LinkedIn** 結束了行之有年的 APM（Associate Product Manager）計畫，另設 **Associate Product Builder（APB）** track，訓練跨產品、設計、工程的通才。CPO Tomer Cohen 在 [Lenny's Podcast](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms) 上的說法是：要教他們在 LinkedIn 怎麼寫程式、做設計、做 PM
-- **Walmart** [開出了 **Agent Developer** 職位](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)（公司自稱是第一個「biz/tech」職位），用低程式碼與自然語言介面，讓一個人不靠團隊、也不需要技術背景就能設計並部署 agent。[人資長的說法](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)是：一年前我們沒有任何專職的 agent builder，今天有了
+- **[LinkedIn](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)** 結束了行之有年的 APM 計畫，另設 **Associate Product Builder（APB）** track。CPO Tomer Cohen 的說法：要教他們怎麼寫程式、做設計、做 PM
+- **[Walmart](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)** 開出 **Agent Developer** 職位（自稱第一個「biz/tech」職位），不需要技術背景。[人資長](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)：一年前我們沒有任何專職的 agent builder，今天有了
 - **Meta** 的 PM 開始自稱「AI Builder」
-- **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** 早在 2019 年就定義了 Product Builder 角色，結合 PM、UX、Dev 三種能力，用自研的 low-code 語言 JetLang 直接建構功能
-- **SoFi** 在 2026 年初開出過掛 Product Builder 名稱的職缺（職缺會關，這裡只當作「這個名稱已進入正式職稱體系」的證據，不是即時招聘資訊）
+- **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** 早在 2019 年就定義了 Product Builder 角色，用自研的 low-code 語言 JetLang 直接建構功能——跟 AI 浪潮無關
 
-## 同一個職稱，四種不同的工作
+### 同一個職稱，不同的工作
 
-把這些職缺攤開對照，會看到一件很少被指出的事：**「Product Builder」在不同公司指的根本不是同一個角色**。
+把這些攤開對照，會看到一件很少被指出的事：**「Product Builder」在不同公司指的根本不是同一個角色**。
 
-| 公司 | 正式職稱 | 這個角色從哪裡長出來 | 技術背景要求 | 對外招募 | 公開薪資帶（USD） |
-|---|---|---|---|---|---|
-| LinkedIn | Associate Product Builder (APB) | 早期職涯培訓，取代原本的 APM | 要能動手，但不需是工程專家 | 是（Mountain View，hybrid） | $126k–$207k |
-| Mews | Product Builder | **資深工程師往上游走**，是工程職涯軌 | 是，明確定位為 high-agency 工程師 | 是 | 未公開 |
-| Walmart | Agent Developer | 內部營運端，低程式碼／自然語言工具 | **不需要** | 是（Bentonville） | $110k–$220k |
-| PayFit | Product Builder | 2019 年就存在，用 JetLang 做領域設定 | 用低程式碼平台，非傳統工程 | 是（含 2026 實習缺） | 未公開 |
-| SoFi | Product Builder (Sandbox) | AI 工具導向 | 要求 LLM 與 AI coding 工具能力 | 是（San Francisco） | 未公開 |
-| Meta | 無正式職稱 | 員工自稱「AI Builder」 | — | — | — |
+| 公司 | 正式職稱 | 從哪裡長出來 | 技術背景要求 | 薪資帶 |
+|------|---------|-----------|-----------|-------|
+| LinkedIn | Associate Product Builder (APB) | 早期職涯培訓，取代 APM | 要能動手，不需是工程專家 | $126k–$207k |
+| [Mews](https://developers.mews.com/what-it-means-to-be-a-product-builder-at-mews/) | Product Builder | 資深工程師往上游走 | 是，high-agency 工程師 | 未公開 |
+| Walmart | Agent Developer | 營運端，低程式碼工具 | 不需要 | $110k–$220k |
+| PayFit | Product Builder | 2019 年就存在，JetLang 領域設定 | 低程式碼，非傳統工程 | 未公開 |
 
-這張表最值得注意的是**中間兩欄的矛盾**：
+LinkedIn 招的是還沒有產品經歷的人，Mews 招的是資深工程師，Walmart 明確不要技術背景，PayFit 的跟 AI 完全無關。**先問清楚這個職位從哪個部門長出來的，比研究職稱本身有用。**
 
-- **LinkedIn** 的是入門級培訓，招的是還沒有正式產品經歷的人
-- **[Mews](https://developers.mews.com/what-it-means-to-be-a-product-builder-at-mews/)** 的是資深工程師的進階軌，官方描述是「不只管怎麼做，還要定義做什麼」
-- **Walmart** 的明確不要求技術背景，靠低程式碼工具讓營運端的人自己做 agent
-- **PayFit** 的比 ChatGPT 還早四年就存在，本質是用自研低程式碼平台設定各國勞動法規，**跟 AI 浪潮沒有關係**
+### 2026 年 7 月職缺快照
 
-所以看到一個掛「Product Builder」的職缺，不能直接套用同一套期待。它可能是要你從 PM 學寫程式，也可能是要你從資深工程師學做產品決策，甚至可能跟 AI 完全無關。**先問清楚這個職位是從哪個部門長出來的，比研究職稱本身有用。**
+以下是撰文時實際在招的 Product Builder 職缺。職缺會關，這裡的用途是呈現市場現狀，不是即時招聘資訊。
 
-至於市場行情，ZipRecruiter 給出的 product builder 全美平均年薪是 $159,405（多數落在 $141k–$197k）。這個數字參考就好——職稱既然指涉四種不同的工作，平均值的意義相當有限。
-
-Khan Academy 的 Sal Khan 說得很直接：
-
-> The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
-
-## 2026 年 7 月職缺快照
-
-以下是撰文時（2026 年 7 月）實際在招的 Product Builder 職缺，不是歷史案例。職缺會關，這裡的用途是呈現市場現狀，不是即時招聘資訊。
-
-### 國際
+#### 國際
 
 | 公司 | 職稱 | 地點 | 薪資 | 一句話重點 |
 |------|------|------|------|-----------|
-| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder（多個 domain） | Remote US | $151k–$290k | 「AI Builders 是 ShipBob 的新 job family」——要讀 data model、evaluate AI-generated code、寫能讓 AI 直接執行的 spec。向 Director of AI Product Builder 報告 |
-| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote 全球 | US $119k–$231k | Enterprise agentic orchestration。明確要「AI-native delivery habits」，pod 制 |
-| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech，AI 臨床 OS。要 founder-mindset |
-| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr 工程背景，用 Cursor/Claude Code 做 prototype |
-| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | 未公開 | 「Two builders per pod. No specialist.」7+ yr，要有 startup/founder 背景 |
+| [ShipBob](https://job-boards.greenhouse.io/shipbobinc/jobs/4698995005) | Senior AI Product Builder（多個 domain） | Remote US | $151k–$290k | 建了整個 job family「AI Builders」——要讀 data model、evaluate AI-generated code、向 Director of AI Product Builder 報告 |
+| [Abnormal Security](https://remotive.com/remote/jobs/product/ai-product-builder-4687819) | AI Product Builder | Remote US | $141k–$203k | 資安獨角獸，AI Transformation Pod 直接向 CEO 報告 |
+| [ShopMy](https://careerport.is-great.net/job/senior-product-builder-creator) | Senior Product Builder-Creator | Remote US | $175k–$225k | $1.5B 估值的 creator commerce 獨角獸，第二個 Product Builder hire |
+| [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote 全球 | US $119k–$231k | Enterprise agentic orchestration，pod 制，明確要「AI-native delivery habits」 |
+| [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech，AI 臨床 OS |
+| [Apollo.io](https://jobsy.42web.io/job/remote-product-builder-product-manager-ai-agents) | Product Builder, AI Agents | Remote US | 未公開 | 50 萬+企業用戶的 GTM 平台，負責 Autonomous AI Agents |
+| [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr 工程背景，「AI is your ultimate execution engine」 |
+| [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | 未公開 | 「Two builders per pod. No specialist.」7+ yr |
+| [Whalar Group](https://careersync.liveblog365.com/remote-jobs/product-builder-1) | Product Builder (Ops Labs) | Remote US | 未公開 | 第一個 hire，新設的 AI-native 內部工具部門 |
 | [Go.Shop](https://builtin.com/job/product-builder-creator-brand-ai-platform/9477419) | Product Builder | Remote GMT–GMT+8 | 面議 + equity | 第三個 Product Builder hire，PM + designer + engineer 三合一 |
-| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | 未公開 | Andrew Ng 的 venture studio，entry level，快速驗證創業點子 |
+| [AI Fund](https://www.linkedin.com/jobs/view/product-builder-at-ai-fund-4267686491) | Product Builder | Palo Alto | 未公開 | Andrew Ng 的 venture studio，entry level |
+| [Alan](https://www.linkedin.com/posts/vincent-l-8633bb7_were-hiring-a-senior-ops-product-builder-activity-7462913537007415296-v3zv) | Senior Ops & Product Builder | France / Belgium / Spain | 未公開 | 歐洲 healthtech，1M+ 會員，10-15 yr 經驗 |
 | [Foundever](https://jobs.foundever.com/job/Remote-AI-Product-Builder-Any/1400681900/) | AI Product Builder | Remote CET | 未公開 | Enterprise BPO，1-3 yr，用 vibe coding 做企業內部工具 |
 | [Rare Candy](https://www.linkedin.com/jobs/view/lead-product-builder-product-design-at-rare-candy-4429374033) | Lead Product Builder | NYC | Startup comp + equity | 第一個 product hire，要 PM + Design 雙能力 |
-| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | 財富管理新創，「傳統 PM spec → designer render → engineer build 是產品變平庸的原因」 |
-| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | 未公開 | 最極端的定位：一個人 = 一個 squad，百萬企業用戶的 AI-native SaaS |
-| [Sairr](https://in.linkedin.com/jobs/view/founding-product-builder-at-sairr-4430265170) | Founding Product Builder | Gurugram, India | Cash + equity 彈性 | 50+ 歲旅遊新創，前 12 個月不做 app，先理解真實旅程再決定什麼該變成軟體 |
-| [Alps2Alps / Amitours](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | 未公開 | 旅遊集團，2-4 yr PM 經驗，要懂 performance marketing 和 growth hacking |
-| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder / Prompt Engineer | Remote US | 未公開 | SaaS portfolio，用 Claude Code / Cursor / Lovable 端到端做產品 |
-| [Motion Recruitment 代招](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | 未公開 | B2B SaaS，日常時間分配：35% discovery + 30% AI prototyping + 20% 協作 + 15% 迭代 |
-| [Optamark](https://vibehackers.io/jobs/ai-product-builder-optamark) | AI Product Builder | Remote India | ₹30k+/mo | 電商 sourcing 平台，明確標示「vibe coding skills required」 |
+| [Optima](https://getmereferred.com/in/job-listing/ainative-product-builder-optima-inmhmumbai-2-to-5-years-experience-06137375-110b-41f9-ac43-78479b0cbc11) | AI-Native Product Builder | Mumbai | ₹50L–1Cr | 「傳統分工是產品變平庸的原因」 |
+| [HighLevel](https://in.linkedin.com/jobs/view/full-stack-builder-team-of-one-at-highlevel-4380254435) | Full Stack Builder (Team of One) | Remote India | 未公開 | 一個人 = 一個 squad |
+| [Adly](https://jobvectora.synergize.co/job/remote-prompt-engineer-ai-product-builder-4) | AI Product Builder | Remote US | 未公開 | SaaS portfolio，Claude Code / Cursor / Lovable 端到端 |
+| [Alps2Alps](https://bebee.com/cy/jobs/product-builder-alps2alps-ski-transfers--theirstack-692636484) | Product Builder | Remote CET | 未公開 | 旅遊集團，要懂 growth hacking |
+| [Motion Recruitment 代招](https://motionrecruitment.com/tech-jobs/mississauga/direct-hire/product-builder/877667) | AI-Native Product Builder | Toronto / GTA | 未公開 | 35% discovery + 30% AI prototyping + 20% 協作 + 15% 迭代 |
 
-### 台灣
+#### 台灣
 
 | 公司 | 職稱 | 地點 | 薪資 | 一句話重點 |
 |------|------|------|------|-----------|
-| [菜蟲農食](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Forward-Deployed Product Builder | 台北松山 | 月薪 6–12 萬 | 農產流通數位化，FDE × Product Builder 混合角色 |
-| [全曜財經 CMoney](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Associate Product Builder (APB) | 新北板橋 | 面議 | 新鮮人計畫，明確仿 LinkedIn APB 模式——「為未來能獨立做出產品的人設計」 |
-| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | 台北內湖 | 面議 | 一人從 firmware 到 mobile app，AI-native 開發 |
-| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder / AI-Native Software Engineer | 台北中山 | 月薪 5–7 萬 | 明確用 Claude Code 開發，在資深 AI Builder 帶領下 |
-| [摩速科技](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Senior AI Product Manager (Cortex) | 台北大安 | 面議 | JD 裡自稱「AI-native product builder」 |
+| [菜蟲農食](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Forward-Deployed Product Builder | 台北松山 | 月薪 6–12 萬 | 農產流通數位化，FDE × Product Builder 混合 |
+| [全曜財經 CMoney](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Associate Product Builder (APB) | 新北板橋 | 面議 | 新鮮人計畫，仿 LinkedIn APB——「為未來能獨立做出產品的人設計」 |
+| [奧創智慧](https://www.104.com.tw/jobs/search/?keyword=product+builder) | IoT Product Builder | 台北內湖 | 面議 | 一人從 firmware 到 mobile app |
+| [光時代](https://www.104.com.tw/jobs/search/?keyword=product+builder) | AI Builder | 台北中山 | 月薪 5–7 萬 | 明確用 Claude Code，資深 AI Builder 帶領 |
+| [摩速科技](https://www.104.com.tw/jobs/search/?keyword=product+builder) | Senior AI Product Manager (Cortex) | 台北大安 | 面議 | JD 自稱「AI-native product builder」 |
 
-### 幾個觀察
+### 從職缺裡看到什麼
 
-**ShipBob 最值得注意**。他們不是加一個職缺，而是建了一整個 job family 叫「AI Builders」——有自己的職級（向 Director of AI Product Builder 報告）、自己的 pod 結構（AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder）、自己的工作模式（discovery → spec → prototype → production PR，全部一個人）。這是目前市場上把 Product Builder 制度化做得最徹底的案例。
+**ShipBob 最值得研究**。他們建了整個 job family 叫「AI Builders」——有自己的職級（Director of AI Product Builder）、pod 結構（AI Engineer + AI/Prompt Engineer + Designer + AI Product Builder）、工作模式（discovery → spec → prototype → production PR，一個人端到端）。這是目前把 Product Builder 制度化做得最徹底的案例。
 
-**台灣已經有人在用這個職稱招人**，而且跨度很大：CMoney 的是新鮮人培訓（類似 LinkedIn APB），菜蟲農食的是 forward-deployed 實戰角色，光時代的本質是 AI-native 工程師。跟國際市場一樣，同一個職稱指的不是同一種工作。
+**獨角獸開始用這個職稱**。Abnormal Security（資安）和 ShopMy（creator commerce，$1.5B 估值）都在招 Product Builder，薪資帶 $141k–$225k。這不再是小新創的實驗。
 
-**印度市場特別活躍**。Optima、HighLevel、Sairr、Optamark 都在印度招 Product Builder，薪資帶從 ₹30k/月到 ₹1Cr/年，跨度比美國還大。HighLevel 的「Team of One」是目前最極端的定位——一個人就是一個 squad。
+**台灣已經有 5 筆職缺**，跨度跟國際一樣大：CMoney 是新鮮人培訓（仿 LinkedIn APB），菜蟲農食是 forward-deployed 實戰角色，光時代本質是 AI-native 工程師。
 
-**薪資帶的落差**反映了角色定義的分歧：ShipBob 的 senior 開到 $290k，Foundever 的 junior 要求只有 1-3 年經驗，Optamark 的月薪只有 ₹30k。台灣這邊從月薪 5 萬到 12 萬都有。
+**印度市場特別活躍**。Optima、HighLevel、Sairr 都在印度招，薪資從 ₹30k/月到 ₹1Cr/年。HighLevel 的「Team of One」是最極端的定位。
+
+**薪資帶反映了定義分歧**：ShipBob senior 開到 $290k，Foundever junior 只要 1-3 年經驗。ZipRecruiter 的全美平均 $159k 參考就好——職稱指涉不同的工作，平均值意義有限。
+
+Khan Academy 的 Sal Khan 說得直接：
+
+> The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
 
 ## 需要什麼能力
 
