@@ -121,15 +121,15 @@ Product Builder 是一個能把想法從概念推到可用產品的人，對其�
 
 2025 年 2 月，Andrej Karpathy 提出 vibe coding — 不再逐行寫程式，而是用自然語言描述你要什麼，AI 幫你生成。這直接降低了「做出東西」的門檻。關於這套工作方式已經沉澱出哪些具體模式，可以參考 [Encyclopedia of Agentic Coding Patterns 的 190 個 pattern](/posts/ai/2026-04-18-encyclopedia-of-agentic-coding-patterns)。
 
-McKinsey 找 40 位 PM 做的實驗顯示，生成式 AI 讓 **PM 個人生產力提升 40%** — 但同一份研究裡，產品上市時間只縮短 **5%**。
+[McKinsey 找 40 位 PM 做的實驗](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-generative-ai-could-accelerate-software-product-time-to-market)顯示，生成式 AI 讓 **PM 個人生產力提升 40%**（主要來自內容密集型任務如寫 PRD、建 backlog 的完成時間大幅縮短）— 但同一份研究裡，整個六個月產品開發週期的上市時間只縮短 **5%**，因為 PM 能加速的只是整條線的一小段。
 
 這個落差值得停下來看：個人產出變快，不等於整條產品線變快。卡住的通常不是「做不出來」，而是決策、對齊、與驗證。這也正是 Product Builder 這個角色主張要拆掉的環節 — 但它同時提醒，把 AI 塞進既有流程而不改流程本身，效益會被交接成本吃掉。
 
-導入的實際進度也比想像慢。GitLab 2024 Global DevSecOps Report 常被引用的「78%」指的是**已導入或計畫兩年內導入**；同一份報告裡，回報**實際已導入**的只有 26%。
+導入的實際進度也比想像慢。[GitLab 2024 Global DevSecOps Report](https://about.gitlab.com/resources/developer-survey/2024/) 常被引用的「78%」指的是**已導入或計畫兩年內導入**；同一份報告裡，回報**實際已導入**的只有 26%。
 
 當 Claude Code、Cursor、Lovable、Replit 這些工具讓一個人能在幾小時內從想法做出 working prototype，傳統的三人組（PM + Designer + Dev）就不再是唯一選項了。
 
-LogRocket 的文章算了一筆帳：傳統三人組一年成本約 120-150 萬美元，而 50-60% 上線的功能表現不如預期。如果一個 Product Builder 能在投入完整工程資源之前就先驗證假設，每年避免 5 個不必要的功能就能省下 50 萬美元以上。
+[LogRocket 的文章](https://blog.logrocket.com/product-management/product-builders-future-product-management/)算了一筆帳：傳統三人組一年成本約 120-150 萬美元，而 50-60% 上線的功能表現不如預期。如果一個 Product Builder 能在投入完整工程資源之前就先驗證假設，每年避免 5 個不必要的功能就能省下 50 萬美元以上。
 
 這筆帳看起來很有說服力，但它只算了省下來的錢，沒算新增的成本。至少有三項沒進到分母：
 
@@ -145,10 +145,10 @@ LogRocket 的文章算了一筆帳：傳統三人組一年成本約 120-150 萬�
 
 這不是小公司的實驗，大公司已經在動了：
 
-- **LinkedIn** 結束了行之有年的 APM（Associate Product Manager）計畫，另設 **Associate Product Builder（APB）** track，訓練跨產品、設計、工程的通才。CPO Tomer Cohen 在 Lenny's Podcast 上的說法是：要教他們在 LinkedIn 怎麼寫程式、做設計、做 PM
-- **Walmart** 開出了 **Agent Developer** 職位（公司自稱是第一個「biz/tech」職位），用低程式碼與自然語言介面，讓一個人不靠團隊、也不需要技術背景就能設計並部署 agent。人資長的說法是：一年前我們沒有任何專職的 agent builder，今天有了
+- **LinkedIn** 結束了行之有年的 APM（Associate Product Manager）計畫，另設 **Associate Product Builder（APB）** track，訓練跨產品、設計、工程的通才。CPO Tomer Cohen 在 [Lenny's Podcast](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms) 上的說法是：要教他們在 LinkedIn 怎麼寫程式、做設計、做 PM
+- **Walmart** [開出了 **Agent Developer** 職位](https://public.walmart.com/content/walmart-global-tech/en_us/blog/post/all-in-on-agents.html)（公司自稱是第一個「biz/tech」職位），用低程式碼與自然語言介面，讓一個人不靠團隊、也不需要技術背景就能設計並部署 agent。[人資長的說法](https://www.itbrew.com/stories/how-walmart-is-securing-a-new-cohort-of-ai-builders)是：一年前我們沒有任何專職的 agent builder，今天有了
 - **Meta** 的 PM 開始自稱「AI Builder」
-- **PayFit** 早在 2019 年就定義了 Product Builder 角色，結合 PM、UX、Dev 三種能力，用自研的 low-code 語言 JetLang 直接建構功能
+- **[PayFit](https://backstage.payfit.com/introducing-the-product-builder/)** 早在 2019 年就定義了 Product Builder 角色，結合 PM、UX、Dev 三種能力，用自研的 low-code 語言 JetLang 直接建構功能
 - **SoFi** 在 2026 年初開出過掛 Product Builder 名稱的職缺（職缺會關，這裡只當作「這個名稱已進入正式職稱體系」的證據，不是即時招聘資訊）
 
 ## 同一個職稱，四種不同的工作
@@ -167,7 +167,7 @@ LogRocket 的文章算了一筆帳：傳統三人組一年成本約 120-150 萬�
 這張表最值得注意的是**中間兩欄的矛盾**：
 
 - **LinkedIn** 的是入門級培訓，招的是還沒有正式產品經歷的人
-- **Mews** 的是資深工程師的進階軌，官方描述是「不只管怎麼做，還要定義做什麼」
+- **[Mews](https://developers.mews.com/what-it-means-to-be-a-product-builder-at-mews/)** 的是資深工程師的進階軌，官方描述是「不只管怎麼做，還要定義做什麼」
 - **Walmart** 的明確不要求技術背景，靠低程式碼工具讓營運端的人自己做 agent
 - **PayFit** 的比 ChatGPT 還早四年就存在，本質是用自研低程式碼平台設定各國勞動法規，**跟 AI 浪潮沒有關係**
 
@@ -191,7 +191,7 @@ Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨�
 
 **AI 素養**：prompt engineering、理解 AI 工具的能力邊界和限制。
 
-這最後一項不是加分項，是門檻。Veracode 2025 GenAI Code Security Report 測了 100 多個模型，**45% 的生成程式碼引入了 OWASP Top 10 等級的安全漏洞**；Java 的失敗率高達 72%，XSS 這類問題在相關樣本裡有 86% 沒被擋下。更值得注意的是：模型在「寫出能跑的程式」上持續進步，但在「寫出安全的程式」上幾乎沒有改善。
+這最後一項不是加分項，是門檻。[Veracode 2025 GenAI Code Security Report](https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/) 測了 100 多個模型，**45% 的生成程式碼引入了 OWASP Top 10 等級的安全漏洞**；Java 的失敗率高達 72%，XSS 這類問題在相關樣本裡有 86% 沒被擋下。更值得注意的是：模型在「寫出能跑的程式」上持續進步，但在「寫出安全的程式」上幾乎沒有改善。
 
 換句話說，Product Builder 的技術判斷力不是為了寫得更快，是為了看得出 AI 寫錯了什麼。這也是這個角色最容易被低估的成本。
 
@@ -199,11 +199,11 @@ Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨�
 
 到這裡為止講的都是這個角色的上行空間。但它有真實的代價，而且提出質疑的不是外行。
 
-Roman Pichler 的反駁最值得認真對待。他的重點不是「一個人會太累」，而是**當一個人能做完所有事，分散式智慧就從流程裡消失了**。參與的專業愈少，你只是帶著更窄的假設跑得更快。快速驗證的前提是假設本身夠好，而假設的品質往往來自不同視角的碰撞——這正是被壓縮掉的東西。
+[Roman Pichler 的反駁](https://www.romanpichler.com/blog/product-managers-product-builders/)最值得認真對待。他的重點不是「一個人會太累」，而是**當一個人能做完所有事，分散式智慧就從流程裡消失了**。參與的專業愈少，你只是帶著更窄的假設跑得更快。快速驗證的前提是假設本身夠好，而假設的品質往往來自不同視角的碰撞——這正是被壓縮掉的東西。
 
-SVPG 的觀察更難反駁。Marty Cagan 在〈AI Product Management 2 Years In〉裡指出：他們看到的團隊確實靠 AI 交付得更快，但 **outcome 並沒有跟著變好**。這跟前面 McKinsey 那組數字指向同一件事——個人生產力提升 40%、上市時間只縮短 5%。被加速的是產出，不是判斷。
+SVPG 的觀察更難反駁。Marty Cagan 在〈[AI Product Management 2 Years In](https://www.svpg.com/ai-product-management-2-years-in/)〉裡指出：他們看到的團隊確實靠 AI 交付得更快，但 **outcome 並沒有跟著變好**。這跟前面 McKinsey 那組數字指向同一件事——個人生產力提升 40%、上市時間只縮短 5%。被加速的是產出，不是判斷。
 
-從業者自己也有疑慮。Userpilot 2026 年的調查裡：
+從業者自己也有疑慮。[Userpilot 2026 年的調查](https://userpilot.com/blog/product-management-trends/)裡：
 
 - **46.7%** 擔心被要求「用不足的支援做過多的事」
 - **37.3%** 擔心陷入長期的角色混亂
