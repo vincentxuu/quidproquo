@@ -2,12 +2,23 @@
 title: "Product Builder 是什麼？跟 PM 的差別與轉型路徑"
 date: 2026-03-27
 updated: 2026-07-25
-type: project
-tldr: "Product Builder 是能獨立跑完「發現問題→設計→建造」完整循環的人。跟 PM 最大的差別是：PM 靠權威影響團隊執行，Product Builder 靠能力直接產出可用產品。LinkedIn、Walmart、PayFit 都已設立這個角色。"
+type: deep-dive
+tldr: "Product Builder 是能獨立跑完「發現問題→設計→建造」完整循環的人。跟 PM 最大的差別是：PM 靠權威影響團隊執行，Product Builder 靠能力直接產出可用產品。LinkedIn 已用 Associate Product Builder track 取代原本的 APM 計畫，PayFit 早在 2019 年就定義了這個角色。"
 category: product
 tags: [product-builder, product-management, ai, vibe-coding, career]
 lang: zh-TW
 description: "Product Builder 是什麼、跟 Product Manager 差在哪、需要什麼能力、以及 PM／設計師／工程師各自該怎麼轉型。附 LinkedIn、Walmart、PayFit 的實際案例與常見問題整理。"
+glossary:
+  - term: "vibe coding"
+    aliases: ["Vibe Coding"]
+    definition: "不逐行寫程式，而是用自然語言描述你要什麼、讓 AI 生成實作，人負責看結果對不對。Andrej Karpathy 在 2025 年 2 月提出這個說法。"
+    advanced: "實務上的瓶頸不在生成而在驗證：模型產出能跑的程式碼的能力持續進步，產出安全程式碼的能力卻幾乎沒有改善，所以審查與測試的成本會回到人身上。"
+    context: "常出現在 Claude Code、Cursor、Lovable、Replit 這類 AI 編碼工具的討論。"
+  - term: "APM"
+    aliases: ["Associate Product Manager"]
+    definition: "大型科技公司培訓初階產品經理的輪調計畫，通常招收應屆畢業生，兩年內輪過數個產品團隊。Google、LinkedIn、Meta 都有類似制度。"
+    advanced: "LinkedIn 已於 2026 年結束 APM 計畫，改設 Associate Product Builder（APB）track，訓練重心從協調與 roadmap 移向自己動手做出東西。"
+    context: "討論產品經理職涯入口與 Product Builder 轉型時常出現。"
 faq:
   - q: "Product Builder 是什麼？"
     a: "Product Builder 是能把想法從概念推到可用產品、對其他團隊依賴降到最低的人。他同時具備產品判斷、基本設計、以及用 AI 工具動手建造的能力，能獨立跑完「發現問題 → 設計解法 → 建造驗證」的完整循環，而不需要在 PM、設計、工程之間層層交接。"
@@ -44,7 +55,11 @@ Product Builder 是一個能把想法從概念推到可用產品的人，對其�
 
 2025 年 2 月，Andrej Karpathy 提出 vibe coding — 不再逐行寫程式，而是用自然語言描述你要什麼，AI 幫你生成。這直接降低了「做出東西」的門檻。關於這套工作方式已經沉澱出哪些具體模式，可以參考 [Encyclopedia of Agentic Coding Patterns 的 190 個 pattern](/posts/ai/2026-04-18-encyclopedia-of-agentic-coding-patterns)。
 
-McKinsey 的報告指出，生成式 AI 能讓產品上市時間縮短 5%、生產力提升 40%。GitLab 2024 年的調查顯示，78% 的開發團隊已經在用 AI 輔助寫程式。
+McKinsey 找 40 位 PM 做的實驗顯示，生成式 AI 讓 **PM 個人生產力提升 40%** — 但同一份研究裡，產品上市時間只縮短 **5%**。
+
+這個落差值得停下來看：個人產出變快，不等於整條產品線變快。卡住的通常不是「做不出來」，而是決策、對齊、與驗證。這也正是 Product Builder 這個角色主張要拆掉的環節 — 但它同時提醒，把 AI 塞進既有流程而不改流程本身，效益會被交接成本吃掉。
+
+導入的實際進度也比想像慢。GitLab 2024 Global DevSecOps Report 常被引用的「78%」指的是**已導入或計畫兩年內導入**；同一份報告裡，回報**實際已導入**的只有 26%。
 
 當 Claude Code、Cursor、Lovable、Replit 這些工具讓一個人能在幾小時內從想法做出 working prototype，傳統的三人組（PM + Designer + Dev）就不再是唯一選項了。
 
@@ -54,27 +69,15 @@ LogRocket 的文章算了一筆帳：傳統三人組一年成本約 120-150 萬�
 
 這不是小公司的實驗，大公司已經在動了：
 
-- **LinkedIn** 把 APM（Associate Product Manager）計畫改名為 **Product Builder** 計畫，訓練跨產品、設計、工程的通才
+- **LinkedIn** 結束了行之有年的 APM（Associate Product Manager）計畫，另設 **Associate Product Builder（APB）** track，訓練跨產品、設計、工程的通才。CPO Tomer Cohen 在 Lenny's Podcast 上的說法是：要教他們在 LinkedIn 怎麼寫程式、做設計、做 PM
 - **Walmart** 設立了 **Agent Builder** 職位，全部由內部員工（包含非技術人員）轉任
 - **Meta** 的 PM 開始自稱「AI Builder」
 - **PayFit** 早在 2019 年就定義了 Product Builder 角色，結合 PM、UX、Dev 三種能力，用自研的 low-code 語言 JetLang 直接建構功能
-- **SoFi** 正在招聘 Product Builder 職位
+- **SoFi** 在 2026 年初開出過掛 Product Builder 名稱的職缺（職缺會關，這裡只當作「這個名稱已進入正式職稱體系」的證據，不是即時招聘資訊）
 
 Khan Academy 的 Sal Khan 說得很直接：
 
 > The people who are just waiting to get the spec... they're going to have trouble. But the people who are like, 'I'm going to go meet with the customer, and I can build it,' I think they're going to do great.
-
-## Product Builder 的一天
-
-根據 CuriousCore 的描述，Product Builder 的日常大致是這樣：
-
-**早上**：用 AI 驅動的 dashboard 檢視指標、用戶回饋、市場趨勢。GenAI 工具協助排定當天優先序。
-
-**中午**：跨功能協作 — 跟工程師、設計師、行銷討論。用 AI 工具快速產出 prototype，能直接動手調整功能和串接 API，不用排隊等工程團隊。
-
-**下午**：自動化測試和持續部署。根據即時的用戶數據迭代功能。
-
-這跟傳統 PM 最大的不同是：**不只做策略，還親手建造**。
 
 ## 需要什麼能力
 
@@ -88,7 +91,9 @@ Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨�
 
 **AI 素養**：prompt engineering、理解 AI 工具的能力邊界和限制。
 
-ACM 的文章特別提到，25-70% 的 AI 生成程式碼存在安全漏洞（SQL injection 等）。Product Builder 不能盲目信任 AI 產出，需要具備足夠的技術判斷力。
+這最後一項不是加分項，是門檻。Veracode 2025 GenAI Code Security Report 測了 100 多個模型，**45% 的生成程式碼引入了 OWASP Top 10 等級的安全漏洞**；Java 的失敗率高達 72%，XSS 這類問題在相關樣本裡有 86% 沒被擋下。更值得注意的是：模型在「寫出能跑的程式」上持續進步，但在「寫出安全的程式」上幾乎沒有改善。
+
+換句話說，Product Builder 的技術判斷力不是為了寫得更快，是為了看得出 AI 寫錯了什麼。這也是這個角色最容易被低估的成本。
 
 ## 這不是取代專業分工
 
@@ -105,7 +110,7 @@ LinkedIn 的 Aneesh Raman 說：
 
 ## 如果你想往這個方向走
 
-不管你現在是 PM、設計師、還是工程師，路徑都一樣：**補上你缺的那一塊**。
+不管你現在是 PM、設計師、還是工程師，路徑都一樣：**補上你缺的那一塊**。值得注意的是，LinkedIn 的 APB 計畫明講歡迎 career pivot — 不限應屆、不要求正式產品經歷，這本身就說明了這條職涯路徑的入口比傳統 PM 寬。
 
 PM → 學用 AI 工具做 prototype，能自己驗證想法而不是等別人做。
 
@@ -122,15 +127,20 @@ Product Builder 不是一個職稱，是一種工作方式。在 AI 讓每個人
 ## 更新紀錄
 
 - **2026-07-25**：重寫標題與描述聚焦「Product Builder 與 PM 的差別」，新增常見問題整理與站內延伸閱讀連結。
+- **2026-07-25**：事實查證後修正三處。GitLab 的 78% 原文是「已導入**或**計畫兩年內導入」，實際已導入為 26%，原文誤植為「已經在用」；LinkedIn 是**結束** APM 計畫另設 Associate Product Builder track，不是改名；McKinsey 的 40% 是 PM 個人生產力（n=40），補上與「上市時間僅縮短 5%」的張力。另將 AI 程式碼安全的引用從過寬的 25–70% 區間換成 Veracode 2025 的實測數字，並移除資訊量不足的「Product Builder 的一天」一節。
 
 ---
 
 ## 參考資料
 
 - ['Engineer' is so 2025. In AI land, everyone's a 'builder' now - SF Standard](https://sfstandard.com/2026/03/05/engineer-2025-ai-land-everyone-s-builder-now/)
-- [Why product managers must become product builders in 2026 - LogRocket](https://blog.logrocket.com/product-management/product-builders-future-product-management)
+- [Why product managers must become product builders in 2026 - LogRocket](https://blog.logrocket.com/product-management/product-builders-future-product-management/)
 - [AI is turning product managers into builders - Fast Company](https://www.fastcompany.com/91452231/ai-is-turning-product-managers-into-builders)
 - [What It's Like to Be a Product Builder in 2025 - CuriousCore](https://curiouscore.com/resource/what-its-like-to-be-a-product-builder-in-2025/)
 - [The Vibe Coding Imperative for Product Managers - ACM](https://cacm.acm.org/blogcacm/the-vibe-coding-imperative-for-product-managers/)
 - [Introducing the Product Builder - PayFit](https://backstage.payfit.com/introducing-the-product-builder/)
-- [The Era of the Product Creator - SVPG](https://www.svpg.com/the-era-of-the-product-creator/)
+- [The Era of the Product Creator - SVPG](https://www.svpg.com/the-era-of-the-product-creator/) — 注意：Cagan 與 Baxley 在這篇主張 PM 角色**仍然必要**、且應與設計師和工程師每日並肩工作，他們警告的是「非創造者型 PM」。這與本文「一個人壓縮整條產線」的取向並不一致，列出供對照
+- [How generative AI could accelerate software product time to market - McKinsey](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-generative-ai-could-accelerate-software-product-time-to-market)
+- [2024 Global DevSecOps Report - GitLab](https://about.gitlab.com/resources/developer-survey/2024/)
+- [2025 GenAI Code Security Report - Veracode](https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/)
+- [Why LinkedIn is replacing PMs with AI-powered "full-stack builders" - Lenny's Newsletter](https://www.lennysnewsletter.com/p/why-linkedin-is-replacing-pms)
