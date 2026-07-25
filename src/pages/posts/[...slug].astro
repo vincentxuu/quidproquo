@@ -714,7 +714,10 @@ const breadcrumbLD = {
       context: seed?.context ?? context,
       reading: seed?.links?.length
         ? seed.links
-        : [{ label: glossaryLang === 'en' ? `Search ${term}` : `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(term)}&mode=rag` }],
+        : (() => {
+            const searchTerm = seed?.aliases?.find(a => a.length > term.length) ?? term;
+            return [{ label: glossaryLang === 'en' ? `Search ${term}` : `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(searchTerm)}&mode=rag` }];
+          })(),
       source: 'local',
     };
   }

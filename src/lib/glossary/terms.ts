@@ -1846,8 +1846,8 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     advanced_en: 'Two common measurement approaches: the Sean Ellis 40% survey (a survey-based leading indicator with survivorship bias) and whether the cohort retention curve flattens (a behavioral lagging indicator). Casey Winters argues the full criterion is a conjunction of three things: a flattened curve, month-over-month cohort growth, and acquisition within an acceptable payback period.',
     context: '創業、產品管理與募資場景的核心判準，常被當成 go/no-go 閘門使用。',
     context_en: 'A core criterion in startups, product management, and fundraising, often used as a go/no-go gate.',
-    links: [{ label: '站內搜尋 PMF 文章', url: '/search?q=PMF&mode=rag' }],
-    links_en: [{ label: 'Search PMF articles on this site', url: '/search?q=PMF&mode=rag' }],
+    links: [{ label: '數位產品的價值驗證', url: '/posts/product/2026-07-25-digital-product-value-validation' }],
+    links_en: [{ label: 'Value Validation for Digital Products', url: '/posts/product/2026-07-25-digital-product-value-validation-en' }],
   },
   {
     term: 'cohort retention',

@@ -68,7 +68,10 @@ function buildLocalResponse(term: string, level: 'beginner' | 'advanced', contex
     context: entry?.context ?? context ?? '這個詞彙的精確意思會依文章脈絡而變。',
     reading: entry?.links?.length
       ? entry.links
-      : [{ label: `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(term)}&mode=rag` }],
+      : (() => {
+          const searchTerm = entry?.aliases?.find(a => a.length > term.length) ?? term
+          return [{ label: `搜尋 ${term}`, url: `/search?q=${encodeURIComponent(searchTerm)}&mode=rag` }]
+        })(),
     source: 'local',
   }
 }
