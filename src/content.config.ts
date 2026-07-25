@@ -8,6 +8,9 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    // Last substantive revision. Feeds schema.org dateModified + article:modified_time
+    // so freshness-sensitive topics keep a signal after the original publish date.
+    updated: z.coerce.date().optional(),
     category: z.string(),
     tags: z.array(z.string()),
     lang: z.enum(['zh-TW', 'en']).default('zh-TW'),
@@ -18,6 +21,12 @@ const posts = defineCollection({
     type: z.enum(['debug', 'deep-dive', 'guide', 'project']).optional(),
     difficulty: z.enum(['入門', '進階', '深度']).optional(),
     readingTime: z.number().optional(),
+    // Rendered as a visible FAQ section and emitted as FAQPage structured data.
+    // Answers should stand alone — they are what answer engines quote.
+    faq: z.array(z.object({
+      q: z.string(),
+      a: z.string(),
+    })).optional(),
     glossary: z.array(z.object({
       term: z.string(),
       aliases: z.array(z.string()).optional(),

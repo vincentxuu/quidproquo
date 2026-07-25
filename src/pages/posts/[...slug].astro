@@ -67,6 +67,8 @@ const zhId = lang === 'en' ? counterpart?.id : post.id;
 const enHref = enId ? `${siteUrl}/posts/${enId}` : undefined;
 const zhHref = zhId ? `${siteUrl}/posts/${zhId}` : undefined;
 
+const modifiedDate = post.data.updated ?? post.data.date;
+
 const blogPostingLD = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -74,10 +76,14 @@ const blogPostingLD = {
   description: post.data.description ?? post.data.tldr ?? '',
   image: ogImage,
   datePublished: post.data.date.toISOString(),
+  dateModified: modifiedDate.toISOString(),
+  inLanguage: lang === 'en' ? 'en' : 'zh-TW',
+  articleSection: post.data.category,
+  wordCount: post.body?.trim().split(/\s+/).length ?? undefined,
   author: {
     '@type': 'Person',
     name: 'xiaoxu',
-    url: siteUrl,
+    url: `${siteUrl}/about`,
   },
   publisher: {
     '@type': 'Organization',
@@ -90,6 +96,19 @@ const blogPostingLD = {
   },
   keywords: post.data.tags.join(', '),
 };
+
+// FAQPage is emitted only when the post renders a matching visible FAQ section —
+// structured data without on-page content is a manual-action risk.
+const faq = post.data.faq ?? [];
+const faqLD = faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+} : undefined;
 
 const breadcrumbLD = {
   '@context': 'https://schema.org',
@@ -122,6 +141,7 @@ const breadcrumbLD = {
   lang={lang}
   ogImage={ogImage}
   articleDate={post.data.date}
+  articleUpdated={post.data.updated}
   articleTags={post.data.tags}
   switchHref={switchHref}
   hasTranslation={hasTranslation}
@@ -131,6 +151,7 @@ const breadcrumbLD = {
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(blogPostingLD).replace(/</g, '\\u003c')} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbLD).replace(/</g, '\\u003c')} />
+    {faqLD && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqLD).replace(/</g, '\\u003c')} />}
   </Fragment>
 
   <!-- Hero Section (like DJ MYG) -->
@@ -257,6 +278,18 @@ const breadcrumbLD = {
     <div class="content">
       <Content />
     </div>
+
+    {faq.length > 0 && (
+      <section class="faq">
+        <h2>{t('post.faq')}</h2>
+        {faq.map(item => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </section>
+    )}
 
     <script
       is:inline
@@ -456,6 +489,13 @@ const breadcrumbLD = {
   .post-nav-title { font-size: 0.85rem; font-weight: 600; line-height: 1.3; display: block; }
 
   /* Related */
+  /* ── FAQ (answer-engine surface) ── */
+  .faq { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .faq h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.9rem; }
+  .faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
+  .faq-item summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; line-height: 1.5; }
+  .faq-item p { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.75; color: var(--text-secondary); }
+
   .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related-list { display: flex; flex-direction: column; gap: 0.5rem; }
   .related-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }

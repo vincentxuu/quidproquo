@@ -109,6 +109,8 @@ This article itself was generated using the post skill.
 
 The priority is establishing the writing habit first; everything else can be added later.
 
+One person running the whole loop — stack selection, implementation, deployment, and content production — is exactly what [working as a Product Builder](/posts/product/2026-03-27-product-builder-hybrid-role-en) looks like in practice.
+
 ## References
 
 - [Astro Documentation](https://docs.astro.build/)

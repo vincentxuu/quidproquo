@@ -105,6 +105,8 @@ Phase 1+2 完成：
 
 先把寫作習慣建立起來，其他的事後加。
 
+一個人把選型、實作、部署到內容生產全部跑完，正是 [Product Builder 這種工作方式](/posts/product/2026-03-27-product-builder-hybrid-role) 的具體樣子。
+
 ## 參考資料
 
 - [Astro 官方文件](https://docs.astro.build/)

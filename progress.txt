@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-06
+Last updated: 2026-07-25
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
+  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
+  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
+  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
+  Content: product-builder post retargeted from the "product builder" head
+  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
+  with 6 two-way internal links. Batch 2 (original first-hand material) still
+  needs input from the user.
 - 2026-07-06: governance framework established — operating charter
   (docs/governance/operating-charter.md), unified `pnpm verify` gate
   (pre-commit + Stop hook + preview CI), skills mirror sync

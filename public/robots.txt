@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://quidproquo.cc/sitemap-index.xml
+
+# LLM / answer-engine index (https://llmstxt.org/)
+# https://quidproquo.cc/llms.txt
