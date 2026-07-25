@@ -40,3 +40,6 @@ pnpm-debug.log*
 
 # deep-research scratch notes (not version-controlled)
 .research/
+
+# claude code personal overrides (connector UUIDs etc.)
+.claude/settings.local.json
