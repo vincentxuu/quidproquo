@@ -1948,6 +1948,18 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: "Uncle Bob Doesn't Read His Agents' Code", url: '/posts/ai/2026-07-25-uncle-bob-agent-code-review-en' }],
   },
   {
+    term: 'CRAP',
+    aliases: ['CRAP metric', 'Change Risk Anti-Patterns', 'crap4j', 'CRAP score'],
+    definition: '把循環複雜度和測試覆蓋率合成一個風險分數的指標，公式為 comp² × (1 − cov)³ + comp。複雜又沒測到的程式碼分數會急速飆高。',
+    definition_en: 'A metric combining cyclomatic complexity and test coverage into one risk score, defined as comp² × (1 − cov)³ + comp. Code that is both complex and untested climbs steeply.',
+    advanced: 'Crap4j 與 Google Testing Blog 採用的慣例門檻是 30——超過就算 CRAPpy。CRAP 的設計意圖是讓兩個單獨看都會騙人的指標互相牽制：高複雜度只要測得夠密仍可接受，覆蓋率漂亮但邏輯纏繞則會被扣分。Robert C. Martin 在 agent pipeline 中要求 refactorer agent 把 crap 壓到 6 以下，是慣例的五分之一。',
+    advanced_en: 'Crap4j and the Google Testing Blog use a conventional threshold of 30 — above that a method counts as CRAPpy. The metric is designed so two individually misleading signals constrain each other: high complexity is acceptable if densely tested, while pretty coverage over tangled logic still scores badly. Robert C. Martin has his refactorer agent push crap to 6 or below, one-fifth of convention.',
+    context: '本站用 CRAP 討論以指標取代人工 code review 的門檻設定與 agent 驗證關卡。',
+    context_en: 'This site uses CRAP to discuss threshold setting when metrics replace manual code review, and agent verification gates.',
+    links: [{ label: 'Crap4j FAQ', url: 'http://www.crap4j.org/faq.html' }],
+    links_en: [{ label: 'Crap4j FAQ', url: 'http://www.crap4j.org/faq.html' }],
+  },
+  {
     term: 'cyclomatic complexity',
     aliases: ['循環複雜度', '圈複雜度'],
     definition: '衡量一段程式碼有多少條獨立執行路徑的指標。分支、迴圈、條件判斷越多，數字越高，代表要完整測試需要的案例越多。',

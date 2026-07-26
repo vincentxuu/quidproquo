@@ -5,7 +5,7 @@ category: ai
 tags: [ai-code-review, agentic-coding, quality-gates, testing, spec-driven-development, ai-agent]
 lang: en
 type: deep-dive
-tldr: "Uncle Bob's 4.18M-view post of 2026/7/23 isn't a manifesto — it's a reply to an engineer who started in 1983 asking whether needing to understand code psychologically makes him old-fashioned. A line-by-line read of the six gates he lists, his open-sourced Acceptance-Pipeline-Specification, and his real mechanism: acceptance mutation, which breaks Gherkin's example data rather than the code. Plus the three metric blind spots Grady Booch names."
+tldr: "Uncle Bob's 4.18M-view post of 2026/7/23 isn't a manifesto — it's a reply to an engineer who started in 1983 asking whether needing to understand code psychologically makes him old-fashioned. And he doesn't skip the code entirely: his 6/1 four-stage pipeline post says 'I spot check the code,' with thresholds of crap ≤ 6 (convention is 30) and mutation runs that kill all survivors. Plus a breakdown of his open-sourced Acceptance-Pipeline-Specification and the three metric blind spots Grady Booch names."
 description: "Starting from the text and context of Uncle Bob's 2026/7/23 reply, a breakdown of the verification gauntlet Robert C. Martin uses in place of agent code review — Gherkin specs, acceptance mutation, quality metrics — plus Grady Booch's counterargument and where the approach hits its ceiling."
 glossary:
   - term: acceptance mutation
@@ -94,7 +94,7 @@ What gets mutated is the **example data in the Gherkin**, not the code. Change a
 
 The distinction matters because it directly answers the nastiest version of "who verifies the tests?" — a test that is well written, richly asserted, and shows good coverage, but is actually exercising a mock or its own fabricated data. Breaking the production code won't catch that: the line you broke is one the test never reaches. Breaking the example data will.
 
-One honest caveat: the README contains **no threshold numbers** — no required mutation score, no coverage percentage. So "you get numbers to look at" is true; "there's an agreed passing line" is not. The passing line is still set by a human.
+One honest caveat: the README contains **no threshold numbers** — no required mutation score, no coverage percentage. He has given two in his posts, though, and both are severe. That's the next section.
 
 ▍He said it himself: you don't need all of it every time
 
@@ -104,21 +104,40 @@ The 7/23 post lists six classes of constraint side by side, which reads like a s
 >
 > Lots of times I just use unit tests and crap evaluation. That seems to work pretty well. For larger projects I can imagine that gherkin testing is pretty useful and so is QA testing. **I'm checking that now.**
 
-Three things there: most of the time he uses unit tests plus rough evaluation, and it "seems to work pretty well"; on Gherkin and QA his phrasing is "I can imagine," a guess rather than a conclusion; and the closing "I'm checking that now" means he is still verifying whether the heavy kit earns its keep.
+Three things there: most of the time he uses unit tests plus crap evaluation, and it "seems to work pretty well"; on Gherkin and QA his phrasing is "I can imagine," a guess rather than a conclusion; and the closing "I'm checking that now" means he is still verifying whether the heavy kit earns its keep.
+
+Note that "crap" there isn't an adjective. **CRAP (Change Risk Anti-Patterns) is a real metric**, defined by [crap4j](http://www.crap4j.org/faq.html) as cyclomatic complexity multiplied against test coverage:
+
+```
+CRAP(m) = comp(m)² × (1 − cov(m))³ + comp(m)
+```
+
+The lower the coverage and the higher the complexity, the faster the score climbs. The conventional threshold, from the [Google Testing Blog](https://testing.googleblog.com/2011/02/this-code-is-crap.html), is 30 — above 30 a method counts as "CRAPpy." Remember that 30.
 
 So the list isn't a menu, it's a toolbox. Even he is still picking his moments, and he said outright that being able to do these things doesn't mean you should. Anyone copying the six items from 7/23 as standard process is copying the part he'd said three weeks earlier isn't always necessary.
 
-▍What he stopped looking at is implementation detail only
+▍He does look — "I spot check the code"
 
-"not read any of the code" is loose phrasing, and his own [6/1 post](https://x.com/unclebobmartin/status/2061482997610610863) dismantles it: he hand-writes the informal specs, and the harder specs and tasks the agent produces — **he reviews those** ("I review these.").
+"not read any of the code" is a claim he doesn't hold to in his own [6/1 post](https://x.com/unclebobmartin/status/2061482997610610863). That one lays out the entire pipeline: four agents, with human involvement tapering off at each stage.
 
-So the real line isn't read/don't-read, it's **which layer**:
+| Stage | Who does it | His involvement |
+|---|---|---|
+| Informal specs | **He hand-writes them** | Throughout |
+| Convert to harder specs, split into tasks | agent | **"I review these."** |
+| specifier agent: task → Gherkin, prune it | agent | **"I spot check the Gherkin."** |
+| coder agent: acceptance tests → unit tests → code | agent | None |
+| refactorer agent: push crap to 6 or below, cut duplication, write property tests | agent | None |
+| architect agent: run language mutation over uncovered sections and **kill all survivors**, then Gherkin mutation killing those survivors, then the full suite | agent | None |
+| Output | — | **"I spot check the code."** |
 
-- Specs and acceptance criteria → he writes, reads, and prunes them himself
-- Quality metrics (coverage, dependency structure, cyclomatic complexity, module sizes, mutation results) → he reads the numbers
-- Implementation code → left to the AI
+That last line matters: **he spot checks the code.** "Reads none of it" is the rhetoric of the tweet, not his actual process. The real line isn't read/don't-read, it's **how densely** — he writes the specs word by word, reviews the hardened specs, spot checks the Gherkin and the code, and lets the middle three agents run untouched.
 
-That is not the same as abandoning code review. He moved review from the output end to the input end.
+The previous section said the README carries no thresholds. This post supplies two, both harsher than convention:
+
+- **crap ≤ 6**: the conventional threshold is 30, so he demands one-fifth of it
+- **kill all survivors**: no surviving mutants tolerated, which is to say a perfect score
+
+He names the cost too: "Raw computer power is the limiting factor. Those mutation tests are CPU intensive." The bottleneck in this gauntlet isn't people, it's CPU.
 
 ▍A side correction: this isn't a position he adopted on 7/23
 
@@ -146,7 +165,9 @@ In the April round of this discussion, [Grady Booch](https://en.wikipedia.org/wi
 
 > Unlike Bob, I review all code generated by agents. Test coverage and similar metrics will give me confidence of functionality, but they offer me no confidence whatsoever that those agents have not introduced vulnerabilities, that they have not introduced dead code that will diminish understandability in the future, that they have missed factorizations that would have significant impact upon performance.
 
-He added: "Trust but verify. As an experienced developer, I know the smell of what is good and what is not. And no agent has either the experience or the context to know those things."
+He added: "Trust but verify. As an experienced developer, I know the smell of what is good and what is not. And no agent has either the experience or the context to know those things." His closing line is aimed squarely at Uncle Bob:
+
+> If you want to be sloppy and fast then I suggest you proceed with Bob's advice.
 
 The value here isn't the sentiment, it's the three categories metrics can't see:
 
@@ -164,7 +185,7 @@ Acceptance mutation can catch "the test is too weak." It cannot catch "the accep
 
 And it fails more invisibly than a human would, because every light is green.
 
-Which is why his spec-review step isn't optional; it's the load-bearing wall. He moved human attention off the code and bet all of it on the specs. The specs are the one link in this system with no automated gate protecting it.
+Which is why his spec-review step isn't optional; it's the load-bearing wall. He only spot checks the code, and a spot check isn't a gate — the gates all sit at the spec end. The specs are the one link in this system with no automated check protecting it.
 
 ▍The point is who designs the gauntlet
 
@@ -204,6 +225,8 @@ The second is done far less often, and usually looks worse. For rigorously measu
 - [Uncle Bob, 2026/6/1: the full pipeline, including "I review these"](https://x.com/unclebobmartin/status/2061482997610610863)
 - [Uncle Bob, 2026/7/2: you don't need every test layer every time](https://x.com/unclebobmartin/status/2072736888478175413)
 - [unclebob/Acceptance-Pipeline-Specification (GitHub)](https://github.com/unclebob/Acceptance-Pipeline-Specification)
+- [Crap4j FAQ: definition and formula for the CRAP metric](http://www.crap4j.org/faq.html)
+- [Google Testing Blog: This Code is CRAP (source of the threshold of 30)](https://testing.googleblog.com/2011/02/this-code-is-crap.html)
 - [Uncle Bob vs. Grady Booch: Rethinking Code Reviews in the Age of AI](http://mvark.blogspot.com/2026/04/uncle-bob-vs-grady-booch-rethinking.html)
 - [Grady Booch (Wikipedia)](https://en.wikipedia.org/wiki/Grady_Booch)
 - [Robert C. Martin (Wikipedia)](https://en.wikipedia.org/wiki/Robert_C._Martin)
