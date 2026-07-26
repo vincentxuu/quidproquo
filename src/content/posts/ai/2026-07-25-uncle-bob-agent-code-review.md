@@ -5,8 +5,8 @@ category: ai
 tags: [ai-code-review, agentic-coding, quality-gates, testing, spec-driven-development, ai-agent]
 lang: zh-TW
 type: deep-dive
-tldr: "2026/7/23 Uncle Bob 說他完全不讀 agent 寫的程式碼，改用單元測試、Gherkin、mutation testing 等關卡包圍 agent。但這不是上週才轉向——他 4/14 就講過同一件事，3 月起公開建這條 pipeline，關卡規格開源在 Acceptance-Pipeline-Specification。他真正的招是 acceptance mutation：改壞 Gherkin 的例子資料，不是改壞程式碼。Grady Booch 的反駁點名三個測試指標看不到的東西。"
-description: "拆解 Robert C. Martin 用來取代 agent code review 的驗證關卡：Gherkin 規格、acceptance mutation、品質指標，以及 Grady Booch 的反方論證與這套做法的天花板。"
+tldr: "2026/7/23 Uncle Bob 那則 418 萬瀏覽的貼文不是宣言，是回覆——回一位 1983 年入行的工程師問「我心理上就是需要看懂程式碼，是不是太老派」。逐句拆他列的六類關卡、開源的 Acceptance-Pipeline-Specification，以及他真正的招 acceptance mutation：改壞 Gherkin 的例子資料而非程式碼。附 Grady Booch 點名的三個指標盲區。"
+description: "從 Uncle Bob 2026/7/23 那則回覆的原文與上下文出發，拆解他用來取代 agent code review 的驗證關卡：Gherkin 規格、acceptance mutation、品質指標，以及 Grady Booch 的反方論證與這套做法的天花板。"
 glossary:
   - term: acceptance mutation
     aliases: [Gherkin mutation, 驗收突變]
@@ -25,41 +25,52 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-07-25-uncle-bob-agent-code-review-en)
 
-2026 年 7 月 23 日，Robert C. Martin（Uncle Bob）在 X 上回覆一則留言，說了一句和他教了三十年的東西看起來完全相反的話：
+2026 年 7 月 23 日 11:44 UTC，Robert C. Martin（Uncle Bob）發了一則 533 個字元的回覆，到目前為止累積 418 萬次瀏覽、1.6 萬個讚、1.1 萬次收藏、530 則回覆。《Clean Code》的作者說他不讀程式碼了。
 
-> I started coding in the late 60s. My current strategy is to not read any of the code written by my agents. That's the only way I can take advantage of their productivity. What I do instead is to surround the agents with extreme constraints. Unit tests, gherkin tests, QA procedures, quality metrics, mutation testing, test coverage, and a plethora of others.
+但幾乎所有轉述都漏了一件事：**那是一則回覆，不是一篇宣言**。要看懂它，得先看他在回誰。
+
+▍他回的是一個人的焦慮，不是一場辯論
+
+前一天，[Ori Pomerantz](https://x.com/ori_pomerantz/status/2080024439345828249) 發了這則（16 萬瀏覽、227 則回覆）：
+
+> I am trying to use Claude to help me write something, but I just don't feel comfortable letting it edit my files. Does anybody else feel the same? If I am responsible for code, I NEED to understand it, psychologically if for no other reason.
 >
-> —— [@unclebobmartin, 2026/7/23](https://x.com/unclebobmartin/status/2080257779395154409)
+> Started programming in 1983. Old?
 
-他接著說，正因為這些程式碼得「run the gauntlet」——跑完他所有的約束和測試——他對產出才有很高的信心。
+翻成白話：我要為這份程式碼負責，所以我必須看懂它——就算只是心理上過不去。最後那句「Started programming in 1983. Old?」是自嘲，也是在問：是不是我太老派了？
 
-《Clean Code》的作者說他不讀程式碼了。這句話當然會炸開。但如果只讀這一則貼文，你會抓錯三件事。
+Uncle Bob 的[回覆全文](https://x.com/unclebobmartin/status/2080257779395154409)是這樣開頭的：
 
-▍先修正時間軸：這不是上週的轉向
+> **I'm significantly older than you.** I started coding in the late 60s. My current strategy is to not read any of the code written by my agents. That's the only way I can take advantage of their productivity. What I do instead is to surround the agents with extreme constraints. Unit tests, gherkin tests, QA procedures, quality metrics, mutation testing, test coverage, and a plethora of others. In the end, I have very high confidence in the code they produce because they've had to run the gauntlet of all of my constraints and tests.
 
-最容易誤讀的是「他突然改變立場」。他沒有。
+第一句是在回「Old?」——你不是太老，我比你老得多，而我不讀。
 
-翻他自己的貼文，這條 pipeline 是公開建了五個月的東西：
+這個上下文改變了整則貼文的性質。Ori 問的是一個**心理問題**：我需要理解它才安心。Uncle Bob 的回答不是「理解不重要」，而是**把安心的來源換掉**：
 
-| 日期 | 內容 |
+以前的信心來自「我看過」。他現在的信心來自最後那句——`they've had to run the gauntlet`，程式碼跑完了他所有的關卡。
+
+換句話說，這則貼文回答的是「我怎麼在不讀的情況下還睡得著」，不是「你們都不該讀」。被剪成「Clean Code 作者不讀碼了」拿去傳播，主詞從他自己變成了所有人，這是原文沒有的意思。
+
+▍逐句拆那份清單
+
+他列了六類約束，一句話帶過，但每一項的分量差很多：
+
+| 他寫的 | 實際在驗什麼 |
 |---|---|
-| 2026/3/7 | [宣布用 Gherkin 當主要行為規格工具](https://x.com/unclebobmartin/status/2030287900709978600)，要求 Gherkin 保持自然語言、不含 code level artifacts |
-| 2026/4/14 | [「I don't review code written by agents.」](https://x.com/unclebobmartin/status/2044114698451476492) 改看 test coverage、依賴結構、cyclomatic complexity、模組大小 |
-| 2026/5/13 | [提出 Gherkin mutation](https://x.com/unclebobmartin/status/2054614775397568761)：把 Gherkin 轉成 JSON，mutator 改 IR，然後預期測試要失敗 |
-| 2026/5/22 | [說明專案的兩種模式](https://x.com/unclebobmartin/status/2057809771361677498)：swarm 全套約束「很有生產力也安全，但比純 vibe coding 慢」 |
-| 2026/6/1 | [公開完整 pipeline](https://x.com/unclebobmartin/status/2061482997610610863)：手寫非正式規格 → agent 轉成硬規格並切成 task → **「I review these.」** → 丟給 specifier agent |
-| 2026/7/2 | [承認不用每次全上](https://x.com/unclebobmartin/status/2072736888478175413) |
-| 2026/7/23 | 上面那則爆掉的貼文 |
+| Unit tests | 行為對不對——最基本，也是他自己說最常只用這個的那一項 |
+| Gherkin tests | 用具體例子固定驗收條件，且必須保持自然語言 |
+| QA procedures | 人工、UI 導向的檢查流程 |
+| Quality metrics | 覆蓋率、依賴結構、cyclomatic complexity、模組大小 |
+| Mutation testing | 改壞程式碼，看測試會不會叫 |
+| Test coverage | 哪些路徑被執行過 |
 
-四月那則的完整說法比七月這則清楚得多：
+其中最關鍵的是 mutation testing，因為它是唯一回答「誰來驗證測試」的一項——而這正是這則貼文底下最多人追問的問題：實作和測試都是同一個 agent 寫的，兩邊可能錯得很一致，綠燈到底代表什麼。
 
-> The code itself I leave to the AI. Humans are slow at code. To get productivity we humans need to disengage from code and manage from a higher level.
-
-所以七月那則不是宣言，是一個已經跑了幾個月的做法的結論句。傳播的時候被剪成「Clean Code 作者不讀碼了」，比他的原意激進太多。
+而他真正的做法，比推文裡這個詞暗示的還要特別。
 
 ▍關卡不是抽象概念，他把規格開源了
 
-第二件被漏掉的事：這套關卡有實作規格，不用靠貼文猜。
+這套關卡有實作規格，不用靠貼文猜。
 
 Uncle Bob 把它放在 GitHub 上的 [Acceptance-Pipeline-Specification](https://github.com/unclebob/Acceptance-Pipeline-Specification)，定位是「可攜的 acceptance pipeline 規格，讓 AI agent 能安裝到專案裡」。README 的一句話說完它做什麼：
 
@@ -87,17 +98,19 @@ Mutation 跑是：feature 檔 → parser → base JSON IR → entrypoint generat
 
 ▍他自己說了：不用每次全上
 
-7/2 那則貼文，是理解他實際做法的關鍵，卻幾乎沒人轉：
+7/23 那則貼文把六類約束並排寫，讀起來像一套標準流程。但三週前的 [7/2 貼文](https://x.com/unclebobmartin/status/2072736888478175413)講的是相反的事——那則只有 2.1 萬瀏覽，是爆掉那則的 **1/194**：
 
-> I've been pushing very hard on overloading with tests. Gherkin test unit test QA test mutation test gherkin mutation test. It's easy to make the AI's do these things. But just because we can do them doesn't mean we actually should. Lots of times I just use unit tests and crap evaluation.
+> I've been pushing very hard on overloading with tests. Gherkin test unit test QA test mutation test gherkin mutation test. It's easy to make the AI's do these things. But just because we can do them doesn't mean we actually should.
+>
+> Lots of times I just use unit tests and crap evaluation. That seems to work pretty well. For larger projects I can imagine that gherkin testing is pretty useful and so is QA testing. **I'm checking that now.**
 
-大部分時候他只用單元測試加上粗略評估。至於 Gherkin 和 QA，他的原話是「For larger projects I can imagine that gherkin testing is pretty useful」——用的是「我可以想像」，不是實測結論。
+三件事：大部分時候他只用單元測試加上粗略評估，而且「seems to work pretty well」；Gherkin 和 QA 他用的是「I can imagine」，是推測不是結論；最後一句「I'm checking that now」——他自己還在驗證這套值不值得。
 
-所以這套關卡沒有固定套餐，重裝配備連他自己都還在挑場合用。任何把它當標準流程照抄的人，抄的是他明確說過不必每次做的東西。
+所以那份清單不是套餐，是工具箱。連他本人都還在挑場合用，而且明講了「能做不代表該做」。任何把 7/23 那六項當標準流程照抄的人，抄的是他三週前才說過不必每次做的東西。
 
 ▍他停止看的只有實作細節
 
-「完全不讀」這個說法有語病，而他 6/1 的貼文自己拆掉了這個語病：手寫非正式規格是他做的，agent 轉出來的硬規格和 task，**他 review**。
+「not read any of the code」這個說法有語病，而他 [6/1 的貼文](https://x.com/unclebobmartin/status/2061482997610610863)自己拆掉了這個語病：手寫非正式規格是他做的，agent 轉出來的硬規格和 task，**他 review**（原話就是 "I review these."）。
 
 所以真正的分界不是「看 / 不看」，是**看哪一層**：
 
@@ -106,6 +119,26 @@ Mutation 跑是：feature 檔 → parser → base JSON IR → entrypoint generat
 - 實作程式碼 → 交給 AI
 
 這跟「不做 code review」是兩回事。他把 review 的位置從輸出端移到輸入端。
+
+▍順帶修正：這不是 7/23 才有的立場
+
+很多轉述把它寫成「Uncle Bob 突然變了」。翻他自己的時間軸，這條 pipeline 已經公開建了五個月，7/23 只是碰巧被看見的那一則：
+
+| 日期 | 內容 |
+|---|---|
+| 2026/3/7 | [宣布用 Gherkin 當主要行為規格工具](https://x.com/unclebobmartin/status/2030287900709978600)，要求保持自然語言、不含 code level artifacts |
+| 2026/4/14 | [「I don't review code written by agents.」](https://x.com/unclebobmartin/status/2044114698451476492) 改看 test coverage、依賴結構、cyclomatic complexity、模組大小 |
+| 2026/5/13 | [提出 Gherkin mutation](https://x.com/unclebobmartin/status/2054614775397568761)：Gherkin 轉 JSON，mutator 改 IR，預期測試要失敗 |
+| 2026/5/22 | [說明兩種模式](https://x.com/unclebobmartin/status/2057809771361677498)：swarm 全套約束「很有生產力也安全，但比純 vibe coding 慢」 |
+| 2026/6/1 | [公開完整 pipeline](https://x.com/unclebobmartin/status/2061482997610610863)，含 "I review these." |
+| 2026/7/2 | [測試不用每次全上](https://x.com/unclebobmartin/status/2072736888478175413)，「I'm checking that now」 |
+| 2026/7/23 | 回覆 Ori Pomerantz，418 萬瀏覽 |
+
+四月那則講得比七月清楚：
+
+> The code itself I leave to the AI. Humans are slow at code. To get productivity we humans need to disengage from code and manage from a higher level.
+
+「Humans are slow at code」才是他真正的論點。7/23 那則之所以爆，不是因為它說了新東西，是因為它剛好落在一個有名有姓的人問「我是不是太老派」的位置上。
 
 ▍最有力的反方不是酸民，是 Grady Booch
 
@@ -145,7 +178,11 @@ Uncle Bob 敢不讀碼，是因為設計關卡的人 1970 年就開始當程式�
 
 結論可以一句話轉發。關卡沒辦法。
 
-▍給團隊的一個具體檢驗
+▍回到最初那個問題
+
+Ori Pomerantz 問的是：我要為程式碼負責，心理上就是需要看懂它，這樣是不是太老派？
+
+依原文，Uncle Bob 的答案不是「不用看懂」。是「你需要的不是看過，是有理由相信」——而理由要自己蓋出來。他的版本是六類關卡加上親自 review 規格；如果你手上沒有那套東西，那 Ori 的不安是完全正確的反應，不是老派。
 
 這件事的重點不是選邊。是稀缺的能力已經從「寫得快」移到「設計驗證機制」，這跟 [Loop Engineering](/posts/ai/2026-06-20-loop-engineering) 裡「驗證成本才是真正瓶頸」是同一個結論從不同方向長出來的。
 
@@ -159,6 +196,7 @@ Uncle Bob 敢不讀碼，是因為設計關卡的人 1970 年就開始當程式�
 ## 參考資料
 
 - [Uncle Bob 2026/7/23 貼文：不讀 agent 程式碼、用約束包圍](https://x.com/unclebobmartin/status/2080257779395154409)
+- [Ori Pomerantz 2026/7/22 貼文：被回覆的原始提問](https://x.com/ori_pomerantz/status/2080024439345828249)
 - [Uncle Bob 2026/4/14 貼文：改看指標而非 review 程式碼](https://x.com/unclebobmartin/status/2044114698451476492)
 - [Uncle Bob 2026/3/7 貼文：Gherkin 作為主要行為規格工具](https://x.com/unclebobmartin/status/2030287900709978600)
 - [Uncle Bob 2026/5/13 貼文：Gherkin mutation 的做法](https://x.com/unclebobmartin/status/2054614775397568761)
