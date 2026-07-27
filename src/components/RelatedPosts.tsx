@@ -6,16 +6,22 @@ interface RelatedPost {
   url: string
 }
 
+interface RelatedPostsResponse {
+  slug?: string
+  results?: RelatedPost[]
+}
+
 export default function RelatedPosts({ slug }: { slug: string }) {
   const [posts, setPosts] = useState<RelatedPost[] | null>(null)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetch(`/api/related-posts?slug=${encodeURIComponent(slug)}&limit=3`)
-      .then(r => r.ok ? r.json() : null)
+      .then(r => r.ok ? r.json() as Promise<RelatedPostsResponse> : null)
       .then(data => {
-        if (data?.results?.length > 0) {
-          setPosts(data.results)
+        const results = data?.results
+        if (results && results.length > 0) {
+          setPosts(results)
           const fallback = ref.current?.parentElement?.querySelector('.related-fallback')
           if (fallback) (fallback as HTMLElement).style.display = 'none'
         }
