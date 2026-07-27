@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/investing/2026-07-27-cathay-personal-loan-rate)
 
-Cathay United Bank keeps calling to sell me a personal loan. Rather than hanging up every time, I decided to take apart what they are actually selling.
+Cathay United Bank keeps calling to sell me a personal loan. I got curious about what was actually so special about it, so I took the product apart and ran the numbers.
 
 The product page for [Cathay United Bank's Taixingfu personal loan](https://www.cathaybk.com.tw/CATHAYBK/Personal/Loan/Product/Personal-Loan) (泰幸福信用貸款) leads with a large "rates from 1.88%". Scroll down the same page and the officially disclosed annual percentage rate reads "tiered: 5.99%–16.08%; flat: 5.99%–17.40%".
 
