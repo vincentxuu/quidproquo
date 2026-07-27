@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-25
+Last updated: 2026-07-27
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -18,6 +18,10 @@ In progress
 - Finish low-risk P1 items: RSS author metadata and font preload.
 
 Next steps
+0. 「AI 小白的研究型部落格」系列規劃已完成
+   (docs/ai-beginner-research-blog-series-plan.md)，等使用者拍板 5 個 Tier 2
+   問題（規模 / 示範題目 / starter repo / 截圖 / category）才動筆。
+   3 項費用與方案事實仍是二手來源，寫進文章前必須回官方確認。
 1. Backfill missing post `type` fields with a script + sampling/rollback plan.
 2. Backfill missing `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
