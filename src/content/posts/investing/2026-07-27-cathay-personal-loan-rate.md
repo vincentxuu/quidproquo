@@ -1,5 +1,5 @@
 ---
-title: "國泰世華一直打來推信貸，我把「1.88% 起」拆開算了一遍"
+title: "國泰世華一直打來推信貸：把「1.88% 起」的利率拆開算一遍"
 date: 2026-07-27
 category: investing
 type: deep-dive

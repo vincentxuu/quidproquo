@@ -1,5 +1,5 @@
 ---
-title: "Cathay United Bank Keeps Cold-Calling Me About Loans, So I Did the Math on \"From 1.88%\""
+title: "Cathay United Bank Keeps Cold-Calling Me About Loans: Taking Apart the Interest Rate Behind \"From 1.88%\""
 date: 2026-07-27
 category: investing
 type: deep-dive
