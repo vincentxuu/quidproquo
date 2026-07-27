@@ -89,6 +89,8 @@ const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('en'));
     font-size: 0.85rem;
     color: var(--text-primary);
   }
+  /* `display: flex` above outranks the UA stylesheet's `[hidden] { display: none }`. */
+  .untranslated-banner[hidden] { display: none; }
   .untranslated-banner button {
     background: none;
     border: none;
