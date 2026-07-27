@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-25
+Last updated: 2026-07-27
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,11 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-07-27: investing 新文（中英雙語）國泰世華信貸利率拆解。以官方牌告
+  （定儲利率指數 1.74%，2026/07/27）還原各方案加碼 1.25%~3.69%，並自建
+  本息均攤模型實算分段式 vs 一段式，APR 重現官方 5.99% 驗證模型；損益兩平
+  在 4~5 年。全站 glossary 新增 3 個金融術語（APR / 定儲利率指數 / DBR 22 倍）。
+  彈力貸、綠色信貸查無官方揭露，文中標為未經證實。待使用者 review 後才可 deploy。
 - 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
   `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
   articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
