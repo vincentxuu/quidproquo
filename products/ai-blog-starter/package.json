@@ -1,0 +1,25 @@
+{
+  "name": "ai-blog-starter",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "node scripts/check-content.mjs",
+    "prebuild": "node scripts/check-content.mjs",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
+    "astro": "^6.3.7"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "pagefind": "^1.4.0"
+  }
+}

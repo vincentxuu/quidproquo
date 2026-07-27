@@ -1,0 +1,47 @@
+---
+import { site } from '../../site.config'
+
+const year = new Date().getFullYear()
+const social = Object.entries(site.social).filter(([, v]) => v)
+const labels: Record<string, string> = {
+  email: 'Email',
+  github: 'GitHub',
+  x: 'X',
+  linkedin: 'LinkedIn',
+}
+---
+
+<footer>
+  <div class="wrap inner">
+    <p class="muted">© {year} {site.author}</p>
+    <p class="muted links">
+      {
+        social.map(([key, value]) => (
+          <a href={key === 'email' ? `mailto:${value}` : value}>{labels[key] ?? key}</a>
+        ))
+      }
+      <a href="/rss.xml">RSS</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding-block: 1.5rem 2.5rem;
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .inner p {
+    margin: 0;
+  }
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+</style>

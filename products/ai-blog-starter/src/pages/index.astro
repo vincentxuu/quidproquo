@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PostCard from '../components/PostCard.astro'
+import { site } from '../../site.config'
+import { getPublishedPosts } from '../utils/posts'
+
+const posts = await getPublishedPosts()
+---
+
+<BaseLayout>
+  <section class="intro">
+    <h1>{site.title}</h1>
+    <p class="muted">{site.description}</p>
+  </section>
+
+  {
+    posts.length === 0 ? (
+      <p class="muted">還沒有文章。跟 Claude 說「幫我寫第一篇文章」就可以開始了。</p>
+    ) : (
+      posts.map((post) => <PostCard post={post} />)
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: 1.5rem;
+  }
+  .intro p {
+    margin: 0;
+  }
+</style>

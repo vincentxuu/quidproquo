@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { site } from '../../site.config'
+---
+
+<BaseLayout title="關於">
+  <h1>關於</h1>
+
+  <p>
+    嗨，我是 {site.author}。{site.description}
+  </p>
+
+  <p>
+    這一頁的內容存在 <code>src/pages/about.astro</code>。想改的話，跟 Claude 說「幫我改關於頁」，
+    或是直接把上面那段字換掉。
+  </p>
+
+  <p>
+    有事情可以從頁尾的連結找到我。
+  </p>
+</BaseLayout>

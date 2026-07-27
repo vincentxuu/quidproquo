@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="搜尋">
+  <h1>搜尋</h1>
+  <div id="search"></div>
+  <noscript>
+    <p class="muted">搜尋需要開啟 JavaScript。</p>
+  </noscript>
+</BaseLayout>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof PagefindUI === 'undefined') return
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: false,
+      translations: {
+        placeholder: '搜尋文章',
+        zero_results: '找不到「[SEARCH_TERM]」相關的文章',
+      },
+    })
+  })
+</script>
+
+<style is:global>
+  :root {
+    --pagefind-ui-primary: var(--fg);
+    --pagefind-ui-text: var(--fg);
+    --pagefind-ui-background: var(--bg);
+    --pagefind-ui-border: var(--line);
+    --pagefind-ui-tag: var(--code-bg);
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-font: var(--font);
+  }
+</style>

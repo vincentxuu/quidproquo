@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getAllTags } from '../../utils/posts'
+
+const tags = await getAllTags()
+---
+
+<BaseLayout title="標籤">
+  <h1>標籤</h1>
+  {
+    tags.length === 0 ? (
+      <p class="muted">還沒有用過任何標籤。</p>
+    ) : (
+      <p class="list">
+        {tags.map(({ tag, count }) => (
+          <a class="tag" href={`/tags/${encodeURIComponent(tag)}`}>
+            {tag} · {count}
+          </a>
+        ))}
+      </p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .list {
+    margin-top: 1.5rem;
+  }
+</style>

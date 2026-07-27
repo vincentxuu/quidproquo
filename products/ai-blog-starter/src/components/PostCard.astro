@@ -1,0 +1,56 @@
+---
+import { formatDate, type Post } from '../utils/posts'
+
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props
+const { title, date, description, tags } = post.data
+---
+
+<article class="card">
+  <h2><a href={`/posts/${post.id}`}>{title}</a></h2>
+  <p class="muted date">{formatDate(date)}</p>
+  {description && <p class="excerpt">{description}</p>}
+  {
+    tags.length > 0 && (
+      <p class="tags">
+        {tags.map((tag) => (
+          <a class="tag" href={`/tags/${encodeURIComponent(tag)}`}>
+            {tag}
+          </a>
+        ))}
+      </p>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    padding-block: 1.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .card h2 {
+    margin: 0 0 0.3rem;
+    font-size: 1.2rem;
+  }
+  .card h2 a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .card h2 a:hover {
+    color: var(--accent);
+  }
+  .date {
+    margin: 0 0 0.5rem;
+  }
+  .excerpt {
+    margin: 0 0 0.6rem;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+  .tags {
+    margin: 0;
+  }
+</style>

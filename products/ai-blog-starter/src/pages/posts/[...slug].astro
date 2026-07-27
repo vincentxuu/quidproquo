@@ -1,0 +1,81 @@
+---
+import { render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getPublishedPosts, formatDate, type Post } from '../../utils/posts'
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts()
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      newer: posts[i - 1] ?? null,
+      older: posts[i + 1] ?? null,
+    },
+  }))
+}
+
+interface Props {
+  post: Post
+  newer: Post | null
+  older: Post | null
+}
+
+const { post, newer, older } = Astro.props
+const { title, date, description, tags } = post.data
+const { Content } = await render(post)
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <p class="muted">{formatDate(date)}</p>
+      {
+        tags.length > 0 && (
+          <p class="tags">
+            {tags.map((tag) => (
+              <a class="tag" href={`/tags/${encodeURIComponent(tag)}`}>
+                {tag}
+              </a>
+            ))}
+          </p>
+        )
+      }
+    </header>
+
+    <div class="body" data-pagefind-body>
+      <Content />
+    </div>
+  </article>
+
+  <nav class="pager">
+    {older && <a href={`/posts/${older.id}`}>← {older.data.title}</a>}
+    {newer && <a class="right" href={`/posts/${newer.id}`}>{newer.data.title} →</a>}
+  </nav>
+</BaseLayout>
+
+<style>
+  header {
+    margin-bottom: 2rem;
+  }
+  header p {
+    margin: 0.2rem 0 0;
+  }
+  .tags {
+    margin-top: 0.6rem !important;
+  }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .pager .right {
+    margin-left: auto;
+    text-align: right;
+  }
+</style>

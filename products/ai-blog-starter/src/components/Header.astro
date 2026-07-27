@@ -1,0 +1,86 @@
+---
+import { site } from '../../site.config'
+
+const path = Astro.url.pathname
+const links = [
+  { href: '/', label: '文章' },
+  { href: '/tags', label: '標籤' },
+  { href: '/search', label: '搜尋' },
+  { href: '/about', label: '關於' },
+]
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">{site.title}</a>
+    <nav>
+      {
+        links.map((l) => (
+          <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>
+            {l.label}
+          </a>
+        ))
+      }
+      <button id="theme-toggle" type="button" aria-label="切換深色模式">◐</button>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const root = document.documentElement
+    const isDark =
+      root.dataset.theme === 'dark' ||
+      (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches)
+    const next = isDark ? 'light' : 'dark'
+    root.dataset.theme = next
+    localStorage.setItem('theme', next)
+  })
+</script>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 2.5rem;
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-weight: 650;
+    font-size: 1.05rem;
+    color: var(--fg);
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--fg);
+  }
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 1rem;
+    padding: 0.2rem;
+    line-height: 1;
+  }
+  button:hover {
+    color: var(--fg);
+  }
+</style>
