@@ -1,5 +1,5 @@
 ---
-title: "Taking Apart Cathay United Bank's Personal Loan Rates: 1.88% Is Marketing, the Real Price Lives in the Spread and the APR"
+title: "Cathay United Bank Keeps Cold-Calling Me About Loans, So I Did the Math on \"From 1.88%\""
 date: 2026-07-27
 category: investing
 type: deep-dive
@@ -11,6 +11,8 @@ draft: false
 ---
 
 > 🌏 [中文版](/posts/investing/2026-07-27-cathay-personal-loan-rate)
+
+Cathay United Bank's loan sales team keeps calling. Rather than hanging up every time, I decided to take apart what they are actually selling.
 
 The product page for [Cathay United Bank's Taixingfu personal loan](https://www.cathaybk.com.tw/CATHAYBK/Personal/Loan/Product/Personal-Loan) (泰幸福信用貸款) leads with a large "rates from 1.88%". Scroll down the same page and the officially disclosed annual percentage rate reads "tiered: 5.99%–16.08%; flat: 5.99%–17.40%".
 
