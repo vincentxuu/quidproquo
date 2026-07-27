@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [English version](/posts/investing/2026-07-27-cathay-personal-loan-rate-en)
 
-國泰世華的信貸電銷一直打來。與其每次掛掉，不如把他們在賣的東西拆開來算一遍。
+國泰世華一直打電話來推信貸。與其每次掛掉，不如把他們在賣的東西拆開來算一遍。
 
 [國泰世華泰幸福信用貸款](https://www.cathaybk.com.tw/CATHAYBK/Personal/Loan/Product/Personal-Loan)的產品頁最上方寫著大大的「利率 1.88% 起」。同一頁往下捲，官方揭露的總費用年百分率是「分段式 5.99%~16.08%；一段式 5.99%~17.40%」。
 
