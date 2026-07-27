@@ -22,8 +22,10 @@ Next steps
    (docs/ai-beginner-research-blog-series-plan.md)，等使用者拍板 5 個 Tier 2
    問題（規模 / 示範題目 / starter repo / 截圖 / category）才動筆。
    3 項費用與方案事實仍是二手來源，寫進文章前必須回官方確認。
-   衍生的產品化評估見 docs/ai-blog-product-assessment.md：建議做「對」不做
-   「快」，並用文章系列（先發 5→6→7）當驗證工具，不要先建產品。
+   衍生的產品化評估見 docs/ai-blog-product-assessment.md（TA 釐清後已重寫）：
+   TA = 想要自己的部落格但技術不熟。Cowork 零終端機讓這件事第一次可行，
+   建議做。前置條件是一天內驗完「非技術者能否不開終端機把文章發上線」。
+   文章系列發文順序改回 A 動線優先（1→2→3→4）當漏斗。
 1. Backfill missing post `type` fields with a script + sampling/rollback plan.
 2. Backfill missing `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
