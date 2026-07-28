@@ -75,11 +75,14 @@ description: Tone-layer review and rewrite for a post draft under src/content/po
 
 ### 4.5 語料不足時去補
 
-第三層樣本少是這個 skill 目前最大的限制。要補就去一手來源抓（見 `voice-profile.md` 3.0，附各平台可用工具）：
+第三層樣本少是這個 skill 目前最大的限制。要補就去一手來源抓，**照 `voice-profile.md` 3.0 的方法表做，不要重試已知失敗的組合**：
 
-- Threads 可讀，是目前主要語料來源
-- IG 只拿得到 bio，貼文鎖登入
-- Firecrawl 不支援 Meta 系網站，要用 `tavily_extract`
+- **Threads** — `tavily_extract`（`advanced`），`/`、`/replies`、`/media` 分開抓
+- **Instagram** — 兩段式：先用 `cloudflare get_url_markdown` 抓 profile 拿 `/p/<id>/` 連結，再逐篇 `tavily_extract`
+- **Facebook** — 全站鎖登入，別再試了
+- **Firecrawl 對 Meta 系一律拒絕**，不用浪費呼叫
+
+未登入抓得到的量有限（Threads 約 10 則、IG 約 12 篇）。要更多就直接請使用者貼。
 
 **不要拿站上文章來補。** 那是汙染源。
 
