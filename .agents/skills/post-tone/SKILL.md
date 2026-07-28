@@ -1,23 +1,32 @@
 ---
 name: post-tone
-description: Tone-layer review and rewrite for a post draft under src/content/posts/<category>/ — measure the draft against this site's measured voice profile (person, connectives, emphasis density, opening/closing shape, banned filler), then produce a line-by-line 原句 → 建議 table. Proposes rewrites; only edits the file after the user says go. Complementary to `post-review` (structure/validators) and `post-verify` (facts). Use when user says 語氣怪 / 讀起來不像我 / 改語氣 / 這句換一下 / 調一下用詞 / tone / 太官腔 / 太像 AI 寫的 and references a draft or a specific passage.
+description: Tone-layer review and rewrite for a post draft under src/content/posts/<category>/ — strip LLM writing tells (filler openers, forced parallelism, over-emphasis, fake balance, cheerleading endings) and move the draft toward the user's own voice, then produce a line-by-line 原句 → 建議 table. Proposes rewrites; only edits after the user says go. Complementary to `post-review` (structure/validators) and `post-verify` (facts). Use when user says 語氣怪 / 讀起來不像我 / 改語氣 / 這句換一下 / 調一下用詞 / tone / 太官腔 / 太像 AI 寫的 and references a draft or a specific passage.
 ---
 
 # post-tone skill
 
-發文前的第三關。`post-review` 看結構、`post-verify` 看事實、**`post-tone` 看「這讀起來像不像這個站寫的」**。
+發文前的第三關。`post-review` 看結構、`post-verify` 看事實、**`post-tone` 看「這讀起來像不像人寫的、像不像他寫的」**。
 
-LLM 寫出來的中文有很穩定的壞味道：填充語（「總之」「值得一提的是」）、對稱排比、過度客氣的轉折、結尾喊話。這個 skill 抓的就是那些，並且用**站上 339 篇既有文章實測出來的語氣輪廓**當基準，不是用通用寫作建議。
+## ⚠️ 這個 skill 的判準不是「跟站上文章一致」
 
-完整語氣輪廓（含實測數據）→ `references/voice-profile.md`
+站上 `src/content/posts` 的中文文章**幾乎全部經 LLM 產出或改寫**（78% 的 posts commit 含 Claude co-author；沒被 AI 碰過的中文文章 0 篇；單月曾產出 194 篇）。
+
+所以拿既有文章當語氣基準，等於**讓 AI 味自我複製**。查證細節與三層架構 → `references/voice-profile.md`。
+
+實際判準是兩條：
+
+1. **有沒有 AI 味** — 對照 `references/ai-tells.md`
+2. **像不像他** — 對照 `voice-profile.md` 第三層「人聲樣本」
+
+站上既有寫法只用來「認得出慣性」，不用來當通過理由。
 
 ## 何時用
 
 | 情境 | 用 | 不用 |
 |---|---|---|
 | 「這段語氣怪，改一下」 | ✅ | |
-| 「讀起來不像我寫的」 | ✅ | |
-| 「太官腔／太像 AI」 | ✅ | |
+| 「太像 AI 寫的」 | ✅ | |
+| 「讀起來不像我」 | ✅ | |
 | 「這句換個說法」 | ✅ | |
 | 「幫我檢查格式跟 tag」 | | ❌ → `post-review` |
 | 「這個版本號對嗎」 | | ❌ → `post-verify` |
@@ -27,66 +36,80 @@ LLM 寫出來的中文有很穩定的壞味道：填充語（「總之」「值�
 
 ### 1. 定位範圍
 
-使用者可能給整篇、給一段、或只給一句。**不要自動擴大範圍**——他說「這段」就只改那段，其他地方即使你覺得怪也只在報告最後列出來問。
+整篇、一段、或只有一句。**不要自動擴大範圍**——他說「這段」就只處理那段，其他地方即使覺得怪也只在報告最後列出來問。
 
-### 2. 逐項量測
+### 2. 掃 AI 味
 
-對照 `references/voice-profile.md` 的七個維度掃一遍。每個維度回報「符合 / 偏離」，偏離要指出**具體是哪一句**：
+逐項比對 `references/ai-tells.md` 的 A~H 項。命中就記下位置與命中項目。
 
-1. **人稱** — 對讀者說「你」，作者「我」節制，幾乎不用「我們」
-2. **連接詞** — 口語詞優先（所以 > 因此），破折號 `——` 是主要轉折器
-3. **句型** — 「不是 A，而是 B」是招牌；避免對稱排比堆疊
-4. **強調密度** — 粗體標論點不標名詞，一段至多一處
-5. **開場形狀** — 事件／反差／提問／明示範圍四選一，禁止背景鋪陳
-6. **收尾形狀** — 收在取捨，不是摘要重複，不喊話
-7. **禁用清單** — 填充語、驚嘆號、emoji 裝飾、業內行話
+特別注意 D 項的例外：**事實不確定時該 hedge 就 hedge，那是誠實不是 AI 味。** 要刪的是「沒有不確定卻硬要兩面說」。
 
-### 3. 產出對照表
+### 3. 對照人聲樣本
 
-**只提建議，不動檔案。** 格式：
+翻 `voice-profile.md` 第三層。問三個問題：
+
+- 這件事他自己會怎麼講？對話裡有沒有現成的講法？
+- 這個寫法在「他否決過的清單」裡嗎？
+- 句子長度、鋪陳程度跟他的樣本差多少？
+
+**如果他在對話中已經講過這件事，直接用他的原話。** 那比任何改寫都更像他。這是本 skill 最高優先的規則。
+
+### 4. 遇到「不確定是他的偏好還是模型慣性」就問
+
+`voice-profile.md` 第二層有一份 ⚠️ 清單（破折號密度、粗體密度、「不是 A 而是 B」句型等）。這些**無法從語料判斷歸屬**，因為語料本身是 AI 產的。
+
+遇到時**問他，不要自己決定**。他裁決過的，寫進第一層或第三層並註明日期。
+
+### 5. 產出對照表
+
+**只提建議，不動檔案。**
 
 ```markdown
-| 位置 | 原句 | 建議 | 理由 |
+| 位置 | 原句 | 建議 | 命中 |
 |---|---|---|---|
-| L23 | 總之，這個工具值得一試！ | 這個工具的取捨很清楚：X 換 Y。 | 填充語 +驚嘆號 +喊話結尾，三項都違反 |
+| L23 | 總之，這個工具值得一試！ | 這個工具的取捨很清楚：X 換 Y。 | A 填充語 / E 喊話結尾 / F 驚嘆號 |
 ```
 
-理由欄要指向 voice-profile 的具體條目，不要寫「比較通順」這種無法反駁的話。
+「命中」欄要指到 `ai-tells.md` 的具體項目，不要寫「比較通順」這種無法反駁的理由。
 
-### 4. 給選項而不是給答案
+### 6. 給選項而不是給答案
 
-語氣是主觀的。同一句話至少給 **2 個方向**（例如「更直白」vs「保留一點距離」），讓使用者選。只有在明確違反禁用清單時（驚嘆號、emoji 裝飾、「總之」）才單一建議。
+語氣是主觀的。同一句至少給 **2 個方向**（例如「更直白」vs「保留距離」），讓他選。只有明確命中 ai-tells 的硬項目（驚嘆號、emoji 裝飾、「總之」）才給單一建議。
 
-如果使用者的原話裡已經有他自己的說法（例如他在對話中講了「想說研究一下有什麼特別的」），**優先直接採用他的原話**，那比任何改寫都更像他。
+### 7. 他點頭後才改，並回填樣本
 
-### 5. 使用者點頭後才改
-
-得到明確同意再動檔案。改完跑：
+得到明確同意再動檔案。改完：
 
 ```bash
 pnpm verify
 ```
 
-中文版改了語氣，**英文版要同步**——語氣是雙語的，不是只有中文有。英文版對應的壞味道是 "Moreover," / "It's worth noting that" / "In conclusion" / 驚嘆號 / 過度 hedging。
+然後做兩件常被跳過的事：
+
+1. **同步英文版** — 語氣是雙語的。英文對應的 AI 味見 `ai-tells.md` H 項。
+2. **回填人聲樣本** — 把他這次採用的講法、否決的寫法，補進 `voice-profile.md` 第三層，附日期。**這是這個 skill 唯一會變準的機制**，跳過它就永遠停在今天的準度。
 
 ## 反合理化
 
 | 想偷懶 | 為什麼不行 |
 |---|---|
-| 「順手把整篇語氣都調一遍」 | 使用者只說某段。擅自改動已定稿的段落＝未確認就 revert 他的字 |
-| 「憑感覺說這句怪」 | 語氣輪廓是實測出來的，要指到具體維度，否則只是用我的品味蓋掉他的 |
-| 「給一個最佳解就好」 | 語氣沒有最佳解。給選項，讓他選 |
-| 「中文改完就好，英文之後再說」 | 英文版是對譯不是摘要，語氣不同步等於兩篇文章 |
-| 「改完不用跑 verify」 | 動到 posts 就是 Tier 1，要過閘門 |
-| 「使用者講的口語太隨便，我幫他潤過」 | 他的原話是最準的語料。潤過就不是他了 |
+| 「站上文章都這樣寫，所以沒問題」 | 站上文章 100% 經 AI 產出。這是 AI 味的來源，不是基準 |
+| 「順手把整篇語氣都調一遍」 | 他只說某段。擅自改已定稿段落＝未確認就 revert 他的字 |
+| 「憑感覺說這句怪」 | 要指到 ai-tells 的具體項目，否則只是用我的品味蓋掉他的 |
+| 「給一個最佳解就好」 | 語氣沒有最佳解。給選項讓他選 |
+| 「破折號太多，直接砍」 | 那在 ⚠️ 待裁決清單裡，歸屬未知，要問 |
+| 「他的口語太隨便，我幫他潤過再用」 | 他的原話是最準的語料。潤過就不是他了 |
+| 「改完不用回填樣本」 | 不回填，這個 skill 永遠不會變準 |
+| 「中文改完就好」 | 英文版是對譯不是摘要，語氣不同步等於兩篇文章 |
 
 ## 跟其他 skill 的關係
 
 - **post → post-tone**：新文寫完，語氣自審
-- **post-review / post-verify / post-tone**：三關互補，結構 / 事實 / 語氣，可各自獨立跑
+- **post-review / post-verify / post-tone**：結構 / 事實 / 語氣三關互補，可各自獨立跑
 - **post-update → post-tone**：改舊文後確認語氣沒跟原文斷裂
 
 ## 詳細參考
 
-- 語氣輪廓與實測數據：`references/voice-profile.md`
-- 寫作風格總則：`../post/references/writing-guide.md`
+- AI 味清單：`references/ai-tells.md`
+- 語氣輪廓與語料汙染說明：`references/voice-profile.md`
+- 寫作風格總則（使用者親筆）：`../post/references/writing-guide.md`
