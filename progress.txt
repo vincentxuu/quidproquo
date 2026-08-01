@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,19 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-01: post(ai) 數位員工 organizational/commercial view (zh + en).
+  Spine is Anthropic Project Vend phase 1+2 (first-hand, publishes its own
+  failures). Three contested facts are presented as conflicts rather than
+  resolved: Klarna "reversal" vs "scope correction"; 11x churn 70–80% (insiders,
+  TechCrunch) vs 79% retention (company); Salesforce 9,000→5,000 as "layoff" vs
+  "rebalance". Agentforce ARR deliberately not cited — sources conflict
+  ($800M vs $1B run rate). MIT NANDA 95% cited with a note that its sample size
+  appears in two versions across secondary coverage. Added 2 site-wide glossary
+  terms: 數位員工, agent washing; 2 per-post terms: per-resolution 計價,
+  context anxiety. Research note in .research/2026-08-01-digital-employee.md
+  (not version-controlled). Open: no Taiwan/Chinese-language deployment case
+  found; EU AI Act / NIST agent-standards angle only had vendor marketing pages,
+  so it was left out.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
