@@ -6,7 +6,7 @@ category: ai
 tags: [digital-employee, ai-agent, agentic-ai, anthropic, harness-engineering, pricing]
 lang: zh-TW
 tldr: "「數位員工」不是技術，是計價與課責單位。Anthropic Project Vend 讓 Claude 真的開了三家店，發現最有效的介入不是換更強的模型，而是強迫走流程——官方原話是「我們重新發現了 bureaucracy matters」。Gartner 估計數千家自稱 agentic 的廠商中只約 130 家是真的。"
-description: "從 Anthropic Project Vend 兩階段實驗、OpenAI Frontier、per-resolution 計價、Klarna 與 Salesforce 的人力數字，拆解 2026 年「數位員工」的能力邊界、商業模式與已知失敗模式。"
+description: "從 Anthropic Project Vend 兩階段實驗、OpenAI Frontier、官方定價頁的 per-resolution 費率、Klarna 與 Salesforce 的人力數字，以及 2026-08-02 生效的 EU AI Act Article 26，拆解「數位員工」的能力邊界、商業模式與已知失敗模式。"
 draft: false
 glossary:
   - term: "per-resolution 計價"
@@ -118,18 +118,23 @@ AI 一個人幹十個人的活，不會多要十個座位——seat 這個計價
 
 | 產品 | 計價單位 | 公開牌價 |
 |---|---|---|
-| [Intercom Fin](https://fin.ai/) | per resolution | $0.99 |
-| [Zendesk AI Agents](https://www.zendesk.com/service/ai/) | per automated resolution | 約 $1.50 |
-| [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | per conversation | $2.00 |
-| [HubSpot Customer Agent](https://www.hubspot.com/products/service) | per resolution | $0.50 |
+| [Intercom Fin](https://fin.ai/pricing/) | per resolution | **$0.99**（官方定價頁） |
+| [HubSpot Customer Agent](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent) | per resolution | **50 HubSpot Credits**／次，credits [$9.00／1,000（年繳）](https://www.hubspot.com/pricing/service) → 約 $0.45 |
+| [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | per action（Flex Credits） | **$0.10／action**；舊制 $2.00／conversation 仍在 |
+| [Zendesk AI Agents](https://www.zendesk.com/pricing) | per automated resolution | **未公布單價**：方案內含額度＋超額計費 |
 | [Sierra](https://sierra.ai/) | outcome-based | 不公開 |
 
-Intercom 甚至配了績效保證：沒達到解決率目標就賠償，上限 $1M（公司自報）。
+這張表比一年前更值得細看，因為**廠商自己正在改計價單位**，而改的方向剛好證明了 per-outcome 的兩個弱點：
 
-但 per-outcome 有兩個沒解的問題：
+**1. 「解決」由賣方定義。** HubSpot 把定義寫進了[產品頁](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent)：一次 resolution 是「agent 提供了支援，且該對話在 **72 小時**內沒有被轉交給真人」。這個定義很具體，但也很明顯是可以調的旋鈕——72 小時換成 24 小時，帳單就不一樣。買方要在合約裡自己把定義釘死。
 
-1. **「解決」由賣方定義**。這是為什麼有些廠商刻意改成 per-action 計價，明說就是為了避開「什麼算 resolved」的爭議。買方要在合約裡自己把定義釘死。
-2. **成本從可預測變成不可預測**。seat 是固定的，resolution 不是。量一上去，per-outcome 可能比 per-seat 貴。
+**2. 成本從可預測變成不可預測，而且「一次對話」本身就是個爛單位。** Salesforce 是最好的例子：Agentforce 上市時是 $2／conversation，2025 年 5 月[官方引入 Flex Credits](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news)改成 **$0.10／action**（每個 action 20 credits，10 萬 credits 一包 $500）。Salesforce 自己的[部落格](https://www.salesforce.com/blog/flex-credits)把理由講得很白：
+
+> 以對話計費，這樣一次互動要花 $2；但用 Flex Credits，同樣的往返可能只是 3–6 個 action，成本 $0.30–$0.60。
+
+換句話說，賣方比買方更早發現「一次對話」不等於「一份價值」。而 Zendesk 走了第三條路——[官方定價頁](https://www.zendesk.com/pricing)只說按 automated resolution 計費、各方案內含額度（Team 每人每月 5 次、Professional/Growth 10 次、Enterprise 15 次，帳號上限每年 10,000 次），超額另計，**單價根本不公開**。市面上流傳的「Zendesk 約 $1.50／resolution」出自競品的比較文，不是 Zendesk 自己講的。
+
+Intercom 則配了績效保證：沒達到解決率目標就賠償，上限 $1M（公司自報）。
 
 高階市場則完全不公開報價。[Sierra 在 2026 年 5 月募了 $950M、估值 $15.8B](https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious)，走的是純企業銷售流程；第三方比較文估年約落在 $150K–$350K+（含導入），這個數字沒有官方來源，當量級參考就好。
 
@@ -145,18 +150,48 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 
 兩個最常被引用的案例，細節都比標題複雜：
 
-**Klarna**。2024 年 2 月官方宣稱 AI 客服首月處理 230 萬次對話、相當於 700 名全職客服、全年帶來 $4,000 萬利潤。2025 年 5 月 CEO Sebastian Siemiatkowski [對 Bloomberg 說](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans)：
+**Klarna**——這個案例被引用時幾乎都停在 2025 年 5 月，但它沒有停在那裡。完整時間線比任何一種標題都有意思：
+
+| 時間 | 發生什麼 |
+|---|---|
+| 2024-02 | 官方宣稱 AI 客服首月處理 230 萬次對話、相當於 700 名全職客服、全年帶來 $4,000 萬利潤 |
+| 2025-05 | CEO 承認砍太深，重新招募真人；同月[對 CNBC 說](https://www.cnbc.com/amp/2025/05/14/klarna-ceo-says-ai-helped-company-shrink-workforce-by-40percent.html)人力從 5,000 降到近 3,000，但**明講不全是 AI**，也來自每年 15–20% 的自然流失 |
+| 2025-Q3 | 財報電話會議上說 AI 客服已相當於 **853 名**全職客服（年初是 700）、省下 **$6,000 萬**，並稱 CSAT 與真人「同等」 |
+| 2026-02 | 在 20VC podcast 上說目前約 3,000 人，預計 2030 年降到 **2,000 人以下**，靠自然流失、不打算裁員 |
+| 2026-06 | 新說法：「在 AI 能做掉最簡單客服的世界裡，我們認為真人客服幾乎會變成一種 VIP 待遇」 |
+
+2025 年 5 月他[對 Bloomberg 說的那句](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans)仍然是最好的一句總結：
 
 > 成本很不幸地變成了組織時太主導的評估因素，結果你得到的就是更低的品質。
 
-然後開始重新招募真人。但要注意：這被講成「Klarna 承認 AI 失敗」的版本流傳最廣，而實際動作更接近**範圍修正**——AI 仍守高量前線，真人回到投訴、詐欺、糾紛這些判斷密集的層。兩種敘事都有人講，值得知道差別在哪。
+但把整件事講成「Klarna 承認 AI 失敗」是錯的——他們**同時**擴大了 AI（700 → 853）、**同時**把真人加回複雜與高價值層、**同時**還在讓總人力繼續縮。Forrester 分析師 Kate Leggett [的評語是](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987)他們「過度轉向成本控制，沒想清楚對客戶體驗的長期影響」，幾乎是「壞的 AI 部署的代表案例」。兩件事可以同時成立：部署方式很糟，而技術確實有效。
 
 **Salesforce**。Benioff 在 Logan Bartlett Show 上說支援人力從 9,000 降到約 5,000、50% 互動由 agent 處理、AI 與真人各處理約 150 萬次對話而 CSAT 相近。但同一件事 [Salesforce 發言人的說法](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division)是停止回補職缺加上數百人轉調——Benioff 自己用的字也是 "rebalance"。**同一組數字，兩種框架。**
 
 ### 專案本身的失敗率
 
 - [Gartner（2025-06）](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25)：2027 年底前 **超過 40%** 的 agentic AI 專案會被取消，理由是成本失控、價值不明、風險控制不足。分析師 Anushree Verma 的原話是「目前多數 agentic AI 專案都是被炒作驅動的早期實驗或 POC，而且常常用錯地方」。
-- MIT Project NANDA《The GenAI Divide: State of AI in Business 2025》：**95%** 的企業 GenAI 專案沒有可衡量的 P&L 影響。這份報告的樣本數在不同轉述中有兩組版本（52 場訪談／153 份問卷 vs. 150 場訪談／350 份問卷），引用時值得標明。報告裡 ROI 最好的案例反而都在不起眼的後台，不在行銷。
+- MIT Project NANDA《[The GenAI Divide: State of AI in Business 2025](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)》（2025 年 7 月）：**95%** 的企業 GenAI 專案沒有可衡量的 P&L 影響。順帶更正一個廣為流傳的錯誤——很多轉述說這份報告基於「150 場訪談＋350 名員工問卷」，但報告第 2 頁自己寫的是：
+
+  > 本報告採用多方法研究設計，包含對 300 個以上公開揭露的 AI 專案的系統性檢視、對 **52 個組織**代表的結構化訪談，以及在四場產業大會蒐集的 **153 份**資深主管問卷。
+
+  研究期間是 2025 年 1–6 月，報告自己標明是「初步發現（Preliminary Findings）」。用這個 95% 的時候值得一併帶上樣本規模，因為它比多數人以為的小。報告裡 ROI 最好的案例反而都在不起眼的後台，不在行銷。
+
+## 「誰簽名」明天就是法律義務了
+
+前面說「沒有指定的人類負責人就不是員工」是實務建議。從 **2026 年 8 月 2 日**起，在歐盟它是法條。
+
+依[歐盟官方的 AI Act 實施時程](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act)，這天起 AI Act 的大部分規則開始適用、Article 50 的透明度義務生效、國家與歐盟層級的執法啟動。對「數位員工」最直接的是 **Article 26（高風險 AI 系統部署者的義務）**，其第 2 項寫得非常白：
+
+> 部署者應將人為監督指派給具備必要能力、訓練與權限，並獲得必要支援的**自然人**。
+
+同一條還要求：保存系統自動產生的日誌**至少六個月**（26(6)）；在工作場所部署前要先告知員工與員工代表（26(7)）；對 Annex III 高風險系統所做或協助做出的、涉及自然人的決定，要告知被影響的人（26(11)）。
+
+為什麼這跟數位員工特別有關：Annex III 的第 4 類就是**就業、勞工管理與自營作業取得**——履歷篩選、任務分派、升遷與解僱相關的 AI 都落在裡面。而且**部署者是雇主，不是賣工具給你的廠商**。你買的 agent 平台通過了什麼認證，不會替你承擔部署者義務。
+
+幾個要留意的時間點：Article 50(2) 給 2026 年 8 月 2 日前就已上市的生成式系統延到 **2026 年 12 月 2 日**才需符合機器可讀標記；Article 6(1) 及其對應義務要到 **2027 年 8 月 2 日**才適用。另外這份時程已納入 Digital Omnibus on AI 的修正，細節仍在動，實際規劃要回去看官方時程頁而不是二手整理。
+
+務實的讀法是：**日誌保存、指定監督人、告知受影響者，這三件事本來就是好的工程實務，現在多了一個不做會被罰的理由。**
 
 ## 適合 / 不適合
 
@@ -170,7 +205,7 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 
 2026 年的數位員工是真的可以上工的，但三個判斷值得帶走：
 
-1. **買「員工」之前先問「誰簽名」**。課責結構決定了它是員工還是無主帳號，跟模型多強無關。
+1. **買「員工」之前先問「誰簽名」**。課責結構決定了它是員工還是無主帳號，跟模型多強無關——而且從 2026 年 8 月 2 日起，在歐盟高風險場景這是法律義務，不是建議。
 2. **先給流程，再給自由**。Project Vend 最有效的介入不是更聰明的模型，是強迫查證的 SOP。檢查表就是給 agent 的機構記憶。
 3. **不要把 harness 當資產**。Anthropic 自己砍掉了 context reset 和 per-sprint evaluator。你的鷹架也會過期，而且你不會收到通知。
 
@@ -188,6 +223,23 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 - [Anthropic Economic Index report（2025-09）](https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
 - [Anthropic Economic Index report: Economic primitives（2026-01）](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
 
+**定價（官方頁面）**
+
+- [Intercom Fin 定價](https://fin.ai/pricing/)
+- [HubSpot Customer Agent 產品頁（含 resolution 定義）](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent)
+- [HubSpot Service Hub 定價（HubSpot Credits 費率）](https://www.hubspot.com/pricing/service)
+- [HubSpot 官方公告：Customer Agent 改為 outcome-based 計價](https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete)
+- [Salesforce 新聞稿：Agentforce 導入 Flex Credits（2025-05-15）](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news)
+- [Salesforce 部落格：Flex Credits 的計價邏輯](https://www.salesforce.com/blog/flex-credits)
+- [Zendesk 定價頁](https://www.zendesk.com/pricing)
+- [Zendesk 官方說明：automated resolutions 計費方式](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents)
+
+**法規**
+
+- [EU AI Act 官方實施時程（European Commission AI Act Service Desk）](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act)
+- [AI Act Article 26：高風險 AI 系統部署者的義務](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+- [AI Act Article 50：透明度義務](https://artificialintelligenceact.eu/article/50)
+
 **市場與產品**
 
 - [TechCrunch: OpenAI launches a way for enterprises to build and manage AI agents](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents)
@@ -202,6 +254,10 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 - [martech.org: Gartner — 40% of agentic AI projects will fail](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable)
 - [TechCrunch: 11x has been claiming customers it doesn't have](https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/)
 - [eMarketer: Klarna backtracks AI customer service plans](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans)
+- [CNBC: Klarna CEO says AI helped company shrink workforce by 40%](https://www.cnbc.com/amp/2025/05/14/klarna-ceo-says-ai-helped-company-shrink-workforce-by-40percent.html)
+- [CX Dive: Klarna says its AI agent is doing the work of 853 employees](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987)
+- [Business Insider: Klarna CEO expects workforce under 2,000 by 2030](https://www.businessinsider.com/klarna-ceo-workforce-shrink-to-under-2000-by-2030-ai-2026-2)
+- [MIT NANDA《The GenAI Divide: State of AI in Business 2025》報告全文 PDF](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)
 - [Salesforce Ben: AI Agents Drive 4,000 Job Cuts in Salesforce Support Division](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division)
 - [MIT NANDA 報告方法學說明](https://virtualizationreview.com/articles/2025/08/19/mit-report-finds-most-ai-business-investments-fail-reveals-genai-divide.aspx)
 

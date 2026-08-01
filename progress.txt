@@ -26,17 +26,27 @@ Next steps
 Recently completed
 - 2026-08-01: post(ai) 數位員工 organizational/commercial view (zh + en).
   Spine is Anthropic Project Vend phase 1+2 (first-hand, publishes its own
-  failures). Three contested facts are presented as conflicts rather than
-  resolved: Klarna "reversal" vs "scope correction"; 11x churn 70–80% (insiders,
-  TechCrunch) vs 79% retention (company); Salesforce 9,000→5,000 as "layoff" vs
-  "rebalance". Agentforce ARR deliberately not cited — sources conflict
-  ($800M vs $1B run rate). MIT NANDA 95% cited with a note that its sample size
-  appears in two versions across secondary coverage. Added 2 site-wide glossary
-  terms: 數位員工, agent washing; 2 per-post terms: per-resolution 計價,
-  context anxiety. Research note in .research/2026-08-01-digital-employee.md
-  (not version-controlled). Open: no Taiwan/Chinese-language deployment case
-  found; EU AI Act / NIST agent-standards angle only had vendor marketing pages,
-  so it was left out.
+  failures). Second verification pass fixed two real errors from the first
+  draft: (a) the pricing table was sourced from competitor comparison blogs —
+  rebuilt from vendor pricing pages. Zendesk publishes NO per-resolution unit
+  rate (plan allocation + overage; the "~$1.50" circulating is competitor
+  marketing); Agentforce moved off $2/conversation to Flex Credits $0.10/action
+  in 2025-05; HubSpot is 50 credits @ $9/1,000 = ~$0.45 with a 72-hour
+  no-handoff definition of "resolved". (b) Klarna did not stop in 2025-05 —
+  added Q3 2025 (853 agent-equivalents, $60M saved), 2026-02 (<2,000 staff by
+  2030 via attrition), 2026-06 ("human service as a VIP thing"). MIT NANDA
+  sample-size conflict RESOLVED from the report PDF: 52 interviews / 153 survey
+  responses / 300+ initiatives; the "150/350" version in circulation is a
+  misreport. Added an EU AI Act section — Article 26(2) requires deployers to
+  assign human oversight to named natural persons, in force 2026-08-02, and
+  Annex III Area 4 makes the employer (not the vendor) the deployer.
+  Still presented as unresolved conflicts: 11x churn 70–80% (TechCrunch,
+  insiders) vs 79% retention (company); Salesforce 9,000→5,000 "layoff" vs
+  "rebalance". Agentforce ARR still not cited — sources conflict. Added 2
+  site-wide glossary terms: 數位員工, agent washing; 2 per-post terms.
+  Research note in .research/2026-08-01-digital-employee.md (not versioned).
+  Open: two search passes found no Taiwan deployment case with verifiable
+  outcome numbers — only vendor press releases, so the gap stands.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many

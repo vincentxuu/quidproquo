@@ -6,7 +6,7 @@ category: ai
 tags: [digital-employee, ai-agent, agentic-ai, anthropic, harness-engineering, pricing]
 lang: en
 tldr: "\"Digital employee\" isn't a technology — it's a pricing and accountability unit. Anthropic's Project Vend had Claude actually run three shops, and found the most effective intervention wasn't a smarter model but forcing it to follow procedures. Their words: \"we rediscovered that bureaucracy matters.\" Gartner estimates only ~130 of the thousands of vendors claiming to be agentic actually are."
-description: "Anthropic's two-phase Project Vend, OpenAI Frontier, per-resolution pricing, and the headcount numbers from Klarna and Salesforce — what the 2026 \"digital employee\" category can actually do, how it's priced, and its documented failure modes."
+description: "Anthropic's two-phase Project Vend, OpenAI Frontier, per-resolution rates from vendors' own pricing pages, the headcount numbers from Klarna and Salesforce, and EU AI Act Article 26 taking effect 2026-08-02 — what the \"digital employee\" category can actually do, how it's priced, and its documented failure modes."
 draft: false
 glossary:
   - term: "per-resolution pricing"
@@ -118,18 +118,23 @@ An AI doing the work of ten people doesn't ask for ten seats — the seat as a p
 
 | Product | Unit | Published rate |
 |---|---|---|
-| [Intercom Fin](https://fin.ai/) | per resolution | $0.99 |
-| [Zendesk AI Agents](https://www.zendesk.com/service/ai/) | per automated resolution | ~$1.50 |
-| [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | per conversation | $2.00 |
-| [HubSpot Customer Agent](https://www.hubspot.com/products/service) | per resolution | $0.50 |
+| [Intercom Fin](https://fin.ai/pricing/) | per resolution | **$0.99** (official pricing page) |
+| [HubSpot Customer Agent](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent) | per resolution | **50 HubSpot Credits**, at [$9.00/1,000 annually](https://www.hubspot.com/pricing/service) → ~$0.45 |
+| [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | per action (Flex Credits) | **$0.10/action**; legacy $2.00/conversation still available |
+| [Zendesk AI Agents](https://www.zendesk.com/pricing) | per automated resolution | **No published unit rate**: plan allocation + overage |
 | [Sierra](https://sierra.ai/) | outcome-based | Not published |
 
-Intercom even attaches a performance guarantee: up to $1M back if resolution targets aren't met (company-reported).
+This table is worth reading closely, because **the vendors themselves are changing the unit** — and the direction they're moving proves both weaknesses of per-outcome pricing:
 
-But per-outcome leaves two problems unsolved:
+**1. "Resolved" is defined by the seller.** HubSpot writes the definition into its [product page](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent): a resolution means "support was provided by the agent, and the conversation was not handed to a human rep for **72 hours**." That's admirably specific — and also an obviously adjustable dial. Change 72 hours to 24 and the bill changes. Buyers need to pin the definition down in the contract themselves.
 
-1. **"Resolved" is defined by the seller.** This is why some vendors deliberately switched to per-action pricing, explicitly to sidestep disputes over what counts as resolved. Buyers need to pin the definition down in the contract themselves.
-2. **Cost moves from predictable to unpredictable.** A seat is fixed; a resolution isn't. At volume, per-outcome can cost more than per-seat.
+**2. Cost moves from predictable to unpredictable — and "a conversation" is a bad unit to begin with.** Salesforce is the clearest example. Agentforce launched at $2/conversation; in May 2025 Salesforce [officially introduced Flex Credits](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news) at **$0.10 per action** (20 credits per action, sold in packs of 100,000 credits for $500). Salesforce's own [blog](https://www.salesforce.com/blog/flex-credits) states the reasoning plainly:
+
+> With conversation-based billing, that interaction would cost $2, but with Flex Credits, this exchange could be executed in 3-6 actions at a cost of $0.30-$0.60.
+
+In other words, the seller figured out before the buyer that one conversation is not one unit of value. Zendesk took a third path: its [official pricing page](https://www.zendesk.com/pricing) says billing is per automated resolution with an allocation included in each plan (Team 5 per agent per month, Professional/Growth 10, Enterprise 15, capped at 10,000 per account per year) and overage charges beyond that — but **the unit rate is not published at all**. The widely-quoted "Zendesk ~$1.50 per resolution" comes from competitors' comparison pages, not from Zendesk.
+
+Intercom, for its part, attaches a performance guarantee: up to $1M back if resolution targets aren't met (company-reported).
 
 The high end doesn't publish rates at all. [Sierra raised $950M at a $15.8B valuation in May 2026](https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious) and runs a pure enterprise sales process; third-party comparisons put annual contracts in the $150K–$350K+ range including implementation. That figure has no official source — treat it as an order of magnitude, not a quote.
 
@@ -145,18 +150,48 @@ The churn figure is directly contested: insiders reported 70–80% churn in earl
 
 The two most-cited cases are both more complicated than the headline:
 
-**Klarna.** In February 2024 the company said its AI assistant handled 2.3 million conversations in its first month, equivalent to about 700 full-time agents, and was on track to add $40M in profit for the year. In May 2025, CEO Sebastian Siemiatkowski [told Bloomberg](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans):
+**Klarna** — this case is almost always cited as if it ended in May 2025. It didn't. The full timeline is more interesting than any of the headlines:
+
+| When | What happened |
+|---|---|
+| 2024-02 | Company says the AI assistant handled 2.3M conversations in its first month, equivalent to ~700 full-time agents, on track to add $40M in profit |
+| 2025-05 | CEO admits they cut too deep and starts rehiring humans; that same month he [tells CNBC](https://www.cnbc.com/amp/2025/05/14/klarna-ceo-says-ai-helped-company-shrink-workforce-by-40percent.html) headcount went from 5,000 to nearly 3,000 — but explicitly **not all from AI**, also from 15–20% annual natural attrition |
+| 2025-Q3 | On the earnings call, says the AI agent now does the work of **853** full-time agents (up from 700), saving **$60M**, with CSAT "on-par" with human agents |
+| 2026-02 | On the 20VC podcast, says the company is at ~3,000 people and expects **under 2,000 by 2030** — via attrition, with no layoffs planned |
+| 2026-06 | New framing: "In a world where AI can do the most simplistic customer service, we believe that human customer service will almost be seen as a VIP thing" |
+
+His May 2025 line [to Bloomberg](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans) is still the best single summary:
 
 > As cost unfortunately seems to have been a too predominant evaluation factor when organizing this, what you end up having is lower quality.
 
-Then they started rehiring humans. But note: the version that spread widest is "Klarna admits AI failed," while the actual move looks more like a **scope correction** — AI still holds the high-volume front line, with humans returning to complaints, fraud, and disputes, where judgment is dense. Both narratives are in circulation; it's worth knowing the difference.
+But framing the whole thing as "Klarna admits AI failed" is wrong. They **simultaneously** scaled the AI up (700 → 853), added humans back to the complex and premium tiers, and kept shrinking total headcount. Forrester analyst Kate Leggett's [assessment](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987) is that they "overpivoted to cost containment, without thinking about the longer-term impact of customer experience" — almost "the poster child for bad AI deployment." Both things can be true at once: the deployment was handled badly, and the technology works.
 
 **Salesforce.** Benioff said on the Logan Bartlett Show that support headcount went from 9,000 to about 5,000, that 50% of interactions are now with agents, and that AI and humans each handled about 1.5 million conversations with roughly equal CSAT. But [a Salesforce spokesperson framed the same change](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division) as declining to backfill roles plus hundreds of redeployments — and Benioff's own word was "rebalance." **Same numbers, two framings.**
 
 ### The base rate on the projects themselves
 
 - [Gartner (2025-06)](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25): **more than 40%** of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value, and inadequate risk controls. Analyst Anushree Verma: "Most agentic AI projects right now are early stage experiments or proofs of concept that are mostly driven by hype and are often misapplied."
-- MIT Project NANDA, *The GenAI Divide: State of AI in Business 2025*: **95%** of enterprise GenAI pilots delivered no measurable P&L impact. Note that the report's sample size appears in two different versions across secondary coverage (52 interviews / 153 survey responses vs. 150 interviews / 350 employee responses), so it's worth citing which. The best ROI cases in the report were all in unglamorous back-office work, not marketing.
+- MIT Project NANDA, *[The GenAI Divide: State of AI in Business 2025](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)* (July 2025): **95%** of enterprise GenAI pilots delivered no measurable P&L impact. Worth correcting a widely repeated error here — much of the secondary coverage says the report is based on "150 interviews and a survey of 350 employees," but page 2 of the report itself says:
+
+  > This report is based on a multi-method research design that includes a systematic review of over 300 publicly disclosed AI initiatives, structured interviews with representatives from **52 organizations**, and survey responses from **153 senior leaders** collected across four major industry conferences.
+
+  The research period was January–June 2025, and the report labels itself "Preliminary Findings." When citing the 95%, it's worth carrying the sample size along with it, because it's smaller than most people assume. The best ROI cases in the report were all in unglamorous back-office work, not marketing.
+
+## "Who signs" becomes a legal obligation tomorrow
+
+Saying "if nobody is named, it isn't an employee" was practical advice. From **2 August 2026**, in the EU it is law.
+
+Per the [European Commission's official AI Act implementation timeline](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), that date is when the majority of the AI Act's rules start to apply, when Article 50 transparency obligations take effect, and when enforcement begins at national and EU level. The provision that bears most directly on digital employees is **Article 26 (obligations of deployers of high-risk AI systems)**, whose paragraph 2 is blunt:
+
+> Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support.
+
+The same article also requires keeping system-generated logs for **at least six months** (26(6)); informing workers and their representatives before deploying a high-risk system in the workplace (26(7)); and informing natural persons when an Annex III high-risk system makes or assists decisions about them (26(11)).
+
+Why this matters specifically for digital employees: Annex III Area 4 covers **employment, workers management, and access to self-employment** — CV screening, task allocation, promotion and termination decisions all land inside it. And **the deployer is the employer, not the vendor that sold you the tool.** Whatever certifications your agent platform holds, they do not discharge your deployer obligations.
+
+A few dates to watch: Article 50(2) gives generative systems already on the market before 2 August 2026 until **2 December 2026** to meet the machine-readable marking requirement, and Article 6(1) with its corresponding obligations only applies from **2 August 2027**. This timeline also already incorporates the Digital Omnibus on AI amendments, and details are still moving — plan against the official timeline page rather than secondary summaries.
+
+The pragmatic reading: **log retention, a named overseer, and notifying affected people were already good engineering practice. Now there's a fine attached to skipping them.**
 
 ## Where it fits, and where it doesn't
 
@@ -170,7 +205,7 @@ One indirect but useful reference point: the [Anthropic Economic Index](https://
 
 The 2026 digital employee can genuinely do work. Three judgments worth keeping:
 
-1. **Before buying an "employee," ask who signs.** The accountability structure is what makes it an employee rather than an unowned account, and it has nothing to do with how strong the model is.
+1. **Before buying an "employee," ask who signs.** The accountability structure is what makes it an employee rather than an unowned account, and it has nothing to do with how strong the model is — and from 2 August 2026, in EU high-risk contexts, it's a legal obligation rather than a suggestion.
 2. **Procedure first, autonomy second.** The most effective intervention in Project Vend wasn't a smarter model — it was an SOP that forced verification. A checklist is institutional memory for an agent.
 3. **Don't treat the harness as an asset.** Anthropic deleted its own context resets and per-sprint evaluator. Your scaffolding will expire too, and nobody will send you a notice.
 
@@ -188,6 +223,23 @@ The 2026 digital employee can genuinely do work. Three judgments worth keeping:
 - [Anthropic Economic Index report (2025-09)](https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
 - [Anthropic Economic Index report: Economic primitives (2026-01)](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
 
+**Pricing (official pages)**
+
+- [Intercom Fin pricing](https://fin.ai/pricing/)
+- [HubSpot Customer Agent product page (includes the resolution definition)](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent)
+- [HubSpot Service Hub pricing (HubSpot Credits rate)](https://www.hubspot.com/pricing/service)
+- [HubSpot announcement: Customer Agent moves to outcome-based pricing](https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete)
+- [Salesforce press release: Agentforce introduces Flex Credits (2025-05-15)](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news)
+- [Salesforce blog: the reasoning behind Flex Credits](https://www.salesforce.com/blog/flex-credits)
+- [Zendesk pricing page](https://www.zendesk.com/pricing)
+- [Zendesk documentation: how automated resolutions are billed](https://support.zendesk.com/hc/en-us/articles/5352026794010-About-automated-resolutions-for-AI-agents)
+
+**Regulation**
+
+- [EU AI Act official implementation timeline (European Commission AI Act Service Desk)](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act)
+- [AI Act Article 26: Obligations of deployers of high-risk AI systems](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+- [AI Act Article 50: Transparency obligations](https://artificialintelligenceact.eu/article/50)
+
 **Market and products**
 
 - [TechCrunch: OpenAI launches a way for enterprises to build and manage AI agents](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents)
@@ -202,6 +254,10 @@ The 2026 digital employee can genuinely do work. Three judgments worth keeping:
 - [martech.org: Gartner — 40% of agentic AI projects will fail](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable)
 - [TechCrunch: 11x has been claiming customers it doesn't have](https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/)
 - [eMarketer: Klarna backtracks AI customer service plans](https://www.emarketer.com/content/klarna-backtracks-ai-customer-service-plans)
+- [CNBC: Klarna CEO says AI helped company shrink workforce by 40%](https://www.cnbc.com/amp/2025/05/14/klarna-ceo-says-ai-helped-company-shrink-workforce-by-40percent.html)
+- [CX Dive: Klarna says its AI agent is doing the work of 853 employees](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987)
+- [Business Insider: Klarna CEO expects workforce under 2,000 by 2030](https://www.businessinsider.com/klarna-ceo-workforce-shrink-to-under-2000-by-2030-ai-2026-2)
+- [MIT NANDA, The GenAI Divide: State of AI in Business 2025 (full report PDF)](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)
 - [Salesforce Ben: AI Agents Drive 4,000 Job Cuts in Salesforce Support Division](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division)
 - [MIT NANDA report methodology](https://virtualizationreview.com/articles/2025/08/19/mit-report-finds-most-ai-business-investments-fail-reveals-genai-divide.aspx)
 
