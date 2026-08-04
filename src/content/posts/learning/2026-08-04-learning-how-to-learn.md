@@ -68,11 +68,13 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 課程最廣為流傳的是 focused mode / diffuse mode——專注模式與發散模式，說大腦在兩者間切換，解不開的題目要放著讓發散模式在背景跑。這個概念被 [Farnam Street](https://fs.blog/focused-diffuse-thinking) 之類的網站大量轉載，通常配著「神經科學顯示」的說法。
 
-問題在於，Oakley 在《A Mind for Numbers》的註腳裡自己處理過這個張力：
+問題出在神經科學那一側。[預設模式網路（default mode network）的標準描述](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network)是：它在需要專注的外向任務中活動**受到抑制**，而在靜息、放鬆清醒與內向思考（做白日夢、回憶、想像未來）時才升高。換句話說，「兩個模式同時在背景跑」跟 DMN 的實際行為對不上——它不是在背景加班，它是在你專注時安靜下來。
 
-> 眼尖的讀者會注意到我提過發散模式有時會在專注模式運作時於背景進行。然而研究發現，例如預設模式網路（default mode network，這只是眾多靜息態網路之一）在專注模式活躍時似乎會安靜下來。那到底是哪一種？……某種意義上，我使用的「發散模式」一詞或許該理解為「朝向學習的非聚焦活動」，而不是單指預設模式網路。
+這個張力 Oakley 本人處理過。以下這段流傳很廣，出處被標為《A Mind for Numbers》的註腳——**但我必須先說清楚：我只在 [Psychology Stack Exchange 的一則轉錄](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)上見過它，全網找不到第二個獨立出處，也沒能核對紙本頁碼。要引用請自行查證原書**：
 
-這段話值得完整讀一次。它不是外界的指控，是作者主動說明自己做了簡化。**focused / diffuse mode 是一組好用的心智模型，不是神經科學結論。** 你可以完全不接受它的神經學版本，同時保留它的行為建議（卡住就去散步）——因為那個建議的支撐來自別的地方。
+> 眼尖的讀者會注意到我提過發散模式有時會在專注模式運作時於背景進行。然而研究發現，例如預設模式網路（這只是眾多靜息態網路之一）在專注模式活躍時似乎會安靜下來。那到底是哪一種？……某種意義上，我使用的「發散模式」一詞或許該理解為「朝向學習的非聚焦活動」，而不是單指預設模式網路。
+
+如果這段轉錄忠實，那它就不是外界的指控，而是作者主動說明自己做了簡化。但即使把這段完全拿掉，結論仍然成立，因為它靠的是 DMN 文獻本身：**focused / diffuse mode 是一組好用的心智模型，不是神經科學結論。** 你可以完全不接受它的神經學版本，同時保留它的行為建議（卡住就去散步）——因為那個建議的支撐來自別的地方。
 
 課程另外兩個常被引用的組件也值得校準：
 
@@ -120,7 +122,13 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 而最關鍵的一句在後面：作者用 PET-PEESE 等方法校正發表偏誤後，「截距預測值大幅下降，**在上述調節條件皆不存在時，往往顯示沒有正向遷移**」。
 
-具體到什麼程度？沒有答案重疊時 d = 0.28，有重疊時再加 0.30 變成 0.58。也就是說，遷移效果很大一部分其實是「練習題和考題的答案有交集」。更直接的一擊來自 Agarwal 2019 年的研究：學生用事實題做提取練習、然後考高階思考題，表現**與完全沒做過練習的人無法區分**。
+具體到什麼程度？沒有答案重疊時 d = 0.28，有重疊時再加 0.30 變成 0.58。也就是說，遷移效果很大一部分其實是「練習題和考題的答案有交集」。
+
+更直接的一擊來自 [Agarwal 2019 年的研究](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf)，它讓中學生與大學生分別用事實題、高階題、或混合題做提取練習。原文摘要寫得很不留情：
+
+> 關鍵在於，高階題與混合題測驗提升了高階測驗表現，但事實題測驗沒有。與關於高階學習與 Bloom 分類法的普遍直覺相反，透過事實型提取練習建立知識基礎，可能不如直接進行高階提取練習來得有效。
+
+而且這個失效是雙向的——論文內文指出，實驗一裡用高階題練習對延遲後的**事實**測驗同樣沒有幫助。兩種錯配都退回到跟單純重讀無異的水準。Agarwal 把這解釋為 transfer-appropriate processing：練習與測驗的形式對得上，效果才出得來。
 
 同樣的模式出現在更上位的層次。[Donker 等人 2014 年的策略教學 meta-analysis](https://daneshyari.com/article/preview/355102.pdf)（95 個介入、180 個效果量）確實找到不錯的效果——寫作 g = 1.25、科學 0.73、數學 0.66、閱讀理解 0.36。但同一批研究者的報告明講：**針對近遷移設計的策略教學，比針對遠遷移的更有效。**
 
@@ -162,9 +170,13 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 引用它的兩百多篇論文不會跟著被撤。這件事本身就是本文主題的元層次示範：**流暢、好聽、可引用，不等於真的。**
 
-但不要因此走到另一個極端。仍有未被撤稿的正向證據——例如 Deng 等人 2025 年發表於 *Computers & Education* 的 meta-analysis（69 個實驗研究）報告學業表現 g+ = 0.712，[IRRODL 的另一份 22 研究 meta](https://www.irrodl.org/index.php/irrodl/article/view/8775) 則得到 g = 0.573。這些結論跟前面那份撤稿論文方向一致。
+但不要因此走到另一個極端。**正向結論本身沒有被這次撤稿推翻。** 同一份期刊在 2026 年刊出[另一篇 meta-analysis](https://www.nature.com/articles/s41599-026-07019-z)，統合 35 個研究、134 個效果量，得到 g = 0.670（95% CI [0.495, 0.844]），且偏誤檢定未發現顯著發表偏誤；[IRRODL 的 22 研究 meta](https://www.irrodl.org/index.php/irrodl/article/view/8775) 得到 g = 0.573。方向一致，只是效果量比那個 0.867 收斂。
 
-那到底該信誰？我的判讀是：**這些研究測的根本是不同的東西。**（這是我的整合，不是任一原文的說法。）絕大多數正向 meta 測的是「AI 在手時的表現」；而真正該問的是「AI 收走之後還剩下什麼」。有人已經直接測了後者。
+那到底該信誰？我認為問題問錯了——**這些研究跟 Bastani 測的根本是不同的東西**。而這句話不是我的推測：Deng 等人 2025 年發表於 *Computers & Education* 的 meta-analysis 在報告完正向結果後，自己就寫了：
+
+> 然而，方法學上的限制——例如缺乏統計檢定力分析，以及對介入後評量的疑慮——使結果的詮釋需要謹慎。……（建議之一是）區分「ChatGPT 產出的品質」與「介入對學業表現的正向效果」，做法包括把介入後評量從定義良好的問題轉向更複雜、需要展示技能的專案式評量，採用監考評量……
+
+翻成白話：**如果評量的時候 AI 還在手邊，你量到的可能是 AI 的輸出品質，不是學生的學習。** 這正是為什麼真正該問的是「AI 收走之後還剩下什麼」——而有人直接測了。
 
 Bastani 等人 2025 年發表於 PNAS 的隨機對照試驗 [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635) 把土耳其近千名高中生分三組做數學練習：一組用接近原生 ChatGPT 的 GPT Base、一組用加了教師設計提示的 GPT Tutor、一組只有課本和筆記。
 
@@ -203,6 +215,8 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - [MOOC: Learning How to Learn — UCSD Temporal Dynamics of Learning Center](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)
 - [The Most Popular Online Course Teaches You to Learn — NYT Bits (2015)](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)
 - [Focused and Diffuse: Two Modes of Thinking — Farnam Street](https://fs.blog/focused-diffuse-thinking)
+- [Know Your Brain: Default Mode Network — Neuroscientifically Challenged](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network)
+- [文中 Oakley 註腳引文的唯一可查出處（Psychology Stack Exchange 轉錄，未經紙本核對）](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)
 
 **學習技術的證據**
 - [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques — PSPI 14(1)](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266)（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
@@ -219,6 +233,7 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 **遷移**
 - [Pan & Rickard (2018), Transfer of Test-Enhanced Learning — Psychological Bulletin 144(7)](https://doi.org/10.1037/bul0000151)（[全文 PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)）
+- [Agarwal (2019), Retrieval Practice & Bloom's Taxonomy — Journal of Educational Psychology 111(2)](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf)（[ERIC 記錄](https://eric.ed.gov?id=EJ1205208)）
 - [Donker et al. (2014), Effectiveness of learning strategy instruction — Educational Research Review 11](https://daneshyari.com/article/preview/355102.pdf)
 
 **迷思與爭議**
@@ -238,6 +253,8 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)
 - [Retraction Note: The effect of ChatGPT on students' learning performance… — Humanit Soc Sci Commun 13, 528 (2026)](https://www.nature.com/articles/s41599-026-07310-z)
 - [撤稿報導 — EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns)、[GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)
+- [ChatGPT's impact on student learning outcomes: a meta-analysis — Humanit Soc Sci Commun (2026)](https://www.nature.com/articles/s41599-026-07019-z)（未撤稿，35 研究 / 134 效果量，g = 0.670）
+- [Deng et al. (2025), Does ChatGPT enhance student learning? — Computers & Education 227:105224](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025)
 - [A Meta-Analysis of ChatGPT's Influence on Learning Achievement — IRRODL (2025)](https://www.irrodl.org/index.php/irrodl/article/view/8775)
 - [Kosmyna et al. (2025), Your Brain on ChatGPT — MIT Media Lab](https://www.media.mit.edu/publications/your-brain-on-chatgpt)（[專案頁與限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)）
 - [Oakley et al. (2025), The Memory Paradox — arXiv:2506.11015](https://arxiv.org/abs/2506.11015)

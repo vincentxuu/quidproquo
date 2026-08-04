@@ -65,11 +65,13 @@ So the field's real proposition is one sentence: **the subjective fluency of lea
 
 The course's most widely circulated idea is focused mode versus diffuse mode: the brain alternates between them, so a problem you cannot crack should be left alone for the diffuse mode to work on in the background. Sites like [Farnam Street](https://fs.blog/focused-diffuse-thinking) have spread it widely, usually prefaced with "neuroscience shows".
 
-The trouble is that Oakley addressed this tension herself, in an endnote to *A Mind for Numbers*:
+The trouble is on the neuroscience side. [The standard description of the default mode network](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network) is that its activity is **suppressed** during cognitively demanding, externally focused tasks, and higher during quiet wakefulness and internally directed thought — daydreaming, recalling, imagining the future. So "both modes running at once" does not match how the DMN actually behaves. It is not working overtime in the background; it goes quiet when you concentrate.
+
+Oakley has addressed this tension herself. The passage below circulates widely, attributed to an endnote in *A Mind for Numbers* — **but I have to be upfront: the only place I can find it is [a transcription on Psychology Stack Exchange](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre). There is no second independent source anywhere on the web, and I have not checked it against the printed edition. Verify against the book before citing it**:
 
 > Astute readers will notice my mention that the diffuse mode seems to sometimes work in the background while the focused mode is active. However, research findings show that the default-mode network for example (which is just one of the many resting state networks), seems to go quiet when the focused mode is active. So which is it? … In some sense, then, my use of the term diffuse mode might be thought of as "nonfocused mode activities directed toward learning" rather than simply "default-mode network."
 
-That passage deserves a full read. It is not an outside accusation; it is the author flagging her own simplification. **Focused/diffuse mode is a useful mental model, not a neuroscience finding.** You can reject the neural version entirely and keep the behavioural advice (stuck? go for a walk) — because that advice is supported from somewhere else.
+If that transcription is faithful, it is not an outside accusation — it is the author flagging her own simplification. But strip the quote out entirely and the conclusion survives on the DMN literature alone: **focused/diffuse mode is a useful mental model, not a neuroscience finding.** You can reject the neural version and keep the behavioural advice (stuck? go for a walk), because that advice is supported from somewhere else.
 
 Two other course components need calibrating:
 
@@ -117,7 +119,13 @@ The phrase "learning how to learn" has an assumption baked in: that once you hav
 
 And the sentence that follows it: after correcting for publication bias with PET-PEESE and selection methods, "the intercept predictions were substantially reduced, **often indicating no positive transfer when none of the aforementioned moderators are present**".
 
-How much does that matter? With no response congruency the effect is d = 0.28; with it, another 0.30 gets added for d = 0.58. A large share of "transfer" is really the practice questions and the test questions sharing answers. Agarwal's 2019 study lands the point harder: students who practised with factual questions and were then tested on higher-order questions performed **indistinguishably from students who did no retrieval practice at all**.
+How much does that matter? With no response congruency the effect is d = 0.28; with it, another 0.30 gets added for d = 0.58. A large share of "transfer" is really the practice questions and the test questions sharing answers.
+
+[Agarwal's 2019 study](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) lands the point harder. Middle-school and college students did retrieval practice with fact questions, higher-order questions, or a mix. The abstract is unsparing:
+
+> Critically, higher order and mixed quizzes improved higher order test performance, but fact quizzes did not. Contrary to popular intuition about higher order learning and Bloom's taxonomy, building a foundation of knowledge via fact-based retrieval practice may be less potent than engaging in higher order retrieval practice.
+
+And the failure runs both ways — the paper reports that in Experiment 1, practising with higher-order questions did not help on the delayed **fact** test either. Both mismatches collapse back to roughly the restudy baseline. Agarwal reads this as transfer-appropriate processing: the benefit appears when the practice format matches the test format.
 
 The same pattern shows up one level up. [Donker et al.'s 2014 meta-analysis of learning-strategy instruction](https://daneshyari.com/article/preview/355102.pdf) (95 interventions, 180 effect sizes) does find solid effects — writing g = 1.25, science 0.73, mathematics 0.66, reading comprehension 0.36. But the same research group states it directly: **strategy instruction aimed at near transfer is more effective than instruction aimed at far transfer.**
 
@@ -159,9 +167,13 @@ On 22 April 2026, [the journal issued a retraction notice](https://www.nature.co
 
 The two-hundred-plus papers citing it are not retracted along with it. The episode is a meta-level demonstration of this article's own subject: **fluent, agreeable and citable is not the same as true.**
 
-Don't overcorrect, though. Non-retracted positive evidence exists — Deng et al.'s 2025 meta-analysis in *Computers & Education* (69 experimental studies) reports g+ = 0.712 on academic performance, and [a separate 22-study meta-analysis in IRRODL](https://www.irrodl.org/index.php/irrodl/article/view/8775) gets g = 0.573. Both point the same way the retracted paper did.
+Don't overcorrect, though. **The retraction does not overturn the positive finding itself.** The same journal published [another meta-analysis in 2026](https://www.nature.com/articles/s41599-026-07019-z) — 35 studies, 134 effect sizes — reporting g = 0.670 (95% CI [0.495, 0.844]) with no significant publication bias detected; [a 22-study meta-analysis in IRRODL](https://www.irrodl.org/index.php/irrodl/article/view/8775) gets g = 0.573. Same direction, smaller than 0.867.
 
-So who is right? My reading is that **these studies are measuring different things** — this is my synthesis, not a claim either paper makes. Most positive meta-analyses measure performance *while the AI is available*. The question that matters is what remains *after it is taken away*. Someone has measured that directly.
+So who is right? I think that is the wrong question — **these studies and Bastani's are measuring different things**. And that is not my inference: Deng et al., in their 2025 *Computers & Education* meta-analysis, say it themselves right after reporting their positive results:
+
+> However, methodological limitations, such as the lack of power analysis and concerns regarding post-intervention assessments, warrant cautious interpretation of results. This review presents four propositions from the findings: (1) distinguish between the quality of ChatGPT outputs and the positive effects of interventions on academic performance by shifting from well-defined problems in post-intervention assessments to more complex, project-based assessments that require skill demonstration, adopting proctored assessments…
+
+In plain terms: **if the AI is still at hand during the assessment, what you are measuring may be the quality of its output, not the student's learning.** Which is exactly why the question that matters is what remains after it is taken away — and someone measured that directly.
 
 Bastani et al.'s 2025 randomized controlled trial in PNAS, [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635), split nearly a thousand Turkish high schoolers three ways for math practice: GPT Base (close to stock ChatGPT), GPT Tutor (teacher-designed hints instead of answers), and a control with only textbook and notes.
 
@@ -200,6 +212,8 @@ One last thing that doesn't fit in a bullet: this field's reviews almost all use
 - [MOOC: Learning How to Learn — UCSD Temporal Dynamics of Learning Center](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)
 - [The Most Popular Online Course Teaches You to Learn — NYT Bits (2015)](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)
 - [Focused and Diffuse: Two Modes of Thinking — Farnam Street](https://fs.blog/focused-diffuse-thinking)
+- [Know Your Brain: Default Mode Network — Neuroscientifically Challenged](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network)
+- [The only traceable source for the Oakley endnote quoted above (Stack Exchange transcription, not verified against the printed book)](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)
 
 **Evidence on study techniques**
 - [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques — PSPI 14(1)](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266) ([full PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf))
@@ -216,6 +230,7 @@ One last thing that doesn't fit in a bullet: this field's reviews almost all use
 
 **Transfer**
 - [Pan & Rickard (2018), Transfer of Test-Enhanced Learning — Psychological Bulletin 144(7)](https://doi.org/10.1037/bul0000151) ([full PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf))
+- [Agarwal (2019), Retrieval Practice & Bloom's Taxonomy — Journal of Educational Psychology 111(2)](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) ([ERIC record](https://eric.ed.gov?id=EJ1205208))
 - [Donker et al. (2014), Effectiveness of learning strategy instruction — Educational Research Review 11](https://daneshyari.com/article/preview/355102.pdf)
 
 **Myths and disputes**
@@ -235,6 +250,8 @@ One last thing that doesn't fit in a bullet: this field's reviews almost all use
 - [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)
 - [Retraction Note: The effect of ChatGPT on students' learning performance… — Humanit Soc Sci Commun 13, 528 (2026)](https://www.nature.com/articles/s41599-026-07310-z)
 - [Retraction coverage — EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns), [GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)
+- [ChatGPT's impact on student learning outcomes: a meta-analysis — Humanit Soc Sci Commun (2026)](https://www.nature.com/articles/s41599-026-07019-z) (not retracted; 35 studies / 134 effect sizes, g = 0.670)
+- [Deng et al. (2025), Does ChatGPT enhance student learning? — Computers & Education 227:105224](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025)
 - [A Meta-Analysis of ChatGPT's Influence on Learning Achievement — IRRODL (2025)](https://www.irrodl.org/index.php/irrodl/article/view/8775)
 - [Kosmyna et al. (2025), Your Brain on ChatGPT — MIT Media Lab](https://www.media.mit.edu/publications/your-brain-on-chatgpt) ([project page and stated limitations](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview))
 - [Oakley et al. (2025), The Memory Paradox — arXiv:2506.11015](https://arxiv.org/abs/2506.11015)
