@@ -1,18 +1,20 @@
 ---
 title: "Learning How to Learn: Auditing the Course 4.17 Million People Took — What Holds Up, What's Just a Metaphor"
 date: 2026-08-04
+updated: 2026-08-04
 category: learning
 type: deep-dive
+difficulty: 進階
 tags: [learning-science, self-learning, retrieval-practice, spaced-repetition, metacognition, ai-and-learning]
 lang: en
-tldr: "Dunlosky's 2013 review rated 10 study techniques; only self-testing and distributed practice earned 'high utility'. Rereading — what students actually do — landed in the low-utility tier. The course's signature focused/diffuse mode is a metaphor, and Oakley has said so. A 2025 PNAS trial: GPT-4 during practice lifted accuracy 48%, but once access was removed students scored 17% worse than peers who never had it."
-description: "An evidence audit of Coursera's Learning How to Learn: which claims have meta-analyses behind them, which are useful mental models, which have been debunked, and how LLMs change the picture."
+tldr: "Dunlosky's 2013 review rated 10 study techniques; only self-testing and distributed practice earned 'high utility'. But a 2026 systematic review puts the effect at 0.22–0.46, and Pan & Rickard's transfer meta-analysis finds 'no positive transfer' once publication bias is corrected and moderators are absent. Meanwhile the single most-cited meta-analysis on ChatGPT in education (g = 0.867) was retracted by Nature in April 2026."
+description: "An evidence audit of Coursera's Learning How to Learn: which claims have meta-analyses behind them, which are useful mental models, which have been debunked, which are shrinking, and how LLMs change the picture."
 draft: false
 glossary:
   - term: "retrieval practice"
     aliases: ["practice testing", "self-testing"]
     definition: "Closing the book and pulling the answer out of memory, rather than reading it again."
-    advanced: "Testing is itself a learning event, not just assessment. Feedback amplifies the effect; free recall generally beats recognition formats like multiple choice."
+    advanced: "Testing is itself a learning event, not just assessment. Free recall generally beats recognition formats — but the effect appears to shrink as material gets more complex."
     context: "In this article it is one of only two techniques Dunlosky et al. rated as high utility."
     links:
       - label: "Rowland (2014) meta-analysis"
@@ -31,6 +33,10 @@ glossary:
     definition: "A standardized effect size expressing the difference between two groups in standard deviations, with a small-sample correction over Cohen's d."
     advanced: "Roughly 0.2 small, 0.5 medium, 0.8 large — but those thresholds are convention only. Read it alongside I²: a high average with high heterogeneity means individual settings vary widely."
     context: "Several meta-analyses cited here report in g, e.g. the testing effect at g = 0.50."
+  - term: "response congruency"
+    definition: "How much the correct answers on a practice test overlap with those on the final test."
+    advanced: "The dominant moderator in Pan & Rickard's transfer meta-analysis: d = 0.28 without overlap, rising by 0.30 to d = 0.58 with it."
+    context: "Used here to show how fragile the assumption of transfer really is."
   - term: "cognitive offloading"
     definition: "Outsourcing memory or reasoning work to external tools — notes, search engines, AI — to reduce mental load."
     advanced: "It improves short-term performance but may reduce the internal knowledge structures being built. The live debate is over what should be offloaded: offloading lookup cost is usually harmless, offloading the reasoning is not."
@@ -41,7 +47,7 @@ glossary:
 
 There is a course on Coursera whose [official page](https://www.coursera.org/learn/learning-how-to-learn) currently shows 4,175,377 enrollments and a 4.8 rating across 93,136 reviews. It is called Learning How to Learn, taught by engineering professor Barbara Oakley and neuroscientist Terrence Sejnowski. It [launched in August 2014](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php) with 197,000 learners from 206 countries in the first session. By [the New York Times' December 2015 report](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn), it had 1.19 million enrollments — the largest MOOC in the world at the time, narrowly ahead of Andrew Ng's Machine Learning.
 
-This is not a course review. It is an audit that separates what the course teaches from what the evidence supports — because those two things overlap less than you would expect, and the gap runs in an interesting direction: **the course's most famous concept has the weakest evidence, and the parts it underplays have the strongest.**
+This is not a course review. It is an audit that separates what the course teaches from what the evidence supports — because those two things overlap less than you would expect, and the gap runs in an interesting direction: **the course's most famous concept has the weakest evidence, the parts it underplays have the strongest, and the premise in its own name — that learning skills transfer — is the piece that tests worst of all.**
 
 ## The problem it solves isn't "not trying hard enough"
 
@@ -65,6 +71,11 @@ The trouble is that Oakley addressed this tension herself, in an endnote to *A M
 
 That passage deserves a full read. It is not an outside accusation; it is the author flagging her own simplification. **Focused/diffuse mode is a useful mental model, not a neuroscience finding.** You can reject the neural version entirely and keep the behavioural advice (stuck? go for a walk) — because that advice is supported from somewhere else.
 
+Two other course components need calibrating:
+
+- **Chunking.** The concept is fine; the "7±2" that usually travels with it is outdated. Miller's 1956 seven-plus-or-minus-two measured capacity *after* chunking was possible; [Cowan's 4±1, proposed in 2001](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf), measures the number of chunks themselves, and modern consensus favours the latter. [The two reconcile](https://journalofcognition.org/articles/10.5334/joc.387) once you notice they depend on whether the task lets you chunk. The practical implication: you can juggle fewer independent units than you think, so chunking isn't a bonus — it's a precondition.
+- **The Pomodoro Technique.** [Biwer et al.'s 2023 controlled study in the British Journal of Educational Psychology](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815) compared systematic breaks (24 minutes of study, 6-minute break) against self-regulated breaks. The systematic groups reported higher concentration and motivation, less fatigue, and finished in less time — **but the two conditions did not differ in invested mental effort or task completion.** It improves the experience and the efficiency, not the amount learned. Don't sell it as a learning technique.
+
 Which is the core of my assessment of the course: its value is in turning behaviour into process, not in its brain science. The course assignments are literally named "Retrieval Practice" — that matters more than any neuroscience in it.
 
 ## The evidence that actually holds: Dunlosky's ten-technique review
@@ -73,7 +84,7 @@ In 2013, Dunlosky and four co-authors published [Improving Students' Learning Wi
 
 | Utility | Technique | Numbers |
 |---|---|---|
-| **High** | practice testing (self-testing) | [Rowland (2014)](https://doi.org/10.1037/a0037559) meta-analysis: g = 0.50 (95% CI [0.42, 0.58]) |
+| **High** | practice testing (self-testing) | [Rowland (2014)](https://doi.org/10.1037/a0037559): g = 0.50; [Adesope et al. (2017)](https://doi.org/10.3102/0034654316689306), 217 studies: g = 0.70 |
 | **High** | distributed practice (spacing) | [Kim et al. (2019)](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf) confirmed it holds up in real-world big data |
 | **Moderate** | elaborative interrogation, self-explanation, interleaved practice | Interleaving, [Brunmair & Richter (2019)](https://doi.org/10.1037/bul0000209): g ≈ 0.42 |
 | **Low** | summarization, highlighting, keyword mnemonic, imagery, **rereading** | The two students use most — rereading and highlighting — are both here |
@@ -82,13 +93,37 @@ The original is blunt about the top tier:
 
 > Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks and even in educational contexts.
 
-Two caveats have to travel with that table, or it gets misused.
+That table now gets cited everywhere. But the ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
 
-**First, heterogeneity matters more than the mean.** Rowland's g = 0.50 sits on top of I² = 84.35 — meaning most of the variation between studies is real situational difference, not sampling error. "Average 0.5" does not mean "you will get 0.5". Lab effects on word lists shrink when they move into real classrooms.
+**First, heterogeneity matters more than the mean.** Rowland's g = 0.50 sits on top of I² = 84.35 — most of the variation between studies is real situational difference, not sampling error. "Average 0.5" does not mean "you will get 0.5".
 
-**Second, interleaving is picky about materials.** Brunmair and Richter's meta-analysis is titled *Similarity matters* for a reason. Across 59 studies and 238 effect sizes, interleaving helped with visual materials like paintings and with mathematical problem types; it showed no advantage for expository texts; and for learning words across conceptual categories it may actively hurt. Treating "interleave everything" as general advice misreads the paper.
+**Second, the estimates are shrinking.** In March 2026, Dietrichson and colleagues published [a large systematic review](https://edworkingpapers.com/ai26-1418): 102,451 records screened, 87 studies meeting inclusion criteria, 59 in the data synthesis. Where the control group received no practice test at all, the weighted effects were 0.22 (95% CI [0.09, 0.34]) for between-subject designs and 0.46 ([0.29, 0.62]) for within-subject designs. The authors say it plainly: these "seem smaller than those found in earlier reviews" — Adesope's corresponding figures were 0.64 in primary and 0.83 in secondary school. Their exploratory analysis adds one more: **practice tests seemed less effective when the learning material was complex.**
 
-## What to discard, and what is currently being reversed
+**Third, complex material is an unfinished fight.** [van Gog and Sweller's 2015 title](https://link.springer.com/article/10.1007/s10648-015-9310-x) is the argument — "the testing effect decreases or even disappears as the complexity of learning materials increases". Karpicke and Aue answered the same year with "The testing effect is alive and well with complex materials", and Rawson joined in; the dispute is stuck on the fact that "complexity" resists operationalization. Dietrichson 2026 leans toward the first camp, but this remains **a live, unresolved argument** — anyone declaring a winner should raise your suspicion.
+
+One smaller conflict worth flagging: Rowland found feedback amplifies the testing effect, but [Adesope's meta-analysis](https://www.learningscientists.org/blog/2017/2/9-1) found retrieval with feedback only slightly better than without. These have not been reconciled.
+
+**Interleaving, meanwhile, is picky about materials.** Brunmair and Richter's meta-analysis is titled *Similarity matters* for a reason. Across 59 studies and 238 effect sizes, interleaving helped with visual materials like paintings and with mathematical problem types; it showed no advantage for expository texts; and for learning words across conceptual categories it may actively hurt. Treating "interleave everything" as general advice misreads the paper.
+
+## The awkward question: does any of this transfer?
+
+This is the section most write-ups skip, and it is the one that matters most.
+
+The phrase "learning how to learn" has an assumption baked in: that once you have the skills, they carry over. That assumption has been tested. It does not test well.
+
+[Pan and Rickard's 2018 Psychological Bulletin paper](https://doi.org/10.1037/bul0000151) is the first comprehensive meta-analysis of transfer in test-enhanced learning: 192 transfer effect sizes from 122 experiments and 67 articles, N = 10,382, spanning forty years. The headline is d = 0.40 (95% CI [0.31, 0.50]), which sounds fine. Unpack it:
+
+> That transfer of learning is greatest across test formats, to application and inference questions, to problems involving medical diagnoses, and to mediator and related word cues; it is weakest to rearranged stimulus-response items, to untested materials seen during initial study, and to problems involving worked examples. Moderator analyses further indicated that **response congruency and elaborated retrieval practice, as well as initial test performance, strongly influence the likelihood of positive transfer.**
+
+And the sentence that follows it: after correcting for publication bias with PET-PEESE and selection methods, "the intercept predictions were substantially reduced, **often indicating no positive transfer when none of the aforementioned moderators are present**".
+
+How much does that matter? With no response congruency the effect is d = 0.28; with it, another 0.30 gets added for d = 0.58. A large share of "transfer" is really the practice questions and the test questions sharing answers. Agarwal's 2019 study lands the point harder: students who practised with factual questions and were then tested on higher-order questions performed **indistinguishably from students who did no retrieval practice at all**.
+
+The same pattern shows up one level up. [Donker et al.'s 2014 meta-analysis of learning-strategy instruction](https://daneshyari.com/article/preview/355102.pdf) (95 interventions, 180 effect sizes) does find solid effects — writing g = 1.25, science 0.73, mathematics 0.66, reading comprehension 0.36. But the same research group states it directly: **strategy instruction aimed at near transfer is more effective than instruction aimed at far transfer.**
+
+The honest conclusion: these techniques work, but **their effectiveness is bound to what you practised far more tightly than you'd like.** If you want transfer, you have to deliberately shape the practice to resemble the thing you actually want to do. Which incidentally explains why "grinding LeetCode" and "designing systems" are two different skills.
+
+## What to discard, and what is being reopened
 
 **The learning pyramid can go straight in the bin.** The triangle claiming you remember 10% of what you read, 20% of what you hear, and 90% of what you do is fabricated. [Subramony, Molenda, Betrus and Thalheimer traced it thoroughly in 2014](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone): Edgar Dale's Cone of Experience contained no percentages at all, and Dale intended it as a descriptive classification, not a prescriptive guide — the numbers were grafted on by persons unknown around 1970. When pressed for a source, the NTL Institute replied that they believed the figures were accurate but could no longer find the original research. A [memory researcher at the University of Strathclyde](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo) put it more directly: he has never seen a properly controlled experiment showing one study technique to be nine times as effective as another.
 
@@ -100,7 +135,9 @@ But in July 2024, Clinton-Lisell and Litzinger published [Is it really a neuromy
 
 The honest reading: **the evidence is not zero, but it is nowhere near enough to redesign teaching around.** That is not just my call — it is the paper's own conclusion. The authors benchmark their g = 0.31 against the plain modality effect (g = 0.70), note I² = 91.17, and weigh the teacher time required against the risk of essentializing students into categories. They still do not recommend adopting it.
 
-Incidentally, this is how a meta-analysis should be cited: read the limitations section, not just the headline number in the abstract.
+**Growth mindset is the third case of the same disease.** [Sisk et al.'s two 2018 meta-analyses in Psychological Science](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf) remain the most thorough test: the correlation between mindset and achievement is r ≈ 0.10 across 129 studies (N = 365,915), about 1% of the variance; mindset interventions move achievement by d = 0.08 across 43 studies (N = 57,155). More awkwardly, **interventions whose manipulation checks succeeded — the ones that demonstrably changed students' mindsets — showed no significant effect on achievement.** Dweck and Yeager [responded in 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535), arguing that Sisk's I² of 96.29% means the effects are real but heavily person- and context-dependent, and that low-SES and academically at-risk students do benefit (a point Sisk et al. concede). Both sides agree the effect is small and heterogeneous. They disagree about whether that makes it important.
+
+The shared structure across all three is worth memorizing: **too intuitively plausible, spreading far faster than it was verified, and an effect size small enough that it takes a meta-analysis to see.** Discount the next educational claim that fits all three.
 
 ## The 10,000 hours fight is about definitions, not numbers
 
@@ -112,9 +149,21 @@ The two sets of numbers are not comparable because they measure different things
 
 ## The AI era: it removes exactly the difficulty you need
 
-This is why the topic is worth revisiting in 2026.
+This is why the topic is worth revisiting in 2026 — and the place to start is that **the single most-cited piece of evidence in AI education has been retracted.**
 
-The hardest piece of evidence is Bastani et al.'s 2025 randomized controlled trial in PNAS, [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635). Nearly a thousand Turkish high schoolers were split three ways for math practice: GPT Base (close to stock ChatGPT), GPT Tutor (with teacher-designed hints instead of answers), and a control with only textbook and notes.
+In May 2025, Wang and Fan published a meta-analysis in Springer Nature's *Humanities and Social Sciences Communications* synthesizing 51 studies and concluding that ChatGPT has a large positive impact on learning performance, g = 0.867. The number went on to be cited in policy briefings, edtech marketing, and hundreds of papers. [Before retraction it had accumulated roughly 486,000 views, 266 citations, and an Altmetric score of about 1,023](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns).
+
+On 22 April 2026, [the journal issued a retraction notice](https://www.nature.com/articles/s41599-026-07310-z):
+
+> The Editor has decided to retract this article due to concerns relating to discrepancies in the meta‑analysis. These concerns were initially raised by Magnus Ingebrigtsen and Marko Lukic. Taken together, the identified issues undermine the Editor's confidence in the validity of the analysis and the conclusions drawn from it. The authors have not responded to correspondence regarding this retraction.
+
+The two-hundred-plus papers citing it are not retracted along with it. The episode is a meta-level demonstration of this article's own subject: **fluent, agreeable and citable is not the same as true.**
+
+Don't overcorrect, though. Non-retracted positive evidence exists — Deng et al.'s 2025 meta-analysis in *Computers & Education* (69 experimental studies) reports g+ = 0.712 on academic performance, and [a separate 22-study meta-analysis in IRRODL](https://www.irrodl.org/index.php/irrodl/article/view/8775) gets g = 0.573. Both point the same way the retracted paper did.
+
+So who is right? My reading is that **these studies are measuring different things** — this is my synthesis, not a claim either paper makes. Most positive meta-analyses measure performance *while the AI is available*. The question that matters is what remains *after it is taken away*. Someone has measured that directly.
+
+Bastani et al.'s 2025 randomized controlled trial in PNAS, [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635), split nearly a thousand Turkish high schoolers three ways for math practice: GPT Base (close to stock ChatGPT), GPT Tutor (teacher-designed hints instead of answers), and a control with only textbook and notes.
 
 > Our results show that having GPT-4 access while solving problems significantly improves performance (48% improvement in grades for GPT Base and 127% for GPT Tutor). However, we additionally find that when access is subsequently taken away, students actually perform worse than those who never had access (17% reduction in grades for GPT Base) — i.e., unfettered access to GPT-4 can harm educational outcomes.
 
@@ -125,7 +174,7 @@ The second finding stings more: students had no idea. The GPT Base group scored 
 Two supporting pieces are frequently cited together and both need care:
 
 - **MIT Media Lab's [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt)** used EEG to measure neural connectivity during essay writing, coined "cognitive debt", and found LLM users could not quote sentences they had just written. But n = 54 (only 18 completed the fourth session) and it is not peer reviewed. [The project FAQ](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview) explicitly asks journalists not to use words like "brain damage" or "brain rot", because the paper never used that vocabulary. Cite the direction, not an inflated magnitude.
-- **[The Memory Paradox](https://arxiv.org/abs/2506.11015) (arXiv:2506.11015)** goes further, linking the reversal of the Flynn effect to cognitive offloading. The interesting part is the authorship: Oakley and Sejnowski — the same two people who taught you to build internal memory a decade ago, now arguing why the AI era needs it more. But this is an argument, not demonstrated causation, and it is still a preprint of a Springer book chapter.
+- **[The Memory Paradox](https://arxiv.org/abs/2506.11015) (arXiv:2506.11015)** goes further, linking the reversal of the Flynn effect to cognitive offloading. The authors are Oakley and Sejnowski — the same two people who taught you to build internal memory a decade ago, now arguing why the AI era needs it more. **But the inference chain needs taking apart.** The reversal itself is real: [Bratsberg and Rogeberg's 2018 PNAS analysis of over 730,000 Norwegian military conscripts](https://www.pnas.org/doi/10.1073/pnas.1718793115) (born 1962–1991) found IQ peaking with the 1975 birth cohort and declining afterwards — and the decline holds **within families**, younger brothers scoring below older ones, which cleanly rules out genetic selection and immigration. But the same authors write, in [their own plain-language summary](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame): "Our analysis does not, however, speak to what these underlying environmental causes are. That remains an issue for future research." Attributing it to cognitive offloading is Oakley's conjecture, not a finding of that study.
 
 Put together, the operating rule is simple: **AI makes things smooth exactly where they should be hard, and smoothness is the signal that nothing is being learned.** Do it yourself first, then ask — the group in the Kosmyna study that moved from brain-only to LLM performed best, and Bastani's GPT Tutor guardrail runs on the same principle: put the AI in the hint position, not the answer position.
 
@@ -135,33 +184,58 @@ If you take one thing: **the course's value is not its neuroscience, it is that 
 
 The concrete trade-offs:
 
-- **Just do these**: replace rereading with self-testing; spread review out over time. Both are backed by meta-analyses and are the only two high-utility entries in the review.
+- **Just do these**: replace rereading with self-testing; spread review out over time. These are the only two high-utility entries and several meta-analyses back them — but revise your expected effect downward (the 2026 systematic review says 0.22–0.46, not 0.5–0.7), and expect less as material gets more complex.
+- **Make practice look like the target**: transfer is not free. Response congruency is the dominant moderator, and practising factual questions to pass higher-order ones is equivalent to not practising. If you want transfer, design the practice to resemble what you actually intend to do.
 - **Depends**: interleaving — good for visual materials and math problem types, bad for expository text and vocabulary.
-- **Discard**: the learning pyramid's percentages, and VAK matching (the 2024 reversal does not reach the bar for changing practice).
-- **Keep as metaphor**: focused/diffuse mode. Keep the behaviour, drop the neural claim before arguing it with anyone.
+- **Discard**: the learning pyramid's percentages, VAK matching, and high expectations of growth-mindset interventions (d = 0.08).
+- **Keep as metaphor**: focused/diffuse mode, and the Pomodoro Technique. Keep the behaviour, drop the neural claim before arguing it with anyone.
 - **New rule for the AI era**: get stuck on your own first, then open the AI. Put it in the hint position.
 
-A few limits of the field itself are worth remembering: these reviews almost all use retention as the outcome variable, with far thinner evidence for transfer, creativity, or judgment. And the assumption that learning-to-learn skills transfer across domains — the premise in the name itself — is the least tested part of the whole framework.
+One last thing that doesn't fit in a bullet: this field's reviews almost all use retention as the outcome, with far thinner evidence for creativity or judgment. And the 2026 retraction is a reminder that **even "there is evidence" needs verifying.** A paper cited 260-plus times and viewed nearly half a million times can be wrong, and the articles citing it will not correct themselves. Which is exactly the habit this course set out to teach — applied, this time, to itself.
 
 ## References
 
+**The course**
 - [Learning How to Learn — official Coursera page](https://www.coursera.org/learn/learning-how-to-learn)
 - [MOOC: Learning How to Learn — UCSD Temporal Dynamics of Learning Center](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)
 - [The Most Popular Online Course Teaches You to Learn — NYT Bits (2015)](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)
+- [Focused and Diffuse: Two Modes of Thinking — Farnam Street](https://fs.blog/focused-diffuse-thinking)
+
+**Evidence on study techniques**
 - [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques — PSPI 14(1)](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266) ([full PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf))
 - [Rowland (2014), The Effect of Testing Versus Restudy on Retention — Psychological Bulletin 140(6)](https://doi.org/10.1037/a0037559)
+- [Adesope, Trevisan & Sundararajan (2017), Rethinking the Use of Tests — Review of Educational Research 87(3)](https://doi.org/10.3102/0034654316689306) ([summary](https://www.learningscientists.org/blog/2017/2/9-1))
+- [Dietrichson et al. (2026), Testing frequency and student achievement: A systematic review — EdWorkingPaper 26-1418](https://edworkingpapers.com/ai26-1418)
+- [van Gog & Sweller (2015), Not new, but nearly forgotten — Educational Psychology Review 27(2)](https://link.springer.com/article/10.1007/s10648-015-9310-x)
 - [Brunmair & Richter (2019), Similarity matters: A meta-analysis of interleaved learning — Psychological Bulletin 145(11)](https://doi.org/10.1037/bul0000209)
 - [Kim et al. (2019), The spacing effect stands up to big data](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf)
 - [Karpicke, Butler & Roediger (2009), Do students practise retrieval when they study on their own? — Memory 17(4)](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf)
+- [Cowan (2010), The Magical Mystery Four — Current Directions in Psychological Science](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf)
+- [Modelling Working Memory Capacity: Is the Magical Number Four, Seven…? — Journal of Cognition](https://journalofcognition.org/articles/10.5334/joc.387)
+- [Biwer et al. (2023), Comparing 'Pomodoro' breaks and self-regulated breaks — Br J Educ Psychol 93(2)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815)
+
+**Transfer**
+- [Pan & Rickard (2018), Transfer of Test-Enhanced Learning — Psychological Bulletin 144(7)](https://doi.org/10.1037/bul0000151) ([full PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf))
+- [Donker et al. (2014), Effectiveness of learning strategy instruction — Educational Research Review 11](https://daneshyari.com/article/preview/355102.pdf)
+
+**Myths and disputes**
 - [Pashler et al. (2008), Learning Styles: Concepts and Evidence — summary and links](https://vu.nl/en/employee/didactics/learning-styles-debunked-what-does-work)
 - [Clinton-Lisell & Litzinger (2024), Is it really a neuromyth? — Frontiers in Psychology 15](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full)
 - [Mythical Retention Data & The Corrupted Cone — Work-Learning Research](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone)
 - [Remembering 90% of What You Do? — University of Strathclyde](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo)
+- [Sisk et al. (2018), Two meta-analyses on growth mindset — Psychological Science 29(4)](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf)
+- [Yeager & Dweck (2020), What Can Be Learned from Growth Mindset Controversies? — American Psychologist](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535)
 - [Macnamara, Hambrick & Oswald (2014), Deliberate Practice and Performance — Psychological Science 25](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf)
 - [Ericsson camp response — Frontiers in Psychology (2019)](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full)
 - [Harwell & Southwick (2021), Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf)
+
+**AI and learning**
 - [Bastani et al. (2025), Generative AI without guardrails can harm learning — PNAS](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635)
 - [Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education)
 - [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)
+- [Retraction Note: The effect of ChatGPT on students' learning performance… — Humanit Soc Sci Commun 13, 528 (2026)](https://www.nature.com/articles/s41599-026-07310-z)
+- [Retraction coverage — EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns), [GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)
+- [A Meta-Analysis of ChatGPT's Influence on Learning Achievement — IRRODL (2025)](https://www.irrodl.org/index.php/irrodl/article/view/8775)
 - [Kosmyna et al. (2025), Your Brain on ChatGPT — MIT Media Lab](https://www.media.mit.edu/publications/your-brain-on-chatgpt) ([project page and stated limitations](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview))
 - [Oakley et al. (2025), The Memory Paradox — arXiv:2506.11015](https://arxiv.org/abs/2506.11015)
+- [Bratsberg & Rogeberg (2018), Flynn effect and its reversal are both environmentally caused — PNAS 115(26)](https://www.pnas.org/doi/10.1073/pnas.1718793115) ([the authors' own plain-language summary](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame))
