@@ -89,7 +89,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 | 效用等級 | 技術 | 補充數字 |
 |---|---|---|
-| **高** | practice testing（自我測驗） | [Rowland (2014)](https://doi.org/10.1037/a0037559)：g = 0.50；[Adesope et al. (2017)](https://doi.org/10.3102/0034654316689306) 217 研究：g = 0.70 |
+| **高** | practice testing（自我測驗） | [Rowland (2014)](https://doi.org/10.1037/a0037559)：g = 0.50；[Adesope et al. (2017)](https://doi.org/10.3102/0034654316689306)：vs 重讀 +0.51、vs 無活動 +0.93（見下方說明） |
 | **高** | distributed practice（分散練習） | [Kim et al. (2019)](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf) 用真實世界大數據驗證仍成立 |
 | **中** | elaborative interrogation、self-explanation、interleaved practice | 交錯練習 [Brunmair & Richter (2019)](https://doi.org/10.1037/bul0000209)：g ≈ 0.42 |
 | **低** | summarization、highlighting、keyword mnemonic、imagery、**rereading** | 學生最常用的重讀與畫線都在這層 |
@@ -97,6 +97,10 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 原文對高效用組的判準寫得很直接：
 
 > 自我測驗與分散練習獲得高效用評價，因為它們對不同年齡與能力的學習者都有幫助，並且已被證明能在許多測驗任務、甚至在真實教育情境中提升學生表現。
+
+**先講一個引用陷阱**，因為它示範了整篇文章的主題。Adesope 等人 2017 年那份 meta-analysis，你會在不同地方看到不同數字：0.51、0.61、0.70、0.83、0.93。它們大多都對——差別在對照組是誰。依該文結果，練習測驗相較**重讀**的加權平均效果量是 +0.51，相較**填充活動或完全不做**是 +0.93，[跨所有對照條件合併約 g = 0.61](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；Dietrichson 等人則引它的分齡數字 0.64（小學）與 0.83（中學）。二手文章通常挑一個最大的、不講對照是什麼。
+
+那你該用哪個？**跟你實際的替代方案比。** 如果你本來會重讀，參考值就是 0.51，不是 0.93。
 
 這張表現在被引用得非常廣。但過去十年裡，它下面的地基動了三次，寫這題的人幾乎都沒跟上。
 
@@ -152,7 +156,9 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 ## 一萬小時：一場定義之爭，不是數字之爭
 
-[Macnamara、Hambrick 與 Oswald 2014 年的 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) 常被拿來「打臉一萬小時」。它算出刻意練習能解釋的表現變異量是：遊戲 26%、音樂 21%、運動 18%、教育 4%、專業工作不到 1%。
+[Macnamara、Hambrick 與 Oswald 2014 年的 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) 常被拿來「打臉一萬小時」。它算出刻意練習能解釋的表現變異量是：遊戲 26%、音樂 21%、運動 18%、教育 4%、專業工作不到 1%（後者 r = .05、p = .62，不顯著）。
+
+這裡要補一句幾乎沒人提的事：**該文在 2018 年發過[更正啟事](https://doi.org/10.1177/0956797618769891)。** 主模型的平均相關從 r = .35（95% CI [.30, .39]）修正為 .38（[.33, .42]），整體解釋變異量從 12% 上修。上列各領域百分比出自原文正文，我沒能確認是否一併調整——引用時請以更正後版本為準。
 
 但 Ericsson 陣營的[反駁](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full)也有分量：他們重新篩選後算出 r = 0.54、約 29% 的變異量，並主張 Macnamara 納入的研究裡有很多根本沒採用 Ericsson 對「刻意練習」的原始定義——例如把護理系學生上課與研討會的時數算成練習量。[Harwell 與 Southwick (2021)](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf) 補了一刀：社會與人格心理學文獻中 708 個 meta-analytic 相關係數的平均解釋變異量只有 3–4%，用「沒超過 50% 就算失敗」當標準本身就不合理。
 
@@ -210,52 +216,71 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 ## 參考資料
 
-**課程本體**
-- [Learning How to Learn — Coursera 官方課程頁](https://www.coursera.org/learn/learning-how-to-learn)
-- [MOOC: Learning How to Learn — UCSD Temporal Dynamics of Learning Center](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)
-- [The Most Popular Online Course Teaches You to Learn — NYT Bits (2015)](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)
-- [Focused and Diffuse: Two Modes of Thinking — Farnam Street](https://fs.blog/focused-diffuse-thinking)
-- [Know Your Brain: Default Mode Network — Neuroscientifically Challenged](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network)
-- [文中 Oakley 註腳引文的唯一可查出處（Psychology Stack Exchange 轉錄，未經紙本核對）](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)
+每條標註**取用層級**，因為這篇文章的主題就是「別把二手轉述當事實」：
 
-**學習技術的證據**
-- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques — PSPI 14(1)](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266)（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
-- [Rowland (2014), The Effect of Testing Versus Restudy on Retention — Psychological Bulletin 140(6)](https://doi.org/10.1037/a0037559)
-- [Adesope, Trevisan & Sundararajan (2017), Rethinking the Use of Tests — Review of Educational Research 87(3)](https://doi.org/10.3102/0034654316689306)（[摘要整理](https://www.learningscientists.org/blog/2017/2/9-1)）
-- [Dietrichson et al. (2026), Testing frequency and student achievement: A systematic review — EdWorkingPaper 26-1418](https://edworkingpapers.com/ai26-1418)
-- [van Gog & Sweller (2015), Not new, but nearly forgotten — Educational Psychology Review 27(2)](https://link.springer.com/article/10.1007/s10648-015-9310-x)
-- [Brunmair & Richter (2019), Similarity matters: A meta-analysis of interleaved learning — Psychological Bulletin 145(11)](https://doi.org/10.1037/bul0000209)
-- [Kim et al. (2019), The spacing effect stands up to big data](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf)
-- [Karpicke, Butler & Roediger (2009), Do students practise retrieval when they study on their own? — Memory 17(4)](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf)
-- [Cowan (2010), The Magical Mystery Four — Current Directions in Psychological Science](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf)
-- [Modelling Working Memory Capacity: Is the Magical Number Four, Seven…? — Journal of Cognition](https://journalofcognition.org/articles/10.5334/joc.387)
-- [Biwer et al. (2023), Comparing 'Pomodoro' breaks and self-regulated breaks — Br J Educ Psychol 93(2)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815)
+- **【一手】** 已讀原始論文全文、官方公告或官方頁面
+- **【摘要】** 僅取用官方摘要或出版商頁面，未讀全文
+- **【轉引】** 經他人論文或可靠二手轉述，未取得原文
+- **【未驗證】** 找不到獨立出處，引用前請自行查證
 
-**遷移**
-- [Pan & Rickard (2018), Transfer of Test-Enhanced Learning — Psychological Bulletin 144(7)](https://doi.org/10.1037/bul0000151)（[全文 PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)）
-- [Agarwal (2019), Retrieval Practice & Bloom's Taxonomy — Journal of Educational Psychology 111(2)](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf)（[ERIC 記錄](https://eric.ed.gov?id=EJ1205208)）
-- [Donker et al. (2014), Effectiveness of learning strategy instruction — Educational Research Review 11](https://daneshyari.com/article/preview/355102.pdf)
+未經我核實的 DOI 一律不列。
 
-**迷思與爭議**
-- [Pashler et al. (2008), Learning Styles: Concepts and Evidence — 整理與連結](https://vu.nl/en/employee/didactics/learning-styles-debunked-what-does-work)
-- [Clinton-Lisell & Litzinger (2024), Is it really a neuromyth? — Frontiers in Psychology 15](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full)
-- [Mythical Retention Data & The Corrupted Cone — Work-Learning Research](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone)
-- [Remembering 90% of What You Do? — University of Strathclyde](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo)
-- [Sisk et al. (2018), Two meta-analyses on growth mindset — Psychological Science 29(4)](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf)
-- [Yeager & Dweck (2020), What Can Be Learned from Growth Mindset Controversies? — American Psychologist](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535)
-- [Macnamara, Hambrick & Oswald (2014), Deliberate Practice and Performance — Psychological Science 25](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf)
-- [Ericsson 陣營回應 — Frontiers in Psychology (2019)](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full)
-- [Harwell & Southwick (2021), Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf)
+### 課程與核心概念
 
-**AI 與學習**
-- [Bastani et al. (2025), Generative AI without guardrails can harm learning — PNAS](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635)
-- [Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education)
-- [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)
-- [Retraction Note: The effect of ChatGPT on students' learning performance… — Humanit Soc Sci Commun 13, 528 (2026)](https://www.nature.com/articles/s41599-026-07310-z)
-- [撤稿報導 — EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns)、[GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)
-- [ChatGPT's impact on student learning outcomes: a meta-analysis — Humanit Soc Sci Commun (2026)](https://www.nature.com/articles/s41599-026-07019-z)（未撤稿，35 研究 / 134 效果量，g = 0.670）
-- [Deng et al. (2025), Does ChatGPT enhance student learning? — Computers & Education 227:105224](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025)
-- [A Meta-Analysis of ChatGPT's Influence on Learning Achievement — IRRODL (2025)](https://www.irrodl.org/index.php/irrodl/article/view/8775)
-- [Kosmyna et al. (2025), Your Brain on ChatGPT — MIT Media Lab](https://www.media.mit.edu/publications/your-brain-on-chatgpt)（[專案頁與限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)）
-- [Oakley et al. (2025), The Memory Paradox — arXiv:2506.11015](https://arxiv.org/abs/2506.11015)
-- [Bratsberg & Rogeberg (2018), Flynn effect and its reversal are both environmentally caused — PNAS 115(26)](https://www.pnas.org/doi/10.1073/pnas.1718793115)（[作者本人撰寫的科普說明](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame)）
+- 【一手·官方】Deep Teaching Solutions. *Learning How to Learn: Powerful mental tools to help you master tough subjects*. Coursera. 取用日 2026-08-04（註冊數 4,175,377、4.8 分／93,136 則評價為當日即時數字，會變動）。<https://www.coursera.org/learn/learning-how-to-learn>
+- 【一手·官方】Temporal Dynamics of Learning Center, UC San Diego. *MOOC: Learning How to Learn*. <https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php> — 2014 年 8 月首期 19.7 萬人／206 國，此數字僅此一個官方出處。
+- 【二手·新聞】Markoff, J. (2015-12-29). The Most Popular Online Course Teaches You to Learn. *The New York Times*, Bits blog. <https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn> — 119 萬註冊數與「完課率 >20%」皆出自對 Sejnowski 的訪談自述。
+- 【**未驗證**】Oakley, B. (2014). *A Mind for Numbers*. TarcherPerigee. — 文中所引「diffuse mode 註腳」**未經紙本核對**，全網唯一可查轉錄：[Psychology Stack Exchange #18292](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)
+- 【二手·科普】*Know Your Brain: Default Mode Network*. Neuroscientifically Challenged. <https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network>
+- 【二手】Farnam Street. *Focused and Diffuse: Two Modes of Thinking*. <https://fs.blog/focused-diffuse-thinking>
+- 【一手】Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. *Behavioral and Brain Sciences*, 24, 87–185.
+- 【一手·PDF】Cowan, N. (2010). [The Magical Mystery Four: How is working memory capacity limited, and why?](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf) *Current Directions in Psychological Science*.
+- 【一手】[Modelling Working Memory Capacity: Is the Magical Number Four, Seven, or Does it Depend on What You Are Counting?](https://journalofcognition.org/articles/10.5334/joc.387) *Journal of Cognition*. DOI: 10.5334/joc.387
+- 【一手】Biwer, F., Wiradhany, W., oude Egbrink, M. G. A., & de Bruin, A. B. H. (2023). [Understanding effort regulation: Comparing 'Pomodoro' breaks and self-regulated breaks](https://bpspsychub.onlinelibrary.wiley.com/doi/10.1111/bjep.12593). *British Journal of Educational Psychology*, 93(2), 353–367. DOI: 10.1111/bjep.12593 — 自我調節 n=35、番茄鐘（24+6 分）n=25、短間隔（12+3 分）n=27。
+
+### 學習技術的效果量
+
+- 【一手·PDF】Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
+- 【摘要】Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
+- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文。**
+- 【一手·PDF】Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **尚未經同儕審查的工作論文。**
+- 【摘要】van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
+- 【摘要】Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — 對上一篇的正面反駁。
+- 【轉引】Rawson, K. (2015). The Status of the Testing Effect for Complex Materials: Still a Winner. *Educational Psychology Review*, 27. — 同一期的第二篇反駁，我僅見他人轉述。
+- 【摘要】Brunmair, M., & Richter, T. (2019). [Similarity matters: A meta-analysis of interleaved learning and its moderators](https://doi.org/10.1037/bul0000209). *Psychological Bulletin*, 145(11), 1029–1052. DOI: 10.1037/bul0000209
+- 【一手·PDF】Kim, A. S. N., Wong-Kee-You, A. M. B., Wiseheart, M., & Rosenbaum, R. S. (2019). [The spacing effect stands up to big data](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf). *Behavior Research Methods*, 51(4), 1485–1497. DOI: 10.3758/s13428-018-1184-7
+- 【一手·PDF】Karpicke, J. D., Butler, A. C., & Roediger, H. L. III (2009). [Metacognitive strategies in student learning: Do students practise retrieval when they study on their own?](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf) *Memory*, 17(4), 471–479. DOI: 10.1080/09658210802647009
+
+### 遷移
+
+- 【摘要 + 全文 PDF】Pan, S. C., & Rickard, T. C. (2018). [Transfer of test-enhanced learning: Meta-analytic review and synthesis](https://doi.org/10.1037/bul0000151). *Psychological Bulletin*, 144(7), 710–756. DOI: 10.1037/bul0000151（[PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)）— 192 個遷移效果量／122 實驗／67 篇／N = 10,382。
+- 【一手·PDF】Agarwal, P. K. (2019). [Retrieval practice & Bloom's taxonomy: Do students need fact knowledge before higher order learning?](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) *Journal of Educational Psychology*, 111(2), 189–209. DOI: 10.1037/edu0000282（[ERIC 記錄](https://eric.ed.gov?id=EJ1205208)）
+- 【一手·PDF】Donker, A. S., de Boer, H., Kostons, D., Dignath van Ewijk, C. C., & van der Werf, M. P. C. (2014). [Effectiveness of learning strategy instruction on academic performance: A meta-analysis](https://daneshyari.com/article/preview/355102.pdf). *Educational Research Review*, 11, 1–26.
+
+### 迷思、翻案與爭議
+
+- 【轉引】Pashler, H., McDaniel, M., Rohrer, D., & Bjork, R. (2008). Learning Styles: Concepts and Evidence. *Psychological Science in the Public Interest*, 9(3), 105–119. — 我僅取用[二手整理頁](https://vu.nl/en/employee/didactics/learning-styles-debunked-what-does-work)，未讀原文。
+- 【一手·全文】Clinton-Lisell, V., & Litzinger, C. (2024). [Is it really a neuromyth? A meta-analysis of the learning styles matching hypothesis](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full). *Frontiers in Psychology*, 15. DOI: 10.3389/fpsyg.2024.1428732 — 21 研究／101 效果量／N = 1,712。
+- 【一手】Thalheimer, W. (2015). [Mythical Retention Data & The Corrupted Cone](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone). Work-Learning Research. — 整理 Subramony、Molenda、Betrus 與 Thalheimer 2014 年於 *Educational Technology* 的四篇專輯考證。
+- 【一手·官方】University of Strathclyde. [Remembering 90% of What You Do?](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo)
+- 【一手·PDF】Sisk, V. F., Burgoyne, A. P., Sun, J., Butler, J. L., & Macnamara, B. N. (2018). [To what extent and under which circumstances are growth mind-sets important to academic achievement? Two meta-analyses](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf). *Psychological Science*, 29(4), 549–571. DOI: 10.1177/0956797617739704
+- 【一手·全文】Yeager, D. S., & Dweck, C. S. (2020). [What Can Be Learned from Growth Mindset Controversies?](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535) *American Psychologist*, 75(9), 1269–1284.
+- 【一手·PDF】Macnamara, B. N., Hambrick, D. Z., & Oswald, F. L. (2014). [Deliberate Practice and Performance in Music, Games, Sports, Education, and Professions: A Meta-Analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf). *Psychological Science*, 25(8), 1608–1618. DOI: 10.1177/0956797614535810
+- 【一手】Corrigendum (2018). *Psychological Science*. DOI: [10.1177/0956797618769891](https://doi.org/10.1177/0956797618769891) — 主模型 r 由 .35 修正為 .38。**引用 2014 年數字前務必先看這份。**
+- 【一手·全文】Ericsson 陣營回應 (2019). *Frontiers in Psychology*. <https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full> DOI: 10.3389/fpsyg.2019.02396
+- 【一手·PDF】Harwell, K. W., & Southwick, D. (2021). [Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf).
+
+### AI 與學習
+
+- 【一手·全文】Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). [Generative AI without guardrails can harm learning: Evidence from high school mathematics](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635). *PNAS*, 122(26), e2422633122. DOI: 10.1073/pnas.2422633122 — 另有 2025-08-20 之作者單位更正啟事（不影響結果）。
+- 【二手】[Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education)；[Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)（自動駕駛／FAA 類比之出處）
+- 【一手·官方】Wang, J., & Fan, W. (2026). [Retraction Note: The effect of ChatGPT on students' learning performance, learning perception, and higher-order thinking: insights from a meta-analysis](https://www.nature.com/articles/s41599-026-07310-z). *Humanities and Social Sciences Communications*, 13, 528. 撤稿日 2026-04-22；公告於 2026-07-02 更新，補列提出疑慮者 Magnus Ingebrigtsen 與 Marko Lukic。
+- 【一手·官方】被撤稿之原文（頁面已標記 RETRACTED）：Wang & Fan (2025). *Humanit Soc Sci Commun*, 12, 621. DOI: 10.1057/s41599-025-04787-y <https://www.nature.com/articles/s41599-025-04787-y>
+- 【二手·新聞】撤稿報導：[EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns)（486,000 次瀏覽／266 引用／Altmetric 1,023）、[GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)、[NEPC 轉載 404 Media](https://nepc.colorado.edu/blog/nature-publisher)。**三方報導的瀏覽數與引用數略有出入（485k–498k、262–275 引用），此處採 EdTech Innovation Hub 版本。**
+- 【一手·全文】[ChatGPT's impact on student learning outcomes: a meta-analysis](https://www.nature.com/articles/s41599-026-07019-z). *Humanities and Social Sciences Communications* (2026). — 未撤稿；35 研究／134 效果量，g = 0.670，95% CI [0.495, 0.844]。
+- 【摘要】Deng, R., Jiang, M., Yu, X., Lu, Y., & Liu, S. (2025). [Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025). *Computers & Education*, 227, 105224. — 文中引用的是**該文摘要原句**（介入後評量的疑慮、建議採監考評量）。此前版本曾引用 g+ = 0.712，該數字來源為 Academia.edu 的 AI 生成摘要、無法核實，已移除。
+- 【摘要】[A Meta-Analysis of ChatGPT's Influence on Learning Achievement](https://www.irrodl.org/index.php/irrodl/article/view/8775). *IRRODL* (2025). — 22 研究，g = 0.573。
+- 【一手·官方 + 未同儕審查】Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54（第四場僅 18 人完成）；[官方專案頁列有媒體用語限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)。
+- 【一手·未同儕審查】Oakley, B., et al. (2025). [The Memory Paradox](https://arxiv.org/abs/2506.11015). arXiv:2506.11015. — Springer 專書章節之預印本；屬論證，非實證因果。
+- 【一手·全文】Bratsberg, B., & Rogeberg, O. (2018). [Flynn effect and its reversal are both environmentally caused](https://www.pnas.org/doi/10.1073/pnas.1718793115). *PNAS*, 115(26), 6674–6678. DOI: 10.1073/pnas.1718793115 — 730,000+ 挪威役男，1962–1991 出生世代。
+- 【一手·作者撰文】Bratsberg & Rogeberg. [Norwegian IQ scores are falling – but genes are not to blame](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame). TheScienceBreaker. — 「本分析未指出環境成因為何」一語之出處。

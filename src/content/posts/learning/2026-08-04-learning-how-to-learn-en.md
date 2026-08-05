@@ -86,7 +86,7 @@ In 2013, Dunlosky and four co-authors published [Improving Students' Learning Wi
 
 | Utility | Technique | Numbers |
 |---|---|---|
-| **High** | practice testing (self-testing) | [Rowland (2014)](https://doi.org/10.1037/a0037559): g = 0.50; [Adesope et al. (2017)](https://doi.org/10.3102/0034654316689306), 217 studies: g = 0.70 |
+| **High** | practice testing (self-testing) | [Rowland (2014)](https://doi.org/10.1037/a0037559): g = 0.50; [Adesope et al. (2017)](https://doi.org/10.3102/0034654316689306): +0.51 vs restudy, +0.93 vs no activity (see below) |
 | **High** | distributed practice (spacing) | [Kim et al. (2019)](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf) confirmed it holds up in real-world big data |
 | **Moderate** | elaborative interrogation, self-explanation, interleaved practice | Interleaving, [Brunmair & Richter (2019)](https://doi.org/10.1037/bul0000209): g ≈ 0.42 |
 | **Low** | summarization, highlighting, keyword mnemonic, imagery, **rereading** | The two students use most — rereading and highlighting — are both here |
@@ -94,6 +94,10 @@ In 2013, Dunlosky and four co-authors published [Improving Students' Learning Wi
 The original is blunt about the top tier:
 
 > Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks and even in educational contexts.
+
+**First, a citation trap** — one that demonstrates this article's whole thesis. Adesope et al.'s 2017 meta-analysis gets quoted as 0.51, 0.61, 0.70, 0.83, and 0.93 in different places. Most of those are correct; they differ in what the control group was doing. Against **restudy**, the weighted mean effect is +0.51. Against **filler or no activity**, +0.93. [Pooled across all comparison conditions it is about g = 0.61 [0.58, 0.65]](http://www.lscp.net/persons/ramus/docs/EPR20.pdf). Dietrichson et al. cite its by-age figures of 0.64 (primary) and 0.83 (secondary). Secondary write-ups typically pick the largest number and never say what the contrast was.
+
+Which one should you use? **The one matching your actual alternative.** If you would otherwise reread, your reference value is 0.51, not 0.93.
 
 That table now gets cited everywhere. But the ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
 
@@ -149,7 +153,9 @@ The shared structure across all three is worth memorizing: **too intuitively pla
 
 ## The 10,000 hours fight is about definitions, not numbers
 
-[Macnamara, Hambrick and Oswald's 2014 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) is routinely used to dismiss the 10,000-hour rule. It found deliberate practice explained 26% of performance variance in games, 21% in music, 18% in sports, 4% in education, and under 1% in professions.
+[Macnamara, Hambrick and Oswald's 2014 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) is routinely used to dismiss the 10,000-hour rule. It found deliberate practice explained 26% of performance variance in games, 21% in music, 18% in sports, 4% in education, and under 1% in professions (the last at r = .05, p = .62, not statistically significant).
+
+One thing almost nobody mentions: **the paper carries a 2018 [corrigendum](https://doi.org/10.1177/0956797618769891).** The main model's average correlation was revised from r = .35 (95% CI [.30, .39]) to .38 ([.33, .42]), with overall variance explained revised upward from 12%. The per-domain percentages above come from the article body; I could not confirm whether they were revised too. Cite the corrected version.
 
 The Ericsson camp's [rebuttal](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full) carries weight too: on a re-screened set they get r = 0.54, roughly 29% of variance, and argue many studies Macnamara included never used Ericsson's original definition of deliberate practice — one counted hours nursing students spent in lectures and seminars as practice. [Harwell and Southwick (2021)](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf) add that across 708 meta-analytic correlations in social and personality psychology the average variance explained is 3–4%, so treating "under 50%" as failure is an unreasonable bar.
 
@@ -207,52 +213,71 @@ One last thing that doesn't fit in a bullet: this field's reviews almost all use
 
 ## References
 
-**The course**
-- [Learning How to Learn — official Coursera page](https://www.coursera.org/learn/learning-how-to-learn)
-- [MOOC: Learning How to Learn — UCSD Temporal Dynamics of Learning Center](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)
-- [The Most Popular Online Course Teaches You to Learn — NYT Bits (2015)](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)
-- [Focused and Diffuse: Two Modes of Thinking — Farnam Street](https://fs.blog/focused-diffuse-thinking)
-- [Know Your Brain: Default Mode Network — Neuroscientifically Challenged](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network)
-- [The only traceable source for the Oakley endnote quoted above (Stack Exchange transcription, not verified against the printed book)](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre)
+Each entry is tagged with **how I actually accessed it**, because this article's subject is precisely not treating secondhand summaries as fact:
 
-**Evidence on study techniques**
-- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques — PSPI 14(1)](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266) ([full PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf))
-- [Rowland (2014), The Effect of Testing Versus Restudy on Retention — Psychological Bulletin 140(6)](https://doi.org/10.1037/a0037559)
-- [Adesope, Trevisan & Sundararajan (2017), Rethinking the Use of Tests — Review of Educational Research 87(3)](https://doi.org/10.3102/0034654316689306) ([summary](https://www.learningscientists.org/blog/2017/2/9-1))
-- [Dietrichson et al. (2026), Testing frequency and student achievement: A systematic review — EdWorkingPaper 26-1418](https://edworkingpapers.com/ai26-1418)
-- [van Gog & Sweller (2015), Not new, but nearly forgotten — Educational Psychology Review 27(2)](https://link.springer.com/article/10.1007/s10648-015-9310-x)
-- [Brunmair & Richter (2019), Similarity matters: A meta-analysis of interleaved learning — Psychological Bulletin 145(11)](https://doi.org/10.1037/bul0000209)
-- [Kim et al. (2019), The spacing effect stands up to big data](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf)
-- [Karpicke, Butler & Roediger (2009), Do students practise retrieval when they study on their own? — Memory 17(4)](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf)
-- [Cowan (2010), The Magical Mystery Four — Current Directions in Psychological Science](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf)
-- [Modelling Working Memory Capacity: Is the Magical Number Four, Seven…? — Journal of Cognition](https://journalofcognition.org/articles/10.5334/joc.387)
-- [Biwer et al. (2023), Comparing 'Pomodoro' breaks and self-regulated breaks — Br J Educ Psychol 93(2)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815)
+- **[primary]** read the original paper in full, or an official notice/page
+- **[abstract]** used only the official abstract or publisher page
+- **[secondhand]** taken from another paper or a reliable secondary source; original not obtained
+- **[unverified]** no independent source found — verify before citing
 
-**Transfer**
-- [Pan & Rickard (2018), Transfer of Test-Enhanced Learning — Psychological Bulletin 144(7)](https://doi.org/10.1037/bul0000151) ([full PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf))
-- [Agarwal (2019), Retrieval Practice & Bloom's Taxonomy — Journal of Educational Psychology 111(2)](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) ([ERIC record](https://eric.ed.gov?id=EJ1205208))
-- [Donker et al. (2014), Effectiveness of learning strategy instruction — Educational Research Review 11](https://daneshyari.com/article/preview/355102.pdf)
+DOIs I could not confirm myself are omitted rather than guessed.
 
-**Myths and disputes**
-- [Pashler et al. (2008), Learning Styles: Concepts and Evidence — summary and links](https://vu.nl/en/employee/didactics/learning-styles-debunked-what-does-work)
-- [Clinton-Lisell & Litzinger (2024), Is it really a neuromyth? — Frontiers in Psychology 15](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full)
-- [Mythical Retention Data & The Corrupted Cone — Work-Learning Research](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone)
-- [Remembering 90% of What You Do? — University of Strathclyde](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo)
-- [Sisk et al. (2018), Two meta-analyses on growth mindset — Psychological Science 29(4)](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf)
-- [Yeager & Dweck (2020), What Can Be Learned from Growth Mindset Controversies? — American Psychologist](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535)
-- [Macnamara, Hambrick & Oswald (2014), Deliberate Practice and Performance — Psychological Science 25](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf)
-- [Ericsson camp response — Frontiers in Psychology (2019)](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full)
-- [Harwell & Southwick (2021), Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf)
+### The course and its core concepts
 
-**AI and learning**
-- [Bastani et al. (2025), Generative AI without guardrails can harm learning — PNAS](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635)
-- [Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education)
-- [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)
-- [Retraction Note: The effect of ChatGPT on students' learning performance… — Humanit Soc Sci Commun 13, 528 (2026)](https://www.nature.com/articles/s41599-026-07310-z)
-- [Retraction coverage — EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns), [GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)
-- [ChatGPT's impact on student learning outcomes: a meta-analysis — Humanit Soc Sci Commun (2026)](https://www.nature.com/articles/s41599-026-07019-z) (not retracted; 35 studies / 134 effect sizes, g = 0.670)
-- [Deng et al. (2025), Does ChatGPT enhance student learning? — Computers & Education 227:105224](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025)
-- [A Meta-Analysis of ChatGPT's Influence on Learning Achievement — IRRODL (2025)](https://www.irrodl.org/index.php/irrodl/article/view/8775)
-- [Kosmyna et al. (2025), Your Brain on ChatGPT — MIT Media Lab](https://www.media.mit.edu/publications/your-brain-on-chatgpt) ([project page and stated limitations](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview))
-- [Oakley et al. (2025), The Memory Paradox — arXiv:2506.11015](https://arxiv.org/abs/2506.11015)
-- [Bratsberg & Rogeberg (2018), Flynn effect and its reversal are both environmentally caused — PNAS 115(26)](https://www.pnas.org/doi/10.1073/pnas.1718793115) ([the authors' own plain-language summary](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame))
+- [primary/official] Deep Teaching Solutions. *Learning How to Learn: Powerful mental tools to help you master tough subjects*. Coursera. Accessed 2026-08-04 (4,175,377 enrollments, 4.8 across 93,136 reviews — live figures, subject to change). <https://www.coursera.org/learn/learning-how-to-learn>
+- [primary/official] Temporal Dynamics of Learning Center, UC San Diego. *MOOC: Learning How to Learn*. <https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php> — sole official source for the 197,000 learners / 206 countries figure.
+- [secondhand/news] Markoff, J. (2015-12-29). The Most Popular Online Course Teaches You to Learn. *The New York Times*, Bits blog. <https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn> — the 1.19M figure and the ">20% completion rate" both come from Sejnowski's own statements in interview.
+- [**unverified**] Oakley, B. (2014). *A Mind for Numbers*. TarcherPerigee. — the "diffuse mode" endnote quoted above was **not checked against the printed edition**; the only traceable transcription is [Psychology Stack Exchange #18292](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre).
+- [secondhand] *Know Your Brain: Default Mode Network*. Neuroscientifically Challenged. <https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network>
+- [secondhand] Farnam Street. *Focused and Diffuse: Two Modes of Thinking*. <https://fs.blog/focused-diffuse-thinking>
+- [primary] Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. *Behavioral and Brain Sciences*, 24, 87–185.
+- [primary/PDF] Cowan, N. (2010). [The Magical Mystery Four: How is working memory capacity limited, and why?](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf) *Current Directions in Psychological Science*.
+- [primary] [Modelling Working Memory Capacity: Is the Magical Number Four, Seven, or Does it Depend on What You Are Counting?](https://journalofcognition.org/articles/10.5334/joc.387) *Journal of Cognition*. DOI: 10.5334/joc.387
+- [primary] Biwer, F., Wiradhany, W., oude Egbrink, M. G. A., & de Bruin, A. B. H. (2023). [Understanding effort regulation: Comparing 'Pomodoro' breaks and self-regulated breaks](https://bpspsychub.onlinelibrary.wiley.com/doi/10.1111/bjep.12593). *British Journal of Educational Psychology*, 93(2), 353–367. DOI: 10.1111/bjep.12593 — self-regulated n=35, Pomodoro (24+6 min) n=25, short-interval (12+3 min) n=27.
+
+### Effect sizes for study techniques
+
+- [primary/PDF] Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266 ([full PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf))
+- [abstract] Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
+- [abstract + secondhand] Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — the "+0.51 vs restudy / +0.93 vs no activity" figures are taken from [a secondary summary of its results](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises); the pooled "g = 0.61 [0.58, 0.65]" from [a later meta-analytic review in Educational Psychology Review](http://www.lscp.net/persons/ramus/docs/EPR20.pdf); the "feedback only slightly better" point from [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1). **I did not read the Adesope original in full.**
+- [primary/PDF] Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **a working paper, not yet peer reviewed.**
+- [abstract] van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
+- [abstract] Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — direct rebuttal to the above.
+- [secondhand] Rawson, K. (2015). The Status of the Testing Effect for Complex Materials: Still a Winner. *Educational Psychology Review*, 27. — the second rebuttal in the same issue; I have only seen it described by others.
+- [abstract] Brunmair, M., & Richter, T. (2019). [Similarity matters: A meta-analysis of interleaved learning and its moderators](https://doi.org/10.1037/bul0000209). *Psychological Bulletin*, 145(11), 1029–1052. DOI: 10.1037/bul0000209
+- [primary/PDF] Kim, A. S. N., Wong-Kee-You, A. M. B., Wiseheart, M., & Rosenbaum, R. S. (2019). [The spacing effect stands up to big data](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf). *Behavior Research Methods*, 51(4), 1485–1497. DOI: 10.3758/s13428-018-1184-7
+- [primary/PDF] Karpicke, J. D., Butler, A. C., & Roediger, H. L. III (2009). [Metacognitive strategies in student learning: Do students practise retrieval when they study on their own?](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf) *Memory*, 17(4), 471–479. DOI: 10.1080/09658210802647009
+
+### Transfer
+
+- [abstract + full PDF] Pan, S. C., & Rickard, T. C. (2018). [Transfer of test-enhanced learning: Meta-analytic review and synthesis](https://doi.org/10.1037/bul0000151). *Psychological Bulletin*, 144(7), 710–756. DOI: 10.1037/bul0000151 ([PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)) — 192 transfer effect sizes / 122 experiments / 67 articles / N = 10,382.
+- [primary/PDF] Agarwal, P. K. (2019). [Retrieval practice & Bloom's taxonomy: Do students need fact knowledge before higher order learning?](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) *Journal of Educational Psychology*, 111(2), 189–209. DOI: 10.1037/edu0000282 ([ERIC record](https://eric.ed.gov?id=EJ1205208))
+- [primary/PDF] Donker, A. S., de Boer, H., Kostons, D., Dignath van Ewijk, C. C., & van der Werf, M. P. C. (2014). [Effectiveness of learning strategy instruction on academic performance: A meta-analysis](https://daneshyari.com/article/preview/355102.pdf). *Educational Research Review*, 11, 1–26.
+
+### Myths, reversals and disputes
+
+- [secondhand] Pashler, H., McDaniel, M., Rohrer, D., & Bjork, R. (2008). Learning Styles: Concepts and Evidence. *Psychological Science in the Public Interest*, 9(3), 105–119. — I used only [a secondary summary page](https://vu.nl/en/employee/didactics/learning-styles-debunked-what-does-work), not the original.
+- [primary/full text] Clinton-Lisell, V., & Litzinger, C. (2024). [Is it really a neuromyth? A meta-analysis of the learning styles matching hypothesis](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full). *Frontiers in Psychology*, 15. DOI: 10.3389/fpsyg.2024.1428732 — 21 studies / 101 effect sizes / N = 1,712.
+- [primary] Thalheimer, W. (2015). [Mythical Retention Data & The Corrupted Cone](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone). Work-Learning Research. — summarizes the 2014 *Educational Technology* four-article investigation by Subramony, Molenda, Betrus and Thalheimer.
+- [primary/official] University of Strathclyde. [Remembering 90% of What You Do?](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo)
+- [primary/PDF] Sisk, V. F., Burgoyne, A. P., Sun, J., Butler, J. L., & Macnamara, B. N. (2018). [To what extent and under which circumstances are growth mind-sets important to academic achievement? Two meta-analyses](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf). *Psychological Science*, 29(4), 549–571. DOI: 10.1177/0956797617739704
+- [primary/full text] Yeager, D. S., & Dweck, C. S. (2020). [What Can Be Learned from Growth Mindset Controversies?](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535) *American Psychologist*, 75(9), 1269–1284.
+- [primary/PDF] Macnamara, B. N., Hambrick, D. Z., & Oswald, F. L. (2014). [Deliberate Practice and Performance in Music, Games, Sports, Education, and Professions: A Meta-Analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf). *Psychological Science*, 25(8), 1608–1618. DOI: 10.1177/0956797614535810
+- [primary] Corrigendum (2018). *Psychological Science*. DOI: [10.1177/0956797618769891](https://doi.org/10.1177/0956797618769891) — main-model r revised from .35 to .38. **Read this before citing the 2014 numbers.**
+- [primary/full text] Ericsson-camp response (2019). *Frontiers in Psychology*. <https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full> DOI: 10.3389/fpsyg.2019.02396
+- [primary/PDF] Harwell, K. W., & Southwick, D. (2021). [Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf).
+
+### AI and learning
+
+- [primary/full text] Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). [Generative AI without guardrails can harm learning: Evidence from high school mathematics](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635). *PNAS*, 122(26), e2422633122. DOI: 10.1073/pnas.2422633122 — a 2025-08-20 correction to an author affiliation exists; it does not affect the results.
+- [secondhand] [Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education); [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests) (source of the autopilot/FAA analogy).
+- [primary/official] Wang, J., & Fan, W. (2026). [Retraction Note: The effect of ChatGPT on students' learning performance, learning perception, and higher-order thinking: insights from a meta-analysis](https://www.nature.com/articles/s41599-026-07310-z). *Humanities and Social Sciences Communications*, 13, 528. Retracted 2026-04-22; notice updated 2026-07-02 to credit Magnus Ingebrigtsen and Marko Lukic for raising the concerns.
+- [primary/official] The retracted original (page now flagged RETRACTED): Wang & Fan (2025). *Humanit Soc Sci Commun*, 12, 621. DOI: 10.1057/s41599-025-04787-y <https://www.nature.com/articles/s41599-025-04787-y>
+- [secondhand/news] Retraction coverage: [EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns) (486,000 views / 266 citations / Altmetric 1,023), [GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt), [NEPC reposting 404 Media](https://nepc.colorado.edu/blog/nature-publisher). **The three outlets disagree slightly (485k–498k views, 262–275 citations); the figures above follow EdTech Innovation Hub.**
+- [primary/full text] [ChatGPT's impact on student learning outcomes: a meta-analysis](https://www.nature.com/articles/s41599-026-07019-z). *Humanities and Social Sciences Communications* (2026). — not retracted; 35 studies / 134 effect sizes, g = 0.670, 95% CI [0.495, 0.844].
+- [abstract] Deng, R., Jiang, M., Yu, X., Lu, Y., & Liu, S. (2025). [Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025). *Computers & Education*, 227, 105224. — what I quote is **the abstract's own wording** on post-intervention assessment concerns and proctored assessments. An earlier version of this article cited g+ = 0.712; that figure came from an AI-generated summary on Academia.edu, could not be verified, and has been removed.
+- [abstract] [A Meta-Analysis of ChatGPT's Influence on Learning Achievement](https://www.irrodl.org/index.php/irrodl/article/view/8775). *IRRODL* (2025). — 22 studies, g = 0.573.
+- [primary/official, not peer reviewed] Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54 (only 18 completed session four); [the official project page carries a statement on media wording](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview).
+- [primary, not peer reviewed] Oakley, B., et al. (2025). [The Memory Paradox](https://arxiv.org/abs/2506.11015). arXiv:2506.11015. — preprint of a Springer book chapter; an argument, not demonstrated causation.
+- [primary/full text] Bratsberg, B., & Rogeberg, O. (2018). [Flynn effect and its reversal are both environmentally caused](https://www.pnas.org/doi/10.1073/pnas.1718793115). *PNAS*, 115(26), 6674–6678. DOI: 10.1073/pnas.1718793115 — 730,000+ Norwegian conscripts, birth cohorts 1962–1991.
+- [primary/by the authors] Bratsberg & Rogeberg. [Norwegian IQ scores are falling – but genes are not to blame](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame). TheScienceBreaker. — source of "our analysis does not speak to what these underlying environmental causes are".
