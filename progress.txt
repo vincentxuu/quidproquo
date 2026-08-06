@@ -24,6 +24,27 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: post(learning) hybrid paper+digital study methods (zh + en). Four
+  research rounds; I retracted two of my own claims mid-way, both recorded in
+  the article. (a) "Voyer minus Flanigan = distraction" was invalid — Flanigan's
+  inclusion criteria are unrelated to distraction and admit lab video studies;
+  the defensible version is that all four meta-analyses ORDER by how much the
+  design separates medium from distraction (Allen d≈0.25 → Flanigan g=0.248 →
+  Lau g=0.144 → Voyer g=-0.008), matching Voyer's own stated conclusion.
+  (b) "Mueller & Oppenheimer's conceptual-item mechanism is refuted" was too
+  strong — Flanigan puts conceptual smallest, Urry puts it largest, neither
+  significant. Strongest evidence is the READING literature (Delgado 171,055
+  participants g=-0.21; scrolling moderator 0.35-0.48 vs 0.03-0.12), not
+  note-taking. Read 7 of 8 core papers in full; only Voyer's body text stays
+  paywalled. Device prices from official stores only (reMarkable Connect is
+  $3.99/mo, not the $2.99 SEO sites print). Added 7 site-wide glossary terms:
+  統合分析, 效果量, 認知負荷, 間隔重複, 提取練習, 預註冊複製, 元認知校準.
+  Research note in .research/2026-08-05-hybrid-digital-physical-learning.md
+  (not version-controlled). Tooling note: firecrawl/Exa "requires approval" is
+  a claude.ai connector-level `ask`, NOT a settings.json naming problem — allow
+  rules cannot bypass it (per code.claude.com/docs/en/permissions). Separately,
+  the existing `mcp__claude_ai_*__*` allow rules do silently no-op in web
+  sessions where servers are UUID-named; not yet fixed, needs a decision.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
