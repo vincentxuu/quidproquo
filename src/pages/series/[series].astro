@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { series } = Astro.props;
 ---
 <PostLayout title={`${series.name} — quidproquo`} lang="zh-TW" description={series.description}>
-  <a href="/series" class="back-link"><Icons name="chevron-left" size={13} />{t('nav.series')}</a>
+  <a href="/series" class="back-link"><Icons name="chevron-left" size={14} />{t('nav.series')}</a>
   <div class="series-header">
     <span class="series-count">{series.count} {t('series.posts')}</span>
     <h1>{series.name}</h1>

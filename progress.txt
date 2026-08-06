@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-05
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示

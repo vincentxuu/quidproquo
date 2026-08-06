@@ -181,7 +181,7 @@ const breadcrumbLD = {
     <!-- Breadcrumb (like DJ MYG) -->
     <div class="breadcrumb">
       <a href={lang === 'en' ? '/en' : '/'} class="breadcrumb-link">
-        <Icons name="chevron-left" size={11} />
+        <Icons name="chevron-left" size={14} />
         {t('nav.home')}
       </a>
       <span class="breadcrumb-sep">&rsaquo;</span>
@@ -261,14 +261,14 @@ const breadcrumbLD = {
         <div class="series-nav">
           {seriesNav.prev ? (
             <a href={`/posts/${seriesNav.prev.slug}`} class="series-prev">
-              <Icons name="chevron-left" size={12} />
+              <Icons name="chevron-left" size={14} />
               {seriesNav.prev.title}
             </a>
           ) : <span />}
           {seriesNav.next && (
             <a href={`/posts/${seriesNav.next.slug}`} class="series-next">
               {seriesNav.next.title}
-              <Icons name="chevron-right" size={12} />
+              <Icons name="chevron-right" size={14} />
             </a>
           )}
         </div>
@@ -323,7 +323,7 @@ const breadcrumbLD = {
         {prevPost ? (
           <a href={`/posts/${prevPost.id}`} class="post-nav-prev">
             <span class="post-nav-label">
-              <Icons name="chevron-left" size={13} />
+              <Icons name="chevron-left" size={14} />
               {t('post.prev')}
             </span>
             <span class="post-nav-title">{prevPost.data.title}</span>
@@ -333,7 +333,7 @@ const breadcrumbLD = {
           <a href={`/posts/${nextPost.id}`} class="post-nav-next">
             <span class="post-nav-label">
               {t('post.next')}
-              <Icons name="chevron-right" size={13} />
+              <Icons name="chevron-right" size={14} />
             </span>
             <span class="post-nav-title">{nextPost.data.title}</span>
           </a>
@@ -353,7 +353,7 @@ const breadcrumbLD = {
           <a href={`/posts/${p.id}`} class="related-item">
             <span class="related-title">{p.data.title}</span>
             <span class="related-time">
-              <Icons name="clock" size={11} />
+              <Icons name="clock" size={14} />
               {p.data.readingTime ?? 1} min
             </span>
           </a>

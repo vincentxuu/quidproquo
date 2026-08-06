@@ -28,7 +28,7 @@ const availableTypes = [...new Set(posts.map(p => p.data.type).filter(Boolean))]
 const showFilter = availableTypes.length > 1;
 ---
 <PostLayout title={`${category} — quidproquo`} lang="zh-TW" description={`quidproquo ${category} 分類文章，共 ${posts.length} 篇。`}>
-  <a href="/categories" class="back-link"><Icons name="chevron-left" size={13} />{t('post.backtocategories')}</a>
+  <a href="/categories" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtocategories')}</a>
   <div class={`cat-header cat-header-${category}`}>
     <h1>{category}</h1>
     <span class="post-count">{posts.length} {t('post.articles')}</span>
