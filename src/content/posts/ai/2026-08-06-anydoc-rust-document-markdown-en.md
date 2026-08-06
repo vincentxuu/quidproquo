@@ -8,7 +8,7 @@ lang: en
 tldr: "Firecrawl's open-source Rust conversion library turns 14 office formats (including legacy .doc / .ppt / .xls) into GFM at a 4.4ms median — two orders of magnitude faster than LibreOffice. The trade-off: it does no OCR at all."
 description: "A breakdown of anydoc's shared Document model, its 14-format coverage, how credible its LLM-judge benchmark actually is, and where its design diverges from MarkItDown."
 series:
-  name: "文件轉 Markdown 實戰"
+  name: "文件解析實戰"
   order: 3
 draft: false
 glossary:
@@ -171,6 +171,8 @@ In an LLM pipeline that trade-off pays off. Conversion should be the most boring
 
 It is not a MarkItDown replacement. It is the front end of that pipeline.
 
+If you haven't yet decided which layer you need, start with the first post in this series: [The Three-Layer Ladder of Document Parsing](/posts/ai/2026-08-06-document-parsing-three-layers-en).
+
 ## References
 
 - [firecrawl/anydoc — GitHub](https://github.com/firecrawl/anydoc)
@@ -181,7 +183,8 @@ It is not a MarkItDown replacement. It is the front end of that pipeline.
 - [Pandoc — official site](https://pandoc.org/)
 - [LibreOffice — official site](https://www.libreoffice.org/)
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-- [MarkItDown: Turn Any File Into Markdown Before Feeding It to an LLM](/posts/ai/2026-04-18-markitdown-intro-en)
+- [The Three-Layer Ladder of Document Parsing](/posts/ai/2026-08-06-document-parsing-three-layers-en)
+- [MarkItDown: Convert Any File to Markdown Before Feeding It to an LLM](/posts/ai/2026-04-18-markitdown-intro-en)
 - [The AI Web Scraping Landscape: 34 Open Source Projects](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en)
 - [Auto-embedding on upload is a bad default](/posts/ai/2026-05-24-agentic-attachment-rag-survey-en)
 - [DeepSeek-OCR: Compressing Long Context Into Images](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en)

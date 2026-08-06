@@ -2,6 +2,18 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-06 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
+  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
+  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
+  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
+  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
+  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
+  typing the /api/related-posts JSON response — `astro check` now 0 errors.
+
 ## 2026-07-06 歸檔
 
 ### Recently completed（原 progress.txt 條目）

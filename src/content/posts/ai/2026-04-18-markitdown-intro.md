@@ -8,8 +8,8 @@ lang: zh-TW
 tldr: "Microsoft 開源的輕量工具，把 PDF、Office、圖片、音訊等格式統一轉成 Markdown，專門為 LLM pipeline 設計。"
 description: "介紹 Microsoft MarkItDown 的設計理念、支援格式、安裝與使用方式，以及在 RAG 和 LLM 前處理場景的實際應用。"
 series:
-  name: "文件轉 Markdown 實戰"
-  order: 1
+  name: "文件解析實戰"
+  order: 2
 draft: false
 ---
 

@@ -7,9 +7,6 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: en
 tldr: "From MarkItDown (169k stars, MIT) to curl-impersonate (7k stars), a survey of 34 open-source tools for feeding data to AI. Categorized along five axes: whole-site crawling, AI browser agents, document conversion, smart extraction, and anti-detection infrastructure. The key to selection isn't which tool is best — it's scenario matching."
 description: "A selection guide for 34 AI web scraping and data extraction open-source tools: whole-site crawlers (Firecrawl, Crawl4AI), AI browser agents (Browser-Use, Stagehand), document converters (MarkItDown, MinerU), smart extractors (Scrapling, ScrapeGraphAI), and anti-detection infrastructure (curl-impersonate). Includes GitHub API-verified star counts and licenses."
-series:
-  name: "文件轉 Markdown 實戰"
-  order: 2
 draft: false
 glossary:
   - term: "AGPL"
@@ -132,7 +129,7 @@ The key to selection isn't "which is best" — it's scenario matching:
 
 ## Changelog
 
-- 2026-08-06: Added anydoc to the "Document Conversion" section (Firecrawl's Rust conversion library — 14/14 formats, 4.4ms median, MIT licensed), noting how its license differs from the AGPL-3.0 Firecrawl main project. This post joins the "文件轉 Markdown 實戰" series.
+- 2026-08-06: Added anydoc to the "Document Conversion" section (Firecrawl's Rust conversion library — 14/14 formats, 4.4ms median, MIT licensed), noting how its license differs from the AGPL-3.0 Firecrawl main project. For the full selection logic on this layer, see the [document parsing series](/en/series/document-parsing).
 
 ## References
 

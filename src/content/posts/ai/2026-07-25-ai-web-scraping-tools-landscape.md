@@ -7,9 +7,6 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: zh-TW
 tldr: "從 MarkItDown (169k stars, MIT) 到 curl-impersonate (7k stars)，整理 34 個「爬資料餵 AI」的開源工具。沿五條軸線分類：整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建。選型關鍵不是哪個最好，是場景匹配。"
 description: "34 個 AI 爬蟲與資料擷取開源工具的分類選型指南：整站爬取（Firecrawl、Crawl4AI）、AI 瀏覽器代理（Browser-Use、Stagehand）、文件轉檔（MarkItDown、MinerU）、智慧擷取（Scrapling、ScrapeGraphAI）、反偵測基建（curl-impersonate）。含 GitHub API 驗證的星數與授權資訊。"
-series:
-  name: "文件轉 Markdown 實戰"
-  order: 2
 draft: false
 glossary:
   - term: "AGPL"
@@ -132,7 +129,7 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 
 ## 更新紀錄
 
-- 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.4ms 中位耗時、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異；本篇收入「文件轉 Markdown 實戰」系列。
+- 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.4ms 中位耗時、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異。文件轉檔這一層的完整選型脈絡另見[「文件解析實戰」系列](/series/document-parsing)。
 
 ## 參考資料
 

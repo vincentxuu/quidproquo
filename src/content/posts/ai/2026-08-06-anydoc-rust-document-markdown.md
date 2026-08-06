@@ -8,7 +8,7 @@ lang: zh-TW
 tldr: "Firecrawl 開源的 Rust 轉檔函式庫，14 種辦公格式（含 .doc / .ppt / .xls 老格式）統一轉 GFM，中位耗時 4.4ms，比 LibreOffice 快兩個數量級。代價是完全不碰 OCR。"
 description: "拆解 anydoc 的共用 Document model 架構、14 種格式的覆蓋範圍、LLM judge benchmark 的方法論與可信度，以及它跟 MarkItDown 在設計取捨上的路線分歧。"
 series:
-  name: "文件轉 Markdown 實戰"
+  name: "文件解析實戰"
   order: 3
 draft: false
 glossary:
@@ -171,6 +171,8 @@ anydoc 沒有試圖成為文件處理的萬用解，它把範圍縮得很窄—�
 
 它不是 MarkItDown 的替代品，是那條管線的前段。
 
+如果你還沒決定該用哪一層，先看系列的第一篇：[文件解析的三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)。
+
 ## 參考資料
 
 - [firecrawl/anydoc — GitHub](https://github.com/firecrawl/anydoc)
@@ -181,6 +183,7 @@ anydoc 沒有試圖成為文件處理的萬用解，它把範圍縮得很窄—�
 - [Pandoc — 官方網站](https://pandoc.org/)
 - [LibreOffice — 官方網站](https://www.libreoffice.org/)
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+- [文件解析的三層階梯：轉換、抽取、解析](/posts/ai/2026-08-06-document-parsing-three-layers)
 - [MarkItDown：把任何檔案餵給 LLM 之前，先讓它變成 Markdown](/posts/ai/2026-04-18-markitdown-intro)
 - [AI 爬蟲工具全景圖：34 個開源專案的五大分類與選型指南](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape)
 - [上傳檔案就自動 embedding 是個壞預設](/posts/ai/2026-05-24-agentic-attachment-rag-survey)

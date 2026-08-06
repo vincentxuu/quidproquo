@@ -33,11 +33,11 @@ const SERIES_DEFINITIONS: Record<string, SeriesDefinition> = {
       en: 'A structured path through production RAG design, from failure modes and ranking to multi-agent orchestration.',
     },
   },
-  '文件轉 Markdown 實戰': {
-    slug: 'document-to-markdown',
+  '文件解析實戰': {
+    slug: 'document-parsing',
     descriptions: {
-      'zh-TW': '把 PDF、Office、EPUB 等格式轉成 LLM 可讀 Markdown 的工具選型脈絡：從 MarkItDown、anydoc 到各家轉檔方案的取捨比較。',
-      en: 'A running series on converting PDF, Office, and EPUB files into LLM-ready Markdown — covering MarkItDown, anydoc, and the trade-offs between competing converters.',
+      'zh-TW': '把文件變成 LLM 可讀內容的三層階梯——轉換、抽取、解析。從選層邏輯到 MarkItDown、anydoc、MinerU 等各層工具的取捨比較。',
+      en: 'The three-layer ladder for turning documents into LLM-readable content — conversion, extraction, and parsing. From picking the right layer to comparing MarkItDown, anydoc, MinerU, and the rest.',
     },
   },
   'AI Agent 實戰': {
