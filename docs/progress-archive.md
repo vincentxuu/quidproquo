@@ -6,6 +6,21 @@
 
 ### Recently completed（原 progress.txt 條目）
 
+第三批歸檔（圖示改 Koboyo 手繪風時，合併 main 後 progress.txt 達 99 行）。
+
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
+
 以下前兩筆為當日第二批歸檔（發布手機廣告追蹤機制文章後，progress.txt 達 85 行，
 逼近 90 行上限而觸發）。
 

@@ -24,6 +24,16 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
 - 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
   `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
   解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
@@ -66,18 +76,6 @@ Recently completed
   the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
   Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
   地理圍欄, DMA). Research note in .research/ (not version-controlled).
-- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
-  circulating "2026 AI certs for engineers" list against primary sources only;
-  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
-  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
-  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
-  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
-  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
-  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
-  (per Pearson VUE). Prices are NOT officially published (third-party sources
-  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
-  Added site-wide glossary term MLOps.
-（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

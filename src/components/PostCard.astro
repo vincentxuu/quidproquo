@@ -26,7 +26,7 @@ const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 <article data-type={type}>
-  {pinned && <div class="pin-bar"><Icons name="pin" size={12} /> 置頂</div>}
+  {pinned && <div class="pin-bar"><Icons name="pin" size={14} /> 置頂</div>}
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
     {type && <a href={`${categoriesBase}/${category}?type=${type}`} class={`type-badge type-${type}`}>{type}</a>}
@@ -34,7 +34,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     <time datetime={date.toISOString()}>{dateStr}</time>
     {readingTime && (
       <span class="reading-time">
-        <Icons name="clock" size={12} />
+        <Icons name="clock" size={14} />
         {readingTime} min
       </span>
     )}
