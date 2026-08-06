@@ -673,6 +673,18 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: 'Is Your JSON-LD Invisible to AI Search Engines? A Pipelin...', url: '/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en' }],
   },
   {
+    term: 'CC0',
+    aliases: ['Creative Commons Zero', 'public domain dedication'],
+    definition: '作者主動放棄著作權的宣告，等同把作品釋出到公共領域，使用者不需署名也不受條件限制。',
+    definition_en: 'A declaration in which the author waives copyright, effectively releasing the work into the public domain — no attribution required and no conditions attached.',
+    advanced: 'CC0 和 CC-BY 的關鍵差別是署名：CC-BY 強制回連或標註來源，CC0 不強制。對素材庫來說，這個差別決定了它能不能被無痛嵌進商業產品，因為署名義務會一路傳染到下游使用者。',
+    advanced_en: 'The key difference between CC0 and CC-BY is attribution: CC-BY mandates a credit or backlink, CC0 does not. For asset libraries this decides whether the work can be embedded into a commercial product without friction, since an attribution obligation propagates to downstream users.',
+    context: '本站用 CC0 討論圖示、插畫與其他素材庫的授權差異。',
+    context_en: 'This site uses CC0 to discuss licensing differences across icon, illustration, and other asset libraries.',
+    links: [{ label: '手繪風 SVG 圖示的三條路', url: '/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape' }],
+    links_en: [{ label: 'Three Routes to Hand-Drawn SVG Icons', url: '/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape-en' }],
+  },
+  {
     term: 'SSR',
     aliases: ['server-side rendering'],
     definition: '在伺服器端先產生 HTML，再送到瀏覽器顯示的渲染方式。',

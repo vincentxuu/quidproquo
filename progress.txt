@@ -32,7 +32,22 @@ Recently completed
   permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
   service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
   material is dead. Also: Claude certs are 4 exams gated behind Partner Network
-  (per Pearson VUE), 12-month validity. Added site-wide glossary term MLOps.
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
