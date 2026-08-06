@@ -1,6 +1,6 @@
 ---
 title: "Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline"
-date: 2026-08-06
+date: 2026-08-18
 type: guide
 category: policy
 tags: [drone, taiwan, regulation, uav, aviation-law]
@@ -10,11 +10,11 @@ description: "Taiwan's drone licence system per the Remotely Piloted Drone Manag
 draft: false
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-06-taiwan-drone-license-guide)
+> 🌏 [中文版](/posts/policy/2026-08-18-taiwan-drone-license-guide)
 
-[The previous piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) covered who needs a licence. This one covers **how you get one**: how many tiers, how long, how much.
+[The previous piece](/posts/policy/2026-08-12-taiwan-drone-regulation-guide) covered who needs a licence. This one covers **how you get one**: how many tiers, how long, how much.
 
-Start with the most commonly misunderstood point: **most people don't need one at all.** Individuals flying under 2kg recreationally are exempt ([though 250g and above still requires registration](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)). The people who genuinely need one are individuals flying 2kg or heavier, and **anyone flying under a company's name** — a drone owned by a legal entity requires a professional licence regardless of weight.
+Start with the most commonly misunderstood point: **most people don't need one at all.** Individuals flying under 2kg recreationally are exempt ([though 250g and above still requires registration](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)). The people who genuinely need one are individuals flying 2kg or heavier, and **anyone flying under a company's name** — a drone owned by a legal entity requires a professional licence regardless of weight.
 
 ## Three licence classes
 
@@ -178,5 +178,5 @@ All registration, changes, results, and issuance happen online through the [Dron
 
 **On this site**
 
-- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
-- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map)
+- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)
+- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-15-drone-industry-job-map)

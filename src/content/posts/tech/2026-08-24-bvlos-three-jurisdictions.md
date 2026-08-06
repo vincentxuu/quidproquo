@@ -1,6 +1,6 @@
 ---
 title: "BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架"
-date: 2026-08-06
+date: 2026-08-24
 type: deep-dive
 category: tech
 tags: [drone, regulation, bvlos, uav, taiwan]
@@ -10,7 +10,7 @@ description: "比較美國、歐盟、台灣三地的超視距飛行制度：Par
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+> 🌏 [English version](/posts/tech/2026-08-24-bvlos-three-jurisdictions-en)
 
 [產業地圖](/posts/tech/2026-08-06-drone-industry-map)裡把 BVLOS 法規列為無人機規模化的兩個天花板之一。這篇把三個法域攤開比較，結論比我原本以為的更懸殊：**歐盟已經能飛、美國還在等最後一哩、台灣連框架都還沒建。**
 
@@ -95,7 +95,7 @@ Part 108 就是要把「一次一張豁免」換成標準化框架。時程依 [
 
 **第一，台灣的「低空經濟」論述跑在法規前面。** 物流無人機、長距離管線巡檢、跨縣市配送這些應用，在現行框架下都只能用「法人逐案申請、許可 3 個月」的方式做示範性營運，無法變成可規模化的商業模式。**技術不是瓶頸，制度才是。**
 
-**第二，這對台灣的出口導向反而不是壞事。** [台灣無人機產值八成來自公部門採購、外銷僅占 22.9%](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)，主要出口市場是捷克、波蘭、美國。**做整機與模組出口，賣的是別人的法規環境，不是自己的。** 台廠受國內 BVLOS 缺位的影響，比想像中小。
+**第二，這對台灣的出口導向反而不是壞事。** [台灣無人機產值八成來自公部門採購、外銷僅占 22.9%](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)，主要出口市場是捷克、波蘭、美國。**做整機與模組出口，賣的是別人的法規環境，不是自己的。** 台廠受國內 BVLOS 缺位的影響，比想像中小。
 
 真正受影響的是**國內的服務端**——巡檢 DaaS、物流營運、測繪服務這類第 5 層業者。他們的天花板是台灣的法規，不是技術。
 
@@ -128,5 +128,5 @@ Part 108 就是要把「一次一張豁免」換成標準化框架。時程依 [
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
+- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)

@@ -159,17 +159,15 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Branches that go deeper:
+This article is the overview for the drone series. Later entries publish on a rolling basis and go deeper in five directions:
 
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — applies this article's five-layer framework to Taiwan, using Thunder Tiger's published BOM to confirm the gap really does sit at Layer 3
-- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) — built from the currently effective statutory text, flagging which widely circulated rules are already outdated
-- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map) — puts job roles back into the five-layer framework, tagging each with software-background transferability
-- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history) — the wreckage from the last cycle, three structural differences and three identical warning signs
-- [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — one ruler applied to the sector, plus three concrete risk categories
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions) — this article's first ceiling, compared across the US, EU, and Taiwan
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide) — three licence classes, the G1/G2/G3 groups, statutory fees, and the full timeline
+- **Taiwan's supply chain**: the five-layer framework above applied to Taiwan's 267 companies, using an airframe maker's published BOM split to confirm the gap really does sit at Layer 3
+- **Regulation**: a plain-language guide to Taiwan's current rules (what needs registering, what needs a licence, what gets fined), the licence tier and fee structure, and how BVLOS compares across the US, EU, and Taiwan
+- **Industry cycles**: how the 2016 consumer bubble burst, and this cycle's three structural differences plus three identical warning signs
+- **Careers**: eleven roles arranged by supply chain layer, each tagged with software-background transferability
+- **Framework check**: the sector measured against a four-criteria framework, plus three concrete risk categories
 
-Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
+**Every post in the series carries the `drone` tag — [#drone](/tags/drone) is the complete index, and new entries appear there automatically as they publish.**
 
 ## References
 

@@ -31,8 +31,13 @@ Recently completed
   Structural decisions that still bind: `category` is the container
   (folder/URL/nav), `drone` tag is the topic — src/pages/tags/[tag].astro has
   NO category filter so /tags/drone is the cross-category hub, and EVERY series
-  post must carry `drone` as its first tag. Hub (產業地圖) links out to all 7
-  spokes. Investing posts go framework-and-risk only, no tickers.
+  post must carry `drone` as its first tag. Investing posts go
+  framework-and-risk only, no tickers.
+  SCHEDULED RELEASE: pillar 08-06, then 08-09/12/15/18/21/24/27 (see plan
+  §5.2). Future-dated posts are NOT built — a published post linking to a
+  later-dated one is a hard 404, so the link graph must point backwards only.
+  Hub therefore lists no individual spokes; it points at /tags/drone, which
+  self-updates. Guard script is in plan §5.2 — run it after any reschedule.
   Remaining v1: A3 (商業模式), B3 (教育路徑), E2 (國防預算受惠路徑) — all
   writable now; B2/B4 need interviews; D1-D3 blocked on buying a drone and
   booking the licence exam.

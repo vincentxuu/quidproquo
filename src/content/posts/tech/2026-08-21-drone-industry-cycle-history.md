@@ -1,6 +1,6 @@
 ---
 title: "無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣"
-date: 2026-08-06
+date: 2026-08-21
 type: deep-dive
 category: tech
 tags: [drone, uav, industry-history, supply-chain, hardware]
@@ -10,13 +10,13 @@ description: "拆解無人機產業的兩次週期：2014–2016 消費級泡沫
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-drone-industry-cycle-history-en)
+> 🌏 [English version](/posts/tech/2026-08-21-drone-industry-cycle-history-en)
 
 每一輪產業熱潮都會遇到同一個問題：**這次是真的，還是又一次泡沫？**
 
 無人機這題特別值得問，因為它已經破過一次，而且破得很徹底。2016 年那波泡沫留下的殘骸夠具體，具體到可以拿來當量尺。
 
-這是[無人機系列](/tags/drone)的判斷篇。前面幾篇講[產業結構](/posts/tech/2026-08-06-drone-industry-map)與[台灣位置](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)，這篇講時間軸。
+這是[無人機系列](/tags/drone)的判斷篇。前面幾篇講[產業結構](/posts/tech/2026-08-06-drone-industry-map)與[台灣位置](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)，這篇講時間軸。
 
 ## 第一次浪潮：2014–2016，賭消費者
 
@@ -65,7 +65,7 @@ draft: false
 
 **錢的形狀也變了。** 依 Drone Industry Insights 的 2026–2035 報告：2024 年無人機投資**下跌 52%**，2025 年反而創下 **38.6 億美元**紀錄，其中 **77% 流向軍民兩用（dual-use）公司**；2026 年頭兩個月已投入 **17 億美元**。
 
-**台灣的數字同步。** 2024 到 2025 年產值成長逾 2.5 倍、整機外銷成長 21 倍，[前三大出口市場是捷克、波蘭、美國](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)。
+**台灣的數字同步。** 2024 到 2025 年產值成長逾 2.5 倍、整機外銷成長 21 倍，[前三大出口市場是捷克、波蘭、美國](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)。
 
 ## 這次跟上次的三個結構差異
 
@@ -121,4 +121,4 @@ draft: false
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)

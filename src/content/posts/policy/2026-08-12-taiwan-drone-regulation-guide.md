@@ -1,6 +1,6 @@
 ---
 title: "台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰"
-date: 2026-08-06
+date: 2026-08-12
 type: guide
 category: policy
 tags: [drone, taiwan, regulation, uav, aviation-law]
@@ -10,13 +10,13 @@ description: "依《遙控無人機管理規則》現行條文整理：註冊門
 draft: false
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+> 🌏 [English version](/posts/policy/2026-08-12-taiwan-drone-regulation-guide-en)
 
 台灣無人機法規的懶人包很多，問題是**它們混用了三種東西**：現行有效的條文、已經被修正掉的舊規定，以及還沒生效的修正草案。三者混在一起，讀者沒辦法判斷哪句話現在能用。
 
 這篇只寫一件事：[全國法規資料庫上《遙控無人機管理規則》的現行條文](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0090083)（民國 113 年 11 月 14 日修正發布，除少數條文另定施行日外，自 113 年 12 月 1 日施行）寫了什麼。文末會標出流傳版本裡我確認已經過時的說法。
 
-這是這個[無人機系列](/tags/drone)的法規篇，接續[產業地圖](/posts/tech/2026-08-06-drone-industry-map)與[台灣供應鏈拆解](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)。
+這是這個[無人機系列](/tags/drone)的法規篇，接續[產業地圖](/posts/tech/2026-08-06-drone-industry-map)與[台灣供應鏈拆解](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)。
 
 ## 一、要不要註冊：看 250 公克
 
@@ -149,4 +149,4 @@ draft: false
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)

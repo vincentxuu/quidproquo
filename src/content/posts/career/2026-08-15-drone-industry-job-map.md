@@ -1,6 +1,6 @@
 ---
 title: "無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格"
-date: 2026-08-06
+date: 2026-08-15
 type: deep-dive
 category: career
 tags: [drone, career, taiwan, uav, hiring]
@@ -10,13 +10,13 @@ description: "依產業鏈層級盤點無人機產業的十一種職務：各自
 draft: false
 ---
 
-> 🌏 [English version](/posts/career/2026-08-06-drone-industry-job-map-en)
+> 🌏 [English version](/posts/career/2026-08-15-drone-industry-job-map-en)
 
 「無人機產業很熱，我要不要進去？」這個問題沒辦法整體回答，因為**無人機產業不是一個職業市場，是五個**。第 2 層的動力系統工程師跟第 3 層的飛控韌體工程師，除了產品長得像，能力要求、可替代性、薪資結構幾乎沒有交集。
 
 這篇把職務放回[產業地圖](/posts/tech/2026-08-06-drone-industry-map)的五層框架來排，並對每個角色標一件對這個站的讀者最有用的事：**軟體背景能不能遷移過去。**
 
-先講結論：**軟體人的入口在第 3 層，而第 3 層正好是[台灣最缺的一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)。** 這是好消息，但後面有一個規模的壞消息。
+先講結論：**軟體人的入口在第 3 層，而第 3 層正好是[台灣最缺的一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)。** 這是好消息，但後面有一個規模的壞消息。
 
 ## 先看規模，再看熱度
 
@@ -66,7 +66,7 @@ BOM 管理、模組介面定義、整機驗證、供應商協調。無人機的�
 
 **⑧ 飛行測試工程師／試飛員**
 規劃測試案例、實機飛行、蒐集遙測資料、分析異常。這個職務有一個特殊門檻：**要能實際飛**。
-一份 [Yourator 上的無人機工程師職缺](https://www.yourator.co/companies/valtec/jobs/37748)就把「參與無人機飛行測試，收集數據並進行分析」列為主要職責之一。持有[民航局操作證](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)在研發端是明確的加分項——因為能自己飛的工程師，除錯迴圈比別人短一輪。
+一份 [Yourator 上的無人機工程師職缺](https://www.yourator.co/companies/valtec/jobs/37748)就把「參與無人機飛行測試，收集數據並進行分析」列為主要職責之一。持有[民航局操作證](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)在研發端是明確的加分項——因為能自己飛的工程師，除錯迴圈比別人短一輪。
 *軟體可遷移度：中。* 技能可補，但要真的去考照、去飛。
 
 **⑨ 認證與法規工程師（compliance）**
@@ -94,7 +94,7 @@ Blue UAS／Green UAS 送審、NDAA 供應鏈溯源、資安檢測、民航局型
 
 1. **選層級，不要選產業。** 「進無人機產業」不是一個決定，「做第 3 層的飛控或邊緣 AI」才是。前者會讓你被放到隨便一個缺，後者才會累積可帶走的能力。
 2. **政策依賴是真實的職涯風險。** 八成產值來自公部門採購意味著預算節奏會傳導到人力規劃。問面試官「你們營收裡標案占多少」是合理且必要的問題。
-3. **考張操作證，成本很低。** 學科測驗規費 200 元、[普通操作證只要學科](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)。就算最後沒轉職，這件事讓你在談論這個產業時，是從實機經驗出發而不是從新聞出發。
+3. **考張操作證，成本很低。** 學科測驗規費 200 元、[普通操作證只要學科](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)。就算最後沒轉職，這件事讓你在談論這個產業時，是從實機經驗出發而不是從新聞出發。
 
 ## 參考資料
 
@@ -117,5 +117,5 @@ Blue UAS／Green UAS 送審、NDAA 供應鏈溯源、資安檢測、民航局型
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
+- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)

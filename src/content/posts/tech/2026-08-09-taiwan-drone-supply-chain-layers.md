@@ -1,6 +1,6 @@
 ---
 title: "台灣無人機供應鏈：267 家在哪裡、卡在哪一層"
-date: 2026-08-06
+date: 2026-08-09
 type: deep-dive
 category: tech
 tags: [drone, taiwan, supply-chain, uav, hardware, defense-tech]
@@ -10,7 +10,7 @@ description: "把台灣無人機的 267 家業者拆到產業鏈層級：逐縣�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+> 🌏 [English version](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers-en)
 
 「台灣有 267 家無人機業者」這個數字，過去半年被引用了無數次。但很少有人往下問一句：這 267 家分別在做什麼？
 

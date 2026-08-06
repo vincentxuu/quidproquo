@@ -1,6 +1,6 @@
 ---
 title: "台灣無人機操作證怎麼考：分級、逐級制度、規費與時程"
-date: 2026-08-06
+date: 2026-08-18
 type: guide
 category: policy
 tags: [drone, taiwan, regulation, uav, aviation-law]
@@ -10,11 +10,11 @@ description: "依《遙控無人機管理規則》整理台灣無人機操作證
 draft: false
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
+> 🌏 [English version](/posts/policy/2026-08-18-taiwan-drone-license-guide-en)
 
-[上一篇](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)講了誰需要操作證。這篇講**怎麼考**：分幾級、要多久、花多少錢。
+[上一篇](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)講了誰需要操作證。這篇講**怎麼考**：分幾級、要多久、花多少錢。
 
-先講最常被搞錯的一件事：**大多數人根本不用考。** 自然人、2 公斤以下、純休閒娛樂就免考照（[但 250 公克以上仍要註冊](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)）。真正需要考的是兩種人：想操作 2 公斤以上機器的個人，以及**任何要用公司名義飛的人**——法人所有的無人機不論多輕，操作人都要專業操作證。
+先講最常被搞錯的一件事：**大多數人根本不用考。** 自然人、2 公斤以下、純休閒娛樂就免考照（[但 250 公克以上仍要註冊](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)）。真正需要考的是兩種人：想操作 2 公斤以上機器的個人，以及**任何要用公司名義飛的人**——法人所有的無人機不論多輕，操作人都要專業操作證。
 
 ## 三類證照
 
@@ -178,5 +178,5 @@ draft: false
 
 **站內**
 
-- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
-- [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-06-drone-industry-job-map)
+- [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)
+- [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-15-drone-industry-job-map)
