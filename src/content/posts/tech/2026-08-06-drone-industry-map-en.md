@@ -157,6 +157,14 @@ The state of the drone industry compresses into three sentences:
 
 If you want one question to judge any drone company: **is it in Layer 3 or Layer 4?** Layer 4 airframe assembly eventually gets competed down to commodity margins; the moat lives in Layer 3 — flight control, links, and payloads. Taiwan's policy bets its resources on "three chips, two software," which is the right target. Whether it gets built is a separate question.
 
+## Further reading
+
+This article is the overview for the drone series. Branches that go deeper:
+
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — applies this article's five-layer framework to Taiwan, using Thunder Tiger's published BOM to confirm the gap really does sit at Layer 3
+
+Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
+
 ## References
 
 **Market and industry data**
