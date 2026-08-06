@@ -1,6 +1,6 @@
 ---
 title: "Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On"
-date: 2026-08-09
+date: 2026-08-06
 type: deep-dive
 category: tech
 tags: [drone, taiwan, supply-chain, uav, hardware, defense-tech]
@@ -10,7 +10,7 @@ description: "Breaking Taiwan's 267 drone companies down by supply chain layer: 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
+> 🌏 [中文版](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
 
 "Taiwan has 267 drone companies" has been quoted endlessly over the past six months. Very few people ask the follow-up: what are those 267 companies actually doing?
 

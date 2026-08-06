@@ -1,6 +1,6 @@
 ---
 title: "用四條件框架看無人機供應鏈：四條裡目前只成立一條"
-date: 2026-08-27
+date: 2026-08-06
 type: deep-dive
 category: investing
 tags: [drone, taiwan, supply-chain, uav, investing-framework]
@@ -10,11 +10,11 @@ description: "用站上既有的四條件框架逐條檢驗無人機供應鏈這
 draft: false
 ---
 
-> 🌏 [English version](/posts/investing/2026-08-27-drone-supply-chain-four-criteria-en)
+> 🌏 [English version](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
 
 **先講清楚這篇不做什麼**：不列標的、不點名個股、不談買賣時機。這是用一把既有的尺去量一個板塊的結構，結論可能是「現在不符合」——事實上就是。
 
-這是[無人機系列](/tags/drone)的最後一塊。前面拆了[產業結構](/posts/tech/2026-08-06-drone-industry-map)、[台灣位置](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)、[法規](/posts/policy/2026-08-12-taiwan-drone-regulation-guide)、[職涯](/posts/career/2026-08-15-drone-industry-job-map)與[產業週期](/posts/tech/2026-08-21-drone-industry-cycle-history)。這篇把那些事實餵進四條件框架，看得出什麼。
+這是[無人機系列](/tags/drone)的最後一塊。前面拆了[產業結構](/posts/tech/2026-08-06-drone-industry-map)、[台灣位置](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)、[法規](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)、[職涯](/posts/career/2026-08-06-drone-industry-job-map)與[產業週期](/posts/tech/2026-08-06-drone-industry-cycle-history)。這篇把那些事實餵進四條件框架，看得出什麼。
 
 用的是站上分析 AI 供應鏈時的同一組條件：**供應鏈關鍵節點、結構性需求、高替換成本、法人長期持有。** 用同一把尺量不同板塊，才知道差在哪。
 
@@ -22,7 +22,7 @@ draft: false
 
 這條問的是：**這個環節被拿掉，下游會不會停？**
 
-台灣目前的位置很明確。[雷虎公開的 BOM 拆分](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)顯示，台灣供應的是電池模組、控制器、馬達與速控、動力模組、螺旋槳、機架——全部落在產業鏈**第 2 層**。而通訊與 GPS 模組、飛控模組、鏡頭模組這三項**第 3 層**關鍵模組，這家亞洲唯一通過 Blue UAS 認證的公司選擇跟歐美日大廠買。
+台灣目前的位置很明確。[雷虎公開的 BOM 拆分](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)顯示，台灣供應的是電池模組、控制器、馬達與速控、動力模組、螺旋槳、機架——全部落在產業鏈**第 2 層**。而通訊與 GPS 模組、飛控模組、鏡頭模組這三項**第 3 層**關鍵模組，這家亞洲唯一通過 Blue UAS 認證的公司選擇跟歐美日大廠買。
 
 第 2 層的問題是**可替代性高**。馬達、機架、螺旋槳有大量供應商，換一家的成本是幾週的驗證，不是幾年的重新設計。國產化比例的遞減曲線也說明同一件事：[小型機約 7 成、中型約 6 成、大型約 3 成](https://www.cna.com.tw/news/afe/202607150278.aspx)——機型越複雜，台灣能供的比例越低，因為複雜度都堆在第 3 層。
 
@@ -125,5 +125,5 @@ draft: false
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
-- [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-21-drone-industry-cycle-history)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-06-drone-industry-cycle-history)

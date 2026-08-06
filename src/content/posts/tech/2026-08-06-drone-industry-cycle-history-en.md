@@ -1,6 +1,6 @@
 ---
 title: "Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time"
-date: 2026-08-21
+date: 2026-08-06
 type: deep-dive
 category: tech
 tags: [drone, uav, industry-history, supply-chain, hardware]
@@ -10,13 +10,13 @@ description: "Two cycles in the drone industry: what caused the 2014–2016 cons
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-drone-industry-cycle-history)
+> 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-cycle-history)
 
 Every industry boom runs into the same question: **is this real, or another bubble?**
 
 Drones are worth asking about specifically, because this one has already burst once — and burst thoroughly. The wreckage from 2016 is concrete enough to use as a measuring stick.
 
-This is the judgment entry in the [drone series](/tags/drone). Earlier pieces covered [industry structure](/posts/tech/2026-08-06-drone-industry-map) and [Taiwan's position](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers); this one covers the timeline.
+This is the judgment entry in the [drone series](/tags/drone). Earlier pieces covered [industry structure](/posts/tech/2026-08-06-drone-industry-map) and [Taiwan's position](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers); this one covers the timeline.
 
 ## Wave one: 2014–2016, betting on consumers
 
@@ -65,7 +65,7 @@ Nothing driving the current wave overlaps with the last one.
 
 **The shape of the money changed too.** Per Drone Industry Insights' 2026–2035 report: drone investment **fell 52% in 2024**, then hit a record **$3.86 billion in 2025**, with **77% flowing to dual-use companies**; the first two months of 2026 alone drew **$1.7 billion**.
 
-**Taiwan's numbers move in step.** Output grew more than 2.5x and airframe exports 21x from 2024 to 2025, with [the Czech Republic, Poland, and the US as the top three markets](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers).
+**Taiwan's numbers move in step.** Output grew more than 2.5x and airframe exports 21x from 2024 to 2025, with [the Czech Republic, Poland, and the US as the top three markets](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers).
 
 ## Three structural differences from last time
 
@@ -121,4 +121,4 @@ One sentence to separate the two cycles: **last time the risk was on the market 
 **On this site**
 
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)

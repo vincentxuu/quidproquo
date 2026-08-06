@@ -33,11 +33,11 @@ Recently completed
   NO category filter so /tags/drone is the cross-category hub, and EVERY series
   post must carry `drone` as its first tag. Investing posts go
   framework-and-risk only, no tickers.
-  SCHEDULED RELEASE: pillar 08-06, then every 3 days to 09-05 (see plan
-  §5.2). Future-dated posts are NOT built — a published post linking to a
-  later-dated one is a hard 404, so the link graph must point backwards only.
-  Hub therefore lists no individual spokes; it points at /tags/drone, which
-  self-updates. Guard script is in plan §5.2 — run it after any reschedule.
+  All 11 publish same-day 2026-08-06 (author's call; a 3-day-cadence schedule
+  was built then reverted). Scheduling mechanics still documented in plan §5.2:
+  future-dated posts are NOT built, so a published post linking to a
+  later-dated one is a hard 404 — any future reschedule must keep the link
+  graph pointing backwards only, and the guard script in plan §5.2 checks it.
   Glossary debt CLEARED: the 5 drone terms (BVLOS, FPV, 非紅供應鏈, Blue UAS,
   C-UAS) are now in src/lib/glossary/terms.ts (191 total) and the duplicate
   frontmatter block was removed from the hub — note frontmatter glossary is

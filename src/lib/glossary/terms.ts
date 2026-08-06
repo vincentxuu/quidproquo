@@ -2112,8 +2112,8 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     advanced_en: 'Most jurisdictions permit BVLOS only via case-by-case waivers requiring detect-and-avoid capability and a reliable command link. The EU folded it into routine Specific-category authorisation from late 2020; the US Part 108 rule remains unpublished; Taiwan has no equivalent framework, only extended VLOS which still requires a visual observer.',
     context: '本站把 BVLOS 法規視為無人機規模化的兩個天花板之一。',
     context_en: 'This site treats BVLOS regulation as one of two ceilings on drone scaling.',
-    links: [{ label: 'BVLOS 三地對照', url: '/posts/tech/2026-08-24-bvlos-three-jurisdictions' }],
-    links_en: [{ label: 'BVLOS in Three Jurisdictions', url: '/posts/tech/2026-08-24-bvlos-three-jurisdictions-en' }],
+    links: [{ label: 'BVLOS 三地對照', url: '/posts/tech/2026-08-06-bvlos-three-jurisdictions' }],
+    links_en: [{ label: 'BVLOS in Three Jurisdictions', url: '/posts/tech/2026-08-06-bvlos-three-jurisdictions-en' }],
   },
   {
     term: 'FPV',
@@ -2136,8 +2136,8 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     advanced_en: 'In drones this is operationalized through certification: the US DoD Blue UAS (military) and Green UAS (commercial) lists, plus NDAA sourcing restrictions on federal procurement. Taiwan wrote "fully non-red supply chain by 2027" into policy and requires cybersecurity and type certification for corporate-use drones from 1 December 2027.',
     context: '本站無人機系列的台灣段落幾乎整段建立在這個概念上。',
     context_en: 'The Taiwan sections of this site\'s drone series rest almost entirely on this concept.',
-    links: [{ label: '台灣無人機供應鏈：267 家在哪裡、卡在哪一層', url: '/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers' }],
-    links_en: [{ label: "Taiwan's Drone Supply Chain", url: '/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers-en' }],
+    links: [{ label: '台灣無人機供應鏈：267 家在哪裡、卡在哪一層', url: '/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers' }],
+    links_en: [{ label: "Taiwan's Drone Supply Chain", url: '/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en' }],
   },
   {
     term: 'Blue UAS',

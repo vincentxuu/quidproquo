@@ -1,6 +1,6 @@
 ---
 title: "Four Ways to Learn Drones in Taiwan: Universities, Licences, Competitions, and Vocational Training"
-date: 2026-09-02
+date: 2026-08-06
 type: guide
 category: education
 tags: [drone, taiwan, education, uav, career]
@@ -10,9 +10,9 @@ description: "Taiwan's drone learning and training paths: the university course 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/education/2026-09-02-taiwan-drone-education-paths)
+> 🌏 [中文版](/posts/education/2026-08-06-taiwan-drone-education-paths)
 
-[The job map](/posts/career/2026-08-15-drone-industry-job-map) listed eleven roles but skipped an earlier question: **where do you actually learn any of it?**
+[The job map](/posts/career/2026-08-06-drone-industry-job-map) listed eleven roles but skipped an earlier question: **where do you actually learn any of it?**
 
 Taiwan has no "drone department." That's not a gap, it's the nature of the field — drones integrate flight control, communications, computer vision, mechanical design, and power electronics, and no single department covers all of it. So paths get assembled. This piece lays out the four main ones.
 
@@ -39,17 +39,17 @@ The other node is **National Cheng Kung University** — the traditional aerospa
 
 ### How to judge whether a program is worth taking
 
-Three things: **is there a physical flight site, are there industry instructors, is there licence coaching.** The NFU track has all three (30 hectares of dedicated airspace at the Chiayi center, instructors from resident companies, [licence](/posts/policy/2026-08-18-taiwan-drone-license-guide) coaching), and that's what separates it from purely theoretical coursework. Drones are a practical discipline; a course without a flight site loses most of its value.
+Three things: **is there a physical flight site, are there industry instructors, is there licence coaching.** The NFU track has all three (30 hectares of dedicated airspace at the Chiayi center, instructors from resident companies, [licence](/posts/policy/2026-08-06-taiwan-drone-license-guide) coaching), and that's what separates it from purely theoretical coursework. Drones are a practical discipline; a course without a flight site loses most of its value.
 
 ## Path two: the licence — the cheapest entry move
 
-I've covered [the CAA licence system separately](/posts/policy/2026-08-18-taiwan-drone-license-guide); here's only its role in a learning path:
+I've covered [the CAA licence system separately](/posts/policy/2026-08-06-taiwan-drone-license-guide); here's only its role in a learning path:
 
 - **Student licence**: age 14, no test, NT$250. The most underrated of the three — it makes supervised practice legal and is available to high schoolers.
 - **General licence**: age 18, written test only, NT$450 all in.
 - **Professional licence**: medical exam plus written and practical, NT$1,900 and up, with sequential tiering.
 
-For anyone aiming at R&D, the licence's value isn't the certificate — it's that **you can fly your own tests**. As [the job map](/posts/career/2026-08-15-drone-industry-job-map) noted, an engineer who can fly has a debug loop one round shorter than everyone else.
+For anyone aiming at R&D, the licence's value isn't the certificate — it's that **you can fly your own tests**. As [the job map](/posts/career/2026-08-06-drone-industry-job-map) noted, an engineer who can fly has a debug loop one round shorter than everyone else.
 
 ## Path three: competitions — the topics mirror the industry's gap
 
@@ -59,7 +59,7 @@ The **2026 Presidential Cup Drone Key Technology Challenge** is organized by the
 
 > Edge computing and AI target recognition, high-precision target positioning, and autonomous navigation in GNSS-denied environments.
 
-Line those three up against [the four Layer 3 roles in the job map](/posts/career/2026-08-15-drone-industry-job-map) — sensor fusion / navigation algorithms, computer vision / edge AI — and it's **essentially the same list**. Not a coincidence: [the Taiwan supply chain piece](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers) located the gap at Layer 3, and the state is using a competition to fill it.
+Line those three up against [the four Layer 3 roles in the job map](/posts/career/2026-08-06-drone-industry-job-map) — sensor fusion / navigation algorithms, computer vision / edge AI — and it's **essentially the same list**. Not a coincidence: [the Taiwan supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) located the gap at Layer 3, and the state is using a competition to fill it.
 
 The design itself is interesting:
 
@@ -81,7 +81,7 @@ For people already working who want to move in:
 - **Short courses and seminars at the Chiayi center**, held inside the industrial park itself
 - **Ministry of Labor vocational training** and private licence-prep courses — the value here is mostly practical-test drilling and test-site familiarity; the theory is cheap to self-study
 
-One caution: **a licence-prep course is not job training.** The licence lets you fly legally, but the highest-margin, highest-barrier Layer 3 roles in [the job map](/posts/career/2026-08-15-drone-industry-job-map) want embedded systems, control theory, and computer vision — none of which licence courses teach.
+One caution: **a licence-prep course is not job training.** The licence lets you fly legally, but the highest-margin, highest-barrier Layer 3 roles in [the job map](/posts/career/2026-08-06-drone-industry-job-map) want embedded systems, control theory, and computer vision — none of which licence courses teach.
 
 ## Concrete advice for three situations
 
@@ -92,11 +92,11 @@ Get the student licence first (age 14, NT$250, no test) and confirm the interest
 Treat competitions as the main line, not a bonus. The Presidential Cup requires a university team co-entering with a company, which is the most direct industry contact available, and the topics are literally the gap. Finish the 24-credit cross-disciplinary program or an equivalent alongside it, and you graduate with "built something that actually flew" on your CV — worth more in this industry than GPA.
 
 **Career changers**
-Read [the job map](/posts/career/2026-08-15-drone-industry-job-map) first and pick a cell. If it's flight control firmware or edge AI, your existing skills transfer best and what you add is control theory and flight dynamics; the path is self-studying open-source flight stacks (PX4 / ArduPilot), getting a licence, and building something that flies. **Short courses help this path little — a working build is more persuasive than a certificate.**
+Read [the job map](/posts/career/2026-08-06-drone-industry-job-map) first and pick a cell. If it's flight control firmware or edge AI, your existing skills transfer best and what you add is control theory and flight dynamics; the path is self-studying open-source flight stacks (PX4 / ArduPilot), getting a licence, and building something that flies. **Short courses help this path little — a working build is more persuasive than a certificate.**
 
 ## One honest caveat
 
-[The job map](/posts/career/2026-08-15-drone-industry-job-map) ran the numbers: Taiwan's entire aviation industry projects annual new specialist demand of roughly 267–296 people, and drones are one slice of that. **Educational capacity is currently expanding faster than job openings.**
+[The job map](/posts/career/2026-08-06-drone-industry-job-map) ran the numbers: Taiwan's entire aviation industry projects annual new specialist demand of roughly 267–296 people, and drones are one slice of that. **Educational capacity is currently expanding faster than job openings.**
 
 That's not discouragement, it's a selection criterion: **choose paths whose skills transfer, not paths that only pay off inside the drone industry.** Embedded systems, control, computer vision, and RF all apply in robotics, automotive, and industrial control; pure piloting skill is bound to this industry's cycle. The downside risk on the former is far smaller.
 
@@ -121,6 +121,6 @@ That's not discouragement, it's a selection criterion: **choose paths whose skil
 
 **On this site**
 
-- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-15-drone-industry-job-map)
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-18-taiwan-drone-license-guide)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
+- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map)
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)

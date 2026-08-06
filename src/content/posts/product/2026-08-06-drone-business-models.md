@@ -1,6 +1,6 @@
 ---
 title: "無人機的四種商業模式：為什麼賣機體是最差的一種"
-date: 2026-08-30
+date: 2026-08-06
 type: deep-dive
 category: product
 tags: [drone, business-model, uav, saas, supply-chain]
@@ -10,9 +10,9 @@ description: "拆解無人機產業的四種商業模式——賣硬體、賣服
 draft: false
 ---
 
-> 🌏 [English version](/posts/product/2026-08-30-drone-business-models-en)
+> 🌏 [English version](/posts/product/2026-08-06-drone-business-models-en)
 
-[產業地圖](/posts/tech/2026-08-06-drone-industry-map)說價值集中在第 3 層與第 5 層，[台灣供應鏈那篇](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)說台灣站在第 2 層。這篇補上為什麼——**因為賣機體這件事，在商業模式的四個選項裡是最差的一個。**
+[產業地圖](/posts/tech/2026-08-06-drone-industry-map)說價值集中在第 3 層與第 5 層，[台灣供應鏈那篇](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)說台灣站在第 2 層。這篇補上為什麼——**因為賣機體這件事，在商業模式的四個選項裡是最差的一個。**
 
 ## 四種模式，四種完全不同的財務長相
 
@@ -37,7 +37,7 @@ draft: false
 
 硬體是最直觀的模式，也是最難守的。問題不在做不出來，在**價格由別人決定**。
 
-[產業週期史](/posts/tech/2026-08-21-drone-industry-cycle-history)那篇講過 2016 年那次的結局：DJI 靠垂直整合與製造自動化，能在競爭者無法獲利的價格點賺錢，一年之內清掉了美歐的消費級玩家。那個成本結構今天仍然存在。
+[產業週期史](/posts/tech/2026-08-06-drone-industry-cycle-history)那篇講過 2016 年那次的結局：DJI 靠垂直整合與製造自動化，能在競爭者無法獲利的價格點賺錢，一年之內清掉了美歐的消費級玩家。那個成本結構今天仍然存在。
 
 對台廠的意義：**非紅供應鏈給了你訂單，但沒有給你定價權。** 認證解決的是「能不能賣」，不是「能賣多貴」。當歐美日的合格供應商從 3 家變成 10 家，價格戰會在認證名單內部重新開始一次。
 
@@ -75,7 +75,7 @@ Skydio 是最清楚的樣本。依 [Sacra 的估算](https://sacra.com/c/skydio/
 - 八成產值來自公部門與國防採購 → 模式一裡最長帳期的那種
 - DaaS、軟體訂閱、資料分析 → 少數新創，規模都小
 
-而且台灣的國內服務市場還被法規壓著——[BVLOS 三地對照](/posts/tech/2026-08-24-bvlos-three-jurisdictions)那篇談過，台灣沒有標準化的超視距框架，物流與長距離巡檢無法規模化。**模式二在台灣的天花板不是技術也不是資本，是法規。**
+而且台灣的國內服務市場還被法規壓著——[BVLOS 三地對照](/posts/tech/2026-08-06-bvlos-three-jurisdictions)那篇談過，台灣沒有標準化的超視距框架，物流與長距離巡檢無法規模化。**模式二在台灣的天花板不是技術也不是資本，是法規。**
 
 那還剩什麼路？我認為有兩條比較實際：
 
@@ -95,7 +95,7 @@ Skydio 是最清楚的樣本。依 [Sacra 的估算](https://sacra.com/c/skydio/
 
 **無人機這門生意的錢，不在會飛的那個東西上。** 硬體是取得客戶的成本，軟體與服務才是回收的地方。這個結構跟印表機、跟刮鬍刀、跟很多硬體轉服務的產業一樣——差別只在無人機還很早，多數玩家仍停在第一步。
 
-台灣目前的強項（快速、彈性的整機與模組製造）恰好是這條價值鏈上議價力最低的一段。要往上走，[技術上是爬到第 3 層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)，商業上是**把一次性收入變成重複性收入**。這兩件事其實是同一件事的兩種說法。
+台灣目前的強項（快速、彈性的整機與模組製造）恰好是這條價值鏈上議價力最低的一段。要往上走，[技術上是爬到第 3 層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)，商業上是**把一次性收入變成重複性收入**。這兩件事其實是同一件事的兩種說法。
 
 ## 參考資料
 
@@ -119,6 +119,6 @@ Skydio 是最清楚的樣本。依 [Sacra 的估算](https://sacra.com/c/skydio/
 **站內**
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
-- [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-21-drone-industry-cycle-history)
-- [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-24-bvlos-three-jurisdictions)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-06-drone-industry-cycle-history)
+- [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-06-bvlos-three-jurisdictions)

@@ -1,6 +1,6 @@
 ---
 title: "Four Drone Business Models, and Why Selling Airframes Is the Worst One"
-date: 2026-08-30
+date: 2026-08-06
 type: deep-dive
 category: product
 tags: [drone, business-model, uav, saas, supply-chain]
@@ -10,9 +10,9 @@ description: "Four drone business models — selling hardware, selling service (
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-30-drone-business-models)
+> 🌏 [中文版](/posts/product/2026-08-06-drone-business-models)
 
-[The industry map](/posts/tech/2026-08-06-drone-industry-map) argued value concentrates in Layers 3 and 5; [the Taiwan supply chain piece](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers) showed Taiwan sitting in Layer 2. This one supplies the reason: **selling airframes is the worst of the four available business models.**
+[The industry map](/posts/tech/2026-08-06-drone-industry-map) argued value concentrates in Layers 3 and 5; [the Taiwan supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) showed Taiwan sitting in Layer 2. This one supplies the reason: **selling airframes is the worst of the four available business models.**
 
 ## Four models, four completely different financial shapes
 
@@ -37,7 +37,7 @@ Worth writing down, because Taiwan's industry narrative — "NT$12.9 billion of 
 
 Hardware is the most intuitive model and the hardest to defend. The problem isn't building it; it's that **someone else sets the price.**
 
-[The cycle history piece](/posts/tech/2026-08-21-drone-industry-cycle-history) covered how 2016 ended: DJI's vertical integration and manufacturing automation let it profit at price points competitors couldn't survive, clearing out the US and European consumer field within a year. That cost structure still exists.
+[The cycle history piece](/posts/tech/2026-08-06-drone-industry-cycle-history) covered how 2016 ended: DJI's vertical integration and manufacturing automation let it profit at price points competitors couldn't survive, clearing out the US and European consumer field within a year. That cost structure still exists.
 
 For Taiwanese manufacturers: **the non-Chinese supply chain gave you orders, not pricing power.** Certification settles whether you can sell, not how much you can charge. When qualified US/EU/Japan suppliers go from three to ten, the price war restarts inside the certified list.
 
@@ -75,7 +75,7 @@ Put Taiwan on this table and the position is unambiguous: **almost entirely mode
 - 80% of output from public-sector and defense procurement → the longest-payment-cycle variant of model one
 - DaaS, software subscription, data analytics → a few startups, all small
 
-And Taiwan's domestic service market is held down by regulation — [the BVLOS comparison](/posts/tech/2026-08-24-bvlos-three-jurisdictions) showed Taiwan has no standardized beyond-visual-line-of-sight framework, so delivery and long-range inspection can't scale. **Model two's ceiling in Taiwan is neither technology nor capital; it's regulation.**
+And Taiwan's domestic service market is held down by regulation — [the BVLOS comparison](/posts/tech/2026-08-06-bvlos-three-jurisdictions) showed Taiwan has no standardized beyond-visual-line-of-sight framework, so delivery and long-range inspection can't scale. **Model two's ceiling in Taiwan is neither technology nor capital; it's regulation.**
 
 What's left? Two realistic paths:
 
@@ -95,7 +95,7 @@ Both paths point the same direction: **away from the airframe.**
 
 **The money in this business is not in the thing that flies.** Hardware is customer acquisition cost; software and services are where you recover it. The structure matches printers, razors, and plenty of other hardware-to-service industries — the difference is that drones are still early, and most players remain on step one.
 
-Taiwan's current strength — fast, flexible airframe and module manufacturing — sits at the lowest-bargaining-power segment of that chain. Moving up means [climbing to Layer 3 technically](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers) and **converting one-time revenue into recurring revenue** commercially. Those are two descriptions of the same move.
+Taiwan's current strength — fast, flexible airframe and module manufacturing — sits at the lowest-bargaining-power segment of that chain. Moving up means [climbing to Layer 3 technically](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) and **converting one-time revenue into recurring revenue** commercially. Those are two descriptions of the same move.
 
 ## References
 
@@ -119,6 +119,6 @@ Taiwan's current strength — fast, flexible airframe and module manufacturing �
 **On this site**
 
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
-- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-21-drone-industry-cycle-history)
-- [BVLOS in Three Jurisdictions](/posts/tech/2026-08-24-bvlos-three-jurisdictions)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history)
+- [BVLOS in Three Jurisdictions](/posts/tech/2026-08-06-bvlos-three-jurisdictions)

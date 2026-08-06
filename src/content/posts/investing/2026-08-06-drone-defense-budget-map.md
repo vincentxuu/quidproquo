@@ -1,6 +1,6 @@
 ---
 title: "追無人機的國防預算：三筆錢、一條卡了兩個月的立法程序"
-date: 2026-09-05
+date: 2026-08-06
 type: deep-dive
 category: investing
 tags: [drone, taiwan, defense-tech, uav, investing-framework]
@@ -10,11 +10,11 @@ description: "拆解台灣無人機公部門資金的三條路徑：統籌型計
 draft: false
 ---
 
-> 🌏 [English version](/posts/investing/2026-09-05-drone-defense-budget-map-en)
+> 🌏 [English version](/posts/investing/2026-08-06-drone-defense-budget-map-en)
 
 **先講清楚**：本文是預算流程與產業結構分析，不是投資建議，不列標的、不談時機。
 
-[四條件框架那篇](/posts/investing/2026-08-27-drone-supply-chain-four-criteria)說台灣無人機八成產值來自公部門採購，所以「政策預算的連續性」就是這個板塊的主要變數。這篇把那句話拆開：**錢有哪幾筆、買什麼、卡在哪、什麼時候會動。**
+[四條件框架那篇](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)說台灣無人機八成產值來自公部門採購，所以「政策預算的連續性」就是這個板塊的主要變數。這篇把那句話拆開：**錢有哪幾筆、買什麼、卡在哪、什麼時候會動。**
 
 追錢的第一課是分清三個動詞：**編列、撥付、認列**。它們之間可以差好幾年，而多數產業報導只講第一個。
 
@@ -49,7 +49,7 @@ draft: false
 
 **注意最後一列的時間點**：草案原訂的期程起算日是 2026 年 8 月 1 日。這個日子已經過了，而條例還在黨團協商。
 
-這就是[四條件框架](/posts/investing/2026-08-27-drone-supply-chain-four-criteria)裡「政策性需求」與「結構性需求」的差別在現實中的樣子——**不是需求消失了，是撥款機制被卡住了**，而卡住的原因跟無人機本身無關（爭點是特別預算 vs 年度預算、主管機關該是誰）。
+這就是[四條件框架](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)裡「政策性需求」與「結構性需求」的差別在現實中的樣子——**不是需求消失了，是撥款機制被卡住了**，而卡住的原因跟無人機本身無關（爭點是特別預算 vs 年度預算、主管機關該是誰）。
 
 ## 政院版只買三個品項
 
@@ -74,7 +74,7 @@ draft: false
 - **2024 年已完成**國內軍用商規無人機採購 68.87 億元
 - **警政署關鍵基礎設施反制系統**：50 套、總預算 36.7 億元，2026 年 7 月 24 日資格標
 
-最後這一項的發包設計值得單獨看：依[上報報導](https://www.upmedia.mg/tw/investigation/military/263412)，它依通過驗測的功能範圍分 A、B、C 三等級，各等級取前三名依比例交貨，**最多 9 家廠商得標**，中科院擔任專案管理但不得投標。這是刻意分散，不是集中——[四條件框架那篇](/posts/investing/2026-08-27-drone-supply-chain-four-criteria)談過它對單一廠商營收彈性的壓縮。
+最後這一項的發包設計值得單獨看：依[上報報導](https://www.upmedia.mg/tw/investigation/military/263412)，它依通過驗測的功能範圍分 A、B、C 三等級，各等級取前三名依比例交貨，**最多 9 家廠商得標**，中科院擔任專案管理但不得投標。這是刻意分散，不是集中——[四條件框架那篇](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)談過它對單一廠商營收彈性的壓縮。
 
 ## 三條受惠路徑，確定性完全不同
 
@@ -88,7 +88,7 @@ draft: false
 
 ## 三個預算流程特有的風險
 
-[四條件框架那篇](/posts/investing/2026-08-27-drone-supply-chain-four-criteria)已經談過驗收風險（陸軍 9.8 億元反制系統標案三度驗收不合格、全額解約）。這裡補三個屬於預算流程本身的：
+[四條件框架那篇](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)已經談過驗收風險（陸軍 9.8 億元反制系統標案三度驗收不合格、全額解約）。這裡補三個屬於預算流程本身的：
 
 **一、立法風險不是「會不會過」，是「以什麼形式過」。** 政院版走特別預算、國民黨版走年度預算每年 400 億元、民眾黨版回歸公務預算——三種形式對供應商的產能規劃是三種節奏。顧立雄自己說了，若院版不過「也只好排入年度預算」，並直言「不希望將所有無人載具都框在每年 400 億元範圍內」。**形式改變會改變單年可執行的金額上限。**
 
@@ -132,6 +132,6 @@ draft: false
 
 **站內**
 
-- [用四條件框架看無人機供應鏈：四條裡目前只成立一條](/posts/investing/2026-08-27-drone-supply-chain-four-criteria)
-- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-09-taiwan-drone-supply-chain-layers)
-- [無人機的四種商業模式：為什麼賣機體是最差的一種](/posts/product/2026-08-30-drone-business-models)
+- [用四條件框架看無人機供應鏈：四條裡目前只成立一條](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
+- [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [無人機的四種商業模式：為什麼賣機體是最差的一種](/posts/product/2026-08-06-drone-business-models)
