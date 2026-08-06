@@ -46,6 +46,9 @@ Recently completed
   在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
   on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
   也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
+  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
+  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
+  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
