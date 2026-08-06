@@ -40,9 +40,12 @@ Recently completed
   授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
   另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
   Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
-  datalab-to、docling → docling-project，站內舊連結已更新。Marker 權重的營收
-  門檻二手來源不一致（$5M vs $2M），文中已標明要自己讀 LICENSE。
-  待辦：Marker/MinerU 授權門檻的一手條款尚未逐字核對，之後補 post-verify。
+  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
+  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
+  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
+  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
+  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
+  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
@@ -56,15 +59,6 @@ Recently completed
   Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
   user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
   Koboyo 自己也有 MCP，補進 MCP 那節。
-- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
-  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
-  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
-  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
-  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
-  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
-  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
-  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
-  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
 - 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
   `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
   articleSection/wordCount; FAQPage schema + visible <details> FAQ section;

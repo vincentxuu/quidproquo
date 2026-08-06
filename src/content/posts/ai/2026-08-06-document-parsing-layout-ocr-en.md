@@ -56,9 +56,24 @@ Two repos have moved: Marker from `VikParuchuri` to `datalab-to`, and Docling fr
 
 The technical gap at this layer is converging while the licensing gap widens. The license badge on the GitHub page **will mislead you**, because code and model weights can carry two different licenses.
 
-**MinerU** returns `NOASSERTION` from the API because it uses a custom "MinerU Open Source License" — Apache-2.0 as a base with added conditions. Past a certain scale (per [MarkTechPost's 2026-07 breakdown](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/amp), 100M MAU or $20M monthly revenue) you need a separate commercial license, and online services built on it must disclose that fact. For most teams that threshold is far away, but platform products should read it carefully.
+**MinerU** returns `NOASSERTION` from the API because it uses a custom "MinerU Open Source License." Open [LICENSE.md in the repo](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md) and the terms are explicit:
 
-**Marker / Surya** (from Datalab) hide the easiest trap: **the code is Apache-2.0 while the model weights use a modified AI Pubs OpenRAIL-M**, free for research, personal use, and startups below a funding/revenue threshold, paid above it. Sources disagree on the number — the same breakdown says $5M in funding/revenue while an earlier Datalab partnership announcement says $2M. **Go read the LICENSE in the repo and the terms on the vendor's site yourself. Do not trust secondhand summaries, this post included.**
+> MinerU may be used for commercial purposes without a separate commercial license. However, if you and your Affiliates, on a consolidated basis, meet either of the following thresholds, you must obtain a separate commercial license from [MinerU Team] before continuing such use: a. monthly active users (MAU) exceed 100 million; or b. total monthly revenue exceeds USD 20 million.
+
+That threshold is far away and irrelevant for most teams. **Sections 2 and 3 are the ones you will actually hit**: if you provide an online service built on MinerU, you must clearly and prominently indicate that fact in the product interface or public documentation — and failing the attribution obligation, or crossing the threshold without a license, means "this License and all rights granted under this License will terminate automatically, and no further notice from the Licensor is required." Automatic termination, no warning letter.
+
+**Marker / Surya** (from Datalab) hide the easiest trap at this layer. The structure is two files in the repo: `LICENSE` is plain Apache-2.0 (covering code), and `MODEL_LICENSE` is a modified AI Pubs OpenRAIL-M (covering weights). Reading only the Apache-2.0 badge on the GitHub page misses the second entirely.
+
+As for the threshold number, **Datalab's own two official sources do not agree**:
+
+| Source | Free threshold | License description |
+|---|---|---|
+| [Marker repo README](https://github.com/datalab-to/marker) | startups under **$5M** funding/revenue | code Apache 2.0 + modified AI Pubs OpenRAIL-M |
+| [Datalab on-prem docs](https://documentation.datalab.to/docs/on-prem/overview) | startups < **$2M** ARR/funding | **GPL + custom RAILs** |
+
+Both are primary sources, the numbers differ by 2.5×, and they do not even agree on whether the code license is Apache 2.0 or GPL. This is not a research gap on my part — the vendor's own documentation contradicts itself.
+
+So the takeaway is not "just read the official docs." It is stricter than that: **if your revenue sits in the $2M–$5M band, or you plan to ship Marker/Surya inside a commercial product, this is something to email Datalab about and get in writing.** A web page will not settle it. Below $2M, both documents say free, and you are fine.
 
 **Docling** is MIT, with model licenses tracked separately in their original packages. For commercial deployment it is the cleanest option on the list — unsurprising for an IBM Research project.
 
@@ -66,12 +81,14 @@ One more reminder: PyMuPDF, covered in [the previous post](/posts/ai/2026-08-06-
 
 ## How to read the benchmarks
 
-olmOCR-bench is the most-cited number right now. Per MarkTechPost's 2026-07-24 summary of Datalab's own figures, Marker v2 in balanced mode scores 76.0% on olmOCR-bench at 2.9 pg/s against Docling's 50.3% at 2.1 pg/s, and Marker's fast mode with `--disable_ocr` reaches 23.7 pg/s on CPU alone.
+olmOCR-bench is the most-cited number right now. Per MarkTechPost's 2026-07-24 summary of Datalab's own figures, Marker v2 in balanced mode scores 76.0% on olmOCR-bench at 2.9 pg/s against Docling's 50.3% at 2.1 pg/s, and Marker's fast mode with `--disable_ocr` reaches 23.7 pg/s on CPU alone. [Surya's own README](https://github.com/datalab-to/surya) claims a 650M-parameter model scoring 83.3% on olmOCR-bench (best under 3B params) at 5 pages/s on an RTX 5090.
 
 That looks clear-cut, but it needs two discounts:
 
 1. **This is Datalab's benchmark and Marker is Datalab's product.** Same yardstick applied to [anydoc earlier](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en) and to ParseBench: the author's product wins, and the structural bias is real.
-2. **The mode changes the shape of failure, not just the score.** The same breakdown notes that fast mode reads formulas from the PDF text layer instead of OCR-ing them, dropping the arXiv math category from 83.9 to 23.4 — and `--disable_ocr` scores 0.0 there outright. "Eight times faster" does not cost you a few points evenly; it makes one entire document class fail.
+2. **The mode changes the shape of failure, not just the score.** The same breakdown notes that fast mode reads formulas from the PDF text layer instead of OCR-ing them, dropping the arXiv math category from 83.9 to 23.4 — and `--disable_ocr` scores 0.0 there outright. Marker's README confirms the mechanism: `--disable_ocr` "turns off all VLM calls (including equations) in either mode — pure text-layer extraction." "Eight times faster" does not cost you a few points evenly; it makes one entire document class fail.
+
+Worth noting that this puts Marker's fast mode architecturally back in the [extraction layer](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) — with the VLM off, it is reading the text layer. That is not a criticism; it confirms the ladder's logic. The cheap path is cheap precisely because it is not inferring anything.
 
 That is exactly how parsing-layer benchmarks mislead: **two tools with similar overall scores can fail in completely different places**. If your corpus is all old scans, the number to read is that category's score, not the total.
 
@@ -85,7 +102,7 @@ The more practical criterion is **your volume**. A cent per page across ten thou
 
 ## Choosing
 
-1. **Read the LICENSE first.** Closed-source SaaS with growing revenue → Docling (MIT) is safest. Comfortable with the conditions, or small volume → MinerU or Marker both work.
+1. **Read the LICENSE first — both files** (`LICENSE` covers code, `MODEL_LICENSE` covers weights). Closed-source SaaS with growing revenue → Docling (MIT) is safest. MinerU: remember the attribution obligation. Marker/Surya: if your revenue lands in the $2M–$5M band, get clarification in writing before shipping.
 2. **Then match your corpus.** Academic PDFs (formulas, two columns) → MinerU. General business documents at throughput → Marker. Structured JSON rather than just Markdown → Docling. Chinese-heavy workloads → the PaddleOCR ecosystem is deepest.
 3. **Volume decides build-vs-buy.** Below a few hundred thousand pages, ship the product on a commercial API with predictable cost; revisit when you outgrow it.
 4. **Do not judge on overall scores.** Run the twenty hardest documents from your own corpus and look at how they break.
@@ -108,6 +125,8 @@ The technology will keep converging. License terms will not improve on their own
 - [allenai/olmocr — GitHub](https://github.com/allenai/olmocr)
 - [rednote-hilab/dots.ocr — GitHub](https://github.com/rednote-hilab/dots.ocr)
 - [PaddlePaddle/PaddleOCR — GitHub](https://github.com/PaddlePaddle/PaddleOCR)
+- [MinerU Open Source License (LICENSE.md)](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)
+- [Datalab On-Prem overview (free-tier thresholds)](https://documentation.datalab.to/docs/on-prem/overview)
 - [Datalab Marker v2 vs MinerU, Docling, LiteParse — licensing and benchmark breakdown (MarkTechPost, 2026-07-24)](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/amp)
 - [ParseBench: A Document Parsing Benchmark for AI Agents (arXiv 2604.08538)](https://arxiv.org/abs/2604.08538)
 - [run-llama/ParseBench — leaderboard](https://github.com/run-llama/ParseBench)

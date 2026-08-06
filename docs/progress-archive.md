@@ -6,6 +6,16 @@
 
 ### Recently completed（原 progress.txt 條目）
 
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
+  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
+  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
+  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
+  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
+  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
+  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
+  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
+  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
+
 - 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
   companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
   ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather

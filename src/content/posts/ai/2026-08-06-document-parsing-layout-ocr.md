@@ -56,9 +56,24 @@ glossary:
 
 這一層的技術差距在收斂，授權差距卻在擴大。GitHub 頁面上那個 license badge **會騙你**，因為程式碼與模型權重可以是兩套授權。
 
-**MinerU** 的 API 回傳 `NOASSERTION`，因為它用的是自訂的「MinerU Open Source License」——以 Apache-2.0 為底，加上額外條件：超過一定規模（依 [MarkTechPost 2026-07 的整理](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/amp)為 100M MAU 或 $20M 月營收）需另談商業授權，且基於它建的線上服務必須揭露此事。對絕大多數團隊這個門檻遠在天邊，但對平台型產品要先看清楚。
+**MinerU** 的 API 回傳 `NOASSERTION`，因為它用的是自訂的「MinerU Open Source License」。翻開 [repo 裡的 LICENSE.md](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)，條款寫得很清楚：
 
-**Marker / Surya**（Datalab 出品）是最容易踩的坑：**程式碼 Apache-2.0，模型權重走改過的 AI Pubs OpenRAIL-M**，對研究、個人使用與未達營收門檻的新創免費，超過就要付費授權。門檻數字在不同來源不一致（同一份整理寫 $5M 融資／營收，Datalab 較早的合作公告寫 $2M），**這種數字一定要自己去讀 repo 裡的 LICENSE 與官網條款，不要信二手整理，包括這一篇**。
+> MinerU may be used for commercial purposes without a separate commercial license. However, if you and your Affiliates, on a consolidated basis, meet either of the following thresholds, you must obtain a separate commercial license from [MinerU Team] before continuing such use: a. monthly active users (MAU) exceed 100 million; or b. total monthly revenue exceeds USD 20 million.
+
+門檻遠在天邊，對絕大多數團隊不構成問題。但**第二條與第三條才是實際會踩到的**：基於 MinerU 提供線上服務，必須在產品介面或公開文件的顯著位置標明使用了 MinerU；沒做到揭露義務、或超過門檻卻未取得授權，「本許可及本許可項下授予您的全部權利將自動終止，且許可方無須另行通知」。是自動終止，不是先寄警告信。
+
+**Marker / Surya**（Datalab 出品）則是這一層最容易踩的坑，結構是 repo 裡有兩個檔案：`LICENSE` 是標準 Apache-2.0（管程式碼），`MODEL_LICENSE` 是改過的 AI Pubs OpenRAIL-M（管模型權重）。只看 GitHub 頁面上那個 Apache-2.0 badge，會完全錯過後者。
+
+而門檻數字，**Datalab 自己的兩份官方文件對不起來**：
+
+| 來源 | 免費門檻 | 授權描述 |
+|---|---|---|
+| [Marker repo README](https://github.com/datalab-to/marker) | startups under **$5M** funding/revenue | code Apache 2.0 + modified AI Pubs OpenRAIL-M |
+| [Datalab on-prem 文件](https://documentation.datalab.to/docs/on-prem/overview) | startups < **$2M** ARR/funding | **GPL + custom RAILs** |
+
+兩邊都是一手來源，數字差 2.5 倍，連程式碼授權寫的是 Apache 2.0 還是 GPL 都不一致。這不是我沒查清楚——是廠商自己的文件互相矛盾。
+
+所以結論不是「去讀官方文件就好」，而是更謹慎的版本：**如果你的營收落在 $2M 到 $5M 這個區間、或打算把 Marker/Surya 放進商業產品，這是要寄信問 Datalab 並留下書面回覆的事**，不是讀網頁能解決的。低於 $2M 兩份文件都說免費，可以放心用。
 
 **Docling** 是 MIT，模型授權各自獨立追蹤。對商業部署來說，這是清單裡最乾淨的一個——IBM Research 出品，這點不意外。
 
@@ -66,12 +81,14 @@ glossary:
 
 ## Benchmark 怎麼讀
 
-現在最常被引用的是 olmOCR-bench。依 MarkTechPost 2026-07-24 對 Datalab 官方數據的整理，Marker v2 balanced 模式在 olmOCR-bench 拿 76.0%、吞吐 2.9 pg/s，Docling 為 50.3% / 2.1 pg/s；Marker 的 fast 模式加 `--disable_ocr` 可以純 CPU 跑到 23.7 pg/s。
+現在最常被引用的是 olmOCR-bench。依 MarkTechPost 2026-07-24 對 Datalab 官方數據的整理，Marker v2 balanced 模式在 olmOCR-bench 拿 76.0%、吞吐 2.9 pg/s，Docling 為 50.3% / 2.1 pg/s；Marker 的 fast 模式加 `--disable_ocr` 可以純 CPU 跑到 23.7 pg/s。[Surya 自己的 README](https://github.com/datalab-to/surya) 則宣稱 650M 參數、olmOCR-bench 83.3%（3B 參數以下最佳）、RTX 5090 上 5 pages/s。
 
 看起來很清楚，但要打兩層折：
 
 1. **這是 Datalab 自己的 benchmark，Marker 是他們的產品。** 跟[前面對 anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 與 ParseBench 用的是同一把尺——作者的產品拿第一，結構性偏誤存在。
-2. **模式決定失敗形態，不只是分數高低。** 同一份整理指出 fast 模式會改從 PDF 文字層讀公式，arXiv 數學類別因此從 83.9 掉到 23.4，而 `--disable_ocr` 在該類別直接是 0.0。也就是說「快 8 倍」的代價不是均勻掉幾分，而是某一整類文件完全失效。
+2. **模式決定失敗形態，不只是分數高低。** 同一份整理指出 fast 模式會改從 PDF 文字層讀公式，arXiv 數學類別因此從 83.9 掉到 23.4，而 `--disable_ocr` 在該類別直接是 0.0。Marker 的 README 也證實了機制——`--disable_ocr` 會「turn off all VLM calls (including equations) in either mode」，變成純文字層抽取。也就是說「快 8 倍」的代價不是均勻掉幾分，而是某一整類文件完全失效。
+
+順帶一提，這也讓 Marker 的 fast 模式在架構上其實掉回了[抽取層](/posts/ai/2026-08-06-pdf-text-extraction-libraries)——關掉 VLM 之後它就是在讀文字層。這不是缺點，是印證了三層階梯的邏輯：便宜的路徑之所以便宜，就是因為它沒在做推斷。
 
 這正是解析層 benchmark 最容易誤導的地方：**總分接近的兩個工具，失敗的地方可能完全不同**。你的語料如果全是掃描的舊文件，該看的是那個分類的分數，不是總分。
 
@@ -85,7 +102,7 @@ LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、R
 
 ## 選型
 
-1. **先讀 LICENSE**。閉源 SaaS 且營收會成長 → Docling（MIT）最安全；能接受條件或量體不大 → MinerU / Marker 都可以。
+1. **先讀 LICENSE，而且要讀兩個檔案**（`LICENSE` 管程式碼、`MODEL_LICENSE` 管權重）。閉源 SaaS 且營收會成長 → Docling（MIT）最安全；MinerU 記得揭露義務；Marker/Surya 若營收落在 $2M–$5M 區間，先寄信問清楚再用。
 2. **再看你的語料類型**。學術 PDF（公式、雙欄）→ MinerU；一般商業文件要吞吐 → Marker；要結構化 JSON 而不只 Markdown → Docling；純中文場景 → PaddleOCR 生態最厚。
 3. **量體決定自建或買**。幾十萬頁以下先用商業 API 把產品做出來，成本可預測；超過再考慮自建。
 4. **不要只跑總分**。拿你自己語料裡最難的那 20 份跑一遍，看它們壞在哪。
@@ -108,6 +125,8 @@ LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、R
 - [allenai/olmocr — GitHub](https://github.com/allenai/olmocr)
 - [rednote-hilab/dots.ocr — GitHub](https://github.com/rednote-hilab/dots.ocr)
 - [PaddlePaddle/PaddleOCR — GitHub](https://github.com/PaddlePaddle/PaddleOCR)
+- [MinerU Open Source License 原文（LICENSE.md）](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)
+- [Datalab On-Prem 概覽（含免費層門檻說明）](https://documentation.datalab.to/docs/on-prem/overview)
 - [Datalab Marker v2 vs MinerU, Docling, LiteParse 授權與 benchmark 整理（MarkTechPost, 2026-07-24）](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/amp)
 - [ParseBench: A Document Parsing Benchmark for AI Agents（arXiv 2604.08538）](https://arxiv.org/abs/2604.08538)
 - [run-llama/ParseBench — leaderboard](https://github.com/run-llama/ParseBench)
