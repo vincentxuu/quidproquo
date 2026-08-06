@@ -1,5 +1,5 @@
 ---
-title: "Fact-Checking a 2026 AI Certification List for Engineers: Three Dead Recommendations and One Silent Exam Rewrite"
+title: "AI Certifications for Engineers in 2026: What's Still Live, What's Retired, and What Never Existed"
 date: 2026-08-06
 category: ai
 tags:
