@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, taiwan, supply-chain, uav, hardware, defense-tech]
 lang: en
-tldr: "Of the 267 companies the Ministry of Economic Affairs counted, 164 are in northern Taiwan. But geography is not division of labor — Thunder Tiger's published bill of materials shows motors, batteries, frames, and propellers sourced locally, while flight control, comms/GPS, and camera modules go to US, European, and Japanese partners. Exports were only 23% of 2025's NT$12.9B output, and the 123,000 airframes shipped averaged about NT$24,000 each."
+tldr: "Of the 267 companies the Ministry of Economic Affairs counted, 164 are in northern Taiwan. But geography is not division of labor — Thunder Tiger's published bill of materials shows motors, batteries, frames, and propellers sourced locally, while flight control, comms/GPS, and camera modules go to US, European, and Japanese partners. Exports were only 23% of 2025's NT$12.9B output, and 88.1% of export value sits in the 2–7 kg weight band per Ministry of Finance statistics."
 description: "Breaking Taiwan's 267 drone companies down by supply chain layer: county-level distribution, the 70/60/30 percent localization gap by airframe size, the real gap revealed by Thunder Tiger's published BOM, an industry sustained 80 percent by domestic procurement, and what Green UAS and Blue UAS certification actually covers."
 draft: false
 ---
@@ -96,15 +96,26 @@ The implication for judgment: budget continuity matters more to near-term surviv
 
 ## Reverse-engineering what Taiwan actually sells
 
-The PeoPo report notes 2025 export unit volume grew 35x to 123,000 airframes. Divide that into the NT$2.95 billion export value:
+The most direct evidence comes from [the Ministry of Finance's statistical bulletin](https://service.mof.gov.tw/public/Data/statistic/bulletin/114/2025_22_UAV.PDF), which breaks 2025 January–October drone exports down **by takeoff weight**:
+
+| Takeoff weight | Share of export value |
+|---|---|
+| **2–7 kg** | **88.1%** |
+| 15–25 kg | 9.2% |
+| Under 250 g | 1.3% |
+| Over 25 kg | 1.1% |
+
+**Nearly 90% of export value sits in the 2–7 kg band.** That is the weight class of battlefield-consumable FPVs and small reconnaissance aircraft — what Taiwan exports in volume is low-cost, consumable small airframes, not high-value medium or large systems.
+
+The same bulletin gives destinations more precisely than "top three at 90%": for January–October 2025, **Poland 39.3%, Czechia 32.7%, the US 15.9%, Austria 4.7%, Germany 3.4%** — the top two alone exceed 70%, both in Eastern Europe, which is where consumable demand points.
+
+Average unit price is computable too. The PeoPo report notes 2025 export unit volume grew 35x to 123,000 airframes ([TechNews](https://technews.tw/2026/03/18/taiwanese-drone-export-takes-off/) cites the same figure); divide that into NT$2.95 billion of export value:
 
 ```
 NT$2.95B ÷ 123,000 units ≈ NT$24,000 per unit (about US$760)
 ```
 
-(This is my own calculation from two public figures, not an official unit price; high- and low-end models are mixed together.)
-
-Even so, the order of magnitude is clear: **what Taiwan currently exports in volume is low-cost, consumable small airframes**, not high-value medium or large systems. That is entirely consistent with the top three export markets being the Czech Republic, Poland, and the US, with the two Eastern European countries taking a large share — that is battlefield-consumable demand.
+(My own calculation from two public figures, not an official unit price. But the MOF bulletin's US$54.8 million of January–October exports divided by same-period volume lands in the same order of magnitude, so the two corroborate.)
 
 No judgment implied. Ukraine proved consumables are the main body of modern drone warfare. But if the target is NT$40 billion of output by 2030, getting there at NT$24,000 per unit requires 1.66 million airframes. The arithmetic doesn't work. **There is a gap between the output target and the unit-price structure, and the only way to close it is to climb to Layer 3.**
 
@@ -148,6 +159,8 @@ If I could follow only one number, it would be **exports as a share of total out
 
 **Official and policy** (sources in Chinese)
 
+- [Ministry of Finance statistical bulletin — drone exports, January–October 2025](https://service.mof.gov.tw/public/Data/statistic/bulletin/114/2025_22_UAV.PDF) (export structure by takeoff weight and destination)
+- [Executive Yuan — Taiwan drone industry status and progress](https://www.ey.gov.tw/Page/448DE008087A1971/e687d387-4bb4-4cd7-9b7d-cbeb83970623)
 - [Executive Yuan — Drone budgets are critical to democratic supply chain strategy and military capability](https://www.ey.gov.tw/Page/9277F759E41CCD91/0bc0abcb-fbf3-4c42-819f-3288f891207f)
 - [Executive Yuan — Premier Cho: NT$44.2 billion from 2025–2030 to strengthen drone industry capacity and supply chain resilience](https://www.ey.gov.tw/PageRedirect.aspx?l=7c2b2995-19fe-4fad-8490-8d57900f7a78)
 - [MOEA — Drone companies across Taiwan (county-level counts, 2026-06-24)](https://www.facebook.com/moea.gov.tw/posts/1457377933100578)
@@ -156,6 +169,7 @@ If I could follow only one number, it would be **exports as a share of total out
 
 **Industry structure and critical reporting** (sources in Chinese)
 
+- [TechNews — Taiwan drone exports surge 35x](https://technews.tw/2026/03/18/taiwanese-drone-export-takes-off/) (export unit volume)
 - [PeoPo — At the crossroads of the non-red supply chain: Taiwan's drone industry, part one](https://www.peopo.org/news/851559)
 - [SEF Cross-Strait Trade — Global drone industry trends and Taiwan's positioning](https://www.seftb.org/cp-4-2750-634d3-1.html)
 - [CIO Taiwan — From AI recognition to edge computing: Taiwan's drone supply chain goes international](https://www.cio.com.tw/113483)

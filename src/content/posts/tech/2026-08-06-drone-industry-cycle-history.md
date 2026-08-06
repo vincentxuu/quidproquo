@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, uav, industry-history, supply-chain, hardware]
 lang: zh-TW
-tldr: "2016 年那波消費級無人機泡沫留下明確殘骸：3D Robotics 停產硬體、GoPro Karma 上市六週召回全部 2,500 台並裁員 15%、Parrot 砍掉 35% 無人機人力、Lily Robotics 收了 3,400 萬美元預購後倒閉。2023 年連募了 5.7 億美元的 Skydio 都退出消費市場。這次的引擎完全換了人——但有三件事跟上次一模一樣。"
+tldr: "2016 年那波消費級無人機泡沫留下明確殘骸：3D Robotics 停產硬體、GoPro Karma 上市六週召回全部 2,500 台並裁員 15%、Parrot 砍掉 35% 無人機人力、Lily Robotics 收了 3,400 萬美元預購後倒閉。2023 年連募了 5.7 億美元的 Skydio 都退出消費市場——而三年後它的估值來到 44 億美元。這次的引擎完全換了人——但有三件事跟上次一模一樣。"
 description: "拆解無人機產業的兩次週期：2014–2016 消費級泡沫的成因與殘骸、2016 之後十年的洗牌、2022 起由軍用與軍民兩用驅動的第二波，以及這次與上次的三個結構差異和三個相同警訊。"
 draft: false
 ---
@@ -54,6 +54,10 @@ draft: false
 > The impact we're having with our enterprise and public sector customers has become so compelling that it demands nothing less than our full focus and attention.
 
 **連技術最強、錢最多的美國新創都放棄消費級。** 這不是失敗，是承認這條路的單位經濟算不出來。
+
+而這個決定後來被驗證了。[Skydio 在 2026 年 4 月宣布完成 1.1 億美元的 F 輪募資，估值來到 44 億美元](https://www.skydio.com/blog/skydio-series-f)，執行長 Adam Bry 強調重點是「募得很少」——公司已有「年營收數億美元的核心業務、健康的單位經濟與超高速成長」，資金需求正在快速下降。[依 DroneXL 整理](https://dronexl.co/2026/04/23/skydio-110m-series-f-44-billion-valuation/)，Skydio 累計出貨逾 6 萬架、企業客戶逾 3,800 家，2026 年 3 月拿下美國陸軍 5,200 萬美元、近 3,000 架的訂單，是美軍史上單一供應商最大的小型無人機採購案。
+
+**退出消費級三年後，估值從 20 億變成 44 億美元。** 這件事把「消費級是死路」從一個防守性的說法，變成一個進攻性的結論。
 
 到 2026 年，[Drone Industry Insights 的報告](https://www.unmannedairspace.info/uncategorized/new-commercial-drone-market-forecasts-suggest-huge-potential-but-regulations-continue-to-hamper-growth)仍然一句話帶過：「休閒市場持平（The recreational market is flat）。」十年過去，這個判斷沒變。
 
@@ -112,6 +116,8 @@ draft: false
 - [The Verge — Skydio is pivoting to enterprise, its consumer drones are dead](https://www.theverge.com/2023/8/10/23827260/skydio-pivot-enterprise-x2)
 - [DPReview — Skydio discontinues its consumer drone offerings](https://www.dpreview.com/news/6190484175/skydio-discontinues-its-consumer-drone-offerings-shifts-focus-to-enterprise)（累計募資與估值）
 - [UAV Coach — Did DJI Win Again? Skydio Ends Consumer Drone Sales](https://uavcoach.com/skydio-consumer-exit)（Adam Bry 聲明原文）
+- [Skydio — Strong Business, Bigger Mission, New Capital（2026 年 F 輪官方公告）](https://www.skydio.com/blog/skydio-series-f)
+- [DroneXL — Skydio Raises $110M Series F At $4.4B Valuation](https://dronexl.co/2026/04/23/skydio-110m-series-f-44-billion-valuation/)（出貨量、客戶數、陸軍訂單）
 
 **第二次浪潮**
 

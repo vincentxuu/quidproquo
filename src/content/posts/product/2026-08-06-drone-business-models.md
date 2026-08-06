@@ -59,6 +59,8 @@ Skydio 是最清楚的樣本。依 [Sacra 的估算](https://sacra.com/c/skydio/
 
 38% 的整體毛利率說明了一件事：**即使軟體占比已到三成，硬體仍然把混合毛利拉在低檔。** 這也是為什麼前述 KPI 基準強調要把硬體與軟體毛利分開報——混在一起看不出飛輪有沒有在轉。
 
+（Sacra 的數字是 2024 年的快照。到 2026 年 4 月，[Skydio 官方宣布完成 F 輪、估值 44 億美元](https://www.skydio.com/blog/skydio-series-f)，並描述自己已有「年營收數億美元」的核心業務——飛輪確實轉起來了，但公司未公開拆分毛利與成長率，所以能引用的結構性數字仍以 2024 年那組為準。）
+
 軟體訂閱的策略價值不只是毛利，是**轉換成本**。客戶把無人機嵌進日常工作流程之後，換供應商要重做流程、重訓人員、重接系統。這是硬體本身給不了的黏著度。
 
 ## 模式四：賣資料與分析——毛利最高、離機體最遠
@@ -107,6 +109,7 @@ Skydio 是最清楚的樣本。依 [Sacra 的估算](https://sacra.com/c/skydio/
 
 **個案**
 
+- [Skydio — Strong Business, Bigger Mission, New Capital (2026 Series F)](https://www.skydio.com/blog/skydio-series-f)
 - [Sacra — Skydio revenue, funding & news](https://sacra.com/c/skydio/)（營收估算、軟體訂閱占比、毛利率、bookings 結構）
 - [Unlisted Network — How Garuda Aerospace Quietly Became India's Agriculture Drone Leader](https://unlistednetwork.com/blog/how-garuda-aerospace-quietly-became-indias-agriculture-drone-leader/)（DaaS 營收占比、現金循環週期對照）
 - [PR Newswire — Drones-as-a-Service Shifts from Emerging Tech to Revenue Engine](https://www.prnewswire.com/news-releases/drones-as-a-service-daas-shifts-from-emerging-tech-to-revenue-engine-for-leading-drone-manufacturers-302662085.html)（DaaS 市場規模估計）

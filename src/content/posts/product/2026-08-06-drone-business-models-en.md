@@ -59,6 +59,8 @@ Skydio is the clearest sample. Per [Sacra's estimates](https://sacra.com/c/skydi
 
 That 38% blended margin says something important: **even with software at 30% of revenue, hardware still drags the blend down.** Which is why the KPI benchmark above insists on reporting hardware and software margin separately — blended, you can't see whether the flywheel is turning.
 
+(Sacra's figures are a 2024 snapshot. By April 2026, [Skydio announced a Series F at a $4.4 billion valuation](https://www.skydio.com/blog/skydio-series-f) and described a core business generating "hundreds of millions in annual revenue" — the flywheel is turning. But the company has not disclosed a margin split or growth rate since, so the 2024 figures remain the citable structural data.)
+
 Software's strategic value isn't only margin, it's **switching cost**. Once a customer embeds drones into daily workflows, changing vendors means redoing processes, retraining people, and reintegrating systems. Hardware alone can't produce that stickiness.
 
 ## Model four: data and analytics — highest margin, furthest from the airframe
@@ -107,6 +109,7 @@ Taiwan's current strength — fast, flexible airframe and module manufacturing �
 
 **Cases**
 
+- [Skydio — Strong Business, Bigger Mission, New Capital (2026 Series F)](https://www.skydio.com/blog/skydio-series-f)
 - [Sacra — Skydio revenue, funding & news](https://sacra.com/c/skydio/) (revenue estimates, software subscription share, gross margin, bookings mix)
 - [Unlisted Network — How Garuda Aerospace Quietly Became India's Agriculture Drone Leader](https://unlistednetwork.com/blog/how-garuda-aerospace-quietly-became-indias-agriculture-drone-leader/) (DaaS revenue share, cash conversion comparison)
 - [PR Newswire — Drones-as-a-Service Shifts from Emerging Tech to Revenue Engine](https://www.prnewswire.com/news-releases/drones-as-a-service-daas-shifts-from-emerging-tech-to-revenue-engine-for-leading-drone-manufacturers-302662085.html) (DaaS market sizing)

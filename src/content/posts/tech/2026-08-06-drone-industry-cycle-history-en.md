@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, uav, industry-history, supply-chain, hardware]
 lang: en
-tldr: "The 2016 consumer drone bubble left specific wreckage: 3D Robotics stopped making hardware, GoPro recalled all 2,500 Karma units six weeks after launch and cut 15% of staff, Parrot cut 35% of its drone workforce, and Lily Robotics collapsed after taking $34M in pre-orders. In 2023 even Skydio — $570M raised — exited consumer. This wave runs on a completely different engine, but three things are exactly the same."
+tldr: "The 2016 consumer drone bubble left specific wreckage: 3D Robotics stopped making hardware, GoPro recalled all 2,500 Karma units six weeks after launch and cut 15% of staff, Parrot cut 35% of its drone workforce, and Lily Robotics collapsed after taking $34M in pre-orders. In 2023 even Skydio — $570M raised — exited consumer, and three years later it is valued at $4.4 billion. This wave runs on a completely different engine, but three things are exactly the same."
 description: "Two cycles in the drone industry: what caused the 2014–2016 consumer bubble and what it left behind, the decade-long shakeout that followed, the military and dual-use wave since 2022, and the three structural differences plus three identical warning signs."
 draft: false
 ---
@@ -54,6 +54,10 @@ The strongest evidence isn't 2016. It's **2023**.
 > The impact we're having with our enterprise and public sector customers has become so compelling that it demands nothing less than our full focus and attention.
 
 **Even the best-funded, most technically capable American startup walked away from consumer.** That's not failure — it's admitting the unit economics don't close.
+
+And the decision has since been vindicated. [In April 2026 Skydio announced a $110 million Series F at a $4.4 billion valuation](https://www.skydio.com/blog/skydio-series-f), with CEO Adam Bry emphasizing how *little* was raised — the company now has "a strong core business generating hundreds of millions in annual revenue, with strong unit economics and hypergrowth," and its capital needs are falling. Per [DroneXL's account](https://dronexl.co/2026/04/23/skydio-110m-series-f-44-billion-valuation/), Skydio has shipped over 60,000 drones to more than 3,800 enterprise customers, and its March 2026 US Army order — $52 million for nearly 3,000 aircraft — was the largest single-vendor small UAS purchase in US military history.
+
+**Three years after exiting consumer, the valuation went from $2 billion to $4.4 billion.** That turns "consumer is a dead end" from a defensive claim into an offensive one.
 
 As of 2026, [Drone Industry Insights](https://www.unmannedairspace.info/uncategorized/new-commercial-drone-market-forecasts-suggest-huge-potential-but-regulations-continue-to-hamper-growth) still dispatches it in one line: "The recreational market is flat." Ten years on, that judgment hasn't moved.
 
@@ -112,6 +116,8 @@ One sentence to separate the two cycles: **last time the risk was on the market 
 - [The Verge — Skydio is pivoting to enterprise, its consumer drones are dead](https://www.theverge.com/2023/8/10/23827260/skydio-pivot-enterprise-x2)
 - [DPReview — Skydio discontinues its consumer drone offerings](https://www.dpreview.com/news/6190484175/skydio-discontinues-its-consumer-drone-offerings-shifts-focus-to-enterprise) (funding and valuation)
 - [UAV Coach — Did DJI Win Again? Skydio Ends Consumer Drone Sales](https://uavcoach.com/skydio-consumer-exit) (full Adam Bry statement)
+- [Skydio — Strong Business, Bigger Mission, New Capital (2026 Series F announcement)](https://www.skydio.com/blog/skydio-series-f)
+- [DroneXL — Skydio Raises $110M Series F At $4.4B Valuation](https://dronexl.co/2026/04/23/skydio-110m-series-f-44-billion-valuation/) (shipments, customers, Army order)
 
 **The second wave**
 
