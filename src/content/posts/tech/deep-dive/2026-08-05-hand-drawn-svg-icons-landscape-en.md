@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [svg, icons, hand-drawn, open-source, licensing, developer-tools, mcp]
 lang: en
-tldr: "Koboyo ships close to 90,000 free hand-drawn SVG icons (the count is in flux: it fell from 92,967 to 87,954 within a single day), but its license page explicitly forbids building an icon library or canvas app with them. There are actually three routes to a hand-drawn look: collect a library, bend existing geometry programmatically (sketchyicons turns every straight run in Lucide into a quadratic Bézier, seeded by icon name for byte-for-byte reproducibility), or generate with AI. This piece compares seven libraries on scale and license, unpacks the algorithms behind sketchyicons and tldraw, and surveys the icon search tools now shipping MCP servers."
+tldr: "Koboyo claims close to 90,000 free hand-drawn SVG icons (the count oscillates: 92,967 → 87,954 → 90,150), but its sitemap only lists about 17,930 icon pages, and its license page explicitly forbids building an icon library or canvas app with them. There are actually three routes to a hand-drawn look: collect a library, bend existing geometry programmatically (sketchyicons turns every straight run in Lucide into a quadratic Bézier, seeded by icon name for byte-for-byte reproducibility), or generate with AI. This piece compares seven libraries on scale and license, unpacks the algorithms behind sketchyicons and tldraw, and surveys the icon search tools now shipping MCP servers."
 description: "Starting from Koboyo Icons' nearly 90,000 free hand-drawn SVGs, this article compares the scale and licensing of Khushmeen, Streamline Freehand, Icons8 Doodle, and Iconro (including Streamline's 100-icons-per-project allowance and its mandatory attribution for open-source projects), dissects sketchyicons' seeded coordinate perturbation and tldraw's multi-pass stroke rendering, and surveys icon search tools like icons0.dev and theSVG that expose MCP servers."
 draft: false
 glossary:
@@ -23,7 +23,11 @@ glossary:
 
 [Koboyo Icons](https://koboyo.com/icons) lists close to 90,000 free hand-drawn SVG icons — free for commercial use, no attribution, no signup. That scale is absurd for a free library: [Streamline](https://www.streamlinehq.com/)'s Freehand, billed as the largest hand-drawn set in the industry, has 11,171 icons in its main set, and costs money.
 
-Don't treat that number as a constant, though. On the morning I wrote this, both the homepage and the license page showed **92,967**; a few hours later it read **87,954**, and Google's index still holds an older 71,238. Losing 5,013 icons in a day means they're actively pruning, not just adding — so this article says "close to 90,000" rather than pinning a figure. By the time you read this it's probably another number.
+Don't treat that number as a constant, though. On the morning I wrote this, both the homepage and the license page showed **92,967**; a few hours later it read **87,954**, and Google's index still holds an older 71,238. The next day (2026-08-06) it was back up to **90,150**. So this isn't one-way pruning, it oscillates — this article says "close to 90,000" rather than pinning a figure, and by the time you read it there will probably be another one.
+
+There's a second number that doesn't line up. [`koboyo.com/sitemap.xml`](https://koboyo.com/sitemap.xml) is a single flat `<urlset>` — not a sitemap index, no shards — and the whole file lists just **18,044 URLs**. Subtract the set and site-chrome pages and roughly **17,930 are icon pages**, five times fewer than the 90,150 the license page claims.
+
+That does not mean the library only holds 18k icons: an icon absent from the sitemap is still reachable through on-site search or directly at `/icons/svg/<name>.svg`. But it does mean **what search engines can discover, and what you can actually browse, is an order of magnitude smaller than the headline figure**. If "best coverage" is your reason for picking Koboyo, search for a few of the obscure concepts you actually need before trusting the total.
 
 Before you download, though, it's worth reading the [license page](https://koboyo.com/icons/license), because there's a clause there that decides whether you can use them at all.
 
@@ -63,7 +67,7 @@ On where the icons come from, the license page says only that "The icons are cur
 
 | Library | Count | License | Watch out for |
 |---|---|---|---|
-| [Koboyo Icons](https://koboyo.com/icons) | 87,954 (measured 2026-08-05, in flux) | Free commercial, no attribution, **no competing products or "icons as the feature" apps** | Unbeatable coverage, but you must judge the boundary yourself |
+| [Koboyo Icons](https://koboyo.com/icons) | License page says 90,150 (2026-08-06), sitemap lists ~17,930 pages | Free commercial, no attribution, **no competing products or "icons as the feature" apps** | Claimed coverage is unbeatable; browsable coverage is an order of magnitude smaller. You must judge the usage boundary yourself too |
 | [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) | 400+ | **CC0, no attribution** | Cleanest license. Ships Figma file and animated versions |
 | [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | set of 11,171 (Freehand family: 22,349) | From $19/mo, or lifetime purchase; free sets need attribution | **100-icon-per-project allowance** (liftable via add-on); open-source projects require attribution even on paid plans |
 | [Icons8 Doodle](https://icons8.com/icons/doodle) | 2,200 (57 categories) | Freemium, attribution on free tier | Colorful marker style, better for decks than UI |
@@ -166,7 +170,7 @@ The clearest trend while researching this: the current generation of icon aggreg
 | [theSVG](https://thesvg.org/) | 6,502+ (4,629 brand icons) | MCP + Figma plugin + VS Code + Raycast |
 | [IconVaultKit](https://iconvaultkit.com/) | 200,000+, 92+ libraries | MCP + npm package |
 | [Iconstack](https://iconstack.io/) | 51,378 | API + MCP |
-| [Koboyo Icons](https://koboyo.com/icons) | ~88k (single hand-drawn style) | MCP (sign-in required) |
+| [Koboyo Icons](https://koboyo.com/icons) | ~90k claimed, ~18k in the sitemap (single hand-drawn style) | MCP (sign-in required) |
 | [All SVG Icons](https://allsvgicons.com/) | 286,000+, 220+ libraries | Web-first |
 
 i0's retrieval design deserves a closer look. Per its [GitHub repo](https://github.com/marcoripa96/i0), it stores the SVG body of all 303k icons in Turso (libSQL) and runs **FTS5 keyword search (with porter stemming) in parallel with a DiskANN vector index, fusing the two with RRF**; embeddings are 256-dimensional `gemini-embedding-001`. This is a concrete application of the architecture covered in [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) — icon search benefits from it unusually well, because a query like "an icon for delete-but-recoverable" is hopeless for pure keyword matching, while an exact term like "trash" is exactly what pure vector search tends to drift on.
@@ -184,10 +188,15 @@ The practical upshot: if you write frontend code in Claude Code or Cursor, letti
 
 One closing warning: the thing that most often goes wrong here isn't picking the wrong style, it's **not reading the license**. Hand-drawn libraries vary far more in licensing than ordinary UI icon sets — CC0, mandatory backlink, and no-competing-products all appear under the same "free for commercial use" banner, and their homepages all look equally friendly.
 
+## Update log
+
+- 2026-08-06: Koboyo's count moved again — the license page went from 87,954 back up to **90,150**, which kills the earlier inference that losing 5,013 icons in a day meant active pruning; rewritten as oscillation. Also checked `sitemap.xml`: a single flat urlset listing 18,044 URLs, roughly 17,930 of them icon pages — five times fewer than the claimed figure. Folded into the first section and the library comparison table.
+
 ## References
 
-- [Koboyo Icons](https://koboyo.com/icons) — close to 90,000 free hand-drawn SVG icons (87,954 measured 2026-08-05)
-- [Koboyo Icons license](https://koboyo.com/icons/license) — the source text on competing products and "icons as the feature" apps
+- [Koboyo Icons](https://koboyo.com/icons) — close to 90,000 free hand-drawn SVG icons, claimed
+- [Koboyo Icons license](https://koboyo.com/icons/license) — the source text on competing products and "icons as the feature" apps; showed 90,150 on 2026-08-06
+- [Koboyo sitemap.xml](https://koboyo.com/sitemap.xml) — a single flat urlset, 18,044 URLs measured 2026-08-06 (~17,930 icon pages)
 - [Koboyo infinite canvas](https://koboyo.com/) — the product the library belongs to
 - [sketchyicons](https://sketchyicons.com/) — 1,500+ icons generated from Lucide geometry, with the algorithm documented
 - [sketchyicons on GitHub](https://github.com/Fantomiald/sketchyicons) — generator source (MIT)
