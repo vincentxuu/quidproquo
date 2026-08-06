@@ -673,6 +673,18 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: 'Is Your JSON-LD Invisible to AI Search Engines? A Pipelin...', url: '/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en' }],
   },
   {
+    term: 'CC0',
+    aliases: ['Creative Commons Zero', 'public domain dedication'],
+    definition: '作者主動放棄著作權的宣告，等同把作品釋出到公共領域，使用者不需署名也不受條件限制。',
+    definition_en: 'A declaration in which the author waives copyright, effectively releasing the work into the public domain — no attribution required and no conditions attached.',
+    advanced: 'CC0 和 CC-BY 的關鍵差別是署名：CC-BY 強制回連或標註來源，CC0 不強制。對素材庫來說，這個差別決定了它能不能被無痛嵌進商業產品，因為署名義務會一路傳染到下游使用者。',
+    advanced_en: 'The key difference between CC0 and CC-BY is attribution: CC-BY mandates a credit or backlink, CC0 does not. For asset libraries this decides whether the work can be embedded into a commercial product without friction, since an attribution obligation propagates to downstream users.',
+    context: '本站用 CC0 討論圖示、插畫與其他素材庫的授權差異。',
+    context_en: 'This site uses CC0 to discuss licensing differences across icon, illustration, and other asset libraries.',
+    links: [{ label: '手繪風 SVG 圖示的三條路', url: '/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape' }],
+    links_en: [{ label: 'Three Routes to Hand-Drawn SVG Icons', url: '/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape-en' }],
+  },
+  {
     term: 'SSR',
     aliases: ['server-side rendering'],
     definition: '在伺服器端先產生 HTML，再送到瀏覽器顯示的渲染方式。',
@@ -845,6 +857,28 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     context_en: 'This site uses observability to discuss RAG quality, Langfuse, trace retention, agent debugging, and eval.',
     links: [{ label: 'RAG Observability 追蹤', url: '/posts/ai/2026-03-12-rag-observability-tracing' }],
     links_en: [{ label: 'RAG Observability: 17-Step Tracing', url: '/posts/ai/2026-03-12-rag-observability-tracing-en' }],
+  },
+  {
+    term: 'MLOps',
+    aliases: ['ML Ops', '機器學習維運'],
+    definition: '把機器學習模型的訓練、部署、監控與重新訓練變成可重複、可自動化的工程流程。',
+    definition_en: 'Turning the training, deployment, monitoring, and retraining of machine learning models into a repeatable, automatable engineering process.',
+    advanced: '典型組成包含資料與特徵版本控制、訓練 pipeline、model registry、CI/CD 部署、線上監控（drift、資料品質、延遲）與觸發式重新訓練；雲廠商的 ML 工程師認證多半以此為主要考試範圍。',
+    advanced_en: 'Typical components include data and feature versioning, training pipelines, a model registry, CI/CD deployment, production monitoring (drift, data quality, latency), and triggered retraining. Cloud vendor ML engineering certifications are largely built around this scope.',
+    context: '本站在雲端 AI 證照、模型部署與 pipeline 自動化的討論中使用這個詞。',
+    context_en: 'Used on this site when discussing cloud AI certifications, model deployment, and pipeline automation.',
+    links: [
+      {
+        label: 'Google Professional ML Engineer 考試指南',
+        url: 'https://cloud.google.com/learn/certification/guides/machine-learning-engineer',
+      },
+    ],
+    links_en: [
+      {
+        label: 'Google Professional ML Engineer exam guide',
+        url: 'https://cloud.google.com/learn/certification/guides/machine-learning-engineer',
+      },
+    ],
   },
   {
     term: 'citation',
