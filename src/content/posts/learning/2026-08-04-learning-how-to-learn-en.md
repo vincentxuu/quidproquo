@@ -13,24 +13,17 @@ series:
 tldr: "Dunlosky's 2013 review rated 10 study techniques; only self-testing and distributed practice earned 'high utility'. But a 2026 systematic review puts the effect at 0.22–0.46, and Pan & Rickard's transfer meta-analysis finds 'no positive transfer' once publication bias is corrected — making the premise in the framework's own name the piece that tests worst."
 description: "An evidence audit of Coursera's Learning How to Learn: which claims have meta-analyses behind them, which are useful mental models, which have been debunked, and which are being revised by stricter methods."
 draft: false
+faq:
+  - q: "Does rereading your notes actually work?"
+    a: "Poorly — and it is what students do most. Dunlosky et al. (2013) rated 10 study techniques and placed rereading in the low-utility tier; in a related survey, 84% of students reported rereading and 55% named it their number one strategy. The trap is that rereading feels effective: the second pass goes down more smoothly, and that fluency gets misread as mastery. Self-testing instead is worth roughly +0.51 over rereading."
+  - q: "How large is the self-testing effect really?"
+    a: "It depends what you compare it against. Roughly +0.51 versus restudying, +0.93 versus doing nothing, and about g = 0.61 pooled across all comparison conditions. A stricter 2026 systematic review reports lower figures: 0.22 for between-subject designs and 0.46 for within-subject designs. Always state the control condition — the same study can be cited at wildly different strengths without it."
+  - q: "Are learning styles a myth?"
+    a: "The mainstream verdict is still that they are not worth redesigning teaching around, but the evidence is not zero. Pashler et al. (2008) found no support across 70-plus studies. In 2024, Clinton-Lisell and Litzinger restricted their analysis to studies that actually compared matched versus unmatched instruction and found g = 0.31, statistically significant. Even so, those authors do not recommend adoption: only 26% of outcome measures showed the crossover interaction the hypothesis requires, and heterogeneity was I² = 91.17."
+  - q: "Do learning skills transfer to other subjects?"
+    a: "Less than the name suggests. Pan and Rickard's 2018 transfer meta-analysis found an overall d = 0.40, but after correcting for publication bias it showed no positive transfer when the key moderators were absent. The strongest moderator is response congruency — overlap between practice answers and test answers. Agarwal (2019) is blunter still: practising factual questions and then sitting a higher-order test performed no better than simply restudying. If you want transfer, design practice to resemble the real task."
+
 glossary:
-  - term: "retrieval practice"
-    aliases: ["practice testing", "self-testing"]
-    definition: "Closing the book and pulling the answer out of memory, rather than reading it again."
-    advanced: "Testing is itself a learning event, not just assessment. The effect appears to shrink as material gets more complex. Which format works best is unresolved — the Dunlosky line holds that free recall beats recognition, but Adesope et al. (2017) found multiple-choice (+0.70) outperforming short-answer (+0.48)."
-    context: "In this article it is one of only two techniques Dunlosky et al. rated as high utility."
-    links:
-      - label: "Rowland (2014) meta-analysis"
-        url: "https://doi.org/10.1037/a0037559"
-  - term: "desirable difficulties"
-    definition: "Robert Bjork's term for learning conditions that hurt performance in the moment but improve long-term retention."
-    advanced: "Covers spacing, interleaving, retrieval, and varied practice conditions. The difficulty has to be desirable — difficulty beyond the learner's reach is just difficulty."
-    context: "The series uses it to explain why AI assistance harms learning: it removes exactly this kind of difficulty."
-  - term: "Hedges' g"
-    aliases: ["effect size"]
-    definition: "A standardized effect size expressing the difference between two groups in standard deviations, with a small-sample correction over Cohen's d."
-    advanced: "Roughly 0.2 small, 0.5 medium, 0.8 large — but those thresholds are convention only. Read it alongside I²: a high average with high heterogeneity means individual settings vary widely."
-    context: "Several meta-analyses cited here report in g, e.g. the testing effect at g = 0.50."
   - term: "meshing hypothesis"
     aliases: ["matching hypothesis", "learning styles matching"]
     definition: "The claim that matching instruction to a student's preferred learning style (visual/auditory/kinesthetic) improves outcomes."

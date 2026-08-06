@@ -13,20 +13,13 @@ series:
 tldr: "The single most-cited meta-analysis on ChatGPT in education (g = 0.867, ~500k views) was retracted by Nature in April 2026. But the positive finding was not overturned — the issue is that it measures performance while the AI is available. Bastani's PNAS RCT measured something else: +48% accuracy during practice with GPT-4, then 17% below never-users once access was removed."
 description: "The evidence on generative AI and learning: the retraction, why the non-retracted positive meta-analyses do not contradict Bastani's RCT, and how strongly the cognitive-offloading studies can actually be cited."
 draft: false
-glossary:
-  - term: "desirable difficulties"
-    definition: "Robert Bjork's term for learning conditions that hurt performance in the moment but improve long-term retention."
-    advanced: "Covers spacing, interleaving, retrieval, and varied practice conditions. The difficulty has to be desirable — difficulty beyond the learner's reach is just difficulty."
-    context: "The core argument here: AI removes exactly this kind of difficulty."
-  - term: "cognitive offloading"
-    definition: "Outsourcing memory or reasoning work to external tools — notes, search engines, AI — to reduce mental load."
-    advanced: "It improves short-term performance but may reduce the internal knowledge structures being built. The live debate is over what should be offloaded: offloading lookup cost is usually harmless, offloading the reasoning is not."
-    context: "The thread connecting several 2025 studies on LLMs and learning."
-  - term: "Hedges' g"
-    aliases: ["effect size"]
-    definition: "A standardized effect size expressing the difference between two groups in standard deviations, with a small-sample correction over Cohen's d."
-    advanced: "Roughly 0.2 small, 0.5 medium, 0.8 large — but those thresholds are convention only. Read it alongside I² for heterogeneity."
-    context: "Used throughout when comparing the ChatGPT meta-analyses."
+faq:
+  - q: "Will using ChatGPT to study make me learn less?"
+    a: "If you use it to hand you answers, yes. Bastani et al.'s 2025 randomized controlled trial in PNAS split nearly a thousand high schoolers three ways: the group with stock GPT-4 during practice improved 48%, but once access was removed they scored 17% below peers who never had it. A version giving teacher-designed hints instead of answers cancelled the harm — yet those students only matched the control group on the exam. Guardrails stop the bleeding; they do not add learning."
+  - q: "Are the studies showing AI helps learning wrong?"
+    a: "Not wrong so much as measuring something else. Most positive meta-analyses capture performance while the AI is available, not what remains after it is taken away. Deng et al. (2025) raise exactly this concern themselves and recommend proctored assessments to separate the quality of ChatGPT's output from what the student actually learned. Also worth knowing: the most-cited of these papers (g = 0.867) was retracted by Nature in April 2026."
+  - q: "How should I use AI without damaging my learning?"
+    a: "Put the AI in the hint position, not the answer position — get stuck on your own first, then ask. Two experiments support this: Bastani's GPT Tutor condition, which supplied only teacher-designed hints, erased the harm; and in the MIT study the group that wrote unaided first and moved to an LLM afterwards performed best. The signal is simple: if the process suddenly feels smooth, that is usually the moment you have stopped learning."
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-04-generative-ai-and-learning)

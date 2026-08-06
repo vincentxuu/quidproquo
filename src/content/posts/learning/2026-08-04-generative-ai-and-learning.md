@@ -13,22 +13,13 @@ series:
 tldr: "AI 教育界被引用最多的那篇 meta-analysis（g = 0.867、瀏覽近 50 萬次）已於 2026 年 4 月被 Nature 撤稿。但正向結論沒被推翻——問題是它測的是「AI 在手時的表現」。Bastani 的 PNAS RCT 測了另一件事：練習時用 GPT-4 正確率 +48%，收走後考試比從沒用過的低 17%。"
 description: "生成式 AI 對學習的實證：撤稿事件、未撤稿的正向 meta-analysis 為何與 Bastani 的 RCT 不矛盾，以及認知卸載相關研究該引用到什麼強度。"
 draft: false
-glossary:
-  - term: "desirable difficulties"
-    aliases: ["必要的困難", "有益的困難"]
-    definition: "Robert Bjork 提出的概念：某些讓當下表現變差、感覺變難的學習條件，反而會提升長期保留。"
-    advanced: "涵蓋分散練習、交錯練習、提取練習、變動練習條件等。困難要「必要」——超出學習者能力的困難只是困難。"
-    context: "本文的核心論點：AI 移除的正是這種困難。"
-  - term: "cognitive offloading"
-    aliases: ["認知卸載"]
-    definition: "把記憶或思考工作外包給外部工具（筆記、搜尋引擎、AI），減少大腦本身的負荷。"
-    advanced: "短期提升表現，但可能減少內部知識結構的建立。爭議在於「哪些該卸載」——卸載查找成本通常無害，卸載推理過程則可能有害。"
-    context: "本文用它串起 2025 年幾份關於 LLM 與學習的研究。"
-  - term: "Hedges' g"
-    aliases: ["效果量", "effect size"]
-    definition: "標準化的效果量指標，表示兩組平均數差了幾個標準差；比 Cohen's d 對小樣本有校正。"
-    advanced: "0.2 約為小、0.5 中、0.8 大，但這組門檻只是慣例。搭配異質性指標 I² 一起看才有意義。"
-    context: "本文比較數份 ChatGPT 相關 meta-analysis 時都用它。"
+faq:
+  - q: "用 ChatGPT 學習，會讓我學得比較差嗎？"
+    a: "如果你用它直接要答案，會。Bastani 等人 2025 年發表於 PNAS 的隨機對照試驗把近千名高中生分三組：練習時能用原生 GPT-4 的那組成績提升 48%，但存取權被收走後，考試成績比從來沒用過 AI 的對照組還低 17%。改用只給提示不給答案的版本，傷害被抵銷，但考試成績也只是跟對照組打平——防護能止血，不會讓你學得更好。"
+  - q: "那些說 AI 有助學習的研究是錯的嗎？"
+    a: "不是全錯，但它們測的多半是另一件事。多數正向 meta-analysis 量的是「AI 在手時的表現」，而不是「AI 收走之後還剩下什麼」。Deng 等人 2025 年那份 meta-analysis 自己就指出這個問題，並建議改用監考評量，以區分「ChatGPT 產出的品質」與「學生真的學到的東西」。另外要注意：被引用最多的那篇（g = 0.867）已在 2026 年 4 月被 Nature 撤稿。"
+  - q: "怎麼用 AI 才不會傷害學習？"
+    a: "把 AI 放在提示的位置，不要放在答案的位置——先自己卡一次，再問。這條規則有兩個實驗支撐：Bastani 的 GPT Tutor 組只給教師設計的提示，就把傷害消掉了；MIT 的研究裡，從自己寫再換成用 LLM 的那組表現最好。判斷訊號很簡單：如果過程變順了，那通常就是你沒在學的時候。"
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-04-generative-ai-and-learning-en)
