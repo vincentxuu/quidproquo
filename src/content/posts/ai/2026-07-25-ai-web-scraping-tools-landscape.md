@@ -7,6 +7,9 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: zh-TW
 tldr: "從 MarkItDown (169k stars, MIT) 到 curl-impersonate (7k stars)，整理 34 個「爬資料餵 AI」的開源工具。沿五條軸線分類：整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建。選型關鍵不是哪個最好，是場景匹配。"
 description: "34 個 AI 爬蟲與資料擷取開源工具的分類選型指南：整站爬取（Firecrawl、Crawl4AI）、AI 瀏覽器代理（Browser-Use、Stagehand）、文件轉檔（MarkItDown、MinerU）、智慧擷取（Scrapling、ScrapeGraphAI）、反偵測基建（curl-impersonate）。含 GitHub API 驗證的星數與授權資訊。"
+series:
+  name: "文件轉 Markdown 實戰"
+  order: 2
 draft: false
 glossary:
   - term: "AGPL"
@@ -69,6 +72,8 @@ Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接�
 
 [MarkItDown](https://github.com/microsoft/markitdown)（169k stars, MIT）是微軟出品，格式支援最廣——PDF、Word、Excel、PowerPoint、HTML、圖片都能轉 Markdown，是目前這個賽道星數最高的專案。[MinerU](https://github.com/opendatalab/MinerU)（76k stars）表格與數學公式擷取最強，學術 PDF 首選。[Marker](https://github.com/VikParuchuri/marker)（38k stars, Apache-2.0）速度快、GPU 需求低，適合批量轉換。[Docling](https://github.com/DS4SD/docling)（64k stars, MIT）IBM Research 出品，強調結構化輸出（JSON schema），適合需要精確保留文件結構的場景。
 
+[anydoc](https://github.com/firecrawl/anydoc)（~6.2k stars, MIT）是 Firecrawl 出品的 Rust 函式庫，走的路線跟上面幾個都不同：只做辦公文件、完全不碰 OCR，但 14 種格式全支援（含 `.doc` / `.ppt` / `.xls` 老格式），中位耗時 4.4ms。值得注意的是它跟 Firecrawl 主專案的授權不同——主專案是 AGPL-3.0，anydoc 是 MIT，商業整合沒有 copyleft 顧慮。詳細比較見[〈anydoc：14 種辦公格式轉 Markdown〉](/posts/ai/2026-08-06-anydoc-rust-document-markdown)。
+
 輕量選項：[Trafilatura](https://github.com/adbar/trafilatura)（~6k stars）專攻「從網頁抽正文、濾廣告」，做前處理穩定好用。[Jina Reader](https://github.com/jina-ai/reader)（12k stars, Apache-2.0）零設定——URL 前加 `r.jina.ai/` 就拿到 Markdown。Readability（~9k stars）是 Firefox 閱讀模式的引擎，常被當成前處理步驟嵌在其他工具裡。
 
 ## 智慧擷取：讓選擇器自己修復
@@ -125,6 +130,10 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 - **網站常改版、選擇器一直壞** → Scrapling
 - **被 Cloudflare 擋** → curl-impersonate + [繞過 Cloudflare 指南](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)
 
+## 更新紀錄
+
+- 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.4ms 中位耗時、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異；本篇收入「文件轉 Markdown 實戰」系列。
+
 ## 參考資料
 
 - [Firecrawl (GitHub)](https://github.com/mendableai/firecrawl)
@@ -140,6 +149,7 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 - [MinerU (GitHub)](https://github.com/opendatalab/MinerU)
 - [Marker (GitHub)](https://github.com/VikParuchuri/marker)
 - [Docling (GitHub)](https://github.com/DS4SD/docling)
+- [anydoc (GitHub)](https://github.com/firecrawl/anydoc)
 - [Jina Reader (GitHub)](https://github.com/jina-ai/reader)
 - [Trafilatura (GitHub)](https://github.com/adbar/trafilatura)
 - [AutoScraper (GitHub)](https://github.com/alirezamika/autoscraper)

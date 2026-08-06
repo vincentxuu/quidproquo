@@ -7,6 +7,9 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: en
 tldr: "From MarkItDown (169k stars, MIT) to curl-impersonate (7k stars), a survey of 34 open-source tools for feeding data to AI. Categorized along five axes: whole-site crawling, AI browser agents, document conversion, smart extraction, and anti-detection infrastructure. The key to selection isn't which tool is best — it's scenario matching."
 description: "A selection guide for 34 AI web scraping and data extraction open-source tools: whole-site crawlers (Firecrawl, Crawl4AI), AI browser agents (Browser-Use, Stagehand), document converters (MarkItDown, MinerU), smart extractors (Scrapling, ScrapeGraphAI), and anti-detection infrastructure (curl-impersonate). Includes GitHub API-verified star counts and licenses."
+series:
+  name: "文件轉 Markdown 實戰"
+  order: 2
 draft: false
 glossary:
   - term: "AGPL"
@@ -69,6 +72,8 @@ These tools don't scrape — they convert PDF / Office / HTML into LLM-friendly 
 
 [MarkItDown](https://github.com/microsoft/markitdown) (169k stars, MIT) by Microsoft supports the widest range of formats — PDF, Word, Excel, PowerPoint, HTML, and images, all to Markdown. It's the highest-starred project in this entire space. [MinerU](https://github.com/opendatalab/MinerU) (76k stars) excels at table and math formula extraction — the go-to for academic PDFs. [Marker](https://github.com/VikParuchuri/marker) (38k stars, Apache-2.0) is fast with low GPU requirements, good for batch conversion. [Docling](https://github.com/DS4SD/docling) (64k stars, MIT) from IBM Research emphasizes structured output (JSON schema), ideal for scenarios requiring precise document structure preservation.
 
+[anydoc](https://github.com/firecrawl/anydoc) (~6.2k stars, MIT) is a Rust library from Firecrawl taking a different route from all of the above: office documents only, no OCR at all, but all 14 formats covered (including legacy `.doc` / `.ppt` / `.xls`) at a 4.4ms median. Note that its license differs from the Firecrawl main project — the main project is AGPL-3.0, anydoc is MIT, so commercial integration carries no copyleft concerns. See [anydoc: 14 Office Formats to Markdown](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en) for a full comparison.
+
 Lightweight options: [Trafilatura](https://github.com/adbar/trafilatura) (~6k stars) specializes in "extract body text from web pages, filter ads" — stable and reliable for preprocessing. [Jina Reader](https://github.com/jina-ai/reader) (12k stars, Apache-2.0) requires zero setup — prepend `r.jina.ai/` to any URL to get Markdown. Readability (~9k stars) is the engine behind Firefox's Reader Mode, often embedded as a preprocessing step in other tools.
 
 ## Smart Extraction: Self-Healing Selectors
@@ -125,6 +130,10 @@ The key to selection isn't "which is best" — it's scenario matching:
 - **Site keeps redesigning, selectors keep breaking** → Scrapling
 - **Blocked by Cloudflare** → curl-impersonate + [Cloudflare bypass guide](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent) (in Chinese)
 
+## Changelog
+
+- 2026-08-06: Added anydoc to the "Document Conversion" section (Firecrawl's Rust conversion library — 14/14 formats, 4.4ms median, MIT licensed), noting how its license differs from the AGPL-3.0 Firecrawl main project. This post joins the "文件轉 Markdown 實戰" series.
+
 ## References
 
 - [Firecrawl (GitHub)](https://github.com/mendableai/firecrawl)
@@ -140,6 +149,7 @@ The key to selection isn't "which is best" — it's scenario matching:
 - [MinerU (GitHub)](https://github.com/opendatalab/MinerU)
 - [Marker (GitHub)](https://github.com/VikParuchuri/marker)
 - [Docling (GitHub)](https://github.com/DS4SD/docling)
+- [anydoc (GitHub)](https://github.com/firecrawl/anydoc)
 - [Jina Reader (GitHub)](https://github.com/jina-ai/reader)
 - [Trafilatura (GitHub)](https://github.com/adbar/trafilatura)
 - [AutoScraper (GitHub)](https://github.com/alirezamika/autoscraper)

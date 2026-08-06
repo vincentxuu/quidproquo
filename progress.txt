@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-05
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,17 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: 新系列「文件轉 Markdown 實戰」（slug `document-to-markdown`）建立，
+  註冊在 `src/utils/series.ts` 的 SERIES_DEFINITIONS。成員採日期遞增、只追加編號
+  （`getSeriesNav` 用嚴格 order±1 找前後篇，斷號會讓導航壞掉）：1 MarkItDown
+  (04-18)、2 AI 爬蟲全景圖 (07-25)、3 anydoc (08-06)，zh/en 各一份。新寫 post(ai)
+  anydoc（Firecrawl 的 Rust 轉檔函式庫）：主軸是跟 MarkItDown 的路線分歧——共用
+  Document model 讓 14 種格式輸出一致、支援 .doc/.ppt/.xls OLE 老格式、4.4ms 中位
+  耗時，代價是完全不做 OCR 與版面理解。benchmark 標明為廠商自評且測試集不公開
+  （方法論有交代：Claude Sonnet 5 盲測、正反對調消位置偏誤、100 份文件 481 個
+  verdict），只把格式覆蓋與耗時當硬事實。全景圖那篇補上 anydoc 並標注它 MIT vs
+  Firecrawl 主專案 AGPL-3.0 的授權差異，附更新紀錄。新增 frontmatter glossary：
+  GFM、OLE 複合文件。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
