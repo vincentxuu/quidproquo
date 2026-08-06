@@ -5,10 +5,13 @@ updated: 2026-08-04
 category: learning
 type: deep-dive
 difficulty: 進階
-tags: [learning-science, self-learning, retrieval-practice, spaced-repetition, metacognition, ai-and-learning]
+tags: [learning-science, self-learning, retrieval-practice, spaced-repetition, metacognition]
 lang: zh-TW
-tldr: "Dunlosky 2013 評比 10 種學習技術，判定為高效用的只有自我測驗與分散練習；學生最愛的重讀落在低效用層。但 2026 年的系統性回顧把效果量壓到 0.22–0.46，Pan & Rickard 的遷移 meta 校正發表偏誤後「往往顯示零遷移」。而 AI 教育界被引用最多的那篇 meta-analysis（g = 0.867），已在 2026 年 4 月被 Nature 撤稿。"
-description: "拆解 Coursera「Learning How to Learn」的核心概念與背後證據：哪些有 meta-analysis 撐、哪些只是心智模型、哪些已被推翻、哪些正在縮水，以及 LLM 如何改變這一切。"
+series:
+  name: "Learning How to Learn"
+  order: 1
+tldr: "Dunlosky 2013 評比 10 種學習技術，判定為高效用的只有自我測驗與分散練習；學生最愛的重讀落在低效用層。但 2026 年的系統性回顧把效果量壓到 0.22–0.46，而 Pan & Rickard 的遷移 meta 校正發表偏誤後「往往顯示零遷移」——整套框架的名字本身，是被測得最不好看的一塊。"
+description: "拆解 Coursera「Learning How to Learn」的核心概念與背後證據：哪些有 meta-analysis 撐、哪些只是好用的心智模型、哪些已被推翻、哪些正在被更嚴謹的方法修正。"
 draft: false
 glossary:
   - term: "retrieval practice"
@@ -23,30 +26,27 @@ glossary:
     aliases: ["必要的困難", "有益的困難"]
     definition: "Robert Bjork 提出的概念：某些讓當下表現變差、感覺變難的學習條件，反而會提升長期保留。"
     advanced: "涵蓋分散練習、交錯練習、提取練習、變動練習條件等。困難要「必要」——超出學習者能力的困難只是困難。"
-    context: "本文用它解釋為什麼 AI 輔助會傷害學習：它移除的正是這種困難。"
-  - term: "meshing hypothesis"
-    aliases: ["匹配假說", "學習風格匹配"]
-    definition: "主張把教學方式配合學生偏好的「學習風格」（視覺／聽覺／動覺）就能提升學習成效。"
-    advanced: "要成立需要出現 crossover interaction：視覺型學生在視覺教學下較好，且聽覺型學生在聽覺教學下較好。單純「某組表現比較好」不算數。"
-    context: "本文討論它從 2008 年被判定為迷思、到 2024 年出現部分翻案的過程。"
+    context: "本系列用它解釋為什麼 AI 輔助會傷害學習：它移除的正是這種困難。"
   - term: "Hedges' g"
     aliases: ["效果量", "effect size"]
     definition: "標準化的效果量指標，表示兩組平均數差了幾個標準差；比 Cohen's d 對小樣本有校正。"
     advanced: "0.2 約為小、0.5 中、0.8 大，但這組門檻只是慣例。搭配異質性指標 I² 一起看才有意義——平均值高但 I² 高，代表個別情境的結果差異很大。"
     context: "本文引用的多個 meta-analysis 都用它報告效果，例如 testing effect 的 g = 0.50。"
+  - term: "meshing hypothesis"
+    aliases: ["匹配假說", "學習風格匹配"]
+    definition: "主張把教學方式配合學生偏好的「學習風格」（視覺／聽覺／動覺）就能提升學習成效。"
+    advanced: "要成立需要出現 crossover interaction：視覺型學生在視覺教學下較好，且聽覺型學生在聽覺教學下較好。單純「某組表現比較好」不算數。"
+    context: "本文討論它從 2008 年被判定為迷思、到 2024 年出現部分翻案的過程。"
   - term: "response congruency"
     aliases: ["答案重疊性"]
     definition: "練習測驗與最終測驗的正確答案有多少重疊。"
     advanced: "Pan & Rickard 的遷移 meta 中最強的調節變項。隨機效果模型：無重疊時 d = 0.28，有重疊時增加 0.30 至 0.58；校正發表偏誤後（PEESE）截距實質為零，重疊帶來的增幅為 0.36。"
     context: "本文用它說明為什麼「練了會遷移」這個假設比想像中脆弱。"
-  - term: "cognitive offloading"
-    aliases: ["認知卸載"]
-    definition: "把記憶或思考工作外包給外部工具（筆記、搜尋引擎、AI），減少大腦本身的負荷。"
-    advanced: "短期提升表現，但可能減少內部知識結構的建立。爭議在於「哪些該卸載」——卸載查找成本通常無害，卸載推理過程則可能有害。"
-    context: "本文用它串起 2025 年幾份關於 LLM 與學習的研究。"
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-04-learning-how-to-learn-en)
+>
+> 本文是「Learning How to Learn」上篇，處理學習科學本身的證據。[下篇談 AI 時代](/posts/learning/2026-08-04-generative-ai-and-learning)：生成式 AI 對學習做了什麼，以及那份被引用最多的證據為什麼被撤稿。
 
 Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learning-how-to-learn)顯示註冊人數 4,175,377、評分 4.8 分（93,136 則評價）。它叫 Learning How to Learn，由工程學教授 Barbara Oakley 和神經科學家 Terrence Sejnowski 開設，[2014 年 8 月首次開課](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php)，第一期就湧入 19.7 萬人、來自 206 個國家。[紐約時報 2015 年底報導](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn)時，它累積 119 萬人，是當時全球註冊人數最多的 MOOC，險勝 Andrew Ng 的 Machine Learning。
 
@@ -120,7 +120,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 這張表現在被引用得非常廣。但過去十年裡，它下面的地基動了三次，寫這題的人幾乎都沒跟上。
 
-**第一，異質性比平均值重要。** Rowland 的 g = 0.50 底下 I² = 84.35——研究之間的變異絕大部分不是抽樣誤差，而是真實的情境差異。「平均 0.5」不等於「你這次會拿到 0.5」。
+**第一，異質性比平均值重要。** [Rowland](https://doi.org/10.1037/a0037559) 的 g = 0.50 底下 I² = 84.35——研究之間的變異絕大部分不是抽樣誤差，而是真實的情境差異。「平均 0.5」不等於「你這次會拿到 0.5」。
 
 **第二，較新、方法更嚴的估計落在低區間。** 2026 年 3 月，Dietrichson 等人發表了[一份大規模系統性回顧](https://edworkingpapers.com/ai26-1418)：初篩 102,451 筆記錄、87 個研究符合條件、59 個進入資料合成。在對照組完全不做練習測驗的比較下，效果量是 between-subject 設計 0.22（95% CI [0.09, 0.34]）、within-subject 設計 0.46（[0.29, 0.62]）。作者確實寫了這些數字「似乎小於先前回顧所得」——Adesope 在小學與中學的對應數字分別是 0.64 與 0.83。
 
@@ -132,7 +132,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 順帶一個尚未調和的衝突：Rowland 發現回饋會放大 testing effect，但 Adesope 的結果是有回饋只比沒回饋「略好」——這點由[Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) 與 [Dietrichson 等人的系統性回顧](https://edworkingpapers.com/ai26-1418)（原文：「Adesope 等人發現練習測驗有無回饋的效果相近」）兩處獨立確認。
 
-**交錯練習則是挑材料。** Brunmair 與 Richter 的 meta-analysis 標題就叫 *Similarity matters*，涵蓋 59 篇研究、238 個效果量。結論是交錯對繪畫等視覺材料、對數學題型有效；對說明文（expository text）沒有優於區塊練習；對跨類別的單字學習甚至可能有害。把「交錯練習」當通用建議是誤讀原文。
+**交錯練習則是挑材料。** [Brunmair 與 Richter 的 meta-analysis](https://doi.org/10.1037/bul0000209) 標題就叫 *Similarity matters*，涵蓋 59 篇研究、238 個效果量。結論是交錯對繪畫等視覺材料、對數學題型有效；對說明文（expository text）沒有優於區塊練習；對跨類別的單字學習甚至可能有害。把「交錯練習」當通用建議是誤讀原文。
 
 ## 最尷尬的問題：這些技術會遷移嗎？
 
@@ -168,7 +168,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 > 基於穩健變異數估計，匹配教學到學習風格整體上有益處，g = 0.31，SE = 0.12，95% CI = [0.05, 0.57]，p = 0.02。然而，只有 26% 的學習結果測量顯示至少兩種風格都從匹配教學中獲益，即呈現支持匹配假說的交叉交互作用。
 
-誠實的講法是：**證據不是零，但也遠不到值得為它改變教學設計。** 這不只是我的判斷，是該文自己的結論——作者把 g = 0.31 拿去對比單純的 modality effect（g = 0.70），指出 I² = 91.17 的異質性，並權衡匹配所需的教師時間成本與把學生標籤化的風險後，仍不建議實務採用。
+誠實的講法是：**證據不是零，但也遠不到值得為它改變教學設計。** 這不只是我的判斷，是[該文自己的結論](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full)——作者把 g = 0.31 拿去對比單純的 modality effect（g = 0.70），指出 I² = 91.17 的異質性，並權衡匹配所需的教師時間成本與把學生標籤化的風險後，仍不建議實務採用。
 
 **成長心態是同一種病的第三個案例。** [Sisk 等人 2018 年在 Psychological Science 發表的兩份 meta-analysis](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf) 是目前最完整的檢驗：心態與學業成就的相關是 r ≈ 0.10（129 個研究、N = 365,915，約 1% 的變異量）；心態介入對學業成就的效果是 d = 0.08（43 個研究、N = 57,155）。更難堪的是，**那些操作檢核成功的介入——也就是真的成功改變了學生心態的那些——對學業成就反而沒有顯著效果。** Dweck 與 Yeager [在 2020 年回應](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535)，主張 Sisk 的 I² 高達 96.29%，效果真實但高度依賴人與情境，並指出低社經地位與學業風險學生確實受益（這點 Sisk 自己也承認）。雙方的共識是：效果小且異質。爭的是這樣算不算重要。
 
@@ -184,41 +184,6 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 兩邊的數字不能直接比，因為測的不是同一件事。可以帶走的結論是：練習量重要但遠非全部，而且**領域愈結構化、可預測（樂器、跑步），練習量的解釋力愈高；愈開放的領域（專業工作），解釋力愈低。** 這對工程師的啟示不太舒服：軟體工程比較接近「專業工作」那一欄。
 
-## AI 時代：它移除的正是「必要的困難」
-
-這是這個題目在 2026 年最值得重講一次的理由，而且要從一件事開始講——**AI 教育界被引用最多的那份證據，已經被撤稿了。**
-
-2025 年 5 月，Wang 與 Fan 在 Springer Nature 旗下的 *Humanities and Social Sciences Communications* 發表一篇 meta-analysis，統合 51 個研究，結論是 ChatGPT 對學習表現有「大幅正向影響」，g = 0.867。這個數字後來被政策簡報、教育科技行銷、無數論文引用。[到撤稿前它累積約 486,000 次瀏覽、266 篇引用、Altmetric 分數約 1,023](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns)。
-
-2026 年 4 月 22 日，[期刊發出撤稿公告](https://www.nature.com/articles/s41599-026-07310-z)：
-
-> 編輯決定撤回本文，原因是對該 meta-analysis 中的差異存有疑慮。這些疑慮最初由 Magnus Ingebrigtsen 與 Marko Lukic 提出。綜合而言，所發現的問題削弱了編輯對該分析效度及其結論的信心。作者未回應關於本次撤稿的通信。
-
-引用它的兩百多篇論文不會跟著被撤。這件事本身就是本文主題的元層次示範：**流暢、好聽、可引用，不等於真的。**
-
-但不要因此走到另一個極端。**正向結論本身沒有被這次撤稿推翻。** 同一份期刊在 2026 年刊出[另一篇 meta-analysis](https://www.nature.com/articles/s41599-026-07019-z)，統合 35 個研究、134 個效果量，得到 g = 0.670（95% CI [0.495, 0.844]），且偏誤檢定未發現顯著發表偏誤；[IRRODL 的 22 研究 meta](https://www.irrodl.org/index.php/irrodl/article/view/8775) 得到 g = 0.573。方向一致，只是效果量比那個 0.867 收斂。
-
-那到底該信誰？我認為問題問錯了——**這些研究跟 Bastani 測的根本是不同的東西**。而這句話不是我的推測：Deng 等人 2025 年發表於 *Computers & Education* 的 meta-analysis 在報告完正向結果後，自己就寫了：
-
-> 然而，方法學上的限制——例如缺乏統計檢定力分析，以及對介入後評量的疑慮——使結果的詮釋需要謹慎。……（建議之一是）區分「ChatGPT 產出的品質」與「介入對學業表現的正向效果」，做法包括把介入後評量從定義良好的問題轉向更複雜、需要展示技能的專案式評量，採用監考評量……
-
-翻成白話：**如果評量的時候 AI 還在手邊，你量到的可能是 AI 的輸出品質，不是學生的學習。** 這正是為什麼真正該問的是「AI 收走之後還剩下什麼」——而有人直接測了。
-
-Bastani 等人 2025 年發表於 PNAS 的隨機對照試驗 [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635) 把土耳其近千名高中生分三組做數學練習：一組用接近原生 ChatGPT 的 GPT Base、一組用加了教師設計提示的 GPT Tutor、一組只有課本和筆記。
-
-> 有 GPT-4 可用時解題表現顯著提升（GPT Base 成績提升 48%，GPT Tutor 提升 127%）。然而我們另外發現，當存取權隨後被收走時，學生的表現反而比從未有過存取權的學生更差（GPT Base 成績下降 17%）——也就是說，不受限制的 GPT-4 存取可能危害教育成果。
-
-GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟對照組**打平**。「只給提示不給答案」的防護能把傷害抵銷掉，但沒有讓學習變得更好。研究者對此的比喻是自動駕駛——[Hechinger Report 的報導](https://hechingerreport.org/kids-chatgpt-worse-on-tests)提到，作者拿 FAA 建議飛行員減少使用自動駕駛來類比，重點是確保系統失效時人還會飛。
-
-第二個發現更刺：學生完全沒察覺。GPT Base 組考差了，卻不覺得自己學得比較少；GPT Tutor 組沒考得比較好，卻覺得自己表現顯著更佳。這跟開頭那個「重讀感覺有效」是同一個病，只是工具升級了。
-
-兩份常被一起引用、但需要小心的補充材料：
-
-- **MIT Media Lab 的 [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt)** 用 EEG 測寫作時的神經連結度，提出 cognitive debt（認知負債）概念，發現 LLM 組連自己剛寫的句子都引用不出來。但樣本只有 54 人（第四場僅 18 人完成），且未經同儕審查。[官方專案頁的 FAQ](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview) 特別列了一段請求媒體不要使用 "brain damage"、"brain rot" 這類字眼，因為論文根本沒用這種詞彙。方向可以引，強度不能放大。
-- **[The Memory Paradox](https://arxiv.org/abs/2506.11015)（arXiv:2506.11015）** 走得更遠，把 Flynn effect 的反轉跟認知卸載連在一起。作者群正是 Oakley 與 Sejnowski——同樣兩個人，十年前教你怎麼建立內部記憶，現在在論證為什麼 AI 時代更需要它。**但這條推論鏈需要拆開檢查。** 反轉本身是真的：[Bratsberg 與 Rogeberg 2018 年在 PNAS 分析了 73 萬名以上挪威役男](https://www.pnas.org/doi/10.1073/pnas.1718793115)（1962–1991 年出生），IQ 在 1975 年出生世代達到頂點後逐年下降，而且**在家族內部也成立**——弟弟考得比哥哥低——這個設計乾淨地排除了基因與移民因素。但同一批作者在[自己撰寫的科普說明](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame)裡寫得很清楚：「我們的分析並未指出這些潛在的環境成因究竟是什麼。那仍是未來研究的課題。」把它接到認知卸載，是 Oakley 的推測，不是那份研究支持的結論。
-
-把這幾份放在一起，可操作的規則其實很簡單：**AI 讓你在該困難的地方變順，而順就是學不到東西的訊號。** 先自己做，再問 AI——Kosmyna 研究裡從 brain-only 換到 LLM 的那組表現最好，Bastani 的 GPT Tutor 防護也是同一個原理：把 AI 放在提示的位置，不要放在答案的位置。
-
 ## 整體來說
 
 如果只帶走一件事：**這門課的價值不在它的神經科學，而在它把「不要相信自己的流暢感」做成了可執行的日常流程。**
@@ -230,9 +195,10 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - **要看情況**：交錯練習——視覺材料和數學題有效，說明文和單字別亂用。
 - **可以丟掉**：學習金字塔的百分比、VAK 匹配、以及對成長心態介入的高期待（d = 0.08）。
 - **當成比喻用**：focused / diffuse mode、番茄鐘。行為建議留著，神經學說法別拿去跟人爭論。
-- **AI 時代的新規則**：先自己卡一次，再開 AI。把它放在提示位置。
 
-最後一個帶不走但值得記住的：這個領域的元研究幾乎都以「保留度」為結果變項，對創造力與判斷力的證據薄得多。而 2026 年那份被撤稿的 meta-analysis 提醒了一件事——**連「有證據」本身都需要查證。** 一篇被引用兩百多次、瀏覽近五十萬次的論文可以是錯的，而引用它的文章不會跟著更正。這剛好就是這門課想教你的那個習慣，只是應用在它自己身上。
+還有一個帶不走、但值得記住的限制：這個領域的元研究幾乎都以「保留度」為結果變項，對創造力、判斷力與遷移的證據薄得多。
+
+至於這些原則進了 LLM 時代會怎樣——以及為什麼 AI 教育界被引用最多的那份證據在 2026 年 4 月被撤稿——是[下篇](/posts/learning/2026-08-04-generative-ai-and-learning)的事。
 
 ## 參考資料
 
@@ -295,17 +261,3 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - 【一手·全文】Ericsson 陣營回應 (2019). *Frontiers in Psychology*. <https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full> DOI: 10.3389/fpsyg.2019.02396
 - 【一手·PDF】Harwell, K. W., & Southwick, D. (2021). [Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf).
 
-### AI 與學習
-
-- 【一手·全文】Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). [Generative AI without guardrails can harm learning: Evidence from high school mathematics](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635). *PNAS*, 122(26), e2422633122. DOI: 10.1073/pnas.2422633122 — 另有 2025-08-20 之作者單位更正啟事（不影響結果）。
-- 【二手】[Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education)；[Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests)（自動駕駛／FAA 類比之出處）
-- 【一手·官方】Wang, J., & Fan, W. (2026). [Retraction Note: The effect of ChatGPT on students' learning performance, learning perception, and higher-order thinking: insights from a meta-analysis](https://www.nature.com/articles/s41599-026-07310-z). *Humanities and Social Sciences Communications*, 13, 528. 撤稿日 2026-04-22；公告於 2026-07-02 更新，補列提出疑慮者 Magnus Ingebrigtsen 與 Marko Lukic。
-- 【一手·官方】被撤稿之原文（頁面已標記 RETRACTED）：Wang & Fan (2025). *Humanit Soc Sci Commun*, 12, 621. DOI: 10.1057/s41599-025-04787-y <https://www.nature.com/articles/s41599-025-04787-y>
-- 【二手·新聞】撤稿報導：[EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns)（486,000 次瀏覽／266 引用／Altmetric 1,023）、[GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt)、[NEPC 轉載 404 Media](https://nepc.colorado.edu/blog/nature-publisher)。**三方報導的瀏覽數與引用數略有出入（485k–498k、262–275 引用），此處採 EdTech Innovation Hub 版本。**
-- 【一手·全文】[ChatGPT's impact on student learning outcomes: a meta-analysis](https://www.nature.com/articles/s41599-026-07019-z). *Humanities and Social Sciences Communications* (2026). — 未撤稿；35 研究／134 效果量，g = 0.670，95% CI [0.495, 0.844]。
-- 【摘要】Deng, R., Jiang, M., Yu, X., Lu, Y., & Liu, S. (2025). [Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025). *Computers & Education*, 227, 105224. — 文中引用的是**該文摘要原句**（介入後評量的疑慮、建議採監考評量）。此前版本曾引用 g+ = 0.712，該數字來源為 Academia.edu 的 AI 生成摘要、無法核實，已移除。
-- 【摘要】[A Meta-Analysis of ChatGPT's Influence on Learning Achievement](https://www.irrodl.org/index.php/irrodl/article/view/8775). *IRRODL* (2025). — 22 研究，g = 0.573。
-- 【一手·官方 + 未同儕審查】Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54（第四場僅 18 人完成）；[官方專案頁列有媒體用語限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)。
-- 【一手·未同儕審查】Oakley, B., et al. (2025). [The Memory Paradox](https://arxiv.org/abs/2506.11015). arXiv:2506.11015. — Springer 專書章節之預印本；屬論證，非實證因果。
-- 【一手·全文】Bratsberg, B., & Rogeberg, O. (2018). [Flynn effect and its reversal are both environmentally caused](https://www.pnas.org/doi/10.1073/pnas.1718793115). *PNAS*, 115(26), 6674–6678. DOI: 10.1073/pnas.1718793115 — 730,000+ 挪威役男，1962–1991 出生世代。
-- 【一手·作者撰文】Bratsberg & Rogeberg. [Norwegian IQ scores are falling – but genes are not to blame](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame). TheScienceBreaker. — 「本分析未指出環境成因為何」一語之出處。

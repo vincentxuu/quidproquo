@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-31
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,19 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  branch claude/learning-how-to-learn-bg29gb, not merged). Part 1 = learning
+  science evidence audit; part 2 = generative AI. Findings worth keeping: the
+  most-cited ChatGPT-in-education meta-analysis (Wang & Fan 2025, g = 0.867,
+  ~486k views / 266 citations) was RETRACTED 2026-04-22; Adesope 2017 has no
+  single effect size (+0.51 vs restudy, +0.93 vs no activity, 0.61 pooled) and
+  its full text is paywalled — figures cross-checked against three readers who
+  did read it; Macnamara 2014 carries a 2018 corrigendum the authors say has no
+  practical effect. PROCESS LESSON: five rounds of errors all traced to reading
+  search snippets instead of documents. deep-research SKILL.md amended — source
+  tiering (一手/摘要/轉引/未驗證) replaces the old "2 independent sources" rule,
+  plus "record effect sizes with their comparison condition" and "check for
+  corrections/retractions". Research note in .research/ (not version-controlled).
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many

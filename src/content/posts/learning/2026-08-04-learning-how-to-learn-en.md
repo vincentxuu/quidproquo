@@ -5,10 +5,13 @@ updated: 2026-08-04
 category: learning
 type: deep-dive
 difficulty: 進階
-tags: [learning-science, self-learning, retrieval-practice, spaced-repetition, metacognition, ai-and-learning]
+tags: [learning-science, self-learning, retrieval-practice, spaced-repetition, metacognition]
 lang: en
-tldr: "Dunlosky's 2013 review rated 10 study techniques; only self-testing and distributed practice earned 'high utility'. But a 2026 systematic review puts the effect at 0.22–0.46, and Pan & Rickard's transfer meta-analysis finds 'no positive transfer' once publication bias is corrected and moderators are absent. Meanwhile the single most-cited meta-analysis on ChatGPT in education (g = 0.867) was retracted by Nature in April 2026."
-description: "An evidence audit of Coursera's Learning How to Learn: which claims have meta-analyses behind them, which are useful mental models, which have been debunked, which are shrinking, and how LLMs change the picture."
+series:
+  name: "Learning How to Learn"
+  order: 1
+tldr: "Dunlosky's 2013 review rated 10 study techniques; only self-testing and distributed practice earned 'high utility'. But a 2026 systematic review puts the effect at 0.22–0.46, and Pan & Rickard's transfer meta-analysis finds 'no positive transfer' once publication bias is corrected — making the premise in the framework's own name the piece that tests worst."
+description: "An evidence audit of Coursera's Learning How to Learn: which claims have meta-analyses behind them, which are useful mental models, which have been debunked, and which are being revised by stricter methods."
 draft: false
 glossary:
   - term: "retrieval practice"
@@ -22,28 +25,26 @@ glossary:
   - term: "desirable difficulties"
     definition: "Robert Bjork's term for learning conditions that hurt performance in the moment but improve long-term retention."
     advanced: "Covers spacing, interleaving, retrieval, and varied practice conditions. The difficulty has to be desirable — difficulty beyond the learner's reach is just difficulty."
-    context: "Used here to explain why AI assistance harms learning: it removes exactly this kind of difficulty."
-  - term: "meshing hypothesis"
-    aliases: ["matching hypothesis", "learning styles matching"]
-    definition: "The claim that matching instruction to a student's preferred learning style (visual/auditory/kinesthetic) improves outcomes."
-    advanced: "Supporting it requires a crossover interaction: visual learners do better with visual instruction AND auditory learners do better with auditory instruction. One group scoring higher is not enough."
-    context: "This article traces its path from 2008 debunking to a partial 2024 reversal."
+    context: "The series uses it to explain why AI assistance harms learning: it removes exactly this kind of difficulty."
   - term: "Hedges' g"
     aliases: ["effect size"]
     definition: "A standardized effect size expressing the difference between two groups in standard deviations, with a small-sample correction over Cohen's d."
     advanced: "Roughly 0.2 small, 0.5 medium, 0.8 large — but those thresholds are convention only. Read it alongside I²: a high average with high heterogeneity means individual settings vary widely."
     context: "Several meta-analyses cited here report in g, e.g. the testing effect at g = 0.50."
+  - term: "meshing hypothesis"
+    aliases: ["matching hypothesis", "learning styles matching"]
+    definition: "The claim that matching instruction to a student's preferred learning style (visual/auditory/kinesthetic) improves outcomes."
+    advanced: "Supporting it requires a crossover interaction: visual learners do better with visual instruction AND auditory learners do better with auditory instruction. One group scoring higher is not enough."
+    context: "This article traces its path from 2008 debunking to a partial 2024 reversal."
   - term: "response congruency"
     definition: "How much the correct answers on a practice test overlap with those on the final test."
     advanced: "The dominant moderator in Pan & Rickard's transfer meta-analysis. Random-effects model: d = 0.28 without overlap, rising by 0.30 to 0.58 with it. After publication-bias correction (PEESE) the intercept is effectively zero and congruency adds 0.36."
     context: "Used here to show how fragile the assumption of transfer really is."
-  - term: "cognitive offloading"
-    definition: "Outsourcing memory or reasoning work to external tools — notes, search engines, AI — to reduce mental load."
-    advanced: "It improves short-term performance but may reduce the internal knowledge structures being built. The live debate is over what should be offloaded: offloading lookup cost is usually harmless, offloading the reasoning is not."
-    context: "The thread connecting several 2025 studies on LLMs and learning."
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-04-learning-how-to-learn)
+>
+> This is part 1 of "Learning How to Learn", covering the evidence on learning science itself. [Part 2 covers the AI era](/posts/learning/2026-08-04-generative-ai-and-learning-en): what generative AI does to learning, and why the most-cited piece of evidence in the field was retracted.
 
 There is a course on Coursera whose [official page](https://www.coursera.org/learn/learning-how-to-learn) currently shows 4,175,377 enrollments and a 4.8 rating across 93,136 reviews. It is called Learning How to Learn, taught by engineering professor Barbara Oakley and neuroscientist Terrence Sejnowski. It [launched in August 2014](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php) with 197,000 learners from 206 countries in the first session. By [the New York Times' December 2015 report](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn), it had 1.19 million enrollments — the largest MOOC in the world at the time, narrowly ahead of Andrew Ng's Machine Learning.
 
@@ -117,7 +118,7 @@ One methodological point has to be stated: **this meta-analysis used Fail-safe N
 
 That table now gets cited everywhere. But the ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
 
-**First, heterogeneity matters more than the mean.** Rowland's g = 0.50 sits on top of I² = 84.35 — most of the variation between studies is real situational difference, not sampling error. "Average 0.5" does not mean "you will get 0.5".
+**First, heterogeneity matters more than the mean.** [Rowland's](https://doi.org/10.1037/a0037559) g = 0.50 sits on top of I² = 84.35 — most of the variation between studies is real situational difference, not sampling error. "Average 0.5" does not mean "you will get 0.5".
 
 **Second, newer and more tightly specified estimates land lower.** In March 2026, Dietrichson and colleagues published [a large systematic review](https://edworkingpapers.com/ai26-1418): 102,451 records screened, 87 studies meeting inclusion criteria, 59 in the data synthesis. Where the control group received no practice test at all, the weighted effects were 0.22 (95% CI [0.09, 0.34]) for between-subject designs and 0.46 ([0.29, 0.62]) for within-subject designs. The authors do write that these "seem smaller than those found in earlier reviews" — Adesope's corresponding figures were 0.64 in primary and 0.83 in secondary school.
 
@@ -129,7 +130,7 @@ Their exploratory analysis adds one more finding: **practice tests seemed less e
 
 One unreconciled conflict worth flagging: Rowland found feedback amplifies the testing effect, whereas Adesope found retrieval with feedback only slightly better than without — a reading confirmed independently by [the Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) and by [Dietrichson et al.'s systematic review](https://edworkingpapers.com/ai26-1418) ("Adesope et al. (2017) found similar effects with and without feedback on practice tests").
 
-**Interleaving, meanwhile, is picky about materials.** Brunmair and Richter's meta-analysis is titled *Similarity matters* for a reason. Across 59 studies and 238 effect sizes, interleaving helped with visual materials like paintings and with mathematical problem types; it showed no advantage for expository texts; and for learning words across conceptual categories it may actively hurt. Treating "interleave everything" as general advice misreads the paper.
+**Interleaving, meanwhile, is picky about materials.** [Brunmair and Richter](https://doi.org/10.1037/bul0000209)'s meta-analysis is titled *Similarity matters* for a reason. Across 59 studies and 238 effect sizes, interleaving helped with visual materials like paintings and with mathematical problem types; it showed no advantage for expository texts; and for learning words across conceptual categories it may actively hurt. Treating "interleave everything" as general advice misreads the paper.
 
 ## The awkward question: does any of this transfer?
 
@@ -165,7 +166,7 @@ But in July 2024, Clinton-Lisell and Litzinger published [Is it really a neuromy
 
 > Based on robust variance estimation, there was an overall benefit of matching instruction to learning styles, g = 0.31, SE = 0.12, 95% CI = [0.05, 0.57], p = 0.02. However, only 26% of learning outcome measures indicated matched instruction benefits for at least two styles, indicating a crossover interaction supportive of the matching hypothesis.
 
-The honest reading: **the evidence is not zero, but it is nowhere near enough to redesign teaching around.** That is not just my call — it is the paper's own conclusion. The authors benchmark their g = 0.31 against the plain modality effect (g = 0.70), note I² = 91.17, and weigh the teacher time required against the risk of essentializing students into categories. They still do not recommend adopting it.
+The honest reading: **the evidence is not zero, but it is nowhere near enough to redesign teaching around.** That is not just my call — it is [the paper's own conclusion](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full). The authors benchmark their g = 0.31 against the plain modality effect (g = 0.70), note I² = 91.17, and weigh the teacher time required against the risk of essentializing students into categories. They still do not recommend adopting it.
 
 **Growth mindset is the third case of the same disease.** [Sisk et al.'s two 2018 meta-analyses in Psychological Science](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf) remain the most thorough test: the correlation between mindset and achievement is r ≈ 0.10 across 129 studies (N = 365,915), about 1% of the variance; mindset interventions move achievement by d = 0.08 across 43 studies (N = 57,155). More awkwardly, **interventions whose manipulation checks succeeded — the ones that demonstrably changed students' mindsets — showed no significant effect on achievement.** Dweck and Yeager [responded in 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535), arguing that Sisk's I² of 96.29% means the effects are real but heavily person- and context-dependent, and that low-SES and academically at-risk students do benefit (a point Sisk et al. concede). Both sides agree the effect is small and heterogeneous. They disagree about whether that makes it important.
 
@@ -181,41 +182,6 @@ The Ericsson camp's [rebuttal](https://www.frontiersin.org/journals/psychology/a
 
 The two sets of numbers are not comparable because they measure different things. The takeaway that survives: practice volume matters but is far from everything, and **the more structured and predictable the domain (instrument, running), the more practice explains; the more open-ended the domain (professional work), the less.** The uncomfortable implication for engineers is that software work sits in that last column.
 
-## The AI era: it removes exactly the difficulty you need
-
-This is why the topic is worth revisiting in 2026 — and the place to start is that **the single most-cited piece of evidence in AI education has been retracted.**
-
-In May 2025, Wang and Fan published a meta-analysis in Springer Nature's *Humanities and Social Sciences Communications* synthesizing 51 studies and concluding that ChatGPT has a large positive impact on learning performance, g = 0.867. The number went on to be cited in policy briefings, edtech marketing, and hundreds of papers. [Before retraction it had accumulated roughly 486,000 views, 266 citations, and an Altmetric score of about 1,023](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns).
-
-On 22 April 2026, [the journal issued a retraction notice](https://www.nature.com/articles/s41599-026-07310-z):
-
-> The Editor has decided to retract this article due to concerns relating to discrepancies in the meta‑analysis. These concerns were initially raised by Magnus Ingebrigtsen and Marko Lukic. Taken together, the identified issues undermine the Editor's confidence in the validity of the analysis and the conclusions drawn from it. The authors have not responded to correspondence regarding this retraction.
-
-The two-hundred-plus papers citing it are not retracted along with it. The episode is a meta-level demonstration of this article's own subject: **fluent, agreeable and citable is not the same as true.**
-
-Don't overcorrect, though. **The retraction does not overturn the positive finding itself.** The same journal published [another meta-analysis in 2026](https://www.nature.com/articles/s41599-026-07019-z) — 35 studies, 134 effect sizes — reporting g = 0.670 (95% CI [0.495, 0.844]) with no significant publication bias detected; [a 22-study meta-analysis in IRRODL](https://www.irrodl.org/index.php/irrodl/article/view/8775) gets g = 0.573. Same direction, smaller than 0.867.
-
-So who is right? I think that is the wrong question — **these studies and Bastani's are measuring different things**. And that is not my inference: Deng et al., in their 2025 *Computers & Education* meta-analysis, say it themselves right after reporting their positive results:
-
-> However, methodological limitations, such as the lack of power analysis and concerns regarding post-intervention assessments, warrant cautious interpretation of results. This review presents four propositions from the findings: (1) distinguish between the quality of ChatGPT outputs and the positive effects of interventions on academic performance by shifting from well-defined problems in post-intervention assessments to more complex, project-based assessments that require skill demonstration, adopting proctored assessments…
-
-In plain terms: **if the AI is still at hand during the assessment, what you are measuring may be the quality of its output, not the student's learning.** Which is exactly why the question that matters is what remains after it is taken away — and someone measured that directly.
-
-Bastani et al.'s 2025 randomized controlled trial in PNAS, [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635), split nearly a thousand Turkish high schoolers three ways for math practice: GPT Base (close to stock ChatGPT), GPT Tutor (teacher-designed hints instead of answers), and a control with only textbook and notes.
-
-> Our results show that having GPT-4 access while solving problems significantly improves performance (48% improvement in grades for GPT Base and 127% for GPT Tutor). However, we additionally find that when access is subsequently taken away, students actually perform worse than those who never had access (17% reduction in grades for GPT Base) — i.e., unfettered access to GPT-4 can harm educational outcomes.
-
-The GPT Tutor result deserves equal attention: up 127% during practice, and **level with the control** on the exam. The guardrail cancelled the harm; it did not produce a gain. The researchers reach for an autopilot analogy — as [the Hechinger Report notes](https://hechingerreport.org/kids-chatgpt-worse-on-tests), they cite the FAA advising pilots to minimize autopilot use so they can still fly when it fails.
-
-The second finding stings more: students had no idea. The GPT Base group scored worse without feeling they had learned less; the GPT Tutor group did not score better but believed they had done significantly better. That is the same disease as "rereading feels effective", with upgraded tooling.
-
-Two supporting pieces are frequently cited together and both need care:
-
-- **MIT Media Lab's [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt)** used EEG to measure neural connectivity during essay writing, coined "cognitive debt", and found LLM users could not quote sentences they had just written. But n = 54 (only 18 completed the fourth session) and it is not peer reviewed. [The project FAQ](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview) explicitly asks journalists not to use words like "brain damage" or "brain rot", because the paper never used that vocabulary. Cite the direction, not an inflated magnitude.
-- **[The Memory Paradox](https://arxiv.org/abs/2506.11015) (arXiv:2506.11015)** goes further, linking the reversal of the Flynn effect to cognitive offloading. The authors are Oakley and Sejnowski — the same two people who taught you to build internal memory a decade ago, now arguing why the AI era needs it more. **But the inference chain needs taking apart.** The reversal itself is real: [Bratsberg and Rogeberg's 2018 PNAS analysis of over 730,000 Norwegian military conscripts](https://www.pnas.org/doi/10.1073/pnas.1718793115) (born 1962–1991) found IQ peaking with the 1975 birth cohort and declining afterwards — and the decline holds **within families**, younger brothers scoring below older ones, which cleanly rules out genetic selection and immigration. But the same authors write, in [their own plain-language summary](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame): "Our analysis does not, however, speak to what these underlying environmental causes are. That remains an issue for future research." Attributing it to cognitive offloading is Oakley's conjecture, not a finding of that study.
-
-Put together, the operating rule is simple: **AI makes things smooth exactly where they should be hard, and smoothness is the signal that nothing is being learned.** Do it yourself first, then ask — the group in the Kosmyna study that moved from brain-only to LLM performed best, and Bastani's GPT Tutor guardrail runs on the same principle: put the AI in the hint position, not the answer position.
-
 ## Overall
 
 If you take one thing: **the course's value is not its neuroscience, it is that it turns "don't trust your own sense of fluency" into a repeatable daily process.**
@@ -227,9 +193,10 @@ The concrete trade-offs:
 - **Depends**: interleaving — good for visual materials and math problem types, bad for expository text and vocabulary.
 - **Discard**: the learning pyramid's percentages, VAK matching, and high expectations of growth-mindset interventions (d = 0.08).
 - **Keep as metaphor**: focused/diffuse mode, and the Pomodoro Technique. Keep the behaviour, drop the neural claim before arguing it with anyone.
-- **New rule for the AI era**: get stuck on your own first, then open the AI. Put it in the hint position.
 
-One last thing that doesn't fit in a bullet: this field's reviews almost all use retention as the outcome, with far thinner evidence for creativity or judgment. And the 2026 retraction is a reminder that **even "there is evidence" needs verifying.** A paper cited 260-plus times and viewed nearly half a million times can be wrong, and the articles citing it will not correct themselves. Which is exactly the habit this course set out to teach — applied, this time, to itself.
+One limitation worth carrying: this field's reviews almost all use retention as the outcome, with far thinner evidence for creativity, judgment, or transfer.
+
+What happens to these principles once LLMs arrive — and why the most-cited piece of evidence in AI education was retracted in April 2026 — is [part 2](/posts/learning/2026-08-04-generative-ai-and-learning-en).
 
 ## References
 
@@ -292,17 +259,3 @@ DOIs I could not confirm myself are omitted rather than guessed.
 - [primary/full text] Ericsson-camp response (2019). *Frontiers in Psychology*. <https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full> DOI: 10.3389/fpsyg.2019.02396
 - [primary/PDF] Harwell, K. W., & Southwick, D. (2021). [Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf).
 
-### AI and learning
-
-- [primary/full text] Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). [Generative AI without guardrails can harm learning: Evidence from high school mathematics](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635). *PNAS*, 122(26), e2422633122. DOI: 10.1073/pnas.2422633122 — a 2025-08-20 correction to an author affiliation exists; it does not affect the results.
-- [secondhand] [Without Guardrails, Generative AI Can Harm Education — Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education); [Kids who use ChatGPT as a study assistant do worse on tests — Hechinger Report](https://hechingerreport.org/kids-chatgpt-worse-on-tests) (source of the autopilot/FAA analogy).
-- [primary/official] Wang, J., & Fan, W. (2026). [Retraction Note: The effect of ChatGPT on students' learning performance, learning perception, and higher-order thinking: insights from a meta-analysis](https://www.nature.com/articles/s41599-026-07310-z). *Humanities and Social Sciences Communications*, 13, 528. Retracted 2026-04-22; notice updated 2026-07-02 to credit Magnus Ingebrigtsen and Marko Lukic for raising the concerns.
-- [primary/official] The retracted original (page now flagged RETRACTED): Wang & Fan (2025). *Humanit Soc Sci Commun*, 12, 621. DOI: 10.1057/s41599-025-04787-y <https://www.nature.com/articles/s41599-025-04787-y>
-- [secondhand/news] Retraction coverage: [EdTech Innovation Hub](https://www.edtechinnovationhub.com/news/highly-cited-meta-analysis-claiming-chatgpt-boosts-student-learning-retracted-over-data-concerns) (486,000 views / 266 citations / Altmetric 1,023), [GovTech](https://www.govtech.com/education/nature-retracts-oft-cited-paper-on-positive-impact-of-chatgpt), [NEPC reposting 404 Media](https://nepc.colorado.edu/blog/nature-publisher). **The three outlets disagree slightly (485k–498k views, 262–275 citations); the figures above follow EdTech Innovation Hub.**
-- [primary/full text] [ChatGPT's impact on student learning outcomes: a meta-analysis](https://www.nature.com/articles/s41599-026-07019-z). *Humanities and Social Sciences Communications* (2026). — not retracted; 35 studies / 134 effect sizes, g = 0.670, 95% CI [0.495, 0.844].
-- [abstract] Deng, R., Jiang, M., Yu, X., Lu, Y., & Liu, S. (2025). [Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025). *Computers & Education*, 227, 105224. — what I quote is **the abstract's own wording** on post-intervention assessment concerns and proctored assessments. An earlier version of this article cited g+ = 0.712; that figure came from an AI-generated summary on Academia.edu, could not be verified, and has been removed.
-- [abstract] [A Meta-Analysis of ChatGPT's Influence on Learning Achievement](https://www.irrodl.org/index.php/irrodl/article/view/8775). *IRRODL* (2025). — 22 studies, g = 0.573.
-- [primary/official, not peer reviewed] Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54 (only 18 completed session four); [the official project page carries a statement on media wording](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview).
-- [primary, not peer reviewed] Oakley, B., et al. (2025). [The Memory Paradox](https://arxiv.org/abs/2506.11015). arXiv:2506.11015. — preprint of a Springer book chapter; an argument, not demonstrated causation.
-- [primary/full text] Bratsberg, B., & Rogeberg, O. (2018). [Flynn effect and its reversal are both environmentally caused](https://www.pnas.org/doi/10.1073/pnas.1718793115). *PNAS*, 115(26), 6674–6678. DOI: 10.1073/pnas.1718793115 — 730,000+ Norwegian conscripts, birth cohorts 1962–1991.
-- [primary/by the authors] Bratsberg & Rogeberg. [Norwegian IQ scores are falling – but genes are not to blame](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame). TheScienceBreaker. — source of "our analysis does not speak to what these underlying environmental causes are".
