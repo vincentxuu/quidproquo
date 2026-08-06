@@ -34,8 +34,8 @@ Recently completed
   與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
   各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
   跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
-  待辦：order 4/5 需先跑 deep-research + post-verify（OCR-VLM 數字漂移快）；
-  agentic-attachment-rag-survey 的 ParseBench 敘述有單項/總分混淆，尚未修。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+  待辦：order 4/5 需先跑 deep-research + post-verify（OCR-VLM 數字漂移快）。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示

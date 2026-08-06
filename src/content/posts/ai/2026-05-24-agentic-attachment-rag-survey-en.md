@@ -68,7 +68,9 @@ The motto is "parse only what you need." The agent receives the query first, the
 
 Earlier, **AgenticIE** (arxiv 2509.11773) applied the same idea to information extraction: wrapping OCR, PDF parser, and layout detection as tools, letting the agent dynamically select the parser based on "user intent (key-value pair vs QA) + document modality (scanned vs digital)." **ARIAL** (arxiv 2511.18192) demonstrated the document VQA scenario, decomposing queries into OCR / retrieval / grounding tool calls.
 
-To evaluate whether this approach truly outperforms traditional pipelines, **ParseBench** (arxiv 2604.08538) provides quantitative evidence: on document parsing benchmarks, LlamaParse's agentic version scored 80.62%, outperforming the traditional Azure pipeline at 73.8%. Doc-Researcher (arxiv 2510.21603) compiled a cost / quality tradeoff table for different parsing strategies.
+To evaluate whether this approach truly outperforms traditional pipelines, **ParseBench** ([arxiv 2604.08538](https://arxiv.org/abs/2604.08538); ~2,000 human-verified enterprise document pages across five capability dimensions) provides quantitative evidence: on the [leaderboard](https://github.com/run-llama/ParseBench), LlamaParse's agentic version scores 84.88 overall against Azure Document Intelligence's 73.8, and 80.62 against 73.8 on the visual grounding dimension specifically. Multi-step agentic flows do beat single-pass pipelines.
+
+That benchmark comes with a discount, though: **ParseBench is built by LlamaIndex (run-llama), and the leader, LlamaParse, is their own product.** The dataset and evaluation code are published on HuggingFace and GitHub, which is better than most vendor self-evaluations — but the structural bias of "the author's product wins" remains, and the per-dimension scores are more informative than the overall ranking. Doc-Researcher (arxiv 2510.21603) compiled a cost / quality tradeoff table for different parsing strategies.
 
 ## Connecting the Three Layers
 
@@ -142,6 +144,10 @@ Tradeoffs for production systems:
 
 Essential reading list: Self-RAG (2310.11511), Adaptive-RAG (2403.14403), Self-Route (2407.16833), Agentic RAG Survey (2501.09136), plus AgenticOCR (2602.24134) from the parser thread. Eight papers to cover this entire design space.
 
+## Changelog
+
+- 2026-08-06: Corrected the ParseBench citation. The 80.62% figure is the visual grounding dimension, not the overall score (84.88), and the original phrasing read as an overall ranking. Also disclosed that ParseBench is built by LlamaIndex and that the leading entry, LlamaParse, is their own product. Added the leaderboard link to the references.
+
 ## References
 
 ### Adaptive RAG / Self-RAG
@@ -180,6 +186,7 @@ Essential reading list: Self-RAG (2310.11511), Adaptive-RAG (2403.14403), Self-R
 - [DocLens: A Tool-Augmented Multi-Agent Framework for Long Document Understanding (2025)](https://arxiv.org/abs/2511.11552)
 - [Doc-Researcher: A Unified System for Multimodal Document Understanding (2025)](https://arxiv.org/abs/2510.21603)
 - [ParseBench: A Document Parsing Benchmark for AI Agents (2026)](https://arxiv.org/abs/2604.08538)
+- [run-llama/ParseBench — leaderboard and evaluation code](https://github.com/run-llama/ParseBench)
 - [Document Parsing Unveiled: Techniques, Challenges, and Prospects (2024 survey)](https://arxiv.org/abs/2410.21169)
 - [Optimizing Chunking-Method Selection for RAG / Adaptive Chunking (2026)](https://arxiv.org/abs/2603.25333)
 - [Hybrid OCR-LLM Framework for Enterprise-Scale Document Processing (2025)](https://arxiv.org/abs/2510.10138)
