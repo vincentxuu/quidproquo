@@ -70,7 +70,7 @@ PDF 是特例，它是唯一橫跨三層的格式。
 
 這一層又分兩種取向：
 
-- **pipeline 式**：[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/VikParuchuri/marker)、[Docling](https://github.com/DS4SD/docling) 把版面偵測、OCR、表格識別串成多階段管線，每階段可替換、可除錯。Docling 特別強調輸出結構化 JSON 而不只是 Markdown。
+- **pipeline 式**：[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/datalab-to/marker)、[Docling](https://github.com/docling-project/docling) 把版面偵測、OCR、表格識別串成多階段管線，每階段可替換、可除錯。Docling 特別強調輸出結構化 JSON 而不只是 Markdown。
 - **端到端 VLM**：直接讓視覺語言模型看整頁、吐出 Markdown。[DeepSeek-OCR](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression) 那篇拆過這條路線的極端版本——它甚至反過來用「把文字渲染成圖片」做上下文壓縮。
 
 商業 API（LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、Reducto）也在這一層，邏輯是付費買準確度與免維護。付錢不代表自動勝出：[ParseBench](https://github.com/run-llama/ParseBench)（arXiv [2604.08538](https://arxiv.org/abs/2604.08538)，約 2,000 頁人工校驗的企業文件、五個能力維度）的 leaderboard 上，LlamaParse Agentic 總分 84.88 領先，Azure Document Intelligence 73.8——**同樣是付費方案，差距來自多步驟策略而非預算**。
@@ -100,7 +100,7 @@ PDF 是特例，它是唯一橫跨三層的格式。
          └─────────────────────────► 【抽取層】Trafilatura / Readability
 ```
 
-實務上這棵樹該做成 fallback 鏈而不是一次性判斷：先跑轉換層，遇到 `Unsupported` 或空輸出再往上掉。anydoc 把錯誤碼分成 `Unsupported` / `Malformed` / `Encrypted` / `ResourceLimit` 六種，正是為了讓你這樣接。
+實務上這棵樹該做成 fallback 鏈而不是一次性判斷：先跑轉換層，遇到 unsupported error 或空輸出再往上掉。anydoc 對掃描 PDF 就是直接回 unsupported 而不硬吐半成品，正是為了讓你這樣接。
 
 ## 三個常見的選錯
 
@@ -114,7 +114,7 @@ PDF 是特例，它是唯一橫跨三層的格式。
 
 選層比選工具重要一個數量級。層選對了，同層工具之間的差異多半是格式覆蓋率和 API 手感；層選錯了，再好的工具都在解錯的問題。
 
-這個系列接下來會沿這三層往下走：轉換層已經有 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro) 跟 [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 兩篇，抽取層與解析層的工具比較會陸續補上。
+這個系列沿著這三層往下走：轉換層是 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro) 與 [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)，抽取層是 [PyMuPDF / pdfplumber / Tika 那一組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)（注意 PyMuPDF 的 AGPL 授權），解析層是 [MinerU / Marker / Docling 與 OCR-VLM](/posts/ai/2026-08-06-document-parsing-layout-ocr)（那一層真正的選型軸是授權，不是準確度）。
 
 ## 參考資料
 
@@ -123,9 +123,11 @@ PDF 是特例，它是唯一橫跨三層的格式。
 - [PyMuPDF 官方文件](https://pymupdf.readthedocs.io/)
 - [jsvine/pdfplumber — GitHub](https://github.com/jsvine/pdfplumber)
 - [opendatalab/MinerU — GitHub](https://github.com/opendatalab/MinerU)
-- [VikParuchuri/marker — GitHub](https://github.com/VikParuchuri/marker)
-- [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
+- [datalab-to/marker — GitHub](https://github.com/datalab-to/marker)
+- [docling-project/docling — GitHub](https://github.com/docling-project/docling)
 - [adbar/trafilatura — GitHub](https://github.com/adbar/trafilatura)
+- [確定性抽取層：不用任何模型，先解決八成的 PDF](/posts/ai/2026-08-06-pdf-text-extraction-libraries)
+- [解析層：當結構要用模型推斷](/posts/ai/2026-08-06-document-parsing-layout-ocr)
 - [Office Open XML (OOXML) 標準文件 — Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/)
 - [ParseBench: A Document Parsing Benchmark for AI Agents（arXiv 2604.08538）](https://arxiv.org/abs/2604.08538)
 - [run-llama/ParseBench — GitHub leaderboard](https://github.com/run-llama/ParseBench)

@@ -31,7 +31,7 @@ glossary:
 
 One fact up front that should shape how you read this: the repo was created on 2026-08-03 and is three days old as I write, with 746 stars (GitHub API, queried 2026-08-06). Every number here is still moving — the benchmark table changed between my first read of the README and my fact-check pass. Each figure below is timestamped; treat them as snapshots.
 
-This is a crowded space — [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en), [Docling](https://github.com/DS4SD/docling), MinerU, and Marker all have their followings. What makes anydoc worth a look is not "fast and good" marketing language, but a deliberate trade-off in a place most people assume there is no choice: **it gives up modality breadth to buy format depth and predictability**.
+This is a crowded space — [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en), [Docling](https://github.com/docling-project/docling), MinerU, and Marker all have their followings. What makes anydoc worth a look is not "fast and good" marketing language, but a deliberate trade-off in a place most people assume there is no choice: **it gives up modality breadth to buy format depth and predictability**.
 
 ## One shared Document model
 
@@ -74,7 +74,7 @@ The README ships a comparison against six competitors (queried 2026-08-06):
 | [markitdown](https://github.com/microsoft/markitdown) | 6/14 | 134.8 ms | 33 | 65 |
 | [unstructured](https://github.com/Unstructured-IO/unstructured) | 8/14 | 572.9 ms | 58 | 65 |
 | [pandoc](https://pandoc.org/) | 5/14 | 102.1 ms | 34 | 57 |
-| [docling](https://github.com/DS4SD/docling) | 4/14 | 513.6 ms | 21 | 57 |
+| [docling](https://github.com/docling-project/docling) | 4/14 | 513.6 ms | 21 | 57 |
 | [libreoffice](https://www.libreoffice.org/) | 12/14 | 1129.5 ms | 87 | 40 |
 
 The speed gap is real, but pick your comparison carefully. The README is explicit about how timing was done:
@@ -185,7 +185,7 @@ If you haven't yet decided which layer you need, start with the first post in th
 - [firecrawl-anydoc — PyPI](https://pypi.org/project/firecrawl-anydoc/)
 - [anydoc — crates.io](https://crates.io/crates/anydoc)
 - [microsoft/markitdown — GitHub](https://github.com/microsoft/markitdown)
-- [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
+- [docling-project/docling — GitHub](https://github.com/docling-project/docling)
 - [Unstructured-IO/unstructured — GitHub](https://github.com/Unstructured-IO/unstructured)
 - [mwilliamson/mammoth.js — GitHub](https://github.com/mwilliamson/mammoth.js)
 - [Pandoc — official site](https://pandoc.org/)

@@ -70,7 +70,7 @@ What they share: **the structure is not in the file and must be inferred from vi
 
 Two approaches split this layer:
 
-- **Pipeline-based**: [MinerU](https://github.com/opendatalab/MinerU), [Marker](https://github.com/VikParuchuri/marker), and [Docling](https://github.com/DS4SD/docling) chain layout detection, OCR, and table recognition into multi-stage pipelines where each stage is swappable and debuggable. Docling in particular emphasizes structured JSON output rather than just Markdown.
+- **Pipeline-based**: [MinerU](https://github.com/opendatalab/MinerU), [Marker](https://github.com/datalab-to/marker), and [Docling](https://github.com/docling-project/docling) chain layout detection, OCR, and table recognition into multi-stage pipelines where each stage is swappable and debuggable. Docling in particular emphasizes structured JSON output rather than just Markdown.
 - **End-to-end VLM**: hand a whole page to a vision-language model and get Markdown back. The [DeepSeek-OCR post](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en) dissects the extreme version of this route — one that inverts the idea entirely, rendering *text into images* for context compression.
 
 Commercial APIs (LlamaParse, Azure Document Intelligence, Google Document AI, AWS Textract, Reducto) also sit here, trading money for accuracy and zero maintenance. Paying does not automatically win: on the [ParseBench](https://github.com/run-llama/ParseBench) leaderboard (arXiv [2604.08538](https://arxiv.org/abs/2604.08538); ~2,000 human-verified enterprise document pages across five capability dimensions), LlamaParse Agentic leads with an overall 84.88 against Azure Document Intelligence's 73.8 — **both paid, with the gap coming from multi-step strategy rather than budget**.
@@ -100,7 +100,7 @@ file arrives
          └─────────────────────────► [EXTRACTION] Trafilatura / Readability
 ```
 
-In practice this tree should be a fallback chain rather than a one-shot decision: run the conversion layer first, and escalate on `Unsupported` or empty output. anydoc splits its errors into six codes — `Unsupported` / `Malformed` / `Encrypted` / `ResourceLimit` and friends — precisely so you can wire it up that way.
+In practice this tree should be a fallback chain rather than a one-shot decision: run the conversion layer first, and escalate on an unsupported error or empty output. anydoc returns unsupported for scanned PDFs rather than emitting half-broken output, precisely so you can wire it up that way.
 
 ## Three common misfires
 
@@ -114,7 +114,7 @@ In practice this tree should be a fallback chain rather than a one-shot decision
 
 Picking the layer matters an order of magnitude more than picking the tool. Get the layer right and the differences within it are mostly format coverage and API ergonomics. Get it wrong and the best tool in the world is solving the wrong problem.
 
-This series works down the ladder from here. The conversion layer already has [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en); tool comparisons for the extraction and parsing layers are coming.
+This series works down the ladder. The conversion layer is [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en); the extraction layer is [PyMuPDF / pdfplumber / Tika and friends](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) (watch PyMuPDF's AGPL license); the parsing layer is [MinerU / Marker / Docling and the OCR-VLMs](/posts/ai/2026-08-06-document-parsing-layout-ocr-en), where the real selection axis turns out to be licensing rather than accuracy.
 
 ## References
 
@@ -123,9 +123,11 @@ This series works down the ladder from here. The conversion layer already has [M
 - [PyMuPDF documentation](https://pymupdf.readthedocs.io/)
 - [jsvine/pdfplumber — GitHub](https://github.com/jsvine/pdfplumber)
 - [opendatalab/MinerU — GitHub](https://github.com/opendatalab/MinerU)
-- [VikParuchuri/marker — GitHub](https://github.com/VikParuchuri/marker)
-- [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
+- [datalab-to/marker — GitHub](https://github.com/datalab-to/marker)
+- [docling-project/docling — GitHub](https://github.com/docling-project/docling)
 - [adbar/trafilatura — GitHub](https://github.com/adbar/trafilatura)
+- [The Deterministic Extraction Layer](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en)
+- [The Parsing Layer: When Structure Must Be Inferred](/posts/ai/2026-08-06-document-parsing-layout-ocr-en)
 - [Office Open XML (OOXML) standards — Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/)
 - [ParseBench: A Document Parsing Benchmark for AI Agents (arXiv 2604.08538)](https://arxiv.org/abs/2604.08538)
 - [run-llama/ParseBench — GitHub leaderboard](https://github.com/run-llama/ParseBench)

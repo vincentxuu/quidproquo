@@ -31,7 +31,7 @@ glossary:
 
 先講一個影響閱讀方式的事實：這個 repo 建立於 2026-08-03，寫這篇時只有三天大，746 stars（GitHub API 查詢於 2026-08-06）。所有數字都還在動——我第一次讀 README 到第二次查證之間，benchmark 表就換過一輪。下面引的每個數字都標了查詢時間，你讀到時請當快照看。
 
-這個賽道已經很擠了——[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[Docling](https://github.com/DS4SD/docling)、MinerU、Marker 各有擁護者。anydoc 值得看的原因不是「又快又好」這種行銷語言，而是它在一個大家都以為沒得選的地方做了明確取捨：**放棄模態廣度，換格式深度與可預測性**。
+這個賽道已經很擠了——[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[Docling](https://github.com/docling-project/docling)、MinerU、Marker 各有擁護者。anydoc 值得看的原因不是「又快又好」這種行銷語言，而是它在一個大家都以為沒得選的地方做了明確取捨：**放棄模態廣度，換格式深度與可預測性**。
 
 ## 一個共用的 Document model
 
@@ -74,7 +74,7 @@ README 附了一張跟六個競品的對照表（2026-08-06 查詢）：
 | [markitdown](https://github.com/microsoft/markitdown) | 6/14 | 134.8 ms | 33 | 65 |
 | [unstructured](https://github.com/Unstructured-IO/unstructured) | 8/14 | 572.9 ms | 58 | 65 |
 | [pandoc](https://pandoc.org/) | 5/14 | 102.1 ms | 34 | 57 |
-| [docling](https://github.com/DS4SD/docling) | 4/14 | 513.6 ms | 21 | 57 |
+| [docling](https://github.com/docling-project/docling) | 4/14 | 513.6 ms | 21 | 57 |
 | [libreoffice](https://www.libreoffice.org/) | 12/14 | 1129.5 ms | 87 | 40 |
 
 速度差距是真的，但要挑對比較對象。README 說明計時方式時講得很清楚：
@@ -185,7 +185,7 @@ anydoc 沒有試圖成為文件處理的萬用解，它把範圍縮得很窄—�
 - [firecrawl-anydoc — PyPI](https://pypi.org/project/firecrawl-anydoc/)
 - [anydoc — crates.io](https://crates.io/crates/anydoc)
 - [microsoft/markitdown — GitHub](https://github.com/microsoft/markitdown)
-- [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
+- [docling-project/docling — GitHub](https://github.com/docling-project/docling)
 - [Unstructured-IO/unstructured — GitHub](https://github.com/Unstructured-IO/unstructured)
 - [mwilliamson/mammoth.js — GitHub](https://github.com/mwilliamson/mammoth.js)
 - [Pandoc — 官方網站](https://pandoc.org/)
