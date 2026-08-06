@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [document-processing, document-parsing, rag, llm, ocr, open-source]
 lang: zh-TW
-tldr: "把文件餵給 LLM 之前，最常見的錯誤不是選錯工具，是選錯層。結構已經在檔案裡的用轉換層（毫秒級），有文字沒結構的用抽取層，連文字都要推斷的才用解析層——anydoc 的 4.4ms 到 Docling 的 513.6ms 差 117 倍，多數人卻直接跳最貴的那層。"
+tldr: "把文件餵給 LLM 之前，最常見的錯誤不是選錯工具，是選錯層。結構已經在檔案裡的用轉換層（毫秒級），有文字沒結構的用抽取層，連文字都要推斷的才用解析層——anydoc 的 4.7ms 到 Docling 的 513.6ms 差 109 倍，多數人卻直接跳最貴的那層。"
 description: "文件轉 LLM 可讀內容的三層決策架構：轉換層（MarkItDown、anydoc）、抽取層（PyMuPDF、pdfplumber）、解析層（MinerU、Docling、OCR-VLM）各自解什麼問題、成本差多少，以及一張可以照著走的選型決策樹。"
 series:
   name: "文件解析實戰"
@@ -32,7 +32,7 @@ glossary:
 
 | | 結構的狀態 | 工作內容 | 代表工具 | 量級 |
 |---|---|---|---|---|
-| **轉換層** | 明寫在檔案裡 | 重新序列化 | [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、pandoc | 毫秒 |
+| **轉換層** | 明寫在檔案裡 | 重新序列化 | [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、pandoc | 個位數毫秒 |
 | **抽取層** | 有文字，結構要靠啟發式規則 | 座標分析、規則判斷 | PyMuPDF、pdfplumber、Trafilatura | 十毫秒 |
 | **解析層** | 沒有結構，甚至沒有文字 | 用模型推斷 | MinerU、Docling、OCR-VLM | 百毫秒到秒 |
 
@@ -42,7 +42,7 @@ glossary:
 
 `.docx` 的表格就是 `<w:tbl>`，`.pptx` 的標題就是 placeholder type 為 title 的那個 shape，EPUB 的章節就是 `<h1>`。這些 [OOXML](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/) 系列格式**本身就是結構化資料**，只是換了一種序列化方式。
 
-所以轉換層的工作不是「理解」，是「翻譯」。不需要模型、不需要 GPU、不需要推斷，讀 XML、對映到 Markdown、輸出。這也是為什麼它可以快到 [anydoc benchmark](https://github.com/firecrawl/anydoc) 裡的 4.4 毫秒中位耗時——同一份 benchmark 裡走 ML 路線的 Docling 是 513.6 毫秒，差 117 倍。
+所以轉換層的工作不是「理解」，是「翻譯」。不需要模型、不需要 GPU、不需要推斷，讀 XML、對映到 Markdown、輸出。這也是為什麼它可以快到 [anydoc benchmark](https://github.com/firecrawl/anydoc) 裡的 4.7 毫秒中位耗時（2026-08-06 查詢）——同一份 benchmark 裡走 ML 路線的 Docling 是 513.6 毫秒，差 109 倍。兩者都是函式庫、計時都排除了 process 啟動，這個比較是同基準的。
 
 **什麼時候用**：來源是 Office 檔、EPUB、CSV、HTML 這類格式化文件。企業內部文件庫有超過一半屬於這類，卻常常被整批丟進 OCR pipeline。
 
@@ -73,7 +73,9 @@ PDF 是特例，它是唯一橫跨三層的格式。
 - **pipeline 式**：[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/VikParuchuri/marker)、[Docling](https://github.com/DS4SD/docling) 把版面偵測、OCR、表格識別串成多階段管線，每階段可替換、可除錯。Docling 特別強調輸出結構化 JSON 而不只是 Markdown。
 - **端到端 VLM**：直接讓視覺語言模型看整頁、吐出 Markdown。[DeepSeek-OCR](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression) 那篇拆過這條路線的極端版本——它甚至反過來用「把文字渲染成圖片」做上下文壓縮。
 
-商業 API（LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、Reducto）也在這一層，邏輯是付費買準確度與免維護。值得注意的是準確度未必碾壓開源：站內[《上傳檔案就自動 embedding 是個壞預設》](/posts/ai/2026-05-24-agentic-attachment-rag-survey)引的 ParseBench 數據顯示，LlamaParse 的 agentic 版本 80.62% 對上傳統 Azure pipeline 的 73.8%——同樣是付費方案，差距來自策略而非預算。
+商業 API（LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、Reducto）也在這一層，邏輯是付費買準確度與免維護。付錢不代表自動勝出：[ParseBench](https://github.com/run-llama/ParseBench)（arXiv [2604.08538](https://arxiv.org/abs/2604.08538)，約 2,000 頁人工校驗的企業文件、五個能力維度）的 leaderboard 上，LlamaParse Agentic 總分 84.88 領先，Azure Document Intelligence 73.8——**同樣是付費方案，差距來自多步驟策略而非預算**。
+
+不過這份 benchmark 要跟 anydoc 那份用同一把尺看：**ParseBench 由 LlamaIndex（run-llama）製作，而榜首 LlamaParse 正是他們自家產品**。方法論公開、資料集與評測程式碼都上了 HuggingFace 跟 GitHub，這點比多數自評好；但「作者自己的產品拿第一」這個結構性偏誤依然存在。看它的 per-dimension 分數（表格、圖表、內容忠實度、語義格式、視覺定位）比看總分排名有用。
 
 **代價**：需要 GPU（或按頁付費）、延遲從毫秒變成秒、輸出有不確定性（同一份檔案跑兩次可能不一樣）、除錯困難。
 
@@ -125,6 +127,8 @@ PDF 是特例，它是唯一橫跨三層的格式。
 - [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
 - [adbar/trafilatura — GitHub](https://github.com/adbar/trafilatura)
 - [Office Open XML (OOXML) 標準文件 — Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/)
+- [ParseBench: A Document Parsing Benchmark for AI Agents（arXiv 2604.08538）](https://arxiv.org/abs/2604.08538)
+- [run-llama/ParseBench — GitHub leaderboard](https://github.com/run-llama/ParseBench)
 - [anydoc：14 種辦公格式轉 Markdown](/posts/ai/2026-08-06-anydoc-rust-document-markdown)
 - [MarkItDown：把任何檔案餵給 LLM 之前，先讓它變成 Markdown](/posts/ai/2026-04-18-markitdown-intro)
 - [上傳檔案就自動 embedding 是個壞預設](/posts/ai/2026-05-24-agentic-attachment-rag-survey)

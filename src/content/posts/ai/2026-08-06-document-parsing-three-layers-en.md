@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [document-processing, document-parsing, rag, llm, ocr, open-source]
 lang: en
-tldr: "The most common mistake in feeding documents to an LLM isn't picking the wrong tool — it's picking the wrong layer. Structure already in the file goes to the conversion layer (milliseconds); text without structure goes to extraction; only inferred structure needs parsing. anydoc's 4.4ms against Docling's 513.6ms is a 117× gap, and most people jump straight to the most expensive layer."
+tldr: "The most common mistake in feeding documents to an LLM isn't picking the wrong tool — it's picking the wrong layer. Structure already in the file goes to the conversion layer (milliseconds); text without structure goes to extraction; only inferred structure needs parsing. anydoc's 4.7ms against Docling's 513.6ms is a 109× gap, and most people jump straight to the most expensive layer."
 description: "A three-layer decision framework for turning documents into LLM-readable content: conversion (MarkItDown, anydoc), extraction (PyMuPDF, pdfplumber), and parsing (MinerU, Docling, OCR-VLMs) — what each solves, what each costs, and a decision tree you can follow."
 series:
   name: "文件解析實戰"
@@ -32,7 +32,7 @@ The first question is not "which tool" but **"does structure exist inside my fil
 
 | | State of structure | The actual work | Representative tools | Order of magnitude |
 |---|---|---|---|---|
-| **Conversion** | Written explicitly in the file | Re-serialization | [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en), [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en), pandoc | Milliseconds |
+| **Conversion** | Written explicitly in the file | Re-serialization | [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en), [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en), pandoc | Single-digit ms |
 | **Extraction** | Text exists, structure needs heuristics | Coordinate analysis, rule-based inference | PyMuPDF, pdfplumber, Trafilatura | Tens of milliseconds |
 | **Parsing** | No structure, sometimes no text | Model-based inference | MinerU, Docling, OCR-VLMs | Hundreds of ms to seconds |
 
@@ -42,7 +42,7 @@ The ladder is one-directional: **anything solvable at a lower layer will be slow
 
 A `.docx` table *is* a `<w:tbl>`. A `.pptx` title *is* the shape whose placeholder type is title. An EPUB chapter *is* an `<h1>`. These [OOXML](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/)-family formats **are structured data already** — just serialized differently.
 
-So the conversion layer's job is translation, not understanding. No model, no GPU, no inference: read the XML, map it to Markdown, write it out. That is why it can hit the 4.4 millisecond median in the [anydoc benchmark](https://github.com/firecrawl/anydoc) — where Docling, taking the ML route, comes in at 513.6 milliseconds, a 117× difference.
+So the conversion layer's job is translation, not understanding. No model, no GPU, no inference: read the XML, map it to Markdown, write it out. That is why it can hit the 4.7 millisecond median in the [anydoc benchmark](https://github.com/firecrawl/anydoc) (queried 2026-08-06) — where Docling, taking the ML route, comes in at 513.6 milliseconds, a 109× difference. Both are libraries and both were timed with process startup excluded, so the comparison shares a basis.
 
 **When to use it**: sources are Office files, EPUB, CSV, HTML, or similar formatted documents. More than half of a typical enterprise document store falls here — and gets dumped into an OCR pipeline anyway.
 
@@ -73,7 +73,9 @@ Two approaches split this layer:
 - **Pipeline-based**: [MinerU](https://github.com/opendatalab/MinerU), [Marker](https://github.com/VikParuchuri/marker), and [Docling](https://github.com/DS4SD/docling) chain layout detection, OCR, and table recognition into multi-stage pipelines where each stage is swappable and debuggable. Docling in particular emphasizes structured JSON output rather than just Markdown.
 - **End-to-end VLM**: hand a whole page to a vision-language model and get Markdown back. The [DeepSeek-OCR post](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en) dissects the extreme version of this route — one that inverts the idea entirely, rendering *text into images* for context compression.
 
-Commercial APIs (LlamaParse, Azure Document Intelligence, Google Document AI, AWS Textract, Reducto) also sit here, trading money for accuracy and zero maintenance. Worth noting that paying does not automatically win: the ParseBench figures cited in [Auto-embedding on upload is a bad default](/posts/ai/2026-05-24-agentic-attachment-rag-survey-en) put LlamaParse's agentic version at 80.62% against a traditional Azure pipeline's 73.8% — both paid, with the gap coming from strategy rather than budget.
+Commercial APIs (LlamaParse, Azure Document Intelligence, Google Document AI, AWS Textract, Reducto) also sit here, trading money for accuracy and zero maintenance. Paying does not automatically win: on the [ParseBench](https://github.com/run-llama/ParseBench) leaderboard (arXiv [2604.08538](https://arxiv.org/abs/2604.08538); ~2,000 human-verified enterprise document pages across five capability dimensions), LlamaParse Agentic leads with an overall 84.88 against Azure Document Intelligence's 73.8 — **both paid, with the gap coming from multi-step strategy rather than budget**.
+
+That benchmark deserves the same scrutiny as anydoc's, though: **ParseBench is built by LlamaIndex (run-llama), and the leader, LlamaParse, is their own product**. The methodology is public and both dataset and evaluation code are published on HuggingFace and GitHub, which is better than most self-evaluations — but the structural bias of "the author's own product wins" is still there. Its per-dimension scores (tables, charts, content faithfulness, semantic formatting, visual grounding) are more useful than the overall ranking.
 
 **The cost**: GPUs (or per-page billing), latency measured in seconds instead of milliseconds, non-deterministic output (the same file twice may not produce the same result), and hard debugging.
 
@@ -125,6 +127,8 @@ This series works down the ladder from here. The conversion layer already has [M
 - [DS4SD/docling — GitHub](https://github.com/DS4SD/docling)
 - [adbar/trafilatura — GitHub](https://github.com/adbar/trafilatura)
 - [Office Open XML (OOXML) standards — Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/office-standards/ms-oi29500/)
+- [ParseBench: A Document Parsing Benchmark for AI Agents (arXiv 2604.08538)](https://arxiv.org/abs/2604.08538)
+- [run-llama/ParseBench — GitHub leaderboard](https://github.com/run-llama/ParseBench)
 - [anydoc: 14 Office Formats to Markdown](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en)
 - [MarkItDown: Convert Any File to Markdown Before Feeding It to an LLM](/posts/ai/2026-04-18-markitdown-intro-en)
 - [Auto-embedding on upload is a bad default](/posts/ai/2026-05-24-agentic-attachment-rag-survey-en)

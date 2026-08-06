@@ -24,20 +24,18 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立，註冊在
-  `src/utils/series.ts`。排序原則是**閱讀路徑**不是日期——一度先用日期排，加入
-  解析層之後發現讀者學不到東西，趁未合併時重排（`getSeriesNav` 用嚴格 order±1，
-  斷號會讓「第 N 篇/共 M 篇」顯示錯誤，所以編號必須從 1 連號）。骨幹是三層階梯
-  （轉換 / 抽取 / 解析），現有 1 三層階梯總論、2 MarkItDown、3 anydoc，zh/en 各
-  一份；規劃中 4 抽取層（PyMuPDF/pdfplumber/Tika/extractous）、5 解析層（MinerU/
-  Docling/Surya/olmOCR + 商業 API）。AI 爬蟲全景圖退出系列（34 個工具裡只有一節
-  談轉檔），保留雙向連結。新寫兩篇 post(ai)：三層階梯總論（核心論點是選錯層比選
-  錯工具貴一個數量級，附決策樹與 fallback 鏈）、anydoc（Firecrawl 的 Rust 轉檔
-  函式庫，共用 Document model、14 種格式含 OLE 老格式、4.4ms 中位耗時，代價是完
-  全不做 OCR）。anydoc benchmark 標明為廠商自評且測試集不公開，只把格式覆蓋與耗
-  時當硬事實。新增 frontmatter glossary：GFM、OLE 複合文件、OOXML、版面分析。
-  待辦：order 4/5 的工具清單需先跑 deep-research + post-verify，OCR-VLM 那塊數字
-  漂移快；anydoc 的 6.2k stars 是抓取當下數字，尚未查證。
+- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
+  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
+  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
+  2 MarkItDown、3 anydoc（zh/en 各一份）；規劃 4 抽取層（PyMuPDF/pdfplumber/
+  Tika/extractous）、5 解析層（MinerU/Docling/olmOCR + 商業 API）。AI 爬蟲全景圖
+  退出系列，保留雙向連結。新寫兩篇 post(ai)：三層階梯總論、anydoc。
+  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
+  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
+  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
+  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  待辦：order 4/5 需先跑 deep-research + post-verify（OCR-VLM 數字漂移快）；
+  agentic-attachment-rag-survey 的 ParseBench 敘述有單項/總分混淆，尚未修。
 - 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
   靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
   重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示

@@ -69,7 +69,7 @@ Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接�
 
 [MarkItDown](https://github.com/microsoft/markitdown)（169k stars, MIT）是微軟出品，格式支援最廣——PDF、Word、Excel、PowerPoint、HTML、圖片都能轉 Markdown，是目前這個賽道星數最高的專案。[MinerU](https://github.com/opendatalab/MinerU)（76k stars）表格與數學公式擷取最強，學術 PDF 首選。[Marker](https://github.com/VikParuchuri/marker)（38k stars, Apache-2.0）速度快、GPU 需求低，適合批量轉換。[Docling](https://github.com/DS4SD/docling)（64k stars, MIT）IBM Research 出品，強調結構化輸出（JSON schema），適合需要精確保留文件結構的場景。
 
-[anydoc](https://github.com/firecrawl/anydoc)（~6.2k stars, MIT）是 Firecrawl 出品的 Rust 函式庫，走的路線跟上面幾個都不同：只做辦公文件、完全不碰 OCR，但 14 種格式全支援（含 `.doc` / `.ppt` / `.xls` 老格式），中位耗時 4.4ms。值得注意的是它跟 Firecrawl 主專案的授權不同——主專案是 AGPL-3.0，anydoc 是 MIT，商業整合沒有 copyleft 顧慮。詳細比較見[〈anydoc：14 種辦公格式轉 Markdown〉](/posts/ai/2026-08-06-anydoc-rust-document-markdown)。
+[anydoc](https://github.com/firecrawl/anydoc)（746 stars, MIT，2026-08-06 查詢）是 Firecrawl 出品的 Rust 函式庫，2026-08-03 才開源，走的路線跟上面幾個都不同：只做辦公文件、完全不碰 OCR，但 14 種格式全支援（含 `.doc` / `.ppt` / `.xls` 老格式），中位耗時 4.7ms。值得注意的是它跟 Firecrawl 主專案的授權不同——主專案是 AGPL-3.0，anydoc 是 MIT，商業整合沒有 copyleft 顧慮。詳細比較見[〈anydoc：14 種辦公格式轉 Markdown〉](/posts/ai/2026-08-06-anydoc-rust-document-markdown)。
 
 輕量選項：[Trafilatura](https://github.com/adbar/trafilatura)（~6k stars）專攻「從網頁抽正文、濾廣告」，做前處理穩定好用。[Jina Reader](https://github.com/jina-ai/reader)（12k stars, Apache-2.0）零設定——URL 前加 `r.jina.ai/` 就拿到 Markdown。Readability（~9k stars）是 Firefox 閱讀模式的引擎，常被當成前處理步驟嵌在其他工具裡。
 
@@ -129,7 +129,7 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 
 ## 更新紀錄
 
-- 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.4ms 中位耗時、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異。文件轉檔這一層的完整選型脈絡另見[「文件解析實戰」系列](/series/document-parsing)。
+- 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.7ms 中位耗時、746 stars、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異。文件轉檔這一層的完整選型脈絡另見[「文件解析實戰」系列](/series/document-parsing)。本篇其餘工具的星數仍為 2026-07-24 查詢值，未重新驗證。
 
 ## 參考資料
 
