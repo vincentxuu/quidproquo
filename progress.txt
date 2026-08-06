@@ -40,8 +40,20 @@ Recently completed
   chain verification authority") — narrower than TW media's framing; and
   check:references warns (exit 1) when a zh post's title/headings share no
   ASCII token with the references block — fixed by putting "CAA" in a heading.
-  Hub links out to all 3 spokes. Every post carries `drone` as first tag.
-  Next: A2 (產業週期史) or E1 (四條件框架看無人機鏈).
+  A2: 產業週期史 (tech) — 2016 bubble wreckage (3DR stopped hardware, GoPro
+  recalled all 2,500 Karma in 6 weeks + 15% layoffs, Parrot -35% drone staff,
+  Lily folded) and Skydio's 2023 consumer exit despite $570M raised; thesis is
+  last cycle's risk was market-side, this one is execution-side.
+  E1: 四條件框架 (investing) — only 1 of 4 criteria holds (certification =
+  switching cost); chokepoint fails (TW at L2), demand is policy not
+  structural (80% public), criterion 4 deliberately not assessed (no
+  single-stock work). Risk spine is the Army's NT$988M counter-drone contract:
+  failed acceptance 3x, terminated in full, NT$98.78M bond forfeited — the
+  "winning a bid is not revenue" case. Has an explicit not-investment-advice
+  note; names no tickers, per the plan's decision.
+  Hub links out to all 5 spokes. Every post carries `drone` as first tag.
+  Batch 1+2 done (6 posts x2 langs). Remaining v1: A3, B2, B3, B4, C2, C3,
+  D1-D3 (blocked on buying a drone + booking the licence exam), E2.
   TODO when series hits 3+ posts: promote the 5 frontmatter glossary terms
   (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) to src/lib/glossary/terms.ts.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
@@ -60,20 +72,6 @@ Recently completed
   photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
   `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
   typing the /api/related-posts JSON response — `astro check` now 0 errors.
-- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
-  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
-  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
-  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
-  Content: product-builder post retargeted from the "product builder" head
-  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
-  with 6 two-way internal links. Batch 2 (original first-hand material) still
-  needs input from the user.
-- 2026-07-06: governance framework established — operating charter
-  (docs/governance/operating-charter.md), unified `pnpm verify` gate
-  (pre-commit + Stop hook + preview CI), skills mirror sync
-  (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
-  progress.txt protocol + archive. Skills are edited ONLY in
-  .agents/skills/, then `pnpm skills:sync`.
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

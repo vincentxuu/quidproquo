@@ -164,6 +164,8 @@ glossary:
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — 把本文的五層框架套到台灣，用雷虎公開的 BOM 拆分驗證缺口確實落在第 3 層
 - [台灣無人機法規白話版：什麼要註冊、什麼要考照、什麼會被罰](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) — 依法規資料庫現行條文整理，並標出網路懶人包已經過時的說法
 - [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-06-drone-industry-job-map) — 把職缺放回五層框架，標出每個角色對軟體背景的可遷移度
+- [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-06-drone-industry-cycle-history) — 上一輪的殘骸與這一輪的三個結構差異、三個相同警訊
+- [用四條件框架看無人機供應鏈：四條裡目前只成立一條](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — 用站上既有的尺量這個板塊，含三類具體風險
 
 同系列文章都帶 `drone` 標籤，可從 [#drone](/tags/drone) 一次瀏覽。
 
