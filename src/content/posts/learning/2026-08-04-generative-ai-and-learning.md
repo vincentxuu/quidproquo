@@ -19,7 +19,7 @@ faq:
   - q: "那些說 AI 有助學習的研究是錯的嗎？"
     a: "不是全錯，但它們測的多半是另一件事。多數正向 meta-analysis 量的是「AI 在手時的表現」，而不是「AI 收走之後還剩下什麼」。Deng 等人 2025 年那份 meta-analysis 自己就指出這個問題，並建議改用監考評量，以區分「ChatGPT 產出的品質」與「學生真的學到的東西」。另外要注意：被引用最多的那篇（g = 0.867）已在 2026 年 4 月被 Nature 撤稿。"
   - q: "怎麼用 AI 才不會傷害學習？"
-    a: "把 AI 放在提示的位置，不要放在答案的位置——先自己卡一次，再問。這條規則有兩個實驗支撐：Bastani 的 GPT Tutor 組只給教師設計的提示，就把傷害消掉了；MIT 的研究裡，從自己寫再換成用 LLM 的那組表現最好。判斷訊號很簡單：如果過程變順了，那通常就是你沒在學的時候。"
+    a: "把 AI 放在提示的位置，不要放在答案的位置——先自己卡一次，再問。這條規則有兩個實驗支撐：Bastani 的 GPT Tutor 組只給教師設計的提示，就把傷害消掉了；MIT 的研究第四場也顯示同方向的順序效應——先自己寫、之後才用 LLM 的那組，記憶回想與神經再參與都優於一路用 LLM 的組別（但作者強調這不代表「用 AI 讓大腦變好」，且該場只有 18 人完成）。判斷訊號很簡單：如果過程變順了，那通常就是你沒在學的時候。"
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-04-generative-ai-and-learning-en)
@@ -71,7 +71,7 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 ## 整體來說
 
-把這幾份放在一起，可操作的規則其實很簡單：**AI 讓你在該困難的地方變順，而順就是學不到東西的訊號。** 先自己做，再問 AI——Kosmyna 研究裡從 brain-only 換到 LLM 的那組表現最好，Bastani 的 GPT Tutor 防護也是同一個原理：把 AI 放在提示的位置，不要放在答案的位置。
+把這幾份放在一起，可操作的規則其實很簡單：**AI 讓你在該困難的地方變順，而順就是學不到東西的訊號。** 先自己做，再問 AI。Bastani 的 GPT Tutor 防護就是這個原理：把 AI 放在提示的位置，不要放在答案的位置。Kosmyna 研究第四場的順序效應方向一致——先自己寫、之後才用 LLM 的 Brain-to-LLM 組，連結度高於 LLM 組的前三場，記憶回想也較好，研究者因此建議「在自主努力之後再導入 AI」。**但別把它讀成「用了 AI 之後大腦更好」**：Kosmyna 本人公開強調「你的大腦在使用 LLM 之後或期間並不會表現更好」，而該組樣本僅 18 人。
 
 
 最後補一個元層次的教訓。那篇被撤稿的 meta-analysis 提醒的不只是「AI 教育研究品質參差」——**連「有證據」本身都需要查證**。一篇被引用兩百多次、瀏覽近五十萬次的論文可以是錯的，而引用它的兩百多篇文章不會跟著更正。這剛好就是[上篇](/posts/learning/2026-08-04-learning-how-to-learn)那門課想教的習慣，只是這次要應用在學術文獻上。
@@ -88,7 +88,7 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - 【一手·全文】[ChatGPT's impact on student learning outcomes: a meta-analysis](https://www.nature.com/articles/s41599-026-07019-z). *Humanities and Social Sciences Communications* (2026). — 未撤稿；35 研究／134 效果量，g = 0.670，95% CI [0.495, 0.844]。
 - 【摘要】Deng, R., Jiang, M., Yu, X., Lu, Y., & Liu, S. (2025). [Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies](https://bibbase.org/network/publication/deng-jiang-yu-lu-liu-doeschatgptenhancestudentlearningasystematicreviewandmetaanalysisofexperimentalstudies-2025). *Computers & Education*, 227, 105224. — 文中引用的是**該文摘要原句**（介入後評量的疑慮、建議採監考評量）。此前版本曾引用 g+ = 0.712，該數字來源為 Academia.edu 的 AI 生成摘要、無法核實，已移除。
 - 【摘要】[A Meta-Analysis of ChatGPT's Influence on Learning Achievement](https://www.irrodl.org/index.php/irrodl/article/view/8775). *IRRODL* (2025). — 22 研究，g = 0.573。
-- 【一手·官方 + 未同儕審查】Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54（第四場僅 18 人完成）；[官方專案頁列有媒體用語限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)。
+- 【一手·官方 + 未同儕審查】Kosmyna, N., et al. (2025). [Your Brain on ChatGPT](https://www.media.mit.edu/publications/your-brain-on-chatgpt). MIT Media Lab, arXiv:2506.08872. — n = 54（第四場僅 18 人完成）；[官方專案頁列有媒體用語限制聲明](https://www.media.mit.edu/projects/your-brain-on-chatgpt/overview)。第四場 Brain-to-LLM／LLM-to-Brain 的順序效應，以及作者本人「大腦在使用 LLM 之後或期間並不會表現更好」的說明，見 [Kosmyna 的公開貼文](https://www.linkedin.com/posts/nataliekosmina_mit-ai-brain-activity-7340386826504876033-X45W)。
 - 【一手·未同儕審查】Oakley, B., et al. (2025). [The Memory Paradox](https://arxiv.org/abs/2506.11015). arXiv:2506.11015. — Springer 專書章節之預印本；屬論證，非實證因果。
 - 【一手·全文】Bratsberg, B., & Rogeberg, O. (2018). [Flynn effect and its reversal are both environmentally caused](https://www.pnas.org/doi/10.1073/pnas.1718793115). *PNAS*, 115(26), 6674–6678. DOI: 10.1073/pnas.1718793115 — 730,000+ 挪威役男，1962–1991 出生世代。
 - 【一手·作者撰文】Bratsberg & Rogeberg. [Norwegian IQ scores are falling – but genes are not to blame](https://www.thesciencebreaker.org/en/breaks/psychology/norwegian-iq-scores-are-falling-but-genes-are-not-to-blame). TheScienceBreaker. — 「本分析未指出環境成因為何」一語之出處。

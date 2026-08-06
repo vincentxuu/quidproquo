@@ -15,7 +15,7 @@ description: "An evidence audit of Coursera's Learning How to Learn: which claim
 draft: false
 faq:
   - q: "Does rereading your notes actually work?"
-    a: "Poorly — and it is what students do most. Dunlosky et al. (2013) rated 10 study techniques and placed rereading in the low-utility tier; in a related survey, 84% of students reported rereading and 55% named it their number one strategy. The trap is that rereading feels effective: the second pass goes down more smoothly, and that fluency gets misread as mastery. Self-testing instead is worth roughly +0.51 over rereading."
+    a: "Poorly — and it is what students do most. Dunlosky et al. (2013) rated 10 study techniques and placed rereading in the low-utility tier. Separately, Karpicke, Butler and Roediger's 2009 survey of 177 college students found 84% reported rereading and 55% named it their number one strategy. The trap is that rereading feels effective: the second pass goes down more smoothly, and that fluency gets misread as mastery. Self-testing instead is worth roughly +0.51 over rereading."
   - q: "How large is the self-testing effect really?"
     a: "It depends what you compare it against. Roughly +0.51 versus restudying, +0.93 versus doing nothing, and about g = 0.61 pooled across all comparison conditions. A stricter 2026 systematic review reports lower figures: 0.22 for between-subject designs and 0.46 for within-subject designs. Always state the control condition — the same study can be cited at wildly different strengths without it."
   - q: "Are learning styles a myth?"
