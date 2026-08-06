@@ -25,52 +25,56 @@ Next steps
 
 Recently completed
 - 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
-  PR #127). Part 1 = learning
-  science evidence audit; part 2 = generative AI. Findings worth keeping: the
-  most-cited ChatGPT-in-education meta-analysis (Wang & Fan 2025, g = 0.867,
-  ~486k views / 266 citations) was RETRACTED 2026-04-22; Adesope 2017 has no
-  single effect size (+0.51 vs restudy, +0.93 vs no activity, 0.61 pooled) and
-  its full text is paywalled — figures cross-checked against three readers who
-  did read it; Macnamara 2014 carries a 2018 corrigendum the authors say has no
-  practical effect. PROCESS LESSON: five rounds of errors all traced to reading
-  search snippets instead of documents. deep-research SKILL.md amended — source
-  tiering (一手/摘要/轉引/未驗證) replaces the old "2 independent sources" rule,
-  plus "record effect sizes with their comparison condition" and "check for
-  corrections/retractions". Research note in .research/ (not version-controlled).
-- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
-  circulating "2026 AI certs for engineers" list against primary sources only;
-  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
-  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
-  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
-  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
-  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
-  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
-  (per Pearson VUE). Prices are NOT officially published (third-party sources
-  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
-  Added site-wide glossary term MLOps.
-- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
-  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
-  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
-  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
-  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
-  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
-  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
-  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
-  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
-  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
-  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
-  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
-  Koboyo 自己也有 MCP，補進 MCP 那節。
-- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
-  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
-  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
-  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
-  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
-  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
-  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
-  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
-  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
-（2026-07-27 之前的條目已移到 docs/progress-archive.md）
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
+- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
+  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
+  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
+  2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份，系列完整。AI 爬蟲
+  全景圖退出系列，保留雙向連結。新寫四篇 post(ai)：三層階梯總論、anydoc、
+  抽取層（PyMuPDF/pdfplumber/pypdf/Tika/Kreuzberg/extractous）、解析層（MinerU/
+  Marker/Docling/olmOCR/dots.ocr + 商業 API）。
+  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
+  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
+  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
+  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+  order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
+  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
+  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
+  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
+  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
+  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
+  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
+  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
+  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
+  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
+  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
+  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
+  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
+  "never searched it, only talked about it" phenomenon. Key find nobody has
+  covered yet: FTC closed the Cox Media Group "Active Listening" case on
+  2026-05-21 — the service collected NO voice data at all, it was reselling
+  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
+  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
+  was a fraud. Second find: Meta's official PYMK signal list (transparency
+  center, updated 2024-12-13) explicitly includes "whether or not your contact
+  was uploaded by the person being suggested" — official confirmation of the
+  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
+  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
+  signal list contains no location/IP signal, so the article says "industry
+  practice, Meta holds the same raw materials". Included the Webex counterexample
+  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
+  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
+  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
+  地理圍欄, DMA). Research note in .research/ (not version-controlled).
+（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
