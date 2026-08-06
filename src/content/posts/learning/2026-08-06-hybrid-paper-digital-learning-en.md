@@ -1,24 +1,67 @@
 ---
-title: "Pen, Paper, and an App: Six Hybrid Study Modes, and the Evidence Gap Behind \"Handwriting Is Better\""
+title: "What Paper Still Earns in a Digital-First Study Stack: Three Places It Works, and One It Doesn't"
 date: 2026-08-06
 category: learning
 type: deep-dive
 tags: [self-learning, note-taking, reading, cognitive-science, spaced-repetition, e-ink]
 lang: en
-tldr: "Four meta-analyses put handwritten note-taking anywhere from g = −0.008 to +0.248, and the more a design separates medium from digital distraction, the smaller the effect. The solid evidence is in reading: paper beats screens at g ≈ −0.21, but only for informational text, and the gap widens to 0.35–0.48 when scrolling is required. Includes six paper-digital hybrid modes and official 2026 E-ink pricing."
-description: "Six practical paper-plus-app hybrid study modes, their evidence boundaries, and 2026 device options, drawn from four meta-analyses, reading-medium research, and answering-behaviour experiments."
+tldr: "Once studying went fully digital, paper still holds three places with real evidence: reading (paper over screens at g ≈ −0.21 across 171,055 participants, widening to 0.35–0.48 when scrolling is required), writing while you answer (on screen, harder questions draw less scratch work, not more), and drawing (45% recall against 20% for writing). The one claim most people lean on, that handwritten notes stick better, spans −0.008 to +0.248 across four meta-analyses with no consensus."
+description: "Where physical paper still holds up now that digital study tools are the default. Covers the reading, answering, and drawing evidence, six paper-digital hybrid modes, and official 2026 E-ink pricing."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-06-hybrid-paper-digital-learning)
 
-"Study with an app, but write the important things down on paper." Almost everyone has heard this, and plenty of people do it. Digging into the evidence turns up something uncomfortable: the reason usually given for it, that handwriting helps you remember, rests on the weakest evidence in the whole field. The evidence that does hold up sits somewhere people discuss far less, which is reading.
+Learning something today has a default path, and it is digital end to end. Online courses, PDFs, a notes app, a tablet and stylus, a spaced repetition scheduler. You can run the whole chain without touching paper.
 
-What follows covers four note-taking meta-analyses, four reading meta-analyses, two experiments on answering behaviour, then sorts the practical combinations into six modes with 2026 device pricing.
+So what is left for the physical side? I assumed the answer would be mostly sentiment. It isn't. Paper still does measurable work, and the effect sizes are larger than I expected, just not in the place most people point to.
 
-## The handwriting advantage: four meta-analyses form a pattern
+The next three sections cover where physical holds up, strongest evidence first. The fourth covers the one place it doesn't, which happens to be the argument people reach for most often.
 
-All four ask the same question. Does taking lecture notes by hand rather than by keyboard change achievement?
+## Where the physical advantage is clearest: reading
+
+| Meta-analysis | Scale | Effect size |
+|---|---|---|
+| [Delgado et al. 2018](https://doi.org/10.1016/j.edurev.2018.09.003) | 54 studies / 171,055 participants | g = −0.21 (paper over screen) |
+| [Clinton 2019](https://doi.org/10.1111/1467-9817.12269) | — | g = −0.25 |
+| [Salmerón et al. 2024](https://doi.org/10.1037/edu0000830) | 49 studies (handheld devices specifically) | g = −0.113 / −0.103 |
+| [2025 network meta-analysis](https://doi.org/10.1007/s10639-025-13843-8) | 56 studies / 4 device types | Ranking: paper > tablets > e-readers > computers > smartphones |
+
+A 171,055-participant sample and four meta-analyses pointing the same way. This is the least contested block in the whole field.
+
+It also comes with boundaries, and knowing them is what tells you when printing is worth it.
+
+Text type first. In Delgado's data informational text gives g = −0.27 while narrative-only text gives g = .01, which is no difference at all, and Clinton found the same shape. Novels on a Kindle are fine. Textbooks and papers are where it bites.
+
+Then time pressure. Time-constrained reading gives g = −0.26 against −0.09 for self-paced. Exams and deadline reading lose the most.
+
+The last boundary may be the important one, and it loosens the whole paper-versus-digital frame. The 2025 network meta-analysis split scrolling out: when scrolling is required, paper's advantage is g = 0.35–0.48; when it is not, the range drops to 0.03–0.12 with no reliable difference. What wins may not be paper so much as pagination. A paginated PDF or E-ink page behaves close to paper, an infinitely scrolling web page does not. Worth flagging that Delgado 2018 found scrolling was not a significant moderator, so the two conflict, and the 2025 result has not been replicated.
+
+On mechanism, the most persuasive account is not eye strain but broken metacognitive calibration. Screen readers systematically overestimate how well they understood and therefore stop investing effort early. Clinton said exactly this in interviews. It also explains why time pressure amplifies the effect, since overconfident readers under time pressure are the least likely to go back and reread.
+
+One counterintuitive detail. Delgado regressed effect size on publication year from 2000 to 2017 and found paper's advantage growing over time. If unfamiliarity with digital tools were the cause, it should have shrunk.
+
+## Second place: whether you write anything while answering
+
+[Prisacari & Danielson (2017)](https://doi.org/10.1016/j.chb.2017.07.044) compared computer- and paper-based quizzes in undergraduate general chemistry. Scores and subjective cognitive load showed no difference, but students used scratch paper significantly more on the paper version, and the gap was larger on harder questions.
+
+[Pengelley, Whipp & Rovis-Hermann (2023)](https://doi.org/10.1007/s10648-023-09781-x) replicated the pattern with a repeated-measures design and N = 263 Western Australian year-9 students. The result comes in three layers, and any citation needs all three.
+
+First, paper produced significantly higher scores on difficult questions, plus higher cognitive load and scratch paper use across all paper questions. Second, once working memory capacity was controlled, the main effects of mode on score and on both cognitive load measures were no longer significant, and only the mode-by-difficulty interaction survived. Third, the scratch paper pattern: on paper, harder questions drew more written work, while on computer the trend reversed and harder questions drew less.
+
+The third layer is the sharpest. The authors conclude that "these results contradict previous findings that computer-based testing can be implemented without consequence for all learners".
+
+Move a problem onto a screen and students stop writing exactly when writing matters most. Scores do not necessarily drop right away; the problem-solving behaviour changes. So paper's contribution here is not that writing is better, it is that paper makes writing cheap enough that you don't skip it.
+
+## Third place: drawing
+
+[Wammes et al. (2016)](https://pubmed.ncbi.nlm.nih.gov/26444654) found across seven experiments that drawn words were recalled about 45% of the time against about 20% for written words. The effect held up well enough that the authors called it reliable and robust.
+
+A tablet can do this too, but the friction differs. On paper, an arrow, a box, or a line joining two concepts costs nothing; in most notes apps you first switch tools, pick a colour, set a width. The gap is small, and small gaps decide whether you actually draw.
+
+## The one that doesn't hold: "handwritten notes stick better"
+
+This is the argument people reach for most often to defend paper, and it is the only one of the four with no consensus behind it.
 
 | Meta-analysis | Scale | Effect size | Relationship to digital distraction |
 |---|---|---|---|
@@ -27,9 +70,7 @@ All four ask the same question. Does taking lecture notes by hand rather than by
 | [Lau 2022](https://ir.library.louisville.edu/etd/3982) | 33 reports / 88 effect sizes | g = 0.144, 95% CI [0.023, 0.265] | Experimental and quasi-experimental, secondary plus college |
 | [Voyer et al. 2022](https://doi.org/10.1016/j.cedpsych.2021.102025) | 36 articles / 77 effect sizes | g = −0.008, 95% CI [−0.18, 0.16] | States its purpose as *unconfounded by distractions* |
 
-The ordering looks tidy. The more a design separates writing medium from digital distraction, the smaller the effect, until it hits zero at Voyer.
-
-Voyer's team read it the same way in their abstract:
+The ordering looks tidy. The more a design separates writing medium from digital distraction, the smaller the effect, until it hits zero at Voyer. Voyer's team read it the same way in their abstract:
 
 > an apparent advantage of longhand notetaking reported in some previous studies can be explained at least partially by distractions from notetaking by other applications that are present only with digital devices.
 
@@ -41,7 +82,7 @@ The founding study, [Mueller & Oppenheimer (2014)](https://doi.org/10.1177/09567
 
 One finding does hold up every time: typists write more words and overlap more verbatim with the speaker. In Urry's replication verbatim overlap came out at g = −0.85 against the original's −0.93, not significantly different (p = .326). That part replicated cleanly.
 
-So the live question is probably not the hand movement. It is that typing is smooth enough that you drift into transcribing without noticing.
+None of this is bad news for using paper. It changes the reason. The live question is probably not the hand movement but the fact that typing is smooth enough that you drift into transcribing without noticing, and paper works by throttling input bandwidth until you have to choose what matters. Defending paper with "handwriting burns it into your brain" means standing on the weakest ground available.
 
 ## That brain-connectivity study cannot carry the argument
 
@@ -50,39 +91,6 @@ The 2024 high-density EEG study by [Van der Weel & Van der Meer](https://doi.org
 The methods section says three things. The handwriting condition used a digital pen on a touchscreen, not paper. The typing condition used the right index finger only. Each trial ran 25 seconds with just the first 5 seconds recorded, and the paper contains no memory or learning test at all.
 
 What it supports is that pen movements are more complex than key presses. It cannot support handwriting improving test scores, and it certainly cannot support paper beating screens, since its handwriting condition was itself on a screen.
-
-## The strong evidence is in reading, not writing
-
-| Meta-analysis | Scale | Effect size |
-|---|---|---|
-| [Delgado et al. 2018](https://doi.org/10.1016/j.edurev.2018.09.003) | 54 studies / 171,055 participants | g = −0.21 (paper over screen) |
-| [Clinton 2019](https://doi.org/10.1111/1467-9817.12269) | — | g = −0.25 |
-| [Salmerón et al. 2024](https://doi.org/10.1037/edu0000830) | 49 studies (handheld devices specifically) | g = −0.113 / −0.103 |
-| [2025 network meta-analysis](https://doi.org/10.1007/s10639-025-13843-8) | 56 studies / 4 device types | Ranking: paper > tablets > e-readers > computers > smartphones |
-
-A 171,055-participant sample, and far steadier than anything on the note-taking side. It also comes with usable boundaries.
-
-Text type first. In Delgado's data informational text gives g = −0.27 while narrative-only text gives g = .01, which is no difference at all, and Clinton found the same shape. Novels on a Kindle are fine. Textbooks and papers are where it bites.
-
-Then time pressure. Time-constrained reading gives g = −0.26 against −0.09 for self-paced. Exams and deadline reading lose the most.
-
-The last one may be the real variable. The 2025 network meta-analysis split scrolling out: when scrolling is required, paper's advantage is g = 0.35–0.48; when it is not, the range drops to 0.03–0.12 with no reliable difference. A paginated PDF or E-ink page behaves close to paper, an infinitely scrolling web page does not. Worth flagging that Delgado 2018 found scrolling was not a significant moderator, so the two conflict, and the 2025 result has not been replicated.
-
-On mechanism, the most persuasive account is not eye strain but broken metacognitive calibration. Screen readers systematically overestimate how well they understood and therefore stop investing effort early. Clinton said exactly this in interviews. It also explains why time pressure amplifies the effect, since overconfident readers under time pressure are the least likely to go back and reread.
-
-One counterintuitive detail. Delgado regressed effect size on publication year from 2000 to 2017 and found paper's advantage growing over time. If unfamiliarity with digital tools were the cause, it should have shrunk.
-
-## Answering on screen quietly switches off your scratch paper
-
-[Prisacari & Danielson (2017)](https://doi.org/10.1016/j.chb.2017.07.044) compared computer- and paper-based quizzes in undergraduate general chemistry. Scores and subjective cognitive load showed no difference, but students used scratch paper significantly more on the paper version, and the gap was larger on harder questions.
-
-[Pengelley, Whipp & Rovis-Hermann (2023)](https://doi.org/10.1007/s10648-023-09781-x) replicated the pattern with a repeated-measures design and N = 263 Western Australian year-9 students. The result comes in three layers, and any citation needs all three.
-
-First, paper produced significantly higher scores on difficult questions, plus higher cognitive load and scratch paper use across all paper questions. Second, once working memory capacity was controlled, the main effects of mode on score and on both cognitive load measures were no longer significant, and only the mode-by-difficulty interaction survived. Third, the scratch paper pattern: on paper, harder questions drew more written work, while on computer the trend reversed and harder questions drew less.
-
-The third layer is the sharpest. The authors conclude that "these results contradict previous findings that computer-based testing can be implemented without consequence for all learners".
-
-Move a problem onto a screen and students stop writing exactly when writing matters most. Scores do not collapse. The problem-solving behaviour changes.
 
 ## Six hybrid modes
 
@@ -99,7 +107,7 @@ Move a problem onto a screen and students stop writing exactly when writing matt
 
 Mode 2 is the most underrated of the six, and it has direct evidence behind it. What it does is put back the writing behaviour the screen quietly removed, and it needs no scanning, so there is no sync cost.
 
-Mode 3's benefit gets attributed to handwriting when it actually comes from drawing. [Wammes et al. (2016)](https://pubmed.ncbi.nlm.nih.gov/26444654) found across seven experiments that drawn words were recalled about 45% of the time against about 20% for written words. Paper's contribution here is that drawing carries almost no tool friction.
+Mode 3 runs on the drawing effect covered earlier, and paper's contribution is that the tool friction rounds to zero.
 
 Mode 4 shines where resources are scarce. Plickers gives each student a printed QR card held with their chosen answer facing up, and the teacher scans the whole room with one phone, compressing a device per student into a sheet of paper per student.
 
