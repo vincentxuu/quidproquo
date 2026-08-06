@@ -8,34 +8,6 @@ lang: zh-TW
 tldr: "全球無人機市場 2026 年約 690 億美元（IDTechEx），中國掌握約 80% 市場（CSIS）、DJI 占多旋翼七成以上。美國 FCC 在 2025 年 12 月把所有外國製無人機列入 Covered List；台灣產值一年從 50 億元跳到 129 億元，2026 Q1 出口就超過 2025 全年。這篇拆解產業鏈五層、四大需求板塊，以及卡住規模化的兩個天花板。"
 description: "無人機產業的完整地圖：產業鏈分層、市場規模為何各家報告差十倍、軍用／農業／物流／巡檢四大需求、中國供應鏈壟斷與出口管制、美國 NDAA 與 FCC 政策槓桿、BVLOS 法規瓶頸，以及台灣在非紅供應鏈中的實際位置與缺口。"
 draft: false
-glossary:
-  - term: "BVLOS"
-    aliases: ["Beyond Visual Line of Sight", "超視距"]
-    definition: "超視距飛行，指無人機飛到操作員肉眼看不見的範圍外。"
-    advanced: "多數國家目前只用個案豁免（waiver）核准 BVLOS，需要 detect-and-avoid（偵測與避讓）能力與可靠的通訊鏈路。BVLOS 能不能常態化，直接決定物流、長距離巡檢這類商業模式的單位經濟。"
-    context: "本文把 BVLOS 法規視為無人機規模化的兩個天花板之一。"
-    links:
-      - label: "FAA Part 108 NPRM"
-        url: "https://www.faa.gov/uas"
-  - term: "FPV"
-    aliases: ["First-Person View", "第一人稱視角無人機"]
-    definition: "操作員透過機上鏡頭即時畫面操控的無人機，多為小型四旋翼。"
-    advanced: "俄烏戰場上的主力型態：單價從數百到數千美元，可攜帶爆裂物執行一次性攻擊。低成本、高產量、易受電子干擾，因此衍生出光纖導引與 AI 終端導引兩條演進路線。"
-    context: "本文用 FPV 產量說明軍用需求如何重塑整個供應鏈。"
-  - term: "非紅供應鏈"
-    aliases: ["民主供應鏈", "non-red supply chain"]
-    definition: "整機與關鍵零組件都不使用中國製造來源的供應鏈。"
-    advanced: "在無人機領域具體化為認證制度：美國國防部的 Blue UAS（軍用）與 Green UAS（商用）清單，以及 NDAA 對聯邦採購的來源限制。台灣把「2027 年全非紅供應鏈」寫進政策目標。"
-    context: "本文的台灣段落幾乎整段建立在這個概念上。"
-  - term: "Blue UAS / Green UAS"
-    definition: "美國國防部體系的無人機信任認證清單，Blue 為軍用級、Green 為商用級。"
-    advanced: "Blue UAS Cleared List 由國防合約管理局（DCMA）維護，是美軍採購的信任標章；Green UAS 由 AUVSI 營運，是進入 Blue 的前置門票。兩者都要求供應鏈溯源與資安檢測。"
-    context: "台灣是美國本土之外第一個取得 Green UAS 認證授權的國家。"
-  - term: "C-UAS"
-    aliases: ["counter-UAS", "反制系統", "反無人機"]
-    definition: "偵測、辨識、追蹤並攔截無人機的系統總稱。"
-    advanced: "手段分軟殺（干擾 GPS／通訊鏈路、協定接管）與硬殺（動能攔截、雷射、攔截無人機）。光纖導引與自主導航無人機讓純干擾式軟殺失效，是這個市場高速成長的主因。"
-    context: "本文把 C-UAS 視為與無人機本體對稱的另一半市場。"
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-06-drone-industry-map-en)

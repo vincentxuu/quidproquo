@@ -24,8 +24,8 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-06: drone series — 8 posts shipped (zh+en each) across tech/policy/
-  career/investing. Plan + per-post findings + cross-post verification lessons
+- 2026-08-06: drone series — 11 posts shipped (zh+en each) across tech/policy/
+  career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
   series; it is the record, this is only working memory).
   Structural decisions that still bind: `category` is the container
@@ -33,16 +33,18 @@ Recently completed
   NO category filter so /tags/drone is the cross-category hub, and EVERY series
   post must carry `drone` as its first tag. Investing posts go
   framework-and-risk only, no tickers.
-  SCHEDULED RELEASE: pillar 08-06, then 08-09/12/15/18/21/24/27 (see plan
+  SCHEDULED RELEASE: pillar 08-06, then every 3 days to 09-05 (see plan
   §5.2). Future-dated posts are NOT built — a published post linking to a
   later-dated one is a hard 404, so the link graph must point backwards only.
   Hub therefore lists no individual spokes; it points at /tags/drone, which
   self-updates. Guard script is in plan §5.2 — run it after any reschedule.
-  Remaining v1: A3 (商業模式), B3 (教育路徑), E2 (國防預算受惠路徑) — all
-  writable now; B2/B4 need interviews; D1-D3 blocked on buying a drone and
-  booking the licence exam.
-  TODO at 3+ posts (now overdue): promote the 5 frontmatter glossary terms
-  (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) to src/lib/glossary/terms.ts.
+  Glossary debt CLEARED: the 5 drone terms (BVLOS, FPV, 非紅供應鏈, Blue UAS,
+  C-UAS) are now in src/lib/glossary/terms.ts (191 total) and the duplicate
+  frontmatter block was removed from the hub — note frontmatter glossary is
+  prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so a
+  frontmatter entry SHADOWS the site-wide one.
+  Remaining v1: B2/B4 need interviews; D1-D3 blocked on buying a drone and
+  booking the licence exam. Next scheduled slot is 09-08.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many

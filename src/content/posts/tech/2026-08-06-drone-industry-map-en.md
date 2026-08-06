@@ -8,34 +8,6 @@ lang: en
 tldr: "The global drone market is roughly US$69B in 2026 (IDTechEx). China holds about 80% of it (CSIS) and DJI over 70% of multi-rotor. The FCC put every foreign-made drone on its Covered List in December 2025; Taiwan's drone output jumped from NT$5.0B to NT$12.9B in one year, and Q1 2026 exports already beat all of 2025. This piece breaks down the five-layer supply chain, the four demand blocks, and the two ceilings holding back scale."
 description: "A full map of the drone industry: supply chain layers, why market-size estimates differ by 10x, the military / agriculture / logistics / inspection demand blocks, Chinese supply chain dominance and export controls, US NDAA and FCC policy leverage, the BVLOS regulatory bottleneck, and where Taiwan actually sits — strengths and gaps included."
 draft: false
-glossary:
-  - term: "BVLOS"
-    aliases: ["Beyond Visual Line of Sight"]
-    definition: "Flying a drone beyond the operator's unaided line of sight."
-    advanced: "Most countries currently permit BVLOS only through case-by-case waivers, requiring detect-and-avoid capability and a reliable command link. Whether BVLOS becomes routine directly determines the unit economics of delivery and long-range inspection."
-    context: "This article treats BVLOS regulation as one of the two ceilings on drone scaling."
-    links:
-      - label: "FAA Part 108 NPRM"
-        url: "https://www.faa.gov/uas"
-  - term: "FPV"
-    aliases: ["First-Person View"]
-    definition: "A drone flown from the live feed of an onboard camera, usually a small quadcopter."
-    advanced: "The dominant form factor in Ukraine: a few hundred to a few thousand dollars per unit, often carrying explosives on one-way missions. Cheap, mass-produced, and vulnerable to jamming — which is why fiber-optic guidance and AI terminal guidance both emerged as counter-countermeasures."
-    context: "This article uses FPV production volume to show how military demand reshaped the whole supply chain."
-  - term: "non-red supply chain"
-    aliases: ["democratic supply chain", "非紅供應鏈"]
-    definition: "A supply chain where neither the airframe nor its critical components originate in China."
-    advanced: "In drones this is operationalized through certification: the US DoD's Blue UAS (military) and Green UAS (commercial) lists, plus NDAA sourcing restrictions on federal procurement. Taiwan has written 'fully non-red supply chain by 2027' into policy."
-    context: "The Taiwan section of this article rests almost entirely on this concept."
-  - term: "Blue UAS / Green UAS"
-    definition: "US Department of Defense trust-certification lists for drones — Blue for military grade, Green for commercial."
-    advanced: "The Blue UAS Cleared List is maintained by the Defense Contract Management Agency and functions as a procurement trust mark; Green UAS, run by AUVSI, is the prerequisite ticket into Blue. Both require supply chain traceability and cybersecurity testing."
-    context: "Taiwan is the first country outside the US to receive Green UAS certification authorization."
-  - term: "C-UAS"
-    aliases: ["counter-UAS", "counter-drone"]
-    definition: "Systems that detect, identify, track, and neutralize drones."
-    advanced: "Split into soft kill (GPS/link jamming, protocol takeover) and hard kill (kinetic interception, lasers, interceptor drones). Fiber-optic and autonomously navigating drones defeat pure jamming, which is the main reason this market is growing so fast."
-    context: "This article treats C-UAS as the symmetric other half of the drone market."
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-map)
