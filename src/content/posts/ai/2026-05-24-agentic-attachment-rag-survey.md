@@ -66,7 +66,9 @@ Lu et al. 2026 年的 **AgenticOCR: Parsing Only What You Need for Efficient Ret
 
 更早一點的 **AgenticIE**（arxiv 2509.11773）把同樣思路套到 information extraction：把 OCR、PDF parser、layout 偵測都包成 tool，由 agent 根據「使用者意圖（key-value pair vs QA）+ 文件 modality（掃描 vs 數位）」動態選 parser。**ARIAL**（arxiv 2511.18192）則展示了 document VQA 場景，把 query 拆解成 OCR / retrieval / grounding 三類 tool call。
 
-要評估這條線是否真的優於傳統 pipeline，**ParseBench**（arxiv 2604.08538）給了量化答案：在 document parsing benchmark 上，LlamaParse 的 agentic 版本以 80.62% 領先傳統 Azure pipeline 的 73.8%。Doc-Researcher（arxiv 2510.21603）則整理了不同 parsing strategy 的 cost / quality tradeoff 表。
+要評估這條線是否真的優於傳統 pipeline，**ParseBench**（[arxiv 2604.08538](https://arxiv.org/abs/2604.08538)，約 2,000 頁人工校驗的企業文件、五個能力維度）給了量化答案：[leaderboard](https://github.com/run-llama/ParseBench) 上 LlamaParse 的 agentic 版本總分 84.88 領先 Azure Document Intelligence 的 73.8，在視覺定位這個單項則是 80.62 對 73.8。多步驟 agentic 流程確實贏過單次 pipeline。
+
+但這份 benchmark 要打個折看：**ParseBench 由 LlamaIndex（run-llama）製作，榜首 LlamaParse 正是他們自家產品**。資料集與評測程式碼都公開在 HuggingFace 與 GitHub，這比多數廠商自評好；但「作者的產品拿第一」的結構性偏誤依然存在，per-dimension 分數比總分排名有參考價值。Doc-Researcher（arxiv 2510.21603）則整理了不同 parsing strategy 的 cost / quality tradeoff 表。
 
 ## 三層觀念的串接
 
@@ -140,6 +142,10 @@ Chen et al. 2026 年的 **Learning to Rewrite Tool Descriptions**（arxiv 2602.2
 
 最少必讀清單：Self-RAG (2310.11511)、Adaptive-RAG (2403.14403)、Self-Route (2407.16833)、Agentic RAG Survey (2501.09136)，加上 parser 線的 AgenticOCR (2602.24134)。八篇之內把這個 design space 走完。
 
+## 更新紀錄
+
+- 2026-08-06：修正 ParseBench 的引述。原本寫的 80.62% 是「視覺定位」單項分數，不是總分（總分 84.88），敘述容易讓人誤讀成整體排名；並補上 ParseBench 由 LlamaIndex 自製、榜首 LlamaParse 為其自家產品的利益揭露。參考資料補上 leaderboard 連結。
+
 ## 參考資料
 
 ### Adaptive RAG / Self-RAG
@@ -178,6 +184,7 @@ Chen et al. 2026 年的 **Learning to Rewrite Tool Descriptions**（arxiv 2602.2
 - [DocLens: A Tool-Augmented Multi-Agent Framework for Long Document Understanding (2025)](https://arxiv.org/abs/2511.11552)
 - [Doc-Researcher: A Unified System for Multimodal Document Understanding (2025)](https://arxiv.org/abs/2510.21603)
 - [ParseBench: A Document Parsing Benchmark for AI Agents (2026)](https://arxiv.org/abs/2604.08538)
+- [run-llama/ParseBench — leaderboard 與評測程式碼](https://github.com/run-llama/ParseBench)
 - [Document Parsing Unveiled: Techniques, Challenges, and Prospects (2024 survey)](https://arxiv.org/abs/2410.21169)
 - [Optimizing Chunking-Method Selection for RAG / Adaptive Chunking (2026)](https://arxiv.org/abs/2603.25333)
 - [Hybrid OCR-LLM Framework for Enterprise-Scale Document Processing (2025)](https://arxiv.org/abs/2510.10138)

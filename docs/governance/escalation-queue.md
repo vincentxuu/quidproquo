@@ -58,6 +58,12 @@
 - 為什麼現在不能做：Tier 2（修改 verify 閘門內容）。且未確認全站目前能通過（貿然納入會讓所有 commit 被擋）。
 - 接手第一步：跑 `pnpm check:post-quality` 與 `pnpm check:glossary`，統計現況紅綠。
 
+## Q-008 SEO/AEO batch 2（第一手原創素材）
+- 登錄：2026-08-06（來源：progress.txt 2026-07-25 條目歸檔時接住）
+- 做什麼：SEO/AEO 改善的第二批。batch 1 已完成平台面（schema、FAQPage、llms.txt）與 product-builder 那篇的長尾重寫。batch 2 的內容是「第一手原創素材」——需要使用者提供實際經驗、數據或案例，不是 AI 能自行產出的東西。
+- 為什麼現在不能做：缺使用者輸入。原條目明寫 "still needs input from the user"。
+- 接手第一步：問使用者手上有哪些可寫的第一手素材（專案數據、實際踩坑、內部流程），再決定 batch 2 的題目清單。
+
 ---
 
 ## Done

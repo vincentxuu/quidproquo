@@ -2,6 +2,75 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-06 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+第三批歸檔（圖示改 Koboyo 手繪風時，合併 main 後 progress.txt 達 99 行）。
+
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
+
+以下前兩筆為當日第二批歸檔（發布手機廣告追蹤機制文章後，progress.txt 達 85 行，
+逼近 90 行上限而觸發）。
+
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
+  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
+  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
+  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
+  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
+  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
+  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
+  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
+  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
+- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
+  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
+  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
+  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
+  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
+  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
+  typing the /api/related-posts JSON response — `astro check` now 0 errors.
+- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
+  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
+  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
+  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
+  Content: product-builder post retargeted from the "product builder" head
+  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
+  with 6 two-way internal links. Batch 2 (original first-hand material) still
+  needs input from the user.
+- 2026-07-06: governance framework established — operating charter
+  (docs/governance/operating-charter.md), unified `pnpm verify` gate
+  (pre-commit + Stop hook + preview CI), skills mirror sync
+  (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
+  progress.txt protocol + archive. Skills are edited ONLY in
+  .agents/skills/, then `pnpm skills:sync`.
+
+歸檔說明：2026-07-25 條目裡未完成的 batch 2（需使用者提供第一手素材）已登錄為
+`docs/governance/escalation-queue.md` 的 Q-008，不會因歸檔而遺失。
+
 ## 2026-07-06 歸檔
 
 ### Recently completed（原 progress.txt 條目）

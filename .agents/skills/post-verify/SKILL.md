@@ -49,8 +49,12 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 | 命令 / 旗標 | "wrangler secret put X"、"--frozen-lockfile" |
 | 日期 | "2024 年 11 月發布"、"2026 年 1 月 GA" |
 | 統計 / metric | "提升 40% 可見度"、"24 passed tests" |
+| benchmark 比較 | "A 比 B 快 256 倍"、"在 X-bench 拿 76.0%"、排名表 |
+| 授權宣告 | "MIT 授權"、"可商用"、"開源免費" |
 | 直接引用 | 「Karpathy 說："xxx"」 |
 | 第三方事實 | "Anthropic 在 KDD 2024 發表"、"Princeton 研究團隊" |
+
+**benchmark 與授權這兩類要另外做加驗**，見步驟 3.5——它們最常見的錯誤不是數字抄錯，是數字對但用法錯。
 
 每條紀錄：
 - 出現位置（行號或段落）
@@ -89,6 +93,37 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 | 🟡 Unverifiable | 找不到必要來源 / 內容已被改動 / 暫時搜不到 |
 | 🟠 Outdated | 來源支持「以前是真的，現在已經變了」 |
 | 🔴 Contradicted | 來源直接打臉 |
+| 🔵 Misframed | **數字抄對了，但推論或框架錯了**——見步驟 3.5。比 Contradicted 更難抓，因為每個數字單看都正確 |
+
+### 3.5 benchmark 與授權的加驗
+
+這兩類 claim 即使數字完全正確，仍可能整段結論是錯的。數字對不代表可以那樣用。
+
+**benchmark 引用檢查（七問）**
+
+引用任何 benchmark 數字前，逐條回答：
+
+| 檢查 | 抓什麼 |
+|---|---|
+| 1. 誰做的？ | 廠商自評？榜首是不是作者自家產品？**對所有 benchmark 用同一把尺**——不能只質疑 A 的自評卻照抄 B 的自評 |
+| 2. 測量基準對等嗎？ | 常見陷阱：CLI 工具計時含 process spawn、函式庫不含；冷啟動 vs 熱執行；硬體不同。只在同基準的組別之間算倍數 |
+| 3. 加總方式可比嗎？ | 各行平均的母體是否相同？樣本數差多少？（例：某工具 70 分只涵蓋 1 種格式，另一個 80 分跨 14 種——同一欄但不是同一件事） |
+| 4. 引的是總分還是單項？ | **把單項分數寫成總分是最常見的誤讀**。查清楚該數字出現在哪個維度 |
+| 5. 測試集公開嗎？ | 不可複現就要在文中標明 |
+| 6. 設定的代價形態？ | 「快 8 倍」是均勻掉幾分，還是某一整類文件直接歸零？後者要寫出來 |
+| 7. 作者自己怎麼說？ | README / 論文常有「這欄不該這樣比」的但書。**先讀方法論段落再引數字** |
+
+只要第 1、2、3、4 任一條沒過，該段就是 🔵 Misframed，即使數字全對。
+
+**授權宣告檢查**
+
+| 檢查 | 抓什麼 |
+|---|---|
+| badge ≠ 授權 | GitHub 的 license badge 只反映一個檔案。程式碼與模型權重常是兩套（`LICENSE` vs `MODEL_LICENSE`） |
+| copyleft 的實際射程 | AGPL / GPL 在 SaaS 場景的義務要寫清楚，不能只寫「開源免費」 |
+| 附加條款 | Apache/MIT「加上額外條件」的自訂授權很常見：營收門檻、MAU 門檻、揭露義務、自動終止條款。**門檻多半碰不到，揭露與終止條款才會踩到** |
+| 一手 vs 一手衝突 | 廠商的 README 與官網文件可能互相矛盾。遇到就**兩邊都列出來**，並把結論改成「要書面向廠商確認」，不要挑一個當真 |
+| 數字快照 | 星數、門檻金額都會變，標查詢日期 |
 
 ### 4. 產出報告
 
@@ -106,6 +141,13 @@ post-verify report: <slug>
 🟠 Outdated (建議修)
 2. 「LangGraph 預設 InMemorySaver」（line 88）
    → 1.0 後預設改用 ... 詳見 release note
+
+🔵 Misframed (數字對，但推論錯)
+3. 「A 比 LibreOffice 快 256 倍」（line 80）
+   → 數字本身沒抄錯，但 README 明說 CLI 工具計時含 process spawn、函式庫不含。
+     LibreOffice 是 CLI，A 是函式庫，兩者不同基準
+   → 同基準的可比對象是 Docling（也是函式庫），倍數為 109×
+   建議修法：改用同基準的 109×，並說明為何不跟 LibreOffice 比
 
 🟡 Unverifiable (待人工確認)
 3. 「Princeton 研究中 keyword stuffing 表現 -9%」（line 130）
@@ -138,6 +180,10 @@ post-verify report: <slug>
 | 「Confirmed 的不報」 | 報告 Confirmed 的避免使用者重複自查 |
 | 「跳過 quoted 引用，反正引用一定對」 | 名言類引用最常被 LLM 誤記，要查原始出處 |
 | 「Unverifiable 直接判錯」 | 找不到不等於錯，要明確標 Unverifiable |
+| 「benchmark 數字抄對就算 Confirmed」 | 數字對、推論錯是這個 skill 最難抓也最該抓的一類。走完步驟 3.5 的七問再判 |
+| 「只質疑要介紹的那個工具的自評」 | 雙標。文中引到的每個 benchmark 都要標明誰做的，包含用來佐證的那些 |
+| 「授權看 GitHub badge 就好」 | badge 只反映一個檔案；模型權重、附加條款都不在裡面 |
+| 「找到官方頁面就當定論」 | 廠商自己的兩份文件可能打架。矛盾時要兩邊都列，別挑一個當真 |
 
 ## 跟既有 skill 的關係
 
