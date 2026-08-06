@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [svg, icons, hand-drawn, open-source, licensing, developer-tools, mcp]
 lang: zh-TW
-tldr: "Koboyo 放出近 9 萬個免費手繪 SVG（數字浮動中：同一天內從 92,967 掉到 87,954），但授權頁明文禁止拿去做圖示庫或畫布 app。想要手繪感其實有三條路：收圖庫、用程式把既有幾何弄歪（sketchyicons 把 Lucide 的每條直線轉成二次貝茲，用 icon 名稱當亂數種子確保 byte-for-byte 一致）、或 AI 生成。這篇比較七家圖庫的規模與授權、拆解 sketchyicons 與 tldraw 的生成演算法，並整理正在往 MCP 靠的圖示搜尋工具。"
+tldr: "Koboyo 宣稱有近 9 萬個免費手繪 SVG（數字上下跳動：92,967 → 87,954 → 90,150），但 sitemap 只列得出約 17,930 個圖示頁，而且授權頁明文禁止拿去做圖示庫或畫布 app。想要手繪感其實有三條路：收圖庫、用程式把既有幾何弄歪（sketchyicons 把 Lucide 的每條直線轉成二次貝茲，用 icon 名稱當亂數種子確保 byte-for-byte 一致）、或 AI 生成。這篇比較七家圖庫的規模與授權、拆解 sketchyicons 與 tldraw 的生成演算法，並整理正在往 MCP 靠的圖示搜尋工具。"
 description: "從 Koboyo Icons 近 9 萬個免費手繪 SVG 切入，比較 Khushmeen、Streamline Freehand、Icons8 Doodle、Iconro 等圖庫的規模與授權差異（含 Streamline 每專案 100 個圖示的 allowance 與開源專案強制署名條款），拆解 sketchyicons 的 seeded 座標偏移與 tldraw 的多 pass 疊描邊演算法，並盤點 icons0.dev、theSVG 等提供 MCP server 的圖示搜尋工具。"
 draft: false
 glossary:
@@ -23,7 +23,11 @@ glossary:
 
 [Koboyo Icons](https://koboyo.com/icons) 掛著近 9 萬個免費手繪風 SVG 圖示，免費商用、免署名、不用註冊。這個量級在免費圖庫裡是離譜的——[Streamline](https://www.streamlinehq.com/) 號稱業界最大的手繪集 Freehand，單一 set 是 11,171 個，而且要錢。
 
-不過這個數字別當常數看。寫這篇的當天早上首頁與授權頁一致標示 **92,967**，幾小時後再看變成 **87,954**，Google 索引裡還存著更早的 71,238。一天內少 5,013 個，代表他們在主動刪減而不只是持續新增，所以本文用「近 9 萬」而不寫死——你看到的時候大概又是另一個數字了。
+不過這個數字別當常數看。寫這篇的當天早上首頁與授權頁一致標示 **92,967**，幾小時後再看變成 **87,954**，Google 索引裡還存著更早的 71,238；隔天（2026-08-06）再看又回到 **90,150**。所以這不是單向刪減，而是上下跳動——本文用「近 9 萬」而不寫死數字，你看到的時候大概又是另一個。
+
+而且還有另一個對不上的地方。[`koboyo.com/sitemap.xml`](https://koboyo.com/sitemap.xml) 是單一的 flat `<urlset>`（不是 sitemap index，沒有分片），整份只列 **18,044 個 URL**，扣掉分類頁與站務頁之後約 **17,930 個是圖示頁**——跟授權頁宣稱的 90,150 差了五倍。
+
+這不等於圖庫只有 1.8 萬個圖示：沒進 sitemap 的圖示照樣能透過站內搜尋或 `/icons/svg/<name>.svg` 直接取得。但它確實代表**能被搜尋引擎發現、以及你實際瀏覽得到的，遠少於首頁那個數字**。如果你的評估理由是「覆蓋率最高」，值得先搜幾個你真正需要的冷門概念，而不是相信總數。
 
 而在下載之前，更值得先讀[授權頁](https://koboyo.com/icons/license)，因為那裡有一段話會直接決定你能不能用。
 
@@ -63,7 +67,7 @@ Koboyo 授權頁的「You can't」寫得很白：
 
 | 圖庫 | 數量 | 授權 | 要注意的地方 |
 |---|---|---|---|
-| [Koboyo Icons](https://koboyo.com/icons) | 87,954（2026-08-05 實測，浮動中） | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 覆蓋率無敵，但用途邊界要自己判斷 |
+| [Koboyo Icons](https://koboyo.com/icons) | 授權頁標 90,150（2026-08-06），但 sitemap 只列約 17,930 頁 | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 宣稱覆蓋率無敵，實際可瀏覽量少一個量級；用途邊界也要自己判斷 |
 | [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) | 400+ | **CC0，免署名** | 授權最乾淨。附 Figma 檔與動畫版 |
 | [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | set 11,171（Freehand 家族 22,349） | 付費 $19/月起，或買斷；免費 set 需署名 | **每專案 100 個圖示的用量上限**（可加購解除）；開源專案即使付費仍強制署名 |
 | [Icons8 Doodle](https://icons8.com/icons/doodle) | 2,200（57 分類） | Freemium，免費需署名 | 彩色麥克筆風，偏簡報而非 UI |
@@ -166,7 +170,7 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 | [theSVG](https://thesvg.org/) | 6,502+（其中 4,629 個品牌圖示） | MCP + Figma plugin + VS Code + Raycast |
 | [IconVaultKit](https://iconvaultkit.com/) | 200,000+，92+ 個庫 | MCP + npm 套件 |
 | [Iconstack](https://iconstack.io/) | 51,378 | API + MCP |
-| [Koboyo Icons](https://koboyo.com/icons) | 近 9 萬（手繪風單一風格） | MCP（需登入） |
+| [Koboyo Icons](https://koboyo.com/icons) | 宣稱近 9 萬、sitemap 約 1.8 萬（手繪風單一風格） | MCP（需登入） |
 | [All SVG Icons](https://allsvgicons.com/) | 286,000+，220+ 個庫 | 網頁為主 |
 
 其中 i0 的檢索設計值得單獨看：依其 [GitHub repo](https://github.com/marcoripa96/i0) 說明，它把 303k 個圖示的 SVG body 全部存進 Turso（libSQL），**FTS5 關鍵字檢索（porter stemming）與 DiskANN 向量索引平行跑，再用 RRF 融合**；embedding 是 `gemini-embedding-001` 的 256 維。這正好是站上 [Hybrid Search：BM25 + 向量 + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 那套架構的一個具體應用——圖示搜尋其實非常吃這個組合，因為「一個表示『刪除但可復原』的圖示」這種查詢純關鍵字打不中，而「trash」這種精確詞又是純向量容易漂掉的。
@@ -184,10 +188,15 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 
 最後一句提醒：這個題目最容易翻車的地方不是選錯風格，是**沒讀授權**。手繪風圖庫的授權離散度遠高於一般 UI 圖示集——同樣寫著「免費商用」，CC0、強制回連、禁止競品這三種的實際約束天差地遠，而它們的首頁看起來都一樣友善。
 
+## 更新紀錄
+
+- 2026-08-06：Koboyo 的數字又動了——授權頁從 87,954 回到 **90,150**，所以原本「一天內少 5,013 個代表在主動刪減」的推論不成立，改寫成上下跳動。同時查了 `sitemap.xml`：是單一 flat urlset，只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍，這段一併補進第一節與圖庫比較表。
+
 ## 參考資料
 
-- [Koboyo Icons](https://koboyo.com/icons) — 近 9 萬個免費手繪 SVG（2026-08-05 實測 87,954）
-- [Koboyo Icons 授權條款](https://koboyo.com/icons/license) — 禁止競品與「圖示為主體」app 的原文
+- [Koboyo Icons](https://koboyo.com/icons) — 宣稱近 9 萬個免費手繪 SVG
+- [Koboyo Icons 授權條款](https://koboyo.com/icons/license) — 禁止競品與「圖示為主體」app 的原文；2026-08-06 標示 90,150
+- [Koboyo sitemap.xml](https://koboyo.com/sitemap.xml) — 單一 flat urlset，2026-08-06 實測 18,044 個 URL（約 17,930 個圖示頁）
 - [Koboyo 無限畫布](https://koboyo.com/) — 圖庫所屬的本體產品
 - [sketchyicons](https://sketchyicons.com/) — 1,500+ 個由 Lucide 幾何生成的手繪圖示，含演算法說明
 - [sketchyicons GitHub](https://github.com/Fantomiald/sketchyicons) — generator 原始碼（MIT）
