@@ -2,6 +2,35 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-06 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
+  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
+  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
+  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
+  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
+  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
+  typing the /api/related-posts JSON response — `astro check` now 0 errors.
+- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
+  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
+  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
+  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
+  Content: product-builder post retargeted from the "product builder" head
+  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
+  with 6 two-way internal links. Batch 2 (original first-hand material) still
+  needs input from the user.
+- 2026-07-06: governance framework established — operating charter
+  (docs/governance/operating-charter.md), unified `pnpm verify` gate
+  (pre-commit + Stop hook + preview CI), skills mirror sync
+  (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
+  progress.txt protocol + archive. Skills are edited ONLY in
+  .agents/skills/, then `pnpm skills:sync`.
+
+歸檔說明：2026-07-25 條目裡未完成的 batch 2（需使用者提供第一手素材）已登錄為
+`docs/governance/escalation-queue.md` 的 Q-008，不會因歸檔而遺失。
+
 ## 2026-07-06 歸檔
 
 ### Recently completed（原 progress.txt 條目）

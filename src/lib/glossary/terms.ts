@@ -859,6 +859,28 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: 'RAG Observability: 17-Step Tracing', url: '/posts/ai/2026-03-12-rag-observability-tracing-en' }],
   },
   {
+    term: 'MLOps',
+    aliases: ['ML Ops', '機器學習維運'],
+    definition: '把機器學習模型的訓練、部署、監控與重新訓練變成可重複、可自動化的工程流程。',
+    definition_en: 'Turning the training, deployment, monitoring, and retraining of machine learning models into a repeatable, automatable engineering process.',
+    advanced: '典型組成包含資料與特徵版本控制、訓練 pipeline、model registry、CI/CD 部署、線上監控（drift、資料品質、延遲）與觸發式重新訓練；雲廠商的 ML 工程師認證多半以此為主要考試範圍。',
+    advanced_en: 'Typical components include data and feature versioning, training pipelines, a model registry, CI/CD deployment, production monitoring (drift, data quality, latency), and triggered retraining. Cloud vendor ML engineering certifications are largely built around this scope.',
+    context: '本站在雲端 AI 證照、模型部署與 pipeline 自動化的討論中使用這個詞。',
+    context_en: 'Used on this site when discussing cloud AI certifications, model deployment, and pipeline automation.',
+    links: [
+      {
+        label: 'Google Professional ML Engineer 考試指南',
+        url: 'https://cloud.google.com/learn/certification/guides/machine-learning-engineer',
+      },
+    ],
+    links_en: [
+      {
+        label: 'Google Professional ML Engineer exam guide',
+        url: 'https://cloud.google.com/learn/certification/guides/machine-learning-engineer',
+      },
+    ],
+  },
+  {
     term: 'citation',
     aliases: ['grounding'],
     definition: '把回答連回來源資料，讓讀者能檢查答案根據哪裡來。',
