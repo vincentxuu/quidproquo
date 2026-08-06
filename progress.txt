@@ -24,6 +24,13 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: drone series plan in docs/content-plan-drone.md — 70-topic
+  inventory, v1 15-post slate, 3 batches. Category question settled: `category`
+  is the container (folder/URL/nav), `drone` tag is the topic. Confirmed
+  src/pages/tags/[tag].astro has NO category filter, so /tags/drone is already
+  a cross-category hub. Map article stays in tech/. Every series post MUST
+  carry the `drone` tag first — that is what makes the hub work. Next: A1
+  (Taiwan's 267 suppliers by layer).
 - 2026-08-06: post(tech) drone industry map (zh + en). First non-software piece
   in tech/. Structure: 5-layer supply chain, why market-size estimates differ
   10x (IDTechEx $69B vs Fortune $100.7B for 2026 — scope differs), 4 demand
