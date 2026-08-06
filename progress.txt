@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-31
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,15 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE), 12-month validity. Added site-wide glossary term MLOps.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
