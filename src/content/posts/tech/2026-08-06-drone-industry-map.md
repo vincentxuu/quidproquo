@@ -166,6 +166,8 @@ glossary:
 - [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-06-drone-industry-job-map) — 把職缺放回五層框架，標出每個角色對軟體背景的可遷移度
 - [無人機產業週期史：2016 年那次泡沫是怎麼破的，這次哪裡不一樣](/posts/tech/2026-08-06-drone-industry-cycle-history) — 上一輪的殘骸與這一輪的三個結構差異、三個相同警訊
 - [用四條件框架看無人機供應鏈：四條裡目前只成立一條](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — 用站上既有的尺量這個板塊，含三類具體風險
+- [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-06-bvlos-three-jurisdictions) — 把本文第一個天花板攤開比較美歐台三地制度
+- [台灣無人機操作證怎麼考：分級、逐級制度、規費與時程](/posts/policy/2026-08-06-taiwan-drone-license-guide) — 三類證照、G1/G2/G3 分組、法定規費與完整時程
 
 同系列文章都帶 `drone` 標籤，可從 [#drone](/tags/drone) 一次瀏覽。
 

@@ -166,6 +166,8 @@ This article is the overview for the drone series. Branches that go deeper:
 - [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map) — puts job roles back into the five-layer framework, tagging each with software-background transferability
 - [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history) — the wreckage from the last cycle, three structural differences and three identical warning signs
 - [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — one ruler applied to the sector, plus three concrete risk categories
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions) — this article's first ceiling, compared across the US, EU, and Taiwan
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide) — three licence classes, the G1/G2/G3 groups, statutory fees, and the full timeline
 
 Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
 

@@ -24,37 +24,19 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-06: drone series batch 1 shipped — 4 posts (zh+en each) + plan doc
-  `docs/content-plan-drone.md` (70-topic inventory, v1 15-post slate).
-  Pillar: 產業地圖 (tech) — 5-layer chain, market-size reports differ 10x.
-  A1: 台灣供應鏈層級 (tech) — spine is Thunder Tiger's public BOM split (L2
-  local / L3 imported), confirming the L3 thesis; exports are only 22.9% of
-  2025 output, ~80% is public+defense procurement.
-  C1: 法規白話版 (policy, NEW dir) — built ONLY from the effective statutory
-  text; found 3 outdated claims in circulating guides (licence term is 3yr not
-  2, student licence 14 not 16, covers <25kg not <15kg) and flagged a viral
-  "2026 six amendments" list I could NOT find any legal basis for.
-  B1: 職業地圖 (career, NEW dir) — 11 roles by layer + software transferability.
-  Two verification wins worth remembering: AUVSI's own release says ITRI is a
-  cybersecurity Recognized Assessor only ("AUVSI retains U.S.-based supply
-  chain verification authority") — narrower than TW media's framing; and
-  check:references warns (exit 1) when a zh post's title/headings share no
-  ASCII token with the references block — fixed by putting "CAA" in a heading.
-  A2: 產業週期史 (tech) — 2016 bubble wreckage (3DR stopped hardware, GoPro
-  recalled all 2,500 Karma in 6 weeks + 15% layoffs, Parrot -35% drone staff,
-  Lily folded) and Skydio's 2023 consumer exit despite $570M raised; thesis is
-  last cycle's risk was market-side, this one is execution-side.
-  E1: 四條件框架 (investing) — only 1 of 4 criteria holds (certification =
-  switching cost); chokepoint fails (TW at L2), demand is policy not
-  structural (80% public), criterion 4 deliberately not assessed (no
-  single-stock work). Risk spine is the Army's NT$988M counter-drone contract:
-  failed acceptance 3x, terminated in full, NT$98.78M bond forfeited — the
-  "winning a bid is not revenue" case. Has an explicit not-investment-advice
-  note; names no tickers, per the plan's decision.
-  Hub links out to all 5 spokes. Every post carries `drone` as first tag.
-  Batch 1+2 done (6 posts x2 langs). Remaining v1: A3, B2, B3, B4, C2, C3,
-  D1-D3 (blocked on buying a drone + booking the licence exam), E2.
-  TODO when series hits 3+ posts: promote the 5 frontmatter glossary terms
+- 2026-08-06: drone series — 8 posts shipped (zh+en each) across tech/policy/
+  career/investing. Plan + per-post findings + cross-post verification lessons
+  now live in docs/content-plan-drone.md §5.2 (read that before continuing the
+  series; it is the record, this is only working memory).
+  Structural decisions that still bind: `category` is the container
+  (folder/URL/nav), `drone` tag is the topic — src/pages/tags/[tag].astro has
+  NO category filter so /tags/drone is the cross-category hub, and EVERY series
+  post must carry `drone` as its first tag. Hub (產業地圖) links out to all 7
+  spokes. Investing posts go framework-and-risk only, no tickers.
+  Remaining v1: A3 (商業模式), B3 (教育路徑), E2 (國防預算受惠路徑) — all
+  writable now; B2/B4 need interviews; D1-D3 blocked on buying a drone and
+  booking the licence exam.
+  TODO at 3+ posts (now overdue): promote the 5 frontmatter glossary terms
   (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) to src/lib/glossary/terms.ts.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
