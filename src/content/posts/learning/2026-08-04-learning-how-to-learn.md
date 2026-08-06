@@ -37,7 +37,7 @@ glossary:
   - term: "response congruency"
     aliases: ["答案重疊性"]
     definition: "練習測驗與最終測驗的正確答案有多少重疊。"
-    advanced: "Pan & Rickard 的遷移 meta 中最強的調節變項：沒有重疊時遷移效果 d = 0.28，有重疊時增加 0.30 到 d = 0.58。"
+    advanced: "Pan & Rickard 的遷移 meta 中最強的調節變項。隨機效果模型：無重疊時 d = 0.28，有重疊時增加 0.30 至 0.58；校正發表偏誤後（PEESE）截距實質為零，重疊帶來的增幅為 0.36。"
     context: "本文用它說明為什麼「練了會遷移」這個假設比想像中脆弱。"
   - term: "cognitive offloading"
     aliases: ["認知卸載"]
@@ -106,7 +106,11 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 **第一，異質性比平均值重要。** Rowland 的 g = 0.50 底下 I² = 84.35——研究之間的變異絕大部分不是抽樣誤差，而是真實的情境差異。「平均 0.5」不等於「你這次會拿到 0.5」。
 
-**第二，估計正在縮水。** 2026 年 3 月，Dietrichson 等人發表了[一份大規模系統性回顧](https://edworkingpapers.com/ai26-1418)：初篩 102,451 筆記錄、87 個研究符合條件、59 個進入資料合成。在對照組完全不做練習測驗的比較下，效果量是 between-subject 設計 0.22（95% CI [0.09, 0.34]）、within-subject 設計 0.46（[0.29, 0.62]）。作者自己寫得很白：這些數字「似乎小於先前回顧所得」——Adesope 在小學與中學的對應數字分別是 0.64 與 0.83。同一份回顧的探索性分析還發現：**學習材料愈複雜，練習測驗的效果愈差。**
+**第二，較新、方法更嚴的估計落在低區間。** 2026 年 3 月，Dietrichson 等人發表了[一份大規模系統性回顧](https://edworkingpapers.com/ai26-1418)：初篩 102,451 筆記錄、87 個研究符合條件、59 個進入資料合成。在對照組完全不做練習測驗的比較下，效果量是 between-subject 設計 0.22（95% CI [0.09, 0.34]）、within-subject 設計 0.46（[0.29, 0.62]）。作者確實寫了這些數字「似乎小於先前回顧所得」——Adesope 在小學與中學的對應數字分別是 0.64 與 0.83。
+
+**但那句話要連著它的但書一起讀**，否則就是我在替作者加碼。原文緊接著說明各回顧的納入標準與分析策略不同，「量值本來就較難直接比較」；而且他們並不認為自己的效果量小——對照 [Kraft (2020)](https://doi.org/10.3102/0013189X20912798) 的標準，教育研究裡 0.2 以上已算大。所以誠實的講法是「新估計落在較低區間」，不是「效果被推翻了」。
+
+同一份回顧的探索性分析還發現：**學習材料愈複雜，練習測驗的效果愈差。**
 
 **第三，複雜材料是一場沒打完的仗。** [van Gog 與 Sweller 2015 年那篇的標題](https://link.springer.com/article/10.1007/s10648-015-9310-x)就是結論——「testing effect 隨學習材料複雜度上升而下降甚至消失」。Karpicke 與 Aue 同年以〈The testing effect is alive and well with complex materials〉正面反駁，Rawson 也加入戰局，爭點卡在「複雜度」根本難以操作化。Dietrichson 2026 的結果偏向前者，但這仍是**未解決的活爭論**，看到有人單方面宣稱勝負就該提高警覺。
 
@@ -124,9 +128,9 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 > 遷移效果最大的情況是跨測驗格式、應用與推論題、醫學診斷問題、以及中介與相關詞線索；最弱的是重排的刺激—反應項目、初次學習時看過但沒被測的材料、以及涉及範例解題的問題。調節分析進一步顯示，**答案重疊性（response congruency）、精緻化提取練習、以及初次測驗表現，都強烈影響正向遷移的可能性。**
 
-而最關鍵的一句在後面：作者用 PET-PEESE 等方法校正發表偏誤後，「截距預測值大幅下降，**在上述調節條件皆不存在時，往往顯示沒有正向遷移**」。
+而最關鍵的一句在後面：作者用 PET-PEESE 等方法校正發表偏誤後，「截距預測值大幅下降，**在上述調節條件皆不存在時，往往顯示沒有正向遷移**」。原文正文講得更直白——發表偏誤檢定高度顯著（p < .0001），而「代表兩個調節效果都不存在時之估計效果量的截距，實質上為零」。
 
-具體到什麼程度？沒有答案重疊時 d = 0.28，有重疊時再加 0.30 變成 0.58。也就是說，遷移效果很大一部分其實是「練習題和考題的答案有交集」。
+這裡要分清楚兩套數字，因為它們來自不同分析。**隨機效果模型**：沒有答案重疊時 d = 0.28，有重疊時再加 0.30，得到 0.58。**校正發表偏誤之後（PEESE）**：截距實質為零，答案重疊帶來的增幅是 0.36、精緻化提取練習是 0.18。兩套都指向同一件事——遷移效果有很大一部分其實是「練習題和考題的答案有交集」。
 
 更直接的一擊來自 [Agarwal 2019 年的研究](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf)，它讓中學生與大學生分別用事實題、高階題、或混合題做提取練習。原文摘要寫得很不留情：
 
@@ -158,7 +162,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 [Macnamara、Hambrick 與 Oswald 2014 年的 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) 常被拿來「打臉一萬小時」。它算出刻意練習能解釋的表現變異量是：遊戲 26%、音樂 21%、運動 18%、教育 4%、專業工作不到 1%（後者 r = .05、p = .62，不顯著）。
 
-這裡要補一句幾乎沒人提的事：**該文在 2018 年發過[更正啟事](https://doi.org/10.1177/0956797618769891)。** 主模型的平均相關從 r = .35（95% CI [.30, .39]）修正為 .38（[.33, .42]），整體解釋變異量從 12% 上修。上列各領域百分比出自原文正文，我沒能確認是否一併調整——引用時請以更正後版本為準。
+補一件幾乎沒人提、但**不該被誇大**的事：該文在 2018 年發過[更正啟事](https://doi.org/10.1177/0956797618769891)，主模型的平均相關從 r = .35（95% CI [.30, .39]）修正為 .38（[.33, .42]），整體解釋變異量從 12% 上修。不過作者在更正文裡把話講得很明白——改用 Cheung 與 Chan 的方法重算後「對結果沒有實質影響，這些變動對我們的發現與結論的實質內容毫無衝擊」。更正表列的是主模型；上列各領域百分比出自原文正文。提它不是要推翻什麼，只是引用時該用更正後的數字。
 
 但 Ericsson 陣營的[反駁](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full)也有分量：他們重新篩選後算出 r = 0.54、約 29% 的變異量，並主張 Macnamara 納入的研究裡有很多根本沒採用 Ericsson 對「刻意練習」的原始定義——例如把護理系學生上課與研討會的時數算成練習量。[Harwell 與 Southwick (2021)](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf) 補了一刀：社會與人格心理學文獻中 708 個 meta-analytic 相關係數的平均解釋變異量只有 3–4%，用「沒超過 50% 就算失敗」當標準本身就不合理。
 
@@ -242,8 +246,8 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 - 【一手·PDF】Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
 - 【摘要】Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
-- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文。**
-- 【一手·PDF】Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **尚未經同儕審查的工作論文。**
+- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文——SAGE 全文為付費牆，ResearchGate 亦無法取得。這三個數字至今仍是轉引。**
+- 【一手·PDF】Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **尚未經同儕審查的工作論文。** 0.22 / 0.46 兩個數字與「材料愈複雜效果愈差」已對照 PDF 本文確認；作者同時指出各回顧量值難以直接比較，且以 Kraft (2020) 標準衡量其效果量並不小。
 - 【摘要】van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
 - 【摘要】Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — 對上一篇的正面反駁。
 - 【轉引】Rawson, K. (2015). The Status of the Testing Effect for Complex Materials: Still a Winner. *Educational Psychology Review*, 27. — 同一期的第二篇反駁，我僅見他人轉述。
@@ -253,7 +257,7 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 ### 遷移
 
-- 【摘要 + 全文 PDF】Pan, S. C., & Rickard, T. C. (2018). [Transfer of test-enhanced learning: Meta-analytic review and synthesis](https://doi.org/10.1037/bul0000151). *Psychological Bulletin*, 144(7), 710–756. DOI: 10.1037/bul0000151（[PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)）— 192 個遷移效果量／122 實驗／67 篇／N = 10,382。
+- 【一手·全文 PDF】Pan, S. C., & Rickard, T. C. (2018). [Transfer of test-enhanced learning: Meta-analytic review and synthesis](https://doi.org/10.1037/bul0000151). *Psychological Bulletin*, 144(7), 710–756. DOI: 10.1037/bul0000151（[PDF](https://pdf.retrievalpractice.org/transfer/Pan_Rickard_2018.pdf)）— 192 個遷移效果量／122 實驗／67 篇／N = 10,382。文中隨機效果模型（0.28 / +0.30 / 0.58）與 PEESE 校正結果（截距實質為零、+0.36、+0.18）皆已對照原文正文確認。
 - 【一手·PDF】Agarwal, P. K. (2019). [Retrieval practice & Bloom's taxonomy: Do students need fact knowledge before higher order learning?](https://pdf.poojaagarwal.com/Agarwal_2019_JEdPsych.pdf) *Journal of Educational Psychology*, 111(2), 189–209. DOI: 10.1037/edu0000282（[ERIC 記錄](https://eric.ed.gov?id=EJ1205208)）
 - 【一手·PDF】Donker, A. S., de Boer, H., Kostons, D., Dignath van Ewijk, C. C., & van der Werf, M. P. C. (2014). [Effectiveness of learning strategy instruction on academic performance: A meta-analysis](https://daneshyari.com/article/preview/355102.pdf). *Educational Research Review*, 11, 1–26.
 
@@ -266,7 +270,7 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 - 【一手·PDF】Sisk, V. F., Burgoyne, A. P., Sun, J., Butler, J. L., & Macnamara, B. N. (2018). [To what extent and under which circumstances are growth mind-sets important to academic achievement? Two meta-analyses](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf). *Psychological Science*, 29(4), 549–571. DOI: 10.1177/0956797617739704
 - 【一手·全文】Yeager, D. S., & Dweck, C. S. (2020). [What Can Be Learned from Growth Mindset Controversies?](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535) *American Psychologist*, 75(9), 1269–1284.
 - 【一手·PDF】Macnamara, B. N., Hambrick, D. Z., & Oswald, F. L. (2014). [Deliberate Practice and Performance in Music, Games, Sports, Education, and Professions: A Meta-Analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf). *Psychological Science*, 25(8), 1608–1618. DOI: 10.1177/0956797614535810
-- 【一手】Corrigendum (2018). *Psychological Science*. DOI: [10.1177/0956797618769891](https://doi.org/10.1177/0956797618769891) — 主模型 r 由 .35 修正為 .38。**引用 2014 年數字前務必先看這份。**
+- 【一手】Corrigendum (2018). *Psychological Science*. DOI: [10.1177/0956797618769891](https://doi.org/10.1177/0956797618769891) — 主模型 r 由 .35 修正為 .38。作者於更正文中明言重算「對結果沒有實質影響……對發現與結論的實質內容毫無衝擊」。引用時用更正後數字即可，不必據此質疑該研究。
 - 【一手·全文】Ericsson 陣營回應 (2019). *Frontiers in Psychology*. <https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full> DOI: 10.3389/fpsyg.2019.02396
 - 【一手·PDF】Harwell, K. W., & Southwick, D. (2021). [Beyond 10,000 Hours](https://yale.cloud-cme.com/assets/YALE/pdf/Harwell_Southwick%20beyond%2010,000%20hours%20copy.pdf).
 
