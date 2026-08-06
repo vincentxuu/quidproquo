@@ -162,6 +162,8 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 This article is the overview for the drone series. Branches that go deeper:
 
 - [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — applies this article's five-layer framework to Taiwan, using Thunder Tiger's published BOM to confirm the gap really does sit at Layer 3
+- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) — built from the currently effective statutory text, flagging which widely circulated rules are already outdated
+- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map) — puts job roles back into the five-layer framework, tagging each with software-background transferability
 
 Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
 

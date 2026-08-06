@@ -24,29 +24,26 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-06: post(tech) A1 Taiwan drone supply chain by layer (zh + en).
-  Spine of the piece is Thunder Tiger's publicly disclosed BOM split (via CIO
-  Taiwan): Layer 2 (motors/ESC/battery/frame/prop) local, Layer 3 (flight
-  control / comms+GPS / camera) bought from US-EU-JP partners — empirically
-  confirms the map article's Layer-3 thesis. Two corrections to common
-  coverage: (a) exports are only 22.9% of 2025 output, ~80% is domestic
-  public/defense procurement (PeoPo); (b) ITRI's AUVSI deal is a cybersecurity
-  Recognized Assessor role only — AUVSI's own release says it "retains
-  U.S.-based supply chain verification authority", narrower than TW media's
-  "first assessment body outside the US". Derived NT$24k/unit avg export price
-  from NT$2.95B / 123k units — flagged in-text as my own calculation.
-  Hub (map article) now links out to this; both carry the `drone` tag.
-- 2026-08-06: drone series plan in docs/content-plan-drone.md — 70-topic
-  inventory, v1 15-post slate, 3 batches. Category settled: `category` is the
-  container (folder/URL/nav), `drone` tag is the topic; src/pages/tags/
-  [tag].astro has NO category filter so /tags/drone is already a cross-category
-  hub. Every series post MUST carry `drone` first. Next: C1 (民航法無人機專章)
-  or B1 (職業地圖).
-- 2026-08-06: post(tech) drone industry map (zh + en) — series pillar. 5-layer
-  supply chain, why market-size reports differ 10x (scope differs), 4 demand
-  blocks, 2 ceilings (BVLOS / geopolitics). 5 terms in frontmatter glossary
-  (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) — promote to site-wide
-  glossary once the series hits 3 posts.
+- 2026-08-06: drone series batch 1 shipped — 4 posts (zh+en each) + plan doc
+  `docs/content-plan-drone.md` (70-topic inventory, v1 15-post slate).
+  Pillar: 產業地圖 (tech) — 5-layer chain, market-size reports differ 10x.
+  A1: 台灣供應鏈層級 (tech) — spine is Thunder Tiger's public BOM split (L2
+  local / L3 imported), confirming the L3 thesis; exports are only 22.9% of
+  2025 output, ~80% is public+defense procurement.
+  C1: 法規白話版 (policy, NEW dir) — built ONLY from the effective statutory
+  text; found 3 outdated claims in circulating guides (licence term is 3yr not
+  2, student licence 14 not 16, covers <25kg not <15kg) and flagged a viral
+  "2026 six amendments" list I could NOT find any legal basis for.
+  B1: 職業地圖 (career, NEW dir) — 11 roles by layer + software transferability.
+  Two verification wins worth remembering: AUVSI's own release says ITRI is a
+  cybersecurity Recognized Assessor only ("AUVSI retains U.S.-based supply
+  chain verification authority") — narrower than TW media's framing; and
+  check:references warns (exit 1) when a zh post's title/headings share no
+  ASCII token with the references block — fixed by putting "CAA" in a heading.
+  Hub links out to all 3 spokes. Every post carries `drone` as first tag.
+  Next: A2 (產業週期史) or E1 (四條件框架看無人機鏈).
+  TODO when series hits 3+ posts: promote the 5 frontmatter glossary terms
+  (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) to src/lib/glossary/terms.ts.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
