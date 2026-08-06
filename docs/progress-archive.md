@@ -6,6 +6,46 @@
 
 ### Recently completed（原 progress.txt 條目）
 
+第三批歸檔（圖示改 Koboyo 手繪風時，合併 main 後 progress.txt 達 99 行）。
+
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
+
+以下前兩筆為當日第二批歸檔（發布手機廣告追蹤機制文章後，progress.txt 達 85 行，
+逼近 90 行上限而觸發）。
+
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
+  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
+  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
+  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
+  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
+  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
+  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
+  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
+  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
 - 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
   companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
   ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
@@ -59,3 +99,65 @@
 - agent-os: kernel live with critic agent on since 4d3b12c; writer/research/planner pending prod observation windows; scheduler+R2 bindings wired; pending production flag flips
 
 未完成的決策（production flag flips、soak windows）已登錄到 `docs/governance/escalation-queue.md`，不會因歸檔而遺失。
+
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
+  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
+  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
+  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
+  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
+  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
+  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
+  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
+  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
+
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
+- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
+  "never searched it, only talked about it" phenomenon. Key find nobody has
+  covered yet: FTC closed the Cox Media Group "Active Listening" case on
+  2026-05-21 — the service collected NO voice data at all, it was reselling
+  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
+  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
+  was a fraud. Second find: Meta's official PYMK signal list (transparency
+  center, updated 2024-12-13) explicitly includes "whether or not your contact
+  was uploaded by the person being suggested" — official confirmation of the
+  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
+  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
+  signal list contains no location/IP signal, so the article says "industry
+  practice, Meta holds the same raw materials". Included the Webex counterexample
+  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
+  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
+  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
+  地理圍欄, DMA). Research note in .research/ (not version-controlled).
