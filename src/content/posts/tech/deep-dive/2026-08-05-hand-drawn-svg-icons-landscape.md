@@ -1,12 +1,12 @@
 ---
-title: "手繪風 SVG 圖示的三條路：9 萬個免費圖庫、把 Lucide 弄歪的生成器，還有那張沒人看的授權頁"
+title: "手繪風 SVG 圖示的三條路：近 9 萬個免費圖庫、把 Lucide 弄歪的生成器，還有那張沒人看的授權頁"
 date: 2026-08-05
 type: deep-dive
 category: tech
 tags: [svg, icons, hand-drawn, open-source, licensing, developer-tools, mcp]
 lang: zh-TW
-tldr: "Koboyo 放出 92,967 個免費手繪 SVG，但授權頁明文禁止拿去做圖示庫或畫布 app。想要手繪感其實有三條路：收圖庫、用程式把既有幾何弄歪（sketchyicons 把 Lucide 的每條直線轉成二次貝茲，用 icon 名稱當亂數種子確保 byte-for-byte 一致）、或 AI 生成。這篇比較七家圖庫的規模與授權、拆解 sketchyicons 與 tldraw 的生成演算法，並整理正在往 MCP 靠的圖示搜尋工具。"
-description: "從 Koboyo Icons 的 92,967 個免費手繪 SVG 切入，比較 Khushmeen、Streamline Freehand、Icons8 Doodle、Iconro 等圖庫的規模與授權差異，拆解 sketchyicons 的 seeded 座標偏移與 tldraw 的多 pass 疊描邊演算法，並盤點 icons0.dev、theSVG 等提供 MCP server 的圖示搜尋工具。"
+tldr: "Koboyo 放出近 9 萬個免費手繪 SVG（數字浮動中：同一天內從 92,967 掉到 87,954），但授權頁明文禁止拿去做圖示庫或畫布 app。想要手繪感其實有三條路：收圖庫、用程式把既有幾何弄歪（sketchyicons 把 Lucide 的每條直線轉成二次貝茲，用 icon 名稱當亂數種子確保 byte-for-byte 一致）、或 AI 生成。這篇比較七家圖庫的規模與授權、拆解 sketchyicons 與 tldraw 的生成演算法，並整理正在往 MCP 靠的圖示搜尋工具。"
+description: "從 Koboyo Icons 近 9 萬個免費手繪 SVG 切入，比較 Khushmeen、Streamline Freehand、Icons8 Doodle、Iconro 等圖庫的規模與授權差異（含 Streamline 每專案 100 個圖示的 allowance 與開源專案強制署名條款），拆解 sketchyicons 的 seeded 座標偏移與 tldraw 的多 pass 疊描邊演算法，並盤點 icons0.dev、theSVG 等提供 MCP server 的圖示搜尋工具。"
 draft: false
 glossary:
   - term: "二次貝茲曲線"
@@ -21,9 +21,11 @@ glossary:
 
 > 🌏 [English version](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape-en)
 
-[Koboyo Icons](https://koboyo.com/icons) 現在掛著 92,967 個免費手繪風 SVG 圖示，免費商用、免署名、不用註冊。這個數字在免費圖庫裡是離譜的——[Streamline](https://www.streamlinehq.com/) 號稱業界最大的手繪集 Freehand 是 11,171 個，而且要錢。
+[Koboyo Icons](https://koboyo.com/icons) 掛著近 9 萬個免費手繪風 SVG 圖示，免費商用、免署名、不用註冊。這個量級在免費圖庫裡是離譜的——[Streamline](https://www.streamlinehq.com/) 號稱業界最大的手繪集 Freehand，單一 set 是 11,171 個，而且要錢。
 
-但在下載之前值得先讀[授權頁](https://koboyo.com/icons/license)，因為那裡有一段話會直接決定你能不能用。
+不過這個數字別當常數看。寫這篇的當天早上首頁與授權頁一致標示 **92,967**，幾小時後再看變成 **87,954**，Google 索引裡還存著更早的 71,238。一天內少 5,013 個，代表他們在主動刪減而不只是持續新增，所以本文用「近 9 萬」而不寫死——你看到的時候大概又是另一個數字了。
+
+而在下載之前，更值得先讀[授權頁](https://koboyo.com/icons/license)，因為那裡有一段話會直接決定你能不能用。
 
 而且「我想要手繪感的圖示」在 2026 年其實不只有「去找一個手繪圖庫」這一個答案。這篇拆三條路：**收現成的圖庫**、**用程式把既有幾何弄歪**、**AI 生成**。第二條路的技術細節最有意思，也最少人講。
 
@@ -31,9 +33,9 @@ glossary:
 
 ```
 你要什麼？
-├── 覆蓋率最高，能接受授權限制 ────→ Koboyo（92,967）
+├── 覆蓋率最高，能接受授權限制 ────→ Koboyo（近 9 萬）
 ├── 授權要最乾淨（CC0）───────────→ Khushmeen（400+）
-├── 品質一致、願意付費 ───────────→ Streamline Freehand（11,171，$19/月起）
+├── 品質一致、願意付費 ───────────→ Streamline Freehand（set 11,171，$19/月起）
 ├── 已經在用 Lucide，想換個調性 ──→ sketchyicons（生成，MIT）
 ├── 要自己畫的東西也有手感 ───────→ Rough.js / tldraw 的做法
 └── 給 AI agent 自己找圖 ─────────→ icons0.dev / theSVG（MCP）
@@ -61,15 +63,29 @@ Koboyo 授權頁的「You can't」寫得很白：
 
 | 圖庫 | 數量 | 授權 | 要注意的地方 |
 |---|---|---|---|
-| [Koboyo Icons](https://koboyo.com/icons) | 92,967 | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 覆蓋率無敵，但用途邊界要自己判斷 |
+| [Koboyo Icons](https://koboyo.com/icons) | 87,954（2026-08-05 實測，浮動中） | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 覆蓋率無敵，但用途邊界要自己判斷 |
 | [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) | 400+ | **CC0，免署名** | 授權最乾淨。附 Figma 檔與動畫版 |
-| [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | 11,171 | 付費 $19/月起，或買斷；免費 set 需署名 | **每專案 100 個圖示的用量上限** |
+| [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | set 11,171（Freehand 家族 22,349） | 付費 $19/月起，或買斷；免費 set 需署名 | **每專案 100 個圖示的用量上限**（可加購解除）；開源專案即使付費仍強制署名 |
 | [Icons8 Doodle](https://icons8.com/icons/doodle) | 2,200（57 分類） | Freemium，免費需署名 | 彩色麥克筆風，偏簡報而非 UI |
 | [Iconro Hand Drawn](https://iconro.com/icons/hand-drawn) | 1,010 | 免費商用，**強制回連署名** | 每個圖示頁內建顏色／描邊即時編輯器 |
-| [doo-iconik](https://github.com/ajentik/doo-iconik) | 595 | 開源 | 打包成 15 種框架，含 Rails / Laravel / Flutter |
+| [doo-iconik](https://github.com/ajentik/doo-iconik) | 595 | MIT | 打包成 15 種框架，含 Rails / Laravel / Flutter |
 | [Duma Icons](https://duma-icons.dudych.cc/) | 451 | 免費 | SVG + React |
 
-Streamline 的定位跟其他家不同：它是唯一由真人團隊長期維護的商業選項，[官方頁面](https://www.streamlinehq.com/icons/streamline-freehand)說 Freehand 建在 24px grid 上、「varying stroke thickness creates an artistic look」。要一整套風格一致到可以撐起產品的手繪圖示，這仍然是最穩的答案——代價是那個每專案 100 個的 allowance 上限，做大型設計系統前要先算清楚。
+Streamline 的定位跟其他家不同：它是唯一由真人團隊長期維護的商業選項，[官方頁面](https://www.streamlinehq.com/icons/streamline-freehand)說 Freehand 建在 24px grid 上、「varying stroke thickness creates an artistic look」。要一整套風格一致到可以撐起產品的手繪圖示，這仍然是最穩的答案。
+
+代價全部寫在[授權條款](https://help.streamlinehq.com/en/articles/5354366-streamline-premium-licenses)裡，而且不只一條：
+
+> Use up to 100 icons, 50 illustrations, 50 elements, or 50 emojis per project.
+>
+> It's 100 unique icons per project, so if you repeat one icon 10 times, it still counts only as one.
+
+這個 allowance 常被誤傳成硬天花板，其實同一份條款第 6 節有 Extended Allowance License 可以加購解除。但另外三條沒有解套，而且對開發者更容易踩到：
+
+- **開源專案即使付費也強制署名**——「attribution is mandatory when incorporating our icons into open-source projects, including proper credits and a link to streamlinehq.com」。付費買斷不等於免署名，這點跟多數人的直覺相反。
+- **禁止用於 AI 訓練**（「Do not use assets for AI training」）。
+- **每個組織只有一位 licensed user 能存取向量原始檔**，其他設計師與工程師只能用已挑好的那批；要多人取用得另外加購席次。
+
+也就是說，選 Streamline 前要算的不只是圖示夠不夠，還有你的專案是不是開源、團隊有幾個人要碰原始檔。
 
 Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、零限制**，還有 Figma 檔。[react-doodle-icons](https://github.com/agilek/react-doodle-icons) 把其中 439 個包成 MIT 授權的 React 元件，單一 icon 約 200 bytes。如果你的需求是「常用 UI 圖示換成手繪風」而不是「什麼冷門概念都要有」，這個組合的麻煩最少。
 
@@ -126,7 +142,7 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 
 上面兩者的共同祖先是 [Rough.js](https://roughjs.com/)——小於 9 kB gzipped、MIT 授權，提供線、弧、多邊形、圓、以及 SVG path 的 sketchy 渲染，`roughness` 和 `bowing` 兩個參數直接控制潦草程度。Excalidraw 就是建在它上面，也是它的 sponsor。
 
-同一位作者（Preet Shihn）還做了 [Wired Elements](https://wiredjs.com/)（MIT，GitHub 10,807 stars），把 Rough.js 包成一整套手繪風的 web components——button、input、slider 那些。官網那句話是這條路線的精神註腳：
+同一位作者（Preet Shihn）還做了 [Wired Elements](https://wiredjs.com/)（MIT，GitHub 10.8k stars），把 Rough.js 包成一整套手繪風的 web components——button、input、slider 那些。官網那句話是這條路線的精神註腳：
 
 > The elements are drawn with enough randomness that no two renderings will be exactly the same — just like two separate hand-drawn shapes.
 
@@ -142,14 +158,15 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 
 ## 順帶一提：圖示搜尋正在集體往 MCP 靠
 
-查資料時最明顯的趨勢是，新一代的圖示聚合器全部在做 AI agent 入口：
+查資料時最明顯的趨勢是，新一代的圖示聚合器全部在做 AI agent 入口——連本文開頭的 Koboyo 也在同一條線上，它的圖示頁掛著「Use with AI · MCP」，登入後就能從 Claude、Codex、Cursor 直接取用：
 
 | 服務 | 規模 | agent 介面 |
 |---|---|---|
 | [icons0.dev](https://icons0.dev/)（[i0](https://github.com/marcoripa96/i0)，MIT） | 223 個 collection、303k+ 圖示 | MCP server，4 個 tool |
-| [theSVG](https://thesvg.org/) | 6,400+（其中 4,487 個品牌圖示） | MCP + Figma plugin + VS Code + Raycast |
+| [theSVG](https://thesvg.org/) | 6,502+（其中 4,629 個品牌圖示） | MCP + Figma plugin + VS Code + Raycast |
 | [IconVaultKit](https://iconvaultkit.com/) | 200,000+，92+ 個庫 | MCP + npm 套件 |
 | [Iconstack](https://iconstack.io/) | 51,378 | API + MCP |
+| [Koboyo Icons](https://koboyo.com/icons) | 近 9 萬（手繪風單一風格） | MCP（需登入） |
 | [All SVG Icons](https://allsvgicons.com/) | 286,000+，220+ 個庫 | 網頁為主 |
 
 其中 i0 的檢索設計值得單獨看：依其 [GitHub repo](https://github.com/marcoripa96/i0) 說明，它把 303k 個圖示的 SVG body 全部存進 Turso（libSQL），**FTS5 關鍵字檢索（porter stemming）與 DiskANN 向量索引平行跑，再用 RRF 融合**；embedding 是 `gemini-embedding-001` 的 256 維。這正好是站上 [Hybrid Search：BM25 + 向量 + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 那套架構的一個具體應用——圖示搜尋其實非常吃這個組合，因為「一個表示『刪除但可復原』的圖示」這種查詢純關鍵字打不中，而「trash」這種精確詞又是純向量容易漂掉的。
@@ -161,7 +178,7 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 - **要授權最乾淨、不想讀條款** → [Khushmeen](https://khushmeen.com/icons.html)（CC0）
 - **要覆蓋率最高，而且你的產品不是畫布／編輯器類** → [Koboyo](https://koboyo.com/icons)，但先確認使用者不能在你的 app 裡挑選或下載這些圖示
 - **已經在用 Lucide** → [sketchyicons](https://sketchyicons.com/)，換一行 import
-- **要做整套設計系統、風格一致度優先** → [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand)，先算每專案 100 個的上限夠不夠
+- **要做整套設計系統、風格一致度優先** → [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand)，但先確認專案不是開源的（開源即使付費仍強制署名），並算好每專案 100 個的 allowance 與席次要不要加購
 - **要在自己的畫布／白板產品裡畫手繪圖形** → [Rough.js](https://roughjs.com/)，並參考 tldraw 的穩定種子與多 pass 做法
 - **要讓 AI agent 自己找圖** → [icons0.dev](https://icons0.dev/) 或 [theSVG](https://thesvg.org/) 的 MCP server
 
@@ -169,7 +186,7 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 
 ## 參考資料
 
-- [Koboyo Icons](https://koboyo.com/icons) — 92,967 個免費手繪 SVG
+- [Koboyo Icons](https://koboyo.com/icons) — 近 9 萬個免費手繪 SVG（2026-08-05 實測 87,954）
 - [Koboyo Icons 授權條款](https://koboyo.com/icons/license) — 禁止競品與「圖示為主體」app 的原文
 - [Koboyo 無限畫布](https://koboyo.com/) — 圖庫所屬的本體產品
 - [sketchyicons](https://sketchyicons.com/) — 1,500+ 個由 Lucide 幾何生成的手繪圖示，含演算法說明
@@ -181,8 +198,9 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 - [Excalidraw](https://github.com/excalidraw/excalidraw) — 開源手繪風無限畫布
 - [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) — 400+ 個 CC0 手繪圖示
 - [react-doodle-icons](https://github.com/agilek/react-doodle-icons) — Khushmeen 圖示的 MIT React 封裝
-- [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) — 11,171 個商業手繪圖示
-- [Streamline 定價與授權](https://home.streamlinehq.com/pricing) — 每專案 100 個圖示的 allowance 說明
+- [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) — set 11,171 個商業手繪圖示
+- [Streamline 定價](https://home.streamlinehq.com/pricing) — 訂閱與買斷方案，Freehand 家族 22,349 個
+- [Streamline Premium Licenses](https://help.streamlinehq.com/en/articles/5354366-streamline-premium-licenses) — 每專案 100 個 allowance、Extended Allowance License、開源署名義務、禁止 AI 訓練、席次限制的原文
 - [Icons8 Doodle](https://icons8.com/icons/doodle) — 2,200 個彩色塗鴉圖示
 - [Iconro Hand Drawn](https://iconro.com/icons/hand-drawn) — 1,010 個需署名的手繪圖示
 - [doo-iconik](https://github.com/ajentik/doo-iconik) — 595 個圖示，15 種框架封裝
@@ -191,7 +209,7 @@ Khushmeen 則是另一個極端：只有 400 多個，但 **CC0、免署名、�
 - [Vexura](https://www.vexura.io/) — 線上 AI SVG 生成工具
 - [icons0.dev](https://icons0.dev/) — 223 個 collection 的圖示搜尋
 - [i0 GitHub](https://github.com/marcoripa96/i0) — FTS5 + 向量混合檢索與 MCP server 的實作
-- [theSVG](https://thesvg.org/) — 6,400+ 個品牌與雲端架構圖示
+- [theSVG](https://thesvg.org/) — 6,502+ 個品牌與雲端架構圖示
 - [IconVaultKit](https://iconvaultkit.com/) — 200,000+ 圖示聚合搜尋
 - [Iconstack](https://iconstack.io/) — 51,378 個圖示，附 API 與 MCP
 - [All SVG Icons](https://allsvgicons.com/) — 286,000+ 圖示、220+ 個庫

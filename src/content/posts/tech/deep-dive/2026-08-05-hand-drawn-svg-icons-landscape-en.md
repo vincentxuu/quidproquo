@@ -1,12 +1,12 @@
 ---
-title: "Three Routes to Hand-Drawn SVG Icons: A 93k Free Library, a Generator That Bends Lucide, and the License Page Nobody Reads"
+title: "Three Routes to Hand-Drawn SVG Icons: A ~88k Free Library, a Generator That Bends Lucide, and the License Page Nobody Reads"
 date: 2026-08-05
 type: deep-dive
 category: tech
 tags: [svg, icons, hand-drawn, open-source, licensing, developer-tools, mcp]
 lang: en
-tldr: "Koboyo ships 92,967 free hand-drawn SVG icons, but its license page explicitly forbids building an icon library or canvas app with them. There are actually three routes to a hand-drawn look: collect a library, bend existing geometry programmatically (sketchyicons turns every straight run in Lucide into a quadratic Bézier, seeded by icon name for byte-for-byte reproducibility), or generate with AI. This piece compares seven libraries on scale and license, unpacks the algorithms behind sketchyicons and tldraw, and surveys the icon search tools now shipping MCP servers."
-description: "Starting from Koboyo Icons' 92,967 free hand-drawn SVGs, this article compares the scale and licensing of Khushmeen, Streamline Freehand, Icons8 Doodle, and Iconro, dissects sketchyicons' seeded coordinate perturbation and tldraw's multi-pass stroke rendering, and surveys icon search tools like icons0.dev and theSVG that expose MCP servers."
+tldr: "Koboyo ships close to 90,000 free hand-drawn SVG icons (the count is in flux: it fell from 92,967 to 87,954 within a single day), but its license page explicitly forbids building an icon library or canvas app with them. There are actually three routes to a hand-drawn look: collect a library, bend existing geometry programmatically (sketchyicons turns every straight run in Lucide into a quadratic Bézier, seeded by icon name for byte-for-byte reproducibility), or generate with AI. This piece compares seven libraries on scale and license, unpacks the algorithms behind sketchyicons and tldraw, and surveys the icon search tools now shipping MCP servers."
+description: "Starting from Koboyo Icons' nearly 90,000 free hand-drawn SVGs, this article compares the scale and licensing of Khushmeen, Streamline Freehand, Icons8 Doodle, and Iconro (including Streamline's 100-icons-per-project allowance and its mandatory attribution for open-source projects), dissects sketchyicons' seeded coordinate perturbation and tldraw's multi-pass stroke rendering, and surveys icon search tools like icons0.dev and theSVG that expose MCP servers."
 draft: false
 glossary:
   - term: "quadratic Bézier"
@@ -21,9 +21,11 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape)
 
-[Koboyo Icons](https://koboyo.com/icons) currently lists 92,967 free hand-drawn SVG icons — free for commercial use, no attribution, no signup. That number is absurd for a free library: [Streamline](https://www.streamlinehq.com/)'s Freehand, billed as the largest hand-drawn set in the industry, has 11,171 icons and costs money.
+[Koboyo Icons](https://koboyo.com/icons) lists close to 90,000 free hand-drawn SVG icons — free for commercial use, no attribution, no signup. That scale is absurd for a free library: [Streamline](https://www.streamlinehq.com/)'s Freehand, billed as the largest hand-drawn set in the industry, has 11,171 icons in its main set, and costs money.
 
-But it's worth reading the [license page](https://koboyo.com/icons/license) before you download, because there's a clause there that decides whether you can use them at all.
+Don't treat that number as a constant, though. On the morning I wrote this, both the homepage and the license page showed **92,967**; a few hours later it read **87,954**, and Google's index still holds an older 71,238. Losing 5,013 icons in a day means they're actively pruning, not just adding — so this article says "close to 90,000" rather than pinning a figure. By the time you read this it's probably another number.
+
+Before you download, though, it's worth reading the [license page](https://koboyo.com/icons/license), because there's a clause there that decides whether you can use them at all.
 
 And in 2026, "I want hand-drawn icons" no longer has just one answer. This piece covers three routes: **collect an existing library**, **bend existing geometry with code**, and **generate with AI**. The second route has the most interesting engineering, and the least written about it.
 
@@ -31,9 +33,9 @@ If you want vector *animation* rather than static icons, see [Text / Image to Lo
 
 ```
 What do you need?
-├── Maximum coverage, license limits acceptable ──→ Koboyo (92,967)
+├── Maximum coverage, license limits acceptable ──→ Koboyo (~88k)
 ├── Cleanest license (CC0) ──────────────────────→ Khushmeen (400+)
-├── Consistency, willing to pay ─────────────────→ Streamline Freehand (11,171, from $19/mo)
+├── Consistency, willing to pay ─────────────────→ Streamline Freehand (set of 11,171, from $19/mo)
 ├── Already on Lucide, want a different tone ────→ sketchyicons (generated, MIT)
 ├── Your own drawn shapes need the look too ─────→ Rough.js / tldraw's approach
 └── Let an AI agent find icons ──────────────────→ icons0.dev / theSVG (MCP)
@@ -61,15 +63,29 @@ On where the icons come from, the license page says only that "The icons are cur
 
 | Library | Count | License | Watch out for |
 |---|---|---|---|
-| [Koboyo Icons](https://koboyo.com/icons) | 92,967 | Free commercial, no attribution, **no competing products or "icons as the feature" apps** | Unbeatable coverage, but you must judge the boundary yourself |
+| [Koboyo Icons](https://koboyo.com/icons) | 87,954 (measured 2026-08-05, in flux) | Free commercial, no attribution, **no competing products or "icons as the feature" apps** | Unbeatable coverage, but you must judge the boundary yourself |
 | [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) | 400+ | **CC0, no attribution** | Cleanest license. Ships Figma file and animated versions |
-| [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | 11,171 | From $19/mo, or lifetime purchase; free sets need attribution | **100-icon-per-project allowance cap** |
+| [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | set of 11,171 (Freehand family: 22,349) | From $19/mo, or lifetime purchase; free sets need attribution | **100-icon-per-project allowance** (liftable via add-on); open-source projects require attribution even on paid plans |
 | [Icons8 Doodle](https://icons8.com/icons/doodle) | 2,200 (57 categories) | Freemium, attribution on free tier | Colorful marker style, better for decks than UI |
 | [Iconro Hand Drawn](https://iconro.com/icons/hand-drawn) | 1,010 | Free commercial, **backlink attribution required** | Live color/stroke editor on every icon page |
-| [doo-iconik](https://github.com/ajentik/doo-iconik) | 595 | Open source | Packaged for 15 frameworks, including Rails / Laravel / Flutter |
+| [doo-iconik](https://github.com/ajentik/doo-iconik) | 595 | MIT | Packaged for 15 frameworks, including Rails / Laravel / Flutter |
 | [Duma Icons](https://duma-icons.dudych.cc/) | 451 | Free | SVG + React |
 
-Streamline occupies a different position from the rest: it's the only commercial option maintained long-term by a human team. Its [official page](https://www.streamlinehq.com/icons/streamline-freehand) notes Freehand is built on a 24px grid, where "varying stroke thickness creates an artistic look." For a hand-drawn set consistent enough to carry an entire product, this is still the safest answer — at the cost of that per-project allowance, which you should budget for before starting a large design system.
+Streamline occupies a different position from the rest: it's the only commercial option maintained long-term by a human team. Its [official page](https://www.streamlinehq.com/icons/streamline-freehand) notes Freehand is built on a 24px grid, where "varying stroke thickness creates an artistic look." For a hand-drawn set consistent enough to carry an entire product, this is still the safest answer.
+
+The costs are all spelled out in the [license terms](https://help.streamlinehq.com/en/articles/5354366-streamline-premium-licenses), and there's more than one:
+
+> Use up to 100 icons, 50 illustrations, 50 elements, or 50 emojis per project.
+>
+> It's 100 unique icons per project, so if you repeat one icon 10 times, it still counts only as one.
+
+That allowance is often relayed as a hard ceiling, but section 6 of the same terms offers an Extended Allowance License that lifts it. Three other clauses have no such escape hatch, and they're the ones developers are more likely to trip over:
+
+- **Open-source projects require attribution even on a paid plan** — "attribution is mandatory when incorporating our icons into open-source projects, including proper credits and a link to streamlinehq.com." Paying does not buy you out of crediting, which runs against most people's intuition.
+- **No use for AI training** ("Do not use assets for AI training").
+- **Only one licensed user per organization can access the vector sources.** Everyone else works from a pre-selected batch; more seats cost extra.
+
+So the calculation before choosing Streamline isn't only whether the icon count is enough — it's also whether your project is open source and how many people need to touch the source files.
 
 Khushmeen sits at the opposite extreme: barely 400 icons, but **CC0, no attribution, no restrictions**, plus a Figma file. [react-doodle-icons](https://github.com/agilek/react-doodle-icons) wraps 439 of them as MIT-licensed React components at roughly 200 bytes per icon. If your need is "swap common UI icons for a hand-drawn style" rather than "cover every obscure concept," this combination causes the least trouble.
 
@@ -126,7 +142,7 @@ These two details explain why [Excalidraw](https://github.com/excalidraw/excalid
 
 Both trace back to [Rough.js](https://roughjs.com/) — under 9 kB gzipped, MIT licensed, providing sketchy rendering for lines, arcs, polygons, circles, and SVG paths, with `roughness` and `bowing` as direct knobs on how scruffy the output looks. Excalidraw is built on it, and sponsors it.
 
-The same author (Preet Shihn) also built [Wired Elements](https://wiredjs.com/) (MIT, 10,807 GitHub stars), wrapping Rough.js into a full set of hand-drawn web components — buttons, inputs, sliders. Its tagline is the philosophical footnote for this whole route:
+The same author (Preet Shihn) also built [Wired Elements](https://wiredjs.com/) (MIT, 10.8k GitHub stars), wrapping Rough.js into a full set of hand-drawn web components — buttons, inputs, sliders. Its tagline is the philosophical footnote for this whole route:
 
 > The elements are drawn with enough randomness that no two renderings will be exactly the same — just like two separate hand-drawn shapes.
 
@@ -142,14 +158,15 @@ The current problem with this route isn't fidelity, though — it's **consistenc
 
 ## An aside: icon search is collectively moving to MCP
 
-The clearest trend while researching this: the current generation of icon aggregators are all building AI agent entry points.
+The clearest trend while researching this: the current generation of icon aggregators are all building AI agent entry points — including Koboyo, from the top of this article. Its icon page carries a "Use with AI · MCP" entry, and once you sign in the icons are reachable from Claude, Codex, or Cursor.
 
 | Service | Scale | Agent interface |
 |---|---|---|
 | [icons0.dev](https://icons0.dev/) ([i0](https://github.com/marcoripa96/i0), MIT) | 223 collections, 303k+ icons | MCP server, 4 tools |
-| [theSVG](https://thesvg.org/) | 6,400+ (4,487 brand icons) | MCP + Figma plugin + VS Code + Raycast |
+| [theSVG](https://thesvg.org/) | 6,502+ (4,629 brand icons) | MCP + Figma plugin + VS Code + Raycast |
 | [IconVaultKit](https://iconvaultkit.com/) | 200,000+, 92+ libraries | MCP + npm package |
 | [Iconstack](https://iconstack.io/) | 51,378 | API + MCP |
+| [Koboyo Icons](https://koboyo.com/icons) | ~88k (single hand-drawn style) | MCP (sign-in required) |
 | [All SVG Icons](https://allsvgicons.com/) | 286,000+, 220+ libraries | Web-first |
 
 i0's retrieval design deserves a closer look. Per its [GitHub repo](https://github.com/marcoripa96/i0), it stores the SVG body of all 303k icons in Turso (libSQL) and runs **FTS5 keyword search (with porter stemming) in parallel with a DiskANN vector index, fusing the two with RRF**; embeddings are 256-dimensional `gemini-embedding-001`. This is a concrete application of the architecture covered in [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) — icon search benefits from it unusually well, because a query like "an icon for delete-but-recoverable" is hopeless for pure keyword matching, while an exact term like "trash" is exactly what pure vector search tends to drift on.
@@ -161,7 +178,7 @@ The practical upshot: if you write frontend code in Claude Code or Cursor, letti
 - **Cleanest license, don't want to read terms** → [Khushmeen](https://khushmeen.com/icons.html) (CC0)
 - **Maximum coverage, and your product isn't a canvas/editor** → [Koboyo](https://koboyo.com/icons), after confirming your users can't pick or download the icons inside your app
 - **Already on Lucide** → [sketchyicons](https://sketchyicons.com/), one import line
-- **Building a full design system, consistency first** → [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand), after checking the 100-per-project allowance is enough
+- **Building a full design system, consistency first** → [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand), after confirming your project isn't open source (which requires attribution even on paid plans) and budgeting for the 100-per-project allowance and extra seats
 - **Drawing hand-drawn shapes inside your own canvas product** → [Rough.js](https://roughjs.com/), following tldraw's stable-seed and multi-pass approach
 - **Letting an AI agent find icons** → the MCP servers from [icons0.dev](https://icons0.dev/) or [theSVG](https://thesvg.org/)
 
@@ -169,7 +186,7 @@ One closing warning: the thing that most often goes wrong here isn't picking the
 
 ## References
 
-- [Koboyo Icons](https://koboyo.com/icons) — 92,967 free hand-drawn SVG icons
+- [Koboyo Icons](https://koboyo.com/icons) — close to 90,000 free hand-drawn SVG icons (87,954 measured 2026-08-05)
 - [Koboyo Icons license](https://koboyo.com/icons/license) — the source text on competing products and "icons as the feature" apps
 - [Koboyo infinite canvas](https://koboyo.com/) — the product the library belongs to
 - [sketchyicons](https://sketchyicons.com/) — 1,500+ icons generated from Lucide geometry, with the algorithm documented
@@ -181,8 +198,9 @@ One closing warning: the thing that most often goes wrong here isn't picking the
 - [Excalidraw](https://github.com/excalidraw/excalidraw) — open-source hand-drawn infinite canvas
 - [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) — 400+ CC0 hand-drawn icons
 - [react-doodle-icons](https://github.com/agilek/react-doodle-icons) — MIT React wrapper for Khushmeen's icons
-- [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) — 11,171 commercial hand-drawn icons
-- [Streamline pricing and licensing](https://home.streamlinehq.com/pricing) — the 100-icons-per-project allowance
+- [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) — a set of 11,171 commercial hand-drawn icons
+- [Streamline pricing](https://home.streamlinehq.com/pricing) — subscription and lifetime plans; Freehand family totals 22,349
+- [Streamline Premium Licenses](https://help.streamlinehq.com/en/articles/5354366-streamline-premium-licenses) — source text for the 100-per-project allowance, Extended Allowance License, open-source attribution duty, AI-training ban, and seat limits
 - [Icons8 Doodle](https://icons8.com/icons/doodle) — 2,200 colorful doodle icons
 - [Iconro Hand Drawn](https://iconro.com/icons/hand-drawn) — 1,010 hand-drawn icons requiring attribution
 - [doo-iconik](https://github.com/ajentik/doo-iconik) — 595 icons packaged for 15 frameworks
@@ -191,7 +209,7 @@ One closing warning: the thing that most often goes wrong here isn't picking the
 - [Vexura](https://www.vexura.io/) — online AI SVG generation tool
 - [icons0.dev](https://icons0.dev/) — icon search across 223 collections
 - [i0 on GitHub](https://github.com/marcoripa96/i0) — implementation of the FTS5 + vector hybrid search and MCP server
-- [theSVG](https://thesvg.org/) — 6,400+ brand and cloud architecture icons
+- [theSVG](https://thesvg.org/) — 6,502+ brand and cloud architecture icons
 - [IconVaultKit](https://iconvaultkit.com/) — aggregated search over 200,000+ icons
 - [Iconstack](https://iconstack.io/) — 51,378 icons with API and MCP
 - [All SVG Icons](https://allsvgicons.com/) — 286,000+ icons across 220+ libraries
