@@ -31,6 +31,13 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 | 程式碼 / GitHub 議題 / API spec 導向 | `exa_web_search` + `firecrawl_scrape` |
 | 多版本快速比對 | `tavily_search` 用 `time_range: month/year` |
 
+**兩條硬規則**：
+
+1. **搜尋摘要不能作為 Confirmed 的依據。** `tavily_search` 回傳的片段只能拿來找候選來源。要判 Confirmed，必須對那個來源做過一次真正的抽取。
+2. **抽取驗證用的來源時不要帶 `query`。** `tavily_extract` 的 `query` 會依相關性重排並只回傳片段——你會看到對的數字，卻看不到旁邊的但書（樣本數、納入條件、「控制某變項後不顯著」）。PDF 用 `firecrawl_scrape` 加 `parsers: ["pdf"]`。
+
+取不到全文的繞路順序 → `../deep-research/references/mcp-tools.md`
+
 ## 執行步驟
 
 ### 1. 定位草稿
@@ -138,6 +145,10 @@ post-verify report: <slug>
 | 「Confirmed 的不報」 | 報告 Confirmed 的避免使用者重複自查 |
 | 「跳過 quoted 引用，反正引用一定對」 | 名言類引用最常被 LLM 誤記，要查原始出處 |
 | 「Unverifiable 直接判錯」 | 找不到不等於錯，要明確標 Unverifiable |
+| 「搜尋摘要裡數字對得上就判 Confirmed」 | 片段看不到但書。本站踩過：效果量抄對了，卻漏掉「控制工作記憶後主效果不顯著」——數字對、結論錯 |
+| 「抽取時帶 `query` 比較省」 | 省下的是 context，付出的是把片段當全文。驗證來源一律全文抽取 |
+| 「付費牆 → 直接判 Unverifiable」 | 先跑繞路清單（出版商免費 snippets、引用它的開放取用論文、機構典藏）。真的都沒有才判 Unverifiable，並在報告寫明試過哪幾條 |
+| 「多個二手來源說法一致就算兩源」 | 二手站會集體抄同一個錯，那是一個來源不是多個。價格與產品線一律回官方頁 |
 
 ## 跟既有 skill 的關係
 

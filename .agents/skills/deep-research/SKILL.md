@@ -47,18 +47,40 @@ description: Multi-source research for tools, frameworks, papers, models, produc
    - 作者本人 X / 個人 blog / Mastodon
    - HN / Reddit / 高 star repo issue
    - 內容農場（Medium 抄稿、SEO blog）通常跳過
-4. `firecrawl_scrape` 或 `tavily_extract` 抓單頁內容
-5. **每個事實至少要 2 個獨立來源**才寫進結論。只有單源就標 `[unverified]`
+4. **抓內容。主要來源一律全文抽取，不要帶 `query`。**
+   - 主要來源（結論會依賴它的論文 / 官方頁 / 定價頁）：`tavily_extract` **不帶 `query`**，或 `firecrawl_scrape`（PDF 要加 `parsers: ["pdf"]`）。
+   - `query` 參數會依相關性重排並**只回傳片段**。拿到片段不等於讀過這份來源。
+   - 次要來源（只用來交叉印證方向、不會被單獨引用）才可以帶 `query` 省 context。
+   - 輸出太大被存成檔案是**正常的**，用 `python3` 切片或 `grep` 讀完即可，不要因為嫌大就改用會截斷的方式。
+5. **搜尋摘要不算讀過來源。** 從 `tavily_search` 片段裡看到的數字只能當「候選事實」；要寫進結論，就得對那份來源真正抽取一次。
+6. **每個事實至少要 2 個獨立來源**才寫進結論。只有單源就標 `[unverified]`
+7. **遇到付費牆 / 抓不到，先跑完繞路清單再放棄** → `references/mcp-tools.md`〈取不到全文時的繞路順序〉。「付費牆」通常只擋正文，不擋摘要、section snippets、機構典藏版或引用它的開放取用論文。
 
-### 3. 交叉驗證
+### 3. 盤點讀到什麼程度
+
+**在寫任何結論之前**，先把每個來源標上讀取程度。這一步是為了防止「片段當全文」在後面被當成證據使用。
+
+| 標記 | 意思 |
+|---|---|
+| ✅ 全文 | 完整抽取過，能引用方法段與表格 |
+| 🟡 部分 | 只有摘要 / section snippets / 片段 / 二手轉述的細節 |
+| 🔴 未讀 | 只有搜尋摘要或二次引用 |
+
+盤點表要寫進 research note，且**每一列都要註明「阻礙是什麼」**——是付費牆、是 JS 載入、還是「我自己沒去拿」。兩者的後續處理完全不同：前者要找繞路，後者只要去拿。
+
+只要結論依賴的來源還有 🔴，就在交手前明講，不要用「已查證」帶過。
+
+### 4. 交叉驗證
 
 把蒐集到的關鍵事實列成事實交叉表，標明來源與驗證狀態（`✅` / `⚠️ unverified` / `❌ conflict`）。
+
+**交叉表只放「來源說了什麼」。** 自己跨來源比較後得出的推斷，要另外標成 `[推論]` 並寫明依據——否則下一輪你會拿自己的推論當證據，再往上疊一層。
 
 **衝突的事實要列出來，不要選邊**。讓使用者拍板。
 
 表格格式與範例 → `references/research-note-template.md`
 
-### 4. 萃取結構
+### 5. 萃取結構
 
 把材料壓成導讀文常用的骨架：
 
@@ -69,7 +91,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 - **限制 / 已知問題**
 - **取捨總結**
 
-### 5. 產出 research note
+### 6. 產出 research note
 
 存成暫存檔 `.research/<YYYY-MM-DD>-<slug>.md`（**不是直接發文**）。
 
@@ -77,7 +99,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 `.research/` 不入版控；若 `.gitignore` 還沒收錄就提醒使用者加上。
 
-### 6. 交接
+### 7. 交接
 
 把 research note 的「草稿骨架」段給使用者看，問下一步：
 
@@ -95,6 +117,12 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 | （Claude）用內建 `WebFetch` 比較快 | CLAUDE.md 明確禁用，只用 MCP 工具；Codex 改用 `web.run` |
 | 省略事實交叉表 | 沒這步就會把 LLM 幻覺當事實寫進文章 |
 | Research note 跟發文一起做 | 兩件事混在一起，材料還沒齊就在套句子，最後事實對不上 |
+| 抽取主要來源時帶 `query` 省 context | 回傳的是重排後的片段，你會以為讀了全文其實沒有。省下的 context 之後要用三倍去補 |
+| 搜尋摘要裡有數字就直接寫進結論 | 片段看不到樣本數、納入條件、但書。本站踩過：一份 meta-analysis 的效果量寫對了，但漏掉「控制工作記憶後主效果不顯著」 |
+| 看到付費牆就標「無法取得」 | 先跑完繞路清單。本站踩過：ScienceDirect 的 section snippets 是免費的、被引用的論文是開放取用的，兩條都能拿到方法細節 |
+| 一直標「只有二次引用」卻沒查過完整書目 | 先搜一次完整標題。本站踩過：某篇連續三輪標「未讀原文」，查了發現有開放 PDF |
+| 二手來源彼此一致就當查證完成 | 二手站會集體抄同一個錯誤。結構性事實（產品線、方案名稱）與價格一律回官方頁 |
+| 把跨來源比較的推論寫進事實交叉表 | 交叉表混入推論後，下一輪你會拿它當證據往上疊。本站踩過：用兩份 meta 的差額反推機制，後來讀全文才發現前提不成立 |
 
 ## 跟其他 skill 的關係
 
