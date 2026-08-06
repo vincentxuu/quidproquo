@@ -57,27 +57,7 @@ Recently completed
   pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
   terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
   note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
-- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
-  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
-  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
-  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
-  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
-  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
-  typing the /api/related-posts JSON response — `astro check` now 0 errors.
-- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
-  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
-  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
-  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
-  Content: product-builder post retargeted from the "product builder" head
-  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
-  with 6 two-way internal links. Batch 2 (original first-hand material) still
-  needs input from the user.
-- 2026-07-06: governance framework established — operating charter
-  (docs/governance/operating-charter.md), unified `pnpm verify` gate
-  (pre-commit + Stop hook + preview CI), skills mirror sync
-  (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
-  progress.txt protocol + archive. Skills are edited ONLY in
-  .agents/skills/, then `pnpm skills:sync`.
+（2026-07-27 之前的條目已移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
