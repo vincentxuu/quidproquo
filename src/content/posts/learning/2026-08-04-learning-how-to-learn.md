@@ -14,7 +14,7 @@ glossary:
   - term: "retrieval practice"
     aliases: ["提取練習", "自我測驗", "practice testing"]
     definition: "闔上材料、主動從記憶裡把答案叫出來，而不是重看一遍。"
-    advanced: "測驗本身就是學習事件，不只是評量。自由回想的效果通常大於選擇題；但材料愈複雜，效果愈可能縮水。"
+    advanced: "測驗本身就是學習事件，不只是評量。材料愈複雜，效果愈可能縮水。測驗格式孰優是未決分歧——Dunlosky 一線多認為自由回想優於再認，但 Adesope 等人 2017 的 meta 反而是選擇題（+0.70）大於簡答題（+0.48）。"
     context: "本文中它是 Dunlosky 十法評比裡唯二拿到「高效用」的技術之一。"
     links:
       - label: "Rowland (2014) meta-analysis"
@@ -98,9 +98,25 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 > 自我測驗與分散練習獲得高效用評價，因為它們對不同年齡與能力的學習者都有幫助，並且已被證明能在許多測驗任務、甚至在真實教育情境中提升學生表現。
 
-**先講一個引用陷阱**，因為它示範了整篇文章的主題。Adesope 等人 2017 年那份 meta-analysis，你會在不同地方看到不同數字：0.51、0.61、0.70、0.83、0.93。它們大多都對——差別在對照組是誰。依該文結果，練習測驗相較**重讀**的加權平均效果量是 +0.51，相較**填充活動或完全不做**是 +0.93，[跨所有對照條件合併約 g = 0.61](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；Dietrichson 等人則引它的分齡數字 0.64（小學）與 0.83（中學）。二手文章通常挑一個最大的、不講對照是什麼。
+**先講一個引用陷阱**，因為它示範了整篇文章的主題。Adesope 等人 2017 年那份 meta-analysis，你會在不同地方看到不同數字：0.51、0.61、0.70、0.83、0.93。它們大多都對——差別在對照組是誰、或在講哪一個子分析。整理成一張表：
 
-那你該用哪個？**跟你實際的替代方案比。** 如果你本來會重讀，參考值就是 0.51，不是 0.93。
+| 數字 | 它其實是什麼 |
+|---|---|
+| +0.51 | vs **重讀** 的加權平均效果量 |
+| +0.93 | vs **填充活動或完全不做** |
+| g = 0.61 | [跨所有對照條件合併](http://www.lscp.net/persons/ramus/docs/EPR20.pdf) |
+| 0.64 / 0.83 | 小學 / 中學的分齡數字（Dietrichson 等人引用） |
+| +0.70 vs +0.48 | 選擇題 vs 簡答題的練習測驗格式差異 |
+
+二手文章通常挑一個最大的、不講那是跟什麼比。**那你該用哪個？跟你實際的替代方案比。** 如果你本來會重讀，參考值是 0.51，不是 0.93。
+
+該文另外三個結果值得記住，因為它們違反直覺、而且都很可操作（以下引自[真正讀過原文的 Pedro De Bruyckere 的摘錄](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)）：
+
+> 練習測驗的格式、次數與頻率，會影響最終測驗上的學習效益。含選擇題選項的練習測驗，其加權平均效果量（+0.70）大於簡答題（+0.48）。**在最終測驗前做一次練習測驗，比做好幾次更有效。** 不過時機需要仔細考量：練習與最終測驗間隔不到一天的效果量，小於間隔一到六天者（分別為 +0.56 與 +0.82）。
+
+「一次比多次好」和「選擇題贏簡答題」都跟這個領域的常見說法相反——後者尤其要小心，因為 Dunlosky 那條線的文獻多半認為自由回想優於再認。這是**尚未調和的分歧**，不是定論。而「間隔一到六天優於當天」則跟分散練習完全一致。
+
+最後一個必須講的是方法學：**這篇 meta-analysis 用 Fail-safe N 檢驗發表偏誤，而這個指標早就被認為會嚴重高估穩健性。** 這點由兩位獨立讀過原文的人分別指出——[Learning Scientists 的 Yana Weinstein 說要「打點折扣看」](https://www.learningscientists.org/blog/2017/2/9-1)，De Bruyckere 文章底下的討論則直接援引 Fergusson & Heene (2012)。所以上面那些數字，該當成有偏誤風險的估計，不是定值。
 
 這張表現在被引用得非常廣。但過去十年裡，它下面的地基動了三次，寫這題的人幾乎都沒跟上。
 
@@ -114,7 +130,7 @@ Coursera 上有一門課，[官方頁面](https://www.coursera.org/learn/learnin
 
 **第三，複雜材料是一場沒打完的仗。** [van Gog 與 Sweller 2015 年那篇的標題](https://link.springer.com/article/10.1007/s10648-015-9310-x)就是結論——「testing effect 隨學習材料複雜度上升而下降甚至消失」。Karpicke 與 Aue 同年以〈The testing effect is alive and well with complex materials〉正面反駁，Rawson 也加入戰局，爭點卡在「複雜度」根本難以操作化。Dietrichson 2026 的結果偏向前者，但這仍是**未解決的活爭論**，看到有人單方面宣稱勝負就該提高警覺。
 
-順帶一個小衝突：Rowland 發現回饋會放大 testing effect，但 [Adesope 的 meta 摘要](https://www.learningscientists.org/blog/2017/2/9-1)說有回饋只比沒回饋「略好」。兩者沒有調和。
+順帶一個尚未調和的衝突：Rowland 發現回饋會放大 testing effect，但 Adesope 的結果是有回饋只比沒回饋「略好」——這點由[Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) 與 [Dietrichson 等人的系統性回顧](https://edworkingpapers.com/ai26-1418)（原文：「Adesope 等人發現練習測驗有無回饋的效果相近」）兩處獨立確認。
 
 **交錯練習則是挑材料。** Brunmair 與 Richter 的 meta-analysis 標題就叫 *Similarity matters*，涵蓋 59 篇研究、238 個效果量。結論是交錯對繪畫等視覺材料、對數學題型有效；對說明文（expository text）沒有優於區塊練習；對跨類別的單字學習甚至可能有害。把「交錯練習」當通用建議是誤讀原文。
 
@@ -246,7 +262,12 @@ GPT Tutor 那組的結果同樣值得看：練習時漲了 127%，考試時跟�
 
 - 【一手·PDF】Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
 - 【摘要】Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
-- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文——SAGE 全文為付費牆，ResearchGate 亦無法取得。這三個數字至今仍是轉引。**
+- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文——SAGE 為付費牆，ResearchGate 與 academia.edu 皆無法取得內文。** 為降低風險，改以三位獨立、確實讀過原文者的紀錄交叉比對：
+    - [Pedro De Bruyckere, *Important new meta-analysis on the testing effect — with some surprises*](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)（教育研究者；直接引述原文段落，文中格式／次數／時機的引文出自此處；其留言區指出該文以 Fail-safe N 檢驗發表偏誤之缺陷，援引 Fergusson & Heene 2012）
+    - [Yana Weinstein, *New Meta-analysis of 217 Retrieval Practice Studies*, The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)（認知心理學家；回饋效果、中學生效果最大、fail-safe 需打折）
+    - [Wing Institute, *How Effective Are Practice Tests?*](https://www.winginstitute.org/news/effective-practice-tests)（獨立確認 0.51 / 0.93）
+    - 另有 Dietrichson et al. (2026) 系統性回顧對該文的詳細轉述（回饋、測驗次數、格式匹配）。
+    **研究數量的計數彼此不一致**：De Bruyckere 引原文為「272 個獨立效果、188 個實驗」，Learning Scientists 標題作「217 個研究」。此差異我無法排解。
 - 【一手·PDF】Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **尚未經同儕審查的工作論文。** 0.22 / 0.46 兩個數字與「材料愈複雜效果愈差」已對照 PDF 本文確認；作者同時指出各回顧量值難以直接比較，且以 Kraft (2020) 標準衡量其效果量並不小。
 - 【摘要】van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
 - 【摘要】Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — 對上一篇的正面反駁。

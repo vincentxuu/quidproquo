@@ -14,7 +14,7 @@ glossary:
   - term: "retrieval practice"
     aliases: ["practice testing", "self-testing"]
     definition: "Closing the book and pulling the answer out of memory, rather than reading it again."
-    advanced: "Testing is itself a learning event, not just assessment. Free recall generally beats recognition formats — but the effect appears to shrink as material gets more complex."
+    advanced: "Testing is itself a learning event, not just assessment. The effect appears to shrink as material gets more complex. Which format works best is unresolved — the Dunlosky line holds that free recall beats recognition, but Adesope et al. (2017) found multiple-choice (+0.70) outperforming short-answer (+0.48)."
     context: "In this article it is one of only two techniques Dunlosky et al. rated as high utility."
     links:
       - label: "Rowland (2014) meta-analysis"
@@ -95,9 +95,25 @@ The original is blunt about the top tier:
 
 > Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks and even in educational contexts.
 
-**First, a citation trap** — one that demonstrates this article's whole thesis. Adesope et al.'s 2017 meta-analysis gets quoted as 0.51, 0.61, 0.70, 0.83, and 0.93 in different places. Most of those are correct; they differ in what the control group was doing. Against **restudy**, the weighted mean effect is +0.51. Against **filler or no activity**, +0.93. [Pooled across all comparison conditions it is about g = 0.61 [0.58, 0.65]](http://www.lscp.net/persons/ramus/docs/EPR20.pdf). Dietrichson et al. cite its by-age figures of 0.64 (primary) and 0.83 (secondary). Secondary write-ups typically pick the largest number and never say what the contrast was.
+**First, a citation trap** — one that demonstrates this article's whole thesis. Adesope et al.'s 2017 meta-analysis gets quoted as 0.51, 0.61, 0.70, 0.83 and 0.93 in different places. Most are correct; they differ in what the control group was doing, or which sub-analysis is meant:
 
-Which one should you use? **The one matching your actual alternative.** If you would otherwise reread, your reference value is 0.51, not 0.93.
+| Figure | What it actually is |
+|---|---|
+| +0.51 | weighted mean effect vs **restudy** |
+| +0.93 | vs **filler activity or nothing at all** |
+| g = 0.61 | [pooled across all comparison conditions](http://www.lscp.net/persons/ramus/docs/EPR20.pdf) |
+| 0.64 / 0.83 | primary / secondary school figures (as cited by Dietrichson et al.) |
+| +0.70 vs +0.48 | multiple-choice vs short-answer practice formats |
+
+Secondary write-ups typically pick the largest number and never say what it was measured against. **Which should you use? The one matching your actual alternative.** If you would otherwise reread, your reference value is 0.51, not 0.93.
+
+Three more of its findings are worth keeping, because they are counterintuitive and directly actionable (quoted from [Pedro De Bruyckere, who read the original](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)):
+
+> In addition, the format, number, and frequency of practice tests make a difference for the learning benefits on a final test. Practice tests with a multiple-choice option have a larger weighted mean effect size (+0.70) than short-answer tests (+0.48). **A single practice test prior to the final test is more effective than when students take several practice tests.** However, the timing should be carefully considered. A gap of less than a day between the practice and final tests showed a smaller weighted effect size than when there is a gap of one to six days (+0.56 and +0.82, respectively).
+
+"One test beats several" and "multiple-choice beats short-answer" both cut against the field's usual advice — the second especially, since the Dunlosky line of work generally holds that free recall beats recognition. Treat that as **an unreconciled disagreement**, not a settled finding. The "one to six days beats same-day" result, by contrast, lines up exactly with spacing.
+
+One methodological point has to be stated: **this meta-analysis used Fail-safe N to test for publication bias, and that statistic has long been known to badly overstate robustness.** Two independent readers of the original flagged it separately — [Yana Weinstein at the Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) says to take it "with a grain of salt", and the discussion under De Bruyckere's post cites Fergusson & Heene (2012) directly. So treat the numbers above as bias-prone estimates, not fixed values.
 
 That table now gets cited everywhere. But the ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
 
@@ -111,7 +127,7 @@ Their exploratory analysis adds one more finding: **practice tests seemed less e
 
 **Third, complex material is an unfinished fight.** [van Gog and Sweller's 2015 title](https://link.springer.com/article/10.1007/s10648-015-9310-x) is the argument — "the testing effect decreases or even disappears as the complexity of learning materials increases". Karpicke and Aue answered the same year with "The testing effect is alive and well with complex materials", and Rawson joined in; the dispute is stuck on the fact that "complexity" resists operationalization. Dietrichson 2026 leans toward the first camp, but this remains **a live, unresolved argument** — anyone declaring a winner should raise your suspicion.
 
-One smaller conflict worth flagging: Rowland found feedback amplifies the testing effect, but [Adesope's meta-analysis](https://www.learningscientists.org/blog/2017/2/9-1) found retrieval with feedback only slightly better than without. These have not been reconciled.
+One unreconciled conflict worth flagging: Rowland found feedback amplifies the testing effect, whereas Adesope found retrieval with feedback only slightly better than without — a reading confirmed independently by [the Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) and by [Dietrichson et al.'s systematic review](https://edworkingpapers.com/ai26-1418) ("Adesope et al. (2017) found similar effects with and without feedback on practice tests").
 
 **Interleaving, meanwhile, is picky about materials.** Brunmair and Richter's meta-analysis is titled *Similarity matters* for a reason. Across 59 studies and 238 effect sizes, interleaving helped with visual materials like paintings and with mathematical problem types; it showed no advantage for expository texts; and for learning words across conceptual categories it may actively hurt. Treating "interleave everything" as general advice misreads the paper.
 
@@ -243,7 +259,12 @@ DOIs I could not confirm myself are omitted rather than guessed.
 
 - [primary/PDF] Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266 ([full PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf))
 - [abstract] Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
-- [abstract + secondhand] Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — the "+0.51 vs restudy / +0.93 vs no activity" figures are taken from [a secondary summary of its results](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises); the pooled "g = 0.61 [0.58, 0.65]" from [a later meta-analytic review in Educational Psychology Review](http://www.lscp.net/persons/ramus/docs/EPR20.pdf); the "feedback only slightly better" point from [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1). **I did not read the Adesope original in full — the SAGE full text is paywalled and ResearchGate would not serve it. These three figures remain secondhand.**
+- [abstract + secondhand] Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — the "+0.51 vs restudy / +0.93 vs no activity" figures are taken from [a secondary summary of its results](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises); the pooled "g = 0.61 [0.58, 0.65]" from [a later meta-analytic review in Educational Psychology Review](http://www.lscp.net/persons/ramus/docs/EPR20.pdf); the "feedback only slightly better" point from [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1). **I did not read the Adesope original in full — SAGE is paywalled, and neither ResearchGate nor academia.edu would serve the text.** To reduce the risk, the figures are cross-checked against three independent accounts by people who did read it:
+    - [Pedro De Bruyckere, *Important new meta-analysis on the testing effect — with some surprises*](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises) (education researcher; quotes the original directly — the format/number/timing passage above comes from here; the comment thread flags the paper's use of Fail-safe N, citing Fergusson & Heene 2012)
+    - [Yana Weinstein, *New Meta-analysis of 217 Retrieval Practice Studies*, The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) (cognitive psychologist; feedback finding, secondary-school effects largest, fail-safe caveat)
+    - [Wing Institute, *How Effective Are Practice Tests?*](https://www.winginstitute.org/news/effective-practice-tests) (independent confirmation of 0.51 / 0.93)
+    - Dietrichson et al. (2026) also summarize it in detail (feedback, number of tests, format matching).
+    **The study counts disagree**: De Bruyckere quotes the original as "272 independent effects from 188 separate experiments", while the Learning Scientists headline says "217 studies". I could not resolve this.
 - [primary/PDF] Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **a working paper, not yet peer reviewed.** The 0.22 / 0.46 figures and the complexity finding were checked against the PDF body; the authors also caution that magnitudes across reviews are not directly comparable, and do not consider their own effects small by Kraft's (2020) benchmarks.
 - [abstract] van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
 - [abstract] Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — direct rebuttal to the above.
