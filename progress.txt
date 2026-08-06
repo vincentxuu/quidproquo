@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-07-31
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,17 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: post(tech) drone industry map (zh + en). First non-software piece
+  in tech/. Structure: 5-layer supply chain, why market-size estimates differ
+  10x (IDTechEx $69B vs Fortune $100.7B for 2026 — scope differs), 4 demand
+  blocks, 2 ceilings (BVLOS / geopolitics), Taiwan's position + gaps. All
+  numbers from primary sources: FCC Covered List timeline via Holland & Knight,
+  Taiwan output/export figures via ey.gov.tw (NT$5.0B→12.9B 2024→2025; Q1 2026
+  exports US$115M > all of 2025's US$93M), localization gaps via CNA. Deliberate
+  honesty note: flagged that market-size reports are not comparable without
+  asking military/services/consumer scope. 5 terms in frontmatter glossary
+  (BVLOS, FPV, 非紅供應鏈, Blue/Green UAS, C-UAS) rather than site-wide — no
+  other drone posts exist yet.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
