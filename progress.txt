@@ -43,13 +43,16 @@ Recently completed
   frontmatter block was removed from the hub — note frontmatter glossary is
   prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so a
   frontmatter entry SHADOWS the site-wide one.
-  Remaining v1: only D1-D3 are genuinely blocked (type: project first-hand
-  records — need to buy a drone and book the licence exam). B2/B4 were NOT
-  blocked: the "needs interviews" note was a pre-writing estimate treated as a
-  hard constraint. B2 is derivable from the open-source stack + public JDs;
-  B4 splits into mechanics (public documents, written) and lived experience
-  (still needs interviews). When judging remaining topics, ask which HALF needs
-  the material, not whether the whole post does.
+  Remaining v1: NOTHING is hard-blocked any more. The "素材" column was a
+  pre-writing estimate mistaken for a constraint TWICE — B2/B4 (written 08-06)
+  and D1-D3 (reframed 08-07). D1-D3 no longer require buying a drone or sitting
+  the exam: rewritten as public-data posts (spec-sheet reading via the A1 layer
+  frame / crash anatomy from TTSB reports + public PX4 logs / CAA's fully
+  published exam question bank). Rule: ask which HALF needs the material and
+  whether the topic really needs it or I wrote it to need it. Details, source
+  confirmation, and one unverified lead (registered drones 75,240 end-2021 vs
+  38,683 end-2024 — likely cumulative-vs-current definition, DO NOT write until
+  confirmed) are in plan §4 決策一 and §5 支線 D.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
