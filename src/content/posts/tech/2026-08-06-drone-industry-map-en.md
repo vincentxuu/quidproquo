@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Nineteen companion pieces go deeper in six directions:
+This article is the overview for the drone series. Twenty companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -150,6 +150,7 @@ This article is the overview for the drone series. Nineteen companion pieces go 
 - [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models) — margin, cash conversion, and what limits each model's scale
 - [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics) — real rates and entry costs in ag spraying, and the structural causes of price collapse and the regulatory ceiling
 - [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value) — agriculture's counterpart: terrain writes the specification, drones fill the gap helicopters can't reach, and the budget problem of being uncomputable
+- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan) — quantified results from bridge, transmission tower, and rail viaduct inspection, and why segmented work routes around visual-line-of-sight rules
 
 **People and careers**
 

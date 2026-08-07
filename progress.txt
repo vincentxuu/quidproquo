@@ -24,11 +24,12 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-07: drone series expanded 13 -> 20 posts (zh+en). Seven new: spec-sheet
+- 2026-08-07: drone series expanded 13 -> 21 posts (zh+en). Eight new: spec-sheet
   reading, crash anatomy, CAA question-bank (the D line, unblocked by dropping
   the "must buy a drone" premise); B5 tender financials; counter-UAS; and the
-  application block's first pair — ag-spraying unit economics and its deliberate
-  counterpart, disaster/SAR (computable ROI vs no denominator at all). Per-post findings are in plan §5.2 — read that, not this.
+  application block's first three — ag-spraying unit economics, its deliberate
+  counterpart disaster/SAR, and inspection (computable ROI / no denominator /
+  half-and-half). Series now 21. Per-post findings are in plan §5.2 — read that, not this.
   THE RECURRING MISTAKE (3x): treating my own pre-writing "素材" estimate as a
   hard constraint. B2/B4 "needs interviews" (false — open stack + public JDs +
   public documents), D1-D3 "needs buying a drone" (false — I had written the
@@ -44,7 +45,11 @@ Recently completed
   — check APHIA systems before quoting as current.
   Investing-line boundary settled: named-company public filings are fine as a
   worked example, zero buy/sell judgment (user approved this reading).
-  Application-domain cells still open: logistics, inspection, surveying.
+  CORRECTED A PLANNING ASSUMPTION: I expected inspection to be BVLOS-blocked
+  like logistics. It is not — bridge/tower/rail inspection all run in Taiwan
+  with hard numbers, because they are SEGMENTED fixed-point tasks doable within
+  visual line of sight. BVLOS blocks unsegmentable long-range routing only.
+  Application-domain cells still open: logistics, surveying.
 - 2026-08-06: drone series — 13 posts shipped (zh+en each) across tech/policy/
   career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
