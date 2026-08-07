@@ -24,10 +24,11 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-07: drone series expanded 13 -> 19 posts (zh+en). Six new: spec-sheet
+- 2026-08-07: drone series expanded 13 -> 20 posts (zh+en). Seven new: spec-sheet
   reading, crash anatomy, CAA question-bank (the D line, unblocked by dropping
-  the "must buy a drone" premise); B5 tender financials; counter-UAS; ag-spraying
-  unit economics. Per-post findings are in plan §5.2 — read that, not this.
+  the "must buy a drone" premise); B5 tender financials; counter-UAS; and the
+  application block's first pair — ag-spraying unit economics and its deliberate
+  counterpart, disaster/SAR (computable ROI vs no denominator at all). Per-post findings are in plan §5.2 — read that, not this.
   THE RECURRING MISTAKE (3x): treating my own pre-writing "素材" estimate as a
   hard constraint. B2/B4 "needs interviews" (false — open stack + public JDs +
   public documents), D1-D3 "needs buying a drone" (false — I had written the
@@ -43,9 +44,7 @@ Recently completed
   — check APHIA systems before quoting as current.
   Investing-line boundary settled: named-company public filings are fine as a
   worked example, zero buy/sell judgment (user approved this reading).
-  Application-domain cells still open: logistics, inspection, disaster/SAR
-  (內政部 3-yr NT$620M / 636 aircraft, 消防署 44 complex-terrain drones — data
-  gathered, not written).
+  Application-domain cells still open: logistics, inspection, surveying.
 - 2026-08-06: drone series — 13 posts shipped (zh+en each) across tech/policy/
   career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
