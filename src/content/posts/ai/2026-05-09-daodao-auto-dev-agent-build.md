@@ -45,7 +45,7 @@ daodao 之前已經有一條 Claude Code routine（`trig_01KATY...`），每 2 �
 
 ## 為什麼要走 5 輪 consensus 才動工
 
-OMC（[oh-my-claudecode](https://github.com/oh-my-claudecode/oh-my-claudecode)）有個 `/plan --consensus` 模式：Planner 寫初稿，Architect 從架構面審，Critic 從質量面審，三方 loop 直到 Critic APPROVE。聽起來繁瑣，實際上每一輪都抓出單獨想時看不到的東西。
+OMC（[oh-my-claudecode](https://github.com/oh-my-claudecode/oh-my-claudecode)）有個 `/plan --consensus` 模式：Planner 寫初稿，Architect 從架構面審，Critic 從品質面審，三方 loop 直到 Critic APPROVE。聽起來繁瑣，實際上每一輪都抓出單獨想時看不到的東西。
 
 ### v1：粗略骨架 + 6 個 Options
 

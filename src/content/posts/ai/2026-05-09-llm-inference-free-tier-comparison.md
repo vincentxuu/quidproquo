@@ -257,7 +257,7 @@ Gemini 3 系列原廠管道，120 萬 context 直接給。
 | [**Chutes**](https://chutes.ai/) | 無真免費（最低 $3/月訂閱） | $3 (Base) / $10 (Plus) / $20 (Pro) | 去中心化、TEE 機密推論、SOTA OSS 最快上架 |
 | [**Mistral La Plateforme**](https://mistral.ai/) | 無（Le Chat 聊天介面免費，API 無免費 tier） | Large 3 $0.50/$1.50、Small 4 $0.15/$0.60、Codestral $0.30/$0.90、Medium 3.5 $1.50/$7.50、Magistral Medium $2/$5；batch 全線 5 折 | Codestral 已轉付費（Premier）；Ministral Edge 系列 $0.10–$0.20 per M flat |
 | [**Hyperbolic**](https://hyperbolic.xyz/) | 無 | serverless pay-as-you-go 起 ~$0.10/1M tokens；GPU on-demand 起 $1.39/hr（H100/H200） | 同時提供按時計費 GPU 租用與 reserved cluster（需洽談） |
-| [**MiniMax / Hailuo**](https://platform.minimax.io/) | 無（訂閱制，$10/月起） | M2.7 $0.30/$1.20、M2.7-highspeed $0.60/$2.40；Starter Token Plan $10/月（1,500 req/5hr） | 含視頻 Hailuo 2.3 生成（768P 6s $0.19 Fast 起）；中國模型、全球 API |
+| [**MiniMax / Hailuo**](https://platform.minimax.io/) | 無（訂閱制，$10/月起） | M2.7 $0.30/$1.20、M2.7-highspeed $0.60/$2.40；Starter Token Plan $10/月（1,500 req/5hr） | 含影片 Hailuo 2.3 生成（768P 6s $0.19 Fast 起）；中國模型、全球 API |
 | [**Featherless AI**](https://featherless.ai/) | 無（Agent 方案 3 天試用） | Basic $10/月（≤15B 模型、unlimited tokens）；Premium $25/月（任意大小）；Agent $100/月起 | 30,000+ Hugging Face 模型、flat-rate 無限 tokens；訂閱制非 per-token |
 | [**Anthropic**](https://www.anthropic.com/) / [**OpenAI**](https://platform.openai.com/) | 過去 trial credits 政策本次未在 pricing 頁驗到 | Claude Haiku 4.5 $1/$5、GPT-5.4 mini $0.75/$4.50 | 純付費，用 OpenRouter / Vercel Gateway 試比較划算 |
 
