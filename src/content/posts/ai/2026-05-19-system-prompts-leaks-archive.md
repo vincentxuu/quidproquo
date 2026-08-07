@@ -16,7 +16,7 @@ draft: false
 
 ## 它在解什麼問題
 
-System prompt 不是 prompt engineer 的 prompt，而是廠商的「客戶端」prompt——附加在每一次對話最前面、跟模型 fine-tune 跟工具 routing 緊扣的執行時指令。在 archive 出現之前，比較 ChatGPT 跟 Claude 對「該不該幫使用者寫某類內容」的態度差異，只能靠用戶體驗推敲。現在你可以直接把兩家的 system prompt 並排讀完。
+System prompt 不是 prompt engineer 的 prompt，而是廠商的「客戶端」prompt——附加在每一次對話最前面、跟模型 fine-tune 跟工具 routing 緊扣的執行時指令。在 archive 出現之前，比較 ChatGPT 跟 Claude 對「該不該幫使用者寫某類內容」的態度差異，只能靠使用者體驗推敲。現在你可以直接把兩家的 system prompt 並排讀完。
 
 依 OWASP 在 LLM07:2025（System Prompt Leakage）的定義，這類內容洩漏是 2025 年 Top 10 風險之一，理由是 system prompt 經常埋藏「敏感功能、內部規則、過濾條件、模型內部組態」（[OWASP Gen AI Security Project](https://genai.owasp.org/llmrisk/llm07-insecure-plugin-design/)）。換句話說，這個 archive 同時是 prompt engineering 教材、產品比較素材，以及一份持續更新的攻擊面清單。
 

@@ -5,12 +5,12 @@ category: ai
 type: guide
 tags: [arxiv, paper-reading, research-tools, reproducibility, llm]
 lang: zh-TW
-tldr: "arXiv 不做 peer review，約 2% 投稿被拒。判斷品質靠外部信號：頂會收錄 > 機構 + 開源復現 > 引用品質。附 20 項實戰 checklist 和 2026 年工具箱（PWC 已關閉）。"
-description: "拆解 arXiv 的 endorsement 與 moderation 機制，整理外部品質信號金字塔、紅旗清單、ML 可復現性危機，以及 2026 年適用的論文評估工具和 checklist。"
+tldr: "arXiv 不做 peer review，約 2% 投稿被拒。判斷品質靠外部訊號：頂會收錄 > 機構 + 開源復現 > 引用品質。附 20 項實戰 checklist 和 2026 年工具箱（PWC 已關閉）。"
+description: "拆解 arXiv 的 endorsement 與 moderation 機制，整理外部品質訊號金字塔、紅旗清單、ML 可復現性危機，以及 2026 年適用的論文評估工具和 checklist。"
 draft: false
 ---
 
-每天有超過 1,000 篇論文上傳到 arXiv。「arXiv 不是 peer review」這句話大家都聽過，但它的 endorsement 和 moderation 到底擋掉了什麼、放進了什麼？這篇整理 arXiv 自身的品質機制、外部信號的判讀方式、2026 年還能用的工具，以及一份讀完論文該打勾的 checklist。
+每天有超過 1,000 篇論文上傳到 arXiv。「arXiv 不是 peer review」這句話大家都聽過，但它的 endorsement 和 moderation 到底擋掉了什麼、放進了什麼？這篇整理 arXiv 自身的品質機制、外部訊號的判讀方式、2026 年還能用的工具，以及一份讀完論文該打勾的 checklist。
 
 ## arXiv 的兩道守門員
 
@@ -33,9 +33,9 @@ arXiv 自 2004 年起要求首次投稿者須經 endorsement。依 [arXiv 官方
 
 一旦論文公告，即成為永久學術紀錄。arXiv 僅在授權問題時移除，違反政策時會 withdraw 但 metadata 保留。
 
-**結論**：能上 arXiv 只代表格式合格、作者屬於學術社群。品質判斷必須靠外部信號。
+**結論**：能上 arXiv 只代表格式合格、作者屬於學術社群。品質判斷必須靠外部訊號。
 
-## 外部品質信號金字塔
+## 外部品質訊號金字塔
 
 ```
         ┌──────────────────┐
@@ -69,9 +69,9 @@ arXiv 自 2004 年起要求首次投稿者須經 endorsement。依 [arXiv 官方
 - **引用圖譜**：被 30 個獨立團隊延伸方法，比被 200 篇論文在 related work 提到更有價值
 - **新論文看引用數沒有意義**：發表 6 個月內，引用數還沒累積起來
 
-### 開源復現：沒 code 是負面信號
+### 開源復現：沒 code 是負面訊號
 
-2025 年之後，不附程式碼已經從「中性」變成「負面信號」。但要注意：有 GitHub 連結但 README 之後零 commit，是已知的表面功夫模式。真正有價值的是能跑起來、有明確 seed 和環境設定的 repo。
+2025 年之後，不附程式碼已經從「中性」變成「負面訊號」。但要注意：有 GitHub 連結但 README 之後零 commit，是已知的表面功夫模式。真正有價值的是能跑起來、有明確 seed 和環境設定的 repo。
 
 ## 2026 年的論文評估工具箱
 
@@ -172,7 +172,7 @@ NeurIPS 已採用 [ML Reproducibility Checklist](https://arxiv.org/html/2605.172
 
 判斷 arXiv 論文品質是一種需要練習的技能。核心原則：**arXiv 的門檻只擋格式，品質判斷靠你自己**。
 
-最有效率的做法是從外部信號開始篩（會議收錄、機構、開源），通過初篩的再用 checklist 細看實驗設計。工具會換（PWC 的關閉就是最好的例子），但「看 baseline 是否公平、看 ablation 是否完整、看結果是否可復現」這套判斷邏輯不會變。
+最有效率的做法是從外部訊號開始篩（會議收錄、機構、開源），通過初篩的再用 checklist 細看實驗設計。工具會換（PWC 的關閉就是最好的例子），但「看 baseline 是否公平、看 ablation 是否完整、看結果是否可復現」這套判斷邏輯不會變。
 
 ## 參考資料
 

@@ -23,7 +23,7 @@ Free Plan 的替代方案：建一個 Cloudflare Worker 當 proxy，
 
 正在把 nginx 從 `daodao-server` 獨立成 `daodao-infra` repo，
 計劃在切換期間（< 1 分鐘）用 Cloudflare 的維護頁保底，
-避免用戶在這段空窗期看到裸錯誤。
+避免使用者在這段空窗期看到裸錯誤。
 
 ## 問題
 

@@ -588,7 +588,7 @@ class MemoryAwareContextBuilder {
 
 ### 排序策略
 
-三個信號的加權組合。不同場景用不同權重：
+三個訊號的加權組合。不同場景用不同權重：
 
 ```typescript
 const SCORING_PROFILES: Record<string, { relevance: number; recency: number; importance: number }> = {

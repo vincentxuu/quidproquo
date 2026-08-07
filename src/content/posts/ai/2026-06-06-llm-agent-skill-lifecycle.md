@@ -15,7 +15,7 @@ LLM agent 靠「skill」解決複雜任務——可重用的 workflow、程式�
 
 ## 問題的根源：Skill 為什麼一直是靜態的？
 
-[Voyager](https://arxiv.org/abs/2305.16291)（arXiv:2305.16291，NVIDIA / CMU，2023）是現代 skill library 概念的起點。在 Minecraft 環境下，它用三個組件組成閉環：自動規劃探索目標的 curriculum、儲存可執行程式碼的 skill library、以及整合環境回饋的 iterative prompting。依 Voyager 論文報告，相較之前的 SOTA，它取得了 3.3× 更多 unique items、15.3× 更快的科技樹解鎖速度、2.3× 更長的移動距離。
+[Voyager](https://arxiv.org/abs/2305.16291)（arXiv:2305.16291，NVIDIA / CMU，2023）是現代 skill library 概念的起點。在 Minecraft 環境下，它用三個組件組成一個迴圈：自動規劃探索目標的 curriculum、儲存可執行程式碼的 skill library、以及整合環境回饋的 iterative prompting。依 Voyager 論文報告，相較之前的 SOTA，它取得了 3.3× 更多 unique items、15.3× 更快的科技樹解鎖速度、2.3× 更長的移動距離。
 
 但 Voyager 的 skill library 有個根本設計限制：skill 生成後就固定了。沒有 unit test，沒有失敗後的自動精進，也沒有跨任務積累的使用記憶。這在 Minecraft 這種封閉環境下問題不大，但放到真實世界任務就吃力。
 
@@ -39,7 +39,7 @@ MUSE-Autoskill 的核心主張是：skill 應該被當成「長效資產」而�
 
 **Evaluation**：skill 生成後必須通過 `tests/` 目錄下的 unit tests 才能進入 Skill Bank。這是與 Voyager 最大的設計差異——不是生成完就用，而是先驗後存。
 
-**Refinement**：測試失敗時，系統自動檢查 error trace 後呼叫 `update_skill` 修補 skill package，再重新執行測試，形成 create → evaluate → refine → register 閉環。
+**Refinement**：測試失敗時，系統自動檢查 error trace 後呼叫 `update_skill` 修補 skill package，再重新執行測試，形成 create → evaluate → refine → register 的迴圈。
 
 ### 實驗結果
 
@@ -80,19 +80,19 @@ EvoSkill（2026 年 3 月）採取不同角度切入：不是在成功後蒸餾 
 
 SkillOS 提出的問題更根本：現有方法手工或啟發式設計 skill 操作規則，這些規則無法從間接、延遲的回饋中學習複雜的長程 curation 策略。
 
-架構上，SkillOS 把 agent 分成兩個部分：frozen Agent Executor（不訓練，負責執行任務）+ trainable Skill Curator（用 RL 訓練，負責決定什麼時候新增、修改、刪除 skill）。Curator 從 task outcome 信號學習，但由於信號是延遲且間接的，如何讓它學會「先存一個現在沒用但以後有用的 skill」這種長程判斷，是 SkillOS 的核心貢獻。
+架構上，SkillOS 把 agent 分成兩個部分：frozen Agent Executor（不訓練，負責執行任務）+ trainable Skill Curator（用 RL 訓練，負責決定什麼時候新增、修改、刪除 skill）。Curator 從 task outcome 訊號學習，但由於訊號是延遲且間接的，如何讓它學會「先存一個現在沒用但以後有用的 skill」這種長程判斷，是 SkillOS 的核心貢獻。
 
 測試 benchmark 是 AIME24、AIME25（數學推理）和 GPQA-Diamond（graduate-level 生物/物理/化學）。
 
 與 MUSE-Autoskill 的差異：SkillOS 強調學習「何時如何操作 skill」的 curation policy，是 RL 訓練框架；MUSE-Autoskill 是 training-free，強調五階段 lifecycle 的系統性設計。
 
-## Skill1：單一 RL 信號驅動三種 Skill 能力
+## Skill1：單一 RL 訊號驅動三種 Skill 能力
 
 **論文**：[arXiv:2605.06130](https://arxiv.org/abs/2605.06130) | 作者：Shi et al.（2026 年 5 月）
 
 Skill1 識別出現有 skill 框架的另一個問題：skill selection、skill utilization、skill distillation 三種能力通常分開優化，有時甚至用不同的訓練訊號，導致 partial 和 conflicting evolution。
 
-Skill1 的核心洞見：task-outcome 信號的**低頻趨勢**可以歸功於 selection（選對 skill 影響長期表現），**高頻變動**可以歸功於 distillation（蒸餾品質影響單次任務的波動）。一個信號拆兩個 credit，就能同時訓練三種能力。
+Skill1 的核心洞見：task-outcome 訊號的**低頻趨勢**可以歸功於 selection（選對 skill 影響長期表現），**高頻變動**可以歸功於 distillation（蒸餾品質影響單次任務的波動）。一個訊號拆兩個 credit，就能同時訓練三種能力。
 
 依 Skill1 論文，在 ALFWorld 和 WebShop 上超越所有 prior skill-based + RL baselines。ALFWorld 各子任務（Pick、Look、Clean、Heat、Cool、Pick2）的 success rate 全面提升，其中 Avg. 達到 70%+ 水準。
 

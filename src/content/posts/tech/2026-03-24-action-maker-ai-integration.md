@@ -18,11 +18,11 @@ draft: false
 
 ## 為什麼要做這件事
 
-島島阿學有一個 action-maker 功能，用戶選一個分類（興趣、健康、學習...）輸入目標，系統生成三個難度的行動建議（初學/中級/進階）。問題是：這些建議是假的。前端 `setTimeout(800ms)` 之後回傳寫死的靜態資料，每次看到一樣的東西。
+島島阿學有一個 action-maker 功能，使用者選一個分類（興趣、健康、學習...）輸入目標，系統生成三個難度的行動建議（初學/中級/進階）。問題是：這些建議是假的。前端 `setTimeout(800ms)` 之後回傳寫死的靜態資料，每次看到一樣的東西。
 
-要讓它變真的，需要接 AI。但不只是接上去就好——用戶選完行動之後呢？以前是到結果頁就死路了，只能分享或重玩。真正該做的是讓用戶可以直接從結果「開始實踐」，建立一筆 practice 到 DB 裡追蹤。
+要讓它變真的，需要接 AI。但不只是接上去就好——使用者選完行動之後呢？以前是到結果頁就死路了，只能分享或重玩。真正該做的是讓使用者可以直接從結果「開始實踐」，建立一筆 practice 到 DB 裡追蹤。
 
-同時還有一個場景：用戶選「我想自己設定」的時候，填了一個粗略的想法（「每天練吉他」），AI 應該要能幫他潤色成更具體的版本（「每天 15 分鐘練習 C、G、Am、F 四個和弦轉換，搭配節拍器從 60 BPM 開始」），但最終決定權在用戶手上。
+同時還有一個場景：使用者選「我想自己設定」的時候，填了一個粗略的想法（「每天練吉他」），AI 應該要能幫他潤色成更具體的版本（「每天 15 分鐘練習 C、G、Am、F 四個和弦轉換，搭配節拍器從 60 BPM 開始」），但最終決定權在使用者手上。
 
 所以這次要做三件事：AI 生成、AI 協作潤色、建立 practice 串接。
 
@@ -34,14 +34,14 @@ draft: false
 - **Worker 呼叫 Server 存資料**：Worker 多一個 HTTP call，但職責單一
 - **Worker 只管 AI，存資料全交給前端和 Server**：最簡單，但前端不一定有 user_id（生成不需登入）
 
-選了第三個的變體：Worker 生成完後，自己背景呼叫 Server internal API 存紀錄（不阻塞回應），前端負責建立 practice 和回報用戶互動。
+選了第三個的變體：Worker 生成完後，自己背景呼叫 Server internal API 存紀錄（不阻塞回應），前端負責建立 practice 和回報使用者互動。
 
 ```
 Frontend
   ├─ POST Worker /action-maker/generate    → AI 生成 3 個 actions
   ├─ POST Worker /action-maker/refine      → AI 潤色自訂 action
   ├─ POST Server /api/v1/practices         → 建立 practice（需登入）
-  └─ PATCH Server /api/v1/ai-generations   → 回報用戶選了什麼
+  └─ PATCH Server /api/v1/ai-generations   → 回報使用者選了什麼
 
 Worker
   ├─ Workers AI (Qwen3) → 生成內容
@@ -80,9 +80,9 @@ CREATE TABLE ai_generations (
 );
 ```
 
-input/output 用 JSONB，不同 feature 結構不同但不用改 schema。`session_id` 讓同一用戶的 generate → refine → 建立 practice 可以串在一起分析。
+input/output 用 JSONB，不同 feature 結構不同但不用改 schema。`session_id` 讓同一使用者的 generate → refine → 建立 practice 可以串在一起分析。
 
-之後想知道「AI 生了什麼 → 用戶選了什麼 → 有沒有真的去做」，一條 query 就搞定。
+之後想知道「AI 生了什麼 → 使用者選了什麼 → 有沒有真的去做」，一條 query 就搞定。
 
 ## Worker 實作：Hono + Workers AI
 
@@ -123,7 +123,7 @@ JSON 必須符合以下結構：
 固定回傳 3 個行動（beginner、intermediate、advanced 各一）
 ```
 
-refine 的 prompt 則是「保留用戶核心意圖，根據等級調整難度」，輸入用戶的粗略想法，輸出完善版本。
+refine 的 prompt 則是「保留使用者核心意圖，根據等級調整難度」，輸入使用者的粗略想法，輸出完善版本。
 
 ## 踩坑一：Qwen3 的 thinking block
 
@@ -131,7 +131,7 @@ Qwen3 是個 thinking model，會在正式回答前先「思考」：
 
 ```
 <think>
-用戶想學吉他，我應該根據不同等級設計行動...
+使用者想學吉他，我應該根據不同等級設計行動...
 初學者可以從基礎和弦開始...
 </think>
 
@@ -220,7 +220,7 @@ const response = await fetch(`${WORKER_URL}/action-maker/generate`, {
 });
 ```
 
-Worker 掛了就 fallback 回靜態資料，用戶不會感覺到差異。加了 `isFallback` flag 讓 UI 可以顯示「這是預設建議」。
+Worker 掛了就 fallback 回靜態資料，使用者不會感覺到差異。加了 `isFallback` flag 讓 UI 可以顯示「這是預設建議」。
 
 ### AI 協作自訂
 
@@ -231,7 +231,7 @@ Worker 掛了就 fallback 回靜態資料，用戶不會感覺到差異。加了
 3. **AI 潤色** — 呼叫 `/action-maker/refine`，或跳過直接用原本的
 4. **比較選擇** — 採用 AI 版 / 自己修改 / 用原本的
 
-用戶永遠有最終決定權。AI 只是提供一個更具體的版本參考。
+使用者永遠有最終決定權。AI 只是提供一個更具體的版本參考。
 
 ### 結果頁建立 practice
 
@@ -250,7 +250,7 @@ const { data } = await createPractice({
 });
 ```
 
-建完跳轉到 practice 頁面。用戶從「看到建議」到「開始追蹤」一氣呵成。
+建完跳轉到 practice 頁面。使用者從「看到建議」到「開始追蹤」一氣呵成。
 
 ## 安全面
 
@@ -268,7 +268,7 @@ const { data } = await createPractice({
 
 Qwen3 作為免費的 Workers AI 模型表現不錯，JSON 結構遵從度高，但 thinking block 是一定要處理的。如果之後換模型，只要改一行 `AI_MODEL` 常數。
 
-從產品角度，action-maker 從一個「玩完就沒了」的工具變成了「玩完可以直接開始做」的入口。AI 生成 → 選擇行動 → 建立 practice → 每天打卡追蹤，閉環了。
+從產品角度，action-maker 從一個「玩完就沒了」的工具變成了「玩完可以直接開始做」的入口。AI 生成 → 選擇行動 → 建立 practice → 每天打卡追蹤，整條路徑就串起來了。
 
 ## 參考資料
 

@@ -22,7 +22,7 @@ canary 是一套「QA harness built for Claude Code」，核心設計決定是�
 
 架構由四個元件組成：
 
-- **`canary`**（orchestrator CLI）：主要使用者界面，錄製 QA session、彙整 report
+- **`canary`**（orchestrator CLI）：主要使用者介面，錄製 QA session、彙整 report
 - **`canary-browser`**（engine CLI）：一次性瀏覽器自動化，不錄影、不 report，適合快速腳本
 - **`canary-daemon`**：長駐 Node process，持有 Playwright + QuickJS WASM sandbox，透過 named pipe 處理 IPC
 - **`canary-viewer`**（Astro + React）：本地 session 瀏覽器，可搜尋、過濾、重播所有錄製結果
@@ -96,7 +96,7 @@ Playwright 官方在 2025-2026 年加入三個方向的 AI 支援：
 
 **[Playwright MCP](https://playwright.dev/)**（Model Context Protocol server）：讓 AI agent 透過 accessibility snapshot 控制瀏覽器，Claude Code、Cursor 等工具可以直接接 Playwright MCP 跑瀏覽器任務。
 
-**Playwright CLI**：token-efficient 命令列界面，專為 Claude Code 和 GitHub Copilot 設計，在大型 codebase 裡需要平衡瀏覽器操作和上下文用量時使用。
+**Playwright CLI**：token-efficient 命令列介面，專為 Claude Code 和 GitHub Copilot 設計，在大型 codebase 裡需要平衡瀏覽器操作和上下文用量時使用。
 
 **Playwright Test Agents**（三個）：
 - Planner Agent：探索 app，產出測試計畫

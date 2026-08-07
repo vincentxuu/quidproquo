@@ -161,7 +161,7 @@ vLLM 已經不只是文字推論引擎。支援 LLaVA、Qwen-VL、DeepSeek-VL2�
 
 vLLM 的核心取捨是：**用工程複雜度換取記憶體效率和吞吐量**。PagedAttention 增加了一層間接定址的開銷，但換來的記憶體利用率提升遠超過這個成本。
 
-適合的場景：需要高併發、多用戶的 LLM 服務，特別是有 GPU 的生產環境。如果你只是本地跑個模型聊天，Ollama 更簡單；如果你在 NVIDIA 硬體上追求極致延遲且願意花時間調優，TensorRT-LLM 可能更快。但對大多數團隊來說，vLLM 是 2026 年自架 LLM 的預設選擇。
+適合的場景：需要高併發、多使用者的 LLM 服務，特別是有 GPU 的生產環境。如果你只是本地跑個模型聊天，Ollama 更簡單；如果你在 NVIDIA 硬體上追求極致延遲且願意花時間調優，TensorRT-LLM 可能更快。但對大多數團隊來說，vLLM 是 2026 年自架 LLM 的預設選擇。
 
 背景：vLLM 由 UC Berkeley Sky Computing Lab 的 Woosuk Kwon 等人在 2023 年創建，目前由 PyTorch Foundation 管理。團隊成立了 Inferact 公司，拿到 a16z 和 Lightspeed 領投的 1.5 億美元種子輪，估值 8 億美元。GitHub 上有 74,700+ stars、2,000+ contributors。
 

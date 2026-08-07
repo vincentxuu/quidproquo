@@ -17,7 +17,7 @@ glossary:
     context: "本文用它說明 granularity dilemma：整段語意對了、細節卻被平均掉。"
 ---
 
-Dense retrieval 的默認假設是「語意越像 = 越相關」。但 **similarity 是模型對整段語意的幾何近似，relevance 是使用者當下任務定義的「對不對」**——兩者在多數一般 query 上吻合，卻在一整類情境系統性背離。更麻煩的是，這不全是模型不夠好：有一部分是**單向量範式的理論上限**，換更大的 embedding 模型、換 provider 都無解。這篇整理落差的根本機制、最容易出事的十種情境、沒有 ground truth 時怎麼偵測，以及由便宜到根治的補救順序。
+Dense retrieval 的預設假設是「語意越像 = 越相關」。但 **similarity 是模型對整段語意的幾何近似，relevance 是使用者當下任務定義的「對不對」**——兩者在多數一般 query 上吻合，卻在一整類情境系統性背離。更麻煩的是，這不全是模型不夠好：有一部分是**單向量範式的理論上限**，換更大的 embedding 模型、換 provider 都無解。這篇整理落差的根本機制、最容易出事的十種情境、沒有 ground truth 時怎麼偵測，以及由便宜到根治的補救順序。
 
 ## 為什麼 cosine similarity ≠ relevance
 

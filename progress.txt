@@ -76,6 +76,8 @@ Recently completed
   這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
   加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
   錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes

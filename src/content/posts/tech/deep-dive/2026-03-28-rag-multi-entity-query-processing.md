@@ -26,7 +26,7 @@ draft: false
 
 **排除清單不完整** -- 使用者說「沒爬過的」，但 `excludeRouteId` 只排除白虎，其餘四條照樣出現在推薦結果裡。
 
-在 IR 領域，這叫 complex information need。Metzler & Croft (2005) 早就指出多數檢索系統假設查詢是 atomic query，但現實中使用者的查詢經常包含多個實體和隱含偏好。在推薦系統的語境裡，這是 cold-start 問題的變體：使用者主動給了豐富的偏好信號，系統卻只消費了一小部分。
+在 IR 領域，這叫 complex information need。Metzler & Croft (2005) 早就指出多數檢索系統假設查詢是 atomic query，但現實中使用者的查詢經常包含多個實體和隱含偏好。在推薦系統的語境裡，這是 cold-start 問題的變體：使用者主動給了豐富的偏好訊號，系統卻只消費了一小部分。
 
 ## 解法一覽
 
@@ -143,7 +143,7 @@ LIMIT 3;
 - **Baleen** (Khattab et al., 2021) -- condensed retrieval，在多跳檢索中壓縮中間結果提升效率
 - **DSP** (Khattab et al., 2023) -- DSPy 前身，demonstrate-search-predict pipeline
 
-Query Decomposition 方面，Ma et al. (2023) 的 Query Rewriting 和 Shao et al. (2023) 的 ITER-RETGEN（迭代式檢索-生成）也值得一看。推薦系統的多信號融合，SASRec (Kang & McAuley, 2018) 用 self-attention 處理互動序列，Li et al. (2023) 的 GPT4Rec 直接把推薦轉成語言任務。
+Query Decomposition 方面，Ma et al. (2023) 的 Query Rewriting 和 Shao et al. (2023) 的 ITER-RETGEN（迭代式檢索-生成）也值得一看。推薦系統的多訊號融合，SASRec (Kang & McAuley, 2018) 用 self-attention 處理互動序列，Li et al. (2023) 的 GPT4Rec 直接把推薦轉成語言任務。
 
 ## 選擇的方案：分層遞進
 

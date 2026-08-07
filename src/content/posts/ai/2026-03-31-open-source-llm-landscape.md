@@ -255,7 +255,7 @@ Embedding 負責召回，Reranker 負責精排。好的 Reranker 可以讓 RAG �
 | Open-Sora 2.0 | HPC-AI Tech | 11B | 開源 | 訓練成本僅 $200K，接近 OpenAI Sora |
 | Mochi 1 | Genmo | 10B | Apache 2.0 | 商用友好 |
 
-開源影片生成在 2026 年進步最劇烈——Wan 2.2 和 HunyuanVideo 的品質已經直接對標 Sora 和 Veo。
+開源影片生成在 2026 年進步最劇烈——Wan 2.2 和 HunyuanVideo 的品質已經追上 Sora 和 Veo。
 
 ## 部署與推論：怎麼把模型跑起來
 

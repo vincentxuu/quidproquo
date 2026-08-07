@@ -2,6 +2,36 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-01 歸檔
+
+### post(ai) 數位員工（PR #130）
+
+progress.txt 在合併 main 後達 95 行，本條目細節移到這裡。
+
+- 骨幹是 Anthropic Project Vend phase 1+2（一手，且把失敗一起公開）。
+- 第二輪查證修掉兩處實質錯誤：
+  1. **定價表**原本整張取自競品比較文，改回廠商官方定價頁後發現：Zendesk 根本
+     未公布 per-resolution 單價（方案內含額度＋超額計費，流傳的 ~$1.50 出自競品
+     行銷內容）；Agentforce 已於 2025-05 從 $2/conversation 改為 Flex Credits
+     $0.10/action；HubSpot 是 50 credits @ $9/1,000 ≈ $0.45，並把 resolution
+     定義成「72 小時內未轉真人」。後兩者剛好佐證文章原本的論點（計價單位由賣方
+     定義），改寫為以官方說法佐證。
+  2. **Klarna 時間線**原本停在 2025-05，補上 Q3 2025（相當於 853 名客服、省 $60M）、
+     2026-02（2030 年降至 2,000 人以下、靠自然流失）、2026-06（真人客服＝VIP）。
+     原本的「反轉 vs 範圍修正」二選一因此改寫為持續演進。
+- **MIT NANDA 樣本數衝突已解決**：報告 PDF 第 2 頁為 52 場訪談／153 份問卷／300+
+  專案；流傳甚廣的「150 訪談／350 員工問卷」是誤傳，文章直接更正並引用原文。
+- 新增 **EU AI Act** 一節：Article 26(2) 要求部署者將人為監督指派給具名自然人，
+  2026-08-02 生效；Annex III 第 4 類使雇主（而非廠商）成為部署者。
+- 維持並列不選邊：11x churn 70–80%（TechCrunch 引內部人士）vs 79% 留存（公司）；
+  Salesforce 9,000→5,000 的「裁員」vs「rebalance」。
+- 刻意不引用：Agentforce ARR（$800M vs 跨過 $1B run rate，來源衝突）、Gartner
+  「50% 會重新聘回」（無一手 PR）。
+- 新增 2 個全站 glossary 術語：數位員工、agent washing；2 個當篇術語。
+- **未解缺口**：兩輪搜尋都找不到有第三方驗證成效數字的台灣導入案例，只有廠商
+  新聞稿，因此文章維持這個缺口沒有硬填。
+- Research note 在 `.research/2026-08-01-digital-employee.md`（不入版控）。
+
 ## 2026-08-06 歸檔
 
 ### Recently completed（原 progress.txt 條目）

@@ -97,7 +97,7 @@ Google 是這篇裡唯一有訂閱制付費課程的一家。它的官方頁面�
 
 #### 那個「免不免費」的謎題，答案是這樣
 
-四個通路四種說法：grow.google 台灣頁說 $49/月加 7 天試用；Google Skills 的路徑頁說「訂閱後可用，新用戶 7 天免費試用」；Google Cloud 部落格把 AI Essentials 列為「no credits required」且完成發證書；Udemy 上同一門課標「$20/月起」。
+四個通路四種說法：grow.google 台灣頁說 $49/月加 7 天試用；Google Skills 的路徑頁說「訂閱後可用，新使用者 7 天免費試用」；Google Cloud 部落格把 AI Essentials 列為「no credits required」且完成發證書；Udemy 上同一門課標「$20/月起」。
 
 拆開來看其實不矛盾，只是沒有一個頁面願意把話講完整。有三件事被混在一起了：
 

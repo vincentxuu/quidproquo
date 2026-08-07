@@ -294,9 +294,9 @@ PM 派任務時帶上合約的 permalink。任務完成後 PM 交叉驗證欄位
 | Hook | 用途 |
 |------|------|
 | **SessionStart** | 模式選擇（一般 / PM），載入活躍 topic |
-| **UserPromptSubmit** | 審計日誌 + 關鍵字偵測（「筆記」「儲存」觸發 topic 存檔） |
+| **UserPromptSubmit** | 稽核日誌 + 關鍵字偵測（「筆記」「儲存」觸發 topic 存檔） |
 | **SubagentStart** | 記錄啟動時間、列出既有知識、列出共享合約 |
-| **PostToolUse** | 審計每一次工具呼叫 |
+| **PostToolUse** | 稽核每一次工具呼叫 |
 | **PreCompact** | context 壓縮前自動儲存 session 活動到 `conversations/` |
 | **Stop** | 檢查 project-overview 是否更新 |
 | **PreToolUse** | 驗證 `write_note` 的 tag 合規性 |

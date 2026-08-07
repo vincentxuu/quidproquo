@@ -88,8 +88,8 @@ feat(notification): 新增信件通知排程
 
 ## Why is this necessary?
 
-- 用戶反映只有 in-app 通知不夠，常錯過重要訊息
-- PM 調查顯示 40% 用戶希望收到 email 通知
+- 使用者反映只有 in-app 通知不夠，常錯過重要訊息
+- PM 調查顯示 40% 使用者希望收到 email 通知
 
 ## How does it address?
 

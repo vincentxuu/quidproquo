@@ -106,7 +106,7 @@ DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agen
 
 SaaS 端的競爭焦點已經從「有沒有追 ChatGPT」變成「引用來源分析深度」「hallucination 偵測」「跨平台 share of voice 歸因」。純追蹤功能會越來越 commodity。
 
-### Citation 專門工具（比 mention 更細的顆粒度）
+### Citation 專門工具（比 mention 更細的粒度）
 
 Mention（有沒有被提到）和 citation（有沒有被當引用來源、帶連結）是不同指標。專做 citation 追蹤的：
 

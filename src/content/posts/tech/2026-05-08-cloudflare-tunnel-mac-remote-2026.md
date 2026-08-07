@@ -98,7 +98,7 @@ iOS App Store 沒有 cloudflared，所以**手機只能走路線 A 或 C**。
 關鍵步驟：
 
 1. **Tunnel 設為私網路由**：Zero Trust → Networks → Routes，把家裡內網 CIDR（例如 `192.168.86.0/24`）加進去指向 tunnel
-2. **Gateway Network Policy**：允許 WARP 用戶流量送進這個 CIDR
+2. **Gateway Network Policy**：允許 WARP 使用者流量送進這個 CIDR
 3. **WARP Client Profile** 設成 `Include IPs and Domains`，把 CIDR 加進去（不加 WARP 預設不會送私網流量到 tunnel——這個坑卡住很多人）
 4. **Client 裝 WARP App**：登入 team domain，連線後直接 SSH/VNC 內網 IP
 
@@ -166,7 +166,7 @@ WireGuard / OpenVPN 自架。問題是**需要公網 IP**——CGNAT 環境下�
 | **TeamViewer** | ✅ | 商業偵測嚴格容易誤判 |
 | **Apple Back to My Mac** | ❌ 已停服（2019） | 別找了 |
 
-## 怎麼選：給個人用戶的決策樹
+## 怎麼選：給個人使用者的決策樹
 
 ```
                 需要分享給別人 / 公開網址？

@@ -11,7 +11,7 @@ draft: false
 ---
 
 > **⚠️ 停用公告（2026/05/19）**
-> Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 用戶。接替方案為 **Antigravity CLI**，Agent Skills、Hooks、Subagents 均可延續，Extensions 改名為 Antigravity plugins 並提供自動遷移工具。企業用戶（Gemini Code Assist Standard/Enterprise 授權或 Google Cloud API key）暫不受影響。遷移文件：[antigravity.google/docs/gcli-migration](https://antigravity.google/docs/gcli-migration)。
+> Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 使用者。接替方案為 **Antigravity CLI**，Agent Skills、Hooks、Subagents 均可延續，Extensions 改名為 Antigravity plugins 並提供自動遷移工具。企業使用者（Gemini Code Assist Standard/Enterprise 授權或 Google Cloud API key）暫不受影響。遷移文件：[antigravity.google/docs/gcli-migration](https://antigravity.google/docs/gcli-migration)。
 
 Gemini CLI 是 Google 推出的開源終端機 AI coding agent，原始碼在 [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)。它把 Gemini 模型直接帶進你的 terminal，而且核心賣點非常直接：**大多數開發者完全不需要付費**。
 
@@ -90,7 +90,7 @@ Gemini CLI 的功能集涵蓋了終端 Agent 的主要需求：
 
 幾個需要注意的 2026 年變動：
 
-- **2026 年 3 月：預付帳單制變更**——Google Cloud 的帳單機制調整為預付制，影響 Vertex AI 路線的付費用戶。如果你走 Google Account 免費額度，不受影響。
+- **2026 年 3 月：預付帳單制變更**——Google Cloud 的帳單機制調整為預付制，影響 Vertex AI 路線的付費使用者。如果你走 Google Account 免費額度，不受影響。
 - **2026 年 6 月 1 日：Gemini 2.0 Flash-Lite 停用**——如果你的工作流程依賴 Flash-Lite 模型，需要在這之前遷移。建議改用 Flash 或 2.5 Pro。
 - **免費額度綁定 Google Cloud Project**——免費上限目前是綁在 Google Cloud project 層級，不是個人 API key 層級。這表示同一個 project 下的所有 key 共享額度。
 
@@ -100,14 +100,14 @@ Gemini CLI 特別適合以下開發者：
 
 - **想要免費高品質 CLI Agent 的人**——免費額度涵蓋 2.5 Pro 和完整功能，對大多數個人開發者來說足夠。不需要信用卡，不需要訂閱，登入 Google 帳號就能用。
 - **大型 Monorepo 開發者**——1M token context window 讓你可以一次載入大量程式碼。如果你的專案動輒數十萬行，這個 context 大小是真正的生產力差異。
-- **Google / GCP 生態系用戶**——已經在 Google Cloud 上的團隊可以無縫整合 Vertex AI，權限管理和計費都走既有的 GCP 架構。
+- **Google / GCP 生態系使用者**——已經在 Google Cloud 上的團隊可以無縫整合 Vertex AI，權限管理和計費都走既有的 GCP 架構。
 - **重視開源的開發者**——完整開源、可以 fork 和客製化。相比 Claude Code 或 Copilot CLI 的閉源模式，這對某些團隊是決定性的因素。
 
 如果你需要的是最深的推理能力（複雜架構設計、多步驟 debug），Claude Code 的 Opus 仍然是更好的選擇。但如果你的主要需求是「免費、夠好、context 夠大」，Gemini CLI 目前無人能出其右。
 
 ## 遷移至 Antigravity CLI
 
-Gemini CLI 停服後，官方建議用戶遷移至 **Antigravity CLI**——Google Antigravity 2.0 平台的終端機介面。以 Go 重寫、執行速度更快，並支援非同步背景 agent。
+Gemini CLI 停服後，官方建議使用者遷移至 **Antigravity CLI**——Google Antigravity 2.0 平台的終端機介面。以 Go 重寫、執行速度更快，並支援非同步背景 agent。
 
 ### 遷移重點
 

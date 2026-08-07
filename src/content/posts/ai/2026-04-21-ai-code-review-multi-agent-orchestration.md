@@ -41,7 +41,7 @@ Anthropic 3 月推出的 Code Review 是跟 Cloudflare 最像的方案——**�
 - 超過 1,000 行的大型 PR，**84%** 會被找到 Bug
 - 大型 PR 平均找到 7.5 個問題
 
-開放給 Claude Teams 和 Enterprise 用戶，可以在 Claude Code Web 介面按 repo 啟用。
+開放給 Claude Teams 和 Enterprise 使用者，可以在 Claude Code Web 介面按 repo 啟用。
 
 ## GitHub Copilot Code Review：原生整合的優勢
 

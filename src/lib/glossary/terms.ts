@@ -1800,6 +1800,38 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     context_en: 'Often paired with context engineering as one of the two core engineering capabilities for agent development.',
   },
   {
+    term: '數位員工',
+    aliases: ['digital employee', 'digital-employee', 'digital worker', '數位勞工'],
+    definition: '被包裝成組織單位來販售與管理的 AI agent：有職務範圍、權限、績效目標，以及一位為其產出負責的人。',
+    definition_en: 'An AI agent packaged and sold as an organizational unit — with a scope of duties, permissions, performance targets, and a human who answers for its output.',
+    advanced: '技術上就是 agent（LLM + 工具 + 記憶 + 迴圈），差別在課責與計價：RPA 給路徑、copilot 給逐步協助、數位員工給結果。判斷真偽的實務標準是有沒有指定的人類負責人與可稽核的行動日誌。',
+    advanced_en: 'Technically just an agent (LLM + tools + memory + loop); the difference is accountability and pricing. RPA is given a path, a copilot gives step-by-step help, a digital employee is given an outcome. The practical test is whether there is a named human owner and an auditable action log.',
+    context: 'Gartner 估計數千家自稱 agentic 的廠商中只約 130 家名副其實，其餘屬於 agent washing。',
+    context_en: 'Gartner estimates only about 130 of the thousands of vendors claiming agentic capabilities genuinely have them; the rest is agent washing.',
+    links: [
+      {
+        label: 'Anthropic Project Vend: Phase two',
+        url: 'https://www.anthropic.com/research/project-vend-2',
+      },
+    ],
+  },
+  {
+    term: 'agent washing',
+    aliases: ['agent-washing'],
+    definition: '把既有的 chatbot 或自動化工具重新貼上「agentic AI」的標籤來賣，實際上沒有自主決策能力。',
+    definition_en: 'Rebranding existing chatbots or automation tools as "agentic AI" without delivering genuine autonomous capability.',
+    advanced: '辨識方式是看它拿到的是路徑還是結果：能否在沒有預設腳本的情況下自行規劃步驟、呼叫工具、從錯誤中恢復。',
+    advanced_en: 'The tell is whether the system is given a path or an outcome: can it plan steps, call tools, and recover from errors without a predefined script?',
+    context: 'Gartner 於 2025 年 6 月提出此詞，同時預測 2027 年底前超過 40% 的 agentic AI 專案會被取消。',
+    context_en: 'Coined by Gartner in June 2025, alongside its prediction that over 40% of agentic AI projects will be canceled by the end of 2027.',
+    links: [
+      {
+        label: 'Reuters: Over 40% of agentic AI projects will be scrapped by 2027',
+        url: 'https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25',
+      },
+    ],
+  },
+  {
     term: 'prompt engineering',
     aliases: ['prompt-engineering', '提示工程'],
     definition: '透過設計、調整與迭代送給 LLM 的提示文字，引導模型產出符合需求的回應。',
