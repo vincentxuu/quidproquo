@@ -24,6 +24,17 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-07: drone series — counter-UAS piece (zh+en), the biggest remaining
+  gap (series had touched C-UAS three times with no dedicated post). Series now
+  18. Technical core: EW "requires a signal to attack" and fiber/satellite/AI
+  terminal guidance are removing the signal, pushing defense toward hard kill.
+  Taiwan's second layer is the find: Control Yuan report 112國調0010 documents
+  MND revising the drone-response SOP THREE TIMES IN TWO MONTHS (2022-07-29
+  flare-only, first shot needs the Minister; 2022-08-29 back to 7.62mm
+  shoot-down), and the Erdan rock-throwing incident was ruled SOP-compliant.
+  Legal basis isn't missing — Civil Aviation Act 99-13 splits enforcement
+  across FOUR bodies. Chiang Huang-chih: use law-enforcement power, not
+  self-defense (self-defense implies belligerency).
 - 2026-08-07: drone series B5 — 「標案毛利多少」用財報回答，不是訪談題。
   Third time the same mistake: I filed margin + cash cycle under "needs an
   interview" when they are filing questions, and I had ALREADY run this method
@@ -38,7 +49,7 @@ Recently completed
   zero buy/sell judgment (user approved this reading of the no-tickers rule).
 - 2026-08-07: drone series D-line — 3 more posts (zh+en) after dropping the
   "must buy a drone" premise: spec-sheet reading (tech), crash anatomy (tech),
-  CAA question-bank analysis (policy). Series is now 17 posts. Hub 延伸閱讀
+  CAA question-bank analysis (policy). Hub 延伸閱讀
   gained a sixth group. Best finds: the cybersecurity spec defines a product
   "series" as identical flight-control/comms/GNSS modules (regulator, 3晶2軟
   policy and Layer 3 all point at the same three); TTSB's 4-occurrence total is
@@ -56,11 +67,8 @@ Recently completed
   NO category filter so /tags/drone is the cross-category hub, and EVERY series
   post must carry `drone` as its first tag. Investing posts go
   framework-and-risk only, no tickers.
-  All 13 publish same-day 2026-08-06 (author's call; a 3-day-cadence schedule
-  was built then reverted). Scheduling mechanics still documented in plan §5.2:
-  future-dated posts are NOT built, so a published post linking to a
-  later-dated one is a hard 404 — any future reschedule must keep the link
-  graph pointing backwards only, and the guard script in plan §5.2 checks it.
+  Scheduling mechanics in plan §5.2: future-dated posts are NOT built, so a
+  published post linking to a later-dated one is a hard 404; guard script there.
   Glossary debt CLEARED: the 5 drone terms (BVLOS, FPV, 非紅供應鏈, Blue UAS,
   C-UAS) are now in src/lib/glossary/terms.ts (191 total) and the duplicate
   frontmatter block was removed from the hub — note frontmatter glossary is
@@ -68,15 +76,6 @@ Recently completed
   frontmatter entry SHADOWS the site-wide one.
   Remaining v1: NOTHING is hard-blocked (see the two 08-07 entries above and
   the four-rule 通則 in plan §6).
-- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
-  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
-  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
-  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
-  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
-  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
-  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
-  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
-  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

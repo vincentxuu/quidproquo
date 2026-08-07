@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Sixteen companion pieces go deeper in six directions:
+This article is the overview for the drone series. Seventeen companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -142,6 +142,7 @@ This article is the overview for the drone series. Sixteen companion pieces go d
 - [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) — built from the currently effective statutory text, flagging which circulated rules are already outdated
 - [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide) — three licence classes, the G1/G2/G3 groups, statutory fees, full timeline
 - [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions) — this article's first ceiling, compared across three regimes
+- [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
 
 **Industry judgment**
 
