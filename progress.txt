@@ -24,7 +24,7 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-06: drone series — 11 posts shipped (zh+en each) across tech/policy/
+- 2026-08-06: drone series — 13 posts shipped (zh+en each) across tech/policy/
   career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
   series; it is the record, this is only working memory).
@@ -33,7 +33,7 @@ Recently completed
   NO category filter so /tags/drone is the cross-category hub, and EVERY series
   post must carry `drone` as its first tag. Investing posts go
   framework-and-risk only, no tickers.
-  All 11 publish same-day 2026-08-06 (author's call; a 3-day-cadence schedule
+  All 13 publish same-day 2026-08-06 (author's call; a 3-day-cadence schedule
   was built then reverted). Scheduling mechanics still documented in plan §5.2:
   future-dated posts are NOT built, so a published post linking to a
   later-dated one is a hard 404 — any future reschedule must keep the link
@@ -43,8 +43,13 @@ Recently completed
   frontmatter block was removed from the hub — note frontmatter glossary is
   prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so a
   frontmatter entry SHADOWS the site-wide one.
-  Remaining v1: B2/B4 need interviews; D1-D3 blocked on buying a drone and
-  booking the licence exam. Next scheduled slot is 09-08.
+  Remaining v1: only D1-D3 are genuinely blocked (type: project first-hand
+  records — need to buy a drone and book the licence exam). B2/B4 were NOT
+  blocked: the "needs interviews" note was a pre-writing estimate treated as a
+  hard constraint. B2 is derivable from the open-source stack + public JDs;
+  B4 splits into mechanics (public documents, written) and lived experience
+  (still needs interviews). When judging remaining topics, ask which HALF needs
+  the material, not whether the whole post does.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many

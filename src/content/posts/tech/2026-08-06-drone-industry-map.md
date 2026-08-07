@@ -151,7 +151,9 @@ draft: false
 **人與職涯**
 
 - [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-06-drone-industry-job-map) — 把職缺放回五層框架，標出對軟體背景的可遷移度
+- [從軟體業轉進無人機：用 PX4 的架構圖當求職地圖](/posts/career/2026-08-06-software-to-drone-transition) — 三條遷移路徑的摩擦力差異，以及用 SITL 與真實 log 證明能力的順序
 - [台灣無人機的四條學習路徑：科大、證照、競賽、在職訓練](/posts/education/2026-08-06-taiwan-drone-education-paths) — 課程體系、競賽題目設計與三種身分的具體建議
+- [進入台灣無人機產業的四道門：公開資料能告訴你的入場機制](/posts/career/2026-08-06-drone-market-entry-mechanics) — 聯盟入會、研發補助、認證順序與標案機制，含公開資料回答不了的清單
 
 **框架與資金**
 

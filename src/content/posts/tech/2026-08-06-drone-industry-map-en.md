@@ -151,7 +151,9 @@ This article is the overview for the drone series. Ten companion pieces go deepe
 **People and careers**
 
 - [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map) — job roles back inside the five-layer framework, tagged with software transferability
+- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition) — how much friction each of the three transition paths carries, and the order for proving capability with SITL and real logs
 - [Four Ways to Learn Drones in Taiwan: Universities, Licences, Competitions, and Vocational Training](/posts/education/2026-08-06-taiwan-drone-education-paths) — the course system, competition design, and advice by situation
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics) — alliance membership, R&D grants, certification order, and tender mechanics, plus what public data cannot answer
 
 **Frameworks and money**
 
