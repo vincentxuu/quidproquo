@@ -6,7 +6,29 @@
 
 ### Recently completed（原 progress.txt 條目）
 
-第三批歸檔（圖示改 Koboyo 手繪風時，合併 main 後 progress.txt 達 99 行）。
+第四批歸檔（PR #127 再次合併 main 後 progress.txt 達 95 行；依慣例移出最舊一筆）。
+
+- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
+  "never searched it, only talked about it" phenomenon. Key find nobody has
+  covered yet: FTC closed the Cox Media Group "Active Listening" case on
+  2026-05-21 — the service collected NO voice data at all, it was reselling
+  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
+  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
+  was a fraud. Second find: Meta's official PYMK signal list (transparency
+  center, updated 2024-12-13) explicitly includes "whether or not your contact
+  was uploaded by the person being suggested" — official confirmation of the
+  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
+  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
+  signal list contains no location/IP signal, so the article says "industry
+  practice, Meta holds the same raw materials". Included the Webex counterexample
+  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
+  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
+  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
+  地理圍欄, DMA). Research note in .research/ (not version-controlled).
+
+第三批歸檔（2026-08-06 稍晚，兩條分支各自合併 main 後都觸發上限：圖示改 Koboyo
+手繪風時 progress.txt 達 99 行，Learning How to Learn 系列 PR #127 時達 102 行。
+兩者歸檔的是同一筆條目）。
 
 - 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
   circulating "2026 AI certs for engineers" list against primary sources only;

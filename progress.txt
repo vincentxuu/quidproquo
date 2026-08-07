@@ -33,6 +33,24 @@ Recently completed
   推論與事實分離三條規則。工具面：firecrawl/Exa 的 requires approval 是 claude.ai
   connector 層級的 ask，allow 規則擋不住；另外現有 mcp__claude_ai_*__* 規則在
   web session（server 為 UUID 命名）會靜默失效，尚未處理。
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
 - 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
   `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
   解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
@@ -59,6 +77,7 @@ Recently completed
   加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
   錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
 （已完成並合併的條目移到 docs/progress-archive.md）
+
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
   image generation, and part of the redesign already exist in the repo.
