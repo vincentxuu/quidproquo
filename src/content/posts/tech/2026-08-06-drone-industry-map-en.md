@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Ten companion pieces go deeper in five directions:
+This article is the overview for the drone series. Fifteen companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -154,6 +154,12 @@ This article is the overview for the drone series. Ten companion pieces go deepe
 - [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition) — how much friction each of the three transition paths carries, and the order for proving capability with SITL and real logs
 - [Four Ways to Learn Drones in Taiwan: Universities, Licences, Competitions, and Vocational Training](/posts/education/2026-08-06-taiwan-drone-education-paths) — the course system, competition design, and advice by situation
 - [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics) — alliance membership, R&D grants, certification order, and tender mechanics, plus what public data cannot answer
+
+**Reading the public record yourself**
+
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading) — five weight thresholds, the three modules regulation uses to decide two drones are the same drone, and three public registries worth checking
+- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy) — what the 25 kg statistical threshold means, the failure chains in both occurrences, and which PX4 log signals to read
+- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank) — the policy shift behind 1,420 published questions, and the regulatory mental model the content exposes
 
 **Frameworks and money**
 

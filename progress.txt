@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,17 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-07: drone series D-line — 3 more posts (zh+en) after dropping the
+  "must buy a drone" premise: spec-sheet reading (tech), crash anatomy (tech),
+  CAA question-bank analysis (policy). Series is now 16 posts. Hub 延伸閱讀
+  gained a sixth group. Best finds: the cybersecurity spec defines a product
+  "series" as identical flight-control/comms/GNSS modules (regulator, 3晶2軟
+  policy and Layer 3 all point at the same three); TTSB's 4-occurrence total is
+  gated on ">25kg substantially damaged"; both published reports are the same
+  model/maker/agency and both failed in LAYER 2, not the Layer 3 everyone
+  discusses. Registered-drone count 75,240→40,134→38,683 is written up as an
+  INFERENCE only (Art.10 = 2-year registration validity); do not harden it
+  without a CAA statement of the counting basis.
 - 2026-08-06: drone series — 13 posts shipped (zh+en each) across tech/policy/
   career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
@@ -43,16 +54,11 @@ Recently completed
   frontmatter block was removed from the hub — note frontmatter glossary is
   prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so a
   frontmatter entry SHADOWS the site-wide one.
-  Remaining v1: NOTHING is hard-blocked any more. The "素材" column was a
-  pre-writing estimate mistaken for a constraint TWICE — B2/B4 (written 08-06)
-  and D1-D3 (reframed 08-07). D1-D3 no longer require buying a drone or sitting
-  the exam: rewritten as public-data posts (spec-sheet reading via the A1 layer
-  frame / crash anatomy from TTSB reports + public PX4 logs / CAA's fully
-  published exam question bank). Rule: ask which HALF needs the material and
-  whether the topic really needs it or I wrote it to need it. Details, source
-  confirmation, and one unverified lead (registered drones 75,240 end-2021 vs
-  38,683 end-2024 — likely cumulative-vs-current definition, DO NOT write until
-  confirmed) are in plan §4 決策一 and §5 支線 D.
+  Remaining v1: NOTHING is hard-blocked. The plan's "素材" column was a
+  pre-writing estimate mistaken for a constraint TWICE (B2/B4, then D1-D3).
+  Rule: ask which HALF of a post needs the material, and whether the topic
+  really needs it or I wrote it to need it. See plan §4 決策一 and §5 支線 D.
+  Only B4's lived-experience half still wants interviews.
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
