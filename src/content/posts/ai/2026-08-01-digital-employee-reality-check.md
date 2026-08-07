@@ -29,7 +29,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-08-01-digital-employee-reality-check-en)
 
-2026 年「數位員工」已經是企業軟體的正式品類：[OpenAI 在 2 月 5 日發表 Frontier](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents)，明說要「像管理人類員工一樣管理 agent」；[Forrester 2026 預測](https://www.forrester.com/blogs/predictions-2026-ai-agents-changing-business-models-and-workplace-culture-impact-enterprise-software)前五大 HCM 平台會長出「數位員工管理」功能。同一時間，[Gartner 估計數千家自稱 agentic 的廠商中只約 130 家是真的](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25)。
+2026 年「數位員工」已經是企業軟體的正式類別：[OpenAI 在 2 月 5 日發表 Frontier](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents)，明說要「像管理人類員工一樣管理 agent」；[Forrester 2026 預測](https://www.forrester.com/blogs/predictions-2026-ai-agents-changing-business-models-and-workplace-culture-impact-enterprise-software)前五大 HCM 平台會長出「數位員工管理」功能。同一時間，[Gartner 估計數千家自稱 agentic 的廠商中只約 130 家是真的](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25)。
 
 這篇整理的是：這個詞到底指什麼、目前的能力邊界在哪、怎麼計價、以及哪些失敗模式已經有公開證據。技術組件本身站上已有專文，這裡只講對「要不要買、怎麼管」有影響的部分。
 
@@ -45,7 +45,7 @@ glossary:
 | Copilot / 助理 | 逐步協助 | 你（每一步都在） | 你 |
 | 數位員工 | 一個結果 | 它 | **要指定一個人** |
 
-Gartner 把「[agent washing](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable)」定義成把既有 chatbot 和自動化工具重新貼標成 agentic，而它對真貨的估計是**數千家中約 130 家**。這條線比想像中難跨。
+Gartner 把「[agent washing](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable)」定義成把既有 chatbot 和自動化工具重新貼上 agentic 的標籤，而它對真貨的估計是**數千家中約 130 家**。這條線比想像中難跨。
 
 實務上有一個簡單的檢查：**沒有指定的人類負責人、沒有可稽核的行動日誌，那不是員工，是無主的服務帳號。**
 
@@ -55,7 +55,7 @@ Gartner 把「[agent washing](https://martech.org/gartner-40-of-agentic-ai-proje
 
 **Phase 1 是災難**：Claudius（跑 Sonnet 3.7）虧錢、亂發折扣、被員工誘導低價賣鎢塊，還一度宣稱自己是穿藍西裝的人類。
 
-**Phase 2 換模型（Sonnet 4.0 / 4.5）加上對的工具之後，虧損週幾乎消失**，店開到舊金山（兩台）、紐約、倫敦三地。加的工具很不性感，但每一項都對應一個具體失誤：
+**Phase 2 換模型（Sonnet 4.0 / 4.5）加上對的工具之後，虧損週幾乎消失**，店開到舊金山（兩台）、紐約、倫敦三地。加的工具都很不起眼，但每一項都對應一個具體失誤：
 
 - CRM 系統——追客戶、供應商、訂單
 - 庫存介面改成**永遠看得到進價**——直接消滅「賠本賣」這類錯誤
@@ -78,7 +78,7 @@ Anthropic 給 Claudius 配了一個 CEO agent「Seymour Cash」，用 OKR 施壓
 
 報告裡最值得抄的一句：
 
-> 我們重新發現了 **bureaucracy matters**（官僚體系是有用的）。雖然有些人厭惡流程和檢查表，但它們存在是有原因的：提供一種機構記憶，幫員工避開工作上常見的搞砸方式。
+> 我們重新發現了 **bureaucracy matters**（官僚體系是有用的）。雖然有些人厭惡流程和檢查表，但它們存在是有原因的：提供一種組織記憶，幫員工避開工作上常見的搞砸方式。
 
 具體做法是：新品詢價時，不准直接報一個樂觀的價格和交期，**必須先用工具查證**。結果是報價變高、交期變長——但變真實了。
 
@@ -110,11 +110,11 @@ Anthropic 對根因的判斷值得整段記下來：這些問題很大程度來�
 
 他們自己就示範了兩次：Sonnet 4.5 有「context anxiety」——接近 context 上限時會提前草草收尾，所以 harness 必須加 context reset；到了 Opus 4.5 這個行為大致消失，reset 就從必要機制變成純負擔，被砍掉。同理，Opus 4.6 之後，每個 sprint 都跑一次的 evaluator 對簡單任務也變成多餘開銷。
 
-**所以 harness 是負債，不是資產。**你今天寫的每一個補丁，都在賭模型的某個弱點會一直存在。定期回頭刪掉不再需要的鷹架，是這門工程的常態工作。
+**所以 harness 是負債，不是資產。**你今天為它補的每一個洞，都在賭模型的某個弱點會一直存在。定期回頭刪掉不再需要的鷹架，是這門工程的常態工作。
 
 ## 商業模式：per-seat 正在死，per-outcome 也不乾淨
 
-AI 一個人幹十個人的活，不會多要十個座位——seat 這個計價單位自己垮掉了。客服類的公開牌價已經收斂到 per-resolution：
+AI 一個人做十個人的事，不會多要十個座位——seat 這個計價單位自己垮掉了。客服類的公開牌價已經收斂到 per-resolution：
 
 | 產品 | 計價單位 | 公開牌價 |
 |---|---|---|
@@ -128,7 +128,7 @@ AI 一個人幹十個人的活，不會多要十個座位——seat 這個計價
 
 **1. 「解決」由賣方定義。** HubSpot 把定義寫進了[產品頁](https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent)：一次 resolution 是「agent 提供了支援，且該對話在 **72 小時**內沒有被轉交給真人」。這個定義很具體，但也很明顯是可以調的旋鈕——72 小時換成 24 小時，帳單就不一樣。買方要在合約裡自己把定義釘死。
 
-**2. 成本從可預測變成不可預測，而且「一次對話」本身就是個爛單位。** Salesforce 是最好的例子：Agentforce 上市時是 $2／conversation，2025 年 5 月[官方引入 Flex Credits](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news)改成 **$0.10／action**（每個 action 20 credits，10 萬 credits 一包 $500）。Salesforce 自己的[部落格](https://www.salesforce.com/blog/flex-credits)把理由講得很白：
+**2. 成本從可預測變成不可預測，而且「一次對話」本身就是個爛單位。** Salesforce 是最好的例子：Agentforce 剛推出時是 $2／conversation，2025 年 5 月[官方引入 Flex Credits](https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news)改成 **$0.10／action**（每個 action 20 credits，10 萬 credits 一包 $500）。Salesforce 自己的[部落格](https://www.salesforce.com/blog/flex-credits)把理由講得很白：
 
 > 以對話計費，這樣一次互動要花 $2；但用 Flex Credits，同樣的往返可能只是 3–6 個 action，成本 $0.30–$0.60。
 
@@ -142,9 +142,9 @@ Intercom 則配了績效保證：沒達到解決率目標就賠償，上限 $1M�
 
 ### 廠商公開數字預設不可信
 
-2025 年 3 月，[TechCrunch 對 AI SDR 廠商 11x 的調查](https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/)（記者 Marina Temkin，近 24 名消息來源）發現：官網列出的客戶 logo 有非客戶，ZoomInfo 發言人具名表示「我們沒有授權他們以任何方式使用我們的 logo，我們也不是客戶」；ARR 認列把帶三個月解約條款的合約當整年算，約 $14M 的宣稱數字在移除已解約試用後接近 $3M。
+2025 年 3 月，[TechCrunch 對 AI SDR 廠商 11x 的調查](https://techcrunch.com/2025/03/24/a16z-and-benchmark-backed-11x-has-been-claiming-customers-it-doesnt-have/)（記者 Marina Temkin，近 24 名消息來源）發現：官網列出的客戶 logo 裡有並非客戶的公司，ZoomInfo 發言人具名表示「我們沒有授權他們以任何方式使用我們的 logo，我們也不是客戶」；ARR 認列把帶三個月解約條款的合約當整年算，約 $14M 的宣稱數字在移除已解約試用後接近 $3M。
 
-churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，11x 則回應 2025 年 3 月的留存率是 79%。**這對矛盾的數字本身就是最好的教材**——在這個品類裡，沒有第三方驗證的公開數字，預設當行銷素材處理。
+churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，11x 則回應 2025 年 3 月的留存率是 79%。**這組互相矛盾的數字本身就是最好的教材**——在這個類別裡，沒有第三方驗證的公開數字，預設當行銷素材處理。
 
 ### 「取代人力」的敘事幾乎都要打折
 
@@ -154,9 +154,9 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 
 | 時間 | 發生什麼 |
 |---|---|
-| 2024-02 | 官方宣稱 AI 客服首月處理 230 萬次對話、相當於 700 名全職客服、全年帶來 $4,000 萬利潤 |
+| 2024-02 | 官方宣稱 AI 客服首月處理 230 萬次對話、相當於 700 名全職客服、全年帶來 4,000 萬美元的利潤 |
 | 2025-05 | CEO 承認砍太深，重新招募真人；同月[對 CNBC 說](https://www.cnbc.com/amp/2025/05/14/klarna-ceo-says-ai-helped-company-shrink-workforce-by-40percent.html)人力從 5,000 降到近 3,000，但**明講不全是 AI**，也來自每年 15–20% 的自然流失 |
-| 2025-Q3 | 財報電話會議上說 AI 客服已相當於 **853 名**全職客服（年初是 700）、省下 **$6,000 萬**，並稱 CSAT 與真人「同等」 |
+| 2025-Q3 | 財報電話會議上說 AI 客服已相當於 **853 名**全職客服（年初是 700）、省下 **6,000 萬美元**，並稱 CSAT 與真人「同等」 |
 | 2026-02 | 在 20VC podcast 上說目前約 3,000 人，預計 2030 年降到 **2,000 人以下**，靠自然流失、不打算裁員 |
 | 2026-06 | 新說法：「在 AI 能做掉最簡單客服的世界裡，我們認為真人客服幾乎會變成一種 VIP 待遇」 |
 
@@ -164,9 +164,9 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 
 > 成本很不幸地變成了組織時太主導的評估因素，結果你得到的就是更低的品質。
 
-但把整件事講成「Klarna 承認 AI 失敗」是錯的——他們**同時**擴大了 AI（700 → 853）、**同時**把真人加回複雜與高價值層、**同時**還在讓總人力繼續縮。Forrester 分析師 Kate Leggett [的評語是](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987)他們「過度轉向成本控制，沒想清楚對客戶體驗的長期影響」，幾乎是「壞的 AI 部署的代表案例」。兩件事可以同時成立：部署方式很糟，而技術確實有效。
+但把整件事講成「Klarna 承認 AI 失敗」是錯的——他們**同時**擴大了 AI（700 → 853）、**同時**把真人加回複雜與高價值層、**同時**還在讓總人力繼續縮。Forrester 分析師 Kate Leggett [的評語是](https://www.customerexperiencedive.com/news/klarna-says-ai-agent-work-853-employees/805987)他們「過度轉向成本控制，沒想清楚對客戶體驗的長期影響」，幾乎是「AI 部署失敗的代表案例」。兩件事可以同時成立：部署方式很糟，而技術確實有效。
 
-**Salesforce**。Benioff 在 Logan Bartlett Show 上說支援人力從 9,000 降到約 5,000、50% 互動由 agent 處理、AI 與真人各處理約 150 萬次對話而 CSAT 相近。但同一件事 [Salesforce 發言人的說法](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division)是停止回補職缺加上數百人轉調——Benioff 自己用的字也是 "rebalance"。**同一組數字，兩種框架。**
+**Salesforce**。Benioff 在 Logan Bartlett Show 上說支援人力從 9,000 降到約 5,000、50% 互動由 agent 處理、AI 與真人各處理約 150 萬次對話而 CSAT 相近。但同一件事 [Salesforce 發言人的說法](https://www.salesforceben.com/ai-agents-drive-4000-job-cuts-in-salesforce-support-division)是停止回補職缺加上數百人轉調——Benioff 自己用的字也是 "rebalance"。**同一組數字，兩種說法。**
 
 ### 專案本身的失敗率
 
@@ -181,15 +181,15 @@ churn 這項兩造直接對撞：內部人士稱首批 cohort 流失 70–80%，
 
 前面說「沒有指定的人類負責人就不是員工」是實務建議。從 **2026 年 8 月 2 日**起，在歐盟它是法條。
 
-依[歐盟官方的 AI Act 實施時程](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act)，這天起 AI Act 的大部分規則開始適用、Article 50 的透明度義務生效、國家與歐盟層級的執法啟動。對「數位員工」最直接的是 **Article 26（高風險 AI 系統部署者的義務）**，其第 2 項寫得非常白：
+依[歐盟官方的 AI Act 實施時程](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act)，這天起 AI Act 的大部分規則開始適用、Article 50 的透明度義務生效、國家與歐盟層級開始執法。對「數位員工」最直接的是 **Article 26（高風險 AI 系統部署者的義務）**，其第 2 項寫得非常白：
 
 > 部署者應將人為監督指派給具備必要能力、訓練與權限，並獲得必要支援的**自然人**。
 
 同一條還要求：保存系統自動產生的日誌**至少六個月**（26(6)）；在工作場所部署前要先告知員工與員工代表（26(7)）；對 Annex III 高風險系統所做或協助做出的、涉及自然人的決定，要告知被影響的人（26(11)）。
 
-為什麼這跟數位員工特別有關：Annex III 的第 4 類就是**就業、勞工管理與自營作業取得**——履歷篩選、任務分派、升遷與解僱相關的 AI 都落在裡面。而且**部署者是雇主，不是賣工具給你的廠商**。你買的 agent 平台通過了什麼認證，不會替你承擔部署者義務。
+為什麼這跟數位員工特別有關：Annex III 的第 4 類就是**就業、勞工管理與自營作業機會的取得**——履歷篩選、任務分派、升遷與解僱相關的 AI 都落在裡面。而且**部署者是雇主，不是賣工具給你的廠商**。你買的 agent 平台通過了什麼認證，不會替你承擔部署者義務。
 
-幾個要留意的時間點：Article 50(2) 給 2026 年 8 月 2 日前就已上市的生成式系統延到 **2026 年 12 月 2 日**才需符合機器可讀標記；Article 6(1) 及其對應義務要到 **2027 年 8 月 2 日**才適用。另外這份時程已納入 Digital Omnibus on AI 的修正，細節仍在動，實際規劃要回去看官方時程頁而不是二手整理。
+幾個要留意的時間點：Article 50(2) 給 2026 年 8 月 2 日前就已在市場上的生成式系統延到 **2026 年 12 月 2 日**才需符合機器可讀標記；Article 6(1) 及其對應義務要到 **2027 年 8 月 2 日**才適用。另外這份時程已納入 Digital Omnibus on AI 的修正，細節仍在動，實際規劃要回去看官方時程頁而不是二手整理。
 
 務實的讀法是：**日誌保存、指定監督人、告知受影響者，這三件事本來就是好的工程實務，現在多了一個不做會被罰的理由。**
 

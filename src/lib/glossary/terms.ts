@@ -1818,7 +1818,7 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
   {
     term: 'agent washing',
     aliases: ['agent-washing'],
-    definition: '把既有的 chatbot 或自動化工具重新貼標成「agentic AI」販售，實際上沒有自主決策能力。',
+    definition: '把既有的 chatbot 或自動化工具重新貼上「agentic AI」的標籤來賣，實際上沒有自主決策能力。',
     definition_en: 'Rebranding existing chatbots or automation tools as "agentic AI" without delivering genuine autonomous capability.',
     advanced: '辨識方式是看它拿到的是路徑還是結果：能否在沒有預設腳本的情況下自行規劃步驟、呼叫工具、從錯誤中恢復。',
     advanced_en: 'The tell is whether the system is given a path or an outcome: can it plan steps, call tools, and recover from errors without a predefined script?',
