@@ -24,6 +24,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
 - 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
   文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
   沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
@@ -59,23 +67,6 @@ Recently completed
   這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
   加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
   錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
-- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
-  "never searched it, only talked about it" phenomenon. Key find nobody has
-  covered yet: FTC closed the Cox Media Group "Active Listening" case on
-  2026-05-21 — the service collected NO voice data at all, it was reselling
-  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
-  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
-  was a fraud. Second find: Meta's official PYMK signal list (transparency
-  center, updated 2024-12-13) explicitly includes "whether or not your contact
-  was uploaded by the person being suggested" — official confirmation of the
-  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
-  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
-  signal list contains no location/IP signal, so the article says "industry
-  practice, Meta holds the same raw materials". Included the Webex counterexample
-  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
-  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
-  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
-  地理圍欄, DMA). Research note in .research/ (not version-controlled).
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
