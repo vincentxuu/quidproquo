@@ -1,12 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Background: Forest brand-900 -->
-  <rect width="128" height="128" rx="20" fill="#1a2e1a"/>
+  <!-- Hand-drawn take on the quid-pro-quo exchange mark: same two arrows, same
+       forest palette, drawn with a wobbling line instead of straight geometry so
+       it matches the koboyo icon set used across the UI. -->
 
-  <!-- Top arrow: left → right (white) -->
-  <line x1="22" y1="46" x2="90" y2="46" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
-  <polyline points="72,28 90,46 72,64" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Background: Forest brand-900, corners drawn rather than rounded -->
+  <path fill="#1a2e1a" d="M23 6Q64 3.5 106 6Q123 8 124.5 24Q126 64 124 105Q122.5 121 106 123Q64 125.5 23 123Q6.5 121 5 105Q3 64 5 23Q6.5 7.5 23 6Z"/>
 
-  <!-- Bottom arrow: right → left (brand-300 #a7c4a0) -->
-  <line x1="106" y1="82" x2="38" y2="82" stroke="#a7c4a0" stroke-width="9" stroke-linecap="round"/>
-  <polyline points="56,64 38,82 56,100" fill="none" stroke="#a7c4a0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top arrow: left → right (white) -->
+    <g stroke="#ffffff">
+      <path d="M21.5 46.5Q56 43 89 45.5"/>
+      <path d="M71.5 28.5Q82.5 36.5 90.5 45.8Q82 55.5 71 63.5"/>
+    </g>
+
+    <!-- Bottom arrow: right → left (brand-300) -->
+    <g stroke="#a7c4a0">
+      <path d="M106.5 81.5Q72 85.5 39 83"/>
+      <path d="M56.5 64Q45.5 72 37.5 82.2Q46 91 57 100"/>
+    </g>
+  </g>
 </svg>

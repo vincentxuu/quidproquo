@@ -7,6 +7,9 @@ tags: [markitdown, llm, rag, document-processing, python]
 lang: en
 tldr: "A lightweight open-source tool from Microsoft that converts PDF, Office, images, audio, and more into Markdown — purpose-built for LLM pipelines."
 description: "An introduction to Microsoft MarkItDown's design philosophy, supported formats, installation, usage, and practical applications in RAG and LLM preprocessing scenarios."
+series:
+  name: "文件解析實戰"
+  order: 2
 draft: false
 ---
 

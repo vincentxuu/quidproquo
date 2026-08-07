@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-01
+Last updated: 2026-08-06
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,59 +24,61 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-01: post(ai) 數位員工 organizational/commercial view (zh + en).
-  Spine is Anthropic Project Vend phase 1+2 (first-hand, publishes its own
-  failures). Second verification pass fixed two real errors from the first
-  draft: (a) the pricing table was sourced from competitor comparison blogs —
-  rebuilt from vendor pricing pages. Zendesk publishes NO per-resolution unit
-  rate (plan allocation + overage; the "~$1.50" circulating is competitor
-  marketing); Agentforce moved off $2/conversation to Flex Credits $0.10/action
-  in 2025-05; HubSpot is 50 credits @ $9/1,000 = ~$0.45 with a 72-hour
-  no-handoff definition of "resolved". (b) Klarna did not stop in 2025-05 —
-  added Q3 2025 (853 agent-equivalents, $60M saved), 2026-02 (<2,000 staff by
-  2030 via attrition), 2026-06 ("human service as a VIP thing"). MIT NANDA
-  sample-size conflict RESOLVED from the report PDF: 52 interviews / 153 survey
-  responses / 300+ initiatives; the "150/350" version in circulation is a
-  misreport. Added an EU AI Act section — Article 26(2) requires deployers to
-  assign human oversight to named natural persons, in force 2026-08-02, and
-  Annex III Area 4 makes the employer (not the vendor) the deployer.
-  Still presented as unresolved conflicts: 11x churn 70–80% (TechCrunch,
-  insiders) vs 79% retention (company); Salesforce 9,000→5,000 "layoff" vs
-  "rebalance". Agentforce ARR still not cited — sources conflict. Added 2
-  site-wide glossary terms: 數位員工, agent washing; 2 per-post terms.
-  Research note in .research/2026-08-01-digital-employee.md (not versioned).
-  Open: two search passes found no Taiwan deployment case with verifiable
-  outcome numbers — only vendor press releases, so the gap stands.
-- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
-  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
-  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
-  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
-  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
-  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
-  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
-  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
-  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
-- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
-  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
-  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
-  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
-  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
-  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
-  typing the /api/related-posts JSON response — `astro check` now 0 errors.
-- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
-  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
-  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
-  title tag drops brand suffix past ~60 display cols; generated /llms.txt.
-  Content: product-builder post retargeted from the "product builder" head
-  term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
-  with 6 two-way internal links. Batch 2 (original first-hand material) still
-  needs input from the user.
-- 2026-07-06: governance framework established — operating charter
-  (docs/governance/operating-charter.md), unified `pnpm verify` gate
-  (pre-commit + Stop hook + preview CI), skills mirror sync
-  (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
-  progress.txt protocol + archive. Skills are edited ONLY in
-  .agents/skills/, then `pnpm skills:sync`.
+- 2026-08-06: post(learning) 數位學習之外紙筆還剩什麼 (zh + en)。四輪研究，中途
+  推翻自己兩次（詳見 PR #126）。角度：數位是預設，實體仍有效的三個地方是閱讀
+  （Delgado 17 萬人 g=-0.21，捲動時 0.35-0.48）、作答動筆（螢幕上題目越難越少用
+  草稿紙）、畫圖（45% vs 20%）；唯一沒共識的是手寫筆記（四份 meta 從 -0.008 到
+  +0.248）。八份核心文獻讀到七份全文，只有 Voyer 正文卡付費牆。新增 7 個全站
+  glossary 術語。deep-research / post-verify skill 已補上抽取完整度、繞路清單、
+  推論與事實分離三條規則。工具面：firecrawl/Exa 的 requires approval 是 claude.ai
+  connector 層級的 ask，allow 規則擋不住；另外現有 mcp__claude_ai_*__* 規則在
+  web session（server 為 UUID 命名）會靜默失效，尚未處理。
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
+- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
+  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
+  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
+  2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份，系列完整。AI 爬蟲
+  全景圖退出系列，保留雙向連結。新寫四篇 post(ai)：三層階梯總論、anydoc、
+  抽取層（PyMuPDF/pdfplumber/pypdf/Tika/Kreuzberg/extractous）、解析層（MinerU/
+  Marker/Docling/olmOCR/dots.ocr + 商業 API）。
+  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
+  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
+  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
+  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+  order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
+  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
+  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
+  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
+  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
+  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
+  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
+  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
+  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
+  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
+  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
+  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
+  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
+（已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
