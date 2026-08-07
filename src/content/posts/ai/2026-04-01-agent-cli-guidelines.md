@@ -216,7 +216,7 @@ OpenCode      → 不綁 LLM，適合多模型混用或本地部署
 Aider         → 自動 git commit，適合輕量 pair programming
 Pi            → 極簡，適合理解底層或客製 harness
 Kiro CLI      → Spec-first，適合 AWS 生態或規格驅動團隊
-Cursor CLI    → IDE 延伸，適合 Cursor 用戶補上 terminal/CI
+Cursor CLI    → IDE 延伸，適合 Cursor 使用者補上 terminal/CI
 GitHub Copilot CLI → 已有 Copilot 訂閱，適合 GitHub 生態工作者
 Amp           → 透明度高，適合在意 agent 決策過程
 ```

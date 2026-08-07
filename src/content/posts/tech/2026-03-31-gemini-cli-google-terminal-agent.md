@@ -13,7 +13,7 @@ draft: false
 🌏 [English version](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
 
 > **⚠️ 停用公告（2026/05/19）**
-> Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 用戶。官方接替方案為 [Antigravity CLI](#遷移至-antigravity-cli)。企業用戶（Gemini Code Assist Standard/Enterprise 或 Google Cloud API key）不受此次截止日影響。詳情請見[官方遷移公告](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)。
+> Google 宣布 Gemini CLI 將於 **2026 年 6 月 18 日**停止服務所有免費、Pro 及 Ultra 使用者。官方接替方案為 [Antigravity CLI](#遷移至-antigravity-cli)。企業使用者（Gemini Code Assist Standard/Enterprise 或 Google Cloud API key）不受此次截止日影響。詳情請見[官方遷移公告](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)。
 
 Gemini CLI 是 Google 推出的開源 AI agent，把 Gemini 的能力直接帶進終端機。採用 ReAct（Reason and Act）迴圈，結合內建工具和 MCP server 來完成複雜任務。
 
@@ -131,8 +131,8 @@ agy plugin import gemini
 
 ### 截止日
 
-- **2026/06/18**：個人免費、Pro、Ultra 用戶的 Gemini CLI 停止服務
-- 企業用戶（Gemini Code Assist Standard/Enterprise 或 Google Cloud API key）：暫不受影響，另行通知
+- **2026/06/18**：個人免費、Pro、Ultra 使用者的 Gemini CLI 停止服務
+- 企業使用者（Gemini Code Assist Standard/Enterprise 或 Google Cloud API key）：暫不受影響，另行通知
 
 完整遷移說明：[antigravity.google/docs/gcli-migration](https://antigravity.google/docs/gcli-migration)
 

@@ -315,8 +315,8 @@ MCP 跟本指南的其他主題有什麼關係？
 
 三種記憶類型：
 
-- **Procedural Memory**：Agent 怎麼做事的知識（相當於肌肉記憶）。例如：「上次用戶要求用繁體中文回答」「這個 codebase 用 pnpm 不是 npm」。
-- **Episodic Memory**：Agent 過去經歷的具體事件。例如：「上次用戶問了這個問題，我用了 X 方法解決」。
+- **Procedural Memory**：Agent 怎麼做事的知識（相當於肌肉記憶）。例如：「上次使用者要求用繁體中文回答」「這個 codebase 用 pnpm 不是 npm」。
+- **Episodic Memory**：Agent 過去經歷的具體事件。例如：「上次使用者問了這個問題，我用了 X 方法解決」。
 - **Semantic Memory**：Agent 對世界的一般性知識。例如：從文件庫中學到的領域知識。
 
 Memory 系統的設計挑戰不在於「怎麼儲存」，而在於「怎麼選擇性地回想」。一個有十萬筆記憶的 Agent，如果不能在對的時機想起對的記憶，就跟沒有記憶一樣。這就回到了 Context Engineering 的核心問題：Select。
@@ -336,7 +336,7 @@ Memory 也是 Agent 和 Chatbot 最大的差異之一。Chatbot 通常只有 ses
 一個生產級聊天機器人需要解決的問題遠超過「呼叫 LLM API」：
 
 - **狀態管理**：多輪對話的 context 怎麼維護？對話太長怎麼截斷？
-- **記憶策略**：跨 session 的用戶記憶怎麼存取？
+- **記憶策略**：跨 session 的使用者記憶怎麼存取？
 - **串流回應**：怎麼做到 token-by-token 的串流輸出，而不是等全部生成完才顯示？
 - **Guardrails**：怎麼防止 prompt injection？怎麼過濾不安全的輸出？
 - **技術棧選型**：Vercel AI SDK vs LangChain vs 自己刻？各有什麼取捨？
@@ -365,25 +365,25 @@ LLM 應用的可觀測性比傳統應用更重要，因為 LLM 的行為本質�
 
 Langfuse 是目前最流行的開源 LLM 可觀測性平台，它提供：
 
-- **Trace**：完整的請求追蹤，從用戶輸入到最終回應的每一步
+- **Trace**：完整的請求追蹤，從使用者輸入到最終回應的每一步
 - **Prompt Management**：版本化管理你的 prompt，追蹤哪個版本的表現最好
 - **Evaluation**：自動化和人工評估，建立品質基準線
-- **Cost Tracking**：每次呼叫花了多少錢，哪些用戶或功能最燒錢
+- **Cost Tracking**：每次呼叫花了多少錢，哪些使用者或功能最燒錢
 
 可觀測性不是 nice-to-have，是生產級 Agent 的必備條件。沒有它，你就是在盲飛。
 
-一個實際的場景：你的 Agent 在生產環境中突然開始給出低品質的回答。沒有可觀測性，你只能看到「用戶抱怨了」。有可觀測性，你可以看到：
+一個實際的場景：你的 Agent 在生產環境中突然開始給出低品質的回答。沒有可觀測性，你只能看到「使用者抱怨了」。有可觀測性，你可以看到：
 
 1. 這批低品質回答都集中在某個時間段
 2. 這個時間段的 RAG 檢索品質下降了
 3. 原因是某個 embedding index 更新失敗了
 4. 修復 index 後品質恢復
 
-從「用戶抱怨」到「找到根因」，可觀測性讓這個過程從幾天縮短到幾分鐘。
+從「使用者抱怨」到「找到根因」，可觀測性讓這個過程從幾天縮短到幾分鐘。
 
 除了 debug，可觀測性還有兩個常被忽略的價值：
 
-- **成本控制**：LLM 呼叫不便宜。沒有 cost tracking，你不會知道某個功能每天燒掉多少錢，也不會知道某個用戶的 prompt injection 嘗試正在浪費你的 token。
+- **成本控制**：LLM 呼叫不便宜。沒有 cost tracking，你不會知道某個功能每天燒掉多少錢，也不會知道某個使用者的 prompt injection 嘗試正在浪費你的 token。
 - **持續改進**：有了 evaluation 數據，你可以量化每次 prompt 修改或架構調整的效果，而不是靠感覺。
 
 → **專文深入**：[Langfuse 完整指南：LLM 應用的可觀測性從零開始](/posts/ai/2026-03-26-langfuse-llm-observability-guide)
@@ -414,7 +414,7 @@ Agent 必須知道什麼時候該停下來。沒有明確停止條件的 Agent �
 
 ### 原則五：狀態持久化
 
-任何超過 30 秒的 Agent 任務都應該有 checkpoint 機制。用戶不會因為你的 Agent 跑了 5 分鐘後崩潰而感激你——但如果你能從上次的 checkpoint 恢復，用戶會覺得你很專業。
+任何超過 30 秒的 Agent 任務都應該有 checkpoint 機制。使用者不會因為你的 Agent 跑了 5 分鐘後崩潰而感激你——但如果你能從上次的 checkpoint 恢復，使用者會覺得你很專業。
 
 這五個原則不需要特定的框架或工具，它們是設計層的思考。在你開始寫第一行 Agent 程式碼之前，先把這五個原則想清楚，會省下大量的重構時間。
 
@@ -468,7 +468,7 @@ Agent 設計原則 → 可觀測性 → Harness Engineering（Guard System）→
 | Agent 陷入無限迴圈 | Agent 設計原則（停止條件）→ LangGraph（結構化控制流） |
 | 不知道 Agent 為什麼出錯 | 可觀測性（Langfuse） |
 | 單一 Agent 不夠用 | Multi-Agent 設計模式 → LangGraph |
-| 想讓 Agent 記住用戶偏好 | Agent Memory |
+| 想讓 Agent 記住使用者偏好 | Agent Memory |
 | 想上線但不確定夠不夠穩 | Harness Engineering → 可觀測性 → 聊天機器人開發 |
 | 想串接外部工具 | MCP |
 | 從零開始建 chatbot | 聊天機器人開發（整合指南） |

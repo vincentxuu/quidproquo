@@ -209,7 +209,7 @@ Gemini 3 系列原廠管道，120 萬 context 直接給。
 
 - **永久免費模型**：GLM-4-Flash（128K）、GLM-4.7-Flash（200K）、GLM-4.5-Flash、GLM-4V-Flash（多模態視覺）等系列，**無 token 上限**，30 concurrent 限制
 - **不需綁卡**；需實名認證
-- **新用戶贈送**：2,000 萬 tokens（GLM-4.5-Air 等值，市值 ¥58）
+- **新使用者贈送**：2,000 萬 tokens（GLM-4.5-Air 等值，市值 ¥58）
 - **付費定價**（元/百萬 tokens）：GLM-5.1 ¥6/¥24、GLM-4.7 ¥2/¥8、GLM-4.5 ¥1/¥4、GLM-4.5-Air ¥0.8/¥2–8、GLM-Z1-Air（推理）¥0.5/¥0.5
 - **特色**：Flash 系列涵蓋文字、多模態、推理，永久免費覆蓋面最廣
 - **Catch**：open.bigmodel.cn 境外存取不穩定；30 concurrent 開發夠用，生產建議升付費
@@ -226,18 +226,18 @@ Gemini 3 系列原廠管道，120 萬 context 直接給。
 
 ### [Qwen DashScope](https://bailian.console.aliyun.com/)（阿里雲百煉）
 
-新用戶每模型送 100 萬 tokens、90 天有效；「7,000 萬 tokens」是行銷加總非單模型額度。
+新使用者每模型送 100 萬 tokens、90 天有效；「7,000 萬 tokens」是行銷加總非單模型額度。
 
-- **新用戶免費額度**：約 70 個支援模型各送 100 萬 tokens，**90 天有效**（非永久），加總得到「7,000 萬 tokens」行銷數字
+- **新使用者免費額度**：約 70 個支援模型各送 100 萬 tokens，**90 天有效**（非永久），加總得到「7,000 萬 tokens」行銷數字
 - **不需綁卡**；需實名認證（阿里雲帳號）
 - **付費定價**（元/百萬 tokens，≤128K input）：qwen-turbo ¥0.3/¥0.6（思考模式輸出 ¥3）、qwen-plus ¥0.8/¥2（思考 ¥8）、qwen-max ¥2.4/¥9.6、qwen3-max（≤32K）¥2.5/¥10；Batch API 全線 5 折
 - **Catch**：免費額度 90 天到期即消失；pricing 頁 JS 渲染，境外需登入帳號才見完整數字
 
 ### [Moonshot Kimi](https://platform.kimi.com/) 開放平台
 
-無永久免費 tier，新用戶有 ¥15 體驗券；K2.6 為現行主力，K2 系列 2026-05-25 下線。
+無永久免費 tier，新使用者有 ¥15 體驗券；K2.6 為現行主力，K2 系列 2026-05-25 下線。
 
-- **新用戶**：¥15 免費體驗券（需中國手機號），3 個月有效，用完 API 返回 403
+- **新使用者**：¥15 免費體驗券（需中國手機號），3 個月有效，用完 API 返回 403
 - **K2 系列（K2 0711 / K2 0905）**：**2026-05-25 正式下線**，官方要求遷移至 K2.5 / K2.6
 - **付費定價**（元/百萬 tokens）：Kimi K2.6 input ¥6.50（cache hit ¥1.10）/ output ¥27（256K context）；Kimi K2.5 ¥4.00（cache ¥0.70）/ ¥21；Moonshot V1 8K $0.20/$2.00（美元）
 - **Catch**：K2.6 比 K2.5 貴約 60%；rate limit tier 靠累計充值解鎖；無境外持續免費 tier
@@ -303,7 +303,7 @@ OpenRouter `:free` + HF Inference Providers PRO + Vercel AI Gateway $5/月，是
 - **Volcengine Doubao 協作獎勵計畫**：手動開通後每日 200 萬 tokens reset，跑量最爽
 - **Tencent Hunyuan-lite**：完全免費 + 首次 100 萬 tokens
 
-新用戶額外：Qwen DashScope（各模型 100 萬 / 90 天）+ Baidu 千帆（¥20 券 + Qwen 免費）+ Kimi（¥15 券）堆起來試模型夠用。
+新使用者額外：Qwen DashScope（各模型 100 萬 / 90 天）+ Baidu 千帆（¥20 券 + Qwen 免費）+ Kimi（¥15 券）堆起來試模型夠用。
 
 ## Catch 共通提醒
 

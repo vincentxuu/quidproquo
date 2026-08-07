@@ -10,7 +10,7 @@ description: "OpenClaw 三大主力頻道的完整設定指南：WhatsApp QR 配
 draft: false
 ---
 
-WhatsApp、Telegram、Discord 是 OpenClaw 用戶最常用的三個頻道。各有不同的設定方式和特色功能。
+WhatsApp、Telegram、Discord 是 OpenClaw 使用者最常用的三個頻道。各有不同的設定方式和特色功能。
 
 ## WhatsApp
 

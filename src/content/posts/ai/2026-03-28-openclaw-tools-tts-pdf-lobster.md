@@ -111,7 +111,7 @@ LLM 驅動的工作流有個問題：多次工具呼叫的 token 成本和協調
 
 ### 設計理念
 
-Lobster 用 DSL 而不是任意程式碼——確定性 + 可審計。Pipeline 是資料，容易 log、diff、replay、review。
+Lobster 用 DSL 而不是任意程式碼——確定性 + 可稽核。Pipeline 是資料，容易 log、diff、replay、review。
 
 ### 實作模式
 
@@ -184,7 +184,7 @@ MCP 讓 OpenClaw 可以連接外部工具生態——資料庫、API、自訂服
 
 ## 整體來說
 
-OpenClaw 的工具集覆蓋了從語音到文件、從確定性工作流到外部 MCP 擴展。TTS 讓 agent 會「說話」，Lobster 讓複雜工作流可預測且可審計，MCP 打開了無限的工具擴展空間。
+OpenClaw 的工具集覆蓋了從語音到文件、從確定性工作流到外部 MCP 擴展。TTS 讓 agent 會「說話」，Lobster 讓複雜工作流可預測且可稽核，MCP 打開了無限的工具擴展空間。
 
 ## 參考資料
 

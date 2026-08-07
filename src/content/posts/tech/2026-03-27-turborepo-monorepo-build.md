@@ -156,7 +156,7 @@ pnpm --filter product add react-query
 
 ## 什麼時候值得導入
 
-Monorepo 不是默認選項，適合的情境：
+Monorepo 不是預設選項，適合的情境：
 
 - **多個 app 共享程式碼**：UI 元件庫、型別定義、utils、API client
 - **前後端要共用型別**：Zod schema 同時當 request/response 的驗證和型別來源

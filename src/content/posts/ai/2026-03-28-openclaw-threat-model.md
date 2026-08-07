@@ -153,7 +153,7 @@ make <target>
 
 模型庫包含 pinned 的 `tla2tools.jar` 和 `bin/tlc` + Make target。
 
-## 安全審計工具
+## 安全稽核工具
 
 ```bash
 openclaw security audit

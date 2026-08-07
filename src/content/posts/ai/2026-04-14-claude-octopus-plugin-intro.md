@@ -174,7 +174,7 @@ claude plugin uninstall octo --scope project
 
 ## 整體來說
 
-Claude Octopus 把「多模型共識」從研究題目變成可以一行指令裝的 Claude Code plugin。32 persona + 48 slash command + 51 skill 規模上不算小，但 `/octo:*` 命名空間隔離讓它比想像中好裝拆。最有價值的設計不是指令數量，而是**把共識門檻（75%）和 reaction 自動化（CI/review 閉環）當成預設**——這兩點是純 Claude Code 目前沒有內建的。
+Claude Octopus 把「多模型共識」從研究題目變成可以一行指令裝的 Claude Code plugin。32 persona + 48 slash command + 51 skill 規模上不算小，但 `/octo:*` 命名空間隔離讓它比想像中好裝拆。最有價值的設計不是指令數量，而是**把共識門檻（75%）和 reaction 自動化（CI/review 迴圈）當成預設**——這兩點是純 Claude Code 目前沒有內建的。
 
 想要把 Claude Code 從「單模型寫 code」升級成「多模型互審 + 有 delivery gate」，Octopus 是目前最完整的現成答案。
 

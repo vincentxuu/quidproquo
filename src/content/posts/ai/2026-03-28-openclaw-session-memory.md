@@ -38,7 +38,7 @@ Session 由 Gateway 擁有（不是 client）。UI 要查 session 列表得問 G
 |---|---|---|
 | `main`（預設）| 所有 DM 共享一個 session | 個人使用，跨裝置連續 |
 | `per-peer` | 按發送者隔離 | 多人存取 |
-| `per-channel-peer` | 按頻道 + 發送者隔離 | 多用戶收件箱 |
+| `per-channel-peer` | 按頻道 + 發送者隔離 | 多使用者收件箱 |
 | `per-account-channel-peer` | 按帳號 + 頻道 + 發送者 | 多帳號設定 |
 
 **安全警告：** 如果你的 agent 會收到多人 DM，**不要用預設的 `main`**。否則所有人共享對話 context，會洩漏私人資訊。

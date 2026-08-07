@@ -91,7 +91,7 @@ llms.txt 不是唯一的新標準。2025–2026 年還冒出了幾個重要的�
 
 #### Cloudflare Content Signals
 
-Cloudflare 擴展 robots.txt，新增三個信號：
+Cloudflare 擴展 robots.txt，新增三個訊號：
 
 ```
 Content-signal: search=yes, ai-train=no, ai-input=no
@@ -171,7 +171,7 @@ JSON-LD 在 2026 年的角色已經從「SERP 顯示輔助」變成「機器理�
 | 策略 | 說明 |
 |------|------|
 | **Entity Depth** | 不只標 Article，要往下展開：Product → Manufacturer → Organization → Founder |
-| **Wikidata 連結** | 用 `sameAs` 和 `mentions` 連到 Wikidata ID，這是 2026 Entity SEO 最強信號 |
+| **Wikidata 連結** | 用 `sameAs` 和 `mentions` 連到 Wikidata ID，這是 2026 Entity SEO 最強訊號 |
 | **Content Parity** | Schema 裡的資料必須在頁面上可見，否則 Google 會標記為垃圾結構化資料 |
 | **LLM 專屬屬性** | `knowsAbout`、`transcript`、FAQPage——可能不會觸發 rich result，但會影響 AI 引用 |
 
@@ -179,7 +179,7 @@ JSON-LD 在 2026 年的角色已經從「SERP 顯示輔助」變成「機器理�
 
 ### 1.4 內容結構優化
 
-LLM 不像人一樣「瀏覽」，它們需要明確的結構信號來定位資訊：
+LLM 不像人一樣「瀏覽」，它們需要明確的結構訊號來定位資訊：
 
 **必做清單：**
 
@@ -303,8 +303,8 @@ GEO（Generative Engine Optimization）是這個領域的行銷面：讓你的�
 
 **為什麼重要：**
 - AI 導流的 session 數量年增 **527%**（Previsible 2025 報告）
-- Google AI Overviews 每月觸及超過 **20 億用戶**
-- ChatGPT 每週 **9 億用戶**
+- Google AI Overviews 每月觸及超過 **20 億使用者**
+- ChatGPT 每週 **9 億使用者**
 - McKinsey 報告：50% 消費者已經把 AI 搜尋當主要資訊來源
 
 **GEO vs SEO：**

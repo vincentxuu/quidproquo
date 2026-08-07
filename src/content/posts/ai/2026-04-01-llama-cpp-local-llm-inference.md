@@ -111,7 +111,7 @@ llama.cpp 的跨平台能力是它最大的競爭優勢。
 
 ### Apple Metal
 
-Mac 用戶的首選後端。Apple Silicon 的統一記憶體架構讓 CPU 和 GPU 共享同一塊記憶體，不需要額外的資料搬移。
+Mac 使用者的首選後端。Apple Silicon 的統一記憶體架構讓 CPU 和 GPU 共享同一塊記憶體，不需要額外的資料搬移。
 
 ```bash
 cmake -B build -DGGML_METAL=ON
@@ -139,7 +139,7 @@ cmake --build build --config Release -j
 cmake -B build -DGGML_VULKAN=ON
 ```
 
-AMD 用戶如果 ROCm 設定太麻煩，Vulkan 是更簡單的替代方案。
+AMD 使用者如果 ROCm 設定太麻煩，Vulkan 是更簡單的替代方案。
 
 ### CPU
 
@@ -365,8 +365,8 @@ python -m llama_cpp.server --model model.gguf --n_gpu_layers -1
 幾個選擇要點：
 
 - **vs Ollama**：Ollama 底層就是 llama.cpp，加了一層 Go 封裝。直接用 llama.cpp 比 Ollama **快 13-80%**（視場景），但 Ollama 的開發者體驗更好
-- **Mac 用戶**：llama.cpp（Metal）和 MLX 都是好選擇。MLX 在 Apple Silicon 上快 30-50%，但 llama.cpp 的生態和模型選擇更大
-- **NVIDIA 用戶**：生產用 vLLM（多用戶 throughput 高 35 倍），本地用 llama.cpp 或 ExLlamaV2
+- **Mac 使用者**：llama.cpp（Metal）和 MLX 都是好選擇。MLX 在 Apple Silicon 上快 30-50%，但 llama.cpp 的生態和模型選擇更大
+- **NVIDIA 使用者**：生產用 vLLM（多使用者 throughput 高 35 倍），本地用 llama.cpp 或 ExLlamaV2
 - **跨平台**：llama.cpp 是唯一一個 CPU/Metal/CUDA/Vulkan/ROCm 全部支援的
 
 ## Mac 快速上手

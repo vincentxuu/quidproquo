@@ -450,7 +450,7 @@ RAG 的 prompt 設計不只是「把 context 塞進去」。要注意：context 
 
 讓 RAG 系統記住使用者的偏好——語言風格、常問的主題、上次對話的脈絡。這不只是 chat history，而是從對話中抽取結構化的偏好資料，在下次搜尋和生成時作為額外的 context。
 
-→ [RAG 個性化：從對話中學習用戶偏好](/posts/ai/2026-03-12-memory-personalization)
+→ [RAG 個性化：從對話中學習使用者偏好](/posts/ai/2026-03-12-memory-personalization)
 
 ---
 
@@ -477,7 +477,7 @@ RAG 系統上線只是開始。真正的挑戰是：怎麼知道它表現好不�
 
 ### LLM-as-Judge
 
-當你沒有大量 human-labeled 測試資料時，可以用另一個 LLM 來評估 RAG 的輸出。Self-Reflection 讓生成答案的 LLM 自己評分，LLM-as-Judge 用一個獨立的 LLM 評分。兩者都有偏差，但作為快速迭代的信號已經夠用。
+當你沒有大量 human-labeled 測試資料時，可以用另一個 LLM 來評估 RAG 的輸出。Self-Reflection 讓生成答案的 LLM 自己評分，LLM-as-Judge 用一個獨立的 LLM 評分。兩者都有偏差，但作為快速迭代的訊號已經夠用。
 
 → [Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 

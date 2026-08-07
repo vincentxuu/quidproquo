@@ -40,9 +40,9 @@ Karpathy 的做法可以拆成五個階段：
 
 Karpathy 不需要這個，因為他的知識存在檔案裡，不依賴 context window。但對於把 AI 當工作夥伴用的人來說，session 連續性是基本需求。目前已有 Continuous-Claude-v3、ContextVault、claude-session-continuity-mcp 等開源方案。
 
-### 語音轉錄：文字捕捉不到的信號
+### 語音轉錄：文字捕捉不到的訊號
 
-除了文章和程式碼，把語音對話也納入知識庫。用 Typeless 錄下 28,000+ 筆語音轉錄，再用 Gemini Pro 做意圖分類。發現用關鍵字分類的「稱讚」有 97% 是誤判——因為文字 sentiment analysis 缺乏韻律學資訊：語調、停頓、語速攜帶了文字無法捕捉的意圖信號。
+除了文章和程式碼，把語音對話也納入知識庫。用 Typeless 錄下 28,000+ 筆語音轉錄，再用 Gemini Pro 做意圖分類。發現用關鍵字分類的「稱讚」有 97% 是誤判——因為文字 sentiment analysis 缺乏韻律學資訊：語調、停頓、語速攜帶了文字無法捕捉的意圖訊號。
 
 ### 跨 AI 工具同步：一個 AI 學到的，所有 AI 都知道
 

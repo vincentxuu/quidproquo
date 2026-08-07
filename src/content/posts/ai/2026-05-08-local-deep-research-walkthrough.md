@@ -18,7 +18,7 @@ LDR 的目標是讓使用者在不外洩資料、不付 API 費的前提下，�
 
 它的四個核心賣點：
 
-- **隱私**：用 SQLCipher 做 AES-256 加密、每用戶一個獨立資料庫，沒有內建遙測
+- **隱私**：用 SQLCipher 做 AES-256 加密、每使用者一個獨立資料庫，沒有內建遙測
 - **本地 LLM**：直接接 Ollama / LM Studio / llama.cpp，跑 Llama3、Mistral、Gemma、DeepSeek、Qwen 都行；雲端 LLM 也支援（OpenAI、Anthropic、Gemini、OpenRouter）
 - **多源**：20+ 搜尋引擎，包含學術（arXiv、PubMed、Semantic Scholar、Google Scholar）、通用（Wikipedia、SearXNG、GitHub、Wayback Machine）、付費（Tavily、Brave）以及本地檔案 / LangChain Retriever
 - **可量測**：在 SimpleQA benchmark 上用 GPT-4.1-mini 達到約 95% 準確度，社群還有跨模型比較的 dataset 在 Hugging Face 維護

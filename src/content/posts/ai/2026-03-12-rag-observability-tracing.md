@@ -110,7 +110,7 @@ interface PipelineTrace {
 
 **toolSelection.usedFallback**：如果 LLM 超時導致降級用 regex 分類，這裡會是 true。低品質的查詢分類往往是 regex fallback 引起的。
 
-**retrieval.cragTriggered**：是否因為零結果而放寬過濾重試。這個信號說明查詢的過濾條件可能太嚴，或者資料庫缺乏這類內容。
+**retrieval.cragTriggered**：是否因為零結果而放寬過濾重試。這個訊號說明查詢的過濾條件可能太嚴，或者資料庫缺乏這類內容。
 
 **generation.injectedDocuments**：LLM 實際看到了哪些文件。如果回答有問題，可以對照這些文件，確認是文件本身有問題，還是 LLM 曲解了文件內容。
 

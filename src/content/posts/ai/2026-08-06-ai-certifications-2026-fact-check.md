@@ -88,7 +88,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 ## Google：沒有 GenAI Engineer，而 PMLE 的考綱被換掉了
 
-「Google Cloud GenAI Engineer」這張證照不存在。三種方式交叉驗證：直接請求 `cloud.google.com/learn/certification/generative-ai-engineer` 回 **HTTP 404**；[官方認證總覽頁](https://cloud.google.com/learn/certification)的 AI 項目只有 Generative AI Leader（基礎級）與 Professional ML Engineer（專業級）；Professional 級共 9 張，沒有任何 GenAI 或 Agent 工程師認證。
+「Google Cloud GenAI Engineer」這張證照不存在。三種方式交叉驗證：直接請求 `cloud.google.com/learn/certification/generative-ai-engineer` 回 **HTTP 404**；[官方認證總覽頁](https://cloud.google.com/learn/certification)的 AI 認證項目只有 Generative AI Leader（基礎級）與 Professional ML Engineer（專業級）；Professional 級共 9 張，沒有任何 GenAI 或 Agent 工程師認證。
 
 Google 的策略是**把 agentic 內容塞進既有的 PMLE，而不是另開證照**。所以在 Google 生態要證明 GenAI / Agent 能力，PMLE 是唯一那張。
 

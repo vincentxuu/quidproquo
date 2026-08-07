@@ -185,7 +185,7 @@ CI 補一次同樣的檢查，雙保險。
 
 ### 9. Trigger Layer：Cron + Discord/Slack 即時觸發
 
-**Cron**（默認）：
+**Cron**（預設）：
 
 - Routine A：每小時 `0 * * * *`
 - Routine B：每 2 小時

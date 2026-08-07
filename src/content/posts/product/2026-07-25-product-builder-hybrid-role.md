@@ -20,12 +20,12 @@ glossary:
     context: "本文用來對比 PM（產出是 PRD）和 Product Builder（產出是可用的 prototype）。"
   - term: "prototype"
     aliases: ["原型"]
-    definition: "一個可以實際操作、用來測試想法的早期版本。在本文的語境裡，prototype 不是紙上草圖或靜態 Figma 截圖，而是能跑、能點、能讓用戶試用的 working version。"
+    definition: "一個可以實際操作、用來測試想法的早期版本。在本文的語境裡，prototype 不是紙上草圖或靜態 Figma 截圖，而是能跑、能點、能讓使用者試用的 working version。"
     advanced: "Boris Cherny 的團隊在出貨前會做上百個 prototype 進行測試，其中約 80% 不會上線。prototype 的價值不在於完美，在於讓你用最低成本驗證假設是否成立。"
     context: "注意本文同時用了「原型」的兩個意思：Boris 的五種「角色原型（archetype）」和產品開發的「原型（prototype）」，兩者不同。"
   - term: "outcome"
     aliases: ["成果"]
-    definition: "產品上線後實際產生的商業或用戶結果——留存率有沒有提高、營收有沒有成長、用戶問題有沒有被解決。跟 output（產出量，例如上了幾個功能、寫了多少行程式碼）是不同的概念。"
+    definition: "產品上線後實際產生的商業或使用者結果——留存率有沒有提高、營收有沒有成長、使用者問題有沒有被解決。跟 output（產出量，例如上了幾個功能、寫了多少行程式碼）是不同的概念。"
     advanced: "SVPG 觀察到的核心問題就是 output 和 outcome 的脫鉤：團隊靠 AI 交付得更快（output 增加），但 outcome 沒有跟著變好。被加速的是產出，不是判斷。"
     context: "本文在討論 AI 是否真的讓產品開發變好時，反覆用到這個 output vs outcome 的對比。"
   - term: "OWASP Top 10"
@@ -34,24 +34,24 @@ glossary:
     context: "本文引用這個標準來說明 Product Builder 不能盲目信任 AI 產出的程式碼。"
   - term: "XSS"
     aliases: ["Cross-Site Scripting", "跨站腳本攻擊"]
-    definition: "一種網頁安全漏洞，攻擊者把惡意腳本注入到其他用戶會看到的頁面裡，可以竊取登入憑證、冒充用戶操作。是 OWASP Top 10 的常客。"
+    definition: "一種網頁安全漏洞，攻擊者把惡意腳本注入到其他使用者會看到的頁面裡，可以竊取登入憑證、冒充使用者操作。是 OWASP Top 10 的常客。"
     context: "本文提到 Veracode 報告中 XSS 在相關樣本裡有 86% 沒被 AI 擋下。"
-  - term: "用戶訪談"
+  - term: "使用者訪談"
     aliases: ["user interview"]
-    definition: "產品團隊跟真實用戶一對一對話，了解他們的使用情境、痛點和期待。通常 15–30 分鐘，重點是聽用戶描述行為和動機，不是推銷功能或要求評分。"
-    advanced: "跟問卷調查的差別在於深度：問卷告訴你「多少人碰到這個問題」，訪談告訴你「為什麼會碰到、碰到時在想什麼、目前怎麼繞過去」。Product Builder 需要這個能力，因為沒有 PM 幫你翻譯用戶需求。"
-    context: "本文建議工程師每週做 3 場 15 分鐘的用戶訪談作為轉型起步。"
-  - term: "用戶面指標"
+    definition: "產品團隊跟真實使用者一對一對話，了解他們的使用情境、痛點和期待。通常 15–30 分鐘，重點是聽使用者描述行為和動機，不是推銷功能或要求評分。"
+    advanced: "跟問卷調查的差別在於深度：問卷告訴你「多少人碰到這個問題」，訪談告訴你「為什麼會碰到、碰到時在想什麼、目前怎麼繞過去」。Product Builder 需要這個能力，因為沒有 PM 幫你翻譯使用者需求。"
+    context: "本文建議工程師每週做 3 場 15 分鐘的使用者訪談作為轉型起步。"
+  - term: "使用者面指標"
     aliases: ["user-facing metric"]
-    definition: "直接反映用戶行為或感受的量化指標，例如 activation rate（啟用率）、retention（留存率）、NPS（淨推薦值）、task completion rate（任務完成率）。跟工程指標（latency、uptime、error rate）不同，後者衡量系統健康，前者衡量用戶是否得到價值。"
-    context: "本文建議工程師認領一個用戶面指標，把 customer signal 變成每天盯的數字。"
+    definition: "直接反映使用者行為或感受的量化指標，例如 activation rate（啟用率）、retention（留存率）、NPS（淨推薦值）、task completion rate（任務完成率）。跟工程指標（latency、uptime、error rate）不同，後者衡量系統健康，前者衡量使用者是否得到價值。"
+    context: "本文建議工程師認領一個使用者面指標，把 customer signal 變成每天盯的數字。"
   - term: "session recording"
     aliases: ["工作階段錄影"]
-    definition: "用工具（如 Hotjar、FullStory、PostHog）錄下真實用戶在你的產品上的操作過程——滑鼠移動、點擊、捲動、猶豫、放棄。不需要用戶知情以外的設定，就能看到「用戶實際怎麼用」而不是「用戶說他怎麼用」。"
+    definition: "用工具（如 Hotjar、FullStory、PostHog）錄下真實使用者在你的產品上的操作過程——滑鼠移動、點擊、捲動、猶豫、放棄。不需要使用者知情以外的設定，就能看到「使用者實際怎麼用」而不是「使用者說他怎麼用」。"
     context: "本文建議工程師每週看 5 段 session recording，作為培養產品感的起步。"
   - term: "production-grade"
     aliases: ["生產等級"]
-    definition: "程式碼或產品已經達到可以面對真實用戶、承受真實流量的品質——包含錯誤處理、安全性、效能、監控和部署流程都到位。跟 prototype（能跑就好）的差別在於：壞掉的時候會不會傷到用戶。"
+    definition: "程式碼或產品已經達到可以面對真實使用者、承受真實流量的品質——包含錯誤處理、安全性、效能、監控和部署流程都到位。跟 prototype（能跑就好）的差別在於：壞掉的時候會不會傷到使用者。"
     context: "Boris 定義 Builder 原型的核心能力就是把 prototype 推進到 production-grade。"
   - term: "技術債"
     aliases: ["technical debt"]
@@ -73,15 +73,15 @@ faq:
   - q: "Product Builder 跟 Product Manager 差在哪？"
     a: "最核心的差別是影響力的來源。PM 透過權威影響團隊執行，產出是 PRD 和 roadmap；Product Builder 透過能力直接貢獻產出，交付的直接就是可用的 prototype 或功能。PM 需要說服團隊去做，Product Builder 可以自己先做出來再談。"
   - q: "成為 Product Builder 需要哪些能力？"
-    a: "四塊：技術面要有基本的 Python／JavaScript 和 API 串接能力，能跟 AI pair programming；設計面要能用 v0、Lovable、Claude Design 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好；產品面要會用戶研究、SQL 數據分析和假設驗證；AI 素養則包含 prompt engineering 和判斷 AI 產出邊界的能力。重點不是每項精通，而是每項都懂到足以獨立推進。"
+    a: "四塊：技術面要有基本的 Python／JavaScript 和 API 串接能力，能跟 AI pair programming；設計面要能用 v0、Lovable、Claude Design 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好；產品面要會使用者研究、SQL 數據分析和假設驗證；AI 素養則包含 prompt engineering 和判斷 AI 產出邊界的能力。重點不是每項精通，而是每項都懂到足以獨立推進。"
   - q: "Product Builder 會取代 PM、設計師和工程師嗎？"
-    a: "不會。當產品複雜度提高、需要大規模系統架構或深度用戶研究時，專業分工仍不可取代。Product Builder 最適合的是早期產品探索、內部工具、快速功能迭代這類「先驗證再投入」的階段。"
+    a: "不會。當產品複雜度提高、需要大規模系統架構或深度使用者研究時，專業分工仍不可取代。Product Builder 最適合的是早期產品探索、內部工具、快速功能迭代這類「先驗證再投入」的階段。"
   - q: "不同公司的 Product Builder 職缺是同一種工作嗎？"
     a: "不是。LinkedIn 的 Associate Product Builder 是取代 APM 的入門級培訓，招沒有正式產品經歷的人；Mews 的 Product Builder 是資深工程師的進階軌，要求高度技術能力；Walmart 的 Agent Developer 明確不需要技術背景，靠低程式碼工具讓營運端的人自己做 agent；PayFit 的 Product Builder 從 2019 年就存在，本質是用自研低程式碼平台 JetLang 設定各國勞動法規，跟 AI 浪潮沒有關係。看到這個職稱時，先問清楚它是從哪個部門長出來的，比研究職稱本身有用。"
   - q: "Product Builder 這個角色有什麼批評或風險？"
     a: "主要有三類。一是 Roman Pichler 指出的「分散式智慧消失」——當一個人做完所有事，參與的專業視角變少，等於帶著更窄的假設跑得更快。二是 SVPG 的觀察：團隊靠 AI 交付變快了，但 outcome 沒有跟著變好，被加速的是產出而不是判斷。三是角色邊界不清造成的實務問題，Userpilot 2026 年調查中有 46.7% 的 PM 擔心被要求用不足的支援做過多的事，31.6% 擔心什麼都做等於什麼都不精。"
   - q: "PM 想轉型成 Product Builder 該從哪裡開始？"
-    a: "從補上你缺的那一塊開始。PM 挑 backlog 裡一個問題，用 Claude Code 或 Codex 做 5 個方案各花 30 分鐘，砍掉 4 個留 1 個——練的是用可運行的東西取代會議室裡的爭論。設計師用 v0、Claude Design 或 Claude Artifacts 把設計直接變成可互動的 prototype，在 working code 層級判斷 UX，不再只交 Figma 截圖。工程師這週做 3 場用戶訪談、看 5 段 session recording，然後認領一個用戶面指標。先挑一個小範圍的真實問題從頭做到能上線，比讀十篇文章有用。"
+    a: "從補上你缺的那一塊開始。PM 挑 backlog 裡一個問題，用 Claude Code 或 Codex 做 5 個方案各花 30 分鐘，砍掉 4 個留 1 個——練的是用可運行的東西取代會議室裡的爭論。設計師用 v0、Claude Design 或 Claude Artifacts 把設計直接變成可互動的 prototype，在 working code 層級判斷 UX，不再只交 Figma 截圖。工程師這週做 3 場使用者訪談、看 5 段 session recording，然後認領一個使用者面指標。先挑一個小範圍的真實問題從頭做到能上線，比讀十篇文章有用。"
 draft: false
 ---
 
@@ -184,7 +184,7 @@ LinkedIn 招的是還沒有產品經歷的人，Mews 招的是資深工程師，
 | [ShopMy](https://careerport.is-great.net/job/senior-product-builder-creator) | Senior Product Builder-Creator | Remote US | $175k–$225k | $1.5B 估值的 creator commerce 獨角獸，第二個 Product Builder hire |
 | [Camunda](https://za.linkedin.com/jobs/view/product-builder-at-camunda-4430626412) | Product Builder / Senior | Remote 全球 | US $119k–$231k | Enterprise agentic orchestration，pod 制，明確要「AI-native delivery habits」 |
 | [Anima](https://uk.linkedin.com/jobs/view/product-builder-%C2%A3100k-%C2%A3170k-%2B-equity-at-anima-at-jack-jill-4433484237) | Product Builder (All Levels) | London | £100k–£170k + equity | YC W21 healthtech，AI 臨床 OS |
-| [Apollo.io](https://jobsy.42web.io/job/remote-product-builder-product-manager-ai-agents) | Product Builder, AI Agents | Remote US | 未公開 | 50 萬+企業用戶的 GTM 平台，負責 Autonomous AI Agents |
+| [Apollo.io](https://jobsy.42web.io/job/remote-product-builder-product-manager-ai-agents) | Product Builder, AI Agents | Remote US | 未公開 | 50 萬+企業使用者的 GTM 平台，負責 Autonomous AI Agents |
 | [Knotch](https://pitchmeai.com/jobs/knotch/product-builder-m754vg5ryk) | Product Builder | NYC | $160k–$180k | 5+ yr PM + 2-3 yr 工程背景，「AI is your ultimate execution engine」 |
 | [MrQ / Lindar](https://careers.lindar.com/jobs/8000520-fullstack-product-builder) | FullStack Product Builder | UK / Gibraltar / Malta | 未公開 | 「Two builders per pod. No specialist.」7+ yr |
 | [Whalar Group](https://careersync.liveblog365.com/remote-jobs/product-builder-1) | Product Builder (Ops Labs) | Remote US | 未公開 | 第一個 hire，新設的 AI-native 內部工具部門 |
@@ -233,7 +233,7 @@ Product Builder 不是什麼都要精通，而是每個領域都懂到足以獨�
 
 **設計面**：能用 v0、Lovable、Claude Design 或 Claude Artifacts 產出可互動的 prototype，在 working code 層級判斷 UX 好不好——不是畫靜態稿，是跑起來看。
 
-**產品面**：用戶研究、數據分析（SQL）、假設驗證、優先序排定。
+**產品面**：使用者研究、數據分析（SQL）、假設驗證、優先序排定。
 
 **AI 素養**：prompt engineering、理解 AI 工具的能力邊界和限制。
 
@@ -270,7 +270,7 @@ SVPG 的觀察更難反駁。Marty Cagan 在〈[AI Product Management 2 Years In
 
 ## 什麼時候適合用這個模式
 
-當產品複雜度提高、需要大規模系統架構、需要深度的用戶研究時，專業分工仍然不可取代。Product Builder 最適合的場景是：
+當產品複雜度提高、需要大規模系統架構、需要深度的使用者研究時，專業分工仍然不可取代。Product Builder 最適合的場景是：
 
 - 早期產品，需要快速探索和驗證
 - 內部工具，不需要大規模工程投入
@@ -300,7 +300,7 @@ PM → 挑 backlog 裡一個真實問題，用 Claude Code 或 Codex 做 5 個�
 
 設計師 → 用 v0、Lovable、Claude Design 或 Claude Artifacts 把你的設計直接變成可互動的 prototype，在 working code 層級判斷 UX——layout 對不對、flow 順不順、回饋感夠不夠。Anthropic 的設計師已經在送 PR 了，靜態 Figma 截圖不再是交付物。
 
-工程師 → 這週做 3 場 15 分鐘的用戶訪談，看 5 段 session recording，然後自己認領一個用戶面指標。不是「花時間理解用戶」這種空話，是把 customer signal 變成你每天盯的數字。
+工程師 → 這週做 3 場 15 分鐘的使用者訪談，看 5 段 session recording，然後自己認領一個使用者面指標。不是「花時間理解使用者」這種空話，是把 customer signal 變成你每天盯的數字。
 
 Product Builder 不是一個職稱，是一種工作方式。在 AI 讓每個人都能做更多事的時代，能夠獨立從問題走到解法的人，會越來越有價值。
 

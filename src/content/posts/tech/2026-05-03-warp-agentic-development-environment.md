@@ -5,7 +5,7 @@ category: tech
 tags: [warp, terminal, ai, agent, developer-tools, open-source]
 lang: zh-TW
 type: guide
-tldr: "Warp 從一個用 Rust 打造的現代終端機，演化成整合 AI Agent 的開發環境（ADE），2026 年 4 月開源，目前擁有 70 萬開發者用戶。"
+tldr: "Warp 從一個用 Rust 打造的現代終端機，演化成整合 AI Agent 的開發環境（ADE），2026 年 4 月開源，目前擁有 70 萬開發者使用者。"
 description: "Warp 不只是終端機——它是一套以 AI Agent 為核心的開發環境。本文介紹 Warp 的核心設計、主要功能、與傳統終端機的差異，以及它如何從工具變成平台。"
 draft: false
 ---
@@ -92,7 +92,7 @@ Warp 宣布以 **AGPL** 授權開源客戶端，原始碼在 [github.com/warpdot
 - 重度使用 terminal 的後端、DevOps、Platform 工程師
 
 **不一定適合**：
-- 對 telemetry / 雲端同步有疑慮的使用者（雖然現在已開源，可自行審計）
+- 對 telemetry / 雲端同步有疑慮的使用者（雖然現在已開源，可自行稽核）
 - 只需要 lightweight terminal，對 AI 功能無需求（iTerm2 + tmux 更輕）
 - 深度客製化 terminal 美化的使用者（如 Alacritty + starship 生態系）
 

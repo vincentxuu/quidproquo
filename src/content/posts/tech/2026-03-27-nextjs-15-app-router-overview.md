@@ -114,7 +114,7 @@ export default async function Page() {
 
 **島島的情況**：有 `website`（行銷頁）和 `product`（應用）兩個 Next.js app，SEO 對 `website` 很重要，Server Components 讓內容直接在伺服器渲染成 HTML，不需要等 client-side hydration，首次載入速度和 SEO 都受益。
 
-**NobodyClimb 的情況**：跑在 Cloudflare Workers，透過 `@opennextjs/cloudflare` adapter，Next.js 的動態路由走 Worker，靜態資源走 Cloudflare Assets。Cloudflare 的邊緣節點在全球，SSR 在邊緣完成，台灣用戶的延遲比回源到單一伺服器低。
+**NobodyClimb 的情況**：跑在 Cloudflare Workers，透過 `@opennextjs/cloudflare` adapter，Next.js 的動態路由走 Worker，靜態資源走 Cloudflare Assets。Cloudflare 的邊緣節點在全球，SSR 在邊緣完成，台灣使用者的延遲比回源到單一伺服器低。
 
 兩個情境的共同點：兩者都有 SEO 需求（學習平台、攀岩社群），都需要資料在伺服器端完成，App Router 剛好是目前 Next.js 的主推方向，生態和文件都已經穩定。
 

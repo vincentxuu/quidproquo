@@ -4,7 +4,7 @@ date: 2026-03-28
 category: tech
 tags: [rag, vector-search, embedding, cloudflare-workers, recommendation-system]
 lang: zh-TW
-tldr: "查詢「美人照鏡 5.11b，推薦類似難度路線」，結果回來的全是名字像的路線而不是難度像的。根因是 dense embedding 把多個屬性壓進同一個向量，名稱的稀有性壓過了難度信號。解法：metadata pre-filter + query rewriting + score fusion 三層防線。"
+tldr: "查詢「美人照鏡 5.11b，推薦類似難度路線」，結果回來的全是名字像的路線而不是難度像的。根因是 dense embedding 把多個屬性壓進同一個向量，名稱的稀有性壓過了難度訊號。解法：metadata pre-filter + query rewriting + score fusion 三層防線。"
 description: "當 embedding 混淆了「名稱相似」和「屬性相似」，RAG 推薦系統會給出完全錯誤的結果。這篇整理了 attribute conflation 的根因分析、學術界的解法（ColBERT、Field-Aware Embedding、RAG-Fusion），以及在 Cloudflare Workers 上可落地的分層檢索架構。"
 draft: false
 type: deep-dive
@@ -52,7 +52,7 @@ Dense embedding 模型（bge-m3、text-embedding-3-small 這些）的設計目�
 
 通用語言模型在預訓練時，「名稱→名稱」的共現模式遠多於「難度→難度」的結構化比對。模型天生更擅長名稱匹配。
 
-BM25 也救不了。「美人照鏡」的 TF-IDF 分數本來就高，在 hybrid search 裡兩個信號互相強化，結果更偏。
+BM25 也救不了。「美人照鏡」的 TF-IDF 分數本來就高，在 hybrid search 裡兩個訊號互相強化，結果更偏。
 
 ## 學術界怎麼解
 

@@ -72,7 +72,7 @@ Stripe 內部有超過 500 個工具，但把全部塞給 AI 會造成 token par
 
 每個 Minion 都跑在獨立的 AWS EC2 VM（Devbox）上——跟真人工程師用的 dev box 規格完全相同，預載 Stripe 完整源碼、warmed Bazel cache、type-checking cache。
 
-Stripe 預先佈建一個 warm pool，觸發時從 pool 中抓一台，因此只需要 **~10 秒**就能啟動。沒有 internet 存取、沒有 production 存取、沒有真實用戶資料，完全 sandbox。任何錯誤的爆炸半徑都被控制在一台用完即丟的 VM 內。
+Stripe 預先佈建一個 warm pool，觸發時從 pool 中抓一台，因此只需要 **~10 秒**就能啟動。沒有 internet 存取、沒有 production 存取、沒有真實使用者資料，完全 sandbox。任何錯誤的爆炸半徑都被控制在一台用完即丟的 VM 內。
 
 另一個細節：agent 在檔案系統中移動時，directory-scoped rule files 會自動附加——不是一整包 global context 塞進去，而是根據所在目錄動態提供指引。這避免了 context window 爆滿的問題。
 

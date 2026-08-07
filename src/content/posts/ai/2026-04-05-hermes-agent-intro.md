@@ -121,7 +121,7 @@ hermes model openrouter:mixtral  # 直接指定
 
 - 每日報告
 - 每晚備份
-- 每週審計
+- 每週稽核
 
 結果會透過你設定的平台（Telegram、Discord 等）推送。
 

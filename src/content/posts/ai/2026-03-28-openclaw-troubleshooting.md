@@ -97,7 +97,7 @@ openclaw gateway status          # Gateway 狀態
 | WebSocket 斷線 | 檢查 reverse proxy 的 WS 支援 |
 | Trusted proxy 失敗 | 檢查 trustedProxies IP |
 
-## 安全審計
+## 安全稽核
 
 ```bash
 openclaw security audit          # 安全配置檢查
@@ -141,7 +141,7 @@ OpenClaw 的日誌輸出包含結構化的診斷碼（如 `SECRETS_REF_IGNORED_I
 | `openclaw models status` | 模型認證 |
 | `openclaw channels status --probe` | 頻道探測 |
 | `openclaw sandbox explain` | 沙箱設定 |
-| `openclaw security audit` | 安全審計 |
+| `openclaw security audit` | 安全稽核 |
 | `openclaw sessions cleanup --dry-run` | 預覽清理 |
 | `openclaw config validate` | 設定驗證 |
 | `/context detail` | Context 大小明細 |
