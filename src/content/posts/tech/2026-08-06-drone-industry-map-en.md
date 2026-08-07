@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Seventeen companion pieces go deeper in six directions:
+This article is the overview for the drone series. Eighteen companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -148,6 +148,7 @@ This article is the overview for the drone series. Seventeen companion pieces go
 
 - [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history) — last cycle's wreckage, three structural differences and three identical warning signs
 - [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models) — margin, cash conversion, and what limits each model's scale
+- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics) — real rates and entry costs in ag spraying, and the structural causes of price collapse and the regulatory ceiling
 
 **People and careers**
 

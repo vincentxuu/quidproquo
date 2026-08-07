@@ -24,40 +24,28 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-07: drone series — counter-UAS piece (zh+en), the biggest remaining
-  gap (series had touched C-UAS three times with no dedicated post). Series now
-  18. Technical core: EW "requires a signal to attack" and fiber/satellite/AI
-  terminal guidance are removing the signal, pushing defense toward hard kill.
-  Taiwan's second layer is the find: Control Yuan report 112國調0010 documents
-  MND revising the drone-response SOP THREE TIMES IN TWO MONTHS (2022-07-29
-  flare-only, first shot needs the Minister; 2022-08-29 back to 7.62mm
-  shoot-down), and the Erdan rock-throwing incident was ruled SOP-compliant.
-  Legal basis isn't missing — Civil Aviation Act 99-13 splits enforcement
-  across FOUR bodies. Chiang Huang-chih: use law-enforcement power, not
-  self-defense (self-defense implies belligerency).
-- 2026-08-07: drone series B5 — 「標案毛利多少」用財報回答，不是訪談題。
-  Third time the same mistake: I filed margin + cash cycle under "needs an
-  interview" when they are filing questions, and I had ALREADY run this method
-  on Garuda in A3. Worked example from 雷虎(8033) public filings: GM 35-39%
-  (normal for hardware) but opex eats it — operating income negative three
-  straight quarters while 2026Q1 net income came entirely from non-operating;
-  CCC ≈ 377 days driven by 385 days of INVENTORY (DSO only 45) because tenders
-  recognize revenue on acceptance; contract liabilities ~1/10 of quarterly
-  revenue = no customer prepayment; capex funded by equity raise, not ops.
-  Rule 3 added: "is the material really unavailable, or have I just not looked?"
-  Investing-line boundary held: named-company filings used as a worked example,
-  zero buy/sell judgment (user approved this reading of the no-tickers rule).
-- 2026-08-07: drone series D-line — 3 more posts (zh+en) after dropping the
-  "must buy a drone" premise: spec-sheet reading (tech), crash anatomy (tech),
-  CAA question-bank analysis (policy). Hub 延伸閱讀
-  gained a sixth group. Best finds: the cybersecurity spec defines a product
-  "series" as identical flight-control/comms/GNSS modules (regulator, 3晶2軟
-  policy and Layer 3 all point at the same three); TTSB's 4-occurrence total is
-  gated on ">25kg substantially damaged"; both published reports are the same
-  model/maker/agency and both failed in LAYER 2, not the Layer 3 everyone
-  discusses. Registered-drone count 75,240→40,134→38,683 is written up as an
-  INFERENCE only (Art.10 = 2-year registration validity); do not harden it
-  without a CAA statement of the counting basis.
+- 2026-08-07: drone series expanded 13 -> 19 posts (zh+en). Six new: spec-sheet
+  reading, crash anatomy, CAA question-bank (the D line, unblocked by dropping
+  the "must buy a drone" premise); B5 tender financials; counter-UAS; ag-spraying
+  unit economics. Per-post findings are in plan §5.2 — read that, not this.
+  THE RECURRING MISTAKE (3x): treating my own pre-writing "素材" estimate as a
+  hard constraint. B2/B4 "needs interviews" (false — open stack + public JDs +
+  public documents), D1-D3 "needs buying a drone" (false — I had written the
+  topics to need it), B4's margin/cash-cycle "needs interviews" (false — they
+  are filing questions, and I had already run that method on Garuda in A3).
+  Four-rule 通則 now in plan §6; short form: ask which HALF needs material, ask
+  whether the topic really needs it or I wrote it to need it, ask whether the
+  material is truly unavailable or I just haven't looked, and don't treat
+  interviews as higher-grade than public records.
+  Claims to handle carefully if reused: registered-drone count
+  75,240->40,134->38,683 is an INFERENCE (Art.10 two-year validity), not a
+  finding; the "rice only, 5 chemicals" drone-spray approval is a 2021 baseline
+  — check APHIA systems before quoting as current.
+  Investing-line boundary settled: named-company public filings are fine as a
+  worked example, zero buy/sell judgment (user approved this reading).
+  Application-domain cells still open: logistics, inspection, disaster/SAR
+  (內政部 3-yr NT$620M / 636 aircraft, 消防署 44 complex-terrain drones — data
+  gathered, not written).
 - 2026-08-06: drone series — 13 posts shipped (zh+en each) across tech/policy/
   career/investing/product/education. Plan + per-post findings + cross-post verification lessons
   now live in docs/content-plan-drone.md §5.2 (read that before continuing the
