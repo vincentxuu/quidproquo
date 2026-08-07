@@ -49,3 +49,13 @@
 - agent-os: kernel live with critic agent on since 4d3b12c; writer/research/planner pending prod observation windows; scheduler+R2 bindings wired; pending production flag flips
 
 未完成的決策（production flag flips、soak windows）已登錄到 `docs/governance/escalation-queue.md`，不會因歸檔而遺失。
+
+## 2026-07-27 — post(ai) 3D 建模工具地景（zh + en）
+
+post(ai) 3D modeling tools landscape (zh + en) — tool-selection
+  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
+  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
+  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
+  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
+  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
+  typing the /api/related-posts JSON response — `astro check` now 0 errors.

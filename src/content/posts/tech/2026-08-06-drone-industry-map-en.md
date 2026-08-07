@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Fifteen companion pieces go deeper in six directions:
+This article is the overview for the drone series. Sixteen companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -165,6 +165,7 @@ This article is the overview for the drone series. Fifteen companion pieces go d
 
 - [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — one ruler applied to the sector, plus three concrete risk categories
 - [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map) — grants, procurement, and annual budgets compared on nature and certainty
+- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials) — 38% gross margin but three straight quarters of operating loss, 385 days of inventory, capacity funded by equity, and the cost of a failed acceptance
 
 Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
 

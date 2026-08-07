@@ -24,9 +24,21 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-07: drone series B5 — 「標案毛利多少」用財報回答，不是訪談題。
+  Third time the same mistake: I filed margin + cash cycle under "needs an
+  interview" when they are filing questions, and I had ALREADY run this method
+  on Garuda in A3. Worked example from 雷虎(8033) public filings: GM 35-39%
+  (normal for hardware) but opex eats it — operating income negative three
+  straight quarters while 2026Q1 net income came entirely from non-operating;
+  CCC ≈ 377 days driven by 385 days of INVENTORY (DSO only 45) because tenders
+  recognize revenue on acceptance; contract liabilities ~1/10 of quarterly
+  revenue = no customer prepayment; capex funded by equity raise, not ops.
+  Rule 3 added: "is the material really unavailable, or have I just not looked?"
+  Investing-line boundary held: named-company filings used as a worked example,
+  zero buy/sell judgment (user approved this reading of the no-tickers rule).
 - 2026-08-07: drone series D-line — 3 more posts (zh+en) after dropping the
   "must buy a drone" premise: spec-sheet reading (tech), crash anatomy (tech),
-  CAA question-bank analysis (policy). Series is now 16 posts. Hub 延伸閱讀
+  CAA question-bank analysis (policy). Series is now 17 posts. Hub 延伸閱讀
   gained a sixth group. Best finds: the cybersecurity spec defines a product
   "series" as identical flight-control/comms/GNSS modules (regulator, 3晶2軟
   policy and Layer 3 all point at the same three); TTSB's 4-occurrence total is
@@ -54,11 +66,8 @@ Recently completed
   frontmatter block was removed from the hub — note frontmatter glossary is
   prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so a
   frontmatter entry SHADOWS the site-wide one.
-  Remaining v1: NOTHING is hard-blocked. The plan's "素材" column was a
-  pre-writing estimate mistaken for a constraint TWICE (B2/B4, then D1-D3).
-  Rule: ask which HALF of a post needs the material, and whether the topic
-  really needs it or I wrote it to need it. See plan §4 決策一 and §5 支線 D.
-  Only B4's lived-experience half still wants interviews.
+  Remaining v1: NOTHING is hard-blocked (see the two 08-07 entries above and
+  the four-rule 通則 in plan §6).
 - 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
@@ -68,13 +77,6 @@ Recently completed
   pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
   terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
   note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
-- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
-  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
-  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
-  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
-  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
-  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
-  typing the /api/related-posts JSON response — `astro check` now 0 errors.
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
