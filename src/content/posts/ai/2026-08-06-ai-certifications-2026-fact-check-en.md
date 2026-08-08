@@ -146,7 +146,9 @@ No other major cloud vendor currently offers an expert-level certification dedic
 
 Microsoft also has one advantage nobody else offers: renewal runs through a **free online renewal assessment**, rather than retaking the full exam as AWS and Google require.
 
-Price and languages: the [AI-103 exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) lists **$165 USD** (priced by the country or region where the exam is proctored) and 120 minutes. The language list is a live demonstration of this article's third caveat — for the same certification, **the certification overview page lists only English while the exam page lists 10 languages including Traditional Chinese**. Go by whichever page you see at registration.
+Price and languages: the [AI-103 exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) lists **$165 USD** (priced by the country or region where the exam is proctored), 120 minutes, and includes **Traditional Chinese** among its languages (alongside English, Simplified Chinese, French, German, Japanese, Korean, Italian, Portuguese (Brazil), and Spanish).
+
+There's a research trap on that page: **the price and language fields load dynamically**. Before the page finishes loading, the language row reads as English only and the price doesn't appear at all — which is exactly what scraping tools and slow connections tend to capture. Go by what the fully loaded page shows in a browser.
 
 One gap worth planning around: AI-103 currently has **no free practice assessment**. The official note reads "Practice Assessments are usually available within 8 weeks of the exam being out of beta and generally available." Microsoft's [AI-103T00 course](https://learn.microsoft.com/en-us/training/courses/ai-103t00/) gives you four learning paths totalling roughly 29.5 hours at no cost, but self-assessment tooling lags AWS — they'll teach you, they just won't test you.
 
@@ -185,7 +187,11 @@ For exam content details, see the site's [complete guide to the Claude Certified
 
 Per the [official exam information](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info) (in Mandarin), intermediate Subject 1 (AI Technology Application and Planning) is mandatory, plus one of Subject 2 (Big Data Processing and Analysis) or Subject 3 (Machine Learning Technology and Applications), both requiring ≥70. The fee is a 2026–2027 promotional **NT$500 per subject** (regular price NT$1,500), so NT$1,000 for both, reverting in 2028.
 
-The "roughly 25% Python code-reading questions" claim is true and officially sourced — iPAS published a [notice on code question weighting](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e) (in Mandarin) stating that code interpretation questions were added to Subjects 2 and 3 starting with the second 2025 session.
+The "roughly 25% Python code-reading questions" claim is true and officially sourced. iPAS published a [notice on code question weighting](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e) (in Mandarin) stating that from the second 2025 session, Subjects 2 and 3 include code-related questions covering "basic Python syntax, program logic evaluation, and interpretation of code fragments." The notice reads:
+
+> Code-type questions are **projected** to account for roughly 25% of the paper, in the form of single-choice questions **and question sets**.
+
+Two details worth noting: the official wording is "projected," not a fixed ratio, and **question sets are included** — one code fragment feeding several questions, so misreading it once costs you multiple answers.
 
 **Validity is the detail most sources get wrong**; even [104's certification guide](https://nabi.104.com.tw/posts/nabi_post_57d88633-27b9-4b3f-9535-501d4b781617) (in Mandarin) states the certificate is valid permanently. The [2026 iPAS AI Application Planner examination handbook](https://www.ipas.org.tw/api/proxy/uploads/certification/AIAP/115%E5%B9%B4%E5%BA%A6AI%E6%87%89%E7%94%A8%E8%A6%8F%E5%8A%83%E5%B8%AB%E8%83%BD%E5%8A%9B%E9%91%91%E5%AE%9A%E7%B0%A1%E7%AB%A0(%E5%88%9D%E3%80%81%E4%B8%AD%E7%B4%9A)_0105_20260105184002.pdf) (in Mandarin) is explicit:
 
@@ -235,7 +241,7 @@ Everything above is exam fees. Each vendor has a second bill: training. **The tw
 
 **Only one of these is worth paying for: AWS's $29 monthly subscription.** Not for the courses — because the **full-length practice exam sits behind the paywall**, and the free 20 questions aren't enough to tell you whether you'd pass. Subscribe a month before the exam and cancel after: $29 to know whether you'll pass beats sitting the exam blind and paying full price again, especially since an AWS retake also means waiting 14 days. Don't buy the $449 annual tier.
 
-Microsoft gives away the most — those 29.5 hours — while being the only one of the five with no free practice assessment. They'll teach you; they won't test you.
+Microsoft gives away the most — those 29.5 hours — but offers no free practice assessment. They'll teach you; they won't test you.
 
 ## Ways to Pay Less: Mechanisms vs. Luck
 
@@ -247,7 +253,7 @@ Time-limited promo codes expire the moment they're written down, but each vendor
 
 **Microsoft: 80% off beta exams for the first 300 candidates.** Every new certification runs a beta period before general availability, during which the first 300 registrants get **80% off** using a public discount code published in the Microsoft Learn Blog announcement. Passing the beta earns the certification outright — no need to sit the GA version — and anyone who used the 80% code later receives a 25% discount voucher. The cost is waiting for rescoring. Catching these means watching the new-certification announcements, and with Microsoft's turnover this year there are plenty of beta windows.
 
-**Databricks: a Virtual Learning Festival each quarter.** Complete any self-paced learning pathway in Academy during the window and you get a **50% voucher** for any Databricks certification ($200 → $100) plus 20% off Academy Labs. One per learner, valid roughly 90 days. The 2026 windows were 1/9–1/30, 3/16–4/3, and 6/15–7/6; the [official community FAQ](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220) announces each round.
+**Databricks: a Virtual Learning Festival each quarter.** Complete any self-paced learning pathway in Academy during the window and you get a **50% voucher** for any Databricks certification ($200 → $100) plus 20% off Academy Labs. One per learner, valid roughly 90 days. Windows are announced in the [official community FAQ](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220) — 16 March to 3 April 2026, for example. Other dates circulating online mostly lack a matching official page; go by the community announcements.
 
 **NVIDIA: webinars and GTC on-site.** Webinars occasionally carry 50%-off exam codes, and [at GTC](https://www.nvidia.com/en-us/training/) proctored certification exams are free for on-site attendees — officially listed as a €115–€425 value.
 
@@ -275,6 +281,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-08-07: **Retracted an observation this article got wrong.** It previously claimed AI-103's language list differed between the certification overview page and the exam page, and used that as an example of "page freshness varies within one official domain." Re-checking showed this was not Microsoft's inconsistency but an artifact: **the price and language fields on that page load dynamically**, and a scrape taken before loading completed captured the placeholder state (the same capture still showed "Loading..." under "Skills earned upon completion"). That passage now gives the correct language list plus a research caveat. Also added the official wording for the iPAS code-question weighting (officially "projected" at ~25%, and including question sets), removed Databricks Learning Festival dates that had no matching official page, and softened the universal claim that Microsoft was "the only one" without a free practice assessment.
 - 2026-08-07: Two numbers corrected after a post-verify pass. PMLE's Section 6, "Monitoring AI solutions," was listed as "remainder"; the official exam guide states **~13%**. NCA-GENL's question count was listed as "50–60"; the official certification page states **50**.
 - 2026-08-07: Added a "What Training Costs" section. The article previously listed exam fees only, omitting the training layer — and the two bills are independent (no course is required to register). It compares each vendor's free/paid boundary and concludes that only AWS's $29 monthly subscription is worth paying for, because the full-length practice exam sits behind the paywall.
 - 2026-08-07: Added a "Ways to Pay Less" section (AWS Professional vouchers with a free retake, Microsoft's 80%-off beta window for the first 300 candidates, Databricks' quarterly Learning Festival voucher, NVIDIA webinars and GTC on-site exams, plus employer-side Get Certified / ESI / team vouchers). Also filled two gaps: **AI-500 requires earning AI-103 first**, and Google issues a 50% renewal discount code on certification (the article previously priced renewal at the full $200).

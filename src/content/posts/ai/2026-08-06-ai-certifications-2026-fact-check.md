@@ -146,7 +146,9 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。
 
-價格與語言：[AI-103 考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)標示 **$165 USD**（依考試所在國家或地區計價）、120 分鐘。語言清單則是本文第三個提醒的活教材 —— 同一張認證，**認證總覽頁只列 English，考試頁列了 10 種語言且含繁體中文**。兩頁不一致，以你報名時看到的那頁為準。
+價格與語言：[AI-103 考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)標示 **$165 USD**（依考試所在國家或地區計價）、120 分鐘，語言含**繁體中文**（另有英文、簡體中文、法、德、日、韓、義、葡萄牙文（巴西）、西班牙文）。
+
+這頁有個查資料時會踩到的陷阱：**價格與語言欄位是動態載入的**。頁面還沒載完時，語言那欄會顯示成只有 English、價格則整個不出現 —— 用抓取工具或網路慢的時候特別容易看到這個半成品。以瀏覽器完整載入後顯示的為準。
 
 還有一個會影響準備的缺口：AI-103 目前**沒有免費的 practice assessment**，官方說明是「Practice Assessments are usually available within 8 weeks of the exam being out of beta and generally available」。微軟的 [AI-103T00 課程](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)給了四條學習路徑、合計約 29.5 小時全免費，但自我檢測的工具比 AWS 少一截 —— 課給你上，不給你測。
 
@@ -185,7 +187,11 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 依[官方考試資訊](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info)，中級科目 1「人工智慧技術應用與規劃」必考，科目 2「大數據處理分析與應用」與科目 3「機器學習技術與應用」擇一，兩科都要 ≥70 分。費用是 115–116 年度優惠價 **500 元/科**（原價 1,500 元），兩科合計 1,000 元，117 年起恢復原價。
 
-「約 25% Python 程式閱讀題」的說法屬實且有官方依據 —— iPAS 發過[中級程式題型比重說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e)，自 114 年第二梯次起，科目 2 與科目 3 加入程式碼判讀題。
+「約 25% Python 程式閱讀題」的說法屬實且有官方依據。iPAS 發過[中級程式題型比重說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e)，自 114 年第二梯次起，科目 2 與科目 3 納入程式相關題型，「涵蓋 Python 基本語法、程式邏輯判斷及程式片段解析等內容」。公告原文是：
+
+> 程式類型題目**預計**約占整體試題之 25%，題型形式包含單選題及**題組題**。
+
+兩個細節值得注意：官方用的是「預計」而非固定比例，而且**有題組題** —— 一段程式碼配多題，讀錯一次會連錯好幾題。
 
 **效期是最常被寫錯的一條**，連 [104 的證照指南](https://nabi.104.com.tw/posts/nabi_post_57d88633-27b9-4b3f-9535-501d4b781617)都寫「證書永久有效」。[115 年度 AI 應用規劃師能力鑑定簡章](https://www.ipas.org.tw/api/proxy/uploads/certification/AIAP/115%E5%B9%B4%E5%BA%A6AI%E6%87%89%E7%94%A8%E8%A6%8F%E5%8A%83%E5%B8%AB%E8%83%BD%E5%8A%9B%E9%91%91%E5%AE%9A%E7%B0%A1%E7%AB%A0(%E5%88%9D%E3%80%81%E4%B8%AD%E7%B4%9A)_0105_20260105184002.pdf)寫得很清楚：
 
@@ -235,7 +241,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **五家裡只有一筆值得付：AWS 的 $29 月費。** 理由不是課程內容，是**完整模擬考只在付費層** —— 免費那 20 題不足以判斷自己會不會過。買法是考前一個月訂、考完退訂：$29 換一次「知道自己會不會過」，比裸考失手後再付一次全額便宜，而且 AWS 重考還要等 14 天。不要買 $449 年費。
 
-免費給最多的是微軟那 29.5 小時，但它同時是唯一沒有免費 practice assessment 的 —— 課給你上，不給你測。
+免費給最多的是微軟那 29.5 小時，但它沒有免費的 practice assessment —— 課給你上，不給你測。
 
 ## 省錢管道：哪些是機制，哪些是碰運氣
 
@@ -247,7 +253,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **微軟：beta 考試前 300 名八折。** 每張新認證在 GA 之前都有 beta 期，前 300 名用公開折扣碼可享 **80% off**，碼公布在 Microsoft Learn Blog 的新認證公告裡。通過 beta 即取得認證、不必再考正式版，而且用過八折碼的人之後還會收到一張 25% 折扣券。代價是成績要等 rescoring。想撿這個便宜，就要盯著新認證公告 —— 微軟今年改版密集，beta 檔期不少。
 
-**Databricks：每季一次的 Virtual Learning Festival。** 活動期間在 Academy 完成任一 self-paced 學習路徑，可拿任一 Databricks 認證的 **5 折券**（$200 → $100）加 Academy Labs 8 折券。每人限一張、券效期約 90 天。2026 年的檔期是 1/9–1/30、3/16–4/3、6/15–7/6，[官方 community 的 FAQ](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220) 會公告下一輪。
+**Databricks：每季一次的 Virtual Learning Festival。** 活動期間在 Academy 完成任一 self-paced 學習路徑，可拿任一 Databricks 認證的 **5 折券**（$200 → $100）加 Academy Labs 8 折券。每人限一張、券效期約 90 天。檔期由[官方 community 公告](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220)（例如 2026 年 3/16–4/3 那場），網路上流傳的其他日期多半沒有官方頁面對應，以 community 公告為準。
 
 **NVIDIA：webinar 與 GTC 現場。** webinar 偶有 5 折考試碼；[GTC 現場](https://www.nvidia.com/en-us/training/)參加者的監考認證考試免費，官方標示價值 €115–€425。
 
@@ -275,6 +281,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 ## 更新紀錄
 
+- 2026-08-07：**撤回一則本文自己弄錯的觀察。** 原本寫「AI-103 的語言清單在認證總覽頁與考試頁不一致」，並拿它當作「同網域不同頁新鮮度會差」的例子。重新查證後確認那不是微軟的問題，是**該頁價格與語言欄位為動態載入**，抓取工具在載入完成前取到半成品所致（同一次抓取裡連「Skills earned upon completion」都還是 Loading）。該段改寫成正確的語言清單與一則查資料的提醒。另把 iPAS 程式題比重補上官方原文（用的是「預計」約 25%，且含題組題）、Databricks Learning Festival 移除沒有官方頁對應的檔期日期、把「唯一沒有免費 practice assessment」的全稱句改為單純陳述。
 - 2026-08-07：跑 post-verify 後修正兩個數字。PMLE 第 6 章「Monitoring AI solutions」原本寫「其餘」，官方考試指南全文列的是 **~13%**；NCA-GENL 的題數原本寫「50–60 題」，官方認證頁寫的是 **50 題**。
 - 2026-08-07：新增「課程要花多少」一節。原文只列考試費，沒有課程費那一層，而兩筆是分開的（不用先上課才能報考）。五家的免費／付費分界對照，結論是只有 AWS 的 $29 月費值得付 —— 因為完整模擬考只在付費層。
 - 2026-08-07：新增「省錢管道」一節（AWS 專業級考試券含免費重考、微軟 beta 前 300 名八折、Databricks 季度 Learning Festival 5 折券、NVIDIA 的 webinar 與 GTC 現場、以及公司端的 Get Certified / ESI / 團隊考試券）。同時補上兩處遺漏：**AI-500 認證要求必須先取得 AI-103**，以及 Google 認證通過後會拿到一張續證用的 50% 折扣碼（原文把續證成本寫成全額 $200）。
