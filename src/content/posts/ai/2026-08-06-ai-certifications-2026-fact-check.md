@@ -64,11 +64,19 @@ draft: false
 
 三張都能直接報名，差別在深度與價格：[AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) $100、90 分鐘、65 題，是入門那張；[MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) $150、130 分鐘、65 題，往 ML 工程實作走；最上面是 [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) $300、180 分鐘、75 題，官方建議先有 **2 年 AWS 經驗加 1 年 GenAI 開發經驗**，是三張裡唯一專攻 GenAI 應用開發的。
 
-三張效期都是 3 年，維護方式只有一條路。[官方 recertification 政策](https://aws.amazon.com/certification/policies/recertification/)寫：
+三張效期都是 3 年。[官方 recertification 政策](https://aws.amazon.com/certification/policies/recertification/)寫：
 
 > Certification through AWS is valid for three years from the date it was earned.
 
-重新認證只能重考，AWS 明文不接受繼續教育學分 —— 把三年後的 $100 至 $300 一起算進成本。
+AWS 明文不接受繼續教育學分，但「只能重考」有一個例外：**考到更高階的那張，會自動把下層那張一起續掉**。[AWS 繁中的 AIF-C01 認證頁](https://aws.amazon.com/tw/certification/certified-ai-practitioner)寫，到期前可以重考最新版，「或取得 AWS Certified Machine Learning Engineer - Associate，該認證將自動重新認證此認證」。所以 AIF-C01 → MLA-C01 這條路線，第二張同時解決了第一張的續證。
+
+沒考過的成本也要先知道。[官方 After Testing 政策](https://aws.amazon.com/certification/policies/after-testing/)寫：
+
+> If you fail an exam, you must wait 14 calendar days before you are eligible to retake the exam. There is no limit on exam attempts. However, you must pay the full registration fee for each exam attempt.
+
+**重考要等 14 個日曆天，而且每次都付全額。** 手上有考試券或限時優惠時，這條會直接決定排考日要提前多久 —— 想留一次重考機會，第一次就得排在期限前 14 天以上。同一頁還有兩個數字：及格線是基礎級 **700**、Associate 級 **720**、Professional 與 Specialty 級 **750**（滿分 1000），成績最多 **5 個工作天**公布。
+
+考試語言三張不一樣：AIF-C01 有**繁體中文**（另有阿拉伯、英、法、德、義、日、韓、葡、西、簡中）；MLA-C01 與 AIP-C01 只有英、日、韓與**簡體中文**。
 
 ## Google：只有 PMLE 一張，但教材要挑 2026 年中之後的
 
@@ -114,6 +122,8 @@ Google 在 Cloud Next '26 把 Vertex AI 整併進 [Gemini Enterprise Agent Platf
 
 效期要算進成本：官方[考試條款](https://cloud.google.com/certification/terms)明訂 Professional 認證兩年有效，到期要**重考**才能延續（不像微軟有免費線上 renewal assessment），可在到期前 60 天開始。以 Google 改名字的頻率，每兩年 $200 加一次重新準備，維護成本不低。
 
+PMLE 的考試語言只有**英文與日文**，沒有任何中文。認證頁另外寫了建議經驗是「3+ years of industry experience including 1 or more years designing and managing solutions using Google Cloud」，但也註明「The exam does not directly assess coding skill」—— 準備時間該花在架構取捨與服務選型，不是刷程式題。
+
 ### 兩個能省錢的 Google 資源
 
 [Get Certified 計畫](https://cloud.google.com/learn/certification)讓 Google Cloud **客戶**免費參加認證的考前訓練。公司是 GCP 客戶的話，先問內部有沒有名額，$200 可以省下來。
@@ -129,6 +139,10 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 **AI-500 值得單獨留意。** 主流雲端業者目前沒有第二張專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。代價是 beta 階段成績出得慢、考題會隨正式版調整。
 
 微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。
+
+價格與語言：[AI-103 考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)標示 **$165 USD**（依考試所在國家或地區計價）、120 分鐘。語言清單則是本文第三個提醒的活教材 —— 同一張認證，**認證總覽頁只列 English，考試頁列了 10 種語言且含繁體中文**。兩頁不一致，以你報名時看到的那頁為準。
+
+還有一個會影響準備的缺口：AI-103 目前**沒有免費的 practice assessment**，官方說明是「Practice Assessments are usually available within 8 weeks of the exam being out of beta and generally available」。微軟的 [AI-103T00 課程](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)給了四條學習路徑、合計約 29.5 小時全免費，但自我檢測的工具比 AWS 少一截 —— 課給你上，不給你測。
 
 ## Claude：四張，價格要到結帳頁看
 
@@ -151,7 +165,13 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 > Certification is open to organizations in the Claude Partner Network and counts toward partner program standing.
 
-考前訓練也一樣限 Partner Network 成員。網路上聲稱個人可自由報名的說法，我找不到官方來源支持 —— **規劃時請當作需要透過 partner 組織**。訓練課程本身免費公開，這點沒有門檻。
+考前訓練也一樣限 Partner Network 成員。[Pearson VUE 頁](https://www.pearsonvue.com/us/en/anthropic.html)寫：
+
+> Prepare for your certification exam with self-paced preparation training courses available in Anthropic Partner Academy. **Training is available to members of the Claude Partner Network.**
+
+所以「訓練免費」跟「訓練公開」是兩件事：公告把 Partner Academy 描述成「our free training platform for **partners**」—— 不收費，但有門檻。門檻本身倒是免費的，同一篇公告寫「Firms can join the Claude Partner Network and register practitioners... **Membership is free**」。
+
+實務順序因此是：**公司先免費加入 Partner Network → 才能上課、才能排考**。網路上聲稱個人可自由報名的說法，我找不到官方來源支持。工程師要規劃這張，第一步不是念書，是去確認自家公司在不在 Partner Network 裡。
 
 考試內容細節可參考站內的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)，不過那篇寫於 2026 年 3 月、當時只有 Architect 一張，代碼與價格以本文為準。
 
@@ -208,11 +228,15 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **先對雲，再對證照。** 這七家的證照沒有通用的，選錯生態系的那張在履歷上幾乎不加分。
 
-**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年，而且 AWS 與 Google 都只能重考；微軟的免費線上更新評量是這幾家裡最省的一個。
+**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年。Google 只能重考；AWS 原則上也是重考，但往上考一階會自動續掉下層那張；微軟的免費線上更新評量仍是這幾家裡最省的一個。另外別忘了失敗成本 —— AWS 重考要等 14 天並再付一次全額。
 
 **證照的半衰期比想像中短。** AI-102 退場、PMLE 換名、Claude 從一張擴成四張，全部發生在 2026 上半年。任何超過三個月的證照推薦文，預設它至少有一條已經失效 —— 包括這篇，報名前還是打開官方頁面對一次。
 
 **iPAS 中級仍然划算**，兩科 1,000 元、國家級認證、對本地職場與政府標案有加分 —— 但要把 5 年換證的維護成本算進去。
+
+## 更新紀錄
+
+- 2026-08-07：補齊四處。AWS 段補上重考政策（14 個日曆天等待、每次全額付費）、及格線（700 / 720 / 750）與成績公布時間，並修正「重新認證只能重考」—— 考到 MLA-C01 會自動續掉 AIF-C01。Google 段補 PMLE 的考試語言與「不直接考程式能力」的官方說明。微軟段補 AI-103 的 $165 價格、免費課程時數，以及目前沒有 practice assessment；同時記下它的語言清單在兩個官方頁上不一致。Claude 段修正「訓練課程本身免費公開」—— 訓練不收費但限 Partner Network 成員，門檻是公司加入（加入本身免費）。
 
 ## 參考資料
 
@@ -223,6 +247,8 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 - [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/certification/certified-ai-practitioner)
 - [AWS Certified Machine Learning – Specialty（退場公告，最後考試日 2026/3/31）](https://aws.amazon.com/certification/certified-machine-learning-specialty)
 - [AWS Recertification 政策（三年效期）](https://aws.amazon.com/certification/policies/recertification/)
+- [AWS Certification「After Testing」政策（重考等待期、及格線、成績公布時間）](https://aws.amazon.com/certification/policies/after-testing/)
+- [AWS Certified AI Practitioner 繁中認證頁（自動重新認證的說明）](https://aws.amazon.com/tw/certification/certified-ai-practitioner)
 
 **Google Cloud**
 
@@ -237,6 +263,8 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 **Microsoft**
 
 - [Azure AI Apps and Agents Developer Associate（AI-103）](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/)
+- [AI-103 考試頁（價格、語言清單、practice assessment 狀態）](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
+- [AI-103T00 課程：Develop AI apps and agents on Azure](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [Multi-Agent AI Solutions Expert（AI-500，beta）](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
 - [Agentic AI Business Solutions Architect（AB-100）](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 - [Azure AI Engineer Associate（AI-102，已退場）](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)

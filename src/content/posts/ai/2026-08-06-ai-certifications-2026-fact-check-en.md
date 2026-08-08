@@ -64,11 +64,19 @@ If you want foundations rather than a credential, the site also has [which AI co
 
 All three are open to register. [AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) is the entry point at $100, 90 minutes, 65 questions. [MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) moves up to ML engineering practice at $150, 130 minutes, 65 questions. At the top sits [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) at $300, 180 minutes, 75 questions, where AWS expects **2 years of AWS experience plus 1 year of GenAI development** — the only one of the three aimed squarely at GenAI application development.
 
-All three are valid 3 years, and there is exactly one way to maintain them. The [official recertification policy](https://aws.amazon.com/certification/policies/recertification/) states:
+All three are valid 3 years. The [official recertification policy](https://aws.amazon.com/certification/policies/recertification/) states:
 
 > Certification through AWS is valid for three years from the date it was earned.
 
-Recertification means retaking the exam; AWS explicitly does not accept continuing education credits. Budget that $100–$300 again three years out.
+AWS explicitly does not accept continuing education credits, but "retake the exam" has one exception: **earning the higher-tier certification automatically recertifies the one below it**. The [AWS certification page for AIF-C01](https://aws.amazon.com/tw/certification/certified-ai-practitioner) states that before expiry you can retake the current version of the exam, "or earn AWS Certified Machine Learning Engineer - Associate, which will automatically recertify this certification." So on the AIF-C01 → MLA-C01 path, the second exam also handles renewal of the first.
+
+Failing costs more than people expect. The [official After Testing policy](https://aws.amazon.com/certification/policies/after-testing/) states:
+
+> If you fail an exam, you must wait 14 calendar days before you are eligible to retake the exam. There is no limit on exam attempts. However, you must pay the full registration fee for each exam attempt.
+
+**A retake means waiting 14 calendar days and paying full price again.** If you hold a voucher or a time-limited promotion, that clause decides how early you must schedule — leaving room for one retake means booking at least 14 days before the deadline. Two more numbers from the same page: the passing standard is **700** for Foundational, **720** for Associate, and **750** for Professional and Specialty exams (scaled 100–1,000), and results are posted within **five business days**.
+
+Exam languages differ across the three: AIF-C01 offers **Traditional Chinese** (plus Arabic, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish, and Simplified Chinese), while MLA-C01 and AIP-C01 offer only English, Japanese, Korean, and **Simplified Chinese**.
 
 ## Google: PMLE Is the Only One, but the Material Must Postdate Mid-2026
 
@@ -114,6 +122,8 @@ Several topics won't appear in traditional ML material at all: **LLM-as-a-judge 
 
 Factor validity into the cost: the official [exam terms](https://cloud.google.com/certification/terms) state professional certifications are valid two years and renewal **requires retaking the exam** (unlike Microsoft's free online renewal assessment), starting up to 60 days before expiry. Given how often Google renames things, $200 plus a fresh round of prep every two years is not trivial.
 
+PMLE is offered in **English and Japanese only** — no Chinese. The certification page also puts recommended experience at "3+ years of industry experience including 1 or more years designing and managing solutions using Google Cloud," while noting that "the exam does not directly assess coding skill" — so prep time belongs on architectural tradeoffs and service selection, not on drilling code questions.
+
 ### Two Ways to Spend Less on Google
 
 The [Get Certified program](https://cloud.google.com/learn/certification) lets Google Cloud **customers** take certification prep training at no cost. If your company is a GCP customer, check internally for a slot before paying $200.
@@ -129,6 +139,10 @@ Microsoft's agent track is more complete than anyone else's. Beyond the already-
 **AI-500 deserves separate attention.** No other major cloud vendor currently offers an expert-level certification dedicated to multi-agent system architecture, so it differentiates you a tier above the associate-level AI-103. The tradeoff is slow score reporting during beta and questions that may shift before general release.
 
 Microsoft also has one advantage nobody else offers: renewal runs through a **free online renewal assessment**, rather than retaking the full exam as AWS and Google require.
+
+Price and languages: the [AI-103 exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) lists **$165 USD** (priced by the country or region where the exam is proctored) and 120 minutes. The language list is a live demonstration of this article's third caveat — for the same certification, **the certification overview page lists only English while the exam page lists 10 languages including Traditional Chinese**. Go by whichever page you see at registration.
+
+One gap worth planning around: AI-103 currently has **no free practice assessment**. The official note reads "Practice Assessments are usually available within 8 weeks of the exam being out of beta and generally available." Microsoft's [AI-103T00 course](https://learn.microsoft.com/en-us/training/courses/ai-103t00/) gives you four learning paths totalling roughly 29.5 hours at no cost, but self-assessment tooling lags AWS — they'll teach you, they just won't test you.
 
 ## Claude: Four Certifications, Pricing Only at Checkout
 
@@ -151,7 +165,13 @@ The registration gate does have an official source. The Pearson VUE page (last u
 
 > Certification is open to organizations in the Claude Partner Network and counts toward partner program standing.
 
-Preparation training is likewise limited to Partner Network members. Claims online that individuals can freely register are not supported by any official source I could find — **plan on needing access through a partner organization**. The preparation courses themselves are free and public, with no gate.
+Preparation training is likewise limited to Partner Network members. The [Pearson VUE page](https://www.pearsonvue.com/us/en/anthropic.html) states:
+
+> Prepare for your certification exam with self-paced preparation training courses available in Anthropic Partner Academy. **Training is available to members of the Claude Partner Network.**
+
+So "free training" and "public training" are two different things: the announcement describes Partner Academy as "our free training platform for **partners**" — no charge, but gated. The gate itself is free, though; the same announcement says "Firms can join the Claude Partner Network and register practitioners... **Membership is free**."
+
+The practical sequence is therefore: **the firm joins the Partner Network at no cost → only then can you train and schedule the exam**. Claims online that individuals can freely register are not supported by any official source I could find. For an engineer, step one on this credential isn't studying — it's checking whether your employer is in the Partner Network.
 
 For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en) — written in March 2026 when only the Architect exam existed; codes and pricing here supersede it.
 
@@ -208,11 +228,15 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 **Match the cloud first, then the certification.** None of these seven vendors' credentials transfer; picking the wrong ecosystem adds almost nothing to a résumé.
 
-**Put validity into the total cost.** AWS is 3 years, Google 2, NVIDIA and Databricks 2 — and AWS and Google both require retaking the exam. Microsoft's free online renewal assessment is the cheapest of the group.
+**Put validity into the total cost.** AWS is 3 years, Google 2, NVIDIA and Databricks 2. Google requires retaking the exam; AWS does too by default, except that moving up a tier automatically recertifies the tier below. Microsoft's free online renewal assessment is still the cheapest of the group. Don't forget the cost of failing, either — an AWS retake means 14 days' wait and another full fee.
 
 **Certifications have a shorter half-life than people assume.** AI-102 retiring, PMLE renaming, Claude going from one exam to four — all within the first half of 2026. Assume any certification recommendation older than three months has at least one dead line in it, this one included; open the vendor page before you pay.
 
 **Taiwan's iPAS intermediate remains good value** — NT$1,000 for both subjects, a national credential with real weight in local hiring and government procurement — but budget for the 5-year renewal.
+
+## Changelog
+
+- 2026-08-07: Four corrections and additions. The AWS section gains the retake policy (14 calendar days, full fee each attempt), passing standards (700 / 720 / 750), and score reporting time, and corrects "recertification means retaking the exam" — earning MLA-C01 automatically recertifies AIF-C01. The Google section adds PMLE's exam languages and the official note that it does not directly assess coding skill. The Microsoft section adds AI-103's $165 price, free course hours, and the currently missing practice assessment, plus the fact that its language list differs between two official pages. The Claude section corrects "the preparation courses themselves are free and public" — training is free of charge but limited to Partner Network members, and the gate is firm membership, which is itself free.
 
 ## References
 
@@ -223,6 +247,8 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 - [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/certification/certified-ai-practitioner)
 - [AWS Certified Machine Learning – Specialty (retirement notice, final exam date 2026-03-31)](https://aws.amazon.com/certification/certified-machine-learning-specialty)
 - [AWS Recertification policy (three-year validity)](https://aws.amazon.com/certification/policies/recertification/)
+- [AWS Certification "After Testing" policy (retake waiting period, passing standards, score reporting)](https://aws.amazon.com/certification/policies/after-testing/)
+- [AWS Certified AI Practitioner certification page (automatic recertification note)](https://aws.amazon.com/tw/certification/certified-ai-practitioner)
 
 **Google Cloud**
 
@@ -237,6 +263,8 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 **Microsoft**
 
 - [Azure AI Apps and Agents Developer Associate (AI-103)](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/)
+- [AI-103 exam page (price, language list, practice assessment status)](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
+- [Course AI-103T00: Develop AI apps and agents on Azure](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [Multi-Agent AI Solutions Expert (AI-500, beta)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
 - [Agentic AI Business Solutions Architect (AB-100)](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 - [Azure AI Engineer Associate (AI-102, retired)](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
