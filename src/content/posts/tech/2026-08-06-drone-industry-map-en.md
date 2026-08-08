@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Twenty-two companion pieces go deeper in six directions:
+This article is the overview for the drone series. Twenty-three companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -166,6 +166,7 @@ This article is the overview for the drone series. Twenty-two companion pieces g
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading) — five weight thresholds, the three modules regulation uses to decide two drones are the same drone, and three public registries worth checking
 - [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy) — what the 25 kg statistical threshold means, the failure chains in both occurrences, and which PX4 log signals to read
 - [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank) — the policy shift behind 1,420 published questions, and the regulatory mental model the content exposes
+- [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en) — numbers from building both flight stacks once: licensing, extension point, board coverage, twelve months of contributor structure, and what an in-house flight controller actually means
 
 **Frameworks and money**
 

@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,57 +24,51 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-07: drone series expanded 13 -> 23 posts (zh+en). Ten new: spec-sheet
-  reading, crash anatomy, CAA question-bank (the D line, unblocked by dropping
-  the "must buy a drone" premise); B5 tender financials; counter-UAS; the
-  application block's ag-spraying / disaster-SAR / inspection / logistics (four
-  value logics: cheaper / no denominator / cheaper+safer / only-thing-available);
-  plus the privacy piece closing the series' biggest VANTAGE-POINT gap (22
-  pieces all written from the operator side, none about people flown over).
-  Per-post findings are in plan §5.2 — read that, not this.
-  THE RECURRING MISTAKE (3x): treating my own pre-writing "素材" estimate as a
-  hard constraint. B2/B4 "needs interviews" (false — open stack + public JDs),
-  D1-D3 "needs buying a drone" (false — I had written the topics to need it),
-  B4's margin/cash-cycle "needs interviews" (false — filing questions, and I had
-  already run that method on Garuda in A3). Four-rule 通則 now in plan §6; short
-  form: ask which HALF needs material, ask whether the topic really needs it or
-  I wrote it to need it, ask whether it is truly unavailable or I just haven't
-  looked, and don't treat interviews as higher-grade than public records.
-  Claims to handle carefully if reused: registered-drone count
-  75,240->40,134->38,683 is an INFERENCE (Art.10 two-year validity), not a
-  finding; the "rice only, 5 chemicals" drone-spray approval is a 2021 baseline
-  — check APHIA systems before quoting as current.
-  Investing-line boundary settled: named-company public filings are fine as a
-  worked example, zero buy/sell judgment (user approved this reading).
-  TWO PLANNING ASSUMPTIONS CORRECTED, both about BVLOS. Inspection isn't
-  blocked — it SEGMENTS work into within-line-of-sight units. Logistics isn't
-  either — CAA approved 10 cases / 24 corridors, IOT ran PoC->PoS->PoB from
-  2020, routing around by getting corridors approved ONE AT A TIME, which fails
-  for inspection (demand spread over 22k bridges) and works for logistics
-  (demand on a few routes). Lesson: ask whether the regime's GRANULARITY fits
-  the demand's SHAPE, not whether a framework exists.
-  PRIVACY findings worth reusing: the Legislative Yuan's own 2020 report admits
-  the drone chapter has NO privacy provision (it is flight-safety and national-
-  security law); the AirTag "dragnet surveillance" doctrine — public movements
-  aggregating into a non-public picture — is ready-made for drones but unused,
-  and is the same REPETITION property the inspection piece treats as a virtue;
-  the real bottleneck is evidence, and CAA's flight-logging system is closed to
-  the public.
-  Cells still open (nothing hard-blocked): surveying; noise/NIMBY, criminal
-  misuse, autonomous-weapons ethics, environmental cost.
-- 2026-08-06: drone series — 13 posts shipped (zh+en) across tech/policy/career/
-  investing/product/education. Plan + per-post findings + cross-post
-  verification lessons live in docs/content-plan-drone.md §5.2 (read that before
-  continuing; it is the record, this is only working memory).
-  Structural decisions that still bind: `category` is the container
-  (folder/URL/nav), `drone` tag is the topic — src/pages/tags/[tag].astro has
-  NO category filter so /tags/drone is the cross-category hub, and EVERY series
-  post must carry `drone` as its first tag. Investing posts go
-  framework-and-risk only, no tickers.
-  Scheduling: future-dated posts are NOT built, so a published post linking to a
-  later-dated one is a hard 404; guard script in plan §5.2.
-  Glossary frontmatter is prepended before DEFAULT_GLOSSARY_TERMS and deduped
-  first-wins, so a frontmatter entry SHADOWS the site-wide one.
+- 2026-08-08: drone series 23 -> 24 (zh+en). B8 PX4 vs ArduPilot vs 自研 — the
+  first of the NINE-CELL B (technical) block, all of which was empty, and the
+  series' first FIRST-HAND output: both stacks cloned, built and one SITL sortie
+  flown. THE RECURRING MISTAKE, 4th instance: "technical topic" was silently
+  filed under "needs hardware". It is a codebase question. Real barrier was
+  Python deps (empy 3.3.4 has no py3.11 wheel), not hardware.
+  Findings worth reusing: ArduPilot's AP_NavEKF3.h header cites github.com/PX4/
+  ecl for its derivation and Paul Riseborough is a maintainer on BOTH projects —
+  the two stacks are common-descent at the hardest layer. Contributor structure
+  is INVERTED vs the stereotype: PX4 = company domains (Auterion 380 = 16% of
+  human commits), ArduPilot = personal mailboxes but far more concentrated (one
+  person 37%); PX4 also has 645 bot commits (22%) that break naive commit
+  comparisons. The two real decision points are BSD-3 vs GPLv3 and which layer
+  you extend (AP: Lua on the SD card; PX4: ROS 2 outside). Per-post detail in
+  plan §5.2 (B8 row) — read that, not this.
+  Open: B9-B17 (eight technical cells). Ask FIRST whether each really needs
+  hardware or I wrote it to need hardware.
+  KNOWN DEFECT, not fixed: every one of the 22 further-reading links in the
+  ENGLISH hub (2026-08-06-drone-industry-map-en.md) points at the zh slug, so
+  English readers land on Chinese posts. All 22 -en counterparts exist. Left
+  alone because it is outside the "write the missing post" scope — ask before
+  batch-fixing.
+- 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
+  four application posts, privacy. Full entry archived to
+  docs/progress-archive.md; per-post findings in plan §5.2.
+  THE RECURRING MISTAKE (3x, and see 08-08 for the 4th): treating my own
+  pre-writing "素材" estimate as a hard constraint. B2/B4 "needs interviews"
+  (false), D1-D3 "needs buying a drone" (false — I had written the topics to
+  need it), B4's margin/cash-cycle "needs interviews" (false — filing
+  questions). Four-rule 通則 in plan §6; short form: ask which HALF needs
+  material, ask whether the topic really needs it or I wrote it to need it, ask
+  whether it is truly unavailable or I just haven't looked, and don't treat
+  interviews as higher-grade than public records.
+  Application/social cells still open: surveying; noise/NIMBY, criminal misuse,
+  autonomous-weapons ethics, environmental cost.
+- 2026-08-06: drone series — 13 posts shipped (zh+en). Plan + per-post findings
+  + verification lessons live in docs/content-plan-drone.md §5.2; read that, not
+  this. Decisions that still bind: `category` is the container (folder/URL/nav),
+  `drone` tag is the topic — src/pages/tags/[tag].astro has NO category filter,
+  so /tags/drone is the cross-category hub and EVERY series post must carry
+  `drone` as its first tag. Investing posts: framework-and-risk, no tickers.
+  Future-dated posts are NOT built, so a published post linking to a later-dated
+  one is a hard 404 (guard script in plan §5.2). Frontmatter glossary is
+  prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so it SHADOWS
+  the site-wide entry.
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

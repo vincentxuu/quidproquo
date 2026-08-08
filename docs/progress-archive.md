@@ -80,3 +80,36 @@ and the duplicate frontmatter block was removed from the hub post. The
 shadowing mechanic that made the duplicate a problem — frontmatter glossary is
 prepended before `DEFAULT_GLOSSARY_TERMS` and deduped first-wins — is kept in
 `progress.txt` because it still binds future posts.
+
+## 2026-08-07 — 無人機系列 13 → 23 篇（完整版）
+
+Ten posts (zh+en): spec-sheet reading, crash anatomy, CAA question-bank (the D
+line, unblocked by dropping the "must buy a drone" premise); B5 tender
+financials; counter-UAS; the application block's ag-spraying / disaster-SAR /
+inspection / logistics (four value logics: cheaper / no denominator /
+cheaper+safer / only-thing-available); plus the privacy piece closing the
+series' biggest vantage-point gap. Per-post findings live in
+`docs/content-plan-drone.md` §5.2.
+
+Claims to handle carefully if reused: the registered-drone count
+75,240→40,134→38,683 is an INFERENCE (Art.10 two-year validity), not a finding;
+the "rice only, 5 chemicals" drone-spray approval is a 2021 baseline — check
+APHIA systems before quoting as current.
+
+Investing-line boundary settled: named-company public filings are fine as a
+worked example, with zero buy/sell judgment (user approved this reading).
+
+Two planning assumptions corrected, both about BVLOS. Inspection isn't blocked —
+it SEGMENTS work into within-line-of-sight units. Logistics isn't either — the
+CAA approved 10 cases / 24 corridors and the IOT ran PoC→PoS→PoB from 2020,
+routing around by getting corridors approved one at a time, which fails for
+inspection (demand spread over 22k bridges) and works for logistics (demand on a
+few routes). General lesson, still live: ask whether the regime's GRANULARITY
+fits the demand's SHAPE, not whether a framework exists.
+
+Privacy findings: the Legislative Yuan's own 2020 report admits the drone
+chapter has NO privacy provision (it is flight-safety and national-security
+law); the AirTag "dragnet surveillance" doctrine — public movements aggregating
+into a non-public picture — is ready-made for drones but unused, and is the same
+REPETITION property the inspection piece treats as a virtue; the real bottleneck
+is evidence, and the CAA's flight-logging system is closed to the public.
