@@ -84,7 +84,7 @@ Personal imports get an allowance too: within 12 months of first customs release
 
 ## What cybersecurity testing actually covers
 
-Since "passed cybersecurity testing" is a checkable field, it's worth knowing its scope. Per the Drone Cybersecurity Testing Specification (Ministry of Digital Affairs jointly with MOTC, effective December 2024), testing covers four areas — **system security, software security, communications security, and firmware security** — across the aircraft itself, the ground control station, and any network-capable payload. Swarm systems get their own chapter covering vulnerability scanning, transmission encryption, sensitive information protection, passcode protection, web application security, and authorization and authentication mechanisms.
+Since "passed cybersecurity testing" is a checkable field, it's worth knowing its scope. Per the Drone Cybersecurity Testing Specification (Ministry of Digital Affairs jointly with MOTC; V1.0 issued 26 December 2024, with **V2.0 in force since 30 April 2026**), testing covers four areas — **system security, software security, communications security, and firmware security** — across the aircraft itself, the ground control station, and any network-capable payload. Swarm systems get their own chapter covering vulnerability scanning, transmission encryption, sensitive information protection, passcode protection, web application security, and authorization and authentication mechanisms.
 
 The practical significance for spec sheet reading: **"passed cybersecurity testing" is not a marketing phrase — it has specific chapters and test items**, and when government agencies, schools, or juridical persons procure drones with navigation equipment, Articles 31 and 32 make a compliance report **mandatory**.
 
@@ -127,3 +127,5 @@ So the positioning is clear: this is the **first filter** in choosing a machine,
 - [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
 - [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
 - [Four Gates into Taiwan's Drone Industry](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
+
+> **Update, 2026-08-08**: I later read the whole specification and wrote it up in [the cybersecurity spec breakdown](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en). Two corrections and additions: first, the version in force is V2.0 (effective 2026-04-30); December 2024 above was V1.0. Second, **the "passed cybersecurity testing" field does not tell you which tests were run** — the five items that actually test jamming, link loss and position spoofing all sit in Chapter 8, and Chapter 8 is optional. That post covers what to ask and how.

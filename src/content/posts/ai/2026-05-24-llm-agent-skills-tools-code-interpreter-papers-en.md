@@ -10,7 +10,7 @@ description: "A deep-dive reading guide to LLM agent skills / tools / code inter
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/llm-agent-skills-tools-code-interpreter-papers)
+> 🌏 [中文版](/posts/ai/2026-05-24-llm-agent-skills-tools-code-interpreter-papers)
 
 Many teams hit a wall after building their LLM agent to a certain point: function calling works, the skills system is in place, the code interpreter is running, and file parsers are connected -- but when a real task comes in like "make me a product intro deck" or "take this PDF with tables and give me a summary plus an Excel file," the smoothness just cannot match Claude or ChatGPT.
 
