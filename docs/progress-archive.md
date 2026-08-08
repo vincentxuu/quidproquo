@@ -163,3 +163,24 @@ in `docs/content-plan-drone.md` §5.2; this is the shape of the thing.
 The recurring mistake this closed: "technical topic" had been silently filed
 under "needs hardware." All three were codebase questions. The real barrier was
 Python dependencies.
+
+## 2026-08-08 — 無人機系列 B 群續寫（B17 資安規範、B11 續航物理）
+
+- **B17 資安檢測規範拆解**（policy）— read the spec end to end after citing it
+  four times. Current version is V2.0, in force 2026-04-30 (the spec-sheet post
+  said 2024-12, which was V1.0, and now carries a correction note). Of seven
+  mandatory items the aircraft carries only three; §6.4.1 passes on disclosure
+  rather than encryption; §6.5.1 tests the update path, not the firmware, which
+  resolves the "does reflashing make a new series" question; §5.1.1 lets Green
+  UAS substitute for the domestic test; and the five items that test resilience
+  are all in the optional Chapter 8. Its §8.1.2 pass criterion is literally the
+  LAND behaviour measured in SITL the day before.
+- **B11 續航物理**（tech）— pure computation, no regulation. Optimal battery
+  mass = 2×(airframe+payload) and the derivation cancels every parameter. The
+  legal weight thresholds do NOT cap endurance (every class tops out at 45–60
+  min); payload does. The 30–45 minute band is today's cell chemistry. Taiwan
+  exception: Molicel / E-One Moli Energy (TCC Group) is the one BOM layer Taiwan
+  leads, and the 2025-07-14 Kaohsiung fire cost TCC about NT$11 bn while orders
+  ran at twice capacity.
+
+Per-post detail for both is in `docs/content-plan-drone.md` §5.2.

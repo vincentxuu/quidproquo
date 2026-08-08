@@ -24,7 +24,7 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: drone series 23 -> 27 (zh+en). Opened the B (technical) block,
+- 2026-08-08: drone series 23 -> 28 (zh+en). Opened the B (technical) block,
   which was entirely empty: B8 flight stacks, B10 RF link, B9 GNSS-denied —
   all three modules the cybersecurity spec names. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.
@@ -36,17 +36,15 @@ Recently completed
   verbatim original — I caught nothing, but that is what makes the claim safe;
   (b) what a system can infer needs no flag, what it cannot is what someone
   else must tell it (why PX4 ships spoofing detection on and jamming off).
-  B17 closed the arc by reading the cybersecurity spec end to end. VERSION
-  CORRECTION worth remembering: current is V2.0 in force 2026-04-30, not the
-  V1.0 of 2024-12; the spec-sheet post was corrected and carries an update note.
-  Findings: of 7 mandatory items the aircraft carries only 3 (the rest land on
-  the ground station); 6.4.1 passes on DISCLOSURE not encryption; 6.5.1 tests
-  the update path not the firmware — which resolves the "does reflashing make a
-  new series" question B8 left open; 5.1.1 lets Green UAS substitute for the
-  domestic test, so the certification ladder is not a ladder; and the five items
-  that test resilience are all in the OPTIONAL chapter 8. Its 8.1.2 pass
-  criterion is literally the LAND behaviour B9 measured in SITL.
-  Open: B11-B16 (six cells). Ask FIRST whether each really needs hardware or I
+  B17 (cybersecurity spec) and B11 (endurance physics) followed; both archived
+  to docs/progress-archive.md, per-post detail in plan §5.2. Two things worth
+  keeping here. VERSION: the cybersecurity spec in force is V2.0 (2026-04-30),
+  not the V1.0 of 2024-12 — the spec-sheet post was corrected. And B11
+  OVERTURNED my own assumption with an equation rather than data: the legal
+  weight thresholds do NOT cap endurance, payload does.
+  SITE FACT: no remark-math plugin — `$$` renders literally, write maths in
+  code blocks.
+  Open: B12-B16 (five cells). Ask FIRST whether each really needs hardware or I
   wrote it to need hardware. B15/B16 are the two that plausibly do.
   Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
   742 links). Done and archived — read the three safety rules there before any
