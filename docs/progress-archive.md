@@ -71,3 +71,12 @@ post(ai) image-to-video landscape (zh + en). deep-research pass
   pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
   terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
   note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
+
+## 2026-08-06 — 無人機系列 glossary 債清償
+
+Glossary debt for the drone series is CLEARED: the 5 terms (BVLOS, FPV,
+非紅供應鏈, Blue UAS, C-UAS) are now in `src/lib/glossary/terms.ts` (191 total),
+and the duplicate frontmatter block was removed from the hub post. The
+shadowing mechanic that made the duplicate a problem — frontmatter glossary is
+prepended before `DEFAULT_GLOSSARY_TERMS` and deduped first-wins — is kept in
+`progress.txt` because it still binds future posts.
