@@ -58,7 +58,7 @@ draft: false
 | 想碰 GPU / 模型層 | NVIDIA NCA-GENL（$125） |
 | 台灣求職 / 接案 | iPAS 中級，兩科 1,000 元 |
 
-單純想補基礎而不是拿證照的話，站內另有一篇 [2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)，把 OpenAI、Anthropic、Google 三家官方課程按能力層級重排過。
+單純想補基礎而不是拿證照的話，站內另有一篇 [2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)，把 OpenAI、Anthropic、Google 三家官方課程按能力層級重排過。已經選好要考哪張、想知道怎麼排讀書計畫的話，看 [AI 證照怎麼準備：先算排考日，再排讀書順序](/posts/ai/2026-08-07-ai-certification-prep-method)。
 
 ## AWS：三張差在價位與經驗門檻
 
@@ -334,5 +334,6 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **站內相關**
 
+- [AI 證照怎麼準備：先算排考日，再排讀書順序](/posts/ai/2026-08-07-ai-certification-prep-method)
 - [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)
 - [2026 年該上哪些 AI 課程：從不懂 AI、vibe coding，到能上 production](/posts/ai/2026-07-10-ai-courses-2026-guide)

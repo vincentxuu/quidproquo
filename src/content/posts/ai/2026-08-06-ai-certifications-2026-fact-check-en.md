@@ -58,7 +58,7 @@ Confirm which cloud your company actually runs first, then pick the certificatio
 | GPU / model layer | NVIDIA NCA-GENL ($125) |
 | Taiwan job market / contracting | iPAS intermediate, NT$1,000 for both subjects |
 
-If you want foundations rather than a credential, the site also has [which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide) (in Mandarin), which reorders the official OpenAI, Anthropic, and Google offerings by capability tier.
+If you want foundations rather than a credential, the site also has [which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide) (in Mandarin), which reorders the official OpenAI, Anthropic, and Google offerings by capability tier. If you've already picked an exam and want a study plan, see [how to prepare for an AI certification](/posts/ai/2026-08-07-ai-certification-prep-method-en).
 
 ## AWS: Three Exams Separated by Price and Expected Experience
 
@@ -334,5 +334,6 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 **Related on this site**
 
+- [How to Prepare for an AI Certification: Calculate the Exam Date First](/posts/ai/2026-08-07-ai-certification-prep-method-en)
 - [Complete Guide to the Claude Certified Architect Foundations Exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en)
 - [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide) (in Mandarin)
