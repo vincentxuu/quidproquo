@@ -24,7 +24,7 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: drone series 23 -> 28 (zh+en). Opened the B (technical) block,
+- 2026-08-08: drone series 23 -> 29 (zh+en). Opened the B (technical) block,
   which was entirely empty: B8 flight stacks, B10 RF link, B9 GNSS-denied —
   all three modules the cybersecurity spec names. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.
@@ -36,16 +36,19 @@ Recently completed
   verbatim original — I caught nothing, but that is what makes the claim safe;
   (b) what a system can infer needs no flag, what it cannot is what someone
   else must tell it (why PX4 ships spoofing detection on and jamming off).
-  B17 (cybersecurity spec) and B11 (endurance physics) followed; both archived
-  to docs/progress-archive.md, per-post detail in plan §5.2. Two things worth
-  keeping here. VERSION: the cybersecurity spec in force is V2.0 (2026-04-30),
-  not the V1.0 of 2024-12 — the spec-sheet post was corrected. And B11
-  OVERTURNED my own assumption with an equation rather than data: the legal
-  weight thresholds do NOT cap endurance, payload does.
-  SITE FACT: no remark-math plugin — `$$` renders literally, write maths in
-  code blocks.
-  Open: B12-B16 (five cells). Ask FIRST whether each really needs hardware or I
-  wrote it to need hardware. B15/B16 are the two that plausibly do.
+  B17 (spec), B11 (endurance) and B15 (airframes) followed; all archived to
+  docs/progress-archive.md, per-post detail in plan §5.2. Four things worth
+  keeping here. (1) VERSION: the cybersecurity spec in force is V2.0
+  (2026-04-30), not the V1.0 of 2024-12 — the spec-sheet post was corrected.
+  (2) B11 and B15 each OVERTURNED an assumption with an equation rather than
+  data: weight thresholds do NOT cap endurance (payload does), and fixed-wing
+  range is INDEPENDENT of cruise speed. (3) Taiwan has a domestic aircraft at
+  EVERY rung of the endurance ladder — that corrects an impression the earlier
+  posts may have left that it is all multirotors. (4) SITE FACT: no remark-math
+  plugin — `$$` renders literally, write maths in code blocks.
+  B15 turned out NOT to need hardware after all, so of the two cells I flagged
+  as plausibly needing it, only B16 (manufacturing ramp) is left.
+  Open: B12, B13, B14, B16 (four cells).
   Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
   742 links). Done and archived — read the three safety rules there before any
   similar link sweep. Untranslated still: 2 posts.

@@ -184,3 +184,29 @@ Python dependencies.
   ran at twice capacity.
 
 Per-post detail for both is in `docs/content-plan-drone.md` §5.2.
+
+## 2026-08-08 — 無人機系列 B15 機體形態與能源階梯
+
+Paid off the debt B11 stated in print ("no forward flight"). Two power laws:
+hover goes as mass^1.5 over the square root of disk area; cruise goes as mass to
+the first power, divided by L/D. Same 5 kg aircraft and 2 kg pack: 512 W and 41
+minutes hovering, versus 128 W, 164 minutes and 197 km cruising.
+
+Second all-parameters-cancel result of the series, after B11's 2/3 battery
+optimum: fixed-wing range `R = E·(L/D)·η/(m·g)` is **independent of cruise
+speed** — power rises and time falls proportionally.
+
+A VTOL's cost is not transition energy (2.4% of the pack) but mass: 0.5 kg of
+extra structure comes out of the battery and costs a quarter of the range. A
+single 2.5 m rotor doubles hover endurance over a quad at 25 kg — and the two
+TTSB failures from the crash-anatomy post were in exactly the mechanisms that
+buys, which makes those reports the bill for the trade.
+
+Biggest surprise, and it corrects an impression the earlier posts may have left:
+Taiwan has a domestic aircraft at every rung of the endurance ladder — AXH-E230RS
+(AVIX, electric single rotor, ~60 min) → DRAGONFLY (Zang Shi, tiltrotor, 13 kg /
+150 km / 1.8 h) → ITRI fuel-cell twin (63 kg / 2 h) → ITRI × AVIX fuel-cell light
+helicopter (24.9 kg / 3 h) → Thunder Tiger T-400 (Rotax 912 piston, 180 kg /
+250 km / 6 h). Fuel cells buy roughly 3×; the piston rung is different physics.
+And 24.9 kg is regulatory arbitrage again, this time by a national research
+institute.
