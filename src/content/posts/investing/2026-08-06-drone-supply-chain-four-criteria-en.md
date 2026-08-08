@@ -14,7 +14,7 @@ draft: false
 
 **What this article does not do**: name tickers, recommend positions, or discuss timing. It applies an existing framework to a sector, and the conclusion may well be "doesn't qualify right now" — which it is.
 
-This is the last piece of the [drone series](/tags/drone). Earlier entries covered [industry structure](/posts/tech/2026-08-06-drone-industry-map), [Taiwan's position](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers), [regulation](/posts/policy/2026-08-06-taiwan-drone-regulation-guide), [careers](/posts/career/2026-08-06-drone-industry-job-map), and [industry cycles](/posts/tech/2026-08-06-drone-industry-cycle-history). This one feeds those facts into the framework.
+This is the last piece of the [drone series](/tags/drone). Earlier entries covered [industry structure](/posts/tech/2026-08-06-drone-industry-map-en), [Taiwan's position](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en), [regulation](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en), [careers](/posts/career/2026-08-06-drone-industry-job-map-en), and [industry cycles](/posts/tech/2026-08-06-drone-industry-cycle-history-en). This one feeds those facts into the framework.
 
 The criteria are the same ones this site uses on the AI supply chain: **supply chain chokepoint, structural demand, high switching cost, long-term institutional holding.** Using one ruler across sectors is how you learn what differs.
 
@@ -22,7 +22,7 @@ The criteria are the same ones this site uses on the AI supply chain: **supply c
 
 The question: **if this link were removed, would downstream stop?**
 
-Taiwan's position is unambiguous. [Thunder Tiger's published BOM split](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) shows Taiwan supplying battery modules, controllers, motors and ESCs, power modules, propellers, and frames — all **Layer 2**. The three **Layer 3** critical modules (comms/GPS, flight control, camera) are bought from US, European, and Japanese vendors by the only company in Asia to clear Blue UAS.
+Taiwan's position is unambiguous. [Thunder Tiger's published BOM split](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) shows Taiwan supplying battery modules, controllers, motors and ESCs, power modules, propellers, and frames — all **Layer 2**. The three **Layer 3** critical modules (comms/GPS, flight control, camera) are bought from US, European, and Japanese vendors by the only company in Asia to clear Blue UAS.
 
 Layer 2's problem is **substitutability**. Motors, frames, and propellers have many suppliers; switching costs weeks of qualification, not years of redesign. The declining localization curve says the same thing: [roughly 70% for small airframes, 60% medium, 30% large](https://www.cna.com.tw/news/afe/202607150278.aspx) — the more complex the aircraft, the less Taiwan can supply, because complexity concentrates in Layer 3. (in Chinese)
 
@@ -124,6 +124,6 @@ If I tracked only one pair of numbers, it would be **exports as a share of total
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history-en)

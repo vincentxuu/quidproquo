@@ -62,7 +62,7 @@ One easily missed provision: if a company's net worth is negative at application
 
 ## Gate three: the certification order is fixed
 
-[The supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) argued certification is the only moat in this industry that actually holds. For a newcomer, what matters is the **order**:
+[The supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) argued certification is the only moat in this industry that actually holds. For a newcomer, what matters is the **order**:
 
 ```
 Cybersecurity testing (body recognized by the Ministry of Digital Affairs)
@@ -76,14 +76,14 @@ Blue UAS Cleared (military grade, DCMA)
 
 TEDIBOA made this its primary goal for 2026 with two strategies: **building an authorization channel** (bringing the US certification mechanism into Taiwan) and **guidance rather than subsidy**. The reasoning behind the second is worth noting — per CNA's reporting, guidance is preferred over subsidy specifically to avoid the US finding dumping or unfair competition and imposing sanctions. **That is a design favorable to applicants that is routinely misread as "the government isn't paying."**
 
-On local testing: after ITRI became an AUVSI Recognized Assessor for cybersecurity testing, it said verification timelines could be **cut by more than half**. But remember [the verified boundary from that piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — what ITRI obtained covers the cybersecurity testing segment; supply chain traceability review authority remains in the US.
+On local testing: after ITRI became an AUVSI Recognized Assessor for cybersecurity testing, it said verification timelines could be **cut by more than half**. But remember [the verified boundary from that piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) — what ITRI obtained covers the cybersecurity testing segment; supply chain traceability review authority remains in the US.
 
 ## Gate four: tender mechanics and tender risk
 
 Roughly 80% of the domestic market is public procurement, so tendering capability is close to operating capability. Three things public records can tell you:
 
 **One: specifications are proven by test, not by paperwork.**
-[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) covered the Army's 26 fixed counter-drone systems in detail: awarded at NT$987.81 million, specified to detect a 10 cm² target at 6 km and jam at 4 km. Acceptance testing and two re-tests all failed. The contract was **terminated in full with no payment made, and roughly NT$98.78 million in performance bond forfeited** (10% of the award), with late-delivery penalties assessed separately up to 20% and the vendor suspended and blacklisted.
+[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) covered the Army's 26 fixed counter-drone systems in detail: awarded at NT$987.81 million, specified to detect a 10 cm² target at 6 km and jam at 4 km. Acceptance testing and two re-tests all failed. The contract was **terminated in full with no payment made, and roughly NT$98.78 million in performance bond forfeited** (10% of the award), with late-delivery penalties assessed separately up to 20% and the vendor suspended and blacklisted.
 
 For a newcomer the lesson is: **you must be able to verify the specification yourself before bidding, not wait for the military to test it.** That cost belongs in the bid/no-bid decision.
 
@@ -93,7 +93,7 @@ The [National Police Agency's procurement of 50 counter-drone systems for critic
 For large firms that compresses revenue upside. **For newcomers it is an opening** — the graded structure means you don't have to beat everyone, only place top three within one functional grade.
 
 **Three: budget rhythm is not yours to control.**
-[The defense budget piece](/posts/investing/2026-08-06-drone-defense-budget-map) unpacked the nature of the three funding pools. The practical implication for founders: **the NT$44.2 billion coordination program is grant money (funded but not orders), the NT$210 billion special statute is procurement (orders, but not passed yet), and annual agency budgets are the most fragmented but the most certain.** Cash flow planning should be built on the third and treat the first two as upside.
+[The defense budget piece](/posts/investing/2026-08-06-drone-defense-budget-map-en) unpacked the nature of the three funding pools. The practical implication for founders: **the NT$44.2 billion coordination program is grant money (funded but not orders), the NT$210 billion special statute is procurement (orders, but not passed yet), and annual agency budgets are the most fragmented but the most certain.** Cash flow planning should be built on the third and treat the first two as upside.
 
 ## What public data cannot answer
 
@@ -140,6 +140,6 @@ These need someone inside the industry. If you're in it and willing to talk, I'm
 
 **On this site**
 
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
-- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
+- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map-en)

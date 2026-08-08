@@ -14,7 +14,7 @@ draft: false
 
 **Boundary first: I have never flown a drone, and this piece recommends no models.**
 
-It does something else — maps every line of a spec sheet onto [the industry map's](/posts/tech/2026-08-06-drone-industry-map) five layers and Taiwan's regulatory thresholds, then asks a question unboxing posts don't: **what is this line actually telling you?**
+It does something else — maps every line of a spec sheet onto [the industry map's](/posts/tech/2026-08-06-drone-industry-map-en) five layers and Taiwan's regulatory thresholds, then asks a question unboxing posts don't: **what is this line actually telling you?**
 
 The conclusion up front: most spec sheet fields are marketing fields. The ones that actually determine what a drone is fall into three classes — legal boundary fields, supply chain provenance fields, and **fields the spec sheet omits but that are public elsewhere**.
 
@@ -46,7 +46,7 @@ The [Drone Cybersecurity Testing Specification](https://gazette.nat.gov.tw/EG_Fi
 
 **Regulation decides whether two drones are the same drone by looking at flight control, communications, and satellite positioning.** Not appearance, not weight, not endurance, not camera resolution.
 
-That sentence is worth sitting with, because it coincides exactly with Layer 3 of [the industry map](/posts/tech/2026-08-06-drone-industry-map), and exactly with what Taiwan's industrial policy bet on — "three chips, two software" (flight control, communications, and satellite positioning chip modules, plus flight control and ground control software). The regulator, the industrial policy, and supply chain analysis each started somewhere different and pointed at the same place.
+That sentence is worth sitting with, because it coincides exactly with Layer 3 of [the industry map](/posts/tech/2026-08-06-drone-industry-map-en), and exactly with what Taiwan's industrial policy bet on — "three chips, two software" (flight control, communications, and satellite positioning chip modules, plus flight control and ground control software). The regulator, the industrial policy, and supply chain analysis each started somewhere different and pointed at the same place.
 
 Which gives you the reading method: **find those three lines first.** If you can't, that means the three most important decisions about this machine are ones the manufacturer isn't telling you.
 
@@ -58,11 +58,11 @@ Reclassified, a spec sheet looks like this:
 
 **Class one: legal boundary fields** — maximum takeoff weight, presence of navigation equipment, remote ID capability, geofencing map system. These determine which procedural track you're on, and misreading them carries administrative liability.
 
-**Class two: supply chain provenance fields** — flight controller, communications link, satellite positioning, electro-optical payload, battery module. These correspond to [Layers 2 and 3](/posts/tech/2026-08-06-drone-industry-map) and set the machine's capability ceiling and repairability. [The Taiwan supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) unpacked Thunder Tiger's published bill of materials: motors, batteries, frames, and propellers made in-house; flight control, comms/GPS, and camera modules bought in — **Layer 2 domestic, Layer 3 imported, a split visible in an airframe maker's own filings**.
+**Class two: supply chain provenance fields** — flight controller, communications link, satellite positioning, electro-optical payload, battery module. These correspond to [Layers 2 and 3](/posts/tech/2026-08-06-drone-industry-map-en) and set the machine's capability ceiling and repairability. [The Taiwan supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) unpacked Thunder Tiger's published bill of materials: motors, batteries, frames, and propellers made in-house; flight control, comms/GPS, and camera modules bought in — **Layer 2 domestic, Layer 3 imported, a split visible in an airframe maker's own filings**.
 
 **Class three: silent fields** — whether firmware is modifiable, where data is uploaded, how long spare parts are supported, whether it passed cybersecurity testing. Spec sheets almost never carry these, but some are answerable from public registries (next section).
 
-Interestingly, this classification closely tracks how the CAA's own exam question bank frames Chapter 2. The bank asks which system handles command, control, and data link work; what method control links have universally adopted for confidentiality and jamming resistance; what the main data transmission modes for video downlink are — **the system boundaries the regulator expects an operator to understand are the same set of fields a spec sheet reader should look for.** [The question bank piece](/posts/policy/2026-08-07-caa-drone-exam-question-bank) develops this.
+Interestingly, this classification closely tracks how the CAA's own exam question bank frames Chapter 2. The bank asks which system handles command, control, and data link work; what method control links have universally adopted for confidentiality and jamming resistance; what the main data transmission modes for video downlink are — **the system boundaries the regulator expects an operator to understand are the same set of fields a spec sheet reader should look for.** [The question bank piece](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en) develops this.
 
 ## Not on the spec sheet, but on the record
 
@@ -70,7 +70,7 @@ Taiwan maintains three public registries that fill in some silent fields:
 
 - **[The register of drones over 2 kg that have passed type inspection or recognition](https://drone.caa.gov.tw/Default/DataDetail3/10220)** (CAA, updated periodically). Whether a model is legally eligible for public sale in Taiwan is answered directly here.
 - **The cybersecurity testing pass list** (CAA's drone management information system). The Telecom Technology Center separately publishes a [vendor-consented pass list](https://www.ttc.org.tw/Service/info_1?id=990ca9aa29494d9fafe150a19c7afe10).
-- **Type inspection certificate numbers**, formatted `CAA-UAVTIC-XXXXXXXX`. These appear on formal documents — in [the TTSB report on the Tamsui estuary crash](/posts/tech/2026-08-07-drone-crash-anatomy), the accident aircraft's certificate number, issue and expiry dates, airframe serial, motor model and serial, and manufacture date are all recorded. **A spec sheet gives you marketing language; an accident report gives you an identity document.**
+- **Type inspection certificate numbers**, formatted `CAA-UAVTIC-XXXXXXXX`. These appear on formal documents — in [the TTSB report on the Tamsui estuary crash](/posts/tech/2026-08-07-drone-crash-anatomy-en), the accident aircraft's certificate number, issue and expiry dates, airframe serial, motor model and serial, and manufacture date are all recorded. **A spec sheet gives you marketing language; an accident report gives you an identity document.**
 
 Inspection requirements are themselves tiered, per the CAA's [inspection FAQ](https://www.caa.gov.tw/Article.aspx?a=2427&lang=1):
 
@@ -88,7 +88,7 @@ Since "passed cybersecurity testing" is a checkable field, it's worth knowing it
 
 The practical significance for spec sheet reading: **"passed cybersecurity testing" is not a marketing phrase — it has specific chapters and test items**, and when government agencies, schools, or juridical persons procure drones with navigation equipment, Articles 31 and 32 make a compliance report **mandatory**.
 
-It is also the first rung of the certification ladder described in [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics): cybersecurity testing → Green UAS → Blue UAS Cleared.
+It is also the first rung of the certification ladder described in [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en): cybersecurity testing → Green UAS → Blue UAS Cleared.
 
 ## How far this gets someone who has never flown
 
@@ -122,8 +122,8 @@ So the positioning is clear: this is the **first filter** in choosing a machine,
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy)
-- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
-- [Four Gates into Taiwan's Drone Industry](/posts/career/2026-08-06-drone-market-entry-mechanics)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
+- [Four Gates into Taiwan's Drone Industry](/posts/career/2026-08-06-drone-market-entry-mechanics-en)

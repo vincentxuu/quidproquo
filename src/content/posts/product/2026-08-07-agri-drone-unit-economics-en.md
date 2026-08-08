@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/product/2026-08-07-agri-drone-unit-economics)
 
-[The industry map](/posts/tech/2026-08-06-drone-industry-map) called agriculture "the most mature, most boring, most profitable" of the four demand blocks, because it is "one of the few applications that needs no BVLOS, has clear per-aircraft daily output, and a payback period you can actually compute."
+[The industry map](/posts/tech/2026-08-06-drone-industry-map-en) called agriculture "the most mature, most boring, most profitable" of the four demand blocks, because it is "one of the few applications that needs no BVLOS, has clear per-aircraft daily output, and a payback period you can actually compute."
 
 This piece tests that sentence. The conclusion is more complicated than the sentence: **agricultural spraying really is the only application with computable ROI — and being computable is exactly its problem.**
 
@@ -39,7 +39,7 @@ And the demand is real. The same report estimates that **roughly 80% of Taiwan's
 
 Another feature of this business: the barrier is computable as well.
 
-**Two licences, both mandatory**: the CAA's professional remotely piloted aircraft licence (see [the licence piece](/posts/policy/2026-08-06-taiwan-drone-license-guide)) plus a pesticide contract-spraying technician certificate from the Ministry of Agriculture's research institute. After both, an operator must still **join a registered agricultural juridical entity and register** before legally taking contract work.
+**Two licences, both mandatory**: the CAA's professional remotely piloted aircraft licence (see [the licence piece](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)) plus a pesticide contract-spraying technician certificate from the Ministry of Agriculture's research institute. After both, an operator must still **join a registered agricultural juridical entity and register** before legally taking contract work.
 
 **Equipment**: NT$300,000–500,000 for the aircraft, plus a truck to carry it, batteries, and a generator. CommonWealth cites Pingtung operator Lo Jui-hao's conservative estimate of **at least NT$1.3 million**. Both operators interviewed by the United Daily News also put their outlay above a million.
 
@@ -83,14 +83,14 @@ The consequence is structural: **every operator is squeezed onto the same crop.*
 
 Compressed into one sentence: technology arrives → early entrants earn excess returns → the low barrier attracts capital → supply expands past what regulation has opened → prices collapse → shakeout.
 
-[The industry cycles piece](/posts/tech/2026-08-06-drone-industry-cycle-history) traced the global 2015 consumer bubble into the 2016 shakeout. **Agricultural spraying in Taiwan ran the same cycle in roughly six years — and did it inside a market where demand is genuine and the product genuinely works.**
+[The industry cycles piece](/posts/tech/2026-08-06-drone-industry-cycle-history-en) traced the global 2015 consumer bubble into the 2016 shakeout. **Agricultural spraying in Taiwan ran the same cycle in roughly six years — and did it inside a market where demand is genuine and the product genuinely works.**
 
 That deserves emphasis: ag spraying is not a fake need. Eighty percent of crop area sprayed by operators, six times the efficiency of manual work, sharply lower pesticide exposure for farmers — all real. **An application can be genuinely useful and unprofitable at the same time; those two things do not contradict each other.**
 
 Set against two other pieces in this series, the same disease appears in two forms:
 
-- [The business models piece](/posts/product/2026-08-06-drone-business-models) put software and DaaS margins at 60–80%. Contract spraying is a service business through and through, and its margin was competed away — **high-margin models are not automatic; they require something that holds competitors off.**
-- [The financials piece](/posts/investing/2026-08-07-drone-maker-financials) computed a cash conversion cycle near 377 days for a manufacturer: assets paid first, revenue collected later. The operator's version is NT$1.3 million of equipment up front against revenue concentrated in a short season, at the mercy of weather, at falling unit prices. **The scale differs by orders of magnitude; the structure is identical.**
+- [The business models piece](/posts/product/2026-08-06-drone-business-models-en) put software and DaaS margins at 60–80%. Contract spraying is a service business through and through, and its margin was competed away — **high-margin models are not automatic; they require something that holds competitors off.**
+- [The financials piece](/posts/investing/2026-08-07-drone-maker-financials-en) computed a cash conversion cycle near 377 days for a manufacturer: assets paid first, revenue collected later. The operator's version is NT$1.3 million of equipment up front against revenue concentrated in a short season, at the mercy of weather, at falling unit prices. **The scale differs by orders of magnitude; the structure is identical.**
 
 ## So what would hold competitors off
 
@@ -100,13 +100,13 @@ If the root of price collapse is "everyone can compute it, so everyone enters," 
 
 **Two: service, not flying.** In the CommonWealth report, facing DJI's share of the Taiwanese market at one point around 80%, domestic maker EarthGen chose to differentiate not on specification but on support — fast repair, and **a loaner aircraft while yours is being fixed.** In an industry where the operating window is a few days long, "how long until I'm flying again" is worth more than a parameter.
 
-**Three: move up, don't stay in the spraying cell.** The same report describes the maker's ambition to build a "flight operator Uber" dispatch platform and use it to collect spraying data across regions. That is exactly Layer 5 of [the industry map](/posts/tech/2026-08-06-drone-industry-map) — **spraying is Layer 4 labour and will be competed to the floor; what was sprayed, where, and with what result is Layer 5.**
+**Three: move up, don't stay in the spraying cell.** The same report describes the maker's ambition to build a "flight operator Uber" dispatch platform and use it to collect spraying data across regions. That is exactly Layer 5 of [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) — **spraying is Layer 4 labour and will be competed to the floor; what was sprayed, where, and with what result is Layer 5.**
 
 ## Three judgments
 
 1. **"Computable ROI" is both the advantage and the curse.** Ag spraying scaled precisely because its unit economics are transparent, and its prices collapsed for precisely the same reason. When evaluating any drone application, hold both facts together — **a business you can compute is usually one you cannot defend.**
-2. **Unenforced compliance cost is a reverse subsidy.** The gap between NT$300 and NT$150 per fen is not technological, it is whether you follow the rules. When violations carry no real cost, the market systematically rewards the non-compliant and pushes the compliant out. That is the same problem facing any drone business built on certification advantage (see the certification ladder in [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics)).
-3. **The real ceiling is the approved crop list, not aircraft performance.** Every crop and chemical requires separate evaluation and approval, and evaluation lags adoption badly. **The size of the market is set by the regulator's approval throughput** — structurally identical to logistics being blocked by regulation in [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions), with a different agency in the way.
+2. **Unenforced compliance cost is a reverse subsidy.** The gap between NT$300 and NT$150 per fen is not technological, it is whether you follow the rules. When violations carry no real cost, the market systematically rewards the non-compliant and pushes the compliant out. That is the same problem facing any drone business built on certification advantage (see the certification ladder in [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en)).
+3. **The real ceiling is the approved crop list, not aircraft performance.** Every crop and chemical requires separate evaluation and approval, and evaluation lags adoption badly. **The size of the market is set by the regulator's approval throughput** — structurally identical to logistics being blocked by regulation in [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en), with a different agency in the way.
 
 ## References
 
@@ -125,9 +125,9 @@ If the root of price collapse is "everyone can compute it, so everyone enters," 
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models)
-- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history)
-- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials)
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models-en)
+- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history-en)
+- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)

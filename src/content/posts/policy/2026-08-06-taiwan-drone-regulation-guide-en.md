@@ -16,7 +16,7 @@ There is no shortage of Taiwanese drone regulation explainers. The problem is th
 
 This piece does one thing: it reports what the [currently effective text of the Remotely Piloted Drone Management Regulations](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0090083) says (amended 14 November 2024, effective 1 December 2024 except for provisions with separately designated dates). At the end I flag the claims I confirmed are outdated. (in Chinese)
 
-This is the regulation entry in the [drone series](/tags/drone), following [the industry map](/posts/tech/2026-08-06-drone-industry-map) and [the Taiwan supply chain breakdown](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers).
+This is the regulation entry in the [drone series](/tags/drone), following [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) and [the Taiwan supply chain breakdown](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en).
 
 ## 1. Registration: the line is 250 grams
 
@@ -148,5 +148,5 @@ Which is the general principle I'd suggest: **treat the [Drone Management Inform
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)

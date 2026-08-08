@@ -14,7 +14,7 @@ draft: false
 
 **Boundary first: I have not sat this exam, and this is not a study report.**
 
-[The licence piece](/posts/policy/2026-08-06-taiwan-drone-license-guide) already unpacked the system — tiers, the no-skipping rule, fees, and timelines. This piece does something else: **it reads the question bank as a text.**
+[The licence piece](/posts/policy/2026-08-06-taiwan-drone-license-guide-en) already unpacked the system — tiers, the no-skipping rule, fees, and timelines. This piece does something else: **it reads the question bank as a text.**
 
 The reason is that Taiwan's civil aviation regulator published all 1,420 questions, with answers, on its own website. That is unusual transparency in the regulatory world, and since everything is public, **the distribution of questions amounts to the regulator announcing where it thinks beginners are most likely to get into trouble.**
 
@@ -68,7 +68,7 @@ Ch. 5  Emergency handling and flight decision-making
 
 This is the **aviation meteorology syllabus for manned aircraft pilots**, almost unchanged. Fronts, air masses, inversions, icing, thunderstorm life cycles — concepts whose scale is hundreds to thousands of metres of altitude and tens to hundreds of kilometres of width, while general licence holders may only fly in green zones, below 400 feet, between sunrise and sunset, within visual line of sight.
 
-I don't think it's wrong (wind shear and obstacle turbulence genuinely kill small multirotors, and density altitude directly affects battery and motor output), but it reveals something: **the regulator is managing drones inside a manned-aviation frame.** That shows up beyond meteorology — [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions) reached the same conclusion from the other side: Taiwan has no standalone BVLOS framework, and flying beyond visual line of sight requires juridical-person status plus advance application plus permission, which is essentially the manned-aviation case-by-case permit regime carried across.
+I don't think it's wrong (wind shear and obstacle turbulence genuinely kill small multirotors, and density altitude directly affects battery and motor output), but it reveals something: **the regulator is managing drones inside a manned-aviation frame.** That shows up beyond meteorology — [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) reached the same conclusion from the other side: Taiwan has no standalone BVLOS framework, and flying beyond visual line of sight requires juridical-person status plus advance application plus permission, which is essentially the manned-aviation case-by-case permit regime carried across.
 
 **Flight principles leans the same way.** In the published general-licence bank, this chapter is dominated by Bernoulli's principle, the continuity equation, angle of attack and the critical angle, chord and wing area, parasitic drag (skin friction, form, and interference), induced drag, wave drag, tail surfaces, landing gear, and the design basis for propeller blade angles — **this is fixed-wing aerodynamics**. The guide does give fixed-wing, helicopter, and multirotor a section each, but the bank's centre of mass sits clearly on fixed-wing.
 
@@ -89,7 +89,7 @@ The first two dozen or so questions in the flight principles chapter aren't aero
 - What are the main data transmission modes for video downlink?
 - As onboard sensor precision and mission complexity rise, which onboard processor requirement rises with them?
 
-Lined up, that list is **flight control, navigation, links, video downlink, and onboard compute** — precisely Layer 3 of [the industry map](/posts/tech/2026-08-06-drone-industry-map), and precisely the lines [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading) identifies as most important and least printed.
+Lined up, that list is **flight control, navigation, links, video downlink, and onboard compute** — precisely Layer 3 of [the industry map](/posts/tech/2026-08-06-drone-industry-map-en), and precisely the lines [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) identifies as most important and least printed.
 
 **The system boundaries the regulator expects an operator to understand are the same set a supply chain analyst should be looking at.** I did not expect that.
 
@@ -108,7 +108,7 @@ The CAA's question bank page also publishes each file's download count. PDF figu
 
 **The professional bank is downloaded roughly three times as often as the general one**, even though the general licence has a far lower bar — pass the written test and you're done, no practical exam, no medical.
 
-That ratio is consistent with the industry structure found in [the supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers): roughly 80% of Taiwan's drone output value comes from public sector and defense procurement. **The professional licence is the ticket into that market** — per the ministry's explanation, only professional licence holders may operate above 400 feet in manned airspace and undertake beyond-visual-line-of-sight, night, and over-crowd operations that lift standard restrictions, subject to written, practical, and medical examination plus periodic renewal. Recreational flyers may be more numerous, but **the people serious enough to download the official PDF are mostly the people who need it for work.**
+That ratio is consistent with the industry structure found in [the supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en): roughly 80% of Taiwan's drone output value comes from public sector and defense procurement. **The professional licence is the ticket into that market** — per the ministry's explanation, only professional licence holders may operate above 400 feet in manned airspace and undertake beyond-visual-line-of-sight, night, and over-crowd operations that lift standard restrictions, subject to written, practical, and medical examination plus periodic renewal. Recreational flyers may be more numerous, but **the people serious enough to download the official PDF are mostly the people who need it for work.**
 
 ## Three judgments
 
@@ -131,8 +131,8 @@ That ratio is consistent with the industry structure found in [the supply chain 
 
 **On this site**
 
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide)
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)

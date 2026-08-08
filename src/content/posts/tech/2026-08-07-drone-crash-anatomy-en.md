@@ -108,15 +108,15 @@ Placed next to each other, the commonalities are too many to look like coinciden
 
 An honest caveat: **the sample bias is structural.** The 25 kg threshold filters out consumer and small commercial aircraft, leaving only large government-operated platforms whose operators all hold professional licences and train within an organization. What the failure distribution looks like for ordinary flyers, these four cannot say.
 
-**Two: both failures sit in Layer 2.** Servos, pitch links, sliders, yokes — these are the [industry map's](/posts/tech/2026-08-06-drone-industry-map) Layer 2 core components, not the Layer 3 flight control and comms links everyone talks about. That contrast is worth pausing on: **industry discussion locates the bottleneck at Layer 3, but these two aircraft were brought down by Layer 2 manufacturing quality.**
+**Two: both failures sit in Layer 2.** Servos, pitch links, sliders, yokes — these are the [industry map's](/posts/tech/2026-08-06-drone-industry-map-en) Layer 2 core components, not the Layer 3 flight control and comms links everyone talks about. That contrast is worth pausing on: **industry discussion locates the bottleneck at Layer 3, but these two aircraft were brought down by Layer 2 manufacturing quality.**
 
-**Three: the second one's root cause was a process, not a part.** "Failed to evaluate stocked and in-service old-model parts after a design change" is a gap in quality management, not a bad component. It won't show up on a spec sheet and it won't show up in flight testing — it shows up when one batch of old stock goes onto one aircraft and flies for a while. [The spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading) talks about "silent fields"; this is the most silent one.
+**Three: the second one's root cause was a process, not a part.** "Failed to evaluate stocked and in-service old-model parts after a design change" is a gap in quality management, not a bad component. It won't show up on a spec sheet and it won't show up in flight testing — it shows up when one batch of old stock goes onto one aircraft and flies for a while. [The spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) talks about "silent fields"; this is the most silent one.
 
 ## Below 25 kg: go read logs
 
 Small aircraft failures don't enter the TTSB statistics, but they aren't undocumented — **the open-source flight stack ecosystem made this public**.
 
-[PX4's Flight Review](https://docs.px4.io/main/en/log/flight_review) is the official log analysis tool: the `logger` module writes uORB topics into ULog files, uploadable for analysis and markable as public. [The software transition piece](/posts/career/2026-08-06-software-to-drone-transition) noted that reading "why this flight oscillated" out of a log is more persuasive than reciting control theory — here is what to actually read.
+[PX4's Flight Review](https://docs.px4.io/main/en/log/flight_review) is the official log analysis tool: the `logger` module writes uORB topics into ULog files, uploadable for analysis and markable as public. [The software transition piece](/posts/career/2026-08-06-software-to-drone-transition-en) noted that reading "why this flight oscillated" out of a log is more persuasive than reciting control theory — here is what to actually read.
 
 Per PX4's [flight log analysis guidance](https://docs.px4.io/main/en/log/flight_log_analysis), the three opening questions are:
 
@@ -181,6 +181,6 @@ But **that is an inference, not a conclusion.** The TTSB reports don't state the
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition-en)

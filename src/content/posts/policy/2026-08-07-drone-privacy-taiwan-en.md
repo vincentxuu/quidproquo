@@ -28,7 +28,7 @@ The Legislative Yuan's Legal Affairs Bureau published a research report in March
 
 The same report is more explicit still: "although the amendment established a dedicated drone chapter, it is **primarily concerned with flight safety and national security**."
 
-Set that beside what this series has already established. [The plain-language regulation piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) catalogued what the chapter governs — registration, licensing, prohibited zones, altitude limits, penalties; [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading) unpacked how weight thresholds decide your procedural track. **What that whole regime protects is property on the ground, other aircraft in the air, and national security. About the person behind the window, the chapter is silent.**
+Set that beside what this series has already established. [The plain-language regulation piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en) catalogued what the chapter governs — registration, licensing, prohibited zones, altitude limits, penalties; [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) unpacked how weight thresholds decide your procedural track. **What that whole regime protects is property on the ground, other aircraft in the air, and national security. About the person behind the window, the chapter is silent.**
 
 So privacy falls back on general law. And that reaches part of it.
 
@@ -74,7 +74,7 @@ The core of that doctrine: **individually public facts, accumulated, become a no
 
 And it is ready-made for drones. Photographing a street once is public; but a drone flying over the same neighbourhood at the same time each day, accumulating a comparable time series, falls within "dragnet surveillance" on this reasoning.
 
-Notably, that is exactly the property [the inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan) treated as a virtue — **repetition**. That piece concluded that "will it photograph the same thing a second time" determines whether an application can reach Layer 5. The same property, viewed from privacy, is the source of the risk: **what can grow a database can grow surveillance.**
+Notably, that is exactly the property [the inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan-en) treated as a virtue — **repetition**. That piece concluded that "will it photograph the same thing a second time" determines whether an application can reach Layer 5. The same property, viewed from privacy, is the source of the risk: **what can grow a database can grow surveillance.**
 
 The constitutional groundwork was laid long ago too. Per the [Legal Affairs Bureau report's](https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=6590&pid=192528) summary, **Interpretation No. 603** confirmed that privacy, though not enumerated in the Constitution, is protected under Article 22 as indispensable to human dignity and personal autonomy, dividing into "spatial privacy" and "intimate privacy"; **Interpretation No. 689** goes further — an individual **even in public space** enjoys, by ordinary social understanding, a sphere of private activity and informational autonomy free from persistent watching, monitoring, listening, or approach by others.
 
@@ -100,7 +100,7 @@ The second deserves attention, because the report also identified the current pr
 
 Put plainly: **flight information is logged; the people who can look it up don't include the people being flown over.**
 
-That contrasts pointedly with the transparency in [the question bank piece](/posts/policy/2026-08-07-caa-drone-exam-question-bank) — the same regulator published all 1,420 exam questions with answers, yet provides no interface for a member of the public to check what is flying above their home. **The transparency exists; it faces candidates, not neighbours.**
+That contrasts pointedly with the transparency in [the question bank piece](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en) — the same regulator published all 1,420 exam questions with answers, yet provides no interface for a member of the public to check what is flying above their home. **The transparency exists; it faces candidates, not neighbours.**
 
 ## What this piece doesn't cover
 
@@ -108,7 +108,7 @@ Marking the boundary honestly. Four other social-impact cells go untouched here:
 
 - **Noise and NIMBY effects**: multirotor noise has a spectrum unlike ordinary ambient sound, and perceived intrusiveness doesn't track decibels linearly
 - **Criminal misuse**: smuggling, prison deliveries, stalking and harassment
-- **Autonomous weapons ethics**: this series' [counter-drone](/posts/tech/2026-08-07-counter-drone-why-hard) and [defense budget](/posts/investing/2026-08-06-drone-defense-budget-map) pieces both stepped around the ethical dispute over AI terminal guidance
+- **Autonomous weapons ethics**: this series' [counter-drone](/posts/tech/2026-08-07-counter-drone-why-hard-en) and [defense budget](/posts/investing/2026-08-06-drone-defense-budget-map-en) pieces both stepped around the ethical dispute over AI terminal guidance
 - **Environmental and social costs of the industry's growth**
 
 Of these, "criminal misuse" has public judgments available and is the same class of material as this piece; the other two need a different kind of evidence.
@@ -134,9 +134,9 @@ Of these, "criminal misuse" has public judgments available and is the same class
 
 **On this site**
 
-- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
-- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan)
-- [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard)
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
+- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en)
+- [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)

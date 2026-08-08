@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/career/2026-08-06-software-to-drone-transition)
 
-[The job map](/posts/career/2026-08-06-drone-industry-job-map) placed the software entry point at Layer 3 of the supply chain but didn't answer "what's the first step." This piece takes that down to specific modules and parameters.
+[The job map](/posts/career/2026-08-06-drone-industry-job-map-en) placed the software entry point at Layer 3 of the supply chain but didn't answer "what's the first step." This piece takes that down to specific modules and parameters.
 
 **One caveat first: this is a skill-adjacency analysis derived from the technology stack and job descriptions, not an interview report.** I haven't interviewed anyone who made this transition, so "what interviewers actually screen for" and "how to negotiate salary" are outside what I can answer. What I can answer is which skills carry over, which need relearning, and what counts as knowing them.
 
@@ -87,7 +87,7 @@ Position setpoint → [position controller, P]  → velocity setpoint
 - **The Kalman filter family.** EKF2 is the core of this layer; understanding its state vector and observation model is the entry barrier.
 - **Control allocation.** Mixing is essentially solving a matrix pseudo-inverse (Moore-Penrose) — translating a torque demand like "yaw right" into per-motor speeds while respecting limits.
 
-**In one line**: the highest-return path ([the job map](/posts/career/2026-08-06-drone-industry-job-map) puts it among the least substitutable Layer 3 cells), but if you haven't touched control theory or state estimation since university, budget in quarters, not weeks.
+**In one line**: the highest-return path ([the job map](/posts/career/2026-08-06-drone-industry-job-map-en) puts it among the least substitutable Layer 3 cells), but if you haven't touched control theory or state estimation since university, budget in quarters, not weeks.
 
 ## Proving capability: three stages
 
@@ -100,7 +100,7 @@ PX4's middleware includes a simulation layer letting flight code run on a deskto
 PX4's `logger` module writes uORB topics into ULog files, uploadable to Flight Review for analysis. **Being able to read "why this flight oscillated" out of a log is more persuasive than reciting control theory** — and public logs are everywhere, so you don't need your own aircraft.
 
 **Stage three: actually fly**
-Only here do you need hardware and a [licence](/posts/policy/2026-08-06-taiwan-drone-license-guide). As [the job map](/posts/career/2026-08-06-drone-industry-job-map) noted, an engineer who can fly their own tests has a debug loop one round shorter — and that's hard to fake on a CV.
+Only here do you need hardware and a [licence](/posts/policy/2026-08-06-taiwan-drone-license-guide-en). As [the job map](/posts/career/2026-08-06-drone-industry-job-map-en) noted, an engineer who can fly their own tests has a debug loop one round shorter — and that's hard to fake on a CV.
 
 **The order is one, two, three — not three, one, two.** Many people assume they need hardware first; the first two stages already produce demonstrable work.
 
@@ -121,11 +121,11 @@ Taking [a public drone engineer listing](https://www.yourator.co/companies/valte
 
 ## Three honest caveats
 
-**One: scale.** [The job map](/posts/career/2026-08-06-drone-industry-job-map) ran the numbers — Taiwan's entire aviation industry projects roughly 267–296 new specialist positions a year, and drones are a slice of that. Good opportunity, small absolute volume. Don't picture internet-industry job density.
+**One: scale.** [The job map](/posts/career/2026-08-06-drone-industry-job-map-en) ran the numbers — Taiwan's entire aviation industry projects roughly 267–296 new specialist positions a year, and drones are a slice of that. Good opportunity, small absolute volume. Don't picture internet-industry job density.
 
 **Two: transferability matters more than industry outlook.** Path one (CV/edge AI) and path three (estimation and control) apply across robotics, automotive, and industrial control; path two's RTOS and driver experience does too. **Pick what you can carry out, not what only pays inside drones.**
 
-**Three: policy risk is real.** [Roughly 80% of output comes from public-sector and defense procurement](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers), so budget rhythm propagates into headcount. Asking an interviewer what share of revenue comes from public tenders is both reasonable and necessary.
+**Three: policy risk is real.** [Roughly 80% of output comes from public-sector and defense procurement](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en), so budget rhythm propagates into headcount. Asking an interviewer what share of revenue comes from public tenders is both reasonable and necessary.
 
 ## References
 
@@ -144,6 +144,6 @@ Taking [a public drone engineer listing](https://www.yourator.co/companies/valte
 
 **On this site**
 
-- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide)
+- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)

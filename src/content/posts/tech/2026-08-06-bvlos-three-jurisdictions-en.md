@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
 
-[The industry map](/posts/tech/2026-08-06-drone-industry-map) listed BVLOS regulation as one of two ceilings on drone scaling. This piece lays three jurisdictions side by side, and the spread is wider than I expected: **the EU can already fly, the US is waiting on a last mile, and Taiwan hasn't built the framework.**
+[The industry map](/posts/tech/2026-08-06-drone-industry-map-en) listed BVLOS regulation as one of two ceilings on drone scaling. This piece lays three jurisdictions side by side, and the spread is wider than I expected: **the EU can already fly, the US is waiting on a last mile, and Taiwan hasn't built the framework.**
 
 Definition first. **BVLOS — beyond visual line of sight — means flying past where the operator can see the aircraft.** It's a ceiling because without it, the unit economics of delivery and long-range inspection never close: the labor you save gets eaten by stationing an observer along every leg.
 
@@ -95,7 +95,7 @@ This is a **case-by-case permit model** with a one-quarter validity. It sits at 
 
 **First, Taiwan's "low-altitude economy" rhetoric runs ahead of its regulation.** Delivery drones, long-range pipeline inspection, cross-county logistics — under the current framework all of these can only run as demonstration operations under per-activity permits with three-month validity. They cannot become scalable business models. **Technology isn't the bottleneck; the institution is.**
 
-**Second, this is less damaging to Taiwan's export orientation than it sounds.** [Roughly 80% of Taiwan's drone output comes from public procurement and exports are just 22.9%](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers), with the Czech Republic, Poland, and the US as the main markets. **Exporting airframes and modules means selling into someone else's regulatory environment, not your own.** Taiwanese manufacturers are hurt less by the domestic BVLOS gap than you'd assume.
+**Second, this is less damaging to Taiwan's export orientation than it sounds.** [Roughly 80% of Taiwan's drone output comes from public procurement and exports are just 22.9%](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en), with the Czech Republic, Poland, and the US as the main markets. **Exporting airframes and modules means selling into someone else's regulatory environment, not your own.** Taiwanese manufacturers are hurt less by the domestic BVLOS gap than you'd assume.
 
 Who genuinely suffers is the **domestic service layer** — inspection DaaS, delivery operators, survey firms, the Layer 5 businesses. Their ceiling is Taiwanese regulation, not technology.
 
@@ -127,6 +127,6 @@ Who genuinely suffers is the **domestic service layer** — inspection DaaS, del
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)

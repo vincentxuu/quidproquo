@@ -135,44 +135,44 @@ This article is the overview for the drone series. Twenty-three companion pieces
 
 **Taiwan's supply chain**
 
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) — the five-layer framework applied to Taiwan, using a manufacturer's published BOM split to confirm the gap sits at Layer 3
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) — the five-layer framework applied to Taiwan, using a manufacturer's published BOM split to confirm the gap sits at Layer 3
 
 **Regulation**
 
-- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) — built from the currently effective statutory text, flagging which circulated rules are already outdated
-- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide) — three licence classes, the G1/G2/G3 groups, statutory fees, full timeline
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions) — this article's first ceiling, compared across three regimes
-- [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan) — why the chapter omits privacy, what the Criminal Code reaches, how courts define it, and why evidence is the real bottleneck
-- [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
+- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en) — built from the currently effective statutory text, flagging which circulated rules are already outdated
+- [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en) — three licence classes, the G1/G2/G3 groups, statutory fees, full timeline
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) — this article's first ceiling, compared across three regimes
+- [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en) — why the chapter omits privacy, what the Criminal Code reaches, how courts define it, and why evidence is the real bottleneck
+- [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
 
 **Industry judgment**
 
-- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history) — last cycle's wreckage, three structural differences and three identical warning signs
-- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models) — margin, cash conversion, and what limits each model's scale
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics) — real rates and entry costs in ag spraying, and the structural causes of price collapse and the regulatory ceiling
-- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value) — agriculture's counterpart: terrain writes the specification, drones fill the gap helicopters can't reach, and the budget problem of being uncomputable
-- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan) — quantified results from bridge, transmission tower, and rail viaduct inspection, and why segmented work routes around visual-line-of-sight rules
-- [Taiwan Already Has 24 Drone Logistics Corridors — It Didn't Take the Wait-for-Regulation Route](/posts/product/2026-08-07-drone-logistics-taiwan) — six years of phased progress, and why case-by-case approval works for logistics but obstructs inspection
+- [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history-en) — last cycle's wreckage, three structural differences and three identical warning signs
+- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models-en) — margin, cash conversion, and what limits each model's scale
+- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en) — real rates and entry costs in ag spraying, and the structural causes of price collapse and the regulatory ceiling
+- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en) — agriculture's counterpart: terrain writes the specification, drones fill the gap helicopters can't reach, and the budget problem of being uncomputable
+- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en) — quantified results from bridge, transmission tower, and rail viaduct inspection, and why segmented work routes around visual-line-of-sight rules
+- [Taiwan Already Has 24 Drone Logistics Corridors — It Didn't Take the Wait-for-Regulation Route](/posts/product/2026-08-07-drone-logistics-taiwan-en) — six years of phased progress, and why case-by-case approval works for logistics but obstructs inspection
 
 **People and careers**
 
-- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map) — job roles back inside the five-layer framework, tagged with software transferability
-- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition) — how much friction each of the three transition paths carries, and the order for proving capability with SITL and real logs
-- [Four Ways to Learn Drones in Taiwan: Universities, Licences, Competitions, and Vocational Training](/posts/education/2026-08-06-taiwan-drone-education-paths) — the course system, competition design, and advice by situation
-- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics) — alliance membership, R&D grants, certification order, and tender mechanics, plus what public data cannot answer
+- [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map-en) — job roles back inside the five-layer framework, tagged with software transferability
+- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition-en) — how much friction each of the three transition paths carries, and the order for proving capability with SITL and real logs
+- [Four Ways to Learn Drones in Taiwan: Universities, Licences, Competitions, and Vocational Training](/posts/education/2026-08-06-taiwan-drone-education-paths-en) — the course system, competition design, and advice by situation
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en) — alliance membership, R&D grants, certification order, and tender mechanics, plus what public data cannot answer
 
 **Reading the public record yourself**
 
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading) — five weight thresholds, the three modules regulation uses to decide two drones are the same drone, and three public registries worth checking
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy) — what the 25 kg statistical threshold means, the failure chains in both occurrences, and which PX4 log signals to read
-- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank) — the policy shift behind 1,420 published questions, and the regulatory mental model the content exposes
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) — five weight thresholds, the three modules regulation uses to decide two drones are the same drone, and three public registries worth checking
+- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en) — what the 25 kg statistical threshold means, the failure chains in both occurrences, and which PX4 log signals to read
+- [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en) — the policy shift behind 1,420 published questions, and the regulatory mental model the content exposes
 - [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en) — numbers from building both flight stacks once: licensing, extension point, board coverage, twelve months of contributor structure, and what an in-house flight controller actually means
 
 **Frameworks and money**
 
-- [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) — one ruler applied to the sector, plus three concrete risk categories
-- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map) — grants, procurement, and annual budgets compared on nature and certainty
-- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials) — 38% gross margin but three straight quarters of operating loss, 385 days of inventory, capacity funded by equity, and the cost of a failed acceptance
+- [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) — one ruler applied to the sector, plus three concrete risk categories
+- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map-en) — grants, procurement, and annual budgets compared on nature and certainty
+- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en) — 38% gross margin but three straight quarters of operating loss, 385 days of inventory, capacity funded by equity, and the cost of a failed acceptance
 
 Every post in the series carries the `drone` tag — browse them all at [#drone](/tags/drone).
 

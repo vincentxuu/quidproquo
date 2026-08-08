@@ -22,7 +22,7 @@ Three, **the sample is one company.** A single company's numbers can't represent
 
 ## I assumed this needed an interview
 
-Writing [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics), I closed with six questions "public data cannot answer." The first two:
+Writing [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en), I closed with six questions "public data cannot answer." The first two:
 
 > What are **actual gross margins** on military-grade-commercial tenders? How far off commercial orders?
 > What is the **real cycle** from submission to cash received? How heavy is the receivables burden?
@@ -31,7 +31,7 @@ And then I filed them under "needs an industry interview."
 
 That was wrong. **Both are filing questions.** Taiwanese listed companies publish quarterly income statements, balance sheets, and cash flow statements. Gross margin computes directly; the cash cycle follows from receivables, inventory, and payables. I had misread "I don't have these numbers" as "these numbers aren't public."
 
-More awkwardly: I had already used this method in [the business models piece](/posts/product/2026-08-06-drone-business-models) — comparing India's Garuda at 351 days of cash conversion against defense-focused peers at 597. **I knew the method. It just didn't occur to me to run it on a Taiwanese company.**
+More awkwardly: I had already used this method in [the business models piece](/posts/product/2026-08-06-drone-business-models-en) — comparing India's Garuda at 351 days of cash conversion against defense-focused peers at 597. **I knew the method. It just didn't occur to me to run it on a Taiwanese company.**
 
 So here it is.
 
@@ -45,7 +45,7 @@ Take a listed company whose operations centre on drones, uncrewed surface vessel
 | Gross profit | 164,148 | 112,913 | 123,496 | 143,311 |
 | **Gross margin** | **39.2%** | **34.7%** | **35.8%** | **38.2%** |
 
-35–39%. That's interesting because it lands squarely inside the band [the business models piece](/posts/product/2026-08-06-drone-business-models) established: **35–55% for hardware, 60–80% for software and DaaS.** Which is to say, a Taiwanese manufacturer's margin on defense-grade hardware is not fundamentally different from global hardware norms — **no imagined windfall, and no imagined sweatshop either**.
+35–39%. That's interesting because it lands squarely inside the band [the business models piece](/posts/product/2026-08-06-drone-business-models-en) established: **35–55% for hardware, 60–80% for software and DaaS.** Which is to say, a Taiwanese manufacturer's margin on defense-grade hardware is not fundamentally different from global hardware norms — **no imagined windfall, and no imagined sweatshop either**.
 
 So far, the answer is "margin's fine."
 
@@ -98,7 +98,7 @@ Cash conversion cycle    ≈ 45 + 385 − 54          ≈ 377 days
 
 **About 377 days.** From paying for materials to collecting from the customer, you fund more than a year.
 
-Against the international figures in [the business models piece](/posts/product/2026-08-06-drone-business-models) — Garuda at 351 days on a DaaS-led model, defense-focused peers at 597 — 377 sits in between and behaves like the latter.
+Against the international figures in [the business models piece](/posts/product/2026-08-06-drone-business-models-en) — Garuda at 351 days on a DaaS-led model, defense-focused peers at 597 — 377 sits in between and behaves like the latter.
 
 And days sales outstanding is only 45. **That matters: the problem is not slow-paying customers.** Public sector payment is actually not slow. The money is stuck in inventory.
 
@@ -110,7 +110,7 @@ The last row above is contract liabilities — customer prepayments — at NT$39
 
 What this line means matters more than its size: **customers in this business essentially do not prepay.** You don't receive money to buy materials with; you spend your own, build, submit for acceptance, and only then collect.
 
-Put that alongside the Army counter-drone case from [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) and the lethality becomes clear: awarded at NT$987.81 million, specified to detect a 10 cm² target at 6 km and jam at 4 km; acceptance and two re-tests all failed; **the contract was terminated in full with no payment, and roughly NT$98.78 million in performance bond forfeited.**
+Put that alongside the Army counter-drone case from [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) and the lethality becomes clear: awarded at NT$987.81 million, specified to detect a 10 cm² target at 6 km and jam at 4 km; acceptance and two re-tests all failed; **the contract was terminated in full with no payment, and roughly NT$98.78 million in performance bond forfeited.**
 
 Translated into the language of the filings: **you carried more than a year of inventory, the revenue matching that inventory is zero, and you additionally forfeit 10% of the award.** That isn't "earning less" — it's burning a year of working capital and then paying on top.
 
@@ -134,7 +134,7 @@ Finally, the cash flow statement (NT$ thousands):
 
 That's the third structural feature, and it links to the first two: orders come from tenders, tenders require existing capacity and track record, and capacity has to be paid for first — **capital expenditure must run ahead of orders.** With operating cash flow negative in three quarters of 2025, that rhythm can only be funded by raising equity.
 
-Which loops back to why [the defense budget piece](/posts/investing/2026-08-06-drone-defense-budget-map) insisted on distinguishing the three funding pools: for a company that must build capacity first, "grants" (funded but not orders) and "procurement" (orders, but not passed yet) mean entirely different things on a cash flow statement.
+Which loops back to why [the defense budget piece](/posts/investing/2026-08-06-drone-defense-budget-map-en) insisted on distinguishing the three funding pools: for a company that must build capacity first, "grants" (funded but not orders) and "procurement" (orders, but not passed yet) mean entirely different things on a cash flow statement.
 
 ## A contrast case
 
@@ -144,7 +144,7 @@ Over the same period, an AI server contract manufacturer posted gross margins of
 
 The drone manufacturer here has gross margins of 35–39%, four to five times higher, and a negative operating margin.
 
-The difference isn't what business they're in — it's **whether scale absorbs the expense base**. That was the more abstract part of [the business models piece](/posts/product/2026-08-06-drone-business-models) on conditions for scaling; two income statements side by side make it concrete: **gross margin sets your ceiling, expense structure determines where you currently stand.**
+The difference isn't what business they're in — it's **whether scale absorbs the expense base**. That was the more abstract part of [the business models piece](/posts/product/2026-08-06-drone-business-models-en) on conditions for scaling; two income statements side by side make it concrete: **gross margin sets your ceiling, expense structure determines where you currently stand.**
 
 ## What this method answers, and what it doesn't
 
@@ -152,7 +152,7 @@ The difference isn't what business they're in — it's **whether scale absorbs t
 
 **It doesn't answer**: what the non-operating items consist of (that needs the notes), the exact share of drones in total revenue (that needs segment and product-mix disclosure), how far tender margins diverge from commercial-order margins (filings don't disaggregate that far), and most importantly — **why this company chose this path.**
 
-And the sample caveat again: **this is one company.** An established listed company in transition, a five-person startup, and a second-tier module maker may have entirely different economics. Talking about the industry would mean running this on every one of [the 267 companies](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) with public filings — that's a different article.
+And the sample caveat again: **this is one company.** An established listed company in transition, a five-person startup, and a second-tier module maker may have entirely different economics. Talking about the industry would mean running this on every one of [the 267 companies](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) with public filings — that's a different article.
 
 What genuinely remains for interviews is small: motive, decision process, how relationships work, what happens when you're turned down. **Numbers can't answer "why," but "how much" doesn't require asking anyone.**
 
@@ -176,8 +176,8 @@ What genuinely remains for interviews is small: motive, decision process, how re
 
 **On this site**
 
-- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models)
-- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
-- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map)
-- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models-en)
+- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
+- [Following Taiwan's Drone Defense Money: Three Budgets and a Bill Stuck for Two Months](/posts/investing/2026-08-06-drone-defense-budget-map-en)
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)

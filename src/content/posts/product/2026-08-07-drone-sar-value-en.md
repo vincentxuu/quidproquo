@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-sar-value)
 
-[The agricultural spraying piece](/posts/product/2026-08-07-agri-drone-unit-economics) concluded that agriculture is the only drone application with computable ROI, and that being computable is both why it scaled and why its prices collapsed.
+[The agricultural spraying piece](/posts/product/2026-08-07-agri-drone-unit-economics-en) concluded that agriculture is the only drone application with computable ROI, and that being computable is both why it scaled and why its prices collapsed.
 
 This is its counterpart. **Search and rescue sits at the other extreme — it doesn't even have a denominator.**
 
@@ -42,8 +42,8 @@ Set against other pieces in this series, the gap is stark:
 
 | Contract | Amount |
 |---|---|
-| Army's 26 fixed counter-drone systems ([terminated in full](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)) | NT$987.81 million |
-| NPA's 50 counter-drone systems for critical infrastructure ([graded award](/posts/career/2026-08-06-drone-market-entry-mechanics)) | NT$3.67 billion (total budget) |
+| Army's 26 fixed counter-drone systems ([terminated in full](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)) | NT$987.81 million |
+| NPA's 50 counter-drone systems for critical infrastructure ([graded award](/posts/career/2026-08-06-drone-market-entry-mechanics-en)) | NT$3.67 billion (total budget) |
 | **MOI's three years: disaster + public order + training** | **NT$620 million** |
 | **Fire agency's 44 complex-terrain drones (phase 2)** | **NT$18.4 million** |
 
@@ -51,7 +51,7 @@ Set against other pieces in this series, the gap is stark:
 
 ## Terrain writes the specification, not performance
 
-This is the technically most interesting part, and it locks directly onto [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading).
+This is the technically most interesting part, and it locks directly onto [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en).
 
 Per [TVBS in February 2026](https://news.tvbs.com.tw/local/3131121), fire agency senior inspector Ma Wu-hsiung described these portable complex-terrain drones this way:
 
@@ -61,7 +61,7 @@ Per [TVBS in February 2026](https://news.tvbs.com.tw/local/3131121), fire agency
 
 An ordinary spec sheet competes on endurance in minutes, transmission range in kilometres, camera resolution in megapixels. The core specification here is **the absence of a capability** — no GPS dependence. The reason isn't technical showmanship, it's that **mountain signal drops**. Omnidirectional avoidance isn't a bonus feature either; it's that **you must thread through trees**.
 
-[The spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading) quoted the Drone Cybersecurity Testing Specification defining a product series by "flight control, communications, and satellite positioning modules." Mountain rescue hands those three modules a hard exam: **the satellite positioning cell may be empty in this environment, and flight control has to carry it alone.** Which is precisely the companion computer layer from [the software transition piece](/posts/career/2026-08-06-software-to-drone-transition) — visual positioning, edge inference, live relay, all of it landing on that side of the architecture.
+[The spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) quoted the Drone Cybersecurity Testing Specification defining a product series by "flight control, communications, and satellite positioning modules." Mountain rescue hands those three modules a hard exam: **the satellite positioning cell may be empty in this environment, and flight control has to carry it alone.** Which is precisely the companion computer layer from [the software transition piece](/posts/career/2026-08-06-software-to-drone-transition-en) — visual positioning, edge inference, live relay, all of it landing on that side of the architecture.
 
 The same report records other tested characteristics: after a night launch the controller shows a full 360-degree view; a person in the water appears immediately in thermal mode; a person on grassland is identified at once. New Taipei emergency rescue association team leader Yang Min-cheng adds that within effective range it distinguishes body shapes, tents, and color blocks, and that **AI recognition serves to assist human judgment — because "the human eye is affected by environmental factors."**
 
@@ -77,7 +77,7 @@ And the corps' own description of the Black Hawk contains a key limitation: its 
 
 That is exactly the gap drones fill. **They are not a helicopter substitute; they are the forward element for places helicopters cannot reach.** And the direction runs the opposite way from what people assume — not sending a drone to save a helicopter sortie, but **sending a drone to decide whether to launch the helicopter, and where.**
 
-Which explains why the fire agency program's centre of gravity isn't the aircraft but the "**drone search and rescue imagery management platform**" and the AI dispatch system. **The value of this application lives in dispatch decisions, not in flying.** In [the industry map's](/posts/tech/2026-08-06-drone-industry-map) framework it is natively a Layer 5 problem — data and services — that happens to be procured under a Layer 4 line item.
+Which explains why the fire agency program's centre of gravity isn't the aircraft but the "**drone search and rescue imagery management platform**" and the AI dispatch system. **The value of this application lives in dispatch decisions, not in flying.** In [the industry map's](/posts/tech/2026-08-06-drone-industry-map-en) framework it is natively a Layer 5 problem — data and services — that happens to be procured under a Layer 4 line item.
 
 ## And then the budget was targeted
 
@@ -120,9 +120,9 @@ Against agriculture: an operator can compute "NT$1.3 million of equipment, NT$6,
 
 **On this site**
 
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics)
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition)
-- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
-- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics)
+- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+- [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition-en)
+- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)

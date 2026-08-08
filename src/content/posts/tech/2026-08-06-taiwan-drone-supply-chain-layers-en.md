@@ -14,7 +14,7 @@ draft: false
 
 "Taiwan has 267 drone companies" has been quoted endlessly over the past six months. Very few people ask the follow-up: what are those 267 companies actually doing?
 
-This piece fills in the gap I deliberately left in [the drone industry map](/posts/tech/2026-08-06-drone-industry-map). That article broke the global supply chain into five layers and argued the value concentrates in Layer 3 — flight control, comms links, and EO/IR payloads. This one puts Taiwan into the same framework to see which cell it actually occupies.
+This piece fills in the gap I deliberately left in [the drone industry map](/posts/tech/2026-08-06-drone-industry-map-en). That article broke the global supply chain into five layers and argued the value concentrates in Layer 3 — flight control, comms links, and EO/IR payloads. This one puts Taiwan into the same framework to see which cell it actually occupies.
 
 ## Where the 267 companies are
 
@@ -184,4 +184,4 @@ If I could follow only one number, it would be **exports as a share of total out
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)

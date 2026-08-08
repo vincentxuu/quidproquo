@@ -14,7 +14,7 @@ draft: false
 
 **Up front**: this is budget-process and industry-structure analysis, not investment advice. No tickers, no timing.
 
-[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) noted that ~80% of Taiwan's drone output comes from public procurement, which makes budget continuity the sector's dominant variable. This article unpacks that sentence: **which budgets exist, what they buy, where they're stuck, and when money might move.**
+[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) noted that ~80% of Taiwan's drone output comes from public procurement, which makes budget continuity the sector's dominant variable. This article unpacks that sentence: **which budgets exist, what they buy, where they're stuck, and when money might move.**
 
 Following the money starts with separating three verbs: **appropriated, disbursed, recognized**. Years can separate them, and most industry coverage only reports the first.
 
@@ -49,7 +49,7 @@ Worth recording in full, because it demonstrates exactly what the interruption m
 
 **Note the date in that last row.** The draft's period was written to start on 1 August 2026. That date has passed and the statute is still in negotiation.
 
-This is what the gap between "policy demand" and "structural demand" from [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) looks like in practice — **demand didn't disappear, the disbursement mechanism jammed**, and the reasons have nothing to do with drones (the disputes are special budget vs. annual budget, and which ministry should administer it).
+This is what the gap between "policy demand" and "structural demand" from [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) looks like in practice — **demand didn't disappear, the disbursement mechanism jammed**, and the reasons have nothing to do with drones (the disputes are special budget vs. annual budget, and which ministry should administer it).
 
 ## The Executive Yuan version buys only three items
 
@@ -74,7 +74,7 @@ Assembling the scattered procurement plans:
 - **NT$6.887 billion of militarized-commercial drone procurement was completed in 2024**
 - **The National Police Agency's critical infrastructure counter-drone tender**: 50 systems, NT$3.67 billion, qualification round on 24 July 2026
 
-That last one's award design deserves separate note: per [UP Media](https://www.upmedia.mg/tw/investigation/military/263412), systems are graded A, B, and C by verified capability, with the top three in each grade delivering proportionally and **up to 9 vendors winning**; NCSIST manages the project but cannot bid. Deliberate distribution, not concentration — [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) covered how that compresses any single vendor's upside. (in Chinese)
+That last one's award design deserves separate note: per [UP Media](https://www.upmedia.mg/tw/investigation/military/263412), systems are graded A, B, and C by verified capability, with the top three in each grade delivering proportionally and **up to 9 vendors winning**; NCSIST manages the project but cannot bid. Deliberate distribution, not concentration — [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) covered how that compresses any single vendor's upside. (in Chinese)
 
 ## Three paths, very different certainty
 
@@ -88,7 +88,7 @@ That last one's award design deserves separate note: per [UP Media](https://www.
 
 ## Three risks specific to budget process
 
-[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) already covered acceptance risk (the Army's NT$988M counter-drone contract failing three times and being terminated in full). Three more belong to the budget process itself:
+[The four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) already covered acceptance risk (the Army's NT$988M counter-drone contract failing three times and being terminated in full). Three more belong to the budget process itself:
 
 **One: legislative risk isn't "will it pass" but "in what form."** The Executive Yuan version runs on a special budget; the KMT version on annual appropriations at NT$40 billion a year; the TPP version on regular appropriations. Three forms, three capacity-planning rhythms for suppliers. Koo said it himself — if the government version fails, "we'll have no choice but to put it in the annual budget," while objecting to boxing all unmanned vehicles inside NT$40 billion a year. **The form change changes the annual executable ceiling.**
 
@@ -132,6 +132,6 @@ What these three share: **they all sit in the legislature, not in the industry.*
 
 **On this site**
 
-- [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models)
+- [The Drone Supply Chain Against a Four-Criteria Framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models-en)

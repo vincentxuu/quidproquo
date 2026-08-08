@@ -14,9 +14,9 @@ draft: false
 
 "The drone industry is hot — should I go into it?" can't be answered as asked, because **the drone industry is not one job market, it's five.** A Layer 2 propulsion engineer and a Layer 3 flight control firmware engineer share almost nothing in required skills, substitutability, or pay structure. The products just look similar.
 
-This piece arranges roles along the five-layer framework from [the industry map](/posts/tech/2026-08-06-drone-industry-map), tagging each with the thing most useful to this site's readers: **how transferable a software background is.**
+This piece arranges roles along the five-layer framework from [the industry map](/posts/tech/2026-08-06-drone-industry-map-en), tagging each with the thing most useful to this site's readers: **how transferable a software background is.**
 
-The short version: **software people enter at Layer 3, and Layer 3 is exactly [where Taiwan is short](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers).** That's the good news. The scale is the bad news.
+The short version: **software people enter at Layer 3, and Layer 3 is exactly [where Taiwan is short](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en).** That's the good news. The scale is the bad news.
 
 ## Check the scale before the hype
 
@@ -66,7 +66,7 @@ BOM management, module interface definition, whole-aircraft validation, supplier
 
 **⑧ Flight test engineer / test pilot**
 Designing test cases, flying the aircraft, collecting telemetry, analyzing anomalies. This role has a distinctive gate: **you have to actually be able to fly.**
-One [drone engineer listing on Yourator](https://www.yourator.co/companies/valtec/jobs/37748) lists "participate in flight testing, collect data and analyze it" among its primary responsibilities. Holding a [CAA operator licence](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) is a clear plus on the R&D side — an engineer who can fly their own tests has a debug loop one round shorter than everyone else. (in Chinese)
+One [drone engineer listing on Yourator](https://www.yourator.co/companies/valtec/jobs/37748) lists "participate in flight testing, collect data and analyze it" among its primary responsibilities. Holding a [CAA operator licence](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en) is a clear plus on the R&D side — an engineer who can fly their own tests has a debug loop one round shorter than everyone else. (in Chinese)
 *Software transferability: medium.* The skills are learnable, but you have to actually get certified and actually fly.
 
 **⑨ Certification and compliance engineer**
@@ -94,7 +94,7 @@ Government procurement, defense bids, interagency coordination, contract executi
 
 1. **Pick a layer, not an industry.** "Go into drones" is not a decision; "do Layer 3 flight control or edge AI" is. The first gets you placed in whatever opening exists; the second accumulates skills you can carry out.
 2. **Policy dependence is a real career risk.** Eighty percent of output from public procurement means budget rhythm propagates into headcount planning. Asking an interviewer what share of revenue comes from public tenders is both reasonable and necessary.
-3. **Get a licence; it's cheap.** The written test fee is NT$200, and [a general licence requires only the written test](/posts/policy/2026-08-06-taiwan-drone-regulation-guide). Even if you never switch careers, it means you discuss this industry from hands-on experience rather than from headlines.
+3. **Get a licence; it's cheap.** The written test fee is NT$200, and [a general licence requires only the written test](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en). Even if you never switch careers, it means you discuss this industry from hands-on experience rather than from headlines.
 
 ## References
 
@@ -116,6 +116,6 @@ Government procurement, defense bids, interagency coordination, contract executi
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+- [Taiwan's Drone Rules in Plain Language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)

@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-07-counter-drone-why-hard)
 
-This series has brushed against counter-drone three times: [the industry map](/posts/tech/2026-08-06-drone-industry-map) sized the market, [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) dissected the Army contract that was terminated in full, and [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics) dissected the National Police Agency's graded award. **Three times, and never a dedicated piece.**
+This series has brushed against counter-drone three times: [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) sized the market, [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) dissected the Army contract that was terminated in full, and [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en) dissected the National Police Agency's graded award. **Three times, and never a dedicated piece.**
 
 Here it is. One question: **what actually makes countering drones hard?**
 
@@ -61,7 +61,7 @@ Electronic warfare has long been the workhorse — cheap, repeatable, no falling
 
 And three methods are now **systematically removing that signal**:
 
-**One: fiber-optic control.** The drone trails a physical fiber; control signals travel through glass, not air, making it **completely immune to electronic jamming**. This is not a laboratory concept — [the industry map](/posts/tech/2026-08-06-drone-industry-map) cited frontline researcher Rob Lee's observation that **30–50% of FPVs in some Russian units are fiber-guided**, with the Ukrainian figure around 15%.
+**One: fiber-optic control.** The drone trails a physical fiber; control signals travel through glass, not air, making it **completely immune to electronic jamming**. This is not a laboratory concept — [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) cited frontline researcher Rob Lee's observation that **30–50% of FPVs in some Russian units are fiber-guided**, with the Ukrainian figure around 15%.
 
 **Two: satellite communications.** The link goes overhead; a ground jammer's power never reaches it.
 
@@ -89,11 +89,11 @@ The market numbers reflect the shift. [MarketsandMarkets estimates](https://www.
 
 ## Taiwan's first layer: writing a specification isn't meeting one
 
-Back to the contract dissected in [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria). Twenty-six fixed counter-drone systems for the Army, awarded at NT$987.81 million, specified to **detect a 10 cm² target at 6 km and jam at 4 km**. Acceptance testing and two re-tests all failed; the contract was terminated in full with no payment and roughly NT$98.78 million in performance bond forfeited.
+Back to the contract dissected in [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en). Twenty-six fixed counter-drone systems for the Army, awarded at NT$987.81 million, specified to **detect a 10 cm² target at 6 km and jam at 4 km**. Acceptance testing and two re-tests all failed; the contract was terminated in full with no payment and roughly NT$98.78 million in performance bond forfeited.
 
 Put that specification against the detection difficulties above and its severity is clear: 10 cm² at 6 km is roughly a palm-sized object six kilometres away — an extreme demand on radar cross section, electro-optical resolution, and clutter rejection all at once. **A specification is one static line of text; meeting it is a moving engineering problem.**
 
-The National Police Agency contract from [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics) took the opposite approach: 50 systems for critical infrastructure, NT$3.67 billion total, graded A/B/C by the **functional scope** that passed verification, top three in each grade delivering proportionally, up to 9 vendors winning.
+The National Police Agency contract from [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en) took the opposite approach: 50 systems for critical infrastructure, NT$3.67 billion total, graded A/B/C by the **functional scope** that passed verification, top three in each grade delivering proportionally, up to 9 vendors winning.
 
 Side by side, these are two answers to the same question: **facing a technology area with no general solution, do you bet on one vendor meeting the full specification, or spread across several each covering a segment?** The Army's outcome goes some way to explaining why the police graded theirs.
 
@@ -176,7 +176,7 @@ The practical difference is real: **invoking self-defense concedes that an armed
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
-- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics)
-- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
+- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)

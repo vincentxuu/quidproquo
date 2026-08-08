@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-inspection-taiwan)
 
-After [agricultural spraying](/posts/product/2026-08-07-agri-drone-unit-economics) and [disaster response](/posts/product/2026-08-07-drone-sar-value), I had planned to combine inspection, logistics, and surveying into one piece called "three applications stuck behind the same door" — because [the industry map](/posts/tech/2026-08-06-drone-industry-map) said inspection had "steady demand, stuck on compliance," and [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions) established that Taiwan has no BVLOS framework at all.
+After [agricultural spraying](/posts/product/2026-08-07-agri-drone-unit-economics-en) and [disaster response](/posts/product/2026-08-07-drone-sar-value-en), I had planned to combine inspection, logistics, and surveying into one piece called "three applications stuck behind the same door" — because [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) said inspection had "steady demand, stuck on compliance," and [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) established that Taiwan has no BVLOS framework at all.
 
 **After the research that piece no longer exists.** Inspection isn't stuck in Taiwan; it is the furthest along of the three application areas, with numbers hard enough not to need any rhetoric.
 
@@ -54,7 +54,7 @@ Now the question. The answer is far more precise than the word "compliance."
 - Towers run along a line but can be flown in segments, with the operator moving along
 - Each THSR sortie is a 2–3 km round trip in 20–25 minutes: one work unit, not a journey
 
-What [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions) documented about Taiwan's regime is that it blocks **genuine beyond-visual-line-of-sight** — the kind requiring juridical-person status, an application 15 days in advance, and a three-month permit. Segmented fixed-point inspection can be completed within visual line of sight or within observer coverage, **and never has to enter that door at all.**
+What [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) documented about Taiwan's regime is that it blocks **genuine beyond-visual-line-of-sight** — the kind requiring juridical-person status, an application 15 days in advance, and a three-month permit. Segmented fixed-point inspection can be completed within visual line of sight or within observer coverage, **and never has to enter that door at all.**
 
 Logistics has no such option. Last-mile delivery is by definition "fly from A to B while you can't see it." **The same regulatory threshold is barely an obstacle to segmentable work and a total blockade to work that cannot be segmented.**
 
@@ -80,15 +80,15 @@ Lined up, the three applications form a spectrum of value:
 
 | Application | Can the benefit be converted to money? |
 |---|---|
-| [Ag spraying](/posts/product/2026-08-07-agri-drone-unit-economics) | Entirely (NT$150–300 per fen against NT$200 manual) |
+| [Ag spraying](/posts/product/2026-08-07-agri-drone-unit-economics-en) | Entirely (NT$150–300 per fen against NT$200 manual) |
 | **Inspection** | **Half yes** (cost to 60%, headcount to a quarter) **and half no** (fewer strike incidents) |
-| [Disaster response](/posts/product/2026-08-07-drone-sar-value) | Not at all (a life recovered has no price) |
+| [Disaster response](/posts/product/2026-08-07-drone-sar-value-en) | Not at all (a life recovered has no price) |
 
 **Inspection sits at the midpoint of that spectrum, and the midpoint is the easiest position to sell** — it has enough numbers to persuade finance and enough lives to persuade leadership. Spraying only has the first; rescue only has the second.
 
 ## It is the only application that genuinely reached Layer 5
 
-[The industry map](/posts/tech/2026-08-06-drone-industry-map) put value at Layers 3 and 5, with Layer 5 being "turning flight data into a usable conclusion." Of Taiwan's three applications, **only inspection is actually doing this, and has been for years.**
+[The industry map](/posts/tech/2026-08-06-drone-industry-map-en) put value at Layers 3 and 5, with Layer 5 being "turning flight data into a usable conclusion." Of Taiwan's three applications, **only inspection is actually doing this, and has been for years.**
 
 - **Highway Bureau**: over 20,000 training images behind the AI degradation analysis, generating inspection reports automatically
 - **THSR**: a digital imagery management system that screens large photo sets, annotates anomalies, generates inspection reports automatically, and applies automated degradation analysis to flag potential problem areas early
@@ -97,7 +97,7 @@ Lined up, the three applications form a spectrum of value:
 
 Taipower's system deserves a second look because what it manages **isn't data, it's compliance.** Section chief Hsu Yi-feng acknowledged that before it, drone records were "managed in something like Excel form, fairly scattered."
 
-Past a certain fleet size, **licence expiry, airspace applications, and insurance status become operational risk** — which is what the compliance cost from [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics) looks like on the enterprise side. A spraying operator can skip it (and become one of the unlicensed). Taipower cannot.
+Past a certain fleet size, **licence expiry, airspace applications, and insurance status become operational risk** — which is what the compliance cost from [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en) looks like on the enterprise side. A spraying operator can skip it (and become one of the unlicensed). Taipower cannot.
 
 **Inspection reaches Layer 5 because it repeats.** The same bridge is photographed every two years, the same tower flown several times a year; a time series forms naturally, and only then is there degradation to compare. Spraying leaves nothing behind once the pass is done; rescue is a sparse event whose sample takes many years to build.
 
@@ -115,9 +115,9 @@ The same theme surfaced in bridge inspection — ITRI staff emphasized at the de
 
 In 2021 Hung Kuang University associate professor Chang Cheng-jung led a team that, [working with Taipower and engineers from AVIX Technology, flew an AVIX AXH-E230 single-rotor helicopter across the Central Mountain Range](https://www.cna.com.tw/news/aloc/202203210061.aspx), covering **46.5 km in one hour and inspecting 79 high-voltage towers**, climbing from around 800 metres to over 3,000.
 
-The AXH-E230 is exactly the model in both TTSB investigations from [the crash anatomy piece](/posts/tech/2026-08-07-drone-crash-anatomy). That isn't coincidence — it is one of the few large unmanned helicopters in Taiwan capable of this class of mission. **The same aircraft appearing in both a "first of its kind" story and an accident report is itself a statement about the industry's maturity.**
+The AXH-E230 is exactly the model in both TTSB investigations from [the crash anatomy piece](/posts/tech/2026-08-07-drone-crash-anatomy-en). That isn't coincidence — it is one of the few large unmanned helicopters in Taiwan capable of this class of mission. **The same aircraft appearing in both a "first of its kind" story and an accident report is itself a statement about the industry's maturity.**
 
-And Chang's description of the method belongs to the same terrain-driven specification family as the "no GPS dependence" in [the rescue piece](/posts/product/2026-08-07-drone-sar-value):
+And Chang's description of the method belongs to the same terrain-driven specification family as the "no GPS dependence" in [the rescue piece](/posts/product/2026-08-07-drone-sar-value-en):
 
 > There is no wireless coverage in the high mountains and no way to monitor continuously, so the only option is **"silent flight"** — the drone navigates autonomously with the link down, then flies back once the mission is complete.
 
@@ -146,9 +146,9 @@ The same team also worked with ITRI's materials institute on a hydrogen fuel cel
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics)
-- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value)
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy)
-- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en)
+- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+- [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)

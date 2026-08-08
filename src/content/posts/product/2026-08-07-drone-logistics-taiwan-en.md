@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-logistics-taiwan)
 
-At the end of [the inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan) I offered a guess: logistics was probably "no real commercial case in Taiwan, and the reason is that BVLOS door."
+At the end of [the inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan-en) I offered a guess: logistics was probably "no real commercial case in Taiwan, and the reason is that BVLOS door."
 
 **Wrong again.** And this time more interestingly — because the way logistics routes around that door is the mirror image of inspection.
 
@@ -57,13 +57,13 @@ The third is the design core, which the IOT summarizes in one line: **"accumulat
 
 Now the question.
 
-[The inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan) concluded that inspection routes around BVLOS by **cutting work into units completable within visual line of sight** — one bridge, one line segment, one 2-to-3 km round trip.
+[The inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan-en) concluded that inspection routes around BVLOS by **cutting work into units completable within visual line of sight** — one bridge, one line segment, one 2-to-3 km round trip.
 
 Logistics cannot cut that way. Delivering from A to B while you can't see it is the definition of last-mile.
 
 So it took the other route: **one corridor at a time, approved case by case.**
 
-Twenty-four corridors across 10 approvals — which is precisely the "one waiver at a time" model [the industry map](/posts/tech/2026-08-06-drone-industry-map) criticized when discussing inspection, saying it "prevents repeated fixed-route work from scaling."
+Twenty-four corridors across 10 approvals — which is precisely the "one waiver at a time" model [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) criticized when discussing inspection, saying it "prevents repeated fixed-route work from scaling."
 
 **That criticism holds for inspection and fails for remote-area logistics**, and the difference is the shape of the demand:
 
@@ -98,9 +98,9 @@ The county government's fuller framing: when swells prevent a rescue boat from s
 
 | Application | Source of value |
 |---|---|
-| [Ag spraying](/posts/product/2026-08-07-agri-drone-unit-economics) | Cheaper than manual (NT$150–300 per fen versus NT$200) |
-| [Inspection](/posts/product/2026-08-07-drone-inspection-taiwan) | Cheaper **and** safer (60% of cost, no traffic control) |
-| [Disaster response](/posts/product/2026-08-07-drone-sar-value) | Saves lives, no price |
+| [Ag spraying](/posts/product/2026-08-07-agri-drone-unit-economics-en) | Cheaper than manual (NT$150–300 per fen versus NT$200) |
+| [Inspection](/posts/product/2026-08-07-drone-inspection-taiwan-en) | Cheaper **and** safer (60% of cost, no traffic control) |
+| [Disaster response](/posts/product/2026-08-07-drone-sar-value-en) | Saves lives, no price |
 | **Logistics** | **In the windows when the alternative is unavailable, it is the only thing available** |
 
 Logistics sells marginal availability, not cost advantage. And that value exists only where the alternative is interrupted — offshore islands, mountain communities, typhoon season. Where the alternative is reliable (urban delivery), the same aircraft has almost no footing.
@@ -111,17 +111,17 @@ One detail with an image to it: Liuqiu briefly had a private airport in 1975, wh
 
 From "24 approved corridors" to "routine commercial operation" is still a distance, and the CAA has put numbers on it. Per the same briefing:
 
-**On the aircraft** — regardless of weight, type inspection of the airframe must be completed (see the inspection tiers in [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading)). For drones **over 25 kg**, the aircraft must additionally pass **seven system reviews covering propulsion, communications, flight control, and performance, and complete 50 hours of test flight** before entering logistics service.
+**On the aircraft** — regardless of weight, type inspection of the airframe must be completed (see the inspection tiers in [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)). For drones **over 25 kg**, the aircraft must additionally pass **seven system reviews covering propulsion, communications, flight control, and performance, and complete 50 hours of test flight** before entering logistics service.
 
 **On the airspace** — the CAA has defined a **standard "cargo corridor" width of 100 metres**, and advises planners to avoid airport zones and local government red zones where possible, which substantially reduces air traffic coordination costs.
 
 Several things there are worth pausing on:
 
-**One: 50 hours of test flight is a real cost barrier.** Against the cash structure computed in [the financials piece](/posts/investing/2026-08-07-drone-maker-financials) — assets paid first, revenue collected later — 50 test hours are pure outlay that must complete before any revenue exists. For a small vendor that is a substantive capital barrier.
+**One: 50 hours of test flight is a real cost barrier.** Against the cash structure computed in [the financials piece](/posts/investing/2026-08-07-drone-maker-financials-en) — assets paid first, revenue collected later — 50 test hours are pure outlay that must complete before any revenue exists. For a small vendor that is a substantive capital barrier.
 
-**Two: "avoiding red zones substantially reduces coordination costs" is a genuinely useful sentence.** It tells operators that **the first variable in corridor planning is airspace class, not shortest path** — directly connected to the red/yellow/green zones in [the plain-language regulation piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide).
+**Two: "avoiding red zones substantially reduces coordination costs" is a genuinely useful sentence.** It tells operators that **the first variable in corridor planning is airspace class, not shortest path** — directly connected to the red/yellow/green zones in [the plain-language regulation piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en).
 
-**Three: the 25 kg line appears again.** [The crash anatomy piece](/posts/tech/2026-08-07-drone-crash-anatomy) established that the TTSB's major occurrence threshold is "over 25 kg substantially damaged"; [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading) established that over 25 kg requires additional physical inspection; and now logistics hangs its seven system reviews and 50 test hours on the same line. **25 kg is the single most consequential boundary in Taiwanese drone regulation, and it has now shown up once in each of four separate regimes.**
+**Three: the 25 kg line appears again.** [The crash anatomy piece](/posts/tech/2026-08-07-drone-crash-anatomy-en) established that the TTSB's major occurrence threshold is "over 25 kg substantially damaged"; [the spec sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) established that over 25 kg requires additional physical inspection; and now logistics hangs its seven system reviews and 50 test hours on the same line. **25 kg is the single most consequential boundary in Taiwanese drone regulation, and it has now shown up once in each of four separate regimes.**
 
 ## Three judgments
 
@@ -147,10 +147,10 @@ Several things there are worth pausing on:
 
 **On this site**
 
-- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
-- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan)
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics)
-- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value)
-- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials)
+- [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
+- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+- [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en)
+- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+- [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en)
+- [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)
