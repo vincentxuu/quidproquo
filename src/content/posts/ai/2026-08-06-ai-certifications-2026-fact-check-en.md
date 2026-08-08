@@ -53,7 +53,7 @@ Confirm which cloud your company actually runs first, then pick the certificatio
 | AWS, want a fast start | AIF-C01 ($100) → MLA-C01 ($150) |
 | AWS, building GenAI applications | Straight to AIP-C01 ($300); expects 2 years AWS + 1 year GenAI |
 | Google Cloud | PMLE ($200), and **only use material published after mid-2026** |
-| Azure / Microsoft ecosystem | AI-103 (associate); add AI-500 (expert, beta) for agent work |
+| Azure / Microsoft ecosystem | AI-103 (associate) → AI-500 (expert, beta; **requires AI-103 first**) |
 | Data platform + LLM | Databricks GenAI Engineer Associate ($200) |
 | GPU / model layer | NVIDIA NCA-GENL ($125) |
 | Taiwan job market / contracting | iPAS intermediate, NT$1,000 for both subjects |
@@ -120,7 +120,7 @@ Section weights were also rebalanced:
 
 Several topics won't appear in traditional ML material at all: **LLM-as-a-judge evaluation**, **prompt and context engineering**, **cost / latency / availability optimization for Gemini applications**, and **fine-tuning Gemini models using BigQuery**.
 
-Factor validity into the cost: the official [exam terms](https://cloud.google.com/certification/terms) state professional certifications are valid two years and renewal **requires retaking the exam** (unlike Microsoft's free online renewal assessment), starting up to 60 days before expiry. Given how often Google renames things, $200 plus a fresh round of prep every two years is not trivial.
+Factor validity into the cost: the official [exam terms](https://cloud.google.com/certification/terms) state professional certifications are valid two years and renewal **requires retaking the exam** (unlike Microsoft's free online renewal assessment), starting up to 60 days before expiry. That retake is discounted, though — the official [Vouchers & Discounts page](https://support.google.com/cloud-certification/answer/10055456) states that upon certification, a **50% discount code** appears in the Benefits section of your CM Connect account and can be applied to the renewal attempt. So two years out it's $100, not $200, though discount codes can't be combined. Given how often Google renames things, the real cost is the fresh round of prep, not the exam fee.
 
 PMLE is offered in **English and Japanese only** — no Chinese. The certification page also puts recommended experience at "3+ years of industry experience including 1 or more years designing and managing solutions using Google Cloud," while noting that "the exam does not directly assess coding skill" — so prep time belongs on architectural tradeoffs and service selection, not on drilling code questions.
 
@@ -136,7 +136,13 @@ The current associate-level exam is **AI-103**, leading to [Azure AI Apps and Ag
 
 Microsoft's agent track is more complete than anyone else's. Beyond the already-GA AB-620 (AI Agent Builder Associate), there are two **expert-level** credentials: [Multi-Agent AI Solutions Expert](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) (AI-500, beta, officially positioned around "designing, building, and optimizing scalable, production-ready, multi-agent AI systems") and [Agentic AI Business Solutions Architect](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/) (AB-100).
 
-**AI-500 deserves separate attention.** No other major cloud vendor currently offers an expert-level certification dedicated to multi-agent system architecture, so it differentiates you a tier above the associate-level AI-103. The tradeoff is slow score reporting during beta and questions that may shift before general release.
+**AI-500 deserves separate attention — but it isn't a certification you bolt on, it's the next rung of the same ladder.** Microsoft's [certification announcement](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-multi-agent-ai-solutions-expert-certification/4494122) is explicit:
+
+> To earn the Microsoft Certified: Multi-Agent AI Solutions Expert (AI-500) certification, candidates **must also earn** the Microsoft Certified: Azure AI Apps and Agents Developer Associate (Exam AI-103) certification.
+
+AI-103 is a hard prerequisite; there's no skipping it.
+
+No other major cloud vendor currently offers an expert-level certification dedicated to multi-agent system architecture, so it differentiates you a tier above the associate-level AI-103. The tradeoff is slow score reporting during beta — rescoring waits for general availability, with final results roughly 10 days after — and questions that may shift before general release. The same announcement puts GA in October 2026.
 
 Microsoft also has one advantage nobody else offers: renewal runs through a **free online renewal assessment**, rather than retaking the full exam as AWS and Google require.
 
@@ -214,6 +220,22 @@ The page metadata shows an update timestamp of `2026-06-30` and is flagged `hidd
 
 "Google Cloud GenAI Engineer" is an invented name, verified three ways: requesting `cloud.google.com/learn/certification/generative-ai-engineer` returns **HTTP 404**; the official certification index lists only Generative AI Leader and Professional ML Engineer under AI; and none of the 9 professional certifications covers GenAI or agent engineering.
 
+## Ways to Pay Less: Mechanisms vs. Luck
+
+Time-limited promo codes expire the moment they're written down, but each vendor's **discount mechanism** is stable enough to plan around.
+
+**AWS: Professional and Specialty exam vouchers include a free retake.** Per the [voucher promotion terms](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions), registering for any Professional or Specialty exam between 2026-04-15 and 2026-12-31 with a prepaid exam voucher covers the first attempt in full, and the promotion code is applied automatically on a retake — **the second attempt is free** (failed first attempts can retake through 2027-04-30). For AIP-C01, that clause covers the $300 you'd otherwise lose on a failure. Foundational and Associate exams are not in this window.
+
+**Google: passing earns you a 50% code for renewal** (see the section above).
+
+**Microsoft: 80% off beta exams for the first 300 candidates.** Every new certification runs a beta period before general availability, during which the first 300 registrants get **80% off** using a public discount code published in the Microsoft Learn Blog announcement. Passing the beta earns the certification outright — no need to sit the GA version — and anyone who used the 80% code later receives a 25% discount voucher. The cost is waiting for rescoring. Catching these means watching the new-certification announcements, and with Microsoft's turnover this year there are plenty of beta windows.
+
+**Databricks: a Virtual Learning Festival each quarter.** Complete any self-paced learning pathway in Academy during the window and you get a **50% voucher** for any Databricks certification ($200 → $100) plus 20% off Academy Labs. One per learner, valid roughly 90 days. The 2026 windows were 1/9–1/30, 3/16–4/3, and 6/15–7/6; the [official community FAQ](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220) announces each round.
+
+**NVIDIA: webinars and GTC on-site.** Webinars occasionally carry 50%-off exam codes, and [at GTC](https://www.nvidia.com/en-us/training/) proctored certification exams are free for on-site attendees — officially listed as a €115–€425 value.
+
+**Asking your employer beats hunting for codes.** Google's Get Certified is customer-only, Microsoft's Enterprise Skills Initiative is limited to enrolled organizations, and AWS and Databricks team vouchers require company purchase. Every one of those is worth more than any discount an individual can find — check internally before you pay.
+
 ## Three Things to Check Before You Register
 
 **Study material freshness matters more than the certification itself.** PMLE is the clearest case: same name, same price, same-looking landing page, but old material walks you into a wall. Ten minutes with the official exam guide comparing service names before you register beats another hundred practice questions.
@@ -236,6 +258,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-08-07: Added a "Ways to Pay Less" section (AWS Professional vouchers with a free retake, Microsoft's 80%-off beta window for the first 300 candidates, Databricks' quarterly Learning Festival voucher, NVIDIA webinars and GTC on-site exams, plus employer-side Get Certified / ESI / team vouchers). Also filled two gaps: **AI-500 requires earning AI-103 first**, and Google issues a 50% renewal discount code on certification (the article previously priced renewal at the full $200).
 - 2026-08-07: Four corrections and additions. The AWS section gains the retake policy (14 calendar days, full fee each attempt), passing standards (700 / 720 / 750), and score reporting time, and corrects "recertification means retaking the exam" — earning MLA-C01 automatically recertifies AIF-C01. The Google section adds PMLE's exam languages and the official note that it does not directly assess coding skill. The Microsoft section adds AI-103's $165 price, free course hours, and the currently missing practice assessment, plus the fact that its language list differs between two official pages. The Claude section corrects "the preparation courses themselves are free and public" — training is free of charge but limited to Partner Network members, and the gate is firm membership, which is itself free.
 
 ## References
@@ -249,6 +272,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 - [AWS Recertification policy (three-year validity)](https://aws.amazon.com/certification/policies/recertification/)
 - [AWS Certification "After Testing" policy (retake waiting period, passing standards, score reporting)](https://aws.amazon.com/certification/policies/after-testing/)
 - [AWS Certified AI Practitioner certification page (automatic recertification note)](https://aws.amazon.com/tw/certification/certified-ai-practitioner)
+- [AWS voucher promotion terms and conditions (Professional / Specialty with free retake)](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions)
 
 **Google Cloud**
 
@@ -257,6 +281,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 - [Generative AI Leader certification page](https://cloud.google.com/learn/certification/generative-ai-leader)
 - [Google Cloud certification index (includes Get Certified program)](https://cloud.google.com/learn/certification)
 - [Google Cloud Exam Terms & Conditions (validity and renewal)](https://cloud.google.com/certification/terms)
+- [Google Cloud Certification — Vouchers & Discounts (50% renewal code)](https://support.google.com/cloud-certification/answer/10055456)
 - [Welcome to Google Cloud Next '26 (Gemini Enterprise Agent Platform launch)](https://cloud.google.com/blog/topics/google-cloud-next/welcome-to-google-cloud-next26)
 - [GEAR program and AI learning paths](https://cloud.google.com/blog/topics/training-certifications/gear-up-to-get-the-most-out-of-ai-learning-at-google-cloud-next26)
 
@@ -266,6 +291,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 - [AI-103 exam page (price, language list, practice assessment status)](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
 - [Course AI-103T00: Develop AI apps and agents on Azure](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [Multi-Agent AI Solutions Expert (AI-500, beta)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
+- [Microsoft announcement: AI-500 certification requirement and beta discount mechanism](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-multi-agent-ai-solutions-expert-certification/4494122)
 - [Agentic AI Business Solutions Architect (AB-100)](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 - [Azure AI Engineer Associate (AI-102, retired)](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
 - [Microsoft Credentials roundup: June 2026](https://techcommunity.microsoft.com/blog/skills-hub-blog/microsoft-credentials-roundup-june-2026/4528350)
@@ -274,7 +300,9 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 **NVIDIA / Databricks / Anthropic**
 
 - [NVIDIA NCA-GENL official page](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
+- [NVIDIA Deep Learning Institute (free self-paced courses, GTC on-site exams)](https://www.nvidia.com/en-us/training/)
 - [Databricks Certified Generative AI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate)
+- [Databricks Virtual Learning Festival FAQ (50% voucher rules and validity)](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220)
 - [Anthropic: Four role-based Claude certifications (2026-07-23)](https://claude.com/blog/four-role-based-claude-certifications)
 - [Pearson VUE — Claude Certification Program](https://www.pearsonvue.com/us/en/anthropic.html)
 

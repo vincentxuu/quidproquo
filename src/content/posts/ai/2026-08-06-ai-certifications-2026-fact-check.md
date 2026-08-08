@@ -53,7 +53,7 @@ draft: false
 | AWS，想快速起步 | AIF-C01（$100）→ MLA-C01（$150） |
 | AWS，做 GenAI 應用 | 直接 AIP-C01（$300），需 2 年 AWS + 1 年 GenAI 經驗 |
 | Google Cloud | PMLE（$200），且**只用 2026 年中之後的教材** |
-| Azure / 微軟生態 | AI-103（associate）；想做 agent 再加 AI-500（expert，beta） |
+| Azure / 微軟生態 | AI-103（associate）→ AI-500（expert，beta；**必須先取得 AI-103**） |
 | 資料平台 + LLM | Databricks GenAI Engineer Associate（$200） |
 | 想碰 GPU / 模型層 | NVIDIA NCA-GENL（$125） |
 | 台灣求職 / 接案 | iPAS 中級，兩科 1,000 元 |
@@ -120,7 +120,7 @@ Google 在 Cloud Next '26 把 Vertex AI 整併進 [Gemini Enterprise Agent Platf
 
 幾個傳統 ML 教材不會教的新考點：**LLM-as-a-judge 評估**、**prompt and context engineering**、**Gemini 應用的 cost / latency / availability 最佳化**、**用 BigQuery fine-tune Gemini 模型**。
 
-效期要算進成本：官方[考試條款](https://cloud.google.com/certification/terms)明訂 Professional 認證兩年有效，到期要**重考**才能延續（不像微軟有免費線上 renewal assessment），可在到期前 60 天開始。以 Google 改名字的頻率，每兩年 $200 加一次重新準備，維護成本不低。
+效期要算進成本：官方[考試條款](https://cloud.google.com/certification/terms)明訂 Professional 認證兩年有效，到期要**重考**才能延續（不像微軟有免費線上 renewal assessment），可在到期前 60 天開始。不過續證那次有折扣 —— 官方[Vouchers & Discounts 說明](https://support.google.com/cloud-certification/answer/10055456)寫，取得認證後 CM Connect 帳號的 Benefits 區會出現一張 **50% 折扣碼**，可套用在續證的那次報名。所以兩年後是 $100 而非 $200，但折扣碼之間不可疊加。以 Google 改名字的頻率，真正的成本是那次重新準備的時間，不是考試費。
 
 PMLE 的考試語言只有**英文與日文**，沒有任何中文。認證頁另外寫了建議經驗是「3+ years of industry experience including 1 or more years designing and managing solutions using Google Cloud」，但也註明「The exam does not directly assess coding skill」—— 準備時間該花在架構取捨與服務選型，不是刷程式題。
 
@@ -136,7 +136,13 @@ PMLE 的考試語言只有**英文與日文**，沒有任何中文。認證頁�
 
 Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Agent Builder Associate），還有兩張**專家級**：[Multi-Agent AI Solutions Expert](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)（AI-500，beta，官方定位是「designing, building, and optimizing scalable, production-ready, multi-agent AI systems」）與 [Agentic AI Business Solutions Architect](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)（AB-100）。
 
-**AI-500 值得單獨留意。** 主流雲端業者目前沒有第二張專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。代價是 beta 階段成績出得慢、考題會隨正式版調整。
+**AI-500 值得單獨留意，但它不是「加考一張」，是「同一條路線的下一階」。** 微軟的[認證公告](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-multi-agent-ai-solutions-expert-certification/4494122)寫得很清楚：
+
+> To earn the Microsoft Certified: Multi-Agent AI Solutions Expert (AI-500) certification, candidates **must also earn** the Microsoft Certified: Azure AI Apps and Agents Developer Associate (Exam AI-103) certification.
+
+也就是說 AI-103 是 AI-500 的必要條件，不能跳過。
+
+主流雲端業者目前沒有第二張專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。代價是 beta 階段成績出得慢（rescoring 要等 GA、之後約 10 天才出正式成績）、考題會隨正式版調整。同一篇公告寫 GA 預計在 2026 年 10 月。
 
 微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。
 
@@ -214,6 +220,22 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 「Google Cloud GenAI Engineer」則是被憑空創造出來的名字，三種方式交叉驗證：直接請求 `cloud.google.com/learn/certification/generative-ai-engineer` 回 **HTTP 404**；官方認證總覽頁的 AI 項目只有 Generative AI Leader 與 Professional ML Engineer；Professional 級 9 張裡沒有任何 GenAI 或 Agent 工程師認證。
 
+## 省錢管道：哪些是機制，哪些是碰運氣
+
+限時折扣碼寫進文章就會過期，但幾家的**省錢機制**是穩定的，值得先知道規則再決定什麼時候報名。
+
+**AWS：專業級與專家級的考試券含免費重考。** 依[繁中優惠券活動條款](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions)，2026/4/15 至 12/31 期間報名任何 Professional 或 Specialty 考試，預付考試優惠券全額支付初次費用，重考時系統自動套用促銷代碼、**第二次不收費**（初考未通過者可考到 2027/4/30）。要考 AIP-C01 的話，這條省下的是失敗那次的 $300。基礎級與 Associate 級不在這個檔期內。
+
+**Google：通過認證後會拿到一張續證用的 5 折碼**（見上一節）。
+
+**微軟：beta 考試前 300 名八折。** 每張新認證在 GA 之前都有 beta 期，前 300 名用公開折扣碼可享 **80% off**，碼公布在 Microsoft Learn Blog 的新認證公告裡。通過 beta 即取得認證、不必再考正式版，而且用過八折碼的人之後還會收到一張 25% 折扣券。代價是成績要等 rescoring。想撿這個便宜，就要盯著新認證公告 —— 微軟今年改版密集，beta 檔期不少。
+
+**Databricks：每季一次的 Virtual Learning Festival。** 活動期間在 Academy 完成任一 self-paced 學習路徑，可拿任一 Databricks 認證的 **5 折券**（$200 → $100）加 Academy Labs 8 折券。每人限一張、券效期約 90 天。2026 年的檔期是 1/9–1/30、3/16–4/3、6/15–7/6，[官方 community 的 FAQ](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220) 會公告下一輪。
+
+**NVIDIA：webinar 與 GTC 現場。** webinar 偶有 5 折考試碼；[GTC 現場](https://www.nvidia.com/en-us/training/)參加者的監考認證考試免費，官方標示價值 €115–€425。
+
+**問公司比找折扣碼有效。** Google 的 Get Certified 限客戶、微軟的 ESI（Enterprise Skills Initiative）限已加入的組織、AWS 與 Databricks 的團隊考試券都要公司採購。這幾條的金額都比個人能撿到的折扣大 —— 報名前先問內部有沒有名額，比在網路上找碼划算。
+
 ## 報名前的三個提醒
 
 **教材的新鮮度比證照本身重要。** PMLE 是最好的例子：名字沒變、價格沒變、官網長得一樣，但拿舊教材去考會直接撞牆。報名前花十分鐘打開官方 exam guide 對一遍服務名稱，ROI 遠高於多刷一百題。
@@ -236,6 +258,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 ## 更新紀錄
 
+- 2026-08-07：新增「省錢管道」一節（AWS 專業級考試券含免費重考、微軟 beta 前 300 名八折、Databricks 季度 Learning Festival 5 折券、NVIDIA 的 webinar 與 GTC 現場、以及公司端的 Get Certified / ESI / 團隊考試券）。同時補上兩處遺漏：**AI-500 認證要求必須先取得 AI-103**，以及 Google 認證通過後會拿到一張續證用的 50% 折扣碼（原文把續證成本寫成全額 $200）。
 - 2026-08-07：補齊四處。AWS 段補上重考政策（14 個日曆天等待、每次全額付費）、及格線（700 / 720 / 750）與成績公布時間，並修正「重新認證只能重考」—— 考到 MLA-C01 會自動續掉 AIF-C01。Google 段補 PMLE 的考試語言與「不直接考程式能力」的官方說明。微軟段補 AI-103 的 $165 價格、免費課程時數，以及目前沒有 practice assessment；同時記下它的語言清單在兩個官方頁上不一致。Claude 段修正「訓練課程本身免費公開」—— 訓練不收費但限 Partner Network 成員，門檻是公司加入（加入本身免費）。
 
 ## 參考資料
@@ -249,6 +272,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 - [AWS Recertification 政策（三年效期）](https://aws.amazon.com/certification/policies/recertification/)
 - [AWS Certification「After Testing」政策（重考等待期、及格線、成績公布時間）](https://aws.amazon.com/certification/policies/after-testing/)
 - [AWS Certified AI Practitioner 繁中認證頁（自動重新認證的說明）](https://aws.amazon.com/tw/certification/certified-ai-practitioner)
+- [AWS 優惠券活動條款與條件（專業級／專家級含免費重考）](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions)
 
 **Google Cloud**
 
@@ -257,6 +281,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 - [Generative AI Leader 認證頁](https://cloud.google.com/learn/certification/generative-ai-leader)
 - [Google Cloud 認證總覽（含 Get Certified 計畫）](https://cloud.google.com/learn/certification)
 - [Google Cloud Exam Terms & Conditions（效期與重新認證條款）](https://cloud.google.com/certification/terms)
+- [Google Cloud Certification — Vouchers & Discounts（續證 50% 折扣碼）](https://support.google.com/cloud-certification/answer/10055456)
 - [Welcome to Google Cloud Next '26（Gemini Enterprise Agent Platform 發表）](https://cloud.google.com/blog/topics/google-cloud-next/welcome-to-google-cloud-next26)
 - [GEAR 計畫與 AI 學習路徑](https://cloud.google.com/blog/topics/training-certifications/gear-up-to-get-the-most-out-of-ai-learning-at-google-cloud-next26)
 
@@ -266,6 +291,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 - [AI-103 考試頁（價格、語言清單、practice assessment 狀態）](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
 - [AI-103T00 課程：Develop AI apps and agents on Azure](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [Multi-Agent AI Solutions Expert（AI-500，beta）](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
+- [微軟官方公告：AI-500 認證要求與 beta 折扣機制](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-multi-agent-ai-solutions-expert-certification/4494122)
 - [Agentic AI Business Solutions Architect（AB-100）](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 - [Azure AI Engineer Associate（AI-102，已退場）](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
 - [Microsoft Credentials roundup: June 2026](https://techcommunity.microsoft.com/blog/skills-hub-blog/microsoft-credentials-roundup-june-2026/4528350)
@@ -274,7 +300,9 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 **NVIDIA / Databricks / Anthropic**
 
 - [NVIDIA NCA-GENL 官方頁面](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
+- [NVIDIA Deep Learning Institute（免費自學課程與 GTC 現場考試）](https://www.nvidia.com/en-us/training/)
 - [Databricks Certified Generative AI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate)
+- [Databricks Virtual Learning Festival FAQ（5 折券規則與效期）](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220)
 - [Anthropic：Four role-based certifications（2026/7/23 公告）](https://claude.com/blog/four-role-based-claude-certifications)
 - [Pearson VUE — Claude Certification Program](https://www.pearsonvue.com/us/en/anthropic.html)
 
