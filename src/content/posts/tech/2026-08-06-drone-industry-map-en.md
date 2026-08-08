@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Twenty-three companion pieces go deeper in six directions:
+This article is the overview for the drone series. Twenty-four companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -167,6 +167,7 @@ This article is the overview for the drone series. Twenty-three companion pieces
 - [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en) — what the 25 kg statistical threshold means, the failure chains in both occurrences, and which PX4 log signals to read
 - [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en) — the policy shift behind 1,420 published questions, and the regulatory mental model the content exposes
 - [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en) — numbers from building both flight stacks once: licensing, extension point, board coverage, twelve months of contributor structure, and what an in-house flight controller actually means
+- [Frequency Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan Turns Channel Count Into a Power Ceiling](/posts/tech/2026-08-08-drone-radio-link-en) — how the hop sequence derives from a binding phrase (with a reproducible cross-check), the real cost of trading rate for sensitivity, and how LP0002's 75-channel threshold sets legal power
 
 **Frameworks and money**
 

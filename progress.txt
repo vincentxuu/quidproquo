@@ -39,20 +39,22 @@ Recently completed
   comparisons. The two real decision points are BSD-3 vs GPLv3 and which layer
   you extend (AP: Lua on the SD card; PX4: ROS 2 outside). Per-post detail in
   plan §5.2 (B8 row) — read that, not this.
-  Open: B9-B17 (eight technical cells). Ask FIRST whether each really needs
-  hardware or I wrote it to need hardware.
-  SITE-WIDE DEFECT found and FIXED (user approved the batch): in-body links in
-  English posts pointed at zh slugs, so English readers landed on Chinese posts.
-  163 files / 742 links rewritten in two passes (281409f drone series, then the
-  rest). Rules used, reuse them: rewrite ONLY when the -en file exists; never
-  touch the `🌏 [中文版]` line (361 preserved); category can be NESTED
-  (/posts/tech/deep-dive/...) — a single-level regex silently misses 187 links.
-  Last gap CLOSED: translated ai/2026-07-22-3d-generative-models-landscape, so
-  every cross-post link in an English post now resolves to English (0 broken,
-  0 zh-pointing). Two zh posts still have no English version at all:
-  ai/2026-07-10-ai-courses-2026-guide and
-  coffee/2026-07-25-pour-over-dripper-trapezoid-vs-cone — nothing links to them
-  from English, so this is a coverage gap, not a broken-link one.
+  B10 (RF link) followed the same day, same method: ExpressLRS 5909f77 is
+  GPLv3 and readable. Hop sequence = binding phrase -> md5 -> UID -> LCG
+  (a=214013 c=2531011) -> 256-slot shuffle; I ported it to Python and diffed
+  against the verbatim C, bit-identical on all 7 channel counts — reuse that
+  proof pattern for any port claim. Link has NO encryption, only CRC14, so
+  binding solves "the pilot next door", not jamming. Best Taiwan finding:
+  LP0002 4.10.1.2 gives 2.4GHz hoppers 1 W at >=75 channels and 0.125 W below
+  it, and ELRS uses exactly 80 — channel count IS the power ceiling. And a
+  4th instance of "the clause named after the thing does not govern the
+  thing": 5.3.1 "model aircraft radio control" is 27/72 MHz and ONE-WAY only.
+  Open: B9, B11-B17 (seven technical cells). Ask FIRST whether each really
+  needs hardware or I wrote it to need hardware. B15/B16 are the two that
+  plausibly do.
+  Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
+  742 links). Done and archived to docs/progress-archive.md — read the three
+  safety rules there before any similar link sweep. Untranslated still: 2 posts.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
   four application posts, privacy. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.

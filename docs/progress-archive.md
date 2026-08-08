@@ -113,3 +113,25 @@ law); the AirTag "dragnet surveillance" doctrine — public movements aggregatin
 into a non-public picture — is ready-made for drones but unused, and is the same
 REPETITION property the inspection piece treats as a virtue; the real bottleneck
 is evidence, and the CAA's flight-logging system is closed to the public.
+
+## 2026-08-08 — 英文文章站內連結全站修正
+
+English posts linked to zh slugs, so English readers landed on Chinese posts.
+163 files / 742 links rewritten in two passes (281409f for the drone series,
+2d2be1e for the rest), plus b57b04c which translated
+`ai/2026-07-22-3d-generative-models-landscape` to close the last gap. Final
+scan: 0 broken links, 0 links still pointing at a Chinese post.
+
+Rules that made it safe, reuse them for any similar sweep:
+
+- rewrite a link ONLY when the `-en` file actually exists;
+- never touch the `🌏 [中文版]` line — that one is meant to point at the
+  Chinese post (361 preserved untouched);
+- the category can be NESTED (`/posts/tech/deep-dive/...`). A single-level
+  regex silently skips those — it missed 187 links on the first pass and
+  reported success.
+
+Two zh posts still have no English version at all:
+`ai/2026-07-10-ai-courses-2026-guide` and
+`coffee/2026-07-25-pour-over-dripper-trapezoid-vs-cone`. Nothing links to them
+from English, so that is a coverage gap, not a broken-link one.
