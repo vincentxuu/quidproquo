@@ -57,6 +57,6 @@ If a platform can make climbers feel like "the things recorded here are mine," i
 
 - [Mountain Project](https://www.mountainproject.com/)
 - [8a.nu](https://www.8a.nu/)
-- [Why Does the Climbing Community Need AI? NobodyClimb's Experiment and What We Learned](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb RAG Pipeline Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [Why Does the Climbing Community Need AI? NobodyClimb's Experiment and What We Learned](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what-en)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb RAG Pipeline Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

@@ -140,5 +140,5 @@ If you're starting a new Next.js project today, App Router is the only direction
 - [React Server Components Explanation](https://react.dev/reference/rsc/server-components)
 - [Next.js use cache directive](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 - [@opennextjs/cloudflare adapter](https://opennext.js.org/cloudflare)
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)

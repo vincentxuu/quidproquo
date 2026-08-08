@@ -87,6 +87,6 @@ In these situations, the conversation already contains everything a good post ne
 
 - [Claude Code Official Docs](https://docs.anthropic.com/en/docs/claude-code)
 - [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
-- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — another skill designed to extract information from conversations
-- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Agent Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — a complete introduction to the skill mechanism
-- [What Tools Power This Blog](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — the site's tech stack, where these posts live
+- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) — another skill designed to extract information from conversations
+- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Agent Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en) — a complete introduction to the skill mechanism
+- [What Tools Power This Blog](/posts/tech/guide/2026-03-12-tools-behind-this-blog-en) — the site's tech stack, where these posts live

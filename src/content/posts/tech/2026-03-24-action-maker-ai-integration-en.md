@@ -278,4 +278,4 @@ From a product perspective, action-maker went from a "play once and you're done"
 - [Langfuse - LLM Observability](https://langfuse.com/)
 - [Cloudflare KV Docs](https://developers.cloudflare.com/kv/)
 - [Next.js Official Docs](https://nextjs.org/docs)
-- [島島阿學 Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [島島阿學 Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

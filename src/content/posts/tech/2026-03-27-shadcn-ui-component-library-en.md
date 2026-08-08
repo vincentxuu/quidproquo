@@ -191,4 +191,4 @@ Bringing the source code into your project eliminates that pain. The trade-off i
 - [Radix UI Official Docs](https://www.radix-ui.com/)
 - [class-variance-authority](https://cva.style/docs)
 - [Tailwind CSS Official Docs](https://tailwindcss.com/docs)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

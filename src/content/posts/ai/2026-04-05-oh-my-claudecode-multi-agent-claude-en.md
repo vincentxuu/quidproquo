@@ -200,6 +200,6 @@ If you primarily use Claude Code, OMC is the most directly relevant tool in this
 
 - [oh-my-claudecode GitHub Repository](https://github.com/Yeachan-Heo/oh-my-claudecode)
 - [oh-my-claudecode Documentation](https://yeachan-heo.github.io/oh-my-claudecode-website)
-- [Claude Code Complete Solution Analysis](/posts/ai/2026-04-02-agent-cli-claude-code)
-- [clawhip Event Notification Router Introduction](/posts/ai/2026-04-05-clawhip-event-notification-router)
-- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [Claude Code Complete Solution Analysis](/posts/ai/2026-04-02-agent-cli-claude-code-en)
+- [clawhip Event Notification Router Introduction](/posts/ai/2026-04-05-clawhip-event-notification-router-en)
+- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer-en)

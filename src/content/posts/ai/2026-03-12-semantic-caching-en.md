@@ -131,5 +131,5 @@ The only considerations are privacy (don't cache personalized queries) and TTL s
 - [MeanCache: User-Centric Semantic Caching for LLM Web Services (arXiv:2403.02694)](https://arxiv.org/abs/2403.02694)
 - [Cloudflare Workers KV Documentation](https://developers.cloudflare.com/kv/)
 - [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

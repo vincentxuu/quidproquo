@@ -38,7 +38,7 @@ The design trade-off is straightforward -- users have typically already paid for
 
 ### 2. A Skill Is a Folder, Not a Plugin
 
-Each skill is just `SKILL.md` + `assets/` + `references/`, [fully compatible](/posts/ai/2026-05-08-anthropic-claude-skills-guide) with Claude Code's skill format. Drop a folder into `skills/`, restart the daemon, and it shows up in the picker.
+Each skill is just `SKILL.md` + `assets/` + `references/`, [fully compatible](/posts/ai/2026-05-08-anthropic-claude-skills-guide-en) with Claude Code's skill format. Drop a folder into `skills/`, restart the daemon, and it shows up in the picker.
 
 OD takes this rule to its logical conclusion -- the upstream op7418 `guizang-ppt-skill` is **bundled verbatim** into `skills/guizang-ppt/`, with the original LICENSE fully preserved. A deck engine is 36 themes, 31 layouts, 47 animations, and 14 templates, all as files.
 
@@ -145,4 +145,4 @@ The practical impact for engineers: if you're already paying for an agent CLI su
 - [Claude Design vs Open Design (WotAI 2026-04-29 evaluation)](https://wotai.co/blog/claude-design-vs-open-design)
 - [Open-Design 40k stars coverage (TechTimes 2026-05-17)](https://www.techtimes.com/articles/316749/20260517/open-design-free-local-alternative-claude-design-20-plan-runs-16-ai-agents.htm)
 - [Open Design Explained: Turning Claude Code and Codex into AI Design Tools (knightli.com)](https://www.knightli.com/en/2026/05/18/open-design-open-source-claude-design-alternative/)
-- [Anthropic Claude Skills Official Guide (on-site)](/posts/ai/2026-05-08-anthropic-claude-skills-guide)
+- [Anthropic Claude Skills Official Guide (on-site)](/posts/ai/2026-05-08-anthropic-claude-skills-guide-en)

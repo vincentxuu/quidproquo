@@ -127,5 +127,5 @@ Contextual Retrieval addresses a root-level problem in RAG systems: chunking des
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (arXiv)](https://arxiv.org/abs/2501.07863)
 - [Full text queries (Elasticsearch / BM25 hybrid search)](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html)
 - [iThome — Contextual Retrieval article](https://ithelp.ithome.com.tw/articles/10389779)
-- [NobodyClimb Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) (zh-TW only)
+- [NobodyClimb Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

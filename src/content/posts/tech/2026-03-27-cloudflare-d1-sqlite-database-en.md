@@ -144,7 +144,7 @@ These two are the most commonly confused choices in the Cloudflare ecosystem:
 | Range queries / complex filtering | D1 |
 | Read-heavy, eventual consistency acceptable | KV |
 
-KV is not a database — it only supports exact-key lookups with no query capabilities. For anything like "fetch all climbing records for a given user," you need D1. For a detailed comparison, see [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store).
+KV is not a database — it only supports exact-key lookups with no query capabilities. For anything like "fetch all climbing records for a given user," you need D1. For a detailed comparison, see [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en).
 
 ## How NobodyClimb Uses D1
 
@@ -166,7 +166,7 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 
 This query only updates when quota remains. If `changes()` returns 0, the quota is exhausted — no separate SELECT + check needed.
 
-For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture).
+For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en).
 
 ## Trade-offs and Limitations
 
@@ -193,7 +193,7 @@ Write costs are significantly higher than read costs — design your schema and 
 
 - [Cloudflare D1 Official Docs](https://developers.cloudflare.com/d1/)
 - [D1 Pricing](https://developers.cloudflare.com/d1/platform/pricing/)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [Cloudflare Workers: Getting Started with Edge Compute](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
-- [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
-- [Cloudflare R2: Object Storage with Zero Egress Fees](/posts/tech/2026-03-27-cloudflare-r2-object-storage)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [Cloudflare Workers: Getting Started with Edge Compute](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
+- [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)
+- [Cloudflare R2: Object Storage with Zero Egress Fees](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)

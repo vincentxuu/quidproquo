@@ -114,9 +114,9 @@ The two aren't mutually exclusive. A Skill can be a preloaded capability inside 
 - [Claude Code -- Sub-agents](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
 
 **Related posts on this site:**
-- [The Complete Guide to Claude Code Skills: Turn Repetitive Workflows into One-Line Commands](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide) -- Skill design philosophy, file structure, and four practical examples
-- [The Complete Guide to Claude Code Sub-agents: Custom AI Sub-agents and Parallel Execution](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution) -- Full sub-agent configuration, tool control, and persistent memory
-- [Claude Code Agent Teams: Multi-Agent Collaboration](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide) -- Agent Teams multi-agent collaboration architecture
-- [Claude Code's Three Layers of Quality Control: Hooks, Skills, and Config Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) -- How hooks, skills, and config files work together
-- [The Complete Guide to CLAUDE.md and AGENTS.md](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide) -- Behavioral instructions written for AI
-- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns) -- Use cases and trade-offs for eight patterns
+- [The Complete Guide to Claude Code Skills: Turn Repetitive Workflows into One-Line Commands](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en) -- Skill design philosophy, file structure, and four practical examples
+- [The Complete Guide to Claude Code Sub-agents: Custom AI Sub-agents and Parallel Execution](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en) -- Full sub-agent configuration, tool control, and persistent memory
+- [Claude Code Agent Teams: Multi-Agent Collaboration](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide-en) -- Agent Teams multi-agent collaboration architecture
+- [Claude Code's Three Layers of Quality Control: Hooks, Skills, and Config Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en) -- How hooks, skills, and config files work together
+- [The Complete Guide to CLAUDE.md and AGENTS.md](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en) -- Behavioral instructions written for AI
+- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns-en) -- Use cases and trade-offs for eight patterns

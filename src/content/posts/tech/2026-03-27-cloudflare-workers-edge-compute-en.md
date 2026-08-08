@@ -54,7 +54,7 @@ export default {
 
 ## Building an API with Hono
 
-Writing a full API with raw `fetch` handlers gets tedious fast — you end up rolling your own routing. [Hono](/posts/tech/2026-03-27-hono-web-framework) is a Web framework designed specifically for edge runtimes: tiny bundle size, native support for the Workers API.
+Writing a full API with raw `fetch` handlers gets tedious fast — you end up rolling your own routing. [Hono](/posts/tech/2026-03-27-hono-web-framework-en) is a Web framework designed specifically for edge runtimes: tiny bundle size, native support for the Workers API.
 
 ```typescript
 import { Hono } from "hono";
@@ -154,7 +154,7 @@ Key Bindings:
 | `DurableObjectNamespace` | Stateful single-instance objects |
 | `Fetcher` | Service binding to call another Worker |
 
-[Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store) is eventually consistent — global reads are fast but writes have propagation delay. [Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage) is the right choice for static assets and user-uploaded media, with no egress fees.
+[Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en) is eventually consistent — global reads are fast but writes have propagation delay. [Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en) is the right choice for static assets and user-uploaded media, with no egress fees.
 
 ## Pricing
 
@@ -172,11 +172,11 @@ The free tier covers most side projects and small-to-medium applications. At $5/
 
 ## How NobodyClimb Uses Workers
 
-[NobodyClimb](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) runs its entire backend on Workers with no traditional server:
+[NobodyClimb](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) runs its entire backend on Workers with no traditional server:
 
-- **Web SSR**: Next.js 15 deployed to Workers via [@opennextjs/cloudflare](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter) — dynamic routes handled by Workers, static assets served via Cloudflare Assets
+- **Web SSR**: Next.js 15 deployed to Workers via [@opennextjs/cloudflare](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en) — dynamic routes handled by Workers, static assets served via Cloudflare Assets
 - **API**: A Hono Worker connected to D1 (user data, climbing records) and KV (caching, rate limiting)
-- **AI**: The [RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) also runs in Workers — embeddings and LLM calls go through `env.AI` via Workers AI
+- **AI**: The [RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) also runs in Workers — embeddings and LLM calls go through `env.AI` via Workers AI
 
 The core reasoning: a climbing community platform has unpredictable traffic. Running a persistent server wastes money when traffic is low. Workers bills per request — idle time costs nothing, and when traffic spikes, it responds fast from the nearest edge node worldwide.
 
@@ -203,9 +203,9 @@ Compared to traditional VPS or container setups: Workers trades execution flexib
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [Cloudflare Workers Pricing](https://developers.cloudflare.com/workers/platform/pricing/)
-- [NobodyClimb Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
-- [Hono Web Framework](/posts/tech/2026-03-27-hono-web-framework)
-- [Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage)
-- [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
-- [@opennextjs/cloudflare](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter)
+- [NobodyClimb Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
+- [Hono Web Framework](/posts/tech/2026-03-27-hono-web-framework-en)
+- [Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)
+- [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)
+- [@opennextjs/cloudflare](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en)

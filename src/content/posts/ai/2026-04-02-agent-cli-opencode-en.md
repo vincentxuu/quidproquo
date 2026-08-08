@@ -112,7 +112,7 @@ OpenCode's 75+ provider support, combined with third-party model routers (such a
 
 This combination -- OpenCode as the frontend agent + a model router as the backend dispatcher -- provides the most flexible architecture in the current Agent CLI ecosystem.
 
-For more discussion on multi-model routing strategies, see **[Multi-Model Routing Strategies for Subscription-Based Agent CLIs](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**.
+For more discussion on multi-model routing strategies, see **[Multi-Model Routing Strategies for Subscription-Based Agent CLIs](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)**.
 
 ## Ideal Use Cases
 
@@ -129,7 +129,7 @@ If your need is "use the strongest model for the most complex tasks," Claude Cod
 
 ## Series Articles
 
-**-> [Multi-Model Routing Strategies for Subscription-Based Agent CLIs](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
+**-> [Multi-Model Routing Strategies for Subscription-Based Agent CLIs](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)**
 
 ## References
 

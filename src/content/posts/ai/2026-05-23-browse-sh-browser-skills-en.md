@@ -57,7 +57,7 @@ A skill isn't a black box — it's **a `SKILL.md` file (plain Markdown) plus any
 - Rate-limit: keep it at ≤ 1 req/s.
 ```
 
-This format wasn't invented by Browserbase. It follows the **AgentSkills open standard** (`agentskills.io`) — the `SKILL.md` format originally open-sourced by Anthropic, now consumed by Claude Code and OpenAI Codex alike. Its key idea is **progressive disclosure**: when an agent starts up, it only loads each skill's `name` and `description`; the full content is read only when a task matches. This means you can attach a large library of skills without blowing up your context window. In other words, browse.sh takes the "Claude Skills" standard and applies it specifically to the vertical of browser automation. (Related: [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide))
+This format wasn't invented by Browserbase. It follows the **AgentSkills open standard** (`agentskills.io`) — the `SKILL.md` format originally open-sourced by Anthropic, now consumed by Claude Code and OpenAI Codex alike. Its key idea is **progressive disclosure**: when an agent starts up, it only loads each skill's `name` and `description`; the full content is read only when a task matches. This means you can attach a large library of skills without blowing up your context window. In other words, browse.sh takes the "Claude Skills" standard and applies it specifically to the vertical of browser automation. (Related: [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide-en))
 
 ## Autobrowse: Having AI Train Its Own Skills
 
@@ -108,7 +108,7 @@ A fair reading can't just echo the marketing page. A few things worth being hone
 
 browse.sh is betting on a specific judgment: that the future bottleneck for browser agents is **memory**, not reasoning. So the right unlock is turning what agents learn into plain-text skills that humans can read, agents can run, and teams can version-control. The official summary puts it well: "The bottleneck for browser agents was never intelligence. It was amnesia. Browse.sh is the cure."
 
-The trade-offs are also clear: you're buying into Browserbase's Autobrowse platform ecosystem, a body of self-reported metrics, a naming situation that's still sorting itself out, and a value proposition that only holds for sites that genuinely require exploration. If you're building browser agents and drowning in repeated discovery costs, it's worth trying. If you're just parsing static pages, write a parser — don't let the "let the agent figure it out" narrative pull you in. (Related: [AI Browser Agents: How Claude, Codex, and Gemini Open Browsers](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini), [Agent Memory Systems](/posts/ai/2026-03-19-agent-memory-systems))
+The trade-offs are also clear: you're buying into Browserbase's Autobrowse platform ecosystem, a body of self-reported metrics, a naming situation that's still sorting itself out, and a value proposition that only holds for sites that genuinely require exploration. If you're building browser agents and drowning in repeated discovery costs, it's worth trying. If you're just parsing static pages, write a parser — don't let the "let the agent figure it out" narrative pull you in. (Related: [AI Browser Agents: How Claude, Codex, and Gemini Open Browsers](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [Agent Memory Systems](/posts/ai/2026-03-19-agent-memory-systems-en))
 
 ## References
 
@@ -119,6 +119,6 @@ The trade-offs are also clear: you're buying into Browserbase's Autobrowse platf
 - [AgentSkills open standard (agentskills.io)](https://agentskills.io/)
 - [browserbase/skills (GitHub, skills repo)](https://github.com/browserbase/skills)
 - [Browsh — Wikipedia (disambiguation: the 2018 text browser)](https://en.wikipedia.org/wiki/Browsh)
-- Related: [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide)
-- Related: [AI Browser Agents: Claude, Codex, Gemini](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)
-- Related: [Agent Memory Systems](/posts/ai/2026-03-19-agent-memory-systems)
+- Related: [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide-en)
+- Related: [AI Browser Agents: Claude, Codex, Gemini](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en)
+- Related: [Agent Memory Systems](/posts/ai/2026-03-19-agent-memory-systems-en)

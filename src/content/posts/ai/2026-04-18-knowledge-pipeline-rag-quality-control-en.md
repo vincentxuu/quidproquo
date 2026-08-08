@@ -134,5 +134,5 @@ This project originated from the author's hands-on experience managing 1,600+ kn
 - [knowledge-pipeline GitHub](https://github.com/MakiDevelop/knowledge-pipeline)
 - [BAAI/bge-m3 - Hugging Face](https://huggingface.co/BAAI/bge-m3)
 - [BAAI/bge-reranker-v2-m3 - Hugging Face](https://huggingface.co/BAAI/bge-reranker-v2-m3)
-- [Hybrid Search: BM25 + Vector + RRF Hybrid Retrieval Strategy](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
-- [BGE-M3: Multilingual Multi-Granularity Embedding Model Selection](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
+- [Hybrid Search: BM25 + Vector + RRF Hybrid Retrieval Strategy](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en)
+- [BGE-M3: Multilingual Multi-Granularity Embedding Model Selection](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)

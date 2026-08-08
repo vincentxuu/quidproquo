@@ -221,7 +221,7 @@ project/
 └── context.json      # Accumulated context
 ```
 
-This aligns with the `claude-progress.txt` approach in [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design) — externalizing state to the filesystem.
+This aligns with the `claude-progress.txt` approach in [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design-en) — externalizing state to the filesystem.
 
 ---
 
@@ -260,7 +260,7 @@ The most common anti-pattern is "Context Overload" — the intuition that "more 
 
 ## Relationship to the Three-Phase Evolution
 
-Context Engineering sits at a pivotal position in the [three evolutionary phases of AI engineering](/posts/ai/2026-03-28-harness-engineering-evolution):
+Context Engineering sits at a pivotal position in the [three evolutionary phases of AI engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en):
 
 ```
 Phase 1: Prompt Engineering (2022-2024)
@@ -309,9 +309,9 @@ If your agent is performing inconsistently, don't rush to swap models. Look back
 
 ## Further Reading
 
-- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — The role of context in agent architecture
-- [From Prompt to Harness: The Three Evolutionary Phases of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) — Where Context Engineering fits in the evolution
-- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design) — Anthropic's context persistence implementation
+- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — The role of context in agent architecture
+- [From Prompt to Harness: The Three Evolutionary Phases of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) — Where Context Engineering fits in the evolution
+- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en) — Anthropic's context persistence implementation
 - [Andrej Karpathy on Context Engineering](https://x.com/karpathy/status/1937902205765607626) — The original tweet
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — The full version of the four strategies
 - [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Implementation guide

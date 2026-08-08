@@ -22,9 +22,9 @@ Traditional Chinese retrieval failure is not a single problem -- it is three lay
 
 ## Layer 1: Inherent Embedding Defects (Universal Across Models)
 
-Bi-encoders compress entire passage semantics into a single fixed vector, inevitably losing information -- and what gets lost is often **the discriminative power for fine-grained entities and events**. This is not a Chinese-specific problem (the on-site article [Semantic Similarity is Not Retrieval Relevance](/posts/ai/2026-06-04-semantic-similarity-retrieval-relevance-gap) covers the full picture), but CapRetrieval proved with a Chinese evaluation set that it holds equally in Chinese scenarios, and that **scaling up the model doesn't fix it**.
+Bi-encoders compress entire passage semantics into a single fixed vector, inevitably losing information -- and what gets lost is often **the discriminative power for fine-grained entities and events**. This is not a Chinese-specific problem (the on-site article [Semantic Similarity is Not Retrieval Relevance](/posts/ai/2026-06-04-semantic-similarity-retrieval-relevance-gap-en) covers the full picture), but CapRetrieval proved with a Chinese evaluation set that it holds equally in Chinese scenarios, and that **scaling up the model doesn't fix it**.
 
-Additional universal issues compound the problem: chunks lose context ("it grew by 40%" lacks a subject and timeframe, making the vector meaningless -- see [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval) for the solution), and domain OOV terms (general-purpose embeddings fail to capture specialized semantic nuances).
+Additional universal issues compound the problem: chunks lose context ("it grew by 40%" lacks a subject and timeframe, making the vector meaningless -- see [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en) for the solution), and domain OOV terms (general-purpose embeddings fail to capture specialized semantic nuances).
 
 ## Layer 2: Simplified Chinese / English Corpus Dominance, Traditional Chinese Representation Drift
 
@@ -53,7 +53,7 @@ The fix is **architectural**, not about swapping models:
 | 5 | BGE-M3 single-model hybrid | One model outputs dense + sparse + multi-vector simultaneously, with native support for Traditional/Simplified Chinese and English, eliminating the need to maintain two separate indexes | Medium |
 | 6 | Local fine-tuning | Contrastive fine-tuning with your own Traditional Chinese corpus | High, do last |
 
-Strategies 1-3 require no model change and offer low cost with high returns; for details on hybrid search and reranking, see the on-site articles [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf), [cross-encoder reranking](/posts/ai/2026-03-12-cross-encoder-reranking), and [BGE-M3 model selection](/posts/ai/2026-03-12-bge-m3-embedding-model-selection).
+Strategies 1-3 require no model change and offer low cost with high returns; for details on hybrid search and reranking, see the on-site articles [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), [cross-encoder reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en), and [BGE-M3 model selection](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en).
 
 Strategy 6 deserves extra mention: low-resource retrieval research provides a pragmatic path -- **use LLMs to synthesize triplet data for contrastive fine-tuning**. CapRetrieval showed that after augmenting with LLM-generated data, **a self-trained 0.1B encoder surpassed a 7B baseline**; another paper (arXiv:2603.22290) demonstrated that mE5 fine-tuned with **only 10k noisy synthetic pairs** was already effective. Traditional Chinese relative to Simplified Chinese is "moderately low-resource" (character-level resources are sufficient; high-quality annotated retrieval data is scarce), and these general findings transfer directly -- small models after fine-tuning often outperform large models at zero-shot.
 

@@ -220,4 +220,4 @@ It's probably not worth replicating if: you don't have admin trace infrastructur
 - [Reciprocal Rank Fusion (RRF)](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)
 - [Corrective RAG Paper](https://arxiv.org/abs/2401.15884)
 - [Hono Framework Documentation](https://hono.dev/)
-- [NobodyClimb Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Platform-wide architecture and Cloudflare-first strategy
+- [NobodyClimb Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Platform-wide architecture and Cloudflare-first strategy

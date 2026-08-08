@@ -120,5 +120,5 @@ For most React applications, the Zustand + TanStack Query combination covers 95%
 
 - [Zustand Official Docs](https://zustand-demo.pmnd.rs/)
 - [Zustand GitHub](https://github.com/pmndrs/zustand)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Zustand + TanStack Query in a real project
-- [TanStack Query: The Standard for Server State](/posts/tech/2026-03-27-tanstack-query-server-state) — server state management used alongside Zustand
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Zustand + TanStack Query in a real project
+- [TanStack Query: The Standard for Server State](/posts/tech/2026-03-27-tanstack-query-server-state-en) — server state management used alongside Zustand

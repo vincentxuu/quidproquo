@@ -89,6 +89,6 @@ If you already have something you've been "wanting to learn but never started" o
 ## References
 
 - [DaoDao Official Website](https://daodao.so/)
-- [From "Wanting to Learn" to "Actually Learning": DaoDao's Product Design Philosophy](/posts/product/2026-03-12-daodao-product-design)
-- [The Next Battleground for Online Learning: Why "Completion Rate" Is the Real Problem](/posts/product/2026-03-12-daodao-market-opportunity)
-- [DaoDao Technical Architecture](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [From "Wanting to Learn" to "Actually Learning": DaoDao's Product Design Philosophy](/posts/product/2026-03-12-daodao-product-design-en)
+- [The Next Battleground for Online Learning: Why "Completion Rate" Is the Real Problem](/posts/product/2026-03-12-daodao-market-opportunity-en)
+- [DaoDao Technical Architecture](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

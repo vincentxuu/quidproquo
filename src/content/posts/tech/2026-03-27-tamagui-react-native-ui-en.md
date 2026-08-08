@@ -164,4 +164,4 @@ NobodyClimb's choice makes sense — a climbing community platform needs light/d
 - [Tamagui styled() API](https://tamagui.dev/docs/core/styled)
 - [NativeWind Official Docs](https://www.nativewind.dev/)
 - [Expo + Tamagui Setup Guide](https://tamagui.dev/docs/guides/expo)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)

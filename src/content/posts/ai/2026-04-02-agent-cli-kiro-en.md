@@ -16,7 +16,7 @@ Kiro is an Agentic IDE from AWS, built on Code OSS (the open-source foundation o
 
 This article starts from pricing and breaks down Kiro's core mechanisms one by one, helping you decide whether it's the right fit for your team.
 
-> This article is a sub-entry of [The Complete Guide to Agent CLI Subscriptions and Multi-Model Routing](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing).
+> This article is a sub-entry of [The Complete Guide to Agent CLI Subscriptions and Multi-Model Routing](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en).
 
 ## Pricing Plans
 
@@ -160,7 +160,7 @@ Kiro is best suited for the following teams:
 
 ## Series Articles
 
-- [The Complete Guide to Agent CLI Subscriptions and Multi-Model Routing](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
+- [The Complete Guide to Agent CLI Subscriptions and Multi-Model Routing](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)
 
 ## References
 

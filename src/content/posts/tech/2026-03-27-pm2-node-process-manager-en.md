@@ -193,4 +193,4 @@ PM2's positioning is clear: you have one (or a few) servers and need a straightf
 - [PM2 Cluster Mode](https://pm2.keymetrics.io/docs/usage/cluster-mode/)
 - [PM2 Ecosystem File](https://pm2.keymetrics.io/docs/usage/application-declaration/)
 - [pm2-logrotate](https://github.com/keymetrics/pm2-logrotate)
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao's Docker + PM2 deployment architecture
+- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — DaoDao's Docker + PM2 deployment architecture

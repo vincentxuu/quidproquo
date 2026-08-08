@@ -143,5 +143,5 @@ The tradeoff is a substantial increase in engineering complexity. For a climbing
 
 - [From Local to Global: A Graph RAG Approach to Query-Focused Summarization (2024)](https://arxiv.org/abs/2404.16130)
 - [Microsoft GraphRAG - GitHub](https://github.com/microsoft/graphrag)
-- [NobodyClimb System Architecture: Full-Stack Climbing Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) (zh-TW only)
+- [NobodyClimb System Architecture: Full-Stack Climbing Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

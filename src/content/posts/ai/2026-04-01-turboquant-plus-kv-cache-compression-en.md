@@ -166,5 +166,5 @@ For Mac users, once the llama.cpp upstream merge lands, this will be a killer op
 
 - [TurboQuant+ GitHub repo](https://github.com/TheTom/turboquant_plus)
 - [llama.cpp GitHub repo](https://github.com/ggerganov/llama.cpp)
-- [vLLM — From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine)
-- [Ollama Local LLM Guide](/posts/ai/2026-03-14-ollama-local-llm-guide)
+- [vLLM — From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
+- [Ollama Local LLM Guide](/posts/ai/2026-03-14-ollama-local-llm-guide-en)

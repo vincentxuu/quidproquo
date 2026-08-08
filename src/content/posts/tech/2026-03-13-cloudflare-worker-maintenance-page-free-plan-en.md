@@ -109,4 +109,4 @@ Cloudflare Workers are incredibly versatile as a lightweight proxy layer — not
 - [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare Custom Error Pages (Error Pages)](https://developers.cloudflare.com/rules/custom-error-responses/)
 - [Workers routing](https://developers.cloudflare.com/workers/configuration/routing/)
-- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

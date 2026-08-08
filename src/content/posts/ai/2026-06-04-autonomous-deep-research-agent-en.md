@@ -33,7 +33,7 @@ Decision criteria: multi-agent parallelism only pays off for breadth-oriented re
 | Interleaved RL | Model autonomously generates queries during reasoning, search is part of the RL environment | Search-R1 |
 | Adaptive retrieval | Model judges on its own whether "this segment needs lookup" | Self-RAG |
 
-Key insight: **Planning is not a one-shot process**. When OpenAI DR hits a paywall, it internally reasons "trying an unofficial website might be better" and then switches to searching government public abstracts -- this ability to react to real-time information, backtrack, and rewrite queries is trained through RL, not hardcoded in a workflow. The complete methodology map for the "whether to search, what to search" decision layer is expanded in the companion post [Three Decision Layers of Agentic RAG](/posts/ai/2026-06-04-agentic-retrieval-decisions).
+Key insight: **Planning is not a one-shot process**. When OpenAI DR hits a paywall, it internally reasons "trying an unofficial website might be better" and then switches to searching government public abstracts -- this ability to react to real-time information, backtrack, and rewrite queries is trained through RL, not hardcoded in a workflow. The complete methodology map for the "whether to search, what to search" decision layer is expanded in the companion post [Three Decision Layers of Agentic RAG](/posts/ai/2026-06-04-agentic-retrieval-decisions-en).
 
 ## Stage 2: When to Stop Searching
 

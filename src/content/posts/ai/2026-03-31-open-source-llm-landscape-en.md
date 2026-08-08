@@ -45,13 +45,13 @@ Nearly all frontier open-source models in 2026 use the **Mixture of Experts (MoE
 
 **GLM-5.1**, released on March 27, further improved performance, with code ability approaching Claude Opus 4.6.
 
-**-> [GLM-5 Deep Dive: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro)**
+**-> [GLM-5 Deep Dive: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro-en)**
 
 ### Kimi K2.5 (Moonshot AI) -- 1T Parameters + Agent Swarm
 
 A 1T total / 32B active parameter MoE model, MIT license (attribution required for >100M MAU or >$20M monthly revenue). Native multimodal, with the biggest highlight being **Agent Swarm** -- capable of coordinating 100 sub-agents simultaneously and issuing 1,500 tool calls. Code and math are open-source strongest on some benchmarks.
 
-**-> [Kimi Deep Dive: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro)**
+**-> [Kimi Deep Dive: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro-en)**
 
 ### Qwen3.5-397B-A17B (Alibaba) -- Multimodal Flagship
 
@@ -125,7 +125,7 @@ Alibaba released three sizes on February 24, all Apache 2.0 with native multimod
 
 Based on Gemini 2.0 technology, available in 1B/4B/12B/27B sizes, multimodal (text + image), 128K context. Traditional Chinese performance on Cloudflare Workers AI outperforms Llama.
 
-**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)**
+**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)**
 
 ### Devstral Small 2 (Mistral, 2025/12)
 
@@ -165,7 +165,7 @@ Designed specifically for mobile, Per-Layer Embeddings (PLE) let a 5B parameter 
 | Tiny Aya | 3.35B | CC-BY-NC | 70+ languages, edge devices |
 | gpt-oss-20b | 21B / 3.6B active | Apache 2.0 | OpenAI small open-source model |
 
-**-> [Mobile Small Models Complete Comparison: Choices and Constraints in 2026](/posts/ai/2026-03-31-mobile-small-models)**
+**-> [Mobile Small Models Complete Comparison: Choices and Constraints in 2026](/posts/ai/2026-03-31-mobile-small-models-en)**
 
 ## Embedding Models: The Foundation of RAG
 
@@ -182,7 +182,7 @@ RAG requires not just generation models but also Embedding models to vectorize t
 
 How to choose: For Traditional Chinese RAG, use **BGE-M3** (MIT, tri-mode retrieval) or **Qwen3-Embedding** (highest accuracy). For multimodal embedding (images + PDF), use **Jina v4**. For edge devices, use **EmbeddingGemma**.
 
-**-> [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)**
+**-> [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)**
 
 ## Reranker Models: Boosting Retrieval Precision
 
@@ -197,9 +197,9 @@ Embedding handles recall; Reranker handles precision ranking. A good Reranker ca
 
 Most pragmatic combinations: **BGE-M3 + BGE Reranker v2-m3** (all MIT) or **Qwen3-Embedding + Qwen3-Reranker** (all Apache 2.0).
 
-**-> [Cross-Encoder Reranking: Getting the Most Relevant Documents to the Top](/posts/ai/2026-03-12-cross-encoder-reranking)**
-**-> [ColBERT: The Third Path for Vector Search](/posts/ai/2026-03-12-colbert-late-interaction)**
-**-> [SPLADE: Smarter Sparse Vector Search Than BM25](/posts/ai/2026-03-12-splade-sparse-vectors)**
+**-> [Cross-Encoder Reranking: Getting the Most Relevant Documents to the Top](/posts/ai/2026-03-12-cross-encoder-reranking-en)**
+**-> [ColBERT: The Third Path for Vector Search](/posts/ai/2026-03-12-colbert-late-interaction-en)**
+**-> [SPLADE: Smarter Sparse Vector Search Than BM25](/posts/ai/2026-03-12-splade-sparse-vectors-en)**
 
 ## Code Models: Specialized for Writing Code
 
@@ -267,19 +267,19 @@ After choosing a model, you still need to choose how to run it. The 2026 inferen
 
 Download and launch models with a single command, Docker-style CLI + OpenAI-compatible API. Ideal for personal development, prototyping, and offline use. Not suitable for high-concurrency production environments.
 
-**-> [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide)**
+**-> [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide-en)**
 
 ### Production Deployment -> vLLM
 
 PagedAttention + continuous batching + prefix caching -- currently the most mainstream open-source LLM inference engine. Ideal for API services requiring high throughput.
 
-**-> [vLLM: From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine)**
+**-> [vLLM: From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)**
 
 ### Edge / Serverless -> Cloudflare Workers AI
 
 If you don't want to manage GPUs, Cloudflare Workers AI provides zero-ops inference services. Model selection is limited, but Gemma 3 12B outperforms Llama for Traditional Chinese.
 
-**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)**
+**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)**
 
 ### Deployment Quick Reference
 
@@ -378,13 +378,13 @@ The biggest structural shift: Model selection decisions are moving from "open-so
 
 In-site articles:
 
-- [GLM-5: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro)
-- [Kimi: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro)
-- [Mobile Small Models: Choices and Constraints in 2026](/posts/ai/2026-03-31-mobile-small-models)
-- [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
-- [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide)
-- [vLLM: From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine)
-- [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- [GLM-5: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro-en)
+- [Kimi: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro-en)
+- [Mobile Small Models: Choices and Constraints in 2026](/posts/ai/2026-03-31-mobile-small-models-en)
+- [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
+- [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide-en)
+- [vLLM: From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
+- [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)
 
 External resources:
 

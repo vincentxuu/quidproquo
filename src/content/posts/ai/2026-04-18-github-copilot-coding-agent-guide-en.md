@@ -228,4 +228,4 @@ If your situation is "Issues are written, specs are clear, test coverage exists,
 - [Automating Copilot coding agent with GitHub Actions](https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/automating-copilot-coding-agent-with-github-actions)
 - [Assigning and completing issues with coding agent](https://github.blog/ai-and-ml/github-copilot/assigning-and-completing-issues-with-coding-agent-in-github-copilot/)
 - [My First Impressions of GitHub Copilot's Coding Agent](https://manjit28.medium.com/my-first-impressions-of-github-copilots-coding-agent-bae730a1d69d)
-- [Claude Managed Agents: Let Anthropic Handle the Agent Shell and Sandbox](/posts/ai/2026-04-12-claude-managed-agents-intro)
+- [Claude Managed Agents: Let Anthropic Handle the Agent Shell and Sandbox](/posts/ai/2026-04-12-claude-managed-agents-intro-en)

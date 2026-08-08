@@ -61,7 +61,7 @@ These tools let AI operate a browser autonomously — clicking, filling forms, s
 
 Browser-MCP (~7k stars) exposes browser operations as MCP tools, making it easy to plug into Claude or LLM agent workflows.
 
-For a deep dive into the pure-vision approach, see our [Midscene.js analysis](/posts/ai/2026-05-23-midscene-vision-ui-automation) — it takes the extreme stance of "screenshots only, no DOM" and even removed its DOM action mode in v1.0.
+For a deep dive into the pure-vision approach, see our [Midscene.js analysis](/posts/ai/2026-05-23-midscene-vision-ui-automation-en) — it takes the extreme stance of "screenshots only, no DOM" and even removed its DOM action mode in v1.0.
 
 ## Document Conversion: No Scraping, Just Format Translation
 
@@ -85,7 +85,7 @@ AgentQL (~1k stars) replaces CSS/XPath with semantic queries, Parsera is a light
 
 [changedetection.io](https://github.com/dgtlmoon/changedetection.io) (~33k stars) does something different — it monitors web page changes and notifies you, useful for tracking prices, inventory, or policy updates. [scrcpy](https://github.com/Genymobile/scrcpy) (146k stars, Apache-2.0) isn't strictly a scraper but an Android screen mirroring tool, useful when you need to extract data from mobile apps. brightdata-mcp (~3k stars) is a commercial-grade MCP server for AI agents to access data through Bright Data's infrastructure.
 
-For more on anti-detection techniques, see our [guide to bypassing Cloudflare anti-bot](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent) (in Chinese) comparing nodriver / stealth / camoufox. For a practical example of connecting scrapers to MCP, see [turning a scraper script into an MCP Server](/posts/tech/2026-03-20-mcp-server-job-scraper) (in Chinese).
+For more on anti-detection techniques, see our [guide to bypassing Cloudflare anti-bot](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent-en) (in Chinese) comparing nodriver / stealth / camoufox. For a practical example of connecting scrapers to MCP, see [turning a scraper script into an MCP Server](/posts/tech/2026-03-20-mcp-server-job-scraper-en) (in Chinese).
 
 ## Quick Reference Table
 
@@ -123,7 +123,7 @@ The key to selection isn't "which is best" — it's scenario matching:
 - **Login / complex interaction** → Browser-Use or Stagehand
 - **PDF / Office conversion** → MarkItDown (general) or MinerU (academic PDFs)
 - **Site keeps redesigning, selectors keep breaking** → Scrapling
-- **Blocked by Cloudflare** → curl-impersonate + [Cloudflare bypass guide](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent) (in Chinese)
+- **Blocked by Cloudflare** → curl-impersonate + [Cloudflare bypass guide](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent-en) (in Chinese)
 
 ## References
 
@@ -146,6 +146,6 @@ The key to selection isn't "which is best" — it's scenario matching:
 - [curl-impersonate (GitHub)](https://github.com/lwthiker/curl-impersonate)
 - [changedetection.io (GitHub)](https://github.com/dgtlmoon/changedetection.io)
 - [scrcpy (GitHub)](https://github.com/Genymobile/scrcpy)
-- [Midscene.js: Vision-First UI Automation](/posts/ai/2026-05-23-midscene-vision-ui-automation) (on this site, in Chinese)
-- [Bypassing Cloudflare Anti-Bot Guide](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent) (on this site, in Chinese)
-- [Turning a Scraper into an MCP Server](/posts/tech/2026-03-20-mcp-server-job-scraper) (on this site, in Chinese)
+- [Midscene.js: Vision-First UI Automation](/posts/ai/2026-05-23-midscene-vision-ui-automation-en) (on this site, in Chinese)
+- [Bypassing Cloudflare Anti-Bot Guide](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent-en) (on this site, in Chinese)
+- [Turning a Scraper into an MCP Server](/posts/tech/2026-03-20-mcp-server-job-scraper-en) (on this site, in Chinese)

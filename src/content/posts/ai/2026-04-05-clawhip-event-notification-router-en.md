@@ -196,5 +196,5 @@ OMC, OMX, and OmO are responsible for making agents do work; clawhip is responsi
 
 - [clawhip GitHub Repository](https://github.com/Yeachan-Heo/clawhip)
 - [clawhip on crates.io](https://crates.io/crates/clawhip)
-- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
-- [Claw Code: Open-Source Rust Reimplementation of Claude Code](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation)
+- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer-en)
+- [Claw Code: Open-Source Rust Reimplementation of Claude Code](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation-en)

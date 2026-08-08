@@ -113,7 +113,7 @@ Google is also upfront that this won't be a complete handoff: "there won't be 1:
 
 Compared to its sibling **Antigravity 2.0**: same engine, different ergonomics. The CLI is built for speed, keyboard efficiency, and low overhead — SSH, remote servers, tmux. The 2.0 desktop app is built for completeness: visual orchestration, artifact previews, visual diff review, and voice input. You can use them together; conversations opened in the CLI can be exported into 2.0.
 
-Compared to **Claude Code, Codex CLI, and Gemini CLI**, Antigravity CLI's differentiation isn't in "can it read and write files or run commands" — all of them can. The distinction is that it's one surface of a larger platform: shared harness with the desktop app, bidirectional settings sync, native async subagents, and SSH as a design target rather than an afterthought. For a full side-by-side on installation and pricing, the site also has in-depth coverage of [Gemini CLI](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent), [Codex CLI](/posts/tech/2026-03-31-codex-cli-openai-coding-agent), and [Claude Code](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent).
+Compared to **Claude Code, Codex CLI, and Gemini CLI**, Antigravity CLI's differentiation isn't in "can it read and write files or run commands" — all of them can. The distinction is that it's one surface of a larger platform: shared harness with the desktop app, bidirectional settings sync, native async subagents, and SSH as a design target rather than an afterthought. For a full side-by-side on installation and pricing, the site also has in-depth coverage of [Gemini CLI](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en), [Codex CLI](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en), and [Claude Code](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en).
 
 On models: the CLI runs on a shared harness "co-optimized" with Gemini models; the default reasoning model can be switched with `/model`, and the underlying engine is a specialized configuration of the Gemini 3 series. The official CLI docs do not enumerate the available models individually.
 
@@ -144,6 +144,6 @@ The most efficient way to evaluate: install `agy` on the machine where you use G
 - [An important update: Transitioning Gemini CLI to Antigravity CLI (Google Developers Blog)](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
 - [Google Antigravity Documentation (four-surface overview)](https://antigravity.google/docs/home)
 - [google-antigravity/antigravity-cli (public repo / community forum)](https://github.com/google-antigravity/antigravity-cli)
-- [Gemini CLI: Complete Guide to Google's Open-Source Terminal AI Agent (on this site)](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)
-- [Codex CLI: Complete Guide to OpenAI's Open-Source Terminal Coding Agent (on this site)](/posts/tech/2026-03-31-codex-cli-openai-coding-agent)
-- [Claude Code: Complete Guide to Anthropic's Terminal AI Coding Agent (on this site)](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent)
+- [Gemini CLI: Complete Guide to Google's Open-Source Terminal AI Agent (on this site)](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
+- [Codex CLI: Complete Guide to OpenAI's Open-Source Terminal Coding Agent (on this site)](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en)
+- [Claude Code: Complete Guide to Anthropic's Terminal AI Coding Agent (on this site)](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en)

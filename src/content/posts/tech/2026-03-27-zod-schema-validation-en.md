@@ -188,6 +188,6 @@ Yup is Zod's most common comparison point — similar API, but TypeScript infere
 
 - [Zod Official Docs](https://zod.dev/)
 - [Zod GitHub](https://github.com/colinhacks/zod)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Zod usage in the backend service layer
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — A real-world monorepo shared schema example
-- [React Hook Form + Zod: The Best Combo for Form Handling](/posts/tech/2026-03-27-react-hook-form-zod-validation) — Zod applied to frontend forms
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Zod usage in the backend service layer
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — A real-world monorepo shared schema example
+- [React Hook Form + Zod: The Best Combo for Form Handling](/posts/tech/2026-03-27-react-hook-form-zod-validation-en) — Zod applied to frontend forms

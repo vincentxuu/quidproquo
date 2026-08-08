@@ -259,4 +259,4 @@ The language determines the choice. DaoDao's Python AI service uses Celery; the 
 - [Celery + Redis Configuration Guide](https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html)
 - [Flower Monitoring Tool](https://flower.readthedocs.io/)
 - [FastAPI + Celery Integration Example](https://testdriven.io/blog/fastapi-and-celery/)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — The full architecture of how Celery powers LLM feedback generation and embedding updates in the Python AI service (FastAPI + Celery)
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — The full architecture of how Celery powers LLM feedback generation and embedding updates in the Python AI service (FastAPI + Celery)

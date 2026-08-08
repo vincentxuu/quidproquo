@@ -156,5 +156,5 @@ If you're not using Workers, S3 is probably the better fit. R2's biggest value c
 - [Cloudflare R2 Official Docs](https://developers.cloudflare.com/r2/)
 - [R2 Pricing](https://developers.cloudflare.com/r2/pricing/)
 - [Workers Storage Options Guide](https://developers.cloudflare.com/workers/platform/storage-options/)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)

@@ -112,4 +112,4 @@ It isn't trying to replace vector RAG. Rather, it carves out a domain where vect
 - [MarkTechPost: VectifyAI Launches Mafin 2.5 and PageIndex](https://www.marktechpost.com/2026/02/22/vectifyai-launches-mafin-2-5-and-pageindex-achieving-98-7-financial-rag-accuracy-with-a-new-open-source-vectorless-tree-indexing/)
 - [Towards AI: PageIndex — The RAG Framework That Threw Out Vector Databases](https://pub.towardsai.net/pageindex-the-rag-framework-that-threw-out-vector-databases-and-still-hit-98-7-accuracy-d194e0549478)
 - [pageindex_RAG_simple.ipynb (Official Cookbook)](https://github.com/VectifyAI/PageIndex/blob/main/cookbook/pageindex_RAG_simple.ipynb)
-- [GraphRAG: Turning Knowledge Into Graphs for LLM Reasoning Along Relationships](/posts/ai/2026-03-12-graph-rag)
+- [GraphRAG: Turning Knowledge Into Graphs for LLM Reasoning Along Relationships](/posts/ai/2026-03-12-graph-rag-en)

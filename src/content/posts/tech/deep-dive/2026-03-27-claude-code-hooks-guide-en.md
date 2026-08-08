@@ -411,7 +411,7 @@ This hook is only active while the `secure-operations` skill is loaded.
 
 ## Division of Responsibility with Skills
 
-This topic is covered in depth in [The Three-Layer Quality Defense](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md), but here's a quick summary:
+This topic is covered in depth in [The Three-Layer Quality Defense](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en), but here's a quick summary:
 
 | Property | Hook | Skill |
 |----------|------|-------|
@@ -450,5 +450,5 @@ The most powerful pattern is combining Hooks with Skills. Hooks catch problems, 
 - [Claude Code Hooks Official Documentation](https://code.claude.com/docs/en/hooks)
 - [Claude Code Skills Official Documentation](https://code.claude.com/docs/en/skills)
 - [Claude Code Permissions Official Documentation](https://code.claude.com/docs/en/permissions)
-- [The Three-Layer Quality Defense in Claude Code: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
-- [Claude Code Skill Design: A Complete Guide](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
+- [The Three-Layer Quality Defense in Claude Code: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
+- [Claude Code Skill Design: A Complete Guide](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)

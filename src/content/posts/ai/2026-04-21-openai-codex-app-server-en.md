@@ -124,5 +124,5 @@ The three-layer structure of Item / Turn / Thread is also worth noting. It's not
 - [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) — Celia Chen, OpenAI, February 2026, original source for this article
 - [Codex CLI](https://github.com/openai/codex) — OpenAI Codex CLI GitHub repository
 - [Model Context Protocol](https://modelcontextprotocol.io/introduction) — MCP specification, the alternative approach discussed in the article
-- [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) — Background context on Harness Engineering
-- [Anthropic Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design) — Anthropic's perspective on harness design, for comparison with this article
+- [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) — Background context on Harness Engineering
+- [Anthropic Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en) — Anthropic's perspective on harness design, for comparison with this article

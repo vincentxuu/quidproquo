@@ -196,4 +196,4 @@ HyperFrames' core value isn't technical novelty — rendering video with headles
 - [Remotion](https://www.remotion.dev/) — React-based video framework, main competitor
 - [HyperFrames x HeyGen](https://help.heygen.com/en/articles/15001510-hyperframes-x-heygen) — Official integration guide
 - [HTML to Video: How HyperFrames Solved AI Video Rendering](https://www.heygen.com/research/html-to-video) — HeyGen technical blog
-- [Related: Using AI Agents with Video Generation Tools](/posts/ai/2026-05-10-ai-agent-video-generation) — Integration guide (in Chinese)
+- [Related: Using AI Agents with Video Generation Tools](/posts/ai/2026-05-10-ai-agent-video-generation-en) — Integration guide (in Chinese)

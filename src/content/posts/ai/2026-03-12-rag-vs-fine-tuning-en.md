@@ -113,5 +113,5 @@ RAG and Fine-tuning are complementary tools, not competitors. RAG is an "extensi
 - [Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge (2024)](https://arxiv.org/abs/2403.01432)
 - [Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs (2023)](https://arxiv.org/abs/2312.05934)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

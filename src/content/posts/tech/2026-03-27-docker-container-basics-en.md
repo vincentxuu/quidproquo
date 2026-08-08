@@ -208,4 +208,4 @@ NobodyClimb runs on Cloudflare Workers and doesn't need Docker at all — Cloudf
 - [Docker Official Documentation](https://docs.docker.com/)
 - [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [Docker Compose Official Documentation](https://docs.docker.com/compose/)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao's Docker deployment strategy and type-aware cache design
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — DaoDao's Docker deployment strategy and type-aware cache design

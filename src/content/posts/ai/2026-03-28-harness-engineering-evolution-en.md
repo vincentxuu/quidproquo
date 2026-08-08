@@ -75,7 +75,7 @@ Epsilla outlines several rules:
 
 **1. The repository is the agent's single source of truth**
 
-Don't assume external knowledge. Everything the agent needs should exist in the repo. This aligns with [Anthropic's `claude-progress.txt` approach](/posts/ai/2026-03-28-anthropic-harness-design) — write state to the filesystem instead of relying on the model's memory.
+Don't assume external knowledge. Everything the agent needs should exist in the repo. This aligns with [Anthropic's `claude-progress.txt` approach](/posts/ai/2026-03-28-anthropic-harness-design-en) — write state to the filesystem instead of relying on the model's memory.
 
 **2. Code should be agent-readable, not just human-readable**
 
@@ -93,7 +93,7 @@ Don't let the agent do everything from the start. Set up stages and gates, and o
 
 ## Generator-Evaluator: The Core Architectural Pattern
 
-Like [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design), Epsilla also emphasizes that the GAN-inspired dual-agent architecture is the core component of a harness:
+Like [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en), Epsilla also emphasizes that the GAN-inspired dual-agent architecture is the core component of a harness:
 
 - **Generator**: Responsible for producing output
 - **Evaluator**: Independently verifies results and feeds them back to the generator
@@ -117,10 +117,10 @@ The focus in 2026 isn't writing better prompts — it's building better environm
 
 ## Further Reading
 
-- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design) — A guide to Anthropic's two harness design articles
-- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness) — Understanding the harness's role through the CPU/OS/App analogy
-- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns) — Complete taxonomy of patterns including Generator-Critic
-- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Theoretical framework for agent architecture
+- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en) — A guide to Anthropic's two harness design articles
+- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) — Understanding the harness's role through the CPU/OS/App analogy
+- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns-en) — Complete taxonomy of patterns including Generator-Critic
+- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — Theoretical framework for agent architecture
 - [The Third Evolution — Epsilla Original](https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents)
 
 ## References

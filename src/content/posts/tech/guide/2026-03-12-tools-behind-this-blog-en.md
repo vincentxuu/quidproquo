@@ -68,7 +68,7 @@ D1 is Cloudflare's serverless SQLite, running on edge nodes.
 
 Markdown files are the single source of truth on this site; D1 is a derived copy. A build-time script (`scripts/sync-to-d1.ts`) syncs post content into it, with the goal of supporting RAG search — letting AI query article content to answer questions.
 
-D1 works exactly like SQLite — if you know SQL, you're immediately productive. The `batch()` API lets you send multiple statements at once, but there's an implicit limit of 100 per batch; anything beyond that is silently dropped (for more on D1 usage, see: [Cloudflare D1 Complete Guide](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)).
+D1 works exactly like SQLite — if you know SQL, you're immediately productive. The `batch()` API lets you send multiple statements at once, but there's an implicit limit of 100 per batch; anything beyond that is silently dropped (for more on D1 usage, see: [Cloudflare D1 Complete Guide](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database-en)).
 
 Compared to standalone database services like PlanetScale or Supabase, D1's advantage is zero configuration — already inside the Cloudflare ecosystem, just set up the binding and you're done, no connection strings or credentials to manage.
 
@@ -154,4 +154,4 @@ The Cloudflare all-in-one approach keeps integration costs low — all services 
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
 - [pnpm Documentation](https://pnpm.io/)
 - [Zod Documentation](https://zod.dev/)
-- [What to Know Before Switching Astro Blog Templates](/posts/tech/guide/2026-03-12-astro-blog-template-guide) — Astro template selection and migration guide
+- [What to Know Before Switching Astro Blog Templates](/posts/tech/guide/2026-03-12-astro-blog-template-guide-en) — Astro template selection and migration guide

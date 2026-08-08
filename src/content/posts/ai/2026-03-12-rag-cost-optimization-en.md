@@ -179,5 +179,5 @@ Other optimizations (context length control, step skipping) are fine-tuning -- l
 - [RAGO: Systematic Performance Optimization for Retrieval-Augmented Generation](https://arxiv.org/abs/2503.14649)
 - [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833)
 - [Towards Understanding Systems Trade-offs in Retrieval-Augmented Generation Model Inference](https://arxiv.org/abs/2412.11854)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

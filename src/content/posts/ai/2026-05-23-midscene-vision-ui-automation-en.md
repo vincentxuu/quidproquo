@@ -115,10 +115,10 @@ Stagehand   DOM (chunk+rank)         Browser only    TS       Built on Playwrigh
 browser-use DOM/screenshot/hybrid    Browser only    Python   Autonomous agent
 ```
 
-- **vs Stagehand** (by Browserbase, the team behind [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills)): Stagehand parses DOM for localization and is built on Playwright. Its action target accuracy is typically more stable than pure vision, but it's **browser-only**. Midscene's differentiator is pure vision + true cross-platform (mobile/desktop) + JS. (This comparison is synthesized from secondary sources.)
+- **vs Stagehand** (by Browserbase, the team behind [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en)): Stagehand parses DOM for localization and is built on Playwright. Its action target accuracy is typically more stable than pure vision, but it's **browser-only**. Midscene's differentiator is pure vision + true cross-platform (mobile/desktop) + JS. (This comparison is synthesized from secondary sources.)
 - **vs browser-use**: Python-based, autonomous agent loop, re-reasons at every step, browser-only -- positioned as "let the agent surf the web on its own." Midscene leans toward an SDK approach where you "write it as a script/test."
 
-In short: Midscene's selling point is **vision-first + true cross-platform + complete JS toolchain (reports/caching/MCP/Skills)**, with the trade-off of slower steps and higher token costs. For a broader view of the browser agent landscape, see the site's [Comparison of Three AI Agents' Chrome Strategies](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini) and [OpenClaw's Browser Control](/posts/ai/2026-03-28-openclaw-tools-browser-search).
+In short: Midscene's selling point is **vision-first + true cross-platform + complete JS toolchain (reports/caching/MCP/Skills)**, with the trade-off of slower steps and higher token costs. For a broader view of the browser agent landscape, see the site's [Comparison of Three AI Agents' Chrome Strategies](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en) and [OpenClaw's Browser Control](/posts/ai/2026-03-28-openclaw-tools-browser-search-en).
 
 ## When to Use and When Not To, Plus Limitations
 

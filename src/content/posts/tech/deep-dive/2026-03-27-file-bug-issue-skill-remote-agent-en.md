@@ -84,7 +84,7 @@ Our team writes issue content in Traditional Chinese, but error messages, comman
 
 This is where things get interesting.
 
-I wrote previously about the [Remote Agent auto-development pipeline](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline) — using `/publish-tasks` to publish engineering tasks from OpenSpec as GitHub issues with an `auto` label, which a Scheduled Remote Agent scans every 2 hours, implements automatically, and opens PRs for.
+I wrote previously about the [Remote Agent auto-development pipeline](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en) — using `/publish-tasks` to publish engineering tasks from OpenSpec as GitHub issues with an `auto` label, which a Scheduled Remote Agent scans every 2 hours, implements automatically, and opens PRs for.
 
 Issues created by `/file-bug-issue` are tagged with a `bug` label, not `auto`. That's intentional — not every bug should be handed off to AI for automatic repair. But if you decide a particular bug's fix is clear-cut (like the CI issue above — just add one line: `shm_size: 256mb`), you can manually add the `auto` label, and the Remote Agent will pick it up on its next scan.
 
@@ -156,7 +156,7 @@ This loose coupling is easier to maintain. If any one skill breaks or becomes un
 - [Claude Code Official Docs](https://docs.anthropic.com/en/docs/claude-code)
 - [GitHub CLI (gh) Official Docs](https://cli.github.com/manual/)
 - [GitHub Issues Official Docs](https://docs.github.com/en/issues)
-- [Automated Overnight Development with Claude Code Remote Agent](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline) — the complete flow for Remote Agent picking up issues and opening PRs
-- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — design differences and how skills and hooks complement each other
-- [AI-Driven Development from OpenSpec to Automated Deploy](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — the full eight-stage development pipeline
-- [Conversation as Documentation: Turning Debug Sessions into Posts with Claude Code](/posts/tech/guide/2026-03-13-conversation-as-documentation) — another skill for extracting knowledge from conversations
+- [Automated Overnight Development with Claude Code Remote Agent](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en) — the complete flow for Remote Agent picking up issues and opening PRs
+- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en) — design differences and how skills and hooks complement each other
+- [AI-Driven Development from OpenSpec to Automated Deploy](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en) — the full eight-stage development pipeline
+- [Conversation as Documentation: Turning Debug Sessions into Posts with Claude Code](/posts/tech/guide/2026-03-13-conversation-as-documentation-en) — another skill for extracting knowledge from conversations

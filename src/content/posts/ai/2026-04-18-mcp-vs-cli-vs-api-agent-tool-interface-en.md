@@ -133,7 +133,7 @@ We don't need MCP to vanish. We need it to stop taking on roles it was never mea
 
 ---
 
-**2026-05-10 Postscript**: After Anthropic's 11/4 Code execution with MCP release, the "code generation" path materialized into a concrete pattern — Code Mode (lazy import + runtime). The full write-up is in [Code Mode: Moving Tool Definitions from Context into Code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern).
+**2026-05-10 Postscript**: After Anthropic's 11/4 Code execution with MCP release, the "code generation" path materialized into a concrete pattern — Code Mode (lazy import + runtime). The full write-up is in [Code Mode: Moving Tool Definitions from Context into Code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en).
 
 ## References
 

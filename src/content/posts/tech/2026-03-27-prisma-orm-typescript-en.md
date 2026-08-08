@@ -223,4 +223,4 @@ If your project is TypeScript + PostgreSQL + standard CRUD operations, Prisma is
 - [Prisma Schema Reference](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference)
 - [Prisma Client API Reference](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference)
 - [Drizzle ORM](https://orm.drizzle.team/) — a type-safe ORM alternative that stays closer to SQL syntax
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — full architectural context for Prisma in a production project
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — full architectural context for Prisma in a production project

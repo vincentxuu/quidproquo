@@ -192,4 +192,4 @@ If you're in a Node.js environment, don't need edge runtime, and your team has e
 - [Passport.js Official Documentation](https://www.passportjs.org/)
 - [Zod Official Documentation](https://zod.dev/)
 - [BullMQ Official Documentation](https://docs.bullmq.io/)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Express in a full production project
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Express in a full production project

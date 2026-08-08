@@ -142,7 +142,7 @@ Less suitable scenarios: teams that require fully local models, need custom rout
 
 This article is part of the Agent CLI Subscription and Billing series. For a complete multi-tool comparison and model routing analysis, see:
 
-**→ [Agent CLI Subscription Plans and Multi-Model Routing: A Complete Comparison](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
+**→ [Agent CLI Subscription Plans and Multi-Model Routing: A Complete Comparison](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)**
 
 ## References
 

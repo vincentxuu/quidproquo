@@ -360,6 +360,6 @@ Recommended incremental adoption:
 - [lint-staged Official Docs](https://github.com/lint-staged/lint-staged)
 - [lefthook Official Docs](https://github.com/evilmartians/lefthook)
 - [Biome Official Site](https://biomejs.dev/)
-- [From OpenSpec to Auto-Deploy: An AI-Driven Development Workflow](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — Hooks and Skills in a complete development workflow
-- [The /file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — Another Skill design case study
-- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [From OpenSpec to Auto-Deploy: An AI-Driven Development Workflow](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en) — Hooks and Skills in a complete development workflow
+- [The /file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) — Another Skill design case study
+- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

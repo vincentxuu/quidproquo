@@ -41,12 +41,14 @@ Recently completed
   plan §5.2 (B8 row) — read that, not this.
   Open: B9-B17 (eight technical cells). Ask FIRST whether each really needs
   hardware or I wrote it to need hardware.
-  SITE-WIDE DEFECT found and PARTLY fixed: in-body links in English posts point
-  at zh slugs, so English readers land on Chinese posts. Drone series done (23
-  files / 227 links, commit 281409f). REMAINING: 68 files / 328 links, mostly ai
-  (49 files / 257 links) — >20 files so it needs an explicit go-ahead. Fixer
-  script pattern: rewrite only when the -en file exists, and never touch the
-  `🌏 [中文版]` line (that one is meant to point at the Chinese post).
+  SITE-WIDE DEFECT found and FIXED (user approved the batch): in-body links in
+  English posts pointed at zh slugs, so English readers landed on Chinese posts.
+  163 files / 742 links rewritten in two passes (281409f drone series, then the
+  rest). Rules used, reuse them: rewrite ONLY when the -en file exists; never
+  touch the `🌏 [中文版]` line (361 preserved); category can be NESTED
+  (/posts/tech/deep-dive/...) — a single-level regex silently misses 187 links.
+  Two zh links left on purpose: ai/2026-07-22-3d-generative-models-landscape has
+  no English version. Translating it would close the last gap.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
   four application posts, privacy. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.

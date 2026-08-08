@@ -143,8 +143,8 @@ Architecture in one sentence: `Query -> Router -> [Module A | Module B | Module 
 
 This lets you A/B test individual components, dynamically switch strategies based on query type, and even implement fallback between modules. Most mature RAG products eventually move toward a Modular architecture because you'll inevitably encounter "this type of question needs a different path."
 
--> Deep dive: [The Three Generations of RAG: From Naive to Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution)
--> Deep dive: [Modular RAG Pipeline: Designing RAG as a Composable DAG](/posts/ai/2026-03-12-modular-rag-pipeline-architecture)
+-> Deep dive: [The Three Generations of RAG: From Naive to Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en)
+-> Deep dive: [Modular RAG Pipeline: Designing RAG as a Composable DAG](/posts/ai/2026-03-12-modular-rag-pipeline-architecture-en)
 
 ---
 
@@ -184,7 +184,7 @@ This "correct when search fails" mechanism prevents the RAG system from failing 
 
 CRAG's practical value lies in the fact that it doesn't require changing your existing search engine — it's a layer added after search results come back. This means you can "bolt on" CRAG to any existing RAG system without redesigning the pipeline.
 
--> Deep dive: [CRAG: Automatically Broadening Conditions and Retrying When Retrieval Fails](/posts/ai/2026-03-12-corrective-rag-crag)
+-> Deep dive: [CRAG: Automatically Broadening Conditions and Retrying When Retrieval Fails](/posts/ai/2026-03-12-corrective-rag-crag-en)
 
 ---
 
@@ -202,7 +202,7 @@ Microsoft's GraphRAG paper further proposed the concept of Community Summary: pr
 
 Building Graph RAG costs significantly more than pure vector search — you need entity extraction, relationship modeling, and graph maintenance. But in "relationship-dense" domains like regulatory compliance, healthcare knowledge, and enterprise organizational relationships, the investment is worthwhile.
 
--> Deep dive: [GraphRAG: Building Knowledge Graphs for LLM Relationship Reasoning](/posts/ai/2026-03-12-graph-rag)
+-> Deep dive: [GraphRAG: Building Knowledge Graphs for LLM Relationship Reasoning](/posts/ai/2026-03-12-graph-rag-en)
 
 ---
 
@@ -227,7 +227,7 @@ The benefits are low latency (small models run fast and in parallel) and low cos
 
 Key insight: Speculative RAG essentially trades compute parallelism for latency. If your bottleneck is insufficient GPUs rather than high latency, this pattern will actually make things worse.
 
--> Deep dive: [Speculative RAG: Small Models Draft in Parallel, Large Model Verifies at Once](/posts/ai/2026-03-15-speculative-rag)
+-> Deep dive: [Speculative RAG: Small Models Draft in Parallel, Large Model Verifies at Once](/posts/ai/2026-03-15-speculative-rag-en)
 
 ---
 
@@ -245,8 +245,8 @@ Beyond ReAct, there's also the Plan-and-Execute pattern: let the LLM create a co
 
 When should you use Agentic RAG? A simple rule of thumb: if the user's question requires more than one search to answer (e.g., "Compare the revenue growth rates of Company A and Company B" requires searching for each company separately), consider Agentic RAG.
 
--> Deep dive: [Agentic RAG: Letting the LLM Decide Whether to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop)
--> Deep dive: [Plan-and-Execute: Plan First, Then Execute RAG Pattern](/posts/ai/2026-03-12-plan-and-execute-rag)
+-> Deep dive: [Agentic RAG: Letting the LLM Decide Whether to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+-> Deep dive: [Plan-and-Execute: Plan First, Then Execute RAG Pattern](/posts/ai/2026-03-12-plan-and-execute-rag-en)
 
 ---
 
@@ -262,7 +262,7 @@ The advantage of Multi-Agent is that each Agent can have its own search strategy
 
 In practice, the biggest pitfall of Multi-Agent RAG isn't technical — it's "how to draw responsibility boundaries between agents." If two agents' knowledge domains overlap, the orchestrator doesn't know whom to ask, and the result is actually worse than a single agent.
 
--> Deep dive: [Multi-Agent RAG: Distributed Retrieval Architecture with Multiple Specialized Agents](/posts/ai/2026-03-16-multi-agent-rag-patterns)
+-> Deep dive: [Multi-Agent RAG: Distributed Retrieval Architecture with Multiple Specialized Agents](/posts/ai/2026-03-16-multi-agent-rag-patterns-en)
 
 ---
 
@@ -284,7 +284,7 @@ An interesting trend: as the cost of long-context models continues to drop (Gemi
 
 An interesting trend: as LLM context windows continue to expand and token prices continue to fall, LongRAG's "tradeoff" is shrinking rapidly. In 2024 this approach was too expensive, in 2025 it's worth considering, and by 2026 it may become the default choice for many scenarios.
 
--> Deep dive: [LongRAG: Rethinking RAG Chunking Strategy with Long-Context Models](/posts/ai/2026-03-15-longrag-long-context-retrieval)
+-> Deep dive: [LongRAG: Rethinking RAG Chunking Strategy with Long-Context Models](/posts/ai/2026-03-15-longrag-long-context-retrieval-en)
 
 ---
 
@@ -296,7 +296,7 @@ As an Agent interacts with users, it writes learned preferences, facts, and deci
 
 Memory systems typically have three layers: Working Memory (context of the current conversation), Episodic Memory (summaries of past conversations), and Semantic Memory (extracted facts and preferences). These three layers plus the external knowledge base form the Agent's complete cognitive system.
 
--> Deep dive: [Agent Memory Systems: Evolution from RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems)
+-> Deep dive: [Agent Memory Systems: Evolution from RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems-en)
 
 ---
 
@@ -308,7 +308,7 @@ Multimodal RAG incorporates this non-text content into the knowledge base. There
 
 In practice, the biggest challenge of multimodal RAG isn't model capability but pipeline complexity — PDF parsing, table extraction, image OCR, frame-by-frame video analysis — each step can fail.
 
--> Deep dive: [Multimodal RAG: Bringing Images into the Knowledge Base](/posts/ai/2026-03-12-multimodal-rag)
+-> Deep dive: [Multimodal RAG: Bringing Images into the Knowledge Base](/posts/ai/2026-03-12-multimodal-rag-en)
 
 ---
 
@@ -337,73 +337,73 @@ Retrieval is the heart of a RAG system. Use the wrong strategy, and no amount of
 
 Vector search excels at semantic matching but misses exact keywords. BM25 excels at keyword matching but doesn't understand semantics. Hybrid Search uses both, then merges rankings via RRF (Reciprocal Rank Fusion). This is the most common search architecture in production systems today.
 
--> [Hybrid Search: Using BM25 + Vector Search to Cover Each Other's Blind Spots](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
+-> [Hybrid Search: Using BM25 + Vector Search to Cover Each Other's Blind Spots](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en)
 
 ### HyDE: Hypothetical Answer Search
 
 Users' questions and documents have different language styles, resulting in low vector search recall. HyDE first has the LLM generate a "hypothetical answer," then uses that hypothetical answer for searching. Because the hypothetical answer's language style is closer to real documents, recall can improve by 10-20%.
 
--> [HyDE: Improving Vector Search Recall with Hypothetical Answers](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
+-> [HyDE: Improving Vector Search Recall with Hypothetical Answers](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
 
 ### Multi-Query Expansion
 
 One question can be phrased in many ways. Multi-Query has the LLM rewrite the original question into 3-5 queries from different angles, each performing a search, with results merged at the end. This catches documents that a single query would miss.
 
--> [Multi-Query Expansion: One Question, Multiple Search Angles](/posts/ai/2026-03-12-multi-query-expansion)
+-> [Multi-Query Expansion: One Question, Multiple Search Angles](/posts/ai/2026-03-12-multi-query-expansion-en)
 
 ### Cross-Encoder Reranking
 
 Vector search uses bi-encoders — query and document each get their own embedding, then compared. Fast but imprecise. Cross-Encoders concatenate query and document and feed them into the model together, yielding much higher precision but slower speed. The typical approach: use vector search to pull back top-50, then Cross-Encoder reranks to top-5.
 
--> [Cross-Encoder Reranking: Getting the Most Relevant Documents to the Top](/posts/ai/2026-03-12-cross-encoder-reranking)
+-> [Cross-Encoder Reranking: Getting the Most Relevant Documents to the Top](/posts/ai/2026-03-12-cross-encoder-reranking-en)
 
 ### ColBERT: Late Interaction
 
 ColBERT is a compromise between bi-encoders and cross-encoders. It computes an embedding for every token in both query and document, performing token-level interaction matching during search. More precise than bi-encoders, faster than cross-encoders.
 
--> [ColBERT: The Third Path in Vector Search](/posts/ai/2026-03-12-colbert-late-interaction)
+-> [ColBERT: The Third Path in Vector Search](/posts/ai/2026-03-12-colbert-late-interaction-en)
 
 ### SPLADE: Learned Sparse Vectors
 
 BM25 relies on term frequency; SPLADE uses BERT to learn weights for each token, producing sparse vectors. It combines the advantages of keyword matching (sparse) and semantic understanding (learned).
 
--> [SPLADE: Smarter Sparse Vector Search than BM25](/posts/ai/2026-03-12-splade-sparse-vectors)
+-> [SPLADE: Smarter Sparse Vector Search than BM25](/posts/ai/2026-03-12-splade-sparse-vectors-en)
 
 ### RRF: Multi-Source Result Fusion
 
 When you have multiple search result lists (e.g., BM25 results and vector search results), RRF uses a simple formula to merge them based on rank position. No score normalization needed, no training needed — plug and play.
 
--> [RRF: How to Merge Multi-Source Results in RAG Systems](/posts/ai/2026-03-12-rrf-multi-source-fusion)
+-> [RRF: How to Merge Multi-Source Results in RAG Systems](/posts/ai/2026-03-12-rrf-multi-source-fusion-en)
 
 ### MMR: Diversity Reranking
 
 If your top-5 search results all talk about the same thing, you've effectively wasted 4 context slots. MMR (Maximal Marginal Relevance) considers both relevance and diversity when ranking, ensuring results cover different aspects.
 
--> [MMR + Popularity Weighting: Making Recommendations Both Relevant and Diverse](/posts/ai/2026-03-12-mmr-diversity-reranking)
+-> [MMR + Popularity Weighting: Making Recommendations Both Relevant and Diverse](/posts/ai/2026-03-12-mmr-diversity-reranking-en)
 
 ### Contextual Retrieval
 
 A method proposed by Anthropic: during the indexing phase, add a context segment to each chunk ("This passage is from a certain document's certain section, discussing a certain topic"). During search, this context is matched together, dramatically improving chunk discoverability.
 
--> [Contextual Retrieval: Adding "What This Passage Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval)
+-> [Contextual Retrieval: Adding "What This Passage Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en)
 
 ### Query Classification
 
 Not all questions should take the same path. Factual questions use precise search, analytical questions use deep search, casual chat responds directly without searching. Query Classification classifies questions at the pipeline entry point and selects different strategies based on question type.
 
--> [Query Classification: Letting RAG Know How to Answer This Question](/posts/ai/2026-03-12-query-classification-adaptive-routing)
+-> [Query Classification: Letting RAG Know How to Answer This Question](/posts/ai/2026-03-12-query-classification-adaptive-routing-en)
 
 ### Semantic Caching
 
 Semantically similar questions ("What's the weather in Taipei" and "What's the current temperature in Taipei") don't need to run the full pipeline twice. Semantic Cache uses vector similarity to determine if a new query is close enough to a previous one, and if so, returns the cached answer directly.
 
--> [Semantic Caching: Run RAG Only Once for Semantically Similar Questions](/posts/ai/2026-03-12-semantic-caching)
+-> [Semantic Caching: Run RAG Only Once for Semantically Similar Questions](/posts/ai/2026-03-12-semantic-caching-en)
 
 ### Text-to-SQL Router
 
 Some questions have answers in structured data (databases), where vector search is less effective than writing SQL directly. The Text-to-SQL Router determines whether a question is suitable for conversion to a SQL query and, if so, routes it to the database path instead of RAG.
 
--> [Text-to-SQL Router: Precise Queries Skip RAG](/posts/ai/2026-03-12-text-to-sql-router)
+-> [Text-to-SQL Router: Precise Queries Skip RAG](/posts/ai/2026-03-12-text-to-sql-router-en)
 
 ---
 
@@ -426,37 +426,37 @@ Chunking -> Embedding -> Vector DB -> Prompt Design -> Streaming
 
 Chunking method directly determines whether RAG can find the answer. Too small loses context; too large introduces noise. Common strategies include: fixed size, paragraph/sentence-based, recursive splitting, and semantic splitting (using embedding similarity to determine boundary points). There is no "best size" — you need to experiment based on your document types and question types.
 
--> [Chunking Strategies: How You Split Determines Whether RAG Can Find the Answer](/posts/ai/2026-03-12-chunking-strategies)
+-> [Chunking Strategies: How You Split Determines Whether RAG Can Find the Answer](/posts/ai/2026-03-12-chunking-strategies-en)
 
 ### Embedding Model Selection
 
 For Traditional Chinese RAG systems, embedding model selection is particularly important. BGE-M3 is currently one of the best-performing multilingual models for Traditional Chinese, simultaneously supporting dense, sparse, and multi-vector retrieval. When selecting a model, consider: language coverage, dimensionality, maximum token length, and benchmarks on your own data.
 
--> [BGE-M3: Why This Embedding Model Suits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
+-> [BGE-M3: Why This Embedding Model Suits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
 ### Vector Database Selection
 
 Pinecone (fully managed, least hassle), Weaviate (open source, built-in hybrid search), Qdrant (written in Rust, great performance), Cloudflare Vectorize (edge deployment) — each has different tradeoffs. Selection criteria include: deployment model, scale, hybrid search support, metadata filtering, and cost.
 
--> [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison)
+-> [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison-en)
 
 ### Prompt Design
 
 RAG prompt design isn't just "stuffing context in." Pay attention to: the arrangement of context and instructions, citation format, how to instruct the LLM to say "I don't know" when context is insufficient, and how to make the LLM cite answer sources. Good prompt design can produce vastly different answer quality from the same set of retrieved chunks.
 
--> [RAG Prompt Engineering: How to Design System Prompts and Context](/posts/ai/2026-03-12-rag-prompt-engineering)
+-> [RAG Prompt Engineering: How to Design System Prompts and Context](/posts/ai/2026-03-12-rag-prompt-engineering-en)
 
 ### Streaming
 
 Users don't want to wait 10 seconds to see a complete answer. SSE (Server-Sent Events) lets the LLM's response display as it generates, dramatically improving user experience. When implementing, pay attention to citation handling during streaming, error handling, and abort mechanisms.
 
--> [RAG Streaming: SSE for Displaying LLM Responses as They Generate](/posts/ai/2026-03-12-rag-streaming-sse)
+-> [RAG Streaming: SSE for Displaying LLM Responses as They Generate](/posts/ai/2026-03-12-rag-streaming-sse-en)
 
 ### Personalization and Memory
 
 Let the RAG system remember user preferences — language style, frequently asked topics, context from the last conversation. This isn't just chat history, but extracting structured preference data from conversations to use as additional context during the next search and generation.
 
--> [RAG Personalization: Learning User Preferences from Conversations](/posts/ai/2026-03-12-memory-personalization)
+-> [RAG Personalization: Learning User Preferences from Conversations](/posts/ai/2026-03-12-memory-personalization-en)
 
 ---
 
@@ -479,57 +479,57 @@ If you've just launched, build quality infrastructure in this order:
 
 You can't improve what you can't measure. RAGAS, DeepEval, and TruLens are three mainstream RAG evaluation frameworks, each providing different metrics: Faithfulness (whether the answer is faithful to context), Relevance (whether retrieved results are relevant), and Answer Correctness (whether the answer is correct). Recommend running automated evaluations in CI, so every pipeline change has numbers.
 
--> [RAG Evaluation Frameworks: How to Use RAGAS, DeepEval, and TruLens](/posts/ai/2026-03-12-rag-evaluation-frameworks)
+-> [RAG Evaluation Frameworks: How to Use RAGAS, DeepEval, and TruLens](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 
 ### LLM-as-Judge
 
 When you don't have large amounts of human-labeled test data, you can use another LLM to evaluate RAG output. Self-Reflection has the answer-generating LLM score itself; LLM-as-Judge uses an independent LLM for scoring. Both have biases, but they're sufficient as signals for rapid iteration.
 
--> [Self-Reflection + LLM-as-Judge: Letting AI Evaluate Its Own Answers](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
+-> [Self-Reflection + LLM-as-Judge: Letting AI Evaluate Its Own Answers](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 
 ### Common Failure Modes
 
 RAG systems have over ten common failure modes: chunks split in the wrong place causing incomplete answers, embedding semantic drift, reranking accidentally pushing correct results down, LLM ignoring context and hallucinating, context window overstuffing actually reducing quality. Knowing these failure modes lets you fix issues in a targeted way.
 
--> [Common RAG Failure Modes: 10 Problems and Their Solutions](/posts/ai/2026-03-12-rag-failure-modes)
+-> [Common RAG Failure Modes: 10 Problems and Their Solutions](/posts/ai/2026-03-12-rag-failure-modes-en)
 
 ### Guardrails
 
 Both input and output of RAG systems need protection. Input side: prevent prompt injection, filter sensitive queries. Output side: check for hallucination, filter harmful content, ensure answers have citation support. Guardrails aren't nice-to-have — they're a necessary condition for production systems.
 
--> [RAG Guardrails: Adding a Defense Layer to Input and Output](/posts/ai/2026-03-12-rag-guardrails)
+-> [RAG Guardrails: Adding a Defense Layer to Input and Output](/posts/ai/2026-03-12-rag-guardrails-en)
 
 ### Observability
 
 RAG pipelines have many stages, and issues at any one can affect the final answer. The goal of observability is making this black box transparent: every step of every query (query rewrite results, retrieved chunks, post-reranking order, the LLM's complete prompt) should be traceable and replayable.
 
--> [RAG Observability: 17-Step Tracing to Make the Black Box Transparent](/posts/ai/2026-03-12-rag-observability-tracing)
--> [RAG Observability Tools Landscape](/posts/ai/2026-03-12-rag-observability-tools)
+-> [RAG Observability: 17-Step Tracing to Make the Black Box Transparent](/posts/ai/2026-03-12-rag-observability-tracing-en)
+-> [RAG Observability Tools Landscape](/posts/ai/2026-03-12-rag-observability-tools-en)
 
 ### Cost Optimization
 
 RAG costs come mainly from three areas: embedding computation, vector search, and LLM generation. Each has optimization potential — embedding cache, chunk compression, small model + large model tiering, semantic caching, and token quota systems. The goal is minimizing per-query cost without sacrificing quality.
 
--> [RAG Cost Optimization: Minimizing the Cost of Every Query](/posts/ai/2026-03-12-rag-cost-optimization)
--> [RAG Quota System](/posts/ai/2026-03-12-rag-token-quota-system)
+-> [RAG Cost Optimization: Minimizing the Cost of Every Query](/posts/ai/2026-03-12-rag-cost-optimization-en)
+-> [RAG Quota System](/posts/ai/2026-03-12-rag-token-quota-system-en)
 
 ### A/B Testing
 
 You switched a reranking model — did quality improve or degrade? You changed chunk size from 512 to 1024 — what's the effect? RAG A/B testing is much more complex than web A/B testing — you're comparing the performance of two complete pipelines, and the metrics are semantic (answer quality), not click-through rates.
 
--> [RAG A/B Testing: How to Scientifically Compare Two Pipeline Configurations](/posts/ai/2026-03-12-rag-ab-testing)
+-> [RAG A/B Testing: How to Scientifically Compare Two Pipeline Configurations](/posts/ai/2026-03-12-rag-ab-testing-en)
 
 ### Cold Start
 
 When a new system launches, the knowledge base is empty or sparse. How do you make the system usable at this stage? Common strategies: preload public knowledge, use the LLM's own knowledge as a fallback, guide users to upload documents, and use few-shot examples to demonstrate system capabilities.
 
--> [RAG Cold Start: Making the System Usable When There's No Data](/posts/ai/2026-03-12-rag-cold-start)
+-> [RAG Cold Start: Making the System Usable When There's No Data](/posts/ai/2026-03-12-rag-cold-start-en)
 
 ### RAG vs Fine-tuning
 
 Not all problems should be solved with RAG. If knowledge is static, query patterns are fixed, and you have sufficient training data, fine-tuning may be more appropriate. In practice, the strongest approach combines both: fine-tune to teach the model "how to use context," and RAG provides the latest context.
 
--> [RAG vs Fine-tuning: It's Not Either-Or](/posts/ai/2026-03-12-rag-vs-fine-tuning)
+-> [RAG vs Fine-tuning: It's Not Either-Or](/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
 
 ---
 
@@ -574,48 +574,48 @@ Based on your goal, pick a path:
 
 If you want to build a working RAG system in the shortest time:
 
-1. [The Three Generations of RAG](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution) — Understand the basic architecture
-2. [Chunking Strategies](/posts/ai/2026-03-12-chunking-strategies) — Split your documents properly
-3. [BGE-M3 Embedding](/posts/ai/2026-03-12-bge-m3-embedding-model-selection) — Choose the right embedding model
-4. [Vector Database Selection](/posts/ai/2026-03-12-vector-database-comparison) — Pick a vector database
-5. [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering) — Write good prompts
+1. [The Three Generations of RAG](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en) — Understand the basic architecture
+2. [Chunking Strategies](/posts/ai/2026-03-12-chunking-strategies-en) — Split your documents properly
+3. [BGE-M3 Embedding](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en) — Choose the right embedding model
+4. [Vector Database Selection](/posts/ai/2026-03-12-vector-database-comparison-en) — Pick a vector database
+5. [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en) — Write good prompts
 
 ### Quality Improvement Path: Make Answers More Accurate
 
 If your RAG is already running but answer quality isn't good enough:
 
-1. [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) — Cover vector search's blind spots
-2. [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking) — Improve ranking precision
-3. [HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings) — Improve recall
-4. [RAG Evaluation Frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks) — Measure improvements with numbers
-5. [Common RAG Failure Modes](/posts/ai/2026-03-12-rag-failure-modes) — Find specific problem points
+1. [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) — Cover vector search's blind spots
+2. [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en) — Improve ranking precision
+3. [HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en) — Improve recall
+4. [RAG Evaluation Frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) — Measure improvements with numbers
+5. [Common RAG Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en) — Find specific problem points
 
 ### Advanced Architecture Path: Handle More Complex Problems
 
 If you need more than simple Q&A:
 
-1. [CRAG](/posts/ai/2026-03-12-corrective-rag-crag) — Fault tolerance for search failures
-2. [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop) — Multi-step reasoning
-3. [GraphRAG](/posts/ai/2026-03-12-graph-rag) — Relationship reasoning
-4. [Speculative RAG](/posts/ai/2026-03-15-speculative-rag) — Low latency, high throughput
+1. [CRAG](/posts/ai/2026-03-12-corrective-rag-crag-en) — Fault tolerance for search failures
+2. [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en) — Multi-step reasoning
+3. [GraphRAG](/posts/ai/2026-03-12-graph-rag-en) — Relationship reasoning
+4. [Speculative RAG](/posts/ai/2026-03-15-speculative-rag-en) — Low latency, high throughput
 
 ### Production Operations Path: Running Stably in Production
 
 If you're taking a RAG system to production:
 
-1. [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails) — Input/output protection
-2. [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing) — Full-chain tracing
-3. [RAG Cost Optimization](/posts/ai/2026-03-12-rag-cost-optimization) — Control spending
-4. [RAG A/B Testing](/posts/ai/2026-03-12-rag-ab-testing) — Compare configurations scientifically
+1. [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails-en) — Input/output protection
+2. [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing-en) — Full-chain tracing
+3. [RAG Cost Optimization](/posts/ai/2026-03-12-rag-cost-optimization-en) — Control spending
+4. [RAG A/B Testing](/posts/ai/2026-03-12-rag-ab-testing-en) — Compare configurations scientifically
 
 ### Frontier Exploration Path: See the Future
 
 If you want to learn about the latest RAG developments:
 
-1. [Multi-Agent RAG](/posts/ai/2026-03-16-multi-agent-rag-patterns) — Multi-Agent collaboration
-2. [LongRAG](/posts/ai/2026-03-15-longrag-long-context-retrieval) — New thinking with long context
-3. [Agent Memory](/posts/ai/2026-03-19-agent-memory-systems) — Read-write memory systems
-4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag) — Multimodal knowledge bases
+1. [Multi-Agent RAG](/posts/ai/2026-03-16-multi-agent-rag-patterns-en) — Multi-Agent collaboration
+2. [LongRAG](/posts/ai/2026-03-15-longrag-long-context-retrieval-en) — New thinking with long context
+3. [Agent Memory](/posts/ai/2026-03-19-agent-memory-systems-en) — Read-write memory systems
+4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag-en) — Multimodal knowledge bases
 
 ---
 

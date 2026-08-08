@@ -162,4 +162,4 @@ The migration tools read your existing `.eslintrc` and `.prettierrc` and convert
 - [Biome Official Docs — JavaScript/TypeScript Linter and Formatter Configuration Guide](https://biomejs.dev/)
 - [Biome GitHub — Rust-native ESLint + Prettier Alternative](https://github.com/biomejs/biome)
 - [Biome Migration Guide — Moving from ESLint + Prettier to Biome](https://biomejs.dev/guides/migrate-eslint-prettier/)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Real-world case study of Biome adoption in DaoDao's monorepo with speed benchmarks
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Real-world case study of Biome adoption in DaoDao's monorepo with speed benchmarks

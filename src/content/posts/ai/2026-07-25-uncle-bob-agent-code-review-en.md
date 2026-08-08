@@ -205,14 +205,14 @@ What Ori Pomerantz asked was: I'm accountable for this code, so psychologically 
 
 Going by the original, Uncle Bob's answer isn't "you don't need to understand it." It's "what you need isn't having read it, it's having grounds to believe it" — and you build those grounds yourself. His version is six classes of gate plus reviewing the specs personally. If you don't have that apparatus, Ori's discomfort is the correct response, not an outdated one.
 
-The point isn't picking a side. It's that the scarce skill has moved from writing fast to designing verification — the same conclusion [Loop Engineering](/posts/ai/2026-06-20-loop-engineering) reaches from a different direction when it identifies verification cost as the real bottleneck.
+The point isn't picking a side. It's that the scarce skill has moved from writing fast to designing verification — the same conclusion [Loop Engineering](/posts/ai/2026-06-20-loop-engineering-en) reaches from a different direction when it identifies verification cost as the real bottleneck.
 
 Before deciding whether to stop reading code like Uncle Bob, do two things:
 
 1. **Run mutation testing against your code.** See what fraction your suite catches when production code is broken.
 2. **Run Uncle Bob's kind of mutation against your acceptance criteria.** Take a few end-to-end tests, change the key input values inside them, and see whether the tests go red. If they stay green, those tests aren't wired to your system.
 
-The second is done far less often, and usually looks worse. For rigorously measuring whether a change actually improved anything, see [how to compare agent behavior before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation).
+The second is done far less often, and usually looks worse. For rigorously measuring whether a change actually improved anything, see [how to compare agent behavior before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en).
 
 ## References
 
@@ -232,5 +232,5 @@ The second is done far less often, and usually looks worse. For rigorously measu
 - [Robert C. Martin (Wikipedia)](https://en.wikipedia.org/wiki/Robert_C._Martin)
 - [Clean AI: Agentic Discipline series (cleancoders)](https://cleancoders.com/episode/agentic-discipline-6)
 - [AI Agents for Clean Code with Uncle Bob Martin (O'Reilly live course)](https://www.oreilly.com/live-events/ai-agents-for-clean-code-with-uncle-bob-martin/0642572376765/)
-- [Loop Engineering: When AI No Longer Needs Your Prompts](/posts/ai/2026-06-20-loop-engineering)
-- [Rigorously comparing agent behavior before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
+- [Loop Engineering: When AI No Longer Needs Your Prompts](/posts/ai/2026-06-20-loop-engineering-en)
+- [Rigorously comparing agent behavior before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)

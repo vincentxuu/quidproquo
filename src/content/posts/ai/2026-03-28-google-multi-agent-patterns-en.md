@@ -14,7 +14,7 @@ draft: false
 
 In early 2026, Google published a [multi-agent design pattern guide](https://docs.google.com/architecture/choose-design-pattern-agentic-ai-system) through the Cloud Architecture Center, and Sergio De Simone at InfoQ wrote an excellent [summary article](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/). The eight patterns are arranged from simple to complex, each solving a different class of problem.
 
-This post breaks down all eight patterns and draws comparisons with [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design).
+This post breaks down all eight patterns and draws comparisons with [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en).
 
 ---
 
@@ -122,7 +122,7 @@ Agent → Ready to execute → ⏸️ Human review → ✅ Continue / ❌ Abort
 
 **Good for**: Financial transactions, code deployments, publishing public content.
 
-**Connection to the [Three Pillars article](/posts/ai/2026-03-17-ai-agents-context-cognition-action)**: The Action layer risk management (human-in-the-loop, reversibility check) discussed in that article is exactly this pattern.
+**Connection to the [Three Pillars article](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en)**: The Action layer risk management (human-in-the-loop, reversibility check) discussed in that article is exactly this pattern.
 
 ---
 
@@ -159,7 +159,7 @@ Google and Anthropic share a common recommendation: **start with the simplest pa
 
 ## The Big Picture
 
-These eight patterns aren't a theoretical checklist — they're a practical toolbox. After reading through them, go back and look at [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design), and you'll find that their architecture can be precisely described using these patterns. Theory and practice converge here.
+These eight patterns aren't a theoretical checklist — they're a practical toolbox. After reading through them, go back and look at [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en), and you'll find that their architecture can be precisely described using these patterns. Theory and practice converge here.
 
 The most important takeaway: **more agents isn't always better — choosing the right pattern is what matters.** A well-designed two-agent system (Generator + Critic) can outperform a poorly designed five-agent system.
 
@@ -167,10 +167,10 @@ The most important takeaway: **more agents isn't always better — choosing the 
 
 ## Further Reading
 
-- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design) — The composite pattern in practice
-- [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) — Why multi-agent became necessary
-- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness) — Harness as infrastructure
-- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Agent architecture theoretical framework
+- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en) — The composite pattern in practice
+- [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) — Why multi-agent became necessary
+- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) — Harness as infrastructure
+- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — Agent architecture theoretical framework
 - [Google's Eight Essential Multi-Agent Design Patterns — InfoQ original](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/)
 - [Choose a Design Pattern for Your Agentic AI System — Google Cloud](https://docs.google.com/architecture/choose-design-pattern-agentic-ai-system)
 
