@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,17 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-07: post(ai) AI 證照文兩輪更新（branch `claude/ai-certification-prep-g43e7a`，
+  zh + en，未開 PR）。修掉三處實質錯誤：「AWS 重新認證只能重考」漏了往上考一階會
+  自動續下層；「Google 續證要全額 $200」漏了通過後 CM Connect 會給 50% 續證碼；
+  「Claude 訓練課程免費公開」實際是免費但限 Partner Network 成員（公司加入免費）。
+  補上 AWS 重考政策（14 個日曆天、每次全額）、及格線 700/720/750、各張考試語言、
+  AI-500 必須先有 AI-103，以及新增「省錢管道」一節（只寫穩定機制不寫限時碼）。
+  兩個方法論觀察：(1) 官方網域內不同頁互相矛盾不是特例——AI-103 的語言清單在認證
+  頁與考試頁不同，Pearson VUE 的 AIF2CLOUD 中文版把 CLF-C02 期限誤譯成 9/30
+  （英文版是 11/30）；規則是以「報名時實際看到的那頁／結帳頁」為準。(2) 廠商的
+  行銷頁會留著過期活動——台灣 AWS AI 人才就緒計畫頁面仍掛著五折＋免費重考，但
+  期限是 2025 年，未更新。
 - 2026-08-06: post(learning) 數位學習之外紙筆還剩什麼 (zh + en)。四輪研究，中途
   推翻自己兩次（詳見 PR #126）。角度：數位是預設，實體仍有效的三個地方是閱讀
   （Delgado 17 萬人 g=-0.21，捲動時 0.35-0.48）、作答動筆（螢幕上題目越難越少用
@@ -51,31 +62,8 @@ Recently completed
   16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
   數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
   是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
-- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
-  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
-  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
-  2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份，系列完整。AI 爬蟲
-  全景圖退出系列，保留雙向連結。新寫四篇 post(ai)：三層階梯總論、anydoc、
-  抽取層（PyMuPDF/pdfplumber/pypdf/Tika/Kreuzberg/extractous）、解析層（MinerU/
-  Marker/Docling/olmOCR/dots.ocr + 商業 API）。
-  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
-  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
-  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
-  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
-  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
-  order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
-  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
-  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
-  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
-  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
-  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
-  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
-  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
-  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
-  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
-  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
-  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
-  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+- 2026-08-06: 新系列「文件解析實戰」（document-parsing，5 篇 x zh/en）完成，post-verify
+  已跑完。細節與 benchmark／授權教訓見 docs/progress-archive.md。
 
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）

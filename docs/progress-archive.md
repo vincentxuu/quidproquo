@@ -2,6 +2,38 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-07 歸檔
+
+### 新系列「文件解析實戰」（slug `document-parsing`）
+
+系列已完整、post-verify 已跑完，從 progress.txt 移到這裡。
+
+- 系列註冊於 `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯
+  （轉換／抽取／解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。
+  現有 1 三層階梯總論、2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份。
+  AI 爬蟲全景圖退出系列，保留雙向連結。
+- 新寫四篇 post(ai)：三層階梯總論、anydoc、抽取層（PyMuPDF/pdfplumber/pypdf/
+  Tika/Kreuzberg/extractous）、解析層（MinerU/Marker/Docling/olmOCR/dots.ocr
+  + 商業 API）。
+- post-verify 兩個教訓：(1) 引 benchmark 前先讀它的計時與加總方式——anydoc 的
+  README 自己說 CLI 工具計時含 process spawn、綜合分數欄各行平均的格式集不同
+  不可排名，原本兩條都誤用了；(2) 對第三方 benchmark 要用跟廠商自評同一把尺——
+  ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+- order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
+  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
+  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
+  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
+  datalab-to、docling → docling-project，站內舊連結已更新。
+- 一手條款已核對：MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上
+  更會踩到的揭露義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾
+  **不在二手來源，在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M +
+  Apache 2.0，on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼
+  授權寫的也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」。
+- 錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的加驗」
+  （benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論錯）。
+  核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+
 ## 2026-08-01 歸檔
 
 ### post(ai) 數位員工（PR #130）
