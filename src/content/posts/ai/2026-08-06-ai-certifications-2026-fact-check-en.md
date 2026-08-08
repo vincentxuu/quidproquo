@@ -39,7 +39,7 @@ Two things worth knowing before you pay: **Google's PMLE exam guide has renamed 
 | [AWS Certified ML Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) (MLA-C01) | $150 | 130 min / 65 | 3 years |
 | [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner) (AIF-C01) | $100 | 90 min / 65 | 3 years |
 | [Google Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) | $200 | 120 min / 50–60 | 2 years |
-| [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | $125 | 60 min / 50–60 | 2 years |
+| [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | $125 | 60 min / 50 | 2 years |
 | [Databricks GenAI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate) | $200 | 90 min / 45 | 2 years |
 
 Microsoft and Anthropic are absent from this table: Microsoft's track turned over entirely this year and the codes need handling separately, and Anthropic publishes no pricing. iPAS is Taiwan-specific and follows different rules, so it gets its own section too.
@@ -116,7 +116,7 @@ Section weights were also rebalanced:
 | 3. Scaling prototypes into ML models | ~21% |
 | 4. Serving and scaling models | ~20% |
 | 5. Automating and orchestrating ML pipelines | ~18% |
-| 6. Monitoring AI solutions | remainder |
+| 6. Monitoring AI solutions | ~13% |
 
 Several topics won't appear in traditional ML material at all: **LLM-as-a-judge evaluation**, **prompt and context engineering**, **cost / latency / availability optimization for Gemini applications**, and **fine-tuning Gemini models using BigQuery**.
 
@@ -275,6 +275,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-08-07: Two numbers corrected after a post-verify pass. PMLE's Section 6, "Monitoring AI solutions," was listed as "remainder"; the official exam guide states **~13%**. NCA-GENL's question count was listed as "50–60"; the official certification page states **50**.
 - 2026-08-07: Added a "What Training Costs" section. The article previously listed exam fees only, omitting the training layer — and the two bills are independent (no course is required to register). It compares each vendor's free/paid boundary and concludes that only AWS's $29 monthly subscription is worth paying for, because the full-length practice exam sits behind the paywall.
 - 2026-08-07: Added a "Ways to Pay Less" section (AWS Professional vouchers with a free retake, Microsoft's 80%-off beta window for the first 300 candidates, Databricks' quarterly Learning Festival voucher, NVIDIA webinars and GTC on-site exams, plus employer-side Get Certified / ESI / team vouchers). Also filled two gaps: **AI-500 requires earning AI-103 first**, and Google issues a 50% renewal discount code on certification (the article previously priced renewal at the full $200).
 - 2026-08-07: Four corrections and additions. The AWS section gains the retake policy (14 calendar days, full fee each attempt), passing standards (700 / 720 / 750), and score reporting time, and corrects "recertification means retaking the exam" — earning MLA-C01 automatically recertifies AIF-C01. The Google section adds PMLE's exam languages and the official note that it does not directly assess coding skill. The Microsoft section adds AI-103's $165 price, free course hours, and the currently missing practice assessment, plus the fact that its language list differs between two official pages. The Claude section corrects "the preparation courses themselves are free and public" — training is free of charge but limited to Partner Network members, and the gate is firm membership, which is itself free.

@@ -40,11 +40,15 @@ draft: false
 
 | 廠商 | 沒過之後 |
 |---|---|
+| **微軟** | **24 小時**後就能重考；之後每次間隔 **14 天**，一年最多 5 次 |
 | **AWS** | 等 **14 個日曆天**，次數不限，每次付全額 |
 | **Google（基礎級）** | 等 **14 天**，一年最多 10 次 |
 | **Google（Associate / Professional）** | 第一次沒過等 **14 天**、第二次等 **60 天**、第三次等 **365 天**；兩年最多 4 次 |
-| **微軟** | **24 小時**後就能重考，之後間隔變長 |
-| **iPAS 中級** | 沒有重考機制，**等下一梯次** |
+| **Databricks** | 等 **14 天**，每次付全額 |
+| **NVIDIA** | 等 **14 天**，一年最多 5 次，每次重新購買 |
+| **iPAS 中級** | 沒有重考機制，**等下一梯次**（半年） |
+
+**14 天是業界標準** —— AWS、Google、Databricks、NVIDIA 四家都是這個數字。真正的例外是兩端：微軟的 24 小時，和 iPAS 的半年。
 
 [AWS 的 After Testing 政策](https://aws.amazon.com/certification/policies/after-testing/)寫：
 
@@ -54,9 +58,11 @@ draft: false
 
 > If you don't pass the exam, you can take it again after **14 days**. If you don't pass the second time, you must wait **60 days** before you can take it a third time. If you don't pass the third time, you must wait **365 days** before taking it a fourth time.
 
-微軟最寬鬆，[AI-103 考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)寫「You can retake it **24 hours** after the first attempt. For subsequent retakes, the amount of time varies」。
+微軟第一次最寬鬆，但只有第一次。[官方重考政策頁](https://learn.microsoft.com/en-us/credentials/support/retake-policy)寫：
 
-Databricks 與 NVIDIA 的規則要各自查官方 FAQ，不要套用上表。
+> If you don't pass an exam the first time, you must wait **24 hours** before retaking it. A **14-day waiting period** is imposed between all subsequent attempts (up to 5).
+
+[Databricks 的考試條款](https://www.databricks.com/learn/certification/terms-and-conditions)是「There is a 14-day wait between all attempts. Payment is required each time you take an exam」；[NVIDIA 的認證 FAQ](https://www.nvidia.com/en-us/learn/certification) 同樣是 14 天，並限制「no more than five times per year」。
 
 ### 三種期限結構，三種算法
 
@@ -116,7 +122,7 @@ Databricks 與 NVIDIA 的規則要各自查官方 FAQ，不要套用上表。
 | [AWS AIF-C01](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/pdfs/docs-ai-practitioner/AWS-Certified-AI-Practitioner_Exam-Guide.pdf) | 應用基礎模型 28、生成式 AI 基礎 24、AI/ML 基礎 20、責任 AI 14、安全與治理 14 |
 | [AWS MLA-C01](https://d1.awsstatic.com/training-and-certification/docs-machine-learning-engineer-associate/AWS-Certified-Machine-Learning-Engineer-Associate_Exam-Guide.pdf) | 資料準備 28、模型開發 26、監控維運與安全 24、部署與編排 22 |
 | [AWS CLF-C02](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf) | 雲端技術與服務 34、安全與合規 30、雲端概念 24、計費與支援 12 |
-| [Google PMLE](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) | 擴展原型 21、服務與擴展模型 20、自動化與編排 18、跨團隊協作 16、低程式碼方案 13、監控其餘 |
+| [Google PMLE](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) | 擴展原型 21、服務與擴展模型 20、自動化與編排 18、跨團隊協作 16、低程式碼方案 13、監控 13 |
 | [Databricks GenAI Engineer](https://www.databricks.com/learn/certification/genai-engineer-associate) | 應用開發 30、組裝與部署 22、應用設計 14、資料準備 14、評估與監控 12、治理 8 |
 | [微軟 AI-103](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) | 官方只公布五個評測領域，未公布百分比 |
 | [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | Exam Blueprint 有列權重，並直接對應到訓練課程 |
@@ -176,7 +182,7 @@ Databricks 與 NVIDIA 的規則要各自查官方 FAQ，不要套用上表。
 
 **微軟（AI-103）**：課程給得最多（AI-103T00 四條學習路徑約 29.5 小時全免費），但沒有免費 practice assessment，自我檢測要靠自己在 Microsoft Foundry 上動手。想再往上走的話，AI-500 的認證要求是**必須先取得 AI-103**，不是平行的兩張。
 
-**NVIDIA（NCA-GENL）**：50 題 60 分鐘，平均 72 秒一題 —— 這張考的是熟練度不是深度。Exam Blueprint 把每個主題直接對應到訓練課程，照著逐列打勾是五家裡最省事的準備路徑。
+**NVIDIA（NCA-GENL）**：50 題 60 分鐘，平均 72 秒一題 —— 這張考的是熟練度不是深度。Exam Blueprint 把每個主題直接對應到訓練課程，照著逐列打勾是五家裡最省事的準備路徑。但有一個限制要先知道：官方 FAQ 寫「NVIDIA certification exams are **pass/fail. You won't receive a score**」—— 沒有成績單，所以沒過的話拿不到弱項報告，第二次準備只能靠自己回想。這反過來提高了考前自我定位的重要性。
 
 **Databricks**：權重集中在「應用開發 30% + 組裝部署 22%」，超過一半是實作導向，所以準備方式應該是在平台上把一條 RAG 鏈從向量檢索、模型服務、生命週期管理到資料治理完整走一次，而不是讀文件。官方建議 6 個月以上實作經驗。
 
@@ -212,10 +218,13 @@ Databricks 與 NVIDIA 的規則要各自查官方 FAQ，不要套用上表。
 - [Google Cloud Exam Terms & Conditions（重考等待期 14 / 60 / 365 天）](https://cloud.google.com/certification/terms)
 - [Google Cloud Certification：Retake Policy](https://support.google.com/cloud-certification/answer/9749448)
 - [Google Professional ML Engineer 官方考試指南](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
-- [Microsoft AI-103 考試頁（重考規則、practice assessment 狀態、五個評測領域）](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
+- [Microsoft 重考政策（24 小時後首次重考、之後每次 14 天、一年最多 5 次）](https://learn.microsoft.com/en-us/credentials/support/retake-policy)
+- [Microsoft AI-103 考試頁（practice assessment 狀態、五個評測領域）](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
 - [Microsoft AI-103T00 課程](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [NVIDIA NCA-GENL 認證頁（Exam Blueprint）](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
+- [NVIDIA Certification FAQ（重考 14 天、一年 5 次、pass/fail 不給分數）](https://www.nvidia.com/en-us/learn/certification)
 - [Databricks Certified Generative AI Engineer Associate（各章權重）](https://www.databricks.com/learn/certification/genai-engineer-associate)
+- [Databricks Certification Terms & Conditions（重考 14 天、每次付費）](https://www.databricks.com/learn/certification/terms-and-conditions)
 - [iPAS AI 應用規劃師 學習資源（歷屆試題與官方學習指引）](https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources)
 - [iPAS AI 應用規劃師 考試資訊（梯次、科目與獲證條件）](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info)
 - [iPAS 中級程式題型比重說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e)

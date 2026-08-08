@@ -39,7 +39,7 @@ draft: false
 | [AWS Certified ML Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) (MLA-C01) | $150 | 130 分 / 65 題 | 3 年 |
 | [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner) (AIF-C01) | $100 | 90 分 / 65 題 | 3 年 |
 | [Google Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) | $200 | 120 分 / 50–60 題 | 2 年 |
-| [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | $125 | 60 分 / 50–60 題 | 2 年 |
+| [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | $125 | 60 分 / 50 題 | 2 年 |
 | [Databricks GenAI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate) | $200 | 90 分 / 45 題 | 2 年 |
 
 微軟與 Anthropic 沒放進這張表：微軟整條認證線今年剛改版，代碼要單獨對；Anthropic 沒有公開價格。兩家在下面各自處理。iPAS 是台灣本地的，規則跟國際廠商不同，也單獨一節。
@@ -116,7 +116,7 @@ Google 在 Cloud Next '26 把 Vertex AI 整併進 [Gemini Enterprise Agent Platf
 | 3. Scaling prototypes into ML models | ~21% |
 | 4. Serving and scaling models | ~20% |
 | 5. Automating and orchestrating ML pipelines | ~18% |
-| 6. Monitoring AI solutions | 其餘 |
+| 6. Monitoring AI solutions | ~13% |
 
 幾個傳統 ML 教材不會教的新考點：**LLM-as-a-judge 評估**、**prompt and context engineering**、**Gemini 應用的 cost / latency / availability 最佳化**、**用 BigQuery fine-tune Gemini 模型**。
 
@@ -275,6 +275,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 ## 更新紀錄
 
+- 2026-08-07：跑 post-verify 後修正兩個數字。PMLE 第 6 章「Monitoring AI solutions」原本寫「其餘」，官方考試指南全文列的是 **~13%**；NCA-GENL 的題數原本寫「50–60 題」，官方認證頁寫的是 **50 題**。
 - 2026-08-07：新增「課程要花多少」一節。原文只列考試費，沒有課程費那一層，而兩筆是分開的（不用先上課才能報考）。五家的免費／付費分界對照，結論是只有 AWS 的 $29 月費值得付 —— 因為完整模擬考只在付費層。
 - 2026-08-07：新增「省錢管道」一節（AWS 專業級考試券含免費重考、微軟 beta 前 300 名八折、Databricks 季度 Learning Festival 5 折券、NVIDIA 的 webinar 與 GTC 現場、以及公司端的 Get Certified / ESI / 團隊考試券）。同時補上兩處遺漏：**AI-500 認證要求必須先取得 AI-103**，以及 Google 認證通過後會拿到一張續證用的 50% 折扣碼（原文把續證成本寫成全額 $200）。
 - 2026-08-07：補齊四處。AWS 段補上重考政策（14 個日曆天等待、每次全額付費）、及格線（700 / 720 / 750）與成績公布時間，並修正「重新認證只能重考」—— 考到 MLA-C01 會自動續掉 AIF-C01。Google 段補 PMLE 的考試語言與「不直接考程式能力」的官方說明。微軟段補 AI-103 的 $165 價格、免費課程時數，以及目前沒有 practice assessment；同時記下它的語言清單在兩個官方頁上不一致。Claude 段修正「訓練課程本身免費公開」—— 訓練不收費但限 Partner Network 成員，門檻是公司加入（加入本身免費）。

@@ -39,11 +39,15 @@ Vendors differ far too much to carry one rule over to another:
 
 | Vendor | After a failure |
 |---|---|
+| **Microsoft** | Retake after **24 hours**; every subsequent attempt is **14 days** apart, up to five per year |
 | **AWS** | Wait **14 calendar days**; unlimited attempts; full fee each time |
 | **Google (Foundational)** | Wait **14 days**; maximum ten attempts per year |
 | **Google (Associate / Professional)** | **14 days** after the first failure, **60 days** after the second, **365 days** after the third; maximum four attempts in two years |
-| **Microsoft** | Retake after **24 hours**; intervals lengthen for subsequent attempts |
-| **iPAS intermediate** | No retake mechanism — **wait for the next session** |
+| **Databricks** | Wait **14 days**; full fee each time |
+| **NVIDIA** | Wait **14 days**; maximum five per year; repurchase each attempt |
+| **iPAS intermediate** | No retake mechanism — **wait for the next session** (six months) |
+
+**Fourteen days is the industry standard** — AWS, Google, Databricks, and NVIDIA all land on that number. The real outliers sit at both ends: Microsoft's 24 hours and iPAS's six months.
 
 The [AWS After Testing policy](https://aws.amazon.com/certification/policies/after-testing/) states:
 
@@ -53,9 +57,11 @@ The [AWS After Testing policy](https://aws.amazon.com/certification/policies/aft
 
 > If you don't pass the exam, you can take it again after **14 days**. If you don't pass the second time, you must wait **60 days** before you can take it a third time. If you don't pass the third time, you must wait **365 days** before taking it a fourth time.
 
-Microsoft is the most forgiving; the [AI-103 exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) states "You can retake it **24 hours** after the first attempt. For subsequent retakes, the amount of time varies."
+Microsoft is the most forgiving, but only once. The [official retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy) states:
 
-Check Databricks and NVIDIA against their own FAQs; don't extrapolate from the table above.
+> If you don't pass an exam the first time, you must wait **24 hours** before retaking it. A **14-day waiting period** is imposed between all subsequent attempts (up to 5).
+
+[Databricks' exam terms](https://www.databricks.com/learn/certification/terms-and-conditions) read "There is a 14-day wait between all attempts. Payment is required each time you take an exam," and [NVIDIA's certification FAQ](https://www.nvidia.com/en-us/learn/certification) is also 14 days, capped at "no more than five times per year."
 
 ### Three Deadline Structures, Three Calculations
 
@@ -115,7 +121,7 @@ Official weightings for seven certifications, from their current exam guides:
 | [AWS AIF-C01](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/pdfs/docs-ai-practitioner/AWS-Certified-AI-Practitioner_Exam-Guide.pdf) | Applications of foundation models 28, generative AI fundamentals 24, AI/ML fundamentals 20, responsible AI 14, security and governance 14 |
 | [AWS MLA-C01](https://d1.awsstatic.com/training-and-certification/docs-machine-learning-engineer-associate/AWS-Certified-Machine-Learning-Engineer-Associate_Exam-Guide.pdf) | Data preparation 28, model development 26, monitoring/maintenance/security 24, deployment and orchestration 22 |
 | [AWS CLF-C02](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf) | Cloud technology and services 34, security and compliance 30, cloud concepts 24, billing and support 12 |
-| [Google PMLE](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) | Scaling prototypes 21, serving and scaling models 20, automation and orchestration 18, cross-team collaboration 16, low-code solutions 13, monitoring the remainder |
+| [Google PMLE](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) | Scaling prototypes 21, serving and scaling models 20, automation and orchestration 18, cross-team collaboration 16, low-code solutions 13, monitoring 13 |
 | [Databricks GenAI Engineer](https://www.databricks.com/learn/certification/genai-engineer-associate) | Application development 30, assembling and deploying 22, designing applications 14, data preparation 14, evaluation and monitoring 12, governance 8 |
 | [Microsoft AI-103](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/) | Five assessed areas published, no percentages |
 | [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | The Exam Blueprint lists weights and maps them directly to training courses |
@@ -175,7 +181,7 @@ The four steps are universal; each vendor has its own thing to watch.
 
 **Microsoft (AI-103)**: the most free coursework of the five (AI-103T00's four learning paths, roughly 29.5 hours) but no free practice assessment, so self-testing means building in Microsoft Foundry yourself. If you plan to go further, AI-500 **requires earning AI-103 first** — they aren't parallel credentials.
 
-**NVIDIA (NCA-GENL)**: 50 questions in 60 minutes, averaging 72 seconds each — this one tests fluency, not depth. The Exam Blueprint maps each topic straight to a training course, making it the most straightforward preparation path of the five: work down the list and tick boxes.
+**NVIDIA (NCA-GENL)**: 50 questions in 60 minutes, averaging 72 seconds each — this one tests fluency, not depth. The Exam Blueprint maps each topic straight to a training course, making it the most straightforward preparation path of the five: work down the list and tick boxes. One constraint to know upfront, though: the official FAQ states that "NVIDIA certification exams are **pass/fail. You won't receive a score**." There's no score report, so failing leaves you without a weakness breakdown and a second attempt runs on memory alone — which raises the value of diagnosing yourself properly beforehand.
 
 **Databricks**: weight concentrates in application development (30%) and assembling and deploying (22%), so more than half is implementation. Preparation means building one RAG chain end to end on the platform — vector search, model serving, lifecycle management, data governance — rather than reading documentation. The official recommendation is 6+ months of hands-on experience.
 
@@ -211,10 +217,13 @@ That applies doubly to certifications testing operational detail: AWS's MLA-C01 
 - [Google Cloud Exam Terms & Conditions (retake waiting periods of 14 / 60 / 365 days)](https://cloud.google.com/certification/terms)
 - [Google Cloud Certification: Retake Policy](https://support.google.com/cloud-certification/answer/9749448)
 - [Google Professional ML Engineer official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
-- [Microsoft AI-103 exam page (retake rules, practice assessment status, assessed areas)](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
+- [Microsoft retake policy (24 hours for the first retake, 14 days thereafter, five per year)](https://learn.microsoft.com/en-us/credentials/support/retake-policy)
+- [Microsoft AI-103 exam page (practice assessment status, assessed areas)](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-103/)
 - [Microsoft course AI-103T00](https://learn.microsoft.com/en-us/training/courses/ai-103t00/)
 - [NVIDIA NCA-GENL certification page (Exam Blueprint)](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
+- [NVIDIA Certification FAQ (14-day retake wait, five per year, pass/fail with no score)](https://www.nvidia.com/en-us/learn/certification)
 - [Databricks Certified Generative AI Engineer Associate (domain weights)](https://www.databricks.com/learn/certification/genai-engineer-associate)
+- [Databricks Certification Terms & Conditions (14-day retake wait, payment each time)](https://www.databricks.com/learn/certification/terms-and-conditions)
 - [iPAS AI Application Planner learning resources (past papers and official study guides)](https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources) (in Mandarin)
 - [iPAS AI Application Planner exam information (sessions, subjects, passing conditions)](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info) (in Mandarin)
 - [Notice on iPAS intermediate code question weighting](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e) (in Mandarin)
