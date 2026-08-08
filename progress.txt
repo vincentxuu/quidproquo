@@ -47,8 +47,12 @@ Recently completed
   rest). Rules used, reuse them: rewrite ONLY when the -en file exists; never
   touch the `🌏 [中文版]` line (361 preserved); category can be NESTED
   (/posts/tech/deep-dive/...) — a single-level regex silently misses 187 links.
-  Two zh links left on purpose: ai/2026-07-22-3d-generative-models-landscape has
-  no English version. Translating it would close the last gap.
+  Last gap CLOSED: translated ai/2026-07-22-3d-generative-models-landscape, so
+  every cross-post link in an English post now resolves to English (0 broken,
+  0 zh-pointing). Two zh posts still have no English version at all:
+  ai/2026-07-10-ai-courses-2026-guide and
+  coffee/2026-07-25-pour-over-dripper-trapezoid-vs-cone — nothing links to them
+  from English, so this is a coverage gap, not a broken-link one.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
   four application posts, privacy. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.

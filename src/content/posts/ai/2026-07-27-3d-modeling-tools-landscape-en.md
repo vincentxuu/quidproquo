@@ -21,7 +21,7 @@ draft: false
 
 "I want to make a 3D model" is not one question in 2026 — it's four. Is your input text, a photo, a physical object, or a dimensioned spec? Does the output go into a game engine, a 3D printer, an e-commerce page, or a CNC machine? Those two axes produce four completely different toolchains, and choosing wrong doesn't cost you "slightly worse quality" — it costs you the discovery, halfway through, that the thing you made cannot be modified at all.
 
-This is a tool selection map. If you want the underlying research — how video diffusion gets lifted into 3D, why 3DGS may only be a transitional technique — the companion post [3D Generative Models in 2026: A Technical Map from Lyra 2.0](/posts/ai/2026-07-22-3d-generative-models-landscape) (in Chinese) covers the paper layer. This one covers what you can start using this afternoon.
+This is a tool selection map. If you want the underlying research — how video diffusion gets lifted into 3D, why 3DGS may only be a transitional technique — the companion post [3D Generative Models in 2026: A Technical Map from Lyra 2.0](/posts/ai/2026-07-22-3d-generative-models-landscape-en) (in Chinese) covers the paper layer. This one covers what you can start using this afternoon.
 
 ## Four paths, disambiguated
 
@@ -190,4 +190,4 @@ In practice the most efficient setup is a hybrid: block out with AI generation o
 - [Nomad Sculpt](https://nomadsculpt.com/)
 - [Womp](https://womp.com/)
 - [Best 3D Modeling & CAD Software for 3D Printing 2026 (3Dprinting.com)](https://3dprinting.com/software-guides/best-3d-modeling-cad-software/)
-- Related on this site: [3D Generative Models in 2026: A Technical Map from Lyra 2.0](/posts/ai/2026-07-22-3d-generative-models-landscape) (in Chinese)
+- Related on this site: [3D Generative Models in 2026: A Technical Map from Lyra 2.0](/posts/ai/2026-07-22-3d-generative-models-landscape-en) (in Chinese)
