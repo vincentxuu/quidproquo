@@ -41,11 +41,12 @@ Recently completed
   plan §5.2 (B8 row) — read that, not this.
   Open: B9-B17 (eight technical cells). Ask FIRST whether each really needs
   hardware or I wrote it to need hardware.
-  KNOWN DEFECT, not fixed: every one of the 22 further-reading links in the
-  ENGLISH hub (2026-08-06-drone-industry-map-en.md) points at the zh slug, so
-  English readers land on Chinese posts. All 22 -en counterparts exist. Left
-  alone because it is outside the "write the missing post" scope — ask before
-  batch-fixing.
+  SITE-WIDE DEFECT found and PARTLY fixed: in-body links in English posts point
+  at zh slugs, so English readers land on Chinese posts. Drone series done (23
+  files / 227 links, commit 281409f). REMAINING: 68 files / 328 links, mostly ai
+  (49 files / 257 links) — >20 files so it needs an explicit go-ahead. Fixer
+  script pattern: rewrite only when the -en file exists, and never touch the
+  `🌏 [中文版]` line (that one is meant to point at the Chinese post).
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
   four application posts, privacy. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.
