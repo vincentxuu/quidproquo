@@ -220,6 +220,23 @@ The page metadata shows an update timestamp of `2026-06-30` and is flagged `hidd
 
 "Google Cloud GenAI Engineer" is an invented name, verified three ways: requesting `cloud.google.com/learn/certification/generative-ai-engineer` returns **HTTP 404**; the official certification index lists only Generative AI Leader and Professional ML Engineer under AI; and none of the 9 professional certifications covers GenAI or agent engineering.
 
+## What Training Costs: Is the Free Tier Enough?
+
+Everything above is exam fees. Each vendor has a second bill: training. **The two are unrelated** — you don't have to take a course to register, and no vendor checks what you studied. Conflating them is the main reason people misjudge the budget.
+
+| Vendor | Free from the vendor | Behind a paywall |
+|---|---|---|
+| AWS | Skill Builder free account: 1,000+ learning resources, a 20-question Official Practice Question Set (with detailed feedback and recommended resources), and a 2-hour Exam Prep course | Subscription at **$29/month** or **$449/year**: Official Pretests and full-length practice exams, Guided Builder Labs; the annual tier adds Digital Classroom |
+| Google | The ML Engineer learning path and official sample questions on Google Skills (formerly Cloud Skills Boost) | Hands-on labs consume credits; the GEAR program grants 35 free monthly credits |
+| Microsoft | The four learning paths in AI-103T00, roughly 29.5 hours | Instructor-led classes, Exam Replay retake bundles |
+| NVIDIA | A Free Self-Paced Courses section; the Exam Blueprint maps each topic straight to the matching course | Instructor-led workshops |
+| Databricks | Three free on-demand courses in Academy (Databricks Fundamentals, AI Agent Fundamentals, Generative AI Fundamentals, ~1.5 hours each, badge on completion) | Instructor-Led courses marked PAID, 8–18 hours |
+| Claude | Partner Academy prep training (free, but restricted to Partner Network members) | — |
+
+**Only one of these is worth paying for: AWS's $29 monthly subscription.** Not for the courses — because the **full-length practice exam sits behind the paywall**, and the free 20 questions aren't enough to tell you whether you'd pass. Subscribe a month before the exam and cancel after: $29 to know whether you'll pass beats sitting the exam blind and paying full price again, especially since an AWS retake also means waiting 14 days. Don't buy the $449 annual tier.
+
+Microsoft gives away the most — those 29.5 hours — while being the only one of the five with no free practice assessment. They'll teach you; they won't test you.
+
 ## Ways to Pay Less: Mechanisms vs. Luck
 
 Time-limited promo codes expire the moment they're written down, but each vendor's **discount mechanism** is stable enough to plan around.
@@ -258,6 +275,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-08-07: Added a "What Training Costs" section. The article previously listed exam fees only, omitting the training layer — and the two bills are independent (no course is required to register). It compares each vendor's free/paid boundary and concludes that only AWS's $29 monthly subscription is worth paying for, because the full-length practice exam sits behind the paywall.
 - 2026-08-07: Added a "Ways to Pay Less" section (AWS Professional vouchers with a free retake, Microsoft's 80%-off beta window for the first 300 candidates, Databricks' quarterly Learning Festival voucher, NVIDIA webinars and GTC on-site exams, plus employer-side Get Certified / ESI / team vouchers). Also filled two gaps: **AI-500 requires earning AI-103 first**, and Google issues a 50% renewal discount code on certification (the article previously priced renewal at the full $200).
 - 2026-08-07: Four corrections and additions. The AWS section gains the retake policy (14 calendar days, full fee each attempt), passing standards (700 / 720 / 750), and score reporting time, and corrects "recertification means retaking the exam" — earning MLA-C01 automatically recertifies AIF-C01. The Google section adds PMLE's exam languages and the official note that it does not directly assess coding skill. The Microsoft section adds AI-103's $165 price, free course hours, and the currently missing practice assessment, plus the fact that its language list differs between two official pages. The Claude section corrects "the preparation courses themselves are free and public" — training is free of charge but limited to Partner Network members, and the gate is firm membership, which is itself free.
 

@@ -220,6 +220,23 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 「Google Cloud GenAI Engineer」則是被憑空創造出來的名字，三種方式交叉驗證：直接請求 `cloud.google.com/learn/certification/generative-ai-engineer` 回 **HTTP 404**；官方認證總覽頁的 AI 項目只有 Generative AI Leader 與 Professional ML Engineer；Professional 級 9 張裡沒有任何 GenAI 或 Agent 工程師認證。
 
+## 課程要花多少：五家的免費那層夠不夠
+
+上面列的都是考試費。實際上每家還有第二筆錢：課程費。**兩筆互不相干** —— 不用先上課才能報考，廠商也不會查你上過什麼課。搞混這兩筆，是預算會抓錯的主因。
+
+| 廠商 | 官方免費的部分 | 要付費才有的 |
+|---|---|---|
+| AWS | Skill Builder 免費帳號：1,000+ 學習資源、20 題 Official Practice Question Set（附詳解與推薦資源）、2 小時 Exam Prep 課 | 訂閱 **$29/月**或 **$449/年**：Official Pretest 與完整模擬考、Guided Builder Labs；年費版多 Digital Classroom |
+| Google | Google Skills（原 Cloud Skills Boost）上的 ML Engineer 學習路徑與官方 sample questions | 動手 lab 要消耗 credits，GEAR 計畫每月給 35 點免費額度 |
+| 微軟 | AI-103T00 的四條學習路徑，合計約 29.5 小時 | 講師班、Exam Replay 重考券 |
+| NVIDIA | Free Self-Paced Courses 專區；Exam Blueprint 把每個主題直接對應到相應課程 | 講師帶領的 workshop |
+| Databricks | Academy 三門免費隨選課（Databricks Fundamentals、AI Agent Fundamentals、Generative AI Fundamentals，各約 1.5 小時，完成有徽章） | Instructor-Led 課程標示 PAID，8–18 小時 |
+| Claude | Partner Academy 的考前訓練（免費，但限 Partner Network 成員） | — |
+
+**五家裡只有一筆值得付：AWS 的 $29 月費。** 理由不是課程內容，是**完整模擬考只在付費層** —— 免費那 20 題不足以判斷自己會不會過。買法是考前一個月訂、考完退訂：$29 換一次「知道自己會不會過」，比裸考失手後再付一次全額便宜，而且 AWS 重考還要等 14 天。不要買 $449 年費。
+
+免費給最多的是微軟那 29.5 小時，但它同時是唯一沒有免費 practice assessment 的 —— 課給你上，不給你測。
+
 ## 省錢管道：哪些是機制，哪些是碰運氣
 
 限時折扣碼寫進文章就會過期，但幾家的**省錢機制**是穩定的，值得先知道規則再決定什麼時候報名。
@@ -258,6 +275,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 ## 更新紀錄
 
+- 2026-08-07：新增「課程要花多少」一節。原文只列考試費，沒有課程費那一層，而兩筆是分開的（不用先上課才能報考）。五家的免費／付費分界對照，結論是只有 AWS 的 $29 月費值得付 —— 因為完整模擬考只在付費層。
 - 2026-08-07：新增「省錢管道」一節（AWS 專業級考試券含免費重考、微軟 beta 前 300 名八折、Databricks 季度 Learning Festival 5 折券、NVIDIA 的 webinar 與 GTC 現場、以及公司端的 Get Certified / ESI / 團隊考試券）。同時補上兩處遺漏：**AI-500 認證要求必須先取得 AI-103**，以及 Google 認證通過後會拿到一張續證用的 50% 折扣碼（原文把續證成本寫成全額 $200）。
 - 2026-08-07：補齊四處。AWS 段補上重考政策（14 個日曆天等待、每次全額付費）、及格線（700 / 720 / 750）與成績公布時間，並修正「重新認證只能重考」—— 考到 MLA-C01 會自動續掉 AIF-C01。Google 段補 PMLE 的考試語言與「不直接考程式能力」的官方說明。微軟段補 AI-103 的 $165 價格、免費課程時數，以及目前沒有 practice assessment；同時記下它的語言清單在兩個官方頁上不一致。Claude 段修正「訓練課程本身免費公開」—— 訓練不收費但限 Partner Network 成員，門檻是公司加入（加入本身免費）。
 
