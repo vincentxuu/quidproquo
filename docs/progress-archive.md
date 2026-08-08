@@ -135,3 +135,31 @@ Two zh posts still have no English version at all:
 `ai/2026-07-10-ai-courses-2026-guide` and
 `coffee/2026-07-25-pour-over-dripper-trapezoid-vs-cone`. Nothing links to them
 from English, so that is a coverage gap, not a broken-link one.
+
+## 2026-08-08 — 無人機系列 B 技術群開工（B8／B10／B9）
+
+Three posts in one day opened the B (technical) block, which had been entirely
+empty, and produced the series' first first-hand output. Per-post findings live
+in `docs/content-plan-drone.md` §5.2; this is the shape of the thing.
+
+- **B8 PX4 vs ArduPilot vs 自研** — both stacks cloned and built, one SITL
+  sortie flown. ArduPilot's `AP_NavEKF3.h` cites `github.com/PX4/ecl` for its
+  derivation and Paul Riseborough maintains both projects, so the two are
+  common-descent at the hardest layer. Contributor structure is inverted
+  against the stereotype: PX4 is company domains (Auterion = 16% of human
+  commits), ArduPilot is personal mailboxes but far more concentrated (one
+  person 37%); PX4 also carries 645 bot commits (22%) that break naive commit
+  comparisons. The real decision points are BSD-3 vs GPLv3 and which layer you
+  extend.
+- **B10 遙控鏈路** — ExpressLRS hop sequence derives from the binding phrase via
+  MD5 → LCG; ported to Python and diffed bit-identical against verbatim C. No
+  link encryption, only CRC14. LP0002 §4.10.1.2 gives 2.4 GHz hoppers 1 W at
+  ≥75 channels and 0.125 W below, and ELRS uses exactly 80.
+- **B9 GNSS 拒止** — first interventional experiment: `SIM_GPS1_JAM` on at 28 m,
+  and the aircraft landed itself in ~7 s of sim time rather than flying away.
+  PX4's `EKF2_GPS_CHECK` default leaves jamming detection off and spoofing on,
+  because both flags come from the receiver and only jamming is inferable.
+
+The recurring mistake this closed: "technical topic" had been silently filed
+under "needs hardware." All three were codebase questions. The real barrier was
+Python dependencies.

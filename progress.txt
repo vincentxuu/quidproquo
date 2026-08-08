@@ -24,37 +24,23 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: drone series 23 -> 24 (zh+en). B8 PX4 vs ArduPilot vs 自研 — the
-  first of the NINE-CELL B (technical) block, all of which was empty, and the
-  series' first FIRST-HAND output: both stacks cloned, built and one SITL sortie
-  flown. THE RECURRING MISTAKE, 4th instance: "technical topic" was silently
-  filed under "needs hardware". It is a codebase question. Real barrier was
-  Python deps (empy 3.3.4 has no py3.11 wheel), not hardware.
-  Findings worth reusing: ArduPilot's AP_NavEKF3.h header cites github.com/PX4/
-  ecl for its derivation and Paul Riseborough is a maintainer on BOTH projects —
-  the two stacks are common-descent at the hardest layer. Contributor structure
-  is INVERTED vs the stereotype: PX4 = company domains (Auterion 380 = 16% of
-  human commits), ArduPilot = personal mailboxes but far more concentrated (one
-  person 37%); PX4 also has 645 bot commits (22%) that break naive commit
-  comparisons. The two real decision points are BSD-3 vs GPLv3 and which layer
-  you extend (AP: Lua on the SD card; PX4: ROS 2 outside). Per-post detail in
-  plan §5.2 (B8 row) — read that, not this.
-  B10 (RF link) followed the same day, same method: ExpressLRS 5909f77 is
-  GPLv3 and readable. Hop sequence = binding phrase -> md5 -> UID -> LCG
-  (a=214013 c=2531011) -> 256-slot shuffle; I ported it to Python and diffed
-  against the verbatim C, bit-identical on all 7 channel counts — reuse that
-  proof pattern for any port claim. Link has NO encryption, only CRC14, so
-  binding solves "the pilot next door", not jamming. Best Taiwan finding:
-  LP0002 4.10.1.2 gives 2.4GHz hoppers 1 W at >=75 channels and 0.125 W below
-  it, and ELRS uses exactly 80 — channel count IS the power ceiling. And a
-  4th instance of "the clause named after the thing does not govern the
-  thing": 5.3.1 "model aircraft radio control" is 27/72 MHz and ONE-WAY only.
-  Open: B9, B11-B17 (seven technical cells). Ask FIRST whether each really
-  needs hardware or I wrote it to need hardware. B15/B16 are the two that
-  plausibly do.
+- 2026-08-08: drone series 23 -> 26 (zh+en). Opened the B (technical) block,
+  which was entirely empty: B8 flight stacks, B10 RF link, B9 GNSS-denied —
+  all three modules the cybersecurity spec names. Full entry archived to
+  docs/progress-archive.md; per-post findings in plan §5.2.
+  THE RECURRING MISTAKE, 4th instance, now closed: "technical topic" was
+  silently filed under "needs hardware". All three were codebase questions;
+  the real barrier was Python deps. B9 went further and was the series' first
+  INTERVENTIONAL experiment (inject a GPS jam in SITL, record what happens).
+  Two reusable rules: (a) to claim a port is faithful, diff it against the
+  verbatim original — I caught nothing, but that is what makes the claim safe;
+  (b) what a system can infer needs no flag, what it cannot is what someone
+  else must tell it (why PX4 ships spoofing detection on and jamming off).
+  Open: B11-B17 (seven cells). Ask FIRST whether each really needs hardware or
+  I wrote it to need hardware. B15/B16 are the two that plausibly do.
   Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
-  742 links). Done and archived to docs/progress-archive.md — read the three
-  safety rules there before any similar link sweep. Untranslated still: 2 posts.
+  742 links). Done and archived — read the three safety rules there before any
+  similar link sweep. Untranslated still: 2 posts.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
   four application posts, privacy. Full entry archived to
   docs/progress-archive.md; per-post findings in plan §5.2.
