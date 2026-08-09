@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,38 +24,38 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: drone series 23 -> 30 (zh+en). Opened the B (technical) block,
-  which was entirely empty: B8 flight stacks, B10 RF link, B9 GNSS-denied —
-  all three modules the cybersecurity spec names. Archived; findings in §5.2.
-  THE RECURRING MISTAKE, 4th instance, now closed: "technical topic" was
-  silently filed under "needs hardware". All three were codebase questions;
-  the real barrier was Python deps. B9 was the series' first INTERVENTIONAL
-  experiment (inject a GPS jam in SITL, record what happens).
-  Two reusable rules: (a) to claim a port is faithful, diff it against the
-  verbatim original — caught nothing, but that is what makes the claim safe;
-  (b) what a system can infer needs no flag; what it cannot is what someone
-  else must tell it (why PX4 ships spoofing on and jamming off).
-  B17 (spec), B11 (endurance), B15 (airframes) and the 5.8 GHz video-link post
-  followed; all archived to docs/progress-archive.md, detail in plan §5.2.
-  The video-link post is a NEW SHAPE of finding: the first four were "the
-  clause's name doesn't match what it governs"; this one is "no clause is
-  shaped like this at all" (analogue FPV fits neither LP0002 §4.10, hopping
-  only, nor §5.7, wideband digital only). It also turned up an INDEPENDENT
-  CONFIRMATION: a 110-03-16 CAA interview record inside an IOT study says
-  flight control and RF are Taiwan's supply-chain weak links and domestic firms
-  mostly run PX4/ArduPilot — what B8 and the supply-chain post derived from
-  source and filings, written down by the regulator in 2021.
-  Four more things worth
-  keeping here. (1) VERSION: the cybersecurity spec in force is V2.0
-  (2026-04-30), not V1.0 of 2024-12 — the spec-sheet post was corrected.
-  (2) B11 and B15 each OVERTURNED an assumption with an equation rather than
-  data: weight thresholds do NOT cap endurance (payload does), and fixed-wing
-  range is INDEPENDENT of cruise speed. (3) Taiwan has a domestic aircraft at
-  EVERY rung of the endurance ladder — that corrects an impression the earlier
-  posts may have left that it is all multirotors. (4) SITE FACT: no remark-math
-  plugin — `$$` renders literally, write maths in code blocks.
-  B15 did NOT need hardware either, so of the two cells flagged as plausibly
-  needing it only B16 (manufacturing ramp) is left. Open: B12, B13, B14, B16.
+- 2026-08-09: B14 swarm (zh+en), series 30 -> 31. THE FINDING IS A NEGATIVE
+  RESULT, and negative results only count if reproducible: Skybrush's open
+  light-show firmware (ArduPilot fork CMCopter-4.6, 9,199 lines) contains ZERO
+  inter-drone coordination — grep hits were 16x `formation` inside
+  `information`, said so in print. Coordination is one GPS week-second +
+  ms offset; the "bubble fence" measures distance from the drone's OWN
+  setpoint and DEFAULTS TO REPORT-ONLY. So GNSS is the single point (position
+  and time same source). Taiwan half: spec Ch.7 has 12 items and the "drone"
+  column is a dash throughout — cited standards are an IoT FIELD guideline and
+  a Wi-Fi ROUTER test spec. It tests the server room, honestly labelled.
+  Mismatch: the §32 rationale fears jamming->crash, but GNSS spoof/jam are
+  Ch.8 OPTIONAL and Ch.8 is not in swarm compliance (5.1.2).
+  BEST METHOD LESSON: when a chapter looks mis-shaped, go find its PARENTAGE.
+  The Control Yuan report traces Ch.7 to the 2022 National Day Chinese-chip
+  row (no aircraft fell); the 2023-01-04 tender clause said "flight-FIELD
+  security assessment", and Ch.7 implemented exactly that. Also: a 2022-11-11
+  meeting explicitly asked to "include swarm mission software testing" — four
+  years later Ch.7 has none. Requests-on-record vs delivered-text is a
+  reusable check. Open: B12, B13, B16.
+- 2026-08-08: drone series 23 -> 30 (zh+en); B block opened (B8/B10/B9/B17/
+  B11/B15 + 5.8 GHz video link). Archived; per-post detail in plan §5.2.
+  THE RECURRING MISTAKE, 4th instance, now closed: "technical topic" silently
+  filed under "needs hardware" — all were codebase questions. Keep here:
+  (1) to claim a port is faithful, diff it against the verbatim original;
+  (2) what a system can infer needs no flag, what it cannot is what someone
+  else must tell it (why PX4 ships spoofing on and jamming off);
+  (3) VERSION: the cybersecurity spec in force is V2.0 (2026-04-30);
+  (4) B11/B15 each overturned an assumption with an equation, not data;
+  (5) Taiwan has a domestic aircraft at EVERY endurance rung;
+  (6) SITE FACT: no remark-math plugin — write maths in code blocks;
+  (7) the video-link post found a NEW SHAPE: not "the clause misnames its
+  contents" but "no clause is shaped like this at all".
   Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
   742 links). Archived — read the three safety rules there before a link sweep.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
