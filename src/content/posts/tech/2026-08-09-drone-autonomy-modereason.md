@@ -100,7 +100,18 @@ px4/src/modules/mc_nn_control/
 px4/src/lib/tensorflow_lite_micro/
 ```
 
-ArduPilot 主線：搜不到任何神經網路推論引擎。PX4 主線：**把 TensorFlow Lite Micro 整個 vendor 進飛控原始碼裡**，外加一個模組。
+這是一個負面結果加一個正面結果，所以把搜法寫出來讓人重跑（只搜原始碼副檔名，避免圖檔與 `.mat`、`.slx` 之類的二進位誤中）：
+
+```bash
+grep -rilE "tflite|tensorflow|onnxruntime|libtorch|MicroInterpreter|kTensorArena|neural.?net"   <repo> --include=*.cpp --include=*.h --include=*.hpp --include=*.c | wc -l
+```
+
+```
+ArduPilot（libraries + ArduCopter/Plane/Sub/Rover）：  0
+PX4（src/）：                                        420
+```
+
+**ArduPilot 主線一個檔案都沒有。PX4 主線把 TensorFlow Lite Micro 整個 vendor 進飛控原始碼裡**，外加一個模組。
 
 那個模組自己的說明是這樣寫的：
 

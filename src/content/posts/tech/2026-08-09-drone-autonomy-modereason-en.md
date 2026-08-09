@@ -100,7 +100,18 @@ px4/src/modules/mc_nn_control/
 px4/src/lib/tensorflow_lite_micro/
 ```
 
-ArduPilot mainline: no neural network inference engine anywhere. PX4 mainline: **TensorFlow Lite Micro vendored wholesale into the flight code**, plus a module.
+That's a negative result plus a positive one, so here is the search, written out so it can be rerun (restricted to source extensions, to avoid false positives from images and `.mat`/`.slx` binaries):
+
+```bash
+grep -rilE "tflite|tensorflow|onnxruntime|libtorch|MicroInterpreter|kTensorArena|neural.?net"   <repo> --include=*.cpp --include=*.h --include=*.hpp --include=*.c | wc -l
+```
+
+```
+ArduPilot (libraries + ArduCopter/Plane/Sub/Rover):    0
+PX4 (src/):                                         420
+```
+
+**Not one file in ArduPilot mainline. PX4 mainline has TensorFlow Lite Micro vendored wholesale into the flight code**, plus a module.
 
 The module's own description reads:
 

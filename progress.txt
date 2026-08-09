@@ -45,10 +45,20 @@ Recently completed
   (7) Negative results only count if reproducible; say what the grep matched.
   TOOL NOTE: g0v procurement API is pcc-api.openfun.app; responses are huge,
   parse with a script, never into context.
+  (8) CORRECTION SAME DAY: C24 said the CCP draft's Art.153-2 was aerial
+  investigation and left its fate open. The chapter PASSED 2024-07-16
+  (promulgated 07-31, §153-1~§153-10) and its three measures are GPS /
+  IMSI-catcher / private-space imaging — **enacted §153-2 is the IMSI-catcher,
+  and no article covers aerial evidence at all**. So the provision drafted for
+  it vanished between committee and third reading. Corrected in both languages;
+  the finding got STRONGER, not weaker. MoJ usage data to 2025-02-14 added
+  (§153-1 44/42, §153-2 188/177, §153-3 8/7).
+  Also hardened B13's negative claim per rule (7): the no-ML grep now prints
+  its command and counts (ArduPilot 0, PX4 420, source extensions only).
   NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
   / C25 film / C26 environment / C27 entertainment-industry; all of I except
-  61 privacy; D30/31/32. C24's own largest gap: the CCP special-compulsory-
-  measures chapter's current status (timeline stops 2024-06).
+  61 privacy; D30/31/32 (D32 "who may shoot it down" is the best of them —
+  three statutes with conflicting authority, and it is a clause question).
 - 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
   docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
   仍然約束我的事實與教訓（不要再犯）：
