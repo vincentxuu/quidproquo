@@ -24,61 +24,56 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: B14 swarm (zh+en), series 30 -> 31. THE FINDING IS A NEGATIVE
-  RESULT, and negative results only count if reproducible: Skybrush's open
-  light-show firmware (ArduPilot fork CMCopter-4.6, 9,199 lines) contains ZERO
-  inter-drone coordination — grep hits were 16x `formation` inside
-  `information`, said so in print. Coordination is one GPS week-second +
-  ms offset; the "bubble fence" measures distance from the drone's OWN
-  setpoint and DEFAULTS TO REPORT-ONLY. So GNSS is the single point (position
-  and time same source). Taiwan half: spec Ch.7 has 12 items and the "drone"
-  column is a dash throughout — cited standards are an IoT FIELD guideline and
-  a Wi-Fi ROUTER test spec. It tests the server room, honestly labelled.
-  Mismatch: the §32 rationale fears jamming->crash, but GNSS spoof/jam are
-  Ch.8 OPTIONAL and Ch.8 is not in swarm compliance (5.1.2).
-  BEST METHOD LESSON: when a chapter looks mis-shaped, go find its PARENTAGE.
-  The Control Yuan report traces Ch.7 to the 2022 National Day Chinese-chip
-  row (no aircraft fell); the 2023-01-04 tender clause said "flight-FIELD
-  security assessment", and Ch.7 implemented exactly that. Also: a 2022-11-11
-  meeting explicitly asked to "include swarm mission software testing" — four
-  years later Ch.7 has none. Requests-on-record vs delivered-text is a
-  reusable check. Open: B12, B13, B16.
+- 2026-08-09: B14 swarm + B12 payload cost (zh+en), series 30 -> 32. Full
+  findings in plan §5.2 — read that. What is reusable:
+  B14 rests on a NEGATIVE RESULT, and those only count if reproducible:
+  9,199 lines of Skybrush light-show firmware have ZERO inter-drone
+  coordination; the grep that proved it hit 16x `formation` inside
+  `information` and I said so in print. Coordination is one GPS week-second;
+  the "bubble fence" measures distance from the drone's OWN setpoint and
+  DEFAULTS TO REPORT-ONLY, so GNSS is the single point.
+  B12: I filed payload as a MARKET question (go collect quotes). It was a
+  CLAUSE question. NEW VARIANT of the recurring mistake — not "assumed it needs
+  hardware" but "assumed it needs commercial secrets". Ask that one too.
+  TWO METHOD LESSONS. (1) When a clause looks mis-shaped, go find its
+  PARENTAGE: the Control Yuan report traced spec Ch.7 to the 2022 National Day
+  Chinese-chip row and the 2023-01-04 tender wording "flight-FIELD assessment",
+  which Ch.7 implemented exactly. (2) Requests-on-record vs delivered-text is a
+  reusable check: a 2022-11-11 meeting asked to "include swarm mission software
+  testing"; four years later Ch.7 has none.
+  Open: B13, B16.
 - 2026-08-08: drone series 23 -> 30 (zh+en); B block opened (B8/B10/B9/B17/
-  B11/B15 + 5.8 GHz video link). Archived; per-post detail in plan §5.2.
-  THE RECURRING MISTAKE, 4th instance, now closed: "technical topic" silently
-  filed under "needs hardware" — all were codebase questions. Keep here:
-  (1) to claim a port is faithful, diff it against the verbatim original;
-  (2) what a system can infer needs no flag, what it cannot is what someone
-  else must tell it (why PX4 ships spoofing on and jamming off);
-  (3) VERSION: the cybersecurity spec in force is V2.0 (2026-04-30);
-  (4) B11/B15 each overturned an assumption with an equation, not data;
-  (5) Taiwan has a domestic aircraft at EVERY endurance rung;
-  (6) SITE FACT: no remark-math plugin — write maths in code blocks;
-  (7) the video-link post found a NEW SHAPE: not "the clause misnames its
-  contents" but "no clause is shaped like this at all".
-  Also fixed a site-wide defect: English posts linked to zh slugs (163 files /
-  742 links). Archived — read the three safety rules there before a link sweep.
+  B11/B15 + 5.8 GHz video link). Archived; detail in plan §5.2. THE RECURRING
+  MISTAKE, 4th instance, closed: "technical topic" silently filed under "needs
+  hardware" — all were codebase questions. Keep: (1) to claim a port is
+  faithful, diff it against the verbatim original; (2) what a system can infer
+  needs no flag, what it cannot is what someone else must tell it (why PX4
+  ships spoofing on, jamming off); (3) the cybersecurity spec in force is V2.0
+  (2026-04-30); (4) B11/B15 each overturned an assumption with an equation, not
+  data; (5) Taiwan has a domestic aircraft at EVERY endurance rung; (6) SITE
+  FACT: no remark-math plugin — write maths in code blocks; (7) the video-link
+  post found a NEW SHAPE: not "the clause misnames its contents" but "no clause
+  is shaped like this at all". Also fixed a site-wide defect: English posts
+  linked to zh slugs (163 files / 742 links) — read the three safety rules in
+  the archive before any similar link sweep.
 - 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
-  four application posts, privacy. Full entry archived to
-  docs/progress-archive.md; per-post findings in plan §5.2.
-  THE RECURRING MISTAKE (3x here, 4th on 08-08; instances archived): treating
+  four application posts, privacy. Archived; findings in plan §5.2.
+  THE RECURRING MISTAKE (3x here, 4th on 08-08, 5th variant on 08-09): treating
   my own pre-writing "素材" estimate as a hard constraint. Four-rule 通則 in
   plan §6; short form: ask which HALF needs material, ask whether the topic
-  really needs it or I wrote it to need it, ask whether it is truly
-  unavailable or I just haven't looked, and don't treat interviews as
-  higher-grade than public records.
+  really needs it or I wrote it to need it, ask whether it is truly unavailable
+  or I just haven't looked, and don't rank interviews above public records.
   Application/social cells still open: surveying; noise/NIMBY, criminal misuse,
   autonomous-weapons ethics, environmental cost.
-- 2026-08-06: drone series — 13 posts shipped (zh+en). Plan + per-post findings
-  + verification lessons live in docs/content-plan-drone.md §5.2; read that, not
-  this. Decisions that still bind: `category` is the container (folder/URL/nav),
-  `drone` tag is the topic — src/pages/tags/[tag].astro has NO category filter,
-  so /tags/drone is the cross-category hub and EVERY series post must carry
-  `drone` as its first tag. Investing posts: framework-and-risk, no tickers.
-  Future-dated posts are NOT built, so a published post linking to a later-dated
-  one is a hard 404 (guard script in plan §5.2). Frontmatter glossary is
-  prepended before DEFAULT_GLOSSARY_TERMS and deduped first-wins, so it SHADOWS
-  the site-wide entry.
+- 2026-08-06: drone series — 13 posts (zh+en). Plan + findings + verification
+  lessons in docs/content-plan-drone.md §5.2; read that, not this. Still binds:
+  `category` is the container (folder/URL/nav), `drone` tag is the topic —
+  src/pages/tags/[tag].astro has NO category filter, so /tags/drone is the
+  cross-category hub and EVERY series post must carry `drone` first.
+  Investing posts: framework-and-risk, no tickers. Future-dated posts are NOT
+  built, so a published post linking to a later-dated one is a hard 404 (guard
+  script in plan §5.2). Frontmatter glossary is prepended before
+  DEFAULT_GLOSSARY_TERMS and deduped first-wins, so it SHADOWS the site entry.
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
