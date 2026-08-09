@@ -24,41 +24,42 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: 5 posts (zh+en), series 30 -> 35. **B TECHNICAL GROUP COMPLETE
-  (all 17 cells).** Full entry archived to docs/progress-archive.md; per-post
-  detail in plan §5.2. Reusable lessons, ranked by what they cost me:
+- 2026-08-09: 6 posts (zh+en), series 30 -> 36. **B TECHNICAL GROUP COMPLETE
+  (all 17 cells)**; D32 also done. Detail in plan §5.2; older entries archived to
+  docs/progress-archive.md. Reusable lessons, ranked by what they cost me:
   (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING. B12 did that for unit
   prices and got them REVERSED and 5x off; the line-item record was public all
   along. I HAD flagged "that figure looks low" — flagging uncertainty is not
-  removing it.
+  removing it. D32 applied this: I refused to quantify jammer procurement
+  because the pcc API's keyword match is fuzzy, and said so in the post.
   (2) A GAP YOU LIST CAN REFUTE THE POST. B16's own "no control group" line
-  turned out to kill its first conclusion (ladder trucks fail-to-award 0.54 vs
-  drones 0.33). Before writing "I did not do X", ask: could X refute this? If
-  yes it is prerequisite, not future work.
+  killed its first conclusion. Before writing "I did not do X", ask: could X
+  refute this? If yes it is prerequisite, not future work. D32 now answers that
+  question per gap, in the post itself — make that the standard shape.
   (3) THE RECURRING MISTAKE, 6th and last instance, closed: every cell I had
   filed as needing hardware/factory/interviews/trade secrets needed none.
-  (4) To write about a fuzzy word, find where the codebase is FORCED to
-  enumerate it (B13: ModeReason is the 2nd arg of every set_mode(), so it is
-  the compiler-guaranteed complete list of autonomous decisions).
+  (4) To write about a fuzzy word, find where the source is FORCED to enumerate
+  it. B13: ModeReason (2nd arg of every set_mode()) = complete autonomy list.
+  D32: 內政部's 31-item police-instrument list, and a whole-corpus law search
+  (「無人機」19 instruments, 「反制無人機」1) — same move, statutes not code.
   (5) When a clause looks mis-shaped, find its PARENTAGE (B14).
   (6) Requests-on-record vs delivered-text is a reusable check (B14, C24).
-  (7) Negative results only count if reproducible; say what the grep matched.
-  TOOL NOTE: g0v procurement API is pcc-api.openfun.app; responses are huge,
-  parse with a script, never into context.
-  (8) CORRECTION SAME DAY: C24 said the CCP draft's Art.153-2 was aerial
-  investigation and left its fate open. The chapter PASSED 2024-07-16
-  (promulgated 07-31, §153-1~§153-10) and its three measures are GPS /
-  IMSI-catcher / private-space imaging — **enacted §153-2 is the IMSI-catcher,
-  and no article covers aerial evidence at all**. So the provision drafted for
-  it vanished between committee and third reading. Corrected in both languages;
-  the finding got STRONGER, not weaker. MoJ usage data to 2025-02-14 added
-  (§153-1 44/42, §153-2 188/177, §153-3 8/7).
-  Also hardened B13's negative claim per rule (7): the no-ML grep now prints
-  its command and counts (ArduPilot 0, PX4 420, source extensions only).
+  (7) Negative results only count if reproducible; print the query and counts
+  (B13 grep; D32 prints its three law-database query URLs).
+  (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
+  民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
+  「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
+  (9) C24 same-day correction (kept because the fact matters): CCP special-
+  compulsory-measures chapter PASSED 2024-07-16 (§153-1~§153-10 = GPS /
+  IMSI-catcher / private-space imaging); NO article covers aerial evidence.
+  TOOL NOTES: law.moj.gov.tw is reachable only via firecrawl MCP (curl 403);
+  LawSearchContent.aspx?pcode=X&kw=Y is the cheap per-statute search;
+  Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=Z counts instruments corpus-wide.
+  g0v procurement API is pcc-api.openfun.app; huge responses, parse by script.
   NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
   / C25 film / C26 environment / C27 entertainment-industry; all of I except
-  61 privacy; D30/31/32 (D32 "who may shoot it down" is the best of them —
-  three statutes with conflicting authority, and it is a clause question).
+  61 privacy; D30 critical-infrastructure protection and D31 airport incursions
+  (D31 now has a ready hook: D32 showed the airport is the weakest cell).
 - 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
   docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
   仍然約束我的事實與教訓（不要再犯）：

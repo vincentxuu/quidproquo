@@ -133,7 +133,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ### Where to start, by who you are
 
-Thirty-four pieces, no required order. Pick a track:
+Thirty-five pieces, no required order. Pick a track:
 
 | If you are | Suggested order |
 |---|---|
@@ -142,13 +142,13 @@ Thirty-four pieces, no required order. Pick a track:
 | **Flying, and need the rules** | [Taiwan's rules in plain language](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en) → [how the licence exam works](/posts/policy/2026-08-06-taiwan-drone-license-guide-en) → [the published question bank](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en) → [BVLOS in three jurisdictions](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) |
 | **An engineer, or moving into the field** | [PX4 or ArduPilot](/posts/tech/2026-08-08-px4-vs-ardupilot-en) → [the seven seconds after GPS jamming](/posts/tech/2026-08-08-gps-jamming-flight-controller-en) → [hopping is not encryption](/posts/tech/2026-08-08-drone-radio-link-en) → [the job map](/posts/career/2026-08-06-drone-industry-job-map-en) → [using an architecture diagram as a job map](/posts/career/2026-08-06-software-to-drone-transition-en) |
 | **Looking at it as an investment** | [the four-criteria framework](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) → [what the margin really is](/posts/investing/2026-08-07-drone-maker-financials-en) → [three pots of defence money](/posts/investing/2026-08-06-drone-defense-budget-map-en) |
-| **Interested in the social side** | [no privacy provision](/posts/policy/2026-08-07-drone-privacy-taiwan-en) → [anatomy of a crash](/posts/tech/2026-08-07-drone-crash-anatomy-en) → [why counter-drone is hard](/posts/tech/2026-08-07-counter-drone-why-hard-en) |
+| **Interested in the social side** | [no privacy provision](/posts/policy/2026-08-07-drone-privacy-taiwan-en) → [anatomy of a crash](/posts/tech/2026-08-07-drone-crash-anatomy-en) → [why counter-drone is hard](/posts/tech/2026-08-07-counter-drone-why-hard-en) → [who may bring it down](/posts/policy/2026-08-09-who-may-down-a-drone-en) |
 
 **If you read only one**: [the supply-chain layers piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) — the entire technical track grew out of its conclusion that the gap sits at layer 3.
 
 > **On how this series is written**: every figure is sourced and every calculation is shown so it can be redone. That is also how the errors surfaced — [the payload post's](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) unit-price estimate was refuted by the line-item records in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en), whose own first conclusion was then refuted by the control group it went back and ran. The corrections are left in place, not deleted.
 
-This article is the overview for the drone series. Thirty-four companion pieces go deeper in six directions:
+This article is the overview for the drone series. Thirty-five companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -162,6 +162,7 @@ This article is the overview for the drone series. Thirty-four companion pieces 
 - [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en) — why the chapter omits privacy, what the Criminal Code reaches, how courts define it, and why evidence is the real bottleneck
 - [Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en) — eight police drone units, an exemption that covers flight-safety restrictions only, and the one aerial-evidence provision its own drafting ministry asked to reconsider
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
+- [Who May Bring a Drone Down? Taiwan's Law Authorises the Outcome and No Means of Achieving It](/posts/policy/2026-08-09-who-may-down-a-drone-en) — "counter-drone" appears once in central law, on a shopping list; the 31-entry police instrument list has anti-tank guns and no jammer; Article 67 has no public-duty exception
 
 **Industry judgment**
 

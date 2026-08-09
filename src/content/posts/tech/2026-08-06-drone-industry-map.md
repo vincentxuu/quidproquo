@@ -133,7 +133,7 @@ draft: false
 
 ### 先讀哪幾篇：依你是誰
 
-三十四篇不必照順序讀。挑一條線：
+三十五篇不必照順序讀。挑一條線：
 
 | 你是 | 建議順序 |
 |---|---|
@@ -142,13 +142,13 @@ draft: false
 | **要飛，想弄清法規** | [法規白話版](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) → [操作證怎麼考](/posts/policy/2026-08-06-taiwan-drone-license-guide) → [民航局題庫](/posts/policy/2026-08-07-caa-drone-exam-question-bank) → [BVLOS 三地對照](/posts/tech/2026-08-06-bvlos-three-jurisdictions) |
 | **工程師／想轉進來** | [PX4 還是 ArduPilot](/posts/tech/2026-08-08-px4-vs-ardupilot) → [GPS 被干擾的七秒](/posts/tech/2026-08-08-gps-jamming-flight-controller) → [跳頻不是加密](/posts/tech/2026-08-08-drone-radio-link) → [職業地圖](/posts/career/2026-08-06-drone-industry-job-map) → [用架構圖當求職地圖](/posts/career/2026-08-06-software-to-drone-transition) |
 | **看投資** | [四條件框架](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) → [標案毛利](/posts/investing/2026-08-07-drone-maker-financials) → [國防預算三筆錢](/posts/investing/2026-08-06-drone-defense-budget-map) |
-| **關心社會面** | [沒有隱私條款](/posts/policy/2026-08-07-drone-privacy-taiwan) → [炸機的解剖學](/posts/tech/2026-08-07-drone-crash-anatomy) → [反制為什麼難](/posts/tech/2026-08-07-counter-drone-why-hard) |
+| **關心社會面** | [沒有隱私條款](/posts/policy/2026-08-07-drone-privacy-taiwan) → [炸機的解剖學](/posts/tech/2026-08-07-drone-crash-anatomy) → [反制為什麼難](/posts/tech/2026-08-07-counter-drone-why-hard) → [誰有權打下來](/posts/policy/2026-08-09-who-may-down-a-drone) |
 
 **如果只讀一篇**：[供應鏈分層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)——整個系列的技術線都是從那篇的「缺口在第 3 層」長出來的。
 
 > **關於這個系列的寫法**：所有數字都標了來源，算式都寫出來讓人重算。也因此出過錯——[酬載那篇](/posts/tech/2026-08-09-drone-payload-cost-export-control)的單價估計被[量產爬坡那篇](/posts/tech/2026-08-09-drone-production-ramp-procurement)的逐案紀錄推翻，而量產爬坡自己的第一條結論又被它補做的對照組推翻。更正都留在原文裡，沒有刪。
 
-本文是無人機系列的總覽。三十四篇支線分六個方向往下鑽：
+本文是無人機系列的總覽。三十五篇支線分六個方向往下鑽：
 
 **台灣供應鏈**
 
@@ -162,6 +162,7 @@ draft: false
 - [無人機專章沒有隱私條款：被飛過的人只能回頭找刑法](/posts/policy/2026-08-07-drone-privacy-taiwan) — 專章為什麼不管隱私、刑法接住了哪些、法院怎麼認定，以及取證為什麼是真正的瓶頸
 - [警察飛無人機的法源是完整的——但那是「飛」的法源，不是「拍」的法源](/posts/policy/2026-08-09-police-drone-evidence-authority) — 八個警察局已成立無人機隊，而民航法第 99 條之 16 給的是操作限制豁免；唯一為空中蒐證寫過的專門條文被起草機關自己建議再酌
 - [反制無人機為什麼難：干擾正在失效，而台灣的難題不只是技術](/posts/tech/2026-08-07-counter-drone-why-hard) — 偵測四模態的盲區、電戰被光纖與自主導引繞過，以及監察院報告揭露的授權層級問題
+- [誰有權把無人機打下來：台灣的法律授權了「排除」，卻沒授權任何一種手段](/posts/policy/2026-08-09-who-may-down-a-drone) — 中央法規裡「反制無人機」只出現在一張採購清單上；警械種類清單 31 項有戰防砲沒有干擾槍，電信管理法第 67 條沒有公務除外
 
 **產業判斷**
 
