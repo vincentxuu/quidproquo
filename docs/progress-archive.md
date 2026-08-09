@@ -213,3 +213,41 @@ progress.txt 在合併 main 後達 95 行，本條目細節移到這裡。
   the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
   Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
   地理圍欄, DMA). Research note in .research/ (not version-controlled).
+
+## 2026-08-06 圖示改版與「文件解析實戰」系列（自 progress.txt 歸檔於 2026-08-08）
+
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
+- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
+  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
+  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
+  2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份，系列完整。AI 爬蟲
+  全景圖退出系列，保留雙向連結。新寫四篇 post(ai)：三層階梯總論、anydoc、
+  抽取層（PyMuPDF/pdfplumber/pypdf/Tika/Kreuzberg/extractous）、解析層（MinerU/
+  Marker/Docling/olmOCR/dots.ocr + 商業 API）。
+  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
+  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
+  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
+  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+  order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
+  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
+  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
+  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
+  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
+  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
+  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
+  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
+  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
+  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
+  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
+  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
+  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
