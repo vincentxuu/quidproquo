@@ -24,10 +24,10 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（自學 note，非發文）。九輪，
-  產出三份檔案在 .research/：主 note、查證報告、完整清單。讀完 31 篇 newsletter +
-  2 支影片 + 3 個課程頁；用官方 sitemap 掃出 agent 相關約 45 篇（使用者原始清單只有
-  6 篇，且最有料的四篇都不在裡面）。核心結論：模型只是元件、harness 才是系統，六個
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（自學 note，非發文）。十輪，
+  產出三份檔案在 .research/：主 note、查證報告、完整清單。用官方 sitemap 掃出 agent
+  相關 58 篇並全部讀完，加 2 支影片 + 3 個課程頁（使用者原始清單只有 6 篇，且最有料
+  的四篇都不在裡面）。核心結論：模型只是元件、harness 才是系統，六個
   獨立案例收斂，且「把確定性的部分還給程式碼」已被四家產品化（Salesforce Agent
   Script / Intercom Procedures / Microsoft runtime / Stripe blueprints）。
   事實層查了 19 份一手來源、約 40 項宣稱：4 個實質錯誤（最嚴重是 15× token 的對照組
@@ -37,7 +37,10 @@ Recently completed
   ByteByteGo 的錯）。方法論教訓兩條，已可回饋進 deep-research skill：(1) tavily_extract
   會靜默截斷，我差點據殘缺抽取下「原文沒有 X」的結論，任何「查無此事」都要先證明抽取
   完整；(2) 我曾用「同篇其他數字錯過」推斷剩下的也不可信，實際查完六項裡四項正確——
-  錯誤不是均勻分布的，這種歸納不成立。
+  錯誤不是均勻分布的，這種歸納不成立。(3) 同一個錯我犯了四次——最後一次是以「企業
+  案例模式已重複」為由不讀剩下 27 篇，讀完發現約 20 篇有新東西，還推翻了三處既有記載
+  （ReAct 並非唯一主流：LinkedIn 明確改用 plan-and-execute；訪談線是 10 篇不是 7 篇；
+  記憶那條線缺 KV cache 的機制層）。**用抽樣推斷未讀內容，在這份 corpus 上系統性失效。**
   對本 repo 可動手的三件事寫在主 note：規則要 scoped 不要 global（Stripe 明說全域規則
   會在開工前就填滿 context）、CLAUDE.md 是 config 層不是 memory 層（失效模式是稀釋不是
   檢索錯）、skill 的 description 要當檢索鍵寫（skills index 先載入、選中才讀全文）。
