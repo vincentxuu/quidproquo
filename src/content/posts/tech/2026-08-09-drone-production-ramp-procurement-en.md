@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, manufacturing, procurement, taiwan, supply-chain]
 lang: en
-tldr: "The last open cell in this series' technical block was 'manufacturing and production ramp,' which I had filed as probably needing factory access. Applying the lesson from the previous post, I asked once more: does this really need a factory? It does not. The public evidence of a ramp is lead times and failed tenders, and all of that sits in Taiwan's government e-procurement system. Pulling the fire service's 88 thermal drones plus 88 rescue robots county by county: the price was set centrally and every county's budget is identical (NT$4M for 4 drone sets, NT$26M for 4 robots). Six fire departments' drone tenders drew no qualifying bidder on the first attempt, with the reason recorded as 'no bidder, or fewer than the statutory number to open.' The robot half was worse — nine failed-to-award notices, and Taichung tendered three times, one of which ended in 'award cancelled or contract terminated.' In all seven awards I pulled, the total award equals the budget exactly, not a dollar shaved, and Yunlin's had a single bidder. Taichung's delivery window went from 121 days to 58 while the money didn't move. The whole drone bidder pool is about six companies, one of the most frequent being a security services firm. Finally: this data refutes the unit prices I derived in the payload post by solving two programme totals simultaneously. The real figures are NT$1M per drone set and NT$6.5M per robot; I had them at NT$5.47M and NT$2.03M — reversed, and off fivefold. That post is corrected."
+tldr: "The last open cell in this series' technical block was 'manufacturing and production ramp,' which I had filed as probably needing factory access. Applying the lesson from the previous post, I asked once more: does this really need a factory? It does not. The public evidence of a ramp is lead times and failed tenders, and all of that sits in Taiwan's government e-procurement system. Pulling the fire service's 88 thermal drones plus 88 rescue robots county by county: the price was set centrally and every county's budget is identical (NT$4M for 4 drone sets, NT$26M for 4 robots). Six fire departments' drone tenders drew no qualifying bidder on the first attempt, with the reason recorded as 'no bidder, or fewer than the statutory number to open.' The robot half was worse — nine failed-to-award notices, and Taichung tendered three times, one of which ended in 'award cancelled or contract terminated.' In all seven awards I pulled, the total award equals the budget exactly, not a dollar shaved, and Yunlin's had a single bidder. Taichung's delivery window went from 121 days to 58 while the money didn't move. The whole drone bidder pool is about six companies, one of the most frequent being a security services firm. A control group added afterwards (aerial ladder trucks, failed/awarded 0.54, higher than the drones’ 0.33) refutes this post’s original first conclusion — failed tenders are the norm in Taiwanese fire-service procurement, not evidence of a thin drone supply side. Finally: this data also refutes the unit prices I derived in the payload post by solving two programme totals simultaneously. The real figures are NT$1M per drone set and NT$6.5M per robot; I had them at NT$5.47M and NT$2.03M — reversed, and off fivefold. That post is corrected."
 description: "Rebuilding Taiwan's 88+88 fire-service unmanned systems procurement county by county from award and failed-to-award records: uniform central pricing, six failed tenders, every award at exactly 100% of budget, delivery windows halved — and a correction to the unit prices derived in the previous post."
 draft: false
 ---
@@ -154,7 +154,7 @@ That is what a production ramp looks like in procurement records. It doesn't tak
 
 Four things.
 
-**First, at this point in 2024 Taiwan did not have a supply side that could reliably answer a uniform-specification open tender.** The direct cause of six failed drone tenders was insufficient bidders. A fully funded procurement with a published specification and a published budget failing to attract three bidders means the number of companies that can meet the spec and are willing to bid is in single digits.
+**First, ~~at this point in 2024 Taiwan did not have a supply side that could reliably answer a uniform-specification open tender.~~ This one was refuted by my own control group — see section 9.** The direct cause of the six failed drone tenders was indeed insufficient bidders, but failed tenders are themselves the norm in Taiwanese fire-service equipment procurement, not a drone-specific signal.
 
 **Second, the price was not competed down.** All seven awards equalled the budget. That doesn't mean vendors made a killing — it's normal under this award method, and NT$1M for a thermal imaging drone set is not expensive internationally. What it means is that **this market's price is set by policy, not discovered by the market.** That's an important qualifier on the "demand-side pull" described in [the industry-map post](/posts/tech/2026-08-06-drone-industry-map-en): the demand is real, but it isn't yet large enough to generate price competition.
 
@@ -200,12 +200,39 @@ Both language versions of that post now carry a correction. The lesson matters m
 
 > **Solving two aggregates simultaneously looks like derivation, but it's guessing. When the line-item record exists, it isn't an alternative check — it is the only thing you should be using.**
 
+## 9. I ran the control group, and it refuted the first conclusion in section 7
+
+The original draft closed by saying "no control group … that's an important comparison and I did not make it." I made it the same day, and the result went against me.
+
+Same year, same class of agency (fire departments), same database, different item: **aerial ladder trucks**. That is about as mature a category as exists — domestic and foreign suppliers going back decades, stable specifications, nothing "emerging industry" about it.
+
+| Item | 2024 awards | 2024 failed-to-award | Failed / awarded |
+|---|---|---|---|
+| **Aerial ladder trucks** | 13 | 7 | **0.54** |
+| Rescue robots | 17 | 9 | 0.53 |
+| Thermal imaging drones | 15 | 5 | **0.33** |
+
+**Aerial ladder trucks fail to award at a higher rate than thermal imaging drones — appreciably higher.**
+
+So the inference in section 7's first point does not hold. I went from "six failed tenders" to "Taiwan lacks a supply side that can answer an open tender," but the control group shows that **in Taiwanese fire-service equipment procurement, failing to award is simply normal**. The drone half failed less often than a category with decades of established suppliers.
+
+What do failed tenders reflect, then? I don't know, and this post can't answer it — it could be a gap between budgeted and market prices, the evaluation thresholds of the most-advantageous-tender method, publication periods that are too short, or a shared structural feature of fire equipment procurement. Distinguishing those needs different material. **What is certain is that it is not evidence that the drone industry hasn't matured.**
+
+Which conclusions are unaffected?
+
+- **Central pricing copied locally** (section 2): a direct comparison of line-item budget figures, not a rate-based inference.
+- **All seven awards equal to budget** (section 4): same. Though I did not run the same check on aerial ladder trucks, so "is a 100% award also normal?" is now an open question — a newly created gap.
+- **A bidder pool of six** (section 5): a roll-call count, not a rate.
+- **Taichung's window compressed from 121 to 58 days** (section 6): a specific timeline.
+
+**The lesson worth writing down: one of the gaps I honestly listed under "what this post does not answer" directly refuted this post's first conclusion.** Listing gaps is a good habit, but listing is not handling — [the payload post](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) had just made the same mistake (flagging uncertainty without removing it), and this is the second instance in two days. **Next time I write "I did not do X," the question to ask first is: could X refute what I am writing? If it could, X is not future work — it is prerequisite work for this post.**
+
 ## What this post does not answer
 
 - **I pulled complete award data for seven tenders, not all twenty-two counties.** Some counties may have bundled drones into other tenders or used different tender titles (I searched titles for "thermal imaging drone" and "rescue robot"). So "six failed tenders" is **at least six**, not exactly six.
 - **I didn't check performance outcomes.** Whether deliveries were on time, extended, or failed acceptance testing is mostly not published. Point 7 of the implementing directions requires each county to file a monthly progress report with the National Fire Agency — that document is the real ramp data, and it isn't public.
 - **I didn't distinguish manufacturers from resellers among the winners.** The Taiwan Secom case flags the issue, but tracing each company's factory registration and product origin wasn't done here. That bears directly on how much of this fleet was actually built in Taiwan.
-- **No control group.** Do fire engines, aerial ladders and protective gear fail to award at similar rates in the same period? If so, the failure rate may say more about the procurement system than about the drone industry. That's an important comparison and I did not make it.
+- ~~**No control group.**~~ **Now run — see section 9, and it refuted section 7's first conclusion.** The new gap it opens: are aerial ladder truck awards also routinely equal to budget? I didn't check.
 - **No actual production metrics.** Yield, takt time, supplier qualification cycles, tooling amortisation — those genuinely are known only to the manufacturer. **This post argues that a ramp has a public face, not that a ramp can be fully seen from outside.**
 
 ---

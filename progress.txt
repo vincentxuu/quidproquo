@@ -47,38 +47,38 @@ Recently completed
   `formation` inside `information`; saying so in print is what made it safe.
   TOOL NOTE: g0v procurement API is now pcc-api.openfun.app (pcc.g0v.ronny.tw
   redirects); responses are huge — parse with a script, never into context.
-  Open: B13 only.
-- 2026-08-08: drone series 23 -> 30 (zh+en); B block opened (B8/B10/B9/B17/
-  B11/B15 + 5.8 GHz video link). Archived; detail in plan §5.2. THE RECURRING
-  MISTAKE, 4th instance, closed: "technical topic" silently filed under "needs
-  hardware" — all were codebase questions. Keep: (1) to claim a port is
-  faithful, diff it against the verbatim original; (2) what a system can infer
-  needs no flag, what it cannot is what someone else must tell it (why PX4
-  ships spoofing on, jamming off); (3) the cybersecurity spec in force is V2.0
-  (2026-04-30); (4) B11/B15 each overturned an assumption with an equation, not
-  data; (5) Taiwan has a domestic aircraft at EVERY endurance rung; (6) SITE
-  FACT: no remark-math plugin — write maths in code blocks; (7) the video-link
-  post found a NEW SHAPE: not "the clause misnames its contents" but "no clause
-  is shaped like this at all". Also fixed a site-wide defect: English posts
-  linked to zh slugs (163 files / 742 links) — read the three safety rules in
-  the archive before any similar link sweep.
-- 2026-08-07: drone series 13 -> 23 (zh+en) — D line, B5 financials, counter-UAS,
-  four application posts, privacy. Archived; findings in plan §5.2.
-  THE RECURRING MISTAKE (3x here, 4th on 08-08, 5th variant on 08-09): treating
-  my own pre-writing "素材" estimate as a hard constraint. Four-rule 通則 in
-  plan §6; short form: ask which HALF needs material, ask whether the topic
-  really needs it or I wrote it to need it, ask whether it is truly unavailable
-  or I just haven't looked, and don't rank interviews above public records.
-  Application/social cells still open: surveying; noise/NIMBY, criminal misuse,
-  autonomous-weapons ethics, environmental cost.
-- 2026-08-06: drone series — 13 posts (zh+en); archived, findings in plan §5.2.
-  SITE FACTS THAT STILL BIND: `category` is the container (folder/URL/nav) but
-  `drone` tag is the topic — src/pages/tags/[tag].astro has NO category filter,
-  so /tags/drone is the cross-category hub and EVERY series post must carry
-  `drone` first. Investing posts: framework-and-risk, no tickers. Future-dated
-  posts are NOT built, so a published post linking to a later-dated one is a
-  hard 404. Frontmatter glossary is prepended before DEFAULT_GLOSSARY_TERMS and
-  deduped first-wins, so it SHADOWS the site-wide entry.
+  Open: B13 only in B; C (applications) and I (social) are whole empty blocks.
+- 2026-08-09 (later): audit + four parallel fixes, NO new post.
+  (a) B16's CONTROL GROUP now run, and IT REFUTED B16's own first conclusion:
+  aerial ladder trucks (mature category) fail-to-award 0.54 vs thermal drones
+  0.33. Failed tenders are the NORM in TW fire-equipment procurement, not
+  evidence of a thin drone supply side. Section 9 added to both languages.
+  THE LESSON, and it is the sharpest one yet: a gap I had honestly listed under
+  "what this post does not answer" turned out to REFUTE the post. Listing a gap
+  is not handling it. Next time, ask: could X refute what I am writing? If yes,
+  X is prerequisite work, not future work.
+  (b) B12's RS-column gap FILLED: Taiwan is checked in BOTH RS Column 1 and 2
+  (Japan only Column 1), so the 111,000 threshold does NOT gate Taiwan's
+  licence requirement at all — it still gates price and product ladder.
+  (c) Plan §三 bookkeeping: ✅ marks had only been kept for the B block;
+  23 cells were written but unticked. Fixed + coverage note added at §三 head.
+  READ THAT NOTE before picking a cell; do not judge coverage from memory.
+  (d) Hub now has a READING PATH (6 reader tracks + "if you read only one" +
+  a note on the series' corrections). 33 posts had no entry point before.
+- 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
+  docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
+  仍然約束我的事實與教訓（不要再犯）：
+  * THE RECURRING MISTAKE，六次：把題目預設成需要我拿不到的東西（硬體／訪談／
+    工廠／商業機密）。六次全部是假的。四條通則在 plan §6。
+  * 主張某個移植忠實 → 拿逐字複製的原始碼 diff 它。
+  * 系統推得出來的東西不需要旗標；推不出來的才需要別人告訴它。
+  * SITE FACTS：`category` 是容器、`drone` tag 才是主題（tags/[tag].astro 無
+    category 過濾），每篇必須把 drone 放第一個；未來日期的文章不會被 build，
+    已發佈文章連到更晚日期的文章＝硬 404；frontmatter glossary 會 shadow 站
+    台預設；沒有 remark-math plugin，數學寫在 code block。
+  * 資安檢測規範現行版是 V2.0（2026-04-30）。
+  * 英文文章連到中文 slug 曾是全站性缺陷（163 檔／742 連結），修法的三條安全
+    規則在 archive 裡，做任何連結批次改動前先讀。
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

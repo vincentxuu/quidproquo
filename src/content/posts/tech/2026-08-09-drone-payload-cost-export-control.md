@@ -248,7 +248,27 @@ BIS 給的另一個理由也值得記：2009 年設這道關卡是為了「取�
 
 要把話說準確，這條的適用範圍很窄：§744.9 是**終端使用者**條款，觸發條件是出口商知道或被告知該器材將供「軍事終端使用者」使用。所以它不影響消防局買熱顯像無人機，也不影響一般巡檢與農噴。它影響的是台灣的軍用商規計畫、中科院相關案子，以及任何買方身分落在那個定義裡的採購——**而那恰好是台灣這幾年產值成長最快的那一塊。**
 
-同時要誠實標出我沒查到的：ECCN 6A003 那張表把 111,000 這條線對應到 RS Column 1 與 Column 2，而每一欄實際涵蓋哪些國家要查《商業國家對照表》（15 CFR Part 738 附錄一）。我試著抓那張表但沒有取得可靠的逐欄結果，所以**台灣在 RS Column 1／Column 2 各是什麼狀態，這篇沒有查證，不下判斷。**
+### 補充（2026-08-09）：RS 兩欄查證完成，而結果比想像的更乾脆
+
+本文初稿寫「台灣在 RS Column 1／Column 2 的狀態沒查證」。後來抓到了[《商業國家對照表》](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-738/appendix-Supplement%20No.%201%20to%20Part%20738)（15 CFR Part 738 附錄一），把台灣那一列逐欄對出來：
+
+| | CB1 | CB2 | CB3 | NP1 | NP2 | NS1 | NS2 | MT1 | **RS1** | **RS2** | FC1 | CC1 | CC2 | CC3 | AT1 | AT2 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **台灣** | X | X | X | X | | X | X | X | **X** | **X** | | X | | X | | |
+| 日本 | X | | | | | X | | X | **X** | | | | | | | |
+
+（欄位對位可用加拿大那列驗證：加拿大只有 CB1 與 FC1 兩個 X，與公認的情況相符。）
+
+**台灣的 RS Column 1 與 Column 2 都打勾。日本只有 Column 1。**
+
+這件事的後果很具體：
+
+> **對日本（以及其他瓦聖納成員）而言，111,000 這條線是真的閘門——低於門檻走 RS Column 2，不需要許可；高於門檻走 Column 1，需要。**
+> **對台灣而言，兩欄都打勾，所以這條線完全不改變要不要申請許可——兩邊都要。**
+
+也就是說，那個決定了整個熱像產品階梯形狀的數字，**對台灣的取得門檻沒有任何分界作用**。它仍然決定價格（第二節那張表）、仍然決定產品規格（第三節），但不決定你要不要跑許可流程。
+
+順帶一提，同一張表的註腳七專門為印度寫了一句：「Note that a license is still required for items controlled under ECCNs 6A003.b.4.b and 9A515.e for RS column 2 reasons when destined to India.」——印度那列 Column 2 是空的，所以要用註腳把 6A003.b.4.b 單獨補回去。**這句註腳的存在，反過來證實了上面對欄位語意的讀法。**
 
 ## 八、把兩端接起來：一個 2% 的零件決定 100% 的案子
 
@@ -301,7 +321,7 @@ BIS 給的另一個理由也值得記：2009 年設這道關卡是為了「取�
 
 ## 這篇沒有回答的
 
-- **沒有查證台灣在 RS Column 1／Column 2 的狀態。** 111,000 這條線把器材在兩欄之間搬動，但每一欄涵蓋哪些國家要查《商業國家對照表》，我沒有取得可靠結果。這一格直接影響結論的強度，缺了就是缺了。
+- ~~**沒有查證台灣在 RS Column 1／Column 2 的狀態。**~~ **已補**：見第七節末的補充——台灣兩欄都打勾，所以 111,000 這條線不改變台灣要不要申請許可。
 - **沒有實際申請過分類。** 條文的字面閱讀不等於 BIS 的分類結果。Note 3.b 第 4 款那些「單一用途、設計上不可由使用者修改」的條件，實務上怎麼認定只有走過 CCATS 的人知道。
 - **熱像核心價格是經銷商列表價，不是量產報價。** GroupGets 和 OEMCameras 的起價反映的是小量採購。整機廠的實際成本會低，但四組配對的**比值**（2.04–2.31×）應該比絕對值穩健。
 - ~~**消防署那個 547 萬是帶假設的估計。**~~ **已更正**：逐案採購紀錄顯示是每組 100 萬、每台 650 萬，本文原先的聯立解方向相反且差五倍。見第一節的更正框與[量產爬坡那篇](/posts/tech/2026-08-09-drone-production-ramp-procurement)。
@@ -313,6 +333,8 @@ BIS 給的另一個理由也值得記：2009 年設這道關卡是為了「取�
 ## 參考資料
 
 **一手：美國出口管制**
+
+- [15 CFR Part 738 附錄一：商業國家對照表 — eCFR](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-738/appendix-Supplement%20No.%201%20to%20Part%20738)（台灣列於 RS Column 1 與 Column 2 皆為 X；日本僅 Column 1；註腳七為印度單獨補回 6A003.b.4.b 的 RS Column 2 要求）
 
 - [Revision of License Requirements of Certain Cameras, Systems, or Related Components — Federal Register, 89 FR 13590（2024-02-23 發布，2024-03-08 生效）](https://www.federalregister.gov/documents/2024/02/23/2024-03661/revision-of-license-requirements-of-certain-cameras-systems-or-related-components)（ECCN 6A003 完整條文與管制理由表：RS Column 1／Column 2 切在 60 Hz 與 111,000 個焦平面陣列元素；Note 3 的完整豁免條件含 9 Hz 與 2 mrad IFOV，以及 IFOV = FOV ÷ 偵測器元素數的技術註解；§744.9(a)(1)(ii) 由「除加拿大外」改為「除 Country Group A:1 外」；BIS 說明改動理由的段落，含「now manufactured and widely available outside the United States, including in China」與「increased competition from non-U.S.-origin products」）
 - [15 CFR Part 740 附錄一：國家群組表 — eCFR](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%201%20to%20Part%20740)（註腳一：A:1 為瓦聖納參與國，扣除 Malta、Russia、Ukraine；台灣列於 A:6，不在 A:1）

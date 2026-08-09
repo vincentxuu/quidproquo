@@ -248,7 +248,27 @@ Joining that to the previous section:
 
 The scope needs stating precisely: §744.9 is an **end-user** clause, triggered when the exporter knows or is informed that the item is intended for a "military end-user." It does not affect a fire department buying thermal drones, nor ordinary inspection or agricultural spraying. It affects Taiwan's military-grade-commercial-spec programmes, NCSIST-related contracts, and any procurement whose buyer falls inside that definition — **which happens to be the fastest-growing part of Taiwan's output.**
 
-And what I did not establish, stated honestly: the ECCN 6A003 table maps the 111,000 line onto RS Column 1 and Column 2, and which countries each column actually reaches requires the Commerce Country Chart (Supplement No. 1 to 15 CFR Part 738). I tried to retrieve that table and could not get a reliable column-by-column result, so **Taiwan's status under RS Column 1 versus Column 2 is not verified here and I draw no conclusion from it.**
+### Addendum (2026-08-09): the RS columns are now verified, and the answer is blunter than expected
+
+The first draft of this post said Taiwan's RS Column 1 / Column 2 status was unverified. I subsequently retrieved [the Commerce Country Chart](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-738/appendix-Supplement%20No.%201%20to%20Part%20738) (Supplement No. 1 to 15 CFR Part 738) and read Taiwan's row column by column:
+
+| | CB1 | CB2 | CB3 | NP1 | NP2 | NS1 | NS2 | MT1 | **RS1** | **RS2** | FC1 | CC1 | CC2 | CC3 | AT1 | AT2 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Taiwan** | X | X | X | X | | X | X | X | **X** | **X** | | X | | X | | |
+| Japan | X | | | | | X | | X | **X** | | | | | | | |
+
+(The column alignment can be checked against Canada's row, which carries exactly two X's — CB1 and FC1 — matching the well-known position.)
+
+**Taiwan is checked in both RS Column 1 and Column 2. Japan is checked in Column 1 only.**
+
+The consequence is concrete:
+
+> **For Japan (and other Wassenaar members), the 111,000 line is a genuine gate — below it the item falls to RS Column 2 and needs no licence; above it, Column 1 applies and it does.**
+> **For Taiwan, both columns are checked, so the line changes nothing about whether a licence is required — it is required either way.**
+
+In other words, the number that shapes the entire thermal product ladder **draws no line at all around Taiwan's access**. It still determines price (the table in section 2) and still determines what products exist (section 3), but it does not determine whether you file for a licence.
+
+Incidentally, footnote 7 to the same chart is written specifically for India: "Note that a license is still required for items controlled under ECCNs 6A003.b.4.b and 9A515.e for RS column 2 reasons when destined to India." India's Column 2 cell is blank, so the footnote reinstates 6A003.b.4.b separately. **The existence of that footnote confirms the reading of the column semantics above.**
 
 ## 8. Joining the ends: a 2% part decides 100% of the deal
 
@@ -301,7 +321,7 @@ No legal advice — only things you can check or ask yourself:
 
 ## What this post does not answer
 
-- **Taiwan's RS Column 1 / Column 2 status is not verified.** The 111,000 line moves an item between the two columns, but which countries each column reaches requires the Commerce Country Chart, and I could not retrieve it reliably. That cell bears directly on how strong the conclusion is, and its absence is an absence.
+- ~~**Taiwan's RS Column 1 / Column 2 status is not verified.**~~ **Now filled**: see the addendum at the end of section 7 — Taiwan is checked in both columns, so the 111,000 line does not change whether a licence is required for Taiwan.
 - **I have never filed a classification request.** A literal reading of the text is not a BIS determination. How Note 3.b's "single kind of application, designed not to be user modified" conditions get assessed in practice is known only to people who have been through CCATS.
 - **Thermal core prices are distributor list prices, not volume OEM prices.** GroupGets and OEMCameras starting prices reflect small-quantity buying. An integrator's real cost is lower — but the **ratios** across the four matched pairs (2.04–2.31×) should be more robust than the absolute figures.
 - ~~**The NT$5.47M figure carries an assumption.**~~ **Corrected**: the line-item procurement record shows NT$1M per drone set and NT$6.5M per robot; the simultaneous solve was reversed and off by fivefold. See the correction box in section 1 and [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en).
@@ -313,6 +333,8 @@ No legal advice — only things you can check or ask yourself:
 ## References
 
 **Primary: US export control**
+
+- [15 CFR Part 738, Supplement No. 1: Commerce Country Chart — eCFR](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-738/appendix-Supplement%20No.%201%20to%20Part%20738) (Taiwan is checked in both RS Column 1 and Column 2; Japan in Column 1 only; footnote 7 reinstates the RS Column 2 requirement for 6A003.b.4.b to India)
 
 - [Revision of License Requirements of Certain Cameras, Systems, or Related Components — Federal Register, 89 FR 13590 (published 2024-02-23, effective 2024-03-08)](https://www.federalregister.gov/documents/2024/02/23/2024-03661/revision-of-license-requirements-of-certain-cameras-systems-or-related-components) (the full ECCN 6A003 text and reasons-for-control table: RS Column 1 vs Column 2 splitting on 60 Hz and 111,000 focal plane array elements; Note 3's carve-outs including 9 Hz and 2 mrad IFOV, with the technical note defining IFOV = FOV ÷ number of detector elements; §744.9(a)(1)(ii) changing from "except Canada" to "except Country Group A:1"; BIS's stated rationale, including "now manufactured and widely available outside the United States, including in China" and "increased competition from non-U.S.-origin products")
 - [15 CFR Part 740, Supplement No. 1: Country Groups — eCFR](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%201%20to%20Part%20740) (footnote 1: A:1 is the Wassenaar participating states less Malta, Russia and Ukraine; Taiwan appears in A:6, not A:1)

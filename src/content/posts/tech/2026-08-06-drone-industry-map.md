@@ -131,6 +131,23 @@ draft: false
 
 ## 延伸閱讀
 
+### 先讀哪幾篇：依你是誰
+
+三十二篇不必照順序讀。挑一條線：
+
+| 你是 | 建議順序 |
+|---|---|
+| **想先搞懂這個產業** | 本文 → [供應鏈分層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers) → [產業週期史](/posts/tech/2026-08-06-drone-industry-cycle-history) |
+| **要買機或要投標** | [怎麼讀規格表](/posts/tech/2026-08-07-drone-spec-sheet-reading) → [資安檢測規範拆解](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec) → [酬載的成本階梯](/posts/tech/2026-08-09-drone-payload-cost-export-control) → [量產爬坡](/posts/tech/2026-08-09-drone-production-ramp-procurement) |
+| **要飛，想弄清法規** | [法規白話版](/posts/policy/2026-08-06-taiwan-drone-regulation-guide) → [操作證怎麼考](/posts/policy/2026-08-06-taiwan-drone-license-guide) → [民航局題庫](/posts/policy/2026-08-07-caa-drone-exam-question-bank) → [BVLOS 三地對照](/posts/tech/2026-08-06-bvlos-three-jurisdictions) |
+| **工程師／想轉進來** | [PX4 還是 ArduPilot](/posts/tech/2026-08-08-px4-vs-ardupilot) → [GPS 被干擾的七秒](/posts/tech/2026-08-08-gps-jamming-flight-controller) → [跳頻不是加密](/posts/tech/2026-08-08-drone-radio-link) → [職業地圖](/posts/career/2026-08-06-drone-industry-job-map) → [用架構圖當求職地圖](/posts/career/2026-08-06-software-to-drone-transition) |
+| **看投資** | [四條件框架](/posts/investing/2026-08-06-drone-supply-chain-four-criteria) → [標案毛利](/posts/investing/2026-08-07-drone-maker-financials) → [國防預算三筆錢](/posts/investing/2026-08-06-drone-defense-budget-map) |
+| **關心社會面** | [沒有隱私條款](/posts/policy/2026-08-07-drone-privacy-taiwan) → [炸機的解剖學](/posts/tech/2026-08-07-drone-crash-anatomy) → [反制為什麼難](/posts/tech/2026-08-07-counter-drone-why-hard) |
+
+**如果只讀一篇**：[供應鏈分層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)——整個系列的技術線都是從那篇的「缺口在第 3 層」長出來的。
+
+> **關於這個系列的寫法**：所有數字都標了來源，算式都寫出來讓人重算。也因此出過錯——[酬載那篇](/posts/tech/2026-08-09-drone-payload-cost-export-control)的單價估計被[量產爬坡那篇](/posts/tech/2026-08-09-drone-production-ramp-procurement)的逐案紀錄推翻，而量產爬坡自己的第一條結論又被它補做的對照組推翻。更正都留在原文裡，沒有刪。
+
 本文是無人機系列的總覽。三十二篇支線分六個方向往下鑽：
 
 **台灣供應鏈**
