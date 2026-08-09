@@ -24,47 +24,31 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: B14 swarm + B12 payload + B16 production ramp (zh+en), 30 -> 34.
-  B group is now CLOSED except B13. Findings in plan §5.2 — read that.
-  Reusable, in order of how much it cost me:
-  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING, NOT DERIVATION. B12
-  solved two programme totals for unit prices and got them REVERSED and 5x off
-  (real: drone set NT$1M, robot NT$6.5M). The line-item procurement record was
-  public the whole time. B12 zh+en now carry a correction box; its "2% part"
-  line became 11.4%. I HAD flagged "the robot figure looks low" — flagging
-  uncertainty is not removing it. When line items exist they are not an
-  alternative check, they are the only thing to use.
-  (2) THE RECURRING MISTAKE, 6th instance, now closed on the last cell that
-  carried it: B16 was filed as "needs factory access". It did not — a ramp's
-  public face is lead times and failed tenders, all on the procurement site.
-  The general form to ask every time: "does this topic need what I can't get,
-  or did I write it to need that?"
-  (3) When a clause looks mis-shaped, go find its PARENTAGE (B14: the Control
-  Yuan report traced spec Ch.7 to the 2022 National Day chip row).
-  (4) Requests-on-record vs delivered-text is a reusable check (B14: a
-  2022-11-11 meeting asked for swarm mission-software testing; Ch.7 has none).
-  (5) Negative results only count if reproducible — B14's grep hit 16x
-  `formation` inside `information`; saying so in print is what made it safe.
-  TOOL NOTE: g0v procurement API is now pcc-api.openfun.app (pcc.g0v.ronny.tw
-  redirects); responses are huge — parse with a script, never into context.
-  Open: B13 only in B; C (applications) and I (social) are whole empty blocks.
-- 2026-08-09 (later): audit + four parallel fixes, NO new post.
-  (a) B16's CONTROL GROUP now run, and IT REFUTED B16's own first conclusion:
-  aerial ladder trucks (mature category) fail-to-award 0.54 vs thermal drones
-  0.33. Failed tenders are the NORM in TW fire-equipment procurement, not
-  evidence of a thin drone supply side. Section 9 added to both languages.
-  THE LESSON, and it is the sharpest one yet: a gap I had honestly listed under
-  "what this post does not answer" turned out to REFUTE the post. Listing a gap
-  is not handling it. Next time, ask: could X refute what I am writing? If yes,
-  X is prerequisite work, not future work.
-  (b) B12's RS-column gap FILLED: Taiwan is checked in BOTH RS Column 1 and 2
-  (Japan only Column 1), so the 111,000 threshold does NOT gate Taiwan's
-  licence requirement at all — it still gates price and product ladder.
-  (c) Plan §三 bookkeeping: ✅ marks had only been kept for the B block;
-  23 cells were written but unticked. Fixed + coverage note added at §三 head.
-  READ THAT NOTE before picking a cell; do not judge coverage from memory.
-  (d) Hub now has a READING PATH (6 reader tracks + "if you read only one" +
-  a note on the series' corrections). 33 posts had no entry point before.
+- 2026-08-09: 5 posts (zh+en), series 30 -> 35. **B TECHNICAL GROUP COMPLETE
+  (all 17 cells).** Full entry archived to docs/progress-archive.md; per-post
+  detail in plan §5.2. Reusable lessons, ranked by what they cost me:
+  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING. B12 did that for unit
+  prices and got them REVERSED and 5x off; the line-item record was public all
+  along. I HAD flagged "that figure looks low" — flagging uncertainty is not
+  removing it.
+  (2) A GAP YOU LIST CAN REFUTE THE POST. B16's own "no control group" line
+  turned out to kill its first conclusion (ladder trucks fail-to-award 0.54 vs
+  drones 0.33). Before writing "I did not do X", ask: could X refute this? If
+  yes it is prerequisite, not future work.
+  (3) THE RECURRING MISTAKE, 6th and last instance, closed: every cell I had
+  filed as needing hardware/factory/interviews/trade secrets needed none.
+  (4) To write about a fuzzy word, find where the codebase is FORCED to
+  enumerate it (B13: ModeReason is the 2nd arg of every set_mode(), so it is
+  the compiler-guaranteed complete list of autonomous decisions).
+  (5) When a clause looks mis-shaped, find its PARENTAGE (B14).
+  (6) Requests-on-record vs delivered-text is a reusable check (B14, C24).
+  (7) Negative results only count if reproducible; say what the grep matched.
+  TOOL NOTE: g0v procurement API is pcc-api.openfun.app; responses are huge,
+  parse with a script, never into context.
+  NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
+  / C25 film / C26 environment / C27 entertainment-industry; all of I except
+  61 privacy; D30/31/32. C24's own largest gap: the CCP special-compulsory-
+  measures chapter's current status (timeline stops 2024-06).
 - 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
   docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
   仍然約束我的事實與教訓（不要再犯）：

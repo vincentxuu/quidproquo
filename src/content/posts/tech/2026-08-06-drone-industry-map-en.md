@@ -133,7 +133,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ### Where to start, by who you are
 
-Thirty-two pieces, no required order. Pick a track:
+Thirty-four pieces, no required order. Pick a track:
 
 | If you are | Suggested order |
 |---|---|
@@ -148,7 +148,7 @@ Thirty-two pieces, no required order. Pick a track:
 
 > **On how this series is written**: every figure is sourced and every calculation is shown so it can be redone. That is also how the errors surfaced — [the payload post's](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) unit-price estimate was refuted by the line-item records in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en), whose own first conclusion was then refuted by the control group it went back and ran. The corrections are left in place, not deleted.
 
-This article is the overview for the drone series. Thirty-two companion pieces go deeper in six directions:
+This article is the overview for the drone series. Thirty-four companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -160,6 +160,7 @@ This article is the overview for the drone series. Thirty-two companion pieces g
 - [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en) — three licence classes, the G1/G2/G3 groups, statutory fees, full timeline
 - [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) — this article's first ceiling, compared across three regimes
 - [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en) — why the chapter omits privacy, what the Criminal Code reaches, how courts define it, and why evidence is the real bottleneck
+- [Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en) — eight police drone units, an exemption that covers flight-safety restrictions only, and the one aerial-evidence provision its own drafting ministry asked to reconsider
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
 
 **Industry judgment**
@@ -189,6 +190,7 @@ This article is the overview for the drone series. Thirty-two companion pieces g
 - [There Is No Swarm in a Drone Light Show: Two Hundred Aircraft Share One Integer, and Taiwan's Swarm Security Chapter Tests Nothing on the Aircraft](/posts/tech/2026-08-09-drone-swarm-light-show-en) — proving zero inter-drone coordination across 9,199 lines of Skybrush's open-source light-show firmware, then matching Chapter 7's twelve items to show why the "drone" column is a dash all the way down
 - [Payload Price Is Not a Smooth Function of Performance: The Drone Thermal Camera Cost Step Sits at 111,000 Pixels and 2 mrad](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) — the two export-control thresholds on thermal cameras matched against common sensor formats, FLIR Boson's four same-generation price pairs, and Taiwan's unit price solved from two fire-service programmes
 - [The Public Evidence of a Production Ramp Isn't in the Factory — It's in the Failed-to-Award Notices](/posts/tech/2026-08-09-drone-production-ramp-procurement-en) — rebuilding the 88+88 fire-service programme county by county: uniform central pricing, six failed tenders, every award at exactly 100% of budget, and a correction to the previous post's unit prices
+- [A Flight Controller's Autonomy Has a Complete List — 56 Entries, and Exactly One Is About an Opportunity](/posts/tech/2026-08-09-drone-autonomy-modereason-en) — classifying every entry in ArduPilot's ModeReason enum, then reading PX4's 10 KB, default-off end-to-end neural network control module
 - [The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default](/posts/tech/2026-08-08-gps-jamming-flight-controller-en) — switching jamming on in a simulator and recording the full timeline, PX4's twelve GNSS gates, and why jamming detection ships off while spoofing detection ships on
 - [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en) — only three of seven mandatory items apply to the aircraft, communications security passes on disclosure rather than encryption, firmware security tests the update path, and Chapter 8's optional items are what a buyer should be asking about
 - [Why Drones Only Fly for 30 to 45 Minutes: One Equation Gives the Answer, and the Cell Is Made in Taiwan](/posts/tech/2026-08-08-drone-endurance-physics-en) — from momentum theory: the 1.5-power law, the closed-form 2/3 optimum battery fraction, minutes traded per kilogram of payload, and the one BOM layer where Taiwan leads
