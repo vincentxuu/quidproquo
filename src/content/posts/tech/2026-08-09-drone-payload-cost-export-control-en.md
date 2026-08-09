@@ -5,8 +5,8 @@ type: deep-dive
 category: tech
 tags: [drone, payload, thermal, export-control, taiwan, supply-chain]
 lang: en
-tldr: "The supply-chain post concluded Taiwan's gap is at layer 3, and EO/IR payload is the most expensive cell in it. But 'expensive' isn't continuous. Read the US Commerce Control List and ECCN 6A003.b.4.b splits the control level on two numbers: a frame rate above 60 Hz, or a focal plane array with more than 111,000 elements. The two most common thermal formats on the market are 384×288 = 110,592 (clearing the threshold by 408 pixels) and 640×512 = 327,680 (three times over). Nothing common sits between them. FLIR's Boson, same generation and same 12 µm pixel pitch, prices the 640 at 2.04–2.31× the 320 — for exactly four times the pixels. There's a second, less-noticed carve-out: Note 3.b drops a camera out of 6A003.b.4.b entirely if it has an IFOV of at least 2 mrad, a fixed lens not designed to be removed, and no direct-view display. Using the regulation's own definition, on a 640×512 12 µm sensor that means a horizontal field of view of about 73°. The rule doesn't limit resolution — it limits focal length. You may have a thermal camera; you may not have a telephoto one. On the Taiwan side: the fire service's 2024 programme bought 88 thermal drone sets plus 88 rescue robots for NT$660M — NT$7.5M per pair, confirmed exactly by Changhua's NT$30M for 4+4. A Boson 640 core lists at US$3,558, roughly 2% of a delivered set. A part worth one-fiftieth of the system decides whether the system can be sold at all."
-description: "Reading the two thresholds in ECCN 6A003.b.4.b (111,000 elements, 2 mrad IFOV) against FLIR Boson's actual pricing and the common sensor formats, to explain why drone EO/IR payload cost is a staircase rather than a curve — and solving two Taiwanese fire-service programmes for the unit price of a thermal drone."
+tldr: "The supply-chain post concluded Taiwan's gap is at layer 3, and EO/IR payload is the most expensive cell in it. But 'expensive' isn't continuous. Read the US Commerce Control List and ECCN 6A003.b.4.b splits the control level on two numbers: a frame rate above 60 Hz, or a focal plane array with more than 111,000 elements. The two most common thermal formats on the market are 384×288 = 110,592 (clearing the threshold by 408 pixels) and 640×512 = 327,680 (three times over). Nothing common sits between them. FLIR's Boson, same generation and same 12 µm pixel pitch, prices the 640 at 2.04–2.31× the 320 — for exactly four times the pixels. There's a second, less-noticed carve-out: Note 3.b drops a camera out of 6A003.b.4.b entirely if it has an IFOV of at least 2 mrad, a fixed lens not designed to be removed, and no direct-view display. Using the regulation's own definition, on a 640×512 12 µm sensor that means a horizontal field of view of about 73°. The rule doesn't limit resolution — it limits focal length. You may have a thermal camera; you may not have a telephoto one. On the Taiwan side: the fire service's 2024 programme bought 88 thermal drone sets plus 88 rescue robots for NT$660M — NT$7.5M per pair, and the line-item procurement record puts the drone set at NT$1M and the robot at NT$6.5M. A Boson 640 core lists at US$3,558, roughly 11% of a delivered set — a part worth an eighth of the system decides whether the system can be sold at all. (This post originally solved two programme totals simultaneously and got NT$5.47M/NT$2.03M, reversed and off by fivefold; that is corrected.)"
+description: "Reading the two thresholds in ECCN 6A003.b.4.b (111,000 elements, 2 mrad IFOV) against FLIR Boson's actual pricing and the common sensor formats, to explain why drone EO/IR payload cost is a staircase rather than a curve — and using Taiwanese fire-service procurement records to establish the actual unit price of a thermal drone."
 draft: false
 ---
 
@@ -60,9 +60,11 @@ Check: 72 × 5,469,231 + 33 × 2,030,769 = 460,800,000  ✓
 
 **About NT$5.47M per thermal drone set, and NT$2.03M per rescue robot.**
 
-The assumption needs stating plainly: **this assumes unit prices are identical across two programmes four years and one legal basis apart.** That may not hold, and the robot figure it produces (NT$2.03M for a remotely-driven platform with a 4,800 L/min water cannon and a five-gas detector) looks low. So treat NT$5.47M as an estimate carrying an assumption; NT$7.5M per pair is the hard number.
+> ⚠️ **Correction (2026-08-09): the simultaneous solve above is wrong.** Pulling the line-item records from Taiwan's government e-procurement system afterwards shows each county's budget was **NT$4M for 4 drone sets (NT$1M each) and NT$26M for 4 rescue robots (NT$6.5M each)** — the opposite direction from this solve, and off by more than fivefold. **The correct figures are D = NT$1M and R = NT$6.5M** (1M + 6.5M = 7.5M ✓). Section 8 below is recomputed accordingly. The full line-item evidence and a post-mortem on this error are in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en). The lesson: **solving two aggregates simultaneously looks like derivation but is guessing; when the line-item record exists, it isn't an alternative check — it is the only thing you should use.**
 
-Even widening the range, though, **a fire-service thermal drone set is in the millions of NT dollars** — roughly US$50k to US$170k. That much is solid.
+(The original text is kept below for comparison.) The assumption needs stating plainly: **this assumes unit prices are identical across two programmes four years and one legal basis apart.** That may not hold, and the robot figure it produces (NT$2.03M for a remotely-driven platform with a 4,800 L/min water cannon and a five-gas detector) looks low — **that instinct was right, and I did not chase it.**
+
+On the corrected figures, **a fire-service thermal drone set delivers at NT$1M**, about US$31,000 — roughly what a commercial inspection-grade thermal multirotor costs with spares, training and warranty.
 
 Hold that order of magnitude; section 8 comes back to it.
 
@@ -250,19 +252,19 @@ And what I did not establish, stated honestly: the ECCN 6A003 table maps the 111
 
 ## 8. Joining the ends: a 2% part decides 100% of the deal
 
-Back to section 1. A fire-service infrared thermal drone set delivers at roughly NT$5.47M (the estimate carrying an assumption), with the hard floor being NT$7.5M for a set plus a robot.
+Back to section 1. Per the line-item procurement record, a fire-service infrared thermal drone set is budgeted and awarded at **NT$1 million** (identical across counties), with NT$7.5M being the central paired price for a set plus a robot.
 
 A FLIR Boson 640 core lists from US$3,558 — about NT$114,000.
 
 ```
-114,000 ÷ 5,470,000 ≈ 2.1%
+113,856 ÷ 1,000,000 ≈ 11.4%
 ```
 
-**The thermal core is about two percent of the delivered price of the set.**
+**The thermal core is about eleven percent of the delivered price of the set.**
 
-The other ninety-eight percent is airframe, gimbal, visible camera, controller, batteries, ground station, training, warranty, systems integration, acceptance testing, and the tender margin. That's normal — [the financials post](/posts/investing/2026-08-07-drone-maker-financials-en) worked through the margin structure of Taiwanese integrators, and this ratio is no surprise.
+The other eighty-nine percent is airframe, gimbal, visible camera, controller, batteries, ground station, training, warranty, systems integration, acceptance testing, and the tender margin. That's normal — [the financials post](/posts/investing/2026-08-07-drone-maker-financials-en) worked through the margin structure of Taiwanese integrators, and this ratio is no surprise.
 
-**But what decides whether the whole set can be sold is that two percent.**
+**But what decides whether the whole set can be sold is that eleven percent.**
 
 That core's resolution decides which side of 111,000 it falls on. Its lens focal length decides whether Note 3.b's carve-out holds. The buyer's identity decides whether §744.9 requires a licence. Fail any one of those and the remaining ninety-eight percent — capacity, supply chain, certifications, the whole bid document — is unusable.
 
@@ -301,8 +303,8 @@ No legal advice — only things you can check or ask yourself:
 
 - **Taiwan's RS Column 1 / Column 2 status is not verified.** The 111,000 line moves an item between the two columns, but which countries each column reaches requires the Commerce Country Chart, and I could not retrieve it reliably. That cell bears directly on how strong the conclusion is, and its absence is an absence.
 - **I have never filed a classification request.** A literal reading of the text is not a BIS determination. How Note 3.b's "single kind of application, designed not to be user modified" conditions get assessed in practice is known only to people who have been through CCATS.
-- **Prices are distributor list prices, not volume OEM prices.** GroupGets and OEMCameras starting prices reflect small-quantity buying. An integrator's real cost is lower — but the **ratios** across the four matched pairs (2.04–2.31×) should be more robust than the absolute figures.
-- **The NT$5.47M figure carries an assumption.** It assumes identical unit prices across two programmes four years apart. NT$7.5M (one set plus one robot) is the number to quote directly.
+- **Thermal core prices are distributor list prices, not volume OEM prices.** GroupGets and OEMCameras starting prices reflect small-quantity buying. An integrator's real cost is lower — but the **ratios** across the four matched pairs (2.04–2.31×) should be more robust than the absolute figures.
+- ~~**The NT$5.47M figure carries an assumption.**~~ **Corrected**: the line-item procurement record shows NT$1M per drone set and NT$6.5M per robot; the simultaneous solve was reversed and off by fivefold. See the correction box in section 1 and [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en).
 - **Nothing on the EU or Japanese equivalents.** The Wassenaar list is multilateral and members transpose it into national law separately. The EU's dual-use list (Regulation 2021/821) has a corresponding entry, but the wording and the carve-out details need not match. A three-way comparison deserves its own post.
 - **No assessment of domestic Taiwanese thermal progress.** The Thermal Imaging Industry Alliance (TIIA), Innolux's far-infrared thermal imager, and Crystalwise Optronics' thermal chip work with NCSIST are things I have only seen in press coverage, with no verifiable specifications or production status. That is the line most worth chasing in this cell for Taiwan, but I don't yet have the material.
 

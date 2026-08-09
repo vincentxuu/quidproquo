@@ -24,24 +24,30 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: B14 swarm + B12 payload cost (zh+en), series 30 -> 32. Full
-  findings in plan §5.2 — read that. What is reusable:
-  B14 rests on a NEGATIVE RESULT, and those only count if reproducible:
-  9,199 lines of Skybrush light-show firmware have ZERO inter-drone
-  coordination; the grep that proved it hit 16x `formation` inside
-  `information` and I said so in print. Coordination is one GPS week-second;
-  the "bubble fence" measures distance from the drone's OWN setpoint and
-  DEFAULTS TO REPORT-ONLY, so GNSS is the single point.
-  B12: I filed payload as a MARKET question (go collect quotes). It was a
-  CLAUSE question. NEW VARIANT of the recurring mistake — not "assumed it needs
-  hardware" but "assumed it needs commercial secrets". Ask that one too.
-  TWO METHOD LESSONS. (1) When a clause looks mis-shaped, go find its
-  PARENTAGE: the Control Yuan report traced spec Ch.7 to the 2022 National Day
-  Chinese-chip row and the 2023-01-04 tender wording "flight-FIELD assessment",
-  which Ch.7 implemented exactly. (2) Requests-on-record vs delivered-text is a
-  reusable check: a 2022-11-11 meeting asked to "include swarm mission software
-  testing"; four years later Ch.7 has none.
-  Open: B13, B16.
+- 2026-08-09: B14 swarm + B12 payload + B16 production ramp (zh+en), 30 -> 34.
+  B group is now CLOSED except B13. Findings in plan §5.2 — read that.
+  Reusable, in order of how much it cost me:
+  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING, NOT DERIVATION. B12
+  solved two programme totals for unit prices and got them REVERSED and 5x off
+  (real: drone set NT$1M, robot NT$6.5M). The line-item procurement record was
+  public the whole time. B12 zh+en now carry a correction box; its "2% part"
+  line became 11.4%. I HAD flagged "the robot figure looks low" — flagging
+  uncertainty is not removing it. When line items exist they are not an
+  alternative check, they are the only thing to use.
+  (2) THE RECURRING MISTAKE, 6th instance, now closed on the last cell that
+  carried it: B16 was filed as "needs factory access". It did not — a ramp's
+  public face is lead times and failed tenders, all on the procurement site.
+  The general form to ask every time: "does this topic need what I can't get,
+  or did I write it to need that?"
+  (3) When a clause looks mis-shaped, go find its PARENTAGE (B14: the Control
+  Yuan report traced spec Ch.7 to the 2022 National Day chip row).
+  (4) Requests-on-record vs delivered-text is a reusable check (B14: a
+  2022-11-11 meeting asked for swarm mission-software testing; Ch.7 has none).
+  (5) Negative results only count if reproducible — B14's grep hit 16x
+  `formation` inside `information`; saying so in print is what made it safe.
+  TOOL NOTE: g0v procurement API is now pcc-api.openfun.app (pcc.g0v.ronny.tw
+  redirects); responses are huge — parse with a script, never into context.
+  Open: B13 only.
 - 2026-08-08: drone series 23 -> 30 (zh+en); B block opened (B8/B10/B9/B17/
   B11/B15 + 5.8 GHz video link). Archived; detail in plan §5.2. THE RECURRING
   MISTAKE, 4th instance, closed: "technical topic" silently filed under "needs
@@ -65,15 +71,14 @@ Recently completed
   or I just haven't looked, and don't rank interviews above public records.
   Application/social cells still open: surveying; noise/NIMBY, criminal misuse,
   autonomous-weapons ethics, environmental cost.
-- 2026-08-06: drone series — 13 posts (zh+en). Plan + findings + verification
-  lessons in docs/content-plan-drone.md §5.2; read that, not this. Still binds:
-  `category` is the container (folder/URL/nav), `drone` tag is the topic —
-  src/pages/tags/[tag].astro has NO category filter, so /tags/drone is the
-  cross-category hub and EVERY series post must carry `drone` first.
-  Investing posts: framework-and-risk, no tickers. Future-dated posts are NOT
-  built, so a published post linking to a later-dated one is a hard 404 (guard
-  script in plan §5.2). Frontmatter glossary is prepended before
-  DEFAULT_GLOSSARY_TERMS and deduped first-wins, so it SHADOWS the site entry.
+- 2026-08-06: drone series — 13 posts (zh+en); archived, findings in plan §5.2.
+  SITE FACTS THAT STILL BIND: `category` is the container (folder/URL/nav) but
+  `drone` tag is the topic — src/pages/tags/[tag].astro has NO category filter,
+  so /tags/drone is the cross-category hub and EVERY series post must carry
+  `drone` first. Investing posts: framework-and-risk, no tickers. Future-dated
+  posts are NOT built, so a published post linking to a later-dated one is a
+  hard 404. Frontmatter glossary is prepended before DEFAULT_GLOSSARY_TERMS and
+  deduped first-wins, so it SHADOWS the site-wide entry.
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

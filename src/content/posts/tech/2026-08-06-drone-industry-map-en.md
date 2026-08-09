@@ -131,7 +131,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ## Further reading
 
-This article is the overview for the drone series. Thirty-one companion pieces go deeper in six directions:
+This article is the overview for the drone series. Thirty-two companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -171,6 +171,7 @@ This article is the overview for the drone series. Thirty-one companion pieces g
 - [The Video Link Has No Clause to Walk Through: Taiwan's 5.8 GHz Is Open Only to Frequency Hoppers, and Analogue FPV Doesn't Hop](/posts/tech/2026-08-08-fpv-video-link-taiwan-en) — matching the consumer FPV channel table against Taiwan's 125 MHz window channel by channel (only twenty-four of forty fit), and why analogue video gets through neither §4.10 nor §5.7
 - [There Is No Swarm in a Drone Light Show: Two Hundred Aircraft Share One Integer, and Taiwan's Swarm Security Chapter Tests Nothing on the Aircraft](/posts/tech/2026-08-09-drone-swarm-light-show-en) — proving zero inter-drone coordination across 9,199 lines of Skybrush's open-source light-show firmware, then matching Chapter 7's twelve items to show why the "drone" column is a dash all the way down
 - [Payload Price Is Not a Smooth Function of Performance: The Drone Thermal Camera Cost Step Sits at 111,000 Pixels and 2 mrad](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) — the two export-control thresholds on thermal cameras matched against common sensor formats, FLIR Boson's four same-generation price pairs, and Taiwan's unit price solved from two fire-service programmes
+- [The Public Evidence of a Production Ramp Isn't in the Factory — It's in the Failed-to-Award Notices](/posts/tech/2026-08-09-drone-production-ramp-procurement-en) — rebuilding the 88+88 fire-service programme county by county: uniform central pricing, six failed tenders, every award at exactly 100% of budget, and a correction to the previous post's unit prices
 - [The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default](/posts/tech/2026-08-08-gps-jamming-flight-controller-en) — switching jamming on in a simulator and recording the full timeline, PX4's twelve GNSS gates, and why jamming detection ships off while spoofing detection ships on
 - [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en) — only three of seven mandatory items apply to the aircraft, communications security passes on disclosure rather than encryption, firmware security tests the update path, and Chapter 8's optional items are what a buyer should be asking about
 - [Why Drones Only Fly for 30 to 45 Minutes: One Equation Gives the Answer, and the Cell Is Made in Taiwan](/posts/tech/2026-08-08-drone-endurance-physics-en) — from momentum theory: the 1.5-power law, the closed-form 2/3 optimum battery fraction, minutes traded per kilogram of payload, and the one BOM layer where Taiwan leads
