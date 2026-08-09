@@ -133,7 +133,7 @@ If you want one question to judge any drone company: **is it in Layer 3 or Layer
 
 ### Where to start, by who you are
 
-Thirty-five pieces, no required order. Pick a track:
+Thirty-seven pieces, no required order. Pick a track:
 
 | If you are | Suggested order |
 |---|---|
@@ -148,7 +148,7 @@ Thirty-five pieces, no required order. Pick a track:
 
 > **On how this series is written**: every figure is sourced and every calculation is shown so it can be redone. That is also how the errors surfaced — [the payload post's](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) unit-price estimate was refuted by the line-item records in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en), whose own first conclusion was then refuted by the control group it went back and ran. The corrections are left in place, not deleted.
 
-This article is the overview for the drone series. Thirty-five companion pieces go deeper in six directions:
+This article is the overview for the drone series. Thirty-seven companion pieces go deeper in six directions:
 
 **Taiwan's supply chain**
 
@@ -163,6 +163,8 @@ This article is the overview for the drone series. Thirty-five companion pieces 
 - [Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en) — eight police drone units, an exemption that covers flight-safety restrictions only, and the one aerial-evidence provision its own drafting ministry asked to reconsider
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en) — detection blind spots, how fiber and autonomy bypass electronic warfare, and the authorization problem a Control Yuan report exposes
 - [Who May Bring a Drone Down? Taiwan's Law Authorises the Outcome and No Means of Achieving It](/posts/policy/2026-08-09-who-may-down-a-drone-en) — "counter-drone" appears once in central law, on a shopping list; the 31-entry police instrument list has anti-tank guns and no jammer; Article 67 has no public-duty exception
+- [Taiwan's Airports Have Been Closed by Drones Six Times, for 300 Minutes Total](/posts/policy/2026-08-09-airport-drone-incursions-taiwan-en) — an itemised closure record inside a Legislative Yuan budget report (47 flights, 5,929 passengers), six identical "response" cells, and the CAA telling five stations to buy jammers in 2020
+- [Power Plants, Waterworks, Fabs: Critical Infrastructure Has No Row in the Authority Table](/posts/policy/2026-08-09-critical-infrastructure-drone-defence-en) — the Article 99-13(7) proviso names only government agencies, and the NCC's import door is keyed to a list that is never published
 
 **Industry judgment**
 

@@ -24,8 +24,8 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: 6 posts (zh+en), series 30 -> 36. **B TECHNICAL GROUP COMPLETE
-  (all 17 cells)**; D32 also done. Detail in plan §5.2; older entries archived to
+- 2026-08-09: 8 posts (zh+en), series 30 -> 38. **B TECHNICAL GROUP COMPLETE
+  (17 cells) AND D GROUP COMPLETE (4 cells).** Detail in plan §5.2; older entries archived to
   docs/progress-archive.md. Reusable lessons, ranked by what they cost me:
   (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING. B12 did that for unit
   prices and got them REVERSED and 5x off; the line-item record was public all
@@ -56,10 +56,15 @@ Recently completed
   LawSearchContent.aspx?pcode=X&kw=Y is the cheap per-statute search;
   Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=Z counts instruments corpus-wide.
   g0v procurement API is pcc-api.openfun.app; huge responses, parse by script.
+  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE. D31's six itemised airport
+  closures (300 min / 47 flights / 5,929 pax) exist only because the LY Budget
+  Center made the CAA produce them. When an agency will not publish a series,
+  look for who had power to demand it. Same trick as the Control Yuan report.
   NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
   / C25 film / C26 environment / C27 entertainment-industry; all of I except
-  61 privacy; D30 critical-infrastructure protection and D31 airport incursions
-  (D31 now has a ready hook: D32 showed the airport is the weakest cell).
+  61 privacy. Two named, fillable follow-ups I declared in the posts: D31 needs
+  post-109/08 closure counts (LY publishes a budget report every year); D30
+  needs the 縣市 announced-zone lists and a 函釋 search on 政府機關（構）.
 - 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
   docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
   仍然約束我的事實與教訓（不要再犯）：
