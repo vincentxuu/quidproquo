@@ -159,7 +159,7 @@ draft: false
 **站內**
 
 - [誰有權把無人機打下來：台灣的法律授權了「排除」，卻沒授權任何一種手段](/posts/policy/2026-08-09-who-may-down-a-drone)
-- [台灣機場被無人機關場六次、共 300 分鐘：而機場拿到的授權只有「取締」](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
+- [台灣機場被無人機關場 23 次：而機場拿到的授權只有「取締」](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
 - [反制無人機為什麼難：干擾正在失效，而台灣的難題不只是技術](/posts/tech/2026-08-07-counter-drone-why-hard)
 - [無人機資安檢測規範拆解：真正在測「打不打得倒」的那五項，全部是選測](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)
 - [台灣無人機產業地圖](/posts/tech/2026-08-06-drone-industry-map)

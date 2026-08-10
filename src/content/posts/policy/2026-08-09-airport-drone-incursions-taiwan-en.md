@@ -1,12 +1,12 @@
 ---
-title: "Taiwan's Airports Have Been Closed by Drones Six Times, for 300 Minutes Total — and the Verb They Were Given Is 'Enforce Against'"
+title: "Drones Have Closed Taiwanese Airports 23 Times — and the Verb Airports Were Given Is 'Enforce Against'"
 date: 2026-08-09
 type: deep-dive
 category: policy
 tags: [drone, taiwan, counter-uas, airport, aviation, law]
 lang: en
 tldr: "The Legislative Yuan Budget Center's evaluation of the Civil Aeronautics Administration's FY2021 budget attaches an itemised list the CAA supplied on 14 September 2020: between FY2019 and the end of August 2020, drones closed Taiwanese airports six times — Songshan four, Taoyuan once, Taichung once — for 300 minutes in total, affecting 47 flights and 5,929 passengers, with Songshan and Taoyuan each closing on the same day, 4 August 2019. All six rows of the 'response' column repeat one identical sentence: on notification, go to the scene with the Aviation Police and investigate. That sentence is Article 99-13(6) of the Civil Aviation Act in plain words, and the verb that paragraph gives an airport is 'enforce against', not 'stop or remove'. The same report records that the CAA had already written to the Kaohsiung, Taichung, Taitung, Kinmen and Magong stations telling them to procure jammers — that was 2020, and the NCC only classified drone jammers as Class 1 controlled RF equipment with a lawful import path on 3 February 2025, while Article 67(1) of the Telecommunications Management Act still prohibits their use. The report also shows that of the CAA's NT$9.265m of drone-related revenue budgeted for FY2021, fines were only NT$2.7m — 29%; the other 71% was review and licensing fees. **Update 2026-08-09**: two later evaluation reports extend the series to end-August 2023 — 4 closures in 2020, 2 in 2021, 9 in 2022, 3 in Jan–Aug 2023. The count did not fall as the drone chapter took effect and equipment was installed; 2022 is the peak of the public series. The FY2024 report also states that 'all domestic airports have procured handheld jammers … and counter the drone as the situation requires' — the airports are already using them, and the authority to use them still does not exist. The two reports also disagree in three places about the same events in their overlapping period."
-description: "Using the itemised list inside a Legislative Yuan budget evaluation report to walk through Taiwan's six drone-caused airport closures — duration, flights, passengers and response — against the verb the Civil Aviation Act gives airports, the date the CAA told stations to buy jammers, and a registration base the regulator admitted it could not measure."
+description: "Using the itemised lists inside three Legislative Yuan budget evaluation reports to walk through the 23 drone-caused airport closures Taiwan recorded from FY2019 to end-August 2023 — duration, flights, passengers and response — against the verb the Civil Aviation Act gives airports, the date the CAA told stations to buy jammers, and a registration base the regulator admitted it could not measure."
 draft: false
 ---
 
@@ -17,6 +17,8 @@ draft: false
 That was an inference from the text. This post goes looking for what has actually happened at the airports.
 
 What turned up is more concrete than expected: the Legislative Yuan's evaluation of the CAA's FY2021 budget attaches an itemised list the agency supplied itself.
+
+> **About the number in the title.** This post originally had only the first tranche of data (FY2019 to end-August 2020: six closures, 300 minutes), and the title said so. After the two later evaluation reports were added on 2026-08-09, the public series runs to **23 occurrences from FY2019 to end-August 2023**, and the title now reflects that. The narrative below keeps its original order: the first six itemised rows, then the later additions.
 
 ## Six closures, 300 minutes, 5,929 passengers
 
