@@ -1,5 +1,5 @@
 ---
-title: "Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film"
+title: "Police May Lawfully Fly a Drone, but That Is Not Authority to Film"
 date: 2026-08-09
 type: deep-dive
 category: policy
@@ -217,6 +217,6 @@ No legal advice, only what's verifiable:
 **On this site**
 
 - [The Drone Chapter Has No Privacy Provision: If You're Overflown, You're Back to the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
-- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
-- [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
+- [Taiwan's Drone Rules in Plain Language: Registration, Licence, Penalties](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+- [Taiwan's Drone Security Spec: The Five Items That Test Resilience Are Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
 - [A Flight Controller's Autonomy Has a Complete List — 56 Entries](/posts/tech/2026-08-09-drone-autonomy-modereason-en)

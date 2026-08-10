@@ -148,9 +148,9 @@ Several things there are worth pausing on:
 **On this site**
 
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+- [BVLOS in Three Jurisdictions: Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
 - [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en)
 - [After "NT$2M a Year Flying Drones": Agricultural Spraying Has Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
 - [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
-- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)
+- [The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)

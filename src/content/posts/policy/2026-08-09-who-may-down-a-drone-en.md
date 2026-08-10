@@ -271,7 +271,7 @@ The 31-entry instrument list is taken from the Ministry of the Interior's own an
 **On this site**
 
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Is Not Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
-- [Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
+- [Police May Lawfully Fly a Drone, but That Is Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
 - [The Drone Chapter Has No Privacy Provision: Anyone Overflown Is Thrown Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
 - [Which Rule Does the Video Link Fall Under? 5.8 GHz Analogue FPV Fits Neither](/posts/tech/2026-08-08-fpv-video-link-taiwan-en)
 - [Taiwan's Drone Industry Map](/posts/tech/2026-08-06-drone-industry-map-en)

@@ -179,4 +179,4 @@ The practical difference is real: **invoking self-defense concedes that an armed
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
 - [The Drone Supply Chain Against a Four-Criteria Framework: Only One of Four Holds](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en)
 - [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
-- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+- [Taiwan's Drone Rules in Plain Language: Registration, Licence, Penalties](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)

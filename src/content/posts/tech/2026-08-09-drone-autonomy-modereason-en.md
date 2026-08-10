@@ -240,4 +240,4 @@ If you're evaluating any drone's "autonomy," the useful question isn't "does it 
 - [PX4 or ArduPilot: The EKF Derivation Lives in the Other Project's Repo, and the Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 - [The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 - [There Is No Swarm in a Drone Light Show: Two Hundred Aircraft Share One Integer](/posts/tech/2026-08-09-drone-swarm-light-show-en)
-- [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
+- [Taiwan's Drone Security Spec: The Five Items That Test Resilience Are Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)

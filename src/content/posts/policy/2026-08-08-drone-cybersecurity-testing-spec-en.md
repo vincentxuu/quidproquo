@@ -1,5 +1,5 @@
 ---
-title: "Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional"
+title: "Taiwan's Drone Security Spec: The Five Items That Test Resilience Are Optional"
 date: 2026-08-08
 type: deep-dive
 category: policy

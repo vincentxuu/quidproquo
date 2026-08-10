@@ -1,5 +1,5 @@
 ---
-title: "Power Plants, Waterworks, Fabs: Critical Infrastructure Does Not Have a Single Row in the Civil Aviation Act's Authority Table"
+title: "Power Plants and Fabs Have No Row in the Civil Aviation Act's Authority Table"
 date: 2026-08-09
 type: deep-dive
 category: policy
@@ -161,5 +161,5 @@ Of the four, the number the operator can obtain by itself is zero. The first nee
 - [Who May Bring a Drone Down? Taiwan's Law Authorises the Outcome and No Means of Achieving It](/posts/policy/2026-08-09-who-may-down-a-drone-en)
 - [Drones Have Closed Taiwanese Airports 23 Times](/posts/policy/2026-08-09-airport-drone-incursions-taiwan-en)
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Is Not Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
-- [Taking Apart Taiwan's Drone Cybersecurity Testing Specification](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
+- [Taiwan's Drone Security Spec: The Five Items That Test Resilience Are Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
 - [Taiwan's Drone Industry Map](/posts/tech/2026-08-06-drone-industry-map-en)

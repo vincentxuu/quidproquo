@@ -345,7 +345,7 @@ So the distance between these two things isn't a matter of tuning parameters; it
 
 **On this site**
 
-- [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
+- [Taiwan's Drone Security Spec: The Five Items That Test Resilience Are Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
 - [The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 - [PX4 or ArduPilot: The EKF Derivation Lives in the Other Project's Repo, and the Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 - [Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan's Rules Turn Channel Count Into a Power Ceiling](/posts/tech/2026-08-08-drone-radio-link-en)

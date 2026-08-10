@@ -227,5 +227,5 @@ There is a nice engineering detail too: how long you must wait before an RSSI re
 - [PX4 or ArduPilot: The Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
-- [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
+- [The Drone Chapter Has No Privacy Provision, Only the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
 - [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)

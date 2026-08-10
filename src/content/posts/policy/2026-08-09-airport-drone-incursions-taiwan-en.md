@@ -1,5 +1,5 @@
 ---
-title: "Drones Have Closed Taiwanese Airports 23 Times — and the Verb Airports Were Given Is 'Enforce Against'"
+title: "Drones Have Closed Taiwanese Airports 23 Times, and Airports May Only 'Enforce Against'"
 date: 2026-08-09
 type: deep-dive
 category: policy
@@ -242,6 +242,6 @@ The totals (300 minutes, 47 flights, 5,929 passengers, 70.9% / 29.1%) are my add
 
 - [Who May Bring a Drone Down? Taiwan's Law Authorises the Outcome and No Means of Achieving It](/posts/policy/2026-08-09-who-may-down-a-drone-en)
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Is Not Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
-- [Police Have Complete Legal Authority to Fly a Drone — but That Is Authority to Fly, Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
+- [Police May Lawfully Fly a Drone, but That Is Not Authority to Film](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
 - [Taiwan's Drone Rules in Plain Language: What Must Be Registered, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
 - [Taiwan's Drone Industry Map](/posts/tech/2026-08-06-drone-industry-map-en)

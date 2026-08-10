@@ -1,5 +1,5 @@
 ---
-title: "Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined"
+title: "Taiwan's Drone Rules in Plain Language: Registration, Licence, Penalties"
 date: 2026-08-06
 type: guide
 category: policy

@@ -1,5 +1,5 @@
 ---
-title: "BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All"
+title: "BVLOS in Three Jurisdictions: Taiwan Has No Framework At All"
 date: 2026-08-06
 type: deep-dive
 category: tech

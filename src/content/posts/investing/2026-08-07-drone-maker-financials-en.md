@@ -1,5 +1,5 @@
 ---
-title: "\"What's the Actual Margin on a Defense Tender?\" — The Filings Answered What I Assumed Needed an Interview"
+title: "The Filings Answered What I Assumed Needed an Interview"
 date: 2026-08-07
 type: deep-dive
 category: investing

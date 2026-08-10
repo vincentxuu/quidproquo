@@ -1,5 +1,5 @@
 ---
-title: "The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code"
+title: "The Drone Chapter Has No Privacy Provision, Only the Criminal Code"
 date: 2026-08-07
 type: deep-dive
 category: policy
@@ -134,7 +134,7 @@ Of these, "criminal misuse" has public judgments available and is the same class
 
 **On this site**
 
-- [Taiwan's Drone Rules in Plain Language: What Needs Registering, What Needs a Licence, What Gets You Fined](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+- [Taiwan's Drone Rules in Plain Language: Registration, Licence, Penalties](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
 - [The CAA Published the Entire Question Bank: What Four Exam Subjects Reveal About the Regulator](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en)

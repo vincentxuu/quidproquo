@@ -128,6 +128,6 @@ If the root of price collapse is "everyone can compute it, so everyone enters," 
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
 - [Four Drone Business Models, and Why Selling Airframes Is the Worst One](/posts/product/2026-08-06-drone-business-models-en)
 - [Drone Industry Cycles: How the 2016 Bubble Burst, and What's Different This Time](/posts/tech/2026-08-06-drone-industry-cycle-history-en)
-- ["What's the Actual Margin on a Defense Tender?" — The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)
+- [The Filings Answered What I Assumed Needed an Interview](/posts/investing/2026-08-07-drone-maker-financials-en)
 - [Getting a Taiwanese Drone Licence: Tiers, the No-Skipping Rule, Fees, and Timeline](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
-- [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+- [BVLOS in Three Jurisdictions: Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
