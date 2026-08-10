@@ -27,24 +27,17 @@ Recently completed
 - 2026-08-09: 8 posts (zh+en), series 30 -> 38. **B TECHNICAL GROUP COMPLETE
   (17 cells) AND D GROUP COMPLETE (4 cells).** Detail in plan §5.2; older entries archived to
   docs/progress-archive.md. Reusable lessons, ranked by what they cost me:
-  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING. B12 did that for unit
-  prices and got them REVERSED and 5x off; the line-item record was public all
-  along. I HAD flagged "that figure looks low" — flagging uncertainty is not
-  removing it. D32 applied this: I refused to quantify jammer procurement
-  because the pcc API's keyword match is fuzzy, and said so in the post.
-  (2) A GAP YOU LIST CAN REFUTE THE POST. B16's own "no control group" line
-  killed its first conclusion. Before writing "I did not do X", ask: could X
-  refute this? If yes it is prerequisite, not future work. D32 now answers that
-  question per gap, in the post itself — make that the standard shape.
-  (3) THE RECURRING MISTAKE, 6th and last instance, closed: every cell I had
-  filed as needing hardware/factory/interviews/trade secrets needed none.
-  (4) To write about a fuzzy word, find where the source is FORCED to enumerate
-  it. B13: ModeReason (2nd arg of every set_mode()) = complete autonomy list.
-  D32: 內政部's 31-item police-instrument list, and a whole-corpus law search
-  (「無人機」19 instruments, 「反制無人機」1) — same move, statutes not code.
+  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING (B12: unit prices came
+  out REVERSED and 5x off; the line-item record was public). Flagging "that
+  looks low" is not removing the doubt. (2) A GAP YOU LIST CAN REFUTE THE POST
+  (B16's own "no control group" killed its first conclusion) — so answer, per
+  gap, "could X refute this?" inside the post. (3) THE RECURRING MISTAKE closed
+  after 6 instances: nothing needed hardware/factory/interviews. (4) For a fuzzy
+  word, find where the source is FORCED to enumerate it (B13 ModeReason=56;
+  D32 内政部 31-item list; 「無人機」19 instruments vs「反制無人機」1).
   (5) Mis-shaped clause → find its PARENTAGE (B14). (6) Requests-on-record vs
-  delivered-text is a reusable check (B14, C24). (7) Negative results only count
-  if reproducible — print the query and counts (B13 grep, D32 three law URLs).
+  delivered-text (B14, C24). (7) Negative results must print query + counts.
+  Full text of (1)-(7) in docs/progress-archive.md.
   (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
   民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
   「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
@@ -55,6 +48,16 @@ Recently completed
   closures (300 min / 47 flights / 5,929 pax) exist only because the LY Budget
   Center made the CAA produce them. When an agency will not publish a series,
   look for who had power to demand it. Same trick as the Control Yuan report.
+  (12) GAP-CLOSING ROUND 2026-08-09: D31's two declared gaps both closed from
+  the SAME source family I had already named — later LY budget reports. Series
+  now 108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3: the count did NOT
+  fall, so the post's third judgement got stronger. Also found (a) three
+  self-inconsistencies between two CAA submissions on the same events → these
+  numbers are trend-only, no incident-level inference; (b) "國內各機場均已購置
+  手持式干擾器…並視況反制無人機" — so D32's "you may own it, not fire it" is
+  現況 not hypothesis, back-written into D32 both languages; (c) 審計部 slammed
+  Songshan's system for 未妥為訂定驗收測試規範 = the B16 self-verifying-spec
+  disease, third instance. RULE: when a gap names its own source, go get it.
   BOOKKEEPING FIXED 2026-08-09: the 未答 column only became standard at B8, so
   20 earlier rows had none — all 38 rows now carry one (B4/B5/B9 copied from the
   posts' own sections, the other 17 marked 回溯補寫). Also corrected two rows
@@ -65,20 +68,13 @@ Recently completed
   61 privacy. Two named, fillable follow-ups I declared in the posts: D31 needs
   post-109/08 closure counts (LY publishes a budget report every year); D30
   needs the 縣市 announced-zone lists and a 函釋 search on 政府機關（構）.
-- 2026-08-08 及更早: drone series 0 -> 30 (zh+en). 全部已歸檔到
+- 2026-08-08 及更早: drone series 0 -> 30 (zh+en)。已歸檔到
   docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
-  仍然約束我的事實與教訓（不要再犯）：
-  * THE RECURRING MISTAKE，六次：把題目預設成需要我拿不到的東西（硬體／訪談／
-    工廠／商業機密）。六次全部是假的。四條通則在 plan §6。
-  * 主張某個移植忠實 → 拿逐字複製的原始碼 diff 它。
-  * 系統推得出來的東西不需要旗標；推不出來的才需要別人告訴它。
-  * SITE FACTS：`category` 是容器、`drone` tag 才是主題（tags/[tag].astro 無
-    category 過濾），每篇必須把 drone 放第一個；未來日期的文章不會被 build，
-    已發佈文章連到更晚日期的文章＝硬 404；frontmatter glossary 會 shadow 站
-    台預設；沒有 remark-math plugin，數學寫在 code block。
-  * 資安檢測規範現行版是 V2.0（2026-04-30）。
-  * 英文文章連到中文 slug 曾是全站性缺陷（163 檔／742 連結），修法的三條安全
-    規則在 archive 裡，做任何連結批次改動前先讀。
+  仍約束我的 SITE FACTS：`category` 是容器、`drone` tag 才是主題（每篇 drone
+  放第一個）；未來日期文章不會被 build，已發佈文章連到更晚日期＝硬 404；
+  frontmatter glossary 會 shadow 站台預設；沒有 remark-math，數學寫 code block；
+  資安檢測規範現行版 V2.0（2026-04-30）；英文文章連中文 slug 曾是全站性缺陷
+  （163 檔／742 連結），批次改連結前先讀 archive 裡的三條安全規則。
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG

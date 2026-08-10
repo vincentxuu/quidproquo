@@ -143,6 +143,8 @@ This is a complete, usable pathway. **But it is a pathway for importing and hold
 
 **So the position today is: a critical-infrastructure operator may lawfully buy and lawfully hold a jammer, and no provision anywhere says it may pull the trigger.** Any claim of the form "our equipment is NCC-approved" needs the follow-up question: approved for which act?
 
+> **Added 2026-08-09: this is not hypothetical, it is already happening.** The Legislative Yuan Budget Center's *Civil Aviation Operating Fund FY2024 Budget Evaluation Report* records: "**All domestic airports: handheld jammers have been procured, investigated through the regional joint-defence mechanism, and used to counter the drone as the situation requires.**" Every airport in the country already holds them and they are explicitly listed as a response measure — and that report is dated October 2023, more than a year before the NCC opened the public-duty import path on 3 February 2025. Details in [the airport post](/posts/policy/2026-08-09-airport-drone-incursions-taiwan-en).
+
 ## The one provision that names a drone: Military Installation Security Act, Article 10
 
 Exactly one provision in Taiwanese law makes a drone itself a trigger for using force. Article 10(1) of the [Military Installation Security Act](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=F0090037&flno=10):
