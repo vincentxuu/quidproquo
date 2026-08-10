@@ -3,10 +3,10 @@ title: "模型只是元件，harness 才是系統：讀完 60 篇企業 agent �
 date: 2026-08-10
 category: ai
 type: deep-dive
-tags: [ai-agent, harness-engineering, context-engineering, multi-agent, llm]
+tags: [ai-agent, harness-engineering, context-engineering, multi-agent, llm, security]
 lang: zh-TW
 tldr: "Salesforce、Microsoft、Stripe、OpenAI、Anthropic 七個獨立案例講出同一句話：可靠性來自模型周圍的工程，不是模型本身。而「把確定性的部分還給程式碼」已經被四家公司各自產品化。附查證後不建議引用的五個數字。"
-description: "從 60 篇 ByteByteGo agent 文章與 19 份一手來源整理出的 harness engineering 觀點：七家公司的收斂結論、四個產品化的確定性節點設計、Salesforce 的三大反模式，以及查證後發現有問題的數字。"
+description: "從 60 篇 ByteByteGo agent 文章與 19 份一手來源整理出的 harness engineering 觀點：七家公司的收斂結論、四個產品化的確定性節點設計、Salesforce 的三大反模式、為什麼 prompt injection 只能在 harness 層做損害控制，以及查證後發現有問題的數字。"
 draft: false
 glossary:
   - term: "unattended agent"
@@ -58,6 +58,8 @@ Stripe 給的理由最直接：有些事永遠不該交給 agent 判斷，而且
 2. **不斷加強語氣的 prompt，而不是把規則寫成 policy**——「NEVER」「ALWAYS」加粗加驚嘆號沒有用
 3. **爛的 context engineering**——他們舉的例子是把 `get_orders` 的回傳從 100K tokens 壓到 2K
 
+同一條原則在迴圈層也成立。[LinkedIn 的 Hiring Assistant](https://blog.bytebytego.com/p/how-linkedin-built-an-ai-powered) **明確拒絕了 ReAct**，改用 plan-and-execute：Planner 先把請求拆成結構化計畫，Executor 再逐步執行、每一步跑自己的推理迴圈。理由是「**LLM 被要求同時處理太多事情時會變得不可靠**」。附帶好處是成本可控——規劃用貴模型，簡單步驟用便宜模型。ReAct 常被當成 agent 迴圈的預設答案，這是我在整批材料裡看到唯一一個生產系統對它的實質反對。
+
 ## 為什麼 harness 比模型重要：三個機制
 
 這不是「工程比較重要」這種空話，底下有三個可以驗算的機制。
@@ -102,6 +104,23 @@ Stripe 每週合併超過 1,300 個「零人類手寫程式碼」的 PR。這篇
 
 [Meta](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data) 則讓 data-user agent 與 data-owner agent 互相協商資料存取核可。最有意思的是其中一個子 agent：你要一張敏感表時，它會建議一張含有類似但非敏感資料的替代表，甚至幫你改寫 query 只用非受限欄位——**這種過去只存在於少數資深工程師腦中的知識，被 agent 綜合出來了**。
 
+## 安全這條線只能在 harness 上解
+
+如果前面幾節還讓人覺得「模型再強一點就好了」，安全這條線可以徹底斷了這個念頭。
+
+根因只有一句：**LLM 把指令與資料當成同一串 token 接收，序列裡沒有任何標記把兩者分開。** 參數化查詢在資料庫邊界解決了這件事；自然語言沒有等價物，因為指令和資訊都是用文字表達的。
+
+這不是「還沒解決」，是**已經有人認真試過並失敗**。2025 年 11 月 OpenAI、Anthropic、Google DeepMind 聯合發表的研究，**把先前提出的 12 種 prompt injection 與 jailbreak 防禦全部攻破**（允許攻擊自適應迭代）。更早的 EchoLeak（[CVE-2025-32711](https://nvd.nist.gov/vuln/detail/CVE-2025-32711)）則是一封信就讓 M365 Copilot 把公司內部檔案送到外部伺服器、使用者完全沒有互動——**而那個 payload 通過了微軟自己專門的 cross-prompt-injection 分類器**。
+
+所以現實目標不是擋住每次攻擊，而是**攻擊成功時活下來**。這只能靠 harness：
+
+- **lethal trifecta**——真正造成損害需要三件事同時成立：存取私有資料、接觸不可信內容、有對外送出的通道。拿掉任何一個都能降低曝險，而**切掉對外通道或收窄存取範圍，通常比加強過濾器便宜**
+- **Meta 的 Agents Rule of Two**——沒有 human-in-the-loop 時，一個 agent 最多只能同時滿足三個危險屬性中的兩個。Meta 自陳這是最小權限原則的補充，不是完整解法
+- **guardrail 要移到 tool boundary**（Microsoft）——chatbot 只需篩使用者輸入與模型輸出；agent 還會讀工具輸出與檢索到的文件，間接注入就藏在那裡
+- **GitHub 的 agentic workflow 整套架構是「假設這個 agent 已經被入侵」設計的**：三層互相獨立的防線、零秘密架構（agent 對外走防火牆容器、MCP 工具走獨佔持有 PAT 的 gateway、LLM 呼叫走 proxy，整條鏈上 agent 從不碰到秘密），以及最有特色的 **safe outputs**——MCP server 對 agent 只給唯讀，所有寫入交給另一個**只緩衝不執行**的 server，agent 結束後緩衝的變更才走確定性管線（型別白名單 → 數量上限 → 內容清洗）
+
+GitHub 那篇還留了一句適用範圍遠超安全的話：「**每一個你能觀察通訊的點，也都是你未來能介入管制的點。今天的可觀測性就是明天的控制平面。**」他們也誠實承認這是損害控制策略而非預防策略，而確定性的輸出審查只抓得到事先想到的模式。
+
 ## 引用之前：這幾個數字不要用
 
 這批材料的價值在於幫你找到該讀哪篇一手材料，以及提供一個能掛東西的心智架構。但**它不適合當引用來源**。我回查了十九份一手來源、約四十項可查證的宣稱，命中率約七成明確正確，但失誤的形狀非常一致。
@@ -144,6 +163,10 @@ Stripe 每週合併超過 1,300 個「零人類手寫程式碼」的 PR。這篇
 - [ByteByteGo — Why An LLM's Memory Gets Expensive and How to Fix It](https://blog.bytebytego.com/p/why-an-llms-memory-gets-expensive)
 - [ByteByteGo — How Grab is Using AI Agents to Boost Team Productivity](https://blog.bytebytego.com/p/how-grab-is-using-ai-agents-to-boost)
 - [ByteByteGo — How Meta Uses AI Agents for Data Warehouse Access and Security](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data)
+- [ByteByteGo — How LinkedIn Built an AI-Powered Hiring Assistant](https://blog.bytebytego.com/p/how-linkedin-built-an-ai-powered)
+- [ByteByteGo — LLM Security Basics: The Full Threat Model](https://blog.bytebytego.com/p/llm-security-basics-the-full-threat)
+- [ByteByteGo — The Security Architecture of GitHub Agentic Workflow](https://blog.bytebytego.com/p/the-security-architecture-of-github)
+- [NVD — CVE-2025-32711 (EchoLeak)](https://nvd.nist.gov/vuln/detail/CVE-2025-32711)
 - [Anthropic — How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [Dex Horthy — 12-Factor Agents](https://github.com/humanlayer/12-factor-agents)

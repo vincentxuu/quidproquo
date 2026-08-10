@@ -3,10 +3,10 @@ title: "The Model Is a Component, the Harness Is the System: What Survived 60 En
 date: 2026-08-10
 category: ai
 type: deep-dive
-tags: [ai-agent, harness-engineering, context-engineering, multi-agent, llm]
+tags: [ai-agent, harness-engineering, context-engineering, multi-agent, llm, security]
 lang: en
 tldr: "Salesforce, Microsoft, Stripe, OpenAI and Anthropic independently converge on one claim: reliability comes from the engineering around the model, not the model. And 'give the deterministic parts back to code' has now been productized four separate times. Plus five numbers you should not cite."
-description: "Harness engineering distilled from 60 ByteByteGo agent articles and 19 primary sources: where seven companies converge, four productized deterministic-node designs, Salesforce's three anti-patterns, and which cited numbers fail verification."
+description: "Harness engineering distilled from 60 ByteByteGo agent articles and 19 primary sources: where seven companies converge, four productized deterministic-node designs, Salesforce's three anti-patterns, why prompt injection can only be contained at the harness layer, and which cited numbers fail verification."
 draft: false
 glossary:
   - term: "unattended agent"
@@ -56,6 +56,8 @@ Read from the other direction, the first of Salesforce's three anti-patterns (dr
 2. **Escalating the tone of a prompt instead of encoding the rule as policy** — "NEVER" and "ALWAYS" in bold with exclamation marks do not work
 3. **Poor context engineering** — their example is compressing a `get_orders` response from 100K tokens down to 2K
 
+The same principle holds at the loop level. [LinkedIn's Hiring Assistant](https://blog.bytebytego.com/p/how-linkedin-built-an-ai-powered) **explicitly rejected ReAct** in favour of plan-and-execute: a Planner decomposes the request into a structured plan, and an Executor works through it step by step, each step running its own reasoning loop. Their reason: "**LLMs become unreliable when asked to handle too many things at once.**" A side benefit is cost control — expensive models for planning, cheap ones for simple steps. ReAct is usually treated as the default answer for agent loops; this is the only substantive objection from a production system I found anywhere in the corpus.
+
 ## Why the harness beats the model: three mechanisms
 
 This is not a vague "engineering matters" claim. Three concrete mechanisms sit underneath it.
@@ -100,6 +102,23 @@ Two architectural patterns found nowhere else in the corpus are worth noting too
 
 [Meta](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data) has data-user agents negotiate data access approval with data-owner agents. The most interesting sub-agent: when you request a sensitive table, it proposes an alternative table with similar but non-sensitive data, and will even rewrite your query to use only unrestricted columns — **knowledge that previously lived only in the heads of a few senior engineers, now synthesized by an agent**.
 
+## Security is the one line that can only be solved in the harness
+
+If the previous sections still leave room for "a stronger model would fix this," security closes it.
+
+The root cause is a single sentence: **an LLM receives instructions and data as the same token stream, with nothing in the sequence marking which is which.** Parameterized queries solved this at the database boundary. Natural language has no equivalent, because instructions and information are both expressed as text.
+
+This is not merely unsolved — it has been seriously attempted and has failed. In November 2025, joint research from OpenAI, Anthropic and Google DeepMind **broke all 12 previously proposed prompt-injection and jailbreak defenses** when attacks were allowed to adapt iteratively. Earlier, EchoLeak ([CVE-2025-32711](https://nvd.nist.gov/vuln/detail/CVE-2025-32711)) let a single email make M365 Copilot exfiltrate internal company files with zero user interaction — and **that payload passed Microsoft's own dedicated cross-prompt-injection classifier**.
+
+So the realistic goal is not blocking every attack but **surviving the ones that land**. That is harness work:
+
+- **The lethal trifecta** — real damage requires three things at once: access to private data, exposure to untrusted content, and an outbound channel. Removing any one reduces exposure, and **cutting the outbound channel or narrowing access is usually cheaper than strengthening filters**
+- **Meta's Agents Rule of Two** — without a human in the loop, an agent should satisfy at most two of the three dangerous properties. Meta describes this as a complement to least privilege, not a complete answer
+- **Move guardrails to the tool boundary** (Microsoft) — a chatbot only needs to screen user input and model output; an agent also reads tool output and retrieved documents, which is exactly where indirect injection hides
+- **GitHub's agentic workflow architecture is designed on the assumption that the agent is already compromised**: three mutually independent layers of defense, a zero-secret architecture (outbound traffic through a firewall container, MCP tools through a gateway that exclusively holds the PAT, LLM calls through a proxy — the agent never touches a secret), and the distinctive piece, **safe outputs** — the MCP server gives the agent read-only access, all writes go to a separate server that **only buffers, never executes**, and the buffered changes run through a deterministic pipeline afterwards (type allowlist → count limits → content scrubbing)
+
+That piece also leaves a line whose reach extends well beyond security: "**Every point where you can observe communication is also a point where you can later intervene. Today's observability is tomorrow's control plane.**" They also candidly note this is damage control rather than prevention, and that deterministic output review only catches patterns someone thought of in advance.
+
 ## Before you cite: five numbers to avoid
 
 The value of this corpus is in helping you find which primary material to read, and in giving you a structure to hang things on. But **it is not a citation source**. I checked nineteen primary sources and about forty verifiable claims. Roughly 70% are clearly correct — but the failures have a very consistent shape.
@@ -142,6 +161,10 @@ As for the corpus itself, the correct use is as an index: let it tell you which 
 - [ByteByteGo — Why An LLM's Memory Gets Expensive and How to Fix It](https://blog.bytebytego.com/p/why-an-llms-memory-gets-expensive)
 - [ByteByteGo — How Grab is Using AI Agents to Boost Team Productivity](https://blog.bytebytego.com/p/how-grab-is-using-ai-agents-to-boost)
 - [ByteByteGo — How Meta Uses AI Agents for Data Warehouse Access and Security](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data)
+- [ByteByteGo — How LinkedIn Built an AI-Powered Hiring Assistant](https://blog.bytebytego.com/p/how-linkedin-built-an-ai-powered)
+- [ByteByteGo — LLM Security Basics: The Full Threat Model](https://blog.bytebytego.com/p/llm-security-basics-the-full-threat)
+- [ByteByteGo — The Security Architecture of GitHub Agentic Workflow](https://blog.bytebytego.com/p/the-security-architecture-of-github)
+- [NVD — CVE-2025-32711 (EchoLeak)](https://nvd.nist.gov/vuln/detail/CVE-2025-32711)
 - [Anthropic — How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [Dex Horthy — 12-Factor Agents](https://github.com/humanlayer/12-factor-agents)
