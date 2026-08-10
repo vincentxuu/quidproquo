@@ -1800,6 +1800,32 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     context_en: 'Often paired with context engineering as one of the two core engineering capabilities for agent development.',
   },
   {
+    term: 'context rot',
+    aliases: ['context-rot', '脈絡腐化'],
+    definition: 'LLM 的表現隨輸入變長而變差的現象——不是均勻遞減，而是越過某個長度後跳崖式退化。',
+    definition_en: 'The degradation of LLM performance as input length grows — not a gradual slope but a cliff past some threshold.',
+    advanced:
+      'Chroma 的研究測了 18 個前沿模型，全部出現這個現象，且跳崖點因模型與任務而異。它是架構性限制，不會因為模型變強而消失，因此長 context 不能當成「塞進去就好」。',
+    advanced_en:
+      "Chroma's study evaluated 18 frontier models and found the effect in all of them, with the cliff position varying by model and task. It is an architectural limit that does not disappear as models improve, so a large context window is not a licence to stuff everything in.",
+    context: '與 lost in the middle 併為 context engineering 存在的兩個主要理由。',
+    context_en: 'Together with lost in the middle, one of the two main reasons context engineering exists.',
+    links: [{ label: 'Chroma Research — Context Rot', url: 'https://research.trychroma.com/context-rot' }],
+    links_en: [{ label: 'Chroma Research — Context Rot', url: 'https://research.trychroma.com/context-rot' }],
+  },
+  {
+    term: 'lost in the middle',
+    aliases: ['lost-in-the-middle', '中段遺失'],
+    definition: '模型對 context 開頭與結尾的注意力明顯高於中段，放在中間的關鍵資訊容易被忽略。',
+    definition_en: 'Models attend far more to the beginning and end of the context than the middle, so key information placed in the middle is easily missed.',
+    advanced:
+      '成因與位置編碼（例如 RoPE 的 decay effect）有關，屬於架構層而非資料層問題。實務對策是把最關鍵的指令與資料放在頭尾，並主動裁剪中段。',
+    advanced_en:
+      'The cause is tied to positional encoding (for example the decay effect in RoPE), making it an architectural rather than a data problem. The practical response is to place the most critical instructions and data at the head and tail, and actively trim the middle.',
+    context: '本站在討論 context engineering、RAG chunk 排序與 agent 記憶時會用到這個詞。',
+    context_en: 'This site uses the term when discussing context engineering, RAG chunk ordering, and agent memory.',
+  },
+  {
     term: '數位員工',
     aliases: ['digital employee', 'digital-employee', 'digital worker', '數位勞工'],
     definition: '被包裝成組織單位來販售與管理的 AI agent：有職務範圍、權限、績效目標，以及一位為其產出負責的人。',
