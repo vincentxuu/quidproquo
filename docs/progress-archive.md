@@ -2,6 +2,36 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-01 歸檔
+
+### post(ai) 數位員工（PR #130）
+
+progress.txt 在合併 main 後達 95 行，本條目細節移到這裡。
+
+- 骨幹是 Anthropic Project Vend phase 1+2（一手，且把失敗一起公開）。
+- 第二輪查證修掉兩處實質錯誤：
+  1. **定價表**原本整張取自競品比較文，改回廠商官方定價頁後發現：Zendesk 根本
+     未公布 per-resolution 單價（方案內含額度＋超額計費，流傳的 ~$1.50 出自競品
+     行銷內容）；Agentforce 已於 2025-05 從 $2/conversation 改為 Flex Credits
+     $0.10/action；HubSpot 是 50 credits @ $9/1,000 ≈ $0.45，並把 resolution
+     定義成「72 小時內未轉真人」。後兩者剛好佐證文章原本的論點（計價單位由賣方
+     定義），改寫為以官方說法佐證。
+  2. **Klarna 時間線**原本停在 2025-05，補上 Q3 2025（相當於 853 名客服、省 $60M）、
+     2026-02（2030 年降至 2,000 人以下、靠自然流失）、2026-06（真人客服＝VIP）。
+     原本的「反轉 vs 範圍修正」二選一因此改寫為持續演進。
+- **MIT NANDA 樣本數衝突已解決**：報告 PDF 第 2 頁為 52 場訪談／153 份問卷／300+
+  專案；流傳甚廣的「150 訪談／350 員工問卷」是誤傳，文章直接更正並引用原文。
+- 新增 **EU AI Act** 一節：Article 26(2) 要求部署者將人為監督指派給具名自然人，
+  2026-08-02 生效；Annex III 第 4 類使雇主（而非廠商）成為部署者。
+- 維持並列不選邊：11x churn 70–80%（TechCrunch 引內部人士）vs 79% 留存（公司）；
+  Salesforce 9,000→5,000 的「裁員」vs「rebalance」。
+- 刻意不引用：Agentforce ARR（$800M vs 跨過 $1B run rate，來源衝突）、Gartner
+  「50% 會重新聘回」（無一手 PR）。
+- 新增 2 個全站 glossary 術語：數位員工、agent washing；2 個當篇術語。
+- **未解缺口**：兩輪搜尋都找不到有第三方驗證成效數字的台灣導入案例，只有廠商
+  新聞稿，因此文章維持這個缺口沒有硬填。
+- Research note 在 `.research/2026-08-01-digital-employee.md`（不入版控）。
+
 ## 2026-08-06 歸檔
 
 ### Recently completed（原 progress.txt 條目）
@@ -9,6 +39,78 @@
 - 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
   `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
   articleSection/wordCount; FAQPage schema + visible `<details>` FAQ section;
+第四批歸檔（PR #127 再次合併 main 後 progress.txt 達 95 行；依慣例移出最舊一筆）。
+
+- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
+  "never searched it, only talked about it" phenomenon. Key find nobody has
+  covered yet: FTC closed the Cox Media Group "Active Listening" case on
+  2026-05-21 — the service collected NO voice data at all, it was reselling
+  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
+  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
+  was a fraud. Second find: Meta's official PYMK signal list (transparency
+  center, updated 2024-12-13) explicitly includes "whether or not your contact
+  was uploaded by the person being suggested" — official confirmation of the
+  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
+  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
+  signal list contains no location/IP signal, so the article says "industry
+  practice, Meta holds the same raw materials". Included the Webex counterexample
+  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
+  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
+  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
+  地理圍欄, DMA). Research note in .research/ (not version-controlled).
+
+第三批歸檔（2026-08-06 稍晚，兩條分支各自合併 main 後都觸發上限：圖示改 Koboyo
+手繪風時 progress.txt 達 99 行，Learning How to Learn 系列 PR #127 時達 102 行。
+兩者歸檔的是同一筆條目）。
+
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+（2026-08-05 及之前的條目已移到 docs/progress-archive.md）
+
+以下前兩筆為當日第二批歸檔（發布手機廣告追蹤機制文章後，progress.txt 達 85 行，
+逼近 90 行上限而觸發）。
+
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
+  corrected three claims that are widespread in secondary coverage: Wan 2.7 has
+  NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
+  SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
+  pricing page, not the $0.03–$0.75/s range review sites quote; Sora app closed
+  2026-04-26 and its API closes 2026-09-24. Prices taken from official pricing
+  pages only (ai.google.dev, docs.dev.runwayml.com). Added 5 site-wide glossary
+  terms: DiT, VAE, latent space, classifier-free guidance, 模型蒸餾. Research
+  note in .research/2026-07-31-image-to-video-ai.md (not version-controlled).
+- 2026-07-27: post(ai) 3D modeling tools landscape (zh + en) — tool-selection
+  companion to the 2026-07-22 paper-level 3D generation map, cross-linked both
+  ways. Pricing taken from vendor pricing pages (Meshy/Tripo/Hyper3D) rather
+  than review sites. Added 6 site-wide glossary terms: mesh, PBR, retopology,
+  photogrammetry, Gaussian Splatting, 非流形. Also fixed the two pre-existing
+  `astro check` errors in src/components/RelatedPosts.tsx (ts18046/ts2339) by
+  typing the /api/related-posts JSON response — `astro check` now 0 errors.
+- 2026-07-25: SEO/AEO batch 1. Platform: content schema gained optional
+  `updated` + `faq`; BlogPosting now emits dateModified/inLanguage/
+  articleSection/wordCount; FAQPage schema + visible <details> FAQ section;
   title tag drops brand suffix past ~60 display cols; generated /llms.txt.
   Content: product-builder post retargeted from the "product builder" head
   term to long-tail (vs PM / how to transition), FAQ added, and de-orphaned
@@ -20,6 +122,9 @@
   (`pnpm check:skills-sync` / `pnpm skills:sync`), escalation queue,
   progress.txt protocol + archive. Skills are edited ONLY in
   .agents/skills/, then `pnpm skills:sync`.
+
+歸檔說明：2026-07-25 條目裡未完成的 batch 2（需使用者提供第一手素材）已登錄為
+`docs/governance/escalation-queue.md` 的 Q-008，不會因歸檔而遺失。
 
 ## 2026-07-06 歸檔
 
@@ -63,6 +168,20 @@ post(ai) 3D modeling tools landscape (zh + en) — tool-selection
 ## 2026-07-31 — post(ai) 圖生影片地景（zh + en）
 
 post(ai) image-to-video landscape (zh + en). deep-research pass
+- 2026-08-05: post(tech) 手繪風 SVG 圖示三條路線（zh + en）。補上資產地圖系列缺的
+  靜態 2D 向量那一塊（已有 Lottie 向量動畫 06-09、3D 工具 07-27），三篇互連。
+  重點不是工具清單而是取捨：Koboyo 92,967 個免費圖示的授權禁止做競品畫布/圖示
+  庫、也禁止使用者可挑選下載圖示的 app（原文照引）；sketchyicons 把 Lucide 幾何
+  的直線段轉二次貝茲、偏移上限取該線段自身長度的比例、用 icon 名稱當種子做到
+  byte-for-byte 一致；tldraw 用 shape ID 當種子撐過 resize + 兩趟疊描邊 + 依轉角
+  角度動態圓角。Koboyo 命名結構像批次生成但官方未明說，文中標為推論。新增 CC0
+  全站 glossary 詞條。post-verify 已跑並修正：Koboyo 數量同一天內從 92,967 掉到
+  87,954（Google 索引還停在 71,238），改成不寫死數字並把浮動本身寫進文章；theSVG
+  6,400+/4,487 → 6,502+/4,629；Wired Elements 星數改 10.8k。查授權原文後補上三條
+  Streamline 限制（開源即使付費仍強制署名、禁止 AI 訓練、每組織僅一位 licensed
+  user 能存取向量原始檔）與 Extended Allowance License 可解除 100 個上限；另發現
+  Koboyo 自己也有 MCP，補進 MCP 那節。
+- 2026-07-31: post(ai) image-to-video landscape (zh + en). deep-research pass
   corrected three claims that are widespread in secondary coverage: Wan 2.7 has
   NO open weights (Wan-Video GitHub org + HF Wan-AI both top out at 2.2 — many
   SEO sites claim Apache 2.0); Veo 3.1 Standard is $0.40/s per Google's official
@@ -306,3 +425,138 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   its 2026-08-01 start date passed) is a DIFFERENT act from the already-in-force
   保衛國安…採購特別條例 cited in D32 — the two posts never cross-referenced.
 
+- 2026-08-06: post(ai) AI certification fact-check (zh + en). Audited a
+  circulating "2026 AI certs for engineers" list against primary sources only;
+  three hard errors: MS AI-102 retired 2026-06-30 (cert page flagged retired +
+  noindex), Google has NO GenAI Engineer cert (URL 404s; only GenAI Leader +
+  PMLE exist), iPAS intermediate is 5-year not permanent (only beginner is
+  permanent). Biggest practical find: PMLE's exam guide renamed every Vertex AI
+  service to Gemini Enterprise Agent Platform, so all pre-mid-2026 study
+  material is dead. Also: Claude certs are 4 exams gated behind Partner Network
+  (per Pearson VUE). Prices are NOT officially published (third-party sources
+  conflict: CCAR-F listed as both $125 and $175) — article says so explicitly.
+  Added site-wide glossary term MLOps.
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
+- 2026-08-06: post(tech) 手機沒偷聽你講話 (zh + en). deep-research pass on the
+  "never searched it, only talked about it" phenomenon. Key find nobody has
+  covered yet: FTC closed the Cox Media Group "Active Listening" case on
+  2026-05-21 — the service collected NO voice data at all, it was reselling
+  data-broker email lists at a markup; $930,000 across CMG + MindSift + 1010
+  Digital Works. So the single strongest piece of "phones eavesdrop" evidence
+  was a fraud. Second find: Meta's official PYMK signal list (transparency
+  center, updated 2024-12-13) explicitly includes "whether or not your contact
+  was uploaded by the person being suggested" — official confirmation of the
+  shadow-profile path. Deliberately did NOT attribute household-IP graphs to
+  Meta: privacy policy confirms it collects nearby Wi-Fi APs + IP, but the PYMK
+  signal list contains no location/IP signal, so the article says "industry
+  practice, Meta holds the same raw materials". Included the Webex counterexample
+  (PoPETs 2022, reads mic while muted, 81.9% background-activity accuracy) so
+  the piece is not one-sided. Added 9 site-wide glossary terms (Meta Pixel,
+  Conversions API, Lookalike Audience, 資料掮客, 影子檔案, 頻率錯覺, 身分圖,
+  地理圍欄, DMA). Research note in .research/ (not version-controlled).
+
+## 2026-08-06 圖示改版與「文件解析實戰」系列（自 progress.txt 歸檔於 2026-08-08）
+
+- 2026-08-06: 全站圖示改用 Koboyo 手繪風（27 個 UI 圖示 + favicon），是 08-05 那篇
+  文章的自我應用。授權確認過：blog 當自家 UI 用不踩任何一條 "You can't"。三個名字
+  沒有直接對應，改用 house / bar-chart / external-link。實測後兩個修正：(1) Koboyo
+  畫在 90-210 單位格線上，筆畫換算到 24 格線只剩 0.5-0.7，在 11-16px 下是灰色細線
+  像 disabled — Icons.astro 用 FATTEN_PX=0.9 疊描邊補回來（依各自 viewBox 換算，
+  讓加粗量固定是 0.9 個渲染像素）；(2) 站上原本有 11-13px 的呼叫點，手繪筆觸撐不住，
+  全部提到 14px。pin 用 pushpin-own，因為 koboyo 的 `pin` 是 103x202 縫衣針、頭在
+  16px 以下會消失，斜角的那幾個在 14px 讀起來像法槌。順帶更新 08-05 那篇：授權頁
+  數字從 87,954 回到 90,150，「主動刪減」的推論不成立改寫成上下跳動；另查 sitemap.xml
+  是單一 flat urlset 只列 18,044 個 URL、約 17,930 個圖示頁，跟宣稱數字差五倍。
+- 2026-08-06: 新系列「文件解析實戰」（slug `document-parsing`）建立並註冊於
+  `src/utils/series.ts`。排序依閱讀路徑不是日期——骨幹是三層階梯（轉換/抽取/
+  解析）。`getSeriesNav` 用嚴格 order±1，編號必須從 1 連號。現有 1 三層階梯總論、
+  2 MarkItDown、3 anydoc、4 抽取層、5 解析層，zh/en 各一份，系列完整。AI 爬蟲
+  全景圖退出系列，保留雙向連結。新寫四篇 post(ai)：三層階梯總論、anydoc、
+  抽取層（PyMuPDF/pdfplumber/pypdf/Tika/Kreuzberg/extractous）、解析層（MinerU/
+  Marker/Docling/olmOCR/dots.ocr + 商業 API）。
+  post-verify 已跑並全數修正，兩個教訓值得記住：(1) 引 benchmark 前先讀它的計時
+  與加總方式——anydoc 的 README 自己說 CLI 工具計時含 process spawn、綜合分數欄
+  各行平均的格式集不同不可排名，我原本兩條都誤用了；(2) 對第三方 benchmark 要用
+  跟廠商自評同一把尺——ParseBench 由 LlamaIndex 自製且榜首是自家產品，原本沒標。
+  agentic-attachment-rag-survey（zh/en）的同源 ParseBench 誤述已一併修正。
+  order 4/5 的星數與授權全部走 GitHub API 現查（2026-08-06）。最重要的發現是
+  授權：PyMuPDF 是 AGPL-3.0（閉源 SaaS 的地雷）、MinerU 用自訂授權（過門檻要
+  另談）、Marker/Surya 程式碼 Apache-2.0 但模型權重走改過的 OpenRAIL-M——只有
+  Docling 是乾淨 MIT。extractous 自 2024-12 停更。repo 搬家：marker →
+  datalab-to、docling → docling-project，站內舊連結已更新。一手條款已核對：
+  MinerU LICENSE.md 的 100M MAU / $20M 月營收門檻正確，另補上更會踩到的揭露
+  義務與「權利自動終止、無須通知」條款。Marker/Surya 的門檻矛盾**不在二手來源，
+  在 Datalab 自己的兩份官方文件之間**——repo README 寫 $5M + Apache 2.0，
+  on-prem 文件寫 $2M ARR + GPL + custom RAILs，數字差 2.5 倍且程式碼授權寫的
+  也不一樣。結論改成「$2M–$5M 區間要寄信問並留書面回覆」，不是讀網頁能解決。
+  這次的錯誤模式已回饋進 `post-verify` skill：新增步驟 3.5「benchmark 與授權的
+  加驗」（benchmark 七問 + 授權五查）與新 verdict 🔵 Misframed（數字抄對但推論
+  錯）。核心觀察是本 skill 原本只抓「數字錯」，抓不到「數字對、用法錯」。
+
+
+## 2026-08-09/10 — drone series progress.txt 全文（合併 main 時自 progress.txt 移入）
+
+- 2026-08-09: 8 posts (zh+en), series 30 -> 38. **B TECHNICAL GROUP COMPLETE
+  (17 cells) AND D GROUP COMPLETE (4 cells).** Detail in plan §5.2; older entries archived to
+  docs/progress-archive.md. Reusable lessons, ranked by what they cost me:
+  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING (B12: unit prices came
+  out REVERSED and 5x off; the line-item record was public). Flagging "that
+  looks low" is not removing the doubt. (2) A GAP YOU LIST CAN REFUTE THE POST
+  (B16's own "no control group" killed its first conclusion) — so answer, per
+  gap, "could X refute this?" inside the post. (3) THE RECURRING MISTAKE closed
+  after 6 instances: nothing needed hardware/factory/interviews. (4) For a fuzzy
+  word, find where the source is FORCED to enumerate it (B13 ModeReason=56;
+  D32 内政部 31-item list; 「無人機」19 instruments vs「反制無人機」1).
+  (5) Mis-shaped clause → find its PARENTAGE (B14). (6) Requests-on-record vs
+  delivered-text (B14, C24). (7) Negative results must print query + counts.
+  Full text of (1)-(7) in docs/progress-archive.md.
+  (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
+  民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
+  「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
+  (9) FACT: CCP special-compulsory-measures chapter PASSED 2024-07-16 (§153-1~
+  §153-10 = GPS / IMSI-catcher / private-space imaging); NO aerial article.
+  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's itemised closures exist
+  only because the LY Budget Center made the CAA produce them.
+  (12)-(16) GAP-CLOSING ROUNDS 2026-08-09/10 — full text in progress-archive.
+  Headlines: D31's series now 108年度 5 / 109年 4 / 110年 2 / 111年 9 /
+  112年1-8月 3 (count did NOT fall → post stronger); 「國內各機場均已購置手持式
+  干擾器…並視況反制無人機」 made D32's "own it, can't fire it" 現況; C1 prints
+  its query and self-corrected; D2 half-closed with pyulog (bench logs only).
+  STILL OPEN: D3 pass-rate NOT published; 縣市公告 ship as ODS coordinate
+  annexes on an unreachable host; 交通部函釋 not yet retried post-(17).
+  RULES: a gap naming its own source → go get it. A gap-filling edit must also
+  fix title/description/inbound links (D31 title was 4x understated). Time-
+  sensitive posts need a dated review block, not just a caveat.
+  (17) 2026-08-10 SELF-CORRECTION: wrote 判決書/函釋 off as unreachable after
+  ONE failed route each. Wrong — curl returns 000 for ALL .gov.tw here so curl
+  is not the test (firecrawl is), and the judgment DB is a POST form reachable
+  via firecrawl_interact. 「遙控無人機」32、＋干擾器 0、「空拍 蒐證」520 →
+  written into D32 + C24. ONE FAILED TRANSPORT IS NOT A BLOCKED SOURCE; "I
+  can't get it" is THE RECURRING MISTAKE's exact shape. (interact hard-timeouts
+  at 60s and dumps huge trees: one number per call, grep the saved file.)
+  TOOL WARNING: firecrawl's json extractor FABRICATES — it invented a Kaohsiung
+  no-fly list incl. non-existent 「高雄嫩江發電廠」. Verify with direct-quote.
+  (11) AN EMPTY GAP FIELD READS EXACTLY LIKE "NO GAPS". The 未答 column only
+  became standard at B8; 20 earlier rows had none — all 38 now carry one
+  (B4/B5/B9 from the posts themselves, 17 marked 回溯補寫); two stale rows fixed.
+  NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
+  / C25 film / C26 environment / C27 entertainment-industry; all of I except
+  61 privacy. Two named, fillable follow-ups I declared in the posts: D31 needs
+  post-109/08 closure counts (LY publishes a budget report every year); D30
+  needs the 縣市 announced-zone lists and a 函釋 search on 政府機關（構）.
+- 2026-08-08 及更早: drone series 0 -> 30 (zh+en)。已歸檔到
+  docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
+  仍約束我的 SITE FACTS：`category` 是容器、`drone` tag 才是主題（每篇 drone
+  放第一個）；未來日期文章不會被 build，已發佈文章連到更晚日期＝硬 404；
+  frontmatter glossary 會 shadow 站台預設；沒有 remark-math，數學寫 code block；
+  資安檢測規範現行版 V2.0（2026-04-30）；英文文章連中文 slug 曾是全站性缺陷
+  （163 檔／742 連結），批次改連結前先讀 archive 裡的三條安全規則。

@@ -57,7 +57,7 @@ series:
 - Parallel task：在 Slack 啟動任務，繼續做其他事
 
 ### 安全與權限
-- 每個用戶用自己的 Claude 帳號
+- 每個使用者用自己的 Claude 帳號
 - Sessions 計入個人 plan 額度
 - 只能存取自己連結的 repo
 - Channel-based access control

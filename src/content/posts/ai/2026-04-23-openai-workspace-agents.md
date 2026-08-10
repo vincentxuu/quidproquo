@@ -47,7 +47,7 @@ Workspace Agents 底層是 Codex(OpenAI 的 coding agent),這是個關鍵技術�
 | 治理 | 基本權限 | 工具/資料/動作權限 + 人工核准 gate |
 | 底層 | GPT | Codex |
 
-對企業 IT 來說,Custom GPTs 是「用 prompt 包出來的玩具」,Workspace Agents 才開始有「可審計、可治理」的企業軟體樣子。
+對企業 IT 來說,Custom GPTs 是「用 prompt 包出來的玩具」,Workspace Agents 才開始有「可稽核、可治理」的企業軟體樣子。
 
 ## 治理與核准:human-in-the-loop
 

@@ -89,7 +89,7 @@ openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 | Fast 模式 | `reasoning.effort = "low"` + `text.verbosity = "low"` |
 | 自動壓縮 | context window 70% 時觸發 server-side compaction |
 
-Codex 訂閱用戶還能用 `openai-codex/gpt-5.3-codex-spark`。
+Codex 訂閱者還能用 `openai-codex/gpt-5.3-codex-spark`。
 
 ### Google (Gemini)
 

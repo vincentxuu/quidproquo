@@ -65,7 +65,7 @@ series:
 ### Enterprise 控制
 - `channelsEnabled`：master switch（Team/Enterprise 預設關閉）
 - `allowedChannelPlugins`：限制可用的 channel plugins
-- Pro/Max 用戶不受限制
+- Pro/Max 使用者不受限制
 
 ### 自製 Channel
 - 建立自己的 Channel server

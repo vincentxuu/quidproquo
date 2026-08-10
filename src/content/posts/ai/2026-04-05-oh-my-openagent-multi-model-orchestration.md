@@ -26,7 +26,7 @@ OmO 預設了一組具名 Agent，每個有明確的角色和指定的模型：
 |------------|------|------|
 | **Sisyphus** | Claude Opus 4.5 High | 主力開發 Agent，負責核心實作 |
 | **Oracle** | GPT-5.2 Medium | 架構設計、除錯、技術決策 |
-| **Frontend UI/UX** | Gemini 3 Pro | 前端界面、樣式、使用者體驗 |
+| **Frontend UI/UX** | Gemini 3 Pro | 前端介面、樣式、使用者體驗 |
 | **Librarian** | Claude Sonnet 4.5 | 文件搜尋、codebase 探索 |
 | **Explore** | Grok Code | 快速全域搜尋（contextual grep） |
 | **Prometheus** | — | 規劃者 |

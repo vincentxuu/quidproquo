@@ -5,7 +5,7 @@ type: guide
 category: ai
 tags: [react-agent, tool-use, prompt-engineering, claude-code, few-shot, dynamic-prompt]
 lang: zh-TW
-tldr: "Claude Code 的 45 個 tool 中，每個 prompt() 都會根據用戶類型、feature flags、系統能力動態調整。將這個模式套用到 ReAct Agent，根據 orchestrator 模型能力、locale、可用 tools 三個維度動態生成 tool description，小模型自動補 few-shot，大模型省 token。"
+tldr: "Claude Code 的 45 個 tool 中，每個 prompt() 都會根據使用者類型、feature flags、系統能力動態調整。將這個模式套用到 ReAct Agent，根據 orchestrator 模型能力、locale、可用 tools 三個維度動態生成 tool description，小模型自動補 few-shot，大模型省 token。"
 description: "分析 Claude Code 如何動態生成 tool description，並設計一套適用於多 provider ReAct Agent 的動態 prompt 策略，讓同一套 tool 在不同模型和語言下都能發揮最佳效果。"
 draft: false
 ---
@@ -29,16 +29,16 @@ prompt(options: {
 
 回傳的是一段動態組裝的字串，作為 LLM API 的 tool description。
 
-### BashTool：根據用戶類型切換整段描述
+### BashTool：根據使用者類型切換整段描述
 
 BashTool 是最極端的例子。它根據 `process.env.USER_TYPE` 切換完全不同的描述：
 
 - **內部員工（ant）**：精簡指令，引導用 `/commit` 等 skill
-- **外部用戶**：完整的 git 安全協議、sandbox 限制說明、背景任務指引
+- **外部使用者**：完整的 git 安全協議、sandbox 限制說明、背景任務指引
 
 同一個 tool，不同人看到的描述差異超過 50%。
 
-### FileEditTool：根據用戶設定調整格式說明
+### FileEditTool：根據使用者設定調整格式說明
 
 ```typescript
 const prefixFormat = isCompactLinePrefixEnabled()
@@ -46,7 +46,7 @@ const prefixFormat = isCompactLinePrefixEnabled()
   : 'spaces + line number + arrow'
 ```
 
-用戶在設定裡選了不同的行號格式，tool description 跟著變。這確保 LLM 產生的 `old_string` 和 `new_string` 格式與用戶實際看到的一致。
+使用者在設定裡選了不同的行號格式，tool description 跟著變。這確保 LLM 產生的 `old_string` 和 `new_string` 格式與使用者實際看到的一致。
 
 ### WebSearchTool：注入當前時間
 
@@ -150,7 +150,7 @@ prompt(ctx) {
 }
 ```
 
-中文 locale 額外附加岩場名稱的中英對應。因為用戶輸入「龍洞天氣」，但底層 API 可能需要英文名 "Longdong"。這個映射寫在 description 裡，LLM 就知道怎麼轉換，不需要額外的 tool call。
+中文 locale 額外附加岩場名稱的中英對應。因為使用者輸入「龍洞天氣」，但底層 API 可能需要英文名 "Longdong"。這個映射寫在 description 裡，LLM 就知道怎麼轉換，不需要額外的 tool call。
 
 ### 維度三：可用 Tools
 
@@ -162,7 +162,7 @@ prompt(ctx) {
   let desc = '搜尋攀岩路線。'
 
   if (ctx.availableTools.includes('weather')) {
-    desc += '\n提示：如果用戶問「今天適合去哪裡」，建議先用 weather 確認天氣，再用此 tool 搜尋路線。'
+    desc += '\n提示：如果使用者問「今天適合去哪裡」，建議先用 weather 確認天氣，再用此 tool 搜尋路線。'
   }
   return desc
 }
@@ -180,9 +180,9 @@ prompt(ctx) {
 
 排除原因：會導致每個 turn 的 tool schema 不同，破壞 provider prompt cache。Claude Code 的做法是 session 內鎖定 schema bytes，正是為了避免這個問題。引導 LLM 不重複呼叫的正確做法是在 message history 裡自然呈現已有的 tool results，LLM 自己會判斷。
 
-**用戶歷史級動態**：根據用戶過去的查詢習慣調整 description。例如「這個用戶常問天氣，把 weather tool 的描述加長」。
+**使用者歷史級動態**：根據使用者過去的查詢習慣調整 description。例如「這個使用者常問天氣，把 weather tool 的描述加長」。
 
-排除原因：過度擬合。tool description 應該描述 tool 的能力，不是用戶的偏好。用戶偏好應該透過 system prompt 或 user_profile tool 的結果傳遞給 LLM。
+排除原因：過度擬合。tool description 應該描述 tool 的能力，不是使用者的偏好。使用者偏好應該透過 system prompt 或 user_profile tool 的結果傳遞給 LLM。
 
 ## 實作注意事項
 

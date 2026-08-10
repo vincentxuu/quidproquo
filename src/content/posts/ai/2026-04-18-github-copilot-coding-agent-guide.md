@@ -23,7 +23,7 @@ Copilot Coding Agent 跟 IDE 裡的 Copilot 補全或 Copilot Chat 是完全不�
 | 輸出 | 程式碼片段、建議 | Branch + PR |
 | 適合任務 | 小範圍補全、解釋 | 中型功能、bug fix |
 
-跟其他 coding agent 的最大差異是**完全整合在 GitHub 工作流裡**，不需要另外安裝工具或切換環境。有用戶評價「GitHub 第一次真正做到了 IDE-less 體驗」——你可以在 Issue 指派完就關掉電腦，agent 自己跑完會開 PR 通知你。
+跟其他 coding agent 的最大差異是**完全整合在 GitHub 工作流裡**，不需要另外安裝工具或切換環境。有使用者評價「GitHub 第一次真正做到了 IDE-less 體驗」——你可以在 Issue 指派完就關掉電腦，agent 自己跑完會開 PR 通知你。
 
 ## 怎麼把 Issue 指派給 Copilot
 
@@ -201,7 +201,7 @@ Copilot Coding Agent 目前開放給 **Copilot Pro+** 和 **Copilot Enterprise**
 
 超出額度的 premium request 另計 **$0.04/request**。
 
-**2026-04-20 收費調整**：GitHub 收緊了個人方案的使用上限，Pro+ 的額度是 Pro 的 5 倍以上；同時暫停受理 Pro、Pro+、Student 新用戶報名（Copilot Free 仍可新增）。Opus 模型也從 Pro 方案移除，Pro+ 則保留 Opus 4.7。
+**2026-04-20 收費調整**：GitHub 收緊了個人方案的使用上限，Pro+ 的額度是 Pro 的 5 倍以上；同時暫停受理 Pro、Pro+、Student 新使用者報名（Copilot Free 仍可新增）。Opus 模型也從 Pro 方案移除，Pro+ 則保留 Opus 4.7。
 
 注意有兩個費用來源：
 1. **Premium requests**：一個 agent session 消耗 10–50 個，視任務複雜度

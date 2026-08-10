@@ -86,7 +86,7 @@ Provider 內部 TTL 管理           Tool Result Cache（工具級）
 最終設計出的架構長這樣：
 
 ```
-用戶查詢進來
+使用者查詢進來
     │
     ▼
 ┌─ Layer 1: Semantic Cache ──────────────────┐
@@ -144,7 +144,7 @@ Provider 內部 TTL 管理           Tool Result Cache（工具級）
 | `crag_info` | 6 hr | 岩場基本資訊（交通、設施、開放時間）極少變動 |
 | `search_crags` | 6 hr | 岩場列表極少變動 |
 | `search_routes` | 1 hr | 路線資料偶有更新（新評論、新評分） |
-| `user_profile` | 10 min | 用戶可能剛完攀回來記錄新路線 |
+| `user_profile` | 10 min | 使用者可能剛完攀回來記錄新路線 |
 | `recommend` | 5 min | 個人化推薦受 profile 影響，變動快 |
 | `sql_query` | 5 min | 結構化數據可能有即時寫入 |
 

@@ -115,7 +115,7 @@ walker 是唯一的單執行緒 producer，命中檔名就把 job 丟進 buffere
 
 該知道的限制：**只支援 macOS / Linux，沒有 Windows**（社群最大抱怨）；不覆蓋 Cargo、Maven/Gradle、NuGet、Hex、Swift PM、Yarn PnP 的 `.pnp.data.json`、Bun 二進位 `bun.lockb`、Safari 擴充；MCP 與多數套管的 `version` 常為空（配置不 pin 安裝版本）；exposure 比對僅精確比對，無版本範圍；threat_intel catalog 由 AI 起草，README 明確要求「production 前先對照當前 advisory 自行 review」。
 
-整體來說，Bumblebee 的每個「不做」都是設計而非偷懶：不執行（避免觸發 postinstall 蠕蟲）、不存狀態（避免壞 delta）、不內建 feed（correlation 外包給下游）、不直傳物件儲存（不想把雲憑證散佈到每台端點）、不抓 secret（env／URL 主動清洗）。它把複雜度壓在「乾淨快照 + 穩定 record_id + 接收端 current-state 模型」上，換來一個零依賴、可審計、跑在開發者筆電上也安全的 one-shot binary。代價是它本身很「鈍」——不懂版本範圍、不懂嚴重度、要你自己餵 catalog、自己接後端——但對「事件當下，全機隊誰中了」這個窄問題，鈍得剛剛好。
+整體來說，Bumblebee 的每個「不做」都是設計而非偷懶：不執行（避免觸發 postinstall 蠕蟲）、不存狀態（避免壞 delta）、不內建 feed（correlation 外包給下游）、不直傳物件儲存（不想把雲憑證散佈到每台端點）、不抓 secret（env／URL 主動清洗）。它把複雜度壓在「乾淨快照 + 穩定 record_id + 接收端 current-state 模型」上，換來一個零依賴、可稽核、跑在開發者筆電上也安全的 one-shot binary。代價是它本身很「鈍」——不懂版本範圍、不懂嚴重度、要你自己餵 catalog、自己接後端——但對「事件當下，全機隊誰中了」這個窄問題，鈍得剛剛好。
 
 ## 參考資料
 

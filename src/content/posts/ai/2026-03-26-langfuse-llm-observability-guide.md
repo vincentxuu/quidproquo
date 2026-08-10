@@ -10,7 +10,7 @@ description: "Langfuse 完整使用指南：從安裝設定到 Tracing、Prompt 
 draft: false
 ---
 
-你開始上線一個 LLM 應用之後，馬上會遇到一連串問題：用戶反映回答品質變差了，但你不知道是 prompt 改壞了還是 retrieval 出問題；token 費用暴漲，但不知道是哪個功能在燒錢；想改善回答品質，但沒有系統化的方式衡量改善效果。
+你開始上線一個 LLM 應用之後，馬上會遇到一連串問題：使用者反映回答品質變差了，但你不知道是 prompt 改壞了還是 retrieval 出問題；token 費用暴漲，但不知道是哪個功能在燒錢；想改善回答品質，但沒有系統化的方式衡量改善效果。
 
 這些問題的共同根源是：**你看不見 LLM 應用內部發生了什麼事**。
 
@@ -80,13 +80,13 @@ pip install langfuse
 
 ## Tracing：看見每次呼叫發生了什麼
 
-Tracing 是 Langfuse 最核心的功能。每次用戶發送一個請求，你的 LLM 應用背後可能做了很多事：查資料庫、呼叫 embedding API、做 retrieval、呼叫 LLM 生成回答。Tracing 把這些步驟全部記錄下來，讓你事後可以逐步檢視。
+Tracing 是 Langfuse 最核心的功能。每次使用者發送一個請求，你的 LLM 應用背後可能做了很多事：查資料庫、呼叫 embedding API、做 retrieval、呼叫 LLM 生成回答。Tracing 把這些步驟全部記錄下來，讓你事後可以逐步檢視。
 
 ### 基本概念
 
 Langfuse 的 trace 由三種元素組成：
 
-- **Trace**：一次完整的請求（例如用戶的一個問題）
+- **Trace**：一次完整的請求（例如使用者的一個問題）
 - **Span**：trace 內的一個步驟（例如「向量搜尋」或「重排序」）
 - **Generation**：一次 LLM 呼叫（自動記錄 input/output/token usage/latency）
 
@@ -104,7 +104,7 @@ const langfuse = new Langfuse({
 });
 
 async function handleUserQuery(query: string, userId: string) {
-  // 建立一個 trace，代表一次完整的用戶請求
+  // 建立一個 trace，代表一次完整的使用者請求
   const trace = langfuse.trace({
     name: "rag-query",
     input: { query },
@@ -250,13 +250,13 @@ Langfuse 的 Prompt Management 把 prompt 從程式碼中抽離出來，在 Dash
 在 Langfuse Dashboard 上建立一個 prompt，例如叫做 `rag-system-prompt`：
 
 ```
-你是一個技術助手。根據以下參考文件回答用戶問題。
-如果參考文件中沒有相關資訊，請明確告知用戶你無法回答。
+你是一個技術助手。根據以下參考文件回答使用者問題。
+如果參考文件中沒有相關資訊，請明確告知使用者你無法回答。
 
 參考文件：
 {{context}}
 
-用戶問題：
+使用者問題：
 {{query}}
 ```
 
@@ -332,21 +332,21 @@ trace.update({
 
 適合早期階段或高風險場景（例如醫療、法律），需要人工確認品質。
 
-### 2. 用戶回饋
+### 2. 使用者回饋
 
-把用戶的回饋（按讚/倒讚、評分）回傳給 Langfuse：
+把使用者的回饋（按讚/倒讚、評分）回傳給 Langfuse：
 
 ```typescript
-// 用戶按了「有幫助」
+// 使用者按了「有幫助」
 langfuse.score({
   traceId: currentTraceId,
   name: "user-feedback",
   value: 1,
-  comment: "用戶按了讚",
+  comment: "使用者按了讚",
 });
 ```
 
-這是最有價值的訊號——畢竟用戶覺得好不好才是真正重要的。
+這是最有價值的訊號——畢竟使用者覺得好不好才是真正重要的。
 
 ### 3. LLM-as-Judge 自動評估
 
@@ -425,7 +425,7 @@ await langfuse.createDatasetItem({
 });
 ```
 
-更常見的做法是在 Dashboard 上，把表現好的 trace 直接加入 dataset——用真實的用戶問題作為測試集比自己編的更貼近實際。
+更常見的做法是在 Dashboard 上，把表現好的 trace 直接加入 dataset——用真實的使用者問題作為測試集比自己編的更貼近實際。
 
 ### 跑回歸測試
 
@@ -492,7 +492,7 @@ Langfuse 會根據 generation 記錄的 model 和 token usage 自動計算費用
 
 - **按時間**的費用趨勢
 - **按模型**的費用分布（GPT-4o vs Claude vs 其他）
-- **按用戶**的費用（找出高用量用戶）
+- **按使用者**的費用（找出高用量使用者）
 - **按功能**的費用（哪個 trace name 最燒錢）
 
 不需要額外設定，只要 generation 裡有記錄 model 和 token usage，費用就會自動算出來。Langfuse 內建主流模型（OpenAI、Anthropic、Gemini 等）的定價資料，如果你用的是自架模型或 fine-tuned 模型，也可以在 Dashboard 上自訂定價。
@@ -576,7 +576,7 @@ Settings.callback_manager = CallbackManager([langfuse_handler])
 5. 把品質好的 trace 加入 Dataset 作為測試集
 
 **上線後**：
-1. 收集用戶回饋（讚/倒讚），送到 Langfuse
+1. 收集使用者回饋（讚/倒讚），送到 Langfuse
 2. 設定 LLM-as-Judge 自動評估新的 trace
 3. 在 Dashboard 上監控品質趨勢和成本
 4. 發現問題時，用 trace 快速定位根因

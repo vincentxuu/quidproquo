@@ -24,7 +24,7 @@ Kiro 提供四個層級，以 credit 為計費單位：
 |------|------|-----------|---------|---------|
 | **Free** | $0 | 50（永久） | 不可超額 | 個人嘗鮮、輕度使用 |
 | **Pro** | $20/user | 1,000 | $0.04/credit | 日常開發者 |
-| **Pro+** | $40/user | 2,000 | $0.04/credit | 重度用戶、自主 Agent |
+| **Pro+** | $40/user | 2,000 | $0.04/credit | 重度使用者、自主 Agent |
 | **Power** | $200/user | 15,000 | $0.04/credit | 團隊全面導入 |
 
 幾個關鍵觀察：
@@ -144,7 +144,7 @@ Kiro 的 CLI 實作了 **Agent Client Protocol (ACP)**，這是一個標準化�
 - **Steering Files**：專案層級的 AI 行為設定檔
 - **AWS 原生整合**：Lambda、CDK、CloudFormation、CodeCatalyst 無縫對接
 
-對 AWS 重度用戶來說，Kiro 是目前唯一一個**從 IDE 到部署全鏈路都在 AWS 生態系內**的 AI 開發工具。
+對 AWS 重度使用者來說，Kiro 是目前唯一一個**從 IDE 到部署全鏈路都在 AWS 生態系內**的 AI 開發工具。
 
 ## 適用場景
 

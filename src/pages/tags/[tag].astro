@@ -25,7 +25,7 @@ const { posts } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <PostLayout title={`#${tag} — quidproquo`} lang="zh-TW" description={`quidproquo 標籤 #${tag} 相關文章，共 ${posts.length} 篇。`}>
-  <a href="/tags" class="back-link"><Icons name="chevron-left" size={13} />{t('post.backtotags')}</a>
+  <a href="/tags" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtotags')}</a>
   <div class="tag-header">
     <h1><span class="hash">#</span>{tag}</h1>
     <span class="post-count">{posts.length} {t('post.articles')}</span>

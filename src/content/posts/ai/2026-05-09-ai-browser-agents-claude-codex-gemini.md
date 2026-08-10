@@ -20,7 +20,7 @@ Anthropic 走的是「擴充功能」路線。2025-08 以 research preview 形�
 
 權限模型偏保守：敏感站點預設要逐站授權。這是有原因的——LayerX 在 2026 揭露了名為 **ClaudeBleed** 的漏洞，任何 Chrome 擴充功能（即使沒有特殊權限）都能注入指令劫持 Claude 的擴充。Anthropic 在 **2026-05-06** 推出 v1.0.70，補上敏感操作的二次確認流程。
 
-適合：想留在 Chrome、不想換生態系、已經是 Claude 付費用戶的人。
+適合：想留在 Chrome、不想換生態系、已經是 Claude 付費使用者的人。
 不適合：想要 agent 直接接管整個瀏覽工作流的重度使用者——Anthropic 故意把它限制在 side panel。
 
 ## ChatGPT Atlas + Codex Chrome Extension
@@ -48,7 +48,7 @@ Google 是唯一不需要安裝任何東西的——**Gemini 已經內建在 Chr
 
 代價是綁在 Google 生態裡。重度使用 Gmail / Drive / Calendar 的人，這是最順的選項；不想把更多東西交給 Google 的人，這也是最難拒絕的——因為 Chrome 一升級它就在那。
 
-適合：Google 重度用戶、AI Pro / Ultra 訂戶、想要零摩擦體驗的人。
+適合：Google 重度使用者、AI Pro / Ultra 訂戶、想要零摩擦體驗的人。
 不適合：跨平台 / 跨生態工作的人。
 
 ## 三家比較

@@ -106,7 +106,7 @@ SQL 查詢的回答不需要 LLM 推理，只需要把數字填入模板，用�
 ```
 Q: 「推薦適合我目前程度的路線」
 
-Step 1: 取用戶歷史最高完攀難度 → grade = 5.10b (grade_numeric = 102)
+Step 1: 取使用者歷史最高完攀難度 → grade = 5.10b (grade_numeric = 102)
 Step 2: SQL 查詢 grade_numeric 95-110 的未完攀路線（Top 20）
 Step 3: 把 20 條路線當 context，用 Gemma 生成推薦理由
 ```

@@ -162,7 +162,7 @@ await chain.call({ query });
 
 **核心功能**：
 - 作為 LLM API 的代理，自動捕捉所有呼叫
-- 成本追蹤（按模型、用戶、時間段）
+- 成本追蹤（按模型、使用者、時間段）
 - Rate limiting 和快取（在 proxy 層）
 - 請求重放
 
@@ -217,7 +217,7 @@ const openai = new OpenAI({
 
 **自己寫 trace** → 適合有特殊需求或想完整控制 trace 資料結構的場景。成本是要自己維護 UI 和查詢介面，但完全客製化。
 
-NobodyClimb 的系統選擇了自訂 trace，主要原因是部署在 Cloudflare Workers（不能輕易跑外部 SDK 的 flush 機制），且 trace 資料需要和業務資料（攀岩路線、用戶資料）緊密整合。但如果是重新開始且沒有平台限制，Langfuse 會是第一個試的選項。
+NobodyClimb 的系統選擇了自訂 trace，主要原因是部署在 Cloudflare Workers（不能輕易跑外部 SDK 的 flush 機制），且 trace 資料需要和業務資料（攀岩路線、使用者資料）緊密整合。但如果是重新開始且沒有平台限制，Langfuse 會是第一個試的選項。
 
 ---
 

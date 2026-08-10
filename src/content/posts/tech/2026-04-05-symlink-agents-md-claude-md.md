@@ -5,8 +5,8 @@ type: guide
 category: tech
 tags: [claude-code, codex, agents-md, symlink, dx, ai-tools]
 lang: zh-TW
-tldr: "Claude Code 不認 AGENTS.md，Codex 不認 CLAUDE.md，多人協作項目被迫維護兩份一樣的設定。解法：把 CLAUDE.md 做成 AGENTS.md 的 symlink，只維護一份。"
-description: "在同時使用 Codex 和 Claude Code 的多人協作項目中，設定檔重複維護是個惱人問題。本文用 symlink 一行指令解決。"
+tldr: "Claude Code 不認 AGENTS.md，Codex 不認 CLAUDE.md，多人協作專案被迫維護兩份一樣的設定。解法：把 CLAUDE.md 做成 AGENTS.md 的 symlink，只維護一份。"
+description: "在同時使用 Codex 和 Claude Code 的多人協作專案中，設定檔重複維護是個惱人問題。本文用 symlink 一行指令解決。"
 draft: false
 ---
 
@@ -14,7 +14,7 @@ draft: false
 
 ## TL;DR
 
-Claude Code 只讀 `CLAUDE.md`，Codex 只讀 `AGENTS.md`，多人協作項目被迫同時維護兩份內容一模一樣的檔案。把 `CLAUDE.md` 做成指向 `AGENTS.md` 的 symlink，問題消失。
+Claude Code 只讀 `CLAUDE.md`，Codex 只讀 `AGENTS.md`，多人協作專案被迫同時維護兩份內容一模一樣的檔案。把 `CLAUDE.md` 做成指向 `AGENTS.md` 的 symlink，問題消失。
 
 ## 情境
 

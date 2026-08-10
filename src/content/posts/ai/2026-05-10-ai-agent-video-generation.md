@@ -31,7 +31,7 @@ HyperFrames   HeyGen   Runway   Synthesia
 整合方式分三種，從上到下設定成本遞增、彈性也遞增：
 
 1. **Skills** — 讓 agent 學會工具的使用方式，一行指令安裝
-2. **MCP Connector** — 讓 agent 直接呼叫服務 API，適合非技術用戶
+2. **MCP Connector** — 讓 agent 直接呼叫服務 API，適合非技術使用者
 3. **API 直接整合** — 最靈活，適合開發者自建流水線
 
 ## Skills：最快的起點（HyperFrames）

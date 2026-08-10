@@ -295,7 +295,7 @@ fi
 
 ### 場景 5：Audit Log
 
-所有 Claude 的操作都記錄下來，用於事後審計。
+所有 Claude 的操作都記錄下來，用於事後稽核。
 
 ```bash
 #!/bin/bash

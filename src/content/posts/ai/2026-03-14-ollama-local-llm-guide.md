@@ -659,7 +659,7 @@ Windows 啟用 debug 模式：`$env:OLLAMA_DEBUG="1"` 再啟動。
 
 **NVIDIA**：確認 `nvidia-smi` 能跑。Docker 裡用 `docker run --gpus all ubuntu nvidia-smi` 測試。如果 UVM driver 沒載入：`sudo nvidia-modprobe -u`。進階診斷：`CUDA_ERROR_LEVEL=50`。
 
-**AMD**：用戶必須在 `video` 和 `render` 群組裡才能存取 `/dev/kfd`。Docker 容器裡需要手動 `--group-add` 對應的 GID。ROCm 版本太舊（v6 以下）可能導致 timeout，升到 v7。
+**AMD**：使用者必須在 `video` 和 `render` 群組裡才能存取 `/dev/kfd`。Docker 容器裡需要手動 `--group-add` 對應的 GID。ROCm 版本太舊（v6 以下）可能導致 timeout，升到 v7。
 
 ### 常見問題
 
@@ -687,7 +687,7 @@ Ollama 的核心取捨很明確：**用一層抽象換取開發者體驗**。你
 
 適合的場景：本地開發和測試 LLM 應用、省 API 費用的原型開發、隱私敏感的離線使用、搭配 RAG 框架做實驗、匯入自訂微調模型做推理。
 
-不適合的場景：高並發生產環境（用 vLLM）、需要極致效能調整（用 llama.cpp）、非技術用戶（用 LM Studio）。
+不適合的場景：高並發生產環境（用 vLLM）、需要極致效能調整（用 llama.cpp）、非技術使用者（用 LM Studio）。
 
 如果你是開發者，想在本地跑 LLM 做開發測試，Ollama 目前是最低摩擦力的選擇。
 

@@ -105,7 +105,7 @@ Agent 在執行過程中自己做筆記。例如 Claude Code 的 `TodoWrite` 就
 
 **Memory（記憶）**
 跨 session 的持久記憶。三種類型：
-- **Episodic**：發生過的事（「上次用戶要求 JSON 格式」）
+- **Episodic**：發生過的事（「上次使用者要求 JSON 格式」）
 - **Semantic**：事實知識（「這個專案用 TypeScript + Hono」）
 - **Procedural**：怎麼做某件事（「部署流程是 build → test → push」）
 

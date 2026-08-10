@@ -133,7 +133,7 @@ cp -Rf ~/.claude/skills/gstack .claude/skills/gstack && \
 /design-consultation
 ```
 
-它會問你產品是什麼、目標用戶是誰，然後產出完整的 design system——色彩、字體、spacing、motion，存成 `DESIGN.md`。之後所有 session 都會自動讀這個檔案，確保設計一致。
+它會問你產品是什麼、目標使用者是誰，然後產出完整的 design system——色彩、字體、spacing、motion，存成 `DESIGN.md`。之後所有 session 都會自動讀這個檔案，確保設計一致。
 
 ### 雙模型 Code Review
 

@@ -1652,7 +1652,7 @@ export default app;
               ├── TypeScript → TS / Cloudflare Workers
               └── 都會 →
                   延遲敏感度？
-                    ├── 極高（全球用戶） → TS / Cloudflare Workers
+                    ├── 極高（全球使用者） → TS / Cloudflare Workers
                     └── 一般 →
                         已有基礎設施嗎？
                           ├── AWS/GCP → Python（更多整合）

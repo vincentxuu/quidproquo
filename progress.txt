@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-09
+Last updated: 2026-08-10
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,61 +24,58 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-09: 8 posts (zh+en), series 30 -> 38. **B TECHNICAL GROUP COMPLETE
-  (17 cells) AND D GROUP COMPLETE (4 cells).** Detail in plan §5.2; older entries archived to
-  docs/progress-archive.md. Reusable lessons, ranked by what they cost me:
-  (1) TWO AGGREGATES SOLVED SIMULTANEOUSLY IS GUESSING (B12: unit prices came
-  out REVERSED and 5x off; the line-item record was public). Flagging "that
-  looks low" is not removing the doubt. (2) A GAP YOU LIST CAN REFUTE THE POST
-  (B16's own "no control group" killed its first conclusion) — so answer, per
-  gap, "could X refute this?" inside the post. (3) THE RECURRING MISTAKE closed
-  after 6 instances: nothing needed hardware/factory/interviews. (4) For a fuzzy
-  word, find where the source is FORCED to enumerate it (B13 ModeReason=56;
-  D32 内政部 31-item list; 「無人機」19 instruments vs「反制無人機」1).
-  (5) Mis-shaped clause → find its PARENTAGE (B14). (6) Requests-on-record vs
-  delivered-text (B14, C24). (7) Negative results must print query + counts.
-  Full text of (1)-(7) in docs/progress-archive.md.
-  (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
-  民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
-  「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
-  (9) FACT: CCP special-compulsory-measures chapter PASSED 2024-07-16 (§153-1~
-  §153-10 = GPS / IMSI-catcher / private-space imaging); NO aerial article.
-  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's itemised closures exist
-  only because the LY Budget Center made the CAA produce them.
-  (12)-(16) GAP-CLOSING ROUNDS 2026-08-09/10 — full text in progress-archive.
-  Headlines: D31's series now 108年度 5 / 109年 4 / 110年 2 / 111年 9 /
-  112年1-8月 3 (count did NOT fall → post stronger); 「國內各機場均已購置手持式
-  干擾器…並視況反制無人機」 made D32's "own it, can't fire it" 現況; C1 prints
-  its query and self-corrected; D2 half-closed with pyulog (bench logs only).
-  STILL OPEN: D3 pass-rate NOT published; 縣市公告 ship as ODS coordinate
-  annexes on an unreachable host; 交通部函釋 not yet retried post-(17).
-  RULES: a gap naming its own source → go get it. A gap-filling edit must also
-  fix title/description/inbound links (D31 title was 4x understated). Time-
-  sensitive posts need a dated review block, not just a caveat.
-  (17) 2026-08-10 SELF-CORRECTION: wrote 判決書/函釋 off as unreachable after
-  ONE failed route each. Wrong — curl returns 000 for ALL .gov.tw here so curl
-  is not the test (firecrawl is), and the judgment DB is a POST form reachable
-  via firecrawl_interact. 「遙控無人機」32、＋干擾器 0、「空拍 蒐證」520 →
-  written into D32 + C24. ONE FAILED TRANSPORT IS NOT A BLOCKED SOURCE; "I
-  can't get it" is THE RECURRING MISTAKE's exact shape. (interact hard-timeouts
-  at 60s and dumps huge trees: one number per call, grep the saved file.)
-  TOOL WARNING: firecrawl's json extractor FABRICATES — it invented a Kaohsiung
-  no-fly list incl. non-existent 「高雄嫩江發電廠」. Verify with direct-quote.
-  (11) AN EMPTY GAP FIELD READS EXACTLY LIKE "NO GAPS". The 未答 column only
-  became standard at B8; 20 earlier rows had none — all 38 now carry one
-  (B4/B5/B9 from the posts themselves, 17 marked 回溯補寫); two stale rows fixed.
-  NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
-  / C25 film / C26 environment / C27 entertainment-industry; all of I except
-  61 privacy. Two named, fillable follow-ups I declared in the posts: D31 needs
-  post-109/08 closure counts (LY publishes a budget report every year); D30
-  needs the 縣市 announced-zone lists and a 函釋 search on 政府機關（構）.
-- 2026-08-08 及更早: drone series 0 -> 30 (zh+en)。已歸檔到
-  docs/progress-archive.md，per-post findings 在 plan §5.2——查覆蓋看那裡。
-  仍約束我的 SITE FACTS：`category` 是容器、`drone` tag 才是主題（每篇 drone
-  放第一個）；未來日期文章不會被 build，已發佈文章連到更晚日期＝硬 404；
-  frontmatter glossary 會 shadow 站台預設；沒有 remark-math，數學寫 code block；
-  資安檢測規範現行版 V2.0（2026-04-30）；英文文章連中文 slug 曾是全站性缺陷
-  （163 檔／742 連結），批次改連結前先讀 archive 裡的三條安全規則。
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
+  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
+  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
+  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
+  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
+  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
+  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
+  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
+  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
+  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
+  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
+  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
+  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
+  ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
+  它是研究工序紀錄不是給讀者的文章（開頭從作者視角寫、有一整節是自我檢討），且
+  「五個數字被廣傳」這個賣點我拿不出證據——查證範圍只有 ByteByteGo 一個來源。
+  查證結果本來就在寫作前併入七篇，七篇內容不受影響。各篇 1,242–1,930 字，
+  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
+  middle；frontmatter glossary: unattended agent、containment rate。
+  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
+  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
+  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
+  的 arXiv ID（2406.10279 正確）。
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
+  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
+  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
+  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
+  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
+  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
+  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
+  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
+  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
+- 2026-08-06: post(learning) 數位學習之外紙筆還剩什麼 (zh + en)。四輪研究，中途
+  推翻自己兩次（詳見 PR #126）。角度：數位是預設，實體仍有效的三個地方是閱讀
+  （Delgado 17 萬人 g=-0.21，捲動時 0.35-0.48）、作答動筆（螢幕上題目越難越少用
+  草稿紙）、畫圖（45% vs 20%）；唯一沒共識的是手寫筆記（四份 meta 從 -0.008 到
+  +0.248）。八份核心文獻讀到七份全文，只有 Voyer 正文卡付費牆。新增 7 個全站
+  glossary 術語。deep-research / post-verify skill 已補上抽取完整度、繞路清單、
+  推論與事實分離三條規則。工具面：firecrawl/Exa 的 requires approval 是 claude.ai
+  connector 層級的 ask，allow 規則擋不住；另外現有 mcp__claude_ai_*__* 規則在
+  web session（server 為 UUID 命名）會靜默失效，尚未處理。
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
+（已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
