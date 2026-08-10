@@ -110,6 +110,20 @@ What these three share: **they all sit in the legislature, not in the industry.*
 
 *This is budget-process and industry-structure analysis, not investment advice. No securities are recommended. Evaluate and bear your own risk.*
 
+### Review points (added 2026-08-10)
+
+This is the most time-sensitive post in the series and it shipped without a review mechanism. Here it is. **Content is current as of 2026-08-06; below is what expires and where to re-check it.**
+
+| What expires | Status (re-checked 2026-08-10) | Where to check |
+|---|---|---|
+| Whether the NT$210bn special act passes | **Still no third reading.** On 2026-07-27 the committee reserved every article and sent it to inter-party negotiation; no later progress found. **The original 1 August 2026 start date has now passed with no disbursement.** | [LY proceedings system](https://ppg.ly.gov.tw/), [LY law system](https://lis.ly.gov.tw/) |
+| When the special budget bill is tabled | The act has not passed, so the bill has not been tabled | as above |
+| Annual defence budget line items for unmanned systems | Unaffected by the special act; appropriated yearly | LY Budget Center evaluation reports (around October each year) |
+
+**Do not confuse this with the other special act.** This post is about the **Special Act on Procurement of Indigenous Defence Unmanned Vehicles** (NT$210bn, 2026-08-01 to 2031-12-31, stuck in negotiation). A separate **Special Act on Procurement for the Plan to Defend National Security and Strengthen Asymmetric Capabilities** was **promulgated and in force on 2026-05-11**, and its Article 5 lists "combined soft-kill/hard-kill counter-drone systems" — that one is handled in [Who May Bring a Drone Down](/posts/policy/2026-08-09-who-may-down-a-drone-en). **They are different statutes with different amounts, statuses and item lists.**
+
+One comparison this post did not carry: per CNA and other reporting, opposition caucuses tabled their own versions — the KMT caucus proposed **NT$240bn over six years appropriated through the ordinary annual budget (NT$40bn a year)**, with a further TPP version. **The dispute is mainly about special budget versus annual appropriation, not about whether to buy.** This paragraph rests on secondary reporting; I did not read the draft texts.
+
 ## References
 
 **Legislative timeline** (all in Chinese)

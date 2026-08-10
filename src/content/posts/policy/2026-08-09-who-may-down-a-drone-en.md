@@ -216,6 +216,15 @@ This series' rule is that before writing "I did not do X", you ask whether X cou
 - **I did not read agencies' internal SOPs** beyond the MND one reproduced in the Control Yuan report. Internal rules cannot create authority the statute withholds, but they do show how practice routes around it.
 - **I did not use procurement records to establish which agencies actually hold jammers.** I tried the public procurement API; its keyword matching is fuzzy (a search for "jammer gun" returns "drone jammer" and also "remote drone procurement case"), so any count would be a guess. So there is no count here.
 
+## What in this post expires (added 2026-08-10)
+
+The clause analysis here is static, but two items carry deadlines and need re-checking before citation:
+
+- **The "one year" in Article 5(1)(6) of the procurement special act**: those six items (including "combined soft-kill/hard-kill counter-drone systems") are conditioned on being "sold with the consent of the United States government **within one year of this Act taking effect**". The Act was promulgated on 2026-05-11, so **that window closes around May 2027** — after which whether the subparagraph still has any object changes what "it appears once, on a shopping list" means. Check: [the Act's amendment history](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=F0020007).
+- **Whether Article 67(1) of the Telecommunications Management Act is amended**: this entire post rests on that use prohibition being untouched. **Add a public-duty exception to it and the central conclusion has to be rewritten.** Check: [the Act's amendment history](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=K0060111) (at the time of writing, the last amendment was 2026-01-05 and it touched Article 72).
+
+Also, do not confuse the two special acts: this post cites the **Special Act on Procurement for the Plan to Defend National Security and Strengthen Asymmetric Capabilities** (promulgated and in force). A separate **NT$210bn Special Act on Procurement of Indigenous Defence Unmanned Vehicles** is still stuck in negotiation — see [the defence budget post](/posts/investing/2026-08-06-drone-defense-budget-map-en).
+
 ## How to reproduce the searches
 
 Negative findings only count if they can be re-run, so here are the queries. Run on 2026-08-09 against the Laws & Regulations Database integrated search, scope "central regulations → article text":

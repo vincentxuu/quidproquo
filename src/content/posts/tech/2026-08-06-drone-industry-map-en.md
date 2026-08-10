@@ -129,6 +129,19 @@ The state of the drone industry compresses into three sentences:
 
 If you want one question to judge any drone company: **is it in Layer 3 or Layer 4?** Layer 4 airframe assembly eventually gets competed down to commodity margins; the moat lives in Layer 3 — flight control, links, and payloads. Taiwan's policy bets its resources on "three chips, two software," which is the right target. Whether it gets built is a separate question.
 
+## What in this post expires
+
+(Added 2026-08-10.) An overview post is the one most likely to be treated as a durable reference, yet it cites several figures with hard expiry dates. Here they are, with where to confirm each:
+
+| What expires | Why | Where to check |
+|---|---|---|
+| The FCC exemption for Covered List equipment, to **2027-01-01** | An administrative decision; it can be extended or ended early | [FCC Covered List](https://www.fcc.gov/supplychain/coveredlist) |
+| Firmware and security updates for already-deployed equipment, to **2029-01-01** | as above | as above |
+| The market-size forecasts (2026 and 2031) | Forecasts are reissued yearly and each house scopes them differently — which is exactly the point of the "why the reports differ tenfold" section | The originating report pages |
+| Taiwan's output value and export share | Annual statistics | MOEA and industry-association yearly figures |
+
+**Rule of thumb: this post's structural observations — the five-layer chain, the two ceilings, the logic of the non-Chinese supply-chain window — do not lapse when those numbers change. The numbers do. Confirm the rows above before citing them.**
+
 ## Further reading
 
 ### Where to start, by who you are

@@ -46,23 +46,18 @@ Recently completed
   covers aerial evidence. (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's
   itemised closures exist only because the LY Budget Center made the CAA
   produce them; when an agency won't publish, find who could demand it.
-  (12)-(14) GAP-CLOSING 2026-08-09, three rounds. D31: both declared gaps
-  closed from the source the gap itself named (later LY budget reports) —
-  108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3, count did NOT fall so
-  the post got stronger; two CAA submissions disagree on the same events →
-  trend-only; 「國內各機場均已購置手持式干擾器…並視況反制無人機」 made D32's
-  "own it, can't fire it" 現況 (back-written); 審計部 hit Songshan for 未妥為
-  訂定驗收測試規範 = B16's disease again. C1 now prints its query (4 amendments,
-  none in 2026) and self-corrected the "not yet in force" reading. D2 half-
-  closed with pyulog on PX4 repo test logs (70 topics / 493 params) — but they
-  are BENCH logs, so it shows what a log records, not crash reconstruction.
-  STILL OPEN, reason known (worth more than "didn't check"): 判決書 + 交通部
-  函釋 need on-site forms; D3 pass-rate is NOT published; 縣市公告 lists ship
-  as ODS coordinate annexes on an unreachable host (itself a finding).
-  TOOL WARNING: firecrawl's json extractor FABRICATED a Kaohsiung site list
-  incl. non-existent 「高雄嫩江發電廠」; direct-quote mode showed the page says
-  only 「如附件」. NEVER build a claim on the json extractor alone.
-  RULE: when a gap names its own source, go get it.
+  (12)-(16) GAP-CLOSING ROUNDS 2026-08-09/10 — full text in progress-archive.
+  Headlines: D31's series now 108年度 5 / 109年 4 / 110年 2 / 111年 9 /
+  112年1-8月 3 (count did NOT fall → post stronger); 「國內各機場均已購置手持式
+  干擾器…並視況反制無人機」 made D32's "own it, can't fire it" 現況; C1 prints
+  its query and self-corrected; D2 half-closed with pyulog (bench logs only).
+  STILL OPEN with known reason: 判決書 + 交通部函釋 need on-site forms; D3
+  pass-rate NOT published; 縣市公告 ship as ODS coordinate annexes.
+  RULES: a gap that names its own source → go get it. A gap-filling edit must
+  also fix title/description/inbound link text (D31 title was 4x understated).
+  Time-sensitive posts need a dated review block, not just a caveat.
+  TOOL WARNING: firecrawl's json extractor FABRICATES — it invented a Kaohsiung
+  no-fly list incl. non-existent 「高雄嫩江發電廠」. Verify with direct-quote.
   (11) AN EMPTY GAP FIELD READS EXACTLY LIKE "NO GAPS". The 未答 column only
   became standard at B8; 20 earlier rows had none — all 38 now carry one
   (B4/B5/B9 from the posts themselves, 17 marked 回溯補寫); two stale rows fixed.

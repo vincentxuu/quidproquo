@@ -276,3 +276,33 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 5. **條文形狀不對時，去找它的親代**（B14：資安檢測規範第 7 章源自 2022 國慶中國晶片事件與 2023-01-04 標案文字）。
 6. **「有紀錄的要求」對「實際交付的文字」**是可重用的檢查（B14、C24）。
 7. **負面結果只有可重跑才算數**：印出查詢指令與計數（B13 的 grep 命令與 ArduPilot 0／PX4 420；D32 的三個法規資料庫查詢 URL）。
+
+
+## 2026-08-09/10 — drone series gap-closing rounds 全文（自 progress.txt 移入）
+
+  (12)-(14) GAP-CLOSING 2026-08-09, three rounds. D31: both declared gaps
+  closed from the source the gap itself named (later LY budget reports) —
+  108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3, count did NOT fall so
+  the post got stronger; two CAA submissions disagree on the same events →
+  trend-only; 「國內各機場均已購置手持式干擾器…並視況反制無人機」 made D32's
+  "own it, can't fire it" 現況 (back-written); 審計部 hit Songshan for 未妥為
+  訂定驗收測試規範 = B16's disease again. C1 now prints its query (4 amendments,
+  none in 2026) and self-corrected the "not yet in force" reading. D2 half-
+  closed with pyulog on PX4 repo test logs (70 topics / 493 params) — but they
+  are BENCH logs, so it shows what a log records, not crash reconstruction.
+  STILL OPEN, reason known (worth more than "didn't check"): 判決書 + 交通部
+  函釋 need on-site forms; D3 pass-rate is NOT published; 縣市公告 lists ship
+  as ODS coordinate annexes on an unreachable host (itself a finding).
+  TOOL WARNING: firecrawl's json extractor FABRICATED a Kaohsiung site list
+  incl. non-existent 「高雄嫩江發電廠」; direct-quote mode showed the page says
+  only 「如附件」. NEVER build a claim on the json extractor alone.
+  RULE: when a gap names its own source, go get it.
+  (15) A GAP-FILLING EDIT MUST ALSO CHECK title / description / inbound link
+  text. I updated D31's body to 23 closures and left the title at 「六次」 —
+  4x understated in the most-read line. Fixed 2026-08-10 (slug+date unchanged).
+  (16) TIME-SENSITIVE POSTS NEED A REVIEW BLOCK, not just a caveat. Added dated
+  「會過期的東西」tables with re-check URLs to E2 / hub / D32. E2 also now warns
+  that the NT$210bn 國防自主無人載具採購特別條例 (still stuck in negotiation,
+  its 2026-08-01 start date passed) is a DIFFERENT act from the already-in-force
+  保衛國安…採購特別條例 cited in D32 — the two posts never cross-referenced.
+
