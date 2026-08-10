@@ -125,6 +125,16 @@ While writing this I found several circulating claims that no longer match the c
 
 There is also a circulating set of "six 2026 amendments" (general licence extended to 25kg, merged weight brackets for advanced licences, elimination of the spraying group, a new hybrid airframe category, and others). **I could not find any of this in the current text on the law database.** The database page does carry the note "some or all provisions of this regulation are not yet in force; final effective date: undetermined," so further amendments are plausibly in progress — but **until formally promulgated and in force, they should not be cited as current rules.**
 
+> **A reproducible check, and one self-correction (added 2026-08-09).** This series later adopted a rule: a negative finding does not count unless the query is printed. Here it is —
+>
+> ```
+> https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=K0090083
+> ```
+>
+> Since the Regulations for Remotely Piloted Aircraft were promulgated in full (42 articles) on 2019-07-23, the history page lists four amendments: **2021-07-14, 2021-11-26, 2022-12-30 and 2024-11-14**. As of 2026-08-09 there is **no 2026 amendment at all**.
+>
+> And the sentence above — "further amendments are plausibly in progress" — needs correcting: **the "not yet in force" note is not about a new amendment on the way.** The history page is specific: in the 2024-11-14 amendment, "the effective date of Article 12(2) shall be separately determined by the Ministry of Transportation and Communications, Article 17 takes effect on 1 December 2025, and the remaining provisions take effect on 1 December 2024." The note refers to **one item from a two-year-old amendment that still has no assigned commencement date** — not to a forthcoming version.
+
 Which is the general principle I'd suggest: **treat the [Drone Management Information System](https://drone.caa.gov.tw/) and the [CAA drone section](https://www.caa.gov.tw/article.aspx?a=188&lang=1) as authoritative over any explainer, including this one.** Regulations get amended faster than blogs get updated. (both in Chinese)
 
 ## Three sentences

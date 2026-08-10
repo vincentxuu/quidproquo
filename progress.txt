@@ -44,20 +44,24 @@ Recently completed
   (9) FACT worth keeping: CCP special-compulsory-measures chapter PASSED
   2024-07-16 (§153-1~§153-10 = GPS / IMSI-catcher / private-space imaging);
   NO article covers aerial evidence. TOOL NOTES archived to progress-archive.
-  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE. D31's six itemised airport
-  closures (300 min / 47 flights / 5,929 pax) exist only because the LY Budget
-  Center made the CAA produce them. When an agency will not publish a series,
-  look for who had power to demand it. Same trick as the Control Yuan report.
-  (12) GAP-CLOSING ROUND 2026-08-09: D31's two declared gaps both closed from
-  the SAME source family I had already named — later LY budget reports. Series
-  now 108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3: the count did NOT
-  fall, so the post's third judgement got stronger. Also found (a) three
-  self-inconsistencies between two CAA submissions on the same events → these
-  numbers are trend-only, no incident-level inference; (b) "國內各機場均已購置
-  手持式干擾器…並視況反制無人機" — so D32's "you may own it, not fire it" is
-  現況 not hypothesis, back-written into D32 both languages; (c) 審計部 slammed
-  Songshan's system for 未妥為訂定驗收測試規範 = the B16 self-verifying-spec
-  disease, third instance. RULE: when a gap names its own source, go get it.
+  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's itemised airport closures
+  exist only because the LY Budget Center made the CAA produce them. When an
+  agency won't publish a series, find who had power to demand it (cf 監察院).
+  (12) GAP-CLOSING 2026-08-09: D31's two declared gaps both closed from the
+  SAME source family the gap itself named — later LY budget reports. Series
+  108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3: count did NOT fall, so
+  the post's 3rd judgement got stronger. Also: (a) two CAA submissions disagree
+  on the same events → trend-only, no incident-level inference; (b) 「國內各機場
+  均已購置手持式干擾器…並視況反制無人機」 → D32's "own it, can't fire it" is
+  現況, back-written into D32 both langs; (c) 審計部 hit Songshan for 未妥為訂定
+  驗收測試規範 = B16's self-verifying-spec disease again.
+  (13) ROUND 2: C1 now prints its query (reg amended 4x, none in 2026) and
+  self-corrected — "not yet in force" = one item of the 2024-11-14 amendment
+  lacks a commencement date, not a new version coming. Two gaps stay open for a
+  KNOWN reason (better than "didn't check"): 判決書 and 交通部函釋 both need
+  on-site forms, no full-text search via my tools (hits C24 + D32); D3's
+  pass-rate is NOT published at all. Untouched: D30 縣市公告 lists, D2 PX4 log.
+  RULE: when a gap names its own source, go get it.
   BOOKKEEPING FIXED 2026-08-09: the 未答 column only became standard at B8, so
   20 earlier rows had none — all 38 rows now carry one (B4/B5/B9 copied from the
   posts' own sections, the other 17 marked 回溯補寫). Also corrected two rows
