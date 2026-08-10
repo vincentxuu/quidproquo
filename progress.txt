@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-08
+Last updated: 2026-08-10
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,27 +24,24 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（自學 note，非發文）。十輪，
-  產出三份檔案在 .research/：主 note、查證報告、完整清單。用官方 sitemap 掃出 agent
-  相關 60 篇並全部讀完，加 2 支影片 + 3 個課程頁（使用者原始清單只有 6 篇，且最有料
-  的四篇都不在裡面）。核心結論：模型只是元件、harness 才是系統，七個
-  獨立案例收斂，且「把確定性的部分還給程式碼」已被四家產品化（Salesforce Agent
-  Script / Intercom Procedures / Microsoft runtime / Stripe blueprints）。
-  事實層查了 19 份一手來源、約 40 項宣稱：4 個實質錯誤（最嚴重是 15× token 的對照組
-  被換成單 agent，實際約 3.75 倍）、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重
-  是 Klarna 230 萬次對話被當成功案例，但 2025-05 該公司已公開反轉重招人類客服，同一
-  作者在兩篇裡重複這個缺失）、2 次平反（Pinterest 日期、Codex 狀態管理都不是
-  ByteByteGo 的錯）。**六條方法論教訓已回饋進 deep-research skill 的反合理化表**
-  （2026-08-09），其中三條是本輪新踩的：(1) tavily_extract
-  會靜默截斷，我差點據殘缺抽取下「原文沒有 X」的結論，任何「查無此事」都要先證明抽取
-  完整；(2) 我曾用「同篇其他數字錯過」推斷剩下的也不可信，實際查完六項裡四項正確——
-  錯誤不是均勻分布的，這種歸納不成立。(3) 同一個錯我犯了四次——最後一次是以「企業
-  案例模式已重複」為由不讀剩下 27 篇，讀完發現約 20 篇有新東西，還推翻了三處既有記載
-  （ReAct 並非唯一主流：LinkedIn 明確改用 plan-and-execute；訪談線是 10 篇不是 7 篇；
-  記憶那條線缺 KV cache 的機制層）。**用抽樣推斷未讀內容，在這份 corpus 上系統性失效。**
-  對本 repo 可動手的三件事寫在主 note：規則要 scoped 不要 global（Stripe 明說全域規則
-  會在開工前就填滿 context）、CLAUDE.md 是 config 層不是 memory 層（失效模式是稀釋不是
-  檢索錯）、skill 的 description 要當檢索鍵寫（skills index 先載入、選中才讀全文）。
+- 2026-08-10: post(ai)「Agent 生產線」系列 8 篇 x zh/en（16 檔）。從 2026-08-08 的
+  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
+  ④企業案例橫向讀 ⑤安全 ⑥引用查證 ⑦協定層 ⑧RAG 三形態。各篇 1,242–1,930 字，
+  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
+  middle；frontmatter glossary: unattended agent、containment rate。
+  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
+  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
+  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
+  的 arXiv ID（2406.10279 正確）。
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
+  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
+  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
+  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
+  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
+  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
+  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
+  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
+  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
 - 2026-08-06: post(learning) 數位學習之外紙筆還剩什麼 (zh + en)。四輪研究，中途
   推翻自己兩次（詳見 PR #126）。角度：數位是預設，實體仍有效的三個地方是閱讀
   （Delgado 17 萬人 g=-0.21，捲動時 0.35-0.48）、作答動筆（螢幕上題目越難越少用
