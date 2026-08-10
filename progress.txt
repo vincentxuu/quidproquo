@@ -41,21 +41,27 @@ Recently completed
   (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
   民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
   「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
-  (9) FACT: CCP special-compulsory-measures chapter PASSED 2024-07-16
-  (§153-1~§153-10 = GPS / IMSI-catcher / private-space imaging); NO article
-  covers aerial evidence. (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's
-  itemised closures exist only because the LY Budget Center made the CAA
-  produce them; when an agency won't publish, find who could demand it.
+  (9) FACT: CCP special-compulsory-measures chapter PASSED 2024-07-16 (§153-1~
+  §153-10 = GPS / IMSI-catcher / private-space imaging); NO aerial article.
+  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's itemised closures exist
+  only because the LY Budget Center made the CAA produce them.
   (12)-(16) GAP-CLOSING ROUNDS 2026-08-09/10 — full text in progress-archive.
   Headlines: D31's series now 108年度 5 / 109年 4 / 110年 2 / 111年 9 /
   112年1-8月 3 (count did NOT fall → post stronger); 「國內各機場均已購置手持式
   干擾器…並視況反制無人機」 made D32's "own it, can't fire it" 現況; C1 prints
   its query and self-corrected; D2 half-closed with pyulog (bench logs only).
-  STILL OPEN with known reason: 判決書 + 交通部函釋 need on-site forms; D3
-  pass-rate NOT published; 縣市公告 ship as ODS coordinate annexes.
-  RULES: a gap that names its own source → go get it. A gap-filling edit must
-  also fix title/description/inbound link text (D31 title was 4x understated).
-  Time-sensitive posts need a dated review block, not just a caveat.
+  STILL OPEN: D3 pass-rate NOT published; 縣市公告 ship as ODS coordinate
+  annexes on an unreachable host; 交通部函釋 not yet retried post-(17).
+  RULES: a gap naming its own source → go get it. A gap-filling edit must also
+  fix title/description/inbound links (D31 title was 4x understated). Time-
+  sensitive posts need a dated review block, not just a caveat.
+  (17) 2026-08-10 SELF-CORRECTION: wrote 判決書/函釋 off as unreachable after
+  ONE failed route each. Wrong — curl returns 000 for ALL .gov.tw here so curl
+  is not the test (firecrawl is), and the judgment DB is a POST form reachable
+  via firecrawl_interact. 「遙控無人機」32、＋干擾器 0、「空拍 蒐證」520 →
+  written into D32 + C24. ONE FAILED TRANSPORT IS NOT A BLOCKED SOURCE; "I
+  can't get it" is THE RECURRING MISTAKE's exact shape. (interact hard-timeouts
+  at 60s and dumps huge trees: one number per call, grep the saved file.)
   TOOL WARNING: firecrawl's json extractor FABRICATES — it invented a Kaohsiung
   no-fly list incl. non-existent 「高雄嫩江發電廠」. Verify with direct-quote.
   (11) AN EMPTY GAP FIELD READS EXACTLY LIKE "NO GAPS". The 未答 column only
