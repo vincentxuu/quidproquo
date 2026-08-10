@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, gnss, ekf, px4, ardupilot]
 lang: en
-tldr: "Taiwan's drone cybersecurity spec names three modules; the previous two posts took apart flight control and communications, so this one takes satellite positioning. I flew a SITL copter to 28 m, then switched on the simulator's built-in GPS jamming — about 7 seconds of simulated time later the flight controller declared EKF failure, switched itself to LAND, touched down and disarmed. It neither flew away nor crashed. And reading the PX4 source turned up something counterintuitive: EKF2_GPS_CHECK has twelve gates, bit 9 is Spoofing and bit 11 is Jamming, but the default of 2047 only enables bits 0–10 — jamming detection ships off. The reason turns out to be sound: the estimator can catch jamming by itself, because the variances blow up. It cannot catch spoofing; only the receiver can tell it."
+tldr: "Flying a drone to 28 m in SITL and switching on the simulator's built-in GPS jamming, the flight controller declared EKF failure about seven seconds later, switched to LAND, landed and disarmed — it neither flew away nor crashed. Reading PX4's source then shows that of the 12 gates in EKF2_GPS_CHECK, bit 11, jamming detection, is off by default: the estimator catches jamming on its own, while spoofing can only be reported by the receiver."
 description: "Switching on GPS jamming in an ArduPilot SITL flight and recording the full event timeline, then reading PX4 EKF2's twelve GNSS quality gates and ArduPilot's three-source-set switching to explain how a flight controller reasons when satellite positioning fails; compared against the third module in Taiwan's cybersecurity spec and the fire agency's GPS-independent search-and-rescue drone."
 draft: false
 ---

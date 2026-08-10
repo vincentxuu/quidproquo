@@ -24,6 +24,9 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
+  漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
+  加 3 行 line-clamp 當保險。正文與 description 未動。
 - 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
   D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
   112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、

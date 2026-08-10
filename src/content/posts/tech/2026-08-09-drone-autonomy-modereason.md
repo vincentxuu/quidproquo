@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, autonomy, ardupilot, px4, machine-learning]
 lang: zh-TW
-tldr: "「自主性演進：waypoint → 學習式 → end-to-end」是無人機技術路線圖上最常見的一句話，但它假設那是一條連續光譜。翻開原始碼不是。ArduPilot 有一個叫 ModeReason 的列舉，飛機每次自己改變飛行模式都必須填一個理由，所以那份列舉就是「機上自主決策」的完整清單——56 個值，一個不多一個不少。把它分類：9 個是人下的指令，4 個是開機狀態，剩下 43 個是機上自己決定的。其中 21 個是偵測到危險（失效保護、圍籬、EKF 失效、電池、碰撞、迫降），16 個是程序性階段轉換（任務結束、翻滾完成、RTL 轉降落），6 個是滑翔相關。**整份清單裡，只有 SOARING_THERMAL_DETECTED 一項是「因為發現機會而改變行為」，其餘的自主全部是「因為發現危險」。** 至於 end-to-end：PX4 主線真的有一個，叫 mc_nn_control，15 個輸入、4 個輸出，直接發布 actuator_motors 繞過整個串級 PID——而它的 TensorFlow Lite Micro tensor arena 是 10 KB，Kconfig 預設 n。ArduPilot 主線一個都沒有。所以那條「光譜」在主線裡的實況是：一端是 56 項幾乎全為安全而生的規則式決策，另一端是一個十 KB、預設關閉的模組，兩者並存但不相通。"
+tldr: "ArduPilot 的 ModeReason 列舉就是「機上自主決策」的完整清單：56 個值裡 43 個是飛機自己決定的，其中 21 個是偵測到危險，而只有 SOARING_THERMAL_DETECTED 一項是因為發現機會。至於 end-to-end，PX4 主線那個 mc_nn_control 的 tensor arena 只有 10 KB、Kconfig 預設 n，ArduPilot 主線一個都沒有。"
 description: "用 ArduPilot 的 ModeReason 列舉逐項分類飛控的自主決策，證明「自主」幾乎全部是安全決策而非任務決策；再對照 PX4 主線的 mc_nn_control 端到端神經網路控制模組，說明 waypoint 到 end-to-end 在主線程式碼裡並不是一條連續光譜。"
 draft: false
 ---
