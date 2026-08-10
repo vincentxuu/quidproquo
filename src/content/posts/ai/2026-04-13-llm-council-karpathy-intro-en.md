@@ -152,5 +152,5 @@ While everyone is talking about agents, tool use, and RAG, this project returns 
 - [OpenRouter Official Website](https://openrouter.ai/)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Vite Documentation](https://vitejs.dev/)
-- [oh-my-openagent: Multi-Model Agent Team Coding Framework](/posts/ai/2026-04-05-oh-my-openagent-multi-model-orchestration)
-- [Multi-Model Routing: Open-Source Tools Comparison](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)
+- [oh-my-openagent: Multi-Model Agent Team Coding Framework](/posts/ai/2026-04-05-oh-my-openagent-multi-model-orchestration-en)
+- [Multi-Model Routing: Open-Source Tools Comparison](/posts/ai/2026-04-02-multi-model-routing-opensource-tools-en)

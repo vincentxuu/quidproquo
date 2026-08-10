@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-03-30-harness-engineering-patterns)
 
-In previous articles, we examined Harness Engineering from different angles: [Three Evolutions](/posts/ai/2026-03-28-harness-engineering-evolution) traced the timeline from Prompt to Context to Harness, [Anthropic's Hands-On Approach](/posts/ai/2026-03-28-anthropic-harness-design) demonstrated dual-Agent architecture and cross-session state management, and [Phil Schmid's Perspective](/posts/ai/2026-03-28-phil-schmid-agent-harness) positioned the Harness as the operating system for AI systems.
+In previous articles, we examined Harness Engineering from different angles: [Three Evolutions](/posts/ai/2026-03-28-harness-engineering-evolution-en) traced the timeline from Prompt to Context to Harness, [Anthropic's Hands-On Approach](/posts/ai/2026-03-28-anthropic-harness-design-en) demonstrated dual-Agent architecture and cross-session state management, and [Phil Schmid's Perspective](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) positioned the Harness as the operating system for AI systems.
 
 This article digs deeper: what exactly needs to be built inside a Harness?
 
@@ -64,7 +64,7 @@ Let's start with the architecture diagram. Everything that follows is based on t
 
 The Harness is the control layer between the LLM and the Application. It doesn't perform inference — it governs *how* inference happens: deciding which tools are available, which inputs are valid, which outputs are trustworthy, when to save progress, and when to escalate.
 
-If you're new to the Harness concept, I recommend reading [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) and [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design) first, then coming back here for implementation details.
+If you're new to the Harness concept, I recommend reading [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) and [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design-en) first, then coming back here for implementation details.
 
 ---
 
@@ -960,7 +960,7 @@ Additional metrics worth tracking but not directly alerting on:
 | **Guard Block Rate** | Frequency of blocks across guard layers — sudden spikes may indicate attacks or model behavior drift |
 | **P95 Latency per Step** | Long-tail single-step latency — helps identify infrastructure issues |
 
-These metrics are most conveniently tracked using [Langfuse](/posts/ai/2026-03-26-langfuse-llm-observability-guide) or similar LLM observability platforms. Each Agent step becomes a span, the entire task becomes a trace, and Guard results and Checkpoint events are attached as events.
+These metrics are most conveniently tracked using [Langfuse](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en) or similar LLM observability platforms. Each Agent step becomes a span, the entire task becomes a trace, and Guard results and Checkpoint events are attached as events.
 
 ---
 

@@ -186,4 +186,4 @@ Redis is an accelerator in the toolbox, not a general-purpose database. Before r
 - [ioredis (Node.js client)](https://github.com/redis/ioredis)
 - [Redis Data Types Overview](https://redis.io/docs/data-types/)
 - [Redis Persistence Configuration Guide](https://redis.io/docs/management/persistence/)
-- [DaoDao Tech Architecture Deep Dive](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Full context on how Redis handles caching, sessions, and BullMQ simultaneously in a real project
+- [DaoDao Tech Architecture Deep Dive](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Full context on how Redis handles caching, sessions, and BullMQ simultaneously in a real project

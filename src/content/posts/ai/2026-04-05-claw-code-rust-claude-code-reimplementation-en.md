@@ -188,5 +188,5 @@ Feature-wise they're nearly aligned, with the main differences being the languag
 
 - [Claw Code GitHub Repository](https://github.com/ultraworkers/claw-code)
 - [oh-my-codex GitHub Repository](https://github.com/Yeachan-Heo/oh-my-codex)
-- [Claude Code Complete Analysis](/posts/ai/2026-04-02-agent-cli-claude-code)
-- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [Claude Code Complete Analysis](/posts/ai/2026-04-02-agent-cli-claude-code-en)
+- [oh-my-codex Workflow Enhancement Layer Introduction](/posts/ai/2026-04-05-oh-my-codex-workflow-layer-en)

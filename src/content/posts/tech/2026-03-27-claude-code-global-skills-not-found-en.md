@@ -195,5 +195,5 @@ One principle to remember: **if you want skills to work in all environments, put
 
 - [Claude Code Skills — Official Docs](https://docs.anthropic.com/en/docs/claude-code/skills)
 - [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings)
-- [Claude Code Skill Design Guide: Turn Repetitive Workflows into a Single Command](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
-- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Agent Config Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
+- [Claude Code Skill Design Guide: Turn Repetitive Workflows into a Single Command](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)
+- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Agent Config Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)

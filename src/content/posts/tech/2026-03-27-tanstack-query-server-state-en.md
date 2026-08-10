@@ -136,5 +136,5 @@ The guiding principle: **if data comes from the server, let TanStack Query own i
 
 - [TanStack Query Official Docs](https://tanstack.com/query/latest)
 - [TanStack Query GitHub](https://github.com/TanStack/query)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — a real-world example of TanStack Query and Zustand working together
-- [Zustand: The Lightest Global State Manager for React](/posts/tech/2026-03-27-zustand-state-management) — the other half of the client state story
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — a real-world example of TanStack Query and Zustand working together
+- [Zustand: The Lightest Global State Manager for React](/posts/tech/2026-03-27-zustand-state-management-en) — the other half of the client state story

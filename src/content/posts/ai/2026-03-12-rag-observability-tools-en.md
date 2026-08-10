@@ -232,5 +232,5 @@ NobodyClimb's system went with custom traces, mainly because it's deployed on Cl
 - [LangSmith Documentation](https://docs.smith.langchain.com/)
 - [Helicone Documentation](https://docs.helicone.ai/)
 - [OpenLLMetry - OpenTelemetry for LLMs (GitHub)](https://github.com/traceloop/openllmetry)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

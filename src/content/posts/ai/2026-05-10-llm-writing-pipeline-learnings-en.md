@@ -156,6 +156,6 @@ For quidproquo's own skill family, the next step is to actually run `post-verify
 - [Khaled Zaky: AI agent that writes/revises/publishes via email trigger](https://khaledzaky.com/blog/i-built-an-ai-agent-that-writes-for-my-blog/)
 - [Google Developers: Multi-agent patterns in ADK](https://developers.googleblog.com/developers-guide-to-multi-agent-patterns-in-adk/)
 - Related posts on this site:
-  - [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide)
-  - [LLM Knowledge Management: From Karpathy's llm-wiki to the Open-Source Ecosystem](/posts/ai/2026-04-23-llm-knowledge-management-landscape)
-  - [Skill vs Subagent: Comparing Two Agent Collaboration Modes in Claude Code](/posts/ai/2026-03-30-skill-vs-subagent-comparison)
+  - [Claude Skills: Packaging Expertise into Folders](/posts/ai/2026-05-08-anthropic-claude-skills-guide-en)
+  - [LLM Knowledge Management: From Karpathy's llm-wiki to the Open-Source Ecosystem](/posts/ai/2026-04-23-llm-knowledge-management-landscape-en)
+  - [Skill vs Subagent: Comparing Two Agent Collaboration Modes in Claude Code](/posts/ai/2026-03-30-skill-vs-subagent-comparison-en)

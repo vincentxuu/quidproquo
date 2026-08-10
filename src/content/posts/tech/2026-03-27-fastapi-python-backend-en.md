@@ -198,4 +198,4 @@ If your Python service is primarily AI/ML inference, the combination of FastAPI 
 - [Pydantic official docs](https://docs.pydantic.dev/)
 - [Celery official docs](https://docs.celeryq.dev/)
 - [Qdrant vector database](https://qdrant.tech/documentation/)
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — FastAPI's role in the dual-backend architecture
+- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — FastAPI's role in the dual-backend architecture

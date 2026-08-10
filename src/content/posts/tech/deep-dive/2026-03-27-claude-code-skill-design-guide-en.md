@@ -42,7 +42,7 @@ These three mechanisms are easy to confuse, but they serve very different purpos
 | **Skill** | Manual (`/name`) | Multi-step interactive workflows | Generate commit messages, write posts |
 | **Instruction file** | Automatic (loaded on startup) | Behavioral guidance, no enforcement | Tell AI "run checks before committing" |
 
-Hooks are passive safety nets. Skills are active workflows. Instruction files are behavioral nudges. For a detailed comparison, see [Three Layers of Quality Defense](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md).
+Hooks are passive safety nets. Skills are active workflows. Instruction files are behavioral nudges. For a detailed comparison, see [Three Layers of Quality Defense](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en).
 
 ## File Structure
 
@@ -287,7 +287,7 @@ Draft issue → Preview → Confirm
 gh issue create --label bug
 ```
 
-**Trade-off**: Label with `bug`, not `auto`. Not every bug should be auto-fixed by AI — let humans decide when to add the `auto` label and hand it off to a Remote Agent. See [Designing /file-bug-issue](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) for the full design breakdown.
+**Trade-off**: Label with `bug`, not `auto`. Not every bug should be auto-fixed by AI — let humans decide when to add the `auto` label and hand it off to a Remote Agent. See [Designing /file-bug-issue](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) for the full design breakdown.
 
 ## Principles for Writing Skills
 
@@ -483,5 +483,5 @@ If you have any repetitive process in your daily development — commit formats,
 - [Plugin Marketplace browsing and installation](https://code.claude.com/docs/en/discover-plugins)
 - [Plugin Marketplace catalog](https://claude.com/plugins)
 - [Equipping Agents with Agent Skills (Anthropic engineering blog)](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
-- [Three Layers of Quality Defense in Claude Code: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
-- [Using a Claude Code Skill to Turn a Debug Session into a GitHub Issue](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent)
+- [Three Layers of Quality Defense in Claude Code: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
+- [Using a Claude Code Skill to Turn a Debug Session into a GitHub Issue](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)

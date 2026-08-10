@@ -147,6 +147,6 @@ const result = loginSchema.safeParse(req.body)
 - [React Hook Form docs](https://react-hook-form.com/)
 - [Zod docs](https://zod.dev/)
 - [@hookform/resolvers](https://github.com/react-hook-form/resolvers)
-- [Zod: Runtime Type Validation for TypeScript](/posts/tech/2026-03-27-zod-schema-validation) — full Zod deep-dive
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — how DaoDao uses Zod
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — shared schema design in NobodyClimb
+- [Zod: Runtime Type Validation for TypeScript](/posts/tech/2026-03-27-zod-schema-validation-en) — full Zod deep-dive
+- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — how DaoDao uses Zod
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — shared schema design in NobodyClimb

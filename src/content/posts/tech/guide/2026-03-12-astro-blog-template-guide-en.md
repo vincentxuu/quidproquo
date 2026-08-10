@@ -115,4 +115,4 @@ If you're using Tailwind, you don't even need separate CSS — just update the c
 - [Pagefind Full-Text Search](https://pagefind.app/)
 - [Fuse.js Fuzzy Search](https://www.fusejs.io/)
 - [TailwindCSS Official Docs](https://tailwindcss.com/docs)
-- [Tools Behind This Blog](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — A full walkthrough of this site's tech stack
+- [Tools Behind This Blog](/posts/tech/guide/2026-03-12-tools-behind-this-blog-en) — A full walkthrough of this site's tech stack

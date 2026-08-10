@@ -18,6 +18,8 @@ description: "從 NVIDIA 的 Lyra 2.0 出發，拆解 2025–2026 年 3D 生成�
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-07-22-3d-generative-models-landscape-en)
+
 最近在研究 3D 模型生成，從 NVIDIA 四月發的 [Lyra 2.0](https://arxiv.org/abs/2604.13036) 開始，一路往外拉了二十幾篇論文。這篇不是逐篇摘要，而是用整片地圖的視角回答一個問題：**2026 年中，如果你想從頭理解 3D 生成式模型，應該看什麼、跳過什麼、注意哪些轉折？**
 
 先講結論：這個領域正在經歷一次範式收斂和一次即將到來的範式分裂。收斂是「video diffusion + feed-forward reconstruction」成為共識管線；分裂是 3DGS 的壟斷正在被表面原語和結構化 latent 挑戰，而 pixel-space diffusion 正在反攻 latent-space。

@@ -197,4 +197,4 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 - [Workers AI: gemma-3-12b-it Model Page](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
 - [Workers AI: gemma-4-26b-a4b-it Model Page](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
 - [Google Gemma 3 Technical Report](https://ai.google.dev/gemma/docs/gemma3)
-- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) -- Full application of gemma-3-12b-it in a 20-node pipeline
+- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) -- Full application of gemma-3-12b-it in a 20-node pipeline

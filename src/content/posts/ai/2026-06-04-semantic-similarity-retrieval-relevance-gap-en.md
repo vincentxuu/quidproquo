@@ -60,13 +60,13 @@ In production there is no gold standard answer; rely on proxy signals:
 
 ## Remedies: From Cheapest to Most Thorough
 
-1. **Hybrid (BM25 + dense fusion)**: Recovers lexical exact matches and identifier lookups. Anthropic's [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) uses contextual embedding + contextual BM25, reducing retrieval failure rate by **49%**. See the site's [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) and [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval) articles.
-2. **Add a reranker (cross-encoder)**: In the same Anthropic experiment, stacking reranking further reduced the failure rate by **67%** (top-20). Cross-encoders are also named in the LIMIT paper as one method that bypasses the single-vector dimensional ceiling. See: [cross-encoder reranking](/posts/ai/2026-03-12-cross-encoder-reranking).
-3. **Multi-vector (ColBERT-style late interaction)**: Greater expressiveness than single-vector; performs far better on LIMIT. See: [ColBERT late interaction](/posts/ai/2026-03-12-colbert-late-interaction).
-4. **Query rewriting / decomposition / HyDE**: In multi-turn conversations, first rewrite into a self-contained query; for multi-hop questions, decompose first. See: [HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings).
+1. **Hybrid (BM25 + dense fusion)**: Recovers lexical exact matches and identifier lookups. Anthropic's [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) uses contextual embedding + contextual BM25, reducing retrieval failure rate by **49%**. See the site's [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) and [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en) articles.
+2. **Add a reranker (cross-encoder)**: In the same Anthropic experiment, stacking reranking further reduced the failure rate by **67%** (top-20). Cross-encoders are also named in the LIMIT paper as one method that bypasses the single-vector dimensional ceiling. See: [cross-encoder reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en).
+3. **Multi-vector (ColBERT-style late interaction)**: Greater expressiveness than single-vector; performs far better on LIMIT. See: [ColBERT late interaction](/posts/ai/2026-03-12-colbert-late-interaction-en).
+4. **Query rewriting / decomposition / HyDE**: In multi-turn conversations, first rewrite into a self-contained query; for multi-hop questions, decompose first. See: [HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en).
 5. **Upstream structured filtering (underrated but often most effective)**: Use time, numeric values, and categories as **metadata filters**; route proper nouns and identifiers to keyword exact matching -- do not feed them to vectors. In enterprise scenarios, the primary source of reliability is strong upstream filtering, not stacking rerankers on top of weak recall.
 6. **In-domain fine-tuning of embeddings**: For OOD and fine-grained issues, CapRetrieval achieved the best results using a data generation strategy for fine-tuning.
-7. **Router**: Route by query type -- identifiers -> keyword search, numeric/temporal -> SQL / filter, semantic Q&A -> dense + rerank, aggregation counting -> aggregation pipeline. See: [query classification and adaptive routing](/posts/ai/2026-03-12-query-classification-adaptive-routing).
+7. **Router**: Route by query type -- identifiers -> keyword search, numeric/temporal -> SQL / filter, semantic Q&A -> dense + rerank, aggregation counting -> aggregation pipeline. See: [query classification and adaptive routing](/posts/ai/2026-03-12-query-classification-adaptive-routing-en).
 
 ## The Big Picture
 

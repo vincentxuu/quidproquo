@@ -192,7 +192,7 @@ More open-source multi-model routing projects:
 
 ## Related Articles
 
-- [Agent CLI Subscriptions & Multi-Model Routing Complete Guide](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
+- [Agent CLI Subscriptions & Multi-Model Routing Complete Guide](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)
 
 ## References
 

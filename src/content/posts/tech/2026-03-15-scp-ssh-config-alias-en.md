@@ -92,4 +92,4 @@ Both `scp` and `rsync` honor `~/.ssh/config`. Set up an alias once, and you can 
 - [scp manual](https://man.openbsd.org/scp)
 - [rsync documentation](https://rsync.samba.org/documentation.html)
 - [docker cp reference](https://docs.docker.com/reference/cli/docker/container/cp/)
-- [島島阿學 Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [島島阿學 Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

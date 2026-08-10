@@ -17,7 +17,7 @@ series:
 
 Anthropic's engineering team published two articles on harness design between late 2025 and early 2026: [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) and [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps). Together, they represent the most complete publicly available field report on "how to keep an AI agent working continuously for hours."
 
-This post is a guided reading that breaks down the core ideas from both articles. If you've read [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action), these two articles serve as a practical case study of that theoretical framework — how Anthropic solves context fragmentation, cognitive loops, and action verification in real agent systems.
+This post is a guided reading that breaks down the core ideas from both articles. If you've read [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en), these two articles serve as a practical case study of that theoretical framework — how Anthropic solves context fragmentation, cognitive loops, and action verification in real agent systems.
 
 ---
 
@@ -35,7 +35,7 @@ This aligns with the philosophy they previously laid out in [Building Effective 
 
 Long-running agents face a fundamental challenge — the context window is finite, and complex projects cannot be completed within a single window.
 
-This is the same point made in [the Context article](/posts/ai/2026-03-17-ai-agents-context-cognition-action): an LLM's context window is like RAM — when the conversation ends, everything resets to zero. Anthropic faces the extreme version of this problem — it's not about a single conversation losing memory, but an agent that needs to run for hours across dozens of sessions.
+This is the same point made in [the Context article](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en): an LLM's context window is like RAM — when the conversation ends, everything resets to zero. Anthropic faces the extreme version of this problem — it's not about a single conversation losing memory, but an agent that needs to run for hours across dozens of sessions.
 
 Every time a new session starts, the agent knows **nothing** about previous work. It's like shift changes at a factory: the previous shift leaves, and the new person stares at a pile of code with no idea what's been done or what to do next.
 
@@ -103,7 +103,7 @@ Split generation and evaluation into two independent agents:
 - **Generator Agent**: Responsible for writing code and designing the frontend
 - **Evaluator Agent**: An independent, strict reviewer that scores output against four criteria
 
-The key insight: **tuning an independent evaluator to be rigorously critical is far easier than getting a generator to self-critique.** With external feedback, the generator has concrete targets to iterate toward. This is essentially the Self-Reflection mechanism described in [the Cognition article](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — except Anthropic outsources the reflection capability to another agent rather than having the same agent reflect on itself.
+The key insight: **tuning an independent evaluator to be rigorously critical is far easier than getting a generator to self-critique.** With external feedback, the generator has concrete targets to iterate toward. This is essentially the Self-Reflection mechanism described in [the Cognition article](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — except Anthropic outsources the reflection capability to another agent rather than having the same agent reflect on itself.
 
 Combined with Playwright for automated end-to-end testing, the entire system can iterate autonomously for hours — generator produces, evaluator rejects, generator revises, until the standards are met.
 
@@ -155,12 +155,12 @@ If you're building any long-running agent system, these two articles are worth r
 - [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — Anthropic's agent evaluation methodology, directly related to evaluator agent design
 
 **Harness Engineering Trends**
-- [From Prompt to Harness: Three Evolutionary Stages of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) — The evolution across three eras: Prompt, Context, and Harness
-- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness) — Why the harness is the key factor determining agent success or failure
-- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns) — Google's 8 multi-agent design patterns, useful for comparison with Anthropic's approach
+- [From Prompt to Harness: Three Evolutionary Stages of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) — The evolution across three eras: Prompt, Context, and Harness
+- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) — Why the harness is the key factor determining agent success or failure
+- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns-en) — Google's 8 multi-agent design patterns, useful for comparison with Anthropic's approach
 
 **Related Posts on This Site**
-- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — The theoretical framework for understanding agent architecture; this post serves as its practical counterpart
+- [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — The theoretical framework for understanding agent architecture; this post serves as its practical counterpart
 
 ## References
 

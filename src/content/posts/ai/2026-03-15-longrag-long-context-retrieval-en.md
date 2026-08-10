@@ -739,9 +739,9 @@ The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG
 ## Further Reading
 
 - [LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs](https://arxiv.org/abs/2406.15319) — The original LongRAG paper
-- [Chunking Strategies: How Splitting Methods Determine Whether RAG Can Find Answers](/posts/ai/2026-03-12-chunking-strategies) — Detailed comparison of traditional chunking strategies
-- [Contextual Retrieval: Giving Each Chunk Its Own Context](/posts/ai/2026-03-12-contextual-retrieval) — Anthropic's alternative approach to solving fragmentation
-- [Cross-Encoder Reranking: Using Precision Ranking Models to Compensate for Coarse Retrieval](/posts/ai/2026-03-12-cross-encoder-reranking) — Remediation strategy when retrieval isn't precise enough
+- [Chunking Strategies: How Splitting Methods Determine Whether RAG Can Find Answers](/posts/ai/2026-03-12-chunking-strategies-en) — Detailed comparison of traditional chunking strategies
+- [Contextual Retrieval: Giving Each Chunk Its Own Context](/posts/ai/2026-03-12-contextual-retrieval-en) — Anthropic's alternative approach to solving fragmentation
+- [Cross-Encoder Reranking: Using Precision Ranking Models to Compensate for Coarse Retrieval](/posts/ai/2026-03-12-cross-encoder-reranking-en) — Remediation strategy when retrieval isn't precise enough
 
 ## References
 

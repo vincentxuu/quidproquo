@@ -163,4 +163,4 @@ This pattern works well for any single-server VPS deployment running multiple su
 - [nginx - Module ngx_http_proxy_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html)
 - [nginx - Core functionality (include directive)](https://nginx.org/en/docs/ngx_core_module.html#include)
 - [Docker Compose volumes](https://docs.docker.com/compose/how-tos/volumes/)
-- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

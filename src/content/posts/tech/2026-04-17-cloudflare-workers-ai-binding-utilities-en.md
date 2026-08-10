@@ -20,7 +20,7 @@ This post walks through the overlooked tools hanging off `env.AI`.
 
 ## The Mental Model for the Binding
 
-Quick background: [Cloudflare Workers connects to services via Bindings](/posts/tech/2026-03-27-cloudflare-workers-edge-compute) — `D1Database`, `KVNamespace`, `R2Bucket`, `Ai`, and so on. Once you declare the `Ai` binding, `env.AI` becomes available inside your Worker.
+Quick background: [Cloudflare Workers connects to services via Bindings](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en) — `D1Database`, `KVNamespace`, `R2Bucket`, `Ai`, and so on. Once you declare the `Ai` binding, `env.AI` becomes available inside your Worker.
 
 Most tutorials jump straight from here to `env.AI.run("@cf/meta/llama-3")` for LLM inference. But the binding object actually looks like this:
 
@@ -63,7 +63,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` is "give me a model ID, I send input, you return output." Choosing the model, writing the prompt, and composing the pipeline are all on you.
 
-For guidance on model selection, see: [Gemma 3 on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai).
+For guidance on model selection, see: [Gemma 3 on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en).
 
 ## 2. `toMarkdown()` — Document Conversion Pipeline
 
@@ -131,7 +131,7 @@ Stripping scripts, styles, navigation, ads, and tracking code from HTML — keep
 
 ## 3. `autorag()` — Managed RAG (AI Search)
 
-Anyone who has built RAG from scratch knows the pain: chunking, embedding, writing to a vector DB, query rewriting, retrieval, reranking, prompt assembly, streaming... every step has its own pitfalls. The [complete RAG patterns guide](/posts/ai/2026-03-14-rag-patterns-complete-guide) covers all of them.
+Anyone who has built RAG from scratch knows the pain: chunking, embedding, writing to a vector DB, query rewriting, retrieval, reranking, prompt assembly, streaming... every step has its own pitfalls. The [complete RAG patterns guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en) covers all of them.
 
 AutoRAG (now called **AI Search**) is Cloudflare's managed version of that entire pipeline: drop your documents into R2, and it automatically chunks, embeds, and stores them in Vectorize. Querying is a single line.
 
@@ -152,7 +152,7 @@ const hits = await rag.search({
 });
 ```
 
-Best fit when: **your documents don't change often, you don't want to maintain a pipeline yourself, and Cloudflare's default chunking strategy is acceptable.** If you need fine-grained control over chunk size, hybrid search, or query rewriting, build it yourself (see [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)).
+Best fit when: **your documents don't change often, you don't want to maintain a pipeline yourself, and Cloudflare's default chunking strategy is acceptable.** If you need fine-grained control over chunk size, hybrid search, or query rewriting, build it yourself (see [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)).
 
 Recent update: AI Search now supports using OpenAI / Anthropic models for generation via an AI Gateway binding — not limited to models in the Cloudflare catalog.
 
@@ -214,19 +214,19 @@ Useful for "auto-select model" scenarios — for example, dynamically picking th
 
 ## How This Blog Uses It
 
-The [quidproquo blog](/posts/product/2026-03-12-quidproquo-blog-from-scratch) `wrangler.jsonc` already declares three bindings: `AI`, `VECTORIZE_INDEX`, and `R2_IMAGES`. Currently only `run()` is in use — for embeddings and semantic search. The other three methods haven't been touched yet.
+The [quidproquo blog](/posts/product/2026-03-12-quidproquo-blog-from-scratch-en) `wrangler.jsonc` already declares three bindings: `AI`, `VECTORIZE_INDEX`, and `R2_IMAGES`. Currently only `run()` is in use — for embeddings and semantic search. The other three methods haven't been touched yet.
 
 Some natural next steps:
 
 1. **External document crawler** — `src/lib/crawl/` already has crawling configuration; piping fetched HTML through `toMarkdown()` before chunking would significantly cut downstream embedding token costs.
-2. **AI Search** — sync `src/content/posts/` to R2 and wire up `autorag()` for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide) from scratch.
+2. **AI Search** — sync `src/content/posts/` to R2 and wire up `autorag()` for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide-en) from scratch.
 3. **Gateway** — for `llm-as-judge` answer quality evaluation, Claude or GPT-4 would outperform anything in the Workers AI catalog; Gateway handles unified logging and caching for those calls.
 
 ## Limitations and Trade-offs
 
 **Shared across all methods:**
 
-- Workers [CPU time / wall time limits](/posts/tech/2026-03-27-cloudflare-workers-edge-compute) still apply
+- Workers [CPU time / wall time limits](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en) still apply
 - Model versions are opaque — Cloudflare manages checkpoints; you cannot pin a version
 - No fine-tuning — domain adaptation relies on prompt engineering + RAG only
 
@@ -265,7 +265,7 @@ Before writing AI features next time, ask: is there a managed version of this? S
 - [toMarkdown Workers Binding Usage](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/usage/binding/)
 - [AI Search (formerly AutoRAG) Workers Binding](https://developers.cloudflare.com/ai-search/usage/workers-binding/)
 - [AI Gateway Worker Binding Methods](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/)
-- [Cloudflare Workers: V8 Isolate Fundamentals](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
-- [Gemma 3 on Cloudflare Workers AI: Model Selection](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
-- [Complete RAG Patterns Guide](/posts/ai/2026-03-14-rag-patterns-complete-guide)
+- [Cloudflare Workers: V8 Isolate Fundamentals](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
+- [Gemma 3 on Cloudflare Workers AI: Model Selection](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)
+- [Complete RAG Patterns Guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - [markdown.new](https://markdown.new) — the inspiration for this post

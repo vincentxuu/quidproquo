@@ -139,5 +139,5 @@ The decision criterion is straightforward: if your pipeline has more than one co
 - [LangGraph Concepts: Graphs](https://langchain-ai.github.io/langgraph/concepts/low_level/)
 - [LangGraph Concepts: State Management](https://langchain-ai.github.io/langgraph/concepts/low_level/#state)
 - [LangGraph How-to Guides](https://langchain-ai.github.io/langgraph/how-tos/)
-- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — Complete 20-node design with three strategy graphs
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Overall platform architecture and Cloudflare-first strategy
+- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — Complete 20-node design with three strategy graphs
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Overall platform architecture and Cloudflare-first strategy

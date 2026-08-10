@@ -187,5 +187,5 @@ For multi-app projects like DaoDao and NobodyClimb, Turborepo + pnpm workspaces 
 - [Turborepo official docs](https://turbo.build/repo/docs)
 - [pnpm workspaces official docs](https://pnpm.io/workspaces)
 - [Turborepo pipeline configuration](https://turbo.build/repo/docs/crafting-your-repository/configuring-tasks)
-- [DaoDao technical architecture overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao's monorepo structure and Turborepo usage
-- [NobodyClimb: Building a climbing community platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — NobodyClimb's monorepo structure and shared schema design
+- [DaoDao technical architecture overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — DaoDao's monorepo structure and Turborepo usage
+- [NobodyClimb: Building a climbing community platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — NobodyClimb's monorepo structure and shared schema design

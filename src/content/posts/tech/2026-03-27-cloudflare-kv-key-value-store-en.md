@@ -127,6 +127,6 @@ If you need strong consistency or complex queries, use D1. If you need high writ
 
 - [Cloudflare KV official documentation](https://developers.cloudflare.com/kv/)
 - [Workers Storage Options guide](https://developers.cloudflare.com/workers/platform/storage-options/)
-- [NobodyClimb system architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb RAG Pipeline architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — KV's role in semantic caching
+- [NobodyClimb system architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb RAG Pipeline architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — KV's role in semantic caching
 - [Cloudflare R2: Zero-Egress Object Storage](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)

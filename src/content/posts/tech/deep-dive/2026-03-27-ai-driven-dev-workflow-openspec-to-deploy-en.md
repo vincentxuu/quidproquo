@@ -172,7 +172,7 @@ The key isn't how complete the workflow is — it's whether each automated step 
 - [GitHub Actions Official Docs](https://docs.github.com/en/actions)
 - [Biome Official Site](https://biomejs.dev/)
 - [Figma MCP](https://www.figma.com/blog/introducing-figma-mcp/)
-- [Claude Code's Three-Layer Quality Defense: Hook, Skill, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Detailed explanation of the Hook and Skill mechanism
-- [Using Claude Code Remote Agent for Late-Night Automated Development](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline) — Remote Agent workflow for automatically picking up Issues and opening PRs
-- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — Automatically converting debug conversations into GitHub Issues
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Claude Code's Three-Layer Quality Defense: Hook, Skill, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en) — Detailed explanation of the Hook and Skill mechanism
+- [Using Claude Code Remote Agent for Late-Night Automated Development](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en) — Remote Agent workflow for automatically picking up Issues and opening PRs
+- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) — Automatically converting debug conversations into GitHub Issues
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

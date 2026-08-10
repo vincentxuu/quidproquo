@@ -187,6 +187,6 @@ If you're building a similar product, or if you're the kind of person who "wants
 
 - [DaoDao Official Website](https://daodao.so/)
 - [DaoDao App -- Onboarding Guide, Practice Topics](https://app.daodao.so/)
-- [Why Does Your Learning Fall Apart Halfway? DaoDao Wants to Solve This](/posts/education/2026-03-12-daodao-for-learners)
-- [The Next Battleground for Online Learning: Why "Completion Rate" Is the Real Problem](/posts/product/2026-03-12-daodao-market-opportunity)
-- [DaoDao Technical Architecture](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Why Does Your Learning Fall Apart Halfway? DaoDao Wants to Solve This](/posts/education/2026-03-12-daodao-for-learners-en)
+- [The Next Battleground for Online Learning: Why "Completion Rate" Is the Real Problem](/posts/product/2026-03-12-daodao-market-opportunity-en)
+- [DaoDao Technical Architecture](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

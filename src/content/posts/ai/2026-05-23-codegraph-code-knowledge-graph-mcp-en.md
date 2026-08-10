@@ -67,7 +67,7 @@ The last two are the key ones. `context` and `explore` return large amounts of s
 
 > NEVER call `codegraph_explore` or `codegraph_context` directly in the main session. These tools return large amounts of source code that fills up main session context. Instead, ALWAYS spawn an Explore agent for any exploration question (...). The main session may only use these lightweight tools directly (...): `codegraph_search` / `codegraph_callers` / `codegraph_callees` / `codegraph_impact` / `codegraph_node`.
 
-In other words: exploration questions ("How does X work?") always go to an Explore subagent, which uses `codegraph_explore` to ingest source code into its own context; the main conversation only uses lightweight tools for "pinpoint queries before making changes." The purpose of this design is to protect the main session's context window from being flooded by heavy tools' large source code payloads -- this is a classic technique from [context engineering](/posts/ai/2026-05-19-claude-file-handling-three-layers).
+In other words: exploration questions ("How does X work?") always go to an Explore subagent, which uses `codegraph_explore` to ingest source code into its own context; the main conversation only uses lightweight tools for "pinpoint queries before making changes." The purpose of this design is to protect the main session's context window from being flooded by heavy tools' large source code payloads -- this is a classic technique from [context engineering](/posts/ai/2026-05-19-claude-file-handling-three-layers-en).
 
 ## Benchmark: The Honest Retreat from "94%" to "~35%"
 
@@ -107,7 +107,7 @@ The reconciliation lies in "whether the subagent actually walks the graph":
 - Lightweight tools (`search`/`callers`/`impact`/`node`) -> stay in the main session for pinpoint queries.
 - The true anti-pattern is: delegating exploration to a **generic subagent that ignores CodeGraph and only uses grep/read** -- it scans files as usual, and CodeGraph is purely an extra layer of overhead.
 
-So whether you save money doesn't depend on "whether CodeGraph is installed," but on "whether the agent's tool orchestration actually walks the graph." This aligns with the conclusion from [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface): whether a tool is positioned correctly matters more than the tool itself.
+So whether you save money doesn't depend on "whether CodeGraph is installed," but on "whether the agent's tool orchestration actually walks the graph." This aligns with the conclusion from [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): whether a tool is positioned correctly matters more than the tool itself.
 
 ## Compared to Alternatives
 
@@ -115,7 +115,7 @@ So whether you save money doesn't depend on "whether CodeGraph is installed," bu
 
 **vs LSP (Serena)**: This is the most frequently asked reader question: "How is it different from LSP?" [Serena](https://github.com/oraios/serena) (21k+ stars) uses Language Server Protocol for **real-time, type-aware** queries -- it can do precise rename, cross-file references, and symbol editing. The cost is that each language needs its corresponding language server installed (a heavy burden in CI/container environments), and each query re-invokes the LSP without storing relationships. CodeGraph is a **pre-computed, persisted** AST graph + FTS5: queries are fast, self-contained, and cross-language in a single graph, but reference resolution depth (aliases, inheritance, type narrowing) falls short of a live language server. In one sentence: choose LSP/Serena for large-scale, type-precise refactoring; choose the graph for fast exploration + low-cost Q&A.
 
-**vs Embedding RAG-on-code**: Tools like Codanna that generate embeddings from doc comments for concept search, or [Graphify](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase) (tree-sitter AST + LLM semantic analysis, claiming 71.5x token savings) covered on this site. CodeGraph avoids vectors and LLM summaries entirely, trading determinism and zero API cost for the inability to do "conceptually similar" search (asking "find validation logic" won't automatically match code that doesn't contain the keyword). In this space, similar MCPs (GitNexus, code-graph-rag-mcp, code-review-graph) all claim "8-120x token savings"; CodeGraph differentiates with "public, end-to-end, challengeable benchmarks" + high-frequency iteration + multi-agent support. Someone has even rewritten it in Rust as `codemap`.
+**vs Embedding RAG-on-code**: Tools like Codanna that generate embeddings from doc comments for concept search, or [Graphify](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase-en) (tree-sitter AST + LLM semantic analysis, claiming 71.5x token savings) covered on this site. CodeGraph avoids vectors and LLM summaries entirely, trading determinism and zero API cost for the inability to do "conceptually similar" search (asking "find validation logic" won't automatically match code that doesn't contain the keyword). In this space, similar MCPs (GitNexus, code-graph-rag-mcp, code-review-graph) all claim "8-120x token savings"; CodeGraph differentiates with "public, end-to-end, challengeable benchmarks" + high-frequency iteration + multi-agent support. Someone has even rewritten it in Rust as `codemap`.
 
 ## Limitations and Known Issues
 
@@ -141,7 +141,7 @@ For readers of this site, there's also a point of comparison: quidproquo's own s
 - [Serena -- GitHub repo (LSP-based comparison)](https://github.com/oraios/serena)
 - [Codanna Discussion #30: Differences with Serena?](https://github.com/bartolli/codanna/discussions/30)
 - [Project AEGIS -- Benchmarking AI Agents (ManoMano, independent benchmark)](https://medium.com/manomano-tech/project-aegis-benchmarking-ai-agents-and-why-serena-is-our-new-must-have-311673db35dd)
-- On this site: [Graphify: Turn Code and Documentation into a Queryable Knowledge Graph](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase)
-- On this site: [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Calls](/posts/ai/2026-03-22-mcp-model-context-protocol)
-- On this site: [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)
-- On this site: [GraphRAG: Making Knowledge into Graphs for LLM Relationship-Based Reasoning](/posts/ai/2026-03-12-graph-rag)
+- On this site: [Graphify: Turn Code and Documentation into a Queryable Knowledge Graph](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase-en)
+- On this site: [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Calls](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
+- On this site: [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en)
+- On this site: [GraphRAG: Making Knowledge into Graphs for LLM Relationship-Based Reasoning](/posts/ai/2026-03-12-graph-rag-en)

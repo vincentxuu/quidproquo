@@ -164,5 +164,5 @@ Another thing to keep in mind: the Workers environment has real constraints (no 
 - [Hono Official Docs](https://hono.dev/)
 - [Cloudflare Workers Official Docs](https://developers.cloudflare.com/workers/)
 - [hono-openapi](https://github.com/rhinobase/hono-openapi)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Hono in action on a real Cloudflare-first project
-- [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — AI Q&A system design on the same backend
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Hono in action on a real Cloudflare-first project
+- [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — AI Q&A system design on the same backend

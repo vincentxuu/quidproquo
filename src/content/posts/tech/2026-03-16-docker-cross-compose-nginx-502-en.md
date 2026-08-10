@@ -72,4 +72,4 @@ For cross-Compose container communication, don't rely on service names — expli
 - [Docker Compose networking](https://docs.docker.com/compose/how-tos/networking/)
 - [Docker network aliases](https://docs.docker.com/reference/cli/docker/network/connect/#aliases)
 - [nginx - Module ngx_http_upstream_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html)
-- [Island Learning Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Island Learning Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

@@ -47,7 +47,7 @@ Claude Code offers three scheduling mechanisms suited to different scenarios:
 
 **`/loop`**: The lightest option — quick scheduling within a session. Best for short-term monitoring like "notify me when the deploy is done." Disappears when the session ends; use `--resume` to restore it.
 
-This post focuses on Routines. For `/loop`, see [/loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling). For the full Remote Agent pipeline, see [Remote Agent Auto-Dev](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline).
+This post focuses on Routines. For `/loop`, see [/loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling-en). For the full Remote Agent pipeline, see [Remote Agent Auto-Dev](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en).
 
 ## What Is a Routine
 
@@ -257,7 +257,7 @@ Schedule handles the backlog; GitHub trigger handles real-time events. Together 
 
 ### Pairing with /file-bug-issue
 
-The [`/file-bug-issue` skill](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) lets you open a GitHub issue directly from a debug session. If you decide AI can fix it, manually add the `auto` label and the next routine run picks it up automatically.
+The [`/file-bug-issue` skill](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) lets you open a GitHub issue directly from a debug session. If you decide AI can fix it, manually add the `auto` label and the next routine run picks it up automatically.
 
 ```
 Debug → /file-bug-issue → GitHub Issue (bug label)
@@ -319,7 +319,7 @@ Start simple: auto-review yesterday's PRs every morning, run a dependency audit 
 - [Trigger a routine via API (Platform docs)](https://platform.claude.com/docs/en/api/claude-code/routines-fire)
 - [GitHub Actions integration](https://code.claude.com/docs/en/github-actions)
 - [Claude Code on the web: cloud environment settings](https://code.claude.com/docs/en/claude-code-on-the-web)
-- [Claude Code /loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling)
-- [Remote Agent Auto-Dev Pipeline](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)
-- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent)
-- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Claude Code /loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
+- [Remote Agent Auto-Dev Pipeline](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en)
+- [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)
+- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

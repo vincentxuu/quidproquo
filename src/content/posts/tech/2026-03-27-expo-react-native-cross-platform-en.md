@@ -116,5 +116,5 @@ For a small team that needs both a web app and a mobile app, Expo + React Native
 - [Expo Router Docs](https://expo.github.io/router/docs)
 - [React Native New Architecture](https://reactnative.dev/docs/the-new-architecture/landing-page)
 - [EAS (Expo Application Services)](https://expo.dev/eas)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)

@@ -250,4 +250,4 @@ jobs:
 - [dorny/paths-filter](https://github.com/dorny/paths-filter) — Monorepo path filter action
 - [appleboy/ssh-action](https://github.com/appleboy/ssh-action) — SSH deployment action
 - [Turborepo Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) — Build cache for CI
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — DaoDao's CI/CD architecture and Discord notification design
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — DaoDao's CI/CD architecture and Discord notification design

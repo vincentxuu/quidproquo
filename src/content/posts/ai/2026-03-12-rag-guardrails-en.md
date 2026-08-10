@@ -185,5 +185,5 @@ The most important design principle: **fail safe**. When Guardrails are uncertai
 - [NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails (2023)](https://arxiv.org/abs/2310.10501)
 - [Building Guardrails for Large Language Models (2024)](https://arxiv.org/abs/2402.01822)
 - [Prompt Injection Attack against LLM-integrated Applications (2023)](https://arxiv.org/abs/2306.05499)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

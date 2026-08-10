@@ -149,35 +149,35 @@ Claude Code's core advantage is the depth of customization enabled by its six-la
 This site has 20+ articles dedicated to Claude Code, indexed by topic below:
 
 **Extension system:**
-- [Complete Guide to Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide)
-- [Complete Guide to Skills](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
-- [Complete Guide to Sub-agents](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)
-- [MCP Server Integration](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)
-- [Agent Teams Guide](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide)
-- [Plugins & Marketplaces](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide)
-- [Three-Layer Quality Defense: Hook, Skill, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
+- [Complete Guide to Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide-en)
+- [Complete Guide to Skills](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)
+- [Complete Guide to Sub-agents](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en)
+- [MCP Server Integration](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en)
+- [Agent Teams Guide](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide-en)
+- [Plugins & Marketplaces](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide-en)
+- [Three-Layer Quality Defense: Hook, Skill, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
 
 **Configuration & environment:**
-- [Complete settings.json Reference](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide)
-- [CLAUDE.md and agents.md Guide](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide)
-- [Context Window Management](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)
-- [DevContainer & Sandboxing](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing)
-- [Permission Modes Explained](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions)
+- [Complete settings.json Reference](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide-en)
+- [CLAUDE.md and agents.md Guide](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en)
+- [Context Window Management](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management-en)
+- [DevContainer & Sandboxing](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing-en)
+- [Permission Modes Explained](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en)
 
 **Integrations & automation:**
-- [CI/CD × GitHub Actions](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)
-- [Headless Mode](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)
-- [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide)
-- [Slack Integration](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
-- [Chrome Integration](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration)
-- [Routines (formerly Scheduled Tasks)](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)
-- [Checkpointing](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide)
+- [CI/CD × GitHub Actions](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions-en)
+- [Headless Mode](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide-en)
+- [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide-en)
+- [Slack Integration](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration-en)
+- [Chrome Integration](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration-en)
+- [Routines (formerly Scheduled Tasks)](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en)
+- [Checkpointing](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide-en)
 
 **Miscellaneous:**
-- [Complete List of Spinner Verbs](/posts/tech/2026-03-30-claude-code-spinner-verbs)
-- [Debugging & Troubleshooting Collection](/posts/tech/2026-03-28-claude-code-troubleshooting-collection)
-- [/loop Scheduling Feature](/posts/tech/2026-05-09-claude-code-loop-scheduling)
-- [Skill vs Subagent Comparison](/posts/ai/2026-03-30-skill-vs-subagent-comparison)
+- [Complete List of Spinner Verbs](/posts/tech/2026-03-30-claude-code-spinner-verbs-en)
+- [Debugging & Troubleshooting Collection](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
+- [/loop Scheduling Feature](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
+- [Skill vs Subagent Comparison](/posts/ai/2026-03-30-skill-vs-subagent-comparison-en)
 
 ## Resources
 

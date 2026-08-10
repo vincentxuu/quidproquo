@@ -221,4 +221,4 @@ In the early MVP stage, a single PostgreSQL is enough. Add ClickHouse when the p
 - [MergeTree Engine In Depth](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree)
 - [clickhouse-connect Python Client](https://github.com/ClickHouse/clickhouse-connect)
 - [ClickHouse vs PostgreSQL Comparison](https://clickhouse.com/docs/en/faq/general/columnar-database)
-- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Full context on how ClickHouse serves as the behavioral analytics database in the AI backend, working alongside Qdrant and Celery to power the recommendation engine's feature engineering pipeline
+- [DaoDao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Full context on how ClickHouse serves as the behavioral analytics database in the AI backend, working alongside Qdrant and Celery to power the recommendation engine's feature engineering pipeline

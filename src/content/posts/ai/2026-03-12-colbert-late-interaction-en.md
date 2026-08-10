@@ -104,5 +104,5 @@ For most RAG systems, the established Bi-Encoder + Cross-Encoder combination rem
 
 - [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT (2020)](https://arxiv.org/abs/2004.12832)
 - [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction (2021)](https://arxiv.org/abs/2112.01488)
-- [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) (zh-TW only)
+- [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

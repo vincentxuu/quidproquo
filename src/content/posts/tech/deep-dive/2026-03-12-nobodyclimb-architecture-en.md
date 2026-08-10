@@ -149,5 +149,5 @@ This approach suits projects of similar scale: meaningful complexity (monorepo, 
 - [Tamagui documentation](https://tamagui.dev/)
 - [Expo documentation](https://docs.expo.dev/)
 - [BAAI/bge-m3 model](https://huggingface.co/BAAI/bge-m3)
-- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — Full design details of the AI Q&A system
-- [Island Island (島島) Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — An architecture comparison with another learning platform
+- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — Full design details of the AI Q&A system
+- [Island Island (島島) Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — An architecture comparison with another learning platform

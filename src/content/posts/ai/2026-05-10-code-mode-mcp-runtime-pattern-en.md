@@ -12,7 +12,7 @@ draft: false
 
 🌏 [中文版](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)
 
-My earlier post [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface) tackled the "positioning" question: API is the base layer, five wrapper types each suit different scenarios, and MCP's only defensible moat is "cross-host sharing." But that post left a more practical question unanswered — **even when you've picked the right interface, why does a single agent workflow routinely burn through 100K+ tokens?**
+My earlier post [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en) tackled the "positioning" question: API is the base layer, five wrapper types each suit different scenarios, and MCP's only defensible moat is "cross-host sharing." But that post left a more practical question unanswered — **even when you've picked the right interface, why does a single agent workflow routinely burn through 100K+ tokens?**
 
 On November 4, 2025, the [Anthropic engineering blog](https://www.anthropic.com/engineering/code-execution-with-mcp) and shortly after the [Cloudflare blog](https://blog.cloudflare.com/code-mode-mcp/) gave the same answer: the problem isn't the protocol, it's the habit of "eager loading." The fix is to let the model write code and turn tools from prompt schemas into imported modules. This pattern is now called **Code Mode**.
 
@@ -115,7 +115,7 @@ No tool definition required. The shell is the interface.
 
 **Typed module imports**: For things that have no existing CLI and didn't make it into LLM training data — internal systems, enterprise SaaS, private APIs. Each tool is written as a TypeScript file with explicit input/output types; the agent imports it only when it needs it.
 
-These two primitives map directly onto the two tracks from my earlier [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface) post: CLI wins on familiar tools covered in training; typed imports fill the schema gap for new things. The difference is that Code Mode puts them both inside **the same runtime** — it's no longer an either/or architectural choice.
+These two primitives map directly onto the two tracks from my earlier [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en) post: CLI wins on familiar tools covered in training; typed imports fill the schema gap for new things. The difference is that Code Mode puts them both inside **the same runtime** — it's no longer an either/or architectural choice.
 
 ## What It Looks Like in Practice
 
@@ -166,7 +166,7 @@ The protocol is the same; the packaging changed. Nothing changes for people writ
 
 ## The Bigger Picture
 
-Reading my earlier [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface) post alongside this one, a clear evolution emerges:
+Reading my earlier [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en) post alongside this one, a clear evolution emerges:
 
 > **The interface war is over. What remains is runtime design.** MCP, OpenAPI, and CLI are not runtimes — they're primitives that runtimes assemble. Code Mode is the runtime that assembles them.
 
@@ -179,7 +179,7 @@ But in the medium-to-long term, there's only one answer: **tool definitions belo
 
 ## References
 
-- [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface) (earlier post on this site)
+- [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en) (earlier post on this site)
 - [Anthropic — Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)
 - [Cloudflare — Code Mode: the better way to use MCP](https://blog.cloudflare.com/code-mode-mcp/)
 - [Akshay Pachaar — MCP vs CLI was the wrong debate](https://x.com/akshay_pachaar/status/2053166970166772052)

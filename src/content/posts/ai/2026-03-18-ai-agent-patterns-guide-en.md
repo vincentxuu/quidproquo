@@ -118,7 +118,7 @@ Context ──→ Cognition ──→ Action
 
 Every subsequent topic in this guide maps to one of the pillars: Context Engineering and Agent Memory strengthen the Context pillar, Prompt Engineering strengthens the Cognition pillar, and MCP and Tool Calling strengthen the Action pillar. Harness Engineering is the control layer spanning all three.
 
--> **Deep-dive article**: [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action)
+-> **Deep-dive article**: [The Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en)
 
 ---
 
@@ -147,7 +147,7 @@ Each stage does not replace the previous one -- it subsumes it. Prompt engineeri
 
 Understanding the evolution of these three stages is crucial because it determines your mental model. If you are still at Stage One, you will think "the Agent is not working because the prompt is poorly written." At Stage Two, you will realize "most problems are in the context." At Stage Three, you will discover "even with correct context, an Agent without a harness is still unreliable in production."
 
--> **Deep-dive article**: [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution)
+-> **Deep-dive article**: [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en)
 
 ---
 
@@ -168,7 +168,7 @@ LangChain CEO Harrison Chase's diagnostic principle: "If your agent is performin
 
 Master these four strategies and you have the biggest lever for Agent quality. Before you go researching fancier architectures, make sure your context is right.
 
--> **Deep-dive article**: [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide)
+-> **Deep-dive article**: [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en)
 
 ---
 
@@ -185,8 +185,8 @@ An often-overlooked point: Prompt Engineering plays a different role in Agent sy
 Another common mistake is putting too many instructions in the prompt. When your system prompt exceeds 2000 words, the LLM's compliance with later instructions drops noticeably. At that point, you do not need a longer prompt but a better context architecture -- move some instructions into tool descriptions, into few-shot examples, or load them dynamically based on the task phase.
 
 -> **Deep-dive articles**:
-- [Prompt Engineering in Practice: Iteration Methodology, Common Mistakes, and Few-shot Optimization](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
-- [RAG Prompt Engineering: How to Design System Prompts and Context](/posts/ai/2026-03-12-rag-prompt-engineering)
+- [Prompt Engineering in Practice: Iteration Methodology, Common Mistakes, and Few-shot Optimization](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
+- [RAG Prompt Engineering: How to Design System Prompts and Context](/posts/ai/2026-03-12-rag-prompt-engineering-en)
 
 ---
 
@@ -208,9 +208,9 @@ Harness Engineering is the most important AI engineering topic of 2026 because i
 A good harness design principle: **the LLM decides what to do; the harness decides how to do it safely.** The LLM says "I want to delete this file," and the harness checks whether this operation is within the allowed scope, whether human review is required, and whether there is a rollback mechanism. This separation allows you to upgrade the LLM without rewriting the safety logic.
 
 -> **Deep-dive articles**:
-- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design)
-- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness)
-- [Harness Engineering Advanced Patterns: Tool Registry, Guard System, and Checkpoint-Resume](/posts/ai/2026-03-30-harness-engineering-patterns)
+- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en)
+- [Phil Schmid: Why Agent Harness Is the Most Important Thing in 2026](/posts/ai/2026-03-28-phil-schmid-agent-harness-en)
+- [Harness Engineering Advanced Patterns: Tool Registry, Guard System, and Checkpoint-Resume](/posts/ai/2026-03-30-harness-engineering-patterns-en)
 
 ---
 
@@ -242,7 +242,7 @@ When should you split into multi-agent? There are several signals:
 
 If none of the above apply, a single agent is usually the better choice -- simpler, easier to debug, lower latency.
 
--> **Deep-dive article**: [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns)
+-> **Deep-dive article**: [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns-en)
 
 ---
 
@@ -285,7 +285,7 @@ Above is a simplified Corrective RAG graph -- a typical LangGraph use case. Each
 
 LangGraph and the Multi-Agent design patterns mentioned earlier are not mutually exclusive -- LangGraph is an implementation-level framework, while Multi-Agent patterns are design-level concepts. You can use LangGraph to implement Sequential, Coordinator, or Hierarchical patterns.
 
--> **Deep-dive article**: [LangGraph: Managing Agent Workflows with Graph Structures](/posts/ai/2026-03-27-langgraph-agent-orchestration)
+-> **Deep-dive article**: [LangGraph: Managing Agent Workflows with Graph Structures](/posts/ai/2026-03-27-langgraph-agent-orchestration-en)
 
 ---
 
@@ -309,7 +309,7 @@ How does MCP relate to the other topics in this guide?
 - **Relationship with Context Engineering**: MCP Servers provide not only tools but also Resources (contextual information) and Prompts (preset interaction templates). Resources are essentially an implementation of Context Engineering's Select strategy.
 - **Relationship with Multi-Agent**: In multi-agent architectures, different Agents can connect to different MCP Servers, achieving separation of responsibilities.
 
--> **Deep-dive article**: [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Calling](/posts/ai/2026-03-22-mcp-model-context-protocol)
+-> **Deep-dive article**: [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Calling](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
 
 ---
 
@@ -329,7 +329,7 @@ A concrete example: Claude Code's `CLAUDE.md` is a form of procedural memory -- 
 
 Memory is also one of the biggest differences between Agents and chatbots. Chatbots typically only have short-term memory within a session (conversation history), while Agents need cross-session long-term memory to become more useful over time.
 
--> **Deep-dive article**: [Agent Memory Systems: The Evolution from RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems)
+-> **Deep-dive article**: [Agent Memory Systems: The Evolution from RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems-en)
 
 ---
 
@@ -357,7 +357,7 @@ Chatbot development can be considered the "comprehensive exam" of all topics in 
 
 If you can build a stable production-grade chatbot, your understanding of Agent architecture is already solid.
 
--> **Deep-dive article**: [Complete Guide to Chatbot Development: State Management, Memory Strategy, and Tech Stack Selection](/posts/ai/2026-03-13-chatbot-development-guide)
+-> **Deep-dive article**: [Complete Guide to Chatbot Development: State Management, Memory Strategy, and Tech Stack Selection](/posts/ai/2026-03-13-chatbot-development-guide-en)
 
 ---
 
@@ -390,7 +390,7 @@ Beyond debugging, observability has two often-overlooked benefits:
 - **Cost control**: LLM calls are not cheap. Without cost tracking, you will not know how much a feature costs per day, nor will you know that a user's prompt injection attempts are wasting your tokens.
 - **Continuous improvement**: With evaluation data, you can quantify the effect of every prompt modification or architecture adjustment rather than relying on gut feeling.
 
--> **Deep-dive article**: [Langfuse Complete Guide: LLM Application Observability from Scratch](/posts/ai/2026-03-26-langfuse-llm-observability-guide)
+-> **Deep-dive article**: [Langfuse Complete Guide: LLM Application Observability from Scratch](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en)
 
 ---
 

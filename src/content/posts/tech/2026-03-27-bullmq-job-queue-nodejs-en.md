@@ -252,4 +252,4 @@ If you already have PostgreSQL and want to avoid adding Redis, pg-boss is a soli
 - [BullMQ Official Docs](https://docs.bullmq.io/)
 - [Bull Board Monitoring Dashboard](https://github.com/felixmosh/bull-board)
 - [ioredis (Node.js Redis client)](https://github.com/redis/ioredis)
-- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture) — Full context on BullMQ's P1/P2 notification priority design, batch email delivery, and weekly digest scheduling
+- [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — Full context on BullMQ's P1/P2 notification priority design, batch email delivery, and weekly digest scheduling

@@ -151,4 +151,4 @@ Based on star count and update frequency, OMX is one of the most active communit
 - [oh-my-codex GitHub Repository](https://github.com/Yeachan-Heo/oh-my-codex)
 - [OpenAI Codex CLI — GitHub](https://github.com/openai/codex)
 - [OpenAI Introduces Codex: Agent CLI Workflows and Multi-Agent Collaboration](https://openai.com/index/introducing-codex/)
-- [Codex CLI Complete Analysis](/posts/ai/2026-04-02-agent-cli-openai-codex)
+- [Codex CLI Complete Analysis](/posts/ai/2026-04-02-agent-cli-openai-codex-en)

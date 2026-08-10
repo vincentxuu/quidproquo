@@ -42,7 +42,7 @@ Core design: The **CLAUDE.md system** lets you place working guidelines in your 
 
 The most feature-complete option, suitable as a primary development tool. Billed by Anthropic API token usage.
 
-**-> [Claude Code: Anthropic's Terminal AI Coding Agent -- Complete Overview](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent)**
+**-> [Claude Code: Anthropic's Terminal AI Coding Agent -- Complete Overview](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en)**
 
 ---
 
@@ -54,7 +54,7 @@ Core design: The **AGENTS.md system** mirrors CLAUDE.md; **three authorization m
 
 Ideal for developers who need strict control over the execution environment or want to customize agent behavior.
 
-**-> [Codex CLI: OpenAI's Open-Source Terminal Coding Agent -- Complete Overview](/posts/tech/2026-03-31-codex-cli-openai-coding-agent)**
+**-> [Codex CLI: OpenAI's Open-Source Terminal Coding Agent -- Complete Overview](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en)**
 
 ---
 
@@ -64,7 +64,7 @@ Google's open-source Agent CLI (Apache 2.0), powered by the **Gemini 3 series** 
 
 Core design: The **GEMINI.md system**; a **1M token context window** (currently the largest); **Google ecosystem integration** (Search, Drive, Workspace); MCP support.
 
-**-> [Gemini CLI: Google's Open-Source Terminal AI Agent -- Complete Overview](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)**
+**-> [Gemini CLI: Google's Open-Source Terminal AI Agent -- Complete Overview](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)**
 
 ---
 
@@ -74,7 +74,7 @@ An open-source AI coding agent (built in Go) with a built-in TUI interface. Its 
 
 Core design: LSP integration gives the agent IDE-level code understanding; a **dual-agent mode** (planning agent + execution agent division of labor); Vim-style editor; SQLite session management.
 
-**-> [OpenCode: Open-Source AI Terminal Coding Agent -- Complete Overview](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent)**
+**-> [OpenCode: Open-Source AI Terminal Coding Agent -- Complete Overview](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en)**
 
 ---
 
@@ -94,7 +94,7 @@ A minimalist open-source coding harness, built in TypeScript, running on the Bun
 
 Core design: Extensible through Extensions, Skills, and Prompt Templates; Ollama has built-in `ollama launch pi` for one-click startup; deep integration with OpenClaw.
 
-**-> [Pi Coding Agent: A Minimalist Open-Source Terminal Coding Harness](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)**
+**-> [Pi Coding Agent: A Minimalist Open-Source Terminal Coding Harness](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en)**
 
 ---
 

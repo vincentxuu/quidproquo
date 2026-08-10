@@ -187,7 +187,7 @@ Jitter is derived from the task ID and remains consistent. To avoid jitter, set 
 
 ### 7-Day Expiration
 
-Repeating tasks **expire automatically after 7 days**. They run once more just before expiration, then are deleted. For longer-running schedules, recreate the task before it expires — or use [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide) or Desktop scheduled tasks instead.
+Repeating tasks **expire automatically after 7 days**. They run once more just before expiration, then are deleted. For longer-running schedules, recreate the task before it expires — or use [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en) or Desktop scheduled tasks instead.
 
 ### Resume Restoration
 
@@ -222,7 +222,7 @@ Set the environment variable `CLAUDE_CODE_DISABLE_CRON=1` to disable the schedul
 
 `/loop` is not a true overnight cron daemon. For these scenarios, reach for a different tool:
 
-- **Cross-session cloud scheduling**: use [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide) (runs even when your machine is off; supports API/GitHub triggers)
+- **Cross-session cloud scheduling**: use [Routines](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en) (runs even when your machine is off; supports API/GitHub triggers)
 - **Long-running local scheduling**: use Desktop scheduled tasks (requires the machine to be on, but not a session)
 - **CI integration**: use GitHub Actions
 

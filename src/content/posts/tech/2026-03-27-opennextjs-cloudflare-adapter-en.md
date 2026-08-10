@@ -196,4 +196,4 @@ For a community platform like NobodyClimb — moderate traffic, no complex image
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare Pages vs Workers](https://developers.cloudflare.com/workers/platform/deployments/)
 - [Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)
-- [NobodyClimb: Building a Climbing Community Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — NobodyClimb's full Cloudflare architecture and real-world usage of @opennextjs/cloudflare
+- [NobodyClimb: Building a Climbing Community Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — NobodyClimb's full Cloudflare architecture and real-world usage of @opennextjs/cloudflare

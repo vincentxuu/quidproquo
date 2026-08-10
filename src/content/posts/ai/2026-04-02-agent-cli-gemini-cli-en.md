@@ -132,7 +132,7 @@ Full migration guide: [antigravity.google/docs/gcli-migration](https://antigravi
 
 This article is part of the Agent CLI series. For cross-tool comparisons of multi-model routing and subscription plans, see:
 
-**-> [Agent CLI Subscription Plans and Multi-Model Routing Strategies](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
+**-> [Agent CLI Subscription Plans and Multi-Model Routing Strategies](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)**
 
 ## References
 

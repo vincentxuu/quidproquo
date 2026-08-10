@@ -207,4 +207,4 @@ Turborepo + Biome genuinely delivers a better developer experience — fast lint
 - [Qdrant Vector Database](https://qdrant.tech/documentation/)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [Expo Documentation](https://docs.expo.dev/)
-- [NobodyClimb Tech Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Another monorepo-based project for comparison
+- [NobodyClimb Tech Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Another monorepo-based project for comparison

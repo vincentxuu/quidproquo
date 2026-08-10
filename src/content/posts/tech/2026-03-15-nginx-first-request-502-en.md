@@ -128,4 +128,4 @@ The `resolve` parameter behaves differently: **DNS updates happen in the backgro
 - [nginx - Module ngx_http_upstream_module (server directive, resolve parameter)](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#server)
 - [nginx - Module ngx_http_core_module (resolver directive)](https://nginx.org/en/docs/http/ngx_http_core_module.html#resolver)
 - [Docker embedded DNS server](https://docs.docker.com/engine/network/#dns-services)
-- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

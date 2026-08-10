@@ -184,5 +184,5 @@ Don't spend too much time on "which benchmark is highest" — first confirm your
 - [Qdrant Documentation](https://qdrant.tech/documentation/)
 - [Chroma Documentation](https://docs.trychroma.com/)
 - [Cloudflare Vectorize Documentation](https://developers.cloudflare.com/vectorize/)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

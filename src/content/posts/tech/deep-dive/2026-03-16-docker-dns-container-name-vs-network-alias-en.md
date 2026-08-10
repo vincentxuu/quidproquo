@@ -69,5 +69,5 @@ The two are not mutually exclusive — you can configure both: `container_name` 
 - [Docker official docs: Networking overview](https://docs.docker.com/network/)
 - [Docker Compose official docs: Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
 - [Docker official docs: docker compose up --scale](https://docs.docker.com/reference/cli/docker/compose/up/)
-- [nginx 502: Debugging cross-Compose container DNS resolution](/posts/tech/2026-03-16-docker-cross-compose-nginx-502)
-- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [nginx 502: Debugging cross-Compose container DNS resolution](/posts/tech/2026-03-16-docker-cross-compose-nginx-502-en)
+- [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

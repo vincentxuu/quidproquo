@@ -46,7 +46,7 @@ What does this mean? **The harness logic you write today may become obsolete tom
 
 So the harness design must allow you to tear out the "clever" parts at any time. If you over-engineer the control flow, the next model update will break your system — not because the model got worse, but because your workaround became an obstacle.
 
-This aligns perfectly with [Anthropic's observation](/posts/ai/2026-03-28-anthropic-harness-design): after upgrading from Sonnet 4.5 to Opus 4.5, the context reset mechanism was removed entirely because the model itself resolved context anxiety.
+This aligns perfectly with [Anthropic's observation](/posts/ai/2026-03-28-anthropic-harness-design-en): after upgrading from Sonnet 4.5 to Opus 4.5, the context reset mechanism was removed entirely because the model itself resolved context anxiety.
 
 ---
 
@@ -98,10 +98,10 @@ Model capability is a necessary condition, but not a sufficient one. The competi
 
 ## Further Reading
 
-- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design) — Anthropic's practical case study
-- [From Prompt to Harness: Three Evolutionary Phases of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) — The complete trajectory across three stages
-- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns) — Design pattern taxonomy
-- [Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action) — Agent architecture theoretical framework
+- [Anthropic's Harness Design: Making AI Agents Work Like Engineers](/posts/ai/2026-03-28-anthropic-harness-design-en) — Anthropic's practical case study
+- [From Prompt to Harness: Three Evolutionary Phases of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en) — The complete trajectory across three stages
+- [Google's Eight Multi-Agent Design Patterns](/posts/ai/2026-03-28-google-multi-agent-patterns-en) — Design pattern taxonomy
+- [Three Core Pillars of AI Agents: Context, Cognition, Action](/posts/ai/2026-03-17-ai-agents-context-cognition-action-en) — Agent architecture theoretical framework
 - [The Importance of Agent Harness in 2026 — Phil Schmid's Original Post](https://www.philschmid.de/agent-harness-2026)
 
 ## References

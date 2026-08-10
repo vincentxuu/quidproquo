@@ -23,30 +23,30 @@ This article covers two things:
 
 | Tool | Entry Price | Heavy Use | Model Strategy | Best For |
 |------|------------|-----------|---------------|----------|
-| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)** | $20/mo | $100-200/mo | Manual Opus/Sonnet/Haiku switching | Deep reasoning, complex tasks |
-| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)** | Free / $20/mo | $60-200/mo | Auto + multi-provider | Seamless IDE ↔ CLI switching |
-| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)** | Free / $20/mo | $200/mo | GPT-5.4 + mini auto-routing | OpenAI ecosystem |
-| **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)** | Free (50 credits) | $200/mo | Auto mode with model switching | AWS ecosystem |
-| **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)** | Free (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | Free heavy usage |
-| **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)** | Free (open source) | Pay-per-API | 75+ model providers, free switching | Model freedom, vendor independence |
+| **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code-en)** | $20/mo | $100-200/mo | Manual Opus/Sonnet/Haiku switching | Deep reasoning, complex tasks |
+| **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor-en)** | Free / $20/mo | $60-200/mo | Auto + multi-provider | Seamless IDE ↔ CLI switching |
+| **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex-en)** | Free / $20/mo | $200/mo | GPT-5.4 + mini auto-routing | OpenAI ecosystem |
+| **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro-en)** | Free (50 credits) | $200/mo | Auto mode with model switching | AWS ecosystem |
+| **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli-en)** | Free (1000 req/day) | $20-42/mo | Gemini 2.5 Pro, 1M context | Free heavy usage |
+| **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode-en)** | Free (open source) | Pay-per-API | 75+ model providers, free switching | Model freedom, vendor independence |
 
 ## Positioning and Features of Each Tool
 
 ### Commercial Subscription
 
-**[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)** — Anthropic's terminal agent with industry-leading reasoning depth. Pro at $20/mo (primarily Sonnet), Max at $100-200/mo unlocks Opus with unlimited usage. One developer used 10 billion tokens over 8 months at $100/mo — the same usage via API would cost $15,000. The subagent architecture lets you assign Haiku for simple tasks.
+**[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code-en)** — Anthropic's terminal agent with industry-leading reasoning depth. Pro at $20/mo (primarily Sonnet), Max at $100-200/mo unlocks Opus with unlimited usage. One developer used 10 billion tokens over 8 months at $100/mo — the same usage via API would cost $15,000. The subagent architecture lets you assign Haiku for simple tasks.
 
-**[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)** — Brings the Cursor IDE Agent to the terminal. Features interactive TUI + headless mode with Plan/Ask/Agent modes. Exclusive **Cloud Handoff**: push CLI conversations to the cloud and pick them up from your phone or browser. Pro at $20/mo, Ultra at $200/mo. Background Agents can run 8 tasks in parallel.
+**[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor-en)** — Brings the Cursor IDE Agent to the terminal. Features interactive TUI + headless mode with Plan/Ask/Agent modes. Exclusive **Cloud Handoff**: push CLI conversations to the cloud and pick them up from your phone or browser. Pro at $20/mo, Ultra at $200/mo. Background Agents can run 8 tasks in parallel.
 
-**[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)** — Tied to ChatGPT subscriptions: Plus at $20/mo, Pro at $200/mo. The highlight is **built-in model routing**: GPT-5.4 handles planning while GPT-5.4 mini handles subtasks (consuming only 30% of quota). The CLI supports dual-track operation with Plan mode (subscription quota) and API Key mode (pay per token).
+**[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex-en)** — Tied to ChatGPT subscriptions: Plus at $20/mo, Pro at $200/mo. The highlight is **built-in model routing**: GPT-5.4 handles planning while GPT-5.4 mini handles subtasks (consuming only 30% of quota). The CLI supports dual-track operation with Plan mode (subscription quota) and API Key mode (pay per token).
 
-**[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)** — Built by AWS, implementing the Agent Client Protocol (ACP). Free 50 credits, Pro starting at $20/mo. Auto mode automatically mixes models like Sonnet/Opus. Spec-Driven development workflow is a unique selling point, and Agent Hooks enable local automation.
+**[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro-en)** — Built by AWS, implementing the Agent Client Protocol (ACP). Free 50 credits, Pro starting at $20/mo. Auto mode automatically mixes models like Sonnet/Opus. Spec-Driven development workflow is a unique selling point, and Agent Hooks enable local automation.
 
 ### Free / Open Source
 
-**[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)** — Open source by Google with the most generous free tier in the industry: 60 req/min, 1,000 req/day, including Gemini 2.5 Pro and a 1M token context window. After analyzing internal developer usage, Google set the free tier at twice the peak usage, meaning most people never need to pay.
+**[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli-en)** — Open source by Google with the most generous free tier in the industry: 60 req/min, 1,000 req/day, including Gemini 2.5 Pro and a 1M token context window. After analyzing internal developer usage, Google set the free tier at twice the peak usage, meaning most people never need to pay.
 
-**[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)** — An open-source Go CLI with 95K+ GitHub stars. Supports 75+ model providers (including local Ollama), and can authenticate via GitHub Copilot or ChatGPT Plus accounts. Completely free — you only pay for the model API you choose.
+**[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode-en)** — An open-source Go CLI with 95K+ GitHub stars. Supports 75+ model providers (including local Ollama), and can authenticate via GitHub Copilot or ChatGPT Plus accounts. Completely free — you only pay for the model API you choose.
 
 ## Pricing Tier Analysis
 
@@ -161,22 +161,22 @@ Best for: scenarios demanding real-time responses.
 
 ### Built-in Automatic Routing
 
-- **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex)**: GPT-5.4 handles planning and decisions, GPT-5.4 mini processes subtasks (consuming only 30% of quota)
-- **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro)**: Auto mode combines large and small models with automatic intent recognition and cache optimization
+- **[OpenAI Codex CLI](/posts/ai/2026-04-02-agent-cli-openai-codex-en)**: GPT-5.4 handles planning and decisions, GPT-5.4 mini processes subtasks (consuming only 30% of quota)
+- **[Kiro CLI](/posts/ai/2026-04-02-agent-cli-kiro-en)**: Auto mode combines large and small models with automatic intent recognition and cache optimization
 
 ### Manual Switching Supported
 
-- **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code)**: Switch between Opus / Sonnet / Haiku, combined with subagent architecture
-- **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor)**: Auto mode selects models automatically, or manually specify Anthropic/OpenAI/Gemini
-- **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli)**: Choose between different Gemini models; free plan auto-assigns by the system
+- **[Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code-en)**: Switch between Opus / Sonnet / Haiku, combined with subagent architecture
+- **[Cursor CLI](/posts/ai/2026-04-02-agent-cli-cursor-en)**: Auto mode selects models automatically, or manually specify Anthropic/OpenAI/Gemini
+- **[Gemini CLI](/posts/ai/2026-04-02-agent-cli-gemini-cli-en)**: Choose between different Gemini models; free plan auto-assigns by the system
 
 ### Full Freedom of Choice
 
-- **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)**: 75+ providers, switch models mid-session without losing context, most flexible when paired with third-party routers
+- **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode-en)**: 75+ providers, switch models mid-session without losing context, most flexible when paired with third-party routers
 
 ## Open Source Routing Tools
 
-For detailed coverage, see **[Multi-Model Routing Open Source Tools & Implementations](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)**. Here are the highlights:
+For detailed coverage, see **[Multi-Model Routing Open Source Tools & Implementations](/posts/ai/2026-04-02-multi-model-routing-opensource-tools-en)**. Here are the highlights:
 
 | Tool | Features | GitHub |
 |------|----------|--------|
@@ -230,13 +230,13 @@ Regardless of which plan you choose, the core principle remains: **use the right
 
 ## Series Articles
 
-- [Claude Code Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-claude-code)
-- [Cursor CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-cursor)
-- [OpenAI Codex CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-openai-codex)
-- [Kiro CLI (AWS) Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-kiro)
-- [Gemini CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-gemini-cli)
-- [OpenCode Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-opencode)
-- [Multi-Model Routing Open Source Tools & Implementations](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)
+- [Claude Code Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-claude-code-en)
+- [Cursor CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-cursor-en)
+- [OpenAI Codex CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-openai-codex-en)
+- [Kiro CLI (AWS) Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-kiro-en)
+- [Gemini CLI Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-gemini-cli-en)
+- [OpenCode Full Plan Analysis](/posts/ai/2026-04-02-agent-cli-opencode-en)
+- [Multi-Model Routing Open Source Tools & Implementations](/posts/ai/2026-04-02-multi-model-routing-opensource-tools-en)
 
 ## References
 

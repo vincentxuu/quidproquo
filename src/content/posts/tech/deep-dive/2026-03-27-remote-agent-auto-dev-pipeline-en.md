@@ -189,7 +189,7 @@ The real bottleneck isn't the degree of automation — it's issue quality. Time 
 - [OpenSpec GitHub](https://github.com/openspec-dev/openspec)
 - [GitHub CLI (gh) Official Docs](https://cli.github.com/manual/)
 - [GitHub Issues Official Docs](https://docs.github.com/en/issues)
-- [AI-Driven Dev Workflow from OpenSpec to Deployment](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy) — The full eight-phase workflow; this post extends the "automation" portion of it
-- [/file-bug-issue Skill + Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — Using a Skill to convert debug conversations into issues for the Remote Agent to fix
-- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — A deep dive into the Skill and Hook mechanisms
-- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+- [AI-Driven Dev Workflow from OpenSpec to Deployment](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en) — The full eight-phase workflow; this post extends the "automation" portion of it
+- [/file-bug-issue Skill + Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en) — Using a Skill to convert debug conversations into issues for the Remote Agent to fix
+- [Claude Code's Three-Layer Quality Defense: Hooks, Skills, and Instruction Files](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en) — A deep dive into the Skill and Hook mechanisms
+- [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

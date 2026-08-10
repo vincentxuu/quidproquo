@@ -77,9 +77,9 @@ The technical architecture details of NobodyClimb's AI (13-step RAG pipeline, Hy
 ## References
 
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)
-- [NobodyClimb RAG Pipeline Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
-- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
-- [NobodyClimb: Why the Climbing Community Needs Its Own Platform](/posts/product/2026-03-12-nobodyclimb-product)
-- [HyDE: Hypothetical Document Embeddings](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
-- [Self-Reflection: LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
-- [RAG Token Quota System](/posts/ai/2026-03-12-rag-token-quota-system)
+- [NobodyClimb RAG Pipeline Technical Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
+- [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb: Why the Climbing Community Needs Its Own Platform](/posts/product/2026-03-12-nobodyclimb-product-en)
+- [HyDE: Hypothetical Document Embeddings](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
+- [Self-Reflection: LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+- [RAG Token Quota System](/posts/ai/2026-03-12-rag-token-quota-system-en)

@@ -136,5 +136,5 @@ Key design principles for this layer:
 - [SymRAG: Efficient Neuro-Symbolic Retrieval-Augmented Generation through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
 - [Query Routing for Retrieval-Augmented Language Models](https://arxiv.org/html/2505.23052v1)
 - [Context Awareness Gate For Retrieval Augmented Generation](https://arxiv.org/abs/2411.16133)
-- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) (zh-TW only)
-- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) (zh-TW only)
+- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
+- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
