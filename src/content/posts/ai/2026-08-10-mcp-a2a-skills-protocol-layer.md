@@ -7,7 +7,7 @@ tags: [mcp, agent-skills, ai-agent, tool-use, llm]
 lang: zh-TW
 series:
   name: "Agent 生產線"
-  order: 7
+  order: 6
 tldr: "MCP 管 agent ↔ 工具，A2A 管 agent ↔ agent，Skills 管可重複使用的知識。判準是資料會不會變：呼叫之間會變就要 MCP，穩定到可以寫下來就用 skill 檔案——後者不需要一個會獨立失敗的 runtime。"
 description: "從 function calling 到 MCP 的完整演進與代價、MCP 的五個 primitives（含方向反轉的 Sampling）、A2A 與 ACP 的定位，以及 MCP 與 Agent Skills 的五維度比較與選用判準。"
 draft: false
@@ -111,9 +111,8 @@ MCP 的價值在於回傳一份**經過策展的表示**，介於兩者之間。
 3. [context 與記憶：agent 失敗的真正位置](/posts/ai/2026-08-10-agent-context-memory-failure)
 4. [上線才是工作的開始：企業案例橫向讀](/posts/ai/2026-08-10-enterprise-agent-case-studies)
 5. [安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
-6. [引用之前：把 19 份一手來源查一遍](/posts/ai/2026-08-10-verifying-agent-numbers)
-7. **協定層：MCP、A2A、ACP、Skills 各解什麼問題**（本篇）
-8. [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants)
+6. **協定層：MCP、A2A、ACP、Skills 各解什麼問題**（本篇）
+7. [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants)
 
 ## 參考資料
 
