@@ -254,3 +254,14 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 
 **簿記**：計畫 §三 的 ✅ 曾經只維護 B 群，補齊 23 格並加覆蓋盤點；總覽加了
 依讀者身分的六條閱讀路徑。
+
+
+## 2026-08-09 — drone series tool notes（自 progress.txt 移入）
+
+- `law.moj.gov.tw` 在本環境只能透過 firecrawl MCP 取得（curl 一律 403 CONNECT）。
+- 單一法規條文檢索（便宜）：`LawClass/LawSearchContent.aspx?pcode=X&kw=Y`
+- 全法規語料計數：`Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=Z`（回傳命中法規數）
+- 單條文：`LawClass/LawSingle.aspx?pcode=X&flno=N`；沿革：`LawClass/LawHistory.aspx?pcode=X`
+- g0v 政府採購 API 為 `pcc-api.openfun.app`；回應極大，一律用腳本解析，不要讀進 context。
+  **關鍵字比對是模糊的**（查「干擾槍」會撈到「無人機干擾器」與「遠控無人機採購案」），
+  不足以支撐任何數量結論。
