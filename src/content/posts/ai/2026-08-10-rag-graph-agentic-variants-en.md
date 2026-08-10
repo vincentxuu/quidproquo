@@ -7,7 +7,7 @@ tags: [rag, retrieval, ai-agent, agentic-ai, embedding]
 lang: en
 series:
   name: "Agent 生產線"
-  order: 8
+  order: 7
 tldr: "Standard RAG gives a wrong answer when it retrieves the wrong chunk, and nothing in the system will notice. Agentic RAG adds a self-check, at the cost of the evaluator paradox: the ceiling on self-correction is whatever the evaluating LLM can judge about relevance."
 description: "The mechanisms and trade-offs of Standard, Graph and Agentic RAG, the evaluator paradox and overcorrection, and how Perplexity, Dropbox, Uber and Yelp actually engineer retrieval."
 draft: false
@@ -71,9 +71,8 @@ Back to the test from the start of the series: in most cases, **getting Standard
 3. [Context and Memory: Where Agents Actually Fail](/posts/ai/2026-08-10-agent-context-memory-failure-en)
 4. [Launch Is Where the Work Starts: Enterprise Cases Read Sideways](/posts/ai/2026-08-10-enterprise-agent-case-studies-en)
 5. [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-6. [Before You Cite: Checking 19 Primary Sources](/posts/ai/2026-08-10-verifying-agent-numbers-en)
-7. [The Protocol Layer: MCP, A2A, ACP, Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
-8. **Three Shapes of RAG and the Evaluator Paradox** (this post)
+6. [The Protocol Layer: MCP, A2A, ACP, Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
+7. **Three Shapes of RAG and the Evaluator Paradox** (this post)
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)
 
-This opens the "Agent 生產線" series. The material comes from reading roughly sixty agent-related articles published by [ByteByteGo](https://blog.bytebytego.com/) across 2025–2026, then going back to nineteen of the primary sources they cite. This first part separates four terms that get used interchangeably — because every engineering trade-off in the remaining seven parts rests on these lines.
+This opens the "Agent 生產線" series. The material comes from reading roughly sixty agent-related articles published by [ByteByteGo](https://blog.bytebytego.com/) across 2025–2026, then going back to nineteen of the primary sources they cite. This first part separates four terms that get used interchangeably — because every engineering trade-off in the remaining six parts rests on these lines.
 
 ## What an agent is: LLM + tools + memory + loop
 
@@ -94,9 +94,8 @@ This explains something widely misread: **coding agents work better than open-en
 3. [Context and Memory: Where Agents Actually Fail](/posts/ai/2026-08-10-agent-context-memory-failure-en)
 4. [Launch Is Where the Work Starts: Enterprise Cases Read Sideways](/posts/ai/2026-08-10-enterprise-agent-case-studies-en)
 5. [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-6. [Before You Cite: Checking 19 Primary Sources](/posts/ai/2026-08-10-verifying-agent-numbers-en)
-7. [The Protocol Layer: MCP, A2A, ACP, Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
-8. [Three Shapes of RAG and the Evaluator Paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
+6. [The Protocol Layer: MCP, A2A, ACP, Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
+7. [Three Shapes of RAG and the Evaluator Paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
 
 ## References
 

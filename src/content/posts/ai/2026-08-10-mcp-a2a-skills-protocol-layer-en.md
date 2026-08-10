@@ -7,7 +7,7 @@ tags: [mcp, agent-skills, ai-agent, tool-use, llm]
 lang: en
 series:
   name: "Agent 生產線"
-  order: 7
+  order: 6
 tldr: "MCP governs agent-to-tool, A2A governs agent-to-agent, Skills govern reusable knowledge. The test is whether the data changes: if it changes between calls you need MCP; if it's stable enough to write down, a skill file is simpler and has no runtime that can fail on its own."
 description: "The full path from function calling to MCP and what it cost, MCP's five primitives including the direction-reversing Sampling, where A2A and ACP fit, and a five-dimension comparison of MCP against Agent Skills with a selection test."
 draft: false
@@ -111,9 +111,8 @@ MCP's value is returning a **curated representation** in between. That is also a
 3. [Context and Memory: Where Agents Actually Fail](/posts/ai/2026-08-10-agent-context-memory-failure-en)
 4. [Launch Is Where the Work Starts: Enterprise Cases Read Sideways](/posts/ai/2026-08-10-enterprise-agent-case-studies-en)
 5. [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-6. [Before You Cite: Checking 19 Primary Sources](/posts/ai/2026-08-10-verifying-agent-numbers-en)
-7. **The Protocol Layer: MCP, A2A, ACP, Skills** (this post)
-8. [Three Shapes of RAG and the Evaluator Paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
+6. **The Protocol Layer: MCP, A2A, ACP, Skills** (this post)
+7. [Three Shapes of RAG and the Evaluator Paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
 
 ## References
 

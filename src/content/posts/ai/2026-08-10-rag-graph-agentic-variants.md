@@ -7,7 +7,7 @@ tags: [rag, retrieval, ai-agent, agentic-ai, embedding]
 lang: zh-TW
 series:
   name: "Agent 生產線"
-  order: 8
+  order: 7
 tldr: "Standard RAG 取錯 chunk 就答錯，而且沒有任何機制會發現。Agentic RAG 補上自我檢查，但代價是 evaluator paradox——自我修正能力的上限，就是那個做評估的 LLM 判斷相關性的能力。"
 description: "Standard RAG、Graph RAG、Agentic RAG 三者的機制與取捨，Agentic RAG 的 evaluator paradox 與 overcorrection，以及 Perplexity、Dropbox、Uber、Yelp 四家在檢索上的具體工程做法。"
 draft: false
@@ -71,9 +71,8 @@ Agentic RAG 就是為了補這個洞——加一個檢查步驟。但這一步�
 3. [context 與記憶：agent 失敗的真正位置](/posts/ai/2026-08-10-agent-context-memory-failure)
 4. [上線才是工作的開始：企業案例橫向讀](/posts/ai/2026-08-10-enterprise-agent-case-studies)
 5. [安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
-6. [引用之前：把 19 份一手來源查一遍](/posts/ai/2026-08-10-verifying-agent-numbers)
-7. [協定層：MCP、A2A、ACP、Skills 各解什麼問題](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
-8. **RAG 的三種形態與 evaluator paradox**（本篇）
+6. [協定層：MCP、A2A、ACP、Skills 各解什麼問題](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
+7. **RAG 的三種形態與 evaluator paradox**（本篇）
 
 ## 參考資料
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en)
 
-這是「Agent 生產線」系列的第一篇。整個系列的材料來自把 [ByteByteGo](https://blog.bytebytego.com/) 2025–2026 年約六十篇 agent 相關文章讀完，再回查十九份它引用的一手來源。第一篇先把四個最常被混用的詞分開——因為後面七篇談的所有工程取捨，都建立在這幾條界線上。
+這是「Agent 生產線」系列的第一篇。整個系列的材料來自把 [ByteByteGo](https://blog.bytebytego.com/) 2025–2026 年約六十篇 agent 相關文章讀完，再回查十九份它引用的一手來源。第一篇先把四個最常被混用的詞分開——因為後面六篇談的所有工程取捨，都建立在這幾條界線上。
 
 ## Agent 是什麼：LLM + 工具 + 記憶 + 迴圈
 
@@ -94,9 +94,8 @@ Anthropic 列的五種，切分軸一致：
 3. [context 與記憶：agent 失敗的真正位置](/posts/ai/2026-08-10-agent-context-memory-failure)
 4. [上線才是工作的開始：企業案例橫向讀](/posts/ai/2026-08-10-enterprise-agent-case-studies)
 5. [安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
-6. [引用之前：把 19 份一手來源查一遍](/posts/ai/2026-08-10-verifying-agent-numbers)
-7. [協定層：MCP、A2A、ACP、Skills 各解什麼問題](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
-8. [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants)
+6. [協定層：MCP、A2A、ACP、Skills 各解什麼問題](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
+7. [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants)
 
 ## 參考資料
 
