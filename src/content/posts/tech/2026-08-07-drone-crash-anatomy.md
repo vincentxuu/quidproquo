@@ -133,6 +133,45 @@ draft: false
 
 這是第一手經驗與公開資料的分界線一個很好的例子：**「怎麼判斷振動過高」是公開可學的；「這台機器裝上這組腳架之後為什麼開始抖」只有裝過的人知道。**
 
+## 更新：那句「去讀 log」，我自己去讀了
+
+> **2026-08-09 更新。** 上一節說 25 公斤以下的世界要「去讀 log」，而我當時沒有實際讀過任何一份。補上——但要先說清楚做到哪、沒做到哪。
+
+**取得方式（可重跑）**：`review.px4.io` 從我的環境連不上（proxy 回 403），所以我用的是 PX4 專案 repo 裡自己的測試 log：
+
+```bash
+pip install pyulog
+curl -O https://raw.githubusercontent.com/PX4/pyulog/main/test/sample.ulg
+curl -O https://raw.githubusercontent.com/PX4/pyulog/main/test/sample_log_small.ulg
+```
+
+**一份 log 裡有什麼**（用 pyulog 解出來的實際數字）：
+
+| | `sample.ulg` | `sample_log_small.ulg` |
+|---|---|---|
+| 檔案大小 | 4.0 MB | 921 KB |
+| 訊息型別（topic） | 15 | **70** |
+| 樣本總筆數 | **64,542** | — |
+| 欄位總數 | 300 | — |
+| 記錄時長 | 181.5 秒 | — |
+| 開機參數快照 | **493 個** | — |
+| 飛控自己輸出的文字訊息 | 4 | 3 |
+
+那 70 個 topic 包含 `vehicle_gps_position`、`sensor_baro`、`sensor_mag`、`vehicle_imu`、`estimator_innovations`、`estimator_innovation_test_ratios`、`actuator_outputs`、`input_rc`、`battery_status`、`wind_estimate`、`vehicle_land_detected`⋯⋯**EKF 的創新量和它的檢定比都在裡面**，也就是[GPS 干擾那篇](/posts/tech/2026-08-08-gps-jamming-flight-controller)拆過的那組判斷依據，會被逐筆記下來。
+
+而 `sample.ulg` 的四則文字訊息全部一樣：
+
+```
+t=158.22s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=162.07s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=171.62s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=176.41s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+```
+
+**這就是重點。** 一台 25 公斤以下的機體不會有調查報告，但它在運轉的時候，把幾萬筆資料、一份完整參數快照，以及**它自己抱怨感測器不見了的那四行**，全部寫進了同一個檔案。運安會的兩份報告是幾十頁的敘述；一份 921 KB 的 log 有 70 個 topic。**證據的不對稱是反過來的：大機有報告沒 log 公開，小機沒報告但 log 在飛手自己手上。**
+
+**這次做到哪、沒做到哪（重要）**：這三份都是 PX4 的測試檔，`nav_state` 全程為 0、`vehicle_local_position.z` 最高只到 −1.18 公尺——**它們是地面或短暫離地的測試，不是一次真實飛行，更不是一次炸機**。所以上面證明的是「log 記了什麼」，**不是「log 怎麼還原一次事故」**。後者仍然要一份真實的炸機 log，而公開的炸機 log 庫（review.px4.io）從這個環境連不上。這一格因此只補了一半，而且我知道另一半卡在哪。
+
 ## 一段查不出答案的數字
 
 寫這篇時撞到一個我解釋不了的東西，列出來當作誠實的註腳。

@@ -41,32 +41,31 @@ Recently completed
   (8) READ THE VERB, not just the actor. D32's whole finding came from noticing
   民航法 §99-13 gives airports 「取締」 while ports/prohibited-airspace get
   「制止或排除」 — I had tabulated that same paragraph in D29 and missed it.
-  (9) FACT worth keeping: CCP special-compulsory-measures chapter PASSED
-  2024-07-16 (§153-1~§153-10 = GPS / IMSI-catcher / private-space imaging);
-  NO article covers aerial evidence. TOOL NOTES archived to progress-archive.
-  (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's itemised airport closures
-  exist only because the LY Budget Center made the CAA produce them. When an
-  agency won't publish a series, find who had power to demand it (cf 監察院).
-  (12) GAP-CLOSING 2026-08-09: D31's two declared gaps both closed from the
-  SAME source family the gap itself named — later LY budget reports. Series
-  108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3: count did NOT fall, so
-  the post's 3rd judgement got stronger. Also: (a) two CAA submissions disagree
-  on the same events → trend-only, no incident-level inference; (b) 「國內各機場
-  均已購置手持式干擾器…並視況反制無人機」 → D32's "own it, can't fire it" is
-  現況, back-written into D32 both langs; (c) 審計部 hit Songshan for 未妥為訂定
-  驗收測試規範 = B16's self-verifying-spec disease again.
-  (13) ROUND 2: C1 now prints its query (reg amended 4x, none in 2026) and
-  self-corrected — "not yet in force" = one item of the 2024-11-14 amendment
-  lacks a commencement date, not a new version coming. Two gaps stay open for a
-  KNOWN reason (better than "didn't check"): 判決書 and 交通部函釋 both need
-  on-site forms, no full-text search via my tools (hits C24 + D32); D3's
-  pass-rate is NOT published at all. Untouched: D30 縣市公告 lists, D2 PX4 log.
+  (9) FACT: CCP special-compulsory-measures chapter PASSED 2024-07-16
+  (§153-1~§153-10 = GPS / IMSI-catcher / private-space imaging); NO article
+  covers aerial evidence. (10) A BUDGET REVIEW IS AN EVIDENCE SOURCE — D31's
+  itemised closures exist only because the LY Budget Center made the CAA
+  produce them; when an agency won't publish, find who could demand it.
+  (12)-(14) GAP-CLOSING 2026-08-09, three rounds. D31: both declared gaps
+  closed from the source the gap itself named (later LY budget reports) —
+  108年度 5 / 109年 4 / 110年 2 / 111年 9 / 112年1-8月 3, count did NOT fall so
+  the post got stronger; two CAA submissions disagree on the same events →
+  trend-only; 「國內各機場均已購置手持式干擾器…並視況反制無人機」 made D32's
+  "own it, can't fire it" 現況 (back-written); 審計部 hit Songshan for 未妥為
+  訂定驗收測試規範 = B16's disease again. C1 now prints its query (4 amendments,
+  none in 2026) and self-corrected the "not yet in force" reading. D2 half-
+  closed with pyulog on PX4 repo test logs (70 topics / 493 params) — but they
+  are BENCH logs, so it shows what a log records, not crash reconstruction.
+  STILL OPEN, reason known (worth more than "didn't check"): 判決書 + 交通部
+  函釋 need on-site forms; D3 pass-rate is NOT published; 縣市公告 lists ship
+  as ODS coordinate annexes on an unreachable host (itself a finding).
+  TOOL WARNING: firecrawl's json extractor FABRICATED a Kaohsiung site list
+  incl. non-existent 「高雄嫩江發電廠」; direct-quote mode showed the page says
+  only 「如附件」. NEVER build a claim on the json extractor alone.
   RULE: when a gap names its own source, go get it.
-  BOOKKEEPING FIXED 2026-08-09: the 未答 column only became standard at B8, so
-  20 earlier rows had none — all 38 rows now carry one (B4/B5/B9 copied from the
-  posts' own sections, the other 17 marked 回溯補寫). Also corrected two rows
-  that still listed gaps the posts had already closed (B12 RS columns, B16
-  control group). LESSON (11): an empty gap field reads exactly like "no gaps".
+  (11) AN EMPTY GAP FIELD READS EXACTLY LIKE "NO GAPS". The 未答 column only
+  became standard at B8; 20 earlier rows had none — all 38 now carry one
+  (B4/B5/B9 from the posts themselves, 17 marked 回溯補寫); two stale rows fixed.
   NEXT BIGGEST HOLES — read plan §三 coverage note, do NOT guess: C22 surveying
   / C25 film / C26 environment / C27 entertainment-industry; all of I except
   61 privacy. Two named, fillable follow-ups I declared in the posts: D31 needs

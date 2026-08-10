@@ -133,6 +133,45 @@ And the single most common multirotor problem is **vibration**. PX4's docs are b
 
 This is a clean example of where first-hand experience and public data divide: **"how to tell vibration is too high" is publicly learnable; "why this machine started shaking after I fitted these landing legs" is known only to the person who fitted them.**
 
+## Update: that line about reading logs — I went and read one
+
+> **Update, 2026-08-09.** The previous section said that below 25 kg you have to go read logs, and at the time I had not read a single one. Here it is — with the scope stated up front.
+
+**How to get one (reproducible)**: `review.px4.io` is unreachable from my environment (the proxy returns 403), so I used the PX4 project's own test logs:
+
+```bash
+pip install pyulog
+curl -O https://raw.githubusercontent.com/PX4/pyulog/main/test/sample.ulg
+curl -O https://raw.githubusercontent.com/PX4/pyulog/main/test/sample_log_small.ulg
+```
+
+**What is actually inside one** (numbers from pyulog):
+
+| | `sample.ulg` | `sample_log_small.ulg` |
+|---|---|---|
+| File size | 4.0 MB | 921 KB |
+| Message types (topics) | 15 | **70** |
+| Total samples | **64,542** | — |
+| Total fields | 300 | — |
+| Duration | 181.5 s | — |
+| Boot parameter snapshot | **493 parameters** | — |
+| Text messages from the flight controller | 4 | 3 |
+
+Those 70 topics include `vehicle_gps_position`, `sensor_baro`, `sensor_mag`, `vehicle_imu`, `estimator_innovations`, `estimator_innovation_test_ratios`, `actuator_outputs`, `input_rc`, `battery_status`, `wind_estimate`, `vehicle_land_detected` and more — **the EKF's innovations and their test ratios are in there**, which is exactly the decision material [the GPS jamming post](/posts/tech/2026-08-08-gps-jamming-flight-controller-en) took apart, recorded sample by sample.
+
+And all four text messages in `sample.ulg` are the same line:
+
+```
+t=158.22s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=162.07s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=171.62s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+t=176.41s [ERROR] [sensors] no barometer found on /dev/baro0 (2)
+```
+
+**That is the point.** An airframe under 25 kg will never get an investigation report, but while it runs it writes tens of thousands of samples, a complete parameter snapshot, and **its own four lines of complaint that a sensor had gone missing** into one file. The TTSB's two reports are a few dozen pages of narrative; a 921 KB log has 70 topics. **The evidence asymmetry runs the other way: the big aircraft get a report and no public log, the small ones get no report but the log is in the pilot's own hands.**
+
+**What this did and did not establish (important)**: all three are PX4 test files — `nav_state` is 0 throughout and `vehicle_local_position.z` never goes above −1.18 m, so **they are bench or barely-off-the-ground recordings, not a real flight and certainly not a crash**. So the above establishes *what a log records*, **not how a log reconstructs an accident**. That still needs a real crash log, and the public crash-log archive (review.px4.io) is unreachable from here. The gap is therefore half closed, and I know where the other half is stuck.
+
 ## A number I could not explain
 
 While writing this I hit something I can't account for, listed here as an honest footnote.
