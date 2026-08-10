@@ -1,5 +1,5 @@
 ---
-title: "PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence"
+title: "PX4 or ArduPilot: The Real Fork Is the Licence"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -235,7 +235,7 @@ I want to mark this clearly as **a literal reading of the text, not a conclusion
 **On this site**
 
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+- [Taking Apart Two TTSB Crash Reports: Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
 - [The Drone Industry Job Map: Eleven Roles, and Which Ones a Software Person Can Actually Enter](/posts/career/2026-08-06-drone-industry-job-map-en)
 - [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition-en)

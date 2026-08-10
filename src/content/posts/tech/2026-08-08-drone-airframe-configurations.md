@@ -1,5 +1,5 @@
 ---
-title: "40 分鐘到 6 小時：無人機的續航階梯換的不是電池，是形態和能源——而台灣每一階都有國產機"
+title: "續航從 40 分鐘到 6 小時，換的不是電池是機體形態"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -167,8 +167,8 @@ VTOL 想要兩全其美：垂直起降不需要跑道，巡航時像定翼機一
 
 **站內**
 
-- [為什麼無人機只能飛 30 到 45 分鐘：一條式子算得出來，而那顆電池芯是台灣做的](/posts/tech/2026-08-08-drone-endurance-physics)
-- [炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
+- [無人機為什麼只能飛 30 到 45 分鐘：一條式子就算得出來](/posts/tech/2026-08-08-drone-endurance-physics)
+- [拆兩份運安會炸機報告：兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
 - [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
 - [巡檢是台灣跑得最遠的無人機應用——因為它繞開了 BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)

@@ -1,5 +1,5 @@
 ---
-title: "Payload Price Is Not a Smooth Function of Performance: The Drone Thermal Camera Cost Step Sits at 111,000 Pixels and 2 mrad"
+title: "Why Drone Thermal Camera Prices Jump: The Cost Steps Export Control Draws"
 date: 2026-08-09
 type: deep-dive
 category: tech

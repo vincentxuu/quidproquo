@@ -1,5 +1,5 @@
 ---
-title: "「飛手年收 200 萬」之後：台灣唯一算得清 ROI 的無人機應用，已經走完一輪循環"
+title: "「飛手年收 200 萬」之後：農噴走完了一輪循環"
 date: 2026-08-07
 type: deep-dive
 category: product

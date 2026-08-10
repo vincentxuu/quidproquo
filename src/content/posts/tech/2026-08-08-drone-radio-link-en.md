@@ -1,5 +1,5 @@
 ---
-title: "Frequency Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan Turns Channel Count Into a Power Ceiling"
+title: "Frequency Hopping Is Not Encryption, and Taiwan Caps Power by Channel Count"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -224,7 +224,7 @@ There is a nice engineering detail too: how long you must wait before an RSSI re
 
 **On this site**
 
-- [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
+- [PX4 or ArduPilot: The Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
 - [The Drone Chapter Has No Privacy Provision: If You're the One Being Flown Over, You Fall Back on the Criminal Code](/posts/policy/2026-08-07-drone-privacy-taiwan-en)

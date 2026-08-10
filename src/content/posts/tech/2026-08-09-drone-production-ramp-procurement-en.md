@@ -1,5 +1,5 @@
 ---
-title: "The Public Evidence of a Production Ramp Isn't in the Factory — It's in the Failed-to-Award Notices, and I Have to Correct My Own Prices"
+title: "Production Ramp Evidence Isn't in the Factory, It's in Failed-to-Award Notices"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -252,7 +252,7 @@ Which conclusions are unaffected?
 
 **On this site**
 
-- [Payload Price Is Not a Smooth Function of Performance: The Drone Thermal Camera Cost Step Sits at 111,000 Pixels and 2 mrad](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) (section 8 here corrects that post's unit-price estimate)
+- [Why Drone Thermal Camera Prices Jump: The Cost Steps Export Control Draws](/posts/tech/2026-08-09-drone-payload-cost-export-control-en) (section 8 here corrects that post's unit-price estimate)
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
 - [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
 - [What Is the Margin on a Government Contract, Really: The Filings Answered What I Assumed Needed Interviews](/posts/investing/2026-08-07-drone-maker-financials-en)

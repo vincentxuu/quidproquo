@@ -1,5 +1,5 @@
 ---
-title: "After \"NT$2M a Year Flying Drones\": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle"
+title: "After \"NT$2M a Year Flying Drones\": Agricultural Spraying Has Run a Full Cycle"
 date: 2026-08-07
 type: deep-dive
 category: product

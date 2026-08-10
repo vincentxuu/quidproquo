@@ -120,7 +120,7 @@ Against agriculture: an operator can compute "NT$1.3 million of equipment, NT$6,
 
 **On this site**
 
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+- [After "NT$2M a Year Flying Drones": Agricultural Spraying Has Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
 - [The Drone Industry Map: Components, Regulatory Ceilings, and the Non-Chinese Supply Chain Rebuild](/posts/tech/2026-08-06-drone-industry-map-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [From Software into Drones: Use the PX4 Architecture Diagram as a Job Map](/posts/career/2026-08-06-software-to-drone-transition-en)

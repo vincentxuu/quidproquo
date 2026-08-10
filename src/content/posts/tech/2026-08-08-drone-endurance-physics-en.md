@@ -1,5 +1,5 @@
 ---
-title: "Why Drones Only Fly for 30 to 45 Minutes: One Equation Gives the Answer, and the Cell Is Made in Taiwan"
+title: "Why Drones Only Fly 30 to 45 Minutes: One Equation Gives the Answer"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -239,6 +239,6 @@ Every number here follows from the constants and equations stated in the text. M
 
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
-- [After "NT$2M a Year Flying Drones": Taiwan's Only Application With Computable ROI Has Already Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+- [After "NT$2M a Year Flying Drones": Agricultural Spraying Has Run a Full Cycle](/posts/product/2026-08-07-agri-drone-unit-economics-en)
 - [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en)
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+- [Taking Apart Two TTSB Crash Reports: Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)

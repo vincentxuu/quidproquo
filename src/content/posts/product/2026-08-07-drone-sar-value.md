@@ -120,7 +120,7 @@ draft: false
 
 **站內**
 
-- [「飛手年收 200 萬」之後：台灣唯一算得清 ROI 的無人機應用，已經走完一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
+- [「飛手年收 200 萬」之後：農噴走完了一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)（台灣唯一算得清 ROI 的無人機應用）
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
 - [從軟體業轉進無人機：用 PX4 的架構圖當求職地圖](/posts/career/2026-08-06-software-to-drone-transition)

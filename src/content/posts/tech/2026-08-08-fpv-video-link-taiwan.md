@@ -1,5 +1,5 @@
 ---
-title: "圖傳找不到條文可走：台灣的 5.8 GHz 只開給跳頻器材，而類比 FPV 不跳頻"
+title: "類比 FPV 圖傳在台灣找不到條文可走"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -171,8 +171,8 @@ LP0002 §5.7 是另一條可能：
 
 **站內**
 
-- [跳頻不是加密：讀 ExpressLRS 原始碼，順便發現台灣法規把頻道數變成了功率上限](/posts/tech/2026-08-08-drone-radio-link)
+- [跳頻不是加密：ExpressLRS 原始碼與台灣的頻道數功率上限](/posts/tech/2026-08-08-drone-radio-link)
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
+- [PX4 還是 ArduPilot：真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
 - [無人機專章沒有隱私條款：被飛過的人只能回頭找刑法](/posts/policy/2026-08-07-drone-privacy-taiwan)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)

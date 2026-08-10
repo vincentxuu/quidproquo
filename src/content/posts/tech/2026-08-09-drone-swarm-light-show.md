@@ -1,5 +1,5 @@
 ---
-title: "燈光秀的「群飛」裡沒有群：兩百架之間只同步一個整數，而台灣的群飛資安專章十二項裡飛機一項都不測"
+title: "燈光秀的「群飛」裡沒有群：兩百架只同步一個整數"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -346,7 +346,7 @@ AP_Int16 _sysid;   // MAVLink system ID of the target (0 = auto-select first sen
 **站內**
 
 - [無人機資安檢測規範拆解：真正在測「打不打得倒」的那五項，全部是選測](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)
-- [GPS 被干擾的那七秒：飛控怎麼發現、怎麼決定，以及為什麼「偵測干擾」預設是關的](/posts/tech/2026-08-08-gps-jamming-flight-controller)
-- [PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
-- [跳頻不是加密：讀 ExpressLRS 原始碼，順便發現台灣法規把頻道數變成了功率上限](/posts/tech/2026-08-08-drone-radio-link)
+- [GPS 被干擾的那七秒：飛控怎麼發現、又為什麼預設不偵測](/posts/tech/2026-08-08-gps-jamming-flight-controller)
+- [PX4 還是 ArduPilot：真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
+- [跳頻不是加密：ExpressLRS 原始碼與台灣的頻道數功率上限](/posts/tech/2026-08-08-drone-radio-link)
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)

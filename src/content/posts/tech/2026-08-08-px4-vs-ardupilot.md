@@ -1,5 +1,5 @@
 ---
-title: "PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款"
+title: "PX4 還是 ArduPilot：真正的分岔在授權條款"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -235,7 +235,7 @@ ArduPilot 前幾名：`barker.dropbear.id.au` 1,590、`gmail.com` 1,019、`yahoo
 **站內**
 
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
+- [拆兩份運安會炸機報告：兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [無人機產業的職業地圖：十一種角色，以及軟體人能切進哪幾格](/posts/career/2026-08-06-drone-industry-job-map)
 - [從軟體業轉進無人機：用 PX4 的架構圖當求職地圖](/posts/career/2026-08-06-software-to-drone-transition)

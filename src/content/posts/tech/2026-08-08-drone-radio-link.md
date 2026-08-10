@@ -1,5 +1,5 @@
 ---
-title: "跳頻不是加密：讀 ExpressLRS 原始碼，順便發現台灣法規把頻道數變成了功率上限"
+title: "跳頻不是加密：ExpressLRS 原始碼與台灣的頻道數功率上限"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -224,7 +224,7 @@ ExpressLRS 的次 GHz 網域有八個，其中最常用的 `FCC915` 涵蓋 903.5
 
 **站內**
 
-- [PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
+- [PX4 還是 ArduPilot：真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
 - [反制無人機為什麼難：干擾正在失效，而台灣的難題不只是技術](/posts/tech/2026-08-07-counter-drone-why-hard)
 - [無人機專章沒有隱私條款：被飛過的人只能回頭找刑法](/posts/policy/2026-08-07-drone-privacy-taiwan)

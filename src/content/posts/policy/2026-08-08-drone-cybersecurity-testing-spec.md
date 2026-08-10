@@ -167,7 +167,7 @@ draft: false
 **站內**
 
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
-- [PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
-- [跳頻不是加密：讀 ExpressLRS 原始碼，順便發現台灣法規把頻道數變成了功率上限](/posts/tech/2026-08-08-drone-radio-link)
-- [GPS 被干擾的那七秒：飛控怎麼發現、怎麼決定，以及為什麼「偵測干擾」預設是關的](/posts/tech/2026-08-08-gps-jamming-flight-controller)
+- [PX4 還是 ArduPilot：真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
+- [跳頻不是加密：ExpressLRS 原始碼與台灣的頻道數功率上限](/posts/tech/2026-08-08-drone-radio-link)
+- [GPS 被干擾的那七秒：飛控怎麼發現、又為什麼預設不偵測](/posts/tech/2026-08-08-gps-jamming-flight-controller)
 - [進入台灣無人機產業的四道門：公開資料能告訴你的入場機制](/posts/career/2026-08-06-drone-market-entry-mechanics)

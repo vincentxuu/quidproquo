@@ -1,5 +1,5 @@
 ---
-title: "A Flight Controller's Autonomy Has a Complete List — 56 Entries, and Exactly One Is About an Opportunity"
+title: "A Flight Controller's Autonomy Has 56 Entries, One About Opportunity"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -238,6 +238,6 @@ If you're evaluating any drone's "autonomy," the useful question isn't "does it 
 **On this site**
 
 - [PX4 or ArduPilot: The EKF Derivation Lives in the Other Project's Repo, and the Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
-- [The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
+- [The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 - [There Is No Swarm in a Drone Light Show: Two Hundred Aircraft Share One Integer](/posts/tech/2026-08-09-drone-swarm-light-show-en)
 - [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)

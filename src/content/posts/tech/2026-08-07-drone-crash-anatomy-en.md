@@ -1,5 +1,5 @@
 ---
-title: "The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault"
+title: "Taking Apart Two TTSB Crash Reports: Neither Was the Operator's Fault"
 date: 2026-08-07
 type: deep-dive
 category: tech

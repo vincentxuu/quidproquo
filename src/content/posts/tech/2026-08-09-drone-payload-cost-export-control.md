@@ -1,5 +1,5 @@
 ---
-title: "酬載的價格不是效能的平滑函數：無人機熱像儀的成本階梯卡在 111,000 個像素和 2 mrad 上"
+title: "無人機熱像儀的價格為什麼跳著漲：出口管制畫出的成本階梯"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -362,6 +362,6 @@ BIS 給的另一個理由也值得記：2009 年設這道關卡是為了「取�
 
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
-- [跳頻不是加密：讀 ExpressLRS 原始碼，順便發現台灣法規把頻道數變成了功率上限](/posts/tech/2026-08-08-drone-radio-link)
+- [跳頻不是加密：ExpressLRS 原始碼與台灣的頻道數功率上限](/posts/tech/2026-08-08-drone-radio-link)
 - [「標案毛利到底多少」：財報回答了我以為要訪談才知道的事](/posts/investing/2026-08-07-drone-maker-financials)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)

@@ -1,5 +1,5 @@
 ---
-title: "量產爬坡的公開證據不在工廠裡，在「無法決標公告」裡——順便更正我自己前一篇算錯的價格"
+title: "量產爬升的證據不在工廠，在「無法決標公告」裡"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -252,7 +252,7 @@ R = 6,500,000    （救災機器人，兩個縣市一致）
 
 **站內**
 
-- [酬載的價格不是效能的平滑函數：無人機熱像儀的成本階梯卡在 111,000 個像素和 2 mrad 上](/posts/tech/2026-08-09-drone-payload-cost-export-control)（本文第八節更正該篇的單價估計）
+- [無人機熱像儀的價格為什麼跳著漲：出口管制畫出的成本階梯](/posts/tech/2026-08-09-drone-payload-cost-export-control)（本文第八節更正該篇的單價估計）
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
 - [「標案毛利到底多少」：財報回答了我以為要訪談才知道的事](/posts/investing/2026-08-07-drone-maker-financials)

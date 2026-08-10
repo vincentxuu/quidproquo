@@ -1,5 +1,5 @@
 ---
-title: "為什麼無人機只能飛 30 到 45 分鐘：一條式子算得出來，而那顆電池芯是台灣做的"
+title: "無人機為什麼只能飛 30 到 45 分鐘：一條式子就算得出來"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -239,6 +239,6 @@ m_b / (M₀ + m_b)^1.5
 
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [「飛手年收 200 萬」之後：台灣唯一算得清 ROI 的無人機應用，已經走完一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
+- [「飛手年收 200 萬」之後：農噴走完了一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
 - [救災無人機：唯一一個 ROI 不是錢的應用，也是最容易被砍的預算](/posts/product/2026-08-07-drone-sar-value)
-- [炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
+- [拆兩份運安會炸機報告：兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)

@@ -1,5 +1,5 @@
 ---
-title: "There Is No Swarm in a Drone Light Show: Two Hundred Aircraft Share One Integer, and Taiwan's Swarm Security Chapter Tests Nothing on the Aircraft"
+title: "There Is No Swarm in a Drone Light Show: 200 Aircraft Share One Integer"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -346,7 +346,7 @@ So the distance between these two things isn't a matter of tuning parameters; it
 **On this site**
 
 - [Taking Apart Taiwan's Drone Cybersecurity Testing Specification: The Five Items That Actually Test Resilience Are All Optional](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
-- [The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
+- [The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 - [PX4 or ArduPilot: The EKF Derivation Lives in the Other Project's Repo, and the Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 - [Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan's Rules Turn Channel Count Into a Power Ceiling](/posts/tech/2026-08-08-drone-radio-link-en)
 - [Taiwan's Drone Supply Chain: Where the 267 Companies Are, and Which Layer They're Stuck On](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)

@@ -148,7 +148,7 @@ AXH-E230 正是[炸機解剖那篇](/posts/tech/2026-08-07-drone-crash-anatomy)�
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
-- [「飛手年收 200 萬」之後：台灣唯一算得清 ROI 的無人機應用，已經走完一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
+- [「飛手年收 200 萬」之後：農噴走完了一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
 - [救災無人機：唯一一個 ROI 不是錢的應用，也是最容易被砍的預算](/posts/product/2026-08-07-drone-sar-value)
-- [炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
+- [拆兩份運安會炸機報告：兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
 - [進入台灣無人機產業的四道門：公開資料能告訴你的入場機制](/posts/career/2026-08-06-drone-market-entry-mechanics)

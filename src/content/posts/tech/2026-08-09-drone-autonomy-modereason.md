@@ -1,5 +1,5 @@
 ---
-title: "飛控的「自主」有一份完整清單，共 56 項——而其中只有一項是為了機會，其他全是為了不出事"
+title: "飛控的「自主」共 56 項，只有一項是為了把握機會"
 date: 2026-08-09
 type: deep-dive
 category: tech
@@ -237,7 +237,7 @@ menuconfig MODULES_MC_NN_CONTROL
 
 **站內**
 
-- [PX4 還是 ArduPilot：EKF 推導檔在對方的 repo 裡，而真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
-- [GPS 被干擾的那七秒：飛控怎麼發現、怎麼決定，以及為什麼「偵測干擾」預設是關的](/posts/tech/2026-08-08-gps-jamming-flight-controller)
+- [PX4 還是 ArduPilot：真正的分岔在授權條款](/posts/tech/2026-08-08-px4-vs-ardupilot)
+- [GPS 被干擾的那七秒：飛控怎麼發現、又為什麼預設不偵測](/posts/tech/2026-08-08-gps-jamming-flight-controller)
 - [燈光秀的「群飛」裡沒有群：兩百架之間只同步一個整數](/posts/tech/2026-08-09-drone-swarm-light-show)
 - [無人機資安檢測規範拆解：真正在測「打不打得倒」的那五項，全部是選測](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)

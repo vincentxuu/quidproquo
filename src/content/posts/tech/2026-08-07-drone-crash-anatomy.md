@@ -1,5 +1,5 @@
 ---
-title: "炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯"
+title: "拆兩份運安會炸機報告：兩次都不是操作人的錯"
 date: 2026-08-07
 type: deep-dive
 category: tech

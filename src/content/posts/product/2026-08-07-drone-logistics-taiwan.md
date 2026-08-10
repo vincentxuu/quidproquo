@@ -150,7 +150,7 @@ PoB 商業驗證  2025 起     結合中華郵政與公私部門
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [BVLOS 三地對照：美國還沒發布、歐盟已經能飛、台灣根本沒有這個框架](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
 - [巡檢是台灣跑得最遠的無人機應用——因為它繞開了 BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan)
-- [「飛手年收 200 萬」之後：台灣唯一算得清 ROI 的無人機應用，已經走完一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
+- [「飛手年收 200 萬」之後：農噴走完了一輪循環](/posts/product/2026-08-07-agri-drone-unit-economics)
 - [救災無人機：唯一一個 ROI 不是錢的應用，也是最容易被砍的預算](/posts/product/2026-08-07-drone-sar-value)
 - [怎麼讀無人機規格表：法規把哪幾行變成了分界線](/posts/tech/2026-08-07-drone-spec-sheet-reading)
 - [「標案毛利到底多少」：財報回答了我以為要訪談才知道的事](/posts/investing/2026-08-07-drone-maker-financials)

@@ -1,5 +1,5 @@
 ---
-title: "From 40 Minutes to 6 Hours: The Endurance Ladder Is Not About Batteries but Configuration and Energy Source — and Taiwan Builds Something at Every Rung"
+title: "From 40 Minutes to 6 Hours: It's the Airframe, Not the Battery"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -167,8 +167,8 @@ Hover power `P = (m·g)^1.5 / sqrt(2ρA) / (FM·η)`, cruise power `P = (m·g/(L
 
 **On this site**
 
-- [Why Drones Only Fly for 30 to 45 Minutes: One Equation Gives the Answer, and the Cell Is Made in Taiwan](/posts/tech/2026-08-08-drone-endurance-physics-en)
-- [The Anatomy of a Crash: Two TTSB Reports, and Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+- [Why Drones Only Fly 30 to 45 Minutes: One Equation Gives the Answer](/posts/tech/2026-08-08-drone-endurance-physics-en)
+- [Taking Apart Two TTSB Crash Reports: Neither Was the Operator's Fault](/posts/tech/2026-08-07-drone-crash-anatomy-en)
 - [BVLOS in Three Jurisdictions: The US Hasn't Published, the EU Already Flies, Taiwan Has No Framework At All](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
 - [Inspection Is Taiwan's Furthest-Along Drone Application — Because It Routed Around BVLOS](/posts/product/2026-08-07-drone-inspection-taiwan-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)

@@ -124,7 +124,7 @@ draft: false
 
 - [無人機產業地圖：從零組件、法規天花板到非紅供應鏈重組](/posts/tech/2026-08-06-drone-industry-map)
 - [台灣無人機供應鏈：267 家在哪裡、卡在哪一層](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
-- [炸機的解剖學：兩份運安會報告，兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
+- [拆兩份運安會炸機報告：兩次都不是操作人的錯](/posts/tech/2026-08-07-drone-crash-anatomy)
 - [民航局把題庫全公開了：從四個科目看主管機關在意什麼](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
 - [進入台灣無人機產業的四道門](/posts/career/2026-08-06-drone-market-entry-mechanics)
 

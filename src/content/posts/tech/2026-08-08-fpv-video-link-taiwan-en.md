@@ -1,5 +1,5 @@
 ---
-title: "The Video Link Has No Clause to Walk Through: Taiwan's 5.8 GHz Is Open Only to Frequency Hoppers, and Analogue FPV Doesn't Hop"
+title: "Analogue FPV Video Links Have No Clause to Walk Through in Taiwan"
 date: 2026-08-08
 type: deep-dive
 category: tech

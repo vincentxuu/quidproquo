@@ -167,7 +167,7 @@ The first two should be answerable from the test report; the third should be on 
 **On this site**
 
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
-- [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
-- [Frequency Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan Turns Channel Count Into a Power Ceiling](/posts/tech/2026-08-08-drone-radio-link-en)
-- [The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
+- [PX4 or ArduPilot: The Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
+- [Frequency Hopping Is Not Encryption, and Taiwan Caps Power by Channel Count](/posts/tech/2026-08-08-drone-radio-link-en)
+- [The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 - [Four Gates into Taiwan's Drone Industry: The Entry Mechanics Public Records Can Tell You](/posts/career/2026-08-06-drone-market-entry-mechanics-en)

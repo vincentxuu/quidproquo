@@ -1,5 +1,5 @@
 ---
-title: "The Seven Seconds After GPS Jamming Starts: How a Flight Controller Notices, What It Decides, and Why Jamming Detection Is Off by Default"
+title: "The Seven Seconds After GPS Jamming: How It Notices, and Why Detection Is Off"
 date: 2026-08-08
 type: deep-dive
 category: tech
@@ -189,8 +189,8 @@ This is the third time this series has hit the same shape — an institution tha
 
 **On this site**
 
-- [PX4 or ArduPilot: the EKF derivation lives in the other project's repo, and the real fork is the licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
-- [Frequency Hopping Is Not Encryption: Reading the ExpressLRS Source, and Finding That Taiwan Turns Channel Count Into a Power Ceiling](/posts/tech/2026-08-08-drone-radio-link-en)
+- [PX4 or ArduPilot: The Real Fork Is the Licence](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
+- [Frequency Hopping Is Not Encryption, and Taiwan Caps Power by Channel Count](/posts/tech/2026-08-08-drone-radio-link-en)
 - [Search and Rescue Drones: The One Application Whose ROI Isn't Money — and the Easiest Budget to Cut](/posts/product/2026-08-07-drone-sar-value-en)
 - [How to Read a Drone Spec Sheet: Which Lines Regulation Turned Into Boundaries](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 - [Why Countering Drones Is Hard: Jamming Is Failing, and Taiwan's Problem Isn't Only Technical](/posts/tech/2026-08-07-counter-drone-why-hard-en)
