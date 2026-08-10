@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [drone, flight-controller, px4, ardupilot, open-source]
 lang: zh-TW
-tldr: "這個系列有六篇提過 PX4 和 ArduPilot，沒有一篇說過該選哪個。把兩套都 clone 下來、在筆電上各 build 一次之後，有三件事跟我原本的認知不一樣。第一，ArduPilot 的 EKF3 檔頭直接寫著推導來自 https://github.com/PX4/ecl，轉成 C++ 的人 Paul Riseborough 同時列在兩邊的維護者名單上——兩套飛控在最難的那一層是同源的。第二，貢獻者結構跟刻板印象相反：PX4 近一年的提交來自公司網域（Auterion 一家就 380 筆），ArduPilot 來自個人信箱，而且集中度高得多（一個人 1,589 筆，佔 37%）。第三，真正決定選哪個的不是效能，是 BSD-3 vs GPLv3，以及你要改的是哪一層——ArduPilot 讓你丟一個 .lua 檔進 SD 卡就改行為，PX4 要你在機外用 ROS 2 接。"
+tldr: "把兩套都 clone 下來各 build 一次之後，有三件事跟原本的認知不一樣：ArduPilot 的 EKF3 檔頭直接寫著推導來自 PX4/ecl，兩套在最難的那一層是同源的；PX4 近一年的提交來自公司網域（Auterion 一家 380 筆），ArduPilot 來自個人信箱且一個人佔 37%；而真正決定選哪個的不是效能，是 BSD-3 vs GPLv3 與你要改的是哪一層。"
 description: "把 PX4 與 ArduPilot 的原始碼各 clone 一份、在筆電上各 build 一次並飛過一趟 SITL，用可複現的數字比較兩套飛控：授權條款、擴充點、看板與驅動覆蓋、近一年的貢獻者結構與發版節奏；並說明「自研飛控」實際上是什麼。"
 draft: false
 ---
