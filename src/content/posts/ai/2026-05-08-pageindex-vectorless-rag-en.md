@@ -9,7 +9,7 @@ tldr: "PageIndex skips chunking, embedding, and vector storage entirely. Instead
 description: "VectifyAI's open-source PageIndex dismantles the 'RAG = vector retrieval' assumption by replacing vector similarity with tree-structured tables of contents and LLM reasoning. This post covers how it works, how it differs from vector RAG, and when you should — and shouldn't — use it."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 6
 ---
 

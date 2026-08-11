@@ -6,7 +6,7 @@ type: deep-dive
 tags: [mcp, agent-skills, ai-agent, tool-use, llm]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 6
 tldr: "MCP governs agent-to-tool, A2A governs agent-to-agent, Skills govern reusable knowledge. The test is whether the data changes: if it changes between calls you need MCP; if it's stable enough to write down, a skill file is simpler and has no runtime that can fail on its own."
 description: "The full path from function calling to MCP and what it cost, MCP's five primitives including the direction-reversing Sampling, where A2A and ACP fit, and a five-dimension comparison of MCP against Agent Skills with a selection test."

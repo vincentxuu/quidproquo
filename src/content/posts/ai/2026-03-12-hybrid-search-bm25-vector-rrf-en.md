@@ -9,7 +9,7 @@ tldr: "Vector search handles semantics; BM25 handles keywords. Combining them wi
 description: "A deep dive into the design principles behind Hybrid Search: BM25 full-text search, vector search, the RRF fusion algorithm, and how they come together in a real climbing community platform."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 3
 ---
 

@@ -9,7 +9,7 @@ tldr: "A Harness is more than just an LLM wrapper. Tool Registry manages dynamic
 description: "A deep dive into three advanced Harness Engineering patterns: Tool Registry with dynamic loading and MCP integration, a four-layer Guard System (Input/Output/Tool/Budget), Checkpoint-Resume with state snapshots and recovery, and the Escalation pattern with tiered fallback strategies."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 4
 ---
 

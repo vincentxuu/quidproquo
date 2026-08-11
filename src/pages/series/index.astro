@@ -10,7 +10,7 @@ const t = useTranslations('zh-TW');
 const posts = await getPublishedPosts('zh-TW');
 const seriesList = getSeriesSummaries(posts, 'zh-TW');
 ---
-<PostLayout title={`${t('nav.series')} — quidproquo`} lang="zh-TW" description="quidproquo 上已整理好的系列文章。">
+<PostLayout title={`${t('nav.series')} — quidproquo`} lang="zh-TW" description="quidproquo 上已整理好的系列文章。" switchHref="/en/series">
   <h1>{t('nav.series')}</h1>
   {seriesList.length === 0 ? (
     <p class="empty">{t('series.empty')}</p>

@@ -14,7 +14,7 @@ const tagCounts = posts.reduce((acc, post) => {
 }, {} as Record<string, number>);
 const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 ---
-<PostLayout title={`${t('nav.tags')} — quidproquo`} lang="en">
+<PostLayout title={`${t('nav.tags')} — quidproquo`} lang="en" switchHref="/tags">
   <h1>{t('nav.tags')}</h1>
   <div class="tags">
     {tags.map(([tag, count]) => (

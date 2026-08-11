@@ -9,7 +9,7 @@ tldr: "AI engineering has gone through three phases: Prompt Engineering (write b
 description: "A guide to Epsilla's 'The Third Evolution' article, tracing the evolution of AI interaction from prompt engineering to context engineering to harness engineering, and why the focus in 2026 is on designing agent execution environments rather than tweaking prompts."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 3
 ---
 

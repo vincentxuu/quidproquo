@@ -9,7 +9,7 @@ tldr: "Stuck mid-debug and can't fix it right now? Use /file-bug-issue to packag
 description: "A walkthrough of the custom /file-bug-issue Claude Code skill — how it automatically collects error information from conversation context, creates a structured GitHub issue, and integrates with a Scheduled Remote Agent to form a pipeline from bug tracking to automated remediation."
 draft: false
 series:
-  name: "Claude Code 自動化指南"
+  name: "Claude Code Automation Guide"
   order: 16
 ---
 

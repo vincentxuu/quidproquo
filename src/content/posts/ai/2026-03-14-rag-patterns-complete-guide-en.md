@@ -9,7 +9,7 @@ tldr: "RAG has evolved far beyond simple 'search + generate' into a technology e
 description: "A complete navigation guide for RAG systems: ten generations of RAG evolution (Naive -> Advanced -> Modular -> Self-RAG -> CRAG -> Graph RAG -> Speculative -> Agentic -> Multi-Agent -> LongRAG), retrieval strategies, chunking, embedding, vector databases, reranking, evaluation frameworks, guardrails, observability, and cost optimization."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 1
 ---
 

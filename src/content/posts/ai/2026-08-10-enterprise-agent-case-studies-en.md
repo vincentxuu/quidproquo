@@ -6,7 +6,7 @@ type: deep-dive
 tags: [ai-agent, harness-engineering, agentic-ai, orchestration, evaluation]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 4
 tldr: "Salesforce's number from 20,000 deployments: 90% of the work on an agent happens after launch, the reverse of traditional software. Stripe merges 1,300 PRs a week with no human-written code, and credits the environment rather than the model."
 description: "Cross-reading six enterprise agent case studies — Salesforce, Stripe, Microsoft, Grab, Meta, OpenAI: the post-launch triage loop, unattended agent environment design, splitting read and write paths by risk profile, and rubric-based evaluation."

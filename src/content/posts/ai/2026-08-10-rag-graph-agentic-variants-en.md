@@ -6,7 +6,7 @@ type: deep-dive
 tags: [rag, retrieval, ai-agent, agentic-ai, embedding]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 7
 tldr: "Standard RAG gives a wrong answer when it retrieves the wrong chunk, and nothing in the system will notice. Agentic RAG adds a self-check, at the cost of the evaluator paradox: the ceiling on self-correction is whatever the evaluating LLM can judge about relevance."
 description: "The mechanisms and trade-offs of Standard, Graph and Agentic RAG, the evaluator paradox and overcorrection, and how Perplexity, Dropbox, Uber and Yelp actually engineer retrieval."

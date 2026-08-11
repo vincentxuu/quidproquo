@@ -8,6 +8,16 @@
 
 補 drone 系列 series 欄位後 progress.txt 達 98 行，依慣例移出最舊一筆。
 
+- 2026-08-06: post(learning) 數位學習之外紙筆還剩什麼 (zh + en)。四輪研究，中途
+  推翻自己兩次（詳見 PR #126）。角度：數位是預設，實體仍有效的三個地方是閱讀
+  （Delgado 17 萬人 g=-0.21，捲動時 0.35-0.48）、作答動筆（螢幕上題目越難越少用
+  草稿紙）、畫圖（45% vs 20%）；唯一沒共識的是手寫筆記（四份 meta 從 -0.008 到
+  +0.248）。八份核心文獻讀到七份全文，只有 Voyer 正文卡付費牆。新增 7 個全站
+  glossary 術語。deep-research / post-verify skill 已補上抽取完整度、繞路清單、
+  推論與事實分離三條規則。工具面：firecrawl/Exa 的 requires approval 是 claude.ai
+  connector 層級的 ask，allow 規則擋不住；另外現有 mcp__claude_ai_*__* 規則在
+  web session（server 為 UUID 命名）會靜默失效，尚未處理。
+
 - 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
   PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
   Six self-corrections during the write-up, all rooted in reading search snippets

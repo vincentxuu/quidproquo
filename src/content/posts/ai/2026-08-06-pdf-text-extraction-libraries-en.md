@@ -8,7 +8,7 @@ lang: en
 tldr: "Digital-native PDFs already contain readable text — what's missing is structure, and heuristics can recover it. PyMuPDF, pdfplumber, pypdf, and Tika do this with zero GPU and zero inference cost. The biggest selection trap isn't accuracy; it's PyMuPDF's AGPL-3.0 license."
 description: "The second rung of the document parsing ladder: how PyMuPDF / pymupdf4llm, pdfplumber, pypdf, Apache Tika, Kreuzberg, and extractous differ, which licenses will bite you, and the signals that mean you need to escalate to the parsing layer."
 series:
-  name: "文件解析實戰"
+  name: "Document Parsing in Practice"
   order: 4
 draft: false
 glossary:

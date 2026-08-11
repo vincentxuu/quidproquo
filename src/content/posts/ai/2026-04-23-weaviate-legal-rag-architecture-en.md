@@ -9,7 +9,7 @@ tldr: "Using Weaviate Query Agent + ColQwen multi-vector model, a single prompt 
 description: "Breaking down the complete architecture of Weaviate's legal contract RAG system: ColQwen visual embeddings, Muvera multi-vector compression, Query Agent dynamic reasoning search, and the CUAD dataset data structure."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 5
 ---
 

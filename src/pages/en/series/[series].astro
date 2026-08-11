@@ -13,16 +13,18 @@ const t = useTranslations('en');
 export async function getStaticPaths() {
   const posts = await getPublishedPosts('en');
   const seriesList = getSeriesSummaries(posts, 'en');
+  // 系列的 zh/en 版共用 slug；對照頁真的存在才給切換連結，否則退回站台預設。
+  const zhSlugs = new Set(getSeriesSummaries(await getPublishedPosts('zh-TW'), 'zh-TW').map(s => s.slug));
 
   return seriesList.map(series => ({
     params: { series: series.slug },
-    props: { series },
+    props: { series, switchHref: zhSlugs.has(series.slug) ? `/series/${series.slug}` : undefined },
   }));
 }
 
-const { series } = Astro.props;
+const { series, switchHref } = Astro.props;
 ---
-<PostLayout title={`${series.name} — quidproquo`} lang="en" description={series.description}>
+<PostLayout title={`${series.name} — quidproquo`} lang="en" description={series.description} switchHref={switchHref}>
   <a href="/en/series" class="back-link"><Icons name="chevron-left" size={14} />{t('nav.series')}</a>
   <div class="series-header">
     <span class="series-count">{series.count} {t('series.posts')}</span>

@@ -14,7 +14,7 @@ const categoryCounts = posts.reduce((acc, post) => {
 }, {} as Record<string, number>);
 const categories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
 ---
-<PostLayout title={`${t('nav.categories')} — quidproquo`} lang="en">
+<PostLayout title={`${t('nav.categories')} — quidproquo`} lang="en" switchHref="/categories">
   <h1>{t('nav.categories')}</h1>
   <div class="categories">
     {categories.map(([cat, count]) => (

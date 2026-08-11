@@ -6,7 +6,7 @@ type: deep-dive
 tags: [ai-agent, harness-engineering, llm, agentic-ai, orchestration]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 2
 tldr: "Microsoft, OpenAI, Salesforce, Stripe and three others independently say the same thing: reliability comes from the engineering around the model. And 'give the deterministic parts back to code' has been shipped as a product four separate times — Agent Script, Procedures, runtime, blueprints."
 description: "Where seven companies converge on agent reliability, four productized designs for deterministic nodes, Salesforce's three anti-patterns from 20,000 deployments, and why LinkedIn rejected ReAct for plan-and-execute."

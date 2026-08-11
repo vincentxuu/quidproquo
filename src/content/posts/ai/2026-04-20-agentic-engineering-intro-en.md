@@ -9,7 +9,7 @@ tldr: "Agentic Engineering isn't about making AI write code faster — it's abou
 description: "A field report from Cisco engineers: building a multi-agent system with LangGraph + LangSmith + LangMem that cut debug workflow time by 93% and accelerated development cycles by 65%. Breaking down the Worker Agent and Leader Agent architecture, plus the trade-offs between A2A, MCP, and CLI integration."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 6
 ---
 

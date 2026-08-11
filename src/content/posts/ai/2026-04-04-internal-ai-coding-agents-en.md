@@ -9,7 +9,7 @@ tldr: "Top Silicon Valley companies are independently building internal AI codin
 description: "A deep look at Stripe Minions, Ramp Inspect, Coinbase Cloudbot, and Spotify Honk — their architecture designs and key metrics — followed by an expanded survey of Google Agent Smith, Meta DevMate, Amazon Q Developer, and over a dozen other companies' internal AI coding agents."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 5
 ---
 

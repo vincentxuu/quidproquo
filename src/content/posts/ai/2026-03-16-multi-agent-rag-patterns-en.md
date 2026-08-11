@@ -9,7 +9,7 @@ tldr: "A single RAG Agent handling all queries hits knowledge boundaries and per
 description: "Architecture design for Multi-Agent RAG: Orchestrator coordination patterns, specialized Agent design, asynchronous communication and parallel processing, result fusion strategies, and comparison with single Agentic RAG."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 4
 ---
 
