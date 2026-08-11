@@ -14,20 +14,25 @@ const t = useTranslations('en');
 export async function getStaticPaths() {
   const posts = await getPublishedPosts('en');
   const categories = [...new Set(posts.map(p => p.data.category))];
+  // 只在中文版真的有同分類文章時才給語言切換連結，否則退回站台預設。
+  const zhCategories = new Set((await getPublishedPosts('zh-TW')).map(p => p.data.category));
   return categories.map(category => ({
     params: { category },
-    props: { posts: posts.filter(p => p.data.category === category) },
+    props: {
+      posts: posts.filter(p => p.data.category === category),
+      switchHref: zhCategories.has(category) ? `/categories/${category}` : undefined,
+    },
   }));
 }
 
 const { category } = Astro.params;
-const { posts } = Astro.props;
+const { posts, switchHref } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const availableTypes = [...new Set(posts.map(p => p.data.type).filter(Boolean))] as string[];
 const showFilter = availableTypes.length > 1;
 ---
-<PostLayout title={`${category} — quidproquo`} lang="en" description={`quidproquo ${category} category — ${posts.length} articles.`}>
+<PostLayout title={`${category} — quidproquo`} lang="en" description={`quidproquo ${category} category — ${posts.length} articles.`} switchHref={switchHref}>
   <a href="/en/categories" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtocategories')}</a>
   <div class={`cat-header cat-header-${category}`}>
     <h1>{category}</h1>

@@ -8,6 +8,9 @@ lang: en
 tldr: "The public evidence of a production ramp isn't in the factory but in the government e-procurement system: the fire service's 88 thermal drone sets were priced centrally, six fire departments' first tenders drew no qualifying bidder, all seven awards I pulled equal the budget to the dollar, and the bidder pool is about six firms. A control group added afterwards — aerial ladder trucks, at 0.54 failed-to-awarded versus the drones' 0.33 — refutes this post's original first conclusion: failed tenders are the norm in Taiwanese fire-service procurement."
 description: "Rebuilding Taiwan's 88+88 fire-service unmanned systems procurement county by county from award and failed-to-award records: uniform central pricing, six failed tenders, every award at exactly 100% of budget, delivery windows halved — and a correction to the unit prices derived in the previous post."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 37
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-09-drone-production-ramp-procurement)

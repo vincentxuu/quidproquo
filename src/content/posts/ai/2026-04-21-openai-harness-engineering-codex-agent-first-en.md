@@ -9,7 +9,7 @@ tldr: "An OpenAI internal team spent 5 months with 3 people and 0 lines of hand-
 description: "OpenAI's firsthand account of agent-first development with Codex: AGENTS.md should be a TOC not an encyclopedia, all knowledge must live in the repo, architecture invariants should be enforced by linters, and garbage collection agents combat code entropy."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 8
 ---
 

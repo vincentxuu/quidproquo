@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "ArduPilot 的 ModeReason 列舉就是「機上自主決策」的完整清單：56 個值裡 43 個是飛機自己決定的，其中 21 個是偵測到危險，而只有 SOARING_THERMAL_DETECTED 一項是因為發現機會。至於 end-to-end，PX4 主線那個 mc_nn_control 的 tensor arena 只有 10 KB、Kconfig 預設 n，ArduPilot 主線一個都沒有。"
 description: "用 ArduPilot 的 ModeReason 列舉逐項分類飛控的自主決策，證明「自主」幾乎全部是安全決策而非任務決策；再對照 PX4 主線的 mc_nn_control 端到端神經網路控制模組，說明 waypoint 到 end-to-end 在主線程式碼裡並不是一條連續光譜。"
 draft: false
+series:
+  name: "無人機產業拆解"
+  order: 35
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-09-drone-autonomy-modereason-en)

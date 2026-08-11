@@ -8,6 +8,9 @@ lang: en
 tldr: "Of the 267 companies the Ministry of Economic Affairs counted, 164 are in northern Taiwan. But geography is not division of labor — Thunder Tiger's published bill of materials shows motors, batteries, frames, and propellers sourced locally, while flight control, comms/GPS, and camera modules go to US, European, and Japanese partners. Exports were only 23% of 2025's NT$12.9B output, and 88.1% of export value sits in the 2–7 kg weight band per Ministry of Finance statistics."
 description: "Breaking Taiwan's 267 drone companies down by supply chain layer: county-level distribution, the 70/60/30 percent localization gap by airframe size, the real gap revealed by Thunder Tiger's published BOM, an industry sustained 80 percent by domestic procurement, and what Green UAS and Blue UAS certification actually covers."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 13
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)

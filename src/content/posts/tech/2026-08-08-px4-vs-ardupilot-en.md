@@ -8,6 +8,9 @@ lang: en
 tldr: "After cloning and building both, three things differ from the stereotype: ArduPilot's EKF3 header credits the derivation to PX4/ecl, so the hardest layer is shared; PX4's last year of commits comes from company domains (380 from Auterion alone) while ArduPilot's comes from personal addresses with one contributor at 37%; and what really decides the choice is not performance but BSD-3 versus GPLv3, and which layer you need to modify."
 description: "Cloning PX4 and ArduPilot, building each on a laptop and flying one SITL sortie, then comparing the two flight stacks on reproducible numbers: licensing, extension point, board and driver coverage, twelve months of contributor structure and release cadence — plus what building your own flight controller actually means."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 30
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-px4-vs-ardupilot)

@@ -8,6 +8,9 @@ lang: en
 tldr: "I assumed Taiwan had no real drone logistics because it has no BVLOS framework. Wrong: the CAA has approved 10 cases across 24 flight corridors, and the Institute of Transportation has run a six-year PoC → PoS → PoB path since 2020, entering commercial validation in 2025. The way it routes around regulation is the mirror image of inspection — inspection cuts work down to within visual line of sight, logistics gets corridors approved one at a time. And its value isn't being cheaper than a boat: during the typhoon sailing suspensions at Liuqiu, a drone made the crossing in a bit over ten minutes, which is what you have when the boats don't run."
 description: "Six years and three phases of Taiwan's remote-area drone logistics program, the distribution and cargo of its 24 corridors, the statutory thresholds for routine commercial operation, and why case-by-case approval works for logistics but obstructs inspection."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 19
 ---
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-logistics-taiwan)

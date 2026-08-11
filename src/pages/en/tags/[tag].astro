@@ -14,17 +14,22 @@ const t = useTranslations('en');
 export async function getStaticPaths() {
   const posts = await getPublishedPosts('en');
   const tags = [...new Set(posts.flatMap(p => p.data.tags))];
+  // 只在中文版真的有同標籤文章時才給語言切換連結，否則退回站台預設。
+  const zhTags = new Set((await getPublishedPosts('zh-TW')).flatMap(p => p.data.tags));
   return tags.map(tag => ({
     params: { tag },
-    props: { posts: posts.filter(p => p.data.tags.includes(tag)) },
+    props: {
+      posts: posts.filter(p => p.data.tags.includes(tag)),
+      switchHref: zhTags.has(tag) ? `/tags/${tag}` : undefined,
+    },
   }));
 }
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { posts, switchHref } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<PostLayout title={`#${tag} — quidproquo`} lang="en" description={`quidproquo posts tagged #${tag} — ${posts.length} articles.`}>
+<PostLayout title={`#${tag} — quidproquo`} lang="en" description={`quidproquo posts tagged #${tag} — ${posts.length} articles.`} switchHref={switchHref}>
   <a href="/en/tags" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtotags')}</a>
   <div class="tag-header">
     <h1><span class="hash">#</span>{tag}</h1>

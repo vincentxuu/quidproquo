@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "把 Skybrush 那套開源燈光秀韌體 9,199 行搜遍 neighbour、collision、swarm，沒有任何一架飛機知道別架的存在——兩百架之間同步的全部內容，是一個 GPS 週內秒加一個毫秒偏移，防撞是在地面的編排軟體裡算完的。而資安檢測規範第 7 章那個群飛專章，十二個項目的「遙控無人機」欄從頭到尾都是「-」，測的是交換器與路由器。"
 description: "從 Skybrush 開源燈光秀韌體的原始碼證明燈光秀的群飛沒有機間協調，再逐格對照台灣遙控無人機資安檢測規範第 7 章的十二個檢測項目，說明這一章為什麼長成一份機房稽核，以及它的形狀怎麼被 2022 年國慶那場爭議決定。"
 draft: false
+series:
+  name: "無人機產業拆解"
+  order: 38
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-09-drone-swarm-light-show-en)

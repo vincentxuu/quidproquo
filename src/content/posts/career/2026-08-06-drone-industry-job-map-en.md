@@ -8,6 +8,9 @@ lang: en
 tldr: "Put drone jobs back into the five-layer supply chain and the picture clarifies: Layer 2 belongs to mechanical and electrical engineers, while Layer 3 — flight control firmware, sensor fusion, RF, edge AI — is the real entry point for software people, and also exactly the layer Taiwan is short on. But check the scale first: 267 companies and NT$12.9B of 2025 output means far fewer openings than the news volume suggests."
 description: "An inventory of eleven drone industry roles organized by supply chain layer: where each sits, what it actually requires, how transferable a software background is, and the real structural differences between Taiwan and overseas career paths."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 2
 ---
 
 > 🌏 [中文版](/posts/career/2026-08-06-drone-industry-job-map)

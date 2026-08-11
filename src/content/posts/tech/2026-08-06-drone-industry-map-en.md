@@ -8,6 +8,9 @@ lang: en
 tldr: "The global drone market is roughly US$69B in 2026 (IDTechEx). China holds about 80% of it (CSIS) and DJI over 70% of multi-rotor. The FCC put every foreign-made drone on its Covered List in December 2025; Taiwan's drone output jumped from NT$5.0B to NT$12.9B in one year, and Q1 2026 exports already beat all of 2025. This piece breaks down the five-layer supply chain, the four demand blocks, and the two ceilings holding back scale."
 description: "A full map of the drone industry: supply chain layers, why market-size estimates differ by 10x, the military / agriculture / logistics / inspection demand blocks, Chinese supply chain dominance and export controls, US NDAA and FCC policy leverage, the BVLOS regulatory bottleneck, and where Taiwan actually sits — strengths and gaps included."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 1
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-map)

@@ -8,6 +8,9 @@ lang: en
 tldr: "ArduPilot's ModeReason enum is the exhaustive list of on-board autonomous decisions: of 56 values, 43 are the aircraft deciding for itself, 21 of those because it detected something dangerous, and exactly one — SOARING_THERMAL_DETECTED — because it found an opportunity. As for end-to-end, PX4 mainline's mc_nn_control has a 10 KB tensor arena and a Kconfig default of n; ArduPilot mainline has none."
 description: "Classifying every entry in ArduPilot's ModeReason enum to show that flight-controller autonomy is almost entirely safety decisions rather than mission decisions, then reading PX4's mc_nn_control end-to-end neural network module to show that waypoint-to-end-to-end is not a continuous spectrum in mainline code."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 35
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-09-drone-autonomy-modereason)

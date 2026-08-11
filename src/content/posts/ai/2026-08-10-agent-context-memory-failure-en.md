@@ -6,7 +6,7 @@ type: deep-dive
 tags: [context-engineering, memory, ai-agent, llm, kv-cache]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 3
 tldr: "Chroma tested 18 frontier models and all of them degrade as input grows — as a cliff, not a slope. Memory failures are usually retrieval failures in disguise. And the real cost of KV cache is bandwidth, not storage: every generated token reads the whole cache."
 description: "Three mechanisms behind agent failure: the architectural limits of context rot and lost-in-the-middle, memory decomposed along tier × type with its four trade-offs including poisoning, and why KV cache is a bandwidth cost."

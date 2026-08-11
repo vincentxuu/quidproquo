@@ -8,6 +8,9 @@ lang: en
 tldr: "Register anything 250g or heavier; the registration number expires after 2 years. Individuals only need a licence at 2kg–15kg with navigation equipment. The licence term is now 3 years, not 2, and the student licence age dropped to 14, not 16. This piece covers only the currently effective text of the Remotely Piloted Drone Management Regulations, and flags the three most common outdated claims circulating online."
 description: "A plain-language guide to Taiwan's currently effective drone regulations: registration thresholds, licence tiers and privileges, operating limits, corporate activity applications, incident reporting, and penalties — plus which widely circulated rules are already outdated or not yet in force."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 9
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)

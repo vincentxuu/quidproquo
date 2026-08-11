@@ -8,6 +8,9 @@ lang: en
 tldr: "Taiwan's Civil Aviation Act drone chapter regulates flight safety, not the people being flown over — and that isn't my commentary, it's the Legislative Yuan's own 2020 research report: the chapter 'contains no specific provision on the privacy management that matters most to the public.' So privacy falls back on Article 315-1 of the Criminal Code and the Personal Data Protection Act, and case law shows that catches part of it: pointing a drone at a hot spring room drew an indictment, raising a phone to a window drew four months. What it doesn't catch is evidence — the report's own words: 'by the time the victim notices it, it may already have vanished.'"
 description: "The legal position on drone privacy in Taiwan: why the Civil Aviation Act's drone chapter has no privacy provision, which conduct the Criminal Code and data protection law actually reach, how courts define non-public activity and dragnet surveillance, and why evidence-gathering is the real bottleneck."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 16
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-07-drone-privacy-taiwan)

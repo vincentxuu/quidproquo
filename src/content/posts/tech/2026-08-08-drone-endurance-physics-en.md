@@ -8,6 +8,9 @@ lang: en
 tldr: "Hover power scales with takeoff weight to the 1.5 power while battery energy scales linearly, and that one exponent gap makes added battery hit diminishing returns fast — the optimum battery fraction solves to two-thirds of takeoff weight, independent of rotor diameter, rotor count, efficiency and energy density. What actually caps endurance is payload, not the regulatory weight thresholds: 60 minutes needs a 314 Wh/kg cell, and the best high-rate cell today is 242 Wh/kg."
 description: "Computing multirotor hover endurance from momentum theory: the 1.5-power law, the collapse of returns on added battery, the closed-form optimum battery fraction, what regulatory weight thresholds and payload each actually do, and how much energy density 60 minutes would need — ending on the one layer of the drone BOM where Taiwan genuinely leads."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 26
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-drone-endurance-physics)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "ExpressLRS 的跳頻順序由一句綁定口令經 MD5 推出 UID、再餵給一個線性同餘產生器算出來，完全可複現（我移植成 Python 跟原始 C 碼逐位元對過），而鏈路本身沒有任何加密，只有 14 bit CRC。台灣 LP0002 又讓頻道數變成功率上限：2.4 GHz 跳頻用滿 75 個頻道可以發 1 W，不足只能發 0.125 W。"
 description: "用 ExpressLRS 的原始碼拆解無人機遙控鏈路：跳頻序列怎麼從綁定口令推導出來（含可複現的移植與交叉驗證）、LoRa 與 FLRC 各檔速率的靈敏度代價、Listen Before Talk 的門檻怎麼算；並對照台灣 LP0002 低功率射頻器材技術規範，說明頻道數如何決定合法功率上限，以及為什麼「模型玩具無線電遙控器」那條規定跟現代遙控器對不上。"
 draft: false
+series:
+  name: "無人機產業拆解"
+  order: 27
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-08-drone-radio-link-en)

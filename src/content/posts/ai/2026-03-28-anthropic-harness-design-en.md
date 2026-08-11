@@ -9,7 +9,7 @@ tldr: "The same model produces dramatically different results under different ha
 description: "A guided reading of two Anthropic engineering blog posts on harness design, breaking down the architecture for long-running AI agents: dual-agent architecture, claude-progress.txt state transfer, GAN-inspired generation-evaluation loops, and how model improvements reshape framework design."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 2
 ---
 

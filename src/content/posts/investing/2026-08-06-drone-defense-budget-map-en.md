@@ -8,6 +8,9 @@ lang: en
 tldr: "Taiwan's public drone money splits three ways: an approved NT$44.2B coordination program (R&D grants), a proposed NT$210B defense procurement special statute (stuck in cross-party negotiation), and annual agency budgets (NT$7.2B+ for 2026). The largest was written to run from 1 August 2026 — that date has passed with the bill still unresolved. And the Executive Yuan version buys only three specific items."
 description: "Three funding paths for Taiwan's drone sector — R&D grants under the coordination program, procurement under the special statute, and annual agency budgets — with their nature, size, purchase items, and conditions; plus the full legislative timeline of the NT$210 billion special statute and the risks specific to budget process."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 6
 ---
 
 > 🌏 [中文版](/posts/investing/2026-08-06-drone-defense-budget-map)

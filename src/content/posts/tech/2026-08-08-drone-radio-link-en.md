@@ -8,6 +8,9 @@ lang: en
 tldr: "ExpressLRS derives its hop sequence by running the bind phrase through MD5 into a UID and feeding that to a linear congruential generator — fully reproducible, and I ported it to Python and matched the original C bit for bit — while the link itself has no encryption at all, only a 14-bit CRC. Taiwan's LP0002 then turns channel count into a power ceiling: 75 or more hopping channels at 2.4 GHz allows 1 W, fewer allows 0.125 W."
 description: "Taking the drone control link apart through the ExpressLRS source: how the hop sequence derives from the binding phrase (with a reproducible port and cross-check), the sensitivity price of each LoRa and FLRC rate, how the Listen Before Talk threshold is computed; then comparing against Taiwan's LP0002 low-power RF specification to show how channel count sets the legal power ceiling and why the 'model toy radio control' clause does not fit modern transmitters."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 27
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-drone-radio-link)

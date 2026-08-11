@@ -8,6 +8,9 @@ lang: en
 tldr: "Taiwan has no 'drone department.' The system's core is National Formosa University's Department of Aeronautical Engineering — a NT$90M Ministry of Education training base sited inside the Chiayi drone cluster, the only one of 18 regional bases located in an industrial park, plus a NT$50M lab with a large low-speed wind tunnel. And the 2026 Presidential Cup's three challenge topics (edge AI recognition, high-precision positioning, GNSS-denied autonomous navigation) are almost a mirror of the industry's Layer 3 gap."
 description: "Taiwan's drone learning and training paths: the university course system and training base, the CAA operator licence, how the National Science and Technology Council's Presidential Cup competition is designed, and vocational short courses — with concrete advice for high school students, undergraduates, and career changers."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 5
 ---
 
 > 🌏 [中文版](/posts/education/2026-08-06-taiwan-drone-education-paths)

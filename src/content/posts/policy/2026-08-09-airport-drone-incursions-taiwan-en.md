@@ -8,6 +8,9 @@ lang: en
 tldr: "Three Legislative Yuan budget evaluations log 23 drone-caused airport closures in Taiwan between FY2019 and August 2023, and every row's response column repeats one sentence: on notification, go to the scene with the Aviation Police and investigate. Article 99-13(6) of the Civil Aviation Act gives an airport the verb 'enforce against', not 'stop or remove' — yet the FY2024 report says every airport has already procured handheld jammers."
 description: "Using the itemised lists inside three Legislative Yuan budget evaluation reports to walk through the 23 drone-caused airport closures Taiwan recorded from FY2019 to end-August 2023 — duration, flights, passengers and response — against the verb the Civil Aviation Act gives airports, the date the CAA told stations to buy jammers, and a registration base the regulator admitted it could not measure."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 31
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)

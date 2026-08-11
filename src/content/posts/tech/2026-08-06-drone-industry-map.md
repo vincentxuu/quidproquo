@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "全球無人機市場 2026 年約 690 億美元（IDTechEx），中國掌握約 80% 市場（CSIS）、DJI 占多旋翼七成以上。美國 FCC 在 2025 年 12 月把所有外國製無人機列入 Covered List；台灣產值一年從 50 億元跳到 129 億元，2026 Q1 出口就超過 2025 全年。這篇拆解產業鏈五層、四大需求板塊，以及卡住規模化的兩個天花板。"
 description: "無人機產業的完整地圖：產業鏈分層、市場規模為何各家報告差十倍、軍用／農業／物流／巡檢四大需求、中國供應鏈壟斷與出口管制、美國 NDAA 與 FCC 政策槓桿、BVLOS 法規瓶頸，以及台灣在非紅供應鏈中的實際位置與缺口。"
 draft: false
+series:
+  name: "無人機產業拆解"
+  order: 1
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-06-drone-industry-map-en)

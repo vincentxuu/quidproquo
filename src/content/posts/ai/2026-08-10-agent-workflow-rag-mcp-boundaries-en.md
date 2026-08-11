@@ -6,7 +6,7 @@ type: deep-dive
 tags: [ai-agent, llm, mcp, rag, agentic-ai]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 1
 tldr: "The line between workflow and agent is who decides the steps — the developer at design time, or the model at run time. By that definition most LLM systems in production today are workflows. Plus a usable test for choosing between RAG and an agent."
 description: "Separating four commonly conflated concepts: Anthropic's workflow/agent distinction, the five orchestration patterns, the agent loop's four output branches and three guardrail families, and how to decide between RAG and an agent."

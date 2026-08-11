@@ -8,6 +8,9 @@ lang: en
 tldr: "PX4's own architecture docs say the companion computer runs Linux because 'Linux is a much better platform for general software development than NuttX; there are many more Linux developers.' That sentence is the entry point. The three transition paths differ sharply in friction — CV and MAVLink work on the companion computer transfers almost directly, flight controller firmware means learning RTOS and work-queue constraints, and estimation and control means quaternions and Kalman filters."
 description: "Using PX4's layered architecture as a map: three paths for software engineers moving into drones, what each requires, how much friction each carries, how to prove capability with SITL and real logs, and which layer actual job descriptions are asking for."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 4
 ---
 
 > 🌏 [中文版](/posts/career/2026-08-06-software-to-drone-transition)

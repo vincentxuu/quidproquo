@@ -8,6 +8,9 @@ lang: en
 tldr: "Agricultural spraying is the one drone application whose unit economics are fully transparent: the billing unit is the fen (about 970 m²), rates run NT$150–300, spraying one fen takes about two minutes, equipment costs NT$300–500k, and even the substitute's price is public (manual spraying, roughly NT$200 per fen). And precisely because anyone can run the arithmetic, everyone did — operators who entered in 2018 sprayed over a thousand hectares a year and cleared over a million; later entrants broke even after two or three years and quit. Licensed operators charge NT$300 per fen; unlicensed ones undercut to NT$150. This is the industry cycle in miniature, compressed into about six years."
 description: "Unpacking the unit economics of agricultural drone spraying in Taiwan: why this is the only application with computable ROI, actual rates and productivity, the cost of entry in equipment and licences, the structural causes of price collapse, and how regulation locks the market to a narrow list of crops."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 17
 ---
 
 > 🌏 [中文版](/posts/product/2026-08-07-agri-drone-unit-economics)

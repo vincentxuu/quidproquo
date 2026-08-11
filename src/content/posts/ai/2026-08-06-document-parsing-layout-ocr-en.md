@@ -8,7 +8,7 @@ lang: en
 tldr: "Scans and complex layouts leave you no choice but to infer structure with a model. But the technical gap between MinerU, Marker, and Docling is far smaller than the licensing gap — MinerU needs a separate license past $20M monthly revenue, Marker's model weights need payment past a funding threshold, and only Docling is cleanly MIT. Read the LICENSE before the benchmark."
 description: "The third rung of the document parsing ladder: pipeline systems (MinerU / Marker / Docling) versus end-to-end VLMs (olmOCR / dots.ocr / Chandra), what each license actually restricts, how to read olmOCR-bench numbers, and where commercial APIs fit."
 series:
-  name: "文件解析實戰"
+  name: "Document Parsing in Practice"
   order: 5
 draft: false
 glossary:

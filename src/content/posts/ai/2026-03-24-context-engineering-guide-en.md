@@ -9,7 +9,7 @@ tldr: "Context Engineering is the core concept that replaced Prompt Engineering 
 description: "An in-depth look at Context Engineering — its definition, origins, core strategies (Write, Select, Compress, Isolate), and practical advice from Anthropic, LangChain, Karpathy, and others."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 1
 ---
 

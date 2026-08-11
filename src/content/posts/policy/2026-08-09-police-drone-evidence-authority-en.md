@@ -8,6 +8,9 @@ lang: en
 tldr: "Eight municipal police departments now run drone units, and the authority to fly is clear — Article 99-16(2) of the Civil Aviation Act exempts agencies performing statutory duties. But that is a flight-safety exemption: a Taipei City legal opinion says it 'may be unable to serve as the legal basis for conducting administrative investigation by drone', and the special-compulsory-measures chapter passed in July 2024 authorises GPS, IMSI-catchers and private-space imaging with no aerial-investigation provision at all."
 description: "Taking apart the legal basis for Taiwanese police drone evidence-gathering: Article 99-16 grants an exemption from operating restrictions rather than an investigative power, an administrative-law opinion finds current law insufficient as a basis for investigation, and the only provision ever drafted specifically for aerial evidence-gathering was flagged for reconsideration by the ministry that wrote it."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 33
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-09-police-drone-evidence-authority)

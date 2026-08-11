@@ -8,7 +8,7 @@ lang: en
 tldr: "Firecrawl's open-source Rust conversion library turns 14 office formats (including legacy .doc / .ppt / .xls) into GFM at a 4.7ms median — 109× faster than Docling under the same timing basis. The trade-off: it does no OCR at all."
 description: "A breakdown of anydoc's shared Document model, its 14-format coverage, how credible its LLM-judge benchmark actually is, and where its design diverges from MarkItDown."
 series:
-  name: "文件解析實戰"
+  name: "Document Parsing in Practice"
   order: 3
 draft: false
 glossary:

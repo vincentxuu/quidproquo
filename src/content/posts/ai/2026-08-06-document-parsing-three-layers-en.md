@@ -8,7 +8,7 @@ lang: en
 tldr: "The most common mistake in feeding documents to an LLM isn't picking the wrong tool — it's picking the wrong layer. Structure already in the file goes to the conversion layer (milliseconds); text without structure goes to extraction; only inferred structure needs parsing. anydoc's 4.7ms against Docling's 513.6ms is a 109× gap, and most people jump straight to the most expensive layer."
 description: "A three-layer decision framework for turning documents into LLM-readable content: conversion (MarkItDown, anydoc), extraction (PyMuPDF, pdfplumber), and parsing (MinerU, Docling, OCR-VLMs) — what each solves, what each costs, and a decision tree you can follow."
 series:
-  name: "文件解析實戰"
+  name: "Document Parsing in Practice"
   order: 1
 draft: false
 glossary:

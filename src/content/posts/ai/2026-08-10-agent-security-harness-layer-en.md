@@ -6,7 +6,7 @@ type: deep-dive
 tags: [security, ai-agent, prompt-engineering, mcp, llm]
 lang: en
 series:
-  name: "Agent 生產線"
+  name: "The Agent Production Line"
   order: 5
 tldr: "In November 2025 three frontier labs jointly broke all 12 previously proposed prompt-injection defenses. EchoLeak's payload passed Microsoft's own dedicated classifier. So the goal is not blocking every attack — it is surviving the ones that land, and that is harness work."
 description: "Why prompt injection is unsolvable at the model layer — instructions and data share one token stream — and what damage control looks like in the harness: the lethal trifecta, Agents Rule of Two, guardrails at the tool boundary, GitHub's zero-secret architecture and safe outputs."

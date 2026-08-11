@@ -9,7 +9,7 @@ tldr: "Agent memory isn't a plugin — it's part of the harness itself. Pick the
 description: "Starting from three memory types — Procedural, Episodic, and Semantic — this guide breaks down memory implementation options in Agentic Engineering, including LangMem's strengths and weaknesses, memory volume estimation, and the ownership question of open-source vs. closed harnesses."
 draft: false
 series:
-  name: "AI Agent 實戰"
+  name: "AI Agent Systems in Practice"
   order: 7
 ---
 

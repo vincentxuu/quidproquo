@@ -8,6 +8,9 @@ lang: en
 tldr: "I assumed inspection was blocked by beyond-visual-line-of-sight rules the way logistics is. It isn't. Bridge, transmission tower, and high-speed rail viaduct inspection are all running with hard numbers: one bridge went from 8 inspectors, 4 vehicles and 2 days to 5 people, 1 vehicle and half a day with no traffic control at all, at 60% of conventional cost; high-speed rail crews covered at most 700 metres a day on foot and now save 3–5x; a private power plant cut headcount by three quarters and cost by half with no outage required. The reason is that all of these are segmented, fixed-point tasks completable within visual line of sight. What BVLOS actually blocks is continuous long-range routes, not 'inspection' as a category."
 description: "Taiwan's deployed drone inspection of bridges, transmission towers, and rail viaducts with quantified results; why this application routes around visual-line-of-sight regulation, why safety rather than cost drives adoption, and why it is the only application that has genuinely reached Layer 5."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 18
 ---
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-inspection-taiwan)

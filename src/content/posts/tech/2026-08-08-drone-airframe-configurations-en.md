@@ -8,6 +8,9 @@ lang: en
 tldr: "The same 5 kg aircraft on the same 2 kg pack needs 512 W to hover for 41 minutes as a multirotor, or 128 W to cruise for 164 minutes and 197 km as a fixed wing — and that range is independent of cruise speed. A VTOL's cost is not the energy burned in transition (2.4%) but that it carries both a rotor system and a wing, worth about a quarter of the range; Taiwan builds something at every rung from 40-minute electric multirotors to a 6-hour piston helicopter."
 description: "Following the endurance post, computing the three configurations beyond hover: the fixed-wing cruise power equation and why range is independent of speed, the VTOL mass penalty, and the disk-loading advantage of a single large rotor — plus Taiwan's full endurance ladder from electric multirotor through helicopter, tiltrotor and fuel cell to internal combustion, with a domestic aircraft at each rung."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 25
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-drone-airframe-configurations)

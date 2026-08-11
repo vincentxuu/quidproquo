@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "2016 年那波消費級無人機泡沫留下明確殘骸：3D Robotics 停產硬體、GoPro Karma 上市六週召回全部 2,500 台並裁員 15%、Parrot 砍掉 35% 無人機人力、Lily Robotics 收了 3,400 萬美元預購後倒閉。2023 年連募了 5.7 億美元的 Skydio 都退出消費市場——而三年後它的估值來到 44 億美元。這次的引擎完全換了人——但有三件事跟上次一模一樣。"
 description: "拆解無人機產業的兩次週期：2014–2016 消費級泡沫的成因與殘骸、2016 之後十年的洗牌、2022 起由軍用與軍民兩用驅動的第二波，以及這次與上次的三個結構差異和三個相同警訊。"
 draft: false
+series:
+  name: "無人機產業拆解"
+  order: 12
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-06-drone-industry-cycle-history-en)

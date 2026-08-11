@@ -8,6 +8,9 @@ lang: en
 tldr: "Agricultural spraying runs NT$150–300 per fen, computable to the decimal. Search and rescue has no such number, because a life recovered has no price. That difference determines two things: first, the specification is written by terrain rather than performance — the defining feature of Taiwan's fire agency drones is that they do NOT depend on GPS, because mountain signal drops and they must thread through trees; second, when the legislature moved to cut the budget, the ministry could only point to one man pulled from a flooded river in June. Defending a budget with an anecdote is fragile, and this application has no better weapon."
 description: "Taiwan's disaster response and mountain search-and-rescue drone deployment, procurement scale, and technical specifications; why its value resists unit-economics measurement, and how being uncomputable puts it at a structural disadvantage in budget review."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 20
 ---
 
 > 🌏 [中文版](/posts/product/2026-08-07-drone-sar-value)

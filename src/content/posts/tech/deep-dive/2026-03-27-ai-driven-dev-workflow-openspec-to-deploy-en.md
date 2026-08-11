@@ -9,7 +9,7 @@ tldr: "Use OpenSpec to break requirements into engineering tasks, Claude Code to
 description: "A complete walkthrough of an AI-driven development workflow: eight stages from PRD/FRD input, OpenSpec decomposition, Claude Code-assisted development, multi-layer quality checks, to automated deployment — along with the design tradeoffs behind each decision."
 draft: false
 series:
-  name: "Claude Code 自動化指南"
+  name: "Claude Code Automation Guide"
   order: 14
 ---
 

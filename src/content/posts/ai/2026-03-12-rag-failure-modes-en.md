@@ -9,7 +9,7 @@ tldr: "When a RAG system breaks, 90% of the time it's one of these 10 failure mo
 description: "The 10 most common RAG failure modes across retrieval failures, generation failures, and system design issues, along with diagnostic methods and solutions for each."
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG Systems in Practice"
   order: 2
 ---
 

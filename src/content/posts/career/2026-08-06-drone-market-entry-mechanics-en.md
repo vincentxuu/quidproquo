@@ -8,6 +8,9 @@ lang: en
 tldr: "TEDIBOA has grown from 50 founding members to over 260, but since 1 July 2025 you must first be a full member of the Defense Industry Development Association before you can even apply. R&D grants under the Industrial Innovation Platform cap out at 50% of total project cost, three concurrent cases per company, three years maximum — and explicitly ban red-supply-chain components while requiring joint cybersecurity lab testing. This piece covers only what public documents can actually establish."
 description: "Four gates into Taiwan's drone industry, reconstructed from public documents: the industry alliance's membership prerequisite, the rules and limits on R&D grants, the fixed order of Green and Blue UAS certification, and how government tenders are bid and accepted — plus an explicit list of the questions public data cannot answer."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 3
 ---
 
 > 🌏 [中文版](/posts/career/2026-08-06-drone-market-entry-mechanics)

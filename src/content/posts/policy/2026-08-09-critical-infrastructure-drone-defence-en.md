@@ -8,6 +8,9 @@ lang: en
 tldr: "Paragraphs 3 and 4 of Article 99-13 of the Civil Aviation Act say 'government agencies, schools or legal persons', but paragraph 7's proviso — the only sentence letting a site operator 'take appropriate measures to stop or remove' a drone — says only 'government agencies', and Taipower, CPC and the fabs are legal persons. Their remaining path is to have a municipality announce a restricted zone and 'enforce against' violators, which drops the penalty from an NT$300,000 minimum to an NT$300,000 maximum, while importing a jammer requires 'critical infrastructure provider' status that you learn you hold by receiving a letter."
 description: "Taking Taiwan's critical-infrastructure drone defence chain apart link by link: how Article 99-13's wording leaves state-owned and private operators outside the 'stop or remove' power, why the alternative route runs through a municipal announcement, why the penalty drops a tier, and why the NCC's jammer import door is keyed to a list that is never published."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 32
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-09-critical-infrastructure-drone-defence)

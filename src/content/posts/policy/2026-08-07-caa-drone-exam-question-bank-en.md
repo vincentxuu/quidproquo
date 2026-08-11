@@ -8,6 +8,9 @@ lang: en
 tldr: "In 2022 Taiwan's Ministry of Transportation issued a press release titled 'Drone Licensing Overhaul! Obscure Questions Removed, Question Banks Fully Published,' putting all 1,420 questions online — 388 general, 588 professional, 324 renewal, 120 simplified renewal. The stated reason was candid: candidates said it was too hard. And the published bank became a policy document in its own right — the meteorology subject imports the manned-aviation syllabus wholesale, and flight principles lean heavily on fixed-wing aerodynamics, while most candidates fly multirotors."
 description: "Reading the CAA's published drone written-exam question bank as a policy text: the structure of the four subjects, the 2022 policy shift and its stated reasons, what the regulations actually specify (only the pass mark and the subjects, not the question count), and what download counts reveal about real demand."
 draft: false
+series:
+  name: "Taiwan's Drone Industry, Taken Apart"
+  order: 15
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
