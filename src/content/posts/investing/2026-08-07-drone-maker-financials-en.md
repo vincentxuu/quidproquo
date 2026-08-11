@@ -9,7 +9,7 @@ tldr: "I had filed \"what's the real margin on military-grade-commercial tenders
 description: "Using public filings to unpack the economics of a Taiwanese drone manufacturer: gross margin, opex erosion, inventory days and cash conversion cycle, contract liability size, how capacity expansion is funded, and how these numbers explain the lethality of a failed tender acceptance. Contains no buy or sell judgment."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 14
 ---
 

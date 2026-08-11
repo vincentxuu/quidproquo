@@ -9,7 +9,7 @@ tldr: "After cloning and building both, three things differ from the stereotype:
 description: "Cloning PX4 and ArduPilot, building each on a laptop and flying one SITL sortie, then comparing the two flight stacks on reproducible numbers: licensing, extension point, board and driver coverage, twelve months of contributor structure and release cadence — plus what building your own flight controller actually means."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 30
 ---
 

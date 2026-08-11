@@ -9,7 +9,7 @@ tldr: "Only four drone occurrences have entered Taiwan's official aviation safet
 description: "Working through two TTSB drone investigation reports: timelines, attitude data, damage sequence analysis, and final conclusions; how the 25 kg statutory threshold produces the figure 'four occurrences in Taiwan'; and where to look for the world below 25 kg."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 22
 ---
 

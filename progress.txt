@@ -24,8 +24,10 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機拆解」／「Drone
-  Teardown」，pillar 產業地圖排 order 1。content-plan-drone.md:481 當初決定
+- 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
+  「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
+  拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
+  讀成拆機影片，而這系列一台都沒拆。content-plan-drone.md:481 當初決定
   「series 只給支線 D 用」，該判斷已過期（38 篇跨 5 分類且互相回指）。另在
   SERIES_DEFINITIONS 補註冊 Agent 生產線（沿用 fallback slug 'agent' 以免動到已發佈
   URL，改名待決）、Learning How to Learn、Claude Code Automation Guide。build 驗過。

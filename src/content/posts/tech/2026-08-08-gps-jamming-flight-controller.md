@@ -9,7 +9,7 @@ tldr: "在 SITL 裡把無人機飛到 28 公尺，再打開模擬器內建的 GP
 description: "用 ArduPilot SITL 實際開啟 GPS 干擾並記錄完整事件時間軸，再回頭讀 PX4 EKF2 的 12 道 GNSS 品質閘門與 ArduPilot 的三組來源切換機制，說明飛控在衛星定位失效時的判斷邏輯；並對照台灣資安檢測規範的第三個模組與消防署「不依賴 GPS」的搜救機規格。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 29
 ---
 

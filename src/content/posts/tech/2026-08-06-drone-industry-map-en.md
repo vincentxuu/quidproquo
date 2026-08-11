@@ -9,7 +9,7 @@ tldr: "The global drone market is roughly US$69B in 2026 (IDTechEx). China holds
 description: "A full map of the drone industry: supply chain layers, why market-size estimates differ by 10x, the military / agriculture / logistics / inspection demand blocks, Chinese supply chain dominance and export controls, US NDAA and FCC policy leverage, the BVLOS regulatory bottleneck, and where Taiwan actually sits — strengths and gaps included."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 1
 ---
 

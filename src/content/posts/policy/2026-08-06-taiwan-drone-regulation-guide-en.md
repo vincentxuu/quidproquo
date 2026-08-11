@@ -9,7 +9,7 @@ tldr: "Register anything 250g or heavier; the registration number expires after 
 description: "A plain-language guide to Taiwan's currently effective drone regulations: registration thresholds, licence tiers and privileges, operating limits, corporate activity applications, incident reporting, and penalties — plus which widely circulated rules are already outdated or not yet in force."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 9
 ---
 

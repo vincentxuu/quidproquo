@@ -9,7 +9,7 @@ tldr: "ArduPilot 的 ModeReason 列舉就是「機上自主決策」的完整清
 description: "用 ArduPilot 的 ModeReason 列舉逐項分類飛控的自主決策，證明「自主」幾乎全部是安全決策而非任務決策；再對照 PX4 主線的 mc_nn_control 端到端神經網路控制模組，說明 waypoint 到 end-to-end 在主線程式碼裡並不是一條連續光譜。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 35
 ---
 

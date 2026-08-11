@@ -9,7 +9,7 @@ tldr: "PX4's own architecture docs say the companion computer runs Linux because
 description: "Using PX4's layered architecture as a map: three paths for software engineers moving into drones, what each requires, how much friction each carries, how to prove capability with SITL and real logs, and which layer actual job descriptions are asking for."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 4
 ---
 

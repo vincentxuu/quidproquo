@@ -9,7 +9,7 @@ tldr: "把 Skybrush 那套開源燈光秀韌體 9,199 行搜遍 neighbour、coll
 description: "從 Skybrush 開源燈光秀韌體的原始碼證明燈光秀的群飛沒有機間協調，再逐格對照台灣遙控無人機資安檢測規範第 7 章的十二個檢測項目，說明這一章為什麼長成一份機房稽核，以及它的形狀怎麼被 2022 年國慶那場爭議決定。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 38
 ---
 

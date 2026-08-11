@@ -47,18 +47,18 @@ const SERIES_DEFINITIONS: Record<string, SeriesDefinition> = {
       en: 'A practical series on AI agent systems, covering context, harness design, workflows, and multi-agent collaboration.',
     },
   },
-  '無人機拆解': {
-    slug: 'drone-teardown',
+  '無人機產業拆解': {
+    slug: 'drone-industry',
     descriptions: {
-      'zh-TW': '把無人機拆成可查證的層：從產業地圖與供應鏈缺口，到續航物理、飛控與遙控鏈路原始碼，再到台灣的法規授權、採購紀錄與反制困境。每一篇都從一手材料算起或讀起。',
-      en: 'Taking drones apart into verifiable layers — from the industry map and supply-chain gap, through endurance physics and flight-controller and radio-link source code, to Taiwan’s regulatory authority, procurement records and counter-drone deadlock. Every post starts from primary material.',
+      'zh-TW': '把無人機產業拆成可查證的層：從產業地圖與供應鏈缺口，到續航物理、飛控與遙控鏈路原始碼，再到台灣的法規授權、採購紀錄與反制困境。每一篇都從一手材料算起或讀起。',
+      en: '「無人機產業拆解」系列。',
     },
   },
-  'Drone Teardown': {
-    slug: 'drone-teardown-en',
+  "Taiwan's Drone Industry, Taken Apart": {
+    slug: 'drone-industry-en',
     descriptions: {
-      'zh-TW': '「無人機拆解」系列的英文版。',
-      en: 'Taking drones apart into verifiable layers — from the industry map and supply-chain gap, through endurance physics and flight-controller and radio-link source code, to Taiwan’s regulatory authority, procurement records and counter-drone deadlock. Every post starts from primary material.',
+      'zh-TW': '「無人機產業拆解」系列的英文版。',
+      en: 'Taking the drone industry apart into verifiable layers — from the industry map and the supply-chain gap, through endurance physics and flight-controller and radio-link source code, to Taiwan’s regulatory authority, procurement records and counter-drone deadlock. Every post starts from primary material.',
     },
   },
   'Agent 生產線': {

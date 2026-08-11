@@ -9,7 +9,7 @@ tldr: "Eight municipal police departments now run drone units, and the authority
 description: "Taking apart the legal basis for Taiwanese police drone evidence-gathering: Article 99-16 grants an exemption from operating restrictions rather than an investigative power, an administrative-law opinion finds current law insufficient as a basis for investigation, and the only provision ever drafted specifically for aerial evidence-gathering was flagged for reconsideration by the ministry that wrote it."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 33
 ---
 

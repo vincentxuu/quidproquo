@@ -9,7 +9,7 @@ tldr: "Taiwan has no 'drone department.' The system's core is National Formosa U
 description: "Taiwan's drone learning and training paths: the university course system and training base, the CAA operator licence, how the National Science and Technology Council's Presidential Cup competition is designed, and vocational short courses — with concrete advice for high school students, undergraduates, and career changers."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 5
 ---
 

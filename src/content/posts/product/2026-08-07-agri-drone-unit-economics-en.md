@@ -9,7 +9,7 @@ tldr: "Agricultural spraying is the one drone application whose unit economics a
 description: "Unpacking the unit economics of agricultural drone spraying in Taiwan: why this is the only application with computable ROI, actual rates and productivity, the cost of entry in equipment and licences, the structural causes of price collapse, and how regulation locks the market to a narrow list of crops."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 17
 ---
 

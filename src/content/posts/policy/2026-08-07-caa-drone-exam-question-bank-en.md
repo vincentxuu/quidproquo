@@ -9,7 +9,7 @@ tldr: "In 2022 Taiwan's Ministry of Transportation issued a press release titled
 description: "Reading the CAA's published drone written-exam question bank as a policy text: the structure of the four subjects, the 2022 policy shift and its stated reasons, what the regulations actually specify (only the pass mark and the subjects, not the question count), and what download counts reveal about real demand."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 15
 ---
 

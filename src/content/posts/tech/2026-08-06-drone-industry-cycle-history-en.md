@@ -9,7 +9,7 @@ tldr: "The 2016 consumer drone bubble left specific wreckage: 3D Robotics stoppe
 description: "Two cycles in the drone industry: what caused the 2014–2016 consumer bubble and what it left behind, the decade-long shakeout that followed, the military and dual-use wave since 2022, and the three structural differences plus three identical warning signs."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 12
 ---
 

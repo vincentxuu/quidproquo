@@ -9,7 +9,7 @@ tldr: "Grepping all 9,199 lines of Skybrush's open-source light-show firmware fo
 description: "Proving from the source of Skybrush's open-source light-show firmware that a light show has no inter-drone coordination, then matching Chapter 7 of Taiwan's drone cybersecurity testing specification item by item to explain why that chapter is shaped like a network audit, and how its shape was set by the 2022 National Day controversy."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 38
 ---
 

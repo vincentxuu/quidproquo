@@ -9,7 +9,7 @@ tldr: "把兩套都 clone 下來各 build 一次之後，有三件事跟原本�
 description: "把 PX4 與 ArduPilot 的原始碼各 clone 一份、在筆電上各 build 一次並飛過一趟 SITL，用可複現的數字比較兩套飛控：授權條款、擴充點、看板與驅動覆蓋、近一年的貢獻者結構與發版節奏；並說明「自研飛控」實際上是什麼。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 30
 ---
 

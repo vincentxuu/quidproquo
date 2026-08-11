@@ -9,7 +9,7 @@ tldr: "The EU has had a workable path since the end of 2020 — the Specific cat
 description: "Comparing beyond-visual-line-of-sight regimes across the US, EU, and Taiwan: Part 107 waivers and Part 108's actual progress, the EASA three-category structure and Specific category authorisation, Taiwan's extended-VLOS and case-by-case permit model, and what the gap means for delivery and long-range inspection business models."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 11
 ---
 

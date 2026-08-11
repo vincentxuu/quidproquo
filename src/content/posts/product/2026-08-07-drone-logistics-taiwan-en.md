@@ -9,7 +9,7 @@ tldr: "I assumed Taiwan had no real drone logistics because it has no BVLOS fram
 description: "Six years and three phases of Taiwan's remote-area drone logistics program, the distribution and cargo of its 24 corridors, the statutory thresholds for routine commercial operation, and why case-by-case approval works for logistics but obstructs inspection."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 19
 ---
 

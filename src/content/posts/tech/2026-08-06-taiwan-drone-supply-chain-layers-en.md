@@ -9,7 +9,7 @@ tldr: "Of the 267 companies the Ministry of Economic Affairs counted, 164 are in
 description: "Breaking Taiwan's 267 drone companies down by supply chain layer: county-level distribution, the 70/60/30 percent localization gap by airframe size, the real gap revealed by Thunder Tiger's published BOM, an industry sustained 80 percent by domestic procurement, and what Green UAS and Blue UAS certification actually covers."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 13
 ---
 

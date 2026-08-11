@@ -9,7 +9,7 @@ tldr: "TEDIBOA has grown from 50 founding members to over 260, but since 1 July 
 description: "Four gates into Taiwan's drone industry, reconstructed from public documents: the industry alliance's membership prerequisite, the rules and limits on R&D grants, the fixed order of Green and Blue UAS certification, and how government tenders are bid and accepted — plus an explicit list of the questions public data cannot answer."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 3
 ---
 

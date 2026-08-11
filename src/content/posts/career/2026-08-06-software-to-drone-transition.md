@@ -9,7 +9,7 @@ tldr: "PX4 官方架構文件自己寫著：機載電腦跑 Linux，因為「Lin
 description: "以 PX4 的分層架構為地圖，拆解軟體工程師轉進無人機的三條路徑：各自要補什麼能力、摩擦力多高、怎麼用 SITL 與真實 log 證明自己會，以及職缺 JD 的實際要求對應到哪一層。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 4
 ---
 

@@ -9,7 +9,7 @@ tldr: "Analogue FPV video in Taiwan has two separate problems: LP0002's 5.8 GHz 
 description: "Picking up where the RC-link post left off, this covers the other half of the radio problem: comparing LP0002 §4.10 and §5.7 as the two possible paths, matching the consumer FPV channel table channel by channel against Taiwan's 5725–5850 MHz window, and explaining why analogue video fits neither path — plus what the CAA itself told a government-commissioned study about FPV pilots and Taiwan's RF weakness."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 28
 ---
 

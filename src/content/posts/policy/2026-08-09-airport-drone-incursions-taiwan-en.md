@@ -9,7 +9,7 @@ tldr: "Three Legislative Yuan budget evaluations log 23 drone-caused airport clo
 description: "Using the itemised lists inside three Legislative Yuan budget evaluation reports to walk through the 23 drone-caused airport closures Taiwan recorded from FY2019 to end-August 2023 — duration, flights, passengers and response — against the verb the Civil Aviation Act gives airports, the date the CAA told stations to buy jammers, and a registration base the regulator admitted it could not measure."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 31
 ---
 

@@ -9,7 +9,7 @@ tldr: "Hardware runs 35–55% gross margin under permanent DJI price pressure; a
 description: "Four drone business models — selling hardware, selling service (DaaS), selling software subscriptions, selling data — compared on gross margin, cash conversion, customer stickiness, and what limits each one's scale, plus where Taiwanese firms sit and where they could move."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 10
 ---
 

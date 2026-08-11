@@ -9,7 +9,7 @@ tldr: "The same 5 kg aircraft on the same 2 kg pack needs 512 W to hover for 41 
 description: "Following the endurance post, computing the three configurations beyond hover: the fixed-wing cruise power equation and why range is independent of speed, the VTOL mass penalty, and the disk-loading advantage of a single large rotor — plus Taiwan's full endurance ladder from electric multirotor through helicopter, tiltrotor and fuel cell to internal combustion, with a domestic aircraft at each rung."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 25
 ---
 

@@ -9,7 +9,7 @@ tldr: "Measuring the drone sector against supply chain chokepoint / structural d
 description: "Applying this site's existing four-criteria framework to the drone sector: where the chokepoint actually sits, the difference between policy demand and structural demand, why certification is the only moat that holds, and three concrete risks around acceptance testing, budgets, and distributed awards. No tickers, no timing."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 7
 ---
 

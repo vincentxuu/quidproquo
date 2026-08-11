@@ -9,7 +9,7 @@ tldr: "Put drone jobs back into the five-layer supply chain and the picture clar
 description: "An inventory of eleven drone industry roles organized by supply chain layer: where each sits, what it actually requires, how transferable a software background is, and the real structural differences between Taiwan and overseas career paths."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 2
 ---
 

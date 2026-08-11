@@ -9,7 +9,7 @@ tldr: "Electronic warfare has one structural limitation: it needs a signal to at
 description: "Unpacking both halves of counter-drone work — four detection modalities and their blind spots, the soft-to-hard kill spectrum — and why electronic warfare is failing; then using a Control Yuan report and Taiwan's Civil Aviation Act to show how much of the difficulty is technical and how much is authorization and legal basis."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 21
 ---
 

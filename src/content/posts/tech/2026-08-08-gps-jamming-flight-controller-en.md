@@ -9,7 +9,7 @@ tldr: "Flying a drone to 28 m in SITL and switching on the simulator's built-in 
 description: "Switching on GPS jamming in an ArduPilot SITL flight and recording the full event timeline, then reading PX4 EKF2's twelve GNSS quality gates and ArduPilot's three-source-set switching to explain how a flight controller reasons when satellite positioning fails; compared against the third module in Taiwan's cybersecurity spec and the fire agency's GPS-independent search-and-rescue drone."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 29
 ---
 

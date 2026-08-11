@@ -9,7 +9,7 @@ tldr: "The general licence is written-test only and costs NT$450 total (NT$200 t
 description: "Taiwan's drone licence system per the Remotely Piloted Drone Management Regulations: what each of the three licence classes permits, professional weight brackets and the G1/G2/G3 waiver groups, the sequential qualification requirements, test content, medical rules, statutory fees, and the full timeline."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 8
 ---
 

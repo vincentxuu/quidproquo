@@ -9,7 +9,7 @@ tldr: "ExpressLRS derives its hop sequence by running the bind phrase through MD
 description: "Taking the drone control link apart through the ExpressLRS source: how the hop sequence derives from the binding phrase (with a reproducible port and cross-check), the sensitivity price of each LoRa and FLRC rate, how the Listen Before Talk threshold is computed; then comparing against Taiwan's LP0002 low-power RF specification to show how channel count sets the legal power ceiling and why the 'model toy radio control' clause does not fit modern transmitters."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 27
 ---
 

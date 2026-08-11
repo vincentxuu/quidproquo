@@ -9,7 +9,7 @@ tldr: "The three most important lines on a drone spec sheet are exactly the thre
 description: "Mapping every line of a drone spec sheet onto supply chain layers and regulatory thresholds: which fields are legal boundaries, which reveal supply chain provenance, and which critical facts the spec sheet omits but public registries answer. A reading method from someone who has never flown one."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 23
 ---
 

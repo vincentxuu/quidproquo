@@ -9,7 +9,7 @@ tldr: "Agricultural spraying runs NT$150–300 per fen, computable to the decima
 description: "Taiwan's disaster response and mountain search-and-rescue drone deployment, procurement scale, and technical specifications; why its value resists unit-economics measurement, and how being uncomputable puts it at a structural disadvantage in budget review."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 20
 ---
 

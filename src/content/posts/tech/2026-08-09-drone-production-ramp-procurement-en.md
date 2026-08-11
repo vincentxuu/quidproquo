@@ -9,7 +9,7 @@ tldr: "The public evidence of a production ramp isn't in the factory but in the 
 description: "Rebuilding Taiwan's 88+88 fire-service unmanned systems procurement county by county from award and failed-to-award records: uniform central pricing, six failed tenders, every award at exactly 100% of budget, delivery windows halved — and a correction to the unit prices derived in the previous post."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 37
 ---
 

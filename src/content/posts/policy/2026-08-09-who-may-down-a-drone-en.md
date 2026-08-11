@@ -9,7 +9,7 @@ tldr: "'Drone' appears in 19 of Taiwan's central statutes and regulations; 'coun
 description: "Reading every Taiwanese provision that might authorise counter-drone action: the Civil Aviation Act, the Commercial Port Act, the Military Installation Security Act, the Police Power Instrument Act, the Telecommunications Management Act and the NCC's controlled-RF-equipment rules. The finding is not that authority is missing — it is that the law authorises the outcome and never authorises a means."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 34
 ---
 

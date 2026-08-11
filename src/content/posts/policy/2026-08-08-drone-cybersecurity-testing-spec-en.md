@@ -9,7 +9,7 @@ tldr: "Reading the whole specification turns up three counter-intuitive things: 
 description: "A chapter-by-chapter reading of Taiwan's Drone Cybersecurity Testing Specification V2.0 (in force 30 April 2026): how the seven mandatory items divide between aircraft and ground station, the disclosure-based pass criterion for communications security, what firmware security actually tests, the retest scope for series products, and why Chapter 8's optional items are where the substance is — checked against the source-code findings of the previous three posts."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 24
 ---
 

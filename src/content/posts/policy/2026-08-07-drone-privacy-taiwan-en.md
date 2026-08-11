@@ -9,7 +9,7 @@ tldr: "Taiwan's Civil Aviation Act drone chapter regulates flight safety, not th
 description: "The legal position on drone privacy in Taiwan: why the Civil Aviation Act's drone chapter has no privacy provision, which conduct the Criminal Code and data protection law actually reach, how courts define non-public activity and dragnet surveillance, and why evidence-gathering is the real bottleneck."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 16
 ---
 

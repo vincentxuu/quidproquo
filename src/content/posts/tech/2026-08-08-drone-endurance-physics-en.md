@@ -9,7 +9,7 @@ tldr: "Hover power scales with takeoff weight to the 1.5 power while battery ene
 description: "Computing multirotor hover endurance from momentum theory: the 1.5-power law, the collapse of returns on added battery, the closed-form optimum battery fraction, what regulatory weight thresholds and payload each actually do, and how much energy density 60 minutes would need — ending on the one layer of the drone BOM where Taiwan genuinely leads."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 26
 ---
 

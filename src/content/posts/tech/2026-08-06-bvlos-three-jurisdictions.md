@@ -9,7 +9,7 @@ tldr: "歐盟自 2020 年底起就有可行路徑——Specific 類別憑風險�
 description: "比較美國、歐盟、台灣三地的超視距飛行制度：Part 107 豁免與 Part 108 的實際進度、EASA 三分類與 Specific 類別的授權路徑、台灣的延伸視距與逐案許可模式，以及這個落差對物流與長距離巡檢商業模式的實際影響。"
 draft: false
 series:
-  name: "無人機拆解"
+  name: "無人機產業拆解"
   order: 11
 ---
 

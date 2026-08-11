@@ -9,7 +9,7 @@ tldr: "I assumed inspection was blocked by beyond-visual-line-of-sight rules the
 description: "Taiwan's deployed drone inspection of bridges, transmission towers, and rail viaducts with quantified results; why this application routes around visual-line-of-sight regulation, why safety rather than cost drives adoption, and why it is the only application that has genuinely reached Layer 5."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 18
 ---
 

@@ -9,7 +9,7 @@ tldr: "ArduPilot's ModeReason enum is the exhaustive list of on-board autonomous
 description: "Classifying every entry in ArduPilot's ModeReason enum to show that flight-controller autonomy is almost entirely safety decisions rather than mission decisions, then reading PX4's mc_nn_control end-to-end neural network module to show that waypoint-to-end-to-end is not a continuous spectrum in mainline code."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 35
 ---
 

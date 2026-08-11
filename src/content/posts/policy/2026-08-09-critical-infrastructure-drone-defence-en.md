@@ -9,7 +9,7 @@ tldr: "Paragraphs 3 and 4 of Article 99-13 of the Civil Aviation Act say 'govern
 description: "Taking Taiwan's critical-infrastructure drone defence chain apart link by link: how Article 99-13's wording leaves state-owned and private operators outside the 'stop or remove' power, why the alternative route runs through a municipal announcement, why the penalty drops a tier, and why the NCC's jammer import door is keyed to a list that is never published."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 32
 ---
 

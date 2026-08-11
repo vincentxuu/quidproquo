@@ -9,7 +9,7 @@ tldr: "Thermal camera prices jump in steps because ECCN 6A003.b.4.b splits contr
 description: "Reading the two thresholds in ECCN 6A003.b.4.b (111,000 elements, 2 mrad IFOV) against FLIR Boson's actual pricing and the common sensor formats, to explain why drone EO/IR payload cost is a staircase rather than a curve — and using Taiwanese fire-service procurement records to establish the actual unit price of a thermal drone."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 36
 ---
 

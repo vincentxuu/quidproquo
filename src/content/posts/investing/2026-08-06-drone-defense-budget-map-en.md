@@ -9,7 +9,7 @@ tldr: "Taiwan's public drone money splits three ways: an approved NT$44.2B coord
 description: "Three funding paths for Taiwan's drone sector — R&D grants under the coordination program, procurement under the special statute, and annual agency budgets — with their nature, size, purchase items, and conditions; plus the full legislative timeline of the NT$210 billion special statute and the risks specific to budget process."
 draft: false
 series:
-  name: "Drone Teardown"
+  name: "Taiwan's Drone Industry, Taken Apart"
   order: 6
 ---
 
