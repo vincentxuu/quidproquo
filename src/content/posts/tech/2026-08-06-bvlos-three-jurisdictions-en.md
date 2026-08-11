@@ -8,6 +8,9 @@ lang: en
 tldr: "The EU has had a workable path since the end of 2020 — the Specific category grants an operational authorisation based on risk assessment, with U-space Regulation (EU) 2021/664 rolling out on top. The US Part 108 rule was still at OIRA and unpublished as of July 2026. Taiwan doesn't have the framework at all: its regulations offer 'extended visual line of sight' (900m, 400ft, observer required), while true BVLOS runs on per-activity permits valid for three months."
 description: "Comparing beyond-visual-line-of-sight regimes across the US, EU, and Taiwan: Part 107 waivers and Part 108's actual progress, the EASA three-category structure and Specific category authorisation, Taiwan's extended-VLOS and case-by-case permit model, and what the gap means for delivery and long-range inspection business models."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 11
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-06-bvlos-three-jurisdictions)

@@ -8,6 +8,9 @@ lang: en
 tldr: "Only four drone occurrences have entered Taiwan's official aviation safety statistics — because the threshold is 'substantial damage to a drone over 25 kg.' A hobbyist crash never enters the count. The two published investigation reports are the same model, the same manufacturer, and the same agency, and both probable causes were hardware failures: main rotor servo electrical failure in one, a fractured tail rotor pitch link in the other. In both, the flight control computer and the operator were explicitly cleared."
 description: "Working through two TTSB drone investigation reports: timelines, attitude data, damage sequence analysis, and final conclusions; how the 25 kg statutory threshold produces the figure 'four occurrences in Taiwan'; and where to look for the world below 25 kg."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 22
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-07-drone-crash-anatomy)

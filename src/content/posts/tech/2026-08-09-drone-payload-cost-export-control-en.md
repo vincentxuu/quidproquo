@@ -8,6 +8,9 @@ lang: en
 tldr: "Thermal camera prices jump in steps because ECCN 6A003.b.4.b splits control on 111,000 focal-plane elements: 384×288 clears it by 408 pixels, 640×512 is three times over, nothing common sits between, and FLIR prices the Boson 640 at 2.04–2.31× the 320. The Note 3.b carve-out then limits not resolution but focal length — you may have a thermal camera, just not a telephoto one."
 description: "Reading the two thresholds in ECCN 6A003.b.4.b (111,000 elements, 2 mrad IFOV) against FLIR Boson's actual pricing and the common sensor formats, to explain why drone EO/IR payload cost is a staircase rather than a curve — and using Taiwanese fire-service procurement records to establish the actual unit price of a thermal drone."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 36
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-09-drone-payload-cost-export-control)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "歐盟自 2020 年底起就有可行路徑——Specific 類別憑風險評估取得營運授權，加上 U-space 法規 (EU) 2021/664 逐步部署。美國的 Part 108 到 2026 年 7 月仍在 OIRA 審查、尚未發布。台灣則連框架都還沒有：《管理規則》給的是「延伸視距飛航」（900 公尺、400 呎、要目視觀察員），真正的視距外只能靠法人逐案申請、許可效期 3 個月。"
 description: "比較美國、歐盟、台灣三地的超視距飛行制度：Part 107 豁免與 Part 108 的實際進度、EASA 三分類與 Specific 類別的授權路徑、台灣的延伸視距與逐案許可模式，以及這個落差對物流與長距離巡檢商業模式的實際影響。"
 draft: false
+series:
+  name: "無人機拆解"
+  order: 11
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)

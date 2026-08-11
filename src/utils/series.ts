@@ -47,6 +47,42 @@ const SERIES_DEFINITIONS: Record<string, SeriesDefinition> = {
       en: 'A practical series on AI agent systems, covering context, harness design, workflows, and multi-agent collaboration.',
     },
   },
+  '無人機拆解': {
+    slug: 'drone-teardown',
+    descriptions: {
+      'zh-TW': '把無人機拆成可查證的層：從產業地圖與供應鏈缺口，到續航物理、飛控與遙控鏈路原始碼，再到台灣的法規授權、採購紀錄與反制困境。每一篇都從一手材料算起或讀起。',
+      en: 'Taking drones apart into verifiable layers — from the industry map and supply-chain gap, through endurance physics and flight-controller and radio-link source code, to Taiwan’s regulatory authority, procurement records and counter-drone deadlock. Every post starts from primary material.',
+    },
+  },
+  'Drone Teardown': {
+    slug: 'drone-teardown-en',
+    descriptions: {
+      'zh-TW': '「無人機拆解」系列的英文版。',
+      en: 'Taking drones apart into verifiable layers — from the industry map and supply-chain gap, through endurance physics and flight-controller and radio-link source code, to Taiwan’s regulatory authority, procurement records and counter-drone deadlock. Every post starts from primary material.',
+    },
+  },
+  'Agent 生產線': {
+    // slug 沿用先前 fallback 產生的 'agent'，改名會動到已發佈的 URL
+    slug: 'agent',
+    descriptions: {
+      'zh-TW': '把 agent 當成一條生產線來看：概念界線、模型與 harness 的分工、context 與記憶、企業案例、安全、協定層，以及 RAG 的三種形態。',
+      en: 'Reading agents as a production line: where the concept ends, how model and harness divide the work, context and memory, enterprise cases, security, the protocol layer, and the three shapes of RAG.',
+    },
+  },
+  'Learning How to Learn': {
+    slug: 'learning-how-to-learn',
+    descriptions: {
+      'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
+      en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
+    },
+  },
+  'Claude Code Automation Guide': {
+    slug: 'claude-code-automation-guide',
+    descriptions: {
+      'zh-TW': '「Claude Code 自動化指南」系列的英文版。',
+      en: 'A practical series on Claude Code workflows, including hooks, skills, remote agents, routines, and team-scale automation.',
+    },
+  },
 };
 
 function slugifySeriesName(name: string): string {

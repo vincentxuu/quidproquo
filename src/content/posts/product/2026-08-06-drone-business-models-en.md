@@ -8,6 +8,9 @@ lang: en
 tldr: "Hardware runs 35–55% gross margin under permanent DJI price pressure; autonomy software and DaaS subscriptions run 60–80% and recur. Skydio's software subscriptions were already ~30% of revenue in 2023 at a 38% blended margin; India's Garuda had DaaS at 62% of FY24 revenue with a 351-day cash conversion cycle against a defense-heavy peer's 597. Taiwan is almost entirely concentrated in the lowest-margin, most substitutable cell."
 description: "Four drone business models — selling hardware, selling service (DaaS), selling software subscriptions, selling data — compared on gross margin, cash conversion, customer stickiness, and what limits each one's scale, plus where Taiwanese firms sit and where they could move."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 10
 ---
 
 > 🌏 [中文版](/posts/product/2026-08-06-drone-business-models)

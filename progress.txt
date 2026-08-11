@@ -24,6 +24,12 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機拆解」／「Drone
+  Teardown」，pillar 產業地圖排 order 1。content-plan-drone.md:481 當初決定
+  「series 只給支線 D 用」，該判斷已過期（38 篇跨 5 分類且互相回指）。另在
+  SERIES_DEFINITIONS 補註冊 Agent 生產線（沿用 fallback slug 'agent' 以免動到已發佈
+  URL，改名待決）、Learning How to Learn、Claude Code Automation Guide。build 驗過。
+  **仍開**：部分 en 文章掛 zh 系列名，/en/series 因此顯示中文，未處理。
 - 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
   漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
   加 3 行 line-clamp 當保險。正文與 description 未動。
@@ -69,14 +75,6 @@ Recently completed
   推論與事實分離三條規則。工具面：firecrawl/Exa 的 requires approval 是 claude.ai
   connector 層級的 ask，allow 規則擋不住；另外現有 mcp__claude_ai_*__* 規則在
   web session（server 為 UUID 命名）會靜默失效，尚未處理。
-- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
-  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
-  Six self-corrections during the write-up, all rooted in reading search snippets
-  instead of documents. Three skills amended as a result: deep-research (source
-  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
-  carry their comparison condition; check for corrections/retractions), post and
-  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
-  against primary sources). Full findings in the PR body. Research note in .research/.
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 

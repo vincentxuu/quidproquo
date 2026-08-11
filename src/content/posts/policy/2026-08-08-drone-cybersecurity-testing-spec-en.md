@@ -8,6 +8,9 @@ lang: en
 tldr: "Reading the whole specification turns up three counter-intuitive things: of the seven mandatory items only three sit on the aircraft and the rest on the ground control station; an unencrypted link still passes, as long as the manual or the box states the reason or the risk — the rule asks for disclosure, not encryption; and the five items that actually test resilience (spoofing, jamming, link loss, known firmware vulnerabilities, app certification) are all in Chapter 8, which is optional."
 description: "A chapter-by-chapter reading of Taiwan's Drone Cybersecurity Testing Specification V2.0 (in force 30 April 2026): how the seven mandatory items divide between aircraft and ground station, the disclosure-based pass criterion for communications security, what firmware security actually tests, the retest scope for series products, and why Chapter 8's optional items are where the substance is — checked against the source-code findings of the previous three posts."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 24
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)

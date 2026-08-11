@@ -8,6 +8,9 @@ lang: en
 tldr: "The general licence is written-test only and costs NT$450 total (NT$200 test + NT$250 certificate). The professional basic tier adds a practical test and medical exam for NT$1,900. Professional tiers must be climbed in order — reaching the top bracket realistically takes 18 months to two years. Each advanced group (G1/G2/G3) costs another NT$1,200. Fee figures come from Annex 17 of the regulations; the widely circulated 'NT$500 practical test' is wrong."
 description: "Taiwan's drone licence system per the Remotely Piloted Drone Management Regulations: what each of the three licence classes permits, professional weight brackets and the G1/G2/G3 waiver groups, the sequential qualification requirements, test content, medical rules, statutory fees, and the full timeline."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 8
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-06-taiwan-drone-license-guide)

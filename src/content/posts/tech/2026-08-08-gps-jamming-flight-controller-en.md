@@ -8,6 +8,9 @@ lang: en
 tldr: "Flying a drone to 28 m in SITL and switching on the simulator's built-in GPS jamming, the flight controller declared EKF failure about seven seconds later, switched to LAND, landed and disarmed — it neither flew away nor crashed. Reading PX4's source then shows that of the 12 gates in EKF2_GPS_CHECK, bit 11, jamming detection, is off by default: the estimator catches jamming on its own, while spoofing can only be reported by the receiver."
 description: "Switching on GPS jamming in an ArduPilot SITL flight and recording the full event timeline, then reading PX4 EKF2's twelve GNSS quality gates and ArduPilot's three-source-set switching to explain how a flight controller reasons when satellite positioning fails; compared against the third module in Taiwan's cybersecurity spec and the fire agency's GPS-independent search-and-rescue drone."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 29
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-gps-jamming-flight-controller)

@@ -8,6 +8,9 @@ lang: en
 tldr: "The 2016 consumer drone bubble left specific wreckage: 3D Robotics stopped making hardware, GoPro recalled all 2,500 Karma units six weeks after launch and cut 15% of staff, Parrot cut 35% of its drone workforce, and Lily Robotics collapsed after taking $34M in pre-orders. In 2023 even Skydio — $570M raised — exited consumer, and three years later it is valued at $4.4 billion. This wave runs on a completely different engine, but three things are exactly the same."
 description: "Two cycles in the drone industry: what caused the 2014–2016 consumer bubble and what it left behind, the decade-long shakeout that followed, the military and dual-use wave since 2022, and the three structural differences plus three identical warning signs."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 12
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-cycle-history)

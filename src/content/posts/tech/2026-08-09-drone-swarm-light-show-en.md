@@ -8,6 +8,9 @@ lang: en
 tldr: "Grepping all 9,199 lines of Skybrush's open-source light-show firmware for neighbour, collision and swarm turns up nothing: no aircraft knows another exists, and the entire content two hundred of them synchronise is one GPS time-of-week integer plus a millisecond offset, with collision avoidance settled on the ground in the choreography software. Chapter 7 of Taiwan's drone cybersecurity spec — the swarm chapter — leaves the 'drone' column a dash down all twelve items and tests switches and routers instead."
 description: "Proving from the source of Skybrush's open-source light-show firmware that a light show has no inter-drone coordination, then matching Chapter 7 of Taiwan's drone cybersecurity testing specification item by item to explain why that chapter is shaped like a network audit, and how its shape was set by the 2022 National Day controversy."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 38
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-09-drone-swarm-light-show)

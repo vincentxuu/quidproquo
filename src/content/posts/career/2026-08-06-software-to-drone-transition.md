@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "PX4 官方架構文件自己寫著：機載電腦跑 Linux，因為「Linux 是比 NuttX 好得多的一般軟體開發平台，Linux 開發者多得多」。那句話就是軟體人的入口。三條遷移路徑的摩擦力差很多——機載電腦上的 CV 與 MAVLink 應用幾乎直接遷移，飛控韌體要補 RTOS 與 work queue 限制，估測與控制要補四元數與卡爾曼濾波。"
 description: "以 PX4 的分層架構為地圖，拆解軟體工程師轉進無人機的三條路徑：各自要補什麼能力、摩擦力多高、怎麼用 SITL 與真實 log 證明自己會，以及職缺 JD 的實際要求對應到哪一層。"
 draft: false
+series:
+  name: "無人機拆解"
+  order: 4
 ---
 
 > 🌏 [English version](/posts/career/2026-08-06-software-to-drone-transition-en)

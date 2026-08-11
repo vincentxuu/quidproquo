@@ -8,6 +8,9 @@ lang: en
 tldr: "'Drone' appears in 19 of Taiwan's central statutes and regulations; 'counter-drone' appears in exactly one, and that one is a procurement act. Six settings are authorised to 'stop or remove' an intruding drone and none of them says by what means — Article 99-13 of the Civil Aviation Act says only 'take appropriate measures', while the 31-item police instrument list includes mortars but no jammer, and Article 67(1) of the Telecommunications Management Act has no public-duty exception."
 description: "Reading every Taiwanese provision that might authorise counter-drone action: the Civil Aviation Act, the Commercial Port Act, the Military Installation Security Act, the Police Power Instrument Act, the Telecommunications Management Act and the NCC's controlled-RF-equipment rules. The finding is not that authority is missing — it is that the law authorises the outcome and never authorises a means."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 34
 ---
 
 > 🌏 [中文版](/posts/policy/2026-08-09-who-may-down-a-drone)

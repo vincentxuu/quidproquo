@@ -8,6 +8,9 @@ lang: en
 tldr: "Measuring the drone sector against supply chain chokepoint / structural demand / high switching cost / long-term institutional holding: Taiwan sits at the most substitutable layer, 80% of demand comes from public budgets rather than end-user behavior, and only the certification-driven switching cost genuinely holds. The Army's NT$988M counter-drone contract — failed three times, terminated in full, NT$98.78M performance bond forfeited — is the most expensive lesson in why winning a bid is not revenue."
 description: "Applying this site's existing four-criteria framework to the drone sector: where the chokepoint actually sits, the difference between policy demand and structural demand, why certification is the only moat that holds, and three concrete risks around acceptance testing, budgets, and distributed awards. No tickers, no timing."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 7
 ---
 
 > 🌏 [中文版](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)

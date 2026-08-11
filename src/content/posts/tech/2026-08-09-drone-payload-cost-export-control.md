@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "熱像儀的價格跳著漲，是因為美國 CCL 6A003.b.4.b 把管制切在焦平面 111,000 個元素上：384×288 差 408 個像素過關，640×512 超過三倍，中間沒有常見規格，而 Boson 640 的定價是 320 版的 2.04–2.31 倍。至於 Note 3.b 那條豁免，限制的不是解析度是焦距——你可以有熱像儀，但不能有望遠的熱像儀。"
 description: "從美國 CCL 的 6A003.b.4.b 逐條讀出熱像儀出口管制的兩個門檻（111,000 個元素、2 mrad IFOV），對照 FLIR Boson 的實際定價與常見感測器格式，說明無人機光電酬載的成本階梯為什麼是階梯而不是曲線；並用消防署的採購紀錄算出台灣熱顯像無人機的實際單價。"
 draft: false
+series:
+  name: "無人機拆解"
+  order: 36
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-09-drone-payload-cost-export-control-en)

@@ -8,6 +8,9 @@ lang: en
 tldr: "Electronic warfare has one structural limitation: it needs a signal to attack. Fiber-optic control emits no radio, satellite links bypass ground jammers, and AI terminal guidance needs no link at all for the final leg — three methods systematically defeating jamming, which is why defense is shifting toward interception. Taiwan carries an extra layer: a Control Yuan investigation documents the Ministry of National Defense revising its drone response SOP three times in two months, from \"may shoot down\" to \"flare warning only, first shot requires the Minister's authorization\" and back to \"shoot down with 7.62mm or smaller.\" That is not a technology problem."
 description: "Unpacking both halves of counter-drone work — four detection modalities and their blind spots, the soft-to-hard kill spectrum — and why electronic warfare is failing; then using a Control Yuan report and Taiwan's Civil Aviation Act to show how much of the difficulty is technical and how much is authorization and legal basis."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 21
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-07-counter-drone-why-hard)

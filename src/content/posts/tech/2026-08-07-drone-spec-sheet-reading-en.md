@@ -8,6 +8,9 @@ lang: en
 tldr: "The three most important lines on a drone spec sheet are exactly the three lines spec sheets don't print. Taiwan's Drone Cybersecurity Testing Specification defines a product 'series' as units whose flight control, communications, and satellite positioning chip modules are all identical — regulation decides whether two drones are the same drone by those three modules, not by looks or endurance. And the weight field isn't a marketing number either: 250 g, 1 kg, 2 kg, 15 kg, and 25 kg are five separate legal thresholds."
 description: "Mapping every line of a drone spec sheet onto supply chain layers and regulatory thresholds: which fields are legal boundaries, which reveal supply chain provenance, and which critical facts the spec sheet omits but public registries answer. A reading method from someone who has never flown one."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 23
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-07-drone-spec-sheet-reading)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "硬體毛利 35–55% 且長期被 DJI 壓價，自主軟體與 DaaS 訂閱毛利 60–80% 且會重複發生。Skydio 2023 年軟體訂閱已占營收約 30%、整體毛利率 38%；印度 Garuda 的 DaaS 在 FY24 占營收 62%，現金循環天數 351 天，遠優於國防為主的同業 597 天。台灣目前幾乎全押在毛利最低、可替代性最高的那一格。"
 description: "拆解無人機產業的四種商業模式——賣硬體、賣服務（DaaS）、賣軟體訂閱、賣資料——各自的毛利結構、現金循環、客戶黏著度與規模化條件，以及台灣廠商目前的位置與可能的移動路徑。"
 draft: false
+series:
+  name: "無人機拆解"
+  order: 10
 ---
 
 > 🌏 [English version](/posts/product/2026-08-06-drone-business-models-en)

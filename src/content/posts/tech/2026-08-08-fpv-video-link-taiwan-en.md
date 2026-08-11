@@ -8,6 +8,9 @@ lang: en
 tldr: "Analogue FPV video in Taiwan has two separate problems: LP0002's 5.8 GHz window is only 125 MHz wide while the market's standard channel table spans 300 MHz, leaving eighteen of the forty classic channels inside the window once transmit width is counted. The harder one is that §4.10.1.1 recognises only frequency-hopping transmitters at 5.8 GHz, and analogue video is fixed-frequency — it doesn't violate a clause so much as fail to match any clause in the document."
 description: "Picking up where the RC-link post left off, this covers the other half of the radio problem: comparing LP0002 §4.10 and §5.7 as the two possible paths, matching the consumer FPV channel table channel by channel against Taiwan's 5725–5850 MHz window, and explaining why analogue video fits neither path — plus what the CAA itself told a government-commissioned study about FPV pilots and Taiwan's RF weakness."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 28
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-08-fpv-video-link-taiwan)

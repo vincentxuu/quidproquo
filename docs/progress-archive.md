@@ -2,6 +2,21 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-10 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+補 drone 系列 series 欄位後 progress.txt 達 98 行，依慣例移出最舊一筆。
+
+- 2026-08-06: post(learning) "Learning How to Learn" series (2 posts x zh/en,
+  PR #127, open). Part 1 = learning science evidence audit; part 2 = generative AI.
+  Six self-corrections during the write-up, all rooted in reading search snippets
+  instead of documents. Three skills amended as a result: deep-research (source
+  tiering 一手/摘要/轉引/未驗證 replaces "2 independent sources"; effect sizes must
+  carry their comparison condition; check for corrections/retractions), post and
+  post-review ("rewriting = re-asserting" — tldr/faq/glossary need re-verification
+  against primary sources). Full findings in the PR body. Research note in .research/.
+
 ## 2026-08-01 歸檔
 
 ### post(ai) 數位員工（PR #130）

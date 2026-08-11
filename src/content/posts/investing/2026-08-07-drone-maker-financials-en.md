@@ -8,6 +8,9 @@ lang: en
 tldr: "I had filed \"what's the real margin on military-grade-commercial tenders, and how long is the cash cycle\" under questions requiring interviews. The published filings answer both, more precisely: gross margin runs 35–39%, normal for hardware; but operating expenses consume it, and operating income has been negative for three straight quarters while reported net income came from non-operating items. The real constraint is inventory — roughly 385 days of it, producing a cash conversion cycle near 377 days. The money in this business isn't stuck in margin, it's stuck in inventory."
 description: "Using public filings to unpack the economics of a Taiwanese drone manufacturer: gross margin, opex erosion, inventory days and cash conversion cycle, contract liability size, how capacity expansion is funded, and how these numbers explain the lethality of a failed tender acceptance. Contains no buy or sell judgment."
 draft: false
+series:
+  name: "Drone Teardown"
+  order: 14
 ---
 
 > 🌏 [中文版](/posts/investing/2026-08-07-drone-maker-financials)

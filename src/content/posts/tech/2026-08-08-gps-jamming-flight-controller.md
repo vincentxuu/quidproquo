@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "在 SITL 裡把無人機飛到 28 公尺，再打開模擬器內建的 GPS 干擾，約 7 秒後飛控自己宣告 EKF 失效、切成 LAND、降落上鎖——它沒有飛走，也沒有墜毀。而讀 PX4 原始碼會發現 EKF2_GPS_CHECK 的 12 道閘門裡，第 11 位的「干擾」偵測預設是關的：估計器自己就抓得到干擾，詐騙卻只能靠接收機告訴它。"
 description: "用 ArduPilot SITL 實際開啟 GPS 干擾並記錄完整事件時間軸，再回頭讀 PX4 EKF2 的 12 道 GNSS 品質閘門與 ArduPilot 的三組來源切換機制，說明飛控在衛星定位失效時的判斷邏輯；並對照台灣資安檢測規範的第三個模組與消防署「不依賴 GPS」的搜救機規格。"
 draft: false
+series:
+  name: "無人機拆解"
+  order: 29
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
