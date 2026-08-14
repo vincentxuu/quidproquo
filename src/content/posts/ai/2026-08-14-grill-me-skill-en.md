@@ -64,6 +64,8 @@ disable-model-invocation: true
 Run a `/grilling` session.
 ```
 
+(This post is pinned to `main` as of 2026-08-13. The repo is under active change; last touched dates are `grill-me/SKILL.md` 2026-06-12, `grilling/SKILL.md` 2026-07-31 when the round-based rewrite landed, and the official usage notes 2026-08-06.)
+
 Two design decisions hide in those five lines.
 
 `disable-model-invocation: true` means **only you can fire it by typing `/grill-me`; the agent never reaches for it on its own**. That is necessary for a skill that may ask you forty questions — you do not want it surfacing while you are mid-hotfix asking you to align on vision.

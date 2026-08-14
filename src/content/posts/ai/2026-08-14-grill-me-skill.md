@@ -65,6 +65,8 @@ disable-model-invocation: true
 Run a `/grilling` session.
 ```
 
+（本文對照 2026-08-13 的 `main`。這個 repo 還在密集改動，各檔最後更動時間：`grill-me/SKILL.md` 停在 2026-06-12，`grilling/SKILL.md` 的 round 化改寫在 2026-07-31 落地，官方使用說明最後改於 2026-08-06。）
+
 兩個設計決定藏在這五行裡。
 
 `disable-model-invocation: true` 表示**只有你打 `/grill-me` 才會觸發，agent 永遠不會自己叫它**。這對一個「會問你四十題」的 skill 是必要的：你不會希望它在你趕著修 bug 的時候跳出來要求對齊願景。
