@@ -44,12 +44,12 @@ Ask the questions one at a time.
 If a question can be answered by exploring the codebase, explore the codebase instead.
 ```
 
-四個約束撐起整個 skill：一次一題、每題附上「我建議的答案」、能自己查的別問人、沿決策樹逐一解依賴。Matt 自己指出最後一條建議答案是後補的：
+四條規則撐起整個 skill：一次一題、每題附上「我建議的答案」、能自己查的別問人、沿著決策樹一條一條解掉依賴。Matt 自己指出最後一條建議答案是後補的：
 
 > "This skill is incredibly short - just a few lines that pack a powerful punch. I recently added the 'provide your recommended answer' line. When the AI asks a question with an obviously good answer, it now recommends that answer."
 > —— [My 'Grill Me' Skill Went Viral](https://www.aihero.dev/my-grill-me-skill-has-gone-viral)
 
-差別在於你多半只要回「yes」，不必每題重新解釋一遍。他說這種 session 通常跑約 45 分鐘，本質上就是把過去工程師的橡皮鴨（rubber ducking）自動化——差別是這隻鴨子會回嘴。
+差別在於你多半只要回「yes」，不必每題重新解釋一遍。他說這種 session 通常跑約 45 分鐘，本質上就是把小黃鴨除錯法（rubber duck debugging）自動化——差別是這隻鴨子會回嘴。
 
 ## 改版後：grill-me 只剩一行
 
@@ -69,7 +69,7 @@ Run a `/grilling` session.
 
 兩個設計決定藏在這五行裡。
 
-`disable-model-invocation: true` 表示**只有你打 `/grill-me` 才會觸發，agent 永遠不會自己叫它**。這對一個「會問你四十題」的 skill 是必要的：你不會希望它在你趕著修 bug 的時候跳出來要求對齊願景。
+`disable-model-invocation: true` 表示**只有你打 `/grill-me` 才會觸發，agent 永遠不會自己叫它**。這對一個「會問你四十題」的 skill 是必要的：你不會希望它在你趕著修 bug 的時候跳出來，要你先把方向講清楚。
 
 而真正的邏輯被抽到 `grilling` 這個 primitive，官方把它定位成訪談技術唯一的權威版本（single source of truth），讓 `grill-with-docs`、`wayfinder`、`triage` 都去呼叫它，而不是各自發明一套訪談。代價是：**只裝 `grill-me` 不裝 `grilling` 會空轉**。官方文件把徵兆講得很明確——「一次問一大堆問題、而且沒有附建議答案」，那是模型在即興發揮，不是在跑這個 skill。
 
@@ -86,7 +86,7 @@ Run a `/grilling` session.
 - **frontier（前緣）**：前置條件都已解決的那一圈決策——此刻能誠實提問的問題。
 - **round（回合）**：一次問完整個 frontier，你答完後重算，前緣往外推。
 
-所以它從舊版的「一次一題」改成了「一次一輪」。官方給的量級是 13 個問題約 3 輪問完，46 題 4 輪是常態，判斷健康度要**數輪次，不是數題數**。問題格式固定，這是「能用編號回答」的前提：
+所以它從舊版的「一次一題」改成了「一次一輪」。官方給的數字是 13 個問題約 3 輪問完，46 題 4 輪是常態，判斷健康度要**數輪次，不是數題數**。問題格式固定，這是「能用編號回答」的前提：
 
 ```
 ❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
@@ -104,7 +104,7 @@ Run a `/grilling` session.
 When grilling, ask one question at a time.
 ```
 
-文件特別提到，閱讀速度較慢的人、用第二語言工作的人、需要順序節奏當專注鷹架的人，普遍回報一次一題比較好用。（另外，曾經短暫存在的 `batch-grill-me` 已經併回 `grilling`，不用去找了。）
+文件特別提到，閱讀速度較慢的人、用第二語言工作的人、把一題一題的節奏當成專注支撐的人，普遍回報一次一題比較好用。（另外，曾經短暫存在的 `batch-grill-me` 已經併回 `grilling`，不用去找了。）
 
 ## 事實是 agent 的責任，決策是你的責任
 
@@ -112,9 +112,9 @@ When grilling, ask one question at a time.
 
 > "Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent to find it — don't ask the user for anything you could look up yourself."
 
-而且查證不阻塞整輪：正在跑的探索算是「未解決的前置條件」，所以只有下游問題要等，其餘 frontier 照問。決策則相反——一定要問你、一定要等。文件把界線劃得很硬：**一個會自己回答決策題的 agent 是把 skill 弄壞了，不是彈性詮釋**。
+而且查證不會卡住整輪：正在跑的探索算是「未解決的前置條件」，所以只有下游問題要等，其餘 frontier 照問。決策則相反——一定要問你、一定要等。文件把界線劃得很硬：**一個會自己回答決策題的 agent 是把 skill 弄壞了，不是彈性詮釋**。
 
-session 也不是問完就結束。frontier 清空只是必要條件，還要你明確說「我們達成共識了」，它才准動工。官方承認這道閘門在較弱、較低 effort 的模型上會被跳過——那些模型會把「訪談到共識為止」壓縮成兩三個問題加一份大綱。相對的建議是：grilling 對模型能力的依賴比其他 skill 高，要給最好的模型，實作階段反而可以省。
+session 也不是問完就結束。frontier 清空只是必要條件，還要你明確說「我們達成共識了」，它才准動工。官方承認這道閘門在較弱、較低 effort 的模型上會被跳過——那些模型會把「訪談到共識為止」壓縮成兩三個問題加一份大綱。所以官方建議：grilling 對模型能力的依賴比其他 skill 高，要給最好的模型，實作階段反而可以省。
 
 ## 兩個失效模式
 
@@ -122,11 +122,11 @@ session 也不是問完就結束。frontier 清空只是必要條件，還要你
 
 > "The failure mode is **passivity** — answering 'agreed, agreed, agreed' for forty questions and coming out with a plan the agent wrote and you nodded at. It feels productive because it was long. Nothing was actually decided, and the result carries a certainty it hasn't earned."
 
-官方給的健康指標很好用：**一場你從頭同意到尾的 session，是一場你本來就不需要的 session**。其他指標包括後面幾輪明顯建立在前面的答案上、你最後停在一個沒預期到的地方、以及結束時你能對著沒參與的人辯護每個選擇。
+官方給的健康指標很好用：**一場你從頭同意到尾的 session，是一場你本來就不需要的 session**。其他指標包括後面幾輪明顯是接著前面的答案長出來的、你最後停在一個沒預期到的地方、以及結束時你能對著沒參與的人為每個選擇辯護。
 
-**ungrillable 問題**是第二個。「一頁長表單還是三頁？」「這個互動應該是什麼感覺？」這類問題談不出答案，需要有東西可以反應。硬談的後果很具體：agent 一直換句話問，你一直猜，範圍膨脹去填補那份不確定。正確做法是停止 grilling，用 `prototype` 做個拋棄式版本，看一眼，回來一行答完。
+**ungrillable 問題**是第二個。「一頁長表單還是三頁？」「這個互動應該是什麼感覺？」這類問題談不出答案，需要有東西可以反應。硬談的後果很具體：agent 一直換句話問，你一直猜，範圍就一路膨脹，把不確定填滿。正確做法是停止 grilling，用 `prototype` 做個拋棄式版本，看一眼，回來一行答完。
 
-順帶一提，「被問了兩百題」通常不是 skill 壞掉，而是範圍太大——先請 agent 把工作拆小再各自 grill。而且長 session 會把 context 塞滿，問題品質跟著下滑。官方也明說**不會提供題數上限**：有些計畫三題就夠，有些要五十題，固定天花板不是截斷難題就是在簡單題上顯得武斷。
+順帶一提，「被問了兩百題」通常不是 skill 壞掉，而是範圍太大——先請 agent 把工作拆小再各自 grill。而且長 session 會把 context 塞滿，問題品質跟著下滑。官方也明說**不設題數上限**：有些計畫三題就夠，有些要五十題，固定上限不是截斷難題，就是在簡單題上顯得武斷。
 
 ## 它在整套 skill 裡的位置
 
@@ -146,7 +146,7 @@ session 也不是問完就結束。frontier 清空只是必要條件，還要你
 |---|---|
 | 任何東西，不必是程式、不必有 repo | [grill-me](https://www.aihero.dev/skills-grill-me)（stateless，不寫檔） |
 | 一個要對齊的 codebase | [grill-with-docs](https://aihero.dev/skills-grill-with-docs)（stateful，寫 `CONTEXT.md` 與 ADR） |
-| 大到一個 session 裝不下的工作 | [wayfinder](https://aihero.dev/skills-wayfinder)（畫成地圖，在決策票裡跑 grilling） |
+| 大到一個 session 裝不下的工作 | [wayfinder](https://aihero.dev/skills-wayfinder)（畫成地圖，在決策工單裡跑 grilling） |
 | 談不出來的問題 | [prototype](https://aihero.dev/skills-prototype)（先做拋棄式版本） |
 | grill 完要寫規格 | [to-spec](https://aihero.dev/skills-to-spec)，而且**別開新 session** |
 
@@ -166,11 +166,11 @@ npx skills@latest add mattpocock/skills
 
 裝完在每個 repo 跑一次 `/setup-matt-pocock-skills`。整包是 MIT 授權（`Copyright (c) 2026 Matt Pocock`），所以衍生版本很多：[stevegsax/grill-me](https://github.com/stevegsax/grill-me) 加了 session 檔案讓訪談可以續談（現已封存），[alirezarezvani 的版本](https://alirezarezvani.github.io/claude-skills/skills/engineering/grill-me/)外掛 Python 腳本做決策樹抽取與題目生成，而 [petekp/claude-code-setup](https://github.com/petekp/claude-code-setup/blob/main/skills/grill-me/SKILL.md) 等多數 repo 抄的仍是四行舊版。這件事本身就是提醒：你在網路上看到的 `grill-me`，有不小機率是 2026 年上半那個版本。
 
-至於流量數字，**不要信**。同一個 skill 目錄站在不同頁面給出的安裝數彼此矛盾（460,658 / 509k / 812k / 833k 都出現過），還有頁面宣稱這個 repo 有「121,024 GitHub stars」。這些是聚合站的生成內容，我沒能獨立驗證（GitHub API 在這次查證的環境裡被 proxy 擋掉）。能確定的只有定性結論：它是目前流傳最廣的 planning skill，而且原始碼短到你可以在三十秒內讀完並自己判斷。
+至於那些數字，**不要信**。同一個 skill 目錄站在不同頁面給出的安裝數彼此矛盾（460,658 / 509k / 812k / 833k 都出現過），還有頁面宣稱這個 repo 有「121,024 GitHub stars」。這些是聚合站的生成內容，我沒能獨立驗證（GitHub API 在這次查證的環境裡被 proxy 擋掉）。能確定的只有定性結論：它是目前流傳最廣的 planning skill，而且原始碼短到你可以在三十秒內讀完並自己判斷。
 
 ## 整體來說
 
-`grill-me` 真正有價值的不是那段 prompt，是它把「訪談」當成一個可以被其他 skill 呼叫的 primitive，並且在裡面劃了兩條硬界線——事實歸 agent、決策歸人，以及沒有你的確認就不准動工。這兩條界線放到任何 agent 工作流都成立，不只在 planning。
+`grill-me` 真正有價值的不是那段 prompt，是它把「訪談」當成一個可以被其他 skill 呼叫的 primitive，並且在裡面劃了兩條硬界線——事實歸 agent、決策歸人，以及沒有你的確認就不准動工。這兩條界線放到任何 agent workflow 都成立，不只在 planning。
 
 它的成本也很誠實：一場 session 要你四十分鐘的專注，而且你必須真的在裡面反駁。如果你只打算點頭，那份計畫最後是 agent 的意見，不是你的——而它讀起來會很有把握，那種把握沒有任何東西支撐。
 
