@@ -69,10 +69,13 @@ description: Convert a conversation, notes, or experience into a structured Mark
 9. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
    ```bash
    pnpm check:references
+   pnpm check:tw-usage        # zh-TW 用語；「必須修」那組不清乾淨 pnpm verify 會擋 commit
    pnpm lint
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
+
+   `check:tw-usage` 只擋得住詞彙。腳本印出的「人工判讀」那組要逐筆看，翻譯腔五型要逐句看（見 `references/writing-guide.md#翻譯腔比詞彙更難抓`），然後**把命中清單列給使用者**——原文 → 問題 → 建議改法，不要靜默修掉。
 10. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
 11. **commit**（取得明確同意後）：
    ```bash
@@ -133,7 +136,10 @@ series:                # 選填，多篇連載用
 | 「life / climbing 類不用參考資料」 | 標題 ≥ 4 個就會觸發 check:references，不論 category；純文字書名也不算連結 |
 | 「glossary 之後再補」 | 讀者第一次看到不懂的詞就會離開，hover tooltip 是即時救援，不是事後補丁 |
 | 「tldr / faq / glossary 從正文濃縮就好」 | 改寫等於重新宣稱一次。濃縮時最容易併錯歸屬（把隔壁段的研究算到這篇頭上）、丟掉對照條件（「+0.51」少了「相較重讀」）、放大強度（「其中一項分析顯示」變成「研究證明」）。有數字或研究名就回**原始來源**對，不是回自己的正文對 |
-| 「我寫的是繁體字，所以是台灣用語」 | 繁體 ≠ 台灣。模型的中文語料以中國內容為大宗，「品類」「補丁」「賦能」「貼標」和翻譯腔會自動流進來，尤其在從英文材料翻寫的段落。寫完跑 `writing-guide.md#台灣用語` 的掃描指令，並逐句看翻譯腔四型 |
+| 「我寫的是繁體字，所以是台灣用語」 | 繁體 ≠ 台灣。模型的中文語料以中國內容為大宗，「品類」「量級」「賦能」「工作流」和翻譯腔會自動流進來，尤其在從英文材料翻寫的段落。寫完跑 `pnpm check:tw-usage`，並逐句看翻譯腔五型 |
+| 「掃描過了、綠的就沒事」 | 腳本只認詞。ceiling→「天花板」、scaffolding→「鷹架」、defend each choice→「辯護每個選擇」全都掃不出來，只能逐句看 |
+| 「命中的我自己改掉就好」 | 有些命中是刻意的（引述原文、物理的「質量」）。清單要列給使用者，改完回報修幾處、留幾處、為什麼留 |
+| 「來源 repo 的內容就是現況」 | 活躍維護的 repo 每週都在改。引用時標出對照的 commit 日期或版本，否則讀者三個月後無從判斷 |
 
 ## 詳細參考
 

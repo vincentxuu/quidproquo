@@ -64,6 +64,7 @@ description: Update an existing Markdown post under src/content/posts/<category>
 7. **驗證**（按順序跑，全綠才算完成）：
    ```bash
    pnpm check:references
+   pnpm check:tw-usage        # 只掃改動檔；新寫的段落最容易夾帶中國用語
    pnpm lint
    pnpm astro check
    ```

@@ -52,6 +52,7 @@ function checkProgress() {
 
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
+runStep('tw-usage (zh-TW 用語，只掃改動檔)', 'node scripts/check-tw-usage.mjs');
 runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs');
 checkProgress();
 

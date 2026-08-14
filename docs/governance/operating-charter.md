@@ -56,6 +56,7 @@
 |---|---|---|
 | 統一驗證閘門 | `pnpm verify`（`scripts/verify.mjs`） | 每次 commit 前自動跑；手動隨時可跑 |
 | Skills 鏡像同步 | `pnpm check:skills-sync` / `pnpm skills:sync` | 改完 `.agents/skills/` 之後 |
+| 台灣用語閘門 | `pnpm check:tw-usage`（詞表在 `scripts/check-tw-usage.mjs`）；全站稽核用 `pnpm audit:tw-usage` | 寫或改 `lang: zh-TW` 文章之後；`pnpm verify` 只掃改動檔 |
 | Session 記憶 | `progress.txt`（協定見 §5） | 任務狀態實質改變時 |
 | 記憶歸檔 | `docs/progress-archive.md` | progress.txt 超過上限、條目完成或過期 |
 | 升級佇列 | `docs/governance/escalation-queue.md`（協定見 §6） | 遇到 Tier 2 決策、太難或太危險的事 |
@@ -63,6 +64,8 @@
 | 結構化開發流程 | `openspec/` + opsx skills | 多步驟 feature 開發 |
 | 部署前檢查 | `deploy-preflight` skill | 使用者說要 deploy 之前 |
 | 營運 runbook | `docs/agent-*-runbook.md` | 操作對應子系統時先讀 |
+
+台灣用語閘門的兩個設計限制，改它之前先讀：**只掃改動過的檔案**（既有語料寫在這道檢查之前，全站還有一百多處待清，全站硬擋會第一天就紅、然後所有人學會忽略它）；**詞表分兩層**，`BLOCKED` 擋 commit，`REVIEW`（`項目`／`天花板`／`阻塞`／`對齊` 等看語境的詞）只報告。合法例外用 `<!-- tw-usage-ignore -->` 註解放行，不要為了變綠把詞從 `BLOCKED` 搬走。
 
 ## 4. Skills 管理規則
 
