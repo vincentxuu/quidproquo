@@ -331,6 +331,7 @@ Shopify 創始人 Tobi Lütke 定義了核心與生態的邊界：**「如果大
 - [數位轉型怎麼轉？你得搞懂的「生態系」策略 — INSIDE](https://www.inside.com.tw/article/37797-digital-transformation-success-requires-understanding-ecosystem-strategy)
 - [數位產業署 — 平臺經濟](https://moda.gov.tw/ADI/industry-counseling/platform-economy/568)
 - [千億美元 Shopify 的未來：電商界的「蘋果應用商店」](https://m.thepaper.cn/newsDetail_forward_17580398)
+<!-- tw-usage-ignore -->
 - [復盤 Shopify，強生態領路 DTC 數位化](https://www.vzkoo.com/read/c465bd0ab2b118a000c161af547fbfbc.html)
 - [LINE Pay 台灣證券交易所介紹](https://www.twse.com.tw/market_insights/zh/preview/8a8216d6933460a40193705b290b01cc)
 - [LINE Bank 官方網站](https://www.linebank.com.tw/)

@@ -426,7 +426,7 @@ MCP 的傳輸層負責在 Client 和 Server 之間搬運 JSON-RPC 訊息。目�
 - 本地開發環境
 - Server 和 Client 在同一台機器
 - 不需要網路存取
-- 安全性要求高（不暴露任何端口）
+- 安全性要求高（不暴露任何連接埠）
 
 **設定範例**（Claude Desktop 的 `claude_desktop_config.json`）：
 

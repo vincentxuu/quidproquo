@@ -19,14 +19,14 @@ draft: false
 這帶來幾個結構性變化:
 
 - **共享而非個人**:agent 是組織資產,一個人建好、整個團隊一起用、一起改進。
-- **長時間執行**:不再是幾秒鐘一問一答,而是分鐘到小時級的工作流。
+- **長時間執行**:不再是幾秒鐘一問一答,而是分鐘到小時級的工作流程。
 - **跨工具推進**:不只生成文字,還會瀏覽網頁、填表單、改試算表、發信、開 IT ticket。
 
 類比來說:Custom GPTs 像 Slack 的 slash command,Workspace Agents 比較像 Zapier + Slackbot + Codex 的合體。
 
 ## 由 Codex 驅動的能力
 
-Workspace Agents 底層是 Codex(OpenAI 的 coding agent),這是個關鍵技術決定。Codex 本來就擅長「在環境裡多步驟執行任務、觀察結果、修正」這件事,搬到企業工作流剛好適合。常見能力:
+Workspace Agents 底層是 Codex(OpenAI 的 coding agent),這是個關鍵技術決定。Codex 本來就擅長「在環境裡多步驟執行任務、觀察結果、修正」這件事,搬到企業工作流程剛好適合。常見能力:
 
 - 撰寫/回覆 email、整理報表、草擬簡報
 - 寫程式、review、重構、migration(繼承 Codex 的強項)
@@ -88,12 +88,12 @@ Agent 的部署有三種典型模式:
 - **2026/5/6 前免費**,之後改為 credit-based pricing(依使用量計費)。
 - Business 的入門方案為 $20 / user / 月,Enterprise / Edu 另議。
 
-Credit-based 的設計對企業其實是合理的——長時間執行、跨工具調用、處理大量資料,費用跟實際工作量掛鉤比固定訂閱公平。但也代表「一個 agent 跑一整晚」可能會產生可觀的帳單,需要管理員設 budget。
+Credit-based 的設計對企業其實是合理的——長時間執行、跨工具呼叫、處理大量資料,費用跟實際工作量掛鉤比固定訂閱公平。但也代表「一個 agent 跑一整晚」可能會產生可觀的帳單,需要管理員設 budget。
 
 ## 適合與不適合的情境
 
 **適合**:
-- 重複性高、跨多個 SaaS 工具的工作流(例:週報、月報、審核流程)
+- 重複性高、跨多個 SaaS 工具的工作流程(例:週報、月報、審核流程)
 - 需要記憶與演進的角色(例:客服分流、合規檢查)
 - 可以容忍分鐘級延遲、換來更完整產出的任務
 
@@ -104,7 +104,7 @@ Credit-based 的設計對企業其實是合理的——長時間執行、跨工�
 
 ## 整體來說
 
-Workspace Agents 真正的意義不是「又一個 AI 產品」,而是 OpenAI 在賭一件事:**未來企業 AI 的消費單位是「agent」而不是「對話」**。Custom GPTs 停用、Codex 全面下沉到工作流、Slack/Salesforce 深度整合,這些訊號都指向同一個方向。
+Workspace Agents 真正的意義不是「又一個 AI 產品」,而是 OpenAI 在賭一件事:**未來企業 AI 的消費單位是「agent」而不是「對話」**。Custom GPTs 停用、Codex 全面下沉到工作流程、Slack/Salesforce 深度整合,這些訊號都指向同一個方向。
 
 對團隊來說,現在值得做的事是盤點:哪些重複工作可以被一個「共享、有記憶、能跨工具推進」的 agent 接走?這個問題的答案,會決定接下來一兩年 AI 在你們組織裡的槓桿有多大。
 

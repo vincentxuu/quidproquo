@@ -12,7 +12,7 @@ draft: false
 
 🌏 [English version](/posts/marketing/2026-04-23-akiraxclaw-content-model-en)
 
-[AKIRAXCLAW](https://akiraxclaw.com) 是 Akira 經營的中文 AI 工具觀察站。截至 2026 年 4 月，171 篇文章、每天更新 3–5 篇，涵蓋 open-source、LLM、developer tools、AI agents 等主題，整體定位是「中文市場的 AI 實戰觀察與工作流筆記」。
+[AKIRAXCLAW](https://akiraxclaw.com) 是 Akira 經營的中文 AI 工具觀察站。截至 2026 年 4 月，171 篇文章、每天更新 3–5 篇，涵蓋 open-source、LLM、developer tools、AI agents 等主題，整體定位是「中文市場的 AI 實戰觀察與工作流程筆記」。
 
 這篇拆解它的內容模式、商業結構，以及對獨立內容創作者的參考價值。
 
@@ -78,7 +78,7 @@ AKIRAXCLAW 有超過 200 個 tag，幾乎每篇文章有 4–6 個標籤。
 
 幾個值得注意的問題：
 
-**內容深度**：每天 5 篇的節奏意味著每篇文章的平均深度有限。AKIRAXCLAW 的文章定位是「整理入口」，不是原創研究。這個定位在 AI 工具變化快的當下有價值，但在信息密度高的讀者眼中，可能不夠。
+**內容深度**：每天 5 篇的節奏意味著每篇文章的平均深度有限。AKIRAXCLAW 的文章定位是「整理入口」，不是原創研究。這個定位在 AI 工具變化快的當下有價值，但在資訊密度高的讀者眼中，可能不夠。
 
 **平台依賴**：Threads 作為主要流量入口，受制於 Meta 演算法。平台政策改變或流量下降時，整個漏斗的頂端會被影響。
 

@@ -6,7 +6,7 @@ type: deep-dive
 tags: [rag, agentic-rag, adaptive-rag, tool-use, llm-agent, agentic-parsing, document-parsing]
 lang: zh-TW
 tldr: "把『使用者上傳檔案就自動切 chunk、embedding』設為預設行為，等於替 LLM 預先做了一個它本來可以自己做的決定。從 Self-RAG (2310.11511)、Adaptive-RAG (2403.14403) 到 AgenticOCR (2602.24134) 這條學術線索，正在把『要不要 retrieve、要不要 parse、怎麼切 chunk』三層決策權，從 ingestion pipeline 往後推到對話時的 agent。"
-description: "從 30 篇論文整理 Adaptive RAG、Self-RAG、Agentic RAG、Agentic Parsing 的關係，討論為什麼『上傳即 embedding』是錯的預設、以及把 retrieval 與 parser 都包成 function tool 給 LLM 調用的設計依據。"
+description: "從 30 篇論文整理 Adaptive RAG、Self-RAG、Agentic RAG、Agentic Parsing 的關係，討論為什麼『上傳即 embedding』是錯的預設、以及把 retrieval 與 parser 都包成 function tool 給 LLM 呼叫的設計依據。"
 draft: false
 ---
 

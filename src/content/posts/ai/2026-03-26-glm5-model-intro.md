@@ -54,7 +54,7 @@ draft: false
 | 2024 | **GLM-4 系列** | 10T+ tokens 預訓練，GLM-4 All Tools 支持自主工具選擇 |
 | 2025/07 | **GLM-4.5** | 355B MoE（32B 活躍），23T tokens，當時開源 MoE SOTA |
 | **2026/02** | **GLM-5** | **744B MoE（40B 活躍），28.5T tokens，MIT 授權** |
-| 2026/03 | **GLM-5-Turbo** | 針對 OpenClaw agent 場景優化，工具調用錯誤率降至 0.67% |
+| 2026/03 | **GLM-5-Turbo** | 針對 OpenClaw agent 場景優化，工具呼叫錯誤率降至 0.67% |
 
 從 ChatGLM-6B 到 GLM-5，智譜走了一條清晰的路線：**先用小模型開源搶開發者心智，再逐步推出更大、更強的模型**。這跟 Meta 的 LLaMA 策略類似，但智譜做得更早（在中國市場）。
 
@@ -211,7 +211,7 @@ OpenClaw 是智譜的 agent 框架，GLM-5-Turbo 是為它專門優化的模型�
 5. **軟體開發** — 程式碼生成、除錯、重構
 6. **多 Agent 協作** — 多個 agent 協同完成複雜任務
 
-GLM-5-Turbo 的工具調用錯誤率僅 **0.67%**，遠低於其他模型的 2-6%。
+GLM-5-Turbo 的工具呼叫錯誤率僅 **0.67%**，遠低於其他模型的 2-6%。
 
 ### AutoGLM
 

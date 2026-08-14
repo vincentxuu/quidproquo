@@ -92,6 +92,8 @@ const TRANSLATIONESE_REMINDER = [
   '  5. 隱喻直譯：ceiling→天花板、scaffolding→鷹架、ticket→票',
 ];
 
+const PROSE_FRONTMATTER_KEY = /^\s*-?\s*(title|tldr|description|definition|advanced|context):/;
+
 function compile(entries) {
   return entries.map(([source, suggestion]) => ({
     source,
@@ -165,7 +167,12 @@ function scanFile(file) {
 
   for (const [index, raw] of lines.entries()) {
     if (index === 0 && raw.trim() === '---') { inFrontmatter = true; continue; }
-    if (inFrontmatter) { if (raw.trim() === '---') inFrontmatter = false; continue; }
+    // Frontmatter is mostly identifiers (tags, slug, dates), but title / tldr /
+    // description / glossary prose all render to readers — those get checked.
+    if (inFrontmatter) {
+      if (raw.trim() === '---') { inFrontmatter = false; continue; }
+      if (!PROSE_FRONTMATTER_KEY.test(raw)) continue;
+    }
     if (/^\s*```/.test(raw)) { inFence = !inFence; continue; }
     if (inFence) continue;
     if (index > 0 && lines[index - 1].includes('<!-- tw-usage-ignore -->')) continue;

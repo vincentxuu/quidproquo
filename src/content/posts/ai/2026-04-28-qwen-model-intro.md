@@ -116,7 +116,7 @@ Gated Delta Networks 的作用是讓模型在處理長序列時更有效率—�
 
 ## Qwen3.6：聚焦 Agentic Coding（2026/04）
 
-Qwen3.6 是 Qwen3.5 之後最新的發布，距今約一週。它沒有走「更大更強」的路線，而是根據社群回饋調整：讓模型在 agentic coding 的實際任務中更穩定、前端工作流更準確、repository-level 推理更流暢。
+Qwen3.6 是 Qwen3.5 之後最新的發布，距今約一週。它沒有走「更大更強」的路線，而是根據社群回饋調整：讓模型在 agentic coding 的實際任務中更穩定、前端工作流程更準確、repository-level 推理更流暢。
 
 **兩個版本：**
 
@@ -243,7 +243,7 @@ Qwen 系列透過阿里雲 **DashScope** 平台提供 API，也在 OpenRouter �
 
 **行動端 / 邊緣推論**：Qwen3.5 Small 系列是 2026 Q1 行動端的首選之一，特別是需要多模態的場景。
 
-**Agent 任務**：Qwen3.5-122B-A10B 在 BFCL-V4（函式調用 benchmark）拿下 72.2，是這個尺寸的最強選項，適合需要穩定工具調用的 agent 應用。
+**Agent 任務**：Qwen3.5-122B-A10B 在 BFCL-V4（函式呼叫 benchmark）拿下 72.2，是這個尺寸的最強選項，適合需要穩定工具呼叫的 agent 應用。
 
 **Agentic Coding / 終端機自動化**：Qwen3.6-27B 在 Terminal-Bench 2.0 達到 59.3%，追平 Claude Opus 4.5；SkillsBench 48.2% 超越 Claude Opus。用 Qwen Code（類 Claude Code 的終端 agent）搭配 DashScope API，是目前開源方案中最完整的 coding agent 組合。
 
