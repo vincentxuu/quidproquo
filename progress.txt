@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-10
+Last updated: 2026-08-14
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -67,15 +67,12 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
-  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
-  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
-  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
-  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
-  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
-  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
-  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
-  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
+- 2026-08-14: post(ai) grill-me skill 深入介紹（zh + en）。查證中發現寫作指南裡的
+  台灣用語 grep 從來沒被執行過：全站 8 篇違反現有詞表，真正咬人的（量級 27 篇／
+  工作流 48／天花板 39／阻塞 11）根本不在表上。做了 scripts/check-tw-usage.mjs
+  兩層詞表並接進 pnpm verify（只掃改動檔，全站 184 處待清用 pnpm audit:tw-usage
+  稽核）。post / post-review / post-update 三個 skill 與憲章 §3 同步更新。
+  **仍開**：既有語料那 184 處沒清，需要人判斷（質量=物理、天花板=台灣也用的比喻）。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
