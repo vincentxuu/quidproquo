@@ -38,15 +38,14 @@ const BLOCKED = [
   ['機構記憶', '組織記憶'],
   ['視頻', '影片'],
   ['網絡', '網路'],
-  ['信號', '訊號'],
+  ['信號(?!彈|槍|旗|鏈路)', '訊號'],
   ['信息', '資訊 / 訊息'],
   ['界面', '介面'],
   ['用戶', '使用者'],
-  ['質量', '品質（若指物理質量請用 ignore 註解）'],
   ['默認', '預設'],
   ['缺省', '預設'],
   ['博客(?!來)', '部落格'],
-  ['審計', '稽核'],
+  ['審計(?!部)', '稽核'],
   ['(?<!確)保安(?!全)', '保全'],
   ['賦能', '說明實際做了什麼'],
   ['抓手', '施力點 / 做法'],
@@ -75,6 +74,7 @@ const BLOCKED = [
 // Judgement calls: legitimate in some contexts, translationese in others.
 // Reported, never fatal — a human has to read the sentence.
 const REVIEW = [
+  ['質量', '物理的 mass 可留；指 quality 要改「品質」'],
   ['天花板', '若是 ceiling 直譯改「上限」；台灣自有的比喻用法可留'],
   ['鷹架', '教育學的 scaffolding 可留；scaffolding 硬譯成鷹架要改'],
   ['阻塞', '網路 / OS 教科書用法可留；blocking 直譯建議改「卡住」'],
