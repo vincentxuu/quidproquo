@@ -99,7 +99,7 @@ browse skills list                             # 列出已裝技能
 
 導讀不能只抄行銷頁,幾個要老實講的點:
 
-- **「開源免費」要打星號**:CLI 與技能確實開源(`browserbase/skills` repo 標 MIT),但跑完整工作流可能要模型額度、Browserbase 憑證、雲端 session、residential proxy、解 CAPTCHA、付費 API——open source ≠ 全程零成本。
+- **「開源免費」要打星號**:CLI 與技能確實開源(`browserbase/skills` repo 標 MIT),但跑完整工作流程可能要模型額度、Browserbase 憑證、雲端 session、residential proxy、解 CAPTCHA、付費 API——open source ≠ 全程零成本。
 - **品牌與命名還在收斂**:你會同時看到 `browse`(browse.sh 的獨立 CLI)、`bb`(Browserbase CLI,`bb browse` 是 passthrough)、npm 上的 `@browserbasehq/browse-cli`,以及 `browse.sh` 跟 `skills.sh/browserbase` 兩個目錄域名並存。別把它當成一個乾淨單一的產品,這層混亂是真的。
 - **技能可靠度依賴網站不變**:網站哪天改版,技能就可能要重新 graduate;Autobrowse 的收斂是「夠用」不是全域最優。
 - **數據多為官方自評**:成本數字、45%、50x 都來自 Browserbase 自己,還缺獨立驗證。

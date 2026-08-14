@@ -16,12 +16,12 @@ draft: false
 
 Anthropic 走的是「擴充功能」路線。2025-08 以 research preview 形式只開放給 1,000 個測試者，到 2026 進入 beta，現在所有付費方案都能用。
 
-設計哲學是 **「meet users where they already are」**：不要求換瀏覽器、不爭奪預設搜尋引擎，以 side panel 形式坐在 Chrome 旁邊。看見的內容跟你一樣，可以點擊、填表、跨 tab 操作、執行多步驟工作流。Claude Code 的 Chrome integration（beta）也在同一條線上，給開發者用。
+設計哲學是 **「meet users where they already are」**：不要求換瀏覽器、不爭奪預設搜尋引擎，以 side panel 形式坐在 Chrome 旁邊。看見的內容跟你一樣，可以點擊、填表、跨 tab 操作、執行多步驟工作流程。Claude Code 的 Chrome integration（beta）也在同一條線上，給開發者用。
 
 權限模型偏保守：敏感站點預設要逐站授權。這是有原因的——LayerX 在 2026 揭露了名為 **ClaudeBleed** 的漏洞，任何 Chrome 擴充功能（即使沒有特殊權限）都能注入指令劫持 Claude 的擴充。Anthropic 在 **2026-05-06** 推出 v1.0.70，補上敏感操作的二次確認流程。
 
 適合：想留在 Chrome、不想換生態系、已經是 Claude 付費使用者的人。
-不適合：想要 agent 直接接管整個瀏覽工作流的重度使用者——Anthropic 故意把它限制在 side panel。
+不適合：想要 agent 直接接管整個瀏覽工作流程的重度使用者——Anthropic 故意把它限制在 side panel。
 
 ## ChatGPT Atlas + Codex Chrome Extension
 
@@ -71,7 +71,7 @@ Google 是唯一不需要安裝任何東西的——**Gemini 已經內建在 Chr
 
 1. **已經付費哪一家？** 三家都有付費門檻，先看現有訂閱。
 2. **願不願意換瀏覽器？** 願意 → Atlas 體驗最完整；不願意 → Claude extension 或 Gemini in Chrome。
-3. **要做什麼任務？** 開發者場景、要 signed-in session → Codex extension；個人助理、研究 / 訂行程 → Atlas Agent Mode 或 Gemini Auto Browse；混在工作流中、保留主導權 → Claude for Chrome。
+3. **要做什麼任務？** 開發者場景、要 signed-in session → Codex extension；個人助理、研究 / 訂行程 → Atlas Agent Mode 或 Gemini Auto Browse；混在工作流程中、保留主導權 → Claude for Chrome。
 
 短期看，Atlas + Codex 合併後 OpenAI 會有最完整的 agent stack；Gemini 會吃下 Chrome 既有的渠道優勢；Claude 維持「最謹慎、最可信」的定位。一年內三條路線會繼續分化，不會收斂。
 

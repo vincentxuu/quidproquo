@@ -12,7 +12,7 @@ draft: false
 
 🌏 [English version](/posts/tech/2026-05-03-warp-agentic-development-environment-en)
 
-如果你最近幾年有在 Twitter / X 上看到開發者曬終端機截圖，十之八九是 Warp。但 Warp 不只是個漂亮的終端機——2025 年底它發布了 Warp 2.0，正式轉型為 **Agentic Development Environment（ADE）**，把 AI Agent 直接嵌進開發工作流裡。2026 年 4 月，Warp 更宣布以 AGPL 授權開源，由 OpenAI 擔任創始贊助商。
+如果你最近幾年有在 Twitter / X 上看到開發者曬終端機截圖，十之八九是 Warp。但 Warp 不只是個漂亮的終端機——2025 年底它發布了 Warp 2.0，正式轉型為 **Agentic Development Environment（ADE）**，把 AI Agent 直接嵌進開發工作流程裡。2026 年 4 月，Warp 更宣布以 AGPL 授權開源，由 OpenAI 擔任創始贊助商。
 
 ## 為什麼不用 iTerm2 / tmux 就好
 
@@ -47,7 +47,7 @@ Warp 內建 AI Agent，不只是補全命令而已。Agent 可以：
 
 Warp Drive 是 Warp 的雲端協作層：
 
-- **Workflows**：把常用的命令序列存成可分享的工作流，類似 Runbook 但住在終端機裡
+- **Workflows**：把常用的命令序列存成可分享的工作流程，類似 Runbook 但住在終端機裡
 - **Notebooks**：在終端機裡寫文件，混搭 markdown 和可執行命令
 - **Session 分享**：把當前 session 的歷史分享給隊友，帶完整的命令輸出脈絡
 
@@ -74,7 +74,7 @@ Warp 支援 macOS、Linux（.deb / .rpm / AppImage）、Windows 10/11，都是�
 - **Cloud Agents**：背景執行任務，不需要佔用你的 terminal session
 - **Oz**：Warp 自己的 cloud agent 編排平台，管理多個 agent 平行執行任務
 
-這個轉型的背景是：AI Agent 寫程式已經夠好了，瓶頸變成「要怎麼管理 agent、驗證結果、整合進現有工作流」。Warp 的賭注是終端機是最自然的 agent 控制介面。
+這個轉型的背景是：AI Agent 寫程式已經夠好了，瓶頸變成「要怎麼管理 agent、驗證結果、整合進現有工作流程」。Warp 的賭注是終端機是最自然的 agent 控制介面。
 
 ## 2026 年 4 月：開源
 
@@ -87,7 +87,7 @@ Warp 宣布以 **AGPL** 授權開源客戶端，原始碼在 [github.com/warpdot
 ## 適合誰用
 
 **適合**：
-- 希望 AI 能直接整合進 shell 工作流，而不是另開 chat 視窗複製貼上
+- 希望 AI 能直接整合進 shell 工作流程，而不是另開 chat 視窗複製貼上
 - 工程師團隊想要分享 runbook / 命令歷史
 - 重度使用 terminal 的後端、DevOps、Platform 工程師
 

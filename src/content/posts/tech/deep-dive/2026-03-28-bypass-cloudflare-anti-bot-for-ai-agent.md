@@ -28,7 +28,7 @@ AI agent 需要上網查資料，但越來越多網站用 Cloudflare 反爬蟲�
 
 | 方案 | 語言 | 原理 | 繞過率 | 適合場景 |
 |------|------|------|--------|----------|
-| **playwright-extra + stealth** | Node.js | 注入腳本覆蓋 `webdriver` 等屬性，偽造瀏覽器指紋 | 高 | 整合到現有 Playwright 工作流 |
+| **playwright-extra + stealth** | Node.js | 注入腳本覆蓋 `webdriver` 等屬性，偽造瀏覽器指紋 | 高 | 整合到現有 Playwright 工作流程 |
 | **nodriver** | Python | 不使用 CDP，直接操控 Chrome，從底層避開偵測 | 最高 | 長期穩定爬取 |
 | **camoufox** | Python | 基於 Firefox 的反偵測瀏覽器 | 高 | 需要 Firefox 引擎的場景 |
 

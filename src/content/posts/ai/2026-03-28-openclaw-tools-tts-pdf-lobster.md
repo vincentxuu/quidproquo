@@ -5,12 +5,12 @@ type: guide
 category: ai
 tags: [openclaw, tts, pdf, lobster, mcp, media, elevenlabs, openai-tts]
 lang: zh-TW
-tldr: "TTS 支援 ElevenLabs/Microsoft/OpenAI 三家，PDF 有 native 和 extraction 兩種模式，Lobster 是確定性工作流 runtime，MCP 支援外部工具擴展。"
-description: "OpenClaw 的 TTS 語音合成、PDF 分析、Lobster 工作流引擎、MCP Server 整合、以及媒體處理工具。"
+tldr: "TTS 支援 ElevenLabs/Microsoft/OpenAI 三家，PDF 有 native 和 extraction 兩種模式，Lobster 是確定性工作流程 runtime，MCP 支援外部工具擴展。"
+description: "OpenClaw 的 TTS 語音合成、PDF 分析、Lobster 工作流程引擎、MCP Server 整合、以及媒體處理工具。"
 draft: false
 ---
 
-這篇講 OpenClaw 的輔助工具：語音合成、文件分析、確定性工作流、和外部工具整合。
+這篇講 OpenClaw 的輔助工具：語音合成、文件分析、確定性工作流程、和外部工具整合。
 
 ## Text-to-Speech（TTS）
 
@@ -93,13 +93,13 @@ draft: false
 - Extraction fallback 最多 20 頁
 - Native 模式不支援 page 篩選
 
-## Lobster：確定性工作流 Runtime
+## Lobster：確定性工作流程 Runtime
 
 Lobster 讓 OpenClaw 執行多步驟工具序列，作為確定性操作。
 
 ### 解決的問題
 
-LLM 驅動的工作流有個問題：多次工具呼叫的 token 成本和協調開銷很高。Lobster 把多個工具呼叫合併成一個結構化操作。
+LLM 驅動的工作流程有個問題：多次工具呼叫的 token 成本和協調開銷很高。Lobster 把多個工具呼叫合併成一個結構化操作。
 
 ### 三個核心優勢
 
@@ -107,7 +107,7 @@ LLM 驅動的工作流有個問題：多次工具呼叫的 token 成本和協調
 |---|---|
 | 合併執行 | 一次 Lobster 呼叫取代多次工具呼叫 |
 | 內建 Approval | 副作用前暫停，等人類授權 |
-| 可恢復狀態 | 暫停的工作流回傳 token，可以不重跑就繼續 |
+| 可恢復狀態 | 暫停的工作流程回傳 token，可以不重跑就繼續 |
 
 ### 設計理念
 
@@ -184,7 +184,7 @@ MCP 讓 OpenClaw 可以連接外部工具生態——資料庫、API、自訂服
 
 ## 整體來說
 
-OpenClaw 的工具集覆蓋了從語音到文件、從確定性工作流到外部 MCP 擴展。TTS 讓 agent 會「說話」，Lobster 讓複雜工作流可預測且可稽核，MCP 打開了無限的工具擴展空間。
+OpenClaw 的工具集覆蓋了從語音到文件、從確定性工作流程到外部 MCP 擴展。TTS 讓 agent 會「說話」，Lobster 讓複雜工作流程可預測且可稽核，MCP 打開了無限的工具擴展空間。
 
 ## 參考資料
 
@@ -192,7 +192,7 @@ OpenClaw 的工具集覆蓋了從語音到文件、從確定性工作流到外�
 
 - [docs/tools/tts.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/tts.md) — TTS 語音合成
 - [docs/tools/pdf.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/pdf.md) — PDF 工具
-- [docs/tools/lobster.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/lobster.md) — Lobster 工作流
+- [docs/tools/lobster.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/lobster.md) — Lobster 工作流程
 - [docs/tools/mcp.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/mcp.md) — MCP Server 整合
 - [docs/tools/media.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/media.md) — 媒體處理
 - [docs/tools/image.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/image.md) — 圖片工具

@@ -140,7 +140,7 @@ Google 是這篇裡唯一有訂閱制付費課程的一家。它的官方頁面�
 
 ### OpenAI：Codex 系列
 
-OpenAI Academy 的三門正式課都是非技術向，真正的 Codex 內容在 [Builders 社群](https://academy.openai.com/public/clubs/builders-etkn1/overview)（27,030 名成員）裡：**Codex 101（入門）、102（實務工作流）、103（進階工作流與自動化）**，另有 Codex for Everyday Use、Building Websites with Codex Sites 等。
+OpenAI Academy 的三門正式課都是非技術向，真正的 Codex 內容在 [Builders 社群](https://academy.openai.com/public/clubs/builders-etkn1/overview)（27,030 名成員）裡：**Codex 101（入門）、102（實務工作流程）、103（進階工作流程與自動化）**，另有 Codex for Everyday Use、Building Websites with Codex Sites 等。
 
 2026 上半年 OpenAI 的兩條主軸很明顯：**agent 與 Codex**。這些內容多數需登入才能完整存取，公開頁只看得到標題。
 
@@ -241,7 +241,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 它真正的價值在合作方名單——課程直接跟 Anthropic(4)、OpenAI(4)、Google(4)、Hugging Face(5)、Microsoft(3)、Meta(3)、AWS(1) 合開。2025–26 的新課包含 Claude Code、Agent Skills with Anthropic、Spec-Driven Development，等於把各家官方教材再做一次課程化整理。首頁橫幅還掛著新課 Voice for AI Agents and Applications，更新非常勤。
 
-短課程完成有 completion 標記。**Coursera 上的專項證書要付費**，[官方定價頁](https://www.coursera.org/courseraplus)寫得很清楚：單一學習方案 $49–$79 美元/月，Coursera Plus 月繳 $59、年繳 $399（抓取當天有 40% 促銷，年繳 $239.40）。也就是說，Google 那張 $49/月的帳單，跟你在 Coursera 上修任何一個專項的價錢是同一個量級。
+短課程完成有 completion 標記。**Coursera 上的專項證書要付費**，[官方定價頁](https://www.coursera.org/courseraplus)寫得很清楚：單一學習方案 $49–$79 美元/月，Coursera Plus 月繳 $59、年繳 $399（抓取當天有 40% 促銷，年繳 $239.40）。也就是說，Google 那張 $49/月的帳單，跟你在 Coursera 上修任何一個專項的價錢是同一個數量級。
 
 ### NVIDIA、AWS：偏企業與雲端
 

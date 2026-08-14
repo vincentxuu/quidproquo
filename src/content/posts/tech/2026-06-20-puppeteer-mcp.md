@@ -138,7 +138,7 @@ server-puppeteer 最主要的特性是用截圖（`puppeteer_screenshot`）來�
 - session 較短、截圖數量有限（token 成本可接受）
 
 **不適合的場景**：
-- 長 session 的 agent 工作流（截圖 token 累積）
+- 長 session 的 agent 工作流程（截圖 token 累積）
 - 跨瀏覽器場景
 - 需要複雜等待邏輯的操作（auto-wait 缺失）
 

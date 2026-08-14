@@ -67,7 +67,7 @@ Koboyo 授權頁的「You can't」寫得很白：
 
 | 圖庫 | 數量 | 授權 | 要注意的地方 |
 |---|---|---|---|
-| [Koboyo Icons](https://koboyo.com/icons) | 授權頁標 90,150（2026-08-06），但 sitemap 只列約 17,930 頁 | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 宣稱覆蓋率無敵，實際可瀏覽量少一個量級；用途邊界也要自己判斷 |
+| [Koboyo Icons](https://koboyo.com/icons) | 授權頁標 90,150（2026-08-06），但 sitemap 只列約 17,930 頁 | 免費商用免署名，**禁止競品與「圖示為主體」的 app** | 宣稱覆蓋率無敵，實際可瀏覽量少一個數量級；用途邊界也要自己判斷 |
 | [Khushmeen Doodle Icons](https://khushmeen.com/icons.html) | 400+ | **CC0，免署名** | 授權最乾淨。附 Figma 檔與動畫版 |
 | [Streamline Freehand](https://www.streamlinehq.com/icons/streamline-freehand) | set 11,171（Freehand 家族 22,349） | 付費 $19/月起，或買斷；免費 set 需署名 | **每專案 100 個圖示的用量上限**（可加購解除）；開源專案即使付費仍強制署名 |
 | [Icons8 Doodle](https://icons8.com/icons/doodle) | 2,200（57 分類） | Freemium，免費需署名 | 彩色麥克筆風，偏簡報而非 UI |

@@ -16,7 +16,7 @@ Antigravity CLI 是 Google 在 2026 年 5 月 19 日 I/O 上發表的終端機 A
 
 ## Antigravity CLI 是什麼
 
-依官方文件的定位，Antigravity CLI 是「the lightweight Terminal User Interface (TUI) surface of Antigravity」，把和桌面版 Antigravity 2.0 相同的核心能力——多步推理、多檔編輯、工具呼叫、對話歷史——直接帶進終端機。它刻意「不當 GUI」：視覺化編排留給 2.0，CLI 只專注在快、鍵盤操作、低資源開銷，特別是 SSH / remote 工作流。
+依官方文件的定位，Antigravity CLI 是「the lightweight Terminal User Interface (TUI) surface of Antigravity」，把和桌面版 Antigravity 2.0 相同的核心能力——多步推理、多檔編輯、工具呼叫、對話歷史——直接帶進終端機。它刻意「不當 GUI」：視覺化編排留給 2.0，CLI 只專注在快、鍵盤操作、低資源開銷，特別是 SSH / remote 工作流程。
 
 理解它的關鍵是「四介面」這張圖。2026/5/19 之前，「Antigravity」指的是一個 IDE；之後它變成一個平台，底下四個 surface 共用同一個 agent 引擎：
 
@@ -130,7 +130,7 @@ Antigravity CLI 的核心取捨很清楚：用「四介面共用一套 harness�
 該不該換？判斷很乾脆：
 
 - **現在就換**：你用個人 Google 帳號（AI Pro / Ultra / 免費 Code Assist）跑 Gemini CLI——6/18 的死線是真的；你活在 tmux / remote server；你想要背景 subagent 不卡 shell。
-- **先別急**：你是 Code Assist Standard / Enterprise 授權或付費 API key（Gemini CLI 繼續活）；你的工作流靠 artifact 預覽、視覺 diff、語音（那是 2.0）；你依賴某個還沒移植的 Gemini CLI 功能。
+- **先別急**：你是 Code Assist Standard / Enterprise 授權或付費 API key（Gemini CLI 繼續活）；你的工作流程靠 artifact 預覽、視覺 diff、語音（那是 2.0）；你依賴某個還沒移植的 Gemini CLI 功能。
 
 最划算的驗證方式：在你最常用 Gemini CLI 的那台機器上裝 `agy`、跑一次 `agy plugin import gemini`、挑一個平常會做的 20 分鐘任務試一遍。一個 session 內你就知道遷移順不順。
 

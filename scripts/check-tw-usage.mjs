@@ -53,7 +53,6 @@ const BLOCKED = [
   ['對標', '比照 / 對照'],
   ['復盤', '檢討 / 回顧'],
   ['顆粒度', '細緻程度'],
-  ['量級', '規模 / 數量'],
   ['工作流(?!程)', '工作流程 / workflow'],
   ['橡皮鴨', '小黃鴨除錯法'],
   ['調用', '呼叫 / 叫用'],
@@ -74,6 +73,7 @@ const BLOCKED = [
 // Judgement calls: legitimate in some contexts, translationese in others.
 // Reported, never fatal — a human has to read the sentence.
 const REVIEW = [
+  ['(?<![數重輕向])量級', '「差一個量級」請寫「數量級」；「量級對得上」這類台灣科技寫作讀得通，可留'],
   ['質量', '物理的 mass 可留；指 quality 要改「品質」'],
   ['天花板', '若是 ceiling 直譯改「上限」；台灣自有的比喻用法可留'],
   ['鷹架', '教育學的 scaffolding 可留；scaffolding 硬譯成鷹架要改'],

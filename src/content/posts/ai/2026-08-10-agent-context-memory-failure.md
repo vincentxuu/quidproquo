@@ -93,7 +93,7 @@ cache size = 2 × 層數 × KV head 數 × head 維度 × 每數位元組 × tok
 
 最後一列有個安全但書值得記：**跨使用者共享 cache 已經開出 timing side-channel，可能洩漏他人 prompt 的資訊。** 便宜不是沒有代價的。
 
-## 對本地工作流的一個推論
+## 對本地工作流程的一個推論
 
 如果你也在用 `CLAUDE.md` / `AGENTS.md` 這類檔案，這一篇有個直接的推論：**它們是 config 層，不是 memory 層。**
 

@@ -19,7 +19,7 @@ series:
 
 ---
 
-## Stripe Minions — 每週 1,300 PRs 的 Slack Emoji 工作流
+## Stripe Minions — 每週 1,300 PRs 的 Slack Emoji 工作流程
 
 Stripe 的 Minions 是目前公開資訊最完整的內部 coding agent，由工程師 Steve Kaliski 的團隊打造，2026 年 2 月正式對外分享技術細節。
 

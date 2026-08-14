@@ -60,4 +60,4 @@ git add -A && git commit -m "Checkpoint: before refactor"
 - [Git Internals — git commit 文件](https://git-scm.com/docs/git-commit) — git commit 機制官方文件，理解 checkpoint 底層實作
 - [Git Worktree 官方文件](https://git-scm.com/docs/git-worktree) — git worktree 指令參考，搭配 checkpoint 做 sub-agent 隔離
 - [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 中 sandbox 設定，與 checkpoint 組合形成雙重保護
-- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Claude Code 整體架構概覽，了解 checkpoint 在 agentic 工作流中的角色
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Claude Code 整體架構概覽，了解 checkpoint 在 agentic 工作流程中的角色

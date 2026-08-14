@@ -178,7 +178,7 @@ Ollama 0.18.3
 
 Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。官方文件列出 18 個整合工具：Claude Code、Codex、Cline、OpenClaw、VS Code、JetBrains、Xcode、Zed、Roo Code、OpenCode、Droid、Pi、Goose、Marimo、n8n、NemoClaw、Onyx 等。沒安裝的工具會顯示安裝指令。
 
-這個設計很聰明——Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的 launcher 等於是在搶佔開發者工作流的入口位置。
+這個設計很聰明——Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的 launcher 等於是在搶佔開發者工作流程的入口位置。
 
 ---
 

@@ -6,7 +6,7 @@ category: tech
 tags: [claude-code, ai, gstack, skills, vibe-coding]
 lang: zh-TW
 tldr: "gstack 是 Garry Tan 開源的 Claude Code skills 工具集，用 20 個專業 skill 把一個人變成一整個工程團隊——從產品規劃、設計審查、code review、QA 到部署，全部自動化。"
-description: "介紹 Garry Tan 的 gstack 開源專案：它的設計哲學、20 個 skill 怎麼串成開發流水線、安裝方式，以及它對 solo developer 工作流的啟示。"
+description: "介紹 Garry Tan 的 gstack 開源專案：它的設計哲學、20 個 skill 怎麼串成開發流水線、安裝方式，以及它對 solo developer 工作流程的啟示。"
 draft: false
 ---
 
@@ -195,7 +195,7 @@ gstack 的核心想法是：**把軟體開發的每個角色都變成一個可�
 
 這對 solo developer 或小團隊最有價值——你不需要真的有 tech lead、designer、QA，你只需要在對的時機呼叫對的 skill。當然，AI 的審查不等於人的審查，但對一個人的專案來說，有流程總比沒流程好。
 
-54,000+ stars 代表這個方向踩到了需求。至於 10,000–20,000 LOC/day 的數字，看看就好——行數從來不是衡量產出的好指標。真正有意思的是這套工作流本身：它示範了一種把 AI coding assistant 從「問答工具」升級成「開發流水線」的思路。
+54,000+ stars 代表這個方向踩到了需求。至於 10,000–20,000 LOC/day 的數字，看看就好——行數從來不是衡量產出的好指標。真正有意思的是這套工作流程本身：它示範了一種把 AI coding assistant 從「問答工具」升級成「開發流水線」的思路。
 
 ---
 

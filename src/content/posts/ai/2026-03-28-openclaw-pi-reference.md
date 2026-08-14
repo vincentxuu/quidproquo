@@ -84,7 +84,7 @@ Pi 的設定透過 OpenClaw 的 `agents.defaults` 和 `agents.list[]` 傳遞。
 | Exec | 3 種安全等級 + approval |
 | Skills | 6 層優先順序 + ClawHub |
 | Sub-agent | 最大 5 層巢狀 |
-| Lobster | 確定性工作流 runtime |
+| Lobster | 確定性工作流程 runtime |
 | TTS | 3 家 provider |
 | PDF | Native + extraction |
 
@@ -215,7 +215,7 @@ openclaw plugins status       # 狀態
 
 ## 整體來說
 
-這篇是整個系列的參考索引。OpenClaw 的功能覆蓋面很廣——從 24+ 頻道到 35+ 模型供應商，從沙箱到形式驗證，從 Skills 市場到確定性工作流。大部分人只需要用到其中 20% 的功能，但知道有什麼可用是重要的。
+這篇是整個系列的參考索引。OpenClaw 的功能覆蓋面很廣——從 24+ 頻道到 35+ 模型供應商，從沙箱到形式驗證，從 Skills 市場到確定性工作流程。大部分人只需要用到其中 20% 的功能，但知道有什麼可用是重要的。
 
 ## 參考資料
 

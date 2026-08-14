@@ -118,7 +118,7 @@ Playbook 唯一的免責是兩段之後一句「AI scans are an aid but not a su
 
 | 角色 | 怎麼讀 |
 |---|---|
-| 第一次創業、想知道 AI 時代工作流 | 直接讀，特別看 Idea / MVP 兩章 |
+| 第一次創業、想知道 AI 時代工作流程 | 直接讀，特別看 Idea / MVP 兩章 |
 | 有 domain expertise 無工程背景 | Scale 章節 moat 三條腿值得抄筆記 |
 | 已過 PMF 的成長期團隊 | 跳到 Launch 章節看 founder-bottleneck audit 練習 |
 | 處理 regulated data（醫療／金融／支付） | **不要照 Launch 章節做合規** — 用 Claude.ai Enterprise，不要用 Cowork |

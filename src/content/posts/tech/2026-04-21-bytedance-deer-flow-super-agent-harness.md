@@ -77,7 +77,7 @@ DeerFlow 不是孤立的系統，它特別重視和既有 IM 與觀測工具的�
 | 模型 | OpenAI、OpenRouter、本地 vLLM 等 |
 | Coding Agent | 提供 `claude-to-deerflow` 技能，從 Claude Code 直接與 DeerFlow 實例互動 |
 
-Claude Code 整合這點蠻有意思——你可以在 Claude Code 裡呼叫 DeerFlow 跑長時任務，拿回結果繼續用。等於把 Claude Code 的互動式工作流和 DeerFlow 的長跑能力串起來。
+Claude Code 整合這點蠻有意思——你可以在 Claude Code 裡呼叫 DeerFlow 跑長時任務，拿回結果繼續用。等於把 Claude Code 的互動式工作流程和 DeerFlow 的長跑能力串起來。
 
 ## 快速啟動
 
@@ -110,7 +110,7 @@ make dev        # 啟動開發服務
 - **技能系統**：把工具、提示詞、流程打包成一個單位，而不是散落的 tool functions
 - **可觀測性預接**：LangSmith/Langfuse 開箱即用
 
-反過來說，如果你只是要做一個輕量的工作流（比如「查資料→寫報告」這種三步驟的），直接用 LangGraph 可能更單純。DeerFlow 的設計目標是**長跑、多子代理、需要 IM 介面**的任務。
+反過來說，如果你只是要做一個輕量的工作流程（比如「查資料→寫報告」這種三步驟的），直接用 LangGraph 可能更單純。DeerFlow 的設計目標是**長跑、多子代理、需要 IM 介面**的任務。
 
 ## 安全考量
 

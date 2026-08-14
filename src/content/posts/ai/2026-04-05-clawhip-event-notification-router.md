@@ -171,7 +171,7 @@ clawhip status   # 檢查健康狀態
 | 發佈平台 | crates.io |
 | 維護者 | Yeachan Heo |
 
-相比 OMC 和 OMX 的萬級 star 數，clawhip 的 543 stars 看起來不多。但這符合它的定位——它是基礎設施工具，不是面向終端使用者的產品。用它的人是已經在跑多 Agent 工作流、需要系統化通知的開發者。
+相比 OMC 和 OMX 的萬級 star 數，clawhip 的 543 stars 看起來不多。但這符合它的定位——它是基礎設施工具，不是面向終端使用者的產品。用它的人是已經在跑多 Agent 工作流程、需要系統化通知的開發者。
 
 ## 在 UltraWorkers 生態系中的位置
 
@@ -194,5 +194,5 @@ OMC、OMX、OmO 負責讓 Agent 做事，clawhip 負責讓人知道 Agent 在做
 
 - [clawhip GitHub Repository](https://github.com/Yeachan-Heo/clawhip)
 - [clawhip on crates.io](https://crates.io/crates/clawhip)
-- [oh-my-codex 工作流增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [oh-my-codex 工作流程增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
 - [Claw Code 開源 Rust 版 Claude Code 介紹](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation)

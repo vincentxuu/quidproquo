@@ -106,7 +106,7 @@ notebooklm skill install
 
 notebooklm-py 的核心取捨很明確：用逆向工程換來完整的程式化存取能力，代價是穩定性依賴 Google 不改動內部協議。
 
-適合的場景：原型開發、研究、批量處理（例如一次幫 20 份文件生成 podcast 音訊）、或是把 NotebookLM 整合進 AI agent 工作流。
+適合的場景：原型開發、研究、批量處理（例如一次幫 20 份文件生成 podcast 音訊）、或是把 NotebookLM 整合進 AI agent 工作流程。
 
 不適合的場景：生產環境、對穩定性有嚴格要求的服務。Google 改一個 RPC ID，整個功能就會壞掉。
 

@@ -150,7 +150,7 @@ Agent 之間**不直接溝通**。每個 agent：
 
 | 維度 | ChemistryTimes | claude-sub-agent |
 |------|----------------|------------------|
-| Orchestrator 角色 | 主動調度所有 agent | 設計工作流但不直接調度 |
+| Orchestrator 角色 | 主動調度所有 agent | 設計工作流程但不直接調度 |
 | Agent 溝通 | 透過 orchestrator 中轉 | 透過檔案系統 handoff |
 | 品質閘門 | 3 道，binary pass/fail | 3 道，分數制 + 回溯重做 |
 | 平行執行 | Phase 4 有平行 | 完全序列 |

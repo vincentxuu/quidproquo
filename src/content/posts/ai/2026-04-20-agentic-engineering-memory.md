@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-Cisco 工程師今年四月在 LangChain blog 發了一篇文章，描述他們如何用多 agent 協作系統把 debug 工作流的 time-to-root-cause 縮短 93%，一個月省下 200 多人工小時。他們用的技術棧：LangGraph + LangSmith + LangMem。
+Cisco 工程師今年四月在 LangChain blog 發了一篇文章，描述他們如何用多 agent 協作系統把 debug 工作流程的 time-to-root-cause 縮短 93%，一個月省下 200 多人工小時。他們用的技術棧：LangGraph + LangSmith + LangMem。
 
 其中最常被略過的是 **LangMem**。大家看到漂亮的數字就直接衝去看 LangGraph，但記憶系統才是讓 agent 能跨 session 積累知識的關鍵。沒有它，每次呼叫都是失憶的開始。
 

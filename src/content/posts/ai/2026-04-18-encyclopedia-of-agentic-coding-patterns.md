@@ -132,7 +132,7 @@ Patterns 給你的，是更快抵達判斷的路徑。你更快認出眼前的�
 
 **Nontraditional builders**：第一次有機會參與軟體建造。你不需要會寫 for loop，但你需要理解為什麼 separation of concerns 重要，什麼是 test，以及如何評估 agent 交出來的東西是否解決了你問的問題。
 
-**Developers whose role is shifting**：你已經知道這些材料的大部分。改變的是工作流程——你在 directing agents、在更高的抽象層設計系統，讓實作在你下面發生。這本書把你已有的基礎連接到 agentic 工作流，並填補你在工作中學到的、而非從第一原理學到的那些空缺。
+**Developers whose role is shifting**：你已經知道這些材料的大部分。改變的是工作流程——你在 directing agents、在更高的抽象層設計系統，讓實作在你下面發生。這本書把你已有的基礎連接到 agentic 工作流程，並填補你在工作中學到的、而非從第一原理學到的那些空缺。
 
 **Team leads, product managers, founders**：你在指導和評估工作。在 agent loop 裡，指導的品質直接決定輸出的品質。一個能用 boundary、invariant、acceptance criteria 表達需求的 PM，會從 agent-augmented 的團隊拿到更好的結果。
 

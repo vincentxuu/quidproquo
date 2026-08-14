@@ -110,7 +110,7 @@ AWS 官方產品（前身是 **Amazon Q Developer CLI**），提供 IDE（Code O
 
 Cursor AI IDE 推出的獨立 CLI，一行安裝：`curl https://cursor.com/install -fsS | bash`。定位是「在任何環境交付程式碼」——不需要開 IDE，直接在 terminal 跑 agent。
 
-核心設計：支援所有 Cursor 模型（Claude Opus 4.6、GPT-5.2、Gemini 3 Pro、Grok 等）；**Shell Mode** 讓 agent 直接執行 shell 指令並顯示輸出；**Headless 模式**適合 CI pipeline 和腳本自動化；**GitHub Actions 整合**可觸發 nightly docs update、安全審查等工作流；MCP 整合。
+核心設計：支援所有 Cursor 模型（Claude Opus 4.6、GPT-5.2、Gemini 3 Pro、Grok 等）；**Shell Mode** 讓 agent 直接執行 shell 指令並顯示輸出；**Headless 模式**適合 CI pipeline 和腳本自動化；**GitHub Actions 整合**可觸發 nightly docs update、安全審查等工作流程；MCP 整合。
 
 可獨立使用，不需要搭配 Cursor IDE，適合 CI/CD 自動化或想在 terminal 用 Cursor 訂閱模型的開發者。官網：[cursor.com/cli](https://cursor.com/cli)
 

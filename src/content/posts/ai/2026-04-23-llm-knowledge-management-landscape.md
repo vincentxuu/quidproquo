@@ -10,7 +10,7 @@ description: "整理 Karpathy llm-wiki 模式的核心概念，以及目前開�
 draft: false
 ---
 
-2026 年 4 月，Andrej Karpathy 在 X 上分享了一個工作流轉變：他不再只用 LLM 生成程式碼，而是用它來建立並維護個人知識庫。他把這套做法叫做 **llm-wiki**，原始 gist 幾天內突破 5000 星。
+2026 年 4 月，Andrej Karpathy 在 X 上分享了一個工作流程轉變：他不再只用 LLM 生成程式碼，而是用它來建立並維護個人知識庫。他把這套做法叫做 **llm-wiki**，原始 gist 幾天內突破 5000 星。
 
 這篇文章整理 llm-wiki 的核心概念，以及目前開源社群圍繞它長出的生態。如果你對 Karpathy 框架本身和三種實踐模式（知識庫 / 經驗庫 / 部落格）有興趣，可以先看 [[llm-knowledge-vault]]。
 

@@ -134,7 +134,7 @@ Claw Code 最特別的地方不只是它做了什麼，而是**它怎麼被做�
 | 工具 | 角色 |
 |------|------|
 | **clawhip** | 事件/通知路由器，監聽 git commits、tmux sessions、GitHub issues |
-| **oh-my-codex (OmX)** | 將指令轉化為結構化多 Agent 執行的工作流層 |
+| **oh-my-codex (OmX)** | 將指令轉化為結構化多 Agent 執行的工作流程層 |
 | **oh-my-openagent (OmO)** | 多 Agent 協調——規劃、交接、review 迴圈 |
 
 3 位作者、292 次 commits、5 天——這個速度本身就是對「AI Agent 能不能寫 production-quality 的軟體」這個問題的一次公開回答。
@@ -187,4 +187,4 @@ Claw Code 最特別的地方不只是它做了什麼，而是**它怎麼被做�
 - [Claw Code GitHub Repository](https://github.com/ultraworkers/claw-code)
 - [oh-my-codex GitHub Repository](https://github.com/Yeachan-Heo/oh-my-codex)
 - [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code)
-- [oh-my-codex 工作流增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [oh-my-codex 工作流程增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)

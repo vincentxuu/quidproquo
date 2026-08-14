@@ -6,7 +6,7 @@ category: ai
 tags: [agent, architecture, harness, multi-agent, mcp, context-engineering, guide]
 lang: zh-TW
 tldr: "AI Agent 不是一個技術，是一整個架構體系。本文是系統化導航：從 Agent 三支柱（Context/Cognition/Action）出發，穿過 AI 工程三階段演化（Prompt → Context → Harness），到八種 Multi-Agent 設計模式和生產級 Harness 基礎設施。每個主題都有對應專文深入。"
-description: "AI Agent 架構的系統化導航指南：Agent 三支柱模型、AI 工程三階段演化、Context Engineering、Prompt Engineering、Google 八種 Multi-Agent 模式、Anthropic Harness 設計、LangGraph 工作流、MCP 標準化協定、Agent Memory、聊天機器人開發，以及可觀測性。"
+description: "AI Agent 架構的系統化導航指南：Agent 三支柱模型、AI 工程三階段演化、Context Engineering、Prompt Engineering、Google 八種 Multi-Agent 模式、Anthropic Harness 設計、LangGraph 工作流程、MCP 標準化協定、Agent Memory、聊天機器人開發，以及可觀測性。"
 draft: false
 ---
 
@@ -83,7 +83,7 @@ draft: false
 | 4 | Prompt Engineering | 系統化的 prompt 設計和迭代方法論 | Cognition 支柱 |
 | 5 | Harness Engineering | LLM 和應用之間的控制層 | 控制層 |
 | 6 | Multi-Agent 模式 | Google 的八種 Agent 協作拓撲 | 架構模式 |
-| 7 | LangGraph | 圖結構的 Agent 工作流框架 | 執行框架 |
+| 7 | LangGraph | 圖結構的 Agent 工作流程框架 | 執行框架 |
 | 8 | MCP | AI 工具呼叫的 USB-C 標準 | Action 支柱 |
 | 9 | Agent Memory | 從唯讀 RAG 到讀寫記憶 | Context 支柱 |
 | 10 | 聊天機器人開發 | 所有主題的整合實戰 | 生產化 |
@@ -244,7 +244,7 @@ Harness Engineering 是 2026 年 AI 工程最重要的主題，因為它直接�
 
 ## 7. LangGraph 工作流程
 
-LangGraph 是 LangChain 團隊推出的 Agent 工作流框架，核心理念是：**用圖結構來定義 Agent 的控制流程。**
+LangGraph 是 LangChain 團隊推出的 Agent 工作流程框架，核心理念是：**用圖結構來定義 Agent 的控制流程。**
 
 傳統的 Agent 框架（像 LangChain 的 AgentExecutor）是把 Agent 包在一個 while loop 裡，讓 LLM 自己決定每一步要做什麼。LangGraph 不一樣——它要求你明確定義節點（node）和邊（edge），把 Agent 的行為變成一個有向圖。
 

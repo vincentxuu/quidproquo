@@ -120,7 +120,7 @@ OMC 支援自訂 Skill——可攜式的 YAML / Markdown 檔案，當觸發條�
 ~/.omc/skills/   # 全域 Skill
 ```
 
-內建 Skill 包括 Playwright（瀏覽器自動化）和 Git Master（原子化 commit）。你可以根據團隊的工作流自訂更多 Skill。
+內建 Skill 包括 Playwright（瀏覽器自動化）和 Git Master（原子化 commit）。你可以根據團隊的工作流程自訂更多 Skill。
 
 ## 通知與整合
 
@@ -200,4 +200,4 @@ OMC 是 UltraWorkers 生態系中專門針對 Claude Code 的協調層。四個�
 - [oh-my-claudecode Documentation](https://yeachan-heo.github.io/oh-my-claudecode-website)
 - [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code)
 - [clawhip 事件通知路由器介紹](/posts/ai/2026-04-05-clawhip-event-notification-router)
-- [oh-my-codex 工作流增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+- [oh-my-codex 工作流程增強層介紹](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)

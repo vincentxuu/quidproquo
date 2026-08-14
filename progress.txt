@@ -72,7 +72,11 @@ Recently completed
   工作流 48／天花板 39／阻塞 11）根本不在表上。做了 scripts/check-tw-usage.mjs
   兩層詞表並接進 pnpm verify（只掃改動檔，全站 184 處待清用 pnpm audit:tw-usage
   稽核）。post / post-review / post-update 三個 skill 與憲章 §3 同步更新。
-  **仍開**：既有語料那 184 處沒清，需要人判斷（質量=物理、天花板=台灣也用的比喻）。
+  兩批清完（長尾 26 處 + 工作流 109／一個量級 5），全站硬擋命中 184 → 3。
+  **教訓**：兩字詞的詞表一定要先驗 guard——審計部／信號彈／物理質量／數量級／
+  重量級／產品類別六類誤報都是分批稽核時才撞出來的。**仍開**：剩下的多是人工
+  判讀層（224 處，天花板／項目為大宗），不擋 commit，碰到該檔再處理；硬擋層剩
+  3 處（打印 1／激活 2，都是 ML 術語語境，待判斷）。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 

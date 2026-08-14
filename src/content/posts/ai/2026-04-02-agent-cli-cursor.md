@@ -154,7 +154,7 @@ Cursor CLI 特別適合以下族群：
 - **CI/CD 自動化需求**——原生 GitHub Actions 支援，多種輸出格式，適合整合進現有 pipeline
 - **長時間任務場景**——Cloud Handoff 讓你不必一直盯著 terminal，任務可以在背景或雲端繼續
 
-如果你是純 terminal 使用者、不用 IDE，Claude Code 或 Gemini CLI 可能更貼合你的工作流。但如果你的工作橫跨 IDE 和終端機，Cursor CLI 提供了目前最完整的跨場景整合。
+如果你是純 terminal 使用者、不用 IDE，Claude Code 或 Gemini CLI 可能更貼合你的工作流程。但如果你的工作橫跨 IDE 和終端機，Cursor CLI 提供了目前最完整的跨場景整合。
 
 ## 系列文章
 

@@ -57,7 +57,7 @@ goose 的核心用 **Rust** 寫成，UI 層用 **TypeScript（React）**，這�
 它提供三種使用方式：
 
 - **Desktop App**：macOS、Linux、Windows 原生應用程式，GUI 介面
-- **CLI**：終端機工作流，`goose session` 開始一段對話
+- **CLI**：終端機工作流程，`goose session` 開始一段對話
 - **API**：可嵌入自己的應用程式
 
 對開發者來說，CLI 是主力。對非技術使用者，Desktop App 降低了門檻。
@@ -152,7 +152,7 @@ Claude Code 的優勢在深度整合 Claude 模型和 Anthropic 生態；Cursor 
 - 企業需要自架、管控 AI 工具存取的場景
 - 已有 ChatGPT 或 Claude 訂閱、不想再另付 API 費用的個人開發者
 - 需要在多個 LLM 供應商之間切換、比較效果的研究者
-- 想要不依賴特定 IDE 的終端機工作流
+- 想要不依賴特定 IDE 的終端機工作流程
 
 不適合的場景：如果你本來就是 Claude Code 重度使用者，且不需要切換模型，goose 提供的額外彈性未必值得遷移成本。
 

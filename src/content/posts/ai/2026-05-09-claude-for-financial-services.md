@@ -36,9 +36,9 @@ plugins/
 
 對 RAG 系統的啟示：你的 `chat.ts` SSE endpoint 跟未來可能要暴露的 `POST /api/agent/run` batch endpoint，應該共用同一份 graph 定義。差別只在 stream output 的 transport，不在 agent 邏輯本身。
 
-## 12 個 Named Agent：以工作流為切分單位
+## 12 個 Named Agent：以工作流程為切分單位
 
-repo 把 Agent 分成四個業務類別，但更值得注意的是切分粒度——每個 Agent 都是 **end-to-end 工作流**，不是單一技能。
+repo 把 Agent 分成四個業務類別，但更值得注意的是切分粒度——每個 Agent 都是 **end-to-end 工作流程**，不是單一技能。
 
 | 類別 | Agents |
 |------|--------|
@@ -136,7 +136,7 @@ plugins/agent-plugins/pitch-agent/
 
 `anthropics/financial-services` 不是「Claude 在金融業多厲害」的 demo，是 Anthropic 對「企業級 Agent 系統該長什麼樣」的具體主張：
 
-- **Agent 是工作流，不是技能**——以業務職責為單位切分
+- **Agent 是工作流程，不是技能**——以業務職責為單位切分
 - **Prompt 與 runtime 解耦**——Cowork 與 API 共用定義
 - **資料層必須可抽換**——MCP connector 是強制設計
 - **降低貢獻門檻優先於型別安全**——純檔案、無 build step

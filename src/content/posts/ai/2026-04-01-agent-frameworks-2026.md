@@ -39,10 +39,10 @@ draft: false
 
 **Repo:** [n8n-io/n8n](https://github.com/n8n-io/n8n)｜**語言:** TypeScript｜**授權:** Fair-code (Sustainable Use License)
 
-視覺化工作流自動化平台，400+ 整合，2026 年全面加入 AI agent 能力。不是傳統意義的 agent framework，但它讓不寫程式的人也能建 agent pipeline，而且自架方案完全控制資料。
+視覺化工作流程自動化平台，400+ 整合，2026 年全面加入 AI agent 能力。不是傳統意義的 agent framework，但它讓不寫程式的人也能建 agent pipeline，而且自架方案完全控制資料。
 
 **核心特色：**
-- 拖拉式 agent 工作流設計
+- 拖拉式 agent 工作流程設計
 - 400+ 內建整合（Gmail、Slack、資料庫、API）
 - 可自架（self-host），資料不離開你的環境
 - 支援自訂 code node 混合視覺化流程
@@ -50,7 +50,7 @@ draft: false
 
 **適用場景：** 非工程師的 AI 自動化、企業內部流程自動化、快速串接多個服務的 agent。
 
-**跟 Dify 的差別：** n8n 偏通用工作流自動化（不只 AI），Dify 專注 LLM 應用。
+**跟 Dify 的差別：** n8n 偏通用工作流程自動化（不只 AI），Dify 專注 LLM 應用。
 
 ---
 
@@ -58,10 +58,10 @@ draft: false
 
 **Repo:** [langgenius/dify](https://github.com/langgenius/dify)｜**語言:** Python / TypeScript｜**授權:** Apache 2.0
 
-低代碼 LLM 應用開發平台。2026 年 3 月拿到 $30M Pre-A 輪，280 家企業、1.4M 部署。內建 RAG pipeline 管理、工作流編排、多模型支援，原生整合 MCP。
+低代碼 LLM 應用開發平台。2026 年 3 月拿到 $30M Pre-A 輪，280 家企業、1.4M 部署。內建 RAG pipeline 管理、工作流程編排、多模型支援，原生整合 MCP。
 
 **核心特色：**
-- 視覺化工作流 builder
+- 視覺化工作流程 builder
 - 內建 RAG pipeline 管理
 - 支援 OpenAI、Anthropic 等多個模型供應商
 - 原生 MCP 整合（可把 Dify agent 暴露為 MCP server）
@@ -86,7 +86,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 **適用場景：** 需要最大彈性的 LLM 應用、RAG 系統、作為其他框架的底層。
 
-**跟 LangGraph 的關係：** LangChain 是元件庫，LangGraph 是編排引擎。需要複雜工作流用 LangGraph，簡單 agent 用 LangChain 就夠。
+**跟 LangGraph 的關係：** LangChain 是元件庫，LangGraph 是編排引擎。需要複雜工作流程用 LangGraph，簡單 agent 用 LangChain 就夠。
 
 ---
 
@@ -122,7 +122,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 **適用場景：** 多角色協作的業務自動化、內容生成 pipeline、研究分析。
 
-**跟 LangGraph 的差別：** CrewAI 上手快、適合角色分工明確的場景；LangGraph 更適合需要精細狀態控制的複雜工作流。
+**跟 LangGraph 的差別：** CrewAI 上手快、適合角色分工明確的場景；LangGraph 更適合需要精細狀態控制的複雜工作流程。
 
 ---
 
@@ -167,16 +167,16 @@ Hugging Face 出品的極簡 agent 框架。核心程式碼只有約 1,000 行�
 
 **Repo:** [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)｜**語言:** Python / JavaScript｜**授權:** MIT｜**PyPI 月下載:** 38M+
 
-LangChain 團隊的 agent 編排引擎。2025 年底達到 v1.0，成為 LangChain 所有 agent 的預設 runtime。核心概念是把 agent 工作流建模成有向圖——節點是動作，邊是轉移，支援條件分支和循環。
+LangChain 團隊的 agent 編排引擎。2025 年底達到 v1.0，成為 LangChain 所有 agent 的預設 runtime。核心概念是把 agent 工作流程建模成有向圖——節點是動作，邊是轉移，支援條件分支和循環。
 
 **核心特色：**
-- 狀態圖（state graph）工作流建模
+- 狀態圖（state graph）工作流程建模
 - Durable execution——失敗可恢復、自動重試
 - 人機協作（human-in-the-loop）
 - 檢查點（checkpointing）和 time-travel debugging
 - LangSmith 整合（tracing、monitoring）
 
-**適用場景：** 複雜多步驟 agent 工作流、需要精細流程控制、生產級部署。
+**適用場景：** 複雜多步驟 agent 工作流程、需要精細流程控制、生產級部署。
 
 **Stars 只有 24k 但月下載 38M，是下載量最高的 agent 框架。Stars 低是因為很多人透過 LangChain 間接使用它。**
 
@@ -298,7 +298,7 @@ Anthropic 官方 SDK，驅動 Claude Code 的同一個 agent harness。2026 年 
 | 已經用 OpenAI | OpenAI Agents SDK |
 | 已經用 Claude | Claude Agent SDK |
 | Google Cloud 生態 | Google ADK |
-| 需要複雜狀態工作流 | LangGraph |
+| 需要複雜狀態工作流程 | LangGraph |
 | 多角色團隊協作 | CrewAI |
 | 不想寫程式 | Dify 或 n8n |
 | 要最小依賴 | SmolAgents |

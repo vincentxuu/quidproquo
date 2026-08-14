@@ -6,7 +6,7 @@ category: ai
 tags: [agentic-engineering, multi-agent, langgraph, langsmith, a2a, mcp, worker-agent, leader-agent]
 lang: zh-TW
 tldr: "Agentic Engineering 不是讓 AI 寫更快的程式碼，而是讓軟體更快走完整個交付流程——透過多 agent 協作，壓縮跨團隊的協作摩擦。"
-description: "Cisco 工程師的實戰報告：用 LangGraph + LangSmith + LangMem 建出 multi-agent 系統，debug 工作流縮短 93%、開發流程加速 65%。拆解 Worker Agent、Leader Agent 的架構設計，以及 A2A、MCP、CLI 的接入選擇。"
+description: "Cisco 工程師的實戰報告：用 LangGraph + LangSmith + LangMem 建出 multi-agent 系統，debug 工作流程縮短 93%、開發流程加速 65%。拆解 Worker Agent、Leader Agent 的架構設計，以及 A2A、MCP、CLI 的接入選擇。"
 draft: false
 series:
   name: "AI Agent 實戰"
@@ -66,7 +66,7 @@ Leader 不執行任務，負責協調與治理：
 Cisco 評估了多個框架後選擇 LangGraph + LangSmith + LangMem，理由是它們把三個對 production 最重要的事情當作一等公民：
 
 **LangGraph**——狀態管理和流程編排
-- 每個 Worker 的工作流是一個 stateful graph
+- 每個 Worker 的工作流程是一個 stateful graph
 - 支援 checkpoint 和 retry（中途失敗不用從頭來）
 - 可以在任何節點暫停，等待人工確認後繼續
 
@@ -76,14 +76,14 @@ Cisco 評估了多個框架後選擇 LangGraph + LangSmith + LangMem，理由是
 - 這是 Agentic Engineering 能被信任部署在 production 的基礎
 
 **LangMem**——長期記憶
-- 跨 session 保存工作流歷史、團隊偏好、過去的解法
+- 跨 session 保存工作流程歷史、團隊偏好、過去的解法
 - 讓 Worker Agent 能從過去的執行中學習，而不是每次都從零開始
 
 ---
 
 ## 一個完整的執行流程
 
-以開發工作流為例，Worker Agent 和 IDE 裡的 AI coding agent 協作的四個階段：
+以開發工作流程為例，Worker Agent 和 IDE 裡的 AI coding agent 協作的四個階段：
 
 ```
 1. Intent Analysis
@@ -126,15 +126,15 @@ MCP 相較 CLI 的核心優勢是**通訊方向**：CLI 只能 Worker → Claude
 
 ## 實驗數據
 
-Cisco 在內部跑了兩類工作流的 pilot：
+Cisco 在內部跑了兩類工作流程的 pilot：
 
-**Debug 工作流**（20+ 個跨團隊 triage 案例）
+**Debug 工作流程**（20+ 個跨團隊 triage 案例）
 - **93% 的 time-to-root-cause 縮減**
 - 多個跨團隊調查在 5 分鐘內完成
 - 512 場 session、70 位使用者，**一個月省下 200+ 人工小時**
 - QA 團隊獨立評估：品質沒有下降
 
-**開發工作流**（15+ 個案例）
+**開發工作流程**（15+ 個案例）
 - **65% 執行時間縮減**
 - 關鍵收益不是程式碼生成更快（coding agent 本來就快），而是 **PR merge 後的下游測試被壓縮**
 - 最終瓶頸：**人類 code review**
@@ -161,7 +161,7 @@ Agentic Engineering 的核心取捨很清楚：你要接受更高的架構複雜
 
 它不適合所有團隊。如果你的交付瓶頸在於「寫程式碼太慢」，一個好的 coding agent 就夠了。如果你的瓶頸在於「跨團隊協作太慢、上下文傳遞太耗時、下游測試卡太久」，那 Agentic Engineering 的多 agent 架構才真正有意義。
 
-從最小路徑開始：選一個真實的內部工作流（debug triage 是好的起點），跑通 Worker Agent 的四個節點，加上 LangSmith 追蹤，看看數字說什麼。
+從最小路徑開始：選一個真實的內部工作流程（debug triage 是好的起點），跑通 Worker Agent 的四個節點，加上 LangSmith 追蹤，看看數字說什麼。
 
 ---
 

@@ -6,7 +6,7 @@ category: ai
 tags: [claude-code, plugin, octopus, multi-model, consensus, orchestration, dark-factory]
 lang: zh-TW
 tldr: "Claude Octopus 是一個 Claude Code plugin，能同時叫 Codex、Gemini、Copilot、Qwen、Ollama、Perplexity、OpenRouter 和 Claude 一起看同一份 code，用 75% 共識門檻找單模型的盲點。內建 32 個 persona、48 個 /octo:* slash commands、51 個 skill、以及 Dark Factory 全自動 spec-to-code 管線。"
-description: "深入介紹 Claude Code 的 claude-octopus plugin：多模型共識架構、Double Diamond 四階段流程、32 個 persona、Dark Factory 全自動模式，以及它和一般單模型工作流相比的取捨。"
+description: "深入介紹 Claude Code 的 claude-octopus plugin：多模型共識架構、Double Diamond 四階段流程、32 個 persona、Dark Factory 全自動模式，以及它和一般單模型工作流程相比的取捨。"
 draft: false
 ---
 

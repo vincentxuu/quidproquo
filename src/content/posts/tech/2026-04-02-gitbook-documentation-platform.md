@@ -26,7 +26,7 @@ GitBook 是一個讓你用寫 code 的方式管理文件的平台。底層用 Gi
 
 ## 基本設定：GitHub 同步
 
-GitBook 最強的工作流是和 GitHub repo 雙向同步。設定方式：
+GitBook 最強的工作流程是和 GitHub repo 雙向同步。設定方式：
 
 1. 在 GitBook 建立一個 Space
 2. 進入 Space 設定 → Integrations → GitHub
@@ -167,7 +167,7 @@ structure:
 
 ## 結語
 
-GitBook 的定位很清楚：用最低的設定成本，把 Markdown 文件變成一個專業的文件網站。Git 同步讓你不用離開熟悉的工作流，WYSIWYG 編輯器讓非工程師也能貢獻內容。免費方案的功能對大多數場景已經夠用，是目前技術文件平台裡上手最快的選項之一。
+GitBook 的定位很清楚：用最低的設定成本，把 Markdown 文件變成一個專業的文件網站。Git 同步讓你不用離開熟悉的工作流程，WYSIWYG 編輯器讓非工程師也能貢獻內容。免費方案的功能對大多數場景已經夠用，是目前技術文件平台裡上手最快的選項之一。
 
 ## 參考資料
 

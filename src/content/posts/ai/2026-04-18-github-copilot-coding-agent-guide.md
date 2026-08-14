@@ -23,7 +23,7 @@ Copilot Coding Agent 跟 IDE 裡的 Copilot 補全或 Copilot Chat 是完全不�
 | 輸出 | 程式碼片段、建議 | Branch + PR |
 | 適合任務 | 小範圍補全、解釋 | 中型功能、bug fix |
 
-跟其他 coding agent 的最大差異是**完全整合在 GitHub 工作流裡**，不需要另外安裝工具或切換環境。有使用者評價「GitHub 第一次真正做到了 IDE-less 體驗」——你可以在 Issue 指派完就關掉電腦，agent 自己跑完會開 PR 通知你。
+跟其他 coding agent 的最大差異是**完全整合在 GitHub 工作流程裡**，不需要另外安裝工具或切換環境。有使用者評價「GitHub 第一次真正做到了 IDE-less 體驗」——你可以在 Issue 指派完就關掉電腦，agent 自己跑完會開 PR 通知你。
 
 ## 怎麼把 Issue 指派給 Copilot
 
@@ -211,9 +211,9 @@ Copilot Coding Agent 目前開放給 **Copilot Pro+** 和 **Copilot Enterprise**
 
 ## 整體來說
 
-Copilot Coding Agent 的核心取捨是**便利性換控制權**。對已在 GitHub 工作流的團隊，它是最低摩擦的方式把定義清楚的任務交給 AI——不需要改工具鏈、不需要學新 CLI。真正讓它好用的前提是**設好 AGENTS.md**，讓 agent 理解你的 repo 規範；沒有這份文件，agent 容易在第一個 PR 就跑偏，需要大量來回修改。
+Copilot Coding Agent 的核心取捨是**便利性換控制權**。對已在 GitHub 工作流程的團隊，它是最低摩擦的方式把定義清楚的任務交給 AI——不需要改工具鏈、不需要學新 CLI。真正讓它好用的前提是**設好 AGENTS.md**，讓 agent 理解你的 repo 規範；沒有這份文件，agent 容易在第一個 PR 就跑偏，需要大量來回修改。
 
-如果任務是「Issue 開好了、規格明確、有 test coverage，但就是沒時間一個個做」，Copilot Coding Agent 直接插入現有工作流的能力讓它很有競爭力。需要細粒度控制或大規模重構，Claude Code 或本機 agent 還是更合適。
+如果任務是「Issue 開好了、規格明確、有 test coverage，但就是沒時間一個個做」，Copilot Coding Agent 直接插入現有工作流程的能力讓它很有競爭力。需要細粒度控制或大規模重構，Claude Code 或本機 agent 還是更合適。
 
 ## 參考資料
 

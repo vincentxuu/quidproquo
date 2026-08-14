@@ -82,7 +82,7 @@ With RTK:    28K tokens sent to LLM   (40% saved · same context · same answer)
 - **真免費（無限或很大方）**：Kiro AI（含 Claude 4.5 + GLM-5 + MiniMax）、OpenCode Free（無需註冊、自動抓模型清單）、Vertex AI（新 GCP 帳號 $300 credits）。
 - **API Key 40+**：OpenRouter、GLM、Kimi、MiniMax、OpenAI、Anthropic、Gemini、DeepSeek、Groq、xAI、Mistral、Perplexity、Together、Fireworks、Cerebras、Cohere、NVIDIA、SiliconFlow，再加 Nebius、Chutes、Hyperbolic 與任意 OpenAI / Anthropic 相容端點。
 
-便宜層常用的三家（直接從 README 抄定價）：GLM-5.1 / 4.7 約 `$0.60 / 1M token`、MiniMax M2.7 約 `$0.20 / 1M token`、Kimi K2.5 月費 $9 平頭。把訂閱用滿、quota 燒到 0 之後切到這三家，比直接用 Anthropic / OpenAI API 便宜一個量級。
+便宜層常用的三家（直接從 README 抄定價）：GLM-5.1 / 4.7 約 `$0.60 / 1M token`、MiniMax M2.7 約 `$0.20 / 1M token`、Kimi K2.5 月費 $9 平頭。把訂閱用滿、quota 燒到 0 之後切到這三家，比直接用 Anthropic / OpenAI API 便宜一個數量級。
 
 ## 一個務實的注意事項
 

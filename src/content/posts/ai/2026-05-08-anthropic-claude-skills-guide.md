@@ -24,7 +24,7 @@ your-skill-name/
 └── assets/          # 選填：模板、字型、圖示等資源
 ```
 
-跟 system prompt 比起來，Skill 的差別在「composability」與「portability」：可以同時掛多個 Skill，且同一個 Skill 在 Claude.ai、Claude Code、API 三邊行為一致。跟 MCP 比起來，MCP 提供工具存取（API 連線），Skill 提供領域知識（怎麼用這些工具），兩者疊在一起才會變成可靠的工作流。
+跟 system prompt 比起來，Skill 的差別在「composability」與「portability」：可以同時掛多個 Skill，且同一個 Skill 在 Claude.ai、Claude Code、API 三邊行為一致。跟 MCP 比起來，MCP 提供工具存取（API 連線），Skill 提供領域知識（怎麼用這些工具），兩者疊在一起才會變成可靠的工作流程。
 
 ## Progressive Disclosure：三層載入
 
@@ -98,7 +98,7 @@ SKILL.md 主體建議放這幾塊：
 
 **1. 文件與資產生成**：簡報、報告、設計稿、程式碼，套用組織既有規範。例如「公司簡報模板」「程式碼風格」「APA 引用」。Skill 把這些隱性標準寫死，輸出穩定。
 
-**2. 工作流自動化**：多步驟流程，每一步有驗證。例如「PR 審查流程」「事件回應 runbook」「客戶 onboarding」。價值在於一致的方法論，不是單一輸出。
+**2. 工作流程自動化**：多步驟流程，每一步有驗證。例如「PR 審查流程」「事件回應 runbook」「客戶 onboarding」。價值在於一致的方法論，不是單一輸出。
 
 **3. MCP 加值**：MCP 提供 raw API connectivity，Skill 在上面疊一層領域知識。例如 Salesforce MCP 給你 CRUD，Salesforce Skill 教 Claude 怎麼正確地建 lead、什麼欄位該填什麼。
 
@@ -163,9 +163,9 @@ SKILL.md 主體建議放這幾塊：
 
 ## 整體來說
 
-Claude Skills 解決的不是「能不能做」的問題，而是「能不能穩定做、能不能不重複講」。它的核心取捨是：你願不願意花一次力氣把工作流寫成資料夾結構，換取後續每次對話都不用再交代一遍。
+Claude Skills 解決的不是「能不能做」的問題，而是「能不能穩定做、能不能不重複講」。它的核心取捨是：你願不願意花一次力氣把工作流程寫成資料夾結構，換取後續每次對話都不用再交代一遍。
 
-適合：團隊有共通規範（程式風格、文件模板、審查流程）、跟 MCP 工具搭配的領域工作流、需要在 Claude.ai / Code / API 三邊行為一致的任務。
+適合：團隊有共通規範（程式風格、文件模板、審查流程）、跟 MCP 工具搭配的領域工作流程、需要在 Claude.ai / Code / API 三邊行為一致的任務。
 
 不適合：一次性問題、個人偏好極不穩定（每天都在改）、純創意發想（觸發條件難以定義）。
 

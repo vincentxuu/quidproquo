@@ -43,7 +43,7 @@ glossary:
 貫穿這個分類的 2026 共同引擎是「AI 時代生產力」：效率書被重新框成「怎麼駕馭 AI、守住專注力」。
 
 - **[《原子習慣》](https://www.books.com.tw/products/0010822522)（Atomic Habits，James Clear）**——華文生產力書市定海神針，中文版已刷破 190 刷。2026 年還有讀者[三刷（2023→2025→2026）](https://www.threads.com/@zane_junn/post/DY_tgAjjwn1/)，[6 月仍有新推薦貼文](https://www.threads.com/@zhustudio/post/DVVvgi4E7fU/)；3 月上市的《原子習慣 WORKBOOK》帶動實作討論，「過譽／常識」的反方聲音反而讓話題不斷。
-- **[《12週做完一年工作》](https://www.books.com.tw/products/0010974991)（The 12 Week Year，Brian Moran）**——「把一年壓成 12 週衝刺、放棄年度計畫」的執行力框架，是 Notion 與 AI 工具使用者的最愛。代表討論是 freeshiuan 的[讀後反思](https://www.threads.com/@freeshiuan/post/DHqbMZvSJ1W/)與〈[用 Notion + ChatGPT 建立 12 週計畫](https://freeshiuan.com/the-12-week-year/)〉——直接把方法論接上 AI 工作流。
+- **[《12週做完一年工作》](https://www.books.com.tw/products/0010974991)（The 12 Week Year，Brian Moran）**——「把一年壓成 12 週衝刺、放棄年度計畫」的執行力框架，是 Notion 與 AI 工具使用者的最愛。代表討論是 freeshiuan 的[讀後反思](https://www.threads.com/@freeshiuan/post/DHqbMZvSJ1W/)與〈[用 Notion + ChatGPT 建立 12 週計畫](https://freeshiuan.com/the-12-week-year/)〉——直接把方法論接上 AI 工作流程。
 - **[《深度工作力》](https://www.books.com.tw/products/0010906940)（Deep Work，Cal Newport）**——AI 爆發後討論不減反增的代表，社群框架是「[掌握深度工作，既能駕馭 AI、也不會被 AI 駕馭](https://jamread.com/deep-work/)」：專注力被重新定義成不被取代的護城河。
 - **[《最有生產力的一年》](https://www.books.com.tw/products/0010955850)（The Productivity Project，Chris Bailey）**——作者拿自己做一年實驗、測 25 種生產力技巧。方格子 [2025 年仍有新書評](https://vocus.cc/article/679a2485fd89780001dc1155)，討論角度是生理黃金時段與「成就感而非忙碌感」。
 - **[《人生4千個禮拜》](https://www.books.com.tw/products/0010914255)（Four Thousand Weeks，Oliver Burkeman）**——「生產力書的反生產力書」，[閱讀前哨站](https://readingoutpost.com/4-thousand-weeks/)與[多個書評站](https://bookandyoga.com/four-thousand-weeks/)把它綁著 FOMO 與時間焦慮討論，常被當成讀完一堆效率書之後的解毒劑。

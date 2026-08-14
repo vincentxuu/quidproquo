@@ -45,7 +45,7 @@ cmux 由 [manaflow-ai](https://github.com/manaflow-ai/cmux) 開發，定位是�
 
 **設計哲學**
 
-cmux 的自我定位是 primitive，不是 solution。它提供終端機、瀏覽器、通知、workspace、分割視窗、CLI 控制介面這些基本單元，但不強迫你用特定的工作流。用什麼 agent、怎麼組合，由你決定。
+cmux 的自我定位是 primitive，不是 solution。它提供終端機、瀏覽器、通知、workspace、分割視窗、CLI 控制介面這些基本單元，但不強迫你用特定的工作流程。用什麼 agent、怎麼組合，由你決定。
 
 **核心功能**
 

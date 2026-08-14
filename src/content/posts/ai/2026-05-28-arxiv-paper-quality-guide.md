@@ -29,7 +29,7 @@ arXiv 自 2004 年起要求首次投稿者須經 endorsement。依 [arXiv 官方
 - **重新分類**：移至更適合的類別（移至 `general` 類別在社群中被視為降級）
 - **拒絕投稿**：格式不合、非研究論文（課程作業、研究提案）、抄襲、投稿頻率過高（上限每天 3 篇）
 
-據 [Scientific American 報導](https://www.scientificamerican.com/article/arxiv-org-reaches-a-milestone-and-a-reckoning)，約 6% 投稿被 hold，約 2% 被拒。對比 Nature/Science 低於 10% 的接受率，arXiv 的門檻明顯不在同一個量級。
+據 [Scientific American 報導](https://www.scientificamerican.com/article/arxiv-org-reaches-a-milestone-and-a-reckoning)，約 6% 投稿被 hold，約 2% 被拒。對比 Nature/Science 低於 10% 的接受率，arXiv 的門檻明顯不在同一個數量級。
 
 一旦論文公告，即成為永久學術紀錄。arXiv 僅在授權問題時移除，違反政策時會 withdraw 但 metadata 保留。
 
@@ -87,7 +87,7 @@ Papers With Code 於 2025 年 7 月被 Meta 關閉，曾追蹤 79,817 篇論文�
 | [ar5iv](https://ar5iv.labs.arxiv.org) / arXiv HTML | 論文 HTML 版，比 PDF 好讀好搜尋 | ✅ |
 | [DBLP](https://dblp.org) | 確認作者發表紀錄、查會議論文列表 | ✅ |
 
-### 推薦工作流
+### 推薦工作流程
 
 ```
 發現 ─→ HF Daily Papers / Semantic Scholar / X

@@ -121,7 +121,7 @@ Playwright 所有互動操作都內建 auto-wait：點擊前會等元素 visible
 
 ## 多 tab 管理
 
-@playwright/mcp 支援完整的多 tab 工作流：
+@playwright/mcp 支援完整的多 tab 工作流程：
 
 ```
 browser_tab_new → (在新 tab 做事) → browser_tab_select(原 tab) → browser_tab_close

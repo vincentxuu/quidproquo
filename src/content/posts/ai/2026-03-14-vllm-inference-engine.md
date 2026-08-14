@@ -52,7 +52,7 @@ V1 引擎把 prefix caching **預設開啟且零額外開銷**。即使 cache hi
 適合的場景：
 
 - **多輪對話**：system prompt 只需要算一次
-- **RAG 工作流**：重複的 context 直接命中快取
+- **RAG 工作流程**：重複的 context 直接命中快取
 - **批次處理**：相同 prefix 的 request 共享計算結果
 
 ## 跟其他推論引擎比較

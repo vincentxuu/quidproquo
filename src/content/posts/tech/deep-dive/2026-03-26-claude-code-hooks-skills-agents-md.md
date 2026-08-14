@@ -336,7 +336,7 @@ CLAUDE.md 寫著「commit 前先跑 pre-commit-check skill」，Claude 讀到這
 | 能被繞過？ | `--no-verify` 就跳了 | 不能被繞過（除非改 settings） |
 | 多語言支援 | 需要額外設定 | shell command，什麼都能跑 |
 
-兩者不衝突。如果已經有 husky 且運作良好，留著。如果沒有，也不一定要為了 AI 工作流去裝——CI 是最終防線，Claude Code Hook + Skill 已經覆蓋了 AI 協作場景。
+兩者不衝突。如果已經有 husky 且運作良好，留著。如果沒有，也不一定要為了 AI 工作流程去裝——CI 是最終防線，Claude Code Hook + Skill 已經覆蓋了 AI 協作場景。
 
 ## 整體來說
 
