@@ -181,6 +181,18 @@ async function searchBm25Posts(
   return mapped
 }
 
+function dedupeBySlug(results: PostSearchRow[], limit: number): PostSearchRow[] {
+  const seen = new Set<string>()
+  const deduped: PostSearchRow[] = []
+  for (const row of results) {
+    if (seen.has(row.slug)) continue
+    seen.add(row.slug)
+    deduped.push(row)
+    if (deduped.length >= limit) break
+  }
+  return deduped
+}
+
 export async function searchBlogPosts(args: {
   query: string
   category?: string
@@ -195,7 +207,7 @@ export async function searchBlogPosts(args: {
   const bm25Ms = Date.now() - bm25Started
 
   if (shouldShortCircuitBm25(bm25Results.length, shortCircuit)) {
-    const results = reciprocalRankFuse([bm25Results], limit)
+    const results = dedupeBySlug(reciprocalRankFuse([bm25Results], limit * 3), limit)
     return attachSearchMetrics(results, {
       source: 'posts',
       query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
@@ -215,7 +227,7 @@ export async function searchBlogPosts(args: {
   const vectorResults = await searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[])
   const vectorMs = Date.now() - vectorStarted
 
-  const results = reciprocalRankFuse([vectorResults, bm25Results], limit)
+  const results = dedupeBySlug(reciprocalRankFuse([vectorResults, bm25Results], limit * 3), limit)
   return attachSearchMetrics(results, {
     source: 'posts',
     query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
