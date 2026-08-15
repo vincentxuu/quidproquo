@@ -29,11 +29,11 @@ There are many tools here and the benchmark noise is loud, but I would argue **t
 
 ## Two approaches
 
-**Pipeline systems** break the work into stages: layout detection → block classification → reading order → per-block content recognition (OCR / table structure / formulas). Each stage is swappable, separately debuggable, and can be run partially. [MinerU](https://github.com/opendatalab/MinerU), [Marker](https://github.com/datalab-to/marker), and [Docling](https://github.com/docling-project/docling) all belong here.
+**Pipeline systems** break the work into stages: layout detection → block classification → reading order → per-block content recognition (OCR / table structure / formulas). Each stage is swappable, separately debuggable, and can be run partially. [MinerU](https://github.com/opendatalab/MinerU) (accuracy model upgraded to MinerU2.5-Pro, a 1.2B VLM scoring 90.67 on OmniDocBench), [Marker](https://github.com/datalab-to/marker), and [Docling](https://github.com/docling-project/docling) (donated to the Linux Foundation AI & Data in early 2026, now also offers a VlmPipeline / Granite Docling option) all belong here.
 
-**End-to-end VLMs** hand a full page image to a vision-language model and get Markdown back in one shot. [olmOCR](https://github.com/allenai/olmocr), [dots.ocr](https://github.com/rednote-hilab/dots.ocr), and [Chandra](https://github.com/datalab-to/chandra) take this route. The upside is no multi-stage pipeline to maintain and better adaptation to strange layouts; the downside is that local debugging is hard, and it introduces a failure mode pipelines do not have — hallucination. The [DeepSeek-OCR post](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en) dissects the extreme version of this route.
+**End-to-end VLMs** hand a full page image to a vision-language model and get Markdown back in one shot. [olmOCR](https://github.com/allenai/olmocr), [dots.ocr](https://github.com/studio-dots-ai/dots.ocr), and [Chandra](https://github.com/datalab-to/chandra) take this route. The upside is no multi-stage pipeline to maintain and better adaptation to strange layouts; the downside is that local debugging is hard, and it introduces a failure mode pipelines do not have — hallucination. The [DeepSeek-OCR post](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en) dissects the extreme version of this route.
 
-The boundary is blurring in practice: Marker embeds VLMs inside its pipeline, and MinerU offers a VLM backend. Rather than arguing taxonomy, look at two things — **does it need a GPU**, and **can you run only part of it**.
+The boundary is blurring in practice: Marker embeds VLMs inside its pipeline, MinerU offers a VLM backend, and Docling's new VlmPipeline straddles both approaches. Rather than arguing taxonomy, look at two things — **does it need a GPU**, and **can you run only part of it**.
 
 ## The open-source field today
 
@@ -48,9 +48,9 @@ Stars, licenses, and last-push dates are GitHub API values queried 2026-08-06:
 | [Surya](https://github.com/datalab-to/surya) | 21,215 | Apache-2.0 (code only) | 2026-07-23 |
 | [olmOCR](https://github.com/allenai/olmocr) | 19,231 | Apache-2.0 | 2026-03-25 |
 | [Chandra](https://github.com/datalab-to/chandra) | 11,917 | Apache-2.0 | 2026-06-26 |
-| [dots.ocr](https://github.com/rednote-hilab/dots.ocr) | 9,056 | MIT | 2026-03-24 |
+| [dots.ocr](https://github.com/studio-dots-ai/dots.ocr) | 9,056 | MIT | 2026-03-24 |
 
-Two repos have moved: Marker from `VikParuchuri` to `datalab-to`, and Docling from `DS4SD` to `docling-project`. The old URLs redirect, but new projects should use the new ones.
+Three repos have moved: Marker from `VikParuchuri` to `datalab-to`, Docling from `DS4SD` to `docling-project`, and dots.ocr from `rednote-hilab` to `studio-dots-ai`. Old URLs all redirect, but new projects should use the new ones.
 
 ## Licensing: the real dividing line
 
@@ -123,7 +123,7 @@ The technology will keep converging. License terms will not improve on their own
 - [datalab-to/surya — GitHub](https://github.com/datalab-to/surya)
 - [datalab-to/chandra — GitHub](https://github.com/datalab-to/chandra)
 - [allenai/olmocr — GitHub](https://github.com/allenai/olmocr)
-- [rednote-hilab/dots.ocr — GitHub](https://github.com/rednote-hilab/dots.ocr)
+- [studio-dots-ai/dots.ocr — GitHub](https://github.com/studio-dots-ai/dots.ocr)
 - [PaddlePaddle/PaddleOCR — GitHub](https://github.com/PaddlePaddle/PaddleOCR)
 - [MinerU Open Source License (LICENSE.md)](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)
 - [Datalab On-Prem overview (free-tier thresholds)](https://documentation.datalab.to/docs/on-prem/overview)

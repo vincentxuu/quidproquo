@@ -114,7 +114,7 @@ PyPI 上 `magic-pdf`（v1.3.12）是舊版。它需要的模型包 `PDF-Extract-
 
 ### dots.ocr：需要 vLLM backend
 
-PyPI 包名是 `dots_ocr`，從 GitHub 安裝：`pip install git+https://github.com/rednote-hilab/dots.ocr.git`，但它需要 vLLM backend，CPU 環境無法跑。
+PyPI 包名是 `dots_ocr`，從 GitHub 安裝：`pip install git+https://github.com/studio-dots-ai/dots.ocr.git`，但它需要 vLLM backend，CPU 環境無法跑。
 
 ### Tesseract：0 chars
 
@@ -122,7 +122,7 @@ PyPI 包名是 `dots_ocr`，從 GitHub 安裝：`pip install git+https://github.
 
 ## 為什麼 VLM 類工具效果最好？
 
-[Firecrawl](https://github.com/mendableai/firecrawl) 先用 [pdf-inspector](https://github.com/nicholasgasior/pdf-inspector)（Rust，15.6k stars）在 2ms 內判斷 PDF 是掃描還是文字，做路由分流。對掃描 PDF 使用 Vision Language Model 而非傳統 OCR。從輸出的 LaTeX 公式（`$b_n$`、`$O(n)$`、`\begin{pmatrix}`）可以確認——傳統 OCR 不可能產生這種格式。
+[Firecrawl](https://github.com/mendableai/firecrawl) 先用 [pdf-inspector](https://github.com/firecrawl/pdf-inspector)（Rust）在 2ms 內判斷 PDF 是掃描還是文字，做路由分流。對掃描 PDF 使用 Vision Language Model 而非傳統 OCR。從輸出的 LaTeX 公式（`$b_n$`、`$O(n)$`、`\begin{pmatrix}`）可以確認——傳統 OCR 不可能產生這種格式。
 
 Marker v2 在 pipeline 中嵌入了 [Surya OCR](https://github.com/datalab-to/surya)（VLM-based），所以也能產出 LaTeX。MinerU 3.4 用 UniMERNet 做公式辨識，同屬模型推斷路線。
 
@@ -180,8 +180,8 @@ Marker v2 在 pipeline 中嵌入了 [Surya OCR](https://github.com/datalab-to/su
 - [RapidAI/RapidOCR — GitHub](https://github.com/RapidAI/RapidOCR)
 - [allenai/olmocr — GitHub](https://github.com/allenai/olmocr)
 - [datalab-to/chandra — GitHub](https://github.com/datalab-to/chandra)
-- [rednote-hilab/dots.ocr — GitHub](https://github.com/rednote-hilab/dots.ocr)
-- [nicholasgasior/pdf-inspector — GitHub](https://github.com/nicholasgasior/pdf-inspector)
+- [studio-dots-ai/dots.ocr — GitHub](https://github.com/studio-dots-ai/dots.ocr)
+- [firecrawl/pdf-inspector — GitHub](https://github.com/firecrawl/pdf-inspector)
 - [解析層：當結構要用模型推斷——而授權才是真正的選型軸](/posts/ai/2026-08-06-document-parsing-layout-ocr)
 - [文件解析的三層階梯：轉換、抽取、解析](/posts/ai/2026-08-06-document-parsing-three-layers)
 - [確定性抽取層：不用任何模型，先解決八成的 PDF](/posts/ai/2026-08-06-pdf-text-extraction-libraries)

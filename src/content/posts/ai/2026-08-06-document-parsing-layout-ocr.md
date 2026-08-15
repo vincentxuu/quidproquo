@@ -29,11 +29,11 @@ glossary:
 
 ## 兩種取向
 
-**Pipeline 式**把工作拆成多階段：版面偵測 → 區塊分類 → 閱讀順序 → 各區塊內容識別（OCR／表格結構／公式）。每階段可替換、可單獨除錯、可只跑其中幾段。[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/datalab-to/marker)、[Docling](https://github.com/docling-project/docling) 都屬於這一類。
+**Pipeline 式**把工作拆成多階段：版面偵測 → 區塊分類 → 閱讀順序 → 各區塊內容識別（OCR／表格結構／公式）。每階段可替換、可單獨除錯、可只跑其中幾段。[MinerU](https://github.com/opendatalab/MinerU)（準確度模型已升級為 MinerU2.5-Pro，1.2B VLM，OmniDocBench 90.67）、[Marker](https://github.com/datalab-to/marker)、[Docling](https://github.com/docling-project/docling)（2026 年初捐贈 Linux Foundation AI & Data，現在也提供 VlmPipeline / Granite Docling 選項）都屬於這一類。
 
-**端到端 VLM** 直接把整頁圖片餵給視覺語言模型，讓它一次吐出 Markdown。[olmOCR](https://github.com/allenai/olmocr)、[dots.ocr](https://github.com/rednote-hilab/dots.ocr)、[Chandra](https://github.com/datalab-to/chandra) 走這條路。優點是不需要維護多階段管線、對怪異版面適應性好；缺點是難以局部除錯，而且會產生 pipeline 不會有的失敗模式——幻覺。站內的 [DeepSeek-OCR](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression) 那篇拆過這條路線的極端版本。
+**端到端 VLM** 直接把整頁圖片餵給視覺語言模型，讓它一次吐出 Markdown。[olmOCR](https://github.com/allenai/olmocr)、[dots.ocr](https://github.com/studio-dots-ai/dots.ocr)、[Chandra](https://github.com/datalab-to/chandra) 走這條路。優點是不需要維護多階段管線、對怪異版面適應性好；缺點是難以局部除錯，而且會產生 pipeline 不會有的失敗模式——幻覺。站內的 [DeepSeek-OCR](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression) 那篇拆過這條路線的極端版本。
 
-實務上界線正在模糊：Marker 已經在管線裡嵌 VLM，MinerU 也提供 VLM backend。與其糾結分類，不如看兩件事——**要不要 GPU**、**能不能只跑一部分**。
+實務上界線正在模糊：Marker 已經在管線裡嵌 VLM，MinerU 也提供 VLM backend，Docling 新增的 VlmPipeline 讓它跨腳兩種取向。與其糾結分類，不如看兩件事——**要不要 GPU**、**能不能只跑一部分**。
 
 ## 開源陣營現況
 
@@ -48,9 +48,9 @@ glossary:
 | [Surya](https://github.com/datalab-to/surya) | 21,215 | Apache-2.0（僅程式碼） | 2026-07-23 |
 | [olmOCR](https://github.com/allenai/olmocr) | 19,231 | Apache-2.0 | 2026-03-25 |
 | [Chandra](https://github.com/datalab-to/chandra) | 11,917 | Apache-2.0 | 2026-06-26 |
-| [dots.ocr](https://github.com/rednote-hilab/dots.ocr) | 9,056 | MIT | 2026-03-24 |
+| [dots.ocr](https://github.com/studio-dots-ai/dots.ocr) | 9,056 | MIT | 2026-03-24 |
 
-兩個 repo 已經搬家：Marker 從 `VikParuchuri` 移到 `datalab-to`，Docling 從 `DS4SD` 移到 `docling-project`。舊網址會轉址，但新專案該用新的。
+三個 repo 搬過家：Marker 從 `VikParuchuri` 移到 `datalab-to`，Docling 從 `DS4SD` 移到 `docling-project`，dots.ocr 從 `rednote-hilab` 移到 `studio-dots-ai`。舊網址都會轉址，但新專案該用新的。
 
 ## 授權：真正的分水嶺
 
@@ -105,7 +105,7 @@ LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、R
 1. **先讀 LICENSE，而且要讀兩個檔案**（`LICENSE` 管程式碼、`MODEL_LICENSE` 管權重）。閉源 SaaS 且營收會成長 → Docling（MIT）最安全；MinerU 記得揭露義務；Marker/Surya 若營收落在 $2M–$5M 區間，先寄信問清楚再用。
 2. **再看你的語料類型**。學術 PDF（公式、雙欄）→ MinerU；一般商業文件要吞吐 → Marker；要結構化 JSON 而不只 Markdown → Docling；純中文場景 → PaddleOCR 生態最厚。
 3. **量體決定自建或買**。幾十萬頁以下先用商業 API 把產品做出來，成本可預測；超過再考慮自建。
-4. **不要只跑總分**。拿你自己語料裡最難的那 20 份跑一遍，看它們壞在哪。
+4. **不要只跑總分**。拿你自己語料裡最難的那 20 份跑一遍，看它們壞在哪——[掃描 PDF 實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)就是這樣做的：用 4 份掃描考古題跑 10 種工具，結果 VLM 類在公式場景全面碾壓，但安裝踩坑才是真正的門檻。
 
 ## 整體來說
 
@@ -123,7 +123,7 @@ LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、R
 - [datalab-to/surya — GitHub](https://github.com/datalab-to/surya)
 - [datalab-to/chandra — GitHub](https://github.com/datalab-to/chandra)
 - [allenai/olmocr — GitHub](https://github.com/allenai/olmocr)
-- [rednote-hilab/dots.ocr — GitHub](https://github.com/rednote-hilab/dots.ocr)
+- [studio-dots-ai/dots.ocr — GitHub](https://github.com/studio-dots-ai/dots.ocr)
 - [PaddlePaddle/PaddleOCR — GitHub](https://github.com/PaddlePaddle/PaddleOCR)
 - [MinerU Open Source License 原文（LICENSE.md）](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)
 - [Datalab On-Prem 概覽（含免費層門檻說明）](https://documentation.datalab.to/docs/on-prem/overview)
@@ -133,3 +133,4 @@ LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、R
 - [文件解析的三層階梯：轉換、抽取、解析](/posts/ai/2026-08-06-document-parsing-three-layers)
 - [確定性抽取層：不用任何模型，先解決八成的 PDF](/posts/ai/2026-08-06-pdf-text-extraction-libraries)
 - [DeepSeek-OCR：把長上下文壓成圖片的 10× 壓縮實驗](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression)
+- [掃描 PDF 實測：10 種解析工具丟進考古題，結果差多少？](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)

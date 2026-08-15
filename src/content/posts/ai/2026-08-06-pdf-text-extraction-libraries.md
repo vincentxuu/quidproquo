@@ -6,7 +6,7 @@ type: deep-dive
 tags: [document-processing, document-parsing, pdf, python, open-source]
 lang: zh-TW
 tldr: "數位原生 PDF 的文字是讀得到的，缺的只是結構。PyMuPDF、pdfplumber、pypdf、Tika 這一層用啟發式規則就能還原段落與表格，零 GPU、零推論成本。最大的選型陷阱不是準確度，是 PyMuPDF 的 AGPL-3.0 授權。"
-description: "文件解析三層階梯的第二層：PyMuPDF / pymupdf4llm、pdfplumber、pypdf、Apache Tika、Kreuzberg、extractous 的定位差異、授權地雷與選型判準，以及什麼訊號代表你該往解析層走。"
+description: "文件解析三層階梯的第二層：PyMuPDF / pymupdf4llm、pdfplumber、pypdf、Apache Tika、Xberg、extractous 的定位差異、授權地雷與選型判準，以及什麼訊號代表你該往解析層走。"
 series:
   name: "文件解析實戰"
   order: 4
@@ -86,11 +86,11 @@ with pdfplumber.open("report.pdf") as pdf:
 
 代價是 JVM。要在 Python 服務裡用它，通常得跑 tika-server 再走 HTTP，多一個行程要顧。但如果你的來源格式雜到不可預測（郵件、壓縮檔、CAD、老格式），Tika 的覆蓋率沒有對手。
 
-## Rust 新血：Kreuzberg 與 extractous
+## Rust 新血：Xberg（原 Xberg）與 extractous
 
 兩個都想做「Tika 的 Rust 版」，但狀態差很多。
 
-[Kreuzberg](https://github.com/Goldziher/kreuzberg)（8,911 stars，MIT，2026-08-06 仍在更新）已經從 Python 重寫成 Rust，並提供 Rust / Python / Ruby / Java / Go / PHP / Elixir / C# / TypeScript 等多語綁定，外加 CLI、REST API 與 MCP server。多語綁定 + 原生 binary 這個組合，跟[前一篇的 anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 是同一個思路。
+[Xberg](https://github.com/xberg-io/xberg)（原名 Xberg，9.1k stars，MIT，2026-08-06 仍在更新）已經從 Python 重寫成 Rust，並提供 Rust / Python / Ruby / Java / Go / PHP / Elixir / C# / TypeScript 等多語綁定，外加 CLI、REST API 與 MCP server。多語綁定 + 原生 binary 這個組合，跟[前一篇的 anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 是同一個思路。
 
 [extractous](https://github.com/yobix-ai/extractous)（1,769 stars，Apache-2.0）方向類似，但 **`pushed_at` 停在 2024-12-21**（2026-08-06 查詢）——快二十個月沒有新 commit。技術構想不錯，但別把它放進新專案的關鍵路徑。
 
@@ -104,14 +104,14 @@ with pdfplumber.open("report.pdf") as pdf:
 | [pdfplumber](https://github.com/jsvine/pdfplumber) | 10,633 | MIT | Python | 表格 + 可視化除錯；商用無顧慮 |
 | [pypdf](https://github.com/py-pdf/pypdf) | 10,145 | BSD-3 系 | Python | 純 Python、零編譯；操作而非抽取 |
 | [Apache Tika](https://github.com/apache/tika) | 3,948 | Apache-2.0 | Java | 1,000+ 格式覆蓋；要扛 JVM |
-| [Kreuzberg](https://github.com/Goldziher/kreuzberg) | 8,911 | MIT | Rust | 多語綁定 + CLI + MCP server |
+| [Xberg](https://github.com/xberg-io/xberg)（原 Xberg） | 9.1k | MIT | Rust | 多語綁定 + CLI + MCP server |
 | [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | ⚠️ 2024-12 起無更新 |
 
 決策順序我會這樣走：
 
 1. **要做閉源 SaaS？** → PyMuPDF 出局（或編列商業授權預算），從 pdfplumber 開始。
 2. **表格是主要痛點？** → pdfplumber，用 `debug_tablefinder()` 調到滿意。
-3. **來源格式雜到不只 PDF？** → Tika（吃得下 JVM）或 Kreuzberg（要單一 binary）。
+3. **來源格式雜到不只 PDF？** → Tika（吃得下 JVM）或 Xberg（要單一 binary）。
 4. **只是要合併／分割／加密？** → pypdf，別用抽取工具做操作的事。
 
 ## 什麼訊號代表該往上一層

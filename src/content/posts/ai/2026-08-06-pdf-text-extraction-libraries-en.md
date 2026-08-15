@@ -6,7 +6,7 @@ type: deep-dive
 tags: [document-processing, document-parsing, pdf, python, open-source]
 lang: en
 tldr: "Digital-native PDFs already contain readable text — what's missing is structure, and heuristics can recover it. PyMuPDF, pdfplumber, pypdf, and Tika do this with zero GPU and zero inference cost. The biggest selection trap isn't accuracy; it's PyMuPDF's AGPL-3.0 license."
-description: "The second rung of the document parsing ladder: how PyMuPDF / pymupdf4llm, pdfplumber, pypdf, Apache Tika, Kreuzberg, and extractous differ, which licenses will bite you, and the signals that mean you need to escalate to the parsing layer."
+description: "The second rung of the document parsing ladder: how PyMuPDF / pymupdf4llm, pdfplumber, pypdf, Apache Tika, Xberg, and extractous differ, which licenses will bite you, and the signals that mean you need to escalate to the parsing layer."
 series:
   name: "Document Parsing in Practice"
   order: 4
@@ -86,11 +86,11 @@ Treat it as an extraction tool and you will be disappointed; treat it as the Swi
 
 The cost is the JVM. Using it from a Python service usually means running tika-server and talking HTTP to it, which is one more process to operate. But when your input formats are genuinely unpredictable (email archives, containers, CAD, legacy formats), nothing matches Tika's coverage.
 
-## Rust newcomers: Kreuzberg and extractous
+## Rust newcomers: Xberg (formerly Xberg) and extractous
 
 Both aim to be "Tika in Rust," but they are in very different states.
 
-[Kreuzberg](https://github.com/Goldziher/kreuzberg) (8,911 stars, MIT, still pushing as of 2026-08-06) has been rewritten from Python into Rust and now ships bindings for Rust, Python, Ruby, Java, Go, PHP, Elixir, C#, and TypeScript, plus a CLI, a REST API, and an MCP server. Multi-language bindings over a native binary is the same play [anydoc makes](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en).
+[Xberg](https://github.com/xberg-io/xberg) (formerly Xberg, 9.1k stars, MIT, still pushing as of 2026-08-06) has been rewritten from Python into Rust and now ships bindings for Rust, Python, Ruby, Java, Go, PHP, Elixir, C#, and TypeScript, plus a CLI, a REST API, and an MCP server. Multi-language bindings over a native binary is the same play [anydoc makes](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en).
 
 [extractous](https://github.com/yobix-ai/extractous) (1,769 stars, Apache-2.0) heads in a similar direction, but its **`pushed_at` is stuck at 2024-12-21** (queried 2026-08-06) — nearly twenty months without a commit. Interesting design, but do not put it on the critical path of a new project.
 
@@ -104,14 +104,14 @@ Stars and licenses below are GitHub API values queried 2026-08-06:
 | [pdfplumber](https://github.com/jsvine/pdfplumber) | 10,633 | MIT | Python | Tables plus visual debugging; no commercial concerns |
 | [pypdf](https://github.com/py-pdf/pypdf) | 10,145 | BSD-3 family | Python | Pure Python, no compilation; manipulation not extraction |
 | [Apache Tika](https://github.com/apache/tika) | 3,948 | Apache-2.0 | Java | 1,000+ formats; you carry a JVM |
-| [Kreuzberg](https://github.com/Goldziher/kreuzberg) | 8,911 | MIT | Rust | Many bindings plus CLI and MCP server |
+| [Xberg](https://github.com/xberg-io/xberg) (formerly Xberg) | 9.1k | MIT | Rust | Many bindings plus CLI and MCP server |
 | [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | ⚠️ No commits since 2024-12 |
 
 The decision order I would follow:
 
 1. **Building closed-source SaaS?** PyMuPDF is out (or budget for the commercial license). Start with pdfplumber.
 2. **Are tables the main pain?** pdfplumber, tuned with `debug_tablefinder()`.
-3. **Are inputs messier than just PDF?** Tika (if you can host a JVM) or Kreuzberg (if you want one binary).
+3. **Are inputs messier than just PDF?** Tika (if you can host a JVM) or Xberg (if you want one binary).
 4. **Just merging / splitting / encrypting?** pypdf. Do not use an extraction tool for manipulation work.
 
 ## Signals that you need the next layer up

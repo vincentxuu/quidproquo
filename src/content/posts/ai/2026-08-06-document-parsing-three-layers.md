@@ -114,7 +114,7 @@ PDF 是特例，它是唯一橫跨三層的格式。
 
 選層比選工具重要一個數量級。層選對了，同層工具之間的差異多半是格式覆蓋率和 API 手感；層選錯了，再好的工具都在解錯的問題。
 
-這個系列沿著這三層往下走：轉換層是 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro) 與 [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)，抽取層是 [PyMuPDF / pdfplumber / Tika 那一組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)（注意 PyMuPDF 的 AGPL 授權），解析層是 [MinerU / Marker / Docling 與 OCR-VLM](/posts/ai/2026-08-06-document-parsing-layout-ocr)（那一層真正的選型軸是授權，不是準確度）。
+這個系列沿著這三層往下走：轉換層是 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro) 與 [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)，抽取層是 [PyMuPDF / pdfplumber / Tika 那一組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)（注意 PyMuPDF 的 AGPL 授權），解析層是 [MinerU / Marker / Docling 與 OCR-VLM](/posts/ai/2026-08-06-document-parsing-layout-ocr)（那一層真正的選型軸是授權，不是準確度）。最後用[掃描考古題實測 10 種工具](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)驗證選型框架。
 
 ## 參考資料
 
@@ -135,3 +135,4 @@ PDF 是特例，它是唯一橫跨三層的格式。
 - [MarkItDown：把任何檔案餵給 LLM 之前，先讓它變成 Markdown](/posts/ai/2026-04-18-markitdown-intro)
 - [上傳檔案就自動 embedding 是個壞預設](/posts/ai/2026-05-24-agentic-attachment-rag-survey)
 - [DeepSeek-OCR：把長上下文壓成圖片的 10× 壓縮實驗](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression)
+- [掃描 PDF 實測：10 種解析工具丟進考古題，結果差多少？](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)
