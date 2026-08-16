@@ -128,6 +128,24 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 25 | `https://writer.com/blog` | Writer | firecrawl |
 | 26 | `https://blog.palantir.com` | Palantir | firecrawl |
 
+**HuggingFace + GitHub 模型/repo 動態追蹤**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| HF1 | `https://huggingface.co/google` | Google | WebFetch |
+| HF2 | `https://huggingface.co/microsoft` | Microsoft | WebFetch |
+| HF3 | `https://huggingface.co/nvidia` | NVIDIA | WebFetch |
+| HF4 | `https://huggingface.co/mistralai` | Mistral | WebFetch |
+| HF5 | `https://huggingface.co/MiniMaxAI` | MiniMax | WebFetch |
+| GH1 | `https://github.com/anthropics` | Anthropic | WebFetch |
+| GH2 | `https://github.com/openai` | OpenAI | WebFetch |
+| GH3 | `https://github.com/google-deepmind` | Google DeepMind | WebFetch |
+| GH4 | `https://github.com/meta-llama` | Meta Llama | WebFetch |
+| GH5 | `https://github.com/microsoft` | Microsoft | WebFetch |
+| GH6 | `https://github.com/NVIDIA` | NVIDIA | WebFetch |
+| GH7 | `https://github.com/mistralai` | Mistral | WebFetch |
+| GH8 | `https://github.com/MiniMax-AI` | MiniMax | WebFetch |
+
 **A2 模型公司**
 
 | # | URL | 公司 | 工具 |
@@ -218,9 +236,9 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 54 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
+| WebFetch | 67 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
 | firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
-| **總計** | **73** | 搜尋 API 只用 15 次 |
+| **總計** | **86** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
