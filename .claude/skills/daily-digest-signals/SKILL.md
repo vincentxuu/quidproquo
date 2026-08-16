@@ -145,6 +145,10 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | GH6 | `https://github.com/NVIDIA` | NVIDIA | WebFetch |
 | GH7 | `https://github.com/mistralai` | Mistral | WebFetch |
 | GH8 | `https://github.com/MiniMax-AI` | MiniMax | WebFetch |
+| HF6 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
+| GH9 | `https://github.com/cohere-ai` | Cohere | WebFetch |
+| HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | WebFetch |
+| HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | WebFetch |
 
 **A2 模型公司**
 
