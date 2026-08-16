@@ -223,6 +223,17 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | WebFetch |
 | 52 | `https://github.com/baidu` | 百度（repo 動態） | WebFetch |
 
+**AI 生態 / VC / 獨立媒體**
+
+| # | URL | 說明 | 工具 |
+|---|-----|------|------|
+| M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | firecrawl |
+| M2 | `https://the-decoder.com` | AI 新聞（每日更新） | WebFetch |
+| M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | WebFetch |
+| M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | WebFetch |
+| M5 | `https://simonwillison.net` | AI 開發者生態 blogger | WebFetch |
+| M6 | `https://www.latent.space/archive` | Latent Space（AI 深度分析） | WebFetch |
+
 處理方式：
 1. 抓回最近 5 篇的日期和標題
 2. 只保留 48 小時內的文章
