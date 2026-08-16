@@ -84,27 +84,29 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
 
-### 第二層：大廠逐家查（Tavily × 10）
+### 第二層：大廠官方來源（Tavily × 10，用 include_domains 鎖定）
 
-只查會在自家管道首發重大消息、且主流媒體可能延遲的大廠。
+用 `include_domains` 限定官方網站，避免第三方垃圾。query 統一用 `"AI agent"`。
 
 ```
 工具：mcp Tavily → tavily_search
-每個查詢：max_results: 3, time_range: "day"
+每個查詢：query: "AI agent", max_results: 3, time_range: "day"
 ```
 
-| # | query |
-|---|-------|
-| 1 | `Anthropic Claude MCP agent` |
-| 2 | `OpenAI GPT agent Codex` |
-| 3 | `Google Gemini AI agent` |
-| 4 | `Microsoft Copilot Azure AI agent` |
-| 5 | `Meta Llama AI agent` |
-| 6 | `Amazon Bedrock Nova agent` |
-| 7 | `NVIDIA NIM inference agent` |
-| 8 | `Cloudflare Workers AI agent` |
-| 9 | `Cursor Anysphere coding agent` |
-| 10 | `LangChain LangGraph agent update` |
+| # | include_domains | 公司 |
+|---|----------------|------|
+| 1 | `["anthropic.com"]` | Anthropic |
+| 2 | `["openai.com"]` | OpenAI |
+| 3 | `["blog.google", "deepmind.google"]` | Google |
+| 4 | `["blogs.microsoft.com", "devblogs.microsoft.com"]` | Microsoft |
+| 5 | `["about.fb.com", "ai.meta.com"]` | Meta |
+| 6 | `["aws.amazon.com"]` | Amazon |
+| 7 | `["blogs.nvidia.com", "developer.nvidia.com"]` | NVIDIA |
+| 8 | `["blog.cloudflare.com"]` | Cloudflare |
+| 9 | `["cursor.com"]` | Cursor |
+| 10 | `["blog.langchain.dev"]` | LangChain |
+
+今天沒發文的公司會回傳 0 筆，這是正確行為。
 
 ### 第三層：社群 + 區域來源
 
