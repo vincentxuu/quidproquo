@@ -318,3 +318,4 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 - [ ] 「我今天學到什麼」是認知差
 - [ ] region slug 正確（china/taiwan/japan-korea/europe/israel/southeast-asia/middle-east/india）
 - [ ] `description` 和 `tldr` 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

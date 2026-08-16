@@ -288,3 +288,4 @@ ZenGuard 尚未在 watchlist 中。建議加入 section B7（Agent 安全/治理
 - [ ] Watchlist 狀態：已在清單則更新追蹤重點，不在則建議加入的 section
 - [ ] 「我今天學到什麼」是認知差
 - [ ] description 和 tldr 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

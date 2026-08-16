@@ -323,3 +323,4 @@ LIMIT 10;
 - [ ] 工具的 GitHub 連結已驗證存在
 - [ ] 授權資訊正確（從 GitHub API 確認，不要猜）
 - [ ] description 和 tldr 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

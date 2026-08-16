@@ -325,3 +325,4 @@ Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發�
 - [ ] `draft: false` 已明確寫出
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 「參考連結」包含所有文中引用的 URL
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

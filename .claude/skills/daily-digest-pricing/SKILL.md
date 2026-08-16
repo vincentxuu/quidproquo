@@ -306,3 +306,4 @@ OpenAI 宣布 GPT-5 全面降價，input 降 60%、output 降 47%，是 GPT-4o �
 - [ ] 至少 2 個來源確認（官方 + 新聞）
 - [ ] 「我今天學到什麼」是認知差
 - [ ] description 和 tldr 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

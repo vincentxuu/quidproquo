@@ -305,3 +305,4 @@ LangGraph 原生記憶補上了和 CrewAI（內建 knowledge/memory）的功能�
 - [ ] 「我今天學到什麼」是認知差（之前以為 X → 現在知道 Y）
 - [ ] Release Notes 連結已驗證可訪問
 - [ ] description 和 tldr 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

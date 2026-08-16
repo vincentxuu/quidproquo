@@ -283,3 +283,4 @@ SWE-bench Verified 是目前最被信任的 coding agent benchmark——每個 t
 - [ ] benchmark-snapshot.json 已更新
 - [ ] 「我今天學到什麼」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

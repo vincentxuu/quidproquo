@@ -284,3 +284,4 @@ series:
 - [ ] 全文 < 1500 字
 - [ ] description 和 tldr 已填寫
 - [ ] series order 正確
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

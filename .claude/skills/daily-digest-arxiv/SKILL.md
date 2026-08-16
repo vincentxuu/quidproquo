@@ -361,3 +361,4 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 - [ ] 全文 < 3000 字
 - [ ] description 和 tldr 已填寫
 - [ ] series order 正確（距離 2026-08-16 的天數 + 1）
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
