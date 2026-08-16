@@ -14,7 +14,7 @@ description: "Routine H: event-driven AI/Agent Series A+ funding alert for quidp
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 冪等檢查
 ls src/content/posts/daily/${TODAY}-funding-*.md 2>/dev/null && echo "已產出" && exit 0

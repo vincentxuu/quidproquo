@@ -14,7 +14,7 @@ description: "Routine B: daily GitHub Trending AI/Agent digest for quidproquo.cc
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 冪等檢查——已產出就不重做
 [ -f "src/content/posts/daily/${TODAY}-ai-agent-github-digest.md" ] && echo "已產出" && exit 0

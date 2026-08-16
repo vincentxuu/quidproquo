@@ -14,7 +14,7 @@ description: "Routine G: event-driven AI tool/MCP server recommendation for quid
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 YESTERDAY=$(date -d yesterday +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)
 
 # Step 2: 冪等檢查

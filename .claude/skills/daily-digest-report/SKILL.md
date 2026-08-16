@@ -16,7 +16,7 @@ Stage 3 彙整 routine。讀取 Stage 1（arxiv/github/event-driven posts）和 
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 冪等檢查——已有非 draft 版就不重做
 if [ -f "src/content/posts/daily/${TODAY}-ai-agent-daily.md" ]; then
