@@ -50,12 +50,14 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
 
 <style>
   article {
+    position: relative;
     padding: 1.25rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     margin-bottom: 0.75rem;
     background: var(--bg-card);
     transition: border-color 0.15s, box-shadow 0.15s;
+    cursor: pointer;
   }
   article:hover {
     border-color: var(--brand-500);
@@ -123,6 +125,13 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     color: var(--text-primary);
   }
   h2 a:hover { color: var(--brand-500); }
+  h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .meta a, .tags a { position: relative; z-index: 2; }
   .excerpt {
     margin: 0 0 0.5rem;
     font-size: 0.85rem;
@@ -151,6 +160,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     color: #fff;
     text-decoration: none;
   }
+  .cat-daily     { background: var(--cat-daily, #059669); }
   .cat-tech      { background: var(--cat-tech, #1a1a1a); }
   .cat-ai        { background: var(--cat-ai, #6d28d9); }
   .cat-product   { background: var(--cat-product, #0369a1); }

@@ -3,21 +3,15 @@ export const prerender = true;
 
 import PostLayout from '../layouts/PostLayout.astro';
 import PostCard from '../components/PostCard.astro';
-import DailyChannelFilter from '../components/DailyChannelFilter.astro';
 import { useTranslations } from '../i18n/utils';
 import { getSeriesHref } from '../utils/series';
 import { getDailyPosts } from '../utils/content';
 import { TOPIC_TAXONOMY } from '../data/topic-taxonomy';
-import { countDailyChannels, getDailyChannelId } from '../data/daily-content-types';
+import { DAILY_CHANNELS, getDailyChannelId } from '../data/daily-content-types';
 
 const t = useTranslations('zh-TW');
 const posts = await getDailyPosts('zh-TW');
-const channelCounts = countDailyChannels(posts.map(post => ({
-  seriesName: post.data.series?.name,
-  tags: post.data.tags,
-})));
 
-// Group posts by date
 const grouped = new Map<string, typeof posts>();
 for (const post of posts) {
   const key = post.data.date.toISOString().slice(0, 10);
@@ -31,6 +25,12 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   <header class="page-header">
     <h1>{t('daily.title')}</h1>
     <p class="subtitle">{t('daily.description')}</p>
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      {DAILY_CHANNELS.map(ch => (
+        <button class="filter-btn" data-filter={ch.id}>{ch.label}</button>
+      ))}
+    </div>
     <div class="topic-row">
       <span class="topic-label">主題：</span>
       {TOPIC_TAXONOMY.map(topic => (
@@ -40,7 +40,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     </div>
   </header>
 
-  <DailyChannelFilter lang="zh-TW" counts={channelCounts} total={posts.length} />
+  {posts.length === 0 && <p class="empty">{t('daily.empty')}</p>}
 
   {[...grouped.entries()].map(([dateStr, dayPosts]) => {
     const date = new Date(dateStr + 'T00:00:00');
@@ -56,7 +56,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
           {dayPosts.map(post => {
             const channelId = getDailyChannelId(post.data.series?.name, post.data.tags);
             return (
-              <div class="daily-card-wrap" data-daily-channel={channelId}>
+              <div class="daily-card-wrap" data-type={channelId}>
                 <PostCard
                   slug={post.id}
                   title={post.data.title}
@@ -81,6 +81,23 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   })}
 </PostLayout>
 
+<script is:inline>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.daily-card-wrap').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+      });
+      document.querySelectorAll('.day-group').forEach(group => {
+        const visible = group.querySelectorAll('.daily-card-wrap:not([style*="display: none"])');
+        group.style.display = visible.length > 0 ? '' : 'none';
+      });
+    });
+  });
+</script>
+
 <style>
   .page-header {
     margin-bottom: 2rem;
@@ -89,7 +106,21 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   }
   h1 { margin-bottom: 0.25rem; }
   .subtitle { color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.88rem; }
-  .topic-row { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; margin-top: 0.5rem; }
+  .filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .filter-btn {
+    font-size: 0.76rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--brand-500); color: var(--brand-500); }
+  .filter-btn.active { background: var(--brand-500); color: #fff; border-color: var(--brand-500); }
+  .topic-row { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; }
   .topic-label { font-size: 0.72rem; color: var(--text-muted); margin-right: 0.15rem; }
   .topic-chip {
     font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 100px;
@@ -102,16 +133,13 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   .day-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
   .day-date {
     font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--brand-700);
+    font-size: 0.8rem; font-weight: 600; color: var(--brand-700);
     background: var(--brand-50, var(--surface-raised));
-    padding: 0.15rem 0.55rem;
-    border-radius: 4px;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+    padding: 0.15rem 0.55rem; border-radius: 4px;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
   }
   .day-weekday { font-size: 0.75rem; color: var(--text-muted); }
   .day-line { flex: 1; height: 1px; background: var(--border); }
   .day-cards { display: flex; flex-direction: column; gap: 0.4rem; padding-left: 0.4rem; }
+  .empty { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 3rem 0; }
 </style>

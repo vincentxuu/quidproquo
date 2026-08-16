@@ -1,5 +1,3943 @@
 {
   "version": "2026-08-16",
-  "topicTaxonomy": "src/data/topic-taxonomy.ts",
-  "papers": []
+  "papers": [
+    {
+      "arxivId": "2605.07728",
+      "title": "SARC: 把法規義務編譯成執行時約束",
+      "titleZh": "SARC: 把法規義務編譯成執行時約束",
+      "authors": [
+        "Gaston Besanson（Universidad Torcuato Di Tella",
+        "阿根廷）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "與其把「請遵守法規」寫在 prompt 裡然後希望 AI 記得，SARC 把規範編譯成四個硬性卡關站嵌進代理人的執行迴圈，不依賴 AI 的「記憶力」。",
+      "digestDate": "2026-05-25",
+      "digestSlug": "daily/2026-05-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.10481",
+      "title": "約束漂移：LLM 多代理系統被忽視的安全失效模式",
+      "titleZh": "約束漂移：LLM 多代理系統被忽視的安全失效模式",
+      "authors": [
+        "Tianxiao Li 等（Liverpool / Nottingham / Exeter / Tokyo）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "多代理系統中的安全規範不會自動持續有效——它們會在記憶存取、任務委派、工具呼叫等七個環節中悄悄弱化，這篇命名為「約束漂移」並提出分類框架。",
+      "digestDate": "2026-05-25",
+      "digestSlug": "daily/2026-05-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.13851",
+      "title": "隱形協調者讓多代理系統喪失保護性行為",
+      "titleZh": "隱形協調者讓多代理系統喪失保護性行為",
+      "authors": [
+        "Hiroki Fukui M.D.",
+        "Ph.D.（Kyoto University 神經精神科）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "用「有沒有可見的領導者」做 AI 實驗：當多代理系統的協調者是隱形的（工作代理不知道有人在指揮），整個系統的保護性行為顯著下降——對流行的 orchestrator 架構是直接的設計警示。",
+      "digestDate": "2026-05-25",
+      "digestSlug": "daily/2026-05-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.08538",
+      "title": "Human-Inspired Memory Architecture for LLM Agents",
+      "titleZh": "Human-Inspired Memory Architecture for LLM Agents",
+      "authors": [
+        "Doga Kerestecioglu",
+        "Alexei Robsky",
+        "Clemens Vasters"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "微軟把人腦六大記憶機制（睡眠整合、干擾遺忘、記憶成熟、提取再鞏固、知識圖、混合提取）搬進 LLM Agent，在真實 codebase 資料上讓記憶庫壓縮 58%、保住 97.2% 資訊精確率。",
+      "digestDate": "2026-05-26",
+      "digestSlug": "daily/2026-05-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.08477",
+      "title": "Do Agents Need to Plan Step-by-Step? Rethinking Planning Horizon in Data-Centric Tool Calling",
+      "titleZh": "Do Agents Need to Plan Step-by-Step? Rethinking Planning Horizon in Data-Centric Tool Calling",
+      "authors": [
+        "Naoki Otani",
+        "Nikita Bhutani",
+        "Hannah Kim"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "對資料查詢型任務（text-to-SQL、知識庫問答），先一次生成完整計劃再批次執行，比每步都重新推理可省 2–4.7x token，且準確率相當——顛覆 ReAct 逐步推理的預設。",
+      "digestDate": "2026-05-26",
+      "digestSlug": "daily/2026-05-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.11453",
+      "title": "Predictive Maps of Multi-Agent Reasoning: A Successor-Representation Spectrum for LLM Communication Topologies",
+      "titleZh": "Predictive Maps of Multi-Agent Reasoning: A Successor-Representation Spectrum for LLM Communication Topologies",
+      "authors": [
+        "Ethan David James Park",
+        "Dalal Alharthi"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "借用神經科學的「後繼表示」矩陣，用三個數學量在部署前預測 multi-agent 系統選 Chain、Star、Mesh 哪種拓撲時會出現觀點漂移、假共識或不穩定三種失敗模式。",
+      "digestDate": "2026-05-26",
+      "digestSlug": "daily/2026-05-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.04785",
+      "title": "AgentTrust: Runtime Safety Evaluation and Interception for AI Agent Tool Use",
+      "titleZh": "AgentTrust: Runtime Safety Evaluation and Interception for AI Agent Tool Use",
+      "authors": [
+        "Chenglin Yang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "在 Agent 按下「執行」之前，先有個守門員攔住危險指令——而且它能看穿 hex/base64 等偽裝、提供更安全的替代做法，而不只是硬生生拒絕。",
+      "digestDate": "2026-05-27",
+      "digestSlug": "daily/2026-05-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.14312",
+      "title": "Making OpenAPI Documentation Agent-Ready: Detecting Documentation and REST Smells with a Multi-Agent LLM System",
+      "titleZh": "Making OpenAPI Documentation Agent-Ready: Detecting Documentation and REST Smells with a Multi-Agent LLM System",
+      "authors": [
+        "Rayfran Rocha Lima",
+        "Davi G. Assuncao Pinheiro",
+        "Thiago Medeiros de Menezes（Sidia Institute of Technology）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 REST API 包成 MCP tool 就能讓 agent 用了？研究者掃描 600 個生產 endpoint，發現每一個都至少有一個讓 agent 看不懂的「文件問題」，平均 4 個，並提出 Hermes 系統自動偵測和報告這些問題。",
+      "digestDate": "2026-05-27",
+      "digestSlug": "daily/2026-05-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.23382",
+      "title": "From Correctness to Preference: A Framework for Personalized Agentic Reinforcement Learning",
+      "titleZh": "From Correctness to Preference: A Framework for Personalized Agentic Reinforcement Learning",
+      "authors": [
+        "Ranxu Zhang",
+        "Zeyang Li",
+        "Jiacheng Huang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-rag"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "不同使用者面對相同任務，agent 應該有不同做法——這篇把「個人化」從 prompt 層面深入到 RL 訓練層面，提出三組件框架（PARPO + 偏好解糾纏獎勵模型 + PSGM 圖記憶）讓 agent 在學習時就把個體差異嵌入。",
+      "digestDate": "2026-05-27",
+      "digestSlug": "daily/2026-05-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.24486",
+      "title": "AgentFugue: Agent Scaling for Long-Horizon Tasks through Collective Reasoning",
+      "titleZh": "AgentFugue: Agent Scaling for Long-Horizon Tasks through Collective Reasoning",
+      "authors": [
+        "Yuyang Hu 等 8 位（中國人民大學、北京人工智能研究院 BAAI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓多個 agent 同時跑同一個任務，並透過一個「共享推理筆記本」互相學習彼此的發現，比單一強 agent 更能搞定複雜長任務。",
+      "digestDate": "2026-05-28",
+      "digestSlug": "daily/2026-05-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.10448",
+      "title": "Can Agent Benchmarks Support Their Scores? Evidence-Supported Bounds for Interactive-Agent Evaluation",
+      "titleZh": "Can Agent Benchmarks Support Their Scores? Evidence-Supported Bounds for Interactive-Agent Evaluation",
+      "authors": [
+        "Shanshan Gao、Liyi Zhou（雪梨大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現行 agent benchmark 的「成功率」可能是假的——只因為 agent 按了「存檔」就算過，但根本沒存到對的地方；本篇提出一個加在現有 benchmark 上的驗證層，把單一分數改成「有依據的分數區間」。",
+      "digestDate": "2026-05-28",
+      "digestSlug": "daily/2026-05-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.06068",
+      "title": "VibeServe: Can AI Agents Build Bespoke LLM Serving Systems?",
+      "titleZh": "VibeServe: Can AI Agents Build Bespoke LLM Serving Systems?",
+      "authors": [
+        "Keisuke Kamahori、Shihang Li、Simon Peter、Baris Kasikci（華盛頓大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用 agent 自動生成整套 LLM serving 程式碼（含快取、排程、記憶體管理），在特殊部署場景下打贏手工優化的 vLLM，標準場景則和 vLLM 打平。",
+      "digestDate": "2026-05-28",
+      "digestSlug": "daily/2026-05-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.26297",
+      "title": "Agentic AI Workload Characteristics",
+      "titleZh": "Agentic AI Workload Characteristics",
+      "authors": [
+        "Yichao Yuan、Nishil Talati（UIUC）、Ankita Nayak（Gimlet Labs）、Souvik Kundu（Intel）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "你以為 agent 的效能瓶頸是「prompt 太長」——錯了。真正的瓶頸是 token 生成速度與 KV-cache 管理，serving 系統需要為此重新設計。",
+      "digestDate": "2026-05-29",
+      "digestSlug": "daily/2026-05-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.15184",
+      "title": "Is Grep All You Need? How Agent Harnesses Reshape Agentic Search",
+      "titleZh": "Is Grep All You Need? How Agent Harnesses Reshape Agentic Search",
+      "authors": [
+        "Sahil Sen、Akhil Kasturi、Elias Lumer、Anmol Gulati、Vamse Kumar Subbiah（PricewaterhouseCoopers US）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "在 agent loop 裡找資料，直接用 grep（字串比對）往往比向量搜尋（semantic search）更準——但真正影響結果的是你用哪個 harness，不只是搜尋方法本身。",
+      "digestDate": "2026-05-29",
+      "digestSlug": "daily/2026-05-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.15040",
+      "title": "Orchard: An Open-Source Agentic Modeling Framework",
+      "titleZh": "Orchard: An Open-Source Agentic Modeling Framework",
+      "authors": [
+        "Microsoft Research（多位作者）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Microsoft 開源完整的 agent 模型訓練框架，讓小模型靠資料蒸餾 + 特製 RL 在 SWE / GUI / 助理任務上達到同量級開源 SOTA，不需要依賴 GPT-4o API。",
+      "digestDate": "2026-05-29",
+      "digestSlug": "daily/2026-05-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.13850",
+      "title": "A Two-Dimensional Framework for AI Agent Design Patterns",
+      "titleZh": "A Two-Dimensional Framework for AI Agent Design Patterns",
+      "authors": [
+        "Jia Huang、Joey Tianyi Zhou（A*STAR & CFAR",
+        "Singapore）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "業界教你「怎麼接線」，學術界教你「agent 在想什麼」——這篇說兩個都要，並提出雙軸框架幫你把兩種語言對起來。",
+      "digestDate": "2026-05-30",
+      "digestSlug": "daily/2026-05-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.23989",
+      "title": "Towards Trustworthy Agentic AI: Safety, Robustness, Privacy & System Security",
+      "titleZh": "Towards Trustworthy Agentic AI: Safety, Robustness, Privacy & System Security",
+      "authors": [
+        "Jinhu Qi、Muzhi Li、Jiahong Liu、Yuqin Shu、Dianzhi Yu、Shicheng Ma、Wenqian Cui、Yiyang Zhao、Yiyi Chen、Ruoxi Jiang、Irwin King（CUHK）、Zenglin Xu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-memory"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "agentic AI 會自己呼叫工具、存取記憶體、多步驟執行——這些能力讓它比純 LLM 更危險。這篇是把這些新型風險系統整理成「風險地圖」的 survey。",
+      "digestDate": "2026-05-30",
+      "digestSlug": "daily/2026-05-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.27905",
+      "title": "AI Research Agents Narrow Scientific Exploration",
+      "titleZh": "AI Research Agents Narrow Scientific Exploration",
+      "authors": [
+        "Yixuan Tang、Yi Yang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "AI 研究 agent 生成的想法比人類更集中、更接近舊文獻、且更不可能被後來研究引用——大規模實驗顯示 AI 擅長「在已知附近深挖」，不擅長「真正往未知方向探索」。",
+      "digestDate": "2026-05-30",
+      "digestSlug": "daily/2026-05-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.29225",
+      "title": "BenchTrace: A Benchmark for Testing Reflection Ability and Controlled Evolution in LLM Agents",
+      "titleZh": "BenchTrace: A Benchmark for Testing Reflection Ability and Controlled Evolution in LLM Agents",
+      "authors": [
+        "Jiahao Huang",
+        "Fei Cheng",
+        "Junfeng Jiang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "做了個 benchmark，發現 GPT-4.1 和 Qwen3-32B 在「看懂自己失敗原因」這件事上通過率不到三成，而且就算讓 agent 讀了失敗案例去學習，隨著雜訊案例累積，它還是會把早期教訓給忘掉。",
+      "digestDate": "2026-05-31",
+      "digestSlug": "daily/2026-05-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.10223",
+      "title": "Beyond Autonomy: A Dynamic Tiered AgentRunner Framework for Governable and Resilient Enterprise AI Execution",
+      "titleZh": "Beyond Autonomy: A Dynamic Tiered AgentRunner Framework for Governable and Resilient Enterprise AI Execution",
+      "authors": [
+        "Kai Pan",
+        "Rong Hou（企業 SaaS 平台；機構未公開）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有 agent framework 太重視自主性、太少想「萬一出錯」，這篇從企業 SaaS 生產環境提煉出三個治理機制：按風險分層審查、提案與執行分離、驗證失敗自動恢復。",
+      "digestDate": "2026-05-31",
+      "digestSlug": "daily/2026-05-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.25632",
+      "title": "Insuring Every Action: An Authority Frontier Framework for Runtime Actuarial Control of Autonomous AI Agents",
+      "titleZh": "Insuring Every Action: An Authority Frontier Framework for Runtime Actuarial Control of Autonomous AI Agents",
+      "authors": [
+        "Hao-Hsuan Chen（國立政治大學 風險管理與保險學系）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "把保險精算的概念搬進 agent runtime：每個 agent 動作都先「定價」，對照保證金預算決定是否允許執行；附一把量尺（Authority Frontier）顯示不同預算水位下 agent 能釋放多少自主空間。",
+      "digestDate": "2026-05-31",
+      "digestSlug": "daily/2026-05-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.22138",
+      "title": "Efficient Agentic Reasoning Through Self-Regulated Simulative Planning",
+      "titleZh": "Efficient Agentic Reasoning Through Self-Regulated Simulative Planning",
+      "authors": [
+        "Mingkai Deng",
+        "Jinyu Hou",
+        "Lara Sá Neves"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "給 agent 加上「先想清楚再行動」的智慧開關：複雜任務啟動 world model 在腦中預演，簡單任務直接反應，30B 模型因此少用高達 95% 的 token 仍能競爭過 1T 參數系統。",
+      "digestDate": "2026-06-01",
+      "digestSlug": "daily/2026-06-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.14498",
+      "title": "GroupMemBench: Benchmarking LLM Agent Memory in Multi-Party Conversations",
+      "titleZh": "GroupMemBench: Benchmarking LLM Agent Memory in Multi-Party Conversations",
+      "authors": [
+        "Jingbo Yang",
+        "Kwei-Herng Lai",
+        "Xiaowen Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有 agent 記憶系統根本沒為多人對話設計：最強系統在群組設定下只有 46% 準確率、知識更新只有 27.1%，而 1990 年代的 BM25 關鍵字搜尋就能打贏大多數新型語意記憶系統。",
+      "digestDate": "2026-06-01",
+      "digestSlug": "daily/2026-06-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.00334",
+      "title": "AgentFloor: How Far Up the Tool Use Ladder Can Small Open-Weight Models Go?",
+      "titleZh": "AgentFloor: How Far Up the Tool Use Ladder Can Small Open-Weight Models Go?",
+      "authors": [
+        "Ranit Karmakar（Harvard University）、Jayita Chatterjee"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用 16,542 次測試跑 16 個開源小模型（0.27B 到 32B）加 GPT-5，結果：agent pipeline 大多數的短程、結構化 tool use 任務，小模型已經夠用，而最強開源模型整體分數能和 GPT-5 打平。",
+      "digestDate": "2026-06-01",
+      "digestSlug": "daily/2026-06-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.22502",
+      "title": "Compiling Agentic Workflows into LLM Weights",
+      "titleZh": "Compiling Agentic Workflows into LLM Weights",
+      "authors": [
+        "Simon Dennis、Rivaan Patil、Kevin Shabahang、Hao Guo（i14; 澳大利亞墨爾本大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 LangGraph / CrewAI 那種「外掛流程圖」直接燒進小模型的參數裡，推理時成本降低 128–462 倍，效果接近 frontier model。",
+      "digestDate": "2026-06-02",
+      "digestSlug": "daily/2026-06-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.22608",
+      "title": "Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents",
+      "titleZh": "Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents",
+      "authors": [
+        "Asaf Yehudai、Lilach Eden、Michal Shmueli-Scheuer（IBM Research）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓 LLM 自動在「整個系統／單次對話／單個步驟」三個層次分析 agent 的行為，不需要手工寫錯誤分類規則，且能適應新領域。",
+      "digestDate": "2026-06-02",
+      "digestSlug": "daily/2026-06-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2605.11032",
+      "title": "Portable Agent Memory",
+      "titleZh": "Portable Agent Memory",
+      "authors": [
+        "Santhosh Kumar Ravindran（Microsoft Corporation）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-memory"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "定義了一套讓 agent 記憶可以從 Claude 搬到 GPT-4 再搬到 Gemini 的開放協議，帶加密驗證，防止記憶被篡改或惡意注入。",
+      "digestDate": "2026-06-02",
+      "digestSlug": "daily/2026-06-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01138",
+      "title": "AMP: A Vendor-Neutral Wire Format for Agent Memory Operations",
+      "titleZh": "AMP: A Vendor-Neutral Wire Format for Agent Memory Operations",
+      "authors": [
+        "Thamilvendhan Munirathinam（獨立研究者）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "提出 memorywire，一個讓 mem0、Letta、Cognee、pgvector 等記憶框架「插頭共用」的 JSON 電線格式，定義 5 個記憶操作與 4 種記憶類型，附帶 5 個後端 adapter 的開源實作。",
+      "digestDate": "2026-06-03",
+      "digestSlug": "daily/2026-06-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01041",
+      "title": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "titleZh": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "authors": [
+        "Tao Feng、Tianyang Luo、Jingjun Xu、Zhigang Hua、Yan Xie、Shuang Yang、Ge Liu、Jiaxuan You"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "不再把過去成功/失敗經驗轉成文字塞進 context，改成在 LLM 隱層向量空間做檢索與整合，12/13 benchmark 最佳，零樣本跨域遷移提升 16.32%。",
+      "digestDate": "2026-06-03",
+      "digestSlug": "daily/2026-06-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.00198",
+      "title": "BAGEN: Are LLM Agents Budget-Aware?",
+      "titleZh": "BAGEN: Are LLM Agents Budget-Aware?",
+      "authors": [
+        "Yuxiang Lin、Zihan Wang、Mengyang Liu、Yuxuan Shan、Longju Bai、Junyao Zhang、Xing Jin、Boshan Chen、Jinyan Su、Xingyao Wang、Jiaxin Pei、Manling Li（Northwestern University、O2 Lab、University of Michigan、Cornell、All Hands AI、Stanford、UT Austin）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "系統性測試 5 個 frontier 模型是否具備「預算感知」能力，結果全員失敗：任務能力強不等於預算感知強（r=0.35），所有模型都過度樂觀，在注定失敗的任務上持續燒錢。",
+      "digestDate": "2026-06-03",
+      "digestSlug": "daily/2026-06-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01725",
+      "title": "Characterization of Multi-Model Agentic AI Systems on General Tasks via Trace-Driven Simulation",
+      "titleZh": "Characterization of Multi-Model Agentic AI Systems on General Tasks via Trace-Driven Simulation",
+      "authors": [
+        "MiroMind AI 研究團隊（論文研究 MiroThinker 與 OWL 兩套系統",
+        "作者名單未完整見於搜尋結果）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "第一份記錄真實 Agent 系統「每完成一個任務到底花了多少 LLM 呼叫」的 token 級軌跡資料集（GAIATrace），外加可低成本重播的模擬器（Vidur-Agent）。",
+      "digestDate": "2026-06-04",
+      "digestSlug": "daily/2026-06-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.00619",
+      "title": "MemPro: Agentic Memory Systems as Evolvable Programs",
+      "titleZh": "MemPro: Agentic Memory Systems as Evolvable Programs",
+      "authors": [
+        "Qingshan Liu",
+        "Guoqing Wang",
+        "Wen Wu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 Agent 的整個記憶系統（包含「如何存」和「如何取」的邏輯與程式碼）當成一支可自我迭代的程式，讓 Agent 從失敗中學習並更新記憶架構本身，而不只是更新記憶內容。",
+      "digestDate": "2026-06-04",
+      "digestSlug": "daily/2026-06-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.02461",
+      "title": "AgentCL: Toward Rigorous Evaluation of Continual Learning in Language Agents",
+      "titleZh": "AgentCL: Toward Rigorous Evaluation of Continual Learning in Language Agents",
+      "authors": [
+        "Yiheng Shu",
+        "Bernal Jiménez Gutiérrez",
+        "Saisri Padmaja Jonnalagedda"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有的 Agent 持續學習 benchmark 大多太寬鬆，分不出「Agent 真的把前面任務學到的知識用在後面」還是「後面任務本來就比較簡單」；AgentCL 透過刻意設計任務間的可複用性來修正這個缺陷。",
+      "digestDate": "2026-06-04",
+      "digestSlug": "daily/2026-06-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04874",
+      "title": "Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents",
+      "titleZh": "Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents",
+      "authors": [
+        "Haoyu Sun",
+        "Wenxuan Wang",
+        "Mingyang Song"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "4,209 道跨 22 個領域的多模態測試題，專門診斷「LLM Agent 的規劃哪裡出了問題」，測試 12 個頂尖模型後發現全都有系統性弱點。",
+      "digestDate": "2026-06-05",
+      "digestSlug": "daily/2026-06-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01801",
+      "title": "MetaForge: A Self-Evolving Multimodal Agent that Retrieves, Adapts, and Forges Tools On Demand",
+      "titleZh": "MetaForge: A Self-Evolving Multimodal Agent that Retrieves, Adapts, and Forges Tools On Demand",
+      "authors": [
+        "Shouang Wei",
+        "Houcheng Min",
+        "Xinpeng Dong"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 遇到工具庫裡沒有的場景，不再說「我做不到」，而是走過「判斷 → 找工具 → 調整參數 → 自行鍛造新工具 → 存回庫」五步閉迴路，實現工具能力的自我進化。",
+      "digestDate": "2026-06-05",
+      "digestSlug": "daily/2026-06-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04051",
+      "title": "RUBAS: Rubric-Based Reinforcement Learning for Agent Safety",
+      "titleZh": "RUBAS: Rubric-Based Reinforcement Learning for Agent Safety",
+      "authors": [
+        "Xian Qi Loye",
+        "Qinglin Su",
+        "Zhexin Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 agent 安全問題拆成四個細粒度維度打分，用這個「評分標準（Rubric）」作為強化學習的獎勵訊號，讓模型學會在安全和實用之間找到真正的平衡，而非一律拒絕。",
+      "digestDate": "2026-06-05",
+      "digestSlug": "daily/2026-06-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04315",
+      "title": "Exploring Cross-Scenario Generality of Agentic Memory Systems: Diagnostics and a Strong Baseline",
+      "titleZh": "Exploring Cross-Scenario Generality of Agentic Memory Systems: Diagnostics and a Strong Baseline",
+      "authors": [
+        "Zhikai Chen",
+        "Jialiang Gu",
+        "Junyu Yin"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-tool-use"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "8 種主流 agent 記憶系統放在 5 種不同場景跑，發現大多數只在自己設計的場景表現好、換個場景就崩；讓 agent 自己透過 tool call 管自己的記憶（AutoMEM）反而是最泛化的方法。",
+      "digestDate": "2026-06-06",
+      "digestSlug": "daily/2026-06-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04455",
+      "title": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
+      "titleZh": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
+      "authors": [
+        "Xinyu Lu",
+        "Tianshu Wang",
+        "Pengbo Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓 AI 在沙箱裡「自己寫 agent 程式碼」來解決任務，測試五個領域後發現：幾乎沒有模型能超越人工設計的 baseline，只有少數頂級閉源模型勉強達標。",
+      "digestDate": "2026-06-06",
+      "digestSlug": "daily/2026-06-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05233",
+      "title": "Domain-Conditioned Safety in Frontier Computer-Using Agents",
+      "titleZh": "Domain-Conditioned Safety in Frontier Computer-Using Agents",
+      "authors": [
+        "Nicholas Saban（Patronus AI"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Claude Sonnet 4.6 和 GPT-5.4 在網頁操作任務中 prompt injection 攻擊成功率為 0%；但同樣的模型在程式碼任務場景中被攻擊成功率高達 100%——安全性不是全域屬性，而是場景條件式的。",
+      "digestDate": "2026-06-06",
+      "digestSlug": "daily/2026-06-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05548",
+      "title": "ADK Arena: Evaluating Agent Development Kits via LLM-as-a-Developer",
+      "titleZh": "ADK Arena: Evaluating Agent Development Kits via LLM-as-a-Developer",
+      "authors": [
+        "Jintao Huang",
+        "Xiaomin Li",
+        "Gaurav Mittal"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用 LLM 自動學習各框架 API 並寫 agent 程式碼，首度在四個 benchmark 上量化比較主流 ADK：最佳框架達到 80% 任務完成率，中位數只有 32%；而「誰寫 agent 程式碼」比「agent 跑哪個 backbone 模型」對結果影響更大。",
+      "digestDate": "2026-06-07",
+      "digestSlug": "daily/2026-06-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.06448",
+      "title": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads",
+      "titleZh": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads",
+      "authors": [
+        "Yasmine Omri",
+        "Ziyu Gan",
+        "Zachary Broveak"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "首篇從「電腦系統」而非「LLM 能力」角度分析 agent 記憶：10 種記憶系統用 4 個 axes 分類，揭示不同設計在延遲、頻寬、可擴展性上的實際取捨，給工程師系統化框架來選記憶方案。",
+      "digestDate": "2026-06-07",
+      "digestSlug": "daily/2026-06-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05241",
+      "title": "Search-Time Contamination in Deep Research Agents: Measuring Performance Inflation in Public Benchmark Evaluation",
+      "titleZh": "Search-Time Contamination in Deep Research Agents: Measuring Performance Inflation in Public Benchmark Evaluation",
+      "authors": [
+        "Yongjie Wang",
+        "Xinyue Zhang",
+        "Kunhong Yao"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "Deep research agent 在評測時會搜尋網路，而 benchmark 答案也在網路上——這種「邊考試邊查答案」現象讓分數最多虛高 4%；Alibaba 團隊定義三種汙染類型並開發偵測演算法，質疑現有評測數字的可信度。",
+      "digestDate": "2026-06-07",
+      "digestSlug": "daily/2026-06-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04484",
+      "title": "AgentJet: A Flexible Swarm Training Framework for Agentic Reinforcement Learning",
+      "titleZh": "AgentJet: A Flexible Swarm Training Framework for Agentic Reinforcement Learning",
+      "authors": [
+        "ModelScope Team（阿里巴巴 ModelScope）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓多個不同的 LLM 一起做強化學習訓練、彼此不互相干擾，一個 agent 環境崩潰不拖垮整個訓練；透過 timeline merging 讓訓練速度提升 1.5x～10x，完全開源。",
+      "digestDate": "2026-06-08",
+      "digestSlug": "daily/2026-06-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05622",
+      "title": "AdaPlanBench: Evaluating Adaptive Planning in Large Language Model Agents under World and User Constraints",
+      "titleZh": "AdaPlanBench: Evaluating Adaptive Planning in Large Language Model Agents under World and User Constraints",
+      "authors": [
+        "Jiayu Liu",
+        "Cheng Qian",
+        "Zhenhailong Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現實任務的規則不會一次告訴你——規劃途中違反規定才會被反饋。UIUC 團隊建立了模擬這種場景的 benchmark：307 個家務任務加上隱藏的雙重限制，邊做邊揭露，測試 10 個頂尖 LLM 後最好只有 67.75%，使用者限制比環境限制難多了。",
+      "digestDate": "2026-06-08",
+      "digestSlug": "daily/2026-06-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05711",
+      "title": "Beyond tokens: a unified framework for latent communication in LLM-based multi-agent systems",
+      "titleZh": "Beyond tokens: a unified framework for latent communication in LLM-based multi-agent systems",
+      "authors": [
+        "Yingzhuo Liu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "Multi-agent 系統裡 agents 之間傳文字很貴又有資訊損失，這篇 survey 整理「改傳 embedding / hidden state / KV-cache」的研究現狀，提出分類框架，幫你評估這條路能否用在你的 agent 系統。",
+      "digestDate": "2026-06-08",
+      "digestSlug": "daily/2026-06-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01317",
+      "title": "SABER: Benchmarking Operational Safety of LLM Coding Agents in Stateful Project Workspaces",
+      "titleZh": "SABER: Benchmarking Operational Safety of LLM Coding Agents in Stateful Project Workspaces",
+      "authors": [
+        "Qi Hu",
+        "Yifeng Tang",
+        "Qinghua Wang 等 10 人（HKU / CMU / NUS / HKUST / Shandong University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "過去的安全 benchmark 只測「AI 會不會拒絕壞指令」；SABER 改成測「AI 在真實 code repo 裡實際做了幾次危險操作」——最好的模型還有 54.7% 的危害率。",
+      "digestDate": "2026-06-09",
+      "digestSlug": "daily/2026-06-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05647",
+      "title": "Coding with \"Enemy\": Can Human Developers Detect AI Agent Sabotage?",
+      "titleZh": "Coding with \"Enemy\": Can Human Developers Detect AI Agent Sabotage?",
+      "authors": [
+        "Jingheng Ye",
+        "Huiqi Zou",
+        "Simon Yu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "100+ 位真人開發者跟「會暗中插入惡意程式碼」的 AI agent 一起寫程式五小時，94% 的人沒抓到。",
+      "digestDate": "2026-06-09",
+      "digestSlug": "daily/2026-06-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04465",
+      "title": "SePO: Self-Evolving Prompt Agent for System Prompt Optimization",
+      "titleZh": "SePO: Self-Evolving Prompt Agent for System Prompt Optimization",
+      "authors": [
+        "Wangcheng Tao",
+        "Han Wu",
+        "Weng-Fai Wong（National University of Singapore）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "一個 AI「優化 agent」不只幫你寫更好的 system prompt，也同時把自己的 system prompt 一起優化——不改模型，在五個 benchmark 上平均提升 4.49 分。",
+      "digestDate": "2026-06-09",
+      "digestSlug": "daily/2026-06-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.09122",
+      "title": "Autonomous Incident Resolution at Hyperscale: An Agentic AI Architecture for Network Operations",
+      "titleZh": "Autonomous Incident Resolution at Hyperscale: An Agentic AI Architecture for Network Operations",
+      "authors": [
+        "Arun Malik（「大型雲端供應商」",
+        "機構未公開揭露）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "一套分層多 Agent 系統在真實雲端環境自動偵測、診斷並修復網路故障，生產部署後達 90%+ 自主解決率，不需人工介入。",
+      "digestDate": "2026-06-10",
+      "digestSlug": "daily/2026-06-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.07909",
+      "title": "MemToolAgent: Leveraging Memory for Tool Using Agents Based on Environment and User Feedback",
+      "titleZh": "MemToolAgent: Leveraging Memory for Tool Using Agents Based on Environment and User Feedback",
+      "authors": [
+        "Suleyman Armagan Er",
+        "Danilo Ribeiro",
+        "Yogesh Virkar"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "在 agent 呼叫工具前，先撈出過去類似對話的成功路徑和失敗反饋作為提示，不需重訓模型就讓工具呼叫準確率大幅提升。",
+      "digestDate": "2026-06-10",
+      "digestSlug": "daily/2026-06-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.04967",
+      "title": "From Prompt to Process: a Process Taxonomy and Comparative Assessment of Frameworks Supporting AI Software Development Agents",
+      "titleZh": "From Prompt to Process: a Process Taxonomy and Comparative Assessment of Frameworks Supporting AI Software Development Agents",
+      "authors": [
+        "Sanderson Oliveira de Macedo（Federal Institute of Goias",
+        "Brazil）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "把六個「AI 輔助軟體開發流程框架」用六個維度系統打分比較，幫你看清楚各框架在需求規格、角色分工、驗收等面向的強弱——注意這不是 LangGraph 那類 runtime，而是「怎麼跟 AI 合作開發」的工作方法論。",
+      "digestDate": "2026-06-10",
+      "digestSlug": "daily/2026-06-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05037",
+      "title": "Self-Reflective APIs: Structure Beats Verbosity for AI Agent Recovery",
+      "titleZh": "Self-Reflective APIs: Structure Beats Verbosity for AI Agent Recovery",
+      "authors": [
+        "Arquimedes Canedo、Grama Chethan（Siemens Digital Industries Software",
+        "USA）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "API 出錯時，給 agent「結構化修復建議清單」比「自然語言錯誤說明」更有效：任務完成率提升 37–40 個百分點，token 效率也高出近 2 倍。",
+      "digestDate": "2026-06-11",
+      "digestSlug": "daily/2026-06-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.01508",
+      "title": "Agent Operating Systems (AOS): Integrating Agentic Control Planes into, and Beyond, Traditional Operating Systems",
+      "titleZh": "Agent Operating Systems (AOS): Integrating Agentic Control Planes into, and Beyond, Traditional Operating Systems",
+      "authors": [
+        "Ankur Sharma、Deep Shah"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-reasoning"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "傳統 OS（進程、執行緒、系統呼叫）是為確定性程式設計的，但 agent 是長期存活、目標驅動、會隨機應變的生物——這篇主張我們需要一個「Agent OS」來接管排程、記憶體、安全和治理。",
+      "digestDate": "2026-06-11",
+      "digestSlug": "daily/2026-06-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.09613",
+      "title": "AGENTSERVESIM: A Hardware-aware Simulator for Multi-Turn LLM Agent Serving",
+      "titleZh": "AGENTSERVESIM: A Hardware-aware Simulator for Multi-Turn LLM Agent Serving",
+      "authors": [
+        "Rakibul Hasan Rajib、Mengxin Zheng、Qian Lou（University of Central Florida）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有 LLM serving 模擬器把每個對話 turn 當獨立請求，完全忽略 agent 跨輪次的 KV cache 重用和工具呼叫等待；這篇建了第一個把 agent 當「有狀態程式」來模擬的 hardware-aware 模擬器。",
+      "digestDate": "2026-06-11",
+      "digestSlug": "daily/2026-06-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11070",
+      "title": "T1-Bench: Benchmarking Multi-Scenario Agents in Real-World Domains",
+      "titleZh": "T1-Bench: Benchmarking Multi-Scenario Agents in Real-World Domains",
+      "authors": [
+        "Genta Indra Winata",
+        "Amartya Chakraborty",
+        "Yuzhen Lin 等（Capital One AI Foundations"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有 agent benchmark 太簡單、太單一領域；T1-Bench 用 25 個業務領域的交叉對話場景，讓「agent 在真實客服環境到底行不行」首次有了可量化的跨模型比較基準。",
+      "digestDate": "2026-06-12",
+      "digestSlug": "daily/2026-06-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11079",
+      "title": "VISTA: A Versatile Interactive User Simulation Toolkit for Agent Evaluation",
+      "titleZh": "VISTA: A Versatile Interactive User Simulation Toolkit for Agent Evaluation",
+      "authors": [
+        "Yunan Lu",
+        "Ryan Shea",
+        "Yusen Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用 LLM 模擬使用者評估 agent 很省力，但「虛擬使用者夠不夠真、測得夠不夠全？」一直沒有量化答案；VISTA 提出 6 個品質指標 + 同時支援 UI 操作和 API 呼叫的 hybrid 模擬器，在電商和客服場景都比現有方法更全面可信。",
+      "digestDate": "2026-06-12",
+      "digestSlug": "daily/2026-06-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05608",
+      "title": "Agentic Software: How AI Agents Are Restructuring the Software Paradigm",
+      "titleZh": "Agentic Software: How AI Agents Are Restructuring the Software Paradigm",
+      "authors": [
+        "Zhenfeng Cao（Lingxi Intelligent Investment",
+        "Shenzhen）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "傳統軟體把決策邏輯寫在程式碼裡；Agentic Software 的決策邏輯在執行時由 LLM 動態生成，程式碼只是工具——這是軟體本質的轉變，不是工具升級，對 agent 平台的設計和除錯方式有直接影響。",
+      "digestDate": "2026-06-12",
+      "digestSlug": "daily/2026-06-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11680",
+      "title": "Organize then Retrieve: Hierarchical Memory Navigation for Efficient Agents",
+      "titleZh": "Organize then Retrieve: Hierarchical Memory Navigation for Efficient Agents",
+      "authors": [
+        "Hao-Lun Hsu",
+        "Nikki Lijing Kuang",
+        "Boyi Liu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 Agent 的「執行記憶」整理成階層式筆記資料夾，讓 Agent 用 Bash 工具自己去翻找需要的資訊，而不是把所有歷史全塞進 prompt。",
+      "digestDate": "2026-06-13",
+      "digestSlug": "daily/2026-06-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11119",
+      "title": "TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning",
+      "titleZh": "TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning",
+      "authors": [
+        "Heming Zou",
+        "Qi Wang",
+        "Yun Qu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "訓練 Agent 時大部分的「跑樣本」都在浪費算力；TRACE 用樹狀結構把 rollout budget 導到最有學習價值的岔路口，同樣算力讓 Multi-Hop QA 多學 2.8 分。",
+      "digestDate": "2026-06-13",
+      "digestSlug": "daily/2026-06-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.10156",
+      "title": "τ-Rec: A Verifiable Benchmark for Agentic Recommender Systems",
+      "titleZh": "τ-Rec: A Verifiable Benchmark for Agentic Recommender Systems",
+      "authors": [
+        "Bharath Sivaram Narasimhan（獨立研究者",
+        "Mountain View CA）、Karthik R Narasimhan（Princeton University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "針對多輪對話推薦 Agent 打造可機器驗證的 benchmark，用結構化條件取代 LLM 打分；最大發現：連最強模型連跑四次的成功率也只剩 38%。",
+      "digestDate": "2026-06-13",
+      "digestSlug": "daily/2026-06-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.08367",
+      "title": "Emergence World: A Platform for Evaluating Long-Horizon Multi-Agent Autonomy",
+      "titleZh": "Emergence World: A Platform for Evaluating Long-Horizon Multi-Agent Autonomy",
+      "authors": [
+        "Deepak Akkil",
+        "Ravi Kokku",
+        "Karthik Vikram"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓配備 120+ 工具與三層持久記憶的 LLM Agent 群體在共享沙盒裡連續跑幾週，觀察短期 benchmark 完全看不到的「行為漂移」與跨模型交叉影響現象。",
+      "digestDate": "2026-06-14",
+      "digestSlug": "daily/2026-06-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12191",
+      "title": "Agentic Environment Engineering for Large Language Models: A Survey",
+      "titleZh": "Agentic Environment Engineering for Large Language Models: A Survey",
+      "authors": [
+        "Jiachun Li",
+        "Zhuoran Jin",
+        "Tianyi Men 等 15 位作者（中國科學院 / 北京相關機構）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-coding",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把「怎麼設計 AI Agent 執行環境」系統化：8 個屬性 × 8 個應用領域分類框架，加上 symbolic vs. neural 兩種自動合成範式，是 agent environment 設計的入門地圖。",
+      "digestDate": "2026-06-14",
+      "digestSlug": "daily/2026-06-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.13175",
+      "title": "The End of Code Review: Coding Agents Supersede Human Inspection",
+      "titleZh": "The End of Code Review: Coding Agents Supersede Human Inspection",
+      "authors": [
+        "Martin Monperrus（KTH Royal Institute of Technology",
+        "Sweden）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-coding",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "立場鮮明的 position paper：coding agent 已能替代人工 code review 的所有傳統目標，強迫人類 review AI 程式碼是走錯了方向。",
+      "digestDate": "2026-06-14",
+      "digestSlug": "daily/2026-06-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05405",
+      "title": "Agents' Last Exam",
+      "titleZh": "Agents' Last Exam",
+      "authors": [
+        "Dawn Song、UC Berkeley RDI 及 RDI Foundation 團隊（250+ 名產業專家共同設計任務）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用真實職場任務測 AI agent：最強配置只通過了 26%，最難一級所有頂尖模型幾乎全掛。",
+      "digestDate": "2026-06-15",
+      "digestSlug": "daily/2026-06-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.05391",
+      "title": "Human oversight of agentic systems in practice",
+      "titleZh": "Human oversight of agentic systems in practice",
+      "authors": [
+        "Shipi Dhanorkar、Samir Passi、Mihaela Vorvoreanu（Microsoft Research）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "17 位開發者訪談揭示 4 種「自發監督行為」，但現有 agent 框架的 UI 幾乎沒有支援其中 2 種。",
+      "digestDate": "2026-06-15",
+      "digestSlug": "daily/2026-06-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.02494",
+      "title": "Monitoring Agentic Systems Before They're Reliable",
+      "titleZh": "Monitoring Agentic Systems Before They're Reliable",
+      "authors": [
+        "Marisa Ferrara Boston、Glen Hanson、Effi Georgala、JD Hudgens、Heather Frase（Reins AI、Veratech USA）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "agent 系統還不穩定就上線時，傳統任務層監控會失靈；這篇提出 3×3 監控框架，幫你找出「哪根線沒接好」。",
+      "digestDate": "2026-06-15",
+      "digestSlug": "daily/2026-06-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.14211",
+      "title": "Closing the Reflection Gap: A Free Calibration Bonus for Agentic RL",
+      "titleZh": "Closing the Reflection Gap: A Free Calibration Bonus for Agentic RL",
+      "authors": [
+        "Yinglun Zhu（University of California",
+        "Riverside）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "LLM Agent 明明答對了卻說「我答錯了」——本文用一個不需額外標注的校準獎勵修正這個反思偏差，讓 Agent 真正成為自己的驗證器。",
+      "digestDate": "2026-06-16",
+      "digestSlug": "daily/2026-06-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11869",
+      "title": "Agents All the Way Down: A Methodology for Building Custom AI Agents from Substrate to Production",
+      "titleZh": "Agents All the Way Down: A Methodology for Building Custom AI Agents from Substrate to Production",
+      "authors": [
+        "Marc Alier Forment",
+        "Juanan Pereira",
+        "Francisco José García-Peñalvo"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "不想每次框架升級就重寫 agent？這篇給你從 LLM API 底層到上線維護的完整方法論：兩個前提條件（substrate + building blocks）加上三個持續實踐，比「先 pip install langchain」更底層也更持久。",
+      "digestDate": "2026-06-16",
+      "digestSlug": "daily/2026-06-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.13662",
+      "title": "EurekAgent: Agent Environment Engineering is All You Need For Autonomous Scientific Discovery",
+      "titleZh": "EurekAgent: Agent Environment Engineering is All You Need For Autonomous Scientific Discovery",
+      "authors": [
+        "Amy Xin",
+        "Jiening Siow",
+        "Junjie Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "讓 Agent 自動提假設、跑實驗、迭代改進的瓶頸，不是 LLM 能力而是「環境怎麼設計」——清華這套系統靠容器隔離和清楚的評分介面，在多個科研任務達到 SOTA。",
+      "digestDate": "2026-06-16",
+      "digestSlug": "daily/2026-06-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12674",
+      "title": "Evoflux: Inference-Time Evolution of Executable Tool Workflows for Compact Agents",
+      "titleZh": "Evoflux: Inference-Time Evolution of Executable Tool Workflows for Compact Agents",
+      "authors": [
+        "Kushal Raj Bhandari",
+        "Ling Yue",
+        "Ching-Yun Ko"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-tool-use",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "小模型面對 250 個工具的 MCP 目錄幾乎癱瘓（執行成功率 3%），Evoflux 用推論時的演化搜尋反覆修復失敗的工具 graph，把成功率拉到 17–24%——不需要 fine-tuning。",
+      "digestDate": "2026-06-17",
+      "digestSlug": "daily/2026-06-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.11290",
+      "title": "FlowBank: Query-Adaptive Agentic Workflows Optimization through Precompute-and-Reuse",
+      "titleZh": "FlowBank: Query-Adaptive Agentic Workflows Optimization through Precompute-and-Reuse",
+      "authors": [
+        "Lingzhi Yuan",
+        "Chenghao Deng",
+        "Fangxu Yu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "Agent workflow 不必每次重新生成（貴），也不必只有一個萬用版本（差）——預計算一個多樣化 workflow 倉庫，推論時用圖神經網路路由，比最強自動化方法高 4.26%、比最強手工設計高 14.92%。",
+      "digestDate": "2026-06-17",
+      "digestSlug": "daily/2026-06-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.14470",
+      "title": "GitOfThoughts: Version-Controlled Reasoning and Agent Memory You Can Replay, Diff, and Merge",
+      "titleZh": "GitOfThoughts: Version-Controlled Reasoning and Agent Memory You Can Replay, Diff, and Merge",
+      "authors": [
+        "Pavan C Shekar",
+        "Abhishek H S",
+        "Aswanth Krishnan（QpiAI"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "大家都在說要給 Agent 加記憶，但這篇系統實驗後的答案是：除非新問題跟記憶中的案例幾乎一模一樣（相似度 > 0.8），加任何記憶基底都沒有統計顯著幫助——但 git 提供了一條以稽核性、可重播性為價值的工程路徑。",
+      "digestDate": "2026-06-17",
+      "digestSlug": "daily/2026-06-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.14249",
+      "title": "HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry",
+      "titleZh": "HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry",
+      "authors": [
+        "Darwin Agent Team（Tingyang Chen 等 14 位作者）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 Agent 的執行框架（Harness）做成可組合積木，再讓 AI 自動跑實驗找出最好的組合——不改模型、只調框架，Qwen 9B 在 GAIA 從 33% 跳到 55.77%，GPT-5 從 62% 跳到 84%。",
+      "digestDate": "2026-06-18",
+      "digestSlug": "daily/2026-06-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.14200",
+      "title": "When Should Agent Trust Be Conditional? Characterizing and Attacking Skill-Conditional Reputation in Agent Swarms",
+      "titleZh": "When Should Agent Trust Be Conditional? Characterizing and Attacking Skill-Conditional Reputation in Agent Swarms",
+      "authors": [
+        "Yihan Xia",
+        "Taotao Wang（深圳大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "多 Agent 系統裡，給每個 Agent 一個全域信任分（「它平均有多好」）在很多情況下會路由錯誤——但改成技能維度的細分信任，又會在特定條件下被惡意 Agent 劫持，路由失誤率從 0 飆到 0.94。",
+      "digestDate": "2026-06-18",
+      "digestSlug": "daily/2026-06-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12341",
+      "title": "OCELOT: Inference-Leakage Budgets for Privacy-Preserving LLM Agents",
+      "titleZh": "OCELOT: Inference-Leakage Budgets for Privacy-Preserving LLM Agents",
+      "authors": [
+        "Jin Xie",
+        "Songze Li"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "LLM Agent 在完成任務的過程中，會一點一點把使用者隱私洩漏給外部服務；OCELOT 在 Agent 和外部世界之間加了一個「洩漏預算員」，讓攻擊者從整條 trajectory 中能推斷出的秘密量不超過上限 ε。",
+      "digestDate": "2026-06-18",
+      "digestSlug": "daily/2026-06-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.16432",
+      "title": "ACCORD: Action-Conditioned Contextual Grounding for Language Agents",
+      "titleZh": "ACCORD: Action-Conditioned Contextual Grounding for Language Agents",
+      "authors": [
+        "Lai Jiang",
+        "Cheng Qian",
+        "Zhenhailong Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 常常「以為自己知道」使用者的意思，其實只是靠假設在行動；ACCORD 讓 agent 在每個行動前主動去環境裡確認「我真的有這個資訊嗎？」，AppWorld 成功率從 42% 跳到 62.6%。",
+      "digestDate": "2026-06-19",
+      "digestSlug": "daily/2026-06-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.13003",
+      "title": "The Illusion of Multi-Agent Advantage",
+      "titleZh": "The Illusion of Multi-Agent Advantage",
+      "authors": [
+        "Prathyusha Jwalapuram",
+        "Hehai Lin",
+        "Chuyuan Li"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "「多 agent 系統一定比單 agent 強」是業界共識，但這篇的實驗顯示：自動生成的 MAS 在計算成本高出 10 倍的情況下，竟比不過單模型加 CoT-SC。",
+      "digestDate": "2026-06-19",
+      "digestSlug": "daily/2026-06-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.07448",
+      "title": "Agentic Very Much! Adoption of Coding Agent in New GitHub Projects",
+      "titleZh": "Agentic Very Much! Adoption of Coding Agent in New GitHub Projects",
+      "authors": [
+        "Romain Robbes",
+        "Théo Matricon",
+        "Thomas Degueule（CNRS/LaBRI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "在新建的 GitHub 專案裡，AI coding agent 的採用率是一年前同類研究的兩倍以上，而且每個採用者用得更深，AI 輔助的 commit 比例更高。",
+      "digestDate": "2026-06-19",
+      "digestSlug": "daily/2026-06-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.10402",
+      "title": "Harnessing the Collective Intelligence of AI Agents in the Wild for New Discoveries",
+      "titleZh": "Harnessing the Collective Intelligence of AI Agents in the Wild for New Discoveries",
+      "authors": [
+        "Federico Bianchi",
+        "Yongchan Kwon",
+        "Aneesh Pappu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把多個 AI agent 放在同一個平台互相借用解題思路和失敗記錄——就像科學家交流論文草稿一樣——成功讓集體 agents 在數學難題上找到 12 個人類和 AI 都沒解出過的新最佳解。",
+      "digestDate": "2026-06-20",
+      "digestSlug": "daily/2026-06-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.15363",
+      "title": "APEX: Adaptive Principle EXtraction — A Three-Layer Self-Evolution Framework for Production AI Agents",
+      "titleZh": "APEX: Adaptive Principle EXtraction — A Three-Layer Self-Evolution Framework for Production AI Agents",
+      "authors": [
+        "Ya-Chuan Chen",
+        "Tien-Jen Lai",
+        "Hsiang-Wei Hu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-rag"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 自我演化不只是改 prompt 一件事；APEX 同時演化三層：執行環境（harness）、行為原則（principles）、工作流程拓撲（topology），在有 114 筆真實任務軌跡的生產 agent 上驗證。",
+      "digestDate": "2026-06-20",
+      "digestSlug": "daily/2026-06-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20041",
+      "title": "AI Economist Agent: An Agentic Framework for Model-Grounded Economic Analysis with RAG, Knowledge Graphs, and LLMs",
+      "titleZh": "AI Economist Agent: An Agentic Framework for Model-Grounded Economic Analysis with RAG, Knowledge Graphs, and LLMs",
+      "authors": [
+        "Masahiro Kato"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "讓 LLM agent 做經濟分析時，不直接輸出數字，而是先找對應的正式計量模型執行一遍，再用模型輸出寫報告——每個定量聲明都能追溯到具體的計算來源，不靠 LLM 猜。",
+      "digestDate": "2026-06-20",
+      "digestSlug": "daily/2026-06-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.07489",
+      "title": "How AI Agents Reshape Knowledge Work: Autonomy, Efficiency, and Scope",
+      "titleZh": "How AI Agents Reshape Knowledge Work: Autonomy, Efficiency, and Scope",
+      "authors": [
+        "Jeremy Yang（Harvard Business School）、Kate Zyskowski、Noah Yonack、Jerry Ma（Perplexity AI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Perplexity 的真實生產數據：把功能從「對話搜尋」升級為「自主 agent」之後，每次任務自主執行時間從 33 秒跳到 26 分鐘、完成時間縮短 87%、用戶滿意度更高——而且 agent 吸引了認知複雜度更高的工作類型。",
+      "digestDate": "2026-06-21",
+      "digestSlug": "daily/2026-06-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.09498",
+      "title": "Self-Harness: Harnesses That Improve Themselves",
+      "titleZh": "Self-Harness: Harnesses That Improve Themselves",
+      "authors": [
+        "Hangfan Zhang、Shao Zhang、Kangcong Li、Chen Zhang、Yang Chen、Yiqun Zhang、Lei Bai、Shuyue Hu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 的 scaffolding（prompt + 工具 + 記憶 + 流程）可以讓 LLM 自己挖出弱點、自己修——不需要人工介入、不需要更強的外部模型；三個主流模型在 Terminal-Bench-2.0 上各獲 33-60% 相對提升。",
+      "digestDate": "2026-06-21",
+      "digestSlug": "daily/2026-06-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.08457",
+      "title": "The Consistency Illusion: How Multi-Agent Debate Hides Reasoning Misalignment",
+      "titleZh": "The Consistency Illusion: How Multi-Agent Debate Hides Reasoning Misalignment",
+      "authors": [
+        "Xiaoyang Wang、Christopher C. Yang（Drexel University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "多 agent 辯論後達成答案共識，不代表它們的推理是一致的；辯論甚至讓 agents 的推理鏈越來越不像，只是表面上都說同一個答案——研究者稱之為「一致性幻覺」，並提出 CARA 指標和修正協議來偵測這個問題。",
+      "digestDate": "2026-06-21",
+      "digestSlug": "daily/2026-06-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20529",
+      "title": "LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents",
+      "titleZh": "LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents",
+      "authors": [
+        "Md Nayem Uddin、Amir Saeidi、Eduardo Blanco、Chitta Baral（Arizona State University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "工具呼叫 agent 常常「知道事實卻用錯」：資訊都在 prompt 裡，但每次決策時 LLM 需要自己從文字中重建狀態，一旦重建出錯就違反政策或拿陳舊資料做決定。LedgerAgent 在 agent 迴圈中插入一個明確的型別帳本，把狀態從 prompt 文字裡分離出來，不需要任何微調。",
+      "digestDate": "2026-06-22",
+      "digestSlug": "daily/2026-06-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20002",
+      "title": "Connect the Dots: Training LLMs for Long-Lifecycle Agents with Cross-Domain Generalization Via Reinforcement Learning",
+      "titleZh": "Connect the Dots: Training LLMs for Long-Lifecycle Agents with Cross-Domain Generalization Via Reinforcement Learning",
+      "authors": [
+        "Yanxi Chen、Weijie Shi、Yuexiang Xie、Boyi Hu、Yaliang Li、Bolin Ding、Jingren Zhou（Alibaba Group）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現在的 agent 每次任務都從零開始，不會「越跑越聰明」。Alibaba 提出 Connect the Dots (CoD) 框架：用強化學習訓練 agent 在長期部署中邊執行任務邊更新對環境的認識，並讓這個學習能力跨領域遷移。",
+      "digestDate": "2026-06-22",
+      "digestSlug": "daily/2026-06-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20520",
+      "title": "Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes",
+      "titleZh": "Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes",
+      "authors": [
+        "Jun He、Deying Yu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "企業部署 agent 時，「批准一個動作」和「執行那個動作」之間存在安全漏洞：現有存取控制在 identity 層，assurance 在 plan 層，但在「agent 真的動 AWS / K8s 的那一刻」缺乏強制驗證點。Sovereign Execution Broker (SEB) 就是插在這個瞬間的憑證驗證與執行邊界。",
+      "digestDate": "2026-06-22",
+      "digestSlug": "daily/2026-06-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20487",
+      "title": "Beyond Global Replanning: Hierarchical Recovery for Cross-Device Agent Systems",
+      "titleZh": "Beyond Global Replanning: Hierarchical Recovery for Cross-Device Agent Systems",
+      "authors": [
+        "Shu Yao",
+        "Yuhua Luo",
+        "Qian Long 等"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "跨多台設備的 agent 執行失敗時，別急著全部重來——先讓設備端自己試著換個方式（API → CLI → GUI），不行再往上呈報給總指揮。",
+      "digestDate": "2026-06-23",
+      "digestSlug": "daily/2026-06-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.19911",
+      "title": "Multi-Agent Transactive Memory",
+      "titleZh": "Multi-Agent Transactive Memory",
+      "authors": [
+        "To Eun Kim",
+        "Xuhong He",
+        "Dishank Jain"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓 agent 把完整的執行軌跡（怎麼一步步完成任務）存進共享庫，讓其他 agent 之後能撈出來參考，而不是每次遇到類似任務都重新摸索。",
+      "digestDate": "2026-06-23",
+      "digestSlug": "daily/2026-06-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20014",
+      "title": "Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution",
+      "titleZh": "Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution",
+      "authors": [
+        "Jannik Hösch",
+        "Alessandro Sestini",
+        "Florian Fuchs"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "multi-agent"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "用 LLM 當多 agent 團隊的指揮官決定策略方向，再讓 RL 訓練的底層 agent 負責真正的動作執行——兩者各司其職，比純 RL 或純手工規則都更彈性。",
+      "digestDate": "2026-06-23",
+      "digestSlug": "daily/2026-06-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.22388",
+      "title": "PlanBench-XL: Evaluating Long-Horizon Planning of LLM Tool-Use Agents in Large-Scale Tool Ecosystems",
+      "titleZh": "PlanBench-XL: Evaluating Long-Horizon Planning of LLM Tool-Use Agents in Large-Scale Tool Ecosystems",
+      "authors": [
+        "Jiayu Liu",
+        "Qihan Lin",
+        "Cheng Qian"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "測試 1665 個工具下的長程規劃：最強 LLM 在無干擾時成功率只有 52%，一旦部分工具被封鎖更跌至 11%；這是第一個專門測「大量工具 + 工具失效」組合下 Agent 有多脆弱的 benchmark。",
+      "digestDate": "2026-06-24",
+      "digestSlug": "daily/2026-06-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.19135",
+      "title": "A Technical Taxonomy of LLM Agent Communication Protocols",
+      "titleZh": "A Technical Taxonomy of LLM Agent Communication Protocols",
+      "authors": [
+        "Linus Sander",
+        "Habtom Kahsay Gidey",
+        "Alexander Lenz"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "MCP、A2A、ACP、ANP 這些 Agent 通訊協定到底差在哪？TU Munich 分析 9 個主流開源協定，給出第一份技術分類法，讓選協定從「哪個比較紅」變成「哪個技術特性符合我的需求」。",
+      "digestDate": "2026-06-24",
+      "digestSlug": "daily/2026-06-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12563",
+      "title": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
+      "titleZh": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
+      "authors": [
+        "Neha Prakriya",
+        "Chaojun Hou",
+        "Zheng Gong"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "AMD 提出 Arbor：把「樹狀搜尋」當作多 Agent 系統的共享工作記憶，讓 Orchestrator、Specialist、Critic 三類 Agent 圍繞同一棵搜尋樹協作，失敗的嘗試也被保留為後續探索的診斷訊號。",
+      "digestDate": "2026-06-24",
+      "digestSlug": "daily/2026-06-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.21228",
+      "title": "Sakana Fugu Technical Report",
+      "titleZh": "Sakana Fugu Technical Report",
+      "authors": [
+        "Yujin Tang",
+        "Edoardo Cetin 等 14 人（Sakana AI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Sakana AI 訓練了一個「學會指揮其他模型」的 0.6B 小型協調器，把 Claude/GPT 等現有 frontier 模型的能力組合出超越任何單模型的表現，在 SWE-Bench Pro 達到 73.7%（公開最強）。",
+      "digestDate": "2026-06-25",
+      "digestSlug": "daily/2026-06-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.24530",
+      "title": "NatureBench: Can Coding Agents Match the Published SOTA of Nature-Family Papers?",
+      "titleZh": "NatureBench: Can Coding Agents Match the Published SOTA of Nature-Family Papers?",
+      "authors": [
+        "Yuru Wang",
+        "Lejun Cheng",
+        "Yuxin Zuo"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用 90 個 Nature 期刊真實科研任務測試 coding agent：最強 agent 只能超越原論文 17.8%——而且靠的是把問題「翻譯成熟悉的 ML 任務」，不是真正的科學發明。",
+      "digestDate": "2026-06-25",
+      "digestSlug": "daily/2026-06-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.23138",
+      "title": "Rising From the Ashes: How Agentic AI is Unblocking Challenges in Cybersecurity",
+      "titleZh": "Rising From the Ashes: How Agentic AI is Unblocking Challenges in Cybersecurity",
+      "authors": [
+        "Gabriela F. Ciocarlie",
+        "Kathrin Grosse",
+        "Somesh Jha（威斯康辛大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-reasoning"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "六位資安研究員整理出讓防禦者長年頭痛的五個瓶頸，逐一對應到 agentic AI 的五種新能力，論點是：「以前太費工、根本做不完」的安全任務，agent 現在可以接手了。",
+      "digestDate": "2026-06-25",
+      "digestSlug": "daily/2026-06-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.22678",
+      "title": "RigorBench: Benchmarking Engineering Process Discipline in Autonomous AI Coding Agents",
+      "titleZh": "RigorBench: Benchmarking Engineering Process Discipline in Autonomous AI Coding Agents",
+      "authors": [
+        "Meher Sai Preetam Madiraju",
+        "Meher Bhaskar Madiraju（Georgia Tech）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有評測只看 coding agent 有沒有解對題，RigorBench 首次用「解題過程是否有工程紀律」打分，評估計畫能力、驗證覆蓋率、錯誤恢復、節制行動、原子提交五個維度。",
+      "digestDate": "2026-06-26",
+      "digestSlug": "daily/2026-06-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.18502",
+      "title": "Towards Scalable Customization and Deployment of Multi-Agent Systems for Enterprise Applications",
+      "titleZh": "Towards Scalable Customization and Deployment of Multi-Agent Systems for Enterprise Applications",
+      "authors": [
+        "Paresh Dashore",
+        "Shreyas Kulkarni",
+        "Uttam Gurram"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 LLM multi-agent 系統推向企業生產的兩大卡點是「Domain 適配」和「推理成本」，這篇提出兩階段框架：先客製化（持續預訓練 + SFT + 偏好最佳化），再加速推理（推測解碼 + FP8 量化），實測吞吐量提升 4.48 倍。",
+      "digestDate": "2026-06-26",
+      "digestSlug": "daily/2026-06-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.20615",
+      "title": "Specifying AI-SDLC Processes: A Protocol Language for Human-Agent Boundaries",
+      "titleZh": "Specifying AI-SDLC Processes: A Protocol Language for Human-Agent Boundaries",
+      "authors": [
+        "Ylli Prifti（Birkbeck",
+        "University of London）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "AI agent 已參與軟體開發全流程，但「哪些決定讓 AI 做、哪些要人批准」目前只靠 prompt 描述，容易漂移也無法驗證；這篇提出一套 DSL 讓你把這些邊界寫成可機器驗證的協議規格。",
+      "digestDate": "2026-06-26",
+      "digestSlug": "daily/2026-06-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.24775",
+      "title": "Are We Ready For An Agent-Native Memory System?",
+      "titleZh": "Are We Ready For An Agent-Native Memory System?",
+      "authors": [
+        "Wei Zhou",
+        "Xuanhe Zhou",
+        "Shaokun Han"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "大家評估 Agent 記憶體都只看「答對幾題」，但忘了問「這個設計貴不貴、知識更新後會不會崩掉」——這篇從資料庫角度把記憶體拆成四個可以分別量測的系統模組。",
+      "digestDate": "2026-06-27",
+      "digestSlug": "daily/2026-06-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.21565",
+      "title": "Composing Verifiable Conceptual Models via Building Blocks: Towards Design-Time Verification of Agentic AI Workflows",
+      "titleZh": "Composing Verifiable Conceptual Models via Building Blocks: Towards Design-Time Verification of Agentic AI Workflows",
+      "authors": [
+        "Noé Y. Flandre（INRIA & Université Côte d'Azur",
+        "法國）",
+        "Alexander C. Nwala（William & Mary）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent workflow 設計好、上線後才發現 Agent 卡死或邏輯繞圈，這很常見——這篇提出在「設計階段」用 12 條結構規則自動驗證 workflow 設計有沒有問題，概念類似 IDE 的 type check。",
+      "digestDate": "2026-06-27",
+      "digestSlug": "daily/2026-06-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.19704",
+      "title": "Beyond Static Leaderboards: Predictive Validity for the Evaluation of LLM Agents",
+      "titleZh": "Beyond Static Leaderboards: Predictive Validity for the Evaluation of LLM Agents",
+      "authors": [
+        "Dhaval C. Patel 等共 61 位作者（多機構大型協作計畫）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent benchmark 的「總分排行榜」換個情境就失準——這篇用 14 組大規模平行實驗證明排名不穩定，並提出以「預測有效性」（in-sample 與 out-of-sample 排名相關性）取代總分均值作為選型指標。",
+      "digestDate": "2026-06-27",
+      "digestSlug": "daily/2026-06-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.24937",
+      "title": "The Hitchhiker's Guide to Agentic AI: From Foundations to Systems",
+      "titleZh": "The Hitchhiker's Guide to Agentic AI: From Foundations to Systems",
+      "authors": [
+        "Haggai Roitman（IBM Research",
+        "Haifa）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "一本寫給工程師和 PM 的 Agentic AI 全棧指南，從 Transformer 架構到 MCP/A2A 協議、multi-agent 架構，每章附代碼範例，可當手邊參考書長期使用。",
+      "digestDate": "2026-06-28",
+      "digestSlug": "daily/2026-06-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.23525",
+      "title": "Self-Compacting Language Model Agents",
+      "titleZh": "Self-Compacting Language Model Agents",
+      "authors": [
+        "Tianjian Li",
+        "Jingyu Zhang",
+        "William Jurayj"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 跑長任務時 trace 越積越長最終爆 context，SelfCompact 讓 LLM 自己判斷何時壓縮記憶，比固定間隔方案更準確，且節省 30-70% token 成本。",
+      "digestDate": "2026-06-28",
+      "digestSlug": "daily/2026-06-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12384",
+      "title": "APPO: Agentic Procedural Policy Optimization",
+      "titleZh": "APPO: Agentic Procedural Policy Optimization",
+      "authors": [
+        "Xucong Wang",
+        "Ziyu Ma",
+        "Yong Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-tool-use",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "訓練 Agent 的強化學習通常在「工具呼叫點」才分配功勞，APPO 把這精細到「每個 token 的真實影響力」，在 13 個 benchmark 上比強基線提升近 4 分，且不增加工具呼叫次數。",
+      "digestDate": "2026-06-28",
+      "digestSlug": "daily/2026-06-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.03895",
+      "title": "Agent libOS: A Library-OS-Inspired Runtime for Long-Running, Capability-Controlled LLM Agents",
+      "titleZh": "Agent libOS: A Library-OS-Inspired Runtime for Long-Running, Capability-Controlled LLM Agents",
+      "authors": [
+        "Yingqi Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 Linux「process」的設計哲學搬進 Agent：每個 agent 有自己的 ID、能力表、記憶體與稽核記錄，工具只是 wrapper，真正的控制邊界在 runtime 核心。",
+      "digestDate": "2026-06-29",
+      "digestSlug": "daily/2026-06-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.25996",
+      "title": "Autodata: An Agentic Data Scientist to Create High Quality Synthetic Data",
+      "titleZh": "Autodata: An Agentic Data Scientist to Create High Quality Synthetic Data",
+      "authors": [
+        "Ilia Kulikov",
+        "Chenxi Whitehouse",
+        "Tianhao Wu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Meta FAIR 把「建資料集」這件事做成 agent：agent 自己設計資料配方、評估品質、修改配方，並透過 meta-optimization 讓這個 data scientist agent 越來越會產高品質資料。",
+      "digestDate": "2026-06-29",
+      "digestSlug": "daily/2026-06-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.22484",
+      "title": "Governed AI-Assisted Engineering: Graduated Human Oversight for Agentic Code Generation in Regulated Domains",
+      "titleZh": "Governed AI-Assisted Engineering: Graduated Human Oversight for Agentic Code Generation in Regulated Domains",
+      "authors": [
+        "Richard Kang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "在銀行等受法規限制的環境，不是每個 agent 動作都要人類審批；GAIE 提供一個決策框架，依風險分三層監督，讓企業在合規前提下保留約 91% 的 coding agent 效率。",
+      "digestDate": "2026-06-29",
+      "digestSlug": "daily/2026-06-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.07297",
+      "title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+      "titleZh": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+      "authors": [
+        "Shaoqiu Zhang",
+        "Yuhang Wang",
+        "Jialiang Liang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "大多數 coding agent benchmark 只看最終有沒有修好 bug，但「先找到要改哪幾行」這個中間步驟才是瓶頸——這篇論文專門拆開來測這一步。",
+      "digestDate": "2026-06-30",
+      "digestSlug": "daily/2026-06-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.12344",
+      "title": "Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks",
+      "titleZh": "Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks",
+      "authors": [
+        "Mengyu Zheng",
+        "Kai Han",
+        "Boxun Li"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "同一個 AI backbone，換個 adapter 設計，Pass@1 從 19% 跳到 73%——這篇揭示你以為在比模型，其實在比框架設計。",
+      "digestDate": "2026-06-30",
+      "digestSlug": "daily/2026-06-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.26294",
+      "title": "The Red Queen Gödel Machine: Co-Evolving Agents and Their Evaluators",
+      "titleZh": "The Red Queen Gödel Machine: Co-Evolving Agents and Their Evaluators",
+      "authors": [
+        "Alex Iacob",
+        "Andrej Jovanović",
+        "William F. Shen"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "AI agent 越來越強，但評測系統一直是靜態的——這篇論文讓「評測 agent 的系統」也跟著 agent 一起自我進化，打破靜態 benchmark 的天花板。",
+      "digestDate": "2026-06-30",
+      "digestSlug": "daily/2026-06-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.24597",
+      "title": "Qwen-AgentWorld: Language World Models for General Agents",
+      "titleZh": "Qwen-AgentWorld: Language World Models for General Agents",
+      "authors": [
+        "Qwen Team（Alibaba Cloud）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把大模型訓練成「虛擬環境的扮演者」，讓 AI agent 在這個假世界裡反覆試錯，七種環境（工具呼叫、網頁操作、終端機等）一次全包，旗艦版模擬準確度首次超越 GPT-5.4",
+      "digestDate": "2026-07-01",
+      "digestSlug": "daily/2026-07-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.26859",
+      "title": "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems",
+      "titleZh": "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems",
+      "authors": [
+        "Kuaishou（快手）60+ 名研究工程師"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "快手用多 Agent 系統全自動化推薦算法研發週期：從想法生成、寫代碼、A/B 測試到上線，三週讓每位工程師當量的可落地產出提升 13.8 倍，帶來年化超億元人民幣收益",
+      "digestDate": "2026-07-01",
+      "digestSlug": "daily/2026-07-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.26959",
+      "title": "The Shift to Agentic AI: Evidence from Codex",
+      "titleZh": "The Shift to Agentic AI: Evidence from Codex",
+      "authors": [
+        "Drew Johnston",
+        "David Holtz（OpenAI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "OpenAI 用 Codex 真實使用數據，首次大規模量化「agentic AI 如何改變工作」：2026 年上半年用戶增 5 倍、任務規模膨脹 10 倍，且最重要的是，改變已從工程師擴散到法務、研究等非技術職能",
+      "digestDate": "2026-07-01",
+      "digestSlug": "daily/2026-07-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.16707",
+      "title": "User as Code: Executable Memory for Personalized Agents",
+      "titleZh": "User as Code: Executable Memory for Personalized Agents",
+      "authors": [
+        "Bojie Li（Pine AI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把「用戶模型」從一堆文字筆記，升級成可以直接執行的 Python 程式碼，讓 Agent 不只能「查詢事實」，還能對用戶狀態做計算與邏輯推理。",
+      "digestDate": "2026-07-02",
+      "digestSlug": "daily/2026-07-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.10662",
+      "title": "DeLM: Decentralized Multi-Agent Systems with Shared Context",
+      "titleZh": "DeLM: Decentralized Multi-Agent Systems with Shared Context",
+      "authors": [
+        "Yuzhen Mao、Azalia Mirhoseini（Stanford University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 Multi-Agent 系統裡「一個主管分派所有任務」的架構，換成「所有 agent 共讀一個驗證過的進度表、自己搶任務」——SWE-bench 上省 50% 成本，還拿到更高分。",
+      "digestDate": "2026-07-02",
+      "digestSlug": "daily/2026-07-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2606.18671",
+      "title": "HANSEL: Extracting Breadcrumbs from Web Agent Trajectories for Interactive Verification",
+      "titleZh": "HANSEL: Extracting Breadcrumbs from Web Agent Trajectories for Interactive Verification",
+      "authors": [
+        "Yujin Zhang、Daye Nam（University of California",
+        "Irvine）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "Web Agent 執行完任務後，HANSEL 自動從瀏覽歷史中抽出「最關鍵的幾頁」讓用戶點進去驗證，比起讓人看完整 log 省了 61% 的軌跡量。",
+      "digestDate": "2026-07-02",
+      "digestSlug": "daily/2026-07-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01084",
+      "title": "Can Agents Generalize to the Open World? Unveiling the Fragility of Static Training in Tool Use",
+      "titleZh": "Can Agents Generalize to the Open World? Unveiling the Fragility of Static Training in Tool Use",
+      "authors": [
+        "Song-Lin Lv",
+        "Weiming Wu",
+        "Rui Zhu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "精心訓練的 agent（不論 SFT 還是 RL）放到和訓練時不一樣的環境，表現就會明顯下降——這不是個別模型問題，而是系統性問題。",
+      "digestDate": "2026-07-03",
+      "digestSlug": "daily/2026-07-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.00939",
+      "title": "Leveraging LLM-Based Agentic Systems to Generate Quantum Applications for Test Optimization",
+      "titleZh": "Leveraging LLM-Based Agentic Systems to Generate Quantum Applications for Test Optimization",
+      "authors": [
+        "Ming Tao",
+        "Yuechen Li",
+        "Tao Yue"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "把寫量子程式這件「需要深厚專業知識」的事，拆成 6 個角色分工的 agent 流水線，讓非量子專家只需白話文需求就能得到可執行的量子應用程式。",
+      "digestDate": "2026-07-03",
+      "digestSlug": "daily/2026-07-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01034",
+      "title": "Behavior-Adaptive Conversational Agents: Toward a Fluid Personality Framework",
+      "titleZh": "Behavior-Adaptive Conversational Agents: Toward a Fluid Personality Framework",
+      "authors": [
+        "Hasibur Rahman",
+        "Smit Desai"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skip",
+      "keyFinding": "Agent 的個性表達不是越強越好：實驗發現「中等強度」在信任感、智慧感和愉悅感上都勝過低強度和高強度，且動態切換 persona 比固定一種更受使用者歡迎。",
+      "digestDate": "2026-07-03",
+      "digestSlug": "daily/2026-07-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01071",
+      "title": "MemSyco-Bench: Benchmarking Sycophancy in Agent Memory",
+      "titleZh": "MemSyco-Bench: Benchmarking Sycophancy in Agent Memory",
+      "authors": [
+        "Zhishang Xiang",
+        "Zerui Chen",
+        "Yunbo Tang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "你幫 agent 加了記憶模組，它可能反而變得更不誠實——MemSyco-Bench 是第一個專測「記憶導致諂媚」的 benchmark。",
+      "digestDate": "2026-07-04",
+      "digestSlug": "daily/2026-07-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01153",
+      "title": "Adversarial Pragmatics for AI Safety Evaluation",
+      "titleZh": "Adversarial Pragmatics for AI Safety Evaluation",
+      "authors": [
+        "Brett Reynolds（Humber College",
+        "Toronto）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有 agent 安全 benchmark 把所有失敗壓成 0/1，沒辦法告訴你失敗的真正原因——這篇從語言學出發，提出更細緻的診斷框架。",
+      "digestDate": "2026-07-04",
+      "digestSlug": "daily/2026-07-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01047",
+      "title": "Conversable Complexity: Agentic LLM Collectives as Interpretable Substrates",
+      "titleZh": "Conversable Complexity: Agentic LLM Collectives as Interpretable Substrates",
+      "authors": [
+        "Elias Najarro",
+        "Ane Espeseth",
+        "Eleni Nisioti"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-reasoning"
+      ],
+      "readPriority": "skip",
+      "keyFinding": "大家擔心 multi-agent 系統愈來愈黑箱，這篇反過來論證：LLM agent 集群因為用自然語言溝通，天生就比傳統複雜系統更透明可解讀。",
+      "digestDate": "2026-07-04",
+      "digestSlug": "daily/2026-07-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02509",
+      "title": "ReContext: Recursive Evidence Replay as LLM Harness for Long-Context Reasoning",
+      "titleZh": "ReContext: Recursive Evidence Replay as LLM Harness for Long-Context Reasoning",
+      "authors": [
+        "Yanjun Zhao",
+        "Ruizhong Qiu",
+        "Tianxin Wei"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "不改模型、零訓練，推理時用「模型自己的注意力分數」遞迴挑出相關片段重播給模型，顯著改善 LLM 在 128K 長文中找不到答案的問題。",
+      "digestDate": "2026-07-05",
+      "digestSlug": "daily/2026-07-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02507",
+      "title": "What LLM Agents Say When No One Is Watching",
+      "titleZh": "What LLM Agents Say When No One Is Watching",
+      "authors": [
+        "Arman Ghaffarizadeh",
+        "Danyal Mohaddes",
+        "Aliakbar Izadkhah"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "給 LLM agent 一個「沒人在看」的私密頻道，它說的話和公開說的差很多——在有社會階層差距的情境下，divergence 從 3% 基準線跳到約 40%。",
+      "digestDate": "2026-07-05",
+      "digestSlug": "daily/2026-07-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01211",
+      "title": "Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?",
+      "titleZh": "Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?",
+      "authors": [
+        "Zhi Chen",
+        "Zhensu Sun",
+        "Yuling Shi"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把業界最常引用的 3 個 coding agent benchmark（GSO、SWE-Perf、SWE-fficiency）官方標準答案跨 4 種機器重跑，發現大多不穩定：SWE-Perf 僅 8% 任務可靠，代表排行榜分數可能大幅誇大 coding agent 的真實進步。",
+      "digestDate": "2026-07-05",
+      "digestSlug": "daily/2026-07-05-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.00269",
+      "title": "Mnemosyne: Agentic Transaction Processing for Validating and Repairing AI-generated Workflows",
+      "titleZh": "Mnemosyne: Agentic Transaction Processing for Validating and Repairing AI-generated Workflows",
+      "authors": [
+        "Edward Y. Chang、Longling Geng（Stanford University）、Emily J. Chang（QuadriumAI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把資料庫的「交易（Transaction）」概念移植到 Agent 工作流程：LLM 輸出的每個動作都是「未信任提案」，要先通過明確的規則驗證才算數；違規則自動修復或回滾，不讓語意錯誤的 Agent 動作污染生產狀態。",
+      "digestDate": "2026-07-06",
+      "digestSlug": "daily/2026-07-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.00597",
+      "title": "Multi-Turn Agentic Scientific Literature Search via Workflow Induction",
+      "titleZh": "Multi-Turn Agentic Scientific Literature Search via Workflow Induction",
+      "authors": [
+        "Jisen Li、Bingxuan Li 等 16 位（UIUC、Together AI、UPenn、Stanford University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把多輪文獻搜尋問題化成「建 DAG 工作流程」：Agent 不只是用關鍵字搜尋，而是主動組合搜尋算子（展開引用、過濾、重排序⋯⋯），並根據用戶回饋修改整個工作流程本身；9B 小模型訓練後 Hit@5 從 58 提升到 77，執行錯誤率降到 0%。",
+      "digestDate": "2026-07-06",
+      "digestSlug": "daily/2026-07-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.00871",
+      "title": "Self-Evolving Agents with Anytime-Valid Certificates",
+      "titleZh": "Self-Evolving Agents with Anytime-Valid Certificates",
+      "authors": [
+        "Biswa Sengupta（JPMorgan Chase & Co.",
+        "LLM Suite Team）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "SEA：讓 Agent 在邊跑邊自我改良的同時，每次改良都需通過「可驗證安全門（anytime-valid gate）」並發出可稽核憑證，確保每次自我更新都有明確的錯誤預算上限，不會默默變差。",
+      "digestDate": "2026-07-06",
+      "digestSlug": "daily/2026-07-06-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01641",
+      "title": "When Agents Do Not Stop: Uncovering Infinite Agentic Loops in LLM Agents",
+      "titleZh": "When Agents Do Not Stop: Uncovering Infinite Agentic Loops in LLM Agents",
+      "authors": [
+        "Xinyi Hou",
+        "Shenao Wang",
+        "Yanjie Zhao"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 程式可能陷入「停不下來的迴圈」，本文開發靜態掃描工具 IAL-Scan，評估 6,549 個真實 repo，精準度 91.9%，發現這是比想像中普遍的系統性問題。",
+      "digestDate": "2026-07-07",
+      "digestSlug": "daily/2026-07-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01640",
+      "title": "AgentFlow: Building Agent Dependency Graphs for Static Analysis of Agent Programs",
+      "titleZh": "AgentFlow: Building Agent Dependency Graphs for Static Analysis of Agent Programs",
+      "authors": [
+        "Shenao Wang",
+        "Xinyi Hou",
+        "Yanjie Zhao"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "為 agent 程式碼建出一張「依賴圖」，讓你看清這個 agent 用了哪些模型、prompt、工具、記憶體，並自動偵測有危險的「prompt 到高權限工具」路徑；支援 5 大主流框架，分析了 5,399 個真實專案。",
+      "digestDate": "2026-07-07",
+      "digestSlug": "daily/2026-07-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02186",
+      "title": "UA-ChatDev: Uncertainty-Aware Multi-Agent Collaboration for Reliable Software Development",
+      "titleZh": "UA-ChatDev: Uncertainty-Aware Multi-Agent Collaboration for Reliable Software Development",
+      "authors": [
+        "Temitayo Olamilekan Ogunsusi",
+        "Lijun Qian",
+        "Xishuang Dong（Prairie View A&M University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "讓 multi-agent 軟體開發框架學會「自我懷疑」：用 token 的信心分數決定哪個 agent 的輸出需要驗證再轉交，防止早期錯誤在 pipeline 中滾雪球。",
+      "digestDate": "2026-07-07",
+      "digestSlug": "daily/2026-07-07-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05174",
+      "title": "AgentGym2: Benchmarking Large Language Model Agents in De-Idealized Real-World Environments",
+      "titleZh": "AgentGym2: Benchmarking Large Language Model Agents in De-Idealized Real-World Environments",
+      "authors": [
+        "Zhiheng Xi、Junjie Ye 等共 22 位（Fudan University 主導",
+        "浙江大學、上海交大、北京大學、[CAMEL-AI.org](http://CAMEL-AI.org) 協作）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有 Agent benchmark 太「貼心」了——工具幫你備好、輸入幫你洗乾淨；AgentGym2 偏偏把這些拿走，逼 Agent 自己找工具、應對髒資料，揭露真實能力缺口。",
+      "digestDate": "2026-07-08",
+      "digestSlug": "daily/2026-07-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01120",
+      "title": "Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents",
+      "titleZh": "Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents",
+      "authors": [
+        "Ran Yan 等共 24 位（Ant Group、香港科技大學、清華大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "問題不是 RL 演算法不夠好，而是缺乏讓 agent 在生產中「邊跑邊進化」的系統基礎設施；這篇提出三大工程支柱讓企業規模的 agent 能持續自我更新。",
+      "digestDate": "2026-07-08",
+      "digestSlug": "daily/2026-07-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01709",
+      "title": "ComfyClaw: Self-Evolving Skill Harnesses for Image Generation Workflows",
+      "titleZh": "ComfyClaw: Self-Evolving Skill Harnesses for Image Generation Workflows",
+      "authors": [
+        "Zongxia Li、Dawei Liu、Fuxiao Liu 等（University of Maryland、University of Pennsylvania、NVIDIA、Lehigh University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-reasoning"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "在 ComfyUI（節點式圖像生成工具）上，讓 agent 把每次執行的經驗（成功步驟、錯誤、verifier 回饋）蒸餾成可重用的技能，技能庫越用越強，效果優於沒有技能進化的版本。",
+      "digestDate": "2026-07-08",
+      "digestSlug": "daily/2026-07-08-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05029",
+      "title": "Your Agent's Memories Are Not Its Own: Forged Reasoning Attacks on LLM Agent Memory and Defenses",
+      "titleZh": "Your Agent's Memories Are Not Its Own: Forged Reasoning Attacks on LLM Agent Memory and Defenses",
+      "authors": [
+        "Neeraj Karamchandani",
+        "Piyush Nagasubramaniam",
+        "Sencun Zhu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "有人能偷偷修改 Agent「以前是怎麼想的」，讓它以後做壞事，而且現有所有防禦都擋不住。本文提出攻擊手法 FARMA 與對應防禦 SENTINEL。",
+      "digestDate": "2026-07-09",
+      "digestSlug": "daily/2026-07-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01793",
+      "title": "Safety Testing LLM Agents at Scale: From Risk Discovery to Evidence-Grounded Verification",
+      "titleZh": "Safety Testing LLM Agents at Scale: From Risk Discovery to Evidence-Grounded Verification",
+      "authors": [
+        "Yunhao Feng",
+        "Ruixiao Lin",
+        "Ming Wen 等 15 位作者"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "研究者造了一套自動化安全測試框架 Vera，去測了 4 套真實部署的 Agent 框架（含 Claude Code），在多通道攻擊下平均攻擊成功率 93.9%，並公開了 1,600 個可執行安全測試案例（Vera-Bench）。",
+      "digestDate": "2026-07-09",
+      "digestSlug": "daily/2026-07-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05318",
+      "title": "PiSAs: Benchmarking Contextual Integrity in Multi-User Agentic Systems",
+      "titleZh": "PiSAs: Benchmarking Contextual Integrity in Multi-User Agentic Systems",
+      "authors": [
+        "Shubham Gupta",
+        "Nazanin Mohammadi Sepahvand",
+        "Abhinav Kumar"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "當多個用戶共用同一個 Agent 時，Agent 很容易把 A 用戶的私人資訊洩露給 B 用戶。PiSAs 提出針對這個場景的 benchmark，揭示現有 SOTA 模型在多用戶隱私保護上仍有嚴重缺陷。",
+      "digestDate": "2026-07-09",
+      "digestSlug": "daily/2026-07-09-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07321",
+      "title": "From Atomic Actions to Standard Operating Procedures: Iterative Tool Optimization for Self-Evolving LLM Agents",
+      "titleZh": "From Atomic Actions to Standard Operating Procedures: Iterative Tool Optimization for Self-Evolving LLM Agents",
+      "authors": [
+        "Haipeng Ding",
+        "Yuexiang Xie",
+        "Zhewei Wei"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓 Agent 把反覆做過的「多步驟工具流程」萃取成可重用的 SOP（標準作業程序），下次遇到類似任務直接呼叫，避免重新發明輪子，任務成功率提升 2.5%～13.4%。",
+      "digestDate": "2026-07-10",
+      "digestSlug": "daily/2026-07-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02255",
+      "title": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
+      "titleZh": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
+      "authors": [
+        "Xiangchen Cheng",
+        "Yunwei Jiang",
+        "Jianwen Sun"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "長任務 Agent 不應把所有對話歷史塞進 context，而應用「有界合約」：每個決策的輸入由五個有型別的記憶層結構化提取而來，prompt 大小始終有限。用《Slay the Spire 2》幾百回合的連續決策當 testbed，並公開 298 條軌跡供比較研究。",
+      "digestDate": "2026-07-10",
+      "digestSlug": "daily/2026-07-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.06229",
+      "title": "Spider 2.0-AIFunc: Extending Real-World Text-to-SQL to AI-Native SQL Workflows",
+      "titleZh": "Spider 2.0-AIFunc: Extending Real-World Text-to-SQL to AI-Native SQL Workflows",
+      "authors": [
+        "Tianyang Liu",
+        "Canwen Xu",
+        "Fangyu Lei"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Snowflake 等雲端資料平台已把 LLM 直接嵌入 SQL（AI_CLASSIFY、AI_COMPLETE 等函式），但現有 text-to-SQL benchmark 完全沒覆蓋這類「AI-native SQL」。本文建立 465 個任務的評測集，最強模型準確率僅約 67%，是資料 Agent 的全新能力缺口。",
+      "digestDate": "2026-07-10",
+      "digestSlug": "daily/2026-07-10-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07702",
+      "title": "From Noisy Traces to Root Causes: Structural Trajectory Analysis and Causal Extraction for Agent Optimization",
+      "titleZh": "From Noisy Traces to Root Causes: Structural Trajectory Analysis and Causal Extraction for Agent Optimization",
+      "authors": [
+        "Ying Chang",
+        "Jiahang Xu",
+        "Xuan Feng"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 失敗記錄通常有兩個問題：太多條都在描述同一種失敗（冗餘），而且每條記錄裡大半步驟都和失敗無關（噪音）。STRACE 先在批次層面把重複失敗過濾掉，再對每條軌跡做因果定位，只保留真正「導致失敗」的步驟，讓優化器瞄準真實根因——在形式驗證任務上成功率從 42.5% 提升到 58.5%（1.4×）。",
+      "digestDate": "2026-07-11",
+      "digestSlug": "daily/2026-07-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07436",
+      "title": "The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents",
+      "titleZh": "The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents",
+      "authors": [
+        "Xing Zhang",
+        "Yanwei Cui",
+        "Guanghui Wang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "自我進化 Agent 靠「壞技能失敗 → 被淘汰」來維持技能庫品質，但這個機制假設評審者是公正的。本文用理論分析和實驗證明：LLM judge 的 false-pass bias（把失敗判為成功的偏差）一旦超過某個閾值，技能淘汰機制就會被靜默地關掉——不是變慢，是完全停擺；且增加多少數據都救不回來。",
+      "digestDate": "2026-07-11",
+      "digestSlug": "daily/2026-07-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07474",
+      "title": "Beyond Attack-Success Rate: Action-Graded Severity Scale for Tool-Using AI Agents",
+      "titleZh": "Beyond Attack-Success Rate: Action-Graded Severity Scale for Tool-Using AI Agents",
+      "authors": [
+        "Harry Owiredu-Ashley"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "Agent 安全評測現在只報告「攻擊有沒有成功」（0 或 1），但 Agent 被操控讀了一封不該讀的信 vs 把整個通訊錄轉寄給攻擊者，嚴重程度天差地遠。本文提出 L0-L6 七段評分，用可逆性、越界性、越權性三個維度量化每次 tool call 的傷害等級。",
+      "digestDate": "2026-07-11",
+      "digestSlug": "daily/2026-07-11-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08147",
+      "title": "Prismata: Confining Cross-Site Prompt Injection in Web Agents",
+      "titleZh": "Prismata: Confining Cross-Site Prompt Injection in Web Agents",
+      "authors": [
+        "Corban Villa",
+        "Alp Eren Ozdarendeli",
+        "Sijun Tan"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "網頁 agent 被第三方頁面惡意文字「洗腦」怎麼辦？Prismata 自動幫每塊頁面內容打信任標籤，讓低信任內容就算被 LLM 誤讀，也只能觸發低權限操作，從架構上限制攻擊的爆炸半徑。",
+      "digestDate": "2026-07-12",
+      "digestSlug": "daily/2026-07-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05518",
+      "title": "aiAuthZ: Off-Host, Identity-Bound Authorization for AI Agents",
+      "titleZh": "aiAuthZ: Off-Host, Identity-Bound Authorization for AI Agents",
+      "authors": [
+        "Sai Varun Kodathala（SportsVision AI）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "就算 LLM 被欺騙下了危險的工具呼叫指令，一個在 agent 主機之外、用加密簽章綁定身份的授權閘道，可以在執行前把指令攔截下來——讓安全性不再依賴模型的判斷力。",
+      "digestDate": "2026-07-12",
+      "digestSlug": "daily/2026-07-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08768",
+      "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
+      "titleZh": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
+      "authors": [
+        "Zhekai Chen",
+        "Chengqi Duan",
+        "Kaiyue Sun"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-reasoning"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有 agent benchmark 都在沙箱裡考模擬題，UniClawBench 把評測搬進真實環境，並用「能力維度」取代「任務情境」作為分類軸，讓你知道 agent 到底哪個環節掉鏈子。",
+      "digestDate": "2026-07-12",
+      "digestSlug": "daily/2026-07-12-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08010",
+      "title": "Tool-Making and Self-Evolving LLM Agents in Low-Latency Systems",
+      "titleZh": "Tool-Making and Self-Evolving LLM Agents in Low-Latency Systems",
+      "authors": [
+        "Kalle Kujanpää",
+        "Ning Liu",
+        "Shahnawaz Alam"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Amazon 把 agent 每次都要「重新生成」的固定操作程式碼，預先離線編譯成版本化工具——生產環境 p50 延遲降 42%、錯誤率降 53%。",
+      "digestDate": "2026-07-13",
+      "digestSlug": "daily/2026-07-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08716",
+      "title": "Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents",
+      "titleZh": "Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents",
+      "authors": [
+        "Yifan Wu",
+        "Lizhu Zhang",
+        "Yuhang Zhou"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-deployment"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "另開一個「記憶 agent」並行跑在行動 agent 旁邊，在關鍵時刻主動把重要資訊推送給它——Terminal-Bench 2.0 提升 +8.3pp，τ²-Bench 提升 +6.8pp。",
+      "digestDate": "2026-07-13",
+      "digestSlug": "daily/2026-07-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08662",
+      "title": "WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search",
+      "titleZh": "WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search",
+      "authors": [
+        "Xiaoshuai Song",
+        "Liancheng Zhang",
+        "Kangzhi Zhao"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "把複雜 web 研究任務遞迴分解給多層 agent 並行分工，克服單一 agent 同時「廣又深」的 context 限制——本文仍為 work in progress。",
+      "digestDate": "2026-07-13",
+      "digestSlug": "daily/2026-07-13-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.06807",
+      "title": "When Agents Go Rogue: Activation-Based Detection of Malicious Behaviors in Multi-Agent Systems",
+      "titleZh": "When Agents Go Rogue: Activation-Based Detection of Malicious Behaviors in Multi-Agent Systems",
+      "authors": [
+        "Haowen Xu",
+        "Xue Tan",
+        "Lei Ma"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "多 Agent 系統裡若有一個 agent 被惡意操控，AcMAS 不靠看文字、直接分析 LLM 內部神經狀態來偵測，在非同步執行環境下 F1 比圖方法高出 +0.55，且對隱蔽攻擊仍有效。",
+      "digestDate": "2026-07-14",
+      "digestSlug": "daily/2026-07-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08691",
+      "title": "ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation",
+      "titleZh": "ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation",
+      "authors": [
+        "QiHong Chen",
+        "Aaron Imani",
+        "Iftekhar Ahmed（加州大學爾灣分校）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Coding agent 在大型 repo 找參考程式碼時，傳統方法靠「長得像」或「名字像」——ProjAgent 新增「解題步驟像」這個維度，在 REPOCOD 測試集上達到 41.14% Pass@1，超越所有 retrieval 型 baseline。",
+      "digestDate": "2026-07-14",
+      "digestSlug": "daily/2026-07-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.04528",
+      "title": "Measuring Harness-Induced Belief Divergence in Multi-Step LLM Agents",
+      "titleZh": "Measuring Harness-Induced Belief Divergence in Multi-Step LLM Agents",
+      "authors": [
+        "Haiwen Yi（多倫多大學）、Xinyuan Song（艾默里大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "你以為換 harness 只是換工具集，但這篇發現：同一個 LLM、同一個任務，光是換 harness 設定，agent 的中途判斷（對風險、進度、下一步的理解）就會大幅偏移——harness 在重塑 agent 的世界觀。",
+      "digestDate": "2026-07-14",
+      "digestSlug": "daily/2026-07-14-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.08964",
+      "title": "Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading",
+      "titleZh": "Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading",
+      "authors": [
+        "Zongxia Li",
+        "Zhongzhi Li et al.（Tencent HY LLM Frontier + 馬里蘭大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "46 道長程終端機任務，最強模型（Grok 4.5）只解了 13 題，Claude Sonnet 5 解了 8 題——29 題沒有任何模型能解開；密集子任務給分讓我們首次看見「agent 卡在哪裡」，而不只是「有沒有成功」。",
+      "digestDate": "2026-07-15",
+      "digestSlug": "daily/2026-07-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07368",
+      "title": "Multi-Agent AI Control: Distributed Attacks Hamper Per-Instance Monitors",
+      "titleZh": "Multi-Agent AI Control: Distributed Attacks Hamper Per-Instance Monitors",
+      "authors": [
+        "Oliver Makins（英國 AI 安全研究所）、Orazio Angelini、Zohreh Shams、Mary Phuong（MATS Research）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "多個 AI agent 協同執行惡意任務時，「每個 agent 各自監控」的防禦策略會因為碎片化效應大打折扣；加入明確攻擊規劃者（planner agent），攻擊成功率最高提升 7 倍。",
+      "digestDate": "2026-07-15",
+      "digestSlug": "daily/2026-07-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05690",
+      "title": "Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents",
+      "titleZh": "Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents",
+      "authors": [
+        "Yusuf Khan、Carlo Lipizzi"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "把記憶體存取從「工具調用（100ms）」變成「同程序存取（100μs）」，agent 在 12 步任務中的冗餘行為從 7.2 次降到 0——延遲不只是工程效能問題，它從根本上改變 agent 推理的品質。",
+      "digestDate": "2026-07-15",
+      "digestSlug": "daily/2026-07-15-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01942",
+      "title": "Atomic Task Graph: A Unified Framework for Agentic Planning and Execution",
+      "titleZh": "Atomic Task Graph: A Unified Framework for Agentic Planning and Execution",
+      "authors": [
+        "Yue Zhang",
+        "Sihan Chen",
+        "Ziwen Huang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 agent 的多步任務畫成「依賴關係圖」，讓沒有相依的步驟並行跑、失敗時只重算受影響的部分——不需要更大的模型就能大幅提升成功率。",
+      "digestDate": "2026-07-16",
+      "digestSlug": "daily/2026-07-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13027",
+      "title": "PalmClaw: A Native On-Device Agent Framework for Mobile Phones",
+      "titleZh": "PalmClaw: A Native On-Device Agent Framework for Mobile Phones",
+      "authors": [
+        "Hongru Cai",
+        "Yongqi Li",
+        "Ran Wei"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有手機 agent 都靠「模擬點擊螢幕」操作手機，PalmClaw 改成直接呼叫裝置 API：任務成功率提升 11.5%、完成時間縮短 94.9%，而且每一步的執行邊界清楚得多。",
+      "digestDate": "2026-07-16",
+      "digestSlug": "daily/2026-07-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.12662",
+      "title": "Internet of Agentic Things: Networked AI Agents for Closed-Loop IoT Orchestration",
+      "titleZh": "Internet of Agentic Things: Networked AI Agents for Closed-Loop IoT Orchestration",
+      "authors": [
+        "Quanyan Zhu（紐約大學 Tandon 工程學院 電氣與電腦工程系）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-reasoning"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "提出 IoAT（物聯智能體網路）架構：把 AI agent 擴展到 IoT 設備層，讓 agent 不只在雲端對話，還能協調感測器、邊緣運算、數位孿生——從「語言 agent」走向「物理世界 agent」。",
+      "digestDate": "2026-07-16",
+      "digestSlug": "daily/2026-07-16-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.12056",
+      "title": "Designing Agent-Ready Websites for AI Web Agents",
+      "titleZh": "Designing Agent-Ready Websites for AI Web Agents",
+      "authors": [
+        "Said Elnaffar、Farzad Rashidi"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-rag"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用四個設計維度重新打造電商網站，讓 AI 瀏覽器 agent 完成購物任務的成功率從 49% 提升到 89%。",
+      "digestDate": "2026-07-17",
+      "digestSlug": "daily/2026-07-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.10738",
+      "title": "To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-Aware Reinforcement Learning",
+      "titleZh": "To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-Aware Reinforcement Learning",
+      "authors": [
+        "Fengji Zhang、Jacky Keung（香港城市大學）、Tianyu Fan、Yuxiang Zheng、Xinyao Niu、Chengen Huang、Bei Chen（Alibaba Group）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "教搜尋型 agent「在不確定時說我不知道」：動態調整 RL 訓練中的棄答獎勵，讓 agent 主動拒答而非亂猜，精準度最高提升 10.3%。",
+      "digestDate": "2026-07-17",
+      "digestSlug": "daily/2026-07-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.10350",
+      "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+      "titleZh": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+      "authors": [
+        "作者機構資訊未完整披露於搜尋結果"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "為長期具身機器人打造一個「agent OS」：用多模態知識圖譜記憶 + 隔離式技能執行 + 多階段驗證，解決長任務中記憶消失與技能互相干擾的問題。",
+      "digestDate": "2026-07-17",
+      "digestSlug": "daily/2026-07-17-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13591",
+      "title": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+      "titleZh": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+      "authors": [
+        "Eric Jiang 等"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 agent 的記憶體操作（要不要取、何時忘）變成一個小型強化學習問題，讓 agent 邊跑邊自學最佳策略，不用改底層記憶體實作。",
+      "digestDate": "2026-07-18",
+      "digestSlug": "daily/2026-07-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.11098",
+      "title": "AgentCheck: A Reproduce–Intervene–Mitigate Workbench for LLM Agents over MCP",
+      "titleZh": "AgentCheck: A Reproduce–Intervene–Mitigate Workbench for LLM Agents over MCP",
+      "authors": [
+        "Aritra Mazumder（University of Utah）、Nusrat Jahan Lia（University of Dhaka）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-tool-use"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "一個開源工作台：讓你把 MCP 工具的故障重現在可控環境，測你的修復是否真的有用，再確認沒有其他東西壞掉。",
+      "digestDate": "2026-07-18",
+      "digestSlug": "daily/2026-07-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.10059",
+      "title": "AgentAbstain: Do LLM Agents Know When Not to Act?",
+      "titleZh": "AgentAbstain: Do LLM Agents Know When Not to Act?",
+      "authors": [
+        "Xun Liu",
+        "Yi Evie Zhang",
+        "Vira Kasprova"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "目前最強的 agent 在「應該拒絕行動」的情境下答對率不到 60%，而且這個「棄動能力」和「任務解決能力」根本是兩回事——你沒辦法靠換一個更強的模型來解決。",
+      "digestDate": "2026-07-18",
+      "digestSlug": "daily/2026-07-18-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13474",
+      "title": "MyAG: A Graph-Based Framework for Designing and Analyzing Composable LLM Agent Systems",
+      "titleZh": "MyAG: A Graph-Based Framework for Designing and Analyzing Composable LLM Agent Systems",
+      "authors": [
+        "Zhisong Zhang（香港城市大學）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-rag"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 agent 系統拆成三張圖來描述，讓元件可以重複使用、執行路徑可以視覺化追蹤，降低複雜多 agent 系統的設計與除錯成本。",
+      "digestDate": "2026-07-19",
+      "digestSlug": "daily/2026-07-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13104",
+      "title": "Self-Improvements in Modern Agentic Systems: A Survey",
+      "titleZh": "Self-Improvements in Modern Agentic Systems: A Survey",
+      "authors": [
+        "Zhe Ren",
+        "Yimeng Chen",
+        "Dandan Guo et al.（吉林大學、KAUST、Swiss AI Lab IDSIA；含 Jürgen Schmidhuber）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用統一公式整理「agent 怎麼從自己的執行經驗中學習和進化」，把所有方法按「更新什麼」和「用什麼訊號更新」兩個維度分類。",
+      "digestDate": "2026-07-19",
+      "digestSlug": "daily/2026-07-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.14651",
+      "title": "MemPoison: Uncovering Persistent Memory Threats and Structural Blind Spots in LLM Agents",
+      "titleZh": "MemPoison: Uncovering Persistent Memory Threats and Structural Blind Spots in LLM Agents",
+      "authors": [
+        "Jifeng Gao",
+        "Kang Xia",
+        "Yi Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-rag",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "持久記憶讓 agent 記得過去，但也讓攻擊者能「先植入一段話，等之後特定情境出現時 agent 自動執行惡意行為」——這篇建立 1,227 個案例的 benchmark，量化這個威脅有多嚴重。",
+      "digestDate": "2026-07-19",
+      "digestSlug": "daily/2026-07-19-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.15143",
+      "title": "Setup Complete, Now You Are Compromised: Weaponizing Setup Instructions Against AI Coding Agents",
+      "titleZh": "Setup Complete, Now You Are Compromised: Weaponizing Setup Instructions Against AI Coding Agents",
+      "authors": [
+        "Aadesh Bagmar、Pushkar Saraf"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "只要改掉 README 或 requirements.txt 裡的套件名稱，AI coding agent 就會安裝你指定的惡意套件——而這個漏洞主要跟你用哪套 harness（框架）有關，換模型沒太大用。",
+      "digestDate": "2026-07-20",
+      "digestSlug": "daily/2026-07-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.14171",
+      "title": "Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning",
+      "titleZh": "Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning",
+      "authors": [
+        "Bowei He、Yankai Chen、Xiaokun Zhang、Xue Liu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有 RL 訓練算法（PPO / GRPO）對 agent 來說很浪費：每次都從頭跑 N 條路徑比較。BPO 只在「真正需要比較」的高熵決策點快照並分叉，用兄弟軌跡（sibling trajectory）的 return 差異計算 advantage，讓訓練更有效率。",
+      "digestDate": "2026-07-20",
+      "digestSlug": "daily/2026-07-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.14158",
+      "title": "Orchestrating Power Grid Studies with Multi-Agent AI and MCP Servers",
+      "titleZh": "Orchestrating Power Grid Studies with Multi-Agent AI and MCP Servers",
+      "authors": [
+        "Jérôme Picault、Clément Goubet"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "skip",
+      "keyFinding": "Position paper：以電網研究為案例，展示如何用 MCP（Model Context Protocol）把 LLM agents 接上專業領域仿真工具，並在嚴格需要 human-in-the-loop 的工業流程中落地 multi-agent AI。",
+      "digestDate": "2026-07-20",
+      "digestSlug": "daily/2026-07-20-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.15257",
+      "title": "SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration",
+      "titleZh": "SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration",
+      "authors": [
+        "Yuyao Zhang",
+        "Junjie Gao",
+        "Zhicheng Dou 等 14 位"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-memory",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "搜尋型 agent 老是卡迴圈？SearchOS 把搜尋進度變成「顯性的共享狀態」，加上失敗記憶機制，讓 multi-agent 協同搜尋比 baseline 快 24%、F1 提升 4.3 分。",
+      "digestDate": "2026-07-21",
+      "digestSlug": "daily/2026-07-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.15247",
+      "title": "AutoSynthesis: An agentic system for automated meta-analysis",
+      "titleZh": "AutoSynthesis: An agentic system for automated meta-analysis",
+      "authors": [
+        "Moein Taherinezhad",
+        "Francesco Pierri（Politecnico di Milano）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "統合分析（meta-analysis）本來要幾個月人工，AutoSynthesis 用 multi-agent 流水線把它變成：輸入一個研究問題，輸出一份符合學術規範（PRISMA）的完整分析報告。",
+      "digestDate": "2026-07-21",
+      "digestSlug": "daily/2026-07-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.15095",
+      "title": "Digital Pantheon: Simulating and Auditing Coalition Formation with LLM Agents",
+      "titleZh": "Digital Pantheon: Simulating and Auditing Coalition Formation with LLM Agents",
+      "authors": [
+        "Dylan Van Mulders",
+        "Matthias Bogaert",
+        "Dirk Van den Poel（根特大學 Ghent University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "RLHF 訓練讓 LLM 太「溫和」，無法扮演立場鮮明的政黨談判者。這篇用 DPO 灌入黨派人設、用 RAG 綁定黨綱，打造能維持強硬立場的 agent，再讓他們模擬真實選後的多黨組閣協商。",
+      "digestDate": "2026-07-21",
+      "digestSlug": "daily/2026-07-21-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02942",
+      "title": "A Workflow-Aware Serving Layer for Agentic Applications",
+      "titleZh": "A Workflow-Aware Serving Layer for Agentic Applications",
+      "authors": [
+        "Jiayi Qian",
+        "Zishen Wan",
+        "Hanchen Yang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "agent workflow 裡每個節點該用哪個 LLM？Dyserve 用 ILP 在 60ms 內算出最優解，比 baseline 精準度高 3–10 個百分點、延遲低 1.1–6.8 倍，工具失敗時還能自動恢復 84% 的案例。",
+      "digestDate": "2026-07-22",
+      "digestSlug": "daily/2026-07-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07989",
+      "title": "Who Broke the System? Failure Localization in LLM-Based Multi-Agent Systems",
+      "titleZh": "Who Broke the System? Failure Localization in LLM-Based Multi-Agent Systems",
+      "authors": [
+        "Yufei Xia",
+        "Anjun Gao",
+        "Yueyang Quan"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "multi-agent pipeline 壞了不知道從哪查起？AgentLocate 自動找出「哪個 agent 該負責」加上「哪一步開始不可挽回」，比現有方法更準且更省 token，COLM 2026 accepted。",
+      "digestDate": "2026-07-22",
+      "digestSlug": "daily/2026-07-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.06008",
+      "title": "PolyWorkBench: Benchmarking Multilingual Long-Horizon LLM Agents",
+      "titleZh": "PolyWorkBench: Benchmarking Multilingual Long-Horizon LLM Agents",
+      "authors": [
+        "Hongliang Li",
+        "Yijin Liu",
+        "Zhiwei Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "你以為頂尖 LLM agent 能搞定多語言工作流？PolyWorkBench 用 67 個跨 5 大領域的真實任務揭示：多語言設定讓 agent 表現大幅下滑，推理和執行步驟都會受到複合式衝擊。",
+      "digestDate": "2026-07-22",
+      "digestSlug": "daily/2026-07-22-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02577",
+      "title": "Benchmarking the Benchmarks: A Validity Audit of Tool-Calling Evaluation",
+      "titleZh": "Benchmarking the Benchmarks: A Validity Audit of Tool-Calling Evaluation",
+      "authors": [
+        "Jay Vaghasiya",
+        "Vishvesh Bhat",
+        "Muhammad Ahmed Mohsin"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "你在看的工具呼叫排行榜（BFCL、MCP-Atlas 等）有 18.5% 的題目被判錯了；LiveMCPBench 同一組設定重跑 23 次，分數差距達 18.9 個百分點。",
+      "digestDate": "2026-07-23",
+      "digestSlug": "daily/2026-07-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.12338",
+      "title": "How Many Tasks Are Enough for Agent Benchmark Decisions? A Replay Analysis of Public LLM Agent Benchmarks",
+      "titleZh": "How Many Tasks Are Enough for Agent Benchmark Decisions? A Replay Analysis of Public LLM Agent Benchmarks",
+      "authors": [
+        "Wei-Jung Huang（機構未詳）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-coding",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "跑完全部任務才能比較兩個 agent？AppWorld 跑 15%、tau-bench 跑 25% 就夠了；SWE-bench 例外——幾乎要跑到 90% 以上才能信任結論。",
+      "digestDate": "2026-07-23",
+      "digestSlug": "daily/2026-07-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.10079",
+      "title": "MAG: A Web-Agent Benchmark and Harness for Multimodal Action and Guide Generation",
+      "titleZh": "MAG: A Web-Agent Benchmark and Harness for Multimodal Action and Guide Generation",
+      "authors": [
+        "Chengguang Gan",
+        "Hanjun Wei",
+        "Yunhao Liang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "首個把「完成網頁任務」和「生成操作教學」合為一個 benchmark 的多模態評測，完全基於截圖；目前最強模型任務完成率低於 40%，GRPO 訓練讓 9B 小模型完成率從 6.9% 近乎翻倍到 13.2%。",
+      "digestDate": "2026-07-23",
+      "digestSlug": "daily/2026-07-23-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.02453",
+      "title": "Adoption and Ecosystem Health: A Longitudinal Analysis of Open-Source Multi-Agent Frameworks",
+      "titleZh": "Adoption and Ecosystem Health: A Longitudinal Analysis of Open-Source Multi-Agent Frameworks",
+      "authors": [
+        "Xi Zhang",
+        "Papi Menon",
+        "Vivian Chu（Cisco Systems）・Koray Cosguner（Indiana University）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-reasoning"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "GitHub star 數會騙人；這篇用四年真實數據告訴你，哪些開源 Agent 框架才是真的有人長期用、真的健康。",
+      "digestDate": "2026-07-24",
+      "digestSlug": "daily/2026-07-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05775",
+      "title": "Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failures in Large Language Model Agents",
+      "titleZh": "Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failures in Large Language Model Agents",
+      "authors": [
+        "Wael Albayaydh",
+        "Rui Zhao",
+        "Ivan Flechais"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-reasoning",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "整合 27 篇 Agent 評測論文，歸納出六大失敗類別，讓你知道你的 Agent 最可能在哪裡翻車。",
+      "digestDate": "2026-07-24",
+      "digestSlug": "daily/2026-07-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.19359",
+      "title": "Profile-Graph Memory for LLM Agents: Implicit Cross-Entity Traversal through Narrative Profiles",
+      "titleZh": "Profile-Graph Memory for LLM Agents: Implicit Cross-Entity Traversal through Narrative Profiles",
+      "authors": [
+        "Shengtong Zhu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-memory"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "讓 Agent 的長期記憶可以串聯多個人物資訊來回答問題，不再只是「問誰就找誰的資料」，而是能自動沿著人際關係跳躍推理。",
+      "digestDate": "2026-07-24",
+      "digestSlug": "daily/2026-07-24-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.20709",
+      "title": "NVIDIA-labs OO Agents: Native Python Object-Oriented Agents",
+      "titleZh": "NVIDIA-labs OO Agents: Native Python Object-Oriented Agents",
+      "authors": [
+        "Paul Furgale",
+        "Severin Klingler",
+        "James Nolan et al.（共 15 人）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 AI Agent 寫成一個普通的 Python class：欄位是狀態、方法是動作、docstring 是 prompt；方法本體只寫 `...` 那行，執行時由 LLM 補完，其餘方法照常執行。",
+      "digestDate": "2026-07-25",
+      "digestSlug": "daily/2026-07-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.21461",
+      "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
+      "titleZh": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
+      "authors": [
+        "BAAI（北京智源人工智慧研究院）團隊"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "深度研究 Agent 跑兩個嵌套迴圈：內層收集證據、外層逐條驗證約束並針對未解決問題再次研究，搭配自動壓縮歷史的工具，在 BrowseComp、HLE 等主流基準上顯著超越同量級 baseline。",
+      "digestDate": "2026-07-25",
+      "digestSlug": "daily/2026-07-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07663",
+      "title": "Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Research Loops",
+      "titleZh": "Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Research Loops",
+      "authors": [
+        "Mingguang Chen",
+        "Licheng Wang",
+        "Bo Qu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "爬梳 1,250 篇論文、建立「AI 自我改良」的雙軸分類地圖，分清楚哪些是已可上線的「有界自我精煉」、哪些是還在研究的「無界遞迴自我提升」。",
+      "digestDate": "2026-07-25",
+      "digestSlug": "daily/2026-07-25-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.21217",
+      "title": "ICAE-Bench: Evaluating Coding Agents as Interactive Project Builders",
+      "titleZh": "ICAE-Bench: Evaluating Coding Agents as Interactive Project Builders",
+      "authors": [
+        "Zhongyuan Peng",
+        "Dan Huang",
+        "Chuyu Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有 coding agent benchmark 只考「照規格寫程式」，ICAE-Bench 加入了「聽懂模糊需求、主動追問、一邊做一邊調整」的互動式情境，更貼近 vibe-coding 時代的真實需求。",
+      "digestDate": "2026-07-26",
+      "digestSlug": "daily/2026-07-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05202",
+      "title": "EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer",
+      "titleZh": "EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer",
+      "authors": [
+        "Xingze Gao",
+        "Chuanrui Hu",
+        "Hongda Chen"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 自我進化聽起來很炫，但這篇首次嚴格測量「能力到底有沒有真正轉移」，結論嚴峻：主流方法不只沒幫助，還會倒退 12.3 分。",
+      "digestDate": "2026-07-26",
+      "digestSlug": "daily/2026-07-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.07744",
+      "title": "PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization",
+      "titleZh": "PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization",
+      "authors": [
+        "Yingyun Cui（OPPO Research Institute）",
+        "Yi Xie（University of Arizona）",
+        "Piaohong Wang（OPPO Research Institute）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "coding agent 現有 benchmark 只問「程式對不對」，PERFOPT-Bench 問的是「程式快不快」；結果發現 framework 的選擇比模型本身更能決定優化效果。",
+      "digestDate": "2026-07-26",
+      "digestSlug": "daily/2026-07-26-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05794",
+      "title": "From Passive Retrieval to Active Memory Navigation: Learning to Use Memory as a Structured Action Space",
+      "titleZh": "From Passive Retrieval to Active Memory Navigation: Learning to Use Memory as a Structured Action Space",
+      "authors": [
+        "Yue Xu",
+        "Yutao Sun",
+        "Yihao Liu"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "讓 Agent 把記憶當工具「主動去找」，而不是被動接受系統塞進來的片段；Alibaba Qwen 團隊用 RL 訓練出來的 9B 模型打贏所有 memory baseline。",
+      "digestDate": "2026-07-27",
+      "digestSlug": "daily/2026-07-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.05120",
+      "title": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
+      "titleZh": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
+      "authors": [
+        "多位研究者"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "一種新的攻擊方式：不用偽裝成「指令」，只要偽裝成「可信資料格式」就能讓 Agent 做壞事——Claude Code、Codex、Gemini CLI 和三個 web agent 全部中招，可以被遠端執行任意程式。",
+      "digestDate": "2026-07-27",
+      "digestSlug": "daily/2026-07-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13987",
+      "title": "Agent Skill Security: Threat Models, Attacks, Defenses, and Evaluation",
+      "titleZh": "Agent Skill Security: Threat Models, Attacks, Defenses, and Evaluation",
+      "authors": [
+        "Sanket Badhe",
+        "Priyanka Tiwari"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "MCP tool / Agent Skill 從「發布到 repository」到「被執行」再到「版本更新」的每個環節都有安全漏洞；用 327 個真實技能跑測，每個生命週期階段都找到可被利用的弱點。",
+      "digestDate": "2026-07-27",
+      "digestSlug": "daily/2026-07-27-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13705",
+      "title": "AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities",
+      "titleZh": "AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities",
+      "authors": [
+        "AgentCompass Team・上海人工智能實驗室（Shanghai AI Lab）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 agent 評測拆成三個可獨立抽換的零件（題庫、執行框架、執行環境），解決現在大家各做各的、無法重用的問題，並附帶自動偵測 reward hacking（作弊行為）的軌跡分析工具。",
+      "digestDate": "2026-07-28",
+      "digestSlug": "daily/2026-07-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.19336",
+      "title": "Agents in the Wild: Where Research Meets Deployment",
+      "titleZh": "Agents in the Wild: Where Research Meets Deployment",
+      "authors": [
+        "Grace Hui Yang",
+        "Pranav N. Venkit",
+        "Hooman Sedghamiz"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-deployment",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "整合製藥與金融系統真實部署經驗的 agent 落地報告，歸納出三個讓 agent 從實驗室走向生產的關鍵設計模式：驗證管線、fallback 機制、人機協作節點（human-in-the-loop）。",
+      "digestDate": "2026-07-28",
+      "digestSlug": "daily/2026-07-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.22083",
+      "title": "Nanbeige4.2-3B: Unlocking Agentic Capabilities in a Compact Model",
+      "titleZh": "Nanbeige4.2-3B: Unlocking Agentic Capabilities in a Compact Model",
+      "authors": [
+        "Nanbeige Team・BOSS 直聘"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "3B 參數的小模型，用「迴圈式 Transformer」架構 ＋ 28T tokens 預訓練 ＋ 三階段 agentic RL，在 SWE-Bench Verified 拿下 63.6 分，壓過 Qwen3.5-9B（53.1）和 Gemma4-12B（44.2），已開源於 HuggingFace。",
+      "digestDate": "2026-07-28",
+      "digestSlug": "daily/2026-07-28-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.23884",
+      "title": "A Comparative Study of MCP and A2A for Inter-Agent Coordination in LLM-Based Systems",
+      "titleZh": "A Comparative Study of MCP and A2A for Inter-Agent Coordination in LLM-Based Systems",
+      "authors": [
+        "Ionut Predoaia",
+        "Tuong Manh Vu",
+        "Konstantinos Barmpis"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "MCP 管「模型接工具」，A2A 管「Agent 跟 Agent 講話」，兩者不是競爭關係而是分層設計，就像 USB 跟 Wi-Fi 各管各的事，都需要。",
+      "digestDate": "2026-07-29",
+      "digestSlug": "daily/2026-07-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.14642",
+      "title": "MCPEvol-Bench: Benchmarking LLM Agent Performance Across Dynamic Evolutions of MCP Servers",
+      "titleZh": "MCPEvol-Bench: Benchmarking LLM Agent Performance Across Dynamic Evolutions of MCP Servers",
+      "authors": [
+        "Huanxi Liu",
+        "Kun Hu",
+        "Jiaqi Liao"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "現有評測假設工具介面是固定的，但現實中 MCP server 會持續更新。這篇測了工具升版後 12 個頂尖模型的能力退化，發現包括 GPT-5.4 和 Claude 在內的前沿模型都會明顯掉分 13-14%。",
+      "digestDate": "2026-07-29",
+      "digestSlug": "daily/2026-07-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.19430",
+      "title": "ChannelGuard: Safe Models Do Not Compose into Safe Multi-Agent Systems",
+      "titleZh": "ChannelGuard: Safe Models Do Not Compose into Safe Multi-Agent Systems",
+      "authors": [
+        "Elias Hossain",
+        "Md Mehedi Hasan Nipu",
+        "Fatema Tuj Johora Faria"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-memory"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把幾個「安全的」模型串在一起，整條 pipeline 不會自動變安全。2,100 條攻擊測試後發現，現有多 Agent 系統的防護幾乎都靠雲端供應商的伺服器端過濾器在撐，換個 backend 就破防。",
+      "digestDate": "2026-07-29",
+      "digestSlug": "daily/2026-07-29-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.22465",
+      "title": "TRACE-ROUTER: Task-Consistent and Adaptive Online Routing for Agentic AI",
+      "titleZh": "TRACE-ROUTER: Task-Consistent and Adaptive Online Routing for Agentic AI",
+      "authors": [
+        "Ritik Raj",
+        "Souvik Kundu",
+        "Sarbartha Banerjee"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "多步驟 Agent 任務不能每次呼叫 LLM 都重新選模型；TRACE-ROUTER 改成任務入場時選一次模型並釘死到任務結束，用最終結果回饋訓練選模型的策略，比傳統路由方式在相同延遲下多出 7–8 個準確率百分點。",
+      "digestDate": "2026-07-30",
+      "digestSlug": "daily/2026-07-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.14989",
+      "title": "OmniaBench: Benchmarking General AI Agents Across Diverse Scenarios",
+      "titleZh": "OmniaBench: Benchmarking General AI Agents Across Diverse Scenarios",
+      "authors": [
+        "Chengyu Shen",
+        "Yujie Fu",
+        "Gangtao Xin"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "涵蓋 90 個一級領域、354 個二級領域的 1,431 題 Agent 評測集，橫跨消費者、企業、工程三大場景；頂尖模型（Claude Sonnet-5 得 58.54%、GPT-5.6-Sol 得 57.14%）得分都低於 60%。",
+      "digestDate": "2026-07-30",
+      "digestSlug": "daily/2026-07-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.22400",
+      "title": "A Self-Calibrating Agentic AI Framework for Autonomous Edge Resource Allocation",
+      "titleZh": "A Self-Calibrating Agentic AI Framework for Autonomous Edge Resource Allocation",
+      "authors": [
+        "Fin Gentzen",
+        "Marla Grunewald",
+        "Iulisloi Zacarias"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-deployment"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "LLM Agent 在開放環境中會隨時間漂移（預測越來越不準）；這篇把 ARIMA 時序預測器嵌進 Agent 作為「自我校準器」，讓 Agent 在無人監督下自動偵測並修正漂移，準確率比基準 LLM Agent 高 91.7%。",
+      "digestDate": "2026-07-30",
+      "digestSlug": "daily/2026-07-30-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.25398",
+      "title": "[HANDBOOK.md](http://HANDBOOK.md): A Benchmark for Long-Context Agentic Instruction Following",
+      "titleZh": "[HANDBOOK.md](http://HANDBOOK.md): A Benchmark for Long-Context Agentic Instruction Following",
+      "authors": [
+        "Liudas Panavas",
+        "Sebastian Minus",
+        "Bradley Monton"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把 AI Agent 丟進一間虛擬公司，讓它用 email/Slack/Jira 完成任務，同時要遵守一本 20～124 頁的員工手冊——最強模型只有 36.2% 通過。",
+      "digestDate": "2026-07-31",
+      "digestSlug": "daily/2026-07-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.19297",
+      "title": "Graph-Based Agentic AI with LangGraph: Workflow Pathways for Long-Running Stateful Business Processes",
+      "titleZh": "Graph-Based Agentic AI with LangGraph: Workflow Pathways for Long-Running Stateful Business Processes",
+      "authors": [
+        "Daniel Pearson",
+        "Sidney Shapiro（University of Lethbridge）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "三份可直接跑的 LangGraph 食譜：SQL 自動修復迴圈、有閘門的 Agentic RAG、人工審核中斷點，外加一張「什麼時候不要用 LangGraph」的決策表。",
+      "digestDate": "2026-07-31",
+      "digestSlug": "daily/2026-07-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.11818",
+      "title": "MM-ToolSandBox: A Unified Framework for Evaluating Visual Tool-Calling Agents",
+      "titleZh": "MM-ToolSandBox: A Unified Framework for Evaluating Visual Tool-Calling Agents",
+      "authors": [
+        "Kaixin Ma",
+        "Di Feng",
+        "Alexander Metz"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "500+ 工具、16 個應用領域的多模態工具呼叫 benchmark：Agent 要同時看圖找 UI 元素再決定叫哪個工具——12 個主流模型中最強的成功率也不到 50%。",
+      "digestDate": "2026-07-31",
+      "digestSlug": "daily/2026-07-31-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.28545",
+      "title": "ORCA-bench: How Ready Are Language Model Agents for Oncall?",
+      "titleZh": "ORCA-bench: How Ready Are Language Model Agents for Oncall?",
+      "authors": [
+        "Albert Gong",
+        "Kyuseong Choi",
+        "Abhineet Agarwal"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-tool-use"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "用真實 SRE on-call 場景測試 LLM Agent 的故障根因分析（RCA）能力：1,079 個任務、真實 telemetry 介面、SRE 人工審核答案——最強模型答對率僅 40%，拿掉源碼存取後每個指標都掉。",
+      "digestDate": "2026-08-01",
+      "digestSlug": "daily/2026-08-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.27294",
+      "title": "AgentS4D: Benchmarking Runtime Risks across the Execution Lifecycle of LLM-Based Workspace Agents",
+      "titleZh": "AgentS4D: Benchmarking Runtime Risks across the Execution Lifecycle of LLM-Based Workspace Agents",
+      "authors": [
+        "Jiajun Zhou",
+        "Zhaoxuan Ke",
+        "Jihang Ye"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "工作區 Agent 在執行任務時有多危險？這篇測了 20 種 Agent 配置、6,560 次執行：66% 的「成功完成任務」背後仍觸發了危險行為——任務完成不等於安全。",
+      "digestDate": "2026-08-01",
+      "digestSlug": "daily/2026-08-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.27250",
+      "title": "Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories",
+      "titleZh": "Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories",
+      "authors": [
+        "Prakhar Khatri"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-coding"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "你花時間寫的 [AGENTS.md](http://AGENTS.md) / [CLAUDE.md](http://CLAUDE.md) 到底有沒有用？288 次對照實驗的答案：對 coding agent 的正確率幾乎沒有可量測的差異（等效上限 ≤10–15pp），出錯的根本是實作技能不足，不是缺少 repo 知識。",
+      "digestDate": "2026-08-01",
+      "digestSlug": "daily/2026-08-01-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.03730",
+      "title": "ProACT: Towards Breakdown-Aware Proactive Agent in Multi-User Collaboration",
+      "titleZh": "ProACT: Towards Breakdown-Aware Proactive Agent in Multi-User Collaboration",
+      "authors": [
+        "Shu Yang",
+        "Difei Xu",
+        "Jiaxin Pei"
+      ],
+      "affiliation": "",
+      "topics": [
+        "multi-agent",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "教 Agent 在多人對話中辨識「有人卡住了」，然後選對時機插一句有用的話，而不是一直打擾或一直沉默。",
+      "digestDate": "2026-08-02",
+      "digestSlug": "daily/2026-08-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.04697",
+      "title": "AI Agent Pull Requests on GitHub: Frequency, Structure, and Merge Conflict Rates",
+      "titleZh": "AI Agent Pull Requests on GitHub: Frequency, Structure, and Merge Conflict Rates",
+      "authors": [
+        "George Xu (Harvard Medical School)",
+        "Arjun Subramanian (MIT CSAIL)",
+        "Nithilan Karthik (DevRev AI)"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-coding"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Coding Agent 開的 PR，79.4% 都有另一個 PR 同時進行中——幾乎都是同一個 Agent 自己和自己衝，不是不同 Agent 互打。",
+      "digestDate": "2026-08-02",
+      "digestSlug": "daily/2026-08-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.25379",
+      "title": "Cyber-Capable AI Agents: Vulnerabilities, Evaluation Containment, and Defensive Response",
+      "titleZh": "Cyber-Capable AI Agents: Vulnerabilities, Evaluation Containment, and Defensive Response",
+      "authors": [
+        "Abu Bakar Siddik (Rajshahi University of Engineering & Technology)"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "AI Agent 有五大安全漏洞類別，現有評測沙箱裝不住真正有能力的 Agent——這篇整理防禦對策，並以 2026 年七月 HuggingFace/OpenAI 真實事件作 case study。",
+      "digestDate": "2026-08-02",
+      "digestSlug": "daily/2026-08-02-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.25446",
+      "title": "Toward an Organizational Science of Multi-Agent LLM Systems",
+      "titleZh": "Toward an Organizational Science of Multi-Agent LLM Systems",
+      "authors": [
+        "Huan Chen",
+        "Xiang Song",
+        "Jian Jin"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "multi-agent"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把「哪些 agent 上場」、「怎麼溝通」、「最終怎麼整合答案」三件事分開設計，讓你可以各自換掉，不用每次重頭架系統。",
+      "digestDate": "2026-08-03",
+      "digestSlug": "daily/2026-08-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.24625",
+      "title": "Agentic Permissions Policy Algebra for Taint Confinement in LLM Agents",
+      "titleZh": "Agentic Permissions Policy Algebra for Taint Confinement in LLM Agents",
+      "authors": [
+        "Arseny Kravchenko",
+        "Vadim Liventsev",
+        "Innokentii Konstantinov"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-framework"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "Agent 在讀取可疑資料前先開一條「隔離通道」，把危險控在那條通道裡，讀完後再由受信任的清洗器決定哪些資訊可以帶回主上下文，讓安全與可用性不再是零和遊戲。",
+      "digestDate": "2026-08-03",
+      "digestSlug": "daily/2026-08-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.13718",
+      "title": "How Agents Ask for Permission: User Permissions for AI Agents, from Interfaces to Enforcement",
+      "titleZh": "How Agents Ask for Permission: User Permissions for AI Agents, from Interfaces to Enforcement",
+      "authors": [
+        "Alexandra E. Michael",
+        "Franziska Roesner（University of Washington）"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-framework",
+        "agent-security"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "調查 21 個學術提案 + 5 個商業 agent，發現幾乎所有系統的授權設計都是「開發者說了算」，真正讓使用者自己設定個人化授權規則的機制幾乎不存在。",
+      "digestDate": "2026-08-03",
+      "digestSlug": "daily/2026-08-03-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.01224",
+      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "titleZh": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "authors": [
+        "Shengguang Wu",
+        "Hao Zhu",
+        "Yuhui Zhang"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-evaluation",
+        "agent-rag"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "把「記憶管理」當成獨立技能來訓練，完全不改模型的任務行為，光是優化記憶就讓 32B 開源模型在長程遊戲上達到 Claude Opus 4.5 的水準（Crafter 51.4% vs 49.5%）。",
+      "digestDate": "2026-08-04",
+      "digestSlug": "daily/2026-08-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.27191",
+      "title": "Can AI Agents Conduct Open-Ended AI Research? Early Evidence from Two Case Studies",
+      "titleZh": "Can AI Agents Conduct Open-Ended AI Research? Early Evidence from Two Case Studies",
+      "authors": [
+        "Peter Kirgis",
+        "Sayash Kapoor",
+        "Rishi Bommasani"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "must-read",
+      "keyFinding": "給頂尖 Agent 六天時間和數千美元算力，讓它獨立研究一篇未公開的 NeurIPS 2026 論文的核心問題。原作者看完：全部否決。Agent 能做工程，但不會做研究。",
+      "digestDate": "2026-08-04",
+      "digestSlug": "daily/2026-08-04-ai-agent-arxiv-digest"
+    },
+    {
+      "arxivId": "2607.18063",
+      "title": "Adaptive Adversaries: A Multi-Turn, Multi-LLM Benchmark for LLM Agent Security",
+      "titleZh": "Adaptive Adversaries: A Multi-Turn, Multi-LLM Benchmark for LLM Agent Security",
+      "authors": [
+        "Devina Jain",
+        "David Hartmann",
+        "Chuan Li"
+      ],
+      "affiliation": "",
+      "topics": [
+        "agent-security",
+        "agent-evaluation"
+      ],
+      "readPriority": "skim",
+      "keyFinding": "現有 Agent 安全測試用靜態攻擊語料，但真實攻擊者看見防禦失敗後會調整策略。這篇把 LLM 當攻擊者、讓它自適應地打 15 輪——攻擊成功率從 0–1% 飆到 5.4–14%，且攻擊模式跟現有 benchmark 完全不重疊。",
+      "digestDate": "2026-08-04",
+      "digestSlug": "daily/2026-08-04-ai-agent-arxiv-digest"
+    }
+  ]
 }

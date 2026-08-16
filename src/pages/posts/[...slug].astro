@@ -177,7 +177,7 @@ const breadcrumbLD = {
     </div>
   </div>
 
-  <article>
+  <article data-category={post.data.category}>
     <!-- Breadcrumb (like DJ MYG) -->
     <div class="breadcrumb">
       <a href={lang === 'en' ? '/en' : '/'} class="breadcrumb-link">
@@ -543,6 +543,141 @@ const breadcrumbLD = {
   :global(.glossary-term:focus-visible) {
     background: var(--brand-100);
     color: var(--brand-900);
+  }
+
+  /* ── Daily Digest 專用樣式 ── */
+  article[data-category="daily"] .content :global(h2) {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border);
+    font-size: 1.35rem;
+  }
+  article[data-category="daily"] .content :global(h2:first-child) {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  /* 論文標題 — 卡片感 */
+  article[data-category="daily"] .content :global(h2[id^="論文"]) {
+    background: var(--surface-raised, var(--bg-secondary));
+    margin: 2.5rem -1.25rem 1rem;
+    padding: 1rem 1.25rem 0.75rem;
+    border-top: 3px solid var(--brand-500);
+    border-radius: 6px 6px 0 0;
+    font-size: 1.2rem;
+  }
+  /* TL;DR callout */
+  article[data-category="daily"] .content :global(h3[id="tldr"]),
+  article[data-category="daily"] .content :global(h3[id*="tl-dr"]),
+  article[data-category="daily"] .content :global(h3[id*="tldr"]) {
+    display: inline-block;
+    background: var(--brand-50, #f0fdf4);
+    color: var(--brand-700, #15803d);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id="tldr"] + p),
+  article[data-category="daily"] .content :global(h3[id*="tl-dr"] + p),
+  article[data-category="daily"] .content :global(h3[id*="tldr"] + p) {
+    background: var(--surface-raised, #f8fafc);
+    border-left: 3px solid var(--brand-500);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+  /* Read Priority callout */
+  article[data-category="daily"] .content :global(h3[id="read-priority"]),
+  article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
+    display: inline-block;
+    background: var(--brand-50, #eff6ff);
+    color: var(--brand-600, #2563eb);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id="read-priority"] + p),
+  article[data-category="daily"] .content :global(h3[id*="read-priority"] + p) {
+    background: var(--surface-raised, #f8fafc);
+    border-left: 3px solid var(--blue-400, #60a5fa);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  /* Reviewer 引用風格 */
+  article[data-category="daily"] .content :global(h3[id*="reviewer"]) {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id*="reviewer"] + p) {
+    border-left: 3px solid var(--border);
+    padding: 0.6rem 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  /* take-away 行動建議 */
+  article[data-category="daily"] .content :global(h3[id*="take-away"]) {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-600);
+    margin-bottom: 0.4rem;
+  }
+  article[data-category="daily"] .content :global(h3[id*="take-away"] + ul) {
+    background: var(--brand-50, #f0fdf4);
+    border: 1px solid var(--brand-200, #bbf7d0);
+    border-radius: 6px;
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  /* 作者/連結 metadata 行 */
+  article[data-category="daily"] .content :global(p:has(strong:first-child)) {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  /* 中階導讀內的子標題 */
+  article[data-category="daily"] .content :global(h4) {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--brand-700);
+    margin: 1.25rem 0 0.4rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px dashed var(--border);
+  }
+  /* 深入要點的 bullet list */
+  article[data-category="daily"] .content :global(h3[id*="深入要點"] + ul),
+  article[data-category="daily"] .content :global(h3[id*="深入"] + ul) {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+  /* 詞彙表 */
+  article[data-category="daily"] .content :global(h2[id*="讀這篇"] + table),
+  article[data-category="daily"] .content :global(h2[id*="讀這篇"] + p + table) {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  article[data-category="daily"] .content :global(h2[id*="讀這篇"] + table td:first-child),
+  article[data-category="daily"] .content :global(h2[id*="讀這篇"] + p + table td:first-child) {
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--text-primary);
   }
 </style>
 

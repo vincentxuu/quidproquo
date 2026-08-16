@@ -1,321 +1,361 @@
 #!/usr/bin/env node
-// migrate-notion-digests.mjs
-// Migrates arxiv digests from Notion to blog posts.
-// Designed to be run by a cloud routine with firecrawl MCP access.
-//
-// Usage: This script generates the manifest and conversion logic.
-// The actual fetching must be done by an agent with MCP firecrawl access.
-// The agent should:
-//   1. Run this script with --manifest to get the URL list
-//   2. Fetch each URL with firecrawl_scrape
-//   3. Save raw markdown to scripts/migrate-data/raw/{date}.md
-//   4. Run this script with --convert to process all raw files
-//   5. Run this script with --index to build paper-index.json
+/**
+ * Migrate Notion arxiv digests to blog posts using Notion's internal API.
+ * No browser needed — uses loadPageChunk API directly.
+ *
+ * Usage:
+ *   node scripts/migrate-notion-digests.mjs           # migrate all
+ *   node scripts/migrate-notion-digests.mjs --dry-run  # preview only
+ *   node scripts/migrate-notion-digests.mjs --from 2026-07-01
+ */
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
+import { join } from 'path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
-const DAILY_DIR = join(ROOT, 'src/content/posts/daily');
-const DATA_DIR = join(ROOT, 'src/data');
-const RAW_DIR = join(__dirname, 'migrate-data/raw');
-const BASE_DATE = new Date('2026-05-25');
+const NOTION_SITE = 'https://stump-digit-b8b.notion.site';
+const POSTS_DIR = 'src/content/posts/daily';
+const PAPER_INDEX_PATH = 'src/data/paper-index.json';
+const DRY_RUN = process.argv.includes('--dry-run');
+const FROM_DATE = process.argv.find((_, i) => process.argv[i - 1] === '--from') || '2026-05-26';
 
-const cmd = process.argv[2];
+const TOPIC_KEYWORDS = {
+  'agent-memory': ['memory', 'memoriz', 'context window', 'context length', 'episodic', 'long-horizon', 'forgetting', 'recall', '記憶', '遺忘', 'context compress'],
+  'agent-security': ['security', 'safety', 'attack', 'adversar', 'injection', 'jailbreak', 'guardrail', 'red team', 'vulnerab', '安全', '攻擊', '防禦', 'prompt injection'],
+  'agent-evaluation': ['benchmark', 'evaluat', 'leaderboard', 'assess', 'metric', 'shadow eval', '評測', '評估', 'SWE-bench'],
+  'agent-reasoning': ['reason', 'planning', 'chain-of-thought', 'decision', 'self-reflect', '推理', '規劃'],
+  'agent-tool-use': ['tool use', 'tool call', 'function call', 'API call', '工具呼叫', '工具選擇'],
+  'multi-agent': ['multi-agent', 'multi agent', 'orchestrat', 'collaborat', 'protocol', 'MCP', 'A2A', '多代理', '協作', '協定'],
+  'agent-rag': ['RAG', 'retrieval', 'augmented generation', 'vector', 'embedding', '檢索', '向量'],
+  'agent-framework': ['framework', 'scaffold', 'architect', 'LangGraph', 'CrewAI', 'workflow engine', '框架', '架構', '鷹架'],
+  'agent-deployment': ['deploy', 'production', 'cost', 'latency', 'inference', 'scaling', '部署', '成本'],
+  'agent-coding': ['coding', 'code gen', 'SWE', 'programm', 'IDE', 'debug', 'Coding Agent'],
+};
 
-// --- URL manifest ---
-const URLS = [
-  ['2026-05-25', 'https://stump-digit-b8b.notion.site/2026-05-25-AI-Agent-Arxiv-Digest-36bddaf9032b81ba828be8a490ae58d9'],
-  ['2026-05-26', 'https://stump-digit-b8b.notion.site/2026-05-26-AI-Agent-Arxiv-Digest-36cddaf9032b8104836de4123e9a2cdf'],
-  ['2026-05-27', 'https://stump-digit-b8b.notion.site/2026-05-27-AI-Agent-Arxiv-Digest-36dddaf9032b81f4bcb6d6788a43cadf'],
-  ['2026-05-28', 'https://stump-digit-b8b.notion.site/2026-05-28-AI-Agent-Arxiv-Digest-36eddaf9032b8126ae25ffc9a706d6a5'],
-  ['2026-05-29', 'https://stump-digit-b8b.notion.site/2026-05-29-AI-Agent-Arxiv-Digest-36fddaf9032b81f2b5ccd164d2e34996'],
-  ['2026-05-30', 'https://stump-digit-b8b.notion.site/2026-05-30-AI-Agent-Arxiv-Digest-370ddaf9032b81d6a6cacf7febb6ad58'],
-  ['2026-05-31', 'https://stump-digit-b8b.notion.site/2026-05-31-AI-Agent-Arxiv-Digest-371ddaf9032b81578006c0a29449a10f'],
-  ['2026-06-01', 'https://stump-digit-b8b.notion.site/2026-06-01-AI-Agent-Arxiv-Digest-372ddaf9032b814e854bdde9a46ab6c3'],
-  ['2026-06-02', 'https://stump-digit-b8b.notion.site/2026-06-02-AI-Agent-Arxiv-Digest-373ddaf9032b811085d7dfc7d0bcf52c'],
-  ['2026-06-03', 'https://stump-digit-b8b.notion.site/2026-06-03-AI-Agent-Arxiv-Digest-374ddaf9032b815f8b46d2e2f8bde97f'],
-  ['2026-06-04', 'https://stump-digit-b8b.notion.site/2026-06-04-AI-Agent-Arxiv-Digest-375ddaf9032b81589e4fd478667c73ee'],
-  ['2026-06-05', 'https://stump-digit-b8b.notion.site/2026-06-05-AI-Agent-Arxiv-Digest-376ddaf9032b8110ba88cf6a535f5a54'],
-  ['2026-06-06', 'https://stump-digit-b8b.notion.site/2026-06-06-AI-Agent-Arxiv-Digest-377ddaf9032b8142a4b9d401fbb943d8'],
-  ['2026-06-07', 'https://stump-digit-b8b.notion.site/2026-06-07-AI-Agent-Arxiv-Digest-378ddaf9032b8130adf2cf60ec99c6bd'],
-  ['2026-06-08', 'https://stump-digit-b8b.notion.site/2026-06-08-AI-Agent-Arxiv-Digest-379ddaf9032b81ae9066c34f57cd41b1'],
-  ['2026-06-09', 'https://stump-digit-b8b.notion.site/2026-06-09-AI-Agent-Arxiv-Digest-37addaf9032b8168b12ced001e1d73ee'],
-  ['2026-06-10', 'https://stump-digit-b8b.notion.site/2026-06-10-AI-Agent-Arxiv-Digest-37bddaf9032b810a8459c01fb8b063cd'],
-  ['2026-06-11', 'https://stump-digit-b8b.notion.site/2026-06-11-AI-Agent-Arxiv-Digest-37cddaf9032b8127a9cbfe053eeabf40'],
-  ['2026-06-12', 'https://stump-digit-b8b.notion.site/2026-06-12-AI-Agent-Arxiv-Digest-37dddaf9032b81229304e6a1a082cd36'],
-  ['2026-06-13', 'https://stump-digit-b8b.notion.site/2026-06-13-AI-Agent-Arxiv-Digest-37eddaf9032b8108a846e3a54f608445'],
-  ['2026-06-14', 'https://stump-digit-b8b.notion.site/2026-06-14-AI-Agent-Arxiv-Digest-37fddaf9032b8112842dce538d4ad7b4'],
-  ['2026-06-15', 'https://stump-digit-b8b.notion.site/2026-06-15-AI-Agent-Arxiv-Digest-380ddaf9032b810d85e6f140a7600d31'],
-  ['2026-06-16', 'https://stump-digit-b8b.notion.site/2026-06-16-AI-Agent-Arxiv-Digest-381ddaf9032b8183a769ee67969e86ad'],
-  ['2026-06-17', 'https://stump-digit-b8b.notion.site/2026-06-17-AI-Agent-Arxiv-Digest-382ddaf9032b8185b4f3f9a1f9d79da8'],
-  ['2026-06-18', 'https://stump-digit-b8b.notion.site/2026-06-18-AI-Agent-Arxiv-Digest-383ddaf9032b811a9e7dcbb7f1e0acaf'],
-  ['2026-06-19', 'https://stump-digit-b8b.notion.site/2026-06-19-AI-Agent-Arxiv-Digest-384ddaf9032b816e991dcd912d0e9099'],
-  ['2026-06-20', 'https://stump-digit-b8b.notion.site/2026-06-20-AI-Agent-Arxiv-Digest-385ddaf9032b814f97b0d4bfc930ac01'],
-  ['2026-06-21', 'https://stump-digit-b8b.notion.site/2026-06-21-AI-Agent-Arxiv-Digest-386ddaf9032b81128543d0014a4828c1'],
-  ['2026-06-22', 'https://stump-digit-b8b.notion.site/2026-06-22-AI-Agent-Arxiv-Digest-387ddaf9032b81309529e1bb2e90acb1'],
-  ['2026-06-23', 'https://stump-digit-b8b.notion.site/2026-06-23-AI-Agent-Arxiv-Digest-388ddaf9032b8190bf84c428549d42eb'],
-  ['2026-06-24', 'https://stump-digit-b8b.notion.site/2026-06-24-AI-Agent-Arxiv-Digest-389ddaf9032b81908391ed6172696f30'],
-  ['2026-06-25', 'https://stump-digit-b8b.notion.site/2026-06-25-AI-Agent-Arxiv-Digest-38addaf9032b8155af89ce860eb7d6e6'],
-  ['2026-06-26', 'https://stump-digit-b8b.notion.site/2026-06-26-AI-Agent-Arxiv-Digest-38bddaf9032b815bb724d22e35ca8934'],
-  ['2026-06-27', 'https://stump-digit-b8b.notion.site/2026-06-27-AI-Agent-Arxiv-Digest-38cddaf9032b813ea135f60137506eb0'],
-  ['2026-06-28', 'https://stump-digit-b8b.notion.site/2026-06-28-AI-Agent-Arxiv-Digest-38dddaf9032b8142b090deb7ac471603'],
-  ['2026-06-29', 'https://stump-digit-b8b.notion.site/2026-06-29-AI-Agent-Arxiv-Digest-38eddaf9032b81098850f4f4fa0a177a'],
-  ['2026-06-30', 'https://stump-digit-b8b.notion.site/2026-06-30-AI-Agent-Arxiv-Digest-38fddaf9032b815da8c3dd3a3212884c'],
-  ['2026-07-01', 'https://stump-digit-b8b.notion.site/2026-07-01-AI-Agent-Arxiv-Digest-390ddaf9032b81b2a47aeac4c56e0b76'],
-  ['2026-07-02', 'https://stump-digit-b8b.notion.site/2026-07-02-AI-Agent-Arxiv-Digest-391ddaf9032b81c7b6dfc2e7b26673e3'],
-  ['2026-07-03', 'https://stump-digit-b8b.notion.site/2026-07-03-AI-Agent-Arxiv-Digest-392ddaf9032b81b79bacd3bc3d2295c1'],
-  ['2026-07-04', 'https://stump-digit-b8b.notion.site/2026-07-04-AI-Agent-Arxiv-Digest-393ddaf9032b81f5afb7c1e987162d03'],
-  ['2026-07-05', 'https://stump-digit-b8b.notion.site/2026-07-05-AI-Agent-Arxiv-Digest-394ddaf9032b813eb9dfd7cd02d63879'],
-  ['2026-07-06', 'https://stump-digit-b8b.notion.site/2026-07-06-AI-Agent-Arxiv-Digest-395ddaf9032b81f284cdc2f1cb785f06'],
-  ['2026-07-07', 'https://stump-digit-b8b.notion.site/2026-07-07-AI-Agent-Arxiv-Digest-396ddaf9032b818582fbfac812815c7f'],
-  ['2026-07-08', 'https://stump-digit-b8b.notion.site/2026-07-08-AI-Agent-Arxiv-Digest-397ddaf9032b818190c7f59b09d2ad10'],
-  ['2026-07-09', 'https://stump-digit-b8b.notion.site/2026-07-09-AI-Agent-Arxiv-Digest-398ddaf9032b817bbd3edf192e1dc92d'],
-  ['2026-07-10', 'https://stump-digit-b8b.notion.site/2026-07-10-AI-Agent-Arxiv-Digest-399ddaf9032b81b8a2f5f6fbebd687ad'],
-  ['2026-07-11', 'https://stump-digit-b8b.notion.site/2026-07-11-AI-Agent-Arxiv-Digest-39addaf9032b81a7a667f140e8b1ce36'],
-  ['2026-07-12', 'https://stump-digit-b8b.notion.site/2026-07-12-AI-Agent-Arxiv-Digest-39bddaf9032b81b99dc2d1f336b6eb5c'],
-  ['2026-07-13', 'https://stump-digit-b8b.notion.site/2026-07-13-AI-Agent-Arxiv-Digest-39cddaf9032b81eeb05cdca28c2eec3b'],
-  ['2026-07-14', 'https://stump-digit-b8b.notion.site/2026-07-14-AI-Agent-Arxiv-Digest-39dddaf9032b8133b16ee6913416e01f'],
-  ['2026-07-15', 'https://stump-digit-b8b.notion.site/2026-07-15-AI-Agent-Arxiv-Digest-39eddaf9032b81e6a729c16e4befad23'],
-  ['2026-07-16', 'https://stump-digit-b8b.notion.site/2026-07-16-AI-Agent-Arxiv-Digest-39fddaf9032b81eba8dfc773c2b0cfab'],
-  ['2026-07-17', 'https://stump-digit-b8b.notion.site/2026-07-17-AI-Agent-Arxiv-Digest-3a0ddaf9032b818e9a4cc5e3c82662c2'],
-  ['2026-07-18', 'https://stump-digit-b8b.notion.site/2026-07-18-AI-Agent-Arxiv-Digest-3a1ddaf9032b81bb8ca1fd7b23bd1b63'],
-  ['2026-07-19', 'https://stump-digit-b8b.notion.site/2026-07-19-AI-Agent-Arxiv-Digest-3a2ddaf9032b8199b930d887d0c16572'],
-  ['2026-07-20', 'https://stump-digit-b8b.notion.site/2026-07-20-AI-Agent-Arxiv-Digest-3a3ddaf9032b819388a1d4dff3e1c681'],
-  ['2026-07-21', 'https://stump-digit-b8b.notion.site/2026-07-21-AI-Agent-Arxiv-Digest-3a4ddaf9032b8116b34dd9f1b142162b'],
-  ['2026-07-22', 'https://stump-digit-b8b.notion.site/2026-07-22-AI-Agent-Arxiv-Digest-3a5ddaf9032b815b9920cc8e0a5ee18f'],
-  ['2026-07-23', 'https://stump-digit-b8b.notion.site/2026-07-23-AI-Agent-Arxiv-Digest-3a6ddaf9032b817a8eb4fcea67245d72'],
-  ['2026-07-24', 'https://stump-digit-b8b.notion.site/2026-07-24-AI-Agent-Arxiv-Digest-3a7ddaf9032b81c187f2cddb6098223a'],
-  ['2026-07-25', 'https://stump-digit-b8b.notion.site/2026-07-25-AI-Agent-Arxiv-Digest-3a8ddaf9032b815c82cee05b77d1f7ec'],
-  ['2026-07-26', 'https://stump-digit-b8b.notion.site/2026-07-26-AI-Agent-Arxiv-Digest-3a9ddaf9032b81a4a4b0e78bfd43df1a'],
-  ['2026-07-27', 'https://stump-digit-b8b.notion.site/2026-07-27-AI-Agent-Arxiv-Digest-3aaddaf9032b81f6a2c0dd10615929c2'],
-  ['2026-07-28', 'https://stump-digit-b8b.notion.site/2026-07-28-AI-Agent-Arxiv-Digest-3abddaf9032b8101842cc4758fd0b565'],
-  ['2026-07-29', 'https://stump-digit-b8b.notion.site/2026-07-29-AI-Agent-Arxiv-Digest-3acddaf9032b81d19a2ad49c0c069fdb'],
-  ['2026-07-30', 'https://stump-digit-b8b.notion.site/2026-07-30-AI-Agent-Arxiv-Digest-3adddaf9032b81b4ba7dd5d3ce9b46e4'],
-  ['2026-07-31', 'https://stump-digit-b8b.notion.site/2026-07-31-AI-Agent-Arxiv-Digest-3aeddaf9032b8101a15fef6a749794fb'],
-  ['2026-08-01', 'https://stump-digit-b8b.notion.site/2026-08-01-AI-Agent-Arxiv-Digest-3afddaf9032b8140bb36e964ceb5634a'],
-  ['2026-08-02', 'https://stump-digit-b8b.notion.site/2026-08-02-AI-Agent-Arxiv-Digest-3b0ddaf9032b811c9ee3c4f2766c344d'],
-  ['2026-08-03', 'https://stump-digit-b8b.notion.site/2026-08-03-AI-Agent-Arxiv-Digest-3b1ddaf9032b81e89f2fe40bd5eee4e7'],
-  ['2026-08-04', 'https://stump-digit-b8b.notion.site/2026-08-04-AI-Agent-Arxiv-Digest-3b2ddaf9032b813b86b5c67fcfbb3ab3'],
+const PAGES = [
+  { date: '2026-05-25', id: '36bddaf9-032b-81ba-828b-e8a490ae58d9' },
+  { date: '2026-05-26', id: '36cddaf9-032b-8104-836d-e4123e9a2cdf' },
+  { date: '2026-05-27', id: '36dddaf9-032b-81f4-bcb6-d6788a43cadf' },
+  { date: '2026-05-28', id: '36eddaf9-032b-8126-ae25-ffc9a706d6a5' },
+  { date: '2026-05-29', id: '36fddaf9-032b-81f2-b5cc-d164d2e34996' },
+  { date: '2026-05-30', id: '370ddaf9-032b-81d6-a6ca-cf7febb6ad58' },
+  { date: '2026-05-31', id: '371ddaf9-032b-8157-8006-c0a29449a10f' },
+  { date: '2026-06-01', id: '372ddaf9-032b-814e-854b-dde9a46ab6c3' },
+  { date: '2026-06-02', id: '373ddaf9-032b-8110-85d7-dfc7d0bcf52c' },
+  { date: '2026-06-03', id: '374ddaf9-032b-815f-8b46-d2e2f8bde97f' },
+  { date: '2026-06-04', id: '375ddaf9-032b-8158-9e4f-d478667c73ee' },
+  { date: '2026-06-05', id: '376ddaf9-032b-8110-ba88-cf6a535f5a54' },
+  { date: '2026-06-06', id: '377ddaf9-032b-8142-a4b9-d401fbb943d8' },
+  { date: '2026-06-07', id: '378ddaf9-032b-8130-adf2-cf60ec99c6bd' },
+  { date: '2026-06-08', id: '379ddaf9-032b-81ae-9066-c34f57cd41b1' },
+  { date: '2026-06-09', id: '37addaf9-032b-8168-b12c-ed001e1d73ee' },
+  { date: '2026-06-10', id: '37bddaf9-032b-810a-8459-c01fb8b063cd' },
+  { date: '2026-06-11', id: '37cddaf9-032b-8127-a9cb-fe053eeabf40' },
+  { date: '2026-06-12', id: '37dddaf9-032b-8122-9304-e6a1a082cd36' },
+  { date: '2026-06-13', id: '37eddaf9-032b-8108-a846-e3a54f608445' },
+  { date: '2026-06-14', id: '37fddaf9-032b-8112-842d-ce538d4ad7b4' },
+  { date: '2026-06-15', id: '380ddaf9-032b-810d-85e6-f140a7600d31' },
+  { date: '2026-06-16', id: '381ddaf9-032b-8183-a769-ee67969e86ad' },
+  { date: '2026-06-17', id: '382ddaf9-032b-8185-b4f3-f9a1f9d79da8' },
+  { date: '2026-06-18', id: '383ddaf9-032b-811a-9e7d-cbb7f1e0acaf' },
+  { date: '2026-06-19', id: '384ddaf9-032b-816e-991d-cd912d0e9099' },
+  { date: '2026-06-20', id: '385ddaf9-032b-814f-97b0-d4bfc930ac01' },
+  { date: '2026-06-21', id: '386ddaf9-032b-8112-8543-d0014a4828c1' },
+  { date: '2026-06-22', id: '387ddaf9-032b-8130-9529-e1bb2e90acb1' },
+  { date: '2026-06-23', id: '388ddaf9-032b-8190-bf84-c428549d42eb' },
+  { date: '2026-06-24', id: '389ddaf9-032b-8190-8391-ed6172696f30' },
+  { date: '2026-06-25', id: '38addaf9-032b-8155-af89-ce860eb7d6e6' },
+  { date: '2026-06-26', id: '38bddaf9-032b-815b-b724-d22e35ca8934' },
+  { date: '2026-06-27', id: '38cddaf9-032b-813e-a135-f60137506eb0' },
+  { date: '2026-06-28', id: '38dddaf9-032b-8142-b090-deb7ac471603' },
+  { date: '2026-06-29', id: '38eddaf9-032b-8109-8850-f4f4fa0a177a' },
+  { date: '2026-06-30', id: '38fddaf9-032b-815d-a8c3-dd3a3212884c' },
+  { date: '2026-07-01', id: '390ddaf9-032b-81b2-a47a-eac4c56e0b76' },
+  { date: '2026-07-02', id: '391ddaf9-032b-81c7-b6df-c2e7b26673e3' },
+  { date: '2026-07-03', id: '392ddaf9-032b-81b7-9bac-d3bc3d2295c1' },
+  { date: '2026-07-04', id: '393ddaf9-032b-81f5-afb7-c1e987162d03' },
+  { date: '2026-07-05', id: '394ddaf9-032b-813e-b9df-d7cd02d63879' },
+  { date: '2026-07-06', id: '395ddaf9-032b-81f2-84cd-c2f1cb785f06' },
+  { date: '2026-07-07', id: '396ddaf9-032b-8185-82fb-fac812815c7f' },
+  { date: '2026-07-08', id: '397ddaf9-032b-8181-90c7-f59b09d2ad10' },
+  { date: '2026-07-09', id: '398ddaf9-032b-817b-bd3e-df192e1dc92d' },
+  { date: '2026-07-10', id: '399ddaf9-032b-81b8-a2f5-f6fbebd687ad' },
+  { date: '2026-07-11', id: '39addaf9-032b-81a7-a667-f140e8b1ce36' },
+  { date: '2026-07-12', id: '39bddaf9-032b-81b9-9dc2-d1f336b6eb5c' },
+  { date: '2026-07-13', id: '39cddaf9-032b-81ee-b05c-dca28c2eec3b' },
+  { date: '2026-07-14', id: '39dddaf9-032b-8133-b16e-e6913416e01f' },
+  { date: '2026-07-15', id: '39eddaf9-032b-81e6-a729-c16e4befad23' },
+  { date: '2026-07-16', id: '39fddaf9-032b-81eb-a8df-c773c2b0cfab' },
+  { date: '2026-07-17', id: '3a0ddaf9-032b-818e-9a4c-c5e3c82662c2' },
+  { date: '2026-07-18', id: '3a1ddaf9-032b-81bb-8ca1-fd7b23bd1b63' },
+  { date: '2026-07-19', id: '3a2ddaf9-032b-8199-b930-d887d0c16572' },
+  { date: '2026-07-20', id: '3a3ddaf9-032b-8193-88a1-d4dff3e1c681' },
+  { date: '2026-07-21', id: '3a4ddaf9-032b-8116-b34d-d9f1b142162b' },
+  { date: '2026-07-22', id: '3a5ddaf9-032b-815b-9920-cc8e0a5ee18f' },
+  { date: '2026-07-23', id: '3a6ddaf9-032b-817a-8eb4-fcea67245d72' },
+  { date: '2026-07-24', id: '3a7ddaf9-032b-81c1-87f2-cddb6098223a' },
+  { date: '2026-07-25', id: '3a8ddaf9-032b-815c-82ce-e05b77d1f7ec' },
+  { date: '2026-07-26', id: '3a9ddaf9-032b-81a4-a4b0-e78bfd43df1a' },
+  { date: '2026-07-27', id: '3aaddaf9-032b-81f6-a2c0-dd10615929c2' },
+  { date: '2026-07-28', id: '3abddaf9-032b-8101-842c-c4758fd0b565' },
+  { date: '2026-07-29', id: '3acddaf9-032b-81d1-9a2a-d49c0c069fdb' },
+  { date: '2026-07-30', id: '3adddaf9-032b-81b4-ba7d-d5d3ce9b46e4' },
+  { date: '2026-07-31', id: '3aeddaf9-032b-8101-a15f-ef6a749794fb' },
+  { date: '2026-08-01', id: '3afddaf9-032b-8140-bb36-e964ceb5634a' },
+  { date: '2026-08-02', id: '3b0ddaf9-032b-811c-9ee3-c4f2766c344d' },
+  { date: '2026-08-03', id: '3b1ddaf9-032b-81e8-9f2f-e40bd5eee4e7' },
+  { date: '2026-08-04', id: '3b2ddaf9-032b-813b-86b5-c67fcfbb3ab3' },
 ];
 
-function calcOrder(dateStr) {
-  return Math.round((new Date(dateStr) - BASE_DATE) / (24 * 60 * 60 * 1000)) + 1;
+const BASE_DATE = new Date('2026-05-25');
+
+async function fetchPageBlocks(pageId) {
+  let allBlocks = {};
+  let cursor = { stack: [] };
+  let chunkNumber = 0;
+  while (true) {
+    const resp = await fetch(`${NOTION_SITE}/api/v3/loadPageChunk`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pageId, limit: 200, cursor, chunkNumber, verticalColumns: false }),
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    const blocks = data.recordMap?.block || {};
+    Object.assign(allBlocks, blocks);
+    cursor = data.cursor || { stack: [] };
+    chunkNumber++;
+    if (!cursor.stack || cursor.stack.length === 0 || chunkNumber > 10) break;
+    await new Promise(r => setTimeout(r, 100));
+  }
+  return { recordMap: { block: allBlocks } };
 }
 
-// --- Conversion logic (same as convert-notion.mjs v2) ---
-function convertNotion(raw, date, order) {
-  // Phase 1: Extract metadata BEFORE cleaning
-  const readPriorities = {};
-  const rpRegex = /## 論文([一二三四五六七八九十\d]+)[｜|]\s*(.+?)[\s\S]*?Read Priority\s*[—–-]\s*(必讀|略讀|跳過|must|skim|skip)/gi;
-  let rpMatch;
-  while ((rpMatch = rpRegex.exec(raw)) !== null) {
-    const pText = rpMatch[3].trim();
-    let priority = 'skim';
-    if (/必讀|must/i.test(pText)) priority = 'must-read';
-    else if (/跳過|skip/i.test(pText)) priority = 'skip';
-    readPriorities[rpMatch[1]] = priority;
-  }
-
-  const tldrMap = {};
-  const paperBlocks = raw.split(/(?=## 論文[一二三四五六七八九十\d]+[｜|])/);
-  for (const block of paperBlocks) {
-    if (!block.startsWith('## 論文')) continue;
-    const numMatch = block.match(/## 論文([一二三四五六七八九十\d]+)/);
-    if (!numMatch) continue;
-    const tldrMatch = block.match(/TL;DR\s*[—–-]\s*(.+?)(?:\n|$)/);
-    if (tldrMatch) tldrMap[numMatch[1]] = tldrMatch[1].trim();
-  }
-
-  // Phase 2: Clean
-  let md = raw;
-  md = md.replace(/\[Skip to content\]\([^)]+\)\s*/g, '');
-  md = md.replace(/!\[[^\]]*Page icon\].*\n?/g, '');
-  md = md.replace(/^# .*\n+/m, '');
-  md = md.replace(/!\[[^\]]*\]\(<Base64-Image-Removed>\)/g, '');
-  md = md.replace(/!\[[^\]]*\]\(https:\/\/notion-emojis[^)]*\)/g, '');
-
-  // Phase 3: Convert callouts
-  md = md.replace(/^\s*今日總覽\s*$/m, '## 今日總覽');
-  md = md.replace(/^###?\s*讀這篇前該知道的詞\s*$/m, '## 讀這篇前該知道的詞');
-  md = md.replace(/^\s*TL;DR\s*[—–-]\s*(.+)$/gm, '### TL;DR\n\n$1');
-  md = md.replace(/^\s*Read Priority\s*[—–-]\s*(.+)$/gm, '### Read Priority\n\n$1');
-  md = md.replace(/^\s*領域背景\s*$/gm, '### 領域背景');
-  md = md.replace(/^###?\s*中階導讀\s*$/gm, '### 中階導讀');
-  md = md.replace(/^###?\s*深入要點\s*$/gm, '### 深入要點');
-  md = md.replace(/^\s*Reviewer 一句話評\s*$/gm, '### Reviewer 一句話評');
-  md = md.replace(/^\s*給你的 take-away\s*$/gm, '### 給你的 take-away');
-  // Handle callout block syntax (> \[!callout...\])
-  md = md.replace(/^>\s*\\\[!callout[^\]]*\\\]\s*$/gm, '');
-  md = md.replace(/^>\s*今日總覽\s*$/gm, '## 今日總覽');
-  md = md.replace(/^>\s*TL;DR\s*[—–-]\s*(.+)$/gm, '### TL;DR\n\n$1');
-  md = md.replace(/^>\s*Read Priority\s*[—–-]\s*(.+)$/gm, '### Read Priority\n\n$1');
-  md = md.replace(/^>\s*領域背景\s*$/gm, '### 領域背景');
-  md = md.replace(/^>\s*Reviewer 一句話評\s*$/gm, '### Reviewer 一句話評');
-  md = md.replace(/^>\s*給你的 take-away\s*$/gm, '### 給你的 take-away');
-  // Clean blockquote prefixes from callout content
-  md = md.replace(/^> \\- /gm, '- ');
-  md = md.replace(/^> /gm, '');
-
-  md = md.replace(/!\[[^\]]*\]\([^)]*\)\s*/g, '');
-  md = md.replace(/\n{4,}/g, '\n\n');
-  md = md.replace(/[ \t]+$/gm, '');
-
-  // Phase 4: Overview
-  const overviewMatch = md.match(/## 今日總覽\s*\n+([\s\S]*?)(?=\n## )/);
-  const overview = overviewMatch ? overviewMatch[1].trim() : '';
-  const firstSentence = overview.split(/[。！？]/)[0];
-  const description = (firstSentence + '。').length > 150 ? firstSentence.slice(0, 147) + '...' : firstSentence + '。';
-  const tldr = overview.length > 250 ? overview.slice(0, 247) + '...' : overview;
-
-  // Phase 5: Topics
-  const topicKeywords = {
-    'agent-memory': ['記憶', 'memory', 'context window', '遺忘', 'episodic', 'long-horizon', '長程'],
-    'agent-security': ['安全', 'security', 'attack', '攻擊', 'injection', 'adversar', 'guardrail', '紅隊', 'jailbreak', '約束', 'constraint', '治理', 'governance'],
-    'agent-evaluation': ['評測', 'evaluation', 'benchmark', '評估', 'shadow', '能力邊界', 'leaderboard'],
-    'agent-reasoning': ['推理', 'reasoning', 'planning', '規劃', 'chain-of-thought', 'self-reflection', '決策'],
-    'agent-tool-use': ['工具呼叫', 'tool use', 'tool-use', 'function call', 'API 呼叫'],
-    'multi-agent': ['多代理', 'multi-agent', '多智能體', '協作', 'cooperation', '協調者', 'orchestrator', 'MCP', 'A2A'],
-    'agent-rag': ['RAG', 'retrieval', '檢索增強', '向量', 'embedding', 'knowledge base'],
-    'agent-framework': ['框架', 'framework', 'scaffold', '鷹架', 'LangGraph', 'CrewAI', 'AutoGen'],
-    'agent-deployment': ['部署', 'deploy', '推理成本', 'inference cost', '延遲', 'latency', '生產化', 'serving'],
-    'agent-coding': ['coding agent', 'SWE-bench', '程式碼生成', 'code generation', 'Cursor', 'Copilot', 'Devin'],
-  };
-  const contentLower = md.toLowerCase();
-  const topicScores = {};
-  for (const [topic, keywords] of Object.entries(topicKeywords)) {
-    let score = 0;
-    for (const kw of keywords) {
-      const re = new RegExp(kw.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-      const matches = contentLower.match(re);
-      if (matches) score += matches.length;
+function richTextToMd(titleArr) {
+  if (!titleArr) return '';
+  return titleArr.map(seg => {
+    if (typeof seg === 'string') return seg;
+    if (!Array.isArray(seg)) return '';
+    const text = seg[0] || '';
+    const anns = seg[1] || [];
+    let result = text;
+    let hasLink = false;
+    for (const ann of anns) {
+      if (!Array.isArray(ann)) continue;
+      if (ann[0] === 'b') result = `**${result}**`;
+      if (ann[0] === 'i') result = `*${result}*`;
+      if (ann[0] === 'c') result = `\`${result}\``;
+      if (ann[0] === 'a' && ann[1]) { result = `[${text}](${ann[1]})`; hasLink = true; }
     }
-    if (score > 0) topicScores[topic] = score;
-  }
-  const sortedTopics = Object.entries(topicScores).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([t]) => t);
-  if (sortedTopics.length === 0) sortedTopics.push('agent-reasoning');
+    return result;
+  }).join('');
+}
 
-  // Phase 6: Papers
+function plainText(titleArr) {
+  if (!titleArr) return '';
+  return titleArr.map(seg => (Array.isArray(seg) ? seg[0] : seg) || '').join('');
+}
+
+function blocksToMarkdown(data) {
+  const blockMap = data.recordMap?.block || {};
+  const pageBlock = Object.values(blockMap).find(b => {
+    const v = b?.value?.value || b?.value;
+    return v?.type === 'page';
+  });
+  const pageVal = pageBlock?.value?.value || pageBlock?.value;
+  const topIds = pageVal?.content || [];
+
+  const lines = [];
+
+  function renderChildren(parentId) {
+    const parentData = blockMap[parentId];
+    const parentVal = parentData?.value?.value || parentData?.value;
+    const childIds = parentVal?.content || [];
+    for (const cid of childIds) {
+      renderBlock(cid);
+    }
+  }
+
+  function renderBlock(blockId) {
+    const bdata = blockMap[blockId];
+    const val = bdata?.value?.value || bdata?.value;
+    if (!val) return;
+    const { type } = val;
+    const md = richTextToMd(val.properties?.title);
+    const raw = plainText(val.properties?.title);
+    const childIds = val.content || [];
+
+    if (type === 'table') {
+      const rowIds = childIds;
+      const rows = rowIds.map(rid => blockMap[rid]).filter(Boolean);
+      if (rows.length === 0) return;
+      const firstRow = rows[0]?.value?.value || rows[0]?.value;
+      const propKeys = Object.keys(firstRow?.properties || {});
+      if (propKeys.length < 2) return;
+      const header = propKeys.map(k => plainText(firstRow.properties[k]));
+      lines.push('');
+      lines.push('| ' + header.join(' | ') + ' |');
+      lines.push('|' + header.map(() => '---|').join(''));
+      for (let ri = 1; ri < rows.length; ri++) {
+        const rv = rows[ri]?.value?.value || rows[ri]?.value;
+        const cells = propKeys.map(k => richTextToMd(rv?.properties?.[k]));
+        lines.push('| ' + cells.join(' | ') + ' |');
+      }
+      lines.push('');
+      return;
+    }
+    if (type === 'table_row' || type === 'page') return;
+    if (!md && type !== 'divider') { renderChildren(blockId); return; }
+
+    if (type === 'header') { lines.push(`\n## ${md}\n`); renderChildren(blockId); return; }
+    if (type === 'sub_header') { lines.push(`\n### ${md}\n`); renderChildren(blockId); return; }
+    if (type === 'sub_sub_header') { lines.push(`\n#### ${md}\n`); renderChildren(blockId); return; }
+    if (type === 'bulleted_list') { lines.push(`- ${md}`); renderChildren(blockId); return; }
+    if (type === 'numbered_list') { lines.push(`1. ${md}`); renderChildren(blockId); return; }
+    if (type === 'divider') { lines.push('\n---\n'); return; }
+
+    if (type === 'callout') {
+      if (raw.includes('TL;DR')) {
+        const content = md.replace(/^.*TL;DR\s*[—–-]\s*/, '');
+        lines.push(`\n### TL;DR\n\n${content}`);
+      } else if (raw.includes('Read Priority')) {
+        const content = md.replace(/^.*Read Priority\s*[—–-]\s*/, '');
+        lines.push(`\n### Read Priority\n\n${content}`);
+      } else if (raw.includes('領域背景')) {
+        lines.push('\n### 領域背景\n');
+      } else if (raw.includes('Reviewer')) {
+        const content = md.replace(/^.*Reviewer\s*一句話評\s*[—–]?\s*/, '');
+        lines.push(`\n### Reviewer 一句話評\n\n${content}`);
+      } else if (/take-away/i.test(raw)) {
+        lines.push('\n### 給你的 take-away\n');
+      } else if (raw.includes('今日總覽')) {
+        lines.push('\n## 今日總覽\n');
+      } else if (raw.includes('讀這篇前該知道的詞')) {
+        lines.push('\n## 讀這篇前該知道的詞\n');
+      } else if (raw.includes('中階導讀')) {
+        lines.push('\n### 中階導讀\n');
+      } else if (raw.includes('深入要點')) {
+        lines.push('\n### 深入要點\n');
+      } else {
+        lines.push(md);
+      }
+      renderChildren(blockId);
+      return;
+    }
+
+    if (md) lines.push(md);
+    renderChildren(blockId);
+  }
+
+  for (const id of topIds) {
+    renderBlock(id);
+  }
+  return lines.join('\n');
+}
+
+function assignTopics(content) {
+  const lower = content.toLowerCase();
+  return Object.entries(TOPIC_KEYWORDS)
+    .map(([topic, kws]) => [topic, kws.filter(kw => lower.includes(kw.toLowerCase())).length])
+    .filter(([, s]) => s >= 2)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([t]) => t);
+}
+
+function extractPapers(content, date) {
   const papers = [];
-  const mdPaperBlocks = md.split(/(?=## 論文[一二三四五六七八九十\d]+[｜|])/);
-  for (const section of mdPaperBlocks) {
-    if (!section.startsWith('## 論文')) continue;
-    const titleLineMatch = section.match(/## 論文([一二三四五六七八九十\d]+)[｜|]\s*(.+)/);
-    if (!titleLineMatch) continue;
-    const paperNum = titleLineMatch[1];
-    const titleZh = titleLineMatch[2].trim();
-    const engTitleMatch = section.match(/\*\*(.+?)\*\*/);
-    const title = engTitleMatch ? engTitleMatch[1].trim() : titleZh;
-    const arxivIdMatch = section.match(/arxiv:\s*(\d{4}\.\d{4,5})/);
-    const arxivId = arxivIdMatch ? arxivIdMatch[1] : '';
-    const authorLineMatch = section.match(/作者:\s*(.+?)(?:\s*·|\s*$)/m);
-    let authors = [], affiliation = '';
-    if (authorLineMatch) {
-      const authorLine = authorLineMatch[1].trim();
-      const affMatch = authorLine.match(/[（(]([^)）]+)[)）]/);
-      if (affMatch) affiliation = affMatch[1];
-      authors = authorLine.replace(/[（(][^)）]+[)）]/g, '').split(/[,，、]/).map(a => a.replace(/et al\.?/i, '').replace(/\s+/g, ' ').trim()).filter(a => a.length > 0 && !/^\s*$/.test(a)).slice(0, 3);
-    }
-    const priority = readPriorities[paperNum] || 'skim';
-    const keyFinding = (tldrMap[paperNum] || '').slice(0, 200);
+  const re = /## 論文[一二三四五]｜(.+)/g;
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    const titleZh = m[1].trim();
+    const chunk = content.slice(m.index, m.index + 3000);
+    const aid = chunk.match(/\*\*arxiv\*\*:\s*(\d{4}\.\d{4,5})/);
+    const aidFallback = chunk.match(/arxiv:\s*(\d{4}\.\d{4,5})/);
+    const arxivId = (aid || aidFallback)?.[1];
+    const auth = chunk.match(/\*\*作者\*\*:\s*(.+?)(?:\s*·|\n)/);
+    const authFallback = chunk.match(/作者:\s*(.+?)(?:\s*·|\n)/);
+    const tldr = chunk.match(/### TL;DR\s*\n+(.+)/);
+    const rp = chunk.match(/### Read Priority\s*\n+(.+)/);
     if (arxivId) {
-      papers.push({ arxivId, title, titleZh, authors, affiliation, topics: sortedTopics.slice(0, 2), readPriority: priority, keyFinding, digestDate: date, digestSlug: `${date}-ai-agent-arxiv-digest` });
+      papers.push({
+        arxivId,
+        title: titleZh,
+        titleZh,
+        authors: ((auth || authFallback)?.[1] || '').split(/[,，]/).map(a => a.trim()).filter(Boolean).slice(0, 3),
+        affiliation: '',
+        topics: assignTopics(chunk),
+        readPriority: rp?.[1]?.includes('必讀') ? 'must-read' : rp?.[1]?.includes('略讀') ? 'skim' : 'skip',
+        keyFinding: (tldr?.[1] || '').slice(0, 200),
+        digestDate: date,
+        digestSlug: `daily/${date}-ai-agent-arxiv-digest`,
+      });
     }
   }
+  return papers;
+}
 
-  // Phase 7: Output
-  const tags = ['ai-agent', 'arxiv', 'daily', ...sortedTopics];
-  const frontmatter = `---
-title: "AI Agent Arxiv Digest — ${date}"
-date: ${date}
+async function processPage(page) {
+  const outPath = join(POSTS_DIR, `${page.date}-ai-agent-arxiv-digest.md`);
+  if (existsSync(outPath)) return { status: 'skip', papers: [] };
+
+  const data = await fetchPageBlocks(page.id);
+  const content = blocksToMarkdown(data);
+  if (content.length < 100) return { status: 'empty', papers: [] };
+
+  const topics = assignTopics(content);
+  const order = Math.round((new Date(page.date) - BASE_DATE) / 86400000) + 1;
+  const overview = (content.match(/## 今日總覽\s*\n+([\s\S]*?)(?=\n## |\n---)/)?.[1] || '').trim();
+  const desc = (overview.split(/[。！？\n]/)[0] || '').slice(0, 150);
+
+  const fm = `---
+title: "AI Agent Arxiv Digest — ${page.date}"
+date: ${page.date}
 category: daily
-tags: [${tags.join(', ')}]
+tags: [ai-agent, arxiv, daily${topics.length ? ', ' + topics.join(', ') : ''}]
 lang: zh-TW
-description: "${description.replace(/"/g, '\\"')}"
-tldr: "${tldr.replace(/"/g, '\\"').replace(/\n/g, ' ')}"
+description: "${desc.replace(/"/g, '\\"')}"
+tldr: "${overview.slice(0, 300).replace(/"/g, '\\"')}"
 series:
   name: "AI Agent Arxiv Digest"
   order: ${order}
 ---`;
 
-  return { markdown: frontmatter + '\n\n' + md.trim() + '\n', papers };
+  if (!DRY_RUN) writeFileSync(outPath, `${fm}\n${content}\n`);
+  const papers = extractPapers(content, page.date);
+  console.log(`  ${DRY_RUN ? '[dry]' : '✓'} ${page.date} (${content.length} chars, ${topics.join(',')}, ${papers.length} papers)`);
+  return { status: 'ok', papers };
 }
 
-// --- Commands ---
-if (cmd === '--manifest') {
-  const pending = URLS.filter(([date]) => {
-    const outPath = join(DAILY_DIR, `${date}-ai-agent-arxiv-digest.md`);
-    return !existsSync(outPath);
-  });
-  console.log(JSON.stringify(pending.map(([date, url]) => ({ date, url, order: calcOrder(date) })), null, 2));
-  console.log(`\n${pending.length} pages pending (${URLS.length - pending.length} already migrated)`);
+async function main() {
+  mkdirSync(POSTS_DIR, { recursive: true });
+  const pages = PAGES.filter(p => p.date >= FROM_DATE);
+  console.log(`Migrating ${pages.length} pages from ${FROM_DATE}${DRY_RUN ? ' [DRY RUN]' : ''}...\n`);
 
-} else if (cmd === '--convert') {
-  mkdirSync(RAW_DIR, { recursive: true });
-  const rawFiles = readdirSync(RAW_DIR).filter(f => f.endsWith('.md')).sort();
-  let converted = 0, failed = 0;
   const allPapers = [];
-
-  for (const file of rawFiles) {
-    const date = file.replace('.md', '');
-    const outPath = join(DAILY_DIR, `${date}-ai-agent-arxiv-digest.md`);
-    if (existsSync(outPath)) { console.log(`SKIP: ${date} (already exists)`); continue; }
-
+  let ok = 0, skip = 0, fail = 0;
+  for (const page of pages) {
     try {
-      const raw = readFileSync(join(RAW_DIR, file), 'utf8');
-      const order = calcOrder(date);
-      const { markdown, papers } = convertNotion(raw, date, order);
-      writeFileSync(outPath, markdown);
-      allPapers.push(...papers);
-      const priorities = papers.map(p => p.readPriority).join('/');
-      console.log(`OK: ${date} | ${papers.length} papers [${priorities}]`);
-      converted++;
-    } catch (e) {
-      console.error(`FAIL: ${date} - ${e.message}`);
-      failed++;
+      const r = await processPage(page);
+      if (r.status === 'ok') { ok++; allPapers.push(...r.papers); }
+      else if (r.status === 'skip') { skip++; console.log(`  - ${page.date} (exists)`); }
+      else { fail++; console.log(`  ! ${page.date} (empty)`); }
+    } catch (err) {
+      fail++;
+      console.log(`  ✗ ${page.date}: ${err.message}`);
     }
-  }
-  console.log(`\nConverted: ${converted}, Failed: ${failed}, Papers: ${allPapers.length}`);
-
-  // Append to paper-index
-  if (allPapers.length > 0) {
-    const indexPath = join(DATA_DIR, 'paper-index.json');
-    const existing = JSON.parse(readFileSync(indexPath, 'utf8'));
-    const existingIds = new Set(existing.papers.map(p => p.arxivId));
-    const newPapers = allPapers.filter(p => !existingIds.has(p.arxivId));
-    existing.papers.push(...newPapers);
-    existing.papers.sort((a, b) => a.digestDate.localeCompare(b.digestDate));
-    writeFileSync(indexPath, JSON.stringify(existing, null, 2));
-    console.log(`Paper index: ${newPapers.length} new papers added (total: ${existing.papers.length})`);
+    await new Promise(r => setTimeout(r, 200));
   }
 
-} else if (cmd === '--index') {
-  // Rebuild paper index from all existing blog posts
-  const files = readdirSync(DAILY_DIR).filter(f => f.includes('arxiv-digest') && f.endsWith('.md')).sort();
-  const allPapers = [];
-  for (const file of files) {
-    const content = readFileSync(join(DAILY_DIR, file), 'utf8');
-    const date = file.slice(0, 10);
-    const order = calcOrder(date);
-    // Re-parse papers from converted markdown (simplified extraction)
-    const { papers } = convertNotion(content, date, order);
-    allPapers.push(...papers);
+  if (!DRY_RUN && allPapers.length) {
+    const idx = JSON.parse(readFileSync(PAPER_INDEX_PATH, 'utf8'));
+    const seen = new Set(idx.papers.map(p => p.arxivId));
+    const fresh = allPapers.filter(p => !seen.has(p.arxivId));
+    idx.papers.push(...fresh);
+    idx.papers.sort((a, b) => a.digestDate.localeCompare(b.digestDate));
+    writeFileSync(PAPER_INDEX_PATH, JSON.stringify(idx, null, 2));
+    console.log(`\nPaper index: +${fresh.length} (total ${idx.papers.length})`);
   }
-  const indexPath = join(DATA_DIR, 'paper-index.json');
-  writeFileSync(indexPath, JSON.stringify({ version: '2026-08-16', papers: allPapers }, null, 2));
-  console.log(`Rebuilt paper index: ${allPapers.length} papers from ${files.length} digests`);
-
-} else {
-  console.log(`Usage:
-  node migrate-notion-digests.mjs --manifest   # List pending URLs to fetch
-  node migrate-notion-digests.mjs --convert    # Convert raw/*.md to blog posts
-  node migrate-notion-digests.mjs --index      # Rebuild paper-index.json from blog posts
-
-Workflow:
-  1. Run --manifest to see which pages need fetching
-  2. Fetch each URL with firecrawl, save markdown to scripts/migrate-data/raw/{date}.md
-  3. Run --convert to process all raw files into blog posts + paper index
-  4. Run --index to rebuild paper index from all existing posts`);
+  console.log(`\nDone: ${ok} written, ${skip} skipped, ${fail} failed, ${allPapers.length} papers`);
 }
+
+main().catch(e => { console.error(e); process.exit(1); });

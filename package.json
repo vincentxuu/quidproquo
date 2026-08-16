@@ -48,6 +48,7 @@
     "@playwright/test": "^1.58.2",
     "@xyflow/react": "^12.10.2",
     "astro": "^6.3.7",
+    "html-escaper": "^3.0.3",
     "langfuse": "^3.38.20",
     "mdast-util-to-string": "^4.0.0",
     "opencc-js": "^1.4.1",
