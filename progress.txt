@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-10
+Last updated: 2026-08-16
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
+  （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
+  點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
+  自己挖到的缺陷有吸引力但不等於讀者要的重點，bug 該當旁註。
+  文章論點是那條分界線——對應可驗證機制的門檻站得住腳（cache 前綴失效、instructions
+  進每次 system prompt、工具數佔 token），對應人類行為偏好的是意見（週末／凌晨／
+  15 秒），混進同一個分數就無法分開反駁。新增全站 glossary: prompt cache、
+  reasoning effort、vibe coding（走 claude-api skill 取正確描述，不放廠商定價）。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
@@ -67,15 +75,6 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
-  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
-  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
-  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
-  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
-  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
-  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
-  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
-  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
