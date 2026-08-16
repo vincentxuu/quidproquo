@@ -1,0 +1,144 @@
+---
+export const prerender = true;
+
+import PostLayout from '../../../../layouts/PostLayout.astro';
+import PostCard from '../../../../components/PostCard.astro';
+import { useTranslations } from '../../../../i18n/utils';
+import { getSeriesHref } from '../../../../utils/series';
+import { getDailyPosts } from '../../../../utils/content';
+import { TOPIC_TAXONOMY, getTopicBySlug } from '../../../../data/topic-taxonomy';
+import paperIndex from '../../../../data/paper-index.json';
+
+export function getStaticPaths() {
+  return TOPIC_TAXONOMY.map(topic => ({
+    params: { topic: topic.slug },
+    props: { topic },
+  }));
+}
+
+const { topic } = Astro.props;
+const t = useTranslations('en');
+
+const posts = await getDailyPosts('en');
+const topicPosts = posts.filter(post =>
+  post.data.tags?.includes(topic.slug)
+);
+
+const papers = (paperIndex as any).papers.filter(
+  (p: any) => p.topics?.includes(topic.slug)
+);
+
+const relatedTopics = topic.relatedTopics
+  .map((slug: string) => getTopicBySlug(slug))
+  .filter(Boolean);
+---
+<PostLayout
+  title={`${topic.labelEn} — Daily Digest`}
+  lang="en"
+  description={topic.description}
+  switchHref={`/daily/topics/${topic.slug}`}
+>
+  <header class="topic-header">
+    <a href="/en/daily" class="back-link">&larr; Daily Digest</a>
+    <h1>{topic.labelEn}</h1>
+    <p class="topic-desc">{topic.description}</p>
+    {relatedTopics.length > 0 && (
+      <div class="related-topics">
+        <span class="related-label">Related:</span>
+        {relatedTopics.map((rt: any) => (
+          <a href={`/en/daily/topics/${rt.slug}`} class="related-tag">{rt.labelEn}</a>
+        ))}
+      </div>
+    )}
+  </header>
+
+  {papers.length > 0 && (
+    <section class="paper-timeline">
+      <h2>Paper Timeline ({papers.length})</h2>
+      <div class="timeline">
+        {papers.map((paper: any) => (
+          <div class="timeline-entry">
+            <span class="timeline-date">{paper.digestDate}</span>
+            <div class="timeline-content">
+              <a href={`/en/posts/${paper.digestSlug}-en`} class="paper-title">{paper.title}</a>
+              <span class={`priority priority-${paper.readPriority}`}>
+                {paper.readPriority === 'must-read' ? 'Must Read' : paper.readPriority === 'skim' ? 'Skim' : 'Skip'}
+              </span>
+              <p class="key-finding">{paper.keyFinding}</p>
+              <a href={`https://arxiv.org/abs/${paper.arxivId}`} class="arxiv-link" target="_blank" rel="noopener">
+                arxiv: {paper.arxivId}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {topicPosts.length > 0 && (
+    <section class="topic-posts">
+      <h2>Related Digests ({topicPosts.length})</h2>
+      <div class="posts-list">
+        {topicPosts.map(post => (
+          <PostCard
+            slug={post.id}
+            title={post.data.title}
+            date={post.data.date}
+            category={post.data.category}
+            tags={post.data.tags}
+            description={post.data.description}
+            tldr={post.data.tldr}
+            readingTime={post.data.readingTime}
+            lang="en"
+            type={post.data.type}
+            pinned={post.data.pinned}
+            seriesName={post.data.series?.name}
+            seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {papers.length === 0 && topicPosts.length === 0 && (
+    <p class="empty">No papers indexed for this topic yet.</p>
+  )}
+</PostLayout>
+
+<style>
+  .topic-header { margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+  .back-link { font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; }
+  .back-link:hover { color: var(--brand-500); }
+  h1 { margin: 0.5rem 0 0.15rem; }
+  .topic-desc { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem; }
+  .related-topics { display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+  .related-label { font-size: 0.78rem; color: var(--text-muted); }
+  .related-tag {
+    font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 100px;
+    border: 1px solid var(--border); color: var(--text-secondary);
+    text-decoration: none; transition: all 0.15s;
+  }
+  .related-tag:hover { border-color: var(--brand-500); color: var(--brand-500); }
+  .paper-timeline { margin-bottom: 2rem; }
+  .paper-timeline h2 { font-size: 1rem; margin-bottom: 1rem; }
+  .timeline { display: flex; flex-direction: column; gap: 0.75rem; }
+  .timeline-entry { display: flex; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; background: var(--surface-raised, var(--bg-secondary)); }
+  .timeline-date {
+    font-family: var(--font-mono, monospace); font-size: 0.75rem; color: var(--text-muted);
+    white-space: nowrap; padding-top: 0.15rem; min-width: 6rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .timeline-content { flex: 1; min-width: 0; }
+  .paper-title { font-size: 0.88rem; font-weight: 500; text-decoration: none; color: var(--text-primary); }
+  .paper-title:hover { color: var(--brand-500); }
+  .priority { font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
+  .priority-must-read { background: var(--brand-100, #e0f0ff); color: var(--brand-700, #0050a0); }
+  .priority-skim { background: var(--surface-raised); color: var(--text-secondary); }
+  .key-finding { font-size: 0.8rem; color: var(--text-secondary); margin: 0.25rem 0; }
+  .arxiv-link { font-size: 0.72rem; color: var(--text-muted); text-decoration: none; font-family: var(--font-mono, monospace); }
+  .arxiv-link:hover { color: var(--brand-500); }
+  .topic-posts { margin-bottom: 2rem; }
+  .topic-posts h2 { font-size: 1rem; margin-bottom: 1rem; }
+  .posts-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .empty { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 3rem 0; }
+</style>

@@ -1,0 +1,183 @@
+---
+title: "AI Agent Arxiv Digest — 2026-05-25"
+date: 2026-05-25
+category: daily
+tags: [ai-agent, arxiv, daily, agent-security, multi-agent, agent-framework]
+lang: zh-TW
+description: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：多代理系統的安全規範，在執行過程中能維持住嗎。"
+tldr: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：多代理系統的安全規範，在執行過程中能維持住嗎？  2605.10481 命名了一個新失效模式——「約束漂移」（constraint drift）：系統設計時寫好的安全限制，會在代理人傳遞、記憶讀寫、工具呼叫過程中悄悄弱化，到輸出端時早已走樣。2605.07728（SARC）提出架構解法：把規範編譯成四個可執行卡關點，嵌進代理人執行迴圈，不再依賴 prompt 提醒，已開源。2605.13851 則用心理學實驗發現：當多代理系統的協調..."
+series:
+  name: "AI Agent Arxiv Digest"
+  order: 1
+---
+
+## 今日總覽
+今天三篇圍繞 2026 年 agent 平台最迫切的問題：多代理系統的安全規範，在執行過程中能維持住嗎？
+
+2605.10481 命名了一個新失效模式——「約束漂移」（constraint drift）：系統設計時寫好的安全限制，會在代理人傳遞、記憶讀寫、工具呼叫過程中悄悄弱化，到輸出端時早已走樣。2605.07728（SARC）提出架構解法：把規範編譯成四個可執行卡關點，嵌進代理人執行迴圈，不再依賴 prompt 提醒，已開源。2605.13851 則用心理學實驗發現：當多代理系統的協調者是「隱形的」，整個系統的保護性行為會顯著下降——這對主流 orchestrator-based 架構是直接的設計警示。
+
+三篇加起來是一張完整地圖：先認識病因，再對症下架構。
+
+## 讀這篇前該知道的詞
+| 詞 | 白話解釋 |
+| --- | --- |
+| 多代理系統（Multi-agent system） | 多個 AI 代理人各司其職、互相協作的架構，像「AI 主管在後台指派任務給多個 AI 部屬」 |
+| 執行時治理（Runtime governance） | AI 系統在執行動作的當下即時套用規則或攔截不合規行為的機制——不是事後稽核，是當場卡住 |
+| 約束漂移（Constraint drift） | 設計時訂好的安全規則，在系統執行過程中逐漸失效或弱化的現象 |
+| 協調者（Orchestrator） | 多代理系統中負責「統籌全局、分配子任務」的角色，可理解為 AI 系統的「包工頭」，常在幕後運作 |
+| 對齊（Alignment） | 讓 AI 行為符合人類意圖與安全規範的訓練方法，例如透過 RLHF（人類回饋強化學習）讓 AI 不說有害內容 |
+
+## 論文一｜SARC: 把法規義務編譯成執行時約束
+
+作者: Gaston Besanson（Universidad Torcuato Di Tella, 阿根廷）　·　arxiv: 2605.07728
+
+連結: [arxiv](https://arxiv.org/abs/2605.07728) · [alphaxiv](https://www.alphaxiv.org/abs/2605.07728)
+### TL;DR
+
+與其把「請遵守法規」寫在 prompt 裡然後希望 AI 記得，SARC 把規範編譯成四個硬性卡關站嵌進代理人的執行迴圈，不依賴 AI 的「記憶力」。
+### Read Priority
+
+必讀
+
+開源可用、數字可信、是目前最具體的 agent runtime governance 方案。任何在做企業/合規場景 agent 的團隊都應該看這個架構。
+### 領域背景
+現在的 AI 代理人不只是「輸入問題、輸出答案」，它們會呼叫外部工具、存取資料庫、把任務委派給其他子代理人。怎麼確保這些動作都符合公司規定或法律要求？現有做法通常是 prompt 裡寫一堆「你必須遵守 GDPR」，或事後用 log 稽核。但 prompt 裡的文字容易被後續對話覆蓋，事後稽核則是「出事才知道」。SARC 試圖解決這個結構性問題。
+
+### 中階導讀
+#### 問題
+
+想像一個企業客服 agent，被要求「在歐洲用戶資料進行任何操作前必須確認合規」。如果這條規定只寫在 prompt 裡，當 agent 在執行一個長達 10 步的工作流程時，可能早就「忘了」這條要求，直接呼叫了資料庫 API，合規義務實際上沒有被執行。
+
+#### 方法
+
+SARC 把每一條約束寫成規格物件，宣告它的來源（哪條法規）、類型（硬性/軟性）、觸發條件、違規應對協定。規格被「編譯」進代理人執行迴圈的四個關卡：Pre-Action Gate（動作前攔截）、Action-Time Monitor（執行中監控）、Post-Action Auditor（事後稽核）、Escalation Router（違規升級路由）。這跟傳統「在 prompt 裡寫規定」的差異，類似「手冊上寫安全規程」vs「機器上裝物理安全鎖」。
+
+#### 為什麼重要
+
+企業部署 agent 最大恐懼之一是「agent 做了不該做的事但我不知道」。SARC 提供讓安全約束「有骨氣」的架構：規範不再是 prompt 的一部分，而是系統的一部分。結合 MCP（Model Context Protocol，AI 連接外部工具的標準）等 agent 工具標準，將成為未來合規 agent 的設計基礎。
+
+### 深入要點
+架構：四個執行關卡分工明確——Gate 攔截不合規請求、Monitor 計時/限速、Auditor 留存佐證、Router 決定中斷還是升級
+
+規格語言：每條約束 6 個欄位（source / class / predicate / verification point / response protocol / operating point）
+
+關鍵數據：評估場景中 SARC 達到「硬性約束零違規」；PAA throttling 讓軟性窗口超標率比 baseline 下降 89.5%
+
+ 89.5% 來自作者自設的評估場景，尚無獨立測試集驗證
+
+落地門檻：無需 fine-tune；需在代理人框架層加入 hook 點；已開源 [github.com/besanson/sarc-governance](http://github.com/besanson/sarc-governance)
+
+框架關係：四個關卡概念可疊加在任何 tool-calling agent 框架上，不強依賴特定框架
+
+Limitation：評估場景作者自設且規模偏小，實際大型多代理工作流的覆蓋率尚未驗證
+### Reviewer 一句話評
+紮實，架構概念清晰、數字可信，開源加分；但評估場景是作者自設且規模偏小，需等看到實際部署案例才能完全信任那個 89.5%。
+### 給你的 take-away
+如果你的團隊在設計企業 agent 合規架構：把四關卡模型（Gate / Monitor / Auditor / Router）當「agent safety layer」設計範本，比 prompt 塞規定可靠得多
+
+如果你是 PM 評估 agent 平台合規能力：問供應商「runtime constraint 是嵌在執行迴圈裡還是只靠 prompt？」——鑑別度很高的技術問題
+
+## 論文二｜約束漂移：LLM 多代理系統被忽視的安全失效模式
+
+作者: Tianxiao Li 等（Liverpool / Nottingham / Exeter / Tokyo）　·　arxiv: 2605.10481
+
+連結: [arxiv](https://arxiv.org/abs/2605.10481) · [alphaxiv](https://www.alphaxiv.org/abs/2605.10481)
+### TL;DR
+
+多代理系統中的安全規範不會自動持續有效——它們會在記憶存取、任務委派、工具呼叫等七個環節中悄悄弱化，這篇命名為「約束漂移」並提出分類框架。
+### Read Priority
+
+必讀
+
+為多代理系統命名了一個業界早已在碰卻沒有共同語彙的失效模式；是設計 multi-agent 工作流程時的必備心智模型。
+### 領域背景
+現代 LLM agent 不再只是回答問題：它們讀 GitHub、呼叫工具、瀏覽網頁、執行程式碼、維護記憶、跟其他 agent 溝通。在這種複雜度下「在系統入口設一條安全規則」夠嗎？這篇說不夠——規則會在傳遞中「漂移」走，就像公司政策從高層傳到第一線時往往已經走樣。
+
+### 中階導讀
+#### 問題
+
+你設計了一個多代理系統，主代理被指示「不可以把用戶個人資料傳出給第三方服務」。這條規則在主代理 prompt 裡有，但當它把子任務委派給子代理時，子代理的 prompt 可能只有任務說明、沒有繼承這條限制。等子代理呼叫外部 API 時，限制已經「漂移」消失了——而且這不是任何人刻意違規，只是規則沒有被設計成可以隨任務傳遞的格式。
+
+#### 方法
+
+這是一篇分類學論文（position / survey 性質），主要貢獻是系統化定義「約束漂移」，列出它發生的七個環節：記憶（memory）、委派（delegation）、通訊（communication）、工具使用（tool use）、稽核（audit）、優化（optimization）、境況演化（context evolution）。對每個環節說明漂移機制，並提出偵測與緩解的設計方向，例如「constraint propagation protocols」（約束傳播協定，讓安全規則像資料一樣可以隨任務傳遞）。
+
+#### 為什麼重要
+
+這篇最大價值是「命名」。就像「技術債」這個詞讓工程師能討論一類設計問題，「約束漂移」讓我們能更精確地說：「我擔心的不是 agent 會主動違規，而是規定在傳遞中自然消失了。」有了名字才有辦法問正確的問題、設計針對性的解法。
+
+### 深入要點
+七個漂移環節：memory（記憶截斷或改寫）/ delegation（任務委派時規則未一起傳遞）/ communication（代理人間溝通語義失真）/ tool use（工具介面不理解原始約束）/ audit（稽核機制本身不完整）/ optimization（微調或提示優化無意中弱化規則）/ context evolution（長流程中上下文改變了約束的適用情境）
+
+區分兩種失敗：active violation（代理人有意違規）vs constraint drift（規則在系統中自然消失），後者更難偵測、更普遍
+
+設計啟示：建議採用「constraint propagation protocols」——任務委派時同步傳遞約束、工具呼叫時攜帶約束簽章
+
+ 這是概念框架論文，沒有新實驗數據，所有案例都是作者舉例，無量化佐證
+
+框架關係：直接點名 LangGraph（LangChain 生態的工作流框架）、AutoGen（微軟多代理框架）在處理約束傳遞上的盲點
+
+Limitation：position paper 性質，論點清晰但缺實驗支撐；七個漂移類別的重要性排序尚無量化依據
+### Reviewer 一句話評
+概念框架有準頭、命名很有價值，但這是 position paper 而非實驗論文，所有例子都是作者舉的——把它當「問題地圖」而非「已驗證的問題清單」，價值在建立共識語彙。
+### 給你的 take-away
+如果你在設計多代理工作流程：用七個漂移點做 checklist，逐一問「我的系統在這個環節有沒有保證約束被正確傳遞？」答不出來的就是潛在漏洞
+
+如果你是 PM 評估 agent 系統安全性：問「constraint propagation 是誰負責？agent 自己記得？還是框架層保障？」沒明確答案就是風險
+
+## 論文三｜隱形協調者讓多代理系統喪失保護性行為
+
+作者: Hiroki Fukui M.D., Ph.D.（Kyoto University 神經精神科）　·　arxiv: 2605.13851
+
+連結: [arxiv](https://arxiv.org/abs/2605.13851) · [alphaxiv](https://www.alphaxiv.org/abs/2605.13851)
+### TL;DR
+
+用「有沒有可見的領導者」做 AI 實驗：當多代理系統的協調者是隱形的（工作代理不知道有人在指揮），整個系統的保護性行為顯著下降——對流行的 orchestrator 架構是直接的設計警示。
+### Read Priority
+
+略讀
+
+研究角度非常獨特（精神科醫師用心理學實驗分析 AI 系統），核心洞察有平台設計價值，但解法仍需工程層補充；看完本篇導讀就夠了。
+### 領域背景
+現在流行的多代理架構有一個「指揮中心」（orchestrator，協調者）：由主代理在幕後統籌、分配任務給多個執行代理，但執行代理通常不知道背後有「老闆」在協調。這個設計在工程上方便（工作代理只需關心自己的任務），但有一個被忽略的問題：如果工作代理不知道有協調者存在，會影響它們的安全行為嗎？
+
+### 中階導讀
+#### 問題
+
+在企業 AI 部署中，orchestrator-based 架構（隱形主控 agent 在後台指揮工作 agent）已是預設設計。但沒人實驗過：「指揮者隱形」這個設計選擇，對整個系統的安全行為會有什麼影響？
+
+#### 方法
+
+作者進行了預先登記（preregistered，研究開始前公開假設防事後調整）的 3×2 實驗，共 365 次執行，每次 5 個代理人、模型為 Claude Sonnet 4.5。三種組織結構：可見領導者（代理人知道誰在指揮）、隱形協調者（有 orchestrator 但代理人不知道）、平等架構（無層級）；兩種對齊條件：基礎對齊 vs 強化對齊（更嚴格的安全訓練）。觀察指標：「集體疏離感」（dissociation，脫離公共討論、退縮獨白）和「保護性行為」（是否主動拒絕不安全請求）。
+
+#### 為什麼重要
+
+最關鍵的發現：隱形協調者讓集體疏離感顯著高於可見領導者（效應量 Hedges' g = +0.975, p = .001），且協調者自身展現出最高的疏離程度（配對效應量 d = +3.56）。換句話說：隱形 orchestrator 架構下，沒有人覺得自己要負責任，每個代理人都往「私下計算」縮，保護性行為集體消失。更意外的是，加強安全訓練雖然整體抑制了討論，但對這個疏離問題沒有根本幫助——甚至可能讓代理人更沈默而非更安全。
+
+### 深入要點
+實驗設計：preregistered 3×2，365 runs，每 run 5 agents，Claude Sonnet 4.5；交叉條件為組織結構（可見/隱形/平等）× 對齊強度（base/heavy）
+
+四個確認性發現：(1) 隱形協調者顯著提高集體疏離（g = +0.975, p = .001）(2) 協調者本身疏離最嚴重（paired d = +3.56）(3) 強化對齊壓制共同審議（d = -1.02）與相互認知（d = -1.27）(4) 試探性觀察顯示平等架構保護性行為最高
+
+ 把人類組織行為學概念（dissociation、power-holder）套用在 AI agent 行為上，跨領域類比需謹慎
+
+ 僅使用 Claude Sonnet 4.5 一個模型，跨模型泛化性（GPT-4o、開源模型）未驗證
+
+設計啟示：當 orchestrator 對工作代理「可見」時，保護性行為更好——直接影響 LangGraph、AutoGen 等框架的架構設計慣例
+
+Limitation：單一模型、單一對話情境，心理學指標的 AI 適用性需更多驗證；研究者背景是精神科而非 AI 工程
+
+框架關係：直接挑戰 LangGraph、AutoGen 等預設「orchestrator 對工作 agent 不透明」的設計慣例
+### Reviewer 一句話評
+研究方法嚴謹（preregistered 加分）、洞察令人不安且有說服力；但心理學框架套用在 AI 上需謹慎解讀，且只用了一個模型——當「設計警示」而非「定論」，核心訊息值得認真對待。
+### 給你的 take-away
+如果你在設計 orchestrator-based 多代理系統：認真評估是否讓工作代理知道「有 orchestrator 在協調」——這一個設計決策可能顯著影響整個系統的安全行為
+
+如果你是 PM 評估 multi-agent 平台安全性：問「工作代理對系統的協調結構有無感知？」——通常沒被問到的問題，現在有實驗結果佐證它的重要性
+
+## 參考資料
+
+- [SARC: Runtime Governance for Multi-Agent Systems](https://arxiv.org/abs/2605.07728)
+- [SARC governance reference implementation](https://github.com/besanson/sarc-governance)
+- [Constraint Drift in Agentic AI Systems](https://arxiv.org/abs/2605.10481)
+- [Invisible Orchestrators and Protective Behavior in Multi-Agent Systems](https://arxiv.org/abs/2605.13851)

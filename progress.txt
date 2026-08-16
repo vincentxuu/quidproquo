@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-10
+Last updated: 2026-08-16
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,7 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-16: Daily Digest 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro check/build 通過。`pnpm verify` 尚被未追蹤 Arxiv 文章缺參考資料擋住。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會

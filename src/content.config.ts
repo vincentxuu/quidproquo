@@ -42,6 +42,10 @@ const posts = defineCollection({
       name: z.string(),
       order: z.number(),
     }).optional(),
+    relatedDigests: z.array(z.object({
+      slug: z.string(),
+      reason: z.string(),
+    })).optional(),
   }),
 });
 

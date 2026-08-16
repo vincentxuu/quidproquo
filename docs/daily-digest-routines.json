@@ -1,0 +1,119 @@
+{
+  "description": "Daily Digest routine definitions for Claude Code cloud agents",
+  "schedule_timezone": "Asia/Taipei",
+  "environment_id": "env_011CULZ3E2stUFWvidbThDMN",
+  "repo": "https://github.com/vincentxuu/quidproquo",
+  "model": "claude-sonnet-5",
+  "mcp_connections": [
+    {"connector_uuid": "205c8b8e-f1d9-4d51-9e75-fd3e8eb11366", "name": "Exa", "url": "https://mcp.exa.ai/mcp"},
+    {"connector_uuid": "735922c7-dc1a-48ee-81d5-271e2aa82f86", "name": "Tavily", "url": "https://mcp.tavily.com/mcp"},
+    {"connector_uuid": "a4f311aa-60c6-4985-bf6f-111ded0924e1", "name": "firecrawl", "url": "https://mcp.firecrawl.dev/fc-d7860898bbbd4fdabcd18fa6b5b2d46c/v2/mcp"},
+    {"connector_uuid": "5dc7ee32-e1af-4b7a-9de1-0a12b25f6c3a", "name": "linkup", "url": "https://mcp.linkup.so/mcp"}
+  ],
+  "routines": {
+    "A": {
+      "name": "daily-digest-arxiv",
+      "stage": 1,
+      "cron_utc": "3 18 * * *",
+      "cron_tw": "2:03 daily",
+      "type": "arxiv",
+      "description": "Arxiv cs.AI/cs.CL/cs.MA digest"
+    },
+    "B": {
+      "name": "daily-digest-github",
+      "stage": 1,
+      "cron_utc": "7 18 * * *",
+      "cron_tw": "2:07 daily",
+      "type": "github",
+      "description": "GitHub Trending AI/Agent digest"
+    },
+    "C": {
+      "name": "daily-digest-model-card",
+      "stage": 1,
+      "cron_utc": "11 18 * * *",
+      "cron_tw": "2:11 daily",
+      "type": "model-card",
+      "description": "New model detection + model card"
+    },
+    "D": {
+      "name": "daily-digest-security",
+      "stage": 1,
+      "cron_utc": "15 18 * * *",
+      "cron_tw": "2:15 daily",
+      "type": "security",
+      "description": "AI security alerts"
+    },
+    "E": {
+      "name": "daily-digest-benchmark",
+      "stage": 1,
+      "cron_utc": "19 18 * * *",
+      "cron_tw": "2:19 daily",
+      "type": "benchmark",
+      "description": "Benchmark leaderboard shifts"
+    },
+    "F": {
+      "name": "daily-digest-framework",
+      "stage": 1,
+      "cron_utc": "23 18 * * *",
+      "cron_tw": "2:23 daily",
+      "type": "framework",
+      "description": "Framework release detection"
+    },
+    "G": {
+      "name": "daily-digest-tool",
+      "stage": 1,
+      "cron_utc": "27 18 * * *",
+      "cron_tw": "2:27 daily",
+      "type": "tool",
+      "description": "Tool/MCP server recommendations"
+    },
+    "H": {
+      "name": "daily-digest-funding",
+      "stage": 1,
+      "cron_utc": "31 18 * * *",
+      "cron_tw": "2:31 daily",
+      "type": "funding",
+      "description": "Series A+ funding alerts"
+    },
+    "I": {
+      "name": "daily-digest-pricing",
+      "stage": 1,
+      "cron_utc": "35 18 * * *",
+      "cron_tw": "2:35 daily",
+      "type": "pricing",
+      "description": "API pricing/sunset tracking"
+    },
+    "J": {
+      "name": "daily-digest-signals",
+      "stage": 2,
+      "cron_utc": "3 19 * * *",
+      "cron_tw": "3:03 daily",
+      "type": "signals",
+      "description": "News scan → intermediate signals JSON"
+    },
+    "K": {
+      "name": "daily-digest-report",
+      "stage": 3,
+      "cron_utc": "3 20 * * *",
+      "cron_tw": "4:03 daily",
+      "type": "daily",
+      "description": "Assemble daily report from signals + stage 1 outputs"
+    },
+    "L": {
+      "name": "daily-digest-weekly",
+      "stage": 4,
+      "cron_utc": "3 20 * * 4",
+      "cron_tw": "4:03 every Friday",
+      "type": "weekly",
+      "description": "Weekly review + watchlist update suggestions"
+    },
+    "M": {
+      "name": "daily-digest-region",
+      "stage": 4,
+      "cron_utc": "33 20 * * 4",
+      "cron_tw": "4:33 every Friday",
+      "type": "region",
+      "description": "Regional focus (China/Taiwan/Japan-Korea/Europe)"
+    }
+  }
+}

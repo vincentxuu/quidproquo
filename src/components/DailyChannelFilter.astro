@@ -1,0 +1,266 @@
+---
+import {
+  DAILY_CHANNELS,
+  type DailyChannelGroup,
+  type DailyChannelId,
+} from '../data/daily-content-types';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  counts: Record<DailyChannelId, number>;
+  total: number;
+}
+
+const { lang, counts, total } = Astro.props;
+const isEn = lang === 'en';
+const groups: Array<{ id: DailyChannelGroup; label: string; description: string }> = [
+  {
+    id: 'briefings',
+    label: isEn ? 'Briefings' : '彙整判讀',
+    description: isEn ? 'Daily, weekly, and regional synthesis' : '日報、週回顧與區域觀察',
+  },
+  {
+    id: 'sources',
+    label: isEn ? 'Source feeds' : '一手來源',
+    description: isEn ? 'Research and open-source signals' : '論文與開源生態信號',
+  },
+  {
+    id: 'watch',
+    label: isEn ? 'Watch desk' : '動態追蹤',
+    description: isEn ? 'Products, risk, market, and infrastructure' : '產品、風險、市場與基礎設施',
+  },
+];
+---
+
+<section class="channel-panel" data-daily-filter aria-labelledby="channel-filter-title">
+  <div class="channel-heading">
+    <div>
+      <p class="channel-kicker">{isEn ? '12 tracked streams' : '12 條觀測頻道'}</p>
+      <h2 id="channel-filter-title">{isEn ? 'Choose what to follow' : '選擇你要追的動態'}</h2>
+    </div>
+    <button class="all-channel active" type="button" data-filter="all" aria-pressed="true">
+      <span>{isEn ? 'All updates' : '全部更新'}</span>
+      <strong>{total}</strong>
+    </button>
+  </div>
+
+  <div class="channel-groups">
+    {groups.map(group => (
+      <fieldset class="channel-group" data-group={group.id}>
+        <legend>
+          <span>{group.label}</span>
+          <small>{group.description}</small>
+        </legend>
+        <div class="channel-buttons">
+          {DAILY_CHANNELS.filter(channel => channel.group === group.id).map(channel => (
+            <button
+              type="button"
+              class="channel-button"
+              data-filter={channel.id}
+              aria-pressed="false"
+            >
+              <span>{isEn ? channel.labelEn : channel.label}</span>
+              <strong>{counts[channel.id]}</strong>
+            </button>
+          ))}
+        </div>
+      </fieldset>
+    ))}
+  </div>
+
+  <p class="filter-status" data-filter-status aria-live="polite">
+    {isEn ? `${total} published updates` : `共 ${total} 篇已發布內容`}
+  </p>
+  <p class="filter-empty" data-filter-empty hidden={total > 0}>
+    {isEn ? 'No published updates in this stream yet.' : '這個頻道目前還沒有已發布內容。'}
+  </p>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-daily-filter]');
+    if (!root) return;
+
+    const buttons = [...root.querySelectorAll('[data-filter]')];
+    const validFilters = new Set(buttons.map(button => button.dataset.filter));
+    const status = root.querySelector('[data-filter-status]');
+    const empty = root.querySelector('[data-filter-empty]');
+    const isEnglish = document.documentElement.lang === 'en';
+
+    const applyFilter = (requestedFilter, updateUrl = true) => {
+      const filter = validFilters.has(requestedFilter) ? requestedFilter : 'all';
+      let visibleCount = 0;
+
+      buttons.forEach(button => {
+        const isActive = button.dataset.filter === filter;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+
+      document.querySelectorAll('[data-daily-channel]').forEach(card => {
+        const isVisible = filter === 'all' || card.dataset.dailyChannel === filter;
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      document.querySelectorAll('.day-group').forEach(group => {
+        group.hidden = !group.querySelector('[data-daily-channel]:not([hidden])');
+      });
+
+      if (status) {
+        status.textContent = isEnglish
+          ? `${visibleCount} published ${visibleCount === 1 ? 'update' : 'updates'}`
+          : `顯示 ${visibleCount} 篇已發布內容`;
+      }
+      if (empty) empty.hidden = visibleCount !== 0;
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (filter === 'all') url.searchParams.delete('type');
+        else url.searchParams.set('type', filter);
+        window.history.pushState({ dailyFilter: filter }, '', url);
+      }
+    };
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => applyFilter(button.dataset.filter));
+    });
+    window.addEventListener('popstate', () => {
+      const filter = new URL(window.location.href).searchParams.get('type') || 'all';
+      applyFilter(filter, false);
+    });
+
+    const initialFilter = new URL(window.location.href).searchParams.get('type') || 'all';
+    applyFilter(initialFilter, false);
+  })();
+</script>
+
+<style>
+  .channel-panel {
+    margin: 0 0 2rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-subtle);
+  }
+  .channel-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .channel-kicker {
+    margin: 0 0 0.2rem;
+    color: var(--brand-500);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  h2 { margin: 0; font-size: 1rem; }
+  button { font-family: inherit; }
+  .all-channel,
+  .channel-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+  }
+  .all-channel:hover,
+  .channel-button:hover { border-color: var(--brand-500); color: var(--text-primary); }
+  .all-channel:active,
+  .channel-button:active { transform: translateY(1px); }
+  .all-channel {
+    min-width: 9rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: 7px;
+    font-size: 0.76rem;
+  }
+  .all-channel.active,
+  .channel-button.active {
+    border-color: var(--brand-500);
+    color: var(--brand-900);
+    background: var(--brand-100);
+  }
+  strong {
+    min-width: 1.45rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 999px;
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .active strong { background: var(--bg-card); color: var(--brand-700); }
+  .channel-groups {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.8rem;
+    padding-top: 0.9rem;
+  }
+  .channel-group {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .channel-group[data-group='briefings'] { grid-column: span 3; }
+  .channel-group[data-group='sources'] { grid-column: span 3; }
+  .channel-group[data-group='watch'] { grid-column: span 6; }
+  legend { width: 100%; margin-bottom: 0.45rem; padding: 0; }
+  legend span { display: block; color: var(--text-primary); font-size: 0.72rem; font-weight: 700; }
+  legend small { display: block; margin-top: 0.08rem; color: var(--text-muted); font-size: 0.63rem; font-weight: 400; }
+  .channel-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+  .channel-group[data-group='briefings'] .channel-buttons { grid-template-columns: 1fr; }
+  .channel-button {
+    min-width: 0;
+    min-height: 2.25rem;
+    padding: 0.42rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    text-align: left;
+  }
+  .channel-button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .filter-status { margin: 0.75rem 0 0; color: var(--text-muted); font-size: 0.68rem; text-align: right; }
+  .filter-empty {
+    margin: 1rem 0 0;
+    padding: 0.8rem;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    font-size: 0.78rem;
+    text-align: center;
+  }
+  @media (max-width: 700px) {
+    .channel-heading { align-items: stretch; flex-direction: column; }
+    .all-channel { width: 100%; }
+    .channel-groups { grid-template-columns: 1fr; }
+    .channel-group[data-group] { grid-column: auto; }
+    .channel-group[data-group='briefings'] .channel-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .channel-button { min-height: 2.75rem; }
+  }
+  @media (max-width: 430px) {
+    .channel-buttons,
+    .channel-group[data-group='briefings'] .channel-buttons { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .all-channel,
+    .channel-button { transition: none; }
+  }
+</style>

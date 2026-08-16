@@ -98,6 +98,7 @@ const pageTitle =
   <header>
     <nav>
       <a href={homeHref} class="logo">quidproquo</a>
+      <a href={lang === 'en' ? '/en/daily' : '/daily'} class="nav-link">{t('nav.daily')}</a>
       <a href={lang === 'en' ? '/en/about' : '/about'} class="nav-link">{t('nav.about')}</a>
       <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
       <a href={seriesHref} class="nav-link">{t('nav.series')}</a>

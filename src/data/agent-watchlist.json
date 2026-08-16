@@ -1,0 +1,3836 @@
+{
+  "version": "2026-08-16",
+  "sections": {
+    "A1": {
+      "title": "大廠",
+      "ring": "foundation"
+    },
+    "A2": {
+      "title": "AI 模型/平台公司",
+      "ring": "foundation"
+    },
+    "A3": {
+      "title": "推理基礎設施",
+      "ring": "foundation"
+    },
+    "A4": {
+      "title": "Gateway / 模型路由",
+      "ring": "foundation"
+    },
+    "B1": {
+      "title": "Coding AI / 開發工具",
+      "ring": "agent-toolchain"
+    },
+    "B2": {
+      "title": "Agent 框架 / 編排",
+      "ring": "agent-toolchain"
+    },
+    "B3": {
+      "title": "Agent 平台 / Builder",
+      "ring": "agent-toolchain"
+    },
+    "B4": {
+      "title": "Agent 記憶 / Context",
+      "ring": "agent-toolchain"
+    },
+    "B5": {
+      "title": "Agent 身分 / 認證",
+      "ring": "agent-toolchain"
+    },
+    "B6": {
+      "title": "Agent 可觀測性 / 評估",
+      "ring": "agent-toolchain"
+    },
+    "B7": {
+      "title": "Agent 安全 / 治理 / 資安技術",
+      "ring": "agent-toolchain"
+    },
+    "B8": {
+      "title": "沙箱 / 執行環境",
+      "ring": "agent-toolchain"
+    },
+    "C1": {
+      "title": "搜尋 API / Answer Engine",
+      "ring": "agent-capability"
+    },
+    "C2": {
+      "title": "文件解析 / OCR / Document AI",
+      "ring": "agent-capability"
+    },
+    "C3": {
+      "title": "向量資料庫",
+      "ring": "agent-capability"
+    },
+    "C4": {
+      "title": "瀏覽器 / 電腦操控 Agent",
+      "ring": "agent-capability"
+    },
+    "C5": {
+      "title": "語音 AI / Voice Agent",
+      "ring": "agent-capability"
+    },
+    "C6": {
+      "title": "多模態 AI 生成工具",
+      "ring": "agent-capability"
+    },
+    "D1": {
+      "title": "客服 / CX",
+      "ring": "vertical"
+    },
+    "D2": {
+      "title": "Sales / GTM",
+      "ring": "vertical"
+    },
+    "D3": {
+      "title": "HR / 招募",
+      "ring": "vertical"
+    },
+    "D4": {
+      "title": "法律 AI",
+      "ring": "vertical"
+    },
+    "D5": {
+      "title": "醫療 AI",
+      "ring": "vertical"
+    },
+    "D6": {
+      "title": "金融服務 / 保險",
+      "ring": "vertical"
+    },
+    "D7": {
+      "title": "Data Analytics / BI",
+      "ring": "vertical"
+    },
+    "D8": {
+      "title": "Retail / 電商",
+      "ring": "vertical"
+    },
+    "D9": {
+      "title": "工業 / 製造 / 供應鏈",
+      "ring": "vertical"
+    },
+    "D10": {
+      "title": "企業 AI 平台",
+      "ring": "vertical"
+    },
+    "D11": {
+      "title": "Workflow 自動化",
+      "ring": "vertical"
+    },
+    "E": {
+      "title": "FDE / AI 部署服務",
+      "ring": "deployment"
+    },
+    "F1": {
+      "title": "中國 AI 生態",
+      "ring": "regional"
+    },
+    "F2": {
+      "title": "台灣",
+      "ring": "regional"
+    },
+    "F3": {
+      "title": "日韓",
+      "ring": "regional"
+    },
+    "F4": {
+      "title": "歐洲",
+      "ring": "regional"
+    },
+    "F5": {
+      "title": "以色列",
+      "ring": "regional"
+    },
+    "F6": {
+      "title": "新加坡 / 東南亞",
+      "ring": "regional"
+    },
+    "F7": {
+      "title": "印度",
+      "ring": "regional"
+    },
+    "F8": {
+      "title": "中東",
+      "ring": "regional"
+    }
+  },
+  "companies": [
+    {
+      "name": "Anthropic",
+      "slug": "anthropic",
+      "section": "A1",
+      "trackingFocus": [
+        "Claude Code",
+        "MCP",
+        "Cowork"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "OpenAI",
+      "slug": "openai",
+      "section": "A1",
+      "trackingFocus": [
+        "Codex",
+        "Agents SDK",
+        "ChatGPT Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Google",
+      "slug": "google",
+      "section": "A1",
+      "trackingFocus": [
+        "Gemini",
+        "A2A",
+        "Vertex AI Agent Builder"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Microsoft",
+      "slug": "microsoft",
+      "section": "A1",
+      "trackingFocus": [
+        "Copilot",
+        "Azure Foundry",
+        "Microsoft Agent Framework (MAF)"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Meta",
+      "slug": "meta",
+      "section": "A1",
+      "trackingFocus": [
+        "Llama 開源生態"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon",
+      "section": "A1",
+      "trackingFocus": [
+        "Bedrock Agents",
+        "Nova"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "NVIDIA",
+      "slug": "nvidia",
+      "section": "A1",
+      "trackingFocus": [
+        "推理基礎設施",
+        "Nemotron"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Apple",
+      "slug": "apple",
+      "section": "A1",
+      "trackingFocus": [
+        "Apple Intelligence"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "xAI",
+      "slug": "xai",
+      "section": "A1",
+      "trackingFocus": [
+        "Grok",
+        "開源動態"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "section": "A1",
+      "trackingFocus": [
+        "Agentforce"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Oracle",
+      "slug": "oracle",
+      "section": "A1",
+      "trackingFocus": [
+        "Oracle AI Agent",
+        "企業雲 AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "IBM",
+      "slug": "ibm",
+      "section": "A1",
+      "trackingFocus": [
+        "watsonx",
+        "企業 AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Adobe",
+      "slug": "adobe",
+      "section": "A1",
+      "trackingFocus": [
+        "Firefly",
+        "GenStudio",
+        "AI 創意工具鏈"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cloudflare",
+      "slug": "cloudflare",
+      "section": "A1",
+      "trackingFocus": [
+        "Workers AI",
+        "Vectorize",
+        "AI Gateway",
+        "Agents SDK"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Databricks",
+      "slug": "databricks",
+      "section": "A1",
+      "trackingFocus": [
+        "資料 + AI 平台",
+        "Mosaic ML"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Snowflake",
+      "slug": "snowflake",
+      "section": "A1",
+      "trackingFocus": [
+        "Cortex",
+        "資料 + AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Palantir",
+      "slug": "palantir",
+      "section": "A1",
+      "trackingFocus": [
+        "AIP 平台",
+        "FDE 模式原創者"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Samsung",
+      "slug": "samsung",
+      "section": "A1",
+      "trackingFocus": [
+        "Galaxy AI",
+        "端側 AI"
+      ],
+      "region": "KR"
+    },
+    {
+      "name": "Huawei",
+      "slug": "huawei",
+      "section": "A1",
+      "trackingFocus": [
+        "CloudRobo",
+        "AI 基礎設施"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Baidu",
+      "slug": "baidu",
+      "section": "A1",
+      "trackingFocus": [
+        "文心",
+        "中國搜尋 + AI"
+      ],
+      "region": "CN",
+      "alsoIn": [
+        "F1"
+      ]
+    },
+    {
+      "name": "SAP",
+      "slug": "sap",
+      "section": "A1",
+      "trackingFocus": [
+        "AI Agent Hub",
+        "企業軟體巨頭"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Mistral",
+      "slug": "mistral",
+      "section": "A2",
+      "trackingFocus": [
+        "模型 (Small/Medium/Large)",
+        "Mistral Compute AI 雲",
+        "OCR",
+        "Vibe Agent",
+        "工業 AI",
+        "主權 AI",
+        "Microsoft 戰略合作"
+      ],
+      "region": "FR",
+      "alsoIn": [
+        "F4"
+      ]
+    },
+    {
+      "name": "Cohere",
+      "slug": "cohere",
+      "section": "A2",
+      "trackingFocus": [
+        "企業 RAG",
+        "Command 系列",
+        "Rerank",
+        "收購 Aleph Alpha"
+      ],
+      "region": "CA"
+    },
+    {
+      "name": "Aleph Alpha",
+      "slug": "aleph-alpha",
+      "section": "A2",
+      "trackingFocus": [
+        "歐洲主權 AI",
+        "Bundeswehr 客戶",
+        "STACKIT",
+        "被 Cohere 收購"
+      ],
+      "region": "DE",
+      "alsoIn": [
+        "F4"
+      ]
+    },
+    {
+      "name": "AI21 Labs",
+      "slug": "ai21-labs",
+      "section": "A2",
+      "trackingFocus": [
+        "Jamba 系列",
+        "企業 LLM"
+      ],
+      "region": "IL",
+      "alsoIn": [
+        "F5"
+      ]
+    },
+    {
+      "name": "Reka AI",
+      "slug": "reka-ai",
+      "section": "A2",
+      "trackingFocus": [
+        "多模態模型",
+        "$170M 融資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Upstage",
+      "slug": "upstage",
+      "section": "A2",
+      "trackingFocus": [
+        "Solar Pro 3",
+        "Document AI/Parse",
+        "日本市場",
+        "韓國主權 AI"
+      ],
+      "region": "KR"
+    },
+    {
+      "name": "Writer",
+      "slug": "writer",
+      "section": "A2",
+      "trackingFocus": [
+        "Palmyra 企業 LLM",
+        "企業 AI 平台"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Sakana AI",
+      "slug": "sakana-ai",
+      "section": "A2",
+      "trackingFocus": [
+        "進化式 AI 研究",
+        "前 Google Brain 創辦"
+      ],
+      "region": "JP"
+    },
+    {
+      "name": "AI2 / Allen Institute",
+      "slug": "ai2-allen-institute",
+      "section": "A2",
+      "trackingFocus": [
+        "OLMo 開源模型",
+        "olmOCR"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Together AI",
+      "slug": "together-ai",
+      "section": "A3",
+      "trackingFocus": [
+        "開源模型託管",
+        "推理成本"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Fireworks",
+      "slug": "fireworks",
+      "section": "A3",
+      "trackingFocus": [
+        "低延遲推理"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Groq",
+      "slug": "groq",
+      "section": "A3",
+      "trackingFocus": [
+        "LPU 硬體推理"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cerebras",
+      "slug": "cerebras",
+      "section": "A3",
+      "trackingFocus": [
+        "wafer-scale 推理"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "CoreWeave",
+      "slug": "coreweave",
+      "section": "A3",
+      "trackingFocus": [
+        "GPU 雲端",
+        "$12B+ 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Lambda Labs",
+      "slug": "lambda-labs",
+      "section": "A3",
+      "trackingFocus": [
+        "GPU 雲端",
+        "$800M 融資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Anyscale (Ray)",
+      "slug": "anyscale",
+      "section": "A3",
+      "trackingFocus": [
+        "分散式 AI 計算框架"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Ollama",
+      "slug": "ollama",
+      "section": "A3",
+      "trackingFocus": [
+        "本地跑 LLM",
+        "開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "vLLM",
+      "slug": "vllm",
+      "section": "A3",
+      "trackingFocus": [
+        "開源推理引擎"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Baseten",
+      "slug": "baseten",
+      "section": "A3",
+      "trackingFocus": [
+        "模型服務",
+        "$13B 估值",
+        "Cursor/Notion/Mercor 客戶"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Nebius",
+      "slug": "nebius",
+      "section": "A3",
+      "trackingFocus": [
+        "前 Yandex",
+        "$4.3B 融資",
+        "Meta 合作"
+      ],
+      "region": "NL"
+    },
+    {
+      "name": "RunPod",
+      "slug": "runpod",
+      "section": "A3",
+      "trackingFocus": [
+        "GPU 雲",
+        "$1B 獨角獸",
+        "1M+ 開發者"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Modular",
+      "slug": "modular",
+      "section": "A3",
+      "trackingFocus": [
+        "收購 BentoML",
+        "Mojo/Max 統一 AI 計算"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LiteLLM (BerriAI)",
+      "slug": "litellm",
+      "section": "A4",
+      "trackingFocus": [
+        "開源多模型 proxy",
+        "4.18 億月下載"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Portkey",
+      "slug": "portkey",
+      "section": "A4",
+      "trackingFocus": [
+        "AI gateway + 可觀測性",
+        "Palo Alto Networks 旗下"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "OpenRouter",
+      "slug": "openrouter",
+      "section": "A4",
+      "trackingFocus": [
+        "多模型聚合"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Martian",
+      "slug": "martian",
+      "section": "A4",
+      "trackingFocus": [
+        "AI 自動模型選擇路由",
+        "~$1.3B 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cursor (Anysphere)",
+      "slug": "cursor",
+      "section": "B1",
+      "trackingFocus": [
+        "IDE-first",
+        "$500M ARR",
+        "Background Agents"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cognition (Devin)",
+      "slug": "cognition-devin",
+      "section": "B1",
+      "trackingFocus": [
+        "自主 Coding Agent 標竿"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Windsurf (Codeium)",
+      "slug": "windsurf",
+      "section": "B1",
+      "trackingFocus": [
+        "Coding Agent 競爭者"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Replit",
+      "slug": "replit",
+      "section": "B1",
+      "trackingFocus": [
+        "雲端開發 + Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Augment Code",
+      "slug": "augment-code",
+      "section": "B1",
+      "trackingFocus": [
+        "$252M Series B",
+        "企業 Coding Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Poolside AI",
+      "slug": "poolside-ai",
+      "section": "B1",
+      "trackingFocus": [
+        "$500M Series B",
+        "大量融資"
+      ],
+      "region": "FR",
+      "alsoIn": [
+        "F4"
+      ]
+    },
+    {
+      "name": "Magic AI",
+      "slug": "magic-ai",
+      "section": "B1",
+      "trackingFocus": [
+        "$465M Series B",
+        "長 context"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Factory AI",
+      "slug": "factory-ai",
+      "section": "B1",
+      "trackingFocus": [
+        "企業級自主 Coding Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Lovable",
+      "slug": "lovable",
+      "section": "B1",
+      "trackingFocus": [
+        "$100M ARR",
+        "對話式全端生成"
+      ],
+      "region": "SE"
+    },
+    {
+      "name": "Bolt (StackBlitz)",
+      "slug": "bolt-stackblitz",
+      "section": "B1",
+      "trackingFocus": [
+        "瀏覽器內全端 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cline",
+      "slug": "cline",
+      "section": "B1",
+      "trackingFocus": [
+        "開源 VS Code Agent",
+        "MCP-native"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Aider",
+      "slug": "aider",
+      "section": "B1",
+      "trackingFocus": [
+        "CLI-based Coding Agent",
+        "開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Blitzy",
+      "slug": "blitzy",
+      "section": "B1",
+      "trackingFocus": [
+        "全專案自主 Coding Agent",
+        "$1.4B 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Emergent",
+      "slug": "emergent",
+      "section": "B1",
+      "trackingFocus": [
+        "印度 Coding Agent 獨角獸",
+        "$1.5B"
+      ],
+      "region": "IN",
+      "alsoIn": [
+        "F7"
+      ]
+    },
+    {
+      "name": "Warp",
+      "slug": "warp",
+      "section": "B1",
+      "trackingFocus": [
+        "AI 終端機",
+        "Oz 雲端 Agent 編排",
+        "開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Orca",
+      "slug": "orca",
+      "section": "B1",
+      "trackingFocus": [
+        "Agent Development Environment",
+        "多 Agent 多 worktree 並行",
+        "開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "v0 (Vercel)",
+      "slug": "v0-vercel",
+      "section": "B1",
+      "trackingFocus": [
+        "Agentic 全端 app builder"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Sourcegraph (Cody)",
+      "slug": "sourcegraph",
+      "section": "B1",
+      "trackingFocus": [
+        "AI 程式碼智能",
+        "$225M Series D"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "OpenHands",
+      "slug": "openhands",
+      "section": "B1",
+      "trackingFocus": [
+        "開源 AI 軟體工程師",
+        "前 OpenDevin"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LangChain / LangGraph",
+      "slug": "langchain",
+      "section": "B2",
+      "trackingFocus": [
+        "生產最廣",
+        "graph-based",
+        "1.x"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "CrewAI",
+      "slug": "crewai",
+      "section": "B2",
+      "trackingFocus": [
+        "最大獨立社群",
+        "role-based multi-agent",
+        "1.x"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Pydantic AI",
+      "slug": "pydantic-ai",
+      "section": "B2",
+      "trackingFocus": [
+        "type-safe",
+        "FastAPI 式 DX",
+        "2.x"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Mastra",
+      "slug": "mastra",
+      "section": "B2",
+      "trackingFocus": [
+        "TypeScript 唯一首選",
+        "workflows + RAG + evals",
+        "1.x"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Agno",
+      "slug": "agno",
+      "section": "B2",
+      "trackingFocus": [
+        "Agentic Index 排名第一",
+        "多模型靈活"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Composio",
+      "slug": "composio",
+      "section": "B2",
+      "trackingFocus": [
+        "Agent 工具聚合",
+        "200+ 整合"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Haystack (deepset)",
+      "slug": "haystack",
+      "section": "B2",
+      "trackingFocus": [
+        "Pipeline/RAG 框架",
+        "模組化"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "DSPy (Stanford)",
+      "slug": "dspy",
+      "section": "B2",
+      "trackingFocus": [
+        "程式化 LLM 框架",
+        "prompt 最佳化"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "smolagents (HuggingFace)",
+      "slug": "smolagents",
+      "section": "B2",
+      "trackingFocus": [
+        "輕量開源框架",
+        "開源模型友善"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LlamaIndex",
+      "slug": "llamaindex",
+      "section": "B2",
+      "trackingFocus": [
+        "RAG 編排框架",
+        "LlamaParse"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Temporal",
+      "slug": "temporal",
+      "section": "B2",
+      "trackingFocus": [
+        "持久執行引擎",
+        "$5B 估值",
+        "Agent 長時序任務"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Inngest",
+      "slug": "inngest",
+      "section": "B2",
+      "trackingFocus": [
+        "Serverless workflow + Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "AG2",
+      "slug": "ag2",
+      "section": "B2",
+      "trackingFocus": [
+        "AutoGen 社群 fork",
+        "v1.0",
+        "A2A 支援"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "AutoGen",
+      "slug": "autogen",
+      "section": "B2",
+      "trackingFocus": [
+        "維護模式",
+        "遷移到 MAF 或 AG2"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Dify",
+      "slug": "dify",
+      "section": "B3",
+      "trackingFocus": [
+        "開源 Agent 平台",
+        "self-hosted",
+        "內建 RAG"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "n8n",
+      "slug": "n8n",
+      "section": "B3",
+      "trackingFocus": [
+        "開源自動化 + Agent",
+        "$50M Series B"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Relevance AI",
+      "slug": "relevance-ai",
+      "section": "B3",
+      "trackingFocus": [
+        "低代碼 Agent builder"
+      ],
+      "region": "AU"
+    },
+    {
+      "name": "Lindy.ai",
+      "slug": "lindy-ai",
+      "section": "B3",
+      "trackingFocus": [
+        "個人 Agent 平台"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Stack AI",
+      "slug": "stack-ai",
+      "section": "B3",
+      "trackingFocus": [
+        "企業 Agent builder"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Botpress",
+      "slug": "botpress",
+      "section": "B3",
+      "trackingFocus": [
+        "對話式 Agent 平台"
+      ],
+      "region": "CA"
+    },
+    {
+      "name": "Dust",
+      "slug": "dust",
+      "section": "B3",
+      "trackingFocus": [
+        "歐洲企業 workspace Agent"
+      ],
+      "region": "FR",
+      "alsoIn": [
+        "F4"
+      ]
+    },
+    {
+      "name": "Zapier Agents",
+      "slug": "zapier-agents",
+      "section": "B3",
+      "trackingFocus": [
+        "自動化巨頭的 Agent 化"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Langflow (DataStax)",
+      "slug": "langflow",
+      "section": "B3",
+      "trackingFocus": [
+        "開源 graph-style LLM builder"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Voiceflow",
+      "slug": "voiceflow",
+      "section": "B3",
+      "trackingFocus": [
+        "對話式 Agent builder"
+      ],
+      "region": "CA"
+    },
+    {
+      "name": "Vellum",
+      "slug": "vellum",
+      "section": "B3",
+      "trackingFocus": [
+        "視覺 + 程式碼 AI 平台",
+        "prompt 管理 + eval"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Mem0",
+      "slug": "mem0",
+      "section": "B4",
+      "trackingFocus": [
+        "向量記憶層",
+        "62k stars",
+        "AWS Agent SDK 獨家整合",
+        "$24.5M 融資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Zep",
+      "slug": "zep",
+      "section": "B4",
+      "trackingFocus": [
+        "時序知識圖譜 (Graphiti)",
+        "sub-200ms 檢索",
+        "SOC 2 / HIPAA"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Letta",
+      "slug": "letta",
+      "section": "B4",
+      "trackingFocus": [
+        "OS 式三層記憶",
+        "$10M seed",
+        "Felicis 領投"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LangMem (LangChain)",
+      "slug": "langmem",
+      "section": "B4",
+      "trackingFocus": [
+        "LangGraph 原生記憶模組"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cognee",
+      "slug": "cognee",
+      "section": "B4",
+      "trackingFocus": [
+        "非結構化文件→知識圖譜",
+        "開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cloudflare Agent Memory",
+      "slug": "cloudflare-agent-memory",
+      "section": "B4",
+      "trackingFocus": [
+        "型別化記憶系統",
+        "beta"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Auth0 (Okta)",
+      "slug": "auth0",
+      "section": "B5",
+      "trackingFocus": [
+        "Agent as Principal",
+        "Early Access"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Okta",
+      "slug": "okta",
+      "section": "B5",
+      "trackingFocus": [
+        "Okta for AI Agents",
+        "Agent-to-Agent 連線",
+        "MCP Bridge",
+        "kill switch"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "cidaas",
+      "slug": "cidaas",
+      "section": "B5",
+      "trackingFocus": [
+        "歐洲 Agent IAM",
+        "OAuth 2.1 MCP/A2A 認證",
+        "PSD2 等級 consent"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Gravitee",
+      "slug": "gravitee",
+      "section": "B5",
+      "trackingFocus": [
+        "Agent IAM + AI Gateway",
+        "SPIFFE/SPIRE 身分",
+        "MCP token 交換"
+      ],
+      "region": "FR"
+    },
+    {
+      "name": "Arize AI",
+      "slug": "arize-ai",
+      "section": "B6",
+      "trackingFocus": [
+        "Agent 可觀測性",
+        "Phoenix 開源"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Braintrust",
+      "slug": "braintrust",
+      "section": "B6",
+      "trackingFocus": [
+        "AI 評估",
+        "$800M 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Langfuse (ClickHouse)",
+      "slug": "langfuse",
+      "section": "B6",
+      "trackingFocus": [
+        "開源 LLM 可觀測性",
+        "2026/1 被收購",
+        "開源繼續"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Helicone (Mintlify)",
+      "slug": "helicone",
+      "section": "B6",
+      "trackingFocus": [
+        "開源 AI gateway",
+        "2026/3 被收購",
+        "維護模式"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Laminar",
+      "slug": "laminar",
+      "section": "B6",
+      "trackingFocus": [
+        "開源 Agent 除錯"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "AgentOps",
+      "slug": "agentops",
+      "section": "B6",
+      "trackingFocus": [
+        "Agent 可觀測性"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LangSmith",
+      "slug": "langsmith",
+      "section": "B6",
+      "trackingFocus": [
+        "LangChain 原生可觀測性"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Galileo AI",
+      "slug": "galileo-ai",
+      "section": "B6",
+      "trackingFocus": [
+        "AI 評估",
+        "幻覺偵測"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Confident AI (DeepEval)",
+      "slug": "confident-ai",
+      "section": "B6",
+      "trackingFocus": [
+        "開源 eval",
+        "50+ 指標"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "HoneyHive",
+      "slug": "honeyhive",
+      "section": "B6",
+      "trackingFocus": [
+        "統一可觀測性 + 評估",
+        "$9.3M"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Zenity",
+      "slug": "zenity",
+      "section": "B7",
+      "trackingFocus": [
+        "企業 Agent 行為監控"
+      ],
+      "region": "IL",
+      "alsoIn": [
+        "F5"
+      ]
+    },
+    {
+      "name": "Protect AI",
+      "slug": "protect-ai",
+      "section": "B7",
+      "trackingFocus": [
+        "ML 供應鏈安全"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Lakera",
+      "slug": "lakera",
+      "section": "B7",
+      "trackingFocus": [
+        "prompt injection 防護"
+      ],
+      "region": "CH"
+    },
+    {
+      "name": "Guild.ai",
+      "slug": "guild-ai",
+      "section": "B7",
+      "trackingFocus": [
+        "Agent 控制面板"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "WitnessAI",
+      "slug": "witnessai",
+      "section": "B7",
+      "trackingFocus": [
+        "Agent 信任平台"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Netzilo",
+      "slug": "netzilo",
+      "section": "B7",
+      "trackingFocus": [
+        "跨平台 agent runtime governance",
+        "kill switch"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Invariant Labs",
+      "slug": "invariant-labs",
+      "section": "B7",
+      "trackingFocus": [
+        "Agent 安全研究",
+        "formal verification"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Hidden Layer",
+      "slug": "hidden-layer",
+      "section": "B7",
+      "trackingFocus": [
+        "AI 模型安全",
+        "adversarial ML"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Prompt Security",
+      "slug": "prompt-security",
+      "section": "B7",
+      "trackingFocus": [
+        "prompt injection 防禦技術"
+      ],
+      "region": "IL"
+    },
+    {
+      "name": "Lasso Security",
+      "slug": "lasso-security",
+      "section": "B7",
+      "trackingFocus": [
+        "LLM 安全平台"
+      ],
+      "region": "IL"
+    },
+    {
+      "name": "Straiker",
+      "slug": "straiker",
+      "section": "B7",
+      "trackingFocus": [
+        "AI Agent 安全",
+        "$21M",
+        "Lightspeed 領投"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "E2B",
+      "slug": "e2b",
+      "section": "B8",
+      "trackingFocus": [
+        "開源程式碼沙箱"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Modal",
+      "slug": "modal",
+      "section": "B8",
+      "trackingFocus": [
+        "Serverless GPU"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Tensorlake",
+      "slug": "tensorlake",
+      "section": "B8",
+      "trackingFocus": [
+        "Agent 沙箱 + 持久儲存"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Celesto",
+      "slug": "celesto",
+      "section": "B8",
+      "trackingFocus": [
+        "microVM 沙箱"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Replicate",
+      "slug": "replicate",
+      "section": "B8",
+      "trackingFocus": [
+        "模型 API + 執行"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Riza",
+      "slug": "riza",
+      "section": "B8",
+      "trackingFocus": [
+        "程式碼執行 API",
+        "數十億次/月"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Perplexity",
+      "slug": "perplexity",
+      "section": "C1",
+      "trackingFocus": [
+        "AI 搜尋",
+        "answer engine",
+        "$250M Series C"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "You.com",
+      "slug": "you-com",
+      "section": "C1",
+      "trackingFocus": [
+        "AI 搜尋引擎",
+        "$90M Series B"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Exa",
+      "slug": "exa",
+      "section": "C1",
+      "trackingFocus": [
+        "語意搜尋 API"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Tavily",
+      "slug": "tavily",
+      "section": "C1",
+      "trackingFocus": [
+        "搜尋 API",
+        "Agent 用",
+        "多個 routine 採用"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Jina AI",
+      "slug": "jina-ai",
+      "section": "C1",
+      "trackingFocus": [
+        "embeddings",
+        "搜尋 API",
+        "Reader"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Firecrawl",
+      "slug": "firecrawl",
+      "section": "C1",
+      "trackingFocus": [
+        "網頁抓取",
+        "結構化搜尋 API"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Serper",
+      "slug": "serper",
+      "section": "C1",
+      "trackingFocus": [
+        "Google SERP API"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Brave Search",
+      "slug": "brave-search",
+      "section": "C1",
+      "trackingFocus": [
+        "隱私導向 AI 搜尋",
+        "有 API"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Parallel",
+      "slug": "parallel",
+      "section": "C1",
+      "trackingFocus": [
+        "自建 web index",
+        "SimpleQA 最高準確率"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "anydoc (Firecrawl)",
+      "slug": "anydoc",
+      "section": "C2",
+      "trackingFocus": [
+        "Rust",
+        "14 種辦公格式",
+        "4.7ms 中位耗時",
+        "MIT"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "MarkItDown (Microsoft)",
+      "slug": "markitdown",
+      "section": "C2",
+      "trackingFocus": [
+        "Python",
+        "含圖片 OCR/音訊轉文字",
+        "格式廣"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "PyMuPDF / pymupdf4llm",
+      "slug": "pymupdf",
+      "section": "C2",
+      "trackingFocus": [
+        "最快",
+        "AGPL-3.0 授權"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "pdfplumber",
+      "slug": "pdfplumber",
+      "section": "C2",
+      "trackingFocus": [
+        "MIT",
+        "表格最強",
+        "可視化除錯"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Xberg",
+      "slug": "xberg",
+      "section": "C2",
+      "trackingFocus": [
+        "Rust 重寫",
+        "多語綁定 + MCP server"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "MinerU",
+      "slug": "mineru",
+      "section": "C2",
+      "trackingFocus": [
+        "開源",
+        "MinerU2.5-Pro VLM",
+        "OmniDocBench 90.67"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Marker v2 (Datalab)",
+      "slug": "marker",
+      "section": "C2",
+      "trackingFocus": [
+        "開源程式碼 Apache-2.0",
+        "模型權重 OpenRAIL-M"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Docling (IBM → Linux Foundation)",
+      "slug": "docling",
+      "section": "C2",
+      "trackingFocus": [
+        "MIT",
+        "最乾淨授權",
+        "VlmPipeline"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "olmOCR (AllenAI)",
+      "slug": "olmocr",
+      "section": "C2",
+      "trackingFocus": [
+        "7B",
+        "Apache-2.0"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "dots.ocr",
+      "slug": "dots-ocr",
+      "section": "C2",
+      "trackingFocus": [
+        "3B",
+        "olmOCR-bench 83.9"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Chandra (Datalab)",
+      "slug": "chandra",
+      "section": "C2",
+      "trackingFocus": [
+        "4B",
+        "手寫最準",
+        "多格式輸出"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "DeepSeek-OCR",
+      "slug": "deepseek-ocr",
+      "section": "C2",
+      "trackingFocus": [
+        "視覺 token 壓縮實驗",
+        "研究方向"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "PaddleOCR (Baidu)",
+      "slug": "paddleocr",
+      "section": "C2",
+      "trackingFocus": [
+        "85k stars",
+        "PP-OCRv6",
+        "50 語言統一模型"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Surya OCR (Datalab)",
+      "slug": "surya-ocr",
+      "section": "C2",
+      "trackingFocus": [
+        "650M 參數",
+        "olmOCR-bench 83.3",
+        "髒文件最準"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "RapidOCR",
+      "slug": "rapidocr",
+      "section": "C2",
+      "trackingFocus": [
+        "零配置",
+        "1.5s/頁",
+        "免費"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Tesseract",
+      "slug": "tesseract",
+      "section": "C2",
+      "trackingFocus": [
+        "經典 OCR",
+        "75k stars",
+        "100+ 語言"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "EasyOCR",
+      "slug": "easyocr",
+      "section": "C2",
+      "trackingFocus": [
+        "80+ 語言",
+        "入門簡單"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Mistral OCR",
+      "slug": "mistral-ocr",
+      "section": "C2",
+      "trackingFocus": [
+        "模型廠出的 OCR"
+      ],
+      "region": "FR"
+    },
+    {
+      "name": "PaddleOCR-VL",
+      "slug": "paddleocr-vl",
+      "section": "C2",
+      "trackingFocus": [
+        "0.9B VLM",
+        "OmniDocBench v1.6 96.3%"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Reducto",
+      "slug": "reducto",
+      "section": "C2",
+      "trackingFocus": [
+        "Agentic 文件平台",
+        "$108.5M",
+        "龍頭"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LlamaParse (LlamaIndex)",
+      "slug": "llamaparse",
+      "section": "C2",
+      "trackingFocus": [
+        "ParseBench 領先",
+        "自家 benchmark"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LandingAI",
+      "slug": "landingai",
+      "section": "C2",
+      "trackingFocus": [
+        "Andrew Ng",
+        "Agentic Document Extraction"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Unstructured",
+      "slug": "unstructured",
+      "section": "C2",
+      "trackingFocus": [
+        "非結構化文件解析"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Google Document AI",
+      "slug": "google-document-ai",
+      "section": "C2",
+      "trackingFocus": [
+        "雲端"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "AWS Textract",
+      "slug": "aws-textract",
+      "section": "C2",
+      "trackingFocus": [
+        "雲端"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Azure Document Intelligence",
+      "slug": "azure-document-intelligence",
+      "section": "C2",
+      "trackingFocus": [
+        "雲端"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Firecrawl parse",
+      "slug": "firecrawl-parse",
+      "section": "C2",
+      "trackingFocus": [
+        "雲端",
+        "routine 在用"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Weaviate",
+      "slug": "weaviate",
+      "section": "C3",
+      "trackingFocus": [
+        "開源向量資料庫"
+      ],
+      "region": "NL"
+    },
+    {
+      "name": "Pinecone",
+      "slug": "pinecone",
+      "section": "C3",
+      "trackingFocus": [
+        "託管向量資料庫"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Chroma",
+      "slug": "chroma",
+      "section": "C3",
+      "trackingFocus": [
+        "開源向量資料庫"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Qdrant",
+      "slug": "qdrant",
+      "section": "C3",
+      "trackingFocus": [
+        "開源向量資料庫",
+        "CrewAI Edge memory"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Milvus / Zilliz",
+      "slug": "milvus",
+      "section": "C3",
+      "trackingFocus": [
+        "開源向量資料庫",
+        "$113M Series C"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Turbopuffer",
+      "slug": "turbopuffer",
+      "section": "C3",
+      "trackingFocus": [
+        "Serverless 向量 DB",
+        "Cursor/Notion/Linear 採用"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LanceDB",
+      "slug": "lancedb",
+      "section": "C3",
+      "trackingFocus": [
+        "Arrow-native 嵌入式向量 DB"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "pgvector / pgvectorscale",
+      "slug": "pgvector",
+      "section": "C3",
+      "trackingFocus": [
+        "PostgreSQL 向量擴充",
+        "just use Postgres 趨勢"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "browser-use",
+      "slug": "browser-use",
+      "section": "C4",
+      "trackingFocus": [
+        "開源 Playwright + LLM",
+        "107k stars",
+        "瀏覽器 Agent 標準"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Browserbase",
+      "slug": "browserbase",
+      "section": "C4",
+      "trackingFocus": [
+        "Agent 瀏覽器基礎設施"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Skyvern",
+      "slug": "skyvern",
+      "section": "C4",
+      "trackingFocus": [
+        "視覺型瀏覽器自動化",
+        "CAPTCHA/2FA 處理"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Multion",
+      "slug": "multion",
+      "section": "C4",
+      "trackingFocus": [
+        "瀏覽器自主 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Steel",
+      "slug": "steel",
+      "section": "C4",
+      "trackingFocus": [
+        "瀏覽器自動化基礎設施"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Vapi",
+      "slug": "vapi",
+      "section": "C5",
+      "trackingFocus": [
+        "語音 Agent 基礎設施"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Retell",
+      "slug": "retell",
+      "section": "C5",
+      "trackingFocus": [
+        "語音 Agent 開發平台"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Bland AI",
+      "slug": "bland-ai",
+      "section": "C5",
+      "trackingFocus": [
+        "大規模外撥語音"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "ElevenLabs",
+      "slug": "elevenlabs",
+      "section": "C5",
+      "trackingFocus": [
+        "語音合成",
+        "對話式 AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "PolyAI",
+      "slug": "polyai",
+      "section": "C5",
+      "trackingFocus": [
+        "語音客服 Agent",
+        "$200M Series D"
+      ],
+      "region": "UK"
+    },
+    {
+      "name": "Parloa",
+      "slug": "parloa",
+      "section": "C5",
+      "trackingFocus": [
+        "語音客服 Agent",
+        "$560M Series D",
+        "歐洲"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Synthflow",
+      "slug": "synthflow",
+      "section": "C5",
+      "trackingFocus": [
+        "語音 Agent 平台"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cartesia",
+      "slug": "cartesia",
+      "section": "C5",
+      "trackingFocus": [
+        "低延遲語音模型"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "LiveKit",
+      "slug": "livekit",
+      "section": "C5",
+      "trackingFocus": [
+        "即時語音/影片 Agent 基礎設施"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Midjourney",
+      "slug": "midjourney",
+      "section": "C6",
+      "trackingFocus": [
+        "圖像生成龍頭"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Stability AI",
+      "slug": "stability-ai",
+      "section": "C6",
+      "trackingFocus": [
+        "Stable Diffusion 開源生態"
+      ],
+      "region": "UK",
+      "alsoIn": [
+        "F4"
+      ]
+    },
+    {
+      "name": "Black Forest Labs",
+      "slug": "black-forest-labs",
+      "section": "C6",
+      "trackingFocus": [
+        "FLUX 模型系列"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Ideogram",
+      "slug": "ideogram",
+      "section": "C6",
+      "trackingFocus": [
+        "文字渲染最強的圖像模型"
+      ],
+      "region": "CA"
+    },
+    {
+      "name": "Runway",
+      "slug": "runway",
+      "section": "C6",
+      "trackingFocus": [
+        "Gen-3 影片生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Pika",
+      "slug": "pika",
+      "section": "C6",
+      "trackingFocus": [
+        "影片生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Luma Labs",
+      "slug": "luma-labs",
+      "section": "C6",
+      "trackingFocus": [
+        "Dream Machine 影片生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Kling (快影/快手)",
+      "slug": "kling",
+      "section": "C6",
+      "trackingFocus": [
+        "中國影片生成",
+        "開源"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Sora (OpenAI)",
+      "slug": "sora",
+      "section": "C6",
+      "trackingFocus": [
+        "影片生成（大廠產品）"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Veo (Google)",
+      "slug": "veo",
+      "section": "C6",
+      "trackingFocus": [
+        "影片生成（大廠產品）"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Suno AI",
+      "slug": "suno-ai",
+      "section": "C6",
+      "trackingFocus": [
+        "AI 音樂生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Udio",
+      "slug": "udio",
+      "section": "C6",
+      "trackingFocus": [
+        "AI 音樂生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Play.ht",
+      "slug": "play-ht",
+      "section": "C6",
+      "trackingFocus": [
+        "語音合成 API"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Meshy",
+      "slug": "meshy",
+      "section": "C6",
+      "trackingFocus": [
+        "AI 3D 模型生成"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Tripo",
+      "slug": "tripo",
+      "section": "C6",
+      "trackingFocus": [
+        "AI 3D 生成"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Sierra AI",
+      "slug": "sierra-ai",
+      "section": "D1",
+      "trackingFocus": [
+        "Bret Taylor 的 CX 平台",
+        "$10B 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Decagon",
+      "slug": "decagon",
+      "section": "D1",
+      "trackingFocus": [
+        "企業客服 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Intercom (Fin)",
+      "slug": "intercom",
+      "section": "D1",
+      "trackingFocus": [
+        "老牌客服 + Agent 化"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Ada",
+      "slug": "ada",
+      "section": "D1",
+      "trackingFocus": [
+        "客服自動化"
+      ],
+      "region": "CA"
+    },
+    {
+      "name": "Forethought",
+      "slug": "forethought",
+      "section": "D1",
+      "trackingFocus": [
+        "客服 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Zendesk",
+      "slug": "zendesk",
+      "section": "D1",
+      "trackingFocus": [
+        "客服 AI",
+        "企業市佔大"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Clay",
+      "slug": "clay",
+      "section": "D2",
+      "trackingFocus": [
+        "外展數據 + Agent 編排"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "11x",
+      "slug": "11x",
+      "section": "D2",
+      "trackingFocus": [
+        "AI SDR (Alice / Jordan)"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Artisan",
+      "slug": "artisan",
+      "section": "D2",
+      "trackingFocus": [
+        "AI SDR"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Mercor",
+      "slug": "mercor",
+      "section": "D3",
+      "trackingFocus": [
+        "AI 招募平台",
+        "$350M Series C",
+        "$2B 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Eightfold AI",
+      "slug": "eightfold-ai",
+      "section": "D3",
+      "trackingFocus": [
+        "Talent Intelligence Platform",
+        "$396M 融資",
+        "Oracle 整合"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Phenom",
+      "slug": "phenom",
+      "section": "D3",
+      "trackingFocus": [
+        "Applied AI for HR",
+        "Agent 驅動招募"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "HireVue",
+      "slug": "hirevue",
+      "section": "D3",
+      "trackingFocus": [
+        "AI 面試 Agent",
+        "收購 Hireguide",
+        "$150M 營收"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Findem",
+      "slug": "findem",
+      "section": "D3",
+      "trackingFocus": [
+        "HR AI 引擎",
+        "$105M 融資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Harvey",
+      "slug": "harvey",
+      "section": "D4",
+      "trackingFocus": [
+        "法律 AI",
+        "$5B 估值",
+        "AmLaw 100"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Leya",
+      "slug": "leya",
+      "section": "D4",
+      "trackingFocus": [
+        "歐洲法律 AI",
+        "多法域"
+      ],
+      "region": "SE"
+    },
+    {
+      "name": "Ironclad",
+      "slug": "ironclad",
+      "section": "D4",
+      "trackingFocus": [
+        "合約管理 + AI",
+        "$333M Series E"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Abridge",
+      "slug": "abridge",
+      "section": "D5",
+      "trackingFocus": [
+        "醫療臨床文檔"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Hippocratic AI",
+      "slug": "hippocratic-ai",
+      "section": "D5",
+      "trackingFocus": [
+        "醫療 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Suki AI",
+      "slug": "suki-ai",
+      "section": "D5",
+      "trackingFocus": [
+        "臨床文檔",
+        "$70M Series C"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Ambience Healthcare",
+      "slug": "ambience-healthcare",
+      "section": "D5",
+      "trackingFocus": [
+        "醫療環境 AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Hebbia",
+      "slug": "hebbia",
+      "section": "D6",
+      "trackingFocus": [
+        "金融研究 Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Hadrius",
+      "slug": "hadrius",
+      "section": "D6",
+      "trackingFocus": [
+        "金融合規 Agent",
+        "$27M",
+        "500+ 金融機構"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Taktile",
+      "slug": "taktile",
+      "section": "D6",
+      "trackingFocus": [
+        "高風險金融決策自動化",
+        "$110M",
+        "Goldman Sachs 投資"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Poetic",
+      "slug": "poetic",
+      "section": "D6",
+      "trackingFocus": [
+        "合規 + 承保自動化",
+        "$50M",
+        "OpenAI 投資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Pints AI",
+      "slug": "pints-ai",
+      "section": "D6",
+      "trackingFocus": [
+        "受監管金融機構的可稽核 Agent",
+        "東南亞"
+      ],
+      "region": "SG",
+      "alsoIn": [
+        "F6"
+      ]
+    },
+    {
+      "name": "Aveni",
+      "slug": "aveni",
+      "section": "D6",
+      "trackingFocus": [
+        "英國金融 AI",
+        "Agent Assure 治理",
+        "£12M"
+      ],
+      "region": "UK"
+    },
+    {
+      "name": "Cube",
+      "slug": "cube",
+      "section": "D7",
+      "trackingFocus": [
+        "Agentic analytics",
+        "語意層 + MCP"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Wren AI",
+      "slug": "wren-ai",
+      "section": "D7",
+      "trackingFocus": [
+        "開源 agentic GenBI",
+        "20+ 資料來源",
+        "MDL 語意模型"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Semaphor",
+      "slug": "semaphor",
+      "section": "D7",
+      "trackingFocus": [
+        "Agent-native BI",
+        "內嵌 + 多租戶"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Knowi",
+      "slug": "knowi",
+      "section": "D7",
+      "trackingFocus": [
+        "Agentic BI",
+        "70+ 資料源直連",
+        "私有 AI"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Definite",
+      "slug": "definite",
+      "section": "D7",
+      "trackingFocus": [
+        "AI-native 資料平台",
+        "MCP 原生",
+        "500+ connectors"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Bloomreach",
+      "slug": "bloomreach",
+      "section": "D8",
+      "trackingFocus": [
+        "Loomi agentic 個人化平台",
+        "1,400+ 品牌"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Gorgias",
+      "slug": "gorgias",
+      "section": "D8",
+      "trackingFocus": [
+        "電商客服",
+        "Shopping Assistant Agent"
+      ],
+      "region": "FR"
+    },
+    {
+      "name": "Shopbox AI",
+      "slug": "shopbox-ai",
+      "section": "D8",
+      "trackingFocus": [
+        "AI 商務層",
+        "即時個人化"
+      ],
+      "region": "UK"
+    },
+    {
+      "name": "Trimble",
+      "slug": "trimble",
+      "section": "D9",
+      "trackingFocus": [
+        "Arc Agent",
+        "供應鏈自動化",
+        "1M+ 卡車網路"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Plataine",
+      "slug": "plataine",
+      "section": "D9",
+      "trackingFocus": [
+        "製造 AI Agent",
+        "Digital Twin",
+        "航太/國防客戶"
+      ],
+      "region": "IL"
+    },
+    {
+      "name": "Eyelit",
+      "slug": "eyelit",
+      "section": "D9",
+      "trackingFocus": [
+        "Agent EyeQ",
+        "MES/APS/SIOP",
+        "1,700+ 可呼叫操作"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Infor",
+      "slug": "infor",
+      "section": "D9",
+      "trackingFocus": [
+        "Industry AI Agents",
+        "供應鏈規劃"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Moveworks",
+      "slug": "moveworks",
+      "section": "D10",
+      "trackingFocus": [
+        "企業 IT Agent",
+        "$305M 融資"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Glean",
+      "slug": "glean",
+      "section": "D10",
+      "trackingFocus": [
+        "企業知識搜尋 + Agent",
+        "$7.2B 估值"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "ServiceNow",
+      "slug": "servicenow",
+      "section": "D10",
+      "trackingFocus": [
+        "企業 IT Agent (Now Assist)"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "UiPath",
+      "slug": "uipath",
+      "section": "D10",
+      "trackingFocus": [
+        "RPA → Agentic Automation 轉型"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Make (Integromat)",
+      "slug": "make",
+      "section": "D11",
+      "trackingFocus": [
+        "視覺化自動化 + Agent 層"
+      ],
+      "region": "CZ"
+    },
+    {
+      "name": "Activepieces",
+      "slug": "activepieces",
+      "section": "D11",
+      "trackingFocus": [
+        "開源 Zapier 替代"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Bardeen",
+      "slug": "bardeen",
+      "section": "D11",
+      "trackingFocus": [
+        "瀏覽器自動化 + Agent"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Scale AI",
+      "slug": "scale-ai",
+      "section": "E",
+      "trackingFocus": [
+        "資料標註 → AI 部署",
+        "FDE 團隊"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Cognizant",
+      "slug": "cognizant",
+      "section": "E",
+      "trackingFocus": [
+        "EMEA AI Unit",
+        "企業 Agent PoC → 生產"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "Accenture",
+      "slug": "accenture",
+      "section": "E",
+      "trackingFocus": [
+        "企業 AI 部署服務",
+        "全球最大 SI"
+      ],
+      "region": "IE"
+    },
+    {
+      "name": "Anduril",
+      "slug": "anduril",
+      "section": "E",
+      "trackingFocus": [
+        "國防 AI 部署",
+        "FDE 重度使用者"
+      ],
+      "region": "US"
+    },
+    {
+      "name": "DeepSeek",
+      "slug": "deepseek",
+      "section": "F1",
+      "trackingFocus": [
+        "開源模型",
+        "Coding Agent",
+        "推理定價破壞者"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "智譜 Zhipu",
+      "slug": "zhipu",
+      "section": "F1",
+      "trackingFocus": [
+        "GLM 系列",
+        "AutoGLM Agent",
+        "tool-use 生態"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "阿里 (通義/Qwen)",
+      "slug": "alibaba-qwen",
+      "section": "F1",
+      "trackingFocus": [
+        "Qwen 開源模型",
+        "Qwen Office Agent 平台",
+        "阿里雲 AI 服務",
+        "釘釘整合"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "ByteDance (豆包/Coze)",
+      "slug": "bytedance-coze",
+      "section": "F1",
+      "trackingFocus": [
+        "豆包模型",
+        "Coze Agent 平台",
+        "企業 Agent"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "美團",
+      "slug": "meituan",
+      "section": "F1",
+      "trackingFocus": [
+        "LongCat 開源",
+        "Agentic Coding",
+        "國產 ASIC 訓練"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "百川",
+      "slug": "baichuan",
+      "section": "F1",
+      "trackingFocus": [
+        "企業場景",
+        "搜尋增強"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "月之暗面 (Moonshot/Kimi)",
+      "slug": "moonshot-kimi",
+      "section": "F1",
+      "trackingFocus": [
+        "Kimi 長 context 產品",
+        "K3 開源",
+        "Arena 編碼榜"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "騰訊 (混元)",
+      "slug": "tencent-hunyuan",
+      "section": "F1",
+      "trackingFocus": [
+        "混元模型",
+        "企業微信 AI",
+        "企業 AI Office"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "MiniMax",
+      "slug": "minimax",
+      "section": "F1",
+      "trackingFocus": [
+        "MiniMax-M3 模型",
+        "語音/影片生成 (海螺 AI)"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "小米",
+      "slug": "xiaomi",
+      "section": "F1",
+      "trackingFocus": [
+        "端側 AI",
+        "MiMo 系列",
+        "Arena top 10"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "商湯 SenseTime",
+      "slug": "sensetime",
+      "section": "F1",
+      "trackingFocus": [
+        "日日新模型",
+        "企業 AI"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "科大訊飛 iFlytek",
+      "slug": "iflytek",
+      "section": "F1",
+      "trackingFocus": [
+        "語音 AI",
+        "星火模型"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "釘釘 (DingTalk)",
+      "slug": "dingtalk",
+      "section": "F1",
+      "trackingFocus": [
+        "企業 Agent 平台",
+        "Qwen Office 整合"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "Manus",
+      "slug": "manus",
+      "section": "F1",
+      "trackingFocus": [
+        "通用 AI Agent (被收購)",
+        "瀏覽器自動化"
+      ],
+      "region": "CN"
+    },
+    {
+      "name": "台智雲",
+      "slug": "twcc",
+      "section": "F2",
+      "trackingFocus": [
+        "台灣 AI 基礎設施",
+        "營收年增雙位數"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "MaiAgent",
+      "slug": "maiagent",
+      "section": "F2",
+      "trackingFocus": [
+        "台灣 Agent SaaS",
+        "亞太 18 市場經銷"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "iKala",
+      "slug": "ikala",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 行銷/社群商務"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "Kdan",
+      "slug": "kdan",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 文件/生產力工具"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "Appier",
+      "slug": "appier",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 行銷科技",
+        "台灣 AI 獨角獸"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "CloudMile",
+      "slug": "cloudmile",
+      "section": "F2",
+      "trackingFocus": [
+        "Google Cloud AI 合作夥伴"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "iGroup",
+      "slug": "igroup",
+      "section": "F2",
+      "trackingFocus": [
+        "MaiAgent 亞太經銷夥伴"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "聯發科 (MediaTek)",
+      "slug": "mediatek",
+      "section": "F2",
+      "trackingFocus": [
+        "端側 AI 晶片",
+        "ASIC 業務 $1B",
+        "Agent-first PC"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "QCT (Quanta Cloud)",
+      "slug": "qct",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 伺服器",
+        "MaiAgent COMPUTEX 夥伴"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "台積電 (TSMC)",
+      "slug": "tsmc",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 晶片製造",
+        "影響整個 Agent 基礎設施"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "廣達 (Quanta)",
+      "slug": "quanta",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 伺服器/邊緣運算"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "趨勢科技 (Trend Micro)",
+      "slug": "trend-micro",
+      "section": "F2",
+      "trackingFocus": [
+        "AI 資安",
+        "Agent 安全研究"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "奧義智慧 (CyCraft)",
+      "slug": "cycraft",
+      "section": "F2",
+      "trackingFocus": [
+        "台灣 AI 資安新創",
+        "MDR 服務"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "TeamT5",
+      "slug": "teamt5",
+      "section": "F2",
+      "trackingFocus": [
+        "威脅情報",
+        "APT 追蹤"
+      ],
+      "region": "TW"
+    },
+    {
+      "name": "SoftBank",
+      "slug": "softbank",
+      "section": "F3",
+      "trackingFocus": [
+        "Agent 生態投資者",
+        "Zenity/Sierra Japan",
+        "主權 AI"
+      ],
+      "region": "JP"
+    },
+    {
+      "name": "NTT DATA",
+      "slug": "ntt-data",
+      "section": "F3",
+      "trackingFocus": [
+        "AI Agent Service 全球開放",
+        "FDE 模式"
+      ],
+      "region": "JP"
+    },
+    {
+      "name": "NAVER",
+      "slug": "naver",
+      "section": "F3",
+      "trackingFocus": [
+        "Shopping AI Agent",
+        "韓國市場"
+      ],
+      "region": "KR"
+    },
+    {
+      "name": "LG Technology Ventures",
+      "slug": "lg-tech-ventures",
+      "section": "F3",
+      "trackingFocus": [
+        "AI Agent 資安領域投資",
+        "Zenity C 輪"
+      ],
+      "region": "KR"
+    },
+    {
+      "name": "DeepL",
+      "slug": "deepl",
+      "section": "F4",
+      "trackingFocus": [
+        "AI 翻譯",
+        "企業 Agent 工具鏈"
+      ],
+      "region": "DE"
+    },
+    {
+      "name": "Run:ai (NVIDIA)",
+      "slug": "run-ai",
+      "section": "F5",
+      "trackingFocus": [
+        "GPU 編排"
+      ],
+      "region": "IL"
+    },
+    {
+      "name": "Lightricks",
+      "slug": "lightricks",
+      "section": "F5",
+      "trackingFocus": [
+        "AI 創意工具"
+      ],
+      "region": "IL"
+    },
+    {
+      "name": "Sea Group (Shopee)",
+      "slug": "sea-group",
+      "section": "F6",
+      "trackingFocus": [
+        "電商 AI",
+        "東南亞最大科技公司"
+      ],
+      "region": "SG"
+    },
+    {
+      "name": "Grab",
+      "slug": "grab",
+      "section": "F6",
+      "trackingFocus": [
+        "超級 App + AI"
+      ],
+      "region": "SG"
+    },
+    {
+      "name": "Krutrim",
+      "slug": "krutrim",
+      "section": "F7",
+      "trackingFocus": [
+        "印度自研 LLM",
+        "Ola 創辦人"
+      ],
+      "region": "IN"
+    },
+    {
+      "name": "Sarvam AI",
+      "slug": "sarvam-ai",
+      "section": "F7",
+      "trackingFocus": [
+        "印度語言 LLM",
+        "$41M Series A"
+      ],
+      "region": "IN"
+    },
+    {
+      "name": "G42",
+      "slug": "g42",
+      "section": "F8",
+      "trackingFocus": [
+        "AI 基礎設施",
+        "Microsoft 合作",
+        "$1.5B 融資"
+      ],
+      "region": "AE"
+    },
+    {
+      "name": "MBZUAI",
+      "slug": "mbzuai",
+      "section": "F8",
+      "trackingFocus": [
+        "AI 研究大學",
+        "Falcon 模型"
+      ],
+      "region": "AE"
+    },
+    {
+      "name": "SDAIA",
+      "slug": "sdaia",
+      "section": "F8",
+      "trackingFocus": [
+        "國家 AI 戰略"
+      ],
+      "region": "SA"
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "LMSYS Chatbot Arena",
+      "category": "model-general",
+      "url": "https://lmsys.org",
+      "frequency": "daily"
+    },
+    {
+      "name": "Open LLM Leaderboard (HuggingFace)",
+      "category": "model-general",
+      "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "frequency": "daily"
+    },
+    {
+      "name": "MMLU / MMLU-Pro",
+      "category": "model-general",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "SimpleQA (OpenAI)",
+      "category": "model-general",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "MT-Bench",
+      "category": "model-general",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "SWE-bench Verified",
+      "category": "coding-agent",
+      "url": "https://swebench.com",
+      "frequency": "daily"
+    },
+    {
+      "name": "SWE-bench Pro",
+      "category": "coding-agent",
+      "url": "https://codingfleet.com",
+      "frequency": "daily"
+    },
+    {
+      "name": "SWE-bench Live",
+      "category": "coding-agent",
+      "url": "https://swebench.com",
+      "frequency": "weekly"
+    },
+    {
+      "name": "MorphLLM Leaderboard",
+      "category": "coding-agent",
+      "url": "https://morphllm.com",
+      "frequency": "daily"
+    },
+    {
+      "name": "Levelop",
+      "category": "coding-agent",
+      "url": "https://levelop.ai",
+      "frequency": "weekly"
+    },
+    {
+      "name": "HumanEval / MBPP",
+      "category": "coding-agent",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "BigCodeBench",
+      "category": "coding-agent",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "Terminal-Bench (Stanford)",
+      "category": "coding-agent",
+      "url": "https://qaskills.sh",
+      "frequency": "weekly"
+    },
+    {
+      "name": "LongCLI-Bench",
+      "category": "coding-agent",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "tau-bench",
+      "category": "agent-general",
+      "frequency": "weekly"
+    },
+    {
+      "name": "GAIA",
+      "category": "agent-general",
+      "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+      "frequency": "weekly"
+    },
+    {
+      "name": "AgentBench",
+      "category": "agent-general",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "ToolBench",
+      "category": "agent-general",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "WebArena",
+      "category": "browser-agent",
+      "url": "https://webarena.dev",
+      "frequency": "weekly"
+    },
+    {
+      "name": "VisualWebArena",
+      "category": "browser-agent",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "OSWorld",
+      "category": "browser-agent",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "OmniDocBench",
+      "category": "ocr",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "olmOCR-bench (AllenAI)",
+      "category": "ocr",
+      "url": "https://huggingface.co/spaces/allenai/olmocr-bench",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "VBench",
+      "category": "multimodal",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "GenAI-Bench",
+      "category": "multimodal",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "AgentBeats",
+      "category": "security",
+      "frequency": "event-driven"
+    },
+    {
+      "name": "OWASP LLM Top 10",
+      "category": "security",
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "frequency": "yearly"
+    },
+    {
+      "name": "MITRE ATLAS",
+      "category": "security",
+      "url": "https://atlas.mitre.org",
+      "frequency": "quarterly"
+    }
+  ],
+  "sources": [
+    {
+      "name": "arxiv",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 1
+    },
+    {
+      "name": "GitHub Trending",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 1
+    },
+    {
+      "name": "Hacker News",
+      "ring": 1,
+      "fetchMethod": "api",
+      "batch": 1,
+      "note": "HN API (algolia)"
+    },
+    {
+      "name": "HuggingFace",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 1,
+      "note": "new models / trending"
+    },
+    {
+      "name": "Anthropic Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "OpenAI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Google AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Microsoft AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Meta AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "NVIDIA AI Blog / Newsroom",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Amazon / AWS AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "xAI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Salesforce AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Oracle AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "IBM Research Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Adobe AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Cloudflare Blog (AI)",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Databricks Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Snowflake Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Palantir Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Samsung AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Huawei Cloud Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Baidu AI Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Apple Machine Learning Journal",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 1
+    },
+    {
+      "name": "Product Hunt (AI)",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 1
+    },
+    {
+      "name": "LMSYS Chatbot Arena",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 1
+    },
+    {
+      "name": "SWE-bench Leaderboard",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 1
+    },
+    {
+      "name": "MorphLLM Leaderboard",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 1
+    },
+    {
+      "name": "explainx.ai",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 1
+    },
+    {
+      "name": "Benchmarking Agents",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 1
+    },
+    {
+      "name": "Reddit r/MachineLearning",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 2
+    },
+    {
+      "name": "Reddit r/LocalLLaMA",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 2
+    },
+    {
+      "name": "Reddit r/StableDiffusion",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 2,
+      "note": "多模態"
+    },
+    {
+      "name": "Reddit r/aivideo",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 2,
+      "note": "多模態"
+    },
+    {
+      "name": "VentureBeat AI",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "TechCrunch AI",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "The Decoder",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "SiliconANGLE",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "36kr AI",
+      "ring": 3,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "機器之心",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "iThome",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "數位時代",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "MarkTechPost",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Pandaily",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Bloomberg",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Unit 42 / Palo Alto Networks",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "The Hacker News (資安)",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Globes",
+      "ring": 3,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "Fortune",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Forbes",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Axios",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "SCMP (南華早報)",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Nikkei Asia",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "Korea Herald",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @simonw",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @kaboratoff",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @swyx",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @karpathy",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @AnthropicAI",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "X/Twitter @OpenAI",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 2
+    },
+    {
+      "name": "Crunchbase",
+      "ring": 3,
+      "fetchMethod": "api",
+      "batch": 3,
+      "note": "付費"
+    },
+    {
+      "name": "Substack: Gary Marcus",
+      "ring": 4,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Substack: Import AI (Jack Clark)",
+      "ring": 4,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Substack: Interconnects (Nathan Lambert)",
+      "ring": 4,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Substack: Ahead of AI (Sebastian Raschka)",
+      "ring": 4,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "HBR Technology",
+      "ring": 4,
+      "fetchMethod": "scrape",
+      "batch": 3,
+      "note": "付費牆"
+    },
+    {
+      "name": "Gartner / McKinsey AI reports",
+      "ring": 4,
+      "fetchMethod": "scrape",
+      "batch": 3,
+      "note": "付費牆"
+    },
+    {
+      "name": "MCP GitHub repo",
+      "ring": 1,
+      "fetchMethod": "api",
+      "batch": 3,
+      "note": "issues/releases"
+    },
+    {
+      "name": "LangGraph / CrewAI changelog",
+      "ring": 1,
+      "fetchMethod": "api",
+      "batch": 3,
+      "note": "GitHub releases"
+    },
+    {
+      "name": "BusinessWire / PR Newswire",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "aifunding.me",
+      "ring": 3,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "Dealroom",
+      "ring": 3,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "The Japan Times",
+      "ring": 3,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "PricePerToken",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "OWASP LLM Top 10",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "MITRE ATLAS",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "AI Incident Database",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Civitai",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 3,
+      "note": "圖像生成模型/社群"
+    },
+    {
+      "name": "OmniDocBench",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "Cursor Blog / Changelog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Warp Blog",
+      "ring": 1,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Levelop",
+      "ring": 1,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "Runway / Pika / Midjourney Blog",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3,
+      "note": "多模態"
+    },
+    {
+      "name": "PaddleOCR GitHub releases",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 3
+    },
+    {
+      "name": "Surya / Datalab Blog + GitHub",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Docling GitHub releases",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 3
+    },
+    {
+      "name": "Tesseract GitHub releases",
+      "ring": 2,
+      "fetchMethod": "api",
+      "batch": 3
+    },
+    {
+      "name": "Mistral OCR (Mistral Blog)",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Google Document AI Blog",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "AWS Textract What's New",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "Azure AI Document Intelligence Blog",
+      "ring": 2,
+      "fetchMethod": "rss",
+      "batch": 3
+    },
+    {
+      "name": "OmniDocBench (benchmark)",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 3
+    },
+    {
+      "name": "olmOCR-bench (benchmark)",
+      "ring": 2,
+      "fetchMethod": "scrape",
+      "batch": 3
+    }
+  ]
+}
