@@ -56,7 +56,7 @@ Stage 4（每週五）
 
 | type | Series name |
 |---|---|
-| daily | AI Agent 日報 |
+| daily | AI 日報 |
 | arxiv | AI Agent Arxiv Digest |
 | github | AI Agent GitHub Digest |
 | model-card | AI Model Tracker |

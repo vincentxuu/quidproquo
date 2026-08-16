@@ -20,7 +20,7 @@ describe('Daily Digest content channels', () => {
   });
 
   it.each([
-    ['AI Agent 日報', 'daily'],
+    ['AI 日報', 'daily'],
     ['AI Agent Arxiv Digest', 'arxiv'],
     ['AI Agent GitHub Digest', 'github'],
     ['AI Model Tracker', 'model-card'],

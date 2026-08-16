@@ -1,5 +1,5 @@
 ---
-title: "AI Agent 日報 — 2026-08-16"
+title: "AI 日報 — 2026-08-16"
 date: 2026-08-16
 category: daily
 tags: [ai-agent, daily]
@@ -8,7 +8,7 @@ description: "模型變便宜、信任變貴：Gemini 3.7 Flash 用優惠定價�
 tldr: "Gemini 3.7 Flash 維持前代優惠定價卻在多項 benchmark 超車 Claude Sonnet 5 與 GPT-5.6 Terra；DeepSeek V4 尖峰時段 Output 定價調漲 355%-371%，終結中國模型零成本敘事；Vals AI 完成 $40M Series A、估值 $400M，卡位 AI 模型評測信任層；AgenticSeek 曝出未授權 RCE（CVSS 9.3），兩篇 arxiv 論文也證實看似無害的 Agent 技能本身就是新攻擊面"
 draft: false
 series:
-  name: "AI Agent 日報"
+  name: "AI 日報"
   order: 1
 ---
 

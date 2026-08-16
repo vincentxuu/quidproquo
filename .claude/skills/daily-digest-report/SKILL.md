@@ -5,7 +5,7 @@ description: "Routine K (Stage 3): daily AI Agent report assembly for quidproquo
 
 # daily-digest-report
 
-Stage 3 彙整 routine。讀取 Stage 1（arxiv/github/event-driven posts）和 Stage 2（signals JSON）的產出，組裝成每日 AI Agent 日報。**主要靠讀檔，只有 signals JSON 缺失時才用 MCP 搜尋。**
+Stage 3 彙整 routine。讀取 Stage 1（arxiv/github/event-driven posts）和 Stage 2（signals JSON）的產出，組裝成每日 AI 日報。**主要靠讀檔，只有 signals JSON 缺失時才用 MCP 搜尋。**
 
 **⚠️ 重要：不要使用 Agent tool / subagent。** CCR 雲端環境的 session 不會等 background agent 完成。所有工作都在主 session 中完成。
 
@@ -30,7 +30,7 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # Step 5: 彙整內容，依「輸出格式」撰寫日報
 # Step 6: 提交
 git add src/content/posts/daily/${TODAY}-ai-agent-daily.md
-git commit -m "post(daily): AI Agent 日報 ${TODAY}"
+git commit -m "post(daily): AI 日報 ${TODAY}"
 git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
@@ -152,7 +152,7 @@ maxResults: 10
 
 ```yaml
 ---
-title: "AI Agent 日報 — YYYY-MM-DD"
+title: "AI 日報 — YYYY-MM-DD"
 date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, daily]
@@ -161,7 +161,7 @@ description: "一句話判斷，不是事件列表"
 tldr: "3-5 行的今日重點，用分號隔開"
 draft: false
 series:
-  name: "AI Agent 日報"
+  name: "AI 日報"
   order: N
 ---
 ```
@@ -179,9 +179,10 @@ series:
 
 ## 深度分析：{今日主題}
 
-{文章核心。600-800 字。從今天所有素材中找出跨領域的共同線索，
- 用至少一個 MIS 框架（交易成本/互補資產/網路效應/五力/轉換成本）
- 串起來寫成有論點的分析。用「我認為」開頭標記觀點。
+{文章核心。400-600 字（不是 800）。精煉為王——每一段必須推進論點，
+ 不可重複同一個觀察。用一個 MIS 框架貫穿全文，不要混用兩個框架說同一件事。
+ 結構：論點（1 句）→ 證據 A → 證據 B → 對從業者的意義（1-2 句）。
+ 用「我認為」開頭標記觀點。
  這一段是日報存在的理由——個別文章看不到的連線只有這裡能看到。}
 
 ## 今日動態
@@ -203,7 +204,9 @@ series:
 {AI 法案、政府會議、合規要求變更。}
 
 ### 區域動態
-{中國 / 台灣 / 日韓 / 東南亞。區域生態獨立成段。}
+{中國 / 台灣 / 日韓 / 東南亞 / 歐洲 / 中東 / 印度。
+ 只寫跟 AI Agent 直接相關的區域新聞（模型發佈、法規、平台、融資）。
+ 「某國蓋 AI 中心」「某大學開課」這類跟 Agent 開發者無關的新聞不收。}
 
 ### 商業案例 / 融資
 {融資：公司名、金額、投資人、一句話意義。若 Stage 1 已有 funding 文章，
@@ -230,7 +233,10 @@ series:
 
 ## 今日收穫
 
-{1-3 句認知差。「之前以為 X，現在知道 Y」。不是摘要。}
+{1-3 句認知差。「之前以為 X，現在知道 Y」。
+ **必須跟深度分析的結論不同**——深度分析講的是「今天合起來代表什麼」，
+ 今日收穫講的是「寫完這篇後我個人的認知哪裡被修正了」。
+ 如果寫出來跟深度分析的最後一段一樣，退回重寫。}
 
 ## 參考資料
 
@@ -243,7 +249,7 @@ series:
 
 ```markdown
 ---
-title: "AI Agent 日報 — 2026-08-17"
+title: "AI 日報 — 2026-08-17"
 date: 2026-08-17
 category: daily
 tags: [ai-agent, daily]
@@ -252,7 +258,7 @@ description: "Agent 生態的價值正在從模型層移向基礎設施層——
 tldr: "Anthropic Agent SDK 2.0 加深 MCP 編排的轉換成本；Cursor $500M ARR 證明 coding agent 價值在 IDE 整合不在模型；Baseten $13B 估值說明推理基礎設施比訓練模型更值錢；台智雲企業 Agent 平台主打資料主權"
 draft: false
 series:
-  name: "AI Agent 日報"
+  name: "AI 日報"
   order: 2
 ---
 
@@ -355,12 +361,25 @@ cat src/data/daily-signals/${TODAY}.json | jq '[.signals[].category] | unique'
 
 「關鍵數字」表格至少 3 行，每行都有來源連結。
 
+### Check 6：高 relevance 信號不可漏
+
+```bash
+# 列出 relevance >= 0.8 的信號
+cat src/data/daily-signals/${TODAY}.json | jq '[.signals[] | select(.relevance >= 0.8) | {id, title, relevance, category}]'
+```
+
+每個 relevance ≥ 0.8 的信號都必須在日報中被提及。漏了就補——這些是今天最重要的事件。
+
+### Check 7：今日收穫不重複深度分析
+
+「今日收穫」的內容不可以跟「深度分析」的最後一段或結論相同。如果講的是同一個觀點，退回重寫「今日收穫」。
+
 ---
 
 ## 品質檢查清單
 
 - [ ] 「一句話判斷」是有立場的觀點，不是事件列表
-- [ ] 「深度分析」600-800 字，引用 2+ 個事件，標明使用的 MIS 框架
+- [ ] 「深度分析」400-600 字，引用 2+ 個事件，用一個 MIS 框架貫穿，不重複同一觀察
 - [ ] 「今日動態」只寫 Stage 1 沒覆蓋的新聞；Stage 1 已有的只放一句摘要 + 連結
 - [ ] 覆蓋率 Check 1 通過：所有 Stage 1 文章都在「今日 Digest 一覽」
 - [ ] 覆蓋率 Check 2 通過：signals JSON 的每個 category 都被處理
@@ -370,7 +389,9 @@ cat src/data/daily-signals/${TODAY}.json | jq '[.signals[].category] | unique'
 - [ ] 每個事實主張都有來源（不能「據報導」沒出處）
 - [ ] 數字精確（$500M 不寫「約五億美元」）
 - [ ] 觀點段落用「我認為」開頭
-- [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y）
+- [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y），且跟深度分析結論不同
+- [ ] 覆蓋率 Check 6 通過：relevance ≥ 0.8 的信號全部被提及
+- [ ] 區域動態只收跟 AI Agent 直接相關的（模型/法規/平台/融資），不收純基建新聞
 - [ ] 有內容的小節才寫，沒事件的小節直接省略
 - [ ] 全文 < 3000 字
 - [ ] `draft: false` 已明確寫出
