@@ -2,10 +2,10 @@
 title: "AI Agent Arxiv Digest — 2026-08-08"
 date: 2026-08-08
 category: daily
-tags: [ai-agent, arxiv, daily, agent-memory, self-improving-agent, tool-use]
+tags: [ai-agent, arxiv, daily, agent-memory, self-improving-agent, sequential-decision-making]
 lang: zh-TW
-description: "今天三篇論文圍繞同一個問題——Agent 從經驗中學習時，記憶和工具規劃各自會怎麼壞掉，又該怎麼修：記憶獎勵會膨脹、記憶回饋會稀釋、工具規劃會綁死在特定工具上"
-tldr: "Memory Reward Inflation 發現自我改善 Agent 的記憶獎勵會自我膨脹，錯誤經驗越用越自信，LUCID 演算法在 BIRD 上將準確率從 54.0% 提升到 56.9%；RoMeRL 用固定維度的語意座標壓縮記憶狀態空間，Cold-Q 比率降 80%、LLM 呼叫減 21.1%；ToolLIFT 將工具軌跡抽象成功能層級工作流圖，在三個 OOD 基準上一致超越現有方法"
+description: "今天三篇論文圍繞同一個問題——Agent 從經驗中學習時，記憶會怎麼壞掉，又該怎麼修：記憶獎勵會膨脹、記憶回饋會稀釋、序列決策的經驗歸因做不好"
+tldr: "Memory Reward Inflation 發現自我改善 Agent 的記憶獎勵會自我膨脹，錯誤經驗越用越自信，LUCID 演算法在 BIRD 上將準確率從 54.0% 提升到 56.9%；RoMeRL 用固定維度的語意座標壓縮記憶狀態空間，Cold-Q 比率降 80%、LLM 呼叫減 21.1%；REAPER 用事後反省和規則抽取讓 LLM 在序列對局中持續進步，無需改動模型權重"
 series:
   name: "AI Agent Arxiv Digest"
   order: 76
@@ -13,7 +13,7 @@ series:
 
 ## 今日總覽
 
-今天三篇論文從不同角度拆解同一個問題：Agent 從過去經驗中學習時，到底會怎麼壞掉？Memory Reward Inflation 指出記憶獎勵會自我膨脹——Agent 給錯誤經驗打高分，然後優先重用這些錯誤，形成正反饋迴圈；RoMeRL 則從記憶系統的工程面切入，發現隨著互動歷史增長，有限的回饋會被稀釋到越來越大的狀態空間中，導致無關記憶被錯誤強化；ToolLIFT 把視角轉到工具規劃，發現直接用工具層級的軌跡建圖會綁死在特定工具集上，無法遷移。三篇合起來的訊息很明確：讓 Agent 自我改善不能只是「存起來下次用」——記憶要去膨脹、狀態空間要壓縮、工具經驗要抽象化。
+今天三篇論文從不同角度拆解同一個問題：Agent 從過去經驗中學習時，到底會怎麼壞掉？Memory Reward Inflation 指出記憶獎勵會自我膨脹——Agent 給錯誤經驗打高分，然後優先重用這些錯誤，形成正反饋迴圈；RoMeRL 則從記憶系統的工程面切入，發現隨著互動歷史增長，有限的回饋會被稀釋到越來越大的狀態空間中，導致無關記憶被錯誤強化；REAPER 把視角轉到序列決策，發現 LLM 在最簡單的棋盤遊戲中都做不到最優，但事後反省加規則抽取可以讓經驗真正被學進去，無需動模型權重。三篇合起來的訊息很明確：讓 Agent 自我改善不能只是「存起來下次用」——記憶要去膨脹、狀態空間要壓縮、經驗要經過反省和歸因才有用。
 
 ## 讀這篇前該知道的詞
 
@@ -22,8 +22,8 @@ series:
 | 記憶獎勵膨脹（Memory Reward Inflation） | Agent 用 LLM 給自己的過去經驗打分時，錯誤經驗也會拿到高分，導致越用越錯 |
 | Echo Gap | 當 Agent 用同一個 LLM 既執行又評分時，評分的偏差和執行的偏差高度相關，無法自我修正 |
 | Cold-Q 比率 | 記憶中從未被有效回饋更新過的「冷座標」占比，越高代表記憶品質越差 |
-| 功能層級工作流圖（FWG） | 把具體工具抽象成「功能」（如「搜尋」「轉換」），用功能之間的關係建圖，跨工具集通用 |
-| 軌跡提升（Trajectory Lifting） | 從具體的工具呼叫序列中提取出更高層的功能結構，讓經驗可以遷移到新工具 |
+| 信用歸因（Credit Assignment） | 一場多步決策結束後，判斷「是哪一步導致最終成功或失敗」的問題——延遲獎勵越長越難 |
+| 案例推理（Case-Based Reasoning） | 遇到新問題時從過去類似案例中找解法的方法，Agent 記憶系統的經典範式之一 |
 
 ---
 
@@ -119,57 +119,58 @@ Agent 記憶系統的主流做法是：每次互動存一條軌跡，用強化�
 
 ---
 
-## 論文三｜ToolLIFT：把工具經驗抽象成可遷移的功能工作流
+## 論文三｜REAPER：用事後反省讓 Agent 在序列決策中持續進步
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
-Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
+**Towards Improving Sequential Decision-Making in LLM Agents via Experience Memory**
+Jakub Rada, Viliam Lisý（Czech Technical University in Prague, AI Center）　·　arxiv: 2608.03420
 
-連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)
+連結: [arxiv](https://arxiv.org/abs/2608.03420) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03420)
 
 ### TL;DR
 
-把工具呼叫軌跡抽象成「功能層級工作流圖」，讓 Agent 的工具規劃經驗可以遷移到從未見過的工具集上，在三個 OOD 基準上一致超越現有方法。
+LLM 在井字棋和四子棋等簡單遊戲中都打不贏 MCTS，而且這不只是背棋譜的問題——混淆表面形式後表現不變。REAPER 用事後反省和規則抽取讓 Agent 從對局經驗中持續學習，無需修改模型權重。
 
 ### Read Priority
 
-略讀 — 對工具規劃有實際需求的團隊必讀；純用現成工具鏈的可略讀核心 idea。
+略讀 — 如果你在做有多步決策和延遲獎勵的 Agent，這篇的信用歸因方法值得細看；純做問答或工具呼叫的可以只讀核心結論。
 
 ### 領域背景
 
-現有的工具規劃方法（如 ToolBench、AnyTool）從歷史軌跡建立工具之間的依賴圖。問題是這些圖綁定在特定的工具集上——換一組 API 就得重新學。這在 MCP 生態中尤其痛，因為工具集隨時在變。
+Reflexion、ExpeL、Memento 等先前工作已經證明，經驗記憶和自我反省可以在問答和工具使用任務上帶來一致改進，且不需要更新權重。但這些方法設計給規劃任務，不處理對抗環境中的延遲獎勵——直接搬到序列對局中幾乎無效。
 
 ### 中階導讀
 
-- **問題**：想像你學會了用 Google Maps + Uber 安排出行。換到一個新城市，只有 Apple Maps + Lyft。如果你的經驗是「先開 Google Maps 再叫 Uber」，這條經驗完全不能用。但如果你的經驗是「先查路線再叫車」，這條經驗立刻可以遷移。
-- **方法**：ToolLIFT 先把每條工具呼叫軌跡「提升」到功能層級（搜尋、轉換、驗證...），建立功能工作流圖（FWG）。規劃時先在 FWG 上決定功能序列，再把每個功能映射到具體工具。最後用 RL 訓練 source-gated reward 確保工具間的資料流可追溯。
-- **為什麼重要**：MCP 讓工具集動態變化成為常態。Agent 需要的不是「記住這些工具怎麼用」，而是「理解工作流的抽象結構」。
+- **問題**：想像一個棋手下完一盤棋後覆盤。他知道結果（贏或輸），但不確定是哪一步導致了這個結果。如果他只是把整盤棋存起來標記「贏」，下次遇到類似局面不一定能用對——因為「贏」可能是對手犯錯，不是自己下得好。
+- **方法**：REAPER（Reflective Experiential Agent with Periodic Extraction of Rules）在每場對局結束後做兩件事：（1）逐步反省哪些決策是關鍵轉折點（解決信用歸因）；（2）從多場對局中抽取通用規則（如「控制中心比邊角重要」），存為可重用的經驗記憶。
+- **為什麼重要**：大多數真實的 Agent 任務都有延遲獎勵——你不知道是哪一步工具呼叫導致了最終的成功或失敗。REAPER 提出的歸因方法直接適用於這類場景。
 
 ### 深入要點
 
-- 兩個 ID 基準 + 三個 OOD 基準：一致超越 SOTA
-- OOD 遷移是核心賣點——訓練時沒見過的工具集也能規劃 ⚠️（作者自測，需外部複現）
-- 功能抽象 + 工具選擇的解耦設計，架構清楚可復現
-- 落地門檻中等：需要定義功能類別的 taxonomy，且目前靠 LLM 做軌跡→功能的提升
-- 與 LangGraph / CrewAI 的工具編排層相容——可作為規劃模組插入
-- Limitation：功能類別的粒度目前靠人工或 LLM 決定，跨領域的通用 taxonomy 是開放問題
+- 測試環境：井字棋、四子棋，對手為 MCTS ⚠️（作者自測，需外部複現）
+- 混淆實驗（obfuscation）證明：LLM 的弱項不只是背棋譜不夠——改變表面形式後表現不變
+- 事後反省 + 規則抽取帶來可衡量的改進，完全不動模型權重
+- 落地門檻低：REAPER 是純 prompt 層的框架，可以疊加到任何 LLM Agent 上
+- 與 Reflexion / ExpeL 的差異：專門處理序列對抗場景的信用歸因
+- Limitation：目前只在完全可觀察的雙人零和遊戲上驗證，更複雜的部分可觀察或多人場景待測
+- 已被 IJCAI 2026 Neuro-Symbolic Intelligence workshop 接受
 
 ### Reviewer 一句話評
 
-「功能層級抽象」的 insight 簡潔有力，OOD 實驗設計也合理。但功能 taxonomy 的定義目前還是半手動的，這限制了方法的全自動化程度。
+用遊戲環境提供 ground-truth 評估是聰明的實驗設計，混淆實驗的分析也有說服力。但井字棋和四子棋的複雜度離真實 Agent 任務差距大，需要在更接近生產環境的序列任務上驗證。
 
 ### 給你的 take-away
 
-- 如果你的 Agent 平台需要支援動態工具集（MCP 場景）：ToolLIFT 的「功能工作流圖」是目前最具體的遷移式工具規劃設計
-- 如果你在建工具使用的評測：加入 OOD 工具集的測試，只測 ID 會嚴重高估實際遷移能力
+- 如果你的 Agent 有多步任務且獎勵延遲（如程式碼生成、研究流程）：REAPER 的「事後反省 + 規則抽取」是一個落地門檻極低的信用歸因方法
+- 如果你在評估 Agent 的學習能力：不要只看「加了記憶後效能提升」，要拆開看「記憶裡的經驗有沒有被正確歸因」——沒歸因就是 Memory Reward Inflation 的溫床
 
 ---
 
-## 今日收穫
+## 我今天學到什麼
 
-之前以為 Agent 自我改善的主要風險是「學不到」，今天發現真正的風險是「學錯了還越來越自信」。Memory Reward Inflation 和 RoMeRL 從理論和工程兩面說明，記憶系統不只需要「存」和「取」，更需要主動對抗偏差累積。ToolLIFT 則提醒我，經驗的價值不在具體步驟而在抽象結構——這個原則同時適用於工具規劃和記憶管理。
+之前以為 Agent 自我改善的主要風險是「學不到」，今天發現真正的風險是「學錯了還越來越自信」。Memory Reward Inflation 和 RoMeRL 從理論和工程兩面說明，記憶系統不只需要「存」和「取」，更需要主動對抗偏差累積。REAPER 則從另一面提醒：經驗不經過信用歸因就直接存，等於把噪音當信號——序列決策中「哪一步才是關鍵」這個問題，比「怎麼存」更根本。
 
 ## 參考資料
 
 - [arxiv:2608.00017](https://arxiv.org/abs/2608.00017)
 - [arxiv:2608.02508](https://arxiv.org/abs/2608.02508)
-- [arxiv:2608.03468](https://arxiv.org/abs/2608.03468)
+- [arxiv:2608.03420](https://arxiv.org/abs/2608.03420)
