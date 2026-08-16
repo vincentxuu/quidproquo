@@ -1,6 +1,6 @@
 ---
 name: daily-digest-report
-description: "Routine K (Stage 3): daily AI Agent report assembly for quidproquo.cc/daily. Reads Stage 1-2 outputs and assembles the comprehensive daily report."
+description: "Routine K (Stage 3): daily AI report assembly for quidproquo.cc/daily. Reads Stage 1-2 outputs and assembles the comprehensive daily report."
 ---
 
 # daily-digest-report
@@ -205,7 +205,7 @@ series:
 
 ### 區域動態
 {中國 / 台灣 / 日韓 / 東南亞 / 歐洲 / 中東 / 印度。
- 只寫跟 AI Agent 直接相關的區域新聞（模型發佈、法規、平台、融資）。
+ 只寫跟 AI 直接相關的區域新聞（模型發佈、法規、平台、融資）。
  「某國蓋 AI 中心」「某大學開課」這類跟 Agent 開發者無關的新聞不收。}
 
 ### 商業案例 / 融資
@@ -222,8 +222,8 @@ series:
 
 {列出今天所有 Stage 1 產出的文章，一行一篇，附站內連結。不重述內容。}
 
-- 📄 [AI Agent Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
+- 📄 [AI Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
+- 📄 [AI GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
 - {其他當天產出的 Stage 1 文章...}
 
 ## 明日關注
@@ -305,8 +305,8 @@ Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
+- 📄 [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- 📄 [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
 
 ## 明日關注
 
@@ -391,7 +391,7 @@ cat src/data/daily-signals/${TODAY}.json | jq '[.signals[] | select(.relevance >
 - [ ] 觀點段落用「我認為」開頭
 - [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y），且跟深度分析結論不同
 - [ ] 覆蓋率 Check 6 通過：relevance ≥ 0.8 的信號全部被提及
-- [ ] 區域動態只收跟 AI Agent 直接相關的（模型/法規/平台/融資），不收純基建新聞
+- [ ] 區域動態只收跟 AI 直接相關的（模型/法規/平台/融資），不收純基建新聞
 - [ ] 有內容的小節才寫，沒事件的小節直接省略
 - [ ] 全文 < 3000 字
 - [ ] `draft: false` 已明確寫出

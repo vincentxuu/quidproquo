@@ -171,7 +171,7 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 
 ```yaml
 ---
-title: "AI Agent Arxiv Digest — YYYY-MM-DD"
+title: "AI Arxiv Digest — YYYY-MM-DD"
 date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, arxiv, daily]
@@ -179,7 +179,7 @@ lang: zh-TW
 description: "一句話，串起今天三篇論文的共同主題"
 tldr: "三篇論文的一句話結論，用分號隔開"
 series:
-  name: "AI Agent Arxiv Digest"
+  name: "AI Arxiv Digest"
   order: N
 ---
 ```
@@ -265,7 +265,7 @@ series:
 
 ```markdown
 ---
-title: "AI Agent Arxiv Digest — 2026-08-04"
+title: "AI Arxiv Digest — 2026-08-04"
 date: 2026-08-04
 category: daily
 tags: [ai-agent, arxiv, daily]
@@ -273,7 +273,7 @@ lang: zh-TW
 description: "今天的主題是 Agent 的能力與極限——記憶管理可自動學習，但開放式研究還做不了，安全測試可能根本不夠"
 tldr: "AutoMem 讓 32B 模型靠記憶優化達到 Claude Opus 4.5 水準；Shadow Evaluation 證明頂級 Agent 能工程但不能做研究；Adaptive Adversaries 揭示自適應攻擊讓 ASR 從 0-1% 跳到 14%"
 series:
-  name: "AI Agent Arxiv Digest"
+  name: "AI Arxiv Digest"
   order: 81
 ---
 

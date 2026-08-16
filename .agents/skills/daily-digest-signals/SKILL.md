@@ -5,7 +5,7 @@ description: "Routine J (Stage 2): daily news scan producing intermediate signal
 
 # daily-digest-signals
 
-Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI Agent 四圈相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
+Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI 生態相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
 
 **⚠️ 重要：不要使用 Agent tool / subagent 來平行搜尋。** CCR 雲端環境的 session 不會等 background agent 完成，會導致主 session 提前結束、無產出。所有搜尋查詢都在主 session 中執行——可以在同一個 message 裡同時發出多個 Exa/Tavily tool call（平行 tool call），但不可以派 subagent。
 
@@ -66,7 +66,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ### 第一層：廣域主題查詢（Tavily × 8）
 
-覆蓋整個 AI Agent 生態，不綁特定公司。
+覆蓋整個 AI 生態，不綁特定公司。
 
 ```
 工具：mcp Tavily → tavily_search

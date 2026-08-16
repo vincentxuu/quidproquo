@@ -1,6 +1,6 @@
 ---
 name: daily-digest
-description: Produce daily digest content for quidproquo.cc/daily. Invoked by Claude Code routines to generate AI Agent daily reports, Arxiv digests, GitHub digests, model cards, security alerts, benchmark updates, framework changelogs, tool recommendations, funding briefs, pricing updates, weekly reviews, and regional focus articles. Use when routine says 日報 / daily digest / arxiv digest / github digest / weekly review / model card / security alert / benchmark / framework update / tool recommendation / funding / pricing.
+description: Produce daily digest content for quidproquo.cc/daily. Invoked by Claude Code routines to generate AI daily reports, Arxiv digests, GitHub digests, model cards, security alerts, benchmark updates, framework changelogs, tool recommendations, funding briefs, pricing updates, weekly reviews, and regional focus articles. Use when routine says 日報 / daily digest / arxiv digest / github digest / weekly review / model card / security alert / benchmark / framework update / tool recommendation / funding / pricing.
 ---
 
 # daily-digest skill
@@ -57,16 +57,16 @@ Stage 4（每週五）
 | type | Series name |
 |---|---|
 | daily | AI 日報 |
-| arxiv | AI Agent Arxiv Digest |
-| github | AI Agent GitHub Digest |
+| arxiv | AI Arxiv Digest |
+| github | AI GitHub Digest |
 | model-card | AI Model Tracker |
 | security | AI Security Alert |
 | benchmark | AI Benchmark Watch |
 | framework | AI Framework Changelog |
 | tool | AI Tool of the Day |
-| funding | AI Agent Funding |
+| funding | AI Funding |
 | pricing | AI Pricing Watch |
-| weekly | AI Agent 週回顧 |
+| weekly | AI 週回顧 |
 | region | AI Region Focus |
 
 ## 共通品質規則
