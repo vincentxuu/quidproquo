@@ -145,7 +145,14 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | GH6 | `https://github.com/NVIDIA` | NVIDIA | WebFetch |
 | GH7 | `https://github.com/mistralai` | Mistral | WebFetch |
 | GH8 | `https://github.com/MiniMax-AI` | MiniMax | WebFetch |
-| HF6 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
+| HF6 | `https://huggingface.co/meta-llama` | Meta Llama | WebFetch |
+| HF7 | `https://huggingface.co/openai` | OpenAI | WebFetch |
+| HF8 | `https://huggingface.co/ibm-granite` | IBM Granite | WebFetch |
+| HF9 | `https://huggingface.co/Snowflake` | Snowflake | WebFetch |
+| HF10 | `https://huggingface.co/apple` | Apple | WebFetch |
+| HF11 | `https://huggingface.co/amazon` | Amazon | WebFetch |
+| HF12 | `https://huggingface.co/Salesforce` | Salesforce | WebFetch |
+| HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
 | GH9 | `https://github.com/cohere-ai` | Cohere | WebFetch |
 | HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | WebFetch |
 | HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | WebFetch |
