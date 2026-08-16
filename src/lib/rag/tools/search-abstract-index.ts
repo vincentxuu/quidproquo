@@ -2,6 +2,7 @@ import { env } from 'cloudflare:workers'
 import type { SearchResult } from '../state'
 import type { Env } from '@/lib/config/env'
 import { defineSyscall } from '../../agent-os/tools/define'
+import { embedQueries } from '../embedding'
 
 export async function searchAbstractIndex(args: {
   query: string
@@ -11,8 +12,7 @@ export async function searchAbstractIndex(args: {
   const { VECTORIZE_ABSTRACT, AI } = env as unknown as Env
   if (!VECTORIZE_ABSTRACT) return []
 
-  const embResult = await AI.run('@cf/baai/bge-large-en-v1.5', { text: [query] }) as { data: number[][] }
-  const queryVector = embResult.data[0]
+  const [queryVector] = await embedQueries(AI, [query])
 
   const results = await VECTORIZE_ABSTRACT.query(queryVector, {
     topK: limit,

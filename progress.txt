@@ -13,17 +13,18 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- Roll out Qwen3 multilingual embeddings for the production RAG knowledge base; implementation,
+  cache isolation, deployment, full re-embedding, and live evaluation are tracked in
+  `.work/rag-qwen3-rollout-plan.md`.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
 Next steps
-1. Finish and verify RAG P0 fixes.
+1. Finish and verify the Qwen3 embedding rollout.
 2. Backfill missing post `type` and `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-16: RAG enterprise-quality P0 completed: D1 sync now maintains post FTS rows; general queries keep hybrid retrieval, retries use critic gaps and disable BM25 short-circuit, language filtering and comparable ranking are applied; writer abstains on weak evidence and critic reviews actual excerpts/fails closed; evaluation now scores independent candidate/live output against golden points, sources, and forbidden claims. `pnpm test` 420/420, Astro check 0 errors, `pnpm verify` green. Production rollout is Q-009.
-- 2026-08-16: Daily Digest 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro check/build 通過。`pnpm verify` 尚被未追蹤 Arxiv 文章缺參考資料擋住。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會

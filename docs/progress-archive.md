@@ -585,3 +585,17 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   frontmatter glossary 會 shadow 站台預設；沒有 remark-math，數學寫 code block；
   資安檢測規範現行版 V2.0（2026-04-30）；英文文章連中文 slug 曾是全站性缺陷
   （163 檔／742 連結），批次改連結前先讀 archive 裡的三條安全規則。
+
+## 2026-08-16 — RAG enterprise-quality P0
+
+- D1 sync maintains post FTS rows; general queries keep hybrid retrieval; retries use
+  critic gaps and disable BM25 short-circuit; language filtering and comparable ranking
+  are applied. Writer abstains on weak evidence and critic reviews actual excerpts and
+  fails closed. Evaluation scores independent candidate/live output against golden points,
+  sources, and forbidden claims. Verification at completion: `pnpm test` 420/420,
+  Astro check 0 errors, and `pnpm verify` green. Production rollout continued as Q-009.
+
+## 2026-08-16 — Daily Digest frontend
+
+- 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro
+  check/build 通過。當時 `pnpm verify` 被未追蹤 Arxiv 文章缺參考資料擋住。

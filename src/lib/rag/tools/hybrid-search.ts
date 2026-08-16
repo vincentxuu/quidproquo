@@ -1,5 +1,4 @@
-export const EMBED_MODEL = '@cf/baai/bge-large-en-v1.5'
-export const EMBED_BATCH_SIZE = 50
+export { EMBED_BATCH_SIZE, EMBED_MODEL } from '../embedding'
 export const RRF_K = 60
 export const BM25_SHORT_CIRCUIT_THRESHOLD = 5
 export const ABSTRACT_RANKING_WEIGHT = 0.5

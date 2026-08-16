@@ -918,7 +918,7 @@ const t = createConsoleTranslator(lang);
       workerStatus.textContent = workersAiOk ? 'Active' : 'Error';
       workers.querySelector('.provider-header')?.append(workerStatus);
       workers.append(
-        makeInfoRow('Embedding Model', '@cf/baai/bge-base-en-v1.5'),
+        makeInfoRow('Embedding Model', data.index?.embeddingModel ?? 'Unknown'),
         makeInfoRow('Post Chunks', data.index?.postChunks ?? 0),
         makeInfoRow('Doc Chunks', data.index?.docChunks ?? 0),
       );

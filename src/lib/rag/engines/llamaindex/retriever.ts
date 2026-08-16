@@ -10,6 +10,7 @@ import type { LlamaDocument } from './documents'
 import type { NativeTrace } from '../../state'
 import type { ProviderApiKeys } from '../../model'
 import type { Env } from '@/lib/config/env'
+import { embedQueries } from '../../embedding'
 
 export interface LlamaIndexRetrieverCase {
   source: 'vector' | 'bm25'
@@ -83,9 +84,9 @@ export async function runLlamaIndexRetriever(
 
   const { AI } = env as unknown as Env
   const embeddedAt = Date.now()
-  const embedded = await AI.run('@cf/baai/bge-large-en-v1.5', { text: [query] }) as { data: number[][] }
-  const vectorMatches = embedded?.data?.[0]?.length
-    ? await queryVectorIndex(embedded.data[0], topK)
+  const [queryVector] = await embedQueries(AI, [query])
+  const vectorMatches = queryVector.length
+    ? await queryVectorIndex(queryVector, topK)
     : []
   const vectorMs = Math.max(0, Date.now() - embeddedAt)
   const docstore = new LlamaIndexD1DocStore()

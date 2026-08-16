@@ -118,7 +118,7 @@
 - [x] **Task 3：Chunk ID + Contextual Retrieval（TDD）**
 - [x] **Task 4：Embedding Pipeline + Hybrid Search** — embed 進 Vectorize；實作 Vectorize 語意 + D1 FTS5 BM25 + RRF 融合
   - 目前狀態：`search-posts.ts` / `search-docs.ts` 已補上 Vectorize 語意搜尋 + D1 FTS5 BM25 + RRF 融合；向量命中後也會回 D1 補 chunk 內容
-  - embed model：`@cf/baai/bge-large-en-v1.5`、batch size：50 篇/次、RRF 係數：k=60（預設值）
+  - embed model：`@cf/qwen/qwen3-embedding-0.6b`、batch size：50 chunks/次、RRF 係數：k=60（預設值）
 - [x] **Task 5：Auth — Session + Rate Limit（TDD）**（訪客 IP 限額 5 次/日）
 - [x] **Task 6：Login Page**
 - [x] **Task 7：Langfuse Helper**（basic tracing，先有可觀測性再加複雜策略）

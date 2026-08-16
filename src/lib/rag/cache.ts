@@ -1,4 +1,5 @@
 import { env } from 'cloudflare:workers'
+import { EMBEDDING_VERSION, embedQueries } from './embedding'
 
 interface CacheEnv {
   DB: D1Database
@@ -29,16 +30,28 @@ function cosineSimilarity(a: number[], b: number[]): number {
 
 async function embedQuery(query: string): Promise<number[]> {
   const { AI } = env as unknown as CacheEnv
-  const result = await AI.run('@cf/baai/bge-large-en-v1.5', { text: [query] }) as { data: number[][] }
-  return result.data[0]
+  const [queryVector] = await embedQueries(AI, [query])
+  return queryVector
+}
+
+export const SEMANTIC_CACHE_ID_PREFIX = EMBEDDING_VERSION
+export const SEMANTIC_CACHE_ID_PATTERN = `${SEMANTIC_CACHE_ID_PREFIX}:%`
+
+export async function buildSemanticCacheId(query: string): Promise<string> {
+  const id = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(query))
+  const hash = Array.from(new Uint8Array(id))
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('')
+    .slice(0, 32)
+  return `${SEMANTIC_CACHE_ID_PREFIX}:${hash}`
 }
 
 export async function lookupSemanticCache(query: string, threshold: number): Promise<SemanticCacheHit | null> {
   const { DB } = env as unknown as CacheEnv
   const queryVector = await embedQuery(query)
   const rows = await DB.prepare(
-    'SELECT id, response, confidence, query_vector FROM semantic_cache ORDER BY updated_at DESC LIMIT 25'
-  ).all<{ id: string; response: string; confidence: number; query_vector: string }>()
+    'SELECT id, response, confidence, query_vector FROM semantic_cache WHERE id LIKE ? ORDER BY updated_at DESC LIMIT 25'
+  ).bind(SEMANTIC_CACHE_ID_PATTERN).all<{ id: string; response: string; confidence: number; query_vector: string }>()
 
   let best: SemanticCacheHit | null = null
   let bestId: string | null = null
@@ -75,8 +88,7 @@ export async function lookupSemanticCache(query: string, threshold: number): Pro
 export async function storeSemanticCache(query: string, response: string, confidence: number): Promise<void> {
   const { DB } = env as unknown as CacheEnv
   const queryVector = await embedQuery(query)
-  const id = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(query))
-  const cacheId = Array.from(new Uint8Array(id)).map(byte => byte.toString(16).padStart(2, '0')).join('').slice(0, 32)
+  const cacheId = await buildSemanticCacheId(query)
   await DB.prepare(
     `INSERT INTO semantic_cache (id, query, response, query_vector, confidence, hit_count, created_at, updated_at)
      VALUES (?, ?, ?, ?, ?, 0, datetime('now'), datetime('now'))

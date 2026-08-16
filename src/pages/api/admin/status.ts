@@ -5,6 +5,7 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
+import { ACTIVE_EMBEDDING_PROVIDER } from '@/lib/rag/embedding'
 
 interface StatusItem {
   name: string
@@ -63,7 +64,14 @@ export const GET: APIRoute = async ({ cookies }) => {
   }
 
   // Get index stats
-  let index = { postChunks: 0, docChunks: 0, lastEmbed: null as string | null }
+  let index = {
+    postChunks: 0,
+    docChunks: 0,
+    lastEmbed: null as string | null,
+    embeddingProvider: ACTIVE_EMBEDDING_PROVIDER.id,
+    embeddingModel: ACTIVE_EMBEDDING_PROVIDER.model,
+    embeddingDimensions: ACTIVE_EMBEDDING_PROVIDER.dimensions,
+  }
   try {
     const postCount = await e.DB.prepare('SELECT COUNT(*) as c FROM post_chunks').first<{ c: number }>()
     const docCount = await e.DB.prepare('SELECT COUNT(*) as c FROM doc_chunks').first<{ c: number }>()
@@ -74,6 +82,9 @@ export const GET: APIRoute = async ({ cookies }) => {
       postChunks: postCount?.c ?? 0,
       docChunks: docCount?.c ?? 0,
       lastEmbed: lastEmbedRow?.updated_at ?? null,
+      embeddingProvider: ACTIVE_EMBEDDING_PROVIDER.id,
+      embeddingModel: ACTIVE_EMBEDDING_PROVIDER.model,
+      embeddingDimensions: ACTIVE_EMBEDDING_PROVIDER.dimensions,
     }
   } catch {
     // Tables may not exist yet
@@ -97,6 +108,5 @@ export const GET: APIRoute = async ({ cookies }) => {
 
   return json({ statuses, index, content })
 }
-
 
 

@@ -6,12 +6,12 @@ import {
   attachSearchMetrics,
   BM25_SHORT_CIRCUIT_THRESHOLD,
   buildFtsQuery,
-  EMBED_MODEL,
   getSearchMetrics,
   isPrecisionQuery,
   reciprocalRankFuse,
   shouldUseBm25ShortCircuit,
 } from './hybrid-search'
+import { embedQueries } from '../embedding'
 
 interface DocSearchRow extends SearchResult {
   type: 'doc' | 'custom'
@@ -79,8 +79,7 @@ async function fetchDocRowsByChunkIds(chunkIds: string[], sourceName?: string): 
 
 async function searchVectorDocs(query: string, limit: number, sourceName?: string): Promise<DocSearchRow[]> {
   const { VECTORIZE_INDEX, AI } = env as unknown as Env
-  const embResult = await AI.run(EMBED_MODEL, { text: [query] }) as { data: number[][] }
-  const queryVector = embResult.data[0]
+  const [queryVector] = await embedQueries(AI, [query])
 
   const results = await VECTORIZE_INDEX.query(queryVector, {
     topK: limit * 3,

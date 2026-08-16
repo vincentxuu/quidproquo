@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:workers'
 import { generateChunkId } from './chunk-id'
 import { buildContextualChunk } from './contextual'
-import { EMBED_BATCH_SIZE, EMBED_MODEL } from '../rag/tools/hybrid-search'
+import { EMBED_BATCH_SIZE, embedDocuments } from '../rag/embedding'
 import type { Env } from '@/lib/config/env'
 
 interface EmbedResult {
@@ -12,10 +12,9 @@ interface EmbedResult {
   nextOffset: number
 }
 
-async function embedTexts(texts: string[]): Promise<number[][]> {
+async function embedKnowledgeDocuments(texts: string[]): Promise<number[][]> {
   const { AI } = env as unknown as Env
-  const result = await AI.run(EMBED_MODEL, { text: texts }) as { data: number[][] }
-  return result.data
+  return embedDocuments(AI, texts)
 }
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
@@ -46,7 +45,7 @@ export async function embedPosts(offset = 0, limit = EMBED_BATCH_SIZE): Promise<
         date: row.created_at.slice(0, 10),
       }))
 
-      const embeddedBatch = await embedTexts(contextualBatch)
+      const embeddedBatch = await embedKnowledgeDocuments(contextualBatch)
 
       for (let index = 0; index < batch.length; index += 1) {
         const row = batch[index]
@@ -105,7 +104,7 @@ export async function embedDocs(): Promise<EmbedResult> {
         sourceUrl: row.source_url,
       }))
 
-      const embeddedBatch = await embedTexts(contextualBatch)
+      const embeddedBatch = await embedKnowledgeDocuments(contextualBatch)
 
       for (let index = 0; index < batch.length; index += 1) {
         const row = batch[index]

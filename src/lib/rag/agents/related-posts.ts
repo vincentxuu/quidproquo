@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { GraphState } from '../state'
 import type { Env } from '@/lib/config/env'
+import { embedQueries } from '../embedding'
 
 export async function relatedPostsNode(state: GraphState): Promise<Partial<GraphState>> {
   const { VECTORIZE_INDEX, AI, DB } = env as unknown as Env
@@ -9,8 +10,8 @@ export async function relatedPostsNode(state: GraphState): Promise<Partial<Graph
 
   const usedSlugs = new Set(state.search_results.map(r => r.slug).filter(Boolean))
 
-  const embResult = await AI.run('@cf/baai/bge-large-en-v1.5', { text: [query] }) as { data: number[][] }
-  const results = await VECTORIZE_INDEX.query(embResult.data[0], {
+  const [queryVector] = await embedQueries(AI, [query])
+  const results = await VECTORIZE_INDEX.query(queryVector, {
     topK: 6,
     filter: { type: { $eq: 'post' } },
     returnMetadata: 'all',

@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { LlamaDocument } from './documents'
 import type { Env } from '@/lib/config/env'
+import { embedDocuments } from '../../embedding'
 
 interface VectorizeMetadata {
   [key: string]: VectorizeMetadataValue
@@ -28,8 +29,7 @@ export async function embedDocumentVectors(documents: LlamaDocument[]): Promise<
   const { AI } = env as unknown as Env
   if (documents.length === 0) return []
   const texts = parseTextForEmbedding(documents)
-  const result = await AI.run('@cf/baai/bge-large-en-v1.5', { text: texts }) as { data: number[][] }
-  const vectors = result.data ?? []
+  const vectors = await embedDocuments(AI, texts)
 
   return documents.map((doc, index) => ({
     id: doc.id,

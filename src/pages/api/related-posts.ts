@@ -3,7 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
-import { EMBED_MODEL } from '@/lib/rag/tools/hybrid-search'
+import { embedDocuments } from '@/lib/rag/embedding'
 import { buildContextualChunk } from '@/lib/embed/contextual'
 
 export const GET: APIRoute = async ({ request }) => {
@@ -41,8 +41,7 @@ export const GET: APIRoute = async ({ request }) => {
     date: post.created_at.slice(0, 10),
   })
 
-  const embResult = await AI.run(EMBED_MODEL, { text: [contextual] }) as { data: number[][] }
-  const queryVector = embResult.data[0]
+  const [queryVector] = await embedDocuments(AI, [contextual])
 
   const vectorResults = await VECTORIZE_INDEX.query(queryVector, {
     topK: limit * 5,
