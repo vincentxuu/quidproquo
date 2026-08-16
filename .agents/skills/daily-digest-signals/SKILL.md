@@ -56,105 +56,92 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ## 搜尋方法
 
-對以下來源逐一掃描，每個來源取 **top 5-10 則**。Exa + Tavily 兩個都跑，合併結果去重。中文/台灣來源加重 Tavily（中文效果較好）。
+三層策略，總共約 18 個查詢：
 
-### 來源 1：Hacker News（社群風向）
+1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
+2. **大廠逐家查**（10 個 Tavily）— 只查最常發佈一手消息的大廠
+3. **社群 + 區域來源**（Exa + Tavily 各幾個）— HN、Reddit、中文、台灣
 
-```
-工具：mcp Exa → web_search_exa
-query: "site:news.ycombinator.com AI agent LLM tool"
-numResults: 10
-startPublishedDate: "{昨天 ISO 日期}"
-type: "auto"
-```
+所有結果在 Step 6b 用 watchlist 293 家公司名比對，小公司靠廣域查詢兜底。
 
-備選查詢：`site:news.ycombinator.com AI model release benchmark`
+### 第一層：廣域主題查詢（Tavily × 8）
 
-### 來源 2：HuggingFace（模型動態）
-
-```
-工具：mcp Exa → web_search_exa
-query: "site:huggingface.co trending model AI agent 2026"
-numResults: 5
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 3-9：大廠官方 Blog（廠商動態，逐家查）
-
-**⚠️ 必須用 Tavily（不是 Exa）**。CCR 環境的 Exa 不支援時間過濾，會回傳舊文。Tavily 的 `time_range: "day"` 能有效篩選最近 24h 內容。
-
-每家跑一個 Tavily 查詢。若當天無新文章該家跳過。
-
-| 查詢 | query | 工具 |
-|---|---|---|
-| Anthropic | `site:anthropic.com AI agent` | Tavily, time_range: "day" |
-| OpenAI | `site:openai.com AI agent` | Tavily, time_range: "day" |
-| Google AI | `site:blog.google/technology/ai` | Tavily, time_range: "day" |
-| Microsoft | `site:blogs.microsoft.com AI agent` | Tavily, time_range: "day" |
-| Meta AI | `site:ai.meta.com/blog` | Tavily, time_range: "day" |
-| NVIDIA | `site:blogs.nvidia.com AI` | Tavily, time_range: "day" |
-| Cloudflare | `site:blog.cloudflare.com AI workers` | Tavily, time_range: "day" |
-
-```
-每個查詢設定：
-  工具：mcp Tavily → tavily_search
-  max_results: 3
-  time_range: "day"
-```
-
-### 來源 10：Product Hunt AI
-
-```
-工具：mcp Exa → web_search_exa
-query: "site:producthunt.com AI agent tool 2026"
-numResults: 5
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 11-12：Reddit（社群風向，降權處理）
-
-```
-工具：mcp Exa → web_search_exa
-
-Q1: "site:reddit.com/r/MachineLearning AI agent 2026"
-Q2: "site:reddit.com/r/LocalLLaMA model release 2026"
-numResults: 5 each
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 13-15：產業新聞
-
-```
-工具：mcp Exa → web_search_exa
-
-Q1: "site:venturebeat.com AI agent 2026"
-Q2: "site:techcrunch.com AI agent 2026"
-Q3: "site:the-decoder.com AI 2026"
-numResults: 5 each
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 16-17：中文來源
-
-```
-工具：mcp Tavily → tavily_search（Tavily 對中文站效果較好）
-
-Q1: "site:36kr.com AI agent 人工智能"
-    days: 1, maxResults: 5
-Q2: "site:jiqizhixin.com AI agent 大模型"
-    days: 1, maxResults: 5
-```
-
-### 來源 18-19：台灣來源
+覆蓋整個 AI Agent 生態，不綁特定公司。
 
 ```
 工具：mcp Tavily → tavily_search
-
-Q1: "site:ithome.com.tw AI 人工智慧 agent"
-    days: 1, maxResults: 5
-Q2: "site:bnext.com.tw AI 人工智慧"
-    days: 1, maxResults: 5
+每個查詢：max_results: 10, time_range: "day"
 ```
+
+| # | query | 覆蓋 |
+|---|-------|------|
+| 1 | `AI agent news announcement launch` | 通用新聞 |
+| 2 | `AI model release new benchmark` | 模型發佈 |
+| 3 | `AI startup funding Series raise` | 融資 |
+| 4 | `AI agent security vulnerability CVE` | 資安 |
+| 5 | `AI agent framework SDK update release` | 框架更新 |
+| 6 | `AI agent tool MCP server open source` | 工具/開源 |
+| 7 | `AI agent enterprise deployment case study` | 企業落地 |
+| 8 | `AI regulation policy government` | 法規治理 |
+
+### 第二層：大廠逐家查（Tavily × 10）
+
+只查會在自家管道首發重大消息、且主流媒體可能延遲的大廠。
+
+```
+工具：mcp Tavily → tavily_search
+每個查詢：max_results: 3, time_range: "day"
+```
+
+| # | query |
+|---|-------|
+| 1 | `Anthropic Claude MCP agent` |
+| 2 | `OpenAI GPT agent Codex` |
+| 3 | `Google Gemini AI agent` |
+| 4 | `Microsoft Copilot Azure AI agent` |
+| 5 | `Meta Llama AI agent` |
+| 6 | `Amazon Bedrock Nova agent` |
+| 7 | `NVIDIA NIM inference agent` |
+| 8 | `Cloudflare Workers AI agent` |
+| 9 | `Cursor Anysphere coding agent` |
+| 10 | `LangChain LangGraph agent update` |
+
+### 第三層：社群 + 區域來源
+
+**社群（Exa × 3）**
+
+```
+工具：mcp Exa → web_search_exa
+numResults: 5 each
+```
+
+| # | query |
+|---|-------|
+| 1 | `site:news.ycombinator.com AI agent LLM tool` |
+| 2 | `site:reddit.com/r/MachineLearning AI agent` |
+| 3 | `site:reddit.com/r/LocalLLaMA model release` |
+
+**中文/台灣（Tavily × 4）**
+
+```
+工具：mcp Tavily → tavily_search
+max_results: 5, time_range: "day"
+```
+
+| # | query |
+|---|-------|
+| 1 | `site:36kr.com AI agent 人工智能` |
+| 2 | `site:jiqizhixin.com AI agent 大模型` |
+| 3 | `site:ithome.com.tw AI 人工智慧 agent` |
+| 4 | `site:bnext.com.tw AI 人工智慧` |
+
+### API 用量摘要
+
+| 工具 | 查詢數 | 說明 |
+|------|--------|------|
+| Tavily | 22 | 8 廣域 + 10 大廠 + 4 中文台灣 |
+| Exa | 3 | 社群（HN + Reddit） |
+| **總計** | **25** | |
 
 ### 去重與時間過濾
 
