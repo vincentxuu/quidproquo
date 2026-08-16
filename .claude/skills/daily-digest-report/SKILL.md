@@ -144,6 +144,10 @@ maxResults: 10
 
 ## 輸出格式
 
+### 定位
+
+日報是「分析為核心、新聞為素材」的綜合觀點文。Stage 1 各文章負責細節，日報負責**跨文章連線**——讀者看日報知道「今天合起來代表什麼」，想看細節再點進個別文章。
+
 ### Frontmatter
 
 ```yaml
@@ -153,7 +157,7 @@ date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
-description: "一句話概述今天最重要的事"
+description: "一句話判斷，不是事件列表"
 tldr: "3-5 行的今日重點，用分號隔開"
 draft: false
 series:
@@ -168,79 +172,74 @@ series:
 ### 內容結構（嚴格按以下順序）
 
 ```markdown
-## 今日重點摘要
+## 一句話判斷
 
-- {事件 1 的一句話結論，附來源連結}
-- {事件 2}
-- {事件 3}
-- {事件 4}（選填）
-- {事件 5}（選填）
+{今天所有事件串起來最重要的一個觀點，粗體。
+ 不是列表，是一句有立場的判斷。}
 
-## 廠商動態
+## 深度分析：{今日主題}
 
-### {公司名}
+{文章核心。600-800 字。從今天所有素材中找出跨領域的共同線索，
+ 用至少一個 MIS 框架（交易成本/互補資產/網路效應/五力/轉換成本）
+ 串起來寫成有論點的分析。用「我認為」開頭標記觀點。
+ 這一段是日報存在的理由——個別文章看不到的連線只有這裡能看到。}
 
-{1-2 段落描述該公司的動態。必須附來源連結。}
+## 今日動態
 
-### {公司名}
+{Stage 1 沒覆蓋到的新聞，分小節寫。有事才出現的小節直接省略。}
 
-{另一家公司...}
+### 廠商動態
+{公司產品更新、合作公告。1-2 段/家，附來源連結。}
 
-## 模型與基礎設施
+### 模型與基礎設施
+{新模型、定價變動、推理成本、Benchmark 異動。若今天 Stage 1 已有
+ model-card / pricing / benchmark 文章，這裡只寫一句摘要 + 連結到該文章，不重述。}
 
-{新模型發佈、定價變動、推理成本、Benchmark 異動。附模型卡數據（若有）。}
+### 資安事件
+{攻擊面 + 防禦技術成對出現。若今天 Stage 1 已有 security 文章，
+ 這裡只寫一句摘要 + 連結。}
 
-## 定價與 API 生命週期
+### 法規與治理
+{AI 法案、政府會議、合規要求變更。}
 
-{限時促銷窗口、API sunset 時程、用量政策變更。此段落有事才出現。}
+### 區域動態
+{中國 / 台灣 / 日韓 / 東南亞。區域生態獨立成段。}
 
-## Coding Agent 賽道
+### 商業案例 / 融資
+{融資：公司名、金額、投資人、一句話意義。若 Stage 1 已有 funding 文章，
+ 這裡只寫一句摘要 + 連結。}
 
-{Claude Code / Cursor / Devin / Windsurf / Cline / Aider 的最新狀態變化。無變化可省略。}
+## 關鍵數字
 
-## 工具與生態
+| 項目 | 數字 | 來源 |
+|------|------|------|
+| {今天最重要的 3-5 個數字，如定價、融資額、benchmark 分數、star 數} |
 
-{值得關注的 MCP server、SDK、開發工具。從 GitHub digest 和 tool post 提取。}
+## 今日 Digest 一覽
 
-## 技術進展
+{列出今天所有 Stage 1 產出的文章，一行一篇，附站內連結。不重述內容。}
 
-{框架版本更新、MCP spec 變更、協定動態、學術論文摘選。從 arxiv digest 和 framework post 提取。}
+- 📄 [AI Agent Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
+- 📄 [AI Agent GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
+- {其他當天產出的 Stage 1 文章...}
 
-## 商業案例 / 融資 / 併購
+## 明日關注
 
-{融資：公司名、金額、投資人、一句話意義。
- 併購：收購方、被收購方、金額、對生態的影響。
- 企業導入：成功案例與失敗信號並重。}
-
-## 資安事件與防禦技術
-
-{攻擊面追蹤 + 防禦技術追蹤，成對出現。此段落有事才出現。}
-
-## 法規與治理
-
-{AI 法案、政府會議、合規要求變更。此段落有事才出現。}
-
-## 中國 / 台灣 / 日韓動態
-
-{區域生態獨立成段，不混在「廠商動態」。追蹤：開源模型、Agent 平台、在地法規、投資動向。}
-
-## 觀察與洞察
-
-{2-4 段分析。必須使用至少一個 MIS 框架。
- 用「我認為」開頭標記觀點，與事實段落區分。}
+{2-3 bullet。根據今天的信號，明天值得追蹤什麼。
+ 例如「DeepSeek 漲價後競品會不會跟進」「Gemini 3.7 Flash 社群實測會出來」。}
 
 ## 今日收穫
 
 {1-3 句認知差。「之前以為 X，現在知道 Y」。不是摘要。}
 
-## 參考連結
+## 參考資料
 
-{所有來源的完整 URL，按出現順序排列，一行一個。}
+{所有來源的 Markdown 連結，格式 `- [標題](URL)`。一份即可，不要重複。}
 ```
 
 ---
 
-## 完整範例
+## 完整範例（節錄，展示新結構）
 
 ```markdown
 ---
@@ -249,82 +248,131 @@ date: 2026-08-17
 category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
-description: "Anthropic 發佈 Agent SDK 2.0 原生支援 MCP 編排；Cursor 年化營收 $500M；Baseten C 輪 $150M"
-tldr: "Anthropic Agent SDK 2.0 讓跨 MCP server 的 tool routing 變原生；Cursor 的 $500M ARR 是 coding agent 賽道最強的 PMF 信號；Baseten $13B 估值說明推理基礎設施比模型本身更值錢"
+description: "Agent 生態的價值正在從模型層移向基礎設施層——Baseten 估值超過多數模型公司，Cursor 的護城河不是模型而是 IDE 整合"
+tldr: "Anthropic Agent SDK 2.0 加深 MCP 編排的轉換成本；Cursor $500M ARR 證明 coding agent 價值在 IDE 整合不在模型；Baseten $13B 估值說明推理基礎設施比訓練模型更值錢；台智雲企業 Agent 平台主打資料主權"
 draft: false
 series:
   name: "AI Agent 日報"
   order: 2
 ---
 
-## 今日重點摘要
+## 一句話判斷
 
-- Anthropic 發佈 [Agent SDK 2.0](https://www.anthropic.com/news/agent-sdk-2)，原生支援跨 MCP server 的 tool routing 和 session 記憶管理
-- Cursor [年化營收達 $500M](https://techcrunch.com/2026/08/16/cursor-500m-arr/)，同時發佈企業版 Background Agents
-- Baseten 完成 [$150M C 輪](https://www.businesswire.com/news/baseten-series-c)，估值 $13B，客戶含 Cursor/Notion/Mercor
-- 台智雲推出[企業 Agent 開發平台](https://www.ithome.com.tw/news/12345)，整合 NVIDIA NIM，強調資料主權
+**Agent 生態的價值高地正在從「誰的模型最強」轉向「誰的基礎設施最不可替代」——今天三個獨立事件從不同角度確認了這個結構性轉變。**
 
-## 廠商動態
+## 深度分析：基礎設施層正在比模型層更值錢
 
-### Anthropic
+我認為今天三件事串起來看，指向一個不可逆的結構性轉變。
 
-Agent SDK 2.0 是 Claude 生態的重大更新。最核心的變化是 MCP 編排從「開發者自己接」變成「SDK 原生支援」——一個 Agent 可以同時連多個 MCP server，SDK 自動做 tool discovery 和 routing。另外內建的 session 記憶管理讓長程任務不需要自己寫 checkpointer。（[來源](https://www.anthropic.com/news/agent-sdk-2)）
+從互補資產的角度：Cursor 的 $500M ARR 證明 coding agent 的價值不在「用哪個模型」，而在 IDE 整合和開發者體驗。Cursor 可以換底層模型（事實上它已經支援 Claude/GPT/自建模型），但開發者換不了 Cursor 的 IDE 體驗——這是經典的互補資產鎖定。（框架：互補資產）
 
-### Cursor (Anysphere)
+Baseten 的 $13B 估值也在說同一件事：推理基礎設施是 Agent 的必要互補資產。模型可以被替換，但低延遲、高吞吐量的推理服務不行。當 Baseten 的估值超過多數模型公司，市場已經在用真金白銀定價「基礎設施 > 模型」。
 
-$500M ARR 讓 Cursor 坐穩 coding agent 龍頭。更值得注意的是同步發佈的 Background Agents：可在雲端持續跑 coding task，開發者不需要盯著 IDE。這把 coding agent 從「互動式助手」推向「自主式工人」。（[來源](https://techcrunch.com/2026/08/16/cursor-500m-arr/)）
+Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發者用了原生 MCP 編排，遷移到其他框架的成本就不只是改幾行 API call，而是要重寫整個 tool routing 邏輯。Anthropic 正在把自己從「模型供應商」重新定位成「Agent 基礎設施平台」。（框架：轉換成本）
 
-## 模型與基礎設施
+這對從業者的意義：如果你在做 Agent 產品，護城河不在「接了哪個最強模型」——因為模型會被追平且可替換。護城河在你的使用者離開後要重建多少東西：資料、工作流、整合、習慣。
 
-無新模型發佈。
+## 今日動態
 
-## 工具與生態
+### 廠商動態
 
-今日 GitHub trending 出現 3 個值得關注的 MCP server：mcp-postgres（直接讓 Agent 查 PostgreSQL）、mcp-figma（讀 Figma 設計稿產生程式碼）、mcp-jira（Agent 操作 Jira ticket）。MCP server 生態正在從「玩具」進入「企業工具鏈」。
+**Anthropic**：Agent SDK 2.0 原生支援跨 MCP server 的 tool routing 和 session 記憶管理，一個 Agent 可同時連多個 MCP server 做自動 discovery。（[來源](https://www.anthropic.com/news/agent-sdk-2)）
 
-## 商業案例 / 融資 / 併購
+**Cursor (Anysphere)**：$500M ARR，同步發佈企業版 Background Agents——可在雲端持續跑 coding task，把 coding agent 從「互動式助手」推向「自主式工人」。（[來源](https://techcrunch.com/2026/08/16/cursor-500m-arr/)）
 
-**Baseten C 輪 $150M**：推理基礎設施公司，估值 $13B。Lightspeed 領投。客戶包含 Cursor、Notion、Mercor。值得注意的是 Baseten 的估值已超過多數模型公司——市場在定價「推理基礎設施」比「訓練新模型」更值錢。（[來源](https://www.businesswire.com/news/baseten-series-c)）
+### 區域動態
 
-## 中國 / 台灣 / 日韓動態
+**台灣**：台智雲推出企業級 Agent 開發平台，整合 NVIDIA NIM，在台灣本地 GPU 跑 Agent workflow，主打資料主權。這是台灣 AI 基礎設施從「賣算力」轉向「賣平台」的信號。（[來源](https://www.ithome.com.tw/news/12345)）
 
-**台灣**：台智雲推出企業級 Agent 開發平台，整合 NVIDIA NIM 微服務。可在台灣本地 GPU 叢集上跑 Agent workflow，主打資料主權（資料不出境）。這是台灣 AI 基礎設施從「賣算力」轉向「賣平台」的信號。（[來源](https://www.ithome.com.tw/news/12345)）
+### 商業案例 / 融資
 
-## 觀察與洞察
+**Baseten C 輪 $150M**：估值 $13B，Lightspeed 領投。客戶含 Cursor、Notion、Mercor。（[來源](https://www.businesswire.com/news/baseten-series-c)）
 
-我認為今天三件事串起來看，指向 Agent 生態的一個結構性轉變：**基礎設施層正在比模型層更值錢**。
+## 關鍵數字
 
-從互補資產的角度：Cursor 的 $500M ARR 證明 coding agent 的價值不在「用哪個模型」，而在 IDE 整合和開發者體驗。Cursor 可以換底層模型（事實上它已經支援 Claude/GPT/自建模型），但開發者換不了 Cursor 的 IDE 體驗——這是經典的互補資產鎖定。
+| 項目 | 數字 | 來源 |
+|------|------|------|
+| Cursor ARR | $500M | [TechCrunch](https://techcrunch.com/2026/08/16/cursor-500m-arr/) |
+| Baseten 估值 | $13B | [BusinessWire](https://www.businesswire.com/news/baseten-series-c) |
+| Baseten C 輪 | $150M | 同上 |
+| MCP server 數量 | 5,000+ | Anthropic MCP Registry |
 
-Baseten 的 $13B 估值也在說同一件事：推理基礎設施是 Agent 的必要互補資產。模型可以被替換，但低延遲、高吞吐量的推理服務不行。
+## 今日 Digest 一覽
 
-Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發者用了原生 MCP 編排，遷移到其他框架的成本就不只是改幾行 API call，而是要重寫整個 tool routing 邏輯。
+- 📄 [AI Agent Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- 📄 [AI Agent GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
+
+## 明日關注
+
+- Anthropic Agent SDK 2.0 發佈後社群反應：LangGraph/CrewAI 會如何回應 MCP 原生編排？
+- Baseten $13B 估值會不會帶動推理基礎設施賽道（Together AI、Fireworks、Modal）新一輪融資？
 
 ## 今日收穫
 
-之前以為 AI 產業的價值主要在模型層（誰做出最強的模型誰最值錢），今天看到 Baseten 的估值和 Cursor 的 ARR 後意識到，Agent 時代的價值正在從「訓練最強模型」移向「提供最好的執行基礎設施」。推理基礎設施和開發者工具是新的價值高地。
+之前以為 AI 產業的價值主要在模型層，今天意識到 Agent 時代的價值正在移向基礎設施——推理服務和開發者工具是新的價值高地，模型反而是可替換的商品。
 
-## 參考連結
+## 參考資料
 
-- https://www.anthropic.com/news/agent-sdk-2
-- https://techcrunch.com/2026/08/16/cursor-500m-arr/
-- https://www.businesswire.com/news/baseten-series-c
-- https://www.ithome.com.tw/news/12345
+- [Anthropic Agent SDK 2.0](https://www.anthropic.com/news/agent-sdk-2)
+- [Cursor 年化營收達 $500M — TechCrunch](https://techcrunch.com/2026/08/16/cursor-500m-arr/)
+- [Baseten C 輪 $150M — BusinessWire](https://www.businesswire.com/news/baseten-series-c)
+- [台智雲企業 Agent 開發平台 — iThome](https://www.ithome.com.tw/news/12345)
 ```
+
+---
+
+## 覆蓋率檢查流程（寫完後必做）
+
+寫完日報後、commit 之前，必須執行以下覆蓋率檢查：
+
+### Check 1：Stage 1 文章全部引用
+
+```bash
+# 列出今天所有 Stage 1 產出
+ls src/content/posts/daily/${TODAY}-*.md | grep -v "ai-agent-daily"
+```
+
+每一篇都必須出現在「今日 Digest 一覽」中。漏了就補。
+
+### Check 2：Signals JSON 全部掃過
+
+```bash
+# 若 signals JSON 存在，檢查有哪些 category
+cat src/data/daily-signals/${TODAY}.json | jq '[.signals[].category] | unique'
+```
+
+每個 category 至少要在「今日動態」或「深度分析」中被提及或有意識地排除（在 commit message 中說明排除理由）。
+
+### Check 3：不重述 Stage 1
+
+日報中提及 Stage 1 已有詳細文章的事件時，只寫一句摘要 + 站內連結，不複製段落。逐段檢查：如果某段超過 3 句且跟某篇 Stage 1 文章高度重疊，壓縮成一句 + 連結。
+
+### Check 4：深度分析有連線
+
+「深度分析」段落必須引用至少 2 個不同來源的事件，並用 MIS 框架串起來。如果只分析了一件事，那不是「連線」而是「評論」——退回重寫。
+
+### Check 5：數字表完整
+
+「關鍵數字」表格至少 3 行，每行都有來源連結。
 
 ---
 
 ## 品質檢查清單
 
-- [ ] 「今日重點摘要」有 3-5 bullet，每個附來源連結
+- [ ] 「一句話判斷」是有立場的觀點，不是事件列表
+- [ ] 「深度分析」600-800 字，引用 2+ 個事件，標明使用的 MIS 框架
+- [ ] 「今日動態」只寫 Stage 1 沒覆蓋的新聞；Stage 1 已有的只放一句摘要 + 連結
+- [ ] 覆蓋率 Check 1 通過：所有 Stage 1 文章都在「今日 Digest 一覽」
+- [ ] 覆蓋率 Check 2 通過：signals JSON 的每個 category 都被處理
+- [ ] 覆蓋率 Check 3 通過：沒有段落跟 Stage 1 文章重疊超過 3 句
+- [ ] 「關鍵數字」表格 ≥ 3 行，每行有來源
+- [ ] 「明日關注」有 2-3 bullet，基於今天的信號做前瞻
 - [ ] 每個事實主張都有來源（不能「據報導」沒出處）
 - [ ] 數字精確（$500M 不寫「約五億美元」）
 - [ ] 觀點段落用「我認為」開頭
-- [ ] 「觀察與洞察」使用了至少 1 個 MIS 框架（標明用了哪個）
 - [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y）
-- [ ] 有內容的段落才寫，沒事件的段落完全不出現
+- [ ] 有內容的小節才寫，沒事件的小節直接省略
 - [ ] 全文 < 3000 字
 - [ ] `draft: false` 已明確寫出
-- [ ] `description` 和 `tldr` 已填寫
-- [ ] 「參考連結」包含所有文中引用的 URL
-- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] `description` 是一句判斷（不是事件列表）
+- [ ] 文末有「## 參考資料」區段，格式 `- [標題](URL)`（`pnpm check:references` 會擋）
