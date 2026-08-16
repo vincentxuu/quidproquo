@@ -615,3 +615,14 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 
 - 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro
   check/build 通過。當時 `pnpm verify` 被未追蹤 Arxiv 文章缺參考資料擋住。
+
+- 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
+  「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
+  拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
+  讀成拆機影片，而這系列一台都沒拆。content-plan-drone.md:481 當初決定
+  「series 只給支線 D 用」，該判斷已過期（38 篇跨 5 分類且互相回指）。另在
+  SERIES_DEFINITIONS 改為 slug-keyed、names 帶 zh/en 兩語，七個系列全部註冊。
+
+- 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
+  漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
+  加 3 行 line-clamp 當保險。正文與 description 未動。
