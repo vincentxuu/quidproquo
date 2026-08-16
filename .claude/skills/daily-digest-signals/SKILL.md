@@ -31,8 +31,11 @@ cat src/data/daily-signals/schema.ts
 # Step 5: 執行「搜尋方法」逐個來源掃描
 # Step 6: 執行「信號處理」過濾、分類、交叉驗證
 # Step 7: 寫入 JSON
-# Step 8: 提交
-git add src/data/daily-signals/${TODAY}.json
+# Step 8: 更新跨天去重檔案
+#   把本次收錄的所有 sourceUrl 追加到 seen-signal-urls.txt
+echo "${TODAY}: $(jq -r '[.signals[].sourceUrl] | join(", ")' src/data/daily-signals/${TODAY}.json)" >> src/data/daily-signals/seen-signal-urls.txt
+# Step 9: 提交
+git add src/data/daily-signals/${TODAY}.json src/data/daily-signals/seen-signal-urls.txt
 git commit -m "chore(daily): signals ${TODAY}"
 git push origin main
 ```
@@ -150,9 +153,18 @@ Q2: "site:bnext.com.tw AI 人工智慧"
     days: 1, maxResults: 5
 ```
 
-### 去重
+### 去重與時間過濾
 
-所有來源合併後，用 URL 去重。此時應有 50-100 則原始結果。
+所有來源合併後，依序執行：
+
+1. **URL 去重**：同一 URL 只保留一筆
+2. **跨天去重**：讀取 `src/data/daily-signals/seen-signal-urls.txt`，排除已收錄過的 URL
+3. **時間過濾**：
+   - 有 published date 的結果：只保留 48 小時內的（`>= ${YESTERDAY}`）
+   - published date 為 N/A 的結果：**保留但標記** `"dateConfidence": "unverified"`
+   - **CCR 環境的 Exa tool 不支援 `startPublishedDate` 參數**，所以必須在這一步手動過濾，不能依賴搜尋工具的日期篩選
+
+此時應有 50-100 則原始結果。
 
 ---
 
@@ -164,6 +176,7 @@ Q2: "site:bnext.com.tw AI 人工智慧"
 - 與 AI Agent 四圈完全無關（純硬體、純晶片、非 AI 的軟體新聞）
 - 純廣告或付費內容推廣
 - 內容空洞（只有標題沒有實質內容的帖子）
+- published date 確認超過 7 天的結果（即使搜尋工具回傳了）
 
 ### Step 6b：比對 watchlist 公司
 
@@ -238,6 +251,8 @@ Q2: "site:bnext.com.tw AI 人工智慧"
   "title": "信號標題（原文語言）",
   "source": "來源簡稱（如 anthropic-blog / techcrunch / hn / reddit-ml）",
   "sourceUrl": "https://...",
+  "publishedDate": "2026-08-16",
+  "dateConfidence": "verified",
   "category": "vendor-update",
   "companies": ["anthropic"],
   "section": "A1",
@@ -247,6 +262,11 @@ Q2: "site:bnext.com.tw AI 人工智慧"
   "crossValidated": true,
   "crossValidationSources": ["techcrunch", "venturebeat"]
 }
+```
+
+`dateConfidence` 值：
+- `"verified"` — 搜尋結果有明確的 published date，且在 48h 內
+- `"unverified"` — 搜尋結果的 published date 為 N/A，無法確認時效性
 ```
 
 ---
@@ -342,11 +362,18 @@ Q2: "site:bnext.com.tw AI 人工智慧"
 
 - [ ] 信號數量在 30-50 之間
 - [ ] 每個 signal 都有 `sourceUrl`（可存取的 URL）
+- [ ] 每個 signal 都有 `publishedDate` 和 `dateConfidence`
+- [ ] `dateConfidence: "unverified"` 的比例 < 50%（超過就警告，表示時間過濾失效）
+- [ ] 沒有 `publishedDate` 超過 7 天前的信號
 - [ ] `category` 只用 schema.ts 定義的 14 種枚舉值
 - [ ] `relevance` < 0.5 的信號已排除
 - [ ] 社群來源（HN/Reddit）不算獨立來源做交叉驗證
 - [ ] 中文來源涉及具體數字的信號，已嘗試用英文來源交叉驗證
 - [ ] `companies` slug 與 watchlist 一致（不是自己編的 slug）
+- [ ] 跨天去重：`seen-signal-urls.txt` 中的 URL 沒有出現在本次 signals 中
 - [ ] JSON 格式正確（可被 `JSON.parse` 解析）
 - [ ] `signalCount` 與 `signals.length` 一致
+- [ ] `seen-signal-urls.txt` 已追加本次所有 URL
+- [ ] commit 包含 JSON + seen-signal-urls.txt 兩個檔案
 - [ ] commit message 是 `chore(daily): signals ${TODAY}`（不是 `post(daily)`）
+- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
