@@ -4,8 +4,8 @@ date: 2026-08-14
 category: daily
 tags: [ai-agent, arxiv, daily, agent-harness, agent-evaluation, agent-safety]
 lang: zh-TW
-description: "今天三篇都指向同一件事——模型之外的 harness 才是決定 Agent 品質的工程面：指令遵從度被高估、安全邊界可以從軌跡自動學、驗證器分解讓自我改進便宜 5 倍"
-tldr: "Harness-IF 揭示 Coding Agent 的指令遵從度被高估 3.6-7.4 個百分點，因為模型本來就會做的事被算成了遵從；SHE 把 harness 拆成四個安全元件並從軌跡失敗自動演化，ASR 降低 3.1 倍且正確率提升；SBCO 用分解式驗證器銀行搭配文本梯度做 harness 自我改進，在規劃任務上以 4-5.5 倍更少的算力追平 Gödel Machine"
+description: "今天三篇都指向同一件事——模型之外的 harness 才是決定 Agent 品質的工程面：指令遵從度被高估、harness 可以分層自我演化、驗證器分解讓自我改進便宜 5 倍"
+tldr: "Harness-IF 揭示 Coding Agent 的指令遵從度被高估 3.6-7.4 個百分點，因為模型本來就會做的事被算成了遵從；HSI 用三層架構讓凍結的 LLM 自己演化 harness，BabyAI +39.3、Crafter +33.0，但碰到模型能力天花板就停；SBCO 用分解式驗證器銀行搭配文本梯度做 harness 自我改進，在規劃任務上以 4-5.5 倍更少的算力追平 Gödel Machine"
 series:
   name: "AI Agent Arxiv Digest"
   order: 82
@@ -13,15 +13,15 @@ series:
 
 ## 今日總覽
 
-今天三篇論文都指向同一個正在成形的認知：Agent 的效能瓶頸不在模型，而在 harness——包住模型的那層工程膠水（system prompt、規則、工具策略、驗證迴圈）。Harness-IF 從評測端揭穿一個數字幻覺：現有指令遵從率被高估了，因為模型「本來就會做的事」被算成了遵從。SHE 從安全端把 harness 拆成四塊獨立元件，讓安全邊界能從失敗軌跡自動演化。SBCO 則從效能端證明，只要把驗證器和修復策略結構化，harness 的自我改進可以比遞迴式自我修改便宜 5 倍。三篇合起來說的是同一件事：**harness 是可以被量測、可以被拆解、可以被自動優化的獨立工程面**。
+今天三篇論文都指向同一個正在成形的認知：Agent 的效能瓶頸不在模型，而在 harness——包住模型的那層工程膠水（system prompt、規則、工具策略、驗證迴圈）。Harness-IF 從評測端揭穿一個數字幻覺：現有指令遵從率被高估了，因為模型「本來就會做的事」被算成了遵從。HSI 從架構端提出分層自我演化：讓同一個凍結的 LLM 在三個層級上改自己的 harness，中等難度任務大幅提升，但碰到模型能力天花板就完全停滯。SBCO 則從效能端證明，只要把驗證器和修復策略結構化，harness 的自我改進可以比遞迴式自我修改便宜 5 倍。三篇合起來說的是同一件事：**harness 是可以被量測、可以被分層演化、可以被自動優化的獨立工程面——但它有硬上限**。
 
 ## 讀這篇前該知道的詞
 
 | 詞 | 白話解釋 |
 |---|---|
 | Agent Harness（鷹架） | 包住 LLM 的所有工程元件——system prompt、工具定義、記憶管理、權限控制、執行迴圈。模型是引擎，harness 是車身 |
-| ASR（攻擊成功率） | 對抗攻擊讓 Agent 做出不安全行為的比例；越低越好 |
 | Against-Prior Accuracy | Harness-IF 提出的新指標：只計算「模型預設不會做、加了規則才做」的那些指令的遵從率，排除巧合 |
+| Backbone Capability Bound | HSI 提出的概念：harness 再怎麼演化，也無法超越底層模型的能力天花板——模型做不到的事，改 harness 也沒用 |
 | 文本梯度（TextGrad） | 用自然語言批評代替數值梯度，讓 LLM 的 prompt 和策略能被「微分」優化 |
 | 驗證器銀行（Verifier Bank） | SBCO 學出的一組 per-constraint 檢查器，每個只負責檢查一條約束是否被滿足 |
 
@@ -72,49 +72,50 @@ Coding Agent 的指令遵從率被系統性高估——模型「本來就會做�
 
 ---
 
-## 論文二｜SHE：讓安全 Harness 從失敗中自動演化
+## 論文二｜HSI：讓凍結的 LLM 自己演化自己的 Harness
 
-**SHE: Trajectory-driven Safety Harness Evolution for LLM Agents**
-Wanying Qu, Qinghua Mao, Yu Li et al.（上海 AI Lab / 復旦 / 上交 / 港科大）　·　arxiv: 2608.09885
+**Hierarchical Self-Improvement: A Framework for Task-Specific Evolvable Agent Harnesses**
+Tailin Zhou　·　arxiv: 2608.08466
 
-連結: [arxiv](https://arxiv.org/abs/2608.09885) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09885)
+連結: [arxiv](https://arxiv.org/abs/2608.08466) · [alphaxiv](https://www.alphaxiv.org/abs/2608.08466)
 
 ### TL;DR
 
-把 Agent harness 拆成四個安全元件（System Prompt、Rule Bank、Safety Memory、Tool Policy），用歸因導向的演化迴圈從軌跡失敗自動學習邊界修正，ASR 降低 3.1 倍且無損正確率。
+讓同一個凍結的 LLM 在三個層級上改自己的 harness（task harness → evolver → meta-evolver），中等難度任務大幅提升（BabyAI +39.3、Crafter +33.0），但碰到模型能力天花板（NLE）就完全無效。
 
 ### Read Priority
 
-必讀 — Agent 安全的實踐者終於有了一個「安全不是一坨 prompt，而是四個可獨立演化的元件」的具體架構。
+必讀 — 如果你想知道 harness 自我演化到底能走多遠、硬上限在哪裡，這篇是目前最清楚的實證邊界。
 
 ### 領域背景
 
-現有 Agent 安全機制把 harness 當作靜態部署物：寫好一版 system prompt 加一套工具限制就上線。問題是新風險不斷出現，而 harness 各部分的安全職責混在一起，改一個地方可能搞壞另一個。之前的 SafeHarness 是靜態的，不會從失敗中學。
+Agent harness 演化有兩個未解問題：一是現有方法依賴外部更強的模型當「設計師」，能不能讓模型自己改自己的 harness？二是自我改進的增益到底來自 harness 變好，還是只是多試了幾次（test-time scaling）？之前的 Gödel Machine 風格方法沒有區分這兩個效果。
 
 ### 中階導讀
 
-- **問題**：想像一個保全系統，攝影機、門禁、警報器全綁在一塊電路板上。要升級警報器就得拆整塊板。SHE 的做法是把它們拆成四個獨立模組，每個模組可以單獨升級。
-- **方法**：SHE 把 harness 分成四個元件，每個有明確的安全職責。演化迴圈三步走：①從軌跡失敗做結構化診斷（歸因到具體元件），②對該元件做邊界修正，③用安全-效用雙指標驗證。跑 20 輪演化，每輪覆蓋 15 個任務 × 6 種攻擊條件。
-- **為什麼重要**：安全不再是「寫更嚴格的 prompt」，而是一個可以持續迭代的工程流程。四元件分解讓你知道「這次失敗是 Tool Policy 的問題還是 Rule Bank 的問題」。
+- **問題**：想像一個工廠的生產線（harness）和調整生產線的工程師（evolver）是同一個人。他一邊跑生產線一邊改生產線，怎麼保證改對了？再往上，誰來改「工程師的改法」？
+- **方法**：HSI 建了三層結構：底層是 task harness（跑任務），中層是 evolver（改 harness），頂層是 meta-evolver（改 evolver 的策略）。關鍵設計是 thinking-on/off：跑任務時關閉推理（fixing 模型能力），改 harness 時開啟推理。這樣就能乾淨地分離「harness 變好」和「模型想更久」兩個效果。
+- **為什麼重要**：HSI 同時回答了兩個問題——harness 自我演化確實有效（中等難度任務大幅提升），但有硬上限（模型能力不夠的任務怎麼改 harness 都沒用）。這讓你知道什麼時候該投資 harness、什麼時候該換模型。
 
 ### 深入要點
 
-- 基準：Agent-SafetyBench（6 種攻擊條件），ASR 從 17.1% 降到 5.5%（vs. 靜態 SafeHarness）
-- 正確率（UA）同時從 31.6% 提升到 47.6%——安全和效用不是零和
-- Held-out AgentHarm：Harm Score 從 19.8% 降到 9.8%，拒絕率從 78.4% 升到 86.4% ⚠️（SHE 團隊自測）
-- 演化模型可換：GPT-5.5（R17 最佳）、DeepSeek-V3.2（R03 最佳）、GLM-5.2（R05 最佳）各有不同安全-效用取捨
-- 落地門檻：需要可重跑的軌跡環境和結構化評分；20 輪 × 90 次 rollout 的演化成本不低
-- 與 MCP / LangGraph 架構可整合：四元件對應到現有 harness 的 system prompt、middleware、memory、tool permissions
-- Limitation：目前只在模擬評測環境驗證，真實部署的風險分布可能不同
+- 基準：BALROG（BabyAI、Crafter、TextWorld、MiniHack、NLE），DeepSeek-V4-Flash-Preview 凍結
+- BabyAI +39.3、Crafter +33.0、TextWorld +25.0、MiniHack +15.0（raw % Progress）
+- BabaIsAI held-out 泛化：BreakStop 0.98、GoTo 1.00（20% unseen split）⚠️（作者自測）
+- NLE（NetHack）：harness 演化完全無效，零提升——這是 backbone capability bound 的實證
+- thinking-on/off 設計隔離貢獻：跑任務關推理 → 增益純粹來自 harness 改善
+- 落地門檻：需要可重跑的任務環境做反饋迴圈；meta-evolver 層仍用凍結的外部 anchor 防止失控
+- 與 Claude Code / LangGraph 架構的關聯：三層分離對應 task agent / orchestrator / meta-config
+- Limitation：只在遊戲/模擬環境驗證；真實工作負載的 feedback-fidelity bound 未知
 
 ### Reviewer 一句話評
 
-四元件分解和歸因導向演化的設計清楚有用，是 Agent 安全工程化的重要一步。但 20 輪演化的計算成本和評測環境的代表性仍需驗證。
+三層架構設計清晰，thinking-on/off 是巧妙的因果隔離手段。但 NLE 的零提升也說明這不是銀彈——什麼時候該停止改 harness、改去換模型，還需要更便宜的診斷方法。
 
 ### 給你的 take-away
 
-- 如果你在做 Agent 安全：把 harness 拆成 System Prompt / Rule Bank / Safety Memory / Tool Policy 四塊，每塊獨立版本控制和回歸測試
-- 如果你在做 Agent 平台：SHE 的「歸因到元件 → 修正邊界 → 雙指標驗證」三步迴圈可以直接做成 CI/CD 管線的一環
+- 如果你在做 Agent 平台：HSI 的 thinking-on/off 設計可以直接借用——在評估 harness 改動時，固定模型推理模式，才能知道增益是 harness 帶來的還是推理帶來的
+- 如果你在決定投資方向：先在你的任務上跑一個 baseline（凍結模型 + 最小 harness），如果 baseline 已經接近零，改 harness 不會有用，應該先升級模型
 
 ---
 
@@ -166,10 +167,10 @@ block coordinate ascent + 文本梯度的設計優雅且高效，驗證器品質
 
 ## 今日收穫
 
-之前以為 harness 只是「包住模型的膠水程式碼」，今天發現它正在成為一個獨立的工程學科——可以量測（Harness-IF 的 AP-Acc）、可以拆解成有明確職責的元件（SHE 的四元件）、可以用結構化方法自動優化（SBCO 的 block coordinate ascent）。模型能力的天花板短期內很難突破，但 harness 的改進空間幾乎是無限的，而且成本低得多。
+之前以為 harness 只是「包住模型的膠水程式碼」，今天發現它正在成為一個獨立的工程學科——可以量測（Harness-IF 的 AP-Acc）、可以分層自我演化（HSI 的三層架構）、可以用結構化方法自動優化（SBCO 的 block coordinate ascent）。但 HSI 的 NLE 實驗也給了一記冷水：harness 改進有硬上限，模型能力不夠的任務怎麼改都沒用。投資 harness 還是投資模型，不是信仰問題，而是需要先跑 baseline 才能回答的實證問題。
 
 ## 參考資料
 
-- [arxiv:2608.09885](https://arxiv.org/abs/2608.09885)
+- [arxiv:2608.08466](https://arxiv.org/abs/2608.08466)
 - [arxiv:2608.10157](https://arxiv.org/abs/2608.10157)
 - [arxiv:2608.11727](https://arxiv.org/abs/2608.11727)
