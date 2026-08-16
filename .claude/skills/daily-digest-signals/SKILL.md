@@ -171,6 +171,10 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | WebFetch |
 | 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | WebFetch |
 | 48 | `https://manus.im/blog` | Manus | WebFetch |
+| 49 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | WebFetch |
+| 50 | `https://github.com/Tencent` | 騰訊（repo 動態） | WebFetch |
+| 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | WebFetch |
+| 52 | `https://github.com/baidu` | 百度（repo 動態） | WebFetch |
 
 處理方式：
 1. 抓回最近 5 篇的日期和標題
@@ -213,7 +217,7 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 50 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
+| WebFetch | 54 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
 | firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
 | **總計** | **73** | 搜尋 API 只用 15 次 |
 
