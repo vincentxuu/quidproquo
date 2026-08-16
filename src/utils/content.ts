@@ -3,7 +3,10 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Post = CollectionEntry<'posts'>;
 
 export function isPublishedAt(date: Date, now = new Date()): boolean {
-  return date.getTime() <= now.getTime();
+  const taipeiOffset = 8 * 60 * 60 * 1000;
+  const taipeiNow = new Date(now.getTime() + taipeiOffset);
+  const taipeiToday = new Date(Date.UTC(taipeiNow.getUTCFullYear(), taipeiNow.getUTCMonth(), taipeiNow.getUTCDate(), 23, 59, 59, 999));
+  return date.getTime() <= taipeiToday.getTime();
 }
 
 export function isPublishedPostData(
