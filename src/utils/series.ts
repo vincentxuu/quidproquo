@@ -72,6 +72,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'cs230',
+    names: { 'zh-TW': 'Stanford CS230 導讀', en: 'Reading Stanford CS230' },
+    descriptions: {
+      'zh-TW':
+        '把 Stanford CS230（2025 秋季）九講逐講讀完：不只記錄課堂講了什麼，也補上課後到現在這領域變了什麼，以及它和站上既有實戰系列的對照。',
+      en: 'A lecture-by-lecture reading of Stanford CS230, Autumn 2025 — what was taught, what has changed since, and where it agrees or disagrees with the practice written up elsewhere on this site.',
+    },
+  },
+  {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
