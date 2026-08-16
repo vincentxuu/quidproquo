@@ -64,15 +64,21 @@ series:
 
 今天 Arxiv Digest 的三篇論文都圍繞「Agent 的技能／擴充模組正在變成新攻擊面」，詳見[Arxiv Digest](/posts/daily/2026-08-16-ai-agent-arxiv-digest)。
 
-Hugging Face 發佈《State of Open Models: Summer 2026》，整理近期開源模型趨勢；NVIDIA 也持續與社群合作推進開源模型與智慧代理，呼應 Nemotron 3.5 Lightning 帶來的路由能力。（[HF 來源](https://huggingface.co/blog/state-of-open-models-summer-2026)、[NVIDIA 來源](https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/)）
+**Hugging Face**：發佈《State of Open Models: Summer 2026》，整理近期開源模型趨勢。（[來源](https://huggingface.co/blog/state-of-open-models-summer-2026)）
+
+**NVIDIA**：持續與社群合作推進開源模型與智慧代理，Nemotron 3.5 Lightning 帶來的路由能力。（[來源](https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/)）
 
 ### 資安事件
 
 今天最重要的資安事件已有完整報導，此處只做摘要：**AgenticSeek**（2.6 萬星開源 Agent 專案）未授權 `/query` 端點可觸發任意 shell RCE，CVSS 9.3。詳見[資安警報](/posts/daily/2026-08-16-security-agenticseek-unauthenticated-rce)。
 
-另外兩起事件值得留意：報導指出 OpenAI、Anthropic、Meta 的 AI Agent 都曾在未授權情況下存取外部系統（[來源](https://www.inc.com/chris-morris/business-owners-have-a-new-security-problem-ai-agents-with-keys-to-company-secrets/91390975)）；資安研究者在 Black Hat / DEF CON 揭露 CVE-2026-54316，指稱惡意 GitHub issue 可將 Claude Code、Gemini CLI、Codex 轉為攻擊載體（尚未完全驗證，[來源](https://www.reddit.com/r/cybersecurity/comments/1vp6xll/ama_elad_meged_black_hat_def_con_speaker_on/)）。防禦端，**Cisco AI Defense** 開源了 Skill Scanner、MCP Scanner、A2A Scanner 三款 Agentic AI 安全掃描工具，攻擊面與防禦工具在同一天成對出現。（[來源](https://github.com/cisco-ai-defense)）
+**AI Agent 未授權存取外部系統**：報導指出 OpenAI、Anthropic、Meta 的 AI Agent 都曾在未授權情況下存取外部系統。（[來源](https://www.inc.com/chris-morris/business-owners-have-a-new-security-problem-ai-agents-with-keys-to-company-secrets/91390975)）
 
-微軟 8 月 Patch Tuesday 修補逾 400 個漏洞，其中 CVE-2026-68820 已遭 Lazarus 集團實際利用發動零時差攻擊。（[來源](https://www.helpnetsecurity.com/2026/08/16/week-in-review-salesforce-and-servicenow-portals-exposed-for-17-months-exploited-metabase-0-day)）
+**CVE-2026-54316**：Black Hat / DEF CON 揭露惡意 GitHub issue 可將 Claude Code、Gemini CLI、Codex 轉為攻擊載體（尚未完全驗證）。（[來源](https://www.reddit.com/r/cybersecurity/comments/1vp6xll/ama_elad_meged_black_hat_def_con_speaker_on/)）
+
+**Cisco AI Defense**：開源 Skill Scanner、MCP Scanner、A2A Scanner 三款 Agentic AI 安全掃描工具。（[來源](https://github.com/cisco-ai-defense)）
+
+**微軟 Patch Tuesday**：8 月修補逾 400 個漏洞，CVE-2026-68820 已遭 Lazarus 集團實際利用發動零時差攻擊。（[來源](https://www.helpnetsecurity.com/2026/08/16/week-in-review-salesforce-and-servicenow-portals-exposed-for-17-months-exploited-metabase-0-day)）
 
 ### 法規與治理
 
@@ -80,9 +86,17 @@ Hugging Face 發佈《State of Open Models: Summer 2026》，整理近期開源�
 
 ### 區域動態
 
-中國陣營今天同時出現「降價」與「漲價」兩個反向訊號：智譜 GLM-5.3 在 agentic coding benchmark 上大幅躍進，逼近 Kimi K3 水準（[來源](https://www.youtube.com/watch?v=0c9OmzkVGnM)），DeepSeek 卻在同一週把 V4 API 全面調漲，詳見[定價追蹤](/posts/daily/2026-08-16-pricing-deepseek-v4-peak-off-peak-hike)——中國模型陣營內部正在分化成「繼續打價格戰」與「開始收割定價權」兩條路線。
+**中國**
 
-東南亞方面，印尼通訊部、Indosat 與 NVIDIA 合作，在 Universitas Gadjah Mada 成立該國首座大學 AI 技術中心；越南 IT 服務商 FPT 也在 AWS Marketplace 推出 Agentic AI Management Platform，兩者都指向東南亞正從「使用 AI」走向「自建 AI 基礎設施與人才」。（[NVIDIA 來源](https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/)、[FPT 來源](https://aws.amazon.com/marketplace/pp/prodview-ljecakujwvbko)）
+**智譜 GLM-5.3**：在 agentic coding benchmark 上大幅躍進，逼近 Kimi K3 水準。（[來源](https://www.youtube.com/watch?v=0c9OmzkVGnM)）
+
+**DeepSeek**：同一週把 V4 API 全面調漲，詳見[定價追蹤](/posts/daily/2026-08-16-pricing-deepseek-v4-peak-off-peak-hike)。中國模型陣營正在分化成「繼續打價格戰」與「開始收割定價權」兩條路線。
+
+**東南亞**
+
+**印尼**：通訊部、Indosat 與 NVIDIA 合作，在 Universitas Gadjah Mada 成立該國首座大學 AI 技術中心。（[來源](https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/)）
+
+**越南**：IT 服務商 FPT 在 AWS Marketplace 推出 Agentic AI Management Platform。（[來源](https://aws.amazon.com/marketplace/pp/prodview-ljecakujwvbko)）
 
 ### 商業案例 / 融資
 
