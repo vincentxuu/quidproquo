@@ -56,13 +56,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ## 搜尋方法
 
-三層策略，總共約 18 個查詢：
+三層策略，總共約 56 個查詢（但搜尋 API 只用 15 次）：
 
 1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
-2. **大廠逐家查**（10 個 Tavily）— 只查最常發佈一手消息的大廠
+2. **官方 blog 直讀**（41 個 WebFetch/firecrawl）— 直接抓 blog 列表頁讀日期，0 搜尋配額
 3. **社群 + 區域來源**（Exa + Tavily 各幾個）— HN、Reddit、中文、台灣
 
-所有結果在 Step 6b 用 watchlist 293 家公司名比對，小公司靠廣域查詢兜底。
+所有結果在 Step 6b 用 watchlist 293 家公司名比對，未在第二層的公司靠廣域查詢兜底。
 
 ### 第一層：廣域主題查詢（Tavily × 8）
 
@@ -84,7 +84,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
 
-### 第二層：大廠官方 blog 直讀（WebFetch / firecrawl，0 搜尋配額）
+### 第二層：官方 blog 直讀（WebFetch / firecrawl，0 搜尋配額）
 
 直接抓每家的 blog 列表頁，讀日期判斷有沒有新文章。不用搜尋 API。
 
@@ -93,18 +93,68 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
 ```
 
+**A1 大廠**
+
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
 | 1 | `https://www.anthropic.com/news` | Anthropic | WebFetch |
-| 2 | `https://openai.com/news` | OpenAI | firecrawl（WebFetch 403） |
-| 3 | `https://deepmind.google/blog` | Google | WebFetch |
-| 4 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
-| 5 | `https://about.fb.com/news` | Meta | WebFetch |
-| 6 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | Amazon | WebFetch |
-| 7 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
-| 8 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
-| 9 | `https://cursor.com/changelog` | Cursor | WebFetch |
-| 10 | `https://www.langchain.com/blog` | LangChain | WebFetch |
+| 2 | `https://www.anthropic.com/research` | Anthropic | WebFetch |
+| 3 | `https://openai.com/news` | OpenAI | firecrawl |
+| 4 | `https://openai.com/research/index` | OpenAI | firecrawl |
+| 5 | `https://deepmind.google/blog` | Google | WebFetch |
+| 6 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
+| 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | WebFetch |
+| 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | WebFetch |
+| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft | WebFetch |
+| 10 | `https://about.fb.com/news` | Meta | WebFetch |
+| 11 | `https://ai.meta.com/blog` | Meta | WebFetch |
+| 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | WebFetch |
+| 13 | `https://aws.amazon.com/blogs/aws` | AWS | WebFetch |
+| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS | WebFetch |
+| 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
+| 16 | `https://developer.nvidia.com/blog` | NVIDIA | WebFetch |
+| 17 | `https://x.ai/news` | xAI/SpaceXAI | firecrawl |
+| 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
+| 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | WebFetch |
+| 20 | `https://www.snowflake.com/blog` | Snowflake | WebFetch |
+| 21 | `https://www.databricks.com/blog` | Databricks | WebFetch |
+| 22 | `https://research.ibm.com/blog` | IBM | WebFetch |
+| 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | WebFetch |
+
+**A2 模型公司**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 22 | `https://mistral.ai/news` | Mistral | WebFetch |
+| 23 | `https://cohere.com/blog` | Cohere | WebFetch |
+| 24 | `https://www.ai21.com/blog` | AI21 Labs | WebFetch |
+| 25 | `https://www.reka.ai/news` | Reka AI | WebFetch |
+| 26 | `https://www.upstage.ai/blog` | Upstage | WebFetch |
+| 27 | `https://sakana.ai/blog` | Sakana AI | WebFetch |
+| 28 | `https://allenai.org/blog` | AI2 | WebFetch |
+
+**B1/B2 開發工具與框架**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 29 | `https://cursor.com/changelog` | Cursor | WebFetch |
+| 30 | `https://cursor.com/blog` | Cursor | WebFetch |
+| 31 | `https://www.langchain.com/blog` | LangChain | WebFetch |
+| 32 | `https://cognition.com/blog` | Cognition/Devin | WebFetch |
+| 33 | `https://replit.com/blog` | Replit | WebFetch |
+| 34 | `https://vercel.com/blog` | Vercel | WebFetch |
+| 35 | `https://mastra.ai/blog` | Mastra | WebFetch |
+| 36 | `https://sourcegraph.com/blog` | Sourcegraph | WebFetch |
+| 37 | `https://www.pydantic.dev/articles` | Pydantic AI | WebFetch |
+| 38 | `https://agno.com/blog` | Agno | WebFetch |
+
+**中國大廠**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud | WebFetch |
+| 40 | `https://seed.bytedance.com/blog` | ByteDance/Seed | WebFetch |
+| 41 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
 
 處理方式：
 1. 抓回最近 5 篇的日期和標題
@@ -147,9 +197,9 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 9 | 大廠 blog 直讀（0 搜尋配額） |
-| firecrawl | 1 | OpenAI（WebFetch 403 fallback） |
-| **總計** | **25** | 搜尋 API 只用 15 次 |
+| WebFetch | 39 | 官方 blog 直讀（0 搜尋配額） |
+| firecrawl | 4 | OpenAI ×2, xAI, DeepSeek（WebFetch 403 fallback） |
+| **總計** | **58** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
