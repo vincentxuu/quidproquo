@@ -171,8 +171,9 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | WebFetch |
 | 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | WebFetch |
 | 48 | `https://manus.im/blog` | Manus | WebFetch |
-| 49 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | WebFetch |
-| 50 | `https://github.com/Tencent` | 騰訊（repo 動態） | WebFetch |
+| 49 | `https://www.tencent.com/zh-cn/newsroom` | 騰訊（集團公告） | WebFetch |
+| 50 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | WebFetch |
+| 50b | `https://github.com/Tencent` | 騰訊（repo 動態） | WebFetch |
 | 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | WebFetch |
 | 52 | `https://github.com/baidu` | 百度（repo 動態） | WebFetch |
 
