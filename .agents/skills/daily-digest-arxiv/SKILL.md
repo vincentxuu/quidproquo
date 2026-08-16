@@ -143,28 +143,25 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 
 ## 論文詳情抓取
 
-### Step 6：用 arxiv API 取得結構化資料（不要用 firecrawl）
+### Step 6：取得論文詳情
 
-arxiv 有公開 API，直接回傳結構化 XML，比抓網頁穩定且快。
+**雲端環境（CCR routine）的 egress proxy 封鎖 arxiv.org 直連**，curl 和 WebFetch 都不通。依站內 Web Fetch 優先順序取得論文資料：
 
-```bash
-# 單篇查詢
-curl -s "http://export.arxiv.org/api/query?id_list={arxiv_id}" | head -100
+1. **stealth_fetch**（CLI 環境才有，雲端自動跳過）
+2. **Exa** — `web_search_exa` 搜尋 `arxiv.org/abs/{arxiv_id}` 並取得內容
+3. **Tavily** — `tavily_search` 搜尋同上
+4. **firecrawl** — `firecrawl_scrape` 抓 `https://arxiv.org/abs/{arxiv_id}`（`onlyMainContent: true`）
 
-# 批次查詢（逗號分隔多個 ID）
-curl -s "http://export.arxiv.org/api/query?id_list=2607.01224,2607.27191,2607.18063"
-```
+從抓取結果中提取（**缺任何一項就換下一篇候選**）：
+- **標題**
+- **作者**：列出前 3 位 + et al.
+- **機構**（若有）
+- **arxiv ID**
+- **摘要**（用於寫導讀，但不直接翻譯貼上）
+- **提交日期**：確認是過去 48 小時內
+- **分類**：確認屬於目標分類（cs.AI / cs.CL / cs.MA）
 
-從 XML 回傳中提取（**缺任何一項就換下一篇候選**）：
-- **標題**：`<title>` 標籤
-- **作者**：`<author><name>` 標籤，列出前 3 位 + et al.
-- **機構**：`<arxiv:affiliation>` 標籤（若有）
-- **arxiv ID**：從 `<id>` 標籤取 `abs/` 後的部分
-- **摘要**：`<summary>` 標籤（用於寫導讀，但不直接翻譯貼上）
-- **提交日期**：`<published>` 標籤，確認是過去 48 小時內
-- **分類**：`<category term="cs.AI"/>` 確認屬於目標分類
-
-若 API 無回應，備援用 Exa 搜尋 `site:arxiv.org/abs/{arxiv_id}` 取得頁面內容。
+**注意**：不要抓 `/html/` 全文版（會超過 token 上限），只抓 `/abs/` 摘要頁即可。
 
 ---
 
