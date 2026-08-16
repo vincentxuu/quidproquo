@@ -7,6 +7,8 @@ description: "Routine K (Stage 3): daily AI Agent report assembly for quidproquo
 
 Stage 3 彙整 routine。讀取 Stage 1（arxiv/github/event-driven posts）和 Stage 2（signals JSON）的產出，組裝成每日 AI Agent 日報。**主要靠讀檔，只有 signals JSON 缺失時才用 MCP 搜尋。**
 
+**⚠️ 重要：不要使用 Agent tool / subagent。** CCR 雲端環境的 session 不會等 background agent 完成。所有工作都在主 session 中完成。
+
 ---
 
 ## 執行流程
