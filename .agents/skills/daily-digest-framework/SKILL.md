@@ -27,7 +27,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B2")'
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-framework-*.md
 git commit -m "post(daily): framework update ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

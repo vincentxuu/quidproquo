@@ -29,7 +29,7 @@ cat src/data/agent-watchlist.json | head -100
 # Step 8: 提交
 git add src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md
 git commit -m "post(daily): arxiv digest ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

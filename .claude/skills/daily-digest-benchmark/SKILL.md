@@ -26,7 +26,7 @@ cat src/data/agent-watchlist.json | jq '.benchmarks[]'
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-benchmark-*.md
 git commit -m "post(daily): benchmark ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

@@ -34,10 +34,10 @@ cat src/data/daily-signals/schema.ts
 # Step 8: 更新跨天去重檔案
 #   把本次收錄的所有 sourceUrl 追加到 seen-signal-urls.txt
 echo "${TODAY}: $(jq -r '[.signals[].sourceUrl] | join(", ")' src/data/daily-signals/${TODAY}.json)" >> src/data/daily-signals/seen-signal-urls.txt
-# Step 9: 提交
+# Step 9: 提交（含 push 失敗 retry）
 git add src/data/daily-signals/${TODAY}.json src/data/daily-signals/seen-signal-urls.txt
 git commit -m "chore(daily): signals ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---
@@ -81,22 +81,25 @@ startPublishedDate: "{昨天 ISO 日期}"
 
 ### 來源 3-9：大廠官方 Blog（廠商動態，逐家查）
 
-每家用一個 Exa 查詢。若當天無新文章該家跳過。
+**⚠️ 必須用 Tavily（不是 Exa）**。CCR 環境的 Exa 不支援時間過濾，會回傳舊文。Tavily 的 `time_range: "day"` 能有效篩選最近 24h 內容。
 
-| 查詢 | query |
-|---|---|
-| Anthropic | `site:anthropic.com/news OR site:anthropic.com/research 2026` |
-| OpenAI | `site:openai.com/index 2026` |
-| Google AI | `site:blog.google/technology/ai 2026` |
-| Microsoft | `site:blogs.microsoft.com AI agent 2026` |
-| Meta AI | `site:ai.meta.com/blog 2026` |
-| NVIDIA | `site:blogs.nvidia.com AI 2026` |
-| Cloudflare | `site:blog.cloudflare.com AI workers 2026` |
+每家跑一個 Tavily 查詢。若當天無新文章該家跳過。
+
+| 查詢 | query | 工具 |
+|---|---|---|
+| Anthropic | `site:anthropic.com AI agent` | Tavily, time_range: "day" |
+| OpenAI | `site:openai.com AI agent` | Tavily, time_range: "day" |
+| Google AI | `site:blog.google/technology/ai` | Tavily, time_range: "day" |
+| Microsoft | `site:blogs.microsoft.com AI agent` | Tavily, time_range: "day" |
+| Meta AI | `site:ai.meta.com/blog` | Tavily, time_range: "day" |
+| NVIDIA | `site:blogs.nvidia.com AI` | Tavily, time_range: "day" |
+| Cloudflare | `site:blog.cloudflare.com AI workers` | Tavily, time_range: "day" |
 
 ```
 每個查詢設定：
-  numResults: 3
-  startPublishedDate: "{昨天 ISO 日期}"
+  工具：mcp Tavily → tavily_search
+  max_results: 3
+  time_range: "day"
 ```
 
 ### 來源 10：Product Hunt AI
@@ -360,20 +363,37 @@ Q2: "site:bnext.com.tw AI 人工智慧"
 
 ## 品質檢查清單
 
-- [ ] 信號數量在 30-50 之間
-- [ ] 每個 signal 都有 `sourceUrl`（可存取的 URL）
-- [ ] 每個 signal 都有 `publishedDate` 和 `dateConfidence`
-- [ ] `dateConfidence: "unverified"` 的比例 < 50%（超過就警告，表示時間過濾失效）
-- [ ] 沒有 `publishedDate` 超過 7 天前的信號
-- [ ] `category` 只用 schema.ts 定義的 14 種枚舉值
-- [ ] `relevance` < 0.5 的信號已排除
+寫完 JSON 後，**逐項跑以下 bash 驗證**（不要自己寫驗證腳本，用這些指令）：
+
+```bash
+FILE="src/data/daily-signals/${TODAY}.json"
+
+# 1. JSON 可解析 + signalCount 正確
+node -e "const d=require('./${FILE}'); console.assert(d.signalCount===d.signals.length, 'count mismatch'); console.log('✅ count:', d.signalCount)"
+
+# 2. 數量在 30-50
+node -e "const d=require('./${FILE}'); const n=d.signals.length; console.assert(n>=30&&n<=50, 'count out of range: '+n); console.log('✅ range:', n)"
+
+# 3. relevance >= 0.5（硬門檻，不可放寬）
+node -e "const d=require('./${FILE}'); const bad=d.signals.filter(s=>s.relevance<0.5); console.assert(bad.length===0, 'low relevance: '+bad.map(s=>s.id+':'+s.relevance).join(',')); console.log('✅ relevance all >= 0.5')"
+
+# 4. publishedDate + dateConfidence 都存在
+node -e "const d=require('./${FILE}'); const missing=d.signals.filter(s=>!s.publishedDate||!s.dateConfidence); console.assert(missing.length===0, 'missing date fields: '+missing.length); console.log('✅ date fields complete')"
+
+# 5. unverified 比例 < 50%
+node -e "const d=require('./${FILE}'); const uv=d.signals.filter(s=>s.dateConfidence==='unverified').length; const pct=Math.round(uv/d.signals.length*100); console.assert(pct<50, 'unverified too high: '+pct+'%'); console.log('✅ unverified:', pct+'%')"
+
+# 6. category 合法
+node -e "const cats=new Set(['vendor-update','model-release','pricing-change','benchmark-shift','framework-release','funding','acquisition','security-incident','regulation','tool-launch','open-source','enterprise-deployment','region-news','community-signal']); const d=require('./${FILE}'); const bad=d.signals.filter(s=>!cats.has(s.category)); console.assert(bad.length===0, 'bad category: '+bad.map(s=>s.category)); console.log('✅ categories valid')"
+```
+
+任何一項失敗就修改 JSON 後重跑，不可跳過。
+
+額外人工檢查：
 - [ ] 社群來源（HN/Reddit）不算獨立來源做交叉驗證
 - [ ] 中文來源涉及具體數字的信號，已嘗試用英文來源交叉驗證
 - [ ] `companies` slug 與 watchlist 一致（不是自己編的 slug）
 - [ ] 跨天去重：`seen-signal-urls.txt` 中的 URL 沒有出現在本次 signals 中
-- [ ] JSON 格式正確（可被 `JSON.parse` 解析）
-- [ ] `signalCount` 與 `signals.length` 一致
 - [ ] `seen-signal-urls.txt` 已追加本次所有 URL
 - [ ] commit 包含 JSON + seen-signal-urls.txt 兩個檔案
 - [ ] commit message 是 `chore(daily): signals ${TODAY}`（不是 `post(daily)`）
-- [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

@@ -29,7 +29,7 @@ cat src/data/agent-watchlist.json | jq '[.companies[].name]' | head -50
 # Step 8: 提交
 git add src/content/posts/daily/${TODAY}-funding-*.md
 git commit -m "post(daily): funding alert ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

@@ -30,7 +30,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section | startsw
 # Step 8: 提交
 git add src/content/posts/daily/${TODAY}-tool-*.md
 git commit -m "post(daily): tool recommendation ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

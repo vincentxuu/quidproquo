@@ -27,7 +27,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B7") 
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-security-*.md
 git commit -m "post(daily): security alert ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

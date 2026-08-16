@@ -28,7 +28,7 @@ echo "本週範圍: ${WEEK_START} ~ ${TODAY}"
 # Step 6: 提交
 git add src/content/posts/daily/${TODAY}-weekly-review.md
 git commit -m "post(daily): 週回顧 ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

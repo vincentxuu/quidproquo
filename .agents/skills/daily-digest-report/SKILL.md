@@ -31,7 +31,7 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # Step 6: 提交
 git add src/content/posts/daily/${TODAY}-ai-agent-daily.md
 git commit -m "post(daily): AI Agent 日報 ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---
