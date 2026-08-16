@@ -2,10 +2,10 @@
 title: "AI Agent Arxiv Digest — 2026-08-06"
 date: 2026-08-06
 category: daily
-tags: [ai-agent, arxiv, daily, agent-memory, agent-safety, tool-planning]
+tags: [ai-agent, arxiv, daily, agent-memory, agent-safety, multi-agent]
 lang: zh-TW
-description: "今天三篇圍繞同一道題：Agent 怎麼把「記得的事」轉化成「安全且正確的行動」——統一記憶管理讓七個原子操作跑贏所有記憶基線，安全承諾層用校準世界集把不安全動作率從 41% 壓到 3%，工具規劃框架把軌跡抽象成可遷移的工作流圖讓 OOD 準確率大幅提升"
-tldr: "VerMem 用七個原子記憶操作加雙驗證器在五個基準上平均領先最強基線 5-8 分；SafeCommit 把不安全行動率從 41.2% 壓到 2.6% 且維持 97.4% 任務完成率；ToolLIFT 把工具軌跡抽象成函數級工作流圖，OOD 基準上比最強基線高 3-5 分"
+description: "今天三篇圍繞同一道題：Agent 怎麼把「記得的事」轉化成「安全且正確的行動」——統一記憶管理讓七個原子操作跑贏所有記憶基線，安全承諾層用校準世界集把不安全動作率從 41% 壓到 3%，記憶連結防護在四個生命週期節點設門把攻擊成功率從 38% 壓到 1% 以下"
+tldr: "VerMem 用七個原子記憶操作加雙驗證器在五個基準上平均領先最強基線 5-8 分；SafeCommit 把不安全行動率從 41.2% 壓到 2.6% 且維持 97.4% 任務完成率；MAPLE-Guard 在記憶寫入、檢索、提升、跨 Agent 重用四個節點設門，攻擊成功率從 38.2% 壓到 0.9%"
 series:
   name: "AI Agent Arxiv Digest"
   order: 74
@@ -13,7 +13,7 @@ series:
 
 ## 今日總覽
 
-今天三篇從不同層次攻同一個問題：Agent 怎麼把它記得的東西變成正確且安全的行動。VerMem 提出統一的記憶操作策略，讓長期記憶、活躍上下文和歷史片段在同一個框架裡協調，光靠「管好記憶」就在五個基準上全面領先。SafeCommit 則退一步問：即使記憶是對的，Agent 怎麼知道現在可以安全地做這件事？它把每次行動決策轉化成一個校準世界集的認證問題，只有在所有合理世界都判定安全時才放行。ToolLIFT 走另一條路——把過去的工具使用軌跡抽象成函數級工作流圖，讓 Agent 面對從沒見過的工具集也能規劃正確的調用順序。三篇合起來的訊號很清楚：Agent 的下一個瓶頸不在模型推理能力，而在記憶管理、行動認證和經驗遷移的工程品質。
+今天三篇從不同層次攻同一個問題：Agent 怎麼把它記得的東西變成正確且安全的行動。VerMem 提出統一的記憶操作策略，讓長期記憶、活躍上下文和歷史片段在同一個框架裡協調，光靠「管好記憶」就在五個基準上全面領先。SafeCommit 則退一步問：即使記憶是對的，Agent 怎麼知道現在可以安全地做這件事？它把每次行動決策轉化成一個校準世界集的認證問題，只有在所有合理世界都判定安全時才放行。MAPLE-Guard 揭露了更深層的問題——在多 Agent 系統裡，一次被投毒的記憶寫入可以沿著私有→共享的路徑擴散到所有 Agent，而現有防護只看提示詞和通訊邊，完全漏掉記憶生命週期中的攻擊面。三篇合起來的訊號很清楚：Agent 的下一個瓶頸不在模型推理能力，而在記憶管理、行動認證和記憶供應鏈安全的工程品質。
 
 ## 讀這篇前該知道的詞
 
@@ -23,7 +23,7 @@ series:
 | 活躍上下文（Active Context） | Agent 當前推理能看到的資訊窗口，受 token 限制，必須精挑細選 |
 | 校準世界集（Calibrated Plausible-World Set） | 用統計方法保留的「所有合理情境」集合——不是選一個最可能的，是保留所有可能 |
 | 行動認證（Action Certificate） | 證明一個動作在所有保留世界中都安全的正式判定，不是信心分數 |
-| 函數級工作流圖（Function-Level Workflow Graph） | 把「用 tool A 的輸出餵 tool B」這種具體軌跡，抽象成「先做格式轉換，再做內容處理」的可遷移結構 |
+| 記憶連結投毒（Memory-Link Poisoning） | 攻擊者寫一筆看似無害的記憶，它在被檢索、提升到共享記憶、或被其他 Agent 重用時才變成有害——現有看提示詞的防護完全抓不到 |
 
 ---
 
@@ -121,50 +121,50 @@ Mayur Akewar, Ravi Ranjan（Florida International University）　·　arxiv: 26
 
 ---
 
-## 論文三｜ToolLIFT：把工具軌跡抽象成函數級工作流圖實現可遷移的工具規劃
+## 論文三｜MAPLE-Guard：在記憶生命週期四個節點設門，防止投毒記憶跨 Agent 擴散
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
-Xiuhui You, Jiayi Luo, Zichao Shen, Qingyun Sun, Ziwei Zhang　·　arxiv: 2608.03468
+**MAPLE-Guard: Memory-Aware Link Enforcement Against Memory-Link Poisoning in Multi-Agent Systems**
+Wenjun Xiong, Yijin Zhou, Jiaqian Wang, Shangding Gu et al.　·　arxiv: 2608.00426
 
-連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)
+連結: [arxiv](https://arxiv.org/abs/2608.00426) · [alphaxiv](https://www.alphaxiv.org/abs/2608.00426)
 
 ### TL;DR
 
-把工具特定的使用軌跡「提升」成函數級工作流圖（FWG），讓 Agent 面對從沒見過的工具集也能規劃正確的調用順序。在三個 OOD 基準上比最強基線高 3-5 分，稀有工具的增益最大。
+在多 Agent 系統的記憶生命週期——寫入、檢索、提升（私有→共享）、跨 Agent 重用——四個節點設門，攻擊成功率從 38.2% 降到 0.9%（LongMemEval）、34.7% 降到 0.2%（AppWorld），填補了提示詞級和拓撲級防護的盲區。
 
 ### Read Priority
 
-略讀 — 核心 insight（軌跡→函數級抽象→可遷移規劃）很有價值，但如果你的場景工具集固定不變，直接價值有限。如果你在做工具市場或 MCP 生態，這篇必讀。
+必讀 — 如果你在做任何多 Agent 系統且用了持久記憶，這篇直接揭示了你的攻擊面：一次投毒寫入可以沿記憶連結擴散到所有 Agent，而現有防護完全看不到。
 
 ### 領域背景
 
-LLM Agent 的工具規劃目前有兩條路線：直接靠 LLM 從工具描述推理（ReAct、DFSDT），或從歷史軌跡建工具級依賴圖（GTool、ToolNet）。前者在複雜任務不可靠，後者綁死在特定工具上——換一組工具就得重新學。
+現有多 Agent 安全研究主要集中在三個層面：提示詞注入防護（檢查輸入）、行動沙盒（限制輸出）、通訊拓撲約束（控制 Agent 間消息）。但隨著 Agent 系統加入持久記憶層（如 MemGPT、Mem0），出現了第四種攻擊面——記憶連結投毒：攻擊者寫入的內容在寫入時看起來無害，但在後續被檢索、提升到共享記憶、或被其他 Agent 重用時才觸發傷害。
 
 ### 中階導讀
 
-- **問題**：你的 Agent 學會了用 Photoshop 裁圖、ImageMagick 轉格式、FFmpeg 加水印的組合。現在換成另一組工具——GIMP、GraphicsMagick、HandBrake。工作流的邏輯其實一樣（裁剪→轉格式→加標記），但工具級的軌跡完全不匹配。
-- **方法**：ToolLIFT 做三件事。第一，把工具軌跡「抽象提升」成函數級工作流圖——把「用 tool A」抽象成「做功能 X」，讓不同工具共享同一個功能節點。第二，規劃時先沿 FWG 決定工作流（先做什麼功能），再選具體工具填入。第三，用 RL 訓練參數追蹤（source-gated reward），確保每個工具的輸入來源可追溯。
-- **為什麼重要**：這是工具規劃從「記住怎麼用這組工具」到「理解工作流邏輯然後適配任何工具」的範式轉移。對 MCP 生態和工具市場場景尤其重要。
+- **問題**：想像一個客服多 Agent 系統，Agent A 把一筆看似正常的客戶偏好存進自己的私有記憶。下一輪任務裡，系統把這筆記憶提升到共享知識庫。Agent B 在處理另一位客戶時檢索到這筆被污染的記憶，據此做出錯誤決策。問題是：提示詞檢查器看到的輸入是正常的，通訊邊沒有可疑消息——傷害是沿著記憶存取路徑「爬」過去的。
+- **方法**：MAPLE-Guard 在記憶生命週期的四個關鍵轉換點設置門禁。寫入門：檢查新記憶是否含有延遲觸發模式。檢索門：過濾對當前任務不安全的記憶條目。提升門：阻止未經驗證的私有記憶進入共享池。重用門：在跨 Agent 引用時做二次安全判定。每個門使用記憶來源追蹤和上下文一致性校驗，不依賴單一的提示詞掃描。
+- **為什麼重要**：這是第一個把「記憶生命週期」當成獨立攻擊面來防護的框架。之前的安全研究只看輸入和輸出，記憶系統的中間狀態完全是盲區。
 
 ### 深入要點
 
-- ID 基準（HuggingFace、Multimedia）：比最強基線高 1.4-1.5 分
-- OOD 基準（DailyLifeAPIs、Seal-Tools、ToolAlpaca）：比最強基線高 3.2-4.9 分 ⚠️（作者自測）
-- 稀有工具組增益最大——Multimedia 上稀有工具準確率比 Tool-graph 高 2.8 分
-- 中長鏈任務（3-4 步）受益最明顯，短鏈改善空間有限
-- 用 Qwen2.5-7B 和 Llama-3.1-8B 兩個骨幹都驗證了一致性
-- 落地門檻：需要歷史工具軌跡建圖，冷啟動場景需要先跑幾輪收集
-- 與 MCP 的對接可能性：FWG 的函數級節點可以對應 MCP 的 capability 描述
-- Limitation：目前只測 API 調用類任務，瀏覽器操作或混合型任務未驗證
+- LongMemEval：ASR 從 38.2% 降到 0.9%，MDSR 從 54.0% 升到 74.3% ⚠️（作者自測，需等外部複現）
+- AppWorld：ASR 從 34.7% 降到 0.2%，MDSR 從 42.5% 升到 99.8%
+- 測試了四種記憶連結攻擊：直接投毒、延遲觸發、跨 Agent 擴散、提升劫持
+- 門禁消融實驗：移除任何一個門都會讓 ASR 顯著回升，四個門缺一不可
+- 與 SafeCommit 的互補性：SafeCommit 認證「何時行動安全」，MAPLE-Guard 保證「記憶本身沒被污染」——前者假設記憶是乾淨的，後者確保這個假設成立
+- 落地門檻：需要在記憶系統的讀寫路徑上加攔截層，對現有架構有侵入性
+- 開源：GitHub 有參考實作和可重現基準
+- Limitation：門禁判定依賴 LLM 本身，如果攻擊者能繞過 LLM 的安全判定，門禁也會失效
 
 ### Reviewer 一句話評
 
-「工具→函數級抽象」的想法既直覺又有效，OOD 實驗有說服力。但 FWG 的抽象粒度怎麼自動決定、面對高度異質的工具集（如既有 API 又有 CLI 又有 UI 操作）是否還能維持一致的函數級分類，是後續要回答的問題。
+攻擊面的形式化很有價值——「記憶連結投毒」作為獨立威脅類別的提出填補了真空。但防禦端仍依賴 LLM 做安全判定，面對精心設計的對抗樣本，四道門的實際強度需要更多紅隊測試驗證。
 
 ### 給你的 take-away
 
-- 如果你在做 Agent 工具編排 / MCP 整合：FWG 的概念可以直接用——把你的工具依賴圖從「工具名→工具名」提升到「功能類型→功能類型」，新工具上架時只需標註功能類型就能接入已有的規劃
-- 如果你在評估 Agent 工具能力：區分 ID 和 OOD 是關鍵——很多看起來強的 Agent 其實只是記住了工具搭配，換一組就垮
+- 如果你在做多 Agent 系統且用了持久記憶：立刻檢查你的記憶讀寫路徑——從私有到共享的提升路徑是最容易被忽略的攻擊面，至少在提升環節加一道人工審批或規則過濾
+- 如果你在設計 Agent 安全架構：把 MAPLE-Guard 和 SafeCommit 放在一起看——前者守記憶供應鏈，後者守行動決策層，兩者互補但都不夠，中間還缺一個「記憶品質持續監控」的回饋迴圈
 
 ---
 
@@ -172,8 +172,8 @@ LLM Agent 的工具規劃目前有兩條路線：直接靠 LLM 從工具描述�
 
 1. Xiaolong Sun et al. [Verifiable Memory: Learning Unified Memory Management with Local and Global Verifiers for Large Language Model Agents](https://arxiv.org/abs/2608.03137). arXiv:2608.03137, 4 Aug 2026.
 2. Mayur Akewar, Ravi Ranjan. [SafeCommit: Certifying When Memory-Grounded Agents May Safely Act](https://arxiv.org/abs/2608.04289). arXiv:2608.04289, 4 Aug 2026.
-3. Xiuhui You et al. [ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning](https://arxiv.org/abs/2608.03468). arXiv:2608.03468, 4 Aug 2026.
+3. Wenjun Xiong et al. [MAPLE-Guard: Memory-Aware Link Enforcement Against Memory-Link Poisoning in Multi-Agent Systems](https://arxiv.org/abs/2608.00426). arXiv:2608.00426, 1 Aug 2026.
 
 ## 今日收穫
 
-之前以為 Agent 記憶管理和行動安全是兩個獨立的工程問題，今天發現它們在「何時可以安全行動」這個決策點上交匯——記憶的品質決定了世界模型的準確度，而世界模型的完整度決定了行動認證能否通過。SafeCommit 最讓我驚訝的數字是：只要加一次有針對性的探測（而不是泛泛地問「你確定嗎」），任務完成率就從 44.7% 跳到 95.1%。精準的資訊獲取比廣泛的確認對話有效得多。
+之前以為 Agent 記憶管理和行動安全是兩個獨立的工程問題，今天發現它們是同一條供應鏈的上下游——VerMem 管「記什麼」，MAPLE-Guard 管「記的東西有沒有被污染」，SafeCommit 管「根據記憶做的決定安不安全」。MAPLE-Guard 最讓我震驚的是攻擊路徑：一筆在寫入時完全無害的記憶，沿著私有→共享→跨 Agent 重用的路徑爬過去後變成武器，而現有防護的盲區恰好就在這條路徑上。

@@ -4,8 +4,8 @@ date: 2026-08-09
 category: daily
 tags: [ai-agent, arxiv, daily, agent-harness, long-horizon, agent-evaluation]
 lang: zh-TW
-description: "今天三篇圍繞同一個問題——Agent 做長任務時真正卡住的不是模型，是鷹架：OneDayAgent 證明一個統一鷹架就能跨後端創 SOTA，Horizon Gap 用 1,547 篇文獻指出長程失敗的結構性根因，Evo-Bench 則問 Agent 能不能自己進化自己的鷹架"
-tldr: "OneDayAgent 用任務分解＋執行記憶＋全域驗修三步鷹架在 AgentIF-OneDay 拿下 0.821 新 SOTA，同一鷹架跨五個後端穩定運作；The Horizon Gap 綜述 1,547 篇論文發現長程 Agent 六大失敗類別共享同一結構模式——純結果訊號隨步數增長而失效，領域正在製造更密的過程訊號來補；Evo-Bench 首次測量 Agent 自動進化鷹架的能力，GPT-5.6 Sol 最高拿 +16.6 分，但 Office 任務仍需人工流程"
+description: "今天三篇圍繞同一個問題——Agent 做長任務時真正卡住的不是模型，是鷹架：OneDayAgent 證明一個統一鷹架就能跨後端創 SOTA，Horizon Gap 用 1,547 篇文獻指出長程失敗的結構性根因，LongHorizon-Harness 用外顯任務狀態＋三角迴圈讓 Qwen 3.7-Plus 在 WeaveBench 從 51.8% 飆到 80.7%"
+tldr: "OneDayAgent 用任務分解＋執行記憶＋全域驗修三步鷹架在 AgentIF-OneDay 拿下 0.821 新 SOTA，同一鷹架跨五個後端穩定運作；The Horizon Gap 綜述 1,547 篇論文發現長程 Agent 六大失敗類別共享同一結構模式——純結果訊號隨步數增長而失效，領域正在製造更密的過程訊號來補；LongHorizon-Harness 把長程執行重新定義為任務狀態管理問題，用 Manager-Executor-Auditor 三角迴圈讓 Qwen 3.7-Plus 在 WeaveBench 從 51.8% 跳到 80.7%，跨模型跨環境都有增益"
 series:
   name: "AI Agent Arxiv Digest"
   order: 77
@@ -13,7 +13,7 @@ series:
 
 ## 今日總覽
 
-這週末三篇論文不約而同指向同一個訊號：模型能力已經不是長程 Agent 的瓶頸——鷹架才是。OneDayAgent 用一個統一的「分解→記憶→驗修」鷹架就跨五個後端模型拿下新 SOTA，證明鷹架的泛化性可以獨立於模型；The Horizon Gap 用 1,547 篇文獻畫出全景——長程失敗從規劃到安全六大類別都踩到同一個坑：只看最終結果的訊號隨步數增長而失效；Evo-Bench 則把這個觀察推到極致：既然鷹架這麼重要，Agent 能不能自己進化自己的鷹架？答案是「某些領域可以，但不是全部」。三篇合起來的訊息很清楚：2026 下半年，Agent 的競爭力在鷹架工程，不在換更大的模型。
+這週末三篇論文不約而同指向同一個訊號：模型能力已經不是長程 Agent 的瓶頸——鷹架才是。OneDayAgent 用一個統一的「分解→記憶→驗修」鷹架就跨五個後端模型拿下新 SOTA，證明鷹架的泛化性可以獨立於模型；The Horizon Gap 用 1,547 篇文獻畫出全景——長程失敗從規劃到安全六大類別都踩到同一個坑：只看最終結果的訊號隨步數增長而失效；LongHorizon-Harness 則提出一個具體的工程解法：把任務狀態抽離執行 context，用 Manager-Executor-Auditor 三角迴圈管理，讓 Qwen 3.7-Plus 在 WeaveBench 從 51.8% 飆到 80.7%。三篇合起來的訊息很清楚：2026 下半年，Agent 的競爭力在鷹架工程，不在換更大的模型。
 
 ## 讀這篇前該知道的詞
 
@@ -116,57 +116,57 @@ Mingguang Chen, Licheng Wang, Bo Qu　·　arxiv: 2608.06663
 
 ---
 
-## 論文三｜Evo-Bench：Agent 能自己進化鷹架嗎？
+## 論文三｜LongHorizon-Harness：把任務狀態抽離 context 的三角迴圈
 
-**Evo-Bench: Can Language Models Improve Agent Harness?**
-Lisheng Huang, Chen Yang, Hao Zhou et al.（Renmin University / BOSS Zhipin）　·　arxiv: 2608.09096
+**LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks**
+Ziyu Ma, Hailang Huang, Shun Zou et al.　·　arxiv: 2608.01964
 
-連結: [arxiv](https://arxiv.org/abs/2608.09096) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09096)
+連結: [arxiv](https://arxiv.org/abs/2608.01964) · [alphaxiv](https://www.alphaxiv.org/abs/2608.01964)
 
 ### TL;DR
 
-首個專門測量 LLM 自動進化鷹架能力的 benchmark，九個前沿模型中 GPT-5.6 Sol 最高達 +16.6 分絕對增益，但 Office 任務需要高度特定流程，自動進化仍不敵人工設計。
+把長程執行重新定義為「任務狀態管理」問題，用 Manager-Executor-Auditor 三角迴圈（MEA）把任務狀態抽離 context，讓 Qwen 3.7-Plus 在 WeaveBench 從 51.8% 跳到 80.7%，跨模型跨環境一致有效。
 
 ### Read Priority
 
-必讀 — 直接回答了「模型能不能取代鷹架工程師」這個產業最關心的問題，答案是「部分可以，部分不行」——這個邊界在哪裡值得每個 Agent 團隊思考。
+必讀 — 如果你正在設計長程 Agent 鷹架，這篇的「外顯任務狀態＋獨立審計」設計比 OneDayAgent 更具體地解決了 context rot 問題，且跨三個 benchmark 驗證。
 
 ### 領域背景
 
-Agent benchmark 一直在測模型解任務的能力，但鷹架本身——prompt 設計、工具選擇、迴圈結構——一直被當成固定前提。隨著 meta-harness 和 AutoHarness 等工作的出現，「Agent 自己改自己的鷹架」成為新前沿，但缺乏標準化的評測方式來隔離鷹架改進 vs 模型強度的效果。
+現有 Agent 鷹架把任務執行、狀態追蹤和完成度評估全部塞在同一個不斷增長的 context 裡。這帶來兩個互相加強的失敗模式：context rot（有用資訊被稀釋到找不到）和錯誤自評傳播（Agent 誤以為自己完成了某步，後續步驟建立在錯誤的前提上）。之前的修補多半在 context 內部做壓縮或摘要，沒有從根本上把狀態管理拆出來。
 
 ### 中階導讀
 
-- **問題**：如果你讓一個 LLM 自己修改它的執行框架（prompt、工具、迴圈邏輯），它能讓自己變得更強嗎？還是它只是在過擬合特定任務？
-- **方法**：Evo-Bench 用一個巧妙的「harness-guided construction」框架——先用輔助任務找出真正對鷹架改進敏感的任務（剔除「不管怎麼改鷹架分數都不變」的任務），再用敏感度分層切分確保泛化。跨 Search、Office、General 三個領域測九個模型。
-- **為什麼重要**：揭示了鷹架進化的邊界條件——搜尋任務的進化增益巨大（+32.8 分），General 任務甚至能超越人工設計，但 Office 任務（需要高度特定的處理流程）幾乎沒有增益。這告訴你哪些鷹架工作可以交給 AI，哪些還需要人。
+- **問題**：想像 Agent 跑到第 80 步時，它的 context 已經長到數萬 token。它需要回頭確認第 12 步做了什麼——但那段資訊早被埋在雜訊裡，而且它第 40 步對自己的錯誤評估已經悄悄傳染到後面所有決策。
+- **方法**：LongHorizon-Harness 用三角迴圈解決——(1) Manager 維護一個外顯的任務狀態（哪些做了、哪些沒做、產出了什麼），決定下一個子任務；(2) Executor 在全新 context 中執行該子任務（不帶歷史包袱）；(3) Auditor 以唯讀模式直接檢查環境狀態（不是問 Agent「你做完了嗎」，而是自己去看），只有通過審計的結果才寫回任務狀態。加上 AgentAdapter 層讓任何模型和鷹架後端即插即用。
+- **為什麼重要**：「外顯狀態＋獨立審計」解決了 context rot 的根因而非症狀。Executor 用 fresh context 消除了歷史干擾，Auditor 的唯讀檢查切斷了錯誤自評的傳播鏈。
 
 ### 深入要點
 
-- GPT-5.6 Sol：Overall +16.6（Search +32.8, Office +3.2, General +11.0）
-- Claude Opus 4.8：Overall +16.1（Search +34.8, Office +1.3, General +7.9），Search 分數全場最高 46.5 ⚠️（人大/BOSS直聘自測，需等外部複現）
-- 人工設計的 Artificial Harness baseline：Overall 47.5，GPT-5.6 Sol 的 46.3 已接近
-- 關鍵發現：(1) 早期飽和——模型在前幾輪就找到高品質結構，後續修改反而有害 (2) 進化出的鷹架是高度可轉移的推理結構——用 A 模型進化的鷹架可以直接提升 B 模型 (3) Office 任務的增益趨近於零
-- 開源 27B 模型 Qwen3.6-27B 排名第 6，Overall 39.4（+9.7），表現優於多個前沿模型
-- Limitation：只測了三個領域，真實世界的鷹架進化可能面臨更多安全和穩定性問題
+- Qwen 3.7-Plus：WeaveBench 51.8% → 80.7%（+28.9pp），Terminal-Bench 2.1 69.7% → 77.2%，OSWorld 2.0 2.8% → 8.3%
+- Claude Opus 4.7：OSWorld 2.0 子集 20.0% → 34.3%（+14.3pp）⚠️（作者自測，需等外部複現）
+- 跨三個 benchmark、兩個模型家族、多種互動環境（網頁、終端、桌面）一致有增益
+- 核心設計：Executor 每次用 fresh context 執行，不帶歷史——徹底解決 context rot
+- AgentAdapter 是 lightweight wrapper，不需要修改底層 Agent 的原生迴圈
+- Limitation：OSWorld 2.0 的絕對分數仍然很低（8.3%），說明桌面操作環境的鷹架問題還沒被真正解決
 
 ### Reviewer 一句話評
 
-benchmark 設計精巧，「敏感度分層切分」解決了鷹架評測的核心方法論問題。但「早期飽和」現象值得深究——是模型真的找到了最優結構，還是搜尋策略的侷限？
+「把狀態管理拆出 context」的思路清晰且效果顯著，跨環境增益讓人信服。但 OSWorld 上 2.8%→8.3% 的絕對值仍然很低——鷹架能提升相對表現，但桌面環境的根本瓶頸可能不在鷹架。
 
 ### 給你的 take-away
 
-- 如果你在做 Agent 框架產品：搜尋和通用任務的鷹架可以考慮讓 AI 自動調優，但 Office/結構化流程的鷹架仍需人工設計——這是你的護城河所在
-- 如果你在做 Agent 評測研究：Evo-Bench 的「敏感度過濾」方法值得直接借用——它解決了「改鷹架沒影響的任務不該出現在 benchmark 裡」這個基本問題
+- 如果你在建 Agent 平台：MEA 三角迴圈的「Executor 用 fresh context」設計值得直接借鏡——比在長 context 裡做摘要壓縮更根本地解決了 context rot
+- 如果你在做鷹架跨後端適配：AgentAdapter 的設計模式（wrapper 不改底層 agent loop）是實用的工程參考
 
 ---
 
 ## 今日收穫
 
-之前以為「Agent 做不好長任務」是模型能力的問題——換更強的模型就行。今天三篇合起來讓我意識到，真正的瓶頸是鷹架工程：OneDayAgent 證明同一鷹架跨五個後端都行，Horizon Gap 指出整個領域都在為鷹架製造更好的訊號，Evo-Bench 則劃出了 AI 能自動解決和不能自動解決的鷹架問題的邊界。模型是引擎，鷹架才是方向盤。
+之前以為「Agent 做不好長任務」是模型能力的問題——換更強的模型就行。今天三篇合起來讓我意識到，真正的瓶頸是鷹架工程：OneDayAgent 證明同一鷹架跨五個後端都行，Horizon Gap 指出整個領域都在為鷹架製造更好的訊號，LongHorizon-Harness 則示範了一個具體的工程解法——把任務狀態抽離 context，用獨立審計切斷錯誤傳播。模型是引擎，鷹架才是方向盤。
 
 ## 參考資料
 
 - [arxiv:2608.05013](https://arxiv.org/abs/2608.05013)
 - [arxiv:2608.06663](https://arxiv.org/abs/2608.06663)
-- [arxiv:2608.09096](https://arxiv.org/abs/2608.09096)
+- [arxiv:2608.01964](https://arxiv.org/abs/2608.01964)
