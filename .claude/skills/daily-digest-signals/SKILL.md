@@ -158,7 +158,7 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud | WebFetch |
 | 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
 | 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
-| 42 | `https://seed.bytedance.com/blog` | ByteDance/Seed | WebFetch |
+| 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | WebFetch |
 | 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
 | 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | WebFetch |
 | 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
