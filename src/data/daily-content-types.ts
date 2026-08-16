@@ -15,7 +15,7 @@ export const DAILY_CHANNELS = [
     group: 'briefings',
     label: '綜合日報',
     labelEn: 'Daily report',
-    seriesNames: ['AI Agent 日報', 'AI Agent Daily'],
+    seriesNames: ['AI 日報', 'AI Daily'],
     tags: [],
   },
   {

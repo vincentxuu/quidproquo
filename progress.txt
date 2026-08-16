@@ -33,12 +33,14 @@ Recently completed
   與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
   來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
   lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
-- 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
-  「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
-  拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
-  讀成拆機影片，而這系列一台都沒拆。content-plan-drone.md:481 當初決定
-  「series 只給支線 D 用」，該判斷已過期（38 篇跨 5 分類且互相回指）。另在
-  SERIES_DEFINITIONS 改為 slug-keyed、names 帶 zh/en 兩語，七個系列全部註冊。
+- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
+  （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
+  點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
+  自己挖到的缺陷有吸引力但不等於讀者要的重點，bug 該當旁註。
+  文章論點是那條分界線——對應可驗證機制的門檻站得住腳（cache 前綴失效、instructions
+  進每次 system prompt、工具數佔 token），對應人類行為偏好的是意見（週末／凌晨／
+  15 秒），混進同一個分數就無法分開反駁。新增全站 glossary: prompt cache、
+  reasoning effort、vibe coding（走 claude-api skill 取正確描述，不放廠商定價）。
 - 2026-08-10: 修好全站中英切換。`switchHref` 先前只有文章頁傳，其餘 14 個頁面的
   「EN／中文」一律掉回首頁。now series／categories／tags／about／search 全部接上，
   動態頁先查對照語言是否真有該 slug／分類／標籤，沒有才退回預設（9 個純中文 tag
@@ -49,9 +51,6 @@ Recently completed
   三個巢狀目錄——因此漏改 2 個 en 檔，slug 合併後撞出 route 衝突才被 build 抓到。
   掃 content 一律遞迴走訪。**仍開**：Claude Code 系列兩語都有重複的 order: 10
   （28 篇卻只編到 27），會讓上下篇少一格，未動。
-- 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
-  漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
-  加 3 行 line-clamp 當保險。正文與 description 未動。
 - 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
   D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
   112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
@@ -76,7 +75,6 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，60 篇 + 19 份一手來源）。六條方法論教訓已回饋進 deep-research skill。細節見 docs/progress-archive.md。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 

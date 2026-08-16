@@ -5,7 +5,7 @@ description: "Routine J (Stage 2): daily news scan producing intermediate signal
 
 # daily-digest-signals
 
-Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI Agent 四圈相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
+Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI 生態相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
 
 **⚠️ 重要：不要使用 Agent tool / subagent 來平行搜尋。** CCR 雲端環境的 session 不會等 background agent 完成，會導致主 session 提前結束、無產出。所有搜尋查詢都在主 session 中執行——可以在同一個 message 裡同時發出多個 Exa/Tavily tool call（平行 tool call），但不可以派 subagent。
 
@@ -66,7 +66,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ### 第一層：廣域主題查詢（Tavily × 8）
 
-覆蓋整個 AI Agent 生態，不綁特定公司。
+覆蓋整個 AI 生態，不綁特定公司。
 
 ```
 工具：mcp Tavily → tavily_search
@@ -302,10 +302,18 @@ max_results: 5, time_range: "day"
 ### Step 6a：初篩（排除不相關）
 
 排除條件：
-- 與 AI Agent 四圈完全無關（純硬體、純晶片、非 AI 的軟體新聞）
+- 跟 AI 應用/產品/產業完全無關（純硬體、純晶片、非 AI 的軟體新聞）
+- 跟 AI 從業者無關的純學術研究（純數學證明、純理論物理、不涉及模型或應用的基礎科學）
 - 純廣告或付費內容推廣
 - 內容空洞（只有標題沒有實質內容的帖子）
 - published date 確認超過 7 天的結果（即使搜尋工具回傳了）
+
+保留條件（即使不直接涉及 Agent）：
+- 模型發佈、定價變動、benchmark 異動（影響 AI 從業者的成本和選型）
+- 多模態、語音、影片生成能力（決定 agent 能做什麼）
+- AI 法規、政策（影響 agent 能部署在哪裡）
+- AI 融資、併購（產業格局變化）
+- 推理基礎設施、算力動態（影響所有 AI 應用）
 
 ### Step 6b：比對 watchlist 公司
 
