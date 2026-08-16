@@ -84,29 +84,33 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
 
-### 第二層：大廠官方來源（Tavily × 10，用 include_domains 鎖定）
+### 第二層：大廠官方 blog 直讀（WebFetch / firecrawl，0 搜尋配額）
 
-用 `include_domains` 限定官方網站，避免第三方垃圾。query 統一用 `"AI agent"`。
+直接抓每家的 blog 列表頁，讀日期判斷有沒有新文章。不用搜尋 API。
 
 ```
-工具：mcp Tavily → tavily_search
-每個查詢：query: "AI agent", max_results: 3, time_range: "day"
+工具：WebFetch（優先）→ firecrawl（WebFetch 被擋時 fallback）
+prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
 ```
 
-| # | include_domains | 公司 |
-|---|----------------|------|
-| 1 | `["anthropic.com"]` | Anthropic |
-| 2 | `["openai.com"]` | OpenAI |
-| 3 | `["blog.google", "deepmind.google"]` | Google |
-| 4 | `["blogs.microsoft.com", "devblogs.microsoft.com"]` | Microsoft |
-| 5 | `["about.fb.com", "ai.meta.com"]` | Meta |
-| 6 | `["aws.amazon.com"]` | Amazon |
-| 7 | `["blogs.nvidia.com", "developer.nvidia.com"]` | NVIDIA |
-| 8 | `["blog.cloudflare.com"]` | Cloudflare |
-| 9 | `["cursor.com"]` | Cursor |
-| 10 | `["blog.langchain.dev"]` | LangChain |
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 1 | `https://www.anthropic.com/news` | Anthropic | WebFetch |
+| 2 | `https://openai.com/news` | OpenAI | firecrawl（WebFetch 403） |
+| 3 | `https://deepmind.google/blog` | Google | WebFetch |
+| 4 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
+| 5 | `https://about.fb.com/news` | Meta | WebFetch |
+| 6 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | Amazon | WebFetch |
+| 7 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
+| 8 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
+| 9 | `https://cursor.com/changelog` | Cursor | WebFetch |
+| 10 | `https://www.langchain.com/blog` | LangChain | WebFetch |
 
-今天沒發文的公司會回傳 0 筆，這是正確行為。
+處理方式：
+1. 抓回最近 5 篇的日期和標題
+2. 只保留 48 小時內的文章
+3. 今天沒發文的公司 = 0 筆，正確行為
+4. 有新文章的，把標題和 URL 加入信號候選
 
 ### 第三層：社群 + 區域來源
 
@@ -141,9 +145,11 @@ max_results: 5, time_range: "day"
 
 | 工具 | 查詢數 | 說明 |
 |------|--------|------|
-| Tavily | 22 | 8 廣域 + 10 大廠 + 4 中文台灣 |
+| Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| **總計** | **25** | |
+| WebFetch | 9 | 大廠 blog 直讀（0 搜尋配額） |
+| firecrawl | 1 | OpenAI（WebFetch 403 fallback） |
+| **總計** | **25** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
