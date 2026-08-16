@@ -1,0 +1,16 @@
+{
+  "date": "2026-08-16",
+  "note": "首次執行（bootstrap）：尚無歷史快照可比對，本次僅建立基準，未產出異動報告。",
+  "swebench_verified_top5": [
+    { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
+    { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
+    { "rank": 3, "model": "Doubao-Seed-Code", "agent": "TRAE", "score": 78.80 },
+    { "rank": 4, "model": "Gemini 3 Pro Preview", "agent": "live-SWE-agent", "score": 77.40 },
+    { "rank": 5, "model": "Multiple", "agent": "Atlassian Rovo Dev", "score": 76.80 }
+  ],
+  "swebench_verified_source": "https://www.swebench.com/",
+  "lmsys_top3": null,
+  "lmsys_note": "lmarena.ai 官方頁面為 JS render + reCAPTCHA 阻擋，firecrawl_scrape 無法取得排行榜表格；第三方鏡像站（swfte.com）資料頁面間排名互相矛盾，判定不可信，未採用。下次執行需嘗試其他抓取方式（如 stealth_fetch）。",
+  "morphllm_top3": null,
+  "morphllm_note": "https://morphllm.com/leaderboard 回傳 404，頁面可能已改版或移除，需重新確認正確 URL。"
+}
