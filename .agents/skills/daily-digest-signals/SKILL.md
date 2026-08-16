@@ -228,6 +228,9 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | # | URL | 說明 | 工具 |
 |---|-----|------|------|
 | M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | firecrawl |
+| M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | firecrawl |
+| M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | WebFetch |
+| M1d | `https://lsvp.com/stories` | Lightspeed Stories | WebFetch |
 | M2 | `https://the-decoder.com` | AI 新聞（每日更新） | WebFetch |
 | M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | WebFetch |
 | M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | WebFetch |
