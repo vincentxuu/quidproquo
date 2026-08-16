@@ -160,6 +160,14 @@ async function runResearch(
 
   const searchQueries = [baseQuery]
 
+  // A retry must change retrieval behavior. Repeating the same BM25
+  // short-circuit after a weak or rejected answer only reproduces the same
+  // context. Include the critic's missing coverage as a deterministic rewrite
+  // and force hybrid retrieval below.
+  if (state.iteration > 0 && state.critique.gaps.length > 0 && maxSearchCalls >= 2) {
+    searchQueries.push(`${query} ${state.critique.gaps.join(' ')}`)
+  }
+
   if (state.config.hydeEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
     const hydeQuery = await generateHydeQuery(baseQuery, runtime, options).catch(() => null)
     if (hydeQuery) searchQueries.push(hydeQuery)
@@ -172,6 +180,9 @@ async function runResearch(
   }
 
   const queryVariants = Array.from(new Set(searchQueries.map(item => item.trim()).filter(Boolean)))
+  const allowBm25ShortCircuit = state.config.bm25ShortCircuitEnabled
+    && state.iteration === 0
+    && !state.needs_web_search
 
   const webSearchResults = state.config.searchToolsEnabled
     ? await runtime.searchExternal({
@@ -190,13 +201,14 @@ async function runResearch(
         : runtime.searchAbstract({ query: searchQuery, limit: abstractLimit }).catch(() => [] as SearchResult[]),
       runtime.searchPosts({
         query: searchQuery,
+        lang: state.language === 'en' ? 'en' : 'zh-TW',
         limit: postLimit,
-        shortCircuit: state.config.bm25ShortCircuitEnabled,
+        shortCircuit: allowBm25ShortCircuit,
       }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
       runtime.searchDocs({
         query: searchQuery,
         limit: docLimit,
-        shortCircuit: state.config.bm25ShortCircuitEnabled,
+        shortCircuit: allowBm25ShortCircuit,
       }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
     ])
 

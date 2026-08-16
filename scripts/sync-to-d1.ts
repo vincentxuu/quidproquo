@@ -6,6 +6,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import { writeFileSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import { createHash } from 'node:crypto';
 import { execSync } from 'node:child_process';
@@ -45,6 +46,27 @@ async function collectMarkdownFiles(dir: string): Promise<string[]> {
 
 function generateChunkId(slug: string, chunkIndex: number): string {
   return createHash('sha256').update(`${slug}::${chunkIndex}`).digest('hex').slice(0, 16);
+}
+
+export function buildPostChunkSyncStatements(
+  postId: string,
+  slug: string,
+  chunks: Array<{ chunk_index: number; content: string }>,
+): string[] {
+  const statements = [
+    `DELETE FROM chunks_fts WHERE source_type='post' AND chunk_id IN (SELECT id FROM post_chunks WHERE post_id='${postId}');`,
+    `DELETE FROM post_chunks WHERE post_id='${postId}';`,
+  ];
+
+  for (const chunk of chunks) {
+    const chunkId = generateChunkId(slug, chunk.chunk_index);
+    statements.push(
+      `INSERT INTO post_chunks (id, post_id, chunk_index, content)\nVALUES ('${chunkId}', '${postId}', ${chunk.chunk_index}, '${escape(chunk.content)}')\nON CONFLICT(id) DO UPDATE SET content=excluded.content;`,
+      `INSERT INTO chunks_fts (content, chunk_id, source_type)\nVALUES ('${escape(chunk.content)}', '${chunkId}', 'post');`,
+    );
+  }
+
+  return statements;
 }
 
 function execSql(sql: string, flag: string) {
@@ -102,14 +124,7 @@ ON CONFLICT(slug) DO UPDATE SET
 
     // chunk the content for RAG
     const docChunks = chunkMarkdown(content, slug, data.title as string);
-    chunkStatements.push(`DELETE FROM post_chunks WHERE post_id='${id}';`);
-    for (const c of docChunks) {
-      const chunkId = generateChunkId(slug, c.chunk_index);
-      chunkStatements.push(`
-INSERT INTO post_chunks (id, post_id, chunk_index, content)
-VALUES ('${chunkId}', '${id}', ${c.chunk_index}, '${escape(c.content)}')
-ON CONFLICT(id) DO UPDATE SET content=excluded.content;`.trim());
-    }
+    chunkStatements.push(...buildPostChunkSyncStatements(id, slug, docChunks));
 
     console.log(`  Prepared: ${slug} (${docChunks.length} chunks)`);
   }
@@ -132,10 +147,16 @@ ON CONFLICT(id) DO UPDATE SET content=excluded.content;`.trim());
   }
 
   console.log(`\n✅ Synced ${postStatements.length} post(s) to D1`);
-  console.log(`✅ Synced ${chunkStatements.filter(s => s.startsWith('INSERT')).length} chunk(s) to post_chunks`);
+  console.log(`✅ Synced ${chunkStatements.filter(s => s.startsWith('INSERT INTO post_chunks')).length} chunk(s) to post_chunks`);
 }
 
-syncPosts().catch(err => {
-  console.error('Sync failed:', err);
-  process.exit(1);
-});
+const isDirectExecution = process.argv[1]
+  ? import.meta.url === pathToFileURL(process.argv[1]).href
+  : false;
+
+if (isDirectExecution) {
+  syncPosts().catch(err => {
+    console.error('Sync failed:', err);
+    process.exit(1);
+  });
+}

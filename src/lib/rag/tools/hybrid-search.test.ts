@@ -1,13 +1,17 @@
 import { describe, expect, it } from 'vitest'
 import {
   attachSearchMetrics,
+  ABSTRACT_RANKING_WEIGHT,
   BM25_SHORT_CIRCUIT_THRESHOLD,
   buildFtsQuery,
+  comparableRankingScore,
   getSearchMetrics,
+  isWeakRetrieval,
   isPrecisionQuery,
   reciprocalRankFuse,
   RRF_K,
   shouldShortCircuitBm25,
+  shouldUseBm25ShortCircuit,
 } from './hybrid-search'
 
 describe('buildFtsQuery', () => {
@@ -36,6 +40,11 @@ describe('BM25 short circuit helpers', () => {
     expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD)).toBe(true)
     expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD - 1)).toBe(false)
     expect(shouldShortCircuitBm25(BM25_SHORT_CIRCUIT_THRESHOLD, false)).toBe(false)
+  })
+
+  it('only applies the BM25-only fast path to precision queries', () => {
+    expect(shouldUseBm25ShortCircuit('D1 batch timeout', BM25_SHORT_CIRCUIT_THRESHOLD)).toBe(true)
+    expect(shouldUseBm25ShortCircuit('適合初學者的文章', BM25_SHORT_CIRCUIT_THRESHOLD)).toBe(false)
   })
 
   it('attaches metrics without serializing them into tool results', () => {
@@ -72,7 +81,11 @@ describe('reciprocalRankFuse', () => {
     ], 3)
 
     expect(fused.map(row => row.chunk_id)).toEqual(['b', 'a', 'c'])
-    expect(fused[0].relevance_score).toBeCloseTo((1 / (RRF_K + 2)) + (1 / (RRF_K + 1)))
+    const maxPossibleScore = 2 / (RRF_K + 1)
+    expect(fused[0].relevance_score).toBeCloseTo(
+      ((1 / (RRF_K + 2)) + (1 / (RRF_K + 1))) / maxPossibleScore
+    )
+    expect(fused[1].relevance_score).toBeCloseTo(0.5)
   })
 
   it('respects the final limit', () => {
@@ -82,5 +95,27 @@ describe('reciprocalRankFuse', () => {
     ], 2)
 
     expect(fused).toHaveLength(2)
+  })
+})
+
+describe('comparable retrieval signals', () => {
+  it('keeps RRF agreement ahead of a high abstract cosine score', () => {
+    const [rrfMatch] = reciprocalRankFuse([
+      [{ chunk_id: 'shared' }],
+      [{ chunk_id: 'shared' }],
+    ], 1)
+
+    expect(rrfMatch.relevance_score).toBe(1)
+    expect(comparableRankingScore({ relevance_score: 0.99, type: 'abstract' }))
+      .toBeCloseTo(0.99 * ABSTRACT_RANKING_WEIGHT)
+    expect(rrfMatch.relevance_score).toBeGreaterThan(
+      comparableRankingScore({ relevance_score: 0.99, type: 'abstract' })
+    )
+  })
+
+  it('flags empty and low-confidence abstract retrieval for fallback', () => {
+    expect(isWeakRetrieval([])).toBe(true)
+    expect(isWeakRetrieval([{ relevance_score: 0.7, type: 'abstract' }])).toBe(true)
+    expect(isWeakRetrieval([{ relevance_score: 0.9, type: 'abstract' }])).toBe(false)
   })
 })

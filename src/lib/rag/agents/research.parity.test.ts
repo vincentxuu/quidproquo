@@ -62,6 +62,7 @@ describe('research agent parity', () => {
   it('matches legacy output for local hybrid retrieval', async () => {
     const state = makeState({})
     await expectParity(state)
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({ lang: 'zh-TW' }))
   })
 
   it('matches legacy output when external search is enabled', async () => {
@@ -96,6 +97,34 @@ describe('research agent parity', () => {
       },
     })
     await expectParity(state)
+  })
+
+  it('changes retrieval on retry by using critic gaps and disabling BM25 short-circuit', async () => {
+    vi.mocked(searchBlogPosts).mockResolvedValue([postResult])
+    vi.mocked(searchDocs).mockResolvedValue([docResult])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+    vi.mocked(searchExternalTools).mockResolvedValue([])
+    vi.mocked(pageIndexSearch).mockResolvedValue([])
+
+    await researchNode(makeState({
+      iteration: 1,
+      needs_web_search: true,
+      critique: {
+        confidence: 0.4,
+        answer_relevance: 0.5,
+        intent_alignment: 0.8,
+        drift_detected: false,
+        ungrounded_claims: [],
+        gaps: ['deployment audit trail'],
+      },
+    }))
+
+    expect(searchBlogPosts).toHaveBeenCalledTimes(2)
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({
+      query: expect.stringContaining('deployment audit trail'),
+      shortCircuit: false,
+    }))
+    expect(searchDocs).toHaveBeenCalledWith(expect.objectContaining({ shortCircuit: false }))
   })
 })
 

@@ -1,4 +1,5 @@
 import type { GraphState, SearchResult } from '../state'
+import { comparableRankingScore, isWeakRetrieval } from '../tools/hybrid-search'
 
 export function parseMetadataArrays(meta: { images: unknown; links: unknown }): {
   images: string[]
@@ -14,7 +15,12 @@ export function parseMetadataArrays(meta: { images: unknown; links: unknown }): 
 }
 
 export function orderByRelevance(results: SearchResult[]): SearchResult[] {
-  return [...results].sort((a, b) => b.relevance_score - a.relevance_score)
+  return results
+    .map(result => ({
+      ...result,
+      relevance_score: comparableRankingScore(result),
+    }))
+    .sort((a, b) => b.relevance_score - a.relevance_score)
 }
 
 function tokenize(text: string): string[] {
@@ -40,7 +46,8 @@ export function rerankByQuery(
     relevance_score: item.score,
   }))
 
-  return ordered.slice(0, Math.max(minKeep, ordered.length))
+  const keepCount = Math.min(ordered.length, Math.max(0, Math.floor(minKeep)))
+  return ordered.slice(0, keepCount)
 }
 
 function jaccardSimilarity(a: string, b: string): number {
@@ -85,16 +92,15 @@ export async function normalizeResultsNode(state: GraphState): Promise<Partial<G
     ? lastContent
     : ''
 
+  const needsWebSearch = isWeakRetrieval(state.search_results)
   let ordered = orderByRelevance(state.search_results)
   if (state.config.rerankerEnabled) {
     ordered = rerankByQuery(ordered, query, state.config.rerankerMinKeep)
     ordered = applyMmrOrdering(ordered, state.config.mmrLambda)
   }
 
-  const maxScore = ordered[0]?.relevance_score ?? 0
-
   return {
     search_results: ordered,
-    needs_web_search: maxScore < 0.4,
+    needs_web_search: needsWebSearch,
   }
 }

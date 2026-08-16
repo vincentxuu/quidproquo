@@ -49,6 +49,29 @@ describe('rerankByQuery', () => {
     const ranked = rerankByQuery(chunks, 'cloudflare d1 timeout', 1)
     expect(ranked[0].evidence_excerpt).toContain('Cloudflare D1')
   })
+
+  it('keeps only the configured number of top results', () => {
+    const chunks = [
+      { relevance_score: 0.9, claim: 'first', evidence_excerpt: 'first' },
+      { relevance_score: 0.8, claim: 'second', evidence_excerpt: 'second' },
+      { relevance_score: 0.7, claim: 'third', evidence_excerpt: 'third' },
+    ] as SearchResult[]
+
+    expect(rerankByQuery(chunks, 'first', 2)).toHaveLength(2)
+    expect(rerankByQuery(chunks, 'first', 10)).toHaveLength(3)
+  })
+})
+
+describe('comparable result ordering', () => {
+  it('does not let an abstract cosine score overpower normalized RRF', () => {
+    const ordered = orderByRelevance([
+      { relevance_score: 0.75, type: 'post', evidence_excerpt: 'rrf' },
+      { relevance_score: 0.99, type: 'abstract', evidence_excerpt: 'abstract' },
+    ] as SearchResult[])
+
+    expect(ordered[0].evidence_excerpt).toBe('rrf')
+    expect(ordered[1].relevance_score).toBeCloseTo(0.495)
+  })
 })
 
 describe('applyMmrOrdering', () => {

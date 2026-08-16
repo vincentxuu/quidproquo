@@ -10,7 +10,7 @@ import {
   getSearchMetrics,
   isPrecisionQuery,
   reciprocalRankFuse,
-  shouldShortCircuitBm25,
+  shouldUseBm25ShortCircuit,
 } from './hybrid-search'
 
 interface PostSearchRow extends SearchResult {
@@ -206,7 +206,7 @@ export async function searchBlogPosts(args: {
   const bm25Results = await searchBm25Posts(query, limit, category, lang)
   const bm25Ms = Date.now() - bm25Started
 
-  if (shouldShortCircuitBm25(bm25Results.length, shortCircuit)) {
+  if (shouldUseBm25ShortCircuit(query, bm25Results.length, shortCircuit)) {
     const results = dedupeBySlug(reciprocalRankFuse([bm25Results], limit * 3), limit)
     return attachSearchMetrics(results, {
       source: 'posts',

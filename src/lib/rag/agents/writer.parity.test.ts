@@ -101,6 +101,22 @@ describe('writer agent parity', () => {
     expect(Math.abs((kernel.draft?.length ?? 0) - (legacy.draft?.length ?? 0))).toBeLessThanOrEqual(Math.ceil((legacy.draft?.length ?? 0) * 0.1))
     expect(kernel.draft).toContain('[Agent OS](https://example.com/agent-os)')
   })
+
+  it('instructs the model to abstain when retrieval evidence is weak', async () => {
+    const state = makeState({
+      search_results: [],
+      needs_web_search: true,
+    })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('知識庫目前沒有足夠資料。'))
+
+    await writerNode(state)
+
+    const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+    const firstMessage = messages?.[0] as { content?: unknown } | undefined
+    const systemPrompt = String(firstMessage?.content ?? '')
+    expect(systemPrompt).toContain('does not answer from general knowledge')
+    expect(systemPrompt).toContain('Retrieval did not produce reliable evidence')
+  })
 })
 
 function makeState(overrides: Partial<GraphState>): GraphState {

@@ -10,7 +10,7 @@ import {
   getSearchMetrics,
   isPrecisionQuery,
   reciprocalRankFuse,
-  shouldShortCircuitBm25,
+  shouldUseBm25ShortCircuit,
 } from './hybrid-search'
 
 interface DocSearchRow extends SearchResult {
@@ -155,7 +155,7 @@ export async function searchDocs(args: {
   const bm25Results = await searchBm25Docs(query, limit, source_name)
   const bm25Ms = Date.now() - bm25Started
 
-  if (shouldShortCircuitBm25(bm25Results.length, shortCircuit)) {
+  if (shouldUseBm25ShortCircuit(query, bm25Results.length, shortCircuit)) {
     const results = reciprocalRankFuse([bm25Results], limit)
     return attachSearchMetrics(results, {
       source: 'docs',

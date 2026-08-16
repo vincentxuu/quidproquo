@@ -64,6 +64,12 @@
 - 為什麼現在不能做：缺使用者輸入。原條目明寫 "still needs input from the user"。
 - 接手第一步：問使用者手上有哪些可寫的第一手素材（專案數據、實際踩坑、內部流程），再決定 batch 2 的題目清單。
 
+## Q-009 RAG P0 production rollout 與 live baseline
+- 登錄：2026-08-16（來源：企業知識庫問答品質優化）
+- 做什麼：部署 RAG P0 程式碼後執行 production D1 sync、完整 embed-sync，確認 posts/post_chunks/chunks_fts/Vectorize 數量與新鮮度，再以 20 題 golden dataset 跑真正 `/api/chat` matrix 並保存 top-k、來源與失敗案例。
+- 為什麼現在不能做：Tier 2（deploy、`sync:prod`、production embedding 都會改正式環境並可能產生 Workers AI 費用），需要使用者明確同意。
+- 接手第一步：讀 `.work/rag-enterprise-p0-plan.md` 與 `src/pages/admin/rag.astro`，先記錄 production index counts，再依序 deploy → sync:prod → embed-sync → live eval；任一步失敗就停止，不翻其他 feature flag。
+
 ---
 
 ## Done

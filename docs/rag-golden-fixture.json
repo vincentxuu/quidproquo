@@ -2,29 +2,70 @@
   {
     "id": "q01",
     "query": "你寫過哪些 AI Agent 相關的文章？",
+    "category": "precise-query",
     "language": "zh-TW",
-    "fixture_answer": "有寫過 AI Agent 相關主題：從 context engineering、tool calling、到 RAG 在 agent 系統中的應用都有整理，並在多篇文章中比較過不同實作取捨。",
-    "fixture_sources": ["posts/ai", "posts/tech"]
+    "expected_answer_points": [
+      "列出 AI Agent 類文章主題",
+      "提到 AI Agent 實務案例或框架比較"
+    ],
+    "expected_sources": ["posts/ai", "posts/tech"],
+    "forbidden_claims": ["完全沒寫過 AI Agent 相關內容"],
+    "candidate_answer": "我寫過幾組 AI Agent 類文章主題，包括 context engineering、tool calling 與 Agentic RAG，也整理了 AI Agent 實務案例和框架比較。可先看 [Agentic RAG](https://quidproquo.cc/posts/ai/2026-03-12-agentic-rag-react-loop) 與 [RAG pipeline 架構](https://quidproquo.cc/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-agentic-rag-react-loop",
+      "https://quidproquo.cc/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture"
+    ]
   },
   {
     "id": "q02",
     "query": "Context Engineering 跟 Prompt Engineering 差在哪？",
+    "category": "concept",
     "language": "zh-TW",
-    "fixture_answer": "Context Engineering 著重在『給模型的上下文與工具行為設計』，不是單純調整 prompt 的文字；Prompt Engineering 主要側重提示詞本身的撰寫與技巧。",
-    "fixture_sources": ["posts/ai", "posts/learning"]
+    "expected_answer_points": [
+      "區分兩者定位",
+      "列出各自工具與限制",
+      "避免混淆實務範圍"
+    ],
+    "expected_sources": ["posts/ai", "posts/learning"],
+    "forbidden_claims": ["兩者定義完全等同"],
+    "candidate_answer": "兩者定位不同：Prompt Engineering 聚焦提示詞本身，常用工具是模板與 few-shot，但限制是只控制單次輸入；Context Engineering 管理檢索、記憶、工具和歷史訊息，限制是系統複雜度與 token 成本。這樣可避免混淆兩者的實務範圍。參考 [Context Engineering](https://quidproquo.cc/posts/ai/2026-03-24-context-engineering-guide) 與 [Prompt Engineering](https://quidproquo.cc/posts/learning/2026-03-13-prompt-engineering-iteration-guide)。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-24-context-engineering-guide",
+      "https://quidproquo.cc/posts/learning/2026-03-13-prompt-engineering-iteration-guide"
+    ]
   },
   {
     "id": "q03",
     "query": "Cloudflare D1 batch timeout 要怎麼解？",
+    "category": "precise-query",
     "language": "zh-TW",
-    "fixture_answer": "可以分批處理、縮小每批大小、加重試與回退，並調整 checkpoint 及重試策略；必要時改用非同步排程。",
-    "fixture_sources": ["posts/tech", "posts/ai"]
+    "expected_answer_points": [
+      "指出 batch size 重試分批策略",
+      "提供可操作的修正方向"
+    ],
+    "expected_sources": ["posts/tech", "posts/ai"],
+    "forbidden_claims": ["只要調高無關參數就能解決"],
+    "candidate_answer": "先縮小 batch size 並分批提交，針對 timeout 加指數退避重試與 checkpoint；可操作的修正方向是從 50 筆一批開始量測，再依失敗率調小。參考 [D1 batch timeout](https://quidproquo.cc/posts/tech/2026-03-12-d1-batch-timeout) 與 [RAG 重試策略](https://quidproquo.cc/posts/ai/2026-03-12-corrective-rag-crag)。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/tech/2026-03-12-d1-batch-timeout",
+      "https://quidproquo.cc/posts/ai/2026-03-12-corrective-rag-crag"
+    ]
   },
   {
     "id": "q04",
     "query": "LangGraph 適合什麼情境？",
+    "category": "concept",
     "language": "zh-TW",
-    "fixture_answer": "LangGraph 適合流程複雜、節點可拆、需要可視化追蹤與重試/條件分支的場景，像是多步驟檢索、規劃到生成一體化的 query pipeline。",
-    "fixture_sources": ["posts/ai", "posts/tech"]
+    "expected_answer_points": [
+      "描述任務複雜度與工具協作時機",
+      "強調節點式流程優勢"
+    ],
+    "expected_sources": ["posts/ai", "posts/tech"],
+    "forbidden_claims": ["LangGraph 是單步問答框架"],
+    "candidate_answer": "LangGraph 適合任務複雜、需要多工具協作與條件分支的情境。節點式流程的優勢是能明確保存狀態、重試失敗節點並追蹤每一步。參考 [LangGraph agent orchestration](https://quidproquo.cc/posts/ai/2026-03-27-langgraph-agent-orchestration) 與 [RAG pipeline](https://quidproquo.cc/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-27-langgraph-agent-orchestration",
+      "https://quidproquo.cc/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture"
+    ]
   }
 ]

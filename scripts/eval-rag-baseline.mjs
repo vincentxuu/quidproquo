@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const DATASET_PATH = path.resolve('docs/rag-golden-dataset.json');
 const FIXTURE_DATASET_PATH = path.resolve(process.env.RAG_EVAL_FIXTURE_PATH ?? 'docs/rag-golden-fixture.json');
@@ -19,11 +20,14 @@ const THRESHOLDS = {
   contextRecall: Number(process.env.RAG_EVAL_MIN_CONTEXT_RECALL ?? '0.7'),
 };
 
-function tokenize(text) {
-  return (text.match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu) ?? []).map((token) => token.toLowerCase());
+export function tokenize(text) {
+  const normalized = String(text ?? '').toLowerCase();
+  const latinTokens = normalized.match(/[a-z0-9][a-z0-9._:/#-]*/g) ?? [];
+  const cjkTokens = [...normalized].filter((char) => /[\p{Script=Han}]/u.test(char));
+  return [...latinTokens, ...cjkTokens];
 }
 
-function jaccard(a, b) {
+export function jaccard(a, b) {
   const setA = new Set(tokenize(a));
   const setB = new Set(tokenize(b));
   const intersection = [...setA].filter((token) => setB.has(token)).length;
@@ -101,105 +105,113 @@ async function ask(query, pipelineEngine) {
   throw new Error(`Chat request failed for "${query}" with status 429`);
 }
 
-function buildOfflineResponse(item) {
-  const answer = item.fixture_answer
-    || (item.expected_answer_points || []).slice(0, 3).join('；')
-    || `回答：${item.query}`;
-  const sources = Array.isArray(item.fixture_sources)
-    ? item.fixture_sources
-    : Array.isArray(item.expected_sources)
-      ? item.expected_sources
-      : [];
+export function buildOfflineResponse(item) {
+  if (typeof item.candidate_answer !== 'string' || !Array.isArray(item.candidate_sources)) {
+    throw new Error(`Offline fixture "${item.id ?? 'unknown'}" must define candidate_answer and candidate_sources`);
+  }
 
   return {
-    answer,
-    sources: sources.map((source) => ({ source_url: String(source) })),
+    answer: item.candidate_answer,
+    sources: item.candidate_sources.map((source) => ({ source_url: String(source) })),
   };
 }
 
 function getExpectedSources(item) {
-  return Array.isArray(item.expected_sources)
-    ? item.expected_sources
-    : Array.isArray(item.fixture_sources) ? item.fixture_sources : [];
+  return Array.isArray(item.expected_sources) ? item.expected_sources : [];
 }
 
 function getExpectedAnswerPoints(item) {
-  const fromFixture = item.fixture_answer
-    ? item.fixture_answer
-      .split(/[；;。.!?！？]\s*/g)
-      .map((entry) => entry.trim())
-      .filter(Boolean)
-    : [];
-  return Array.isArray(item.expected_answer_points) && item.expected_answer_points.length > 0
-    ? item.expected_answer_points
-    : fromFixture;
+  return Array.isArray(item.expected_answer_points) ? item.expected_answer_points : [];
 }
 
-function scoreOfflineCase(item, answer, sources) {
-  const normalizedAnswer = answer.toLowerCase();
+function normalizeLocator(value) {
+  const raw = String(value ?? '').trim().toLowerCase();
+  if (!raw) return '';
+  try {
+    const url = new URL(raw);
+    return `${url.hostname}${url.pathname}`.replace(/^www\./, '').replace(/\/$/, '');
+  } catch {
+    return raw.replace(/^https?:\/\//, '').replace(/^\/+|\/+$/g, '');
+  }
+}
+
+function locatorAliases(value) {
+  const normalized = normalizeLocator(value);
+  const aliases = new Set([normalized]);
+  if (normalized.startsWith('docs/')) aliases.add(normalized.slice('docs/'.length));
+  return [...aliases].filter(Boolean);
+}
+
+function sourceMatchesExpected(source, expected) {
+  const sourceLocator = normalizeLocator(source);
+  return locatorAliases(expected).some((alias) => sourceLocator.includes(alias));
+}
+
+function getSourceUrl(source) {
+  if (typeof source === 'string') return source;
+  return String(source?.source_url ?? source?.url ?? '');
+}
+
+function coverage(expected, actual) {
+  const expectedTokens = new Set(tokenize(expected));
+  const actualTokens = new Set(tokenize(actual));
+  if (expectedTokens.size === 0) return 0;
+  const matched = [...expectedTokens].filter((token) => actualTokens.has(token)).length;
+  return matched / expectedTokens.size;
+}
+
+function extractCitationUrls(answer) {
+  return [...String(answer).matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map((match) => match[1]);
+}
+
+export function scoreCase(item, answer, sources) {
+  const normalizedAnswer = String(answer ?? '').toLowerCase();
   const expectedSources = getExpectedSources(item);
-  const sourceSet = new Set(sources.map((source) => String(source.source_url ?? '').toLowerCase()));
-  const expectedSourceSet = new Set(expectedSources.map((source) => String(source).toLowerCase()));
-
-  const matchedSources = [...expectedSourceSet].filter((source) => {
-    if (!source) return false;
-    return sourceSet.has(source);
-  }).length;
-
-  const sourceRecall = expectedSourceSet.size === 0
-    ? 1
-    : matchedSources / expectedSourceSet.size;
+  const sourceUrls = sources.map(getSourceUrl).filter(Boolean);
+  const matchedSources = expectedSources.filter((expected) =>
+    sourceUrls.some((source) => sourceMatchesExpected(source, expected))
+  );
+  const contextRecall = expectedSources.length === 0
+    ? (sourceUrls.length === 0 ? 1 : 0)
+    : matchedSources.length / expectedSources.length;
 
   const expectedPoints = getExpectedAnswerPoints(item);
-  const matchedPoints = expectedPoints.filter((point) => {
-    if (!point || typeof point !== 'string') return false;
-    const pointTokens = tokenize(point.toLowerCase());
-    const answerTokens = new Set(tokenize(normalizedAnswer));
-    if (pointTokens.length === 0) return false;
-    const overlap = pointTokens.filter((token) => answerTokens.has(token)).length;
-    return overlap / pointTokens.length >= 0.4;
-  }).length;
+  const matchedPoints = expectedPoints.filter((point) => coverage(point, normalizedAnswer) >= 0.4);
+  const forbiddenClaims = Array.isArray(item.forbidden_claims) ? item.forbidden_claims : [];
+  const detectedForbiddenClaims = forbiddenClaims.filter((claim) =>
+    normalizedAnswer.includes(String(claim).toLowerCase()) || coverage(claim, normalizedAnswer) >= 0.85
+  );
+  const pointCoverage = expectedPoints.length === 0 ? 1 : matchedPoints.length / expectedPoints.length;
+  const answerRelevance = detectedForbiddenClaims.length > 0 ? 0 : pointCoverage;
 
-  const answerRelevance = expectedPoints.length === 0
-    ? 1
-    : matchedPoints / expectedPoints.length;
-
-  const faithfulness = expectedSourceSet.size === 0
-    ? 1
-    : sourceRecall;
-
-  return {
-    faithfulness,
-    answerRelevance,
-    contextRecall: sourceRecall,
-  };
-}
-
-function scoreCase(item, answer, sources) {
-  const metrics = OFFLINE_MODE
-    ? scoreOfflineCase(item, answer, sources)
-    : (() => {
-      const linkCount = (answer.match(/\]\(https?:\/\/[^)]+\)/g) ?? []).length;
-      return {
-        answerRelevance: jaccard(item.query, answer),
-        faithfulness: sources.length > 0
-          ? Math.min(1, linkCount / Math.max(1, sources.length))
-          : 0,
-        contextRecall: item.category === 'not-in-kb'
-          ? (sources.length === 0 ? 1 : 0)
-          : Math.min(1, sources.length / 3),
-      };
-    })();
+  const citationUrls = extractCitationUrls(answer);
+  const groundedCitations = citationUrls.filter((citation) =>
+    sourceUrls.some((source) => normalizeLocator(source) === normalizeLocator(citation))
+  );
+  const citationGrounding = citationUrls.length === 0 ? 0 : groundedCitations.length / citationUrls.length;
+  const sourceAlignment = sourceUrls.length === 0
+    ? 0
+    : sourceUrls.filter((source) => expectedSources.some((expected) => sourceMatchesExpected(source, expected))).length / sourceUrls.length;
+  const faithfulness = detectedForbiddenClaims.length > 0
+    ? 0
+    : expectedSources.length === 0
+      ? (sourceUrls.length === 0 && citationUrls.length === 0 ? 1 : 0)
+      : (sourceAlignment + citationGrounding) / 2;
 
   return {
     id: item.id,
     category: item.category ?? 'fixture',
-    faithfulness: metrics.faithfulness,
-    answerRelevance: metrics.answerRelevance,
-    contextRecall: metrics.contextRecall,
-    passed: metrics.faithfulness >= THRESHOLDS.faithfulness
-      && metrics.answerRelevance >= THRESHOLDS.answerRelevance
-      && metrics.contextRecall >= THRESHOLDS.contextRecall,
+    faithfulness,
+    answerRelevance,
+    contextRecall,
+    matchedAnswerPoints: matchedPoints.length,
+    expectedAnswerPoints: expectedPoints.length,
+    matchedSources: matchedSources.length,
+    expectedSources: expectedSources.length,
+    forbiddenClaims: detectedForbiddenClaims,
+    passed: faithfulness >= THRESHOLDS.faithfulness
+      && answerRelevance >= THRESHOLDS.answerRelevance
+      && contextRecall >= THRESHOLDS.contextRecall,
   };
 }
 
@@ -272,7 +284,10 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (isMain) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

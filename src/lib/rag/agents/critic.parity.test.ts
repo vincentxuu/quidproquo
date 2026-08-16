@@ -107,6 +107,34 @@ describe('critic agent parity', () => {
     expect(shouldRetry(kernelState)).toBe(shouldRetry(legacyState))
     expect(shouldDegrade(kernelState)).toBe(shouldDegrade(legacyState))
   })
+
+  it('includes retrieved evidence in the quality review prompt', async () => {
+    const state = makeState({ draft: 'A grounded answer.' })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult(cases[0].critique))
+
+    await criticNode(state)
+
+    const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+    const firstMessage = messages?.[0] as { content?: unknown } | undefined
+    const systemPrompt = String(firstMessage?.content ?? '')
+    expect(systemPrompt).toContain('All tool calls are logged through the kernel.')
+    expect(systemPrompt).toContain('Agent OS routes tools through mediated syscalls.')
+    expect(systemPrompt).toContain('A citation URL by itself is not evidence.')
+  })
+
+  it('fails closed when the critic returns malformed output', async () => {
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('not-json'))
+
+    const result = await criticNode(makeState({ draft: 'An unchecked answer.' }))
+
+    expect(result.critique).toMatchObject({
+      confidence: 0,
+      answer_relevance: 0,
+      intent_alignment: 0,
+      drift_detected: true,
+    })
+    expect(result.critique?.ungrounded_claims).not.toEqual([])
+  })
 })
 
 function makeState(overrides: Partial<GraphState>): GraphState {

@@ -101,6 +101,7 @@ function buildWriterPrompts(
   })
 
   const needsDisclaimer = (state.critique?.confidence ?? 1) < 0.6 || state.validation?.passed === false
+  const hasReliableEvidence = state.search_results.length > 0 && !state.needs_web_search
 
   return {
     systemPrompt: `You are a writer for a personal blog Q&A system.
@@ -114,11 +115,13 @@ Describe the successful end state by producing an answer that:
 - never prints bare URLs, URL-only link text, or a separate "sources/articles/reference list"; the UI renders retrieved sources separately
 - uses images only as ![description](image_url) when an image materially helps
 - explicitly names uncertainty or missing evidence instead of guessing
+- if the retrieved evidence is empty or low relevance, does not answer from general knowledge; clearly says the knowledge base does not contain enough reliable evidence
 - is valid Markdown with balanced code fences
 - keeps Mermaid diagrams inside \`\`\`mermaid fenced blocks when used
 
 Avoid step-by-step self-instructions or meta commentary about your process.
 ${needsDisclaimer ? 'Because prior checks found low confidence or formatting issues, include a brief limitation note near the start.' : ''}
+${hasReliableEvidence ? '' : 'Retrieval did not produce reliable evidence. Give a concise knowledge-base limitation response instead of a factual answer.'}
 Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
 Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}
 ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}` : ''}`,

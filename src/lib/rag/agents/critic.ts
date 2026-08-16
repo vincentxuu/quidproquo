@@ -81,7 +81,12 @@ function getQuery(state: GraphState): string {
 }
 
 function buildCriticSystemPrompt(state: GraphState, skillInstructions?: string): string {
-  const sourceUrls = state.search_results.map(r => r.source_url)
+  const evidence = state.search_results.slice(0, 12).map((result, index) => ({
+    source: index + 1,
+    url: result.source_url,
+    claim: result.claim,
+    excerpt: result.evidence_excerpt,
+  }))
   return `You are a strict quality evaluator for a RAG system.
 Evaluate the draft response and return JSON only, no markdown:
 {
@@ -93,7 +98,11 @@ Evaluate the draft response and return JSON only, no markdown:
   "gaps": ["what question left unanswered"]
 }
 
-Available source URLs: ${sourceUrls.join(', ')}
+Retrieved evidence (the only material that can ground factual claims):
+${JSON.stringify(evidence)}
+
+Mark every factual statement that is not supported by the retrieved evidence as
+an ungrounded claim. A citation URL by itself is not evidence.
 Validation status before review: ${state.validation.passed ? 'passed' : `failed - ${state.validation.errors.join('; ')}`}
 Original plan intent: ${state.plan.intent}
 Original plan complexity: ${state.plan.complexity}
@@ -104,28 +113,39 @@ ${skillInstructions ? `\nAgent skill instructions:\n${skillInstructions}` : ''}`
 }
 
 function parseCritique(content: unknown): Critique {
-  let critique: Critique = {
-    confidence: 0.8,
-    answer_relevance: 1,
-    intent_alignment: 1,
-    drift_detected: false,
-    ungrounded_claims: [],
-    gaps: [],
+  const invalidCritique: Critique = {
+    confidence: 0,
+    answer_relevance: 0,
+    intent_alignment: 0,
+    drift_detected: true,
+    ungrounded_claims: ['Critic output could not be validated'],
+    gaps: ['Quality review failed'],
   }
+
+  const score = (value: unknown): number | null => {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return null
+    return Math.max(0, Math.min(1, value))
+  }
+
   try {
     const raw = JSON.parse(String(content))
-    critique = {
-      confidence: raw.confidence ?? 0.8,
-      answer_relevance: raw.answer_relevance ?? 1,
-      intent_alignment: raw.intent_alignment ?? 1,
-      drift_detected: raw.drift_detected ?? false,
+    const confidence = score(raw.confidence)
+    const answerRelevance = score(raw.answer_relevance)
+    const intentAlignment = score(raw.intent_alignment)
+    if (confidence === null || answerRelevance === null || intentAlignment === null || typeof raw.drift_detected !== 'boolean') {
+      return invalidCritique
+    }
+    return {
+      confidence,
+      answer_relevance: answerRelevance,
+      intent_alignment: intentAlignment,
+      drift_detected: raw.drift_detected,
       ungrounded_claims: Array.isArray(raw.ungrounded_claims) ? raw.ungrounded_claims : [],
       gaps: Array.isArray(raw.gaps) ? raw.gaps : [],
     }
   } catch {
-    // Keep conservative defaults when the model response is malformed.
+    return invalidCritique
   }
-  return critique
 }
 
 function buildCriticUpdate(state: GraphState, result: CriticModelResult): Partial<GraphState> {
