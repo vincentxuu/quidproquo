@@ -3,7 +3,32 @@
 - 來源：Stanford CS230 Deep Learning, **Autumn 2025**（9 支影片，約 13 小時）
 - 逐講筆記：`.work/cs230-notes/lecture-0N.md`；來源清單與已知問題：`.work/cs230-notes/SOURCES.md`
 - 規模：**9 篇 × zh-TW/en = 18 檔**
-- 決策（2026-08-16 與使用者確認）：**1:1 對應講次** ／ **導讀 + 延伸**寫法 ／ **雙語**
+- 決策（2026-08-16 與使用者確認）：**1:1 對應講次** ／ **雙語**
+
+## ⚠️ 方針修正（2026-08-16，寫完前兩篇之後）
+
+**原本的寫法錯了，已作廢。** 原方針是「每篇挑一條主線，其餘只當佐證」，
+結果是**課程內容沒被寫完整**——例如 Lecture 4 叫 "Adversarial Robustness and
+**Generative Models**"，我卻一個字都沒寫生成模型。
+
+錯誤的來源有兩個，都要記下來避免重犯：
+
+1. 我在給使用者的選項裡，把「純課程筆記」描述成「原創性低、和站上風格不一樣」，
+   **那是在把人往我寫起來比較有發揮空間的方向推**，不是它比較符合目的。
+2. 「避免和站上 21 篇重疊」這個理由**對 L8 成立，但我擴大套用到全部九講**，
+   於是用重疊當藉口一路砍課程內容。
+
+**現行方針：**
+
+| 項目 | 做法 |
+|---|---|
+| 結構 | **照講者自己的 agenda 走**，他講了什麼就寫什麼 |
+| 標題 | **課程原標題 + 觀點副標**（例：`Introduction to Deep Learning：光靠 prompt 走不遠的那兩個時刻`） |
+| 評註 | 集中在文末 `## 延伸：` 段落，用分隔線與正文區隔，**不混進正文** |
+| 站上重疊處 | **照樣寫完整**，只在該處加一句「這點站上有更深的展開」並連過去 |
+| 長度 | **6,000–9,500 字元**。站上 zh 中位數 4,945、p90 9,087、最長 32,245，所以完整覆蓋不衝突 |
+
+（**先前寫進本檔的「1,200–2,000 字」是我抓錯的數字，已作廢。**）
 
 ## 系列定義（待寫進 `src/utils/series.ts`）
 
@@ -31,7 +56,8 @@
 1. **每篇開頭必須標明是 Autumn 2025 那一輪**，附上課日期與影片連結。
    理由：**Autumn 2026 已排定 2026/09/22 開課**，新一輪影片預計 2026 年 10 月起陸續發佈，
    屆時講次內容會變（見下方「大綱正在漂移」）。不標時間的話讀者會對不上。
-2. **不逐字摘要**。每篇挑一條主線，其餘只當佐證。目標長度 **1,200–2,000 字**（寫作指南區間）。
+2. **照講者的 agenda 走，完整覆蓋該講內容**；觀點與延伸集中在文末 `## 延伸：` 段落。
+   目標長度 **6,000–9,500 字元**（見上方方針修正）。
 3. **引用一律標明講者**（Ng vs Katanforoosh vs 客座 Moroney），三人立場不一致的地方要寫出來。
 4. **逐字稿是 YouTube 自動字幕，人名與數字全部不可信**。每篇的「待查證」清單見各講筆記末段，
    寫作前必須用 `post-verify` 跑過。
@@ -72,7 +98,7 @@
 
 ## 九篇規劃
 
-### 1 —— Lecture 1｜光靠 prompt 走不遠的那兩個時刻
+### 1 —— Lecture 1｜Introduction to Deep Learning：光靠 prompt 走不遠的那兩個時刻
 
 - 講者 Ng｜category `ai`｜type `guide`
 - **主線**：抽象層地圖（CS 基礎 → ML → DL → GenAI），以及**什麼時候會被迫往下鑽一層**。
@@ -86,7 +112,7 @@
 - **回指**：`2026-03-28-harness-engineering-evolution`（從 Prompt 到 Harness 的三次演化）
 - 待查：Ian Goodfellow 宿舍組 GPU 一事標為講者口述；「knowledge drops」疑為誤聽
 
-### 2 —— Lecture 2｜從比較像素到比較意義：embedding 是怎麼練出來的
+### 2 —— Lecture 2｜Supervised, Self-Supervised & Weakly Supervised Learning：從比較像素到比較意義
 
 - 講者 Katanforoosh｜category `ai`｜type `deep-dive`
 - **★ 這是站上最大的缺口**：`RAG 系統實戰` 六篇都在用 embedding，沒有一篇講它怎麼來的。
@@ -97,12 +123,16 @@
   3. **triplet loss**（anchor/positive/negative、margin α、FaceNet 2015）
   4. **contrastive learning**（SimCLR）：從監督 triplet 到自監督 pairs
      ——**「這就是為什麼現代模型能用數十億張未標註影像訓練」**
-  5. **多模態共享空間**（ImageBind）：多數模態透過**文字**這個樞紐互連
+  5. **多模態共享空間**（ImageBind）：樞紐是**影像**不是文字——課堂說法有誤，
+     論文結論是 only image-paired data is sufficient，文中要標明差異
 - **回指**：`2026-03-12-hybrid-search-bm25-vector-rrf`、`2026-05-08-pageindex-vectorless-rag`
-- 次要（可能要割）：verification vs identification（Global Entry vs 歐洲海關）、k-NN、k-means
+- **同樣要寫完整**：暖身（模型＝架構＋參數、capacity、逐層特徵、one-hot 錯誤）、
+  日夜分類（人當 proxy、64×64×3、解析度取捨）、喚醒詞（cascade、資料分佈、
+  標籤方案人體實驗、類別不平衡、三小時合成上百萬筆、去問專家）、
+  verification / identification / clustering（Global Entry vs 歐洲海關、k-NN、k-means）
 - 待查：Awni Hannun 拼寫、FaceNet/SimCLR/ImageBind 正式引用
 
-### 3 —— Lecture 3｜資料收兩天就好：AI 專案的相稱原則
+### 3 —— Lecture 3｜Full Cycle of a DL Project：資料收兩天就好
 
 - 講者 Ng｜category `ai`｜type `guide`
 - **主線：速度是資料策略**，而且 Ng 全講用速度回答了本該用別的理由回答的問題。
@@ -118,7 +148,7 @@
 - **回指**：`2026-08-10-enterprise-agent-case-studies`（上線才是工作的開始）
 - 待查：一億美元那個數字是口述、Gemini 2.5 Pro 是 2025-10 的說法要標時間
 
-### 4 —— Lecture 4｜不是非線性，是維度：神經網路為什麼這麼好騙
+### 4 —— Lecture 4｜Adversarial Robustness and Generative Models：不是非線性，是維度
 
 - 講者 Katanforoosh｜category `ai`｜type `deep-dive`
 - **主線：脆弱性的根源被誤解了。**
@@ -132,17 +162,22 @@
   加上**間接注入**（agent 讀到被下毒的網頁）與**文字版 backdoor**（Wikipedia 埋指令）。
 - **回指**：`2026-08-10-agent-security-harness-layer`（安全：prompt injection 只能在 harness 層做損害控制）
   ——那篇講怎麼防，這篇補「為什麼模型本質上就防不住」
-- **明確割掉**：GAN 與 diffusion 的後半段只留一句帶過（生成模型不是這系列的缺口）。
-  唯一保留的是 **mode collapse 的火鶴例子**當作 eval 的伏筆 → 移到第 10 篇。
+- **後半場（生成模型）必須寫完整**：GAN 的三個病（冷啟動飽和梯度、mode collapse、
+  兩個模型互相卡住）、非飽和 cost 的變換、潛在空間線性（男人+墨鏡−男人+女人）；
+  diffusion 的前向／反向過程、noise schedule、latent diffusion、影片的 cube token。
+  **mode collapse 的火鶴例子**（GAN 永遠生成成群的火鶴，從沒生出單獨一隻）是全講最好的圖。
+- 本篇會是全系列最長的一篇（約 9,500 字元）。**若超過 11,000 就回報並考慮拆兩篇。**
 - 待查：Szegedy 2013、Goodfellow FGSM、adversarial patch（針對 YOLO v2）出處；
   數值例子要自己重算
 
-### 5 —— Lecture 5｜把 RLHF 放回強化學習的框架裡
+### 5 —— Lecture 5｜Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡
 
 - 講者 Katanforoosh｜category `ai`｜type `deep-dive`
 - **主線：多數 LLM 文章跳過的那一步——RLHF 到底 RL 在哪裡。**
-- 前半（壓縮）：只留 **Bellman 方程**、**ε-greedy**、**Q table 的死穴**當背景。
-  用「腳踏車路線」類比講 exploration vs exploitation。
+- **前半照樣寫完整**：圍棋為什麼不能用監督式學習（三個反駁）、RL 詞彙、
+  資源回收 Q table 手算、Bellman 方程、deep Q-learning 怎麼造標籤、
+  Breakout 前處理（含 DeepMind 去色讓 Seaquest 的魚消失）、
+  experience replay、ε-greedy（腳踏車路線類比）、湧現行為（AlphaGo 那步怪棋）、PPO/DPO。
 - **後半（重點）：那張對照表**
 
   | RL | RLHF |
@@ -163,7 +198,7 @@
 - **回指**：`2026-08-10-rag-graph-agentic-variants`（evaluator paradox）
 - 待查：InstructGPT 13,000 組、Karpathy 那支「四天前」的影片（約 2025-10-17）
 
-### 6 —— Lecture 6｜三四個小時的試算表，省掉幾週的錯方向
+### 6 —— Lecture 6｜AI Project Strategy：三四個小時的試算表，省掉幾週的錯方向
 
 - 講者 Ng｜category `ai`｜type `guide`
 - **★ 全系列最能直接落地的一篇。** 而且 Ng 用的例子就是 **deep researcher**，站上讀者一看就懂。
@@ -180,12 +215,16 @@
   - 「error analysis 是**手動**的，因為它在找**人類會做得比 AI 好的地方**，
     再把那份知識注入系統。有人在談自動化，但目前為止就是得靠人去看。」
 - 第二段：**有經驗的人「變異數很小」**——這證明它有方法論，不是玄學
-- 第三段（節制）：**一天修一個問題**的日節奏 + 訓練時間分級表（10 分鐘／4 小時／3 週）
+- **前半（喚醒詞案例）也要寫完整**：文獻搜尋的做法（略讀多篇再深讀少數）、
+  去信問論文作者、合成資料為什麼不是第一步（電玩只有 20 種車）、
+  100 訓練／25 dev／**0 test set**、97% 準確率卻從沒偵測到、不平衡的 1:10 經驗法則、
+  音訊疊加的陷阱（**會得到語音活動偵測器**）。
+- 再加：**一天修一個問題**的日節奏、訓練時間分級表（10 分鐘／4 小時／3 週）、2 倍複利
 - **回指**：`2026-08-10-enterprise-agent-case-studies`、`2026-03-12-rag-failure-modes`
 - **提一句**：syllabus 這一講的條目是過期的，別照官網找
 - 待查：無投影片，pipeline 圖與 2 倍複利圖要自己畫
 
-### 8 —— Lecture 8｜一堂課教完 agent 之後，剩下的才是難的
+### 8 —— Lecture 8｜Agents, Prompts, and RAG：一堂課教完之後剩下的才是難的
 
 - 講者 Katanforoosh｜category `ai`｜type `deep-dive`
 - **★ 這篇是對照篇，不是導讀篇。**
@@ -209,7 +248,7 @@
 - 待查：「from Yu」那則推文出處**必須查證**；BCG 研究正式引用（Dell'Acqua et al.）；
   McKinsey 信用備忘錄報告；Ross Lazerowitz 貼文（2023-09）
 
-### 9 —— Lecture 9｜投了 300 份履歷都失敗的 10x 工程師
+### 9 —— Lecture 9｜Career Advice in AI：投了 300 份履歷都失敗的 10x 工程師
 
 - 講者 Ng（前 20 分鐘）+ **客座 Laurence Moroney**（其餘）｜category `career`｜type `guide`
 - **主線：技能不是問題的時候，問題在哪。**
@@ -228,13 +267,15 @@
   - **權威凌駕實力**：「那位 VP 訂閱了 Replit 開始做東西，猜猜變成誰的問題要修」
 - **第三段（短）**：Ng 的 **PM 瓶頸**——eng:PM 從 8:1 走向 **1:1**；
   以及那個**被分派去做 Java 金流後端**的學生（同一家公司發生兩次）
-- **明確割掉**：大 AI vs 小 AI 的分岔、SME/on-device、電影 demo
-  → **移到第 10 篇或另開**（見下方「溢出」）
+- **大 AI vs 小 AI 的分岔要寫完整**（這是 Moroney 講的主要前瞻論點）：
+  open weights / self-hostable、YC 80% 用中國小模型、**好萊塢 IP 案例**
+  （機會在分析不在創作）、7B vs 50B、ARM 的 SME 與端側 AI、支付寶相簿。
+  以及泡沫解剖、鐵達尼望遠鏡、「把它講得平淡無奇」。
 - **回指**：第 8 篇（fine-tuning 立場的對照）
 - 待查：METR 研究出處與「七個月倍增」「70 天」兩個數字；McKinsey 85% 失敗率報告；
   Google Cloud 靜坐事件報導
 
-### 10 —— Lecture 10｜模型退步了，你先看哪裡
+### 10 —— Lecture 10｜What's Going On Inside My Model?：模型退步了，你先看哪裡
 
 - 講者 Katanforoosh｜category `ai`｜type `deep-dive`
 - **★ 站上第二個真空區**（全站提到可解釋性的只有 14 篇且多為順帶）。
@@ -259,19 +300,15 @@
 
 ---
 
-## 溢出的素材（**不塞進九篇**，另行處理）
+## 溢出的素材
 
-以下都很有料但塞不進 1:1 的架構，**列在這裡避免寫作時失控把文章撐爆**：
+**方針修正後，原本這張表上「割掉」的課程內容全部改回要寫。**
+以下只保留真正屬於「延伸」而非課程內容的東西：
 
 | 素材 | 出處 | 處置 |
 |---|---|---|
 | 大 AI vs 小 AI 分岔、好萊塢 IP 案例、YC 80% 用中國小模型、7B vs 50B | L9 | **候選：系列外的獨立單篇**，先不寫 |
 | SME / on-device AI / 支付寶相簿 | L9 | 同上 |
-| GAN 與 diffusion 的完整原理 | L4 | 割掉，站上生成模型不是缺口 |
-| Q-learning 的完整推導、Atari 前處理 | L5 | 壓成背景，只留 Bellman 與 ε-greedy |
-| deconvolution 的數學推導 | L10 | 只留「翻轉 filter + subpixel + stride 減半」的口訣 |
-| 三小時生出上百萬筆合成資料、標籤方案人體實驗 | L2 | **第 2 篇若太長就割**，候選獨立單篇 |
-| 泡沫解剖、鐵達尼望遠鏡、「講得平淡無奇」 | L9 | 割掉；和站上 daily-digest 定位重疊 |
 
 ---
 
