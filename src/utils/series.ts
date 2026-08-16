@@ -80,6 +80,18 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
     },
   },
+  {
+    slug: 'cs146s',
+    names: {
+      'zh-TW': 'CS146S：AI 原生開發十週',
+      en: 'CS146S: Ten Weeks of AI-Native Development',
+    },
+    descriptions: {
+      'zh-TW':
+        '照 Stanford CS146S「The Modern Software Developer」的十週大綱逐週讀：從 agent 內部構造、context 工程、skills 與客製，到 codebase 就緒度、code review、安全、背景 agent、團隊化與 software factory。每篇對照課程指定材料與可查證的一手來源。',
+      en: 'Reading Stanford CS146S "The Modern Software Developer" week by week — agent internals, context engineering, skills and customization, codebase readiness, code review, security, background agents, team-scale adoption, and the software factory. Each post is grounded in the course material and verifiable primary sources.',
+    },
+  },
 ];
 
 const DEFINITION_BY_NAME = new Map<string, SeriesDefinition>();

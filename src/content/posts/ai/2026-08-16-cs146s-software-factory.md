@@ -1,0 +1,109 @@
+---
+title: "CS146S Week 10：software factory 不是自動化，是把回饋迴圈交出去"
+date: 2026-08-16
+category: ai
+tags:
+  - cs146s
+  - ai-agent
+  - agentic-coding
+  - observability
+  - multi-agent
+  - orchestration
+lang: zh-TW
+type: deep-dive
+series:
+  name: "CS146S：AI 原生開發十週"
+  order: 11
+tldr: "最後一週的講題是「self-running, self-improving software systems」。把前九週連起來看，software factory 的零件其實都出現過：確定性驗證迴圈、可寫回的 skill、背景 agent、集中治理。真正沒被回答的是誰為它產出的東西負責——十週大綱裡沒有這一格。"
+description: "拆解 Stanford CS146S Fall 2026 第十週「The Software Factory + The Future」：自我運行與自我改進系統的組成零件、部署後的 agent 維運與觀測，以及這門課十週下來沒有回答的問題。"
+draft: false
+---
+
+> 🌏 [English version](/posts/ai/2026-08-16-cs146s-software-factory-en)
+
+這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的最後一篇，對應 Fall 2026 的第十週。
+
+課程主題三條：自我運行、自我改進的軟體系統；部署後的 agent 執行與安全；AI 軟體工程接下來往哪走。講題就叫「The Software Factory: self-running, self-improving software systems」。
+
+「software factory」這個詞也出現在課程描述的收尾：學生結業時應該能「apply software-factory principles to building and evolving software at greater speed and scale」。它是這門課的終點命題。
+
+## 拆開這個詞
+
+工廠的核心不是自動化，是**流程可重複、缺陷可回溯、產線可調整**。搬到軟體上，「self-running, self-improving」需要三個東西同時到位：
+
+**一、機器可判定的驗收。** 沒有這個，「自我改進」沒有改進的方向。這正是 [Week 5 的確定性驗證迴圈](/posts/ai/2026-08-16-cs146s-agent-ready-codebase)——linter、type checker、測試、掃描這些非過即敗的訊號。Factory 把它講得很直接：「A codebase with poor feedback loops will defeat any agent you throw at it.」
+
+**二、可以被寫回去的流程知識。** agent 做完一件事，學到的東西要能沉澱成下一次會用到的東西。Anthropic 在 [Agent Skills 的官方文章](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)結尾把這件事寫成明確的方向：
+
+> Looking further ahead, we hope to enable agents to create, edit, and evaluate Skills on their own, letting them codify their own patterns of behavior into reusable capabilities.
+
+**三、不需要人啟動的執行。** 也就是 [Week 8 的背景 agent](/posts/ai/2026-08-16-cs146s-background-agents)：issue 進來、agent 開工、PR 出去。
+
+三者湊齊，「self-improving」才不是修辭：agent 跑一輪 → 驗證迴圈給出通過與否 → 失敗的經驗被寫回 skill 或指示檔 → 下一輪成功率提高。**這條迴圈的品質完全取決於第一項。** 驗收標準含糊的系統，跑再多輪也只是隨機遊走。
+
+## 「部署後」是被低估的那一半
+
+課程主題裡的「running and securing agents post-deployment」在 Fall 2025 是整整一週（Week 9「Agents Post-Deployment」，客座是 Resolve 的 CTO 與技術人員），指定讀物包含 [Google 的 SRE Book](https://sre.google/sre-book/introduction/)與 [observability 基礎](https://last9.io/blog/traces-spans-observability-basics/)。Fall 2026 把它壓縮進最後一週。
+
+被壓縮不代表變簡單。agent 進了 production 之後會有兩層要看：
+
+**agent 產出的程式碼**——這一層跟一般服務沒有兩樣，SRE 那套照用。
+
+**agent 系統本身**——這一層才是新的。要回答的問題包括：這一輪跑了多久、燒了多少 token、用了哪些工具、在哪一步卡住、重試了幾次、最後有沒有達成驗收標準。這些不會出現在你現有的 APM 儀表板上，因為它們不是請求延遲或錯誤率。
+
+沒有第二層，你就只能用「感覺最近比較不準」來管理一個每天跑幾百次的系統。
+
+## 這門課十週的形狀
+
+把十週排在一起，論證線其實非常清楚：
+
+```
+W1  agent 的骨架        →  沒有魔法，是一個 while 迴圈
+W2  context 工程        →  瓶頸在你給它什麼，不在它多聰明
+W3  skills             →  流程知識要能封裝、按需載入
+W4  客製 agent 與 repo   →  規則、閘門、context 隔離
+W5  codebase 就緒度     →  環境決定 agent 能自主跑多久
+W6  code review        →  誰來檢查產出
+W7  安全               →  agent 自己就是攻擊面
+W8  背景 agent          →  從盯著跑到交出去
+W9  團隊化              →  從個人偏好到組織治理
+W10 software factory   →  以上全部接成一條會自我強化的迴圈
+```
+
+**W1 到 W4 是「你怎麼用 agent」，W5 到 W10 是「你的環境與組織怎麼配合 agent」。** 分界線落在第五週——這也是為什麼 Agent-Ready Codebases 是新大綱裡最關鍵的一格：它是整門課的樞紐。
+
+對照 [Fall 2025 那一版](/posts/ai/2026-08-16-cs146s-course-map)（一週講終端機、一週講 UI 生成、一週講 prompting）就更明顯了。**一年之間，這門課從「工具導覽」變成了「系統設計」。**
+
+## 這門課沒有回答的三件事
+
+寫完十篇，有三個缺口值得標出來——它們不在大綱裡，而且都不是技術問題：
+
+**一、誰為 agent 產出的程式碼負責。** 十週的評分項目裡有 open source 貢獻、有期末專案，沒有一格在談責任歸屬。當一份 PR 由 agent 寫、由另一個 agent review、由背景流程合併，缺陷的歸屬鏈條上人在哪一段？這在受監理的產業裡不是哲學問題。
+
+**二、資淺工程師怎麼養成。** 課程先修要求是 CS111/CS161 等同程度——也就是它假設你**已經**會寫程式了。那些技能過去是靠做完課程假設你已經會的那些工作養出來的。如果那類工作被 agent 接走，下一代從哪裡長出「知道 agent 什麼時候在胡說」的判斷力？這門課沒有回答，因為它的先修條件把問題排除在外了。
+
+**三、宣稱與量測之間的落差。** 這一整個領域充斥著沒有可重現方法的倍數：「2-3X faster」、「10x productivity」、「82% catch rate」。這個系列裡真正拿得出方法與數字的來源只有幾個——Google 的 [AutoCommenter 論文](https://arxiv.org/abs/2405.13565)（留言解決率約 40%）、Sean Heelan 的 [o3 實驗](https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/)（100 次跑 8 次中、28 次誤報）、Factory 的[評分變異數](https://factory.ai/news/agent-readiness)（7% → 0.6%）。**它們的共同點是都同時報告了失敗率。**
+
+這是我讀完整份大綱最想留下的一條判準：**看到一個 AI 開發工具的宣稱，先找它的失敗率。找不到就當它沒說。**
+
+## 這個系列到此結束
+
+十一篇寫完了。要提醒的是，Fall 2026 在寫作當下（2026 年 8 月）還沒開課——這個系列讀的是**大綱**，不是課堂內容。9 月 22 日之後，投影片、reading list 與作業會陸續公開，屆時值得回頭對照：哪些主題被實際講成了什麼、哪些格子跟大綱寫的不一樣。
+
+想自學的話，[Fall 2025 的完整教材](https://themodernsoftware.dev/fall2025)仍然是最好的起點，[作業 repo](https://github.com/mihail911/modern-software-dev-assignments) 也還在。從 `week2` 手刻一個 agent 開始，比讀十篇文章有用。
+
+## 會過期的東西
+
+- Fall 2026 的 Week 10 客座尚未公布
+- 「software factory」目前主要是課程與少數廠商在用的說法，還沒有共識定義
+- 本文列的三個缺口是我的判斷，不是課程的自陳
+
+## 參考資料
+
+- [CS146S Fall 2026 syllabus](https://themodernsoftware.dev/) — Week 10 主題與課程描述
+- [CS146S Fall 2025](https://themodernsoftware.dev/fall2025) — 完整 reading list、slides 與 Agents Post-Deployment 那一週的材料
+- [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) — Anthropic Engineering，agent 自行建立 skill 的方向
+- [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory，回饋迴圈與評分變異數
+- [Introduction to Site Reliability Engineering](https://sre.google/sre-book/introduction/) — Google SRE Book，Fall 2025 Week 9 指定讀物
+- [Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/) — Fall 2025 Week 9 指定讀物
+- [The Build System](https://www.youtube.com/@modernsoftwaredeveloper) — 課程講師的實作影片系列

@@ -599,3 +599,13 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 
 - 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro
   check/build 通過。當時 `pnpm verify` 被未追蹤 Arxiv 文章缺參考資料擋住。
+
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
+  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
+  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
+  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
+  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
+  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
+  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
+  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
+  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。

@@ -25,6 +25,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-16: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。骨架是 Fall 2026 十週大綱＋總覽（含 FA25→FA26 改版 diff：
+  Final Project 80%→50%、新增 open source 30%；砍 Modern Terminal 與 Automated UI，換上
+  Skills／Agent-Ready Codebases／Background Agents／AI-Native Team）。**課程官網把 syllabus
+  藏在前端 chunk**，兩版資料要從 `_next/static/chunks/17rusgxd1swbs.js` 抓 `eC`（FA25）
+  與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
+  來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
+  lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
@@ -68,15 +76,7 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
-  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
-  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
-  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
-  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
-  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
-  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
-  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
-  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，60 篇 + 19 份一手來源）。六條方法論教訓已回饋進 deep-research skill。細節見 docs/progress-archive.md。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
