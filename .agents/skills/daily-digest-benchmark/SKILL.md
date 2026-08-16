@@ -211,7 +211,7 @@ series:
  5. 對 Agent 開發者意味著什麼？（該換模型嗎？成本效益如何？）
  6. 對 watchlist 公司的競爭格局有什麼影響？}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-3 句認知差。}
 ```
@@ -266,7 +266,7 @@ SWE-bench Verified 是目前最被信任的 coding agent benchmark——每個 t
 
 我認為這次最重要的訊號不是 DeepSeek 登頂，而是前 5 名的分差已經收斂到 5.2 個百分點以內（74.1% vs 68.9%）。一年前這個差距是 15+ 百分點。這意味著 coding agent 的差異化正在從「模型能力」轉向「scaffold 設計」和「開發者體驗」——你選哪個模型可能不再是最重要的決定。
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為 coding agent benchmark 主要反映模型的程式碼能力，但 DeepSeek 的多階段架構讓我意識到分數裡有很大一部分其實是 scaffold 的功勞。同一個模型搭不同 scaffold 可能差 10 個百分點——benchmark 排名排的不只是模型。
 ```
@@ -281,6 +281,6 @@ SWE-bench Verified 是目前最被信任的 coding agent benchmark——每個 t
 - [ ] 自測結果標注 ⚠️
 - [ ] 分析有技術面、方法論面、產業面三個層次
 - [ ] benchmark-snapshot.json 已更新
-- [ ] 「我今天學到什麼」是認知差，不是摘要
+- [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

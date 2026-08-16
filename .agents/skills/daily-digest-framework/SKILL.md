@@ -208,7 +208,7 @@ pip install --upgrade {package}=={version}
 
 {1-2 句，把這次更新放在更大的框架競爭脈絡中。例如：「LangGraph 加入原生記憶後，和 CrewAI 的差異進一步縮小」}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-2 句認知差。「之前以為 X，現在知道 Y」}
 ```
@@ -287,7 +287,7 @@ graph.add_edge("agent", when(should_continue, {"continue": "agent", "end": END})
 
 LangGraph 原生記憶補上了和 CrewAI（內建 knowledge/memory）的功能差距。但 CrewAI 走的是 role-based 高階 API，LangGraph 仍然是 graph-level 操作——對需要精確控制 Agent 行為的團隊來說，LangGraph 1.5 是目前最完整的選擇。
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為框架的記憶功能是「nice to have 的加分項」，看到 LangGraph 延遲從 120ms 降到 70ms 才意識到，記憶層的架構位置（外接 vs 原生）直接影響 Agent 的回應速度——這不是功能問題，是性能問題。
 ```
@@ -302,7 +302,7 @@ LangGraph 原生記憶補上了和 CrewAI（內建 knowledge/memory）的功能�
 - [ ] Breaking Changes 有 `舊 → 新` 的程式碼對比
 - [ ] 遷移指南有可執行的 bash/python 程式碼
 - [ ] 「與其他框架的對比觀察」放在競爭脈絡中
-- [ ] 「我今天學到什麼」是認知差（之前以為 X → 現在知道 Y）
+- [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y）
 - [ ] Release Notes 連結已驗證可訪問
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

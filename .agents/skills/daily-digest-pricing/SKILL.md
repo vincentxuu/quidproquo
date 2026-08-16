@@ -206,7 +206,7 @@ series:
 {如果有 API sunset：}
 ⚠️ **停用日期**：{日期}。請在此之前遷移至 {替代方案}。遷移指南：{連結}。
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-2 句認知差。}
 
@@ -283,7 +283,7 @@ OpenAI 宣布 GPT-5 全面降價，input 降 60%、output 降 47%，是 GPT-4o �
 - 如果你在用 Batch API：GPT-5 batch 降到 $2/$8，比 Sonnet 的 batch（$2/$5）output 貴但 input 持平，看你的 output 比例決定
 - 如果你需要最強推理能力且預算夠：GPT-5 降到可接受區間，值得重新跑 eval 對比
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為模型定價的競爭主要看 input（因為 RAG 場景 input 遠大於 output），但 Agent 場景完全相反——Agent 的 output 比 input 多 2-3 倍（長 chain-of-thought + 工具呼叫回應），所以 output 定價才是 Agent 經濟學的關鍵變數。OpenAI output 只降 47% 而 input 降 60%，正好說明他們知道 output 的利潤空間更大。
 
@@ -304,6 +304,6 @@ OpenAI 宣布 GPT-5 全面降價，input 降 60%、output 降 47%，是 GPT-4o �
 - [ ] 行動建議具體到「如果你在用 X：做 Y」
 - [ ] 促銷有到期日提醒 ⏰，sunset 有停用日和遷移連結 ⚠️
 - [ ] 至少 2 個來源確認（官方 + 新聞）
-- [ ] 「我今天學到什麼」是認知差
+- [ ] 「今日收穫」是認知差
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

@@ -63,7 +63,7 @@ done
 對每篇 post 讀取：
 - frontmatter 的 `title`、`tldr`、`tags`
 - 內容的「今日重點摘要」或「TL;DR」段落
-- 內容的「我今天學到什麼」段落
+- 內容的「今日收穫」段落
 
 **不需要讀全文**——只讀 frontmatter + 關鍵段落即可控制 context window。
 

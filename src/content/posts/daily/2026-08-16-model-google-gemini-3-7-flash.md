@@ -62,7 +62,7 @@ series:
 - 如果你在做企業工作流程自動化（合約審核、報表產出、多步驟表單處理）：AutomationBench 30.4%（近乎前代兩倍）加上 1M input context，適合處理長文件驅動的企業流程 agent
 - 不適合：需要最高精度知識工作判斷的場景（如法律/財務盡職調查），GDPVal-AA 上 Claude Sonnet 5（Elo 1598）與 Muse Spark 1.2（Elo 1628）仍領先 3.7 Flash（Elo 1525），這類任務建議搭配 frontier tier 模型或人工複核
 
-## 我今天學到什麼
+## 今日收穫
 
 過去預設「Flash 等級」模型就是用能力換速度/成本，agentic 能力理論上會明顯落後同代 Pro/frontier 模型。但 Gemini 3.7 Flash 的官方評測顯示，它在 AutomationBench、FrontierCode、GDM-MRCR、HLE-Verified 上直接贏過定價高出 2-3 倍的 Claude Sonnet 5 與 GPT-5.6 Terra——「Flash vs Pro」的分野正在從「能力落差」轉變成「context 上限與延遲取捨」，尤其在企業自動化這類需要大量長流程執行的場景更明顯。
 

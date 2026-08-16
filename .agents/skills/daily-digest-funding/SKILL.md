@@ -195,7 +195,7 @@ series:
 {如果公司已在 watchlist：「已在 watchlist section {X}，追蹤重點更新為 {Y}」}
 {如果公司不在 watchlist：「建議加入 watchlist section {X}，理由：{Y}」}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-2 句認知差。}
 
@@ -265,7 +265,7 @@ Lightspeed 之前投了 Wiz（雲安全，$10B 收購價）和 Snyk（開發者�
 
 ZenGuard 尚未在 watchlist 中。建議加入 section B7（Agent 安全/治理），追蹤重點：Agent runtime 行為監控，$50M Series B，Lightspeed 領投。
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為 Agent 安全是「等市場成熟再說」的後期需求，但 Lightspeed 用 $50M 賭它是「現在就要投」的基礎設施——他們在 Wiz 身上學到的教訓是：安全工具的最佳投資時機不是威脅大爆發後，而是部署量開始起飛時。
 
@@ -286,6 +286,6 @@ ZenGuard 尚未在 watchlist 中。建議加入 section B7（Agent 安全/治理
 - [ ] 「值得觀察的數字」有至少 2 個具體數字和 benchmark 對比
 - [ ] 至少 2 個獨立來源確認，來源列表完整
 - [ ] Watchlist 狀態：已在清單則更新追蹤重點，不在則建議加入的 section
-- [ ] 「我今天學到什麼」是認知差
+- [ ] 「今日收穫」是認知差
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

@@ -196,7 +196,7 @@ series:
 
 {重複，1-2 個 releases。若今天沒有重要 release，這整段寫「今日無重要框架更新。」}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-3 句。認知差——「之前以為 X，現在知道 Y」。}
 ```
@@ -266,7 +266,7 @@ series:
 - **Breaking Changes**：`workflow.run()` 回傳型別從 `string` 改為 `WorkflowResult` 物件
 - **對你的影響**：如果你在用 Mastra，升級後 workflow 回傳值要改接 `.output` 屬性
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為 MCP server 生態發展很慢（一個月冒出幾個），但今天三個同日上線讓我意識到可能已經過了臨界點——一旦 Claude Code 和 Cursor 的用戶基數夠大，社群自己就會把常用工具全部 MCP 化。
 ```
@@ -280,7 +280,7 @@ series:
 - [ ] release 有 release notes 連結
 - [ ] release 的 breaking changes 有明確列出（或標明「無」）
 - [ ] 覆蓋至少 2 個不同類別（框架 / 工具 / MCP / 模型）
-- [ ] 「我今天學到什麼」是認知差，不是摘要
+- [ ] 「今日收穫」是認知差，不是摘要
 - [ ] 全文 < 1500 字
 - [ ] description 和 tldr 已填寫
 - [ ] series order 正確

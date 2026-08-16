@@ -210,7 +210,7 @@ series:
  3. 不適合什麼？
  用「如果你在做 X：」的句式給具體建議。}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-3 句認知差。}
 ```
@@ -279,7 +279,7 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - 如果你在做 coding Agent：SWE-bench 72.3% + 64 步 extended thinking 代表複雜多步驟 debug 的成功率會明顯提升
 - 不適合：需要即時回應的場景（extended thinking 的延遲增加 2-3 倍），以及需要最低成本的高吞吐量批次處理（Haiku 更適合）
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為 MCP 的角色分工是固定的——模型永遠是 client、工具永遠是 server。Claude 4.5 的 server-side execution 打破了這個假設：模型本身也可以是 tool provider，這讓多 Agent 架構的彈性大增。
 ```
@@ -295,6 +295,6 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] 自測結果標注 ⚠️
 - [ ] 「對 Agent 開發的意義」有具體的「如果你在做 X：」建議
 - [ ] 官方公告有完整 URL
-- [ ] 「我今天學到什麼」是認知差，不是摘要
+- [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

@@ -63,7 +63,7 @@ series:
 
 今日無重要框架更新。Watchlist 內的 LangGraph、CrewAI、Mastra、Pydantic AI、Agno 等框架這幾天多半只有例行 patch 或部落格功能文（例如 Mastra 8/13 的 Built-in Tools 介紹），沒有觀察到 48 小時內的重大版號躍升或 breaking changes。
 
-## 我今天學到什麼
+## 今日收穫
 
 原本以為「agent 框架」的分歧點在語言（Python vs TypeScript）或抽象層級（graph vs role-based），但今天這幾個專案讓我意識到更底層的分歧其實是「執行結構什麼時候決定」——LangGraph、CrewAI 這一代選擇在寫程式時就把圖編譯好，Prime Agent、Hive、eve 這批新專案不約而同把這個決定往後推到執行期，賭的是模型已經聰明到能自己判斷要不要生一個子 agent，不需要人先畫好藍圖。
 

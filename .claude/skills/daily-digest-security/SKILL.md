@@ -220,7 +220,7 @@ attack-type tags：`prompt-injection`、`supply-chain`、`jailbreak`、`data-exf
  2. 是否已有修補？修補的 timeline？
  3. 對你的 Agent 系統意味著什麼？}
 
-## 我今天學到什麼
+## 今日收穫
 
 {1-3 句認知差。}
 ```
@@ -284,7 +284,7 @@ series:
 
 如果你的 Agent 系統會動態安裝 MCP server（如根據使用者需求自動 `npx`），這類攻擊面是開放的。建議維護一個 MCP server allowlist，只允許預先審核過的套件。
 
-## 我今天學到什麼
+## 今日收穫
 
 之前以為 MCP server 的安全問題主要是 prompt injection（惡意工具回傳攻擊性 prompt），但這次事件讓我意識到供應鏈攻擊是更直接的威脅——攻擊者不需要繞過 LLM 的護欄，只要讓你裝一個假套件就能拿到所有金鑰。
 ```
@@ -299,6 +299,6 @@ series:
 - [ ] 防禦做法有「立即動作」和「長期架構」兩層
 - [ ] 提到了 watchlist B7 中相關的安全工具
 - [ ] 基本資訊表完整（類型、範圍、嚴重度、CVE、來源）
-- [ ] 「我今天學到什麼」是認知差，不是摘要
+- [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
