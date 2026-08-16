@@ -161,6 +161,16 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | HF12 | `https://huggingface.co/Salesforce` | Salesforce | WebFetch |
 | HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
 | GH9 | `https://github.com/cohere-ai` | Cohere | WebFetch |
+| GH10 | `https://github.com/aws` | AWS | WebFetch |
+| GH11 | `https://github.com/apple` | Apple | WebFetch |
+| GH12 | `https://github.com/cloudflare` | Cloudflare | WebFetch |
+| GH13 | `https://github.com/IBM` | IBM | WebFetch |
+| GH14 | `https://github.com/salesforce` | Salesforce | WebFetch |
+| GH15 | `https://github.com/snowflakedb` | Snowflake | WebFetch |
+| GH16 | `https://github.com/databricks` | Databricks | WebFetch |
+| GH17 | `https://github.com/xai-org` | xAI | WebFetch |
+| GH18 | `https://github.com/palantir` | Palantir | WebFetch |
+| GH19 | `https://github.com/SAP` | SAP | WebFetch |
 | HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | WebFetch |
 | HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | WebFetch |
 
