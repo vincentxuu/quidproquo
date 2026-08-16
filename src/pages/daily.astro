@@ -22,8 +22,9 @@ for (const post of posts) {
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 ---
 <PostLayout title="Daily Digest — quidproquo" lang="zh-TW" description={t('daily.description')} switchHref="/en/daily">
+  <link slot="head" rel="alternate" type="application/rss+xml" title="quidproquo Daily Digest RSS" href="/daily/rss.xml" />
   <header class="page-header">
-    <h1>{t('daily.title')}</h1>
+    <h1>{t('daily.title')} <a href="/daily/rss.xml" class="rss-badge" aria-label="Daily RSS">RSS</a></h1>
     <p class="subtitle">{t('daily.description')}</p>
     <div class="filter-row">
       <button class="filter-btn active" data-filter="all">全部</button>
@@ -142,4 +143,11 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   .day-line { flex: 1; height: 1px; background: var(--border); }
   .day-cards { display: flex; flex-direction: column; gap: 0.4rem; padding-left: 0.4rem; }
   .empty { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 3rem 0; }
+  .rss-badge {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
+    padding: 0.15rem 0.45rem; border-radius: 4px; vertical-align: middle;
+    background: var(--brand-500); color: #fff; text-decoration: none;
+    margin-left: 0.3rem; transition: opacity 0.15s;
+  }
+  .rss-badge:hover { opacity: 0.8; }
 </style>
