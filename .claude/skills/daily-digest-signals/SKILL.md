@@ -155,7 +155,8 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud | WebFetch |
+| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud（技術） | WebFetch |
+| 39b | `https://www.alibabagroup.com/en-US/news-and-resource` | Alibaba Group（集團公告） | WebFetch |
 | 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
 | 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
 | 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | WebFetch |
