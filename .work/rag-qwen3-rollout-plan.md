@@ -23,7 +23,7 @@ schema migration or a new Vectorize index.
 - [x] Centralize provider selection, query instruction, response validation, and document/query helpers.
 - [x] Replace all RAG, cache, related-post, abstract, and LlamaIndex BGE hardcodes.
 - [x] Namespace semantic-cache rows by embedding version so old vectors are never compared.
-- [x] Add focused tests for provider contracts, Qwen query/document payloads, and cache isolation.
+- [x] Add focused tests for provider contracts, Qwen query/document payloads, adaptive input splitting, and cache isolation.
 - [x] Run targeted tests, full tests, Astro check, and `pnpm verify`.
 - [ ] Commit and push the implementation.
 - [ ] Run deploy preflight and deploy.

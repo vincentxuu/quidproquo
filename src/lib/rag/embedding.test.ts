@@ -13,8 +13,8 @@ import {
   SEMANTIC_CACHE_ID_PREFIX,
 } from './cache'
 
-function vector(): number[] {
-  return Array.from({ length: qwen3EmbeddingProvider.dimensions }, () => 0.1)
+function vector(value = 0.1): number[] {
+  return Array.from({ length: qwen3EmbeddingProvider.dimensions }, () => value)
 }
 
 function mockRuntime(data: number[][]): EmbeddingRuntime & { run: ReturnType<typeof vi.fn> } {
@@ -59,6 +59,23 @@ describe('embedding provider abstraction', () => {
       .rejects.toThrow('output count mismatch')
     await expect(qwen3EmbeddingProvider.embedDocuments(mockRuntime([[0.1, 0.2]]), ['chunk']))
       .rejects.toThrow('dimension mismatch')
+  })
+
+  it('adaptively splits oversized document batches while preserving vector order', async () => {
+    const calls: Record<string, unknown>[] = []
+    const runtime: EmbeddingRuntime = {
+      async run(_model, input) {
+        calls.push(input)
+        const documents = input.documents as string[]
+        if (documents.length > 2) throw new Error('3030: input too big')
+        return { data: documents.map(document => vector(document.charCodeAt(0))) }
+      },
+    }
+
+    const result = await qwen3EmbeddingProvider.embedDocuments(runtime, ['a', 'b', 'c', 'd'])
+
+    expect(calls.map(call => (call.documents as string[]).length)).toEqual([4, 2, 2])
+    expect(result.map(item => item[0])).toEqual([97, 98, 99, 100])
   })
 })
 

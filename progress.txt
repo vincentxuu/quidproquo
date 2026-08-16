@@ -13,9 +13,9 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- Roll out Qwen3 multilingual embeddings for the production RAG knowledge base; implementation,
-  cache isolation, deployment, full re-embedding, and live evaluation are tracked in
-  `.work/rag-qwen3-rollout-plan.md`.
+- Roll out Qwen3 multilingual embeddings; deployment, re-embedding, and live evaluation are tracked
+  in `.work/rag-qwen3-rollout-plan.md`. Production exposed Workers AI's 3030 batch input limit; the
+  Qwen provider now adaptively splits oversized requests without slowing normal batches.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
 Next steps

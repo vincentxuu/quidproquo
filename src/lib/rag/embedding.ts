@@ -67,6 +67,32 @@ async function runQwen3(
   return validateEmbeddingOutput(output, expectedCount, qwen3Dimensions)
 }
 
+function isInputTooBigError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error)
+  return message.includes('3030') || message.toLowerCase().includes('input too big')
+}
+
+async function runQwen3Adaptive(
+  runtime: EmbeddingRuntime,
+  field: 'queries' | 'documents' | 'text',
+  texts: string[],
+  instruction?: string
+): Promise<number[][]> {
+  try {
+    return await runQwen3(runtime, {
+      [field]: texts,
+      ...(instruction ? { instruction } : {}),
+    }, texts.length)
+  } catch (error) {
+    if (!isInputTooBigError(error) || texts.length <= 1) throw error
+
+    const midpoint = Math.ceil(texts.length / 2)
+    const left = await runQwen3Adaptive(runtime, field, texts.slice(0, midpoint), instruction)
+    const right = await runQwen3Adaptive(runtime, field, texts.slice(midpoint), instruction)
+    return [...left, ...right]
+  }
+}
+
 export const qwen3EmbeddingProvider: EmbeddingProvider = {
   id: 'workers-ai-qwen3-embedding-0.6b',
   model: qwen3Model,
@@ -76,20 +102,17 @@ export const qwen3EmbeddingProvider: EmbeddingProvider = {
 
   async embedQueries(runtime, queries) {
     if (queries.length === 0) return []
-    return runQwen3(runtime, {
-      queries,
-      instruction: QWEN3_QUERY_INSTRUCTION,
-    }, queries.length)
+    return runQwen3Adaptive(runtime, 'queries', queries, QWEN3_QUERY_INSTRUCTION)
   },
 
   async embedDocuments(runtime, documents) {
     if (documents.length === 0) return []
-    return runQwen3(runtime, { documents }, documents.length)
+    return runQwen3Adaptive(runtime, 'documents', documents)
   },
 
   async embedTexts(runtime, texts) {
     if (texts.length === 0) return []
-    return runQwen3(runtime, { text: texts }, texts.length)
+    return runQwen3Adaptive(runtime, 'text', texts)
   },
 }
 
