@@ -6,10 +6,10 @@ import PostLayout from '../layouts/PostLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { useTranslations } from '../i18n/utils';
 import { getSeriesHref } from '../utils/series';
-import { getPublishedPosts, sortPostsByPinnedAndDateDesc } from '../utils/content';
+import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../utils/content';
 
 const t = useTranslations('zh-TW');
-const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('zh-TW'));
+const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('zh-TW'));
 ---
 <PostLayout title="quidproquo" lang="zh-TW" description="AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。" ogImage="https://quidproquo.cc/og/home.png">
   <Fragment slot="head">

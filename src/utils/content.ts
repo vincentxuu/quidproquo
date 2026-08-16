@@ -34,3 +34,17 @@ export async function getPublishedPosts(lang?: Post['data']['lang'], now = new D
   );
   return sortPostsByDateDesc(posts);
 }
+
+export async function getDailyPosts(lang?: Post['data']['lang'], now = new Date()): Promise<Post[]> {
+  const posts = await getCollection('posts', ({ data }) =>
+    isPublishedPostData(data, now) && data.category === 'daily' && (!lang || data.lang === lang)
+  );
+  return sortPostsByDateDesc(posts);
+}
+
+export async function getNonDailyPublishedPosts(lang?: Post['data']['lang'], now = new Date()): Promise<Post[]> {
+  const posts = await getCollection('posts', ({ data }) =>
+    isPublishedPostData(data, now) && data.category !== 'daily' && (!lang || data.lang === lang)
+  );
+  return sortPostsByDateDesc(posts);
+}

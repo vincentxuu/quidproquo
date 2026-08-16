@@ -6,10 +6,10 @@ import PostLayout from '../../layouts/PostLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import { useTranslations } from '../../i18n/utils';
 import { getSeriesHref } from '../../utils/series';
-import { getPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
+import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
 
 const t = useTranslations('en');
-const posts = sortPostsByPinnedAndDateDesc(await getPublishedPosts('en'));
+const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('en'));
 ---
 <PostLayout title="quidproquo" lang="en" description="Tech, climbing, surfing, coffee, and everything else." ogImage="https://quidproquo.cc/og/home.png">
   <Fragment slot="head">
