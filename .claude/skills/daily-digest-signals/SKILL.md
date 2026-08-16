@@ -128,6 +128,13 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 25 | `https://writer.com/blog` | Writer | firecrawl |
 | 26 | `https://blog.palantir.com` | Palantir | firecrawl |
 
+**HuggingFace 社群 + 模型 trending**
+
+| # | URL | 說明 | 工具 |
+|---|-----|------|------|
+| HF0a | `https://huggingface.co/blog` | HF 官方 blog（每日更新） | WebFetch |
+| HF0b | `https://huggingface.co/models?sort=trending` | 模型 trending 排行 | WebFetch |
+
 **HuggingFace + GitHub 模型/repo 動態追蹤**
 
 | # | URL | 公司 | 工具 |
