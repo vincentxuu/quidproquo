@@ -101,18 +101,22 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 2 | `https://www.anthropic.com/research` | Anthropic | WebFetch |
 | 3 | `https://openai.com/news` | OpenAI | firecrawl |
 | 4 | `https://openai.com/research/index` | OpenAI | firecrawl |
-| 5 | `https://deepmind.google/blog` | Google | WebFetch |
+| 5 | `https://deepmind.google/blog` | Google DeepMind | WebFetch |
+| 5b | `https://research.google/blog` | Google Research | WebFetch |
 | 6 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
 | 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | WebFetch |
 | 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | WebFetch |
-| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft | WebFetch |
+| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft Azure | WebFetch |
+| 9b | `https://www.microsoft.com/en-us/research/blog` | Microsoft Research | WebFetch |
 | 10 | `https://about.fb.com/news` | Meta | WebFetch |
 | 11 | `https://ai.meta.com/blog` | Meta | WebFetch |
 | 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | WebFetch |
 | 13 | `https://aws.amazon.com/blogs/aws` | AWS | WebFetch |
-| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS | WebFetch |
+| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS ML | WebFetch |
+| 14b | `https://www.amazon.science/blog` | Amazon Science | WebFetch |
 | 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
-| 16 | `https://developer.nvidia.com/blog` | NVIDIA | WebFetch |
+| 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | WebFetch |
+| 16b | `https://research.nvidia.com/publications` | NVIDIA Research | WebFetch |
 | 17 | `https://x.ai/news` | xAI/SpaceXAI | firecrawl |
 | 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
 | 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | WebFetch |
@@ -160,6 +164,7 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
 | 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
 | 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | WebFetch |
+| 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | WebFetch |
 | 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
 | 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | WebFetch |
 | 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
@@ -208,9 +213,9 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 44 | 官方 blog/HF/GitHub 直讀（0 搜尋配額） |
+| WebFetch | 50 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
 | firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
-| **總計** | **67** | 搜尋 API 只用 15 次 |
+| **總計** | **73** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
