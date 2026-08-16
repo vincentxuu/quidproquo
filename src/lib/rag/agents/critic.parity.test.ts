@@ -135,6 +135,15 @@ describe('critic agent parity', () => {
     })
     expect(result.critique?.ungrounded_claims).not.toEqual([])
   })
+
+  it('accepts valid critic JSON wrapped in a markdown fence', async () => {
+    const critique = cases[0].critique
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult(`\`\`\`json\n${JSON.stringify(critique)}\n\`\`\``))
+
+    const result = await criticNode(makeState({ draft: 'A grounded answer.' }))
+
+    expect(result.critique).toEqual(critique)
+  })
 })
 
 function makeState(overrides: Partial<GraphState>): GraphState {
@@ -168,7 +177,7 @@ function makeState(overrides: Partial<GraphState>): GraphState {
 function makeInvokeResult(critique: unknown): MockInvokeResult {
   return {
     response: {
-      content: JSON.stringify(critique),
+      content: typeof critique === 'string' ? critique : JSON.stringify(critique),
       usage_metadata: {
         input_tokens: 12,
         output_tokens: 6,

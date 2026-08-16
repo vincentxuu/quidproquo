@@ -128,7 +128,7 @@ function parseCritique(content: unknown): Critique {
   }
 
   try {
-    const raw = JSON.parse(String(content))
+    const raw = JSON.parse(extractJsonObject(String(content)))
     const confidence = score(raw.confidence)
     const answerRelevance = score(raw.answer_relevance)
     const intentAlignment = score(raw.intent_alignment)
@@ -146,6 +146,16 @@ function parseCritique(content: unknown): Critique {
   } catch {
     return invalidCritique
   }
+}
+
+function extractJsonObject(content: string): string {
+  const trimmed = content.trim()
+  const fenced = trimmed.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i)
+  if (fenced?.[1]) return fenced[1].trim()
+
+  const start = trimmed.indexOf('{')
+  const end = trimmed.lastIndexOf('}')
+  return start >= 0 && end > start ? trimmed.slice(start, end + 1) : trimmed
 }
 
 function buildCriticUpdate(state: GraphState, result: CriticModelResult): Partial<GraphState> {

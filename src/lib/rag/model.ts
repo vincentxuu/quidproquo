@@ -142,7 +142,13 @@ export function createModel(
 
   if (route.provider === 'groq') {
     const apiKey = apiKeys.groq || e.GROQ_API_KEY
-    return adapt(new ChatGroq(route.model, { apiKey, maxTokens } as unknown as import('@langchain/groq').ChatGroqInput))
+    return adapt(new ChatGroq(route.model, {
+      apiKey,
+      maxTokens,
+      // Provider fallback is handled explicitly below. SDK retries make a
+      // quota-exhausted primary block the fallback path for over a minute.
+      maxRetries: 0,
+    } as unknown as import('@langchain/groq').ChatGroqInput))
   }
 
   if (route.provider === 'cloudflare') {

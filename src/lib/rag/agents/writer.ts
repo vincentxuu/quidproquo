@@ -2,6 +2,7 @@ import type { GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
 import { defineAgent } from '../../agent-os/access'
+import { normalizeAnswerLanguage } from '../language'
 
 type ResultProfile = {
   writerContextSources?: number
@@ -131,7 +132,10 @@ ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInst
 
 function buildWriterUpdate(state: GraphState, result: WriterModelResult): Partial<GraphState> {
   const { response, route } = result
-  const draft = typeof response.content === 'string' ? response.content : ''
+  const draft = normalizeAnswerLanguage(
+    typeof response.content === 'string' ? response.content : '',
+    state.language
+  )
 
   return {
     draft,

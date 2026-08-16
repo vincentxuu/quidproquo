@@ -10,6 +10,7 @@ import { lookupSemanticCache, storeSemanticCache } from '../../lib/rag/cache'
 import type { GraphState, RagRuntimeConfig } from '../../lib/rag/state'
 import { resolveProviderApiKeys } from '../../lib/rag/provider-key-store'
 import type { Env } from '@/lib/config/env'
+import { normalizeAnswerLanguage } from '../../lib/rag/language'
 
 type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
 type TraceScope = 'production' | 'admin' | 'eval'
@@ -108,7 +109,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         const send = (type: string, data: unknown) => {
           controller.enqueue(new TextEncoder().encode(sseEvent(type, data)))
         }
-        send('token', { text: cached.response })
+        send('token', { text: normalizeAnswerLanguage(cached.response, 'zh-TW') })
         send('done', {
           usage: { input: 0, output: 0 },
           confidence: cached.confidence,

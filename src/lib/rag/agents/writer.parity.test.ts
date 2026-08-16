@@ -117,6 +117,16 @@ describe('writer agent parity', () => {
     expect(systemPrompt).toContain('does not answer from general knowledge')
     expect(systemPrompt).toContain('Retrieval did not produce reliable evidence')
   })
+
+  it('normalizes a Simplified Chinese model response before returning it', async () => {
+    const state = makeState({ language: 'zh-TW' })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('这个软件会缓存网络数据。'))
+
+    const result = await writerNode(state)
+
+    expect(result.final_response).toBe('這個軟體會快取網路資料。')
+    expect(result.draft).toBe(result.final_response)
+  })
 })
 
 function makeState(overrides: Partial<GraphState>): GraphState {
