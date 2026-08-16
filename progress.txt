@@ -13,6 +13,11 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- CS230 系列（Stanford Autumn 2025，9 講 × zh/en＝18 篇，1:1 對應講次、導讀+延伸寫法）。
+  逐字稿 8/9 已抓（缺 L10），筆記 2/9 完成，見 `.work/cs230-notes/`。**與站上重疊要避開**：
+  L8（agents/prompts/RAG）已被 AI Agent 實戰／Agent 生產線／RAG 系統實戰 21 篇蓋掉，
+  改寫成對照篇；真正的缺口在 L2 的 embedding 訓練過程與 L10 的模型內部可視化。
+  另：Autumn 2026 已排課（2026/09/22 開課），文章須標明講次屬 2025 秋季那一輪。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
   Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals,
   then verify the production Groq-to-Cloudflare fallback path.
@@ -68,15 +73,6 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
-  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
-  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
-  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
-  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
-  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
-  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
-  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
-  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
