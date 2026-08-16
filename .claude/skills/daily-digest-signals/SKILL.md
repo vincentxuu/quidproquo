@@ -123,7 +123,6 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | firecrawl |
 | 25 | `https://writer.com/blog` | Writer | firecrawl |
 | 26 | `https://blog.palantir.com` | Palantir | firecrawl |
-| 27 | `https://news.samsung.com/global/category/technology` | Samsung | firecrawl |
 
 **A2 模型公司**
 
@@ -157,8 +156,15 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
 | 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud | WebFetch |
-| 40 | `https://seed.bytedance.com/blog` | ByteDance/Seed | WebFetch |
-| 41 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
+| 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
+| 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
+| 42 | `https://seed.bytedance.com/blog` | ByteDance/Seed | WebFetch |
+| 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
+| 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | WebFetch |
+| 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
+| 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | WebFetch |
+| 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | WebFetch |
+| 48 | `https://manus.im/blog` | Manus | WebFetch |
 
 處理方式：
 1. 抓回最近 5 篇的日期和標題
@@ -201,9 +207,9 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 39 | 官方 blog 直讀（0 搜尋配額） |
-| firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, Samsung |
-| **總計** | **62** | 搜尋 API 只用 15 次 |
+| WebFetch | 44 | 官方 blog/HF/GitHub 直讀（0 搜尋配額） |
+| firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
+| **總計** | **67** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
