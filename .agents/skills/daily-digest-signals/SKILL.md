@@ -120,6 +120,10 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 21 | `https://www.databricks.com/blog` | Databricks | WebFetch |
 | 22 | `https://research.ibm.com/blog` | IBM | WebFetch |
 | 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | WebFetch |
+| 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | firecrawl |
+| 25 | `https://writer.com/blog` | Writer | firecrawl |
+| 26 | `https://blog.palantir.com` | Palantir | firecrawl |
+| 27 | `https://news.samsung.com/global/category/technology` | Samsung | firecrawl |
 
 **A2 模型公司**
 
@@ -198,8 +202,8 @@ max_results: 5, time_range: "day"
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
 | WebFetch | 39 | 官方 blog 直讀（0 搜尋配額） |
-| firecrawl | 4 | OpenAI ×2, xAI, DeepSeek（WebFetch 403 fallback） |
-| **總計** | **58** | 搜尋 API 只用 15 次 |
+| firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, Samsung |
+| **總計** | **62** | 搜尋 API 只用 15 次 |
 
 ### 去重與時間過濾
 
