@@ -2,6 +2,25 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-17 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+新增外幣帳戶指南後 progress.txt 會超過 90 行上限，依慣例移出最舊一筆。
+
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
+  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
+  ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
+  它是研究工序紀錄不是給讀者的文章（開頭從作者視角寫、有一整節是自我檢討），且
+  「五個數字被廣傳」這個賣點我拿不出證據——查證範圍只有 ByteByteGo 一個來源。
+  查證結果本來就在寫作前併入七篇，七篇內容不受影響。各篇 1,242–1,930 字，
+  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
+  middle；frontmatter glossary: unattended agent、containment rate。
+  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
+  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
+  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
+  的 arXiv ID（2406.10279 正確）。
+
 ## 2026-08-16 歸檔
 
 ### Recently completed（原 progress.txt 條目）
