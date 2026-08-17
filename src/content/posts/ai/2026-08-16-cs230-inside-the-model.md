@@ -193,7 +193,9 @@ maximize  S_dog(X)  +  正則項
 
 > 「不幸的是，現代 transformer 複雜到——**即使是最前沿的研究，也只能解釋兩層的 transformer。**」
 
-他指出目前最好的成果來自 Anthropic 的 transformer circuits 系列（circuit 的概念，以及 induction head）——「**induction head 大概是我們目前最好的、能看見 transformer 內部發生什麼事的工具。**」
+他指出目前最好的成果來自 Anthropic 的 transformer circuits 系列——[A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html)（Elhage 等人，2021）引入了 circuit 的概念，並發現 **induction head 只在至少兩層注意力的模型裡才會出現**；後續的 In-context Learning and Induction Heads（Olsson 等人，2022）專門處理它。
+
+> 「**induction head 大概是我們目前最好的、能看見 transformer 內部發生什麼事的工具。**」
 
 ## 訓練診斷（training telemetry）
 
@@ -279,7 +281,9 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 >
 > 實務上我認為**合成資料的報酬在某個點會 plateau**。最近的消息大概是說：**現在多數 domain 缺的是高品質資料，而不是缺合成資料。**」
 
-他引了 Epoch AI 的研究報告，預測低品質文字資料、影音資料、高品質資料會依序在幾年內用完（**確切數字他自己說忘了，本文不複述**）。
+他引了 Epoch AI 的研究報告，說低品質文字資料、影音資料、高品質資料會依序在幾年內用完（他自己說忘了確切數字）。
+
+> **⚠️ 課堂的分期和論文對不上。** Epoch AI 的[〈Will we run out of data?〉](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data)（Villalobos 等人，2024）給的是**單一估計**，不是分模態的三個年份：**經品質與重複調整後的公開人類文字存量約 300 兆 token，照當前趨勢會在 2026 到 2032 年之間被完全用掉**，若過度訓練則更早（論文提到過度訓練 5 倍會在 2027 用完、100 倍則 2025）。課堂上「2025／2027／2030」那組數字**在這篇論文裡找不到對應**。
 
 **為什麼「產生的資料比用掉的多」不構成反駁**——這段論證很好：
 
@@ -313,6 +317,8 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 - [Visualizing Attention in Transformer-Based Language Representation Models](https://arxiv.org/abs/1904.02679) — Vig。attention 視覺化
 - [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) — DeepMind, 2022。即 Chinchilla
 - [The Pile: An 800GB Dataset of Diverse Text for Language Modeling](https://arxiv.org/abs/2101.00027) — 保留 domain 標記的資料集
+- [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) — Elhage et al., Anthropic, 2021。circuit 概念與 induction head 的出處
+- [Will we run out of data?](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data) — Villalobos et al., Epoch AI, 2024。約 300 兆 token、2026–2032 用盡
 - [CS230 Lecture 10 投影片](https://cs230.stanford.edu/syllabus/fall_2025/10/lecture_10.pdf)
 
-**未附連結的出處**：Anthropic 的 transformer circuits 與 induction head 兩篇、Epoch AI 的資料耗盡報告、OpenAI 與 Anthropic 的聯合安全評估——本文只寫出名稱，未逐一查證連結。
+**未附連結的出處**：OpenAI 與 Anthropic 的聯合安全評估——本文只寫出名稱，未查證連結。

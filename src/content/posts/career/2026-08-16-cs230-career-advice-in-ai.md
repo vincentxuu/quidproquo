@@ -211,6 +211,11 @@ Moroney 花了很久才找出問題——直到他故意給了一場很硬的面
 
 （學生補充了歷史脈絡的版本——prompt 說「畫一個武士」，改寫引擎變成「給我多元背景的武士」。同一個 prompt 攔截機制造成的傷害。「那是一個很天真的解法，之後他們改善了很多。」）
 
+**這段有官方紀錄可查**：Google 在 2024/2/23 由 Prabhakar Raghavan 發了一篇[說明](https://blog.google/products-and-platforms/products/gemini/gemini-image-generation-issue/)，
+承認 Gemini 的人物生圖「在某些情況下完全沒有考慮到不該顯示多元性的場合」、「變得比我們預期的更保守，拒絕回答某些完全無害的 prompt」，
+並暫停了人物生成功能。**Moroney 描述的機制（改寫 prompt 去注入多元性，結果反噬）和官方的自述是同一件事**，
+差別只在他是從內部做 responsible AI 的視角講的。他自己那組「Caucasian／white 被拒絕」的測試則是他個人的實驗記錄，官方文件沒有逐條對應。
+
 ### 4. 從錯誤中學習
 
 > 「回到 Andrew 講的『人』那點：**你身邊的人也會犯錯。有能力在他們犯錯時給予寬容、把錯誤處理掉、然後繼續往前**，非常非常重要。」
@@ -276,7 +281,16 @@ Moroney 花了很久才找出問題——直到他故意給了一場很硬的面
 
 > 「但如果你被炒作牽著走，直接『幫這個東西做個 agent』，**沒有真的剝開商業需求、那個為什麼，這家公司就會迷失在炒作裡。**」
 
-他順帶引了一個數字：**McKinsey 的報告顯示企業裡約 85% 的 AI 專案失敗**，主因之一是**範圍沒有被界定好**。（**這個數字是他課堂上的引用，本文未查證原始報告。**）
+他順帶引了一個數字：**McKinsey 的報告顯示企業裡約 85% 的 AI 專案失敗**，主因之一是**範圍沒有被界定好**。
+
+> **⚠️ 這個引用查不到對應的報告。** 我找不到 McKinsey 有「85% 的 AI 專案失敗」這個數字。
+> 那個時間點被廣泛引用的失敗率是 **MIT NANDA 的《The GenAI Divide: State of AI in Business 2025》：
+> 約 95% 的企業 GenAI pilot 沒有帶來可衡量的損益影響**——那是 MIT 不是 McKinsey，而且是 95% 不是 85%。
+> McKinsey 自己那份《The state of AI in 2025》講的是另一件事：**企業層級的 EBIT 影響「仍然罕見」，
+> 只有約 6% 的受訪者屬於「歸因 ≥5% EBIT 影響」的高績效組**——「多數組織還沒看到帳面效益」和「85% 的專案失敗」
+> 是兩個不同的宣稱。
+> **他關於「範圍沒界定好」的因果判斷，我認為仍然成立**（那是他自己做顧問的第一手經驗，前面那段歐洲公司的案例就是），
+> 但那個 85% 請不要當數據引用。
 
 **他的 agentic 四步定義**（簡潔好用）：
 
@@ -322,7 +336,16 @@ Moroney 花了很久才找出問題——直到他故意給了一場很硬的面
 
 他刻意的用詞：「**我討厭 open source 這個詞。**讓我叫它們 **open weights**，或者 **self-hostable**。」
 
-他引的數據點：「我最近讀到一篇關於 Y Combinator 的文章，**YC 裡 80% 的公司在用小模型，尤其是中國的模型。**」（**同樣是課堂引用，本文未查證。**）
+他引的數據點：「我最近讀到一篇關於 Y Combinator 的文章，**YC 裡 80% 的公司在用小模型，尤其是中國的模型。**」
+
+> **⚠️ 這個引用的來源和數字都對不上。** 那個 80% 不是出自 Y Combinator 的文章。
+> 原始出處是 **The Economist 引述 a16z 合夥人 Martin Casado** 的一句話：來 a16z 提案的新創，
+> **「我會說有 80% 的機率他們在用中國的開源模型」**——講的是 a16z 的案源，不是 YC 的投資組合。
+> 而且 **Casado 本人隨後公開修正了這個被輾轉傳開的版本**：
+> 「我會說 **20–30% 用開源**；這些之中 **80% 用中國的模型**。所以**比較接近 16–24%**。」
+> 兩層百分比在傳播過程中被壓成一層，量級因此放大了三到五倍。
+> 方向仍然是對的（**確實有一批新創跑在開放權重的中國模型上**），但這個數字別拿去引用。
+> 下面那條「你的資料能不能離開你的機房」的判準不依賴它，照樣站得住。
 
 ### 好萊塢的 IP 案例
 
@@ -415,7 +438,7 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 - 那個 10x 工程師敗在**態度的訊號**，不是能力
 - Moroney 敗在 Google 兩次，是因為**面錯職位**，不是因為不夠強
 - 那家歐洲公司差點做錯東西，是因為**沒人問「為什麼」**，不是因為技術做不到
-- 85% 的 AI 專案失敗，主因是**範圍界定**，不是模型不夠好
+- 企業 AI 專案大量失敗，主因是**範圍界定**，不是模型不夠好（他引的 85% 查不到出處，但這個因果判斷有他的第一手案例撐著）
 
 而技術債那個框架之所以有用，正是因為它把「該不該用 AI 生這段程式碼」**從技術問題轉成財務問題**：你背了一筆債，它值不值得。這個問法比「vibe coding 好不好」有用太多，因為後者沒有答案，前者每次都有。
 
@@ -429,4 +452,11 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X) — 九講完整清單
 - [Agents, Prompts, and RAG](/posts/ai/2026-08-16-cs230-agents-prompts-rag) — 本系列上一篇，fine-tuning 立場的另一端
 
-**未附連結的出處**：McKinsey 的 85% 失敗率報告、Y Combinator 那篇 80% 的文章、Google 內部行動主義事件的報導、Gemini 生圖爭議的原始報導、以及 Moroney 提到的各家公司細節——本文照課堂記錄寫出內容，未逐一查證連結。
+**課堂引用的查證結果**（三個第三方數字，兩個實質對不上）：
+
+- [Gemini image generation got it wrong. We'll do better.](https://blog.google/products-and-platforms/products/gemini/gemini-image-generation-issue/) — Google 官方，2024/2/23，Prabhakar Raghavan。**Moroney 描述的 prompt 改寫機制與後果，官方自述吻合**
+- [MIT report: 95% of generative AI pilots at companies are failing](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/) — Fortune 2025/8/18，報導 MIT NANDA 的《The GenAI Divide: State of AI in Business 2025》。**約 5% 的 pilot 帶來營收加速，其餘對損益幾乎沒有可衡量影響**——這是「85% 失敗」最接近的真實來源，但機構是 MIT 不是 McKinsey、數字是 95% 不是 85%
+- [The state of AI in 2025: Agents, innovation, and transformation](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) — McKinsey 的調查原文。它的講法是**企業層級的 EBIT 影響「continues to be rare」，只有約 6% 的受訪者屬於歸因 ≥5% EBIT 的高績效組**，並沒有出現「85% 專案失敗」這個數字
+- [Martin Casado 的更正](https://x.com/martin_casado/status/1990462245541982546) — 「I'd say 20-30% use open source. Of those I'd say 80% use Chinese based models. **So closer to 16-24%.**」原句來自 The Economist 引述，講的是 a16z 的案源而非 Y Combinator
+
+**仍未附連結**：Moroney 提到的各家公司細節、以及他關於紅髮文化聯想的自述（他當場就標記為「我相信」）——那些是個人經驗轉述，本文照課堂記錄寫出，沒有可查的公開來源。
