@@ -46,7 +46,13 @@ Spend ¥10,000 in Japan and your statement carries an extra foreign transaction 
 | Foreign transaction service fee | Issuing bank | 0.5% (regulatory cap) |
 | **Total** | | **1.5%** |
 
-[E.SUN Bank's rate table](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018) lists all three networks side by side at 1.5% — no difference between Visa, Mastercard and JCB. The issuer's 0.5% is a regulatory ceiling, so in practice nearly every bank charges the full amount. American Express, which is both network and issuer, is typically 2%.
+[E.SUN Bank's rate table](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018) lists all three networks side by side at 1.5% — no difference between Visa, Mastercard and JCB.
+
+That 0.5% ceiling is not a convention but an explicit rule. Article 6 (Calculation of Exchange Rates) of the FSC's [Mandatory and Prohibited Provisions of Credit Card Standard Contracts](https://law.fsc.gov.tw/LawContent.aspx?id=FL049905) states (in Chinese):
+
+> The issuer may choose not to charge the foreign transaction service fee under paragraph 1. If charged, then apart from the fees collected by each card network, it shall be charged per transaction at ___ percent of the transaction amount (**not exceeding 0.5 percent**), and no spread may be profited from.
+
+Two consequences are worth remembering: the rule permits a bank to charge **nothing at all** (so fee-free cards do legitimately exist, they just tend to have lower rebates), but if it charges, it cannot exceed 0.5% and cannot profit from the exchange spread — which is why nearly every bank charges the full 0.5%. Article 9 of the prohibited-provisions half of the same rule separately bans "charging the foreign transaction service fee twice on the same transaction amount."
 
 The key point: **none of this calculation has anything to do with whether you hold a foreign currency account.** It is a fixed cost on the card clearing path.
 
@@ -55,6 +61,10 @@ The key point: **none of this calculation has anything to do with whether you ho
 Dual-currency card marketing makes it easy to assume that "paying in foreign currency means no fee." It does not. [SinoPac's official terms for its Dual Currency Card](https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html) are explicit (in Chinese):
 
 > Card transactions shall be settled in New Taiwan Dollars or the agreed foreign currency … plus the fee SinoPac must pay the relevant international network and a foreign transaction service fee calculated at 0.5% of the transaction amount (totalling approximately 1.5%–2% of the transaction amount).
+
+SinoPac is not alone. [E.SUN's Kumamon JPY dual-currency card page](https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/kumamon_card) settles it in one line (in Chinese):
+
+> Overseas spending on the JPY dual-currency card is subject to a 1.5% foreign transaction service fee.
 
 What a dual-currency card saves you is **exchange rate risk**, not the fee. Its value is that you can buy yen while it is cheap, park it, and have card spending drawn from that same yen balance — instead of being at the mercy of the rate on the day the merchant claims payment. That is genuinely useful, but it is a separate matter from the 1.5%.
 
@@ -140,7 +150,11 @@ Three reasons:
 
 1. **You mostly can't open one.** Most banks offer no KRW account — banknotes only.
 2. **Exchanging in Taiwan is expensive.** A 15.74% round-trip spread on banknotes, and an 8.6% measured gap against Myeongdong booths.
-3. **Korea barely uses cash.** In the international comparison cited by Japan's METI, Korea's cashless payment ratio is 99.0%, the highest among major economies — against [Japan's 58.0% in 2025](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html). Korea has pushed card use since the late 1990s through income tax deductions on card spending and mandatory card acceptance above a certain business size, so even street stalls take cards.
+3. **Korea barely uses cash.** Per the [Payments Japan Association's international comparison](https://paymentsjapan.or.jp/publications/20250904_intl-comp_ratio_2023) (*Cashless Roadmap 2024*), Korea's cashless payment ratio was 99.0% in 2022, first among major economies — against [Japan's 58.0% in 2025](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html).
+
+   Worth flagging: Korea's 99.0% is a **reference value** computed on a different basis from the other countries. The association's ratio normally uses World Bank household final consumption expenditure as the denominator and BIS card and e-money payment volumes as the numerator, but "the ratios for China and Korea are calculated from Euromonitor International data and recorded as reference values." So do not treat 99.0% and Japan's 58.0% as measured with the same ruler — different sources put Korea anywhere from 93.6% to 99.0%. For this post's purposes the conclusion is unaffected: every statistic puts Korea above 90%, among the highest in the world.
+
+   The cause is policy. After the 1997 Asian financial crisis Korea introduced income tax deductions on card spending and lottery draws tied to card receipts, and required merchants above a certain annual revenue to accept cards, with penalties for refusing — which is why even street stalls take cards.
 
 In practice: change only a small amount of won in Taiwan for emergencies (enough for airport-to-city transport, and even the airport express and buses take cards), and put the rest on a credit card. If you need more cash, use a local exchange booth or a stored-value card like WOWPASS — both give rates far better than exchanging in Taiwan.
 
@@ -150,15 +164,16 @@ Japan is the opposite. A 58% cashless ratio means roughly four in ten situations
 
 The 1.5% on overseas spending is unavoidable, which makes the test very simple: **a card with an overseas rebate below 1.5% is not worth taking abroad.** A 3% card nets 1.5%; a 5% card nets 3.5% — far more than the fraction of a percent you can squeeze out of exchange rates.
 
-Below are a few cards with higher overseas rebates as of August 2026. **This section dates faster than anything else in the post** — treat the numbers as orders of magnitude and confirm current terms on the issuer's own site before applying:
+The four below are the terms as of August 2026, **each row checked line by line against the issuer's own site** (aggregator comparison sites frequently carry stale expiry dates). Even so, **this section dates faster than anything else in the post** — follow the links and re-confirm before applying:
 
-| Card | Overseas rebate | Conditions and expiry |
+| Card | Overseas rebate | Conditions and expiry (per issuer) |
 |---|---|---|
-| Taishin Richart Card | 3.3%, no cap | Requires switching to the "travel" benefit track; benefits run to 2027/3/31 |
-| HSBC Cash Rewards Signature | 2.22%, no cap | Excludes EU and UK physical merchants |
-| DBS eco Card | Up to 5% at physical stores in designated countries | Includes Japan and Korea; capped, runs to 2026/12/31 |
-| Taipei Fubon J Card | Up to 6% in Japan/Korea/Thailand at physical stores | 3% uncapped + 3% bonus requires registration, bonus capped per quarter |
-| E.SUN Kumamon Card | 2.5% general in Japan, up to 8.5% at designated merchants | Bonus requires registration and is capped per statement period, runs to 2026/12/31 |
+| [E.SUN Kumamon Card](https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=8039) | 2.5% uncapped for general spending in Japan; up to 8.5% at designated Japanese merchants | 8.5% = 2.5% general + 6% bonus; bonus capped at NT$500 per account per period, registration required; 2026/7/1–12/31 |
+| [Taipei Fubon J Card](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000307) | Up to 6% at physical stores in Japan/Korea/Thailand | 6% = base up to 3% uncapped + 3% bonus; bonus requires **a single transaction of NT$1,000+**, registration, capped at NT$1,000 per account per quarter, limited to 60,000 registrants per quarter; **2026/4/1–9/30** |
+| [DBS eco Card](https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html) | 5% at local physical stores in Japan/Korea/Thailand/Singapore/Americas/Europe | 5% = 1% general uncapped + 4% bonus; requires a physical card or Apple Pay/Samsung Pay face-to-face and non-TWD settlement; bonus capped per period; 2026/1/1–12/31 |
+| [HSBC Cash Rewards Signature](https://www.hsbc.com.tw/credit-cards/products/cashback-signature) | 2.22% overseas, no cap | No minimum spend, rebate never expires; overseas **excludes EU and UK physical merchants** |
+
+The Taishin Richart Card's 3.3% "travel" track often appears on lists like this, but read its threshold carefully. Per [Taishin's own page](https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001), 3.3% is a LEVEL 2 benefit: "completing the setup of 'Taishin account auto-debit for Taishin credit card payments' is required to enjoy the maximum 3.3% benefit rebate; without it, bonus channels earn up to 1.3%." Without the auto-debit setup, 1.3% is below the 1.5% fee — a net loss. The benefit period runs 2026/7/1–2027/3/31.
 
 A few details that are easy to miss when choosing:
 
@@ -182,24 +197,48 @@ The parts of this post have very different shelf lives. When revisiting, check t
 
 | Item | Stability | How to re-check |
 |---|---|---|
-| Composition of the 1.5% (1% + 0.5%) | High, bound by a regulatory cap | Issuer's foreign transaction service fee page |
+| Legal basis of the 0.5% cap | Highest — needs a rule change | FSC mandatory provisions, Article 6 |
 | KRW has no spot rate | High, structural | The KRW row on Bank of Taiwan's board |
 | Specific spread figures | Changes daily | Re-check the board; the spread ratios are relatively stable |
 | Per-bank withdrawal fees | Medium, occasionally revised | Each bank's fee schedule page |
-| Card rebate rates and expiry | **Low, changes within months** | Issuer's current benefits page |
-| Japan/Korea cashless ratios | Medium, updated annually | METI annual statistics |
+| Card rebate rates and expiry | **Low, changes within months** | Issuer's current benefits page (don't trust aggregators' dates) |
+| Japan's cashless ratio | Medium, updated annually | METI annual statistics |
+| Korea's cashless ratio | Medium, and a Euromonitor reference value | Payments Japan Association comparison page |
 
 ## References
 
+Regulation and fees
+
+- [FSC: Mandatory and Prohibited Provisions of Credit Card Standard Contracts](https://law.fsc.gov.tw/LawContent.aspx?id=FL049905) (in Chinese) — the legal basis for the 0.5% cap
+- [Lawbank: full text of the amended mandatory and prohibited provisions](https://www.lawbank.com.tw/news/NewsContent_print.aspx?NID=123435.00) (in Chinese)
 - [CTBC: How foreign transaction fees are charged](https://service.ctbcbank.com/FAQ/Page01?kmid=4724) (in Chinese)
 - [E.SUN Bank: What fees apply when using a credit card overseas](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018) (in Chinese)
+
+Dual-currency cards and foreign currency debiting
+
 - [SinoPac Dual Currency Card: official benefits and notes](https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html) (in Chinese)
+- [E.SUN Kumamon Card, including the note that the JPY dual-currency card still pays 1.5%](https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/kumamon_card) (in Chinese)
 - [DBS Multi-Currency Debit Card: 1.5% foreign transaction fee waived when charged to a same-currency account](https://www.dbs.com.tw/personal-zh/deposits/what-is-debitcards) (in Chinese)
+
+Exchange rates and conversion
+
 - [Bank of Taiwan board exchange rates](https://rate.bot.com.tw/xrt?Lang=zh-TW)
 - [Bank of Taiwan: exchange discount details](https://www.facebook.com/botbubi/posts/884045423749560) (in Chinese)
 - [Yuanta Bank: exchangeable foreign banknote currencies and denominations](https://www.yuantabank.com.tw/bank/saveExchange/foreignDeposit/list2.do) (in Chinese)
 - [SinoPac DAWHO: currencies available in a foreign currency account](https://dawho.tw/hot/blog/forex-account) (in Chinese)
 - [Money101: how to exchange currency most cheaply, including per-bank counter fees](https://www.money101.com.tw/blog/%E5%87%BA%E5%9C%8B%E6%8F%9B%E9%8C%A2%E8%A9%B2%E5%9C%A8%E9%8A%80%E8%A1%8C%E6%8F%9B%E9%82%84%E6%98%AF%E6%A9%9F%E5%A0%B4%E6%8F%9B%E5%A4%96%E5%B9%A3) (in Chinese)
-- [METI: Japan's 2025 cashless payment ratio](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html) (in Japanese)
 - [Bobby Travel: comparing four ways to obtain Korean won](https://bobbytravel.tw/korean-won) (in Chinese)
 - [Mr. Market: five common ways to exchange currency, compared](https://rich01.com/how-to-exchange-forex-cheaper) (in Chinese)
+
+Card benefits (all issuer official pages)
+
+- [E.SUN Kumamon Card: Kumamon Goes to Japan campaign](https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=8039) (in Chinese)
+- [Taipei Fubon J Card: up to 6% in Japan/Korea/Thailand](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000307) (in Chinese)
+- [DBS eco Card](https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html) (in Chinese)
+- [HSBC Cash Rewards Signature Card](https://www.hsbc.com.tw/credit-cards/products/cashback-signature) (in Chinese)
+- [Taishin Richart Card benefit tiers](https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001) (in Chinese)
+
+Cashless payment ratios
+
+- [METI: Japan's 2025 cashless payment ratio](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html) (in Japanese)
+- [Payments Japan Association: international comparison of cashless ratios, including the note that China and Korea are Euromonitor reference values](https://paymentsjapan.or.jp/publications/20250904_intl-comp_ratio_2023) (in Japanese)

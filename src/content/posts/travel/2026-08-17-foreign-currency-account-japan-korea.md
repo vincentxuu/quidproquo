@@ -46,7 +46,13 @@ glossary:
 | 國外交易服務費 | 發卡銀行 | 0.5%（法規上限） |
 | **合計** | | **1.5%** |
 
-[玉山銀行的費率表](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018)把三大組織並列，Visa、Mastercard、JCB 都是 1.5%，沒有差別。發卡行那 0.5% 是主管機關訂的上限，所以實務上各家幾乎都收滿。美國運通因為自己既是組織也是發卡方，通常是 2%。
+[玉山銀行的費率表](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018)把三大組織並列，Visa、Mastercard、JCB 都是 1.5%，沒有差別。
+
+那 0.5% 的上限不是慣例而是明文規定。金管會[「信用卡定型化契約應記載及不得記載事項」](https://law.fsc.gov.tw/LawContent.aspx?id=FL049905)第六點（匯率之計算）寫著：
+
+> 發卡機構得不收取第一項國外交易服務費，如收取者，除各信用卡國際組織收取之費用外，每筆按消費金額百分之＿＿計收（**不得逾百分之○‧五**），不得賺取任何差價。
+
+兩個推論值得記住：法規允許銀行**完全不收**這筆費用（所以「免國外交易服務費」的卡是合法存在的，只是通常回饋較低），但收的話不得超過 0.5%，也不准從匯率賺價差——所以實務上各家幾乎都收滿 0.5%。同一份規定的「不得記載事項」第九點另外禁止「就同一消費金額，收取二次國外交易服務費」。
 
 重點在於：**這整段計算跟你有沒有外幣帳戶完全無關。** 它是刷卡清算路徑上的固定成本。
 
@@ -55,6 +61,10 @@ glossary:
 雙幣卡的行銷語言很容易讓人以為「刷外幣＝免手續費」。實際上不是。[永豐幣倍卡的官方權益條款](https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html)講得很直白：
 
 > 持卡人使用信用卡交易帳款均應以新臺幣或約定外幣結付……加計永豐銀行應向各該國際組織給付之手續費及永豐銀行以交易/消費金額 0.5% 計算之國外交易服務費後結付（加計後約為交易金額 1.5%～2%）
+
+不是只有永豐這樣。[玉山熊本熊卡的日圓雙幣卡頁面](https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/kumamon_card)在說明欄裡就一句話講完：
+
+> 日圓雙幣卡之國外消費需收取 1.5% 國外交易服務費
 
 雙幣卡幫你省的是**匯率風險**，不是手續費。它的價值在於你可以在日圓便宜的時候先換好放著，刷卡時直接從外幣帳戶扣同一筆日圓，不用被請款日當天的匯率決定。這確實有意義，但跟 1.5% 是兩回事。
 
@@ -140,7 +150,11 @@ glossary:
 
 1. **開不了。** 多數銀行沒有韓元帳戶可開，只能買現鈔。
 2. **在台灣換很虧。** 現鈔來回成本 15.74%，明洞換錢所實測差 8.6%。
-3. **韓國幾乎用不到現金。** 依日本經產省引用的國際比較，韓國無現金支付比率為 99.0%，是主要國家中最高；相較之下[日本 2025 年才到 58.0%](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html)。韓國從 1990 年代末就用信用卡消費所得稅扣除、強制一定規模店家受理刷卡等政策推動，路邊攤都能刷。
+3. **韓國幾乎用不到現金。** 依[日本無現金推進協議會的國際比較](https://paymentsjapan.or.jp/publications/20250904_intl-comp_ratio_2023)（《キャッシュレス・ロードマップ 2024》），韓國 2022 年的無現金支付比率為 99.0%，在主要國家中排第一；相較之下[日本 2025 年才到 58.0%](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html)。
+
+   要提醒的是，韓國那個 99.0% 是**參考值**，計算基礎與其他國家不同：協議會的比率原則上用世界銀行的民間最終消費支出當分母、國際清算銀行（BIS）的卡片與電子貨幣支付額當分子，但「中國及韓國係以 Euromonitor International 之資料計算，作為參考值記載」。所以別把 99.0% 和日本的 58.0% 當成同一把尺量出來的數字——不同來源給韓國的數字從 93.6% 到 99.0% 都有。不過對這篇的用途來說結論不受影響：韓國各項統計都在 90% 以上，是全球最高的一群。
+
+   成因是政策：韓國從 1990 年代末的亞洲金融風暴後就導入信用卡消費金額所得稅扣除、刷卡發票抽獎，並對年營業額達一定規模的店家課予受理刷卡的義務、不受理者有罰則，所以路邊攤都能刷。
 
 實務作法：在台灣只換少量韓元應急（機場到市區的交通費等級就夠，而且機場快線、機場巴士本來就能刷卡），其餘靠信用卡；真的需要較多現金，到當地換錢所或用 WOWPASS 之類的儲值卡處理，匯率都遠優於在台灣換。
 
@@ -150,15 +164,16 @@ glossary:
 
 海外刷卡固定要付 1.5%，所以判準非常簡單：**海外回饋低於 1.5% 的卡，出國不用考慮。** 回饋 3% 的卡淨賺 1.5%，回饋 5% 的卡淨賺 3.5%——這個效益遠大於你在匯率上摳的零點幾個百分點。
 
-以下是 2026 年 8 月市面上幾張海外回饋較高的卡，**這一節是全篇最會過期的部分**，數字僅供理解量級，申辦前務必回發卡行官網確認當期權益：
+以下四張是 2026 年 8 月的權益，**每一列都是回各發卡行官網逐條核對過的**（聚合比較網站的期限經常是舊的）。即使如此，**這一節仍是全篇最會過期的部分**，申辦前請點連結重新確認：
 
-| 卡片 | 海外回饋 | 條件與期限 |
+| 卡片 | 海外回饋 | 條件與期限（依官網） |
 |---|---|---|
-| 台新 Richart 卡 | 3.3% 無上限 | 需切換「玩旅刷」權益；權益期至 2027/3/31 |
-| 匯豐現金回饋御璽卡 | 2.22% 無上限 | 不含歐盟、英國實體通路 |
-| 星展 eco 永續卡 | 指定國家實體店最高 5% | 含日、韓；有回饋上限，期限至 2026/12/31 |
-| 台北富邦 J 卡 | 日韓泰實體最高 6% | 3% 無上限＋3% 加碼需登錄，加碼有季上限 |
-| 玉山熊本熊卡 | 日本一般 2.5%、指定商店最高 8.5% | 加碼需登錄、有期別上限，期限至 2026/12/31 |
+| [玉山熊本熊卡](https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=8039) | 日本一般 2.5% 無上限；指定日本商店最高 8.5% | 8.5%＝一般 2.5%＋加碼 6%；加碼每歸戶每期上限 500 元、需登錄；2026/7/1–12/31 |
+| [台北富邦 J 卡](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000307) | 日韓泰實體最高 6% | 6%＝原權益最高 3% 無上限＋加碼 3%；加碼須**單筆滿 1,000 元**、需登錄、每季上限 1,000 元／戶且每季限量 6 萬名；**2026/4/1–9/30** |
+| [星展 eco 永續卡](https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html) | 日韓泰、新美歐當地實體店 5% | 5%＝一般 1% 無上限＋加碼 4%；須實體卡或 Apple Pay／Samsung Pay 面對面、非新臺幣結帳；加碼有每期上限；2026/1/1–12/31 |
+| [匯豐現金回饋御璽卡](https://www.hsbc.com.tw/credit-cards/products/cashback-signature) | 海外 2.22% 無上限 | 無最低消費門檻、回饋終身有效；海外**不含歐盟及英國實體通路** |
+
+台新 Richart 卡的「玩旅刷」海外 3.3% 也常被列進這類清單，但它的門檻要看清楚：依[台新官網](https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001)，3.3% 屬於 LEVEL 2 權益，「需完成設定『台新銀行帳戶自動扣繳台新銀行信用卡帳款』始享最高 3.3% 權益回饋；未完成則享加碼通路最高 1.3%」——沒設定扣繳的話 1.3% 低於 1.5% 手續費，等於倒賠。權益期間為 2026/7/1–2027/3/31。
 
 幾個挑卡時容易忽略的細節：
 
@@ -182,24 +197,48 @@ glossary:
 
 | 項目 | 穩定度 | 複查方式 |
 |---|---|---|
-| 1.5% 的組成（1%＋0.5%） | 高，受法規上限約束 | 發卡行官網國外交易服務費說明 |
+| 0.5% 上限的法源 | 最高，需修法才會變 | 金管會應記載事項第六點 |
 | 韓元無即期匯率 | 高，結構性 | 台銀牌告匯率韓元列 |
 | 台銀牌告的具體價差數字 | 每日變動 | 重新查牌告，價差比例相對穩定 |
 | 各行提領手續費 | 中，偶爾調整 | 各行收費標準頁 |
-| 信用卡回饋率與期限 | **低，數月即變** | 發卡行官網當期權益 |
-| 日韓無現金比率 | 中，年度更新 | 經濟產業省年度統計 |
+| 信用卡回饋率與期限 | **低，數月即變** | 發卡行官網當期權益（別信聚合網站的期限） |
+| 日本無現金比率 | 中，年度更新 | 經濟產業省年度統計 |
+| 韓國無現金比率 | 中，且為 Euromonitor 參考值 | 無現金推進協議會國際比較頁 |
 
 ## 參考資料
 
+法規與費率
+
+- [金管會：信用卡定型化契約應記載及不得記載事項](https://law.fsc.gov.tw/LawContent.aspx?id=FL049905)（0.5% 上限的法源）
+- [法源：修正「信用卡定型化契約應記載及不得記載事項」全文](https://www.lawbank.com.tw/news/NewsContent_print.aspx?NID=123435.00)
 - [中國信託：國外交易手續費如何收取](https://service.ctbcbank.com/FAQ/Page01?kmid=4724)
 - [玉山銀行：持信用卡在國外消費會收取什麼費用（含 DCC 動態貨幣轉換提醒）](https://www.esunbank.com/zh-tw/about/faq/content?q=credit_card%2F018)
+
+雙幣卡與外幣扣款
+
 - [永豐幣倍卡官方權益與注意事項](https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html)
+- [玉山熊本熊卡（含日圓雙幣卡仍收 1.5% 之說明）](https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/kumamon_card)
 - [星展多幣簽帳金融卡：外幣刷卡扣外幣帳戶免 1.5% 國外交易手續費](https://www.dbs.com.tw/personal-zh/deposits/what-is-debitcards)
+
+換匯與匯率
+
 - [臺灣銀行牌告匯率](https://rate.bot.com.tw/xrt?Lang=zh-TW)
 - [臺灣銀行：換匯優惠幅度說明](https://www.facebook.com/botbubi/posts/884045423749560)
 - [元大銀行：可兌換之外幣現鈔幣別與面額](https://www.yuantabank.com.tw/bank/saveExchange/foreignDeposit/list2.do)
 - [永豐 DAWHO：外幣帳戶可換幣別](https://dawho.tw/hot/blog/forex-account)
 - [Money101：出國換錢怎麼換最划算（含各行臨櫃換匯手續費整理）](https://www.money101.com.tw/blog/%E5%87%BA%E5%9C%8B%E6%8F%9B%E9%8C%A2%E8%A9%B2%E5%9C%A8%E9%8A%80%E8%A1%8C%E6%8F%9B%E9%82%84%E6%98%AF%E6%A9%9F%E5%A0%B4%E6%8F%9B%E5%A4%96%E5%B9%A3)
-- [日本經濟產業省：2025 年のキャッシュレス決済比率を算出しました](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html)
 - [波比看世界：韓元怎麼換最划算（四種管道實測比較）](https://bobbytravel.tw/korean-won)
 - [Mr.Market 市場先生：怎麼換錢最划算？5 種常見換匯方式解析](https://rich01.com/how-to-exchange-forex-cheaper)
+
+卡片權益（皆為發卡行官網）
+
+- [玉山熊本熊卡：熊本熊遊日本活動](https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=8039)
+- [台北富邦 J 卡：日韓泰旅遊最高 6% 回饋](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000307)
+- [星展 eco 永續卡](https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html)
+- [匯豐現金回饋御璽卡](https://www.hsbc.com.tw/credit-cards/products/cashback-signature)
+- [台新 Richart 卡權益等級說明](https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001)
+
+無現金支付比率
+
+- [日本經濟產業省：2025 年のキャッシュレス決済比率を算出しました](https://www.meti.go.jp/press/2025/03/20260331006/20260331006.html)
+- [無現金推進協議會：世界主要國無現金支付比率國際比較（含中韓為 Euromonitor 參考值之說明）](https://paymentsjapan.or.jp/publications/20250904_intl-comp_ratio_2023)
