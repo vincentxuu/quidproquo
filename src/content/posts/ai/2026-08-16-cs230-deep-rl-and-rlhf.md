@@ -307,8 +307,8 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 - [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) — Ouyang et al., 2022。即 InstructGPT，SFT → 獎勵模型 → RLHF 三段式的原始論文
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X) — 九講完整清單
 - [CS230 syllabus](https://cs230.stanford.edu/syllabus/) — 講次時間與線上模組對照
+- [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) — Schulman et al., 2017。課堂提到的 PPO
 - [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants) — 站上文章，「你不會比評判者更強」的當代版本
 
-**未附連結的出處**：課堂提到的 TRPO / PPO（Schulman）、DPO（Stanford）、DQN 的 Nature 論文、AlphaGo 紀錄片，
-以及 Karpathy 那支影片，本文只照課堂記錄寫出名稱**未附連結**——查證管道在撰稿當下不可用，
-寧可不給連結也不給可能錯誤的連結。
+**未附連結的出處**：課堂提到的 TRPO、DPO、DQN 的 Nature 論文、AlphaGo 紀錄片，以及 Karpathy 那支影片，
+本文只寫出名稱未附連結——這些在撰稿時未能逐一查證，寧可不給連結也不給可能錯誤的連結。
