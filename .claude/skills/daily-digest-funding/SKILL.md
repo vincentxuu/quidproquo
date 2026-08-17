@@ -146,7 +146,7 @@ lang: zh-TW
 description: "一句話概述公司和這輪融資的意義"
 tldr: "{公司}完成{輪次}，由{領投}領投，估值{估值}。{一句話這筆錢代表的趨勢}。"
 series:
-  name: "AI Funding"
+  name: "AI Agent Funding"
   order: N
 ---
 ```
@@ -219,7 +219,7 @@ lang: zh-TW
 description: "Agent 安全新創 ZenGuard 完成 $50M B 輪，Lightspeed 領投，專注 Agent runtime 行為監控"
 tldr: "ZenGuard 完成 $50M Series B，由 Lightspeed Venture Partners 領投，估值 $400M。這筆錢代表 VC 開始把 Agent 安全從「nice-to-have」升級為「必須投資」的基礎設施層。"
 series:
-  name: "AI Funding"
+  name: "AI Agent Funding"
   order: 2
 ---
 

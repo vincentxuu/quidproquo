@@ -247,8 +247,8 @@ series:
 
 {列出今天所有 Stage 1 產出的文章，一行一篇，附站內連結。不重述內容。}
 
-- 📄 [AI Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
-- 📄 [AI GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
+- 📄 [AI Agent Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
+- 📄 [AI Agent GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
 - {其他當天產出的 Stage 1 文章...}
 
 ## 明日關注
@@ -330,8 +330,8 @@ Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
-- 📄 [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- 📄 [AI Agent GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
 
 ## 明日關注
 

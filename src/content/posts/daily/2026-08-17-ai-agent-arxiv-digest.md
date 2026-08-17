@@ -1,5 +1,5 @@
 ---
-title: "AI Arxiv Digest — 2026-08-17"
+title: "AI Agent Arxiv Digest — 2026-08-17"
 date: 2026-08-17
 category: daily
 tags: [ai-agent, arxiv, daily, agent-memory, agent-rag, cost-optimization]
@@ -7,7 +7,7 @@ lang: zh-TW
 description: "今天三篇圍繞同一個問題——Agent 記憶系統要顧的不只是查得準：RippleMem 把初步召回的證據當線索繼續聯想擴散，Total Recall 揭露記憶系統的服務成本無法用對話長度預測且未必比重送整份便宜，MESA 則示範如何動態選結構同時兼顧準確率與成本"
 tldr: "RippleMem 靠聯想式記憶擴散讓 LongMemEval-S 準確率最高提升 11.87%，同時把記憶圖建構成本壓到 1/30；Total Recall at What Cost? 量出記憶系統的服務成本誤差可達 18–69%，且沒有一套系統同時贏成本和準確率；MESA 用動態選記憶結構在 AMA-Bench 上準確率高 8.5%，還省下 41% 證據 token"
 series:
-  name: "AI Arxiv Digest"
+  name: "AI Agent Arxiv Digest"
   order: 2
 ---
 

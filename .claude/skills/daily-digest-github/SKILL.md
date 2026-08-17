@@ -144,7 +144,7 @@ gh api 'search/repositories?q=created:>'"$(date -d '7 days ago' +%Y-%m-%d)"'+sta
 
 ```yaml
 ---
-title: "AI GitHub Digest — YYYY-MM-DD"
+title: "AI Agent GitHub Digest — YYYY-MM-DD"
 date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, github, open-source, daily]
@@ -152,7 +152,7 @@ lang: zh-TW
 description: "一句話，今天 GitHub 上 AI/Agent 最值得注意的趨勢"
 tldr: "3-5 行重點"
 series:
-  name: "AI GitHub Digest"
+  name: "AI Agent GitHub Digest"
   order: N
 ---
 ```
@@ -207,7 +207,7 @@ series:
 
 ```markdown
 ---
-title: "AI GitHub Digest — 2026-08-10"
+title: "AI Agent GitHub Digest — 2026-08-10"
 date: 2026-08-10
 category: daily
 tags: [ai-agent, github, open-source, daily, agent-tool-use, multi-agent]
@@ -215,7 +215,7 @@ lang: zh-TW
 description: "MCP 生態今天爆發——三個新 server 同時出現，開源 Agent 框架也在悄悄收斂"
 tldr: "三個新 MCP server（Notion/Slack/Google Drive）同日上線；Mastra 1.4 加入原生 A2A 支援；新 repo agent-sandbox 用 Firecracker microVM 跑 Agent，三天 2k stars"
 series:
-  name: "AI GitHub Digest"
+  name: "AI Agent GitHub Digest"
   order: 57
 ---
 

@@ -57,16 +57,16 @@ Stage 4（每週五）
 | type | Series name |
 |---|---|
 | daily | AI 日報 |
-| arxiv | AI Arxiv Digest |
-| github | AI GitHub Digest |
+| arxiv | AI Agent Arxiv Digest |
+| github | AI Agent GitHub Digest |
 | model-card | AI Model Tracker |
 | security | AI Security Alert |
 | benchmark | AI Benchmark Watch |
 | framework | AI Framework Changelog |
 | tool | AI Tool of the Day |
-| funding | AI Funding |
+| funding | AI Agent Funding |
 | pricing | AI Pricing Watch |
-| weekly | AI 週回顧 |
+| weekly | AI Agent 週回顧 |
 | region | AI Region Focus |
 
 ## 共通品質規則

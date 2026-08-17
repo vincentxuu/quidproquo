@@ -145,7 +145,7 @@ cat src/data/agent-watchlist.json | jq '[.companies[].slug]' > /tmp/watchlist-sl
 
 ```yaml
 ---
-title: "AI 週回顧 — YYYY-MM-DD"
+title: "AI Agent 週回顧 — YYYY-MM-DD"
 date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, weekly, daily]
@@ -153,7 +153,7 @@ lang: zh-TW
 description: "一句話概述本週最大的認知變化"
 tldr: "3-5 行本週最重要的認知差"
 series:
-  name: "AI 週回顧"
+  name: "AI Agent 週回顧"
   order: N
 ---
 ```
@@ -225,7 +225,7 @@ series:
 
 ```markdown
 ---
-title: "AI 週回顧 — 2026-08-22"
+title: "AI Agent 週回顧 — 2026-08-22"
 date: 2026-08-22
 category: daily
 tags: [ai-agent, weekly, daily]
@@ -233,7 +233,7 @@ lang: zh-TW
 description: "本週最大的認知變化：Agent 生態的價值正從模型層移向基礎設施層"
 tldr: "Anthropic Agent SDK 2.0 讓 MCP 從協定變成平台；Cursor $500M ARR 證明開發者體驗比模型能力重要；三篇記憶管理論文指向同一個方向——記憶是可以獨立訓練的技能"
 series:
-  name: "AI 週回顧"
+  name: "AI Agent 週回顧"
   order: 2
 ---
 
