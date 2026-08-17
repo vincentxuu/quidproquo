@@ -615,3 +615,10 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 
 - 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro
   check/build 通過。當時 `pnpm verify` 被未追蹤 Arxiv 文章缺參考資料擋住。
+
+## 2026-08 移出 progress.txt
+
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
+- 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
+  漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
+  加 3 行 line-clamp 當保險。正文與 description 未動。

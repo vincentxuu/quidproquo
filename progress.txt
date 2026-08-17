@@ -13,11 +13,18 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- CS230 系列（Stanford Autumn 2025，9 講 × zh/en＝18 篇，1:1 對應講次、導讀+延伸寫法）。
-  逐字稿 8/9 已抓（缺 L10），筆記 2/9 完成，見 `.work/cs230-notes/`。**與站上重疊要避開**：
-  L8（agents/prompts/RAG）已被 AI Agent 實戰／Agent 生產線／RAG 系統實戰 21 篇蓋掉，
-  改寫成對照篇；真正的缺口在 L2 的 embedding 訓練過程與 L10 的模型內部可視化。
-  另：Autumn 2026 已排課（2026/09/22 開課），文章須標明講次屬 2025 秋季那一輪。
+- CS230 系列（Stanford Autumn 2025，9 講 1:1 對應，order 跳過 7 因停課）。
+  **zh-TW 9/9 完成（76,059 字元），en 0/9 未開始。** 筆記 `.work/cs230-notes/`、
+  規劃 `docs/content-plan-cs230.md`、series slug `cs230`。文章均標明屬 2025 秋季那輪
+  （Autumn 2026 已排 2026/09/22 開課）。
+  **方針被使用者退回一次**：原「每篇挑一條主線」導致課程內容沒寫完整（L4 標題有
+  Generative Models 我卻沒寫）。錯誤來源①我把「純課程筆記」描述成原創性低，是把人
+  推向我有發揮空間的方向；②「避開站上 21 篇重疊」只對 L8 成立卻被擴大套用到九講。
+  現行＝照講者 agenda 完整覆蓋＋標題用課程原標題。另我曾說「寫不進 1,500 字」，
+  那是抓錯站上慣例（實測中位數 4,945、p90 9,087），把錯誤假設當客觀限制講出去。
+  **教訓**：13 篇論文 ID 實抓驗證；**exa 查 1707.06347 回傳完全不同的論文**，
+  tavily 才對（firecrawl 額度盡、arxiv 對 WebFetch 被 egress 擋）。修正兩處課堂說法：
+  ImageBind 樞紐是影像非文字、METR 那篇限於 Software Tasks。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
   Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals,
   then verify the production Groq-to-Cloudflare fallback path.
@@ -46,9 +53,6 @@ Recently completed
   三個巢狀目錄——因此漏改 2 個 en 檔，slug 合併後撞出 route 衝突才被 build 抓到。
   掃 content 一律遞迴走訪。**仍開**：Claude Code 系列兩語都有重複的 order: 10
   （28 篇卻只編到 27），會讓上下篇少一格，未動。
-- 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
-  漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
-  加 3 行 line-clamp 當保險。正文與 description 未動。
 - 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
   D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
   112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
@@ -73,7 +77,6 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
