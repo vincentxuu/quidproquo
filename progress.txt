@@ -23,6 +23,7 @@ Next steps
 2. Backfill missing post `type` and `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
+5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
 - 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
@@ -77,7 +78,6 @@ Recently completed
 - 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔），B 技術群 17 格、D 反制群 4 格寫完。
   仍開缺口（D3 通過率、縣市禁飛清單、交通部函釋）與可重用教訓見 docs/progress-archive.md
   與 docs/content-plan-drone.md §5.2。
-- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
