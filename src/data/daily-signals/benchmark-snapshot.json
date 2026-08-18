@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-17",
+  "date": "2026-08-19",
   "swebench_verified_bash_only_top5": [
     { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
     { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
     { "rank": 3, "model": "Doubao-Seed-Code", "agent": "TRAE", "score": 78.80 },
     { "rank": 4, "model": "Gemini 3 Pro Preview", "agent": "live-SWE-agent", "score": 77.40 },
-    { "rank": 5, "model": "Multiple", "agent": "Atlassian Rovo Dev", "score": 76.80 }
+    { "rank": 5, "model": "Multiple (Claude Sonnet 4 + GPT-5)", "agent": "Atlassian Rovo Dev", "score": 76.80 }
   ],
   "lmsys_top3": [
     { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.19, "ci": "±1.45%" },
@@ -13,5 +13,5 @@
     { "rank": 3, "model": "Claude Opus 5 (Max)", "score": 11.95, "ci": "±1.71%" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-17：swebench.com 排行榜為 JS 動態渲染（Bash Only 頁需逐一點選模型才載入分數），本次抓取工具（Tavily extract、Exa fetch）皆無法取得即時分數表，故沿用 08-16 的 swebench 快照，未比對到新變動。lmarena.ai/leaderboard 首次成功抓取（Agent 類別），前三名 Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%，三者信賴區間重疊，且無歷史基準可比對，不構成「顯著變動」，僅作為後續比對基準寫入快照。MorphLLM /leaderboard 持續被 Vercel Security Checkpoint 攔截，無法存取。firecrawl 額度用盡（insufficient credits），stealth_fetch MCP 於此環境不可用，直接 curl 被 proxy 擋下（403）。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-08-19：改用直接 curl（透過 proxy）抓取 swebench.com 官方 GitHub repo 的原始資料來源 https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json（swebench.com 前端本身是 JS 動態渲染，但資料實際來自這份靜態 JSON，站方 build.py 直接讀取它產生頁面）——這比透過 Tavily/Exa 抓取渲染後頁面更可靠且不受轉義字元污染（Tavily 的 markdown 轉換會把 JSON 內的底線跳脫成 \\_，需額外清洗，不如直接抓源檔案）。'Verified'（全 agent）排行榜前 5 名分數與名次與 08-17 快照完全一致，無異動。lmarena.ai/leaderboard Agent 類別前三名同樣與 08-17 快照完全一致（Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%），無異動。MorphLLM /leaderboard 持續被 Vercel Security Checkpoint 攔截，無法存取。firecrawl 額度依然用盡（insufficient credits）。額外搜尋新聞信號（Exa）發現大量第三方聚合站（BenchLM.ai、Swfte AI、CodeSOTA 等）互相矛盾且出現疑似不可信/虛構的型號名稱（如「Claude Mythos 5」非公開已知型號），未採信，僅以官方來源（swebench.com 原始 JSON、lmarena.ai 官網）為準。今日無 Benchmark 異動，未產出文章。"
 }
