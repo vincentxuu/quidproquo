@@ -19,6 +19,44 @@
 
 **與既有文章的分工**：站內已有 [2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check) 作為規格總表（價格、效期、門檻、退場與誤列）。本系列**不重複列規格**，只在每篇開頭用一行連過去。既有的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)（2026-03 寫，當時只有 Architect 一張）應併入本系列或改寫，見 A1。
 
+
+## 0.5 進度（2026-08-18 收工時）
+
+**A 軌已出 15 篇 x zh/en = 30 檔，全部 date 2026-08-18、series `ai-cert-prep`、order 1-15 無重複。**
+
+| order | 證照 | 檔名前綴 | 這篇的差異化重點 |
+|---|---|---|---|
+| 1 | AWS AIF-C01 | `2026-08-18-aws-aif-c01-prep-guide` | v1.1 新增七條目標變成 agentic 考試；唯一繁中的 AWS 證照 |
+| 2 | AWS AIP-C01 | `2026-08-18-aws-aip-c01-prep-guide` | 官方三行排除清單定義整張考試；續期可連帶續 AIF/MLA/DEA |
+| 3 | Google PMLE | `2026-08-18-google-pmle-prep-guide` | 考綱重寫、舊教材全廢；重考罰則最重（第三次沒過等一年） |
+| 4 | Claude CCAR-F | `2026-08-18-claude-certified-architect-foundations-guide` | 3 月舊文翻新改今日發佈，舊網址在 astro.config 留 301 |
+| 5 | 微軟 AI-103 | `2026-08-18-microsoft-ai-103-prep-guide` | Foundry 換代；一年效期 + 免費開書續期 |
+| 6 | 微軟 AB-620 | `2026-08-18-microsoft-ab-620-prep-guide` | 低程式碼 Copilot Studio 線；三張 agent 證照唯一繁中 |
+| 7 | 微軟 AI-500 | `2026-08-18-microsoft-ai-500-prep-guide` | beta、須先有 AI-103；四條學習路徑網址全 404（教材未上線） |
+| 8 | Claude CCDV-F | `2026-08-18-claude-certified-developer-prep-guide` | Claude Code 僅 3.1%（CCAR-F 是 20%）；33.1% 那塊有一半是普通軟體工程 |
+| 9 | NVIDIA NCA-GENL | `2026-08-18-nvidia-nca-genl-prep-guide` | 名實落差最大；官方備考課全付費（自學五門 $390） |
+| 10 | NVIDIA NCP-AAI | `2026-08-18-nvidia-ncp-aai-prep-guide` | 尚未開放報名；官方網頁 98% 與 PDF 92% 權重打架 |
+| 11 | NVIDIA NCP-GENL | `2026-08-18-nvidia-ncp-genl-prep-guide` | 31% 考 GPU 與模型最佳化；官方表格兩格描述錯置（含 OpenUSD 文字） |
+| 12 | NVIDIA NCA-GENM | `2026-08-18-nvidia-nca-genm-prep-guide` | 兩門建議課只有 $500 講師版，自學路線先天蓋不滿 |
+| 13 | 微軟 AB-100 | `2026-08-18-microsoft-ab-100-prep-guide` | 官方頁簡介是合規考試的樣板文（錯置）；15 張 associate 非必要條件 |
+| 14 | Claude CCAR-P | `2026-08-18-claude-certified-architect-professional-prep-guide` | 28% 不考技術（治理 14% + 利害關係人 14%） |
+| 15 | Claude CCAO-F | `2026-08-18-claude-certified-associate-prep-guide` | Prompting 只有 14%，輸出評估 21% + 治理 15% |
+
+**廠商完成度**：Anthropic 4/4 ✅、微軟 4/4 ✅、NVIDIA 4/4 ✅、AWS 2/3（MLA-C01 待 C02）、Google 1/1（不寫 Gen AI Leader）。
+
+### 下一步（新 session 從這裡接）
+
+1. **B 軌五篇技術文**（規劃見第 2 節）。現在寫最划算：A 軌十五篇已把跨證照重複的考點標好——多 agent 架構出現在 AI-500 / NCP-AAI / AB-620 / CCAR-F；RAG 評估出現在 AIP-C01 / PMLE / NCP-AAI / CCDV-F。
+2. **各廠「怎麼選」**：AWS 三張（含 MLA-C01 英文版 2026/9/28 停考的時間分支）、微軟四張、NVIDIA 四張、Claude 四張。Claude 與 NVIDIA 的對照表已散在各篇，可直接彙整。
+3. **AWS MLA-C01**：等 2026/9/1 C02 規格公布再寫；C02 exam guide 網址目前 404。
+4. **`.work/check-internal-links.patch` 待套用**：給 `scripts/check-post-references.mjs` 加「站內連結指向不存在文章」檢查，已寫好並驗過能擋。**暫緩提交的原因**：套用後 Hermes 系列的前向連結會讓 `pnpm verify` 變紅、擋到其他 session 的 commit。等 Hermes 那批寫完再 `git apply`。
+
+### 寫作時務必沿用的紀律（今天踩過的坑）
+
+- **每個外部 URL 都要有來源出處，不能照命名規律拼。** 今天拼錯三次（兩次 Microsoft Learn 學習路徑、一次站內 slug），全部 404。正確做法：從官方頁面的 `learn_item` uid、課程頁連結或 study guide 內文取得，並在 commit 前用 `curl -o /dev/null -w "%{http_code}"` 逐條驗。
+- **官方來源之間會互相矛盾**，今天遇到四次（NVIDIA 權重表 vs PDF、NVIDIA 描述錯置、AI-103 文件連結區、AB-100 簡介錯置）。遇到就兩邊都引、標成不確定區間，不要挑一個當事實。
+- **停在第一層官方頁就下結論**是今天最大的病因（總表文因此修正四次）。認證頁 → exam guide PDF → 政策頁，要點到底。
+
 ## 1. A 軌：一張證照一篇備考路徑
 
 每篇固定骨架：
