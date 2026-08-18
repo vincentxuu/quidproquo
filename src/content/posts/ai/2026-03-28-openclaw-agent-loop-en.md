@@ -1,170 +1,126 @@
 ---
-title: "OpenClaw Agent Loop: Execution Cycle, Streaming & Queue"
+title: "The OpenClaw Agent Loop: Serialization, Writer Claims, and the Fence That Stops a Stale Turn From Committing"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: ai
-tags: [openclaw, agent-loop, streaming, queue, messages, debounce]
+tags: [openclaw, agent-loop, streaming, queue, hooks, concurrency]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 11
-tldr: "A single agent execution: receive message → assemble context → model inference → tool execution → stream response → persist. Each session runs serially, with 5 queue modes supported."
-description: "The complete execution flow of the OpenClaw Agent Loop, streaming chunking mechanisms, message queue strategies, and concurrency control."
+tldr: "The agent loop is a serialized per-session run. The part worth studying is how it handles concurrency: an admitted run records an activeWriterRunId claim, every transcript write supplies expectedWriterRunId, and the commit transaction verifies the match — so a superseded run cannot commit stale data."
+description: "The full lifecycle of the OpenClaw agent loop: the five-step run sequence, per-session and global queues, the writer-claim fence, the split between internal and plugin hooks with their terminal semantics, streaming, and agent.wait."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-agent-loop)
 
-The Agent Loop is the core execution engine of OpenClaw — the complete flow from receiving a message to sending a reply. This post covers how it runs, how it streams, and how it handles multiple messages arriving simultaneously.
+The agent loop is a **serialized, per-session run** that turns a message into actions and a reply: intake, context assembly, model inference, tool execution, streaming, persistence.
 
-## Complete Execution Flow
+There are two entry points: the Gateway RPCs `agent` and `agent.wait`, and the CLI's `openclaw agent`.
 
-```
-Message arrives → Routing/binding → Session key → Queue (if active run exists)
-    ↓
-RPC entry: validate params, resolve session, return runId
-    ↓
-Agent command execution: resolve model config, load skills, call embedded runtime
-    ↓
-Embedded Runtime: serial execution (per-session queue), manage timeout, return usage
-    ↓
-Event Bridge: transform internal events → tool events + assistant deltas + lifecycle signals
-    ↓
-agent.wait: block until complete, return status and timing
-```
+## The run sequence
 
-### Timeout Behavior
+1. **The `agent` RPC** validates params, resolves the session (`sessionKey`/`sessionId`), persists session metadata, and **returns `{ runId, acceptedAt }` immediately**
+2. **`agentCommand`** runs the turn: resolves model and thinking/verbose/trace defaults, loads the skills snapshot, calls `runEmbeddedAgent`, and **emits a fallback lifecycle end/error** if the embedded loop did not
+3. **`runEmbeddedAgent`**: serializes runs through per-session and global queues, resolves model and auth profile, builds the session, subscribes to runtime events, streams assistant and tool deltas, **enforces the run timeout (aborting on expiry)**, and returns payloads plus usage metadata
+4. **`subscribeEmbeddedAgentSession`** bridges runtime events to the `agent` stream: tool events to `stream: "tool"`, assistant deltas to `stream: "assistant"`, lifecycle to `stream: "lifecycle"` (`phase: "start" | "end" | "error"`)
+5. **`agent.wait`** waits for lifecycle end/error on a `runId` and returns `{ status: ok|error|timeout, startedAt, endedAt, error? }`
 
-- `agent.wait` defaults to 30 seconds
-- The agent runtime's abort timer defaults to **48 hours**
+The immediate return in step 1 is the key design: **acceptance and completion are separate**, so the caller gets a `runId` first and decides afterward whether to wait.
 
-## Message Processing
+Step 3 also carries a Codex-specific guard: **an accepted Codex app-server turn that stops producing progress before a terminal event is aborted** rather than hanging.
 
-### Deduplication
+## Serialization and concurrency
 
-A short-term cache (channel + account + peer + session + messageId) is maintained to prevent duplicate agent triggers after channel disconnection and reconnection.
+Runs are **serialized per session key** (the session lane), optionally through a global lane as well, preventing tool and session races. Messaging channels pick a queue mode (steer/followup/collect/interrupt) that feeds this lane system.
 
-### Debounce
+### Writer claims: the part worth studying
 
-Consecutive text messages from the same sender are batched into a single agent turn. Each channel has a different debounce duration:
+The problem: a session may still have an older run in flight while a newer run has superseded it. If the old run writes its results into the transcript, it clobbers the newer state.
 
-| Channel | Default Debounce |
+OpenClaw's answer:
+
+- Before streaming, an admitted run records a **durable `activeWriterRunId` claim**
+- **Every transcript append or rewrite supplies `expectedWriterRunId`**
+- **The synchronous commit transaction verifies it still matches the active claim**
+
+The result: **a superseded run cannot commit stale transcript data.** Later rewrites, compaction, and truncation use the same in-transaction fence.
+
+Two more layers sit outside it: the **SQLite writer queue** orders per-agent mutations, and the **Gateway state-directory lock** prevents another Gateway or `openclaw agent --local` process from owning the same state directory concurrently.
+
+This is a textbook distributed-systems technique (a fencing token) applied to single-host agent execution. It is worth remembering because **any agent that allows interruption and supersession will need it.** Cancelling the old run is not enough — cancellation is asynchronous, and the write may already be in flight.
+
+## Preparation
+
+- The workspace is resolved and created; **sandboxed runs may redirect to a sandbox workspace root**
+- Skills are loaded (or reused from a snapshot) and injected into env and prompt
+- Bootstrap and context files are resolved and injected into the system prompt
+- **The transcript target and writer claim are prepared before streaming starts**
+
+The system prompt is built from OpenClaw's base prompt, the skills prompt, bootstrap context, and per-run overrides, with model-specific limits and compaction reserve tokens enforced.
+
+## Two hook systems
+
+An easy source of confusion, cleanly separated upstream:
+
+**Internal hooks (Gateway hooks)** — event-driven scripts for commands and lifecycle events:
+
+- **`agent:bootstrap`**: runs while building bootstrap files, before the system prompt is finalized — use it to add or remove bootstrap context files
+- **Command hooks**: `/new`, `/reset`, `/stop`, and others
+
+**Plugin hooks** — these run **inside** the agent loop or gateway pipeline:
+
+| Hook | When |
 |---|---|
-| WhatsApp | 5000 ms |
-| Slack | 1500 ms |
+| `before_model_resolve` | Pre-session (no `messages`), to deterministically override provider/model |
+| `before_prompt_build` | After session load (with `messages`), to inject `prependContext`, `systemPrompt`, `prependSystemContext`, or `appendSystemContext` — or narrow the submitted tool surface with `toolsAllow` on supported runtimes |
+| `before_agent_reply` | After inline actions, before the LLM call. **Lets a plugin claim the turn** and return a synthetic reply or silence it entirely |
+| `agent_end` | After completion, with the final message list and run metadata |
+| `before_compaction` / `after_compaction` | Observe or annotate compaction cycles |
+| `before_tool_call` / `after_tool_call` | Intercept tool params and results |
+| `tool_result_persist` | **Synchronously** transforms tool results before they are written to a transcript |
+| `message_received` / `message_sending` / `message_sent` | Inbound and outbound messages |
+| `session_start` / `session_end`, `gateway_start` / `gateway_stop` | Lifecycle boundaries |
 
-Media and attachments are **not affected by debounce** and trigger immediately. Control commands are also exempt.
+One `toolsAllow` detail deserves attention: **an empty `toolsAllow` submits no optional tools, an omitted one leaves the host-resolved surface unchanged, and unsupported runtimes reject restrictive values rather than ignoring them.** "Reject if unsupported" is far safer than "ignore if unsupported" — the latter leaves you believing the tool surface was narrowed when it was not.
 
-### Body Layers
+### Terminal semantics
 
-| Layer | Purpose |
-|---|---|
-| Body | Complete prompt text (with optional history wrapper) |
-| CommandBody | Raw text, used for command parsing |
-| RawBody | Legacy alias for CommandBody |
+The decision rules for guard hooks matter, because they determine who wins among multiple handlers:
 
-Group messages prepend a sender label in the prompt.
+- **`before_tool_call`**: `{ block: true }` is **terminal** and stops lower-priority handlers. `{ block: false }` is a no-op and **does not clear a prior block**
+- **`message_sending`**: `{ cancel: true }` is likewise terminal; `{ cancel: false }` is a no-op that does not clear a prior cancel
 
-## Streaming and Chunking
+In other words: **a block is one-directional — nobody can un-block someone else's block.** That is the shape a guardrail should have.
 
-OpenClaw has two layers of streaming:
+There is also a division-of-labor note: **operator-owned install allow/warn/block decisions belong in `security.installPolicy`, not `before_install`**, because only the former covers CLI install and update paths.
 
-### Block Streaming (for channels)
+## Protocol invariants
 
-Splits the assistant's output into text blocks, sent as regular channel messages (not token-by-token deltas).
+Beyond the loop itself, the Gateway's WebSocket protocol has a few hard rules worth knowing:
 
-```json5
-{
-  agents: {
-    defaults: {
-      blockStreamingDefault: "off",  // on | off
-      blockStreamingBreak: "text_end",  // text_end | message_end
-      blockStreamingChunk: {
-        minChars: 800,
-        maxChars: 1200,
-        breakPreference: "paragraph"
-      }
-    }
-  }
-}
-```
+- **The first frame must be `connect`** — any non-JSON or non-connect first frame is a hard close
+- Side-effecting methods (`send`, `agent`) **require idempotency keys** for safe retries, with a short-lived server dedupe cache
+- **Events are not replayed** — clients must refresh on gaps
+- Exactly one Gateway controls a single Baileys session per host
 
-Split priority: paragraph break → newline → sentence → whitespace → character-level. **Never splits inside a code fence** — it respects fence closure and reopening.
+## The big picture
 
-Consecutive blocks merge during idle periods (`idleMs`), and `humanDelay` adds a natural pause after the first block (800–2500 ms).
+The loop's design axis is **serialization plus provable write ordering**: one lane per session, acceptance separated from completion, writes carrying a fencing token, and hook blocks that are terminal in one direction only.
 
-### Preview Streaming (Telegram / Discord / Slack)
+Individually these look unremarkable. Together they answer one question — **when the user says something else while the agent is still running, whose result counts?** OpenClaw's answer: the most recently admitted one, and the older one cannot even write.
 
-Updates a temporary preview message using edits and appends during generation.
+## Changelog
 
-Modes: `off`, `partial` (single replaceable preview), `block` (chunked updates), `progress` (status updates + final answer).
-
-### Reasoning Visibility
-
-`/reasoning on|off|stream` controls whether users can see the reasoning process. Even when turned off, reasoning tokens are still consumed.
-
-## Queue
-
-When new messages arrive while the agent is executing, a queue strategy is needed.
-
-### Concurrency Control
-
-- **Session lane** — serial execution per session, preventing race conditions
-- **Global lane** — global concurrency limit (`maxConcurrent`), main lane defaults to 4, subagent lane defaults to 8
-- Typing indicators trigger immediately, without waiting for the queue
-
-### 5 Queue Modes
-
-| Mode | Behavior |
-|---|---|
-| `steer` | Immediately inject into the current run (inserted directly during streaming) |
-| `followup` | Wait for the next agent turn |
-| `collect` (default) | Merge queued messages into a single followup |
-| `steer-backlog` | Immediately steer + retain as followup |
-| `interrupt` | Abort the current run, execute the latest message |
-
-### Configuration
-
-```json5
-{
-  messages: {
-    queue: {
-      debounceMs: 1000,  // followup turn delay
-      cap: 20,            // max queued messages per session
-      drop: "summarize"   // overflow handling: old | new | summarize
-    }
-  }
-}
-```
-
-Switch within chat: `/queue steer` or `/queue collect --cap 10`.
-
-## Reply Format
-
-Reply formatting has a hierarchical prefix configuration: global → channel → account. Threaded replies are supported, with each channel having configurable threading modes.
-
-## Hook System
-
-Two interception points:
-
-| Type | Available Hooks |
-|---|---|
-| **Gateway hooks** | `agent:bootstrap`, `/new`, `/reset`, and other lifecycle events |
-| **Plugin hooks** | `before_model_resolve`, `before_prompt_build`, `before_tool_call`, message lifecycle |
-
-## Overall
-
-The Agent Loop's design focuses on **serial safety + streaming experience**. Each session runs serially internally to avoid conflicts, while multiple sessions can run in parallel. Streaming splits long replies into natural blocks delivered to chat apps, and the Queue handles the scenario of "new messages arriving while the AI is still thinking."
-
-Understanding this flow is essential to knowing what debounce, queue mode, and streaming chunk settings actually control.
+- 2026-08-18: Substantially revised against the current official docs. Added: the full five-step run sequence and the "accept and return `runId` immediately" separation, the abort guard for Codex app-server turns that stop producing progress, **the writer-claim fence** (`activeWriterRunId` / `expectedWriterRunId` verified in-transaction) plus the SQLite writer queue and Gateway state-directory lock, **the split between internal and plugin hooks with the full hook table**, the `toolsAllow` behavior of rejecting rather than ignoring on unsupported runtimes, the terminal semantics of block and cancel, the `security.installPolicy` versus `before_install` division, and the protocol invariants (connect-first, idempotency keys for side-effecting methods, no event replay).
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/concepts/agent-loop.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-loop.md) — Agent Loop execution cycle
-- [docs/concepts/streaming.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/streaming.md) — Streaming and chunking
-- [docs/concepts/messages.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/messages.md) — Message processing flow
-- [docs/concepts/queue.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/queue.md) — Command Queue
-- [docs/concepts/typing-indicators.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/typing-indicators.md) — Typing Indicators
-- [docs/concepts/retry.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/retry.md) — Retry strategies
+- [Agent loop](https://docs.openclaw.ai/concepts/agent-loop) — run sequence, queues, writer claims, hooks
+- [Command queue](https://docs.openclaw.ai/concepts/queue) — queue modes and concurrency
+- [Plugin hooks](https://docs.openclaw.ai/plugins/hooks) — the hook API and registration
+- [Hooks](https://docs.openclaw.ai/automation/hooks) — internal Gateway hook setup
+- [Gateway architecture](https://docs.openclaw.ai/concepts/architecture) — protocol and invariants

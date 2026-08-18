@@ -1,157 +1,123 @@
 ---
-title: "OpenClaw Agent Runtime: Workspace, System Prompt, and Bootstrap"
+title: "OpenClaw Agent Runtime: The System Prompt Is Assembled, and a Cache Boundary Cuts It in Half"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: ai
-tags: [openclaw, agent, workspace, system-prompt, bootstrap, soul-md, agents-md]
+tags: [openclaw, system-prompt, workspace, bootstrap, prompt-cache, sub-agents]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 10
-tldr: "Every OpenClaw agent has its own 'home' (Workspace), with personality and behavior defined by bootstrap files like AGENTS.md and SOUL.md. The System Prompt is dynamically assembled each time."
-description: "OpenClaw Agent Workspace structure, bootstrap files, System Prompt assembly, and customization guide."
+tldr: "OpenClaw builds its own system prompt for every run; there is no runtime default prompt. What it builds is split by an internal cache boundary — the stable workspace prefix above, the per-turn channel context below — so backends with prefix caches can reuse the same prefix across channels."
+description: "The three-layer assembly of OpenClaw's system prompt, the three named sections providers may contribute plus the cache boundary, the prompt's fixed structure, guidance for long-running work and sub-agent delegation, and the line that prompt guardrails are advisory rather than enforcement."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-agent-runtime)
 
-Every OpenClaw agent has a "home" -- the Workspace. The Markdown files inside it define who the agent is, how it speaks, and what it should do. This article covers the Workspace structure, the role of bootstrap files, and how the System Prompt is dynamically assembled.
+The previous article covered multi-agent boundaries. This one covers **what the model actually sees on a single agent's run**.
 
-## Workspace
+The opening line is worth memorizing: **OpenClaw builds its own system prompt for every agent run; there is no runtime default prompt.**
 
-The Workspace is the agent's sole working directory; all file tool operations happen here. The default location is `~/.openclaw/workspace`.
+## Three layers of assembly
 
-**The Workspace is not `~/.openclaw/`.** `~/.openclaw/` stores configuration, credentials, and session history. The Workspace only holds the agent's "personality files" and work files.
-
-If `OPENCLAW_PROFILE` is set (and is not `default`), the path becomes `~/.openclaw/workspace-<profile>`.
-
-### Core Files
-
-| File | Role |
+| Layer | Responsibility |
 |---|---|
-| `AGENTS.md` | Operational instructions, injected at each session start |
-| `SOUL.md` | Personality, tone, boundaries |
-| `USER.md` | User info and name/pronoun preferences |
-| `IDENTITY.md` | Agent name, vibe, emoji |
-| `TOOLS.md` | Tool usage conventions (advisory, not enforced) |
-| `HEARTBEAT.md` | Heartbeat execution checklist (optional) |
-| `BOOT.md` | Startup checklist when the Gateway restarts (optional) |
-| `BOOTSTRAP.md` | One-time initialization ritual, deleted after completion |
-| `MEMORY.md` | Long-term memory (optional, loaded only in private sessions) |
-| `memory/YYYY-MM-DD.md` | Daily memory logs |
+| `buildAgentSystemPrompt` | Renders the prompt from explicit inputs. **It stays a pure renderer and does not read global config directly** |
+| `resolveAgentSystemPromptConfig` | Resolves config-backed knobs (owner display, TTS hints, model aliases, memory citation mode, sub-agent delegation mode) |
+| Runtime adapters | Gather live facts (tools, sandbox state, channel capabilities, context files, provider contributions) and call the configured prompt facade |
 
-### What Should Not Go in the Workspace
+The reason for three layers is practical: **it keeps exported and debug prompt surfaces aligned with live runs** without collapsing every runtime detail into one monolithic builder. The prompt you see while debugging comes off the same assembly path as the real thing.
 
-Config files, credentials, OAuth tokens, session transcripts -- these all belong in `~/.openclaw/`.
+## Providers may contribute, not replace
 
-### Backup Strategy
+Provider plugins can add cache-aware guidance **without replacing the OpenClaw-owned prompt**, in three ways:
 
-The docs recommend treating the Workspace as private memory and managing it with a private Git repo:
+- Replace one of three named core sections: `interaction_style`, `tool_call_style`, `execution_bias`
+- Inject a **stable prefix** above the prompt cache boundary
+- Inject a **dynamic suffix** below it
 
-```bash
-cd ~/.openclaw/workspace
-git init && git add . && git commit -m "Initial workspace"
-git remote add origin <private-repo-url> && git push -u origin main
-```
+The docs are explicit: **use provider-owned contributions for model-family tuning, and reserve the legacy `before_prompt_build` hook for compatibility or truly global changes.**
 
-Never commit secrets; use `.gitignore` to exclude them.
+The built-in GPT-5 family contribution works exactly this way: a `stablePrefix` behavior contract (execution policy, tool discipline, output contract, completion contract) plus an optional `interaction_style` override for a friendlier tone. `plugins.entries.openai.config.personality` governs that tone layer — `"friendly"` is the default and `"off"` **removes only the friendly override, leaving the behavior contract intact**.
 
-### Migration
+## The cache boundary is the point
 
-Clone the repo to `~/.openclaw/workspace` on the new machine, run `openclaw setup` to fill in any missing files, and migrate sessions separately.
+The prompt is split by an **internal cache boundary**, and the split is deliberate:
 
-## Bootstrap Injection
+**Above (stable)**: large stable content, including **Project Context**.
 
-On the first turn of every new session, these 8 files are injected into the context:
+**Below (volatile per turn)**: Control UI embed guidance, **Messaging**, Collapsible Details, **Voice**, **Group Chat Context**, Reactions, **Heartbeats**, **Runtime**.
 
-```
-AGENTS.md → SOUL.md → TOOLS.md → IDENTITY.md → USER.md
-→ HEARTBEAT.md → BOOTSTRAP.md → MEMORY.md
-```
+The goal is letting local backends with prefix caches **reuse the same stable workspace prefix across channel turns** — talk on Telegram and on Slack and the prefix is identical, with only the tail differing.
 
-Limits:
-- Single file cap: **20,000 characters**
-- Total injection cap: **150,000 characters**
-- Files exceeding the limit are truncated; missing files are marked with a single-line marker
+There is a related implementation note: **tool descriptions should not hardcode the current channel name**, since the accepted schema already carries that runtime detail. Embedding it turns something stable into something that changes every turn.
 
-If you don't want to create bootstrap files:
+One clarification: **the boundary is internal transport metadata** — every section is still system-prompt guidance as far as CLI backends are concerned.
 
-```json5
-{ agent: { skipBootstrap: true } }
-```
+## The prompt's fixed structure
 
-## System Prompt Assembly
-
-OpenClaw doesn't use a static system prompt. Instead, it dynamically assembles one each time the agent runs. This differs from Pi's (the underlying coding agent) default prompt.
-
-### Component Blocks
-
-| Block | Content |
+| Section | Content |
 |---|---|
-| Tooling | List and brief descriptions of available tools |
-| Safety | Safety guardrails (advisory, not enforced) |
-| Skills | Skill instructions loaded on demand |
-| Self-Update | `config.apply` and `update.run` guidance |
-| Workspace | Working directory path |
-| Documentation | Local documentation paths and usage guidance |
-| Workspace Files | Bootstrap file inclusion markers |
-| Sandbox | Runtime details when sandbox is enabled |
-| Date & Time | UTC + user timezone |
-| Reply Tags | Syntax for supported providers |
-| Heartbeats | Heartbeat behavior spec |
-| Runtime | Host, OS, Node version, model, repo root, thinking level |
-| Reasoning | Current visibility settings |
+| Tooling | Structured tools as source of truth, plus runtime tool-use guidance |
+| Execution Bias | Act in-turn on actionable requests, continue until done or blocked, recover from weak tool results, check mutable state live, verify before finalizing |
+| **Promised Work** | Promising future, background, delegated, or continued work **creates follow-through ownership**: arrange a push-based completion or watch path before ending the turn, proactively return with the result or a concrete blocker, and **never treat progress (like `running`) as completion** |
+| Safety | A short guardrail reminder against power-seeking or bypassing oversight |
+| Skills | How to load skill instructions on demand |
+| OpenClaw Control | Prefer the `gateway` tool for config and restart work; **do not invent CLI commands** |
+| OpenClaw Self-Update | Inspect with `config.schema.lookup`, patch with `config.patch`, replace with `config.apply`, run `update.run` only on explicit request. **The agent-facing `gateway` tool refuses to rewrite `tools.exec.mode`** |
+| Workspace / Documentation | Working directory, local docs and source paths |
+| Sandbox | When enabled: sandboxed runtime, sandbox paths, elevated-exec availability |
+| Temporal Context | Local date and time zone (below the boundary); **exact time comes from `session_status`** |
+| Runtime / Reasoning | Host, OS, node, model, repo root, thinking level; current reasoning visibility and the `/reasoning` hint |
 
-**Important:** The safety guardrails in the system prompt are **advisory** (guiding model behavior). Real hard limits are enforced through tool policies, exec approvals, and sandboxing.
+"Promised Work" is the design I would steal. It addresses one of the most common agent failure modes — **saying "I'll report back" and then vanishing**. Writing "a promise creates ownership" into the system prompt, and explicitly forbidding treating `running` as done, beats scolding the model afterward.
 
-### Three Modes
+## Guidance for long-running work
 
-| Mode | Use Case | Includes |
-|---|---|---|
-| Full (default) | Primary agent execution | All blocks |
-| Minimal | Sub-agent | Excludes Skills, Memory, Self-Update, Heartbeat |
-| None | Most minimal | Only the base identity line |
+The Tooling section carries a concrete set of rules, effectively the official answer to "how should an agent wait":
 
-### Configurable Options
+- **Use cron for future follow-up** ("check back later", reminders, recurring work) — **not `exec` sleep loops, `yieldMs` delay tricks, or repeated `process` polling**
+- Use `exec` / `process` only for commands that **start now and continue in the background**
+- With automatic completion wake enabled, **start the command once** and rely on the push-based wake path
+- Use `process` for logs, status, input, or intervention on a running command
+- **For larger tasks prefer `sessions_spawn`** — sub-agent completion is push-based and auto-announces back to the requester
+- **Do not poll `subagents list` / `sessions_list` in a loop just to wait**
 
-```json5
-{
-  agents: {
-    defaults: {
-      userTimezone: "Asia/Taipei",
-      timeFormat: "24",                    // auto | 12 | 24
-      bootstrapMaxChars: 20000,           // single file cap
-      bootstrapTotalMaxChars: 150000,      // total cap
-    }
-  }
-}
-```
+Together these say one thing: **polling is an agent anti-pattern**, because it turns waiting into token spend.
 
-## Skills Loading
+## Delegation mode and ultra-level orchestration
 
-Skills are loaded from three tiers, with higher priority overriding lower:
+`agents.defaults.subagents.delegationMode` defaults to `"suggest"`. Setting `"prefer"` adds a dedicated **Sub-Agent Delegation** section telling the main agent to act as a responsive coordinator and **push anything more involved than a direct reply through `sessions_spawn`**.
 
-1. **Workspace skills** -- `<workspace>/skills` (highest)
-2. **Project agent skills** -- `<workspace>/.agents/skills`
-3. **Personal agent skills** -- `~/.agents/skills`
-4. **Managed skills** -- `~/.openclaw/skills`
-5. **Bundled skills** -- Included with the installation
-6. **Extra dirs** -- `skills.load.extraDirs`
+An important line here: **this is prompt-only — tool policy still controls whether `sessions_spawn` is available at all.**
 
-In a multi-agent setup, each agent's workspace has its own skills. `~/.openclaw/skills` is shared across all agents.
+And at the **`ultra` thinking level** with `sessions_spawn` available, a **Proactive Sub-Agent Orchestration** section is added: parallelize independent investigation, implementation, and verification; keep simple or tightly coupled work local; **give each sub-agent a bounded objective**; synthesize before replying.
 
-## The Big Picture
+## Guardrails are advisory, not enforcement
 
-The Workspace is where the agent's personality and memory live. Editing `AGENTS.md` changes the agent's behavior; editing `SOUL.md` changes its tone. The System Prompt is dynamically assembled -- no manual maintenance needed. You only need to manage the Markdown files in your Workspace.
+The docs state this without hedging, and it is worth quoting as written:
 
-This design turns "customizing an agent" into "writing Markdown."
+> Safety guardrails in the system prompt are **advisory, not enforcement**. Use tool policy, exec approvals, sandboxing, and channel allowlists for hard enforcement; **operators can disable prompt guardrails by design.**
+
+That is the same posture as the threat model article — keep "persuading the model" and "blocking it mechanically" separate, and never let the former masquerade as the latter.
+
+## The big picture
+
+Three takeaways: **the prompt is assembled** (so what you see while debugging is real), **it is split by a cache boundary into stable and volatile halves** (so don't hardcode channel names into tool descriptions), and **the guardrails written into it are only advisory** (so real limits live in tool policy and sandboxing).
+
+If I could keep only one design from this page it would be "Promised Work" — it turns "don't say it if you won't do it" into an explicit contract in the prompt, rather than a habit you hope the model has.
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs. Added: **the three-layer prompt assembly** (pure renderer / config resolution / runtime adapters) and why it keeps debug surfaces aligned with live runs, **the three named sections providers may contribute plus stable-prefix and dynamic-suffix injection** (including the GPT-5 family contribution and `personality` affecting only the tone layer), **how the cache boundary splits the prompt** and the advice against hardcoding channel names into tool descriptions, the full section structure (including **Promised Work**'s follow-through contract and the `gateway` tool refusing to rewrite `tools.exec.mode`), **the long-running-work guidance** (cron instead of sleep loops, no polling to wait), `delegationMode` and the ultra-level Proactive Sub-Agent Orchestration section, and the explicit line that prompt guardrails are advisory rather than enforcement.
 
 ## References
 
-This article is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/concepts/agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent.md) -- Agent Runtime Overview
-- [docs/concepts/agent-workspace.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-workspace.md) -- Workspace Structure
-- [docs/concepts/system-prompt.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/system-prompt.md) -- System Prompt Assembly
-- [docs/tools/skills.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/skills.md) -- Skills Loading Mechanism
-- [docs/reference/AGENTS.default.md](https://github.com/openclaw/openclaw/blob/main/docs/reference/AGENTS.default.md) -- AGENTS.md Default Template
+- [System prompt](https://docs.openclaw.ai/concepts/system-prompt) — assembly, structure, cache boundary, delegation guidance
+- [Agent loop](https://docs.openclaw.ai/concepts/agent-loop) — when bootstrap and skills are injected
+- [Multi-agent routing](https://docs.openclaw.ai/concepts/multi-agent) — workspace and agentDir paths
+- [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing) — the sandbox section and elevated exec
+- [Skills](https://docs.openclaw.ai/tools/skills) — on-demand skill instructions

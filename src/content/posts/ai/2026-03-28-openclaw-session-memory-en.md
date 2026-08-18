@@ -1,257 +1,168 @@
 ---
-title: "OpenClaw Session, Memory, and Compaction"
+title: "OpenClaw Sessions and Memory: One Rolling Conversation, Plus Four Files That Get Written to Disk"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, session, memory, compaction, context-engine, pruning]
+tags: [openclaw, session, memory, compaction, main-session, incognito, dreaming]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 12
-tldr: "OpenClaw sessions support 4 DM isolation levels, Memory is stored as Markdown files, and Compaction automatically summarizes and compresses when context is nearly full."
-description: "OpenClaw's Session management, DM Scope isolation, Memory mechanism, Context Window Compaction, and Session Pruning."
+tldr: "By default every DM lands in one main session, and group activity and background work report back into it. Memory is entirely Markdown on disk — the model only remembers what gets saved, with no hidden state. But if more than one person can DM your agent, DM isolation is something you have to turn on."
+description: "OpenClaw's session routing and memory layers: how the main session converges activity, the dmScope and groupScope matrices, the boundaries of incognito sessions, reset policies, the four memory files, dreaming distillation, and memory import."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-session-memory)
 
-An agent needs to remember conversations, know who it is talking to, and make trade-offs when the context window is nearly full. This post covers OpenClaw's Session management, Memory mechanism, and Compaction compression strategy.
+This layer answers two questions: **which conversation does an inbound message belong to**, and **what survives after the conversation ends**.
 
-## Session Management
+## The main session: one rolling conversation
 
-### Basic Architecture
+OpenClaw is a **personal agent** first. Out of the box, every DM you send — Telegram, WhatsApp, iMessage, Slack DMs, the web app, anywhere — lands in **one rolling conversation**. Ask on your phone, follow up on your laptop, same context.
 
-Sessions are owned by the Gateway (not the client). The UI must query the Gateway to list sessions -- it cannot read local files on its own.
+Underneath it is an ordinary session with the default key `agent:<id>:main`. What makes it special is that **the rest of the system treats it as the agent's root**:
 
-Storage location: `~/.openclaw/agents/<agentId>/sessions/sessions.json`. Transcripts are in JSONL format, using a tree structure (id/parentId linking).
+- **Group activity flows in.** Group and room sessions stay isolated by default, but under the default DM scope the main session **watches them**. Activity queues as compact notices — **coalesced per conversation, never one wake-up per message** — which the agent sees on its next run (your next message, or a scheduled heartbeat)
+- **Background work reports back.** Sub-agents and spawned sessions announce results to the session that started them
+- **Heartbeats target the main session**, which is what gives it awareness when you have not written anything
 
-### Session Key Format
+## DM scope: isolation is mandatory with multiple people
 
-| Type | Key Format |
+By default all DMs share one session, which is fine for a single user. The warning upstream is blunt:
+
+> If multiple people can message your agent, **enable DM isolation**. Without it, all users share the same conversation context, so Alice's private messages would be visible to Bob.
+
+| `session.dmScope` | Behavior |
 |---|---|
-| Direct chat | `agent:<agentId>:direct:<peerId>` or `main` |
-| Group | `agent:<agentId>:<channel>:group:<id>` |
-| Cron | `cron:<jobId>` |
-| Hook | `hook:<uuid>` |
-| Node | `node-<nodeId>` |
+| `main` (default) | All DMs share the main session |
+| `per-peer` | Isolate by sender, across channels |
+| `per-channel-peer` | Isolate by channel + sender (**recommended**) |
+| `per-account-channel-peer` | Isolate by account + channel + sender |
 
-### DM Scope (Isolation Level)
+`openclaw security audit` recommends isolation when it detects multiple DM senders. Conversely, if the same person reaches you from several channels, `session.identityLinks` maps their identities to one canonical peer id so they share a session.
 
-`session.dmScope` controls how direct messages are grouped:
+**Enabling isolation also turns off two things**: the main session's group watching, and cross-conversation memory recall (which then defaults off).
 
-| Mode | Behavior | Best For |
-|---|---|---|
-| `main` (default) | All DMs share one session | Personal use, cross-device continuity |
-| `per-peer` | Isolated by sender | Multi-user access |
-| `per-channel-peer` | Isolated by channel + sender | Multi-user inbox |
-| `per-account-channel-peer` | Isolated by account + channel + sender | Multi-account setup |
+## Group scope and per-binding overrides
 
-**Security Warning:** If your agent receives DMs from multiple people, **do not use the default `main`**. Otherwise all users share the same conversation context, which leaks private information.
+`session.groupScope` defaults to `per-group`. Setting `main` routes groups, rooms, and channels into the main conversation.
 
-### Identity Links
-
-Use `session.identityLinks` to map the same person across different platforms to a single identity:
+More useful is a **single-binding override** — letting just one team room join the rolling conversation:
 
 ```json5
 {
-  session: {
-    identityLinks: {
-      "whatsapp:+15551234567": "alice",
-      "telegram:alice_t": "alice"
-    }
-  }
+  bindings: [{
+    agentId: "main",
+    match: { channel: "slack", peer: { kind: "channel", id: "C0123TEAM" } },
+    session: { groupScope: "main" },
+  }],
 }
 ```
 
-This way, when Alice sends messages from WhatsApp or Telegram, they share the same DM session.
+The binding override wins over the global value. Note that it **changes session-key selection only** — DM routing, mention gating, delivery context, and replies to the source room are unchanged.
 
-### Session Lifecycle
+## Incognito sessions
 
-- **Daily reset** -- Default at 4:00 AM (local Gateway timezone)
-- **Idle reset** -- Optional sliding window; whichever expires first between this and daily reset wins
-- **Manual trigger** -- `/new` (new session) and `/reset` (reset)
-- **Cron job** -- Each execution creates a new session ID
+Added after March, and available only from the Control UI's **New thread** screen — turn on **Incognito** before starting the thread. Its session entry, transcript, and compaction state live **in process memory rather than on disk**, disappear when the Gateway restarts, skip the automatic memory flush, and create no transcript archive on reset or delete.
 
-### Maintenance Configuration
+But the boundaries are stated clearly, and this part deserves quoting in full:
 
-```json5
-{
-  session: {
-    maintenance: {
-      mode: "warn",       // warn (report only) | enforce (auto-cleanup)
-      pruneAfterDays: 30,
-      maxEntries: 500,
-      rotationThresholdMb: 10
-    }
-  }
-}
+- **Incognito does not restrict the agent's normal tools.** An explicit request to save information, or any tool-driven file write, can still persist data outside the incognito store
+- **Your configured model provider still processes the messages you send**
+- Diagnostic logging is unchanged, and OpenClaw still records content-free audit metadata such as HMAC references
+- On multi-user gateways, incognito threads are visible only to admin-scope connections — **this protects them from storage and other gateway-mediated users, not from the gateway owner or process operator**, who can always observe live sessions
+
+In short: it means "not on disk," not "nobody can see it."
+
+## Session lifecycle
+
+**No automatic reset by default** — sessions keep the same `sessionId` while compaction manages the growing active context.
+
+| Mode | Behavior |
+|---|---|
+| `none` (default) | No automatic reset |
+| `daily` | A new session at a configured local hour (`atHour`, default 4) |
+| `idle` | A new session after `idleMinutes` of inactivity |
+| Manual | `/new` or `/reset` in chat (`/new <model>` also switches models) |
+
+Two details that bite: **daily freshness is based on when the current `sessionId` started, not on later metadata writes**; and **idle freshness is based on the last real user or channel interaction — heartbeat, cron, and exec system events do not keep the session alive.** When both are configured, whichever expires first wins.
+
+There is a thoughtful touch on reset: **queued system-event notices for the old session are discarded**, so stale background updates are not prepended to the new session's first prompt.
+
+A reset assigns a new live session id but **the previous SQLite transcript stays searchable under the same main-session key**.
+
+There is also a capacity rule: when an agent's physical database, WAL, and session artifacts exceed the disk budget (**default 10 GB**), OpenClaw extracts the oldest unreferenced history into **a verified compressed archive** before removing its rows. **Live, routed, and in-flight sessions are never budget victims.**
+
+## Memory: four files, all Markdown
+
+The docs put it plainly: **the model only remembers what gets saved to disk; there is no hidden state.**
+
+| File | Role |
+|---|---|
+| `USER.md` (optional) | The compact **user-model layer**: stable preferences, communication style, relationships, active-project context, written as directives with observed-date and active/superseded metadata. Loaded at session start with its own small budget |
+| `MEMORY.md` | Long-term memory: durable non-profile facts and decisions, loaded at session start. **Not a transcript, daily log, or exhaustive archive** |
+| `memory/YYYY-MM-DD.md` | The working layer: detailed daily notes, observations, session summaries. **Indexed for `memory_search` and `memory_get`, but not injected into the bootstrap prompt every turn** |
+| `DREAMS.md` (optional) | Dream Diary and dreaming sweep summaries for human review |
+
+To make it remember something, just say so — "Remember that I prefer TypeScript" — and it writes the note to the right file.
+
+**`USER.md` has one writing rule worth noting**: when a preference changes, **supersede it in place rather than appending a contradictory active directive.** That avoids the hard-to-debug state where old and new preferences are both live.
+
+**Distillation is automatic**: useful material from daily notes is distilled into `MEMORY.md` by the default **dreaming** sweep. The default heartbeat prompt **performs no memory maintenance on its own**.
+
+**When `MEMORY.md` outgrows its budget**, OpenClaw keeps the file on disk intact but **truncates the copy injected into context**. Treat that as a signal to move detail into `memory/*.md`, keep a durable summary in `MEMORY.md`, or raise the bootstrap limits. Use `/context list`, `/context detail`, or `openclaw doctor` to see raw vs. injected sizes and truncation status.
+
+## Action-sensitive memories
+
+An insightful section. Most memories are ordinary notes, but some affect what the agent **should do later** — and for those, capture **when it is safe to act**, not just the fact.
+
+Capture that boundary when a note involves approval or permission requirements, temporary constraints, handoffs to another session or person, expiry conditions, safe-to-act timing, source authority, or instructions to avoid a tempting action.
+
+A good one makes clear **what changes future behavior, under what condition it applies, when it expires or what unlocks action, what to avoid, and who the source is.**
+
+The upstream example:
+
+```md
+The API migration is being designed in another session. Future turns should
+not edit the API implementation from this thread; use findings here only as
+design input until the migration plan lands.
 ```
 
-`enforce` is recommended for production environments.
+With a line you must keep: **memory can preserve approval context, but it does not enforce policy.** Hard operational controls come from approval settings, sandboxing, and scheduled tasks.
 
-```bash
-# Preview cleanup
-openclaw sessions cleanup --dry-run
-```
+## Memory tools and engines
 
-### Session Tools
+Three tools: `memory_search` (semantic search that works even when wording differs), `memory_get` (a specific file or line range), and `intent` (create, list, or explicitly cancel **event-conditioned standing intents**; time-based reminders still use scheduled tasks).
 
-Agents can interact across sessions (disabled by default; requires policy configuration):
+**Memory engines are now swappable plugins**: the default `memory-core` is SQLite-based with keyword, vector, and hybrid search and no extra dependencies. There are also an AI-native cross-session engine with user modeling and multi-agent awareness, and a LanceDB-backed option.
 
-| Tool | Purpose |
-|---|---|
-| `sessions_list` | List available sessions |
-| `sessions_history` | Retrieve transcript |
-| `sessions_send` | Send message to another session |
-| `sessions_spawn` | Create an isolated child session |
+With an embedding provider configured, search is **hybrid** (vector similarity plus keyword matching for exact terms like IDs and code symbols). OpenAI embeddings are the default; `memory.search.provider` can select Gemini, Voyage, Mistral, Bedrock, DeepInfra, local GGUF, Ollama, LM Studio, and more.
 
-In sandbox environments, the agent can only see the current session and its spawned child sessions.
+## Importing memory from other coding assistants
 
-## Memory
+The Control UI's **Settings → Import Memory** imports local memory from Codex, Claude Code, and Hermes.
 
-OpenClaw's Memory consists of **plain Markdown files** stored in the Workspace. The model only retains what is written to disk -- it does not rely on RAM.
+It **copies only Markdown memory** — from Codex, the consolidated `MEMORY.md` and `memory_summary.md` under `~/.codex/memories` (**raw rollout and transcript files are not imported**); from Claude Code, Markdown in each project's auto-memory directory (**project instructions, sessions, settings, and credentials are excluded**); from Hermes, `MEMORY.md` and `USER.md` from the detected home.
 
-### Two-Layer Structure
+Imported files stay **separate under `memory/imports/<source>/`**, indexed for search but **not merged into the agent's bootstrap `MEMORY.md`**, and the source files are left unchanged.
 
-**Daily memory** -- `memory/YYYY-MM-DD.md`, append-only. On session startup, today's and yesterday's files are loaded.
+## The big picture
 
-**Long-term memory** -- `MEMORY.md` (optional), stores persistent decisions and preferences. Only loaded in private sessions (not in group context).
+The philosophy here is **explicitness**: memory is Markdown you can read and edit, session convergence is written in config, and even incognito states what it does and does not protect.
 
-### What Goes Where
+But explicit is not the same as a safe default. The one decision to make deliberately is this: **if more than one person can DM this agent, `session.dmScope` must change.** The default is built for a single user, and its failure mode is showing one person's private messages to another.
 
-| Store in `MEMORY.md` | Store in `memory/YYYY-MM-DD.md` |
-|---|---|
-| Persistent decisions | Daily notes |
-| User preferences | Today's context |
-| Long-term facts | Running logs |
+## Changelog
 
-### Memory Tools
-
-| Tool | Function |
-|---|---|
-| `memory_search` | Semantic search across all memory snippets |
-| `memory_get` | Retrieve a specific file/line range (returns empty string if file does not exist, no error) |
-
-### Automatic Memory Flush
-
-Before compaction, OpenClaw triggers a **silent agentic turn** that lets the model write important memories to disk.
-
-Trigger condition: token estimate approaches `contextWindow - reserveTokensFloor - softThresholdTokens`.
-
-Configured under `agents.defaults.compaction.memoryFlush`. Skipped when the Workspace is read-only.
-
-### Vector Search
-
-Supports hybrid search: BM25 keyword + vector similarity. Multiple embedding providers are available (OpenAI, Gemini, Voyage, Mistral, Ollama).
-
-## Compaction
-
-The context window has a limit. When a conversation grows too long, OpenClaw summarizes old messages into a single compact summary entry.
-
-### Compaction vs. Pruning
-
-| | Compaction | Pruning |
-|---|---|---|
-| What it does | Creates a summary, writes to session JSONL | Temporarily removes old tool results |
-| Persisted | Yes | No, in-memory only, per-request |
-| Trigger | Context approaching limit | Cache TTL expired |
-
-### Auto vs. Manual
-
-**Auto-compaction:** Triggers automatically when context is nearly full. The user sees `🧹 Auto-compaction complete`.
-
-**Manual:** `/compact` or `/compact Focus on decisions and open questions` (with instructions).
-
-### Configuration
-
-```json5
-{
-  agents: {
-    defaults: {
-      compaction: {
-        model: "openrouter/anthropic/claude-sonnet-4-6",  // Can use a different model for summarization
-        identifierPolicy: "strict",  // strict | off | custom
-        memoryFlush: { /* ... */ }
-      }
-    }
-  }
-}
-```
-
-Using a different model for summarization is particularly useful -- when the primary model is a local small model, you can use a more powerful cloud model for summaries.
-
-### OpenAI Server-Side Compaction
-
-If you are using OpenAI with both `store` and `context_management` enabled, OpenAI's server-side compaction runs in parallel with OpenClaw's local compaction.
-
-## Session Pruning
-
-Pruning is a lightweight alternative to compaction -- it temporarily trims old tool results before an LLM call without modifying the session file.
-
-### Trigger Condition
-
-`mode: "cache-ttl"` + the last Anthropic API call exceeds the TTL duration.
-
-### Effect
-
-Only `toolResult` messages are pruned; all user and assistant messages are preserved.
-
-Two strategies:
-- **Soft-trim** -- Keeps the beginning and end, inserts ellipsis in the middle
-- **Hard-clear** -- Replaces the entire tool result with a placeholder
-
-Protected content: image blocks + the most recent 3 assistant messages (configurable).
-
-### Why It Matters
-
-Prompt caching has a TTL. After a session sits idle beyond the TTL, the next request re-caches the entire prompt. Pruning old tool output first can significantly reduce `cacheWrite` tokens.
-
-```json5
-{
-  contextPruning: {
-    mode: "cache-ttl",
-    ttl: "5m"  // default
-  }
-}
-```
-
-## Context Engine
-
-The Context Engine is a pluggable component that controls how OpenClaw assembles model context.
-
-Four lifecycle hooks:
-
-| Hook | What It Does |
-|---|---|
-| Ingest | Processes new messages, stores them in a custom data store |
-| Assemble | Assembles an ordered message set within the token budget |
-| Compact | Summarizes old history |
-| After Turn | Persists state, background compaction |
-
-The built-in `legacy` engine preserves the original behavior. Plugin developers can build custom engines (e.g., DAG summary, vector retrieval) and enable them via `plugins.slots.contextEngine`.
-
-`ownsCompaction: true` means the engine fully manages compaction; when `false`, Pi's auto-compaction runs in parallel with the engine.
-
-## Putting It All Together
-
-Session, Memory, and Compaction are tightly interconnected:
-
-1. **Session** defines conversation boundaries (who is talking to whom in which session)
-2. **Memory** provides persistent recall across sessions (Markdown written to disk)
-3. **Compaction** handles context pressure within a session (summarizing old conversations)
-
-Configure DM Scope properly to ensure isolation, enable Memory Flush to prevent important information from being lost during compaction, and combine with Pruning to optimize token costs.
+- 2026-08-18: Substantially revised against the current official docs. Added: **how the main session converges activity** (coalesced group notices, background work reporting back, heartbeats targeting it), the four `dmScope` modes and the fact that isolation also disables group watching and cross-conversation recall, per-binding `groupScope` overrides, **incognito sessions** with their explicit boundaries (tools unrestricted, the provider still processes messages, no protection from the gateway owner), reset freshness rules (system events do not extend idle timers) and discarded stale notices, and the **10 GB disk budget with verified compressed archiving**. On memory: the `USER.md` and `DREAMS.md` files, the supersede-in-place rule, **dreaming handling distillation while heartbeat does no memory maintenance**, truncation of the injected `MEMORY.md` copy, **action-sensitive memories** and the line that memory does not enforce policy, the `intent` tool, plugin-based memory engines with hybrid search providers, and the scope and isolation of memory imports from Codex, Claude Code, and Hermes.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/concepts/session.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session.md) -- Session Management
-- [docs/concepts/session-tool.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session-tool.md) -- Session Tools
-- [docs/concepts/session-pruning.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session-pruning.md) -- Session Pruning
-- [docs/concepts/memory.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/memory.md) -- Memory Mechanism
-- [docs/concepts/compaction.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/compaction.md) -- Compaction
-- [docs/concepts/context.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/context.md) -- Context Concepts
-- [docs/concepts/context-engine.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/context-engine.md) -- Context Engine
-- [docs/reference/session-management-compaction.md](https://github.com/openclaw/openclaw/blob/main/docs/reference/session-management-compaction.md) -- Session Management and Compaction Reference
-- [docs/reference/memory-config.md](https://github.com/openclaw/openclaw/blob/main/docs/reference/memory-config.md) -- Memory Configuration Reference
+- [Session management](https://docs.openclaw.ai/concepts/session) — routing, scopes, incognito, resets
+- [The main session](https://docs.openclaw.ai/concepts/main-session) — convergence and the disk budget
+- [Memory overview](https://docs.openclaw.ai/concepts/memory) — the four files, tools, engines, imports
+- [Dreaming](https://docs.openclaw.ai/concepts/dreaming) — the background distillation sweep
+- [Memory search](https://docs.openclaw.ai/concepts/memory-search) — hybrid search and provider setup
