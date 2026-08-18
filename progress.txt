@@ -23,6 +23,8 @@ Next steps
 2. Backfill missing post `type` and `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
+5. OCR 實測第二輪規劃：docs/content-plan-ocr-benchmark-round2.md。Round 2A（用既有 1449 題
+   題庫做量化評分）零花費可開工；Round 2B/2C 要先定 API 與 GPU 預算（該文件第九節）。
 
 Recently completed
 - 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課），
@@ -76,8 +78,6 @@ Recently completed
   負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
   **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
   有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
-- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
-- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
