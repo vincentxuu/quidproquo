@@ -105,8 +105,8 @@
 
 ### Batch C —— 雲端 API
 
-**以下每一列都是 2026-08-18 從廠商定價頁讀到的數字**，來源逐列標註。
-未取得的欄位寫「取不到」並說明卡在哪，不寫「未查證」。
+**以下每一列都是 2026-08-18 從廠商官方定價頁或計費文件讀到的數字**，來源逐列標註，沒有一格是二手轉述。
+定價頁被 JS 渲染擋住的兩家（Datalab、Reducto），改從文件站的 `llms.txt` 找到計費頁補齊（作法見 C-1 註）。
 
 #### C-0 先修正一個判斷：免費額度不是均勻的
 
@@ -125,17 +125,30 @@
 | 服務 | 計費（廠商定價頁原文） | 免費額度 | 為什麼值得測 |
 |---|---|---|---|
 | **Mistral OCR 4.1** | OCR **$4／1K 頁**；Document AI（含 schema 抽取）**$5／1K 頁**。模型 id `mistral-ocr-latest` | 官方 FAQ 的 Free 方案是消費端的 Vibe，**API 未見免費頁數** | 同時有「純解析」與「照 schema 抽欄位」兩檔，直接對上 Arena 的雙軌設計 |
-| **Upstage Document Parse** | Document Parse **Standard $0.01／頁、Enhanced $0.03／頁**（Auto 模式逐頁自動選）；Document OCR **$0.0015／頁**；Document Classify $0.004／頁；Information Extract Standard $0.04／頁、Enhanced $0.06／頁。**價格未含 10% VAT** | 未見通用免費額度；Studio 每個 agent 送 10 次免費執行 | **全表最便宜的結構化解析**（$10／1K 頁），而且解析與抽取分開計價，剛好能算出「多花的那一段值不值得」 |
+| **Upstage Document Parse** | Document Parse **Standard $0.01／頁、Enhanced $0.03／頁**（Auto 模式逐頁自動選）；Document OCR **$0.0015／頁**；Document Classify $0.004／頁；Information Extract Standard $0.04／頁、Enhanced $0.06／頁。**價格未含 10% VAT** | 未見通用免費額度；Studio 每個 agent 送 10 次免費執行 | 解析（$10／1K 頁）與抽取（$40／1K 頁）分開計價、各有 Standard／Enhanced 兩檔，**是全表把「多花的那一段」切得最乾淨的一家**，最適合拿來算「升級檔位值不值得」 |
 | **Unstructured** | 免費額度用完後 **$0.03／頁**；帳單到 $3,000／月封頂，之後到 100 萬頁／月都免費 | **每月 15,000 頁**，每月重置、不需信用卡 | 免費額度最大方的一家，第二輪可以整批免費跑完 |
 | **LlamaParse** | **$1.25／1,000 credits**；Basic parsing 最低 1 credit／頁，agentic 模式更貴（定價頁未列逐檔 credit 數） | Free 方案 **10,000 credits／月**；Starter 40K、Pro 400K | **同一頁不同模式差幾十倍**，是「報價不標模式等於沒報價」的最佳教材 |
-| **Reducto** | **$0.015／credit**；標準解析 1 credit／頁 | **前 15,000 credits 免費** | 主打逐值 bounding box 引用，對「欄位抽取要能追溯位置」有用。定價頁的 agentic／Extract 檔位 credit 數擷取不到，需實跑看 usage |
+| **Reducto** | **$0.015／credit**。Parse：標準 1 credit／頁、複雜頁（VLM）2、agentic 簡單頁 2、agentic 複雜頁 4、進階圖表 agent 每張圖 +4；Extract 標準 2 credits／頁，Deep Extract 上限 4／頁 + 0.1／欄位、每份文件最低 30 credits；Split 2（Deep Split 4）；Classify 0.5／頁（預設讀前 5 頁 = 2.5）；Edit 4。批次佇列 **打八折**（12 小時完成保證） | **前 15,000 credits 免費** | 主打逐值 bounding box 引用。**頁面複雜度由它自動判定、你不能指定**——見下方兩個陷阱 |
 | **Firecrawl**（原文已測） | PDF **每頁 1 credit**；方案 Free $0／Hobby $16／Standard $83／Growth $333／Scale $599／Enterprise | Free 方案 | 保留當基準線，順帶驗證原文關於 pdf-inspector 逐頁分類路由的說法 |
-| **Datalab**（Marker／Chandra 作者團隊） | 依 processor 計價；已知 extras：table cell bboxes、list item bboxes **各 $0.30／1K 頁** | 新帳號每月額度：公司信箱 **$20**、個人信箱 **$10**，可轉 pay-as-you-go | **原文測過 Marker 本地版**，這是唯一能做「同團隊本地 vs 雲端」同源對照的一家 |
+| **Datalab**（Marker／Chandra 作者團隊） | 每 1,000 頁：Convert fast／balanced **$4**、Convert accurate **$10**、Segment 頁級 **$0.5**／區塊級 **$4.5**（= convert + segment）、Extraction fast **$6**（單份上限 50 頁）、Extraction balanced **$15 + fees**、Extraction accurate **$25 + fees**、Custom processor **$20**、Eval **$2**、Form fill **$6**。add-on（`word_bboxes`／`table_cell_bboxes`／`list_item_bboxes`）**逐項相加**，各 $0.30／1K 頁。**processors 相加計費**：convert 完再 extract 要付兩次 | 新帳號每月 **$20**（公司信箱）／**$10**（個人信箱），30 天重置、免綁卡、10 req/min & 5 併發；Team $400／月（含 $400 用量） | **原文測過 Marker 本地版**，這是唯一能做「同團隊本地 vs 雲端」同源對照的一家。fast／balanced／accurate 三檔差 2.5 倍，是現成的「模式 vs 品質」對照組 |
 | **TextIn xParse** | 智能文檔解析 **¥0.042／頁起**；智能文檔抽取 ¥0.1056／頁起；通用文字識別 ¥0.025／頁起；通用表格識別 ¥0.025／頁起 | 網站有「免費試用」與完善資料贈 1,000 頁額度 | 通用文字識別的規格頁**明寫支援繁體中文與手寫體、傾斜、摺疊、旋轉**——正好對上第三節的素材缺口，全表唯一 |
 
-> Datalab 的逐項 processor 費率：`www.datalab.to/pricing` 是 JS 渲染取不到內容，
-> `documentation.datalab.to/platform/pricing` 回 404，`docs.datalab.to/pricing` 連不上。
-> 上表的免費額度與 extras 費率來自官方 changelog（2026-06-16／06-18 條目）。**逐項費率要註冊後在 console 看。**
+> **上一版寫「取不到」的兩筆，這次挖到了。**方法是先抓 `llms.txt`（`documentation.datalab.to/llms.txt`、
+> `docs.reducto.ai/llms.txt`），它把全站文件路徑列成清單，直接指到
+> `platform/billing.md` 與 `reference/credit-usage.md`。**定價頁是 JS 渲染取不到，不等於資料拿不到**——
+> 文件站的 `.md` 版本、`llms.txt`、OpenAPI spec 都是繞路。
+>
+> 兩個只有讀了細則才會知道的陷阱，直接影響評測腳本：
+>
+> 1. **Reducto 的頁面複雜度是它自動判定的，你不能指定。**合併儲存格、巢狀表頭、key-value 區塊、
+>    需摘要的圖片都算「複雜頁」，計費翻倍。也就是說**同一批文件的成本事前算不出來，必須實跑才知道**——
+>    這剛好推翻「按頁計費比按 token 好預算」的直覺，是第二輪值得寫的一段。
+> 2. **Reducto 直接把檔案丟給 Extract 會同時被收 Parse 的錢。**正確做法是先 `parse`，再用
+>    `jobid://<job_id>` 呼叫 Extract。評測腳本若一律直傳檔案，成本會無聲翻倍。
+>    Datalab 同理：processors 是相加的，convert 完再 extract 就是兩筆。
+>
+> 另一個 Datalab 文件內部不一致的小地方：billing 頁寫試算表 simple mode 2,500 cells 算一頁、
+> advanced mode 500 cells 算一頁，定價頁 FAQ 卻寫「500 cells 算一頁」。**要測試算表就得先問清楚。**
 >
 > TextIn 報價是人民幣，且是「起」價（階梯計價）。粗略換算 ¥0.042／頁 ≈ US$6／1K 頁（以 1 USD ≈ 7 CNY 估），
 > 但實際單價依用量階梯而定，**不要把這個換算寫進文章**，要用當天實際帳單。
@@ -155,11 +168,25 @@
 **這張表推翻了我上一版抄二手來源寫的兩個數字**：Azure 的 Custom extraction 是 $30 不是 $50，
 Custom classification 只要 $3 不是 $50。二手比較文在這兩格是錯的。
 
-兩個站得住的結論：
+#### C-2b 把全部廠商折算成同一把尺（每 1,000 頁 USD）
 
-1. **純 OCR 三家同價（$1.50／1K 頁），差異全在結構化那一層**——而結構化正是原文沒測的層。
-2. **同樣是「抽欄位」，價差 6 倍**：Upstage $10／1K、Azure Prebuilt $10／1K、Google Form Parser $30／1K、AWS Forms $50／1K。
-   這個價差要用實測準確率去對，才知道貴的有沒有貴的道理——**這就是第二輪最有商業價值的一張表。**
+查完全部費率後才能做這張表，也是整份規劃裡最能直接用的一頁：
+
+| 層 | 報價區間 | 各家 |
+|---|---|---|
+| **純文字 OCR** | **$1.25 – 1.50** | LlamaParse basic ~$1.25、Upstage Document OCR $1.50、Azure Read $1.50、AWS DetectDocumentText $1.50、Google Enterprise OCR $1.50 |
+| **版面／Markdown 解析** | **$4 – 30**（**7.5 倍**） | Datalab Convert fast/balanced $4、Mistral OCR $4、Datalab Convert accurate $10、Upstage Document Parse $10（Enhanced $30）、Google Layout Parser $10、AWS Tables $15、Reducto Parse $15（複雜頁 $30）、Unstructured $30 |
+| **結構化欄位抽取（KIE）** | **$5 – 50**（**10 倍**） | Mistral Document AI $5、Datalab Extraction fast $6、Azure Prebuilt $10、Datalab Extraction accurate $25+、Google Form Parser $30、Reducto Extract $30、Upstage Information Extract $40、AWS Forms $50 |
+
+三個站得住的結論：
+
+1. **純 OCR 全業界同價（$1.25–1.50／1K 頁）**——這一層已經是大宗商品，沒有選型問題。
+2. **越往上層價差越大**：解析層 7.5 倍、抽欄位層 10 倍。
+   **這個價差要用實測準確率去對，才知道貴的有沒有貴的道理——這就是第二輪最有商業價值的一張表。**
+   （上一版我把 Upstage 的 $10／1K 誤標成「抽欄位」，那其實是它的解析價；它的 Information Extract 是 $40／1K。）
+3. **至少四家都提供「便宜檔 vs 貴檔」**——Datalab fast/balanced/accurate、Upstage Standard/Enhanced、
+   Reducto standard/agentic、LlamaParse basic/agentic。**「貴檔到底貴在哪、什麼文件類型才值得」本身就該是一個測試維度**，
+   而不是每家只測一個檔位。
 
 #### C-3 通用 VLM（同時測雙軌）
 
@@ -376,7 +403,8 @@ L5 是這份規劃裡最強的一步：原文已經跑完 61 份考卷的人工�
 - [LlamaIndex／LlamaCloud 定價](https://www.llamaindex.ai/pricing)
 - [Reducto 定價](https://reducto.ai/pricing)
 - [Firecrawl 定價](https://www.firecrawl.dev/pricing)
-- [Datalab 平台 changelog](https://documentation.datalab.to/platform/changelog)（定價頁本身取不到，見 §二 C-1 註）
+- [Datalab 費率卡](https://www.datalab.to/pricing) 與 [Billing 文件](https://documentation.datalab.to/platform/billing)
+- [Reducto Credit Usage 文件](https://docs.reducto.ai/reference/credit-usage)
 - [TextIn 產品市場](https://www.textin.com/market/list)
 - [Azure AI Document Intelligence 定價](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/)
 - [AWS Textract 定價](https://aws.amazon.com/textract/pricing/)
