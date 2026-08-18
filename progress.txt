@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-17
+Last updated: 2026-08-18
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -30,8 +30,15 @@ Recently completed
   related-posts 與 RAG get-post-detail，等於開了內容注入 LLM 上下文的路徑，已移除；
   (2) /api/auth/login 沒接既有的 checkAndIncrementRateLimit（search 與 chat 都有接），
   單一共用密碼可無限次嘗試，已加每 IP 每日 20 次上限並改常數時間比較。
-  研究筆記在 .research/2026-08-15-ai-agent-autonomous-attack-taiwan.md（未入版控），
-  導讀文尚未動筆。
+  研究筆記在 .research/2026-08-15-ai-agent-autonomous-attack-taiwan.md（未入版控）。
+- 2026-08-18: post(ai) 上篇研究寫成 deep-dive（zh+en，2,113 中文字），主軸不是複述
+  新聞而是「一份廠商報告該怎麼讀」：貝氏決策引擎當技術主體，Dream 兩處外部引用
+  失準（AISI 成本指標張冠李戴、Kimi K3 砍掉主結論）與 godmode 是 Hermes 官方 repo
+  第一方 skill 當方法論主軸，自我稽核那兩個端點當收尾。新增全站 glossary：密碼潑灑。
+  **教訓**：自我複核抓到四處，其中「105 個路由」是純錯誤——數字源自我在對話裡的
+  口誤，未複核就寫進文章（實際 101 個端點，5 個 _guard.ts 不是端點）。另三處是
+  假精確的「五份一手報告」、把推論（沒有 0-day）當事實陳述、Teknium 職稱無一手依據。
+  對話裡講過的數字不等於查證過的數字。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
@@ -65,15 +72,8 @@ Recently completed
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
-- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
-  用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
-  只有 6 篇，最有料的四篇都不在裡面）。查了 19 份一手來源、約 40 項宣稱：4 個實質
-  錯誤、1 個查無出處（Google 75%）、5 處脈絡缺失（最嚴重是 Klarna 已於 2025-05 公開
-  反轉卻仍被當成功案例）、2 次平反。**六條方法論教訓已回饋進 deep-research skill 的
-  反合理化表**，核心一條：清單能窮舉、每項只花一次抓取時，抽樣推斷沒有正當理由——
-  我在這場研究裡犯了四次，最後一次讀完剩下 27 篇推翻了三處既有記載。
-  對本 repo 可動手的三件事：規則要 scoped 不要 global、CLAUDE.md 是 config 層不是
-  memory 層（失效模式是稀釋不是檢索錯）、skill 的 description 要當檢索鍵寫。
+- 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，60 篇全讀）。六條方法論教訓
+  已回饋進 deep-research skill。完整內容見 docs/progress-archive.md。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
