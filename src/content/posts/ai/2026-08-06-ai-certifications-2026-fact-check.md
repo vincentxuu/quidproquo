@@ -68,6 +68,14 @@ draft: false
 
 三張都能直接報名，差別在深度與價格：[AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) $100、90 分鐘、65 題，是入門那張；[MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) $150、130 分鐘、65 題，往 ML 工程實作走；最上面是 [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) $300、180 分鐘、75 題，官方建議先有 **2 年 AWS 經驗加 1 年 GenAI 開發經驗**，是三張裡唯一專攻 GenAI 應用開發的。
 
+**MLA-C01 剩不到六週，別現在開始準備。** [官方認證頁](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate)頂端掛著改版公告：
+
+> This exam is being updated. Registration for the updated version (MLA-C02) opens September 1, 2026. The last day to take the current exam (MLA-C01) in English is September 28, 2026. The current exam in other languages (Korean, Japanese, and Simplified Chinese) will remain available until general availability of MLA-C02.
+
+也就是說：**英文版最後考試日 2026/9/28**，日韓與簡中版可撐到 C02 正式上線。C02 的 exam guide 目前**還沒公布**（`machine-learning-engineer-associate-02` 的官方文件網址回 404），所以現在沒人知道它考什麼。想考 associate 這級的，理性選擇是等 9/1 看 C02 的規格，而不是花八週準備一張九月底就停考的考試。
+
+**AIF-C01 有繁體中文。** 這張的考試語言有 12 種，含 Traditional Chinese —— 是本文所有證照裡唯一提供繁中的。相對地 MLA-C01 與 AIP-C01 只有英文、日文、韓文、簡體中文，Google PMLE 只有英文與日文。母語考試對閱讀速度的影響值得算進去。
+
 三張效期都是 3 年，但續期規則比多數整理文寫得複雜，[官方 recertification 頁](https://aws.amazon.com/certification/recertification/)列得很清楚：
 
 **AI 這三張沒有「上課換效期」的選項。** AWS 整體上有兩條路 —— renew（+3 年）與 maintain（+1 年，在 AWS Skill Builder 上完成，需付費訂閱）—— 但 maintain 只開放給 SAA、Developer、CloudOps/SysOps、SAP、DOP 那幾張。AIF-C01、MLA-C01、AIP-C01 的 Options 欄位裡沒有 maintain，只有考試。
@@ -296,7 +304,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
-- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；另修正 AWS 續期段落：原文寫「只能重考、不接受繼續教育學分」，官方 recertification 頁實際上有 renew／maintain 兩條路（maintain 僅開放給 SAA、Developer、CloudOps、SAP、DOP），且 AI 三張可用高階考試互相續期、續期一律可用五折券。並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
+- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；另補上 MLA-C01 的改版公告（英文版最後考試日 2026/9/28、C02 於 9/1 開放報名但考綱未公布）與各張的考試語言（AIF-C01 是唯一有繁中的）；修正 AWS 續期段落：原文寫「只能重考、不接受繼續教育學分」，官方 recertification 頁實際上有 renew／maintain 兩條路（maintain 僅開放給 SAA、Developer、CloudOps、SAP、DOP），且 AI 三張可用高階考試互相續期、續期一律可用五折券。並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
 
 ## 參考資料
 
