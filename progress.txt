@@ -29,6 +29,12 @@ Recently completed
 - 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
   海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
   配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
+- 2026-08-18: **AI 證照備考系列 B 軌 B1「多 agent 架構的考點交集」zh/en 已出**（order 16，slug
+  `2026-08-18-multi-agent-architecture-exam-domains`）。**沒有重跑研究**——五份官方 exam guide 的內容
+  全部取自 A 軌已查證的十五篇，只逐條 curl 驗了文中 11 個外部 URL（全 200；`a2a-protocol.org` 根路徑
+  是 JS 轉址，實際內容頁是 `/latest/`）。**涵蓋範圍與原規劃不同**：加入 AB-620 與 CCAR-F、移除 PMLE
+  （它的「Agent Platform」是 Vertex AI 改名，官方 exam guide 沒有一條考 agent 間協調），理由寫進
+  content plan §0.5。可重用產出：四家名詞對照表 + 獨有考點清單，B2–B5 照同結構寫。
 - 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en（30 檔）已出並全部推上 main。**
   進度表、剩餘工作與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5（新 session 從那裡接）。
   廠商完成度：Anthropic 4/4、微軟 4/4、NVIDIA 4/4、AWS 2/3（MLA-C01 等 9/1 的 C02 規格）、
@@ -53,23 +59,9 @@ Recently completed
   **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
   站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
   另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
-- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 全數對照上游翻新完畢**（含補 series，slug
-  `openclaw`，order 1-32）。體裁全面改寫：逐項指令交還官方文件，留取捨與失敗點。
-  **修掉的實質錯誤（照做會失敗或講錯）**：npm 全域安裝需 `--allow-scripts=openclaw`、
-  pnpm 需 `--allow-build=`、Node 需求 24→22.22.3+/24.15+/25.9+、K8s `kind-create.sh`
-  已改名 `create-kind.sh`、冷卻遞增實為 30 秒→1 分→5 分（原寫 1 分→5 分→25 分→1 時）、
-  帳務失敗是 disabled 而非遞增冷卻、auth profile 已改存 SQLite（原 JSON 檔現為 legacy 且
-  runtime fail closed）、企業頻道「安裝：內建」對 Slack／Google Chat 已不成立、
-  **`tools.exec.host` 預設改 auto 使「沒設＝在沙箱裡」失效**、**Pi 已被吸收，內建 runtime
-  id 就是 `openclaw`**（原文整個框架過期）。移除所有固定模型 ref 與未查證的價目／容量表。
-  **教訓一：轉述型文章半衰期約一季**，易腐段落寫時就該外包給官方連結。
-  **教訓二：架構層名詞比 API 更會悄悄失效**（Pi 這種名字不會在設定檔報錯）。
-  **教訓三：官方文件自己會不一致**（同日 `/providers/` 寫 claude-opus-4-6、
-  `/concepts/` 寫 claude-opus-5），所以別在文章裡寫死模型名。
-  **協作教訓：多 session 共用 git 索引會撞**——`git add` 後等 pre-commit 的空檔裡，
-  另一個 session 的 commit 把我暫存的 6 個檔案一起帶走（40b1c42 訊息與內容不符）。
-  改用 `git commit -- <明確路徑>` 之後就沒再發生。
-  全站另有 6xx 篇無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（zh/en 對稱）。
+- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 對照上游翻新完畢**（series `openclaw`，order 1-32）。
+  修掉的實質錯誤、三條腐化教訓與「多 session 共用 git 索引會撞」的協作教訓全數移入
+  docs/progress-archive.md。
 - 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
   查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。教訓：研究專案時

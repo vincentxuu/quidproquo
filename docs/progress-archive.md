@@ -784,3 +784,23 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   單一區間 2026-2032 非三段式。**共同模式：講者第一手經驗都站得住，出問題的全是憑
   印象轉述的第三方數字。**另方針曾被退回一次：原「每篇挑一條主線」導致課程內容沒寫
   完整，錯在我把「純課程筆記」說成原創性低，把人推向我有發揮空間的方向。
+
+## 2026-08-18 OpenClaw 導讀 32 篇 x zh/en 翻新（自 progress.txt 移入）
+
+- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 全數對照上游翻新完畢**（含補 series，slug
+  `openclaw`，order 1-32）。體裁全面改寫：逐項指令交還官方文件，留取捨與失敗點。
+  **修掉的實質錯誤（照做會失敗或講錯）**：npm 全域安裝需 `--allow-scripts=openclaw`、
+  pnpm 需 `--allow-build=`、Node 需求 24→22.22.3+/24.15+/25.9+、K8s `kind-create.sh`
+  已改名 `create-kind.sh`、冷卻遞增實為 30 秒→1 分→5 分（原寫 1 分→5 分→25 分→1 時）、
+  帳務失敗是 disabled 而非遞增冷卻、auth profile 已改存 SQLite（原 JSON 檔現為 legacy 且
+  runtime fail closed）、企業頻道「安裝：內建」對 Slack／Google Chat 已不成立、
+  **`tools.exec.host` 預設改 auto 使「沒設＝在沙箱裡」失效**、**Pi 已被吸收，內建 runtime
+  id 就是 `openclaw`**（原文整個框架過期）。移除所有固定模型 ref 與未查證的價目／容量表。
+  **教訓一：轉述型文章半衰期約一季**，易腐段落寫時就該外包給官方連結。
+  **教訓二：架構層名詞比 API 更會悄悄失效**（Pi 這種名字不會在設定檔報錯）。
+  **教訓三：官方文件自己會不一致**（同日 `/providers/` 寫 claude-opus-4-6、
+  `/concepts/` 寫 claude-opus-5），所以別在文章裡寫死模型名。
+  **協作教訓：多 session 共用 git 索引會撞**——`git add` 後等 pre-commit 的空檔裡，
+  另一個 session 的 commit 把我暫存的 6 個檔案一起帶走（40b1c42 訊息與內容不符）。
+  改用 `git commit -- <明確路徑>` 之後就沒再發生。
+  全站另有 6xx 篇無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（zh/en 對稱）。

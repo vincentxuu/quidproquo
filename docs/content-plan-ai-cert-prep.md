@@ -46,7 +46,9 @@
 
 ### 下一步（新 session 從這裡接）
 
-1. **B 軌五篇技術文**（規劃見第 2 節）。現在寫最划算：A 軌十五篇已把跨證照重複的考點標好——多 agent 架構出現在 AI-500 / NCP-AAI / AB-620 / CCAR-F；RAG 評估出現在 AIP-C01 / PMLE / NCP-AAI / CCDV-F。
+1. **B 軌五篇技術文**（規劃見第 2 節）。**B1 已出**（order 16，`2026-08-18-multi-agent-architecture-exam-domains` zh/en）。剩 B2–B5，寫法照 B1：材料全部取自 A 軌已查證的官方 exam guide，不重跑一輪抓取；每個小節結尾回指「對應哪張考試哪個 domain」。
+   - **B1 的涵蓋範圍與原規劃不同，理由記在這**：加入 AB-620 與 CCAR-F（兩張都有實質多 agent 考點：AB-620 的「多 agent 協作」是 40–45% 那塊的四條之一；CCAR-F Domain 1 佔 27%，是五份材料裡把編排講得最具體的）；**移除 PMLE**——它考綱滿篇「Agent Platform」是 Vertex AI 改名造成的產品名替換，官方 exam guide 裡沒有一條在考 agent 之間怎麼協調。這個誤解寫進文章當開場的修正點。
+   - B1 的可重用產出：**四家名詞對照表**（同一概念的微軟／NVIDIA／Anthropic 說法）與**獨有考點清單**，B2–B5 可以照同一組結構寫。
 2. **各廠「怎麼選」**：AWS 三張（含 MLA-C01 英文版 2026/9/28 停考的時間分支）、微軟四張、NVIDIA 四張、Claude 四張。Claude 與 NVIDIA 的對照表已散在各篇，可直接彙整。
 3. **AWS MLA-C01**：等 2026/9/1 C02 規格公布再寫；C02 exam guide 網址目前 404。
 4. **`.work/check-internal-links.patch` 待套用**：給 `scripts/check-post-references.mjs` 加「站內連結指向不存在文章」檢查，已寫好並驗過能擋。**暫緩提交的原因**：套用後 Hermes 系列的前向連結會讓 `pnpm verify` 變紅、擋到其他 session 的 commit。等 Hermes 那批寫完再 `git apply`。
@@ -124,7 +126,7 @@
 
 | # | 主題 | 被哪些考試涵蓋 | 說明 |
 |---|---|---|---|
-| B1 | 多 agent 系統架構：編排、身分、沙箱、可觀測性 | AI-500、NCP-AAI、AB-100、PMLE 新考點 | 本系列技術密度最高的一篇；A3 與 A4 共用 |
+| B1 ✅ | 多 agent 系統架構：編排、身分、記憶、可觀測性 | AI-500、NCP-AAI、AB-620、AB-100、CCAR-F（**不含 PMLE**，理由見 §0.5） | 已出，order 16，slug `2026-08-18-multi-agent-architecture-exam-domains` |
 | B2 | RAG 與檢索評估：從 chunking 到 LLM-as-a-judge | AIP-C01、PMLE | 站內已有 RAG 系列，本篇要連過去而不是重寫 |
 | B3 | AI 治理框架對照：EU AI Act、NIST AI RMF、ISO/IEC 42001 | AI-500 的 governance 考點、EU AI Act 對 agent 系統的要求 | 三份框架的適用範圍與互相對應 |
 | B4 | prompt 與 context engineering 的考法 | 幾乎所有 GenAI 證照 | 重點在「考試怎麼問」與實務差異 |
