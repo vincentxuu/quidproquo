@@ -5,9 +5,12 @@ type: guide
 category: ai
 tags: [rag, speculative-rag, dual-model, latency-optimization, accuracy]
 lang: zh-TW
-tldr: "Speculative RAG 用小型專家模型從不同文件子集平行生成多個答案草稿，再由大型模型一次驗證選出最佳答案。準確度提升最高 12.97%，延遲降低最高 50.83%。"
+tldr: "Speculative RAG 用小型專家模型從不同文件子集平行生成多個答案草稿，再由大型模型一次驗證選出最佳答案。論文在 PubHealth 上準確度提升 12.97 個百分點、延遲降低 50.83%——但這是最好的那一格，其他 benchmark 的幅度小很多。"
 description: "Speculative RAG 的雙模型架構設計：RAG Drafter 平行生成草稿、RAG Verifier 單次驗證，以及與標準 RAG 的效能比較和實作指南。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 27
 ---
 
 標準 RAG 的流程大家都熟：檢索文件 → 拼成 context → 送給 LLM 生成。這個流程簡單有效，但有一個根本性的瓶頸：**所有文件塞進同一次 LLM 呼叫，模型必須在一次生成中處理所有資訊，而且整個流程是序列的**。
@@ -84,7 +87,7 @@ Speculative RAG 的核心洞察：**與其讓一個大模型苦苦處理所有�
 
 三個關鍵步驟：
 
-1. **文件分組**：把檢索到的 N 篇文件隨機或策略性分成 K 個子集，每個子集包含部分文件
+1. **文件分組**：把檢索到的 N 篇文件依「與問題的關係」分群，再從每群各抽一篇組成子集，共 K 個子集（細節見下面〈子集抽樣策略〉——這一步不是隨機抽）
 2. **平行草稿生成**：K 個小型 RAG Drafter 模型平行處理各自的文件子集，各自生成一份答案草稿和推理過程
 3. **單次驗證**：一個大型 RAG Verifier 模型接收所有草稿，一次性評分並選出最佳答案
 
@@ -106,7 +109,7 @@ RAG Drafter 是整個架構的「勞動力」——小型、專精、可平行�
 
 ### 模型選擇
 
-論文中使用 Mistral-7B-Instruct 作為 Drafter 模型，並針對 RAG 任務進行了特化訓練。選擇小模型的理由：
+論文中使用 Mistral-7B（v0.1）作為 Drafter 的 base model，再針對 RAG 任務做指令微調（附錄還試過 instruction-tuned Gemma-2 2B，效果同樣看好）。選擇小模型的理由：
 
 - **推理速度快**：7B 參數的模型在 GPU 上推理延遲遠低於 70B+ 的大模型
 - **可平行部署**：同樣的 GPU 記憶體可以跑多個小模型實例
@@ -114,7 +117,7 @@ RAG Drafter 是整個架構的「勞動力」——小型、專精、可平行�
 
 ### 每個 Drafter 看不同的文件子集
 
-這是 Speculative RAG 最巧妙的設計。假設檢索器取回了 6 篇文件 {D1, D2, D3, D4, D5, D6}，系統會建立多個子集：
+這是 Speculative RAG 最巧妙的設計。假設檢索器取回了 6 篇文件 {D1, D2, D3, D4, D5, D6}，先依觀點分群，再從每群各抽一篇組成多個子集：
 
 ```
 Drafter 1 收到：{D1, D3, D5}
@@ -131,9 +134,13 @@ Drafter 4 收到：{D3, D5, D6}
 
 ### 子集抽樣策略
 
-論文提出的抽樣方式：從 N 篇檢索文件中，為每個 Drafter 隨機抽取一個子集。子集之間可以有重疊（同一篇文件可能出現在多個子集中），這增加了重要文件被利用的機會。
+這裡有一個很多二手介紹會講錯的細節：**論文的子集不是隨機抽的**。
 
-子集大小的選擇是一個超參數。太小（1 篇）可能資訊不足；太大（接近 N 篇）就失去了分散處理的優勢。論文實驗中通常使用 2-3 篇文件作為子集大小。
+正確的做法是先把檢索到的文件依照「與問題的關係」做分群（clustering），每個群代表檢索結果中的一個觀點，然後**從每個群各抽一篇**組成子集。目的是最小化冗餘、最大化觀點多樣性。論文的消融實驗直接測過：從同一個群裡抽樣會顯著劣化，因為子集裡的文件觀點重複，草稿就失去了多樣性。
+
+子集大小是超參數。太小（1 篇）可能資訊不足；太大（接近 N 篇）就失去了分散處理的優勢。論文的主要設定是：TriviaQA / PopQA / PubHealth / ARC-Challenge 檢索 top-10，每題生成 5 份草稿（m=5），每份用 2 篇文件（k=2）；MuSiQue 因為推理更複雜，檢索 top-15、生成 10 份草稿、每份用 6 篇文件。
+
+另外兩個實用結論來自論文的超參數分析：**增加草稿數量能持續提升表現，而且因為草稿是平行生成的，不增加延遲**；但**增加每份草稿的文件數並不總是更好**——在 TriviaQA 與 PubHealth 上，從 1、2、4、6 到 10 篇的曲線並非單調上升。
 
 ### Rationale 生成
 
@@ -150,11 +157,13 @@ Rationale 的作用是給 Verifier 提供判斷依據。Verifier 不只看答案
 
 論文中的 Drafter 使用知識蒸餾（Knowledge Distillation）方式訓練：
 
-1. 用大型模型（如 GPT-4）針對 RAG 任務生成高品質的 (query, documents, draft, rationale) 訓練資料
-2. 用這些資料微調小型模型（Mistral-7B-Instruct）
+1. 從 Open-Instruct 與知識密集型資料集取樣指令對，用 dense retriever 補上最多 10 篇檢索文件，再用大型模型生成 rationale——論文主線用的是 Gemini-Ultra，總共 40k 筆訓練資料
+2. 用這些資料微調 Mistral-7B（v0.1）
 3. 微調後的小模型學會了「看文件 → 寫草稿 + 推理」的能力
 
-這種訓練方式讓 7B 的小模型在特定任務上接近大模型的品質，但保持小模型的速度優勢。
+論文另外用 GPT-4o 重做了一次資料生成，結果顯示 Speculative RAG 的優勢仍在，代表這個方法不綁定特定的教師模型。消融實驗也確認：**訓練時如果拿掉 rationale，三個 benchmark 上表現都明顯下滑**——rationale 不是裝飾，是驗證階段的關鍵輸入。
+
+這種訓練方式讓 7B 的小模型在特定任務上接近大模型的品質，但保持小模型的速度優勢。代價是你得自己做一輪蒸餾與微調——這是 Speculative RAG 最大的落地門檻，不是架構本身。
 
 ## RAG Verifier 設計
 
@@ -162,7 +171,11 @@ RAG Verifier 是架構中的「裁判」——大型、通用、一次定勝負�
 
 ### 模型選擇
 
-論文中使用 GPT-4 或類似的大型通用模型作為 Verifier。選擇大模型的理由：
+這裡也是常被寫錯的地方：**論文的 Verifier 不是 GPT-4**。實驗中用的是未經任何微調的 Mistral-7B（v0.1）或 Mixtral-8x7B（v0.1），論文中記為 M<sub>Verifier-7B</sub> 與 M<sub>Verifier-8x7B</sub>。GPT-4o 與 Gemini-Ultra 只出現在「產生 Drafter 訓練資料」那一步，不在推論路徑上。
+
+這其實是這篇論文更有意思的地方：Verifier 大到 8x7B 就夠了，甚至 7B 的 Verifier 配 7B 的 Drafter 也已經超越所有 baseline。「大模型」在這裡是相對的。
+
+選擇（相對）大模型作為 Verifier 的理由：
 
 - **廣泛的世界知識**：可以交叉驗證草稿的準確性
 - **強大的推理能力**：可以評估推理鏈的邏輯一致性
@@ -198,20 +211,15 @@ Please evaluate each draft and select the best answer.
 
 ### 評分機制
 
-Verifier 對每個草稿進行多維度評分：
+論文的評分**不是叫 Verifier 寫一段評語打分數**，而是直接讀模型的條件機率。整體信心分數是三項的乘積：
 
-1. **事實準確性**（Factual Accuracy）：答案是否與推理中引用的資訊一致？
-2. **推理完整性**（Reasoning Completeness）：推理鏈是否完整、是否有跳躍？
-3. **問題相關性**（Query Relevance）：答案是否直接回應了問題？
-4. **自洽性**（Self-Consistency）：答案和推理之間是否一致？
+1. **ρ<sub>Draft</sub>**：Drafter 自己生成該草稿的機率
+2. **ρ<sub>Self-contain</sub>**：Verifier 在給定問題與 rationale 下，生成該答案的機率，即 Score(α | Q, β)
+3. **ρ<sub>Self-reflect</sub>**：Verifier 對一句自省敘述回答「Yes」的機率
 
-最終 Verifier 輸出一個總分或直接選擇最佳草稿。在論文的實作中，使用條件概率的方式來評分：
+消融實驗顯示三項都有貢獻：拿掉 ρ<sub>Draft</sub> 影響最小（TriviaQA −0.19、PubHealth −1.12），拿掉 ρ<sub>Self-contain</sub> 或 ρ<sub>Self-reflect</sub> 則各約掉 2 個百分點（TriviaQA）與 0.8 個百分點（PubHealth）。而**完全不驗證、隨機挑一份草稿**會掉 5.69（TriviaQA）與 5.37（PubHealth）——驗證這一步的價值就在這個差距裡。
 
-```
-Score(draft_k) = P_verifier(draft_k | query, all_drafts)
-```
-
-也就是在給定所有草稿的情況下，Verifier 模型生成每個草稿 token 的概率。概率越高，表示 Verifier 越「認同」這個草稿。
+用機率而不是叫模型打分，好處是不需要對 Verifier 做任何微調，也不需要它輸出結構化的評分格式；壞處是你的推論端必須拿得到 logprobs，這在只給文字輸出的 API 上做不到。
 
 ### 為什麼 Verifier 不需要看原始文件？
 
@@ -227,33 +235,46 @@ Score(draft_k) = P_verifier(draft_k | query, all_drafts)
 
 ## 效能數據
 
-論文在五個 benchmark 上測試了 Speculative RAG，與標準 RAG 和其他方法比較。以下是主要結果。
+論文在五個 benchmark 上測試了 Speculative RAG，與標準 RAG 和其他方法比較。以下是**論文 Table 1 的實際數字**（accuracy %，來源見文末參考資料）。
 
 ### 準確度比較
 
-| Benchmark | Standard RAG | Self-RAG | CRAG | Speculative RAG | vs Standard |
-|-----------|-------------|----------|------|-----------------|-------------|
-| TriviaQA | 68.27% | 70.41% | 69.83% | 73.59% | **+5.32%** |
-| MuSiQue | 25.14% | 27.30% | 26.71% | 30.48% | **+5.34%** |
-| PopQA | 43.87% | 49.06% | 47.22% | 56.84% | **+12.97%** |
-| PubHealth | 72.40% | 74.10% | 73.50% | 76.20% | **+3.80%** |
-| ARC-Challenge | 78.95% | 81.23% | 80.56% | 84.17% | **+5.22%** |
+| RAG 方法 | TriviaQA | MuSiQue | PopQA | PubHealth | ARC-C |
+|---|---|---|---|---|---|
+| Standard RAG — Mistral-7B | 54.15 | 16.71 | 31.38 | 34.85 | 42.75 |
+| Standard RAG — Mixtral-8x7B | 59.85 | 19.16 | 34.02 | 37.08 | 48.72 |
+| Standard RAG — Mistral-Instruct-7B | 67.11 | 17.99 | 42.17 | 42.15 | 47.70 |
+| Standard RAG — Mixtral-Instruct-8x7B | 73.91 | 29.42 | 53.68 | 63.63 | 78.41 |
+| CRAG (Mistral-7B) | 59.03 | — | 49.46 | 59.04 | 74.87 |
+| Self-RAG (Mistral-7B) | 64.84 | 21.72 | 52.68 | 72.44 | 74.91 |
+| Self-CRAG (Mistral-7B) | 65.43 | — | 56.11 | 72.85 | 75.26 |
+| **Spec. RAG — Verifier-7B + Drafter-7B** | 73.91 | 31.03 | 56.75 | 75.79 | 76.19 |
+| **Spec. RAG — Verifier-8x7B + Drafter-7B** | **74.24** | **31.57** | **57.54** | **76.60** | **80.55** |
 
 幾個觀察：
 
-- **PopQA 提升最大（+12.97%）**：PopQA 是長尾知識問答，很多問題涉及不常見的實體。Speculative RAG 的多子集策略讓不同 Drafter 有機會從不同角度找到答案
-- **MuSiQue 也有顯著提升（+5.34%）**：MuSiQue 是多跳推理任務，需要組合多篇文件的資訊。不同 Drafter 看不同文件組合，增加了「碰巧」組合到正確資訊的機會
-- **全面超越 Self-RAG 和 CRAG**：Speculative RAG 在所有 benchmark 上都優於這兩個方法
+- **PubHealth 提升最大**：76.60 vs 最強 Standard RAG baseline 的 63.63，差 12.97 個百分點——這就是摘要裡那個「最高 12.97%」的來源。它是 PubHealth，不是 PopQA；很多二手介紹會把這個數字掛錯 benchmark。
+- **TriviaQA 幾乎沒有提升**：74.24 vs Mixtral-Instruct-8x7B 的 73.91，只差 0.33。也就是說當 baseline 本來就強、任務又不特別需要多視角時，這套架構的準確度紅利接近於零，剩下的價值主要在延遲。
+- **MuSiQue（多跳推理）提升約 2 個百分點**：31.57 vs 29.42。有效但不驚人；注意 MuSiQue 用的是不同的超參數（10 份草稿、每份 6 篇文件）。
+- **超越 Self-RAG 與 CRAG**：在有回報數字的欄位上都優於這兩個方法。
+
+要留意兩件事：（1）表中所有方法都跑在同一組 Mistral 系列 backbone 上以求公平，換成別的模型結果未必平移；（2）論文自己也指出，**Drafter 單獨使用（不經驗證）就已經打敗多數 baseline**，驗證階段的邊際貢獻約落在 0.3～4 個百分點之間。
 
 ### 延遲比較
 
-| Benchmark | Standard RAG 延遲 | Speculative RAG 延遲 | 延遲降低 |
-|-----------|-------------------|---------------------|----------|
-| TriviaQA | 12.4s | 6.1s | **-50.81%** |
-| MuSiQue | 14.8s | 7.8s | **-47.30%** |
-| PopQA | 11.2s | 5.5s | **-50.89%** |
-| PubHealth | 13.6s | 7.2s | **-47.06%** |
-| ARC-Challenge | 10.8s | 5.8s | **-46.30%** |
+論文的延遲分析是隨機抽 100 題、不做 batching、逐題計時，並以**最強的 baseline（Standard RAG: Mixtral-Instruct-8x7B）**為比較對象。實際降幅：
+
+| Benchmark | 延遲降低 |
+|---|---|
+| TriviaQA | −11.90% |
+| MuSiQue | −15.07% |
+| PopQA | −44.31% |
+| PubHealth | −50.83% |
+| ARC-Challenge | −22.77% |
+
+換句話說，「延遲降低 50%」是 PubHealth 那一格的數字，不是通例——TriviaQA 只降了不到 12%。降幅大小主要取決於該資料集的檢索文件有多長：文件越長，Standard RAG 被長 context 拖累得越嚴重，Speculative RAG 的相對優勢越大。
+
+另外要注意這個實驗的硬體前提：Speculative RAG 在 TriviaQA 等資料集上**同時啟動 5 個 Drafter endpoint**（MuSiQue 是 10 個），Mixtral-8x7B 用 tensor parallelism = 4。沒有這種平行資源，下面的數字不會重現。
 
 延遲降低的來源：
 
@@ -270,7 +291,9 @@ Score(draft_k) = P_verifier(draft_k | query, all_drafts)
 - 想要更準確？用更大的模型、處理更多文件 → 延遲更高
 - 想要更快？用更小的模型、處理更少文件 → 準確度下降
 
-Speculative RAG 打破了這個取捨。透過架構設計（而非單純堆硬體），它在兩個維度上都取得了改善。這是一個帕累托改善（Pareto Improvement）。
+Speculative RAG 在論文的設定下同時改善了這兩個維度，靠的是架構設計而非單純堆硬體。
+
+不過「帕累托改善」這個說法要打個折：從上面的實際數字看，準確度紅利集中在 PubHealth、PopQA、ARC-C，TriviaQA 幾乎沒有；延遲紅利則集中在檢索文件較長的資料集。而且它並不是免費的——你需要（a）一輪蒸餾微調來做出 Drafter，（b）能同時跑 5～10 個 Drafter 實例的推論資源，（c）拿得到 logprobs 的 Verifier。把這些成本算進去，它比較像「用工程複雜度換延遲與部分準確度」，而不是純粹的白吃午餐。
 
 ## 與其他 RAG 模式比較
 
@@ -363,7 +386,8 @@ Query → CRAG（確保檢索品質）→ Speculative RAG（確保生成品質�
 interface Document {
   id: string;
   content: string;
-  score: number; // 檢索相關性分數
+  score: number;        // 檢索相關性分數
+  embedding: number[];  // 分群用（論文用一個輕量的 instruction-aware embedding 模型預先算好）
 }
 
 interface Draft {
@@ -389,54 +413,48 @@ interface SpeculativeRAGConfig {
 }
 ```
 
-### 文件子集抽樣
+### 文件子集抽樣（分群，非隨機）
+
+論文的關鍵是**先分群再每群抽一篇**，讓每個子集橫跨多個觀點。從同一群裡抽會顯著劣化。
 
 ```typescript
+/**
+ * 依論文做法建立文件子集：
+ * 1. 對檢索到的文件做 embedding，分成 k 群（k = subsetSize），每群代表一個觀點
+ * 2. 每個子集從每一群各抽一篇 → 子集內觀點多樣、冗餘最小
+ * 注意：這裡不能改成「單純隨機抽 k 篇」，論文的消融實驗顯示同群抽樣會明顯變差。
+ */
 function sampleDocumentSubsets(
   documents: Document[],
   numSubsets: number,
   subsetSize: number,
 ): Document[][] {
+  // kmeans() 是你自己的實作或任何分群套件；輸入 doc.embedding，輸出 subsetSize 個群
+  const clusters = kmeans(documents, subsetSize);
   const subsets: Document[][] = [];
 
   for (let i = 0; i < numSubsets; i++) {
-    // 加權隨機抽樣：相關性分數越高的文件越容易被選中
-    const subset = weightedSample(documents, subsetSize);
+    // 每個子集：從每一群各抽一篇（不放回，讓不同子集覆蓋不同文件）
+    const subset = clusters
+      .map((cluster) => pickWithoutReplacement(cluster, i))
+      .filter((doc): doc is Document => doc !== undefined);
     subsets.push(subset);
   }
 
   return subsets;
 }
 
-function weightedSample(
-  documents: Document[],
-  size: number,
-): Document[] {
-  const totalScore = documents.reduce((sum, doc) => sum + doc.score, 0);
-  const selected: Document[] = [];
-  const remaining = [...documents];
-
-  for (let i = 0; i < Math.min(size, remaining.length); i++) {
-    // 根據檢索分數加權抽樣
-    const weights = remaining.map((doc) => doc.score / totalScore);
-    const idx = weightedRandomIndex(weights);
-    selected.push(remaining[idx]);
-    remaining.splice(idx, 1);
-  }
-
-  return selected;
-}
-
-function weightedRandomIndex(weights: number[]): number {
-  const r = Math.random();
-  let cumulative = 0;
-  for (let i = 0; i < weights.length; i++) {
-    cumulative += weights[i];
-    if (r <= cumulative) return i;
-  }
-  return weights.length - 1;
+/** 以 round-robin 的方式從群中取第 i 篇，群被取完就回頭循環 */
+function pickWithoutReplacement(
+  cluster: Document[],
+  i: number,
+): Document | undefined {
+  if (cluster.length === 0) return undefined;
+  return cluster[i % cluster.length];
 }
 ```
+
+（`kmeans` 這裡是 pseudocode 佔位——論文沒有公開參考實作，實際分群方式與距離度量請自行決定並實測。）
 
 ### RAG Drafter 實作
 
@@ -494,6 +512,8 @@ function parseDraftResponse(
 ```
 
 ### RAG Verifier 實作
+
+注意這是**近似版**：論文用的是 token 條件機率（ρ<sub>Draft</sub> × ρ<sub>Self-contain</sub> × ρ<sub>Self-reflect</sub>），下面用 prompt 叫模型自己打分，是為了能在只回傳文字的 API 上跑。如果你的推論端拿得到 logprobs，照論文做會更接近原始結果。
 
 ```typescript
 async function verifyDrafts(
@@ -612,10 +632,11 @@ async function speculativeRAG(
 
 ```typescript
 const config: SpeculativeRAGConfig = {
-  numDrafters: 4,
-  subsetSize: 2,
-  drafterModel: 'mistral-7b-instruct',   // 小模型
-  verifierModel: 'gpt-4',                 // 大模型
+  numDrafters: 5,   // 論文主設定：m=5
+  subsetSize: 2,    // 論文主設定：k=2
+  // 模型 ID 一律從環境變數注入，不要寫死——寫死的型號幾個月就下架
+  drafterModel: process.env.DRAFTER_MODEL!,
+  verifierModel: process.env.VERIFIER_MODEL!,
   maxDrafterTokens: 512,
   maxVerifierTokens: 256,
 };
@@ -635,48 +656,23 @@ console.log(`All drafts: ${result.allDrafts.length}`);
 
 **Drafter 模型的選擇**
 
-不一定要用論文中的 Mistral-7B。任何支持 instruction following 的小模型都可以：
+這裡不列具體型號清單——開源小模型的世代更替速度讓任何清單半年內就過期。選型的判準才是穩定的：
 
-- Mistral 7B / Mixtral 8x7B
-- Llama 3.1 8B
-- Phi-3 Mini (3.8B)
-- Gemma 2 9B
-
-關鍵是模型要足夠小以支持平行部署，又要足夠聰明以從文件中提取資訊。
+- 要小到能同時跑 5～10 個實例（論文用 7B 級；附錄顯示 2B 級也可行）
+- 要能穩定遵循「Answer / Rationale」這種輸出格式
+- **最重要的是要能微調**：論文的效果來自蒸餾出來的專家 Drafter，不是拿一個泛用小模型直接上。省掉微調這一步，你得到的就只是一個比較差的 ensemble。
 
 **Verifier 模型的選擇**
 
-大型通用模型最適合：
-
-- GPT-4 / GPT-4o
-- Claude 3.5 Sonnet / Claude 3 Opus
-- Gemini 1.5 Pro
-
-Verifier 需要的是廣泛知識和強大的判斷力，而不是速度。
+論文用的是未微調的 Mistral-7B 或 Mixtral-8x7B——「大模型」是相對於 Drafter 而言，不必是當代最大的旗艦模型。真正的硬條件是：**你的推論端必須能回傳 token logprobs**，否則論文的機率式評分做不了，只能退回「叫模型寫評語打分」的近似版（就是本文的範例程式碼），效果與延遲都會不同。
 
 **超參數調整**
 
-```typescript
-// 保守配置（低延遲，適合簡單問題）
-const conservativeConfig: SpeculativeRAGConfig = {
-  numDrafters: 3,
-  subsetSize: 2,
-  drafterModel: 'phi-3-mini',
-  verifierModel: 'gpt-4o-mini',
-  maxDrafterTokens: 256,
-  maxVerifierTokens: 128,
-};
+從論文的設定出發再實測調整：
 
-// 積極配置（高準確度，適合複雜問題）
-const aggressiveConfig: SpeculativeRAGConfig = {
-  numDrafters: 5,
-  subsetSize: 3,
-  drafterModel: 'mistral-7b-instruct',
-  verifierModel: 'gpt-4',
-  maxDrafterTokens: 1024,
-  maxVerifierTokens: 512,
-};
-```
+- **基準設定**：檢索 top-10，`numDrafters: 5`、`subsetSize: 2`
+- **複雜多跳問題**：論文在 MuSiQue 上改成檢索 top-15、`numDrafters: 10`、`subsetSize: 6`
+- **想提升準確度**：優先加草稿數（平行執行，不增延遲），而不是加每份草稿的文件數（論文實測非單調上升）
 
 ## 適用場景與限制
 
@@ -739,9 +735,27 @@ Token 成本方面，Speculative RAG 可能略高（因為多了 K 次 Drafter �
 
 延遲成本方面，Speculative RAG 明顯更低，這在延遲敏感的場景中價值很高。
 
+### 後續研究發現的失效模式
+
+有一個論文沒測、但後續研究測出來的重要缺口：**當問題本身有歧義、有多個都正確的答案時，Speculative RAG 會退化。**
+
+2025 年的〈Retrieval-Augmented Generation with Conflicting Evidence〉把 Speculative RAG 當作 baseline，在 AmbigDocs（要求把所有有效答案都列出來）上得到這組數字：
+
+| Backbone | 單純 prompt 拼接 | Speculative RAG |
+|---|---|---|
+| Llama3.3-70B-Instruct | 54.20 | 44.30 |
+| Qwen2.5-72B-Instruct | 41.20 | 13.40 |
+| GPT-4o-mini | 51.50 | 22.50 |
+
+在 Qwen 這一格，Speculative RAG 掉到只剩三分之一。原因不難推：架構的最後一步是**從多份草稿中選一份**，這對「只有一個正確答案」的任務是優點，對「必須同時呈現多個正確答案」的任務就是結構性缺陷——不同 Drafter 從不同文件子集拿到的不同有效答案，會在驗證階段被丟掉。
+
+同一篇也顯示 Speculative RAG 在 FaithEval（要求壓制錯誤資訊、只有單一正解）上反而是強的：Llama3.3-70B 上 41.80 vs prompt 拼接的 27.30、Qwen2.5-72B 上 56.20 vs 38.50。這正好對上前面的推論——**單一正解的任務適合，多正解／歧義查詢不適合**。
+
+導入前請照這個判準檢查你的查詢分布。如果使用者常問「有哪些方案」「有哪幾種做法」這類本質上是多答案的問題，這個架構會系統性地漏掉東西。
+
 ## 未來展望
 
-Speculative RAG 在 2024 年 7 月發表，2025 年被 ICLR 接收。這個架構的核心思想——**分工與平行化**——很有可能被更廣泛地應用在其他 LLM pipeline 中。
+Speculative RAG 在 2024 年 7 月發表（arXiv:2407.08223），2025 年被 ICLR 接收。這個架構的核心思想——**分工與平行化**——很有可能被更廣泛地應用在其他 LLM pipeline 中。
 
 幾個可能的發展方向：
 
@@ -752,7 +766,8 @@ Speculative RAG 在 2024 年 7 月發表，2025 年被 ICLR 接收。這個架�
 
 ## 參考資料
 
-- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting (Wang et al., ICLR 2025)](https://arxiv.org/abs/2407.08737)
+- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting (Wang et al., ICLR 2025)](https://arxiv.org/abs/2407.08223) — 本文所有數字的來源（注意正確的 arXiv 編號是 2407.08223）
+- [Retrieval-Augmented Generation with Conflicting Evidence (Wang et al., 2025)](https://arxiv.org/abs/2504.13079) — RAMDocs / MADAM-RAG，實測 Speculative RAG 在歧義查詢上的退化
 - [Fast Inference from Transformers via Speculative Decoding (Leviathan et al., ICML 2023)](https://arxiv.org/abs/2211.17192) — Speculative Decoding 原始論文，Speculative RAG 雙模型設計的概念來源
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (Asai et al., ICLR 2024)](https://arxiv.org/abs/2310.11511) — Self-RAG 對比方法
 - [Corrective Retrieval Augmented Generation (Yan et al., AAAI 2024)](https://arxiv.org/abs/2401.15884) — CRAG 對比方法，與 Speculative RAG 互補

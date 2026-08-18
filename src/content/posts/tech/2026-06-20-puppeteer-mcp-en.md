@@ -5,14 +5,24 @@ category: tech
 type: deep-dive
 tags: [puppeteer, mcp, browser-automation, ai-agent, developer-tools, chrome]
 lang: en
-tldr: "server-puppeteer is the Puppeteer wrapper in the official MCP servers monorepo — seven lean tools built around screenshots and evaluate. Token cost is significantly higher than @playwright/mcp per interaction, but it fits well when the screenshot itself is the deliverable or custom JS execution is the core need."
-description: "A deep-dive into @modelcontextprotocol/server-puppeteer: setup, the seven core tools, practical uses of evaluate, the trade-offs of screenshot-based page state, and how it compares to @playwright/mcp."
+tldr: "server-puppeteer is the Puppeteer wrapper in the official MCP servers monorepo — seven lean tools built around screenshots and evaluate. It has since been archived (moved to servers-archived, no longer published), so it is not a choice for new projects; if you want Puppeteer lineage in an MCP server today, look at the Chrome team's chrome-devtools-mcp."
+description: "The design of @modelcontextprotocol/server-puppeteer, the trade-offs of screenshot-driven page state, and where to migrate now that it has been archived."
 draft: false
+series:
+  name: "Browser Automation and MCP"
+  order: 2
 ---
 
 > 🌏 [中文版](/posts/tech/2026-06-20-puppeteer-mcp)
 
-[@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer) is the [Puppeteer](https://pptr.dev/) wrapper in Anthropic's official MCP servers monorepo. It exposes seven tools for AI agents to control Chrome: navigate, screenshot, click, fill, select, hover, and evaluate. The tool set is intentionally minimal — screenshots are the primary page-state signal, and `puppeteer_evaluate` serves as the flexible escape hatch for anything else.
+> ⚠️ **This server has been archived. Don't use it in new projects.**
+> `@modelcontextprotocol/server-puppeteer` was moved out of the official MCP servers monorepo into [`servers-archived`](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer); the last npm release is `2025.5.12` and there have been none since. The package still installs, but it receives no bug fixes and won't track changes to the MCP spec.
+>
+> Two migration targets: if you want Puppeteer under the hood plus screenshot and debugging capability, move to the Chrome team's [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp-en) — it is itself built on Puppeteer. For general web automation, move to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en).
+>
+> The rest of this post stays up because the design trade-off it embodies — a tiny tool set, screenshot feedback, and `evaluate` as the escape hatch — keeps recurring. You will weigh the same axes against every other browser MCP.
+
+[@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer) is the [Puppeteer](https://pptr.dev/) wrapper in Anthropic's official MCP servers monorepo. It exposes seven tools for AI agents to control Chrome: navigate, screenshot, click, fill, select, hover, and evaluate. The tool set is intentionally minimal — screenshots are the primary page-state signal, and `puppeteer_evaluate` serves as the flexible escape hatch for anything else.
 
 ## Installation and Configuration
 
@@ -118,38 +128,45 @@ Compared to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en)'s access
 
 | | server-puppeteer | @playwright/mcp |
 |---|---|---|
+| Maintenance | **Archived; last release 2025.5.12** | Actively updated |
 | Page state delivery | Screenshot (base64) | Accessibility tree (default) |
 | Token cost | High | Low |
 | Auto-wait | ❌ | ✅ |
-| Tool count | 7 | 20+ |
-| Multi-tab support | Limited | ✅ |
+| Tool count | 7 (fixed) | A core set, the rest behind `--caps` |
+| Multi-tab support | Limited | ✅ `browser_tabs` |
 | Browser support | Chromium only | Chromium / Firefox / WebKit |
 | Custom JS execution | ✅ evaluate | ✅ evaluate |
-| Maintainer | Anthropic MCP official | Microsoft / Playwright official |
+| Maintainer | Anthropic MCP official (archived) | Microsoft / Playwright official |
 
-Fewer tools doesn't mean less capable — `puppeteer_evaluate` is essentially a universal escape hatch. But for agents that need reliable interaction (waits, multi-tab, rich locators), Playwright MCP's tool set is more complete.
+Fewer tools doesn't mean less capable — `puppeteer_evaluate` is essentially a universal escape hatch. But for agents that need reliable interaction (waits, multi-tab, rich locators), Playwright MCP's tool set is more complete — and there is now a decisive difference on top of that: one of them is still shipping and the other isn't.
 
 ## When to Use It
 
-**Good reasons to choose server-puppeteer:**
-- The task output is a screenshot (rendering quality check, visual UI verification)
-- `evaluate` is central to the workflow — you need to run complex JS and existing Puppeteer code is being ported to MCP
-- The page has very poor ARIA structure and accessibility tree mode won't give useful information
-- Sessions are short enough that screenshot token costs are acceptable
+Archiving settles the "should I pick it" question: no. But the jobs it used to be good at still exist — they just have new owners:
 
-**When it's the wrong choice:**
-- Long-running agent workflows (screenshot token costs accumulate)
-- Cross-browser scenarios
-- Operations that need complex wait logic (no auto-wait)
+| What you wanted server-puppeteer for | What to use now |
+|---|---|
+| The screenshot is the deliverable (rendering quality, visual UI checks) | chrome-devtools-mcp (`take_screenshot`) or @playwright/mcp |
+| Running complex JS through `evaluate` | Both have an equivalent tool |
+| Page ARIA is bad, snapshots are useless | chrome-devtools-mcp, or @playwright/mcp in screenshot mode |
+| Performance / memory analysis | chrome-devtools-mcp (trace and heap snapshot tools) |
+| Cross-browser | @playwright/mcp |
+
+What it was never good at is unchanged: long-running agent workflows (screenshot token costs accumulate), cross-browser scenarios, and operations that need complex wait logic (no auto-wait).
 
 ## In Summary
 
-server-puppeteer is a straightforward, quick-to-start option with `evaluate` providing meaningful flexibility. But in AI agent contexts, the screenshot-based design makes token costs a long-term constraint. For most situations, @playwright/mcp's accessibility tree mode is the more economical starting point. server-puppeteer has the edge when screenshots are the actual goal, or when the work is fundamentally about Puppeteer API interactions.
+server-puppeteer is a straightforward, quick-to-start option with `evaluate` providing meaningful flexibility. But in AI agent contexts, the screenshot-based design makes token costs a long-term constraint — and it no longer even clears the bar of being maintained.
+
+What's worth keeping is the spectrum it illustrates: the smaller the tool set, the more the agent has to write its own JS through `evaluate`; the more page state rides on screenshots, the harder token cost is to contain. You can measure any browser MCP against those two axes. For what to actually install: general web automation → [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en); deep Chrome debugging and performance work → [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp-en).
 
 ## References
 
-- [@modelcontextprotocol/server-puppeteer — GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)
+- [@modelcontextprotocol/server-puppeteer — GitHub (archived)](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)
+- [Archived list in the official MCP servers repo](https://github.com/modelcontextprotocol/servers#archived)
+- [chrome-devtools-mcp — GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 - [Puppeteer Documentation](https://pptr.dev/)
 - [Model Context Protocol — Official Docs](https://modelcontextprotocol.io/)
 - [Browser MCP Comparison](/posts/tech/2026-06-20-browser-mcp-comparison-en)
 - [@playwright/mcp Introduction](/posts/tech/2026-06-20-playwright-mcp-en)
+- [Chrome DevTools MCP Introduction](/posts/tech/2026-06-20-chrome-devtools-mcp-en)

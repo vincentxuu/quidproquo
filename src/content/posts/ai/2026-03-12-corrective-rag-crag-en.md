@@ -8,6 +8,9 @@ lang: en
 tldr: "Filters too strict and getting zero results? CRAG automatically relaxes them and retries — far better than letting the LLM hallucinate an answer from general knowledge."
 description: "How Corrective RAG (CRAG) works: detecting zero results, progressively relaxing filter conditions, and retrying searches to ensure the RAG pipeline still has usable context at the edges."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 23
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-corrective-rag-crag)
@@ -20,6 +23,8 @@ Say a user asks "Does Longdong have any 5.14 routes?" The system correctly extra
 2. The LLM hallucinates an answer from general knowledge → inaccurate
 
 CRAG (Corrective RAG) addresses this by **detecting zero results and automatically relaxing the filters before retrying the search**.
+
+One clarification up front, so this doesn't mislead: what follows is CRAG in **spirit**, not the paper's algorithm. The 2024 CRAG paper by Yan et al. runs a lightweight retrieval evaluator that scores retrieved documents and returns a confidence degree; depending on whether it lands in Correct / Incorrect / Ambiguous, a different knowledge action fires — an Incorrect verdict switches to large-scale web search — and a decompose-then-recompose step breaks documents into knowledge strips, drops the irrelevant ones, and reassembles the rest. The implementation here has no evaluator and no web search. It keeps only the core idea — a failed retrieval should trigger a corrective action rather than handing an empty context to the LLM — and makes that action a relaxation of structured filters. The section "Why Relax Filters Rather Than Expand the Source" below explains why web search was dropped for this domain.
 
 ## Relaxation Strategy
 
@@ -64,7 +69,7 @@ async function hybridSearchWithCRAG(ctx: PipelineContext): Promise<SearchResult[
 }
 ```
 
-`cragRetryCount < 1` caps retries at one. Without a limit, you could theoretically keep relaxing until no filters remain — but that risks surfacing completely irrelevant results, which is worse than failing cleanly.
+`cragRetryCount < 1` caps retries at one — which means the relaxation ladder above is a **conceptual priority order**, while this implementation only ever runs its first rung (dropping the grade filter). To do multi-stage relaxation, raise the cap and apply the rungs in order; just note that every additional rung moves the returned documents further from what was actually asked. Without a limit at all, you could keep relaxing until no filters remain — surfacing completely irrelevant results, which is worse than failing cleanly.
 
 ## CRAG vs. Agentic RAG
 
@@ -94,6 +99,7 @@ CRAG is a safety net for your RAG pipeline. The cost is low (one extra search), 
 ## References
 
 - [Corrective Retrieval Augmented Generation (2024)](https://arxiv.org/abs/2401.15884)
+- [Official implementation of the CRAG paper (HuskyInSalt/CRAG)](https://github.com/HuskyInSalt/CRAG)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
-- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

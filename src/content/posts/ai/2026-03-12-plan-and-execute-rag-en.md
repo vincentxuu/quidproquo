@@ -8,6 +8,9 @@ lang: en
 tldr: "For complex queries, have the LLM map out what information is needed and in how many steps — then execute that plan. More systematic than thinking on the fly."
 description: "How Plan-and-Execute RAG works: the LLM generates an execution plan first, then retrieves and integrates information step by step. Covers the difference from ReAct loops and when each approach fits best."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 22
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-plan-and-execute-rag)
@@ -41,8 +44,8 @@ The LLM analyzes the query and generates a structured execution plan:
     {
       "step": 3,
       "action": "retrieve_conditional",
-      "query": "{crag name} beginner routes",
-      "depends_on": "step_1",
+      "query": "{dep_result} beginner routes",
+      "depends_on": 1,
       "purpose": "Query beginner routes for each crag found in step 1"
     },
     {
@@ -86,29 +89,50 @@ Output the execution plan as JSON with a goal field and a steps array.
 Steps in the plan may depend on earlier results (`depends_on`):
 
 ```typescript
-async function executePlan(plan: ExecutionPlan): Promise<string[]> {
-  const results: Map<number, string> = new Map();
+type PlanStep = {
+  step: number;
+  action: 'retrieve' | 'retrieve_conditional' | 'synthesize';
+  query?: string;
+  depends_on?: number;  // step number, same type as the results map key
+  purpose: string;
+};
+
+async function executePlan(plan: ExecutionPlan): Promise<string> {
+  const results = new Map<number, string>();
 
   for (const step of plan.steps) {
-    if (step.depends_on) {
-      // Wait for the dependency result
-      const depResult = results.get(step.depends_on);
-      step.query = step.query.replace('{結果}', depResult ?? '');
-    }
-
-    if (step.action === 'retrieve') {
-      const docs = await hybridSearch(step.query);
-      results.set(step.step, formatDocs(docs));
-    } else if (step.action === 'synthesize') {
+    if (step.action === 'synthesize') {
       // Aggregate all results and generate the final answer
       const allContext = [...results.values()].join('\n\n');
       return generateAnswer(plan.goal, allContext);
     }
+
+    // retrieve and retrieve_conditional share one path; the only difference is
+    // that the latter has a depends_on whose result fills the placeholder first
+    let query = step.query ?? '';
+    if (step.depends_on !== undefined) {
+      const depResult = results.get(step.depends_on);
+      if (depResult === undefined) {
+        throw new Error(`step ${step.step} depends on step ${step.depends_on}, which produced no result`);
+      }
+      query = query.replace('{dep_result}', depResult);
+    }
+
+    const docs = await hybridSearch(query);
+    results.set(step.step, formatDocs(docs));
   }
+
+  throw new Error('plan has no synthesize step');
 }
 ```
 
-Steps without dependencies can run in parallel; steps with dependencies must wait. This design keeps execution close to optimal — independent searches run concurrently.
+Three things here are easy to get wrong, and all three fail silently rather than throwing:
+
+1. **The placeholder string must match what the planner emits.** If the plan says `{dep_result}`, the executor has to replace `{dep_result}`. Mismatch and `replace` is a no-op — the query goes out with an unsubstituted placeholder in it, producing garbage results without raising anything.
+2. **`depends_on` must have the same type as the results map key.** The plan is LLM-generated JSON, so it will happily emit `"step_1"` as a string; `results.get()` then returns `undefined`. Validate and normalize the plan against a schema before executing it.
+3. **`retrieve_conditional` needs to be handled.** Match only on `'retrieve'` and conditional steps get skipped entirely — synthesize ends up short one block of context, while the answer still *looks* fine.
+
+On parallelism: the loop above is sequential. It preserves dependency order, but it also queues up steps that have no dependencies at all. Real parallelism means grouping steps into layers by `depends_on`, running each layer with `Promise.all`, and having the next layer wait on the previous one. That scheduler is code you have to write and maintain, and plans are typically only 2–5 steps — the sequential version is usually good enough. Add the layering when step counts grow enough for the latency to be felt.
 
 ## When to Use It
 
@@ -153,5 +177,5 @@ The tradeoff is an extra LLM call to generate the plan, plus reduced adaptabilit
 
 - [Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models (2023)](https://arxiv.org/abs/2305.04091)
 - [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)
-- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

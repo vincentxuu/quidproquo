@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "RAG 系統的 extractRouteReference() 用 for...return 只抓第一個匹配，使用者給了五條完攀紀錄卻只用到一條。解法從 rule-based 多實體擷取、user profile aggregation 到 embedding centroid，分三層遞進實作。"
 description: "當 RAG 推薦系統遇到多實體查詢，單一錨點擷取造成難度範圍、風格偏好、排除清單三重資訊損失。本文整理 Multi-Entity NER、Query Decomposition、User Profile Aggregation、Plan-and-Execute RAG 等解法，附 20 篇論文參考。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 35
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing-en)
@@ -26,7 +29,7 @@ draft: false
 
 **排除清單不完整** -- 使用者說「沒爬過的」，但 `excludeRouteId` 只排除白虎，其餘四條照樣出現在推薦結果裡。
 
-在 IR 領域，這叫 complex information need。Metzler & Croft (2005) 早就指出多數檢索系統假設查詢是 atomic query，但現實中使用者的查詢經常包含多個實體和隱含偏好。在推薦系統的語境裡，這是 cold-start 問題的變體：使用者主動給了豐富的偏好訊號，系統卻只消費了一小部分。
+在 IR 領域，這叫 complex information need。[Metzler & Croft (2005) 的 Markov Random Field 檢索模型](https://dl.acm.org/doi/10.1145/1076034.1076115)當年就是為了打破「查詢中的詞彼此獨立」這個方便但錯誤的假設；多實體查詢是同一類問題的放大版——不只是詞之間有依賴，是查詢裡塞了好幾個各自完整的實體。在推薦系統的語境裡，這是 cold-start 問題的反面：使用者主動給了豐富的偏好訊號，系統卻只消費了一小部分。
 
 ## 解法一覽
 
@@ -61,7 +64,7 @@ gradeFilter = {
 }
 ```
 
-學術上，Li et al. (2020) 的 FLAT（Flat-Lattice Transformer）在中文 NER 拿了 SOTA，能處理同一句子中多個重疊實體。Yan et al. (2021) 把 NER 轉成閱讀理解任務，天然支援多實體擷取。業界的話，Amazon Alexa 的 Multi-slot NER、Rasa NLU 的 CRF + Transformer pipeline 都在做一樣的事。
+學術上，Li et al. (2020) 的 FLAT（Flat-Lattice Transformer）用 lattice 結構同時吃字與詞，發表當時在中文 NER 上是 SOTA（現在早被後續模型推進了，但架構思路仍有參考價值）。Yan et al. (2021) 則把 flat / nested / discontinuous 三種 NER 子任務統一成一個 seq2seq 生成問題，一次把所有實體「生成」出來，天然支援多實體擷取。業界的對應物是各家 NLU 工具的聯合意圖＋實體模型，例如 Rasa 的 [DIET（Dual Intent and Entity Transformer）與 CRF entity extractor](https://rasa.com/docs/reference/primitives/intents-and-entities/)。
 
 ### Query Decomposition
 
@@ -71,7 +74,7 @@ gradeFilter = {
 2. **Exclusion Sub-query**：排除上述五條 → 建立排除清單
 3. **Recommendation Sub-query**：以 profile 為基礎 → 執行推薦檢索
 
-相關框架不少。Self-Ask (Press et al., 2023) 讓 LLM 自問自答，把複雜問題拆成可獨立回答的子問題。IRCoT (Trivedi et al., 2023) 更進一步，交錯執行 Chain-of-Thought 推理和資訊檢索，每步推理產生新的檢索需求。業界常見的 LangChain Multi-Query Retriever 和 LlamaIndex Sub-Question Query Engine 也是同一個思路。
+相關框架不少。Self-Ask (Press et al., 2023) 讓 LLM 自問自答，把複雜問題拆成可獨立回答的子問題。IRCoT (Trivedi et al., 2023) 更進一步，交錯執行 Chain-of-Thought 推理和資訊檢索，每步推理產生新的檢索需求。業界常見的 LangChain Multi-Query Retriever 和 [LlamaIndex Sub-Question Query Engine](https://developers.llamaindex.ai/python/examples/query_engine/sub_question_query_engine/) 也是同一個思路。要注意 LangChain 1.0 之後這些既有 retriever 被移到 `langchain-classic` 套件（[SelfQueryRetriever 現在的 API 文件在此](https://reference.langchain.com/python/langchain-classic/retrievers/self_query/base/SelfQueryRetriever)），照舊版教學的 import 路徑會直接 ImportError。
 
 ### User Profile Aggregation
 
@@ -159,7 +162,7 @@ Query Decomposition 方面，Ma et al. (2023) 的 Query Rewriting 和 Shao et al
 
 **P2（中期）：Embedding Centroid**
 
-如果多條路線都有 embedding，計算 centroid vector 作為查詢向量。搜尋結果再經過 re-ranking：排除已提及路線、難度適當性加權、多樣性加權。前提是 Cloudflare Vectorize API 支援自訂查詢向量。
+如果多條路線都有 embedding，計算 centroid vector 作為查詢向量。搜尋結果再經過 re-ranking：排除已提及路線、難度適當性加權、多樣性加權。Vectorize 的 `query()` 本來就是吃一個任意向量，這點不是問題；真正的前提在 metadata 那邊（見下）。
 
 與現有架構的整合點：
 
@@ -170,6 +173,12 @@ GraphState      → excludeRouteIds: string[]
 filter-build.ts → 處理多 crag（$in 而非 $eq）
 vector search   → post-filter 排除多條路線（$nin 而非 $ne）
 ```
+
+這裡有三個 Vectorize 的硬限制值得先寫在便利貼上，[官方 metadata filtering 文件](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/)講得很清楚：
+
+1. **metadata index 必須在寫入向量之前建好**（`wrangler vectorize create-metadata-index`），而且一個 index 最多 10 個 metadata index。事後才想到要 filter 某個欄位，等於要重灌整包向量。
+2. **string 型 metadata 只索引前 64 bytes**，超過的部分無法參與過濾。中文一個字 3 bytes，長路線名或岩場全名很容易撞到。
+3. **範圍查詢（`$gt`/`$gte`/`$lt`/`$lte`）只能上下界互相搭配**，不能跟同一個 key 上的 `$in` 混用。所以「難度取 union range」和「crag 用 `$in`」必須落在不同欄位上，這剛好符合我們的設計，但別想在 grade 上同時做 range 和白名單。
 
 ## 整體來說
 

@@ -8,6 +8,9 @@ lang: en
 tldr: "Rolling your own traces is good enough, but open-source tools save you a lot of work. Langfuse, Phoenix, and LangSmith each have their niche — the right choice depends on your trade-offs around self-hosting, open source, and integration complexity."
 description: "A 2026 comparison of RAG observability tools: Langfuse, Phoenix (Arize), LangSmith, and Helicone — their strengths, weaknesses, and how to choose."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 40
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-observability-tools)
@@ -16,206 +19,200 @@ The observability requirements for RAG systems are clear: trace the execution of
 
 You can build it yourself (the previous post covered pipeline trace design), or use existing tools. The upside of tools is out-of-the-box UI, built-in evaluation features, and team collaboration support; the cost is one more external dependency.
 
-The mainstream choices in 2026:
+> **This post deliberately has no feature matrix.** This space turns over every quarter. When this post was first drafted, Phoenix's headline feature was UMAP visualization of embeddings — that entire surface has since been removed. Langfuse's JS SDK moved from a bespoke client to an OpenTelemetry foundation, and the old code simply doesn't run. Helicone changed the integration path it recommends. Any feature matrix or pricing tier hardcoded into an article is stale by the time you read it. So what follows is **the dimensions to choose on** plus each tool's trade-offs and traps; for feature lists and pricing, go to the official pages.
+
+## First, Decide What You're Choosing On
+
+Before comparing tools, answer four questions — the answers cut the field in half:
+
+1. **Can the data leave your infrastructure?** If compliance or a customer contract says no, self-hostability is a hard requirement and every pure-SaaS option is out.
+2. **How deep are you willing to be locked in?** Instrument with a vendor's own SDK and switching means re-instrumenting; instrument against OpenTelemetry's GenAI semantic conventions and switching is, in principle, an exporter change. Every mainstream platform now ingests OTLP, so this choice is far cheaper than it was two years ago.
+3. **Do you need to see "LLM calls" or "the whole RAG pipeline"?** If you only want spend and token counts, a proxy-layer tool is a one-line change. If you want to know why this particular retrieval returned three documents, you have to emit retrieval spans from your own code — there is no shortcut.
+4. **Where does evaluation run?** Some teams want online sampling plus LLM-as-Judge scores written back onto traces; others only need offline dataset runs comparing two versions. Maturity on these two differs a lot between tools.
+
+Each tool below is described along those four dimensions.
 
 ## Langfuse
 
-**Positioning**: An open-source Observability platform for LLM applications — the most popular self-hosted option.
+**Positioning**: An open-source Observability platform for LLM applications — the most popular self-hosted option. [Acquired by ClickHouse](https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability) in January 2026; the announcement commits to keeping it open source and self-hostable.
 
-**Core Features**:
-- Trace view: complete LLM call trees (inputs, outputs, latency, token counts)
-- Session management: link multi-turn conversations into a single session
-- Evaluation framework: custom scorers with LLM-as-Judge integration
-- Dataset management: collect real queries for regression testing
-- Prompt management: versioned prompts with tracking of which prompt version performs best
+**Core features**: trace views, sessions, an evaluation framework (human annotation + LLM-as-Judge), dataset management, and prompt versioning. Details are in the [official docs](https://langfuse.com/docs); what follows is only the part that affects your choice.
 
-**SDK Integration**:
+**SDK integration**:
+
+> **The JS/TS SDK was replaced wholesale.** The old `new Langfuse({...})` followed by `langfuse.trace()` / `trace.span()` was the v2/v3 API. The current JS/TS SDK is v5 and is built on OpenTelemetry: you instrument with `startObservation` / `startActiveObservation` from `@langfuse/tracing`, and you export via `LangfuseSpanProcessor` from `@langfuse/otel` wired into the OTel SDK. The code in this post's original draft does not run on current versions.
 
 ```typescript
-import Langfuse from "langfuse";
+// 1. Initialize once per process
+import { NodeSDK } from "@opentelemetry/sdk-node";
+import { LangfuseSpanProcessor } from "@langfuse/otel";
 
-const langfuse = new Langfuse({
-  secretKey: process.env.LANGFUSE_SECRET_KEY,
-  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
-  baseUrl: "https://cloud.langfuse.com", // or self-hosted
+const sdk = new NodeSDK({
+  spanProcessors: [new LangfuseSpanProcessor()],
 });
-
-// Record a trace in the RAG pipeline
-const trace = langfuse.trace({
-  name: "rag-query",
-  input: { query },
-  userId: userId,
-});
-
-const retrievalSpan = trace.span({
-  name: "hybrid-search",
-  input: { filter, topK },
-});
-
-// ... search execution ...
-
-retrievalSpan.end({
-  output: { candidateCount: results.length },
-  metadata: { cragTriggered: false },
-});
-
-const generationSpan = trace.span({
-  name: "llm-generation",
-  input: { messages },
-});
-
-// ... generation execution ...
-
-generationSpan.end({
-  output: { response: answer },
-  usage: { promptTokens, completionTokens },
-});
-
-trace.update({ output: { answer, sources } });
-await langfuse.flushAsync();
+sdk.start();
 ```
 
-**Strengths**:
-- Open source and self-hostable (EU data compliance)
-- Comprehensive evaluation features (human annotation + LLM judge)
-- Prompt version management is the most complete among similar tools
+```typescript
+// 2. Instrument the RAG pipeline
+import {
+  startActiveObservation,
+  startObservation,
+  updateActiveTrace,
+} from "@langfuse/tracing";
 
-**Weaknesses**:
-- Self-hosting has maintenance overhead (requires PostgreSQL + Redis)
-- Dashboard customization flexibility is limited
+await startActiveObservation("rag-query", async (root) => {
+  root.update({ input: { query } });
+  updateActiveTrace({ name: "rag-query", userId });
 
-**Best for**: Teams that need data to stay on their own infrastructure and value prompt version management.
+  const retrieval = startObservation(
+    "hybrid-search",
+    { input: { filter, topK } },
+    { asType: "retriever" },
+  );
+  const results = await hybridSearch(query, filter, topK);
+  retrieval.update({
+    output: results,
+    metadata: { cragTriggered: false },
+  });
+  retrieval.end();
+
+  const generation = startObservation(
+    "llm-generation",
+    { input: messages },
+    { asType: "generation" },
+  );
+  const answer = await generate(messages);
+  generation.update({ output: answer });
+  generation.end();
+
+  root.update({ output: { answer, sources } });
+});
+```
+
+`asType: "retriever"` matters: once a retrieval step is typed as a retriever, the UI renders it in a layout built for "query → retrieved documents" rather than as a generic span. Zero-result retrievals and ranking anomalies become visible at a glance.
+
+**Trade-offs**:
+- Self-hosting is a first-class path, but **the dependencies go well beyond PostgreSQL**: a current deployment needs at minimum a web container, a worker container, PostgreSQL, Redis/Valkey, ClickHouse, and S3 or S3-compatible blob storage. That is heavier than the "just run docker compose" many people expect — check the [official infrastructure requirements](https://langfuse.com/self-hosting/configuration/scaling) before you commit.
+- The license is a hybrid: MIT for the core, with the `ee/` directories under a separate commercial license. If you're self-hosting and care about license scope, read it first.
+- SDK and server versions have a compatibility matrix (JS/TS SDK v5 requires a server at or above a certain version), so self-hosters should check before upgrading.
+- Prompt version management is still the most complete of this group.
+
+**Best for**: teams that need data to stay on their own infrastructure, value prompt versioning, and are willing to operate a multi-component deployment.
 
 ---
 
 ## Phoenix (Arize AI)
 
-**Positioning**: Open-source AI Observability with a strong emphasis on evaluation and dataset curation.
+**Positioning**: Arize's open distribution for AI observability, focused on tracing, evaluation, and datasets/experiments.
 
-**Core Features**:
-- Trace view (similar to Langfuse)
-- Built-in RAG evaluation metrics: Hallucination, QA Correctness, Relevance
-- Embedding visualization: project embeddings onto 2D with UMAP to inspect cluster structure
-- Experiment framework: A/B comparison of different pipeline configurations
+> **The reason this post originally recommended it no longer holds.** The draft called UMAP visualization of embeddings Phoenix's unique selling point; that whole surface — model inferences, dimensions, embeddings, the pointcloud UI, and their APIs — was [removed in early 2026](https://github.com/Arize-ai/phoenix/pull/11589), and the UI no longer has `/model`, `/dimensions`, or `/embeddings` routes. If you came for embedding cluster analysis, Phoenix no longer provides it; that capability lives in Arize's commercial product.
 
-**Most Unique Feature**: **Embedding Visualization**
+> **It is also not Apache 2.0.** `arize-phoenix` is licensed under the **Elastic License 2.0** — source-available, not OSI open source. You can self-host and read the source, but you cannot turn it into a competing hosted service. The original "fully open source (Apache 2.0)" claim was wrong.
 
-```python
-import phoenix as px
+**What it is actually good at now**:
+- OpenTelemetry-native: instrument via OpenInference conventions, with the smoothest auto-instrumentation for frameworks like LlamaIndex and LangChain
+- Built-in RAG evaluators (hallucination, QA correctness, relevance) and an experiment framework, which makes "change one parameter, rerun the dataset, compare scores" a routine action
+- Runs entirely locally, so you don't need an account to start
 
-# Project query embeddings onto 2D to visualize query distribution
-px.launch_app(trace_dataset)
-```
+**Trade-offs**:
+- Primarily a Python ecosystem; the TypeScript surface is thinner
+- Weaker prompt management
+- License restrictions as above
 
-You can see which queries cluster together in vector space and which are isolated (possibly due to poor embedding quality or the database lacking relevant content). This visualization is very helpful for discovering systematic blind spots in RAG systems.
-
-**Strengths**:
-- Fully open source (Apache 2.0)
-- Embedding visualization is a unique selling point
-- Best integration with LlamaIndex and LangChain
-
-**Weaknesses**:
-- Primarily a Python ecosystem — TypeScript SDK has fewer features
-- Weaker prompt management compared to Langfuse
-
-**Best for**: Python tech stacks and scenarios requiring deep embedding quality analysis.
+**Best for**: Python stacks that want OTel/OpenInference instrumentation and treat evaluation and experiments as the main job.
 
 ---
 
 ## LangSmith
 
-**Positioning**: LangChain's official Observability platform, deeply integrated with LangChain / LangGraph.
+**Positioning**: LangChain's official observability platform, deeply integrated with LangChain / LangGraph.
 
-**Core Features**:
-- Automatic tracing (nearly zero configuration when using LangChain)
-- Playground: debug prompts directly in the UI
-- Annotation Queue: human labeling queue suitable for small teams doing human eval
-- Dataset + Evaluation: systematic regression testing framework
+> **The docs moved and the environment variables were renamed.** LangSmith docs now live at `docs.langchain.com/langsmith` (the old `docs.smith.langchain.com` redirects). The tracing variables are `LANGSMITH_TRACING` / `LANGSMITH_API_KEY`; the older `LANGCHAIN_TRACING_V2` / `LANGCHAIN_API_KEY` still work, but current docs use the new names throughout.
 
 **Integration**:
 
-```typescript
-// If using LangChain, just set environment variables
-process.env.LANGCHAIN_TRACING_V2 = "true";
-process.env.LANGCHAIN_API_KEY = "...";
-
-// All LangChain calls are automatically traced — no additional code needed
-const chain = new RetrievalQAChain({ ... });
-await chain.call({ query });
+```bash
+export LANGSMITH_TRACING=true
+export LANGSMITH_API_KEY="<your-langsmith-api-key>"
 ```
 
-**Strengths**:
-- Simplest setup when using LangChain
-- Complete dataset management and evaluation framework
-- Playground is convenient for prompt engineering
+On LangChain / LangGraph that's all you need — traces appear with no code changes. Off LangChain it still works, via the `@traceable` decorator and provider wrappers:
 
-**Weaknesses**:
-- Closed source — data lives on LangChain's servers
-- Integration complexity increases if you're not using LangChain
-- Relatively expensive (enterprise tier)
+```python
+from langsmith import traceable
+from langsmith.wrappers import wrap_openai
+import openai
 
-**Best for**: Teams on the LangChain tech stack that need a comprehensive evaluation framework.
+client = wrap_openai(openai.Client())
+
+@traceable(run_type="retriever", name="hybrid-search")
+def retrieve(query: str):
+    return hybrid_search(query)
+
+@traceable
+def rag_pipeline(query: str):
+    context = retrieve(query)
+    return client.chat.completions.create(...)
+```
+
+(The original `new RetrievalQAChain({...})` example has been dropped: that's an old LangChain JS class, the current guidance is LCEL / `createRetrievalChain`, and copying the old form gets you a missing export.)
+
+**Trade-offs**:
+- Lowest setup cost on the LangChain stack; the Playground and annotation queue are genuinely convenient for prompt iteration and human labeling
+- Closed source, data on LangChain's servers (self-hosting exists but sits under enterprise contracts)
+- Pricing tiers change, so no numbers here — check the [official pricing page](https://www.langchain.com/pricing), and note that billing is typically per trace/span rather than per seat, so a heavy RAG pipeline can emit a dozen-plus spans per query
+
+**Best for**: LangChain-stack teams that need a complete evaluation framework and human labeling workflow.
 
 ---
 
 ## Helicone
 
-**Positioning**: Proxy-layer observability for LLM APIs — the most lightweight option.
+**Positioning**: Observability at the LLM API layer — the lightest option.
 
-**Core Features**:
-- Acts as a proxy for LLM APIs, automatically capturing all calls
-- Cost tracking (by model, user, time period)
-- Rate limiting and caching (at the proxy layer)
-- Request replay
-
-**Integration**:
+> **The integration path changed.** The original draft pointed `baseURL` at `https://oai.helicone.ai/v1` with a `Helicone-Auth` header; the docs now file that under "Legacy Integrations." The current recommendation is the AI Gateway:
 
 ```typescript
-// Just change the baseURL — no other code changes needed
-const openai = new OpenAI({
-  baseURL: "https://oai.helicone.ai/v1",
-  defaultHeaders: {
-    "Helicone-Auth": `Bearer ${process.env.HELICONE_API_KEY}`,
-  },
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://ai-gateway.helicone.ai",
+  apiKey: process.env.HELICONE_API_KEY,
+});
+
+const response = await client.chat.completions.create({
+  model: "gpt-4o-mini", // change the model string to change provider
+  messages: [{ role: "user", content: "…" }],
 });
 ```
 
-**Strengths**:
-- Lowest integration cost (change one baseURL line)
-- Most detailed cost analysis among similar tools
-- Supports OpenAI, Anthropic, Gemini, and self-hosted models
+**Trade-offs**:
+- Lowest integration cost (one baseURL line), and the most detailed cost analysis of this group
+- But it cannot see the RAG layer: it knows how many LLM calls you made, not how many documents retrieval returned or what the reranker discarded. **Choosing it means giving up pipeline traces**
+- Routing through a gateway hands off the path your LLM traffic takes, adding an availability dependency — the biggest architectural difference from pure-SDK tools
 
-**Weaknesses**:
-- Cannot see RAG-level traces (only LLM calls — no visibility into preceding search steps)
-- Basic evaluation features
-- Data lives on Helicone's servers
-
-**Best for**: Scenarios that only need LLM cost monitoring and basic usage metrics without deep RAG tracing.
+**Best for**: cases where you only need LLM cost and basic usage monitoring and don't need deep RAG traces.
 
 ---
 
-## Comparison Summary
+## Also on the List
 
-| | Langfuse | Phoenix | LangSmith | Helicone |
-|---|---------|---------|----------|---------|
-| Open Source | ✅ | ✅ | ❌ | ❌ |
-| Self-Hosted | ✅ | ✅ | ❌ | ❌ |
-| RAG Trace Depth | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐ |
-| Embedding Visualization | ❌ | ✅ | ❌ | ❌ |
-| Prompt Management | ⭐⭐⭐ | ⭐ | ⭐⭐ | ❌ |
-| Evaluation Framework | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐ |
-| TypeScript SDK | ✅ | 🟡 | ✅ | ✅ |
-| Integration Complexity | Medium | Medium | Low (LangChain) / High (other) | Lowest |
+Not covered in depth, but worth evaluating alongside: **Braintrust** (evaluation- and dataset-oriented), **W&B Weave** (integrates with existing W&B experiment tracking), and **[OpenLLMetry](https://github.com/traceloop/openllmetry)** (a set of OpenTelemetry instrumentations rather than a backend — point it at anything that ingests OTLP).
+
+If you haven't decided, instrumenting against OpenTelemetry's [GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai) is the least regrettable move: nearly every platform above ingests OTLP, so switching backends lands in configuration rather than a rewrite.
 
 ## How to Choose
 
-**Self-hosted + full features** → Langfuse. Currently the most mature open-source option with a comprehensive evaluation framework; prompt version management is a bonus.
+**Data can't leave your own infrastructure** → Langfuse. Self-hosting is a first-class path and the feature set is the most complete; the cost is someone has to operate that multi-component deployment.
 
-**Need embedding visualization** → Phoenix. Embedding cluster analysis is a unique capability no other tool offers.
+**Python stack, evaluation and experiments are the point** → Phoenix. OTel-native with the smoothest auto-instrumentation for LlamaIndex/LangChain; note the Elastic 2.0 license, and that embedding visualization is gone.
 
-**On the LangChain tech stack** → LangSmith. Zero setup cost, and Playground makes prompt iteration convenient.
+**Using LangChain / LangGraph** → LangSmith. Lowest setup cost, and the annotation queue suits human labeling; closed source and billed per trace, so do the math at volume.
 
-**Only need cost monitoring, don't want to change code** → Helicone. Change one baseURL line and you immediately get cost reports.
+**Only need cost monitoring, don't want to change code** → Helicone. One baseURL line gets you cost reports, at the price of total blindness to the RAG layer.
+
+**Haven't decided** → instrument against OpenTelemetry GenAI semantic conventions now and pick a backend later.
 
 **Roll your own traces** → Best for scenarios with special requirements or where you want full control over trace data structures. The cost is maintaining your own UI and query interface, but you get complete customization.
 
@@ -227,10 +224,15 @@ NobodyClimb's system went with custom traces, mainly because it's deployed on Cl
 
 - [Langfuse Documentation](https://langfuse.com/docs)
 - [Langfuse GitHub Repository](https://github.com/langfuse/langfuse)
-- [Phoenix (Arize AI) Documentation](https://docs.arize.com/phoenix)
+- [Langfuse self-hosting infrastructure requirements](https://langfuse.com/self-hosting/configuration/scaling)
+- [ClickHouse announces the Langfuse acquisition (Jan 2026)](https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability)
+- [Phoenix (Arize AI) Documentation](https://arize.com/docs/phoenix)
 - [Phoenix GitHub Repository](https://github.com/Arize-ai/phoenix)
-- [LangSmith Documentation](https://docs.smith.langchain.com/)
-- [Helicone Documentation](https://docs.helicone.ai/)
+- [The PR removing inferences / embeddings / pointcloud UI from Phoenix](https://github.com/Arize-ai/phoenix/pull/11589)
+- [LangSmith Documentation](https://docs.langchain.com/langsmith/observability)
+- [LangSmith Tracing Quickstart](https://docs.langchain.com/langsmith/observability-quickstart)
+- [Helicone Quickstart (AI Gateway)](https://docs.helicone.ai/getting-started/quick-start)
 - [OpenLLMetry - OpenTelemetry for LLMs (GitHub)](https://github.com/traceloop/openllmetry)
+- [OpenTelemetry GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

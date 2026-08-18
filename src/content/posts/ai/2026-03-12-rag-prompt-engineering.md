@@ -8,7 +8,12 @@ lang: zh-TW
 tldr: "搜尋找到了正確的文件，但 LLM 的回答還是不好——很多時候問題在 Prompt 設計。System prompt 結構、context 排版、指令語言都會影響輸出品質。"
 description: "RAG 系統的 Prompt Engineering：System prompt 的結構設計、context 的排版方式、如何用指令引導 LLM 的行為，以及常見的 prompt 問題和修法。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 29
 ---
+
+> 🌏 [English version](/posts/ai/2026-03-12-rag-prompt-engineering-en)
 
 RAG 的搜尋做好了，context 準確了，但 LLM 的回答還是差強人意。這時候問題通常在 Prompt 設計——怎麼把 context 和指令組合在一起，讓 LLM 知道怎麼回答。
 
@@ -109,6 +114,8 @@ LLM 會傾向更多引用「相關度：高」的文件，降低低品質 contex
 
 重要的「不要幻覺」指令在開頭和結尾都有，不容易被中間的長 context 稀釋。
 
+位置偏差的強度隨模型和 context 長度而異，各家模型差很多，要在自己用的模型上量過才知道還剩多少。但把重要指令放頭尾的成本幾乎是零，當成便宜的保險就好。
+
 ## 思維鏈（Chain-of-Thought）
 
 對複雜查詢加入 CoT 指令，讓 LLM 展示推理過程：
@@ -122,7 +129,11 @@ LLM 會傾向更多引用「相關度：高」的文件，降低低品質 contex
 然後給出最終回答。
 ```
 
-CoT 讓 LLM 的推理更有條理，特別是需要比較多個選項或做出推薦時。對 8B 以下的小模型效果更明顯。
+CoT 讓 LLM 的推理更有條理，特別是需要比較多個選項或做出推薦時。
+
+但有兩個前提。第一，**CoT 的效益跟模型規模正相關，不是反相關**。原始論文的結論是這種推理能力「在足夠大的模型上才自然浮現」；小模型被要求逐步推理時，常常寫出通順但不成立的推理鏈，反而把答案帶偏。所以不要預設「模型小所以更需要 CoT」。第二，對已經內建推理的 reasoning 型模型，官方建議是**不要**再叫它「一步一步想」——推理已經在模型內部發生，額外的 CoT 指令沒有幫助，有時還會變差。
+
+結論是 CoT 值得放進 A/B 測試，但不該當成預設開啟的最佳實踐。
 
 ## 常見問題和修法
 
@@ -208,5 +219,6 @@ Prompt Engineering 在 RAG 系統裡的地位被低估了。搜尋做得再好�
 - [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (2022)](https://arxiv.org/abs/2201.11903)
 - [Lost in the Middle: How Language Models Use Long Contexts (2023)](https://arxiv.org/abs/2307.03172)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [OpenAI - Reasoning best practices（reasoning 模型不需要 CoT 指令）](https://platform.openai.com/docs/guides/reasoning-best-practices)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

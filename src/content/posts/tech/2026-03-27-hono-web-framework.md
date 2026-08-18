@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Hono 是專為 Cloudflare Workers、Deno、Bun 等 edge runtime 設計的 Web framework，比 Express 輕一個數量級，原生支援 Web Standard API，是 edge 環境下的首選。"
 description: "介紹 Hono 這個輕量 Web framework：為什麼它在 edge runtime 上比 Express 更合適、核心設計、程式碼範例，以及你什麼時候應該選它、什麼時候不應該。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 5
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-hono-web-framework-en)
@@ -24,7 +27,7 @@ Hono 是一個超輕量的 Web framework，設計目標是在任何 JavaScript r
 - Node.js（也支援，但不是主戰場）
 - AWS Lambda
 
-整個 core 大概 14KB，沒有任何 Node.js API 依賴，完全用 Web Standard API 寫（`Request`、`Response`、`URL`）。
+官方標的數字是 **`hono/tiny` preset minify 後小於 14 kB**（不是整包 Hono——middleware 與 adapter 只有用到才會被打包進去）。零依賴，完全用 Web Standard API 寫（`Request`、`Response`、`URL`）。
 
 NobodyClimb 的後端就是用 Hono，部署在 Cloudflare Workers 上。選它的原因很直接：沒有別的 framework 在 Cloudflare Workers 上有同樣的 DX 和完整度。
 
@@ -33,7 +36,7 @@ NobodyClimb 的後端就是用 Hono，部署在 Cloudflare Workers 上。選它�
 Express 的問題不是 API 設計不好，而是它預設 Node.js 存在：
 
 - `req.socket`、`res.end()`、`Buffer` 都是 Node.js-only API
-- Bundle size 在 Workers 的 1MB 限制裡佔比高
+- Bundle size 吃掉 Workers 的 [script 大小上限](https://developers.cloudflare.com/workers/platform/limits/) 一大塊（免費與付費方案的上限不同，都是壓縮後計算）
 - 沒有原生的 async/await middleware 支援，錯誤處理容易漏
 
 在 Cloudflare Workers 環境下，你需要：
@@ -157,11 +160,12 @@ Routes 只管 OpenAPI 描述和 request validation，services 放業務邏輯，
 
 Hono 很輕，但輕意味著你要自己組裝更多東西。Express 的生態有十幾年的 middleware 積累，很多需求有現成解法；Hono 的生態還在成長，遇到邊緣需求可能要自己寫。
 
-另一個要注意的是：Workers 環境有很多限制（沒有檔案系統、沒有 TCP socket 直接存取、執行時間限制）。這些不是 Hono 的問題，是 Workers 的限制——但選了 Hono 通常意味著你也選了 Workers，所以要一起考慮。
+另一個要注意的是：Workers 環境有很多限制（沒有檔案系統、沒有 TCP socket 直接存取、CPU 時間與記憶體上限）。這些不是 Hono 的問題，是 [Workers 的限制](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)——但選了 Hono 通常意味著你也選了 Workers，所以要一起考慮。
 
 ## 參考資料
 
 - [Hono 官方文件](https://hono.dev/)
+- [Hono 首頁的體積與 benchmark 數據](https://hono.dev/docs/) — 14 kB 是 `hono/tiny` preset 的數字
 - [Cloudflare Workers 官方文件](https://developers.cloudflare.com/workers/)
 - [hono-openapi](https://github.com/rhinobase/hono-openapi)
 - [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture) — Hono 在實際 Cloudflare-first 專案的應用

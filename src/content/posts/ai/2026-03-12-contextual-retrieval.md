@@ -5,9 +5,12 @@ type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
 lang: zh-TW
-tldr: "文件切塊後，每個 chunk 失去了它在原文件中的上下文。Contextual Retrieval 在索引時為每個 chunk 注入文件級別摘要，解決 chunk 孤島問題。"
-description: "Contextual Retrieval 的設計：chunk 孤島問題、文件級別上下文注入、索引時的處理流程，以及對搜尋品質的影響。"
+tldr: "文件切塊後，每個 chunk 失去了它在原文件中的上下文。Contextual Retrieval 在索引時，用整份文件為每個 chunk 各自生成一段上下文再前綴進去，解決 chunk 孤島問題。"
+description: "Contextual Retrieval 的設計：chunk 孤島問題、逐 chunk 上下文生成、索引時的處理流程，以及對搜尋品質的影響。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 6
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-contextual-retrieval-en)
@@ -22,20 +25,45 @@ RAG 系統的索引通常是把長文件切成小段（chunk），分別 embeddi
 
 如果只存第二段的 chunk：「此路線關鍵動作在第三個保護點之後，需要平衡動作配合腳法」，脫離了上下文之後，這個 chunk 完全不知道在說哪條路線、哪個岩場、什麼難度。搜尋時命中這個 chunk，LLM 拿到的 context 缺乏關鍵資訊。
 
-Contextual Retrieval（由 Anthropic 提出）的解法：**在索引時為每個 chunk 注入文件級別的上下文摘要**。
+Contextual Retrieval（Anthropic 於 2024 年 9 月提出）的解法：**在索引時，為每個 chunk 補上一段「這段在整份文件裡的位置與背景」的文字，再送去 embedding**。
+
+這裡要先把一件事講清楚，因為很多二手介紹（包括本文最初的版本）都搞混了：
+
+- **Anthropic 原版做法是「逐 chunk 生成上下文」**——把整份文件連同該 chunk 一起餵給 LLM，請它為「這一個 chunk」寫一段簡短的定位說明。每個 chunk 拿到的上下文都不一樣。
+- **「生成一段文件摘要、貼在所有 chunk 前面」是它的簡化版**，成本低很多（每份文件一次 LLM 呼叫，而不是每個 chunk 一次），但效果不等同原版，Anthropic 公布的數字**不適用**於這個簡化版。
+
+下面兩種都會介紹，但請不要把簡化版的效果直接對齊官方數字。
 
 ## 設計
 
 索引流程不只是 chunk → embedding，而是：
 
+原版（逐 chunk 上下文）：
+
 ```text
 Document
     ↓
-[Document Summary]  ← LLM 生成 2-3 句摘要
+[Chunk Splitting]        ← 先切成小段
     ↓
-[Chunk Splitting]   ← 切成小段
+對每個 chunk：
+  LLM(整份文件 + 這個 chunk) → 該 chunk 專屬的上下文說明
+  contextualized = "{chunk_context}\n\n{chunk_content}"
     ↓
-每個 chunk 注入 summary：
+[Embedding] +（建議同時建）[BM25 索引]
+    ↓
+[Vector Store]
+```
+
+簡化版（單一文件摘要重複注入）：
+
+```text
+Document
+    ↓
+[Document Summary]  ← LLM 生成 2-3 句摘要（每份文件只呼叫一次）
+    ↓
+[Chunk Splitting]
+    ↓
+每個 chunk 注入同一段 summary：
   context = "[文件摘要：{summary}]\n\n{chunk_content}"
     ↓
 [Embedding]
@@ -43,11 +71,29 @@ Document
 [Vector Store]
 ```
 
+原版的重點是「每個 chunk 的上下文都是為它量身生成的」；簡化版則是用一段共用摘要換取成本。文件內主題單一（例如一條路線一份文件）時，兩者差距不大；文件內容跨度大時，原版明顯較好。
+
 搜尋時命中的是帶有文件上下文的 chunk，LLM 就算只看到一個小段落，也能知道這段來自哪裡、說的是什麼背景下的事。
 
 ## Prompt 設計
 
-文件摘要生成：
+Anthropic 公布的原版 prompt（逐 chunk 生成，原文為英文，以下為對照翻譯）：
+
+```text
+<document>
+{{WHOLE_DOCUMENT}}
+</document>
+這是我們想在整份文件中定位的片段：
+<chunk>
+{{CHUNK_CONTENT}}
+</chunk>
+請給出一段簡短扼要的上下文，說明這個片段在整份文件中的位置與背景，
+目的是提升這個片段被檢索到的機率。只回答這段上下文，不要有其他內容。
+```
+
+關鍵細節是最後一句「只回答這段上下文」——沒有這句，模型很容易回一段「這個片段描述了……」的贅述，把噪音也 embed 進去。
+
+簡化版（本站攀岩場景實際採用）的文件摘要 prompt：
 
 ```text
 請為以下攀岩內容生成 2-3 句精簡摘要，包含最重要的資訊（岩場、難度、類型等）。
@@ -98,19 +144,34 @@ async function indexDocument(doc: Document, env: Env, ctx: ExecutionContext) {
 
 ## 效果
 
-Anthropic 的研究顯示，Contextual Retrieval 把 chunk 搜尋的 top-20 recall 提升了 49%（配合 BM25），在某些測試集上甚至達到 67%。
+先更正一個到處被轉錄錯的數字：Anthropic 公布的是**「top-20 chunk 檢索失敗率的相對下降幅度」**，不是 recall 提升幅度。原文的三組數字是：
+
+| 做法 | top-20 檢索失敗率 | 相對降幅 |
+|---|---|---|
+| 基準（一般 embedding） | 5.7% | — |
+| Contextual Embeddings | 3.7% | 35% |
+| Contextual Embeddings + Contextual BM25 | 2.9% | 49% |
+| 上述再加 Reranking | 1.9% | 67% |
+
+所以「49%」需要搭配 BM25 混合檢索才成立，「67%」需要再加上 Reranker，兩者都不是單靠注入上下文就能拿到。而且這是 Anthropic 自己的評測集（以程式碼庫為主），換個語料結果不一定相同。
+
+另外，2025 年有一篇比較研究（arXiv:2504.19754）把 Contextual Retrieval 和 Jina 的 Late Chunking 放在一起測，結論是：Contextual Retrieval 保留語義連貫性的效果較好，但運算成本較高；Late Chunking 效率高很多，但在相關性與完整性上有所犧牲。如果索引成本是硬限制，Late Chunking（用長上下文 embedding 模型先編碼全文、再切 chunk 做 pooling）值得評估。
 
 在攀岩這個場景，效益特別明顯：許多路線資訊的 chunk 本身很短（「第三段的技術關鍵是...」），脫離上下文幾乎沒有意義。注入岩場名稱、難度、類型之後，同樣的 chunk 搜尋相關性大幅提升。
 
 ## 成本考量
 
-每個文件需要一次額外的 LLM 呼叫（生成摘要）。如果文件庫很大，索引成本會上升。幾個緩解方式：
+原版是**每個 chunk** 一次 LLM 呼叫，簡化版是**每份文件**一次。前者的成本高一個量級，這也是簡化版存在的理由。
 
-1. **增量索引**：只對新增/修改的文件重新生成摘要
+Anthropic 指出，原版之所以在成本上可行，關鍵是 **prompt caching**：每個 chunk 的 prompt 都包含整份文件，但整份文件那段是共用前綴，可以被快取，不必每次重算。實作原版時務必啟用，否則帳單會非常難看（具體單價會變動，以官方定價頁為準）。
+
+其他緩解方式：
+
+1. **增量索引**：只對新增/修改的文件重新生成上下文
 2. **批次處理**：夜間離峰時段批次更新
-3. **摘要快取**：文件沒變的話，摘要可以重用
+3. **快取**：文件沒變的話，既有的上下文可以重用
 
-對搜尋品質的顯著提升，這個索引成本是值得的。
+對搜尋品質的提升幅度，這個索引成本通常是值得的——但請用自己的語料量測，不要直接引用別人的數字。
 
 ## 整體來說
 
@@ -120,10 +181,13 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 
 ## 參考資料
 
-- [Contextual Retrieval — Anthropic](https://www.anthropic.com/news/contextual-retrieval)
-- [Introducing Contextual Retrieval（Anthropic Engineering）](https://www.anthropic.com/engineering/contextual-retrieval)
-- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks（arXiv）](https://arxiv.org/abs/2501.07863)
-- [Full text queries（Elasticsearch / BM25 hybrid search）](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html)
+- [Introducing Contextual Retrieval（Anthropic Engineering，2024-09）](https://www.anthropic.com/engineering/contextual-retrieval)
+- [Contextual Retrieval — Anthropic News](https://www.anthropic.com/news/contextual-retrieval)
+- [Anthropic Cookbook — Contextual Embeddings 實作 notebook](https://github.com/anthropics/claude-cookbooks/blob/main/capabilities/contextual-embeddings/guide.ipynb)
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks（arXiv:2005.11401，RAG 原始論文）](https://arxiv.org/abs/2005.11401)
+- [Reconstructing Context: Evaluating Advanced Chunking Strategies for RAG（arXiv:2504.19754）](https://arxiv.org/abs/2504.19754)
+- [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models（arXiv:2409.04701）](https://arxiv.org/abs/2409.04701)
+- [Full text queries（Elasticsearch / BM25 混合檢索）](https://www.elastic.co/docs/reference/query-languages/query-dsl/full-text-queries)
 - [iThome 鐵人賽 — Contextual Retrieval 相關文章](https://ithelp.ithome.com.tw/articles/10389779)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

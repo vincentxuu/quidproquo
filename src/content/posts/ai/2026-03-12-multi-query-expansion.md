@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "複雜查詢只用一個向量搜尋容易漏掉相關文件，讓 LLM 改寫成 3-5 個子查詢並行搜尋，召回率顯著提升。"
 description: "Multi-Query Expansion 的設計原理：用 LLM 從多個角度改寫查詢，各自搜尋後 RRF 融合，解決單路搜尋的 recall 問題。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 15
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-multi-query-expansion-en)
@@ -97,6 +100,12 @@ RRF inputs = [
 
 六路結果融合，每個文件的 RRF 分數累加。出現在越多路中排名越高的文件，融合分數越高，這正是我們想要的結果。
 
+## 現成實作
+
+不想自己寫改寫迴圈的話，LangChain 有對應的 `MultiQueryRetriever`（給定查詢 → LLM 生成多個查詢 → 各自檢索 → 回傳去重聯集）。要注意的是 LangChain 1.x 把這類舊版 retriever 移進了 `langchain-classic` 套件，import 路徑與早期教學文章不同，安裝與用法以[官方 API 參考](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever)為準。
+
+現成實作與自己寫的取捨也很單純：套件版預設用「去重聯集」合併結果，順序資訊就丟掉了；自己寫才能像前面那樣把每一路的排名餵進 RRF。要排名融合就自己寫，只要 recall 就用現成的。
+
 ## 成本考量
 
 Multi-Query 的主要成本是：
@@ -117,7 +126,8 @@ Multi-Query Expansion 本質上是在用 LLM 的語言能力來彌補向量搜�
 - [RAG-Fusion: a New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367)
 - [Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods (Cormack et al., 2009)](https://dl.acm.org/doi/10.1145/1571941.1572114)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020)](https://arxiv.org/abs/2005.11401)
-- [Multi-Query Retrieval with Query Expansion — LangChain 文件說明](https://arxiv.org/abs/2305.14283)
-- [A Survey on RAG — Multi-Query Expansion 與召回率提升策略 (2024)](https://arxiv.org/abs/2312.10997)
+- [Query Rewriting for Retrieval-Augmented Large Language Models (Ma et al., 2023)](https://arxiv.org/abs/2305.14283)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
+- [MultiQueryRetriever：Multi-Query Expansion 的現成實作，LangChain 官方 API 參考（現位於 `langchain-classic`）](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "用 LLM 先生成一份「理想答案」，再把這份假設文件 embed 去搜尋，比直接搜尋查詢本身效果更好。"
 description: "HyDE（Hypothetical Document Embeddings）的設計原理、適用場景，以及在實際 RAG 系統中的效益。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 14
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
@@ -41,7 +44,7 @@ LLM 生成的假設文件不需要準確，它只是一個語義橋樑。就算�
 假設答案文件：
 ```
 
-100 字的限制很重要——太長會讓 embedding 被無關語義稀釋，太短又捕捉不到足夠的語義特徵。
+長度限制的方向很重要——太長會讓 embedding 被無關語義稀釋，太短又捕捉不到足夠的語義特徵。實際數字（這裡用 100 字）沒有通則，取決於你的 chunk 大小與 embedding 模型的有效輸入長度，得在自己的評測集上調。
 
 ## 觸發條件
 
@@ -77,18 +80,33 @@ const [queryResults, hydeResults] = await Promise.all([
 
 論文原始設計（Gao et al., 2022）是完全取代 query embedding，但在實際系統中，**兩者並用後 RRF 融合**的效果比單用任何一個都好：query embedding 保留了原始意圖，HyDE embedding 增加了語義覆蓋。
 
+## 重要修正：HyDE 不是「一定會變好」
+
+這點必須講清楚，因為多數 HyDE 教學都跳過了。
+
+第一，**原論文的對照組是無監督檢索器**。HyDE 的主要成績是大幅贏過未經監督訓練的 Contriever，對上「已針對該任務微調過的檢索器」則是「表現相當（comparable）」，不是全面勝出。把 HyDE 當成「加了就贏過現有 baseline」是誤讀。
+
+第二，也是更關鍵的：Weller 等人（EACL 2024）系統性掃過 11 種擴展方法、12 個資料集、24 個檢索模型後發現，**檢索器本身的強度與擴展帶來的增益呈明顯負相關——擴展會提升弱模型，但通常會傷害強模型**。他們的解釋是：擴展確實補了資訊（可能提升 recall），但同時引入噪音，讓最相關的那幾篇更難從候選裡分辨出來，於是多了 false positive。他們給的判準很直接：**檢索器弱、或目標語料的格式與訓練語料差異大時才用擴展；否則不要用，保持相關性訊號乾淨。**
+
+這正好解釋了為什麼本文採用的「query + HyDE 兩路並行再 RRF 融合」比原論文的「完全取代」更穩：原始 query 那一路始終在場，就算 HyDE 那路引進噪音，也不至於把乾淨訊號整個換掉。但這只是止血，不是免疫——**你還是得在自己的評測集上量，確認 HyDE 那一路真的有帶來淨增益**，特別是當你已經換上較新、較強的多語言 embedding 模型之後。
+
+第三，成本面也有人提出替代方案。ReDE-RF（2024）把「生成假設文件」改寫成「讓 LLM 判斷哪些文件相關」的相關性估計任務：LLM 只需輸出單一 token，不必生成整篇文件，也不需要具備該領域知識，論文回報在多個低資源檢索資料集上同時贏過 HyDE 並大幅降低每次查詢延遲。如果你卡在 HyDE 的 token 成本，這是值得看的方向。
+
 ## 限制
 
 - 多一次 LLM 呼叫，有延遲成本（雖然並行，還是消耗 token）
 - 生成的假設文件若與領域差距太大，可能引入噪音
 - 對短查詢（3-5 個字）效益有限，語義已經很清晰
+- 檢索器越強，擴展的邊際效益越低甚至為負（見上一節）
 
-整體來說，對複雜、模糊的自然語言查詢，HyDE 是低成本高效益的 recall 提升手段。
+整體來說，對複雜、模糊的自然語言查詢，而且底層檢索器並非該領域的強模型時，HyDE 是低成本的 recall 提升手段。但它是一個**需要量測才能開啟的技巧**，不是預設就該加的標配——先跑評測，確認淨增益為正再上線。
 
 ---
 
 ## 參考資料
 
-- [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (2022)](https://arxiv.org/abs/2212.10496)
+- [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
+- [When do Generative Query and Document Expansions Fail? (Weller et al., EACL 2024)](https://arxiv.org/abs/2309.08541)
+- [Zero-Shot Dense Retrieval with Embeddings from Relevance Feedback（ReDE-RF, 2024）](https://arxiv.org/abs/2410.21242)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

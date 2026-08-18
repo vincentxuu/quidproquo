@@ -8,7 +8,12 @@ lang: zh-TW
 tldr: "用另一個 LLM 評估回答的準確度和品質，分數太低就重新生成，並自動加上適當的免責聲明。"
 description: "LLM-as-Judge 的評分機制、Groundedness 計算、Self-Reflection 重生成決策，以及如何把品質評估整合進 RAG pipeline。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 24
 ---
+
+> 🌏 [English version](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 
 RAG 系統生成答案後，怎麼知道這個答案是不是在胡說？
 
@@ -54,7 +59,7 @@ Judge LLM 收到的 prompt：
 }
 ```
 
-使用輕量模型 `llama-3.1-8b-instruct` 做 Judge，不需要複雜推理，8B 夠用，成本低。
+Judge 用小模型就夠：它只要讀 context 和回答、判斷有沒有超出範圍，不需要複雜推理。具體挑哪個模型不值得寫死在文章裡——模型汰換得比文章快，選型時直接看平台當下的清單（例如 [Cloudflare Workers AI models](https://developers.cloudflare.com/workers-ai/models/)）。取捨大致是：Judge 每次生成都要跑一次，模型越大，成本與延遲越是乘上流量；模型太小則指令遵循變差，JSON 容易吐壞，這時要補上 schema 驗證與一次重試，否則評分靜默變成 null。
 
 ## Groundedness 的使用
 
@@ -128,9 +133,12 @@ if (groundedness < 0.5) {
 
 LLM-as-Judge 不是萬能的，有幾個已知問題：
 
-1. **Position Bias**：Judge 傾向給更長、排列更早的文件更高分
-2. **Verbosity Bias**：更長的回答傾向得到更高 quality 分
-3. **Self-Enhancement Bias**：同一系列的模型互評時可能過於寬容
+1. **Position Bias**：兩兩比較時，Judge 偏好排在前面的那個回答——把兩個候選對調位置，結論可能就翻過來
+2. **Verbosity Bias**：更長的回答傾向得到更高分，即使並沒有多給資訊
+3. **Self-Enhancement Bias**：Judge 偏好自己或同系列模型產生的回答
+4. **推理能力上限**：需要數學或嚴謹推理才判得出對錯的題目，Judge 本身就判不準
+
+這四點出自 MT-Bench 那篇論文（Zheng et al., 2023）。同一份研究也量到另一面：以 GPT-4 當 Judge 時，與人類偏好的一致率超過 80%，和人類彼此之間的一致率相當——所以重點不是「Judge 不可信」，而是要知道它會在哪裡歪。另外，本文的 Judge 是單一回答評分（single-answer grading）而非兩兩比較，position bias 的影響比較小，但 verbosity 和 self-enhancement 照樣會發生。
 
 對這些偏差，系統的做法是：把 Judge 的結果當參考而非絕對真相，搭配使用者回饋（thumbs up/down）做補充校正。使用者回饋與 auto_score 差異 ≥ 2 時，也會觸發標記，等待人工審查。
 
@@ -146,6 +154,8 @@ LLM-as-Judge 是 RAG 品質保證的核心機制。Groundedness 讓系統知道�
 
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (2023)](https://arxiv.org/abs/2310.11511)
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (2023)](https://arxiv.org/abs/2306.05685)
+- [MT-Bench / LLM Judge 官方實作（lm-sys/FastChat）](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge)
+- [Self-RAG 專案頁](https://selfrag.github.io/)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

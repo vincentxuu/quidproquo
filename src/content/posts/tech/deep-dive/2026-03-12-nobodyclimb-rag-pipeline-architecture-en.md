@@ -9,6 +9,9 @@ tldr: "A dynamically composable RAG pipeline built on Cloudflare Workers AI (gem
 description: "A complete architecture writeup for the NobodyClimb AI Q&A system: model selection, 20-node pipeline design (including three LangGraph strategy graphs), PipelineEngine implementation, conditional routing, self-reflection loops, and deployment trade-offs on Cloudflare Workers."
 draft: false
 type: deep-dive
+series:
+  name: "Building NobodyClimb"
+  order: 4
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
@@ -44,7 +47,7 @@ pre-retrieval → retrieval → post-retrieval → generation → evaluation
 │  → filter-build                                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │ Retrieval                                                        │
-│  embedding → hybrid-search                                       │
+│  embedding → hybrid-search → text-to-sql                        │
 ├─────────────────────────────────────────────────────────────────┤
 │ Post-Retrieval                                                   │
 │  cross-encoder → mmr → popularity-rerank                        │
@@ -191,7 +194,7 @@ Every query records a full execution trace:
 }
 ```
 
-The admin dashboard can view the complete 17-step execution trace for every query, including the input, decision rationale, and output for each step.
+The admin dashboard shows the exact sequence of nodes a query actually ran, including the input, decision rationale, and output for each step — because of skipWhen and strategy-graph selection, the number of steps differs from query to query.
 
 ## Trade-offs on Cloudflare Workers
 
@@ -203,11 +206,19 @@ The admin dashboard can view the complete 17-step execution trace for every quer
 
 ## Overall
 
-The core trade-off in this architecture is flexibility vs. complexity. The pipeline engine combined with dynamic configuration makes it fast to experiment with different step combinations, but a 13-step dependency graph also carries a relatively high maintenance cost.
+The core trade-off in this architecture is flexibility vs. complexity. The pipeline engine combined with dynamic configuration makes it fast to experiment with different step combinations, but a 14-step dependency graph also carries a relatively high maintenance cost.
 
 This approach works well when: the domain knowledge has clear boundaries (climbing routes, crag info), you need to combine Chinese NLP filtering with vector search, and you have enough trace infrastructure to support continuous tuning.
 
 It's probably not worth replicating if: you don't have admin trace infrastructure, your team isn't familiar with RAG tuning, or your query types are simple enough that a basic top-k + LLM generation setup would do the job.
+
+## Where This Pipeline Actually Broke
+
+The node diagram above is the finished design, but every node in it was forced into existence by a real bad answer. Three of those failures were big enough to deserve their own writeups: one keyword function conflated "recommend something similar" with "recommend the next one," query parsing extracted only the first route when a user listed five sends, and vector retrieval treated "similar *name*" as "similar *grade*."
+
+- ["Recommend the next route" and "Recommend something similar" are not the same thing — Intent Disambiguation in RAG Recommendation Systems](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation-en)
+- [RAG Multi-Entity Queries: When the User Lists Five Routes and the System Only Sees the First](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing-en)
+- [When Vector Search Matches by Name Instead of Grade: Attribute Conflation in RAG Systems](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation-en)
 
 ## References
 

@@ -8,6 +8,9 @@ lang: en
 tldr: "AEO/GEO tools aren't a single category — they span three distinct layers: the input layer (is your website ready for AI to read), the traffic layer (how much are AI bots actually crawling), and the output layer (how is your brand mentioned in AI answers). This post maps out all three layers, from open-source self-hosted options to commercial SaaS."
 description: "A complete map of AEO / GEO tools: input-layer tools like isitagentready, llms.txt validators and generators; traffic-layer tools like Matomo, Zerply, aibottracker; output-layer tools like aeo-radar, AiCMO, Profound, AthenaHQ, and Ahrefs Brand Radar. Includes common architecture patterns and selection guidelines."
 draft: false
+series:
+  name: "AEO, GEO, and AI Search"
+  order: 5
 ---
 
 > 🌏 [中文版](/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape)
@@ -22,6 +25,8 @@ But "AEO tools" is actually a very loose term. When you break it down, it covers
 
 This post maps out the tool landscape across all three layers, then pulls out common architecture patterns and selection guidelines.
 
+> **Update, August 2026**: this piece was written in April 2026, and three significant things happened to the category in the four months since — Adobe completed its acquisition of Semrush (2026-04-28), Sitecore acquired Scrunch (2026-06-03), and Profound closed a $96M Series C at a $1B valuation (February 2026). Meanwhile the empirical data on llms.txt arrived, and it points the opposite way from the original draft. This refresh verifies each vendor site is still live, replaces perishable pricing and feature tables with the trade-offs that actually decide things, and annotates each open-source project with its last update.
+
 ## Input Layer: Is Your Website Ready for AI to Read?
 
 This is the only layer you can control 100%. Tools fall into two categories: comprehensive health checks and llms.txt-specific tools.
@@ -35,7 +40,7 @@ This is the only layer you can control 100%. Tools fall into two categories: com
 - **Bot Access Control**: AI crawler declarations (`AI-usage` directives)
 - **Capabilities**: MCP endpoint, OAuth, Agent Skills, agentic commerce
 
-Cloudflare's published scan statistics are striking — only 4% of websites declare AI usage preferences, and only 3.9% support Markdown negotiation. Think of it as "Lighthouse for AI agents" — free, no registration required.
+The scan statistics Cloudflare published in its [launch post](https://blog.cloudflare.com/agent-readiness/) are striking — at the time, only about 4% of websites declared AI usage preferences and 3.9% supported Markdown negotiation (those are launch-date figures; Cloudflare hasn't published an update since, so cite them with a date attached). Think of it as "Lighthouse for AI agents" — free, no registration required.
 
 ### llms.txt-Specific Tools
 
@@ -49,21 +54,27 @@ Cloudflare's published scan statistics are striking — only 4% of websites decl
 
 **Open-source generators** (crawl your site and produce llms.txt):
 
-- [firecrawl/llmstxt-generator](https://github.com/firecrawl/llmstxt-generator) — most stars, uses Firecrawl crawl + GPT-4-mini
-- [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator) — packaged as an Apify Actor
-- [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator) — can automatically monitor site changes
+- [firecrawl/llmstxt-generator](https://github.com/firecrawl/llmstxt-generator) — the most-starred option (last updated 2025-06)
+- [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator) — packaged as an Apify Actor, actively maintained (last updated 2026-05)
+- [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator) — can automatically monitor site changes, but has essentially no community (0 stars, last updated 2025-09); read the code before running it
 
-llms.txt is still a proposed standard. Adoption surged starting in 2025, but Cloudflare's scans show actual adoption rates remain very low — making this an easy area to establish an early advantage.
+**The original draft's judgment here has been overturned.** It argued that low adoption made this "an easy area to establish an early advantage". The evidence that has since emerged shows the problem isn't adoption — it's that **nobody reads the file**:
+
+- Ahrefs analyzed server logs across 137,000 sites and found [97% of llms.txt files were never requested](https://ahrefs.com/blog/llmstxt-study/), and that no AI bot goes looking for an llms.txt that doesn't exist
+- SE Ranking scanned 300,000 domains and found [10.13% had one](https://seranking.com/blog/llms-txt/) — adoption isn't actually low, the return is
+- In May 2026 Google put llms.txt on its ["you don't need to" list](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), and clarified on 2026-06-15 that such files "won't negatively or positively impact your visibility or rankings"
+
+The one use with evidence behind it is that AI coding assistants read it on documentation sites. So: **worth doing for documentation sites, not worth prioritizing elsewhere** — which downgrades the validators and generators above from essential to merely handy.
 
 ## Traffic Layer: How Much Are AI Bots Actually Crawling You?
 
 This is the most easily overlooked category. Traditional GA / Plausible **filters out** bot traffic by default, so even if GPTBot, ClaudeBot, and PerplexityBot are crawling thousands of your pages daily, you won't see it on your dashboard.
 
-Cloudflare's server log research shows ChatGPT-User can crawl 2,400 pages per hour. For content-heavy sites, this number directly relates to "whether AI has seen you" — it's the flip side of the input layer's llms.txt configuration.
+There's a new reason this layer matters in the second half of 2026: Cloudflare [announced](https://blog.cloudflare.com/content-independence-day-ai-options/) that from **2026-09-15** its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, applying to new customers, new sites added by existing customers, and all free-tier customers. Which means **your AI bot traffic may change without you changing anything** — and you can only see that happen if you're measuring this layer.
 
 Several emerging specialized tools:
 
-- **[Matomo 5.8](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)** — the first mainstream open-source analytics platform with built-in AI Assistants reports, separating AI bot traffic from human traffic. Choose this if you want self-hosted analytics
+- **[Matomo AI Assistants](https://matomo.org/guide/reports/ai-assistants/)** — a mainstream open-source analytics platform with built-in AI reports separating AI bot traffic from human traffic. AI Assistant referral tracking landed in 5.5.0, AI chatbot reports in [5.8.0](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/) (March 2026), and AI Chatbots Content Requests (which pages AI actually pulls) in 5.12.0. Choose this if you want self-hosted analytics
 - **[Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)** — commercial SaaS, no code to embed, connects directly to CDN/reverse proxy
 - **[aibottracker.com](https://www.aibottracker.com/)** — free, unlimited checks, lightweight option
 - **[LLM Bot Tracker](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)** — WordPress plugin version
@@ -76,37 +87,46 @@ This is the most crowded battlefield for AEO/GEO tools, and the original startin
 
 ### Open-Source Self-Hosted
 
-The core value proposition is the same across the board: **don't pay $200–$500/month for SaaS; keep your data and prompts on your own machine**. The differences lie in tech stack and data acquisition method.
+The core value proposition is the same across the board: **skip the SaaS subscription; keep your data and prompts on your own machine**. The differences lie in tech stack and data acquisition method.
 
-**[aeo-radar](https://github.com/hellowalt/aeo-radar)** uses Playwright to headlessly crawl AI interfaces daily without requiring API keys. The captured answers are processed by Claude CLI for structured extraction (brand mentions, sentiment, competitors, citation sources), stored in SQLite, and visualized through a Next.js 16 + Ant Design dashboard. Leading with Traditional Chinese and targeting non-English markets is a deliberate trade-off — the English market is already a red ocean, while non-English AEO data is a gap that commercial SaaS has long neglected.
+Self-hosting has three hidden costs worth pricing before you commit: maintaining anti-bot workarounds (AI interfaces change their login walls and Cloudflare challenges), LLM tokens for the analysis step, and your own time. At a small number of tracked prompts, self-hosting usually wins; at scale, the first two costs converge on a SaaS subscription.
 
-**[AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)** is a more complete open-source option using Vue + Python + TypeScript with one-click Docker setup, explicitly supporting ChatGPT / Gemini / Perplexity / Claude. Positioned as an "open-source Profound," but you need to bring your own OpenAI + Vertex AI credentials.
+Each project below is annotated with its last update (verified August 2026). Churn in this category is high — treat long-dormant projects as reference implementations, not products you can depend on.
 
-**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)** has a tech stack most similar to aeo-radar (Next.js 16, TypeScript, Recharts) but with more features — 13 tabs, simultaneous tracking across 6 AI models, 6-stage SRO analysis, citation opportunity scanning, and competitor battlecards. It uses Bright Data's Web Scraper API for data collection — the upside is no need to maintain your own anti-bot strategies; the downside is that Bright Data isn't free.
+**[aeo-radar](https://github.com/hellowalt/aeo-radar)** (last updated 2026-07, maintained) uses Playwright to headlessly crawl AI interfaces daily without requiring API keys. The captured answers are processed by Claude CLI for structured extraction (brand mentions, sentiment, competitors, citation sources), stored in SQLite, and visualized through a Next.js 16 + Ant Design dashboard. Leading with Traditional Chinese and targeting non-English markets is a deliberate trade-off — the English market is already a red ocean, while non-English AEO data is a gap that commercial SaaS has long neglected.
 
-**[sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)** takes a different approach — instead of crawling AI interfaces directly, it calls the OpenAI API, auto-crawls your brand's website, generates a batch of prompts from your site content, and queries ChatGPT. The upside is that it's clean and legitimate with no anti-bot concerns; the downside is you're seeing "how API-version ChatGPT views you," which differs from what web users actually see — the web version has real-time search, the API doesn't.
+**[AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)** (last updated 2025-10, long dormant) is a more complete open-source option using Vue + Python + TypeScript with one-click Docker setup, explicitly supporting ChatGPT / Gemini / Perplexity / Claude. Positioned as an "open-source Profound," but you need to bring your own OpenAI + Vertex AI credentials.
 
-Lightweight options also include [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer) and [getcito](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool).
+**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)** (last updated 2026-08, the fastest-growing of these — past 200 stars) has a tech stack most similar to aeo-radar (Next.js 16, TypeScript, Recharts) but with more features — 13 tabs, simultaneous tracking across 6 AI models, 6-stage SRO analysis, citation opportunity scanning, and competitor battlecards. It uses Bright Data's Web Scraper API for data collection — the upside is no need to maintain your own anti-bot strategies; the downside is that Bright Data isn't free.
+
+**[sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)** (last updated 2025-07, long dormant) takes a different approach — instead of crawling AI interfaces directly, it calls the OpenAI API, auto-crawls your brand's website, generates a batch of prompts from your site content, and queries ChatGPT. The upside is that it's clean and legitimate with no anti-bot concerns; the downside is you're seeing "how API-version ChatGPT views you," which differs from what web users actually see — the web version has real-time search, the API doesn't.
+
+Lightweight options also include [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer) (1 star, untouched since 2025-10 — read it as a sample, not a tool) and [getcito](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool).
 
 ### Commercial SaaS: The Spectrum from Free Tier to Six-Figure Enterprise Contracts
 
-Pure AEO/GEO vendors:
+**No prices in this section.** Nearly every price point the original draft quoted has changed within four months (some cut, some dropped their free tier, some moved to EUR geo-pricing), and most vendors tier their entry plans by number of tracked prompts and engines covered, which makes a bare monthly figure meaningless. Check each vendor's pricing page. What follows is positioning plus status as of August 2026.
 
-- **[Profound](https://www.tryprofound.com/)** — Series B $35M, enterprise flagship
+Pure AEO/GEO vendors (each site verified live in August 2026):
+
+- **[Profound](https://www.tryprofound.com/)** — the enterprise flagship. The original draft's "Series B $35M" is out of date: on 2026-02-24 it closed a [$96M Series C at a $1B valuation](https://www.tryprofound.com/blog/profound-raises-96m-series-c) led by Lightspeed, bringing total funding past $155M, and the product has expanded from tracking into Agents that produce content
 - **[AthenaHQ](https://athenahq.ai)** — YC-backed, ex-Google / DeepMind team
 - **[Evertune](https://www.evertune.ai/)** — focuses on full AI search customer journey
-- **[Peec.ai](https://peec.ai)**, **[Scrunch](https://scrunch.com)**, **[Goodie](https://goodie.ai)**, **[Bluefish AI](https://bluefish.ai)**, **[ZipTie](https://ziptie.ai)**, **[Knowatoa](https://knowatoa.com)** — mid-tier
+- **[Scrunch](https://scrunch.com)** — **acquired by Sitecore** ([announced 2026-06-03](https://www.sitecore.com/company/newsroom/press-releases/2026/06/sitecore-acquires-scrunch-to-help-brands-influence-discovery--and-buying-decisions)). The brand and site are still up, but it's now folded into Sitecore's DXP, so future purchasing decisions attach to a Sitecore contract
+- **[Peec.ai](https://peec.ai)**, **[Goodie](https://goodie.ai)**, **[Bluefish AI](https://bluefish.ai)**, **[ZipTie](https://ziptie.ai)**, **[Knowatoa](https://knowatoa.com)** — mid-tier
 - **[Otterly.AI](https://otterly.ai)**, **[LLMrefs](https://llmrefs.com/)**, **[AIclicks](https://aiclicks.io/)**, **[Rankscale](https://rankscale.ai/)**, **[Sight AI](https://www.trysight.ai)** — targeting small-to-mid team subscriptions
 
 Traditional SEO platforms extending into AEO modules:
 
 - **[Ahrefs Brand Radar](https://ahrefs.com/brand-radar)** — launched March 2025, bundled into the main Ahrefs subscription
-- **[SEMrush AI Visibility Toolkit](https://semrush.com)**
+- **Semrush AI Visibility Toolkit** — **Semrush has been acquired by Adobe**; the deal [closed 2026-04-28](https://news.adobe.com/news/2026/04/adobe-completes-semrush-acquisition) ($1.9B all-cash, announced November 2025). It's now part of Adobe's customer experience line, and how it consolidates with Adobe LLM Optimizer is still unsettled — worth pinning down before signing a long contract
 - **[SE Ranking AEO Tool](https://seranking.com/answer-engine-optimization-tool.html)**
-- **[HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)** — free, 28-day trial with 10 ChatGPT prompt sets
+- **[HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)** — a free one-off health check (trial terms change; check the site)
 - **[Writesonic GEO](https://writesonic.com/)** — tracking + content generation bundled
 
-The competitive focus in SaaS has shifted from "can you track ChatGPT" to "citation source analysis depth," "hallucination detection," and "cross-platform share of voice attribution." Pure tracking functionality is becoming increasingly commoditized.
+**Two structural shifts in 2026**: first, **a wave of acquisitions** — within six months Adobe took Semrush and Sitecore took Scrunch, and pure tracking tools are being absorbed into larger marketing and content platforms. Second, **the competitive frontier moved up** — from "can you track ChatGPT" to "citation source analysis depth", "hallucination detection", and "cross-platform share of voice attribution", and now toward "once you find the problem, can the tool fix the content". Pure tracking is becoming commoditized.
+
+The question worth asking during evaluation is: **will this company still exist independently in two years?** Being acquired isn't necessarily bad — more resources — but your data export path, API commitments, and pricing all change with it.
 
 ### Citation-Specific Tools (Finer Granularity Than Mentions)
 
@@ -121,7 +141,7 @@ Chrome extensions and other "record as you search" lightweight tools are great d
 ## Resource Directories: The Meta Layer for Landscape Research
 
 - [amplifying-ai/awesome-generative-engine-optimization](https://github.com/amplifying-ai/awesome-generative-engine-optimization) — currently the most comprehensive GEO tool map
-- [geotoolco/AEO-Answer-Engine-Optimization](https://github.com/geotoolco/AEO-Answer-Engine-Optimization) — includes communities, plugins, and consulting firms
+- [geotoolco/Top-Answer-Engine-Optimization](https://github.com/geotoolco/Top-Answer-Engine-Optimization) — includes communities, plugins, and consulting firms (the repo was renamed; the old URL redirects)
 - [izak-fisher/generative-engine-optimization-tools](https://github.com/izak-fisher/generative-engine-optimization-tools)
 - [luka2chat/awesome-geo](https://github.com/luka2chat/awesome-geo)
 - [tentenco/awesome-geo](https://github.com/tentenco/awesome-geo)
@@ -156,18 +176,18 @@ Evaluate each of the three layers independently:
 
 **Input layer** (do this first — highest ROI):
 - Run isitagentready once, then fill in whatever's missing for llms.txt, robots.txt, and MCP
-- To generate llms.txt, run firecrawl/llmstxt-generator (open source) once
+- Generating llms.txt is optional now — worth it for documentation sites, low priority elsewhere (see the input-layer section)
 
 **Traffic layer** (worth doing if you self-host analytics):
-- Self-hosted: start with Matomo 5.8
+- Self-hosted: start with Matomo's AI Assistants reports (5.8.0 and later)
 - Don't want to touch infrastructure: aibottracker.com free tier
 - Content-heavy sites should enable this to know whether GPTBot is crawling you
 
 **Output layer** (see how your brand actually appears in AI answers):
 - Quick look: HubSpot AEO Grader (free trial), Ahrefs Brand Radar (if you already subscribe), AI Citation Tracker Chrome Extension (highlights during search)
-- Long-term self-hosted: aeo-radar (smoothest for Traditional Chinese markets), AiCMO (most feature-complete), geo-aeo-tracker (most polished UI but requires Bright Data)
-- Building your own AEO product: read the source code of aeo-radar and AiCMO, then scan the awesome lists
-- Enterprise-grade: Profound or AthenaHQ
+- Long-term self-hosted: aeo-radar (smoothest for Traditional Chinese markets, still maintained), geo-aeo-tracker (most features and the most active, but requires Bright Data); AiCMO is feature-complete but long dormant — read it as a reference implementation
+- Building your own AEO product: read the source code of aeo-radar and geo-aeo-tracker, then scan the awesome lists
+- Enterprise-grade: Profound or AthenaHQ; if you're already inside the Sitecore or Adobe ecosystem, check whether an existing contract covers it (Scrunch → Sitecore, Semrush → Adobe)
 - Single-platform subscription: Otterly.AI or LLMrefs
 - Citation granularity: Am I Cited
 
@@ -189,7 +209,7 @@ The output layer's open-source solutions, on the other hand, have matured remark
 - [firecrawl/llmstxt-generator (Open-source llms.txt generator)](https://github.com/firecrawl/llmstxt-generator)
 - [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator)
 - [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator)
-- [Matomo 5.8 AI Chatbot Tracking (Traffic-layer analytics)](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)
+- [Matomo AI Assistants reports](https://matomo.org/guide/reports/ai-assistants/) and the [5.8.0 announcement](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/) (traffic-layer analytics)
 - [Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)
 - [aibottracker.com](https://www.aibottracker.com/)
 - [LLM Bot Tracker WordPress Plugin](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)
@@ -200,10 +220,16 @@ The output layer's open-source solutions, on the other hand, have matured remark
 - [danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)
 - [sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)
 - [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer)
-- [Profound — AEO/GEO Enterprise SaaS](https://www.tryprofound.com/)
+- [Profound — AEO/GEO Enterprise SaaS](https://www.tryprofound.com/) and the [$96M Series C announcement (February 2026)](https://www.tryprofound.com/blog/profound-raises-96m-series-c)
+- [Sitecore acquires Scrunch (2026-06-03)](https://www.sitecore.com/company/newsroom/press-releases/2026/06/sitecore-acquires-scrunch-to-help-brands-influence-discovery--and-buying-decisions)
+- [Adobe completes Semrush acquisition (2026-04-28)](https://news.adobe.com/news/2026/04/adobe-completes-semrush-acquisition)
+- [We Analyzed 137K Sites: 97% of llms.txt Files Never Get Read — Ahrefs](https://ahrefs.com/blog/llmstxt-study/)
+- [LLMs.txt: Why Brands Rely On It and Why It Doesn't Work — SE Ranking](https://seranking.com/blog/llms-txt/)
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google puts llms.txt on the "you don't need to" list
+- [Your site, your rules: new AI traffic options for all customers — Cloudflare](https://blog.cloudflare.com/content-independence-day-ai-options/) — the default-blocking policy effective 2026-09-15
 - [AthenaHQ — YC-backed GEO Tool](https://athenahq.ai)
 - [Ahrefs Brand Radar — AI Brand Visibility Tracking](https://ahrefs.com/brand-radar)
-- [Semrush AI Visibility Toolkit](https://www.semrush.com/)
+- [Semrush AI Visibility Toolkit](https://www.semrush.com/) (now part of Adobe)
 - [HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)
 - [Otterly.AI](https://otterly.ai)
 - [LLMrefs — LLM Brand Mention Tracking](https://llmrefs.com/)
@@ -211,7 +237,7 @@ The output layer's open-source solutions, on the other hand, have matured remark
 - [AI Citation Tracker Chrome Extension](https://chromewebstore.google.com/detail/ai-citation-tracker/mbnlbpijdjbnelpbijdaefhidmlbkiah)
 - [Decoding AI Citation Tracking](https://trydecoding.com/ai-citation-tracking/)
 - [amplifying-ai/awesome-generative-engine-optimization (GEO Tool Map)](https://github.com/amplifying-ai/awesome-generative-engine-optimization)
-- [geotoolco/AEO-Answer-Engine-Optimization](https://github.com/geotoolco/AEO-Answer-Engine-Optimization)
+- [geotoolco/Top-Answer-Engine-Optimization](https://github.com/geotoolco/Top-Answer-Engine-Optimization)
 - [DavidHuji/Awesome-GEO (Academic Paper Collection)](https://github.com/DavidHuji/Awesome-GEO)
 - [Best AEO/GEO Tracking Tools — aiclicks](https://aiclicks.io/blog/best-aeo-tracking-tools)
 - [Profound vs Ahrefs Brand Radar Comparison](https://www.tryprofound.com/blog/ahrefs-brand-radar-review)

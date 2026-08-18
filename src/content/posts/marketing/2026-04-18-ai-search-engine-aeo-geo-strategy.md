@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "不同 AI 引擎讀網頁的方式差異很大。有的只看 body、有的靠預建索引。JSON-LD 和 schema 不是萬能的，正文品質和結構才是跨平台有效的基礎。"
 description: "拆解 ChatGPT、Perplexity、Gemini、Claude 四家 AI 搜尋引擎的網頁處理管線，分析 JSON-LD、schema、meta 標籤的實際效果，給出 2026 年可操作的 AEO/GEO 策略。"
 draft: false
+series:
+  name: "AEO / GEO 與 AI 搜尋"
+  order: 4
 ---
 
 🌏 [English version](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en)
@@ -16,9 +19,18 @@ draft: false
 
 這篇拆解四家主要 AI 搜尋引擎的內容處理管線，看看你的 SEO 資產到底在哪些平台有效、哪些完全浪費。
 
-## Claude：只看 body，head 完全不存在
+> **2026-08 更新**：底下 Claude 那段的管線細節，來源是 2026-03 一次原始碼外洩後的第三方分析，Anthropic 從未正式確認，實作也可能已經改過——引用時請當成「某個時點的觀察」而非規格。這次翻新補了兩處實質更正：Anthropic 現在有專門的搜尋索引爬蟲 `Claude-SearchBot`（跟 Claude Code 的 WebFetch 是兩條路徑）；以及 `Google-Extended` 不影響 Google 搜尋與 AI Overviews。細節見各段。
 
-Claude 的網頁搜尋走兩個工具：WebSearch 找網址、WebFetch 讀內容。
+## Claude：WebFetch 這條路只看 body，head 完全不存在
+
+先釐清一件原文沒講清楚的事：**「Claude 讀網頁」有不只一條路徑**。
+
+- **Claude Code / WebFetch**：使用者或 agent 給一個 URL，當下抓下來讀。這是底下要拆的那條。
+- **Claude-SearchBot**：Anthropic 的搜尋索引爬蟲，會事先爬取並建索引，供 Claude 的網頁搜尋功能使用；另外還有 `Claude-User`（使用者觸發）與 `ClaudeBot`（訓練）（[官方說明](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)）。
+
+也就是說，「Claude 完全看不到你的 structured data」這個說法只對 WebFetch 那條路徑成立。Anthropic 沒有公開 Claude-SearchBot 的解析細節，所以那條路徑讀不讀 `<head>` 目前**無法確認**。下面談的都是 WebFetch。
+
+Claude Code 的網頁存取走兩個工具：WebSearch 找網址、WebFetch 讀內容。
 
 WebSearch 在伺服器端執行，回傳 title、url 和加密 snippet。但 CLI 流程裡 snippet 幾乎不被使用，真正決定 AI 讀到什麼的是 WebFetch。
 
@@ -47,7 +59,14 @@ Turndown.js 用的是**零設定**（zero configuration），預設行為：
 
 ## ChatGPT：段落級檢索，低排名也有機會
 
-ChatGPT 的搜尋基於 Bing 的即時索引，但處理方式跟傳統搜尋引擎差很多。
+原文寫「ChatGPT 的搜尋基於 Bing 的即時索引」，這個說法在 2026 年已經不準確，但也不能簡單改成「完全自建」——**各方說法互相打架，OpenAI 沒有公開完整架構**：
+
+- 確定的部分：OpenAI 有自己的搜尋爬蟲 `OAI-SearchBot`，[官方文件](https://platform.openai.com/docs/bots)明說「被 OAI-SearchBot 排除的站台不會出現在 ChatGPT 搜尋答案裡」——這代表它至少有一套自己的檢索資料
+- 不確定的部分：業界分析對「還剩多少比例來自 Bing」的判斷差距很大，有人主張 ChatGPT 的引用分布已經明顯偏離 Bing 結果，也有人主張 Bing 的檢索合作仍然存在。這件事目前**沒有可靠的一手來源可以定論**
+
+對站方的實務影響很明確：**`OAI-SearchBot` 必須放行**，只放行 `GPTBot`（訓練用）不會讓你出現在 ChatGPT 的搜尋答案裡。
+
+處理方式跟傳統搜尋引擎差很多。
 
 管線大致是：
 
@@ -79,20 +98,22 @@ Gemini 的生成式回答直接建在 Google Search 索引和 Knowledge Graph �
 
 - 模型自動判斷是否需要搜尋 → 生成查詢 → 取得搜尋結果
 - 頁面沒進 Google 索引，Gemini 就讀不到
-- 尊重 `robots.txt` 中的 `Google-Extended` 設定
+- `Google-Extended` 的作用範圍常被誤解：它管的是 **Gemini Apps 與 Vertex AI 生成式 API**，[Google 官方明確說它不影響 Google 搜尋](https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-extended)。換句話說，擋掉 `Google-Extended` **不會**讓你從 AI Overviews / AI Mode 消失——那兩個功能走的是 Googlebot，要退出得付出退出搜尋的代價
 - 回傳 `groundingMetadata`，含搜尋查詢、網頁結果、引用連結
 
 因為 Google 的索引爬蟲本來就會讀完整 HTML（包含 `<head>`），**傳統 SEO 的 structured data 在 Gemini 路徑上仍然完全有效**。
 
 ## 管線比較一覽
 
-| | Claude | ChatGPT | Perplexity | Gemini |
+| | Claude（WebFetch） | ChatGPT | Perplexity | Gemini |
 |---|---|---|---|---|
-| 抓取方式 | 本地端 Axios | 伺服器端 | 預先爬取建索引 | 已有 Google 索引 |
+| 抓取方式 | 本地端 Axios | 伺服器端（`OAI-SearchBot`） | 預先爬取建索引（`PerplexityBot`） | 已有 Google 索引（Googlebot） |
 | 讀 `<head>`？ | ❌ | ⚠️ 間接 | ✅ | ✅ |
-| JSON-LD/schema 有效？ | ❌ | ⚠️ 有限 | ✅ | ✅ |
+| JSON-LD/schema 有效？ | ❌ | ⚠️ 有限 | ✅ | ⚠️ 讀得到，但 Google 說不是必要條件 |
 | 支援 JS 渲染？ | ❌ | ✅ | ✅ | ✅ |
 | 引用密度 | 低 | 中 | 高 | 中 |
+
+Claude 欄只涵蓋 WebFetch 這條路徑。Anthropic 另有 `Claude-SearchBot` 做搜尋索引，解析細節未公開，該路徑的欄位目前**無法確認**。
 
 ## 實際策略
 
@@ -102,13 +123,17 @@ Gemini 的生成式回答直接建在 Google Search 索引和 Knowledge Graph �
 
 **每段的第一句就是結論。** Claude 的 Haiku 摘要對非預核准網域只允許 125 字元的直接引用。讓每個段落的第一句都是可以獨立存在的完整主張，而不是鋪墊句。這在所有 AI 引擎都有幫助，因為它們都會做某種形式的段落摘要。
 
-**schema 和 structured data 不要停。** 對 Perplexity 和 Gemini 仍然有效。但不要把它當成唯一策略——Claude 完全看不到，ChatGPT 的影響也是間接的。
+**schema 和 structured data 該做，但別高估。** 對 Perplexity 和 Google 索引這條路徑仍然會被讀到。但 2026-05 Google 發的[官方指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)把「過度聚焦結構化資料」列進不必做的事：結構化資料**不是**生成式 AI 搜尋的必要條件，也沒有專屬 schema——它的價值在於 rich result 資格。加上 Claude 的 WebFetch 完全看不到、ChatGPT 的影響是間接的，合理的定位是「SEO 基本功」而非「AEO 槓桿」。
+
+順帶一提，這篇原文提到的 FAQ schema 已經沒有 rich result 了（2026-05-07 全面下架），`HowTo` 更早，別再花時間補這兩個。
 
 **確保內容不依賴客戶端渲染。** Claude 的 Axios 和大多數 AI 爬蟲一樣不執行 JavaScript。如果你的頁面核心內容是 React/Vue 在瀏覽器端才渲染的，多數 AI 引擎讀到的是空殼或骨架。SSR 或靜態生成是基本要求。
 
 **減少 `<nav>` 的文字雜訊。** Claude 的 Turndown.js 不會移除 `<nav>`，導航文字會跟正文一起被送進摘要模型搶注意力。用簡潔的導航標籤、避免在 nav 裡塞大量關鍵字。
 
 **針對不同引擎分配資源。** 如果你的流量主要來自 Google 生態系（搜尋 + Gemini），structured data 仍是高優先。如果目標是被 AI coding 工具的使用者引用（Claude Code、Cursor 等），回到正文品質和靜態 HTML。
+
+**robots.txt 要分別檢查搜尋型與訓練型 user-agent。** 這是最容易一步做錯就全盤皆輸的地方：`OAI-SearchBot`（OpenAI 搜尋）、`Claude-SearchBot`（Anthropic 搜尋）、`PerplexityBot`（Perplexity 索引）是三個決定「你會不會出現在答案裡」的爬蟲，跟訓練用的 `GPTBot`、`ClaudeBot` 是不同的決策。順序上先確認這個，再談 schema。
 
 ## 整體來說
 
@@ -130,4 +155,9 @@ Gemini 的生成式回答直接建在 Google Search 索引和 Knowledge Graph �
 - [How different AI engines generate and cite answers - Search Engine Land](https://searchengineland.com/how-different-ai-engines-generate-and-cite-answers-463234)
 - [Perplexity vs ChatGPT vs Gemini: How AI Engines Cite Content - WhiteHat SEO](https://whitehat-seo.co.uk/blog/ai-engines-comparison-citations)
 - [Grounding with Google Search - Gemini API Docs](https://ai.google.dev/gemini-api/docs/google-search)
-- [How OpenAI, Gemini, Perplexity, Claude Crawl Your Website - Daydream Journal](https://journal.withdaydream.com/p/how-openai-gemini-perplexity-claude-crawl-and-index-your-website)
+- [Anthropic 爬蟲說明](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) — ClaudeBot / Claude-User / Claude-SearchBot 的分工
+- [Overview of OpenAI Crawlers](https://platform.openai.com/docs/bots) — OAI-SearchBot 決定你出不出現在 ChatGPT 搜尋答案裡
+- [Perplexity Crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers)
+- [Google crawlers 與 Google-Extended 說明](https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-extended) — Google-Extended 不影響 Google 搜尋
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google 官方：結構化資料不是生成式 AI 搜尋的必要條件
+- [Google Search 文件更新記錄](https://developers.google.com/search/updates) — FAQ / HowTo rich result 退場時間點

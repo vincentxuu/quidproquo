@@ -8,6 +8,9 @@ tldr: "A climbing community platform where the web app, mobile app, and AI Q&A a
 description: "A deep dive into NobodyClimb's technical architecture: Next.js 15 + Hono + D1 + RAG, why we went Cloudflare-first, and how the AI Q&A system was designed."
 draft: false
 type: deep-dive
+series:
+  name: "Building NobodyClimb"
+  order: 3
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
@@ -23,6 +26,7 @@ Once the decision to go Cloudflare was made, the surrounding choices fell into p
 - **D1** (SQLite): A relational database that runs alongside Workers, no cross-region hops needed
 - **R2**: Image and video thumbnail storage with an S3-compatible API
 - **KV**: Caching and temporary video data storage
+- **Vectorize**: The vector database holding route and story embeddings — what AI Q&A retrieval runs against
 - **AI**: Cloudflare Workers AI — embeddings and LLM inference on the same platform
 
 This isn't to say the stack has no drawbacks — D1 isn't suited for write-heavy workloads, KV is eventually consistent, and Workers AI offers fewer model options than self-hosted alternatives. But for this project's scale, the tradeoffs are worth it.
@@ -83,21 +87,15 @@ The reason for not using OpenAI or other external APIs: predictable costs, no AP
 
 ### Pipeline Design
 
+The query flow is a modular pipeline organized into five phases:
+
 ```
-User question
-  ↓
-QueryClassifier (classify: general knowledge / community data / SQL query)
-  ↓
-Retriever (vector search + keyword filtering)
-  ↓
-CorrectiveRAG (evaluate retrieval quality, decide whether to supplement search)
-  ↓
-Generator (LLM generates response)
-  ↓
-LLM Judge (quality evaluation)
+pre-retrieval → retrieval → post-retrieval → generation → evaluation
 ```
 
 On the query side, three NLP filters run before vector search to narrow scope: `extractLocationFilter` (location), `extractGradeFilter` (difficulty), and `extractTypeFilter` (route type).
+
+The nodes inside each phase, the conditional routing, the self-reflection loop, and the three LangGraph strategy graphs are all covered in [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — no need to repeat them here.
 
 ### Streaming Responses
 
@@ -140,6 +138,7 @@ This approach suits projects of similar scale: meaningful complexity (monorepo, 
 - [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare D1 documentation](https://developers.cloudflare.com/d1/)
 - [Cloudflare R2 documentation](https://developers.cloudflare.com/r2/)
+- [Cloudflare Vectorize documentation](https://developers.cloudflare.com/vectorize/)
 - [Cloudflare Workers AI documentation](https://developers.cloudflare.com/workers-ai/)
 - [Hono framework documentation](https://hono.dev/)
 - [Next.js 15 documentation](https://nextjs.org/docs)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "RAG 系統需要資料才能回答問題，但一開始就沒有資料。冷啟動策略決定了系統從空到可用的路徑。"
 description: "RAG 冷啟動的設計策略：資料來源優先級、Bootstrap 索引建構、Graceful Degradation（優雅降級），以及如何讓系統在資料稀疏時仍然有用。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 44
 ---
 
 RAG 系統有個雞蛋問題：沒有資料就不能回答，但資料是隨著系統使用才慢慢累積的。
@@ -61,7 +64,13 @@ function formatRouteAsDocument(route: Route): string {
 
 **第二優先：公開資料爬取**
 
-攀岩社群有公開的資源（8a.nu、theCrag、Mountain Project），可以爬取基礎資料作為補充。但要注意授權問題，確認使用條款允許此類用途。
+攀岩社群有公開的資源（8a.nu、theCrag、Mountain Project），看起來可以爬來補基礎資料。但**先讀 robots.txt 和使用條款再動手**，而且要知道現在的規範已經不只是「能不能爬」，還包含「爬了能不能餵給 AI」：
+
+- Mountain Project 的 robots.txt 對一般 crawler 設了 `Crawl-delay: 60`，並封掉一批路徑；照這個節奏爬，速度會比你預期慢非常多。
+- theCrag 的 robots.txt 採用 [Content Signals](https://contentsignals.org/) 宣告，明示 `search=yes, ai-train=no`——它允許被搜尋引擎索引，但明確不同意拿去訓練模型。RAG 的即時檢索（`ai-input`）它沒有表態，等於既未授權也未禁止，要用就去問。
+- 8a.nu 掛了 Cloudflare 的 bot 挑戰，連 robots.txt 都要過 JS challenge 才讀得到——這本身就是「不歡迎自動化存取」的訊號。
+
+這些設定隨時會改，動手前自己抓一次 robots.txt 看當下的值，別照抄本文。真的需要大量資料，寫信要 API 或資料授權，比爬蟲省事也安全。
 
 **第三優先：LLM 生成的合成資料**
 
@@ -87,6 +96,17 @@ await generateSeedKnowledge("抱石入門指南");
 ```
 
 合成資料的品質不如真實資料，但比空知識庫好。這些資料未來會被真實資料取代。
+
+**但有個紅線：安全相關的內容不要用合成資料。** 路線難度、保護點配置、固定點狀況、撤退路線這類資訊，LLM 生成出來的東西看起來很像真的，卻可能完全是編的；一旦進了索引，之後的檢索結果會把它當成和真實資料同等的證據引用出來，使用者也分不出來。合成資料只適合「通用知識」層級的內容（技術名詞解釋、入門觀念），而且**一定要在 metadata 打上來源標記**：
+
+```typescript
+metadata: {
+  source: 'llm-synthetic',   // 之後可以整批下架、也可以在生成時降權
+  generated_at: Date.now(),
+}
+```
+
+有了這個標記，回答時可以標示「此段來自合成的通用知識」，也可以在真實資料進來後一鍵清掉整批。沒有標記的合成資料，一年後沒有人分得出哪些是編的。
 
 ## Graceful Degradation（優雅降級）
 
@@ -179,8 +199,10 @@ if (searchResults.length === 0) {
 ## 參考資料
 
 - [RAGSys: Item-Cold-Start Recommender as RAG System](https://arxiv.org/abs/2405.17587)
-- [Cold-Start Recommendation with Knowledge-Guided Retrieval-Augmented Generation](https://arxiv.org/abs/2505.20773)
+- [Adaptive Candidate Retrieval with Dynamic Knowledge Graph Construction for Cold-Start Recommendation](https://arxiv.org/abs/2505.20773)
 - [From Zero-Shot Learning to Cold-Start Recommendation](https://arxiv.org/abs/1906.08511)
 - [KnowTrace: Bootstrapping Iterative Retrieval-Augmented Generation with Structured Knowledge Tracing](https://arxiv.org/abs/2505.20245)
+- [Content Signals（robots.txt 的 AI 使用宣告）](https://contentsignals.org/)
+- [Cloudflare Workers：`ctx.waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

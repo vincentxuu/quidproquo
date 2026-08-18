@@ -8,6 +8,9 @@ lang: en
 tldr: "The RAG system's extractRouteReference() used a for...return pattern that grabbed only the first match — so when a user provided five completed routes, only one was used. The fix evolves through three layers: rule-based multi-entity extraction, user profile aggregation, and embedding centroid."
 description: "When a RAG recommendation system encounters a multi-entity query, extracting only a single anchor causes triple information loss: difficulty range, style preferences, and the exclusion list. This post surveys Multi-Entity NER, Query Decomposition, User Profile Aggregation, and Plan-and-Execute RAG as solutions, with references to 20 papers."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 35
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing)
@@ -26,7 +29,7 @@ The logic in `extractRouteReference()` was simple: iterate over known route name
 
 **Incomplete exclusion list** — The user said "routes I haven't climbed," but `excludeRouteId` only excludes Baihu. The other four routes can still appear in the recommendation results.
 
-In IR terminology, this is a *complex information need*. Metzler & Croft (2005) noted long ago that most retrieval systems assume queries are atomic, but in practice users frequently embed multiple entities and implicit preferences in a single query. In the recommendation context, this is a variant of the cold-start problem: the user has proactively provided rich preference signals, and the system is only consuming a fraction of them.
+In IR terminology, this is a *complex information need*. [Metzler & Croft (2005)'s Markov Random Field retrieval model](https://dl.acm.org/doi/10.1145/1076034.1076115) was built to break the convenient-but-wrong assumption that the terms in a query are independent of one another; a multi-entity query is the same problem scaled up — not just dependencies between terms, but several self-contained entities packed into one utterance. In the recommendation context this is the inverse of cold start: the user has proactively provided rich preference signals, and the system is consuming a fraction of them.
 
 ## Solution Landscape
 
@@ -61,7 +64,7 @@ gradeFilter = {
 }
 ```
 
-On the academic side, Li et al. (2020)'s FLAT (Flat-Lattice Transformer) achieved SOTA on Chinese NER and handles multiple overlapping entities within a single sentence. Yan et al. (2021) reframed NER as a reading comprehension task, which naturally supports multi-entity extraction. In industry, Amazon Alexa's Multi-slot NER and Rasa NLU's CRF + Transformer pipeline solve the same problem.
+On the academic side, Li et al. (2020)'s FLAT (Flat-Lattice Transformer) uses a lattice structure to consume characters and words together, and was SOTA on Chinese NER when published (later models have since moved past it, but the architectural idea still travels). Yan et al. (2021) unified flat, nested, and discontinuous NER into a single seq2seq generation problem, emitting all entities in one pass — which naturally supports multi-entity extraction. The industry equivalent is the joint intent-plus-entity model in NLU toolkits, e.g. Rasa's [DIET (Dual Intent and Entity Transformer) and CRF entity extractor](https://rasa.com/docs/reference/primitives/intents-and-entities/).
 
 ### Query Decomposition
 
@@ -71,7 +74,7 @@ Decompose a complex query into multiple sub-queries, retrieve independently, the
 2. **Exclusion Sub-query**: Exclude all five routes → build an exclusion list
 3. **Recommendation Sub-query**: Use the profile as a basis → execute recommendation retrieval
 
-There are several relevant frameworks. Self-Ask (Press et al., 2023) has the LLM ask itself follow-up questions, breaking a complex question into independently answerable sub-questions. IRCoT (Trivedi et al., 2023) goes further by interleaving Chain-of-Thought reasoning with retrieval — each reasoning step generates new retrieval needs. LangChain's Multi-Query Retriever and LlamaIndex's Sub-Question Query Engine follow the same paradigm.
+There are several relevant frameworks. Self-Ask (Press et al., 2023) has the LLM ask itself follow-up questions, breaking a complex question into independently answerable sub-questions. IRCoT (Trivedi et al., 2023) goes further by interleaving Chain-of-Thought reasoning with retrieval — each reasoning step generates new retrieval needs. LangChain's Multi-Query Retriever and [LlamaIndex's Sub-Question Query Engine](https://developers.llamaindex.ai/python/examples/query_engine/sub_question_query_engine/) follow the same paradigm. Note that as of LangChain 1.0 these legacy retrievers live in the `langchain-classic` package ([SelfQueryRetriever's current API reference](https://reference.langchain.com/python/langchain-classic/retrievers/self_query/base/SelfQueryRetriever)) — following an older tutorial's import path will just raise ImportError.
 
 ### User Profile Aggregation
 
@@ -159,7 +162,7 @@ Add `buildUserProfile()` to compute the ability ceiling, comfort zone, preferred
 
 **P2 (medium-term): Embedding Centroid**
 
-If multiple routes have embeddings, compute the centroid vector as the query vector. Results are then re-ranked: exclude mentioned routes, apply difficulty-appropriateness weighting, and apply diversity weighting. This depends on whether the Cloudflare Vectorize API supports custom query vectors.
+If multiple routes have embeddings, compute the centroid vector as the query vector. Results are then re-ranked: exclude mentioned routes, apply difficulty-appropriateness weighting, and apply diversity weighting. Vectorize's `query()` already takes an arbitrary vector, so that part is not the obstacle; the real precondition is on the metadata side (see below).
 
 Integration points with the existing architecture:
 
@@ -170,6 +173,12 @@ GraphState        → excludeRouteIds: string[]
 filter-build.ts   → handles multiple crags ($in instead of $eq)
 vector search     → post-filter excludes multiple routes ($nin instead of $ne)
 ```
+
+Three hard Vectorize constraints are worth writing on a sticky note before you start — the [official metadata filtering docs](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/) spell them out:
+
+1. **Metadata indexes must exist before you insert the vectors** (`wrangler vectorize create-metadata-index`), and an index supports at most 10 of them. Deciding after the fact that you want to filter on a field means re-loading the whole vector set.
+2. **String metadata is only indexed on its first 64 bytes**; anything past that cannot participate in a filter. A Chinese character is 3 bytes, so long route or crag names hit this quickly.
+3. **Range operators (`$gt`/`$gte`/`$lt`/`$lte`) may only be combined with each other**, not with `$in` on the same key. So "grade as a union range" and "crag as an `$in` list" have to live on different fields — which our design already does, but do not expect to run a range *and* an allow-list on `grade`.
 
 ## In Summary
 

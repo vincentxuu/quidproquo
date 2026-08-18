@@ -5,83 +5,108 @@ category: tech
 type: deep-dive
 tags: [mcp, browser-automation, playwright, puppeteer, cdp, ai-agent, developer-tools]
 lang: zh-TW
-tldr: "@playwright/mcp 用 accessibility tree 取代截圖，token 消耗最低，是 AI agent 做網頁自動化的首選；Puppeteer MCP 截圖導向適合需要視覺回饋的場景；直連 CDP 適合底層工具開發與高層工具未暴露的功能。"
-description: "比較三種主流 Browser MCP 方案：直連 Chrome DevTools Protocol、@playwright/mcp、@modelcontextprotocol/server-puppeteer，從抽象層級、token 消耗、瀏覽器支援與適用場景逐一對比。"
+tldr: "這題現在其實是二選一：@playwright/mcp（跨瀏覽器、accessibility tree 省 token）對上 chrome-devtools-mcp（Chrome 官方、效能與記憶體診斷）；@modelcontextprotocol/server-puppeteer 已被封存，不再是選項。分野也不再是抽象層級高低，而是「操作網頁」還是「診斷 Chrome」。"
+description: "比較三種 Browser MCP 方案：Chrome 官方的 chrome-devtools-mcp、微軟的 @playwright/mcp、已封存的 @modelcontextprotocol/server-puppeteer，從維護狀態、頁面狀態回傳、瀏覽器支援與適用場景逐一對比。"
 draft: false
+series:
+  name: "瀏覽器自動化與 MCP"
+  order: 4
 ---
 
 > 🌏 [English version](/posts/tech/2026-06-20-browser-mcp-comparison-en)
 
-AI agent 要控制瀏覽器，現在有三個主流的 MCP server 路線：[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)（把 Chrome DevTools Protocol 包成 MCP server）、微軟官方的 [@playwright/mcp](https://github.com/microsoft/playwright-mcp)、以及 MCP 官方倉庫的 [@modelcontextprotocol/server-puppeteer](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)。三者抽象層級不同，對 AI agent 的友善程度差很多。
+AI agent 要控制瀏覽器，過去常被拿出來比的是三條路線：[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、微軟官方的 [@playwright/mcp](https://github.com/microsoft/playwright-mcp)、以及 MCP 官方倉庫的 [@modelcontextprotocol/server-puppeteer](/posts/tech/2026-06-20-puppeteer-mcp)。
 
-## 三者定位
+**這三者的相對位置已經和當初不一樣了**，先把兩件事講清楚：
 
-**直連 CDP via MCP**：把 Chrome DevTools Protocol 包成 MCP server，agent 直接呼叫 `Network.enable`、`Page.captureScreenshot` 等 Domain Method。控制粒度最細，但 API surface 大、需要熟悉 CDP 的 Domain 設計。
+1. **server-puppeteer 已被官方封存**，搬到 [servers-archived](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)，npm 最後一版停在 `2025.5.12`。它現在的角色是「歷史對照組」，不是候選方案。
+2. **Chrome DevTools MCP 有官方套件了**，就是 Chrome 團隊維護的 [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)。它底層是 Puppeteer，互動會自動等結果，**不再是「raw protocol、要自己實作 auto-wait」的那條路**。
 
-**@playwright/mcp**：[Playwright](https://playwright.dev/) 官方的 MCP 封裝，由微軟維護。關鍵優勢是預設用 **accessibility tree snapshot** 而非截圖來回傳頁面狀態——agent 拿到的是 ARIA 樹的文字結構，不是圖片，大幅降低 token 消耗。
+所以真正還要比的是兩個，而且比較的軸線變了。
 
-**@modelcontextprotocol/server-puppeteer**：MCP 官方 servers monorepo 裡的 Puppeteer 封裝。工具集較精簡，以**截圖回饋**為主，配合 `puppeteer_evaluate` 執行自訂 JS。
+## 舊的比較軸為什麼失效了
+
+原本大家用「抽象層級」排序：CDP 最低、Puppeteer 中間、Playwright 最高。這條軸現在量不出東西——chrome-devtools-mcp 和 @playwright/mcp 都是高階封裝，都有 auto-wait，都能回傳結構化的頁面快照，安裝方式也一樣是一行 `npx`。
+
+現在真正分開它們的是**目的**：
+
+- **@playwright/mcp 是為了「讓 agent 操作網頁」**。它的取捨全部繞著這件事：accessibility tree 取代截圖以省 token、跨三個瀏覽器引擎、斷言與 locator 產生器（給測試用）。
+- **chrome-devtools-mcp 是為了「讓 agent 診斷 Chrome」**。效能 trace 與 insight、Lighthouse、heap snapshot、擴充功能管理——這些 Playwright MCP 沒有對應工具，而它們也不是拿來點網頁的。
 
 ## 比較表
 
-| | CDP MCP | @playwright/mcp | server-puppeteer |
+| | chrome-devtools-mcp | @playwright/mcp | server-puppeteer |
 |---|---|---|---|
-| 抽象層級 | 最低（raw protocol） | 高（locator + auto-wait） | 中（CSS selector + evaluate）|
-| 瀏覽器支援 | Chromium only | Chromium / Firefox / WebKit | Chromium only |
-| 頁面狀態回傳 | 自訂（需要自己實作） | accessibility tree（預設）或截圖 | 截圖（base64）|
-| Token 消耗 | 視實作而定 | 最低（accessibility tree 不含圖片）| 最高（每次截圖）|
-| Auto-wait | ❌ | ✅ 內建 | ❌ |
-| 跨 tab 管理 | ✅ Target Domain | ✅ | ❌ 有限支援 |
-| 存取未封裝功能 | ✅ 全部 40+ Domain | ❌ | ❌ |
-| Attach 現有 Chrome | ✅ | ✅ `--cdp-endpoint` | 有限 |
-| 維護方 | 社群 / 自建 | 微軟（官方） | Anthropic MCP 官方 |
+| 維護狀態 | Chrome 團隊，持續更新 | 微軟，持續更新 | **已封存（2025.5.12 後無更新）** |
+| 主要用途 | 診斷、除錯、效能分析 | 一般網頁自動化、E2E 測試 | —— |
+| 底層 | Puppeteer | Playwright | Puppeteer |
+| Auto-wait | ✅ | ✅ | ❌ |
+| 頁面狀態回傳 | 快照（`take_snapshot`）或截圖 | accessibility tree（預設）或截圖 | 截圖（base64）|
+| 瀏覽器支援 | Chrome / Chrome for Testing | Chromium / Firefox / WebKit | Chromium only |
+| Attach 現有瀏覽器 | ✅ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✅ `--cdp-endpoint` / `--extension` | 有限 |
+| 效能 trace / Lighthouse | ✅ | ❌ | ❌ |
+| 記憶體 heap snapshot | ✅（`--memoryDebugging`） | ❌ | ❌ |
+| 擴充功能 / PWA 管理 | ✅ | ❌ | ❌ |
+| 網路攔截改寫 | ✅ | ✅（`--caps=network`） | 需自己用 evaluate 兜 |
+| 斷言 / locator 產生 | ❌ | ✅（`--caps=testing`） | ❌ |
+| 控制 context 大小 | `--slim` | `--caps` 逐項開 | 工具集本來就只有 7 個 |
+| 預設回報使用統計 | ✅（`--no-usage-statistics` 關閉） | ❌ | ❌ |
 
-## CDP MCP：最細粒度，最高門檻
+## 先釐清「CDP」這個詞
 
-這裡需要先釐清三個容易混淆的概念：
+比較文裡「CDP MCP」和「Chrome DevTools MCP」常被混用，值得拆開：
 
-- **Chrome DevTools**：瀏覽器內建的開發者工具面板，也就是按 F12 打開的那個 UI，有 Network、Sources、Console 等分頁。
-- **Chrome DevTools Protocol（CDP）**：DevTools 面板「背後」用來跟瀏覽器引擎溝通的 WebSocket 協議。DevTools 面板本身就是透過 CDP 擷取網路流量、檢查 DOM、設定中斷點的。
-- **CDP MCP / Chrome DevTools MCP**：把 CDP 協議包成 MCP server，讓 AI agent 用同樣的通道控制瀏覽器。操控的是瀏覽器引擎，不是 DevTools 面板的 UI。
+- **Chrome DevTools**：瀏覽器內建的開發者工具面板，按 F12 打開的那個 UI。
+- **Chrome DevTools Protocol（CDP）**：DevTools 面板「背後」跟瀏覽器引擎溝通的 WebSocket 協議。
+- **chrome-devtools-mcp**：Chrome 團隊把 DevTools 的能力包成 MCP server。它操控的是瀏覽器引擎，不是 DevTools 面板的 UI。
 
-所以「CDP MCP」和「Chrome DevTools MCP」指的是同一條路線（透過 CDP 協議控制瀏覽器），只是名稱來自不同角度：前者用縮寫，後者用全名裡的「DevTools」部分。它們不是控制 DevTools 面板本身，而是借用 DevTools 使用的同一套協議。
+要補充的是：**CDP 不是只有 chrome-devtools-mcp 在用**。Puppeteer、Playwright 的 Chromium backend、Lighthouse 都建在 CDP 上。所以「用 CDP」不是某一條路線的特徵——三者都在用，差別只在它們把哪些 Domain 暴露給了 agent。
 
-CDP MCP 沒有單一「官方」套件，通常是把 `chrome-remote-interface` 或類似函式庫包成 MCP server。優勢是能存取 Playwright 和 Puppeteer 未暴露的 Domain：`Profiler`（CPU profiling）、`HeapProfiler`（記憶體分析）、`Security`（憑證管理）、`Fetch`（請求攔截的低層版本）。
+## @playwright/mcp：操作網頁的預設選擇
 
-適合自己在寫 DevTools 工具、效能分析 pipeline 或需要側接既有 Chrome instance 的場景。不適合讓 AI agent 直接操作一般網頁——光是知道要打哪個 Domain Method 就需要大量提示詞工程。
+Playwright MCP 最重要的設計決策是 `browser_snapshot`：以 ARIA accessibility tree 取代截圖回傳頁面狀態。同一頁面，accessibility tree 的體積比截圖小一到兩個數量級，而且不需要 vision 能力的模型就能處理。
 
-## @playwright/mcp：AI agent 的預設選擇
+Playwright 本身的 auto-wait 邏輯（等元素 interactable 才操作）讓 agent 的重試邏輯大幅簡化，不需要在 prompt 裡寫「先等 DOM 更新」這類指令。跨瀏覽器支援（Chromium / Firefox / WebKit）讓它也適合需要驗證多瀏覽器行為的 QA agent。
 
-Playwright MCP 最重要的設計決策是 `browser_snapshot`：以 ARIA accessibility tree 取代截圖回傳頁面狀態。一張普通網頁的截圖約 50–200KB，換算成 token 動輒數千；accessibility tree 同一頁面通常在 1–5KB，而且不需要 vision 能力的模型就能處理。
+兩個容易踩的預設值：**現在預設是 headed 不是 headless**（要無頭加 `--headless`），而且**預設使用持久 profile**（登入狀態會留著；要並行跑多個 client 得加 `--isolated`）。細節見[單篇介紹](/posts/tech/2026-06-20-playwright-mcp)。
 
-Playwright 本身的 auto-wait 邏輯（等元素 interactable 才操作）讓 agent 的重試邏輯大幅簡化，不需要在 prompt 裡寫「先等 DOM 更新」這類指令。
+順帶一提，上游 README 現在會先勸你考慮 [Playwright CLI + Skills](https://github.com/microsoft/playwright-cli)：對 coding agent 來說，CLI 不必把 tool schema 和整棵 accessibility tree 灌進 context，更省。MCP 的定位收斂成「需要持續瀏覽器狀態的長時間 agentic loop」。
 
-跨瀏覽器支援（Chromium / Firefox / WebKit）讓它也適合需要測試多瀏覽器行為的 QA agent。
+## chrome-devtools-mcp：診斷 Chrome 裡發生了什麼
 
-## @modelcontextprotocol/server-puppeteer：截圖導向，彈性執行 JS
+它的差異化不在點網頁，在於它把 DevTools 的診斷能力搬進 tool 介面：錄效能 trace 再用同一套 DevTools 分析引擎取出洞察、跑 Lighthouse、拍 heap snapshot 並比對兩份快照找 retainer、管理擴充功能與 PWA、拿到帶 source map 的 console stack trace。
 
-Puppeteer MCP 的工具集精簡（navigate、screenshot、click、fill、select、hover、evaluate），上手快。`puppeteer_evaluate` 允許 agent 直接在頁面 context 執行任意 JS，這在需要提取複雜資料結構或觸發特定事件的場景很有用。
+代價也清楚：只支援 Google Chrome 與 Chrome for Testing；官方明講這個 server 會把瀏覽器裡的任何資料攤開給 MCP client；使用統計預設開啟。細節見[單篇介紹](/posts/tech/2026-06-20-chrome-devtools-mcp)。
 
-截圖回傳讓 agent 有視覺確認能力，但代價是每次互動都消耗較多 token。適合需要視覺驗證的場景（「確認按鈕有沒有變成藍色」），或者截圖結果本身就是任務輸出（OG 圖截圖、頁面渲染檢查）。
+## server-puppeteer：留作對照
+
+工具集精簡（navigate、screenshot、click、fill、select、hover、evaluate），以截圖回傳頁面狀態，`puppeteer_evaluate` 當萬用逃生門。它示範的那條光譜仍然有參考價值——工具集愈小，agent 要自己寫 JS 的比例愈高；頁面狀態愈依賴截圖，token 成本愈難壓——但它已經不再更新，新專案不該選。
 
 ## 怎麼選
 
-**一般網頁自動化 / AI agent 操作網頁** → @playwright/mcp。Auto-wait 和 accessibility tree 讓 agent 成功率最高、token 最省。
+**一般網頁自動化 / 讓 agent 操作網頁** → @playwright/mcp。
 
-**需要視覺確認或截圖本身是輸出** → server-puppeteer。
+**跨瀏覽器測試（Firefox / WebKit）** → @playwright/mcp（另一個不支援）。
 
-**寫底層工具、效能分析、需要 attach 現有 Chrome、存取 Playwright/Puppeteer 沒有暴露的 Domain** → CDP MCP。
+**效能分析、記憶體洩漏排查、Lighthouse、Chrome extension / PWA 開發** → chrome-devtools-mcp。
 
-**跨瀏覽器測試（Firefox / WebKit）** → @playwright/mcp（另外兩個不支援）。
+**想讓 agent 用你已經登入的瀏覽器** → 兩者都能接現有 instance：Chrome 用 chrome-devtools-mcp 的 `--browser-url`／`--auto-connect` 最直接；要留在 Playwright 生態就用 `--extension`。
+
+**兩件事都要** → 兩個一起掛沒有衝突，但要留意 context：把 chrome-devtools-mcp 開 `--slim`、Playwright 只開需要的 `--caps`，不然兩套 tool schema 加起來會很可觀。
 
 ## 整體來說
 
-三者的核心差異不是功能強弱，而是抽象層級的取捨。對大多數 AI agent 場景，@playwright/mcp 的 accessibility tree 模式是目前最符合「token 便宜、可靠性高」雙重要求的選擇。Puppeteer MCP 適合截圖導向的任務。CDP MCP 是工具開發者的選項，不是 agent 應用的預設路線。
+這題從「三種抽象層級選一個」變成「兩種目的選一個」。@playwright/mcp 負責讓 agent 把網頁操作對；chrome-devtools-mcp 負責讓 agent 說得出網頁為什麼慢、為什麼漏。server-puppeteer 則示範了另一件事：**MCP server 的生命週期比你以為的短**——選型時把「還有沒有人維護」放進評估表，比比較工具數量有用得多。
 
 ## 參考資料
 
 - [@playwright/mcp — GitHub](https://github.com/microsoft/playwright-mcp)
-- [@modelcontextprotocol/server-puppeteer — GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer)
-- [Chrome DevTools MCP 介紹](/posts/tech/2026-06-20-chrome-devtools-mcp)
+- [chrome-devtools-mcp — GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+- [@modelcontextprotocol/server-puppeteer — GitHub（已封存）](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)
+- [Playwright CLI + Skills — GitHub](https://github.com/microsoft/playwright-cli)
+- [Chrome DevTools Protocol — 官方文件](https://chromedevtools.github.io/devtools-protocol/)
 - [Playwright 官方文件](https://playwright.dev/)
 - [Model Context Protocol — 官方文件](https://modelcontextprotocol.io/)
+- [Chrome DevTools MCP 介紹](/posts/tech/2026-06-20-chrome-devtools-mcp)
+- [@playwright/mcp 介紹](/posts/tech/2026-06-20-playwright-mcp)
+- [@modelcontextprotocol/server-puppeteer 介紹](/posts/tech/2026-06-20-puppeteer-mcp)

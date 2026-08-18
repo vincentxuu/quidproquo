@@ -9,8 +9,8 @@ tldr: "A single RAG Agent handling all queries hits knowledge boundaries and per
 description: "Architecture design for Multi-Agent RAG: Orchestrator coordination patterns, specialized Agent design, asynchronous communication and parallel processing, result fusion strategies, and comparison with single Agentic RAG."
 draft: false
 series:
-  name: "RAG Systems in Practice"
-  order: 4
+  name: "The RAG Techniques Compendium"
+  order: 28
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-16-multi-agent-rag-patterns)
@@ -129,7 +129,8 @@ type DomainTag = 'legal' | 'finance' | 'tech' | 'hr' | 'general';
 
 async function analyzeQuery(query: string): Promise<QueryAnalysis> {
   const response = await llm.chat({
-    model: 'claude-sonnet-4-20250514',
+    model: ROUTER_MODEL,  // Routing is just classification -- a cheap small model is fine.
+                          // Check your provider's current docs for the model ID.
     system: `You are a query router. Analyze user queries and determine:
 1. Which domains are involved (can be multiple)
 2. If multiple domains are involved, split the query into sub-queries for each domain
@@ -268,7 +269,9 @@ const tasks = domains.map(async (domain) => {
       : { domain, status: 'failed' };
   }
 });
-const results = await Promise.allSettled(tasks);
+// Each task already catches internally, so Promise.all hands back AgentResult directly;
+// if a task can genuinely throw, use Promise.allSettled and unwrap { status, value }.
+const results: AgentResult[] = await Promise.all(tasks);
 ```
 
 ### Sequential Delegation
@@ -368,7 +371,7 @@ async function llmSynthesis(
     .join('\n\n---\n\n');
 
   const response = await llm.chat({
-    model: 'claude-sonnet-4-20250514',
+    model: FUSION_MODEL,  // Fusion handles contradictions and long context -- worth a stronger model.
     system: `You are a result fusion expert. Multiple specialized Agents have provided their responses to the user's question.
 Your task is:
 1. Synthesize all Agent responses into a coherent final answer
@@ -480,8 +483,8 @@ Usage:
 
 ```typescript
 const orchestrator = new MultiAgentOrchestrator({
-  analyzerModel: 'claude-sonnet-4-20250514',
-  fusionModel: 'claude-sonnet-4-20250514',
+  analyzerModel: process.env.ROUTER_MODEL!,   // cheap, fast classifier model
+  fusionModel: process.env.FUSION_MODEL!,     // stronger synthesis model
   agents: [
     { domain: 'legal',   endpoint: 'https://agents.internal/legal',   timeoutMs: 10_000 },
     { domain: 'finance', endpoint: 'https://agents.internal/finance', timeoutMs: 8_000  },
@@ -503,7 +506,7 @@ const r3 = await orchestrator.process(
 );
 ```
 
-The five-line `process()` method contains the core logic of the entire system: analyze, route, dispatch, detect, fuse. The implementation details of each step were demonstrated in the preceding sections.
+This `process()` method is the skeleton of the whole system: analyze, route, dispatch, detect, fuse. The implementation details of each step were demonstrated in the preceding sections.
 
 ---
 
@@ -546,15 +549,19 @@ The two are not mutually exclusive. Each Agent's internals can use Modular RAG d
 
 ### vs Google's Multi-Agent Patterns
 
-Google's 2025 Agent whitepaper proposed several multi-agent patterns:
+Google's [Agents Companion whitepaper](https://www.kaggle.com/whitepaper-agent-companion) (February 2025) uses an in-car assistant as its case study and lists six multi-agent patterns. Four of them bear directly on RAG architecture choices:
 
-1. **Hierarchical**: A supervisor agent manages multiple worker agents. Similar to the Orchestrator pattern in this article, but Google emphasizes that the supervisor itself can also be an agent (with its own reasoning capabilities), not just a router.
+1. **Hierarchical**: An Orchestrator Agent classifies queries and routes them to specialized agents, while maintaining conversation context across turns and handling fallbacks when a specialist can't answer. That is the Orchestrator pattern in this article; the whitepaper stresses that the orchestrator is itself an agent (it judges domain and intent, and manages conversation state), not just a routing table.
 
-2. **Peer-to-peer**: Agents communicate directly with each other, with no central Orchestrator. Suitable for scenarios requiring frequent inter-Agent communication, but less common in RAG since retrieval tasks are usually independent.
+2. **Diamond**: A variation on hierarchical -- specialist responses pass through a central rephrasing agent before reaching the user, normalizing tone, information density, and presentation. In RAG terms: an output-conventions layer applied after fusion.
 
-3. **Mixture of Experts (MoE)**: Borrowed from ML's MoE concept, using a gating function to decide which Agents are activated. Similar to the fast routing concept in this article.
+3. **Peer-to-Peer**: The whitepaper's definition is narrower than the name suggests -- it means an agent can hand a query off directly to another agent when it detects that the orchestrator misrouted it, recovering from misclassification rather than abolishing the central orchestrator. Worth borrowing in RAG, since routing errors are one of the most common failure modes.
 
-This article's architecture is closest to a **Hierarchical + MoE hybrid**: the Orchestrator plays the supervisor role, using routing logic (gating) to determine which Agents to activate.
+4. **Collaborative + Response Mixer**: Multiple agents each cover complementary aspects of the same question, and a Response Mixer Agent evaluates the answers for accuracy and relevance, drops incorrect information, and merges the useful parts into one answer. This is the direct counterpart of "parallel fan-out + LLM synthesis" in this article.
+
+(The remaining two are the Response Mixer's own section and the Adaptive Loop pattern -- iteratively reformulating a query until the results are good enough, conceptually closer to CRAG.)
+
+One correction worth stating plainly: the whitepaper does *not* list **Mixture of Experts** as a multi-agent pattern. The fast routing shown earlier is indeed a gating-style routing optimization, but that is our analogy, not Google's terminology. Mapped onto the whitepaper, this article's architecture is closest to a **Hierarchical + Collaborative hybrid**: the Orchestrator plays supervisor, the fusion layer plays Response Mixer.
 
 ---
 
@@ -626,7 +633,7 @@ Multiple Agents operate independently -- they don't share state. This can lead t
 **Mitigations**:
 - Conflict detection is mandatory, not optional
 - Share a metadata store to ensure all Agents use consistent data versions
-- The Orchestrator attaches common context when dispatching (e.g., "data reference date: 2026-03-30")
+- The Orchestrator attaches common context when dispatching (e.g., "data reference date: 2026-03-01")
 
 ### 4. Debugging Complexity
 
@@ -698,3 +705,4 @@ If your RAG system is experiencing the problem of "adding more documents actuall
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) -- Yao et al. (2023), core reference paper for the Orchestrator's interleaved reasoning and action pattern
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) -- Besta et al. (2024), retrieval architecture for multi-aspect queries, complementary to Multi-Agent domain partitioning
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) -- LangChain tech blog, strategies for context isolation and result fusion across multiple Agents
+- [Agents Companion](https://www.kaggle.com/whitepaper-agent-companion) -- Google (February 2025), the primary source for the Hierarchical, Diamond, Peer-to-Peer, Collaborative, Response Mixer, and Adaptive Loop multi-agent patterns

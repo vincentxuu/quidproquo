@@ -8,6 +8,9 @@ lang: en
 tldr: "Have an LLM generate an 'ideal answer' first, then embed that hypothetical document for search — it outperforms searching with the raw query."
 description: "The design rationale behind HyDE (Hypothetical Document Embeddings), when to use it, and its practical impact in real RAG systems."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 14
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
@@ -41,7 +44,7 @@ Question: {query}
 Hypothetical answer document:
 ```
 
-The 100-word limit matters — too long and unrelated semantics dilute the embedding; too short and there isn't enough semantic signal to capture.
+The direction of the length limit matters — too long and unrelated semantics dilute the embedding; too short and there isn't enough semantic signal to capture. The specific number (100 words here) is not a general rule: it depends on your chunk size and the effective input length of your embedding model, and it needs tuning against your own eval set.
 
 ## When to Trigger HyDE
 
@@ -77,18 +80,33 @@ The original query vector represents the **semantics of the question**, while th
 
 The original paper (Gao et al., 2022) replaced the query embedding entirely with the hypothetical document embedding. In practice, however, **combining both and merging results via RRF** outperforms either alone: the query embedding preserves original intent, while the HyDE embedding expands semantic coverage.
 
+## An Important Correction: HyDE Is Not a Guaranteed Win
+
+This needs saying plainly, because most HyDE write-ups skip it.
+
+First, **the original paper's baseline was an unsupervised retriever**. HyDE's headline result is a large win over an unsupervised Contriever; against retrievers that had been fine-tuned for the task, the paper describes its performance as *comparable*, not superior. Reading HyDE as "add this and beat your current baseline" misreads the result.
+
+Second, and more importantly: Weller et al. (EACL 2024) ran a systematic study across 11 expansion techniques, 12 datasets, and 24 retrieval models, and found a **strong negative correlation between retriever strength and the gains from expansion — expansion helps weaker models but generally harms stronger ones**. Their explanation is that expansions do add information (potentially improving recall) but also add noise, making the genuinely top-relevant documents harder to distinguish from the rest and introducing false positives. Their recipe is blunt: **use expansions for weaker retrievers, or when the target corpus differs substantially in format from the training corpus; otherwise avoid them and keep the relevance signal clear.**
+
+That is precisely why the "run query and HyDE in parallel, then fuse with RRF" design used here is sturdier than the paper's full replacement: the original query lane is always present, so even if the HyDE lane pulls in noise it does not replace the clean signal outright. But that is a mitigation, not immunity — **you still have to measure on your own eval set and confirm the HyDE lane is a net gain**, especially once you have moved to a newer, stronger multilingual embedding model.
+
+Third, there is a cost-side alternative. ReDE-RF (2024) reframes hypothetical document generation as a relevance estimation task: instead of writing a whole document, the LLM only picks which documents are relevant, so it needs to emit a single token and requires no domain knowledge of its own. The paper reports beating HyDE across a range of low-resource retrieval datasets while substantially cutting per-query latency. If HyDE's token cost is what is blocking you, that is the direction worth reading.
+
 ## Limitations
 
 - One extra LLM call adds latency cost (even though it runs in parallel, it still consumes tokens)
 - If the generated hypothetical document drifts too far from the domain, it can introduce noise
 - Limited benefit for short queries (3–5 words) where the semantics are already clear
+- The stronger the retriever, the smaller — and eventually negative — the marginal benefit of expansion (see above)
 
-Overall, for complex or ambiguous natural language queries, HyDE is a low-cost, high-impact way to improve recall.
+Overall, for complex or ambiguous natural language queries, and where the underlying retriever is not already a strong model for the domain, HyDE is a low-cost way to improve recall. But it is a technique **you turn on after measuring**, not a default part of the stack — run the eval, confirm the net gain is positive, then ship it.
 
 ---
 
 ## References
 
-- [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (2022)](https://arxiv.org/abs/2212.10496)
+- [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
+- [When do Generative Query and Document Expansions Fail? (Weller et al., EACL 2024)](https://arxiv.org/abs/2309.08541)
+- [Zero-Shot Dense Retrieval with Embeddings from Relevance Feedback (ReDE-RF, 2024)](https://arxiv.org/abs/2410.21242)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

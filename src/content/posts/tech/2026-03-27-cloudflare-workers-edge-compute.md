@@ -5,9 +5,12 @@ type: guide
 category: tech
 tags: [cloudflare-workers, edge-compute, hono, wrangler, serverless]
 lang: zh-TW
-tldr: "Cloudflare Workers 用 V8 Isolate 取代容器，沒有 cold start，全球邊緣部署，透過 Bindings 接 D1、R2、KV、AI。適合 API、SSR、輕量後端，不適合長時間執行的任務。"
+tldr: "Cloudflare Workers 用 V8 Isolate 取代容器，沒有 cold start，全球邊緣部署，透過 Bindings 接 D1、R2、KV、AI。適合 API、SSR、輕量後端，不適合 CPU 密集的工作。"
 description: "Cloudflare Workers 的核心原理、Bindings 系統、wrangler 工具、定價，以及什麼時候該用、什麼時候不該用的實際判斷。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 1
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
@@ -20,19 +23,22 @@ Lambda 的 cold start 問題本質上是**容器啟動的成本**：拉映像、
 
 Workers 用的是 V8 Isolate——Chrome 瀏覽器裡跑 JavaScript 的那個東西。Isolate 之間記憶體隔離，但共用同一個 V8 引擎，不需要啟動新的 process 或容器，啟動時間在 **0-5ms** 之間。實際上 Cloudflare 說的「no cold start」是真的，不是行銷話術。
 
-另一個差異是**執行位置**。Lambda 跑在你選的 AWS region，Workers 自動部署到 Cloudflare 全球 300+ PoP。台灣使用者的請求在台灣或鄰近節點處理，不需要繞地球一圈。
+另一個差異是**執行位置**。Lambda 跑在你選的 AWS region，Workers 自動部署到 [Cloudflare 全球網路](https://www.cloudflare.com/network/)（官方描述是分布在數百個地點的數千台機器）。台灣使用者的請求在台灣或鄰近節點處理，不需要繞地球一圈。
 
 ## 限制先說清楚
 
-Workers 不是萬能的，限制很硬：
+Workers 不是萬能的，但真正卡住你的是哪一條，跟很多人以為的不一樣。**限制是 CPU 時間，不是牆鐘時間。**
 
-- **CPU time**：免費版 10ms，付費版 30ms（可延長到 5 分鐘，但要用 `ctx.waitUntil()`）
-- **記憶體**：128MB per Worker
-- **執行時間**：單次請求最多 30 秒（Subrequest 有另外的限制）
-- **沒有 native Node.js API**：`fs`、`net`、`child_process` 不能用，但大多數純 JS 套件可以
-- **不能長時間跑**：不適合 batch job、定時爬蟲、影片轉檔
+- **CPU time**：只算 CPU 真的在執行你程式碼的時間，等 `fetch()`、等 D1 查詢都不算。免費版 10ms；付費版預設 30 秒、可在設定裡調到 5 分鐘上限
+- **牆鐘時間**：HTTP 請求沒有硬性上限，只要 client 還連著就繼續跑；`waitUntil()` 在回應送出後可再延長一段時間。Cron Trigger、Queue consumer、Durable Object alarm 才有分鐘級的牆鐘上限
+- **記憶體**：128 MB per Worker，兩個方案都一樣
+- **Worker 大小**：免費版與付費版上限不同，打包出來太肥會部署失敗
+- **Subrequest**：每次呼叫能發幾個外部請求有上限，免費版緊得多；付費版可以在設定裡往上調
+- **沒有完整 native Node.js API**：`fs`、`child_process` 這類不能用，但大多數純 JS 套件可以
 
-Workers runtime 是 Service Worker API + 部分 Web API，不是完整的 Node.js。`node:crypto`、`node:buffer` 這些有透過 compatibility flags 支援，但要特別開啟。
+確切數字會變，[Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) 是唯一該相信的來源——這頁分開列了 CPU time 與 wall time 兩張表，值得整頁讀過一次。
+
+Workers runtime 不是完整的 Node.js。`node:crypto`、`node:buffer` 這些走 [Node.js 相容層](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)，要開 `nodejs_compat` compatibility flag 才有。
 
 ## 最基本的 Worker
 
@@ -99,44 +105,30 @@ export default app;
 
 wrangler 是 Cloudflare 官方的開發工具，從初始化到部署都靠它。
 
-```bash
-# 安裝
-npm install -g wrangler
+新專案直接用 `npm create cloudflare@latest` 起，它會把 wrangler 裝成專案的 devDependency 並產好設定檔；日常用 `npx wrangler <command>` 呼叫，不建議全域安裝（版本會跟專案脫鉤）。常用的幾個是 `wrangler login`、`wrangler dev`（本地跑）、`wrangler deploy`（部署）、`wrangler tail`（看即時 log）。完整清單見 [Wrangler commands](https://developers.cloudflare.com/workers/wrangler/commands/)。
 
-# 登入
-wrangler login
+`wrangler dev` 在本地起一個 Workers runtime，Bindings（D1、KV、R2）預設用本地模擬，也可以改連實際的 Cloudflare 資源。
 
-# 本地開發（模擬 Workers 環境）
-wrangler dev
+設定檔現在有 JSON 與 TOML 兩種寫法，**官方建議新專案用 `wrangler.jsonc`**（部分較新的功能只支援 JSON 設定檔）：
 
-# 部署
-wrangler deploy
-
-# 查看 log（即時）
-wrangler tail
+```jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "my-api",
+  "main": "src/index.ts",
+  // 設成你開始寫這個 Worker 的日期
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    { "binding": "DB", "database_name": "my-db", "database_id": "<DATABASE_ID>" }
+  ],
+  "kv_namespaces": [{ "binding": "KV", "id": "<NAMESPACE_ID>" }],
+  "ai": { "binding": "AI" },
+  "observability": { "enabled": true }
+}
 ```
 
-`wrangler dev` 會在本地起一個模擬 Workers 環境的 server，Bindings（D1、KV、R2）也可以連到本地模擬或實際的 Cloudflare 資源，透過 `--remote` 切換。
-
-`wrangler.toml` 是設定檔：
-
-```toml
-name = "my-api"
-main = "src/index.ts"
-compatibility_date = "2024-01-01"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "my-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-[[kv_namespaces]]
-binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-[ai]
-binding = "AI"
-```
+`wrangler.toml` 一樣能用，格式完全對應、只差語法。欄位一覽見 [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)。
 
 ## Bindings 系統
 
@@ -156,19 +148,13 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 
 [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store) 是最終一致性，全球讀取快但寫入有延遲。[Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage) 適合靜態資產、使用者上傳的圖片和影片，沒有 egress 費用。
 
-## 定價
+## 計費模型
 
-**免費版（Free）：**
-- 每天 100,000 個請求
-- CPU time：10ms per request
-- KV、D1、R2 各有免費額度
+價目表會變，這裡只講形狀：Workers 按**請求數 + CPU 毫秒數**兩軸計費，等待網路 I/O 的時間不計費——這是它跟 Lambda（按 GB-秒、含等待時間）最大的成本結構差異。一個大量呼叫外部 API、自己幾乎不算的 Worker，在 Cloudflare 上便宜得不成比例。
 
-**付費版（Workers Paid，$5/月）：**
-- 每月 10,000,000 個請求（超過 $0.30 per 百萬）
-- CPU time 提升到 30ms，可延長
-- D1、KV、R2 額度大幅提升
+免費方案有每日請求上限，付費方案有月度包含額度、超出按量。D1、KV、R2、Workers AI 各自另有免費額度與計費軸，要分開算。實際數字看 [Workers Pricing](https://developers.cloudflare.com/workers/platform/pricing/)。
 
-對多數 side project 和中小型應用，免費版就夠。$5/月 的付費版幾乎是業界最便宜的 serverless 方案之一——同等規模的 Lambda + API Gateway 會貴很多。
+對多數 side project 和中小型應用，免費方案就夠用。
 
 ## NobodyClimb 的用法
 
@@ -190,19 +176,22 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 - 輕量排程任務（搭配 Cron Triggers）
 
 **不適合用 Workers：**
-- 需要超過 30 秒的任務（影片處理、大型 batch job）
-- 大量 CPU 密集運算（機器學習訓練、影像處理）
-- 需要 native Node.js API 的套件（某些資料庫 driver、native addon）
-- 需要維持 WebSocket 長連線（可以用 Durable Objects，但複雜度不同）
+- 大量 CPU 密集運算（機器學習訓練、影像轉檔）——這是最硬的一條，CPU 上限直接擋住
+- 記憶體吃超過 128 MB 的工作
+- 需要 native Node.js addon 的套件（某些資料庫 driver、`.node` binary）
 - 需要本地檔案系統（`fs` 不能用）
 
-跟傳統 VPS 或容器的比較：Workers 犧牲了執行彈性（時間、記憶體、API 限制），換來的是零 infra 管理、全球部署、和非常便宜的計費方式。如果你的應用符合這些限制，Workers 是很好的選擇；如果不符合，就用容器。
+有兩件事**不再**是不用 Workers 的理由：長連線的 WebSocket 有 [Durable Objects](https://developers.cloudflare.com/durable-objects/)（只要 caller 連著就沒有牆鐘上限），長流程有 Workflows。它們是不同的心智模型，但不是「Workers 做不到」。
+
+跟傳統 VPS 或容器的比較：Workers 犧牲的是**單次請求能燒多少 CPU 與記憶體**，換來零 infra 管理、全球部署、以及只為實際運算付費的計費方式。你的工作單元夠小就選 Workers，不夠小就選容器。
 
 ## 參考資料
 
 - [Cloudflare Workers 官方文件](https://developers.cloudflare.com/workers/)
 - [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [Cloudflare Workers Pricing](https://developers.cloudflare.com/workers/platform/pricing/)
+- [Wrangler 設定檔參考](https://developers.cloudflare.com/workers/wrangler/configuration/)
+- [Workers 的 Node.js 相容性](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)
 - [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
 - [Hono Web Framework](/posts/tech/2026-03-27-hono-web-framework)

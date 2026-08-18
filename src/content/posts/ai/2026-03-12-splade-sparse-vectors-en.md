@@ -8,6 +8,9 @@ lang: en
 tldr: "BM25 only recognizes words that appear in the query. SPLADE infers related terms and adds them to the search, gaining partial semantic capability while preserving the precision of keyword search."
 description: "How SPLADE sparse vector search works: differences from BM25, complementary relationship with dense vectors, and its role in Hybrid Search."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 12
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-splade-sparse-vectors)
@@ -47,9 +50,16 @@ Such sparse vectors can be efficiently searched using traditional inverted index
 | Index size | Small | Small to Medium | Large |
 | Search speed | Fast | Fast | Slow (ANN) |
 | Multilingual | Requires tokenizer | Depends on training data | Yes |
-| Platform support | Broad | Limited | Broad |
 
 SPLADE is positioned as an "evolved BM25," not a "simplified dense search." It retains the speed advantage of sparse vectors while adding partial semantic expansion capability.
+
+The tooling has caught up in the last couple of years: Sentence Transformers has had a first-class `SparseEncoder` API since v5, which loads, trains, and evaluates SPLADE-family models directly, and most mainstream vector databases (Qdrant, OpenSearch, Elasticsearch, and others) now support sparse vector fields. Exactly how far each one goes changes fast, so check the current docs of whichever store you are considering rather than trusting any comparison table. A good starting point is the [Sentence Transformers Sparse Encoder docs](https://sbert.net/docs/sparse_encoder/usage/usage.html) and [Training Sparse Embedding Models](https://huggingface.co/blog/train-sparse-encoder).
+
+## Licensing Is the First Gate
+
+This blocks more projects than any technical detail: **Naver's official SPLADE checkpoints (`naver/splade-v3`, `naver/splade-cocondenser-ensembledistil`, and friends) are CC-BY-NC-SA 4.0 — non-commercial only**, and `splade-v3` is additionally gated on Hugging Face behind a terms acceptance. If you are shipping a commercial product, that is the end of the conversation for those weights.
+
+For commercially usable sparse neural retrieval, the practical directions today are OpenSearch's neural sparse encoding series (Apache-2.0), or BGE-M3's sparse output (see below). When picking a model, **read the license field before you read the benchmark numbers**.
 
 ## Role in Hybrid Search
 
@@ -67,9 +77,11 @@ SPLADE fills the space between Dense and BM25: synonyms that BM25 can't find, bu
 
 ## Practical Limitations
 
-**Language support**: SPLADE's term expansion depends on training data. There aren't many SPLADE models trained on Traditional Chinese, so you either need to find a version trained on Traditional Chinese data or accept limited expansion effectiveness.
+**Language support**: SPLADE's term expansion depends on training data, and Naver's official checkpoints are English-first — there is no Traditional Chinese version.
 
-**Platform support**: Cloudflare Workers AI (as of 2026) doesn't offer SPLADE models. To use it on Workers, you'd need to call an external API (adding latency and cost) or wait for platform support.
+For CJK, the more pragmatic alternative is **BGE-M3's sparse (lexical weights) output**. M3-Embedding was designed so that a single forward pass can emit dense, sparse, and multi-vector representations at once, across 100+ languages, and the weights are MIT-licensed. In other words, you may not need "a Chinese SPLADE" at all — you can have the BGE-M3 you are already running emit a sparse leg as well. The cost is that you have to run the model yourself and maintain your own inverted index; that second half is where the real engineering cost lives.
+
+**Platform support**: Cloudflare Workers AI's hosted model catalog has no SPLADE-family model (and the Workers AI BGE-M3 endpoint returns dense vectors only). To do sparse neural retrieval on Workers you have to call an external service, paying for the extra network round trip in latency and cost. The catalog changes; treat the [official model list](https://developers.cloudflare.com/workers-ai/models/) as the source of truth.
 
 **Complexity tradeoff**: The marginal benefit of adding a third search path needs to be weighed against what BM25 + Dense already covers. If dense search provides sufficient semantic coverage, SPLADE's improvement may be limited.
 
@@ -95,6 +107,10 @@ If your RAG system repeatedly encounters the problem of "not finding documents t
 
 ## References
 
-- [SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking (2021)](https://arxiv.org/abs/2109.10086)
+- [SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking (Formal et al., SIGIR 2021)](https://arxiv.org/abs/2107.05720)
+- [SPLADE v2: Sparse Lexical and Expansion Model for Information Retrieval (2021)](https://arxiv.org/abs/2109.10086)
+- [SPLADE-v3: New baselines for SPLADE (Lassance et al., 2024)](https://arxiv.org/abs/2403.06789)
+- [M3-Embedding (BGE-M3): Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings](https://arxiv.org/abs/2402.03216)
+- [Sentence Transformers: Sparse Encoder usage docs](https://sbert.net/docs/sparse_encoder/usage/usage.html)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

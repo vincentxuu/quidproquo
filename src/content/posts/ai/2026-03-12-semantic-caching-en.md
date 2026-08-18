@@ -8,6 +8,9 @@ lang: en
 tldr: "Caching doesn't have to match exact query strings -- semantically similar questions can hit the cache too, skipping the entire RAG pipeline execution."
 description: "Semantic Caching design: matching cached queries via vector similarity, cosine threshold tuning, privacy considerations, and performance impact in RAG systems."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 41
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-semantic-caching)
@@ -41,11 +44,13 @@ async function checkSemanticCache(
 }
 ```
 
-Cache hit → skip all 17 pipeline steps, return the result directly. Latency drops from 5-8 seconds to < 100 milliseconds.
+Cache hit → skip the entire rest of the pipeline and return the result directly. Latency drops from "seconds, the cost of a full pipeline run" to "milliseconds, the cost of one vector comparison." The actual numbers depend on your pipeline length and models -- measure your own before quoting any.
+
+> The loop above pulls every cached embedding back and scans it linearly, which only works while the cache holds tens or hundreds of entries. Two limits will bite you: Workers KV can only `list()` keys, so values must be fetched one by one ([how KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/)) -- past a certain count, reading the cache costs more than running the pipeline; and KV is eventually consistent, so a freshly written entry is not guaranteed to be readable from another region right away. Beyond roughly a thousand entries, put the cache lookup itself into a vector index (e.g. a dedicated cache namespace in [Vectorize](https://developers.cloudflare.com/vectorize/)) and replace the linear scan with top-1 + threshold.
 
 ## Choosing the Threshold
 
-A cosine similarity of 0.95 seems high, but it's reasonable in semantic space:
+A cosine similarity of 0.95 seems high, but it's reasonable in semantic space. The table below is an intuition aid, **not a universal constant** -- similarity distributions vary a lot between embedding models (some put unrelated sentence pairs above 0.7 as a noise floor), so calibrate against your own query log:
 
 | Similarity | Semantic Relationship |
 |------|---------|
@@ -57,7 +62,7 @@ A cosine similarity of 0.95 seems high, but it's reasonable in semantic space:
 
 0.95 allows "How many routes are at Longdong" and "How many routes does Longdong have" to hit the same cache, but prevents "How many routes are at Longdong" and "What is the hardest route at Longdong" from being conflated.
 
-This value can be dynamically adjusted via `ai_config` to find the optimal balance between cache hit rate and accuracy.
+This value can be dynamically adjusted via `ai_config` to find the optimal balance between cache hit rate and accuracy. Calibration is crude but effective: take a batch of real queries, pair them up, hand-label whether each pair should share an answer, then pick the threshold whose false-hit rate you can live with.
 
 ## Cache Storage
 
@@ -80,6 +85,15 @@ A 1-hour TTL is a deliberate tradeoff:
 - Too long → cache may become stale after data updates (routes modified, new routes added)
 
 Climbing route information is relatively stable, so 1 hour is reasonable. If a major data update occurs, the cache can be cleared manually.
+
+## Check What the Provider Already Caches for You
+
+Before building your own semantic cache, see how much two off-the-shelf layers already cover:
+
+- **Prompt caching / context caching**: every major API can cache a repeated prompt prefix (system prompt, fixed knowledge blocks) on the provider side and bill hits at a discounted input rate. This is **exact prefix matching**, not semantic matching, so it saves on "sending the same long context over and over," not on "the same question asked in different words" -- the two are complementary. Mechanics and pricing live in the official docs: [Anthropic prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching), [OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching), [Gemini context caching](https://ai.google.dev/gemini-api/docs/caching).
+- **Gateway-level caching**: if requests already go through [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/), you can enable caching there instead of writing it yourself.
+
+The reason to still build semantic caching is that both of the above only recognize byte-identical input, and "How many routes are at Longdong" is not byte-identical to "How many routes does Longdong have."
 
 ## Privacy Considerations
 
@@ -112,7 +126,7 @@ Request
   ↓ (miss)
 [Query Classification]
   ↓
-[... remaining 17 steps ...]
+[... all remaining steps ...]
 ```
 
 The cached response includes the complete `query_id`, `sources`, and `quota_info`, ensuring a consistent frontend experience -- users cannot tell whether a result is cached or freshly generated.
@@ -121,15 +135,18 @@ The cached response includes the complete `query_id`, `sources`, and `quota_info
 
 Semantic Caching is one of the lowest-cost, highest-impact performance optimizations in a RAG system. The implementation is simple (a single vector comparison), the effect is dramatic (latency drops from seconds to milliseconds), and the improvement in user experience is immediate.
 
-The only considerations are privacy (don't cache personalized queries) and TTL settings (data update frequency). In every other respect, this is an optimization with virtually no downsides.
+Three things need watching: privacy (don't cache personalized queries), TTL (how often the underlying data changes), and the cost of the cache lookup itself -- once entries pile up, a linear scan becomes the bottleneck, so move it into a vector index. Handle those three and it stays a very high-return optimization.
 
 ---
 
 ## References
 
-- [GPTCache: An Open-Source Semantic Cache for LLM Applications Enabling Faster Answers and Cost Savings](https://aclanthology.org/2023.nlposs-1.24/)
+- [GPTCache: An Open-Source Semantic Cache for LLM Applications Enabling Faster Answers and Cost Savings](https://aclanthology.org/2023.nlposs-1.24/) -- the ideas still hold up, but [the GPTCache project itself](https://github.com/zilliztech/GPTCache) last cut release 0.1.44 in August 2024 and has seen only sporadic commits since; don't treat it as an actively maintained dependency.
 - [MeanCache: User-Centric Semantic Caching for LLM Web Services (arXiv:2403.02694)](https://arxiv.org/abs/2403.02694)
 - [Cloudflare Workers KV Documentation](https://developers.cloudflare.com/kv/)
+- [Cloudflare AI Gateway: Caching](https://developers.cloudflare.com/ai-gateway/features/caching/)
+- [Anthropic: Prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching)
+- [OpenAI: Prompt caching](https://platform.openai.com/docs/guides/prompt-caching)
 - [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

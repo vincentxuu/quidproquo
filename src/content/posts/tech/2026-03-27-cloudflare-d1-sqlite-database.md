@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "D1 是 Cloudflare 的 serverless SQLite 資料庫，直接綁定 Workers，支援完整 SQL（JOIN、transaction）、自動備份。適合中小規模的關聯式資料需求，NobodyClimb 把它當主資料庫用。"
 description: "Cloudflare D1 介紹：SQLite-based serverless 關聯式資料庫，Workers binding 基本 CRUD、wrangler migration 流程、與 PostgreSQL/MySQL 的比較，以及 D1 vs KV 的選擇邏輯。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 2
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database-en)
@@ -18,19 +21,25 @@ D1 是 Cloudflare 的 serverless 關聯式資料庫，底層是 SQLite。它和 
 
 - **完整 SQL 支援**：JOIN、subquery、transaction、FOREIGN KEY——SQLite 能做的 D1 都支援
 - **Workers binding**：直接在 Worker 程式碼裡用 `env.DB` 操作，不需要管連線字串或連線池
-- **自動複製與備份**：Cloudflare 負責底層複製，不用自己設 snapshot
+- **Time Travel**：D1 內建 point-in-time recovery，可以把資料庫倒回過去某個時間點，不用自己排 snapshot（保留天數依方案，見官方限額頁）
 - **Wrangler migration**：用 `wrangler d1 migrations apply` 管理 schema 版本
+- **Read replication**：可選的唯讀副本，把讀取分散到其他地點，[官方文件](https://developers.cloudflare.com/d1/best-practices/read-replication/)說明副本不額外計費，仍照 `rows_read` / `rows_written` 算
 - **HTTP API**：除了 Workers binding，也可以用 REST API 從外部存取
 
 ## 基本 CRUD
 
-**wrangler.toml 綁定**
+**Wrangler 設定檔綁定**（官方建議新專案用 `wrangler.jsonc`）
 
-```toml
-[[d1_databases]]
-binding = "DB"
-database_name = "nobodyclimb"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```jsonc
+{
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nobodyclimb",
+      "database_id": "<DATABASE_ID>"
+    }
+  ]
+}
 ```
 
 **Worker 裡操作 D1**
@@ -72,7 +81,9 @@ const { success } = await env.DB.batch([
 ]);
 ```
 
-`batch()` 在同一個 transaction 裡執行所有 statement，任一失敗就全部 rollback。
+`batch()` 在同一個 transaction 裡依序執行所有 statement，任一失敗就全部 rollback。
+
+有一條容易踩到的限額：**每次 Worker 呼叫能對 D1 下的查詢數有上限**，免費方案比付費方案緊很多，而且 batch 裡的每個 statement 各自計算。把 N+1 查詢改成 JOIN 或 batch 不只是效能問題，也是會不會直接撞牆的問題。
 
 ## Schema 和 Migration
 
@@ -118,7 +129,9 @@ Wrangler 在 D1 內部維護一張 `d1_migrations` 表追蹤版本，已套用�
 | SQL 支援 | SQLite 語法子集 | 完整 PostgreSQL / MySQL |
 | 並發寫入 | 單點 SQLite，高並發寫入會 queue | 支援高並發 |
 | 功能 | 無 stored procedures、no pg extensions | 豐富的擴充生態 |
-| 成本 | 免費層大方，按 row 讀寫計費 | EC2 + RDS 固定成本高 |
+| 成本 | 有免費額度，按 row 讀寫與儲存量計費 | EC2 + RDS 固定成本高 |
+
+D1 的吞吐量有個很好算的心智模型，官方文件直接寫了：**每個 D1 資料庫底層是單一 Durable Object，一次處理一個查詢**，所以吞吐量等於「1 秒 ÷ 平均查詢時間」。平均 1 ms 的查詢大約每秒 1,000 次，平均 100 ms 就只剩每秒 10 次。優化慢查詢在 D1 上不是省成本，是直接買吞吐量。
 
 **什麼時候 D1 合理：**
 - 中小規模專案，寫入量不大（每秒幾百筆以內）
@@ -129,7 +142,7 @@ Wrangler 在 D1 內部維護一張 `d1_migrations` 表追蹤版本，已套用�
 **什麼時候要換掉：**
 - 高並發寫入（每秒上千筆）——SQLite 單點寫入會成為瓶頸
 - 需要複雜的 SQL 功能或 PostgreSQL extension
-- 資料庫大小接近 10 GB 上限
+- 單一資料庫逼近容量上限——**這個上限不能申請調高**，只能水平切成多個資料庫（D1 的設計就是「很多個小資料庫」，per-user / per-tenant 分庫是官方推薦的做法）
 
 ## D1 vs KV
 
@@ -174,25 +187,31 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 - Zero-config：wrangler 建好就能用，沒有 VPC、連線池、SSL 憑證
 - 完整 SQL：JOIN、transaction、subquery，不是閹割版
 - 跑在 Worker 旁邊，延遲極低
-- 免費層很大方（5 GB 儲存、500 萬 row reads/天）
+- 免費方案就能跑真的專案
 
 **缺點**
 - SQLite 單點寫入：高並發寫入場景會排隊，這是架構限制，不是 bug
 - 無 stored procedures、no triggers（SQLite 限制）
-- 資料庫大小上限 10 GB（enterprise 可擴展，一般方案夠用）
-- Open beta 考量：D1 已相當穩定，但 API 和計費偶爾有調整，production 使用要追蹤 changelog
+- 單一資料庫容量有上限，而且**明確不可調高**——資料會長大的話，一開始就要想好怎麼分庫
+- 免費方案的**單一資料庫容量上限遠低於付費方案**（不是同一個數字打折，是兩個量級），開發時很容易誤判
+- 大批次的 `UPDATE` / `DELETE` 會撞執行限制，官方建議切成每批一千列左右跑
 
-## 定價
+## 計費的形狀
 
-- **免費方案**：5 GB 儲存，每天 500 萬 row reads、10 萬 row writes
-- **付費方案（Workers Paid $5/月起）**：50 GB 儲存，超出部分按 row 讀寫計費（$0.001 / 100 萬 row reads，$1.00 / 100 萬 row writes）
+具體數字看 [D1 定價](https://developers.cloudflare.com/d1/platform/pricing/) 與 [D1 限額](https://developers.cloudflare.com/d1/platform/limits/)，這裡只講會影響設計決策的三件事：
 
-寫入費用比讀取高出許多——設計 schema 和 query 時要注意避免不必要的 write，批次操作盡量用 `batch()`。
+1. **計價單位是「掃過的列數」，不是回傳的列數。** 一張五千列的表下 `SELECT *` 全表掃描，就是五千 rows read，即使你只用到一列。這是索引在 D1 上會直接反映在帳單上的原因。
+2. **每百萬列的寫入單價比讀取貴三個數量級。** 而且建了索引之後，寫入含索引欄位時會多算一列（表一次、索引一次）——官方仍建議建索引，因為省下的 read 幾乎總是超過多付的 write。
+3. **免費方案的每日讀寫額度是硬牆**，撞到就整個帳號的 D1 直接回錯誤，等 UTC 00:00 重置。上線前要有處理這個錯誤的路徑。
+
+沒有 egress 或頻寬費用。
 
 ## 參考資料
 
 - [Cloudflare D1 官方文件](https://developers.cloudflare.com/d1/)
 - [D1 定價](https://developers.cloudflare.com/d1/platform/pricing/)
+- [D1 限額](https://developers.cloudflare.com/d1/platform/limits/) — 容量、每次呼叫查詢數、SQL 語句長度等硬限制
+- [D1 read replication](https://developers.cloudflare.com/d1/best-practices/read-replication/)
 - [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [Cloudflare Workers：Edge Compute 入門](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
 - [Cloudflare KV：全球邊緣的 Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)

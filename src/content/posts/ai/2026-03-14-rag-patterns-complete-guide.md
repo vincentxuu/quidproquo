@@ -9,7 +9,7 @@ tldr: "RAG 已經從簡單的「搜尋+生成」演化成涵蓋十個世代的�
 description: "RAG 系統的完整導航指南：十代 RAG 演化（Naive → Advanced → Modular → Self-RAG → CRAG → Graph RAG → Speculative → Agentic → Multi-Agent → LongRAG）、檢索策略、Chunking、Embedding、向量資料庫、Reranking、評估框架、Guardrails、可觀測性和成本優化。"
 draft: false
 series:
-  name: "RAG 系統實戰"
+  name: "RAG 技法大全"
   order: 1
 ---
 
@@ -105,8 +105,8 @@ series:
 不是每一代都同樣成熟。在選擇時，你也要考慮技術的生產就緒程度：
 
 - **已驗證**（大量生產案例）：Gen 1 Naive、Gen 2 Advanced、Gen 3 Modular
-- **漸趨成熟**（有生產案例但仍在快速演化）：Gen 5 CRAG、Gen 6 Graph RAG、Gen 8 Agentic RAG
-- **早期採用**（論文發表不久，框架支持有限）：Gen 4 Self-RAG、Gen 7 Speculative、Gen 9 Multi-Agent、Gen 10 LongRAG
+- **漸趨成熟**（有生產案例但仍在快速演化）：Gen 5 CRAG、Gen 6 Graph RAG、Gen 8 Agentic RAG、Gen 9 Multi-Agent（主流 agent 框架都已內建 supervisor / orchestrator 模式）
+- **早期採用**（主要停留在論文與實驗，通用框架支援有限）：Gen 4 Self-RAG（需要特製訓練）、Gen 7 Speculative（需要自備 draft 小模型）、Gen 10 LongRAG
 
 ---
 
@@ -128,7 +128,7 @@ Advanced RAG 的核心改進是在 Retrieval 前後各加一層處理。**前處
 
 架構一句話：`Query → Pre-process → Retrieve → Post-process → Generate`
 
-這是大多數生產系統的起點。單純加上 Cross-Encoder reranking，relevance 就能提升 15-30%。如果你只能做一件事來改善 Naive RAG，加 reranking。
+這是大多數生產系統的起點。單純加上 Cross-Encoder reranking，通常就能明顯改善送進 LLM 的 context 品質。提升幅度沒有普適數字——它取決於你的 base retriever 有多弱、top-K 拉多大、以及資料的同質程度，所以請在自己的資料上量，不要照抄別人部落格的百分比。如果你只能做一件事來改善 Naive RAG，加 reranking。
 
 ### Gen 3: Modular RAG
 
@@ -161,7 +161,7 @@ LLM: 需要搜尋嗎？ ──→ [No Retrieve] → 直接生成
 輸出最終答案
 ```
 
-Self-RAG 的好處是減少不必要的搜尋（降低延遲和成本），同時在需要搜尋時確保結果品質。缺點是需要特殊訓練——你不能直接在 GPT-4 上用，需要 fine-tune 過的模型才能輸出 reflection token。
+Self-RAG 的好處是減少不必要的搜尋（降低延遲和成本），同時在需要搜尋時確保結果品質。缺點是需要特殊訓練——你不能拿任何一個現成的通用 API 模型直接用，必須有 fine-tune 過、會輸出 reflection token 的模型（原論文釋出的是基於 Llama 2 微調的權重）。
 
 適用場景：知識庫內容和 LLM 自身知識有大量重疊時，Self-RAG 能避免冗餘搜尋。如果你的問題幾乎都需要搜尋（例如企業內部文件問答），那 Self-RAG 的好處不大。
 
@@ -175,7 +175,7 @@ Naive RAG 搜到什麼就用什麼，即使結果根本不相關。CRAG 在 Retr
 
 架構一句話：`Query → Retrieve → Evaluate(相關/不確定/不相關) → [Use | Refine | Web Search] → Generate`
 
-這個「搜不到就修正」的機制讓 RAG 系統在面對 edge case 時不會直接失敗，而是自動嘗試不同策略。在開放域問答中，CRAG 比 Naive RAG 的答案準確率高出 20% 以上。
+這個「搜不到就修正」的機制讓 RAG 系統在面對 edge case 時不會直接失敗，而是自動嘗試不同策略。[CRAG 論文](https://arxiv.org/abs/2401.15884)在四個短文／長文生成資料集上都回報了顯著提升，但幅度隨資料集和底層 retriever 差異很大——它證明的是「加了修正層會更穩」，不是某個固定的百分比。
 
 CRAG 的實用價值在於它不需要改你現有的搜尋引擎——它是在搜尋結果出來之後加的一層。這意味著你可以在任何現有的 RAG 系統上「加裝」CRAG，而不需要重新設計 pipeline。
 
@@ -205,7 +205,7 @@ Graph RAG 的建置成本比純向量搜尋高得多——你需要做實體抽�
 
 Speculative RAG 借鑑了 Speculative Decoding 的思路：**用小模型做初步工作，大模型做最終驗證**。
 
-具體做法：一個小型 specialist model（例如 7B 參數）同時生成多個候選答案草稿，每個草稿基於不同的 retrieved chunk 子集。然後一個大型 generalist model（例如 70B 或 GPT-4）一次性評估所有草稿，選出最好的那個。
+具體做法：一個小型、經過蒸餾的 specialist model（原論文用的是 7B 級別）同時生成多個候選答案草稿，每個草稿基於不同的 retrieved chunk 子集。然後一個大型 generalist model 一次性評估所有草稿，選出最好的那個。兩邊具體用哪個模型不重要，重要的是「小的多、大的一次」這個結構。
 
 ```
 Retrieved Chunks: [C1, C2, C3, C4, C5]
@@ -218,7 +218,7 @@ Retrieved Chunks: [C1, C2, C3, C4, C5]
 大模型（一次驗證）: 選 Draft 2 → 最終答案
 ```
 
-好處是延遲低（小模型跑得快，而且是平行的）和成本低（大模型只做一次驗證，不做完整生成）。在高吞吐量的場景中，Speculative RAG 可以把延遲降低 30-50%，同時維持接近大模型直接生成的品質。
+好處是延遲低（小模型跑得快，而且是平行的）和成本低（大模型只做一次驗證，不做完整生成）。[Speculative RAG 論文](https://arxiv.org/abs/2407.08223)在 PubHealth 上回報準確率最多提升 12.97%、延遲降低 50.83%；但這是該資料集上的最佳值，TriviaQA、MuSiQue、PopQA、ARC-Challenge 的幅度都小得多，不要當成通例。另外要注意：這個數字的前提是你有一個蒸餾過的 specialist 小模型，不是隨便抓一個 7B 就有。
 
 關鍵洞察：Speculative RAG 本質上是用 compute parallelism 換 latency。如果你的瓶頸是 GPU 不夠而不是延遲太高，這個模式反而會讓事情更糟。
 
@@ -269,15 +269,13 @@ LongRAG 挑戰了一個 RAG 的基本假設：**chunk 一定要切小嗎？**
 
 LongRAG 的做法是用大 chunk（甚至整份文件），搭配長上下文模型。好處是保留了完整的語境——不再有「答案被切在兩個 chunk 的邊界」的問題。搜尋的精準度要求也降低了，因為 chunk 大，命中率自然高。
 
-架構一句話：`Query → Coarse Search(大 chunk) → Long-Context LLM → Answer`
-
 架構一句話：`Query → Coarse Retrieval (大 chunk) → Long-Context LLM → Answer`
 
 代價是 token 用量暴增（大 chunk 意味著送進 LLM 的 token 數多），延遲也會增加。LongRAG 適合那些對完整性要求高、對成本不那麼敏感的場景，例如法律合約分析、長篇論文問答。
 
-一個有趣的趨勢：隨著 long-context 模型的成本持續下降（Gemini 1.5 Pro 的 1M context 已經相當便宜），LongRAG 的經濟可行性會越來越高。未來可能出現的情況是：小型知識庫直接用 LongRAG（把所有文件塞進 context），只有大型知識庫才需要傳統的 chunking + retrieval。
+一個有趣的趨勢：長上下文模型的 context 上限持續擴大、每 token 價格持續下降，LongRAG 的成本劣勢正在縮小。具體的上限和價格幾個月就變一次，這裡不列數字——請直接查你使用的供應商的官方文件。
 
-一個有趣的趨勢：隨著 LLM 的 context window 持續擴大、token 價格持續下降，LongRAG 的「代價」正在快速縮小。2024 年這個做法太貴，2025 年已經值得考慮，2026 年可能成為很多場景的預設選擇。
+但「塞更多 context」不等於「答得更好」。長上下文模型在超長輸入下仍有位置偏誤和注意力稀釋的問題，塞進去不代表模型讀得到。所以務實的折衷是：小型知識庫直接走大 chunk + 長上下文，大型知識庫仍然需要傳統的 chunking + retrieval，並且不管走哪條路都要用評估集驗證，而不是假設「context 夠大就沒事」。
 
 → 深入閱讀：[LongRAG：用長上下文模型重新思考 RAG 的 Chunking 策略](/posts/ai/2026-03-15-longrag-long-context-retrieval)
 
@@ -336,7 +334,7 @@ Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：�
 
 ### HyDE：假設答案搜尋
 
-使用者的問題和文件的語言風格不同，導致向量搜尋的 recall 不高。HyDE 先讓 LLM 生成一個「假設的答案」，再用這個假設答案去搜尋。因為假設答案和真實文件的語言風格更接近，recall 可以提升 10-20%。
+使用者的問題和文件的語言風格不同，導致向量搜尋的 recall 不高。HyDE 先讓 LLM 生成一個「假設的答案」，再用這個假設答案去搜尋。因為假設答案和真實文件的語言風格更接近，recall 通常會改善——但提升幅度高度依賴領域和 base retriever（原論文是在零樣本、無標註資料的設定下和 Contriever 比較），在有標註資料可以微調 retriever 的場景，HyDE 的優勢會縮小。
 
 → [HyDE：用假設答案提升向量搜尋的 Recall](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
 
@@ -424,13 +422,13 @@ Chunking → Embedding → Vector DB → Prompt Design → Streaming
 
 ### Embedding 模型選型
 
-繁體中文的 RAG 系統，embedding 模型的選擇特別重要。BGE-M3 是目前繁中表現最好的多語言模型之一，同時支持 dense、sparse 和 multi-vector retrieval。選模型要看：語言覆蓋、維度大小、最大 token 長度、以及在你自己的資料上的 benchmark。
+繁體中文的 RAG 系統，embedding 模型的選擇特別重要。BGE-M3 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。
 
 → [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
 ### 向量資料庫選型
 
-Pinecone（全託管、最省事）、Weaviate（開源、hybrid search 內建）、Qdrant（Rust 寫的、效能好）、Cloudflare Vectorize（邊緣部署）——每個都有不同的取捨。選型要考慮：部署模式、規模、hybrid search 支持、metadata filtering、成本。
+向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件確認當下的功能與定價。
 
 → [Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選](/posts/ai/2026-03-12-vector-database-comparison)
 
@@ -630,3 +628,5 @@ RAG 不是一個技術，是一個技術體系。
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，Agentic RAG 系統分類學與演化路徑綜述
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，RAG pipeline 各元件最佳組合的實驗性研究
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，利用多頭注意力機制提升多面向查詢的檢索準確率
+- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting](https://arxiv.org/abs/2407.08223) — Wang et al. (2024)，小模型平行打草稿、大模型一次驗證的加速架構
+- [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) — Gao et al. (2022)，HyDE 原始論文，用假設文件橋接 query 與 document 的語義差距

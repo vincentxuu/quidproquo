@@ -9,7 +9,7 @@ tldr: "RAG has evolved far beyond simple 'search + generate' into a technology e
 description: "A complete navigation guide for RAG systems: ten generations of RAG evolution (Naive -> Advanced -> Modular -> Self-RAG -> CRAG -> Graph RAG -> Speculative -> Agentic -> Multi-Agent -> LongRAG), retrieval strategies, chunking, embedding, vector databases, reranking, evaluation frameworks, guardrails, observability, and cost optimization."
 draft: false
 series:
-  name: "RAG Systems in Practice"
+  name: "The RAG Techniques Compendium"
   order: 1
 ---
 
@@ -110,8 +110,8 @@ This article is a map. It won't dive deep into any single topic — each topic h
 Not every generation is equally mature. When choosing, consider the production-readiness of the technology:
 
 - **Proven** (extensive production use cases): Gen 1 Naive, Gen 2 Advanced, Gen 3 Modular
-- **Maturing** (production use cases exist but still rapidly evolving): Gen 5 CRAG, Gen 6 Graph RAG, Gen 8 Agentic RAG
-- **Early adoption** (recently published papers, limited framework support): Gen 4 Self-RAG, Gen 7 Speculative, Gen 9 Multi-Agent, Gen 10 LongRAG
+- **Maturing** (production use cases exist but still rapidly evolving): Gen 5 CRAG, Gen 6 Graph RAG, Gen 8 Agentic RAG, Gen 9 Multi-Agent (supervisor/orchestrator patterns now ship with the mainstream agent frameworks)
+- **Early adoption** (mostly papers and experiments, limited general framework support): Gen 4 Self-RAG (needs purpose-built training), Gen 7 Speculative (needs your own distilled drafter), Gen 10 LongRAG
 
 ---
 
@@ -133,7 +133,7 @@ The core improvement of Advanced RAG is adding a processing layer before and aft
 
 Architecture in one sentence: `Query -> Pre-process -> Retrieve -> Post-process -> Generate`
 
-This is the starting point for most production systems. Simply adding Cross-Encoder reranking can improve relevance by 15-30%. If you can only do one thing to improve Naive RAG, add reranking.
+This is the starting point for most production systems. Simply adding Cross-Encoder reranking usually gives a clear improvement in the quality of the context you hand the LLM. There is no universal number for the gain — it depends on how weak your base retriever is, how large a top-K you rerank, and how homogeneous your data is, so measure it on your own data instead of copying a percentage from someone's blog. If you can only do one thing to improve Naive RAG, add reranking.
 
 ### Gen 3: Modular RAG
 
@@ -166,7 +166,7 @@ Generate answer → Supported by context? ──→ [ISSUP=No] → Regenerate
 Output final answer
 ```
 
-The benefit of Self-RAG is reducing unnecessary searches (lowering latency and cost) while ensuring result quality when search is needed. The downside is it requires special training — you can't use it directly on GPT-4; you need a fine-tuned model to output reflection tokens.
+The benefit of Self-RAG is reducing unnecessary searches (lowering latency and cost) while ensuring result quality when search is needed. The downside is it requires special training — you can't point it at an off-the-shelf general API model; you need a model fine-tuned to emit reflection tokens (the original paper released Llama 2-based weights).
 
 Use case: When knowledge base content significantly overlaps with the LLM's own knowledge, Self-RAG can avoid redundant searches. If your questions almost always require search (e.g., enterprise internal document Q&A), Self-RAG offers little benefit.
 
@@ -180,7 +180,7 @@ Naive RAG uses whatever it finds, even if the results are completely irrelevant.
 
 Architecture in one sentence: `Query -> Retrieve -> Evaluate(relevant/uncertain/irrelevant) -> [Use | Refine | Web Search] -> Generate`
 
-This "correct when search fails" mechanism prevents the RAG system from failing outright on edge cases, automatically trying different strategies instead. In open-domain Q&A, CRAG achieves over 20% higher answer accuracy than Naive RAG.
+This "correct when search fails" mechanism prevents the RAG system from failing outright on edge cases, automatically trying different strategies instead. The [CRAG paper](https://arxiv.org/abs/2401.15884) reports significant gains across four short- and long-form generation datasets, but the size of the gain varies a lot with the dataset and the underlying retriever — what it establishes is "adding a correction layer makes things more robust," not a fixed percentage.
 
 CRAG's practical value lies in the fact that it doesn't require changing your existing search engine — it's a layer added after search results come back. This means you can "bolt on" CRAG to any existing RAG system without redesigning the pipeline.
 
@@ -210,7 +210,7 @@ Building Graph RAG costs significantly more than pure vector search — you need
 
 Speculative RAG borrows from Speculative Decoding: **use small models for initial work, large models for final verification**.
 
-The specific approach: a small specialist model (e.g., 7B parameters) simultaneously generates multiple candidate answer drafts, each based on a different subset of retrieved chunks. Then a large generalist model (e.g., 70B or GPT-4) evaluates all drafts at once, selecting the best one.
+The specific approach: a small, distilled specialist model (7B-class in the original paper) simultaneously generates multiple candidate answer drafts, each based on a different subset of retrieved chunks. Then a large generalist model evaluates all drafts at once, selecting the best one. Which specific models sit on each side matters less than the structure: many small draft passes, one large verification pass.
 
 ```
 Retrieved Chunks: [C1, C2, C3, C4, C5]
@@ -223,7 +223,7 @@ Small model (parallel):
 Large model (single verification): Select Draft 2 → Final answer
 ```
 
-The benefits are low latency (small models run fast and in parallel) and low cost (the large model only does one verification, not full generation). In high-throughput scenarios, Speculative RAG can reduce latency by 30-50% while maintaining quality close to direct generation by the large model.
+The benefits are low latency (small models run fast and in parallel) and low cost (the large model only does one verification, not full generation). The [Speculative RAG paper](https://arxiv.org/abs/2407.08223) reports up to 12.97% higher accuracy and 50.83% lower latency on PubHealth; those are the best-case numbers on that dataset, and the margins on TriviaQA, MuSiQue, PopQA, and ARC-Challenge are considerably smaller, so don't treat them as typical. Also note the precondition: the numbers assume a distilled specialist drafter, not any off-the-shelf 7B model.
 
 Key insight: Speculative RAG essentially trades compute parallelism for latency. If your bottleneck is insufficient GPUs rather than high latency, this pattern will actually make things worse.
 
@@ -274,15 +274,13 @@ Traditional RAG splits documents into 256-512 token chunks because early LLMs ha
 
 LongRAG uses large chunks (or even entire documents) paired with long-context models. The benefit is preserving complete context — no more "the answer got split across two chunk boundaries." Search precision requirements are also lower because large chunks naturally have higher hit rates.
 
-Architecture in one sentence: `Query -> Coarse Search (large chunks) -> Long-Context LLM -> Answer`
-
 Architecture in one sentence: `Query -> Coarse Retrieval (large chunks) -> Long-Context LLM -> Answer`
 
 The tradeoff is dramatically increased token usage (large chunks mean more tokens sent to the LLM) and increased latency. LongRAG is suited for scenarios with high completeness requirements and lower cost sensitivity, such as legal contract analysis and long research paper Q&A.
 
-An interesting trend: as the cost of long-context models continues to drop (Gemini 1.5 Pro's 1M context is already quite affordable), LongRAG's economic viability will keep increasing. A likely future scenario: small knowledge bases use LongRAG directly (stuff all documents into context), and only large knowledge bases need traditional chunking + retrieval.
+An interesting trend: context limits keep growing and per-token prices keep falling, so LongRAG's cost disadvantage keeps shrinking. The specific limits and prices change every few months, so no numbers here — check your provider's official docs.
 
-An interesting trend: as LLM context windows continue to expand and token prices continue to fall, LongRAG's "tradeoff" is shrinking rapidly. In 2024 this approach was too expensive, in 2025 it's worth considering, and by 2026 it may become the default choice for many scenarios.
+But "more context" does not mean "better answers." Long-context models still suffer from position bias and attention dilution on very long inputs; putting something in the window does not guarantee the model reads it. The pragmatic compromise: small knowledge bases can go straight to large chunks plus long context, large knowledge bases still need traditional chunking + retrieval — and either way you validate with an eval set rather than assuming "a big enough context window solves it."
 
 -> Deep dive: [LongRAG: Rethinking RAG Chunking Strategy with Long-Context Models](/posts/ai/2026-03-15-longrag-long-context-retrieval-en)
 
@@ -341,7 +339,7 @@ Vector search excels at semantic matching but misses exact keywords. BM25 excels
 
 ### HyDE: Hypothetical Answer Search
 
-Users' questions and documents have different language styles, resulting in low vector search recall. HyDE first has the LLM generate a "hypothetical answer," then uses that hypothetical answer for searching. Because the hypothetical answer's language style is closer to real documents, recall can improve by 10-20%.
+Users' questions and documents have different language styles, resulting in low vector search recall. HyDE first has the LLM generate a "hypothetical answer," then uses that hypothetical answer for searching. Because the hypothetical answer's language style is closer to real documents, recall usually improves — but the size of the gain depends heavily on the domain and the base retriever (the original paper compares against Contriever in a zero-shot, no-labelled-data setting), and the advantage narrows once you have labelled data to fine-tune a retriever with.
 
 -> [HyDE: Improving Vector Search Recall with Hypothetical Answers](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
 
@@ -430,13 +428,13 @@ Chunking method directly determines whether RAG can find the answer. Too small l
 
 ### Embedding Model Selection
 
-For Traditional Chinese RAG systems, embedding model selection is particularly important. BGE-M3 is currently one of the best-performing multilingual models for Traditional Chinese, simultaneously supporting dense, sparse, and multi-vector retrieval. When selecting a model, consider: language coverage, dimensionality, maximum token length, and benchmarks on your own data.
+For Traditional Chinese RAG systems, embedding model selection is particularly important. BGE-M3 is a common starting point — it supports dense, sparse, and multi-vector retrieval in one model and does reasonably well on Traditional Chinese. But embedding leaderboards turn over quickly, so treat no model as settled: weigh language coverage, dimensionality, maximum token length, and above all the benchmark you run on your own data.
 
 -> [BGE-M3: Why This Embedding Model Suits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
 ### Vector Database Selection
 
-Pinecone (fully managed, least hassle), Weaviate (open source, built-in hybrid search), Qdrant (written in Rust, great performance), Cloudflare Vectorize (edge deployment) — each has different tradeoffs. Selection criteria include: deployment model, scale, hybrid search support, metadata filtering, and cost.
+Vector database feature matrices move fast enough that any table written down here would be stale within months, so there isn't one. What stays stable are the tradeoff axes: fully managed versus self-hosted, single-node versus distributed, native hybrid search and metadata filtering or not, and where it deploys (a cloud region or the edge). Narrow the field to two or three candidates on those axes, then check each vendor's official docs for current features and pricing.
 
 -> [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison-en)
 
@@ -636,3 +634,5 @@ This guide will be continuously updated. Whenever a new deep-dive article is pub
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025), a survey on Agentic RAG system taxonomy and evolution paths
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024), an experimental study on optimal component combinations for RAG pipelines
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024), using multi-head attention mechanisms to improve retrieval accuracy for multi-aspect queries
+- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting](https://arxiv.org/abs/2407.08223) — Wang et al. (2024), the drafting-plus-single-verification architecture behind Gen 7
+- [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) — Gao et al. (2022), the original HyDE paper on bridging the query-document semantic gap with hypothetical documents

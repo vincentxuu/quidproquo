@@ -8,6 +8,9 @@ lang: en
 tldr: "Search found the right documents, but the LLM's answers are still poor — often the problem lies in prompt design. System prompt structure, context formatting, and instruction placement all affect output quality."
 description: "Prompt Engineering for RAG systems: structuring system prompts, formatting context, guiding LLM behavior with instructions, and common prompt issues with fixes."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 29
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-prompt-engineering)
@@ -111,6 +114,8 @@ If the knowledge base has no relevant information, say "No information available
 
 The critical "do not hallucinate" instruction appears at both the beginning and end, so it won't be diluted by the long context in the middle.
 
+How strong this positional bias is varies by model and by context length, and it varies a lot between vendors — you have to measure it on the model you actually use to know how much is left. But putting important instructions at the head and tail costs essentially nothing, so treat it as cheap insurance.
+
 ## Chain-of-Thought (CoT)
 
 For complex queries, add CoT instructions to have the LLM show its reasoning process:
@@ -124,7 +129,11 @@ Before answering, please:
 Then provide the final answer.
 ```
 
-CoT makes the LLM's reasoning more structured, especially when comparing multiple options or making recommendations. The effect is more pronounced on smaller models (below 8B parameters).
+CoT makes the LLM's reasoning more structured, especially when comparing multiple options or making recommendations.
+
+Two caveats, though. First, **the benefit of CoT correlates positively with model size, not negatively**. The original paper's conclusion is that this reasoning ability "emerges naturally in sufficiently large language models"; small models asked to reason step by step often produce fluent but invalid chains that drag the answer off course. So do not assume "the model is small, therefore it needs CoT more." Second, for reasoning models that already think internally, the official guidance is **not** to tell them to "think step by step" — the reasoning already happens inside the model, so an extra CoT instruction adds nothing and sometimes hurts.
+
+So CoT is worth putting into an A/B test, but it should not be a default-on best practice.
 
 ## Common Issues and Fixes
 
@@ -210,5 +219,6 @@ Get these four points right, and answer quality improves noticeably — no compl
 - [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (2022)](https://arxiv.org/abs/2201.11903)
 - [Lost in the Middle: How Language Models Use Long Contexts (2023)](https://arxiv.org/abs/2307.03172)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [OpenAI - Reasoning best practices (reasoning models do not need CoT instructions)](https://platform.openai.com/docs/guides/reasoning-best-practices)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

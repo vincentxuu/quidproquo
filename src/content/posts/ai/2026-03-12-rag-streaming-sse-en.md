@@ -8,6 +8,9 @@ lang: en
 tldr: "LLM generation takes 3-5 seconds, and waiting for the full response before displaying it makes for a terrible experience. SSE pushes tokens as they're generated, reducing time-to-first-character from 5 seconds to under 1 second."
 description: "SSE Streaming implementation for RAG systems: event format design, quota refund mechanisms, TransformStream on Cloudflare Workers, and frontend stream rendering."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 31
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-streaming-sse)
@@ -76,9 +79,8 @@ app.post("/api/v1/ai/ask", async (c) => {
   const writer = writable.getWriter();
   const encoder = new TextEncoder();
 
-  const sendEvent = (data: object) => {
+  const sendEvent = (data: object) =>
     writer.write(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
-  };
 
   // Execute pipeline in the background, return stream immediately
   ctx.waitUntil((async () => {
@@ -101,33 +103,52 @@ app.post("/api/v1/ai/ask", async (c) => {
 
 ## LLM Streaming Generation
 
-Cloudflare Workers AI supports streaming mode:
+Cloudflare Workers AI supports streaming mode, but there is one thing that is very easy to get wrong: **`stream: true` returns an SSE byte stream (`text/event-stream`), not a sequence of token objects you can `for await` over**. To get tokens, you have to parse it yourself:
 
 ```typescript
 async function streamGeneration(
   messages: Message[],
   model: string,
-  onToken: (token: string) => void,
+  onToken: (token: string) => Promise<void>,
   env: Env
 ): Promise<string> {
-  const stream = await env.AI.run(model, {
+  const sseStream = (await env.AI.run(model, {
     messages,
     stream: true,
-  });
+  })) as ReadableStream;
 
+  const reader = sseStream.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
   let fullText = "";
 
-  for await (const chunk of stream) {
-    const token = chunk.response ?? "";
-    fullText += token;
-    onToken(token);  // Push to frontend immediately
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop() ?? "";   // the last line may be cut off; keep it for the next round
+
+    for (const line of lines) {
+      if (!line.startsWith("data:")) continue;
+      const payload = line.slice(5).trim();
+      if (payload === "" || payload === "[DONE]") continue;
+
+      const token = JSON.parse(payload).response ?? "";
+      fullText += token;
+      await onToken(token);   // push to the frontend immediately
+    }
   }
 
   return fullText;
 }
 ```
 
-`for await` processes each chunk sequentially. Each chunk contains one or more tokens and immediately calls `onToken` to push them out.
+Two practical notes:
+
+- **The payload field name depends on the model family.** Workers AI's native text-generation models emit `{"response":"..."}`, while models served through the OpenAI-compatible endpoint emit `choices[0].delta.content`. Make one manual call and print the real format before wiring anything up; do not copy someone else's field name.
+- **If you only need to relay the LLM output verbatim**, do not parse at all: the stream returned by `env.AI.run()` can be handed straight to `new Response(stream, { headers: { "content-type": "text/event-stream" } })`. You only need the parsing loop above when you have to inject your own `done` / `error` events, or accumulate `fullText` to write to a database.
 
 ## Quota Refund Mechanism
 
@@ -168,7 +189,7 @@ async function runPipelineStreaming(
 }
 ```
 
-Disconnect detection: When `writer.write()` throws an error (the client has closed the connection), catch the error and refund the quota.
+Disconnect detection rides on the promise returned by `writer.write()`: once the client closes the connection, the write rejects. **So `sendEvent` must be awaited** — that is exactly why it is written above as an arrow function that returns the promise. If you fire-and-forget it, as most examples do, a disconnect becomes an unhandled rejected promise, your `catch` never runs, and the quota is never refunded.
 
 ## Frontend Handling
 
@@ -192,8 +213,9 @@ async function askQuestion(query: string, onToken: (t: string) => void) {
     buffer = events.pop() ?? ""; // Last one may be incomplete, save for next iteration
 
     for (const event of events) {
-      if (!event.startsWith("data: ")) continue;
-      const data = JSON.parse(event.slice(6));
+      const line = event.split("\n").find((l) => l.startsWith("data:"));
+      if (!line) continue;
+      const data = JSON.parse(line.slice(5).trim());
 
       if (data.type === "token") onToken(data.token);
       if (data.type === "done") handleDone(data);
@@ -217,5 +239,6 @@ The key to implementation isn't just pushing tokens, but also: event format desi
 - [WHATWG - Server-Sent Events Specification](https://html.spec.whatwg.org/multipage/server-sent-events.html)
 - [MDN - Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
 - [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
-- [OpenAI - Streaming API](https://platform.openai.com/docs/api-reference/streaming)
-- [Cloudflare Workers AI - Streaming](https://developers.cloudflare.com/workers-ai/models/llama-3.1-8b-instruct/)
+- [OpenAI - Streaming API responses](https://platform.openai.com/docs/guides/streaming-responses)
+- [Cloudflare Workers AI - Workers Bindings (`env.AI.run()` and the `stream` option)](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
+- [Cloudflare Workers AI - Model catalog (streaming output format per model)](https://developers.cloudflare.com/workers-ai/models/)

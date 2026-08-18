@@ -8,6 +8,9 @@ lang: en
 tldr: "RAG and Fine-tuning solve different problems. RAG gives the model new knowledge; Fine-tuning changes the model's behavior and style. In most cases you use both, not pick one."
 description: "The fundamental differences between RAG and Fine-tuning, the use cases each one suits best, cost comparisons, and how to combine them for maximum effectiveness."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 3
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-vs-fine-tuning)
@@ -33,6 +36,14 @@ Fine-tuning is **not suitable for**:
 - Keeping the model up to date with today's news (requires continuous retraining)
 - Making the model remember specific document contents (RAG is more appropriate)
 
+**That conclusion has since been sharpened.** The early evidence for "fine-tuning can't learn new knowledge" came mostly from comparing *unsupervised* continual pretraining against RAG. A 2026 systematic comparison on multi-hop QA evaluated the three approaches separately and found a much more nuanced picture:
+
+- **Unsupervised fine-tuning (continual pretraining)**: only limited gains over the base model — continuing to feed it a corpus is not enough to improve multi-hop reasoning accuracy
+- **RAG**: substantial and consistent improvements, especially for questions that depend on temporally novel information
+- **Supervised fine-tuning (SFT)**: actually achieved the highest overall accuracy of the three
+
+So the more accurate framing isn't "fine-tuning can't learn knowledge." It's this: **SFT teaches the model how to combine and apply knowledge; RAG supplies the knowledge the model doesn't have.** When the answer depends on genuinely new information, no amount of training fills that gap — that's RAG's job.
+
 ## Cost Comparison
 
 | | RAG | Fine-tuning |
@@ -43,6 +54,20 @@ Fine-tuning is **not suitable for**:
 | Latency | Higher (search time) | Lower |
 | Knowledge update frequency | Real-time | Slow (requires retraining) |
 | Knowledge explainability | High (source is known) | Low (black box) |
+
+The "inference cost" row needs a caveat: every major API provider offers prompt caching, and RAG's shape — a system prompt plus a large stable context block — is exactly what benefits from it, so the real cost of repeated queries is meaningfully lower than the sticker figure. Measure the gap on your own traffic rather than copying someone else's ratio ([Anthropic prompt caching docs](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)).
+
+## A Third Option: Just Use Long Context
+
+The "RAG or fine-tuning" framing quietly drops an option that grew viable as context windows expanded: if the corpus is small enough, you can stuff the whole thing into the prompt — no retrieval, no training.
+
+Whether that's the right call is genuinely situational. LaRA, a benchmark built specifically to compare RAG against long-context (LC) LLMs across 2,326 test cases, four QA task categories, and three types of naturally occurring long text, puts *No Silver Bullet* right in its title: the optimal choice depends on the model's parameter size, its long-text capability, the context length, the task type, and the characteristics of the retrieved chunks. No single rule covers all of it.
+
+The practical heuristics come out roughly as:
+
+- Small corpus, questions that need a whole-document view (summarization, cross-section comparison) → long context is usually simpler
+- Large corpus, precise lookup, citable sources, cost control → RAG
+- Neither is free: long context pays the full document's tokens on every query, RAG pays in index maintenance and retrieval errors
 
 ## Climbing Scenario Walkthrough
 
@@ -101,6 +126,8 @@ Fine-tuning is worth the investment when:
 
 This is the most common misconception. Fine-tuning makes the model "feel like" it knows certain things, but in knowledge-intensive scenarios (requiring precise numbers, names, and up-to-date information), Fine-tuning's "memory" is unreliable and prone to hallucinations. RAG is fundamentally better suited for knowledge injection and updates by design.
 
+The inverse misconception is just as common: that once you have RAG, knowledge stays correct automatically. A 2026 benchmark built from time-stamped real-world events, designed to test adaptation under *continuous knowledge drift*, found that continual fine-tuning, knowledge editing, and **vanilla RAG** all struggle. The learning-based methods hit catastrophic forgetting; RAG hits temporally inconsistent reasoning — the retrieved evidence comes from different points in time and the model doesn't sort out the timeline on its own. Handling that means timestamps in the index and retrieval that can distinguish "true now" from "true then." That's engineering you have to add to a RAG system; it doesn't come for free.
+
 ## The Big Picture
 
 RAG and Fine-tuning are complementary tools, not competitors. RAG is an "extension of knowledge"; Fine-tuning is "shaping of capability." A high-quality LLM application typically requires a model with strong foundational abilities (or a fine-tuned model) combined with a carefully designed RAG system -- not just one or the other.
@@ -113,5 +140,8 @@ RAG and Fine-tuning are complementary tools, not competitors. RAG is an "extensi
 - [Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge (2024)](https://arxiv.org/abs/2403.01432)
 - [Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs (2023)](https://arxiv.org/abs/2312.05934)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [Fine-Tuning vs. RAG for Multi-Hop Question Answering with Novel Knowledge (2026)](https://arxiv.org/abs/2601.07054)
+- [LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs — No Silver Bullet for LC or RAG Routing (2025)](https://arxiv.org/abs/2502.09977)
+- [RAG or Learning? Understanding the Limits of LLM Adaptation under Continuous Knowledge Drift in the Real World (2026)](https://arxiv.org/abs/2604.05096)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

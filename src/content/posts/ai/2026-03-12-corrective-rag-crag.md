@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "過濾條件太嚴格導致零結果？CRAG 自動放寬過濾條件重試，比讓 LLM 用通用知識瞎猜好多了。"
 description: "Corrective RAG（CRAG）的設計：檢測零結果、漸進式放寬過濾條件、重試搜尋，確保 RAG 系統在邊緣情況下仍有可用的 context。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 23
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-corrective-rag-crag-en)
@@ -20,6 +23,8 @@ RAG 系統的一個靜默失敗模式：**過濾條件過嚴，沒有候選文�
 2. LLM 用通用知識幻覺出一個回答 → 不準確
 
 CRAG（Corrective RAG）的解法：**檢測到零結果時，自動放寬過濾條件重試搜尋**。
+
+先說清楚一件事，免得誤導：這裡做的是 CRAG 的**精神**，不是論文的原始演算法。Yan 等人 2024 年那篇 CRAG 用一個輕量的 retrieval evaluator 給檢索結果打信心分數，依分數落在 Correct / Incorrect / Ambiguous 哪一區觸發不同動作；判為 Incorrect 時改走大規模網頁搜尋，另外再用 decompose-then-recompose 把文件拆成知識片段、丟掉不相關的部分後重組。本文的實作沒有 evaluator、也沒有 web search，只保留「檢索失敗時要有修正動作，而不是把空 context 丟給 LLM」這個核心想法，把修正動作換成對結構化 filter 做放寬。後面〈為什麼是放寬而不是擴大範圍〉會說明為什麼在這個場景捨棄 web search。
 
 ## 放寬策略
 
@@ -64,7 +69,7 @@ async function hybridSearchWithCRAG(ctx: PipelineContext): Promise<SearchResult[
 }
 ```
 
-`cragRetryCount < 1` 確保最多重試一次。不設上限的話，理論上可以一直放寬到無過濾，但這可能帶回完全不相關的結果，反而更糟。
+`cragRetryCount < 1` 確保最多重試一次——所以上面那張放寬順序圖是**概念上的優先序**，這份實作實際只跑到第一階（移除難度過濾）。要做到多階放寬，就把上限提高、按順序逐階套用；但每放寬一階，回來的文件離原本的問題就更遠一點。不設上限的話，理論上可以一直放寬到無過濾，帶回完全不相關的結果，反而更糟。
 
 ## 與 Agentic RAG 的差異
 
@@ -94,6 +99,7 @@ CRAG 是 RAG pipeline 的安全網，成本低（多一次搜尋），卻能防�
 ## 參考資料
 
 - [Corrective Retrieval Augmented Generation (2024)](https://arxiv.org/abs/2401.15884)
+- [CRAG 論文官方實作（HuskyInSalt/CRAG）](https://github.com/HuskyInSalt/CRAG)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

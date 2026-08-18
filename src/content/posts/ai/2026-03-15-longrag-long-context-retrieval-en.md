@@ -8,15 +8,20 @@ lang: en
 tldr: "Traditional RAG splits documents into small chunks for retrieval, but this causes information fragmentation. LongRAG leverages 100K+ token long-context models to retrieve larger document segments (entire sections or even whole documents), reducing fragmentation while maintaining retrieval efficiency."
 description: "The design philosophy behind LongRAG: why small chunks cause problems, how long-context models change RAG architecture, large-chunk retrieval strategies, performance comparisons with traditional RAG, and practical implementation considerations."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 26
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-15-longrag-long-context-retrieval)
 
 The core assumption of traditional RAG is that LLM context windows are limited, so we must split documents into small pieces and only feed the most relevant fragments into the model.
 
-This assumption was reasonable before 2024. But now Gemini has 1M tokens, Claude has 200K tokens, and GPT-4o has 128K tokens. When context windows explode from 4K to over 100K, RAG's design logic should evolve accordingly.
+This assumption was reasonable before 2024. But mainstream commercial models moved past the 100K-token mark long ago (the exact numbers shift every quarter — check each vendor's official model page). When usable context grows by two orders of magnitude, RAG's design math deserves to be redone.
 
 LongRAG is the embodiment of this thinking: **Stop splitting documents into fragments — retrieve larger units and let long-context models do the understanding.**
+
+Up front: this article describes a **tradeoff**, not a settled winner. In the year-plus since the LongRAG paper, the community has argued hard over whether long context makes RAG obsolete, and the evidence points both ways — the "What Later Research Says" section near the end lays out the counter-evidence.
 
 ---
 
@@ -84,16 +89,7 @@ Different paragraphs have vastly different semantic densities. A 512-token legal
 
 ## The Opportunity with Long-Context Models
 
-Between 2024 and 2025, mainstream LLMs experienced explosive growth in context window sizes:
-
-| Model | Context Window | Release Date |
-|-------|---------------|-------------|
-| GPT-3.5 | 4K tokens | 2023-03 |
-| Claude 2 | 100K tokens | 2023-07 |
-| GPT-4 Turbo | 128K tokens | 2023-11 |
-| Gemini 1.5 Pro | 1M tokens | 2024-02 |
-| Claude 3.5 Sonnet | 200K tokens | 2024-06 |
-| Gemini 2.0 | 1M tokens | 2025-01 |
+Between 2023 and 2025, mainstream LLM context windows went from a few thousand tokens to hundreds of thousands, even millions. No model comparison table here — that kind of table expires in three months, and a vendor's stated *maximum* and the length at which a model still performs well are two different numbers. For current figures, check the [vendor model docs](https://docs.claude.com/en/docs/about-claude/models/overview); for whether you can actually use that much, see "What Later Research Says" below.
 
 This changes the fundamental tradeoff in RAG:
 
@@ -103,9 +99,11 @@ This changes the fundamental tradeoff in RAG:
 
 ### Key Insight
 
-Long-context models excel at finding relevant information within large amounts of text. Research shows that even within a 100K-token context, good models can accurately locate specific facts embedded within it (needle-in-a-haystack tests).
+Long-context models excel at finding relevant information within large amounts of text. Needle-in-a-haystack (NIAH) tests show that even within a 100K-token context, good models can accurately locate specific facts embedded within it.
 
 This means: **We don't need perfect retrieval — just good-enough retrieval.** Throw roughly relevant content at the LLM and let it find the answer itself.
+
+That insight has since been heavily qualified. Part of why NIAH looks so good is that the needle and the question share literal wording, letting models shortcut via string matching. The NoLiMa benchmark (2025) removed that lexical overlap and required models to locate the needle by latent association instead: of 13 models claiming 128K+ support, 11 dropped below half their short-context baseline at just 32K, and even GPT-4o — one of the best performers — fell from an almost-perfect 99.3% to 69.7%. So the range in which "good-enough retrieval is enough" holds is narrower than NIAH scores suggest.
 
 ### From Precise Retrieval to Coarse-Grained Retrieval
 
@@ -378,34 +376,39 @@ Here's a detailed comparison between LongRAG and traditional RAG across multiple
 
 ### Concrete Performance Data
 
-Based on the LongRAG paper and related research results:
+Let's be precise about what the paper actually reports, because this set of numbers gets cited wrong a lot.
 
-**NQ (Natural Questions) dataset:**
-- Traditional RAG (100-word chunks, top-5): Answer hit rate ~52%
-- LongRAG (4K+ token groups, top-4): Answer hit rate ~71%
-- Improvement: ~19 percentage points
+**Retrieval side (NQ / HotpotQA, Wikipedia):**
 
-The key reason is **improved recall**. Traditional RAG's top-5 small chunks frequently miss the fragment containing the answer, while LongRAG's large chunks are more likely to encompass it.
+LongRAG groups related documents into 4K-token retrieval units, cutting the NQ corpus from 22M units to 600K. The paper's own words: answer recall@**1** improves from 52% (DPR) to 71%. For HotpotQA, the corpus drops from 5M to 500K units and recall@**2** goes from 47% to 72%.
+
+Note that these are **recall@1 / recall@2**, not "top-5 versus top-4 hit rates" — the two are frequently conflated. The claim is "strong retrieval performance with only a few (fewer than 8) top units," not "large chunks beat small chunks at the same top-k."
+
+**Generation side:**
+
+Without any training, LongRAG reaches 62.7 EM on NQ and 64.3 EM on HotpotQA, which the paper describes as on par with fully fine-tuned SoTA models. The main table's reader was GPT-4o at the time (the paper compares six readers). On non-Wikipedia datasets, Qasper F1 goes from 22.5% to 25.9% and MultiFieldQA-en from 51.2% to 57.5%.
+
+The key driver is **improved recall**: small-chunk retrieval frequently misses the fragment containing the answer, while large units are more likely to encompass it.
 
 ### Cost Analysis
 
-LongRAG trades more tokens for better answer quality:
+No price table here — per-token API pricing moves too fast for any hardcoded number to survive. For real figures, check the [official pricing page](https://www.anthropic.com/pricing).
+
+What is stable is the **ratio**:
 
 ```
 Traditional RAG per query:
-  Retrieval: 5 chunks × 512 tokens = 2,560 input tokens
-  Generation: ~200 output tokens
-  Cost (Claude 3.5): ~$0.008
+  Retrieval: 5 chunks × 512 tokens ≈ 2,600 input tokens
 
 LongRAG per query:
-  Retrieval: 3 sections × 6,000 tokens = 18,000 input tokens
-  Generation: ~200 output tokens
-  Cost (Claude 3.5): ~$0.055
+  Retrieval: 3 sections × 6,000 tokens ≈ 18,000 input tokens
 
-Cost increase of approximately 7x, but with significantly improved answer quality.
+Roughly 7x the input tokens.
 ```
 
-Whether this tradeoff is worthwhile depends on the use case. For high-value queries in legal, medical, or financial domains, paying 7x more for more accurate and complete answers is reasonable. For low-value everyday Q&A, traditional RAG may be more economical.
+Since the overwhelming majority of RAG query cost is driven by input tokens (output is usually only a few hundred), that ratio is roughly the cost ratio. Two things shrink the gap in practice: **prompt caching** (when the same sections are hit repeatedly, cache reads are far cheaper than full-price input) and batch discounts. If your traffic pattern can exploit either, measure before concluding.
+
+Whether the tradeoff is worthwhile depends on the use case. For high-value queries in legal, medical, or financial domains, paying several times more for more accurate and complete answers is usually reasonable. For low-value, high-frequency everyday Q&A, traditional RAG is clearly more economical.
 
 ---
 
@@ -577,7 +580,8 @@ async function longRAGPipeline(
     .join('\n---\n\n');
 
   const answer = await callLLM({
-    model: 'claude-sonnet-4-20250514',
+    // Inject the model ID from config — don't hardcode it; it will expire
+    model: process.env.LONG_CONTEXT_MODEL!,
     system: `Answer the question based on the reference materials. Cite source numbers, and clearly state when information is insufficient.`,
     messages: [{ role: 'user', content: `Reference materials:\n${context}\n\nQuestion: ${query}` }],
     maxTokens: 1000,
@@ -666,25 +670,13 @@ Consuming 15K–50K input tokens per query, with tens of thousands of queries pe
 
 LongRAG's prerequisite is that the LLM can handle a large number of input tokens. If your model only has an 8K–16K context window, LongRAG's large chunks simply won't fit.
 
-Currently, models supporting 100K+ context are still relatively few, and most are paid APIs (Claude, Gemini, GPT-4). Locally deployed open-source models are mostly still in the 8K–32K range.
+Today most commercial APIs and newer open-weight models claim 100K+ support, so this constraint is far looser than it was in 2024. But *claiming* support is not the same as *using it well* — see the NoLiMa results above, and the Databricks study across 20 models, which found only a handful of the most recent models maintain consistent accuracy above 64K. The real limit isn't whether the tokens fit; it's whether the model still finds them.
 
 ### 2. Token Costs Scale Linearly
 
-More input tokens directly means higher API costs. Simple calculation:
+More input tokens directly means higher API costs, and the scaling is linear. Again, no unit prices (they expire) — just orders of magnitude: at 10,000 queries per day, traditional RAG at ~3K input tokens per query versus LongRAG at ~25K is 30M versus 250M tokens per day. Multiply by whatever your current rate is and the annualized gap is large.
 
-```
-Assuming 10,000 queries per day:
-
-Traditional RAG:
-  10,000 × 3,000 tokens × $3/1M = $90/day
-
-LongRAG:
-  10,000 × 25,000 tokens × $3/1M = $750/day
-
-Annualized difference: $32,850 vs $273,750
-```
-
-This cost gap is impossible to ignore at high traffic volumes.
+At high traffic volumes this is impossible to ignore, and it is exactly why routing approaches like Self-Route (below) — keeping the cheap path for easy questions — earn their keep.
 
 ### 3. Increased Inference Latency
 
@@ -697,7 +689,7 @@ LLM inference time is roughly proportional to input tokens. Processing 25K token
 
 ### 4. Embedding Quality Degrades with Text Length
 
-Existing embedding models (e.g., text-embedding-3-large) produce lower-quality semantic representations when processing long text. A 5,000-token passage may cover multiple topics, and a single embedding vector struggles to capture all of them simultaneously.
+Existing embedding models produce lower-quality semantic representations when processing long text. A 5,000-token passage may cover multiple topics, and a single embedding vector struggles to capture all of them simultaneously. (Maximum input length varies widely between embedding models — check the official docs before choosing one, and don't assume it can swallow a whole section.)
 
 **Mitigation strategies**:
 - Use summary embeddings (the approach described earlier)
@@ -719,6 +711,28 @@ Traditional RAG has mature evaluation frameworks (Precision@K, Recall@K, MRR, et
 
 ---
 
+## What Later Research Says
+
+LongRAG is a June 2024 technical report. In the year-plus since, "long context vs RAG" has been tested repeatedly and the conclusions do not agree — so here they are side by side, because reading only the LongRAG abstract leaves you far too optimistic.
+
+**The "long context wins" side:** Google's Self-Route study (EMNLP 2024 industry track) benchmarked RAG against long-context LLMs across several public datasets and concluded that "when resourced sufficiently, LC consistently outperforms RAG in terms of average performance" — while explicitly noting that RAG's much lower cost remains a distinct advantage. Hence Self-Route: let the model decide per query whether to take the RAG path or the long-context path, cutting compute cost substantially while staying close to long-context quality. That is exactly the hybrid strategy this article ends on, now with experimental backing.
+
+**The opposing side, aimed squarely at LongRAG's core assumption:** *In Defense of RAG in the Era of Long-Context Language Models* (Sept 2024) argues that extremely long context "suffers from a diminished focus on relevant information and leads to potential degradation in answer quality." Their OP-RAG (order-preserve RAG, keeping retrieved chunks in their original document order) finds that **answer quality first rises and then declines as the number of retrieved chunks grows, forming an inverted U-shaped curve** — there are sweet spots where OP-RAG beats a long-context LLM using far fewer tokens. That directly contradicts "more context is better."
+
+**Another empirical data point:** Databricks' *Long Context RAG Performance of LLMs* ran RAG workflows across 20 open-source and commercial models, sweeping total context from 2K to 128K (and 2M where possible). The finding: retrieving more documents does improve performance, but **only a handful of the most recent state-of-the-art LLMs maintain consistent accuracy above 64K**, and long context brings its own distinct failure modes.
+
+**And a problem with the benchmarks themselves:** NoLiMa (ICML 2025), mentioned earlier, shows NIAH-style tests are inflated by literal overlap; strip the lexical cues and long-context degradation is much worse than assumed.
+
+How to read these conflicting results? My reading:
+
+- "Large chunks improve recall" holds up — LongRAG's retrieval numbers (recall@1 from 52% to 71%) are real.
+- "Therefore stuff the large chunks in and let the model pick" is **conditionally** true: conditional on your model genuinely not degrading at that length, and on the answer not requiring non-literal semantic association to locate.
+- "Long context makes RAG obsolete" is the least defensible version. OP-RAG's inverted U and Self-Route's cost conclusion both point the same way: retrieval is still worth doing; the optimal granularity and top-k just have to be found by measurement, not by formula.
+
+**A naming trap worth flagging:** two different 2024 papers are both called LongRAG. This article covers Jiang et al., [arXiv:2406.15319](https://arxiv.org/abs/2406.15319) (long retriever + long reader). The other is Zhao et al., [arXiv:2410.18050](https://arxiv.org/abs/2410.18050) (EMNLP 2024 Main), a dual-perspective RAG system for long-context QA with a completely different architecture. When you see LongRAG cited, check which one is meant.
+
+---
+
 ## Summary
 
 LongRAG's core insight is simple: **When the LLM's comprehension ability is strong enough and the context window is large enough, you don't need to put all the pressure on retrieval.**
@@ -732,7 +746,7 @@ LongRAG redistributes this pressure:
 
 This isn't meant to replace traditional RAG, but rather provides another effective design choice now that long-context models are widespread. Choose the most suitable strategy based on your document characteristics, query types, cost budget, and latency requirements.
 
-The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG for simple queries to save tokens, and switch to LongRAG for complex queries to improve quality. A single query classifier can make this happen.
+The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG for simple queries to save tokens, and switch to LongRAG for complex queries to improve quality. A single query classifier can make this happen — and Self-Route's results are essentially an endorsement of exactly that: let the model decide which path to take, and cost drops sharply while quality stays close to pure long context.
 
 ---
 
@@ -746,6 +760,11 @@ The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG
 ## References
 
 - [LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs](https://arxiv.org/abs/2406.15319) — Jiang et al. (2024), the original LongRAG paper proposing the complete framework of large-chunk retrieval combined with long-context models
+- [LongRAG: A Dual-Perspective Retrieval-Augmented Generation Paradigm for Long-Context Question Answering](https://arxiv.org/abs/2410.18050) — Zhao et al. (EMNLP 2024), **a different paper with the same name**; easy to cite by mistake
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833) — Li et al. (EMNLP 2024), Self-Route: long context wins on average but costs more; route between the two
+- [In Defense of RAG in the Era of Long-Context Language Models](https://arxiv.org/abs/2409.01666) — Yu et al. (2024), OP-RAG; answer quality follows an inverted U as chunk count grows, arguing against unbounded context
+- [Long Context RAG Performance of Large Language Models](https://arxiv.org/abs/2411.03538) — Leng et al. (NeurIPS 2024 workshop), long-context RAG measured across 20 models, with failure modes
+- [NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167) — Modarressi et al. (ICML 2025), long-context performance collapses once literal overlap is removed
 - [GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models](https://arxiv.org/abs/2406.14550) — Li et al. (2024, EMNLP), graph-structure agent system for processing long documents, surpassing GPT-4-128K with a 4K window
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024), comprehensive analysis of RAG evolution and design tradeoffs across generations
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024), systematic experiments on the relationship between chunking strategies and RAG performance

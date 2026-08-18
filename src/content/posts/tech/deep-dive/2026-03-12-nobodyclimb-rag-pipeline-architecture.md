@@ -9,6 +9,9 @@ tldr: "用 Cloudflare Workers AI（gemma-3-12b-it + bge-m3）打造可動態組�
 description: "NobodyClimb AI 問答系統的完整架構筆記：模型選擇、20 節點 pipeline 設計（含三種 LangGraph 策略圖）、PipelineEngine 實作、條件路由、self-reflection 迴圈與 Cloudflare Workers 上的部署取捨。"
 draft: false
 type: deep-dive
+series:
+  name: "NobodyClimb 專案紀實"
+  order: 4
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
@@ -44,7 +47,7 @@ pre-retrieval → retrieval → post-retrieval → generation → evaluation
 │  → filter-build                                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │ Retrieval                                                        │
-│  embedding → hybrid-search                                       │
+│  embedding → hybrid-search → text-to-sql                        │
 ├─────────────────────────────────────────────────────────────────┤
 │ Post-Retrieval                                                   │
 │  cross-encoder → mmr → popularity-rerank                        │
@@ -190,7 +193,7 @@ Pipeline 的 step 啟用/停用和排序都儲存在 D1 的 `ai_config` 表，�
 }
 ```
 
-管理員後台可以查看每筆查詢的完整 17 步流程，包括每個 step 的輸入、決策依據和輸出。
+管理員後台可以查看每筆查詢實際跑過的節點序列，包括每個 step 的輸入、決策依據和輸出；因為 skipWhen 和策略圖的關係，實際步數每次查詢都不一樣。
 
 ## Cloudflare Workers 上的取捨
 
@@ -202,11 +205,19 @@ Pipeline 的 step 啟用/停用和排序都儲存在 D1 的 `ai_config` 表，�
 
 ## 整體來說
 
-這套架構的核心取捨是「靈活性 vs 複雜度」。Pipeline engine 加上動態設定讓不同 step 的組合可以快速實驗，但 13 個 step 的依賴圖也帶來相對高的維護成本。
+這套架構的核心取捨是「靈活性 vs 複雜度」。Pipeline engine 加上動態設定讓不同 step 的組合可以快速實驗，但 14 個 step 的依賴圖也帶來相對高的維護成本。
 
 適合的情境：領域知識有明確邊界（攀岩路線、岩場資訊）、需要把中文 NLP 過濾和向量搜尋結合、有足夠的 trace 基礎設施支撐持續調優。
 
 不建議直接搬這套的情境：沒有 admin trace 基礎設施、team 不熟悉 RAG 調優、查詢類型單純（直接用簡單的 top-k + LLM generation 就夠）。
+
+## 這條 pipeline 實際踩到的坑
+
+上面的節點圖是設計完的樣子，但每個節點都是被真實的爛回答逼出來的。有三個問題大到值得各寫一篇：「推薦類似的」和「推薦下一條」被同一個關鍵字函式混為一談、使用者一次列五條完攀紀錄時查詢解析只抓到第一條、以及向量檢索把「名字像」當成「難度像」。
+
+- [「推薦下一條」和「推薦類似的」不是同一件事 — RAG 推薦系統的意圖消歧](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation)
+- [RAG 多實體查詢：當使用者一次丟五條路線，系統只看到第一條](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing)
+- [當 Vector Search 把名字當難度搜：RAG 系統的 Attribute Conflation 問題](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation)
 
 ## 參考資料
 

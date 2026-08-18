@@ -8,6 +8,9 @@ lang: en
 tldr: "env.AI is not just run(). It also exposes toMarkdown (document-to-Markdown conversion), autorag (managed RAG), gateway (external provider proxy), and models (metadata lookup). Understanding these four method groups is what unlocks Cloudflare as a full AI platform inside Workers."
 description: "Starting from the markdown.new service, this post unpacks four overlooked built-in methods on the Cloudflare Workers AI binding: run, toMarkdown, autorag, and gateway. Includes code examples, a decision table, and known limitations."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 7
 ---
 
 🌏 [中文版](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities)
@@ -22,7 +25,7 @@ This post walks through the overlooked tools hanging off `env.AI`.
 
 Quick background: [Cloudflare Workers connects to services via Bindings](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en) — `D1Database`, `KVNamespace`, `R2Bucket`, `Ai`, and so on. Once you declare the `Ai` binding, `env.AI` becomes available inside your Worker.
 
-Most tutorials jump straight from here to `env.AI.run("@cf/meta/llama-3")` for LLM inference. But the binding object actually looks like this:
+Most tutorials jump straight from here to `env.AI.run("<some model ID>")` for LLM inference — and the model ID they copied has often already been retired (the catalog churns hard; the [model picking guide](/posts/ai/2026-08-18-workers-ai-model-guide-en) carries the full retirement list). But the binding object actually looks like this:
 
 ```
 env.AI
@@ -63,7 +66,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` is "give me a model ID, I send input, you return output." Choosing the model, writing the prompt, and composing the pipeline are all on you.
 
-For how to pick among the 80-odd models in the catalog, see the [Workers AI model picking guide](/posts/ai/2026-08-18-workers-ai-model-guide-en); for the Traditional Chinese trade-offs specifically, see [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en).
+For how to pick among the several dozen models in the catalog — and how many there are right now — see the [Workers AI model picking guide](/posts/ai/2026-08-18-workers-ai-model-guide-en); for the Traditional Chinese trade-offs specifically, see [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en).
 
 ## 2. `toMarkdown()` — Document Conversion Pipeline
 
@@ -124,6 +127,7 @@ await env.AI.toMarkdown(files, {
 - Single file cap: **10 MB**
 - URL fetch timeout: **30 seconds**
 - To check supported file extensions: `await env.AI.toMarkdown().supported()`
+- Treat the [Markdown Conversion docs](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) as authoritative for these numbers
 
 ### Why "80% Fewer Tokens"
 

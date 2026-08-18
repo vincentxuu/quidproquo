@@ -8,6 +8,9 @@ lang: en
 tldr: "Use another LLM to evaluate answer accuracy and quality — if the score is too low, regenerate, and automatically add appropriate disclaimers."
 description: "LLM-as-Judge scoring mechanisms, Groundedness calculation, Self-Reflection regeneration decisions, and how to integrate quality evaluation into a RAG pipeline."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 24
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
@@ -56,7 +59,7 @@ Please output JSON:
 }
 ```
 
-A lightweight model like `llama-3.1-8b-instruct` is used as the Judge — complex reasoning isn't needed, 8B is sufficient, and the cost is low.
+A small model is enough for the Judge: it only has to read the context and the answer and decide whether the answer went beyond what the context supports — no complex reasoning required. Pinning a specific model in an article isn't worth much, since models turn over faster than posts do; pick from the platform's current list at selection time (for example, [Cloudflare Workers AI models](https://developers.cloudflare.com/workers-ai/models/)). The trade-off runs roughly like this: the Judge runs on every generation, so a bigger model multiplies both cost and latency by your traffic — while a model that's too small follows instructions poorly and emits malformed JSON, which means you need schema validation plus one retry, or scores silently become null.
 
 ## Using the Groundedness Score
 
@@ -130,9 +133,12 @@ Administrators can review flagged answers in the dashboard and manually confirm 
 
 LLM-as-Judge isn't infallible. There are several known issues:
 
-1. **Position Bias**: Judges tend to give higher scores to longer documents and those appearing earlier in the list
-2. **Verbosity Bias**: Longer answers tend to receive higher quality scores
-3. **Self-Enhancement Bias**: Models from the same family may be overly lenient when evaluating each other
+1. **Position Bias**: in pairwise comparison, judges favor whichever answer is presented first — swap the two candidates and the verdict can flip
+2. **Verbosity Bias**: longer answers tend to receive higher scores even when they add no information
+3. **Self-Enhancement Bias**: judges favor answers produced by themselves or by models from the same family
+4. **Limited reasoning ability**: on questions that require math or rigorous reasoning to grade correctly, the judge simply gets it wrong
+
+These four come from the MT-Bench paper (Zheng et al., 2023). The same study measures the other side of the ledger: with GPT-4 as the judge, agreement with human preferences exceeds 80% — about the same level humans agree with each other. So the point isn't that judges can't be trusted, but that you need to know where they skew. Note also that the judge here does single-answer grading rather than pairwise comparison, so position bias matters less — but verbosity and self-enhancement still apply.
 
 To address these biases, the system treats Judge results as references rather than absolute truth, supplementing with user feedback (thumbs up/down) for calibration. When the gap between user feedback and auto_score is 2 or greater, flagging is also triggered, pending manual review.
 
@@ -148,6 +154,8 @@ The most important design principle: **never trust any single evaluation**. Low 
 
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (2023)](https://arxiv.org/abs/2310.11511)
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (2023)](https://arxiv.org/abs/2306.05685)
+- [Official MT-Bench / LLM Judge implementation (lm-sys/FastChat)](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge)
+- [Self-RAG project page](https://selfrag.github.io/)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

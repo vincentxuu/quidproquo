@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "不是所有問題都需要 RAG。用 LLM 先分類查詢類型，再決定執行路徑，節省成本又提升準確度。"
 description: "Query Classification 的設計：6 種查詢類型、路由策略、模型動態選擇，以及如何讓 pipeline 根據查詢自動調整執行路徑。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 16
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-query-classification-adaptive-routing-en)
@@ -66,10 +69,10 @@ if (/是什麼|定義|介紹/i.test(query)) return 'simple';
 | 類型 | 執行路徑 |
 |------|---------|
 | `simple` | embedding → hybrid search → 輕量 LLM 生成 |
-| `complex` | HyDE + Multi-Query + hybrid search → reranking → MMR → Gemma 生成 → Judge |
+| `complex` | HyDE + Multi-Query + hybrid search → reranking → MMR → 大模型生成 → Judge |
 | `general-knowledge` | 跳過所有檢索 → 直接 LLM 回答 |
 | `sql` | 執行 SQL 模板 → 輕量 LLM 組裝回答 → 早期 return |
-| `hybrid` | SQL 取候選 → 向量補充 → Gemma 推薦生成 |
+| `hybrid` | SQL 取候選 → 向量補充 → 大模型推薦生成 |
 | `clarification-needed` | 組裝澄清選項 → 回傳給使用者 |
 
 Pipeline 的每個 step 都有 `skipWhen` 條件，根據 `queryType` 自動跳過不相關的步驟：
@@ -89,6 +92,8 @@ Pipeline 的每個 step 都有 `skipWhen` 條件，根據 `queryType` 自動跳�
 
 這個設計讓 pipeline 保持線性結構，不需要手動寫分支邏輯，每個 step 自己管理自己的跳過條件。
 
+如果是用框架而不是自己刻 pipeline，要注意 LangChain 早期教學裡的 `RouterChain` 已經被歸到 `langchain-classic`，不再是主推寫法；核心套件現在提供的是 `RunnableBranch` / `RouterRunnable` 這類分支原語，而多路由的官方建議寫法是在 LangGraph 裡用 `Command`（單一路徑）或 `Send`（並行 fan-out）——參見 [LangChain router 架構文件](https://docs.langchain.com/oss/python/langchain/multi-agent/router)。概念和本文一樣（先分類、再分派），只是分派的載體換了。
+
 ## 動態模型選擇
 
 分類結果也決定使用哪個 LLM：
@@ -96,11 +101,13 @@ Pipeline 的每個 step 都有 `skipWhen` 條件，根據 `queryType` 自動跳�
 ```typescript
 const effectiveLlmModel =
   ["simple", "general-knowledge"].includes(queryType)
-    ? "llama-3.1-8b-instruct"  // 輕量，低成本
-    : "gemma-3-12b-it";        // 完整，高品質
+    ? MODELS.small   // 輕量、低成本，負責照抄 context 的問題
+    : MODELS.large;  // 需要推理、比較、長篇組織時才用
 ```
 
-Simple 查詢用 8B 模型就夠了，複雜查詢才用 12B。在高流量場景，這個動態選擇能顯著降低 token 成本和平均延遲。
+具體型號不重要，也不該寫死在文章裡——這一層每隔幾個月就會被更便宜或更強的模型換掉。要記住的是取捨本身：**分類結果只是拿來決定「這題值不值得花大模型」**。simple 與 general-knowledge 的回答多半是照抄或轉述 context，小模型足夠；complex 與 hybrid 要做比較、推理、組織長篇答案，才需要大模型。在高流量場景，這個動態選擇能顯著降低 token 成本和平均延遲。
+
+實作上把型號抽成一個設定常數（像上面的 `MODELS.small` / `MODELS.large`），換模型時只改一處。可用型號請直接查平台的模型清單，例如 [Cloudflare Workers AI models](https://developers.cloudflare.com/workers-ai/models/)。
 
 ## clarification-needed 的處理
 
@@ -133,8 +140,9 @@ Query Classification 是 adaptive RAG 的核心。不同問題有不同的最優
 ## 參考資料
 
 - [Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity](https://arxiv.org/abs/2403.14403)
-- [SymRAG: Efficient Neuro-Symbolic Retrieval-Augmented Generation through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
-- [Query Routing for Retrieval-Augmented Language Models](https://arxiv.org/html/2505.23052v1)
+- [SymRAG: Efficient Neuro-Symbolic Retrieval Through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
+- [RAGRouter: Learning to Route Queries to Multiple Retrieval-Augmented Language Models](https://arxiv.org/abs/2505.23052)
 - [Context Awareness Gate For Retrieval Augmented Generation](https://arxiv.org/abs/2411.16133)
+- [Router 架構與分派原語 — LangChain 官方文件](https://docs.langchain.com/oss/python/langchain/multi-agent/router)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

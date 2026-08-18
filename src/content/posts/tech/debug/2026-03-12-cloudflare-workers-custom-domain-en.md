@@ -8,6 +8,9 @@ tldr: "In wrangler.jsonc, use custom_domain: true in routes with only the hostna
 description: "A format pitfall when configuring custom domains in wrangler.jsonc: paths and wildcards are not allowed"
 draft: false
 type: debug
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 11
 ---
 
 🌏 [中文版](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain)

@@ -8,6 +8,9 @@ lang: en
 tldr: "A single vector search on a complex query often misses relevant documents. Let the LLM rewrite the query into 3-5 sub-queries, run them in parallel, and recall improves significantly."
 description: "The design rationale behind Multi-Query Expansion: use an LLM to rewrite a query from multiple angles, search each independently, then merge results with RRF to fix the recall problem of single-path retrieval."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 15
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-multi-query-expansion)
@@ -97,6 +100,12 @@ RRF inputs = [
 
 Six paths merge together, accumulating RRF scores per document. A document that ranks highly across more paths earns a higher fused score — which is exactly what we want.
 
+## Off-the-Shelf Implementations
+
+If you'd rather not write the rewrite loop yourself, LangChain ships a `MultiQueryRetriever` (given a query, have an LLM write a set of queries, retrieve docs for each, return the unique union). One caveat: LangChain 1.x moved these legacy retrievers into the `langchain-classic` package, so the import path differs from what older tutorials show — follow the [official API reference](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever) for installation and usage.
+
+The trade-off against rolling your own is simple: the packaged version merges by deduplicated union, which throws away rank information; writing it yourself is what lets you feed each path's ranking into RRF as shown above. Want rank fusion, write it yourself. Just want recall, take the off-the-shelf one.
+
 ## Cost Considerations
 
 The main costs of Multi-Query Expansion are:
@@ -117,7 +126,8 @@ Multi-Query Expansion is essentially using the LLM's language capabilities to co
 - [RAG-Fusion: a New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367)
 - [Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods (Cormack et al., 2009)](https://dl.acm.org/doi/10.1145/1571941.1572114)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020)](https://arxiv.org/abs/2005.11401)
-- [Multi-Query Retrieval with Query Expansion — LangChain docs](https://arxiv.org/abs/2305.14283)
-- [A Survey on RAG — Multi-Query Expansion and Recall Improvement Strategies (2024)](https://arxiv.org/abs/2312.10997)
+- [Query Rewriting for Retrieval-Augmented Large Language Models (Ma et al., 2023)](https://arxiv.org/abs/2305.14283)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
+- [MultiQueryRetriever — official LangChain API reference (now in `langchain-classic`)](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

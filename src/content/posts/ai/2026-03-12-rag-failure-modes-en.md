@@ -9,8 +9,8 @@ tldr: "When a RAG system breaks, 90% of the time it's one of these 10 failure mo
 description: "The 10 most common RAG failure modes across retrieval failures, generation failures, and system design issues, along with diagnostic methods and solutions for each."
 draft: false
 series:
-  name: "RAG Systems in Practice"
-  order: 2
+  name: "The RAG Techniques Compendium"
+  order: 33
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-failure-modes)
@@ -212,5 +212,8 @@ Diagnosing RAG problems without observability is like debugging blindfolded — 
 - [Seven Failure Points When Engineering a Retrieval Augmented Generation System (2024)](https://arxiv.org/abs/2401.05856)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
 - [RAGAS: Automated Evaluation of Retrieval Augmented Generation (2023)](https://arxiv.org/abs/2309.15217)
+- [HyDE: Precise Zero-Shot Dense Retrieval without Relevance Labels (Gao et al., 2023)](https://arxiv.org/abs/2212.10496)
+- [Corrective Retrieval Augmented Generation / CRAG (Yan et al., 2024)](https://arxiv.org/abs/2401.15884)
+- [Anthropic — Introducing Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)
 - [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

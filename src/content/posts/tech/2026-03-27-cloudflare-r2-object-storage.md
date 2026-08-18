@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "R2 是 Cloudflare 的物件儲存，S3 相容 API、零 egress 費用、Workers 原生 binding。媒體密集的應用不用再擔心流量帳單。"
 description: "Cloudflare R2 物件儲存介紹：S3 相容但零 egress 費用，Workers binding 原生低延遲，適合媒體密集應用。包含 Worker 操作範例、S3 SDK 存取方式，以及 NobodyClimb 攀岩平台的實際用法。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 4
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)
@@ -22,22 +25,26 @@ R2 是 Cloudflare 的物件儲存服務，設計來取代 S3。對 Cloudflare Wo
 
 | | AWS S3 | Cloudflare R2 |
 |---|---|---|
-| API 相容性 | 原版 | S3 相容（Drop-in replacement） |
-| Egress 費用 | 每 GB 收費（0.09 USD/GB） | 免費 |
-| 儲存費用 | 0.023 USD/GB | 0.015 USD/GB |
+| API 相容性 | 原版 | S3 相容（drop-in replacement） |
+| Egress（傳出到 Internet） | 按 GB 收費 | 免費 |
 | CDN 整合 | 需要另設 CloudFront | 直接走 Cloudflare CDN |
 | Workers 整合 | 需要 SDK + 額外延遲 | 原生 binding，低延遲 |
+| 區域選擇 | 區域數量多 | 自動選址，另有 location hint 與司法管轄限制 |
+
+單價會變，看 [R2 定價](https://developers.cloudflare.com/r2/pricing/) 與 AWS 官方頁；這裡只留形狀。R2 的計費有三軸：**儲存量（GB-月）＋ Class A 操作（會改變狀態的，如 `PutObject`、`ListObjects`）＋ Class B 操作（讀取類，如 `GetObject`、`HeadObject`）**。刪除是免費操作。egress 一律不收錢。
 
 Egress 免費這點對媒體密集的應用來說很重要。攀岩紀錄有大量圖片、影片縮圖，如果存在 S3 上，每個人打開照片都要付 egress——R2 省掉這塊。
 
+有一個容易被低估的坑：**Class A 比 Class B 貴一個數量級**。大量小檔案的上傳、或是頻繁 `ListObjects` 分頁掃 bucket，帳單會由操作費而不是儲存費主導。另外 Infrequent Access 儲存類別除了操作費更貴，還多了**資料取回費**與 30 天最短儲存期——冷資料不是無腦丟進去就會比較便宜。
+
 ## 基本用法（Cloudflare Workers）
 
-**wrangler.toml 綁定設定**
+**Wrangler 設定檔綁定**
 
-```toml
-[[r2_buckets]]
-binding = "BUCKET"
-bucket_name = "nobodyclimb-media"
+```jsonc
+{
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "nobodyclimb-media" }]
+}
 ```
 
 **Worker 裡操作 R2**
@@ -139,9 +146,11 @@ Cloudflare CDN（圖片有 cache-control，全球快取）
 - 自動走 Cloudflare CDN
 
 **缺點**
-- 不如 S3 生態成熟（Lambda trigger、生命週期規則功能較少）
-- 地理位置選擇比 S3 少
+- 不如 S3 生態成熟——AWS 那邊十幾年的第三方工具、稽核與合規整合不是短期能追上的
+- 可選的實體位置比 S3 的區域數量少（R2 預設自動選址，另有 [location hint 與司法管轄限制](https://developers.cloudflare.com/r2/reference/data-location/) 可指定，但粒度不同）
 - 大型組織可能還是需要 AWS 生態的深度整合
+
+有兩件事**不再**是 R2 的缺點：[物件生命週期規則](https://developers.cloudflare.com/r2/buckets/object-lifecycles/)（自動過期、自動轉到 Infrequent Access）和[事件通知](https://developers.cloudflare.com/r2/buckets/event-notifications/)（物件建立/刪除時觸發 Queue 或 Worker，等同 S3 的 Lambda trigger）現在都有了。
 
 ## 什麼時候選 R2
 
@@ -154,7 +163,10 @@ Cloudflare CDN（圖片有 cache-control，全球快取）
 ## 參考資料
 
 - [Cloudflare R2 官方文件](https://developers.cloudflare.com/r2/)
-- [R2 定價說明](https://developers.cloudflare.com/r2/pricing/)
+- [R2 定價說明](https://developers.cloudflare.com/r2/pricing/) — 儲存、Class A / Class B 操作與免費額度
+- [R2 物件生命週期規則](https://developers.cloudflare.com/r2/buckets/object-lifecycles/)
+- [R2 事件通知](https://developers.cloudflare.com/r2/buckets/event-notifications/)
+- [R2 資料存放位置](https://developers.cloudflare.com/r2/reference/data-location/)
 - [Workers Storage Options 選擇指南](https://developers.cloudflare.com/workers/platform/storage-options/)
 - [NobodyClimb 系統架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [Cloudflare KV：全球邊緣 Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Browserbase 在 2026-05 推出的 browse.sh,是「瀏覽器技能目錄 + Browse CLI」兩件事。核心論點:瀏覽器 Agent 的瓶頸是健忘症不是推理,把學過的網站操作存成純文字 SKILL.md,Craigslist 任務官方自評從 ~$0.22 降到 ~$0.12。注意它跟 2018 年的 Browsh 文字瀏覽器毫無關係。"
 description: "解讀 Browserbase 的 browse.sh:瀏覽器技能目錄、Browse CLI、Autobrowse 怎麼養出技能、與 AgentSkills 標準的關係,以及「開源免費」要打的星號。"
 draft: false
+series:
+  name: "瀏覽器自動化與 MCP"
+  order: 6
 ---
 
 🌏 [English version](/posts/ai/2026-05-23-browse-sh-browser-skills-en)
@@ -29,7 +32,7 @@ draft: false
 
 白話:
 
-1. **一個技能目錄**(browse.sh 網站):發布時 100+ 個精選技能,網站上當下可以瀏覽到逾 110 個,涵蓋電商(Craigslist、Zillow、eBay)、訂餐(DoorDash、McDonald's)、旅遊(機票、訂房、Airbnb)、政府入口(補助、案件查詢)、開發工具(GitHub)等。
+1. **一個技能目錄**(browse.sh 網站):可以照領域瀏覽與搜尋,涵蓋電商(Craigslist、Amazon、eBay)、旅遊與訂房(Airbnb、Booking.com、機票)、政府入口(SAM.gov、補助查詢)、房產租屋(Zillow、Apartments.com)、金融、開發工具等,而且持續在長。每個技能會標明它走的是哪條路——`API`、`Fetch`、`Browser` 還是 `Hybrid`——這比技能總數有用得多,因為它直接告訴你這個任務要不要開瀏覽器。
 2. **Browse CLI**(`npm i -g browse`):讓 Agent 真的去開瀏覽器、抓頁面、搜尋網路、按需載入技能的命令列工具。
 
 ## 核心論點:瓶頸是健忘症,不是推理
@@ -82,9 +85,9 @@ skill 不是黑箱,是**一份 `SKILL.md`(純 markdown)加上必要的輔助腳�
 CLI 的設計是「本機開發、雲端上線」同一套指令:
 
 ```bash
-npm i -g browse                                # 裝 CLI
-browse skills add zillow.com/extract-listings  # 安裝一個技能
-browse skills list                             # 列出已裝技能
+npm i -g browse             # 裝 CLI
+browse skills add zillow.com  # 安裝某個網站的技能
+browse skills list          # 列出已裝技能
 ```
 
 在 Agent 裡的典型 prompt 就是把技能當工具用:`Use /extract-listings to find apartments under $3,000 in SF with 2+ bedrooms.`——技能提供 playbook,模型提供推理。底層還有低階操作原語(click / scroll / type / hover / press,可用 selector 或 accessibility ref 定位),也能即時 tail 某個 session 的網路與 console。預設跑**本機 Chromium**,任何指令前加 `cloud` 前綴就切到 Browserbase 雲端 session。
@@ -100,7 +103,7 @@ browse skills list                             # 列出已裝技能
 導讀不能只抄行銷頁,幾個要老實講的點:
 
 - **「開源免費」要打星號**:CLI 與技能確實開源(`browserbase/skills` repo 標 MIT),但跑完整工作流可能要模型額度、Browserbase 憑證、雲端 session、residential proxy、解 CAPTCHA、付費 API——open source ≠ 全程零成本。
-- **品牌與命名還在收斂**:你會同時看到 `browse`(browse.sh 的獨立 CLI)、`bb`(Browserbase CLI,`bb browse` 是 passthrough)、npm 上的 `@browserbasehq/browse-cli`,以及 `browse.sh` 跟 `skills.sh/browserbase` 兩個目錄域名並存。別把它當成一個乾淨單一的產品,這層混亂是真的。
+- **品牌與命名仍在收斂,但已經比剛發佈時清楚**:npm 上的 `browse` 現在自述是「Unified Browserbase CLI for browser automation and cloud APIs」,也就是說獨立 CLI 與 Browserbase CLI 已經合流成同一個套件;舊的 `@browserbasehq/browse-cli` 則停在較舊的版本。不過 `browse.sh` 與 `skills.sh/browserbase` 兩個目錄域名仍然並存,所以「一個乾淨單一的產品」還是言之過早。
 - **技能可靠度依賴網站不變**:網站哪天改版,技能就可能要重新 graduate;Autobrowse 的收斂是「夠用」不是全域最優。
 - **數據多為官方自評**:成本數字、45%、50x 都來自 Browserbase 自己,還缺獨立驗證。
 
@@ -108,7 +111,7 @@ browse skills list                             # 列出已裝技能
 
 browse.sh 賭的是一個明確的判斷:browser agent 的未來瓶頸是**記憶**不是推理,所以把 Agent 學到的東西寫成「人能讀、Agent 能跑、可進版控」的純文字技能,才是真正的解鎖。用官方那句話總結最精準:「The bottleneck for browser agents was never intelligence. It was amnesia. Browse.sh is the cure.」
 
-代價也清楚:你買進的是 Browserbase 的 Autobrowse 與平台生態、一堆自評數據、還在亂的品牌命名,而且只在「需要探索」的網站上才划算。如果你正在做瀏覽器 Agent 且飽受重複探索成本之苦,值得試;如果你只是要解析靜態頁面,寫個 parser 就好,別被「讓 Agent 自己想辦法」的敘事騙進去。(延伸對照:[AI 瀏覽器 Agent:Claude、Codex、Gemini 怎麼開瀏覽器](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[Agent 記憶系統](/posts/ai/2026-03-19-agent-memory-systems))
+代價也清楚:你買進的是 Browserbase 的 Autobrowse 與平台生態、一堆自評數據、還在收斂的品牌命名,而且只在「需要探索」的網站上才划算。如果你正在做瀏覽器 Agent 且飽受重複探索成本之苦,值得試;如果你只是要解析靜態頁面,寫個 parser 就好,別被「讓 Agent 自己想辦法」的敘事騙進去。(延伸對照:[AI 瀏覽器 Agent:Claude、Codex、Gemini 怎麼開瀏覽器](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[Agent 記憶系統](/posts/ai/2026-03-19-agent-memory-systems))
 
 ## 參考資料
 

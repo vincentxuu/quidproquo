@@ -8,27 +8,41 @@ lang: en
 tldr: "KV is Cloudflare's globally distributed key-value store. Reads are served from the nearest edge node with extremely low latency. It's ideal for caching, feature flags, and ephemeral data — but writes are eventually consistent."
 description: "An introduction to Cloudflare KV: a globally distributed key-value store with low-latency edge reads and native TTL support. Covers Workers binding usage, type conversion patterns, a decision matrix comparing KV vs D1, and a real-world AI response caching implementation."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 3
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
 
-KV is Cloudflare Workers' global key-value store. Data is replicated to all Cloudflare PoPs (Points of Presence) worldwide, and reads are served from the nearest node — typically within a few milliseconds. If you need a serverless caching layer without the overhead of managing Redis, KV is the most straightforward option.
+KV is Cloudflare Workers' global key-value store. If you need a serverless caching layer without the overhead of managing Redis, KV is the most straightforward option.
+
+## What It Actually Is: A Read Cache, Not Global Replication
+
+The sentence most often written wrong about KV is "data is replicated to every PoP." **It is not.** KV data lives in central storage and is cached at a given location only *after* it has been read there. A key nobody has read at that location is a cold read that goes back to the central store.
+
+Two consequences follow:
+
+- **The first read of a key is always slower**, and only later reads are fast. Data with a scattered read pattern — each key read once or twice — gains nothing from KV.
+- **Post-write visibility is asymmetric.** The docs are explicit: a write is immediately visible to subsequent requests *in the same location*, but can take up to 60 seconds (or the `cacheTtl` you pass) to become visible elsewhere in the world.
+
+So "eventual consistency" here has a concrete number attached, not a vague "seconds to tens of seconds."
 
 ## Core Characteristics
 
-- **Ultra-fast reads**: Served from edge nodes, usually just a few milliseconds
-- **Eventual consistency**: After a write, it may take seconds to tens of seconds for the change to propagate globally — this is the most important limitation; KV is not suitable for scenarios requiring strong consistency
-- **Native TTL support**: Set expiration times on keys and they clean themselves up automatically
-- **Size limits**: Values up to 25 MB, keys up to 512 bytes
+- **Fast hot reads**: a few milliseconds when the location's cache holds the value
+- **Eventual consistency**: immediate in the same location, up to roughly 60 seconds across locations (tunable via `cacheTtl`, minimum 30 seconds, default 60)
+- **Native TTL support**: both `expiration` (absolute) and `expirationTtl` (relative) — keys clean themselves up
+- **Size and count limits**: keys, values, and operations per Worker invocation all have ceilings; current numbers in [KV limits](https://developers.cloudflare.com/kv/platform/limits/)
 
 ## Basic Usage
 
-**Binding in wrangler.toml**
+**Binding in the Wrangler configuration file**
 
-```toml
-[[kv_namespaces]]
-binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```jsonc
+{
+  "kv_namespaces": [{ "binding": "KV", "id": "<NAMESPACE_ID>" }]
+}
 ```
 
 **Working with KV in a Worker**
@@ -62,7 +76,12 @@ const data = await env.KV.get<{ limit: number }>('config:ai-quota', 'json');
 
 // Get binary data as ArrayBuffer
 const binary = await env.KV.get('some-key', 'arrayBuffer');
+
+// For rarely-read keys, extend how long the value stays cached at this location
+const rare = await env.KV.get('rarely-read-key', { cacheTtl: 3600 });
 ```
+
+`cacheTtl` cuts both ways: raising it also means this location goes longer without seeing writes made elsewhere. Leave it alone for data that is written and read frequently.
 
 ## KV vs D1: How to Choose
 
@@ -111,8 +130,9 @@ This caching strategy works in conjunction with the semantic cache step in the R
 **Cons**
 - Eventual consistency; not suitable for strong-consistency requirements
 - No range queries; only exact-key lookups
-- Write rate limits (free tier: 1,000 writes per minute)
-- Not suited for high write-frequency workloads
+- **Writes to the same key are capped at one per second on both free and paid plans** — this is not something upgrading fixes. High-frequency updates to a single key (counters, rate-limiter state) belong in Durable Objects
+- The free plan's daily write allowance is small (two orders of magnitude below its read allowance); using KV as write-heavy storage hits the wall fast
+- Concurrent writes to the same key are last-write-wins; there is no compare-and-swap
 
 ## When to Choose KV
 
@@ -121,11 +141,14 @@ This caching strategy works in conjunction with the semantic cache step in the R
 - Your workload is read-heavy with low write frequency, and eventual consistency is acceptable
 - Your data has a clear TTL (cache, ephemeral state, sessions)
 
-If you need strong consistency or complex queries, use D1. If you need high write throughput and pub/sub, self-hosted Redis is a better fit.
+If you need strong consistency or complex queries, use D1. If you need high-frequency writes to a single key or any coordination (counting, locking, rate limiting), use Durable Objects; for pub/sub, self-hosted Redis is a better fit.
 
 ## References
 
 - [Cloudflare KV official documentation](https://developers.cloudflare.com/kv/)
+- [How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/) — the caching layer and consistency behaviour
+- [KV limits](https://developers.cloudflare.com/kv/platform/limits/) — key/value sizes, daily allowances, operations per invocation
+- [KV pricing](https://developers.cloudflare.com/kv/platform/pricing/)
 - [Workers Storage Options guide](https://developers.cloudflare.com/workers/platform/storage-options/)
 - [NobodyClimb system architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb RAG Pipeline architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — KV's role in semantic caching

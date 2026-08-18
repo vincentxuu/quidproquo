@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Cloudflare Custom Error Pages 需要付費方案，Free Plan 可改用 Worker inline HTML 攔截 5xx。"
 description: "Cloudflare Free Plan 無法使用 Custom Error Pages，本文記錄用 Worker 攔截 nginx 5xx 並顯示自訂維護頁的解法。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 10
 ---
 
 🌏 [English version](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en)
@@ -15,7 +18,7 @@ draft: false
 ## TL;DR
 
 Cloudflare 的 Custom Error Pages（在 nginx 掛掉時顯示自訂頁面）2025 年後已整合進 Rules，
-改名為 Error Pages，且**只有付費方案才能用**。
+現在的名稱是 **Custom Errors**（底下含 Custom Error Rules 與 Error Pages），且**只有付費方案才能用**。
 Free Plan 的替代方案：建一個 Cloudflare Worker 當 proxy，
 把維護頁 HTML inline 在 Worker 裡，origin 回 5xx 時直接回傳。
 
@@ -109,19 +112,21 @@ docker start nginx
 ## 為什麼會這樣
 
 Cloudflare 在 2025 年 4 月把 Custom Pages 整合重構，
-升級成更強的 Custom Error Rules（支援條件式邏輯），但把功能鎖在付費方案。
-Free Plan 的 dashboard 完全不顯示這個選項，官方文件也沒有特別標注限制，
-導致找了很久才發現根本沒這個功能。
+升級成更強的 Custom Errors（支援條件式邏輯），同時 GA，但把功能鎖在付費方案。
+Free Plan 的 dashboard 完全不顯示這個選項，當初找了很久才發現根本沒這個功能。
+
+**這一點現在已經改善**：官方 [Custom Errors 文件](https://developers.cloudflare.com/rules/custom-errors/) 有一張明確的 Availability 表，Free 那一欄的規則數與 Error Pages 都是 0 / No。要確認某個方案有沒有這個功能，直接看那張表就好，不用再去 dashboard 翻。
 
 ## 學到的事
 
 Cloudflare Worker 作為輕量 proxy 用途很廣，不只是 edge function，
 遇到平台功能被鎖在付費方案時，Worker 幾乎都可以用程式碼自己實作。
-Free Plan 每日 10 萬次請求，一般站台綽綽有餘。
+Free Plan 每天有十萬次請求的額度（實際數字見 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)），一般站台綽綽有餘。
 
 ## 參考資料
 
 - [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
-- [Cloudflare Custom Error Pages (Error Pages)](https://developers.cloudflare.com/rules/custom-error-responses/)
+- [Cloudflare Custom Errors](https://developers.cloudflare.com/rules/custom-errors/) — 含各方案可用性表格
+- [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [Workers routing](https://developers.cloudflare.com/workers/configuration/routing/)
 - [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)

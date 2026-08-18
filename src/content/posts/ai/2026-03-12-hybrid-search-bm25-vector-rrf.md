@@ -9,8 +9,8 @@ tldr: "向量搜尋抓語義，BM25 抓關鍵字，兩者用 RRF 融合才能同
 description: "深入介紹 Hybrid Search 的設計原理：BM25 全文搜尋、向量搜尋、RRF 融合演算法，以及在攀岩社群平台的實際應用。"
 draft: false
 series:
-  name: "RAG 系統實戰"
-  order: 3
+  name: "RAG 技法大全"
+  order: 11
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en)
@@ -41,17 +41,24 @@ CREATE VIRTUAL TABLE ai_documents_fts USING fts5(
   content,
   title,
   metadata,
-  tokenize='unicode61'
+  tokenize='trigram'
 );
 ```
 
-FTS5 內建 BM25 評分，`unicode61` tokenizer 支援多語言中文分詞。攀岩術語、路線名稱、岩場地名都能精確命中。
+FTS5 內建 BM25 評分，但**中文的 tokenizer 選擇是這裡最容易踩的雷**。FTS5 預設的 `unicode61` 只把字元分成「分隔符」與「詞元字元」兩類，並不做中文斷詞——漢字屬於詞元字元，所以一整串連續漢字會被當成**單一個 token**。結果就是「龍洞」查不到「龍洞岩場」，BM25 那一路等於形同虛設，而且不會報錯，只會安靜地少召回。
+
+FTS5 內建能處理 CJK 的選項是 `trigram` tokenizer（把任意連續三個字元當成一個 token，支援子字串匹配），Cloudflare 官方在 D1 的索引最佳實務裡也是指向這個做法。代價是索引比較大、且會匹配到跨詞邊界的片段；若要真正的詞級斷詞，就得在寫入前於應用層自己斷好詞再存成空白分隔的欄位。無論選哪條路，**上線前務必用中文查詢實測 BM25 那一路的召回**。
+
+- [SQLite FTS5：Trigram Tokenizer](https://sqlite.org/fts5.html#the_trigram_tokenizer)
+- [Cloudflare D1：Use indexes](https://developers.cloudflare.com/d1/best-practices/use-indexes/)
 
 ## 向量搜尋（Semantic Search）
 
 向量搜尋把查詢和文件都轉成高維向量，用 cosine similarity 衡量語義相近度。
 
-模型選用 `@cf/baai/bge-m3`（1024 維），多語言訓練，繁體中文表現優異。一個攀岩相關的查詢「哪裡可以練習抱石」，能找到包含「boulder problem」、「抱石區」、「bouldering」等不同說法的文件。
+這裡選的是 Workers AI 上的多語言 embedding 模型（本系統用 `@cf/baai/bge-m3`）。挑選原則只有兩條：**要支援繁中，而且要能跟索引裡既有的向量維度對齊**——換模型等於整個索引重建，成本遠高於當初選型的差異。Workers AI 的可用模型與維度會持續變動，以[官方模型清單](https://developers.cloudflare.com/workers-ai/models/)為準。
+
+一個攀岩相關的查詢「哪裡可以練習抱石」，能找到包含「boulder problem」、「抱石區」、「bouldering」等不同說法的文件。
 
 搜尋流程：
 
@@ -150,7 +157,9 @@ User Query
 
 Hybrid Search 的本質是**召回率與精確度的互補**。向量搜尋提供語義覆蓋，BM25 提供關鍵字精準，RRF 以名次為基礎中立融合。這套組合在攀岩這種有大量專業術語（路線等級、岩場地名、技術術語）同時又需要語義理解（「適合初學者」、「風景優美」）的場景下，效果明顯優於任何單一搜尋方式。
 
-工程成本也不高：BM25 用 SQLite FTS5 就能搞定，不需要額外服務。真正的挑戰在 filter 提取的準確度，這部分依賴前一步的 NLP 解析品質。
+工程成本也不高：BM25 用 SQLite FTS5 就能搞定，不需要額外服務。真正的挑戰在兩個地方——**filter 提取的準確度**（依賴前一步的 NLP 解析品質），以及**中文 tokenizer 的選擇**（見前面那段，選錯會安靜地毀掉 BM25 那一路）。
+
+另外值得一提的是「自己組」與「用託管服務」的取捨：Cloudflare 的 AI Search 現在已內建 hybrid search，向量與 BM25 並行後用 RRF（或 max）融合，tokenizer 與融合方式都可設定。如果你的需求就是「對一批文件做混合搜尋」，託管方案省下的維運成本很可觀；本文這種自己組的做法，換來的是 filter 提取、降級策略、多路 RRF 這些環節的完全掌控權。細節見 [AI Search: Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/)。
 
 ---
 

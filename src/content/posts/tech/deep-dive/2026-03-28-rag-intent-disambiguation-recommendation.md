@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "攀岩 RAG 系統中「推薦下一條路線」（progression）和「推薦類似路線」（similarity）被同一個 hasSimilarRouteIntent() 函式混為一談，導致推薦品質崩壞。解法是 Regex Fast Path + LLM Fallback 的兩階段意圖分類。"
 description: "深入分析攀岩路線推薦系統中兩種語義相近但意圖截然不同的查詢如何被正確區分：從問題定義、學術佐證、業界解法，到 Cloudflare Workers 上的具體實作方案。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 34
 ---
 
 > 🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation-en)
@@ -47,9 +50,9 @@ export function hasSimilarRouteIntent(query: string): boolean {
 
 翻了一圈文獻，核心結論很一致：**意圖建模的精細程度直接決定推薦品質**。
 
-Cai et al. (2024) 分析了 59 種不同的意圖模型，發現細粒度分類（區分 explore / exploit / compare / progress 等子意圖）相比粗粒度分類（僅區分 recommend / not-recommend）可提升 **15-25% 的推薦接受率**。
+Cai et al. (2024) 的系統性文獻回顧盤點了對話式推薦系統裡的 **59 種意圖建模方法與 74 個常用特徵**，並整理成一套選型決策模型。這篇沒有給出「細粒度就比粗粒度好幾個百分點」這種數字（它是文獻回顧，不是對照實驗），但它把「意圖要建得多細、用哪一類模型」明確列為必須先決定的設計變數——我們正是漏掉了這一步，才會用一個布林函式吃兩種意圖。
 
-Zhang et al. (2025) 在 REIC 論文中展示：RAG 增強的意圖分類在處理語義相近但意圖不同的查詢時，透過檢索相似歷史查詢的標註結果作為 few-shot examples，能有效消歧。這跟我們的場景高度吻合。
+Zhang et al. (2025) 的 REIC 則是可直接參考的工程證據：用 RAG 在推論時動態注入相關知識（意圖描述與範例），在大規模客服意圖分類上同時勝過 fine-tuning、zero-shot 與 few-shot，而且意圖分類體系改動時不需要重訓。對「意圖數量會隨產品長大」的系統來說，這個性質比準確率數字更重要。
 
 ## 五種解法的取捨
 
@@ -65,7 +68,7 @@ recommend_intent
 └── training        # 「適合練習的」「暖身路線」
 ```
 
-Wankmüller (2024) 的研究顯示 GPT-4 級別 LLM 在常見意圖識別準確率可達 85% 以上。優點是明確的標籤直接映射到檢索策略，缺點是邊界案例難處理（「類似但稍難一點的」同時包含 progression 和 similar）。
+Bodonhelyi et al. (2024) 用真人受試者比較了兩代 GPT 在細粒度意圖分類上的表現，結論值得記住：**較強的模型在「常見意圖」上明顯較準，但在低頻意圖上反而經常被較弱的模型超越**。換句話說，換更大的模型不會自動修好長尾意圖。優點是明確的標籤直接映射到檢索策略，缺點是邊界案例難處理（「類似但稍難一點的」同時包含 progression 和 similar），而這種邊界案例正好就是長尾。
 
 ### 2. Slot-Filling（意圖 + 槽位）
 
@@ -84,7 +87,7 @@ Wankmüller (2024) 的研究顯示 GPT-4 級別 LLM 在常見意圖識別準確�
 }
 ```
 
-Chen & Yu (2021) 的 ACM Computing Surveys 論文指出聯合意圖偵測與 slot filling 相比獨立模型可提升 2-5% 準確率。結構化的 slots 能精準控制檢索參數，但 schema 需要領域專家設計。
+Weld et al. (2022) 的 ACM Computing Surveys 綜述整理了聯合意圖偵測與 slot filling 的發展：聯合模型比 pipeline 少了誤差累積、也只需要訓練與調校一個模型；但同一篇也提醒，聯合模型在未見過的表達上未必好推廣，而真實系統的領域和標籤集本來就會隨時間變動。結構化的 slots 能精準控制檢索參數，但 schema 需要領域專家設計，改起來也不便宜。
 
 ### 3. LLM 結構化輸出
 
@@ -106,7 +109,7 @@ Chen & Yu (2021) 的 ACM Computing Surveys 論文指出聯合意圖偵測與 slo
 
 ### 5. 多意圖偵測 (Multi-Intent Detection)
 
-Liu et al. (2024) 提出用對比學習分離一個查詢中的多個意圖。像「推薦類似但稍難一點的路線」可以拆成 `[progression(0.6), similar(0.4)]`，以 similar 為基礎但 grade 向上偏移。最貼近真實需求，但實作複雜度高。
+Huang et al. (2024) 提出用對比學習分離一個序列中的多重意圖。像「推薦類似但稍難一點的路線」可以拆成 `[progression(0.6), similar(0.4)]`，以 similar 為基礎但 grade 向上偏移。最貼近真實需求，但實作複雜度高。
 
 ## 攀岩領域的特殊挑戰
 
@@ -114,7 +117,7 @@ Liu et al. (2024) 提出用對比學習分離一個查詢中的多個意圖。�
 
 **YDS 難度階梯**。攀岩有明確的等級結構 `5.10a → 5.10b → 5.10c → 5.10d → 5.11a`，「進階」可以量化。但進階不只是數字提升，還包含技能類型切換（face → crack）、路線長度增加（單繩距 → 多繩距）、風格轉變（sport → trad）。
 
-**theCrag 的 grAId 系統**。用 Whole-History Rating（WHR）演算法把攀岩者和路線都建模為動態 rating，能預測攀岩者在特定時間點成功完攀特定路線的機率。推薦成功機率 50-70% 的路線，既有挑戰性又不會太挫折。天然適合 progression intent。
+**theCrag 的 grAId 系統**。把 Scarff (2020) 把 Whole-History Rating（WHR）搬到攀岩的做法產品化：攀岩者和路線都建模為隨時間變動的 rating，從完攀紀錄反推路線難度，並估計某位攀岩者在某個時間點成功完攀某條路線的機率。這個「機率」正是 progression intent 需要的排序訊號。至於該把目標機率訂在哪個區間（我們暫定 50-70%，覺得既有挑戰又不至於太挫折），官方文件沒有給建議值，這是我們自己的假設，要靠 A/B 測試驗。
 
 **繁體中文的語言特殊性**。這是最麻煩的部分：
 
@@ -250,7 +253,7 @@ if (recommendResult.intent !== 'exploration' || hasCompletionTrigger(query)) {
 
 ## 整體來說
 
-核心取捨是 **延遲 vs 準確率**。Regex 快速路徑能在 < 1ms 內處理大部分明確查詢（估計 70-80%），只有模糊或衝突的查詢才需要呼叫 LLM（額外 200-500ms）。在 Cloudflare Workers 這種 edge runtime 上，能省的延遲都得省。
+核心取捨是 **延遲 vs 準確率**。Regex 快速路徑能在 < 1ms 內處理大部分明確查詢（估計 70-80%），只有模糊或衝突的查詢才需要呼叫 LLM（多一次網路往返，實測依模型與區域落在數百毫秒量級）。在 Cloudflare Workers 這種 edge runtime 上，能省的延遲都得省。
 
 另一個取捨是**預設行為的選擇**。當使用者只說「爬完了，推薦」沒有明確方向時，預設 progression 而不是 similar。理由是攀岩者提到「完攀」時，心理暗示通常是「準備好往上走了」。這個假設可以透過 A/B 測試驗證，追蹤不同意圖的推薦接受率來持續調整。
 
@@ -262,16 +265,17 @@ if (recommendResult.intent !== 'exploration' || hasCompletionTrigger(query)) {
 
 - [Cai et al. (2024) — Understanding User Intent Modeling for Conversational Recommender Systems](https://link.springer.com/article/10.1007/s11257-024-09398-x)
 - [Zhang et al. (2025) — REIC: RAG-Enhanced Intent Classification at Scale](https://arxiv.org/pdf/2506.00210)
-- [Wankmüller (2024) — User Intent Recognition and Satisfaction with Large Language Models](https://arxiv.org/html/2402.02136v2)
-- [Weld et al. (2022) — A Survey of Intent Classification and Slot-Filling Datasets for Task-Oriented Dialog](https://arxiv.org/abs/2207.13211)
-- [Chen & Yu (2021) — A Survey of Joint Intent Detection and Slot Filling Models in NLU](https://dl.acm.org/doi/10.1145/3547138)
+- [Bodonhelyi et al. (2024) — User Intent Recognition and Satisfaction with Large Language Models: A User Study with ChatGPT](https://arxiv.org/abs/2402.02136)
+- [Larson & Leach (2022) — A Survey of Intent Classification and Slot-Filling Datasets for Task-Oriented Dialog](https://arxiv.org/abs/2207.13211)
+- [Weld et al. (2022) — A Survey of Joint Intent Detection and Slot Filling Models in NLU (ACM Computing Surveys)](https://dl.acm.org/doi/10.1145/3547138)
 - [Arora et al. (2024) — Intent Detection in the Age of LLMs (EMNLP Industry Track)](https://aclanthology.org/2024.emnlp-industry.114.pdf)
 - [Malkani (2024) — Hybrid LLM + Intent Classification Approach](https://medium.com/data-science-collective/intent-driven-natural-language-interface-a-hybrid-llm-intent-classification-approach-e1d96ad6f35d)
-- [Li et al. (2025) — A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems](https://dl.acm.org/doi/10.1145/3771090)
-- [Liu et al. (2024) — Multi-intent Aware Contrastive Learning for Sequential Recommendation](https://arxiv.org/html/2409.08733v1)
-- [Wu et al. (2024) — C-LARA: Balancing Accuracy and Efficiency in Multi-Turn Intent Classification](https://arxiv.org/html/2411.12307v1)
+- [Yi et al. (2025) — A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems (ACM Computing Surveys)](https://dl.acm.org/doi/10.1145/3771090)
+- [Huang et al. (2024) — Multi-intent Aware Contrastive Learning for Sequential Recommendation](https://arxiv.org/abs/2409.08733)
+- [Liu et al. (2024) — Balancing Accuracy and Efficiency in Multi-Turn Intent Classification for LLM-Powered Agents in Production](https://arxiv.org/abs/2411.12307)
 - [theCrag — grAId Whole-History Rating System for Climbing](https://www.thecrag.com/en/article/graid)
-- [Draper et al. (2022) — Content-Based Recommendations for Crags and Climbing Routes](https://link.springer.com/chapter/10.1007/978-3-030-94751-4_33)
-- [Wen et al. (2025) — Beyond Item Dissimilarities: Diversifying by Intent in Recommender Systems (KDD)](https://arxiv.org/abs/2405.12327)
+- [Scarff (2020) — Estimation of Climbing Route Difficulty using Whole-History Rating](https://arxiv.org/abs/2001.05388)
+- [Ivanova, Andrić & Ricci (2022) — Content-Based Recommendations for Crags and Climbing Routes](https://link.springer.com/chapter/10.1007/978-3-030-94751-4_33)
+- [Wang et al. (2024) — Beyond Item Dissimilarities: Diversifying by Intent in Recommender Systems](https://arxiv.org/abs/2405.12327)
 - [Yu et al. (2025) — MIND-RAG: Multimodal Context-Aware and Intent-Aware RAG](https://openaccess.thecvf.com/content/ICCV2025W/MRR%202025/papers/Yu_MIND-RAG_Multimodal_Context-Aware_and_Intent-Aware_Retrieval-Augmented_Generation_for_Educational_Publications_ICCVW_2025_paper.pdf)
-- [IntentRec (2025) — Incorporating Latent User Intent via Contrastive Alignment for Sequential Recommendation](https://www.sciencedirect.com/science/article/abs/pii/S156742232500047X)
+- [Hwang & Lee (2025) — IntentRec: Incorporating Latent User Intent via Contrastive Alignment for Sequential Recommendation](https://doi.org/10.1016/j.elerap.2025.101522)

@@ -8,6 +8,9 @@ lang: en
 tldr: "In a climbing RAG system, 'recommend the next route' (progression) and 'recommend a similar route' (similarity) were conflated by a single hasSimilarRouteIntent() function, causing recommendation quality to collapse. The fix is a two-stage intent classification with a Regex Fast Path + LLM Fallback."
 description: "A deep-dive analysis of how two semantically similar but intentionally distinct query types in a climbing route recommendation system can be correctly differentiated — from problem definition and academic grounding, to industry solutions and a concrete implementation on Cloudflare Workers."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 34
 ---
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation)
@@ -47,9 +50,9 @@ In the climbing domain specifically, wrong recommendations aren't just a poor ex
 
 After surveying the literature, the core finding is consistent: **the granularity of intent modeling directly determines recommendation quality.**
 
-Cai et al. (2024) analyzed 59 different intent models and found that fine-grained classification (distinguishing sub-intents like explore / exploit / compare / progress) improves recommendation acceptance rates by **15–25%** compared to coarse-grained classification (just recommend / not-recommend).
+Cai et al. (2024) ran a systematic literature review of user intent modeling in conversational recommender systems, cataloguing **59 distinct models and 74 commonly used features** and distilling them into a decision model for picking one. It reports no "fine-grained beats coarse-grained by X%" number — it is a literature review, not a controlled experiment — but it does establish that *how finely you model intent, and with which family of model*, is a design variable you have to decide deliberately. Skipping that decision is exactly how we ended up with one boolean function serving two intents.
 
-Zhang et al. (2025) demonstrated in the REIC paper that RAG-augmented intent classification handles semantically similar but intentionally different queries by retrieving annotated examples of similar historical queries as few-shot context — effectively disambiguating through retrieval. This maps directly to our scenario.
+Zhang et al. (2025)'s REIC is the engineering evidence that maps most directly onto our case: using RAG to inject relevant knowledge (intent descriptions and examples) at inference time, it beats fine-tuning, zero-shot, and few-shot on large-scale customer-service intent classification — and, more usefully, it absorbs taxonomy changes without retraining. For a system whose intent set grows with the product, that property matters more than the headline accuracy figure.
 
 ## Five Approaches and Their Trade-offs
 
@@ -65,7 +68,7 @@ recommend_intent
 └── training        # "good for practice", "warm-up routes"
 ```
 
-Wankmüller (2024) shows that GPT-4-class LLMs achieve over 85% accuracy on common intent recognition. The upside is that explicit labels map cleanly to retrieval strategies. The downside is that edge cases are hard to handle — "something like this but a bit harder" spans both progression and similar at the same time.
+Bodonhelyi et al. (2024) ran a user study comparing two generations of GPT on fine-grained intent recognition, and the finding worth remembering is this: **the stronger model is clearly better on *common* intents, but is frequently beaten by the weaker one on infrequent intents.** Upgrading the model does not automatically fix the long tail. The upside of this approach is that explicit labels map cleanly to retrieval strategies; the downside is that edge cases are hard to handle — "something like this but a bit harder" spans both progression and similar at the same time — and edge cases *are* the long tail.
 
 ### 2. Slot-Filling (Intent + Slots)
 
@@ -84,7 +87,7 @@ Rather than just classifying intent, extract structured slots from the query:
 }
 ```
 
-Chen & Yu (2021) in their ACM Computing Surveys paper show that joint intent detection and slot filling improves accuracy by 2–5% over independent models. Structured slots give precise control over retrieval parameters, but the schema requires domain expert design.
+Weld et al. (2022)'s ACM Computing Surveys review traces how joint intent detection and slot filling developed: joint models avoid the error propagation of a pipeline and leave you with a single model to train and tune. The same survey also cautions that joint models may not generalize well to unseen phrasings, and that in real deployments the domains and label sets shift over time anyway. Structured slots give precise control over retrieval parameters, but the schema requires domain expert design — and it is not cheap to change later.
 
 ### 3. LLM Structured Output
 
@@ -106,7 +109,7 @@ Highest accuracy, but adds an interaction turn that can feel like friction on mo
 
 ### 5. Multi-Intent Detection
 
-Liu et al. (2024) propose using contrastive learning to separate multiple intents within a single query. "Recommend something similar but a bit harder" can be decomposed into `[progression(0.6), similar(0.4)]` — use similarity as the base but shift the grade slightly upward. This is closest to real user needs, but the implementation complexity is high.
+Huang et al. (2024) propose using contrastive learning to disentangle multiple intents within a single interaction sequence. "Recommend something similar but a bit harder" can be decomposed into `[progression(0.6), similar(0.4)]` — use similarity as the base but shift the grade slightly upward. This is closest to real user needs, but the implementation complexity is high.
 
 ## Special Challenges in the Climbing Domain
 
@@ -114,7 +117,7 @@ Climbing isn't a typical product recommendation scenario. A few things make it u
 
 **The YDS grade ladder.** Climbing has an explicit grade structure: `5.10a → 5.10b → 5.10c → 5.10d → 5.11a`. "Progression" can be quantified. But advancement isn't just about numbers — it also includes skill type transitions (face → crack), route length increases (single pitch → multi-pitch), and style shifts (sport → trad).
 
-**theCrag's grAId system.** Uses the Whole-History Rating (WHR) algorithm to model both climbers and routes as dynamic ratings, predicting the probability that a climber will successfully complete a specific route at a given point in time. Recommending routes with a 50–70% success probability hits the sweet spot between challenge and achievability — a natural fit for progression intent.
+**theCrag's grAId system.** It productizes Scarff (2020)'s adaptation of Whole-History Rating (WHR) to climbing: climbers and routes are both modeled as ratings that vary over time, route difficulty is inferred from ascent records, and the model estimates the probability that a given climber will send a given route at a given point in time. That probability is exactly the ranking signal progression intent needs. As for *which* probability band to target — we provisionally use 50–70%, on the theory that it is challenging without being demoralizing — the official documentation gives no recommended value. That number is our own assumption and needs A/B testing.
 
 **The linguistic specifics of Traditional Chinese.** This is the trickiest part:
 
@@ -250,7 +253,7 @@ if (recommendResult.intent !== 'exploration' || hasCompletionTrigger(query)) {
 
 ## Overall Takeaways
 
-The core trade-off is **latency vs. accuracy**. The Regex Fast Path handles most clear-cut queries in under 1ms (estimated 70–80% of traffic). Only ambiguous or conflicting queries require an LLM call (an additional 200–500ms). On an edge runtime like Cloudflare Workers, every millisecond of avoidable latency matters.
+The core trade-off is **latency vs. accuracy**. The Regex Fast Path handles most clear-cut queries in under 1ms (estimated 70–80% of traffic). Only ambiguous or conflicting queries require an LLM call (one extra round trip, which in practice lands in the hundreds-of-milliseconds range depending on model and region). On an edge runtime like Cloudflare Workers, every millisecond of avoidable latency matters.
 
 The other trade-off is **choosing the default behavior**. When a user just says "I sent it, recommend something" without specifying direction, I default to progression rather than similar. The reasoning: when a climber mentions completing a route, the psychological implication is usually "I'm ready to move up." This assumption can be validated with A/B testing — track recommendation acceptance rates by intent type and adjust over time.
 
@@ -262,16 +265,17 @@ Future improvements could include integrating user history (consecutive RP's at 
 
 - [Cai et al. (2024) — Understanding User Intent Modeling for Conversational Recommender Systems](https://link.springer.com/article/10.1007/s11257-024-09398-x)
 - [Zhang et al. (2025) — REIC: RAG-Enhanced Intent Classification at Scale](https://arxiv.org/pdf/2506.00210)
-- [Wankmüller (2024) — User Intent Recognition and Satisfaction with Large Language Models](https://arxiv.org/html/2402.02136v2)
-- [Weld et al. (2022) — A Survey of Intent Classification and Slot-Filling Datasets for Task-Oriented Dialog](https://arxiv.org/abs/2207.13211)
-- [Chen & Yu (2021) — A Survey of Joint Intent Detection and Slot Filling Models in NLU](https://dl.acm.org/doi/10.1145/3547138)
+- [Bodonhelyi et al. (2024) — User Intent Recognition and Satisfaction with Large Language Models: A User Study with ChatGPT](https://arxiv.org/abs/2402.02136)
+- [Larson & Leach (2022) — A Survey of Intent Classification and Slot-Filling Datasets for Task-Oriented Dialog](https://arxiv.org/abs/2207.13211)
+- [Weld et al. (2022) — A Survey of Joint Intent Detection and Slot Filling Models in NLU (ACM Computing Surveys)](https://dl.acm.org/doi/10.1145/3547138)
 - [Arora et al. (2024) — Intent Detection in the Age of LLMs (EMNLP Industry Track)](https://aclanthology.org/2024.emnlp-industry.114.pdf)
 - [Malkani (2024) — Hybrid LLM + Intent Classification Approach](https://medium.com/data-science-collective/intent-driven-natural-language-interface-a-hybrid-llm-intent-classification-approach-e1d96ad6f35d)
-- [Li et al. (2025) — A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems](https://dl.acm.org/doi/10.1145/3771090)
-- [Liu et al. (2024) — Multi-intent Aware Contrastive Learning for Sequential Recommendation](https://arxiv.org/html/2409.08733v1)
-- [Wu et al. (2024) — C-LARA: Balancing Accuracy and Efficiency in Multi-Turn Intent Classification](https://arxiv.org/html/2411.12307v1)
+- [Yi et al. (2025) — A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems (ACM Computing Surveys)](https://dl.acm.org/doi/10.1145/3771090)
+- [Huang et al. (2024) — Multi-intent Aware Contrastive Learning for Sequential Recommendation](https://arxiv.org/abs/2409.08733)
+- [Liu et al. (2024) — Balancing Accuracy and Efficiency in Multi-Turn Intent Classification for LLM-Powered Agents in Production](https://arxiv.org/abs/2411.12307)
 - [theCrag — grAId Whole-History Rating System for Climbing](https://www.thecrag.com/en/article/graid)
-- [Draper et al. (2022) — Content-Based Recommendations for Crags and Climbing Routes](https://link.springer.com/chapter/10.1007/978-3-030-94751-4_33)
-- [Wen et al. (2025) — Beyond Item Dissimilarities: Diversifying by Intent in Recommender Systems (KDD)](https://arxiv.org/abs/2405.12327)
+- [Scarff (2020) — Estimation of Climbing Route Difficulty using Whole-History Rating](https://arxiv.org/abs/2001.05388)
+- [Ivanova, Andrić & Ricci (2022) — Content-Based Recommendations for Crags and Climbing Routes](https://link.springer.com/chapter/10.1007/978-3-030-94751-4_33)
+- [Wang et al. (2024) — Beyond Item Dissimilarities: Diversifying by Intent in Recommender Systems](https://arxiv.org/abs/2405.12327)
 - [Yu et al. (2025) — MIND-RAG: Multimodal Context-Aware and Intent-Aware RAG](https://openaccess.thecvf.com/content/ICCV2025W/MRR%202025/papers/Yu_MIND-RAG_Multimodal_Context-Aware_and_Intent-Aware_Retrieval-Augmented_Generation_for_Educational_Publications_ICCVW_2025_paper.pdf)
-- [IntentRec (2025) — Incorporating Latent User Intent via Contrastive Alignment for Sequential Recommendation](https://www.sciencedirect.com/science/article/abs/pii/S156742232500047X)
+- [Hwang & Lee (2025) — IntentRec: Incorporating Latent User Intent via Contrastive Alignment for Sequential Recommendation](https://doi.org/10.1016/j.elerap.2025.101522)

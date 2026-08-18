@@ -8,6 +8,9 @@ lang: en
 tldr: "Questions like 'how many routes did I complete this year' will never be answered well by RAG semantic search — querying the database directly is far more accurate. Let the LLM identify intent, extract parameters, and execute predefined SQL templates."
 description: "Designing a Text-to-SQL Router: template-based systems, LLM intent recognition, parameter extraction, Hybrid SQL+RAG mode, and why templates beat free-form LLM-generated SQL."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 17
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-text-to-sql-router)
@@ -50,6 +53,8 @@ const SQL_TEMPLATES = {
 ```
 
 The LLM is only responsible for identifying which template to use and extracting the parameters to fill in — it does not generate the SQL itself.
+
+Off-the-shelf framework solutions take the opposite route. LlamaIndex's `NLSQLTableQueryEngine` stuffs the table schema into the prompt, has the LLM emit SQL directly, and executes it — its own documentation carries a warning that executing arbitrary SQL is a security risk and recommends restricted roles, read-only databases, or sandboxing. With many tables you also have to switch to `SQLTableRetrieverQueryEngine` to retrieve the relevant schemas first, or the prompt overflows. That path buys maximum flexibility at the cost of building all of that protection yourself; for a system whose query shapes are convergent and enumerable (climbing statistics, here), templates are the better deal. Follow the [official Text-to-SQL guide](https://developers.llamaindex.ai/python/examples/index_structs/struct_indices/sqlindexdemo/) for current usage and parameters.
 
 ## LLM Intent Recognition
 
@@ -110,7 +115,7 @@ Q: "Recommend routes that match my current level"
 
 Step 1: Retrieve user's historical highest ascent grade → grade = 5.10b (grade_numeric = 102)
 Step 2: SQL query for unascended routes with grade_numeric 95-110 (Top 20)
-Step 3: Pass 20 routes as context, use Gemma to generate recommendation reasoning
+Step 3: Pass 20 routes as context, use a generation model to write the recommendation reasoning
 ```
 
 SQL ensures candidate difficulty is precise; the LLM handles personalized recommendation narratives. The two complement each other: SQL's precision + LLM's language capabilities.
@@ -128,6 +133,14 @@ if (sqlResults.length === 0) {
 
 For example: "Are there any 5.15 routes at Longdong?" — SQL returns nothing, so we fall back to RAG, use semantic search to find related information, and respond with "The hardest route at Longdong is..."
 
+## Don't Buy Based on Benchmark Scores
+
+Benchmark numbers in text-to-SQL deserve unusual caution. Spider 1.0 (2018) remains essential reading as the first large-scale cross-domain dataset that defined the problem, but evaluation has moved toward settings closer to real enterprise work: [Spider 2.0](https://spider2-sql.github.io/) (real enterprise workflow problems) and [BIRD](https://bird-bench.github.io/) (emphasizing database content, scale, and execution efficiency).
+
+More importantly, a 2026 empirical study of annotation quality found error rates of 52.8% in BIRD Mini-Dev and 62.8% in Spider 2.0-Snow. Re-running the 16 open-source agents from the BIRD leaderboard on a corrected BIRD Dev subset shifted relative performance by -7% to +31% and moved rankings by up to 9 positions — and rank correlation between the uncorrected and corrected subsets dropped from strong to essentially none (Spearman's r from 0.85 to 0.32). In other words, **"method X scores Y% execution accuracy on benchmark Z" is not enough to decide whether to adopt it**, and it certainly can't separate two methods sitting near each other on a leaderboard.
+
+The practical standard is still your own data: hand-write correct SQL for 20-50 questions your system will actually face and keep them as a regression suite. That's worth more than any public leaderboard.
+
 ## Overall Takeaway
 
 The essence of the Text-to-SQL Router is: **acknowledge the LLM's limitations and let it do what it's good at**. LLMs excel at intent understanding and natural language generation, but they're poor at precise calculations. Hand counting and statistics to the database, reasoning and expression to the LLM — this division of labor significantly improves system accuracy.
@@ -140,5 +153,9 @@ The template-based design is also far safer than free-form SQL generation — SQ
 
 - [DIN-SQL: Decomposed In-Context Learning of Text-to-SQL with Self-Correction](https://arxiv.org/abs/2304.11015)
 - [Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task](https://arxiv.org/abs/1809.08887)
-- [A Survey on Employing Large Language Models for Text-to-SQL Tasks](https://arxiv.org/html/2407.15186v5)
+- [A Survey on Employing Large Language Models for Text-to-SQL Tasks](https://arxiv.org/abs/2407.15186)
 - [Spider Benchmark: Yale Semantic Parsing and Text-to-SQL Challenge](https://yale-lily.github.io/spider)
+- [Spider 2.0: enterprise-grade real-world text-to-SQL workflows](https://spider2-sql.github.io/)
+- [BIRD: text-to-SQL evaluation on large-scale databases](https://bird-bench.github.io/)
+- [Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards (2026)](https://arxiv.org/abs/2601.08778)
+- [LlamaIndex Text-to-SQL guide (NLSQLTableQueryEngine / SQLTableRetrieverQueryEngine)](https://developers.llamaindex.ai/python/examples/index_structs/struct_indices/sqlindexdemo/)

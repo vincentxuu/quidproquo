@@ -5,9 +5,12 @@ type: guide
 category: tech
 tags: [opennextjs, cloudflare-workers, nextjs, deployment]
 lang: en
-tldr: "@opennextjs/cloudflare enables Next.js 15 App Router deployments on Cloudflare Workers — dynamic SSR runs in a Worker, static assets are served from Cloudflare Assets. Zero server management, but with clear feature limitations."
+tldr: "@opennextjs/cloudflare enables Next.js App Router deployments on Cloudflare Workers — dynamic SSR runs in a Worker, static assets are served from Cloudflare Assets. Zero server management, but with clear feature limitations."
 description: "How the @opennextjs/cloudflare adapter works: splitting Next.js SSR and static assets for deployment on Cloudflare's edge network. Real-world limitations and use cases illustrated with NobodyClimb."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 6
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter)
@@ -24,17 +27,25 @@ Vercel's Next.js hosting is purpose-built and offers the most complete feature s
 
 Option three is what NobodyClimb uses.
 
+One confusion worth clearing up first: `@opennextjs/cloudflare` runs Next.js's **Node.js runtime**, not the Edge runtime. That is the opposite of the older `@cloudflare/next-on-pages` it replaces, which only supported the Edge runtime. So when migrating, every `export const runtime = "edge";` in your code must be removed — **leaving them in breaks the build**.
+
+Which Next.js versions and which features are supported is listed item by item on the official [Cloudflare overview page](https://opennext.js.org/cloudflare), and that is the first page to read.
+
 ## What It Does
 
-The build process:
+For new projects, use the official scaffold:
 
 ```bash
-# First run the standard Next.js build
-next build
-
-# Then transform the output with the adapter
-npx @opennextjs/cloudflare build
+npm create cloudflare@latest -- my-next-app --framework=next --platform=workers
 ```
+
+Existing projects have a one-shot migration command:
+
+```bash
+npx @opennextjs/cloudflare migrate
+```
+
+It installs the package, generates `wrangler.jsonc` and `open-next.config.ts`, and rewrites the scripts. Day to day you then use the `opennextjs-cloudflare` CLI: `build` (which itself invokes the `build` script in your `package.json` to run `next build`), `preview` (run it locally in the Workers runtime), `deploy`, and `upload`.
 
 After the transformation, the original Next.js output is split into two parts:
 
@@ -54,6 +65,8 @@ After the transformation, the original Next.js output is split into two parts:
 - Static files from the `public/` directory
 - Fully static pages (those using `generateStaticParams` with no dynamic data)
 
+Static-asset caching needs a `public/_headers` file of your own marking `/_next/static/*` as `immutable`; without it every request goes back to origin.
+
 When a request comes in, the Cloudflare edge node first determines whether it's for a static asset or a dynamic request. Static assets are served directly from Assets (near CDN speed); only dynamic requests go into the Worker for SSR.
 
 ## Configuration
@@ -62,47 +75,54 @@ When a request comes in, the Cloudflare edge node first determines whether it's 
 
 ```jsonc
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "my-nextjs-app",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2024-11-18",
-  "compatibility_flags": ["nodejs_compat"],
+  // Must be 2024-09-23 or later
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-  "kv_namespaces": [
-    {
-      "binding": "CACHE",
-      "id": "your-kv-namespace-id"
-    }
-  ]
+  "services": [
+    // The service must match the "name" above
+    { "binding": "WORKER_SELF_REFERENCE", "service": "my-nextjs-app" }
+  ],
+  "images": {
+    // Enables next/image optimization
+    "binding": "IMAGES"
+  }
 }
 ```
 
-The `nodejs_compat` flag enables partial Node.js API support in Workers — this is the key that makes Next.js run.
+Three fields people miss: `nodejs_compat` is the precondition for Next.js running at all; the `WORKER_SELF_REFERENCE` service binding is used internally by the adapter; and image optimization only exists if the `images` binding is declared. Do not change `main` or `assets` yourself.
 
 `package.json` scripts:
 
 ```json
 {
   "scripts": {
-    "build": "next build && npx @opennextjs/cloudflare build",
-    "deploy": "npm run build && wrangler deploy",
-    "preview": "npm run build && wrangler dev"
+    "build": "next build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   }
 }
 ```
 
+Note that `build` is plain `next build` — `opennextjs-cloudflare build` calls it for you, and chaining the two runs it twice.
+
 ## Accessing Cloudflare Bindings
 
-In the Workers environment, you can access Cloudflare bindings (D1, KV, R2) via `getRequestContext()`:
+The function for reaching bindings (D1, KV, R2) is `getCloudflareContext()`, imported from `@opennextjs/cloudflare`:
 
 ```typescript
 // app/api/posts/route.ts
-import { getRequestContext } from "@cloudflare/next-on-pages";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 export async function GET() {
-  const { env } = getRequestContext();
+  const { env, cf, ctx } = getCloudflareContext();
 
   // Query with D1
   const result = await env.DB.prepare(
@@ -112,6 +132,12 @@ export async function GET() {
   return Response.json(result.results);
 }
 ```
+
+> The `getRequestContext()` seen in older tutorials comes from `@cloudflare/next-on-pages` — a **different adapter**. It does not exist in `@opennextjs/cloudflare`, and copying it over breaks outright.
+
+Inside SSG routes (generated at build time) it must be called in async mode: `await getCloudflareContext({ async: true })`. Be aware that this reads **locally simulated binding values and secrets from `.dev.vars`**, not production data — unless you have enabled remote bindings.
+
+Besides `env`, the same return value carries `cf` (request geo and connection info) and `ctx` (lifecycle methods such as `waitUntil`). Generate the types with `wrangler types --env-interface CloudflareEnv`.
 
 This lets Next.js API routes use Cloudflare's infrastructure directly, without setting up a separate database connection. NobodyClimb uses a standalone Hono API (also running on Workers), but the Next.js frontend accesses KV cache and other resources through the same mechanism.
 
@@ -138,31 +164,32 @@ This architecture means NobodyClimb requires zero server management — no EC2, 
 
 This adapter isn't a silver bullet. It has well-defined constraints:
 
-**Unsupported Next.js features:**
-- `next/image` image optimization (requires Node.js, not supported in the Workers environment)
-- Some server-side `next/font` functionality
-- Full Incremental Static Regeneration (ISR) support (limited)
+**Genuinely unsupported:**
+- **The Edge runtime**: every `export const runtime = "edge";` must be removed
+- **Node Middleware**, introduced in Next.js 15.2, is not yet supported
+
+**Supported, but frequently written up as unsupported in older posts:**
+- `next/image` optimization — via the `IMAGES` binding (backed by Cloudflare Images) or a custom loader. A few compatibility gaps are worth knowing: only PNG, JPEG, WEBP, AVIF, GIF, and SVG are handled, and anything else is returned unchanged; the `minimumCacheTTL` setting has no effect; and image optimization [can incur additional cost](https://opennext.js.org/cloudflare/howtos/image)
+- **ISR, `'use cache'`, PPR, and `after`** are all on the supported list, but they require an incremental cache (R2 is the documented default). Without one there is no cross-request caching
 
 **Workers runtime constraints:**
-- CPU time limit: Free plan allows up to 10ms CPU time per request; paid plans allow 30ms
-- Memory limit: 128MB (Bundled); larger workloads require Unbound pricing
-- No long-running tasks (requests that exceed 30 seconds will time out)
+- CPU time: 10 ms per request on the free plan; on paid, 30 seconds by default with a 5-minute ceiling. SSR-heavy pages hit the free-plan limit easily
+- 128 MB of memory (the old "Bundled" and "Unbound" plan names are retired — do not configure against older write-ups)
+- See [Workers limits](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
 
-**`getRequestContext()` only works in the Workers environment:**
-- For local development, use `wrangler dev` instead of `next dev` — otherwise `getRequestContext()` will throw an error
+**You do not have to give up `next dev` locally.**
+Call `initOpenNextCloudflareForDev()` in `next.config.ts` and bindings are available under `next dev` too:
 
-In practice, your `package.json` will likely need:
+```typescript
+// next.config.ts
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
-```json
-{
-  "scripts": {
-    "dev": "next dev",
-    "dev:worker": "npm run build && wrangler dev"
-  }
-}
+initOpenNextCloudflareForDev();
+
+export default { /* ... */ };
 ```
 
-Use `next dev` for everyday development (fast, hot reload) and `wrangler dev` when testing Workers-specific behavior.
+Use `next dev` for everyday work (fast, hot reload) and `npm run preview` when you need to verify real Workers-runtime behaviour. Bindings default to local simulation; to hit real Cloudflare resources, set `remote` to `true` on that binding (remote bindings stabilized in wrangler 4.36.0).
 
 ## When to Use It (and When Not To)
 
@@ -172,12 +199,11 @@ Use `next dev` for everyday development (fast, hot reload) and `wrangler dev` wh
 - You're already using other Cloudflare services (D1, R2, KV, Workers AI)
 
 **Not a good fit:**
-- You need `next/image` optimization (consider Vercel or self-hosting)
-- Your project has complex Node.js dependencies (not all npm packages run in Workers)
-- CPU-intensive SSR (Workers' CPU time limits are strict)
-- Large content sites that require full ISR support
+- Your code still leans heavily on the Edge runtime and you have no plan to move off it
+- Your project has complex native Node.js dependencies (not all npm packages run in Workers)
+- CPU-intensive SSR, with no intention of moving to a paid plan
 
-For a community platform like NobodyClimb — moderate traffic, no complex image processing needs, everything on Cloudflare — the tradeoff makes sense. But if your Next.js app relies heavily on `next/image` or has pages with long SSR runtimes, this adapter will introduce additional friction.
+For a community platform like NobodyClimb — moderate traffic, everything on Cloudflare — the tradeoff makes sense.
 
 ## Tradeoff Summary
 
@@ -191,9 +217,12 @@ For a community platform like NobodyClimb — moderate traffic, no complex image
 
 ## References
 
-- [@opennextjs/cloudflare Official Docs](https://opennext.js.org/cloudflare)
+- [@opennextjs/cloudflare Official Docs](https://opennext.js.org/cloudflare) — supported Next.js versions and feature list
+- [Get Started (includes the wrangler config template)](https://opennext.js.org/cloudflare/get-started)
+- [Accessing bindings: `getCloudflareContext`](https://opennext.js.org/cloudflare/bindings)
+- [Image optimization setup and compatibility gaps](https://opennext.js.org/cloudflare/howtos/image)
 - [OpenNext Project](https://opennext.js.org/)
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Cloudflare Pages vs Workers](https://developers.cloudflare.com/workers/platform/deployments/)
+- [Migrating from Pages to Workers](https://developers.cloudflare.com/workers/static-assets/migrate-from-pages/)
 - [Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)
 - [NobodyClimb: Building a Climbing Community Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — NobodyClimb's full Cloudflare architecture and real-world usage of @opennextjs/cloudflare

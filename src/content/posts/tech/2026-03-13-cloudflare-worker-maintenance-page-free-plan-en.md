@@ -8,13 +8,16 @@ lang: en
 tldr: "Cloudflare Custom Error Pages require a paid plan. On the Free Plan, use a Worker with inline HTML to intercept 5xx responses instead."
 description: "Cloudflare's Custom Error Pages aren't available on the Free Plan. This post documents how to use a Cloudflare Worker as a proxy to intercept nginx 5xx errors and serve a custom maintenance page."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 10
 ---
 
 🌏 [中文版](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan)
 
 ## TL;DR
 
-Cloudflare's Custom Error Pages feature (which shows a custom page when nginx goes down) was restructured in 2025 and renamed to Error Pages under Rules — and it's **only available on paid plans**. The Free Plan workaround: deploy a Cloudflare Worker as a proxy, inline the maintenance page HTML directly in the Worker, and return it whenever the origin responds with a 5xx.
+Cloudflare's Custom Error Pages feature (which shows a custom page when nginx goes down) was restructured into Rules in 2025 and is now called **Custom Errors** (covering Custom Error Rules and Error Pages) — and it's **only available on paid plans**. The Free Plan workaround: deploy a Cloudflare Worker as a proxy, inline the maintenance page HTML directly in the Worker, and return it whenever the origin responds with a 5xx.
 
 ## Context
 
@@ -98,15 +101,18 @@ docker start nginx
 
 ## Why This Happens
 
-In April 2025, Cloudflare restructured Custom Pages into the more powerful Custom Error Rules (with conditional logic support), but gated the feature behind paid plans. The Free Plan dashboard shows no trace of it, and the official docs don't prominently flag the restriction — which is why it took a while to realize the feature simply wasn't available.
+In April 2025, Cloudflare restructured Custom Pages into the more powerful Custom Errors (with conditional logic support) and took it GA, but gated the feature behind paid plans. The Free Plan dashboard shows no trace of it, which is why it took a while to realize the feature simply wasn't available.
+
+**That part has since improved**: the official [Custom Errors docs](https://developers.cloudflare.com/rules/custom-errors/) now carry an explicit availability table, and the Free column reads 0 rules and no Error Pages. To check whether a plan has the feature, read that table rather than hunting through the dashboard.
 
 ## What I Learned
 
-Cloudflare Workers are incredibly versatile as a lightweight proxy layer — not just for edge functions. Whenever a platform feature is locked behind a paid tier, Workers can almost always replicate it in code. The Free Plan includes 100,000 requests per day, which is more than enough for most sites.
+Cloudflare Workers are incredibly versatile as a lightweight proxy layer — not just for edge functions. Whenever a platform feature is locked behind a paid tier, Workers can almost always replicate it in code. The Free Plan includes a daily request allowance in the hundred-thousand range (current figure in [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)), which is more than enough for most sites.
 
 ## References
 
 - [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
-- [Cloudflare Custom Error Pages (Error Pages)](https://developers.cloudflare.com/rules/custom-error-responses/)
+- [Cloudflare Custom Errors](https://developers.cloudflare.com/rules/custom-errors/) — includes the per-plan availability table
+- [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [Workers routing](https://developers.cloudflare.com/workers/configuration/routing/)
 - [Daodao Technical Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)

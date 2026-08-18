@@ -9,8 +9,8 @@ tldr: "單一 RAG Agent 處理所有查詢會遇到知識邊界和效能瓶頸�
 description: "Multi-Agent RAG 的架構設計：Orchestrator 協調模式、專業化 Agent 設計、非同步通訊與平行處理、結果融合策略，以及與單一 Agentic RAG 的比較。"
 draft: false
 series:
-  name: "RAG 系統實戰"
-  order: 4
+  name: "RAG 技法大全"
+  order: 28
 ---
 
 當你的 RAG 系統需要同時回答法律條文、財務報表、和技術文件的問題時，一個 Agent 做所有事情就開始出問題了。
@@ -125,7 +125,7 @@ type DomainTag = 'legal' | 'finance' | 'tech' | 'hr' | 'general';
 
 async function analyzeQuery(query: string): Promise<QueryAnalysis> {
   const response = await llm.chat({
-    model: 'claude-sonnet-4-20250514',
+    model: ROUTER_MODEL,  // 路由只做分類，用便宜的小模型即可；模型 ID 請以供應商當前文件為準
     system: `你是一個查詢路由器。分析使用者查詢，判斷：
 1. 涉及哪些領域（可以多個）
 2. 如果涉及多個領域，把查詢拆成各領域的子查詢
@@ -264,7 +264,9 @@ const tasks = domains.map(async (domain) => {
       : { domain, status: 'failed' };
   }
 });
-const results = await Promise.allSettled(tasks);
+// 每個 task 內部已經 catch 過，所以這裡用 Promise.all 就能直接拿到 AgentResult；
+// 若 task 可能真的 throw，改用 Promise.allSettled 並記得從 { status, value } 解包
+const results: AgentResult[] = await Promise.all(tasks);
 ```
 
 ### 循序委派（Sequential Delegation）
@@ -364,7 +366,7 @@ async function llmSynthesis(
     .join('\n\n---\n\n');
 
   const response = await llm.chat({
-    model: 'claude-sonnet-4-20250514',
+    model: FUSION_MODEL,  // 融合要處理矛盾與長 context，值得用強一點的模型
     system: `你是一個結果融合專家。多個專業 Agent 已經針對使用者的問題提供了各自的回答。
 你的任務是：
 1. 綜合所有 Agent 的回答，產生一個連貫的最終答案
@@ -476,8 +478,8 @@ class MultiAgentOrchestrator {
 
 ```typescript
 const orchestrator = new MultiAgentOrchestrator({
-  analyzerModel: 'claude-sonnet-4-20250514',
-  fusionModel: 'claude-sonnet-4-20250514',
+  analyzerModel: process.env.ROUTER_MODEL!,   // 便宜快的分類模型
+  fusionModel: process.env.FUSION_MODEL!,     // 較強的合成模型
   agents: [
     { domain: 'legal',   endpoint: 'https://agents.internal/legal',   timeoutMs: 10_000 },
     { domain: 'finance', endpoint: 'https://agents.internal/finance', timeoutMs: 8_000  },
@@ -499,7 +501,7 @@ const r3 = await orchestrator.process(
 );
 ```
 
-五行 `process()` 方法包含了整個系統的核心邏輯：分析、路由、分派、偵測、融合。每個步驟的實作細節已經在前面各節展示過。
+這個 `process()` 方法就是整個系統的骨架：分析、路由、分派、偵測、融合五個步驟。每個步驟的實作細節已經在前面各節展示過。
 
 ---
 
@@ -542,15 +544,19 @@ Multi-Agent RAG:
 
 ### vs Google 的 Multi-Agent 模式
 
-Google 在 2025 年發佈的 Agent 白皮書中提出了幾種 multi-agent 模式：
+Google 的 [Agents Companion 白皮書](https://www.kaggle.com/whitepaper-agent-companion)（2025 年 2 月）用車載助理當案例，列了六種 multi-agent 模式。跟 RAG 架構選擇最相關的是這四種：
 
-1. **Hierarchical**：一個 supervisor agent 管理多個 worker agents。跟本文的 Orchestrator 模式類似，但 Google 強調 supervisor 本身也可以是一個 agent（有自己的推理能力），而不只是一個路由器。
+1. **Hierarchical**：一個 Orchestrator Agent 分類查詢、路由到專業 agent，同時維持跨輪對話脈絡、並在專業 agent 答不出來時處理 fallback。這就是本文的 Orchestrator 模式；白皮書特別強調 orchestrator 本身是一個 agent（要判斷領域與意圖、管理對話狀態），不只是一張路由表。
 
-2. **Peer-to-peer**：Agent 之間直接通訊，沒有中央 Orchestrator。適合 Agent 之間需要頻繁溝通的場景，但在 RAG 中比較少用，因為檢索任務通常是獨立的。
+2. **Diamond**：Hierarchical 的變形——專業 agent 的回答送到使用者之前，先過一個中央的改寫 agent，統一語氣、資訊密度和呈現格式。在 RAG 裡對應的是「融合之後再加一層輸出規範層」。
 
-3. **Mixture of Experts (MoE)**：從 ML 的 MoE 概念借鑑，用 gating function 決定哪些 Agent 被啟動。跟本文的 fast routing 概念類似。
+3. **Peer-to-Peer**：白皮書給的定義比一般想像的窄——它指的是 agent 發現 orchestrator 路由分錯時，可以把查詢直接轉交給另一個 agent，藉此從錯誤分類中復原，而不是取消中央 orchestrator。這點在 RAG 裡很值得抄，因為路由分錯是最常見的失敗模式之一。
 
-本文的架構比較接近 **Hierarchical + MoE 的混合**：Orchestrator 扮演 supervisor 的角色，用 routing logic（gating）決定啟動哪些 Agent。
+4. **Collaborative + Response Mixer**：多個 agent 針對同一個問題各自負責互補的面向，再由一個 Response Mixer Agent 依準確性和相關性挑出可用的片段、剔除錯誤資訊、合成一個答案。這正是本文「平行扇出 + LLM 合成」的對應物。
+
+（另外兩種是 Response Mixer 的獨立章節，以及 Adaptive Loop——靠反覆改寫查詢逐步逼近可用結果，思路上比較接近 CRAG。）
+
+要澄清一點：白皮書並沒有把 **Mixture of Experts** 列為 multi-agent 模式。本文前面的 fast routing 確實是一種 gating 式的路由最佳化，但那是我們自己的類比，不是 Google 的用語。對照下來，本文的架構最接近 **Hierarchical + Collaborative 的混合**：Orchestrator 扮演 supervisor，融合層扮演 Response Mixer。
 
 ---
 
@@ -622,7 +628,7 @@ async function streamingFanOut(
 **緩解方式**：
 - 衝突偵測是必要的，不是可選的
 - 共享一個 metadata store，確保各 Agent 用的資料版本一致
-- Orchestrator 在分派時附上共同的上下文（例如「資料基準日期：2026-03-30」）
+- Orchestrator 在分派時附上共同的上下文（例如「資料基準日期：2026-03-01」）
 
 ### 4. 除錯複雜度
 
@@ -694,3 +700,4 @@ Multi-Agent RAG 的核心洞察很簡單：**專業分工比萬能通才更有�
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Orchestrator 推理與行動交織模式的核心參考論文
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多面向查詢的檢索架構，與 Multi-Agent 領域劃分互補
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，多 Agent 間的 context 隔離與結果融合策略
+- [Agents Companion](https://www.kaggle.com/whitepaper-agent-companion) — Google（2025 年 2 月），Hierarchical、Diamond、Peer-to-Peer、Collaborative、Response Mixer、Adaptive Loop 六種 multi-agent 模式的原始出處

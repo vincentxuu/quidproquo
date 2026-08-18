@@ -8,6 +8,9 @@ tldr: "SEO is more than keywords. Structured data (JSON-LD), Open Graph, hreflan
 description: "Using an Astro blog as a practical example, this guide covers the full spectrum of technical SEO: JSON-LD structured data, Open Graph meta tags, hreflang for multilingual sites, robots.txt, Sitemap, and more — with complete code samples throughout."
 draft: false
 type: guide
+series:
+  name: "AEO, GEO, and AI Search"
+  order: 1
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-blog-seo-optimization-guide)
@@ -82,7 +85,7 @@ Open Graph is a meta standard originally created by Facebook. Today virtually ev
 
 ### Automated OG Image Generation
 
-Manually creating an OG image for every post isn't realistic. You can use [Satori](https://github.com/vercel/satori) + [Resvg](https://github.com/nicolo-ribaudo/resvg-js) to generate images automatically at build time:
+Manually creating an OG image for every post isn't realistic. You can use [Satori](https://github.com/vercel/satori) + [Resvg](https://github.com/thx/resvg-js) to generate images automatically at build time:
 
 ```javascript
 // scripts/generate-og-images.mjs
@@ -125,15 +128,23 @@ JSON-LD is the highest priority item in technical SEO. It removes the guesswork 
 </script>
 ```
 
-### Common Schema Types
+### Common Schema Types (as of August 2026)
 
-| Schema | Used On | Effect |
+Google has been steadily retiring rich result types, which means a large share of the SEO tutorials you'll find online are describing features that no longer exist. Treat the official [list of supported types](https://developers.google.com/search/docs/appearance/structured-data/search-gallery) as the only source of truth:
+
+| Schema | Used On | Still produces a rich result? |
 |--------|---------|--------|
-| `BlogPosting` | Post pages | Google can display publish date and author in search results |
-| `BreadcrumbList` | Breadcrumb navigation | Search results show the page path |
-| `WebSite` | Homepage | Enables Sitelinks Search Box |
-| `FAQPage` | FAQ pages | Search results expand Q&A inline |
-| `HowTo` | Tutorial posts | Search results display step lists |
+| `Article` / `BlogPosting` | Post pages | Yes (Article feature) |
+| `BreadcrumbList` | Breadcrumb navigation | Yes |
+| `Organization` | Site-wide / homepage | Yes (logo, name, identifiers; feeds the knowledge panel) |
+| `ProfilePage` | Author pages | Yes |
+| `FAQPage` | FAQ pages | **No** — FAQ rich results stopped appearing on 2026-05-07 |
+| `HowTo` | Tutorial posts | **No** — stopped showing back in 2023; docs removed |
+| `WebSite` + `SearchAction` | Homepage | **No** — the sitelinks search box was retired in October 2024 |
+
+The FAQ removal played out over three years: in August 2023 Google restricted it to "well-known, authoritative government and health websites"; on 2026-05-07 it stopped appearing for those too; the documentation came down in June 2026, and Search Console API support goes away in August 2026. The dates are all in Google's [documentation changelog](https://developers.google.com/search/updates).
+
+**So is schema without a rich result wasted effort?** Not entirely. Google's [generative AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), published in May 2026, states plainly that structured data is **not** required for generative AI search and that there is no special schema.org markup to add — while still recommending you keep using it as part of overall SEO, because it's what makes you eligible for rich results. Treat schema as a rich-result eligibility tool, not as a way to court AI systems.
 
 ### BreadcrumbList Example
 
@@ -149,24 +160,20 @@ JSON-LD is the highest priority item in technical SEO. It removes the guesswork 
 }
 ```
 
-### WebSite + SearchAction
+### Organization (replacing the retired WebSite + SearchAction)
 
-Adding a `WebSite` schema to your homepage gives Google a chance to display a sitelinks search box directly in search results:
+Older SEO guides tell you to put `WebSite` + `SearchAction` on your homepage to earn a sitelinks search box. Google [retired that feature in October 2024](https://developers.google.com/search/blog/2024/10/sitelinks-search-box), removing both the documentation and the `nositelinkssearchbox` rule. Marking it up today does nothing.
+
+What your homepage should carry instead is `Organization`, which drives the knowledge panel and site identity:
 
 ```json
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": "Organization",
   "name": "quidproquo",
   "url": "https://quidproquo.cc",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://quidproquo.cc/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "logo": "https://quidproquo.cc/logo.png",
+  "sameAs": ["https://github.com/vincentxuu"]
 }
 ```
 
@@ -251,8 +258,9 @@ Before publishing each post, verify:
 - [ ] Has `<link rel="canonical">`
 - [ ] `og:type` is `article` (post pages) or `website` (homepage)
 - [ ] Has an OG image (1200x630)
-- [ ] Has JSON-LD `BlogPosting` structured data
+- [ ] Has JSON-LD `Article` / `BlogPosting` structured data
 - [ ] Has JSON-LD `BreadcrumbList`
+- [ ] Isn't spending effort on `FAQPage` / `HowTo` / `SearchAction` (those rich results are gone)
 - [ ] Multilingual pages have hreflang tags
 - [ ] `robots.txt` exists and points to the sitemap
 - [ ] Validated with [Google Rich Results Test](https://search.google.com/test/rich-results)
@@ -261,13 +269,17 @@ Before publishing each post, verify:
 
 Technical SEO is a one-time investment: set it up in your Layout and build pipeline, and every future post benefits automatically. Priority order: **JSON-LD structured data > Open Graph > hreflang > robots.txt**. Structured data has the biggest impact because it directly determines how precisely search engines can understand your content.
 
-You don't need to chase perfection — getting the three core schemas right (BlogPosting, BreadcrumbList, WebSite) already puts you ahead of 90% of personal blogs out there.
+You don't need to chase perfection — getting the three core schemas right (`Article`/`BlogPosting`, `BreadcrumbList`, `Organization`) already puts you ahead of 90% of personal blogs out there. Don't spend the remaining effort chasing rich result types that have already been retired; Google prunes the list every year, and the pruning is logged in the [documentation changelog](https://developers.google.com/search/updates).
 
 ---
 
 ## References
 
 - [Google Search Central - Structured Data](https://developers.google.com/search/docs/appearance/structured-data)
+- [Structured data markup that Google Search supports](https://developers.google.com/search/docs/appearance/structured-data/search-gallery) — the only list to trust for "which schemas still do anything"
+- [Google Search documentation updates](https://developers.google.com/search/updates) — where FAQ, HowTo, and friends are logged as they're retired
+- [Farewell, Sitelinks Search Box](https://developers.google.com/search/blog/2024/10/sitelinks-search-box) — the October 2024 announcement
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google's May 2026 guide, including "structured data isn't required"
 - [Schema.org - BlogPosting](https://schema.org/BlogPosting)
 - [Open Graph Protocol](https://ogp.me/)
 - [Google - hreflang Tag Guide](https://developers.google.com/search/docs/specialty/international/localized-versions)

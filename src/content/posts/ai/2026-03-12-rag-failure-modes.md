@@ -9,8 +9,8 @@ tldr: "RAG 系統出問題，90% 的情況是這 10 種之一。先識別是哪�
 description: "RAG 系統最常見的 10 種失敗模式：搜尋失敗類、生成失敗類、系統設計類，以及每種失敗模式的診斷方法和解法。"
 draft: false
 series:
-  name: "RAG 系統實戰"
-  order: 2
+  name: "RAG 技法大全"
+  order: 33
 ---
 
 RAG 系統的問題通常不是隨機的，而是集中在幾種可識別的失敗模式。診斷清楚是哪種模式，解法也就清楚了。
@@ -210,5 +210,8 @@ RAG 系統的問題通常不是隨機的，而是集中在幾種可識別的失�
 - [Seven Failure Points When Engineering a Retrieval Augmented Generation System (2024)](https://arxiv.org/abs/2401.05856)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
 - [RAGAS: Automated Evaluation of Retrieval Augmented Generation (2023)](https://arxiv.org/abs/2309.15217)
+- [HyDE: Precise Zero-Shot Dense Retrieval without Relevance Labels (Gao et al., 2023)](https://arxiv.org/abs/2212.10496)
+- [Corrective Retrieval Augmented Generation / CRAG (Yan et al., 2024)](https://arxiv.org/abs/2401.15884)
+- [Anthropic — Introducing Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

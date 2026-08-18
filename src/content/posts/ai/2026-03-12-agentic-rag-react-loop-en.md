@@ -8,6 +8,9 @@ lang: en
 tldr: "For complex multi-hop questions, a single RAG search isn't enough. Agentic RAG lets the LLM evaluate whether retrieved results are sufficient — if not, it rewrites the query and searches again, forming a ReAct loop."
 description: "A look at Agentic RAG's ReAct loop design: trigger conditions, decision logic, trade-offs versus baseline RAG, and a practical example from a climbing recommendation scenario."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 21
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-agentic-rag-react-loop)
@@ -106,6 +109,8 @@ Agentic RAG isn't on by default. It requires:
 
 The reason is straightforward: Agentic RAG has significantly higher latency than standard RAG (multiple LLM calls + multiple searches), so it's not appropriate for every query.
 
+Rough magnitudes measured on this system (they shift with the model, the retrieval backend, and the step count — these are not universal figures):
+
 ```
 Standard RAG: 5–8 s
 Agentic RAG:  10–20 s (depending on number of steps)
@@ -152,5 +157,5 @@ The core design principle: **give the LLM enough information instead of making i
 
 - [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)
 - [Toolformer: Language Models Can Teach Themselves to Use Tools (2023)](https://arxiv.org/abs/2302.04761)
-- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

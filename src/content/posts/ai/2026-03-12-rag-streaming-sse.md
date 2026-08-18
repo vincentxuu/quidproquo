@@ -8,7 +8,12 @@ lang: zh-TW
 tldr: "LLM 生成需要 3-5 秒，等全部生成完再顯示體驗很差。SSE 讓 token 一邊生成一邊推送，首個字元出現時間從 5 秒縮到 1 秒以內。"
 description: "RAG 系統的 SSE Streaming 實作：事件格式設計、配額退還機制、Cloudflare Workers 上的 TransformStream，以及前端的串流渲染。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 31
 ---
+
+> 🌏 [English version](/posts/ai/2026-03-12-rag-streaming-sse-en)
 
 標準的 RAG 請求流程是：查詢 → pipeline 執行 → LLM 生成完畢 → 回傳完整回答。使用者要盯著空白等 5-8 秒，才看到第一個字。
 
@@ -74,9 +79,8 @@ app.post("/api/v1/ai/ask", async (c) => {
   const writer = writable.getWriter();
   const encoder = new TextEncoder();
 
-  const sendEvent = (data: object) => {
+  const sendEvent = (data: object) =>
     writer.write(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
-  };
 
   // 在背景執行 pipeline，前景立刻回傳 stream
   ctx.waitUntil((async () => {
@@ -99,33 +103,52 @@ app.post("/api/v1/ai/ask", async (c) => {
 
 ## LLM 的串流生成
 
-Cloudflare Workers AI 支援串流模式：
+Cloudflare Workers AI 支援串流模式，但這裡有一個很容易寫錯的地方：**`stream: true` 回傳的是一個 SSE 位元流（`text/event-stream`），不是可以 `for await` 逐個取出 token 物件的序列**。要拿到 token，得自己解析：
 
 ```typescript
 async function streamGeneration(
   messages: Message[],
   model: string,
-  onToken: (token: string) => void,
+  onToken: (token: string) => Promise<void>,
   env: Env
 ): Promise<string> {
-  const stream = await env.AI.run(model, {
+  const sseStream = (await env.AI.run(model, {
     messages,
     stream: true,
-  });
+  })) as ReadableStream;
 
+  const reader = sseStream.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
   let fullText = "";
 
-  for await (const chunk of stream) {
-    const token = chunk.response ?? "";
-    fullText += token;
-    onToken(token);  // 立刻推送給前端
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop() ?? "";   // 最後一行可能被切斷，留到下一輪
+
+    for (const line of lines) {
+      if (!line.startsWith("data:")) continue;
+      const payload = line.slice(5).trim();
+      if (payload === "" || payload === "[DONE]") continue;
+
+      const token = JSON.parse(payload).response ?? "";
+      fullText += token;
+      await onToken(token);   // 立刻推送給前端
+    }
   }
 
   return fullText;
 }
 ```
 
-`for await` 逐個處理 chunk，每個 chunk 包含一或多個 token，立刻呼叫 `onToken` 推送。
+兩個實務上的提醒：
+
+- **payload 的欄位名要看模型家族**。Workers AI 原生的文字生成模型是 `{"response":"..."}`，走 OpenAI 相容端點的模型則是 `choices[0].delta.content`。接之前先手動打一次，把實際格式印出來看，不要照抄別人的欄位名。
+- **如果只是要把 LLM 的輸出原樣轉給前端**，根本不用解析：`env.AI.run()` 回傳的 stream 可以直接丟進 `new Response(stream, { headers: { "content-type": "text/event-stream" } })`。只有在需要插入自己的 `done` / `error` 事件、或要同時累積 `fullText` 寫進 DB 時，才需要上面那段解析。
 
 ## 配額退還機制
 
@@ -166,7 +189,7 @@ async function runPipelineStreaming(
 }
 ```
 
-斷線檢測：當 writer.write() 拋出錯誤（客戶端已關閉連接），捕捉錯誤並退還配額。
+斷線檢測靠的是 `writer.write()` 的回傳 promise：客戶端關掉連線後，寫入會 reject。**所以 `sendEvent` 一定要 `await`**——上面把它寫成回傳 promise 的箭頭函式就是為了這件事。如果像常見寫法那樣 fire-and-forget，斷線會變成一個沒人接的 rejected promise，你的 catch 永遠不會執行，配額也就永遠退不回去。
 
 ## 前端處理
 
@@ -190,8 +213,9 @@ async function askQuestion(query: string, onToken: (t: string) => void) {
     buffer = events.pop() ?? ""; // 最後一個可能不完整，留到下次
 
     for (const event of events) {
-      if (!event.startsWith("data: ")) continue;
-      const data = JSON.parse(event.slice(6));
+      const line = event.split("\n").find((l) => l.startsWith("data:"));
+      if (!line) continue;
+      const data = JSON.parse(line.slice(5).trim());
 
       if (data.type === "token") onToken(data.token);
       if (data.type === "done") handleDone(data);
@@ -215,5 +239,6 @@ SSE Streaming 對 RAG 系統的使用者體驗影響是最直接的：從「等 
 - [WHATWG - Server-Sent Events Specification](https://html.spec.whatwg.org/multipage/server-sent-events.html)
 - [MDN - Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
 - [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
-- [OpenAI - Streaming API](https://platform.openai.com/docs/api-reference/streaming)
-- [Cloudflare Workers AI - Streaming](https://developers.cloudflare.com/workers-ai/models/llama-3.1-8b-instruct/)
+- [OpenAI - Streaming API responses](https://platform.openai.com/docs/guides/streaming-responses)
+- [Cloudflare Workers AI - Workers Bindings（`env.AI.run()` 與 `stream` 參數）](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
+- [Cloudflare Workers AI - 模型列表（各模型的串流輸出格式）](https://developers.cloudflare.com/workers-ai/models/)

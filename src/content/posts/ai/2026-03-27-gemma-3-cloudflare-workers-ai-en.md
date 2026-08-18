@@ -8,6 +8,9 @@ lang: en
 tldr: "For running Traditional Chinese LLM workloads on Cloudflare Workers AI, the Gemma family follows instructions more reliably than same-tier Llama models. gemma-3-12b-it was removed on 2026-05-30; the current equivalent is gemma-4-26b-a4b-it: 256K context, Vision, Function calling, at $0.10 / $0.30 per M tokens."
 description: "Why pick Gemma over Llama on Cloudflare Workers AI, how to use it, its limitations and trade-offs, and real observations from the nobodyclimb Traditional Chinese RAG system. After gemma-3-12b-it's 2026-05-30 removal, this post centers on gemma-4-26b-a4b-it and includes migration notes."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 9
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
@@ -203,5 +206,5 @@ An identical interface does not mean identical output. Re-run your prompt evalua
 - [Workers AI: gemma-4-26b-a4b-it model page](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
 - [Workers AI: gemma-3-12b-it model page (marked Deprecated)](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
 - [Workers AI: glm-4.7-flash model page](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
-- [Google Gemma 3 technical report](https://ai.google.dev/gemma/docs/gemma3)
+- [Google Gemma official docs](https://ai.google.dev/gemma/docs)
 - [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — how Gemma is used across the 20-node pipeline

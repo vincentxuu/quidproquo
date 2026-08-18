@@ -8,6 +8,9 @@ lang: en
 tldr: "The hardest part of a RAG system isn't building it — it's figuring out why a particular answer went wrong. Pipeline Tracing records every step's decisions and data so debugging has a clear trail to follow."
 description: "Observability design for RAG pipelines: the data structure behind 17-step tracing, what information to record, how to use traces to pinpoint issues, and admin dashboard trace view design."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 39
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-observability-tracing)
@@ -118,6 +121,22 @@ The key is to record not just "what happened" but also "why it happened that way
 
 **selfReflection.accepted**: Whether the regenerated answer was adopted. If it was adopted but groundedness is still low, the problem lies in insufficient context, not the generation strategy.
 
+## Custom Fields vs. Standard Attribute Names
+
+The structure above is homegrown, and you can name the fields however you like — but the moment you want to ship traces into any observability platform, you'll find everyone converging on OpenTelemetry's GenAI semantic conventions. That spec has **moved out of the main `open-telemetry/semantic-conventions` repo into its own [semantic-conventions-genai](https://github.com/open-telemetry/semantic-conventions-genai) repo** (the old URL still returns 200, but the body is now just a "this has moved" notice — don't write against it).
+
+Worth noting: the spec now reaches into retrieval and evaluation, not just the LLM-call layer:
+
+| Custom field in this post | Standard attribute |
+|---|---|
+| the query string in `retrieval` | `gen_ai.retrieval.query.text` |
+| `generation.injectedDocuments` | `gen_ai.retrieval.documents` (with ids and scores) |
+| `generation.model` | `gen_ai.request.model` / `gen_ai.response.model` |
+| `generation.promptTokens` / `completionTokens` | `gen_ai.usage.input_tokens` / `gen_ai.usage.output_tokens` |
+| `judge.groundedness` / `judge.reasoning` | `gen_ai.evaluation.name` + `gen_ai.evaluation.score.value` + `gen_ai.evaluation.explanation` |
+
+The spec is still in development and attributes will keep changing, so don't adopt it wholesale as your internal data model. The pragmatic move is to keep whatever structure is convenient internally and do the mapping once at the **export** layer. That way switching platforms means rewriting one exporter, not the whole pipeline.
+
 ## Time Breakdown
 
 ```typescript
@@ -171,7 +190,7 @@ Query: What 5.11 routes are at Longdong?        Total: 6.2s
 [Hybrid Search]   Vector 18 + BM25 12 → RRF 22       340ms
 [Cross-Encoder]   22 → 8 (threshold 0.5)              290ms
 [MMR]             8 → 5 (lambda=0.7)                   12ms
-[LLM Generation]  Gemma-3-12b, 1240 tokens          3,840ms
+[LLM Generation]  <generation model>, 1240 tokens    3,840ms
 [Judge]           groundedness 0.87, quality 3        510ms
 [Self-Reflection] Not triggered (quality > 2)           0ms
 [Output Guard]    Passed                                8ms
@@ -208,7 +227,7 @@ When designing traces, recording "decision rationale" is more valuable than reco
 ## References
 
 - [OpenTelemetry Documentation](https://opentelemetry.io/docs/)
-- [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
+- [OpenTelemetry GenAI Semantic Conventions (split into its own repo in 2026)](https://github.com/open-telemetry/semantic-conventions-genai)
 - [OpenLLMetry - OpenTelemetry for LLM Applications (GitHub)](https://github.com/traceloop/openllmetry)
 - [Langfuse - Open Source LLM Observability](https://langfuse.com/docs)
 - [AgentOps: Enabling Observability of LLM Agents (arXiv:2411.05285)](https://arxiv.org/abs/2411.05285)

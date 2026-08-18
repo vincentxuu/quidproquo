@@ -8,6 +8,9 @@ lang: en
 tldr: "R2 is Cloudflare's object storage service — S3-compatible API, zero egress fees, and native Workers binding. Stop worrying about bandwidth bills for media-heavy applications."
 description: "An introduction to Cloudflare R2 object storage: S3-compatible with zero egress fees, native low-latency Workers binding, and ideal for media-intensive apps. Includes Worker operation examples, S3 SDK access patterns, and real-world usage from the NobodyClimb climbing platform."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 4
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-r2-object-storage)
@@ -23,21 +26,25 @@ R2 is Cloudflare's object storage service, designed as a drop-in replacement for
 | | AWS S3 | Cloudflare R2 |
 |---|---|---|
 | API compatibility | Native | S3-compatible (drop-in replacement) |
-| Egress fees | Per GB ($0.09 USD/GB) | Free |
-| Storage fees | $0.023 USD/GB | $0.015 USD/GB |
+| Egress (transfer to the Internet) | Billed per GB | Free |
 | CDN integration | Requires separate CloudFront setup | Direct Cloudflare CDN |
 | Workers integration | Requires SDK + added latency | Native binding, low latency |
+| Region choice | Many regions | Automatic placement, plus location hints and jurisdictional restrictions |
+
+Unit prices move — check [R2 Pricing](https://developers.cloudflare.com/r2/pricing/) and AWS's own page. What stays true is the shape: R2 bills on three axes — **storage (GB-month), Class A operations (state-mutating ones like `PutObject` and `ListObjects`), and Class B operations (reads like `GetObject` and `HeadObject`)**. Deletes are free operations. Egress is never charged.
 
 Zero egress fees matter a lot for media-heavy applications. Climbing logs involve large numbers of photos and video thumbnails — if those lived in S3, every time someone opened a photo you'd be paying egress. R2 eliminates that cost.
 
+One trap that is easy to underestimate: **Class A operations cost an order of magnitude more than Class B**. Uploading large numbers of small files, or paging through a bucket with frequent `ListObjects` calls, produces a bill dominated by operations rather than storage. The Infrequent Access storage class is also not a free win — on top of pricier operations it adds a **data retrieval fee** and a 30-day minimum storage duration, so cold data does not automatically get cheaper by moving there.
+
 ## Basic Usage (Cloudflare Workers)
 
-**wrangler.toml binding configuration**
+**Wrangler configuration binding**
 
-```toml
-[[r2_buckets]]
-binding = "BUCKET"
-bucket_name = "nobodyclimb-media"
+```jsonc
+{
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "nobodyclimb-media" }]
+}
 ```
 
 **Working with R2 inside a Worker**
@@ -139,9 +146,11 @@ Both the original image and a thumbnail are stored separately. Thumbnails are wh
 - Automatic Cloudflare CDN integration
 
 **Cons**
-- Less mature ecosystem than S3 (fewer features like Lambda triggers, lifecycle rules)
-- Fewer geographic region options than S3
+- Less mature ecosystem than S3 — a decade-plus of third-party tooling, audit and compliance integrations is not caught up quickly
+- Fewer selectable physical locations than S3 has regions (R2 places buckets automatically by default; [location hints and jurisdictional restrictions](https://developers.cloudflare.com/r2/reference/data-location/) exist but with different granularity)
 - Large organizations may still need the deep integration that the AWS ecosystem provides
+
+Two things are **no longer** cons: [object lifecycle rules](https://developers.cloudflare.com/r2/buckets/object-lifecycles/) (auto-expiry, auto-transition to Infrequent Access) and [event notifications](https://developers.cloudflare.com/r2/buckets/event-notifications/) (fire a Queue or Worker on object create/delete — the equivalent of S3's Lambda triggers) both exist now.
 
 ## When to Choose R2
 
@@ -154,7 +163,10 @@ If you're not using Workers, S3 is probably the better fit. R2's biggest value c
 ## References
 
 - [Cloudflare R2 Official Docs](https://developers.cloudflare.com/r2/)
-- [R2 Pricing](https://developers.cloudflare.com/r2/pricing/)
+- [R2 Pricing](https://developers.cloudflare.com/r2/pricing/) — storage, Class A / Class B operations, free tier
+- [R2 object lifecycle rules](https://developers.cloudflare.com/r2/buckets/object-lifecycles/)
+- [R2 event notifications](https://developers.cloudflare.com/r2/buckets/event-notifications/)
+- [R2 data location](https://developers.cloudflare.com/r2/reference/data-location/)
 - [Workers Storage Options Guide](https://developers.cloudflare.com/workers/platform/storage-options/)
 - [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)

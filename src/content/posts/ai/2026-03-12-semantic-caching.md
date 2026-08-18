@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "快取不只能比對完全一樣的查詢，語義相近的問題也能命中快取，省下整個 RAG pipeline 的執行。"
 description: "Semantic Caching 的設計：用向量相似度匹配快取的查詢，cosine threshold 設定，privacy 考量，以及在 RAG 系統中的效能影響。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 41
 ---
 
 傳統快取比對的是精確字串：「龍洞有幾條路線」和「龍洞共有幾條路線」會被當成兩個不同的查詢，各自執行一次完整的 RAG pipeline。
@@ -39,11 +42,13 @@ async function checkSemanticCache(
 }
 ```
 
-命中快取 → 跳過所有 17 個 pipeline step，直接回傳結果。延遲從 5-8 秒降至 < 100 毫秒。
+命中快取 → 跳過後續整條 pipeline，直接回傳結果。延遲從「跑完整條 pipeline 的秒級」降到「一次向量比對的毫秒級」，實際數字取決於你的 pipeline 長度與模型，自己量過再對外宣稱。
+
+> 上面的 loop 是「把所有快取 embedding 拉回來線性掃一遍」，只在快取條目是幾十、幾百筆的規模能用。它有兩個會踩到的限制：Workers KV 只能 `list()` 出 key，值要一把一把讀（[KV 運作原理](https://developers.cloudflare.com/kv/concepts/how-kv-works/)），條目一多，光讀快取就比跑 pipeline 還慢；而且 KV 是最終一致的，剛寫入的快取在其他地區不保證馬上讀得到。條目上千以後，正確的做法是把快取查詢本身放進向量索引（例如 [Vectorize](https://developers.cloudflare.com/vectorize/) 開一個獨立的 cache namespace），用 top-1 + threshold 取代線性掃描。
 
 ## Threshold 的選擇
 
-0.95 的 cosine 相似度看起來很高，但在語義空間中這是合理的：
+0.95 的 cosine 相似度看起來很高，但在語義空間中這是合理的。下表是個直覺參考，**不是通用常數**——不同 embedding 模型的相似度分佈差很多（有些模型的無關句對就有 0.7 以上的底噪），務必拿自己的查詢日誌校準一次：
 
 | 相似度 | 語義關係 |
 |------|---------|
@@ -55,7 +60,7 @@ async function checkSemanticCache(
 
 0.95 能讓「龍洞有幾條路線」和「龍洞共有幾條路線」命中同一快取，但不會讓「龍洞有幾條路線」和「龍洞最難的路線是什麼」混在一起。
 
-這個值可以通過 `ai_config` 動態調整，找到 cache hit rate 和準確度的最佳平衡點。
+這個值可以通過 `ai_config` 動態調整，找到 cache hit rate 和準確度的最佳平衡點。校準方式很土法：抓一批真實查詢兩兩配對，人工標「該不該共用答案」，再看哪個 threshold 的偽命中率可以接受。
 
 ## 快取的存儲
 
@@ -78,6 +83,15 @@ await kv.put(
 - 太長 → 資料更新後快取可能過期（路線資訊被修改、新路線加入）
 
 攀岩路線資訊相對穩定，1 小時是合理的。若資料有重大更新，可以手動清除快取。
+
+## 先確認供應商內建的快取夠不夠
+
+自己做 semantic cache 之前，先看兩層現成的機制能不能解掉一部分：
+
+- **Prompt caching / context caching**：主流 API 都支援把重複的 prompt 前綴（system prompt、固定的知識片段）快取在供應商那側，命中時輸入 token 以折扣計價。這是**精確前綴比對**，不是語義比對，所以它省的是「同一份長 context 反覆送」的錢，不是「同義問題重複跑」的錢——兩者互補。細節與計價看各家官方文件：[Anthropic prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching)、[OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching)、[Gemini context caching](https://ai.google.dev/gemini-api/docs/caching)。
+- **Gateway 層快取**：如果請求走 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/)，可以直接在 gateway 開快取，不必自己寫。
+
+語義快取要自己做的理由，是上面兩者都只認「一模一樣的輸入」，而「龍洞有幾條路線」和「龍洞共有幾條路線」在字串上並不一樣。
 
 ## Privacy 考量
 
@@ -110,7 +124,7 @@ Request
   ↓ (未命中)
 [Query Classification]
   ↓
-[... 其他 17 個 steps ...]
+[... 後續所有 steps ...]
 ```
 
 命中時的返回包含完整的 `query_id`、`sources`、`quota_info`，讓前端體驗一致，使用者看不出是快取結果還是新生成的。
@@ -119,15 +133,18 @@ Request
 
 Semantic Caching 是 RAG 系統效能優化中成本最低、效益最高的手段之一。實作簡單（一次向量比對），效果明顯（延遲從秒級降到毫秒級），對使用者體驗的提升立竿見影。
 
-唯一需要注意的是 privacy 考量（個性化查詢不快取）和 TTL 設定（資料更新的頻率）。其他方面，這是幾乎沒有缺點的優化。
+需要注意的是三件事：privacy（個性化查詢不快取）、TTL（資料更新的頻率），以及快取本身的查詢成本——條目一多，線性掃描會反過來變成瓶頸，記得換成向量索引。這三點顧好，它就是投報率極高的優化。
 
 ---
 
 ## 參考資料
 
-- [GPTCache: An Open-Source Semantic Cache for LLM Applications Enabling Faster Answers and Cost Savings](https://aclanthology.org/2023.nlposs-1.24/)
+- [GPTCache: An Open-Source Semantic Cache for LLM Applications Enabling Faster Answers and Cost Savings](https://aclanthology.org/2023.nlposs-1.24/)——概念仍值得讀，但 [GPTCache 專案本身](https://github.com/zilliztech/GPTCache)最後一個 release 是 2024-08 的 0.1.44，之後只有零星提交，不建議當成還在積極維護的相依套件。
 - [MeanCache: User-Centric Semantic Caching for LLM Web Services (arXiv:2403.02694)](https://arxiv.org/abs/2403.02694)
 - [Cloudflare Workers KV Documentation](https://developers.cloudflare.com/kv/)
+- [Cloudflare AI Gateway：Caching](https://developers.cloudflare.com/ai-gateway/features/caching/)
+- [Anthropic：Prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching)
+- [OpenAI：Prompt caching](https://platform.openai.com/docs/guides/prompt-caching)
 - [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

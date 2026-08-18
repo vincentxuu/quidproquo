@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "向量搜尋的相似度分數不等於相關性，Cross-Encoder 用成對比較重新排序，把真正相關的文件推上來。"
 description: "Cross-Encoder Reranking 的設計原理、BGE Reranker 的使用、threshold 設定策略，以及與 Bi-Encoder 向量搜尋的互補關係。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 19
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-cross-encoder-reranking-en)
@@ -30,7 +33,7 @@ Cross-Encoder（重排序）：
 [Query; Doc] → [Transformer] → relevance_score
 ```
 
-Cross-Encoder 的計算複雜度是 O(n)，對所有候選文件逐一計算，所以不適合在大規模索引上使用。但在已經縮小到幾十個候選的情況下，計算量完全可控，精度大幅提升。
+Cross-Encoder 要對每一個 (query, doc) 配對各跑一次完整的 Transformer forward pass，成本隨候選數線性成長（O(n) 次推論），而且無法像向量那樣預先算好存起來，所以不適合在大規模索引上使用。但在已經縮小到幾十個候選的情況下，計算量完全可控，精度大幅提升。
 
 ## 兩階段架構
 
@@ -47,8 +50,12 @@ Phase 2: Precision（Cross-Encoder）
 系統中的實際配置：
 
 - **輸入**：RRF 融合後的候選（通常 20-30 個）
-- **模型**：`@cf/baai/bge-reranker-base`
-- **輸出**：每個文件的相關性分數（0.0 – 1.0）
+- **模型**：Cloudflare Workers AI 上的 BGE reranker（`@cf/baai/bge-reranker-base`）
+- **輸出**：每個文件的相關性分數
+
+分數這件事要講清楚，因為它直接決定 threshold 怎麼設。**Cross-Encoder 的原始輸出是 logit，不是機率，理論上沒有上下界**——BAAI 自己的 model card 就寫「reranker 用 cross-entropy loss 訓練，相關性分數不侷限在特定範圍」，原始分數是可能為負的。Workers AI 的 rerank 回傳的是經過 sigmoid 映射到 [0, 1] 的分數，所以在這個平台上你拿到的確實是 0–1 的值。
+
+但 sigmoid 只是把 logit 壓進區間，不代表它是校準過的機率：logit = 0 剛好對應 0.5，所以「不相關」的文件常常落在 0.5 附近而不是 0。這是為什麼下面那個 0.5 的 threshold 只是一個起手值。
 
 ## Threshold 過濾
 
@@ -66,6 +73,8 @@ const final = filtered.length >= minKeep
   : reranked.slice(0, minKeep);
 ```
 
+這個 `0.5` 不是普世常數，**換一個 reranker 就必須重新校準**：有的服務回傳原始 logit、有的回傳 sigmoid 後的值、有的回傳在候選集內部做過 softmax 的相對分數，同一個數字在不同模型代表的相關性完全不同。連 Cohere 的文件都特別提醒，即使分數已經正規化到 [0, 1]，也不能把 0.9 解讀成「比 0.45 相關兩倍」。實務做法是拿自己的一批標註查詢跑一次，看分數分布再決定切在哪。
+
 `min_keep` 是個重要的安全設計：如果所有候選都分數很低，過濾掉後 LLM 就沒有 context，只能用通用知識回答（容易幻覺）。所以至少保留幾個，讓後面的 LLM-as-Judge 來決定這個回答要不要加免責聲明。
 
 ## 跳過條件
@@ -78,9 +87,15 @@ skipWhen: (ctx) => ctx.candidateMatches.length <= 1
 
 ## BGE Reranker 的選擇
 
-`bge-reranker-base` 是 BAAI 出品的 Cross-Encoder，同一個家族的 BGE-M3 也是這個系統的 Embedding 模型。同系列模型在向量空間的理解上更協調，同時也是 Cloudflare Workers AI 上有提供的選項。
+選它的理由要說實話。**「跟 Embedding 用同一個家族所以向量空間更協調」是講不通的**——Cross-Encoder 根本不產生 embedding，它吃 (query, doc) 直接吐一個分數，跟 Bi-Encoder 之間不存在共用的向量空間。真正的理由是工程面的：它是這個平台上唯一內建的 reranker，走同一個 AI binding、不用多接一家廠商、不用多管一組 API key，延遲也留在同一張網內。
 
-如果對精度要求更高，可以換 `bge-reranker-large`，但延遲和成本會上升。
+如果要換更強的模型，實際的取捨大致是三條路：
+
+- **留在同一個平台**：撰文當下 Workers AI 的模型目錄裡只有 `bge-reranker-base` 這一個 reranker，所以「換大一號」在這裡不是換個字串就好——`bge-reranker-large` 得自己託管。另外 BAAI 的 v1 系列（base / large）只針對中英文訓練，若你的內容是多語系，官方已經把人導向較新的多語系 reranker。
+- **改用 hosted reranker API**：Cohere、Jina、Voyage、Mixedbread 等都有 rerank 端點。這一塊的版本號、模型名與計價變動非常頻繁（例如 Cohere 的 rerank 已經走過 3.0 → 3.5 → 4.0 好幾代、還分 fast / pro），任何寫死在文章裡的型號和單價都會很快過期，實際規格請直接看官方文件。
+- **自己託管 Cross-Encoder**：精度和成本都自己控，代價是要自己扛 GPU 與擴容。
+
+決策上真正該量的是三件事：這顆模型支不支援你的語言、單次請求能吃多長的文件（超過就會被截斷，長文件的相關性判斷會失真）、以及你能容忍多少毫秒的額外延遲。這三項在官方文件上都查得到，也都會隨版本改變，所以每次要換模型時重查一次，比記住某個型號有用。
 
 ## 對系統的影響
 
@@ -101,6 +116,8 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 ## 參考資料
 
 - [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks (2019)](https://arxiv.org/abs/1908.10084)
-- [Cross-Encoder Reranking — SBERT.net 官方文件](https://www.sbert.net/examples/applications/cross-encoder/README.html)
+- [Cross-Encoders — Sentence Transformers 官方文件](https://www.sbert.net/examples/cross_encoder/applications/README.html)
 - [BAAI/bge-reranker-base — Hugging Face](https://huggingface.co/BAAI/bge-reranker-base)
+- [Workers AI 模型目錄（查目前有哪些 reranker）](https://developers.cloudflare.com/workers-ai/models/)
+- [An Overview of Cohere's Rerank Model（hosted reranker 的分數解讀說明）](https://docs.cohere.com/docs/rerank-overview)
 - [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997)

@@ -5,9 +5,12 @@ category: tech
 type: deep-dive
 tags: [playwright, mcp, browser-automation, ai-agent, e2e-testing, developer-tools]
 lang: zh-TW
-tldr: "@playwright/mcp 預設用 accessibility tree（browser_snapshot）取代截圖，省下 90%+ 的 token 消耗，加上 Playwright 原生 auto-wait，是目前 AI agent 做網頁自動化的最佳起點。"
-description: "深入介紹 @playwright/mcp：安裝設定、核心工具列表、accessibility tree 模式的 token 優勢、多 tab 管理，以及什麼時候應該改用截圖模式。"
+tldr: "@playwright/mcp 預設用 accessibility tree（browser_snapshot）取代截圖，大幅省下 token，加上 Playwright 原生 auto-wait，是 AI agent 做網頁自動化的合理起點。要注意它預設是 headed、預設帶持久 profile，而且進階工具群組要用 --caps 開。"
+description: "深入介紹 @playwright/mcp：安裝設定、工具分組與 --caps 開關、accessibility tree 模式的 token 優勢、profile 與 session 管理，以及什麼時候該改用截圖模式或改走 Playwright CLI。"
 draft: false
+series:
+  name: "瀏覽器自動化與 MCP"
+  order: 1
 ---
 
 > 🌏 [English version](/posts/tech/2026-06-20-playwright-mcp-en)
@@ -29,65 +32,45 @@ draft: false
 }
 ```
 
-預設啟動 Chromium headless。如果需要 headed 模式（可以看到瀏覽器視窗）：
+**預設是 headed（看得到瀏覽器視窗）**，不是 headless——早期版本相反，舊文章教的 `--headed` 現在已經沒有這個參數了。要無頭跑請加 `--headless`：
 
 ```json
 {
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest", "--headed"]
+      "args": ["@playwright/mcp@latest", "--headless"]
     }
   }
 }
 ```
 
-Attach 到現有 Chrome instance：
+換瀏覽器用 `--browser`（`chrome` / `firefox` / `webkit` / `msedge`）。接到已經在跑的瀏覽器有兩條路：`--cdp-endpoint` 指向一個可除錯的 endpoint（例如 `http://localhost:9222`），或裝官方的 Playwright 瀏覽器擴充後用 `--extension` 接管你現有的分頁。完整參數表在 [README 的 Configuration 段](https://github.com/microsoft/playwright-mcp#configuration)。
 
-```json
-{
-  "args": ["@playwright/mcp@latest", "--cdp-endpoint", "ws://localhost:9222"]
-}
-```
+> **先想清楚要不要用 MCP。** 上游 README 現在開頭就先勸退：對 coding agent，微軟建議改用 [Playwright CLI + Skills](https://github.com/microsoft/playwright-cli)，因為 CLI 不必把龐大的 tool schema 和 accessibility tree 灌進 context。MCP 的定位收斂成「需要持續瀏覽器狀態、要對頁面結構反覆推理」的長時間 agentic loop。
 
-## 工具列表
+## 工具分組與 `--caps`
 
-@playwright/mcp 提供的工具分幾類：
+工具清單這一年改動很大，逐項背下來沒有意義（會過期），這裡只講結構——**確切名稱與參數請看官方的 [Tools 段落](https://github.com/microsoft/playwright-mcp#tools)**。
 
-**導覽**
-- `browser_navigate` — 前往 URL
-- `browser_go_back` / `browser_go_forward` — 歷史導覽
-- `browser_reload` — 重新整理
+預設載入的是 **Core automation**（導覽、點擊、輸入、表單、快照、截圖、等待、console/network、evaluate）加上 **Tab management**。其餘工具群組是 **opt-in**，要用 `--caps` 逐項打開：
 
-**頁面狀態**
-- `browser_snapshot` — 取得 ARIA accessibility tree（預設模式，不含圖片）
-- `browser_screenshot` — 截圖（base64 PNG，需要 vision 模型）
+| `--caps` 值 | 打開什麼 |
+|---|---|
+| `config` | 讀取執行中的 server 設定 |
+| `network` | 攔截／改寫請求（route）、模擬網路狀態 |
+| `storage` | cookie、localStorage、sessionStorage、storage state 存取 |
+| `devtools` | 底層 CDP 通道 |
+| `vision` | 座標式滑鼠操作（給 computer-use 類模型） |
+| `pdf` | 頁面輸出成 PDF |
+| `testing` | 斷言類工具、產生 locator |
 
-**互動**
-- `browser_click` — 點擊元素（by ARIA label / role / text）
-- `browser_type` — 在輸入框輸入文字
-- `browser_press_key` — 按鍵（Enter、Tab、Escape 等）
-- `browser_hover` — 滑鼠懸停
-- `browser_drag` — 拖曳
+幾個容易踩的改名（舊文章常見的錯誤呼叫）：
 
-**表單**
-- `browser_select_option` — 下拉選單選值
-- `browser_file_upload` — 上傳檔案
-- `browser_handle_dialog` — 處理 alert / confirm / prompt
-
-**網路與開發**
-- `browser_network_requests` — 列出頁面的網路請求
-- `browser_console_messages` — 取得 console 輸出
-- `browser_evaluate` — 在頁面 context 執行 JS
-
-**分頁管理**
-- `browser_tab_list` — 列出所有 tab
-- `browser_tab_new` — 開新 tab
-- `browser_tab_select` — 切換 tab
-- `browser_tab_close` — 關閉 tab
-
-**儲存**
-- `browser_pdf_save` — 頁面輸出成 PDF
+- 截圖是 `browser_take_screenshot`，不是 `browser_screenshot`。
+- 分頁管理收斂成單一 `browser_tabs`，沒有 `browser_tab_list` / `browser_tab_new` / `browser_tab_select` / `browser_tab_close` 這四個工具。
+- 上一頁是 `browser_navigate_back`；**沒有** forward，也沒有獨立的 reload 工具。
+- 輸出 PDF 的 `browser_pdf_save` 要先開 `--caps=pdf`，不是預設就有。
 
 ## Accessibility Tree Mode vs Screenshot Mode
 
@@ -108,7 +91,7 @@ Attach 到現有 Chrome instance：
 
 一張 1920×1080 截圖 base64 編碼後約 100–300KB，對應數萬個 token；同一個頁面的 accessibility tree 通常在 2–10KB，而且不需要 vision 能力的模型就能解析。
 
-什麼時候要切換到截圖模式（`browser_screenshot`）：
+什麼時候要切換到截圖模式（`browser_take_screenshot`）：
 - 頁面以圖片為主（圖庫、地圖、Canvas 渲染）
 - 需要確認視覺樣式（顏色、排版是否符合預期）
 - Accessibility tree 資訊不足以判斷頁面狀態
@@ -121,23 +104,17 @@ Playwright 所有互動操作都內建 auto-wait：點擊前會等元素 visible
 
 ## 多 tab 管理
 
-@playwright/mcp 支援完整的多 tab 工作流：
-
-```
-browser_tab_new → (在新 tab 做事) → browser_tab_select(原 tab) → browser_tab_close
-```
-
-每個 tab 有獨立的 page context，`browser_snapshot` 和 `browser_screenshot` 都針對當前 active tab。跨 tab 的資料傳遞需要透過 `browser_evaluate` 或 agent 自己記下來。
+多 tab 的開／關／切換／列表都走同一個 `browser_tabs`，用參數區分動作。每個 tab 有獨立的 page context，`browser_snapshot` 和 `browser_take_screenshot` 都針對當前 active tab。跨 tab 的資料傳遞需要透過 `browser_evaluate` 或 agent 自己記下來。
 
 ## 限制
 
-**無法存取底層 CDP Domain**：HeapProfiler、Profiler、Security 等 Playwright 未封裝的功能在 @playwright/mcp 拿不到。
+**底層 CDP 要另外開**：`--caps=devtools` 之後才有 CDP 通道；不開的話 Playwright 沒封裝的東西（heap snapshot、CPU profile 等）拿不到。真的要做效能／記憶體分析，[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp) 是更直接的工具。
 
-**Firefox / WebKit 需要額外設定**：預設啟動 Chromium。切換瀏覽器需要在啟動參數裡指定，且部分功能（如 `browser_cdp_send`）只在 Chromium 有效。
+**跨瀏覽器不是免費的**：Firefox / WebKit 要用 `--browser` 指定，且 CDP 相關能力只在 Chromium 系有效。
 
 **Accessibility tree 覆蓋率**：頁面如果 ARIA 屬性設得很差，`browser_snapshot` 拿到的資訊可能不完整。這種時候切截圖模式，或是直接 `browser_evaluate` 自己抓 DOM。
 
-**Session 不持久**：MCP server 重啟後 session 清除，cookie / localStorage 不保留。需要持久 session 要自己在 `--user-data-dir` 裡管理 profile。
+**預設帶持久 profile，這是雙面刃**：現在**預設**就是持久 profile（依 MCP client 的 workspace root 分開存放），登入狀態會留到下次。好處是不用每次重登；壞處是同一個 workspace 的多個 client 會搶同一份 profile 而衝突——要並行跑就得加 `--isolated` 或各自指定 `--user-data-dir`。`--isolated` 模式下瀏覽器關掉狀態就消失，要預載登入態得用 `--storage-state` 餵一份 storage state 檔。
 
 ## 整體來說
 
@@ -146,7 +123,10 @@ browser_tab_new → (在新 tab 做事) → browser_tab_select(原 tab) → brow
 ## 參考資料
 
 - [@playwright/mcp — GitHub](https://github.com/microsoft/playwright-mcp)
+- [@playwright/mcp 工具清單（README › Tools）](https://github.com/microsoft/playwright-mcp#tools)
+- [Playwright CLI + Skills — GitHub](https://github.com/microsoft/playwright-cli)
 - [Playwright 官方文件](https://playwright.dev/)
+- [Playwright 認證與 storage state 文件](https://playwright.dev/docs/auth)
 - [ARIA Accessibility Tree — MDN](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)
 - [Model Context Protocol — 官方文件](https://modelcontextprotocol.io/)
 - [Browser MCP 三選一比較](/posts/tech/2026-06-20-browser-mcp-comparison)

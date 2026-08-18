@@ -5,9 +5,12 @@ type: guide
 category: tech
 tags: [cloudflare-workers, edge-compute, hono, wrangler, serverless]
 lang: en
-tldr: "Cloudflare Workers uses V8 Isolates instead of containers — no cold starts, global edge deployment, and direct access to D1, R2, KV, and AI via Bindings. Great for APIs, SSR, and lightweight backends; not suited for long-running tasks."
+tldr: "Cloudflare Workers uses V8 Isolates instead of containers — no cold starts, global edge deployment, and direct access to D1, R2, KV, and AI via Bindings. Great for APIs, SSR, and lightweight backends; not suited for CPU-heavy work."
 description: "A practical look at how Cloudflare Workers works under the hood: V8 Isolates, the Bindings system, the wrangler CLI, pricing, and when to use it — or not."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 1
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
@@ -20,19 +23,22 @@ Lambda's cold start problem is essentially the **cost of container startup**: pu
 
 Workers uses V8 Isolates — the same engine that runs JavaScript in Chrome. Isolates are memory-isolated from each other but share the same V8 engine, so there's no new process or container to spin up. Startup time sits between **0–5ms**. When Cloudflare claims "no cold starts," it's not marketing — it's architecturally true.
 
-The other key difference is **where code runs**. Lambda executes in the AWS region you choose; Workers is automatically deployed to Cloudflare's 300+ global PoPs. A request from Taiwan gets handled at a nearby edge node — no round-tripping across the globe.
+The other key difference is **where code runs**. Lambda executes in the AWS region you choose; Workers is automatically deployed across [Cloudflare's global network](https://www.cloudflare.com/network/) — described officially as thousands of machines spread across hundreds of locations. A request from Taiwan gets handled at a nearby edge node — no round-tripping across the globe.
 
 ## Limitations Up Front
 
-Workers isn't a silver bullet. The constraints are hard:
+Workers isn't a silver bullet — but the constraint that actually stops you is not the one most people expect. **The limit is CPU time, not wall-clock time.**
 
-- **CPU time**: 10ms on the free tier, 30ms on paid (extendable to 5 minutes via `ctx.waitUntil()`)
-- **Memory**: 128MB per Worker
-- **Request duration**: 30 seconds max per request (subrequests have separate limits)
-- **No native Node.js APIs**: `fs`, `net`, `child_process` are unavailable — though most pure-JS packages work fine
-- **Not for long-running work**: batch jobs, scheduled crawlers, video transcoding are all poor fits
+- **CPU time**: counts only time the CPU spends executing your code. Waiting on `fetch()` or a D1 query does not count. 10ms on the free plan; on paid, the default is 30 seconds and can be raised to a 5-minute ceiling in configuration
+- **Wall time**: an incoming HTTP request has no hard limit while the client stays connected; `waitUntil()` extends execution for a while after the response is sent. Cron Triggers, Queue consumers, and Durable Object alarms are the invocation types with minute-scale wall-time caps
+- **Memory**: 128 MB per Worker, identical on both plans
+- **Worker size**: free and paid have different bundle-size ceilings; an over-fat bundle fails to deploy
+- **Subrequests**: there is a cap on outbound requests per invocation, much tighter on free; paid can raise it in configuration
+- **No full native Node.js API surface**: `fs`, `child_process` and friends are out, though most pure-JS packages work fine
 
-The Workers runtime is built on the Service Worker API plus a subset of Web APIs — it's not a full Node.js environment. Some Node.js built-ins like `node:crypto` and `node:buffer` are available via compatibility flags, but you have to explicitly opt in.
+The exact numbers move. [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) is the only source worth trusting — it now carries separate tables for CPU time and wall time, and is worth reading end to end.
+
+The Workers runtime is not full Node.js. Built-ins like `node:crypto` and `node:buffer` come through the [Node.js compatibility layer](https://developers.cloudflare.com/workers/runtime-apis/nodejs/) and require the `nodejs_compat` compatibility flag.
 
 ## The Simplest Possible Worker
 
@@ -99,44 +105,30 @@ export default app;
 
 wrangler is Cloudflare's official developer tool, covering everything from project initialization to production deployment.
 
-```bash
-# Install
-npm install -g wrangler
+Start new projects with `npm create cloudflare@latest` — it installs wrangler as a project devDependency and scaffolds the config. Invoke it day to day as `npx wrangler <command>`; a global install is discouraged because the version then drifts from the project. The commands you will actually use are `wrangler login`, `wrangler dev` (run locally), `wrangler deploy`, and `wrangler tail` (live logs). Full list: [Wrangler commands](https://developers.cloudflare.com/workers/wrangler/commands/).
 
-# Authenticate
-wrangler login
+`wrangler dev` runs a real Workers runtime locally. Bindings (D1, KV, R2) default to local emulation and can be pointed at real Cloudflare resources instead.
 
-# Local development (simulates the Workers environment)
-wrangler dev
+The configuration file now comes in JSON and TOML flavours, and **Cloudflare recommends `wrangler.jsonc` for new projects** — some newer Wrangler features are JSON-only:
 
-# Deploy
-wrangler deploy
-
-# Stream live logs
-wrangler tail
+```jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "my-api",
+  "main": "src/index.ts",
+  // Set this to the date you started the Worker
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    { "binding": "DB", "database_name": "my-db", "database_id": "<DATABASE_ID>" }
+  ],
+  "kv_namespaces": [{ "binding": "KV", "id": "<NAMESPACE_ID>" }],
+  "ai": { "binding": "AI" },
+  "observability": { "enabled": true }
+}
 ```
 
-`wrangler dev` starts a local server that simulates the Workers runtime. Bindings (D1, KV, R2) can point to either local emulators or real Cloudflare resources — switch between them with `--remote`.
-
-`wrangler.toml` is your configuration file:
-
-```toml
-name = "my-api"
-main = "src/index.ts"
-compatibility_date = "2024-01-01"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "my-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-[[kv_namespaces]]
-binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-[ai]
-binding = "AI"
-```
+`wrangler.toml` still works — the schema is identical, only the syntax differs. Field reference: [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/).
 
 ## The Bindings System
 
@@ -156,19 +148,13 @@ Key Bindings:
 
 [Cloudflare KV](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en) is eventually consistent — global reads are fast but writes have propagation delay. [Cloudflare R2](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en) is the right choice for static assets and user-uploaded media, with no egress fees.
 
-## Pricing
+## The Billing Model
 
-**Free tier:**
-- 100,000 requests per day
-- CPU time: 10ms per request
-- KV, D1, and R2 each include a free usage quota
+Rate cards rot, so here is only the shape: Workers bills on **two axes — request count and CPU milliseconds**. Time spent waiting on network I/O is not billed, and that is the biggest structural difference from Lambda (billed in GB-seconds, waiting included). A Worker that mostly calls external APIs and computes little is disproportionately cheap here.
 
-**Paid tier (Workers Paid, $5/month):**
-- 10,000,000 requests per month (additional at $0.30 per million)
-- CPU time raised to 30ms, extendable
-- Significantly higher D1, KV, and R2 quotas
+The free plan has a daily request cap; the paid plan has monthly included allowances with usage-based overage. D1, KV, R2, and Workers AI each carry their own free allowance and their own billing axes, counted separately. Current numbers: [Workers Pricing](https://developers.cloudflare.com/workers/platform/pricing/).
 
-The free tier covers most side projects and small-to-medium applications. At $5/month, Workers Paid is one of the cheapest serverless options in the industry — equivalent Lambda + API Gateway setups cost considerably more.
+The free plan covers most side projects and small-to-medium applications.
 
 ## How NobodyClimb Uses Workers
 
@@ -190,19 +176,22 @@ The core reasoning: a climbing community platform has unpredictable traffic. Run
 - Lightweight scheduled tasks (via Cron Triggers)
 
 **Poor fits for Workers:**
-- Tasks running longer than 30 seconds (video processing, large batch jobs)
-- Heavy CPU-bound workloads (ML training, image processing)
-- Packages that depend on native Node.js APIs (some database drivers, native addons)
-- Persistent WebSocket connections (Durable Objects can help, but complexity increases)
+- Heavy CPU-bound workloads (ML training, image or video transcoding) — the hardest constraint; the CPU ceiling stops you outright
+- Anything whose working set exceeds 128 MB of memory
+- Packages that depend on native Node.js addons (some database drivers, `.node` binaries)
 - Anything requiring a local filesystem (`fs` is unavailable)
 
-Compared to traditional VPS or container setups: Workers trades execution flexibility (time limits, memory caps, API restrictions) for zero infrastructure management, global deployment, and very cheap billing. If your application fits within those constraints, Workers is an excellent choice. If it doesn't, use containers.
+Two things are **no longer** reasons to avoid Workers: long-lived WebSocket connections have [Durable Objects](https://developers.cloudflare.com/durable-objects/) (no wall-time cap while the caller stays connected), and long-running processes have Workflows. They are a different mental model, not a capability Workers lacks.
+
+Compared to traditional VPS or container setups: what Workers gives up is **how much CPU and memory a single request may burn**. What you get back is zero infrastructure management, global deployment, and billing that charges only for actual computation. Small units of work belong on Workers; large ones belong in containers.
 
 ## References
 
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
 - [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [Cloudflare Workers Pricing](https://developers.cloudflare.com/workers/platform/pricing/)
+- [Wrangler configuration reference](https://developers.cloudflare.com/workers/wrangler/configuration/)
+- [Node.js compatibility in Workers](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)
 - [NobodyClimb Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
 - [Hono Web Framework](/posts/tech/2026-03-27-hono-web-framework-en)

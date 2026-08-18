@@ -8,6 +8,9 @@ tags: [ai, climbing, rag, community, product]
 lang: en
 description: "The thinking behind NobodyClimb's AI Q&A feature: what problem it solves, how we decided to build it, how users actually use it, and whether AI is worth it for a small community platform."
 draft: false
+series:
+  name: "Building NobodyClimb"
+  order: 2
 ---
 
 🌏 [中文版](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what)
@@ -40,7 +43,7 @@ Cost was another consideration. Cloudflare Workers AI brings the infrastructure 
 
 Without quotas, a small number of users could consume unlimited inference, and costs would spiral out of control fast. But hard limits are frustrating for users.
 
-The solution we landed on was tying quotas to a user's level of community participation: the more profile information you fill in, the more stories you share, the more sends you log — the higher your daily usage limit (four tiers: Foothold → Wall → Ridge → Summit). This design does two things: it encourages community participation, and it means the heaviest AI users tend to be the people contributing the most to the platform.
+The solution we landed on was tying quotas to a user's level of community participation: the more profile information you fill in, the more stories you share, the more sends you log — the higher your daily usage limit (four tiers: Foothill 麓 → Wall 壁 → Ridge 稜 → Summit 巔). This design does two things: it encourages community participation, and it means the heaviest AI users tend to be the people contributing the most to the platform.
 
 **Personalization**
 
@@ -72,7 +75,7 @@ If your platform's problems can be solved with good filters, build the filters f
 
 ---
 
-The technical architecture details of NobodyClimb's AI (13-step RAG pipeline, HyDE, self-reflection loop, etc.) are covered in a separate technical post.
+The technical architecture details of NobodyClimb's AI (a 20-node RAG pipeline, HyDE, the self-reflection loop, three LangGraph strategy graphs) are covered in [NobodyClimb AI Architecture: Building a 20-Node RAG Pipeline on Cloudflare Workers](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en).
 
 ## References
 

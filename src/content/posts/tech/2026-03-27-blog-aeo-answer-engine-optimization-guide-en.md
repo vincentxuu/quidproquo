@@ -8,6 +8,9 @@ tldr: "AEO (Answer Engine Optimization) is a content strategy aimed at AI search
 description: "A complete guide to AEO (Answer Engine Optimization): what it is, how it differs from SEO, how AI search engines select sources to cite, and practical AEO implementation strategies for blogs."
 draft: false
 type: guide
+series:
+  name: "AEO, GEO, and AI Search"
+  order: 2
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide)
@@ -143,7 +146,9 @@ The essential schema:
 }
 ```
 
-Advanced: tutorial-style posts can add `HowTo` schema; FAQ posts can add `FAQPage` schema. These directly influence whether Google AI Overview presents your content in a step-by-step or Q&A format.
+**Updated August 2026**: this used to recommend `HowTo` schema for tutorials and `FAQPage` for FAQ pages. That advice has expired. `HowTo` rich results stopped appearing in 2023, and `FAQPage` rich results were fully retired on 2026-05-07 ([Google's documentation changelog](https://developers.google.com/search/updates)). Google's May 2026 [generative AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) also says outright that structured data isn't required for generative AI search, and that no particular schema makes AI Overviews favor you.
+
+The sensible position now: get `Article`/`BlogPosting` + `BreadcrumbList` + `Organization` right, and put the remaining effort into the body copy.
 
 ### Machine-Readability of Content
 
@@ -152,7 +157,11 @@ Make sure AI crawlers can actually read your content:
 - **Don't put key information inside images**: AI crawlers have limited image comprehension
 - **Use `<code>` for code, not screenshots**: AI can read and cite code blocks
 - **Use HTML `<table>` for tables, not images**: structured tables are far easier to extract
-- **Don't block AI crawlers in robots.txt**: ensure `User-agent: *` allows all crawlers
+- **Don't block the wrong AI crawlers in robots.txt**: this is more nuanced than "let `User-agent: *` through". Each vendor splits training, search indexing, and user-triggered fetching across different user agents, and blocking the wrong one removes you from that platform's answers entirely:
+  - OpenAI: `OAI-SearchBot` is the one that decides whether you appear in ChatGPT search answers; `GPTBot` is for training and `ChatGPT-User` is user-triggered ([official docs](https://platform.openai.com/docs/bots))
+  - Anthropic: `Claude-SearchBot` (search index), `Claude-User` (user-triggered), `ClaudeBot` (training) ([official docs](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler))
+  - Perplexity: `PerplexityBot` (indexing, not training) and `Perplexity-User` (user-triggered; Perplexity states it generally ignores robots.txt) ([official docs](https://docs.perplexity.ai/docs/resources/perplexity-crawlers))
+  - Google: `Google-Extended` only affects Gemini Apps and Vertex AI generative APIs and **does not affect Google Search** — blocking it will not remove you from AI Overviews, which are served through Googlebot ([official docs](https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-extended))
 
 ### References and Citations
 
@@ -170,23 +179,42 @@ Include a references section in each post. For AEO, this has a dual effect:
 
 ## Measuring AEO Effectiveness
 
-Honestly, there's no official tool today comparable to Google Search Console for measuring AEO impact. But you can:
+This changed in 2026: **Google Search Console now has an official generative AI report**. The [Search Generative AI performance reports](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports), launched 2026-06-03, show impressions in AI Overviews, AI Mode, and Discover generative features, broken down by page, country, device, and date. It's rolling out to a subset of sites, so your property may not have it yet; the [help documentation](https://support.google.com/webmasters/answer/16984139) defines the fields.
 
-1. **Manual testing**: Search your post's topic in Perplexity, ChatGPT, and Google AI Overview to see if you're being cited
-2. **Monitor traffic sources**: Watch for referrers from AI search engines in your analytics
+Note the limits: it reports **impressions**, not clicks or citation counts, and it only covers Google. Everywhere else you're still on your own:
+
+1. **Manual testing**: Search your post's topic in Perplexity, ChatGPT, and Google AI Mode to see if you're being cited
+2. **Monitor traffic sources**: Watch for referrers from AI search engines in your analytics (most tools filter bots out by default, so this needs configuring)
 3. **Track branded search volume**: If AI cites your content, it may drive more brand-name searches
 4. **Use Perplexity's citation tracking**: Perplexity explicitly labels cited sources, making it the easiest platform to observe
+
+Part 5 of this series maps the third-party AEO/GEO tracking tools in full.
 
 ## The Future of AEO
 
 AI search engines are evolving quickly. A few trends worth watching:
 
 - **Citation standardization**: AI engines are developing more explicit citation and attribution mechanisms
-- **AI crawler protocols**: Standards for managing AI crawlers (analogous to robots.txt, such as ai.txt) are emerging
+- **AI crawler protocols**: this originally said "such as ai.txt". Two years on, what actually emerged is a different set: Cloudflare's [Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/) (adding `search` / `ai-input` / `ai-train` usage signals to robots.txt), the IETF AIPREF working group, and llms.txt — though llms.txt has landed far below expectations, as covered in part 3 of this series
+- **From stated preference to enforcement**: on 2026-07-01 Cloudflare announced that from 2026-09-15 its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, and that Pay Per Crawl is becoming Pay Per Use ([announcement](https://blog.cloudflare.com/content-independence-day-ai-options/)). robots.txt is a request; a CDN-level block is enforcement
 - **Content licensing**: Models for licensing content between publishers and AI companies are still being worked out
 - **Multimodal search**: AI engines are beginning to understand images and video, not just text
 
 Whatever direction AI search takes, one thing won't change: **high-quality content that's clearly structured and offers original perspectives will always be the best optimization strategy**.
+
+## What Google Officially Says About AEO/GEO: the "you don't need to" list
+
+On 2026-05-15 Google published an [official guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) addressing the popular claims around AEO/GEO head-on. Its position is simple: AI Overviews and AI Mode are built on top of core Search ranking and quality systems (RAG grounding plus query fan-out), so **SEO fundamentals remain the foundation** — and several widely circulated "AEO tactics" are unnecessary.
+
+| Popular claim | What Google says |
+|---|---|
+| You need llms.txt or other AI-specific files | Not needed; Google Search doesn't use them. A 2026-06-15 clarification added that they neither help nor hurt rankings, and keeping one for other services is fine |
+| You need to "chunk" content for AI | Not needed; the systems handle multiple topics on a page and surface the relevant piece. There's no ideal page length |
+| You need to rewrite content for AI and cover every long-tail phrasing | Not needed; models understand synonyms and intent |
+| You should seek brand "mentions" wherever you can | Ineffective; inauthentic mentions are handled by the ranking and spam systems |
+| Structured data is the key to being cited | It isn't required, and there's no special markup — though it's still worth doing, because it's what makes you eligible for rich results |
+
+Bear in mind this guide speaks for **Google only**. Perplexity runs its own index and reads full HTML including structured data; ChatGPT has its own fetching and passage-level retrieval. Part 4 of this series breaks down those pipeline differences. What makes this document valuable is that it's currently the only source where a search engine states, on the record, that specific AEO tactics don't work. Any AEO advice that contradicts it carries the burden of proof.
 
 ## In Summary
 
@@ -202,10 +230,18 @@ SEO helps people find you. AEO makes AI speak for you. Running both in parallel 
 
 ## References
 
-- [Google AI Overview Official Announcement — Generative AI in Google Search](https://blog.google/products/search/generative-ai-google-search-may-2024/)
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google's official AEO/GEO guide, including the "you don't need to" list
+- [A new resource for optimizing for generative AI in Google Search](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing) — the announcement (2026-05-15)
+- [Introducing Search Generative AI performance reports in Search Console](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports) — official generative AI impression reporting (2026-06-03)
+- [Generative AI performance report (Search Console help)](https://support.google.com/webmasters/answer/16984139)
+- [Google Search documentation updates](https://developers.google.com/search/updates) — retirement dates for FAQ and HowTo rich results
+- [AI features and your website — Google Search Central](https://developers.google.com/search/docs/appearance/ai-features)
+- [Overview of OpenAI Crawlers](https://platform.openai.com/docs/bots) — how GPTBot, OAI-SearchBot, and ChatGPT-User differ
+- [Anthropic crawler documentation](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) — ClaudeBot, Claude-User, Claude-SearchBot
+- [Perplexity Crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) — PerplexityBot and Perplexity-User
+- [Cloudflare Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/)
+- [Your site, your rules: new AI traffic options for all customers — Cloudflare](https://blog.cloudflare.com/content-independence-day-ai-options/) — the default-blocking policy effective 2026-09-15
 - [Schema.org — AEO Structured Data Standards](https://schema.org/)
-- [Google Search Central — Structured Data Guide and Featured Snippets Optimization](https://developers.google.com/search/docs/appearance/structured-data)
+- [Google Search Central — Structured Data Guide](https://developers.google.com/search/docs/appearance/structured-data)
 - [Ahrefs — Answer Engine Optimization Complete Guide](https://ahrefs.com/blog/answer-engine-optimization/)
 - [Conductor — What is Answer Engine Optimization?](https://www.conductor.com/academy/answer-engine-optimization/)
-- [Search Engine Journal — AI Search Optimization Strategies](https://www.searchenginejournal.com/ai-search-optimization/)
-- [Perplexity AI — FAQ](https://www.perplexity.ai/hub/faq)

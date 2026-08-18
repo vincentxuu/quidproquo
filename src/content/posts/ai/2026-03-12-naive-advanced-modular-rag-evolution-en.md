@@ -8,6 +8,9 @@ lang: en
 tldr: "Naive RAG works but has real problems. Advanced RAG patches those problems. Modular RAG rearchitects the whole system to be composable and configurable. Understanding all three generations is the key to understanding why modern RAG systems look the way they do."
 description: "The evolution of RAG systems across three generations: the shortcomings of Naive RAG, the targeted fixes in Advanced RAG, the architectural redesign in Modular RAG, and when to reach for each."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 2
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution)
@@ -111,16 +114,39 @@ Modular RAG doesn't just reorganize the existing steps — it introduces capabil
 
 ---
 
+## After the Third Generation: Agentic RAG
+
+From 2025 onward, as LLMs got better at self-reflection and tool use, a pattern emerged that people often name separately: Agentic RAG. Instead of an engineer fixing the order of steps ahead of time, the LLM acts as the orchestrator — deciding which actions to take, when to take them, and whether to iterate again. The "Agentic Loop" module inside Modular RAG becomes the control flow of the entire system.
+
+Strictly speaking this isn't a fourth generation so much as a **transfer of control** within Modular RAG: the modules are the same modules; what changes is *who decides the execution order* — a fixed pipeline configuration, or the model at runtime.
+
+**The cost is real.** An ACL 2026 study comparing Enhanced RAG (essentially the Advanced/Modular designs described above) with Agentic RAG found that the agentic setting needed on average 3.3x more input tokens, 1.9x more output tokens, and 1.5x more end-to-end latency, with cost across datasets running up to 3.6x higher — and that was with the agent capped at three turns.
+
+More importantly, the quality findings are not one-sided:
+
+- Agentic RAG is stronger at **understanding user intent** and **query rewriting**, and it needs no hand-written routing examples
+- But at **picking the most relevant documents**, the agent's autonomous selection loses to Enhanced RAG's reranking
+- In well-defined domains with structured user behavior, agentic routing wins; in broader, noisier domains, fixed routing proved more reliable
+- The authors' conclusion: a well-optimized Enhanced RAG can match or exceed agentic performance while staying cheaper
+
+In other words, "going agentic" is not automatically better — it trades cost and predictability for flexibility. The pragmatic combination is usually: let the agent handle intent routing and query rewriting, but keep an explicit reranking step.
+
+Handing control to the model also introduces failure modes the pipeline era didn't have. A 2026 SoK paper on Agentic RAG formalizes these loops as finite-horizon partially observable Markov decision processes (POMDPs) and names several systemic risks: hallucinations compounding as they propagate around the loop, memory poisoning, retrieval misalignment, and cascading tool-execution vulnerabilities. None of these show up in static evaluation — what you need to evaluate is the whole trajectory, not a single answer.
+
+---
+
 ## Comparing the Three Generations
 
-| | Naive RAG | Advanced RAG | Modular RAG |
-|---|-----------|-------------|-------------|
-| Architecture | Linear 3-step | Enhanced linear flow | Modular DAG |
-| Flexibility | Low | Medium | High |
-| Maintainability | Simple | Moderate | Complex but organized |
-| Configuration | Hardcoded | Partially configurable | Dynamically configurable |
-| Adapts to query type | No | Limited | Full support |
-| Engineering cost | Low | Medium | High |
+| | Naive RAG | Advanced RAG | Modular RAG | Agentic RAG |
+|---|-----------|-------------|-------------|-------------|
+| Architecture | Linear 3-step | Enhanced linear flow | Modular DAG | Model-driven iterative loop |
+| Who decides order | Code | Code | Config / routing rules | The LLM, at runtime |
+| Flexibility | Low | Medium | High | Highest |
+| Predictability | High | High | Medium | Low |
+| Maintainability | Simple | Moderate | Complex but organized | Hard to debug (trajectory-level) |
+| Configuration | Hardcoded | Partially configurable | Dynamically configurable | Defined by prompts and tools |
+| Adapts to query type | No | Limited | Full support | Full support |
+| Runtime cost | Low | Medium | Medium | High (token count multiplies) |
 
 ## Which Generation Should You Use?
 
@@ -129,6 +155,8 @@ Modular RAG doesn't just reorganize the existing steps — it introduces capabil
 **Advanced RAG**: The right choice for most production use cases. When you hit a specific quality problem, add the corresponding fix: poor recall → HyDE/Multi-Query; poor precision → Reranking; poor generation → Judge.
 
 **Modular RAG**: Built for systems with diverse query types and a need for continuous iteration. High upfront engineering cost, but strong long-term maintainability. You need clear quality metrics and an iteration plan to get the most out of the modular design.
+
+**Agentic RAG**: For cases where you can't enumerate query shapes ahead of time and you're willing to buy flexibility with cost. Confirm two things before shipping it: that you can observe the entire decision trajectory (not just the final answer), and that you've done the token math — the experimental evidence puts the cost at several times a fixed pipeline. Most teams land on a hybrid: agentic intent routing and query rewriting, fixed pipeline for reranking and generation.
 
 ## The Bigger Picture
 
@@ -143,5 +171,8 @@ Understanding what each generation solved — and what complexity it introduced 
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
 - [Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks (2024)](https://arxiv.org/abs/2407.21059)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG (2025)](https://arxiv.org/abs/2501.09136)
+- [Is Agentic RAG worth it? An experimental comparison of RAG approaches (ACL 2026 Industry Track)](https://arxiv.org/abs/2601.07711)
+- [SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions (2026)](https://arxiv.org/abs/2603.07379)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

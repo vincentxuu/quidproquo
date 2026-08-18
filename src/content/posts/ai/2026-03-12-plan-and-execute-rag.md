@@ -8,7 +8,12 @@ lang: zh-TW
 tldr: "對複雜問題，先讓 LLM 規劃出需要哪些資訊、分幾步取得，再按計畫執行，比邊搜邊想更系統化。"
 description: "Plan-and-Execute RAG 的設計：LLM 先生成執行計畫，再按計畫分步驟搜尋和整合，與 ReAct 迴圈的差異，以及適合的使用場景。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 22
 ---
+
+> 🌏 [English version](/posts/ai/2026-03-12-plan-and-execute-rag-en)
 
 Agentic RAG 的 ReAct 迴圈是「邊想邊做」——執行一步，評估結果，決定下一步。這個模式靈活，但對非常複雜的問題，每一步的決策可能因為缺乏全局視野而走彎路。
 
@@ -39,8 +44,8 @@ LLM 分析查詢，生成一個結構化的執行計畫：
     {
       "step": 3,
       "action": "retrieve_conditional",
-      "query": "{岩場名稱} 入門路線",
-      "depends_on": "step_1",
+      "query": "{dep_result} 入門路線",
+      "depends_on": 1,
       "purpose": "針對找到的岩場查詢入門路線"
     },
     {
@@ -84,29 +89,50 @@ ReAct 更適合探索型問題（「這個岩場有什麼特色」），Plan-and
 計畫中的步驟可能有依賴關係（`depends_on`）：
 
 ```typescript
-async function executePlan(plan: ExecutionPlan): Promise<string[]> {
-  const results: Map<number, string> = new Map();
+type PlanStep = {
+  step: number;
+  action: 'retrieve' | 'retrieve_conditional' | 'synthesize';
+  query?: string;
+  depends_on?: number;  // 步驟編號（數字），要跟 results 的 key 型別一致
+  purpose: string;
+};
+
+async function executePlan(plan: ExecutionPlan): Promise<string> {
+  const results = new Map<number, string>();
 
   for (const step of plan.steps) {
-    if (step.depends_on) {
-      // 等待依賴步驟的結果
-      const depResult = results.get(step.depends_on);
-      step.query = step.query.replace('{結果}', depResult ?? '');
-    }
-
-    if (step.action === 'retrieve') {
-      const docs = await hybridSearch(step.query);
-      results.set(step.step, formatDocs(docs));
-    } else if (step.action === 'synthesize') {
+    if (step.action === 'synthesize') {
       // 整合所有 results，生成最終回答
       const allContext = [...results.values()].join('\n\n');
       return generateAnswer(plan.goal, allContext);
     }
+
+    // retrieve 與 retrieve_conditional 走同一條路徑，
+    // 差別只在後者有 depends_on，要先把前一步的結果代進佔位符
+    let query = step.query ?? '';
+    if (step.depends_on !== undefined) {
+      const depResult = results.get(step.depends_on);
+      if (depResult === undefined) {
+        throw new Error(`step ${step.step} 依賴的 step ${step.depends_on} 沒有結果`);
+      }
+      query = query.replace('{dep_result}', depResult);
+    }
+
+    const docs = await hybridSearch(query);
+    results.set(step.step, formatDocs(docs));
   }
+
+  throw new Error('計畫缺少 synthesize 步驟');
 }
 ```
 
-沒有依賴的步驟可以並行執行，有依賴的必須等待。這個設計讓執行效率接近最優（不互相依賴的搜尋同時跑）。
+這段有三個容易寫錯的地方，都會靜默失效而不是報錯：
+
+1. **佔位符字串要跟 Planner 產出的計畫對得上**。計畫裡寫 `{dep_result}`，executor 就得 replace `{dep_result}`；兩邊不一致的話 `replace` 什麼都不會做，query 帶著一個沒被代換的佔位符去搜尋，結果一團糟但程式不會丟例外。
+2. **`depends_on` 的型別要跟 `results` 的 key 一致**。計畫是 LLM 產的 JSON，很容易吐出 `"step_1"` 這種字串，拿去 `results.get()` 只會拿到 `undefined`。收到計畫後先做一次 schema 驗證與正規化。
+3. **`retrieve_conditional` 要有人處理**。只 match `'retrieve'` 的話，條件式步驟會被整個跳過，最後 synthesize 少了一段 context，回答看起來卻仍然「正常」。
+
+至於並行：上面這個 for 迴圈是循序的——它保證依賴順序，但也把沒有依賴的步驟一起排隊了。要真的並行，得先依 `depends_on` 把步驟分層，同一層用 `Promise.all` 一起跑，下一層再等上一層完成。這段排程要自己寫，而計畫通常只有 2-5 步，循序版多半已經夠用；等到步驟數真的變多、延遲被使用者感覺到，再加也不遲。
 
 ## 適用場景
 

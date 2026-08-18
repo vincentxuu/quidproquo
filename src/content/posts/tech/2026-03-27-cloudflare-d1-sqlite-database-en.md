@@ -8,6 +8,9 @@ lang: en
 tldr: "D1 is Cloudflare's serverless SQLite database that binds directly to Workers, supports full SQL (JOINs, transactions), and handles automatic backups. It's well-suited for small-to-medium relational data needs — NobodyClimb uses it as its primary database."
 description: "An introduction to Cloudflare D1: a SQLite-based serverless relational database. Covers Workers binding, basic CRUD, wrangler migration workflow, comparison with PostgreSQL/MySQL, and when to choose D1 over KV."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 2
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)
@@ -18,19 +21,25 @@ D1 is Cloudflare's serverless relational database, built on SQLite. It runs on t
 
 - **Full SQL support**: JOINs, subqueries, transactions, FOREIGN KEYs — everything SQLite supports, D1 supports
 - **Workers binding**: Access your database directly via `env.DB` in Worker code, no connection strings or connection pools to manage
-- **Automatic replication and backups**: Cloudflare handles the underlying replication; no snapshot configuration required
+- **Time Travel**: built-in point-in-time recovery — roll the database back to an earlier moment without scheduling your own snapshots (retention window depends on plan; see the official limits page)
 - **Wrangler migrations**: Manage schema versions with `wrangler d1 migrations apply`
+- **Read replication**: optional read-only replicas that spread reads across locations. The [official docs](https://developers.cloudflare.com/d1/best-practices/read-replication/) state replicas cost nothing extra — you still pay by `rows_read` / `rows_written`
 - **HTTP API**: In addition to the Workers binding, D1 also exposes a REST API for external access
 
 ## Basic CRUD
 
-**wrangler.toml binding**
+**Wrangler configuration binding** (Cloudflare recommends `wrangler.jsonc` for new projects)
 
-```toml
-[[d1_databases]]
-binding = "DB"
-database_name = "nobodyclimb"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```jsonc
+{
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nobodyclimb",
+      "database_id": "<DATABASE_ID>"
+    }
+  ]
+}
 ```
 
 **Working with D1 in a Worker**
@@ -72,7 +81,9 @@ const { success } = await env.DB.batch([
 ]);
 ```
 
-`batch()` executes all statements within the same transaction — if any one fails, the entire batch is rolled back.
+`batch()` executes the statements sequentially inside a single transaction — if any one fails, the entire batch is rolled back.
+
+One limit is easy to trip over: **there is a cap on how many D1 queries a single Worker invocation may issue**, much tighter on the free plan, and every statement inside a batch counts individually. Turning an N+1 query into a JOIN or a batch is not only a performance question — it decides whether you hit the wall at all.
 
 ## Schema and Migrations
 
@@ -118,7 +129,9 @@ Wrangler maintains a `d1_migrations` table inside D1 to track applied versions �
 | SQL support | SQLite syntax subset | Full PostgreSQL / MySQL |
 | Concurrent writes | Single-point SQLite; high-concurrency writes are queued | Supports high concurrency |
 | Features | No stored procedures, no pg extensions | Rich extension ecosystem |
-| Cost | Generous free tier; pay-per-row-read/write | EC2 + RDS fixed costs are high |
+| Cost | Free allowance, then per row read/written and per GB stored | EC2 + RDS fixed costs are high |
+
+D1 throughput has a mental model you can compute, and the docs state it outright: **each D1 database is backed by a single Durable Object and processes one query at a time**, so throughput is simply "one second ÷ average query duration". Queries averaging 1 ms give roughly 1,000 per second; queries averaging 100 ms give 10 per second. On D1, optimizing a slow query does not just cut cost — it buys throughput directly.
 
 **When D1 makes sense:**
 - Small-to-medium projects with moderate write volume (hundreds of writes per second or fewer)
@@ -129,7 +142,7 @@ Wrangler maintains a `d1_migrations` table inside D1 to track applied versions �
 **When to switch away:**
 - High-concurrency writes (thousands per second) — SQLite's single-writer model becomes a bottleneck
 - Complex SQL requirements or PostgreSQL extensions
-- Database size approaching the 10 GB limit
+- A single database approaching the size ceiling — **that ceiling cannot be raised on request**; the only path is sharding across databases. D1 is designed for "many small databases", and per-user or per-tenant sharding is the officially recommended pattern
 
 ## D1 vs KV
 
@@ -174,25 +187,31 @@ For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep
 - Zero-config: wrangler creates and connects it — no VPC, connection pool, or SSL certificates
 - Full SQL: JOINs, transactions, subqueries — not a stripped-down API
 - Runs beside the Worker, extremely low latency
-- Generous free tier (5 GB storage, 5 million row reads/day)
+- The free plan is enough to run a real project
 
 **Disadvantages**
 - SQLite single-writer model: high-concurrency write scenarios will queue up — this is an architectural constraint, not a bug
 - No stored procedures or triggers (SQLite limitation)
-- 10 GB database size limit (expandable on enterprise plans; sufficient for most use cases)
-- Still maturing: D1 is quite stable, but API and pricing occasionally change — track the changelog for production use
+- A per-database size ceiling that is **explicitly not raisable** — if the data will grow, plan the sharding up front
+- The free plan's **per-database size ceiling is far below the paid one** — not a discount on the same number, but two orders of magnitude apart, which is easy to misjudge during development
+- Large bulk `UPDATE` / `DELETE` statements hit execution limits; the docs recommend chunking them into batches of roughly a thousand rows
 
-## Pricing
+## The Shape of the Billing
 
-- **Free plan**: 5 GB storage, 5 million row reads/day, 100K row writes/day
-- **Paid plan (Workers Paid from $5/month)**: 50 GB storage; overage billed per row read/write ($0.001 / 1M row reads, $1.00 / 1M row writes)
+Exact numbers live in [D1 Pricing](https://developers.cloudflare.com/d1/platform/pricing/) and [D1 Limits](https://developers.cloudflare.com/d1/platform/limits/). Three things matter for design decisions:
 
-Write costs are significantly higher than read costs — design your schema and queries to avoid unnecessary writes, and batch operations with `batch()` wherever possible.
+1. **You are billed for rows scanned, not rows returned.** A `SELECT *` full scan over a five-thousand-row table is five thousand rows read, even if you use one of them. This is why indexes show up directly on the D1 bill.
+2. **Per-million writes cost orders of magnitude more than reads.** Indexes also add a written row when the write touches an indexed column (one to the table, one to the index) — the docs still recommend indexing, because the reads saved almost always outweigh the extra write.
+3. **The free plan's daily read/write allowances are hard walls.** Hit one and D1 returns errors account-wide until the 00:00 UTC reset. Have an error path for that before you launch.
+
+There are no egress or bandwidth charges.
 
 ## References
 
 - [Cloudflare D1 Official Docs](https://developers.cloudflare.com/d1/)
 - [D1 Pricing](https://developers.cloudflare.com/d1/platform/pricing/)
+- [D1 Limits](https://developers.cloudflare.com/d1/platform/limits/) — size, queries per invocation, SQL statement length, and other hard limits
+- [D1 read replication](https://developers.cloudflare.com/d1/best-practices/read-replication/)
 - [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [Cloudflare Workers: Getting Started with Edge Compute](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
 - [Cloudflare KV: Global Edge Key-Value Store](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)

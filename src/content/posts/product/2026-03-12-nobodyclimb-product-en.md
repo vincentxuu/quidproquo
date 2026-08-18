@@ -8,6 +8,9 @@ lang: en
 tldr: "The climbing community doesn't lack the will to share — it lacks a place to connect and preserve its culture."
 description: "The product thinking behind NobodyClimb: why the climbing community needs its own platform, what the Nobody spirit means, and how the platform is designed to let everyone's story endure."
 draft: false
+series:
+  name: "Building NobodyClimb"
+  order: 1
 ---
 
 🌏 [中文版](/posts/product/2026-03-12-nobodyclimb-product)

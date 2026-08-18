@@ -8,6 +8,9 @@ lang: en
 tldr: "Chunks too large and retrieval loses precision; too small and you lose context. Chunking is the most underrated part of RAG — pick the wrong strategy and no amount of downstream optimization will save you."
 description: "A comparison of RAG chunking strategies — Fixed-size, Sentence-based, Recursive, and Semantic Chunking — covering their use cases and implementation trade-offs."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 5
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-chunking-strategies)
@@ -134,7 +137,11 @@ function recursiveChunk(
 
 ## Semantic Chunking
 
-The most sophisticated approach: embed each sentence, compute the semantic distance between adjacent sentences, and split at semantic "fault lines."
+The most elaborate approach: embed each sentence, compute the semantic distance between adjacent sentences, and split at semantic "fault lines."
+
+The conclusion before the code: **this sounds like the smartest option, and there is no evidence it earns its cost.** A 2024 systematic evaluation (arXiv:2410.13070, *Is Semantic Chunking Worth the Computational Cost?*) compared semantic chunking against plain fixed-size chunking across document retrieval, evidence retrieval, and retrieval-based answer generation, and concluded that the computational costs of semantic chunking are not justified by consistent performance gains. Chroma's chunking evaluation technical report reaches a compatible finding: heuristic strategies like a well-parameterized `RecursiveCharacterTextSplitter` often perform well in practice.
+
+Treat it as something you reach for when you have budget *and* have measured a real improvement — not as a default.
 
 ```typescript
 async function semanticChunk(
@@ -176,8 +183,21 @@ async function semanticChunk(
 - Every sentence needs to be embedded — indexing cost scales linearly with sentence count (N sentences = N embedding calls)
 - The threshold has no universal value and needs to be tuned per content type
 - Can produce chunks that are too long or too short
+- Per the evaluations above, those costs do not buy a consistent retrieval-quality gain
 
-**Best for**: Documents with variable structure and frequent topic shifts; high-quality indexing where budget allows.
+**Best for**: Documents with variable structure and frequent topic shifts — and only once **you have measured on your own corpus that it beats Recursive**.
+
+---
+
+## Late Chunking
+
+A different route, proposed by Jina AI in 2024 (arXiv:2409.04701): instead of splitting first and embedding each piece separately, **encode all tokens of the full document with a long-context embedding model, and apply the split after the transformer but before mean pooling**. Because the split happens after the model has seen the whole document, each chunk vector carries surrounding context by construction.
+
+It attacks the same problem as Contextual Retrieval — chunks losing their context — from the opposite direction: Contextual Retrieval generates text with an LLM and then embeds it, while Late Chunking only changes *when* pooling happens and needs no extra LLM calls.
+
+A 2025 comparison (arXiv:2504.19754) evaluated both: Contextual Retrieval preserves semantic coherence better but costs more compute; Late Chunking is far more efficient at the cost of relevance and completeness.
+
+**Constraint**: you need an embedding model with a long enough context window — and the input length your inference platform actually accepts is often far below the model's headline number. Verify what your platform really ingests before committing to this.
 
 ---
 
@@ -188,6 +208,8 @@ async function semanticChunk(
 | Small (128 tokens) | High (exact hits) | Low (fragments) | Large |
 | Medium (512 tokens) | Medium | Medium | Medium |
 | Large (1024 tokens) | Low (fuzzy) | High (complete) | Small |
+
+The numbers above are illustrative orders of magnitude, not recommendations. The real ceiling is set by how long an input your embedding model — and your inference platform — will accept; hosted platforms frequently cap single-request input tokens well below the model's own specification, so check the limit for your model on your platform before choosing a chunk size.
 
 The solution: **Parent Document Retriever** (a two-level architecture)
 
@@ -226,7 +248,10 @@ The most practical starting point: Recursive Chunking + Contextual Retrieval. Th
 - [Anthropic - Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
 - [LangChain Text Splitters Documentation](https://docs.langchain.com/oss/python/integrations/splitters/)
 - [LlamaIndex - Node Parsers / Text Splitters](https://developers.llamaindex.ai/python/framework/module_guides/loading/node_parsers/)
-- [Evaluating Chunking Strategies for Retrieval (arXiv:2406.14497)](https://arxiv.org/abs/2406.14497)
+- [Evaluating Chunking Strategies for Retrieval (Chroma technical report, Jul 2024)](https://research.trychroma.com/evaluating-chunking)
+- [Is Semantic Chunking Worth the Computational Cost? (arXiv:2410.13070)](https://arxiv.org/abs/2410.13070)
+- [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models (arXiv:2409.04701)](https://arxiv.org/abs/2409.04701)
+- [Reconstructing Context: Evaluating Advanced Chunking Strategies for RAG (arXiv:2504.19754)](https://arxiv.org/abs/2504.19754)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)
 - [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

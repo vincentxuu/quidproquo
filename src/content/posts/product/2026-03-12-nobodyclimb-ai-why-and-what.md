@@ -8,6 +8,9 @@ tags: [ai, climbing, rag, community, product]
 lang: zh-TW
 description: "NobodyClimb 加入 AI 問答功能的背後考量：問題是什麼、怎麼決定做、做出來之後使用者怎麼用、以及對小型社群平台來說 AI 值不值得。"
 draft: false
+series:
+  name: "NobodyClimb 專案紀實"
+  order: 2
 ---
 
 🌏 [English version](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what-en)
@@ -72,7 +75,7 @@ AI 最大的風險是一本正經地胡說八道，這在攀岩這個場景特�
 
 ---
 
-NobodyClimb 的 AI 技術架構細節（13 步 RAG pipeline、HyDE、self-reflection 迴圈等）在另一篇技術文章裡有完整說明。
+NobodyClimb 的 AI 技術架構細節（20 節點的 RAG pipeline、HyDE、self-reflection 迴圈、三種 LangGraph 策略圖等）寫在 [NobodyClimb AI 架構：在 Cloudflare Workers 上打造 20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)。
 
 ## 參考資料
 

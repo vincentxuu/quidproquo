@@ -5,9 +5,12 @@ type: guide
 category: ai
 tags: [rag, speculative-rag, dual-model, latency-optimization, accuracy]
 lang: en
-tldr: "Speculative RAG uses small specialist models to generate multiple answer drafts from different document subsets in parallel, then a large model verifies and selects the best answer in one pass. Accuracy improves up to 12.97%, latency drops up to 50.83%."
+tldr: "Speculative RAG uses small specialist models to generate multiple answer drafts from different document subsets in parallel, then a large model verifies and selects the best answer in one pass. The paper reports +12.97 points accuracy and -50.83% latency on PubHealth — but that is the best cell in the table; other benchmarks gain far less."
 description: "The dual-model architecture of Speculative RAG: RAG Drafter generates drafts in parallel, RAG Verifier validates in a single pass, plus performance comparisons with standard RAG and an implementation guide."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 27
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-15-speculative-rag)
@@ -86,7 +89,7 @@ The name borrows from the concept of Speculative Decoding: use small models to "
 
 Three key steps:
 
-1. **Document grouping**: Split the N retrieved documents into K subsets (randomly or strategically), each containing a portion of the documents
+1. **Document grouping**: Cluster the N retrieved documents by their relation to the question, then draw one document per cluster to form each of K subsets (details in "Subset Sampling Strategy" below — this step is not random)
 2. **Parallel draft generation**: K small RAG Drafter models process their respective document subsets in parallel, each generating an answer draft and reasoning process
 3. **Single-pass verification**: One large RAG Verifier model receives all drafts, scores them in one pass, and selects the best answer
 
@@ -108,7 +111,7 @@ The RAG Drafter is the "workforce" of the architecture — small, specialized, a
 
 ### Model Selection
 
-The paper uses Mistral-7B-Instruct as the Drafter model, with specialized training for RAG tasks. Reasons for choosing a small model:
+The paper uses Mistral-7B (v0.1) as the Drafter's base model, then instruction-tunes it for RAG (the appendix also tries an instruction-tuned Gemma-2 2B, with promising results). Reasons for choosing a small model:
 
 - **Fast inference**: A 7B-parameter model has much lower inference latency on GPUs compared to 70B+ large models
 - **Parallel deployment**: The same GPU memory can run multiple small model instances
@@ -116,7 +119,7 @@ The paper uses Mistral-7B-Instruct as the Drafter model, with specialized traini
 
 ### Each Drafter Sees a Different Document Subset
 
-This is the most clever design of Speculative RAG. Suppose the retriever returns 6 documents {D1, D2, D3, D4, D5, D6}, the system creates multiple subsets:
+This is the most clever design of Speculative RAG. Suppose the retriever returns 6 documents {D1, D2, D3, D4, D5, D6}. The system clusters them by perspective, then draws one document per cluster to form each subset:
 
 ```
 Drafter 1 receives: {D1, D3, D5}
@@ -133,9 +136,13 @@ Each Drafter sees only a portion of the documents, which brings several benefits
 
 ### Subset Sampling Strategy
 
-The paper's sampling approach: for each Drafter, randomly sample a subset from the N retrieved documents. Subsets can overlap (the same document may appear in multiple subsets), which increases the chance that important documents get utilized.
+Here is a detail that many secondhand summaries get wrong: **the paper's subsets are not sampled randomly.**
 
-Subset size is a hyperparameter. Too small (1 document) may lack sufficient information; too large (close to N documents) loses the advantage of distributed processing. The paper's experiments typically use 2–3 documents as the subset size.
+The actual method clusters the retrieved documents by their relation to the question — each cluster represents one perspective in the retrieval results — and then **draws one document from each cluster** to form a subset, minimizing redundancy and maximizing perspective diversity. The paper's ablation tests this directly: sampling from within the same cluster significantly underperforms, because the documents in a subset then echo each other and the drafts lose their diversity.
+
+Subset size is a hyperparameter. Too small (1 document) may lack sufficient information; too large (close to N documents) loses the advantage of distributed processing. The paper's main configuration: for TriviaQA, PopQA, PubHealth, and ARC-Challenge, retrieve top-10 and generate 5 drafts per query (m=5) with 2 documents each (k=2); for MuSiQue, whose reasoning is more complex, retrieve top-15 and generate 10 drafts with 6 documents each.
+
+Two practical findings from the paper's hyperparameter analysis: **more drafts keep improving performance, and because drafts are generated in parallel, they add no latency**; but **more documents per draft is not always better** — on TriviaQA and PubHealth the curve across 1, 2, 4, 6, and 10 documents is not monotonic.
 
 ### Rationale Generation
 
@@ -152,9 +159,11 @@ The rationale serves as a basis for the Verifier's judgment. The Verifier doesn'
 
 The paper trains the Drafter using Knowledge Distillation:
 
-1. Use a large model (e.g., GPT-4) to generate high-quality (query, documents, draft, rationale) training data for RAG tasks
-2. Fine-tune a small model (Mistral-7B-Instruct) on this data
+1. Sample instruction-following pairs from Open-Instruct and knowledge-intensive datasets, augment them with up to 10 retrieved documents via a dense retriever, and use a large model to generate the rationale — the main line of the paper uses Gemini-Ultra, for 40k training instances in total
+2. Fine-tune Mistral-7B (v0.1) on this data
 3. The fine-tuned small model learns the ability to "read documents → write draft + reasoning"
+
+The paper repeats the data generation with GPT-4o and finds Speculative RAG keeps its advantage, so the method isn't bound to one teacher model. An ablation also confirms that **removing the rationale from the fine-tuning data drops performance noticeably on all three benchmarks** — the rationale isn't decoration, it's the key input to the verification stage.
 
 This training approach allows a 7B small model to approach large model quality on specific tasks while maintaining the speed advantage of a small model.
 
@@ -164,7 +173,11 @@ The RAG Verifier is the "judge" of the architecture — large, general-purpose, 
 
 ### Model Selection
 
-The paper uses GPT-4 or similar large general-purpose models as the Verifier. Reasons for choosing a large model:
+This is another commonly mis-stated point: **the paper's Verifier is not GPT-4.** The experiments use Mistral-7B (v0.1) or Mixtral-8x7B (v0.1) with no fine-tuning at all, denoted M<sub>Verifier-7B</sub> and M<sub>Verifier-8x7B</sub>. GPT-4o and Gemini-Ultra appear only in the step that generates the Drafter's training data — never on the inference path.
+
+That's arguably the more interesting result: an 8x7B Verifier is enough, and even a 7B Verifier paired with a 7B Drafter already beats every baseline. "Large model" here is relative.
+
+Reasons for choosing a (relatively) larger model as the Verifier:
 
 - **Broad world knowledge**: Can cross-verify draft accuracy
 - **Strong reasoning ability**: Can evaluate logical consistency of reasoning chains
@@ -200,20 +213,15 @@ Note that the Verifier **does not see the original documents**. It only sees the
 
 ### Scoring Mechanism
 
-The Verifier scores each draft across multiple dimensions:
+The paper's scoring is **not** "ask the Verifier to write a critique and assign points" — it reads conditional probabilities off the model directly. The confidence score is the product of three terms:
 
-1. **Factual Accuracy**: Is the answer consistent with the information cited in the reasoning?
-2. **Reasoning Completeness**: Is the reasoning chain complete? Are there logical leaps?
-3. **Query Relevance**: Does the answer directly address the question?
-4. **Self-Consistency**: Are the answer and rationale consistent with each other?
+1. **ρ<sub>Draft</sub>**: the Drafter's own generation probability for the draft
+2. **ρ<sub>Self-contain</sub>**: the Verifier's probability of generating the answer given the question and the rationale, i.e. Score(α | Q, β)
+3. **ρ<sub>Self-reflect</sub>**: the Verifier's probability of answering "Yes" to a self-reflection statement
 
-Ultimately, the Verifier outputs an overall score or directly selects the best draft. In the paper's implementation, conditional probability is used for scoring:
+The ablation shows all three contribute. Removing ρ<sub>Draft</sub> costs the least (−0.19 on TriviaQA, −1.12 on PubHealth); removing ρ<sub>Self-contain</sub> or ρ<sub>Self-reflect</sub> costs roughly 2 points on TriviaQA and 0.8 on PubHealth each. And **skipping verification entirely — picking a draft at random — costs 5.69 (TriviaQA) and 5.37 (PubHealth)**. That gap is the value of the verification step.
 
-```
-Score(draft_k) = P_verifier(draft_k | query, all_drafts)
-```
-
-That is, given all drafts, the probability of the Verifier model generating each draft's tokens. Higher probability means the Verifier "agrees" more with that draft.
+Using probabilities rather than asking the model to grade has a clear upside: the Verifier needs no fine-tuning and no structured scoring output. The downside is that your inference stack must expose token logprobs, which text-only APIs do not.
 
 ### Why Doesn't the Verifier Need the Original Documents?
 
@@ -233,29 +241,44 @@ The paper tested Speculative RAG on five benchmarks, comparing it with standard 
 
 ### Accuracy Comparison
 
-| Benchmark | Standard RAG | Self-RAG | CRAG | Speculative RAG | vs Standard |
-|-----------|-------------|----------|------|-----------------|-------------|
-| TriviaQA | 68.27% | 70.41% | 69.83% | 73.59% | **+5.32%** |
-| MuSiQue | 25.14% | 27.30% | 26.71% | 30.48% | **+5.34%** |
-| PopQA | 43.87% | 49.06% | 47.22% | 56.84% | **+12.97%** |
-| PubHealth | 72.40% | 74.10% | 73.50% | 76.20% | **+3.80%** |
-| ARC-Challenge | 78.95% | 81.23% | 80.56% | 84.17% | **+5.22%** |
+These are **the actual numbers from the paper's Table 1** (accuracy %; source in the references).
+
+| RAG method | TriviaQA | MuSiQue | PopQA | PubHealth | ARC-C |
+|---|---|---|---|---|---|
+| Standard RAG — Mistral-7B | 54.15 | 16.71 | 31.38 | 34.85 | 42.75 |
+| Standard RAG — Mixtral-8x7B | 59.85 | 19.16 | 34.02 | 37.08 | 48.72 |
+| Standard RAG — Mistral-Instruct-7B | 67.11 | 17.99 | 42.17 | 42.15 | 47.70 |
+| Standard RAG — Mixtral-Instruct-8x7B | 73.91 | 29.42 | 53.68 | 63.63 | 78.41 |
+| CRAG (Mistral-7B) | 59.03 | — | 49.46 | 59.04 | 74.87 |
+| Self-RAG (Mistral-7B) | 64.84 | 21.72 | 52.68 | 72.44 | 74.91 |
+| Self-CRAG (Mistral-7B) | 65.43 | — | 56.11 | 72.85 | 75.26 |
+| **Spec. RAG — Verifier-7B + Drafter-7B** | 73.91 | 31.03 | 56.75 | 75.79 | 76.19 |
+| **Spec. RAG — Verifier-8x7B + Drafter-7B** | **74.24** | **31.57** | **57.54** | **76.60** | **80.55** |
 
 Key observations:
 
-- **PopQA shows the largest improvement (+12.97%)**: PopQA is a long-tail knowledge QA benchmark with many questions about uncommon entities. Speculative RAG's multi-subset strategy gives different Drafters the opportunity to find answers from different angles
-- **MuSiQue also shows significant improvement (+5.34%)**: MuSiQue is a multi-hop reasoning task requiring the combination of information from multiple documents. Different Drafters seeing different document combinations increases the chance of "accidentally" combining the right information
-- **Outperforms Self-RAG and CRAG across the board**: Speculative RAG beats both methods on all benchmarks
+- **PubHealth shows the largest improvement**: 76.60 versus 63.63 for the strongest Standard RAG baseline — a gap of 12.97 points. That is where the abstract's "up to 12.97%" comes from. It is PubHealth, not PopQA; plenty of secondhand write-ups attach that number to the wrong benchmark.
+- **TriviaQA barely moves**: 74.24 versus Mixtral-Instruct-8x7B's 73.91, a difference of 0.33. When the baseline is already strong and the task doesn't especially reward multiple perspectives, the accuracy dividend of this architecture is close to zero and the remaining value is latency.
+- **MuSiQue (multi-hop) gains about 2 points**: 31.57 versus 29.42. Real but not dramatic — and note MuSiQue runs different hyperparameters (10 drafts, 6 documents each).
+- **Beats Self-RAG and CRAG**: on every column where those methods report numbers.
+
+Two caveats: (1) every method in the table runs on the same Mistral-family backbones for fairness, so results won't necessarily transfer to other models; (2) the paper itself notes that **the Drafter alone, without verification, already beats most baselines** — the marginal contribution of the verification stage lands somewhere between 0.3 and 4 points.
 
 ### Latency Comparison
 
-| Benchmark | Standard RAG Latency | Speculative RAG Latency | Latency Reduction |
-|-----------|---------------------|------------------------|-------------------|
-| TriviaQA | 12.4s | 6.1s | **-50.81%** |
-| MuSiQue | 14.8s | 7.8s | **-47.30%** |
-| PopQA | 11.2s | 5.5s | **-50.89%** |
-| PubHealth | 13.6s | 7.2s | **-47.06%** |
-| ARC-Challenge | 10.8s | 5.8s | **-46.30%** |
+The paper's latency analysis samples 100 cases per dataset, processes them individually without batching, and compares against **the strongest baseline (Standard RAG: Mixtral-Instruct-8x7B)**. Actual reductions:
+
+| Benchmark | Latency reduction |
+|---|---|
+| TriviaQA | −11.90% |
+| MuSiQue | −15.07% |
+| PopQA | −44.31% |
+| PubHealth | −50.83% |
+| ARC-Challenge | −22.77% |
+
+So "50% lower latency" is the PubHealth cell, not the rule — TriviaQA drops by under 12%. The size of the reduction depends mostly on how long that dataset's retrieved documents are: the longer they are, the more Standard RAG is dragged down by long context and the bigger Speculative RAG's relative edge.
+
+Note the hardware premise, too: on TriviaQA and similar datasets Speculative RAG **launches 5 Drafter endpoints in parallel** (10 for MuSiQue), with tensor parallelism of 4 to fit Mixtral-8x7B. Without that parallel capacity, these numbers do not reproduce.
 
 Sources of latency reduction:
 
@@ -272,7 +295,9 @@ Typically, we face this tradeoff:
 - Want more accuracy? Use a larger model, process more documents → higher latency
 - Want more speed? Use a smaller model, process fewer documents → lower accuracy
 
-Speculative RAG breaks this tradeoff. Through architectural design (rather than simply throwing hardware at the problem), it achieves improvements in both dimensions. This is a Pareto Improvement.
+Under the paper's setup, Speculative RAG improves both dimensions at once, through architectural design rather than simply throwing hardware at the problem.
+
+But discount the phrase "Pareto improvement" somewhat. From the actual numbers above, the accuracy dividend concentrates on PubHealth, PopQA, and ARC-C, and is nearly absent on TriviaQA; the latency dividend concentrates on datasets with longer retrieved documents. And it isn't free — you need (a) a distillation and fine-tuning round to produce the Drafter, (b) inference capacity to run 5–10 Drafter instances concurrently, and (c) a Verifier that exposes logprobs. Count those in and it looks less like a free lunch and more like trading engineering complexity for latency and some accuracy.
 
 ## Comparison with Other RAG Patterns
 
@@ -366,7 +391,8 @@ Below is a TypeScript implementation example demonstrating the Speculative RAG d
 interface Document {
   id: string;
   content: string;
-  score: number; // Retrieval relevance score
+  score: number;        // Retrieval relevance score
+  embedding: number[];  // For clustering (the paper precomputes these with a lightweight instruction-aware embedding model)
 }
 
 interface Draft {
@@ -392,54 +418,53 @@ interface SpeculativeRAGConfig {
 }
 ```
 
-### Document Subset Sampling
+### Document Subset Sampling (Clustered, Not Random)
+
+The paper's key move is **cluster first, then take one document per cluster**, so every subset spans multiple perspectives. Sampling within a single cluster measurably degrades results.
 
 ```typescript
+/**
+ * Build document subsets the way the paper does:
+ * 1. Embed the retrieved documents and cluster them into k groups (k = subsetSize),
+ *    each group representing one perspective
+ * 2. Each subset draws one document per cluster → maximum perspective diversity,
+ *    minimum redundancy
+ * Do NOT simplify this to "randomly pick k documents": the paper's ablation shows
+ * same-cluster sampling performs significantly worse.
+ */
 function sampleDocumentSubsets(
   documents: Document[],
   numSubsets: number,
   subsetSize: number,
 ): Document[][] {
+  // kmeans() is your own implementation or any clustering library;
+  // it takes doc.embedding and returns subsetSize clusters
+  const clusters = kmeans(documents, subsetSize);
   const subsets: Document[][] = [];
 
   for (let i = 0; i < numSubsets; i++) {
-    // Weighted random sampling: higher relevance scores increase selection probability
-    const subset = weightedSample(documents, subsetSize);
+    // Each subset: one document from each cluster, so different subsets
+    // cover different documents
+    const subset = clusters
+      .map((cluster) => pickWithoutReplacement(cluster, i))
+      .filter((doc): doc is Document => doc !== undefined);
     subsets.push(subset);
   }
 
   return subsets;
 }
 
-function weightedSample(
-  documents: Document[],
-  size: number,
-): Document[] {
-  const totalScore = documents.reduce((sum, doc) => sum + doc.score, 0);
-  const selected: Document[] = [];
-  const remaining = [...documents];
-
-  for (let i = 0; i < Math.min(size, remaining.length); i++) {
-    // Weighted sampling based on retrieval scores
-    const weights = remaining.map((doc) => doc.score / totalScore);
-    const idx = weightedRandomIndex(weights);
-    selected.push(remaining[idx]);
-    remaining.splice(idx, 1);
-  }
-
-  return selected;
-}
-
-function weightedRandomIndex(weights: number[]): number {
-  const r = Math.random();
-  let cumulative = 0;
-  for (let i = 0; i < weights.length; i++) {
-    cumulative += weights[i];
-    if (r <= cumulative) return i;
-  }
-  return weights.length - 1;
+/** Round-robin pick of the i-th document from a cluster, wrapping when exhausted */
+function pickWithoutReplacement(
+  cluster: Document[],
+  i: number,
+): Document | undefined {
+  if (cluster.length === 0) return undefined;
+  return cluster[i % cluster.length];
 }
 ```
+
+(`kmeans` here is a pseudocode placeholder — the paper ships no reference implementation, so pick your own clustering method and distance metric, and measure.)
 
 ### RAG Drafter Implementation
 
@@ -497,6 +522,8 @@ function parseDraftResponse(
 ```
 
 ### RAG Verifier Implementation
+
+Note this is an **approximation**: the paper uses token conditional probabilities (ρ<sub>Draft</sub> × ρ<sub>Self-contain</sub> × ρ<sub>Self-reflect</sub>), while the code below prompts the model to grade itself so it can run on text-only APIs. If your inference stack exposes logprobs, following the paper will get you closer to the original results.
 
 ```typescript
 async function verifyDrafts(
@@ -615,10 +642,12 @@ async function speculativeRAG(
 
 ```typescript
 const config: SpeculativeRAGConfig = {
-  numDrafters: 4,
-  subsetSize: 2,
-  drafterModel: 'mistral-7b-instruct',   // Small model
-  verifierModel: 'gpt-4',                 // Large model
+  numDrafters: 5,   // The paper's main setting: m=5
+  subsetSize: 2,    // The paper's main setting: k=2
+  // Always inject model IDs from the environment — hardcoded model names
+  // get deprecated within months
+  drafterModel: process.env.DRAFTER_MODEL!,
+  verifierModel: process.env.VERIFIER_MODEL!,
   maxDrafterTokens: 512,
   maxVerifierTokens: 256,
 };
@@ -638,48 +667,23 @@ console.log(`All drafts: ${result.allDrafts.length}`);
 
 **Drafter Model Selection**
 
-You don't have to use the paper's Mistral-7B. Any small model that supports instruction following works:
+No list of specific model names here — open small models turn over fast enough that any such list expires within months. The selection criteria are what stay stable:
 
-- Mistral 7B / Mixtral 8x7B
-- Llama 3.1 8B
-- Phi-3 Mini (3.8B)
-- Gemma 2 9B
-
-The key is that the model must be small enough for parallel deployment yet smart enough to extract information from documents.
+- Small enough to run 5–10 instances concurrently (the paper uses a 7B; the appendix shows a 2B works too)
+- Reliable at following an "Answer / Rationale" output format
+- **Most importantly, fine-tunable**: the paper's results come from a distilled specialist Drafter, not from an off-the-shelf general small model. Skip the fine-tuning step and what you have is just a worse ensemble.
 
 **Verifier Model Selection**
 
-Large general-purpose models work best:
-
-- GPT-4 / GPT-4o
-- Claude 3.5 Sonnet / Claude 3 Opus
-- Gemini 1.5 Pro
-
-The Verifier needs broad knowledge and strong judgment, not speed.
+The paper uses an un-fine-tuned Mistral-7B or Mixtral-8x7B — "large" is relative to the Drafter, not "the biggest current flagship." The real hard requirement is that **your inference stack must return token logprobs**; otherwise the paper's probabilistic scoring is impossible and you fall back to the "ask the model to grade" approximation in the sample code above, with different quality and latency.
 
 **Hyperparameter Tuning**
 
-```typescript
-// Conservative config (low latency, suitable for simple questions)
-const conservativeConfig: SpeculativeRAGConfig = {
-  numDrafters: 3,
-  subsetSize: 2,
-  drafterModel: 'phi-3-mini',
-  verifierModel: 'gpt-4o-mini',
-  maxDrafterTokens: 256,
-  maxVerifierTokens: 128,
-};
+Start from the paper's settings, then measure:
 
-// Aggressive config (high accuracy, suitable for complex questions)
-const aggressiveConfig: SpeculativeRAGConfig = {
-  numDrafters: 5,
-  subsetSize: 3,
-  drafterModel: 'mistral-7b-instruct',
-  verifierModel: 'gpt-4',
-  maxDrafterTokens: 1024,
-  maxVerifierTokens: 512,
-};
-```
+- **Baseline**: retrieve top-10, `numDrafters: 5`, `subsetSize: 2`
+- **Complex multi-hop questions**: the paper switches to top-15, `numDrafters: 10`, `subsetSize: 6` for MuSiQue
+- **To raise accuracy**: add drafts first (parallel, so no added latency) rather than documents per draft (the paper's measurements are non-monotonic)
 
 ## Applicable Scenarios and Limitations
 
@@ -742,9 +746,27 @@ In terms of token cost, Speculative RAG may be slightly higher (due to K additio
 
 In terms of latency cost, Speculative RAG is clearly lower, which is highly valuable in latency-sensitive scenarios.
 
+### A Failure Mode Found by Later Research
+
+Here is an important gap the paper doesn't test but later work does: **when the question itself is ambiguous and has multiple simultaneously correct answers, Speculative RAG degrades.**
+
+The 2025 paper *Retrieval-Augmented Generation with Conflicting Evidence* uses Speculative RAG as a baseline. On AmbigDocs — which requires presenting all valid answers for an ambiguous query — it reports:
+
+| Backbone | Plain prompt concatenation | Speculative RAG |
+|---|---|---|
+| Llama3.3-70B-Instruct | 54.20 | 44.30 |
+| Qwen2.5-72B-Instruct | 41.20 | 13.40 |
+| GPT-4o-mini | 51.50 | 22.50 |
+
+On the Qwen row, Speculative RAG falls to a third of the baseline. The reason isn't hard to see: the architecture's final step is **selecting one draft out of many**, which is a virtue when there is a single correct answer and a structural defect when multiple correct answers must be presented together. Distinct valid answers found by different Drafters from different document subsets get discarded at verification.
+
+The same paper shows Speculative RAG is strong on FaithEval, which requires suppressing misinformation and has a single correct answer: 41.80 versus 27.30 for prompt concatenation on Llama3.3-70B, and 56.20 versus 38.50 on Qwen2.5-72B. That matches the reasoning exactly — **good for single-answer tasks, bad for multi-answer or ambiguous queries.**
+
+Check your query distribution against that test before adopting it. If users routinely ask "what options are there" or "what are the different approaches," this architecture will systematically drop things.
+
 ## Future Outlook
 
-Speculative RAG was published in July 2024 and accepted by ICLR in 2025. The architecture's core idea — **division of labor and parallelization** — is likely to be more broadly applied in other LLM pipelines.
+Speculative RAG was published in July 2024 (arXiv:2407.08223) and accepted by ICLR in 2025. The architecture's core idea — **division of labor and parallelization** — is likely to be more broadly applied in other LLM pipelines.
 
 Several possible directions:
 
@@ -755,7 +777,8 @@ Several possible directions:
 
 ## References
 
-- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting (Wang et al., ICLR 2025)](https://arxiv.org/abs/2407.08737)
+- [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting (Wang et al., ICLR 2025)](https://arxiv.org/abs/2407.08223) — the source of every number in this article (note the correct arXiv ID is 2407.08223)
+- [Retrieval-Augmented Generation with Conflicting Evidence (Wang et al., 2025)](https://arxiv.org/abs/2504.13079) — RAMDocs / MADAM-RAG; measures Speculative RAG's degradation on ambiguous queries
 - [Fast Inference from Transformers via Speculative Decoding (Leviathan et al., ICML 2023)](https://arxiv.org/abs/2211.17192) — The original Speculative Decoding paper, conceptual source for Speculative RAG's dual-model design
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (Asai et al., ICLR 2024)](https://arxiv.org/abs/2310.11511) — Self-RAG comparison method
 - [Corrective Retrieval Augmented Generation (Yan et al., AAAI 2024)](https://arxiv.org/abs/2401.15884) — CRAG comparison method, complementary to Speculative RAG

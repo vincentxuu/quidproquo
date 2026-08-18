@@ -8,6 +8,9 @@ tldr: "SEO 不只是關鍵字，結構化資料（JSON-LD）、Open Graph、href
 description: "以 Astro 部落格為實例，完整介紹 SEO 技術面優化：JSON-LD 結構化資料、Open Graph meta tags、hreflang 多語系標籤、robots.txt、Sitemap 等，附完整程式碼範例。"
 draft: false
 type: guide
+series:
+  name: "AEO / GEO 與 AI 搜尋"
+  order: 1
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-blog-seo-optimization-guide-en)
@@ -82,7 +85,7 @@ Open Graph 是 Facebook 發明的 meta 標準，現在幾乎所有社群平台�
 
 ### OG Image 自動生成
 
-手動為每篇文章做一張 OG 圖不現實。用 [Satori](https://github.com/vercel/satori) + [Resvg](https://github.com/nicolo-ribaudo/resvg-js) 可以在 build 時自動產生：
+手動為每篇文章做一張 OG 圖不現實。用 [Satori](https://github.com/vercel/satori) + [Resvg](https://github.com/thx/resvg-js) 可以在 build 時自動產生：
 
 ```javascript
 // scripts/generate-og-images.mjs
@@ -125,15 +128,23 @@ JSON-LD 是 SEO 技術面的最高優先級。它讓搜尋引擎不用「猜」�
 </script>
 ```
 
-### 常用 Schema 類型
+### 常用 Schema 類型（2026-08 現況）
 
-| Schema | 用在 | 效果 |
+Google 支援的 rich result 型別這幾年一直在縮編，網路上的 SEO 教學有大半已經過期。以官方的[支援型別清單](https://developers.google.com/search/docs/appearance/structured-data/search-gallery)為準：
+
+| Schema | 用在 | 現在還有 rich result 嗎 |
 |--------|------|------|
-| `BlogPosting` | 文章頁 | Google 搜尋可顯示發布日期、作者 |
-| `BreadcrumbList` | 麵包屑導航 | 搜尋結果顯示路徑導航 |
-| `WebSite` | 首頁 | 啟用 Sitelinks Search Box |
-| `FAQPage` | FAQ 頁面 | 搜尋結果直接展開問答 |
-| `HowTo` | 教學文 | 搜尋結果顯示步驟列表 |
+| `Article` / `BlogPosting` | 文章頁 | 有（Article 功能） |
+| `BreadcrumbList` | 麵包屑導航 | 有 |
+| `Organization` | 全站 / 首頁 | 有（logo、名稱、識別碼，會進 knowledge panel） |
+| `ProfilePage` | 作者頁 | 有 |
+| `FAQPage` | FAQ 頁面 | **沒有**——2026-05-07 起 FAQ rich result 完全下架 |
+| `HowTo` | 教學文 | **沒有**——2023 年就已停止顯示，文件也移除了 |
+| `WebSite` + `SearchAction` | 首頁 | **沒有**——Sitelinks Search Box 於 2024-10 退場 |
+
+FAQ 的退場是分三年走完的：2023-08 先限縮到「知名的政府與醫療網站」，2026-05-07 連這批也停掉，2026-06 移除文件，2026-08 移除 Search Console API 支援。詳細時間點在 Google 的[文件更新記錄](https://developers.google.com/search/updates)。
+
+**Schema 標了沒有 rich result 就等於白做嗎？** 不完全。Google 在 2026 年 5 月發佈的[生成式 AI 最佳化指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)裡明講：結構化資料**不是**生成式 AI 搜尋的必要條件，也沒有什麼專屬的 schema.org 標記；但仍建議繼續當成整體 SEO 的一環來做，因為它決定你有沒有 rich result 資格。換句話說，把 schema 當「取得 rich result 資格」的工具，而不是「討好 AI」的工具。
 
 ### BreadcrumbList 範例
 
@@ -149,24 +160,20 @@ JSON-LD 是 SEO 技術面的最高優先級。它讓搜尋引擎不用「猜」�
 }
 ```
 
-### WebSite + SearchAction
+### Organization（取代已退場的 WebSite + SearchAction）
 
-在首頁加上 `WebSite` schema，有機會讓 Google 在搜尋結果顯示站內搜尋框：
+早期的 SEO 教學會叫你在首頁放 `WebSite` + `SearchAction` 來換 Sitelinks Search Box。這個功能 Google 已經在 [2024 年 10 月正式收掉](https://developers.google.com/search/blog/2024/10/sitelinks-search-box)，文件與 `nositelinkssearchbox` 規則一併移除，現在標了也不會有任何效果。
+
+首頁該放的是 `Organization`，它決定 knowledge panel 與各處的網站識別：
 
 ```json
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": "Organization",
   "name": "quidproquo",
   "url": "https://quidproquo.cc",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://quidproquo.cc/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "logo": "https://quidproquo.cc/logo.png",
+  "sameAs": ["https://github.com/vincentxuu"]
 }
 ```
 
@@ -251,8 +258,9 @@ export default defineConfig({
 - [ ] 有 `<link rel="canonical">`
 - [ ] `og:type` 是 `article`（文章頁）或 `website`（首頁）
 - [ ] 有 OG image（1200x630）
-- [ ] 有 JSON-LD `BlogPosting` 結構化資料
+- [ ] 有 JSON-LD `Article` / `BlogPosting` 結構化資料
 - [ ] 有 JSON-LD `BreadcrumbList`
+- [ ] 沒有把心力花在 `FAQPage` / `HowTo` / `SearchAction`（rich result 已退場）
 - [ ] 多語系頁面有 hreflang 標籤
 - [ ] `robots.txt` 存在且指向 sitemap
 - [ ] 用 [Google Rich Results Test](https://search.google.com/test/rich-results) 驗證結構化資料
@@ -261,13 +269,17 @@ export default defineConfig({
 
 SEO 技術面優化是一次性投資：在 Layout 和 build 流程中設定好，之後每篇文章自動受益。優先順序是：**JSON-LD 結構化資料 > Open Graph > hreflang > robots.txt**。結構化資料的影響最大，因為它直接決定搜尋引擎能多精確地理解你的內容。
 
-不需要追求完美——先把最基本的 BlogPosting、BreadcrumbList、WebSite 三個 schema 做好，就已經超過 90% 的個人部落格了。
+不需要追求完美——先把 `Article`/`BlogPosting`、`BreadcrumbList`、`Organization` 三個 schema 做好，就已經超過 90% 的個人部落格了。剩下的力氣別拿去追已經下架的 rich result 型別，Google 每年都在砍，砍掉的清單就在[文件更新記錄](https://developers.google.com/search/updates)裡。
 
 ---
 
 ## 參考資料
 
 - [Google Search Central - 結構化資料](https://developers.google.com/search/docs/appearance/structured-data)
+- [Google 支援的結構化資料型別清單](https://developers.google.com/search/docs/appearance/structured-data/search-gallery) — 唯一該相信的「哪些 schema 還有效」來源
+- [Google Search 文件更新記錄](https://developers.google.com/search/updates) — FAQ、HowTo 等型別的退場時間點都在這裡
+- [Farewell, Sitelinks Search Box](https://developers.google.com/search/blog/2024/10/sitelinks-search-box) — 2024-10 官方公告
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google 2026-05 官方指南，含「結構化資料不是必要條件」的說明
 - [Schema.org - BlogPosting](https://schema.org/BlogPosting)
 - [Open Graph Protocol](https://ogp.me/)
 - [Google - hreflang 標籤指南](https://developers.google.com/search/docs/specialty/international/localized-versions)

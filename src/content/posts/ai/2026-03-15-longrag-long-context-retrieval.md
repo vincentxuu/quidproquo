@@ -8,13 +8,18 @@ lang: zh-TW
 tldr: "傳統 RAG 把文件切成小 chunks 再檢索，但這造成資訊碎片化。LongRAG 利用 100K+ token 的長上下文模型，檢索更大的文件區段（整個章節甚至整份文件），減少碎片化同時保持檢索效率。"
 description: "LongRAG 的設計理念：為什麼小 chunk 會造成問題、長上下文模型如何改變 RAG 架構、大 chunk 檢索策略、與傳統 RAG 的效能比較，以及實作考量。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 26
 ---
 
 傳統 RAG 的核心假設是：LLM 的 context window 有限，所以我們必須把文件切得很小，只送最相關的片段進去。
 
-這個假設在 2024 年之前是合理的。但現在 Gemini 有 1M tokens、Claude 有 200K tokens，GPT-4o 也有 128K tokens。當 context window 從 4K 暴增到 100K 以上，RAG 的設計邏輯應該跟著變。
+這個假設在 2024 年之前是合理的。但主流商用模型的 context window 早已從 4K 級別跨進 10 萬 token 以上的量級（具體數字每季都在變，請直接查各家官方模型頁），當可用上下文多了兩個數量級，RAG 的設計邏輯應該跟著重新算一次帳。
 
 LongRAG 就是這個思路的體現：**不要再把文件切成碎片，而是檢索更大的單元，讓長上下文模型自己去理解。**
+
+先講結論：這篇談的是一種**取捨**，不是一個已經勝出的答案。LongRAG 論文發表後，社群對「長上下文是不是讓 RAG 過時」吵了一年多，而且證據往兩個方向都有——文末〈後續研究怎麼說〉一節會把反面證據攤開。
 
 ---
 
@@ -80,18 +85,9 @@ Chunk B 缺少了「為什麼採用 Transformer」的上下文。如果使用者
 
 ## 長上下文模型的機會
 
-2024-2025 年間，主流 LLM 的 context window 經歷了爆炸性成長：
+2023 到 2025 年間，主流 LLM 的 context window 從數千 token 一路衝到數十萬、甚至百萬 token 等級。這裡不列模型對照表——這種表格三個月就過期，而且各家的「上限」與「實際還能用得好的長度」根本是兩回事。要查當下數字，看[各家官方模型文件](https://docs.claude.com/en/docs/about-claude/models/overview)即可；要判斷能不能真的塞那麼多，看下面的〈後續研究怎麼說〉。
 
-| 模型 | Context Window | 發布時間 |
-|------|---------------|---------|
-| GPT-3.5 | 4K tokens | 2023-03 |
-| Claude 2 | 100K tokens | 2023-07 |
-| GPT-4 Turbo | 128K tokens | 2023-11 |
-| Gemini 1.5 Pro | 1M tokens | 2024-02 |
-| Claude 3.5 Sonnet | 200K tokens | 2024-06 |
-| Gemini 2.0 | 1M tokens | 2025-01 |
-
-這改變了 RAG 的根本權衡：
+真正改變的是 RAG 的根本權衡：
 
 **以前**：context window 是稀缺資源 → 必須精確檢索 → 小 chunk → 高檢索壓力。
 
@@ -99,9 +95,11 @@ Chunk B 缺少了「為什麼採用 Transformer」的上下文。如果使用者
 
 ### 關鍵洞察
 
-長上下文模型擅長在大量文字中找到相關資訊。研究顯示，即使在 100K tokens 的 context 中，好的模型也能準確找到嵌入其中的特定事實（needle-in-a-haystack 測試）。
+長上下文模型擅長在大量文字中找到相關資訊。needle-in-a-haystack（NIAH）測試顯示，即使在 10 萬 token 等級的 context 中，好的模型也能準確找到嵌入其中的特定事實。
 
 這意味著：**我們不需要完美的檢索，只需要足夠好的檢索。** 把大致相關的內容丟給 LLM，讓它自己找答案。
+
+但這個洞察後來被大幅修正過。NIAH 之所以看起來漂亮，有一部分是因為「針」和問題之間有字面重疊，模型可以靠字串比對抄捷徑。2025 年的 NoLiMa 基準把字面重疊拿掉、要求模型靠語義關聯去定位，結果 13 個宣稱支援 128K 以上的模型裡，有 11 個在 32K 就掉到短文本基線的一半以下；連表現最好的 GPT-4o 都從 99.3% 掉到 69.7%。所以「檢索夠好就行」這句話成立的區間，比 NIAH 分數看起來的要窄。
 
 ### 從精確檢索到粗粒度檢索
 
@@ -372,34 +370,39 @@ LongRAG (章節層級, ~5,000 tokens/section):
 
 ### 效能比較的具體數據
 
-根據 LongRAG 論文和相關研究的結果：
+先把論文真正報的數字講清楚，因為這組數字常被引錯。
 
-**NQ (Natural Questions) 資料集：**
-- 傳統 RAG（100-word chunks, top-5）：答案命中率 ~52%
-- LongRAG（4K+ token groups, top-4）：答案命中率 ~71%
-- 提升幅度：~19 個百分點
+**檢索端（NQ / HotpotQA，Wikipedia）：**
 
-關鍵原因是**召回率的改善**。傳統 RAG 的 top-5 小 chunk 經常漏掉包含答案的片段，而 LongRAG 的大 chunk 更容易涵蓋到答案。
+LongRAG 把相關文件合併成 4K token 的檢索單元，NQ 的語料單元數從 2,200 萬降到 60 萬。論文的原話是：answer recall@**1** 從 DPR 的 52% 提升到 71%；HotpotQA 則是語料從 500 萬降到 50 萬單元，recall@**2** 從 47% 提升到 72%。
+
+注意這是 **recall@1 / recall@2**，不是「top-5 vs top-4 的命中率」——這兩者常被混為一談。論文的主張是「只取極少數（少於 8 個）長單元就有很強的檢索表現」，而不是「同樣 top-k 下大 chunk 比較好」。
+
+**生成端：**
+
+不需要任何訓練，LongRAG 在 NQ 拿到 62.7 EM、HotpotQA 拿到 64.3 EM，論文說這與「完整微調過的 SoTA」相當。主表用的 reader 是當時的 GPT-4o（論文另外比較了六個 reader）。在非 Wikipedia 的資料集上，Qasper F1 從 22.5% 提升到 25.9%、MultiFieldQA-en 從 51.2% 提升到 57.5%。
+
+關鍵原因是**召回率的改善**：傳統小 chunk 檢索經常漏掉包含答案的片段，大單元更容易把答案涵蓋進去。
 
 ### 成本分析
 
-LongRAG 用更多的 token 換取更好的答案品質：
+這裡不列價格表——各家 API 的單價變動太快，任何寫死的數字都會過期。要算實際金額請直接查[官方定價頁](https://www.anthropic.com/pricing)。
+
+真正穩定的是**比例**：
 
 ```
 傳統 RAG 每次查詢：
-  檢索：5 chunks × 512 tokens = 2,560 input tokens
-  生成：~200 output tokens
-  成本（Claude 3.5）：~$0.008
+  檢索：5 chunks × 512 tokens ≈ 2,600 input tokens
 
 LongRAG 每次查詢：
-  檢索：3 sections × 6,000 tokens = 18,000 input tokens
-  生成：~200 output tokens
-  成本（Claude 3.5）：~$0.055
+  檢索：3 sections × 6,000 tokens ≈ 18,000 input tokens
 
-成本增加約 7 倍，但答案品質顯著提升。
+input token 量約 7 倍。
 ```
 
-這個權衡是否值得，取決於應用場景。對法律、醫療、金融等高價值查詢，7 倍成本換取更準確完整的答案是合理的。對低價值的日常問答，傳統 RAG 可能更經濟。
+由於絕大多數 RAG 查詢的成本由 input token 主導（output 通常只有幾百 token），這個比例大致就是成本比例。實務上有兩個修正項會把差距拉小：**prompt caching**（同一批章節被重複命中時，快取讀取的單價遠低於原價）與**批次處理折扣**——如果你的流量型態吃得到，先量一次再下結論。
+
+這個權衡是否值得，取決於應用場景。對法律、醫療、金融等高價值查詢，數倍成本換取更準確完整的答案通常合理。對低價值的日常高頻問答，傳統 RAG 明顯更經濟。
 
 ---
 
@@ -571,7 +574,8 @@ async function longRAGPipeline(
     .join('\n---\n\n');
 
   const answer = await callLLM({
-    model: 'claude-sonnet-4-20250514',
+    // 模型 ID 從設定注入，別寫死在程式碼裡——它會過期
+    model: process.env.LONG_CONTEXT_MODEL!,
     system: `根據參考資料回答問題。引用來源編號，資料不足時明確說明。`,
     messages: [{ role: 'user', content: `參考資料：\n${context}\n\n問題：${query}` }],
     maxTokens: 1000,
@@ -660,25 +664,13 @@ LongRAG 送入 LLM 的 token 數是傳統 RAG 的 5-10 倍，推論延遲也會�
 
 LongRAG 的前提是 LLM 能處理大量 input tokens。如果你的模型只有 8K-16K 的 context window，LongRAG 的大 chunk 根本放不進去。
 
-目前支援 100K+ context 的模型仍然是少數，且多為付費 API（Claude、Gemini、GPT-4）。本地部署的開源模型大多還在 8K-32K 的範圍。
+今天商用 API 與較新的開源權重模型大多已宣稱支援 10 萬 token 以上，這個限制比 2024 年鬆了很多。但「宣稱支援」不等於「用得好」——見前面 NoLiMa 的結果，以及 Databricks 那份跨 20 個模型的 RAG 長上下文研究：只有少數最新的模型能在 64K 以上維持穩定準確度。真正的限制不是放不放得進去，而是放進去之後模型還抓不抓得到。
 
 ### 2. Token 成本線性增長
 
-更多的 input tokens 直接意味著更高的 API 成本。簡單計算：
+更多的 input tokens 直接意味著更高的 API 成本，而且是線性的。同樣不列單價（會過期），只看量級：如果每天 10,000 次查詢，傳統 RAG 每次約 3K input tokens、LongRAG 約 25K，那就是每天 3,000 萬 vs 2.5 億 token 的差距——同一個單價乘下去，年化差距是好幾個數量級的金額。
 
-```
-假設每天 10,000 次查詢：
-
-傳統 RAG：
-  10,000 × 3,000 tokens × $3/1M = $90/天
-
-LongRAG：
-  10,000 × 25,000 tokens × $3/1M = $750/天
-
-年化差距：$32,850 vs $273,750
-```
-
-這個成本差距在大流量場景下不可忽視。
+在大流量場景下這個差距不可忽視，也是後面 Self-Route 那類「用路由把便宜路徑留給簡單問題」的做法之所以有價值的原因。
 
 ### 3. 推論延遲增加
 
@@ -691,7 +683,7 @@ LLM 的推論時間大致與 input tokens 成正比。25K tokens 的處理時間
 
 ### 4. Embedding 品質隨文字長度下降
 
-現有的 embedding 模型（如 text-embedding-3-large）在處理長文字時，語義表示的品質會下降。一段 5,000 tokens 的文字可能涵蓋多個主題，而單一個 embedding 向量難以同時捕捉所有主題。
+現有的 embedding 模型在處理長文字時，語義表示的品質會下降。一段 5,000 tokens 的文字可能涵蓋多個主題，而單一個 embedding 向量難以同時捕捉所有主題。（各家 embedding 模型的最大輸入長度差異很大，選型前查官方文件；別假設它吃得下你的整個章節。）
 
 **緩解策略**：
 - 用摘要 embedding（前面實作的方法）
@@ -713,6 +705,28 @@ LLM 的推論時間大致與 input tokens 成正比。25K tokens 的處理時間
 
 ---
 
+## 後續研究怎麼說
+
+LongRAG 是 2024 年 6 月的技術報告。之後這一年多，「長上下文 vs RAG」被反覆測過，結論並不一致——這節把幾個關鍵的擺在一起，因為只讀 LongRAG 的摘要很容易得到過度樂觀的印象。
+
+**支持「長上下文贏」的那一側：** Google 的 Self-Route 研究（EMNLP 2024 industry track）在多個公開資料集上比較 RAG 與長上下文 LLM，結論是「資源充足時，長上下文的平均表現持續優於 RAG」——但同一篇也直說 RAG 的成本優勢是明確的，因此他們提出 Self-Route：讓模型自己判斷該走 RAG 還是長上下文，在維持接近長上下文品質的同時大幅降低計算成本。這其實就是本文結尾要講的「混合策略」，只是有了實驗背書。
+
+**反對的那一側，而且直接針對 LongRAG 的核心假設：** 〈In Defense of RAG in the Era of Long-Context Language Models〉（2024/09）主張「極長的 context 會稀釋對相關資訊的注意力，反而讓答案品質下降」。他們提出 OP-RAG（order-preserve RAG，保留檢索片段在原文中的順序），發現**答案品質隨檢索 chunk 數量增加會先升後降，形成倒 U 形曲線**——存在一個甜蜜點，用遠少於長上下文的 token 就能得到更好的答案。這與「塞越多越好」正面衝突。
+
+**另一組實證：** Databricks 的〈Long Context RAG Performance of LLMs〉跨 20 個開源與商用模型、把總 context 從 2K 拉到 128K（可行時到 2M），結論是：**檢索更多文件確實能提升表現，但只有少數最新的模型能在 64K 以上維持穩定準確度**，而且長上下文有各自不同的失效模式。
+
+**還有基準本身的問題：** 前面提過的 NoLiMa（ICML 2025）指出，NIAH 這類測試被字面重疊灌了水；拿掉字面線索之後，長上下文的衰退比大家以為的嚴重得多。
+
+怎麼讀這些互相打架的結果？我的整理是：
+
+- 「大 chunk 提高召回率」這件事站得住——LongRAG 的檢索端數字（recall@1 從 52% 到 71%）是實打實的。
+- 「所以把大 chunk 全塞進去讓模型自己挑」則是**有條件成立**：條件是你的模型在該長度上真的沒退化，而且答案不需要靠非字面的語義關聯去定位。
+- 「長上下文讓 RAG 過時」是最站不住的一個版本。OP-RAG 的倒 U 曲線與 Self-Route 的成本結論都指向同一件事：檢索仍然值得做，只是最佳粒度和最佳 top-k 要靠實測找，不是靠公式。
+
+**順帶一提的命名地雷：** 2024 年有兩篇不同的論文都叫 LongRAG。本文談的是 Jiang et al. 的 [arXiv:2406.15319](https://arxiv.org/abs/2406.15319)（long retriever + long reader）。另一篇是 Zhao et al. 的 [arXiv:2410.18050](https://arxiv.org/abs/2410.18050)（EMNLP 2024 Main），做的是長文件 QA 的雙視角 RAG 系統，架構完全不同。看到有人引用 LongRAG 時，先確認是哪一篇。
+
+---
+
 ## 總結
 
 LongRAG 的核心洞察很簡單：**當 LLM 的理解能力夠強、context window 夠大時，不需要把所有壓力都放在檢索上。**
@@ -726,7 +740,7 @@ LongRAG 重新分配了這個壓力：
 
 這不是要取代傳統 RAG，而是在長上下文模型普及的今天，提供了另一個有效的設計選擇。根據你的文件特性、查詢類型、成本預算和延遲要求，選擇最適合的策略。
 
-最務實的做法可能是**混合策略**：對簡單查詢用傳統 RAG 節省 token，對複雜查詢切換到 LongRAG 提升品質。一個 query classifier 就能做到這件事。
+最務實的做法可能是**混合策略**：對簡單查詢用傳統 RAG 節省 token，對複雜查詢切換到 LongRAG 提升品質。一個 query classifier 就能做到這件事——Self-Route 的實驗結果基本上就是這個做法的背書：讓模型自己判斷該走哪條路，成本大幅下降而品質接近純長上下文。
 
 ---
 
@@ -740,6 +754,11 @@ LongRAG 重新分配了這個壓力：
 ## 參考資料
 
 - [LongRAG: Enhancing Retrieval-Augmented Generation with Long-context LLMs](https://arxiv.org/abs/2406.15319) — Jiang et al. (2024)，LongRAG 原始論文，提出大 chunk 檢索配合長上下文模型的完整框架
+- [LongRAG: A Dual-Perspective Retrieval-Augmented Generation Paradigm for Long-Context Question Answering](https://arxiv.org/abs/2410.18050) — Zhao et al. (EMNLP 2024)，**同名但不同的論文**，容易被引錯
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833) — Li et al. (EMNLP 2024)，Self-Route：長上下文平均較優但成本高，用路由取兩者之長
+- [In Defense of RAG in the Era of Long-Context Language Models](https://arxiv.org/abs/2409.01666) — Yu et al. (2024)，OP-RAG，指出答案品質隨 chunk 數呈倒 U 形，反對無限塞 context
+- [Long Context RAG Performance of Large Language Models](https://arxiv.org/abs/2411.03538) — Leng et al. (NeurIPS 2024 workshop)，跨 20 個模型的長上下文 RAG 實測與失效模式
+- [NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167) — Modarressi et al. (ICML 2025)，拿掉字面重疊後長上下文表現大幅衰退
 - [GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models](https://arxiv.org/abs/2406.14550) — Li et al. (2024, EMNLP)，圖結構 Agent 系統處理長文件，4K 視窗超越 GPT-4-128K
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 演化史與各代設計取捨的完整分析
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，Chunking 策略與 RAG 效能關係的系統性實驗

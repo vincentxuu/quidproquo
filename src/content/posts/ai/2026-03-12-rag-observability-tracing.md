@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "RAG 系統最難的不是建起來，是搞清楚為什麼這次回答不好。Pipeline Tracing 把每個步驟的決策和數據記下來，讓除錯有跡可循。"
 description: "RAG Pipeline 的可觀測性設計：17 步追蹤的資料結構、記錄什麼資訊、如何用 trace 定位問題，以及管理員後台的 trace 視圖設計。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 39
 ---
 
 RAG 系統上線後，使用者回報「這個回答不對」，你要怎麼查？
@@ -116,6 +119,22 @@ interface PipelineTrace {
 
 **selfReflection.accepted**：重生成後有沒有採用新回答。如果採用了但 groundedness 仍然低，說明問題出在 context 不足，不是生成策略。
 
+## 自訂欄位 vs 標準屬性名
+
+上面這份結構是自己定的，欄位名怎麼取都行——但如果之後想把 trace 送進任何一個 observability 平台，就會發現大家都在往 OpenTelemetry 的 GenAI semantic conventions 靠。那份規範已經從 `open-telemetry/semantic-conventions` 主 repo **搬到獨立的 [semantic-conventions-genai](https://github.com/open-telemetry/semantic-conventions-genai) repo**（舊網址還會回 200，但內容只剩一句「已搬家」的公告，別再照著它寫）。
+
+值得注意的是，那份規範現在已經涵蓋到 RAG 和評估，不再只有「LLM 呼叫」那一層：
+
+| 本文的自訂欄位 | 對應的標準屬性 |
+|---|---|
+| `retrieval` 的查詢字串 | `gen_ai.retrieval.query.text` |
+| `generation.injectedDocuments` | `gen_ai.retrieval.documents`（含 id 與 score） |
+| `generation.model` | `gen_ai.request.model` / `gen_ai.response.model` |
+| `generation.promptTokens` / `completionTokens` | `gen_ai.usage.input_tokens` / `gen_ai.usage.output_tokens` |
+| `judge.groundedness` / `judge.reasoning` | `gen_ai.evaluation.name` + `gen_ai.evaluation.score.value` + `gen_ai.evaluation.explanation` |
+
+規範還在 development 階段、屬性會變，所以不建議把它當成內部資料模型直接照抄。比較務實的做法是：內部維持自己好用的結構，在**匯出**那一層做一次映射。這樣哪天要換平台，改的是一個 exporter，不是整條 pipeline。
+
 ## 時間分解
 
 ```typescript
@@ -169,7 +188,7 @@ WHERE created_at < unixepoch() - 30 * 86400;
 [混合搜尋]       向量 18 個 + BM25 12 個 → RRF 22 個  340ms
 [Cross-Encoder]  22 → 8（threshold 0.5）         290ms
 [MMR]            8 → 5（λ=0.7）                   12ms
-[LLM 生成]       Gemma-3-12b，1240 tokens        3,840ms
+[LLM 生成]       <生成模型>，1240 tokens          3,840ms
 [Judge]          groundedness 0.87, quality 3     510ms
 [Self-Reflection] 未觸發（quality > 2）             0ms
 [輸出防護]       通過                              8ms
@@ -206,7 +225,7 @@ WHERE created_at < unixepoch() - 30 * 86400;
 ## 參考資料
 
 - [OpenTelemetry Documentation](https://opentelemetry.io/docs/)
-- [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
+- [OpenTelemetry GenAI Semantic Conventions（2026 年獨立出來的新 repo）](https://github.com/open-telemetry/semantic-conventions-genai)
 - [OpenLLMetry - OpenTelemetry for LLM Applications (GitHub)](https://github.com/traceloop/openllmetry)
 - [Langfuse - Open Source LLM Observability](https://langfuse.com/docs)
 - [AgentOps: Enabling Observability of LLM Agents (arXiv:2411.05285)](https://arxiv.org/abs/2411.05285)

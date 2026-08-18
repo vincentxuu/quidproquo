@@ -8,6 +8,9 @@ tldr: "AEO（Answer Engine Optimization）是針對 AI 搜尋引擎（Perplexity
 description: "完整介紹 AEO 答案引擎優化：什麼是 AEO、與 SEO 的差異、AI 搜尋引擎如何選擇引用來源、部落格 AEO 實作策略與技術面優化。"
 draft: false
 type: guide
+series:
+  name: "AEO / GEO 與 AI 搜尋"
+  order: 2
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en)
@@ -143,7 +146,9 @@ AEO 是針對 AI 搜尋引擎的內容優化策略...
 }
 ```
 
-進階：教學類文章可以加上 `HowTo` schema，FAQ 類文章加上 `FAQPage` schema。這些會直接影響 Google AI Overview 是否以步驟或問答格式呈現你的內容。
+**2026-08 更新**：原本這裡建議教學文加 `HowTo`、FAQ 頁加 `FAQPage`，這個建議已經過期。`HowTo` rich result 2023 年就停止顯示，`FAQPage` rich result 在 2026-05-07 全面下架（[Google 文件更新記錄](https://developers.google.com/search/updates)）。而 Google 在 2026-05 的[生成式 AI 最佳化指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)裡也直說：結構化資料不是生成式 AI 搜尋的必要條件，沒有哪個 schema 會讓 AI Overviews 特別偏好你。
+
+現在合理的做法是：`Article`/`BlogPosting` + `BreadcrumbList` + `Organization` 做好就夠，剩下的力氣放到正文。
 
 ### 內容可機器讀取性
 
@@ -152,7 +157,11 @@ AEO 是針對 AI 搜尋引擎的內容優化策略...
 - **不要把關鍵內容放在圖片裡**：AI 爬蟲的圖片理解能力有限
 - **程式碼用 `<code>` 而不是截圖**：AI 可以讀取和引用程式碼區塊
 - **表格用 HTML `<table>` 而不是圖片**：結構化的表格更容易被提取
-- **robots.txt 不要擋 AI 爬蟲**：確保 `User-agent: *` 允許所有爬蟲
+- **robots.txt 不要擋錯 AI 爬蟲**：這件事比「`User-agent: *` 全開」細一點。各家把「訓練」「搜尋索引」「使用者觸發抓取」拆成不同 user-agent，擋錯一個就直接從該平台的答案裡消失：
+  - OpenAI：`OAI-SearchBot` 才是決定你會不會出現在 ChatGPT 搜尋答案裡的那一個；`GPTBot` 是訓練用，`ChatGPT-User` 是使用者觸發（[官方文件](https://platform.openai.com/docs/bots)）
+  - Anthropic：`Claude-SearchBot`（搜尋索引）、`Claude-User`（使用者觸發）、`ClaudeBot`（訓練）（[官方文件](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)）
+  - Perplexity：`PerplexityBot`（索引，非訓練）、`Perplexity-User`（使用者觸發，官方說明它一般不遵守 robots.txt）（[官方文件](https://docs.perplexity.ai/docs/resources/perplexity-crawlers)）
+  - Google：`Google-Extended` 只影響 Gemini Apps 與 Vertex AI 生成式 API，**不影響 Google 搜尋**，也就是說擋它不會讓你從 AI Overviews 消失——AI Overviews 走的是 Googlebot（[官方文件](https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-extended)）
 
 ### 參考資料和引用
 
@@ -170,23 +179,42 @@ AEO 是針對 AI 搜尋引擎的內容優化策略...
 
 ## 衡量 AEO 效果
 
-老實說，目前沒有像 Google Search Console 這樣的官方工具可以衡量 AEO 效果。但你可以：
+這一段在 2026 年變了：**Google Search Console 已經有官方的生成式 AI 報表**。2026-06-03 上線的 [Search Generative AI performance reports](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports) 提供 AI Overviews、AI Mode 與 Discover 生成式功能的曝光數，可以看頁面、國家、裝置、時間。目前是分批放行給部分網站，你的資源不一定看得到；[官方說明文件](https://support.google.com/webmasters/answer/16984139)有欄位定義。
 
-1. **手動測試**：在 Perplexity、ChatGPT、Google AI Overview 搜尋你文章的主題，看是否被引用
-2. **監控流量來源**：注意 referrer 中來自 AI 搜尋引擎的流量
+要注意它給的是**曝光**，不是點擊或引用次數，也只涵蓋 Google 一家。其他平台仍然只能自己想辦法：
+
+1. **手動測試**：在 Perplexity、ChatGPT、Google AI Mode 搜尋你文章的主題，看是否被引用
+2. **監控流量來源**：注意 referrer 中來自 AI 搜尋引擎的流量（大多數分析工具預設會把 bot 濾掉，要另外設定）
 3. **追蹤品牌搜尋量**：如果 AI 引用你的內容，可能帶動更多品牌搜尋
 4. **使用 Perplexity 的引用追蹤**：Perplexity 會明確標示引用來源，最容易觀察
+
+三方 AEO/GEO 追蹤工具的完整地圖在本系列第 5 篇。
 
 ## AEO 的未來
 
 AI 搜尋引擎還在快速演進。幾個值得關注的趨勢：
 
 - **引用標準化**：各家 AI 引擎正在建立更明確的引用和歸因機制
-- **AI 爬蟲協議**：類似 robots.txt 的 AI 爬蟲管理標準正在形成（如 ai.txt）
+- **AI 爬蟲協議**：這裡當初寫的是「如 ai.txt」，兩年後回頭看，實際跑出來的是另外幾個：Cloudflare 的 [Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/)（在 robots.txt 裡加 `search` / `ai-input` / `ai-train` 三個用途訊號）、IETF 的 AIPREF 工作組，以及 llms.txt——但 llms.txt 的實際成效遠低於當年的預期，詳見本系列第 3 篇
+- **從表態走向強制**：2026-07-01 Cloudflare 宣布自 2026-09-15 起，預設封鎖「混用型」爬蟲（同時做搜尋、訓練、agent 的那種）存取有廣告的頁面，並把 Pay Per Crawl 推進成 Pay Per Use（[官方公告](https://blog.cloudflare.com/content-independence-day-ai-options/)）。robots.txt 是請求，CDN 層的封鎖才是執行
 - **內容授權**：出版商和 AI 公司之間的內容授權模式仍在摸索
 - **多模態搜尋**：AI 引擎開始理解圖片、影片，不只是文字
 
 不管 AI 搜尋怎麼演變，有一件事不會變：**高品質、結構清晰、有原創觀點的內容，永遠是最好的優化策略**。
+
+## 官方怎麼看 AEO/GEO：Google 的「不用做」清單
+
+2026-05-15 Google 發了一份[官方指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)，直接針對 AEO/GEO 的流行說法做澄清。它的立場很簡單：AI Overviews 與 AI Mode 建在核心搜尋的排序與品質系統之上（用 RAG grounding + query fan-out），所以**SEO 的基本功仍然是基礎**，而網路上流行的幾個「AEO 招式」不必做：
+
+| 流行說法 | Google 的說法 |
+|---|---|
+| 要放 llms.txt 之類的 AI 專用檔 | 不需要，Google 搜尋不使用這些檔案；2026-06-15 進一步澄清「不會正面也不會負面影響排名」，你想留給別的服務用是你的自由 |
+| 要把內容切成小塊（chunking）給 AI | 不需要，系統能處理一頁多主題並取出相關片段；沒有理想的頁面長度 |
+| 要為 AI 重寫內容、鋪滿長尾關鍵字 | 不需要，模型懂同義詞與意圖 |
+| 要去各處刷「品牌提及」 | 沒用，刷出來的不真實提及會被排序與反垃圾系統處理掉 |
+| 結構化資料是 AI 引用的關鍵 | 不是必要條件，也沒有專用 schema——但仍值得做，因為它決定 rich result 資格 |
+
+要注意這份指南只代表 **Google 一家**。Perplexity 自建索引、會完整讀 HTML（含 structured data），ChatGPT 走的是自己的抓取與段落級檢索，行為並不一樣——各家管線的差異在本系列第 4 篇拆解。但這份文件的價值在於：它是目前唯一一份由搜尋引擎官方出面、指名道姓說「這幾招沒用」的資料。凡是跟它衝突的 AEO 建議，舉證責任在對方。
 
 ## 整體來說
 
@@ -202,10 +230,18 @@ SEO 讓人們找到你，AEO 讓 AI 替你說話。兩者並行，才是 2025 �
 
 ## 參考資料
 
-- [Google AI Overview 官方說明 — AEO 答案引擎優化與 AI 搜尋引擎引用機制](https://blog.google/products/search/generative-ai-google-search-may-2024/)
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google 官方 AEO/GEO 指南，含「不用做」清單
+- [A new resource for optimizing for generative AI in Google Search](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing) — 上述指南的發佈公告（2026-05-15）
+- [Introducing Search Generative AI performance reports in Search Console](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports) — 官方生成式 AI 曝光報表（2026-06-03）
+- [Generative AI performance report（Search Console 說明）](https://support.google.com/webmasters/answer/16984139)
+- [Google Search 文件更新記錄](https://developers.google.com/search/updates) — FAQ / HowTo rich result 退場時間點
+- [AI features and your website — Google Search Central](https://developers.google.com/search/docs/appearance/ai-features)
+- [Overview of OpenAI Crawlers](https://platform.openai.com/docs/bots) — GPTBot / OAI-SearchBot / ChatGPT-User 的分工
+- [Anthropic 爬蟲說明](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) — ClaudeBot / Claude-User / Claude-SearchBot
+- [Perplexity Crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) — PerplexityBot / Perplexity-User
+- [Cloudflare Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/)
+- [Your site, your rules: new AI traffic options for all customers — Cloudflare](https://blog.cloudflare.com/content-independence-day-ai-options/) — 2026-09-15 起的預設封鎖政策
 - [Schema.org — AEO 結構化資料標準](https://schema.org/)
-- [Google Search Central — AEO 結構化資料指南與 Featured Snippets 優化](https://developers.google.com/search/docs/appearance/structured-data)
+- [Google Search Central — 結構化資料指南](https://developers.google.com/search/docs/appearance/structured-data)
 - [Ahrefs — AEO Answer Engine Optimization 完整指南](https://ahrefs.com/blog/answer-engine-optimization/)
 - [Conductor — What is Answer Engine Optimization?](https://www.conductor.com/academy/answer-engine-optimization/)
-- [Search Engine Journal — AI Search Optimization 策略](https://www.searchenginejournal.com/ai-search-optimization/)
-- [Perplexity AI — FAQ](https://www.perplexity.ai/hub/faq)

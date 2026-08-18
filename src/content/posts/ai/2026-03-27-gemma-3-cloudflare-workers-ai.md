@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨比同級 Llama 穩定。gemma-3-12b-it 已於 2026-05-30 下架，現在的對應選項是 gemma-4-26b-a4b-it：256K context、Vision、Function calling，$0.10 / $0.30 per M tokens。"
 description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 下架後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 9
 ---
 
 選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——在這個限制下，Gemma 系列一直是繁體中文最順的選項。
@@ -201,5 +204,5 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 - [Workers AI：gemma-4-26b-a4b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
 - [Workers AI：gemma-3-12b-it 模型頁（已標記 Deprecated）](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
 - [Workers AI：glm-4.7-flash 模型頁](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
-- [Google Gemma 3 技術報告](https://ai.google.dev/gemma/docs/gemma3)
+- [Google Gemma 官方文件](https://ai.google.dev/gemma/docs)
 - [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — Gemma 在 20 節點 pipeline 中的完整應用

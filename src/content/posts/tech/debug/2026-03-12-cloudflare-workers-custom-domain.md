@@ -8,6 +8,9 @@ tldr: "wrangler.jsonc 的 routes 用 custom_domain: true，pattern 只填 hostna
 description: "在 wrangler.jsonc 設定 custom domain 時的格式坑：不能帶路徑或萬用字元"
 draft: false
 type: debug
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 11
 ---
 
 🌏 [English version](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en)

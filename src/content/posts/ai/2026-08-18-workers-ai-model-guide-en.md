@@ -5,9 +5,12 @@ type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]
 lang: en
-tldr: "The Workers AI catalog currently holds 83 models. For general chat pick glm-4.7-flash ($0.06 / $0.40 per M, 131K context), for vision pick gemma-4-26b-a4b-it ($0.10 / $0.30, 256K), for cheap high-volume steps pick granite-4.0-h-micro ($0.017 / $0.11), and for embeddings pick qwen3-embedding-0.6b or bge-m3 (both $0.012 per M). This post is updated on a schedule."
+tldr: "The Workers AI catalog currently holds 84 models. For general chat pick glm-4.7-flash ($0.06 / $0.40 per M, 131K context), for vision pick gemma-4-26b-a4b-it ($0.10 / $0.30, 256K), for cheap high-volume steps pick granite-4.0-h-micro ($0.017 / $0.112), and for embeddings pick qwen3-embedding-0.6b or bge-m3 (both $0.012 per M). This post is updated on a schedule."
 description: "A Workers AI selection table built from Cloudflare's official model catalog and pricing page: tiered text-generation comparison, embeddings and reranking, image and speech models, Neurons billing, and migration advice after the 2026-05-30 deprecation wave. Continuously updated."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 8
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-18-workers-ai-model-guide)
@@ -16,7 +19,7 @@ The Workers AI catalog turns over fast. The last big sweep was on 2026-05-30, wh
 
 This is a reference table built from the official [model catalog](https://developers.cloudflare.com/workers-ai/models/) and [pricing page](https://developers.cloudflare.com/workers-ai/platform/pricing/), and it gets updated on a schedule.
 
-**Snapshot date**: 2026-08-18. The catalog page reads Last updated 2026-08-12 and lists **83 models**; the pricing page reads Last updated 2026-08-14.
+**Snapshot date**: 2026-08-18. The catalog page reads Last updated 2026-08-12 and lists **84 models**; the pricing page reads Last updated 2026-08-18.
 
 Every context window and price below comes from the individual official model page, not from the upstream model's own spec. The same open model is often served with a shortened context window on Workers AI — `gemma-3-12b-it` ships with 128K upstream but was served at 80,000 tokens before it was removed.
 
@@ -26,7 +29,7 @@ Every context window and price below comes from the individual official model pa
 |---|---|---|
 | General chat, RAG generation | [`@cf/zai-org/glm-4.7-flash`](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/) | $0.06 / $0.40 |
 | Image understanding | [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | $0.10 / $0.30 |
-| Classification, routing, extraction (cheapest) | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.11 |
+| Classification, routing, extraction (cheapest) | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.112 |
 | Reasoning-heavy work | [`@cf/openai/gpt-oss-120b`](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | $0.35 / $0.75 |
 | Agentic / coding (paid plan required) | [`@cf/moonshotai/kimi-k2.7-code`](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | $0.95 / $4.00 |
 | Embeddings | [`@cf/qwen/qwen3-embedding-0.6b`](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) or [`@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | $0.012 (input only) |
@@ -70,7 +73,7 @@ MoE (Mixture-of-Experts) is now the mainstream in this catalog: Gemma 4, Llama 4
 |---|---|---|---|
 | [glm-4.7-flash](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/) | 131,072 | $0.06 / $0.40 | Function calling, Reasoning |
 | [gemma-4-26b-a4b-it](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | 256,000 | $0.10 / $0.30 | Function calling, Reasoning, Vision |
-| [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.11 | Function calling |
+| [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.112 | Function calling |
 | [qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/) | 32,768 | $0.051 / $0.335 | Function calling, Reasoning, Batch |
 | [llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/) | 131,000 | $0.27 / $0.85 | Function calling, Vision, Batch |
 | [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128,000 | $0.351 / $0.555 | Function calling |
@@ -88,7 +91,7 @@ What each of these actually is:
 
 **Switch to `gemma-4-26b-a4b-it` when output dominates.** The two have inverted price structures: GLM is $0.06 in / $0.40 out, Gemma 4 is $0.10 in / $0.30 out. RAG workloads are input-heavy (you stuff in retrieved documents and get back a few hundred words), which favors GLM; long-form generation is output-heavy, which favors Gemma 4. Gemma 4 also adds vision and a 256K window.
 
-**`granite-4.0-h-micro` is the underrated one.** At $0.017 / $0.11 it is the cheapest in this tier, yet it still has function calling and 131K context. For pipeline steps that are high-volume, short, and don't need any style — intent classification, query rewriting, field extraction — it runs an order of magnitude cheaper than your main model.
+**`granite-4.0-h-micro` is the underrated one.** At $0.017 / $0.112 it is the cheapest in this tier, yet it still has function calling and 131K context. For pipeline steps that are high-volume, short, and don't need any style — intent classification, query rewriting, field extraction — it runs an order of magnitude cheaper than your main model.
 
 **`qwen3-30b-a3b-fp8`'s 32,768-token window is the outlier here.** It won't hold a large retrieval set, so budget your context before choosing it.
 
@@ -262,6 +265,10 @@ This is an article with an expiry date, so the update rules live here:
 - Compare three things on each pass: total model count, the pinned list, and the pricing table. Prices and context windows always come from the individual official model page, never from third-party summaries.
 - A new model only enters the tables when it **changes the best answer for some use case**. The goal is not to mirror every entry in the catalog.
 - Removed models stay in the migration section rather than being deleted — readers still have code calling them.
+
+## Update log
+
+- 2026-08-18: First published, checked against the 2026-08-12 catalog (84 models) and the 2026-08-18 pricing page.
 
 ## References
 

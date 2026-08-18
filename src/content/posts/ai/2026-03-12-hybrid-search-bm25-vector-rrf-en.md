@@ -9,8 +9,8 @@ tldr: "Vector search handles semantics; BM25 handles keywords. Combining them wi
 description: "A deep dive into the design principles behind Hybrid Search: BM25 full-text search, vector search, the RRF fusion algorithm, and how they come together in a real climbing community platform."
 draft: false
 series:
-  name: "RAG Systems in Practice"
-  order: 3
+  name: "The RAG Techniques Compendium"
+  order: 11
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
@@ -41,17 +41,24 @@ CREATE VIRTUAL TABLE ai_documents_fts USING fts5(
   content,
   title,
   metadata,
-  tokenize='unicode61'
+  tokenize='trigram'
 );
 ```
 
-FTS5 has built-in BM25 scoring, and the `unicode61` tokenizer supports multi-language Chinese tokenization. Climbing-specific terminology, route names, and crag locations all get matched precisely.
+FTS5 has built-in BM25 scoring, but **the tokenizer choice is the trap in this setup once CJK text is involved**. FTS5's default `unicode61` tokenizer only classifies characters as "separator" or "token" characters — it does no Chinese word segmentation. Han characters are token characters, so an entire run of consecutive Han characters becomes a **single token**. The practical result: a query for 龍洞 never matches a document containing 龍洞岩場, the BM25 leg silently contributes nothing, and nothing errors out — you just quietly lose recall.
+
+The built-in FTS5 option that does handle CJK is the `trigram` tokenizer, which treats every run of three consecutive characters as a token and therefore supports substring matching; Cloudflare's own D1 indexing guidance points at the same option. The trade-off is a larger index and matches that straddle word boundaries. If you want true word-level segmentation, you have to segment in the application layer before writing and store a whitespace-delimited column. Whichever route you take, **test the BM25 leg with real CJK queries before shipping**.
+
+- [SQLite FTS5: Trigram Tokenizer](https://sqlite.org/fts5.html#the_trigram_tokenizer)
+- [Cloudflare D1: Use indexes](https://developers.cloudflare.com/d1/best-practices/use-indexes/)
 
 ## Vector Search (Semantic Search)
 
 Vector search converts both queries and documents into high-dimensional vectors, then measures semantic similarity using cosine similarity.
 
-The model used is `@cf/baai/bge-m3` (1024 dimensions), which is trained multilingually and performs well on Traditional Chinese. A query like "where can I practice bouldering" can surface documents that use phrases like "boulder problem," "抱石區," or "bouldering" — all different ways of saying the same thing.
+The choice here is a multilingual embedding model on Workers AI (this system uses `@cf/baai/bge-m3`). Only two selection criteria really matter: **it has to handle Traditional Chinese, and its dimensionality has to match what is already in the index** — swapping models means rebuilding the whole index, a cost far larger than the differences you were weighing at selection time. The Workers AI catalog and its dimensions keep changing, so treat the [official model list](https://developers.cloudflare.com/workers-ai/models/) as the source of truth.
+
+A query like "where can I practice bouldering" can surface documents that use phrases like "boulder problem," "抱石區," or "bouldering" — all different ways of saying the same thing.
 
 The search pipeline:
 
@@ -150,7 +157,9 @@ User Query
 
 Hybrid Search is fundamentally about **complementary recall and precision**. Vector search provides semantic coverage; BM25 provides keyword precision; RRF fuses them neutrally using rank position. This combination shines in domains like climbing, where you have dense specialized terminology (route grades, crag names, technical terms) alongside natural-language intent ("good for beginners," "scenic views") — it consistently outperforms either approach alone.
 
-The engineering overhead is also manageable: BM25 is handled by SQLite FTS5 with no additional services required. The real challenge lies in the accuracy of filter extraction, which depends on the quality of the upstream NLP parsing step.
+The engineering overhead is also manageable: BM25 is handled by SQLite FTS5 with no additional services required. The real challenges are two: **the accuracy of filter extraction** (which depends on the quality of the upstream NLP parsing step) and **the CJK tokenizer choice** (see above — get it wrong and the BM25 leg quietly dies).
+
+One more trade-off worth naming is build-vs-buy. Cloudflare's AI Search now ships hybrid search out of the box: vector and BM25 run in parallel and are fused with RRF (or max), with the tokenizer and fusion method configurable. If all you need is "hybrid search over a pile of documents," the managed route saves a lot of operational work. What the hand-rolled version buys you is full control over filter extraction, the degradation strategy, and how many legs go into RRF. See [AI Search: Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/).
 
 ---
 

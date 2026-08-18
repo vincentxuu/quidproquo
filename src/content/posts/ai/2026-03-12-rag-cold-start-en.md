@@ -8,6 +8,9 @@ lang: en
 tldr: "A RAG system needs data to answer questions, but data only accumulates as the system gets used. Cold-start strategy is what bridges the gap from empty to useful."
 description: "Design strategies for RAG cold start: prioritizing data sources, bootstrapping the index, graceful degradation, and keeping the system useful when data is sparse."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 44
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-cold-start)
@@ -63,7 +66,13 @@ A database with a few hundred routes can complete the initial index in minutes.
 
 **Second priority: scraping public data**
 
-The climbing community has public resources (8a.nu, theCrag, Mountain Project) that can be scraped for baseline data. Watch out for licensing — confirm the terms of service permit this kind of use.
+The climbing community has public resources (8a.nu, theCrag, Mountain Project) that look scrapeable for baseline data. But **read robots.txt and the terms of service before you start**, and note that the norms now cover more than "may you crawl it" -- they also cover "may you feed it to an AI":
+
+- Mountain Project's robots.txt sets `Crawl-delay: 60` for generic crawlers and blocks a set of paths; respecting that pace makes the crawl far slower than you'd expect.
+- theCrag's robots.txt uses a [Content Signals](https://contentsignals.org/) declaration stating `search=yes, ai-train=no` -- indexing for search is fine, training a model on it is explicitly not. It takes no position on real-time retrieval (`ai-input`), which means neither granted nor refused; if you want it, ask.
+- 8a.nu sits behind a Cloudflare bot challenge -- even robots.txt requires passing a JS challenge to read, which is itself a clear "automated access not welcome" signal.
+
+These settings change; fetch robots.txt yourself before you build anything rather than trusting this paragraph. If you genuinely need bulk data, emailing for an API or a data license is both easier and safer than scraping.
 
 **Third priority: LLM-generated synthetic data**
 
@@ -89,6 +98,17 @@ await generateSeedKnowledge("bouldering for beginners");
 ```
 
 Synthetic data isn't as good as real data, but it's better than an empty knowledge base. These entries get replaced by real data over time.
+
+**One hard line, though: never synthesize safety-relevant content.** Route grades, protection layout, anchor condition, retreat options -- an LLM will produce text that reads exactly like the real thing and may be entirely invented. Once it is in the index, retrieval cites it with the same authority as real data, and the user cannot tell the difference. Synthetic data is only appropriate at the "general knowledge" level (terminology, introductory concepts), and it **must carry a provenance marker in metadata**:
+
+```typescript
+metadata: {
+  source: 'llm-synthetic',   // lets you bulk-remove it later, or down-weight it at generation
+  generated_at: Date.now(),
+}
+```
+
+With that marker you can label the answer ("this part comes from synthesized general knowledge") and wipe the whole batch once real data arrives. Without it, a year later nobody can tell which entries were made up.
 
 ## Graceful Degradation
 
@@ -181,8 +201,10 @@ Most importantly: **don't wait until your data is complete before going live**. 
 ## References
 
 - [RAGSys: Item-Cold-Start Recommender as RAG System](https://arxiv.org/abs/2405.17587)
-- [Cold-Start Recommendation with Knowledge-Guided Retrieval-Augmented Generation](https://arxiv.org/abs/2505.20773)
+- [Adaptive Candidate Retrieval with Dynamic Knowledge Graph Construction for Cold-Start Recommendation](https://arxiv.org/abs/2505.20773)
 - [From Zero-Shot Learning to Cold-Start Recommendation](https://arxiv.org/abs/1906.08511)
 - [KnowTrace: Bootstrapping Iterative Retrieval-Augmented Generation with Structured Knowledge Tracing](https://arxiv.org/abs/2505.20245)
+- [Content Signals (AI-use declarations in robots.txt)](https://contentsignals.org/)
+- [Cloudflare Workers: `ctx.waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/)
 - [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

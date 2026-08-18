@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "AEO/GEO 工具不是單一類別，而是三個面向：輸入面（網站有沒有準備好給 AI 讀）、流量面（AI bot 實際爬了多少）、輸出面（品牌在答案裡怎麼被提到）。這篇把三面向、從開源自架到商業 SaaS 的工具一次攤開。"
 description: "完整盤點 AEO / GEO 工具地圖：輸入面的 isitagentready、llms.txt 驗證器與產生器；流量面的 Matomo、Zerply、aibottracker；輸出面的 aeo-radar、AiCMO、Profound、AthenaHQ、Ahrefs Brand Radar。附共通架構與選型建議。"
 draft: false
+series:
+  name: "AEO / GEO 與 AI 搜尋"
+  order: 5
 ---
 
 AEO / GEO 工具這兩年從「SEO 廠商延伸功能」冒出一整個獨立類別。動機很直接：Google 搜尋仍然重要，但越來越多使用者直接問 ChatGPT、Perplexity、Gemini、Claude，得到一段合成過的答案——而答案裡有沒有你的品牌、排第幾個、引用了誰的內容，傳統 SEO 指標完全看不到。
@@ -19,6 +22,8 @@ AEO / GEO 工具這兩年從「SEO 廠商延伸功能」冒出一整個獨立類
 - **輸出面**：AI 生成答案時怎麼提到你（你只能影響）
 
 這篇按三個面向盤點工具地圖，再拉出共通架構和選型建議。
+
+> **2026-08 更新**：這篇原稿寫於 2026-04，四個月內這個類別發生了三件大事——Adobe 完成收購 Semrush（2026-04-28）、Sitecore 收購 Scrunch（2026-06-03）、Profound 完成 $96M C 輪達到 $1B 估值（2026-02）。同時 llms.txt 的實證資料出爐，結論跟原稿相反。這次翻新逐家確認網站是否還活著、把會腐爛的價格與功能對照表換成取捨判準，並標明各開源專案最後更新時間。
 
 ## 輸入面：網站本身準備好給 AI 讀了嗎
 
@@ -33,7 +38,7 @@ AEO / GEO 工具這兩年從「SEO 廠商延伸功能」冒出一整個獨立類
 - **Bot Access Control**：AI 爬蟲宣告（`AI-usage` directives）
 - **Capabilities**：MCP endpoint、OAuth、Agent Skills、agentic commerce
 
-Cloudflare 公布的掃描統計很狠——全網站只有 4% 宣告 AI 使用偏好、3.9% 支援 Markdown 協商。定位類似「給 AI agent 用的 Lighthouse」，免費、不用註冊。
+Cloudflare 在[發佈文章](https://blog.cloudflare.com/agent-readiness/)裡公布的掃描統計很狠——當時全網站只有約 4% 宣告 AI 使用偏好、3.9% 支援 Markdown 協商（這是發佈時點的數字，之後 Cloudflare 沒有再公布更新版，引用時請帶上時間）。定位類似「給 AI agent 用的 Lighthouse」，免費、不用註冊。
 
 ### llms.txt 專門工具
 
@@ -47,21 +52,27 @@ Cloudflare 公布的掃描統計很狠——全網站只有 4% 宣告 AI 使用�
 
 **開源產生器**（爬你網站、生出 llms.txt）：
 
-- [firecrawl/llmstxt-generator](https://github.com/firecrawl/llmstxt-generator) — 最多星，用 Firecrawl 爬 + GPT-4-mini
-- [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator) — Apify Actor 形式
-- [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator) — 能自動監測網站變化
+- [firecrawl/llmstxt-generator](https://github.com/firecrawl/llmstxt-generator) — 星數最多（最後更新 2025-06）
+- [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator) — Apify Actor 形式，維護中（最後更新 2026-05）
+- [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator) — 能自動監測網站變化，但幾乎沒有社群（0 star、最後更新 2025-09），要用之前先看過程式碼
 
-llms.txt 本身還是 proposed standard，2025 年開始大量網站跟進，但 Cloudflare 的掃描顯示實際採用率還很低——所以這是很容易搶先建立優勢的一塊。
+**原稿在這裡的判斷已經被推翻。** 當時寫「採用率低所以容易搶先建立優勢」，後來的實證資料顯示問題不在採用率，而在**根本沒人讀**：
+
+- Ahrefs 分析 13.7 萬個網站的伺服器日誌，[97% 的 llms.txt 從未被請求過](https://ahrefs.com/blog/llmstxt-study/)，而且沒有任何 AI bot 會主動去試探不存在的 llms.txt
+- SE Ranking 掃 30 萬網域，[10.13% 有 llms.txt](https://seranking.com/blog/llms-txt/)——採用率其實不算低，只是沒有回報
+- Google 2026-05 把 llms.txt 列進[「不用做」清單](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)，2026-06-15 又澄清它「不會正面也不會負面影響能見度或排名」
+
+唯一有實據的用途是 AI 編程助理會在文件網站上讀它。所以：**技術文件站值得做，一般站台別排優先順序**，上面這些驗證器與產生器也就跟著降級成「順手工具」而非必備。
 
 ## 流量面：AI bot 實際爬了你多少頁
 
 這是最容易被忽略的類別。傳統 GA / Plausible 預設會**過濾掉** bot 流量，所以 GPTBot、ClaudeBot、PerplexityBot 每天爬你幾千頁，你在儀表板上看不到。
 
-Cloudflare 的 server log 研究顯示，ChatGPT-User 一小時可以爬 2,400 頁。對重視內容資產的站，這個數字直接關係到「AI 有沒有看到你」——跟輸入面的 llms.txt 設定是一體兩面。
+這一層在 2026 下半年多了一個必看的理由：Cloudflare [宣布](https://blog.cloudflare.com/content-independence-day-ai-options/)自 **2026-09-15** 起，預設封鎖「混用型」爬蟲（同時做搜尋、訓練、agent 的那種）存取有廣告的頁面，適用新客戶、既有客戶的新站台與所有免費方案客戶。也就是說，**你的 AI bot 流量可能會在你什麼都沒改的情況下改變**——先有流量面的觀測，才看得出來發生了什麼。
 
 幾個新興的專門工具：
 
-- **[Matomo 5.8](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)** — 第一個主流開源分析平台內建 AI Assistants 報表，把 AI bot 從人類流量分開。想自架分析就選這個
+- **[Matomo AI Assistants](https://matomo.org/guide/reports/ai-assistants/)** — 主流開源分析平台內建的 AI 報表，把 AI bot 從人類流量分開。AI Assistant 導流追蹤自 5.5.0 起、AI chatbot 報表自 [5.8.0](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/)（2026-03）起、AI Chatbots Content Requests（看 AI 具體要走哪些頁）自 5.12.0 起。想自架分析就選這個
 - **[Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)** — 商業 SaaS，不用埋 code，直接接 CDN/reverse proxy
 - **[aibottracker.com](https://www.aibottracker.com/)** — 免費、不限次數，輕量選項
 - **[LLM Bot Tracker](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)** — WordPress 外掛版
@@ -74,37 +85,46 @@ DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agen
 
 ### 開源自架
 
-核心賣點都一樣：**不要每月 $200–$500 給 SaaS，資料和 prompt 留在自己機器上**。差異在技術棧和資料取得方式。
+核心賣點都一樣：**不付 SaaS 訂閱，資料和 prompt 留在自己機器上**。差異在技術棧和資料取得方式。
 
-**[aeo-radar](https://github.com/hellowalt/aeo-radar)** 用 Playwright 每天 headless 爬 AI 介面、不需要 API key，抓回來的答案交給 Claude CLI 做結構化萃取（品牌是否被提到、情感、競品、引用來源），存進 SQLite，Next.js 16 + Ant Design 畫儀表板。繁中先行、主打非英文市場是明確的取捨——英文市場已經紅海，非英文市場的 AEO 資料反而是商業 SaaS 長期忽略的縫隙。
+自架要付的隱藏成本有三筆，決定之前先算清楚：反爬蟲維護（AI 介面的登入牆和 Cloudflare 挑戰會變）、分析用的 LLM token、以及你自己的時間。當追蹤的 prompt 數量少時，自架通常划算；規模上去之後，前兩筆會逼近 SaaS 的訂閱費。
 
-**[AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)** 是完成度更高的開源選項，Vue + Python + TypeScript，Docker 一鍵起，明確支援 ChatGPT / Gemini / Perplexity / Claude 四家。定位接近「開源版 Profound」，但需要自己帶 OpenAI + Vertex AI 憑證。
+以下各專案附最後更新時間（2026-08 查核），這類小型工具的汰換率很高，長期停更的請當成參考實作而非可依賴的產品。
 
-**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)** 技術棧跟 aeo-radar 最像（Next.js 16、TypeScript、Recharts），功能面比較滿——13 個分頁、6 個 AI 模型同追蹤、6 階段 SRO 分析、引用機會掃描、競品 battlecard。資料面用的是 Bright Data 的 Web Scraper API，優點是不用自己維護反爬策略，缺點是 Bright Data 不免費。
+**[aeo-radar](https://github.com/hellowalt/aeo-radar)**（最後更新 2026-07，維護中）用 Playwright 每天 headless 爬 AI 介面、不需要 API key，抓回來的答案交給 Claude CLI 做結構化萃取（品牌是否被提到、情感、競品、引用來源），存進 SQLite，Next.js 16 + Ant Design 畫儀表板。繁中先行、主打非英文市場是明確的取捨——英文市場已經紅海，非英文市場的 AEO 資料反而是商業 SaaS 長期忽略的縫隙。
 
-**[sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)** 走的是另一條路——不直接爬 AI 介面，而是呼叫 OpenAI API，自動爬你的品牌網站、用網站內容產生一批 prompt 去問 ChatGPT。優點是合法乾淨、不擔心反爬；缺點是你拿到的是「API 版 ChatGPT 怎麼看你」，跟網頁版使用者看到的有落差——網頁版有即時搜尋、API 沒有。
+**[AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)**（最後更新 2025-10，已久未更新）是完成度更高的開源選項，Vue + Python + TypeScript，Docker 一鍵起，明確支援 ChatGPT / Gemini / Perplexity / Claude 四家。定位接近「開源版 Profound」，但需要自己帶 OpenAI + Vertex AI 憑證。
 
-輕量選項還有 [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer) 和 [getcito](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool)。
+**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)**（最後更新 2026-08，這幾個月成長最快，星數已破 200）技術棧跟 aeo-radar 最像（Next.js 16、TypeScript、Recharts），功能面比較滿——13 個分頁、6 個 AI 模型同追蹤、6 階段 SRO 分析、引用機會掃描、競品 battlecard。資料面用的是 Bright Data 的 Web Scraper API，優點是不用自己維護反爬策略，缺點是 Bright Data 不免費。
+
+**[sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)**（最後更新 2025-07，已久未更新）走的是另一條路——不直接爬 AI 介面，而是呼叫 OpenAI API，自動爬你的品牌網站、用網站內容產生一批 prompt 去問 ChatGPT。優點是合法乾淨、不擔心反爬；缺點是你拿到的是「API 版 ChatGPT 怎麼看你」，跟網頁版使用者看到的有落差——網頁版有即時搜尋、API 沒有。
+
+輕量選項還有 [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer)（1 star、2025-10 後未更新，當範例讀就好）和 [getcito](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool)。
 
 ### 商業 SaaS：光譜從 free tier 到六位數企業合約
 
-純 AEO/GEO 廠商：
+**這一節不列價格。** 原稿寫過的價格帶在四個月內幾乎全數變動過（有的降價、有的取消免費方案、有的改成 EUR 地區定價），而且多數廠商的入門方案會用「追幾個 prompt、涵蓋幾家引擎」來切級距，單看月費沒有意義。要比價請直接看各家 pricing 頁；下面只寫定位與 2026-08 的狀態。
 
-- **[Profound](https://www.tryprofound.com/)** — Series B $35M，enterprise 旗艦
+純 AEO/GEO 廠商（2026-08 逐家確認網站仍在運作）：
+
+- **[Profound](https://www.tryprofound.com/)** — enterprise 旗艦。原稿寫的「Series B $35M」已過期：2026-02-24 完成 [$96M C 輪、估值 $1B](https://www.tryprofound.com/blog/profound-raises-96m-series-c)（Lightspeed 領投），累計募資超過 $155M，產品線也從追蹤延伸到會自己產內容的 Agents
 - **[AthenaHQ](https://athenahq.ai)** — YC 支持，前 Google / DeepMind 班底
 - **[Evertune](https://www.evertune.ai/)** — 主打 AI 搜尋 customer journey 全流程
-- **[Peec.ai](https://peec.ai)**、**[Scrunch](https://scrunch.com)**、**[Goodie](https://goodie.ai)**、**[Bluefish AI](https://bluefish.ai)**、**[ZipTie](https://ziptie.ai)**、**[Knowatoa](https://knowatoa.com)** — 中段班
+- **[Scrunch](https://scrunch.com)** — **已被 Sitecore 收購**（[2026-06-03 公告](https://www.sitecore.com/company/newsroom/press-releases/2026/06/sitecore-acquires-scrunch-to-help-brands-influence-discovery--and-buying-decisions)），品牌與網站仍在，但已併入 Sitecore 的 DXP，未來的採購決策會綁到 Sitecore 合約
+- **[Peec.ai](https://peec.ai)**、**[Goodie](https://goodie.ai)**、**[Bluefish AI](https://bluefish.ai)**、**[ZipTie](https://ziptie.ai)**、**[Knowatoa](https://knowatoa.com)** — 中段班
 - **[Otterly.AI](https://otterly.ai)**、**[LLMrefs](https://llmrefs.com/)**、**[AIclicks](https://aiclicks.io/)**、**[Rankscale](https://rankscale.ai/)**、**[Sight AI](https://www.trysight.ai)** — 偏中小團隊訂閱
 
 傳統 SEO 大廠延伸出的 AEO 模組：
 
 - **[Ahrefs Brand Radar](https://ahrefs.com/brand-radar)** — 2025/3 推出，直接併進 Ahrefs 主訂閱
-- **[SEMrush AI Visibility Toolkit](https://semrush.com)**
+- **Semrush AI Visibility Toolkit** — **Semrush 已被 Adobe 收購**，交易於 [2026-04-28 完成](https://news.adobe.com/news/2026/04/adobe-completes-semrush-acquisition)（$1.9B 全現金，2025-11 宣布）。它現在是 Adobe 客戶體驗產品線的一部分，跟 Adobe LLM Optimizer 會怎麼整併還沒定案——如果你正在評估長約，這是要問清楚的事
 - **[SE Ranking AEO Tool](https://seranking.com/answer-engine-optimization-tool.html)**
-- **[HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)** — 免費，28 天試用含 10 組 ChatGPT prompt
+- **[HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)** — 免費的一次性健檢（試用條件會變，以官網為準）
 - **[Writesonic GEO](https://writesonic.com/)** — 追蹤 + 內容生成綁一起
 
-SaaS 端的競爭焦點已經從「有沒有追 ChatGPT」變成「引用來源分析深度」「hallucination 偵測」「跨平台 share of voice 歸因」。純追蹤功能會越來越 commodity。
+**2026 年的兩個結構性變化**：一是**併購潮**——半年內 Adobe 吃下 Semrush、Sitecore 吃下 Scrunch，純追蹤型工具正在被大型行銷/內容平台收編；二是**競爭焦點上移**——從「有沒有追 ChatGPT」變成「引用來源分析深度」「hallucination 偵測」「跨平台 share of voice 歸因」，再進一步變成「查到問題之後能不能自動改內容」。純追蹤功能會越來越 commodity。
+
+選型時值得問的一句話是：**這家公司兩年後還會獨立存在嗎？** 被收購不必然是壞事（資源更多），但你的資料匯出路徑、API 承諾與價格會跟著改。
 
 ### Citation 專門工具（比 mention 更細的粒度）
 
@@ -119,7 +139,7 @@ Chrome 擴充這類「人肉搜尋時順便記錄」的輕量工具，在還沒�
 ## 資源目錄：盤點時的 meta 層
 
 - [amplifying-ai/awesome-generative-engine-optimization](https://github.com/amplifying-ai/awesome-generative-engine-optimization) — 目前最完整的 GEO 工具地圖
-- [geotoolco/AEO-Answer-Engine-Optimization](https://github.com/geotoolco/AEO-Answer-Engine-Optimization) — 連社群、外掛、顧問公司都列
+- [geotoolco/Top-Answer-Engine-Optimization](https://github.com/geotoolco/Top-Answer-Engine-Optimization) — 連社群、外掛、顧問公司都列（repo 已改名，舊網址會轉址）
 - [izak-fisher/generative-engine-optimization-tools](https://github.com/izak-fisher/generative-engine-optimization-tools)
 - [luka2chat/awesome-geo](https://github.com/luka2chat/awesome-geo)
 - [tentenco/awesome-geo](https://github.com/tentenco/awesome-geo)
@@ -163,9 +183,9 @@ Chrome 擴充這類「人肉搜尋時順便記錄」的輕量工具，在還沒�
 
 **輸出面**（實際看品牌在 AI 答案裡的樣子）：
 - 只想快速看一眼：HubSpot AEO Grader 免費試、Ahrefs Brand Radar（本來就訂）、AI Citation Tracker Chrome 擴充（搜尋時 highlight）
-- 長期自架：aeo-radar（繁中市場最順）、AiCMO（功能最完整）、geo-aeo-tracker（UI 最完整但要 Bright Data）
-- 做自己的 AEO 產品：讀 aeo-radar 和 AiCMO 的 source code，再掃 awesome list
-- 企業級：Profound 或 AthenaHQ
+- 長期自架：aeo-radar（繁中市場最順、仍在維護）、geo-aeo-tracker（功能最滿、更新最勤，但要 Bright Data）；AiCMO 功能完整但已久未更新，當參考實作看
+- 做自己的 AEO 產品：讀 aeo-radar 和 geo-aeo-tracker 的 source code，再掃 awesome list
+- 企業級：Profound 或 AthenaHQ；已經在 Sitecore 或 Adobe 生態系裡的，先問既有合約能不能涵蓋（Scrunch → Sitecore、Semrush → Adobe）
 - 單平台訂閱：Otterly.AI 或 LLMrefs
 - 要 citation 粒度：Am I Cited
 
@@ -187,7 +207,7 @@ AEO 工具這個類別在 2025 上半年還是 SaaS 廠商的戰場，到 2026 �
 - [firecrawl/llmstxt-generator（開源 llms.txt 產生器）](https://github.com/firecrawl/llmstxt-generator)
 - [apify/actor-llmstxt-generator](https://github.com/apify/actor-llmstxt-generator)
 - [Blimeo/llms-txt-generator](https://github.com/Blimeo/llms-txt-generator)
-- [Matomo 5.8 AI Chatbot Tracking（流量面分析）](https://inimino.org/matomo-5-8-launches-ai-chatbot-tracking-dedicated-reports-separate-bot-traffic-from-human-visits/)
+- [Matomo AI Assistants 報表說明](https://matomo.org/guide/reports/ai-assistants/) 與 [5.8.0 發佈公告](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/)（流量面分析）
 - [Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)
 - [aibottracker.com](https://www.aibottracker.com/)
 - [LLM Bot Tracker WordPress Plugin](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)
@@ -198,10 +218,16 @@ AEO 工具這個類別在 2025 上半年還是 SaaS 廠商的戰場，到 2026 �
 - [danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)
 - [sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)
 - [naikpratham-hub/LLM-Brand-Visibility-Analyzer](https://github.com/naikpratham-hub/LLM-Brand-Visibility-Analyzer)
-- [Profound — AEO/GEO 企業級 SaaS](https://www.tryprofound.com/)
+- [Profound — AEO/GEO 企業級 SaaS](https://www.tryprofound.com/) 與 [$96M C 輪公告（2026-02）](https://www.tryprofound.com/blog/profound-raises-96m-series-c)
+- [Sitecore 收購 Scrunch 公告（2026-06-03）](https://www.sitecore.com/company/newsroom/press-releases/2026/06/sitecore-acquires-scrunch-to-help-brands-influence-discovery--and-buying-decisions)
+- [Adobe 完成收購 Semrush（2026-04-28）](https://news.adobe.com/news/2026/04/adobe-completes-semrush-acquisition)
+- [We Analyzed 137K Sites: 97% of llms.txt Files Never Get Read — Ahrefs](https://ahrefs.com/blog/llmstxt-study/)
+- [LLMs.txt: Why Brands Rely On It and Why It Doesn't Work — SE Ranking](https://seranking.com/blog/llms-txt/)
+- [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) — Google 官方把 llms.txt 列進「不用做」清單
+- [Your site, your rules: new AI traffic options for all customers — Cloudflare](https://blog.cloudflare.com/content-independence-day-ai-options/) — 2026-09-15 起的預設封鎖政策
 - [AthenaHQ — YC 支持 GEO 工具](https://athenahq.ai)
 - [Ahrefs Brand Radar — AI 品牌知名度追蹤](https://ahrefs.com/brand-radar)
-- [Semrush AI Visibility Toolkit](https://www.semrush.com/)
+- [Semrush AI Visibility Toolkit](https://www.semrush.com/)（現屬 Adobe）
 - [HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)
 - [Otterly.AI](https://otterly.ai)
 - [LLMrefs — LLM 品牌提及追蹤](https://llmrefs.com/)

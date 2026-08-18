@@ -5,9 +5,12 @@ category: tech
 type: deep-dive
 tags: [playwright, mcp, browser-automation, ai-agent, e2e-testing, developer-tools]
 lang: en
-tldr: "@playwright/mcp defaults to an accessibility tree (browser_snapshot) instead of screenshots, cutting token consumption by 90%+. Combined with Playwright's native auto-wait, it's the best starting point for AI agents doing web automation."
-description: "A deep-dive into @playwright/mcp: installation, the full tool list, the token advantages of accessibility tree mode, multi-tab management, and when to switch to screenshot mode."
+tldr: "@playwright/mcp defaults to an accessibility tree (browser_snapshot) instead of screenshots, cutting token consumption sharply. Combined with Playwright's native auto-wait it's a sensible starting point for AI agents doing web automation — but note it now runs headed by default, keeps a persistent profile by default, and gates advanced tool groups behind --caps."
+description: "A deep-dive into @playwright/mcp: installation, tool groups and the --caps switch, the token advantages of accessibility tree mode, profile and session management, and when to switch to screenshot mode or to the Playwright CLI instead."
 draft: false
+series:
+  name: "Browser Automation and MCP"
+  order: 1
 ---
 
 > 🌏 [中文版](/posts/tech/2026-06-20-playwright-mcp)
@@ -29,65 +32,45 @@ Start it directly with `npx` — no global install required:
 }
 ```
 
-Launches headless Chromium by default. For headed mode (visible browser window):
+**It runs headed by default** (you see the browser window) — the opposite of early versions, and the `--headed` flag older write-ups mention no longer exists. To run headless, pass `--headless`:
 
 ```json
 {
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest", "--headed"]
+      "args": ["@playwright/mcp@latest", "--headless"]
     }
   }
 }
 ```
 
-Attach to an existing Chrome instance:
+Switch engines with `--browser` (`chrome` / `firefox` / `webkit` / `msedge`). There are two ways to attach to an already-running browser: point `--cdp-endpoint` at a debuggable endpoint (e.g. `http://localhost:9222`), or install the official Playwright browser extension and use `--extension` to drive your existing tabs. The full flag table lives in [the README's Configuration section](https://github.com/microsoft/playwright-mcp#configuration).
 
-```json
-{
-  "args": ["@playwright/mcp@latest", "--cdp-endpoint", "ws://localhost:9222"]
-}
-```
+> **Decide whether you want MCP at all.** The upstream README now opens by talking you out of it: for coding agents Microsoft recommends [Playwright CLI + Skills](https://github.com/microsoft/playwright-cli) instead, because CLI invocations avoid loading large tool schemas and verbose accessibility trees into the context window. MCP's stated niche has narrowed to long-running agentic loops that genuinely benefit from persistent browser state and iterative reasoning over page structure.
 
-## Tool List
+## Tool Groups and `--caps`
 
-@playwright/mcp organises its tools into several categories:
+The tool list has churned heavily over the past year, so memorising it item by item is pointless — it goes stale. Here's the structure; for **exact names and parameters, read the official [Tools section](https://github.com/microsoft/playwright-mcp#tools)**.
 
-**Navigation**
-- `browser_navigate` — go to URL
-- `browser_go_back` / `browser_go_forward` — history navigation
-- `browser_reload` — refresh the page
+Loaded by default: **Core automation** (navigate, click, type, forms, snapshot, screenshot, wait, console/network, evaluate) plus **Tab management**. Everything else is **opt-in** via `--caps`:
 
-**Page State**
-- `browser_snapshot` — get ARIA accessibility tree (default mode, no image)
-- `browser_screenshot` — screenshot (base64 PNG, requires a vision model)
+| `--caps` value | What it unlocks |
+|---|---|
+| `config` | Read the running server's configuration |
+| `network` | Request interception/rewriting (route), network-state emulation |
+| `storage` | Cookies, localStorage, sessionStorage, storage state |
+| `devtools` | Low-level CDP access |
+| `vision` | Coordinate-based mouse tools (for computer-use style models) |
+| `pdf` | Save the page as PDF |
+| `testing` | Assertion tools, locator generation |
 
-**Interaction**
-- `browser_click` — click element (by ARIA label / role / text)
-- `browser_type` — type text into an input
-- `browser_press_key` — press key (Enter, Tab, Escape, etc.)
-- `browser_hover` — mouse hover
-- `browser_drag` — drag and drop
+Renames that commonly break copied-from-old-posts calls:
 
-**Forms**
-- `browser_select_option` — pick a dropdown value
-- `browser_file_upload` — upload a file
-- `browser_handle_dialog` — handle alert / confirm / prompt
-
-**Network and Dev**
-- `browser_network_requests` — list page network requests
-- `browser_console_messages` — retrieve console output
-- `browser_evaluate` — execute JS in the page context
-
-**Tab Management**
-- `browser_tab_list` — list all open tabs
-- `browser_tab_new` — open a new tab
-- `browser_tab_select` — switch to a tab
-- `browser_tab_close` — close a tab
-
-**Export**
-- `browser_pdf_save` — save page as PDF
+- The screenshot tool is `browser_take_screenshot`, not `browser_screenshot`.
+- Tab handling collapsed into a single `browser_tabs`; there is no `browser_tab_list` / `browser_tab_new` / `browser_tab_select` / `browser_tab_close`.
+- Going back is `browser_navigate_back`; there is **no** forward tool and no standalone reload tool.
+- `browser_pdf_save` requires `--caps=pdf` — it is not available by default.
 
 ## Accessibility Tree Mode vs Screenshot Mode
 
@@ -108,7 +91,7 @@ Attach to an existing Chrome instance:
 
 A 1920×1080 screenshot base64-encoded is roughly 100–300 KB, translating to tens of thousands of tokens; the accessibility tree for the same page is typically 2–10 KB and can be processed by any text model without vision capability.
 
-When to switch to screenshot mode (`browser_screenshot`):
+When to switch to screenshot mode (`browser_take_screenshot`):
 - The page is image-heavy (galleries, maps, Canvas-rendered content)
 - You need to verify visual styling (colours, layout correctness)
 - The accessibility tree carries insufficient information to determine page state
@@ -121,23 +104,17 @@ For AI agents this means: no need to sprinkle "wait for the page to load" or "wa
 
 ## Multi-tab Management
 
-@playwright/mcp supports a full multi-tab workflow:
-
-```
-browser_tab_new → (work in new tab) → browser_tab_select(original tab) → browser_tab_close
-```
-
-Each tab has its own page context. `browser_snapshot` and `browser_screenshot` target the currently active tab. Cross-tab data transfer requires `browser_evaluate` or the agent tracking the state itself.
+Opening, closing, switching, and listing tabs all go through the single `browser_tabs` tool, distinguished by its parameters. Each tab has its own page context. `browser_snapshot` and `browser_take_screenshot` target the currently active tab. Cross-tab data transfer requires `browser_evaluate` or the agent tracking the state itself.
 
 ## Limitations
 
-**No access to raw CDP Domains**: HeapProfiler, Profiler, Security, and other Domains not wrapped by Playwright are unavailable in @playwright/mcp.
+**Low-level CDP is opt-in**: you get a CDP channel only after `--caps=devtools`; without it, anything Playwright hasn't wrapped (heap snapshots, CPU profiles) is out of reach. For real performance or memory work, [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en) is the more direct tool.
 
-**Firefox / WebKit require extra config**: Chromium is the default. Switching browsers requires a startup flag, and some tools (such as `browser_cdp_send`) only work with Chromium.
+**Cross-browser isn't free**: Firefox / WebKit need `--browser`, and CDP-related capabilities only work on Chromium-family engines.
 
 **Accessibility tree coverage**: Pages with poor ARIA attributes may produce incomplete snapshots. In those cases, switch to screenshot mode or use `browser_evaluate` to query the DOM directly.
 
-**Sessions are not persistent**: Restarting the MCP server clears the session — cookies and localStorage are lost. For persistent sessions, manage a browser profile via `--user-data-dir`.
+**The persistent profile is a double-edged default**: a persistent profile is now the **default** (stored per MCP-client workspace root), so logins survive across sessions. The flip side is that two clients sharing a workspace fight over the same profile — to run them in parallel you need `--isolated` or distinct `--user-data-dir` values. In isolated mode all state dies when the browser closes, so preloading a login means feeding a storage state file via `--storage-state`.
 
 ## In Summary
 
@@ -146,7 +123,10 @@ Each tab has its own page context. `browser_snapshot` and `browser_screenshot` t
 ## References
 
 - [@playwright/mcp — GitHub](https://github.com/microsoft/playwright-mcp)
+- [@playwright/mcp tool list (README › Tools)](https://github.com/microsoft/playwright-mcp#tools)
+- [Playwright CLI + Skills — GitHub](https://github.com/microsoft/playwright-cli)
 - [Playwright Documentation](https://playwright.dev/)
+- [Playwright authentication and storage state docs](https://playwright.dev/docs/auth)
 - [ARIA Accessibility Tree — MDN](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)
 - [Model Context Protocol — Official Docs](https://modelcontextprotocol.io/)
 - [Browser MCP Comparison](/posts/tech/2026-06-20-browser-mcp-comparison-en)

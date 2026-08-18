@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "切太大找不準，切太小失去上下文。Chunking 是 RAG 最被低估的環節，策略選錯，後面再多優化都是白費。"
 description: "RAG 系統的 Chunking 策略比較：Fixed-size、Sentence-based、Recursive、Semantic Chunking，各自的適用場景和實作考量。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 5
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-chunking-strategies-en)
@@ -134,7 +137,11 @@ function recursiveChunk(
 
 ## Semantic Chunking
 
-最複雜也最智慧的方式：先 embed 每個句子，計算相鄰句子的語義距離，在語義「斷層」處切割。
+最複雜的方式：先 embed 每個句子，計算相鄰句子的語義距離，在語義「斷層」處切割。
+
+先講結論再看程式碼：**這個方法聽起來最聰明，但沒有證據顯示它值得那個成本**。2024 年一篇系統性評測（arXiv:2410.13070, *Is Semantic Chunking Worth the Computational Cost?*）在文件檢索、證據檢索、檢索式問答三種任務上比較 semantic chunking 與單純的固定大小切塊，結論是「semantic chunking 的運算成本無法被穩定的效能提升所證成」。Chroma 的切塊評測技術報告也指出，參數調得好的 `RecursiveCharacterTextSplitter` 這類啟發式策略在實務上往往就夠用。
+
+所以請把它當成「有預算、且已經量測過確實有幫助」時才上的選項，而不是預設起手式。
 
 ```typescript
 async function semanticChunk(
@@ -176,8 +183,21 @@ async function semanticChunk(
 - 每個句子都要 embed，索引成本高（N 個句子 = N 次 embedding）
 - Threshold 需要根據內容調整，沒有通用值
 - 可能產生過長或過短的 chunk
+- 上述評測顯示，這些成本換不到穩定的檢索品質提升
 
-**適合**：內容結構不固定、主題轉換頻繁的文件；預算允許的精品索引。
+**適合**：內容結構不固定、主題轉換頻繁的文件；而且**你已經用自己的語料量測過它確實比 Recursive 好**。
+
+---
+
+## Late Chunking
+
+Jina AI 在 2024 年提出的另一條路（arXiv:2409.04701）：不是「切完再各自 embed」，而是**先用長上下文 embedding 模型把整份文件的所有 token 編碼完，再在 transformer 之後、mean pooling 之前才切**。因為切割發生在模型看完全文之後，每個 chunk 的向量天然帶有前後文資訊。
+
+它和 Contextual Retrieval 解的是同一個問題（chunk 失去上下文），但走的是完全不同的路：Contextual Retrieval 用 LLM 生成文字再 embed，Late Chunking 只改 pooling 的時機、不需要額外的 LLM 呼叫。
+
+2025 年一篇比較研究（arXiv:2504.19754）把兩者放在一起測：Contextual Retrieval 在保留語義連貫性上較好，但運算成本高；Late Chunking 效率高得多，代價是相關性與完整性有所犧牲。
+
+**限制**：需要一個 context window 夠長的 embedding 模型，而且平台實際允許的輸入長度可能遠低於模型宣稱值——上線前先確認自己用的推論平台真正吃得下多長的輸入。
 
 ---
 
@@ -188,6 +208,8 @@ async function semanticChunk(
 | 小（128 tokens） | 高（精確命中） | 低（片段） | 大 |
 | 中（512 tokens） | 中 | 中 | 中 |
 | 大（1024 tokens） | 低（模糊） | 高（完整） | 小 |
+
+表中的數字是說明用的量級，不是建議值。實際上限由你用的 embedding 模型（以及推論平台）能吃多長的輸入決定——很多託管平台對單次輸入的 token 上限比模型本身的規格低很多，切塊前先查清楚該模型在你的平台上的實際上限。
 
 解法：**Parent Document Retriever**（兩級架構）
 
@@ -226,7 +248,10 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 - [Anthropic - Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
 - [LangChain Text Splitters Documentation](https://docs.langchain.com/oss/python/integrations/splitters/)
 - [LlamaIndex - Node Parsers / Text Splitters](https://developers.llamaindex.ai/python/framework/module_guides/loading/node_parsers/)
-- [Evaluating Chunking Strategies for Retrieval (arXiv:2406.14497)](https://arxiv.org/abs/2406.14497)
+- [Evaluating Chunking Strategies for Retrieval（Chroma 技術報告，2024-07）](https://research.trychroma.com/evaluating-chunking)
+- [Is Semantic Chunking Worth the Computational Cost?（arXiv:2410.13070）](https://arxiv.org/abs/2410.13070)
+- [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models（arXiv:2409.04701）](https://arxiv.org/abs/2409.04701)
+- [Reconstructing Context: Evaluating Advanced Chunking Strategies for RAG（arXiv:2504.19754）](https://arxiv.org/abs/2504.19754)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

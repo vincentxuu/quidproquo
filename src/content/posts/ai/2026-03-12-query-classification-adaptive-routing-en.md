@@ -8,6 +8,9 @@ lang: en
 tldr: "Not every question needs full RAG. Classify queries with an LLM first, then route to the right execution path — saving cost and improving accuracy."
 description: "A guide to Query Classification design: 6 query types, routing strategies, dynamic model selection, and how to make your pipeline automatically adapt its execution path based on query intent."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 16
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-query-classification-adaptive-routing)
@@ -66,10 +69,10 @@ The classification result determines which execution path the pipeline takes:
 | Type | Execution Path |
 |------|----------------|
 | `simple` | embedding → hybrid search → lightweight LLM generation |
-| `complex` | HyDE + Multi-Query + hybrid search → reranking → MMR → Gemma generation → Judge |
+| `complex` | HyDE + Multi-Query + hybrid search → reranking → MMR → large-model generation → Judge |
 | `general-knowledge` | Skip all retrieval → answer directly with LLM |
 | `sql` | Execute SQL template → lightweight LLM to format answer → early return |
-| `hybrid` | SQL for candidates → vector search supplement → Gemma recommendation generation |
+| `hybrid` | SQL for candidates → vector search supplement → large-model recommendation generation |
 | `clarification-needed` | Assemble clarification options → return to user |
 
 Every step in the pipeline has a `skipWhen` condition that automatically skips irrelevant steps based on `queryType`:
@@ -89,6 +92,8 @@ Every step in the pipeline has a `skipWhen` condition that automatically skips i
 
 This design keeps the pipeline linear — no manual branching logic needed. Each step manages its own skip condition, keeping classification results and step logic cleanly decoupled.
 
+If you're using a framework instead of hand-rolling the pipeline, note that the `RouterChain` shown in older LangChain tutorials now lives in `langchain-classic` and is no longer the recommended path. The core package offers branching primitives like `RunnableBranch` and `RouterRunnable`, and the current official guidance for multi-way routing is to do it in LangGraph with `Command` (single destination) or `Send` (parallel fan-out) — see the [LangChain router architecture docs](https://docs.langchain.com/oss/python/langchain/multi-agent/router). The concept is identical to this article (classify first, then dispatch); only the dispatch vehicle changed.
+
 ## Dynamic Model Selection
 
 The classification result also determines which LLM to use:
@@ -96,11 +101,13 @@ The classification result also determines which LLM to use:
 ```typescript
 const effectiveLlmModel =
   ["simple", "general-knowledge"].includes(queryType)
-    ? "llama-3.1-8b-instruct"  // Lightweight, low cost
-    : "gemma-3-12b-it";        // Full-featured, higher quality
+    ? MODELS.small   // Lightweight, low cost — for answers that mostly copy context
+    : MODELS.large;  // Only when reasoning, comparison, or long-form structure is needed
 ```
 
-An 8B model is sufficient for simple queries; complex queries get the 12B model. In high-traffic scenarios, this dynamic selection meaningfully reduces token costs and average latency.
+The specific model IDs don't matter and shouldn't be hardcoded into an article — this layer gets replaced by something cheaper or stronger every few months. What matters is the trade-off itself: **the classification result exists to decide whether a question is worth spending a big model on**. Answers for `simple` and `general-knowledge` mostly copy or paraphrase context, so a small model suffices; `complex` and `hybrid` need comparison, reasoning, and long-form structure, which is where the big model earns its cost. In high-traffic scenarios, this dynamic selection meaningfully reduces token costs and average latency.
+
+In practice, pull the model IDs out into a single config constant (like `MODELS.small` / `MODELS.large` above) so swapping models touches one place. For what's actually available, check your platform's model catalog directly — e.g. [Cloudflare Workers AI models](https://developers.cloudflare.com/workers-ai/models/).
 
 ## Handling `clarification-needed`
 
@@ -133,8 +140,9 @@ Key design principles for this layer:
 ## References
 
 - [Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity](https://arxiv.org/abs/2403.14403)
-- [SymRAG: Efficient Neuro-Symbolic Retrieval-Augmented Generation through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
-- [Query Routing for Retrieval-Augmented Language Models](https://arxiv.org/html/2505.23052v1)
+- [SymRAG: Efficient Neuro-Symbolic Retrieval Through Adaptive Query Routing](https://arxiv.org/abs/2506.12981)
+- [RAGRouter: Learning to Route Queries to Multiple Retrieval-Augmented Language Models](https://arxiv.org/abs/2505.23052)
 - [Context Awareness Gate For Retrieval Augmented Generation](https://arxiv.org/abs/2411.16133)
+- [Router architecture and dispatch primitives — official LangChain docs](https://docs.langchain.com/oss/python/langchain/multi-agent/router)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

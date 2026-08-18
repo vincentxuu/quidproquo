@@ -8,6 +8,9 @@ lang: en
 tldr: "browse.sh, launched by Browserbase in May 2026, is two things: a browser skill catalog and the Browse CLI. The core thesis: the bottleneck for browser agents isn't reasoning — it's amnesia. By storing learned site-specific workflows as plain-text SKILL.md files, Autobrowse cut Craigslist task costs from ~$0.22 to ~$0.12 by their own metrics. Note: this has nothing to do with the 2018 Browsh text-mode browser."
 description: "A breakdown of Browserbase's browse.sh: the browser skill catalog, the Browse CLI, how Autobrowse trains skills, its relationship to the AgentSkills standard, and what 'open source and free' actually means here."
 draft: false
+series:
+  name: "Browser Automation and MCP"
+  order: 6
 ---
 
 🌏 [中文版](/posts/ai/2026-05-23-browse-sh-browser-skills)
@@ -29,7 +32,7 @@ According to the official description, browse.sh is two things bundled together:
 
 In plain terms:
 
-1. **A skill catalog** (the browse.sh website): launched with 100+ curated skills, with over 110 browsable at time of writing — covering e-commerce (Craigslist, Zillow, eBay), food delivery (DoorDash, McDonald's), travel (flights, hotels, Airbnb), government portals (benefits, case lookups), and developer tools (GitHub).
+1. **A skill catalog** (the browse.sh website): browsable and searchable by domain — e-commerce (Craigslist, Amazon, eBay), travel and lodging (Airbnb, Booking.com, flights), government portals (SAM.gov, benefits lookups), real estate and rentals (Zillow, Apartments.com), finance, developer tools — and still growing. Each skill is tagged with the route it takes: `API`, `Fetch`, `Browser`, or `Hybrid`. That tag is far more useful than the catalog's headcount, because it tells you directly whether the task needs a browser at all.
 2. **The Browse CLI** (`npm i -g browse`): the command-line tool agents use to actually open browsers, fetch pages, search the web, and load skills on demand.
 
 ## The Core Thesis: The Bottleneck Is Amnesia, Not Reasoning
@@ -82,9 +85,9 @@ Browserbase is also honest about **when not to use Autobrowse**: they tried it o
 The CLI is designed around "develop locally, scale to cloud" using the same commands:
 
 ```bash
-npm i -g browse                                # Install the CLI
-browse skills add zillow.com/extract-listings  # Install a skill
-browse skills list                             # List installed skills
+npm i -g browse           # Install the CLI
+browse skills add zillow.com  # Install a site's skill
+browse skills list        # List installed skills
 ```
 
 A typical in-agent prompt just treats a skill as a tool: `Use /extract-listings to find apartments under $3,000 in SF with 2+ bedrooms.` — the skill provides the playbook, the model provides the reasoning. Under the hood there are low-level primitives (click / scroll / type / hover / press, addressable by selector or accessibility reference), plus the ability to tail network and console logs for a live session. By default, everything runs on **local Chromium**; prefix any command with `cloud` to switch to a Browserbase cloud session.
@@ -100,7 +103,7 @@ A typical in-agent prompt just treats a skill as a tool: `Use /extract-listings 
 A fair reading can't just echo the marketing page. A few things worth being honest about:
 
 - **"Open source and free" needs qualification**: The CLI and skills are indeed open source (`browserbase/skills` repo, MIT licensed), but running a full workflow may still require model credits, Browserbase credentials, cloud sessions, residential proxies, CAPTCHA solving, and paid APIs. Open source ≠ zero cost end-to-end.
-- **Branding and naming are still converging**: You'll encounter `browse` (the standalone browse.sh CLI), `bb` (the Browserbase CLI, where `bb browse` is a passthrough), `@browserbasehq/browse-cli` on npm, and two parallel catalog domains in `browse.sh` and `skills.sh/browserbase`. This is not a clean, unified product yet — the confusion is real.
+- **Branding and naming are still converging — but clearer than at launch**: the `browse` package on npm now describes itself as the "Unified Browserbase CLI for browser automation and cloud APIs", meaning the standalone CLI and the Browserbase CLI have merged into one package; the older `@browserbasehq/browse-cli` sits on an earlier version. Two parallel catalog domains still coexist though — `browse.sh` and `skills.sh/browserbase` — so "one clean, unified product" is still premature.
 - **Skill reliability depends on sites not changing**: When a website redesigns, a skill may need to be retrained; Autobrowse convergence means "good enough," not globally optimal.
 - **Numbers are self-reported**: The cost figures, the 45% reduction, the 50x token savings — all come from Browserbase itself. Independent verification is still absent.
 

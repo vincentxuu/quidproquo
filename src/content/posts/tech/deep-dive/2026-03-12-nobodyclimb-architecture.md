@@ -8,6 +8,9 @@ tldr: "一個攀岩社群平台，從 Web、Mobile 到 AI 問答全部跑在 Clo
 description: "NobodyClimb 的技術架構解析：Next.js 15 + Hono + D1 + RAG，為什麼選 Cloudflare-first，以及 AI 問答系統怎麼設計。"
 draft: false
 type: deep-dive
+series:
+  name: "NobodyClimb 專案紀實"
+  order: 3
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
@@ -22,6 +25,7 @@ NobodyClimb 是一個給攀岩者用的社群平台，讓大家記錄攀登紀�
 - **D1**（SQLite）：關聯式資料庫，跑在 Workers 旁邊，不需要連回另一個 region
 - **R2**：存圖片、影片縮圖，S3 相容 API
 - **KV**：快取、影片資料暫存
+- **Vectorize**：向量資料庫，存路線和故事的 embedding，AI 問答的檢索靠它
 - **AI**：Cloudflare Workers AI，embedding 和 LLM 直接在同一個平台跑
 
 不是說這套沒有缺點——D1 不適合高寫入、KV 是最終一致性、Workers AI 的模型選擇比不上獨立部署——但對這個專案的規模來說，tradeoff 是值得的。
@@ -79,21 +83,15 @@ Mobile 用 Expo 54 + React Native 0.81，導航走 Expo Router（file-based rout
 
 ### Pipeline 設計
 
+查詢流程是一條模組化的 pipeline，分五個 phase：
+
 ```
-使用者問題
-  ↓
-QueryClassifier（分類：一般知識 / 社群資料 / SQL 查詢）
-  ↓
-Retriever（向量搜尋 + 關鍵字過濾）
-  ↓
-CorrectiveRAG（評估檢索品質，決定要不要補充搜尋）
-  ↓
-Generator（LLM 生成回答）
-  ↓
-LLM Judge（品質評估）
+pre-retrieval → retrieval → post-retrieval → generation → evaluation
 ```
 
 Query 端有三個 NLP 過濾器：`extractLocationFilter`（地點）、`extractGradeFilter`（難度）、`extractTypeFilter`（路線類型），在向量搜尋之前先縮小範圍。
+
+每個 phase 底下的節點、條件路由、self-reflection 迴圈和三種 LangGraph 策略圖，都寫在 [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)，這裡不重複展開。
 
 ### 串流回應
 
@@ -136,6 +134,7 @@ data: {"message": "..."}
 - [Cloudflare Workers 官方文件](https://developers.cloudflare.com/workers/)
 - [Cloudflare D1 官方文件](https://developers.cloudflare.com/d1/)
 - [Cloudflare R2 官方文件](https://developers.cloudflare.com/r2/)
+- [Cloudflare Vectorize 官方文件](https://developers.cloudflare.com/vectorize/)
 - [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)
 - [Hono 框架官方文件](https://hono.dev/)
 - [Next.js 15 官方文件](https://nextjs.org/docs)

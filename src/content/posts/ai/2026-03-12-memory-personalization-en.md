@@ -8,6 +8,9 @@ lang: en
 tldr: "After each conversation, asynchronously extract likely user preferences and skill level, then automatically personalize search parameters on the next query — no manual setup required."
 description: "Designing memory and personalization for RAG: inferring user information from queries, writing to user memory asynchronously, injecting personalized context on subsequent queries, and privacy considerations."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 32
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-memory-personalization)
@@ -74,7 +77,7 @@ Output JSON:
 }
 ```
 
-Use a lightweight model (Llama-8b). Extraction doesn't require complex reasoning — it's fast and cheap.
+A small instruct model is enough here: extraction needs no complex reasoning, so it is fast and cheap. Which specific model shifts as vendor catalogs change, so no model name is pinned here — the selection rule is "the smallest model that reliably emits valid JSON," and you must validate the output, because small models occasionally return malformed JSON. Treat a parse failure as "no memory extracted this time," not as a reason to fail the whole pipeline.
 
 ## Memory Storage
 
@@ -141,6 +144,18 @@ ctx.waitUntil(
 
 This ensures memory extraction never adds latency to the main query. Users receive their answer at full speed; the memory processing happens quietly in the background.
 
+## Build It Yourself, or Plug In a Memory Layer
+
+The `user_ai_memory` table above is maybe a hundred lines of code, and that is enough for "one key stores one inferred value." But once the requirements grow — remembering conversational state across turns, reconciling facts that contradict each other, knowing *when* a preference changed — it is worth looking at what already exists before shouldering it yourself.
+
+Three trade-offs:
+
+- **Your own table** (what this post does): full control of the schema, no extra dependency, one SQL query to read. The price is that conflict resolution, expiry, and auditing are all yours to write. Good when the kinds of memory are few and fixed.
+- **Persistence built into your framework**: if the pipeline already runs on LangGraph, its persistence layer splits the problem in two — checkpointers hold short-term state for a single conversation thread, stores hold long-term memory across threads. Worth knowing: LangChain's early `ConversationBufferMemory`-style memory classes are no longer the recommended path, so a new project should go straight to the LangGraph persistence docs. A great deal of tutorial material online still teaches the superseded API.
+- **A dedicated memory service**: products like mem0 and Zep (and Graphiti, the open-source temporal knowledge graph underneath Zep) handle extraction, deduplication, conflict resolution, and the time axis for you. You save the most annoying logic; you pay with an external dependency, another data processor, and a decision about whether user data leaves your own system.
+
+Which one to pick follows the shape of the memory: if it is "a few scalar preferences per user," build it yourself. If it is "a pile of facts that change over time and may contradict each other," that is a knowledge-graph problem, and a key-value table will not hold it.
+
 ## Privacy Design
 
 A few important privacy considerations:
@@ -149,6 +164,7 @@ A few important privacy considerations:
 2. **Confidence threshold**: Inferences with `confidence < 0.5` are not written to memory, avoiding storage of unreliable signals.
 3. **User control**: Users can view and delete all stored memory from their settings page.
 4. **Explicit overrides**: Information the user explicitly provides in their profile bio takes precedence over anything inferred.
+5. **The inference is itself personal data**: storing only inferences rather than raw queries lowers the risk, but "this person is a 5.11 sport climber who frequents Long Dong" is still a user profile. Deletion, export, and retention obligations do not disappear just because the data was inferred.
 
 ## The Bigger Picture
 
@@ -163,5 +179,9 @@ In a domain like rock climbing, where skill grades provide a clear, objective ax
 - [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
 - [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174)
 - [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [Zep: A Temporal Knowledge Graph Architecture for Agent Memory](https://arxiv.org/abs/2501.13956)
+- [LangGraph Persistence (checkpointers vs. stores)](https://docs.langchain.com/oss/python/langgraph/persistence)
+- [mem0 documentation](https://docs.mem0.ai/introduction)
+- [Graphiti (Zep's open-source temporal knowledge graph)](https://github.com/getzep/graphiti)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

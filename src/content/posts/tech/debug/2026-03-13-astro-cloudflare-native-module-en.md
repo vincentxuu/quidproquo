@@ -8,6 +8,9 @@ tldr: "Even when a route has prerender = true, Cloudflare Workers' Rollup bundle
 description: "A debug log of OG image generation failures with @resvg/resvg-js in an Astro + Cloudflare Workers setup, and how switching to a postbuild script solved the problem."
 draft: false
 type: debug
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 12
 ---
 
 > 🌏 [中文版](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module)
@@ -104,5 +107,5 @@ Any work that requires native modules belongs in a build script — not in Astro
 
 - [Astro Cloudflare Adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
 - [Satori - Enlightened library to convert HTML and CSS to SVG](https://github.com/vercel/satori)
-- [@resvg/resvg-js GitHub](https://github.com/nicolo-ribaudo/resvg-js)
+- [@resvg/resvg-js GitHub](https://github.com/yisibl/resvg-js)
 - [Cloudflare Workers Runtime APIs](https://developers.cloudflare.com/workers/runtime-apis/)

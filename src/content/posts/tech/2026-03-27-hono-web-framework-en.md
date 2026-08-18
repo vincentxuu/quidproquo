@@ -8,6 +8,9 @@ lang: en
 tldr: "Hono is a web framework designed specifically for edge runtimes like Cloudflare Workers, Deno, and Bun. It's an order of magnitude lighter than Express, natively supports Web Standard APIs, and is the go-to choice for edge environments."
 description: "An introduction to Hono, the lightweight web framework: why it's a better fit than Express on edge runtimes, its core design philosophy, code examples, and when you should — or shouldn't — reach for it."
 draft: false
+series:
+  name: "The Cloudflare Edge Stack"
+  order: 5
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-hono-web-framework)
@@ -24,7 +27,7 @@ Hono is an ultra-lightweight web framework designed to run on any JavaScript run
 - Node.js (supported, but not its primary target)
 - AWS Lambda
 
-The entire core is around 14KB, has zero Node.js API dependencies, and is written entirely with Web Standard APIs (`Request`, `Response`, `URL`).
+The number the project actually publishes is **under 14 kB minified for the `hono/tiny` preset** — not for all of Hono; middleware and adapters are bundled only when used. Zero dependencies, written entirely with Web Standard APIs (`Request`, `Response`, `URL`).
 
 NobodyClimb's backend is built with Hono and deployed on Cloudflare Workers. The reason for choosing it was straightforward: no other framework offered the same developer experience and feature completeness on Cloudflare Workers.
 
@@ -33,7 +36,7 @@ NobodyClimb's backend is built with Hono and deployed on Cloudflare Workers. The
 The problem with Express isn't its API design — it's that Express assumes Node.js exists:
 
 - `req.socket`, `res.end()`, `Buffer` are all Node.js-only APIs
-- Bundle size takes up a significant portion of Workers' 1MB limit
+- Bundle size eats a meaningful share of the Workers [script size limit](https://developers.cloudflare.com/workers/platform/limits/) (different ceilings on free and paid, both measured compressed)
 - No native async/await middleware support, making error handling easy to miss
 
 In a Cloudflare Workers environment, you need:
@@ -157,11 +160,12 @@ Routes handle only OpenAPI descriptions and request validation, services contain
 
 Hono is lean, but lean means you assemble more yourself. Express has over a decade of middleware accumulation, with off-the-shelf solutions for most common needs. Hono's ecosystem is still growing, so edge-case requirements may require rolling your own.
 
-Another thing to keep in mind: the Workers environment has real constraints (no filesystem access, no direct TCP socket access, execution time limits). These aren't Hono's problems — they're Workers' constraints. But choosing Hono usually means choosing Workers too, so they need to be considered together.
+Another thing to keep in mind: the Workers environment has real constraints (no filesystem access, no direct TCP socket access, CPU-time and memory ceilings). These aren't Hono's problems — they're [Workers' constraints](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en). But choosing Hono usually means choosing Workers too, so they need to be considered together.
 
 ## References
 
 - [Hono Official Docs](https://hono.dev/)
+- [Hono's own size and benchmark figures](https://hono.dev/docs/) — the 14 kB number is the `hono/tiny` preset
 - [Cloudflare Workers Official Docs](https://developers.cloudflare.com/workers/)
 - [hono-openapi](https://github.com/rhinobase/hono-openapi)
 - [NobodyClimb System Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) — Hono in action on a real Cloudflare-first project

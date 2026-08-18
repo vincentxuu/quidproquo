@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "「加了 Cross-Encoder 之後感覺好多了」不是科學的評估。A/B 測試讓你知道改動是否真的有效，效果多大，在哪類查詢上有效。"
 description: "RAG A/B 測試的設計：流量分配、指標選擇、統計顯著性判斷，以及如何避免常見的測試陷阱。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 38
 ---
 
 RAG 系統每次改動，都應該透過 A/B 測試驗證效果。沒有對照組的改動，無法知道是改動本身帶來的效果，還是查詢分布的自然變化。
@@ -29,14 +32,15 @@ RAG 系統每次改動，都應該透過 A/B 測試驗證效果。沒有對照�
 **使用者層級的分組**（推薦）：
 
 ```typescript
-function assignVariant(userId: string): 'A' | 'B' {
-  // 用 userId 的 hash 穩定分組，同一使用者每次看到同一個版本
-  const hash = murmurhash(userId) % 100;
+function assignVariant(userId: string, experimentId: string): 'A' | 'B' {
+  // 一定要把 experimentId 混進 hash：否則所有實驗都用同一個切分，
+  // 「永遠在 A 組」的那批人會把每個實驗的偏差都疊在一起
+  const hash = murmurhash(`${experimentId}:${userId}`) % 100;
   return hash < 50 ? 'A' : 'B';
 }
 ```
 
-同一使用者每次都是同一組，避免使用者體驗不一致。
+同一使用者在同一個實驗裡每次都是同一組，避免使用者體驗不一致；換一個實驗則重新洗牌。
 
 **請求層級的分組**（適合快速測試）：
 
@@ -83,36 +87,47 @@ function assignVariant(): 'A' | 'B' {
 
 **護欄指標**（任何一個超閾值就停止實驗）：
 
-- Latency p99 超過 15 秒
-- Error rate 超過 5%
-- Groundedness 平均低於 0.5
+- Latency p99 超過上限
+- Error rate 超過上限
+- Groundedness 平均低於下限
+
+具體數字不要抄別人的。護欄閾值應該從你自己的現況往回推：先量目前的 p99 和 error rate，再決定「退化到什麼程度就不值得繼續」。抄一個跟自己系統無關的數字，結果不是護欄永遠不會觸發（形同虛設），就是一開實驗就觸發。
 
 ## 樣本量計算
 
 在開始收集資料之前，先計算需要多少樣本：
 
+兩件事很容易寫錯，先講清楚：
+
+1. **A/B 是兩組比較，不是單組估計。** 兩組各自有抽樣誤差，所以每組樣本數要比單組估計多一倍——公式裡那個 `2` 不能省，省掉會讓你以為需要的樣本數只有實際的一半，然後在樣本不足的情況下宣告「顯著」。
+2. **Groundedness 不是比例。** 它是一個 0–1 的連續分數，變異數要用實際樣本的標準差估，不能套二項分布的 `p(1-p)`。只有像「thumbs up 率」這種真正的比例才適用 `p(1-p)`。
+
 ```python
+from math import ceil
 from scipy import stats
-import math
 
-def required_sample_size(
-    baseline_rate: float,  # 現有的指標（如 Groundedness = 0.72）
-    minimum_effect: float, # 最小期望改善（如 +0.05 = 5%）
-    alpha: float = 0.05,   # 顯著性水準
-    power: float = 0.80,   # 統計檢定力
+def required_sample_size_per_group(
+    variance: float,        # 指標的變異數（見下方兩種算法）
+    minimum_effect: float,  # 最小可偵測差異（絕對值，如 +0.05）
+    alpha: float = 0.05,    # 顯著性水準（雙尾）
+    power: float = 0.80,    # 統計檢定力
 ) -> int:
-    effect_size = minimum_effect / math.sqrt(
-        baseline_rate * (1 - baseline_rate)
-    )
-    n = stats.norm.ppf(1 - alpha/2) + stats.norm.ppf(power)
-    return math.ceil((n / effect_size) ** 2)
+    z = stats.norm.ppf(1 - alpha / 2) + stats.norm.ppf(power)
+    return ceil(2 * variance * z**2 / minimum_effect**2)
 
-# 例：baseline Groundedness 0.72，期望改善 5%，需要多少樣本？
-n = required_sample_size(0.72, 0.05)
-print(f"每組需要 {n} 個樣本")  # 大約 500-1000 個
+# 情況 A：連續分數（LLM-as-Judge 的 Groundedness）
+# variance 用歷史資料的樣本變異數，例如 sd ≈ 0.20
+n_a = required_sample_size_per_group(0.20**2, 0.05)
+print(f"每組需要 {n_a} 個樣本")   # 252
+
+# 情況 B：比例指標（thumbs up 率 0.72）
+n_b = required_sample_size_per_group(0.72 * (1 - 0.72), 0.05)
+print(f"每組需要 {n_b} 個樣本")   # 1266
 ```
 
-如果配額限制讓每日查詢量只有幾百個，測試可能需要跑幾週才能有足夠樣本。
+兩個數字差了五倍，而差別只來自「指標是連續分數還是比例」——這也是為什麼要先量自己的 sd，而不是抄別人文章裡的樣本數。
+
+如果配額限制讓每日查詢量只有幾百個，測試可能需要跑幾週才能有足夠樣本。樣本實在拿不到的時候，另一條路是 **interleaving**：把兩個配置的搜尋結果交錯呈現給同一個使用者，用同一批人的偏好直接比較。代價是只能比搜尋排序、不能比整段生成，但在小流量下所需樣本數比傳統 A/B 少一個數量級（見文末 Chapelle et al. 的實驗）。
 
 ## 子群體分析
 
@@ -172,4 +187,4 @@ RAG 的 A/B 測試不需要複雜的工具，核心是：清楚的對照設計�
 - [Machine Learning Testing: Survey, Landscapes and Horizons](https://arxiv.org/abs/1906.10742)
 - [Dynamic Causal Effects Evaluation in A/B Testing with a Reinforcement Learning Framework](https://arxiv.org/abs/2002.01711)
 - [Large-Scale Validation and Analysis of Interleaved Search Evaluation (Chapelle et al., 2012)](https://www.cs.cornell.edu/~tj/publications/chapelle_etal_12a.pdf)
-- [RAG Pipeline A/B 測試指標設計：Groundedness 與 LLM-as-Judge (RAG Survey 2024)](https://arxiv.org/abs/2312.10997)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)——RAG Pipeline 各環節的整體脈絡，用來決定 A/B 測試要控制哪些變量

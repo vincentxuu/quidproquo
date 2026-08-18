@@ -8,6 +8,9 @@ lang: en
 tldr: "RAG doesn't have to be a rigid three-step process. It's a set of steps that can be dynamically enabled, skipped, or reordered. Pipeline as Code lets the system adapt its behavior without redeployment."
 description: "Architectural design of a Modular RAG Pipeline: Step Registry, skipWhen conditional routing, dynamic configuration, PipelineContext state management, and implementation considerations on Cloudflare Workers."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 4
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-modular-rag-pipeline-architecture)
@@ -174,7 +177,7 @@ This lets you change system behavior without redeployment:
 
 Running the Pipeline on Cloudflare Workers comes with a few things to keep in mind:
 
-**CPU time limits**: Workers have a CPU time cap (not wall-clock time). Waiting on I/O (LLM API calls) doesn't consume CPU, but be mindful of embedding computation and heavy string processing.
+**CPU time limits**: Workers meter CPU time, not wall-clock time. Waiting on I/O (LLM API calls) doesn't consume CPU, but embedding computation and heavy string processing do. The actual caps and how they vary by plan change over time — read the [official Limits docs](https://developers.cloudflare.com/workers/platform/limits/) rather than trusting a hardcoded number in any article, including this one.
 
 **Parallelism done right**: I/O across multiple steps should use `Promise.all()` for concurrency — not sequential `await` chains:
 
@@ -190,7 +193,19 @@ const queryEmbedding = await embed(query, env);
 const hydeDoc = await generateHyDE(query, env);
 ```
 
-**The purpose of `ctx.waitUntil()`**: Non-critical work (memory extraction, Contextual Retrieval updates) can use `waitUntil()` to continue executing after the response is returned, without blocking the user.
+**The purpose of `ctx.waitUntil()`**: Non-critical work (memory extraction, Contextual Retrieval updates) can use `waitUntil()` to continue executing after the response is returned, without blocking the user. Note that this `ctx` is the Workers runtime execution context, a different object from the pipeline's own `PipelineContext` above — the name collision is easy to miss in code review ([Workers Context API](https://developers.cloudflare.com/workers/runtime-apis/context/)).
+
+## Where This Design Runs Out
+
+The Engine above is a **one-way for loop**: once a step is done, you move forward and never go back. But `PipelineContext` carries fields like `cragRetryCount`, which implies the real requirement — "retrieval quality was poor, go back and retrieve again." A one-way loop can't express that. You end up either nesting a small loop inside one step, or re-running the whole pipeline. That's the first wall this architecture hits.
+
+One level beyond that is the agentic approach, where control is handed to the model entirely: no pre-arranged step order, the LLM decides at runtime which modules to invoke and whether to iterate. The Registry + `skipWhen` design above is essentially its static counterpart — same set of modules, the difference being who decides the order.
+
+Some of the cost of crossing that line has been measured. An ACL 2026 study comparing Enhanced RAG (the fixed pipeline described here) with Agentic RAG found the agentic setting needed on average 3.3x more input tokens, 1.9x more output tokens, and 1.5x more end-to-end latency, with cost across datasets running up to 3.6x higher — measured with the agent capped at three turns. The quality picture isn't a clean win either: agentic setups are stronger at intent understanding and query rewriting, but worse at document selection than an explicit reranking step. The authors recommend combining the two rather than replacing the pipeline wholesale.
+
+Model-driven loops also introduce failure modes a static pipeline doesn't have. A 2026 SoK paper on Agentic RAG formalizes these loops as finite-horizon POMDPs and names risks including hallucinations compounding around the loop, memory poisoning, retrieval misalignment, and cascading tool-execution failures. None of these are caught by "was this one answer correct" evaluation — you have to evaluate the whole trajectory.
+
+Which makes the trace design in this article a prerequisite rather than a bonus: **whether you can observe the full execution trajectory determines whether you've earned the right to hand control away.**
 
 ## In Summary
 
@@ -204,3 +219,6 @@ The core trade-off in this architecture: you add a layer of abstraction (Pipelin
 
 - [Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks (2024)](https://arxiv.org/abs/2407.21059)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
+- [Is Agentic RAG worth it? An experimental comparison of RAG approaches (ACL 2026 Industry Track)](https://arxiv.org/abs/2601.07711)
+- [SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions (2026)](https://arxiv.org/abs/2603.07379)
+- [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)

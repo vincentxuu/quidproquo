@@ -8,6 +8,9 @@ tldr: "即使 route 有 prerender = true，Cloudflare Workers 的 Rollup 還是�
 description: "記錄在 Astro + Cloudflare Workers 環境下使用 @resvg/resvg-js 生成 OG image 失敗的過程，以及改用 postbuild script 的解法。"
 draft: false
 type: debug
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 12
 ---
 
 > 🌏 [English version](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en)
@@ -104,5 +107,5 @@ import { Resvg } from '@resvg/resvg-js';
 
 - [Astro Cloudflare Adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
 - [Satori - Enlightened library to convert HTML and CSS to SVG](https://github.com/vercel/satori)
-- [@resvg/resvg-js GitHub](https://github.com/nicolo-ribaudo/resvg-js)
+- [@resvg/resvg-js GitHub](https://github.com/yisibl/resvg-js)
 - [Cloudflare Workers Runtime APIs](https://developers.cloudflare.com/workers/runtime-apis/)

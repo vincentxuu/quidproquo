@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "env.AI 這個 binding 不是只有 run()。它還掛了 toMarkdown（文件轉 Markdown）、autorag（託管 RAG）、gateway（外部 provider 代理）、models（metadata 查詢）。認識這四組方法，才能在 Workers 上把 Cloudflare 當完整的 AI 平台用。"
 description: "從 markdown.new 這個服務切入，拆解 Cloudflare Workers AI binding 上四組被忽略的內建方法：run、toMarkdown、autorag、gateway。附程式碼範例、決策表、限制。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 7
 ---
 
 🌏 [English version](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities-en)
@@ -22,7 +25,7 @@ draft: false
 
 前情提要：[Cloudflare Workers 透過 Bindings 接服務](/posts/tech/2026-03-27-cloudflare-workers-edge-compute) — `D1Database`、`KVNamespace`、`R2Bucket`、`Ai` 等等。`Ai` 這個 binding 宣告後，`env.AI` 就出現在 Worker 裡。
 
-大部分教學到這裡就跳去 `env.AI.run("@cf/meta/llama-3")` 做 LLM 推論。但 binding 物件本身其實長這樣：
+大部分教學到這裡就跳去 `env.AI.run("<某個 model ID>")` 做 LLM 推論——而且抄來的那個 model ID 常常已經下架了（目錄汰換得很兇，[選型指南](/posts/ai/2026-08-18-workers-ai-model-guide) 裡有整份名單）。但 binding 物件本身其實長這樣：
 
 ```
 env.AI
@@ -63,7 +66,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` 是「給我一個模型 ID、我丟 input、你吐 output」。選模型、寫 prompt、組 pipeline 都是你的事。
 
-目錄裡 80 幾個模型怎麼挑，另一篇整理過：[Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；繁中場景的取捨則見 [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)。
+目錄裡幾十個模型怎麼挑、目前是幾個，另一篇整理過：[Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；繁中場景的取捨則見 [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)。
 
 ## 2. `toMarkdown()` — 文件轉檔 pipeline
 
@@ -124,6 +127,7 @@ await env.AI.toMarkdown(files, {
 - 單檔 **10 MB**
 - URL fetch timeout **30 秒**
 - 想知道支援哪些副檔名：`await env.AI.toMarkdown().supported()`
+- 上面這幾個數字以 [Markdown Conversion 官方頁](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) 為準
 
 ### 為什麼「省 80% Token」
 

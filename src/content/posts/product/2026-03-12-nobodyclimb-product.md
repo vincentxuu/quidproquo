@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "攀岩社群不缺分享的意願，缺的是一個能串連和延續文化的地方。"
 description: "NobodyClimb 的產品思考：為什麼攀岩社群需要自己的平台，Nobody 精神是什麼，以及平台怎麼設計讓每個人的故事留下來。"
 draft: false
+series:
+  name: "NobodyClimb 專案紀實"
+  order: 1
 ---
 
 🌏 [English version](/posts/product/2026-03-12-nobodyclimb-product-en)

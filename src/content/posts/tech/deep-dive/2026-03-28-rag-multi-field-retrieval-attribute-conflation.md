@@ -8,6 +8,9 @@ tldr: "查詢「美人照鏡 5.11b，推薦類似難度路線」，結果回來�
 description: "當 embedding 混淆了「名稱相似」和「屬性相似」，RAG 推薦系統會給出完全錯誤的結果。這篇整理了 attribute conflation 的根因分析、學術界的解法（ColBERT、Field-Aware Embedding、RAG-Fusion），以及在 Cloudflare Workers 上可落地的分層檢索架構。"
 draft: false
 type: deep-dive
+series:
+  name: "RAG 技法大全"
+  order: 36
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation-en)
@@ -68,7 +71,7 @@ BM25 也救不了。「美人照鏡」的 TF-IDF 分數本來就高，在 hybrid
      → 在過濾後的子集中做 vector search
 ```
 
-Pinecone 的文件直接寫了：「對於精確匹配的屬性（如分類、等級），優先使用 metadata filter 而非依賴 embedding 相似度」。Weaviate 的 hybrid search 也是 filter-first 架構。Cloudflare Vectorize 同樣支援。
+三家主流向量庫都把這件事做成一等公民：[Pinecone 的 metadata filter](https://docs.pinecone.io/guides/index-data/indexing-overview) 支援 `$eq`/`$in`/範圍等運算子，且明說沒帶 filter 的查詢完全不看 metadata、會掃整個 namespace；[Weaviate 的 hybrid search 可以直接掛 filter](https://docs.weaviate.io/weaviate/search/hybrid)；[Cloudflare Vectorize 的 metadata filtering](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/) 則是 filter 先套、`topK` 再從過濾後的集合裡取。
 
 好處是實作成本最低，壞處是你得先有辦法從自然語言裡把結構化條件挖出來。
 
@@ -87,7 +90,7 @@ Pinecone 的文件直接寫了：「對於精確匹配的屬性（如分類、�
 }
 ```
 
-LangChain 的 Self-Query Retriever、LlamaIndex 的 Query Pipeline、Microsoft 的 GraphRAG 都走這個路線。在 Cloudflare Workers 上不能用這些重框架，但可以規則引擎 + LLM 兩階段：先用 regex 抓已知模式（`5.\d+[a-d]`、`V\d+`），抓不到的再丟 LLM。
+LangChain 的 [Self-Query Retriever](https://reference.langchain.com/python/langchain-classic/retrievers/self_query/base/SelfQueryRetriever)（LangChain 1.0 之後搬到 `langchain-classic`，舊教學的 import 路徑已經失效）、LlamaIndex 的 query pipeline、Microsoft 的 GraphRAG 都走這個路線。在 Cloudflare Workers 上不能用這些重框架，但可以規則引擎 + LLM 兩階段：先用 regex 抓已知模式（`5.\d+[a-d]`、`V\d+`），抓不到的再丟 LLM。
 
 ### Multi-Field Embedding
 
@@ -126,7 +129,7 @@ E5 和 bge 系列的 instruction-tuned 版本天然支援這種用法，prefix �
 
 ### Learned Sparse Retrieval
 
-bge-m3 本身支援 dense、sparse（learned sparse）、ColBERT 三種模式。Sparse 模式可以讓模型學習為 token 賦予適當權重，例如讓「5.11b」在難度搜尋中拿到更高權重。但在 Cloudflare Workers 上，Workers AI 只暴露 dense embedding 接口，sparse 和 ColBERT 模式用不了。
+bge-m3 本身支援 dense、sparse（learned sparse）、ColBERT 三種模式。Sparse 模式可以讓模型學習為 token 賦予適當權重，例如讓「5.11b」在難度搜尋中拿到更高權重。但 [Workers AI 上的 `@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) 只暴露 dense 輸出（丟 `text` 拿 embeddings，或丟 `query` + `contexts` 拿相似度分數），sparse 和 ColBERT 模式用不了。想用完整三模式就得自己託管模型，這在 Workers 上不成立——所以本文其餘的解法都是在「只有 dense」的前提下設計的。
 
 ## 落地方案：分層檢索架構
 
@@ -158,13 +161,20 @@ bge-m3 本身支援 dense、sparse（learned sparse）、ColBERT 三種模式。
 const results = await vectorize.query(queryVector, {
   topK: 20,
   filter: {
-    grade: { $in: getGradeRange("5.11b", range = 2) }
-    // ["5.11a", "5.11b", "5.11c"]
-  }
+    // getGradeRange("5.11b", 2) => ["5.11a", "5.11b", "5.11c"]
+    grade: { $in: getGradeRange("5.11b", 2) },
+  },
 });
 ```
 
-只要路線的 metadata 有 grade 欄位，這一步就能立即解決核心問題。
+有個前置條件容易漏掉，漏了就會安靜地回傳零結果：**Vectorize 的 metadata index 必須在寫入向量之前先建好**，事後補建對已存在的向量無效。
+
+```bash
+npx wrangler vectorize create-metadata-index <index-name> \
+  --property-name=grade --type=string
+```
+
+一個 index 最多 10 個 metadata index，string 欄位只索引前 64 bytes，範圍運算子只能上下界互搭、不能跟同一個 key 上的 `$in` 混用。細節見[官方 metadata filtering 文件](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/)。條件備齊之後，這一步就能立即解決核心問題。
 
 ### P1：Query Rewriting
 
@@ -229,7 +239,7 @@ Dense embedding 擅長捕捉模糊的語意相似——「風格類似」、「�
 - [BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation](https://arxiv.org/abs/2402.03216) — Chen et al., ACL 2024
 - [Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)](https://arxiv.org/abs/2212.03533) — Wang et al., 2023
 - [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/abs/1908.10084) — Reimers & Gurevych, EMNLP 2019
-- [RAG-Fusion: a New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367) — Raudaschl, 2023
+- [RAG-Fusion: a New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367) — Rackauckas, 2024
 - [Active Retrieval Augmented Generation (FLARE)](https://arxiv.org/abs/2305.06983) — Jiang et al., EMNLP 2023
 - [Query2Doc: Query Expansion with Large Language Models](https://arxiv.org/abs/2303.07678) — Wang et al., EMNLP 2023
 - [Query Rewriting in Retrieval-Augmented Large Language Models](https://arxiv.org/abs/2305.14283) — Ma et al., EMNLP 2023
@@ -237,6 +247,7 @@ Dense embedding 擅長捕捉模糊的語意相似——「風格類似」、「�
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al., 2024
 - [SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking](https://arxiv.org/abs/2107.05720) — Formal et al., SIGIR 2021
 - [Sparse, Dense, and Attentional Representations for Text Retrieval](https://arxiv.org/abs/2005.00181) — Luan et al., TACL 2021
-- [Pinecone Metadata Filtering Best Practices](https://docs.pinecone.io/docs/metadata-filtering)
-- [Weaviate Hybrid Search Architecture](https://weaviate.io/developers/weaviate/search/hybrid)
-- [LangChain Self-Query Retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/self_query/)
+- [Pinecone — Indexing overview（含 metadata filter 運算子）](https://docs.pinecone.io/guides/index-data/indexing-overview)
+- [Weaviate — Hybrid search](https://docs.weaviate.io/weaviate/search/hybrid)
+- [LangChain — SelfQueryRetriever（`langchain-classic`）](https://reference.langchain.com/python/langchain-classic/retrievers/self_query/base/SelfQueryRetriever)
+- [Cloudflare Vectorize — Metadata filtering](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/)

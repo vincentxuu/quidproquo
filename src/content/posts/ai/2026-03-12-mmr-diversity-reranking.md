@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "只看相關性會讓結果都是同一條路線的不同描述，MMR 在相關性和多樣性之間取平衡，再疊加熱門度讓結果更實用。"
 description: "MMR（Maximal Marginal Relevance）的演算法原理、λ 參數調整、熱門度加權的設計，以及在攀岩推薦場景的應用。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 20
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-mmr-diversity-reranking-en)
@@ -27,6 +30,10 @@ MMR(d) = λ × relevance(d, query) - (1 - λ) × max_sim(d, already_selected)
 - `relevance(d, query)`：文件對查詢的相關性（Cross-Encoder 分數）
 - `max_sim(d, already_selected)`：文件與已選文件中最相似者的相似度
 - `λ`：相關性的權重（0 → 完全多樣，1 → 完全相關）
+
+這個式子跟 Carbonell & Goldstein 1998 年的原始定義一致：λ=1 時 MMR 退化成一般的相關性排序，λ=0 時變成純粹的多樣性排序。
+
+有個容易踩到的前提：兩項要在**可比較的尺度上**才有意義。`relevance` 是 Cross-Encoder 分數、`max_sim` 是下面那個 metadata 相似度，兩者都必須落在同一個範圍（這裡都是 0–1），λ 才真的是在做「權衡」。如果一邊是 0–1、另一邊是沒有上界的原始 logit，λ 調來調去其實只是在調一個假的旋鈕。
 
 **第一個文件**：直接選相關性最高的，沒有「已選集」做比較。
 
@@ -58,7 +65,7 @@ function documentSimilarity(a: Document, b: Document): number {
 }
 ```
 
-這個 metadata-based 相似度計算便宜很多，對攀岩內容也很直觀：來自同一岩場的文件，最可能在內容上重複。
+這個 metadata-based 相似度計算便宜很多，對攀岩內容也很直觀：來自同一岩場的文件，最可能在內容上重複。權重刻意湊成 0.4 + 0.3 + 0.2 + 0.1 = 1.0，上界剛好對齊 Cross-Encoder 分數的 0–1，這正是上一節說的「兩項要同尺度」。
 
 ## λ 參數的意義
 
@@ -71,6 +78,8 @@ function documentSimilarity(a: Document, b: Document): number {
 | 0.5 | 相關性與多樣性各半 | 探索型查詢 |
 | 0.3 | 多樣性優先 | 「給我驚喜」場景 |
 
+0.3 和 0.7 這兩個值不是隨便挑的：原始論文就直接建議過這組搭配——先用 λ≈0.3 把查詢周邊的資訊空間攤開來看，等使用者收斂出更精確的查詢後，再用 λ≈0.7 聚焦。表格裡的其他數字則是這個系統實測出來的，沒有論文背書。
+
 系統的預設值是 0.7，可以通過 `ai_config` 動態調整，不需要重新部署。
 
 ## 熱門度加權
@@ -81,7 +90,7 @@ MMR 之後再做一次熱門度加權排序：
 const finalScore = mmrScore + popularityWeight * popularityScore;
 ```
 
-`popularityScore` 根據路線/岩場的點擊率、評分、評論數計算。熱門度加權的邏輯很簡單：當兩個文件 MMR 分數接近時，讓社群認可度高的排前面，推薦出來的路線更可能讓使用者滿意。
+`popularityScore` 根據路線/岩場的點擊率、評分、評論數計算。這裡有個必須自己顧好的細節：**點擊數、評論數這類原始計數沒有上界**，直接加進來就會壓過 MMR 分數，變成「熱門度排序 + 一點點相關性」。這正是 [RRF 那篇](/posts/ai/2026-03-12-rrf-multi-source-fusion)講的量綱問題，只是換個地方出現。所以 `popularityScore` 必須先壓到 0–1（取百分位或對數後再正規化都行），`popularityWeight` 才是一個看得懂的旋鈕。熱門度加權的邏輯很簡單：當兩個文件 MMR 分數接近時，讓社群認可度高的排前面，推薦出來的路線更可能讓使用者滿意。
 
 這也解決了一個 embedding 的盲點：一條新路線（資訊完整，評分高）和一條熱門老路線的 embedding 距離可能差不多，但使用者更可能喜歡有口碑的。
 
@@ -103,12 +112,15 @@ MMR 選取結果（Top-K 個）
 
 MMR 在 RAG 系統中經常被低估。把 Top-10 相關文件直接送進 LLM，和 MMR 選出 10 個多樣的相關文件，前者的 context 往往有很多重複資訊，後者能讓 LLM 看到問題的不同面向，回答更全面。
 
+不過原始論文的證據強度值得誠實交代：那是一篇兩頁的 SIGIR 1998 poster，作者自己寫的是「preliminary results」。它在文件排序上的評估只是五個人的 pilot study，而句子層級的精確率比較中，λ=1、0.7、0.3 三組**沒有統計上的顯著差異**；MMR 最明確的效益出現在多文件摘要——也就是「來源之間高度重複」的場景。這跟 RAG 的處境剛好對得上（多路搜尋合併後大量近似重複），但也提醒一件事：候選本來就不重複時，MMR 幫不上忙，只會平白把一份更相關的文件換掉。要不要開，看你的候選集有多少重複，不要當成預設就該有的一層。
+
 加上熱門度加權，推薦結果既有語義相關性（向量搜尋 + 重排序），又有社群驗證（熱門度），是一個在算法嚴謹性和使用者體驗之間找到平衡的設計。
 
 ---
 
 ## 參考資料
 
-- [The Use of MMR, Diversity-Based Reranking for Reordering Documents and Producing Summaries (Carbonell & Goldstein, 1998)](https://dl.acm.org/doi/10.1145/290941.291025)
+- [The Use of MMR, Diversity-Based Reranking for Reordering Documents and Producing Summaries (Carbonell & Goldstein, SIGIR 1998)](https://dl.acm.org/doi/10.1145/290941.291025)（[CMU 全文 PDF](http://www.cs.cmu.edu/~jgc/publication/The_Use_MMR_Diversity_Based_LTMIR_1998.pdf)）
+- [RRF：RAG 系統裡多路結果怎麼合併](/posts/ai/2026-03-12-rrf-multi-source-fusion)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

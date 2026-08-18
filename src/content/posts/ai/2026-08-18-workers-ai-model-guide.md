@@ -5,9 +5,12 @@ type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]
 lang: zh-TW
-tldr: "Workers AI 目錄目前 83 個模型。通用對話選 glm-4.7-flash（$0.06 / $0.40 per M、131K context），要 vision 選 gemma-4-26b-a4b-it（$0.10 / $0.30、256K），極省成本選 granite-4.0-h-micro（$0.017 / $0.11），embedding 選 qwen3-embedding-0.6b 或 bge-m3（同為 $0.012 per M）。這篇會定期跟著官方目錄更新。"
+tldr: "Workers AI 目錄目前 84 個模型。通用對話選 glm-4.7-flash（$0.06 / $0.40 per M、131K context），要 vision 選 gemma-4-26b-a4b-it（$0.10 / $0.30、256K），極省成本選 granite-4.0-h-micro（$0.017 / $0.112），embedding 選 qwen3-embedding-0.6b 或 bge-m3（同為 $0.012 per M）。這篇會定期跟著官方目錄更新。"
 description: "依 Cloudflare 官方模型目錄與定價頁整理的 Workers AI 選型表：文字生成分層比較、embedding 與 rerank、圖片與語音模型、Neurons 計費、2026-05-30 那波模型汰換的遷移建議。持續更新。"
 draft: false
+series:
+  name: "Cloudflare 邊緣技術棧"
+  order: 8
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-18-workers-ai-model-guide-en)
@@ -16,7 +19,7 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 
 這篇是一份對照表，照官方 [模型目錄](https://developers.cloudflare.com/workers-ai/models/) 與 [定價頁](https://developers.cloudflare.com/workers-ai/platform/pricing/) 整理，會持續更新。
 
-**快照時間**：2026-08-18。官方模型目錄頁標示 Last updated 2026-08-12，共 **83 個模型**；定價頁 Last updated 2026-08-14。
+**快照時間**：2026-08-18。官方模型目錄頁標示 Last updated 2026-08-12，共 **84 個模型**；定價頁 Last updated 2026-08-18。
 
 所有 context window 與價格都取自各模型的官方模型頁，不是原始模型的規格——同一個開源模型在 Workers AI 上的 context window 常常被裁短（下架前的 `gemma-3-12b-it` 原生 128K，在 Workers AI 上是 80,000 tokens）。
 
@@ -26,7 +29,7 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 |---|---|---|
 | 通用對話、RAG 生成 | [`@cf/zai-org/glm-4.7-flash`](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/) | $0.06 / $0.40 |
 | 需要看圖 | [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | $0.10 / $0.30 |
-| 分類、路由、抽欄位（極省） | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.11 |
+| 分類、路由、抽欄位（極省） | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.112 |
 | 推理密集 | [`@cf/openai/gpt-oss-120b`](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | $0.35 / $0.75 |
 | Agentic / coding（需付費方案） | [`@cf/moonshotai/kimi-k2.7-code`](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | $0.95 / $4.00 |
 | Embedding | [`@cf/qwen/qwen3-embedding-0.6b`](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) 或 [`@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | $0.012（僅 input） |
@@ -70,7 +73,7 @@ MoE（Mixture-of-Experts）在這份目錄裡已經是主流：Gemma 4、Llama 4
 |---|---|---|---|
 | [glm-4.7-flash](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/) | 131,072 | $0.06 / $0.40 | Function calling、Reasoning |
 | [gemma-4-26b-a4b-it](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | 256,000 | $0.10 / $0.30 | Function calling、Reasoning、Vision |
-| [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.11 | Function calling |
+| [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.112 | Function calling |
 | [qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/) | 32,768 | $0.051 / $0.335 | Function calling、Reasoning、Batch |
 | [llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/) | 131,000 | $0.27 / $0.85 | Function calling、Vision、Batch |
 | [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128,000 | $0.351 / $0.555 | Function calling |
@@ -88,7 +91,7 @@ MoE（Mixture-of-Experts）在這份目錄裡已經是主流：Gemma 4、Llama 4
 
 **輸出量大就換 `gemma-4-26b-a4b-it`。** 兩者的價格結構是反的：GLM 是 $0.06 進 / $0.40 出，Gemma 4 是 $0.10 進 / $0.30 出。RAG 場景輸入通常遠大於輸出（塞了一堆檢索文件、只回三百字），GLM 划算；反過來要產長文，Gemma 4 便宜。Gemma 4 還多了 vision 與 256K context。
 
-**`granite-4.0-h-micro` 是被低估的一個。** $0.017 / $0.11 是這一層最便宜的，但仍有 function calling 與 131K context。做意圖分類、query 改寫、欄位抽取這種「量大、每次都短、不需要文采」的 pipeline step，用它跑比用主力模型跑省一個數量級。
+**`granite-4.0-h-micro` 是被低估的一個。** $0.017 / $0.112 是這一層最便宜的，但仍有 function calling 與 131K context。做意圖分類、query 改寫、欄位抽取這種「量大、每次都短、不需要文采」的 pipeline step，用它跑比用主力模型跑省一個數量級。
 
 **`qwen3-30b-a3b-fp8` 的 32,768 context 是這層唯一的短板**，塞不下大量檢索文件，選之前先算一下你的 context 預算。
 
@@ -265,7 +268,7 @@ const answer = await env.AI.run(MODELS.chat, { messages, stream: true })
 
 ## 更新紀錄
 
-- 2026-08-18：首次發布。對照 2026-08-12 版目錄（83 個模型）與 2026-08-14 版定價頁。
+- 2026-08-18：首次發布。對照 2026-08-12 版目錄（84 個模型）與 2026-08-18 版定價頁。
 
 ## 參考資料
 

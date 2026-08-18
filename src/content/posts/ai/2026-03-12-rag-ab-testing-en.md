@@ -8,6 +8,9 @@ lang: en
 tldr: '"Adding a Cross-Encoder feels better" is not a scientific evaluation. A/B testing tells you whether a change actually works, how much it helps, and which query types benefit.'
 description: "How to design A/B tests for RAG systems: traffic splitting, metric selection, statistical significance, and how to avoid common testing pitfalls."
 draft: false
+series:
+  name: "The RAG Techniques Compendium"
+  order: 38
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-12-rag-ab-testing)
@@ -31,14 +34,16 @@ A few factors make RAG testing more complex than typical web feature A/B tests:
 **User-level assignment** (recommended):
 
 ```typescript
-function assignVariant(userId: string): 'A' | 'B' {
-  // Stable assignment via userId hash — same user always sees the same variant
-  const hash = murmurhash(userId) % 100;
+function assignVariant(userId: string, experimentId: string): 'A' | 'B' {
+  // Always mix experimentId into the hash: otherwise every experiment reuses
+  // the same split, and whoever is "always in A" stacks every experiment's
+  // bias on top of the last one
+  const hash = murmurhash(`${experimentId}:${userId}`) % 100;
   return hash < 50 ? 'A' : 'B';
 }
 ```
 
-The same user always lands in the same group, keeping the experience consistent.
+Within one experiment the same user always lands in the same group, keeping the experience consistent; a different experiment reshuffles.
 
 **Request-level assignment** (for rapid iteration):
 
@@ -85,36 +90,47 @@ Experiment 2: Control (no reranking) vs. Treatment (reranking enabled)
 
 **Guardrail metrics** (stop the experiment if any threshold is breached):
 
-- Latency p99 exceeds 15 seconds
-- Error rate exceeds 5%
-- Average Groundedness falls below 0.5
+- Latency p99 exceeds its ceiling
+- Error rate exceeds its ceiling
+- Average Groundedness falls below its floor
+
+Don't copy specific numbers from someone else. Guardrail thresholds should be derived from your own baseline: measure your current p99 and error rate first, then decide how much degradation makes the experiment not worth continuing. A threshold borrowed from an unrelated system either never fires (decorative) or fires the moment you start.
 
 ## Sample Size Calculation
 
 Calculate the required sample size before collecting data:
 
+Two things are easy to get wrong, so let's be explicit:
+
+1. **A/B is a two-sample comparison, not a one-sample estimate.** Both arms carry sampling error, so the per-group sample size is twice what a one-sample estimate needs — the `2` in the formula is not optional. Dropping it makes you think you need half the samples you actually do, and then declare "significance" on an underpowered test.
+2. **Groundedness is not a proportion.** It is a continuous 0–1 score, so its variance has to be estimated from your actual sample standard deviation, not from the binomial `p(1-p)`. Only genuine proportions — a thumbs-up rate, say — take `p(1-p)`.
+
 ```python
+from math import ceil
 from scipy import stats
-import math
 
-def required_sample_size(
-    baseline_rate: float,  # Current metric (e.g. Groundedness = 0.72)
-    minimum_effect: float, # Minimum detectable improvement (e.g. +0.05 = 5%)
-    alpha: float = 0.05,   # Significance level
-    power: float = 0.80,   # Statistical power
+def required_sample_size_per_group(
+    variance: float,        # Metric variance (see the two cases below)
+    minimum_effect: float,  # Minimum detectable difference, absolute (e.g. +0.05)
+    alpha: float = 0.05,    # Significance level (two-tailed)
+    power: float = 0.80,    # Statistical power
 ) -> int:
-    effect_size = minimum_effect / math.sqrt(
-        baseline_rate * (1 - baseline_rate)
-    )
-    n = stats.norm.ppf(1 - alpha/2) + stats.norm.ppf(power)
-    return math.ceil((n / effect_size) ** 2)
+    z = stats.norm.ppf(1 - alpha / 2) + stats.norm.ppf(power)
+    return ceil(2 * variance * z**2 / minimum_effect**2)
 
-# Example: baseline Groundedness 0.72, target improvement 5% — how many samples?
-n = required_sample_size(0.72, 0.05)
-print(f"Samples needed per group: {n}")  # Roughly 500–1000
+# Case A: continuous score (LLM-as-Judge Groundedness)
+# Use the sample variance from your historical data, e.g. sd ≈ 0.20
+n_a = required_sample_size_per_group(0.20**2, 0.05)
+print(f"Samples needed per group: {n_a}")   # 252
+
+# Case B: proportion metric (thumbs-up rate of 0.72)
+n_b = required_sample_size_per_group(0.72 * (1 - 0.72), 0.05)
+print(f"Samples needed per group: {n_b}")   # 1266
 ```
 
-If rate limits keep daily query volume in the hundreds, you may need to run the test for several weeks to collect enough samples.
+The two numbers differ by a factor of five, and the only difference is whether the metric is a continuous score or a proportion — which is exactly why you measure your own sd instead of copying a sample size out of someone's blog post.
+
+If rate limits keep daily query volume in the hundreds, you may need to run the test for several weeks to collect enough samples. When the samples genuinely aren't there, the other route is **interleaving**: show one user the two configurations' results interleaved and compare preferences within the same person. The cost is that it only compares retrieval ordering, not end-to-end generation, but at low traffic it needs an order of magnitude fewer samples than a conventional A/B test (see Chapelle et al. in the references).
 
 ## Subgroup Analysis
 
@@ -174,4 +190,4 @@ The most important habit: **add an `experiment_id` column when the system first 
 - [Machine Learning Testing: Survey, Landscapes and Horizons](https://arxiv.org/abs/1906.10742)
 - [Dynamic Causal Effects Evaluation in A/B Testing with a Reinforcement Learning Framework](https://arxiv.org/abs/2002.01711)
 - [Large-Scale Validation and Analysis of Interleaved Search Evaluation (Chapelle et al., 2012)](https://www.cs.cornell.edu/~tj/publications/chapelle_etal_12a.pdf)
-- [RAG Pipeline A/B 測試指標設計：Groundedness 與 LLM-as-Judge (RAG Survey 2024)](https://arxiv.org/abs/2312.10997)
+- [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)

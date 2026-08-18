@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "複雜多跳問題，RAG 一次搜尋不夠。Agentic RAG 讓 LLM 評估結果是否充分，不夠就改寫查詢再搜一次，形成 ReAct 迴圈。"
 description: "Agentic RAG 的 ReAct 迴圈設計、觸發條件、決策邏輯、與 Baseline RAG 的取捨，以及在攀岩推薦場景的應用。"
 draft: false
+series:
+  name: "RAG 技法大全"
+  order: 21
 ---
 
 > 🌏 [English version](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
@@ -105,6 +108,8 @@ Agentic RAG 不是預設啟動的。需要：
 2. `queryType === 'complex'`
 
 原因很簡單：Agentic RAG 的延遲比標準 RAG 高很多（多次 LLM 呼叫 + 多次搜尋），不適合所有查詢。
+
+這個系統上量到的量級（會隨模型、檢索後端與步驟數變動，不是通用數字）：
 
 ```
 Standard RAG: 5-8 秒
