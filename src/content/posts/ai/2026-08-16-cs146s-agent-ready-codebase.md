@@ -25,7 +25,19 @@ draft: false
 
 課程主題三條：什麼讓一個 repo 變得 agent-ready（結構、文件、測試、檢查）、就緒度的評分與稽核、以及真實 repo 裡常見的阻礙。客座是 [Factory](https://factory.ai/) 共同創辦人兼 CTO Eno Reyes，講題就是 agent readiness。
 
-這一週在 Fall 2025 完全不存在，而它可能是整份新大綱裡**最反直覺的一週**：它主張你手上 agent 表現不好，通常不是模型的問題。
+這一週可能是整份新大綱裡**最反直覺的一週**：它主張你手上 agent 表現不好，通常不是模型的問題。
+
+## 這一週不是憑空冒出來的
+
+我原本寫「這一週在 Fall 2025 完全不存在」。讀完舊投影片後要修正：**主題確實沒有獨立成週，但概念早就在了。**
+
+Fall 2025 Week 3 的 [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit) 有一頁寫著：
+
+> Optimize your codebase so that a human and an agent could understand what's going on. **Much of LLM confusion comes from trying to finish a task with a messy repo as context.**
+
+同一頁列了要寫進文件的八項：repo 導覽、檔案結構、setup 與環境、最佳實踐、程式風格、存取模式、API 與契約——外加一句「a monorepo design in your repo is highly encouraged」。
+
+把它跟 Factory 的八根柱子擺在一起看很有意思：**課程那份偏「寫給人與 agent 看的文件」，Factory 那份偏「機器可判定的檢查」。** 一年之間，這個主題從「請把 repo 整理乾淨」變成「你的 repo 可以被打分數」。
 
 ## 「壞掉的不是 agent，是環境」
 
@@ -131,4 +143,5 @@ Factory 把幾個知名開源專案的評分[公開出來](https://factory.ai/ag
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory，2026-01-20，八柱五級框架與評分方法
 - [Agent Readiness Reports](https://factory.ai/agent-readiness) — 公開開源專案評分
 - [Making Codebases Agent Ready – Eno Reyes, Factory AI](https://www.youtube.com/watch?v=ShuJ_CN6zr4) — 本週客座的同主題演講
+- [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit) — Fall 2025 Week 3 課堂投影片，agent-ready codebase 的前身
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering，檔案結構與命名對 agent 的訊號價值

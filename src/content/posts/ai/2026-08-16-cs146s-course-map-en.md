@@ -92,9 +92,21 @@ Alberti and Evans appear in both versions, but the topics shifted: Alberti moved
 
 ## No Fall 2026 reading list — so what
 
-At the time of writing (mid-August 2026) the course is a month out, and the Fall 2026 syllabus lists topics and session titles but **no assigned readings**. Fall 2025 had sixty-odd readings, but the topics no longer line up.
+At the time of writing (mid-August 2026) the course is a month out, and the Fall 2026 syllabus lists topics and session titles but **no assigned readings**. Fall 2025 had 45 readings, but the topics no longer line up.
 
-So this series does the following: **use each published week as the skeleton, then go find the current primary material on that topic**, marking clearly which claims come from the course and which come from outside sources. Week 2's RePPIT, for instance, has [a full write-up by the instructor himself](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) (MLOps Community, June 2026); Week 5's agent readiness has [Factory's published eight-pillar, five-level framework](https://factory.ai/news/agent-readiness); Week 3's skills have [Anthropic's engineering post](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills). All of these are easier to verify than lecture slides.
+Fall 2025's material, however, is fully public:
+
+| Material | Count |
+|---|---|
+| Assigned readings | 45 |
+| Lecture slide decks | 18 |
+| GitHub assignments | 8 |
+
+So this series works in two layers: **the Fall 2026 weekly topics are the skeleton, classroom content comes from the public Fall 2025 slides on the same topics, and only where Fall 2025 has no counterpart (Skills, Agent-Ready Codebases, Background Agents, AI-Native Team) do I go find primary material myself** — with every passage marked as either the course's claim or an outside source's.
+
+The slides aren't reachable from the front page, but every session on the syllabus tab links one, as a public `docs.google.com/presentation` file. Reading them turns up a fair amount that appears in no official documentation or blog post — the four "what Claude actually does underneath" points in the Week 1 session, the eight-field design doc template in Week 3, the human/agent division-of-labor table in Week 4.
+
+The self-sourced part includes: Week 2's RePPIT has [a full write-up by the instructor himself](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) (MLOps Community, June 2026); Week 5's agent readiness has [Factory's published eight-pillar, five-level framework](https://factory.ai/news/agent-readiness); Week 3's skills have [Anthropic's engineering post](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
 
 ## How this series is laid out
 
@@ -118,13 +130,15 @@ One post per week plus this overview, eleven in total:
 - Guest speakers for weeks 8, 9, and 10 are currently TBD
 - Marketing lines like "world's first course of its kind," "10x productivity," and the newsletter's "trusted by 32K developers globally" are course self-descriptions with no independent verification
 - The comparison between the two syllabi is my own item-by-item diff; the course publishes no changelog
+- All classroom content quoted in this series comes from Fall 2025 slides; those sessions may be taught differently in Fall 2026
 
 ## References
 
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — Fall 2026 course site (overview / syllabus / FAQ tabs)
 - [CS146S Fall 2025](https://themodernsoftware.dev/fall2025) — the older version, with the full reading list, slides, and guest list
 - [CS146S Course | Stanford University Bulletin](https://bulletin.stanford.edu/courses/2274401) — the university's catalog entry
-- [modern-software-dev-assignments](https://github.com/mihail911/modern-software-dev-assignments) — Fall 2025 assignment repo
+- [modern-software-dev-assignments](https://github.com/mihail911/modern-software-dev-assignments) — Fall 2025 assignment repo (8 assignments)
+- The 18 Fall 2025 lecture decks hang off the syllabus tab of the [fall2025 page](https://themodernsoftware.dev/fall2025), as the Slides link beside each session
 - [RePPIT: A Framework to Ship Production Code 2-3X Faster](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) — Mihail Eric, MLOps Community, 2026-06-02
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory, 2026-01-20
 - [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) — Anthropic Engineering, 2025-10-16

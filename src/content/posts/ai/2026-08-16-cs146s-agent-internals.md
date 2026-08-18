@@ -14,7 +14,7 @@ type: deep-dive
 series:
   name: "CS146S：AI 原生開發十週"
   order: 2
-tldr: "CS146S 第一週的講題是「用 200 行寫出 Claude Code」加上「解剖 production agent 的 system prompt」。agent loop 本身確實只有十幾行——Thorsten Ball 用 Go 寫的完整版不到 400 行、四個工具。難的從來不是迴圈，是迴圈外面那一圈：工具契約、權限、錯誤回復。"
+tldr: "CS146S 第一週的講題是「用 200 行寫出 Claude Code」加上「解剖 production agent 的 system prompt」。agent loop 本身確實只有十幾行。課程投影片最後一頁列了四條 Claude 底下實際在做的事，其中一條是用 `<system-reminder>` 標籤在各處防止模型漂掉——這在官方文件裡找不到。"
 description: "拆解 Stanford CS146S Fall 2026 第一週「The Internals of Coding Agents」：agent loop 的最小實作、read/write/edit/bash 四件工具組、production coding agent 的 system prompt 結構，以及手刻版與可用版之間差了什麼。"
 draft: false
 ---
@@ -84,6 +84,25 @@ Anthropic 對 system prompt 的建議是找到「right altitude」——他們�
 
 想看真的長什麼樣，Fall 2025 的第四週指定過一篇第三方逆向分析 [Peeking Under the Hood of Claude Code](https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62)。它不是官方文件，讀的時候要當成觀察筆記而不是規格書；但作為「production agent 的 prompt 到底有多長、在管什麼」的參照，它比任何二手描述都具體。
 
+## 課程投影片上那頁「The Secret Sauce」
+
+Fall 2025 的對應課堂是 Week 2「Building a coding agent from scratch」，[投影片公開](https://docs.google.com/presentation/d/11CP26VhsjnZOmi9YFgLlonzdib9BLyAlgc4cEvC5Fps/edit)。它只有七頁，但最後一頁叫「The 'Secret' Sauce」，列了四條「Claude 底下實際在做什麼」——這四條在任何一份官方文件裡都找不到：
+
+> - Front-load context with tiny targeted prompts
+> - **System reminders everywhere including system/user prompts, tool calls, tool results to prevent drift (`<system-reminder>` tags)**
+> - Command prefix extraction
+> - Spawns sub agents (likely to help with preventing context overloading)
+
+第二條值得停一下。**system reminder 是塞在 system prompt、user prompt、工具呼叫、工具結果裡的短提醒，用 `<system-reminder>` 標籤包起來，目的是防止模型在長對話中漂掉。** 這跟前面講的「agent loop 只是個 while 迴圈」是同一件事的兩面：迴圈本身沒有記憶，維持行為一致靠的是每一輪都重新提醒。
+
+投影片對整個架構的描述也比我上面的程式碼精確一點：
+
+> User interacts with coding agent client (windsurf, cursor, claude code) and runs a loop with an underlying llm. Sometimes the llm issues tool calls which the client executes (**off-LLM**)
+
+`off-LLM` 這個詞是關鍵——**工具是在模型外面執行的**。模型只會產生「我要呼叫這個工具、參數長這樣」的結構化輸出，真正跑 `rm -rf` 的是 client。這也解釋了為什麼權限與沙箱一定是 client 的責任，不是模型的。
+
+課程給的術語定義同樣直白：system prompt 定義整體行為與 directives，user prompt 是使用者的請求，assistant prompt 是模型的回應。
+
 ## 手刻版跟能用版差在哪
 
 200 行的 agent 跑得起來，但你不會拿它做事。差距大致在這幾層：
@@ -103,7 +122,7 @@ Anthropic 對 system prompt 的建議是找到「right altitude」——他們�
 
 ## 自己動手的最小路線
 
-Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github.com/mihail911/modern-software-dev-assignments) 是公開的，`week2` 就是「Building a coding agent from scratch」。想自己走一次，順序大概是：
+Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github.com/mihail911/modern-software-dev-assignments) 是公開的，`week2` 就是「Building a coding agent from scratch」。課程投影片給的步驟只有三行——讀終端機並持續 append 到對話、告訴 LLM 有哪些工具（它列的是 `Read_file`、`List_dir`、`Edit_file`）、然後建檔改檔。展開成可以自己走的順序：
 
 1. 用官方 SDK 接一次 tool use，先只做 `read_file`
 2. 加 `list_files`，看模型會不會自己先探路再讀檔
@@ -116,7 +135,7 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 ## 會過期的東西
 
 - Fall 2026 的作業與投影片尚未公布，本文的作業路線是依 Fall 2025 repo 推的
-- 「200 行」是課程講題的說法，實際程式碼還沒公開
+- 「200 行」是 Fall 2026 講題的說法，實際程式碼還沒公開；本文引用的是 Fall 2025 同主題課堂的投影片
 - Claude Code 的 system prompt 分析文是第三方逆向，版本會漂
 
 ## 參考資料
@@ -126,4 +145,5 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering，2025-09-29
 - [Writing tools for AI agents – with AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — Anthropic Engineering，工具定義的設計原則
 - [Peeking Under the Hood of Claude Code](https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62) — 第三方逆向分析，Fall 2025 Week 4 指定讀物
+- [Building a coding agent from scratch](https://docs.google.com/presentation/d/11CP26VhsjnZOmi9YFgLlonzdib9BLyAlgc4cEvC5Fps/edit) — Fall 2025 Week 2 課堂投影片，含「The Secret Sauce」四條
 - [modern-software-dev-assignments](https://github.com/mihail911/modern-software-dev-assignments) — Fall 2025 作業 repo，`week2` 是手刻 agent

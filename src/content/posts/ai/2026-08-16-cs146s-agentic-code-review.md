@@ -27,6 +27,20 @@ draft: false
 
 這個位移本身有意思。一年前值得請人來講的是「怎麼寫」，現在是「誰來檢查」。
 
+## 先看課程為什麼把 code review 當高槓桿
+
+Fall 2025 的對應課堂是 Week 7「AI code review」（[投影片](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit)，客座是 Graphite 的 CPO Tomas Reimers）。它開場先擺三組數字，來源標的是 [Coding Horror](https://blog.codinghorror.com/code-reviews-just-do-it/)——那也是這門課的指定讀物之一：
+
+- code review 的錯誤偵測率是 **55–60%**，各種測試模式是 **25–45%**
+- 一項研究比對有無 code review 的錯誤密度：**每 100 行 4.5 個錯 → 0.82 個**
+- AT&T 的研究：導入 review 後**生產力上升 14%、缺陷下降 90%**
+
+**這三組數字全部是人類 review 的數字**，跟 AI 無關。課程用它們先立一個前提：review 這件事本身的價值極高，所以問題不是「要不要 review」，是「誰來做、做得多好」。
+
+課程把 review 要抓的東西分成五類：邏輯與正確性、可讀性與可維護性、效能、安全、以及最佳實踐（含 codebase 內部的 idiom 與資料庫存取模式——投影片舉的例子是「用這個 service 而不是直接查 DB」）。
+
+順帶一提，課程對「什麼叫好的 review 留言」給了四個條件：提供具體細節、指向特定的程式碼或 issue、**提出解法**、附上證據或解釋。對照組是那種只寫「This won't work」的留言。這四條同樣適用於評估一個 AI reviewer 的輸出品質。
+
 ## 唯一一份有規模的公開數據
 
 市面上關於 AI code review 的比較數字很多，但幾乎全部來自工具供應商或聯盟行銷網站，方法論不可重現。真正可以拿來討論的公開資料是 Google 那篇 [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/abs/2405.13565)（AIware '24，Fall 2025 Week 7 的指定讀物）——他們把一個叫 AutoCommenter 的 LLM 系統部署到「tens of thousands of developers」身上，然後把整條路的坑寫出來。
@@ -61,14 +75,18 @@ draft: false
 
 ## AI review 抓不到的那一類
 
-課程主題明寫「what AI review catches well, and what it misses」。目前公開材料裡比較站得住腳的分界是：
+課程主題明寫「what AI review catches well, and what it misses」。Fall 2025 的投影片直接列了一張限制清單，比我自己推的分界更銳利：
 
-| 抓得好 | 抓不好 |
-|---|---|
-| 風格與慣例偏離 | 跨檔案的架構退化 |
-| 明顯的空值／邊界錯誤 | 業務邏輯錯（code 對，需求不對） |
-| 缺測試、缺文件 | 競態條件與並行問題 |
-| 單檔內的可讀性 | 「這個抽象三個月後會爛掉」 |
+> - More configuration/setup
+> - False positives——「Have to train the system → continuous learning」
+> - **Can't yet catch the idioms and repo best practices**
+> - Can't handle complex business logic and architecture decisions——「But that's where humans are still needed」
+> - Must be extra cautious with security changes
+> - Often misses edge cases
+
+其中「抓不到 repo 自己的 idiom 與慣例」這條最值得注意，因為它跟課程前面「review 要抓的五類」裡的第五類**直接衝突**——最佳實踐與內部慣例正是人類 reviewer 最有價值的貢獻，也正是 AI 目前最弱的一塊。
+
+課程還給了兩條操作建議：**要明確告訴它哪些東西不要 review**、以及對「使用者輸入、認證、檔案操作、網路請求」這四類改動要特別小心。
 
 只讀 diff 的工具跟索引整個 codebase 的工具差別也在這條線上——前者看不到這個改動對系統其他部分的連鎖影響。
 
@@ -81,6 +99,12 @@ draft: false
 **二、分級，不要只丟一坨留言。** RePPIT 的 Test 步驟把發現分成 must-fix / should-fix / nice-to-have。這個分級是抵抗 Google 那個「correct but low-value」問題的最低成本做法——不刪留言，但讓人知道哪些可以不看。
 
 **三、AI review 通過不等於可以合併。** 綠勾勾最大的風險不是它漏掉的 bug，是它讓人類 reviewer 放鬆。Google 那套系統跑了兩年多，留言解決率也只有 40% 上下。
+
+課程把這條寫得比我更狠，而且是投影片上的最後一句：
+
+> Code review is more important now than ever with AI coding systems — **You own the code that is merged and shipped, no blaming of the AI**
+
+「合併進去的程式碼是你的，不能怪 AI」——這句話同時回答了責任歸屬與流程設計兩件事。
 
 ## 會過期的東西
 
@@ -95,4 +119,5 @@ draft: false
 - [RePPIT: A Framework to Ship Production Code 2-3X Faster](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) — Mihail Eric，review 分級與「不准自審」規則
 - [How to Review Code Effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/) — GitHub Blog，Fall 2025 Week 7 指定讀物
 - [Code Reviews: Just Do It](https://blog.codinghorror.com/code-reviews-just-do-it/) — Coding Horror，Fall 2025 Week 7 指定讀物
+- [AI code review](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit) — Fall 2025 Week 7 課堂投影片，含 review 的成效數字與課程版限制清單
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory，確定性檢查與模型判斷的分界

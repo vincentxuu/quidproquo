@@ -14,7 +14,7 @@ type: deep-dive
 series:
   name: "CS146S：AI 原生開發十週"
   order: 8
-tldr: "同一週要處理兩件相反的事：用 agent 找漏洞，以及 agent 自己就是漏洞。前者有實績——o3 找出 ksmbd 的 use-after-free（CVE-2025-37899），但作者自己記錄基準測試 100 次只中 8 次、28 次誤報。後者的結構性問題是 lethal trifecta：私密資料、不可信內容、對外通道，三者同時具備就等著被搬空。"
+tldr: "課程量到的 AI SAST 誤報率是 50–100%，而傳統 SAST 本來也有 50% 以上——真正的新問題是非決定性：同一個 prompt 跑兩次結果不同，你無法回答「掃完了沒有」。課程列的 agent 攻擊向量有五種，其中 intent breaking 攻擊的是 agent 的計畫本身。"
 description: "拆解 Stanford CS146S Fall 2026 第七週「Security」：SAST/SCA 與相依套件風險、prompt injection 為何連三年排 OWASP 第一、lethal trifecta 威脅模型，以及 agent 輔助的漏洞分流實績與代價。"
 draft: false
 ---
@@ -26,6 +26,20 @@ draft: false
 課程主題三條：SAST / SCA、相依套件與密鑰外洩漏洞；prompt injection 與 agent 特有的攻擊面；agent 輔助的分流與修補。客座是 Semgrep 執行長 Isaac Evans，兩版大綱都有他。
 
 安全是十週裡**唯一兩版都在的主題**。但這週要同時處理兩件方向相反的事：拿 agent 當防守工具，以及把 agent 本身當成新的攻擊面。
+
+## 課程先教的三個縮寫
+
+Fall 2026 這週的第一條主題直接寫 SAST / SCA。Fall 2025 的對應課堂是 Week 6「AI QA, SAST, DAST, and Beyond」（[投影片](https://docs.google.com/presentation/d/1C05bCLasMDigBbkwdWbiz4WrXibzi6ua4hQQbTod_8c/edit)），把三個縮寫定義清楚：
+
+| | 全名 | 是什麼 | 抓什麼 |
+|---|---|---|---|
+| **SAST** | Static Application Security Testing | 白箱，分析原始碼與 binary，用 pattern matching 掃 | SQL injection、command injection、XSS。在 SDLC 早期做，修正成本最低。工具：Bandit、Semgrep、ESLint + extensions |
+| **DAST** | Dynamic Application Security Testing | 黑箱，模仿真實攻擊者的動作 | 同上加 broken authentication。**誤報比 SAST 少**。技術：input fuzzing、操弄 session token、header 測試、暴力 rate-limit 測試 |
+| **SCA** | Software Composition Analysis | 深入分析你用的開源套件 | 分析套件 metadata、解析 transitive dependency、比對漏洞資料庫、掃 binary 與 artifact |
+
+課程對三者關係的一句話總結是「cover code + runtime + dependencies」——**分別對應程式碼、執行期、相依**。這三塊沒有一塊能被另外兩塊取代，也沒有一塊能被 LLM 取代。
+
+課程給的動機同樣直接：「When an LLM is writing most of your code, you need extensive guardrails to prevent those errors.」
 
 ## 防守面：agent 真的找得到漏洞
 
@@ -42,6 +56,16 @@ draft: false
 **這個組合正是「AI 輔助分流」該有的樣子**：模型負責產生候選，人負責篩。1:50 的訊噪比對自動化流程是災難，對一個原本要手動審 12,000 行程式碼的研究者卻是巨大加速。這跟 [Week 6 的 code review](/posts/ai/2026-08-16-cs146s-agentic-code-review) 是同一個道理——瓶頸永遠在噪音那一側。
 
 Semgrep 自己也發過[用 Claude Code 與 Codex 找現代 web app 漏洞](https://semgrep.dev/blog/2025/finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-openai-codex/)的實驗紀錄，方向一致：規則型的 SAST 抓已知模式，模型抓需要理解語意與跨檔案推理的那一類。兩者是互補，不是取代。
+
+課程自己也量過這件事，而且數字比我上面引的更不客氣。同一份投影片的 Limitations 頁寫著：
+
+> In AI SAST, false positive rates are incredibly high
+> - **Claude Code/Codex can be 50-100% depending on the vulnerability**
+> - Compare to **50+%** for traditional SAST techniques
+
+**兩邊都很高。** 這是這一頁最誠實的地方——它沒有拿 AI 的高誤報去對比一個虛構的完美傳統工具，而是指出傳統 SAST 本來就有 50% 以上的誤報。差別在別的地方：課程接著點出 AI 的**非決定性**才是真正的新問題——「Run the same prompt multiple times and get different results → how do you know you're catching all vulnerabilities?」並把 context rot 與 compaction 列為成因。
+
+一個每次跑結果都不同的掃描器，你沒辦法回答「我掃完了沒有」。傳統 SAST 再吵，至少每次吵的是同一件事。
 
 ## 攻擊面：prompt injection 沒有被解決
 
@@ -62,6 +86,20 @@ OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://ge
 問題是**一個典型的 coding agent 預設就三項全開**：它讀你的私有 repo、它會去讀 issue 與網路文件、它能推 branch 跟呼叫 API。
 
 真實案例不缺。Fall 2025 的指定讀物之一就是 [GitHub Copilot 透過 prompt injection 達成遠端程式碼執行](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/)的分析。
+
+## 課程列的五種 agent 攻擊向量
+
+我上面只寫了 prompt injection 與供應鏈兩類。課程的分類是五類，而且每一類都給了定義：
+
+1. **Prompt injection**——隱藏或誤導的指示，讓系統偏離預期行為
+2. **Tool misuse**——用欺騙性的 prompt 操弄 agent，濫用它接上的工具
+3. **Intent breaking**——操弄 agent 的**計畫**，把行動導離原本的意圖
+4. **Identity spoofing**——利用被入侵的認證，假冒成合法的 agent
+5. **Code attacks**——利用 agent 執行程式碼的能力，取得執行環境的未授權存取
+
+第 3 類值得特別看。**intent breaking 攻擊的不是輸入也不是工具，是 agent 的規劃**——它讓 agent 仍然「照自己的計畫」行動，只是那個計畫已經被改過了。這在有 planner／implementer 分工的架構裡特別危險，因為 implementer 沒有理由懷疑 planner 給的計畫。
+
+第 4 類在 multi-agent 系統裡才成立，也正是 Fall 2025 指定 [Unit 42 那篇](https://unit42.paloaltonetworks.com/agentic-ai-threats/)的原因。
 
 ## 三個新的供應鏈入口
 
@@ -93,6 +131,19 @@ OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://ge
 
 除了「被攻擊」與「產生漏洞」，還有第三類：**agent 自己搞砸**。一個有 `bash` 權限的 agent 不需要任何攻擊者就能刪掉你的分支。這類事故不會出現在 OWASP 清單上，因為它不是安全漏洞，是權限設計問題——而修法完全一樣：最小權限、沙箱、破壞性動作要確認。
 
+## 課程自己留的六個問題
+
+投影片最後一頁是六個沒有答案的問題，值得原樣抄下來——它們比任何結論都更準確地標出這個領域現在的邊界：
+
+> - How to reduce false positives and hallucinations in vulnerability detection?
+> - How do we verify that LLM-generated patches are secure and don't introduce regressions?
+> - How can LLMs explain why they flag a vulnerability or propose a fix?
+> - What are the right benchmarks for measuring LLMs' AppSec performance?
+> - How should LLMs be embedded in CI/CD without overwhelming teams with noise?
+> - **Who is accountable if an AI-generated patch introduces a vulnerability?**
+
+最後一題不是技術問題。**課程把它擺在技術問題的同一張清單上，而且沒有回答。**
+
 ## 會過期的東西
 
 - o3 的實驗是 2025 年 5 月，模型已換代；那組數字說明的是**方法的形狀**，不是今天的命中率
@@ -109,4 +160,5 @@ OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://ge
 - [GitHub Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) — Fall 2025 Week 6 指定讀物
 - [Finding Vulnerabilities in Modern Web Apps Using Claude Code and OpenAI Codex](https://semgrep.dev/blog/2025/finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-openai-codex/) — Semgrep，Fall 2025 Week 6 指定讀物
 - [Agentic AI Threats: Identity Spoofing and Impersonation Risks](https://unit42.paloaltonetworks.com/agentic-ai-threats/) — Unit 42，Fall 2025 Week 6 指定讀物
+- [AI QA, SAST, DAST, and Beyond](https://docs.google.com/presentation/d/1C05bCLasMDigBbkwdWbiz4WrXibzi6ua4hQQbTod_8c/edit) — Fall 2025 Week 6 課堂投影片，含三個縮寫的定義、五種攻擊向量與 AI SAST 誤報率
 - [Claude Code sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) — Anthropic Engineering

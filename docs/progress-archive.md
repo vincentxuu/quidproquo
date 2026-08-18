@@ -626,3 +626,16 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 - 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
   漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
   加 3 行 line-clamp 當保險。正文與 description 未動。
+
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
+  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
+  ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
+  它是研究工序紀錄不是給讀者的文章（開頭從作者視角寫、有一整節是自我檢討），且
+  「五個數字被廣傳」這個賣點我拿不出證據——查證範圍只有 ByteByteGo 一個來源。
+  查證結果本來就在寫作前併入七篇，七篇內容不受影響。各篇 1,242–1,930 字，
+  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
+  middle；frontmatter glossary: unattended agent、containment rate。
+  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
+  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
+  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
+  的 arXiv ID（2406.10279 正確）。
