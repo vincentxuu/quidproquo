@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, nodes, ios, android, macos, camera, canvas, location, sms]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 29
 tldr: "Nodes are peripheral devices for the Gateway -- iOS/Android provide camera/location/notifications, macOS provides Canvas/system.run, and Node Host enables remote exec on other machines."
 description: "Complete guide to OpenClaw Nodes: device pairing, Canvas/Camera/Location/SMS commands, Node Host remote execution, and Android personal data access."
 draft: false

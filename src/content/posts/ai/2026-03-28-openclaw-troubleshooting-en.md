@@ -5,6 +5,9 @@ type: debug
 category: ai
 tags: [openclaw, troubleshooting, doctor, diagnostics, operations]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 31
 tldr: "openclaw doctor is the all-in-one diagnostic tool, openclaw sandbox explain troubleshoots sandbox issues, and openclaw channels status --probe checks channel connectivity."
 description: "OpenClaw operations guide: diagnostic tools, common troubleshooting, health checks, and log analysis."
 draft: false

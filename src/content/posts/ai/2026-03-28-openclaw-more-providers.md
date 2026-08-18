@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, deepseek, groq, ollama, openrouter, vllm, bedrock, sglang, mistral]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 7
 tldr: "除了 Anthropic/OpenAI/Google 三大家，OpenClaw 還支援 30+ 供應商，從 DeepSeek 到本地 Ollama 都有。"
 description: "OpenClaw 的 30+ 模型供應商設定指南：DeepSeek、Groq、Ollama、vLLM、OpenRouter、Amazon Bedrock 與更多。"
 draft: false

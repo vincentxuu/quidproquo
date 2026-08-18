@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, tts, pdf, lobster, mcp, media, elevenlabs, openai-tts]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 23
 tldr: "TTS 支援 ElevenLabs/Microsoft/OpenAI 三家，PDF 有 native 和 extraction 兩種模式，Lobster 是確定性工作流 runtime，MCP 支援外部工具擴展。"
 description: "OpenClaw 的 TTS 語音合成、PDF 分析、Lobster 工作流引擎、MCP Server 整合、以及媒體處理工具。"
 draft: false

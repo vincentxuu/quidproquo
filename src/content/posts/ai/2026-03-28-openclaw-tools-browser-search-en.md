@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, browser, web-search, deep-research, browserless, browserbase]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 20
 tldr: "OpenClaw's browser uses managed profiles for isolation, supports remote CDP (Browserless/Browserbase), and Deep Research combines search and browsing for multi-step research."
 description: "OpenClaw's browser control system (managed profiles, remote CDP, sandboxed browsers) and web search tools."
 draft: false

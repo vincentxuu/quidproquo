@@ -5,6 +5,9 @@ type: deep-dive
 category: ai
 tags: [openclaw, pi, reference, configuration, features, architecture]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 32
 tldr: "Pi 是 OpenClaw 內嵌的 coding agent runtime，OpenClaw 是 Pi 的 Gateway 殼。設定參考覆蓋 16 個頂層區塊、335 個文件。"
 description: "OpenClaw 與 Pi 的整合架構、功能完整列表、以及設定參考速查。"
 draft: false

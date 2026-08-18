@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, ios, android, mobile, node, canvas, camera, voice-wake]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 5
 tldr: "OpenClaw 的 iOS 和 Android app 不是 Gateway，而是 Node——讓手機的相機、螢幕、位置、語音成為 AI agent 的感官延伸。"
 description: "OpenClaw iOS 與 Android 的 Node 角色、配對流程、Canvas/Camera/Voice 功能與限制。"
 draft: false

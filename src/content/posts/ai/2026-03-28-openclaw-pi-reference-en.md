@@ -5,6 +5,9 @@ type: deep-dive
 category: ai
 tags: [openclaw, pi, reference, configuration, features, architecture]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 32
 tldr: "Pi is OpenClaw's embedded coding agent runtime; OpenClaw is Pi's Gateway shell. This configuration reference covers 16 top-level sections and 335 documents."
 description: "OpenClaw and Pi integration architecture, complete feature list, and configuration quick reference."
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, deepseek, groq, ollama, openrouter, vllm, bedrock, sglang, mistral]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 7
 tldr: "Beyond the big three (Anthropic/OpenAI/Google), OpenClaw supports 30+ providers — from DeepSeek to local Ollama and everything in between."
 description: "Configuration guide for OpenClaw's 30+ model providers: DeepSeek, Groq, Ollama, vLLM, OpenRouter, Amazon Bedrock, and more."
 draft: false

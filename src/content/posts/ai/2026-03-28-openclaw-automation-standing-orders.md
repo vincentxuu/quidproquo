@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, standing-orders, automation, agents-md, autonomous]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 25
 tldr: "Standing Orders 給 agent 永久授權執行定義好的程式——有明確的範圍、觸發條件、approval gate 和升級規則，搭配 Cron 做時間控制。"
 description: "OpenClaw 的 Standing Orders 機制：給 agent 永久執行權限的結構化指令，搭配 Cron 和 Heartbeat 實現自主營運。"
 draft: false

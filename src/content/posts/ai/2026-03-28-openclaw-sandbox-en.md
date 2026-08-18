@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, sandbox, docker, ssh, openshell, security, tool-policy, elevated]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 17
 tldr: "OpenClaw's sandbox has three layers of control: Sandbox determines where code runs (Docker/SSH/OpenShell), Tool Policy determines which tools are available, and Elevated is the host escape hatch for exec."
 description: "A complete guide to OpenClaw's sandbox mechanism: three backends (Docker/SSH/OpenShell), three layers of control (Sandbox/Tool Policy/Elevated), workspace access modes, and security configuration."
 draft: false

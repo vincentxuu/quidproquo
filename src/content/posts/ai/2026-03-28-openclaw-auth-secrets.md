@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, authentication, secrets, oauth, trusted-proxy, secretref, security]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 19
 tldr: "API Key 最穩、OAuth 用 PKCE + token sink 模式、SecretRef 支援 env/file/exec 三種來源、Trusted Proxy 可以委託 reverse proxy 做認證。"
 description: "OpenClaw 的認證機制（API Key / OAuth / Setup Token）、SecretRef 密鑰管理、以及 Trusted Proxy Auth 反向代理認證。"
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, signal, imessage, bluebubbles, line, irc, nostr, twitch, zalo]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 16
 tldr: "Signal uses signal-cli for privacy, iMessage is best via BlueBubbles, LINE uses webhooks, IRC/Nostr/Twitch each have their own character."
 description: "OpenClaw niche channel setup guide: Signal, iMessage/BlueBubbles, LINE, IRC, Nostr, Twitch, Zalo, and more."
 draft: false

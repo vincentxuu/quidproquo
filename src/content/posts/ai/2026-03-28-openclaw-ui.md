@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, control-ui, tui, web-chat, dashboard, terminal]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 30
 tldr: "Control UI 是瀏覽器 dashboard（http://127.0.0.1:18789），TUI 是終端互動介面，Web Chat 是 WebSocket 即時聊天。"
 description: "OpenClaw 的三種使用者介面：Control UI 瀏覽器 Dashboard、TUI 終端介面、Web Chat 即時聊天。"
 draft: false

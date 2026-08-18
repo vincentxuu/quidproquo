@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, nodes, ios, android, macos, camera, canvas, location, sms]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 29
 tldr: "Node 是 Gateway 的周邊裝置——iOS/Android 提供相機/位置/通知，macOS 提供 Canvas/system.run，Node Host 讓遠端主機跑 exec。"
 description: "OpenClaw Nodes 完整指南：裝置配對、Canvas/Camera/Location/SMS 指令、Node Host 遠端執行、以及 Android 個人資料存取。"
 draft: false

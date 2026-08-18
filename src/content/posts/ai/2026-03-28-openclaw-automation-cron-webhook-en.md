@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, cron, heartbeat, webhook, automation, scheduling]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 24
 tldr: "Heartbeat for periodic checks (30-minute batches), Cron for precise scheduling (with isolated sessions and model overrides), Webhook for receiving external event triggers."
 description: "OpenClaw's three automation mechanisms: Heartbeat for periodic checks, Cron for precise scheduling, and Webhook for external event triggers."
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, slack, microsoft-teams, google-chat, matrix, enterprise]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 15
 tldr: "Slack 有最完整的企業功能（native streaming、slash commands），Teams 需 Azure Bot 設定，Matrix 支援 E2EE 加密。"
 description: "OpenClaw 的企業通訊平台整合：Slack（Socket/HTTP Mode）、Microsoft Teams、Google Chat 與 Matrix（含 E2EE）。"
 draft: false

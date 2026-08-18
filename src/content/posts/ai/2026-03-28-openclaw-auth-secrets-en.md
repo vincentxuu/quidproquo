@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, authentication, secrets, oauth, trusted-proxy, secretref, security]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 19
 tldr: "API Key is the most stable option; OAuth uses PKCE + token sink pattern; SecretRef supports env/file/exec sources; Trusted Proxy delegates authentication to a reverse proxy."
 description: "OpenClaw authentication mechanisms (API Key / OAuth / Setup Token), SecretRef secret management, and Trusted Proxy Auth reverse proxy authentication."
 draft: false

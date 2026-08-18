@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, macos, linux, windows, wsl2, systemd, launchd]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 4
 tldr: "OpenClaw has a menu bar app on macOS, runs as a systemd service on Linux, and recommends WSL2 on Windows. Here are the differences and considerations across all three platforms."
 description: "Installation differences, service management, Node capabilities, and limitations of OpenClaw across macOS, Linux, and Windows desktop platforms."
 draft: false

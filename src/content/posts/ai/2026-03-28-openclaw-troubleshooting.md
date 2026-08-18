@@ -5,6 +5,9 @@ type: debug
 category: ai
 tags: [openclaw, troubleshooting, doctor, diagnostics, operations]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 31
 tldr: "openclaw doctor 是一站式診斷工具，openclaw sandbox explain 排查沙箱問題，openclaw channels status --probe 檢查頻道連線。"
 description: "OpenClaw 的維運指南：診斷工具、常見問題排解、健康檢查、以及日誌分析。"
 draft: false

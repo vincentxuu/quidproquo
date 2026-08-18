@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, agent-loop, streaming, queue, messages, debounce]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 11
 tldr: "A single agent execution: receive message → assemble context → model inference → tool execution → stream response → persist. Each session runs serially, with 5 queue modes supported."
 description: "The complete execution flow of the OpenClaw Agent Loop, streaming chunking mechanisms, message queue strategies, and concurrency control."
 draft: false

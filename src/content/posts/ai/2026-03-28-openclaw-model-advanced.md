@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, model-failover, prompt-caching, token-usage, cost-optimization]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 8
 tldr: "OpenClaw 內建 Auth 輪替 + Model Fallback 兩階段容錯，加上 Prompt Caching 省錢和完整的 Token 追蹤機制。"
 description: "OpenClaw 的模型容錯機制、Prompt Caching 策略、Token 消耗追蹤與成本最佳化。"
 draft: false

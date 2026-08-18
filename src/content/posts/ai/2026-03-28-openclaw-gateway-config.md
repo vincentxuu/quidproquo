@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, gateway, configuration, json5, hot-reload, openclaw-json]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 26
 tldr: "openclaw.json 用 JSON5 格式，嚴格 schema 驗證，支援 hybrid hot reload（安全變更即時生效，關鍵變更自動重啟）。"
 description: "OpenClaw Gateway 的設定系統：JSON5 格式、四種設定方式、嚴格 schema 驗證、Hybrid Hot Reload。"
 draft: false

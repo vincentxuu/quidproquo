@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, macos, linux, windows, wsl2, systemd, launchd]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 4
 tldr: "OpenClaw 在 macOS 有選單列 app、Linux 用 systemd 跑服務、Windows 建議走 WSL2。三個平台的差異與注意事項。"
 description: "OpenClaw 在 macOS、Linux、Windows 三個桌面平台的安裝差異、服務管理、Node 功能與限制。"
 draft: false

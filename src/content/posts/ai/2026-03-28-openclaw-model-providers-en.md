@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, llm, anthropic, openai, gemini, model-failover, tool-use]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 6
 tldr: "OpenClaw supports 35+ model providers. The minimum requirement is that the model supports tool use + streaming. It has built-in auth rotation and model failover mechanisms."
 description: "OpenClaw's functional requirements for LLMs, configuration for the three major providers, auth rotation, and model failover mechanisms."
 draft: false

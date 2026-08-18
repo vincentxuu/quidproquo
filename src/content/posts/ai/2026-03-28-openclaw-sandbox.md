@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, sandbox, docker, ssh, openshell, security, tool-policy, elevated]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 17
 tldr: "OpenClaw 沙箱有三層控制：Sandbox 決定在哪跑（Docker/SSH/OpenShell）、Tool Policy 決定能用什麼工具、Elevated 是 exec 的主機逃生門。"
 description: "OpenClaw 沙箱機制完整指南：三種後端（Docker/SSH/OpenShell）、三層控制（Sandbox/Tool Policy/Elevated）、workspace 存取模式與安全設定。"
 draft: false

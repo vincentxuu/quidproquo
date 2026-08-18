@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, browser, web-search, deep-research, browserless, browserbase]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 20
 tldr: "OpenClaw 的瀏覽器用 managed profile 隔離、支援遠端 CDP（Browserless/Browserbase）、Deep Research 結合搜尋和瀏覽做多步驟研究。"
 description: "OpenClaw 的瀏覽器控制系統（managed profile、遠端 CDP、沙箱瀏覽器）與網路搜尋工具。"
 draft: false

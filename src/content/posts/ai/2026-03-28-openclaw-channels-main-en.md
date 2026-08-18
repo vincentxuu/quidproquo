@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, whatsapp, telegram, discord, channels]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 14
 tldr: "WhatsApp uses QR pairing + Baileys, Telegram is the fastest to set up with a Bot Token, and Discord supports guild/thread/button interactive components."
 description: "Complete setup guide for OpenClaw's three primary channels: WhatsApp QR pairing, Telegram Bot API, and Discord guild with interactive components."
 draft: false

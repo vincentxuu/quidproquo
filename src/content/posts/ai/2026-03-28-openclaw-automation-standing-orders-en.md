@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, standing-orders, automation, agents-md, autonomous]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 25
 tldr: "Standing Orders grant an agent permanent authorization to execute defined programs — with explicit scope, triggers, approval gates, and escalation rules, paired with Cron for time-based control."
 description: "OpenClaw's Standing Orders mechanism: structured directives that grant agents permanent execution authority, combined with Cron and Heartbeat for autonomous operation."
 draft: false

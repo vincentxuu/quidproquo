@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, cron, heartbeat, webhook, automation, scheduling]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 24
 tldr: "Heartbeat 定期巡檢（30 分鐘批次），Cron 精確排程（支援隔離 session 和模型覆寫），Webhook 接收外部事件觸發 agent。"
 description: "OpenClaw 的三種自動化機制：Heartbeat 定期巡檢、Cron 精確排程、Webhook 外部事件觸發。"
 draft: false

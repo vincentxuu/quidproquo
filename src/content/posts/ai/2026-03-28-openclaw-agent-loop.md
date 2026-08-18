@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, agent-loop, streaming, queue, messages, debounce]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 11
 tldr: "一次 agent 執行：收到訊息 → context 組裝 → 模型推理 → tool 執行 → 串流回覆 → 持久化。每個 session 串行、支援 5 種佇列模式。"
 description: "OpenClaw Agent Loop 的完整執行流程、Streaming 分塊機制、訊息佇列策略與並行控制。"
 draft: false

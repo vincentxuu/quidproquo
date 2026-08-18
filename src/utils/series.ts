@@ -90,6 +90,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'openclaw',
+    names: { 'zh-TW': 'OpenClaw 文件導讀', en: 'Reading the OpenClaw Docs' },
+    descriptions: {
+      'zh-TW':
+        '把 OpenClaw 這套自架 AI 閘道器的 300+ 份官方文件拆成 32 篇讀完：從安裝與平台、模型供應商、agent 執行核心與記憶，到 24+ 聊天頻道、沙箱與威脅模型、工具與自動化、Gateway 營運、Plugin 與各種介面。',
+      en: 'Reading the 300+ official docs of OpenClaw, a self-hosted AI gateway, across 32 posts — installation and platforms, model providers, the agent runtime and memory, 24+ chat channels, sandboxing and threat model, tools and automation, gateway operations, plugins, and the user interfaces.',
+    },
+  },
+  {
     slug: 'cs146s',
     names: {
       'zh-TW': 'CS146S：AI 原生開發十週',

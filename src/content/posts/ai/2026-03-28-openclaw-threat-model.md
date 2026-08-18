@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, security, mitre-atlas, threat-model, formal-verification, tla-plus]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 18
 tldr: "OpenClaw 用 MITRE ATLAS 框架分析 AI 系統威脅，有三個 Critical 風險（prompt injection、惡意 skill、憑證竊取），並用 TLA+ 形式驗證安全屬性。"
 description: "OpenClaw 的 MITRE ATLAS 威脅模型分析、三大攻擊鏈、TLA+ 形式驗證模型、以及安全聲明的機器檢查。"
 draft: false

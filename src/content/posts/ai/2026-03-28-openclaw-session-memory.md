@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, session, memory, compaction, context-engine, pruning]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 12
 tldr: "OpenClaw 的 session 支援 4 種 DM 隔離層級，Memory 是 Markdown 檔案，Compaction 在 context 快滿時自動摘要壓縮。"
 description: "OpenClaw 的 Session 管理、DM Scope 隔離、Memory 機制、Context Window Compaction 與 Session Pruning。"
 draft: false

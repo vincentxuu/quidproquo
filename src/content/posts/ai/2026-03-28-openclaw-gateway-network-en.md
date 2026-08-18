@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, gateway, remote-access, tailscale, ssh-tunnel, multi-gateway]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 27
 tldr: "Gateway binds to loopback by default. Use SSH tunnel or Tailscale Serve/Funnel for remote access; multiple Gateways can distribute load."
 description: "Remote access methods for OpenClaw Gateway (SSH Tunnel, Tailscale Serve/Funnel), TLS/HSTS configuration, and multi-Gateway architecture."
 draft: false

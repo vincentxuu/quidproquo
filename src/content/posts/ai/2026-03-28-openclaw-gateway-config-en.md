@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, gateway, configuration, json5, hot-reload, openclaw-json]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 26
 tldr: "openclaw.json uses JSON5 format with strict schema validation, supporting hybrid hot reload — safe changes apply instantly while critical changes trigger automatic restarts."
 description: "OpenClaw Gateway's configuration system: JSON5 format, four configuration methods, strict schema validation, and Hybrid Hot Reload."
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, signal, imessage, bluebubbles, line, irc, nostr, twitch, zalo]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 16
 tldr: "Signal 用 signal-cli 注重隱私、iMessage 推薦走 BlueBubbles、LINE 用 webhook、IRC/Nostr/Twitch 各有特色。"
 description: "OpenClaw 的小眾頻道設定指南：Signal、iMessage/BlueBubbles、LINE、IRC、Nostr、Twitch、Zalo 等。"
 draft: false

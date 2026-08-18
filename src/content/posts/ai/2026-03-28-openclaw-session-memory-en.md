@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, session, memory, compaction, context-engine, pruning]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 12
 tldr: "OpenClaw sessions support 4 DM isolation levels, Memory is stored as Markdown files, and Compaction automatically summarizes and compresses when context is nearly full."
 description: "OpenClaw's Session management, DM Scope isolation, Memory mechanism, Context Window Compaction, and Session Pruning."
 draft: false

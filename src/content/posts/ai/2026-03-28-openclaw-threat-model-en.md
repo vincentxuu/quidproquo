@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, security, mitre-atlas, threat-model, formal-verification, tla-plus]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 18
 tldr: "OpenClaw uses the MITRE ATLAS framework to analyze AI system threats, identifying three Critical risks (prompt injection, malicious skills, credential theft), and employs TLA+ formal verification for security properties."
 description: "OpenClaw's MITRE ATLAS threat model analysis, three major attack chains, TLA+ formal verification models, and machine-checked security claims."
 draft: false

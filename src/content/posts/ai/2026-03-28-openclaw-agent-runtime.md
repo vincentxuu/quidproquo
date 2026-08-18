@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, agent, workspace, system-prompt, bootstrap, soul-md, agents-md]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 10
 tldr: "OpenClaw 的 agent 有自己的「家」（Workspace），靠 AGENTS.md、SOUL.md 等 bootstrap 檔案定義人格和行為，System Prompt 每次動態組裝。"
 description: "OpenClaw Agent 的 Workspace 結構、Bootstrap 檔案、System Prompt 組裝方式與自訂指南。"
 draft: false

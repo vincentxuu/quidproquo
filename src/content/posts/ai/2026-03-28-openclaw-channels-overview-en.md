@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, channels, pairing, groups, routing, broadcast]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 13
 tldr: "OpenClaw supports 24+ channels running simultaneously, using Pairing to control who can chat, Group Policy to control group behavior, and Routing to decide which agent receives messages."
 description: "An overview of OpenClaw channels, DM/Node Pairing mechanisms, group policies, routing rules, and Broadcast Groups."
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, llm, anthropic, openai, gemini, model-failover, tool-use]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 6
 tldr: "OpenClaw 支援 35+ 模型供應商，最低需求是模型支援 tool use + streaming，內建 auth 輪替和 model failover 機制。"
 description: "OpenClaw 對 LLM 的功能性需求、三大供應商設定方式、Auth 輪替與模型容錯機制。"
 draft: false

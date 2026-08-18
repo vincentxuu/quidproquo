@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, tts, pdf, lobster, mcp, media, elevenlabs, openai-tts]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 23
 tldr: "TTS supports three providers — ElevenLabs, Microsoft, and OpenAI. PDF has native and extraction modes. Lobster is a deterministic workflow runtime. MCP enables external tool integration."
 description: "OpenClaw's TTS voice synthesis, PDF analysis, Lobster workflow engine, MCP Server integration, and media processing tools."
 draft: false

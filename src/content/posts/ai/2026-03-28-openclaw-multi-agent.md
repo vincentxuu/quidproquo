@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, multi-agent, delegate, session-management, routing]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 9
 tldr: "OpenClaw 支援在一個 Gateway 內跑多個隔離 agent，透過 binding 路由訊息，還能用 Delegate 架構讓 AI 以代理人身份行動。"
 description: "OpenClaw 的多 Agent 路由、Session 隔離策略、Delegate 代理人模式與 Agent Loop 執行機制。"
 draft: false

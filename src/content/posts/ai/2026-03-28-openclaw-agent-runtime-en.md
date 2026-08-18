@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, agent, workspace, system-prompt, bootstrap, soul-md, agents-md]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 10
 tldr: "Every OpenClaw agent has its own 'home' (Workspace), with personality and behavior defined by bootstrap files like AGENTS.md and SOUL.md. The System Prompt is dynamically assembled each time."
 description: "OpenClaw Agent Workspace structure, bootstrap files, System Prompt assembly, and customization guide."
 draft: false

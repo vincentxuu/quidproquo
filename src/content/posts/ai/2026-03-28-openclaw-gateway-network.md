@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, gateway, remote-access, tailscale, ssh-tunnel, multi-gateway]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 27
 tldr: "Gateway 預設只綁 loopback，遠端存取用 SSH tunnel 或 Tailscale Serve/Funnel，多 Gateway 可以分散負載。"
 description: "OpenClaw Gateway 的遠端存取方式（SSH Tunnel、Tailscale Serve/Funnel）、TLS/HSTS 設定、以及多 Gateway 架構。"
 draft: false

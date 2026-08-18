@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, channels, pairing, groups, routing, broadcast]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 13
 tldr: "OpenClaw 支援 24+ 頻道同時運行，用 Pairing 控制誰能聊、用 Group Policy 控制群組行為、用 Routing 決定訊息送到哪個 agent。"
 description: "OpenClaw 的頻道總覽、DM/Node Pairing 機制、群組策略、路由規則與 Broadcast Groups。"
 draft: false

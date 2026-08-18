@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, model-failover, prompt-caching, token-usage, cost-optimization]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 8
 tldr: "OpenClaw has built-in two-stage fault tolerance with Auth rotation + Model Fallback, plus Prompt Caching for cost savings and comprehensive Token tracking."
 description: "OpenClaw's model failover mechanism, Prompt Caching strategies, Token consumption tracking, and cost optimization."
 draft: false

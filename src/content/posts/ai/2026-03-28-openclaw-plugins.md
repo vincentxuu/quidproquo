@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, plugins, sdk, clawhub, channel-plugin, provider-plugin, typescript]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 28
 tldr: "Plugin 用 TypeScript ESM 開發，支援 12 種能力註冊（頻道/模型/工具/TTS/圖片等），發布到 ClawHub 或 npm。"
 description: "OpenClaw Plugin SDK 架構、12 種能力註冊、開發流程、以及 Channel/Provider Plugin 的建置指南。"
 draft: false

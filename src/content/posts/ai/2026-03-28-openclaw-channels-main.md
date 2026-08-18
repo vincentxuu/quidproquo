@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, whatsapp, telegram, discord, channels]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 14
 tldr: "WhatsApp 用 QR 配對 + Baileys、Telegram 用 Bot Token 最快上手、Discord 支援 guild/thread/button 互動元件。"
 description: "OpenClaw 三大主力頻道的完整設定指南：WhatsApp QR 配對、Telegram Bot API、Discord guild 與互動元件。"
 draft: false

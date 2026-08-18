@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, control-ui, tui, web-chat, dashboard, terminal]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 30
 tldr: "Control UI is a browser dashboard (http://127.0.0.1:18789), TUI is a terminal interactive interface, and Web Chat is a WebSocket real-time chat."
 description: "The three user interfaces of OpenClaw: Control UI browser dashboard, TUI terminal interface, and Web Chat real-time messaging."
 draft: false

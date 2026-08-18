@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, skills, clawhub, sub-agents, skill-md, agent-skills]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 21
 tldr: "Skills are AgentSkills-compatible SKILL.md folders with a 6-tier loading priority. ClawHub is the public marketplace. Sub-agents can nest up to 5 levels deep."
 description: "OpenClaw's Skills system (loading priority, format, gating, ClawHub marketplace) and the Sub-Agent mechanism."
 draft: false

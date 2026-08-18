@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, plugins, sdk, clawhub, channel-plugin, provider-plugin, typescript]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 28
 tldr: "Plugins are built with TypeScript ESM and support 12 capability registrations (channels, models, tools, TTS, images, etc.), published to ClawHub or npm."
 description: "OpenClaw Plugin SDK architecture, 12 capability registrations, development workflow, and a guide to building Channel/Provider Plugins."
 draft: false

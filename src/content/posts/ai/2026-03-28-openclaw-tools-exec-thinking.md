@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, exec, thinking, slash-commands, fast-mode, verbose, reasoning]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 22
 tldr: "Exec 支援前景/背景/PTY 執行 + 三種安全等級（deny/allowlist/full），Thinking 有 7 個層級（off 到 adaptive），Slash Commands 分指令和 directive 兩類。"
 description: "OpenClaw 的 Exec 工具（安全模型、approval、safe bins）、Thinking 層級控制、Fast Mode、以及 Slash Commands 系統。"
 draft: false

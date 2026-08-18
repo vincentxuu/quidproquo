@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, skills, clawhub, sub-agents, skill-md, agent-skills]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 21
 tldr: "Skills 是 AgentSkills 相容的 SKILL.md 資料夾，有 6 層載入優先順序。ClawHub 是公開市場。Sub-agent 最多巢狀 5 層。"
 description: "OpenClaw 的 Skills 系統（載入優先順序、格式、Gating、ClawHub 市場）與 Sub-Agent 機制。"
 draft: false

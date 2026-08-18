@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, exec, thinking, slash-commands, fast-mode, verbose, reasoning]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 22
 tldr: "Exec supports foreground/background/PTY execution with three security levels (deny/allowlist/full). Thinking has 7 levels (off to adaptive). Slash Commands come in two types: commands and directives."
 description: "OpenClaw's Exec tool (security model, approvals, safe bins), Thinking level controls, Fast Mode, and the Slash Commands system."
 draft: false

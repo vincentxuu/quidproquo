@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, ios, android, mobile, node, canvas, camera, voice-wake]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 5
 tldr: "OpenClaw's iOS and Android apps are not Gateways — they are Nodes, turning your phone's camera, screen, location, and voice into sensory extensions for AI agents."
 description: "OpenClaw iOS and Android Node roles, pairing flow, Canvas/Camera/Voice capabilities, and limitations."
 draft: false

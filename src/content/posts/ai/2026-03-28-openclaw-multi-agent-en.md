@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, multi-agent, delegate, session-management, routing]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 9
 tldr: "OpenClaw supports running multiple isolated agents within a single Gateway, routing messages via bindings, and enabling AI to act on your behalf through its Delegate architecture."
 description: "OpenClaw's multi-agent routing, session isolation strategies, Delegate proxy model, and Agent Loop execution mechanism."
 draft: false

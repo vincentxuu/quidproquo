@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, slack, microsoft-teams, google-chat, matrix, enterprise]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 15
 tldr: "Slack has the most complete enterprise features (native streaming, slash commands). Teams requires Azure Bot setup. Matrix supports E2EE encryption."
 description: "OpenClaw enterprise communication platform integrations: Slack (Socket/HTTP Mode), Microsoft Teams, Google Chat, and Matrix (with E2EE)."
 draft: false
