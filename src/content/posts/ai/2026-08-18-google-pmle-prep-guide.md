@@ -128,6 +128,10 @@ LLM-as-a-judge 是新考點，站內的 [RAG 評估框架](/posts/ai/2026-03-12-
 | 第 7 週 | 第 5 章（18%） | 把前面串成 pipeline |
 | 第 8 週 | 第 6 章（13%）+ 全書複習 + 再做一次 sample questions | 監控與安全，收尾 |
 
+**時程寧寬勿緊，因為 PMLE 的失敗成本特別高。** [官方重考政策](https://support.google.com/cloud-certification/answer/9749448)寫，Associate 與 Professional 級**兩年內最多四次**，而且間隔遞增：第一次沒過等 **14 天**，第二次等 **60 天**，第三次沒過要等 **365 天**才能考第四次。換考試語言或改成考場應試都算同一個額度。
+
+這條規則直接改變備考策略：**PMLE 沒有「先去考一次試水溫」這個選項**。對比之下 AWS 的政策是無限次重考、間隔 14 天（代價是每次全額付費），Claude 是 12 個月內 4 次、間隔 14 / 30 / 90 天。三家裡 Google 對「考不過」的懲罰最重，所以上面那張八週表如果你覺得吃力，正確反應是拉長到十週，不是照表硬考。
+
 **這個時程的前提是你已經有官方建議的經驗值。** 沒有 1 年以上 Google Cloud 實務的話，第 3 到 5 章會卡住 —— 那不是多讀兩週能補的，先在專案裡實際跑過一輪比較快。
 
 **官方材料的優先序**：[Machine Learning Engineer 學習路徑](https://www.cloudskillsboost.google/paths/17)（Google Skills 上的官方路徑，含實作 lab）→ [官方 sample questions](https://docs.google.com/forms/d/e/1FAIpQLSeYmkCANE81qSBqLW0g2X7RoskBX9yGYQu-m1TtsjMvHabGqg/viewform) → Google Cloud 產品文件。第三方題庫的風險在下一節。
@@ -173,6 +177,7 @@ PMLE 是 Professional 級，**效期兩年**，可在到期前 **60 天**開始�
 | 六章權重 | 13 / 16 / 21 / 20 / 18 / 13 | 每次考綱更新 |
 | 費用與題數 | $200、50–60 題、兩小時 | 每季 |
 | 繼續教育續期 | 只開放 CDL / ACE / PCA / PDE | 官方說之後會擴大，值得追 |
+| 重考政策 | 兩年 4 次、間隔 14 / 60 / 365 天 | 政策頁標示「recently updated」，會再變 |
 | 考試語言 | 英文、日文 | 若加開中文會影響備考難度評估 |
 
 ## 參考資料

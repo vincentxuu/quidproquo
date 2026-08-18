@@ -126,6 +126,10 @@ At 8–10 hours a week over 8 weeks:
 | 7 | Section 5 (18%) | Chain the earlier work into a pipeline |
 | 8 | Section 6 (13%) + review + sample questions again | Monitoring and security; the close |
 
+**Err on the side of a longer schedule, because failing PMLE is unusually expensive.** The [official retake policy](https://support.google.com/cloud-certification/answer/9749448) allows **four attempts in a two-year period** for Associate and Professional exams, with escalating waits: **14 days** after the first failure, **60 days** after the second, and **365 days** before a fourth attempt. Changing exam language or switching between online and test center does not reset anything — all attempts count against the same allowance.
+
+That rule changes the strategy: **there is no "sit it once to see what it's like" option on PMLE.** By comparison, AWS allows unlimited retakes at 14-day intervals (you just pay full price each time), and Claude allows four attempts per 12 months at 14 / 30 / 90-day intervals. Google punishes failure the hardest of the three, so if the eight-week schedule above feels tight, stretch it to ten rather than sitting the exam underprepared.
+
 **This schedule assumes you already have the recommended experience.** Without a year of practical Google Cloud work, sections 3 through 5 will stall you — and that is not fixable with two more weeks of reading. Run a real project first.
 
 **Priority of official material**: the [Machine Learning Engineer learning path](https://www.cloudskillsboost.google/paths/17) on Google Skills (includes hands-on labs) → the [official sample questions](https://docs.google.com/forms/d/e/1FAIpQLSeYmkCANE81qSBqLW0g2X7RoskBX9yGYQu-m1TtsjMvHabGqg/viewform) → Google Cloud product documentation.
@@ -171,6 +175,7 @@ Given how often Google renames things, expect another vocabulary shift in two ye
 | Section weights | 13 / 16 / 21 / 20 / 18 / 13 | On every guide update |
 | Fee and item count | $200, 50–60 items, two hours | Quarterly |
 | Continuing-education renewal | CDL / ACE / PCA / PDE only | Google says it will expand; worth tracking |
+| Retake policy | 4 attempts per 2 years, 14 / 60 / 365-day waits | The policy page is flagged "recently updated" |
 | Exam languages | English, Japanese | A Chinese version would change the difficulty estimate |
 
 ## References
