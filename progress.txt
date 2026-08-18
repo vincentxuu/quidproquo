@@ -25,12 +25,9 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-18: post(ai) Workers AI 模型選型指南 zh+en（slug `workers-ai-model-guide`），對照官方
-  目錄 2026-08-12 版與定價頁 2026-08-14 版。**價格／context 一律抓各模型頁 index.md**——
-  Workers AI 服務的 context 常比原生規格短（gemma-3 原生 128K、實際 80K）。同批翻新 gemma-3
-  與 binding-utilities 文，修正舊文兩處錯誤（context 80,000 非 8192、有公開定價 $0.35/$0.56）。
-  **仍開**：每月 1 號 Routine `trig_013c2JGpkkvKLYfBFQDis6Nb` 缺 Cloudflare/Tavily connector，
-  本環境封鎖 developers.cloudflare.com，沒 connector 抓不到官方頁，要從 claude.ai UI 補掛。
+- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
+  海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
+  配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
 - 2026-08-18: AI 證照備考系列開跑（規劃 docs/content-plan-ai-cert-prep.md）。A 軌四篇 x zh/en：
   Claude CCAR-F（3 月舊文對照官方 exam guide 翻新，改今日發佈＋astro.config 留 301）、Google PMLE、
   AWS AIF-C01、AWS AIP-C01。研究用 3 個平行 agent 抓官方 exam guide，數字我逐條抽驗過。
@@ -77,6 +74,10 @@ Recently completed
 - 2026-08-10: 修好全站中英切換（14 個頁面的 EN／中文都會掉回首頁）；系列 zh/en 改共用 slug。
   **教訓**：一次性腳本用單層 readdir 會漏掉巢狀目錄，掃 content 一律遞迴。細節見 archive。
   **仍開**：Claude Code 系列兩語都有重複的 order: 10（28 篇只編到 27），未修。
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔），B 技術群 17 格、D 反制群 4 格寫完。
+  仍開缺口（D3 通過率、縣市禁飛清單、交通部函釋）與可重用教訓見 docs/progress-archive.md
+  與 docs/content-plan-drone.md §5.2。
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
