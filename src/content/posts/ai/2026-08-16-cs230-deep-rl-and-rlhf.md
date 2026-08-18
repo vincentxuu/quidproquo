@@ -246,7 +246,11 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 
 **兩個缺點**：
 
-1. **資料極貴。**「我記得第一版 InstructGPT 只有 **13,000 組** prompt–response 對，而結果居然相當好。」（**這個數字是他口述的記憶，需查證。**）
+1. **資料極貴。**「我記得第一版 InstructGPT 只有 **13,000 組** prompt–response 對，而結果居然相當好。」
+
+   （**這個數字查證正確。**[InstructGPT 論文](https://arxiv.org/abs/2203.02155)原文：「The SFT dataset contains
+   about 13k training prompts」，附錄 Table 6 的訓練集拆解是標註者寫的 11,295 + 來自 API 的 1,430 = 12,725。
+   要注意 13k **只是 SFT 這一段**——獎勵模型的資料集是 33k、PPO 是 31k。）
 2. **不太會泛化。** 這是監督式學習——你只給了 13,000 個例子，憑什麼相信它能泛化到沒見過的 prompt？
 
 > **「SFT 教的是模仿人類的好行為。關鍵就在這——它是 imitation，不是 preference optimization。」**

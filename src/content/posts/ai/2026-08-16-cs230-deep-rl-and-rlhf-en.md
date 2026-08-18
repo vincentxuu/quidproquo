@@ -246,7 +246,12 @@ Build a **fully human-written** prompt–response dataset and train exactly as i
 
 **Two drawbacks**:
 
-1. **The data is extremely expensive.** "I remember the first InstructGPT had only **13,000** prompt–response pairs, and the results were surprisingly good." (**This figure is his recollection and needs verification.**)
+1. **The data is extremely expensive.** "I remember the first InstructGPT had only **13,000** prompt–response pairs, and the results were surprisingly good."
+
+   (**This figure checks out.** The [InstructGPT paper](https://arxiv.org/abs/2203.02155) says: "The SFT dataset contains
+   about 13k training prompts," and Table 6 in the appendix breaks the training split down as 11,295 labeler-written
+   plus 1,430 from the API = 12,725. Note that 13k covers **the SFT stage only** — the reward model dataset is 33k
+   and PPO is 31k.)
 2. **It doesn't generalize that well.** This is supervised learning — you gave it 13,000 examples, so why trust it to generalize to unseen prompts?
 
 > **"SFT teaches imitation of good human behavior. That's the crux — it's imitation, not preference optimization."**
