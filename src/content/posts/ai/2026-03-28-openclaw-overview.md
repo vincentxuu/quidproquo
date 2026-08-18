@@ -62,7 +62,7 @@ Agent              (Control UI)   (iOS/Android)
 |---|---|---|
 | 1 | 本篇 | 全貌、文件結構、從哪讀起 |
 | 2 | 安裝指南（上）：六種本機安裝方式怎麼選 | 六種方式的取捨，以及 npm／pnpm lifecycle script、PATH、OOM 這些真正會卡住的地方 |
-| 3 | 安裝指南（下）：雲端部署的四個決定 | 綁定與認證、管理面隔離、信任邊界、復原能力，以及 K8s 上的探針與 ConfigMap 行為 |
+| 3 | 安裝指南（下）：雲端部署的四個決定 | 綁定與認證、管理面隔離、信任邊界、復原能力，以及 K8s 的探針與 ConfigMap 行為 |
 
 **適合：** 所有人。先裝起來再說。
 
@@ -70,8 +70,8 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 4 | 桌面平台：macOS、Linux、Windows | 各 OS 的差異、WSL2 設定、macOS 選單列 app |
-| 5 | 行動平台：iOS 與 Android | 手機 app 安裝、配對流程 |
+| 4 | 桌面平台：Windows 有了原生 Hub | Node 是硬性需求、Windows 的三條路、各 OS 的服務安裝目標 |
+| 5 | 行動平台：手機是周邊不是 Gateway | 核准範圍的三段分級、watchOS 的專屬傳輸、版本落差的升級順序 |
 
 **適合：** 多裝置使用者。
 
@@ -79,9 +79,9 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 6 | 模型需求與供應商生態 | 35+ 供應商總覽、Tool Use 需求、三大供應商設定 |
-| 7 | 更多供應商：DeepSeek、Groq、Ollama、OpenRouter... | 其餘 30+ 供應商的認證與設定 |
-| 8 | 模型進階：Failover、Prompt Caching 與 Token 計費 | Auth 輪替、冷卻機制、計費追蹤 |
+| 6 | 模型需求與供應商生態 | provider／model／agent runtime／channel 是四層，`openai/*` 不等於 Codex |
+| 7 | 60 個供應商的分類地圖 | 接本地模型的實際門檻：tool support、16K context，以及 base URL 別加 `/v1` |
+| 8 | 模型進階：容錯、冷卻與 Prompt Caching | 誰選的模型決定它嚴不嚴格；冷卻是 30 秒→1 分→5 分 |
 
 **適合：** 想選模型、省錢、或確保高可用的人。
 
@@ -89,10 +89,10 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 9 | 多 Agent 與 Delegate 架構 | 多 Agent 路由、Binding、Delegate 代理人 |
-| 10 | Agent Runtime：Workspace、System Prompt 與 Bootstrap | Agent 的「家」長什麼樣、怎麼自訂人格 |
-| 11 | Agent Loop：執行迴圈、Streaming 與 Queue | 一次 agent 執行的完整流程 |
-| 12 | Session、Memory 與 Compaction | 對話怎麼存、怎麼壓縮、怎麼記住事情 |
+| 9 | 多 Agent：人格邊界與 agent 生 agent | 隔離的實際邊界，以及 agent 要求建立 agent 的來源追蹤與人類閘門 |
+| 10 | Agent Runtime：系統 prompt 怎麼組出來 | 三層組裝、快取邊界的切法、Promised Work 的跟進契約 |
+| 11 | Agent Loop：序列化與寫入者宣告 | 被取代的回合為什麼寫不進逐字稿；兩套 hook 的分工 |
+| 12 | Session 與記憶 | 主 session 的匯流、incognito 的邊界、四個記憶檔案與 dreaming 蒸餾 |
 
 **適合：** 想深入理解 agent 怎麼運作的人。這是 OpenClaw 的核心。
 
@@ -100,10 +100,10 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 13 | 頻道總覽：配對、群組與路由 | DM/Node Pairing、群組策略、路由規則 |
-| 14 | 主力頻道：WhatsApp、Telegram、Discord | 三大頻道的完整設定 |
-| 15 | 企業頻道：Slack、Teams、Google Chat、Matrix | 企業通訊平台整合 |
-| 16 | 其他頻道：Signal、iMessage、LINE、IRC、Nostr... | 小眾但有趣的頻道 |
+| 13 | 頻道總覽：31 個頻道幾乎都是 plugin | 「誰能觸發」與「模型看得到什麼」是兩個獨立的軸 |
+| 14 | 主力頻道：WhatsApp、Telegram、Discord | 每個頻道那個「安靜失敗」的卡點 |
+| 15 | 企業頻道：Slack 的三種傳輸模式 | 按部署形狀選傳輸；多 Gateway 共用一個 Slack app 的陷阱 |
+| 16 | 其他頻道與 Reef | 讓不同人的 agent 直接對話的加密側頻道 |
 
 **適合：** 想把 AI 接到特定聊天平台的人。
 
@@ -111,9 +111,9 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 17 | 沙箱機制：Docker、SSH 與 OpenShell | 三種沙箱後端、Tool Policy、Elevated 逃生艙 |
-| 18 | 威脅模型：MITRE ATLAS 安全分析 | Prompt Injection、Token 竊取、Supply Chain 風險 |
-| 19 | 存取控制：Auth、Secrets 與 OAuth | 認證機制、Secret 管理、Trusted Proxy |
+| 17 | 沙箱機制：四種後端、三個開關 | `tools.exec.host` 預設 auto，「沒設＝在沙箱裡」已不成立 |
+| 18 | 威脅模型：先講它不保護什麼 | 個人助理信任模型的邊界，與「依設計不算漏洞」清單 |
+| 19 | 存取控制：SecretRef 的哨兵與邊界 | 它把明文從設定拿掉，但它不是程序隔離 |
 
 **適合：** 在意安全的人。OpenClaw 讓 AI 執行系統指令，安全不是選配。
 
@@ -121,28 +121,28 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 20 | 瀏覽器控制與搜尋引擎整合 | Browser Tool、8 種搜尋、Firecrawl |
-| 21 | Sub-Agent、Skills 與 ClawHub | 子代理、技能系統、社群市集 |
-| 22 | 執行工具：Exec、Thinking、Diffs | 指令執行、深度推理、程式碼 Patch |
-| 23 | 更多工具：TTS、PDF、Lobster、Reactions | 語音合成、PDF、Pipeline、表情回應 |
+| 20 | 瀏覽器與搜尋 | 三種瀏覽器 profile 的差異；搜尋結果在型別層被標成不可信 |
+| 21 | Skills 與子 agent | 六層載入優先順序；子 agent 為什麼不給 message 工具 |
+| 22 | Exec | 關掉檔案工具不會讓 exec 變成唯讀 |
+| 23 | 大型工具目錄：Code Mode、Tool Search、MCP | 工具多到塞不進 prompt 時的兩種答案 |
 
-**適合：** 想知道 AI agent 能做哪些事的人。
+**適合：** 想知道 AI agent 能做哪些事、又不想被 token 吃光的人。
 
 ### 自動化篇（#24-25）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 24 | Cron、Webhook 與事件驅動自動化 | 排程、HTTP Hook、Gmail PubSub、Poll |
-| 25 | Standing Orders：讓 Agent 自主行動 | 授權框架、Scope/Trigger/Escalation |
+| 24 | 六種自動化機制怎麼選 | Automations（精確）與 Heartbeat（有脈絡）的取捨、排程器的失敗語意 |
+| 25 | Standing Orders | 授權書與時鐘的分工；bootstrap 只注入六個檔案 |
 
-**適合：** 想讓 AI 定時做事、接收外部事件的人。
+**適合：** 想讓 AI 定時做事、或自主執行例行工作的人。
 
 ### Gateway 篇（#26-27）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 26 | Gateway 篇（一）：設定系統與 Hot Reload | openclaw.json 的 JSON5 格式、schema 驗證、hybrid hot reload |
-| 27 | Gateway 篇（二）：遠端存取、Tailscale 與多 Gateway | loopback 預設、SSH tunnel 與 Tailscale Serve/Funnel、多實例分散負載 |
+| 26 | 設定系統與嚴格驗證 | 不認識的鍵會讓 Gateway 拒絕啟動；防誤覆寫的三個形狀 |
+| 27 | 綁定、認證與憑證優先權 | 非 loopback 強制認證；那份決定「它用了哪組憑證」的順序表 |
 
 **適合：** 維運人員、想遠端存取的人。
 
@@ -150,16 +150,16 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 28 | Plugin 系統：架構與開發指南 | TypeScript ESM 開發、12 種能力註冊、發布到 ClawHub 或 npm |
+| 28 | Plugin 系統：安裝的安全與驗證 | 把安裝當成執行程式碼；`inspect --runtime` 才證明得了載入 |
 
-**適合：** 想擴充 OpenClaw 功能的開發者。
+**適合：** 想擴充 OpenClaw 功能的人。
 
 ### 介面篇（#29-30）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 29 | Nodes 深入：行動裝置與遠端主機 | iOS/Android 的相機與位置、macOS Canvas 與 system.run、Node Host 遠端 exec |
-| 30 | UI：Control UI、TUI 與 Web Chat | 瀏覽器 dashboard、終端互動介面、WebSocket 即時聊天 |
+| 29 | Nodes 深入：遠端執行的核准綁定 | 核准綁的是計畫，不是之後可編輯的欄位 |
+| 30 | UI：Control UI、TUI 與 Web Chat | session rail 讓你觀察執行中的 agent 而不打斷它 |
 
 **適合：** 日常使用者、想從瀏覽器或手機操作的人。
 
@@ -167,24 +167,26 @@ Agent              (Control UI)   (iOS/Android)
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 31 | 維運篇：疑難排解與診斷 | `openclaw doctor`、`sandbox explain`、`channels status --probe` |
-| 32 | 參考篇：Pi 整合與設定參考 | Pi 與 Gateway 的殼／核關係、16 個頂層設定區塊 |
+| 31 | 維運篇：分診與排查 | 前 60 秒的七行指令；「感覺變笨」先查工具 profile |
+| 32 | 參考篇：Agent runtime 架構 | Pi 已被吸收，內建 runtime 就叫 `openclaw` |
 
-**適合：** 遇到問題的人、想查特定設定的人。
+**適合：** 遇到問題的人、想理解內部架構的人。
 
 ## 你是哪種讀者？
 
 **「我只想快速跑起來」** → #1 → #2 → #14（挑一個頻道）→ #6（選模型）。四篇搞定。
 
-**「我想當日常使用者」** → 上面四篇 + #30（UI）+ #12（Session）+ #24（自動化排程）。
+**「我想當日常使用者」** → 上面四篇 + #30（UI）+ #12（Session 與記憶）+ #24（自動化）。
 
-**「我想深入理解架構」** → #9-12（Agent 核心）→ #11（Agent Loop）→ #32（Pi 整合）→ #17-19（安全）。
+**「我想深入理解架構」** → #9-12（Agent 核心）→ #32（runtime 架構）→ #17-19（安全）。
 
-**「我想部署到正式環境」** → #3（雲平台）→ #26-27（Gateway 營運）→ #17-19（安全）→ #31（疑難排解）。
+**「我想部署到正式環境」** → #3（雲端）→ #26-27（Gateway）→ #17-19（安全）→ #31（排查）。
 
-**「我想開發 Plugin」** → #28（Plugin 系統）+ #21（Skills）+ #22（Exec）。
+**「我想開發 Plugin」** → #28（Plugin 系統）+ #21（Skills）+ #23（MCP 與 Code Mode）。
 
-**「我想接企業通訊」** → #13（頻道總覽）→ #15（Slack/Teams）→ #19（存取控制）→ #9（多 Agent）。
+**「我在意安全」** → #18（威脅模型）→ #17（沙箱）→ #19（SecretRef）→ #13（頻道的兩個軸）。
+
+**「我想接企業通訊」** → #13（頻道總覽）→ #15（Slack／Teams）→ #19（存取控制）→ #9（多 Agent）。
 
 ## 整體來說
 
@@ -194,6 +196,7 @@ OpenClaw 的文件量反映了它的野心：不只是「聊天機器人框架�
 
 ## 更新紀錄
 
+- 2026-08-18（二次）：全系列 32 篇對照官方文件現況翻新完畢後，重建系列地圖——所有篇章標題與重點都已更換（例如 #32 從「Pi 整合架構」改為「Agent runtime 架構」，因為 Pi 已被吸收進核心），「你是哪種讀者」的推薦路線一併重排並新增「我在意安全」一條。
 - 2026-08-18：修正系列文章地圖。原本規劃 36 篇，實際完成 32 篇（多 Gateway 與背景程序、Gateway API、打造自己的 Plugin、CLI 速查附錄未單獨成篇，其中多 Gateway 與 Plugin 開發併入既有篇章）。#26 之後的編號、各區塊標題與「你是哪種讀者」的推薦路線一併對齊實際篇章。
 
 ## 參考資料

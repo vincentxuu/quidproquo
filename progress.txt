@@ -46,28 +46,25 @@ Recently completed
   **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
   站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
   另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
-- 2026-08-18: OpenClaw 32 篇 x zh/en 補上 series（`openclaw` slug，order 1-32 連續唯一，
-  已註冊進 src/utils/series.ts）。同時發現總覽的系列地圖是錯的：宣稱 36 篇實際 32 篇，
-  #28/#29/#31/#36 從未寫出來，讀者路線還在指向不存在的編號——已重編並對齊。
-  安裝上下兩篇對照上游文件重寫（**改體裁而非只修錯**：逐項指令交還官方文件，改寫成選型
-  取捨與失敗點，四篇合計 -862/+320 行）。**修掉四個照做會失敗的指令**：npm 全域安裝需
-  `--allow-scripts=openclaw`（npm 12 起封鎖 lifecycle script）、pnpm 要 `--allow-build=`
-  （`approve-builds -g` 不支援全域）、Node 需求 24→22.22.3+/24.15+/25.9+（建議 26）、
-  K8s 的 `kind-create.sh` 已改名 `create-kind.sh`。**教訓：轉述型文章的半衰期約一季，
-  寫時就該把易腐段落外包給官方連結。**剩餘 29 篇未翻新，同性質風險。全站另有 609 篇
-  無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（均 zh/en 對稱）。
-- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課），
-  series slug `cs230`，PR #142。筆記 `.work/cs230-notes/`、規劃 `docs/content-plan-cs230.md`。
-  build 驗過：18 頁全出、zh/en series 各列 9 篇、內部連結 0 死。
-  **同一個查證毛病一輪內犯四次，每次都是被問才動**（細節見 docs/progress-archive.md）：
-  ①四個第三方引用標「未查證」就交件 ②被問「都改完了」才自己盤，又挖出一批寫
-  「未逐一查證」其實查得到的 ③被問「為什麼查不到」才發現我把「沒查」寫成「查不到」，
-  六項裡五項一搜就有。**教訓：「未查證」不是可交件狀態，是待辦；「沒查」與「查不到」
-  不可混用。**實查後修掉三個實質錯誤：McKinsey 85% 查無此數字（真實來源是 MIT NANDA
-  的 95%）、YC 80% 實為 a16z 的 Casado 談自家案源且他已更正為 16-24%、Epoch AI 是
-  單一區間 2026-2032 非三段式。**共同模式：講者第一手經驗都站得住，出問題的全是憑
-  印象轉述的第三方數字。**另方針曾被退回一次：原「每篇挑一條主線」導致課程內容沒寫
-  完整，錯在我把「純課程筆記」說成原創性低，把人推向我有發揮空間的方向。
+- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 全數對照上游翻新完畢**（含補 series，slug
+  `openclaw`，order 1-32）。體裁全面改寫：逐項指令交還官方文件，留取捨與失敗點。
+  **修掉的實質錯誤（照做會失敗或講錯）**：npm 全域安裝需 `--allow-scripts=openclaw`、
+  pnpm 需 `--allow-build=`、Node 需求 24→22.22.3+/24.15+/25.9+、K8s `kind-create.sh`
+  已改名 `create-kind.sh`、冷卻遞增實為 30 秒→1 分→5 分（原寫 1 分→5 分→25 分→1 時）、
+  帳務失敗是 disabled 而非遞增冷卻、auth profile 已改存 SQLite（原 JSON 檔現為 legacy 且
+  runtime fail closed）、企業頻道「安裝：內建」對 Slack／Google Chat 已不成立、
+  **`tools.exec.host` 預設改 auto 使「沒設＝在沙箱裡」失效**、**Pi 已被吸收，內建 runtime
+  id 就是 `openclaw`**（原文整個框架過期）。移除所有固定模型 ref 與未查證的價目／容量表。
+  **教訓一：轉述型文章半衰期約一季**，易腐段落寫時就該外包給官方連結。
+  **教訓二：架構層名詞比 API 更會悄悄失效**（Pi 這種名字不會在設定檔報錯）。
+  **教訓三：官方文件自己會不一致**（同日 `/providers/` 寫 claude-opus-4-6、
+  `/concepts/` 寫 claude-opus-5），所以別在文章裡寫死模型名。
+  **協作教訓：多 session 共用 git 索引會撞**——`git add` 後等 pre-commit 的空檔裡，
+  另一個 session 的 commit 把我暫存的 6 個檔案一起帶走（40b1c42 訊息與內容不符）。
+  改用 `git commit -- <明確路徑>` 之後就沒再發生。
+  全站另有 6xx 篇無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（zh/en 對稱）。
+- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
+  查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。**第一版主軸
   下錯**：把自己順手驗出的 bug 當骨幹，被使用者點出才改回「這些規則主張什麼」——研究專案時
   自己挖到的缺陷不等於讀者要的重點。新增 glossary: prompt cache／reasoning effort／vibe coding。
