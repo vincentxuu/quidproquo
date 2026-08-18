@@ -146,4 +146,4 @@ hermes update
 - [Hermes Agent — CLI Commands Reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)
 - [Hermes Agent GitHub](https://github.com/NousResearch/hermes-agent)
 - [astral-sh/uv — 防毒誤判的上游討論](https://github.com/astral-sh/uv/issues/13553)
-- [Playwright — install-deps](https://playwright.dev/docs/cli)
+- [Playwright — 安裝系統依賴](https://playwright.dev/docs/browsers)

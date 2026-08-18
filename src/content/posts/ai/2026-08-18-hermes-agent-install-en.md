@@ -148,4 +148,4 @@ Next up: [model providers, routing, fallback, and credential pools](/en/posts/ai
 - [Hermes Agent — CLI Commands Reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)
 - [Hermes Agent on GitHub](https://github.com/NousResearch/hermes-agent)
 - [astral-sh/uv — upstream antivirus false-positive thread](https://github.com/astral-sh/uv/issues/13553)
-- [Playwright CLI docs](https://playwright.dev/docs/cli)
+- [Playwright — installing system dependencies](https://playwright.dev/docs/browsers)
