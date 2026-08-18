@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, aws, generative-ai, rag, agents, career]
 lang: en
+series:
+  name: "AI Certification Prep"
+  order: 2
 tldr: "AIP-C01 is AWS's only professional-level certification dedicated to GenAI application development, and it explicitly excludes model development, advanced ML, and feature engineering — it tests integrating someone else's foundation model into a production system. Domain weights are 31/26/20/12/11, and nearly half the skills in the heaviest domain sit in vector stores and RAG. A March 2026 refresh added Bedrock AgentCore and the beta ended March 31, so anything older is stale. Official specs: $300, 180 minutes, 75 questions (65 scored), pass at 750, valid 3 years — and passing it renews AIF-C01, MLA-C01, and Data Engineer – Associate at the same time."
 description: "A preparation guide for AWS Certified Generative AI Developer – Professional (AIP-C01), built on the official exam guide's five-domain weighting: RAG, vector stores, agentic AI, guardrails, cost and latency optimization, and evaluation, with a ten-week schedule and its derivation, the services the guide names, the renewal graph, and retake rules."
 draft: false

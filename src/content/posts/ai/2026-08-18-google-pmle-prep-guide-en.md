@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, gcp, machine-learning, mlops, career]
 lang: en
+series:
+  name: "AI Certification Prep"
+  order: 3
 tldr: "Google's Professional ML Engineer exam guide was rewritten in 2026: Vertex AI is renamed Gemini Enterprise Agent Platform throughout, so older study material no longer matches the product names in the questions. This guide uses the official six-section weighting as its skeleton, listing what each section tests, which official materials cover it, and what to build — plus a study schedule whose reasoning is spelled out. Official specs: $200, two hours, 50–60 multiple-choice and multiple-select questions, two-year validity, 3+ years of industry experience recommended including 1+ year on Google Cloud."
 description: "A preparation guide for the Google Professional Machine Learning Engineer (PMLE) exam, built on the official exam guide's six-section weighting (13/16/21/20/18/13), mapping each section to official learning paths, documentation, and hands-on practice, with a derived schedule, the Vertex AI renaming table, and renewal costs including the 50% discount code."
 draft: false

@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, aws, generative-ai, rag, agents, career]
 lang: zh-TW
+series:
+  name: "AI 證照備考"
+  order: 2
 tldr: "AIP-C01 是 AWS 唯一專攻 GenAI 應用開發的 professional 級證照，官方明確排除模型訓練、進階 ML 與特徵工程——它考的是把別人的基礎模型整合進生產系統。五章權重 31/26/20/12/11，最重的第 1 章有將近一半的技能點落在向量儲存與 RAG。2026 年 3 月的改版加入 Bedrock AgentCore，beta 已於 3/31 結束，更早的教材全部過期。官方規格：$300、180 分鐘、75 題（65 題計分）、及格 750、效期 3 年，考過會同時續掉 AIF-C01、MLA-C01 與 Data Engineer – Associate。"
 description: "AWS Certified Generative AI Developer – Professional（AIP-C01）備考指南，依官方 exam guide 的五章權重逐章拆解 RAG、向量儲存、agentic AI、guardrails、成本延遲最佳化與評估的考點，附十週時程換算依據、官方點名的服務清單、續期圖與重考規則。"
 draft: false

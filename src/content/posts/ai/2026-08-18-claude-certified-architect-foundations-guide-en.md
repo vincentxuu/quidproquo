@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
 lang: en
+series:
+  name: "AI Certification Prep"
+  order: 4
 tldr: "A complete study guide for Claude's official architect certification (CCAR-F): five domains weighted 27/18/20/20/15, four scenarios drawn from six, common anti-patterns, and hands-on preparation. Official specs are 60 items / 120 minutes / $125 / 12-month validity / 720 to pass; registration is limited to Claude Partner Network members, and on-time renewal is free and non-proctored."
 description: "A comprehensive guide to the Claude Certified Architect — Foundations (CCAR-F) exam, covering all Task Statements across five domains, six scenario question patterns, real exam question analysis, official specs (fee, validity, registration gate, retake and renewal rules), and actionable study strategies."
 draft: false

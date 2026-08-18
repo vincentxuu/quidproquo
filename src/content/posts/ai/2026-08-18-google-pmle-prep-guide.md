@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, gcp, machine-learning, mlops, career]
 lang: zh-TW
+series:
+  name: "AI 證照備考"
+  order: 3
 tldr: "Google Professional ML Engineer 的考綱在 2026 年被重寫，Vertex AI 全面改名為 Gemini Enterprise Agent Platform，舊教材的產品名對不上題目。這篇以官方 exam guide 的六章權重為骨架，逐章列出考什麼、配哪些官方材料、練什麼，並換算成一份看得懂依據的時程。官方規格：$200、兩小時、50–60 題單選加複選、效期兩年、建議 3 年以上業界經驗含 1 年以上 Google Cloud。"
 description: "Google Professional Machine Learning Engineer（PMLE）的備考指南，以官方 exam guide 的六章權重（13/16/21/20/18/13）為骨架，逐章對應官方學習路徑、文件與動手練習，附時程換算依據、考綱改名對照，以及續期成本與五折碼規則。"
 draft: false

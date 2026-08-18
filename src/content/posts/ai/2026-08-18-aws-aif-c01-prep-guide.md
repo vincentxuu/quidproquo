@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, aws, generative-ai, career]
 lang: zh-TW
+series:
+  name: "AI 證照備考"
+  order: 1
 tldr: "AIF-C01 的考綱在 2026 年 4 月 30 日更新到 v1.1，一口氣新增七條目標，把 MCP、多 agent 模式、context engineering、token 計價、幻覺偵測全部變成考點，in-scope 服務也加入 Bedrock AgentCore、Kiro、Strands Agents——網路上流傳的整理幾乎都是舊版。這篇以官方五章權重（20/24/28/14/14）為骨架給出四週路徑。官方規格：$100、90 分鐘、65 題（50 題計分）、及格 700、效期 3 年，而且是本系列唯一提供繁體中文的考試。"
 description: "AWS Certified AI Practitioner（AIF-C01）備考指南，依官方 exam guide v1.1 的五章權重逐章拆解考點與準備材料，說明 v1.1 新增的七條目標與服務清單異動，附四週時程換算依據、重考與續期規則，以及這張證照適合誰、不適合誰。"
 draft: false

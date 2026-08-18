@@ -122,6 +122,18 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Reading Hermes Agent against the official Nous Research docs: install and upgrade, model providers and Nous Portal, the Tool Gateway, seven terminal backends, memory and skills, tools and plugins, the gateway and scheduling, the security model, and migrating from OpenClaw. Each post keeps the trade-offs and failure modes and leaves command details to the docs.',
     },
   },
+  {
+    slug: 'ai-cert-prep',
+    names: {
+      'zh-TW': 'AI 證照備考',
+      en: 'AI Certification Prep',
+    },
+    descriptions: {
+      'zh-TW':
+        '以官方 exam guide 的章節權重為骨架，一張證照一篇備考路徑：考什麼、配哪些官方材料、練什麼，時程換算的依據也寫出來。所有內容取自官方考綱與認證頁，不含應考實錄，也不含考古題。',
+      en: 'One preparation path per certification, built on the official exam guides: what each domain tests, which official material covers it, what to build, and the reasoning behind every schedule. Everything comes from official exam guides and certification pages — no exam-day accounts, no leaked questions.',
+    },
+  },
 ];
 
 const DEFINITION_BY_NAME = new Map<string, SeriesDefinition>();

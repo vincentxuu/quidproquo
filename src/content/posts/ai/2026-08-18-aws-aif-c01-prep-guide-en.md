@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [certification, aws, generative-ai, career]
 lang: en
+series:
+  name: "AI Certification Prep"
+  order: 1
 tldr: "The AIF-C01 exam guide moved to v1.1 on April 30, 2026, adding seven objectives at once — MCP, multi-agent patterns, context engineering, token-based pricing, and hallucination detection all became testable, and Bedrock AgentCore, Kiro, and Strands Agents joined the in-scope services. Almost every summary in circulation describes the older version. This guide builds a four-week path on the official five-domain weighting (20/24/28/14/14). Official specs: $100, 90 minutes, 65 questions (50 scored), pass at 700, valid 3 years — and it is the only exam in this series offered in Traditional Chinese."
 description: "A preparation guide for AWS Certified AI Practitioner (AIF-C01) built on exam guide v1.1: domain-by-domain breakdown against the official five-domain weighting, the seven objectives and service-list changes v1.1 introduced, a four-week schedule with its derivation, retake and renewal rules, and who the certification is and isn't for."
 draft: false

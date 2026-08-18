@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
 lang: zh-TW
+series:
+  name: "AI 證照備考"
+  order: 4
 tldr: "Claude 官方架構師認證（CCAR-F）的完整備考指南：五大領域權重 27/18/20/20/15、六大考試情境抽四個、常見反模式與實際演練建議。官方規格為 60 題 / 120 分鐘 / $125 / 效期 12 個月 / 及格 720，報考限 Claude Partner Network 成員，準時續期免費且非監考。"
 description: "Claude Certified Architect — Foundations（CCAR-F）考試的完整導讀，涵蓋五大考試領域的所有 Task Statement、六大情境題模式、實際考題解析、官方規格（費用、效期、報考門檻、重考與續期規則），以及可執行的備考策略。"
 draft: false
