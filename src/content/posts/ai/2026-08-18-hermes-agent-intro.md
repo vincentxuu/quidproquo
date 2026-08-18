@@ -112,6 +112,11 @@ MEMORY.md / USER.md           檔案、視覺、TTS…
 | 8 | [Gateway 與排程](/posts/ai/2026-08-18-hermes-agent-gateway-cron)：多平台與 cron 投遞 |
 | 9 | [安全模型](/posts/ai/2026-08-18-hermes-agent-security)：審批、deny 規則、prompt injection |
 | 10 | [從 OpenClaw 遷移](/posts/ai/2026-08-18-hermes-agent-openclaw-migration)：搬得動與搬不動的 |
+| 11 | [研究與批次](/posts/ai/2026-08-18-hermes-agent-batch-research)：trajectory 生成、API server、Python library |
+
+### 本系列不涵蓋什麼
+
+刻意不寫的部分，因為它們是功能清單而非取捨，寫了半年內就會過期：Desktop App、Web Dashboard 與 TUI 的操作、語音模式與 wake word、影像／影片生成的模型清單、event hooks 的寫法、profiles 與 git worktree 隔離、context 壓縮與 `SOUL.md`／`AGENTS.md` 的細節、Mixture of Agents、egress proxy 與 managed scope。這些在[官方文件站](https://hermes-agent.nousresearch.com/docs/)都有，而且那裡永遠比這裡新。
 
 ## 前身與修正
 

@@ -114,6 +114,11 @@ Read that table carefully. Claude Code having no learning loop is a trade-off, n
 | 8 | [Gateway and scheduling](/en/posts/ai/2026-08-18-hermes-agent-gateway-cron): platforms and cron delivery |
 | 9 | [Security model](/en/posts/ai/2026-08-18-hermes-agent-security): approvals, deny rules, prompt injection |
 | 10 | [Migrating from OpenClaw](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration): what moves and what doesn't |
+| 11 | [Research and batch runs](/en/posts/ai/2026-08-18-hermes-agent-batch-research): trajectory generation, API server, Python library |
+
+### What this series does not cover
+
+Deliberately omitted, because they are feature lists rather than trade-offs and would go stale within months: the Desktop app, Web Dashboard, and TUI; voice mode and the wake word; the image and video generation model catalogs; authoring event hooks; profiles and git worktree isolation; context compression and the details of `SOUL.md` / `AGENTS.md`; Mixture of Agents; the egress proxy and managed scope. All of it is in the [official docs](https://hermes-agent.nousresearch.com/docs/), which will always be newer than this page.
 
 ## What this replaces
 
