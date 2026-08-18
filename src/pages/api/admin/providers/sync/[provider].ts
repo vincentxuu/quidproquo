@@ -12,7 +12,12 @@ const PRESET_MODELS: Record<string, string[]> = {
   google: ['gemini-2.0-flash', 'gemini-1.5-pro'],
   gemini: ['gemini-2.0-flash', 'gemini-1.5-pro'],
   anthropic: ['claude-3.5-sonnet', 'claude-3.5-haiku', 'claude-3.7-sonnet'],
-  cloudflare: ['@cf/meta/llama-3.1-8b-instruct', '@cf/qwen/qwen2.5-72b-instruct'],
+  cloudflare: [
+    '@cf/zai-org/glm-4.7-flash',
+    '@cf/google/gemma-4-26b-a4b-it',
+    '@cf/openai/gpt-oss-120b',
+    '@cf/meta/llama-4-scout-17b-16e-instruct',
+  ],
   nvidia: ['llama-3.3-70b', 'nemotron-4-340b'],
   cerebras: ['llama3.1-8b', 'llama3.3-70b'],
   openrouter: ['openrouter/auto'],
