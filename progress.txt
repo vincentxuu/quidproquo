@@ -25,24 +25,15 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-16: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
-  已註冊進 src/utils/series.ts。骨架是 Fall 2026 十週大綱＋總覽（含 FA25→FA26 改版 diff：
-  Final Project 80%→50%、新增 open source 30%；砍 Modern Terminal 與 Automated UI，換上
-  Skills／Agent-Ready Codebases／Background Agents／AI-Native Team）。**課程官網把 syllabus
-  藏在前端 chunk**，兩版資料要從 `_next/static/chunks/17rusgxd1swbs.js` 抓 `eC`（FA25）
-  與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
-  來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
-  lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
-  **08-18 補課**：使用者問「有按照課程內容寫嗎」，量出來 FA25 有 45 條讀物／18 份投影片／
-  8 份作業全公開，而我讀物只用 17 條、投影片 0 份。投影片是 docs.google.com（本環境 egress
-  擋、firecrawl 額度盡）→ 改用 Tavily extract 抓 `/export?format=html` 成功。補讀 8 份後
-  改了 8 篇 x 中英：W1 加 system-reminder 防 drift／off-LLM；W2 加整份 prompting 技巧表
-  （FA26 主題「when each applies」的正本，我原本整份漏掉）＋八欄位 design doc＋MCP host/
-  client 分層與 LSP 系譜；W4 加課程的人／agent 分工表與**第四件工具 commands**（原本只寫三
-  件）；W5 修正「FA25 沒有」——種子在 FA25 W3；W6 加 review 成效數字與課程限制清單；W7 加
-  SAST/DAST/SCA 定義、五種攻擊向量、**AI SAST 誤報 50–100%**（我先前說找不到可信來源的數字，
-  課程自己有）；W10 **修正事實錯誤**——我寫「課程沒問責任歸屬」，但 W6 open questions 第六題
-  就是。**教訓：課程網站首頁抓不到 ≠ 教材不存在；投影片連結在 syllabus 分頁每堂課旁邊。**
+- 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
+  FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
+  條、18 份投影片全漏），補讀後改 8 篇；接著只跑格式檢查就回報「全綠」，補驗內容後再修三處。
+  **可重用教訓（細節見 docs/progress-archive.md）**：①課程網站首頁抓不到 ≠ 教材不存在——
+  投影片連結在 syllabus 分頁每堂課旁邊；②**自己在對話裡講過的數字不是來源**（口頭說「18 份
+  投影片」直接寫進文章，實際 17）；③連結回 200 ≠ 那頁支持你的宣稱（引 OWASP 2026 卻掛 2025
+  版頁面）；④`pnpm verify`／`astro check` 只驗格式，回報時別用「全綠」概括內容。
+  ②③④已進 post-verify／post 的反合理化表。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
   （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
   點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
