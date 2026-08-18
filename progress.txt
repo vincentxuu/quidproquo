@@ -38,11 +38,14 @@ Recently completed
   patch 在 scratchpad/check-internal-links.patch，等 Hermes 寫完再套。
   **未做**：系列尚未註冊進 series.ts（等第二批出來一次編號）；微軟四張與 NVIDIA 四張研究中。
 - 2026-08-18: Hermes Agent 導讀（2026-04-05 舊文）對照上游 README／官方 docs 翻新，並擴寫成
-  十篇系列 x zh/en（20 檔，series slug `hermes-agent`）。**改體裁**：指令清單交還官方文件，
+  十一篇系列 x zh/en（22 檔，series slug `hermes-agent`）。**改體裁**：指令清單交還官方文件，
   每篇只留取捨與失敗點。修掉四個失真：後端 6→7（+Vercel Sandbox）、Honcho 已改為 memory
   provider plugin、Python 93%→~76%/TS ~20%、「OpenClaw 正式繼承者」實為遷移路徑（證據：官方
   自己連的 HermesClaw 橋接器讓兩者共存）。導讀改今日發佈並更名，舊網址在 astro.config 留 301。
   **可重用**：官方 docs 站的 llms-full.txt（3.8MB）是一次抓完整份文件最省事的來源。
+  **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
+  站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
+  另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
 - 2026-08-18: OpenClaw 32 篇 x zh/en 補上 series（`openclaw` slug，order 1-32 連續唯一，
   已註冊進 src/utils/series.ts）。同時發現總覽的系列地圖是錯的：宣稱 36 篇實際 32 篇，
   #28/#29/#31/#36 從未寫出來，讀者路線還在指向不存在的編號——已重編並對齊。
