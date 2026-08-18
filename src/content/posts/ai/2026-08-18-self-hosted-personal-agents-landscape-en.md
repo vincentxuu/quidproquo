@@ -177,9 +177,25 @@ A few things need saying, or you will carry the wrong confidence into a decision
 
 **The most important and least intuitive finding**: one study compared seven skill scanners across 238,180 skills. Flag rates ran from Socket's 3.8% to OpenClaw Scanner's 41.9%. Of the 8,402 skills flagged by at least one scanner, **72% were flagged by exactly one**. On Skills.sh, the one marketplace where all five deployed scanners overlapped, they agreed on 33 skills out of 27,111 — **0.12%**.
 
-Which means: "we scanned it" is not a safety guarantee. Inter-scanner agreement is close to noise, and every vendor is grading its own homework. **Isolation is an architecture problem, not a scanning problem** — which is precisely what those seven latecomers answered with containers, WASM, serverless, or by cutting the codebase down to something a human can actually read.
+That number has to be read both ways, though, because only reading one half pushes you into unwarranted panic. The other half of the same study is **mass over-flagging**: on deeper analysis, 96% of flagged skills turn out to be legitimate, and once the analysis takes repository context into account — whether code matches documentation, maintenance history, metadata — the genuinely suspicious set collapses from thousands to **15 cases, 0.52% of what the scanners originally flagged**. The scanners don't merely disagree with each other; collectively they cry wolf.
+
+So why not just tune the scanners? On 2026-06-03 Trail of Bits gave the structural answer. They bypassed ClawHub's malicious-skill detector (VirusTotal included), Cisco's skill-scanner, and all three scanners wired into skills.sh (Gen, Socket, Snyk) — **not one of them held**:
+
+> it took us less than an hour to conceive and implement three of the four malicious skills
+
+The techniques were not sophisticated. Their first attack simply padded 100,000 newlines between boilerplate and the overtly malicious code: OpenClaw's scanner truncated the file and never read that far, and the VirusTotal model got confused. Another shipped `.pyc` bytecode that differed from its source — the xz-utils trick — and sailed through skills.sh. Their conclusion is blunt:
+
+> No amount of scanning or LLM analysis can reliably detect malicious content in agent skills.
+
+The reason is stated plainly too: scanning is static, so an attacker gets unlimited bites at the apple, tweaking until some variant passes.
+
+So "we scanned it" is not a safety guarantee — not because today's scanners are badly built, but because the problem is the wrong shape for scanning to solve. **Isolation is an architecture problem, not a scanning problem** — which is precisely what those seven latecomers answered with containers, WASM, serverless, or by cutting the codebase down to something a human can actually read. A scan is the floor, not the ceiling.
 
 Finally, every star count here is a 2026-08-18 snapshot. This category has reshuffled several times in six months; by the time you read this the numbers have moved again.
+
+## Changelog
+
+- 2026-08-18: Added Trail of Bits' 2026-06-03 scanner-bypass research (primary source) and balanced the "scanners are unreliable" section — the original only covered scanner disagreement and omitted the other half of the same study: 96% of flagged skills are legitimate, and repository-context analysis narrows the genuinely suspicious set to 15 cases.
 
 ## References
 
@@ -201,6 +217,8 @@ Security research and reporting:
 - [arXiv 2603.12644 — Uncovering Security Threats and Architecting Defenses in Autonomous Agents: A Case Study of OpenClaw](https://arxiv.org/abs/2603.12644)
 - [The Hacker News — CNCERT warns on OpenClaw](https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html)
 - [Seven skill scanners agree on only 0.12%](https://theweatherreport.ai/posts/skill-scanner-disagreement)
+- [Trail of Bits — The sorry state of skill distribution (all five scanners bypassed)](https://blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution)
+- [CSA — AI Agent Skill Scanners: Bypassed Across the Board](https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-agent-skill-scanner-bypass-20260610-csa)
 - [The ClawHub incident: 341 malicious skills (Koi Security audit)](https://www.termdock.com/en/blog/clawhub-malicious-skills-incident)
 - [ARMO — CVE-2026-32922: OpenClaw privilege escalation (CVSS 9.9)](https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security)
 - [Cyera — Claw Chain: four chainable flaws including a CVSS 9.6 sandbox escape](https://www.cyera.com/blog/claw-chain-cyera-research-unveil-four-chainable-vulnerabilities-in-openclaw)

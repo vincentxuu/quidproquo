@@ -175,9 +175,25 @@ Summer Yue 那次事故是這條軸的實證：壓縮吃掉的不是別的，正
 
 **最重要的一筆，也是最反直覺的**：有研究比對七個 skill 掃描器對 238,180 個 skill 的判定，flag 率從 Socket 的 3.8% 到 OpenClaw Scanner 的 41.9%；被至少一個掃描器 flag 的 8,402 個 skill 裡，**72% 只被其中一個 flag**；在五個掃描器都覆蓋的 Skills.sh 上，27,111 個 skill 裡只有 33 個達成一致——**0.12%**。
 
-這件事的意思是：「我掃過了」不構成安全保證。掃描器之間的一致性低到接近隨機，而每一家都在給自己的作業打分。**隔離是架構問題，不是掃描問題**——這正是那七個後來者各自用 container、WASM、serverless、或者把程式碼砍到能人工審完來回答的原因。
+但這個數字要往兩邊讀，只講一邊會把人推向過度恐慌。同一份研究的另一半是**掃描器大量誤報**：深入分析後 96% 被 flag 的 skill 其實是正當的；而且當分析把 repository 的上下文一起納入（程式碼與文件是否一致、維護歷史、metadata），真正可疑的從數千個掉到 **15 個，只有原始 flag 量的 0.52%**。掃描器不只是彼此不同意，它們是集體傾向於亂叫。
+
+那為什麼不能靠調校掃描器解決？2026-06-03 Trail of Bits 給了結構性的答案。他們一口氣繞過 ClawHub 的惡意 skill 偵測器（含 VirusTotal）、Cisco 的 skill-scanner，以及 skills.sh 整合的三家（Gen、Socket、Snyk）——**沒有一個擋得住**：
+
+> it took us less than an hour to conceive and implement three of the four malicious skills
+
+手法一點都不高深。第一個攻擊就是在樣板和惡意程式碼之間塞 10 萬個換行：OpenClaw 的掃描器把檔案截斷了，直接沒讀到後面；VirusTotal 那個模型則是被搞糊塗。另一個是讓 `.pyc` bytecode 與原始碼不一致——xz-utils 那套老招——在 skills.sh 上一路綠燈通過。他們的結論寫得很硬：
+
+> No amount of scanning or LLM analysis can reliably detect malicious content in agent skills.
+
+原因也講明白了：掃描是靜態的，而攻擊者可以無限次微調直到某一版通過（unlimited bites at the apple）。
+
+所以「我掃過了」不構成安全保證——不是因為現在的掃描器做得不夠好，而是因為這件事的形狀就不適合用掃描解決。**隔離是架構問題，不是掃描問題**——這正是那七個後來者各自用 container、WASM、serverless、或者把程式碼砍到能人工審完來回答的原因。掃描是地板，不是天花板。
 
 最後，本文所有 star 數是 2026-08-18 的快照。這個類別在半年內排名已經翻過好幾次，你讀到這篇時數字大概又不一樣了。
+
+## 更新紀錄
+
+- 2026-08-18：補上 Trail of Bits 2026-06-03 的掃描器全繞過研究（一手），並平衡「掃描器不可信」那段——原本只寫了掃描器彼此不一致，漏掉同一份研究裡「96% 被 flag 的其實正當、納入 repo 上下文後真正可疑的只剩 15 例」這半邊。
 
 ## 參考資料
 
@@ -199,6 +215,8 @@ Summer Yue 那次事故是這條軸的實證：壓縮吃掉的不是別的，正
 - [arXiv 2603.12644 — Uncovering Security Threats and Architecting Defenses in Autonomous Agents: A Case Study of OpenClaw](https://arxiv.org/abs/2603.12644)
 - [The Hacker News — CNCERT 對 OpenClaw 發布風險警示](https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html)
 - [七個 skill 掃描器只有 0.12% 共識](https://theweatherreport.ai/posts/skill-scanner-disagreement)
+- [Trail of Bits — The sorry state of skill distribution（繞過全部五個掃描器）](https://blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution)
+- [CSA — AI Agent Skill Scanners: Bypassed Across the Board](https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-agent-skill-scanner-bypass-20260610-csa)
 - [ClawHub 341 個惡意 skill 事件（Koi Security 審計）](https://www.termdock.com/en/blog/clawhub-malicious-skills-incident)
 - [ARMO — CVE-2026-32922：OpenClaw 權限提升（CVSS 9.9）](https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security)
 - [Cyera — Claw Chain：四個可串連的漏洞，含 CVSS 9.6 的沙箱逃逸](https://www.cyera.com/blog/claw-chain-cyera-research-unveil-four-chainable-vulnerabilities-in-openclaw)
