@@ -39,6 +39,9 @@ Recently completed
   a16z 的 Casado 談自家案源，他本人已更正為 16-24% ③Epoch AI 的年份是單一區間
   2026-2032 而非課堂的三段式 ④Seaquest 去色查無佐證（有文件的是畫面閃爍）。
   **共同模式：講者第一手經驗都站得住，出問題的全是憑印象轉述的第三方數字。**
+  **第三次同一個毛病**：被問「都改完了？」才自己盤，發現另有一批寫「未逐一查證」
+  的其實查得到（TRPO／DPO／DQN Nature／jagged frontier 原始研究／Anthropic-OpenAI
+  聯合評估／InstructGPT 13k）。**教訓：「未查證」不是可以交件的狀態，是待辦。**
   **教訓**：13 篇論文 ID 實抓驗證；**exa 查 1707.06347 回傳完全不同的論文**，
   tavily 才對。修正兩處課堂說法：ImageBind 樞紐是影像非文字、METR 限於 Software
   Tasks。另抓到自己寫的上下篇串接跳號（order 8 指向 10、order 10 指向 6）。
