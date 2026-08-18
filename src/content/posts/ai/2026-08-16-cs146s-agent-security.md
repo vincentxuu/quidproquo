@@ -71,7 +71,7 @@ Semgrep 自己也發過[用 Claude Code 與 Codex 找現代 web app 漏洞](http
 
 現在講另一半。
 
-OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://genai.owasp.org/llm-top-10/)裡，prompt injection **連續第三年排第一**。這一版的排序是 75% 社群投票加 25% 真實事故資料，而 OWASP 手上約有一萬筆 AI 安全事故紀錄。
+OWASP 在 2026 年 8 月 3 日發布 [GenAI / LLM Top 10 2026 版](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)，官方說明寫這一版「grounded in thousands of real-world AI security incidents」，並把風險對應到 NIST、MITRE ATLAS、CWE 與 Agentic Applications 那份清單。[SD Times 的報導](https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/)指出 prompt injection **連續第三年排第一**，並引述專案共同主席 Steve Wilson 的說法：過去主要靠專家投票排序，這一版把票數拿去對照事故紀錄——「OWASP now has a database containing roughly 10,000 real-world AI security incidents」。
 
 排第一的原因不是大家不努力，是這個問題**在結構上還沒有解**：模型無法可靠地區分「使用者的指示」與「資料裡長得像指示的文字」。
 
@@ -147,7 +147,7 @@ OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://ge
 ## 會過期的東西
 
 - o3 的實驗是 2025 年 5 月，模型已換代；那組數字說明的是**方法的形狀**，不是今天的命中率
-- OWASP 清單每年改版，寫作當下最新是 2026-08-04 發布的 GenAI / LLM Top 10 2026
+- OWASP 清單每年改版，寫作當下最新是 2026-08-03 發布的 GenAI / LLM Top 10 2026
 - 各家 agent 的沙箱與權限預設值變動頻繁，實作前查當下文件
 
 ## 參考資料
@@ -155,7 +155,8 @@ OWASP 在 2026 年 8 月 4 日發布的 [GenAI / LLM Top 10 2026 版](https://ge
 - [CS146S Fall 2026 syllabus](https://themodernsoftware.dev/) — Week 7 主題與客座
 - [How I used o3 to find CVE-2025-37899](https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/) — Sean Heelan，2025-05-22，含完整命中率與誤報數字
 - [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — Simon Willison，2025-06-16
-- [OWASP GenAI / LLM Top 10 2026](https://genai.owasp.org/llm-top-10/) — 2026-08-04 發布，prompt injection 連三年第一
+- [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — 官方資源頁，2026-08-03
+- [Prompt Injection tops 2026 OWASP GenAI / LLM Top Ten vulnerabilities](https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/) — SD Times，含 Steve Wilson 對排序方法的說明
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — 舊版入口，已轉到 GenAI Security Project
 - [GitHub Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) — Fall 2025 Week 6 指定讀物
 - [Finding Vulnerabilities in Modern Web Apps Using Claude Code and OpenAI Codex](https://semgrep.dev/blog/2025/finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-openai-codex/) — Semgrep，Fall 2025 Week 6 指定讀物

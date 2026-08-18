@@ -38,6 +38,8 @@ Stanford 有一門叫 [CS146S: The Modern Software Developer](https://themoderns
 
 Fall 2025 那一版的教材全部公開：每週的 slides、reading list、[GitHub 作業 repo](https://github.com/mihail911/modern-software-dev-assignments) 都能直接點開。這是這門課值得追的主要原因——它不是一份要你報名才看得到的課綱。
 
+有個小落差值得先講：**Stanford 官方課程目錄的[條目](https://bulletin.stanford.edu/courses/2274401)還停在舊版。** 它的課程描述點名「Cursor、Warp」與「Coderabbit、Qodo」——那是 Fall 2025 的框架，而 Warp 那一週在 Fall 2026 已經被砍掉。先修條件的寫法也不同：目錄要求的是「a good understanding of complex software design, familiarity with open source software projects, and comfort with tools such as Github」，課程官網寫的則是 CS111/CS161 等同。要判斷自己夠不夠格，以課程官網為準。
+
 站上先前的 [2026 年 AI 課程總覽](/posts/ai/2026-07-10-ai-courses-2026-guide)已經用一節介紹過這門課，但那時只寫到 Fall 2025。以下是新版的部分。
 
 ## 十週主題，兩版並排
@@ -99,12 +101,12 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 | 材料 | 數量 |
 |---|---|
 | 指定讀物 | 45 條 |
-| 課堂投影片 | 18 份 |
+| 課堂投影片連結 | 17 份（14 份 Google Slides、1 份 Figma、2 份 Drive PDF） |
 | GitHub 作業 | 8 份 |
 
 所以這個系列的做法是兩層：**Fall 2026 的十週主題當骨架，課堂內容取自 Fall 2025 同主題的公開投影片，主題在 Fall 2025 沒有對應的（Skills、Agent-Ready Codebases、Background Agents、AI-Native Team）才自己去找一手材料**，並且每一段都標清楚是課程說的還是外部來源說的。
 
-投影片不是首頁點得到的東西，但它在 syllabus 分頁的每一堂課旁邊都有連結，是 `docs.google.com/presentation` 的公開檔。實際讀下來，裡面有不少東西在官方文件與部落格上找不到——例如 Week 1 那堂列的四條「Claude 底下實際在做什麼」、Week 3 給的八欄位 design doc 模板、Week 4 那張人／agent 分工表。
+投影片不是首頁點得到的東西，但它在 syllabus 分頁的每一堂課旁邊都有 Slides 連結，多數是公開的 `docs.google.com/presentation`。本系列實際讀了其中跟 Fall 2026 主題對得上的 8 份，裡面有不少東西在官方文件與部落格上找不到——例如 Week 1 那堂列的四條「Claude 底下實際在做什麼」、Week 3 給的八欄位 design doc 模板、Week 4 那張人／agent 分工表。
 
 自己找的部分則包括：Week 2 的 RePPIT 有講師本人寫的[完整說明](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster)（MLOps Community，2026 年 6 月），Week 5 的 agent readiness 有 [Factory 公開的八柱五級框架](https://factory.ai/news/agent-readiness)，Week 3 的 skills 有 Anthropic 的[官方工程文](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)。
 
@@ -136,9 +138,9 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — Fall 2026 課程官網（overview / syllabus / FAQ 三個分頁）
 - [CS146S Fall 2025](https://themodernsoftware.dev/fall2025) — 含完整 reading list、slides 與客座名單的舊版
-- [CS146S Course | Stanford University Bulletin](https://bulletin.stanford.edu/courses/2274401) — 學校端的課程條目
+- [CS146S Course | Stanford University Bulletin](https://bulletin.stanford.edu/courses/2274401) — 學校端的課程條目（內容仍是舊版）
 - [modern-software-dev-assignments](https://github.com/mihail911/modern-software-dev-assignments) — Fall 2025 作業 repo（8 份）
-- Fall 2025 課堂投影片（18 份）掛在 [fall2025 頁](https://themodernsoftware.dev/fall2025)的 syllabus 分頁，每堂課旁邊的 Slides 連結
+- Fall 2025 課堂投影片（17 個 Slides 連結）掛在 [fall2025 頁](https://themodernsoftware.dev/fall2025)的 syllabus 分頁，每堂課旁邊
 - [RePPIT: A Framework to Ship Production Code 2-3X Faster](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) — Mihail Eric，MLOps Community，2026-06-02
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory，2026-01-20
 - [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) — Anthropic Engineering，2025-10-16

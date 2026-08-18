@@ -71,7 +71,7 @@ A scanner that returns different results each run cannot answer "am I done scann
 
 Now the other half.
 
-In the [GenAI / LLM Top 10 2026](https://genai.owasp.org/llm-top-10/), published by OWASP on August 4, 2026, prompt injection holds first place **for the third year running**. That edition weighted its ranking 75% community vote and 25% real-world incident data, drawn from OWASP's database of roughly 10,000 AI security incidents.
+OWASP published the [GenAI / LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) on August 3, 2026, describing the edition as "grounded in thousands of real-world AI security incidents" and mapping its risks to NIST, MITRE ATLAS, CWE, and the Agentic Applications list. [SD Times reports](https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/) that prompt injection holds first place **for the third year running**, quoting project co-chair Steve Wilson on the change in method — previous editions ranked mainly by expert voting, while this one tested those votes against incident records: "OWASP now has a database containing roughly 10,000 real-world AI security incidents."
 
 It stays first not for lack of effort — the problem is **structurally unsolved**: models cannot reliably distinguish a user's instructions from text inside data that looks like instructions.
 
@@ -147,7 +147,7 @@ The last one is not a technical question. **The course puts it on the same list 
 ## What will go stale
 
 - The o3 experiment is from May 2025 and models have turned over since; those numbers describe **the shape of the method**, not today's hit rate
-- OWASP revises its lists annually; the latest at time of writing is the GenAI / LLM Top 10 2026, published 2026-08-04
+- OWASP revises its lists annually; the latest at time of writing is the GenAI / LLM Top 10 2026, published 2026-08-03
 - Sandbox and permission defaults across agent products change often — check current docs before implementing
 
 ## References
@@ -155,7 +155,8 @@ The last one is not a technical question. **The course puts it on the same list 
 - [CS146S Fall 2026 syllabus](https://themodernsoftware.dev/) — Week 7 topics and guest
 - [How I used o3 to find CVE-2025-37899](https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/) — Sean Heelan, 2025-05-22, with full hit and false-positive counts
 - [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — Simon Willison, 2025-06-16
-- [OWASP GenAI / LLM Top 10 2026](https://genai.owasp.org/llm-top-10/) — published 2026-08-04, prompt injection first for the third year
+- [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — official resource page, 2026-08-03
+- [Prompt Injection tops 2026 OWASP GenAI / LLM Top Ten vulnerabilities](https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/) — SD Times, with Steve Wilson on the ranking method
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — legacy entry point, now under the GenAI Security Project
 - [GitHub Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) — assigned in Fall 2025 Week 6
 - [Finding Vulnerabilities in Modern Web Apps Using Claude Code and OpenAI Codex](https://semgrep.dev/blog/2025/finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-openai-codex/) — Semgrep, assigned in Fall 2025 Week 6
