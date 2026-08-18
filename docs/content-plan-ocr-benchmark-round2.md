@@ -103,60 +103,84 @@
 > 極可能是 **pip 套件版本（3.4.x）vs 模型版本（2.5）** 兩件事，但原文沒交代。
 > 第二輪必須在同一段裡把 `pip show mineru` 的版本和它載入的模型版本一起貼出來。
 
-### Batch C —— 雲端 API（零安裝，而且幾乎不用花錢）
+### Batch C —— 雲端 API
 
-先講最重要的一句，這也修正我上一版的判斷：**這批的免費額度足以跑完整個第二輪。**
-第二輪的語料量級是數百頁（八類 × 3–5 份，加上原文的 61 份考卷），
-而下表多數服務的免費額度是每月 10,000–15,000 頁／credits。
-所以「API 要先等預算核准」是錯的，Round 2B 可以和 Round 2A 同時開工。
+**以下每一列都是 2026-08-18 從廠商定價頁讀到的數字**，來源逐列標註。
+未取得的欄位寫「取不到」並說明卡在哪，不寫「未查證」。
+
+#### C-0 先修正一個判斷：免費額度不是均勻的
+
+我上一版寫「免費額度足以跑完整個第二輪」——查完發現**只對一半**。
+純解析那批確實夠，但三大雲的結構化功能免費額度只有 100–500 頁：
+
+| 夠用（數千頁以上） | 剛好夠（數百～千頁） | 幾乎沒有 |
+|---|---|---|
+| Unstructured 15,000 頁／月<br>LlamaParse 10,000 credits／月<br>Reducto 15,000 credits | Google Document AI OCR 每月前 1,000 頁免費<br>Azure F0 每月 500 頁<br>AWS Textract OCR 每月 1,000 頁（前 3 個月） | AWS Textract 的 Tables／Forms／Queries／Expense **各只有 100 頁**<br>Azure 的結構化 SKU 同吃 500 頁額度<br>Mistral OCR API 未見免費頁數 |
+
+所以正確的說法是：**「純解析 + 版面」這條線可以免費跑完，「結構化欄位抽取」那條線會撞牆。**
+第三欄那些要嘛編列小額預算（數百頁量級約 $1–5），要嘛只抽樣測 100 頁。
 
 #### C-1 專用文件解析 API
 
-| 服務 | 模型／端點 | 計費 | 免費額度 | 為什麼值得測 | 價格來源 |
-|---|---|---|---|---|---|
-| **Mistral OCR 4.1** | `mistral-ocr-latest`，`/v1/ocr` | OCR $4／1K 頁；Document AI（含 JSON schema 抽取）$5／1K 頁 | 需查 | **同時提供「純解析」與「照 schema 抽欄位」兩個檔位**，剛好對上 Arena 的雙軌設計 | 廠商定價頁（2026-08-18 讀取） |
-| **Datalab** | Marker／Chandra 作者團隊的官方雲端 | 依 processor 計價；bbox extras 另計（如 table cell bboxes $0.30／1K 頁） | 新帳號每月額度（公司信箱 $20／個人信箱 $10），可轉 pay-as-you-go | **原文測過 Marker 本地版**，這裡能做「同一團隊本地 vs 雲端」的同源對照，是最乾淨的一組 | 官方 changelog（2026-06-18 條目） |
-| **Firecrawl** | 原文已測，Fire-PDF 引擎 | PDF 每頁 1 credit；方案 $0／$16／$83／$333 分級 | 免費方案 500 credits／月 | 保留當基準線；順帶**驗證原文關於 pdf-inspector 路由的說法**（Fire-PDF 2026-04 上線，逐頁分類後只把掃描頁送 GPU OCR） | 官方 blog + 二手比較文 |
-| **LlamaParse** | LlamaCloud | credit 制，$1.25／1K credits；Fast 1 credit／頁 → Agentic Plus 數十 credits／頁 | 每月 10,000 credits | RAG 生態最常見；**同一頁不同模式差幾十倍**，是「報價必須標模式」的最佳教材 | 二手比較文 |
-| **Reducto** | Parse / Extract | 前 15,000 credits 免費，之後 $0.015／credit；標準解析 1 credit／頁 | 15,000 credits | 主打**逐值 bounding box 引用**，對「欄位抽取要能追溯到頁面位置」這條有用 | 廠商比較頁 + 二手 |
-| **Unstructured** | Platform | 約 $0.03／頁 | 每月 15,000 頁 | RAG 管線常見的另一條路 | 二手比較文 |
-| **Upstage Document Parse** | — | 未查 | 未查 | 亞洲語系主打 | **未查證** |
-| **TextIn xParse** | — | 未查 | 未查 | 中文文件解析代表，**繁中／表格／手寫是它的主打**，正好對上第三節的素材缺口 | **未查證** |
+| 服務 | 計費（廠商定價頁原文） | 免費額度 | 為什麼值得測 |
+|---|---|---|---|
+| **Mistral OCR 4.1** | OCR **$4／1K 頁**；Document AI（含 schema 抽取）**$5／1K 頁**。模型 id `mistral-ocr-latest` | 官方 FAQ 的 Free 方案是消費端的 Vibe，**API 未見免費頁數** | 同時有「純解析」與「照 schema 抽欄位」兩檔，直接對上 Arena 的雙軌設計 |
+| **Upstage Document Parse** | Document Parse **Standard $0.01／頁、Enhanced $0.03／頁**（Auto 模式逐頁自動選）；Document OCR **$0.0015／頁**；Document Classify $0.004／頁；Information Extract Standard $0.04／頁、Enhanced $0.06／頁。**價格未含 10% VAT** | 未見通用免費額度；Studio 每個 agent 送 10 次免費執行 | **全表最便宜的結構化解析**（$10／1K 頁），而且解析與抽取分開計價，剛好能算出「多花的那一段值不值得」 |
+| **Unstructured** | 免費額度用完後 **$0.03／頁**；帳單到 $3,000／月封頂，之後到 100 萬頁／月都免費 | **每月 15,000 頁**，每月重置、不需信用卡 | 免費額度最大方的一家，第二輪可以整批免費跑完 |
+| **LlamaParse** | **$1.25／1,000 credits**；Basic parsing 最低 1 credit／頁，agentic 模式更貴（定價頁未列逐檔 credit 數） | Free 方案 **10,000 credits／月**；Starter 40K、Pro 400K | **同一頁不同模式差幾十倍**，是「報價不標模式等於沒報價」的最佳教材 |
+| **Reducto** | **$0.015／credit**；標準解析 1 credit／頁 | **前 15,000 credits 免費** | 主打逐值 bounding box 引用，對「欄位抽取要能追溯位置」有用。定價頁的 agentic／Extract 檔位 credit 數擷取不到，需實跑看 usage |
+| **Firecrawl**（原文已測） | PDF **每頁 1 credit**；方案 Free $0／Hobby $16／Standard $83／Growth $333／Scale $599／Enterprise | Free 方案 | 保留當基準線，順帶驗證原文關於 pdf-inspector 逐頁分類路由的說法 |
+| **Datalab**（Marker／Chandra 作者團隊） | 依 processor 計價；已知 extras：table cell bboxes、list item bboxes **各 $0.30／1K 頁** | 新帳號每月額度：公司信箱 **$20**、個人信箱 **$10**，可轉 pay-as-you-go | **原文測過 Marker 本地版**，這是唯一能做「同團隊本地 vs 雲端」同源對照的一家 |
+| **TextIn xParse** | 智能文檔解析 **¥0.042／頁起**；智能文檔抽取 ¥0.1056／頁起；通用文字識別 ¥0.025／頁起；通用表格識別 ¥0.025／頁起 | 網站有「免費試用」與完善資料贈 1,000 頁額度 | 通用文字識別的規格頁**明寫支援繁體中文與手寫體、傾斜、摺疊、旋轉**——正好對上第三節的素材缺口，全表唯一 |
+
+> Datalab 的逐項 processor 費率：`www.datalab.to/pricing` 是 JS 渲染取不到內容，
+> `documentation.datalab.to/platform/pricing` 回 404，`docs.datalab.to/pricing` 連不上。
+> 上表的免費額度與 extras 費率來自官方 changelog（2026-06-16／06-18 條目）。**逐項費率要註冊後在 console 看。**
+>
+> TextIn 報價是人民幣，且是「起」價（階梯計價）。粗略換算 ¥0.042／頁 ≈ US$6／1K 頁（以 1 USD ≈ 7 CNY 估），
+> 但實際單價依用量階梯而定，**不要把這個換算寫進文章**，要用當天實際帳單。
 
 #### C-2 三大雲（唯一有 SLA 的一類）
 
-| 服務 | 純 OCR | 版面／結構 | 表單／KIE | 免費額度 |
-|---|---|---|---|---|
-| **Azure Document Intelligence** | Read $1.5／1K 頁 | Layout $10／1K | Prebuilt $10／1K；Custom $30–50／1K；add-on（高解析度／公式／條碼）+$6／1K | F0 每月 500 頁 |
-| **AWS Textract** | DetectDocumentText $1.5／1K | Tables 約 $15／1K | Forms 約 $50／1K；Forms+Tables 約 $65／1K；Analyze Expense 約 $8–10／1K | 新帳號每月 1,000 頁 × 3 個月 |
-| **Google Document AI** | OCR $1.5／1K（超過 5M 頁／月降至 $0.6） | Layout 約 $10／1K | Form Parser 約 $30／1K；Custom Extractor 約 $30／1K | 試用額度 |
+全部為廠商定價頁數字，每 1,000 頁 USD：
 
-一個現成的結論：**純 OCR 三家同價（$1.5／1K 頁），差異全在結構化那一層**——
-而結構化正是原文沒測的層。這張表本身就能撐起文章的一段。
-
-> 以上三大雲的數字全部來自二手比較文（2026 年中），不是廠商定價頁。**視為線索，不是報價。**
-
-#### C-3 計費模型換算（不換算就不能比）
-
-按頁計費和按 token 計費不能直接並排。統一換算成「每 1,000 頁 USD」：
-
-- **按頁**：報價即結果。
-- **按 token**：每頁成本 =（影像 token + prompt token）× 輸入單價 + 輸出 token × 輸出單價。
-  掃描頁的影像 token 隨解析度與長寬比變動，**沒有可查的固定值——必須實測一頁的 `usage` 再外推**。
-  Anthropic 的 `count_tokens` 端點可以在送出前先算輸入 token；輸出 token 只能實跑。
-
-這一格算清楚，原文那句「按頁計費」才真的有比較意義。
-
-### Batch D —— 通用 VLM 當基線（同時測雙軌）
-
-原文只有「Claude 視覺」一格，卻是**唯一能讀懂圖形語義的方案**——這個發現值得展開成一整節。
-三家各取「高階／便宜」兩檔：
-
-| 供應商 | 候選 | 定價（輸入／輸出，每 1M token） | 價格來源 |
+| | **Azure AI Document Intelligence** | **AWS Textract** | **Google Document AI** |
 |---|---|---|---|
-| **Anthropic** | `claude-opus-5` / `claude-sonnet-5` / `claude-haiku-4-5` | $5／$25；$3／$15（介紹價 $2／$10 至 2026-08-31）；$1／$5 | `claude-api` skill 定價表 |
-| **Google** | Gemini 3.1 Pro / Gemini 3 Flash | 約 $2／$12（超過 200K context 全單重算 $4／$18）；約 $0.5／$3 | 二手，跑之前開 `ai.google.dev/gemini-api/docs/pricing` 覆核 |
-| **OpenAI** | GPT-5.x 系列 | **未查證** | 納入前開官方定價頁 |
+| 純 OCR | Read **$1.50** | Detect Document Text **$1.50** | Enterprise Document OCR **$1.50**（前 1,000 頁／月 $0；超過 500 萬頁／月降至 $0.60） |
+| 版面／結構 | 定價頁未把 Layout 列為獨立項目 | Tables **$15** | Layout Parser **$10**；OCR add-ons **$6** |
+| 表單／KIE | 所有 Prebuilt 模型 **$10**；Query Fields **+$10**；Add-On **+$6** | Forms **$50**；Forms+Tables **$65**；Queries **$15**；Analyze Expense **$10**；Analyze ID **$25** | Form Parser **$30**（超過 100 萬頁降 $20）；Custom Extractor **$30**（同上） |
+| 自訂模型 | Custom extraction **$30**；Custom generative extraction **$30**；**Custom classification 只要 $3**；訓練 $3／小時 | Analyze Lending $70 | Re-chunking $0.02 |
+| 免費額度 | F0 每月 500 頁 | OCR 每月 1,000 頁（前 3 個月）；**Tables／Forms／Queries／Expense／ID 各只有 100 頁**；Lending 2,000 頁 | Enterprise OCR **每月前 1,000 頁免費** |
+
+**這張表推翻了我上一版抄二手來源寫的兩個數字**：Azure 的 Custom extraction 是 $30 不是 $50，
+Custom classification 只要 $3 不是 $50。二手比較文在這兩格是錯的。
+
+兩個站得住的結論：
+
+1. **純 OCR 三家同價（$1.50／1K 頁），差異全在結構化那一層**——而結構化正是原文沒測的層。
+2. **同樣是「抽欄位」，價差 6 倍**：Upstage $10／1K、Azure Prebuilt $10／1K、Google Form Parser $30／1K、AWS Forms $50／1K。
+   這個價差要用實測準確率去對，才知道貴的有沒有貴的道理——**這就是第二輪最有商業價值的一張表。**
+
+#### C-3 通用 VLM（同時測雙軌）
+
+原文只有「Claude 視覺」一格，卻是唯一能讀懂圖形語義的方案——值得展開成一整節。
+每 1M token，短脈絡標準檔：
+
+| 供應商 | 型號 | 輸入 | 輸出 | 免費額度 | 來源 |
+|---|---|---|---|---|---|
+| **Anthropic** | `claude-opus-5` | $5.00 | $25.00 | — | `claude-api` skill 定價表 |
+| | `claude-sonnet-5` | $3.00（介紹價 $2.00 至 2026-08-31） | $15.00（介紹價 $10.00） | — | 同上 |
+| | `claude-haiku-4-5` | $1.00 | $5.00 | — | 同上 |
+| **OpenAI** | `gpt-5.6-sol` | $5.00 | $30.00 | — | platform.openai.com 定價頁 |
+| | `gpt-5.6-terra` | $2.00 | $12.00 | — | 同上 |
+| | `gpt-5.6-luna` | $0.20 | $1.20 | — | 同上 |
+| **Google** | `gemini-3.1-pro-preview` | $2.00（>200K 脈絡 $4.00） | $12.00（>200K $18.00） | **無** | ai.google.dev 定價頁 |
+| | `gemini-3.7-flash` / `3.6-flash` | $0.75（2027-01-01 起 $1.50） | $3.75（起 $7.50） | **有免費層** | 同上 |
+| | `gemini-3.5-flash-lite` | $0.30 | $2.50 | **有免費層** | 同上 |
+
+補充規則（都會影響總帳）：OpenAI 長脈絡約為短脈絡兩倍、Batch 與 Flex 五折、Fast mode 兩倍；
+Gemini Batch 五折、Flash 系列的低價到 2026-12-31 為止；Anthropic 的 Sonnet 5 介紹價到 2026-08-31 為止
+（**也就是這個月底就漲，跑測試要記錄當天單價**）。
 
 每一檔都跑兩軌（第三軌選作）：
 
@@ -165,11 +189,23 @@
 3. **軌三（選）**：RapidOCR 文字 + 版面座標一起餵，測「讓 LLM 看得到位置」值不值得
 
 軌二的輸入是純文字，token 數比整頁影像少一個量級——**這就是「便宜 OCR + 便宜 LLM」可能贏的機制**，
-而原文完全沒測。這一組跑完就能回答：貴模型直接讀圖，和兩段式便宜組合，哪個划算、在哪類文件上翻盤。
+而原文完全沒測。搭配上表可以先算出理論成本：例如 `gemini-3.5-flash-lite` 走軌二，
+輸入成本是 `gpt-5.6-sol` 走軌一的百分之一量級。**理論值只用來排跑測順序，結論一律以實測帳單為準。**
 
-> **查價紀律**：上表數字會過期，且除了 Mistral 與 Claude 兩列以外多為二手來源。
-> **跑測試當天重開一次各家定價頁，把當天的數字連同日期寫進結果檔**；文章只引當天實測的實際花費，
-> 不引這份規劃裡的估價。標「未查證」的欄位是待辦，不是可交件狀態。
+#### C-4 計費模型換算（不換算就不能比）
+
+按頁計費和按 token 計費不能直接並排。統一換算成「每 1,000 頁 USD」：
+
+- **按頁**：報價即結果。
+- **按 token**：每頁成本 =（影像 token + prompt token）× 輸入單價 + 輸出 token × 輸出單價。
+  掃描頁的影像 token 隨解析度與長寬比變動，**沒有可查的固定值——必須實測一頁的 `usage` 再外推**。
+  Anthropic 的 `count_tokens` 端點可在送出前算輸入 token；輸出 token 只能實跑。
+
+這一格算清楚，原文那句「按頁計費」才真的有比較意義。
+
+> **時效紀律**：上面所有數字都標了 2026-08-18 的讀取日期，而且**至少三筆有明確的到期日**
+> （Sonnet 5 介紹價 8/31、Gemini Flash 低價 12/31、AWS 新帳號免費層 3 個月）。
+> 跑測試當天重開一次各家定價頁，把當天數字與日期寫進結果檔；文章引當天的實際帳單，不引這份規劃的估價。
 
 ---
 
@@ -204,7 +240,7 @@
 | **影像前處理** | 原圖 vs `--deskew` vs 二值化 vs 放大到 300/600 DPI | 直接回答原文懸而未決的「Tesseract 為什麼 0 chars」 |
 | **送圖粒度** | 整份 PDF 一次送 vs 逐頁送 vs 逐區塊送 | 長文件成本與品質的取捨 |
 | **prompt / 領域詞彙** | 無提示 vs 給科目詞彙 vs 給輸出格式範例 | VLM 類的分數有多少來自 prompt 而非模型 |
-| **雙軌 pipeline** | VLM 直出 vs OCR + LLM extractor（同一顆 LLM） | 見第二節 Batch D |
+| **雙軌 pipeline** | VLM 直出 vs OCR + LLM extractor（同一顆 LLM） | 見第二節 C-3 |
 | **重複性** | 同一頁跑 3 次 | VLM 的輸出穩不穩；傳統 OCR 是決定性的，VLM 不是 |
 | **失敗行為** | 統計逾時、空輸出、無限重複、幻覺補字、空白頁誤判 | 生產環境真正的成本來源 |
 | **成本與延遲** | 每頁 USD、p50 / p95 延遲 | 讓「兩階段策略」從敘事變成可算的數字 |
@@ -279,8 +315,9 @@ L5 是這份規劃裡最強的一步：原文已經跑完 61 份考卷的人工�
 ### Round 2B —— 素材與雙軌（免費額度內可完成，不必等預算）
 
 1. 補齊第三節八類素材，每類 3–5 份，全部建 GT
-2. Batch C（專用解析 API 3–4 家 + 三大雲各一）+ Batch D（通用 VLM 三家 × 兩軌）
-3. 各家先只跑免費額度；超出就停，並把「免費額度能測到什麼程度」本身寫成結論
+2. Batch C（專用解析 API 3–4 家 + 三大雲各一 + 通用 VLM 三家 × 兩軌）
+3. 純解析線走免費額度（Unstructured／LlamaParse／Reducto／Google OCR 都夠）；
+   結構化線的免費額度只有 100–500 頁（見 §二 C-0），改成抽樣測或編列小額預算
 4. 產出：新文章「同一份文件，VLM 直出 vs OCR + LLM 整理，哪個划算」
 
 ### Round 2C —— GPU 場（高成本，需先確認預算）
@@ -307,8 +344,9 @@ L5 是這份規劃裡最強的一步：原文已經跑完 61 份考卷的人工�
 ## 九、待決策（Tier 2，要先問人）
 
 1. **GPU 預算**：Round 2C 要租機器，時數與上限？
-2. **超出免費額度後要不要續**：多數服務的免費額度覆蓋得了第二輪（見 §二 C-1），
-   所以原本的「API 預算」降級成這一題。若一律不續，Round 2B 現在就能開工。
+2. **結構化那條線要不要編小額預算**：純解析線用免費額度跑得完，但 AWS 的 Tables／Forms
+   各只有 100 頁免費、Azure 全部 SKU 共用 500 頁、Mistral 無免費頁（見 §二 C-0）。
+   數百頁量級大約 $1–5。給或不給都可以開工，只是結論的樣本數不同。
 3. **題庫可否公開**：61 份考卷、1449 題的題庫是考古題衍生資料，公開評測集之前要確認版權與去識別化。
 4. **素材個資**：發票、收據、公文類樣本含個資，是否只出統計不出原圖？
 5. **範圍**：三期全做，還是先做 Round 2A 看結果再決定？（建議先 2A）
@@ -329,8 +367,21 @@ L5 是這份規劃裡最強的一步：原文已經跑完 61 份考卷的人工�
 - [OCR Arena —— extend.ai](https://www.ocrarena.ai/about)（Elo：K=20、起始 1500）
 - [OCR Benchmarks & Real-World Documents —— Extend](https://www.extend.ai/resources/ocr-benchmarks-real-world-documents)
 - [alaamroue/pdf-parser-bench —— GitHub](https://github.com/alaamroue/pdf-parser-bench)（多工具同語料評分的作法參考）
-- [Mistral API 定價頁](https://mistral.ai/pricing/api)（OCR 4.1 每頁費率，2026-08-18 讀取）
-- [Datalab 平台 changelog](https://documentation.datalab.to/platform/changelog)（免費額度、per-processor 費率、chandra container）
-- [Firecrawl —— Best Document Parsing APIs](https://www.firecrawl.dev/blog/best-document-parsing-apis)（Fire-PDF 逐頁分類路由、每頁 1 credit）
-- 三大雲與 LlamaParse／Reducto／Unstructured 的費率為二手比較文彙整，**未經廠商定價頁覆核**，跑測試前必須重查
+
+以下定價來源皆為廠商官方頁面，2026-08-18 讀取：
+
+- [Mistral API 定價](https://mistral.ai/pricing/api)
+- [Upstage API 定價](https://www.upstage.ai/pricing/api)
+- [Unstructured 定價](https://unstructured.io/pricing)
+- [LlamaIndex／LlamaCloud 定價](https://www.llamaindex.ai/pricing)
+- [Reducto 定價](https://reducto.ai/pricing)
+- [Firecrawl 定價](https://www.firecrawl.dev/pricing)
+- [Datalab 平台 changelog](https://documentation.datalab.to/platform/changelog)（定價頁本身取不到，見 §二 C-1 註）
+- [TextIn 產品市場](https://www.textin.com/market/list)
+- [Azure AI Document Intelligence 定價](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/)
+- [AWS Textract 定價](https://aws.amazon.com/textract/pricing/)
+- [Google Document AI 定價](https://cloud.google.com/document-ai/pricing)
+- [OpenAI API 定價](https://platform.openai.com/docs/pricing)
+- [Gemini API 定價](https://ai.google.dev/gemini-api/docs/pricing)
+- Claude 定價取自 `claude-api` skill 的定價表
 - 對象文章：`src/content/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark.md`
