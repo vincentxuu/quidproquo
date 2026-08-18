@@ -1,199 +1,153 @@
 ---
-title: "OpenClaw Channels Overview: Pairing, Groups, and Routing"
+title: "OpenClaw Channels Overview: 31 Channels, Nearly All Plugins — and Why 'Who Can Trigger' Is Not 'What the Model Sees'"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, channels, pairing, groups, routing, broadcast]
+tags: [openclaw, channels, pairing, group-policy, routing, access-control]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 13
-tldr: "OpenClaw supports 24+ channels running simultaneously, using Pairing to control who can chat, Group Policy to control group behavior, and Routing to decide which agent receives messages."
-description: "An overview of OpenClaw channels, DM/Node Pairing mechanisms, group policies, routing rules, and Broadcast Groups."
+tldr: "OpenClaw supports 31 chat channels, but only WebChat lives in core — even Slack and WhatsApp are plugins you install. And group safety has two independent axes: allowlists govern who can trigger the agent, not which quotes and history the model sees. That second one is contextVisibility, and it defaults to wide open."
+description: "An overview of OpenClaw's channel system: the plugin-based install model, DM and group policies, mention gating, the split between trigger authorization and context visibility, visibleReplies, and ambient room events."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-overview)
 
-OpenClaw's channel system lets you connect multiple chat platforms through a single Gateway. This post covers the cross-channel common mechanisms: Pairing, Groups, Routing, and Broadcast.
+OpenClaw can reach you on the chat apps you already use, each connecting through the Gateway. This article covers **the rules every channel shares**; the next three cover individual channels.
 
-## Supported Channels
+## Start with the install model: nearly everything is a plugin
 
-### Built-in Channels
+This is the biggest change since March, and it should reset your deployment expectations. The docs now sort channels into four classes:
 
-| Channel | Highlights |
-|---|---|
-| WhatsApp | Most widely used, Baileys implementation, QR pairing |
-| Telegram | Fastest setup, Bot API, supports forum topics |
-| Discord | Bot API, supports server/channel/DM |
-| Slack | Workspace app, Bolt SDK, Socket Mode or HTTP |
-| Signal | signal-cli, privacy-oriented |
-| Google Chat | HTTP webhook |
-| IRC | Classic, has pairing control |
-| WebChat | Gateway UI over WebSocket |
-
-### Plugin Channels
-
-BlueBubbles (iMessage), LINE, Matrix, Mattermost, Microsoft Teams, Feishu, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Voice Call, WeChat, Zalo.
-
-**All channels can run simultaneously.** Configure multiple channels, and OpenClaw routes by chat.
-
-### Setup Speed Comparison
-
-Telegram is the fastest (just grab a bot token). WhatsApp requires QR pairing and stores more state on disk. For iMessage, BlueBubbles is recommended.
-
-## DM Pairing
-
-When a channel uses the `pairing` policy, unknown senders receive a short code and their messages are held until you approve them.
-
-### Pairing Code Specifications
-
-- 8 uppercase letters (excluding easily confused characters like 0, O, 1, I)
-- **Expires after 1 hour**
-- Maximum 3 pending requests per channel; additional ones are ignored
-
-### Approval
+| Class | Meaning | Examples |
+|---|---|---|
+| Included in core | Nothing to install | WebChat |
+| Bundled plugin | Ships with the core install | Telegram, Reef |
+| Official plugin | One command, or installed on demand during onboarding / `channels add` | Slack, Discord, WhatsApp, Signal, iMessage, Teams… |
+| External plugin | Maintained outside the OpenClaw repo | WeChat, WeCom, Yuanbao, Zalo ClawBot |
 
 ```bash
-openclaw pairing list telegram
-openclaw pairing approve telegram <CODE>
+openclaw plugins install @openclaw/<channel>
 ```
 
-### Channels Supporting Pairing
+**Installing requires a Gateway restart.** One more practical difference: WhatsApp is install-on-demand — onboarding can show the setup flow before the plugin package exists, and the Gateway only loads that external plugin once the channel is actually active.
 
-All built-in + plugin channels support pairing: bluebubbles, discord, feishu, googlechat, imessage, irc, line, matrix, mattermost, msteams, nextcloud-talk, nostr, signal, slack, synology-chat, telegram, twitch, whatsapp, zalo, zalouser.
+So "31 supported channels" really means: core provides the channel **framework**, not 31 built-in implementations.
 
-### State Storage
-
-- Pending: `~/.openclaw/credentials/<channel>-pairing.json`
-- Approved: `~/.openclaw/credentials/<channel>-allowFrom.json`
-
-## Node Pairing
-
-When a phone or other device connects to the Gateway as a Node, pairing is also required.
-
-```bash
-openclaw devices list
-openclaw devices approve <requestId>
-```
-
-Telegram pairing (recommended for iOS): Send `/pair` to the bot, get the setup code, and paste it into the iOS app.
-
-Node state is stored in `~/.openclaw/devices/`.
-
-## DM Policy
-
-Each channel's DM access is controlled by `dmPolicy`:
+## DM policy
 
 | Policy | Behavior |
 |---|---|
-| `pairing` (default) | Unknown users need a pairing code + approval |
-| `allowlist` | Only users in the `allowFrom` list are allowed |
-| `open` | Anyone can chat (requires `allowFrom: ["*"]`) |
-| `disabled` | DMs are turned off |
+| `pairing` (default on most channels) | Unknown senders need a pairing code plus approval |
+| `allowlist` | Only senders in `allowFrom` |
+| `open` | Anyone (requires an explicit `allowFrom: ["*"]`) |
+| `disabled` | DMs off |
 
-## Group Policies
+Two practical limits are worth remembering: **pairing requests expire after 1 hour, and pending requests are capped at 3 per account.** Approve from the Control UI under **Settings → Channels → DM access requests**, or from the CLI:
 
-Groups have two layers of control: access to the group itself + who within the group can trigger the agent.
-
-### Group Policy
-
-| Policy | Behavior |
-|---|---|
-| `open` | Does not check allowlist, but mention gating still applies |
-| `allowlist` (default) | Only configured groups are allowed |
-| `disabled` | Blocks all groups |
-
-### Mention Gating
-
-Groups require @mention by default to trigger a response. You can use custom mention patterns (e.g., `@openclaw`, phone number), or disable it with `requireMention: false`.
-
-Replying to a bot message also counts as an implicit mention (on platforms that support reply metadata).
-
-### Group Session Isolation
-
-Group session key format: `agent:<agentId>:<channel>:group:<id>`. Completely separate from DM sessions, enabling differentiated sandboxing -- DMs get full tool permissions, while groups have restricted tools.
-
-### Per-Group Overrides
-
-You can set different mention rules, sender allowlists, and tool restrictions for specific groups.
-
-## Routing (Channel Routing)
-
-Routing is **deterministic** -- replies are always sent back to the channel the message came from. The model does not choose the channel; configuration controls everything.
-
-### Routing Priority Order
-
-```
-1. Exact peer match (exact DM/group)
-2. Parent peer (thread inheritance)
-3. Guild + roles (Discord)
-4. Guild (Discord)
-5. Team (Slack)
-6. Account ID
-7. Channel (any account)
-8. Default agent fallback
+```bash
+openclaw pairing list whatsapp
+openclaw pairing approve whatsapp <CODE>
 ```
 
-Multiple conditions are ANDed -- all must match.
+Keep these separate in your head: logging the channel in (WhatsApp's QR, for instance) links the account, and has nothing to do with approving whether a given person may talk to your agent.
 
-### Session Key Structure
+## Groups are closed by default
 
-| Type | Format |
+The decision order for an inbound group message is spelled out clearly upstream:
+
+```text
+groupPolicy? disabled        -> drop
+groupPolicy? allowlist       -> is this group allowed? no -> drop
+requireMention? yes          -> was it mentioned? no -> store as context only
+mention / reply / command / DM -> treat as a user request
+always-on group chatter      -> user request, or a room event when configured
+```
+
+The defaults are **conservative**: `groupPolicy: "allowlist"` (group senders are blocked until allowlisted) and replies require a mention.
+
+There is a mental model to adjust here: OpenClaw "lives" on your own messaging accounts rather than being a separate bot user. **If you are in a group, OpenClaw can see that group** — which makes closed-by-default a necessity rather than caution.
+
+| Goal | Setting |
 |---|---|
-| Direct | `agent:<agentId>:main` (or `direct:<peerId>`) |
-| Group | `agent:<agentId>:<channel>:group:<id>` |
-| Thread | Appends `:thread:<id>` or `:topic:<id>` |
+| Allow all groups but only reply on mentions | `groups: { "*": { requireMention: true } }` |
+| Only specific groups | `groups: { "<id>": { ... } }` (no `"*"` key) |
+| Only you can trigger in groups | `groupPolicy: "allowlist"` + `groupAllowFrom: ["+1555..."]` |
+| Reuse one trusted sender set across channels | `groupAllowFrom: ["accessGroup:operators"]` |
 
-## Broadcast Groups (Experimental)
+## Two independent axes: who can trigger vs. what the model sees
 
-Allows multiple agents to **process the same message simultaneously**. Currently only supports WhatsApp; Telegram/Discord/Slack support is planned.
+This is the section worth taking away, and the design most often misread.
 
-### Use Cases
+**Allowlists govern who can trigger the agent, not what the model sees.** By default OpenClaw keeps context as received — quoted messages, thread history, forwarded metadata all get injected into the model **even when they come from senders who are not allowlisted**.
 
-- **Specialized teams** -- code reviewer + doc generator + security auditor process simultaneously
-- **Multilingual** -- language detection + per-language agents
-- **QA** -- main agent answers + QA agent reviews
+To filter the context too, set `contextVisibility`:
 
-### Configuration
+| Mode | Behavior |
+|---|---|
+| `"all"` (default) | Keep supplemental context as received |
+| `"allowlist"` | Only inject history/thread/quote/forwarded context from allowlisted senders |
+| `"allowlist_quote"` | Same, but keep the explicitly quoted/replied-to message from any sender |
+
+It can be set per channel, per account, or globally (`channels.defaults.contextVisibility`). Channels that fetch supplemental context (Discord, Feishu, iMessage, Matrix, Teams, QQBot, Signal, Slack, Telegram, WhatsApp) apply it when building inbound context, and **unknown policy combinations fail closed by omitting the context**.
+
+If prompt injection is on your mind, this is a setting to make deliberately: the default lets anyone who can speak in a group put text into your model's context.
+
+## Who decides whether the agent speaks
+
+`messages.groupChat.visibleReplies` has two modes:
+
+- **`"automatic"` (default)** — the final assistant text posts to the room
+- **`"message_tool"`** — the model decides when to speak, and must call `message(action=send)` to do so
+
+The second suits shared rooms but has a prerequisite: **a model that reliably follows tool-only delivery**. If the model misses the tool and returns substantive final text, OpenClaw keeps that text private instead of posting it — a safe failure direction, but it also means a weaker model just looks silent.
+
+There is a guard: if the message tool is unavailable under the active tool policy, OpenClaw falls back to automatic rather than silently suppressing the response, and `openclaw doctor` warns about the mismatch.
+
+This replaces the older pattern of forcing the model to answer `NO_REPLY` for lurk-mode turns. In tool-only mode, doing nothing visible simply means not calling the tool.
+
+**Commands are the exception**: native slash commands and authorized text `/...` commands always reply visibly, regardless of `message_tool`.
+
+## Ambient room events
+
+A newer setting for agents that live permanently in a room:
 
 ```json5
-{
-  broadcast: {
-    "120363403215116621@g.us": ["alfred", "baerbel", "assistant3"]
-  }
-}
+{ messages: { groupChat: { unmentionedInbound: "room_event" } } }
 ```
 
-### Processing Strategies
+The default is `"user_request"`. Switching to `room_event` turns **unmentioned group chatter into quiet room context instead of user requests** — the agent reads it but stays silent unless it calls the message tool. Mentions, commands, abort requests, and DMs remain user requests.
 
-| Strategy | Behavior |
-|---|---|
-| `parallel` (default) | All agents process simultaneously |
-| `sequential` | Processed in order; the next agent starts only after the previous one finishes |
+## Session keys
 
-Each agent has a completely independent session, workspace, sandbox, and tool permissions. It is recommended to limit to 5-10 agents and use lighter models for simpler tasks.
+- Groups default to `agent:<agentId>:<channel>:group:<id>`; rooms and channels use `channel:<id>`
+- Telegram forum topics append `:topic:<id>`, so **each topic gets its own session**
+- Direct chats use the main session (`session.dmScope` defaults to `main`, collapsing DMs into the agent's main session)
 
-## Summary
+## Two shared mechanisms
 
-The core logic of OpenClaw's channel system:
+**Bot loop protection** — channels that accept bot-authored inbound messages can use shared loop protection so two bots do not reply to each other indefinitely.
 
-1. **Pairing** controls "who can chat with the agent"
-2. **Group Policy + Mention Gating** controls "how interactions work within groups"
-3. **Routing** controls "which agent receives the message"
-4. **Broadcast** enables "multiple agents to process the same message simultaneously"
+**Access groups** — `accessGroup:<name>` lets you define a trusted sender set once and reuse it across channel allowlists.
 
-These mechanisms are universal across all channels. The following three posts cover the specific configuration for each channel.
+## The big picture
+
+The channel layer compresses into three sentences: **DM access is `allowFrom`, group access is `groupPolicy` plus allowlists, and whether to reply is mention gating.**
+
+The fourth sentence is the one people miss: **all three govern triggering, not what the model sees.** Context visibility is a separate `contextVisibility` setting, and it defaults to wide open.
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs. **Corrected the install model**: channels are now almost entirely plugins, split into core (WebChat only), bundled plugins (Telegram, Reef), official plugins (Slack, Discord, WhatsApp, and more), and external plugins, with a Gateway restart required after install; the channel list is now presented as 31 channels by class. Added: the 1-hour expiry and 3-per-account cap on pairing requests, where approvals live in the Control UI, the full group-message decision flow, **the split between trigger authorization and context visibility** (`contextVisibility` and its fail-closed behavior), the `visibleReplies` automatic/message_tool distinction (and how it replaced the old `NO_REPLY` pattern), ambient room events, bot loop protection, and access groups.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/channels/index.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/index.md) -- Channel overview
-- [docs/channels/pairing.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/pairing.md) -- Pairing mechanism
-- [docs/channels/groups.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/groups.md) -- Group settings
-- [docs/channels/group-messages.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/group-messages.md) -- Group messages
-- [docs/channels/channel-routing.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/channel-routing.md) -- Routing mechanism
-- [docs/channels/broadcast-groups.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/broadcast-groups.md) -- Broadcast Groups
-- [docs/channels/location.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/location.md) -- Location feature
-- [docs/channels/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/troubleshooting.md) -- Channel troubleshooting
+- [Chat channels](https://docs.openclaw.ai/channels/) — the channel list and plugin classes
+- [Groups](https://docs.openclaw.ai/channels/groups) — group policy, mention gating, contextVisibility, visibleReplies
+- [Ambient room events](https://docs.openclaw.ai/channels/ambient-room-events) — quiet context for always-on rooms
+- [Access groups](https://docs.openclaw.ai/channels/access-groups) — reusable sender allowlists
+- [Security](https://docs.openclaw.ai/gateway/security) — requester-scoped controls and prompt context
