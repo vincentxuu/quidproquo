@@ -42,6 +42,9 @@ Recently completed
   **第三次同一個毛病**：被問「都改完了？」才自己盤，發現另有一批寫「未逐一查證」
   的其實查得到（TRPO／DPO／DQN Nature／jagged frontier 原始研究／Anthropic-OpenAI
   聯合評估／InstructGPT 13k）。**教訓：「未查證」不是可以交件的狀態，是待辦。**
+  **第四次**：被問「為什麼查不到」才發現我把「沒查」寫成「查不到」——六項裡五項
+  一搜就有（AlphaGo 紀錄片／Karpathy 的 Dwarkesh clip，日期完全對上／Slack 微調出自
+  OpenAI DevDay 2023 John Allard 投影片）。**這兩個詞不可以混用。**
   **教訓**：13 篇論文 ID 實抓驗證；**exa 查 1707.06347 回傳完全不同的論文**，
   tavily 才對。修正兩處課堂說法：ImageBind 樞紐是影像非文字、METR 限於 Software
   Tasks。另抓到自己寫的上下篇串接跳號（order 8 指向 10、order 10 指向 6）。
