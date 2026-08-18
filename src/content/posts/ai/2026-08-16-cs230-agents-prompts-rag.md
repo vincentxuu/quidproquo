@@ -13,7 +13,9 @@ description: "Stanford CS230（2025 秋季）Lecture 8 完整導讀：從 prompt
 draft: false
 ---
 
-> [上一篇](/posts/ai/2026-08-16-cs230-inside-the-model)往模型裡面看。這一篇往模型外面看。
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en)
+
+> [上一篇](/posts/ai/2026-08-16-cs230-ai-project-strategy)講了怎麼決定該修哪一段 pipeline。這一篇把整條縱軸從 prompt 拉到 multi-agent。
 
 本篇對應 **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)**（2025/11/11，Kian Katanforoosh 主講，1 小時 50 分）。
 

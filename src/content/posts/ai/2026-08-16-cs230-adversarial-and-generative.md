@@ -13,6 +13,8 @@ description: "Stanford CS230（2025 秋季）Lecture 4 完整導讀：對抗攻�
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)走完了專案生命週期。這一篇回到模型本身，看它怎麼被攻破、以及怎麼被用來生成東西。
 
 本篇對應 **[Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)**（2025/10/14，Kian Katanforoosh 主講，1 小時 47 分）。

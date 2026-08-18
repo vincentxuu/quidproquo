@@ -13,6 +13,8 @@ description: "Stanford CS230（2025 秋季）Lecture 1 完整導讀：flipped cl
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
+
 這是 [Stanford CS230 導讀](/series/cs230)系列的第一篇。
 
 先說清楚讀的是哪一輪：**Stanford CS230 Deep Learning，2025 秋季**，九支影片約 13 小時（[playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)）。這一輪已經結束——最後一講 2025/12/02，影片 12/16 全部放完。Autumn 2026 已排定 2026/09/22 開課，會是另一個 playlist。**每篇都會標上課日期。**

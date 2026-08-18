@@ -13,6 +13,8 @@ description: "Stanford CS230（2025 秋季）Lecture 6 完整導讀：喚醒詞�
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-ai-project-strategy-en)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)講了強化學習與 RLHF。這一篇回到最實務的一端。
 
 本篇對應 **[Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)**（2025/10/28，Andrew Ng 主講，1 小時 15 分）。

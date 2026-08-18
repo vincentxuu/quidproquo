@@ -13,6 +13,8 @@ description: "Stanford CS230（2025 秋季）Lecture 9 完整導讀：Andrew Ng 
 draft: false
 ---
 
+> 🌏 [English version](/posts/career/2026-08-16-cs230-career-advice-in-ai-en)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-agents-prompts-rag)講了 agent 的完整縱軸。這一篇是整個系列唯一不談技術的一講。
 
 本篇對應 **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)**（2025/11/18，1 小時 45 分）。這是全系列**第二高流量**的一講（43.7 萬觀看），也是唯一一講**有外部客座、而且客座講了八成時間**。

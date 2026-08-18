@@ -13,6 +13,8 @@ description: "Stanford CS230（2025 秋季）Lecture 5 完整導讀：從圍棋�
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-adversarial-and-generative)講了模型怎麼被攻破、以及怎麼生成東西。這一篇換一種學習方式。
 
 本篇對應 **[Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)**（2025/10/21，Kian Katanforoosh 主講，1 小時 45 分）。

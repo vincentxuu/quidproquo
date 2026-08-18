@@ -13,7 +13,9 @@ description: "Stanford CS230（2025 秋季）Lecture 10 完整導讀：從一個
 draft: false
 ---
 
-> [上一篇](/posts/ai/2026-08-16-cs230-ai-project-strategy)講了怎麼決定該修哪一段 pipeline。這一篇往模型裡面看。
+> 🌏 [English version](/posts/ai/2026-08-16-cs230-inside-the-model-en)
+
+> [上一篇](/posts/career/2026-08-16-cs230-career-advice-in-ai)是整個系列唯一不談技術的一講。這一篇是最後一講，往模型裡面看。
 
 本篇對應 **[Lecture 10: What's Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)**（2025/12/02，Kian Katanforoosh 主講，1 小時 47 分，本學期最後一講）。
 
