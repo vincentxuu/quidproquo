@@ -321,6 +321,6 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 - [Trust Region Policy Optimization](https://arxiv.org/abs/1502.05477) — Schulman et al., ICML 2015。課堂提到的 TRPO，PPO 的前身
 - [Direct Preference Optimization](https://arxiv.org/abs/2305.18290) — Rafailov et al., 2023。課堂說的「一年前 Stanford 出的 DPO」
 - [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236) — Mnih et al., Nature 2015。DQN 原論文，前處理（RGB 轉灰階、110×84 再裁 84×84）與 Breakout 挖隧道的出處
+- [AlphaGo](https://www.youtube.com/watch?v=WXuK6gekU1Y) — Greg Kohs 導演，2017，90 分鐘，DeepMind 官方頻道免費全片。課堂推薦的那部紀錄片
+- [Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc) — Dwarkesh Clips，2025/10/18。**這應該就是他說的那支四分鐘影片**；[完整訪談](https://www.dwarkesh.com/p/andrej-karpathy)發布於 2025/10/17，正好是上課日往前四天。Karpathy 原話：「人類不用強化學習……**強化學習很糟，只是我們在它之前有的東西更糟**」，並把 RL 的訊號比喻成「**用吸管吸監督訊號**」
 - [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants) — 站上文章，「你不會比評判者更強」的當代版本
-
-**仍未附連結**：AlphaGo 紀錄片，以及 Karpathy 那支影片（課堂日期往前四天約 2025/10/17，我找不到確切出處）。

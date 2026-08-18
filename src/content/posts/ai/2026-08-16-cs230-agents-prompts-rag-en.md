@@ -245,6 +245,13 @@ A financial institution studied by McKinsey took **one to four weeks** to produc
 
 With GenAI agents added, **time drops 20–60%**: the relationship manager works directly with an agent system, which decomposes the project into tasks assigned to specialized agents, gathers the analysis and drafts, and two humans then review together and give feedback.
 
+> **⚠️ The case is real, but be careful with the numbers.** McKinsey does have this agentic credit-risk memo case,
+> but **their site blocks my extraction tools**, so I could only reach it through secondary reporting and couldn't
+> check the original text. And the secondary version differs from the classroom account in two places: the data sources
+> are **"at least ten,"** not fifteen or more; and 20–60% is a **productivity increase**, not a time reduction
+> (a separate figure covers "30% improvement in credit turnaround"). **A 60% productivity gain and a 60% time
+> reduction are not the same claim.**
+
 **But the cold water he pours on it himself is more worth keeping than the case study:**
 
 > "Even if this holds, **the hardest part is changing people.** It's great in theory, but now try applying that second process to ten thousand credit risk analysts. **My guess is this takes 10 or 20 years to really land at scale in an organization**, because change is that hard — rewiring business processes, job descriptions, incentive systems, training people."
@@ -331,5 +338,7 @@ What's genuinely worth taking from this lecture, and isn't on the site, is three
 - [The model is just a component, the harness is the system](/posts/ai/2026-08-10-model-component-harness-system-en) — on-site post, the engineering version of fuzzy engineering
 - [Navigating the Jagged Technological Frontier](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) — Dell'Acqua et al., HBS Working Paper 24-013 (September 2023, later in Organization Science). **The original jagged frontier study**: 758 BCG consultants, 18 tasks; inside the frontier they completed 12.2% more tasks, 25.1% faster, with quality rated 40% higher, while **outside the frontier AI users were 19% less likely to reach the correct solution**
 - [Promptfoo](https://promptfoo.dev/) — the LLM eval tool he names his team as using
+- [Embracing generative AI in credit risk](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/embracing-generative-ai-in-credit-risk) — McKinsey. The source for the credit-risk memo case. **Note: mckinsey.com blocks my extraction tools, so I could not check the original figures** — the discrepancies in the ⚠️ note above come from comparing secondary reporting
+- **Source of the Slack fine-tuning joke**: John Allard's talk "Maximizing LLM Performance" at OpenAI DevDay 2023, whose slide shows the result of **fine-tuning GPT-3.5 on 140,000 internal Slack messages**. An independent experiment from the same period (Ross Lazerowitz, also 140k messages) produced similar results
 
-**Still unlinked**: McKinsey's credit risk memo study, the original Slack fine-tuning post, and the discussion about long context replacing RAG — this post states the research content and the names only.
+**Still unlinked**: the discussion about long context replacing RAG — the lecture only says "there's this argument" without naming a source, and I couldn't pin it to a single one.

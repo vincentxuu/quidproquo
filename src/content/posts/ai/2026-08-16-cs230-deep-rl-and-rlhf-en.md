@@ -322,6 +322,6 @@ And the practical significance of the RLHF mapping table: **when you're debuggin
 - [Trust Region Policy Optimization](https://arxiv.org/abs/1502.05477) — Schulman et al., ICML 2015. The TRPO mentioned in class, PPO's predecessor
 - [Direct Preference Optimization](https://arxiv.org/abs/2305.18290) — Rafailov et al., 2023. The "DPO out of Stanford a year ago" from class
 - [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236) — Mnih et al., Nature 2015. The original DQN paper, source for the preprocessing (RGB to grayscale, 110×84 then cropped to 84×84) and the Breakout tunneling behavior
+- [AlphaGo](https://www.youtube.com/watch?v=WXuK6gekU1Y) — directed by Greg Kohs, 2017, 90 minutes, the full film free on DeepMind's channel. The documentary recommended in class
+- [Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc) — Dwarkesh Clips, 2025/10/18. **This is almost certainly the four-minute video he meant**; the [full interview](https://www.dwarkesh.com/p/andrej-karpathy) went up 2025/10/17, exactly four days before the class. Karpathy's words: "humans don't use reinforcement learning … **reinforcement learning is terrible, it just so happens that everything we had before it is much worse**," with the signal likened to "**sucking supervision through a straw**"
 - [Three forms of RAG and the evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en) — on-site post, the modern version of "you won't be stronger than your judge"
-
-**Still unlinked**: the AlphaGo documentary, and Karpathy's video (four days before the class date, around 2025/10/17 — I couldn't locate the exact source).
