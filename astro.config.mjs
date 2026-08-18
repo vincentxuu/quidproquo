@@ -57,6 +57,9 @@ export default defineConfig({
       '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en',
     '/posts/ai/2026-04-05-hermes-agent-intro': '/posts/ai/2026-08-18-hermes-agent-intro',
     '/posts/ai/2026-04-05-hermes-agent-intro-en': '/posts/ai/2026-08-18-hermes-agent-intro-en',
+    // 'RAG 系統實戰' 併入 'RAG 技法大全'
+    '/series/rag-systems': '/series/rag-techniques',
+    '/en/series/rag-systems': '/en/series/rag-techniques',
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },

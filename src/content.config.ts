@@ -38,10 +38,19 @@ const posts = defineCollection({
         url: z.string(),
       })).optional(),
     })).optional(),
+    // Primary series. Drives the card badge and the post's canonical series slot.
     series: z.object({
       name: z.string(),
       order: z.number(),
     }).optional(),
+    // Further series this post also belongs to. A post can legitimately sit in more
+    // than one reading path (a technique post that is also a project write-up, say);
+    // listings and in-post navigation treat these exactly like the primary series,
+    // only the card badge stays single.
+    additionalSeries: z.array(z.object({
+      name: z.string(),
+      order: z.number(),
+    })).optional(),
     relatedDigests: z.array(z.object({
       slug: z.string(),
       reason: z.string(),

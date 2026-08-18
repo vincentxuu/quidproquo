@@ -6,7 +6,7 @@ import { render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import Icons from '../../components/Icons.astro';
 import { getRelatedPosts } from '../../utils/relatedPosts';
-import { getSeriesNav } from '../../utils/seriesNav';
+import { getSeriesNavs } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
 import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
 import { getTranslation } from '../../utils/i18n-pairing';
@@ -35,8 +35,10 @@ const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
 
 const relatedPosts = getRelatedPosts(post, allPosts);
-const seriesNav = getSeriesNav(post, allPosts);
-const seriesHref = post.data.series ? getSeriesHref(post.data.series.name, lang) : undefined;
+const seriesNavs = getSeriesNavs(post, allPosts).map(nav => ({
+  nav,
+  href: getSeriesHref(nav.name, lang),
+}));
 const readingTime = post.data.readingTime ?? 1;
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
@@ -246,34 +248,34 @@ const breadcrumbLD = {
     )}
 
     <!-- Series nav -->
-    {seriesNav && (
+    {seriesNavs.map(({ nav, href }) => (
       <div class="series-box">
         <div class="series-header">
           <Icons name="book-open" size={14} />
           <span>
             {t('post.series')}:
             {' '}
-            {seriesHref ? <a href={seriesHref} class="series-link">{seriesNav.name}</a> : seriesNav.name}
+            <a href={href} class="series-link">{nav.name}</a>
             {' '}
-            ({seriesNav.current} / {seriesNav.total})
+            ({nav.current} / {nav.total})
           </span>
         </div>
         <div class="series-nav">
-          {seriesNav.prev ? (
-            <a href={`/posts/${seriesNav.prev.slug}`} class="series-prev">
+          {nav.prev ? (
+            <a href={`/posts/${nav.prev.slug}`} class="series-prev">
               <Icons name="chevron-left" size={14} />
-              {seriesNav.prev.title}
+              {nav.prev.title}
             </a>
           ) : <span />}
-          {seriesNav.next && (
-            <a href={`/posts/${seriesNav.next.slug}`} class="series-next">
-              {seriesNav.next.title}
+          {nav.next && (
+            <a href={`/posts/${nav.next.slug}`} class="series-next">
+              {nav.next.title}
               <Icons name="chevron-right" size={14} />
             </a>
           )}
         </div>
       </div>
-    )}
+    ))}
 
     <!-- Content -->
     <div class="content">

@@ -1,5 +1,6 @@
 // src/utils/relatedPosts.ts
 import { isPublishedPost, type Post } from './content';
+import { getPostSeries } from './seriesNav';
 
 /**
  * Returns up to `max` posts related to the given post using the Phase 1C mix:
@@ -21,7 +22,8 @@ export function getRelatedPostScore(post: Post, candidate: Post): number {
   const tagScore = getJaccardScore(tags, candidateTags);
   const categoryScore = post.data.category === candidate.data.category ? 1 : 0;
   const recencyScore = getRecencyScore(post.data.date, candidate.data.date);
-  const seriesScore = post.data.series?.name && post.data.series.name === candidate.data.series?.name ? 1 : 0;
+  const candidateSeries = new Set(getPostSeries(candidate).map(m => m.name));
+  const seriesScore = getPostSeries(post).some(m => candidateSeries.has(m.name)) ? 1 : 0;
 
   return tagScore * 0.4 + categoryScore * 0.3 + recencyScore * 0.2 + seriesScore * 0.1;
 }

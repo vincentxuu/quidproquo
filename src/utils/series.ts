@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { Lang } from '../i18n/utils';
 import { isPublishedPost, type Post } from './content';
+import { getPostSeries } from './seriesNav';
 
 type SeriesPost = CollectionEntry<'posts'>;
 
@@ -31,11 +32,45 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'rag-systems',
-    names: { 'zh-TW': 'RAG 系統實戰', en: 'RAG Systems in Practice' },
+    // 併吞自舊的 'rag-systems' 系列（只有 6 篇，和同期未收錄的三十幾篇技法文重疊）。
+    // 舊 slug 在 astro.config 留 301。
+    slug: 'rag-techniques',
+    names: { 'zh-TW': 'RAG 技法大全', en: 'The RAG Techniques Compendium' },
     descriptions: {
-      'zh-TW': '從失敗模式、檢索排序到 multi-agent orchestration，整理一條可落地的 RAG 系統設計路線。',
-      en: 'A structured path through production RAG design, from failure modes and ranking to multi-agent orchestration.',
+      'zh-TW': '把 RAG 拆成可逐項比較的技法：切塊與索引、稀疏與稠密檢索、排序融合、agentic 與進階模式、生成端控制、真實查詢會踩的坑，以及評估、成本與可觀測性。每篇只談一個決定，讀完能拼成一條自己的 pipeline。',
+      en: 'RAG taken apart into techniques you can compare one at a time: chunking and indexing, sparse and dense retrieval, ranking and fusion, agentic and advanced patterns, generation-side control, the failure modes real queries hit, and evaluation, cost and observability. One decision per post, assembled into a pipeline of your own.',
+    },
+  },
+  {
+    slug: 'cloudflare-edge-stack',
+    names: { 'zh-TW': 'Cloudflare 邊緣技術棧', en: 'The Cloudflare Edge Stack' },
+    descriptions: {
+      'zh-TW': '把在 Cloudflare 邊緣上蓋一套完整應用需要的元件逐個讀過：Workers 的執行模型，D1、KV、R2 三種儲存各自的適用邊界，Hono 與 OpenNext 這層框架取捨，再到 Workers AI binding 與實際部署時會踩的網域、原生模組問題。',
+      en: 'Every piece needed to build a full application on Cloudflare’s edge, read one at a time: the Workers execution model, where D1, KV and R2 each stop being the right answer, the framework layer of Hono and OpenNext, then Workers AI bindings and the domain and native-module problems that show up at deploy time.',
+    },
+  },
+  {
+    slug: 'browser-automation-mcp',
+    names: { 'zh-TW': '瀏覽器自動化與 MCP', en: 'Browser Automation and MCP' },
+    descriptions: {
+      'zh-TW': '讓 agent 開瀏覽器的幾條路線：Playwright、Puppeteer、Chrome DevTools 三個 MCP server 的取捨，視覺驅動的 Midscene，以及各家 CLI agent 內建瀏覽器能力的差別。重點在什麼情況下哪條路線會失敗。',
+      en: 'The routes for putting a browser in an agent’s hands: the trade-offs between the Playwright, Puppeteer and Chrome DevTools MCP servers, vision-driven Midscene, and how the CLI agents differ in what they can drive natively. Focused on where each route breaks.',
+    },
+  },
+  {
+    slug: 'nobodyclimb',
+    names: { 'zh-TW': 'NobodyClimb 專案紀實', en: 'Building NobodyClimb' },
+    descriptions: {
+      'zh-TW': '一個攀岩社群產品從產品定位、為什麼需要 AI、系統架構到 RAG pipeline 的完整紀實。技法層面的坑另外寫在 RAG 技法大全裡，這裡談的是決定怎麼做出來的。',
+      en: 'A climbing-community product written up end to end: positioning, why it needed AI at all, the system architecture, and the RAG pipeline. The technique-level potholes live in the RAG compendium; this series is about how the decisions got made.',
+    },
+  },
+  {
+    slug: 'aeo-geo',
+    names: { 'zh-TW': 'AEO / GEO 與 AI 搜尋', en: 'AEO, GEO, and AI Search' },
+    descriptions: {
+      'zh-TW': '當讀者換成 AI 之後，內容要怎麼寫才被引用：從傳統 SEO 的底子講到 answer engine optimization，內容結構與 structured data 的實際效果，再到追蹤工具能不能真的量到 AI 搜尋的能見度。',
+      en: 'Writing for a reader that is now a model: from the SEO groundwork through answer engine optimization, what content structure and structured data actually buy, and whether the tracking tools can really measure visibility inside AI search.',
     },
   },
   {
@@ -123,6 +158,18 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'agent-cli',
+    names: {
+      'zh-TW': 'Agent CLI 選型指南',
+      en: 'Choosing an Agent CLI',
+    },
+    descriptions: {
+      'zh-TW':
+        '把終端 agent 這一類工具攤開來比：Claude Code、Codex、Gemini CLI（已轉為 Antigravity CLI）、OpenCode、Pi、Cursor CLI、Kiro，各自的設計取捨、方案與計費，最後收在跨工具的訂閱比較與多模型路由。價格與模型名稱半衰期極短，每篇都標了查證日期並把易腐段落交還官方頁面。',
+      en: "A comparison of terminal agents — Claude Code, Codex, Gemini CLI (now transitioned to Antigravity CLI), OpenCode, Pi, Cursor CLI, and Kiro — covering each one's design trade-offs, plans, and billing, closing with a cross-tool subscription comparison and multi-model routing. Pricing and model names rot fast, so every post carries its verification date and defers the perishable details to official pages.",
+    },
+  },
+  {
     slug: 'ai-cert-prep',
     names: {
       'zh-TW': 'AI 證照備考',
@@ -183,16 +230,20 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
   const grouped = new Map<string, SeriesPost[]>();
 
   for (const post of posts) {
-    if (!isPublishedPost(post, now) || post.data.lang !== lang || !post.data.series) continue;
-    const seriesPosts = grouped.get(post.data.series.name) ?? [];
-    seriesPosts.push(post);
-    grouped.set(post.data.series.name, seriesPosts);
+    if (!isPublishedPost(post, now) || post.data.lang !== lang) continue;
+    for (const membership of getPostSeries(post)) {
+      const seriesPosts = grouped.get(membership.name) ?? [];
+      seriesPosts.push(post);
+      grouped.set(membership.name, seriesPosts);
+    }
   }
 
   return Array.from(grouped.entries())
     .map(([name, seriesPosts]) => {
+      const orderIn = (post: SeriesPost) =>
+        getPostSeries(post).find(m => m.name === name)?.order ?? 0;
       const orderedPosts = [...seriesPosts].sort((a, b) => {
-        const orderDiff = (a.data.series?.order ?? 0) - (b.data.series?.order ?? 0);
+        const orderDiff = orderIn(a) - orderIn(b);
         if (orderDiff !== 0) return orderDiff;
         return a.data.date.getTime() - b.data.date.getTime();
       });
