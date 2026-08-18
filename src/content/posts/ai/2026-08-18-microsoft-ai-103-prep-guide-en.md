@@ -141,6 +141,8 @@ This is Microsoft's biggest structural difference from the other vendors, and th
 
 **The cost model in practice**: $165 once, then 45 free minutes a year keeps it alive indefinitely. Against AWS (three years, retake with a 50% voucher) or Google (two years, retake at $200), **Microsoft has the lowest long-term maintenance cost — conditional on remembering to do it every year.** Forget once and you are paying $165 again.
 
+**This certification is also a gate.** Microsoft's expert-level [AI-500 (Multi-Agent AI Solutions Expert, still in beta)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) lists AI-103 as a **hard prerequisite**: "you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification." If you want Microsoft's multi-agent expert track, AI-103 is the only way in.
+
 ## Things That Will Go Stale (Check These Next Time)
 
 | Item | Status as of 2026-08-18 | When to re-check |

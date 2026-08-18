@@ -141,6 +141,8 @@ Agent 那半段更具體：定義 agent 角色、目標、對話追蹤方式與*
 
 **實際成本模型**：AI-103 是 $165 拿到，之後每年花 45 分鐘做一次免費評量就能一直維持。跟 AWS（三年、重考但有五折券）或 Google（兩年、只能重考 $200）相比，**微軟的長期維護成本最低，但要求你每年記得做這件事** —— 忘記一次就要重付 $165 重考。
 
+**這張還是另一張的門票。** 微軟的 expert 級 [AI-500（Multi-Agent AI Solutions Expert，仍為 beta）](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)把 AI-103 列為**硬性先修**：官方寫「you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification」。想走微軟的多 agent 專家線，AI-103 是唯一入口。
+
 ## 會過期的東西（下次複查看這裡）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
