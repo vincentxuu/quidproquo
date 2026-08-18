@@ -726,3 +726,12 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 另抓到自己寫的上下篇串接跳號：order 8 指向 order 10、order 10 指向 order 6，
 兩者都跳過中間講次，已改成 6 → 8 → 9 → 10。
 
+- 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
+  FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
+  條、18 份投影片全漏），補讀後改 8 篇；接著只跑格式檢查就回報「全綠」，補驗內容後再修三處。
+  **可重用教訓（細節見 docs/progress-archive.md）**：①課程網站首頁抓不到 ≠ 教材不存在——
+  投影片連結在 syllabus 分頁每堂課旁邊；②**自己在對話裡講過的數字不是來源**（口頭說「18 份
+  投影片」直接寫進文章，實際 17）；③連結回 200 ≠ 那頁支持你的宣稱（引 OWASP 2026 卻掛 2025
+  版頁面）；④`pnpm verify`／`astro check` 只驗格式，回報時別用「全綠」概括內容。
+  ②③④已進 post-verify／post 的反合理化表。
