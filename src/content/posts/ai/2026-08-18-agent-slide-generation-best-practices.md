@@ -44,7 +44,7 @@ OpenAI 的官方 slides skill 走完全同構的路：PptxGenJS + `slides_test.p
 對工程師日常，markdown→slides 是阻力最小的路線，因為純文字就是 LLM 的主場：
 
 - **[Marp](https://marp.app/)**：語法極簡，LLM 語法錯誤率趨近零；輸出 HTML / PDF / **PPTX**；CLI 有 `--watch` 熱重載，配 GitHub Actions 可以把 deck 當 build artifact——push 即重 render。代價是 styling 自由度低，且輸出的 PPTX 每頁是一張圖，不可逐元素編輯。
-- **[Slidev](https://sli.dev/)**：語法較豐富，可內嵌 Vue 元件、Mermaid 圖、syntax-highlighted code block；LLM 也幾乎都能產出合法輸出。自由度高的代價是較易爆版，所以社群做了 [slidev-overflow-checker](https://github.com/mizuirorivi/slidev-overflow-checker)——用 Playwright 真實瀏覽器 render、以 px 計算 overflow、回報對應 markdown 行號，輸出機器可讀格式讓 agent 自動修。它的 README 一句話講完本質：「LLMs are good at generating text, but bad at validating visual layout.」
+- **[Slidev](https://sli.dev/)**：語法較豐富，可內嵌 Vue 元件、Mermaid 圖與 syntax-highlighted code block，LLM 也幾乎都能產出合法輸出。自由度高的代價是較易爆版，所以社群做了 [slidev-overflow-checker](https://github.com/mizuirorivi/slidev-overflow-checker)：用 Playwright 真實瀏覽器 render、以 px 計算 overflow、回報對應的 markdown 行號，輸出機器可讀格式讓 agent 自動修。它的 README 一句話講完本質：「LLMs are good at generating text, but bad at validating visual layout.」
 
 實務上的起手式：把 Marp/Slidev 的語法規範、CSS palette、slide 結構慣例寫成 Claude Code skill，配 interview → outline → 生成 → export 的流程。一份 15 頁 deck 的 markdown→PDF 轉換約 2 秒，迭代成本接近零，而且整份簡報可以 git diff。
 
@@ -62,7 +62,15 @@ SaaS 的共同弱點是黑盒與模板感：你拿不到中間表示，迭代只
 
 ## 學術線印證：PPTAgent → PreGenie → DeepPresenter
 
-研究端走了同一條演進線。[PPTAgent](https://arxiv.org/abs/2501.03936)（EMNLP 2025）放棄從零生成，改走兩階段 edit-based——分析參考模板、再以編輯操作填入內容，並提出 PPTEval 用 Content / Design / Coherence 三維評估。[PreGenie](https://arxiv.org/abs/2505.21660) 用 Slidev 當中間表示，理由是「比 HTML 或 python-pptx 更簡單的結構，降低 LLM 產出錯誤 code 的難度」，並把 review 拆成 LLM code review + VLM page review 兩層——論文明確指出**圖片溢出頁面邊界這類問題從 code 看不出來，只有 render 後才可見**。2026-02 的 [DeepPresenter](https://arxiv.org/abs/2602.22839)（ACL 2026 Findings）更進一步，把「環境接地的反思」（environment-grounded reflection）做成核心機制：agent 用 `inspect` 工具把 HTML slide render 成像素圖看，根據畫面而非內部推理軌跡來修正。論文自己把問題講得很準——**agent 操作的是中間表示（HTML／markdown），使用者看到的卻是 render 後的結果，這個「狀態錯配」讓內省式反思在錯的觀察空間裡運作**。它的 fine-tuned DeepPresenter-9B 拿 4.19 分，勝過所有開源基線並逼近 GPT-5 的 4.22。值得一提的是，DeepPresenter 與 PPTAgent 出自同一個團隊（中科院軟體所，專案同一個 repo），所以這條演進線不只是主題相近，是同一群人把自己的前作推翻重做。
+研究端走了同一條演進線。[PPTAgent](https://arxiv.org/abs/2501.03936)（EMNLP 2025）放棄從零生成，改走兩階段的 edit-based 路線：先分析參考模板，再以編輯操作把內容填進去，並提出 PPTEval 用 Content、Design、Coherence 三個維度評估。
+
+[PreGenie](https://arxiv.org/abs/2505.21660) 用 Slidev 當中間表示，理由是它「比 HTML 或 python-pptx 更簡單的結構，降低 LLM 產出錯誤 code 的難度」，並把 review 拆成 LLM code review 與 VLM page review 兩層。論文明確指出，**圖片溢出頁面邊界這類問題從 code 看不出來，只有 render 後才可見**。
+
+2026-02 的 [DeepPresenter](https://arxiv.org/abs/2602.22839)（ACL 2026 Findings）更進一步，把「環境接地的反思」（environment-grounded reflection）做成核心機制：agent 用 `inspect` 工具把 HTML slide render 成像素圖看，根據畫面而非內部推理軌跡來修正。
+
+論文自己把問題講得很準：**agent 操作的是中間表示（HTML 或 markdown），使用者看到的卻是 render 後的結果**，這個「狀態錯配」讓內省式反思在錯的觀察空間裡運作。它的 fine-tuned DeepPresenter-9B 拿 4.19 分，勝過所有開源基線並逼近 GPT-5 的 4.22。
+
+值得一提的是，DeepPresenter 與 PPTAgent 出自同一個團隊（中科院軟體所，專案共用同一個 repo）。所以這條演進線不只是主題相近，是同一群人把自己的前作推翻重做。
 
 學術線跟工程線在同一點會合：**視覺回饋不是 nice-to-have，是這個任務的本質需求**。
 
@@ -76,7 +84,9 @@ SaaS 的共同弱點是黑盒與模板感：你拿不到中間表示，迭代只
 
 它的核心發現對前面的內容有直接影響：**像 PPTEval 這種粗粒度、與實例無關的評估框架，傾向給出過於樂觀的分數**——論文的說法是它做的是「單一的全域判斷、用通用準則」，因此常漏掉細微錯誤、診斷價值有限。所以「PPTEval 是最常被引用的」仍然成立，但**「最常被引用」不等於「夠嚴格」**。
 
-它跑出來的產品排名也值得記：NotebookLM 62.5 > Manus 1.6 的 57.8 > Tiangong 54.7 > Zhipu 53.6 > **開源的 PPTAgent v2 只有 50.2** > Gamma 49.2 > Doubao 48.0 > Qwen 35.9（多數測於 2026-01；另有一筆 2026-07 測的華為雲 hwc-mmi-aippt 以 70.8 居首）。作者的解讀是：開源落後不只因為底層模型，更因為閉源產品有專屬的端到端管線——簡報專用的長上下文規劃、接地機制，以及更成熟的排版與渲染引擎。
+它跑出來的產品排名也值得記：NotebookLM 62.5、Manus 1.6 的 57.8、Tiangong 54.7、Zhipu 53.6，**開源的 PPTAgent v2 只有 50.2**，之後是 Gamma 49.2、Doubao 48.0、Qwen 35.9。以上多數測於 2026-01；另有一筆 2026-07 測的華為雲 hwc-mmi-aippt 以 70.8 居首。
+
+作者對開源落後的解讀是：不只因為底層模型，更因為閉源產品有專屬的端到端管線，包括簡報專用的長上下文規劃、接地機制，以及更成熟的排版與渲染引擎。
 
 另外 [DECKBench](https://arxiv.org/html/2602.13318)（KDD '26）補上另一塊：學術論文轉投影片的**多輪編輯**能力，這是先前 benchmark 都沒系統性測過的。
 
@@ -88,7 +98,7 @@ SaaS 的共同弱點是黑盒與模板感：你拿不到中間表示，迭代只
 
 解法是加一層**語意抽象層**：模型不寫座標、行內樣式或原始 SVG 幾何，而是透過可重用元件與能力模組寫「結構化的投影片內容」，**由模板擁有排版、樣式與渲染**。公式、程式碼、圖表各自路由到專用渲染器，並用三段回饋分別攔截建置錯誤、專案約束違反與視覺缺陷。它同時做了 HTML 與 Typst 兩個後端，證明這條界線與語言無關。
 
-這不推翻「要有視覺回饋」的結論——SeaSlides 自己也有視覺缺陷回饋階段——但它挑戰了「讓模型直接產出可執行的視覺程式碼」這個方向。**兩種主張的分歧點很清楚：模型該負責多少視覺實作。**
+這不推翻「要有視覺回饋」的結論，SeaSlides 自己也有視覺缺陷回饋階段。但它挑戰了「讓模型直接產出可執行的視覺程式碼」這個方向。**兩種主張的分歧點很清楚：模型該負責多少視覺實作。**
 
 ## 整體架構
 
@@ -112,7 +122,11 @@ SaaS 的共同弱點是黑盒與模板感：你拿不到中間表示，迭代只
 
 ## 整體來說
 
-三條路線的取捨很清楚：**要可編輯交付、要套企業模板**→ PptxGenJS 直構（或 Manus 模板匯入）；**工程師 talk、可拋棄式 deck、想 git diff**→ Marp/Slidev + agent skill；**批量個人化、不想自架**→ Gamma API。而不管選哪條，品質的分水嶺都在同一處：有沒有把「render 成圖→獨立視覺驗收→修正迴圈」做進流程。未解的部分也誠實列一下：VLM 視覺 QA 仍會漏細節（多數方案設 max 3 輪修正而非保證收斂）、PPTX 跨環境的字體替換還是坑、評估標準尚未統一——PPTEval 最常被引用，但 PresentBench 已指出它給分過於樂觀，而更嚴格的評分表式評測才剛開始鋪開。
+三條路線的取捨很清楚。**要可編輯交付、要套企業模板**，走 PptxGenJS 直構（或 Manus 模板匯入）；**工程師 talk、可拋棄式 deck、想 git diff**，走 Marp/Slidev 加 agent skill；**批量個人化、不想自架**，走 Gamma API。
+
+而不管選哪條，品質的分水嶺都在同一處：有沒有把「render 成圖、獨立視覺驗收、修正迴圈」做進流程。
+
+未解的部分也誠實列一下：VLM 視覺 QA 仍會漏細節，多數方案設 max 3 輪修正而非保證收斂；PPTX 跨環境的字體替換還是坑；評估標準尚未統一，PPTEval 最常被引用，但 PresentBench 已指出它給分過於樂觀，而更嚴格的評分表式評測才剛開始鋪開。
 
 ## 參考資料
 
