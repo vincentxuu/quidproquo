@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-10
+Last updated: 2026-08-17
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -24,6 +24,14 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-17: 讀 iThome 178135（AI Agent 自主攻擊臺灣政府）做 deep-research，順手照
+  同樣的檢查項掃自己的 API 面，修兩處：(1) /api/posts 的 POST 無驗證即可寫 posts 表，
+  且無任何呼叫端（pnpm sync 走 scripts/sync-to-d1.ts），但該表餵給公開的 search /
+  related-posts 與 RAG get-post-detail，等於開了內容注入 LLM 上下文的路徑，已移除；
+  (2) /api/auth/login 沒接既有的 checkAndIncrementRateLimit（search 與 chat 都有接），
+  單一共用密碼可無限次嘗試，已加每 IP 每日 20 次上限並改常數時間比較。
+  研究筆記在 .research/2026-08-15-ai-agent-autonomous-attack-taiwan.md（未入版控），
+  導讀文尚未動筆。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
@@ -43,18 +51,8 @@ Recently completed
 - 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
   漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
   加 3 行 line-clamp 當保險。正文與 description 未動。
-- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
-  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
-  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
-  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
-  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
-  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
-  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
-  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
-  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
-  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
-  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
-  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔），B 技術群與 D 反制群寫完，
+  四輪補洞與一輪標題重寫。完整內容與可重用教訓見 docs/progress-archive.md。
 - 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
   ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
   ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：

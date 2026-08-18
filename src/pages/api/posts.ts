@@ -16,19 +16,6 @@ interface PostRow {
   created_at: string;
 }
 
-interface PostBody {
-  id: string;
-  slug: string;
-  title: string;
-  category: string;
-  lang?: string;
-  description?: string;
-  tldr?: string;
-  content: string;
-  tags: string[];
-  created_at: string;
-}
-
 function getDB(): D1Database {
   return (env as unknown as { DB: D1Database }).DB;
 }
@@ -71,41 +58,8 @@ export const GET: APIRoute = async ({ request }) => {
   });
 };
 
-export const POST: APIRoute = async ({ request }) => {
-  const db = getDB();
-  const body = (await request.json()) as PostBody;
-  const now = new Date().toISOString();
-
-  await db
-    .prepare(
-      `INSERT INTO posts (id, slug, title, category, lang, description, tldr, content, tags, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-       ON CONFLICT(slug) DO UPDATE SET
-         title = excluded.title,
-         category = excluded.category,
-         lang = excluded.lang,
-         description = excluded.description,
-         tldr = excluded.tldr,
-         content = excluded.content,
-         tags = excluded.tags,
-         updated_at = excluded.updated_at`
-    )
-    .bind(
-      body.id,
-      body.slug,
-      body.title,
-      body.category,
-      body.lang ?? 'zh-TW',
-      body.description ?? null,
-      body.tldr ?? null,
-      body.content,
-      JSON.stringify(body.tags),
-      body.created_at,
-      now
-    )
-    .run();
-
-  return new Response(JSON.stringify({ ok: true }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-};
+// 這裡原本有一個未經驗證的 POST，可對 posts 表做 INSERT ... ON CONFLICT DO UPDATE。
+// 沒有任何呼叫端（`pnpm sync` 走 scripts/sync-to-d1.ts），但 posts 表會被公開的
+// /api/search、/api/related-posts 以及 RAG 的 get-post-detail 讀取，等於開了一條
+// 任意內容注入讀者介面與 LLM 上下文的路徑，因此移除。
+// 若日後需要以 HTTP 寫入，比照 src/pages/api/crawl/sync.ts 的 CRAWL_SECRET 模式。

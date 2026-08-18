@@ -25,7 +25,9 @@ const next = Astro.url.searchParams.get('next') || '/admin'
 <body>
   <form method="POST" action="/api/auth/login">
     <h2 style="margin:0">quidproquo</h2>
-    {error && <p class="error">密碼錯誤</p>}
+    {error === 'rate_limit'
+      ? <p class="error">嘗試次數過多，請明日再試</p>
+      : error && <p class="error">密碼錯誤</p>}
     <input type="hidden" name="next" value={next} />
     <input type="password" name="password" placeholder="密碼" required autofocus />
     <button type="submit">登入</button>

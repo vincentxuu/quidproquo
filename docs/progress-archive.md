@@ -2,6 +2,25 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-17 歸檔
+
+### Recently completed（原 progress.txt 條目）
+
+修 API 驗證缺口後 progress.txt 達 96 行，依慣例移出最長的一筆。
+
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
+  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
+  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
+  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
+  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
+  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
+  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
+  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
+  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
+  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
+  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
+  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+
 ## 2026-08-10 歸檔
 
 ### Recently completed（原 progress.txt 條目）
