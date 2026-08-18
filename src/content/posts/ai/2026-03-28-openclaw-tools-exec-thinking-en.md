@@ -1,250 +1,114 @@
 ---
-title: "OpenClaw Tools (Part 3): Exec Tool, Thinking Levels, and Slash Commands"
+title: "OpenClaw Tools, Part 3: Turning Off the File Tools Does Not Make exec Read-Only"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, exec, thinking, slash-commands, fast-mode, verbose, reasoning]
+tags: [openclaw, exec, shell, security, thinking, slash-commands]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 22
-tldr: "Exec supports foreground/background/PTY execution with three security levels (deny/allowlist/full). Thinking has 7 levels (off to adaptive). Slash Commands come in two types: commands and directives."
-description: "OpenClaw's Exec tool (security model, approvals, safe bins), Thinking level controls, Fast Mode, and the Slash Commands system."
+tldr: "exec is a mutating shell surface: disabling write, edit, and apply_patch does nothing to make it read-only. And since sandboxing is off by default, host=auto actually resolves to the gateway — if you really want the sandbox, say so explicitly and it will at least fail closed."
+description: "The OpenClaw exec tool: how execution host resolves, the unit traps, and the security design — the four host values, timeoutSeconds versus yieldMs, rejected PATH and loader overrides, the shell snapshot, and the line between background execution and scheduling."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-exec-thinking)
 
-This post covers OpenClaw's lowest-level execution tool (Exec), reasoning control (Thinking), and user interaction interface (Slash Commands).
+`exec` has the largest blast radius of any tool here, so this article covers it and the controls around it.
 
-## Exec Tool
+## The first sentence is the point
 
-Executes shell commands within the workspace. Supports both foreground and background execution.
+> `exec` is a **mutating shell surface**: commands can create, edit, or delete files wherever the selected host or sandbox filesystem permits. **Disabling OpenClaw filesystem tools such as `write`, `edit`, or `apply_patch` does not make `exec` read-only.**
 
-### Parameters
+Worth memorizing, because it defeats a very natural assumption: **"I turned off the write tools, so the agent can't touch my files" — false.** As long as `exec` exists, the shell exists.
 
-| Parameter | Default | Description |
-|---|---|---|
-| `command` | (required) | The command to execute |
-| `workdir` | cwd | Working directory |
-| `yieldMs` | 10000 | Automatically moves to background after this duration |
-| `background` | false | Execute in background immediately |
-| `timeout` | 1800s | Kill on timeout |
-| `pty` | false | Pseudo-terminal mode (PTY) |
-| `host` | sandbox | `sandbox` / `gateway` / `node` |
-| `security` | deny (sandbox) | `deny` / `allowlist` / `full` |
-| `ask` | on-miss | `off` / `on-miss` / `always` |
-| `elevated` | false | Execute on the gateway host |
+## Where it runs: the four `host` values
 
-### Three Execution Hosts
+`host` accepts only `auto`, `sandbox`, `gateway`, or `node` — **it is not a hostname selector**, and hostname-like values are rejected before the command runs.
 
-| Host | Description |
+Resolution:
+
+- **`auto`** resolves to `sandbox` when a sandbox runtime is active, and `gateway` otherwise
+- **Sandboxing is off by default**, so with no extra config `host=auto` actually runs **on the gateway host**
+- **An explicit `host=sandbox` fails closed** when no sandbox is active, rather than quietly running on the gateway
+
+That last rule is good design: **implicit defaults may be permissive, but an explicit request must be honored or refused.** If a command must run in the sandbox, say so.
+
+Other rules: per-call `host=node` is allowed from `auto`; **per-call `host=gateway` is only allowed when no sandbox runtime is active**; `host=node` requires a paired node (select one with `exec.node` or `tools.exec.node` when several exist).
+
+Also: **`exec host=node` is the only shell-execution path for nodes** — the legacy `nodes.run` wrapper has been removed.
+
+## The unit trap
+
+Concrete enough that the docs flag it themselves:
+
+| Parameter | Unit |
 |---|---|
-| `sandbox` | Inside the sandbox container (default) |
-| `gateway` | On the Gateway host |
-| `node` | On the paired node device |
+| `timeoutSeconds` (exec) | **seconds** |
+| `yieldMs` (sibling on exec) | **milliseconds** |
+| `timeout` (the identically named `process` parameter) | **milliseconds** |
 
-**Important:** The sandbox is disabled by default. If the sandbox is off but `host=sandbox`, exec will **fail closed** rather than silently running on the host machine.
+Which is why exec's timeout is called `timeoutSeconds` — **to put the unit at the call site**. The default `tools.exec.timeoutSeconds` is 1800 (30 minutes); a per-call `0` disables the exec process timeout for that call.
 
-### Security Model
+## Security choices worth learning from
 
-**Allowlist + Safe Bins:**
-- The allowlist matches against **resolved binary paths** only (not basenames)
-- Chaining (`;`, `&&`, `||`) in allowlist mode is only allowed when all segments are on the allowlist
-- Redirections are not supported
+**PATH and loader overrides are rejected.** Host execution (`gateway`/`node`) rejects `env.PATH` and `LD_*`/`DYLD_*` overrides **to prevent binary hijacking or injected code**. A classic attack surface, blocked at the parameter layer rather than detected after the fact.
 
-**Safe Bins:** Small, stdin-only stream filters.
+**The shell snapshot.** On non-Windows gateway hosts, bash and zsh exec commands use a startup snapshot: OpenClaw captures sourceable aliases and functions plus a small safe environment set from your shell startup files into `$OPENCLAW_STATE_DIR/cache/shell-snapshots/`, then sources it before each command. **Secret-looking variables are excluded**, and sandbox and node exec do not use the snapshot. Disable with `OPENCLAW_EXEC_SHELL_SNAPSHOT=0`.
 
-```json5
-{
-  tools: {
-    exec: {
-      safeBins: ["cat", "sort", "head", "tail", "wc"],
-      safeBinTrustedDirs: ["/bin", "/usr/bin"],
-      safeBinProfiles: {
-        sort: { maxPositional: 1, deniedFlags: ["-o"] }
-      }
-    }
-  }
-}
-```
+This solves "the agent's commands can't find my usual aliases" while avoiding "drag the entire environment, secrets included, into the run."
 
-**Do not** add interpreters (python3, node, bash) to `safeBins`. Use explicit allowlist entries + approval prompts instead.
+**Shell selection has fallback logic.** On non-Windows it uses `SHELL`, but **if `SHELL` is fish it prefers `bash` (or `sh`)** to avoid fish-incompatible bashisms, falling back to `SHELL` only if neither exists. On Windows it prefers PowerShell 7 (`pwsh`), then Windows PowerShell 5.1.
 
-**Strict Inline Eval:** Setting `strictInlineEval: true` forces `python -c`, `node -e`, and similar inline eval commands to always require approval.
+**Some commands cannot run through exec.** `openclaw channels login` is an interactive channel-auth flow and `/approve` must go through the approval command handler rather than a shell — both are blocked. Run channel login in a terminal on the gateway host, or use a channel-specific login tool such as `whatsapp_login`.
 
-### Exec Approvals
+**Environment markers.** OpenClaw sets `OPENCLAW_SHELL=exec` in the spawned environment (including PTY and sandbox execution) so shell and profile rules can detect exec-tool context. Channel-origin runs also expose a narrow sender/chat identity JSON payload in `OPENCLAW_CHANNEL_CONTEXT`.
 
-Sandbox agents can request per-invocation approval when executing on gateway/node:
+## Approvals and elevated mode
 
-1. The Exec tool returns `status: "approval-pending"` + an approval id
-2. The user approves or denies
-3. The Gateway emits a system event (`Exec finished` / `Exec denied`)
+The per-call `security` parameter is **ignored for normal tool calls** — `gateway`/`node` security derives from `tools.exec.mode` and the host approvals file, and elevated mode can force full access only when the operator explicitly grants it.
 
-```bash
-/approve <id> allow-once    # Allow once
-/approve <id> allow-always  # Allow always
-/approve <id> deny          # Deny
-```
+`ask` behaves similarly: the baseline derives from `tools.exec.mode` and host approvals. **For channel-origin model calls, per-call `ask` is ignored when the effective host ask is `off`; otherwise it can only harden to a stricter mode.**
 
-### PATH Handling
+The direction is unambiguous: **per-call parameters can tighten, never loosen.**
 
-| Host | PATH Behavior |
-|---|---|
-| gateway | Merges login shell PATH; rejects `env.PATH` overrides |
-| sandbox | Runs `sh -lc` then prepends `env.PATH`; `pathPrepend` also applies |
-| node | Rejects `env.PATH` overrides; uses the node host's environment |
+`elevated` explicitly requests escaping the sandbox onto the configured host path (`gateway` by default, or `node` when `tools.exec.host=node`), and **is only available when elevated access is enabled for the current session or provider.**
 
-Host execution rejects `LD_*`/`DYLD_*` loader overrides to prevent binary hijacking.
+## Do not fake scheduling with sleep loops
 
-### Session Overrides (/exec)
+This guidance also appears in the system prompt; here is the tool-level version:
 
-```
-/exec host=gateway security=allowlist ask=on-miss node=mac-1
-```
+- Use `exec` / `process` for commands that **start now and continue in the background**
+- With automatic completion wake enabled, **start the command once** and rely on the push path
+- Use `process` for logs, status, input, or intervention
+- **Do not emulate scheduling with sleep loops, timeout loops, or repeated polling**
+- **For work that should happen later or on a schedule, use cron**
 
-Only effective for authorized senders. Updates session state without writing to config.
+Agent-started background commands appear in the Web, iOS, and Android background-task views until they finish, and **the task ledger is finalized before the completion heartbeat wakes the agent again** — bookkeeping first, then the wake.
 
-### apply_patch
+## The preflight boundary
 
-A sub-tool of Exec for structured multi-file edits. Enabled by default for OpenAI/Codex models.
+A detail worth knowing: script preflight checks (for common Python and Node shell-syntax mistakes) **only inspect files inside the effective `workdir` boundary.** A script path resolving outside `workdir` skips preflight.
 
-```json5
-{
-  tools: {
-    exec: {
-      applyPatch: { workspaceOnly: true, allowModels: ["gpt-5.2"] }
-    }
-  }
-}
-```
+And **preflight skips entirely when `host=gateway` with an effective policy of `security=full` and `ask=off`** — so setting security to its most permissive also costs you this convenience check.
 
-## Thinking Levels
+## The big picture
 
-Controls the model's reasoning depth.
+The right mental model: **`exec` is a shell, and a shell's capability boundary is set by the host and the sandbox — not by which other OpenClaw tools you have switched off.**
 
-### 7 Levels
+The levers that actually constrain it are: sandboxing (change where it runs), `tools.exec.mode` plus host approvals (change what it may do), and OS-user isolation (change who it runs as). **Turning off `write` is not on that list.**
 
-| Level | Alias | Description |
-|---|---|---|
-| `off` | — | No reasoning |
-| `minimal` | think | Minimal reasoning |
-| `low` | think hard | Low reasoning |
-| `medium` | think harder | Medium reasoning |
-| `high` | ultrathink | Maximum reasoning budget |
-| `xhigh` | ultrathink+ | GPT-5.2 + Codex only |
-| `adaptive` | — | Provider-managed adaptive reasoning (Anthropic Claude 4.6) |
+## Changelog
 
-### Configuration Methods
-
-**Inline directive:** Affects only the current message
-```
-/think:high Please analyze this code
-```
-
-**Session default:** Send a message containing only the directive
-```
-/think:medium
-```
-
-### Resolution Order
-
-1. Inline directive
-2. Session override
-3. Per-agent default (`agents.list[].thinkingDefault`)
-4. Global default (`agents.defaults.thinkingDefault`)
-5. Fallback: Anthropic Claude 4.6 → `adaptive`, other reasoning models → `low`, otherwise → `off`
-
-### Provider-Specific Behavior
-
-| Provider | Behavior |
-|---|---|
-| Anthropic Claude 4.6 | Defaults to `adaptive` |
-| Z.AI | Only supports on/off |
-| Moonshot | Only supports enabled/disabled |
-
-## Fast Mode (/fast)
-
-A low-latency mode for reduced response times.
-
-| Provider | Fast Mode Behavior |
-|---|---|
-| OpenAI | `service_tier=priority` + low reasoning + low verbosity |
-| OpenAI Codex | Same as above |
-| Anthropic (API key) | `service_tier=auto` |
-
-```
-/fast on
-/fast off
-```
-
-## Verbose and Reasoning
-
-**Verbose (/verbose):** Displays tool call details.
-
-| Level | Behavior |
-|---|---|
-| `off` (default) | Shows only failure summaries |
-| `on` | One bubble per tool call |
-| `full` | Tool calls + output after completion |
-
-**Reasoning (/reasoning):** Displays the reasoning process.
-
-| Level | Behavior |
-|---|---|
-| `off` (default) | Hidden |
-| `on` | Displayed as a separate `Reasoning:` message |
-| `stream` | Telegram only; streams reasoning to a draft bubble |
-
-## Slash Commands System
-
-### Two Types
-
-**Commands:** Standalone `/...` messages.
-**Directives:** `/think`, `/fast`, `/verbose`, `/reasoning`, `/elevated`, `/exec`, `/model`, `/queue`.
-
-Directives in regular messages act as inline hints (not persisted). In directive-only messages, they persist to the session.
-
-### Configuration
-
-```json5
-{
-  commands: {
-    native: "auto",        // Register native commands (Discord/Telegram)
-    nativeSkills: "auto",  // Register skill commands
-    text: true,            // Parse /... text
-    bash: false,           // Enable ! <cmd>
-    config: false,         // Enable /config
-    mcp: false,            // Enable /mcp
-    plugins: false,        // Enable /plugins
-  }
-}
-```
-
-### Common Commands
-
-| Command | Function |
-|---|---|
-| `/help` | Help |
-| `/status` | Current status + provider usage |
-| `/tools` | Currently available tools |
-| `/context` | Context usage info |
-| `/btw <question>` | Side question (does not affect session context) |
-| `/export-session` | Export session as HTML |
-| `/subagents list` | List sub-agents |
-| `/focus <target>` | Discord thread binding |
-
-## Summary
-
-Exec is OpenClaw's most powerful and most dangerous tool — three layers of security control (host, security, ask) ensure it stays under control. Thinking lets you adjust reasoning depth based on task complexity. Slash Commands are the primary interface for users to interact with the Gateway.
+- 2026-08-18: Substantially revised against the current official docs. Added: **the explicit statement that disabling file tools does not make `exec` read-only**, `host` accepting only four values and not being a hostname selector, **sandboxing being off by default so `host=auto` resolves to gateway while an explicit `host=sandbox` fails closed**, `exec host=node` as the only node shell path (with `nodes.run` removed), **the unit differences between `timeoutSeconds`, `yieldMs`, and `process`'s `timeout`**, rejected `env.PATH` and `LD_*`/`DYLD_*` overrides, **the shell startup snapshot** (secrets excluded, unused by sandbox and node, disableable), fish and PowerShell selection logic, the commands exec cannot run, the `OPENCLAW_SHELL` and `OPENCLAW_CHANNEL_CONTEXT` markers, **per-call `security`/`ask` only tightening**, the background-versus-cron boundary, and the preflight `workdir` boundary and its skip under the most permissive policy.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/tools/exec.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/exec.md) — Exec Tool
-- [docs/tools/exec-approvals.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/exec-approvals.md) — Exec Approvals
-- [docs/tools/thinking.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/thinking.md) — Thinking Levels
-- [docs/tools/slash-commands.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/slash-commands.md) — Slash Commands
-- [docs/tools/elevated.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/elevated.md) — Elevated Mode
-- [docs/tools/btw.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/btw.md) — BTW Side Questions
+- [Exec tool](https://docs.openclaw.ai/tools/exec) — parameters, host resolution, security design, config
+- [Elevated mode](https://docs.openclaw.ai/tools/elevated) — the host escape path
+- [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing) — how sandbox mode interacts with `tools.exec.host`
+- [Tools and custom providers](https://docs.openclaw.ai/gateway/config-tools) — tool policy and group semantics
+- [Automation](https://docs.openclaw.ai/automation) — cron and background tasks
