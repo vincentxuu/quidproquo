@@ -1,129 +1,122 @@
 ---
-title: "OpenClaw UI: Control UI, TUI, and Web Chat"
+title: "OpenClaw UI: A New Rail Lets You Ask What a Session Is Doing Without Interrupting It"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, control-ui, tui, web-chat, dashboard, terminal]
+tags: [openclaw, control-ui, webchat, tui, pairing, session-observer]
 lang: en
-tldr: "Control UI is a browser dashboard (http://127.0.0.1:18789), TUI is a terminal interactive interface, and Web Chat is a WebSocket real-time chat."
-description: "The three user interfaces of OpenClaw: Control UI browser dashboard, TUI terminal interface, and Web Chat real-time messaging."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 30
+tldr: "The Control UI gained a session rail: it uses a utility model to produce a run digest and attaches a read-only companion thread, so you can ask what a session is doing without entering or interrupting the main agent run. Its contents never enter chat.history."
+description: "The current state of OpenClaw's Control UI: the session rail and companion thread, the two gates of authentication and device pairing, recovering a lost gateway token, and why privilege upgrades are never a silent reconnect."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-ui)
 
-OpenClaw offers multiple interaction methods — from a browser dashboard to a terminal interface, from WebSocket chat to messaging platform channels.
+The Control UI is a small **Vite + Lit** single-page app served by the Gateway at `http://<host>:18789/` by default, speaking **directly to the Gateway WebSocket on the same port**.
 
-## Control UI (Browser Dashboard)
+Two things are worth covering: **the new session rail**, and **the two gates you pass to get in.**
 
-`http://127.0.0.1:18789` — the management interface built into the Gateway.
+## The session rail: asking "how's it going" without interrupting
 
-### Features
+The most interesting addition since March.
 
-| Section | Function |
-|---|---|
-| Dashboard | System status overview |
-| Sessions | Session list, conversation history |
-| Channels | Channel status, connection management |
-| Models | Model status, authentication status |
-| Agents | Agent list, configuration |
-| Nodes | Node status, pairing management |
-| Config | Configuration editor (requires `commands.config` enabled) |
-| Chat | Built-in Web Chat |
+While you watch a running session, the Gateway shows **the model's latest safe preamble immediately** as the session headline. When a utility model is available, it can **replace that headline with a richer compact status digest** once enough activity accumulates.
 
-### Access Control
+Chat carries the result in a **session rail**: a compact pill showing the live digest, and an expanded view showing **the assessment, plan progress, pull requests, elapsed time, and a read-only companion thread**.
 
-- No authentication needed when bound to loopback
-- Token or password required for non-loopback access
-- Tailscale Serve can use Tailscale identity
-- Trusted Proxy can delegate to a reverse proxy
+Behavioral details: the rail **can expand once** when a run becomes stuck or needs input; done or failed runs keep a frozen "finished" time based on the final digest; on wide panes the expanded rail docks as a 400px right column, while narrower and mobile layouts get an overlay.
 
-### Configuration
+### The companion's boundaries are stated clearly
 
-```json5
-{
-  gateway: {
-    controlUi: {
-      enabled: true,
-      basePath: "/"
-    }
-  }
-}
-```
+The companion answers questions about the selected session and its project **without entering or interrupting the main agent run.** Each part of this is worth reading:
 
-## Web Chat
+- On the first question, the Gateway **lazily loads a bounded visible snapshot** of the selected session before starting the utility model
+- If history is temporarily unavailable, **the question stays visible with Retry** rather than being treated as an empty session
+- The companion has **read-only access** to the target session's history/search and agent workspace
+- Its bounded thread is **held in Gateway memory**, restored when you switch sessions, and cleared by the rail's trash button, a session reset, Gateway restart, or idle expiry
+- **It never enters `chat.history`**, and private reference context is not stored as operator dialogue
 
-Real-time chat built into the Control UI, running over WebSocket.
+Type `/btw <question>` or `/side <question>` in the main composer to open the rail and ask there. Highlighting text in a message offers **More details** (ask the companion immediately) and **Ask in side chat** (open the rail with a quoted draft).
 
-### Highlights
+**Session observation is enabled by default.** Safe preamble headlines **do not require** a utility model; the utility model only owns richer assessments and terminal summaries. Turn it off or adjust it in **Settings → Appearance → Sidebar**, which also shows the resolved small model and its provenance; the config equivalents are `gateway.controlUi.sessionObserver: false` and `agents.defaults.utilityModel: ""`.
 
-- Real-time streaming responses
-- Thinking level selector
-- Media attachment support
-- Tool call visualization
-- Session switching
+The problem this rail solves is universal: **a long-running agent leaves you unsure what it is doing, and the only way to look is to interrupt it.** Routing around that dilemma with a read-only companion is an interface design worth learning from.
 
-### Thinking Selector
+## Two gates: authenticate, then pair
 
-The Web Chat thinking selector maps to the levels stored in the session. Selecting a new level only affects the next message (`thinkingOnce`); after sending, it reverts to the session default. To permanently change the session default, use the `/think:<level>` directive.
+Getting into the Control UI means passing two gates, in a fixed order: **Gateway auth runs before device pairing.**
 
-## TUI (Terminal Interface)
+**Gate one: Gateway authentication**, supplied during the WebSocket handshake via `connect.params.auth.token`, `connect.params.auth.password`, Tailscale Serve identity headers (with `gateway.auth.allowTailscale: true`), or trusted-proxy identity headers.
 
-The interactive mode of the CLI.
+**One rule to remember**: **a direct loopback connection does not bypass token or password auth.** The dashboard settings panel keeps a token for the current browser tab session and gateway URL; **passwords are not persisted.**
+
+**Gate two: device pairing.** Connecting from a new browser or device usually requires a one-time approval, presenting as `disconnected (1008): pairing required`.
 
 ```bash
-openclaw chat                    # Start interactive session
-openclaw chat --agent work       # Specify an agent
-openclaw chat --session isolated # Isolated session
+openclaw devices list
+openclaw devices approve <requestId>
 ```
 
-### Highlights
+On the Gateway host, **`openclaw dashboard` is the preferred owner path**: it opens a **short-lived, single-use pairing link** and leaves that exact signed browser with a durable administrator credential. Opening a fresh link in the same browser also repairs a previously limited credential, and **another browser profile cannot inherit or replay the grant.**
 
-- Real-time streaming in the terminal
-- Supports all slash commands
-- Supports all directives
-- Background execution monitoring
+## Recovering a lost token
 
-## WebChat Channel
+An easy situation to land in, and one you will get stuck on without having read the docs:
 
-In addition to the Web Chat built into the Control UI, OpenClaw also offers WebChat as a standalone channel, running over WebSocket with support for pairing and access control.
+**If the Gateway starts in token mode without a configured token, it generates an ephemeral runtime token for that process. That token is not written to config, so it cannot be recovered** — and a loopback browser without it is rejected.
 
-## macOS Menu Bar App
-
-The macOS menu bar app can serve as:
-- A Gateway control panel
-- A Node (providing Canvas/Camera)
-- A Skills management UI
-
-### Skills UI
-
-Within the macOS app:
-- Browse available skills
-- Enable/disable skills
-- Install skills (brew/npm/go/download)
-- Configure skill API keys
-
-## CLI Operations
+Recovery:
 
 ```bash
-openclaw health                  # Check Gateway health
-openclaw channels status         # Channel status
-openclaw models status           # Model status
-openclaw nodes status            # Node status
-openclaw doctor                  # Full diagnostic
-openclaw doctor --fix            # Attempt repairs
+openclaw doctor --generate-gateway-token
+# restart the Gateway
+openclaw gateway auth-token --show   # in an interactive terminal
+# paste the output into Control UI settings
 ```
 
-## Summary
+## Privilege upgrades are never silent
 
-OpenClaw's UI covers different usage scenarios: Control UI is ideal for management and monitoring, Web Chat is great for quick testing, TUI suits terminal users, and the macOS App enables desktop integration. All interfaces connect to the same Gateway with fully synchronized state.
+This design deserves highlighting:
+
+> Switching an **already-paired** browser from read access to write/admin access through ordinary stored or shared credentials is treated as **an approval upgrade, not a silent reconnect**: OpenClaw **keeps the old approval active, blocks the broader reconnect, and asks you to approve the new scope set explicitly.**
+
+The narrow exception is a **fresh owner handoff issued on the Gateway host** by `openclaw dashboard` or graphical onboarding — and it **can upgrade only the same signed browser that redeems that one-time handoff.**
+
+When a connected Control UI reports limited access, click **Request admin** in the access banner; the banner can also collapse into a persistent **Limited access** chip.
+
+"Escalation requires re-approval" is a basic principle that many systems quietly compromise for the sake of UX. This one picked the other side.
+
+## Other interfaces
+
+**WebChat** has no separate HTTP port — the SwiftUI chat UI connects directly to the Gateway WebSocket, going through the same SSH or Tailscale tunnel as other clients in remote setups.
+
+**The TUI** is the terminal interface, and the **canvas host** is served by the Gateway's HTTP server on the same port (`/__openclaw__/canvas/` for agent-editable HTML/CSS/JS and `/__openclaw__/a2ui/` for the A2UI host).
+
+## One Windows-specific gotcha
+
+**On native Windows LAN binds, Windows Firewall or organization-managed Group Policy can block the advertised LAN URL even when `127.0.0.1` works on the Gateway host.**
+
+Run `openclaw gateway status --deep` on the Windows host; it reports likely-blocked ports, profile mismatches, and **local firewall rules that policy may ignore.**
+
+## The big picture
+
+The standout in this round is the session rail — it turns "observe a running agent" from "interrupt it" into "ask the read-only companion next to it," with an explicit guarantee that those exchanges never pollute the main conversation's history.
+
+For getting in, remember two things: **authentication and pairing are separate gates and loopback is not exempt from auth**, and **escalation always requires explicit re-approval.**
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs. Added: **the session rail and read-only companion thread** (immediate safe-preamble headlines, utility-model digests, `/btw` and `/side` entry points, More details and Ask in side chat from highlighted text, read-only access, Gateway-memory storage with its clearing triggers, never entering `chat.history`, and how to disable via `gateway.controlUi.sessionObserver` and `utilityModel`), **authentication and device pairing as separate gates with loopback not exempt**, `openclaw dashboard`'s short-lived single-use pairing link that cannot be replayed across browsers, **the full recovery path for a lost gateway token** (the ephemeral runtime token being unrecoverable), **privilege upgrades treated as approval upgrades rather than silent reconnects** with the narrow owner-handoff exception, the canvas host paths, and diagnosing blocked Windows LAN binds with `gateway status --deep`.
 
 ## References
 
-This article is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/ui/control-ui.md](https://github.com/openclaw/openclaw/blob/main/docs/ui/control-ui.md) — Control UI
-- [docs/ui/tui.md](https://github.com/openclaw/openclaw/blob/main/docs/ui/tui.md) — TUI
-- [docs/ui/index.md](https://github.com/openclaw/openclaw/blob/main/docs/ui/index.md) — UI Overview
-- [docs/channels/webchat.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/webchat.md) — WebChat Channel
-- [docs/platforms/macos.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/macos.md) — macOS App
+- [Control UI](https://docs.openclaw.ai/web/control-ui) — the session rail, auth, pairing, access upgrades
+- [WebChat](https://docs.openclaw.ai/web/webchat), [TUI](https://docs.openclaw.ai/web/tui) — the other interfaces
+- [Gateway architecture](https://docs.openclaw.ai/concepts/architecture) — the canvas host and protocol
+- [Node pairing](https://docs.openclaw.ai/gateway/pairing) — the pairing lifecycle
+- [Windows](https://docs.openclaw.ai/platforms/windows) — firewall troubleshooting for LAN binds

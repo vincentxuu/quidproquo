@@ -1,168 +1,115 @@
 ---
-title: "OpenClaw 的模型需求與供應商生態"
+title: "OpenClaw 的模型需求與供應商生態：先搞懂 provider、model、runtime 是三件事"
 date: 2026-03-28
 type: guide
 category: ai
 tags: [openclaw, llm, anthropic, openai, gemini, model-failover, tool-use]
 lang: zh-TW
-tldr: "OpenClaw 支援 35+ 模型供應商，最低需求是模型支援 tool use + streaming，內建 auth 輪替和 model failover 機制。"
-description: "OpenClaw 對 LLM 的功能性需求、三大供應商設定方式、Auth 輪替與模型容錯機制。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 6
+tldr: "OpenClaw 對模型的硬需求是 tool use 加夠大的 context——onboarding 自動推薦本地模型的門檻是支援 tool 且 context 至少 16K。但更容易搞混的是 provider、model、agent runtime 其實是三層，`openai/*` 不等於走 Codex。"
+description: "OpenClaw 的模型層級架構（provider／model／agent runtime／channel）、模型選擇的硬需求、供應商生態規模，以及 modelPolicy 允許清單與 utility model 這些容易忽略的設定。"
 draft: false
 ---
 
-OpenClaw 是模型無關（model-agnostic）的 AI 閘道器，支援 35+ 供應商。但不是隨便接一個模型就能用——它對模型有明確的功能性需求。這篇整理 OpenClaw 的模型需求、主要供應商的設定方式，以及出錯時的容錯機制。
+OpenClaw 是模型無關的 AI 閘道器，但「接上一個模型」這件事比想像中多一層。這篇講的是**選模型之前要先搞懂的層級關係**，以及幾個實際會擋住你的設定。
 
-## 模型的功能性需求
+## 四層，不是兩層
 
-OpenClaw 的 agent 運作建立在這幾個能力上：
+最常見的混淆是把「供應商」和「執行 agent 的東西」當成同一件事。官方把它拆成四層：
 
-**Tool Use（必要）** — 模型必須支援 function calling。這是 OpenClaw agent 的運作基礎，沒有 tool use 就無法執行任何工具。
+| 層 | 例子 | 意義 |
+|---|---|---|
+| Provider（供應商）| `anthropic`、`openai`、`github-copilot` | OpenClaw 怎麼認證、怎麼發現模型、模型 ref 怎麼命名 |
+| Model（模型）| `claude-opus-5`、`gpt-5.6-sol` | 這一輪要用哪個模型 |
+| Agent runtime | `openclaw`、`codex`、`claude-cli`、`copilot` | **實際跑那個 model loop 的後端** |
+| Channel（頻道）| Discord、Slack、Telegram | 訊息從哪進來、往哪出去 |
 
-**Streaming（必要）** — 支援串流輸出，用於即時回覆和分塊傳送到聊天平台。
+agent runtime 是最容易被忽略的一層。它擁有一整個「準備好的 model loop」——收 prompt、驅動模型輸出、處理原生 tool call、把完成的一輪交回 OpenClaw。
 
-**Extended Thinking（選配）** — 深度推理能力。Claude 4.6 原生支援，失敗時自動降級為普通模式。
+分成兩個家族：**嵌入式 harness** 跑在 OpenClaw 自己的 agent loop 裡（內建的 `openclaw`，加上 `codex`、`copilot` 這類 plugin harness）；**CLI 後端**則是跑一個本地 CLI 程序，但模型 ref 保持標準寫法——`anthropic/claude-opus-5` 配上 model-scoped 的 `agentRuntime.id: "claude-cli"`，意思是「選 Anthropic 的模型，但透過 Claude CLI 執行」。
 
-**Schema 相容性** — 不同供應商的 tool schema 格式不同。OpenClaw 內建 normalizer 處理 Gemini 和 OpenAI 的 schema 差異，不需要手動處理。
+## `openai/*` 不等於 Codex
 
-文件原文的建議：_"use the strongest latest-generation model available"_。如果用本地模型（Ollama、vLLM、SGLang），要確保模型支援 tool calling。
+這條規則值得單獨拿出來講，因為它反直覺：**`openai/` 這個前綴本身永遠不會選到 Codex**。
 
-## 設定方式
+runtime policy 沒設或設成 `auto` 時，OpenAI 只在一種情況會隱含選到 Codex：走官方 HTTPS 的 Platform Responses 或 ChatGPT Responses 路由、而且沒有自訂的 request override。只要你用了 Completions adapter、自訂端點、或帶了自訂 request 行為，就留在 OpenClaw 自己的 runtime 上。明文 HTTP 的官方端點會被直接拒絕。
 
-所有模型統一用 `provider/model` 格式，設定在 `~/.openclaw/openclaw.json`：
+要明確指定，就在 provider／model 層設 `agentRuntime.id`——設 `"openclaw"` 是「就算符合條件也留在 OpenClaw」，設 `"codex"` 則是**fail closed**：路由不相容時直接失敗，不會偷偷降級。
 
-```json5
-{
-  agents: {
-    defaults: {
-      model: { primary: "anthropic/claude-opus-4-6" }
-    }
-  }
-}
-```
+順帶一提，`claude-cli/*`、`google-gemini-cli/*`、`codex-cli/*` 這些舊寫法都已經是 legacy，`openclaw doctor --fix` 會把它們改寫成標準的 provider ref 加上獨立記錄的 runtime。整個 agent 層級的 runtime 設定鍵也已經被忽略，只有 model-scoped 的算數。
 
-## 支援的供應商
+## 模型的硬需求
 
-| 類別 | 供應商 |
-|---|---|
-| 頂級商用 | Anthropic (Claude)、OpenAI (GPT)、Google (Gemini) |
-| 中國廠商 | DeepSeek、Qwen/阿里雲、GLM (智譜)、MiniMax、Moonshot (Kimi)、Qianfan (百度)、Volcengine (豆包)、Xiaomi |
-| 推理加速 | Groq (LPU)、Together AI |
-| 本地部署 | Ollama、vLLM、SGLang |
-| 代理閘道 | OpenRouter、LiteLLM、Vercel AI Gateway、Cloudflare AI Gateway |
-| 其他 | xAI、Mistral、NVIDIA、Hugging Face、Venice、Amazon Bedrock、GitHub Copilot |
-| 語音轉錄 | Deepgram |
+**Tool use 是底線。** 這點有個很具體的佐證：Ollama 的引導設定要自動推薦一個已安裝的本地模型時，條件是 `/api/show` 確認**支援 tool、而且 context window 至少 16K**——兩個條件缺一個，就退回手動設定路徑。
 
-## 三大供應商設定細節
+這比抽象的「建議用能力強的模型」有用得多：如果你想接本地模型，這兩條就是門檻。
 
-### Anthropic (Claude)
+## 不要在筆記裡寫死模型名
 
-三種認證方式擇一：API Key、Claude CLI、Setup-Token。
+這篇刻意不列「推薦模型」清單，理由很實際：**官方文件自己就不一致**。同一天讀，`/providers/` 首頁的快速範例寫 `anthropic/claude-opus-4-6`，而 `/concepts/model-providers` 和 `/concepts/agent-runtimes` 寫的是 `claude-opus-5`。
+
+模型 ref 是所有內容裡最會腐爛的一種。要知道你的帳號現在實際能用什麼，唯一可靠的方法是問：
 
 ```bash
-openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
+openclaw models list
+openclaw models list --provider openai   # 特定供應商
+openclaw models list --all               # 含隱藏／已標記淘汰的列
 ```
 
-| 項目 | 說明 |
-|---|---|
-| 推薦模型 | `anthropic/claude-opus-4-6` |
-| Thinking 模式 | Claude 4.6 預設 `adaptive` |
-| Fast 模式 | API Key 限定，映射到 `service_tier: "auto"` |
-| Prompt 快取 | `none` / `short`（5 min）/ `long`（1 hr），API Key 預設 `short` |
-| 1M Context | Beta，需設定 `params.context1m: true` |
+## 引導設定不會覆蓋你的預設模型
 
-限制：CLI 模式不支援 tool use 和 streaming。Setup-Token 不支援 fast mode。
+這是實用的行為保證：`openclaw configure` 在你新增或重新認證一個供應商時，**會保留既有的 `agents.defaults.model.primary`**。`openclaw models auth login` 也一樣，除非你加 `--set-default`。
 
-### OpenAI (GPT)
+供應商 plugin 可能會在認證後回傳一個「推薦的預設模型」，但只要 primary 已經存在，OpenClaw 就把它當成「讓這個模型可用」，不是「換掉你的 primary」。
 
-兩種認證方式：API Key 或 Codex 訂閱（OAuth）。
+要刻意換預設，用 `openclaw models set <ref>` 或 `openclaw models auth login --provider <p> --set-default`。
 
-```json5
-{
-  agents: { defaults: { model: { primary: "openai/gpt-5.4" } } }
-}
+## 兩個容易忽略的設定
+
+**`agents.defaults.utilityModel`** — 一個較便宜的模型，用來做短小的內部任務：dashboard 的 session 標題、頻道的 thread／topic 標題、進度敘述。沒設的話，OpenClaw 會用主要供應商自己宣告的小模型預設（OpenAI 走 `gpt-5.6-luna`、Anthropic 走 `claude-haiku-4-5`），再沒有才退回 agent 的主模型；設成空字串則完全關掉。
+
+值得知道的是：**utility 任務是獨立的模型呼叫，會把有限的任務內容送到那個供應商**。如果你對資料流向敏感，這是一個要主動決定的設定，不是可以忽略的細節。
+
+**`agents.defaults.modelPolicy.allow`** — 覆寫用的允許清單。非空時，它同時管住 `/model`、session override 和 `--model`，選到清單外的模型會在產生任何回覆之前就被擋下：
+
+```text
+Model override "provider/model" is not allowed by agents.defaults.modelPolicy.allow.
 ```
 
-| 項目 | 說明 |
-|---|---|
-| 推薦模型 | `openai/gpt-5.4`、`openai/gpt-5.4-pro` |
-| 傳輸協定 | 自動（WebSocket 優先，SSE fallback）|
-| Fast 模式 | `reasoning.effort = "low"` + `text.verbosity = "low"` |
-| 自動壓縮 | context window 70% 時觸發 server-side compaction |
+支援尾綴萬用字元（`provider/*`、`provider/namespace/*`），所以要限制到供應商層級不必列出每個模型。有個坑：**本地／GGUF 模型必須寫完整的 provider 前綴 ref**（例如 `ollama/gemma4:26b`），裸檔名或顯示名稱在允許清單啟用後都不算數。
 
-Codex 訂閱者還能用 `openai-codex/gpt-5.3-codex-spark`。
+## 供應商生態有多大
 
-### Google (Gemini)
+官方的 provider 目錄現在列出 **60 個條目**，其中包含語音（Deepgram、ElevenLabs、Azure Speech、SenseAudio）與影像／音樂／影片生成（ComfyUI、fal、Runway）這類非 LLM 供應商。
 
-API Key 認證為主。
+分類大致是：頂級商用（Anthropic、OpenAI、Google）、中國廠商（DeepSeek、Qwen、Z.AI／GLM、MiniMax、Moonshot、Qianfan、Volcengine、Tencent、Xiaomi、LongCat）、推理加速（Groq、Cerebras、Together、Fireworks、Baseten、Novita）、本地部署（Ollama、LM Studio、vLLM、SGLang、inferrs、ds4）、代理閘道（OpenRouter、LiteLLM、ClawRouter、Vercel AI Gateway、Cloudflare AI Gateway）。下一篇會挑其中幾個實際講。
 
-```bash
-openclaw onboard --auth-choice google-api-key
-```
+大部分供應商邏輯活在**供應商 plugin** 裡（`registerProvider(...)`），OpenClaw 只保留通用的推論迴圈。plugin 負責 onboarding、模型目錄、認證環境變數對應、傳輸與設定正規化、tool schema 清理、failover 分類、OAuth 更新、用量回報、thinking 設定檔。所以「這個供應商支援什麼」的答案通常在它的 plugin，不在核心。
 
-| 項目 | 說明 |
-|---|---|
-| 推薦模型 | `google/gemini-3.1-pro-preview` |
-| 特殊能力 | 圖片生成、圖片/音訊/影片理解、Web 搜尋（Grounding）|
-| Thinking | Gemini 3.1+ 支援推理模式 |
+## 從 Control UI 設定
 
-## 模型容錯機制
+Control UI 的 **Settings → Model Providers** 可以新增、替換、移除供應商 API key（存在 `models.providers.<p>.apiKey`）。它會標示每個 key 是來自 OpenClaw 設定還是環境變數，但**不顯示憑證本身**；環境變數提供的 key 仍由 gateway 程序的環境管理。
 
-OpenClaw 內建兩階段容錯：
-
-```
-Stage 1: 同供應商內輪替 Auth Profile（round-robin）
-         ↓ 全部用完
-Stage 2: 切換到 fallback model
-```
-
-設定 fallback：
-
-```json5
-{
-  agents: {
-    defaults: {
-      model: {
-        primary: "anthropic/claude-opus-4-6",
-        fallbacks: ["openai/gpt-5.4", "google/gemini-3.1-pro-preview"]
-      }
-    }
-  }
-}
-```
-
-### Cooldown 機制
-
-| 錯誤類型 | 冷卻遞增 |
-|---|---|
-| 一般失敗 | 1 min → 5 min → 25 min → 1 hr（上限）|
-| 帳單/額度失敗 | 5 hr → 10 hr → 20 hr → 24 hr（上限）|
-
-### 多帳號輪替
-
-可以設定多組 API Key，失敗時自動換下一組。Auth profile 存在 `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`。預設排序是 OAuth 優先於 API Key，同類型內按「最舊優先」。
-
-### Session 黏著
-
-選定 auth profile 後，整個 session 期間保持不變，維持 provider cache 效率。只有在 session reset、compaction、或 cooldown 觸發時才會切換。
-
-### Thinking 降級
-
-如果 extended thinking 呼叫失敗，自動降級為普通模式，不中斷對話。
+有個 **Test connection** 會做一次真實的供應商探測，回報延遲或分類過的錯誤（認證、速率限制、帳務、逾時、回應錯誤）。注意它是真的送一次請求，**會消耗少量 token**。
 
 ## 整體來說
 
-OpenClaw 對模型的底線是 **tool use + streaming**。在這之上，它用 auth 輪替、model fallback、thinking 降級三層機制確保服務不中斷。如果你有多個供應商的 API Key，設好 fallbacks 就能得到很高的可用性。本地模型也能接，但要確認 tool calling 支援。
+接模型時真正該先想清楚的是層級：**provider 決定怎麼認證、model 決定用哪個腦、runtime 決定誰在跑那個迴圈**。三者分開之後，「為什麼我設了 `openai/...` 卻跑到 Codex」或「為什麼 doctor 改寫了我的模型 ref」這類問題才有答案。
+
+至於模型名，別記——每次都問 `openclaw models list`。下一篇講其餘供應商，最後一篇講失效與容錯。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。**新增 agent runtime 這一層**（provider／model／agent runtime／channel），3 月版完全沒有這個概念；補上 `openai/*` 前綴不等於 Codex 的路由規則，以及 `claude-cli/*`、`codex-cli/*` 等 legacy ref 由 doctor 遷移的行為。**移除所有「推薦模型」的固定 ref**（原文寫 `claude-opus-4-6`、`openai/gpt-5.4`，現況已變，且官方文件各頁自己不一致），改為指向 `openclaw models list`。新增 onboarding 保留既有 primary 的保證、`utilityModel`（含它是獨立模型呼叫、會外送內容）、`modelPolicy.allow` 允許清單與本地模型需完整 ref 的坑、Control UI 的供應商設定頁與 Test connection 會消耗 token。供應商數量從「35+」更新為官方目錄現列的 60 個條目。三大供應商的逐項設定表移出，改由下一篇與官方文件承接。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/providers/index.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/index.md) — 供應商目錄總覽
-- [docs/providers/models.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/models.md) — 模型設定快速指南
-- [docs/providers/anthropic.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/anthropic.md) — Anthropic (Claude) 設定
-- [docs/providers/openai.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/openai.md) — OpenAI (GPT) 設定
-- [docs/providers/google.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/google.md) — Google (Gemini) 設定
-- [docs/concepts/models.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/models.md) — 模型核心概念
-- [docs/concepts/model-providers.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-providers.md) — 模型供應商概念
-- [docs/concepts/model-failover.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-failover.md) — 模型容錯機制
-- [docs/pi.md](https://github.com/openclaw/openclaw/blob/main/docs/pi.md) — Pi 嵌入式整合架構（Tool Use / Schema 需求）
+- [Agent runtimes](https://docs.openclaw.ai/concepts/agent-runtimes) — provider／model／runtime／channel 的分層與 Codex 各介面的差異
+- [Model providers](https://docs.openclaw.ai/concepts/model-providers) — 供應商設定、plugin 擁有的行為、Control UI 設定頁
+- [Models CLI](https://docs.openclaw.ai/concepts/models) — 模型 ref 解析、選擇順序、`modelPolicy.allow` 與 utility model
+- [Provider directory](https://docs.openclaw.ai/providers/) — 供應商目錄
+- [Ollama](https://docs.openclaw.ai/providers/ollama) — 本地模型的 tool support 與 context 門檻

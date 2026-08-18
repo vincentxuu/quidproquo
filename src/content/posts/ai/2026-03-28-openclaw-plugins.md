@@ -1,202 +1,116 @@
 ---
-title: "OpenClaw Plugin 系統：架構與開發指南"
+title: "OpenClaw Plugin 系統：把安裝當成執行程式碼，以及冷檢查證明不了執行期"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, plugins, sdk, clawhub, channel-plugin, provider-plugin, typescript]
+tags: [openclaw, plugins, clawhub, install-policy, supply-chain, plugin-sdk]
 lang: zh-TW
-tldr: "Plugin 用 TypeScript ESM 開發，支援 12 種能力註冊（頻道/模型/工具/TTS/圖片等），發布到 ClawHub 或 npm。"
-description: "OpenClaw Plugin SDK 架構、12 種能力註冊、開發流程、以及 Channel/Provider Plugin 的建置指南。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 28
+tldr: "官方對安裝 plugin 的定調是「把它當成執行程式碼」——ClawHub 與內建目錄是受信任來源，任意的 npm、git、本地路徑在非互動安裝時需要 --force。而驗證要用 inspect --runtime，因為不帶旗標的 inspect 只是冷的 manifest 檢查。"
+description: "OpenClaw plugin 的安裝與管理：五種安裝來源與裸套件名的解析規則、security.installPolicy 的操作者閘門、allow/deny 清單的互動、版本相容性回退，以及用 runtime inspect 證明實際載入。"
 draft: false
 ---
 
-OpenClaw 的功能可以用 Plugin 無限擴展——從新的聊天頻道到模型供應商、從自訂工具到語音引擎。這篇講 Plugin 的架構和開發方式。
+Plugin 是 OpenClaw 的擴充機制，能加入頻道、模型供應商、agent harness、工具、skills、語音、即時轉錄、媒體理解與生成、web fetch、web search 等執行期能力。
 
-## Plugin 能做什麼
+這篇不逐一介紹有哪些 plugin（那在[清單頁](https://docs.openclaw.ai/plugins/plugin-inventory)），而是講**安裝這件事本身的安全與驗證模型**——因為那才是這個系統真正有設計的地方。
 
-一個 Plugin 可以註冊任意數量的能力：
+## 定調：把安裝當成執行程式碼
 
-| 能力 | 註冊方法 | 說明 |
+官方的原話：
+
+> **把 plugin 安裝當成執行程式碼。** 正式環境安裝優先用釘死的版本以求可重現。ClawHub 套件與 OpenClaw 的內建／官方目錄是受信任來源。**新的任意 npm、git、本地路徑／封存、`npm-pack:` 或 marketplace 來源，在你檢視並信任該來源之後，非互動安裝需要 `--force`。**
+
+這句話把來源分成兩級信任，並且**把摩擦放在不受信任的那一級**——不是全部擋掉，也不是全部放行。
+
+## 五種安裝來源
+
+| 來源 | 什麼時候用 | 寫法 |
 |---|---|---|
-| Text inference (LLM) | `api.registerProvider()` | 模型供應商 |
-| CLI inference backend | `api.registerCliBackend()` | CLI 後端 |
-| Channel / messaging | `api.registerChannel()` | 聊天頻道 |
-| Speech (TTS/STT) | `api.registerSpeechProvider()` | 語音合成/辨識 |
-| Media understanding | `api.registerMediaUnderstandingProvider()` | 媒體理解 |
-| Image generation | `api.registerImageGenerationProvider()` | 圖片生成 |
-| Web search | `api.registerWebSearchProvider()` | 網路搜尋 |
-| Agent tools | `api.registerTool()` | Agent 工具 |
-| Custom commands | `api.registerCommand()` | 自訂指令 |
-| Event hooks | `api.registerHook()` | 事件 hook |
-| HTTP routes | `api.registerHttpRoute()` | HTTP 路由 |
-| CLI subcommands | `api.registerCli()` | CLI 子指令 |
+| ClawHub | 想要 OpenClaw 原生的發現、掃描、版本中繼資料與安裝提示 | `clawhub:<package>` |
+| npm | 需要直接的 npm registry 或 dist-tag 工作流 | `npm:<package>` |
+| git | 需要某個分支、標籤或 commit | `git:github.com/<owner>/<repo>@<ref>` |
+| 本地路徑 | 在同一台機器上開發或測試 | `--link ./my-plugin` |
+| marketplace | 安裝 Claude 相容的 marketplace plugin | `--marketplace <...>` |
 
-## Quick Start：工具 Plugin
+**裸套件名有特殊的相容行為**，這條容易踩：
 
-### 1. 建立套件和 manifest
+- 裸名稱**符合內建 plugin id** → 用那份**內建**來源
+- 裸名稱**符合官方外部 plugin id** → 用官方套件目錄
+- 其他裸規格 → 在啟動切換期間**走 npm**
+- **原始的 `@openclaw/*` 規格若符合內建 plugin，也會先解析到內建副本**，npm 是後備
 
-```json
-// package.json
-{
-  "name": "@myorg/openclaw-my-plugin",
-  "version": "1.0.0",
-  "type": "module",
-  "openclaw": {
-    "extensions": ["./index.ts"]
-  }
-}
-```
+所以想要「就是要 npm 上那個外部套件、不要內建副本」，得明確寫 `npm:@openclaw/<name>@<version>`。要確定性的來源選擇，一律加前綴。
 
-```json
-// openclaw.plugin.json
-{
-  "id": "my-plugin",
-  "name": "My Plugin",
-  "description": "Adds a custom tool to OpenClaw",
-  "configSchema": {
-    "type": "object",
-    "additionalProperties": false
-  }
-}
-```
+## 版本相容性會自己回退
 
-### 2. 寫進入點
+這個行為很實用：**npm 安裝時，未釘死的規格與 `@latest` 會選擇「宣告與這個 OpenClaw build 相容」的最新穩定套件。**
 
-```typescript
-// index.ts
-import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-import { Type } from "@sinclair/typebox";
+如果 npm 當前的 latest 宣告了比這個 build 更新的 `openclaw.compat.pluginApi` 或 `openclaw.install.minHostVersion`，**OpenClaw 會往回掃描較舊的穩定版本，安裝最新的那個能相容的**。
 
-export default definePluginEntry({
-  id: "my-plugin",
-  name: "My Plugin",
-  description: "Adds a custom tool to OpenClaw",
-  register(api) {
-    api.registerTool({
-      name: "my_tool",
-      description: "Do a thing",
-      parameters: Type.Object({ input: Type.String() }),
-      async execute(_id, params) {
-        return { content: [{ type: "text", text: `Got: ${params.input}` }] };
-      },
-    });
-  },
-});
-```
+但**確切版本與明確的頻道標籤（例如 `@beta`）維持釘死，不相容時直接失敗**——明確指定就尊重你的指定，這跟前面 exec 的 `host=sandbox` 是同一種取向。
 
-### 3. 發布和安裝
+## 操作者的安裝政策閘門
+
+`security.installPolicy` 可以設一個受信任的本地政策指令，在 plugin 安裝或更新前執行。它收到中繼資料加上暫存的來源路徑，可以**允許、警告或封鎖**，而且**同時涵蓋 CLI 與 Gateway 支撐的安裝／更新路徑**。
+
+警告的處理路徑設計得相當細：
+
+- **CLI** 可以互動式確認——輸入目標名稱（用跟可疑 ClawHub 發布相同的措辭），政策接著**重新評估**
+- 非互動的直接 CLI 指令可用 `--acknowledge-install-policy-warning`，它**核准該次指令呼叫遇到的每個警告，但每個警告在安裝繼續前仍會重新評估**
+- **Control UI** 顯示結構化的警告並提供「Install anyway」，行為同上
+- **其他 Gateway 支撐與自動的安裝，在沒有操作者確認流程時仍然被擋住**
+
+三件不能替代它的事值得記住：**`--force` 不核准政策警告**、**已棄用的 `--dangerously-force-unsafe-install` 也不核准**、以及 **plugin 的 `before_install` hook 執行得更晚**（前面 agent loop 那篇也提過：操作者擁有的安裝決定要用 `security.installPolicy`，不要用 `before_install`）。
+
+## allow / deny 清單的互動
+
+如果設了 `plugins.allow`，**已安裝的 plugin id 必須在那份清單裡才能載入**。
+
+有一個貼心行為：**`openclaw plugins install` 會把安裝的 id 加進既有的 `plugins.allow` 清單，並從 `plugins.deny` 移除同一個 id**，好讓這次明確的安裝在重啟後真的能載入。
+
+（前面瀏覽器那篇提過的坑就是這個機制的另一面：`plugins.allow` 裡沒有 `browser` 時，整組瀏覽器指令與工具都會消失。）
+
+## 安裝之後：重啟，然後證明它真的載入了
+
+**安裝、更新或移除 plugin 的程式碼都需要重啟 Gateway。** 開了設定重載的受管理 Gateway 會偵測到變更的安裝紀錄並自動重啟，否則自己來：
 
 ```bash
-# 外部 plugin：發布到 ClawHub 或 npm
-openclaw plugins install @myorg/openclaw-my-plugin
-
-# In-repo plugin：放到 extensions/ 目錄，自動發現
-pnpm test -- extensions/my-plugin/
+openclaw gateway restart
 ```
 
-OpenClaw 先查 ClawHub，找不到再 fallback 到 npm。
-
-## Plugin 類型
-
-### Channel Plugin
-
-用 `defineChannelPluginEntry` 連接新的聊天平台：
-
-```typescript
-import { defineChannelPluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-
-export default defineChannelPluginEntry({
-  id: "my-channel",
-  // ...channel-specific registration
-});
-```
-
-### Provider Plugin
-
-加入新的模型供應商。可以同時註冊 LLM、TTS、圖片生成、網路搜尋等能力。
-
-### Tool Plugin
-
-註冊 agent 可以呼叫的工具：
-
-```typescript
-// 必要工具——永遠可用
-api.registerTool({
-  name: "my_tool",
-  // ...
-});
-
-// 選配工具——使用者需要加到 allowlist
-api.registerTool(
-  { name: "workflow_tool", /* ... */ },
-  { optional: true }
-);
-```
-
-使用者啟用：
-```json5
-{ tools: { allow: ["workflow_tool"] } }
-```
-
-## Hook Guard
-
-Plugin 可以用 hook 攔截事件：
-
-| Hook | Guard | 行為 |
-|---|---|---|
-| `before_tool_call` | `{ block: true }` | 終止，阻止後續 handler |
-| `message_sending` | `{ cancel: true }` | 終止，阻止後續 handler |
-
-## Import 慣例
-
-永遠從聚焦的子路徑 import：
-
-```typescript
-// 正確
-import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-import { createPluginRuntimeStore } from "openclaw/plugin-sdk/runtime-store";
-
-// 錯誤（deprecated，會被移除）
-import { ... } from "openclaw/plugin-sdk";
-```
-
-## 前提需求
-
-- Node >= 22
-- TypeScript (ESM)
-- `pnpm install`（in-repo plugin）
-
-## Plugin 管理
+驗證這步官方講得很明確，而且值得抄：
 
 ```bash
-openclaw plugins install <package>    # 安裝
-openclaw plugins list                 # 列出已安裝
-openclaw plugins status               # 狀態
-/plugins                               # 聊天指令（需啟用 commands.plugins）
+openclaw plugins inspect <plugin-id> --runtime --json
 ```
 
-## Beta Release 測試
+> 用 `--runtime` 來**證明**已註冊的工具、hook、服務、Gateway 方法或 plugin 擁有的 CLI 指令。**不帶旗標的 `inspect` 只是冷的 manifest 與登錄檢查。**
 
-1. 訂閱 GitHub release tag
-2. Beta tag（`v2026.3.N-beta.1`）出現時立即測試
-3. 在 Discord `plugin-forum` 頻道回報
-4. 有問題開 issue（`Beta blocker: <plugin-name>` + `beta-blocker` label）
-5. 開 PR（`fix(<plugin-id>): beta blocker - <summary>`）
+這跟 MCP 那邊「儲存一個定義不能證明它連得上，探測才能」是完全同一個原則：**設定層的存在不等於執行期的存在。** 一個系統願意在文件裡反覆強調這件事，通常代表它被這件事咬過。
 
 ## 整體來說
 
-OpenClaw 的 Plugin 系統覆蓋了幾乎所有擴展需求——12 種能力註冊、TypeScript SDK、ClawHub 市場發布。不需要改 OpenClaw 原始碼就能加入新頻道、新模型、新工具。
+Plugin 系統的設計主軸是**供應鏈信任分級加上執行期驗證**。
+
+信任分級：ClawHub 與官方目錄是受信任的，其他來源要你明確表態（`--force`），而 `security.installPolicy` 讓組織可以在這之上再加一道自己的閘門——而且那道閘門**不能被 `--force` 繞過**。
+
+執行期驗證：安裝完要重啟，重啟完要用 `inspect --runtime` 證明，不要相信冷檢查。
+
+如果只帶走一句，我會帶「**把 plugin 安裝當成執行程式碼**」——因為它確實就是。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改，主題從 plugin 架構與 SDK 概覽改為**安裝的安全與驗證模型**。新增：官方「把安裝當成執行程式碼」的定調與受信任來源分級（任意 npm／git／本地／marketplace 來源在非互動安裝需 `--force`）、**五種安裝來源與裸套件名的解析規則**（含 `@openclaw/*` 優先解析到內建副本、要外部套件須寫 `npm:` 前綴）、**版本相容性的自動回退**（未釘死規格會掃描較舊穩定版找相容者，確切版本與 `@beta` 維持釘死並在不相容時失敗）、**`security.installPolicy` 的操作者閘門**（涵蓋 CLI 與 Gateway 路徑、警告的互動與非互動確認方式、`--force` 與已棄用旗標都不核准政策警告、`before_install` 執行更晚）、`plugins.allow` / `deny` 與安裝指令的互動，以及**`inspect --runtime` 才能證明執行期載入、不帶旗標只是冷檢查**。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/plugins/building-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/building-plugins.md) — Plugin 開發入門
-- [docs/plugins/index.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/index.md) — Plugin 總覽
-- [docs/plugins/sdk-overview.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-overview.md) — SDK 總覽
-- [docs/plugins/sdk-channel-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-channel-plugins.md) — Channel Plugin
-- [docs/plugins/sdk-provider-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-provider-plugins.md) — Provider Plugin
-- [docs/plugins/sdk-entrypoints.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-entrypoints.md) — Entry Points
-- [docs/plugins/manifest.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/manifest.md) — Plugin Manifest
-- [docs/plugins/sdk-testing.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-testing.md) — Plugin 測試
-- [docs/plugins/architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/architecture.md) — Plugin 架構
+- [Plugins](https://docs.openclaw.ai/tools/plugin) — 安裝來源、政策閘門與執行期驗證
+- [Manage plugins](https://docs.openclaw.ai/plugins/manage-plugins) — 指令範例
+- [Plugin inventory](https://docs.openclaw.ai/plugins/plugin-inventory) — 內建、官方外部與純原始碼 plugin 的清單
+- [Plugin SDK](https://docs.openclaw.ai/plugins/sdk-overview)、[Build plugins](https://docs.openclaw.ai/plugins/building-plugins) — 開發面
+- [ClawHub](https://docs.openclaw.ai/clawhub) — 社群 plugin 的發現介面

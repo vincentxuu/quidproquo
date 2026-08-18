@@ -1,236 +1,127 @@
 ---
-title: "OpenClaw Installation Guide (Part 2): Cloud Platforms, K8s & VPS Deployment"
+title: "OpenClaw Installation Guide (Part 2): Four Decisions for Cloud Deployment, and the Real Traps on K8s"
 date: 2026-03-28
 type: guide
 category: ai
 tags: [openclaw, deployment, kubernetes, fly-io, hetzner, gcp, azure, ansible, vps]
 lang: en
-tldr: "OpenClaw supports deployment to 9 cloud platforms, K8s, and Ansible automated provisioning — you can run a 24/7 Gateway for as little as $5/month."
-description: "Complete OpenClaw cloud deployment guide: Kubernetes, Fly.io, Hetzner, GCP, Azure, Ansible, and general-purpose VPS deployment."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 3
+tldr: "Deploying OpenClaw to the cloud comes down to four decisions: where the Gateway binds, where state lives, who can reach it, and how you recover. Which platform you pick is the least important of them."
+description: "An OpenClaw cloud deployment guide: the architecture shared by VPS and K8s setups, the hard rules on binding and authentication, separating admin access from Gateway access, and several places Kubernetes deployment bites."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-install-cloud)
 
-The previous post covered local installation; this one covers how to deploy OpenClaw to the cloud. From a $5/month Hetzner VPS to enterprise-grade Azure Bastion, there's documentation for every scenario.
+The previous article covered local installation. This one does not walk through each cloud platform — the official [Linux server](https://docs.openclaw.ai/vps) page has the full provider picker (DigitalOcean, Hetzner, Hostinger, Fly.io, GCP, Azure, Railway, Northflank, Oracle Cloud, Raspberry Pi, with AWS EC2/Lightsail working fine too), and pricing and instance types move constantly.
 
-## General VPS Architecture
+This article is about **the four decisions that do not change no matter whose machine you rent**.
 
-Regardless of which cloud platform you use, the architecture is the same:
+## Decision 1: where the Gateway binds
+
+Whoever's hardware it runs on, the architecture is the same:
 
 ```
-Your phone/computer → SSH tunnel or Tailscale → Gateway on VPS (port 18789) → AI model API
+Your phone/laptop → SSH tunnel or Tailscale → Gateway on the VPS (port 18789) → model API
 ```
 
-The Gateway runs on the VPS and serves as the single source of truth for state and workspace. The secure approach is to bind the Gateway to loopback and access it via SSH tunnel or Tailscale. If you need to bind to a broader network, you must set an auth token.
+The Gateway runs on the cloud host and **owns state and workspace as the single source of truth**. Practically, that means treating that machine as something to back up, not as a disposable execution environment you can rebuild at will.
 
-### Performance Tuning
+The secure default is binding to loopback and reaching it over an SSH tunnel or Tailscale Serve. One hard rule is worth committing to memory: **binding to `lan` or `tailnet` makes the Gateway require a shared secret** (`gateway.auth.token` or `gateway.auth.password`) unless authentication is delegated to a trusted proxy. That is not advice — it will refuse.
 
-Recommendations for low-power VMs and ARM hosts:
-- Enable Node's module compile cache (`NODE_COMPILE_CACHE` environment variable)
-- Use SSD storage for state and cache directories
-- Set systemd restart policy to `Restart=always`, `RestartSec=2`, `TimeoutStartSec=90`
+## Decision 2: secure admin access before Gateway access
 
-### Team Deployment
+This is the step most often skipped and most likely to hurt: **administering the host itself and reaching the Gateway are two separate concerns**, decided separately.
 
-Sharing an agent within the same trust boundary is fine. However, if there are untrusted users, isolate them with separate OS user accounts and independent OpenClaw instances.
+The recommended order is to install Tailscale first, join the VPS to your tailnet, **verify that a second SSH session over the Tailscale IP or MagicDNS name actually connects**, and only then restrict public SSH. That second session is not ceremony — it is how you confirm another door is open before closing the only one you have.
 
-## Kubernetes
+Once that is done, the Gateway can still stay on loopback with the dashboard reached over an SSH tunnel or Tailscale Serve. The two layers are independent.
 
-OpenClaw provides Kustomize-based deployment (no Helm, because "the interesting customization is in agent content, not infrastructure").
+## Decision 3: who this agent is for
 
-**Requirements:** Any K8s cluster (AKS, EKS, GKE, k3s, kind, OpenShift all work).
+One shared agent for a team is a legitimate deployment, provided **every user sits inside the same trust boundary** and the agent is business-only.
+
+Three lines to hold in practice: run it on a dedicated runtime (VPS/VM/container plus a dedicated OS account); **do not** sign that machine into personal Apple/Google accounts or personal browser and password-manager profiles; and if users are adversarial toward each other, split by gateway, host, or OS user rather than trying to isolate them through configuration.
+
+A cloud Gateway does not stop you from pairing **nodes** on local devices — screen, camera, canvas, and `system.run` stay on the local hardware while state stays centralized in the cloud.
+
+## Decision 4: how a small machine survives
+
+For low-power VMs and ARM hosts, the official combination is:
 
 ```bash
-export ANTHROPIC_API_KEY="sk-ant-..."
+export NODE_COMPILE_CACHE=/var/tmp/openclaw-compile-cache
+export OPENCLAW_NO_RESPAWN=1
+```
+
+`NODE_COMPILE_CACHE` improves repeated CLI startup time (the first run warms the cache). `OPENCLAW_NO_RESPAWN=1` keeps routine Gateway restarts in-process, which means one less process handoff and simpler PID tracking on a small host.
+
+On the systemd side, the settings worth having are `Restart=always`, `RestartSec=2`, and `TimeoutStartSec=90`, with state and cache paths on SSD. `openclaw onboard --install-daemon` installs a user unit; edit it with `systemctl --user edit openclaw-gateway.service`.
+
+**Exit 137 means the OOM killer took it**, not that your config is broken — most often during an image build.
+
+## Kubernetes: a starting point, not a production deployment
+
+The docs are blunt about it: the K8s manifests are "a minimal starting point, not a production-ready deployment." They use Kustomize rather than Helm, on the reasoning that OpenClaw is one container plus some config files, and **the interesting customization lives in agent content (Markdown, skills, config overrides), not in infrastructure templating**.
+
+```bash
+# Replace with your provider: ANTHROPIC, GEMINI, OPENAI, or OPENROUTER
+export <PROVIDER>_API_KEY="..."
 ./scripts/k8s/deploy.sh
-```
-
-After deployment, access via port-forward:
-
-```bash
 kubectl port-forward svc/openclaw 18789:18789 -n openclaw
 ```
 
-**Created resources:**
-- Dedicated namespace
-- Single Pod Deployment (with security hardening)
-- ClusterIP Service (port 18789)
-- 10 GB PVC
-- ConfigMap (agent configuration)
-- Secret (API key + gateway token)
-
-Customization options:
-- Agent instructions: edit `AGENTS.md` in the ConfigMap
-- Gateway settings: modify `openclaw.json`
-- Multi-provider: patch the Secret to add more API keys
-- External exposure: configure `gateway.bind` + Ingress
-
-For local testing, you can use Kind:
+`deploy.sh` creates token auth by default, and you have to retrieve that token to get into the Control UI:
 
 ```bash
-./scripts/k8s/kind-create.sh  # Auto-detects Docker or Podman
+kubectl get secret openclaw-secrets -n openclaw -o jsonpath='{.data.OPENCLAW_GATEWAY_TOKEN}' | base64 -d
 ```
 
-## Fly.io
+For local testing, use Kind: `./scripts/k8s/create-kind.sh` (it auto-detects Docker or Podman), with `--delete` to tear it down.
 
-Approximately $10-15/month. Includes persistent storage and automatic HTTPS.
+What gets deployed: a dedicated namespace, a single-pod Deployment (init container plus gateway), a ClusterIP Service on 18789, a 10 Gi PVC, a ConfigMap (`openclaw.json` and `AGENTS.md`), and a Secret (gateway token plus API keys).
 
-**Requirements:** flyctl CLI + Fly.io account + API key.
+Three places it actually bites:
 
-Key considerations:
-- **Memory: 512 MB is insufficient, 2 GB recommended** — otherwise you'll get OOM silent restarts
-- The process command needs `--bind lan`, otherwise Fly's proxy can't reach it
-- `internal_port` must match the gateway port
-- Set `OPENCLAW_STATE_DIR=/data` to ensure data persistence
+**1. Probes cannot check the status code alone.** The manifests assert a JSON probe contract on both `/readyz` (startup and readiness, with a five-minute startup budget) and `/healthz` (liveness), for a concrete reason: **the Control UI answers unknown paths with a catch-all `200`**, so a status-only check would pass forever even against an image where the probe route does not exist.
 
-Security hardening: use `fly.private.toml` to remove the public IP, and access via SSH / WireGuard VPN / local proxy instead.
+**2. `/startupz` is the better traffic-admission probe**, because it ignores channel health — one failing channel account then cannot evict an otherwise healthy Gateway from the Service endpoints. The catch is that it requires a newer image.
 
-Recommended specs: `shared-cpu-2x`, 2 GB RAM.
-
-## Hetzner
-
-One of the cheapest options, ~$5/month. Run with Docker on an Ubuntu/Debian VPS.
+**3. The ConfigMap is no longer the source of truth for config.** The init container seeds files only when they are missing from the PVC; **after first boot, the copy on the PVC is authoritative**. Changes made through `onboard`, `channels add`, `doctor --fix`, or the Control UI survive pod restarts, and updating the ConfigMap does not overwrite the existing PVC copy. To deliberately reseed from an updated ConfigMap, delete the persisted file and restart:
 
 ```bash
-# After SSH into the VPS
-# Install Docker + Docker Compose
-# Configure .env (gateway token, keyring password)
-# Configure docker-compose.yml (bind mount ~/.openclaw)
-# Start
+kubectl exec -n openclaw deploy/openclaw -- rm /home/node/.openclaw/openclaw.json
+kubectl rollout restart -n openclaw deploy/openclaw
 ```
 
-Key points:
-- `.env` holds secrets — **do not commit**
-- Keep the Gateway on loopback, access via SSH tunnel
-- Set restart policy to `unless-stopped`
+**This is a behavior change**: the previous template applied ConfigMap edits on every pod start and discarded config changes made through OpenClaw itself. If your workflow relied on that, switch to the reseed steps above.
 
-A community-maintained Terraform module is available for automated provisioning, security hardening, and backup/restore.
+Note also that the default manifests bind the gateway to loopback inside the pod. That is fine for `kubectl port-forward`, but a Service or Ingress path that reaches the pod IP directly will not work until you change the binding.
 
-## GCP (Google Cloud)
+## Automated provisioning
 
-Approximately $5-12/month (e2-small).
+What `openclaw-ansible` provides is security-oriented provisioning of the whole machine: a VPN mesh so the Gateway is only visible privately, a firewall that leaves only the necessary ports, containers for the agent sandbox, and systemd units with privilege restrictions. Its value is not the typing it saves — it is **turning "what this machine should expose" into a file you can run again**, rather than something someone has to remember.
 
-| Machine Type | Specs | Monthly Cost | Notes |
-|---|---|---|---|
-| e2-medium | 2 vCPU, 4 GB RAM | ~$25 | Most stable for Docker builds |
-| e2-small | 2 vCPU, 2 GB RAM | ~$12 | Minimum recommended |
-| e2-micro | 2 vCPU shared, 1 GB RAM | Free tier | Frequently OOMs |
+Verification is equally direct: scan the ports from outside and check that only the one you intended is still there.
 
-```bash
-# Create VM
-gcloud compute instances create openclaw-gateway \
-  --zone=us-central1-a \
-  --machine-type=e2-small \
-  --image-family=debian-12 \
-  --image-project=debian-cloud \
-  --boot-disk-size=20GB
+## The big picture
 
-# SSH in to install Docker + OpenClaw
-# Remote access via SSH tunnel
-gcloud compute ssh openclaw-gateway --zone=us-central1-a -- -L 18789:127.0.0.1:18789
-```
+Platform choice is the least important decision here — the gap between Hetzner and GCP is far smaller than the gap between binding to loopback and binding to `lan`. Ranked by what actually matters: **binding and authentication** (can someone connect directly), **admin isolation** (can you lock yourself out), **trust boundary** (who this agent serves), and **recoverability** (is state backed up, and how do you repair it).
 
-The Gateway binds to `127.0.0.1:18789` and is accessed from your laptop via SSH port forwarding.
+Prices and instance types will change. Those four will not.
 
-If the build fails with exit code 137 = OOM, upgrade to at least e2-small.
+## Changelog
 
-## Azure
-
-Higher monthly cost (VM ~$55 + Bastion ~$140), but the best security.
-
-Architecture:
-- **NSG** with three-layer rules: only allow Bastion subnet SSH, block public SSH, block VNet other-source SSH
-- **Ubuntu 24.04 LTS VM** with no public IP
-- **Azure Bastion** (Standard SKU + tunneling)
-
-```bash
-# SSH into VM via Bastion
-az network bastion ssh --name "$BASTION" --resource-group "$RG" --target-resource-id "$VM_ID"
-
-# Install OpenClaw inside the VM
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-Cost-saving tips:
-- Deallocate the VM when not in use
-- Delete Bastion when not in use (recreate when needed)
-- Downgrade Bastion to Basic SKU (~$38/month, but no CLI tunneling support)
-
-Cleanup: `az group delete -n "${RG}" --yes --no-wait`
-
-## Ansible (Automated Provisioning)
-
-Use `openclaw-ansible` for security-oriented automated deployment.
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/install.sh | bash
-```
-
-**Requirements:** Debian 11+ or Ubuntu 20.04+, root/sudo access.
-
-Automatically installed components:
-- **Tailscale** — VPN mesh, Gateway is only visible within the VPN
-- **UFW** — only opens SSH (22) and Tailscale (41641/udp)
-- **Docker CE** — used for agent sandbox (Gateway itself runs on the host)
-- **Node.js 24 + pnpm**
-- **Systemd service** — with security hardening like `NoNewPrivileges`, `PrivateTmp`, etc.
-
-Four-layer defense architecture:
-1. Firewall only opens SSH + Tailscale
-2. Gateway is only visible within the VPN mesh
-3. Docker DOCKER-USER chain blocks external ports
-4. Systemd restricts privilege escalation
-
-Verify external exposure: `nmap -p- YOUR_SERVER_IP` should only show port 22.
-
-The playbook is idempotent and can be run repeatedly.
-
-## Other Cloud Platforms
-
-The OpenClaw documentation also covers these platforms (not covered in depth here; each has its own dedicated documentation):
-
-| Platform | Highlights |
-|---|---|
-| DigitalOcean | Simple VPS, great for getting started |
-| Oracle Cloud | Free tier ARM machines available |
-| Railway | PaaS, simplest deployment |
-| Render | PaaS, automatic HTTPS |
-| Northflank | Container PaaS |
-
-## Node Pairing
-
-No matter where the Gateway is, you can pair a Node from your local Mac/iOS/Android device. With the Gateway in the cloud and the Node running locally, you can leverage your phone's camera, screen, location, and other capabilities while keeping state centralized in the cloud.
-
-## Overall Takeaways
-
-Core considerations for choosing a deployment:
-
-| Requirement | Recommendation |
-|---|---|
-| Cheapest | Hetzner VPS (~$5/month) or GCP e2-micro (free tier) |
-| Highest security | Azure Bastion or Ansible + Tailscale |
-| Simplest | Fly.io or Railway |
-| Most flexible | K8s (your own cluster) |
-| Automated | Ansible playbook |
-
-Regardless of your choice, the core principles remain the same: bind the Gateway to loopback, access via SSH tunnel or Tailscale, persist data to a host directory, and set an auth token.
+- 2026-08-18: Substantially revised against the current official docs. **One command that would fail was corrected**: the Kind cluster script is now `./scripts/k8s/create-kind.sh` (the original text said `kind-create.sh`). The article was also refocused: per-platform steps and the monthly-cost/instance-type comparison tables for nine clouds were removed (prices move, and the official provider picker is a better entry point), replaced by the four decisions that hold across platforms. Added: the rule that binding to `lan`/`tailnet` forces a shared secret, the ordering that verifies a second tailnet SSH session before restricting public SSH, why K8s probes must assert the JSON contract (the Control UI's catch-all 200), the `/startupz` versus `/readyz` trade-off, and the changed ConfigMap seeding behavior (the PVC copy is authoritative after first boot).
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/vps.md](https://github.com/openclaw/openclaw/blob/main/docs/vps.md) — General VPS deployment guide
-- [docs/install/kubernetes.md](https://github.com/openclaw/openclaw/blob/main/docs/install/kubernetes.md) — Kubernetes deployment
-- [docs/install/fly.md](https://github.com/openclaw/openclaw/blob/main/docs/install/fly.md) — Fly.io deployment
-- [docs/install/hetzner.md](https://github.com/openclaw/openclaw/blob/main/docs/install/hetzner.md) — Hetzner deployment
-- [docs/install/gcp.md](https://github.com/openclaw/openclaw/blob/main/docs/install/gcp.md) — GCP deployment
-- [docs/install/azure.md](https://github.com/openclaw/openclaw/blob/main/docs/install/azure.md) — Azure deployment
-- [docs/install/ansible.md](https://github.com/openclaw/openclaw/blob/main/docs/install/ansible.md) — Ansible automated provisioning
-- [docs/install/docker.md](https://github.com/openclaw/openclaw/blob/main/docs/install/docker.md) — Docker installation (VPS Docker section)
-- [docs/ci.md](https://github.com/openclaw/openclaw/blob/main/docs/ci.md) — CI/CD integration
-- [docs/install/digitalocean.md](https://github.com/openclaw/openclaw/blob/main/docs/install/digitalocean.md) — DigitalOcean deployment
-- [docs/install/oracle.md](https://github.com/openclaw/openclaw/blob/main/docs/install/oracle.md) — Oracle Cloud deployment
-- [docs/install/railway.md](https://github.com/openclaw/openclaw/blob/main/docs/install/railway.md) — Railway deployment
-- [docs/install/render.md](https://github.com/openclaw/openclaw/blob/main/docs/install/render.md) — Render deployment
-- [docs/install/northflank.md](https://github.com/openclaw/openclaw/blob/main/docs/install/northflank.md) — Northflank deployment
+- [Linux server](https://docs.openclaw.ai/vps) — provider picker, cloud architecture, admin hardening, and small-host tuning
+- [Kubernetes](https://docs.openclaw.ai/install/kubernetes) — Kustomize deployment, probe contracts, and ConfigMap seeding behavior
+- [Install](https://docs.openclaw.ai/install/) — install overview and hosting entry points
+- [Docker](https://docs.openclaw.ai/install/docker) — containerized deployment and image upgrade behavior
+- [Gateway runbook](https://docs.openclaw.ai/gateway/) — Gateway binding, authentication, and operations

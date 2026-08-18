@@ -1,186 +1,148 @@
 ---
-title: "OpenClaw 工具篇（二）：Skills 系統與 Sub-Agent"
+title: "OpenClaw 工具篇（二）：Skills 的六層優先順序，與子 agent 不給訊息工具的理由"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, skills, clawhub, sub-agents, skill-md, agent-skills]
+tags: [openclaw, skills, subagents, sessions-spawn, skill-workshop, clawhub]
 lang: zh-TW
-tldr: "Skills 是 AgentSkills 相容的 SKILL.md 資料夾，有 6 層載入優先順序。ClawHub 是公開市場。Sub-agent 最多巢狀 5 層。"
-description: "OpenClaw 的 Skills 系統（載入優先順序、格式、Gating、ClawHub 市場）與 Sub-Agent 機制。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 21
+tldr: "Skills 從六個來源載入、同名時高優先者勝，而 per-agent 的清單是取代不是合併。子 agent 預設拿不到 session 與訊息工具——它回傳純文字給父 agent，人看得到的回覆權留在父 agent 手上。"
+description: "OpenClaw 的 skills 與子 agent：六層載入優先順序、node 託管的 skills、agent allowlist 的取代語意、$skill 引用、Skill Workshop 提案佇列，以及子 agent 的推播式完成與投遞重試。"
 draft: false
 ---
 
-OpenClaw 用 Skills 教 agent 使用工具，用 Sub-Agent 讓 agent 派生子任務。這篇講這兩個系統。
+Skills 教 agent **怎麼做事**，子 agent 讓它**同時做很多事**。這兩件事放在一起講，是因為它們共用同一個問題：**怎麼在不炸掉 context 的前提下擴充能力。**
 
-## Skills 系統
+## Skills 的六層載入優先順序
 
-### 什麼是 Skill
+Skill 是含 `SKILL.md` 的目錄。OpenClaw 從六個來源載入，**同名時最高優先者勝**：
 
-每個 Skill 是一個目錄，包含一個 `SKILL.md`（帶 YAML frontmatter 和指令）。OpenClaw 在載入時根據環境、設定、binary 是否存在來過濾 skill。
-
-### 載入優先順序（高到低）
-
-| 順序 | 來源 | 路徑 |
+| 優先 | 來源 | 路徑 |
 |---|---|---|
 | 1（最高）| Workspace skills | `<workspace>/skills` |
-| 2 | Project agent skills | `<workspace>/.agents/skills` |
-| 3 | Personal agent skills | `~/.agents/skills` |
-| 4 | Managed/local skills | `~/.openclaw/skills` |
-| 5 | Bundled skills | npm 套件或 OpenClaw.app |
-| 6（最低）| Extra dirs | `skills.load.extraDirs` |
+| 2 | 專案 agent skills | `<workspace>/.agents/skills` |
+| 3 | 個人 agent skills | `~/.agents/skills`（僅預設狀態）|
+| 4 | 受管理／本地 skills | `<state>/skills` |
+| 5 | 內建 skills | 隨安裝附帶 |
+| 6（最低）| 額外目錄 | `skills.load.extraDirs` + plugin skills |
 
-同名 skill 時，高優先順序的覆蓋低的。Plugin 的 skill 跟 `extraDirs` 同層。
+Skill 根目錄**支援分組佈局**——`SKILL.md` 出現在設定根目錄下的任何地方（最深 6 層）都會被發現，資料夾路徑只是為了整理。**skill 的名稱與斜線指令來自 frontmatter 的 `name` 欄位**（缺少時才用目錄名），agent allowlist 也是比對這個 `name`。
 
-### SKILL.md 格式
+有一條遷移提醒：**Codex CLI 的原生 `$CODEX_HOME/skills` 不是 OpenClaw 的 skill 根目錄**，要用 `openclaw migrate plan codex` 盤點、`openclaw migrate codex` 複製過來。
 
-```markdown
----
-name: image-lab
-description: Generate or edit images via a provider-backed image workflow
-metadata: {"openclaw": {"requires": {"bins": ["uv"], "env": ["GEMINI_API_KEY"]}}}
----
+## Node 託管的 skills
 
-Instructions for the agent...
-Use {baseDir} to reference the skill folder path.
-```
+一個連線中的無頭 node 可以發布它自己 skills 目錄裡的 skill。它們**在 node 連線時出現在正常的 agent skill 清單裡，斷線就消失**。
 
-### Gating（載入時過濾）
+同名衝突時**本地或 Gateway 的 skill 保住名字，node 的那個會拿到確定性的 node 前綴名稱**。因為它的檔案、相對引用與二進位檔都在 node 上，載入與執行要用 `exec host=node node=<id>`；改了 node 的 skill 檔案之後要**重啟 node host**。
 
-`metadata.openclaw` 控制 skill 何時可用：
+## Allowlist：位置與可見性是兩回事
 
-| 欄位 | 作用 |
-|---|---|
-| `always: true` | 永遠載入 |
-| `os` | 限制平台（`darwin`、`linux`、`win32`） |
-| `requires.bins` | 所有 binary 必須在 PATH |
-| `requires.anyBins` | 至少一個 binary 在 PATH |
-| `requires.env` | 環境變數必須存在 |
-| `requires.config` | config 路徑必須為 truthy |
-| `primaryEnv` | 對應 `skills.entries.<name>.apiKey` |
-
-**沙箱注意：** `requires.bins` 在主機載入時檢查。如果 agent 在沙箱裡，binary 也必須在容器內（用 `setupCommand` 安裝）。
-
-### 進階 frontmatter
-
-| Key | 預設 | 說明 |
-|---|---|---|
-| `user-invocable` | `true` | 是否作為使用者 slash command |
-| `disable-model-invocation` | `false` | 排除出 model prompt |
-| `command-dispatch` | — | 設 `tool` 直接呼叫工具，不經模型 |
-| `command-tool` | — | `command-dispatch: tool` 時呼叫的工具名 |
-
-### Config 覆寫
+這是最容易誤解的一組概念：**skill 的位置（優先順序）與 skill 的可見性（哪個 agent 能用）是分開的控制。**
 
 ```json5
 {
-  skills: {
+  agents: {
+    defaults: { skills: ["github", "weather"] },
     entries: {
-      "image-lab": {
-        enabled: true,
-        apiKey: { source: "env", provider: "default", id: "GEMINI_API_KEY" },
-        env: { GEMINI_API_KEY: "..." },
-        config: { endpoint: "https://example.invalid", model: "nano-pro" }
-      }
-    }
-  }
+      writer: { default: true },        // 繼承 github、weather
+      docs: { skills: ["docs-search"] }, // 完全取代預設
+      "locked-down": { skills: [] },     // 沒有任何 skill
+    },
+  },
 }
 ```
 
-- `enabled: false` 停用 skill
-- `env` 在 agent run 開始時注入 `process.env`，結束後恢復
-- `apiKey` 支援明文或 SecretRef
-- `allowBundled` 可限制哪些 bundled skill 可用
+規則：省略 `agents.defaults.skills` 代表預設不限制；省略 `agents.entries.*.skills` 代表繼承；**非空的 per-agent 清單是最終集合，不與預設合併**。
 
-### Session Snapshot
+有效的 allowlist 會**橫跨 prompt 建構、斜線指令發現、沙箱同步與 skill 快照**——不是只影響其中一處。
 
-OpenClaw 在 session 啟動時快照可用 skill，同 session 內重複使用。Skills watcher 可以在 `SKILL.md` 變更時 hot reload。
+但官方加了一句很重要的界線：**這不是主機的 shell 授權邊界。** 如果同一個 agent 能用 `exec`，就要另外用沙箱、OS 使用者隔離、exec 的 deny/allow 清單與 per-resource 憑證去約束那個 shell。
 
-### Remote macOS Node
+## 在 prompt 裡引用 skill
 
-Linux Gateway 連著 macOS node 時，可以用 macOS-only skills（agent 透過 `nodes.run` 執行）。
+Control UI 的輸入框打 `$` 可以搜尋當前 agent 可用的 skill，選中會插入穩定的指令名稱：
 
-### Token 成本
-
-Skill 在 system prompt 裡的開銷：
-- 基礎：195 字元（有任何 skill 時）
-- 每個 skill：97 字元 + name + description + location 長度
-- 粗估：每個 skill 約 24+ token
-
-## ClawHub
-
-OpenClaw 的公開 skill 市場，瀏覽 [clawhub.com](https://clawhub.com)。
-
-### 常用指令
-
-```bash
-openclaw skills search <keyword>     # 搜尋
-openclaw skills install <skill-slug> # 安裝到 workspace/skills
-openclaw skills update --all         # 更新全部
+```text
+Use $github and $release_notes to summarize this change for the release.
 ```
 
-### 安全模型
+幾個實際規則：**一則訊息最多引用 8 個不同的 skill**；引用了超過上限或被 allowlist 藏起來的 skill 時，OpenClaw 會**回傳可見的錯誤，而不是默默忽略**。
 
-- 需要 GitHub 帳號且註冊超過一週才能發布
-- 收到超過 3 個獨立舉報的 skill 自動隱藏
-- Moderator 可以管理可見性、刪除、封禁
+常見的大寫 shell 變數（`$HOME`、`$PATH`、`$EDITOR`）維持普通文字，要引用同名 skill 得用小寫；要讓引用保持字面意義就寫 `\$name`。
 
-### 發布（clawhub CLI）
+還有一個權限相關的旗標：**`disable-model-invocation: true`** 讓 skill 不出現在 `$` 選單與模型的正常 prompt 裡，**模型無法自己選它**——但獲授權的使用者明確寫 `$skill-name` 仍然可以叫用。這個分離很實用：有些 skill 你希望存在、但不希望模型自作主張用。
 
-```bash
-clawhub sync --all    # 掃描 + 發布更新
-```
+## Skill Workshop：agent 不能直接改 SKILL.md
 
-### 安全注意事項
+3 月之後新增的機制，而且設計取向值得注意：**Skill Workshop 是 agent 與你的實際 skill 檔案之間的一道提案佇列。**
 
-- **第三方 skill 視為不信任程式碼——啟用前先讀**
-- 不信任的輸入用沙箱執行
-- Skill 目錄的 realpath 必須在設定的 root 內
-- `skills.entries.*.env` 和 `apiKey` 注入主機程序，不是沙箱
-
-## Sub-Agent
-
-Agent 可以 spawn 子 agent 處理獨立任務。
-
-### 基本概念
-
-- Sub-agent 有獨立的 session、workspace、sandbox
-- 最大巢狀深度 5 層（`maxSpawnDepth`）
-- 父 agent 可以監控、引導（steer）、或終止子 agent
-
-### 管理指令
+當 agent 發現可重用的工作時，它**起草一份提案，而不是直接寫進 `SKILL.md`**。你審查、核准之後才會有任何改動。
 
 ```bash
-/subagents list                    # 列出子 agent
-/subagents kill <id>               # 終止
-/subagents log <id>                # 查看日誌
-/subagents send <id> <message>     # 發送訊息
-/subagents steer <id> <directive>  # 引導方向
-/subagents spawn <config>          # 產生新子 agent
+openclaw skills workshop list
+openclaw skills workshop inspect <proposal-id>
+openclaw skills workshop evaluate <proposal-id>
+openclaw skills workshop apply <proposal-id>
 ```
 
-### Session Tools
+這跟前面多 agent 那篇「agent 可以要求建立 agent，但需要操作者核准」是同一個模式：**允許 agent 自我改進，但把改進變成提案而不是既成事實。**
 
-| 工具 | 用途 |
-|---|---|
-| `sessions_list` | 列出可用 session |
-| `sessions_history` | 取得對話記錄 |
-| `sessions_send` | 對其他 session 發訊息 |
-| `sessions_spawn` | 建立隔離的子 session |
+## 子 agent：推播式的背景執行
 
-### 安全
+子 agent 是從既有執行 spawn 出來的背景 agent 執行，各自跑在自己的 session（`agent:<id>:subagent:<label>`），完成時**宣告**結果回請求者的聊天頻道。每一次子 agent 執行都被追蹤成一個背景任務。
 
-- Sandbox 環境下，子 agent 只能看到自己和它 spawn 的 session
-- 每個子 agent 有獨立的工具權限和 sandbox 設定
+目標很明確：平行化研究與慢速工具工作而不阻塞主執行、預設保持隔離、**讓工具面難以被誤用**、支援可設定的巢狀深度。
+
+### 三條關鍵的行為規則
+
+**一、`sessions_spawn` 是非阻塞的**，立刻回傳 run id。需要子結果的 agent 回合應該在 spawn 之後呼叫 **`sessions_yield`**——那會結束當前回合，讓完成事件當成下一則模型可見的訊息抵達。
+
+**二、完成是推播式的。** 官方寫得很直接：spawn 之後**不要**為了等它完成而迴圈輪詢 `/subagents list`、`sessions_list` 或 `sessions_history`，只在除錯時按需查狀態。
+
+**三、子 agent 預設拿不到 session 與訊息工具。** 原生子 agent **沒有 message 工具**，它回傳純助理文字給父／請求者 agent，**人看得到的回覆權留在父 agent 的正常投遞政策手上**。
+
+第三條的理由很值得想：如果子 agent 能自己說話，一次 spawn 五個就會有五個聲音同時對使用者講話。把「說話權」收攏在父 agent，等於強制它先綜合再開口。
+
+還有一條防禦性設計：**子 agent 的輸出是給請求者 agent 綜合的報告與證據，不是使用者撰寫的指令文字，不能覆寫系統、開發者或使用者政策。**
+
+### 投遞的韌性
+
+完成的交付做得比我預期的仔細：
+
+- 交回請求者 session 時帶**穩定的冪等鍵**
+- 如果請求者執行還活著，**先嘗試喚醒／引導那個執行**，而不是另開一條可見的回覆路徑
+- 叫不醒就退回請求者 agent 的交接，**而不是丟掉宣告**
+- 直接交接不可用時退回佇列路由；排隊中的完成維持 `session_queued` 狀態直到耐久佇列落定
+- **自動投遞最多重試 30 分鐘**，約 15 秒起跳、退避上限 5 分鐘。永久失敗或超過期限時，**成功的子任務會顯示為被阻擋，而不是把結果丟棄**
+- 被阻擋的結果**保留 7 天**，可以從 Tasks 頁或 `openclaw tasks retry` / `dismiss` 處理
+
+「失敗時顯示為阻擋而不是丟棄」這條，是把「工作做完了但沒送到」跟「工作沒做」分開——這在背景任務系統裡是很值得抄的區分。
+
+### 成本提醒
+
+官方特別標了一段：**每個子 agent 預設有自己的 context 與 token 用量。** 重複性高或量大的任務，用 `agents.defaults.subagents.model` 把子 agent 設成便宜的模型，主 agent 留在高品質模型上。
+
+只有在子 agent **真的需要請求者當前的逐字稿**時，才用 `context: "fork"` spawn（thread 綁定的子 agent session 預設就是 fork，因為它們是把當前對話分支成後續 thread）。
 
 ## 整體來說
 
-Skills 讓 OpenClaw 的能力可以無限擴展——從社群貢獻的 ClawHub skill 到自訂的 workspace skill。Sub-agent 則讓複雜任務可以分解處理。兩者結合，一個 agent 可以派子 agent 去用特定 skill 處理子任務。
+Skills 與子 agent 都是「擴充能力但不炸 context」的答案，方向卻相反：**skill 把知識延後到需要時才載入，子 agent 把工作移到另一個 context 裡去做。**
+
+而兩者共用同一種安全直覺——**不要讓被擴充出來的東西直接對人說話或直接改自己**。子 agent 沒有 message 工具，agent 改 skill 要走提案佇列。這兩個限制看起來瑣碎，實際上是把「自主」與「不受控」分開的關鍵。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。Skills 部分新增：**六層載入優先順序表**與分組佈局、名稱來自 frontmatter `name`、**node 託管的 skills**（連線期間可用、同名時取得 node 前綴、需 `exec host=node` 執行）、位置與可見性是分開控制、**allowlist 為取代而非合併且橫跨 prompt／指令發現／沙箱同步／快照**、「這不是 shell 授權邊界」的界線、**`$skill` 引用**（上限 8 個、超過會可見報錯、大寫 shell 變數的處理）、`disable-model-invocation`，以及 **Skill Workshop 提案佇列**與 Codex skills 的遷移指令。子 agent 部分新增：`sessions_spawn` 非阻塞與 `sessions_yield` 的搭配、**推播式完成與不要輪詢的明確指引**、**子 agent 預設無 message 工具**與其設計理由、子輸出不得覆寫政策、**投遞韌性**（冪等鍵、喚醒優先、30 分鐘重試、7 天保留、阻擋而非丟棄）與成本提醒（子 agent 專用便宜模型、`context: "fork"` 的使用時機）。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/tools/skills.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/skills.md) — Skills 系統
-- [docs/tools/clawhub.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/clawhub.md) — ClawHub 市場
-- [docs/tools/sub-agents.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/sub-agents.md) — Sub-Agent
-- [docs/concepts/session-tool.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session-tool.md) — Session Tools
+- [Skills](https://docs.openclaw.ai/tools/skills) — 載入順序、allowlist、`$` 引用與 node 託管
+- [Skill Workshop](https://docs.openclaw.ai/tools/skill-workshop) — 提案佇列的生命週期與 CLI
+- [Sub-agents](https://docs.openclaw.ai/tools/subagents) — spawn、完成交付與投遞韌性
+- [Creating skills](https://docs.openclaw.ai/tools/creating-skills)、[Self-learning](https://docs.openclaw.ai/tools/self-learning) — 自訂與自我學習
+- [Swarm](https://docs.openclaw.ai/tools/swarm) — 從程式碼編排並行 agent

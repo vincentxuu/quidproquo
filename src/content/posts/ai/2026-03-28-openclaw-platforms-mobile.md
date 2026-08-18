@@ -1,171 +1,112 @@
 ---
-title: "OpenClaw 行動平台：iOS 與 Android"
+title: "OpenClaw 行動平台：手機是周邊，不是 Gateway——連 Apple Watch 都有自己的傳輸"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, ios, android, mobile, node, canvas, camera, voice-wake]
+tags: [openclaw, ios, android, watchos, nodes, mobile, pairing]
 lang: zh-TW
-tldr: "OpenClaw 的 iOS 和 Android app 不是 Gateway，而是 Node——讓手機的相機、螢幕、位置、語音成為 AI agent 的感官延伸。"
-description: "OpenClaw iOS 與 Android 的 Node 角色、配對流程、Canvas/Camera/Voice 功能與限制。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 5
+tldr: "iOS 與 Android 的 app 是 node，不是 Gateway：它們不跑 Gateway 服務，Telegram 或 WhatsApp 的訊息也是落在 Gateway 上而不是手機上。Apple Watch 比較特別——因為 watchOS 擋掉一般 app 的低階網路，它改用簽章過的 HTTPS 輪詢。"
+description: "OpenClaw 的行動裝置支援：node 的角色定位、配對流程與逾時、能力核准的三段權限、watchOS 的專屬傳輸，以及 Telegram Dashboard Mini App 這條從手機操作的路徑。"
 draft: false
 ---
 
-OpenClaw 的手機 app 跟你想的不一樣——它們不跑 Gateway，而是作為 **Node** 連接到 Gateway。Gateway 在你的電腦或伺服器上跑，手機把自己的硬體能力（相機、螢幕、位置、麥克風）暴露給 AI agent 使用。
+行動裝置在 OpenClaw 裡的角色只有一個詞：**node（周邊）**。
 
-## Node 的角色
+## 手機不是 Gateway
 
-```
-Gateway（電腦 / VPS）
-    ↕ WebSocket
-手機 Node（iOS / Android）
-    ↕
-相機、Canvas、Location、Voice、SMS...
-```
+這是最該先建立的心智模型：
 
-Node 是周邊設備，不是 Gateway。訊息從聊天 app 進到 Gateway，Gateway 把需要手機硬體的工具呼叫路由到配對的 Node。
+> Node 是**周邊，不是 gateway**：它們不跑 gateway 服務，而**頻道訊息（Telegram、WhatsApp 等）落在 gateway 上，不是落在 node 上。**
 
-## iOS
+換句話說，你手機上的 app 不會自己去連 Telegram。它連的是**你的 Gateway**，然後把手機獨有的能力（相機、螢幕、位置、通知、Canvas）借給 agent 用。
 
-目前是 **內部預覽** 階段。
+一個 node 是連上 Gateway 並宣告 `role: "node"` 的伴隨裝置（macOS／iOS／watchOS／Android／無頭），透過 `node.invoke` 暴露指令面：`canvas.*`、`camera.*`、`device.*`、`notifications.*`、`system.*`。
 
-### 連線方式
+## watchOS 為什麼特別
 
-三種 discovery 方式：
+大部分 node 走**操作者埠上的 Gateway WebSocket**。但有一個例外，理由很技術也很具體：
 
-| 方式 | 場景 |
-|---|---|
-| Bonjour（區域網路）| Gateway 和 iPhone 在同一網路 |
-| Tailscale DNS-SD | 跨網路，但都在 tailnet 裡 |
-| 手動輸入 host/port | 任何情況 |
+> 選用的直連 Apple Watch node 在**同一個埠上使用簽章過的 HTTPS 輪詢**，因為 **watchOS 對一般 app 封鎖了通用的低階網路**。
 
-### 配對流程
+這是「平台限制決定架構」的乾淨例子——不是設計者偏好輪詢，是 WebSocket 那條路在 watchOS 上對一般 app 不開放。
 
-1. 啟動 Gateway
-2. iOS app 在設定中發現或手動輸入 Gateway
-3. 在 Gateway 的 CLI 核准配對：
+Watch 的設定也走不同的核准路徑：**用管理員鑄造的、短效的 node-only 設定碼**來核准它**固定的低風險指令面**；之後要擴充能力**仍然需要正常的核准流程**。
+
+還有一條升級順序要注意：**直連 watchOS 的 HTTPS 傳輸需要當前的協定版本**——啟用直連模式前，要跟 Gateway 一起更新 watch app。
+
+## 配對：兩個獨立的儲存
+
+這是 node 這塊最容易搞混的地方，值得講清楚。**有兩套配對紀錄，管的事情不同：**
+
+**裝置配對（device pairing）** — node 在連線時提出簽章過的裝置身分，Gateway 為 `role: node` 建立一筆裝置配對請求。**這一套管的是傳輸層認證。**
 
 ```bash
 openclaw devices list
 openclaw devices approve <requestId>
+openclaw nodes status
 ```
 
-### 功能
+**Node 配對儲存**（`openclaw nodes pending/approve/reject/remove/rename`）— 這是**另一個由 gateway 擁有的儲存**，追蹤 node 跨重連時**已核准的指令與能力面**。官方明說：**它不管傳輸認證，那是裝置配對的事。**
 
-**Canvas** — WKWebView 渲染互動內容。Gateway 在 `/__openclaw__/canvas/` 提供 HTTP 端點，可以導覽到自訂 URL、執行 JavaScript、截圖。
+還有一條安全保證：**裝置配對紀錄是耐久的「已核准角色」契約。Token 輪替留在那份契約內，它無法把一個已配對的 node 升級成配對核准從未授予的角色。**
 
-**Camera** — 前後鏡頭拍照、錄影片段（JPEG / MP4）。
+### 待處理請求的行為
 
-**Voice Wake** — 喚醒詞啟動，加上連續語音模式。
+**待處理的配對請求會在裝置最後一次重試的 5 分鐘後過期**——但有個貼心設計：**持續重連的裝置會讓它那一筆待處理請求（與 `requestId`）保持存活，而不是每幾分鐘就鑄造一個新提示。**
 
-**Location** — GPS 定位。
+反過來，如果 node 用**變更過的認證細節（角色／範圍／公鑰）**重試，**先前的待處理請求會被取代並產生新的 `requestId`**，客戶端會收到 `device.pair.resolved` 事件——所以**核准前應該重跑一次 `openclaw devices list`**。
 
-### Push 通知架構
+## 核准範圍是分三段的
 
-iOS 版用 relay-backed push 系統，不把 APNs token 直接存在 Gateway 上。這是為了：
-- 正式版憑證不散佈到使用者部署
-- relay 只接受 Apple 正式發布的 build
-- Gateway 只能對自己配對的裝置發 push
-- app、relay、Gateway 之間有加密委派
+這個設計很值得看：**核准所需的權限跟著待處理請求宣告的指令走**：
 
-### 限制
-
-- 需要 app 在前景才能用媒體指令（iOS 背景執行限制）
-- 重裝 app 後 keychain token 可能遺失，需重新配對
-- Canvas host 設定遺漏會導致 canvas 載入失敗
-
-## Android
-
-源碼已開放，**尚未公開發布**。可以用 Java 17 + Android SDK 自行編譯。
-
-### 連線方式
-
-透過 mDNS/NSD 發現 Gateway，或手動輸入 WebSocket URL（`ws://<host>:18789`）。
-
-### 配對流程
-
-類似 iOS：Setup Code 或手動模式連線，然後在 Gateway CLI 核准。
-
-```bash
-openclaw devices list
-openclaw devices approve <requestId>
-```
-
-### 功能
-
-Android 的功能比 iOS 更豐富，因為 Android 的權限模型更開放：
-
-**Chat** — 歷史紀錄、發送訊息、push 更新訂閱。
-
-**Canvas / Camera** — HTML/CSS/JS 編輯、JPEG 截圖、MP4 錄影。
-
-**Voice** — 麥克風控制、轉錄、TTS 播放（ElevenLabs 或系統 TTS fallback）。
-
-**Device Commands（Android 獨有）：**
-
-| 指令 | 功能 |
+| 請求宣告的指令 | 需要的範圍 |
 |---|---|
-| `device.notifications` | 讀取通知 |
-| `device.contacts` | 讀取聯絡人 |
-| `device.calendar` | 讀取行事曆 |
-| `device.callLogs` | 讀取通話紀錄 |
-| `device.sms` | 發送簡訊 |
-| `device.motion` | 動作感測器 |
-| `device.status` | 裝置狀態 |
+| 無指令 | `operator.pairing` |
+| 非 exec 的 node 指令 | `operator.pairing` + `operator.write` |
+| `system.run` / `system.run.prepare` / `system.which` | `operator.pairing` + **`operator.admin`** |
 
-### 八步設定流程
+也就是說，**批准一台只要看看相機的手機，和批准一台能在你機器上執行 shell 指令的裝置，需要的權限不一樣。** 這比「配對就是配對」的一刀切安全得多。
 
-1. Gateway 開啟 verbose logging
-2. （可選）用 dns-sd 驗證 discovery
-3. Android app 連線（Setup Code 或手動）
-4. Gateway CLI 核准配對
-5. 驗證連線（`openclaw nodes status`）
-6. 測試 chat 功能
-7. 測試 Canvas / Camera
-8. 測試 Voice 和 device commands
+移除也有對應的細緻度：`openclaw nodes remove --node <id|name|ip>` 對裝置支撐的 node 會**撤銷該裝置在已配對裝置儲存裡的 `node` 角色並斷開那個裝置的 node 角色 session**——**混合角色的裝置保留它的紀錄、只失去 `node` 角色，而純 node 的裝置紀錄則被刪除**。同時也會清掉 node 配對儲存裡的對應條目。
 
-## iOS vs Android 功能比較
+## 從手機真正操作它的兩條路
 
-| 功能 | iOS | Android |
-|---|---|---|
-| Canvas | ✅ WKWebView | ✅ WebView |
-| Camera（拍照）| ✅ | ✅ |
-| Camera（錄影）| ✅ | ✅ |
-| Location | ✅ | ✅ |
-| Voice Wake | ✅ | ✅ |
-| Voice / TTS | ✅ | ✅ |
-| Push 通知 | ✅ relay-backed | ✅ |
-| SMS 發送 | ❌ | ✅ |
-| 聯絡人 / 行事曆 | ❌ | ✅ |
-| 通話紀錄 | ❌ | ✅ |
-| 通知讀取 | ❌ | ✅ |
-| 動作感測器 | ❌ | ✅ |
-| 公開發布 | 內部預覽 | 未公開（可自行編譯）|
+**一、行動 app 當 node**：手機提供相機、位置、通知、Canvas 這些本地能力，Gateway 留在雲端或家用主機上。前面雲端部署那篇提過這個組合——**state 集中在雲端，感官留在本地。**
 
-## Telegram 配對（iOS 推薦方式）
+**二、Telegram 的 Dashboard Mini App**：在跟 bot 的 DM 裡打 `/dashboard`，可以把完整的 Control UI 當成 Telegram WebApp 打開。前提是 `gateway.tailscale.mode` 設成 `serve` 或 `funnel`，而且你的數字 Telegram user ID 要在有效的 `allowFrom` 或 `commands.ownerAllowFrom` 裡——**萬用字元和使用者名稱都不算數**。
 
-如果你用 Telegram，最簡單的 iOS 配對方式是透過 `device-pair` plugin：
+第二條路的好處是**不需要裝任何東西**，缺點是需要先把 Tailscale 的發布模式設好。
 
-1. 在 Telegram 對 bot 發 `/pair`
-2. Bot 回覆設定指引和 setup code
-3. iOS app → Settings → Gateway，貼上 setup code
-4. 回到 Telegram：`/pair pending` 確認並核准
+## 版本落差：先升 Gateway，再升 node
 
-Setup code 是 base64 編碼的 JSON，包含 Gateway WebSocket URL 和短效 bootstrap token。
+分階段升級整批裝置時，順序是有規定的：
+
+> **先升級 Gateway，再逐一升級每個 node。**
+
+Gateway 的 WebSocket 接受 **N-1 協定窗口**內的已認證 node 客戶端——當前 v4 的 Gateway 因此接受 v3 的 node（前提是連線同時宣告 `role: "node"` 與 `client.mode: "node"`）。但**操作者與 UI 的 session 仍然必須用當前協定。**
+
+N-1 的 node 在升級期間**仍然可見且可管理**，Gateway 會記錄 `legacy node protocol accepted` 並附上升級建議。配對、裝置認證、指令 allowlist 與 exec 核准**全部照常適用**，但 **plugin 擁有的能力與指令會隱藏起來直到 node 升到當前協定**。比 N-1 更舊的 node 需要在重連前用其他方式升級。
 
 ## 整體來說
 
-手機在 OpenClaw 裡不是「另一個聊天介面」，而是 AI agent 的感官延伸。Gateway 在雲端或電腦上思考，手機提供相機、位置、螢幕等現實世界的輸入。Android 因為權限模型較開放，可以做更多事（讀通知、發簡訊、看行事曆）。iOS 則在推送通知的安全架構上更講究。
+行動平台這一層的設計可以濃縮成一句：**手機借出能力，Gateway 保有權威。**
+
+而其中最值得學的是**核准範圍的三段分級**——它承認「配對一台裝置」不是單一決策，而是取決於那台裝置想要什麼。一台只要回報位置的手機，和一台想跑 `system.run` 的機器，本來就不該用同一個門檻。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。新增：**node 是周邊而非 gateway** 的定位（頻道訊息落在 Gateway 上）、**watchOS 的簽章 HTTPS 輪詢傳輸**與其理由（watchOS 封鎖一般 app 的低階網路）、watch 的短效 node-only 設定碼與升級順序要求、**裝置配對與 node 配對是兩個獨立儲存**（前者管傳輸認證、後者追蹤指令能力面，且 token 輪替無法升級角色）、**待處理請求 5 分鐘過期但持續重連會保活**、認證細節變更會取代舊請求並需重查、**核准範圍的三段分級**（無指令／非 exec／`system.run` 分別需要不同權限）、`nodes remove` 對混合角色與純 node 裝置的不同處理、Telegram Dashboard Mini App 作為免安裝的手機操作路徑，以及**版本落差的 N-1 窗口與「先升 Gateway 再升 node」的順序**。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/platforms/index.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/index.md) — 平台總覽
-- [docs/platforms/ios.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/ios.md) — iOS 平台
-- [docs/platforms/android.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/android.md) — Android 平台
-- [docs/nodes/index.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/index.md) — Nodes 總覽
-- [docs/nodes/camera.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/camera.md) — Camera 功能
-- [docs/nodes/audio.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/audio.md) — Audio 功能
-- [docs/nodes/voicewake.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/voicewake.md) — Voice Wake 功能
-- [docs/nodes/location-command.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/location-command.md) — Location 功能
-- [docs/channels/pairing.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/pairing.md) — 配對機制（Telegram 配對）
+- [Nodes](https://docs.openclaw.ai/nodes/) — 配對、能力、核准範圍與版本落差
+- [Node pairing](https://docs.openclaw.ai/gateway/pairing) — 請求與核准的完整生命週期
+- [iOS](https://docs.openclaw.ai/platforms/ios)、[Android](https://docs.openclaw.ai/platforms/android) — 各平台的 app
+- [Telegram](https://docs.openclaw.ai/channels/telegram) — Dashboard Mini App 的前提
+- [Nodes troubleshooting](https://docs.openclaw.ai/nodes/troubleshooting) — 排查手冊

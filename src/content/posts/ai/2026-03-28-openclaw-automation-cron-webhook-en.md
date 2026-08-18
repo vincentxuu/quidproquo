@@ -1,229 +1,131 @@
 ---
-title: "OpenClaw Automation (Part 1): Cron, Heartbeat, and Webhook"
+title: "OpenClaw Automation, Part 1: Choosing Among Six Mechanisms, and Why 'Exactly on Time' and 'Check on It' Are Different Jobs"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, cron, heartbeat, webhook, automation, scheduling]
+tags: [openclaw, automation, cron, heartbeat, webhook, background-tasks]
 lang: en
-tldr: "Heartbeat for periodic checks (30-minute batches), Cron for precise scheduling (with isolated sessions and model overrides), Webhook for receiving external event triggers."
-description: "OpenClaw's three automation mechanisms: Heartbeat for periodic checks, Cron for precise scheduling, and Webhook for external event triggers."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 24
+tldr: "Cron is now called Automations (openclaw cron remains an alias), and automation spans six mechanisms. The core trade-off is one line: Automations give you exact timing and isolated execution, Heartbeat gives you full main-session context on a roughly-every-30-minutes cadence."
+description: "A selection guide for OpenClaw's automation mechanisms: how Automations, Heartbeat, Background Tasks, Task Flow, Hooks, and Standing Orders divide the work, plus the scheduler's execution location, layered timeouts, and failure handling."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-automation-cron-webhook)
 
-OpenClaw is not just a passive responder — it can run tasks on a schedule, receive external events, and even proactively monitor things. This post covers the three automation mechanisms.
+OpenClaw now has **six** mechanisms for background work — enough to need a decision table. This article helps you pick the right one, then covers what the scheduler actually does.
 
-## Heartbeat: Periodic Checks
+(The naming changed too: **cron is now Automations**, managed with `openclaw automations`, with `openclaw cron` as an alias for the same commands.)
 
-Heartbeat runs periodically in the **main session** (default every 30 minutes), letting the agent check conditions and handle routine tasks.
+## How the six divide up
 
-### Use Cases
-
-- Batch-processing multiple periodic checks (inbox, calendar, notifications)
-- Requires conversation context (the agent knows what you've been working on recently)
-- Precise timing is not needed
-- Reduce API calls (one heartbeat replaces 5 separate cron jobs)
-
-### Configuration
-
-```json5
-{
-  agents: {
-    defaults: {
-      heartbeat: {
-        every: "30m",
-        target: "last",
-        activeHours: { start: "08:00", end: "22:00" },
-      }
-    }
-  }
-}
-```
-
-### HEARTBEAT.md
-
-The agent reads this file on every heartbeat:
-
-```markdown
-# Heartbeat checklist
-
-- Scan inbox for urgent emails
-- Check calendar for the next 2 hours
-- Confirm no overdue to-do items
-- If quiet for more than 8 hours, send a brief check-in
-```
-
-When there's nothing to report, the agent replies `HEARTBEAT_OK` without sending a message.
-
-## Cron: Precise Scheduling
-
-Cron runs at exact times and can use isolated sessions and different models.
-
-### Basic Usage
-
-```bash
-# Daily briefing at 7 AM
-openclaw cron add \
-  --name "Morning briefing" \
-  --cron "0 7 * * *" \
-  --tz "America/New_York" \
-  --session isolated \
-  --message "Generate today's briefing" \
-  --model opus \
-  --announce \
-  --channel whatsapp \
-  --to "+15551234567"
-
-# Reminder in 20 minutes (one-time)
-openclaw cron add \
-  --name "Meeting reminder" \
-  --at "20m" \
-  --session main \
-  --system-event "Standup meeting in 10 minutes" \
-  --wake now \
-  --delete-after-run
-```
-
-### Supported Formats
-
-- 5-field cron expression (minute/hour/day/month/weekday)
-- 6-field (with seconds)
-- `--at` for one-time scheduling
-- `--every` for interval scheduling
-- `--tz` for timezone support
-
-### Load Spreading
-
-Periodic on-the-hour schedules automatically get a random offset of 0-5 minutes to prevent all jobs from firing simultaneously. Use `--stagger <duration>` to customize or `--exact` to enforce precise timing.
-
-### Main vs Isolated Session
-
-| | Heartbeat | Cron (main) | Cron (isolated) |
-|---|---|---|---|
-| Session | Main | Main (via system event) | `cron:<jobId>` |
-| History | Shared | Shared | Starts fresh each time |
-| Context | Full | Full | None |
-| Model | Main session | Main session | Overridable |
-| Output | Only when needed | Handled by heartbeat | Announce summary |
-
-### Cost Considerations
-
-| Mechanism | Cost |
-|---|---|
-| Heartbeat | One turn every N minutes, proportional to HEARTBEAT.md size |
-| Cron (main) | Adds event to next heartbeat, no independent turn |
-| Cron (isolated) | One full agent turn per job, can use a cheaper model |
-
-## Heartbeat vs Cron Selection Guide
-
-| Scenario | Recommended | Reason |
+| What you need | Use | Why |
 |---|---|---|
-| Check inbox every 30 minutes | Heartbeat | Batch with other checks |
-| Daily report at 9:00 AM | Cron (isolated) | Requires precise timing |
-| Monitor calendar | Heartbeat | Natural fit for periodic checks |
-| Weekly deep analysis | Cron (isolated) | Independent task, can use a stronger model |
-| Reminder in 20 minutes | Cron (`--at`) | One-time precise timing |
+| Send a daily report at 9 AM sharp | **Automations** | Exact timing, isolated execution |
+| Remind me in 20 minutes | **Automations** | One-shot with precise timing (`--at`) |
+| Check the inbox every 30 minutes | **Heartbeat** | Batches with other checks, context-aware |
+| Monitor the calendar for upcoming events | **Heartbeat** | A natural fit for periodic awareness |
+| Inspect a subagent or ACP run | **Background Tasks** | The ledger tracks all detached work |
+| Audit what ran and when | **Background Tasks** | `openclaw tasks list` / `audit` |
+| Multi-step research then summarize | **Task Flow** | Durable orchestration with revision tracking |
+| Run a script on session reset | **Hooks** | Event-driven |
+| Execute code on every tool call | **Plugin hooks** | Only in-process hooks intercept tool calls |
+| Always check compliance before replying | **Standing Orders** | Injected into every session |
 
-**Best practice:** Combine both — Heartbeat handles routine checks, Cron handles precise scheduling and heavy tasks.
+## The trade-off that matters: Automations vs. Heartbeat
 
-## Webhook: External Event Triggers
+| Dimension | Automations | Heartbeat |
+|---|---|---|
+| Timing | **Exact** (cron expressions, one-shot) | **Approximate** (default every 30 min) |
+| Session context | Fresh (isolated) or shared | **Full main-session context** |
+| Task records | **Always created** | **Never created** |
+| Delivery | Channel, webhook, or silent | Inline in the main session |
+| Best for | Reports, reminders, background jobs | Inbox checks, calendar, notifications |
 
-Let external systems trigger agent behavior via HTTP.
+The criterion is crisp: **need precise timing or isolated execution → Automations; the work benefits from full session context and approximate timing is fine → Heartbeat.**
 
-### Configuration
+A few Heartbeat behaviors are worth knowing: its monitor scratch is **small prompt context**, so recurring work belongs in automation jobs rather than the scratch file; empty scratch skips as `empty-heartbeat-file`; and **scheduled heartbeats automatically defer** while the main queue or automation work is busy, another reply or embedded run for the same agent is active, or the target session has active or queued work.
 
-```json5
-{
-  hooks: {
-    enabled: true,
-    token: "your-secret-token",
-    path: "/hooks",
-    allowedAgentIds: ["assistant"]
-  }
-}
-```
+It also **does not extend daily or idle session reset freshness** — consistent with what the sessions article said from the other side.
 
-### Three Endpoint Types
+## What the scheduler actually does
 
-**Wake (`POST /hooks/wake`):** Sends a system event to the main session.
+**Automations run inside the Gateway process, not inside the model** — so **if the Gateway is not running, nothing fires.** Job definitions, runtime state, and run history persist in the shared SQLite state database, so restarts do not lose schedules.
 
-```json
-{
-  "description": "New urgent email from client",
-  "timing": "now"
-}
-```
+**Every automation run creates a background task record.** One-shot jobs (`--at`) **auto-delete after success by default**; pass `--keep-after-run` to keep them.
 
-`timing` can be `now` (immediate) or `next-heartbeat` (wait for the next heartbeat).
+### Timeouts are layered
 
-**Agent (`POST /hooks/agent`):** Runs an isolated agent turn.
+This section explains "why is my job stuck for so long":
 
-```json
-{
-  "message": "Analyze this new data",
-  "agent": "analyst",
-  "session": "isolated",
-  "model": "opus",
-  "thinking": "high",
-  "channel": "whatsapp",
-  "to": "+15551234567"
-}
-```
+- `--timeout-seconds` when set
+- Otherwise, **isolated/detached agent-turn jobs are bounded by the scheduler's own 60-minute watchdog**, long before the underlying agent-turn timeout (`agents.defaults.timeoutSeconds`, **default 48 hours**) would apply
+- **Command jobs default to 10 minutes, script payloads to 5 minutes**
 
-**Mapped (`POST /hooks/<name>`):** Custom handler with payload transformation. Suitable for integrating external services like Gmail Pub/Sub.
+There are also **phase-specific watchdogs**: setup and startup stalls produce explicit messages ("isolated agent setup timed out before runner start", "run stalled before execution start (last phase: context-engine)"). These **cover embedded and CLI-backed providers even before an external CLI process starts**, and are **capped independently of long `timeoutSeconds` values** so cold-start, auth, and context failures surface quickly instead of after 48 hours.
 
-### Security
+### Failures must look like failures
 
-- Use the token in a Bearer authorization header — **do not** put it in the query string
-- Place endpoints behind a network boundary
-- Use a dedicated token
-- Restrict agent routing (`allowedAgentIds`)
-- Treat external payloads as untrusted
-- Custom transforms must be in the designated directory
+Three designs exist to stop failure from masquerading as success:
 
-## Other Automation Features
+- **Run-level agent failures count as job errors even with no reply payload**, so model and provider failures increment error counters and trigger failure notifications rather than clearing the job green
+- **Structured execution-denial metadata is recognized** (including node-host `UNAVAILABLE` wrappers whose nested error starts with `SYSTEM_RUN_DENIED` or `INVALID_REQUEST`), so a blocked command is not reported as a green run — while ordinary assistant prose is not mistaken for a denial
+- **Stale acknowledgement replies are guarded against**: if the first result is only an interim status update ("on it", "pulling everything together") and no descendant subagent is still responsible for the final answer, OpenClaw **re-prompts once for the actual result** before delivery
 
-### Gmail Pub/Sub
+The third is especially practical — it addresses the very common trap of a model replying "sure, I'll do that" and being counted as done.
 
-Integrate Gmail via Google Cloud Pub/Sub to trigger the agent on new emails. Configuration in `docs/automation/gmail-pubsub.md`.
+### Cleanup after a timeout
 
-### Hooks
+When a job hits `timeoutSeconds`, the scheduler aborts and allows a short cleanup window. **If it does not drain, Gateway-owned cleanup force-clears that run's session ownership** before recording the timeout — so queued chat work is not stuck behind a stale processing session.
 
-Shell hooks execute on specific events. Configuration in `docs/automation/hooks.md`.
+## Schedule types and time zones
 
-### Polls
+| Kind | Flag | Description |
+|---|---|---|
+| `at` | `--at` | One-shot timestamp (ISO 8601 or relative like `20m`) |
+| `every` | `--every` | Fixed interval |
+| `cron` | `--cron` | 5- or 6-field cron expression, optionally with `--tz` |
+| `on-exit` | `--on-exit` | Fires once when a watched command exits (**survives turn teardown**) |
+| `stream` | `--stream-command` | Fires from batched lines produced by a supervised long-lived command |
 
-The agent can initiate polls on Telegram, WhatsApp, Discord, and Teams:
+**Timestamps without a timezone are treated as UTC.** Cron expressions without `--tz` use the Gateway host timezone. `--tz` is **not** valid with `--every` or `--on-exit`.
+
+A thoughtful detail: **recurring top-of-hour expressions (minute `0` with a wildcard hour) are automatically staggered by up to 5 minutes** to reduce load spikes. Use `--exact` for precise timing or `--stagger 30s` for an explicit window (cron schedules only).
+
+Startup behavior is considered too: **on Gateway startup, overdue isolated agent-turn jobs are rescheduled rather than replayed immediately**, keeping model and tool bootstrap work out of the channel-connect window.
+
+## Driving it from an external scheduler
+
+If you drive `openclaw agent` from system cron or another scheduler, the docs recommend **wrapping it with a hard-kill escalation** even though the CLI handles `SIGTERM`/`SIGINT`:
 
 ```bash
-openclaw message poll --channel telegram --target 123456789 \
-  --poll-question "Ship it?" --poll-option "Yes" --poll-option "No"
+timeout -k 60 600 openclaw agent ...
 ```
 
-### Auth Monitoring
+The `-k` value is the backstop when the process cannot drain in time. For systemd units, use a `SIGTERM` stop signal with a `TimeoutStopSec` grace window.
 
-An optional ops script monitors authentication status (systemd/Termux). Configuration in `docs/automation/auth-monitoring.md`.
+Also: **reusing a `--run-id` while the original Gateway run is still active reports the duplicate as in-flight** rather than starting a second run.
 
-## Summary
+## The big picture
 
-OpenClaw's automation is organized in three layers:
+Choosing here answers two questions: **how precise does the timing need to be** (exact → Automations, approximate → Heartbeat) and **do you need context** (isolated → Automations, full main session → Heartbeat).
 
-1. **Heartbeat** — Periodic batch checks, context-aware, low cost
-2. **Cron** — Precise scheduling with isolated session and model override support
-3. **Webhook** — External event-driven, supporting wake, agent, and mapped endpoint types
+What is most admirable about the scheduler itself is its care with **failure semantics**: layered timeouts surface cold-start problems quickly instead of after 48 hours, denied commands are not counted green, and "I'm on it" is not counted as done. All concrete implementations of "make failure look like failure."
 
-All three can be freely combined. The most efficient setup uses Heartbeat for routine monitoring + Cron for precise scheduling + Webhook for external events.
+Standing Orders are next — they answer a different question: **what the agent is authorized to do.**
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs. **Cron is now Automations** (`openclaw cron` as alias), and automation expanded to six mechanisms (Automations, Heartbeat, Background Tasks, Task Flow, Hooks, Standing Orders) with the full decision table and the Automations/Heartbeat comparison. Added the scheduler's actual behavior: **running inside the Gateway process so nothing fires when it is down**, SQLite-persisted state, a task record per run, **layered timeouts** (the scheduler's 60-minute watchdog, 10-minute commands, 5-minute scripts, a 48-hour underlying default) and phase-specific watchdogs, **the three "failure must look like failure" designs**, forced session-ownership clearing after a timeout, the `on-exit` and `stream` schedule kinds, up-to-5-minute staggering with `--exact`/`--stagger`, rescheduling of overdue jobs at startup, and the hard-kill recommendation plus `--run-id` reuse behavior for external schedulers.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/automation/cron-jobs.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/cron-jobs.md) — Cron Jobs
-- [docs/automation/cron-vs-heartbeat.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/cron-vs-heartbeat.md) — Cron vs Heartbeat
-- [docs/automation/webhook.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/webhook.md) — Webhook
-- [docs/automation/gmail-pubsub.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/gmail-pubsub.md) — Gmail Pub/Sub
-- [docs/automation/hooks.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/hooks.md) — Hooks
-- [docs/automation/poll.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/poll.md) — Polls
-- [docs/automation/auth-monitoring.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/auth-monitoring.md) — Auth Monitoring
-- [docs/automation/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/troubleshooting.md) — Automation Troubleshooting
+- [Automation](https://docs.openclaw.ai/automation/) — the six-mechanism decision guide
+- [Automations](https://docs.openclaw.ai/automation/cron-jobs) — the scheduler, schedule kinds, failure handling
+- [Background Tasks](https://docs.openclaw.ai/automation/tasks) — the ledger for detached work
+- [Task Flow](https://docs.openclaw.ai/automation/taskflow) — multi-step flow orchestration
+- [Heartbeat](https://docs.openclaw.ai/gateway/heartbeat) — periodic main-session turns

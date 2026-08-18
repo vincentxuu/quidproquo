@@ -1,213 +1,151 @@
 ---
-title: "OpenClaw 自動化（二）：Standing Orders 永久指令"
+title: "OpenClaw 自動化（二）：Standing Orders 是授權書，Automations 是時鐘"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, standing-orders, automation, agents-md, autonomous]
+tags: [openclaw, standing-orders, automation, agents-md, escalation, autonomy]
 lang: zh-TW
-tldr: "Standing Orders 給 agent 永久授權執行定義好的程式——有明確的範圍、觸發條件、approval gate 和升級規則，搭配 Cron 做時間控制。"
-description: "OpenClaw 的 Standing Orders 機制：給 agent 永久執行權限的結構化指令，搭配 Cron 和 Heartbeat 實現自主營運。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 25
+tldr: "Standing orders 給 agent 對某個「程式」的永久操作權限，寫在 AGENTS.md 裡、每個 session 自動注入。它定義的是「被授權做什麼」，時間點則交給 automations——兩者分工，而且 automation 的提示應該引用 standing order 而不是複製它。"
+description: "OpenClaw 的 standing orders：四個必要欄位（範圍、觸發、核准閘門、升級規則）、與 automations 的分工、bootstrap 會自動注入哪些檔案，以及執行—驗證—回報的紀律。"
 draft: false
 ---
 
-Standing Orders 是 OpenClaw 最接近「讓 agent 自主運作」的功能。不是每次都下指令，而是定義好程式，agent 在授權範圍內自動執行。
+上一篇講**什麼時候跑**，這篇講**被授權做什麼**。
 
-## 為什麼需要 Standing Orders
+Standing orders 給你的 agent 對定義好的「程式」**永久的操作權限**。不必每個任務都下指令，而是定義好範圍、觸發條件與升級規則，讓 agent 在邊界內自主執行：
 
-**沒有 Standing Orders：**
-- 每個任務都要你手動下指令
-- Agent 在 request 之間閒置
-- 例行工作被忘記或延遲
-- 你變成瓶頸
+> 「週報是你的。每週五編好、送出，只有看起來不對勁時才升級給我。」
 
-**有了 Standing Orders：**
-- Agent 在定義的邊界內自主執行
-- 例行工作按時發生
-- 你只在例外情況介入
-- Agent 善用閒置時間
+## 為什麼需要它
 
-## 如何運作
+官方的對比很直白：
 
-Standing Orders 定義在 agent workspace 檔案裡。推薦直接寫在 `AGENTS.md`（每次 session 自動注入），確保 agent 永遠有指令在 context 裡。
+**沒有 standing orders**：每個任務都要提示 agent，例行工作會被遺忘或延誤，**而你自己變成瓶頸**。
 
-每個程式（Program）指定：
-1. **Scope** — agent 被授權做什麼
-2. **Triggers** — 什麼時候執行（排程、事件、條件）
-3. **Approval Gates** — 什麼需要人類簽核
-4. **Escalation Rules** — 什麼時候停下來求助
+**有 standing orders**：agent 在定義好的邊界內自主執行，例行工作照時程發生，你只在例外與核准時介入。
 
-### 搭配 Cron
+## 寫在哪裡：bootstrap 會注入什麼
 
-Standing Orders 定義「做什麼」，Cron 定義「什麼時候」：
+Standing orders 定義在 agent workspace 的檔案裡。**建議直接寫進 `AGENTS.md`**，因為它每個 session 都會自動注入。設定較大時可以放進 `standing-orders.md` 之類的專屬檔案，再從 `AGENTS.md` 引用。
 
-```
-Standing Order: "你負責每日收件匣整理"
-    ↓
-Cron Job (每天 8:00): "執行收件匣整理，依照 standing orders"
-    ↓
-Agent: 讀 standing orders → 執行步驟 → 回報結果
-```
+這裡有一份要記住的清單——**workspace bootstrap 自動注入的是：`AGENTS.md`、`SOUL.md`、`IDENTITY.md`、`USER.md`、`BOOTSTRAP.md`、`MEMORY.md`**，**但不包含子目錄裡的任意檔案**。
 
-Cron job 的 prompt 應該引用 standing order，不是重複它：
+所以「我寫在 `docs/policies/rules.md` 裡了」是無效的，除非有東西去引用它。
 
-```bash
-openclaw cron add \
-  --name daily-inbox-triage \
-  --cron "0 8 * * 1-5" \
-  --tz America/Taipei \
-  --timeout-seconds 300 \
-  --announce \
-  --message "Execute daily inbox triage per standing orders."
-```
+反過來，如果你要的是**不受 standing orders 管轄**的一次性執行——例如 CI 或腳本——用 `openclaw agent exec`：它**跳過 workspace bootstrap 檔案**，所以每次一次性執行都是自足的。
 
-## Standing Order 結構
+## 一份 standing order 的四個欄位
+
+每個程式要指定四件事：
+
+1. **Scope（範圍）** — agent 被授權做什麼
+2. **Triggers（觸發）** — 什麼時候執行（排程、事件或條件）
+3. **Approval gates（核准閘門）** — 什麼事情動手前需要人簽字
+4. **Escalation rules（升級規則）** — 什麼時候該停下來求助
+
+範例的骨架：
 
 ```markdown
 ## Program: Weekly Status Report
 
-**Authority:** 編譯資料、產生報告、遞交給利害關係人
-**Trigger:** 每週五下午 4 點（透過 cron job）
-**Approval gate:** 標準報告不需審核。異常數據標記給人類審查。
-**Escalation:** 資料來源不可用，或指標異常（超過 2σ）
+**Authority:** 彙整資料、產生報告、送交關係人
+**Trigger:** 每週五 16:00（由 automation job 強制執行）
+**Approval gate:** 標準報告不需要。異常標記出來給人看。
+**Escalation:** 資料來源不可用，或指標異常（偏離常態超過 2σ）
 
-### Execution Steps
-
-1. 從設定的來源拉取指標
-2. 與前週和目標比較
+### 執行步驟
+1. 從設定的來源拉指標
+2. 與上週和目標比較
 3. 產生報告到 Reports/weekly/YYYY-MM-DD.md
-4. 透過設定的頻道遞送摘要
+4. 透過設定的頻道送出摘要
 5. 記錄完成到 Agent/Logs/
 
-### What NOT to Do
-
-- 不要把報告送給外部人員
+### 不要做的事
+- 不要把報告寄給外部單位
 - 不要修改來源資料
-- 不要因為指標不好就跳過報告——如實報告
+- **指標難看也不要跳過投遞——如實回報**
 ```
 
-## Execute-Verify-Report 模式
+最後那條「指標難看也不要跳過投遞」是整份範例裡最值得學的一行。**明確寫出「不要做什麼」，比只寫「要做什麼」更能防住 agent 的自作聰明**——尤其是那種出於好意的自作聰明。
 
-Standing Orders 的每個任務都應該遵循：
+## 分工：授權書 vs 時鐘
 
-1. **Execute** — 做實際的工作（不只是「我會去做」）
-2. **Verify** — 確認結果正確（檔案存在、訊息已送達）
-3. **Report** — 回報做了什麼、驗證了什麼
+Standing orders 定義 **what**（被授權做什麼），automations 定義 **when**（什麼時候發生）：
 
-```markdown
-### Execution Rules
-
-- 每個任務都走 Execute-Verify-Report，沒有例外
-- "I'll do that" 不是 execution，做完再報
-- "Done" 但沒驗證不算完成，要證明
-- 執行失敗：調整方法重試一次
-- 仍然失敗：回報失敗和診斷，永遠不靜默失敗
-- 最多重試 3 次，然後升級
+```text
+Standing Order：「每日信箱分類是你的」
+    ↓
+Automation（每天 8:00）：「依 standing orders 執行信箱分類」
+    ↓
+Agent：讀 standing orders → 執行步驟 → 回報結果
 ```
 
-## 實際範例
+**關鍵在於 automation 的提示應該引用 standing order，而不是複製它。** 這是很實際的建議：複製會造成兩份規則各自漂移，最後你不知道 agent 到底聽哪一份。
 
-### 範例一：內容與社群（週期性）
-
-```markdown
-## Program: Content & Social Media
-
-**Authority:** 起草內容、排程貼文、編譯互動報告
-**Approval gate:** 前 30 天所有貼文需 owner 審查，之後 standing approval
-**Trigger:** 週循環（週一審查 → 週中起草 → 週五簡報）
-
-### Content Rules
-- 語調必須符合品牌（參考 SOUL.md）
-- 公開內容不要自我標示為 AI
-- 有數據就附上
-- 焦點放在受眾價值
+```bash
+openclaw automations add \
+  --name daily-inbox-triage \
+  --cron "0 8 * * 1-5" \
+  --tz America/New_York \
+  --timeout-seconds 300 \
+  --announce \
+  --channel imessage \
+  --to "+1XXXXXXXXXX" \
+  --message "依 standing orders 執行每日信箱分類。檢查新警示、解析歸類並持久化每一項、回報摘要給擁有者、未知項目升級。"
 ```
 
-### 範例二：財務處理（事件驅動）
+## 三種觸發形態
 
-```markdown
-## Program: Financial Processing
+官方的三個範例剛好示範了三種不同的觸發模式：
 
-**Authority:** 處理交易資料、產生報告、送摘要
-**Approval gate:** 分析不需審核。建議需要 owner 核准。
-**Trigger:** 偵測到新資料檔或月度排程
+**週期循環**（內容與社群）——週一檢視指標、週二到週四起草、週五彙整簡報。這類 standing order 的價值在於**把一週的節奏寫下來**，而不是每天重新決定。
 
-### Escalation Rules
-- 單筆 > $500：立即警報
-- 類別超出預算 20%：在報告中標記
-- 無法辨識的交易：問 owner 分類
-- 2 次重試後仍失敗：回報失敗，不猜測
-```
+值得注意它的核准閘門寫法：**「所有貼文前 30 天需要擁有者審閱，之後轉為常設核准」**——這是一個有時限的信任升級，比永遠要審或一開始就全放權都務實。
 
-### 範例三：系統監控（持續性）
+**事件觸發**（財務處理）——偵測到新檔案或每月週期時執行。它的升級規則是量化的：
 
-```markdown
-## Program: System Monitoring
+| 條件 | 動作 |
+|---|---|
+| 單筆超過 $500 | 立即警示 |
+| 類別超出預算 20% | 在報告中標記 |
+| 無法辨識的交易 | 詢問擁有者如何歸類 |
+| 重試兩次後仍處理失敗 | 回報失敗，**不要用猜的** |
 
-**Authority:** 檢查系統健康、重啟服務、發送警報
-**Approval gate:** 自動重啟服務。重啟失敗兩次才升級。
-**Trigger:** 每次 heartbeat
+最後一條同樣是「不要做什麼」的具體化。
 
-### Response Matrix
-| 狀況 | 動作 | 升級？ |
-|---|---|---|
-| 服務掛了 | 自動重啟 | 重啟失敗 2 次才升級 |
-| 磁碟 < 10% | 通知 owner | 是 |
-| 任務過期 > 24h | 提醒 owner | 否 |
-| 頻道離線 | 記錄並下次重試 | 離線 > 2 小時 |
-```
+**持續監控**（系統監控）——每個 heartbeat 週期執行。它用了一張反應矩陣，把「自己處理」與「升級」分得很清楚：服務掛掉自動重啟，**只有重啟失敗兩次才升級**；磁碟低於 10% 直接警示擁有者；頻道離線先記錄並下個週期重試，**離線超過 2 小時才升級**。
 
-## 多程式架構
+這張表回答的其實是「agent 什麼時候該吵你」——而這正是自主性能不能實際運作的關鍵。
 
-管理多個領域時，分開成獨立程式：
+## 執行—驗證—回報
 
-```markdown
-# Standing Orders
+Standing orders 要配上嚴格的執行紀律才有用。官方給的迴圈是：
 
-## Program 1: [Domain A] (Weekly)
-...
+1. **執行** — 做實際的工作，**不要只是確認收到指令**
+2. **驗證** — 確認結果
+3. **回報** — 回報真實發生的事
 
-## Program 2: [Domain B] (Monthly + On-Demand)
-...
-
-## Program 3: [Domain C] (As-Needed)
-...
-
-## Escalation Rules (All Programs)
-- [跨程式通用的升級條件]
-- [共用的 approval gates]
-```
-
-每個程式有自己的觸發節奏、approval gates、明確邊界。
-
-## 最佳實踐
-
-### 要
-
-- 從窄授權開始，建立信任後再擴展
-- 定義明確的 approval gates（高風險動作）
-- 加入「What NOT to do」段落——邊界跟權限一樣重要
-- 搭配 cron jobs 確保時間執行
-- 每週審查 agent 日誌
-- Standing orders 是活文件，隨需求演進
-
-### 不要
-
-- 第一天就給廣泛授權
-- 跳過升級規則——每個程式都需要「何時停下求助」
-- 假設 agent 會記住口頭指令——全部寫入檔案
-- 在一個程式裡混合不同領域
-- 忘記用 cron 強制執行——沒有觸發器的 standing orders 只是建議
+第一步的括號很值得注意：「不要只是確認收到指令」——這跟上一篇排程器裡「只回中途狀態會被重新提示」是同一個問題的兩種對策，一個寫在給模型的規則裡，一個做在系統裡。**兩層都需要，因為前者是建議、後者才是機制。**
 
 ## 整體來說
 
-Standing Orders 是 OpenClaw 從「聊天機器人」變成「自主助理」的關鍵。定義好授權範圍、觸發條件、和升級規則，agent 就能在安全邊界內自主運作。搭配 Cron 做時間控制、Heartbeat 做定期巡檢，形成完整的自動化系統。
+Standing orders 的本質是**把「我信任你做這件事到什麼程度」寫成文件**。它有價值的不是「讓 agent 自動做事」那部分——automations 就能做到——而是**強迫你把授權邊界、核准閘門與升級門檻寫明白**。
+
+寫的時候有兩個實用提醒：**放在 `AGENTS.md`（或從它引用），因為 bootstrap 只自動注入那六個檔案**；以及**多寫「不要做什麼」**——範例裡最有力的幾行全都是禁令。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。新增：**bootstrap 自動注入的六個檔案清單**（`AGENTS.md`、`SOUL.md`、`IDENTITY.md`、`USER.md`、`BOOTSTRAP.md`、`MEMORY.md`）與「子目錄裡的任意檔案不會被注入」的界線、**`openclaw agent exec` 作為跳過 bootstrap 的嚴格一次性入口**、四個必要欄位的完整範例、**automation 提示應引用而非複製 standing order** 的分工建議與 `openclaw automations add` 的實際指令（cron 已改名，`openclaw cron` 為別名）、三種觸發形態的範例（含有時限的信任升級與量化的升級門檻矩陣），以及執行—驗證—回報的紀律與它跟排程器層對策的關係。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/automation/standing-orders.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/standing-orders.md) — Standing Orders
-- [docs/automation/cron-jobs.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/cron-jobs.md) — Cron Jobs
-- [docs/automation/cron-vs-heartbeat.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/cron-vs-heartbeat.md) — Cron vs Heartbeat
-- [docs/concepts/agent-workspace.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-workspace.md) — Agent Workspace
-- [docs/reference/AGENTS.default.md](https://github.com/openclaw/openclaw/blob/main/docs/reference/AGENTS.default.md) — AGENTS.md 預設內容
+- [Standing orders](https://docs.openclaw.ai/automation/standing-orders) — 四個欄位、範例與執行紀律
+- [Automations](https://docs.openclaw.ai/automation/cron-jobs) — 時間面的強制執行
+- [Agent workspace](https://docs.openclaw.ai/concepts/agent-workspace) — bootstrap 自動注入的檔案
+- [Agent exec](https://docs.openclaw.ai/cli/agent) — 跳過 bootstrap 的一次性執行
+- [Automation](https://docs.openclaw.ai/automation/) — 六種自動化機制的分工

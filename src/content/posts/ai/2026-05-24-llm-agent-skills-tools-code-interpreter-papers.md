@@ -280,5 +280,5 @@ skill 系統的開放性同時打開了攻擊面。
 
 ### 站內相關文章
 
-- [Claude 檔案處理的三層架構](/posts/ai/claude-file-handling-three-layers/)
-- [System Prompts Leaks Archive](/posts/ai/system-prompts-leaks-archive/)
+- [Claude 檔案處理的三層架構](/posts/ai/2026-05-19-claude-file-handling-three-layers)
+- [System Prompts Leaks Archive](/posts/ai/2026-05-19-system-prompts-leaks-archive)

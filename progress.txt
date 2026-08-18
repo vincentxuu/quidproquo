@@ -23,61 +23,61 @@ Next steps
 2. Backfill missing post `type` and `tldr` fields.
 3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
-5. OCR 實測第二輪規劃：docs/content-plan-ocr-benchmark-round2.md。API 費率已逐家查廠商定價頁
-   （2026-08-18），純解析線走免費額度可跑完；只有 GPU 那期要先定預算（該文件第九節）。
+5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
-- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課），
-  series slug `cs230`，PR #142。筆記 `.work/cs230-notes/`、規劃 `docs/content-plan-cs230.md`。
-  build 驗過：18 頁全出、zh/en series 各列 9 篇、內部連結 0 死。
-  **同一個查證毛病一輪內犯四次，每次都是被問才動**（細節見 docs/progress-archive.md）：
-  ①四個第三方引用標「未查證」就交件 ②被問「都改完了」才自己盤，又挖出一批寫
-  「未逐一查證」其實查得到的 ③被問「為什麼查不到」才發現我把「沒查」寫成「查不到」，
-  六項裡五項一搜就有。**教訓：「未查證」不是可交件狀態，是待辦；「沒查」與「查不到」
-  不可混用。**實查後修掉三個實質錯誤：McKinsey 85% 查無此數字（真實來源是 MIT NANDA
-  的 95%）、YC 80% 實為 a16z 的 Casado 談自家案源且他已更正為 16-24%、Epoch AI 是
-  單一區間 2026-2032 非三段式。**共同模式：講者第一手經驗都站得住，出問題的全是憑
-  印象轉述的第三方數字。**另方針曾被退回一次：原「每篇挑一條主線」導致課程內容沒寫
-  完整，錯在我把「純課程筆記」說成原創性低，把人推向我有發揮空間的方向。
-- 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
-  已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
-  FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
-  條、18 份投影片全漏），補讀後改 8 篇；接著只跑格式檢查就回報「全綠」，補驗內容後再修三處。
-  **可重用教訓（細節見 docs/progress-archive.md）**：①課程網站首頁抓不到 ≠ 教材不存在——
-  投影片連結在 syllabus 分頁每堂課旁邊；②**自己在對話裡講過的數字不是來源**（口頭說「18 份
-  投影片」直接寫進文章，實際 17）；③連結回 200 ≠ 那頁支持你的宣稱（引 OWASP 2026 卻掛 2025
-  版頁面）；④`pnpm verify`／`astro check` 只驗格式，回報時別用「全綠」概括內容。
-  ②③④已進 post-verify／post 的反合理化表。
-- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
-  （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
-  點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
-  自己挖到的缺陷有吸引力但不等於讀者要的重點，bug 該當旁註。
-  文章論點是那條分界線——對應可驗證機制的門檻站得住腳（cache 前綴失效、instructions
-  進每次 system prompt、工具數佔 token），對應人類行為偏好的是意見（週末／凌晨／
-  15 秒），混進同一個分數就無法分開反駁。新增全站 glossary: prompt cache、
-  reasoning effort、vibe coding（走 claude-api skill 取正確描述，不放廠商定價）。
-- 2026-08-10: 修好全站中英切換。`switchHref` 先前只有文章頁傳，其餘 14 個頁面的
-  「EN／中文」一律掉回首頁。now series／categories／tags／about／search 全部接上，
-  動態頁先查對照語言是否真有該 slug／分類／標籤，沒有才退回預設（9 個純中文 tag
-  驗證過會退回 /en 而非連到 404）。系列的 zh/en 版改為共用 slug，只差 /en 前綴。
-  26 個 en 檔案的系列名改成英文版名稱，/en/series 不再顯示中文。
-  build 後掃 2,756 個頁面的 lang-badge：0 個連到不存在的頁面。
-  **教訓**：我前幾個一次性腳本用單層 readdir，漏掉 tech/{debug,deep-dive,guide}
-  三個巢狀目錄——因此漏改 2 個 en 檔，slug 合併後撞出 route 衝突才被 build 抓到。
-  掃 content 一律遞迴走訪。**仍開**：Claude Code 系列兩語都有重複的 order: 10
-  （28 篇卻只編到 27），會讓上下篇少一格，未動。
-- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
-  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
-  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
-  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
-  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
-  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
-  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
-  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
-  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
-  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
-  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
-  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
+  海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
+  配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
+- 2026-08-18: AI 證照備考系列開跑（規劃 docs/content-plan-ai-cert-prep.md）。A 軌四篇 x zh/en：
+  Claude CCAR-F（3 月舊文對照官方 exam guide 翻新，改今日發佈＋astro.config 留 301）、Google PMLE、
+  AWS AIF-C01、AWS AIP-C01。研究用 3 個平行 agent 抓官方 exam guide，數字我逐條抽驗過。
+  **總表文今天被自己修正四次，全部同一個病因：停在第一層官方頁就下結論。**
+  ①寫「Anthropic 未公開價格與效期」——四張的 exam guide PDF 都公開（$99/$125/$125/$175、12 個月）；
+  ②寫 generative-ai-engineer「回 HTTP 404」——實為軟性 404（狀態碼 200），拿 curl 驗會得到相反結論；
+  ③寫 AWS「只能重考、不接受繼續教育」——官方有 renew/maintain 兩條路，且 AI 三張可用高階考試
+  互相續期、一律可用五折券；④漏掉 MLA-C01 英文版 2026/9/28 停考、C02 考綱未公布。
+  **另一個教訓**：引用了不存在的站內 slug 而 `check:references` 沒擋——補強 patch 已寫好並驗過
+  （能擋下假連結），但暫緩提交，因為它會讓 Hermes 系列的前向連結變紅、擋到其他 session 的 commit。
+  patch 在 scratchpad/check-internal-links.patch，等 Hermes 寫完再套。
+  **未做**：系列尚未註冊進 series.ts（等第二批出來一次編號）；微軟四張與 NVIDIA 四張研究中。
+- 2026-08-18: Hermes Agent 導讀（2026-04-05 舊文）對照上游 README／官方 docs 翻新，並擴寫成
+  十一篇系列 x zh/en（22 檔，series slug `hermes-agent`）。**改體裁**：指令清單交還官方文件，
+  每篇只留取捨與失敗點。修掉四個失真：後端 6→7（+Vercel Sandbox）、Honcho 已改為 memory
+  provider plugin、Python 93%→~76%/TS ~20%、「OpenClaw 正式繼承者」實為遷移路徑（證據：官方
+  自己連的 HermesClaw 橋接器讓兩者共存）。導讀改今日發佈並更名，舊網址在 astro.config 留 301。
+  **可重用**：官方 docs 站的 llms-full.txt（3.8MB）是一次抓完整份文件最省事的來源。
+  **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
+  站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
+  另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
+- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 全數對照上游翻新完畢**（含補 series，slug
+  `openclaw`，order 1-32）。體裁全面改寫：逐項指令交還官方文件，留取捨與失敗點。
+  **修掉的實質錯誤（照做會失敗或講錯）**：npm 全域安裝需 `--allow-scripts=openclaw`、
+  pnpm 需 `--allow-build=`、Node 需求 24→22.22.3+/24.15+/25.9+、K8s `kind-create.sh`
+  已改名 `create-kind.sh`、冷卻遞增實為 30 秒→1 分→5 分（原寫 1 分→5 分→25 分→1 時）、
+  帳務失敗是 disabled 而非遞增冷卻、auth profile 已改存 SQLite（原 JSON 檔現為 legacy 且
+  runtime fail closed）、企業頻道「安裝：內建」對 Slack／Google Chat 已不成立、
+  **`tools.exec.host` 預設改 auto 使「沒設＝在沙箱裡」失效**、**Pi 已被吸收，內建 runtime
+  id 就是 `openclaw`**（原文整個框架過期）。移除所有固定模型 ref 與未查證的價目／容量表。
+  **教訓一：轉述型文章半衰期約一季**，易腐段落寫時就該外包給官方連結。
+  **教訓二：架構層名詞比 API 更會悄悄失效**（Pi 這種名字不會在設定檔報錯）。
+  **教訓三：官方文件自己會不一致**（同日 `/providers/` 寫 claude-opus-4-6、
+  `/concepts/` 寫 claude-opus-5），所以別在文章裡寫死模型名。
+  **協作教訓：多 session 共用 git 索引會撞**——`git add` 後等 pre-commit 的空檔裡，
+  另一個 session 的 commit 把我暫存的 6 個檔案一起帶走（40b1c42 訊息與內容不符）。
+  改用 `git commit -- <明確路徑>` 之後就沒再發生。
+  全站另有 6xx 篇無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（zh/en 對稱）。
+- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
+  查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。
+- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。**第一版主軸
+  下錯**：把自己順手驗出的 bug 當骨幹，被使用者點出才改回「這些規則主張什麼」——研究專案時
+  自己挖到的缺陷不等於讀者要的重點。新增 glossary: prompt cache／reasoning effort／vibe coding。
+- 2026-08-10: 修好全站中英切換（14 個頁面的 EN／中文都會掉回首頁）；系列 zh/en 改共用 slug。
+  **教訓**：一次性腳本用單層 readdir 會漏掉巢狀目錄，掃 content 一律遞迴。細節見 archive。
+  **仍開**：Claude Code 系列兩語都有重複的 order: 10（28 篇只編到 27），未修。
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔），B 技術群 17 格、D 反制群 4 格寫完。
+  仍開缺口（D3 通過率、縣市禁飛清單、交通部函釋）與可重用教訓見 docs/progress-archive.md
+  與 docs/content-plan-drone.md §5.2。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
