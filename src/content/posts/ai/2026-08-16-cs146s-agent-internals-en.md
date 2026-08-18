@@ -14,7 +14,7 @@ type: deep-dive
 series:
   name: "CS146S: Ten Weeks of AI-Native Development"
   order: 2
-tldr: "Week 1 of CS146S is 'build Claude Code in 200 lines' plus a dissection of production system prompts. The agent loop really is that small — Thorsten Ball's complete Go version runs under 400 lines with four tools. The hard part was never the loop; it's the ring around it: tool contracts, permissions, error recovery."
+tldr: "Week 1 of CS146S is 'build Claude Code in 200 lines' plus a dissection of production system prompts. The agent loop really is that small. The course slides close with four things Claude does underneath, one of them being `<system-reminder>` tags scattered everywhere to stop the model drifting — which appears in no official documentation."
 description: "Stanford CS146S Fall 2026 Week 1, 'The Internals of Coding Agents': the minimal agent loop, the read/write/edit/bash tool set, how production coding agents structure system prompts, and what separates a hand-rolled agent from a usable one."
 draft: false
 ---
@@ -84,6 +84,25 @@ Anthropic's guidance on system prompts is to find the "right altitude," with two
 
 To see what one actually looks like, Fall 2025's Week 4 assigned a third-party reverse-engineering write-up, [Peeking Under the Hood of Claude Code](https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62). It is not official documentation and should be read as field notes rather than a spec — but as a reference for how long a production agent prompt is and what it governs, it beats any secondhand description.
 
+## The "Secret Sauce" slide
+
+The matching Fall 2025 session was Week 2, "Building a coding agent from scratch," and [its slides are public](https://docs.google.com/presentation/d/11CP26VhsjnZOmi9YFgLlonzdib9BLyAlgc4cEvC5Fps/edit). Seven slides long, but the last one is titled "The 'Secret' Sauce" and lists four things Claude actually does underneath — none of which appear in any official documentation:
+
+> - Front-load context with tiny targeted prompts
+> - **System reminders everywhere including system/user prompts, tool calls, tool results to prevent drift (`<system-reminder>` tags)**
+> - Command prefix extraction
+> - Spawns sub agents (likely to help with preventing context overloading)
+
+The second one deserves a pause. **System reminders are short nudges injected into the system prompt, the user prompt, tool calls, and tool results, wrapped in `<system-reminder>` tags, to stop the model drifting over a long conversation.** That is the flip side of "the agent loop is just a while loop": the loop itself has no memory, so behavioral consistency comes from re-reminding on every turn.
+
+The deck's description of the architecture is also sharper than my code sketch above:
+
+> User interacts with coding agent client (windsurf, cursor, claude code) and runs a loop with an underlying llm. Sometimes the llm issues tool calls which the client executes (**off-LLM**)
+
+`off-LLM` is the key term — **tools execute outside the model**. The model only emits a structured "call this tool with these arguments"; the thing that actually runs `rm -rf` is the client. That is also why permissions and sandboxing are the client's responsibility, never the model's.
+
+The course's terminology is equally plain: the system prompt defines overall behavior and directives, the user prompt is the request, the assistant prompt is the model's response.
+
 ## What separates a hand-rolled agent from a usable one
 
 A 200-line agent runs. You would not do work with it. The gap looks roughly like this:
@@ -103,7 +122,7 @@ Put differently: Week 1 teaches the skeleton, and the remaining nine weeks teach
 
 ## A minimal hands-on route
 
-Fall 2026's assignments aren't published, but the Fall 2025 [assignment repo](https://github.com/mihail911/modern-software-dev-assignments) is public, and `week2` is "Building a coding agent from scratch." To walk it yourself:
+Fall 2026's assignments aren't published, but the Fall 2025 [assignment repo](https://github.com/mihail911/modern-software-dev-assignments) is public, and `week2` is "Building a coding agent from scratch." The course slides give only three steps — read the terminal and keep appending to the conversation, tell the LLM which tools exist (their list is `Read_file`, `List_dir`, `Edit_file`), then create and edit files. Expanded into something you can follow:
 
 1. Wire up tool use with the official SDK, with only `read_file`
 2. Add `list_files` and watch whether the model explores before reading
@@ -116,7 +135,7 @@ Step 5 is the most valuable one, and the one most people skip.
 ## What will go stale
 
 - Fall 2026 assignments and slides aren't published; the route above is inferred from the Fall 2025 repo
-- "200 lines" is the session title's claim; the code isn't public yet
+- "200 lines" is the Fall 2026 session title's claim and the code isn't public yet; the slides quoted here are from the equivalent Fall 2025 session
 - The Claude Code system prompt analysis is third-party reverse engineering and drifts between versions
 
 ## References
@@ -126,4 +145,5 @@ Step 5 is the most valuable one, and the one most people skip.
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering, 2025-09-29
 - [Writing tools for AI agents – with AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — Anthropic Engineering, tool definition design
 - [Peeking Under the Hood of Claude Code](https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62) — third-party analysis, assigned in Fall 2025 Week 4
+- [Building a coding agent from scratch](https://docs.google.com/presentation/d/11CP26VhsjnZOmi9YFgLlonzdib9BLyAlgc4cEvC5Fps/edit) — Fall 2025 Week 2 lecture slides, including the four "Secret Sauce" points
 - [modern-software-dev-assignments](https://github.com/mihail911/modern-software-dev-assignments) — Fall 2025 assignments; `week2` builds an agent from scratch

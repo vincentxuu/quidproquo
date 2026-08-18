@@ -14,8 +14,8 @@ type: deep-dive
 series:
   name: "CS146S：AI 原生開發十週"
   order: 5
-tldr: "指示檔是唯一每次開機都全額進 context 的東西，所以它是 config 不是 memory——寫太多會稀釋掉其他規則。hooks 補上指示檔補不了的一塊：規則會被忽略，hook 不會。subagent 的價值是它燒掉幾萬 token 只回傳 1,000–2,000 tokens。"
-description: "拆解 Stanford CS146S Fall 2026 第四週「Customizing Your Agent and Repository」：CLAUDE.md 與 AGENTS.md 的分工、hooks 當成確定性閘門的用法、planner／implementer／reviewer 的 subagent 切法，以及三者各自的失效模式。"
+tldr: "課程把指揮 agent 的工具列成四件：指示檔、hooks、commands、subagents。指示檔是唯一每次開機都全額進 context 的，所以它是 config 不是 memory；hooks 補上「規則會被忽略、hook 不會」那一塊；commands 是四件裡唯一由人主動觸發的。課程另給一張表，把軟體任務七步驟裡只剩一步半標成人的工作。"
+description: "拆解 Stanford CS146S Fall 2026 第四週「Customizing Your Agent and Repository」：CLAUDE.md 與 AGENTS.md 的分工、hooks 當成確定性閘門的用法、planner／implementer／reviewer 的 subagent 切法、課程列的第四件工具 commands，以及各自的失效模式。"
 draft: false
 ---
 
@@ -25,7 +25,27 @@ draft: false
 
 課程主題三條：`CLAUDE.md` 與 `AGENTS.md` 各自該放什麼、用 hooks 做 lint gate 與測試閘門、以及 subagent 的 planner / implementer / reviewer 分工。客座是 Boris Cherny——Claude Code 的作者，Fall 2025 也講過一場，這次是 fireside Q&A。
 
-這三樣東西看起來是三個功能，其實是**同一個問題的三種答案**：怎麼讓 agent 每次都照你們的做法做事，而不是每次都要重講一遍。
+課程實際列的是**四件**指揮工具（指示檔、hooks、commands、subagents）。它們看起來是四個功能，其實是**同一個問題的四種答案**：怎麼讓 agent 每次都照你們的做法做事，而不是每次都要重講一遍。
+
+## 課程的分工表：哪幾格是人的
+
+Fall 2025 對應的課堂是 Week 4「How to be an agent manager」，[投影片公開](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit)，Boris Cherny 也是那一堂的客座。它開場先畫了一條演進線：單一開發者管自己的產出 → lead 管多名開發者 → lead 管多名開發者（有 AI 輔助）→ **單一開發者管多個 agent 的產出**。課程對終點的描述是「every developer operates as a tech lead controlling their own army of agents」。
+
+然後它給了一張表，把一個軟體任務的七個步驟標上誰負責（🟩 人、🟦 agent）：
+
+```
+Provide high level requirements          🟩
+Convert requirements into a design doc   🟩/🟦
+Implement solution from doc              🟦
+Add tests                                🟦
+Ensure CI passes                         🟦
+Code review                              🟦
+Update docs                              🟦
+```
+
+**人只剩第一格，加上第二格的一半。** 這張表值得單獨看一分鐘——它把「agent manager」這個抽象說法變成一條可以對照自己現況的清單。你現在有幾格還是自己在做？
+
+課程接著列出**四件指揮工具**，我上面只寫了三件：
 
 ## 指示檔：config，不是 memory
 
@@ -53,7 +73,7 @@ draft: false
 
 指示檔跟 skill 有一個共同的弱點：**它們是建議**。模型多數時候會遵守，但「多數時候」在 CI 上不夠用。
 
-hooks 補的就是這一塊——在 agent 生命週期的特定時點跑確定性的程式，結果不看模型心情。典型用法：
+hooks 補的就是這一塊——課程的定義是「deterministic scripts that run on predefined event types」，並點名幾個事件：**PreToolUse、PostToolUse、UserPromptSubmit、PreCompact**。結果不看模型心情。典型用法：
 
 | 時點 | 跑什麼 | 擋掉什麼 |
 |---|---|---|
@@ -68,9 +88,30 @@ hooks 補的就是這一塊——在 agent 生命週期的特定時點跑確定�
 
 Factory 在 [agent readiness](https://factory.ai/news/agent-readiness) 的文章裡從另一個角度講同一件事：「Missing pre-commit hooks mean the agent waits ten minutes for CI feedback instead of five seconds.」對 agent 來說，hook 不只是守門員，也是把回饋迴圈從十分鐘壓到五秒的東西。這條線直接接到 [Week 5](/posts/ai/2026-08-16-cs146s-agent-ready-codebase)。
 
+## Commands：我漏掉的第四件
+
+課程列的四件指揮工具是 agent behavior files、hooks、**commands**、subagents。前面三件我都寫了，commands 那件我原本整段沒有。
+
+課程給的定義很短：**把常用的 prompt 存成檔案讓 agent 執行**。舉的用途是跑測試、review 程式碼、產生 commit 並 push。
+
+它跟另外三件的分界是這樣的：
+
+| | 誰觸發 | 是什麼 |
+|---|---|---|
+| 指示檔 | 自動，每次 | 一直都成立的規則 |
+| hook | 自動，特定事件 | 不可協商的閘門 |
+| **command** | **你手動叫** | **一段你懶得重打的 prompt** |
+| subagent | agent 自己決定 | 隔離的 context |
+
+**command 是四件裡唯一由人主動觸發的**。它解的問題不是「agent 會不會遵守」，是「我不想每次都重打同一段話」。這也是為什麼它最容易被跳過——沒有它東西也能跑，只是你會一直重複打字。
+
+判斷要不要做成 command 很簡單：同一段 prompt 你打過三次以上，就該存起來。
+
 ## subagent：切的是 context，不是任務
 
-課程列的是 planner / implementer / reviewer 這組分工。要注意的是，subagent 真正的機制不是「分工」——那只是表象——而是**context 隔離**。
+課程列的是 planner / implementer / reviewer 這組分工，並把 subagent 定義成「runtime delegation」，用途有兩個：替不同工作型態建立不同的 developer persona，以及**乾淨地分離各工作流的 context**。課程說它提供「customized system prompts, tools, and a separate context window」，並形容這是「a move toward agents managing other agents」。
+
+要注意的是，subagent 真正的機制不是「分工」——那只是表象——而是**context 隔離**。
 
 Anthropic 的說法是：子 agent 各自用乾淨的 context 深挖，「Each subagent might explore extensively, using tens of thousands of tokens or more, but returns only a condensed, distilled summary of its work (often 1,000-2,000 tokens)」。
 
@@ -90,7 +131,25 @@ Anthropic 的說法是：子 agent 各自用乾淨的 context 深挖，「Each s
 
 Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing that works」。
 
-## 三者怎麼組起來
+## 課程自己的五條 best practice
+
+投影片最後給了五條，每一條都很具體：
+
+- **要有 backstop**：codebase 裡的測試與 CI/CD 慣例。沒有這層，前面四件工具都只是建議
+- **可稽核性——「Label every diff made by an agent」**。這條我原本完全沒想到，但它是事後追責的唯一依據
+- **不同任務用不同模型**：課程原話是「Opus for planning, sonnet as a workhorse」
+- **複雜任務前期多牽一點**，越接近全非同步的任務才越能放手
+- **定期 checkpoint（commit）**
+
+課程也留了兩個沒有答案的問題：「How can we automate the first 10-20% research phase of any task?」與「How to maintain a queue of pending tasks?」——第一題正好是 [Week 2 RePPIT 的 Research 步驟](/posts/ai/2026-08-16-cs146s-context-engineering)在處理的事。
+
+另外一句提醒值得抄進任何一份指示檔的開頭。課程在講 `CLAUDE.md` / `.cursorrules` / `AGENTS.md` / `llms.txt` 這幾種設定檔時補了一行：
+
+> Note: The agents won't always adhere to these descriptions/directives. They are intended as guidance.
+
+**課程自己講明了指示檔是建議不是保證**——這正是 hook 存在的理由。
+
+## 四件怎麼組起來
 
 一個合理的收斂順序：
 
@@ -99,7 +158,8 @@ Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing tha
 3. 錯得可以被程式抓到的 → 變成 hook
 4. 錯在流程不知道怎麼走的 → 變成 skill
 5. 錯在 context 被無關內容塞爆的 → 變成 subagent
-6. 只有剩下的、每次都適用的硬規則才留在指示檔裡
+6. 你重複打了三次以上的 prompt → 變成 command
+7. 只有剩下的、每次都適用的硬規則才留在指示檔裡
 
 倒過來做——先寫三百行指示檔——是最常見的順序，也是最沒效的順序。
 
@@ -116,4 +176,6 @@ Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing tha
 - [Agentic AI Foundation](https://aaif.io/) — AGENTS.md 現在的託管單位
 - [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) — Anthropic Engineering，Fall 2025 Week 4 指定讀物
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering，subagent 與指示檔載入方式
+- [How to be an Agent Manager](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit) — Fall 2025 Week 4 課堂投影片，人／agent 分工表與四件指揮工具
+- [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit) — Fall 2025 Week 3 課堂投影片，設定檔清單與「agents won't always adhere」那句
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory，2026-01-20，pre-commit hook 對回饋迴圈的影響

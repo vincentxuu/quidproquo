@@ -626,3 +626,41 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 - 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
   漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
   加 3 行 line-clamp 當保險。正文與 description 未動。
+
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
+  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
+  ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
+  它是研究工序紀錄不是給讀者的文章（開頭從作者視角寫、有一整節是自我檢討），且
+  「五個數字被廣傳」這個賣點我拿不出證據——查證範圍只有 ByteByteGo 一個來源。
+  查證結果本來就在寫作前併入七篇，七篇內容不受影響。各篇 1,242–1,930 字，
+  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
+  middle；frontmatter glossary: unattended agent、containment rate。
+  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
+  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
+  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
+  的 arXiv ID（2406.10279 正確）。
+
+- 2026-08-16: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。骨架是 Fall 2026 十週大綱＋總覽（含 FA25→FA26 改版 diff：
+  Final Project 80%→50%、新增 open source 30%；砍 Modern Terminal 與 Automated UI，換上
+  Skills／Agent-Ready Codebases／Background Agents／AI-Native Team）。**課程官網把 syllabus
+  藏在前端 chunk**，兩版資料要從 `_next/static/chunks/17rusgxd1swbs.js` 抓 `eC`（FA25）
+  與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
+  來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
+  lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
+  **08-18 補課**：使用者問「有按照課程內容寫嗎」，量出來 FA25 有 45 條讀物／18 份投影片／
+  8 份作業全公開，而我讀物只用 17 條、投影片 0 份。投影片是 docs.google.com（本環境 egress
+  擋、firecrawl 額度盡）→ 改用 Tavily extract 抓 `/export?format=html` 成功。補讀 8 份後
+  改了 8 篇 x 中英：W1 加 system-reminder 防 drift／off-LLM；W2 加整份 prompting 技巧表
+  （FA26 主題「when each applies」的正本，我原本整份漏掉）＋八欄位 design doc＋MCP host/
+  client 分層與 LSP 系譜；W4 加課程的人／agent 分工表與**第四件工具 commands**（原本只寫三
+  件）；W5 修正「FA25 沒有」——種子在 FA25 W3；W6 加 review 成效數字與課程限制清單；W7 加
+  SAST/DAST/SCA 定義、五種攻擊向量、**AI SAST 誤報 50–100%**（我先前說找不到可信來源的數字，
+  課程自己有）；W10 **修正事實錯誤**——我寫「課程沒問責任歸屬」，但 W6 open questions 第六題
+  就是。**教訓：課程網站首頁抓不到 ≠ 教材不存在；投影片連結在 syllabus 分頁每堂課旁邊。**
+  **08-18 內容查證**（使用者問「你有再次驗證內容？」）：先前只跑格式檢查就回報全綠。補驗後
+  再修三處——投影片數 18→17（**18 是我口頭講的數字，未查證就寫進文章**）、OWASP 引用掛到
+  2025 版頁面且日期錯一天、「75% 投票+25% 事故」查無出處已刪；另加註 Stanford 官方目錄仍是
+  舊版。已驗：投影片 ID 對 syllabus 週次 0 錯、課程引文逐條比對逐字稿、未抓過的外部連結全通。
+  **兩條教訓已進 skill 反合理化表**：post-verify 加「自己講過的數字不是來源」「連結活著 ≠
+  那頁支持你的宣稱」；post 加「格式驗證全綠 ≠ 內容驗過」。

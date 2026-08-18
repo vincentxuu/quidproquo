@@ -43,6 +43,24 @@ The mechanism underneath is an attention budget. Anthropic cites Chroma's [conte
 
 Practical conclusion: **the context window is a budget, not a warehouse.**
 
+## The prompting techniques the course actually teaches
+
+Fall 2026's first topic this week is "Advanced prompting techniques and **when each applies**." Fall 2025 devoted a 31-slide session, [Power prompting for LLMs](https://docs.google.com/presentation/d/1MIhw8p6TLGdbQ9TcxhXSs5BaPf5d_h77QY70RHNfeGs/edit), to exactly that, and here is how it splits the "when each applies" part:
+
+| Technique | The course's applicability conditions |
+|---|---|
+| Zero-shot | Just ask, with no examples and no support |
+| K-shot (in-context learning) | k of 1, 3, 5 ("some empirical results justify these numbers"). Good for tasks without many reasoning steps, domain-specific APIs the model hasn't seen, and enforcing style or naming conventions. **Avoid** for well-known libraries and general tasks, and avoid over-constraining |
+| Chain-of-Thought | Multi-shot (write out reasoning traces) / zero-shot ("Let's think step-by-step") / explicit `<reasoning>` tags. Good for multi-step logic in programming and math — "the workhorse for a lot of reasoning models" |
+| Self-consistency | Sample the same question repeatedly (usually with CoT) and take the most common result — a form of model ensembling |
+| Tool use | "One of the most important techniques for reducing hallucinations and enabling the autonomy of LLMs" |
+| RAG | "When you @context in Cursor/Windsurf/etc this is utilizing RAG" |
+| **Reflexion** | Append "Now critique your answer. Was it correct? If not, explain why and try again." The course calls it the "workhorse of autonomous coding agents" and says **Reflexion is how modern coding IDEs produce fully agentic behavior** |
+
+That last row is the one worth noticing: the course puts Reflexion (also called self-critique) in the explanatory slot for "why does the agent in my IDE appear to correct itself." It isn't an advanced trick, it's the source of that behavior.
+
+The course's test for a prompt is cheap to apply: **"Give prompt to someone with minimal context and if they're confused an LLM will be too."** The rest is structuring prompts with tags like `<log>` and `<error>`, being explicit about languages and stacks, using role prompting aggressively, and decomposing tasks.
+
 ## RePPIT: one prompt split into five milestones
 
 RePPIT comes from the course's own instructor, Mihail Eric, who published a [full write-up](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) on MLOps Community in June 2026. The letters stand for **Re**search, **P**ropose, **P**lan, **I**mplement, **T**est.
@@ -71,14 +89,35 @@ As for the "2-3X faster" number: it comes from the framework's own author with n
 
 Spec-driven development is the same direction under a different name. Fall 2025's Week 3 assigned [Specs Are the New Source Code](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code), whose argument is that the spec, not the code, becomes the artifact you maintain. RePPIT's Plan step is that idea given a concrete shape.
 
+The course supplies its own design doc template too (Fall 2025 Week 3, [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit)) — eight fields that drop straight into RePPIT's Plan step:
+
+| Field | The course's description |
+|---|---|
+| Goal | What is the purpose of the change |
+| Definitions | What prereqs does the LLM need to know about the problem |
+| Plan | High-level implementation breakdown |
+| Source files being changed | What parts of the codebase are relevant and why |
+| Test cases | How will testing be done |
+| Edge cases | What special cases need to be accounted for |
+| Out-of-scope | What should **not** be changed |
+| **Extensions** | What changes will be relevant later so the LLM can future-proof its design and not take shortcuts |
+
+That last field is one I would not have invented. **Extensions exists to prevent shortcuts** — tell the model what's coming and it won't write an implementation that satisfies today and has to be torn out next month. The course is blunt about when this matters: simple changes need no careful prompting, but for complex tasks "you're going to become a product manager."
+
 ## MCP: four nouns and a token bill
 
-The course splits MCP fundamentals into servers, clients, tools, and transport. The short version:
+The course splits MCP fundamentals into servers, clients, tools, and transport. [Fall 2025's MCP session](https://docs.google.com/presentation/d/1zSC2ra77XOUrJeyS85houg1DU7z9hq5Y4ebagTch-5o/edit) gives sharper terminology than most documentation, because it separates **host** from **client**:
 
-- **server**: wraps some system's capabilities behind a standard interface (GitHub, a database, your internal API)
-- **client**: the agent side, handling connection and invocation
-- **tool**: a single action a server exposes, with a name, description, and parameter schema
-- **transport**: how the two talk (local stdio, or remote HTTP)
+- **Host**: the application itself — Cursor, Claude Desktop
+- **MCP Client**: a library embedded in the host, holding **one stateful session per server**
+- **MCP Server**: a lightweight wrapper in front of some tool
+- **Tool**: a callable function (which may be a data source or an API)
+
+The full call flow: the client sends `tools/list` to the server (what can you do?) → the server returns JSON describing each tool (name, summary, JSON schema) → the host injects that JSON into the model's context → a user prompt triggers the model, which emits a structured tool call → the server executes and the conversation resumes. At the time of Fall 2025 the transports were **stdio and SSE** (the spec has since moved on — check current docs before implementing).
+
+The course motivates MCP by counting connectors: integrating one third-party API means absorbing its poor documentation, inconsistent formats, authentication, and error handling yourself; multiply by hundreds of APIs and again by several LLM apps and you have **N×M connectors**. MCP standardizes output through JSON-RPC and turns that into **M+N**.
+
+There is also a lineage I didn't have: the course says MCP **"extends from Language Server Protocols,"** the difference being that it "allows for proactive agentic workflows rather than purely reactive ones as in LSP." LSP is the editor asking and the language server answering; MCP lets the model initiate. Incidentally LSP is what VSCode introduced in 2015 — which the course's IDE session labels "the conceptual inspiration for MCP."
 
 Since [MCP](https://modelcontextprotocol.io/) launched in November 2024, Anthropic's own summary of where it landed is that "the industry has adopted MCP as the de-facto standard for connecting agents to tools and data."
 
@@ -102,7 +141,15 @@ Anthropic also writes the cost down: running agent-generated code needs sandboxi
 
 ## Tool ergonomics: designing tools for agents
 
-The syllabus phrase is "Designing tools for agent ergonomics." A usable checklist:
+The syllabus phrase is "Designing tools for agent ergonomics." Fall 2025's MCP session closes on three limitations, all of which still hold:
+
+> - Agents don't handle many tools very well today
+> - APIs eat up your context window quickly
+> - **Design APIs to be AI-native rather than rigid**
+
+The session also discussed Cursor's hard cap on tool count — not a product defect, but a direct consequence of the first two.
+
+A usable checklist:
 
 - One tool, one job — overlapping functionality makes the choice ambiguous
 - Parameter names should explain themselves; no `opts`, `data`, `payload`
@@ -124,7 +171,8 @@ The sub-agent line comes with a number: a subagent may burn tens of thousands of
 
 ## What will go stale
 
-- Fall 2026 readings aren't published; the sources here were selected against the published topics
+- Fall 2026 readings aren't published; course material here comes from the public Fall 2025 slides on the same topics, and the rest from primary sources I selected
+- The slides describe MCP transports as stdio and SSE; the spec has since evolved
 - "2-3X faster" and "98.7%" come from the framework's author and a tool vendor respectively — both are self-measured
 - MCP's transport specification is still evolving; check current docs before implementing
 
@@ -138,3 +186,6 @@ The sub-agent line comes with a number: a subagent may burn tens of thousands of
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/) — servers, clients, transports
 - [Context Rot: Understanding Degradation in AI Context Windows](https://research.trychroma.com/context-rot) — Chroma Research, assigned in Fall 2025 Week 6
 - [Specs Are the New Source Code](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code) — assigned in Fall 2025 Week 3
+- [Power prompting for LLMs](https://docs.google.com/presentation/d/1MIhw8p6TLGdbQ9TcxhXSs5BaPf5d_h77QY70RHNfeGs/edit) — Fall 2025 Week 1 slides, prompting techniques and when each applies
+- [To MCP and Beyond](https://docs.google.com/presentation/d/1zSC2ra77XOUrJeyS85houg1DU7z9hq5Y4ebagTch-5o/edit) — Fall 2025 Week 2 slides, host/client/server/tool and the LSP lineage
+- [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit) — Fall 2025 Week 3 slides, the eight-field design doc template

@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-16
+Last updated: 2026-08-18
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -25,14 +25,15 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-16: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
-  已註冊進 src/utils/series.ts。骨架是 Fall 2026 十週大綱＋總覽（含 FA25→FA26 改版 diff：
-  Final Project 80%→50%、新增 open source 30%；砍 Modern Terminal 與 Automated UI，換上
-  Skills／Agent-Ready Codebases／Background Agents／AI-Native Team）。**課程官網把 syllabus
-  藏在前端 chunk**，兩版資料要從 `_next/static/chunks/17rusgxd1swbs.js` 抓 `eC`（FA25）
-  與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
-  來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
-  lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
+- 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
+  FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
+  條、18 份投影片全漏），補讀後改 8 篇；接著只跑格式檢查就回報「全綠」，補驗內容後再修三處。
+  **可重用教訓（細節見 docs/progress-archive.md）**：①課程網站首頁抓不到 ≠ 教材不存在——
+  投影片連結在 syllabus 分頁每堂課旁邊；②**自己在對話裡講過的數字不是來源**（口頭說「18 份
+  投影片」直接寫進文章，實際 17）；③連結回 200 ≠ 那頁支持你的宣稱（引 OWASP 2026 卻掛 2025
+  版頁面）；④`pnpm verify`／`astro check` 只驗格式，回報時別用「全綠」概括內容。
+  ②③④已進 post-verify／post 的反合理化表。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
   （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
   點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
@@ -63,18 +64,7 @@ Recently completed
   負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
   **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
   有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
-- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
-  ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
-  ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
-  它是研究工序紀錄不是給讀者的文章（開頭從作者視角寫、有一整節是自我檢討），且
-  「五個數字被廣傳」這個賣點我拿不出證據——查證範圍只有 ByteByteGo 一個來源。
-  查證結果本來就在寫作前併入七篇，七篇內容不受影響。各篇 1,242–1,930 字，
-  全部在寫作指南的 1000–2000 區間。新增全站 glossary: context rot、lost in the
-  middle；frontmatter glossary: unattended agent、containment rate。
-  過程中先寫了一篇 3,800 字長文再拆掉——長度失控時我用「主題範圍」當藉口砍掉安全
-  與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
-  判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
-  的 arXiv ID（2406.10279 正確）。
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
