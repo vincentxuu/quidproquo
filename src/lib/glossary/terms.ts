@@ -1242,6 +1242,18 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links_en: [{ label: 'Prompt Injection & Trust Boundaries', url: '/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en' }],
   },
   {
+    term: '密碼潑灑',
+    aliases: ['password spraying', 'password spray'],
+    definition: '用少數幾組常見密碼去試大量帳號，而不是對單一帳號猜很多次，藉此避開帳號鎖定機制。',
+    definition_en: 'Trying a small number of common passwords against many accounts, rather than many passwords against one account, to avoid triggering account lockout.',
+    advanced: '傳統暴力破解會在連續失敗後觸發鎖定，密碼潑灑改成橫向鋪開，每個帳號只試一兩次。因此防禦重點不是單一帳號的鎖定次數，而是依來源 IP 與時間窗做速率限制、淘汰可預測的密碼型態（如以員工編號變形），以及切斷 SSO 的無條件橫向信任。',
+    advanced_en: 'Classic brute force trips lockout after consecutive failures, so password spraying spreads sideways instead, trying only one or two passwords per account. The defence is therefore not per-account lockout counts but rate limiting by source IP and time window, eliminating predictable password patterns (such as employee-ID variants), and cutting off unconditional lateral trust through SSO.',
+    context: '本站在討論 AI 自主攻擊鏈與 API 端點稽核時用到這個詞。',
+    context_en: 'This site uses password spraying when discussing autonomous AI attack chains and API endpoint audits.',
+    links: [{ label: 'AI Agent 攻進政府系統，用的全是老問題', url: '/posts/ai/2026-08-18-ai-agent-attack-old-vulnerabilities' }],
+    links_en: [{ label: 'AI Agents Broke Into a Government With Nothing but Old Problems', url: '/posts/ai/2026-08-18-ai-agent-attack-old-vulnerabilities-en' }],
+  },
+  {
     term: 'benchmark',
     aliases: ['基準測試'],
     definition: '一組固定的測試題目與評分方式，用來在同一把尺上比較不同模型或系統的能力。',
