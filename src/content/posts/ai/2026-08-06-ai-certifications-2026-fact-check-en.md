@@ -174,22 +174,26 @@ If your company isn't on any of the clouds above, these are the ones that count:
 
 Oracle changed two things this year that affect how you search for material. Per the [official announcement](https://blogs.oracle.com/oracleuniversity/oci-certification-learning-paths-and-exams-2026-updates-now-available), certification titles and badges **no longer carry the calendar year** (it's "OCI Architect Associate," not "OCI 2026 Architect Associate"), and while **Foundations-level courses and exams stay free, Professional-level courses moved to paid access**. Most tutorials you'll find still teach exam codes that no longer match the official pages, so compare names before trusting one.
 
-## Claude: Four Certifications, Pricing Only at Checkout
+## Claude: Four Certifications, All Specs in the Exam Guides
 
 [Anthropic announced on July 23, 2026](https://claude.com/blog/four-role-based-claude-certifications) that the certification program had expanded to four credentials spanning Associate, Developer, and Architect roles. The same announcement notes that since the March launch, "more than 36,000 consultants have received certification across more than 1,300 organizations."
 
 Engineers want **Claude Certified Developer: Foundations**, officially described as "for engineers building applications with Claude, and includes training on the Claude API, tool use, and agent development."
 
-**On pricing, an honest caveat**: Anthropic does not list exam fees on any public page. The [official Pearson VUE page](https://www.pearsonvue.com/us/en/anthropic.html) lists only the four certification names and codes, no prices. The figures below come from third-party aggregation, **and they disagree with each other**:
+**All four fees and validity periods are officially published** — the path is just buried: the Pearson VUE page leads to the per-certification pages on [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/), and each of those links a downloadable exam guide PDF whose "Exam Details at a Glance" table states the numbers verbatim:
 
-| Certification | Code | Third-party price | Audience |
-|---|---|---|---|
-| Claude Certified Associate: Foundations | CCAO-F | $99 | Non-technical roles |
-| Claude Certified Developer: Foundations | CCDV-F | $125 | Engineers |
-| Claude Certified Architect: Foundations | CCAR-F | $125 or $175 (sources conflict) | Solution architects |
-| Claude Certified Architect: Professional | CCAR-P | $175 | Senior architects |
+| Certification | Code | Items | Time | Fee | Validity |
+|---|---|---|---|---|---|
+| [Claude Certified Associate – Foundations](https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification) | CCAO-F | 60 | 120 min | **$99** | 12 months |
+| [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification) | CCDV-F | 53 | 120 min | **$125** | 12 months |
+| [Claude Certified Architect – Foundations](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification) | CCAR-F | 60 | 120 min | **$125** | 12 months |
+| [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/claude-certified-architect-professional-certification) | CCAR-P | 63 | 120 min | **$175** | 12 months |
 
-Validity has no official public figure either; third parties generally report 12 months with a free non-proctored renewal assessment before expiry. **Treat the amount shown at Partner Academy checkout as authoritative.**
+All four pass at **720 on a 100–1,000 scaled score**, mix multiple-choice with multiple-response items, are delivered online proctored or at a Pearson test center, and report percent-correct by domain on the score report. CCAR-F has one structural quirk: **four scenarios drawn from a bank of six**.
+
+The certification pages also publish domain weights. CCAR-F breaks down as Agentic Architecture & Orchestration 27%, Claude Code Configuration & Workflows 20%, Prompt Engineering & Structured Output 20%, Tool Design & MCP Integration 18%, Context Management & Reliability 15%; CCDV-F is dominated by Applications and Integration at 33.1%.
+
+Retake rules are on the [Pearson VUE page](https://www.pearsonvue.com/us/en/anthropic.html): 14 days after a first failure, 30 after a second, 90 after a third, and **at most 4 attempts per exam in any rolling 12-month period**.
 
 The registration gate does have an official source. The Pearson VUE page (last updated 2026-07-08) states:
 
@@ -197,7 +201,7 @@ The registration gate does have an official source. The Pearson VUE page (last u
 
 Claims online that individuals can freely register for the exams are not supported by any official source I could find — **plan on needing access through a partner organization**.
 
-For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en) — written in March 2026 when only the Architect exam existed; codes and pricing here supersede it.
+For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en) — written in March 2026 when only the Architect exam existed.
 
 ## iPAS Intermediate: Taiwan's Local Option, Valid 5 Years
 
@@ -260,7 +264,7 @@ AIGP is the most policy- and regulation-oriented of the group, covering responsi
 
 **Study material freshness matters more than the certification itself.** PMLE is the clearest case: same name, same price, same-looking landing page, but old material walks you into a wall. Ten minutes with the official exam guide comparing service names before you register beats another hundred practice questions.
 
-**What a vendor doesn't publish isn't known.** Claude certification prices and validity are stated with total confidence across the web, yet Anthropic has never published them and third parties contradict each other. The right move there is to check the checkout page, not to trust a summary.
+**Not finding it is not the same as it not existing.** The first version of this article said Anthropic publishes no prices or validity for the Claude certifications. That was wrong — they do, in exam guide PDFs two levels below the Pearson VUE page, complete with fees, item counts, validity, and domain weights. I stopped at the Pearson page and concluded from its silence. When checking vendor specs, follow the path all the way down to the certification page and its exam guide or blueprint download.
 
 **Within a single official domain, page freshness can differ by months.** Microsoft Q&A still hosts answers claiming AI-103 is in beta, while the certification page dropped the `(beta)` suffix long ago, is marked `hidden: false`, and was updated `2026-07-23`. Official sources still need checking for which page and when it was updated.
 
@@ -280,7 +284,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
-- 2026-08-18: Substantially expanded coverage. NVIDIA goes from a single exam to the full twelve-exam catalog (including Agentic AI NCP-AAI and multimodal NCA-GENM), correcting the earlier claim that only Microsoft offers an expert-level agent credential; added "Other Ecosystems" (Snowflake GES-C02, Oracle's new Agentic AI track, IBM watsonx C1000-185, Salesforce Agentforce Specialist AI-201) and GitHub Copilot GH-300; added "Governance, Audit, Security" (IAPP AIGP, ISACA AAISM / AAIA, CertNexus CAIP); added iPAS beginner-level specs plus the intermediate certificate split, subject-score carry-over, and exemption rules, along with TQC and TQC+; added a "commonly mis-listed" section covering Google Cloud GenAI Engineer (does not exist), OpenAI (free, globally available course certificates that are explicitly not certifications, with the formal credential still in employer pilots), and CNCF Kubernetes AI Conformance (awarded to platforms, not people), kept as three distinct errors rather than one shared reason. Per the "professional AI/ML certifications only" scope, free course-completion certificates from OpenAI Academy and Claude Academy are not listed as credentials; a single note with official sources remains in the mis-listed section. Retired exams were dropped from the article so that everything listed is currently registrable. Three existing facts were re-verified: the Google certification index (2 foundational, 3 associate, 9 professional) confirms Generative AI Leader and PMLE are still the only AI credentials, so that conclusion stands; the `generative-ai-engineer` evidence was corrected — that URL is a soft 404 (404 page body, HTTP status 200), so the original "returns HTTP 404" was inaccurate; and two Google renewal changes were added, namely the 50% renewal code issued at first certification and the continuing-education path currently limited to CDL, ACE, PCA, and PDE, leaving PMLE exam-only.
+- 2026-08-18: Substantially expanded coverage. NVIDIA goes from a single exam to the full twelve-exam catalog (including Agentic AI NCP-AAI and multimodal NCA-GENM), correcting the earlier claim that only Microsoft offers an expert-level agent credential; added "Other Ecosystems" (Snowflake GES-C02, Oracle's new Agentic AI track, IBM watsonx C1000-185, Salesforce Agentforce Specialist AI-201) and GitHub Copilot GH-300; added "Governance, Audit, Security" (IAPP AIGP, ISACA AAISM / AAIA, CertNexus CAIP); added iPAS beginner-level specs plus the intermediate certificate split, subject-score carry-over, and exemption rules, along with TQC and TQC+; added a "commonly mis-listed" section covering Google Cloud GenAI Engineer (does not exist), OpenAI (free, globally available course certificates that are explicitly not certifications, with the formal credential still in employer pilots), and CNCF Kubernetes AI Conformance (awarded to platforms, not people), kept as three distinct errors rather than one shared reason. Per the "professional AI/ML certifications only" scope, free course-completion certificates from OpenAI Academy and Claude Academy are not listed as credentials; a single note with official sources remains in the mis-listed section. A significant error in the Claude section was corrected: the article claimed Anthropic published no prices or validity, when in fact each exam guide PDF states the fee ($99 / $125 / $125 / $175), item count, 12-month validity, and domain weights; retake rules were added, and the "what a vendor doesn't publish isn't known" takeaway was rewritten as "not finding it is not the same as it not existing." Retired exams were dropped from the article so that everything listed is currently registrable. Three existing facts were re-verified: the Google certification index (2 foundational, 3 associate, 9 professional) confirms Generative AI Leader and PMLE are still the only AI credentials, so that conclusion stands; the `generative-ai-engineer` evidence was corrected — that URL is a soft 404 (404 page body, HTTP status 200), so the original "returns HTTP 404" was inaccurate; and two Google renewal changes were added, namely the 50% renewal code issued at first certification and the continuing-education path currently limited to CDL, ACE, PCA, and PDE, leaving PMLE exam-only.
 
 ## References
 
@@ -316,7 +320,8 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 - [NVIDIA NCA-GENM (Generative AI Multimodal Associate)](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)
 - [Databricks Certified Generative AI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate)
 - [Anthropic: Four role-based Claude certifications (2026-07-23)](https://claude.com/blog/four-role-based-claude-certifications)
-- [Pearson VUE — Claude Certification Program](https://www.pearsonvue.com/us/en/anthropic.html)
+- [Pearson VUE — Claude Certification Program (retake rules)](https://www.pearsonvue.com/us/en/anthropic.html)
+- [Anthropic Partner Academy — the four certification pages and exam guide downloads](https://anthropic-partners.skilljar.com/page/partner-certifications)
 - [Claude Academy FAQ (free completion badges vs. proctored certification)](https://academy.claude.com/help/faq)
 
 **Other ecosystems**

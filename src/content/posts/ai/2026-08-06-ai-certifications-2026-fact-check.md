@@ -174,22 +174,26 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告](https://blogs.oracle.com/oracleuniversity/oci-certification-learning-paths-and-exams-2026-updates-now-available)寫，證照名稱與徽章**不再冠年份**（是「OCI Architect Associate」而不是「OCI 2026 Architect Associate」），而且 **Foundations 級課程與認證維持免費、Professional 級課程改為付費**。搜到的舊教學文多半還在講已經換掉的舊代碼，對照官方頁面就會發現名稱對不上。
 
-## Claude：四張，價格要到結帳頁看
+## Claude：四張，官方規格都在 exam guide 裡
 
 [Anthropic 於 2026 年 7 月 23 日公告](https://claude.com/blog/four-role-based-claude-certifications)把認證擴編成四張，涵蓋 Associate、Developer、Architect 三種角色。同一篇公告提到，自 3 月推出以來「more than 36,000 consultants have received certification across more than 1,300 organizations」。
 
 工程師對應的是 **Claude Certified Developer: Foundations**，官方描述為「for engineers building applications with Claude, and includes training on the Claude API, tool use, and agent development」。
 
-**價格這裡要誠實說明**：Anthropic 沒有在公開頁面列出考試費用。[Pearson VUE 的官方頁](https://www.pearsonvue.com/us/en/anthropic.html)只列出四張證照的名稱與代碼，沒有價格。以下數字來自第三方彙整，**且彼此不一致**：
+**四張的價格與效期官方都有公開**，只是路徑很深：Pearson VUE 頁 → [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/) 的各證照頁 → 每張自己的 exam guide PDF。PDF 裡有「Exam Details at a Glance」表，逐字寫著費用與效期：
 
-| 證照 | 代碼 | 第三方報價 | 對象 |
-|---|---|---|---|
-| Claude Certified Associate: Foundations | CCAO-F | $99 | 非技術職 |
-| Claude Certified Developer: Foundations | CCDV-F | $125 | 工程師 |
-| Claude Certified Architect: Foundations | CCAR-F | $125 或 $175（來源分歧） | 架構師 |
-| Claude Certified Architect: Professional | CCAR-P | $175 | 資深架構師 |
+| 證照 | 代碼 | 題數 | 時間 | 費用 | 效期 |
+|---|---|---|---|---|---|
+| [Claude Certified Associate – Foundations](https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification) | CCAO-F | 60 | 120 分 | **$99** | 12 個月 |
+| [Claude Certified Developer – Foundations](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification) | CCDV-F | 53 | 120 分 | **$125** | 12 個月 |
+| [Claude Certified Architect – Foundations](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification) | CCAR-F | 60 | 120 分 | **$125** | 12 個月 |
+| [Claude Certified Architect – Professional](https://anthropic-partners.skilljar.com/claude-certified-architect-professional-certification) | CCAR-P | 63 | 120 分 | **$175** | 12 個月 |
 
-效期同樣沒有官方公開數字，第三方普遍說 12 個月、到期前可免費做一次非監考的更新評量。**報名前請以 Partner Academy 結帳頁顯示的金額為準。**
+四張的及格線都是 **720（量尺分數 100–1,000）**，題型都是單選加複選，線上監考或 Pearson 考場二選一，成績報告會附各 domain 的答對率。CCAR-F 另有一個特別的結構：**六個情境題庫抽四個**。
+
+各證照頁也公開了 domain 權重，例如 CCAR-F 是 Agentic Architecture & Orchestration 27%、Claude Code Configuration & Workflows 20%、Prompt Engineering & Structured Output 20%、Tool Design & MCP Integration 18%、Context Management & Reliability 15%；CCDV-F 則以 Applications and Integration 33.1% 為最大宗。
+
+重考規則在 [Pearson VUE 頁](https://www.pearsonvue.com/us/en/anthropic.html)：第一次沒過等 14 天、第二次 30 天、第三次 90 天，**同一張考試在任何 12 個月內最多 4 次**。
 
 報考門檻則有官方依據。Pearson VUE 頁面（最後更新 2026-07-08）寫：
 
@@ -197,7 +201,7 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 網路上聲稱個人可自由報名考試的說法，我找不到官方來源支持 —— **規劃時請當作需要透過 partner 組織**。
 
-考試內容細節可參考站內的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)，不過那篇寫於 2026 年 3 月、當時只有 Architect 一張，代碼與價格以本文為準。
+考試內容細節可參考站內的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)，不過那篇寫於 2026 年 3 月、當時只有 Architect 一張。
 
 ## iPAS 中級：台灣本地這張，效期 5 年
 
@@ -262,7 +266,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 **教材的新鮮度比證照本身重要。** PMLE 是最好的例子：名字沒變、價格沒變、官網長得一樣，但拿舊教材去考會直接撞牆。報名前花十分鐘打開官方 exam guide 對一遍服務名稱，ROI 遠高於多刷一百題。
 
-**廠商不公開的資訊，不要當成已知。** Claude 證照的價格與效期在網路上被寫得斬釘截鐵，實際上 Anthropic 從未公開，第三方之間還互相矛盾。遇到這種情況，正確做法是去結帳頁看，不是相信整理文。
+**找不到不等於不存在。** 這篇初版寫「Anthropic 沒有公開 Claude 認證的價格與效期」，那是錯的 —— 官方公開了，資料在 Pearson 頁往下兩層的 exam guide PDF 裡，四張的費用、題數、效期、domain 權重一應俱全。我當時只看了 Pearson 那一頁就下結論。查廠商規格時，官網首頁沒有不代表沒有，要往「認證頁 → exam guide / blueprint 下載」這條路徑點到底。
 
 **同一個官方網域內，不同頁面的新鮮度可以差好幾個月。** 微軟 Q&A 上仍有回答說 AI-103 在 beta，但認證頁早已拿掉 `(beta)` 後綴、標記 `hidden: false`、更新於 `2026-07-23`。看官方來源也要看是哪一頁、什麼時候更新的。
 
@@ -282,7 +286,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
-- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
+- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
 
 ## 參考資料
 
@@ -318,7 +322,8 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 - [NVIDIA NCA-GENM（Generative AI Multimodal Associate）](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)
 - [Databricks Certified Generative AI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate)
 - [Anthropic：Four role-based certifications（2026/7/23 公告）](https://claude.com/blog/four-role-based-claude-certifications)
-- [Pearson VUE — Claude Certification Program](https://www.pearsonvue.com/us/en/anthropic.html)
+- [Pearson VUE — Claude Certification Program（重考與間隔規則）](https://www.pearsonvue.com/us/en/anthropic.html)
+- [Anthropic Partner Academy — 四張認證頁與 exam guide 下載](https://anthropic-partners.skilljar.com/page/partner-certifications)
 - [Claude Academy FAQ（免費課程證書與監考認證的差別）](https://academy.claude.com/help/faq)
 
 **其他生態系**
