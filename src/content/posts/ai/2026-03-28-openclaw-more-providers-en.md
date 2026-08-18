@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw Additional Providers: DeepSeek, Groq, Ollama, OpenRouter, Bedrock..."
+title: "OpenClaw's 60 Providers: A Category Map, and What Actually Bites When You Attach a Local Model"
 date: 2026-03-28
 type: guide
 category: ai
@@ -8,240 +8,107 @@ lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 7
-tldr: "Beyond the big three (Anthropic/OpenAI/Google), OpenClaw supports 30+ providers — from DeepSeek to local Ollama and everything in between."
-description: "Configuration guide for OpenClaw's 30+ model providers: DeepSeek, Groq, Ollama, vLLM, OpenRouter, Amazon Bedrock, and more."
+tldr: "The official provider directory now lists 60 entries. The most common failure when attaching a local model is writing Ollama's base URL with /v1 — that breaks tool calling, and the model starts emitting raw tool-call JSON as plain text."
+description: "A category map of OpenClaw's 60 model providers, plus the auth rules, discovery mechanics, and real thresholds involved in attaching local models via Ollama, vLLM, SGLang, and LM Studio."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-more-providers)
 
-The previous model article covered Anthropic, OpenAI, and Google — the big three providers. But OpenClaw supports 35+ providers. This article covers the rest — from cost-effective DeepSeek, to ultra-fast Groq inference, to locally deployed Ollama and vLLM.
+The previous article covered the layering. This one looks at the ecosystem itself. The official provider directory now lists **60 entries** — but walking through each one is pointless, since the setup details live in their own pages and keep moving. So this article does two things: **give a category map**, then **spell out the local-model rules that will actually block you**.
 
-## Unified Configuration Format
+## The category map
 
-All providers follow the same pattern:
+A meaningful share of those 60 entries are not LLMs at all but speech, image, music, and video providers — which itself says something about the ambition: OpenClaw wants to be the gateway for the whole model layer, not just chat.
 
-```json5
-{
-  env: { PROVIDER_API_KEY: "your-key" },
-  agents: {
-    defaults: {
-      model: { primary: "provider/model-name" }
-    }
-  }
-}
-```
-
-Most providers can be configured interactively with `openclaw onboard`.
-
-## Cost-Effective: DeepSeek
-
-A Chinese AI company with an OpenAI-compatible API at extremely low prices.
-
-```bash
-openclaw onboard --auth-choice deepseek-api-key
-```
-
-| Model | Use Case | Context |
-|---|---|---|
-| `deepseek-chat` (V3.2) | General conversation | 128K |
-| `deepseek-reasoner` (V3.2) | Reasoning / chain-of-thought | 128K |
-
-Set the environment variable `DEEPSEEK_API_KEY`. If Gateway runs as a daemon, make sure the key is in `~/.openclaw/.env`.
-
-## Ultra-Fast Inference: Groq
-
-Groq uses its proprietary LPU hardware to run open-source models with extremely fast inference speeds.
-
-```json5
-{
-  env: { GROQ_API_KEY: "gsk_..." },
-  agents: {
-    defaults: {
-      model: { primary: "groq/llama-3.3-70b-versatile" }
-    }
-  }
-}
-```
-
-Commonly used models:
-
-| Model | Highlights |
+| Category | Providers |
 |---|---|
-| Llama 3.3 70B Versatile | Broad capabilities, long context |
-| Llama 3.1 8B Instant | Speed-oriented |
-| Gemma 2 9B | Lightweight |
-| Mixtral 8x7B | MoE architecture, complex reasoning |
+| Frontier commercial | Anthropic, OpenAI, Google |
+| Chinese vendors | DeepSeek, Qwen, Z.AI (GLM), MiniMax, Moonshot (Kimi), Qianfan, Volcengine, Tencent, Xiaomi, LongCat, StepFun, BytePlus |
+| Inference accelerators | Groq, Cerebras, Together, Fireworks, Baseten, Novita, Chutes, GMI, Featherless |
+| Local deployment | Ollama, LM Studio, vLLM, SGLang, inferrs, ds4 |
+| Gateway proxies | OpenRouter, LiteLLM, ClawRouter, Vercel AI Gateway, Cloudflare AI Gateway |
+| Cloud vendors | Amazon Bedrock (and Mantle), Alibaba Model Studio |
+| Subscription coding | GitHub Copilot, OpenCode (and the Go build), Kilocode |
+| Transcription | Deepgram, ElevenLabs, Azure Speech, SenseAudio, Mistral (Voxtral), xAI |
+| Media generation | ComfyUI, fal, Runway |
+| Others | xAI, Mistral, NVIDIA, Hugging Face, Cohere, Arcee, Venice, Perplexity, Synthetic, Gradium, Vydra |
 
-Bonus feature: Groq's Whisper can do fast speech transcription — just configure it as the media-understanding provider.
+For how any one of them is configured, go to its page in the official [Provider directory](https://docs.openclaw.ai/providers/). This article does not copy those commands, because they are precisely the content that expires.
 
-## Local Models: Ollama
+## Provider logic lives in plugins
 
-Run open-source models on your own machine at zero cost.
+Understanding this will save you a lot of doc-searching: **most provider-specific logic lives in provider plugins** (`registerProvider(...)`), while the OpenClaw core keeps only the generic inference loop.
 
-```bash
-# Install Ollama
-# Pull a model
-ollama pull glm-4.7-flash
+Plugins own onboarding flows, model catalogs, auth env-var mapping, transport and config normalization, tool-schema cleanup, failover classification, OAuth refresh, usage reporting, and thinking/reasoning profiles.
 
-# OpenClaw configuration
-openclaw onboard  # Select Ollama
-```
+So when you ask "does this provider support X," the answer usually lives in its plugin, not in core config.
 
-OpenClaw automatically discovers local Ollama models. It also supports cloud models (`kimi-k2.5:cloud`, `minimax-m2.5:cloud`, etc.).
+## Attaching a local model: three Ollama rules
 
-**Important warning: Do not use the `/v1` OpenAI-compatible URL.** This breaks tool calling — the model will output tool JSON as plain text. Use the native Ollama API URL: `http://host:11434` (without `/v1`).
+Local models are the most failure-prone group here, and they fail in confusing ways.
 
-Minimal setup: Set `OLLAMA_API_KEY=ollama-local`, and OpenClaw handles auto-discovery.
+**Rule 1: never use the `/v1` OpenAI-compatible URL.** OpenClaw talks to Ollama's native API (`/api/chat`), not `/v1`. Using `/v1` **breaks tool calling** — the model emits tool-call JSON as plain text. Write `baseUrl: "http://host:11434"`, with no `/v1`.
 
-## Local Models: vLLM
+(The canonical config key is `baseUrl`; `baseURL` is accepted for OpenAI-SDK-style examples, but new config should use the former.)
 
-Serves open-source and custom models via an OpenAI-compatible HTTP API.
+**Rule 2: private hosts do not need a real token.** Auth rules are host-dependent:
 
-```bash
-# Start vLLM server
-# Configure
-export VLLM_API_KEY="vllm-local"
-```
+- **Loopback, private-network, `.local`, and bare hostnames** — no real bearer token needed; OpenClaw uses the `ollama-local` marker
+- **Public remote hosts and `https://ollama.com`** — a real credential is required (`OLLAMA_API_KEY`, an auth profile, or the provider's `apiKey`)
 
-```json5
-{
-  agents: {
-    defaults: {
-      model: { primary: "vllm/your-model-id" }
-    }
-  }
-}
-```
+There is also a leak-prevention design worth knowing: **a pure `OLLAMA_API_KEY` env value is treated as the Ollama Cloud convention and is not sent to local or self-hosted hosts by default**. A provider-level key is likewise sent only to that provider's host.
 
-Like Ollama, vLLM supports auto-discovery — if `VLLM_API_KEY` is set but no provider config is specified, OpenClaw will query `GET http://127.0.0.1:8000/v1/models`.
+**Rule 3: the model must genuinely support tools, with enough context.** When guided setup wants to auto-offer an installed local model, the condition is that `/api/show` confirms **tool support and a context window of at least 16K**; missing or smaller metadata drops you onto the manual path. That automatic check never pulls a model for you.
 
-Manual configuration allows specifying parameters like `contextWindow`, `maxTokens`, etc.
+Those two numbers are the practical threshold for local models — far more actionable than "use a stronger model."
 
-## Local Models: SGLang
+## Ollama's three modes
 
-Another local model runtime. Documentation is in `docs/providers/sglang.md`, and the configuration approach is similar to vLLM.
+You pick one at setup; the difference is who serves the models:
 
-## Unified Gateway: OpenRouter
+| Mode | What it uses |
+|---|---|
+| Cloud + Local | A reachable Ollama host serving local models and, when signed in, `:cloud` models |
+| Cloud only | `https://ollama.com` directly, no local daemon |
+| Local only | A reachable Ollama host, local models only |
 
-One API key to access models from multiple providers. Model format: `openrouter/<provider>/<model>`.
+Cloud + Local is Ollama's hybrid flow and requires `ollama signin` on that same host; without it, setup stays local-only.
+
+If you want cloud without a local daemon, use the dedicated `ollama-cloud` provider id:
 
 ```bash
-openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPENROUTER_API_KEY"
+openclaw onboard --auth-choice ollama-cloud
 ```
 
-```json5
-{
-  agents: {
-    defaults: {
-      model: { primary: "openrouter/anthropic/claude-sonnet-4-6" }
-    }
-  }
-}
-```
+Using `ollama-cloud/<model>` refs keeps cloud routing separate from a local `ollama` provider.
 
-Ideal for those who want a single bill for accessing models from multiple providers. OpenRouter automatically injects cache control for Anthropic models.
+One detail reveals the design instinct here: the cloud model list shown during onboarding is populated **live** from `https://ollama.com/api/tags` (capped at 500 entries), falling back to a hardcoded suggested list only when that is unreachable. Even upstream refuses to hardcode the model list.
 
-## Enterprise Cloud: Amazon Bedrock
+## Custom providers and implicit discovery
 
-No API key needed — uses the AWS SDK default credential chain.
+**Implicit discovery**: when `OLLAMA_API_KEY` (or an auth profile) is set and neither `models.providers.ollama` nor another `api: "ollama"` custom provider is defined, OpenClaw discovers models from `http://127.0.0.1:11434`. vLLM works similarly.
 
-```json5
-{
-  models: {
-    providers: {
-      "amazon-bedrock": {
-        api: "bedrock-converse-stream"
-        // No apiKey needed, uses AWS credentials
-      }
-    }
-  }
-}
-```
+**Custom providers**: a custom provider with `api: "ollama"` — say an `ollama-remote` pointed at a LAN host — follows the same auth rules and can use the `apiKey: "ollama-local"` marker, which sub-agents resolve through the Ollama provider hook rather than treating it as a missing credential. `memory.search.provider` can also point at a custom provider id so embeddings use that endpoint.
 
-Authentication priority: `AWS_BEARER_TOKEN_BEDROCK` → standard AWS credentials → profiles → SDK chain.
+**Put settings in the right place**: credentials go in the auth profile, endpoint settings (`baseUrl`, `api`, models, headers, timeouts) go in `models.providers.<id>`. Old flat files are not a runtime format; `openclaw doctor --fix` rewrites them into a canonical API-key profile with a backup, and a `baseUrl` sitting in such a file is noise that belongs in provider config.
 
-Supports auto-discovery — if AWS credentials are available, it automatically lists available Bedrock models (via `bedrock:ListFoundationModels`, cached for 1 hour).
+## The big picture
 
-When using instance roles on EC2, set `AWS_PROFILE=default` to tell OpenClaw that credentials are available.
+You do not need to memorize 60 entries. You need to remember **three things that will stop you**: look model refs up with `openclaw models list` instead of memorizing them; provider-specific behavior lives in that provider's plugin; and local models need tool support plus a 16K context — with a base URL that must never end in `/v1`.
 
-Required IAM permissions: `bedrock:InvokeModel`, `bedrock:InvokeModelWithResponseStream`, `bedrock:ListFoundationModels`.
+The next article covers what happens when models fail, and how to spend less.
 
-## Other Providers at a Glance
+## Changelog
 
-Each provider has its own dedicated documentation. Here are the highlights:
-
-| Provider | Provider ID | Auth Method | Highlights |
-|---|---|---|---|
-| Mistral | `mistral` | API Key | European company, strong multilingual support |
-| xAI | `xai` | API Key | Grok models |
-| NVIDIA | `nvidia` | API Key | NIM inference service |
-| Hugging Face | `huggingface` | API Key | Inference API |
-| Together AI | `together` | API Key | Multi-model inference platform |
-| Qwen / Alibaba Cloud | `qwen_modelstudio` | API Key | Qwen series |
-| GLM (Zhipu AI) | `glm` | API Key | GLM series |
-| MiniMax | `minimax` | API Key | Chinese AI |
-| Moonshot (Kimi) | `moonshot` | API Key | Kimi series, includes Kimi Coding |
-| Qianfan (Baidu) | `qianfan` | API Key | ERNIE Bot |
-| Volcengine (Doubao) | `volcengine` | API Key | ByteDance |
-| Xiaomi | `xiaomi` | API Key | Xiaomi AI |
-| Venice | `venice` | API Key | Privacy-focused |
-| GitHub Copilot | `github-copilot` | OAuth | Uses Copilot subscription |
-| LiteLLM | `litellm` | Custom | Unified proxy gateway |
-| Vercel AI Gateway | — | Custom | Vercel proxy |
-| Cloudflare AI Gateway | — | Custom | Cloudflare proxy |
-
-## Using Proxy Gateways
-
-LiteLLM, Vercel AI Gateway, and Cloudflare AI Gateway are not model providers — they are **proxy layers**. You place them between OpenClaw and the actual provider for unified billing, rate limiting, or routing.
-
-## Speech Transcription: Deepgram
-
-Not a language model, but a speech transcription service. Once configured as the transcription provider, voice messages are automatically converted to text.
-
-## Community Tool: Claude Max API Proxy
-
-A community-maintained proxy that uses Claude subscription credentials to access the API. **Make sure to verify compliance with Anthropic's Terms of Service before using it.**
-
-## The Big Picture
-
-OpenClaw's provider ecosystem breaks down into four tiers:
-
-1. **Top-tier commercial** (Anthropic / OpenAI / Google) — Strongest capabilities, most expensive
-2. **Cost-effective** (DeepSeek / Groq / Mistral) — Cheap or with free tiers, solid capabilities
-3. **Local deployment** (Ollama / vLLM / SGLang) — Zero cost, but requires your own hardware
-4. **Proxy gateways** (OpenRouter / LiteLLM) — One key to access multiple providers
-
-You can mix and match across tiers in `model.fallbacks` — for example, use Claude as the primary, fall back to DeepSeek, then fall back to local Ollama.
+- 2026-08-18: Substantially revised against the current official docs. The provider count moved from "35+" to the 60 entries the directory now lists, and the category map was reorganized (adding media generation, transcription, and subscription-coding categories). **Per-provider setup steps and model lists were removed** (DeepSeek's and Groq's specific model names and context sizes were not verified this round, and they are among the fastest-moving content upstream), replaced by the category map plus official links. The focus is now the practical rules for local models: Ollama's native `/api/chat` rather than `/v1`, the host-dependent auth rules and the `ollama-local` marker, the leak-prevention behavior that keeps `OLLAMA_API_KEY` away from local hosts, the threshold for auto-suggesting a local model (tool support plus a 16K context), the three modes, the separate `ollama-cloud` provider id, and where settings belong between auth profiles and provider config.
 
 ## References
 
-This article is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/providers/index.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/index.md) — Provider directory
-- [docs/providers/deepseek.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/deepseek.md) — DeepSeek
-- [docs/providers/groq.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/groq.md) — Groq
-- [docs/providers/ollama.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/ollama.md) — Ollama
-- [docs/providers/vllm.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/vllm.md) — vLLM
-- [docs/providers/sglang.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/sglang.md) — SGLang
-- [docs/providers/openrouter.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/openrouter.md) — OpenRouter
-- [docs/providers/bedrock.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/bedrock.md) — Amazon Bedrock
-- [docs/providers/mistral.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/mistral.md) — Mistral
-- [docs/providers/xai.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/xai.md) — xAI
-- [docs/providers/nvidia.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/nvidia.md) — NVIDIA
-- [docs/providers/huggingface.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/huggingface.md) — Hugging Face
-- [docs/providers/together.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/together.md) — Together AI
-- [docs/providers/qwen_modelstudio.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/qwen_modelstudio.md) — Qwen
-- [docs/providers/glm.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/glm.md) — GLM
-- [docs/providers/minimax.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/minimax.md) — MiniMax
-- [docs/providers/moonshot.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/moonshot.md) — Moonshot
-- [docs/providers/qianfan.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/qianfan.md) — Qianfan
-- [docs/providers/volcengine.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/volcengine.md) — Volcengine
-- [docs/providers/xiaomi.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/xiaomi.md) — Xiaomi
-- [docs/providers/venice.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/venice.md) — Venice
-- [docs/providers/github-copilot.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/github-copilot.md) — GitHub Copilot
-- [docs/providers/litellm.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/litellm.md) — LiteLLM
-- [docs/providers/vercel-ai-gateway.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/vercel-ai-gateway.md) — Vercel AI Gateway
-- [docs/providers/cloudflare-ai-gateway.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/cloudflare-ai-gateway.md) — Cloudflare AI Gateway
-- [docs/providers/deepgram.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/deepgram.md) — Deepgram
-- [docs/providers/claude-max-api-proxy.md](https://github.com/openclaw/openclaw/blob/main/docs/providers/claude-max-api-proxy.md) — Claude Max API Proxy
+- [Provider directory](https://docs.openclaw.ai/providers/) — the full provider catalog
+- [Ollama](https://docs.openclaw.ai/providers/ollama) — native API, auth rules, modes, and model discovery
+- [Ollama Cloud](https://docs.openclaw.ai/providers/ollama-cloud) — the dedicated cloud provider id
+- [Model providers](https://docs.openclaw.ai/concepts/model-providers) — plugin-owned provider behavior
+- [Models CLI](https://docs.openclaw.ai/concepts/models) — model refs and allowlist syntax for local models
