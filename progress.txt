@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-16
+Last updated: 2026-08-18
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -13,18 +13,6 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- CS230 系列（Stanford Autumn 2025，9 講 1:1 對應，order 跳過 7 因停課）。
-  **zh-TW 9/9 完成（76,059 字元），en 0/9 未開始。** 筆記 `.work/cs230-notes/`、
-  規劃 `docs/content-plan-cs230.md`、series slug `cs230`。文章均標明屬 2025 秋季那輪
-  （Autumn 2026 已排 2026/09/22 開課）。
-  **方針被使用者退回一次**：原「每篇挑一條主線」導致課程內容沒寫完整（L4 標題有
-  Generative Models 我卻沒寫）。錯誤來源①我把「純課程筆記」描述成原創性低，是把人
-  推向我有發揮空間的方向；②「避開站上 21 篇重疊」只對 L8 成立卻被擴大套用到九講。
-  現行＝照講者 agenda 完整覆蓋＋標題用課程原標題。另我曾說「寫不進 1,500 字」，
-  那是抓錯站上慣例（實測中位數 4,945、p90 9,087），把錯誤假設當客觀限制講出去。
-  **教訓**：13 篇論文 ID 實抓驗證；**exa 查 1707.06347 回傳完全不同的論文**，
-  tavily 才對（firecrawl 額度盡、arxiv 對 WebFetch 被 egress 擋）。修正兩處課堂說法：
-  ImageBind 樞紐是影像非文字、METR 那篇限於 Software Tasks。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
   Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals,
   then verify the production Groq-to-Cloudflare fallback path.
@@ -37,6 +25,23 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課）。
+  筆記 `.work/cs230-notes/`、規劃 `docs/content-plan-cs230.md`、series slug `cs230`。
+  build 驗過：18 頁全出、zh/en series 各列 9 篇、內部連結 0 死。
+  **方針被使用者退回一次**：原「每篇挑一條主線」導致課程內容沒寫完整。錯誤來源
+  ①我把「純課程筆記」描述成原創性低，是把人推向我有發揮空間的方向；②「避開站上
+  21 篇重疊」只對 L8 成立卻被擴大套用到九講。另我曾說「寫不進 1,500 字」，那是抓錯
+  站上慣例（實測中位數 4,945、p90 9,087），把錯誤假設當客觀限制講出去。
+  **第二次被退回：我把四個第三方引用標成「未查證」就交件**，理由其實是工具當掉後
+  選擇繼續往前，tavily 恢復後沒回頭補。實查後三個對不上、兩個是實質錯誤：
+  ①「McKinsey 85% AI 專案失敗」查無此數字（最接近的是 MIT NANDA 的 95% pilot
+  無損益影響，機構與數字都不同）②「YC 80% 用中國模型」出自 The Economist 引述
+  a16z 的 Casado 談自家案源，他本人已更正為 16-24% ③Epoch AI 的年份是單一區間
+  2026-2032 而非課堂的三段式 ④Seaquest 去色查無佐證（有文件的是畫面閃爍）。
+  **共同模式：講者第一手經驗都站得住，出問題的全是憑印象轉述的第三方數字。**
+  **教訓**：13 篇論文 ID 實抓驗證；**exa 查 1707.06347 回傳完全不同的論文**，
+  tavily 才對。修正兩處課堂說法：ImageBind 樞紐是影像非文字、METR 限於 Software
+  Tasks。另抓到自己寫的上下篇串接跳號（order 8 指向 10、order 10 指向 6）。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
@@ -53,18 +58,6 @@ Recently completed
   三個巢狀目錄——因此漏改 2 個 en 檔，slug 合併後撞出 route 衝突才被 build 抓到。
   掃 content 一律遞迴走訪。**仍開**：Claude Code 系列兩語都有重複的 order: 10
   （28 篇卻只編到 27），會讓上下篇少一格，未動。
-- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
-  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
-  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
-  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
-  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
-  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
-  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
-  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
-  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
-  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
-  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
-  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
 - 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
   ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
   ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
