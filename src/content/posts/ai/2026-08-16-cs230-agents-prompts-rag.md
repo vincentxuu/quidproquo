@@ -329,5 +329,7 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 - [RAG 系統模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide) — 站上文章，RAG 十代演化
 - [概念界線：agent、workflow、RAG、MCP 到底差在哪](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries) — 站上文章
 - [模型只是元件，harness 才是系統](/posts/ai/2026-08-10-model-component-harness-system) — 站上文章，模糊工程的工程版本
+- [Navigating the Jagged Technological Frontier](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) — Dell'Acqua et al., HBS Working Paper 24-013（2023/09，後刊於 Organization Science）。**鋸齒狀邊界的原始研究**：758 位 BCG 顧問、18 項任務；邊界內多完成 12.2% 的任務、快 25.1%、品質評分高 40%，**邊界外用 AI 答對的機率反而低 19%**
+- [Promptfoo](https://promptfoo.dev/) — 課堂點名團隊在用的 LLM eval 工具
 
-**未附連結的出處**：BCG 與哈佛商學院的顧問實驗（jagged frontier）、McKinsey 的信用風險備忘錄研究、Slack fine-tuning 的原始貼文、關於長 context 取代 RAG 的那則討論、Promptfoo——本文只寫出研究內容與名稱，未逐一查證連結。
+**仍未附連結**：McKinsey 的信用風險備忘錄研究、Slack fine-tuning 的原始貼文、關於長 context 取代 RAG 的那則討論——本文只寫出研究內容與名稱。

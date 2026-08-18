@@ -319,6 +319,9 @@ And the practical significance of the RLHF mapping table: **when you're debuggin
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X) — the full nine-lecture list
 - [CS230 syllabus](https://cs230.stanford.edu/syllabus/) — lecture dates and the online-module mapping
 - [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) — Schulman et al., 2017. The PPO mentioned in class
+- [Trust Region Policy Optimization](https://arxiv.org/abs/1502.05477) — Schulman et al., ICML 2015. The TRPO mentioned in class, PPO's predecessor
+- [Direct Preference Optimization](https://arxiv.org/abs/2305.18290) — Rafailov et al., 2023. The "DPO out of Stanford a year ago" from class
+- [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236) — Mnih et al., Nature 2015. The original DQN paper, source for the preprocessing (RGB to grayscale, 110×84 then cropped to 84×84) and the Breakout tunneling behavior
 - [Three forms of RAG and the evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en) — on-site post, the modern version of "you won't be stronger than your judge"
 
-**Sources cited without links**: TRPO, DPO, the DQN Nature paper, the AlphaGo documentary, and Karpathy's video are named but not linked — I couldn't verify each of them individually while writing, and I'd rather give no link than a possibly wrong one.
+**Still unlinked**: the AlphaGo documentary, and Karpathy's video (four days before the class date, around 2025/10/17 — I couldn't locate the exact source).

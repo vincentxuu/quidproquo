@@ -329,5 +329,7 @@ What's genuinely worth taking from this lecture, and isn't on the site, is three
 - [Complete guide to RAG system patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en) — on-site post, ten generations of RAG evolution
 - [Conceptual boundaries: agent, workflow, RAG, MCP](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en) — on-site post
 - [The model is just a component, the harness is the system](/posts/ai/2026-08-10-model-component-harness-system-en) — on-site post, the engineering version of fuzzy engineering
+- [Navigating the Jagged Technological Frontier](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) — Dell'Acqua et al., HBS Working Paper 24-013 (September 2023, later in Organization Science). **The original jagged frontier study**: 758 BCG consultants, 18 tasks; inside the frontier they completed 12.2% more tasks, 25.1% faster, with quality rated 40% higher, while **outside the frontier AI users were 19% less likely to reach the correct solution**
+- [Promptfoo](https://promptfoo.dev/) — the LLM eval tool he names his team as using
 
-**Sources cited without links**: the BCG / Harvard Business School consultant experiment (jagged frontier), McKinsey's credit risk memo study, the original Slack fine-tuning post, the discussion about long context replacing RAG, and Promptfoo — this post states the research content and the names without verifying each link individually.
+**Still unlinked**: McKinsey's credit risk memo study, the original Slack fine-tuning post, and the discussion about long context replacing RAG — this post states the research content and the names only.

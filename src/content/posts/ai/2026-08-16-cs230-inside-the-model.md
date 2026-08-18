@@ -322,5 +322,4 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 - [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) — Elhage et al., Anthropic, 2021。circuit 概念與 induction head 的出處
 - [Will we run out of data?](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data) — Villalobos et al., Epoch AI, 2024。約 300 兆 token、2026–2032 用盡
 - [CS230 Lecture 10 投影片](https://cs230.stanford.edu/syllabus/fall_2025/10/lecture_10.pdf)
-
-**未附連結的出處**：OpenAI 與 Anthropic 的聯合安全評估——本文只寫出名稱，未查證連結。
+- [Findings from a Pilot Anthropic–OpenAI Alignment Evaluation Exercise](https://alignment.anthropic.com/2025/openai-findings) — Anthropic，2025/08/27。課堂提到的聯合安全評估：兩家在 2025 年 6 月到 7 月初互跑對方的公開模型，**並各自關掉部分模型外部的防護**，評的是 sycophancy、吹哨、自我保存、協助濫用，以及破壞安全評估與監督的能力。OpenAI 同日發布平行的一篇

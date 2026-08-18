@@ -322,5 +322,4 @@ The last thing worth keeping is his honesty: **this whole methodology currently 
 - [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) — Elhage et al., Anthropic, 2021. Source for the circuits notion and induction heads
 - [Will we run out of data?](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data) — Villalobos et al., Epoch AI, 2024. About 300 trillion tokens, exhausted 2026–2032
 - [CS230 Lecture 10 slides](https://cs230.stanford.edu/syllabus/fall_2025/10/lecture_10.pdf)
-
-**Cited without a link**: the joint OpenAI–Anthropic safety evaluation — this post states the name without verifying a link.
+- [Findings from a Pilot Anthropic–OpenAI Alignment Evaluation Exercise](https://alignment.anthropic.com/2025/openai-findings) — Anthropic, 2025/08/27. The joint safety evaluation mentioned in class: in June and early July 2025 the two labs ran their strongest internal alignment evaluations on each other's public models, **with some model-external safeguards disabled**, covering sycophancy, whistleblowing, self-preservation and supporting human misuse, plus capabilities around undermining safety evaluations and oversight. OpenAI published a parallel piece the same day

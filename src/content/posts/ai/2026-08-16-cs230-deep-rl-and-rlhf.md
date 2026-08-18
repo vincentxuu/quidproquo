@@ -318,7 +318,9 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X) — 九講完整清單
 - [CS230 syllabus](https://cs230.stanford.edu/syllabus/) — 講次時間與線上模組對照
 - [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) — Schulman et al., 2017。課堂提到的 PPO
+- [Trust Region Policy Optimization](https://arxiv.org/abs/1502.05477) — Schulman et al., ICML 2015。課堂提到的 TRPO，PPO 的前身
+- [Direct Preference Optimization](https://arxiv.org/abs/2305.18290) — Rafailov et al., 2023。課堂說的「一年前 Stanford 出的 DPO」
+- [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236) — Mnih et al., Nature 2015。DQN 原論文，前處理（RGB 轉灰階、110×84 再裁 84×84）與 Breakout 挖隧道的出處
 - [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants) — 站上文章，「你不會比評判者更強」的當代版本
 
-**未附連結的出處**：課堂提到的 TRPO、DPO、DQN 的 Nature 論文、AlphaGo 紀錄片，以及 Karpathy 那支影片，
-本文只寫出名稱未附連結——這些在撰稿時未能逐一查證，寧可不給連結也不給可能錯誤的連結。
+**仍未附連結**：AlphaGo 紀錄片，以及 Karpathy 那支影片（課堂日期往前四天約 2025/10/17，我找不到確切出處）。
