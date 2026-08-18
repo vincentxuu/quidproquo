@@ -25,6 +25,9 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
+  海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
+  配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
 - 2026-08-18: AI 證照備考系列開跑（規劃 docs/content-plan-ai-cert-prep.md）。A 軌四篇 x zh/en：
   Claude CCAR-F（3 月舊文對照官方 exam guide 翻新，改今日發佈＋astro.config 留 301）、Google PMLE、
   AWS AIF-C01、AWS AIP-C01。研究用 3 個平行 agent 抓官方 exam guide，數字我逐條抽驗過。
