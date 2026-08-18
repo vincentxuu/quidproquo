@@ -72,12 +72,30 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'cs230',
+    names: { 'zh-TW': 'Stanford CS230 導讀', en: 'Reading Stanford CS230' },
+    descriptions: {
+      'zh-TW':
+        '把 Stanford CS230（2025 秋季）九講逐講讀完：不只記錄課堂講了什麼，也補上課後到現在這領域變了什麼，以及它和站上既有實戰系列的對照。',
+      en: 'A lecture-by-lecture reading of Stanford CS230, Autumn 2025 — what was taught, what has changed since, and where it agrees or disagrees with the practice written up elsewhere on this site.',
+    },
+  },
+  {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
       en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
+    },
+  },
+  {
+    slug: 'openclaw',
+    names: { 'zh-TW': 'OpenClaw 文件導讀', en: 'Reading the OpenClaw Docs' },
+    descriptions: {
+      'zh-TW':
+        '把 OpenClaw 這套自架 AI 閘道器的 300+ 份官方文件拆成 32 篇讀完：從安裝與平台、模型供應商、agent 執行核心與記憶，到 24+ 聊天頻道、沙箱與威脅模型、工具與自動化、Gateway 營運、Plugin 與各種介面。',
+      en: 'Reading the 300+ official docs of OpenClaw, a self-hosted AI gateway, across 32 posts — installation and platforms, model providers, the agent runtime and memory, 24+ chat channels, sandboxing and threat model, tools and automation, gateway operations, plugins, and the user interfaces.',
     },
   },
   {
@@ -90,6 +108,30 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW':
         '照 Stanford CS146S「The Modern Software Developer」的十週大綱逐週讀：從 agent 內部構造、context 工程、skills 與客製，到 codebase 就緒度、code review、安全、背景 agent、團隊化與 software factory。每篇對照課程指定材料與可查證的一手來源。',
       en: 'Reading Stanford CS146S "The Modern Software Developer" week by week — agent internals, context engineering, skills and customization, codebase readiness, code review, security, background agents, team-scale adoption, and the software factory. Each post is grounded in the course material and verifiable primary sources.',
+    },
+  },
+  {
+    slug: 'hermes-agent',
+    names: {
+      'zh-TW': 'Hermes Agent 文件導讀',
+      en: 'Hermes Agent Documentation Guide',
+    },
+    descriptions: {
+      'zh-TW':
+        '對照 Nous Research 官方文件讀 Hermes Agent：安裝與升級、模型供應商與 Nous Portal、Tool Gateway、七種終端後端、記憶與技能、工具與 plugin、Gateway 與排程、安全模型，以及從 OpenClaw 遷移。每篇只留取捨與失敗點，指令細節交還官方文件。',
+      en: 'Reading Hermes Agent against the official Nous Research docs: install and upgrade, model providers and Nous Portal, the Tool Gateway, seven terminal backends, memory and skills, tools and plugins, the gateway and scheduling, the security model, and migrating from OpenClaw. Each post keeps the trade-offs and failure modes and leaves command details to the docs.',
+    },
+  },
+  {
+    slug: 'ai-cert-prep',
+    names: {
+      'zh-TW': 'AI 證照備考',
+      en: 'AI Certification Prep',
+    },
+    descriptions: {
+      'zh-TW':
+        '以官方 exam guide 的章節權重為骨架，一張證照一篇備考路徑：考什麼、配哪些官方材料、練什麼，時程換算的依據也寫出來。所有內容取自官方考綱與認證頁，不含應考實錄，也不含考古題。',
+      en: 'One preparation path per certification, built on the official exam guides: what each domain tests, which official material covers it, what to build, and the reasoning behind every schedule. Everything comes from official exam guides and certification pages — no exam-day accounts, no leaked questions.',
     },
   },
 ];

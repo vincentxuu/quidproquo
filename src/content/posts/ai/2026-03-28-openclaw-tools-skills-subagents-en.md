@@ -1,189 +1,150 @@
 ---
-title: "OpenClaw Tools (Part 2): Skills System and Sub-Agents"
+title: "OpenClaw Tools, Part 2: Six Layers of Skill Precedence, and Why Sub-Agents Get No Message Tool"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, skills, clawhub, sub-agents, skill-md, agent-skills]
+tags: [openclaw, skills, subagents, sessions-spawn, skill-workshop, clawhub]
 lang: en
-tldr: "Skills are AgentSkills-compatible SKILL.md folders with a 6-tier loading priority. ClawHub is the public marketplace. Sub-agents can nest up to 5 levels deep."
-description: "OpenClaw's Skills system (loading priority, format, gating, ClawHub marketplace) and the Sub-Agent mechanism."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 21
+tldr: "Skills load from six sources with the highest precedence winning on name collisions, and a per-agent list replaces rather than merges. Sub-agents get no session or message tools by default — they return plain text to the parent, and the right to speak to a human stays with the parent agent."
+description: "Skills and sub-agents in OpenClaw: the six-layer load order, node-hosted skills, the replace semantics of agent allowlists, $skill references, the Skill Workshop proposal queue, and sub-agent push-based completion with delivery resilience."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-skills-subagents)
 
-OpenClaw uses Skills to teach agents how to use tools, and Sub-Agents to let agents spawn subtasks. This post covers both systems.
+Skills teach an agent **how to work**; sub-agents let it **work on several things at once**. They belong together because they solve the same problem: **extending capability without blowing up context.**
 
-## Skills System
+## Six layers of skill precedence
 
-### What Is a Skill
-
-Each Skill is a directory containing a `SKILL.md` file (with YAML frontmatter and instructions). When loading, OpenClaw filters skills based on the environment, configuration, and whether required binaries exist.
-
-### Loading Priority (Highest to Lowest)
+A skill is a directory containing `SKILL.md`. OpenClaw loads from six sources, **highest precedence first**:
 
 | Priority | Source | Path |
 |---|---|---|
 | 1 (highest) | Workspace skills | `<workspace>/skills` |
 | 2 | Project agent skills | `<workspace>/.agents/skills` |
-| 3 | Personal agent skills | `~/.agents/skills` |
-| 4 | Managed/local skills | `~/.openclaw/skills` |
-| 5 | Bundled skills | npm package or OpenClaw.app |
-| 6 (lowest) | Extra dirs | `skills.load.extraDirs` |
+| 3 | Personal agent skills | `~/.agents/skills` (default state only) |
+| 4 | Managed / local skills | `<state>/skills` |
+| 5 | Bundled skills | shipped with the install |
+| 6 (lowest) | Extra directories | `skills.load.extraDirs` + plugin skills |
 
-When skills share the same name, higher-priority ones override lower ones. Plugin skills are at the same level as `extraDirs`.
+Skill roots **support grouped layouts** — a `SKILL.md` anywhere under a configured root (up to 6 levels deep) is discovered, and the folder path is organizational only. **The skill's name and slash command come from the `name` frontmatter field** (falling back to the directory name), and agent allowlists match on that `name`.
 
-### SKILL.md Format
+A migration note: **Codex CLI's native `$CODEX_HOME/skills` is not an OpenClaw skill root** — use `openclaw migrate plan codex` to inventory and `openclaw migrate codex` to copy.
 
-```markdown
----
-name: image-lab
-description: Generate or edit images via a provider-backed image workflow
-metadata: {"openclaw": {"requires": {"bins": ["uv"], "env": ["GEMINI_API_KEY"]}}}
----
+## Node-hosted skills
 
-Instructions for the agent...
-Use {baseDir} to reference the skill folder path.
-```
+A connected headless node can publish skills from its own skills directory. They **appear in the normal agent skill list while the node is connected and disappear when it disconnects.**
 
-### Gating (Filtering at Load Time)
+On a name collision **the local or Gateway skill keeps its name and the node's receives a deterministic node-prefixed name.** Because its files, relative references, and binaries live on the node, load and execute it with `exec host=node node=<id>`; **restart the node host after changing its skill files.**
 
-`metadata.openclaw` controls when a skill is available:
+## Allowlists: location and visibility are separate
 
-| Field | Purpose |
-|---|---|
-| `always: true` | Always loaded |
-| `os` | Restrict to specific platforms (`darwin`, `linux`, `win32`) |
-| `requires.bins` | All binaries must be in PATH |
-| `requires.anyBins` | At least one binary must be in PATH |
-| `requires.env` | Environment variables must exist |
-| `requires.config` | Config path must be truthy |
-| `primaryEnv` | Maps to `skills.entries.<name>.apiKey` |
-
-**Sandbox note:** `requires.bins` is checked at load time on the host. If the agent runs inside a sandbox, the binaries must also exist inside the container (install them via `setupCommand`).
-
-### Advanced Frontmatter
-
-| Key | Default | Description |
-|---|---|---|
-| `user-invocable` | `true` | Whether it appears as a user slash command |
-| `disable-model-invocation` | `false` | Exclude from model prompt |
-| `command-dispatch` | — | Set to `tool` to call a tool directly, bypassing the model |
-| `command-tool` | — | Tool name to call when `command-dispatch: tool` is set |
-
-### Config Overrides
+The most misread pair of concepts here: **skill location (precedence) and skill visibility (which agent can use it) are separate controls.**
 
 ```json5
 {
-  skills: {
+  agents: {
+    defaults: { skills: ["github", "weather"] },
     entries: {
-      "image-lab": {
-        enabled: true,
-        apiKey: { source: "env", provider: "default", id: "GEMINI_API_KEY" },
-        env: { GEMINI_API_KEY: "..." },
-        config: { endpoint: "https://example.invalid", model: "nano-pro" }
-      }
-    }
-  }
+      writer: { default: true },        // inherits github, weather
+      docs: { skills: ["docs-search"] }, // replaces defaults entirely
+      "locked-down": { skills: [] },     // no skills
+    },
+  },
 }
 ```
 
-- `enabled: false` disables the skill
-- `env` is injected into `process.env` at agent run start, and restored afterward
-- `apiKey` supports plaintext or SecretRef
-- `allowBundled` can restrict which bundled skills are available
+Omit `agents.defaults.skills` for no restriction; omit the per-agent key to inherit; **a non-empty per-agent list is the final set and does not merge with defaults.**
 
-### Session Snapshot
+The effective allowlist applies across **prompt building, slash-command discovery, sandbox sync, and skill snapshots** — not just one of them.
 
-OpenClaw snapshots available skills when a session starts and reuses them throughout the same session. A skills watcher can hot reload when `SKILL.md` changes.
+But the docs add an important boundary: **this is not a host shell authorization boundary.** If the same agent can use `exec`, constrain that shell separately with sandboxing, OS-user isolation, exec deny/allowlists, and per-resource credentials.
 
-### Remote macOS Node
+## Referencing skills in a prompt
 
-When a Linux Gateway is connected to a macOS node, macOS-only skills become available (the agent executes them via `nodes.run`).
+Typing `$` in the Control UI composer searches skills available to the current agent and inserts a stable command name:
 
-### Token Cost
-
-The overhead of skills in the system prompt:
-
-- Base: 195 characters (when any skill is present)
-- Per skill: 97 characters + name + description + location length
-- Rough estimate: approximately 24+ tokens per skill
-
-## ClawHub
-
-OpenClaw's public skill marketplace. Browse at [clawhub.com](https://clawhub.com).
-
-### Common Commands
-
-```bash
-openclaw skills search <keyword>     # Search
-openclaw skills install <skill-slug> # Install to workspace/skills
-openclaw skills update --all         # Update all
+```text
+Use $github and $release_notes to summarize this change for the release.
 ```
 
-### Security Model
+Practical rules: **a single message can reference up to eight distinct skills**, and referencing more — or referencing an allowlist-hidden skill — **returns a visible error rather than being silently ignored.**
 
-- Publishing requires a GitHub account registered for at least one week
-- Skills that receive more than 3 independent reports are automatically hidden
-- Moderators can manage visibility, delete, and ban
+Common uppercase shell variables (`$HOME`, `$PATH`, `$EDITOR`) stay ordinary text; use lowercase to reference skills with those names, and `\$name` to keep a reference literal.
 
-### Publishing (clawhub CLI)
+There is also a permission flag: **`disable-model-invocation: true`** keeps a skill out of the `$` picker and the model's normal prompt so **the model cannot select it on its own** — while an authorized explicit `$skill-name` reference still invokes it. A useful separation for skills you want available but not model-initiated.
 
-```bash
-clawhub sync --all    # Scan + publish updates
-```
+## Skill Workshop: agents cannot edit SKILL.md directly
 
-### Security Considerations
+Added after March, with a notable design stance: **Skill Workshop is a proposal queue between the agent and your active skill files.**
 
-- **Treat third-party skills as untrusted code -- read them before enabling**
-- Run untrusted input in a sandbox
-- The skill directory's realpath must be within the configured root
-- `skills.entries.*.env` and `apiKey` are injected into the host process, not the sandbox
-
-## Sub-Agents
-
-Agents can spawn child agents to handle independent tasks.
-
-### Core Concepts
-
-- Sub-agents have their own independent session, workspace, and sandbox
-- Maximum nesting depth is 5 levels (`maxSpawnDepth`)
-- The parent agent can monitor, steer, or terminate child agents
-
-### Management Commands
+When the agent spots reusable work it **drafts a proposal instead of writing to `SKILL.md`**. Nothing changes until you review and approve.
 
 ```bash
-/subagents list                    # List child agents
-/subagents kill <id>               # Terminate
-/subagents log <id>                # View logs
-/subagents send <id> <message>     # Send a message
-/subagents steer <id> <directive>  # Steer direction
-/subagents spawn <config>          # Spawn a new child agent
+openclaw skills workshop list
+openclaw skills workshop inspect <proposal-id>
+openclaw skills workshop evaluate <proposal-id>
+openclaw skills workshop apply <proposal-id>
 ```
 
-### Session Tools
+Same pattern as "agents can request new agents, subject to operator approval" from the multi-agent article: **allow self-improvement, but as a proposal rather than a fait accompli.**
 
-| Tool | Purpose |
-|---|---|
-| `sessions_list` | List available sessions |
-| `sessions_history` | Retrieve conversation history |
-| `sessions_send` | Send a message to another session |
-| `sessions_spawn` | Create an isolated child session |
+## Sub-agents: push-based background runs
 
-### Security
+Sub-agents are background runs spawned from an existing run, each in its own session (`agent:<id>:subagent:<label>`), **announcing** their result back to the requester's chat channel when finished. Every run is tracked as a background task.
 
-- In a sandbox environment, a child agent can only see its own session and sessions it has spawned
-- Each child agent has its own independent tool permissions and sandbox configuration
+The goals are explicit: parallelize research and slow tool work without blocking the main run, keep sub-agents isolated by default, **keep the tool surface hard to misuse**, and support configurable nesting depth.
 
-## Summary
+### Three behavioral rules that matter
 
-Skills make OpenClaw's capabilities infinitely extensible -- from community-contributed ClawHub skills to custom workspace skills. Sub-agents allow complex tasks to be decomposed and handled in parallel. Combined, an agent can spawn child agents to use specific skills for subtasks.
+**1. `sessions_spawn` is non-blocking** and returns a run id immediately. A turn that needs child results should call **`sessions_yield`** after spawning — that ends the current turn and lets the completion event arrive as the next model-visible message.
+
+**2. Completion is push-based.** The docs say it outright: after spawning, **do not** poll `/subagents list`, `sessions_list`, or `sessions_history` in a loop to wait — check status on demand only when debugging.
+
+**3. Sub-agents get no session or message tools by default.** Native sub-agents **do not get the message tool**; they return plain assistant text to the parent, and **human-visible replies stay owned by the parent's normal delivery policy.**
+
+The reasoning behind the third is worth thinking about: if sub-agents could speak, spawning five would put five voices in front of the user at once. Keeping the right to speak with the parent forces it to synthesize before opening its mouth.
+
+There is also a defensive rule: **child output is a report and evidence for the requester to synthesize — it is not user-authored instruction text and cannot override system, developer, or user policy.**
+
+### Delivery resilience
+
+Completion delivery is more careful than I expected:
+
+- Handoff to the requester session carries a **stable idempotency key**
+- If the requester run is still active, OpenClaw **wakes or steers that run first** rather than opening a second visible reply path
+- If it cannot be woken, delivery falls back to a requester-agent handoff **rather than dropping the announcement**
+- If direct handoff is unavailable, delivery falls back to queue routing; a queued completion stays `session_queued` until the durable queue settles
+- **Automatic delivery retries for up to 30 minutes**, starting around 15 seconds with backoff capped at 5 minutes. On permanent failure or deadline expiry, **the successful child task is left visibly blocked rather than discarded**
+- Blocked results are **retained for 7 days** and can be retried or dismissed from the Tasks page or via `openclaw tasks retry` / `dismiss`
+
+"Blocked rather than discarded" separates "the work was done but not delivered" from "the work was not done" — a distinction worth stealing for any background-task system.
+
+### Cost note
+
+The docs flag this explicitly: **each sub-agent has its own context and token usage by default.** For heavy or repetitive tasks, set a cheaper model via `agents.defaults.subagents.model` and keep the main agent on a higher-quality one.
+
+Spawn with `context: "fork"` only when the child **genuinely needs the requester's current transcript** (thread-bound subagent sessions default to fork, since they branch the current conversation into a follow-up thread).
+
+## The big picture
+
+Skills and sub-agents both answer "extend capability without blowing up context," from opposite directions: **skills defer knowledge until it is needed, sub-agents move work into a different context entirely.**
+
+They also share a safety instinct — **don't let the extension speak directly to humans or edit itself directly.** Sub-agents have no message tool; agents edit skills through a proposal queue. Those two constraints look minor and are exactly what separates autonomy from being out of control.
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs. On skills: **the six-layer load order** and grouped layouts, names coming from frontmatter, **node-hosted skills** (available while connected, node-prefixed on collision, executed with `exec host=node`), location versus visibility as separate controls, **allowlists replacing rather than merging and applying across prompt building, command discovery, sandbox sync, and snapshots**, the "not a shell authorization boundary" caveat, **`$skill` references** (the eight-reference cap, visible errors, uppercase shell variable handling), `disable-model-invocation`, **the Skill Workshop proposal queue**, and Codex skill migration. On sub-agents: the `sessions_spawn`/`sessions_yield` pairing, **push-based completion with explicit no-polling guidance**, **no message tool by default** and its rationale, child output not overriding policy, **delivery resilience** (idempotency keys, wake-first, 30-minute retry, 7-day retention, blocked rather than discarded), and the cost note about cheaper sub-agent models and `context: "fork"`.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/tools/skills.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/skills.md) -- Skills system
-- [docs/tools/clawhub.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/clawhub.md) -- ClawHub marketplace
-- [docs/tools/sub-agents.md](https://github.com/openclaw/openclaw/blob/main/docs/tools/sub-agents.md) -- Sub-Agents
-- [docs/concepts/session-tool.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session-tool.md) -- Session Tools
+- [Skills](https://docs.openclaw.ai/tools/skills) — load order, allowlists, `$` references, node hosting
+- [Skill Workshop](https://docs.openclaw.ai/tools/skill-workshop) — the proposal lifecycle and CLI
+- [Sub-agents](https://docs.openclaw.ai/tools/subagents) — spawning, completion handoff, delivery resilience
+- [Creating skills](https://docs.openclaw.ai/tools/creating-skills), [Self-learning](https://docs.openclaw.ai/tools/self-learning) — authoring and self-improvement
+- [Swarm](https://docs.openclaw.ai/tools/swarm) — orchestrating concurrent agents from code

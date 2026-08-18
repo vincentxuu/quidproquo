@@ -1,314 +1,142 @@
 ---
-title: "OpenClaw 存取控制：Authentication、Secrets 與 OAuth"
+title: "OpenClaw 存取控制：SecretRef 不是程序隔離，以及它到底解決了什麼"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, authentication, secrets, oauth, trusted-proxy, secretref, security]
+tags: [openclaw, authentication, oauth, secrets, secretref, trusted-proxy, api-key]
 lang: zh-TW
-tldr: "API Key 最穩、OAuth 用 PKCE + token sink 模式、SecretRef 支援 env/file/exec 三種來源、Trusted Proxy 可以委託 reverse proxy 做認證。"
-description: "OpenClaw 的認證機制（API Key / OAuth / Setup Token）、SecretRef 密鑰管理、以及 Trusted Proxy Auth 反向代理認證。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 19
+tldr: "SecretRef 讓憑證不必以明文躺在設定檔裡，模型呼叫鏈上看到的是 process-local 的哨兵值。但官方講得很白：這不是程序隔離——真正的值仍在同一個程序的記憶體裡，而且 agent 讀得到的任何明文檔案都繞過了這層保護。"
+description: "OpenClaw 的憑證管理：模型供應商認證的建議路徑、SecretRef 的執行期快照與哨兵機制、active-surface 過濾與降級語意，以及遷移完成的實際判準。"
 draft: false
 ---
 
-OpenClaw Gateway 需要管理兩類憑證：模型供應商的 API 認證、以及 Gateway 本身的存取控制。這篇講這兩者的設定方式。
+Gateway 要管兩類憑證：**模型供應商的認證**，以及 **Gateway 自身的存取控制**。這篇主要講前者與底下共用的 secrets 機制——它在 3 月之後長出了一整套新東西。
 
-## 模型認證
+（Gateway 連線本身的認證——token、password、trusted-proxy——屬於設定與遠端存取的範圍，下一篇 Gateway 篇會講。）
 
-### API Key（推薦）
+## 最可預測的路徑：API key
 
-長期運行的 Gateway，API Key 是最穩定的選擇。
+對一台長時間開著的 gateway 主機，官方的建議很直接：**API key 最可預測**，訂閱／OAuth 流程在符合你的帳號模型時也能用。
+
+關鍵是**要放在 Gateway 主機上**（跑 `openclaw gateway` 那台）。如果 gateway 跑在 systemd／launchd 底下，環境變數要進 `~/.openclaw/.env`，daemon 才讀得到：
 
 ```bash
-# 設定環境變數
-export ANTHROPIC_API_KEY="..."
-openclaw models status
-
-# 或寫入 daemon 可讀的 .env
 cat >> ~/.openclaw/.env <<'EOF'
-ANTHROPIC_API_KEY=...
+<PROVIDER>_API_KEY=...
 EOF
 ```
 
-### API Key 輪替
-
-部分供應商在遇到 rate limit 時支援自動換 key：
-
-| 優先順序 | 來源 |
-|---|---|
-| 1 | `OPENCLAW_LIVE_<PROVIDER>_KEY`（單一覆寫） |
-| 2 | `<PROVIDER>_API_KEYS` |
-| 3 | `<PROVIDER>_API_KEY` |
-| 4 | `<PROVIDER>_API_KEY_*` |
-
-只有 rate limit 錯誤（429、quota、resource exhausted）才會嘗試下一把 key。Key list 會自動去重。
-
-### Setup Token（Anthropic 訂閱）
+然後重啟並確認：
 
 ```bash
-claude setup-token
-openclaw models auth setup-token --provider anthropic
 openclaw models status
+openclaw doctor
+openclaw models status --check   # 自動化用：過期／缺漏回 1，即將過期回 2
+openclaw models status --probe   # 實際探測
 ```
 
-**注意：** Anthropic 的 setup-token 是技術相容性，不是政策保證。過去有使用者在 Claude Code 外使用被限制的案例。
+探測的回報值得知道怎麼讀：如果 `auth.order.<provider>` 漏掉了某個已儲存的 profile，探測會回 `excluded_by_auth_order` 而不是去試它；如果有認證但找不到可探測的模型，會回 `status: no_model`。
 
-### Claude CLI 遷移
+## Anthropic 的 Claude CLI 重用，實際上在做什麼
 
-已經在 Gateway 主機上登入 Claude CLI 的話：
+這條路徑的機制值得單獨講，因為它跟「複製 token」完全不同：
 
 ```bash
+claude auth login
+claude auth status --text
 openclaw models auth login --provider anthropic --method cli --set-default
 ```
 
-### OpenAI Codex OAuth
+執行時 OpenClaw 把重用的 Claude CLI 登入**當成 Claude 自己的憑證**：它先驗證主機當前的 `claude` 登入與選定 profile 的帳號相符，然後讓 `claude` 子程序**自己去原生認證**，所以 Claude 會在執行期間持續更新它自己的登入。
 
-OpenAI 明確支援在外部工具（包含 OpenClaw）使用 Codex OAuth。
+**OpenClaw 在這條路徑上從不轉發任何複製過來的 token。** 主機登入缺漏或屬於別的帳號時，執行會在 spawn 之前就失敗，並印出確切的重新認證指令。
 
-流程（PKCE）：
-1. 產生 PKCE verifier/challenge + random state
-2. 開啟授權 URL
-3. 捕捉 callback（`http://127.0.0.1:1455/auth/callback`）或手動貼 redirect URL
-4. Exchange token
-5. 存入 `{ access, refresh, expires, accountId }`
+## 憑證存在哪裡（3 月之後改了）
 
-### 認證狀態檢查
+auth profile 現在讀自每個 agent 的 `openclaw-agent.sqlite`。端點細節（`baseUrl`、`api`、模型 id、headers、逾時）屬於 `openclaw.json` 或 `models.json` 的 `models.providers.<id>`，**不放在 auth profile 裡**。
 
-```bash
-openclaw models status          # 查看狀態
-openclaw models status --check  # 自動化友善（exit 1 = 過期, exit 2 = 即將過期）
-openclaw doctor                 # 全面診斷
-```
+舊安裝如果還留著 `auth-profiles.json`、`auth-state.json`，或 `{ "openrouter": { "apiKey": "..." } }` 這種扁平結構，跑 `openclaw doctor --fix` 匯入 SQLite；doctor 會在原 JSON 旁邊留帶時間戳的備份。
 
-### Per-Session 切換
+還有一個容易寫錯的：**外部認證路由不是憑證**。Bedrock 的 `auth: "aws-sdk"` 要設成 `auth.profiles.<name>.mode: "aws-sdk"`（設定的中繼資料），**不要**把 `type: "aws-sdk"` 寫進憑證儲存區。
 
-```bash
-/model Opus@anthropic:work      # 指定 profile
-/model list                     # 緊湊選擇器
-/model status                   # 完整視圖
-```
+## SecretRef：它解決什麼、不解決什麼
 
-## Token Sink 模式
+SecretRef 讓支援的憑證不必以明文存在設定裡，寫法是 `{ source, provider, id }`，來源涵蓋 `env`／`file`／`exec`／`store`。**明文仍然可用，SecretRef 是逐憑證選用的。**
 
-OAuth 供應商常在 login/refresh 時產生新的 refresh token，且可能作廢舊的。如果你同時用 OpenClaw 和 Claude Code / Codex CLI 登入同一帳號，其中一個會隨機被「登出」。
+但官方對它的邊界講得非常清楚，這段值得逐句看：
 
-OpenClaw 用 `auth-profiles.json` 作為 **token sink**：
-- Runtime 從一個地方讀憑證
-- 支援多個 profile，確定性路由
+> SecretRef 阻止憑證被持久化到設定與產生的模型檔案裡，但**它們不是程序隔離的邊界**。留在 agent 讀得到的路徑上的明文憑證，仍然可以透過檔案或 shell 工具讀出來，繞過 API 層級的遮蔽。
 
-### 多帳號
+也就是說：`openclaw.json`、`.env`、退役的 auth profile JSON 封存、產生的 `agents/*/agent/models.json`——只要 agent 能讀，明文就還是明文。
 
-**方法一（推薦）：獨立 agent**
-```bash
-openclaw agents add work
-openclaw agents add personal
-```
-各自的 session、憑證、workspace 完全隔離。
+## 哨兵：模型呼叫鏈上看到的不是真值
 
-**方法二：同一 agent 多 profile**
+這是實作上最有意思的一段。對 SecretRef 支撐的模型供應商憑證，OpenClaw 會在模型認證解析時鑄造一個**不透明的、process-local 的哨兵值**。
 
-`auth-profiles.json` 支援同 provider 多個 profile ID，用 `auth.order` 全域排序，或 `/model ...@<profileId>` per-session 覆寫。
+所以 auth 儲存、stream 選項、SDK 設定、日誌、錯誤物件、大部分執行期內省看到的是 `oc-sent-v2..end` 這種東西，**不是真正的憑證**。只有在請求離開程序之前，受保護的 fetch 才會把哨兵換成真值。
 
-## Secrets Management（SecretRef）
+兩個設計細節很漂亮：
 
-OpenClaw 支援 SecretRef，讓憑證不需要以明文存在設定檔裡。明文仍然可用，SecretRef 是 opt-in。
+- **形狀像哨兵但不認得的值會 fail closed** ——OpenClaw 寧可拒絕送出請求，也不把一個未解析的哨兵轉發給供應商
+- 解析後的機密值會被**註冊為日誌的精確值遮蔽對象**，當成縱深防禦
 
-### Runtime 模型
+但官方同樣不誇大：**哨兵不是程序隔離**。真正的值仍在同一程序的記憶體裡，並在最後的 adapter 邊界出現。而沒有透過 SecretRef 設定的純環境變數憑證，根本不在這個機制的範圍內。
 
-- 啟動時**急切解析**（eager resolution），不是 lazy
-- 啟動時 active SecretRef 無法解析 → **fail fast**
-- Reload 用**原子交換**：全部成功，或保持 last-known-good snapshot
-- Runtime request 只從記憶體 snapshot 讀取
+incident response 或相容性排查時可以用 `OPENCLAW_SECRET_SENTINELS=off` 關掉鑄造——注意這個 kill switch **不會**關掉精確值的日誌遮蔽註冊。
 
-### SecretRef 格式
+## 執行期模型：快照、降級、fail closed
 
-```json5
-{ source: "env" | "file" | "exec", provider: "default", id: "..." }
-```
+secrets 是**在啟用時就急切解析成一份記憶體內的執行期快照**，不是在請求路徑上惰性解析。這個設計的目的很明確：**把 secret 供應商的故障擋在熱路徑之外**。
 
-### 三種來源
+冷啟動時的行為分得很細：
 
-**Env：**
-```json5
-{ source: "env", provider: "default", id: "OPENAI_API_KEY" }
-```
+- 可重試的 SecretRef 失敗，如果能歸屬到一個支援隔離的非 Gateway 擁有者（模型供應商、skills、媒體／TTS／cron 供應商、合格的 auth profile、per-agent memory、sandbox SSH、頻道帳號、manifest 宣告的 plugin 路由），**Gateway 仍會啟動**，把該擁有者記為「已設定但不可用」，並發出遮蔽過的降級警告
+- **Gateway 的入站認證、結構上無效的 ref 或解析值、fail-closed 的擁有者、以及擁有者無法對應的 ref，仍然會擋住啟動**
 
-**File：**
-```json5
-{ source: "file", provider: "filemain", id: "/providers/openai/apiKey" }
-```
-用 JSON Pointer（RFC 6901）路徑。
+重載時每個擁有者獨立驗證，然後**發布一份原子的快照**。合格但失敗的擁有者會保留最後已知良好的值（只有在 ref 身分、供應商定義與完整的非機密擁有者契約都沒變時才算 stale，變了或新增的就是 cold）。嚴格失敗則直接拒絕整次重載、保留現行快照。
 
-**Exec：**
-```json5
-{ source: "exec", provider: "vault", id: "providers/openai/apiKey" }
-```
-跑外部程式（stdin JSON request → stdout JSON response），支援 1Password CLI、HashiCorp Vault、sops。
+## Active-surface 過濾
 
-### Provider 設定
+一個很實際的設計：**SecretRef 只在真正生效的介面上驗證**。
 
-```json5
-{
-  secrets: {
-    providers: {
-      default: { source: "env" },
-      filemain: {
-        source: "file",
-        path: "~/.openclaw/secrets.json",
-        mode: "json",
-      },
-      vault: {
-        source: "exec",
-        command: "/usr/local/bin/openclaw-vault-resolver",
-        args: ["--profile", "prod"],
-        passEnv: ["PATH", "VAULT_ADDR"],
-        jsonOnly: true,
-      }
-    }
-  }
-}
-```
+沒啟用的頻道／帳號、沒有任何啟用帳號繼承的頂層頻道憑證、關閉的工具介面、`tools.web.search.provider` 沒選到的搜尋供應商金鑰——這些的未解析 ref **不會擋住啟動**，只發出非致命的 `SECRETS_REF_IGNORED_INACTIVE_SURFACE` 診斷。
 
-### Active Surface 過濾
+沙箱 SSH 的認證素材也只有在有效沙箱後端是 `ssh` 且沙箱模式不是 off 時才算 active。這避免了「我只是留著一段沒在用的設定，結果整個 Gateway 起不來」。
 
-SecretRef 只在**有效啟用的表面**上驗證：
+另外有個優先權規則要記：**啟用中的 `gateway.auth.token` / `gateway.auth.password` SecretRef 優先於 `OPENCLAW_GATEWAY_TOKEN` / `OPENCLAW_GATEWAY_PASSWORD`**；環境憑證只在對應的本地設定輸入不存在時當退路。
 
-- 啟用的頻道/帳號 → 未解析會阻擋啟動
-- 停用的頻道/帳號 → 未解析不阻擋，只發 non-fatal 診斷
-- 沙箱 SSH 認證材料 → 只在 backend 是 `ssh` 時才 active
+## 遷移到底什麼時候算完成
 
-### Exec 整合範例
+官方把這件事定義成一道**安全遷移閘門，不只是便利工具**。全部成立才算完成：
 
-**1Password CLI：**
-```json5
-{
-  secrets: {
-    providers: {
-      onepassword_openai: {
-        source: "exec",
-        command: "/opt/homebrew/bin/op",
-        allowSymlinkCommand: true,
-        trustedDirs: ["/opt/homebrew"],
-        args: ["read", "op://Personal/OpenClaw QA API Key/password"],
-      }
-    }
-  }
-}
-```
+1. 支援的憑證都改用 SecretRef，不是明文值
+2. 明文殘留已從 `openclaw.json`、SQLite auth profile 儲存、`.env`、產生的 `models.json` 清掉（退役的 auth JSON 是 doctor 的遷移輸入，`secrets apply` 永遠不會改寫它）
+3. `openclaw secrets audit --check` 跑起來是乾淨的
+4. 其餘不支援或會輪替的憑證，用 OS 隔離、容器隔離或外部憑證代理保護
 
-**HashiCorp Vault：**
-```json5
-{
-  secrets: {
-    providers: {
-      vault_openai: {
-        source: "exec",
-        command: "/opt/homebrew/bin/vault",
-        allowSymlinkCommand: true,
-        args: ["kv", "get", "-field=OPENAI_API_KEY", "secret/openclaw"],
-        passEnv: ["VAULT_ADDR", "VAULT_TOKEN"],
-      }
-    }
-  }
-}
-```
-
-## Trusted Proxy Auth
-
-把 Gateway 認證委託給前面的 reverse proxy（Pomerium、Caddy、nginx、Traefik）。
-
-### 運作方式
-
-1. Reverse proxy 認證使用者（OAuth、OIDC、SAML）
-2. Proxy 加入身份 header（如 `x-forwarded-user`）
-3. OpenClaw 檢查 request 來自 trusted proxy IP
-4. OpenClaw 從 header 提取使用者身份
-5. 通過 → 授權
-
-### 設定
-
-```json5
-{
-  gateway: {
-    bind: "loopback",
-    trustedProxies: ["10.0.0.1", "172.17.0.1"],
-    auth: {
-      mode: "trusted-proxy",
-      trustedProxy: {
-        userHeader: "x-forwarded-user",
-        requiredHeaders: ["x-forwarded-proto"],
-        allowUsers: ["nick@example.com"],
-      }
-    }
-  }
-}
-```
-
-### Proxy 設定範例
-
-| Proxy | 身份 Header | 特點 |
-|---|---|---|
-| Pomerium | `x-pomerium-claim-email` | 加 JWT assertion header |
-| Caddy + OAuth | `x-forwarded-user` | caddy-security plugin |
-| nginx + oauth2-proxy | `x-auth-request-email` | auth_request 模式 |
-| Traefik + Forward Auth | `x-forwarded-user` | Forward auth middleware |
-
-### 安全清單
-
-啟用 trusted-proxy auth 前必須確認：
-
-- Proxy 是唯一路徑（Gateway port 對其他來源有防火牆）
-- trustedProxies 最小化（只放實際 proxy IP，不放整個子網）
-- Proxy 會**覆寫**（不是 append）`x-forwarded-*` headers
-- TLS 終止在 proxy
-- 建議設 allowUsers
-
-### TLS 與 HSTS
-
-**推薦模式：** Proxy 做 TLS 終止，在 proxy 設 HSTS。OpenClaw 在 loopback 用 HTTP。
-
-```text
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-```
-
-如果 OpenClaw 自己做 HTTPS：
-```json5
-{
-  gateway: {
-    tls: { enabled: true },
-    http: {
-      securityHeaders: {
-        strictTransportSecurity: "max-age=31536000; includeSubDomains",
-      }
-    }
-  }
-}
-```
-
-### 常見錯誤
-
-| 錯誤 | 原因 |
-|---|---|
-| `trusted_proxy_untrusted_source` | Request 不來自 trustedProxies 裡的 IP |
-| `trusted_proxy_user_missing` | User header 是空的 |
-| `trusted_proxy_missing_header` | 必要 header 不存在 |
-| `trusted_proxy_user_not_allowed` | 使用者不在 allowUsers 裡 |
+還有一句提醒值得抄下來：**SecretRef 不會讓任意可讀的檔案變安全**。備份、複製出去的設定、舊的模型目錄、不支援的憑證類別，在被刪除、移出 agent 信任邊界或另外隔離之前，都仍然是正式環境的機密。
 
 ## 整體來說
 
-OpenClaw 的認證和密鑰管理有清楚的分層：
+這一層的設計哲學跟威脅模型那篇一致：**把能守住的部分做紮實，並且明說守不住什麼。**
 
-1. **模型認證** — API Key 最穩、OAuth 用 token sink 避免互踢
-2. **SecretRef** — env/file/exec 三種來源，啟動時 fail fast，active surface 過濾
-3. **Gateway 存取** — Trusted Proxy 委託認證，嚴格的 IP + header + user 檢查
+SecretRef 加哨兵確實把明文從設定檔、日誌、SDK 設定裡拿掉了——這解決的是「憑證散落在 agent 讀得到的地方」這個很真實的問題。但它從頭到尾沒有假裝自己是程序隔離，也沒有假裝能保護你忘在磁碟上的那份備份。
 
-正式環境建議：API Key + SecretRef（exec/vault）+ Trusted Proxy Auth。
+實務上的檢查點只有一個：**`openclaw secrets audit --check` 是不是乾淨的。**
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。**修正憑證儲存位置**：auth profile 已改讀每個 agent 的 `openclaw-agent.sqlite`，舊的 `auth-profiles.json` 等需要 `doctor --fix` 匯入。SecretRef 一段大幅擴充為現況：**哨兵機制**（模型呼叫鏈上看到 process-local 哨兵、未知哨兵 fail closed、`OPENCLAW_SECRET_SENTINELS=off` kill switch）、執行期快照與冷啟動／重載的降級語意（哪些會擋啟動、哪些降級成 configured-unavailable）、active-surface 過濾與 `SECRETS_REF_IGNORED_INACTIVE_SURFACE`、`gateway.auth.*` SecretRef 優先於環境變數的規則、以及官方定義的四項遷移完成判準。新增 Anthropic Claude CLI 重用的實際機制（驗證帳號相符後由子程序原生認證，從不轉發複製的 token）、`models status --probe` 的 `excluded_by_auth_order` 與 `no_model` 回報、Bedrock `aws-sdk` 應寫在設定中繼資料而非憑證儲存區。並依官方原文加上「SecretRef 不是程序隔離」的邊界聲明。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/gateway/authentication.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/authentication.md) — 模型認證
-- [docs/gateway/secrets.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/secrets.md) — Secrets 管理
-- [docs/concepts/oauth.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/oauth.md) — OAuth 機制
-- [docs/gateway/trusted-proxy-auth.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/trusted-proxy-auth.md) — Trusted Proxy Auth
-- [docs/auth-credential-semantics.md](https://github.com/openclaw/openclaw/blob/main/docs/auth-credential-semantics.md) — Auth Credential Semantics
+- [Authentication](https://docs.openclaw.ai/gateway/authentication) — 模型供應商認證、Claude CLI 重用、狀態檢查與金鑰輪替
+- [Secrets management](https://docs.openclaw.ai/gateway/secrets) — SecretRef 契約、哨兵、執行期快照與 active-surface 過濾
+- [OAuth](https://docs.openclaw.ai/concepts/oauth) — OAuth 流程與儲存配置
+- [Trusted Proxy Auth](https://docs.openclaw.ai/gateway/trusted-proxy-auth) — 委託反向代理做認證
+- [Auth Credential Semantics](https://docs.openclaw.ai/auth-credential-semantics) — 憑證合格性與原因碼

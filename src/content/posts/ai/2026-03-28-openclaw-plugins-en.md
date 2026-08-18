@@ -1,204 +1,118 @@
 ---
-title: "OpenClaw Plugin System: Architecture and Development Guide"
+title: "The OpenClaw Plugin System: Treat Installs Like Running Code, and a Cold Check Proves Nothing About Runtime"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, plugins, sdk, clawhub, channel-plugin, provider-plugin, typescript]
+tags: [openclaw, plugins, clawhub, install-policy, supply-chain, plugin-sdk]
 lang: en
-tldr: "Plugins are built with TypeScript ESM and support 12 capability registrations (channels, models, tools, TTS, images, etc.), published to ClawHub or npm."
-description: "OpenClaw Plugin SDK architecture, 12 capability registrations, development workflow, and a guide to building Channel/Provider Plugins."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 28
+tldr: "The official framing is to treat plugin installs like running code — ClawHub and the bundled catalog are trusted sources, while arbitrary npm, git, and local paths require --force in noninteractive installs. And verification means inspect --runtime, because a bare inspect is only a cold manifest check."
+description: "Installing and managing OpenClaw plugins: the five install sources and bare-spec resolution, the security.installPolicy operator gate, how allow/deny lists interact, version compatibility fallback, and proving a plugin actually loaded."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-plugins)
 
-OpenClaw's functionality can be extended infinitely through Plugins -- from new chat channels to model providers, from custom tools to speech engines. This post covers the Plugin architecture and development workflow.
+Plugins extend OpenClaw with channels, model providers, agent harnesses, tools, skills, speech, realtime transcription, media understanding and generation, web fetch, web search, and other runtime capabilities.
 
-## What Can a Plugin Do
+Rather than enumerating what exists (that lives in the [inventory](https://docs.openclaw.ai/plugins/plugin-inventory)), this article covers **the security and verification model around installing** — which is where the real design lives.
 
-A Plugin can register any number of capabilities:
+## The framing: treat installs like running code
 
-| Capability | Registration Method | Description |
+Quoting upstream:
+
+> **Treat plugin installs like running code.** Prefer pinned versions for reproducible production installs. ClawHub packages and OpenClaw's bundled/official catalog are trusted sources. **New arbitrary npm, git, local path/archive, `npm-pack:`, or marketplace sources require `--force` in noninteractive installs after you review and trust the source.**
+
+That sentence splits sources into two trust tiers and **puts the friction on the untrusted tier** — neither blocking everything nor waving everything through.
+
+## Five install sources
+
+| Source | When | Form |
 |---|---|---|
-| Text inference (LLM) | `api.registerProvider()` | Model provider |
-| CLI inference backend | `api.registerCliBackend()` | CLI backend |
-| Channel / messaging | `api.registerChannel()` | Chat channel |
-| Speech (TTS/STT) | `api.registerSpeechProvider()` | Speech synthesis/recognition |
-| Media understanding | `api.registerMediaUnderstandingProvider()` | Media understanding |
-| Image generation | `api.registerImageGenerationProvider()` | Image generation |
-| Web search | `api.registerWebSearchProvider()` | Web search |
-| Agent tools | `api.registerTool()` | Agent tools |
-| Custom commands | `api.registerCommand()` | Custom commands |
-| Event hooks | `api.registerHook()` | Event hooks |
-| HTTP routes | `api.registerHttpRoute()` | HTTP routes |
-| CLI subcommands | `api.registerCli()` | CLI subcommands |
+| ClawHub | You want OpenClaw-native discovery, scans, version metadata, install hints | `clawhub:<package>` |
+| npm | You need the npm registry or dist-tag workflows | `npm:<package>` |
+| git | You need a branch, tag, or commit | `git:github.com/<owner>/<repo>@<ref>` |
+| local path | You are developing or testing locally | `--link ./my-plugin` |
+| marketplace | You are installing a Claude-compatible marketplace plugin | `--marketplace <...>` |
 
-## Quick Start: Tool Plugin
+**Bare package specs have special compatibility behavior**, and this is easy to trip on:
 
-### 1. Create the Package and Manifest
+- A bare name **matching a bundled plugin id** uses **that bundled source**
+- A bare name matching an **official external plugin id** uses the official package catalog
+- Any other bare spec **installs through npm** during the launch cutover
+- **Raw `@openclaw/*` specs matching bundled plugins also resolve to the bundled copy** before the npm fallback
 
-```json
-// package.json
-{
-  "name": "@myorg/openclaw-my-plugin",
-  "version": "1.0.0",
-  "type": "module",
-  "openclaw": {
-    "extensions": ["./index.ts"]
-  }
-}
-```
+So to say "I specifically want the external npm package, not the bundled copy," write `npm:@openclaw/<name>@<version>`. For deterministic source selection, always prefix.
 
-```json
-// openclaw.plugin.json
-{
-  "id": "my-plugin",
-  "name": "My Plugin",
-  "description": "Adds a custom tool to OpenClaw",
-  "configSchema": {
-    "type": "object",
-    "additionalProperties": false
-  }
-}
-```
+## Version compatibility falls back on its own
 
-### 2. Write the Entry Point
+A genuinely useful behavior: **for npm installs, unpinned specs and `@latest` choose the newest stable package advertising compatibility with this OpenClaw build.**
 
-```typescript
-// index.ts
-import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-import { Type } from "@sinclair/typebox";
+If npm's current latest declares a newer `openclaw.compat.pluginApi` or `openclaw.install.minHostVersion` than this build supports, **OpenClaw scans older stable versions and installs the newest one that fits.**
 
-export default definePluginEntry({
-  id: "my-plugin",
-  name: "My Plugin",
-  description: "Adds a custom tool to OpenClaw",
-  register(api) {
-    api.registerTool({
-      name: "my_tool",
-      description: "Do a thing",
-      parameters: Type.Object({ input: Type.String() }),
-      async execute(_id, params) {
-        return { content: [{ type: "text", text: `Got: ${params.input}` }] };
-      },
-    });
-  },
-});
-```
+But **exact versions and explicit channel tags like `@beta` stay pinned and fail when incompatible** — an explicit request is honored, the same instinct as `host=sandbox` failing closed in the exec article.
 
-### 3. Publish and Install
+## The operator install-policy gate
+
+`security.installPolicy` runs a trusted local policy command before a plugin install or update proceeds. It receives metadata plus the staged source path and can **allow, warn, or block**, and it **covers both CLI and Gateway-backed install/update paths.**
+
+Warning handling is designed carefully:
+
+- **The CLI** can acknowledge interactively — you type the target name using the same copy as suspicious ClawHub releases, and **policy is then re-evaluated**
+- Noninteractive direct CLI commands can pass `--acknowledge-install-policy-warning`, which **approves every warning for that invocation, while each warning is still re-evaluated before the install continues**
+- **The Control UI** shows the structured warning with an **Install anyway** action that behaves the same way
+- **Other Gateway-backed and automatic installs remain blocked** when they have no operator-confirmation flow
+
+Three things that do **not** substitute for it: **`--force` does not approve a policy warning**, the deprecated `--dangerously-force-unsafe-install` does not either, and **plugin `before_install` hooks run later** (as the agent-loop article noted: operator-owned install decisions belong in `security.installPolicy`, not `before_install`).
+
+## How allow and deny lists interact
+
+If `plugins.allow` is set, **an installed plugin id must be in that list before the plugin can load.**
+
+There is a considerate behavior here: **`openclaw plugins install` adds the installed id to an existing `plugins.allow` list and removes that id from `plugins.deny`**, so an explicit install can actually load after a restart.
+
+(The trap from the browser article is the other face of this mechanism: without `browser` in `plugins.allow`, the entire browser CLI and tool disappear.)
+
+## After installing: restart, then prove it loaded
+
+**Installing, updating, or uninstalling plugin code requires a Gateway restart.** A managed Gateway with config reload enabled detects the changed install record and restarts automatically; otherwise:
 
 ```bash
-# External plugin: publish to ClawHub or npm
-openclaw plugins install @myorg/openclaw-my-plugin
-
-# In-repo plugin: place in extensions/ directory, auto-discovered
-pnpm test -- extensions/my-plugin/
+openclaw gateway restart
 ```
 
-OpenClaw checks ClawHub first, then falls back to npm if not found.
-
-## Plugin Types
-
-### Channel Plugin
-
-Use `defineChannelPluginEntry` to connect a new chat platform:
-
-```typescript
-import { defineChannelPluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-
-export default defineChannelPluginEntry({
-  id: "my-channel",
-  // ...channel-specific registration
-});
-```
-
-### Provider Plugin
-
-Add a new model provider. You can register LLM, TTS, image generation, web search, and other capabilities simultaneously.
-
-### Tool Plugin
-
-Register tools that agents can call:
-
-```typescript
-// Required tool -- always available
-api.registerTool({
-  name: "my_tool",
-  // ...
-});
-
-// Optional tool -- users need to add it to the allowlist
-api.registerTool(
-  { name: "workflow_tool", /* ... */ },
-  { optional: true }
-);
-```
-
-Users enable it with:
-```json5
-{ tools: { allow: ["workflow_tool"] } }
-```
-
-## Hook Guard
-
-Plugins can intercept events using hooks:
-
-| Hook | Guard | Behavior |
-|---|---|---|
-| `before_tool_call` | `{ block: true }` | Terminates and prevents subsequent handlers |
-| `message_sending` | `{ cancel: true }` | Terminates and prevents subsequent handlers |
-
-## Import Conventions
-
-Always import from focused sub-paths:
-
-```typescript
-// Correct
-import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-import { createPluginRuntimeStore } from "openclaw/plugin-sdk/runtime-store";
-
-// Wrong (deprecated, will be removed)
-import { ... } from "openclaw/plugin-sdk";
-```
-
-## Prerequisites
-
-- Node >= 22
-- TypeScript (ESM)
-- `pnpm install` (for in-repo plugins)
-
-## Plugin Management
+The verification step is stated explicitly upstream, and it is worth copying:
 
 ```bash
-openclaw plugins install <package>    # Install
-openclaw plugins list                 # List installed
-openclaw plugins status               # Status
-/plugins                               # Chat command (requires commands.plugins enabled)
+openclaw plugins inspect <plugin-id> --runtime --json
 ```
 
-## Beta Release Testing
+> Use `--runtime` to **prove** registered tools, hooks, services, Gateway methods, or plugin-owned CLI commands. **Plain `inspect` is a cold manifest and registry check only.**
 
-1. Subscribe to the GitHub release tag
-2. Test immediately when a beta tag (`v2026.3.N-beta.1`) appears
-3. Report feedback in the Discord `plugin-forum` channel
-4. File an issue for problems (`Beta blocker: <plugin-name>` + `beta-blocker` label)
-5. Open a PR (`fix(<plugin-id>): beta blocker - <summary>`)
+This is exactly the principle from the MCP article — "saving a definition proves nothing about reachability, the probe does." **Existence in config is not existence at runtime.** A system that keeps repeating this in its docs has usually been bitten by it.
 
-## Summary
+## The big picture
 
-OpenClaw's Plugin system covers virtually all extension needs -- 12 capability registrations, a TypeScript SDK, and ClawHub marketplace publishing. You can add new channels, models, and tools without modifying the OpenClaw source code.
+The plugin system's design axis is **supply-chain trust tiers plus runtime verification.**
+
+Trust tiers: ClawHub and the official catalog are trusted, other sources require an explicit statement (`--force`), and `security.installPolicy` lets an organization add its own gate on top — a gate that **`--force` cannot bypass.**
+
+Runtime verification: restart after installing, then prove it with `inspect --runtime`. Do not trust the cold check.
+
+If you take one line, take **"treat plugin installs like running code"** — because that is precisely what they are.
+
+## Changelog
+
+- 2026-08-18: Substantially revised against the current official docs, refocusing from plugin architecture and SDK overview onto **the install security and verification model**. Added: the official "treat installs like running code" framing and trust tiering (arbitrary npm/git/local/marketplace sources requiring `--force` noninteractively), **the five install sources and bare-spec resolution** (including `@openclaw/*` resolving to the bundled copy and needing an `npm:` prefix for the external package), **automatic version-compatibility fallback** (unpinned specs scanning older stable versions, exact versions and `@beta` staying pinned and failing on incompatibility), **the `security.installPolicy` operator gate** (covering CLI and Gateway paths, interactive and noninteractive acknowledgement, and the fact that neither `--force` nor the deprecated unsafe-install flag approves a warning while `before_install` runs later), how `plugins.allow`/`deny` interact with the install command, and that **`inspect --runtime` is what proves runtime loading while a bare inspect is only a cold check**.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/plugins/building-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/building-plugins.md) -- Plugin development guide
-- [docs/plugins/index.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/index.md) -- Plugin overview
-- [docs/plugins/sdk-overview.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-overview.md) -- SDK overview
-- [docs/plugins/sdk-channel-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-channel-plugins.md) -- Channel Plugin
-- [docs/plugins/sdk-provider-plugins.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-provider-plugins.md) -- Provider Plugin
-- [docs/plugins/sdk-entrypoints.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-entrypoints.md) -- Entry Points
-- [docs/plugins/manifest.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/manifest.md) -- Plugin Manifest
-- [docs/plugins/sdk-testing.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/sdk-testing.md) -- Plugin testing
-- [docs/plugins/architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/plugins/architecture.md) -- Plugin architecture
+- [Plugins](https://docs.openclaw.ai/tools/plugin) — install sources, the policy gate, runtime verification
+- [Manage plugins](https://docs.openclaw.ai/plugins/manage-plugins) — command examples
+- [Plugin inventory](https://docs.openclaw.ai/plugins/plugin-inventory) — bundled, official external, and source-only plugins
+- [Plugin SDK](https://docs.openclaw.ai/plugins/sdk-overview), [Build plugins](https://docs.openclaw.ai/plugins/building-plugins) — the authoring side
+- [ClawHub](https://docs.openclaw.ai/clawhub) — community plugin discovery

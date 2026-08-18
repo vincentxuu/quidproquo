@@ -1,176 +1,145 @@
 ---
-title: "OpenClaw 多 Agent 與 Delegate 架構"
+title: "OpenClaw 多 Agent：一個 agent 是一整個人格邊界，而 agent 現在可以要求生出 agent"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, multi-agent, delegate, session-management, routing]
+tags: [openclaw, multi-agent, bindings, workspace, agent-isolation, persona]
 lang: zh-TW
-tldr: "OpenClaw 支援在一個 Gateway 內跑多個隔離 agent，透過 binding 路由訊息，還能用 Delegate 架構讓 AI 以代理人身份行動。"
-description: "OpenClaw 的多 Agent 路由、Session 隔離策略、Delegate 代理人模式與 Agent Loop 執行機制。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 9
+tldr: "一個 agent 是完整的人格範圍——workspace、auth profile、模型登錄、session 儲存全部獨立。但隔離不是絕對的：次要 agent 的 OAuth 憑證過期時，OpenClaw 會回頭讀主 agent 的同名 profile，而 workspace 只是預設工作目錄，不是硬性沙箱。"
+description: "OpenClaw 多 agent 路由：agent 的邊界包含什麼、bindings 怎麼把頻道帳號對應到 agent、agentDir 不可共用的原因、OAuth 跨 agent 讀取行為、skills 的取代語意，以及 agent 建立 agent 的來源追蹤。"
 draft: false
 ---
 
-OpenClaw 不只能跑一個 AI agent。它支援在同一個 Gateway 內運行多個完全隔離的 agent，各自有獨立的 workspace、認證、session。再加上 Delegate 架構，agent 還能以代理人身份替你行動。這篇整理多 Agent 路由、Session 隔離、Delegate 模式和 Agent Loop 的運作方式。
+OpenClaw 可以在**同一個 Gateway 程序**裡跑多個彼此隔離的 agent，各自有 workspace、狀態目錄與 SQLite session 歷史，還能接多個頻道帳號（例如兩個 WhatsApp 號碼）。入站訊息透過 **binding** 路由到正確的 agent。
 
-## 多 Agent 架構
+先把兩個詞釘住：**agent** 是完整的 per-persona 範圍；**binding** 是把一個頻道帳號（某個 Slack workspace、某支 WhatsApp 號碼）對應到其中一個 agent。
 
-### 一個 Agent 包含什麼
+## 一個 agent 包含什麼
 
-每個 agent 是一個完全獨立的實體：
+- **Workspace**：檔案、`AGENTS.md` / `SOUL.md` / `USER.md`、本機筆記、人格規則
+- **狀態目錄（`agentDir`）**：auth profile、模型登錄、per-agent 設定
+- **Session 儲存**：聊天歷史與路由狀態，位於 `~/.openclaw/agents/<agentId>/agent/openclaw-agent.sqlite`
 
-| 組成 | 說明 |
-|---|---|
-| AgentId | 唯一識別，如 `work`、`personal` |
-| Workspace | 獨立工作目錄，含 `AGENTS.md`、`SOUL.md`、`USER.md` |
-| State Dir | `~/.openclaw/agents/<agentId>/` |
-| Auth Profiles | 獨立的 API Key / OAuth，不自動共享 |
-| Sessions | `~/.openclaw/agents/<agentId>/sessions/` |
-| Skills | workspace 下的 `skills/`，可共用 `~/.openclaw/skills` |
+路徑對照表：
 
-### 建立與管理
+| 什麼 | 預設 | 覆寫 |
+|---|---|---|
+| 設定 | `~/.openclaw/openclaw.json` | `OPENCLAW_CONFIG_PATH` |
+| 狀態目錄 | `~/.openclaw` | `OPENCLAW_STATE_DIR` |
+| 預設 agent 的 workspace | `<state>/workspace` | `agents.entries.*.workspace` → `agents.defaults.workspace` → `OPENCLAW_WORKSPACE_DIR` |
+| 其他 agent 的 workspace | `<state>/workspace-<id>` | `agents.entries.*.workspace` |
+| Agent 目錄 | `~/.openclaw/agents/<id>/agent` | `agents.entries.*.agentDir` |
+| Session 與逐字稿 | `~/.openclaw/agents/<id>/agent/openclaw-agent.sqlite` | — |
+
+**什麼都不設的話就是單一 agent**：`agentId` 預設 `main`，session key 是 `agent:main:<mainKey>`。
+
+## 隔離沒有你以為的那麼絕對
+
+這是這篇最該注意的兩條。
+
+**一、workspace 是預設工作目錄，不是硬性沙箱。** 相對路徑會在 workspace 裡解析，但**絕對路徑可以碰到主機上的其他位置**，除非你啟用沙箱。所以「每個 agent 有自己的 workspace」不等於「agent 之間讀不到彼此的檔案」。
+
+**二、OAuth 憑證會跨 agent 讀取。** 當次要 agent 的本機 OAuth 憑證過期、或它的更新失敗時，**OpenClaw 會回頭讀取預設／主 agent 同一個 profile id 的憑證**，並採用兩者中較新的那個 token——但不會把 refresh token 複製進次要 agent 的儲存區。
+
+想要完全獨立的 OAuth 帳號，就**從那個 agent 自己登入**。要手動複製憑證的話，只能複製可攜的靜態 `api_key` 或 `token` profile——**OAuth 的更新素材預設不可攜**（`copyToAgents` 可以明確讓某個 profile 選擇加入）。
+
+還有一條絕對不能違反的：**永遠不要在 agent 之間重用 `agentDir`**，那會造成 auth 與 session 狀態碰撞。
+
+## 建立與綁定
 
 ```bash
-# 新增一個叫 "work" 的 agent
 openclaw agents add work
+```
 
-# 查看所有 agent 和綁定關係
+旗標：`--workspace`、`--model`、`--agent-dir`、`--bind <channel[:accountId]>`（可重複）、`--non-interactive`（需要 `--workspace`）。
+
+然後加上 `bindings` 來路由入站訊息（精靈會問你要不要順便做），再驗證：
+
+```bash
 openclaw agents list --bindings
 ```
 
-### Binding 路由
+典型流程是：每個 agent 一組頻道帳號（Discord 一個 bot、Telegram 一個 BotFather bot、WhatsApp 一支號碼），在 `agents.entries` 加 agent、在 `channels.<channel>.accounts` 加帳號，用 `bindings` 把兩邊接起來，重啟後跑 `openclaw channels status --probe` 確認。
 
-Binding 決定「哪些訊息送到哪個 agent」。三個關鍵概念：
+## Agent 可以要求建立 agent（但要人核准）
 
-- **AgentId** — 一個隔離的「大腦」
-- **AccountId** — 一個頻道帳號實體（例如一個 WhatsApp 號碼）
-- **Binding** — 基於 channel、accountId、peer 的路由規則
+這是 3 月之後新增、也最值得注意的一段：**一個已設定的 agent 可以透過它的 `openclaw` 工具，要求 OpenClaw 建立另一個 agent。**
 
-路由採最具體優先（most-specific-first）：
+它沒有被做成靜默自我複製——系統 agent 會**把這個具型別的操作記錄下來、把提出請求的 agent id 顯示給操作者，而且只有在操作者核准之後才建立**。
 
-```
-1. Peer match（精確 DM / 群組）
-2. Parent peer（thread 繼承）
-3. Guild + roles（Discord）
-4. Guild（Discord）
-5. Team（Slack）
-6. Account ID
-7. Channel 層級
-8. Default agent（兜底）
-```
+OpenClaw 因此記錄每個 agent 的**來源（provenance）**：
 
-多個條件是 AND 邏輯——全部符合才 match。
+- `operator` — 來自 CLI、onboarding 或 Gateway 請求
+- `agent` — 系統 agent 代為請求（並保留提出請求的 agent id）
+- `claw` — 由某個 Claw 安裝加入
 
-### 實際應用
-
-**依頻道分流：** WhatsApp 用快速便宜模型處理日常，Telegram 用 Claude Opus 做深度工作。
-
-**依對象分流：** 大部分 WhatsApp 走標準 agent，特定聯絡人路由到更強的模型。
-
-**多帳號隔離：** WhatsApp 帳號 A 綁 agent-personal，帳號 B 綁 agent-work，Discord 綁 agent-community。
-
-## Session 管理
-
-### DM Scope
-
-`session.dmScope` 控制直接訊息的隔離層級：
-
-| 模式 | 行為 | 適用場景 |
-|---|---|---|
-| `main`（預設）| 所有 DM 共享一個 session | 個人使用，跨裝置連續 |
-| `per-peer` | 按發送者隔離 | 多人存取同一 agent |
-| `per-channel-peer` | 按頻道 + 發送者隔離 | 多使用者收件箱 |
-| `per-account-channel-peer` | 按帳號 + 頻道 + 發送者 | 多帳號設定 |
-
-安全警告：如果你的 agent 會收到多人的 DM，**強烈建議**不要用預設的 `main`。否則所有人共享對話上下文，會洩漏私人資訊。
-
-### Identity Links
-
-用 `session.identityLinks` 把不同平台的同一個人對應到同一個身份，讓他們跨頻道共享 DM session。
-
-### Session 生命週期
-
-- **每日重置** — 預設凌晨 4:00
-- **閒置重置** — 可選的滑動視窗，跟每日重置取先到期者
-- **手動觸發** — `/new` 和 `/reset`
-- **Cron job** — 每次執行都產生新 session
-
-維護設定預設：30 天後清除、最多 500 筆、10MB 旋轉門檻。正式環境建議用 `mode: "enforce"` 自動清理。
-
-## Delegate 架構
-
-Delegate 是多 Agent 的進階應用：agent 以**自己的身份**代替人類行動，像一個有獨立帳號的 AI 秘書。
-
-### 三個能力層級
-
-**Tier 1：Read-Only + Draft** — 只讀資料、草擬訊息。需人工審核才發送。只需 read 權限。
-
-**Tier 2：Send on Behalf** — 以 delegate 身份發送。收件者看到「Delegate 代表 Principal」。可以建立行事曆事件。
-
-**Tier 3：Proactive** — 自主排程執行，結合 cron job。無需逐次核准，按 `AGENTS.md` 中的 standing orders 行動。
-
-### 安全前提
-
-在給 Delegate 權限之前，必須先設定：
-
-- **Hard blocks** — 不可協商的限制（例如：不可在未核准下發外部信件）
-- **Tool 限制** — Gateway 層級的 allow/deny list
-- **Sandbox 隔離** — 限制檔案系統和網路存取
-- **Audit log** — 完整的操作記錄
-
-### 建立方式
+查看目前的建立階層：
 
 ```bash
-openclaw agents add delegate
-# 設定 identity provider delegation（Microsoft 365 / Google Workspace）
-# 透過 binding 綁定到特定頻道
+openclaw agents list --tree
 ```
 
-支援多個 delegate 在同一個 Gateway 上運行，各自有獨立的 workspace 和認證。
+已刪除的建立者仍保留為歷史來源；如果建立者已不在設定名單裡，它的子代會出現在樹根。
 
-## Agent Loop
+這個設計值得單獨想一下：**允許 agent 生 agent，但把「誰要求的」變成永久記錄，並且插入一道人類閘門**。這比單純禁止或單純允許都更務實。
 
-每個 agent 的一次完整執行：
+## Skills 是取代，不是合併
 
+多 agent 環境裡最容易踩的設定語意：
+
+Skills 會從**每個 agent 的 workspace 加上共用根目錄**（例如 `~/.openclaw/skills`）載入，再依該 agent 的有效 skill allowlist 過濾。
+
+- `agents.defaults.skills` 是共用基線
+- `agents.entries.*.skills` 是**per-agent 的取代**——**明確的條目會取代預設值，不會合併**
+
+如果你以為它是合併的，某個 agent 的 skill 清單就會比你預期的少一大截。
+
+## Plugin 的儲存不會自動跟著拆
+
+另一個容易誤會的：**加了第二個 agent，並不會自動把每個全域 plugin 的儲存都拆開**。plugin 自己的設定決定它怎麼存。
+
+官方舉的例子是 Memory Wiki——預設用一個全域 vault，要讓客服 agent 與行銷 agent 的編譯知識分開，得明確設定：
+
+```json5
+{
+  plugins: {
+    entries: {
+      "memory-wiki": {
+        enabled: true,
+        config: { vault: { scope: "agent", path: "~/.openclaw/wiki" } },
+      },
+    },
+  },
+}
 ```
-收到訊息 → Context 組裝 → 模型推理 → Tool 執行 → 串流回覆 → 持久化
-```
 
-### 並行控制
+設定的路徑是**父目錄**，OpenClaw 會接上正規化過的 agent id，產生 `~/.openclaw/wiki/support`、`~/.openclaw/wiki/marketing`。而且多 agent 環境下，**agent 範圍的 CLI 與 Gateway 操作會要求你明確指定是哪個 agent**。
 
-每個 session 內的執行是**串行的**（session lane），避免 race condition。可選的 global lane 做全域串行。訊息通道有三種佇列策略：
+## 跨 session 回想的安全版本
 
-- **collect** — 收集訊息
-- **steer** — 導向執行中的 agent
-- **followup** — 追加到當前執行
+順帶一提一個相關工具：`sessions_history` 是**比較安全的跨 session 回想路徑**，因為它回傳的是**有界、經過遮蔽的視圖，不是原始逐字稿傾印**。
 
-### Hook 系統
-
-| 類型 | 可用 Hook |
-|---|---|
-| Gateway hooks | `agent:bootstrap`、`/new`、`/reset` 等生命週期事件 |
-| Plugin hooks | `before_model_resolve`、`before_prompt_build`、`before_tool_call` |
-
-### 超時行為
-
-`agent.wait` 預設 30 秒。agent runtime 本身有 48 小時的 abort timer。
-
-## Agent 間通訊
-
-預設**關閉**。必須明確啟用並設定 allowlist 才能開啟 agent-to-agent messaging。這是刻意的安全設計——避免 agent 之間未經授權的互動。
+它會剝掉 thinking block 的簽章、工具結果的 payload 細節、鷹架標記、tool-call 的 XML 標籤（`<tool_call>`、`<function_call>` 及其複數／降級形式）與 MiniMax 的 tool-call XML，然後依位元組大小截斷與設上限。
 
 ## 整體來說
 
-OpenClaw 的多 Agent 架構核心取捨是**隔離優先**。每個 agent 都是完全獨立的實體，不共享認證、不共享 session、不能互相通訊（除非明確開放）。這對安全性很好，但也意味著跨 agent 協作需要額外設定。適合需要在同一台機器上運行多個用途明確、互不干擾的 AI 助手的場景。
+多 agent 的正確心智模型是：**它拆的是人格與狀態，不是作業系統層級的隔離。**
+
+Workspace、auth、session、模型登錄都是分開的，這足以讓幾個人共用一個 Gateway 而各自保有自己的對話與人格。但絕對路徑仍然通向同一台主機、OAuth 憑證仍然會跨 agent 讀取、plugin 儲存預設仍然共用——**要真正的隔離，得往上找沙箱，或往外拆成不同的 Gateway。**
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。新增：**agent 可以透過 `openclaw` 工具要求建立另一個 agent**，以及隨之而來的來源追蹤（`operator`／`agent`／`claw`）、`openclaw agents list --tree` 與操作者核准閘門；**次要 agent 的 OAuth 憑證過期時會讀取主 agent 的同名 profile** 並採用較新的 token（refresh 素材預設不可攜，`copyToAgents` 可選擇加入）；**workspace 只是預設 cwd 而非硬性沙箱**，絕對路徑仍可觸及主機其他位置；skills 的 per-agent 條目是**取代而非合併**；plugin 儲存不會因為多 agent 自動拆開（以 Memory Wiki 的 `vault.scope: "agent"` 為例）；`sessions_history` 回傳遮蔽過的有界視圖；以及 session 儲存已改為每個 agent 的 `openclaw-agent.sqlite`。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/concepts/multi-agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/multi-agent.md) — 多 Agent 路由
-- [docs/concepts/delegate-architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/delegate-architecture.md) — Delegate 代理人架構
-- [docs/concepts/agent-loop.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-loop.md) — Agent Loop 執行迴圈
-- [docs/concepts/agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent.md) — Agent Runtime 總覽
-- [docs/concepts/agent-workspace.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-workspace.md) — Agent Workspace
-- [docs/concepts/session.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session.md) — Session 管理
-- [docs/concepts/model-failover.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-failover.md) — 模型容錯與 Auth 輪替
-- [docs/gateway/configuration.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/configuration.md) — Gateway 設定（多 Agent 相關）
+- [Multi-agent routing](https://docs.openclaw.ai/concepts/multi-agent) — agent 邊界、路徑、來源追蹤與 per-agent vault
+- [Agent bindings](https://docs.openclaw.ai/concepts/agent-bindings) — binding 的設定與範例
+- [Skills: per-agent vs shared](https://docs.openclaw.ai/tools/skills) — skills 的取代語意與 allowlist
+- [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing) — workspace 之外的真正隔離
+- [Session management](https://docs.openclaw.ai/concepts/session) — session 路由與範圍

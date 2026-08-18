@@ -25,7 +25,19 @@ This is the sixth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 
 Three topics: what makes a repo agent-ready (structure, docs, tests, checks), scoring and auditing readiness, and the common gaps that block agents in real repos. The guest is [Factory](https://factory.ai/) co-founder and CTO Eno Reyes, speaking on agent readiness.
 
-This week didn't exist in Fall 2025, and it may be **the most counterintuitive week in the new syllabus**: it argues that when your agent underperforms, the model usually isn't the problem.
+This may be **the most counterintuitive week in the new syllabus**: it argues that when your agent underperforms, the model usually isn't the problem.
+
+## This week didn't appear from nowhere
+
+I originally wrote that this week "didn't exist in Fall 2025." Having read the older slides, that needs correcting: **the topic had no week of its own, but the idea was already there.**
+
+Fall 2025's Week 3, [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit), has a slide reading:
+
+> Optimize your codebase so that a human and an agent could understand what's going on. **Much of LLM confusion comes from trying to finish a task with a messy repo as context.**
+
+The same slide lists eight things to document: repo orientation, file structure, setup and environment, best practices, code style, access patterns, APIs and contracts — plus the note that "a monorepo design in your repo is highly encouraged."
+
+Set that beside Factory's eight pillars and the contrast is interesting: **the course's list is about documentation a human and an agent can both read; Factory's is about machine-decidable checks.** In one year the topic moved from "please tidy your repo" to "your repo can be scored."
 
 ## "The agent is not broken. The environment is."
 
@@ -131,4 +143,5 @@ That said, the closing line is true regardless of vendor interest:
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory, 2026-01-20, the eight-pillar framework and scoring methodology
 - [Agent Readiness Reports](https://factory.ai/agent-readiness) — published open source project scores
 - [Making Codebases Agent Ready – Eno Reyes, Factory AI](https://www.youtube.com/watch?v=ShuJ_CN6zr4) — this week's guest on the same subject
+- [From first prompt to optimal IDE setup](https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit) — Fall 2025 Week 3 slides, the precursor to agent-ready codebases
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering, on file structure and naming as signal for agents

@@ -43,3 +43,7 @@ pnpm-debug.log*
 
 # claude code personal overrides (connector UUIDs etc.)
 .claude/settings.local.json
+
+# CS230 transcript scrapes (regenerable intermediates, not version-controlled)
+.work/cs230-notes/raw/
+.work/cs230-notes/txt/

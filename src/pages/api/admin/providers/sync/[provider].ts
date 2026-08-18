@@ -14,8 +14,10 @@ const PRESET_MODELS: Record<string, string[]> = {
   anthropic: ['claude-3.5-sonnet', 'claude-3.5-haiku', 'claude-3.7-sonnet'],
   cloudflare: [
     '@cf/zai-org/glm-4.7-flash',
-    '@cf/google/gemma-4-26b-a4b-it',
+    '@cf/ibm-granite/granite-4.0-h-micro',
     '@cf/openai/gpt-oss-120b',
+    '@cf/deepseek-ai/deepseek-v4-flash-0731',
+    '@cf/google/gemma-4-26b-a4b-it',
     '@cf/meta/llama-4-scout-17b-16e-instruct',
   ],
   nvidia: ['llama-3.3-70b', 'nemotron-4-340b'],

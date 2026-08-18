@@ -27,6 +27,20 @@ Three topics: what AI review catches well and what it misses, review architectur
 
 That shift is telling. A year ago the talk worth booking was about how to write. Now it's about who checks.
 
+## Why the course treats review as high leverage
+
+The matching Fall 2025 session was Week 7, "AI code review" ([slides](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit), with Graphite CPO Tomas Reimers as guest). It opens with three sets of numbers, sourced to [Coding Horror](https://blog.codinghorror.com/code-reviews-just-do-it/) — itself an assigned reading for the course:
+
+- Code review has a **55–60%** error detection rate, versus **25–45%** for various testing modes
+- One study compared defect density without and with review: **4.5 → 0.82 errors per 100 lines**
+- An AT&T study found review brought a **14% productivity increase and a 90% decrease in defects**
+
+**All three are numbers for human review**, nothing to do with AI. The course uses them to establish a premise: review itself is enormously valuable, so the question is never whether to review, but who does it and how well.
+
+The course sorts what review should catch into five categories: logic and correctness, readability and maintainability, performance, security, and best practices — including a codebase's own idioms and database access patterns (the slide's example: "use this service rather than a direct DB lookup").
+
+It also gives four conditions for a good review comment: provide specific details, reference specific code or issues, **suggest a resolution**, and cite evidence or provide an explanation. The counterexample is a comment that says only "This won't work." Those same four work as a rubric for judging an AI reviewer's output.
+
 ## The one public dataset with real scale
 
 There is no shortage of numbers about AI code review, but nearly all of them come from tool vendors or affiliate-marketing sites with no reproducible methodology. The public data actually worth discussing is Google's [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/abs/2405.13565) (AIware '24, assigned in Fall 2025 Week 7) — they deployed an LLM system called AutoCommenter to "tens of thousands of developers" and wrote down every pothole.
@@ -61,14 +75,18 @@ The rollout pacing matters as well: an A/B experiment with half of all developer
 
 ## The class it misses
 
-The syllabus explicitly says "what AI review catches well, and what it misses." The most defensible current boundary:
+The syllabus explicitly says "what AI review catches well, and what it misses." The Fall 2025 slides give a limitations list that is sharper than the boundary I would have drawn myself:
 
-| Catches well | Catches poorly |
-|---|---|
-| Style and convention drift | Cross-file architectural regressions |
-| Obvious null and boundary errors | Business logic errors (code right, requirement wrong) |
-| Missing tests and docs | Race conditions and concurrency |
-| Single-file readability | "This abstraction will rot in three months" |
+> - More configuration/setup
+> - False positives — "Have to train the system → continuous learning"
+> - **Can't yet catch the idioms and repo best practices**
+> - Can't handle complex business logic and architecture decisions — "But that's where humans are still needed"
+> - Must be extra cautious with security changes
+> - Often misses edge cases
+
+"Can't catch the idioms and repo best practices" is the one to sit with, because it **directly collides** with the fifth of the course's own five categories — internal conventions and best practices are exactly where a human reviewer adds the most, and exactly where AI is currently weakest.
+
+The course adds two operational rules: **explicitly tell it what not to review**, and be especially careful with changes touching user input, authentication, file operations, and network requests.
 
 The line between diff-only tools and tools that index the whole codebase falls here too — the former can't see how a change ripples through the rest of the system.
 
@@ -81,6 +99,12 @@ One caution: the "bug catch rate" comparisons circulating online (82% for this t
 **Two: rank findings, don't dump them.** RePPIT's Test step sorts findings into must-fix, should-fix, and nice-to-have. That ranking is the cheapest available defense against Google's "correct but low-value" problem — it doesn't delete comments, it tells people which ones they can skip.
 
 **Three: a passing AI review is not permission to merge.** The biggest risk of a green checkmark isn't the bugs it missed; it's that human reviewers relax. Google's system ran for over two years and still lands around a 40% resolution rate.
+
+The course puts it harder than I would, on the deck's final line:
+
+> Code review is more important now than ever with AI coding systems — **You own the code that is merged and shipped, no blaming of the AI**
+
+That single sentence answers both accountability and process design.
 
 ## What will go stale
 
@@ -95,4 +119,5 @@ One caution: the "bug catch rate" comparisons circulating online (82% for this t
 - [RePPIT: A Framework to Ship Production Code 2-3X Faster](https://mlops.community/blog/reppit-a-framework-to-ship-production-code-2-3x-faster) — Mihail Eric, on finding severity and the no-self-review rule
 - [How to Review Code Effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/) — GitHub Blog, assigned in Fall 2025 Week 7
 - [Code Reviews: Just Do It](https://blog.codinghorror.com/code-reviews-just-do-it/) — Coding Horror, assigned in Fall 2025 Week 7
+- [AI code review](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit) — Fall 2025 Week 7 slides, with review effectiveness numbers and the course's limitations list
 - [Introducing Agent Readiness](https://factory.ai/news/agent-readiness) — Factory, on the boundary between deterministic checks and model judgment
