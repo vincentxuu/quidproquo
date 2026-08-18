@@ -1,319 +1,144 @@
 ---
-title: "OpenClaw Access Control: Authentication, Secrets, and OAuth"
+title: "OpenClaw Access Control: SecretRef Is Not Process Isolation — Here's What It Actually Solves"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, authentication, secrets, oauth, trusted-proxy, secretref, security]
+tags: [openclaw, authentication, oauth, secrets, secretref, trusted-proxy, api-key]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 19
-tldr: "API Key is the most stable option; OAuth uses PKCE + token sink pattern; SecretRef supports env/file/exec sources; Trusted Proxy delegates authentication to a reverse proxy."
-description: "OpenClaw authentication mechanisms (API Key / OAuth / Setup Token), SecretRef secret management, and Trusted Proxy Auth reverse proxy authentication."
+tldr: "SecretRefs keep credentials out of plaintext config, and the model-call chain sees process-local sentinels instead of the real value. But the docs say it plainly: this is not process isolation — the real value still exists in the same process's memory, and any plaintext file the agent can read bypasses the whole mechanism."
+description: "Credential management in OpenClaw: the recommended path for model provider auth, the SecretRef runtime snapshot and sentinel mechanism, active-surface filtering and degradation semantics, and the real criteria for a completed migration."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-auth-secrets)
 
-OpenClaw Gateway needs to manage two types of credentials: API authentication for model providers, and access control for the Gateway itself. This post covers how to configure both.
+The Gateway manages two credential classes: **model provider authentication** and **access control for the Gateway itself**. This article covers the former and the shared secrets machinery beneath it — which grew a great deal after March.
 
-## Model Authentication
+(Gateway connection auth — token, password, trusted-proxy — belongs to configuration and remote access, covered in the Gateway article.)
 
-### API Key (Recommended)
+## The most predictable path: an API key
 
-For long-running Gateways, API Keys are the most stable choice.
+For a long-lived gateway host the docs are direct: **an API key is the most predictable option**, with subscription and OAuth flows working when they match your provider account model.
+
+The key must live **on the Gateway host** (the machine running `openclaw gateway`). If the gateway runs under systemd or launchd, the variable belongs in `~/.openclaw/.env` so the daemon can read it:
 
 ```bash
-# Set environment variable
-export ANTHROPIC_API_KEY="..."
-openclaw models status
-
-# Or write to a .env file readable by the daemon
 cat >> ~/.openclaw/.env <<'EOF'
-ANTHROPIC_API_KEY=...
+<PROVIDER>_API_KEY=...
 EOF
 ```
 
-### API Key Rotation
-
-Some providers support automatic key rotation when hitting rate limits:
-
-| Priority | Source |
-|---|---|
-| 1 | `OPENCLAW_LIVE_<PROVIDER>_KEY` (single override) |
-| 2 | `<PROVIDER>_API_KEYS` |
-| 3 | `<PROVIDER>_API_KEY` |
-| 4 | `<PROVIDER>_API_KEY_*` |
-
-Only rate limit errors (429, quota, resource exhausted) trigger a switch to the next key. The key list is automatically deduplicated.
-
-### Setup Token (Anthropic Subscription)
+Then restart and verify:
 
 ```bash
-claude setup-token
-openclaw models auth setup-token --provider anthropic
 openclaw models status
+openclaw doctor
+openclaw models status --check   # automation: exit 1 expired/missing, 2 expiring
+openclaw models status --probe   # live probe
 ```
 
-**Note:** Anthropic's setup-token is a technical compatibility feature, not a policy guarantee. There have been cases where users were restricted when using it outside of Claude Code.
+Two probe results are worth knowing how to read: if `auth.order.<provider>` omits a stored profile, the probe reports `excluded_by_auth_order` rather than trying it; and if auth exists but no probeable model resolves for that provider, it reports `status: no_model`.
 
-### Claude CLI Migration
+## What Anthropic's Claude CLI reuse actually does
 
-If you've already logged into the Claude CLI on the Gateway host:
+This path deserves its own explanation because it is nothing like copying a token:
 
 ```bash
+claude auth login
+claude auth status --text
 openclaw models auth login --provider anthropic --method cli --set-default
 ```
 
-### OpenAI Codex OAuth
+At run time OpenClaw treats a reused Claude CLI login **as Claude's own credential**: it verifies the host's current `claude` login matches the selected profile's account, then lets the `claude` subprocess **authenticate natively**, so Claude keeps refreshing its own login during runs.
 
-OpenAI explicitly supports using Codex OAuth in external tools (including OpenClaw).
+**OpenClaw never forwards a copied token on this path.** If the host login is missing or belongs to a different account, the run fails before spawn with the exact re-authentication commands.
 
-Flow (PKCE):
-1. Generate PKCE verifier/challenge + random state
-2. Open authorization URL
-3. Capture callback (`http://127.0.0.1:1455/auth/callback`) or manually paste the redirect URL
-4. Exchange token
-5. Store `{ access, refresh, expires, accountId }`
+## Where credentials live (this changed after March)
 
-### Authentication Status Check
+Auth profiles are now read from each agent's `openclaw-agent.sqlite`. Endpoint details (`baseUrl`, `api`, model ids, headers, timeouts) belong under `models.providers.<id>` in `openclaw.json` or `models.json`, **not in auth profiles**.
 
-```bash
-openclaw models status          # View status
-openclaw models status --check  # Automation-friendly (exit 1 = expired, exit 2 = expiring soon)
-openclaw doctor                 # Full diagnostics
-```
+Older installs still holding `auth-profiles.json`, `auth-state.json`, or a flat `{ "openrouter": { "apiKey": "..." } }` shape should run `openclaw doctor --fix` to import into SQLite; doctor keeps timestamped backups next to the original JSON.
 
-### Per-Session Switching
+One more easy mistake: **external auth routes are not credentials.** Bedrock's `auth: "aws-sdk"` belongs in `auth.profiles.<name>.mode: "aws-sdk"` (config metadata) — do **not** write `type: "aws-sdk"` into the credential store.
 
-```bash
-/model Opus@anthropic:work      # Specify profile
-/model list                     # Compact selector
-/model status                   # Full view
-```
+## SecretRef: what it solves and what it does not
 
-## Token Sink Pattern
+SecretRefs let supported credentials avoid plaintext in config, written as `{ source, provider, id }` across `env` / `file` / `exec` / `store` providers. **Plaintext still works; SecretRefs are opt-in per credential.**
 
-OAuth providers often issue a new refresh token during login/refresh and may revoke the old one. If you're simultaneously using OpenClaw and Claude Code / Codex CLI logged into the same account, one of them will be randomly "logged out."
+But the docs are unusually clear about the boundary, and it is worth reading line by line:
 
-OpenClaw uses `auth-profiles.json` as a **token sink**:
-- The runtime reads credentials from a single location
-- Supports multiple profiles with deterministic routing
+> SecretRefs stop credentials from being persisted in config and generated model files, but **they are not a process-isolation boundary**. A plaintext credential left on disk in a path the agent can read is still readable via file or shell tools, bypassing API-level redaction.
 
-### Multiple Accounts
+In other words: `openclaw.json`, `.env`, retired auth-profile JSON archives, generated `agents/*/agent/models.json` — if the agent can read them, plaintext is still plaintext.
 
-**Method 1 (Recommended): Separate agents**
-```bash
-openclaw agents add work
-openclaw agents add personal
-```
-Each agent has fully isolated sessions, credentials, and workspaces.
+## Sentinels: the model-call chain does not see the real value
 
-**Method 2: Multiple profiles in the same agent**
+This is the most interesting piece of the implementation. For SecretRef-backed model provider credentials, OpenClaw mints an **opaque, process-local sentinel** during model-auth resolution.
 
-`auth-profiles.json` supports multiple profile IDs per provider. Use `auth.order` for global ordering, or `/model ...@<profileId>` for per-session override.
+So auth storage, stream options, SDK configuration, logs, error objects, and most runtime introspection see something like `oc-sent-v2..end` rather than the credential. Only the guarded fetch swaps sentinels for real values immediately before the request leaves the process.
 
-## Secrets Management (SecretRef)
+Two design details are elegant:
 
-OpenClaw supports SecretRef, so credentials don't need to be stored as plaintext in config files. Plaintext still works; SecretRef is opt-in.
+- **Unknown sentinel-shaped values fail closed** — OpenClaw refuses to send the request rather than forwarding an unresolved sentinel to a provider
+- Resolved secret values are **registered for exact-value log redaction** as defense in depth
 
-### Runtime Model
+And again, no overclaiming: **sentinels are not process isolation.** The real value still exists in same-process memory and appears at the final adapter boundary. Plain environment credentials not configured through SecretRefs sit outside the mechanism entirely.
 
-- **Eager resolution** at startup, not lazy
-- Unresolvable active SecretRef at startup → **fail fast**
-- Reload uses **atomic swap**: all succeed, or keep the last-known-good snapshot
-- Runtime requests only read from the in-memory snapshot
+For incident response or compatibility troubleshooting, `OPENCLAW_SECRET_SENTINELS=off` disables sentinel minting — note that the kill switch does **not** disable exact-value redaction registration.
 
-### SecretRef Format
+## Runtime model: snapshots, degradation, fail-closed
 
-```json5
-{ source: "env" | "file" | "exec", provider: "default", id: "..." }
-```
+Secrets resolve **eagerly into an in-memory runtime snapshot during activation**, not lazily on request paths. The purpose is explicit: **keep secret-provider outages off hot request paths.**
 
-### Three Sources
+Cold-start behavior is finely graded:
 
-**Env:**
-```json5
-{ source: "env", provider: "default", id: "OPENAI_API_KEY" }
-```
+- A retryable SecretRef failure attributable to a mapped, isolatable non-Gateway owner (model providers, skills, media/TTS/cron providers, eligible auth profiles, per-agent memory, sandbox SSH, channel accounts, manifest-declared plugin routes) lets **the Gateway start anyway**, records that owner as configured-unavailable, and emits a redacted degradation warning
+- **Gateway ingress auth, structurally invalid refs or resolved values, fail-closed owners, and refs whose owner is unmapped still fail startup**
 
-**File:**
-```json5
-{ source: "file", provider: "filemain", id: "/providers/openai/apiKey" }
-```
-Uses JSON Pointer (RFC 6901) paths.
+On reload, each mapped owner validates independently, then **one atomic snapshot is published**. An eligible failed owner keeps its last-known-good value and becomes stale only when its ref identities, provider definitions, and complete non-secret contract are unchanged; a changed or new failure becomes cold. A strict failure rejects the reload entirely and preserves the active snapshot.
 
-**Exec:**
-```json5
-{ source: "exec", provider: "vault", id: "providers/openai/apiKey" }
-```
-Runs an external program (stdin JSON request → stdout JSON response). Supports 1Password CLI, HashiCorp Vault, and sops.
+## Active-surface filtering
 
-### Provider Configuration
+A very practical design: **SecretRefs are validated only on effectively active surfaces.**
 
-```json5
-{
-  secrets: {
-    providers: {
-      default: { source: "env" },
-      filemain: {
-        source: "file",
-        path: "~/.openclaw/secrets.json",
-        mode: "json",
-      },
-      vault: {
-        source: "exec",
-        command: "/usr/local/bin/openclaw-vault-resolver",
-        args: ["--profile", "prod"],
-        passEnv: ["PATH", "VAULT_ADDR"],
-        jsonOnly: true,
-      }
-    }
-  }
-}
-```
+Disabled channels and accounts, top-level channel credentials no enabled account inherits, disabled tool surfaces, and web-search provider keys not selected by `tools.web.search.provider` — unresolved refs there **do not block startup**, emitting only a non-fatal `SECRETS_REF_IGNORED_INACTIVE_SURFACE` diagnostic.
 
-### Active Surface Filtering
+Sandbox SSH auth material is likewise active only when the effective sandbox backend is `ssh` and sandbox mode is not off. This avoids "I left an unused config block behind and now the whole Gateway won't start."
 
-SecretRef validation only applies to **actively enabled surfaces**:
+One precedence rule to remember: **active `gateway.auth.token` / `gateway.auth.password` SecretRefs stay authoritative over `OPENCLAW_GATEWAY_TOKEN` / `OPENCLAW_GATEWAY_PASSWORD`**; environment credentials are fallbacks only when the corresponding local config input is absent.
 
-- Enabled channels/accounts → unresolved blocks startup
-- Disabled channels/accounts → unresolved does not block, only emits non-fatal diagnostics
-- Sandbox SSH credentials → only active when backend is `ssh`
+## When migration is actually complete
 
-### Exec Integration Examples
+The docs define this as **a security migration gate, not a convenience helper**. All of these must hold:
 
-**1Password CLI:**
-```json5
-{
-  secrets: {
-    providers: {
-      onepassword_openai: {
-        source: "exec",
-        command: "/opt/homebrew/bin/op",
-        allowSymlinkCommand: true,
-        trustedDirs: ["/opt/homebrew"],
-        args: ["read", "op://Personal/OpenClaw QA API Key/password"],
-      }
-    }
-  }
-}
-```
+1. Supported credentials use SecretRefs rather than plaintext values
+2. Plaintext residue is scrubbed from `openclaw.json`, the SQLite auth-profile store, `.env`, and generated `models.json` files (retired auth JSON is doctor-owned migration input and is never rewritten by `secrets apply`)
+3. `openclaw secrets audit --check` is clean
+4. Any remaining unsupported or rotating credentials are protected by OS isolation, container isolation, or an external credential proxy
 
-**HashiCorp Vault:**
-```json5
-{
-  secrets: {
-    providers: {
-      vault_openai: {
-        source: "exec",
-        command: "/opt/homebrew/bin/vault",
-        allowSymlinkCommand: true,
-        args: ["kv", "get", "-field=OPENAI_API_KEY", "secret/openclaw"],
-        passEnv: ["VAULT_ADDR", "VAULT_TOKEN"],
-      }
-    }
-  }
-}
-```
+And one warning worth copying down: **SecretRefs do not make arbitrary readable files safe.** Backups, copied configs, old generated model catalogs, and unsupported credential classes remain production secrets until deleted, moved outside the agent trust boundary, or isolated separately.
 
-## Trusted Proxy Auth
+## The big picture
 
-Delegate Gateway authentication to a front-end reverse proxy (Pomerium, Caddy, nginx, Traefik).
+The philosophy here matches the threat model article: **do the defensible part thoroughly, and say plainly what is not defended.**
 
-### How It Works
+SecretRefs plus sentinels genuinely remove plaintext from config files, logs, and SDK configuration — which solves the very real problem of credentials scattered across paths the agent can read. But at no point does the mechanism pretend to be process isolation, or to protect that backup you left on disk.
 
-1. Reverse proxy authenticates the user (OAuth, OIDC, SAML)
-2. Proxy adds identity headers (e.g., `x-forwarded-user`)
-3. OpenClaw verifies the request comes from a trusted proxy IP
-4. OpenClaw extracts user identity from the header
-5. Pass → authorized
+In practice there is one checkpoint: **is `openclaw secrets audit --check` clean?**
 
-### Configuration
+## Changelog
 
-```json5
-{
-  gateway: {
-    bind: "loopback",
-    trustedProxies: ["10.0.0.1", "172.17.0.1"],
-    auth: {
-      mode: "trusted-proxy",
-      trustedProxy: {
-        userHeader: "x-forwarded-user",
-        requiredHeaders: ["x-forwarded-proto"],
-        allowUsers: ["nick@example.com"],
-      }
-    }
-  }
-}
-```
-
-### Proxy Configuration Examples
-
-| Proxy | Identity Header | Notes |
-|---|---|---|
-| Pomerium | `x-pomerium-claim-email` | Adds JWT assertion header |
-| Caddy + OAuth | `x-forwarded-user` | caddy-security plugin |
-| nginx + oauth2-proxy | `x-auth-request-email` | auth_request mode |
-| Traefik + Forward Auth | `x-forwarded-user` | Forward auth middleware |
-
-### Security Checklist
-
-Before enabling trusted-proxy auth, verify the following:
-
-- The proxy is the only path (Gateway port is firewalled from other sources)
-- trustedProxies is minimized (only actual proxy IPs, not entire subnets)
-- The proxy **overwrites** (not appends) `x-forwarded-*` headers
-- TLS terminates at the proxy
-- Setting allowUsers is recommended
-
-### TLS and HSTS
-
-**Recommended pattern:** The proxy handles TLS termination with HSTS configured at the proxy. OpenClaw uses HTTP on loopback.
-
-```text
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-```
-
-If OpenClaw handles HTTPS itself:
-```json5
-{
-  gateway: {
-    tls: { enabled: true },
-    http: {
-      securityHeaders: {
-        strictTransportSecurity: "max-age=31536000; includeSubDomains",
-      }
-    }
-  }
-}
-```
-
-### Common Errors
-
-| Error | Cause |
-|---|---|
-| `trusted_proxy_untrusted_source` | Request does not come from an IP in trustedProxies |
-| `trusted_proxy_user_missing` | User header is empty |
-| `trusted_proxy_missing_header` | Required header is missing |
-| `trusted_proxy_user_not_allowed` | User is not in the allowUsers list |
-
-## Summary
-
-OpenClaw's authentication and secret management has clear layering:
-
-1. **Model Authentication** — API Key is the most stable; OAuth uses token sink to prevent mutual logout
-2. **SecretRef** — Three sources (env/file/exec), fail fast at startup, active surface filtering
-3. **Gateway Access** — Trusted Proxy delegates authentication with strict IP + header + user checks
-
-For production environments, the recommended setup is: API Key + SecretRef (exec/vault) + Trusted Proxy Auth.
+- 2026-08-18: Substantially revised against the current official docs. **Corrected where credentials live**: auth profiles now come from each agent's `openclaw-agent.sqlite`, with the old `auth-profiles.json` requiring `doctor --fix` to import. The SecretRef section was expanded to current behavior: **the sentinel mechanism** (process-local sentinels along the model-call chain, unknown sentinels failing closed, the `OPENCLAW_SECRET_SENTINELS=off` kill switch), the runtime snapshot with cold-start and reload degradation semantics, active-surface filtering and `SECRETS_REF_IGNORED_INACTIVE_SURFACE`, the precedence of `gateway.auth.*` SecretRefs over environment variables, and the four official criteria for a completed migration. Added how Anthropic's Claude CLI reuse actually works (account match verified, then native subprocess auth, never a forwarded token), the `excluded_by_auth_order` and `no_model` probe results, and that Bedrock's `aws-sdk` route belongs in config metadata rather than the credential store. The "SecretRefs are not process isolation" boundary is stated per the upstream text.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/gateway/authentication.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/authentication.md) — Model Authentication
-- [docs/gateway/secrets.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/secrets.md) — Secrets Management
-- [docs/concepts/oauth.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/oauth.md) — OAuth Mechanism
-- [docs/gateway/trusted-proxy-auth.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/trusted-proxy-auth.md) — Trusted Proxy Auth
-- [docs/auth-credential-semantics.md](https://github.com/openclaw/openclaw/blob/main/docs/auth-credential-semantics.md) — Auth Credential Semantics
+- [Authentication](https://docs.openclaw.ai/gateway/authentication) — provider auth, Claude CLI reuse, status checks, key rotation
+- [Secrets management](https://docs.openclaw.ai/gateway/secrets) — the SecretRef contract, sentinels, runtime snapshot, active-surface filtering
+- [OAuth](https://docs.openclaw.ai/concepts/oauth) — OAuth flow and storage layout
+- [Trusted Proxy Auth](https://docs.openclaw.ai/gateway/trusted-proxy-auth) — delegating auth to a reverse proxy
+- [Auth Credential Semantics](https://docs.openclaw.ai/auth-credential-semantics) — credential eligibility and reason codes

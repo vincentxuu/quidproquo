@@ -68,11 +68,21 @@ draft: false
 
 三張都能直接報名，差別在深度與價格：[AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) $100、90 分鐘、65 題，是入門那張；[MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) $150、130 分鐘、65 題，往 ML 工程實作走；最上面是 [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) $300、180 分鐘、75 題，官方建議先有 **2 年 AWS 經驗加 1 年 GenAI 開發經驗**，是三張裡唯一專攻 GenAI 應用開發的。
 
-三張效期都是 3 年，維護方式只有一條路。[官方 recertification 政策](https://aws.amazon.com/certification/policies/recertification/)寫：
+三張效期都是 3 年，但續期規則比多數整理文寫得複雜，[官方 recertification 頁](https://aws.amazon.com/certification/recertification/)列得很清楚：
 
-> Certification through AWS is valid for three years from the date it was earned.
+**AI 這三張沒有「上課換效期」的選項。** AWS 整體上有兩條路 —— renew（+3 年）與 maintain（+1 年，在 AWS Skill Builder 上完成，需付費訂閱）—— 但 maintain 只開放給 SAA、Developer、CloudOps/SysOps、SAP、DOP 那幾張。AIF-C01、MLA-C01、AIP-C01 的 Options 欄位裡沒有 maintain，只有考試。
 
-重新認證只能重考，AWS 明文不接受繼續教育學分 —— 把三年後的 $100 至 $300 一起算進成本。
+**但考高階的會把低階一起續掉。** 這條最省錢，也最少人寫：
+
+| 你持有的 | 續期方式（皆 +3 年） |
+|---|---|
+| AI Practitioner（AIF-C01） | 重考 AIF-C01、**或考過 MLA-C01**、**或考過 AIP-C01** |
+| ML Engineer – Associate（MLA-C01） | 重考 MLA-C01、**或考過 AIP-C01** |
+| GenAI Developer – Professional（AIP-C01） | 只能重考 AIP-C01 |
+
+也就是說，考一張 AIP-C01 同時把 AIF-C01、MLA-C01 與 Data Engineer – Associate 全部往後推三年。
+
+**續期有五折券。** 官方頁三張的 Cost 欄都寫「Use the 50% discount voucher in your AWS Certification Account」—— 三年後的續期成本是 $50 / $75 / $150，不是原價。
 
 ## Google：只有 PMLE 一張，但教材要挑 2026 年中之後的
 
@@ -276,7 +286,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 **先對雲，再對證照。** 這些廠商的證照沒有通用的，選錯生態系的那張在履歷上幾乎不加分。唯一的例外是 CertNexus CAIP —— 它走 ISO/IEC 17024 認可、廠商中立，代價是不會證明你會用任何一家的平台。
 
-**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年。AWS 明文只能重考；Google 的 PMLE 目前也只能重考，但有續期五折碼，而且繼續教育續期已經開給另外四張證照、官方說之後會擴大。微軟的免費線上更新評量仍是這幾家裡最省的一個。
+**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年。AWS 的 AI 三張只能靠考試續期，但有五折券、而且考高階會連帶續掉低階；Google 的 PMLE 目前也只能重考，但有續期五折碼，而且繼續教育續期已經開給另外四張證照、官方說之後會擴大。微軟的免費線上更新評量仍是這幾家裡最省的一個。
 
 **證照的半衰期比想像中短。** 微軟整條 AI 認證線換代碼、PMLE 考綱換掉所有產品名、Claude 從一張擴成四張，全部發生在 2026 上半年。任何超過三個月的證照推薦文，預設它至少有一條已經失效 —— 包括這篇，報名前還是打開官方頁面對一次。
 
@@ -286,7 +296,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
-- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
+- 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；另修正 AWS 續期段落：原文寫「只能重考、不接受繼續教育學分」，官方 recertification 頁實際上有 renew／maintain 兩條路（maintain 僅開放給 SAA、Developer、CloudOps、SAP、DOP），且 AI 三張可用高階考試互相續期、續期一律可用五折券。並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
 
 ## 參考資料
 
