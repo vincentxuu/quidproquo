@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-18-ai-agent-attack-old-vulnerabilities-en)
 
-八月中旬，《金融時報》引述以色列資安公司 [Dream](https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia) 的報告，揭露一套多代理 AI 攻擊框架在 2026 年 7 月 1 至 4 日對亞洲某國政府發動 12 波入侵，四天內產出 1,395 個檔案、破解 85 組帳密。數位發展部資通安全署[隨後證實](https://moda.gov.tw/ACS/press/news/press/20394)臺灣在 7 月遭到攻擊。這篇不複述新聞，而是把五份一手報告攤開對讀，看它到底教了什麼——以及照同一份清單回頭掃自己的站，會掃出什麼。
+八月中旬，《金融時報》引述以色列資安公司 [Dream](https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia) 的報告，揭露一套多代理 AI 攻擊框架在 2026 年 7 月 1 至 4 日對亞洲某國政府發動 12 波入侵，四天內產出 1,395 個檔案、破解 85 組帳密。數位發展部資通安全署[隨後證實](https://moda.gov.tw/ACS/press/news/press/20394)臺灣在 7 月遭到攻擊。這篇不複述新聞，而是把原始報告、官方公告與評測原文攤開對讀，看它到底教了什麼——以及照同一份清單回頭掃自己的站，會掃出什麼。
 
 ## 四天、12 波：攻擊鏈上沒有一個 0-day
 
@@ -29,6 +29,8 @@ Dream 描述的攻擊鏈從一個 Angular 打造的政府入口網站開始，�
 ```
 
 值得停下來看的是每一格的內容：未驗證的 API 端點（其中一個不用登入就能匯出整份使用者資料庫）、留在生產環境的開發除錯後門、`alg: none` 的 JWT、以員工編號變形而成的密碼、無條件互信的 SSO。**沒有一個是新技術。**
+
+（嚴格說，Dream 沒有明講「沒有 0-day」，這是把它列出的每一個突破口逐條看完得到的結論；而報告只涵蓋它從工作區還原出來的部分。）
 
 Anthropic 在 [GTG-1002 的完整報告](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf)裡對自己觀察到的案例下了同樣的判斷：
 
@@ -77,7 +79,7 @@ P_chain   = 已確認步驟 / 總步驟數
 
 Dream 對這些 agent 框架的說法是「innocuous ones never built for offensive work」。
 
-站上[四月介紹過 Hermes Agent](/posts/ai/2026-04-05-hermes-agent-intro)，當時沒提它的 skill 目錄裡有什麼。查了才發現：[`godmode`](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode) 位於官方 repo 的 `optional-skills/security/godmode`，安裝指令是 `hermes skills install official/security/godmode`，作者掛的是「Hermes Agent + Teknium」（Teknium 是 Nous Research 共同創辦人），功能寫得毫不掩飾：「Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN」，內容是一張按模型家族排序的越獄策略表，涵蓋 Claude、GPT、Gemini、Grok、DeepSeek、Qwen。依[官方的信任層級表](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)，`optional-skills/` 屬於 `official`，享有「built-in trust, no third-party warning」。同一個 `security` 分類下還有 `obliteratus`（改權重移除模型的拒絕行為）與 `web-pentest`。
+站上[四月介紹過 Hermes Agent](/posts/ai/2026-04-05-hermes-agent-intro)，當時沒提它的 skill 目錄裡有什麼。查了才發現：[`godmode`](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode) 位於官方 repo 的 `optional-skills/security/godmode`，安裝指令是 `hermes skills install official/security/godmode`，作者掛的是「Hermes Agent + Teknium」（[Teknium](https://github.com/teknium1) 在自己的 GitHub 簡介寫的是「a Co-founder of NousResearch」），功能寫得毫不掩飾：「Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN」，內容是一張按模型家族排序的越獄策略表，涵蓋 Claude、GPT、Gemini、Grok、DeepSeek、Qwen。依[官方的信任層級表](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)，`optional-skills/` 屬於 `official`，享有「built-in trust, no third-party warning」。同一個 `security` 分類下還有 `obliteratus`（改權重移除模型的拒絕行為）與 `web-pentest`。
 
 公允的講法不是「Hermes 是攻擊工具」，也不是「無辜工具被誤用」，而是：**它同時是兩者，而且並不掩飾。** 對照組是 Unit 42 那案——OpenAI 的 provider 端防護擋下了違規請求並停用帳號，而走 DeepSeek 加開源框架的那條線，沒有任何人可以封。
 
@@ -85,7 +87,7 @@ Dream 對這些 agent 框架的說法是「innocuous ones never built for offens
 
 ## 回頭掃自己的站：兩個沒人守的端點
 
-把上面那份清單拿來掃這個站的 API 面（Astro SSR + Cloudflare Workers，105 個路由），找到兩個同類問題，都已修掉：
+把上面那份清單拿來掃這個站的 API 面（Astro SSR + Cloudflare Workers，101 個 API 端點），找到兩個同類問題，都已修掉：
 
 **一、一個沒有驗證的資料庫寫入端點。** `/api/posts` 有個 `POST`，沒有任何驗證，直接對 D1 做 `INSERT ... ON CONFLICT DO UPDATE`，等於任何人都能覆寫文章。更精確地說：它**沒有任何呼叫端**（`pnpm sync` 走的是另一支腳本），但 `posts` 表會被公開的 `/api/search`、`/api/related-posts` 以及 RAG 的 `get-post-detail` 讀取——所以它同時是一條把任意內容送進讀者介面與 LLM 上下文的路徑。已直接移除。
 
@@ -123,5 +125,6 @@ Dream 對這些 agent 框架的說法是「innocuous ones never built for offens
 - [CSO Online — AI agents wage near-autonomous cyberattack on Asian government networks](https://www.csoonline.com/article/4209210/ai-agents-wage-near-autonomous-cyberattack-on-asian-government-networks.html)
 - [Hermes Agent — godmode skill 文件](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode)
 - [Hermes Agent — Skills System 信任層級](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)
+- [Teknium（Nous Research 共同創辦人）GitHub 簡介](https://github.com/teknium1)
 - [Hermes Agent：Nous Research 的自我改進 AI 代理](/posts/ai/2026-04-05-hermes-agent-intro)
 - [安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)

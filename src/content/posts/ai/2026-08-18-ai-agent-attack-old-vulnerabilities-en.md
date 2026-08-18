@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-ai-agent-attack-old-vulnerabilities)
 
-In mid-August, the *Financial Times* cited a report from Israeli security firm [Dream](https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia) describing a multi-agent AI attack framework that ran 12 intrusion waves against an Asian government between 1 and 4 July 2026, producing 1,395 files and cracking 85 credentials in four days. Taiwan's Administration for Cyber Security [subsequently confirmed](https://moda.gov.tw/ACS/press/news/press/20394) that Taiwan was attacked in July. This post doesn't retell the news. It reads five primary reports side by side to see what they actually teach — and then runs the same checklist against my own site.
+In mid-August, the *Financial Times* cited a report from Israeli security firm [Dream](https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia) describing a multi-agent AI attack framework that ran 12 intrusion waves against an Asian government between 1 and 4 July 2026, producing 1,395 files and cracking 85 credentials in four days. Taiwan's Administration for Cyber Security [subsequently confirmed](https://moda.gov.tw/ACS/press/news/press/20394) that Taiwan was attacked in July. This post doesn't retell the news. It reads the original report, the official statements and the underlying evaluations side by side to see what they actually teach — and then runs the same checklist against my own site.
 
 ## Four days, 12 waves, and not one 0-day
 
@@ -29,6 +29,8 @@ Government portal (Angular)
 ```
 
 It's worth pausing on what fills each box: unauthenticated API endpoints (one of which exports the entire user database without a login), developer debug backdoors left in production, JWTs accepting `alg: none`, passwords derived from employee IDs, and SSO endpoints that trust unconditionally. **None of it is new technology.**
+
+(Strictly speaking, Dream never says "no 0-day" — that conclusion comes from reading every entry point it lists, one by one, and the report only covers what it recovered from the workspace.)
 
 Anthropic reached the same verdict in its [full GTG-1002 report](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf):
 
@@ -77,7 +79,7 @@ None of this means Dream fabricated anything — the first-hand observations are
 
 Dream describes these agent frameworks as "innocuous ones never built for offensive work".
 
-This site [introduced Hermes Agent back in April](/posts/ai/2026-04-05-hermes-agent-intro) without looking at what is in its skills catalogue. It turns out [`godmode`](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode) lives at `optional-skills/security/godmode` in the official repo, installs with `hermes skills install official/security/godmode`, is credited to "Hermes Agent + Teknium" (Teknium co-founded Nous Research), and describes itself without euphemism: "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN." Its content is a table of jailbreak strategies ordered by model family, covering Claude, GPT, Gemini, Grok, DeepSeek and Qwen. Per the [official trust-level table](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills), anything under `optional-skills/` counts as `official` and carries "built-in trust, no third-party warning". The same `security` category also holds `obliteratus` (strips refusal behaviour by modifying weights) and `web-pentest`.
+This site [introduced Hermes Agent back in April](/posts/ai/2026-04-05-hermes-agent-intro) without looking at what is in its skills catalogue. It turns out [`godmode`](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode) lives at `optional-skills/security/godmode` in the official repo, installs with `hermes skills install official/security/godmode`, is credited to "Hermes Agent + Teknium" ([Teknium](https://github.com/teknium1) describes himself on GitHub as "a Co-founder of NousResearch"), and describes itself without euphemism: "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN." Its content is a table of jailbreak strategies ordered by model family, covering Claude, GPT, Gemini, Grok, DeepSeek and Qwen. Per the [official trust-level table](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills), anything under `optional-skills/` counts as `official` and carries "built-in trust, no third-party warning". The same `security` category also holds `obliteratus` (strips refusal behaviour by modifying weights) and `web-pentest`.
 
 The fair description isn't "Hermes is an attack tool", nor "an innocent tool was misused". It's that **it is both, and it doesn't pretend otherwise.** The contrast is the Unit 42 case: OpenAI's provider-side safeguards refused the requests and disabled the account, while the DeepSeek-plus-open-framework path had no account for anyone to disable.
 
@@ -85,7 +87,7 @@ For anyone running agents, that raises a concrete question: what default trust s
 
 ## Auditing my own site: two unguarded endpoints
 
-Running that checklist against this site's API surface (Astro SSR on Cloudflare Workers, 105 routes) turned up two of the same class of problem. Both are fixed.
+Running that checklist against this site's API surface (Astro SSR on Cloudflare Workers, 101 API endpoints) turned up two of the same class of problem. Both are fixed.
 
 **One: an unauthenticated database write.** `/api/posts` had a `POST` with no authentication that ran `INSERT ... ON CONFLICT DO UPDATE` straight against D1 — anyone could overwrite any post. More precisely: it had **no callers at all** (`pnpm sync` goes through a separate script), yet the `posts` table is read by the public `/api/search` and `/api/related-posts` endpoints and by the RAG `get-post-detail` tool. So it was simultaneously a path for injecting arbitrary content into reader-facing surfaces and into LLM context. Removed.
 
@@ -123,5 +125,6 @@ Autonomy scales more than the attack.
 - [CSO Online — AI agents wage near-autonomous cyberattack on Asian government networks](https://www.csoonline.com/article/4209210/ai-agents-wage-near-autonomous-cyberattack-on-asian-government-networks.html)
 - [Hermes Agent — godmode skill documentation](https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode)
 - [Hermes Agent — Skills System trust levels](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)
+- [Teknium (Nous Research co-founder) GitHub profile](https://github.com/teknium1)
 - [Hermes Agent: Nous Research's Self-Improving AI Agent](/posts/ai/2026-04-05-hermes-agent-intro-en)
 - [Security: prompt injection can only be damage-controlled at the harness layer](/posts/ai/2026-08-10-agent-security-harness-layer-en)
