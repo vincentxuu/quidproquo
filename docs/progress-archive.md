@@ -643,3 +643,5 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   與 LinkedIn plan-and-execute 兩節，被使用者追問後承認那是把成本考量包裝成品質
   判斷。另攔下兩個自己捏造的引用（MAST 作者名、Meta blog URL），並實查 slopsquatting
   的 arXiv ID（2406.10279 正確）。
+
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。

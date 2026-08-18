@@ -25,6 +25,10 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-18: post(design) 品牌色決策的三個限制條件（zh + en）——design 分類首篇。修掉常見
+  錯誤建議：W3C SC 1.4.1 第二則註解明講「不論對比多少」，依賴精確辨色的狀態色必須另加視覺
+  指示，所以「避開紅綠」不是無障礙解法、加圖示才是。另查出 APCA 不是 WCAG 3 演算法（2023
+  初已標記移除，草案寫 yet to be determined）。色盲 8% 要連前提講（北歐血統；跨族群 2.2–8.73%）。
 - 2026-08-18: post(tech/deep-dive) 設計資源網站盤點 x Tailwind v4（zh + en）。研究筆記
   .research/2026-08-18-design-resource-sites-tailwind-v4.md。文章骨幹是一條可 30 秒
   執行的檢查點：v4 只認 namespace，變數名沒有 `--color-` 前綴就不生 utility，用它篩掉
@@ -74,7 +78,6 @@ Recently completed
   負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
   **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
   有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
-- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes
