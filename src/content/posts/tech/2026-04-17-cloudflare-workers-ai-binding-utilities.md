@@ -41,7 +41,7 @@ env.AI
 
 ```typescript
 // 文字生成
-await env.AI.run("@cf/google/gemma-3-12b-it", {
+await env.AI.run("@cf/zai-org/glm-4.7-flash", {
   messages: [
     { role: "system", content: "你是繁中助手" },
     { role: "user", content: "解釋 V8 Isolate" },
@@ -63,7 +63,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` 是「給我一個模型 ID、我丟 input、你吐 output」。選模型、寫 prompt、組 pipeline 都是你的事。
 
-關於繁中模型怎麼挑，另一篇寫過：[Gemma 3 on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)。
+目錄裡 80 幾個模型怎麼挑，另一篇整理過：[Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；繁中場景的取捨則見 [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)。
 
 ## 2. `toMarkdown()` — 文件轉檔 pipeline
 
@@ -266,6 +266,7 @@ const list = await env.AI.models();
 - [AI Search（原 AutoRAG）Workers Binding](https://developers.cloudflare.com/ai-search/usage/workers-binding/)
 - [AI Gateway Worker Binding Methods](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/)
 - [Cloudflare Workers：V8 Isolate 基礎](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
-- [Gemma 3 on Cloudflare Workers AI：繁中模型選型](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- [Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide) — 依用途、價格與 context 挑模型
+- [Gemma on Cloudflare Workers AI：繁中模型選型](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
 - [RAG Patterns 完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - [markdown.new](https://markdown.new) — 本文靈感來源

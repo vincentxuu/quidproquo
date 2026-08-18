@@ -5,24 +5,24 @@ type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: zh-TW
-tldr: "在 Cloudflare Workers AI 上跑 LLM，gemma-3-12b-it 的繁體中文指令跟隨比 llama-3.1-8b-instruct 明顯更好；2026 年 Gemma 4 上線後多了 Vision、Function calling 與 256K context，視需求升級。"
-description: "為什麼選 gemma-3-12b-it 而不是 llama，Cloudflare Workers AI 的使用方式、限制與取捨，以及實際在 nobodyclimb 繁中 RAG 系統中的表現觀察。2026 年更新：Gemma 4 (gemma-4-26b-a4b-it) 已上線，帶來 256K context 與多模態能力。"
+tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨比同級 Llama 穩定。gemma-3-12b-it 已於 2026-05-30 下架，現在的對應選項是 gemma-4-26b-a4b-it：256K context、Vision、Function calling，$0.10 / $0.30 per M tokens。"
+description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 下架後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
 draft: false
 ---
 
-選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——`@cf/google/gemma-3-12b-it` 是在這個限制下最好用的選項。
+選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——在這個限制下，Gemma 系列一直是繁體中文最順的選項。
 
-> **2026-04 更新**：Cloudflare Workers AI 已上線 `@cf/google/gemma-4-26b-a4b-it`，帶來 256K context window、Vision 與 Function calling 支援。本文底部有 [Gemma 4 對比章節](#gemma-4-2026-年更新)。
+> **模型狀態（2026-08）**：本文原本以 `@cf/google/gemma-3-12b-it` 為主角，它已在 2026-05-30 從 Workers AI 下架。現在的對應選項是 `@cf/google/gemma-4-26b-a4b-it`，全文範例都已改成 Gemma 4。當初捨 Llama 選 Gemma 的三個理由在 Gemma 4 上一樣成立，所以那段判斷保留。
 
 ## Cloudflare Workers AI 是什麼
 
 Cloudflare Workers AI 是 Cloudflare 的推論服務，讓你在 Workers 環境直接呼叫 hosted 模型，不需要管 GPU 基礎設施。計費按 token 用量。
 
-支援的模型涵蓋 text generation、embedding、image generation、speech-to-text 等類別。在 LLM 這塊，目前有 Llama、Mistral、Gemma、Qwen 等主流開源模型。
+支援的模型涵蓋 text generation、embedding、image generation、speech-to-text 等類別。在 LLM 這塊，目前有 Gemma、Llama、Qwen、GLM、gpt-oss、Kimi 等主流開源模型。
 
 ```typescript
 // Workers 環境裡，binding 就是這樣用
-const response = await env.AI.run("@cf/google/gemma-3-12b-it", {
+const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [
     { role: "system", content: "你是一個台灣攀岩社群的 AI 助手。" },
     { role: "user", content: "龍洞有哪些適合初學者的路線？" }
@@ -34,24 +34,24 @@ const response = await env.AI.run("@cf/google/gemma-3-12b-it", {
 
 相比自己架推論服務，好處是明顯的：不需要管 GPU、不需要 model serving 的 ops 工作、跟 Workers 的其他 binding（D1、KV、Vectorize）在同一個環境。
 
-## 為什麼是 gemma-3-12b-it，不是 llama-3.1-8b-instruct
+## 為什麼是 Gemma，不是 Llama
 
-nobodyclimb 早期用的是 `llama-3.1-8b-instruct`。換掉的主要原因：
+nobodyclimb 早期用的是 `llama-3.1-8b-instruct`，後來換成當時的 `gemma-3-12b-it`。換掉的三個理由，到 Gemma 4 依然是選它的理由：
 
-**繁體中文指令跟隨**：Llama 3.1 8B 的繁體中文輸出品質不穩定，偶爾會夾雜簡體字，或是忽略系統提示裡的格式指令（例如「回答要包含來源連結」）。Gemma 3 在這方面明顯更可靠。
+**繁體中文指令跟隨**：Llama 3.1 8B 的繁體中文輸出品質不穩定，偶爾會夾雜簡體字，或是忽略系統提示裡的格式指令（例如「回答要包含來源連結」）。Gemma 在這方面明顯更可靠。
 
-**12B vs 8B**：參數量的差距在 RAG 問答這個場景能感受到。Gemma 3 12B 對 context 的利用更好——給它 5 份檢索文件，它能更準確地整合資訊，而不是只用到前幾份。
+**參數量**：12B 對 8B 的差距在 RAG 問答這個場景能感受到——給它 5 份檢索文件，較大的模型能更準確地整合資訊，而不是只用到前幾份。Gemma 4 用 MoE 把這件事推得更遠：總參數 26B，每次推論只啟動約 4B。
 
-**Gemma 3 的多語言訓練**：Google 在 Gemma 3 的訓練資料裡有更完整的多語言覆蓋，中文（包含繁體）的比例比 Llama 3.1 的公開訓練設定更高。
+**Gemma 的多語言訓練**：Google 在 Gemma 的訓練資料裡有更完整的多語言覆蓋，中文（包含繁體）的比例比 Llama 3.1 的公開訓練設定更高。
 
-這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，gemma-3-12b-it 更適合。
+這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，Gemma 更適合。順帶一提，這兩個當初被拿來對比的模型 ID 現在都不在目錄裡了——`llama-3.1-8b-instruct` 跟 `gemma-3-12b-it` 是同一波（2026-05-30）下架的。
 
 ## 基本使用方式
 
 **非串流（適合 evaluation、background jobs）：**
 
 ```typescript
-const result = await env.AI.run("@cf/google/gemma-3-12b-it", {
+const result = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [
     { role: "system", content: systemPrompt },
     { role: "user", content: userQuery }
@@ -65,7 +65,7 @@ const answer = result.response; // string
 **串流（適合使用者介面）：**
 
 ```typescript
-const stream = await env.AI.run("@cf/google/gemma-3-12b-it", {
+const stream = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [...],
   stream: true,
 });
@@ -83,7 +83,7 @@ return streamSSE(c, async (sseStream) => {
 **JSON 輸出（適合結構化任務如 judge、filter-build）：**
 
 ```typescript
-const result = await env.AI.run("@cf/google/gemma-3-12b-it", {
+const result = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [
     {
       role: "system",
@@ -119,28 +119,30 @@ const evaluation = JSON.parse(result.response);
 
 **CPU 時間限制**：Workers 有 CPU 時間上限（Paid plan 是 30 秒，但 AI 呼叫不計入 CPU 時間，計入 wall time）。pipeline 裡有多個 LLM 呼叫（HyDE + generation + judge），加起來可能超過 Workers 的執行時間限制。nobodyclimb 的解法是讓 judge 非同步寫入（不阻塞主流程），HyDE 只在複雜查詢啟用。
 
-**模型版本不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint。模型行為可能在沒有通知的情況下改變。需要有監控機制偵測輸出品質是否有異常。
+**模型會被下架，版本也不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint，模型行為可能在沒有通知的情況下改變；更麻煩的是整個 model ID 會消失。2026-05-30 那波汰換一次砍掉 18 個 ID，Llama 2/3/3.1 全系列、Mistral 7B、Gemma 3 12B 都在裡面。這代表 model ID 不該散在程式各處硬寫，要收斂成一個常數或設定值，換的時候只動一個地方；另外要有監控機制偵測輸出品質是否有異常。
 
 **沒有 fine-tuning**：目前 Workers AI 上的 hosted 模型無法 fine-tune。領域適應只能靠 prompt engineering 和 RAG。
 
 **冷啟動延遲**：在流量低的時段，第一次呼叫可能有較高延遲。semantic cache 可以緩解這個問題（有快取命中就不需要呼叫 LLM）。
 
-**Context window**：gemma-3-12b-it 在 Cloudflare Workers AI 上的 context window 依據官方文件是 8192 tokens。長對話或大量檢索文件要注意不要超限。
+**Context window 要看模型頁**：各模型差很多，而且以 Workers AI 模型頁標示的數字為準，不是原始模型的規格——`gemma-4-26b-a4b-it` 是 256,000 tokens，`glm-4.7-flash` 是 131,072，下架前的 `gemma-3-12b-it` 是 80,000。長對話或大量檢索文件照實際上限抓。
 
 ## 跟其他選項比較
 
-| | gemma-3-12b-it (Workers AI) | gemma-4-26b-a4b-it (Workers AI) | OpenAI GPT-4o-mini | 自架 Ollama |
+| | gemma-4-26b-a4b-it (Workers AI) | glm-4.7-flash (Workers AI) | OpenAI GPT-4o-mini | 自架 Ollama |
 |---|---|---|---|---|
 | 繁中品質 | 好 | 好 | 很好 | 依模型 |
-| Context window | 8K tokens | 256K tokens | 128K tokens | 依模型 |
-| Vision | 無 | 有 | 有 | 依模型 |
-| Function calling | 無 | 有 | 有 | 依模型 |
+| Context window | 256K tokens | 131K tokens | 128K tokens | 依模型 |
+| Vision | 有 | 無 | 有 | 依模型 |
+| Function calling | 有 | 有 | 有 | 依模型 |
 | 維運成本 | 零 | 零 | 零 | 高 |
-| 延遲 | 中等 | 快（MoE active 4B） | 低 | 依硬體 |
+| 延遲 | 快（MoE active 4B） | 快 | 低 | 依硬體 |
 | 彈性 | 低 | 低 | 中 | 高 |
-| 費用結構 | Token-based | $0.10/$0.30 per M tokens | Token-based | 固定硬體成本 |
+| 費用（per M tokens） | $0.10 / $0.30 | $0.06 / $0.40 | Token-based | 固定硬體成本 |
 
 如果繁體中文品質是最高優先，GPT-4o 系列還是更強。但如果你已經在 Cloudflare 生態系，不想多維護一個 AI 服務的帳戶和 API key，Workers AI 是最順的選擇。
+
+同一個生態系裡，Gemma 4 跟 GLM-4.7-Flash 的分工大致是：要 vision 或 context 塞很滿選 Gemma 4，純文字對話而且輸入量遠大於輸出量選 GLM（input 只要 $0.06，但 output 貴一點）。
 
 ## 實際觀察
 
@@ -148,29 +150,32 @@ const evaluation = JSON.parse(result.response);
 
 - 繁體中文的指令跟隨比 Llama 穩定，系統提示裡要求的格式（引用來源、JSON 輸出）基本上都能遵守
 - 偶爾的幻覺問題靠 judge + self-reflection 機制攔截，groundedness 低於 0.5 就重試
-- 12B 的推論速度不算快，串流的第一個 token 通常在 1-2 秒，完整回答（300-500 字）大約 5-8 秒
+- 12B 的推論速度不算快，串流的第一個 token 通常在 1-2 秒，完整回答（300-500 字）大約 5-8 秒；Gemma 4 因為只啟動 4B，這一段有改善
 - JSON 輸出模式穩定，`response_format: { type: "json_object" }` 很少回傳格式錯誤的東西
 
 整體判斷：在「不離開 Cloudflare 生態系」的限制下，這是目前最好的繁體中文 LLM 選項。
 
-## Gemma 4（2026 年更新）
+## 從 Gemma 3 遷移到 Gemma 4
 
-2026 年 Cloudflare Workers AI 上線了 `@cf/google/gemma-4-26b-a4b-it`，幾個關鍵升級值得注意：
+`@cf/google/gemma-3-12b-it` 在 2026-05-30 下架。Cloudflare 給的建議替代品有三個：`@cf/zai-org/glm-4.7-flash`（快速 tool calling）、`@cf/google/gemma-4-26b-a4b-it`（高效開源模型）、`@cf/moonshotai/kimi-k2.6`（agentic + vision，但需要付費方案）。從 Gemma 3 過來，最直接的就是 Gemma 4。
 
-**架構變化：MoE**  
+**架構變化：MoE**
 Gemma 4 採用 Mixture-of-Experts 架構。總參數 26B，但每次推論只啟動約 4B（a4b = active 4 billion）。實際推論速度比 Gemma 3 12B 更快，同時在多數任務上表現更好。
 
-**256K context window**  
-Gemma 3 在 Workers AI 上只有 8K。Gemma 4 的 256K 是巨大的跳躍，對需要塞入大量文件的 RAG 場景直接受益。
+**256K context window**
+Gemma 3 在 Workers AI 上是 80K，Gemma 4 是 256K。對需要塞入大量檢索文件的 RAG 場景，這是實打實的空間。
 
-**Vision 支援**  
+**Vision 支援**
 可以傳入圖片做視覺理解，適合需要分析截圖、圖表的應用。
 
-**Function calling**  
+**Function calling**
 原生支援工具呼叫，比起用 prompt 硬塞 JSON 更可靠，適合 agentic workflow。
 
+**價格反而更便宜**
+Gemma 3 是 $0.35 / $0.56 per M input/output tokens，Gemma 4 是 $0.10 / $0.30。升級不需要拿成本去換。
+
 ```typescript
-// Gemma 4 使用方式與 Gemma 3 相同，只換 model ID
+// 遷移就是換 model ID，呼叫介面相同
 const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [
     { role: "system", content: "你是一個台灣攀岩社群的 AI 助手。" },
@@ -181,18 +186,20 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 });
 ```
 
-**什麼時候升級到 Gemma 4？**
+介面相同不代表輸出相同。換模型之後 prompt 要重跑一次評估——尤其是靠 few-shot 或特定措辭撐住的 JSON 格式指令，換模型是最容易破的地方。
 
-- 需要處理長文件或多份 context → 256K 直接解決 Gemma 3 的 8K 限制
-- 需要 function calling 做 agentic 任務 → Gemma 4 原生支援
-- 需要理解圖片 → Gemma 4 支援 vision
-- 純文字 RAG、預算有限 → Gemma 3 12B 仍夠用，且費用結構不同（Gemma 3 沒有公開定價，Gemma 4 是 $0.10/$0.30 per M tokens）
+## 更新紀錄
+
+- 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 下架，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
 
 ## 參考資料
 
 - [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)
-- [Workers AI：Text Generation](https://developers.cloudflare.com/workers-ai/models/text-generation/)
-- [Workers AI：gemma-3-12b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI 模型目錄](https://developers.cloudflare.com/workers-ai/models/)
+- [Workers AI Changelog：2026-05-30 模型汰換與建議替代品](https://developers.cloudflare.com/workers-ai/changelog/)
+- [Workers AI 定價](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Workers AI：gemma-4-26b-a4b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
+- [Workers AI：gemma-3-12b-it 模型頁（已標記 Deprecated）](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI：glm-4.7-flash 模型頁](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
 - [Google Gemma 3 技術報告](https://ai.google.dev/gemma/docs/gemma3)
-- [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — gemma-3-12b-it 在 20 節點 pipeline 中的完整應用
+- [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — Gemma 在 20 節點 pipeline 中的完整應用
