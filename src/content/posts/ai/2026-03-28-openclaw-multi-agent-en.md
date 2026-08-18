@@ -1,178 +1,147 @@
 ---
-title: "OpenClaw Multi-Agent and Delegate Architecture"
+title: "OpenClaw Multi-Agent: An Agent Is a Whole Persona Boundary — and Agents Can Now Ask for New Agents"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, multi-agent, delegate, session-management, routing]
+tags: [openclaw, multi-agent, bindings, workspace, agent-isolation, persona]
 lang: en
-tldr: "OpenClaw supports running multiple isolated agents within a single Gateway, routing messages via bindings, and enabling AI to act on your behalf through its Delegate architecture."
-description: "OpenClaw's multi-agent routing, session isolation strategies, Delegate proxy model, and Agent Loop execution mechanism."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 9
+tldr: "An agent is a complete persona scope — its own workspace, auth profiles, model registry, and session store. But the isolation is not absolute: when a secondary agent's OAuth credential expires, OpenClaw reads through to the main agent's profile of the same id, and a workspace is only a default working directory, not a hard sandbox."
+description: "OpenClaw multi-agent routing: what an agent boundary contains, how bindings map channel accounts to agents, why agentDir must never be shared, cross-agent OAuth read-through, the replace semantics of skills, and provenance for agent-created agents."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-multi-agent)
 
-OpenClaw can run more than just a single AI agent. It supports running multiple fully isolated agents within the same Gateway, each with its own independent workspace, authentication, and session. Combined with the Delegate architecture, agents can even act on your behalf as proxies. This post covers multi-agent routing, session isolation, Delegate mode, and how the Agent Loop works.
+OpenClaw can run multiple isolated agents **inside one Gateway process**, each with its own workspace, state directory, and SQLite session history, plus multiple channel accounts (two WhatsApp numbers, say). Inbound messages route to the right agent through **bindings**.
 
-## Multi-Agent Architecture
+Two terms to pin down first: an **agent** is the full per-persona scope; a **binding** maps one channel account (a Slack workspace, a WhatsApp number) to one of those agents.
 
-### What Makes Up an Agent
+## What one agent contains
 
-Each agent is a completely independent entity:
+- **Workspace**: files, `AGENTS.md` / `SOUL.md` / `USER.md`, local notes, persona rules
+- **State directory (`agentDir`)**: auth profiles, model registry, per-agent config
+- **Session store**: chat history and routing state in `~/.openclaw/agents/<agentId>/agent/openclaw-agent.sqlite`
 
-| Component | Description |
-|---|---|
-| AgentId | Unique identifier, e.g. `work`, `personal` |
-| Workspace | Independent working directory containing `AGENTS.md`, `SOUL.md`, `USER.md` |
-| State Dir | `~/.openclaw/agents/<agentId>/` |
-| Auth Profiles | Independent API Keys / OAuth, not shared automatically |
-| Sessions | `~/.openclaw/agents/<agentId>/sessions/` |
-| Skills | `skills/` under workspace, can share `~/.openclaw/skills` |
+Paths:
 
-### Creation and Management
+| What | Default | Override |
+|---|---|---|
+| Config | `~/.openclaw/openclaw.json` | `OPENCLAW_CONFIG_PATH` |
+| State dir | `~/.openclaw` | `OPENCLAW_STATE_DIR` |
+| Default agent workspace | `<state>/workspace` | `agents.entries.*.workspace` → `agents.defaults.workspace` → `OPENCLAW_WORKSPACE_DIR` |
+| Other agents' workspace | `<state>/workspace-<id>` | `agents.entries.*.workspace` |
+| Agent dir | `~/.openclaw/agents/<id>/agent` | `agents.entries.*.agentDir` |
+| Sessions and transcripts | `~/.openclaw/agents/<id>/agent/openclaw-agent.sqlite` | — |
+
+**Configure nothing and you get one agent**: `agentId` defaults to `main`, session keys are `agent:main:<mainKey>`.
+
+## The isolation is weaker than you might assume
+
+Two points matter here.
+
+**1. The workspace is a default working directory, not a hard sandbox.** Relative paths resolve inside it, but **absolute paths can reach other host locations** unless sandboxing is enabled. So "each agent has its own workspace" does not mean agents cannot read each other's files.
+
+**2. OAuth credentials read across agents.** When a secondary agent's local OAuth credential is expired or its refresh fails, **OpenClaw reads through to the default/main agent's credential for the same profile id** and adopts whichever token is freshest — without copying the refresh token into the secondary agent's store.
+
+For a fully independent OAuth account, **sign in from that agent**. If you copy credentials by hand, copy only portable static `api_key` or `token` profiles — **OAuth refresh material is not portable by default** (`copyToAgents` can opt a profile in explicitly).
+
+And one rule you must never break: **never reuse `agentDir` across agents** — it causes auth and session state collisions.
+
+## Creating and binding
 
 ```bash
-# Add a new agent called "work"
 openclaw agents add work
+```
 
-# View all agents and their binding relationships
+Flags: `--workspace`, `--model`, `--agent-dir`, `--bind <channel[:accountId]>` (repeatable), `--non-interactive` (requires `--workspace`).
+
+Then add `bindings` to route inbound messages (the wizard offers to do it), and verify:
+
+```bash
 openclaw agents list --bindings
 ```
 
-### Binding Routing
+The typical shape is one set of channel accounts per agent (one Discord bot, one BotFather bot, one WhatsApp number), agents under `agents.entries`, accounts under `channels.<channel>.accounts`, wired together by `bindings`, then `openclaw channels status --probe` after a restart.
 
-Bindings determine "which messages go to which agent." Three key concepts:
+## Agents can request new agents — with a human gate
 
-- **AgentId** -- An isolated "brain"
-- **AccountId** -- A channel account entity (e.g., a WhatsApp phone number)
-- **Binding** -- Routing rules based on channel, accountId, and peer
+Added after March, and the most notable change: **a configured agent can ask OpenClaw to create another agent through its `openclaw` tool.**
 
-Routing uses most-specific-first matching:
+It was not built as silent self-replication. The system agent **files the typed operation, shows the requesting agent id to the operator, and creates the agent only after operator approval.**
 
-```
-1. Peer match (exact DM / group)
-2. Parent peer (thread inheritance)
-3. Guild + roles (Discord)
-4. Guild (Discord)
-5. Team (Slack)
-6. Account ID
-7. Channel level
-8. Default agent (fallback)
-```
+OpenClaw therefore records **provenance** for every agent:
 
-Multiple conditions use AND logic -- all must match.
+- `operator` — from the CLI, onboarding, or Gateway requests
+- `agent` — requested by the system agent (retaining the requesting agent id)
+- `claw` — added by a Claw install
 
-### Practical Applications
-
-**Route by channel:** Use a fast, cheap model for everyday tasks on WhatsApp; use Claude Opus for deep work on Telegram.
-
-**Route by contact:** Most WhatsApp messages go to the standard agent; specific contacts get routed to a more powerful model.
-
-**Multi-account isolation:** WhatsApp account A binds to agent-personal, account B binds to agent-work, Discord binds to agent-community.
-
-## Session Management
-
-### DM Scope
-
-`session.dmScope` controls the isolation level for direct messages:
-
-| Mode | Behavior | Use Case |
-|---|---|---|
-| `main` (default) | All DMs share one session | Personal use, cross-device continuity |
-| `per-peer` | Isolated by sender | Multiple people accessing the same agent |
-| `per-channel-peer` | Isolated by channel + sender | Multi-user inbox |
-| `per-account-channel-peer` | Isolated by account + channel + sender | Multi-account setups |
-
-Security warning: If your agent receives DMs from multiple people, it is **strongly recommended** not to use the default `main` mode. Otherwise, everyone shares the same conversation context, which leaks private information.
-
-### Identity Links
-
-Use `session.identityLinks` to map the same person across different platforms to a single identity, allowing them to share DM sessions across channels.
-
-### Session Lifecycle
-
-- **Daily reset** -- Default at 4:00 AM
-- **Idle reset** -- Optional sliding window; whichever expires first wins against the daily reset
-- **Manual trigger** -- `/new` and `/reset`
-- **Cron job** -- Each execution creates a new session
-
-Default maintenance settings: purge after 30 days, maximum 500 entries, 10MB rotation threshold. For production environments, using `mode: "enforce"` for automatic cleanup is recommended.
-
-## Delegate Architecture
-
-Delegate is an advanced application of multi-agent: an agent acts **under its own identity** on behalf of a human, like an AI secretary with its own account.
-
-### Three Capability Tiers
-
-**Tier 1: Read-Only + Draft** -- Read-only data access and draft message composition. Requires manual review before sending. Only needs read permissions.
-
-**Tier 2: Send on Behalf** -- Sends as the delegate identity. Recipients see "Delegate on behalf of Principal." Can create calendar events.
-
-**Tier 3: Proactive** -- Autonomous scheduled execution combined with cron jobs. No per-action approval needed; acts according to standing orders in `AGENTS.md`.
-
-### Security Prerequisites
-
-Before granting Delegate permissions, you must configure:
-
-- **Hard blocks** -- Non-negotiable restrictions (e.g., no sending external emails without approval)
-- **Tool restrictions** -- Gateway-level allow/deny lists
-- **Sandbox isolation** -- Restricted filesystem and network access
-- **Audit log** -- Complete operation records
-
-### Setup
+Inspect the hierarchy:
 
 ```bash
-openclaw agents add delegate
-# Configure identity provider delegation (Microsoft 365 / Google Workspace)
-# Bind to specific channels via bindings
+openclaw agents list --tree
 ```
 
-Multiple delegates can run on the same Gateway, each with independent workspaces and authentication.
+Deleted creators remain as historical provenance; if a creator is no longer in the configured roster, its children appear at the root.
 
-## Agent Loop
+This design is worth a moment's thought: **allow agents to spawn agents, but make "who asked" a permanent record and insert a human gate.** That is more practical than either a flat ban or unrestricted permission.
 
-A complete execution cycle for each agent:
+## Skills replace, they do not merge
 
+The config semantic most likely to bite in a multi-agent setup:
+
+Skills load from **each agent's workspace plus shared roots** (such as `~/.openclaw/skills`), then filter by that agent's effective skill allowlist.
+
+- `agents.defaults.skills` is the shared baseline
+- `agents.entries.*.skills` is a **per-agent replacement** — **explicit entries replace the default, they do not merge**
+
+Assume merging and one agent's skill list will be far shorter than you expect.
+
+## Plugin storage does not split automatically
+
+Another easy misread: **adding a second agent does not automatically split every global plugin store.** Each plugin's own configuration decides.
+
+The example upstream is Memory Wiki, which uses one global vault by default. To keep a support agent's compiled knowledge apart from a marketing agent's:
+
+```json5
+{
+  plugins: {
+    entries: {
+      "memory-wiki": {
+        enabled: true,
+        config: { vault: { scope: "agent", path: "~/.openclaw/wiki" } },
+      },
+    },
+  },
+}
 ```
-Receive message → Context assembly → Model inference → Tool execution → Streaming response → Persistence
-```
 
-### Concurrency Control
+The configured path is the **parent directory**; OpenClaw appends the normalized agent id, producing `~/.openclaw/wiki/support` and `~/.openclaw/wiki/marketing`. And with multiple agents configured, **agent-scoped CLI and Gateway operations require an explicit agent.**
 
-Execution within each session is **serial** (session lane) to avoid race conditions. An optional global lane provides gateway-wide serialization. Message channels support three queuing strategies:
+## The safer cross-session recall path
 
-- **collect** -- Collect messages
-- **steer** -- Direct to a running agent
-- **followup** -- Append to the current execution
+A related tool worth knowing: `sessions_history` is **the safer cross-session recall path**, because it returns **a bounded, redacted view rather than a raw transcript dump**.
 
-### Hook System
+It strips thinking-block signatures, tool-result payload details, scaffolding, tool-call XML tags (`<tool_call>`, `<function_call>`, and their plural/downgraded forms), and MiniMax tool-call XML, then truncates and caps output by byte size.
 
-| Type | Available Hooks |
-|---|---|
-| Gateway hooks | `agent:bootstrap`, `/new`, `/reset`, and other lifecycle events |
-| Plugin hooks | `before_model_resolve`, `before_prompt_build`, `before_tool_call` |
+## The big picture
 
-### Timeout Behavior
+The right mental model for multi-agent: **it separates personas and state, not operating-system-level isolation.**
 
-`agent.wait` defaults to 30 seconds. The agent runtime itself has a 48-hour abort timer.
+Workspaces, auth, sessions, and model registries are separate, which is enough for several people to share one Gateway while keeping their own conversations and personas. But absolute paths still lead to the same host, OAuth credentials still read across agents, and plugin storage is still shared by default — **for real isolation, go up to sandboxing or out to separate Gateways.**
 
-## Inter-Agent Communication
+## Changelog
 
-Disabled by **default**. You must explicitly enable it and configure an allowlist to activate agent-to-agent messaging. This is an intentional security design -- preventing unauthorized interactions between agents.
-
-## Summary
-
-The core tradeoff in OpenClaw's multi-agent architecture is **isolation first**. Each agent is a completely independent entity that does not share authentication, sessions, or communication channels (unless explicitly opened). This is great for security but means cross-agent collaboration requires additional configuration. It is well-suited for scenarios where you need to run multiple purpose-specific, non-interfering AI assistants on the same machine.
+- 2026-08-18: Substantially revised against the current official docs. Added: **agents can request creation of another agent through the `openclaw` tool**, with the resulting provenance tracking (`operator`/`agent`/`claw`), `openclaw agents list --tree`, and the operator approval gate; **a secondary agent's expired OAuth credential reads through to the main agent's profile of the same id** and adopts the freshest token (refresh material is not portable by default, with `copyToAgents` as opt-in); **a workspace is only a default cwd, not a hard sandbox**, so absolute paths still reach the rest of the host; per-agent skills entries **replace rather than merge**; plugin storage does not split automatically with multiple agents (using Memory Wiki's `vault.scope: "agent"` as the example); `sessions_history` returns a bounded, redacted view; and the session store now lives in each agent's `openclaw-agent.sqlite`.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/concepts/multi-agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/multi-agent.md) -- Multi-Agent Routing
-- [docs/concepts/delegate-architecture.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/delegate-architecture.md) -- Delegate Proxy Architecture
-- [docs/concepts/agent-loop.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-loop.md) -- Agent Loop Execution Cycle
-- [docs/concepts/agent.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent.md) -- Agent Runtime Overview
-- [docs/concepts/agent-workspace.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/agent-workspace.md) -- Agent Workspace
-- [docs/concepts/session.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/session.md) -- Session Management
-- [docs/concepts/model-failover.md](https://github.com/openclaw/openclaw/blob/main/docs/concepts/model-failover.md) -- Model Failover and Auth Rotation
-- [docs/gateway/configuration.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/configuration.md) -- Gateway Configuration (Multi-Agent Related)
+- [Multi-agent routing](https://docs.openclaw.ai/concepts/multi-agent) — agent boundaries, paths, provenance, per-agent vaults
+- [Agent bindings](https://docs.openclaw.ai/concepts/agent-bindings) — binding setup and examples
+- [Skills: per-agent vs shared](https://docs.openclaw.ai/tools/skills) — replace semantics and allowlists
+- [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing) — real isolation beyond the workspace
+- [Session management](https://docs.openclaw.ai/concepts/session) — session routing and scopes

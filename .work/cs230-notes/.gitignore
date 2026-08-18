@@ -1,0 +1,5 @@
+# 逐字稿原始檔與中間產物：體積大、且是 YouTube 自動字幕，不入庫。
+# 需要時用 .work/cs230-notes/extract.py 重抓重建。
+raw/
+txt/
+lean/

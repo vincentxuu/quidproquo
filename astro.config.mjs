@@ -49,6 +49,15 @@ function rehypeLazyImages() {
 export default defineConfig({
   site: 'https://quidproquo.cc',
   output: 'server',
+  // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
+  redirects: {
+    '/posts/ai/2026-03-20-claude-certified-architect-foundations-guide':
+      '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide',
+    '/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en':
+      '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en',
+    '/posts/ai/2026-04-05-hermes-agent-intro': '/posts/ai/2026-08-18-hermes-agent-intro',
+    '/posts/ai/2026-04-05-hermes-agent-intro-en': '/posts/ai/2026-08-18-hermes-agent-intro-en',
+  },
   adapter: cloudflare({
     platformProxy: { enabled: true },
     remoteBindings: false,

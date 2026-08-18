@@ -1,200 +1,119 @@
 ---
-title: "OpenClaw Enterprise Channels: Slack, Teams, Google Chat & Matrix"
+title: "OpenClaw Enterprise Channels: Slack's Three Transports, and the 'Built-in' Column That No Longer Exists"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, slack, microsoft-teams, google-chat, matrix, enterprise]
+tags: [openclaw, slack, microsoft-teams, matrix, google-chat, feishu, enterprise]
 lang: en
-tldr: "Slack has the most complete enterprise features (native streaming, slash commands). Teams requires Azure Bot setup. Matrix supports E2EE encryption."
-description: "OpenClaw enterprise communication platform integrations: Slack (Socket/HTTP Mode), Microsoft Teams, Google Chat, and Matrix (with E2EE)."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 15
+tldr: "Every enterprise channel is a plugin now, including Slack and Google Chat, which used to be built in. Slack has three transports — Socket Mode, HTTP Request URLs, and relay — and the docs say plainly that the first two have reached feature parity, so you pick by deployment shape, not by features."
+description: "OpenClaw enterprise messaging channels: Slack's three transport modes and the selection matrix, Enterprise Grid org-wide installs, the trap of sharing one Slack app across gateways, and the plugin status of Teams, Matrix, Google Chat, and Feishu."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-enterprise)
 
-Enterprise environments typically use Slack, Microsoft Teams, or self-hosted Matrix. This article covers the setup methods and characteristics of each channel.
-
-## Slack
-
-OpenClaw has the most complete support for Slack, with two connection modes.
-
-### Socket Mode (Default)
-
-1. Enable Socket Mode in the Slack App settings
-2. Create an App Token (`xapp-...`, scope: `connections:write`)
-3. Install the app and obtain the Bot Token (`xoxb-...`)
-4. Configure both tokens and subscribe to bot events
-5. Start the Gateway
-
-### HTTP Mode
-
-1. Set `mode: "http"`
-2. Obtain the Signing Secret
-3. Configure the webhook path (default: `/slack/events`)
-4. Register Events/Interactivity/Slash commands URLs in Slack
-
-### Key Features
-
-**Native Streaming:** After enabling Slack's Agents and AI Apps feature, native streaming is supported (`partial` (default) / `block` / `progress` / `off`).
-
-**Native Slash Commands:** Set `commands.native: true`, then register the corresponding commands in Slack. Note: `/status` is reserved by Slack; use `/agentstatus` instead.
-
-**Interactive Replies:** When enabled, the agent can use Slack buttons and select menus.
-
-### Access Control
-
-DM: pairing / allowlist / open / disabled.
-Channel: open / allowlist / disabled; mention required by default.
-
-### Troubleshooting
-
-Channel access issue check order: policy → allowlist → mention → user restrictions.
-DM issues: `dm.enabled` → policy → pairing approvals.
-Diagnostics: `openclaw channels status --probe` + `openclaw doctor`.
-
-## Microsoft Teams
-
-Teams is a **plugin** that requires separate installation.
+There is a structural change to state first: **the "install: built-in" column no longer exists.** Slack, Google Chat, Microsoft Teams, Matrix, Feishu, Mattermost, and Nextcloud Talk are **all official plugins** now — one command, or installed on demand during onboarding, with a Gateway restart afterward.
 
 ```bash
-openclaw plugins install @openclaw/msteams
+openclaw plugins install @openclaw/<channel>
 ```
 
-### Setup
+The only chat surface genuinely built into core is WebChat.
 
-Three Azure Bot credentials are required: App ID, App Password, and Tenant ID.
+## Slack: three transports
 
-Workflow: Create Azure Bot resource → Set messaging endpoint → Enable Teams channel → Configure OpenClaw.
+Slack has the thickest documentation here because it offers three paths. The docs give a blunt criterion:
 
-### Features
+> Socket Mode and HTTP Request URLs **reach feature parity** for messaging, slash commands, App Home, and interactivity. **Pick by deployment shape, not features.**
 
-| Feature | Support |
-|---|---|
-| DM | ✅ |
-| Group chat | ✅ |
-| Channel | ✅ |
-| File attachments | ✅ (personal conversations) |
-| Adaptive Cards | ✅ (polls, formatted content) |
-| Message history | ✅ (configurable limit) |
+| Concern | Socket Mode (default) | HTTP Request URLs |
+|---|---|---|
+| Public Gateway URL | Not required | **Required** (DNS, TLS, reverse proxy or tunnel) |
+| Outbound network | Must reach `wss-primary.slack.com` | No outbound WS; inbound HTTPS only |
+| Tokens | Bot token + App-Level Token with `connections:write` | Bot token + Signing Secret |
+| Dev laptop / behind firewall | Works as-is | Needs a public tunnel (ngrok, Cloudflare Tunnel, Tailscale Funnel) |
+| Horizontal scaling | One session per app per host; multiple Gateways need **separate Slack apps** | Stateless POST handler; replicas can share one app |
+| Multi-account on one Gateway | Supported; each account opens its own WS | Supported, but each account needs a **unique `webhookPath`** (default `/slack/events`) to avoid collisions |
+| Slash commands | Delivered over the WS; `slash_commands[].url` is ignored | Slack POSTs to `slash_commands[].url`, and **the field is required** or the command never dispatches |
+| Request signing | Not used (auth is the App-Level Token) | Slack signs every request; verified with `signingSecret` |
 
-### Access Control
+The short version: **single Gateway, dev laptop, or an on-prem network that can reach out but cannot accept inbound HTTPS → Socket Mode**. **Multiple replicas behind a load balancer, outbound WSS blocked but inbound HTTPS allowed, or you already terminate Slack webhooks at a reverse proxy → HTTP.**
 
-DM defaults to pairing. Group/Channel defaults to allowlist. It's recommended to use stable Teams/Channel IDs rather than mutable display names.
+### The trap of sharing one Slack app across gateways
 
-### Limitations
+This one deserves its own heading because it produces genuinely hard-to-diagnose intermittency: **Slack can maintain multiple Socket Mode connections for one app and may deliver any given payload to any connection.**
 
-- Webhook timeout restrictions
-- File sending in channels and groups requires SharePoint integration + Graph API permissions
-- Downloading hosted images requires additional Microsoft Graph permissions
+So two separate OpenClaw gateways sharing one Slack app need **equivalent routing and authorization configuration**. Otherwise the same message is handled when it lands on gateway A and dropped when it lands on gateway B, which reads as random failure. Avoid it by choosing one of: a separate Slack app per gateway, a single relay ingress, or HTTP mode behind a load balancer.
 
-## Google Chat
+### Relay mode
 
-HTTP webhook integration with relatively simple setup. Configuration details are in `docs/channels/googlechat.md`.
-
-## Matrix
-
-Matrix is a plugin with the most complete security features -- including end-to-end encryption (E2EE).
-
-```bash
-openclaw plugins install @openclaw/matrix
-```
-
-### Authentication Methods
-
-**Token-based (Recommended):**
+The third mode is for managed deployments: **separate Slack ingress from the Gateway**. A trusted router owns the single Socket Mode connection, picks a destination gateway, and forwards a typed event over an authenticated websocket. The gateway still uses its own bot token for outbound Slack Web API calls.
 
 ```json5
 {
   channels: {
-    matrix: {
-      enabled: true,
-      homeserver: "https://matrix.example.org",
-      accessToken: "syt_xxx",
-      dm: { policy: "pairing" }
-    }
-  }
+    slack: {
+      mode: "relay",
+      botToken: { source: "env", provider: "default", id: "SLACK_BOT_TOKEN" },
+      relay: {
+        url: "wss://router.example.com/gateway/ws",
+        authToken: { source: "env", provider: "default", id: "SLACK_RELAY_AUTH_TOKEN" },
+        gatewayId: "team-gateway",
+      },
+    },
+  },
 }
 ```
 
-**Password-based:** `homeserver` + `userId` + `password` + `deviceName`.
+Understand the security implication: **treat the bearer token and the router's route table as part of the Slack authorization boundary** — routed events enter the normal Slack message handler as authorized activations. The relay URL must use `wss://` unless it targets localhost.
 
-### E2EE Encryption
+### Enterprise Grid org-wide installs
 
-```json5
-{ encryption: true }
-```
+One Slack account can receive messages and interactions from **every workspace** covered by an Enterprise Grid org-wide installation. This path supports Socket Mode or HTTP only — **relay mode is not supported for enterprise accounts**.
 
-Management commands:
+The process needs humans: an Enterprise Grid Org Admin or Org Owner must approve the app, install it at the organization level, and choose which workspaces it covers — and **you should confirm the app actually appears in every intended workspace before starting OpenClaw**.
 
-```bash
-openclaw matrix verify status           # Check verification status
-openclaw matrix verify bootstrap        # Set up cross-signing
-openclaw matrix verify backup status    # Backup status
-openclaw matrix verify backup restore   # Restore encrypted messages
-openclaw matrix devices list            # List devices
-openclaw matrix devices prune-stale     # Remove stale devices
-```
+The docs publish least-privilege manifests for both Socket and HTTP, covering the message, mention, reaction, pin, channel-created, and channel-renamed event paths plus interactivity and a single `/openclaw` slash command. Copy theirs rather than assembling scopes yourself.
 
-"Verified" requires cross-signing (your identity signs it), not just local trust.
+### One routing behavior that is easy to miss
 
-### Thread Support
+**Slack multi-person DMs (MPIMs) route as group chats** — so group policy, mention behavior, and group-session rules all apply to them. If you set `groupPolicy: "allowlist"` and then find that group DMs get no response, this is why.
 
-| Mode | Behavior |
-|---|---|
-| `off` | Replies at top-level |
-| `inbound` | Uses threads only when receiving threaded messages |
-| `always` | Group replies always use threads |
+## The other enterprise channels
 
-### Multiple Accounts
+What they share is that **they have all become plugins**; setup details live on their own pages:
 
-```json5
-{
-  matrix: {
-    defaultAccount: "assistant",
-    accounts: {
-      assistant: { /* config */ },
-      alerts: { /* config */ }
-    }
-  }
-}
-```
+| Channel | Class | Docs focus |
+|---|---|---|
+| Microsoft Teams | official plugin | Support status, capabilities, configuration |
+| Google Chat | official plugin | App support status and capabilities |
+| Matrix | official plugin | Support status and configuration examples |
+| Feishu | official plugin | Bot overview, features, configuration |
+| Mattermost | official plugin | Bot setup (open-source Slack alternative) |
+| Nextcloud Talk | official plugin | Support status and configuration |
 
-### Bot-to-Bot Communication
+Group behavior is **shared across these channels** — the docs explicitly list Discord, iMessage, Matrix, Teams, QQBot, Signal, Slack, Telegram, WhatsApp, and Zalo as applying the same group rules, so `groupPolicy`, mention gating, and `contextVisibility` knowledge transfers rather than needing to be relearned per channel.
 
-By default, messages from other OpenClaw Matrix accounts are ignored (preventing self-reply loops). Set `allowBots: "mentions"` to allow agents to interact via mentions.
+Feishu, Matrix, Teams, and Slack are all on the list of channels that **fetch supplemental context**, which makes `contextVisibility` a meaningful setting for them: the `"all"` default injects quotes, thread history, and forwarded metadata into the model **regardless of whether the source is allowlisted**. In enterprise environments that usually deserves tightening.
 
-### Other Features
+## The big picture
 
-Reactions, Polls, Location sharing, media attachments, DM status repair (`openclaw matrix direct repair`), and private/LAN homeserver support.
+Choosing an enterprise channel is not really a feature comparison. It answers two deployment questions: **can your Gateway accept inbound HTTPS** (Socket vs. HTTP for Slack), and **should ingress be separated from the Gateway** (whether you want relay).
 
-## Feishu
+On the security side, the setting most worth making deliberately is `contextVisibility` — in a corporate space, the gap between "who can trigger the agent" and "whose text reaches the model's context" is much wider than it is in a private group.
 
-A plugin channel designed for Chinese enterprise environments. Configuration is in `docs/channels/feishu.md`.
+## Changelog
 
-## Enterprise Channel Comparison
-
-| | Slack | Teams | Matrix | Google Chat |
-|---|---|---|---|---|
-| Installation | Built-in | Plugin | Plugin | Built-in |
-| Connection Mode | Socket / HTTP | Azure Bot | SDK | Webhook |
-| DM | ✅ | ✅ | ✅ | ✅ |
-| Group/Channel | ✅ | ✅ | ✅ (Room) | ✅ |
-| Thread | ✅ | ✅ | ✅ | ❌ |
-| E2EE | ❌ | ❌ | ✅ | ❌ |
-| Native Streaming | ✅ | ❌ | ❌ | ❌ |
-| Interactive | ✅ | Adaptive Cards | Reactions/Polls | ❌ |
-| Multiple Accounts | ✅ | ✅ | ✅ | ✅ |
-
-## Summary
-
-Slack is the most feature-complete enterprise channel -- it has native streaming, slash commands, and interactive replies. Teams is more complex to set up but covers the Microsoft ecosystem. Matrix is ideal for teams that value privacy and self-hosting, with E2EE as its exclusive advantage.
+- 2026-08-18: Substantially revised against the current official docs. **Corrected the install column across the comparison**: Slack and Google Chat are no longer built in, every enterprise channel is now an official plugin, and WebChat is the only chat surface left in core. The Slack section was expanded to the current three transports (Socket / HTTP / relay) with the official selection matrix, and gained: the trap where one Slack app across gateways delivers payloads to any connection, the authorization boundary implied by relay mode, Enterprise Grid org-wide installs (no relay support, Org Admin approval required), and the routing of Slack multi-person DMs as group chats. Unverified per-channel capability rows (thread, E2EE, streaming) were removed in favor of the official pages, and the relevance of `contextVisibility` to these channels was added.
 
 ## References
 
-This article is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/channels/slack.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/slack.md) — Slack setup
-- [docs/channels/msteams.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/msteams.md) — Microsoft Teams setup
-- [docs/channels/googlechat.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/googlechat.md) — Google Chat setup
-- [docs/channels/matrix.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/matrix.md) — Matrix setup
-- [docs/channels/feishu.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/feishu.md) — Feishu setup
+- [Slack](https://docs.openclaw.ai/channels/slack) — the three transports, Enterprise Grid manifests, relay config
+- [Chat channels](https://docs.openclaw.ai/channels/) — plugin classes and delivery notes
+- [Groups](https://docs.openclaw.ai/channels/groups) — shared group rules and `contextVisibility`
+- [Microsoft Teams](https://docs.openclaw.ai/channels/msteams), [Google Chat](https://docs.openclaw.ai/channels/googlechat), [Matrix](https://docs.openclaw.ai/channels/matrix), [Feishu](https://docs.openclaw.ai/channels/feishu) — per-channel setup

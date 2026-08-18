@@ -1,175 +1,126 @@
 ---
-title: "OpenClaw Other Channels: Signal, iMessage, LINE, IRC, Nostr, and More"
+title: "OpenClaw's Other Channels: Signal, iMessage, LINE — and Reef, Where Two People's Agents Talk Directly"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, signal, imessage, bluebubbles, line, irc, nostr, twitch, zalo]
+tags: [openclaw, signal, imessage, line, irc, nostr, zalo, reef, channels]
 lang: en
-tldr: "Signal uses signal-cli for privacy, iMessage is best via BlueBubbles, LINE uses webhooks, IRC/Nostr/Twitch each have their own character."
-description: "OpenClaw niche channel setup guide: Signal, iMessage/BlueBubbles, LINE, IRC, Nostr, Twitch, Zalo, and more."
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 16
+tldr: "The most interesting entry here is Reef — an end-to-end-encrypted side channel between OpenClaw agents owned by different people. Messages are sealed on your machine, screened in both directions by a pinned-model guard, and the relay operator can never read the content. It ships bundled."
+description: "A tour of OpenClaw's remaining chat channels: Reef's agent-to-agent encrypted channel and its guard mechanism, Signal's number model, and the current status of iMessage, LINE, IRC, Nostr, Twitch, Zalo, and the rest."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-others)
 
-Beyond the big three and the four enterprise channels, OpenClaw supports a whole bunch of other channels. Some focus on privacy (Signal), some target specific markets (LINE, Zalo), and some are decentralized protocols (Nostr, Matrix). This post covers them all.
+Beyond the main and enterprise channels there is a long tail. Rather than walking through each one's setup, this article picks **the two that are mechanically different** and gives a status map for the rest.
 
-## Signal
+## Reef: letting two people's agents talk
 
-Privacy-oriented, integrated via `signal-cli` (an external CLI tool) using HTTP JSON-RPC + SSE communication.
+Added after March, and the only channel in the list whose **recipient is not a human**.
 
-### Two Setup Paths
+Reef is a **guarded, end-to-end-encrypted side channel** between OpenClaw agents owned by different people. Three design decisions are worth studying:
 
-**Path A (QR Linking):** Link to an existing Signal account.
-```bash
-signal-cli link -n "OpenClaw"
-# Scan QR code with Signal app
+**1. The relay cannot read content.** Messages are sealed on your own machine. The public relay is `reefwire.ai`, with the relay and protocol source open at `openclaw/reef`.
+
+**2. Both directions pass a model guard, and the model must be pinned.** `pinnedModel` **must be an immutable model id** — a dated snapshot, or one of a few documented fixed ids. **Floating aliases are rejected, and every guard response must echo the exact configured id.** The guard **fails closed**: a missing key or a provider error denies the message.
+
+That design rewards a second look. If you are going to let another agent's text into your system, the model screening that text cannot be something that might be quietly swapped out tomorrow.
+
+**3. Pairing is a one-time handoff bound to identity, keys, and revocation.** An ordinary OpenClaw pairing approval is hardened here: Reef consumes it before accepting the relay edge or writing verified peer key pins, and **the relay activates only if that exact peer key snapshot is still current**. So **a stale approval cannot authorize changed keys, nor undo a local removal**. Removing a friend clears local trust first, then blocks the relay edge.
+
+The config:
+
+```json5
+{
+  channels: {
+    reef: {
+      enabled: true,
+      relayUrl: "https://reefwire.ai",
+      handle: "myclaw",
+      requestPolicy: "code-only", // code-only | friends-of-friends | open
+      guard: {
+        provider: "openai",
+        pinnedModel: "gpt-5.6-terra",
+        apiKeyEnv: "REEF_GUARD_OPENAI_KEY",
+        policyVersion: "reef-v1",
+        timeoutMs: 30000,
+      },
+    },
+  },
+}
 ```
 
-**Path B (SMS Registration):** Register a dedicated number, requiring captcha + SMS verification. This is the recommended approach — it avoids conflicts with personal accounts.
+Private keys, the encrypted replay guard, review state, delivery dedupe, the audit chain, and approved peer pins all stay in local plugin state and **never leave the machine**. There is no friendship allowlist in `channels.reef` to edit — friendship is the relay's state plus the key pins in local SQLite.
 
-### Configuration
+Adding a friend deliberately requires **out-of-band verification**: the receiving side mints a short-lived code in an authenticated chat, shares it through another medium, and both sides compare safety fingerprints. Friendship changes and review decisions require the sender to match an explicit `commands.ownerAllowFrom` entry — **wildcards can admit commands but do not grant owner authority**.
 
-Minimal configuration: bot phone number (E.164 format), CLI path, DM policy, and allowFrom.
+## Signal: understand the number model first
 
-### Operational Details
+Signal's trap is not installation, it is phone numbers. The docs put "read this first" at the top for a reason:
 
-| Item | Value |
-|---|---|
-| Message chunking | 4000 characters |
-| Media limit | 8 MB |
-| Group history | 50 messages |
-| Typing / Read receipt | ✅ (DM) |
-| Reactions | ✅ emoji |
+- The Gateway connects to a **Signal device** (the `signal-cli` account)
+- **Running the bot on your personal Signal account makes it ignore your own messages** — that is loop protection
+- For "I text the bot and it replies," use a **separate bot number**
 
-### Self-Chat Protection
+That behavior is easy to misread as broken. Install with `openclaw plugins install @openclaw/signal`; the Gateway talks to `signal-cli` over HTTP (native daemon via JSON-RPC + SSE, or the bbernhard container via REST + WebSocket). **OpenClaw does not embed libsignal.**
 
-When using a personal account, the bot ignores its own messages to prevent loops.
+The setup wizard detects whether `signal-cli` is on `PATH` and offers to install it (the official native GraalVM build on Linux x86-64, Homebrew elsewhere). Two setup paths: link an existing account by scanning a QR with `signal-cli link`, or register a dedicated number over SMS.
 
-### Daemon Mode
+One default worth knowing: Signal **may write config updates** by default (triggered by `/config set|unset`, requiring `commands.config: true`). Turn it off with `channels.signal.configWrites: false`.
 
-You can have OpenClaw automatically spawn signal-cli, or connect to an externally managed daemon.
+## Status map for the rest
 
-## iMessage
+Nearly all of these are plugins now, with setup on their own pages:
 
-### Legacy (imsg CLI)
+| Channel | Class | One line |
+|---|---|---|
+| iMessage | official plugin | Via imsg (JSON-RPC over stdio), with private-API replies, tapbacks, effects, polls, attachments, group management. Preferred for new setups |
+| LINE | official plugin | LINE Messaging API |
+| IRC | official plugin | With access controls and troubleshooting docs |
+| Nostr | official plugin | DM channel over NIP-04 encrypted messages |
+| Twitch | official plugin | Chat bot, including token refresh |
+| Matrix | official plugin | See the enterprise article |
+| Mattermost | official plugin | Open-source Slack alternative |
+| Nextcloud Talk | official plugin | Nextcloud's messaging |
+| Synology Chat | official plugin | Webhook-based |
+| Tlon | official plugin | Urbit-based |
+| SMS | official plugin | Twilio SMS/MMS with delivery status |
+| QQ bot | official plugin | |
+| Feishu | official plugin | |
+| Buzz, ClickClack, Raft | official plugin | Added since March |
+| Zalo / Zalo personal | official plugin | The personal-account variant uses zca-js QR login |
+| WeChat, WeCom, Yuanbao, Zalo ClawBot | **external plugin** | Maintained outside the OpenClaw repo |
+| WebChat | core | Over the Gateway WebSocket |
 
-Legacy system using the `imsg` CLI + JSON-RPC. **New deployments should use BlueBubbles.**
+There is also a related non-channel: the **Voice Call** plugin, for telephony via Plivo, Telnyx, or Twilio.
 
-Requirements: macOS + Messages app signed in + Full Disk Access + Automation permissions.
+## How to actually pick
 
-For remote deployment, you can point `cliPath` to an SSH wrapper script that connects to a Mac running Messages.
+Beyond "whichever I already use," three technical criteria:
 
-### BlueBubbles (Recommended)
+**Is it an external plugin?** External means maintained outside the OpenClaw repo, on a different update cadence and quality bar than core.
 
-Uses the BlueBubbles macOS server's REST API with full feature support. This is OpenClaw's recommended iMessage path.
+**What does it demand from you?** Signal needs a dedicated number and a `signal-cli` process; WhatsApp needs a QR that links your account; Telegram needs a bot token. That cost gap is far larger than any feature gap.
 
-Configuration is in `docs/channels/bluebubbles.md`.
+**Are the group rules shared?** The docs explicitly list Discord, iMessage, Matrix, Teams, QQBot, Signal, Slack, Telegram, WhatsApp, and Zalo as sharing group rules — on that list, everything you know about `groupPolicy`, mention gating, and `contextVisibility` transfers directly. Off it, read that channel's own docs.
 
-### iMessage General Limitations
+## The big picture
 
-- Only works on macOS (directly or remotely)
-- Mentions have no native metadata; detected via regex pattern
-- Multi-account support with per-account overrides
+Reef is the only one here that changes what "channel" means. Every other channel connects people to your agent; Reef connects **someone else's agent** to your agent — and the three layers it adds for that (local sealing, a pinned-model guard in both directions, key-bound one-time pairing) are a good illustration of how careful agent-to-agent communication across trust boundaries has to be.
 
-## LINE
+## Changelog
 
-Plugin channel using the Messaging API webhook.
-
-```bash
-openclaw plugins install @openclaw/line
-```
-
-### Setup
-
-1. Create a LINE Developers account
-2. Create a Messaging API channel
-3. Obtain the Channel Access Token + Channel Secret
-4. Enable webhook, pointing the URL to `https://gateway-host/line/webhook`
-5. Configure OpenClaw
-
-### Security
-
-LINE's signature verification is body-dependent (HMAC over raw body). OpenClaw performs body size and timeout checks before verification.
-
-### Features
-
-| Supported | Not Supported |
-|---|---|
-| DM | Reactions |
-| Group | Thread |
-| Media (10 MB) | |
-| Flex messages | |
-| Template messages | |
-| Quick replies | |
-| Location | |
-
-Message chunking at 5000 characters. Markdown is converted to Flex cards. Multi-account uses separate webhook paths.
-
-## IRC
-
-Built-in channel, a classic. Has pairing controls. Configuration in `docs/channels/irc.md`.
-
-## Nostr
-
-Plugin channel, a decentralized protocol. Configuration in `docs/channels/nostr.md`.
-
-## Twitch
-
-Plugin channel, live chat integration. Configuration in `docs/channels/twitch.md`.
-
-## Zalo
-
-Plugin channel, Vietnam's largest messaging platform. Two versions available:
-- `zalo` — Official Account API
-- `zalouser` — Personal account API
-
-Configuration in `docs/channels/zalo.md` and `docs/channels/zalouser.md`.
-
-## Other Plugin Channels
-
-| Channel | Description |
-|---|---|
-| Mattermost | Open-source Slack alternative |
-| Nextcloud Talk | Nextcloud's messaging feature |
-| Synology Chat | Built-in chat for Synology NAS |
-| Tlon | Urbit-based messaging |
-| Voice Call | Voice call integration |
-| WeChat | WeChat (community-maintained) |
-
-## Feature Comparison Across All Channels
-
-| Channel | Install | DM | Group | Media | Streaming | Thread | Encryption |
-|---|---|---|---|---|---|---|---|
-| WhatsApp | Plugin | ✅ | ✅ | 50MB | ❌ | ❌ | ✅ (E2EE) |
-| Telegram | Built-in | ✅ | ✅ | ✅ | ✅ | Forum | ❌ |
-| Discord | Built-in | ✅ | Guild | ✅ | ✅ | ✅ | ❌ |
-| Slack | Built-in | ✅ | Channel | ✅ | ✅ Native | ✅ | ❌ |
-| Signal | Built-in | ✅ | ✅ | 8MB | ❌ | ❌ | ✅ (E2EE) |
-| iMessage | Built-in/BB | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ (E2EE) |
-| Matrix | Plugin | ✅ | Room | ✅ | ❌ | ✅ | ✅ (E2EE) |
-| Teams | Plugin | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| LINE | Plugin | ✅ | ✅ | 10MB | ❌ | ❌ | ❌ |
-| IRC | Built-in | ✅ | Channel | ❌ | ❌ | ❌ | ❌ |
-
-## Overall
-
-OpenClaw's channel selection is unreasonably broad — from the most mainstream WhatsApp to the decentralized Nostr. Most people only need 1-3 channels. The selection criteria is simple: connect whichever platform your friends and colleagues are on.
+- 2026-08-18: Substantially revised against the current official docs. **Added Reef** (a bundled plugin that did not exist in March): an end-to-end-encrypted side channel between different people's agents, including the pinned-model guard and its fail-closed behavior, pairing bound to identity/keys/revocation, and the locally held keys and audit chain. The Signal section was refocused on the number model (running on a personal account makes it ignore your own messages due to loop protection), with plugin installation, the two `signal-cli` transports, wizard-assisted install, and the default that permits config writes. **Unverified capacity tables were removed** (message chunking, media limits, group history counts). The status map adds channels that appeared after March — Buzz, ClickClack, QQ bot, Raft, SMS (Twilio), WeChat, WeCom, Yuanbao, Zalo ClawBot, and Zalo personal — and marks which are external plugins.
 
 ## References
 
-This post is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/channels/signal.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/signal.md) — Signal setup
-- [docs/channels/imessage.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/imessage.md) — iMessage (legacy)
-- [docs/channels/bluebubbles.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/bluebubbles.md) — BlueBubbles (recommended iMessage)
-- [docs/channels/line.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/line.md) — LINE
-- [docs/channels/irc.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/irc.md) — IRC
-- [docs/channels/nostr.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/nostr.md) — Nostr
-- [docs/channels/twitch.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/twitch.md) — Twitch
-- [docs/channels/zalo.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/zalo.md) — Zalo
-- [docs/channels/zalouser.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/zalouser.md) — Zalo User
-- [docs/channels/mattermost.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/mattermost.md) — Mattermost
-- [docs/channels/nextcloud-talk.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/nextcloud-talk.md) — Nextcloud Talk
-- [docs/channels/synology-chat.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/synology-chat.md) — Synology Chat
-- [docs/channels/tlon.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/tlon.md) — Tlon
+- [Reef](https://docs.openclaw.ai/channels/reef) — the agent-to-agent encrypted channel, guard, and pairing binding
+- [Signal](https://docs.openclaw.ai/channels/signal) — number model, transports, and setup paths
+- [Chat channels](https://docs.openclaw.ai/channels/) — the full channel list and plugin classes
+- [Groups](https://docs.openclaw.ai/channels/groups) — which channels share the group rules
+- [Voice Call](https://docs.openclaw.ai/plugins/voice-call) — telephony plugin

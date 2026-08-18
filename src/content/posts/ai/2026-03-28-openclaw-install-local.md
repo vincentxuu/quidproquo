@@ -1,299 +1,134 @@
 ---
-title: "OpenClaw 安裝指南（上）：npm、Docker、Nix 與本機部署"
+title: "OpenClaw 安裝指南（上）：六種本機安裝方式怎麼選，以及會卡住的地方"
 date: 2026-03-28
 type: guide
 category: ai
 tags: [openclaw, installation, docker, nix, podman, raspberry-pi, bun]
 lang: zh-TW
-tldr: "OpenClaw 提供 6 種本機安裝方式：installer script、npm、Docker、Podman、Nix、Bun，加上 Raspberry Pi 部署和 source 編譯。"
-description: "OpenClaw 本機安裝的完整指南，涵蓋 installer script、npm/pnpm、Docker、Podman、Nix、Bun、Raspberry Pi 與從原始碼編譯。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 2
+tldr: "OpenClaw 有六種本機安裝方式，差別不在指令而在你要不要可重現性、隔離、與自我更新。真正會卡住的是套件管理器的 lifecycle script 政策：npm 12 與 pnpm 全域安裝都預設擋掉 OpenClaw 的 build script。"
+description: "OpenClaw 本機安裝的選型指南：installer script、npm/pnpm/bun、Docker、Podman、Nix、從原始碼與 Raspberry Pi 各自適合誰，以及安裝過程真正會失敗的幾個點。"
 draft: false
 ---
 
-OpenClaw 支援多種安裝方式，從一行指令到宣告式 Nix flake 都有。這篇涵蓋所有本機部署方式，下一篇講雲平台和 K8s。
+OpenClaw 的安裝指令在官方 [Install](https://docs.openclaw.ai/install/) 頁面隨時是最新的，這篇不重抄一遍。這篇要回答的是它沒直接說的兩件事：**六種方式差在哪、你該選哪個**，以及**哪幾個地方裝到一半會停下來**。
 
 ## 系統需求
 
-- **Node.js 24**（建議）或 Node 22.14+
-- **macOS、Linux 或 Windows**（原生 Windows 和 WSL2 都支援，WSL2 較穩定）
+- **Node 22.22.3+、24.15+ 或 25.9+**，建議用 Node 26。installer script 在偵測不到 Node 時會自己裝一份
+- macOS、Linux 或 Windows。Windows 桌面使用者現在有原生的 Windows Hub app，PowerShell installer 與 WSL2 Gateway 也都支援
 - `pnpm` 只有從原始碼編譯時才需要
 
-## 方式一：Installer Script（推薦）
+## 六種方式怎麼選
 
-最快的方式。自動偵測 OS、安裝 Node（如果沒有）、安裝 OpenClaw、啟動 onboarding。
+差別不在指令長度，在你想要什麼性質：
 
-```bash
-# macOS / Linux
-curl -fsSL https://openclaw.ai/install.sh | bash
+| 方式 | 你買到的是 | 代價 |
+|---|---|---|
+| Installer script | 最短路徑，OS 偵測與 Node 佈建都幫你做 | 東西裝在系統層，版本由它決定 |
+| 本地 prefix installer（`install-cli.sh`）| OpenClaw 與 Node 都收在 `~/.openclaw` 底下 | 不吃系統 Node，但也不共用 |
+| npm / pnpm / bun | 沿用你既有的 Node 工具鏈 | 要自己處理 lifecycle script 政策（見下節）|
+| Docker / Podman | 隔離與可丟棄，headless 主機友善 | 多一層容器要管，build 需要 2 GB RAM |
+| Nix | 可重現、能回滾、版本全鎖死 | 設定檔變唯讀，見下面的 Nix mode |
+| 從原始碼 | 跑得到還沒發布的 main | 要自己 build，要自己扛壞掉的風險 |
 
-# Windows PowerShell
-iwr -useb https://openclaw.ai/install.ps1 | iex
-```
+如果你沒有特別理由，`curl -fsSL https://openclaw.ai/install.sh | bash` 就是答案；加 `--no-onboard` 可以只裝不走 onboarding。
 
-CI/自動化場景可以跳過 onboarding：
+## 真正會卡住的地方
 
-```bash
-curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
-```
+這幾個是「指令看起來對、但會失敗」的類型，也是這篇存在的主要理由。
 
-## 方式二：npm / pnpm
-
-如果你自己管理 Node：
-
-```bash
-# npm
-npm install -g openclaw@latest
-openclaw onboard --install-daemon
-
-# pnpm（需要額外核准 build scripts）
-pnpm add -g openclaw@latest
-pnpm approve-builds -g
-openclaw onboard --install-daemon
-```
-
-如果 `sharp` 編譯失敗（通常是系統有全域 libvips）：
+**一、npm 12 預設擋掉 OpenClaw 的 build script。** npm 12 不再自動執行未核准的 package lifecycle script，而 OpenClaw 有 `preinstall` 與 `postinstall`。所以全域安裝要寫成：
 
 ```bash
-SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
+npm install -g openclaw@latest --allow-scripts=openclaw
 ```
 
-## 方式三：Docker
+沒加的話 npm 會回報 script `blocked because they are not covered by allowScripts`。版本差異要注意：npm 11.16 接受這個選項、不加只會警告但仍然執行；**npm 11.15 以下沒有這個選項，必須不加**。另外 npm 11.16 建議你跑的 `npm approve-scripts openclaw` 對全域安裝無效，會回 `ENOMATCH No installed packages match: openclaw`。
 
-適合想要隔離環境或 headless 部署的人。
-
-**前提：** Docker Desktop 或 Engine + Docker Compose v2，至少 2 GB RAM。
+**二、pnpm 的全域安裝不能用 `approve-builds`。** `pnpm approve-builds -g` 不支援全域安裝，要把核准寫在安裝指令上：
 
 ```bash
-./scripts/docker/setup.sh
+pnpm add -g --allow-build=openclaw openclaw@latest
 ```
 
-這會自動建 image、問你 API key、產生 gateway token、用 Docker Compose 啟動。
+**三、Bun 裝得起來，但跑起來還是要 Node。** `bun add -g --trust openclaw@latest` 可以完成安裝，可是產生的 `openclaw` 執行檔仍然需要一個受支援的 Node runtime——因為 OpenClaw 的狀態儲存用的是 `node:sqlite`。Bun 在這裡是套件管理器，不是 runtime。
 
-也可以用預建 image（GitHub Container Registry）：
+**四、Docker build 在 1 GB 主機上會被 OOM 砍掉。** 症狀是 `pnpm install` 階段 exit 137。至少準備 2 GB RAM。
+
+**五、`openclaw` 找不到，幾乎都是 PATH。** npm 的全域 bin 目錄沒進 shell 的 `PATH`：
 
 ```bash
-OPENCLAW_IMAGE=ghcr.io/openclaw/openclaw:latest ./scripts/docker/setup.sh
+node -v           # Node 裝好了嗎
+npm prefix -g     # 全域套件在哪
+echo "$PATH"      # 那個 bin 目錄在裡面嗎
 ```
 
-關鍵設定：
+## 容器：Docker 與 Podman
 
-| 環境變數 | 用途 |
-|---|---|
-| `OPENCLAW_IMAGE` | 使用遠端 image 而非本地 build |
-| `OPENCLAW_SANDBOX` | 啟用 agent 沙箱（`1`/`true`/`yes`/`on`）|
-| `OPENCLAW_EXTRA_MOUNTS` | 額外的 host bind mount |
-| `OPENCLAW_HOME_VOLUME` | 用 named volume 持久化 `/home/node` |
+Docker 是**選配**，用途是隔離、可丟棄、或部署到沒有本機開發環境的主機。它跟 agent 沙箱是兩件事——沙箱預設關閉，而且不需要 Gateway 自己跑在容器裡。
 
-Health check endpoint：`/healthz`（liveness）和 `/readyz`（readiness），不需要認證。
+預建 image 以 GitHub Container Registry 為主（`ghcr.io/openclaw/openclaw`），同一次發布會鏡像一份到 Docker Hub（`openclaw/openclaw`）。有幾種變體值得知道：`slim` 是精簡版，`-browser` 變體把 Chromium 烤進 image，省掉沙箱瀏覽器工具第一次跑時的 Playwright 安裝。穩定版會移動 `latest` 與 `main`，而 `extended-stable` 只由月末的 Gateway 發布移動。
 
-Docker Compose 會把 `~/.openclaw` bind-mount 進容器，資料在容器重建後保留。
+換 image 升級時，新 Gateway 會在 ready 之前跑完啟動期的遷移與 plugin 收斂；如果修不安全，它會直接結束而不是回報健康——所以看到容器反覆重啟，先保住掛載的 state volume，再用同一個 image 跑一次 `openclaw doctor --fix`，而不是刪掉重來。
 
-想更方便管理 Docker 可以裝 `ClawDock` shell helper：
+Podman 是無 root 的替代方案，架構上容器跑在 Podman、host 上的 `openclaw` CLI 當控制平面；macOS 上因為 Podman 跑在 VM 裡，瀏覽器存取可能要對 VM 開 SSH tunnel。
+
+## Nix：買到可重現，賣掉可寫入
+
+Nix 這條路走的是第一方的 [nix-openclaw](https://github.com/openclaw/nix-openclaw) Home Manager module，好處很直接：版本全鎖、launchd service 撐過重開機、`home-manager switch --rollback` 就回去了。
+
+但 Nix mode（`OPENCLAW_NIX_MODE=1`，nix-openclaw 會自動設）的代價要先知道：**`openclaw.json` 變成唯讀**。所有會寫設定的路徑都會被拒絕——setup、onboarding、會改東西的 `openclaw update`、plugin 的安裝/更新/移除/啟用、`doctor --fix`、`doctor --generate-gateway-token`、`openclaw config set` 全部不行，UI 會顯示唯讀橫幅。要改設定就去改 Nix source。自動安裝與自我更新流程也一併關掉。
+
+這不是缺陷，是它承諾「可重現」的必然結果。但如果你習慣用 `doctor --fix` 修東西，這條路會很不習慣。
+
+## 更新：channel 決定的不只是版本
+
+`openclaw update` 會自己偵測安裝型態（npm、pnpm、Bun 或 git）、抓新版、跑 `doctor`、重啟 gateway。它沒有 `--verbose`，要診斷用 `--dry-run` 預覽、`--json` 拿結構化結果。
+
+channel 之間的語意差異值得留意：
+
+- `beta` 走 beta dist-tag，但**當 beta tag 不存在或比 stable 舊時會退回 stable**。想要「就是要那個 beta 版」用 `--tag beta`
+- `extended-stable` 是 package-only，而且**失敗時是 fail closed**——registry 資料缺漏或不一致就直接失敗，不會偷偷退回 `latest`
+- `dev` 給你一個會持續移動的 GitHub `main` checkout
+
+比較少人知道的是：**channel 也是切換安裝型態的方式**。`openclaw update --channel dev` 會把 npm 套件安裝換成可編輯的 git checkout，`--channel stable` 換回去，而 `~/.openclaw` 裡的 state、設定、憑證、workspace 都保留。先用 `--dry-run` 看一次再切。
+
+## 驗證與遷移
+
+裝完不管用哪種方式，都跑這三行：
 
 ```bash
-mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+openclaw --version      # CLI 可用
+openclaw doctor         # 設定沒問題
+openclaw gateway status # Gateway 在跑
 ```
 
-## 方式四：Podman（Rootless）
+遷移到新機器時，**要搬的是整個 `~/.openclaw` 目錄**，不是只有 `openclaw.json`。裡面有 API key、OAuth token、session 歷史、頻道連線狀態，所以搬運時檔案權限和傳輸加密都要顧。
 
-Docker 的無 root 替代方案。架構上 Podman 跑容器、host 上的 `openclaw` CLI 當控制平面。
-
-```bash
-# 建 image + 設定
-./scripts/podman/setup.sh
-
-# 啟動
-./scripts/run-openclaw-podman.sh launch
-```
-
-設定 `OPENCLAW_CONTAINER=openclaw` 後，就可以用一般的 `openclaw` 指令管理容器。
-
-要自動啟動可以用 Quadlet：
-
-```bash
-./scripts/podman/setup.sh --quadlet
-```
-
-會建立 systemd user service。
-
-macOS 上 Podman 因為跑在 VM 裡，瀏覽器存取可能需要 SSH tunnel 到 Podman VM。
-
-## 方式五：Nix
-
-宣告式安裝，透過 `nix-openclaw` Home Manager module。特點是版本固定、可回滾。
-
-```bash
-# 安裝 Nix（如果還沒有）
-# 用 nix-openclaw 的 agent-first template 建立 local flake
-# 設定 secrets 到 ~/.secrets/
-home-manager switch
-```
-
-Nix 模式下（`OPENCLAW_NIX_MODE=1`）OpenClaw 會停用自動安裝和自我更新，行為完全可預測。
-
-回滾：
-
-```bash
-home-manager switch --rollback
-```
-
-## 方式六：Bun
-
-用 Bun runtime 跑 CLI。適合開發時用，**不適合正式環境**（WhatsApp 和 Telegram 有已知相容性問題）。
-
-```bash
-bun install
-bun run build
-bun run vitest run
-```
-
-注意 Bun 會忽略 `pnpm-lock.yaml`，且部分 script（`docs:build`、`ui:*`）仍然需要用 `pnpm` 執行。
-
-## 從原始碼編譯
-
-給 contributor 或想跑最新版的人：
-
-```bash
-git clone https://github.com/openclaw/openclaw.git
-cd openclaw
-pnpm install && pnpm ui:build && pnpm build
-pnpm link --global
-openclaw onboard --install-daemon
-```
-
-或直接裝 GitHub main branch：
-
-```bash
-npm install -g github:openclaw/openclaw#main
-```
-
-## Raspberry Pi
-
-OpenClaw 可以在 Raspberry Pi 上跑，因為模型推理在雲端，Pi 只跑 Gateway。
-
-**需求：** Raspberry Pi 4 或 5，至少 2 GB RAM（建議 4 GB），64-bit Raspberry Pi OS Lite，16 GB+ SD 卡或 USB SSD。
-
-```bash
-# 系統更新 + 安裝必要工具
-sudo apt update && sudo apt install -y git curl build-essential
-
-# 裝 Node 24
-curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -
-sudo apt install -y nodejs
-
-# 裝 OpenClaw
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-效能優化建議：
-- USB SSD 比 SD 卡效能好很多
-- 設定 2 GB swap（RAM 不夠時用）
-- 啟用 `NODE_COMPILE_CACHE` 加速 CLI 重複啟動
-- 關掉不需要的服務（Bluetooth、CUPS）
-- 減少 GPU 記憶體配置
-
-遠端存取用 SSH tunnel 連到 Control UI。
-
-## 驗證安裝
-
-不管用哪種方式，裝完都跑這三個確認：
-
-```bash
-openclaw --version       # CLI 可用
-openclaw doctor          # 設定無誤
-openclaw gateway status  # Gateway 運行中
-```
-
-如果 `openclaw` 找不到，檢查 `$(npm prefix -g)/bin` 有沒有在 `$PATH` 裡。
-
-## 更新
-
-```bash
-# 最簡單的方式
-openclaw update
-
-# 指定 channel
-openclaw update --channel beta
-
-# 預覽但不執行
-openclaw update --dry-run
-```
-
-也可以開自動更新，在 `openclaw.json` 設定。Stable channel 等 6 小時才套用（分散式 rollout），Beta 每小時檢查立即套用。
-
-更新後記得跑：
-
-```bash
-openclaw doctor          # 遷移設定 + 驗證
-openclaw gateway restart # 重載服務
-```
-
-## 回滾
-
-npm：`npm i -g openclaw@<version>`，然後跑 doctor + restart。
-
-原始碼：`git checkout <commit>`，重新 `pnpm install && pnpm build`，restart。
-
-## 解除安裝
-
-```bash
-# 最簡單
-openclaw uninstall
-
-# 自動化（非互動）
-openclaw uninstall --all --yes --non-interactive
-```
-
-手動步驟：停止 gateway → 解除安裝服務 → 刪除 `~/.openclaw` → 用 npm/pnpm 移除 CLI → 刪掉 macOS app（如果有）。
-
-如果 CLI 已經不見了，各平台的服務移除方式：
-- **macOS (launchd):** `launchctl bootout gui/$UID/ai.openclaw.gateway`
-- **Linux (systemd):** `systemctl --user disable --now openclaw-gateway.service`
-- **Windows:** `schtasks /Delete /F /TN "OpenClaw Gateway"`
-
-## 遷移到新機器
-
-```bash
-# 舊機器：備份
-openclaw gateway stop
-cd ~ && tar -czf openclaw-state.tgz .openclaw
-
-# 新機器：還原
-cd ~ && tar -xzf openclaw-state.tgz
-openclaw doctor
-openclaw gateway restart
-```
-
-重點：要遷移的是**整個 `~/.openclaw` 目錄**，不是只有 `openclaw.json`。裡面有 API key、OAuth token、session 歷史、頻道連線狀態。遷移時注意檔案權限和加密傳輸。
+Raspberry Pi 是可行的，因為模型推論在雲端、Pi 只跑 Gateway；實務上影響最大的是用 USB SSD 而不是 SD 卡。低功耗機器與 ARM 主機的啟動調校（`NODE_COMPILE_CACHE`、systemd restart policy）下一篇會一起講。
 
 ## 整體來說
 
-6 種安裝方式各有適用場景：
+六種安裝方式其實是三種取捨的組合：**要不要動系統層**（installer vs 本地 prefix vs 容器）、**要不要可重現**（Nix vs 其他）、**要不要跑最新程式碼**（原始碼／`dev` channel vs 發布版）。指令會變，這三條軸不會。
 
-| 方式 | 適合誰 |
-|---|---|
-| Installer script | 大多數人，最快 |
-| npm/pnpm | 已有 Node 環境的開發者 |
-| Docker | 想要隔離、headless、或容器化部署 |
-| Podman | 想要 rootless 容器 |
-| Nix | 追求可重現性和回滾能力 |
-| Bun | 開發時快速迭代（不適合正式環境）|
-| Source | Contributor 或想跑最新程式碼 |
-| Raspberry Pi | 低成本 24/7 Gateway |
+真正的坑則集中在一個地方：套件管理器對 lifecycle script 的政策，最近一年剛好在變。如果你的安裝在 npm 或 pnpm 這步停下來，先回頭看上面那兩條，不要急著換方式。
 
-下一篇講雲平台部署：K8s、Fly.io、Hetzner、GCP、Azure、Ansible。
+下一篇講雲端部署。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。**修掉三處照做會失敗的指令**：npm 全域安裝需要 `--allow-scripts=openclaw`（npm 12 起預設封鎖 lifecycle script）、pnpm 要改用 `pnpm add -g --allow-build=openclaw`（`approve-builds -g` 不支援全域安裝）、Node 需求從「24 或 22.14+」更新為「22.22.3+／24.15+／25.9+，建議 26」。同時改寫體裁：逐項安裝指令交還給官方文件，本篇改為選型取捨與失敗點；新增本地 prefix installer、Docker image 變體與升級行為、`extended-stable`／`dev` channel 語意、Nix mode 的唯讀代價。Bun 從「不適合正式環境」修正為「可作為安裝途徑，但執行仍需 Node runtime」。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/install/index.md](https://github.com/openclaw/openclaw/blob/main/docs/install/index.md) — 安裝總覽
-- [docs/install/docker.md](https://github.com/openclaw/openclaw/blob/main/docs/install/docker.md) — Docker 安裝
-- [docs/install/podman.md](https://github.com/openclaw/openclaw/blob/main/docs/install/podman.md) — Podman 安裝
-- [docs/install/nix.md](https://github.com/openclaw/openclaw/blob/main/docs/install/nix.md) — Nix 安裝
-- [docs/install/bun.md](https://github.com/openclaw/openclaw/blob/main/docs/install/bun.md) — Bun 安裝
-- [docs/install/raspberry-pi.md](https://github.com/openclaw/openclaw/blob/main/docs/install/raspberry-pi.md) — Raspberry Pi 部署
-- [docs/install/updating.md](https://github.com/openclaw/openclaw/blob/main/docs/install/updating.md) — 更新指南
-- [docs/install/uninstall.md](https://github.com/openclaw/openclaw/blob/main/docs/install/uninstall.md) — 解除安裝
-- [docs/install/migrating.md](https://github.com/openclaw/openclaw/blob/main/docs/install/migrating.md) — 遷移指南
-- [docs/start/getting-started.md](https://github.com/openclaw/openclaw/blob/main/docs/start/getting-started.md) — 快速上手
+- [Install](https://docs.openclaw.ai/install/) — 安裝總覽、系統需求、各套件管理器的 lifecycle script 政策
+- [Getting Started](https://docs.openclaw.ai/start/getting-started) — 快速上手
+- [Docker](https://docs.openclaw.ai/install/docker) — 容器化部署、image 變體與升級行為
+- [Nix](https://docs.openclaw.ai/install/nix) — 宣告式安裝與 Nix mode 的行為變化
+- [Updating](https://docs.openclaw.ai/install/updating) — 更新、channel 語意與安裝型態切換
+- [Linux server](https://docs.openclaw.ai/vps) — 低功耗主機的啟動調校

@@ -282,5 +282,5 @@ If you are in the middle of an agent system refactor, these six sub-questions ca
 
 ### Related Posts on This Site
 
-- [Claude File Handling: The Three-Layer Architecture](/posts/ai/claude-file-handling-three-layers/)
-- [System Prompts Leaks Archive](/posts/ai/system-prompts-leaks-archive/)
+- [Claude File Handling: The Three-Layer Architecture](/posts/ai/2026-05-19-claude-file-handling-three-layers-en)
+- [System Prompts Leaks Archive](/posts/ai/2026-05-19-system-prompts-leaks-archive-en)
