@@ -5,8 +5,8 @@ type: guide
 category: design
 tags: [brand-color, design-system, accessibility, wcag, design-tokens, product-design]
 lang: zh-TW
-tldr: "品牌色該在產品開頭就決定，但決策順序通常反了——不是先挑喜歡的顏色再檢查，是先用限制條件把選項收斂到剩三四個。三個限制：功能已佔走的色相、可及性的硬門檻、競品的差異位。其中第一個常被誤解：W3C 的 SC 1.4.1 明講，只要資訊「依賴使用者精確辨色」（規範自己舉的例子就是綠色代表有效、紅色代表無效），**不論對比多少都必須另加視覺指示**——所以避開紅綠不是解法，加圖示才是。另外 APCA 常被說成「WCAG 3 的演算法」，但現行草案寫的是「尚未決定」。"
-description: "用三個可驗證的限制條件（功能佔用的色相、WCAG 對比門檻、競品差異位）把品牌色的選項收斂到能決定的數量，並說明 SC 1.4.1 對狀態色的真正要求、色盲盛行率數字的前提條件、APCA 與 WCAG 3 的實際關係，最後把定案的顏色鎖進 Tailwind v4 與 shadcn 的 token。"
+tldr: "品牌色該在產品開頭就決定，但決策順序通常反了——不是先挑喜歡的顏色再檢查，是先用限制條件把選項收斂到剩三四個。三個限制：功能已佔走的色相、可及性的硬門檻、競品的差異位。文內附十類產品的色相佔用對照表（監控與地圖類佔最多，內容與社群類幾乎不佔）。第一個限制常被誤解：W3C 的 SC 1.4.1 明講，只要資訊依賴使用者精確辨色，**不論對比多少都必須另加視覺指示**——避開紅綠不是解法，加圖示才是。另外 APCA 常被說成「WCAG 3 的演算法」，但現行草案寫的是「尚未決定」。"
+description: "用三個可驗證的限制條件（功能佔用的色相、WCAG 對比門檻、競品差異位）把品牌色的選項收斂到能決定的數量。含十類產品的色相佔用對照表、台股與歐美股市紅綠相反的跨市場案例、SC 1.4.1 對狀態色的真正要求、色盲盛行率數字的前提條件、APCA 與 WCAG 3 的實際關係，以及如何把定案的顏色鎖進 Tailwind v4 與 shadcn 的 token。"
 draft: false
 glossary:
   - term: "SC 1.4.1"
@@ -15,7 +15,7 @@ glossary:
     definition_en: "A WCAG success criterion (Level A): color must not be the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
     advanced: "規範的註解區分兩種情況。若兩色除了色相不同、明度也差到對比 3:1 以上，明度差本身就算一項額外的視覺區隔；但若資訊「依賴使用者精確辨識某個顏色」（規範舉的例子是綠色外框代表有效、紅色代表無效），則不論對比多少都必須另加視覺指示。"
     advanced_en: "The criterion's notes draw a distinction. If two colors differ in hue *and* in lightness enough to reach a 3:1 contrast ratio, that luminance difference counts as an additional visual distinction. But where the information relies on the user accurately perceiving a particular color — the spec's own example is a green outline for valid versus red for invalid — an additional visual indicator is required regardless of the contrast ratio."
-    context: "做答對／答錯、通過／失敗這類狀態回饋時，這條決定了你必須加圖示或文字，換色相解決不了。"
+    context: "做答對／答錯、正常／故障、漲／跌這類狀態回饋時，這條決定了你必須加圖示或文字，換色相解決不了。"
     context_en: "For correct/incorrect or pass/fail state feedback, this is the criterion that forces an icon or text label; changing the hue does not satisfy it."
 ---
 
@@ -27,13 +27,48 @@ glossary:
 
 反過來做比較省事：**先用限制條件把選項收斂到剩三四個，最後那一步才動用喜好。** 這篇講三個限制條件分別是什麼、怎麼驗，以及其中一個常被誤解到做錯方向的地方。
 
+限制的強度依產品類型差很多——監控台和地圖類幾乎沒得選，內容型和社群類整個色環都能用。所以限制一開頭會有一張對照表，先找到你的位置再往下走。
+
 實作層（把定案的顏色接進 Tailwind v4 與 shadcn 的 token）在另一篇[設計資源網站盤點](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4)裡。
 
 ## 限制一：哪些色相已經被功能佔走了
 
-任何有「狀態」的產品——學習平台的答對答錯、監控台的正常異常、表單的有效無效——都會先把幾個色相分配給功能。使用者對這些配對的預期強到你改不動：綠是通過，紅是失敗。
+很多產品在你挑品牌色之前，已經先把幾個色相分配給功能了。使用者對這些配對的預期強到你改不動，所以第一步是**盤點你這一類產品佔走了幾個色相**——佔得多，你能選的就少；佔得少，整個色環都是你的。
 
-常見的建議是「品牌色避開紅綠」。這個建議方向對，但它其實抓錯了規範真正要求的東西。
+### 先找到你在表上的位置
+
+| 產品類型 | 被功能佔走的色相 | 剩下多少 |
+|---|---|---|
+| 測驗 / 學習 / 語言 | 綠（對）、紅（錯） | 多 |
+| 監控 / DevOps / IT 維運 | 綠（正常）、黃或琥珀（警告）、紅（故障） | 少 |
+| 金融 / 交易 / 看盤 | 紅與綠**都**被佔，且方向依市場反轉（見下） | 少 |
+| 表單密集型（B2B SaaS、政府、保險） | 紅（錯誤）、黃（警告）、綠（成功） | 少 |
+| 醫療 / 健康 / 檢測 | 紅（異常、急件）、綠（正常） | 中 |
+| 電商 / 零售 | 紅或橘（促銷、限時、缺貨）、綠（有貨、已出貨） | 中 |
+| 地圖 / 導航 / 物流追蹤 | 綠黃紅（路況）、藍（水域與路線） | 最少 |
+| 內容 / 媒體 / 部落格 | 幾乎沒有 | 全部 |
+| 設計 / 寫作 / 創作工具 | 幾乎沒有，但介面本身要退到背景去 | 全部（但要低飽和） |
+| 社群 / 社交 | 幾乎沒有 | 全部 |
+
+另外有三個色相是**不分類型都會被佔掉一部分**的，先扣掉再算：
+
+- **紅**：破壞性動作（刪除、取消訂閱、終止）。shadcn 的 token 集本來就內建 `--destructive`，你不設計它也存在。
+- **藍**：超連結。即使你的品牌是藍的，內文連結仍需與品牌色可區分。
+- **黃 / 琥珀**：警示與「注意看這裡」。這個色相很難拿來當大面積品牌色，因為它當文字、當按鈕背景配白字幾乎都過不了對比門檻（見限制二）。
+
+**如果你落在表格下半部**（內容型、工具型、社群），限制一對你幾乎不成立——直接跳到限制二，你的可選範圍會比多數人大很多。這不是壞消息，是你少了一層約束。
+
+### 同一個色相，在不同市場意思相反
+
+最值得注意的一格是金融類，因為它示範了一件多數配色指南不會講的事：**色相的語意不是全球統一的**。
+
+台股市場的慣例是紅漲綠跌——[Yahoo 奇摩股市的說明頁](http://tw.help.yahoo.com/kb/SLN35897.html)直接寫著「台股市場紅色代表股票上漲，綠色代表股票下跌」。中國、日本同樣是紅漲。但歐美市場相反，綠是漲、紅是跌，這也是 Google Finance、Bloomberg 一類產品的預設。[BBC News 專門做過一支解釋這個差異的短片](https://www.bbc.com/news/av/business-33464903)。
+
+實務含意有兩層。第一，如果你的產品跨市場，這組顏色不能寫死在元件裡，必須是可依地區切換的 token——這正好是[語意命名](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4)派得上用場的地方（`--price-up` 而不是 `--green`）。第二，任何「紅＝負面」的通則在你決定品牌色時都要先確認適用範圍，別把單一文化的直覺當成常識。
+
+### 然後是規範真正要求的東西
+
+盤點完之後，常見的下一句建議是「品牌色避開被佔走的色相」。方向對，但它抓錯了規範真正要求的東西。
 
 [W3C 的 SC 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)（Level A）本文只有一句：
 
@@ -49,14 +84,14 @@ glossary:
 
 > However, if content relies on the user's ability to accurately perceive or differentiate a particular color an additional visual indicator will be required regardless of the contrast ratio between those colors. For example, knowing whether an outline is green for valid or red for invalid.
 
-**「不論對比多少」。** 所以答對／答錯這種要求使用者精確辨色的資訊，規範的要求不是「換一個色相」，是**一定要有圖示或文字**。✓ 和 ✗、「答對了」和「再看一次」——沒有這個，換成藍色配橘色一樣不合格。
+**「不論對比多少」。** 所以任何要求使用者精確辨色的資訊——答對答錯、正常故障、漲跌、有效無效、通過未通過——規範的要求不是「換一個色相」，是**一定要有圖示或文字**。✓ 和 ✗、▲ 和 ▼、「已通過」和「需修正」。沒有這個，你換成藍配橘一樣不合格。
 
 這件事改變了限制一的形狀：
 
-- **必做**：狀態回饋一定要有非顏色的線索。這是 Level A，不是加分項。
-- **仍然建議**：品牌色避開狀態色相。理由不再是可及性合規，而是**認知負擔**——當「送出」按鈕跟「答對」是同一種綠，使用者每次都要多花半秒判斷這抹綠在說什麼。這是體驗問題，不是合規問題，但它一樣值得避開。
+- **必做**：狀態回饋一定要有非顏色的線索。這是 Level A，不是加分項，而且跟你選什麼品牌色無關。
+- **仍然建議**：品牌色避開被功能佔走的色相。理由不再是可及性合規，而是**認知負擔**——當「送出」按鈕跟「成功」是同一種綠，使用者每次都要多花半秒判斷這抹綠在說什麼。這是體驗問題，不是合規問題，但一樣值得避開。
 
-分清楚這兩件事的意義是：如果你的品牌走 Duolingo 那條路、非綠不可，你不是不能做，你只是必須把圖示、位置、面積、動效的差異化做足。這條路走得通，只是工作量大。
+分清楚這兩件事之後，有一條路重新開了：**如果你的品牌非用那個色相不可**（Duolingo 的綠、金融產品的紅），你不是不能做。你只是必須把圖示、位置、面積、動效的差異化做足——反正依 SC 1.4.1 那些圖示本來就得加。這條路成立，只是工作量大。
 
 ## 限制二：可及性的硬門檻（這段是算出來的）
 
@@ -94,7 +129,9 @@ glossary:
 3. 把這些色相角度記下來，畫在一條 0–360 的線上。
 4. 找**空白的那一段**。
 
-做完你通常會看到色相高度集中——SaaS 擠在藍到靛之間，健康類擠在綠，金融擠在深藍。空白區就是你的機會，而且這是觀察結果不是品味判斷。
+絕大多數類別跑完都會看到明顯的集中——同業互相參考久了就會這樣。空白區就是你的機會，而且它是量出來的，不是判斷出來的。
+
+兩個提醒。第一，**相信你自己的量測，不要相信別人（包括我）對「你那一類通常是什麼顏色」的印象**，這種印象很容易來自幾個知名度高的樣本。第二，如果你落在限制一表格的下半部（內容型、工具型、社群），這一步的重要性會上升——你少了功能佔用那層約束，差異化就得靠這裡撐。
 
 這一步也順便回答「我不懂設計怎麼辦」：你不需要懂，你只需要會數。
 
@@ -118,37 +155,47 @@ glossary:
 
 ## 定案之後：鎖進 token，不要散在元件裡
 
-顏色定了就立刻變成語意 token，而且**用途命名，不要用顏色命名**：
+顏色定了就立刻變成語意 token，而且**用途命名，不要用顏色命名**。下面用限制一表格裡幾種產品各舉一組，你照自己的領域換掉名稱就好：
 
 ```css
 :root {
-  --primary: oklch(0.55 0.19 265);      /* 品牌色 */
+  --primary: oklch(0.55 0.19 265);        /* 品牌色，所有產品都有 */
   --primary-foreground: oklch(0.99 0 0);
-  --correct: oklch(0.72 0.15 155);      /* 不要叫 --green */
-  --correct-foreground: oklch(0.98 0 0);
-  --incorrect: oklch(0.63 0.20 25);
-  --incorrect-foreground: oklch(0.98 0 0);
+
+  /* 測驗類：--correct / --incorrect      不要叫 --green / --red   */
+  /* 監控類：--healthy / --degraded / --down                        */
+  /* 金融類：--price-up / --price-down    可依市場對調，見限制一    */
+  /* 電商類：--in-stock / --sold-out / --promo                      */
+  --healthy: oklch(0.72 0.15 155);
+  --healthy-foreground: oklch(0.98 0 0);
+  --down: oklch(0.63 0.20 25);
+  --down-foreground: oklch(0.98 0 0);
 }
 .dark { /* 同一組，重新調值，不是把亮度反過來 */ }
 
 @theme inline {
   --color-primary: var(--primary);
-  --color-correct: var(--correct);
-  --color-correct-foreground: var(--correct-foreground);
+  --color-healthy: var(--healthy);
+  --color-healthy-foreground: var(--healthy-foreground);
   /* 其餘照抄 */
 }
 ```
 
-兩件事值得強調：
+三件事值得強調：
 
-- **`@theme inline` 那層不能漏。** Tailwind v4 只認 namespace，只寫 `:root` 的話 `bg-correct` 這個 class 不會存在。細節在[另一篇](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4)。
-- **叫 `correct` 不叫 `green`。** 之後要換色、做高對比模式、或補上圖示以外的第二線索，都只改一處。而依 SC 1.4.1，那個圖示是遲早要加的。
+- **`@theme inline` 那層不能漏。** Tailwind v4 只認 namespace，只寫 `:root` 的話 `bg-healthy` 這個 class 不會存在。細節在[另一篇](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4)。
+- **叫 `healthy` 不叫 `green`。** 之後要換色、做高對比模式、或補上圖示以外的第二線索，都只改一處。而依 SC 1.4.1，那個圖示是遲早要加的。
+- **跨市場的產品尤其需要語意命名。** `--price-up` 在台灣指向紅、在美國指向綠，是同一個 token 換值；如果當初寫的是 `--green`，你等於要把整套元件重寫一次。
 
 ## 整體來說
 
 品牌色確實該在新產品開頭就決定——但它是一個**收斂問題**，不是一個品味問題。先刪掉功能佔走的、刪掉過不了對比門檻的、刪掉跟競品撞的，剩下的裡面挑哪個，多半怎麼選都不會錯。
 
+收斂的力道依產品類型差很多。監控台、地圖、金融看盤這類，三個色相以上先被功能佔走，剩下的選擇少而明確；內容型、工具型、社群這類幾乎不受限制一約束，這時差異化的重量會全部壓到限制三，競品盤點那步就不能省。
+
 三個限制裡只有一個是必須遵守的規範（SC 1.4.1 與 1.4.3 / 1.4.11 的門檻），另外兩個是讓產品不至於平庸的工程。而最容易做錯方向的，是把「避開紅綠」當成無障礙的解法——規範要的從來不是換色相，是**顏色以外的第二個線索**。這件事你避開紅綠也還是得做。
+
+最後一個提醒，來自紅綠在台股與歐美股市意思相反這件事：**顏色的語意不是普世的。** 任何配色指南（包括這篇）給的通則，都要先確認它適用於你的使用者，而不是適用於寫指南的人。
 
 ## 參考資料
 
@@ -161,6 +208,8 @@ glossary:
 - [Colour Blind Awareness — About Colour Blindness](https://www.colourblindawareness.org/colour-blindness/)
 - [Prevalence and gene frequency of color vision impairments among children of six populations from North Indian region](https://pmc.ncbi.nlm.nih.gov/articles/PMC6150100/)
 - [Jennifer Birch — Worldwide prevalence of red-green color deficiency (JOSA A, 2012)](https://opg.optica.org/josaa/abstract.cfm?uri=josaa-29-3-313)（只讀到摘要，未取得全文）
+- [Yahoo 奇摩股市說明 — 連漲連跌訊號顏色如何分辨？](http://tw.help.yahoo.com/kb/SLN35897.html)（台股紅漲綠跌的慣例）
+- [BBC News — Red v Green: China's stock markets explained](https://www.bbc.com/news/av/business-33464903)
 - [Radix Colors](https://www.radix-ui.com/colors)
 - [Realtime Colors](https://realtimecolors.com/)
 - [shadcn/create](https://ui.shadcn.com/create)

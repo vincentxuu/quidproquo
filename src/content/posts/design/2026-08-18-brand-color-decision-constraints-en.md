@@ -5,8 +5,8 @@ type: guide
 category: design
 tags: [brand-color, design-system, accessibility, wcag, design-tokens, product-design]
 lang: en
-tldr: "A brand color does belong at the start of a new product — but the usual decision order is backwards. Rather than picking a color you like and then checking it, use constraints to narrow the field to three or four candidates first. The three constraints: hues already claimed by function, the accessibility thresholds, and the gap in your competitive set. The first is widely misread: W3C's SC 1.4.1 states that where information relies on accurately perceiving a particular color — the spec's own example is a green outline for valid versus red for invalid — an additional visual indicator is required *regardless of contrast ratio*. So avoiding red and green is not the fix; adding an icon is. Separately, APCA is often described as 'the WCAG 3 algorithm,' while the current draft says the algorithm is yet to be determined."
-description: "Using three verifiable constraints — hues claimed by state feedback, WCAG contrast thresholds, and the gap in your competitive set — to narrow brand color candidates down to a decidable number, plus what SC 1.4.1 actually requires of state colors, the conditions attached to color blindness prevalence figures, APCA's real relationship to WCAG 3, and how to lock the final color into Tailwind v4 and shadcn tokens."
+tldr: "A brand color does belong at the start of a new product — but the usual decision order is backwards. Rather than picking a color you like and then checking it, use constraints to narrow the field to three or four candidates first. The three constraints: hues already claimed by function, the accessibility thresholds, and the gap in your competitive set. Includes a lookup table of ten product categories and how many hues each one forfeits (monitoring and mapping products give up the most; content and social products give up almost none). The first constraint is widely misread: W3C's SC 1.4.1 states that where information relies on accurately perceiving a particular color, an additional visual indicator is required *regardless of contrast ratio* — so avoiding red and green is not the fix; adding an icon is. Separately, APCA is often described as 'the WCAG 3 algorithm,' while the current draft says the algorithm is yet to be determined."
+description: "Using three verifiable constraints — hues claimed by state feedback, WCAG contrast thresholds, and the gap in your competitive set — to narrow brand color candidates down to a decidable number. Includes a lookup table of hue forfeiture across ten product categories, the reversed red/green convention between Taiwanese and Western stock markets, what SC 1.4.1 actually requires of state colors, the conditions attached to color blindness prevalence figures, APCA's real relationship to WCAG 3, and how to lock the final color into Tailwind v4 and shadcn tokens."
 draft: false
 glossary:
   - term: "SC 1.4.1"
@@ -15,8 +15,8 @@ glossary:
     definition_en: "A WCAG success criterion (Level A): color must not be the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
     advanced: "The criterion's notes draw a distinction. If two colors differ in hue *and* in lightness enough to reach a 3:1 contrast ratio, that luminance difference counts as an additional visual distinction. But where the information relies on the user accurately perceiving a particular color — the spec's own example is a green outline for valid versus red for invalid — an additional visual indicator is required regardless of the contrast ratio."
     advanced_en: "The criterion's notes draw a distinction. If two colors differ in hue *and* in lightness enough to reach a 3:1 contrast ratio, that luminance difference counts as an additional visual distinction. But where the information relies on the user accurately perceiving a particular color — the spec's own example is a green outline for valid versus red for invalid — an additional visual indicator is required regardless of the contrast ratio."
-    context: "For correct/incorrect or pass/fail state feedback, this is the criterion that forces an icon or text label; changing the hue does not satisfy it."
-    context_en: "For correct/incorrect or pass/fail state feedback, this is the criterion that forces an icon or text label; changing the hue does not satisfy it."
+    context: "For correct/incorrect, healthy/down, or up/down state feedback, this is the criterion that forces an icon or text label; changing the hue does not satisfy it."
+    context_en: "For correct/incorrect, healthy/down, or up/down state feedback, this is the criterion that forces an icon or text label; changing the hue does not satisfy it."
 ---
 
 > 🌏 [中文版](/posts/design/2026-08-18-brand-color-decision-constraints)
@@ -27,13 +27,48 @@ The question is not *whether* to decide now. It is that **the decision order is 
 
 Doing it in reverse is less work: **let constraints narrow the field to three or four candidates, and only spend your taste on the last step.** This piece covers what those three constraints are, how to verify each, and the one that is commonly misread badly enough to send people in the wrong direction.
 
+How tightly they bind varies a lot by product type — a monitoring console or a mapping product has almost no room, while a content or social product has the whole wheel. So Constraint 1 opens with a lookup table: find your row first, then read on.
+
 The implementation layer — wiring the final color into Tailwind v4 and shadcn tokens — is in the companion piece, [Auditing Design Resource Sites Against Tailwind v4](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4-en).
 
 ## Constraint 1: which hues are already claimed by function
 
-Any product with *state* — correct/incorrect in a learning platform, healthy/failing in a monitoring console, valid/invalid in a form — assigns a few hues to function before you get a say. Users' expectations about those pairings are strong enough that you cannot move them: green passes, red fails.
+Many products assign a few hues to function before you get any say in it. Users' expectations about those pairings are strong enough that you cannot move them, so step one is to **count how many hues your category has already forfeited** — forfeit a lot and your options are few; forfeit none and the whole wheel is yours.
 
-The common advice is "keep the brand color away from red and green." The direction is right, but it misidentifies what the specification actually requires.
+### Find your row first
+
+| Product category | Hues claimed by function | How much is left |
+|---|---|---|
+| Quizzes / learning / language | Green (correct), red (incorrect) | Most |
+| Monitoring / DevOps / IT ops | Green (healthy), yellow or amber (warning), red (down) | Little |
+| Finance / trading / market data | **Both** red and green, and the direction flips by market (see below) | Little |
+| Form-heavy (B2B SaaS, government, insurance) | Red (error), yellow (warning), green (success) | Little |
+| Medical / health / diagnostics | Red (abnormal, urgent), green (normal) | Some |
+| Ecommerce / retail | Red or orange (sale, urgency, out of stock), green (in stock, shipped) | Some |
+| Maps / navigation / logistics tracking | Green-yellow-red (traffic), blue (water and routes) | Least |
+| Content / media / blogs | Almost none | All of it |
+| Design / writing / creative tools | Almost none, but the UI itself must recede | All of it (at low saturation) |
+| Social | Almost none | All of it |
+
+Three hues are **partly claimed regardless of category** — subtract these before you count:
+
+- **Red**: destructive actions (delete, cancel subscription, terminate). shadcn's token set ships `--destructive` whether you design it or not.
+- **Blue**: hyperlinks. Even if your brand is blue, inline links still need to be distinguishable from the brand color.
+- **Yellow / amber**: warnings and "look here." This hue is hard to use as a large-area brand color because it fails contrast thresholds almost everywhere — as text, and as a button background under white text (see Constraint 2).
+
+**If you land in the bottom half of that table** (content, tools, social), Constraint 1 barely applies to you — skip ahead to Constraint 2 with a much wider field than most people get. That is not bad news; it is one fewer constraint.
+
+### The same hue, opposite meanings in different markets
+
+The finance row is the one worth dwelling on, because it demonstrates something most color guides omit: **hue semantics are not globally uniform**.
+
+Taiwan's market convention is red for up, green for down — [Yahoo Taiwan's stock help page](http://tw.help.yahoo.com/kb/SLN35897.html) states it directly: "台股市場紅色代表股票上漲，綠色代表股票下跌" (in the Taiwanese market red means the stock rose, green means it fell). China and Japan follow the same convention. Western markets are the reverse — green up, red down — which is also the default in products like Google Finance and Bloomberg. [BBC News made a short explainer about the difference](https://www.bbc.com/news/av/business-33464903).
+
+Two practical implications. First, if your product ships across markets, these colors cannot be hardcoded into components; they have to be tokens that switch by region — precisely where [semantic naming](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4-en) earns its keep (`--price-up`, not `--green`). Second, any "red means negative" generalization needs its scope checked before you build a brand color decision on it. Do not mistake one culture's intuition for common sense.
+
+### And now what the specification actually requires
+
+With the inventory done, the usual next line of advice is "keep the brand color off the claimed hues." The direction is right, but it misidentifies what the specification actually requires.
 
 The body of [W3C's SC 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html) (Level A) is a single sentence:
 
@@ -49,14 +84,14 @@ The second note immediately withdraws that escape hatch — and the example it u
 
 > However, if content relies on the user's ability to accurately perceive or differentiate a particular color an additional visual indicator will be required regardless of the contrast ratio between those colors. For example, knowing whether an outline is green for valid or red for invalid.
 
-**"Regardless of the contrast ratio."** So for information like correct/incorrect that requires accurate color perception, the requirement is not "pick a different hue" — it is that **there must be an icon or a text label**. A ✓ and an ✗, "Correct" and "Try again." Without that, swapping to blue and orange fails just the same.
+**"Regardless of the contrast ratio."** So any information that requires accurate color perception — correct/incorrect, healthy/down, up/down, valid/invalid, pass/fail — does not get fixed by picking a different hue. It requires **an icon or a text label**. A ✓ and an ✗, a ▲ and a ▼, "Passed" and "Needs work." Without that, swapping to blue and orange fails just the same.
 
 That reshapes the constraint:
 
-- **Mandatory**: state feedback needs a non-color cue. This is Level A, not a nice-to-have.
-- **Still advisable**: keep the brand color off the state hues. The reason is no longer accessibility compliance but **cognitive load** — when the submit button is the same green as "correct," users spend an extra half-second every time working out what that green is saying. That is an experience problem rather than a compliance one, but it is worth avoiding all the same.
+- **Mandatory**: state feedback needs a non-color cue. This is Level A, not a nice-to-have, and it holds regardless of which brand color you choose.
+- **Still advisable**: keep the brand color off the hues function has claimed. The reason is no longer accessibility compliance but **cognitive load** — when the submit button is the same green as "success," users spend an extra half-second every time working out what that green is saying. That is an experience problem rather than a compliance one, but it is worth avoiding all the same.
 
-Separating the two matters because: if your brand goes the Duolingo route and has to be green, you are not blocked. You simply have to do the differentiation work — iconography, position, area, motion. The route works; it just costs more.
+Separating the two reopens a route: **if your brand has to use a claimed hue** — Duolingo's green, a trading product's red — you are not blocked. You simply have to do the differentiation work through iconography, position, area, and motion. Those icons were going in anyway under SC 1.4.1. The route works; it just costs more.
 
 ## Constraint 2: the accessibility thresholds (this part is calculated)
 
@@ -94,7 +129,9 @@ The first two constraints remove what you cannot use. The third decides among wh
 3. Record the hue angles.
 4. Plot them on a 0–360 line and find **the empty stretch**.
 
-You will usually find heavy clustering — SaaS crowds between blue and indigo, health products crowd into green, finance into deep navy. The empty region is your opening, and identifying it is an observation, not a taste judgement.
+Nearly every category shows obvious clustering once plotted — people in a field look at each other's work for long enough that it converges. The empty stretch is your opening, and it is measured rather than judged.
+
+Two cautions. First, **trust your own measurement over anyone's impression of "what colors that category usually uses," mine included** — those impressions come from a handful of high-profile samples. Second, if you land in the bottom half of the Constraint 1 table (content, tools, social), this step matters more: with no functional claims constraining you, all the differentiation weight lands here.
 
 This step also answers "what if I don't know design?" You do not need to. You need to be able to count.
 
@@ -118,37 +155,47 @@ With the three constraints applied, you are typically left with three or four ca
 
 ## Once decided: lock it into tokens, don't scatter it through components
 
-The moment the color is settled it becomes a semantic token — and **name it by purpose, not by color**:
+The moment the color is settled it becomes a semantic token — and **name it by purpose, not by color**. Below, one set per product type from the Constraint 1 table; swap in the names from your own domain:
 
 ```css
 :root {
-  --primary: oklch(0.55 0.19 265);      /* brand color */
+  --primary: oklch(0.55 0.19 265);        /* brand color — every product has one */
   --primary-foreground: oklch(0.99 0 0);
-  --correct: oklch(0.72 0.15 155);      /* not --green */
-  --correct-foreground: oklch(0.98 0 0);
-  --incorrect: oklch(0.63 0.20 25);
-  --incorrect-foreground: oklch(0.98 0 0);
+
+  /* Quizzes:   --correct / --incorrect        not --green / --red   */
+  /* Monitoring: --healthy / --degraded / --down                     */
+  /* Finance:   --price-up / --price-down      may invert by market  */
+  /* Ecommerce: --in-stock / --sold-out / --promo                    */
+  --healthy: oklch(0.72 0.15 155);
+  --healthy-foreground: oklch(0.98 0 0);
+  --down: oklch(0.63 0.20 25);
+  --down-foreground: oklch(0.98 0 0);
 }
 .dark { /* same set, re-tuned values — not the lightness inverted */ }
 
 @theme inline {
   --color-primary: var(--primary);
-  --color-correct: var(--correct);
-  --color-correct-foreground: var(--correct-foreground);
+  --color-healthy: var(--healthy);
+  --color-healthy-foreground: var(--healthy-foreground);
   /* and so on */
 }
 ```
 
-Two things worth emphasising:
+Three things worth emphasising:
 
-- **Do not skip the `@theme inline` layer.** Tailwind v4 only honours namespaces; write only `:root` and the `bg-correct` class will not exist. Details in [the companion piece](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4-en).
-- **Call it `correct`, not `green`.** Changing the color later, adding a high-contrast mode, or introducing a second cue beyond the icon all become one-line edits. And per SC 1.4.1, that icon is going in sooner or later regardless.
+- **Do not skip the `@theme inline` layer.** Tailwind v4 only honours namespaces; write only `:root` and the `bg-healthy` class will not exist. Details in [the companion piece](/posts/tech/deep-dive/2026-08-18-design-resource-sites-tailwind-v4-en).
+- **Call it `healthy`, not `green`.** Changing the color later, adding a high-contrast mode, or introducing a second cue beyond the icon all become one-line edits. And per SC 1.4.1, that icon is going in sooner or later regardless.
+- **Cross-market products need semantic naming most.** `--price-up` resolves to red in Taiwan and green in the US — one token, two values. Name it `--green` and you are rewriting every component instead.
 
 ## Overall
 
 A brand color does belong at the start of a new product — but it is a **convergence problem**, not a taste problem. Remove the hues function has claimed, remove the ones that fail the contrast thresholds, remove the ones that collide with your competitive set, and among what remains most choices are fine.
 
+How much convergence you get varies sharply by product type. Monitoring consoles, maps, and trading interfaces forfeit three or more hues to function, leaving few but well-defined options; content, tool, and social products are barely touched by Constraint 1, which means all the differentiation weight shifts onto Constraint 3 and the competitive audit stops being optional.
+
 Only one of the three constraints is a rule you must obey (SC 1.4.1, plus the 1.4.3 / 1.4.11 thresholds); the other two are the engineering that keeps a product from being forgettable. And the easiest thing to get wrong is treating "avoid red and green" as the accessibility fix. The specification never asked for a different hue. It asked for **a second cue that is not color** — and you owe that whether or not you avoided red and green.
+
+One last note, drawn from red and green meaning opposite things in Taiwanese and Western markets: **color semantics are not universal.** Every generalization a color guide offers — this one included — needs checking against your actual users rather than against the person who wrote the guide.
 
 ## References
 
@@ -161,6 +208,8 @@ Only one of the three constraints is a rule you must obey (SC 1.4.1, plus the 1.
 - [Colour Blind Awareness — About Colour Blindness](https://www.colourblindawareness.org/colour-blindness/)
 - [Prevalence and gene frequency of color vision impairments among children of six populations from North Indian region](https://pmc.ncbi.nlm.nih.gov/articles/PMC6150100/)
 - [Jennifer Birch — Worldwide prevalence of red-green color deficiency (JOSA A, 2012)](https://opg.optica.org/josaa/abstract.cfm?uri=josaa-29-3-313) (abstract only; full text not obtained)
+- [Yahoo Taiwan Stock help — how to read the rising/falling signal colors](http://tw.help.yahoo.com/kb/SLN35897.html) (in Chinese; the Taiwanese red-up/green-down convention)
+- [BBC News — Red v Green: China's stock markets explained](https://www.bbc.com/news/av/business-33464903)
 - [Radix Colors](https://www.radix-ui.com/colors)
 - [Realtime Colors](https://realtimecolors.com/)
 - [shadcn/create](https://ui.shadcn.com/create)
