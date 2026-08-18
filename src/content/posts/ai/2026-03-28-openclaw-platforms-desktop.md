@@ -1,157 +1,114 @@
 ---
-title: "OpenClaw 桌面平台：macOS、Linux 與 Windows"
+title: "OpenClaw 桌面平台：Windows 現在有原生 Hub，而 Node 是硬性需求"
 date: 2026-03-28
 type: guide
 category: ai
-tags: [openclaw, macos, linux, windows, wsl2, systemd, launchd]
+tags: [openclaw, macos, linux, windows, wsl2, windows-hub, platforms]
 lang: zh-TW
 series:
   name: "OpenClaw 文件導讀"
   order: 4
-tldr: "OpenClaw 在 macOS 有選單列 app、Linux 用 systemd 跑服務、Windows 建議走 WSL2。三個平台的差異與注意事項。"
-description: "OpenClaw 在 macOS、Linux、Windows 三個桌面平台的安裝差異、服務管理、Node 功能與限制。"
+tldr: "Node 是必要的執行期，因為標準狀態儲存用 node:sqlite——Bun 只能拿來裝依賴。Windows 這邊變化最大：新增了原生的 Windows Hub companion app，不需要管理員權限，還能自己開一個 app 專屬的 WSL 發行版來裝 Gateway。"
+description: "OpenClaw 在 macOS、Linux 與 Windows 上的支援現況：Node 執行期的硬性需求、Windows Hub 的三種角色、三種 Windows 路徑的選擇，以及各 OS 的服務安裝目標。"
 draft: false
 ---
 
-OpenClaw 的核心是 TypeScript，Node.js 是推薦的 runtime（Bun 不建議用在 Gateway，WhatsApp 和 Telegram 有相容性問題）。但三個桌面平台的體驗差異不小，這篇整理各自的特點。
+OpenClaw 核心用 TypeScript 寫成，而有一條硬性需求要先講：
 
-## macOS
+> **Node 是必要的執行期**，因為標準的狀態儲存使用 `node:sqlite`。Bun 仍可用於安裝依賴與執行套件腳本。
 
-macOS 是 OpenClaw 體驗最完整的平台，有專屬的選單列 companion app。
+也就是說，Bun 在這裡是套件管理器，不是 runtime——這點在前面安裝那篇也提過，兩邊一致。
 
-### 選單列 App
+## Windows 的三條路，先選一條
 
-不只是 Gateway 啟動器，它本身是一個 **Node**——可以把 macOS 的系統能力暴露給 AI agent：
+Windows 是這一輪變化最大的平台，現在有三種明顯不同的用法：
 
-- **Canvas** — 截圖、導覽、JavaScript 執行、A2UI push
-- **Camera** — 前後鏡頭拍照、錄影片段
-- **Screen Recording** — MP4 錄製
-- **system.run** — 在 macOS 上執行指令（有 approval 機制）
-- **Notifications** — 原生通知
-
-### 運作模式
-
-**Local Mode（預設）：** 連接本機的 Gateway，或自動啟用 launchd 服務。
-
-**Remote Mode：** 連到遠端 Gateway（透過 SSH/Tailscale），同時啟動本地 node host，讓遠端 Gateway 能呼叫你 Mac 的 camera、canvas 等功能。
-
-### 安全與 Exec Approvals
-
-`system.run` 的執行受 `~/.openclaw/exec-approvals.json` 控制，支援 allowlist、逐次核准、過濾危險環境變數。
-
-### Deep Links
-
-註冊了 `openclaw://` URL scheme，可以帶 `message`、`sessionKey` 等參數，適合自動化場景。
-
-### 注意事項
-
-- State 目錄 `~/.openclaw` 不要放在 iCloud 同步路徑
-- Gateway 服務用 launchd（LaunchAgent）管理
-
-## Linux
-
-Linux 是 Gateway 完整支援的平台，沒有專屬 companion app（社群開發中）。
-
-### 服務管理
-
-預設用 **systemd user service**。安裝指令三選一：
-
-```bash
-openclaw onboard --install-daemon
-openclaw gateway install
-openclaw configure
-```
-
-如果是共用或 always-on 的場景，可以改成 system service：
-
-```ini
-# 建立 systemd service unit
-[Unit]
-Description=OpenClaw Gateway
-
-[Service]
-ExecStart=/usr/bin/openclaw gateway
-Restart=always
-RestartSec=2
-
-[Install]
-WantedBy=default.target
-```
-
-### VPS 快速設定
-
-```bash
-# 裝 Node 24
-# npm i -g openclaw@latest
-# openclaw onboard --install-daemon
-# SSH tunnel 到本機存取 Control UI
-ssh -L 18789:127.0.0.1:18789 user@your-vps
-```
-
-### 診斷
-
-`openclaw doctor` 可以檢查設定問題、自動遷移。
-
-## Windows
-
-Windows 支援兩條路：WSL2（推薦）和原生 Windows。
-
-### WSL2（推薦）
-
-WSL2 提供完整 Linux 環境，CLI、Gateway、所有工具都在 Linux 裡跑，是最穩定的路徑。
-
-安裝方式跟 Linux 一樣。
-
-**LAN 存取注意：** WSL 用虛擬網路，要從 LAN 存取需要做 port forwarding——把 Windows port 轉到 WSL IP。WSL IP 重啟後可能會變。
-
-**Pre-login 啟動（Headless）：**
-1. 啟用 WSL 的 user service persistence
-2. 安裝 gateway user service
-3. 用 Windows Scheduled Task 自動啟動 WSL
-
-### 原生 Windows
-
-功能持續改進中，但仍是次要路徑。
-
-**可用：** 安裝（PowerShell script）、基本 CLI 指令、本地 agent/provider。
-
-**限制：**
-- Onboarding 預設要連到本地 Gateway，否則需加 `--skip-health`
-- 服務安裝先嘗試 Windows Scheduled Task，失敗則 fallback 到 Startup 資料夾
-- `schtasks` 無回應時會快速中止，不會 hang
-- 沒有 companion app（計畫中）
-
-## 服務管理方式比較
-
-| 平台 | 服務機制 | 指令 |
+| 路徑 | 適合 | 特點 |
 |---|---|---|
-| macOS | launchd (LaunchAgent) | `launchctl` |
-| Linux | systemd user service | `systemctl --user` |
-| Windows (WSL2) | systemd (WSL 內) | `systemctl --user` |
-| Windows (原生) | Scheduled Task 或 Startup | `schtasks` |
+| **Windows Hub** | 想要桌面 app 的人 | 原生 WinUI app，含設定、系統匣狀態、聊天、診斷與 Windows node 能力 |
+| **原生 PowerShell 安裝** | 終端機優先 | 直接裝 CLI 與 Gateway |
+| **WSL2** | 要最接近 Linux 的 Gateway 執行期 | 相容性最好 |
 
-## Node 功能比較
+### Windows Hub 值得單獨講
 
-| 功能 | macOS App | Linux | Windows |
-|---|---|---|---|
-| Gateway | ✅ | ✅ | ✅ (WSL2) / ⚠️ (原生) |
-| Canvas | ✅ | ❌ | ❌ |
-| Camera | ✅ | ❌ | ❌ |
-| Screen Recording | ✅ | ❌ | ❌ |
-| system.run | ✅ | ✅ (CLI) | ✅ (WSL2) |
-| Companion App | ✅ 選單列 | ❌ 開發中 | ❌ 計畫中 |
-| Deep Links | ✅ `openclaw://` | ❌ | ❌ |
+它是給 Windows 10 20H2+ 與 Windows 11 的原生 WinUI companion app，**不需要管理員權限就能安裝**，並提供簽署過的 x64 與 ARM64 安裝檔。
+
+有一個發布節奏上的細節要注意：**Windows Hub 獨立於 OpenClaw CLI 與 Gateway 發布**。一般的 OpenClaw 穩定版會鏡像一份釘死、經過發布驗證的 Hub 建置，但**那份鏡像可能落後於較新的獨立 Hub 發布**。
+
+它包含的東西：系統匣狀態與開機自啟、**首次執行時為本地 app 擁有的 WSL Gateway 做設定**、本地／遠端／SSH 通道 Gateway 的連線設定、原生聊天視窗與瀏覽器 Control UI 的入口、涵蓋 session／用量／頻道／節點／配對與修復指令的 Command Center 診斷，以及 **Windows node 模式**與**本地 MCP 伺服器模式**。
+
+首次啟動時最快的路徑是 **Set up locally**：它會佈建一個 **app 專屬的 `OpenClawGateway` WSL 發行版**、在裡面裝 Gateway、然後把 app 配對上去。官方特別註明：**這不會匯出或改動你既有的 Ubuntu 發行版。**
+
+### Hub 的三種角色可以疊加
+
+| Node 模式 | MCP 伺服器 | 行為 |
+|---|---|---|
+| 關 | 關 | 純操作者桌面 app |
+| 開 | 關 | 連上 Gateway 的 Windows node |
+| 關 | 開 | 只當本地 MCP 伺服器 |
+| 開 | 開 | Gateway node 加上本地 MCP 伺服器 |
+
+**本地 MCP 模式**的用途很具體：把同一套 Windows 原生能力登錄暴露成 loopback 上的本地 MCP 伺服器，**讓 Claude Desktop、Claude Code、Cursor 這類 MCP 客戶端在沒有跑 OpenClaw Gateway 的情況下也能驅動 Windows 能力**。
+
+Node 模式的能力面包含 Canvas、Screen、Camera、System（含 `system.run`）、Device 與 Talk 幾組指令，但**Gateway 只轉發 node 有宣告、而且伺服器政策允許的指令**——`screen.record`、`camera.snap`、`camera.clip` 這類隱私敏感的指令需要明確的 `gateway.nodes.commands.allow` 選擇加入。
+
+## macOS 與 Linux
+
+**macOS** 有選單列 app，而且它可以跑在 **node 模式**——選單列 app 以一個 node 的身分連上 Gateway 的 WS 伺服器，替 node-host 指令面加上原生的 Canvas、相機、螢幕、通知與電腦控制指令。
+
+**這裡有一條不要踩的**：**不要在那台 Mac 上再啟一個 CLI node**。app 已經把對應的 CLI node-host 執行期當成內部 worker 在跑，並且是唯一的 Gateway 連線與 node 身分。
+
+**Linux** 的 companion app **還在計畫中**，但 **Gateway 本身今天就完整支援**。
+
+## 服務安裝：四種方式，三種目標
+
+安裝 Gateway 服務有四條路，官方說都受支援：
+
+```bash
+openclaw onboard --install-daemon   # 精靈（建議）
+openclaw gateway install            # 直接
+openclaw configure                  # 選 Gateway service
+openclaw doctor                     # 修復／遷移時會提議安裝或修正服務
+```
+
+服務目標依 OS 不同：
+
+| OS | 目標 |
+|---|---|
+| macOS | LaunchAgent（`ai.openclaw.gateway`，具名 profile 則是 `ai.openclaw.<profile>`）|
+| Linux / WSL2 | systemd user service（`openclaw-gateway[-<profile>].service`）|
+| 原生 Windows | **Scheduled Task**（`OpenClaw Gateway`），**若建立被拒則退回每使用者的 Startup 資料夾登入項目** |
+
+Windows 的實作細節值得知道：排程工作保留了狀態目錄裡那份**可讀的 `gateway.cmd` 腳本**，但透過一個產生出來的 **`gateway.vbs` WScript 包裝**去啟動它——**這樣背景 Gateway 就不會開出一個可見的主控台視窗**。
+
+## 一個 Windows 專屬的排查點
+
+Control UI 那篇會提到，但這裡先標：**原生 Windows 的 LAN 綁定上，即使 `127.0.0.1` 在 Gateway 主機上可用，Windows 防火牆或組織管理的群組原則仍可能擋掉廣告出來的 LAN URL。**
+
+診斷方式是在 Windows 主機上跑：
+
+```powershell
+openclaw gateway status --deep
+```
+
+它會回報可能被擋的埠、profile 不符，以及**原則可能忽略的本地防火牆規則**。
 
 ## 整體來說
 
-macOS 體驗最完整，有 companion app 加 Node 功能。Linux 跑 Gateway 最穩、適合伺服器部署。Windows 走 WSL2 就對了，原生支援還在進步中。如果你要遠端部署 Gateway 在 Linux，可以用 macOS 或 iOS 配對 Node，兩邊各取所長。
+桌面平台的選擇現在其實是在回答「**你要 app 還是要終端機**」：Windows Hub 與 macOS 選單列 app 給你系統匣狀態、原生聊天與 node 能力；PowerShell／CLI 安裝給你直接的 Gateway 控制；WSL2 給你最接近 Linux 的執行期。
+
+而不管走哪條，Node 都是硬性需求——這是 `node:sqlite` 帶來的約束，不是偏好問題。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。新增：**Node 是必要執行期（因 `node:sqlite`）而 Bun 只用於安裝依賴**、**原生的 Windows Hub companion app**（WinUI、免管理員權限、簽署的 x64／ARM64、獨立於 CLI 發布且鏡像版可能落後、首次啟動可佈建 app 專屬的 `OpenClawGateway` WSL 發行版而不動既有 Ubuntu）、**Hub 的 node 模式與本地 MCP 模式可疊加的四種組合**與隱私敏感指令需明確 allow、三種 Windows 路徑的選擇、macOS 選單列 app 的 node 模式與「不要再啟第二個 CLI node」的警告、Linux companion app 仍在計畫但 Gateway 完整支援、**四種服務安裝方式與三種 OS 目標**（含 Windows 的 `gateway.vbs` 包裝避免主控台視窗、以及排程工作被拒時退回 Startup 資料夾），以及 Windows LAN 綁定被防火牆或群組原則擋住時用 `gateway status --deep` 診斷。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/platforms/index.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/index.md) — 平台總覽
-- [docs/platforms/macos.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/macos.md) — macOS 平台
-- [docs/platforms/linux.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/linux.md) — Linux 平台
-- [docs/platforms/windows.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/windows.md) — Windows 平台
-- [docs/platforms/mac/](https://github.com/openclaw/openclaw/tree/main/docs/platforms/mac) — macOS App 子目錄
+- [Platforms](https://docs.openclaw.ai/platforms/) — 平台支援總覽與服務安裝目標
+- [Windows](https://docs.openclaw.ai/platforms/windows) — Windows Hub、原生 CLI、WSL2 與 node 模式
+- [macOS](https://docs.openclaw.ai/platforms/macos) — 選單列 app
+- [Linux](https://docs.openclaw.ai/platforms/linux) — Linux 上的 Gateway
+- [Nodes](https://docs.openclaw.ai/nodes/) — node 的指令政策與配對

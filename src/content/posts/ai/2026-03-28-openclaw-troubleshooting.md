@@ -1,166 +1,154 @@
 ---
-title: "OpenClaw 維運篇：疑難排解與診斷"
+title: "OpenClaw 維運篇：前 60 秒的七行指令，與「感覺變笨了」通常不是模型的錯"
 date: 2026-03-28
-type: debug
+type: guide
 category: ai
-tags: [openclaw, troubleshooting, doctor, diagnostics, operations]
+tags: [openclaw, troubleshooting, doctor, diagnostics, tool-profile, install-policy]
 lang: zh-TW
 series:
   name: "OpenClaw 文件導讀"
   order: 31
-tldr: "openclaw doctor 是一站式診斷工具，openclaw sandbox explain 排查沙箱問題，openclaw channels status --probe 檢查頻道連線。"
-description: "OpenClaw 的維運指南：診斷工具、常見問題排解、健康檢查、以及日誌分析。"
+tldr: "官方的分診流程是七行指令跑一遍、兩分鐘出診斷。而「assistant 感覺受限、工具不見了」這個最常見的症狀，多半是工具 profile——minimal 只允許 session_status，coding 才是新本地設定的預設。"
+description: "OpenClaw 的排查手冊：前 60 秒的指令階梯與每行該看什麼、工具 profile 造成的能力落差、本地 OpenAI 相容後端的相容旗標，以及 plugin 安裝政策 fail closed 與檔案擁有權的復原。"
 draft: false
 ---
 
-系統跑起來後總會遇到問題。這篇整理 OpenClaw 的診斷工具和常見問題解法。
+這是整個系列裡最該收藏的一篇——不是因為有趣，是因為你會在半夜用到。
 
-## 一站式診斷：openclaw doctor
+## 前 60 秒：照順序跑
+
+官方把它叫做「分診大門：兩分鐘拿到診斷，再跳到深入的那一頁」。
 
 ```bash
-openclaw doctor                  # 完整診斷
-openclaw doctor --fix            # 嘗試自動修復
-openclaw doctor --json           # JSON 輸出
+openclaw status
+openclaw status --all
+openclaw gateway probe
+openclaw gateway status
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
 ```
 
-`doctor` 檢查：
-- 設定檔 schema 驗證
-- 模型認證狀態
-- 頻道連線
-- 沙箱設定
-- Plugin 狀態
-- 權限和路徑
+每一行該看到什麼：
 
-## 常見問題
-
-### 模型認證
-
-| 症狀 | 排查 |
+| 指令 | 好的輸出 |
 |---|---|
-| No credentials found | 跑 `openclaw models status`，確認 API key 或 token |
-| Token expired | `openclaw models status` 查看哪個 profile 過期 |
-| Rate limited | 檢查 API key 輪替設定 |
+| `openclaw status` | 顯示已設定的頻道，沒有認證錯誤 |
+| `openclaw status --all` | 產出完整、可分享的報告 |
+| `openclaw gateway probe` | `Reachable: yes`。`Capability: ...` 是探測**證明**的認證層級 |
+| `openclaw gateway status` | `Runtime: running`、`Connectivity probe: ok`、合理的 `Capability`。加 `--require-rpc` 可要求讀取範圍的 RPC 證明 |
+| `openclaw doctor` | 沒有阻擋性的設定／服務錯誤 |
+| `openclaw channels status --probe` | Gateway 連得上時回傳**每個帳號的即時傳輸狀態**；連不上時退回純設定摘要 |
+| `openclaw logs --follow` | 穩定的活動，沒有重複的致命錯誤 |
 
-```bash
-openclaw models status           # 查看認證狀態
-openclaw models status --check   # 自動化（exit 1 = 過期）
-openclaw models status --probe   # 主動探測
-```
+有一行的解讀值得標出來：**`Read probe: limited - missing scope: operator.read` 是「診斷能力降級」，不是連線失敗。** 看到它不用急著懷疑網路。
 
-### 頻道連線
+## 最常見的症狀：感覺變笨了
 
-```bash
-openclaw channels status         # 列出頻道狀態
-openclaw channels status --probe # 主動探測連線
-```
+> **Assistant 感覺受限或工具不見了**
 
-| 症狀 | 排查 |
+這個症狀最容易被誤判成「模型不行」，但官方把它放在第一個專門段落，答案通常是**工具 profile**：
+
+| Profile | 範圍 |
 |---|---|
-| 訊息收不到 | 檢查 policy → allowlist → mention → user restrictions |
-| DM 問題 | `dm.enabled` → policy → pairing approvals |
-| 群組問題 | group policy → sender allowlist → mention gating |
+| `minimal` | **只允許 `session_status`** |
+| `messaging` | 很窄，給純聊天的 agent |
+| `coding` | **新本地設定的預設**（repo、檔案、shell 與執行期工作）|
+| `full` | 移除 profile 限制；**只給受信任的、操作者控制的 agent** |
 
-### 沙箱
+而且 **per-agent 的 `agents.entries.*.tools` 覆寫會收窄或擴張根層 profile**——所以「同一個 Gateway 上另一個 agent 明明可以」不代表設定沒問題。
 
-```bash
-openclaw sandbox explain         # 查看有效設定
-openclaw sandbox explain --agent work
-openclaw sandbox explain --json
-```
+診斷用 `openclaw status` / `--all` / `doctor`，改完 profile 之後**重啟或重載 Gateway，再用 `openclaw status --all` 重新確認**。
 
-| 症狀 | 排查 |
-|---|---|
-| Tool blocked | 檢查 `tools.sandbox.tools.deny` |
-| 不該被沙箱 | 檢查 `sandbox.mode`（`non-main` 下群組/頻道都算非 main） |
-| setupCommand 失敗 | 檢查網路（預設 none）、readOnlyRoot、user 權限 |
+## 本地 OpenAI 相容後端：直接測得通，走 OpenClaw 就掛
 
-### Session
+這個排查流程很具體，值得完整記下來。症狀是：你自架的 `/v1` 後端直接打 `/v1/chat/completions` 探測沒問題，但 `openclaw infer model run` 或正常的 agent 回合會失敗。
 
-```bash
-openclaw sessions list           # 列出 session
-openclaw sessions cleanup --dry-run  # 預覽清理
-```
+按順序試：
 
-| 症狀 | 排查 |
-|---|---|
-| 對話混在一起 | 檢查 `session.dmScope`（多人 DM 不要用 `main`） |
-| Context 太長 | 手動 `/compact` 或調整 compaction 設定 |
-| Memory 遺失 | 檢查 memory flush 設定 |
+1. 錯誤提到 **`messages[].content` 期待字串** → 設 `models.providers.<id>.models[].compat.requiresStringContent: true`
+2. **只在 OpenClaw 的 agent 回合失敗** → 設 `models.providers.<id>.models[].compat.supportsTools: false` 再試
+3. **小的直接呼叫可以、較大的 OpenClaw prompt 讓後端崩潰** → **那是上游模型／伺服器的限制，不是 OpenClaw 的 bug**
 
-### Gateway 網路
+第三點的措辭很誠實。文件願意寫「這不是我們的問題」而不是含糊帶過，對排查的人反而有幫助——**它讓你停止在錯的地方找。**
 
-```bash
-openclaw health                  # 檢查 Gateway 健康
-openclaw gateway status          # Gateway 狀態
-```
+## Plugin 相關的三種卡住
 
-| 症狀 | 排查 |
-|---|---|
-| 連不到 Gateway | 檢查 `gateway.bind` 和 port |
-| WebSocket 斷線 | 檢查 reverse proxy 的 WS 支援 |
-| Trusted proxy 失敗 | 檢查 trustedProxies IP |
+### 一、`package.json missing openclaw.extensions`
 
-## 安全稽核
+代表那個 plugin 套件用了 OpenClaw 已不再接受的形狀。修法在 plugin 那邊：加上 `openclaw.extensions` 指向建置後的執行期檔案（通常是 `./dist/index.js`），重新發布，再裝一次。
+
+### 二、安裝政策 fail closed
+
+症狀是更新跑完了但 plugin 過時、被停用，或顯示 `blocked by install policy`、`install policy failed closed`、`Disabled "<plugin>" after plugin update failure`。
+
+原因通常是 `security.installPolicy` 的規則寫得太死。官方列了幾種**該避免的政策形狀**：
+
+- **把 OpenClaw 自有的 plugin 凍結在某個確切的舊版本**（例如只允許 `@openclaw/*@2026.5.3`）
+- **只用來源種類封鎖**（每個 npm、網路，或 `request.mode: "update"` 的請求）
+- **把政策指令當成選配**——啟用 `security.installPolicy` 後，**缺失、緩慢、不可讀或權限被擋的政策執行檔都會 fail closed**
+- 核准版本時**沒有把請求的 `openclawVersion` 拿去對照 plugin 候選的中繼資料**
+
+背後的原因是：**`@openclaw/*` 的 plugin 版本通常跟著 OpenClaw 發布走**，所以一次 OpenClaw 更新可能在更新後同步階段需要對應的 plugin 更新。
+
+復原：
 
 ```bash
-openclaw security audit          # 安全配置檢查
+openclaw doctor --deep
+openclaw plugins update --all
+openclaw status --all
 ```
 
-檢查：
-- Trusted proxy auth 配置
-- 缺少 trustedProxies
-- 空的 allowUsers
-- 不安全的 safeBins（直譯器/runtime）
-- 缺少的 safeBinProfiles
+政策是刻意嚴格的話，就在受信任的升級窗口內放寬、跑完 `plugins update --all`、再恢復嚴格規則。如果更新失敗導致 plugin 被停用，**先 inspect 再重新啟用**：
 
-## 日誌
-
-OpenClaw 的日誌輸出包含結構化的診斷碼（如 `SECRETS_REF_IGNORED_INACTIVE_SURFACE`、`SECRETS_GATEWAY_AUTH_SURFACE`），可以用來追蹤特定行為。
-
-## 維護排程
-
-```json5
-{
-  session: {
-    maintenance: {
-      mode: "enforce",         // warn | enforce
-      pruneAfterDays: 30,
-      maxEntries: 500,
-      rotationThresholdMb: 10
-    }
-  }
-}
+```bash
+openclaw plugins inspect <plugin-id> --runtime --json
+openclaw plugins enable <plugin-id>
 ```
 
-正式環境建議 `enforce` 模式自動清理。
+### 三、可疑的檔案擁有權
 
-## 有用的指令速查
+```text
+blocked plugin candidate: suspicious ownership (... uid=1000, expected uid=0 or root)
+plugin present but blocked
+```
 
-| 指令 | 功能 |
-|---|---|
-| `openclaw doctor` | 全面診斷 |
-| `openclaw doctor --fix` | 自動修復 |
-| `openclaw health` | Gateway 健康 |
-| `openclaw models status` | 模型認證 |
-| `openclaw channels status --probe` | 頻道探測 |
-| `openclaw sandbox explain` | 沙箱設定 |
-| `openclaw security audit` | 安全稽核 |
-| `openclaw sessions cleanup --dry-run` | 預覽清理 |
-| `openclaw config validate` | 設定驗證 |
-| `/context detail` | Context 大小明細 |
-| `/tools verbose` | 可用工具詳細 |
+意思是 plugin 檔案的 Unix 擁有者跟載入它們的程序不同。**不要移除 plugin 設定**——修檔案擁有權，或用擁有狀態目錄的那個使用者去跑 OpenClaw。
+
+Docker 安裝以 `node`（uid 1000）執行，修主機的 bind mount：
+
+```bash
+sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
+openclaw doctor --fix
+```
+
+刻意以 root 執行的話，改修受管理的 plugin 根目錄：
+
+```bash
+sudo chown -R root:root /path/to/openclaw-config/npm
+openclaw doctor --fix
+```
+
+## 一個模型端的具體錯誤
+
+`HTTP 429: rate_limit_error: Extra usage is required for long context requests` —— 這是 Anthropic 的長 context 需要額外用量方案，官方有專門的段落。它不是一般的速率限制，改重試策略沒用。
 
 ## 整體來說
 
-OpenClaw 的維運工具很完整——`doctor` 一站式診斷、`sandbox explain` 查沙箱、`channels status --probe` 查連線、`security audit` 查安全。遇到問題時，先跑 `doctor`，再根據症狀深入排查。
+這份手冊的組織方式本身就值得學：**症狀優先，而不是元件優先。** 你半夜遇到問題時知道的是「它不回話了」，不是「Gateway 的頻道模組有問題」。
+
+而其中最實用的一條是那個工具 profile 的段落——**當 agent「感覺變笨」時，先查它被允許用什麼工具，再懷疑模型。** 這條經驗在任何 agent 系統裡都成立。
+
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。新增：**前 60 秒的七行指令階梯**與每行該看到什麼（含 `Read probe: limited` 是診斷降級而非連線失敗、`gateway status --require-rpc`）、**「感覺變笨」的工具 profile 診斷**（`minimal` 只允許 `session_status`、`coding` 是新本地設定的預設、per-agent 覆寫會改變結果）、**本地 OpenAI 相容後端的三步相容旗標流程**（`compat.requiresStringContent`、`compat.supportsTools`，以及第三步明說是上游限制而非 OpenClaw bug）、**plugin 的三種卡住**（缺 `openclaw.extensions`、`security.installPolicy` fail closed 的四種該避免的政策形狀與復原步驟、檔案擁有權被擋時的 Docker 與 root 兩種修法），以及 Anthropic 長 context 的 429 專屬錯誤。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/troubleshooting/index.md](https://github.com/openclaw/openclaw/blob/main/docs/troubleshooting/index.md) — 疑難排解總覽
-- [docs/troubleshooting/common-issues.md](https://github.com/openclaw/openclaw/blob/main/docs/troubleshooting/common-issues.md) — 常見問題
-- [docs/channels/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/channels/troubleshooting.md) — 頻道疑難排解
-- [docs/automation/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/automation/troubleshooting.md) — 自動化疑難排解
-- [docs/nodes/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/troubleshooting.md) — Nodes 疑難排解
-- [docs/gateway/security.md](https://github.com/openclaw/openclaw/blob/main/docs/gateway/security.md) — Gateway 安全
+- [General troubleshooting](https://docs.openclaw.ai/help/troubleshooting) — 症狀優先的分診大門
+- [Gateway troubleshooting](https://docs.openclaw.ai/gateway/troubleshooting) — Gateway 與模型端的深入 runbook
+- [Tool profiles](https://docs.openclaw.ai/gateway/config-tools) — 完整的 profile 與群組表
+- [Plugins](https://docs.openclaw.ai/tools/plugin) — 安裝政策與擁有權問題
+- [Channel troubleshooting](https://docs.openclaw.ai/channels/troubleshooting) — 各頻道的診斷與修復

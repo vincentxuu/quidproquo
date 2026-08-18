@@ -1,185 +1,107 @@
 ---
-title: "OpenClaw Nodes Deep Dive: Mobile Devices and Remote Hosts"
+title: "OpenClaw Nodes in Depth: Approval Binds the Plan, Not the Command You Edited Afterward"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: ai
-tags: [openclaw, nodes, ios, android, macos, camera, canvas, location, sms]
+tags: [openclaw, nodes, system-run, exec, approvals, remote-execution]
 lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 29
-tldr: "Nodes are peripheral devices for the Gateway -- iOS/Android provide camera/location/notifications, macOS provides Canvas/system.run, and Node Host enables remote exec on other machines."
-description: "Complete guide to OpenClaw Nodes: device pairing, Canvas/Camera/Location/SMS commands, Node Host remote execution, and Android personal data access."
+tldr: "The best part of remote node execution is how approval binds: exec prepares a canonical systemRunPlan before approval, and once granted the gateway forwards that stored plan — not any later caller-edited command, cwd, or session fields — and re-validates the working directory before running."
+description: "OpenClaw's remote node host execution model: how gateway and node divide responsibility, approval bound to a canonical plan and a concrete file operand, the refusal strategy when no single file can be identified, and active computer presence."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-28-openclaw-nodes-deep)
 
-A Node is a peripheral device connected to the Gateway, providing capabilities the Gateway itself lacks -- camera, screen, location, notifications, and even remote command execution.
+The previous article covered mobile devices as nodes. This one covers **sending commands to another machine to run** — and why its approval model looks the way it does.
 
-## Node Fundamentals
+## Dividing responsibility
 
-- A Node is a **peripheral**, not a Gateway -- it doesn't run the gateway service
-- Connects to the Gateway via WebSocket (same port)
-- Requires device pairing for authentication
-- Messages are processed at the Gateway; the Node only provides capabilities
+You use a node host when **the Gateway runs on one machine and you want commands to execute on another.** The model still talks only to the gateway, which forwards `exec` calls to the node host when `host=node` is selected.
 
-### Pairing
-
-```bash
-openclaw devices list               # List devices awaiting pairing
-openclaw devices approve <requestId> # Approve
-openclaw devices reject <requestId>  # Reject
-openclaw nodes status                # Check node status
-```
-
-## Node Types
-
-### iOS (Internal Preview)
-
-Provides Camera, Canvas, Location, and Voice Wake capabilities. The easiest pairing method is through Telegram: send `/pair` to the bot, then paste the setup code into the iOS app.
-
-### Android (Source Available)
-
-The most capable Node -- in addition to Camera/Canvas/Location, it also offers:
-
-| Command Family | Capabilities |
+| Role | Responsibility |
 |---|---|
-| `device.*` | status, info, permissions, health |
-| `notifications.*` | list, actions |
-| `photos.latest` | Recent photos |
-| `contacts.*` | search, add |
-| `calendar.*` | events, add |
-| `callLog.search` | Call log search |
-| `sms.*` | search, send (requires SMS permission) |
-| `motion.*` | activity, pedometer |
+| Gateway host | Receives messages, runs the model, routes tool calls |
+| Node host | Executes `system.run` / `system.which` on the node machine |
+| Approvals | **Enforced on the node host** (in `~/.openclaw/state/openclaw.sqlite#exec_approvals_config`) |
 
-### macOS Node Mode
+That third row deserves a pause: **approvals are enforced on the machine that runs the command**, not on the Gateway. The right direction — the machine bearing the consequences holds the veto.
 
-The macOS menu bar app can function as a Node, providing Canvas and `system.run`.
+## Approval binding: the heart of it
 
-### Headless Node Host
+Remote execution approval has an easily-missed attack surface: **there is a gap between the moment you approve a command and the moment it runs.** OpenClaw handles that gap in three layers.
 
-A UI-less node that runs on a remote machine, providing `system.run` and `system.which`.
+### 1. Bound to a canonical plan
 
-## Canvas Commands
+> Approval-backed node runs **bind exact request context**. The exec path prepares a canonical **`systemRunPlan`** before approval; once granted, **the gateway forwards that stored plan, not any later caller-edited command/cwd/session fields**, and **re-validates the working directory before running.**
 
-```bash
-# Screenshot
-openclaw nodes canvas snapshot --node <id> --format png
+Solid design. It defeats the pattern of "submit something harmless for approval, then swap the parameters afterward" — **what gets approved is the plan itself, not a request object that remains editable.**
 
-# Control
-openclaw nodes canvas present --node <id> --target https://example.com
-openclaw nodes canvas hide --node <id>
-openclaw nodes canvas navigate https://example.com --node <id>
-openclaw nodes canvas eval --node <id> --js "document.title"
+Re-validating the working directory adds another layer: **even when the plan is untouched, the environment can change between approval and execution.**
 
-# A2UI (JSONL push)
-openclaw nodes canvas a2ui push --node <id> --text "Hello"
-openclaw nodes canvas a2ui reset --node <id>
-```
+### 2. Bound to a concrete file operand
 
-The Node must be in the foreground to use `canvas.*` and `camera.*`.
+> For direct shell/runtime file executions, OpenClaw also **best-effort binds one concrete local file operand** and **denies the run if that file changes before execution.**
 
-## Camera Commands
+So after you approve "run this script," swapping out the script file blocks the run. This is the post-approval TOCTOU problem.
 
-```bash
-# Take photos
-openclaw nodes camera list --node <id>
-openclaw nodes camera snap --node <id>                    # Default: captures from both front and rear cameras
-openclaw nodes camera snap --node <id> --facing front     # Front camera only
+### 3. Refuse rather than pretend
 
-# Record video
-openclaw nodes camera clip --node <id> --duration 10s
-openclaw nodes camera clip --node <id> --duration 3000 --no-audio
-```
+The line most worth stealing:
 
-Limitations:
-- Maximum recording duration is 60 seconds
-- Android requires CAMERA/RECORD_AUDIO permissions
-- Background calls return `NODE_BACKGROUND_UNAVAILABLE`
+> If OpenClaw **cannot identify exactly one concrete local file** for an interpreter/runtime command, **approval-backed execution is denied instead of pretending full runtime coverage.** Use sandboxing, separate hosts, or an explicit trusted allowlist/full workflow for broader interpreter semantics.
 
-## Screen Recording
+**"Deny rather than pretend to cover"** — a security mechanism that acknowledges its own boundary and fails outside it beats one that claims total coverage while quietly having holes.
 
-```bash
-openclaw nodes screen record --node <id> --duration 10s --fps 10
-openclaw nodes screen record --node <id> --duration 10s --no-audio
-```
+## Two pairing stores (recap and detail)
 
-## Location
+Covered in the previous article; here are the complete rules:
 
-```bash
-openclaw nodes location get --node <id>
-openclaw nodes location get --node <id> --accuracy precise --max-age 15000
-```
+- **Device pairing** governs transport authentication. **The device pairing record is the durable approved-role contract; token rotation stays inside it and cannot upgrade a node into a role pairing never granted.**
+- **`node.pair.*` / `openclaw nodes pending|approve|reject|remove|rename`** is **a separate gateway-owned store** tracking the node's approved command and capability surface across reconnects, and **does not gate transport authentication.**
 
-- Disabled by default
-- Returns lat/lon, accuracy (in meters), and timestamp
-- "Always" access requires system-level permission
+`nodes status` marks a node **paired** only when its device pairing role includes `node`.
 
-## Node Host (Remote Execution)
+Removal permissions are tiered too: `operator.pairing` may remove non-operator node rows on other devices, while **a device-token caller revoking its own node role on a mixed-role device additionally needs `operator.admin`.**
 
-When the Gateway runs on one machine but you need exec on another -- use Node Host.
+## Active computer presence
 
-### Starting
+A feature added after March with a very concrete purpose: a connected native Mac can opt in to **coalesced physical-input activity** under **Settings → Permissions → Active computer detection** (**Accessibility is also required**).
 
-```bash
-# Foreground
-openclaw node run --host <gateway-host> --port 18789 --display-name "Build Node"
+The Gateway marks **the freshest eligible Mac as `active`**, gives the agent a stable node-id hint, and **routes node connection alerts there before a delayed fallback.**
 
-# Via SSH tunnel (when bound to loopback)
-ssh -N -L 18790:127.0.0.1:18789 user@gateway-host
-OPENCLAW_GATEWAY_TOKEN="<token>" openclaw node run --host 127.0.0.1 --port 18790
+The everyday problem it solves: **you have three Macs connected — which one should the agent notify?** The answer is "the one you're actually using," decided by physical input activity, which is far more practical than guessing or manual selection.
 
-# Install as a service
-openclaw node install --host <gateway-host> --port 18789 --display-name "Build Node"
-```
+## macOS node mode: don't run two
 
-### Configuring exec to Target a Node
+Mentioned in the desktop article, flagged again because it is easy to trip on: **the macOS menu bar app connects to the Gateway as one node**, adding native Canvas, camera, screen, notification, and computer-control commands to the node-host surface.
 
-```bash
-openclaw config set tools.exec.host node
-openclaw config set tools.exec.security allowlist
-openclaw config set tools.exec.node "<id-or-name>"
-```
+**Do not start a second CLI node on that Mac** — the app already runs the matching CLI node-host runtime as an internal worker and **is the sole Gateway connection and node identity.**
 
-Or per-session:
-```
-/exec host=node security=allowlist node=Build-Node
-```
+## Transport today
 
-### Allowlist
+Most nodes use the **Gateway WebSocket on the operator port**. The old **Bridge protocol (TCP JSONL) is now historical only** for current nodes.
 
-```bash
-openclaw approvals allowlist add --node <id> "/usr/bin/uname"
-openclaw approvals allowlist add --node <id> "/usr/bin/sw_vers"
-```
+The lone exception is the direct Apple Watch node with its signed HTTPS polling on the same port (reason in the previous article).
 
-Approvals are bound to specific request contexts. If a command involves local files, OpenClaw binds that file to the approval -- if the file changes, execution is denied.
+## The big picture
 
-## System Commands
+What has real engineering substance in the nodes layer is not "a phone can be a peripheral" but **how remote execution approval is made trustworthy.**
 
-```bash
-openclaw nodes run --node <id> -- echo "Hello from node"
-openclaw nodes notify --node <id> --title "Ping" --body "Gateway ready"
-```
+Three rules to take away, and they hold in any system where a human approves and a machine executes: **approval should bind an unmodifiable plan**, **the environment should be re-validated before execution**, and **when the boundary cannot be identified, refuse rather than downgrade coverage.**
 
-`system.run` returns stdout/stderr/exit code.
+## Changelog
 
-## The Big Picture
-
-Nodes let OpenClaw go beyond plain text chat -- your phone becomes the agent's eyes (Camera) and hands (SMS, Contacts), while remote hosts become the agent's compute resources (Node Host). All interactions are routed through the Gateway, and approvals ensure security.
+- 2026-08-18: Substantially revised against the current official docs. Added: **the remote node host responsibility split** and approvals being enforced on the node host, **the three layers of approval binding** (a canonical `systemRunPlan` rather than later-editable fields, working-directory re-validation, best-effort binding of one concrete file operand with denial on change, and refusal rather than pretended coverage when no single file resolves), **the two pairing stores** and the token-rotation guarantee, the `paired` determination in `nodes status`, tiered removal permissions, **active computer presence** (physical input activity electing the `active` Mac, requiring Accessibility), the macOS single-node rule, and the Bridge protocol's move to historical status.
 
 ## References
 
-This article is compiled from the following OpenClaw source documents:
+This article draws on the following official OpenClaw documentation:
 
-- [docs/nodes/index.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/index.md) -- Nodes overview
-- [docs/nodes/camera.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/camera.md) -- Camera commands
-- [docs/nodes/audio.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/audio.md) -- Audio commands
-- [docs/nodes/voicewake.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/voicewake.md) -- Voice Wake
-- [docs/nodes/location-command.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/location-command.md) -- Location commands
-- [docs/nodes/troubleshooting.md](https://github.com/openclaw/openclaw/blob/main/docs/nodes/troubleshooting.md) -- Nodes troubleshooting
-- [docs/platforms/ios.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/ios.md) -- iOS
-- [docs/platforms/android.md](https://github.com/openclaw/openclaw/blob/main/docs/platforms/android.md) -- Android
-- [docs/cli/node.md](https://github.com/openclaw/openclaw/blob/main/docs/cli/node.md) -- Node CLI
+- [Nodes](https://docs.openclaw.ai/nodes/) — pairing, remote node host, approval binding
+- [Active computer presence](https://docs.openclaw.ai/nodes/presence) — setup and privacy
+- [Node pairing](https://docs.openclaw.ai/gateway/pairing) — the request/approve lifecycle
+- [Exec tool](https://docs.openclaw.ai/tools/exec) — the `host=node` execution path
+- [Nodes troubleshooting](https://docs.openclaw.ai/nodes/troubleshooting) — the runbook
