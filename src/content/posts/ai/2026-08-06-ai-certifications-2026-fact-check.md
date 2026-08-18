@@ -201,7 +201,7 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 網路上聲稱個人可自由報名考試的說法，我找不到官方來源支持 —— **規劃時請當作需要透過 partner 組織**。
 
-考試內容細節可參考站內的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)，不過那篇寫於 2026 年 3 月、當時只有 Architect 一張。
+考試內容細節可參考站內的 [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)，
 
 ## iPAS 中級：台灣本地這張，效期 5 年
 
@@ -363,5 +363,5 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 **站內相關**
 
-- [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)
+- [Claude Certified Architect Foundations 考試完整指南](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)
 - [2026 年該上哪些 AI 課程：從不懂 AI、vibe coding，到能上 production](/posts/ai/2026-07-10-ai-courses-2026-guide)

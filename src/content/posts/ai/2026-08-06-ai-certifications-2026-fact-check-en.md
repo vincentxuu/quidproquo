@@ -201,7 +201,7 @@ The registration gate does have an official source. The Pearson VUE page (last u
 
 Claims online that individuals can freely register for the exams are not supported by any official source I could find — **plan on needing access through a partner organization**.
 
-For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en) — written in March 2026 when only the Architect exam existed.
+For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en) 
 
 ## iPAS Intermediate: Taiwan's Local Option, Valid 5 Years
 
@@ -361,5 +361,5 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 **Related on this site**
 
-- [Complete Guide to the Claude Certified Architect Foundations Exam](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en)
+- [Complete Guide to the Claude Certified Architect Foundations Exam](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en)
 - [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide) (in Mandarin)

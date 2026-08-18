@@ -1,6 +1,6 @@
 ---
 title: "Claude Certified Architect Foundations Exam Complete Guide"
-date: 2026-03-20
+date: 2026-08-18
 type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
@@ -10,11 +10,13 @@ description: "A comprehensive guide to the Claude Certified Architect — Founda
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)
+> 🌏 [中文版](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)
 
 The Claude Certified Architect — Foundations (CCAR-F) exam tests your practical design ability for agentic systems. Questions are organized around scenarios, requiring you to make the right architectural decisions in concrete production contexts. This article covers all key exam domains, common pitfalls, and the most effective preparation approaches.
 
-> Originally written in March 2026, when this was Anthropic's only certification. **Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026) on 2026-08-18**, adding fee, validity, registration, and renewal rules. Anthropic now has four certifications; for the full landscape and how to choose, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
+> Every claim here is checked section by section against the official **CCAR-F Exam Guide (Version 1.0, Effective July 2026)**. This article supersedes a March 2026 piece of the same name, written when this was Anthropic's only certification; the old URL `/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en` now redirects here. Anthropic has four certifications today; for the full landscape and how to choose, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
+>
+> A note on sourcing: I have not sat this exam. Everything below comes from the official exam guide and certification pages — no exam-day account, and no leaked questions.
 
 ## Exam Structure
 
@@ -493,9 +495,9 @@ These concepts appear repeatedly in sample questions:
 
 ---
 
-## Changelog
+## What Changed Since the March Version
 
-- 2026-08-18: Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026). The five domain weights (27/18/20/20/15), the 720 cut score, and the four-of-six scenario structure all matched the original text and needed no change. **One correction**: the article said all questions were multiple choice with a single correct answer; the guide specifies multiple-choice *and* multiple-response items, each stating how many responses to select. **One removal**: the claim that there is no penalty for wrong answers has no basis in the guide. **Additions**: $125 fee, 12-month validity, 60 items / 120 minutes, criterion-referenced scoring with per-domain percent-correct, the Claude Partner Network registration gate, retake intervals (14 / 30 / 90 days, 4 attempts per 12 months), free non-proctored renewal versus full-price retake after lapse, and the seven free official courses. An opening note now places this article against the current four-certification lineup.
+This article supersedes a March 2026 piece. Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026): The five domain weights (27/18/20/20/15), the 720 cut score, and the four-of-six scenario structure all matched the original text and needed no change. **One correction**: the article said all questions were multiple choice with a single correct answer; the guide specifies multiple-choice *and* multiple-response items, each stating how many responses to select. **One removal**: the claim that there is no penalty for wrong answers has no basis in the guide. **Additions**: $125 fee, 12-month validity, 60 items / 120 minutes, criterion-referenced scoring with per-domain percent-correct, the Claude Partner Network registration gate, retake intervals (14 / 30 / 90 days, 4 attempts per 12 months), free non-proctored renewal versus full-price retake after lapse, and the seven free official courses. An opening note now places this article against the current four-certification lineup.
 
 ## References
 

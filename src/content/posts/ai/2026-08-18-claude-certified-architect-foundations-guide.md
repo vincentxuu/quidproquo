@@ -1,6 +1,6 @@
 ---
 title: "Claude Certified Architect Foundations 考試完整指南"
-date: 2026-03-20
+date: 2026-08-18
 type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
@@ -12,7 +12,9 @@ draft: false
 
 Claude Certified Architect — Foundations（CCAR-F）測試的是你對 agentic 系統的實際設計能力。考題以情境為單位，要求你在具體的生產場景中做出正確的架構決策。這篇整理考試的所有重點領域、常見陷阱，以及最有效的準備方式。
 
-> 本文原寫於 2026 年 3 月，當時 Anthropic 只有這一張認證。**2026 年 8 月 18 日依官方 CCAR-F Exam Guide（Version 1.0，Effective July 2026）全文重新核對過**，補上費用、效期、報考與續期規則。Anthropic 現在共有四張認證，整體規格與選擇建議見 [2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)。
+> 本文內容依官方 **CCAR-F Exam Guide（Version 1.0, Effective July 2026）**逐節核對。前身是 2026 年 3 月的同名文章，當時 Anthropic 只有這一張認證；這次全面翻新後改以新文發佈，舊網址 `/posts/ai/2026-03-20-claude-certified-architect-foundations-guide` 已轉向本頁。Anthropic 現在共有四張認證，整體規格與選擇建議見 [2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)。
+>
+> 說明性質：作者未報考本考試，內容全部來自官方 exam guide 與認證頁，不含應考實錄，也不含任何考古題。
 
 ## 考試結構
 
@@ -493,9 +495,9 @@ crash recovery 用 manifest 模式：每個 agent 把自己的狀態 export 到�
 
 ---
 
-## 更新紀錄
+## 與 3 月版的差異
 
-- 2026-08-18：依官方 CCAR-F Exam Guide（Version 1.0, Effective July 2026）全文重新核對。五大領域權重（27/18/20/20/15）、及格線 720、六情境抽四個都與原文一致，不需更動。**修正一處**：原文寫「考題全部是選擇題，每題一個正確答案」，官方寫的是單選與複選混合、每題會標明選幾個。**移除一處**：原文的「答錯不扣分」在官方 guide 裡找不到依據。**補上**：費用 $125、效期 12 個月、60 題 / 120 分鐘、標準參照計分與各領域答對率、Claude Partner Network 報考門檻、重考間隔（14 / 30 / 90 天、12 個月內 4 次）、免費非監考續期與過期後須全額重考、官方七門免費課程。另加開場說明本文與四張認證現況的關係。
+這篇的前身寫於 2026 年 3 月。依官方 CCAR-F Exam Guide（Version 1.0, Effective July 2026）全文重新核對後：五大領域權重（27/18/20/20/15）、及格線 720、六情境抽四個都與原文一致，不需更動。**修正一處**：原文寫「考題全部是選擇題，每題一個正確答案」，官方寫的是單選與複選混合、每題會標明選幾個。**移除一處**：原文的「答錯不扣分」在官方 guide 裡找不到依據。**補上**：費用 $125、效期 12 個月、60 題 / 120 分鐘、標準參照計分與各領域答對率、Claude Partner Network 報考門檻、重考間隔（14 / 30 / 90 天、12 個月內 4 次）、免費非監考續期與過期後須全額重考、官方七門免費課程。另加開場說明本文與四張認證現況的關係。
 
 ## 參考資料
 
