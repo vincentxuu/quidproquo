@@ -1,234 +1,125 @@
 ---
-title: "OpenClaw 安裝指南（下）：雲平台、K8s 與 VPS 部署"
+title: "OpenClaw 安裝指南（下）：雲端部署的四個決定，與 K8s 上的實際坑"
 date: 2026-03-28
 type: guide
 category: ai
 tags: [openclaw, deployment, kubernetes, fly-io, hetzner, gcp, azure, ansible, vps]
 lang: zh-TW
-tldr: "OpenClaw 支援部署到 9 個雲平台、K8s、Ansible 自動化佈建，最低每月 $5 就能跑 24/7 Gateway。"
-description: "OpenClaw 雲端部署完整指南：Kubernetes、Fly.io、Hetzner、GCP、Azure、Ansible 與 VPS 通用部署。"
+series:
+  name: "OpenClaw 文件導讀"
+  order: 3
+tldr: "雲端部署 OpenClaw 要決定的其實只有四件事：Gateway 綁哪裡、state 放哪裡、誰能連進來、壞了怎麼復原。平台選擇是最不重要的一項。"
+description: "OpenClaw 雲端部署指南：VPS 與 K8s 的共同架構、綁定與認證的硬性規則、管理面與 Gateway 存取的分離，以及 Kubernetes 部署裡幾個會咬人的地方。"
 draft: false
 ---
 
-上一篇講本機安裝，這篇講怎麼把 OpenClaw 部署到雲端。從 $5/月的 Hetzner VPS 到企業級的 Azure Bastion，都有對應的文件。
+上一篇講本機安裝。這篇不逐一走過每個雲平台——官方的 [Linux server](https://docs.openclaw.ai/vps) 頁面有完整的 provider picker（DigitalOcean、Hetzner、Hostinger、Fly.io、GCP、Azure、Railway、Northflank、Oracle Cloud、Raspberry Pi，AWS 的 EC2／Lightsail 也可以），而且價格與機型隨時在動。
 
-## VPS 通用架構
+這篇談的是**換哪個平台都不會變的那四個決定**。
 
-不管用哪個雲平台，架構都一樣：
+## 決定一：Gateway 綁在哪裡
+
+不管跑在誰家的機器上，架構都一樣：
 
 ```
-你的手機/電腦 → SSH tunnel 或 Tailscale → VPS 上的 Gateway（port 18789）→ AI 模型 API
+你的手機／筆電 → SSH tunnel 或 Tailscale → VPS 上的 Gateway（port 18789）→ 模型 API
 ```
 
-Gateway 跑在 VPS 上，是 state 和 workspace 的唯一權威來源。安全做法是 Gateway 綁定 loopback，透過 SSH tunnel 或 Tailscale 存取。如果要綁到更廣的網路，必須設 auth token。
+Gateway 跑在雲端主機上，**是 state 與 workspace 的唯一權威來源**——這句話的實際意義是：那台機器要當成真相來源備份，不是當成隨時可以砍掉重建的執行環境。
 
-### 效能調校
+安全預設是 Gateway 綁 loopback，靠 SSH tunnel 或 Tailscale Serve 存取。這裡有一條硬性規則值得先記住：**綁到 `lan` 或 `tailnet` 時，Gateway 會要求一組 shared secret**（`gateway.auth.token` 或 `gateway.auth.password`），除非你把認證委派給 trusted proxy。不是建議，是它自己會擋。
 
-低功耗 VM 和 ARM 主機的建議：
-- 啟用 Node 的 module compile cache（`NODE_COMPILE_CACHE` 環境變數）
-- SSD 儲存給 state 和 cache 目錄
-- Systemd restart policy 設 `Restart=always`、`RestartSec=2`、`TimeoutStartSec=90`
+## 決定二：先顧管理面，再顧 Gateway
 
-### 團隊部署
+這是最容易跳過、也最容易出事的一步：**主機本身的管理存取，跟 Gateway 的存取是兩件事**，要分開決定。
 
-共用 agent 在同一信任邊界內沒問題。但如果有不信任的使用者，用獨立的 OS user account 和獨立的 OpenClaw 實例做隔離。
+官方建議的順序是先裝 Tailscale、把 VPS 加進 tailnet、**確認第二條走 Tailscale IP 或 MagicDNS 的 SSH session 真的連得上**，然後才收緊公網 SSH。那個「第二條 session」不是儀式——它是你在關掉唯一一扇門之前，先確認另一扇門開著。
 
-## Kubernetes
+做完這步之後，Gateway 仍然可以維持 loopback，dashboard 走 SSH tunnel 或 Tailscale Serve。兩層是獨立的。
 
-OpenClaw 提供 Kustomize 部署（不用 Helm，因為「有趣的自訂是在 agent 內容，不是基礎設施」）。
+## 決定三：這台 agent 給誰用
 
-**需求：** 任何 K8s 叢集（AKS、EKS、GKE、k3s、kind、OpenShift 都行）。
+一個團隊共用一個 agent 是合理的部署，前提是**所有使用者在同一個信任邊界內**，而且 agent 只做公務。
+
+實務上的三條線：跑在專用的 runtime（VPS／VM／容器 + 專用 OS 帳號）；**不要**用個人的 Apple／Google 帳號或個人瀏覽器、密碼管理器 profile 登入那台機器；如果使用者之間彼此不信任，就按 gateway／主機／OS 帳號拆開，不要靠設定去隔離。
+
+Gateway 在雲端不影響你在本地裝置配對 **node**——螢幕、相機、canvas、`system.run` 這些能力留在本地裝置，state 集中在雲端。
+
+## 決定四：小機器怎麼活下來
+
+低功耗 VM 與 ARM 主機的調校，官方給的組合是：
 
 ```bash
-export ANTHROPIC_API_KEY="sk-ant-..."
+export NODE_COMPILE_CACHE=/var/tmp/openclaw-compile-cache
+export OPENCLAW_NO_RESPAWN=1
+```
+
+`NODE_COMPILE_CACHE` 改善重複執行 CLI 的啟動時間（第一次會先暖 cache）；`OPENCLAW_NO_RESPAWN=1` 讓例行的 Gateway 重啟留在同一個 process 裡，小主機上少一次 process 交接、PID 也好追。
+
+systemd 那邊值得設的是 `Restart=always`、`RestartSec=2`、`TimeoutStartSec=90`，state 與 cache 路徑放 SSD。`openclaw onboard --install-daemon` 裝的是 user unit，用 `systemctl --user edit openclaw-gateway.service` 改。
+
+看到 **exit 137 就是被 OOM 砍了**，不是設定壞掉——這在 build image 的階段最常發生。
+
+## Kubernetes：起點，不是生產部署
+
+官方講得很直白：K8s manifests 是「最小起點，不是 production-ready 部署」。用 Kustomize 而不是 Helm，理由是 OpenClaw 是單一容器加幾個設定檔，**有趣的自訂在 agent 內容（Markdown、skills、config overrides），不在基礎設施模板**。
+
+```bash
+# 換成你的供應商：ANTHROPIC、GEMINI、OPENAI 或 OPENROUTER
+export <PROVIDER>_API_KEY="..."
 ./scripts/k8s/deploy.sh
-```
-
-部署後用 port-forward 存取：
-
-```bash
 kubectl port-forward svc/openclaw 18789:18789 -n openclaw
 ```
 
-**建立的資源：**
-- 專用 namespace
-- 單 Pod Deployment（有安全強化）
-- ClusterIP Service（port 18789）
-- 10 GB PVC
-- ConfigMap（agent 設定）
-- Secret（API key + gateway token）
-
-自訂方式：
-- Agent 指令：編輯 ConfigMap 裡的 `AGENTS.md`
-- Gateway 設定：改 `openclaw.json`
-- 多供應商：patch Secret 加更多 API key
-- 對外曝露：設定 `gateway.bind` + Ingress
-
-本機測試可以用 Kind：
+`deploy.sh` 預設建立 token 認證，token 要自己撈出來才進得去 Control UI：
 
 ```bash
-./scripts/k8s/kind-create.sh  # 自動偵測 Docker 或 Podman
+kubectl get secret openclaw-secrets -n openclaw -o jsonpath='{.data.OPENCLAW_GATEWAY_TOKEN}' | base64 -d
 ```
 
-## Fly.io
+本機測試可以用 Kind：`./scripts/k8s/create-kind.sh`（會自動偵測 Docker 或 Podman），`--delete` 拆掉。
 
-月費約 $10-15。有持久儲存、自動 HTTPS。
+部署出來的東西是：專用 namespace、單 Pod Deployment（init container + gateway）、ClusterIP Service（18789）、10 Gi PVC、ConfigMap（`openclaw.json` + `AGENTS.md`）、Secret（API key + gateway token）。
 
-**需求：** flyctl CLI + Fly.io 帳號 + API key。
+三個實際會咬人的地方：
 
-關鍵注意事項：
-- **記憶體：512 MB 不夠，建議 2 GB**，不然會 OOM silent restart
-- process command 要加 `--bind lan`，否則 Fly 的 proxy 連不到
-- `internal_port` 要對到 gateway port
-- 設 `OPENCLAW_STATE_DIR=/data` 確保資料持久化
+**一、探針不能只看狀態碼。** 官方的 manifests 對 `/readyz`（startup + readiness，五分鐘啟動預算）和 `/healthz`（liveness）都會驗 JSON 探針契約，理由很具體——**Control UI 會用 catch-all `200` 回應不認識的路徑**，所以只看狀態碼的檢查，即使 image 根本沒有那條探針路由也會永遠通過。
 
-安全強化：用 `fly.private.toml` 去掉 public IP，改用 SSH / WireGuard VPN / local proxy 存取。
+**二、`/startupz` 才是比較好的流量准入探針**，因為它不看頻道健康狀態，一個掛掉的頻道帳號就不會把本來健康的 Gateway 踢出 Service endpoints。代價是它需要較新的 image。
 
-推薦規格：`shared-cpu-2x`、2 GB RAM。
-
-## Hetzner
-
-最便宜的選項之一，~$5/月。用 Docker 跑在 Ubuntu/Debian VPS 上。
+**三、ConfigMap 不再是設定的真相來源。** init container 只在 PVC 裡缺檔案時才種子化，**第一次開機之後，PVC 上那份才是真相**——透過 `onboard`、`channels add`、`doctor --fix`、Control UI 做的修改會活過 pod 重啟，而更新 ConfigMap 不會覆蓋既有的 PVC 副本。要刻意從 ConfigMap 重種，得先刪掉持久化的那份再 rollout：
 
 ```bash
-# SSH 到 VPS 後
-# 裝 Docker + Docker Compose
-# 設定 .env（gateway token、keyring password）
-# 設定 docker-compose.yml（bind mount ~/.openclaw）
-# 啟動
+kubectl exec -n openclaw deploy/openclaw -- rm /home/node/.openclaw/openclaw.json
+kubectl rollout restart -n openclaw deploy/openclaw
 ```
 
-重點：
-- `.env` 放 secrets，**不要 commit**
-- Gateway 保持 loopback，用 SSH tunnel 存取
-- restart policy 設 `unless-stopped`
+**這一條是行為變更**：舊版模板每次 pod 啟動都會套用 ConfigMap 編輯，並丟掉透過 OpenClaw 本身做的設定變更。如果你的流程依賴舊行為，要改用上面的重種步驟。
 
-社群維護的 Terraform module 可以做自動化佈建、安全強化、備份還原。
+另外預設 manifests 讓 gateway 綁 pod 內的 loopback——這對 `kubectl port-forward` 沒問題，但要走 Service 或 Ingress 直接打到 pod IP 就不通，得先改綁定。
 
-## GCP (Google Cloud)
+## 自動化佈建
 
-月費約 $5-12（e2-small）。
+`openclaw-ansible` 做的是安全導向的整台機器佈建：VPN mesh 讓 Gateway 只在私網可見、防火牆只留必要的埠、agent 沙箱用容器、systemd 單元加上權限限制。它的價值不在省下打指令的時間，在於**把「這台機器對外只該露出什麼」寫成可重複執行的檔案**，而不是靠人記得。
 
-| 機型 | 規格 | 月費 | 備註 |
-|---|---|---|---|
-| e2-medium | 2 vCPU, 4 GB RAM | ~$25 | Docker build 最穩 |
-| e2-small | 2 vCPU, 2 GB RAM | ~$12 | 最低建議 |
-| e2-micro | 2 vCPU shared, 1 GB RAM | Free tier | 常 OOM |
-
-```bash
-# 建 VM
-gcloud compute instances create openclaw-gateway \
-  --zone=us-central1-a \
-  --machine-type=e2-small \
-  --image-family=debian-12 \
-  --image-project=debian-cloud \
-  --boot-disk-size=20GB
-
-# SSH 進去裝 Docker + OpenClaw
-# 遠端存取用 SSH tunnel
-gcloud compute ssh openclaw-gateway --zone=us-central1-a -- -L 18789:127.0.0.1:18789
-```
-
-Gateway 綁 `127.0.0.1:18789`，透過 SSH port forward 從筆電存取。
-
-build 失敗出現 exit code 137 = OOM，升級到至少 e2-small。
-
-## Azure
-
-月費較高（VM ~$55 + Bastion ~$140），但安全性最好。
-
-架構：
-- **NSG** 三層規則：只允許 Bastion 子網 SSH、封鎖公網 SSH、封鎖 VNet 其他來源 SSH
-- **Ubuntu 24.04 LTS VM**，沒有 public IP
-- **Azure Bastion**（Standard SKU + tunneling）
-
-```bash
-# 透過 Bastion SSH 進 VM
-az network bastion ssh --name "$BASTION" --resource-group "$RG" --target-resource-id "$VM_ID"
-
-# VM 裡裝 OpenClaw
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-省錢方式：
-- 不用時 deallocate VM
-- 不用時刪掉 Bastion（用時再建）
-- Bastion 降級到 Basic SKU（~$38/月，但不支援 CLI tunneling）
-
-清理：`az group delete -n "${RG}" --yes --no-wait`
-
-## Ansible（自動化佈建）
-
-用 `openclaw-ansible` 做安全導向的自動化部署。
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/install.sh | bash
-```
-
-**需求：** Debian 11+ 或 Ubuntu 20.04+，root/sudo 存取。
-
-自動安裝的元件：
-- **Tailscale** — VPN mesh，Gateway 只在 VPN 內可見
-- **UFW** — 只開 SSH (22) 和 Tailscale (41641/udp)
-- **Docker CE** — agent sandbox 用（Gateway 本身跑在 host 上）
-- **Node.js 24 + pnpm**
-- **Systemd service** — 有 `NoNewPrivileges`、`PrivateTmp` 等安全強化
-
-四層防禦架構：
-1. 防火牆只開 SSH + Tailscale
-2. Gateway 只在 VPN mesh 可見
-3. Docker DOCKER-USER chain 封鎖外部 port
-4. Systemd 限制權限提升
-
-驗證外部曝露：`nmap -p- YOUR_SERVER_IP` 應該只看到 port 22。
-
-Playbook 可以重複執行（idempotent）。
-
-## 其他雲平台
-
-OpenClaw 文件還涵蓋這些平台（本篇未深入，各有獨立文件）：
-
-| 平台 | 特點 |
-|---|---|
-| DigitalOcean | 簡單的 VPS，適合入門 |
-| Oracle Cloud | 有 free tier 的 ARM 機器 |
-| Railway | PaaS，部署最簡單 |
-| Render | PaaS，自動 HTTPS |
-| Northflank | 容器 PaaS |
-
-## Node 配對
-
-不管 Gateway 在哪裡，都可以從本地 Mac/iOS/Android 配對 Node。Gateway 在雲端、Node 在本地，讓你用手機的 camera、螢幕、位置等功能，但 state 集中在雲端。
+驗證方式也很直接：從外面掃一次 port，看看是不是只剩你打算留的那個。
 
 ## 整體來說
 
-部署選擇的核心考量：
+平台選擇是這裡面最不重要的決定——Hetzner 和 GCP 的差別，遠小於「Gateway 綁 loopback 還是綁 lan」的差別。四個決定按重要性排：**綁定與認證**（會不會被人直接連上）、**管理面隔離**（你會不會把自己鎖在外面）、**信任邊界**（這個 agent 給誰用）、**復原能力**（state 有沒有備份、壞了怎麼修）。
 
-| 需求 | 推薦 |
-|---|---|
-| 最便宜 | Hetzner VPS (~$5/月) 或 GCP e2-micro (free tier) |
-| 安全性最高 | Azure Bastion 或 Ansible + Tailscale |
-| 最簡單 | Fly.io 或 Railway |
-| 最靈活 | K8s（自己的叢集）|
-| 自動化 | Ansible playbook |
+平台的價格與機型會變，這四項不會。
 
-不管選哪個，核心原則不變：Gateway 綁 loopback、SSH tunnel 或 Tailscale 存取、資料持久化到 host 目錄、設 auth token。
+## 更新紀錄
+
+- 2026-08-18：對照官方文件現況大改。**修掉一個會失敗的指令**：Kind 建立叢集的腳本已改名為 `./scripts/k8s/create-kind.sh`（原文寫 `kind-create.sh`）。改寫體裁：移除九個雲平台的逐項步驟與月費／機型比較表（價格易變，且官方 provider picker 是更好的入口），改為換平台都不會變的四個決定。新增：綁定 `lan`／`tailnet` 時強制 shared secret 的規則、先驗證第二條 tailnet SSH session 再收緊公網 SSH 的順序、K8s 探針要驗 JSON 契約的理由（Control UI 的 catch-all 200）、`/startupz` 與 `/readyz` 的取捨，以及 ConfigMap 種子化行為變更（PVC 副本才是第一次開機後的真相來源）。
 
 ## 參考資料
 
-本篇整理自以下 OpenClaw 原始文件：
+本篇整理自以下 OpenClaw 官方文件：
 
-- [docs/vps.md](https://github.com/openclaw/openclaw/blob/main/docs/vps.md) — VPS 通用部署指南
-- [docs/install/kubernetes.md](https://github.com/openclaw/openclaw/blob/main/docs/install/kubernetes.md) — Kubernetes 部署
-- [docs/install/fly.md](https://github.com/openclaw/openclaw/blob/main/docs/install/fly.md) — Fly.io 部署
-- [docs/install/hetzner.md](https://github.com/openclaw/openclaw/blob/main/docs/install/hetzner.md) — Hetzner 部署
-- [docs/install/gcp.md](https://github.com/openclaw/openclaw/blob/main/docs/install/gcp.md) — GCP 部署
-- [docs/install/azure.md](https://github.com/openclaw/openclaw/blob/main/docs/install/azure.md) — Azure 部署
-- [docs/install/ansible.md](https://github.com/openclaw/openclaw/blob/main/docs/install/ansible.md) — Ansible 自動化佈建
-- [docs/install/docker.md](https://github.com/openclaw/openclaw/blob/main/docs/install/docker.md) — Docker 安裝（VPS Docker 部分）
-- [docs/ci.md](https://github.com/openclaw/openclaw/blob/main/docs/ci.md) — CI/CD 整合
-- [docs/install/digitalocean.md](https://github.com/openclaw/openclaw/blob/main/docs/install/digitalocean.md) — DigitalOcean 部署
-- [docs/install/oracle.md](https://github.com/openclaw/openclaw/blob/main/docs/install/oracle.md) — Oracle Cloud 部署
-- [docs/install/railway.md](https://github.com/openclaw/openclaw/blob/main/docs/install/railway.md) — Railway 部署
-- [docs/install/render.md](https://github.com/openclaw/openclaw/blob/main/docs/install/render.md) — Render 部署
-- [docs/install/northflank.md](https://github.com/openclaw/openclaw/blob/main/docs/install/northflank.md) — Northflank 部署
+- [Linux server](https://docs.openclaw.ai/vps) — provider picker、雲端架構、管理面加固與小主機調校
+- [Kubernetes](https://docs.openclaw.ai/install/kubernetes) — Kustomize 部署、探針契約與 ConfigMap 種子化行為
+- [Install](https://docs.openclaw.ai/install/) — 安裝總覽與各託管方式入口
+- [Docker](https://docs.openclaw.ai/install/docker) — 容器化部署與 image 升級行為
+- [Gateway runbook](https://docs.openclaw.ai/gateway/) — Gateway 綁定、認證與營運

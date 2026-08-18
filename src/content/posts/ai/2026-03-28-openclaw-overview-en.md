@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, ai-gateway, self-hosted, documentation, guide]
 lang: en
+series:
+  name: "Reading the OpenClaw Docs"
+  order: 1
 tldr: "OpenClaw has 200+ docs. This article helps you see the big picture, understand what each section covers, and decide where to start based on your role."
 description: "A complete reading guide to the OpenClaw open-source AI gateway documentation, covering a series map across 16 directories and 335 files."
 draft: false
@@ -53,15 +56,15 @@ This is not just a chatbot framework. It is a full-fledged AI agent operations s
 
 ## Series Article Map
 
-This series contains 36 articles organized into 12 sections. Below is a summary of each section's focus and intended audience.
+This series contains 32 articles organized into 12 sections. Below is a summary of each section's focus and intended audience.
 
 ### Getting Started (#1-3)
 
 | # | Title | What You'll Learn |
 |---|---|---|
 | 1 | This article | Big picture, doc structure, where to start |
-| 2 | Installation Guide (Part 1): Local Deployment | npm / Docker / Nix / Bun / Podman / Raspberry Pi |
-| 3 | Installation Guide (Part 2): Cloud Platforms & K8s | Azure / GCP / DigitalOcean / Hetzner / Fly.io / Railway / K8s / Ansible |
+| 2 | Installation Guide (Part 1): Choosing Among Six Local Methods | The trade-offs between methods, plus the npm/pnpm lifecycle-script, PATH, and OOM traps that actually stop an install |
+| 3 | Installation Guide (Part 2): Four Decisions for Cloud Deployment | Binding and auth, admin isolation, trust boundary, recoverability, and K8s probe/ConfigMap behavior |
 
 **Best for:** Everyone. Install it first, ask questions later.
 
@@ -136,56 +139,52 @@ This series contains 36 articles organized into 12 sections. Below is a summary 
 
 **Best for:** Anyone who wants AI to run tasks on a schedule or respond to external events.
 
-### Gateway (#26-29)
+### Gateway (#26-27)
 
 | # | Title | What You'll Learn |
 |---|---|---|
-| 26 | Gateway Configuration & Hot Reload | Config file structure, live reloading, Config RPC |
-| 27 | Gateway Networking: Protocols & Remote Access | Networking model, Tailscale, Bridge Protocol |
-| 28 | Multi-Gateway & Background Processes | Multi-instance deployment, profile isolation, Rescue Bot |
-| 29 | Gateway API: OpenAI-Compatible & Tool Calling | HTTP API, OpenResponses, RPC |
+| 26 | Gateway, Part 1: Configuration & Hot Reload | openclaw.json's JSON5 format, schema validation, hybrid hot reload |
+| 27 | Gateway, Part 2: Remote Access, Tailscale & Multi-Gateway | Loopback by default, SSH tunnels and Tailscale Serve/Funnel, spreading load across instances |
 
-**Best for:** Ops engineers, and anyone who wants remote access or to expose an API to other systems.
+**Best for:** Ops engineers, and anyone who wants remote access.
 
-### Plugins (#30-31)
+### Plugins (#28)
 
 | # | Title | What You'll Learn |
 |---|---|---|
-| 30 | Plugin Architecture & SDK Overview | Plugin system design, SDK entry points, runtime |
-| 31 | Build Your Own Plugin | Channel/Provider Plugin development, testing, publishing |
+| 28 | The Plugin System: Architecture & Development Guide | TypeScript ESM development, 12 capability registrations, publishing to ClawHub or npm |
 
 **Best for:** Developers who want to extend OpenClaw's functionality.
 
-### Interfaces (#32-33)
+### Interfaces (#29-30)
 
 | # | Title | What You'll Learn |
 |---|---|---|
-| 32 | Mobile Nodes: Pairing, Canvas, Camera, Voice Wake | Using your phone as an AI sensory extension |
-| 33 | Web UI: Control UI, Dashboard, WebChat, TUI | Features and configuration of all user interfaces |
+| 29 | Nodes in Depth: Mobile Devices & Remote Hosts | Camera and location on iOS/Android, Canvas and system.run on macOS, remote exec via Node Host |
+| 30 | UI: Control UI, TUI & Web Chat | Browser dashboard, terminal interface, WebSocket live chat |
 
 **Best for:** Everyday users, and anyone who wants to operate from a browser or phone.
 
-### Operations & Reference (#34-36)
+### Operations & Reference (#31-32)
 
 | # | Title | What You'll Learn |
 |---|---|---|
-| 34 | Operations & Troubleshooting | Doctor, Health Check, Logging, common issues |
-| 35 | Pi Integration Architecture & Reference Quick Lookup | Agent Runtime engine, various reference materials |
-| Appendix | CLI Command Quick Reference | Usage for all 48 CLI commands |
+| 31 | Operations: Troubleshooting & Diagnostics | `openclaw doctor`, `sandbox explain`, `channels status --probe` |
+| 32 | Reference: Pi Integration & Configuration | How Pi and the Gateway relate as core and shell, the 16 top-level config sections |
 
-**Best for:** Anyone running into issues, or anyone who wants to look up a specific command.
+**Best for:** Anyone running into issues, or anyone who wants to look up a specific setting.
 
 ## Which Reader Are You?
 
 **"I just want to get it running quickly"** → #1 → #2 → #14 (pick a channel) → #6 (choose a model). Four articles and you're done.
 
-**"I want to be a daily user"** → The four above + #33 (Web UI) + #12 (Session) + #24 (automation scheduling).
+**"I want to be a daily user"** → The four above + #30 (UI) + #12 (Session) + #24 (automation scheduling).
 
-**"I want to deeply understand the architecture"** → #9-12 (Agent Core) → #11 (Agent Loop) → #35 (Pi Integration) → #17-19 (Security).
+**"I want to deeply understand the architecture"** → #9-12 (Agent Core) → #11 (Agent Loop) → #32 (Pi Integration) → #17-19 (Security).
 
-**"I want to deploy to production"** → #3 (Cloud Platforms) → #26-29 (Gateway Operations) → #17-19 (Security) → #34 (Troubleshooting).
+**"I want to deploy to production"** → #3 (Cloud Platforms) → #26-27 (Gateway Operations) → #17-19 (Security) → #31 (Troubleshooting).
 
-**"I want to develop plugins"** → #30-31 + #21 (Skills) + #22 (Exec) + #29 (API).
+**"I want to develop plugins"** → #28 (Plugin System) + #21 (Skills) + #22 (Exec).
 
 **"I want to integrate enterprise messaging"** → #13 (Channel Overview) → #15 (Slack/Teams) → #19 (Access Control) → #9 (Multi-Agent).
 
@@ -194,6 +193,10 @@ This series contains 36 articles organized into 12 sections. Below is a summary 
 OpenClaw's documentation volume reflects its ambition: it is not just a "chatbot framework" but a complete AI agent operations system. It covers everything from model provider management and sandbox security to MITRE ATLAS threat analysis. 335 files may look daunting, but the organizational structure is clear — once you know what you need, you can quickly find the right section.
 
 This series will break down every section in detail. Next up: installation.
+
+## Changelog
+
+- 2026-08-18: Corrected the series map. The series was planned as 36 articles but landed at 32 — multi-gateway and background processes, the Gateway API, a standalone plugin-building guide, and the CLI quick-reference appendix were never published separately, with multi-gateway and plugin development folded into existing articles instead. Numbering from #26 onward, the section headings, and the "Which Reader Are You?" routes have all been realigned to the articles that actually exist.
 
 ## References
 

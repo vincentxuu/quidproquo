@@ -25,6 +25,16 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-18: OpenClaw 32 篇 x zh/en 補上 series（`openclaw` slug，order 1-32 連續唯一，
+  已註冊進 src/utils/series.ts）。同時發現總覽的系列地圖是錯的：宣稱 36 篇實際 32 篇，
+  #28/#29/#31/#36 從未寫出來，讀者路線還在指向不存在的編號——已重編並對齊。
+  安裝上下兩篇對照上游文件重寫（**改體裁而非只修錯**：逐項指令交還官方文件，改寫成選型
+  取捨與失敗點，四篇合計 -862/+320 行）。**修掉四個照做會失敗的指令**：npm 全域安裝需
+  `--allow-scripts=openclaw`（npm 12 起封鎖 lifecycle script）、pnpm 要 `--allow-build=`
+  （`approve-builds -g` 不支援全域）、Node 需求 24→22.22.3+/24.15+/25.9+（建議 26）、
+  K8s 的 `kind-create.sh` 已改名 `create-kind.sh`。**教訓：轉述型文章的半衰期約一季，
+  寫時就該把易腐段落外包給官方連結。**剩餘 29 篇未翻新，同性質風險。全站另有 609 篇
+  無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（均 zh/en 對稱）。
 - 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課），
   series slug `cs230`，PR #142。筆記 `.work/cs230-notes/`、規劃 `docs/content-plan-cs230.md`。
   build 驗過：18 頁全出、zh/en series 各列 9 篇、內部連結 0 死。
@@ -64,20 +74,10 @@ Recently completed
   三個巢狀目錄——因此漏改 2 個 en 檔，slug 合併後撞出 route 衝突才被 build 抓到。
   掃 content 一律遞迴走訪。**仍開**：Claude Code 系列兩語都有重複的 order: 10
   （28 篇卻只編到 27），會讓上下篇少一格，未動。
-- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
-  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
-  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
-  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
-  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
-  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
-  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
-  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
-  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
-  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
-  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
-  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔），B 技術群 17 格、D 反制群 4 格寫完。
+  仍開缺口（D3 通過率、縣市禁飛清單、交通部函釋）與可重用教訓見 docs/progress-archive.md
+  與 docs/content-plan-drone.md §5.2。
 - 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
-- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes

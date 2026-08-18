@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [openclaw, ai-gateway, self-hosted, documentation, guide]
 lang: zh-TW
+series:
+  name: "OpenClaw 文件導讀"
+  order: 1
 tldr: "OpenClaw 有 200+ 份文件，這篇幫你搞懂全貌、知道每塊在講什麼、依你的角色決定從哪讀起。"
 description: "OpenClaw 開源 AI 閘道器的完整文件導讀，涵蓋 16 個目錄、335 份文件的系列文章地圖。"
 draft: false
@@ -51,15 +54,15 @@ Agent              (Control UI)   (iOS/Android)
 
 ## 系列文章地圖
 
-這個系列共 36 篇，分成 12 個區塊。以下是每個區塊的重點和適合的讀者。
+這個系列共 32 篇，分成 12 個區塊。以下是每個區塊的重點和適合的讀者。
 
 ### 入門篇（#1-3）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
 | 1 | 本篇 | 全貌、文件結構、從哪讀起 |
-| 2 | 安裝指南（上）：本機部署 | npm / Docker / Nix / Bun / Podman / Raspberry Pi |
-| 3 | 安裝指南（下）：雲平台與 K8s | Azure / GCP / DigitalOcean / Hetzner / Fly.io / Railway / K8s / Ansible |
+| 2 | 安裝指南（上）：六種本機安裝方式怎麼選 | 六種方式的取捨，以及 npm／pnpm lifecycle script、PATH、OOM 這些真正會卡住的地方 |
+| 3 | 安裝指南（下）：雲端部署的四個決定 | 綁定與認證、管理面隔離、信任邊界、復原能力，以及 K8s 上的探針與 ConfigMap 行為 |
 
 **適合：** 所有人。先裝起來再說。
 
@@ -134,56 +137,52 @@ Agent              (Control UI)   (iOS/Android)
 
 **適合：** 想讓 AI 定時做事、接收外部事件的人。
 
-### Gateway 篇（#26-29）
+### Gateway 篇（#26-27）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 26 | Gateway 設定與 Hot Reload | 設定檔結構、即時重載、Config RPC |
-| 27 | Gateway 網路：Protocol 與遠端存取 | 網路模型、Tailscale、Bridge Protocol |
-| 28 | 多 Gateway 與背景程序 | 多實例部署、Profile 隔離、Rescue Bot |
-| 29 | Gateway API：OpenAI 相容與工具呼叫 | HTTP API、OpenResponses、RPC |
+| 26 | Gateway 篇（一）：設定系統與 Hot Reload | openclaw.json 的 JSON5 格式、schema 驗證、hybrid hot reload |
+| 27 | Gateway 篇（二）：遠端存取、Tailscale 與多 Gateway | loopback 預設、SSH tunnel 與 Tailscale Serve/Funnel、多實例分散負載 |
 
-**適合：** 維運人員、想遠端存取或開 API 給其他系統的人。
+**適合：** 維運人員、想遠端存取的人。
 
-### Plugin 篇（#30-31）
+### Plugin 篇（#28）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 30 | Plugin 架構與 SDK 總覽 | Plugin 系統設計、SDK 入口、Runtime |
-| 31 | 打造自己的 Plugin | Channel/Provider Plugin 開發、測試、發布 |
+| 28 | Plugin 系統：架構與開發指南 | TypeScript ESM 開發、12 種能力註冊、發布到 ClawHub 或 npm |
 
 **適合：** 想擴充 OpenClaw 功能的開發者。
 
-### 介面篇（#32-33）
+### 介面篇（#29-30）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 32 | Mobile Nodes：配對、Canvas、Camera、Voice Wake | 手機作為 AI 的感官延伸 |
-| 33 | Web UI：Control UI、Dashboard、WebChat、TUI | 所有使用者介面的功能與設定 |
+| 29 | Nodes 深入：行動裝置與遠端主機 | iOS/Android 的相機與位置、macOS Canvas 與 system.run、Node Host 遠端 exec |
+| 30 | UI：Control UI、TUI 與 Web Chat | 瀏覽器 dashboard、終端互動介面、WebSocket 即時聊天 |
 
 **適合：** 日常使用者、想從瀏覽器或手機操作的人。
 
-### 營運與參考篇（#34-36）
+### 營運與參考篇（#31-32）
 
 | # | 標題 | 你會知道 |
 |---|---|---|
-| 34 | 維運與疑難排解 | Doctor、Health Check、Logging、常見問題 |
-| 35 | Pi 整合架構與 Reference 速查 | Agent Runtime 引擎、各種參考資料 |
-| 附錄 | CLI 指令速查手冊 | 48 個 CLI 指令的用法 |
+| 31 | 維運篇：疑難排解與診斷 | `openclaw doctor`、`sandbox explain`、`channels status --probe` |
+| 32 | 參考篇：Pi 整合與設定參考 | Pi 與 Gateway 的殼／核關係、16 個頂層設定區塊 |
 
-**適合：** 遇到問題的人、想查特定指令的人。
+**適合：** 遇到問題的人、想查特定設定的人。
 
 ## 你是哪種讀者？
 
 **「我只想快速跑起來」** → #1 → #2 → #14（挑一個頻道）→ #6（選模型）。四篇搞定。
 
-**「我想當日常使用者」** → 上面四篇 + #33（Web UI）+ #12（Session）+ #24（自動化排程）。
+**「我想當日常使用者」** → 上面四篇 + #30（UI）+ #12（Session）+ #24（自動化排程）。
 
-**「我想深入理解架構」** → #9-12（Agent 核心）→ #11（Agent Loop）→ #35（Pi 整合）→ #17-19（安全）。
+**「我想深入理解架構」** → #9-12（Agent 核心）→ #11（Agent Loop）→ #32（Pi 整合）→ #17-19（安全）。
 
-**「我想部署到正式環境」** → #3（雲平台）→ #26-29（Gateway 營運）→ #17-19（安全）→ #34（疑難排解）。
+**「我想部署到正式環境」** → #3（雲平台）→ #26-27（Gateway 營運）→ #17-19（安全）→ #31（疑難排解）。
 
-**「我想開發 Plugin」** → #30-31 + #21（Skills）+ #22（Exec）+ #29（API）。
+**「我想開發 Plugin」** → #28（Plugin 系統）+ #21（Skills）+ #22（Exec）。
 
 **「我想接企業通訊」** → #13（頻道總覽）→ #15（Slack/Teams）→ #19（存取控制）→ #9（多 Agent）。
 
@@ -192,6 +191,10 @@ Agent              (Control UI)   (iOS/Android)
 OpenClaw 的文件量反映了它的野心：不只是「聊天機器人框架」，而是一套完整的 AI agent 營運系統。從模型供應商管理、沙箱安全、到 MITRE ATLAS 威脅分析都有。335 份文件看起來嚇人，但組織結構清楚——知道自己要什麼，就能快速找到對應的區塊。
 
 這個系列會把每塊都拆開來講。接下來從安裝開始。
+
+## 更新紀錄
+
+- 2026-08-18：修正系列文章地圖。原本規劃 36 篇，實際完成 32 篇（多 Gateway 與背景程序、Gateway API、打造自己的 Plugin、CLI 速查附錄未單獨成篇，其中多 Gateway 與 Plugin 開發併入既有篇章）。#26 之後的編號、各區塊標題與「你是哪種讀者」的推薦路線一併對齊實際篇章。
 
 ## 參考資料
 
