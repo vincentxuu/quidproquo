@@ -14,7 +14,7 @@ description: "Routine L: weekly AI Agent review for quidproquo.cc/daily. Runs ev
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 冪等檢查
 [ -f "src/content/posts/daily/${TODAY}-weekly-review.md" ] && echo "已產出" && exit 0
@@ -28,7 +28,7 @@ echo "本週範圍: ${WEEK_START} ~ ${TODAY}"
 # Step 6: 提交
 git add src/content/posts/daily/${TODAY}-weekly-review.md
 git commit -m "post(daily): 週回顧 ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

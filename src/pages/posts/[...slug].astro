@@ -155,7 +155,7 @@ const breadcrumbLD = {
     {faqLD && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqLD).replace(/</g, '\\u003c')} />}
   </Fragment>
 
-  <!-- Hero Section (like DJ MYG) -->
+  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
       <h1>{post.data.title}</h1>
@@ -178,7 +178,7 @@ const breadcrumbLD = {
   </div>
 
   <article data-category={post.data.category}>
-    <!-- Breadcrumb (like DJ MYG) -->
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
       <a href={lang === 'en' ? '/en' : '/'} class="breadcrumb-link">
         <Icons name="chevron-left" size={14} />
@@ -209,11 +209,11 @@ const breadcrumbLD = {
 
     <!-- TOC -->
     {headings.length > 0 && (
-      <div class="toc">
-        <div class="toc-header">
+      <details class="toc" open={post.data.category !== 'daily'}>
+        <summary class="toc-header">
           <Icons name="list" size={14} />
           <span>{t('post.toc')}</span>
-        </div>
+        </summary>
         <ol>
           {headings.filter(h => h.depth === 2).map(h => (
             <li>
@@ -242,7 +242,7 @@ const breadcrumbLD = {
             </li>
           ))}
         </ol>
-      </div>
+      </details>
     )}
 
     <!-- Series nav -->
@@ -382,13 +382,16 @@ const breadcrumbLD = {
 </PostLayout>
 
 <style>
-  /* ═══ 排版重設計：可讀性 + 視覺層次 ═══ */
-
-  /* 文章內文覆蓋綠色變數 → 中性色 */
-  article { --text-secondary: #555; --brand-700: #374151; }
-  :global([data-theme="dark"]) article { --text-secondary: #9ca3af; --brand-700: #d1d5db; }
-
-  /* 連結：深色文字 + 底線（不用綠色或藍色） */
+  /* ── 文章內文：覆蓋綠色文字為可讀色 ── */
+  article {
+    --text-secondary: #555;
+    --brand-700: #374151;
+  }
+  :global([data-theme="dark"]) article {
+    --text-secondary: #9ca3af;
+    --brand-700: #d1d5db;
+  }
+  /* 內文連結：深色文字 + 底線 */
   article .content :global(a) {
     color: var(--text-primary);
     text-decoration: underline;
@@ -396,104 +399,26 @@ const breadcrumbLD = {
     text-underline-offset: 3px;
     transition: text-decoration-color 0.15s;
   }
-  article .content :global(a:hover) { text-decoration-color: var(--text-primary); }
-
-  /* 論文 h2 不要粉色底線（其他 h2 保留） */
-  article[data-category="daily"] .content :global(h2[id^="論文"])::after { display: none; }
-
-  /* 系列導覽、TOC 連結去綠 */
+  article .content :global(a:hover) {
+    text-decoration-color: var(--text-primary);
+  }
+  /* h2 底線裝飾移除 */
+  article .content :global(h2)::after {
+    display: none;
+  }
+  /* 系列導覽連結 */
   .series-prev, .series-next { color: var(--text-primary); }
-  .series-prev:hover, .series-next:hover { opacity: 0.7; }
+  .series-prev:hover, .series-next:hover { color: #1d4ed8; }
+  /* TOC 連結色 */
   .toc ol { color: var(--text-primary); }
-  .toc a:hover { opacity: 0.7; }
-
-  /* Glossary 術語：中性色 */
-  :global(.glossary-term) { border-bottom-color: var(--border); background: var(--bg-subtle); }
-
-  /* ═══ Daily Digest 排版強化 ═══ */
-
-  /* 全局：行高 2.0、段距加大 */
-  article[data-category="daily"] .content { line-height: 2; font-size: 0.95rem; }
-  article[data-category="daily"] .content :global(p) { margin-bottom: 1.35rem; }
-  article[data-category="daily"] .content :global(h3) { margin-top: 2.2rem; margin-bottom: 0.6rem; font-size: 1.1rem; }
-  article[data-category="daily"] .content :global(ul),
-  article[data-category="daily"] .content :global(ol) { margin-bottom: 1.35rem; }
-  article[data-category="daily"] .content :global(li) { margin-bottom: 0.5rem; line-height: 1.9; }
-
-  /* 論文分隔加大 */
-  article[data-category="daily"] .content :global(h2) { margin-top: 3.5rem; padding-top: 2rem; }
-
-  /* 論文 metadata 卡片 */
-  article[data-category="daily"] .content :global(h2[id^="論文"] + p) {
-    font-size: 0.75rem; color: var(--text-muted); line-height: 1.9;
-    background: var(--bg-subtle); border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.6rem 0.85rem; margin-bottom: 1.25rem;
-  }
-  article[data-category="daily"] .content :global(h2[id^="論文"] + p strong) { color: var(--text-primary); }
-  article[data-category="daily"] .content :global(h2[id^="論文"] + p a) { font-weight: 600; }
-
-  /* 統一 badge 樣式：實底白字 */
-  article[data-category="daily"] .content :global(h3[id="tldr"]),
-  article[data-category="daily"] .content :global(h3[id*="tl-dr"]),
-  article[data-category="daily"] .content :global(h3[id*="tldr"]) {
-    display: inline-block; background: #065f46; color: #fff;
-    padding: 0.2rem 0.6rem; border-radius: 4px;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
-    text-transform: uppercase; margin-bottom: 0.3rem;
-  }
-  article[data-category="daily"] .content :global(h3[id="read-priority"]),
-  article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
-    display: inline-block; background: #312e81; color: #fff;
-    padding: 0.2rem 0.6rem; border-radius: 4px;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.3rem;
-  }
-  article[data-category="daily"] .content :global(h3[id*="reviewer"]) {
-    display: inline-block; background: #4b5563; color: #fff;
-    padding: 0.2rem 0.6rem; border-radius: 4px;
-    font-size: 0.68rem; font-weight: 700; font-style: normal;
-    text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem;
-  }
-  article[data-category="daily"] .content :global(h3[id*="take-away"]) {
-    display: inline-block; background: #065f46; color: #fff;
-    padding: 0.2rem 0.6rem; border-radius: 4px;
-    font-size: 0.68rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem;
+  .toc a:hover { color: #1d4ed8; }
+  /* Glossary 術語：中性底線 */
+  :global(.glossary-term) {
+    border-bottom-color: var(--border);
+    background: var(--bg-subtle);
   }
 
-  /* 統一 callout 內容框：淺灰底 + 邊框（無綠色左邊線） */
-  article[data-category="daily"] .content :global(h3[id="tldr"] + p),
-  article[data-category="daily"] .content :global(h3[id*="tl-dr"] + p),
-  article[data-category="daily"] .content :global(h3[id*="tldr"] + p),
-  article[data-category="daily"] .content :global(h3[id="read-priority"] + p),
-  article[data-category="daily"] .content :global(h3[id*="read-priority"] + p),
-  article[data-category="daily"] .content :global(h3[id*="reviewer"] + p) {
-    background: var(--bg-subtle); border: 1px solid var(--border);
-    padding: 0.75rem 1rem; border-radius: 6px;
-    margin-bottom: 1.25rem; font-weight: 500; line-height: 1.8;
-    color: var(--text-primary); font-style: normal;
-  }
-  article[data-category="daily"] .content :global(h3[id*="take-away"] + ul) {
-    background: var(--bg-subtle); border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.75rem 1rem 0.75rem 2rem; margin-bottom: 1.5rem;
-  }
-
-  /* 背景交替：領域背景、中階導讀用淺灰底區塊 */
-  article[data-category="daily"] .content :global(h3[id*="領域背景"]),
-  article[data-category="daily"] .content :global(h3[id*="中階導讀"]) {
-    background: var(--bg-subtle); margin: 2.2rem -1rem 0.6rem; padding: 0.6rem 1rem;
-    border-radius: 6px 6px 0 0; border-bottom: 1px solid var(--border);
-  }
-  article[data-category="daily"] .content :global(h3[id*="領域背景"] ~ p:not(h3 ~ h3 ~ p)),
-  article[data-category="daily"] .content :global(h4) {
-    color: var(--brand-900);
-  }
-
-  /* hr 在 daily 中淡化 */
-  article[data-category="daily"] .content :global(hr) { border: none; height: 0; margin: 0.5rem 0; }
-
-  /* ═══ 以下保留原始樣式 ═══ */
-
-  /* ── Hero Section (like DJ MYG) ── */
+  /* ── Hero Section ── */
   .hero {
     position: relative;
     background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
@@ -533,8 +458,6 @@ const breadcrumbLD = {
     align-items: center;
     gap: 0.3rem;
   }
-
-  /* Wave divider */
   .hero-wave {
     position: absolute;
     bottom: -1px;
@@ -573,14 +496,31 @@ const breadcrumbLD = {
   }
   .breadcrumb-cat:hover { color: var(--brand-900); }
 
-  /* TL;DR */
-  .tldr { background: var(--bg-subtle); border: 1px solid var(--border); padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-primary); }
-  .tldr-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 0.3rem; }
+  /* ── TL;DR ── */
+  .tldr {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+  .tldr-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
 
-  /* Tags */
+  /* ── Tags ── */
   .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 
-  /* TOC */
+  /* ── TOC (collapsible via details/summary) ── */
   .toc {
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -588,43 +528,67 @@ const breadcrumbLD = {
     background: var(--bg-subtle);
     margin-bottom: 1.5rem;
   }
-  .toc-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 0.6rem; }
+  .toc:not([open]) { padding: 0.7rem 1rem; }
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .toc-header::-webkit-details-marker { display: none; }
+  .toc-header::after {
+    content: '▾';
+    margin-left: auto;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    transition: transform 0.15s;
+  }
+  .toc:not([open]) > .toc-header { margin-bottom: 0; }
+  .toc:not([open]) > .toc-header::after { content: '▸'; }
   .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
   .toc ol ol { font-size: 0.78rem; color: var(--text-secondary); }
   .toc a { color: inherit; text-decoration: none; }
-  .toc a:hover { opacity: 0.7; }
+  .toc a:hover { color: var(--brand-500); }
 
-  /* Series box */
+  /* ── Series box ── */
   .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
   .series-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
   .series-link:hover { border-bottom-color: currentColor; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
-  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--text-primary); text-decoration: none; }
-  .series-prev:hover, .series-next:hover { opacity: 0.7; }
+  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
+  .series-prev:hover, .series-next:hover { color: var(--brand-900); }
 
-  /* Post nav */
+  /* ── Post nav ── */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   @media (max-width: 480px) {
     .post-nav { grid-template-columns: 1fr; }
     .post-nav-next { text-align: left; }
     .post-nav-next .post-nav-label { justify-content: flex-start; }
   }
-  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
-  .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); }
+  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, background 0.15s; }
+  .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); background: var(--bg-subtle); }
   .post-nav-next { text-align: right; }
   .post-nav-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
   .post-nav-next .post-nav-label { justify-content: flex-end; }
   .post-nav-title { font-size: 0.85rem; font-weight: 600; line-height: 1.3; display: block; }
 
-  /* Related */
-  /* ── FAQ (answer-engine surface) ── */
+  /* ── FAQ ── */
   .faq { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   .faq h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.9rem; }
   .faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; line-height: 1.5; }
   .faq-item p { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.75; color: var(--text-secondary); }
 
+  /* ── Related digests ── */
   .related-digests { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
   .related-digests h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related-digests-list { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -633,6 +597,7 @@ const breadcrumbLD = {
   .rd-title { font-size: 0.85rem; font-weight: 500; text-transform: capitalize; }
   .rd-reason { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
 
+  /* ── Related posts ── */
   .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related :global(.related-list) { display: flex; flex-direction: column; gap: 0.5rem; }
   .related :global(.related-item) { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
@@ -640,6 +605,7 @@ const breadcrumbLD = {
   .related :global(.related-title) { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
   .related :global(.related-time) { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
 
+  /* ── Glossary term marks ── */
   :global(.glossary-term) {
     border: 0;
     border-bottom: 1px dotted var(--brand-500);
@@ -656,35 +622,208 @@ const breadcrumbLD = {
     color: var(--brand-900);
   }
 
-  /* ── Daily Digest 專用樣式（已重設計） ── */
-  /* 以上覆蓋區已處理：badge、callout 框、排版間距。此處只留未被覆蓋的規則。 */
+  /* ════════════════════════════════════════
+     Daily Digest 專用樣式
+     ════════════════════════════════════════ */
+
+  /* 全局排版：加大行高與段距 */
+  article[data-category="daily"] .content {
+    line-height: 2;
+    font-size: 0.95rem;
+  }
+  article[data-category="daily"] .content :global(p) {
+    margin-bottom: 1.35rem;
+  }
+  article[data-category="daily"] .content :global(h3) {
+    margin-top: 2.2rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+  }
+  article[data-category="daily"] .content :global(ul),
+  article[data-category="daily"] .content :global(ol) {
+    margin-bottom: 1.35rem;
+  }
+  article[data-category="daily"] .content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.9;
+  }
+
+  /* 論文區塊分隔 */
+  article[data-category="daily"] .content :global(h2) {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 1.3rem;
+  }
   article[data-category="daily"] .content :global(h2:first-child) {
     border-top: none;
     margin-top: 0;
     padding-top: 0;
   }
-  /* 作者/連結 metadata 行 */
+
+  /* 論文標題 */
+  article[data-category="daily"] .content :global(h2[id^="論文"]) {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+  article[data-category="daily"] .content :global(h2[id^="論文"])::after {
+    display: none;
+  }
+
+  /* 論文 metadata（作者/連結） */
+  article[data-category="daily"] .content :global(h2[id^="論文"] + p) {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.6rem 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  article[data-category="daily"] .content :global(h2[id^="論文"] + p strong) {
+    color: var(--text-primary);
+  }
+  article[data-category="daily"] .content :global(h2[id^="論文"] + p a) {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* hr 在 daily 中隱藏（論文卡片已提供分隔） */
+  article[data-category="daily"] .content :global(hr) {
+    border: none;
+    height: 0;
+    margin: 0.5rem 0;
+  }
+
+  /* TL;DR badge + callout */
+  article[data-category="daily"] .content :global(h3[id="tldr"]),
+  article[data-category="daily"] .content :global(h3[id*="tl-dr"]),
+  article[data-category="daily"] .content :global(h3[id*="tldr"]) {
+    display: inline-block;
+    background: #065f46;
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id="tldr"] + p),
+  article[data-category="daily"] .content :global(h3[id*="tl-dr"] + p),
+  article[data-category="daily"] .content :global(h3[id*="tldr"] + p) {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  /* Read Priority badge + callout */
+  article[data-category="daily"] .content :global(h3[id="read-priority"]),
+  article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
+    display: inline-block;
+    background: #312e81;
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  :global([data-theme="dark"]) article[data-category="daily"] .content :global(h3[id="read-priority"]),
+  :global([data-theme="dark"]) article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
+    background: #1e1b4b;
+    color: #a5b4fc;
+  }
+  article[data-category="daily"] .content :global(h3[id="read-priority"] + p),
+  article[data-category="daily"] .content :global(h3[id*="read-priority"] + p) {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Reviewer 引用 */
+  article[data-category="daily"] .content :global(h3[id*="reviewer"]) {
+    display: inline-block;
+    background: #4b5563;
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id*="reviewer"] + p) {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  /* take-away 行動建議 */
+  article[data-category="daily"] .content :global(h3[id*="take-away"]) {
+    display: inline-block;
+    background: #065f46;
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  article[data-category="daily"] .content :global(h3[id*="take-away"] + ul) {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 作者/連結 metadata (generic) */
   article[data-category="daily"] .content :global(p:has(strong:first-child)) {
     font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
   }
-  /* 中階導讀內的子標題 */
+
+  /* 中階導讀子標題 */
   article[data-category="daily"] .content :global(h4) {
     font-size: 0.92rem;
     font-weight: 700;
-    color: var(--brand-700);
+    color: var(--brand-900);
     margin: 1.25rem 0 0.4rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px dashed var(--border);
   }
-  /* 深入要點的 bullet list */
+
+  /* 深入要點 bullet */
   article[data-category="daily"] .content :global(h3[id*="深入要點"] + ul),
   article[data-category="daily"] .content :global(h3[id*="深入"] + ul) {
     font-size: 0.88rem;
     line-height: 1.75;
     color: var(--text-secondary);
   }
+
   /* 詞彙表 */
   article[data-category="daily"] .content :global(h2[id*="讀這篇"] + table),
   article[data-category="daily"] .content :global(h2[id*="讀這篇"] + p + table) {

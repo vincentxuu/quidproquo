@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-16",
+  "date": "2026-08-17",
   "swebench_verified_bash_only_top5": [
     { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
     { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
@@ -7,7 +7,11 @@
     { "rank": 4, "model": "Gemini 3 Pro Preview", "agent": "live-SWE-agent", "score": 77.40 },
     { "rank": 5, "model": "Multiple", "agent": "Atlassian Rovo Dev", "score": 76.80 }
   ],
-  "lmsys_top3": null,
+  "lmsys_top3": [
+    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.19, "ci": "±1.45%" },
+    { "rank": 2, "model": "Claude Fable 5 (High)", "score": 12.01, "ci": "±2.57%" },
+    { "rank": 3, "model": "Claude Opus 5 (Max)", "score": 11.95, "ci": "±1.71%" }
+  ],
   "morphllm_top3": null,
-  "notes": "首次執行，尚無歷史快照可比對。LMSYS Arena 頁面需 JS 渲染且觸發 reCAPTCHA，無法直接抓取排行榜資料；MorphLLM /leaderboard 回傳 404（頁面可能已改版或下線）。此快照作為後續比對基準。"
+  "notes": "2026-08-17：swebench.com 排行榜為 JS 動態渲染（Bash Only 頁需逐一點選模型才載入分數），本次抓取工具（Tavily extract、Exa fetch）皆無法取得即時分數表，故沿用 08-16 的 swebench 快照，未比對到新變動。lmarena.ai/leaderboard 首次成功抓取（Agent 類別），前三名 Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%，三者信賴區間重疊，且無歷史基準可比對，不構成「顯著變動」，僅作為後續比對基準寫入快照。MorphLLM /leaderboard 持續被 Vercel Security Checkpoint 攔截，無法存取。firecrawl 額度用盡（insufficient credits），stealth_fetch MCP 於此環境不可用，直接 curl 被 proxy 擋下（403）。今日無 Benchmark 異動，未產出文章。"
 }

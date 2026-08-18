@@ -1,0 +1,548 @@
+{
+  "date": "2026-08-17",
+  "generatedAt": "2026-08-16T23:45:00Z",
+  "routineId": "J",
+  "signalCount": 30,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Anthropic Frontier Red Team: Patterns and problems in emerging multiagent systems",
+      "source": "anthropic-research",
+      "sourceUrl": "https://www.anthropic.com/research/multiagent-systems",
+      "publishedDate": "2026-08-13",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Anthropic Frontier Red Team 發布研究，剖析多代理系統（multiagent systems）浮現的常見設計模式與潛在風險，包含代理間出現「地盤爭奪」式競爭行為。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "aiagentstore"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "OpenAI previews Ultrafast mode: GPT-5.6 Sol runs up to 14x faster",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/previewing-ultrafast/",
+      "publishedDate": "2026-08-13",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 推出 Ultrafast 模式預覽，GPT-5.6 Sol 推理速度最高提升 14 倍，鎖定即時互動與 agentic 工作流場景。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "jiqizhixin"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "OpenAI begins testing ads in ChatGPT",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/testing-ads-in-chatgpt/",
+      "publishedDate": "2026-08-11",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 宣布開始在 ChatGPT 中測試廣告，是其獲利模式的重大轉向，將影響數億月活躍使用者的產品體驗。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-004",
+      "title": "Amazon Nova Forge: custom reward functions for multi-turn reinforcement learning",
+      "source": "aws-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 說明如何在 Amazon Nova Forge 中設計多輪強化學習的自訂獎勵函數，並在沙箱內安全執行模型生成程式碼。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "Microsoft's Azure Content Understanding adds GPT-5 series support",
+      "source": "microsoft-blog",
+      "sourceUrl": "https://devblogs.microsoft.com/foundry/azure-content-understanding-updates-august-2026/",
+      "publishedDate": "2026-08-12",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 更新 Azure Content Understanding，加入 GPT-5 系列模型支援、同步 API 與更精準的信心分數評估。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "Mistral outlines in-region inference and new European AI infrastructure",
+      "source": "mistral-blog",
+      "sourceUrl": "https://mistral.ai/news/regional-inference-open-models-new-compute/",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "unverified",
+      "category": "region-news",
+      "companies": [
+        "mistral"
+      ],
+      "section": "A2",
+      "ring": 1,
+      "summary": "Mistral 公布在地推理基礎設施、開源模型與新歐洲算力布局的整體計畫，訴求歐洲 AI 主權。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "River AI, founded by xAI co-founder Igor Babuschkin, raises $1.1B",
+      "source": "chamath-substack",
+      "sourceUrl": "https://chamath.substack.com/p/nvidia-and-wall-street-build-a-500b",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "A2",
+      "ring": 1,
+      "summary": "前 xAI 共同創辦人 Igor Babuschkin 創立的 River AI 完成首輪 11 億美元融資，由 General Catalyst 領投，聚焦企業可自訓的開放權重模型微調平台。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "instagram"
+      ]
+    },
+    {
+      "id": "sig-008",
+      "title": "Google ADK vulnerability CVE-2026-18236 lets attackers bypass AI agent guardrails",
+      "source": "yahoo-tech",
+      "sourceUrl": "https://tech.yahoo.com/cybersecurity/articles/corebreak-bypasses-ai-agent-guardrails-215450137.html",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "研究人員揭露「CoreBreak」攻擊手法，可利用 CVE-2026-18236（CVSSv4 9.3 嚴重）操縱或注入事件至 Google ADK for Python 的 agent session 歷史紀錄。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Lovable raises $400M at $13.3B valuation",
+      "source": "chamath-substack",
+      "sourceUrl": "https://chamath.substack.com/p/nvidia-and-wall-street-build-a-500b",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [
+        "lovable"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "AI 全端應用生成平台 Lovable 完成 4 億美元融資，估值達 133 億美元，延續其 vibe coding 賽道的高速成長。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Agent Plugins: new standard for packaging Agent Skills and MCP servers",
+      "source": "thelettertwo",
+      "sourceUrl": "https://thelettertwo.com/2026/08/16/agent-plugins-standard-explained",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [],
+      "section": "B2",
+      "ring": 2,
+      "summary": "業界發布 Agent Plugins 標準，用來把 Agent Skills 與 MCP servers 打包進單一資料夾，讓相容的 AI 助理可直接安裝使用，首版刻意只涵蓋 skills 與 MCP 兩項確立技術。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Chinese hackers used AI agent framework to attack Taiwan government and energy firms",
+      "source": "ithome",
+      "sourceUrl": "https://www.ithome.com.tw/news/178104",
+      "publishedDate": "2026-08-13",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "F2",
+      "ring": 4,
+      "summary": "以色列資安新創 Dream Security 向金融時報披露，中國駭客以 Hermes 與 OpenClaw 建立的 AI 自主攻擊框架，4 天內入侵台灣至少 85 組政府帳號、竊得逾 2,500 筆人事資料，並擴大攻擊核能安全委員會與多家能源公司。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "financial-times"
+      ]
+    },
+    {
+      "id": "sig-013",
+      "title": "LiteLLM supply-chain attack may have hit 2,500+ organizations",
+      "source": "ithome",
+      "sourceUrl": "https://www.ithome.com.tw/news/178138",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "B2",
+      "ring": 2,
+      "summary": "資安公司 CloudSEK 與 Hudson Rock 公布調查，指出今年 3 月的 LiteLLM 供應鏈攻擊可能波及全球逾 2,500 家企業、約 43.4 萬個 CI/CD 工作流程，受害者包含 NVIDIA、三星、思科等大型企業，是 2026 年至今最大規模的 AI 供應鏈資安事件之一。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "163.com"
+      ]
+    },
+    {
+      "id": "sig-014",
+      "title": "Akamai: nearly half of enterprise AI usage bypasses security controls",
+      "source": "ithome",
+      "sourceUrl": "https://www.ithome.com.tw/pr/178154",
+      "publishedDate": "2026-08-17",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "B7",
+      "ring": 2,
+      "summary": "Akamai《2026 年企業 AI 使用風險報告》指出近半數企業 AI 使用繞過資安控管，惡意瀏覽器擴充功能與具漏洞的自主型 AI Agent 正在擴大企業攻擊面，呼籲從「封鎖 AI」轉向即時治理 AI 互動行為。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "Sergey Brin pushes Google all-in on recursive self-improving AI",
+      "source": "thestreet",
+      "sourceUrl": "https://currently.att.yahoo.com/att/sergey-brin-just-set-bold-140300937.html",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google 共同創辦人 Sergey Brin 據報要求員工全力投入改善 Gemini，並持續推動「遞迴式自我改進」（recursive self-improvement）作為重點研究方向，強調需加速彌補 agentic 執行能力的落差。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "jiqizhixin"
+      ]
+    },
+    {
+      "id": "sig-016",
+      "title": "NVIDIA Magpie TTS brings low-latency multilingual voice agents",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents",
+      "publishedDate": "2026-08-10",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "C5",
+      "ring": 3,
+      "summary": "NVIDIA 發布開放權重的 Magpie TTS 多語音模型，主打低延遲多語音 Voice Agent，開發者可完全自行部署掌控。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "IBM Research cuts tokens needed for ACE-style agent context evolution",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/ibm-research/altk-evolve-sldd",
+      "publishedDate": "2026-08-11",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [],
+      "section": "B4",
+      "ring": 2,
+      "summary": "IBM Research 提出方法大幅降低 ACE（Agentic Context Evolution）風格 agent 記憶演化所需的 token 用量。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Stripe nears $7B+ deal to acquire AI model-routing startup OpenRouter",
+      "source": "bloomberg-law",
+      "sourceUrl": "https://news.bloomberglaw.com/mergers-and-acquisitions/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [
+        "openrouter"
+      ],
+      "section": "A4",
+      "ring": 1,
+      "summary": "Stripe 確定以逾 70 億美元收購 AI 模型路由新創 OpenRouter，距其上一輪估值 13 億美元僅數月，凸顯企業對跨模型成本最佳化的強勁需求，也讓 Stripe 在 AI 領域取得更深布局。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "SpaceX closes $60B all-stock acquisition of Cursor maker Anysphere",
+      "source": "thesequence-substack",
+      "sourceUrl": "https://thesequence.substack.com/p/the-sequence-radar-issue-915-last",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "unverified",
+      "category": "acquisition",
+      "companies": [
+        "cursor"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "SpaceX 正式完成對 Cursor 開發商 Anysphere 的 600 億美元全股票收購案，Cursor 保留品牌與部落格獨立運作，換取存取全球最大 GPU 叢集之一，並與 Grok 系列模型深度整合。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    {
+      "id": "sig-020",
+      "title": "Anthropic in final stages of $6B deal to acquire Israeli startup Decart",
+      "source": "globes",
+      "sourceUrl": "https://en.globes.co.il/en/article-anthropic-acquisition-set-to-make-decart-founders-billionaires-1001552501",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "unverified",
+      "category": "acquisition",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "以色列新創 Decart 的創辦人據報即將與 Anthropic 完成一筆約 60 億美元的收購案簽署，將為 Decart 創辦團隊創造至少兩位新億萬富翁，也讓 Anthropic 在以色列建立重要據點。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "DeepSeek raises usage-based API prices by up to 1,100%",
+      "source": "youtube-ai-in-60",
+      "sourceUrl": "https://www.youtube.com/watch?v=ViM91GMSl7M",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "unverified",
+      "category": "pricing-change",
+      "companies": [
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 4,
+      "summary": "路透報導 DeepSeek 大幅調漲以量計費的 API 價格，最高漲幅達 1,100%，將直接影響所有依賴 DeepSeek 模型的下游工具與企業成本結構。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "Electric joins Databricks to bring WASM Postgres to AI agent sandboxes",
+      "source": "databricks-blog",
+      "sourceUrl": "https://www.databricks.com/blog/electric-joins-databricks-bring-wasm-postgres-ai-agent-sandboxes",
+      "publishedDate": "2026-08-11",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [
+        "databricks"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Databricks 收購 Electric 團隊，將 WASM 版 Postgres 引入 AI agent 沙箱環境，強化其 agentic 應用的資料層基礎設施。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Databricks' Smart Routing in Unity AI Gateway cuts cost 30%+ at matched quality",
+      "source": "databricks-blog",
+      "sourceUrl": "https://www.databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task",
+      "publishedDate": "2026-08-13",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "databricks"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Databricks 在 Unity AI Gateway 推出 Smart Routing 功能，能以匹配前沿模型品質的表現，將任務成本降低 30% 以上。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Qwen3.8 Max takes the lead on LongBench v2 long-context benchmark",
+      "source": "benchlm",
+      "sourceUrl": "https://benchlm.ai/benchmarks/longbench-v2",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 4,
+      "summary": "阿里雲 Qwen3.8 Max 以 66.3% 登上 LongBench v2 長文本推理排行榜首位，超越 Claude Opus 4.5（64.4%）與 Qwen3.5 397B（63.2%）。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Claude Mythos 5 leads SWE-bench Pro coding benchmark",
+      "source": "benchlm",
+      "sourceUrl": "https://benchlm.ai/benchmarks/swe-bench-pro",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "unverified",
+      "category": "benchmark-shift",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "BenchLM.ai 資料顯示 Claude Mythos 5 以 80.3% 分數領跑 SWE-bench Pro 排行榜，Claude Fable 5（80%）與 Claude Opus 5（79.2%）緊追在後，前段模型差距已收斂至 1.1 分內，顯示該基準已趨近飽和。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "Anthropic's Q2 revenue reportedly surges past $11.5B",
+      "source": "cnbc",
+      "sourceUrl": "https://www.cnbc.com/2026/08/15/anthropic-revenue-jumps-to-over-11point5-billion-in-q2-report.html",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "據彭博取得的文件，Anthropic 向潛在投資人透露第二季營收超過 115 億美元，較去年同期成長逾 14 倍，且首次轉為正的調整後營業利益，正值該公司評估 IPO 之際。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "fortune",
+        "businesstimes"
+      ]
+    },
+    {
+      "id": "sig-027",
+      "title": "MCP SDK crosses 195M monthly downloads, becomes the agent stack's connective tissue",
+      "source": "builder-radar",
+      "sourceUrl": "https://buttondown.com/Builder-Radar/archive/builder-radar-week-of-august-16-2026",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "unverified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "B2",
+      "ring": 2,
+      "summary": "Model Context Protocol 的 npm SDK 月下載量突破 1.959 億次，超越 OpenAI SDK（1.31 億）與 Anthropic SDK（1.159 億），顯示 MCP 已成為 agent 技術棧的標準連接層。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Vals AI raises $40M Series A at $400M valuation as revenue grows 8x",
+      "source": "pulse2-facebook",
+      "sourceUrl": "https://www.facebook.com/pulse2news/posts/vals-ai-raises-40-million-series-a-at-400-million-valuation-as-revenue-grows-8x-/1752760016851020",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "B6",
+      "ring": 2,
+      "summary": "獨立 AI 評測平台 Vals AI 完成 4,000 萬美元 A 輪融資，估值達 4 億美元，由 a16z 領投，衡量前沿模型在真實專業任務上的表現。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "Claude Code 2.1.233 adds GitLab merge requests, plugin marketplaces, token redaction",
+      "source": "ai-tldr",
+      "sourceUrl": "https://buttondown.com/ai-tldr/archive/aitldr-daily-digest-august-16-2026",
+      "publishedDate": "2026-08-16",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "Claude Code 2.1.233 為 GitLab 團隊帶來一級支援：merge request worktree、外掛市集與 token 遮蔽功能。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "OWASP publishes Agentic AI and MCP Top 10 risk lists",
+      "source": "imperva",
+      "sourceUrl": "https://www.imperva.com/blog/owasp-llm-top-10-what-comes-next-agentic-mcp",
+      "publishedDate": "2026-08-14",
+      "dateConfidence": "unverified",
+      "category": "framework-release",
+      "companies": [],
+      "section": "B7",
+      "ring": 2,
+      "summary": "OWASP 發布 Agentic AI 與 MCP Top 10 風險清單（MCP01:2025–MCP10:2025，目前為 Phase 3 beta），系統化列出攻擊者針對 Model Context Protocol 層的常見手法，包括未受治理的「影子 MCP server」。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "MiniMax M2.7 debuts with self-evolving agent harness improvements",
+      "source": "reddit-aicuriosity",
+      "sourceUrl": "https://www.reddit.com/r/aicuriosity/comments/1rx8r2v/minimax_m27_release_new_selfevolving_ai_model",
+      "publishedDate": "2026-08-15",
+      "dateConfidence": "unverified",
+      "category": "model-release",
+      "companies": [
+        "minimax"
+      ],
+      "section": "F1",
+      "ring": 4,
+      "summary": "MiniMax 推出 M2.7，強調模型可自主建構並優化自身的 agent harness、更新記憶、產生強化學習流程，在 SWE-Pro 與 GDPval-AA 等基準上逼近 Claude Opus 4.6。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}

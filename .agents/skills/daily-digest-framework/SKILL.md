@@ -14,7 +14,7 @@ description: "Routine F: event-driven AI Agent framework release detection for q
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 YESTERDAY=$(date -d yesterday +%Y-%m-%dT00:00:00Z 2>/dev/null || date -v-1d +%Y-%m-%dT00:00:00Z)
 
 # Step 2: 讀 watchlist（section B2 的框架清單）
@@ -27,7 +27,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B2")'
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-framework-*.md
 git commit -m "post(daily): framework update ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

@@ -3,6 +3,8 @@ export interface DailySignal {
   title: string;
   source: string;
   sourceUrl: string;
+  publishedDate: string;
+  dateConfidence: 'verified' | 'unverified';
   category: SignalCategory;
   companies: string[];
   section: string;

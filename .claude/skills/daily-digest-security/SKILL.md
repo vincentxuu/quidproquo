@@ -15,7 +15,7 @@ description: "Routine D: event-driven AI security alert for quidproquo.cc/daily.
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 讀 watchlist（比對 B7 安全公司）
 cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B7") | .name'
@@ -27,7 +27,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B7") 
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-security-*.md
 git commit -m "post(daily): security alert ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

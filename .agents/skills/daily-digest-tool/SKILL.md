@@ -14,7 +14,7 @@ description: "Routine G: event-driven AI tool/MCP server recommendation for quid
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 YESTERDAY=$(date -d yesterday +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)
 
 # Step 2: 冪等檢查
@@ -30,7 +30,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section | startsw
 # Step 8: 提交
 git add src/content/posts/daily/${TODAY}-tool-*.md
 git commit -m "post(daily): tool recommendation ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

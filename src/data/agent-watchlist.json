@@ -330,16 +330,6 @@
       "region": "US"
     },
     {
-      "name": "Samsung",
-      "slug": "samsung",
-      "section": "A1",
-      "trackingFocus": [
-        "Galaxy AI",
-        "端側 AI"
-      ],
-      "region": "KR"
-    },
-    {
       "name": "Huawei",
       "slug": "huawei",
       "section": "A1",

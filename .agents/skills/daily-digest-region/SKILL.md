@@ -14,7 +14,7 @@ description: "Routine M: weekly regional AI ecosystem focus for quidproquo.cc/da
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 計算本週範圍
 WEEK_START=$(date -d "${TODAY} -$(date -d ${TODAY} +%u) days + 1 day" +%Y-%m-%d)
@@ -32,7 +32,7 @@ cat src/data/agent-watchlist.json | jq '[.companies[] | select(.section | starts
 # Step 9: 提交
 git add src/content/posts/daily/${TODAY}-region-*.md
 git commit -m "post(daily): region focus ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---

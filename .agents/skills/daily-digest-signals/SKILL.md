@@ -5,7 +5,9 @@ description: "Routine J (Stage 2): daily news scan producing intermediate signal
 
 # daily-digest-signals
 
-Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI Agent 四圈相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
+Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI 生態相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
+
+**⚠️ 重要：不要使用 Agent tool / subagent 來平行搜尋。** CCR 雲端環境的 session 不會等 background agent 完成，會導致主 session 提前結束、無產出。所有搜尋查詢都在主 session 中執行——可以在同一個 message 裡同時發出多個 Exa/Tavily tool call（平行 tool call），但不可以派 subagent。
 
 ---
 
@@ -14,7 +16,7 @@ Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI Agent 四圈
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 冪等檢查
 [ -f "src/data/daily-signals/${TODAY}.json" ] && echo "已產出" && exit 0
@@ -29,10 +31,13 @@ cat src/data/daily-signals/schema.ts
 # Step 5: 執行「搜尋方法」逐個來源掃描
 # Step 6: 執行「信號處理」過濾、分類、交叉驗證
 # Step 7: 寫入 JSON
-# Step 8: 提交
-git add src/data/daily-signals/${TODAY}.json
+# Step 8: 更新跨天去重檔案
+#   把本次收錄的所有 sourceUrl 追加到 seen-signal-urls.txt
+echo "${TODAY}: $(jq -r '[.signals[].sourceUrl] | join(", ")' src/data/daily-signals/${TODAY}.json)" >> src/data/daily-signals/seen-signal-urls.txt
+# Step 9: 提交（含 push 失敗 retry）
+git add src/data/daily-signals/${TODAY}.json src/data/daily-signals/seen-signal-urls.txt
 git commit -m "chore(daily): signals ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---
@@ -51,106 +56,244 @@ git push origin main
 
 ## 搜尋方法
 
-對以下來源逐一掃描，每個來源取 **top 5-10 則**。Exa + Tavily 兩個都跑，合併結果去重。中文/台灣來源加重 Tavily（中文效果較好）。
+三層策略，總共約 56 個查詢（但搜尋 API 只用 15 次）：
 
-### 來源 1：Hacker News（社群風向）
+1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
+2. **官方 blog 直讀**（41 個 WebFetch/firecrawl）— 直接抓 blog 列表頁讀日期，0 搜尋配額
+3. **社群 + 區域來源**（Exa + Tavily 各幾個）— HN、Reddit、中文、台灣
 
-```
-工具：mcp Exa → web_search_exa
-query: "site:news.ycombinator.com AI agent LLM tool"
-numResults: 10
-startPublishedDate: "{昨天 ISO 日期}"
-type: "auto"
-```
+所有結果在 Step 6b 用 watchlist 293 家公司名比對，未在第二層的公司靠廣域查詢兜底。
 
-備選查詢：`site:news.ycombinator.com AI model release benchmark`
+### 第一層：廣域主題查詢（Tavily × 8）
 
-### 來源 2：HuggingFace（模型動態）
-
-```
-工具：mcp Exa → web_search_exa
-query: "site:huggingface.co trending model AI agent 2026"
-numResults: 5
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 3-9：大廠官方 Blog（廠商動態，逐家查）
-
-每家用一個 Exa 查詢。若當天無新文章該家跳過。
-
-| 查詢 | query |
-|---|---|
-| Anthropic | `site:anthropic.com/news OR site:anthropic.com/research 2026` |
-| OpenAI | `site:openai.com/index 2026` |
-| Google AI | `site:blog.google/technology/ai 2026` |
-| Microsoft | `site:blogs.microsoft.com AI agent 2026` |
-| Meta AI | `site:ai.meta.com/blog 2026` |
-| NVIDIA | `site:blogs.nvidia.com AI 2026` |
-| Cloudflare | `site:blog.cloudflare.com AI workers 2026` |
-
-```
-每個查詢設定：
-  numResults: 3
-  startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 10：Product Hunt AI
-
-```
-工具：mcp Exa → web_search_exa
-query: "site:producthunt.com AI agent tool 2026"
-numResults: 5
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 11-12：Reddit（社群風向，降權處理）
-
-```
-工具：mcp Exa → web_search_exa
-
-Q1: "site:reddit.com/r/MachineLearning AI agent 2026"
-Q2: "site:reddit.com/r/LocalLLaMA model release 2026"
-numResults: 5 each
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 13-15：產業新聞
-
-```
-工具：mcp Exa → web_search_exa
-
-Q1: "site:venturebeat.com AI agent 2026"
-Q2: "site:techcrunch.com AI agent 2026"
-Q3: "site:the-decoder.com AI 2026"
-numResults: 5 each
-startPublishedDate: "{昨天 ISO 日期}"
-```
-
-### 來源 16-17：中文來源
-
-```
-工具：mcp Tavily → tavily_search（Tavily 對中文站效果較好）
-
-Q1: "site:36kr.com AI agent 人工智能"
-    days: 1, maxResults: 5
-Q2: "site:jiqizhixin.com AI agent 大模型"
-    days: 1, maxResults: 5
-```
-
-### 來源 18-19：台灣來源
+覆蓋整個 AI 生態，不綁特定公司。
 
 ```
 工具：mcp Tavily → tavily_search
-
-Q1: "site:ithome.com.tw AI 人工智慧 agent"
-    days: 1, maxResults: 5
-Q2: "site:bnext.com.tw AI 人工智慧"
-    days: 1, maxResults: 5
+每個查詢：max_results: 10, time_range: "day"
 ```
 
-### 去重
+| # | query | 覆蓋 |
+|---|-------|------|
+| 1 | `AI agent news announcement launch` | 通用新聞 |
+| 2 | `AI model release new benchmark` | 模型發佈 |
+| 3 | `AI startup funding Series raise` | 融資 |
+| 4 | `AI agent security vulnerability CVE` | 資安 |
+| 5 | `AI agent framework SDK update release` | 框架更新 |
+| 6 | `AI agent tool MCP server open source` | 工具/開源 |
+| 7 | `AI agent enterprise deployment case study` | 企業落地 |
+| 8 | `AI regulation policy government` | 法規治理 |
 
-所有來源合併後，用 URL 去重。此時應有 50-100 則原始結果。
+### 第二層：官方 blog 直讀（WebFetch / firecrawl，0 搜尋配額）
+
+直接抓每家的 blog 列表頁，讀日期判斷有沒有新文章。不用搜尋 API。
+
+```
+工具：WebFetch（優先）→ firecrawl（WebFetch 被擋時 fallback）
+prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
+```
+
+**A1 大廠**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 1 | `https://www.anthropic.com/news` | Anthropic | WebFetch |
+| 2 | `https://www.anthropic.com/research` | Anthropic | WebFetch |
+| 3 | `https://openai.com/news` | OpenAI | firecrawl |
+| 4 | `https://openai.com/research/index` | OpenAI | firecrawl |
+| 5 | `https://deepmind.google/blog` | Google DeepMind | WebFetch |
+| 5b | `https://research.google/blog` | Google Research | WebFetch |
+| 6 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
+| 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | WebFetch |
+| 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | WebFetch |
+| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft Azure | WebFetch |
+| 9b | `https://www.microsoft.com/en-us/research/blog` | Microsoft Research | WebFetch |
+| 10 | `https://about.fb.com/news` | Meta | WebFetch |
+| 11 | `https://ai.meta.com/blog` | Meta | WebFetch |
+| 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | WebFetch |
+| 13 | `https://aws.amazon.com/blogs/aws` | AWS | WebFetch |
+| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS ML | WebFetch |
+| 14b | `https://www.amazon.science/blog` | Amazon Science | WebFetch |
+| 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
+| 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | WebFetch |
+| 16b | `https://research.nvidia.com/publications` | NVIDIA Research | WebFetch |
+| 17 | `https://x.ai/news` | xAI/SpaceXAI | firecrawl |
+| 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
+| 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | WebFetch |
+| 20 | `https://www.snowflake.com/blog` | Snowflake | WebFetch |
+| 21 | `https://www.databricks.com/blog` | Databricks | WebFetch |
+| 22 | `https://research.ibm.com/blog` | IBM | WebFetch |
+| 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | WebFetch |
+| 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | firecrawl |
+| 25 | `https://writer.com/blog` | Writer | firecrawl |
+| 26 | `https://blog.palantir.com` | Palantir | firecrawl |
+
+**HuggingFace 社群 + 模型 trending**
+
+| # | URL | 說明 | 工具 |
+|---|-----|------|------|
+| HF0a | `https://huggingface.co/blog` | HF 官方 blog（每日更新） | WebFetch |
+| HF0b | `https://huggingface.co/models?sort=trending` | 模型 trending 排行 | WebFetch |
+
+**HuggingFace + GitHub 模型/repo 動態追蹤**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| HF1 | `https://huggingface.co/google` | Google | WebFetch |
+| HF2 | `https://huggingface.co/microsoft` | Microsoft | WebFetch |
+| HF3 | `https://huggingface.co/nvidia` | NVIDIA | WebFetch |
+| HF4 | `https://huggingface.co/mistralai` | Mistral | WebFetch |
+| HF5 | `https://huggingface.co/MiniMaxAI` | MiniMax | WebFetch |
+| GH1 | `https://github.com/anthropics` | Anthropic | WebFetch |
+| GH2 | `https://github.com/openai` | OpenAI | WebFetch |
+| GH3 | `https://github.com/google-deepmind` | Google DeepMind | WebFetch |
+| GH4 | `https://github.com/meta-llama` | Meta Llama | WebFetch |
+| GH5 | `https://github.com/microsoft` | Microsoft | WebFetch |
+| GH6 | `https://github.com/NVIDIA` | NVIDIA | WebFetch |
+| GH7 | `https://github.com/mistralai` | Mistral | WebFetch |
+| GH8 | `https://github.com/MiniMax-AI` | MiniMax | WebFetch |
+| HF6 | `https://huggingface.co/meta-llama` | Meta Llama | WebFetch |
+| HF7 | `https://huggingface.co/openai` | OpenAI | WebFetch |
+| HF8 | `https://huggingface.co/ibm-granite` | IBM Granite | WebFetch |
+| HF9 | `https://huggingface.co/Snowflake` | Snowflake | WebFetch |
+| HF10 | `https://huggingface.co/apple` | Apple | WebFetch |
+| HF11 | `https://huggingface.co/amazon` | Amazon | WebFetch |
+| HF12 | `https://huggingface.co/Salesforce` | Salesforce | WebFetch |
+| HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
+| GH9 | `https://github.com/cohere-ai` | Cohere | WebFetch |
+| GH10 | `https://github.com/aws` | AWS | WebFetch |
+| GH11 | `https://github.com/apple` | Apple | WebFetch |
+| GH12 | `https://github.com/cloudflare` | Cloudflare | WebFetch |
+| GH13 | `https://github.com/IBM` | IBM | WebFetch |
+| GH14 | `https://github.com/salesforce` | Salesforce | WebFetch |
+| GH15 | `https://github.com/snowflakedb` | Snowflake | WebFetch |
+| GH16 | `https://github.com/databricks` | Databricks | WebFetch |
+| GH17 | `https://github.com/xai-org` | xAI | WebFetch |
+| GH18 | `https://github.com/palantir` | Palantir | WebFetch |
+| GH19 | `https://github.com/SAP` | SAP | WebFetch |
+| HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | WebFetch |
+| HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | WebFetch |
+
+**A2 模型公司**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 22 | `https://mistral.ai/news` | Mistral | WebFetch |
+| 23 | `https://cohere.com/blog` | Cohere | WebFetch |
+| 24 | `https://www.ai21.com/blog` | AI21 Labs | WebFetch |
+| 25 | `https://www.reka.ai/news` | Reka AI | WebFetch |
+| 26 | `https://www.upstage.ai/blog` | Upstage | WebFetch |
+| 27 | `https://sakana.ai/blog` | Sakana AI | WebFetch |
+| 28 | `https://allenai.org/blog` | AI2 | WebFetch |
+
+**B1/B2 開發工具與框架**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 29 | `https://cursor.com/changelog` | Cursor | WebFetch |
+| 30 | `https://cursor.com/blog` | Cursor | WebFetch |
+| 31 | `https://www.langchain.com/blog` | LangChain | WebFetch |
+| 32 | `https://cognition.com/blog` | Cognition/Devin | WebFetch |
+| 33 | `https://replit.com/blog` | Replit | WebFetch |
+| 34 | `https://vercel.com/blog` | Vercel | WebFetch |
+| 35 | `https://mastra.ai/blog` | Mastra | WebFetch |
+| 36 | `https://sourcegraph.com/blog` | Sourcegraph | WebFetch |
+| 37 | `https://www.pydantic.dev/articles` | Pydantic AI | WebFetch |
+| 38 | `https://agno.com/blog` | Agno | WebFetch |
+
+**中國大廠**
+
+| # | URL | 公司 | 工具 |
+|---|-----|------|------|
+| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud（技術） | WebFetch |
+| 39b | `https://www.alibabagroup.com/en-US/news-and-resource` | Alibaba Group（集團公告） | WebFetch |
+| 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
+| 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
+| 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | WebFetch |
+| 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | WebFetch |
+| 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
+| 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | WebFetch |
+| 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
+| 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | WebFetch |
+| 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | WebFetch |
+| 48 | `https://manus.im/blog` | Manus | WebFetch |
+| 49 | `https://www.tencent.com/zh-cn/newsroom` | 騰訊（集團公告） | WebFetch |
+| 50 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | WebFetch |
+| 50b | `https://github.com/Tencent` | 騰訊（repo 動態） | WebFetch |
+| 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | WebFetch |
+| 52 | `https://github.com/baidu` | 百度（repo 動態） | WebFetch |
+
+**AI 生態 / VC / 獨立媒體**
+
+| # | URL | 說明 | 工具 |
+|---|-----|------|------|
+| M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | firecrawl |
+| M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | firecrawl |
+| M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | WebFetch |
+| M1d | `https://lsvp.com/stories` | Lightspeed Stories | WebFetch |
+| M2 | `https://the-decoder.com` | AI 新聞（每日更新） | WebFetch |
+| M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | WebFetch |
+| M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | WebFetch |
+| M5 | `https://simonwillison.net` | AI 開發者生態 blogger | WebFetch |
+| M6 | `https://www.latent.space/archive` | Latent Space（AI 深度分析） | WebFetch |
+
+處理方式：
+1. 抓回最近 5 篇的日期和標題
+2. 只保留 48 小時內的文章
+3. 今天沒發文的公司 = 0 筆，正確行為
+4. 有新文章的，把標題和 URL 加入信號候選
+
+### 第三層：社群 + 區域來源
+
+**社群（Exa × 3）**
+
+```
+工具：mcp Exa → web_search_exa
+numResults: 5 each
+```
+
+| # | query |
+|---|-------|
+| 1 | `site:news.ycombinator.com AI agent LLM tool` |
+| 2 | `site:reddit.com/r/MachineLearning AI agent` |
+| 3 | `site:reddit.com/r/LocalLLaMA model release` |
+
+**中文/台灣（Tavily × 4）**
+
+```
+工具：mcp Tavily → tavily_search
+max_results: 5, time_range: "day"
+```
+
+| # | query |
+|---|-------|
+| 1 | `site:36kr.com AI agent 人工智能` |
+| 2 | `site:jiqizhixin.com AI agent 大模型` |
+| 3 | `site:ithome.com.tw AI 人工智慧 agent` |
+| 4 | `site:bnext.com.tw AI 人工智慧` |
+
+### API 用量摘要
+
+| 工具 | 查詢數 | 說明 |
+|------|--------|------|
+| Tavily | 12 | 8 廣域 + 4 中文台灣 |
+| Exa | 3 | 社群（HN + Reddit） |
+| WebFetch | 67 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
+| firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
+| **總計** | **86** | 搜尋 API 只用 15 次 |
+
+### 去重與時間過濾
+
+所有來源合併後，依序執行：
+
+1. **URL 去重**：同一 URL 只保留一筆
+2. **跨天去重**：讀取 `src/data/daily-signals/seen-signal-urls.txt`，排除已收錄過的 URL
+3. **時間過濾**：
+   - 有 published date 的結果：只保留 48 小時內的（`>= ${YESTERDAY}`）
+   - published date 為 N/A 的結果：**保留但標記** `"dateConfidence": "unverified"`
+   - **CCR 環境的 Exa tool 不支援 `startPublishedDate` 參數**，所以必須在這一步手動過濾，不能依賴搜尋工具的日期篩選
+
+此時應有 50-100 則原始結果。
 
 ---
 
@@ -159,9 +302,18 @@ Q2: "site:bnext.com.tw AI 人工智慧"
 ### Step 6a：初篩（排除不相關）
 
 排除條件：
-- 與 AI Agent 四圈完全無關（純硬體、純晶片、非 AI 的軟體新聞）
+- 跟 AI 應用/產品/產業完全無關（純硬體、純晶片、非 AI 的軟體新聞）
+- 跟 AI 從業者無關的純學術研究（純數學證明、純理論物理、不涉及模型或應用的基礎科學）
 - 純廣告或付費內容推廣
 - 內容空洞（只有標題沒有實質內容的帖子）
+- published date 確認超過 7 天的結果（即使搜尋工具回傳了）
+
+保留條件（即使不直接涉及 Agent）：
+- 模型發佈、定價變動、benchmark 異動（影響 AI 從業者的成本和選型）
+- 多模態、語音、影片生成能力（決定 agent 能做什麼）
+- AI 法規、政策（影響 agent 能部署在哪裡）
+- AI 融資、併購（產業格局變化）
+- 推理基礎設施、算力動態（影響所有 AI 應用）
 
 ### Step 6b：比對 watchlist 公司
 
@@ -236,6 +388,8 @@ Q2: "site:bnext.com.tw AI 人工智慧"
   "title": "信號標題（原文語言）",
   "source": "來源簡稱（如 anthropic-blog / techcrunch / hn / reddit-ml）",
   "sourceUrl": "https://...",
+  "publishedDate": "2026-08-16",
+  "dateConfidence": "verified",
   "category": "vendor-update",
   "companies": ["anthropic"],
   "section": "A1",
@@ -245,6 +399,11 @@ Q2: "site:bnext.com.tw AI 人工智慧"
   "crossValidated": true,
   "crossValidationSources": ["techcrunch", "venturebeat"]
 }
+```
+
+`dateConfidence` 值：
+- `"verified"` — 搜尋結果有明確的 published date，且在 48h 內
+- `"unverified"` — 搜尋結果的 published date 為 N/A，無法確認時效性
 ```
 
 ---
@@ -338,13 +497,37 @@ Q2: "site:bnext.com.tw AI 人工智慧"
 
 ## 品質檢查清單
 
-- [ ] 信號數量在 30-50 之間
-- [ ] 每個 signal 都有 `sourceUrl`（可存取的 URL）
-- [ ] `category` 只用 schema.ts 定義的 14 種枚舉值
-- [ ] `relevance` < 0.5 的信號已排除
+寫完 JSON 後，**逐項跑以下 bash 驗證**（不要自己寫驗證腳本，用這些指令）：
+
+```bash
+FILE="src/data/daily-signals/${TODAY}.json"
+
+# 1. JSON 可解析 + signalCount 正確
+node -e "const d=require('./${FILE}'); console.assert(d.signalCount===d.signals.length, 'count mismatch'); console.log('✅ count:', d.signalCount)"
+
+# 2. 數量在 30-50
+node -e "const d=require('./${FILE}'); const n=d.signals.length; console.assert(n>=30&&n<=50, 'count out of range: '+n); console.log('✅ range:', n)"
+
+# 3. relevance >= 0.5（硬門檻，不可放寬）
+node -e "const d=require('./${FILE}'); const bad=d.signals.filter(s=>s.relevance<0.5); console.assert(bad.length===0, 'low relevance: '+bad.map(s=>s.id+':'+s.relevance).join(',')); console.log('✅ relevance all >= 0.5')"
+
+# 4. publishedDate + dateConfidence 都存在
+node -e "const d=require('./${FILE}'); const missing=d.signals.filter(s=>!s.publishedDate||!s.dateConfidence); console.assert(missing.length===0, 'missing date fields: '+missing.length); console.log('✅ date fields complete')"
+
+# 5. unverified 比例 < 50%
+node -e "const d=require('./${FILE}'); const uv=d.signals.filter(s=>s.dateConfidence==='unverified').length; const pct=Math.round(uv/d.signals.length*100); console.assert(pct<50, 'unverified too high: '+pct+'%'); console.log('✅ unverified:', pct+'%')"
+
+# 6. category 合法
+node -e "const cats=new Set(['vendor-update','model-release','pricing-change','benchmark-shift','framework-release','funding','acquisition','security-incident','regulation','tool-launch','open-source','enterprise-deployment','region-news','community-signal']); const d=require('./${FILE}'); const bad=d.signals.filter(s=>!cats.has(s.category)); console.assert(bad.length===0, 'bad category: '+bad.map(s=>s.category)); console.log('✅ categories valid')"
+```
+
+任何一項失敗就修改 JSON 後重跑，不可跳過。
+
+額外人工檢查：
 - [ ] 社群來源（HN/Reddit）不算獨立來源做交叉驗證
 - [ ] 中文來源涉及具體數字的信號，已嘗試用英文來源交叉驗證
 - [ ] `companies` slug 與 watchlist 一致（不是自己編的 slug）
-- [ ] JSON 格式正確（可被 `JSON.parse` 解析）
-- [ ] `signalCount` 與 `signals.length` 一致
+- [ ] 跨天去重：`seen-signal-urls.txt` 中的 URL 沒有出現在本次 signals 中
+- [ ] `seen-signal-urls.txt` 已追加本次所有 URL
+- [ ] commit 包含 JSON + seen-signal-urls.txt 兩個檔案
 - [ ] commit message 是 `chore(daily): signals ${TODAY}`（不是 `post(daily)`）

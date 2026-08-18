@@ -14,7 +14,7 @@ description: "Routine C: event-driven new AI model detection and model card gene
 ```bash
 # Step 1: 準備
 git pull origin main
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 
 # Step 2: 讀 watchlist 找出 A1/A2 的模型廠商清單
 cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" or .section == "A2") | .name'
@@ -26,7 +26,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 # Step 7: 提交
 git add src/content/posts/daily/${TODAY}-model-*.md
 git commit -m "post(daily): model card ${TODAY}"
-git push origin main
+git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
 ---
