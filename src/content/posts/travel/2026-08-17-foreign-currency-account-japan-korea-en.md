@@ -120,29 +120,36 @@ There is corroboration for this. The travel blog Bobby Travel [compared four way
 
 ## So what should you actually do
 
-### Japan: a JPY account is worth it, but pick the right bank
+### Japan: a JPY account is worth it, but not for getting banknotes
 
-Buying yen at the spot rate really is cheaper than buying banknotes. Using the board rates above, for NT$10,000:
+Buying yen at the spot rate really is cheaper on the board than buying banknotes. Using the board rates above, for NT$10,000:
 
 - Cash sell at 0.2048 → 48,828 yen
 - Spot sell at 0.2038 → 49,068 yen
 - Difference: 240 yen (about 0.49%)
 
-**But withdrawal fees can eat that advantage entirely.** Taking yen banknotes out of a foreign currency account costs money at most banks. Per [Money101's summary of over-the-counter exchange fees](https://www.money101.com.tw/blog/%E5%87%BA%E5%9C%8B%E6%8F%9B%E9%8C%A2%E8%A9%B2%E5%9C%A8%E9%8A%80%E8%A1%8C%E6%8F%9B%E9%82%84%E6%98%AF%E6%A9%9F%E5%A0%B4%E6%8F%9B%E5%A4%96%E5%B9%A3), Bank of Taiwan, Mega and CTBC charge nothing; E.SUN, First Bank and Hua Nan charge a flat NT$100; SinoPac charges "1% of the withdrawal amount for other currencies, minimum NT$100."
+**But you cannot keep that 0.49%, because it is the definition of the withdrawal fee.** When you take banknotes out of a foreign currency account, the spread is exactly what the bank charges:
 
-Run the numbers and the difference is stark:
+- [Bank of Taiwan's foreign currency ATM withdrawal service](https://www.bot.com.tw/Images/File/GetFileId/53f619bb-c8d7-4424-8bff-124e5bb07b9a) (in Chinese): "the handling fee is the withdrawal amount multiplied by the difference between the posted cash selling rate and the spot selling rate, minimum NT$100"
+- [Mega Bank's foreign exchange fee schedule](https://www.megabank.com.tw/-/media/mega/files/bankv2/personal/savings/foreign-service/remittance/foreign-exchange-charges.pdf) (in Chinese) spells out the formula: "rate = (cash selling − spot selling) / cash selling," minimum NT$100
+- [Cathay United Bank's fee schedule](https://www.cathaybk.com.tw/cathaybk/personal/about/news/charge-standard/foreigncurrency_cash): "Handling fee for exchange rate difference for cash withdraw from foreign currency deposit account: between the differential CUB's selling spot exchange rate and selling cash exchange rate … with a minimum of NTD100"
 
-- **Flat NT$100 banks:** you save only NT$49 per NT$10,000, so you need to exchange roughly NT$20,000+ to break even
-- **Banks charging 1%:** the fee exceeds the spot/cash spread itself (about 0.49%), so withdrawing banknotes via a foreign currency account **always loses money**
-- **Fee-free banks:** pure gain
+Put the 8/17 board rates into Mega's formula and the answer is 0.4883% — the same number as the 0.49% above. **Banks charge the cost of physical notes on one side or the other, so routing through a foreign currency account is not cheaper**, and with an NT$100 floor, small amounts are worse.
 
-So whether a JPY account pays off depends heavily on where you open it. **If the plan is to use the account to obtain yen banknotes, prioritise a bank with fee-free withdrawals.**
+Some banks are dearer still. Per [SinoPac's fee schedule](https://bank.sinopac.com/MMA8/DocDownload/%E6%B0%B8%E8%B1%90%E9%8A%80%E8%A1%8C%E5%90%84%E9%A0%85%E6%94%B6%E8%B2%BB%E6%A8%99%E6%BA%96%E5%8F%8A%E5%85%AC%E5%91%8A%E4%BA%8B%E9%A0%85.pdf) (in Chinese), withdrawing banknotes from a foreign currency account costs "other currencies: 1% of the foreign currency amount at the spot selling rate, charged in NTD, minimum NT$100," while pre-ordered banknotes and its own foreign currency ATMs cost 0.9% — all three above the 0.49% spread.
 
-Online exchange also tends to beat the counter. [Bank of Taiwan's own explanation](https://www.facebook.com/botbubi/posts/884045423749560) gives the discounts (in Chinese):
+So **if all you want is yen banknotes, don't route through a foreign currency account**; buying banknotes via online exchange is cleaner. Per the fee terms on [Bank of Taiwan's Easy Go foreign banknote system](https://fctc.bot.com.tw) (in Chinese):
 
-> Buying foreign banknotes through our "Online Currency Exchange Easy Go" site: USD discounted by 2 points, other currencies (excluding IDR and VND) by 0.1%. … Buying and selling foreign currency via internet banking with a foreign exchange digital deposit account: USD discounted by 3.5 points, other currencies by 0.25%. (Discounted rates may not be better than the mid rate.)
+> No handling fee is charged for online purchases. USD is discounted by 2 points; other currencies (excluding IDR and VND) by 0.1%.
 
-JPY falls under "other currencies," so going through internet banking at the spot rate takes another 0.25% off. Online exchange has a practical bonus too: you can reserve pickup at a Taoyuan Airport branch instead of making a separate trip to a bank.
+JPY falls under "other currencies." No fee, a rate discount, and you can reserve pickup at a Taoyuan Airport branch instead of making a separate trip to a bank.
+
+So where is the value of a JPY account? Two things, neither involving banknotes:
+
+1. **Timing.** What you lock in is the exchange rate, not the fee. Buying yen in tranches at the spot rate while it is cheap smooths out currency risk — that is the main value when the yen is volatile.
+2. **Paying directly from the account.** A dual-currency card or foreign currency debit card charges the yen account directly, so the money never becomes banknotes and never pays the banknote spread. This is the path where a foreign currency account genuinely saves money, and it is the flip side of the dual-currency section above: **a dual-currency card cannot save you the 1.5%, but it can save you the banknote spread.**
+
+In short: pair a JPY account with a **card**, not with an ATM.
 
 ### Korea: no account needed, and don't bring much cash
 
@@ -171,7 +178,7 @@ The four below are the terms as of August 2026, **each row checked line by line 
 | [E.SUN Kumamon Card](https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=8039) | 2.5% uncapped for general spending in Japan; up to 8.5% at designated Japanese merchants | 8.5% = 2.5% general + 6% bonus; bonus capped at NT$500 per account per period, registration required; 2026/7/1–12/31 |
 | [Taipei Fubon J Card](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000307) | Up to 6% at physical stores in Japan/Korea/Thailand | 6% = base up to 3% uncapped + 3% bonus; bonus requires **a single transaction of NT$1,000+**, registration, capped at NT$1,000 per account per quarter, limited to 60,000 registrants per quarter; **2026/4/1–9/30** |
 | [DBS eco Card](https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html) | 5% at local physical stores in Japan/Korea/Thailand/Singapore/Americas/Europe | 5% = 1% general uncapped + 4% bonus; requires a physical card or Apple Pay/Samsung Pay face-to-face and non-TWD settlement; bonus capped per period; 2026/1/1–12/31 |
-| [HSBC Cash Rewards Signature](https://www.hsbc.com.tw/credit-cards/products/cashback-signature) | 2.22% overseas, no cap | No minimum spend, rebate never expires; overseas **excludes EU and UK physical merchants** |
+| [HSBC Cash Rewards Signature](https://www.hsbc.com.tw/credit-cards/products/cashback-signature) | 2.22% overseas, no cap | No minimum spend, no merchant exclusion, rebate never expires; overseas excludes EU in-store spending (the Chinese page also lists the UK — the two official pages differ, so confirm with the issuer) |
 
 The Taishin Richart Card's 3.3% "travel" track often appears on lists like this, but read its threshold carefully. Per [Taishin's own page](https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001), 3.3% is a LEVEL 2 benefit: "completing the setup of 'Taishin account auto-debit for Taishin credit card payments' is required to enjoy the maximum 3.3% benefit rebate; without it, bonus channels earn up to 1.3%." Without the auto-debit setup, 1.3% is below the 1.5% fee — a net loss. The benefit period runs 2026/7/1–2027/3/31.
 
@@ -179,14 +186,14 @@ A few details that are easy to miss when choosing:
 
 - **"Overseas spending" is defined differently by each bank.** Some go by transaction location, some require foreign-currency settlement, some require both. Transactions with foreign acquirers like Agoda or Netflix count as overseas spending even when you are in Taiwan.
 - **Uncapped matters more than a high headline rate.** Many high rates are bonuses capped at NT$500–1,000 per period; past the cap you fall back to the base rate.
-- **Refunds don't always return the fee.** This varies a lot: most Visa cards do not refund it, while most Mastercard and JCB cards do. Worth weighing when booking refundable flights or hotels.
+- **Refunds don't always return the fee, and it depends on the network.** E.SUN, for example, states on its site that "for a VISA card, the foreign transaction service fee generated by the original transaction will not be refunded" while "for Mastercard and JCB cards, the foreign transaction service fee on the refunded amount will be returned." Rules differ by issuer, so check your own card's terms before booking flights or hotels you might cancel.
 - **Carry cards on two different networks.** Terminals occasionally accept only one; one Visa and one Mastercard is the safe combination.
 
 ## In one line
 
 | Question | Answer |
 |---|---|
-| Open a JPY account if I go to Japan often? | Worth it — but the value is stocking cheap yen, not card payments, and pick a bank with fee-free withdrawals |
+| Open a JPY account if I go to Japan often? | Worth it — but pair it with a dual-currency or debit card that charges the account directly, not with cash withdrawals, whose fee is precisely the cash/spot spread |
 | Open a KRW account if I go to Korea often? | You mostly can't, and you don't need to — use cards, get cash locally |
 | Is paying in foreign currency cheaper? | It does not save the 1.5%. A dual-currency card saves exchange rate risk, not the fee |
 | So how do I actually save on cards? | Pick a card with an overseas rebate above 1.5%, and never choose DCC |
@@ -200,7 +207,8 @@ The parts of this post have very different shelf lives. When revisiting, check t
 | Legal basis of the 0.5% cap | Highest — needs a rule change | FSC mandatory provisions, Article 6 |
 | KRW has no spot rate | High, structural | The KRW row on Bank of Taiwan's board |
 | Specific spread figures | Changes daily | Re-check the board; the spread ratios are relatively stable |
-| Per-bank withdrawal fees | Medium, occasionally revised | Each bank's fee schedule page |
+| "Withdrawal fee = the cash/spot spread" design | High, structural | Each bank's foreign exchange fee schedule |
+| Per-bank rates and minimum charges | Medium, occasionally revised | Each bank's fee schedule page |
 | Card rebate rates and expiry | **Low, changes within months** | Issuer's current benefits page (don't trust aggregators' dates) |
 | Japan's cashless ratio | Medium, updated annually | METI annual statistics |
 | Korea's cashless ratio | Medium, and a Euromonitor reference value | Payments Japan Association comparison page |
@@ -223,7 +231,11 @@ Dual-currency cards and foreign currency debiting
 Exchange rates and conversion
 
 - [Bank of Taiwan board exchange rates](https://rate.bot.com.tw/xrt?Lang=zh-TW)
-- [Bank of Taiwan: exchange discount details](https://www.facebook.com/botbubi/posts/884045423749560) (in Chinese)
+- [Bank of Taiwan Easy Go foreign banknote system: fee terms](https://fctc.bot.com.tw) (in Chinese)
+- [Bank of Taiwan: foreign currency ATM withdrawal from FX deposit accounts](https://www.bot.com.tw/Images/File/GetFileId/53f619bb-c8d7-4424-8bff-124e5bb07b9a) (in Chinese)
+- [Mega Bank: foreign exchange business fee schedule](https://www.megabank.com.tw/-/media/mega/files/bankv2/personal/savings/foreign-service/remittance/foreign-exchange-charges.pdf) (in Chinese)
+- [Cathay United Bank: foreign currency cash fee schedule](https://www.cathaybk.com.tw/cathaybk/personal/about/news/charge-standard/foreigncurrency_cash)
+- [SinoPac: schedule of fees and charges](https://bank.sinopac.com/MMA8/DocDownload/%E6%B0%B8%E8%B1%90%E9%8A%80%E8%A1%8C%E5%90%84%E9%A0%85%E6%94%B6%E8%B2%BB%E6%A8%99%E6%BA%96%E5%8F%8A%E5%85%AC%E5%91%8A%E4%BA%8B%E9%A0%85.pdf) (in Chinese)
 - [Yuanta Bank: exchangeable foreign banknote currencies and denominations](https://www.yuantabank.com.tw/bank/saveExchange/foreignDeposit/list2.do) (in Chinese)
 - [SinoPac DAWHO: currencies available in a foreign currency account](https://dawho.tw/hot/blog/forex-account) (in Chinese)
 - [Money101: how to exchange currency most cheaply, including per-bank counter fees](https://www.money101.com.tw/blog/%E5%87%BA%E5%9C%8B%E6%8F%9B%E9%8C%A2%E8%A9%B2%E5%9C%A8%E9%8A%80%E8%A1%8C%E6%8F%9B%E9%82%84%E6%98%AF%E6%A9%9F%E5%A0%B4%E6%8F%9B%E5%A4%96%E5%B9%A3) (in Chinese)
