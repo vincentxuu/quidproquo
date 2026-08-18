@@ -5,174 +5,25 @@ type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: en
-tldr: "For running LLMs on Cloudflare Workers AI, gemma-3-12b-it follows Traditional Chinese instructions noticeably better than llama-3.1-8b-instruct. With Gemma 4 arriving in 2026, you get Vision, Function calling, and 256K context -- upgrade as needed."
-description: "Why choose gemma-3-12b-it over Llama, how to use Cloudflare Workers AI with its limitations and trade-offs, and real-world performance observations in the nobodyclimb Traditional Chinese RAG system. 2026 update: Gemma 4 (gemma-4-26b-a4b-it) is now available, bringing 256K context and multimodal capabilities."
+tldr: "For running Traditional Chinese LLM workloads on Cloudflare Workers AI, the Gemma family follows instructions more reliably than same-tier Llama models. gemma-3-12b-it was removed on 2026-05-30; the current equivalent is gemma-4-26b-a4b-it: 256K context, Vision, Function calling, at $0.10 / $0.30 per M tokens."
+description: "Why pick Gemma over Llama on Cloudflare Workers AI, how to use it, its limitations and trade-offs, and real observations from the nobodyclimb Traditional Chinese RAG system. After gemma-3-12b-it's 2026-05-30 removal, this post centers on gemma-4-26b-a4b-it and includes migration notes."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
 
-Choosing an LLM isn't about picking "the most powerful one" -- it's about picking "the one that works within your constraints." nobodyclimb runs on Cloudflare Workers, and AI inference stays within the Cloudflare ecosystem -- `@cf/google/gemma-3-12b-it` is the best option under these constraints.
+Choosing an LLM isn't about picking "the most powerful one" -- it's about picking "the one that works within your constraints." nobodyclimb runs on Cloudflare Workers, and AI inference stays within the Cloudflare ecosystem. Under that constraint, the Gemma family has consistently been the smoothest option for Traditional Chinese.
 
-> **2026-04 Update**: Cloudflare Workers AI now offers `@cf/google/gemma-4-26b-a4b-it`, bringing a 256K context window, Vision, and Function calling support. See the [Gemma 4 comparison section](#gemma-4-2026-update) at the bottom of this post.
+> **Model status (2026-08)**: this post was originally built around `@cf/google/gemma-3-12b-it`, which was removed from Workers AI on 2026-05-30. The current equivalent is `@cf/google/gemma-4-26b-a4b-it`, and every example here has been updated to Gemma 4. The three reasons for choosing Gemma over Llama still hold for Gemma 4, so that analysis stays.
 
 ## What Is Cloudflare Workers AI
 
 Cloudflare Workers AI is Cloudflare's inference service that lets you call hosted models directly from the Workers environment without managing GPU infrastructure. Billing is token-based.
 
-Supported models span text generation, embedding, image generation, speech-to-text, and more. On the LLM side, mainstream open-source models like Llama, Mistral, Gemma, and Qwen are currently available.
+Supported models span text generation, embedding, image generation, speech-to-text, and more. On the LLM side, mainstream open-source families currently available include Gemma, Llama, Qwen, GLM, gpt-oss, and Kimi.
 
 ```typescript
 // In the Workers environment, bindings work like this
-const response = await env.AI.run("@cf/google/gemma-3-12b-it", {
-  messages: [
-    { role: "system", content: "You are an AI assistant for a Taiwan rock climbing community." },
-    { role: "user", content: "What routes at Longdong are suitable for beginners?" }
-  ],
-  max_tokens: 1024,
-  stream: true,
-});
-```
-
-Compared to self-hosting an inference service, the benefits are clear: no GPU management, no model serving ops work, and it lives in the same environment as other Workers bindings (D1, KV, Vectorize).
-
-## Why gemma-3-12b-it, Not llama-3.1-8b-instruct
-
-nobodyclimb initially used `llama-3.1-8b-instruct`. The main reasons for switching:
-
-**Traditional Chinese instruction following**: Llama 3.1 8B's Traditional Chinese output quality was inconsistent -- it would occasionally mix in Simplified Chinese characters or ignore formatting instructions in the system prompt (e.g., "answers must include source links"). Gemma 3 is noticeably more reliable in this regard.
-
-**12B vs 8B**: The parameter count gap is perceptible in the RAG Q&A use case. Gemma 3 12B utilizes context better -- when given 5 retrieved documents, it can synthesize information more accurately instead of only using the first few.
-
-**Gemma 3's multilingual training**: Google included more comprehensive multilingual coverage in Gemma 3's training data, with a higher proportion of Chinese (including Traditional Chinese) compared to Llama 3.1's publicly known training configuration.
-
-This isn't to say Llama is bad -- it's that for the specific use case of Traditional Chinese RAG, gemma-3-12b-it is a better fit.
-
-## Basic Usage
-
-**Non-streaming (suitable for evaluation, background jobs):**
-
-```typescript
-const result = await env.AI.run("@cf/google/gemma-3-12b-it", {
-  messages: [
-    { role: "system", content: systemPrompt },
-    { role: "user", content: userQuery }
-  ],
-  max_tokens: 512,
-});
-
-const answer = result.response; // string
-```
-
-**Streaming (suitable for user interfaces):**
-
-```typescript
-const stream = await env.AI.run("@cf/google/gemma-3-12b-it", {
-  messages: [...],
-  stream: true,
-});
-
-// With Hono's streamSSE
-return streamSSE(c, async (sseStream) => {
-  for await (const chunk of stream) {
-    if (chunk.response) {
-      await sseStream.writeSSE({ data: chunk.response });
-    }
-  }
-});
-```
-
-**JSON output (suitable for structured tasks like judge, filter-build):**
-
-```typescript
-const result = await env.AI.run("@cf/google/gemma-3-12b-it", {
-  messages: [
-    {
-      role: "system",
-      content: "Reply in JSON format: { score: number, reason: string }"
-    },
-    { role: "user", content: `Evaluate the quality of this answer: ${answer}` }
-  ],
-  response_format: { type: "json_object" },
-  max_tokens: 256,
-});
-
-const evaluation = JSON.parse(result.response);
-```
-
-## Usage Scenarios in nobodyclimb
-
-The system has multiple pipeline steps that require LLM calls:
-
-| Step | Task | Output Type |
-|------|------|-------------|
-| HyDE | Generate hypothetical answer documents | Plain text |
-| multi-query | Expand query into multiple angles | JSON array |
-| filter-build | Extract structured search conditions | JSON object |
-| llm-generation | Final answer generation | Plain text (streaming) |
-| judge | Evaluate answer quality | JSON object |
-| agenticDecision | Determine if information is sufficient | JSON boolean + reasoning |
-
-Same model, different prompt engineering, performing vastly different tasks. This is the strategy of having one sufficiently capable model handle everything, rather than selecting the smallest adequate model for each task -- on Cloudflare Workers AI, this makes management simpler.
-
-## Limitations of Cloudflare Workers AI
-
-Not spelling these out clearly will lead to painful pitfalls later:
-
-**CPU time limits**: Workers have CPU time caps (30 seconds on the Paid plan, but AI calls don't count toward CPU time -- they count toward wall time). A pipeline with multiple LLM calls (HyDE + generation + judge) can collectively exceed Workers' execution time limits. nobodyclimb's solution is to make judge writes asynchronous (non-blocking to the main flow) and only enable HyDE for complex queries.
-
-**Opaque model versioning**: Cloudflare manages model versions, and you can't pin a specific checkpoint. Model behavior may change without notice. You need monitoring mechanisms to detect anomalies in output quality.
-
-**No fine-tuning**: Hosted models on Workers AI currently can't be fine-tuned. Domain adaptation relies entirely on prompt engineering and RAG.
-
-**Cold start latency**: During low-traffic periods, the first call may have higher latency. Semantic caching can mitigate this (cache hits avoid LLM calls entirely).
-
-**Context window**: gemma-3-12b-it on Cloudflare Workers AI has a context window of 8192 tokens according to official documentation. Be careful not to exceed the limit with long conversations or large numbers of retrieved documents.
-
-## Comparison with Other Options
-
-| | gemma-3-12b-it (Workers AI) | gemma-4-26b-a4b-it (Workers AI) | OpenAI GPT-4o-mini | Self-hosted Ollama |
-|---|---|---|---|---|
-| Trad. Chinese quality | Good | Good | Very good | Model-dependent |
-| Context window | 8K tokens | 256K tokens | 128K tokens | Model-dependent |
-| Vision | No | Yes | Yes | Model-dependent |
-| Function calling | No | Yes | Yes | Model-dependent |
-| Ops cost | Zero | Zero | Zero | High |
-| Latency | Medium | Fast (MoE active 4B) | Low | Hardware-dependent |
-| Flexibility | Low | Low | Medium | High |
-| Pricing structure | Token-based | $0.10/$0.30 per M tokens | Token-based | Fixed hardware cost |
-
-If Traditional Chinese quality is the top priority, the GPT-4o series is still stronger. But if you're already in the Cloudflare ecosystem and don't want to maintain another AI service account and API key, Workers AI is the smoothest choice.
-
-## Real-World Observations
-
-After several months of use:
-
-- Traditional Chinese instruction following is more stable than Llama; formatting requirements in system prompts (citing sources, JSON output) are generally followed
-- Occasional hallucination issues are caught by the judge + self-reflection mechanism -- groundedness below 0.5 triggers a retry
-- 12B inference speed isn't fast; the first token in streaming typically takes 1-2 seconds, and a complete answer (300-500 characters) takes about 5-8 seconds
-- JSON output mode is stable; `response_format: { type: "json_object" }` rarely returns malformed output
-
-Overall assessment: under the constraint of "staying within the Cloudflare ecosystem," this is currently the best Traditional Chinese LLM option.
-
-## Gemma 4 (2026 Update)
-
-In 2026, Cloudflare Workers AI launched `@cf/google/gemma-4-26b-a4b-it`. Several key upgrades are worth noting:
-
-**Architecture change: MoE**  
-Gemma 4 adopts a Mixture-of-Experts architecture. Total parameters are 26B, but only about 4B are activated per inference (a4b = active 4 billion). Actual inference speed is faster than Gemma 3 12B while performing better on most tasks.
-
-**256K context window**  
-Gemma 3 on Workers AI only had 8K. Gemma 4's 256K is a massive leap, directly benefiting RAG scenarios that need to fit large volumes of documents.
-
-**Vision support**  
-You can pass in images for visual understanding, suitable for applications that need to analyze screenshots or charts.
-
-**Function calling**  
-Native tool calling support, more reliable than forcing JSON through prompts, ideal for agentic workflows.
-
-```typescript
-// Gemma 4 usage is the same as Gemma 3, just swap the model ID
 const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
   messages: [
     { role: "system", content: "You are an AI assistant for a Taiwan rock climbing community." },
@@ -183,18 +34,174 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 });
 ```
 
-**When to upgrade to Gemma 4?**
+Compared to running your own inference service, the benefits are obvious: no GPU management, no model-serving ops work, and it sits in the same environment as your other Workers bindings (D1, KV, Vectorize).
 
-- Need to process long documents or multiple context sources -> 256K directly solves Gemma 3's 8K limitation
-- Need function calling for agentic tasks -> Gemma 4 has native support
-- Need image understanding -> Gemma 4 supports vision
-- Text-only RAG with limited budget -> Gemma 3 12B is still sufficient, and the pricing structure differs (Gemma 3 has no public pricing, Gemma 4 is $0.10/$0.30 per M tokens)
+## Why Gemma, Not Llama
+
+nobodyclimb started on `llama-3.1-8b-instruct` and later moved to what was then `gemma-3-12b-it`. The three reasons for that switch are still the reasons to pick Gemma 4 today:
+
+**Traditional Chinese instruction following**: Llama 3.1 8B produced inconsistent Traditional Chinese — occasionally mixing in Simplified characters, or ignoring formatting instructions in the system prompt (for example, "include source links in your answer"). Gemma is noticeably more reliable here.
+
+**Parameter count**: the gap between 12B and 8B is felt in RAG question answering — give the model five retrieved documents and the larger one integrates information across all of them instead of leaning on the first couple. Gemma 4 pushes this further with MoE: 26B total parameters, roughly 4B active per inference.
+
+**Gemma's multilingual training**: Google's Gemma training data has broader multilingual coverage, with a higher proportion of Chinese (including Traditional) than Llama 3.1's published training setup.
+
+None of this says Llama is bad — it says that for this specific use case, Traditional Chinese RAG, Gemma fits better. Worth noting: both model IDs in that original comparison are gone from the catalog now. `llama-3.1-8b-instruct` and `gemma-3-12b-it` were removed in the same 2026-05-30 wave.
+
+## Basic Usage
+
+**Non-streaming (good for evaluation and background jobs):**
+
+```typescript
+const result = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+  messages: [
+    { role: "system", content: systemPrompt },
+    { role: "user", content: userQuery }
+  ],
+  max_tokens: 512,
+});
+
+const answer = result.response; // string
+```
+
+**Streaming (good for user interfaces):**
+
+```typescript
+const stream = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+  messages: [...],
+  stream: true,
+});
+
+// Paired with Hono's streamSSE
+return streamSSE(c, async (sseStream) => {
+  for await (const chunk of stream) {
+    if (chunk.response) {
+      await sseStream.writeSSE({ data: chunk.response });
+    }
+  }
+});
+```
+
+**JSON output (good for structured tasks like judge and filter-build):**
+
+```typescript
+const result = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+  messages: [
+    {
+      role: "system",
+      content: "Respond in JSON with the shape { score: number, reason: string }"
+    },
+    { role: "user", content: `Evaluate the quality of this answer: ${answer}` }
+  ],
+  response_format: { type: "json_object" },
+  max_tokens: 256,
+});
+
+const evaluation = JSON.parse(result.response);
+```
+
+## How nobodyclimb Uses It
+
+Several pipeline steps in the system call the LLM:
+
+| Step | Task | Output type |
+|------|------|-------------|
+| HyDE | Generate a hypothetical answer document | Plain text |
+| multi-query | Expand the query into multiple angles | JSON array |
+| filter-build | Extract structured search filters | JSON object |
+| llm-generation | Final answer generation | Plain text (streamed) |
+| judge | Evaluate answer quality | JSON object |
+| agenticDecision | Decide whether the information is sufficient | JSON boolean + reasoning |
+
+One model, different prompt engineering, wildly different tasks. That is a deliberate choice to let one capable model handle everything rather than picking the smallest sufficient model per task — on Cloudflare Workers AI, that is simply easier to manage.
+
+## Cloudflare Workers AI Limitations
+
+Not spelling these out leads to painful surprises later:
+
+**CPU time limits**: Workers have a CPU time cap (30 seconds on the Paid plan, though AI calls count against wall time rather than CPU time). A pipeline with several LLM calls (HyDE + generation + judge) can exceed the Workers execution limit in aggregate. nobodyclimb handles this by writing judge results asynchronously (not blocking the main flow) and enabling HyDE only for complex queries.
+
+**Models get removed, and versions are opaque**: Cloudflare manages model versions, you cannot pin a specific checkpoint, and behavior can change without notice. Worse, entire model IDs disappear. The 2026-05-30 sweep removed 18 IDs at once, including the whole Llama 2/3/3.1 line, Mistral 7B, and Gemma 3 12B. The implication is that model IDs should not be scattered as string literals throughout your code — collapse them into a single constant or config value so a swap touches one place. You also want monitoring that detects output quality regressions.
+
+**No fine-tuning**: hosted models on Workers AI cannot be fine-tuned today. Domain adaptation has to come from prompt engineering and RAG.
+
+**Cold start latency**: during low-traffic periods the first call can be noticeably slower. A semantic cache mitigates this (a cache hit skips the LLM entirely).
+
+**Check the model page for the context window**: it varies a lot between models, and the number on the Workers AI model page — not the upstream model's spec — is what applies. `gemma-4-26b-a4b-it` is 256,000 tokens, `glm-4.7-flash` is 131,072, and `gemma-3-12b-it` was 80,000 before removal. Size your long conversations and retrieval sets against the real limit.
+
+## Comparison with Other Options
+
+| | gemma-4-26b-a4b-it (Workers AI) | glm-4.7-flash (Workers AI) | OpenAI GPT-4o-mini | Self-hosted Ollama |
+|---|---|---|---|---|
+| Traditional Chinese quality | Good | Good | Very good | Depends on model |
+| Context window | 256K tokens | 131K tokens | 128K tokens | Depends on model |
+| Vision | Yes | No | Yes | Depends on model |
+| Function calling | Yes | Yes | Yes | Depends on model |
+| Ops cost | Zero | Zero | Zero | High |
+| Latency | Fast (MoE, 4B active) | Fast | Low | Depends on hardware |
+| Flexibility | Low | Low | Medium | High |
+| Price (per M tokens) | $0.10 / $0.30 | $0.06 / $0.40 | Token-based | Fixed hardware cost |
+
+If Traditional Chinese quality is your top priority, the GPT-4o family is still stronger. But if you are already in the Cloudflare ecosystem and don't want to maintain another AI service account and API key, Workers AI is the smoothest path.
+
+Within that ecosystem, the split between Gemma 4 and GLM-4.7-Flash is roughly: pick Gemma 4 when you need vision or a very full context window, and pick GLM for text-only conversations where input greatly outweighs output (input is only $0.06, though output costs a bit more).
+
+## Real-World Observations
+
+After several months of use:
+
+- Traditional Chinese instruction following is more stable than Llama; formatting requirements in the system prompt (cite sources, emit JSON) are generally respected
+- Occasional hallucinations are caught by the judge + self-reflection mechanism, retrying when groundedness falls below 0.5
+- 12B inference was not fast — first streamed token typically at 1-2 seconds, full answers (300-500 words) around 5-8 seconds; Gemma 4 improves this since only 4B is active
+- JSON output mode is stable; `response_format: { type: "json_object" }` rarely returns malformed output
+
+Overall: under the constraint of "don't leave the Cloudflare ecosystem," this is the best Traditional Chinese LLM option available.
+
+## Migrating from Gemma 3 to Gemma 4
+
+`@cf/google/gemma-3-12b-it` was removed on 2026-05-30. Cloudflare suggested three replacements: `@cf/zai-org/glm-4.7-flash` (fast tool calling), `@cf/google/gemma-4-26b-a4b-it` (efficient open model), and `@cf/moonshotai/kimi-k2.6` (agentic plus vision, but requires a paid plan). Coming from Gemma 3, Gemma 4 is the most direct move.
+
+**Architecture change: MoE**
+Gemma 4 uses a Mixture-of-Experts architecture. 26B total parameters, but only about 4B activate per inference (a4b = active 4 billion). It is faster than Gemma 3 12B in practice while performing better on most tasks.
+
+**256K context window**
+Gemma 3 was served at 80K on Workers AI; Gemma 4 is 256K. For RAG workloads that stuff in large retrieval sets, that is real headroom.
+
+**Vision support**
+You can pass images for visual understanding, useful for applications that analyze screenshots or charts.
+
+**Function calling**
+Native tool calling is more reliable than forcing JSON through prompt engineering, which suits agentic workflows.
+
+**And it is cheaper**
+Gemma 3 was $0.35 / $0.56 per M input/output tokens; Gemma 4 is $0.10 / $0.30. The upgrade does not cost you anything on the bill.
+
+```typescript
+// Migration is a model ID swap; the calling interface is identical
+const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+  messages: [
+    { role: "system", content: "You are an AI assistant for a Taiwan rock climbing community." },
+    { role: "user", content: "What routes at Longdong are suitable for beginners?" }
+  ],
+  max_tokens: 1024,
+  stream: true,
+});
+```
+
+An identical interface does not mean identical output. Re-run your prompt evaluation after the swap — JSON formatting instructions that lean on few-shot examples or specific phrasing are the first thing to break when the model changes.
+
+## Update Log
+
+- 2026-08-18: `gemma-3-12b-it` was removed on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
 
 ## References
 
-- [Cloudflare Workers AI Official Docs](https://developers.cloudflare.com/workers-ai/)
-- [Workers AI: Text Generation](https://developers.cloudflare.com/workers-ai/models/text-generation/)
-- [Workers AI: gemma-3-12b-it Model Page](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
-- [Workers AI: gemma-4-26b-a4b-it Model Page](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
-- [Google Gemma 3 Technical Report](https://ai.google.dev/gemma/docs/gemma3)
-- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) -- Full application of gemma-3-12b-it in a 20-node pipeline
+- [Cloudflare Workers AI documentation](https://developers.cloudflare.com/workers-ai/)
+- [Workers AI model catalog](https://developers.cloudflare.com/workers-ai/models/)
+- [Workers AI changelog: the 2026-05-30 deprecations and recommended replacements](https://developers.cloudflare.com/workers-ai/changelog/)
+- [Workers AI pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/)
+- [Workers AI: gemma-4-26b-a4b-it model page](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
+- [Workers AI: gemma-3-12b-it model page (marked Deprecated)](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI: glm-4.7-flash model page](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
+- [Google Gemma 3 technical report](https://ai.google.dev/gemma/docs/gemma3)
+- [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — how Gemma is used across the 20-node pipeline
