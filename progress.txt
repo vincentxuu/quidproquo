@@ -25,28 +25,25 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
-- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en）。論點：外幣帳戶救不了
-  海外刷卡 1.5%，**雙幣卡也照收**（玉山、永豐官網明寫），免收只在外幣 Debit 扣同幣別帳戶（星展
-  14 幣別含 JPY、不含 KRW）等窄路徑。硬證據：台銀牌告**韓元即期欄位是空的**＋元大官網「韓元現鈔
-  僅限以新臺幣辦理兌換」＝多數銀行開不了韓元帳戶。0.5% 上限法源＝金管會應記載事項第六點。
-  **最終結論（第二輪 post-verify 推翻第一版）：「提領費＝現鈔與即期價差」是全行業設計**（台銀／
-  兆豐／國泰世華官方原文；兆豐公式代入 8/17 牌告＝0.4883%，正是即期比現鈔省的那 0.49%）。
-  所以繞外幣帳戶領現鈔**沒有**價格優勢，還有 NT$100 底價；日圓帳戶配的是卡（雙幣／Debit 全程
-  不變現鈔），不是配 ATM。只要現鈔就直接線上結匯（台銀 Easy購免手續費＋其他幣別減千分之1）。
-  **方法論教訓**：①第一版錯在把二手表格的「臨櫃買現鈔免手續費」和「外幣帳戶提領現鈔」混為一談
-  ——價格一律回官方收費標準頁。②聚合站的活動期限會錯（富邦 J 卡官網 2026/4/1–9/30，Money101／
-  卡優都寫 12/31）；卡片權益逐條回發卡行官網。③轉手引用會誤植出處（韓國無現金 99.0% 非經產省，
-  是無現金推進協議會 2022 年 Euromonitor **參考值**）。④拿不到一手就砍（美國運通 2%）。
-  ⑤**tavily_extract 帶 query 只回片段**（台銀牌告漏日圓那列即此），⑥check:references 關鍵詞
-  重疊只認 ASCII token，純中文標題零命中而 warn。**臨時查證取代不了 post-verify skill。**
-- 2026-08-16: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
-  已註冊進 src/utils/series.ts。骨架是 Fall 2026 十週大綱＋總覽（含 FA25→FA26 改版 diff：
-  Final Project 80%→50%、新增 open source 30%；砍 Modern Terminal 與 Automated UI，換上
-  Skills／Agent-Ready Codebases／Background Agents／AI-Native Team）。**課程官網把 syllabus
-  藏在前端 chunk**，兩版資料要從 `_next/static/chunks/17rusgxd1swbs.js` 抓 `eC`（FA25）
-  與 `eS`（FA26）解出，scrape 首頁沒有。FA26 尚未開課、無 reading list，每週改用自找的一手
-  來源並標明出處（RePPIT、Factory 八柱五級、Google AutoCommenter、o3/CVE-2025-37899、
-  lethal trifecta、Anthropic 十團隊 PDF）。**不引用各家 catch rate 對比**——無可重現方法。
+- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。論點：
+  外幣帳戶救不了海外刷卡 1.5%，**雙幣卡也照收**（玉山、永豐官網明寫）；0.5% 上限法源＝金管會
+  應記載事項第六點。**韓元在台銀牌告即期欄位是空的**＋元大官網「韓元現鈔僅限以新臺幣辦理兌換」
+  ＝多數銀行開不了韓元帳戶。**第二輪 post-verify 推翻第一版結論：「提領費＝現鈔與即期價差」是
+  全行業設計**（台銀／兆豐／國泰世華官方原文；兆豐公式代入 8/17 牌告＝0.4883%，正是即期比現鈔
+  省的 0.49%），所以繞外幣帳戶領現鈔沒有價格優勢——日圓帳戶配的是卡，不是配 ATM。
+  **教訓**：①二手表格會把「臨櫃買現鈔免手續費」和「外幣帳戶提領現鈔」混為一談，價格一律回官方
+  收費標準頁；②聚合站活動期限會錯（富邦 J 卡官網 2026/4/1–9/30，Money101／卡優寫 12/31）；
+  ③轉手引用會誤植出處（韓國無現金 99.0% 非經產省，是協議會的 Euromonitor 參考值）；
+  ④**tavily_extract 帶 query 只回片段**（台銀牌告漏日圓那列即此）。臨時查證取代不了 post-verify。
+- 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
+  已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
+  FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
+  條、18 份投影片全漏），補讀後改 8 篇；接著只跑格式檢查就回報「全綠」，補驗內容後再修三處。
+  **可重用教訓（細節見 docs/progress-archive.md）**：①課程網站首頁抓不到 ≠ 教材不存在——
+  投影片連結在 syllabus 分頁每堂課旁邊；②**自己在對話裡講過的數字不是來源**（口頭說「18 份
+  投影片」直接寫進文章，實際 17）；③連結回 200 ≠ 那頁支持你的宣稱（引 OWASP 2026 卻掛 2025
+  版頁面）；④`pnpm verify`／`astro check` 只驗格式，回報時別用「全綠」概括內容。
+  ②③④已進 post-verify／post 的反合理化表。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條 agentic 工程規則
   （zh + en）。**第一版主軸下錯**：我把順手驗出的一個 bug 當成文章骨幹，被使用者
   點出「這不是我要的東西」後才改回「這 45 條規則主張什麼」。教訓：研究一個專案時，
@@ -77,6 +74,7 @@ Recently completed
   負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
   **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
   有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
+- 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。細節與教訓見 docs/progress-archive.md。
 - 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
