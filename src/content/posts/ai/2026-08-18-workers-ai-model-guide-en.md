@@ -36,6 +36,32 @@ Every context window and price below comes from the individual official model pa
 
 Cloudflare pins four models on the catalog page: `kimi-k2.7-code`, `glm-4.7-flash`, `gpt-oss-120b`, and `llama-4-scout-17b-16e-instruct`. Those four are roughly the lineup Cloudflare wants you on right now.
 
+## Reading a model ID
+
+Model IDs follow `@cf/<publisher>/<model name>`, and almost every suffix in that trailing string describes the architecture. Learning to read them saves a trip to the docs:
+
+```
+@cf/google/gemma-4-26b-a4b-it
+ │      │      │    │   │   └── it = instruction tuned, for chat; without it you get a base model
+ │      │      │    │   └────── a4b = active 4 billion, the MoE activates 4B per inference
+ │      │      │    └────────── 26b = 26 billion total parameters
+ │      │      └─────────────── model family and generation
+ │      └────────────────────── publisher (google / meta / qwen / zai-org / moonshotai ...)
+ └───────────────────────────── @cf = Cloudflare-hosted; a few older models use @hf (Hugging Face)
+```
+
+Other common suffixes:
+
+| Suffix | Meaning | Why it matters |
+|---|---|---|
+| `-it` / `-instruct` | Instruction-tuned | Base models without it are not suited to direct conversation |
+| `-fp8` / `-awq` / `-int8` | Quantization precision | Cheaper and faster, slightly lower quality. fp8 is the best trade-off; int4 (awq) is the most aggressive |
+| `a3b` / `a4b` / `a12b` | MoE active parameter count | This, not the total, determines your real inference cost and speed |
+| `-fast` | Cloudflare's accelerated deployment | Worth noting: **the 2026-05-30 sweep spared the `-fast` and `-lora` variants** |
+| `-lora` | Base model that accepts LoRA adapters | Used with the Workers AI fine-tuning feature |
+
+MoE (Mixture-of-Experts) is now the mainstream in this catalog: Gemma 4, Llama 4 Scout, Qwen3-30B, Nemotron 3, and Moondream 3.1 all use it. The practical reading is that total parameters govern how smart the model is while active parameters govern what you pay and how long you wait — `gemma-4-26b-a4b-it` delivers 26B worth of knowledge at close to 4B speed, which is why it beats the older dense 12B model on speed, quality, and price at once.
+
 ## Text generation: three tiers
 
 ### Tier 1: everyday workhorses (no paid plan needed)
@@ -47,7 +73,16 @@ Cloudflare pins four models on the catalog page: `kimi-k2.7-code`, `glm-4.7-flas
 | [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.11 | Function calling |
 | [qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/) | 32,768 | $0.051 / $0.335 | Function calling, Reasoning, Batch |
 | [llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/) | 131,000 | $0.27 / $0.85 | Function calling, Vision, Batch |
-| [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128K | $0.351 / $0.555 | Function calling |
+| [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128,000 | $0.351 / $0.555 | Function calling |
+
+What each of these actually is:
+
+- **[glm-4.7-flash](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)** (Zhipu AI / Z.ai) — the lightweight member of the Chinese GLM family. Cloudflare's description: "Optimized for dialogue, instruction-following, and multi-turn tool calling across 100+ languages." Multilingual conversation and multi-turn tool use are the selling points, and Chinese is one of its strongest languages.
+- **[gemma-4-26b-a4b-it](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)** (Google) — Gemma is Google's open model family derived from Gemini research, and the fourth generation is positioned as "built from Gemini 3 research to maximize intelligence-per-parameter." A 26B-total / 4B-active MoE, and the only model in this tier with vision, reasoning, and function calling together.
+- **[granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/)** (IBM) — IBM's enterprise-oriented open family. The docs explicitly target RAG, multi-agent workflows, and edge deployments, and highlight instruction following and function calling. "h-micro" is the hybrid-architecture smallest size in Granite 4.0.
+- **[qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/)** (Alibaba Qwen) — the MoE variant of Qwen's third generation, 30B total / 3B active, then fp8-quantized. Strong on Chinese, supports the Batch API, but capped at a 32,768-token window.
+- **[llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/)** (Meta) — Scout is the smallest of the Llama 4 line, 17B parameters across 16 experts, and **natively multimodal** rather than bolting on a vision encoder. One of the few models in this tier with Batch API support.
+- **[mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/)** (Mistral AI, France) — a 24B dense model and the European entry here. One discrepancy to note: the official description says it "adds state-of-the-art vision understanding," but the catalog only tags it with Function calling and **no Vision tag** — test before relying on image input.
 
 **Default to `glm-4.7-flash`.** It has the cheapest input price in this tier while still offering function calling and a 131K context window. Cloudflare's own description: "Optimized for dialogue, instruction-following, and multi-turn tool calling across 100+ languages."
 
@@ -67,6 +102,11 @@ Cloudflare pins four models on the catalog page: `kimi-k2.7-code`, `glm-4.7-flas
 | [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | — | $0.497 / $4.881 | Older distilled reasoning model, expensive output |
 | [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | — | $0.66 / $1.00 | Same generation |
 
+- **[gpt-oss-120b / gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/)** (OpenAI) — OpenAI's rare open-weight release, positioned for "powerful reasoning, agentic tasks, and versatile developer use cases." The 120b targets production high-reasoning work; the 20b targets low latency and specialized cases.
+- **[nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/)** (NVIDIA) — NVIDIA's own Nemotron 3 Super, a hybrid MoE (120B total / 12B active) whose stated focus is accuracy in multi-agent applications and agentic AI systems.
+- **[deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/)** (DeepSeek) — DeepSeek-R1's reasoning ability distilled onto Qwen2.5 32B, a landmark of the 2025 "reasoning models for everyone" wave and now mostly of historical interest.
+- **[qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/)** (Qwen) — Qwen's reasoning-specialized model from the same generation, benchmarked by its authors against DeepSeek-R1 and o1-mini.
+
 `gpt-oss-20b` deserves a callout: $0.20 / $0.30 buys 128K context plus reasoning plus function calling, and its output price undercuts `glm-4.7-flash`'s $0.40. When you need long output *and* reasoning, it is often the best answer in the catalog.
 
 `deepseek-r1-distill-qwen-32b`'s $4.881 output price is among the highest anywhere in the catalog — 6.5× `gpt-oss-120b`. That is early-reasoning-model pricing, and there is little reason to pick it today.
@@ -85,7 +125,13 @@ Calls to these five fail on Workers Free. You need Workers Paid or prepaid [AI G
 | [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,100 | $0.95 / $0.16 / $4.00 |
 | [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | **1,048,576** | $0.44 / $0.014 / $1.32 |
 | [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | — | $1.32 / $0.044 / $3.96 |
-| [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | — | $1.40 / $0.26 / $4.40 |
+| [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | 262,144 | $1.40 / $0.26 / $4.40 |
+
+What this tier is:
+
+- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)** (Moonshot AI) — **1T-parameter** open frontier models with a 262K window, multi-turn tool calling, vision inputs, and structured outputs, explicitly aimed at agentic workloads. `k2.7-code` is the coding-specialized sibling and the first pinned model on the catalog page.
+- **[deepseek-v4-flash-0731 / deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)** (DeepSeek) — the V4 generation splits into Flash (fast) and Pro (high-end). Note that `deepseek-v4-pro-0813`'s description field in the official catalog is still a placeholder string ("deepseek-ai/deepseek-v4-pro-0813") with no real explanation.
+- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)** (Zhipu AI / Z.ai) — described in one line as "Z.ai's flagship agentic coding model." It sits an order of magnitude above its `glm-4.7-flash` sibling in both positioning and price (23× the input cost).
 
 This tier is the only one with **cached-input pricing**, and the discount ratios differ wildly: DeepSeek V4 Flash charges $0.014 for cached input against $0.44 normal — a **1/31** ratio — while Kimi K2.6's $0.16 against $0.95 is only 1/6. For multi-turn conversations or repeatedly sending the same long prompt, that ratio drives your bill. To actually hit the cache, send the `x-session-affinity` header so requests route back to the same model instance (see the official [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) docs).
 
@@ -102,6 +148,15 @@ This tier is the only one with **cached-input pricing**, and the discount ratios
 | [bge-large-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/) | — | $0.204 | English, 1024 dims, Batch support |
 | [bge-base-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-base-en-v1.5/) | — | $0.067 | English, 768 dims |
 | [bge-small-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-small-en-v1.5/) | — | $0.020 | English, 384 dims |
+
+Where these embedding models come from:
+
+- **[qwen3-embedding-0.6b](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/)** (Alibaba Qwen) — the embedding-and-ranking branch of the Qwen3 family, and instruction-aware (you can steer it per task).
+- **[bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/)** (BAAI, Beijing) — the multilingual flagship of the BGE series. The M3 stands for Multi-Functionality (dense + sparse + multi-vector retrieval), Multi-Linguality, and Multi-Granularity. It is one of the most widely deployed embedding models in open-source RAG.
+- **[embeddinggemma-300m](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-300m/)** (Google) — a 300M embedding model derived from Gemma 3, trained on 100+ languages and pitched as state-of-the-art for its size. Cloudflare's changelog previously noted an accuracy improvement and advised existing users to re-index.
+- **[bge-large / base / small-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/)** (BAAI) — same lab, but the older **English-only** generation, emitting 1024 / 768 / 384-dimension vectors respectively.
+- **[plamo-embedding-1b](https://developers.cloudflare.com/workers-ai/models/plamo-embedding-1b/)** (Preferred Networks) — a Japanese-specific embedding model from Japan's PFN, worth testing on Japanese corpora.
+- **[bge-reranker-base](https://developers.cloudflare.com/workers-ai/models/bge-reranker-base/)** (BAAI) — not an embedding model. It takes a question and a document together and emits a relevance score directly, which is more accurate than vector similarity but cannot be precomputed and stored.
 
 For multilingual content pick `qwen3-embedding-0.6b` or `bge-m3` — both at $0.012 per M input tokens, 17× cheaper than the English-only `bge-large-en-v1.5` at $0.204, and multilingual on top of that. Even for English-only corpora there is little reason to reach for bge-large-en unless your Vectorize index is already built on it.
 
@@ -122,7 +177,7 @@ Reranking has exactly one option: `bge-reranker-base` at $0.003 per M input toke
 | [flux-1-schnell](https://developers.cloudflare.com/workers-ai/models/flux-1-schnell/) | $0.0000528 / tile, $0.0001056 / step |
 | [lucid-origin](https://developers.cloudflare.com/workers-ai/models/lucid-origin/) (Leonardo) | $0.006996 / tile, $0.000132 / step |
 
-The FLUX.2 [klein] models unify generation and editing; the 4B is cheap enough for live previews, and the 9B is the step up when quality matters.
+**[FLUX](https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/)** (Black Forest Labs) comes from the team that originally built Stable Diffusion. FLUX.2 [klein] is the distilled fast line that unifies generation and editing — the 4B is cheap enough for live previews, the 9B is the quality step up — while the older `flux-1-schnell` is a 12B rectified flow transformer still in the catalog. **[lucid-origin](https://developers.cloudflare.com/workers-ai/models/lucid-origin/)** and **[phoenix-1.0](https://developers.cloudflare.com/workers-ai/models/phoenix-1.0/)** come from Leonardo.AI, and their strengths are prompt adherence and rendering text correctly.
 
 **Speech:**
 
@@ -135,9 +190,17 @@ The FLUX.2 [klein] models unify generation and editing; the 4B is cheap enough f
 | [melotts](https://developers.cloudflare.com/workers-ai/models/melotts/) | TTS, multilingual | $0.0002 / audio minute |
 | [smart-turn-v2](https://developers.cloudflare.com/workers-ai/models/smart-turn-v2/) | Turn detection | $0.00033795 / min |
 
+**[Whisper](https://developers.cloudflare.com/workers-ai/models/whisper-large-v3-turbo/)** (OpenAI) is the de facto standard for general speech recognition, and turbo is the distilled, accelerated large-v3. The three **Deepgram** entries are commercial partner models: `nova-3` is general real-time ASR, the `aura` line is TTS that adapts pacing and expressiveness to context, and `flux` (unrelated to Black Forest Labs' image model despite the name) is described as "the first conversational speech recognition model built specifically for voice agents." **[smart-turn-v2](https://developers.cloudflare.com/workers-ai/models/smart-turn-v2/)** (Pipecat) does no recognition at all — it only decides whether the speaker has finished, which is what stops a voice agent from talking over people.
+
 For offline transcription use Whisper turbo at $0.0005/min — 10× cheaper than Deepgram Nova-3. Reach for the Deepgram line only when you need real-time streaming or are building a voice agent.
 
-**Everything else**: `moondream3.1-9B-A2B` (visual reasoning, $0.30 / $1.00), `m2m100-1.2b` and `indictrans2-en-indic-1B` (translation, $0.342 each), `llama-guard-3-8b` (content safety classification), and `distilbert-sst-2-int8` (sentiment, $0.026).
+**Everything else worth knowing about:**
+
+- **[moondream3.1-9B-A2B](https://developers.cloudflare.com/workers-ai/models/moondream3.1-9B-A2B/)** ($0.30 / $1.00) — a small 9B MoE / 2B active vision-language model built for object detection, pointing, OCR, and structured output. For pulling data out of screenshots or document images it is far cheaper than asking a general large model to look at the picture.
+- **[llama-guard-3-8b](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/)** (Meta) — not a chat model but a content safety classifier: feed it a prompt or a response and it judges whether the content is safe and which category was violated. This is the one to use for input/output guardrails.
+- **[gemma-sea-lion-v4-27b-it](https://developers.cloudflare.com/workers-ai/models/gemma-sea-lion-v4-27b-it/)** (AI Singapore) — a Gemma variant pretrained and instruction-tuned for Southeast Asian languages. SEA-LION stands for Southeast Asian Languages In One Network, and it is worth evaluating for products targeting that region.
+- **[m2m100-1.2b](https://developers.cloudflare.com/workers-ai/models/m2m100-1.2b/)** (Meta) and **[indictrans2-en-indic-1B](https://developers.cloudflare.com/workers-ai/models/indictrans2-en-indic-1B/)** (AI4Bharat) — dedicated translation models at $0.342 each. The former is many-to-many multilingual; the latter covers India's 22 scheduled languages.
+- **[distilbert-sst-2-int8](https://developers.cloudflare.com/workers-ai/models/distilbert-sst-2-int8/)** ($0.026) — the old workhorse of sentiment classification, and cheaper than an LLM call at volume.
 
 ## Billing: Neurons and the free allocation
 

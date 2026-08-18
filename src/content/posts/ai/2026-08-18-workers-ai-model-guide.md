@@ -36,6 +36,32 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 
 目錄頁上 Cloudflare 自己置頂（Pinned）了四個：`kimi-k2.7-code`、`glm-4.7-flash`、`gpt-oss-120b`、`llama-4-scout-17b-16e-instruct`。這四個大致代表官方目前想推的組合。
 
+## 先看懂 model ID
+
+模型 ID 的格式是 `@cf/<發布者>/<模型名>`，後面那串命名幾乎都在講架構，看懂能省掉查文件的時間：
+
+```
+@cf/google/gemma-4-26b-a4b-it
+ │      │      │    │   │   └── it = instruction tuned，對話用；沒有 -it 的是 base model
+ │      │      │    │   └────── a4b = active 4 billion，MoE 每次推論只啟動 4B
+ │      │      │    └────────── 26b = 總參數 26 billion
+ │      │      └─────────────── 模型家族與世代
+ │      └────────────────────── 發布者（google / meta / qwen / zai-org / moonshotai ...）
+ └───────────────────────────── @cf = Cloudflare 自家託管；少數舊模型是 @hf（Hugging Face）
+```
+
+其他常見後綴：
+
+| 後綴 | 意思 | 影響 |
+|---|---|---|
+| `-it` / `-instruct` | 指令微調版 | 沒有這個後綴的 base model 不適合直接對話 |
+| `-fp8` / `-awq` / `-int8` | 量化精度 | 便宜、快，品質略降。fp8 折衷最好，int4（awq）最激進 |
+| `a3b` / `a4b` / `a12b` | MoE 的 active 參數量 | 決定實際推論成本與速度，不是總參數量 |
+| `-fast` | Cloudflare 的加速部署版 | 值得注意：**2026-05-30 汰換時 `-fast` 與 `-lora` 變體沒被砍** |
+| `-lora` | 可掛 LoRA adapter 的 base | 搭配 Workers AI 的 fine-tune 功能用 |
+
+MoE（Mixture-of-Experts）在這份目錄裡已經是主流：Gemma 4、Llama 4 Scout、Qwen3-30B、Nemotron 3、Moondream 3.1 全是。它的意義是「總參數決定聰明程度，active 參數決定你付多少錢跟等多久」——`gemma-4-26b-a4b-it` 用 26B 的知識量跑出接近 4B 的速度，這是它比舊的 dense 12B 模型又快又好又便宜的原因。
+
 ## 文字生成：三個層級
 
 ### 第一層：日常主力（不需付費方案）
@@ -47,7 +73,16 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 | [granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | 131,000 | $0.017 / $0.11 | Function calling |
 | [qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/) | 32,768 | $0.051 / $0.335 | Function calling、Reasoning、Batch |
 | [llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/) | 131,000 | $0.27 / $0.85 | Function calling、Vision、Batch |
-| [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128K | $0.351 / $0.555 | Function calling |
+| [mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/) | 128,000 | $0.351 / $0.555 | Function calling |
+
+這六個分別是什麼：
+
+- **[glm-4.7-flash](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)**（智譜 / Z.ai）— 中國智譜 AI 的 GLM 系列輕量版。官方描述是「Optimized for dialogue, instruction-following, and multi-turn tool calling across 100+ languages」，主打多語言對話與多輪工具呼叫。中文（含繁體）是它的強項語言之一。
+- **[gemma-4-26b-a4b-it](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)**（Google）— Gemma 是 Google 用 Gemini 研究成果做的開放模型家族，第 4 代官方定位是「built from Gemini 3 research to maximize intelligence-per-parameter」。26B 總參數、4B active 的 MoE，是這一層唯一同時有 vision、reasoning 與 function calling 的。
+- **[granite-4.0-h-micro](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/)**（IBM）— IBM 的企業取向開放模型，官方明講設計目標是 RAG、multi-agent workflow 與邊緣部署，並強調 instruction following 與 function calling 的表現。「h-micro」是 Granite 4.0 家族裡的混合架構最小尺寸。
+- **[qwen3-30b-a3b-fp8](https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/)**（阿里 Qwen）— 通義千問第三代的 MoE 版，30B 總參數 / 3B active，再做 fp8 量化。中文能力強、支援 Batch API，但 context 只有 32,768。
+- **[llama-4-scout-17b-16e-instruct](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/)**（Meta）— Llama 4 系列裡最小的 Scout，17B 參數配 16 個 expert，**原生多模態**（不是外掛視覺模組）。是這一層少數支援 Batch API 的模型。
+- **[mistral-small-3.1-24b-instruct](https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/)**（法國 Mistral AI）— 24B dense 模型，歐洲陣營的代表。有個要注意的落差：官方模型描述說它「adds state-of-the-art vision understanding」，但目錄的能力標籤只掛了 Function calling，**沒有 Vision 標籤**——要用視覺功能前先自己測。
 
 **預設選 `glm-4.7-flash`。** 它是這一層裡輸入端最便宜、又同時具備 function calling 與 131K context 的一個，官方描述寫「Optimized for dialogue, instruction-following, and multi-turn tool calling across 100+ languages」，繁體中文在這 100+ 語言裡面。
 
@@ -67,6 +102,11 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 | [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | — | $0.497 / $4.881 | 舊世代蒸餾推理模型，輸出很貴 |
 | [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | — | $0.66 / $1.00 | 同上世代 |
 
+- **[gpt-oss-120b / gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/)**（OpenAI）— OpenAI 少見的開放權重模型，官方定位是「powerful reasoning, agentic tasks, and versatile developer use cases」，120b 給生產環境的高推理需求，20b 給低延遲與特化場景。
+- **[nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/)**（NVIDIA）— NVIDIA 自家的 Nemotron 3 Super，hybrid MoE 架構（120B 總 / 12B active），官方主打 multi-agent 應用與 agentic AI 系統的準確度。
+- **[deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/)**（DeepSeek）— 把 DeepSeek-R1 的推理能力蒸餾到 Qwen2.5 32B 上的產物，是 2025 年那波「推理模型平民化」的代表作，現在主要是歷史意義。
+- **[qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/)**（Qwen）— Qwen 系列的推理特化模型，同世代產物，發表時拿來比較的對象是 DeepSeek-R1 與 o1-mini。
+
 `gpt-oss-20b` 值得單獨提：$0.20 / $0.30 拿到 128K context 加 reasoning 加 function calling，輸出端比 `glm-4.7-flash` 的 $0.40 還便宜。要產長輸出又需要推理能力時，它常常是最佳解。
 
 `deepseek-r1-distill-qwen-32b` 的 $4.881 輸出價是整個目錄裡最貴的幾個之一，比 `gpt-oss-120b` 貴 6.5 倍。它是早期推理模型的定價，現在沒什麼理由選它。
@@ -85,7 +125,13 @@ Workers Free 方案打這五個會失敗，要 Workers Paid 或預付的 [AI Gat
 | [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,100 | $0.95 / $0.16 / $4.00 |
 | [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | **1,048,576** | $0.44 / $0.014 / $1.32 |
 | [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | — | $1.32 / $0.044 / $3.96 |
-| [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | — | $1.40 / $0.26 / $4.40 |
+| [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | 262,144 | $1.40 / $0.26 / $4.40 |
+
+這一層是什麼：
+
+- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)**（月之暗面 Moonshot AI）— **1T 參數**的開源前沿模型，262K context、多輪工具呼叫、視覺輸入、結構化輸出，官方定位就是 agentic workload。`k2.7-code` 是同架構的 coding 特化版，也是目錄首位的 Pinned 模型。
+- **[deepseek-v4-flash-0731 / deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)**（DeepSeek）— V4 世代分 Flash 與 Pro 兩檔，Flash 是快速版、Pro 是高階版。要注意 `deepseek-v4-pro-0813` 在官方目錄裡的描述欄目前還是佔位字串（就寫「deepseek-ai/deepseek-v4-pro-0813」），沒有實質說明。
+- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)**（智譜 / Z.ai）— 官方描述只有一句「Z.ai's flagship agentic coding model」，是 GLM 系列的旗艦 coding 模型，跟同門的 `glm-4.7-flash` 差了一個量級的定位與價格（輸入貴 23 倍）。
 
 這一層才有 **cached input 定價**，而且折扣幅度差很多：DeepSeek V4 Flash 的 cached input 是 $0.014，相對一般 input 的 $0.44 是 **1/31**；Kimi K2.6 的 $0.16 對 $0.95 只有 1/6。多輪對話或反覆送同一份長 prompt 時，這個比例直接決定帳單。要吃到快取，記得送 `x-session-affinity` header 把請求導回同一個模型實例（見官方 [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) 文件）。
 
@@ -102,6 +148,15 @@ Workers Free 方案打這五個會失敗，要 Workers Paid 或預付的 [AI Gat
 | [bge-large-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/) | — | $0.204 | 英文，1024 維，支援 Batch |
 | [bge-base-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-base-en-v1.5/) | — | $0.067 | 英文，768 維 |
 | [bge-small-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-small-en-v1.5/) | — | $0.020 | 英文，384 維 |
+
+這幾個 embedding 模型的來歷：
+
+- **[qwen3-embedding-0.6b](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/)**（阿里 Qwen）— Qwen3 家族裡專做 embedding 與 ranking 的分支，instruction-aware（可以針對不同任務給不同指令）。
+- **[bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/)**（北京智源 BAAI）— BGE 系列的多語言旗艦，名字裡的 M3 指 Multi-Functionality（dense + sparse + multi-vector 三種檢索）、Multi-Linguality、Multi-Granularity。是開源 RAG 圈最廣泛使用的 embedding 模型之一。
+- **[embeddinggemma-300m](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-300m/)**（Google）— 從 Gemma 3 衍生的 300M 小型 embedding 模型，訓練涵蓋 100+ 語言，主打「以這個尺寸來說最強」。Cloudflare 曾在 changelog 提過它做過準確度改善，並建議既有使用者重新索引。
+- **[bge-large / base / small-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/)**（BAAI）— 同樣出自智源，但是**純英文**的舊世代版本，三個尺寸分別輸出 1024 / 768 / 384 維向量。
+- **[plamo-embedding-1b](https://developers.cloudflare.com/workers-ai/models/plamo-embedding-1b/)**（Preferred Networks）— 日本 PFN 做的日文專用 embedding，處理日文語料時值得試。
+- **[bge-reranker-base](https://developers.cloudflare.com/workers-ai/models/bge-reranker-base/)**（BAAI）— 不是 embedding 模型。它吃「問題 + 文件」一組進去，直接吐相關性分數，所以精準度比向量相似度高，但不能預先算好存起來。
 
 繁體中文內容選 `qwen3-embedding-0.6b` 或 `bge-m3`，兩者同為 $0.012 per M input tokens——比英文專用的 `bge-large-en-v1.5`（$0.204）便宜 17 倍，而且多語言。純英文語料也沒有理由選 bge-large-en，除非你的 Vectorize index 已經用它建好了。
 
@@ -122,7 +177,7 @@ Rerank 目前只有一個選項：`bge-reranker-base`，$0.003 per M input token
 | [flux-1-schnell](https://developers.cloudflare.com/workers-ai/models/flux-1-schnell/) | $0.0000528 / tile、$0.0001056 / step |
 | [lucid-origin](https://developers.cloudflare.com/workers-ai/models/lucid-origin/)（Leonardo） | $0.006996 / tile、$0.000132 / step |
 
-FLUX.2 [klein] 系列同時做生成與編輯，4B 版便宜到可以當即時預覽用；要品質再上 9B。
+**[FLUX](https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/)**（Black Forest Labs）是 Stable Diffusion 原班人馬出走後做的模型家族。FLUX.2 [klein] 是蒸餾過的快速版，同時做生成與編輯，4B 便宜到可以當即時預覽用，9B 是品質版；舊的 `flux-1-schnell` 是 12B 的 rectified flow transformer，仍在目錄裡。**[lucid-origin](https://developers.cloudflare.com/workers-ai/models/lucid-origin/)** 與 **[phoenix-1.0](https://developers.cloudflare.com/workers-ai/models/phoenix-1.0/)** 來自 Leonardo.AI，強項是提示詞貼合度與把文字畫對。
 
 **語音**：
 
@@ -135,9 +190,17 @@ FLUX.2 [klein] 系列同時做生成與編輯，4B 版便宜到可以當即時�
 | [melotts](https://developers.cloudflare.com/workers-ai/models/melotts/) | TTS，多語言 | $0.0002 / 音訊分鐘 |
 | [smart-turn-v2](https://developers.cloudflare.com/workers-ai/models/smart-turn-v2/) | 輪替偵測 | $0.00033795 / 分鐘 |
 
+**[Whisper](https://developers.cloudflare.com/workers-ai/models/whisper-large-v3-turbo/)**（OpenAI）是通用語音辨識的事實標準，turbo 版是 large-v3 的加速蒸餾版。**Deepgram** 那三個是商業合作模型：`nova-3` 是通用即時 ASR，`aura` 系列是會依上下文調整語速與語氣的 TTS，而 `flux`（跟 Black Forest Labs 的圖片模型同名，別搞混）官方說是「第一個專為語音 agent 打造的對話式語音辨識模型」。**[smart-turn-v2](https://developers.cloudflare.com/workers-ai/models/smart-turn-v2/)**（Pipecat）不做辨識，它只判斷「使用者講完了沒」——做語音對話最惱人的搶話問題就靠它。
+
 離線轉逐字稿用 Whisper turbo（$0.0005/分鐘，比 Deepgram Nova-3 便宜 10 倍）；要即時串流或做語音 agent 才需要 Deepgram 那條線。
 
-**其他**：`moondream3.1-9B-A2B`（視覺理解，$0.30 / $1.00）、`m2m100-1.2b` 與 `indictrans2-en-indic-1B`（翻譯，各 $0.342）、`llama-guard-3-8b`（內容安全分類）、`distilbert-sst-2-int8`（情緒分類，$0.026）。
+**其他值得知道的**：
+
+- **[moondream3.1-9B-A2B](https://developers.cloudflare.com/workers-ai/models/moondream3.1-9B-A2B/)**（$0.30 / $1.00）— 9B MoE、2B active 的小型視覺語言模型，專攻物件偵測、指位、OCR 與結構化輸出。要從截圖或文件圖片抽資料，它比叫通用大模型看圖便宜得多。
+- **[llama-guard-3-8b](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/)**（Meta）— 不是拿來對話的，是內容安全分類器：把 prompt 或回應丟進去，它判斷安不安全並指出違反了哪一類。要做輸入輸出護欄就用它。
+- **[gemma-sea-lion-v4-27b-it](https://developers.cloudflare.com/workers-ai/models/gemma-sea-lion-v4-27b-it/)**（AI Singapore）— 為東南亞語言預訓練與指令微調的 Gemma 變體，SEA-LION = Southeast Asian Languages In One Network。做東南亞市場的產品值得評估。
+- **[m2m100-1.2b](https://developers.cloudflare.com/workers-ai/models/m2m100-1.2b/)**（Meta）與 **[indictrans2-en-indic-1B](https://developers.cloudflare.com/workers-ai/models/indictrans2-en-indic-1B/)**（AI4Bharat）— 專用翻譯模型（各 $0.342）。前者多對多多語言，後者專攻印度 22 種官方語言。
+- **[distilbert-sst-2-int8](https://developers.cloudflare.com/workers-ai/models/distilbert-sst-2-int8/)**（$0.026）— 情緒分類的老兵，量大時比叫 LLM 便宜。
 
 ## 計費：Neurons 與免費額度
 
