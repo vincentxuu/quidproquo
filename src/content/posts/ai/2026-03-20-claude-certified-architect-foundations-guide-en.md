@@ -5,16 +5,32 @@ type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
 lang: en
-tldr: "A complete study guide for Claude's official architect certification: five exam domains, six scenario types, common anti-patterns, and hands-on preparation strategies."
-description: "A comprehensive guide to the Claude Certified Architect — Foundations exam, covering all Task Statements across five domains, six scenario question patterns, real exam question analysis, and actionable study strategies."
+tldr: "A complete study guide for Claude's official architect certification (CCAR-F): five domains weighted 27/18/20/20/15, four scenarios drawn from six, common anti-patterns, and hands-on preparation. Official specs are 60 items / 120 minutes / $125 / 12-month validity / 720 to pass; registration is limited to Claude Partner Network members, and on-time renewal is free and non-proctored."
+description: "A comprehensive guide to the Claude Certified Architect — Foundations (CCAR-F) exam, covering all Task Statements across five domains, six scenario question patterns, real exam question analysis, official specs (fee, validity, registration gate, retake and renewal rules), and actionable study strategies."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-20-claude-certified-architect-foundations-guide)
 
-The Claude Certified Architect — Foundations exam tests your practical design ability for agentic systems. All questions are scenario-based multiple choice with a single correct answer, requiring you to make the right architectural decisions in concrete production scenarios. This article covers all key exam domains, common pitfalls, and the most effective preparation approaches.
+The Claude Certified Architect — Foundations (CCAR-F) exam tests your practical design ability for agentic systems. Questions are organized around scenarios, requiring you to make the right architectural decisions in concrete production contexts. This article covers all key exam domains, common pitfalls, and the most effective preparation approaches.
+
+> Originally written in March 2026, when this was Anthropic's only certification. **Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026) on 2026-08-18**, adding fee, validity, registration, and renewal rules. Anthropic now has four certifications; for the full landscape and how to choose, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
 
 ## Exam Structure
+
+The official exam guide's "Exam Details at a Glance" is thorough:
+
+| Item | Detail |
+|---|---|
+| Exam code | CCAR-F |
+| Items | 60 |
+| Item format | Multiple-choice **and multiple-response**; each item states how many responses to select |
+| Structure | 4 scenarios drawn at random from a bank of 6 |
+| Time limit | 120 minutes |
+| Fee | **$125 USD** (checkout reflects any discount for your partner tier) |
+| Validity | **12 months** from the date the credential is awarded |
+| Passing score | Scaled **720** (range 100–1,000) |
+| Delivery | Online proctored or Pearson test center |
 
 **Five Domains and Their Weights:**
 
@@ -26,7 +42,7 @@ The Claude Certified Architect — Foundations exam tests your practical design 
 | Domain 4: Prompt Engineering & Structured Output | 20% |
 | Domain 5: Context Management & Reliability | 15% |
 
-Scores range from 100–1000, with a passing threshold of 720. All multiple choice — no penalty for wrong answers.
+Scoring is **criterion-referenced**: you are measured against a fixed standard, not against other candidates. The cut score came from a formal standard-setting study, and the score report shows **percent-correct within each domain** — so a failure tells you which area to fix. The guide says nothing about a penalty for wrong answers, so don't treat "no penalty for guessing" as known.
 
 **Six Scenario Questions (exam randomly selects four):**
 
@@ -37,7 +53,15 @@ Scores range from 100–1000, with a passing threshold of 720. All multiple choi
 5. **Claude Code for CI/CD** — Automating code review and PR feedback
 6. **Structured Data Extraction** — Extracting JSON data from unstructured documents
 
----
+### Who Can Register, and How
+
+**Not everyone can sit this exam.** The [official Pearson VUE page](https://www.pearsonvue.com/us/en/anthropic.html) states that "Certification is open to organizations in the Claude Partner Network and counts toward partner program standing." Registration runs through checkout on [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification), then scheduling through Pearson VUE. Cancelling or rescheduling within 24 hours of the appointment **forfeits the exam fee**, and on exam day you must present government-issued photo ID whose name matches your registration exactly.
+
+If you don't pass, the waiting periods are **14 days** after the first attempt, **30** after the second, and **90** after the third, with at most **4 attempts** per exam in any rolling 12-month period.
+
+### What Happens After 12 Months
+
+The credential lasts a year, but **on-time renewal is free**: complete a **non-proctored** renewal assessment on Partner Academy before it expires — no need to retake the real exam. **Let it lapse and that path closes**; the guide is explicit that you must retake the full exam at full price to regain certified status. Anthropic also reserves the right to require a full retake instead of the renewal assessment if exam content changes significantly.
 
 ## Domain 1 — Agentic Architecture & Orchestration (27%)
 
@@ -469,7 +493,15 @@ These concepts appear repeatedly in sample questions:
 
 ---
 
+## Changelog
+
+- 2026-08-18: Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026). The five domain weights (27/18/20/20/15), the 720 cut score, and the four-of-six scenario structure all matched the original text and needed no change. **One correction**: the article said all questions were multiple choice with a single correct answer; the guide specifies multiple-choice *and* multiple-response items, each stating how many responses to select. **One removal**: the claim that there is no penalty for wrong answers has no basis in the guide. **Additions**: $125 fee, 12-month validity, 60 items / 120 minutes, criterion-referenced scoring with per-domain percent-correct, the Claude Partner Network registration gate, retake intervals (14 / 30 / 90 days, 4 attempts per 12 months), free non-proctored renewal versus full-price retake after lapse, and the seven free official courses. An opening note now places this article against the current four-certification lineup.
+
 ## References
+
+- [Claude Certified Architect – Foundations official page (exam guide download)](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)
+- [Pearson VUE — Claude Certification Program (registration gate and retake rules)](https://www.pearsonvue.com/us/en/anthropic.html)
+- [On this site: What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en)
 
 - [Claude Certified Architect — Foundations Exam Portal](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)
 - [Claude Official Documentation](https://docs.anthropic.com/)

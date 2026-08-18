@@ -5,14 +5,30 @@ type: guide
 category: ai
 tags: [claude, certification, agentic-ai, mcp, prompt-engineering, claude-code, agent-sdk]
 lang: zh-TW
-tldr: "Claude 官方架構師認證的完整備考指南：五大領域重點、六大考試情境、常見反模式與實際演練建議。"
-description: "Claude Certified Architect — Foundations 考試的完整導讀，涵蓋五大考試領域的所有 Task Statement、六大情境題模式、實際考題解析，以及可執行的備考策略。"
+tldr: "Claude 官方架構師認證（CCAR-F）的完整備考指南：五大領域權重 27/18/20/20/15、六大考試情境抽四個、常見反模式與實際演練建議。官方規格為 60 題 / 120 分鐘 / $125 / 效期 12 個月 / 及格 720，報考限 Claude Partner Network 成員，準時續期免費且非監考。"
+description: "Claude Certified Architect — Foundations（CCAR-F）考試的完整導讀，涵蓋五大考試領域的所有 Task Statement、六大情境題模式、實際考題解析、官方規格（費用、效期、報考門檻、重考與續期規則），以及可執行的備考策略。"
 draft: false
 ---
 
-Claude Certified Architect — Foundations 測試的是你對 agentic 系統的實際設計能力。考題全部是情境式選擇題，每題一個正確答案，要求你在具體的生產場景中做出正確的架構決策。這篇整理考試的所有重點領域、常見陷阱，以及最有效的準備方式。
+Claude Certified Architect — Foundations（CCAR-F）測試的是你對 agentic 系統的實際設計能力。考題以情境為單位，要求你在具體的生產場景中做出正確的架構決策。這篇整理考試的所有重點領域、常見陷阱，以及最有效的準備方式。
+
+> 本文原寫於 2026 年 3 月，當時 Anthropic 只有這一張認證。**2026 年 8 月 18 日依官方 CCAR-F Exam Guide（Version 1.0，Effective July 2026）全文重新核對過**，補上費用、效期、報考與續期規則。Anthropic 現在共有四張認證，整體規格與選擇建議見 [2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)。
 
 ## 考試結構
+
+官方 exam guide 的「Exam Details at a Glance」寫得很完整：
+
+| 項目 | 內容 |
+|---|---|
+| 考試代碼 | CCAR-F |
+| 題數 | 60 題 |
+| 題型 | 單選與**複選**混合，每題會標明要選幾個答案 |
+| 結構 | 六個情境題庫**隨機抽四個** |
+| 時間 | 120 分鐘 |
+| 費用 | **$125 USD**（結帳金額會反映你所屬 partner tier 的折扣） |
+| 效期 | **12 個月**，自取得證書日起算 |
+| 及格 | 量尺分數 **720**（範圍 100–1,000） |
+| 形式 | 線上監考或 Pearson 考場二選一 |
 
 **五大領域與權重：**
 
@@ -24,9 +40,9 @@ Claude Certified Architect — Foundations 測試的是你對 agentic 系統的�
 | Domain 4: Prompt Engineering & Structured Output | 20% |
 | Domain 5: Context Management & Reliability | 15% |
 
-分數範圍 100–1000，及格線 720。全部選擇題，答錯不扣分。
+計分方式是**標準參照**（criterion-referenced）：跟固定標準比，不是跟其他考生比。及格線由專家標準設定研究決定，成績單會列出**各領域的答對百分比**——沒過的話知道要補哪一塊。官方 guide 沒有說明答錯是否倒扣，別把「答錯不扣分」當成已知。
 
-**六大情境題（考試隨機抽四個）：**
+**六大情境（考試隨機抽四個）：**
 
 1. **Customer Support Resolution Agent** — 用 Claude Agent SDK 處理退款、帳戶問題、客服升級
 2. **Code Generation with Claude Code** — 團隊開發流程中整合 Claude Code
@@ -35,7 +51,15 @@ Claude Certified Architect — Foundations 測試的是你對 agentic 系統的�
 5. **Claude Code for CI/CD** — 自動化 code review 與 PR 回饋
 6. **Structured Data Extraction** — 從非結構化文件提取 JSON 資料
 
----
+### 誰能報考、怎麼報
+
+**這張不是任何人都能考。** [Pearson VUE 官方頁](https://www.pearsonvue.com/us/en/anthropic.html)寫明「Certification is open to organizations in the Claude Partner Network and counts toward partner program standing」——報名走 [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification) 結帳，再到 Pearson VUE 排考期。考前 24 小時內取消或改期會**沒收考試費**，考當天要出示與報名姓名完全一致的政府核發附照片證件。
+
+沒過的話有間隔規定：第一次後等 **14 天**，第二次後 **30 天**，第三次後 **90 天**，同一張考試在任何 12 個月內最多 **4 次**。
+
+### 12 個月到期怎麼辦
+
+效期只有一年，但**準時續期是免費的**：在到期前於 Partner Academy 完成一份**非監考**的更新評量即可，不用重考正式考試。**過期就沒有這條路** —— 官方 guide 寫得很直白，證照失效後要恢復必須付全額重考。另外如果考試內容有重大改版，Anthropic 可以要求持證者直接重考而不是做更新評量。
 
 ## Domain 1 — Agentic Architecture & Orchestration（27%）
 
@@ -443,7 +467,9 @@ crash recovery 用 manifest 模式：每個 agent 把自己的狀態 export 到�
 
 ## 備考策略
 
-**最有效的準備是動手做，不是讀文件。** 官方考試指南列了四個練習題，每個都直接對應一個真實的 domain：
+**官方指定的免費課程有七門**，全部在 Anthropic Academy 上、對應本文五個 domain：AI Fluency: Framework & Foundations、Claude 101、Building with the Claude API、Claude with Amazon Bedrock、Claude on Google Cloud、Introduction to Model Context Protocol、Claude Code in Action。前兩門是概念打底，後五門直接對應 Domain 1 到 Domain 5。
+
+**但最有效的準備是動手做，不是把課上完。** 官方考試指南列了四個練習題，每個都直接對應一個真實的 domain：
 
 1. **Build a Multi-Tool Agent with Escalation Logic**：做完你就懂 agentic loop、hook、結構化錯誤處理
 2. **Configure Claude Code for a Team Development Workflow**：CLAUDE.md hierarchy、path-scoped rules、skills
@@ -467,7 +493,15 @@ crash recovery 用 manifest 模式：每個 agent 把自己的狀態 export 到�
 
 ---
 
+## 更新紀錄
+
+- 2026-08-18：依官方 CCAR-F Exam Guide（Version 1.0, Effective July 2026）全文重新核對。五大領域權重（27/18/20/20/15）、及格線 720、六情境抽四個都與原文一致，不需更動。**修正一處**：原文寫「考題全部是選擇題，每題一個正確答案」，官方寫的是單選與複選混合、每題會標明選幾個。**移除一處**：原文的「答錯不扣分」在官方 guide 裡找不到依據。**補上**：費用 $125、效期 12 個月、60 題 / 120 分鐘、標準參照計分與各領域答對率、Claude Partner Network 報考門檻、重考間隔（14 / 30 / 90 天、12 個月內 4 次）、免費非監考續期與過期後須全額重考、官方七門免費課程。另加開場說明本文與四張認證現況的關係。
+
 ## 參考資料
+
+- [Claude Certified Architect – Foundations 官方認證頁（含 exam guide 下載）](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)
+- [Pearson VUE — Claude Certification Program（報考門檻與重考規則）](https://www.pearsonvue.com/us/en/anthropic.html)
+- [站內：2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)
 
 - [Claude Certified Architect — Foundations 考試入口](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)
 - [Claude 官方文件](https://docs.anthropic.com/)
