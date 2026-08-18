@@ -110,6 +110,18 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Reading Stanford CS146S "The Modern Software Developer" week by week — agent internals, context engineering, skills and customization, codebase readiness, code review, security, background agents, team-scale adoption, and the software factory. Each post is grounded in the course material and verifiable primary sources.',
     },
   },
+  {
+    slug: 'hermes-agent',
+    names: {
+      'zh-TW': 'Hermes Agent 文件導讀',
+      en: 'Hermes Agent Documentation Guide',
+    },
+    descriptions: {
+      'zh-TW':
+        '對照 Nous Research 官方文件讀 Hermes Agent：安裝與升級、模型供應商與 Nous Portal、Tool Gateway、七種終端後端、記憶與技能、工具與 plugin、Gateway 與排程、安全模型，以及從 OpenClaw 遷移。每篇只留取捨與失敗點，指令細節交還官方文件。',
+      en: 'Reading Hermes Agent against the official Nous Research docs: install and upgrade, model providers and Nous Portal, the Tool Gateway, seven terminal backends, memory and skills, tools and plugins, the gateway and scheduling, the security model, and migrating from OpenClaw. Each post keeps the trade-offs and failure modes and leaves command details to the docs.',
+    },
+  },
 ];
 
 const DEFINITION_BY_NAME = new Map<string, SeriesDefinition>();

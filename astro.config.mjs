@@ -55,6 +55,8 @@ export default defineConfig({
       '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide',
     '/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en':
       '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en',
+    '/posts/ai/2026-04-05-hermes-agent-intro': '/posts/ai/2026-08-18-hermes-agent-intro',
+    '/posts/ai/2026-04-05-hermes-agent-intro-en': '/posts/ai/2026-08-18-hermes-agent-intro-en',
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },

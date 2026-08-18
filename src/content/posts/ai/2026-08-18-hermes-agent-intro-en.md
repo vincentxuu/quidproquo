@@ -1,205 +1,131 @@
 ---
-title: "Hermes Agent: Nous Research's Self-Improving AI Agent"
-date: 2026-04-05
+title: "Hermes Agent: Nous Research's Self-Improving Agent, and Its Real Relationship With OpenClaw"
+date: 2026-08-18
 type: guide
 category: ai
-tags: [hermes-agent, nous-research, ai-agent, self-improving, gateway, multi-platform, openclaw]
+tags: [hermes-agent, nous-research, ai-agent, self-improving, gateway, openclaw]
 lang: en
-tldr: "Hermes Agent is an open-source self-improving AI agent by Nous Research, featuring persistent memory, skill learning, 40+ tools, multi-platform gateways, support for 200+ model providers, and serving as the official successor to OpenClaw."
-description: "An in-depth look at Hermes Agent's architecture, memory and skill systems, multi-platform gateway, terminal backends, model integration, and its relationship with OpenClaw."
+series:
+  name: "Hermes Agent Documentation Guide"
+  order: 1
+tldr: "Hermes Agent is Nous Research's MIT-licensed agent framework, built around a learning loop: it writes its own skills, curates its memory, and searches past sessions with FTS5. It ships `hermes claw migrate` to move you off OpenClaw — but OpenClaw was not replaced, and both projects are still moving. This is the series opener: what it is, how it differs, and when not to pick it."
+description: "Series opener for Hermes Agent: the architecture, what the self-improvement loop actually consists of, how the seven terminal backends and the multi-platform gateway fit together, and where the line sits versus OpenClaw, Claude Code, and LangGraph."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-hermes-agent-intro)
+> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-intro)
 
-Hermes Agent is an open-source AI agent framework by Nous Research. Its core positioning is "an agent that teaches itself" — after completing tasks it automatically creates skills, continuously improves during use, and proactively reminds itself to consolidate memory. It's not just a chat interface but a complete AI agent operating system, connecting everything from local CLI to Telegram, Discord, WhatsApp, with model providers switchable at any time and execution environments ranging from local machines to serverless.
+Hermes Agent is [Nous Research](https://nousresearch.com/)'s open-source (MIT) agent framework. The official one-liner positions it as the only agent with a built-in learning loop:
 
-If you previously followed OpenClaw, Hermes Agent is its official successor, providing a complete migration path.
+> It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions.
+> — [hermes-agent README](https://github.com/NousResearch/hermes-agent)
 
-## Core Architecture
+That sentence is the skeleton of the whole project, and the cleanest way to state its difference. Everything else — many platforms, many providers, many backends — competitors can match. The learning loop is where it places its bet.
+
+This post opens the series. The goal is not to restate the [official docs](https://hermes-agent.nousresearch.com/docs/), which change faster than any blog post can track, but to capture the **trade-offs and the failure modes**.
+
+## The shape of it
 
 ```
-User
-  ↓
-CLI / Telegram / Discord / Slack / WhatsApp / Signal
-  ↓
-Gateway (Unified Gateway)
-  ↓
-Agent Core (Reasoning + Decision Making)
-  ├── Tools (40+ tools)
-  ├── Skills (Procedural Memory)
-  ├── Memory (Persistent Memory + FTS5 Search)
-  └── Cron (Scheduled Tasks)
-  ↓
-LLM Provider (Nous Portal / OpenRouter / OpenAI / Anthropic / Custom)
+Entry points
+  CLI / TUI  ·  Gateway (Telegram/Discord/Slack/WhatsApp/Signal/Email)
+  Desktop app  ·  Web dashboard  ·  ACP (VS Code/Zed/JetBrains)
+  API server (OpenAI-compatible)  ·  Python library  ·  Batch runner
+        ↓
+AIAgent (run_agent.py)
+  prompt assembly  ·  provider resolution (3 API modes)  ·  tool dispatch
+  context compression and prompt caching
+        ↓
+State                         Tool backends
+SQLite + FTS5 (sessions)      7 terminal · 5 browser · 4 web · MCP
+MEMORY.md / USER.md           files, vision, TTS…
 ```
 
-The entire system is written in Python (93%), uses `uv` for package management, and deploys with a single `curl` command. The directory structure is cleanly divided into six main modules: `agent/`, `gateway/`, `skills/`, `tools/`, `hermes_cli/`, and `cron/`.
+One detail up front: the README says "40+ tools" while the developer architecture page on the same docs site says "70+ tools, 28 toolsets." Numbers like these have a short half-life in this project, so this series never leans on them — check the [reference docs](https://hermes-agent.nousresearch.com/docs/reference/cli-commands) when you need an exact count.
 
-## Self-Improvement Loop
+The codebase is no longer a pure Python project either: GitHub currently reports roughly 76% Python and 20% TypeScript, the latter coming from the desktop app, the TUI frontend, and the web dashboard.
 
-This is the biggest differentiator between Hermes Agent and typical agent frameworks. It has a built-in learning cycle:
+## The learning loop is four separable mechanisms
 
-1. After **completing complex tasks**, it automatically abstracts the process into reusable Skills
-2. **While using Skills**, it continuously fine-tunes and improves them
-3. It **periodically reminds itself** to organize and consolidate accumulated knowledge
+"Self-improving" sounds like one thing. It is actually four mechanisms you can disable independently — which is exactly what you need to know when one of them misbehaves:
 
-The memory system uses FTS5 full-text search + LLM summarization, enabling cross-session historical conversation retrieval. It also implements a "user profile dialectic" inspired by Honcho — as interactions increase, the agent's understanding of you deepens over time.
+| Mechanism | What it does | What you control |
+|---|---|---|
+| Autonomous skill creation | Abstracts a finished complex task into a reusable skill | `skills.write_approval` can require your sign-off before writes |
+| Memory curation | Periodically nudges the agent to tidy `MEMORY.md` / `USER.md` | `write_approval` and background review notifications can be turned off |
+| Session search | SQLite FTS5 full-text search plus LLM summarization for cross-session recall | Summarization runs on the auxiliary model — point it at something cheap |
+| User modeling | Honcho-style dialectic user profile | **No longer built in** — it moved to a memory provider plugin you install |
 
-The skill format is compatible with the [agentskills.io](https://agentskills.io) open standard, meaning skills can be shared across frameworks.
+That last row is the easiest trap right now. Older write-ups (including the first version of this post) describe Honcho dialectic modeling as built in. The docs now place it at `plugins/memory/honcho/` — if you don't install it, you don't have it. The same layer offers OpenViking, Mem0, Hindsight, RetainDB, ByteRover, and Supermemory as alternatives.
 
-## Multi-Platform Gateway
+Skills follow the [agentskills.io](https://agentskills.io) open standard, which matters for the "how locked in am I" question: skills travel between frameworks.
 
-The Gateway is Hermes's control plane — a single process managing all platform connections:
+## Three layers people keep conflating
 
-| Platform | Support |
-|----------|---------|
-| Telegram | Bot API |
-| Discord | Bot |
-| Slack | App |
-| WhatsApp | Pairing Connection |
-| Signal | Bridge |
-| Email | Send & Receive |
-| Home Assistant | Integration |
+The most common beginner confusion is treating these as one thing:
 
-Setup process:
+1. **Where you type** (CLI, TUI, Telegram, desktop, IDE)
+2. **Where commands run** (local, docker, ssh, modal, daytona, vercel_sandbox, singularity — seven terminal backends)
+3. **Where inference happens** (Nous Portal, OpenRouter, Anthropic, self-hosted Ollama or vLLM…)
 
-```bash
-hermes gateway setup    # Interactive setup for platform credentials
-hermes gateway start    # Start the gateway and begin listening
-```
+The three are fully orthogonal. You can type in Telegram, run commands in a Modal cloud sandbox, and infer on your own vLLM. Which also means: when something breaks, first ask which layer broke. The official debugging order — `hermes doctor` → `hermes model` → `hermes setup` → `hermes sessions list` → `hermes gateway status` — is layer-by-layer elimination.
 
-All platforms share the same agent core, maintaining conversation continuity across platforms. The Gateway also supports voice memo transcription.
+[Post 5](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends) covers layer 2; [post 3](/en/posts/ai/2026-08-18-hermes-agent-providers) covers layer 3.
 
-## Terminal Backends
+## On OpenClaw: a migration path, not a succession
 
-The agent's command execution environment is switchable — it doesn't have to run locally:
+The first version of this post called Hermes "the official successor to OpenClaw." That was wrong, and this revision fixes it.
 
-| Backend | Characteristics |
-|---------|----------------|
-| **Local** | Executes directly on the local machine, simplest option |
-| **Docker** | Container isolation, higher security |
-| **SSH** | Connects to a remote server for execution |
-| **Daytona** | Serverless dev environment, auto-hibernates when idle |
-| **Modal** | Serverless compute, near-zero cost between sessions |
-| **Singularity** | Container alternative |
+What is true: Hermes ships `hermes claw migrate`, and `hermes setup` auto-detects `~/.openclaw` and offers to import. It carries over SOUL.md, MEMORY.md/USER.md entries, user-created skills, the command allowlist, messaging settings, and allowlisted API keys. But OpenClaw is a separate project by a separate team and is still being developed. The README's own community section links [HermesClaw](https://github.com/AaronWong1999/hermesclaw), a bridge whose stated purpose is running "Hermes Agent and OpenClaw on the same WeChat account" — which would be pointless if one had replaced the other.
 
-Modal and Daytona are particularly suited for intermittent use — they only spin up when a message is received, costing nothing the rest of the time.
+Migration details, and what does *not* come across, are in [post 10](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration). For OpenClaw itself, this site has a [full documentation series](/en/posts/ai/2026-03-28-openclaw-overview).
 
-## Model Integration
+## Where the line sits versus Claude Code and LangGraph
 
-Not locked to any provider. Switch with a single `hermes model` command:
+| Dimension | Hermes Agent | Claude Code | LangGraph |
+|---|---|---|---|
+| Positioning | Personal AI operations system | Coding agent in terminal/IDE | Library for building agents |
+| Residency | Gateway runs continuously, wakes on messages | Runs when you run it | You deploy it |
+| Models | 20+ providers, with fallback and key rotation | Anthropic models (incl. Bedrock/Vertex) | Bring your own |
+| Execution | 7 terminal backends, serverless included | Local | You deploy it |
+| Skills | Auto-created plus a shared hub | Yes, human-authored | None |
+| Learning loop | Built in | None | Build it yourself |
 
-```bash
-hermes model                     # Interactive selection
-hermes model openrouter:mixtral  # Direct specification
-```
+Read that table carefully. Claude Code having no learning loop is a trade-off, not a defect: memory lives in files a human maintains, buying predictability at the cost of automatic accumulation. Hermes's auto-created skills and curated memory come with the reverse cost — **your agent rewrites its own behavior**, which in any workflow that needs reproducibility is a liability rather than an asset. That is precisely why `write_approval` exists.
 
-Supported providers:
+## When not to pick it
 
-- **Nous Portal** — Nous Research's own platform
-- **OpenRouter** — 200+ models, one key for everything
-- **OpenAI** / **Anthropic** — Direct connection
-- **z.ai / GLM** / **Kimi / Moonshot** / **MiniMax** — Chinese model providers
-- **Custom endpoints** — Any OpenAI-compatible API
+- **You only want to call an LLM from code.** This is a system, not an SDK. It can be [used as a Python library](https://hermes-agent.nousresearch.com/docs/), but you inherit a lot of machinery you won't use.
+- **You need a team deployment.** The design still centers a single owner; the access model is roughly "who is allowed to DM this bot."
+- **You need strict reproducibility.** Self-rewriting skills and memory make "same input, same output" hard. If you go ahead anyway, turn write approval on first.
+- **You don't want another service to operate.** It stays resident, it schedules things, it acts on its own.
 
-Switching requires no code changes, no restarts, and no reconfiguration.
+## The rest of the series
 
-## Tool Ecosystem
+| # | Topic |
+|---|---|
+| 1 | This post |
+| 2 | [Install and upgrade](/en/posts/ai/2026-08-18-hermes-agent-install): native Windows, Termux, Nix, rollback |
+| 3 | [Model providers](/en/posts/ai/2026-08-18-hermes-agent-providers): OAuth subscriptions, routing, fallback, key pools |
+| 4 | [Nous Tool Gateway](/en/posts/ai/2026-08-18-hermes-agent-tool-gateway): one subscription instead of four accounts |
+| 5 | [Seven terminal backends](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends): isolation levels and the state-sync trap |
+| 6 | [Memory and skills](/en/posts/ai/2026-08-18-hermes-agent-memory-skills): write approval, security scanning, Skills Hub |
+| 7 | [Tools, MCP, plugins](/en/posts/ai/2026-08-18-hermes-agent-tools-plugins): toolsets and `execute_code` |
+| 8 | [Gateway and scheduling](/en/posts/ai/2026-08-18-hermes-agent-gateway-cron): platforms and cron delivery |
+| 9 | [Security model](/en/posts/ai/2026-08-18-hermes-agent-security): approvals, deny rules, prompt injection |
+| 10 | [Migrating from OpenClaw](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration): what moves and what doesn't |
 
-40+ built-in tools covering:
+## What this replaces
 
-- File operations and terminal execution
-- Web browsing and search
-- API calls
-- Sub-Agent spawning (can spawn isolated child agents for parallel processing)
-- MCP support (connect to any MCP server via `mcp_serve.py`)
-
-Tool enabling/disabling is managed through `hermes tools`.
-
-## Scheduled Tasks
-
-Built-in cron scheduler that lets you define tasks in natural language — no need to write cron syntax manually:
-
-- Daily reports
-- Nightly backups
-- Weekly audits
-
-Results are pushed through your configured platforms (Telegram, Discord, etc.).
-
-## CLI Operations
-
-```bash
-# System management
-hermes setup     # Full setup wizard
-hermes update    # Update to latest version
-hermes doctor    # Diagnose issues
-
-# In conversation
-/new             # New conversation
-/retry           # Retry last response
-/undo            # Undo
-/compress        # Compress context
-/usage           # Token usage
-/insights        # Usage statistics
-/skills          # Browse skills
-/personality     # Switch personality
-/model           # Switch model
-```
-
-## Migrating from OpenClaw
-
-If you were previously using OpenClaw, Hermes provides a complete migration path:
-
-```bash
-hermes claw migrate              # Interactive full migration
-hermes claw migrate --dry-run    # Preview without executing
-hermes claw migrate --preset user-data  # Migrate data only, not keys
-```
-
-What gets migrated: Persona files (SOUL.md), memory (MEMORY.md, USER.md), custom skills, command whitelists, platform settings, API keys, TTS audio files, and AGENTS.md.
-
-## Research Use Cases
-
-Beyond daily use, Hermes Agent also supports AI research scenarios:
-
-- **Trajectory batch generation**: Use `batch_runner.py` to generate large volumes of tool-calling training data
-- **Atropos RL integration**: Connect to reinforcement learning environments via the `tinker-atropos` submodule
-- **Trajectory compression**: Prepare data for training next-generation tool-calling models
-
-This makes it not just a user tool, but also a research platform.
-
-## Comparison with Other Frameworks
-
-| Aspect | Hermes Agent | LangGraph | Claude Code |
-|--------|-------------|-----------|-------------|
-| Self-improvement | Built-in learning loop | Must build yourself | None |
-| Multi-platform | 7+ platform gateways | Must build yourself | CLI / IDE |
-| Model providers | 200+ | Self-integration | Anthropic only |
-| Execution environments | 6 backends | Self-deployment | Local |
-| Skill system | Auto-creation + sharing | None | Yes (manual) |
-| Open source | MIT | MIT | Partially open source |
-
-Hermes's positioning leans more toward a "personal AI operating system" rather than a simple agent framework. It bundles communication, execution, learning, and scheduling into a unified interface.
-
-## Overall Assessment
-
-Hermes Agent's core trade-off is **feature completeness in exchange for complexity**. It's not a lightweight library but a complete system. It's suited for:
-
-- Those wanting a cross-platform AI assistant, not just in the terminal
-- Those needing an agent that remembers context and accumulates experience
-- Those wanting to flexibly switch between multiple model providers
-- Those interested in using agents to generate training data for research
-
-Scenarios where it's not a fit: just wanting to call an LLM API from code, needing a lightweight SDK to embed in an existing application, or enterprise-level deployment for team collaboration (currently geared toward personal use).
+This post supersedes "Hermes Agent: Nous Research's Self-Improving AI Agent," published 2026-04-05; the old URL `/posts/ai/2026-04-05-hermes-agent-intro-en` now 301-redirects here. It was fully revised against the upstream README and docs site and rewritten as the opener of a ten-post series. Four misleading claims were fixed: terminal backends went from six to seven (Vercel Sandbox was added); Honcho user modeling moved from built-in to a memory provider plugin; "93% Python" no longer holds (now ~76% Python / ~20% TypeScript); and "Hermes is the official successor to OpenClaw" was wrong — it offers a migration path while OpenClaw continues independently. Command-by-command listings were handed back to the official docs.
 
 ## References
 
-- [Hermes Agent GitHub](https://github.com/NousResearch/hermes-agent)
-- [Nous Research Official Site](https://nousresearch.com/)
-- [agentskills.io — Skill Open Standard](https://agentskills.io)
-- [OpenRouter — Multi-Model Provider Platform](https://openrouter.ai/)
-- [Honcho — User Profile System](https://github.com/plastic-labs/honcho)
-- [Atropos RL Environment](https://github.com/NousResearch/Atropos)
-- [Modal — Serverless Compute Platform](https://modal.com/)
-- [Daytona — Serverless Dev Environment](https://www.daytona.io/)
+- [Hermes Agent on GitHub](https://github.com/NousResearch/hermes-agent)
+- [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs/)
+- [Nous Research](https://nousresearch.com/)
+- [Nous Portal](https://portal.nousresearch.com/)
+- [agentskills.io — open skill standard](https://agentskills.io)
+- [Honcho — user modeling system](https://github.com/plastic-labs/honcho)
+- [HermesClaw — community WeChat bridge](https://github.com/AaronWong1999/hermesclaw)
+- [Atropos — Nous RL environments](https://github.com/NousResearch/Atropos)
