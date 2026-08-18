@@ -7,6 +7,8 @@
 ### Recently completed（原 progress.txt 條目）
 
 新增 AI-Engineering-Coach 導讀後 progress.txt 會達 93 行，依慣例移出最舊一筆。
+CS230 系列（另一條分支）同時也達上限，移出最舊一筆研究紀錄（方法論教訓已回饋進 deep-research skill）。
+兩條分支各自瘦身、瘦到不同條目，合併時保留雙方移出的全部內容。
 
 - 2026-08-08: 研究 ByteByteGo 的 AI Agent 內容體系（十輪，三份檔案在 .research/）。
   用官方 sitemap 掃出 agent 相關 60 篇全部讀完 + 2 影片 + 3 課程頁（使用者原始清單
@@ -616,17 +618,33 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 - 中英頁完成 12 頻道矩陣、計數、URL 篩選、空狀態與共用分類測試；Astro
   check/build 通過。當時 `pnpm verify` 被未追蹤 Arxiv 文章缺參考資料擋住。
 
+## 2026-08 移出 progress.txt
+
+- 2026-08-01: post(ai) 數位員工 組織/商業視角（zh + en，PR #130）。細節見 docs/progress-archive.md。
 - 2026-08-10: drone 38 篇 x zh/en（76 檔）補 series＝「無人機產業拆解」／
   「Taiwan's Drone Industry, Taken Apart」，pillar 產業地圖排 order 1。初版「無人機
   拆解」被退回——站上 187 次「拆解」全搭抽象物（規範／策略／架構），搭實體機器會
   讀成拆機影片，而這系列一台都沒拆。content-plan-drone.md:481 當初決定
   「series 只給支線 D 用」，該判斷已過期（38 篇跨 5 分類且互相回指）。另在
   SERIES_DEFINITIONS 改為 slug-keyed、names 帶 zh/en 兩語，七個系列全部註冊。
-
 - 2026-08-10: drone 系列 15 篇 x zh/en（30 檔）tldr 壓回寫作指南的 1-2 句：08-08 起
   漂成整段摘要（zh 269-676 字，全站中位數 115），現為 143-206 字；PostCard .excerpt
   加 3 行 line-clamp 當保險。正文與 description 未動。
 
+## 2026-08-09/10 drone series 30→38（自 progress.txt 移入，2026-08-18）
+
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。**B 技術群 17 格、
+  D 反制群 4 格全部寫完。** 之後做了四輪補洞與一輪標題重寫：D31 關場序列補到
+  112 年 8 月（次數未降，結論更強）、裁判書實查（遙控無人機 32 筆／＋干擾器 0）、
+  C1 印出可重跑查詢並自我修正、D2 用 pyulog 讀 log、E2/總覽/D32 補「會過期的東西」
+  複查表、12 篇過長且有譯痕的標題重寫（中位數 38→27 字，英文 100→78 字元）。
+  **仍開的缺口**：D3 通過率民航局未公布、縣市禁飛清單是座標附件取不到、
+  交通部函釋未重試。逐篇缺口見 docs/content-plan-drone.md §5.2（38 列都有「未答」）。
+  **可重用教訓（全文在 docs/progress-archive.md）**：兩個總量解聯立＝猜；你列出的
+  缺口可能反駁自己的文章；要寫模糊的詞就找來源被迫窮舉它的地方；讀動詞不要只讀主體；
+  負面結果要印出查詢與計數；補洞的編輯必須連帶改標題／description／引用文字；
+  **一條傳輸失敗不等於來源被封鎖**（curl 對所有 .gov.tw 都回 000，firecrawl 才是
+  有效傳輸）；firecrawl 的 json 擷取器會捏造內容，須用逐字引用模式覆核。
 - 2026-08-10: post(ai)「Agent 生產線」系列 7 篇 x zh/en（14 檔）。從 2026-08-08 的
   ByteByteGo 研究產出：①概念界線 ②模型只是元件 harness 才是系統 ③context 與記憶
   ④企業案例橫向讀 ⑤安全 ⑥協定層 ⑦RAG 三形態。原第 6 篇「引用查證」當天下架：
@@ -664,3 +682,47 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   舊版。已驗：投影片 ID 對 syllabus 週次 0 錯、課程引文逐條比對逐字稿、未抓過的外部連結全通。
   **兩條教訓已進 skill 反合理化表**：post-verify 加「自己講過的數字不是來源」「連結活著 ≠
   那頁支持你的宣稱」；post 加「格式驗證全綠 ≠ 內容驗過」。
+
+## 2026-08-16/18 CS230 導讀系列（自 progress.txt 移入，2026-08-18）
+
+- 9 講 1:1 對應 Stanford CS230 Autumn 2025，order 跳過 7（11/4 Democracy Day 停課）。
+  zh/en 各 9 篇共 18 檔，series slug `cs230`，L9 職涯放 career 分類其餘放 ai。
+  標題格式＝課程原標題＋觀點副標。
+
+**方針被退回一次**：原「每篇挑一條主線，其餘只當佐證」導致課程內容沒寫完整（L4 標題
+有 Generative Models 我卻沒寫）。錯誤來源①我把「純課程筆記」描述成原創性低，是把人
+推向我有發揮空間的方向；②「避開站上 21 篇重疊」只對 L8 成立卻被擴大套用到九講。
+另我曾說「寫不進 1,500 字」，那是抓錯站上慣例（實測中位數 4,945、p90 9,087），
+把錯誤假設當客觀限制講出去。現行方針＝照講者 agenda 完整覆蓋。
+
+**查證毛病的四次遞進**（這是本輪最值得留的東西）：
+
+1. 四個第三方引用標成「未查證」就交件。真實理由是工具當掉（firecrawl 額度盡、
+   arxiv 對 WebFetch 被 egress 擋）後選擇繼續往前，tavily 恢復後沒回頭補。
+2. 被使用者問「都改完了？」才自己盤，發現另有一批寫「未逐一查證」的其實查得到：
+   TRPO 1502.05477、DPO 2305.18290、DQN 的 Nature 論文、jagged frontier 原始研究
+   （Dell'Acqua et al., HBS WP 24-013）、Anthropic-OpenAI 聯合評估、InstructGPT 13k
+   （論文原文 about 13k training prompts，Table 6 拆解 11,295 + 1,430）。
+3. 被問「為什麼查不到」才發現我把「沒查」寫成「查不到」——六項裡五項一搜就有：
+   AlphaGo 紀錄片（Greg Kohs 2017，DeepMind 頻道有全片）、Karpathy 的 Dwarkesh clip
+   （2025/10/18，完整訪談 10/17，正好是上課日往前四天）、Slack 微調笑話出自
+   OpenAI DevDay 2023 John Allard 的投影片（14 萬則內部訊息）。
+4. 真的取不到的只有 McKinsey：mckinsey.com 擋掉 tavily 與 firecrawl，文章存在但讀不到
+   內文。**這與「不存在」是兩回事**，且從轉述比對出兩處出入（來源「至少十個」非 15+、
+   20-60% 是「生產力提升」非「時間減少」）。
+
+**修掉的三個實質錯誤**：①McKinsey「85% AI 專案失敗」查無此數字，最接近的是 MIT NANDA
+《GenAI Divide》的約 95% pilot 無可衡量損益影響（機構與數字都不同）；McKinsey 原文講的
+是企業級 EBIT 影響罕見、高績效組僅約 6%。②「YC 有 80% 用中國模型」出自 The Economist
+引述 a16z 的 Martin Casado 談 a16z 案源（非 YC），他本人已更正為「20-30% 用開源、其中
+80% 用中國模型，所以接近 16-24%」——兩層百分比被壓成一層。③Epoch AI 給的是單一估計
+（約 300 兆 token、2026-2032 用盡），課堂的 2025/2027/2030 三段式無對應。另 Seaquest
+去色查無佐證（有文件的 Atari 問題是畫面閃爍，解法是相鄰兩格取逐像素最大值）。
+
+**共同模式：講者自己的第一手經驗全部站得住，出問題的全是憑印象轉述的第三方數字。**
+
+**其他**：13 篇論文 ID 實抓驗證，**exa 查 1707.06347 回傳完全不同的論文**，tavily 才對。
+修正兩處課堂說法（ImageBind 樞紐是影像非文字、METR 那篇限於 Software Tasks）。
+另抓到自己寫的上下篇串接跳號：order 8 指向 order 10、order 10 指向 order 6，
+兩者都跳過中間講次，已改成 6 → 8 → 9 → 10。
+

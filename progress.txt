@@ -25,6 +25,18 @@ Next steps
 4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 
 Recently completed
+- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔，order 跳過 7 因停課），
+  series slug `cs230`，PR #142。筆記 `.work/cs230-notes/`、規劃 `docs/content-plan-cs230.md`。
+  build 驗過：18 頁全出、zh/en series 各列 9 篇、內部連結 0 死。
+  **同一個查證毛病一輪內犯四次，每次都是被問才動**（細節見 docs/progress-archive.md）：
+  ①四個第三方引用標「未查證」就交件 ②被問「都改完了」才自己盤，又挖出一批寫
+  「未逐一查證」其實查得到的 ③被問「為什麼查不到」才發現我把「沒查」寫成「查不到」，
+  六項裡五項一搜就有。**教訓：「未查證」不是可交件狀態，是待辦；「沒查」與「查不到」
+  不可混用。**實查後修掉三個實質錯誤：McKinsey 85% 查無此數字（真實來源是 MIT NANDA
+  的 95%）、YC 80% 實為 a16z 的 Casado 談自家案源且他已更正為 16-24%、Epoch AI 是
+  單一區間 2026-2032 非三段式。**共同模式：講者第一手經驗都站得住，出問題的全是憑
+  印象轉述的第三方數字。**另方針曾被退回一次：原「每篇挑一條主線」導致課程內容沒寫
+  完整，錯在我把「純課程筆記」說成原創性低，把人推向我有發揮空間的方向。
 - 2026-08-16/18: post(ai) Stanford CS146S 系列 11 篇 x zh/en（22 檔），series slug `cs146s`
   已註冊進 src/utils/series.ts。PR #141（#139 已關未合）。骨架＝FA26 十週大綱，課堂內容取自
   FA25 公開投影片。**被使用者連問兩次才做對**：先只讀 syllabus 就寫（漏掉 45 條讀物中的 28
