@@ -19,9 +19,16 @@ Gemini CLI is Google's open source terminal AI agent, built on a ReAct (Reason a
 
 This post covers what it is, why that free-tier strategy is worth remembering, and who can still use it today.
 
-## Where it stands: who can still use it
+## Where it stands: for individuals, it is gone
 
-Leading with the conclusion, so you don't install it based on an old article:
+The sentence most likely to mislead you: **Gemini CLI was not shut down, but if you are an individual user it is gone as far as you're concerned.**
+
+These are two separate questions with opposite answers:
+
+- **The software** is alive. The repo isn't archived, it's Apache 2.0, it was still cutting nightly builds on 2026-08-19, and commits landed the day before.
+- **The service individuals could use** is gone. The "Login with Google" option **has been removed** — not a quota reduced to zero, but the path itself deleted.
+
+So read the table below as "which row are you in," not "is this product dead":
 
 | Path | Still works |
 |---|---|
@@ -32,7 +39,15 @@ Leading with the conclusion, so you don't install it based on an old article:
 | Paid Gemini / Gemini Enterprise Agent Platform API key | ✅ Unaffected |
 | Gemini Code Assist for GitHub (individual) | ❌ No new installs from 6/18, full shutdown 7/17 |
 
-**The project wasn't shut down**: the [repo](https://github.com/google-gemini/gemini-cli) is still maintained under Apache 2.0, and Google says it will keep pace with new models and ship bug and security fixes — but only enterprise customers are served.
+Google published a separate deprecation notice after the shutdown, and its FAQ answers this directly: **"I have a Gemini Code Assist Standard or Enterprise subscription. Am I affected? No, access to Gemini Code Assist IDE extensions and Gemini CLI using Gemini Code Assist Standard or Enterprise subscriptions remain unchanged."** The enterprise side is also still receiving features — the Gemini Code Assist release notes shipped Release Channels for Standard and Enterprise on 2026-08-10.
+
+So "is Gemini CLI dead?" has no single answer; it depends who's asking:
+
+| The question | The answer |
+|---|---|
+| Can individual developers still use it? | **No.** Login with Google is removed, with no individual entry point to replace it |
+| Is the open source project alive? | **Yes.** Daily nightlies, not archived |
+| Can paying enterprise customers still use it? | **Yes, and Google explicitly says access is unchanged** — still getting new features |
 
 If you're an individual who wants a Google agent in the terminal, the answer now is **Antigravity CLI**.
 
@@ -99,7 +114,7 @@ Agent mode in the VS Code extension was effectively a subset of Gemini CLI, shar
 - **Teams holding a Gemini Code Assist enterprise license**: still a supported path, no need to rush
 - **Anyone with a paid Gemini API key**: keeps working, with model availability following your key
 - **People studying agent implementations**: Apache 2.0 and still maintained, so it's readable reference code
-- **Individuals looking for a free terminal agent**: this door is closed; see the other posts in this series
+- **Individuals looking for a free terminal agent**: this door is closed, and there is no paid individual plan that buys it back — using Google's terminal agent means Antigravity CLI
 
 ## References
 
@@ -107,10 +122,14 @@ Agent mode in the VS Code extension was effectively a subset of Gemini CLI, shar
 - [Google Developers Blog: Transitioning Gemini CLI to Antigravity CLI (official announcement)](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
 - [Gemini CLI Discussion #28017: official shutdown notice (2026/06/18)](https://github.com/google-gemini/gemini-cli/discussions/28017)
 - [Google announcement: introducing Gemini CLI, an open source AI agent](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-cli-open-source-ai-agent/)
+- [Google for Developers: Gemini Code Assist consumer account deprecation notice and FAQ](https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals)
+- [Gemini Code Assist FAQ (official answer that enterprise subscriptions are unaffected)](https://developers.google.com/gemini-code-assist/resources/faqs)
+- [Gemini Code Assist release notes (enterprise side still shipping features)](https://docs.cloud.google.com/gemini/docs/codeassist/release-notes)
 - [Gemini CLI hands-on codelab](https://codelabs.developers.google.com/gemini-cli-hands-on)
 
 ## Changelog
 
+- 2026-08-19 (second revision): Re-verified and reframed after being asked "wasn't it shut down?" Saying it "is still a usable product" misleads individual readers — the **individual entry point (Login with Google) has been removed**, and only enterprise subscriptions are unaffected. Added the software-alive vs individual-service-gone split, two harder sources (the official deprecation FAQ and the release notes), and evidence that the repo still cuts daily nightlies
 - 2026-08-19: **Restored Gemini CLI as this post's subject.** The previous revision rewrote it as an Antigravity CLI introduction, duplicating the site's existing [Antigravity CLI post](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en). Coverage of the successor goes back to that post; this one focuses on Gemini CLI itself — its free tier design, the enterprise paths that survive the shutdown, and the two lessons the episode leaves behind
 - 2026-08-18: The shutdown became fact; rewrote the content and corrected the install URL
 - 2026-05-21: Added the discontinuation notice (2026/06/18) and migration guidance
