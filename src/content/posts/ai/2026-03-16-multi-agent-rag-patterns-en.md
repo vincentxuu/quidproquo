@@ -583,7 +583,7 @@ Result fusion LLM call          ~800ms
 Total latency                   ~3,700ms
 ```
 
-By comparison, a single Agentic RAG might only need ~2,000ms. The extra 1,700ms is entirely coordination overhead.
+By comparison, a single Agentic RAG needs only ~2,000ms in this hypothetical budget, so the extra 1,700ms is entirely coordination overhead. (The whole table is an illustrative budget, not a measurement; [measured end-to-end Agentic RAG latency](/posts/ai/2026-03-12-agentic-rag-react-loop-en) runs to 10–20 seconds and varies widely with the model, the retrieval backend, and the number of steps.)
 
 **Mitigations**:
 - Use a lightweight model or classifier for query analysis -- it doesn't have to be an LLM
@@ -706,7 +706,7 @@ If your RAG system is experiencing the problem of "adding more documents actuall
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) -- Singh et al. (2025), covering Multi-Agent RAG architecture taxonomy, design tradeoffs, and practical use cases
 - [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://arxiv.org/abs/2308.10848) -- Chen et al. (2023), experimental research on multi-Agent collaboration frameworks and social behaviors
 - [HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face](https://arxiv.org/abs/2303.17580) -- Shen et al. (2023), an early architectural example of using LLM as a controller to coordinate multiple specialized models
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) -- Gao et al. (2024), the theoretical foundation for Modular RAG componentized design and Multi-Agent evolution
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) -- Gao et al. (2023), the theoretical foundation for Modular RAG componentized design and Multi-Agent evolution
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) -- Yao et al. (2023), core reference paper for the Orchestrator's interleaved reasoning and action pattern
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) -- Besta et al. (2024), retrieval architecture for multi-aspect queries, complementary to Multi-Agent domain partitioning
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) -- LangChain tech blog; it covers the write / select / compress / isolate framing of context, not result fusion (the fusion material in this article comes from elsewhere)

@@ -66,7 +66,7 @@ function documentSimilarity(a: Document, b: Document): number {
 }
 ```
 
-This metadata-based approach is much cheaper to compute, and it maps well to climbing content: documents from the same crag are the most likely to overlap. The weights deliberately sum to 0.4 + 0.3 + 0.2 + 0.1 = 1.0, so the upper bound lines up with the Cross-Encoder's 0–1 range — exactly the same-scale requirement noted above.
+This metadata-based approach is much cheaper to compute, and it maps well to climbing content: documents from the same crag are the most likely to overlap. The weights deliberately sum to 0.4 + 0.3 + 0.2 + 0.1 = 1.0, so the upper bound lines up with the post-sigmoid Cross-Encoder score Workers AI returns (0–1) — exactly the same-scale requirement noted above. If your reranker hands back [raw, un-sigmoided logits](/posts/ai/2026-03-12-cross-encoder-reranking-en) instead, that alignment does not hold and you have to normalize first.
 
 ## What λ Controls
 

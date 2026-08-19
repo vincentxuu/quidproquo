@@ -578,7 +578,7 @@ Agent 平行執行            ~2,000ms（最慢的那個）
 總延遲                    ~3,700ms
 ```
 
-相比之下，單一 Agentic RAG 可能只需要 ~2,000ms。多出來的 1,700ms 全是協調開銷。
+相比之下，單一 Agentic RAG 在這張假設的預算表裡只需要 ~2,000ms，多出來的 1,700ms 全是協調開銷。（這整張表是示意用的預算配置，不是量測值；[實測過的 Agentic RAG 端到端延遲](/posts/ai/2026-03-12-agentic-rag-react-loop)是 10–20 秒的量級，會隨模型、檢索後端與步驟數大幅變動。）
 
 **緩解方式**：
 - Query 分析用輕量模型或 classifier，不一定要 LLM
@@ -701,7 +701,7 @@ Multi-Agent RAG 的核心洞察很簡單：**專業分工比萬能通才更有�
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，涵蓋 Multi-Agent RAG 架構分類學、設計權衡與實際應用案例
 - [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://arxiv.org/abs/2308.10848) — Chen et al. (2023)，多 Agent 協作框架與社會行為的實驗研究
 - [HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face](https://arxiv.org/abs/2303.17580) — Shen et al. (2023)，LLM 作為 controller 協調多個專業模型的早期架構範例
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，Modular RAG 的元件化設計與 Multi-Agent 演化的理論基礎
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，Modular RAG 的元件化設計與 Multi-Agent 演化的理論基礎
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Orchestrator 推理與行動交織模式的核心參考論文
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多面向查詢的檢索架構，與 Multi-Agent 領域劃分互補
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，講的是 context 的 write／select／compress／isolate 四種處理（本文的結果融合另有出處，該文沒談）

@@ -219,7 +219,7 @@ Retrieved Chunks: [C1, C2, C3, C4, C5]
 大模型（一次驗證）: 選 Draft 2 → 最終答案
 ```
 
-好處是延遲低（小模型跑得快，而且是平行的）和成本低（大模型只做一次驗證，不做完整生成）。[Speculative RAG 論文](https://arxiv.org/abs/2407.08223)在 PubHealth 上回報準確率最多提升 12.97%、延遲降低 50.83%；但這是該資料集上的最佳值，TriviaQA、MuSiQue、PopQA、ARC-Challenge 的幅度都小得多，不要當成通例。另外要注意：這個數字的前提是你有一個蒸餾過的 specialist 小模型，不是隨便抓一個 7B 就有。
+好處是延遲低（小模型跑得快，而且是平行的）和成本低（大模型只做一次驗證，不做完整生成）。[Speculative RAG 論文](https://arxiv.org/abs/2407.08223)在 PubHealth 上回報準確率最多提升 12.97 個百分點（76.60 對 63.63，是絕對差不是相對提升）、延遲降低 50.83%；但這是該資料集上的最佳值，TriviaQA、MuSiQue、PopQA、ARC-Challenge 的幅度都小得多，不要當成通例。另外要注意：這個數字的前提是你有一個蒸餾過的 specialist 小模型，不是隨便抓一個 7B 就有。
 
 關鍵洞察：Speculative RAG 本質上是用 compute parallelism 換 latency。如果你的瓶頸是 GPU 不夠而不是延遲太高，這個模式反而會讓事情更糟。
 
@@ -626,7 +626,7 @@ RAG 不是一個技術，是一個技術體系。
 
 ## 參考資料
 
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，涵蓋 Naive RAG、Advanced RAG、Modular RAG 三代演化的完整綜述
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，涵蓋 Naive RAG、Advanced RAG、Modular RAG 三代演化的完整綜述
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511) — Asai et al. (2023)，Self-RAG 原始論文，自主決定是否檢索的反思機制
 - [Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884) — Yan et al. (2024)，CRAG 論文，透過評估器修正不良檢索結果
 - [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130) — Edge et al. (2024)，Microsoft GraphRAG 原始論文，知識圖譜加強全域查詢

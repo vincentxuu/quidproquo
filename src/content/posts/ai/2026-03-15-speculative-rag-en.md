@@ -786,5 +786,5 @@ Several possible directions:
 - [Retrieval-Augmented Generation with Conflicting Evidence (Wang et al., 2025)](https://arxiv.org/abs/2504.13079) — RAMDocs / MADAM-RAG; measures Speculative RAG's degradation on ambiguous queries
 - [Fast Inference from Transformers via Speculative Decoding (Leviathan et al., ICML 2023)](https://arxiv.org/abs/2211.17192) — The original Speculative Decoding paper, conceptual source for Speculative RAG's dual-model design
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (Asai et al., ICLR 2024)](https://arxiv.org/abs/2310.11511) — Self-RAG comparison method
-- [Corrective Retrieval Augmented Generation (Yan et al., AAAI 2024)](https://arxiv.org/abs/2401.15884) — CRAG comparison method, complementary to Speculative RAG
-- [A Survey on Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997) — Full landscape of RAG systems, covering the background of the Drafter-Verifier dual-model architecture
+- [Corrective Retrieval Augmented Generation (Yan et al., 2024)](https://arxiv.org/abs/2401.15884) — CRAG comparison method, complementary to Speculative RAG
+- [A Survey on Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997) — Full landscape of RAG systems, covering the background of the Drafter-Verifier dual-model architecture

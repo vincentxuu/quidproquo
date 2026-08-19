@@ -66,7 +66,7 @@ function documentSimilarity(a: Document, b: Document): number {
 }
 ```
 
-這個 metadata-based 相似度計算便宜很多，對攀岩內容也很直觀：來自同一岩場的文件，最可能在內容上重複。權重刻意湊成 0.4 + 0.3 + 0.2 + 0.1 = 1.0，上界剛好對齊 Cross-Encoder 分數的 0–1，這正是上一節說的「兩項要同尺度」。
+這個 metadata-based 相似度計算便宜很多，對攀岩內容也很直觀：來自同一岩場的文件，最可能在內容上重複。權重刻意湊成 0.4 + 0.3 + 0.2 + 0.1 = 1.0，上界剛好對齊 Workers AI 那條 sigmoid 之後的 Cross-Encoder 分數（0–1），這正是上一節說的「兩項要同尺度」。若你的 reranker 回的是[未經 sigmoid 的原始 logit](/posts/ai/2026-03-12-cross-encoder-reranking)，這個對齊就不成立，得先自己壓到同一個尺度。
 
 ## λ 參數的意義
 

@@ -125,4 +125,4 @@ Overall, reranking is the most direct lever for improving precision in a RAG pip
 - [BAAI/bge-reranker-base — Hugging Face](https://huggingface.co/BAAI/bge-reranker-base)
 - [Workers AI model catalog (to check which rerankers exist today)](https://developers.cloudflare.com/workers-ai/models/)
 - [Cohere Reranking Best Practices (on how to read reranker scores)](https://docs.cohere.com/docs/reranking-best-practices)
-- [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997)
+- [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)

@@ -125,4 +125,4 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 - [BAAI/bge-reranker-base — Hugging Face](https://huggingface.co/BAAI/bge-reranker-base)
 - [Workers AI 模型目錄（查目前有哪些 reranker）](https://developers.cloudflare.com/workers-ai/models/)
 - [Cohere Reranking Best Practices（hosted reranker 的分數解讀說明）](https://docs.cohere.com/docs/reranking-best-practices)
-- [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997)
+- [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)

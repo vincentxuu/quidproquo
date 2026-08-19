@@ -775,5 +775,5 @@ Speculative RAG 在 2024 年 7 月發表（arXiv:2407.08223），2025 年被 ICL
 - [Retrieval-Augmented Generation with Conflicting Evidence (Wang et al., 2025)](https://arxiv.org/abs/2504.13079) — RAMDocs / MADAM-RAG，實測 Speculative RAG 在歧義查詢上的退化
 - [Fast Inference from Transformers via Speculative Decoding (Leviathan et al., ICML 2023)](https://arxiv.org/abs/2211.17192) — Speculative Decoding 原始論文，Speculative RAG 雙模型設計的概念來源
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection (Asai et al., ICLR 2024)](https://arxiv.org/abs/2310.11511) — Self-RAG 對比方法
-- [Corrective Retrieval Augmented Generation (Yan et al., AAAI 2024)](https://arxiv.org/abs/2401.15884) — CRAG 對比方法，與 Speculative RAG 互補
-- [A Survey on Retrieval-Augmented Generation for Large Language Models (2024)](https://arxiv.org/abs/2312.10997) — RAG 系統全貌，涵蓋 Drafter-Verifier 雙模型架構的背景
+- [Corrective Retrieval Augmented Generation (Yan et al., 2024)](https://arxiv.org/abs/2401.15884) — CRAG 對比方法，與 Speculative RAG 互補
+- [A Survey on Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997) — RAG 系統全貌，涵蓋 Drafter-Verifier 雙模型架構的背景

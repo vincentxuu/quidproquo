@@ -29,9 +29,9 @@ Each source has its own result set and ranking. The question is: **how do you se
 
 The most intuitive approach is to sum all scores and rank by total. But there's a fundamental problem: **scores from different sources have different scales**.
 
-- Vector search cosine similarity: range 0.0 -- 1.0, with hits typically clustered around 0.7--0.9
+- Vector search cosine similarity: defined over −1.0 -- 1.0 (text embeddings mostly land in the positive range in practice, with hits often around 0.7--0.9, but that is an impression rather than a constant)
 - BM25 scores: range could be 0--50, distribution depends on corpus size and term frequency
-- Cross-Encoder: range 0.0 -- 1.0, but the distribution differs from vector cosine
+- Cross-Encoder: **the raw output is a logit — unbounded, and it can be negative**; only after a sigmoid is it 0--1 (what Workers AI returns is the post-sigmoid score). See [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en)
 
 If you add them directly, BM25's numeric range dominates the results, and the subtle differences in vector search scores get drowned out.
 

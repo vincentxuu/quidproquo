@@ -29,9 +29,9 @@ RAG 系統越做越複雜，搜尋結果的來源也越來越多：
 
 最直覺的做法是把所有分數加總，按總分排名。但這有個根本問題：**不同來源的分數量綱不同**。
 
-- 向量搜尋的 cosine similarity：範圍 0.0 – 1.0，一般命中結果集中在 0.7–0.9
+- 向量搜尋的 cosine similarity：定義域是 −1.0 – 1.0（文本 embedding 實務上多半落在正區間，命中常見於 0.7–0.9，但這是經驗印象不是常數）
 - BM25 分數：範圍可能是 0–50，分布取決於文件庫大小和詞頻
-- Cross-Encoder：範圍 0.0 – 1.0，但分布與向量 cosine 不同
+- Cross-Encoder：**原始輸出是 logit，沒有上下界、可能為負**；只有經過 sigmoid 之後才是 0–1（Workers AI 回傳的就是 sigmoid 後的分數）。細節見 [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking)
 
 直接相加，BM25 的數值範圍就會主導結果，向量搜尋的細微差距被淹沒。
 

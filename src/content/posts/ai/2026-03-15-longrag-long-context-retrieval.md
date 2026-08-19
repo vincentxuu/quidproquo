@@ -651,7 +651,7 @@ LongRAG 更可能把這三個章節都檢索到。
 
 **2. 低延遲要求的場景**
 
-LongRAG 送入 LLM 的 token 數是傳統 RAG 的 5-10 倍，推論延遲也會相應增加。對於需要毫秒級回應的場景（如即時搜尋建議），這可能不可接受。
+LongRAG 送入 LLM 的 token 數大約是傳統 RAG 的 7–8 倍（上面那組配置算出來是 7 倍，換個 chunk 大小會浮動），推論延遲也會相應增加。對於需要毫秒級回應的場景（如即時搜尋建議），這可能不可接受。
 
 **3. 成本敏感的高頻查詢**
 
@@ -765,7 +765,7 @@ LongRAG 重新分配了這個壓力：
 - [Long Context RAG Performance of Large Language Models](https://arxiv.org/abs/2411.03538) — Leng et al. (NeurIPS 2024 workshop)，跨 20 個模型的長上下文 RAG 實測與失效模式
 - [NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167) — Modarressi et al. (ICML 2025)，拿掉字面重疊後長上下文表現大幅衰退
 - [GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models](https://arxiv.org/abs/2406.14550) — Li et al. (2024, EMNLP)，圖結構 Agent 系統處理長文件，4K 視窗超越 GPT-4-128K
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 演化史與各代設計取捨的完整分析
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，RAG 演化史與各代設計取捨的完整分析
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，Chunking 策略與 RAG 效能關係的系統性實驗
 - [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic 工程部落格，長上下文 context 管理的 compaction 與壓縮策略
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多頭注意力作為檢索鍵的創新方法，與 LongRAG 互補

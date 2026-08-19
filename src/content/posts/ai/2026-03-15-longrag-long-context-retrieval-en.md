@@ -657,7 +657,7 @@ If your corpus contains millions of documents and users are simply looking for a
 
 **2. Low-Latency Requirements**
 
-LongRAG feeds 5–10x more tokens to the LLM than traditional RAG, with inference latency increasing proportionally. For scenarios requiring millisecond-level responses (such as real-time search suggestions), this may be unacceptable.
+LongRAG feeds roughly 7–8x more tokens to the LLM than traditional RAG (the configuration above works out to 7x; it moves with your chunk sizes), with inference latency increasing proportionally. For scenarios requiring millisecond-level responses (such as real-time search suggestions), this may be unacceptable.
 
 **3. Cost-Sensitive High-Frequency Queries**
 
@@ -771,7 +771,7 @@ The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG
 - [Long Context RAG Performance of Large Language Models](https://arxiv.org/abs/2411.03538) — Leng et al. (NeurIPS 2024 workshop), long-context RAG measured across 20 models, with failure modes
 - [NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167) — Modarressi et al. (ICML 2025), long-context performance collapses once literal overlap is removed
 - [GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models](https://arxiv.org/abs/2406.14550) — Li et al. (2024, EMNLP), graph-structure agent system for processing long documents, surpassing GPT-4-128K with a 4K window
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024), comprehensive analysis of RAG evolution and design tradeoffs across generations
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023), comprehensive analysis of RAG evolution and design tradeoffs across generations
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024), systematic experiments on the relationship between chunking strategies and RAG performance
 - [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic engineering blog on compaction and compression strategies for long-context management
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024), innovative approach using multi-head attention as retrieval keys, complementary to LongRAG

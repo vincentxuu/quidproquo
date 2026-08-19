@@ -224,7 +224,7 @@ Small model (parallel):
 Large model (single verification): Select Draft 2 → Final answer
 ```
 
-The benefits are low latency (small models run fast and in parallel) and low cost (the large model only does one verification, not full generation). The [Speculative RAG paper](https://arxiv.org/abs/2407.08223) reports up to 12.97% higher accuracy and 50.83% lower latency on PubHealth; those are the best-case numbers on that dataset, and the margins on TriviaQA, MuSiQue, PopQA, and ARC-Challenge are considerably smaller, so don't treat them as typical. Also note the precondition: the numbers assume a distilled specialist drafter, not any off-the-shelf 7B model.
+The benefits are low latency (small models run fast and in parallel) and low cost (the large model only does one verification, not full generation). The [Speculative RAG paper](https://arxiv.org/abs/2407.08223) reports accuracy up to 12.97 percentage points higher (76.60 against 63.63 — an absolute difference, not a relative gain) and 50.83% lower latency on PubHealth; those are the best-case numbers on that dataset, and the margins on TriviaQA, MuSiQue, PopQA, and ARC-Challenge are considerably smaller, so don't treat them as typical. Also note the precondition: the numbers assume a distilled specialist drafter, not any off-the-shelf 7B model.
 
 Key insight: Speculative RAG essentially trades compute parallelism for latency. If your bottleneck is insufficient GPUs rather than high latency, this pattern will actually make things worse.
 
@@ -632,7 +632,7 @@ This guide will be continuously updated. Whenever a new deep-dive article is pub
 
 ## References
 
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024), a comprehensive survey covering the three-generation evolution of Naive RAG, Advanced RAG, and Modular RAG
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023), a comprehensive survey covering the three-generation evolution of Naive RAG, Advanced RAG, and Modular RAG
 - [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511) — Asai et al. (2023), the original Self-RAG paper on the self-reflection mechanism for autonomous retrieval decisions
 - [Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884) — Yan et al. (2024), the CRAG paper on correcting poor retrieval results through evaluators
 - [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130) — Edge et al. (2024), Microsoft's original GraphRAG paper on enhancing global queries with knowledge graphs
