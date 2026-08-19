@@ -889,3 +889,16 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
   站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
   另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
+
+## 2026-08-19 AI 證照備考系列 各廠「怎麼選」（自 progress.txt 移入）
+
+- 2026-08-19: **各廠「怎麼選」4 篇 x zh/en（8 檔）寫完**，order 21-24，AWS／微軟／NVIDIA／Claude。
+  一樣四個平行 agent，**發指令前先 grep 源檔確認每條事實存在**（上一輪的教訓），回來後我抽驗：
+  43 個外部 URL 重跑 curl、1025 檔 check:references、數字逐條對源檔，全中。
+  **新查到三處官方自相矛盾**：MLA-C01 官方頁同時掛 MLA-C02 與 ME1-C02 兩個代碼；Anthropic 公告文
+  說「每條路都從 foundation 級開始」但四份 exam guide 沒設先修；Pearson VUE 寫 three roles
+  （Practitioner…）而公告文寫 four roles 且該張叫 Associate。三處都兩邊引、標不確定。
+  **協作教訓：我加的死連結檢查會被自己的並行寫法週期性觸發**——zh 先落地、en 還沒生出來的那幾分鐘
+  verify 就紅，擋到另一個 session 的 commit。對方來問我回了時程、綠燈後通知，雙方都沒動對方的檔案。
+  **下次跑 zh/en 並行批次：讓 agent 先建好兩個檔案骨架再填內容。**
+  系列現在只剩 AWS MLA-C01（等 9/1 的 C02 規格；C02 exam guide 網址今天仍 404）。
