@@ -16,13 +16,13 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-18-workers-ai-model-guide-en)
 
-Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30，一口氣拿掉 18 個 model ID，包含 Llama 2 / 3 / 3.1 全系列、Mistral 7B 與 Gemma 3 12B——很多教學文裡的第一行程式碼從那天起就是壞的。
+Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30，一口氣把 18 個 model ID 標為 deprecated，包含 Llama 2 / 3 / 3.1 全系列、Mistral 7B 與 Gemma 3 12B。注意[官方用字](https://developers.cloudflare.com/workers-ai/changelog/)是 *will be deprecated* 而不是移除——這些模型的文件頁與定價至今仍在，所以舊教學不一定當天就壞，但它們已經在退場軌道上，不該再拿來起新專案。這個日期本身也是從 2026-05-10 延後過來的，會再變。
 
 這篇是一份對照表，照官方 [模型目錄](https://developers.cloudflare.com/workers-ai/models/) 與 [定價頁](https://developers.cloudflare.com/workers-ai/platform/pricing/) 整理，會持續更新。
 
 **快照時間**：2026-08-18。官方模型目錄頁標示 Last updated 2026-08-12，共 **84 個模型**；定價頁 Last updated 2026-08-18。
 
-所有 context window 與價格都取自各模型的官方模型頁，不是原始模型的規格——同一個開源模型在 Workers AI 上的 context window 常常被裁短（下架前的 `gemma-3-12b-it` 原生 128K，在 Workers AI 上是 80,000 tokens）。
+所有 context window 與價格都取自各模型的官方模型頁，不是原始模型的規格——同一個開源模型在 Workers AI 上的 context window 常常被裁短（`gemma-3-12b-it` 原生 128K，在 Workers AI 上是 80,000 tokens）。
 
 ## 一分鐘結論
 
@@ -222,7 +222,7 @@ Workers AI 的底層計價單位是 Neuron，定價頁寫得很清楚：
 
 ## 模型會消失：把 model ID 收斂成一個常數
 
-2026-05-30 那波汰換的完整名單，值得貼出來當警惕：`kimi-k2.5`（自動 alias 到 k2.6，但價格更高）、`meta-llama-3-8b-instruct`、`llama-3-8b-instruct`(+awq)、`llama-3.1-8b-instruct`(+awq)、`llama-3.1-70b-instruct`、`llama-2-7b-chat-int8`、`llama-2-7b-chat-fp16`、`mistral-7b-instruct-v0.1`、`mistral-7b-instruct-v0.2`、`gemma-7b-it`、`gemma-3-12b-it`、`hermes-2-pro-mistral-7b`、`phi-2`、`sqlcoder-7b-2`、`uform-gen2-qwen-500m`、`bart-large-cnn`。
+2026-05-30 那波標為 deprecated 的完整名單，值得貼出來當警惕：`kimi-k2.5`（自動 alias 到 k2.6，但價格更高）、`meta-llama-3-8b-instruct`、`llama-3-8b-instruct`(+awq)、`llama-3.1-8b-instruct`(+awq)、`llama-3.1-70b-instruct`、`llama-2-7b-chat-int8`、`llama-2-7b-chat-fp16`、`mistral-7b-instruct-v0.1`、`mistral-7b-instruct-v0.2`、`gemma-7b-it`、`gemma-3-12b-it`、`hermes-2-pro-mistral-7b`、`phi-2`、`sqlcoder-7b-2`、`uform-gen2-qwen-500m`、`bart-large-cnn`。
 
 官方給的替代建議是：
 
@@ -275,7 +275,7 @@ const answer = await env.AI.run(MODELS.chat, { messages, stream: true })
 
 - [Workers AI 模型目錄](https://developers.cloudflare.com/workers-ai/models/) — 本文所有模型清單與 context window 的來源
 - [Workers AI 定價](https://developers.cloudflare.com/workers-ai/platform/pricing/) — Neurons、免費額度與各模型單價
-- [Workers AI Changelog](https://developers.cloudflare.com/workers-ai/changelog/) — 2026-05-30 汰換名單與官方替代建議
+- [Workers AI Changelog](https://developers.cloudflare.com/workers-ai/changelog/) — 2026-05-30 的 deprecation 名單與官方替代建議
 - [Workers AI 限制](https://developers.cloudflare.com/workers-ai/platform/limits/)
 - [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) — `x-session-affinity` 與快取命中
 - [AI Gateway Unified billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) — 用預付額度付 Workers AI

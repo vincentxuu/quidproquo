@@ -78,7 +78,7 @@ Mobile 用 Expo 54 + React Native 0.81，導航走 Expo Router（file-based rout
 
 全部跑在 Cloudflare Workers AI：
 - **Embedding**：`@cf/baai/bge-m3`，1024 維，多語言，繁體中文效果好
-- **LLM**：`@cf/google/gemma-3-12b-it`
+- **LLM**：`@cf/google/gemma-3-12b-it`（寫作當時的選擇，該 ID 已於 2026-05-30 標為 deprecated）
 
 不選 OpenAI 或其他外部 API 的原因：成本可預測，不需要管 API key 的 rate limit，延遲低（同一個平台）。
 

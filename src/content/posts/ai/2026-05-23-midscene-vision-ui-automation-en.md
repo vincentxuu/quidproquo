@@ -117,11 +117,11 @@ While all three fall under "AI operating interfaces," their approaches differ si
 ```
                 Localization      Platform       Language   Orientation
 Midscene    Pure vision (screenshot) Cross-platform  JS/TS    SDK + toolchain
-Stagehand   DOM (chunk+rank)         Browser only    TS       Built on Playwright
+Stagehand   accessibility tree       Browser only    TS/Py/Go Built on Playwright
 browser-use DOM/screenshot/hybrid    Browser only    Python   Autonomous agent
 ```
 
-- **vs Stagehand** (by Browserbase, the team behind [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en)): Stagehand parses DOM for localization and is built on Playwright. Its action target accuracy is typically more stable than pure vision, but it's **browser-only**. Midscene's differentiator is pure vision + true cross-platform (mobile/desktop) + JS. (This comparison is synthesized from secondary sources.)
+- **vs Stagehand** (by Browserbase, the team behind [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en)): Stagehand uses [hybrid accessibility tree trimming](https://github.com/browserbase/stagehand) rather than raw screenshots, and is built on Playwright. Its action target accuracy is typically more stable than pure vision, but it's **browser-only**; on languages it now ships TypeScript, Python and Go SDKs rather than TS alone. Midscene's differentiator is pure vision plus true cross-platform reach (mobile/desktop).
 - **vs browser-use**: Python-based, autonomous agent loop, re-reasons at every step, browser-only -- positioned as "let the agent surf the web on its own." Midscene leans toward an SDK approach where you "write it as a script/test."
 
 In short: Midscene's selling point is **vision-first + true cross-platform + complete JS toolchain (reports/caching/Skills)**, with the trade-off of slower steps and higher token costs. For a broader view of the browser agent landscape, see the site's [Comparison of Three AI Agents' Chrome Strategies](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en) and [OpenClaw's Browser Control](/posts/ai/2026-03-28-openclaw-tools-browser-search-en).

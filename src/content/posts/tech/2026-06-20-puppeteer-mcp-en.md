@@ -52,14 +52,14 @@ puppeteer_navigate("https://example.com")
 ```
 
 **`puppeteer_screenshot`**
-Screenshot the current page or a specific element, returned as base64 PNG. Specify a CSS selector to capture just one element:
+Screenshot the current page or a specific element. Three defaults bite: `name` is **required** (omit it and the call errors out); `encoded` defaults to `false`, so you get **binary image content, not base64**; and the default viewport is `width=800, height=600`, applied via `page.setViewport()`, which resizes the page. Parameters per [the source and README](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer):
 
 ```
 puppeteer_screenshot(selector="#main-content")
 ```
 
 **`puppeteer_click`**
-Click the element matching a CSS selector. No auto-wait — the element must already be in the DOM.
+Click the element matching a CSS selector. **This is the one tool with no wait** — the source calls `page.click()` directly, so the element must already be in the DOM. (`fill`, `select` and `hover` all call `page.waitForSelector()` first, so do not generalize click's behaviour to the whole server.)
 
 ```
 puppeteer_click(selector="button[type='submit']")
@@ -119,11 +119,11 @@ The fundamental characteristic of server-puppeteer is using `puppeteer_screensho
 - The screenshot itself is the deliverable when that's what the task needs (OG image preview, UI regression screenshots)
 
 **Disadvantages:**
-- Each screenshot is tens of thousands of tokens; costs accumulate fast in long sessions
+- Screenshots cost less than intuition suggests but still add up: per Anthropic's [visual token table](https://platform.claude.com/docs/en/build-with-claude/vision), 1920×1080 is **1,560 visual tokens** on the standard tier (downsized to 1456×819) and 2,691 on the high-resolution tier. Over a long session that accumulates fast
 - Requires a vision-capable model — can't be used with text-only models
 - Screenshots carry large amounts of visual information the agent doesn't need
 
-Compared to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en)'s accessibility tree mode, token cost per page check is typically 10–50x higher.
+Compared to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en)'s accessibility tree mode, the tree does save tokens and needs no vision model — but the actual ratio depends on page complexity, so don't apply a fixed multiplier. A 2–10 KB tree lands in the same order of magnitude as the screenshot.
 
 ## How It Compares to @playwright/mcp
 

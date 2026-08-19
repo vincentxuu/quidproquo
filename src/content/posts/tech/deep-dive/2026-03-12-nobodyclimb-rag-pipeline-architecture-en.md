@@ -24,7 +24,7 @@ This post documents the architecture of the entire AI system — why we chose th
 
 The entire backend runs on Cloudflare Workers using the Hono framework. For AI, we chose to stay within the Cloudflare ecosystem primarily to avoid maintaining separate AI inference infrastructure.
 
-**LLM: `@cf/google/gemma-3-12b-it`**
+**LLM: `@cf/google/gemma-3-12b-it`** (the choice at the time of writing. Cloudflare [marked this model ID deprecated](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/) on 2026-05-30; for a new project start from the [Workers AI model guide](/posts/ai/2026-08-18-workers-ai-model-guide-en) instead. The reasoning below is unaffected.)
 
 Early on we used `llama-3.1-8b-instruct`, but its output quality in Chinese contexts was weak — Traditional Chinese instruction-following was particularly poor. Switching to gemma-3-12b-it was a clear improvement. At 12B parameters, it's a good fit for this use case.
 

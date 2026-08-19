@@ -37,7 +37,7 @@ NobodyClimb 的後端就是用 Hono，部署在 Cloudflare Workers 上。選它�
 Express 的問題不是 API 設計不好，而是它預設 Node.js 存在：
 
 - `req.socket`、`res.end()`、`Buffer` 都是 Node.js-only API
-- Bundle size 吃掉 Workers 的 [script 大小上限](https://developers.cloudflare.com/workers/platform/limits/) 一大塊（免費與付費方案的上限不同，都是壓縮後計算）
+- Bundle size 吃掉 Workers 的 [script 大小上限](https://developers.cloudflare.com/workers/platform/limits/) 一大塊（免費與付費方案的上限不同：壓縮後 3 MB／10 MB，另有兩方案共通的壓縮前 64 MB 上限）
 - 沒有原生的 async/await middleware 支援，錯誤處理容易漏
 
 在 Cloudflare Workers 環境下，你需要：

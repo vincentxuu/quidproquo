@@ -16,7 +16,7 @@ series:
 
 🌏 [English version](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database-en)
 
-D1 是 Cloudflare 的 serverless 關聯式資料庫，底層是 SQLite。它和 Workers 跑在同一個邊緣節點，不需要連回另一個 region，查詢延遲低、設定成本低。如果你已經選 Cloudflare Workers，D1 是最自然的關聯式資料庫選項。
+D1 是 Cloudflare 的 serverless 關聯式資料庫，底層是 SQLite。它和 Workers 共用 Cloudflare 平台、設定成本低，但**別誤會成「資料庫跟著 Worker 跑在每個邊緣節點」**：沒開 read replication 時，[D1 會把讀寫都導到世界上單一位置的 primary instance](https://developers.cloudflare.com/d1/best-practices/read-replication/)，延遲取決於使用者離那個 instance 多遠。如果你已經選 Cloudflare Workers，D1 是最自然的關聯式資料庫選項。
 
 ## 核心特性
 
@@ -126,7 +126,7 @@ Wrangler 在 D1 內部維護一張 `d1_migrations` 表追蹤版本，已套用�
 | | D1 | PostgreSQL / MySQL |
 |---|---|---|
 | 部署複雜度 | 幾乎零（wrangler 搞定）| 需要 RDS、VPC、連線池 |
-| 延遲 | 跑在 Worker 旁邊，極低 | 連回獨立 region，通常 10–50ms |
+| 延遲 | 取決於離 primary instance 多遠，可用 read replication 改善 | 連回獨立 region |
 | SQL 支援 | SQLite 語法子集 | 完整 PostgreSQL / MySQL |
 | 並發寫入 | 單點 SQLite，高並發寫入會 queue | 支援高並發 |
 | 功能 | 無 stored procedures、no pg extensions | 豐富的擴充生態 |
@@ -187,12 +187,12 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 **優點**
 - Zero-config：wrangler 建好就能用，沒有 VPC、連線池、SSL 憑證
 - 完整 SQL：JOIN、transaction、subquery，不是閹割版
-- 跑在 Worker 旁邊，延遲極低
+- 不必自己管資料庫主機，與 Workers 同平台、設定成本低
 - 免費方案就能跑真的專案
 
 **缺點**
 - SQLite 單點寫入：高並發寫入場景會排隊，這是架構限制，不是 bug
-- 無 stored procedures、no triggers（SQLite 限制）
+- 無 stored procedures（注意 **trigger 是支援的**——SQLite 本身就有，D1 的 SQL 文件也同時出現 `CREATE TRIGGER` 與 `PRAGMA recursive_triggers`）
 - 單一資料庫容量有上限，而官方給的路是分庫而非加大——資料會長大的話，一開始就要想好怎麼分庫
 - 免費方案的**單一資料庫容量上限遠低於付費方案**（500 MB vs 10 GB，差 20 倍），開發時很容易誤判
 - 大批次的 `UPDATE` / `DELETE` 會撞執行限制，官方建議切成每批一千列左右跑

@@ -22,7 +22,7 @@ Cloudflare Workers is often compared to AWS Lambda, but the two have fundamental
 
 Lambda's cold start problem is essentially the **cost of container startup**: pulling an image, allocating resources, booting the runtime — best case a few hundred milliseconds, worst case several seconds.
 
-Workers uses V8 Isolates — the same engine that runs JavaScript in Chrome. Isolates are memory-isolated from each other but share the same V8 engine, so there's no new process or container to spin up. Startup time sits between **0–5ms**. When Cloudflare claims "no cold starts," it's not marketing — it's architecturally true.
+Workers uses V8 Isolates — the same engine that runs JavaScript in Chrome. Isolates are memory-isolated from each other but share the same V8 engine, so there's no new process or container to spin up. When Cloudflare claims "no cold starts," it is not marketing but a consequence of the architecture — [the official phrasing](https://developers.cloudflare.com/workers/reference/how-workers-works/) is that this model "eliminates the cold starts of the virtual machine model" and is "around a hundred times faster than a Node process". (The widely repeated "0–5ms startup" figure has no traceable source on the current docs, so it is not cited here. Note too that the limits page imposes a 1 second startup-time ceiling for global scope.)
 
 The other key difference is **where code runs**. Lambda executes in the AWS region you choose; Workers is automatically deployed across [Cloudflare's global network](https://www.cloudflare.com/network/) — described officially as thousands of machines spread across hundreds of locations. A request from Taiwan gets handled at a nearby edge node — no round-tripping across the globe.
 

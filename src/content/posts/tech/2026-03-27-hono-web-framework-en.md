@@ -37,7 +37,7 @@ NobodyClimb's backend is built with Hono and deployed on Cloudflare Workers. The
 The problem with Express isn't its API design — it's that Express assumes Node.js exists:
 
 - `req.socket`, `res.end()`, `Buffer` are all Node.js-only APIs
-- Bundle size eats a meaningful share of the Workers [script size limit](https://developers.cloudflare.com/workers/platform/limits/) (different ceilings on free and paid, both measured compressed)
+- Bundle size eats a meaningful share of the Workers [script size limit](https://developers.cloudflare.com/workers/platform/limits/) (different ceilings on free and paid: 3 MB / 10 MB compressed, plus a 64 MB uncompressed ceiling shared by both)
 - No native async/await middleware support, making error handling easy to miss
 
 In a Cloudflare Workers environment, you need:

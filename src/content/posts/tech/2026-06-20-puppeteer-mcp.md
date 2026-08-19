@@ -40,7 +40,7 @@ series:
 }
 ```
 
-啟動後自動管理一個 Chrome 程序，不需要手動啟動瀏覽器。Console log 會自動擷取並回傳給 agent。
+啟動後自動管理一個 Chrome 程序，不需要手動啟動瀏覽器。**但 README 明確註記 NPX 版會開出可見的瀏覽器視窗**（要無頭得走 Docker 版），跟 `@playwright/mcp` 預設 headed 是同一類坑。Console log 是暴露成 `console://logs` 這個 resource，由 client 自己去讀，不是自動塞回給 agent。
 
 ## 7 個核心工具
 
@@ -52,21 +52,21 @@ puppeteer_navigate("https://example.com")
 ```
 
 **`puppeteer_screenshot`**
-截圖當前頁面或指定元素，回傳 base64 PNG。可以指定 CSS selector 只截某個元素：
+截圖當前頁面或指定元素。三個容易踩的預設值：`name` 是**必填**（少了會直接噴錯）；`encoded` 預設 `false`，**回傳的是 binary image content 而不是 base64**；預設視窗是 `width=800, height=600`，而且它會呼叫 `page.setViewport()` 把頁面尺寸改掉。參數以[原始碼與 README](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)為準：
 
 ```
-puppeteer_screenshot(selector="#main-content")
+puppeteer_screenshot(name="main", selector="#main-content")
 ```
 
 **`puppeteer_click`**
-點擊 CSS selector 對應的元素。不像 Playwright 有 auto-wait，需要確認元素已在 DOM 裡才呼叫。
+點擊 CSS selector 對應的元素。**只有這個工具沒有等待**——原始碼直接呼叫 `page.click()`，所以要自己確認元素已在 DOM 裡。（`fill` / `select` / `hover` 三個反而都會先跑 `page.waitForSelector()`，別把 click 的行為當成整個 server 的行為。）
 
 ```
 puppeteer_click(selector="button[type='submit']")
 ```
 
 **`puppeteer_fill`**
-清空並填入文字到輸入框：
+填入文字到輸入框。**注意它不會清空**——底層是 `page.type()`，等於往現有內容後面接著打，要覆寫得自己先清掉：
 
 ```
 puppeteer_fill(selector="#email", value="user@example.com")
@@ -119,11 +119,11 @@ server-puppeteer 最主要的特性是用截圖（`puppeteer_screenshot`）來�
 - 截圖本身就是輸出（OG 圖預覽、UI 回歸測試截圖）
 
 **缺點**：
-- 每張截圖是數萬 token，長 session 成本累積快
+- 每張截圖的成本比直覺低但仍可觀：以 Anthropic 的[視覺 token 表](https://platform.claude.com/docs/en/build-with-claude/vision)為例，1920×1080 在 standard tier 是 **1,560 個 visual token**（會先縮到 1456×819），high-res tier 是 2,691。長 session 一路累積下來還是很快
 - 需要 vision 能力的模型（不能用純文字模型）
 - 截圖包含大量 agent 不需要的視覺資訊（背景、樣式）
 
-對比 [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp) 的 accessibility tree 模式，同一個頁面的 token 消耗差距通常在 10–50 倍。
+對比 [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp) 的 accessibility tree 模式，tree 確實省 token 且不需要 vision 模型；但兩者的實際倍數取決於頁面複雜度，不要套用固定倍率——同一頁的 tree 若是 2–10KB，換算下來與截圖是同一個量級，差距遠沒有坊間說的那麼誇張。
 
 ## 與 @playwright/mcp 的比較
 

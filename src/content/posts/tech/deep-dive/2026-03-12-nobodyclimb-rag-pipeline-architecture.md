@@ -24,7 +24,7 @@ NobodyClimb 是一個台灣攀岩社群平台。在加入 AI 問答功能之前�
 
 整個後端跑在 Cloudflare Workers 上，用 Hono 框架。AI 的部分選擇繼續留在 Cloudflare 生態系，主要原因是不想另外維護 AI 推論的基礎設施。
 
-**LLM：`@cf/google/gemma-3-12b-it`**
+**LLM：`@cf/google/gemma-3-12b-it`**（寫作當時的選擇。這個 model ID 已在 2026-05-30 被 Cloudflare [標為 deprecated](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)，新專案請改看 [Workers AI 選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；下面的取捨邏輯不受影響）
 
 早期用 `llama-3.1-8b-instruct`，回答品質在中文語境下偏弱，繁體中文的指令跟隨效果也不好。換成 gemma-3-12b-it 之後明顯改善，12B 參數對這個使用場景剛好夠用。
 

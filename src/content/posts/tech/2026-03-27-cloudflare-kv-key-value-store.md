@@ -32,7 +32,7 @@ KV 是 Cloudflare Workers 的全球 key-value store。如果你需要一個 serv
 ## 核心特性
 
 - **熱讀取極快**：命中該地點快取時通常幾毫秒
-- **最終一致性**：同地點通常立即可見但官方不保證，跨地點最多約 60 秒（可用 `cacheTtl` 調整，最低 30 秒、預設 60 秒）
+- **最終一致性**：同地點通常立即可見但官方不保證，跨地點約 60 秒甚至更久（官方寫的是 *up to 60 seconds or more*，沒有把上界寫死）（可用 `cacheTtl` 調整，最低 30 秒、預設 60 秒）
 - **TTL 支援**：`expiration`（指定時間點）與 `expirationTtl`（相對秒數）兩種，不用手動清理
 - **大小與數量限制**：key、value、每次 Worker 呼叫的操作數都有上限，數字見 [KV limits](https://developers.cloudflare.com/kv/platform/limits/)
 

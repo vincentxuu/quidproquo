@@ -45,7 +45,7 @@ They put it more bluntly in the Autobrowse post:
 > The real bottleneck for browser agents in production is memory, in a form humans and agents can both read and trust. Reasoning has stopped being the constraint.
 > — Browserbase, *Autobrowse* (2026-05-06)
 
-The numbers: using Craigslist as a benchmark, a general-purpose agent loop searching listings costs **~$0.22 / ~71 seconds**, because it has to discover on its own that the search page is pure JS-rendered, that there's a hidden JSON API at `sapi.craigslist.org`, that `item[0]` is an offset rather than a postingId, and so on. An Autobrowse-trained skill does the same task in **~$0.12 / 27 seconds** — a ~45% reduction by their own accounting. The homepage also claims that the recommended DOM selectors and XHR patterns can "save 50x token costs" — this figure appears only on the marketing page, so treat it accordingly.
+The numbers: using Craigslist as a benchmark, a general-purpose agent loop searching listings costs **~$0.22 / ~71 seconds**, because it has to discover on its own that the search page is pure JS-rendered, that there's a hidden JSON API at `sapi.craigslist.org`, that `item[0]` is an offset rather than a postingId, and so on. An Autobrowse-trained skill does the same task in **~$0.12 / 27 seconds** — a ~45% reduction — that percentage is our own arithmetic; the source only gives the two pairs of numbers. The homepage also claims that the recommended DOM selectors and XHR patterns can "save 50x token costs" — this figure appears only on the marketing page, so treat it accordingly.
 
 To be clear: **all of these numbers are Browserbase's own self-reported benchmarks**. Independent third-party verification is not yet available.
 
@@ -103,7 +103,7 @@ A typical in-agent prompt just treats a skill as a tool: `Use /extract-listings 
 
 A fair reading can't just echo the marketing page. A few things worth being honest about:
 
-- **"Open source and free" needs qualification**: The CLI and skills are indeed open source (`browserbase/skills` repo, MIT licensed), but running a full workflow may still require model credits, Browserbase credentials, cloud sessions, residential proxies, CAPTCHA solving, and paid APIs. Open source ≠ zero cost end-to-end.
+- **"Open source and free" needs qualification**: The `browse` CLI on npm is MIT licensed, but the `browserbase/skills` repo **has no LICENSE file and the GitHub API reports `license: null`**, so the licensing of the skills themselves is actually unclear, but running a full workflow may still require model credits, Browserbase credentials, cloud sessions, residential proxies, CAPTCHA solving, and paid APIs. Open source ≠ zero cost end-to-end.
 - **Branding and naming are still converging — but clearer than at launch**: the `browse` package on npm now describes itself as the "Unified Browserbase CLI for browser automation and cloud APIs", meaning the standalone CLI and the Browserbase CLI have merged into one package; the older `@browserbasehq/browse-cli` sits on an earlier version. Two parallel catalog domains still coexist though — `browse.sh` and `skills.sh/browserbase` — so "one clean, unified product" is still premature.
 - **Skill reliability depends on sites not changing**: When a website redesigns, a skill may need to be retrained; Autobrowse convergence means "good enough," not globally optimal.
 - **Numbers are self-reported**: The cost figures, the 45% reduction, the 50x token savings — all come from Browserbase itself. Independent verification is still absent.

@@ -82,7 +82,7 @@ This is the part of the project that took the most design effort. Users can ask 
 Everything runs on Cloudflare Workers AI:
 
 - **Embedding**: `@cf/baai/bge-m3`, 1024 dimensions, multilingual, works well with Traditional Chinese
-- **LLM**: `@cf/google/gemma-3-12b-it`
+- **LLM**: `@cf/google/gemma-3-12b-it` (the choice at the time of writing; the ID was marked deprecated on 2026-05-30)
 
 The reason for not using OpenAI or other external APIs: predictable costs, no API key rate limit management, and lower latency (same platform).
 

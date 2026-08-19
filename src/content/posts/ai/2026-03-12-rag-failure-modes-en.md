@@ -68,7 +68,7 @@ RAG system problems are usually not random — they cluster around a few identif
 **Diagnosis**: Examine the content of the retrieved chunks and determine whether each can be understood independently.
 
 **Solutions**:
-- Implement Contextual Retrieval (inject document summaries at indexing time)
+- Implement [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) — note this is **not** prepending a document summary to every chunk (Anthropic explicitly tried that and saw very limited gains); it generates a 50–100 token situating blurb for **each individual chunk**, using the whole document as context, and prepends that
 - Use a Parent Document Retriever (search on small chunks, retrieve large chunks as context)
 - Increase chunk size + overlap
 

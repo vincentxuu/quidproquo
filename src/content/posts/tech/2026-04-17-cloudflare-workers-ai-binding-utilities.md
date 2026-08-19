@@ -92,7 +92,7 @@ const docs = await env.AI.toMarkdown([
 
 // docs[i] = {
 //   name: "report.pdf",
-//   mimeType: "application/pdf",
+//   mimetype: "application/pdf",
 //   format: "markdown",
 //   tokens: 1523,
 //   data: "# Report Title\n\n..."
@@ -117,11 +117,16 @@ Cloudflare 依 MIME 自動分派：
 
 ```typescript
 await env.AI.toMarkdown(files, {
-  image: { language: "zh-TW" },        // 圖片描述用繁中
-  html:  { selector: "article" },      // 只抽取 article 區塊
-  pdf:   { excludeMetadata: true },    // 不要 PDF metadata
+  conversionOptions: {                  // 選項必須包在這一層底下
+    output: { format: "text" },        // 預設 markdown，設 text 去掉 Markdown 語法
+    image:  { descriptionLanguage: "en" },  // 只接受 en/it/de/es/fr/pt，沒有中文
+    html:   { cssSelector: "article", hostname: "example.com" },
+    pdf:    { metadata: false },       // 預設會帶 PDF metadata，設 false 關掉
+  },
 });
 ```
+
+三個容易踩的地方：選項**必須包在 `conversionOptions` 底下**，直接平鋪在第二個參數不會生效；圖片描述的語言列舉值目前只有 `'en' | 'it' | 'de' | 'es' | 'fr' | 'pt'`，**沒有中文**，而且官方註明是 best-effort、不保證輸出真的是該語言；PDF 那個是 `metadata: boolean` 而不是 `excludeMetadata`。欄位以[官方選項頁](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/conversion-options/)為準。
 
 ### 限制
 
@@ -179,18 +184,19 @@ const log = await gw.getLog("log-id-xxx");
 // 取 gateway 的 endpoint URL（用來餵給 OpenAI SDK 的 baseURL）
 const url = await gw.getUrl("openai");
 
-// Universal endpoint：同一個 request 可指定 provider + fallback
-await gw.run([
-  { provider: "openai",    endpoint: "chat/completions", ... },
-  { provider: "anthropic", endpoint: "messages",         ... }, // 第一個掛掉的 fallback
-]);
 ```
 
-這裡有個心智模型：
-- **`env.AI.run()`** = 跑 Cloudflare 自家目錄模型
-- **`env.AI.gateway().run()`** = 透過 Cloudflare 代理呼叫**外部**模型
+**gateway instance 上只有 `patchLog()` / `getLog()` / `getUrl()` 三個方法，沒有 `run()`。** 要透過 Gateway 打第三方模型，是在 `env.AI.run()` 的第三個參數帶 `gateway`：
 
-可以同時用：產品主線走 Workers AI（便宜、同機房），對品質要求極高的少數步驟（例如 `llm-as-judge`）才打 OpenAI、走 Gateway 拿到 log 與 cache。
+```typescript
+const resp = await env.AI.run(
+  "openai/gpt-4.1-mini",
+  { messages: [{ role: "user", content: "tell me a joke" }] },
+  { gateway: { id: "default" } },
+);
+```
+
+心智模型因此比舊的說法簡單：**同一個 `env.AI.run()` 既跑自家目錄模型、也跑第三方模型**，差別只在模型 id 與有沒有帶 `gateway`。要 universal endpoint 的多 provider fallback，走 Gateway 的 REST 介面而不是 binding。方法簽名以[官方 binding methods 頁](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/)為準。
 
 ## 5. `models()` — metadata 查詢
 
@@ -246,7 +252,7 @@ const list = await env.AI.models();
 
 **`gateway` 特有：**
 
-- 外部 provider 的 API key 仍要自備，Gateway 只是代理
+- 透過 AI binding 打第三方模型時**不必自備 API key**：官方明講 *Cloudflare manages the provider credentials and deducts credits from your account*（Unified Billing）。反過來，這條路徑**不支援 BYOK**——要用自己的 provider key，得走 provider-native 的呼叫方式（[來源](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/)）
 - Cache 預設關閉，要自己開
 
 ## 小結

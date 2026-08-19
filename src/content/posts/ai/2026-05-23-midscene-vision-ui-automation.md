@@ -115,11 +115,11 @@ Web 端有三種瀏覽器模式,官方 Skills 文件描述如下:
 ```
                 定位方式        平台        語言      取向
 Midscene    純視覺(截圖)   跨平台      JS/TS    SDK + 工具鏈
-Stagehand   DOM(chunk+rank) 瀏覽器only  TS       建於 Playwright
+Stagehand   accessibility tree 瀏覽器only  TS/Py/Go  建於 Playwright
 browser-use DOM/截圖/混合    瀏覽器only  Python   autonomous agent
 ```
 
-- **vs Stagehand**(Browserbase 出品,也就是 [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) 背後團隊):Stagehand 解析 DOM 做定位、建在 Playwright 上,對動作目標精準度通常比純視覺穩,但**只限瀏覽器**。Midscene 的差異化是純視覺 + 真跨平台(行動/桌面)+ JS。(此為二手來源整理)
+- **vs Stagehand**(Browserbase 出品,也就是 [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) 背後團隊):Stagehand 走的是 [hybrid accessibility tree trimming](https://github.com/browserbase/stagehand) 而不是純截圖、建在 Playwright 上,對動作目標精準度通常比純視覺穩,但**只限瀏覽器**;語言上它現在同時提供 TypeScript、Python 與 Go SDK,不再只有 TS。Midscene 的差異化是純視覺 + 真跨平台(行動/桌面)。
 - **vs browser-use**:Python、autonomous agent loop、每步重推理、瀏覽器限定,偏「給 agent 自己上網」;Midscene 偏「可寫成腳本/測試」的 SDK 取向。
 
 一句話:Midscene 的賣點是 **vision-first + 真跨平台 + 完整 JS 工具鏈(報告/快取/Skills)**,代價是每步較慢、token 較貴。想看更廣的瀏覽器 agent 戰局,可參考站內的 [三家 AI Agent 在 Chrome 的路線比較](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini) 與 [OpenClaw 的瀏覽器控制](/posts/ai/2026-03-28-openclaw-tools-browser-search)。

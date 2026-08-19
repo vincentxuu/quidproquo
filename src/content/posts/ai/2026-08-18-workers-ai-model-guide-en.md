@@ -16,13 +16,13 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-18-workers-ai-model-guide)
 
-The Workers AI catalog turns over fast. The last big sweep was on 2026-05-30, which removed 18 model IDs at once — the entire Llama 2 / 3 / 3.1 line, Mistral 7B, and Gemma 3 12B. The first line of code in a lot of tutorials has been broken since that day.
+The Workers AI catalog turns over fast. The last big sweep was on 2026-05-30, which marked 18 model IDs deprecated at once — the entire Llama 2 / 3 / 3.1 line, Mistral 7B, and Gemma 3 12B. Note that [the official wording](https://developers.cloudflare.com/workers-ai/changelog/) is *will be deprecated* rather than removed: the model pages and their prices are still up, so older tutorials did not necessarily break that day — but these models are on the way out and are not what you start a new project on. The date itself was already pushed back from 2026-05-10, and can move again.
 
 This is a reference table built from the official [model catalog](https://developers.cloudflare.com/workers-ai/models/) and [pricing page](https://developers.cloudflare.com/workers-ai/platform/pricing/), and it gets updated on a schedule.
 
 **Snapshot date**: 2026-08-18. The catalog page reads Last updated 2026-08-12 and lists **84 models**; the pricing page reads Last updated 2026-08-18.
 
-Every context window and price below comes from the individual official model page, not from the upstream model's own spec. The same open model is often served with a shortened context window on Workers AI — `gemma-3-12b-it` ships with 128K upstream but was served at 80,000 tokens before it was removed.
+Every context window and price below comes from the individual official model page, not from the upstream model's own spec. The same open model is often served with a shortened context window on Workers AI — `gemma-3-12b-it` ships with 128K upstream but is served at 80,000 tokens on Workers AI.
 
 ## The one-minute answer
 
@@ -222,7 +222,7 @@ Three things that catch people out:
 
 ## Models disappear: collapse model IDs into one constant
 
-The full 2026-05-30 removal list is worth pasting as a cautionary note: `kimi-k2.5` (auto-aliased to k2.6, at a higher price), `meta-llama-3-8b-instruct`, `llama-3-8b-instruct` (+awq), `llama-3.1-8b-instruct` (+awq), `llama-3.1-70b-instruct`, `llama-2-7b-chat-int8`, `llama-2-7b-chat-fp16`, `mistral-7b-instruct-v0.1`, `mistral-7b-instruct-v0.2`, `gemma-7b-it`, `gemma-3-12b-it`, `hermes-2-pro-mistral-7b`, `phi-2`, `sqlcoder-7b-2`, `uform-gen2-qwen-500m`, and `bart-large-cnn`.
+The full 2026-05-30 deprecation list is worth pasting as a cautionary note: `kimi-k2.5` (auto-aliased to k2.6, at a higher price), `meta-llama-3-8b-instruct`, `llama-3-8b-instruct` (+awq), `llama-3.1-8b-instruct` (+awq), `llama-3.1-70b-instruct`, `llama-2-7b-chat-int8`, `llama-2-7b-chat-fp16`, `mistral-7b-instruct-v0.1`, `mistral-7b-instruct-v0.2`, `gemma-7b-it`, `gemma-3-12b-it`, `hermes-2-pro-mistral-7b`, `phi-2`, `sqlcoder-7b-2`, `uform-gen2-qwen-500m`, and `bart-large-cnn`.
 
 Cloudflare's recommended replacements:
 
@@ -279,7 +279,7 @@ This is an article with an expiry date, so the update rules live here:
 
 - [Workers AI model catalog](https://developers.cloudflare.com/workers-ai/models/) — source for every model listed and its context window
 - [Workers AI pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/) — Neurons, free allocation, and per-model rates
-- [Workers AI changelog](https://developers.cloudflare.com/workers-ai/changelog/) — the 2026-05-30 removal list and official replacement guidance
+- [Workers AI changelog](https://developers.cloudflare.com/workers-ai/changelog/) — the 2026-05-30 deprecation list and official replacement guidance
 - [Workers AI limits](https://developers.cloudflare.com/workers-ai/platform/limits/)
 - [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) — `x-session-affinity` and cache hit rates
 - [AI Gateway unified billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) — paying for Workers AI with prepaid credits

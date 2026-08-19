@@ -16,7 +16,7 @@ series:
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)
 
-D1 is Cloudflare's serverless relational database, built on SQLite. It runs on the same edge node as your Workers — no round-trip to a separate region — which keeps query latency low and setup overhead minimal. If you've already committed to Cloudflare Workers, D1 is the most natural relational database option.
+D1 is Cloudflare's serverless relational database, built on SQLite. It shares the Cloudflare platform with your Workers and keeps setup overhead minimal — but do not read that as "the database runs at every edge node alongside the Worker": without read replication, [D1 routes both reads and writes to a primary instance in a single location in the world](https://developers.cloudflare.com/d1/best-practices/read-replication/), and latency depends on how far the user is from it. If you've already committed to Cloudflare Workers, D1 is the most natural relational database option.
 
 ## Core Features
 
@@ -126,7 +126,7 @@ Wrangler maintains a `d1_migrations` table inside D1 to track applied versions �
 | | D1 | PostgreSQL / MySQL |
 |---|---|---|
 | Deployment complexity | Near-zero (wrangler handles it) | Requires RDS, VPC, connection pooling |
-| Latency | Runs beside the Worker, extremely low | Round-trip to a separate region, typically 10–50ms |
+| Latency | Depends on distance to the primary instance; read replication helps | Round-trip to a separate region |
 | SQL support | SQLite syntax subset | Full PostgreSQL / MySQL |
 | Concurrent writes | Single-point SQLite; high-concurrency writes are queued | Supports high concurrency |
 | Features | No stored procedures, no pg extensions | Rich extension ecosystem |
@@ -192,7 +192,7 @@ For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep
 
 **Disadvantages**
 - SQLite single-writer model: high-concurrency write scenarios will queue up — this is an architectural constraint, not a bug
-- No stored procedures or triggers (SQLite limitation)
+- No stored procedures (but **triggers are supported** — SQLite has them, and D1's SQL documentation references both `CREATE TRIGGER` and `PRAGMA recursive_triggers`)
 - A per-database size ceiling that is **explicitly not raisable** — if the data will grow, plan the sharding up front
 - The free plan's **per-database size ceiling is far below the paid one** — 500 MB against 10 GB, a 20x gap that is easy to misjudge during development
 - Large bulk `UPDATE` / `DELETE` statements hit execution limits; the docs recommend chunking them into batches of roughly a thousand rows

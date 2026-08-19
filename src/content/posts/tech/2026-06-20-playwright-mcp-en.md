@@ -92,7 +92,7 @@ Renames that commonly break copied-from-old-posts calls:
     - button "Add to Cart"
 ```
 
-A 1920×1080 screenshot base64-encoded is roughly 100–300 KB, translating to tens of thousands of tokens; the accessibility tree for the same page is typically 2–10 KB and can be processed by any text model without vision capability.
+Visual tokens are not counted from base64 bytes: per [Anthropic's documentation](https://platform.claude.com/docs/en/build-with-claude/vision) an image costs one visual token per 28×28-pixel patch, so a 1920×1080 screenshot is **1,560 visual tokens** on the standard tier (downsized to 1456×819) and 2,691 on the high-resolution tier. The accessibility tree for the same page is typically 2–10 KB, which works out to the same order of magnitude — the real advantage is that **any text model can process it, no vision capability required**, not some fixed multiplier.
 
 When to switch to screenshot mode (`browser_take_screenshot`):
 - The page is image-heavy (galleries, maps, Canvas-rendered content)
@@ -101,7 +101,7 @@ When to switch to screenshot mode (`browser_take_screenshot`):
 
 ## What Auto-wait Actually Means
 
-Playwright's auto-wait applies to every interaction: click waits for the element to be visible + enabled + stable (not mid-animation); `browser_type` waits for the input to be focused. 
+Playwright's auto-wait applies to most interactions but **not all**: the [actionability table](https://playwright.dev/docs/actionability) lists `press()`, `pressSequentially()`, `dispatchEvent()`, `setInputFiles()` and `focus()` as performing no checks at all. Where checks do run, `click` waits for visible + stable + receives events + enabled, and `fill` waits for visible + enabled + **editable** — focused is not one of the checks. 
 
 For AI agents this means: no need to sprinkle "wait for the page to load" or "wait for the button to appear" into your prompts, and no sleep calls between tool invocations. Playwright handles the timing in the background, so the agent can issue "click Submit" without knowing the current page state.
 

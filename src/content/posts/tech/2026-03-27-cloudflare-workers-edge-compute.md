@@ -22,7 +22,7 @@ Cloudflare Workers 常被拿來跟 AWS Lambda 比，但兩者的底層架構完�
 
 Lambda 的 cold start 問題本質上是**容器啟動的成本**：拉映像、分配資源、啟動 runtime，快則幾百毫秒，慢則幾秒。
 
-Workers 用的是 V8 Isolate——Chrome 瀏覽器裡跑 JavaScript 的那個東西。Isolate 之間記憶體隔離，但共用同一個 V8 引擎，不需要啟動新的 process 或容器，啟動時間在 **0-5ms** 之間。實際上 Cloudflare 說的「no cold start」是真的，不是行銷話術。
+Workers 用的是 V8 Isolate——Chrome 瀏覽器裡跑 JavaScript 的那個東西。Isolate 之間記憶體隔離，但共用同一個 V8 引擎，不需要啟動新的 process 或容器，Cloudflare 說的「no cold start」不是行銷話術，是架構決定的——[官方的說法](https://developers.cloudflare.com/workers/reference/how-workers-works/)是這個模型「消除了虛擬機模型的冷啟動」、比起啟動一個 Node process「快上約一百倍」。（常見的「0-5ms 啟動」這個數字在現行官方頁上查不到出處，這裡不引。另注意 limits 頁對 global scope 有 1 秒的 startup time 上限。）
 
 另一個差異是**執行位置**。Lambda 跑在你選的 AWS region，Workers 自動部署到 [Cloudflare 全球網路](https://www.cloudflare.com/network/)（官方描述是分布在數百個地點的數千台機器）。台灣使用者的請求在台灣或鄰近節點處理，不需要繞地球一圈。
 

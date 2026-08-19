@@ -24,10 +24,10 @@ series:
 
 Chrome DevTools Protocol（CDP）是瀏覽器內建的 WebSocket 遠端控制協議。按 F12 打開的 DevTools 面板——Network 分頁的請求列表、Sources 的中斷點、Performance 的錄製——背後都是透過 CDP 跟瀏覽器引擎溝通的。
 
-啟動 Chrome 時加上 `--remote-debugging-port=9222`，瀏覽器就會在該 port 暴露 CDP 的 WebSocket endpoint，讓外部程式用同樣的通道控制瀏覽器：
+啟動 Chrome 時加上 `--remote-debugging-port=9222`，瀏覽器就會在該 port 暴露 CDP 的 WebSocket endpoint，讓外部程式用同樣的通道控制瀏覽器。**從 Chrome 136 起必須同時給 `--user-data-dir` 指向非預設目錄**——[官方公告](https://developer.chrome.com/blog/remote-debugging-port)說明針對預設 profile 時這兩個旗標一律不生效，而且是靜默失效，這也是後面 `--browser-url` 那節接不上的常見原因；官方對自動化情境建議直接用 Chrome for Testing：
 
 ```bash
-google-chrome --headless --remote-debugging-port=9222
+google-chrome --headless --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
 ```
 
 連線後打 `http://localhost:9222/json` 可以看到所有 tab 的 WebSocket URL，每個 tab 是獨立的控制通道。協議本身是 JSON-RPC 2.0：呼叫方送一個帶 `method` 和 `params` 的 JSON 請求，瀏覽器回 `result` 或推送 `event`。

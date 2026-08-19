@@ -92,7 +92,7 @@ series:
     - button "Add to Cart"
 ```
 
-一張 1920×1080 截圖 base64 編碼後約 100–300KB，對應數萬個 token；同一個頁面的 accessibility tree 通常在 2–10KB，而且不需要 vision 能力的模型就能解析。
+視覺 token 不是按 base64 位元組算的：Anthropic 的[官方說明](https://platform.claude.com/docs/en/build-with-claude/vision)是每 28×28 像素一個 patch，一張 1920×1080 截圖在 standard tier 是 **1,560 個 visual token**（先縮到 1456×819），high-res tier 2,691。同一個頁面的 accessibility tree 通常在 2–10KB，換算後與截圖同一個量級，但**不需要 vision 能力的模型就能解析**——真正的差別在這裡，而不在某個固定倍率。
 
 什麼時候要切換到截圖模式（`browser_take_screenshot`）：
 - 頁面以圖片為主（圖庫、地圖、Canvas 渲染）
@@ -101,7 +101,7 @@ series:
 
 ## Auto-wait 的實際意義
 
-Playwright 所有互動操作都內建 auto-wait：點擊前會等元素 visible + enabled + stable（不在動畫中）；`browser_type` 前等輸入框 focused。
+Playwright 的多數互動操作內建 auto-wait，但**不是全部**：[actionability 表](https://playwright.dev/docs/actionability)裡 `press()`、`pressSequentially()`、`dispatchEvent()`、`setInputFiles()`、`focus()` 完全不做檢查。有做的部分，`click` 等的是 visible + stable + receives events + enabled，`fill` 等的是 visible + enabled + **editable**（沒有 focused 這一項）。
 
 這對 AI agent 的意義是：不需要在 prompt 裡加「先等頁面載入」「等按鈕出現再點」，也不需要在 tool call 之間插 sleep。Playwright 在背後處理這些時序問題，agent 可以直接發出「點擊 Submit」而不管頁面當前狀態。
 

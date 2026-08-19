@@ -24,10 +24,10 @@ Compared with [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en) and th
 
 The Chrome DevTools Protocol (CDP) is the browser's built-in WebSocket remote-control protocol. Everything you see when you hit F12 — the Network request list, breakpoints in Sources, Performance recordings — talks to the browser engine over CDP.
 
-Launch Chrome with `--remote-debugging-port=9222` and it exposes a CDP WebSocket endpoint on that port, so external programs can drive the browser through the same channel:
+Launch Chrome with `--remote-debugging-port=9222` and it exposes a CDP WebSocket endpoint on that port, so external programs can drive the browser through the same channel. **Since Chrome 136 you must also pass `--user-data-dir` pointing at a non-default directory** — [the official announcement](https://developer.chrome.com/blog/remote-debugging-port) explains that both debugging switches are ignored against the default profile, and they fail silently, which is the usual reason the `--browser-url` section below cannot connect. For automation, Chrome recommends Chrome for Testing:
 
 ```bash
-google-chrome --headless --remote-debugging-port=9222
+google-chrome --headless --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
 ```
 
 Hit `http://localhost:9222/json` and you get the WebSocket URL for every tab; each tab is an independent control channel. The protocol itself is JSON-RPC 2.0: the caller sends JSON with `method` and `params`, the browser replies with `result` or pushes an `event`.

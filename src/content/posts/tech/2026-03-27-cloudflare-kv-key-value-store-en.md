@@ -25,7 +25,7 @@ The sentence most often written wrong about KV is "data is replicated to every P
 Two consequences follow:
 
 - **The first read of a key is always slower**, and only later reads are fast. Data with a scattered read pattern — each key read once or twice — gains nothing from KV.
-- **Post-write visibility is asymmetric.** A write is *usually* visible immediately to subsequent requests *in the same location*, but can take up to 60 seconds (or the `cacheTtl` you pass) to become visible elsewhere in the world. Note how guarded the docs are about the first half — [How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/) says changes are *usually* immediately visible but that **this is not guaranteed and therefore it is not advised to rely on this behaviour**. Same-location read-after-write explains the behaviour you observe; it is not something to design against.
+- **Post-write visibility is asymmetric.** A write is *usually* visible immediately to subsequent requests *in the same location*, but can take up to 60 seconds or more (or the `cacheTtl` you pass) to become visible elsewhere in the world. Note how guarded the docs are about the first half — [How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/) says changes are *usually* immediately visible but that **this is not guaranteed and therefore it is not advised to rely on this behaviour**. Same-location read-after-write explains the behaviour you observe; it is not something to design against.
 
 So "eventual consistency" here has a concrete number attached, not a vague "seconds to tens of seconds."
 

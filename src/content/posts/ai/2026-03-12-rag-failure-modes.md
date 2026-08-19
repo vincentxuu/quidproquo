@@ -66,7 +66,7 @@ RAG 系統的問題通常不是隨機的，而是集中在幾種可識別的失�
 **診斷**：看命中的 chunk 內容，判斷是否能獨立理解。
 
 **解法**：
-- 導入 Contextual Retrieval（索引時注入文件摘要）
+- 導入 [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)——注意它**不是**把文件摘要貼到每個 chunk 上（Anthropic 明說那個做法他們試過、增益非常有限），而是在索引前用整份文件當 context，替**每個 chunk 各自**生一段 50–100 token 的定位說明再前置上去
 - 用 Parent Document Retriever（搜尋小 chunk，取大 chunk 作為 context）
 - 增大 chunk size + overlap
 

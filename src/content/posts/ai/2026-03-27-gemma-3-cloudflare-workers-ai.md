@@ -5,8 +5,8 @@ type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: zh-TW
-tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨比同級 Llama 穩定。gemma-3-12b-it 已於 2026-05-30 下架，現在的對應選項是 gemma-4-26b-a4b-it：256K context、Vision、Function calling，$0.10 / $0.30 per M tokens。"
-description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 下架後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
+tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨比同級 Llama 穩定。gemma-3-12b-it 已於 2026-05-30 標為 deprecated，現在的對應選項是 gemma-4-26b-a4b-it：256K context、Vision、Function calling，$0.10 / $0.30 per M tokens。"
+description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 標為退場後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
 draft: false
 series:
   name: "Cloudflare 邊緣技術棧"
@@ -15,7 +15,7 @@ series:
 
 選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——在這個限制下，Gemma 系列一直是繁體中文最順的選項。
 
-> **模型狀態（2026-08）**：本文原本以 `@cf/google/gemma-3-12b-it` 為主角，它已在 2026-05-30 從 Workers AI 下架。現在的對應選項是 `@cf/google/gemma-4-26b-a4b-it`，全文範例都已改成 Gemma 4。當初捨 Llama 選 Gemma 的三個理由在 Gemma 4 上一樣成立，所以那段判斷保留。
+> **模型狀態（2026-08）**：本文原本以 `@cf/google/gemma-3-12b-it` 為主角，它已在 2026-05-30 被 Workers AI 標為 deprecated（模型頁與定價仍在，但已在退場軌道上）。現在的對應選項是 `@cf/google/gemma-4-26b-a4b-it`，全文範例都已改成 Gemma 4。當初捨 Llama 選 Gemma 的三個理由在 Gemma 4 上一樣成立，所以那段判斷保留。
 
 ## Cloudflare Workers AI 是什麼
 
@@ -47,7 +47,7 @@ nobodyclimb 早期用的是 `llama-3.1-8b-instruct`，後來換成當時的 `gem
 
 **Gemma 的多語言訓練**：Google 在 Gemma 的訓練資料裡有更完整的多語言覆蓋，中文（包含繁體）的比例比 Llama 3.1 的公開訓練設定更高。
 
-這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，Gemma 更適合。順帶一提，這兩個當初被拿來對比的模型 ID 現在都不在目錄裡了——`llama-3.1-8b-instruct` 跟 `gemma-3-12b-it` 是同一波（2026-05-30）下架的。
+這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，Gemma 更適合。順帶一提，這兩個當初被拿來對比的模型 ID 都在 2026-05-30 那波被標為 deprecated——[官方用字](https://developers.cloudflare.com/workers-ai/changelog/)是 *will be deprecated*，模型頁與定價至今仍掛著，但它們已在退場軌道上，不該再拿來起新專案。
 
 ## 基本使用方式
 
@@ -122,13 +122,13 @@ const evaluation = JSON.parse(result.response);
 
 **CPU 時間限制**：Workers 有 CPU 時間上限（Paid plan 是 30 秒，但 AI 呼叫不計入 CPU 時間，計入 wall time）。pipeline 裡有多個 LLM 呼叫（HyDE + generation + judge），加起來可能超過 Workers 的執行時間限制。nobodyclimb 的解法是讓 judge 非同步寫入（不阻塞主流程），HyDE 只在複雜查詢啟用。
 
-**模型會被下架，版本也不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint，模型行為可能在沒有通知的情況下改變；更麻煩的是整個 model ID 會消失。2026-05-30 那波汰換一次砍掉 18 個 ID，Llama 2/3/3.1 全系列、Mistral 7B、Gemma 3 12B 都在裡面。這代表 model ID 不該散在程式各處硬寫，要收斂成一個常數或設定值，換的時候只動一個地方；另外要有監控機制偵測輸出品質是否有異常。
+**模型會被標為退場，版本也不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint，模型行為可能在沒有通知的情況下改變；更麻煩的是整個 model ID 會進入退場軌道。2026-05-30 那波一次把 18 個 ID 標為 deprecated，Llama 2/3/3.1 全系列、Mistral 7B、Gemma 3 12B 都在裡面。這代表 model ID 不該散在程式各處硬寫，要收斂成一個常數或設定值，換的時候只動一個地方；另外要有監控機制偵測輸出品質是否有異常。
 
 **沒有 fine-tuning**：目前 Workers AI 上的 hosted 模型無法 fine-tune。領域適應只能靠 prompt engineering 和 RAG。
 
 **冷啟動延遲**：在流量低的時段，第一次呼叫可能有較高延遲。semantic cache 可以緩解這個問題（有快取命中就不需要呼叫 LLM）。
 
-**Context window 要看模型頁**：各模型差很多，而且以 Workers AI 模型頁標示的數字為準，不是原始模型的規格——`gemma-4-26b-a4b-it` 是 256,000 tokens，`glm-4.7-flash` 是 131,072，下架前的 `gemma-3-12b-it` 是 80,000。長對話或大量檢索文件照實際上限抓。
+**Context window 要看模型頁**：各模型差很多，而且以 Workers AI 模型頁標示的數字為準，不是原始模型的規格——`gemma-4-26b-a4b-it` 是 256,000 tokens，`glm-4.7-flash` 是 131,072，已標退場的 `gemma-3-12b-it` 是 80,000。長對話或大量檢索文件照實際上限抓。
 
 ## 跟其他選項比較
 
@@ -160,7 +160,7 @@ const evaluation = JSON.parse(result.response);
 
 ## 從 Gemma 3 遷移到 Gemma 4
 
-`@cf/google/gemma-3-12b-it` 在 2026-05-30 下架。Cloudflare 給的建議替代品有三個：`@cf/zai-org/glm-4.7-flash`（快速 tool calling）、`@cf/google/gemma-4-26b-a4b-it`（高效開源模型）、`@cf/moonshotai/kimi-k2.6`（agentic + vision，但需要付費方案）。從 Gemma 3 過來，最直接的就是 Gemma 4。
+`@cf/google/gemma-3-12b-it` 在 2026-05-30 被標為 deprecated。Cloudflare 給的建議替代品有三個：`@cf/zai-org/glm-4.7-flash`（快速 tool calling）、`@cf/google/gemma-4-26b-a4b-it`（高效開源模型）、`@cf/moonshotai/kimi-k2.6`（agentic + vision，但需要付費方案）。從 Gemma 3 過來，最直接的就是 Gemma 4。
 
 **架構變化：MoE**
 Gemma 4 採用 Mixture-of-Experts 架構。總參數 26B，但每次推論只啟動約 4B（a4b = active 4 billion）。實際推論速度比 Gemma 3 12B 更快，同時在多數任務上表現更好。
@@ -193,7 +193,7 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 
 ## 更新紀錄
 
-- 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 下架，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
+- 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
 
 ## 參考資料
 

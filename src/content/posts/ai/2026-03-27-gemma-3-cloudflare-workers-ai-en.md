@@ -5,7 +5,7 @@ type: guide
 category: ai
 tags: [gemma, cloudflare-workers-ai, llm, traditional-chinese]
 lang: en
-tldr: "For running Traditional Chinese LLM workloads on Cloudflare Workers AI, the Gemma family follows instructions more reliably than same-tier Llama models. gemma-3-12b-it was removed on 2026-05-30; the current equivalent is gemma-4-26b-a4b-it: 256K context, Vision, Function calling, at $0.10 / $0.30 per M tokens."
+tldr: "For running Traditional Chinese LLM workloads on Cloudflare Workers AI, the Gemma family follows instructions more reliably than same-tier Llama models. gemma-3-12b-it was marked deprecated on 2026-05-30; the current equivalent is gemma-4-26b-a4b-it: 256K context, Vision, Function calling, at $0.10 / $0.30 per M tokens."
 description: "Why pick Gemma over Llama on Cloudflare Workers AI, how to use it, its limitations and trade-offs, and real observations from the nobodyclimb Traditional Chinese RAG system. After gemma-3-12b-it's 2026-05-30 removal, this post centers on gemma-4-26b-a4b-it and includes migration notes."
 draft: false
 series:
@@ -17,7 +17,7 @@ series:
 
 Choosing an LLM isn't about picking "the most powerful one" -- it's about picking "the one that works within your constraints." nobodyclimb runs on Cloudflare Workers, and AI inference stays within the Cloudflare ecosystem. Under that constraint, the Gemma family has consistently been the smoothest option for Traditional Chinese.
 
-> **Model status (2026-08)**: this post was originally built around `@cf/google/gemma-3-12b-it`, which was removed from Workers AI on 2026-05-30. The current equivalent is `@cf/google/gemma-4-26b-a4b-it`, and every example here has been updated to Gemma 4. The three reasons for choosing Gemma over Llama still hold for Gemma 4, so that analysis stays.
+> **Model status (2026-08)**: this post was originally built around `@cf/google/gemma-3-12b-it`, which Workers AI marked deprecated on 2026-05-30 (the model page and its pricing are still up, but it is on the way out). The current equivalent is `@cf/google/gemma-4-26b-a4b-it`, and every example here has been updated to Gemma 4. The three reasons for choosing Gemma over Llama still hold for Gemma 4, so that analysis stays.
 
 ## What Is Cloudflare Workers AI
 
@@ -49,7 +49,7 @@ nobodyclimb started on `llama-3.1-8b-instruct` and later moved to what was then 
 
 **Gemma's multilingual training**: Google's Gemma training data has broader multilingual coverage, with a higher proportion of Chinese (including Traditional) than Llama 3.1's published training setup.
 
-None of this says Llama is bad — it says that for this specific use case, Traditional Chinese RAG, Gemma fits better. Worth noting: both model IDs in that original comparison are gone from the catalog now. `llama-3.1-8b-instruct` and `gemma-3-12b-it` were removed in the same 2026-05-30 wave.
+None of this says Llama is bad — it says that for this specific use case, Traditional Chinese RAG, Gemma fits better. Worth noting: both model IDs in that original comparison were marked deprecated in the same 2026-05-30 wave. [The official wording](https://developers.cloudflare.com/workers-ai/changelog/) is *will be deprecated* — their pages and prices are still up, but neither is what you start a new project on.
 
 ## Basic Usage
 
@@ -124,7 +124,7 @@ Not spelling these out leads to painful surprises later:
 
 **CPU time limits**: Workers have a CPU time cap (30 seconds on the Paid plan, though AI calls count against wall time rather than CPU time). A pipeline with several LLM calls (HyDE + generation + judge) can exceed the Workers execution limit in aggregate. nobodyclimb handles this by writing judge results asynchronously (not blocking the main flow) and enabling HyDE only for complex queries.
 
-**Models get removed, and versions are opaque**: Cloudflare manages model versions, you cannot pin a specific checkpoint, and behavior can change without notice. Worse, entire model IDs disappear. The 2026-05-30 sweep removed 18 IDs at once, including the whole Llama 2/3/3.1 line, Mistral 7B, and Gemma 3 12B. The implication is that model IDs should not be scattered as string literals throughout your code — collapse them into a single constant or config value so a swap touches one place. You also want monitoring that detects output quality regressions.
+**Models get retired, and versions are opaque**: Cloudflare manages model versions, you cannot pin a specific checkpoint, and behavior can change without notice. Worse, entire model IDs get put on a retirement track. The 2026-05-30 sweep marked 18 IDs deprecated at once, including the whole Llama 2/3/3.1 line, Mistral 7B, and Gemma 3 12B. The implication is that model IDs should not be scattered as string literals throughout your code — collapse them into a single constant or config value so a swap touches one place. You also want monitoring that detects output quality regressions.
 
 **No fine-tuning**: hosted models on Workers AI cannot be fine-tuned today. Domain adaptation has to come from prompt engineering and RAG.
 
@@ -162,7 +162,7 @@ Overall: under the constraint of "don't leave the Cloudflare ecosystem," this is
 
 ## Migrating from Gemma 3 to Gemma 4
 
-`@cf/google/gemma-3-12b-it` was removed on 2026-05-30. Cloudflare suggested three replacements: `@cf/zai-org/glm-4.7-flash` (fast tool calling), `@cf/google/gemma-4-26b-a4b-it` (efficient open model), and `@cf/moonshotai/kimi-k2.6` (agentic plus vision, but requires a paid plan). Coming from Gemma 3, Gemma 4 is the most direct move.
+`@cf/google/gemma-3-12b-it` was marked deprecated on 2026-05-30. Cloudflare suggested three replacements: `@cf/zai-org/glm-4.7-flash` (fast tool calling), `@cf/google/gemma-4-26b-a4b-it` (efficient open model), and `@cf/moonshotai/kimi-k2.6` (agentic plus vision, but requires a paid plan). Coming from Gemma 3, Gemma 4 is the most direct move.
 
 **Architecture change: MoE**
 Gemma 4 uses a Mixture-of-Experts architecture. 26B total parameters, but only about 4B activate per inference (a4b = active 4 billion). It is faster than Gemma 3 12B in practice while performing better on most tasks.
@@ -195,7 +195,7 @@ An identical interface does not mean identical output. Re-run your prompt evalua
 
 ## Update Log
 
-- 2026-08-18: `gemma-3-12b-it` was removed on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
+- 2026-08-18: `gemma-3-12b-it` was marked deprecated on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
 
 ## References
 

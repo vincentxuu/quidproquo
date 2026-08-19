@@ -45,7 +45,7 @@ series:
 > The real bottleneck for browser agents in production is memory, in a form humans and agents can both read and trust. Reasoning has stopped being the constraint.
 > — Browserbase, *Autobrowse*(2026-05-06)
 
-數字上,他們用 Craigslist 當 benchmark:一個通用 Agent loop 搜尋列表要 **~$0.22 / ~71 秒**,因為它得自己發現「搜尋頁是純 JS 渲染」「有個隱藏的 JSON API 在 `sapi.craigslist.org`」「`item[0]` 是 offset 不是 postingId」這些坑;而 Autobrowse 養出來的技能做同樣的事只要 **~$0.12 / 27 秒**,官方稱降幅約 45%。首頁另外宣稱建議的 DOM selector + XHR 請求能「省 50x token 成本」——這條只在行銷頁出現、屬於官方宣稱,看看就好。
+數字上,他們用 Craigslist 當 benchmark:一個通用 Agent loop 搜尋列表要 **~$0.22 / ~71 秒**,因為它得自己發現「搜尋頁是純 JS 渲染」「有個隱藏的 JSON API 在 `sapi.craigslist.org`」「`item[0]` 是 offset 不是 postingId」這些坑;而 Autobrowse 養出來的技能做同樣的事只要 **~$0.12 / 27 秒**,換算下來降幅約 45%（這個百分比是本文自己算的,官方原文只給兩組數字）。首頁另外宣稱建議的 DOM selector + XHR 請求能「省 50x token 成本」——這條只在行銷頁出現、屬於官方宣稱,看看就好。
 
 要強調的是:**這些數字全是 Browserbase 自評**,目前缺第三方獨立 benchmark。
 
@@ -103,7 +103,7 @@ browse skills list          # 列出已裝技能
 
 導讀不能只抄行銷頁,幾個要老實講的點:
 
-- **「開源免費」要打星號**:CLI 與技能確實開源(`browserbase/skills` repo 標 MIT),但跑完整工作流可能要模型額度、Browserbase 憑證、雲端 session、residential proxy、解 CAPTCHA、付費 API——open source ≠ 全程零成本。
+- **「開源免費」要打星號**:npm 上的 `browse` CLI 標 MIT,但 `browserbase/skills` repo **沒有 LICENSE 檔、GitHub API 的 license 欄位是 null**,技能本身的授權狀態其實不明,但跑完整工作流可能要模型額度、Browserbase 憑證、雲端 session、residential proxy、解 CAPTCHA、付費 API——open source ≠ 全程零成本。
 - **品牌與命名仍在收斂,但已經比剛發佈時清楚**:npm 上的 `browse` 現在自述是「Unified Browserbase CLI for browser automation and cloud APIs」,也就是說獨立 CLI 與 Browserbase CLI 已經合流成同一個套件;舊的 `@browserbasehq/browse-cli` 則停在較舊的版本。不過 `browse.sh` 與 `skills.sh/browserbase` 兩個目錄域名仍然並存,所以「一個乾淨單一的產品」還是言之過早。
 - **技能可靠度依賴網站不變**:網站哪天改版,技能就可能要重新 graduate;Autobrowse 的收斂是「夠用」不是全域最優。
 - **數據多為官方自評**:成本數字、45%、50x 都來自 Browserbase 自己,還缺獨立驗證。
