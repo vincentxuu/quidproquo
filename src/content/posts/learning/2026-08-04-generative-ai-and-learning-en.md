@@ -30,7 +30,14 @@ Part 1 compresses to a single sentence: **the subjective fluency of learning is 
 
 If that holds, then the threat generative AI poses to learning is not mainly plagiarism. It is something more basic: **the product is positioned to make difficulty disappear.** What follows is whether that intuition has empirical support, and how much.
 
-Start with something that should be better known than it is.
+The conclusions first:
+
+- **Use AI to hand you answers while practising, and you will test worse than if you had never used it.** In a randomized trial with nearly a thousand students: +48% on practice, −17% on the exam once the AI was removed.
+- **Most "AI helps learning" studies measure something else** — performance with the AI still in hand, not what remains after it's taken away.
+- **One operational rule: get stuck yourself first, then ask.** Put the AI in the hint position, never the answer position.
+- **Smooth is the signal.** If the process got easier, that is usually the moment you stopped learning.
+
+What follows is how strong the evidence is for each. Start with something that should be better known than it is.
 
 ## The most-cited piece of evidence has been retracted
 
@@ -54,7 +61,9 @@ In plain terms: **if the AI is still at hand during the assessment, what you are
 
 ## What is left once the AI is taken away
 
-Bastani et al.'s 2025 randomized controlled trial in PNAS, [Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635), split nearly a thousand Turkish high schoolers three ways for math practice: GPT Base (close to stock ChatGPT), GPT Tutor (teacher-designed hints instead of answers), and a control with only textbook and notes.
+Someone took the AI away and tested again. The answer: **less is left than if it had never been there.**
+
+Nearly a thousand Turkish high schoolers were split three ways for math practice — GPT Base (close to stock ChatGPT), GPT Tutor (teacher-designed hints instead of answers), and a control with only textbook and notes ([Generative AI without guardrails can harm learning](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635), a 2025 randomized controlled trial in PNAS):
 
 > Our results show that having GPT-4 access while solving problems significantly improves performance (48% improvement in grades for GPT Base and 127% for GPT Tutor). However, we additionally find that when access is subsequently taken away, students actually perform worse than those who never had access (17% reduction in grades for GPT Base) — i.e., unfettered access to GPT-4 can harm educational outcomes.
 
@@ -75,6 +84,10 @@ Put together, the operating rule is simple: **AI makes things smooth exactly whe
 
 
 One meta-level lesson to close on. The retracted meta-analysis is a reminder of more than uneven quality in AI education research — **"there is evidence" is itself a claim that needs checking.** A paper cited 260-plus times and viewed nearly half a million times can be wrong, and the 260-plus papers citing it will not correct themselves. Which is exactly the habit the course in [part 1](/posts/learning/2026-08-04-learning-how-to-learn-en) set out to teach, applied this time to the literature.
+
+## Changelog
+
+- 2026-08-19: Readability pass matching the Chinese edition — a four-point summary added up front, and the RCT section now opens with the finding rather than researcher names. No content or evidence changed.
 
 ## References
 
