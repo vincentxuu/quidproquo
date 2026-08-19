@@ -4,6 +4,9 @@ date: 2026-05-03
 category: tech
 tags: [warp, terminal, ai, agent, developer-tools, open-source]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 19
 type: guide
 tldr: "Warp evolved from a Rust-powered modern terminal into an AI Agent-integrated development environment (ADE), open-sourced under AGPL in April 2026, with over 700,000 developer users."
 description: "Warp is more than a terminal — it's a development environment built around AI Agents. This post covers Warp's core design, key features, how it differs from traditional terminals, and how it transitioned from a tool into a platform."

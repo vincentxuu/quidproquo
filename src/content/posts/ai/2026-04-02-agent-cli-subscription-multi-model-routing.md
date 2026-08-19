@@ -7,7 +7,7 @@ tags: [agent-cli, multi-model-routing, claude-code, cursor, codex, kiro, gemini-
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 13
+  order: 20
 tldr: "比較六大 Agent CLI 的訂閱方案（Claude Code、Cursor CLI、Codex、Kiro、Antigravity/Gemini CLI、OpenCode），並研究多模型路由模式——簡單任務給便宜模型、複雜任務給強模型。各家計費在 2026 上半年幾乎全部改過一輪，這一版是 8/18 重新查證的結果。"
 description: "完整比較六大終端原生 Agent CLI 的訂閱方案與定價策略，並深入研究 Multi-Model Routing 模式的開源實作與架構設計。"
 draft: false

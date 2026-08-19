@@ -5,6 +5,9 @@ type: deep-dive
 category: ai
 tags: [goose, ai-agent, open-source, mcp, rust, linux-foundation, aaif, claude-code, cli, desktop-app]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 18
 tldr: "goose is an open-source AI Agent maintained by the Linux Foundation's AAIF, supporting 15+ LLM providers and 70+ MCP extensions, built with Rust as a Desktop App + CLI + API. It positions itself as a vendor-neutral, self-hostable alternative to Claude Code."
 description: "An introduction to goose, the open-source AI Agent: its migration from Block to Linux Foundation AAIF, technical architecture (Rust + TypeScript), multi-LLM support, MCP extension mechanism, .goosehints usage, and how it compares to Claude Code and Cursor."
 draft: false

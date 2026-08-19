@@ -5,6 +5,9 @@ type: project
 category: ai
 tags: [agent-cli, claude-code, claw-code, rust, open-source, multi-agent, mcp]
 lang: zh-TW
+series:
+  name: "Agent CLI 選型指南"
+  order: 17
 tldr: "Claw Code 是用 Rust 從零重寫的 Claude Code CLI 替代品，48K 行程式碼、40 個工具、MIT 授權。最驚人的是整個專案在 5 天內由多個 AI Agent 協作完成，上線不到一週就突破 170K stars。"
 description: "介紹 Claw Code 的架構設計、工具系統、與 Claude Code 的功能對齊策略，以及它作為多 Agent 協作產物的特殊意義。"
 draft: false

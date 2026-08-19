@@ -7,7 +7,7 @@ tags: [multi-model-routing, llm-router, cost-optimization, agent-router, freerou
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 14
+  order: 21
 tldr: "透過多模型路由，將 70% 的簡單任務導向便宜模型，只讓 10-15% 的複雜任務使用旗艦模型，實測節省 40-85% 推論成本。本文介紹五個主要開源工具的架構與實作。"
 description: "深入介紹 ruflo、claw-router、freerouter、agent-router、NVIDIA llm-router 等開源多模型路由工具的架構設計、評分機制與實際部署方式。"
 draft: false

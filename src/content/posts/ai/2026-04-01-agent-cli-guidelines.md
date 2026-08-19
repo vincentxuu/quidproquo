@@ -85,7 +85,9 @@ Antigravity CLI 以 Go 重寫，與 Antigravity 2.0 桌面版共用同一套 ser
 
 核心設計：`--architect` 模式（高能力模型出架構、低成本模型實作）；`--watch` 模式偵測 AI comment 自動觸發；SWE-bench 成績優異。
 
-最適合只想要輕量、可靠的 terminal pair programmer，不需要複雜 agent 功能的開發者。
+最適合只想要輕量、可靠的 terminal pair programmer，不需要複雜 agent 功能的開發者。但**維護節奏在 2026 年明顯放緩**（最後一版 PyPI 是 2026-02、最後 commit 2026-05），選型前請看專文的數字。
+
+**→ [Aider：最老牌的終端 AI Pair Programmer，以及它現在的維護狀況](/posts/tech/2026-08-19-aider-terminal-pair-programming)**
 
 ---
 
@@ -125,15 +127,21 @@ GitHub 官方的 terminal agent，綁 **GitHub Copilot 訂閱方案**（Free / P
 
 核心設計：**Autopilot 模式**（`--allow-all`）讓 agent 完全自主執行，不需逐步確認；預設只存取當前目錄下的檔案，跨目錄需要明確授權；支援 **custom instructions**（`.github/copilot-instructions.md`）設定專案規範；與 GitHub 生態深度整合（PR review、issue triage、GitHub Actions）。
 
-適合已有 GitHub Copilot 訂閱、且在 GitHub 生態工作的開發者——不需額外開通任何 API。
+適合已有 GitHub Copilot 訂閱、且在 GitHub 生態工作的開發者——不需額外開通任何 API。2026-02-25 正式 GA，所有方案（含 Free）都包含。
+
+**→ [GitHub Copilot CLI：把 agent 開在 GitHub 這個平台上](/posts/tech/2026-08-19-github-copilot-cli)**
 
 ---
 
-### Amp（Sourcegraph）
+### Amp（Amp Frontier Corporation）
 
-Sourcegraph 推出的 CLI-first agent。2026 年初**砍掉 editor extension，專注 CLI 路線**。強調 frontier model、pay-as-you-go 定價，並公開「Chronicle」展示真實使用案例（含完整 token 消耗和思考過程）。
+原本是 Sourcegraph 的產品，**2025 年 12 月已獨立成 Amp Frontier Corporation**，npm 套件也從 `@sourcegraph/amp` 改為 `@ampcode/cli`。2026 年初砍掉 editor extension 專注 CLI 路線——這只是它一長串「砍功能」清單中的一項。
 
-適合希望透明度高、可觀察 agent 決策過程的開發者。
+現在的主軸是 **orbs**（關掉筆電仍繼續跑的遠端機器），計費在 2026-07-18 首度加入月費訂閱（Megawatt $20 / Gigawatt $200），此前只有 pay-as-you-go。
+
+適合願意跟著前沿一路換、受得了功能隨時被砍的開發者。
+
+**→ [Amp：靠「砍功能」定義自己的 coding agent](/posts/tech/2026-08-19-amp-frontier-agent)**
 
 ---
 
@@ -151,7 +159,7 @@ Sourcegraph 推出的 CLI-first agent。2026 年初**砍掉 editor extension，�
 | Kiro CLI | 否 | Auto / premium 模型 | Spec-first，AWS 官方 | — |
 | Cursor CLI | 否 | 自家模型 + 各家 frontier | IDE 延伸，headless/CI | — |
 | GitHub Copilot CLI | 否 | Copilot 模型 | 綁 Copilot 訂閱，GitHub 生態整合 | — |
-| Amp | 否 | Frontier | CLI-first，Chronicle 透明展示 | — |
+| Amp | 否 | 多模型（模式決定） | orbs 遠端長跑，砍功能出名 | — |
 
 ## 核心設計模式：上下文工程
 
@@ -222,7 +230,7 @@ Pi            → 極簡，適合理解底層或客製 harness
 Kiro CLI      → Spec-first，適合 AWS 生態或規格驅動團隊
 Cursor CLI    → IDE 延伸，適合 Cursor 使用者補上 terminal/CI
 GitHub Copilot CLI → 已有 Copilot 訂閱，適合 GitHub 生態工作者
-Amp           → 透明度高，適合在意 agent 決策過程
+Amp           → orbs 遠端長跑，適合跟緊前沿、不怕介面變動
 ```
 
 核心取捨：投資上下文工程的前期成本，換取後期每個任務的效率乘數。對在同一個 repo 長期工作的開發者，這個投資回收很快。
@@ -248,4 +256,5 @@ Amp           → 透明度高，適合在意 agent 決策過程
 
 ## 更新紀錄
 
+- 2026-08-19：補上 Aider、GitHub Copilot CLI、Amp 三篇專文連結，兌現本文「每個工具都有詳細專文」的說法；修正 Amp 的歸屬（已於 2025-12 從 Sourcegraph 獨立為 Amp Frontier Corporation，npm 套件改名 `@ampcode/cli`）與它現在的主軸（orbs、2026-07 才有的訂閱制）；補記 Aider 維護放緩與 Copilot CLI 已於 2026-02-25 GA
 - 2026-08-18：全面校對工具現況。①**Gemini CLI 個人方案已於 2026/6/18 終止**，該節改寫為 Antigravity CLI，選型清單與對照表一併更新；②修正 OpenCode 的語言與 repo（Go → **TypeScript**、`opencode-ai/opencode` → `anomalyco/opencode`）；③修正三個失效或錯誤的 repo 連結：Aider（`paul-gauthier` → `Aider-AI`）、Pi（`badlogic/lemmy` → `earendil-works/pi`）、OpenCode；④更新 star 數：Codex 71k → ~106.6k、Gemini CLI ~99.8k → ~106.6k、Aider 42.7k → ~48.3k，補上 OpenCode ~198.7k 與 Pi ~93k；⑤移除寫死的模型型號（Kiro 的 Sonnet 4.5、Cursor 的 Opus 4.6／GPT-5.2／Gemini 3 Pro、Aider 的 Claude 3.7／o1），改以層級或現行機制描述；⑥補上 Pi「刻意不做什麼」的設計主張

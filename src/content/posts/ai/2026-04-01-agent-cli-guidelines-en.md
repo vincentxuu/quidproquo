@@ -89,6 +89,8 @@ Core design: `--architect` mode (high-capability model designs the architecture,
 
 Best suited for developers who want a lightweight, reliable terminal pair programmer without complex agent features.
 
+**-> [Aider: The Oldest Terminal AI Pair Programmer, and Where Its Maintenance Stands](/posts/tech/2026-08-19-aider-terminal-pair-programming-en)**
+
 ---
 
 ### Pi (Mario Zechner)
@@ -127,15 +129,21 @@ GitHub's official terminal agent, bundled with **GitHub Copilot subscription pla
 
 Core design: **Autopilot mode** (`--allow-all`) lets the agent operate fully autonomously without step-by-step confirmation; by default, only accesses files in the current directory -- cross-directory access requires explicit authorization; supports **custom instructions** (`.github/copilot-instructions.md`) for project-specific guidelines; deep integration with the GitHub ecosystem (PR review, issue triage, GitHub Actions).
 
-Ideal for developers who already have a GitHub Copilot subscription and work within the GitHub ecosystem -- no additional API setup required.
+Ideal for developers who already have a GitHub Copilot subscription and work within the GitHub ecosystem -- no additional API setup required. It went generally available on 2026-02-25 and is included in every plan, Free included.
+
+**-> [GitHub Copilot CLI: An Agent That Runs on GitHub the Platform](/posts/tech/2026-08-19-github-copilot-cli-en)**
 
 ---
 
-### Amp (Sourcegraph)
+### Amp (Amp Frontier Corporation)
 
-A CLI-first agent from Sourcegraph. In early 2026, they **dropped editor extensions to focus entirely on the CLI path**. Emphasizes frontier models, pay-as-you-go pricing, and publishes "Chronicle" showcasing real usage examples (with full token consumption and reasoning traces).
+Originally a Sourcegraph product, **spun out as Amp Frontier Corporation in December 2025**, with the npm package renamed from `@sourcegraph/amp` to `@ampcode/cli`. It dropped editor extensions in early 2026 to focus on the CLI — one item on a long list of deliberate removals.
 
-Suited for developers who value transparency and want to observe the agent's decision-making process.
+Its current focus is **orbs** (remote machines that keep working after you close your laptop), and monthly subscriptions only arrived on 2026-07-18 (Megawatt $20 / Gigawatt $200); before that it was pay-as-you-go only.
+
+Suited for developers willing to move with the frontier and tolerate features being removed.
+
+**-> [Amp: The Coding Agent That Defines Itself by What It Deletes](/posts/tech/2026-08-19-amp-frontier-agent-en)**
 
 ---
 
@@ -153,7 +161,7 @@ Suited for developers who value transparency and want to observe the agent's dec
 | Kiro CLI | No | Auto / premium models | Spec-first, official AWS product | -- |
 | Cursor CLI | No | Claude / GPT-5 / Gemini | IDE extension, headless/CI | -- |
 | GitHub Copilot CLI | No | Copilot models | Bundled with Copilot subscription, GitHub ecosystem | -- |
-| Amp | No | Frontier | CLI-first, Chronicle transparency | -- |
+| Amp | No | Multi-model (mode-driven) | Orbs for long unattended runs; known for deleting features | -- |
 
 ## Core Design Pattern: Context Engineering
 
@@ -224,7 +232,7 @@ Pi                 -> Minimalist, ideal for understanding internals or custom ha
 Kiro CLI           -> Spec-first, ideal for AWS ecosystem or spec-driven teams
 Cursor CLI         -> IDE extension, ideal for Cursor users needing terminal/CI coverage
 GitHub Copilot CLI -> Already have Copilot subscription, ideal for GitHub ecosystem workers
-Amp                -> High transparency, ideal for those who care about agent decision process
+Amp                -> Orbs for long unattended runs; for those tracking the frontier
 ```
 
 The core trade-off: investing the upfront cost of context engineering in exchange for an efficiency multiplier on every subsequent task. For developers working in the same repo long-term, this investment pays back quickly.
@@ -250,4 +258,5 @@ The core trade-off: investing the upfront cost of context engineering in exchang
 
 ## Changelog
 
+- 2026-08-19: Added links to the three new dedicated posts (Aider, GitHub Copilot CLI, Amp), making good on this post's claim that each tool has its own article; corrected Amp's ownership (spun out of Sourcegraph as Amp Frontier Corporation in 2025-12, npm package renamed `@ampcode/cli`) and its current focus (orbs, subscriptions only since 2026-07); noted Aider's slowed maintenance and Copilot CLI's 2026-02-25 GA
 - 2026-08-18: Full pass over every tool's current state. (1) **Gemini CLI's individual tier ended 2026/6/18**; that section is now Antigravity CLI, with the selection list and comparison table updated to match. (2) Corrected OpenCode's language and repo (Go → **TypeScript**, `opencode-ai/opencode` → `anomalyco/opencode`). (3) Fixed three broken or wrong repo links: Aider (`paul-gauthier` → `Aider-AI`), Pi (`badlogic/lemmy` → `earendil-works/pi`), and OpenCode. (4) Updated star counts: Codex 71k → ~106.6k, Gemini CLI ~99.8k → ~106.6k, Aider 42.7k → ~48.3k, plus OpenCode ~198.7k and Pi ~93k. (5) Removed hardcoded model IDs (Kiro's Sonnet 4.5, Cursor's Opus 4.6 / GPT-5.2 / Gemini 3 Pro, Aider's Claude 3.7 / o1) in favor of tiers or current mechanisms. (6) Added Pi's "deliberately omitted" design stance

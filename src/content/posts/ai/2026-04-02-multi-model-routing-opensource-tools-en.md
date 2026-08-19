@@ -7,7 +7,7 @@ tags: [multi-model-routing, llm-router, cost-optimization, agent-router, freerou
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 14
+  order: 21
 tldr: "With multi-model routing, 70% of simple tasks are directed to cheap models, and only 10-15% of complex tasks use flagship models — saving 40-85% on inference costs in practice. This article covers the architecture and implementation of five major open-source tools."
 description: "A deep look at open source multi-model routing tools — ruflo, claw-router, freerouter, agent-router, and NVIDIA llm-router — their architecture, scoring mechanisms, and deployment."
 draft: false
