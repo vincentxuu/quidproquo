@@ -26,9 +26,16 @@ Next steps
 5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
-- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
-  海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
-  配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
+- 2026-08-19: **各廠「怎麼選」4 篇 x zh/en（8 檔）寫完**，order 21-24，AWS／微軟／NVIDIA／Claude。
+  一樣四個平行 agent，**發指令前先 grep 源檔確認每條事實存在**（上一輪的教訓），回來後我抽驗：
+  43 個外部 URL 重跑 curl、1025 檔 check:references、數字逐條對源檔，全中。
+  **新查到三處官方自相矛盾**：MLA-C01 官方頁同時掛 MLA-C02 與 ME1-C02 兩個代碼；Anthropic 公告文
+  說「每條路都從 foundation 級開始」但四份 exam guide 沒設先修；Pearson VUE 寫 three roles
+  （Practitioner…）而公告文寫 four roles 且該張叫 Associate。三處都兩邊引、標不確定。
+  **協作教訓：我加的死連結檢查會被自己的並行寫法週期性觸發**——zh 先落地、en 還沒生出來的那幾分鐘
+  verify 就紅，擋到另一個 session 的 commit。對方來問我回了時程、綠燈後通知，雙方都沒動對方的檔案。
+  **下次跑 zh/en 並行批次：讓 agent 先建好兩個檔案骨架再填內容。**
+  系列現在只剩 AWS MLA-C01（等 9/1 的 C02 規格；C02 exam guide 網址今天仍 404）。
 - 2026-08-18: **AI 證照備考系列 B 軌 5 篇 x zh/en（10 檔）全數寫完**，order 16-20：多 agent 架構、
   RAG 與檢索評估、AI 治理框架、prompt/context 考法、成本延遲可用性。B1 我自己寫，B2-B5 用四個
   平行 agent（使用者指定），**回來後我逐檔抽驗，沒採信 agent 自述**：32 個外部 URL 重跑 curl、
@@ -71,12 +78,6 @@ Recently completed
 - 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 對照上游翻新完畢**（series `openclaw`，order 1-32）。
   修掉的實質錯誤、三條腐化教訓與「多 session 共用 git 索引會撞」的協作教訓全數移入
   docs/progress-archive.md。
-- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。教訓：研究專案時
-  自己挖到的 bug 不等於讀者要的重點，別拿它當骨幹。細節見 archive。
-- 2026-08-10: 修好全站中英切換；系列 zh/en 改共用 slug。**教訓**：掃 content 一律遞迴走訪。
-  **仍開**：Claude Code 系列兩語都有重複的 order: 10（28 篇只編到 27），未修。
-- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。仍開缺口與教訓見 archive 與
-  docs/content-plan-drone.md §5.2。
 （已完成並合併的條目移到 docs/progress-archive.md）
 
 Notes

@@ -49,7 +49,9 @@
 1. **B 軌五篇技術文**（規劃見第 2 節）。**B1 已出**（order 16，`2026-08-18-multi-agent-architecture-exam-domains` zh/en）。剩 B2–B5，寫法照 B1：材料全部取自 A 軌已查證的官方 exam guide，不重跑一輪抓取；每個小節結尾回指「對應哪張考試哪個 domain」。
    - **B1 的涵蓋範圍與原規劃不同，理由記在這**：加入 AB-620 與 CCAR-F（兩張都有實質多 agent 考點：AB-620 的「多 agent 協作」是 40–45% 那塊的四條之一；CCAR-F Domain 1 佔 27%，是五份材料裡把編排講得最具體的）；**移除 PMLE**——它考綱滿篇「Agent Platform」是 Vertex AI 改名造成的產品名替換，官方 exam guide 裡沒有一條在考 agent 之間怎麼協調。這個誤解寫進文章當開場的修正點。
    - B1 的可重用產出：**四家名詞對照表**（同一概念的微軟／NVIDIA／Anthropic 說法）與**獨有考點清單**，B2–B5 可以照同一組結構寫。
-2. **各廠「怎麼選」**：AWS 三張（含 MLA-C01 英文版 2026/9/28 停考的時間分支）、微軟四張、NVIDIA 四張、Claude 四張。Claude 與 NVIDIA 的對照表已散在各篇，可直接彙整。
+2. **各廠「怎麼選」四篇已出**（2026-08-19，order 21-24）：AWS `aws-certifications-which-one`、微軟 `microsoft-ai-certifications-which-one`、NVIDIA `nvidia-certifications-which-one`、Claude `claude-certifications-which-one`，各 zh/en。
+   - **AWS 那篇的時間分支照 §1 的規則處理**：MLA-C01 合理備考時程六到八週，距 9/28 只剩 40 天 → 結論是多數人不該開始，而不是把時程壓縮。非英文（日韓簡中）考生窗口更長；**繁中不在 MLA-C01 的語言清單裡**。
+   - **新查到的官方矛盾三處**：MLA-C01 官方頁同時出現 MLA-C02 與 ME1-C02 兩個代碼且未說明關係；Anthropic 公告文寫「Every path… starts with a foundation-level certification」但四份 exam guide 都沒設先修；Pearson VUE 寫 three roles（Practitioner/Architect/Developer）而公告文寫 four roles 且該張叫 Associate 不叫 Practitioner。三處都兩邊引、標不確定。
 3. **AWS MLA-C01**：等 2026/9/1 C02 規格公布再寫；C02 exam guide 網址目前 404。
 4. **`.work/check-internal-links.patch` 已套用**（2026-08-19）：`scripts/check-post-references.mjs` 現在會擋「站內連結指向不存在的文章」。當初暫緩是因為 Hermes 系列的前向連結會讓 verify 變紅；那批寫完後重跑，1017 篇全綠，於是套上。**這條檢查補的正是 2026-08-18 憑印象寫 slug 而全綠放行的破口。**
 

@@ -809,3 +809,24 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 
 - 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
   查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。
+
+## 2026-08-09/10 drone series 30→38 篇（自 progress.txt 移入）
+
+- 2026-08-09/10: drone series 30 -> 38 篇（zh+en 共 76 檔）。仍開缺口與教訓見 archive 與
+  docs/content-plan-drone.md §5.2。
+
+## （自 progress.txt 移入）
+
+- 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。教訓：研究專案時
+  自己挖到的 bug 不等於讀者要的重點，別拿它當骨幹。細節見 archive。
+
+## （自 progress.txt 移入）
+
+- 2026-08-10: 修好全站中英切換；系列 zh/en 改共用 slug。**教訓**：掃 content 一律遞迴走訪。
+  **仍開**：Claude Code 系列兩語都有重複的 order: 10（28 篇只編到 27），未修。
+
+## 2026-08-17/18 travel 外幣帳戶／海外刷卡指南（自 progress.txt 移入）
+
+- 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
+  海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
+  配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
