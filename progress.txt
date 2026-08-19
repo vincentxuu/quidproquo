@@ -29,12 +29,21 @@ Recently completed
 - 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
   海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
   配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
-- 2026-08-18: **AI 證照備考系列 B 軌 B1「多 agent 架構的考點交集」zh/en 已出**（order 16，slug
-  `2026-08-18-multi-agent-architecture-exam-domains`）。**沒有重跑研究**——五份官方 exam guide 的內容
-  全部取自 A 軌已查證的十五篇，只逐條 curl 驗了文中 11 個外部 URL（全 200；`a2a-protocol.org` 根路徑
-  是 JS 轉址，實際內容頁是 `/latest/`）。**涵蓋範圍與原規劃不同**：加入 AB-620 與 CCAR-F、移除 PMLE
-  （它的「Agent Platform」是 Vertex AI 改名，官方 exam guide 沒有一條考 agent 間協調），理由寫進
-  content plan §0.5。可重用產出：四家名詞對照表 + 獨有考點清單，B2–B5 照同結構寫。
+- 2026-08-18: **AI 證照備考系列 B 軌 5 篇 x zh/en（10 檔）全數寫完**，order 16-20：多 agent 架構、
+  RAG 與檢索評估、AI 治理框架、prompt/context 考法、成本延遲可用性。B1 我自己寫，B2-B5 用四個
+  平行 agent（使用者指定），**回來後我逐檔抽驗，沒採信 agent 自述**：32 個外部 URL 重跑 curl、
+  104 條站內連結、各篇引用的權重逐條對源檔，全中。
+  **這批最重要的教訓：我把本檔與 content plan 的二手摘要當事實轉手給 agent，錯了兩條**——
+  CCDV-F 根本不考 RAG（八領域無檢索，Eval 僅 2.6%）、PMLE 也不考（六章 considerations 無
+  chunking/向量/reranker，Feature Store 是 ML 特徵不是向量檢索）。已在寫作中途攔下改正，並把
+  更正寫進 content plan §2。**摘要表當線索、不當來源；開寫前先 grep 源檔確認考點存在。**
+  另兩個可重用發現：**`iso.org/standard/42001.html` 是完全不同的標準**（ISO 12164-4 工具機
+  空心錐，已作廢），正確是不帶 `.html` 的；**iso.org 對 curl 回 403、EUR-Lex 回 202**，
+  都不是壞連結，要用抓取工具確認內容而不是看狀態碼。
+  A 軌 15 篇的官方考綱**沒有一張點名 EU AI Act／NIST AI RMF／ISO 42001**（點名的是 GDPR、
+  HIPAA、FedRAMP、AWS Security Scoping Matrix）——B3 就建在這個落差上。
+  **待 commit**：verify 目前紅燈，但紅的是別的 session 正在改的 `2026-03-12-multi-query-expansion.md`
+  （參考資料關鍵詞警告），不是這 10 個檔案。不動別人的 WIP，等它收工再提交。
 - 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en（30 檔）已出並全部推上 main。**
   進度表、剩餘工作與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5（新 session 從那裡接）。
   廠商完成度：Anthropic 4/4、微軟 4/4、NVIDIA 4/4、AWS 2/3（MLA-C01 等 9/1 的 C02 規格）、
@@ -62,8 +71,6 @@ Recently completed
 - 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 對照上游翻新完畢**（series `openclaw`，order 1-32）。
   修掉的實質錯誤、三條腐化教訓與「多 session 共用 git 索引會撞」的協作教訓全數移入
   docs/progress-archive.md。
-- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
-  查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。
 - 2026-08-16: post(ai) 拆解 microsoft/AI-Engineering-Coach 的 45 條規則（zh+en）。教訓：研究專案時
   自己挖到的 bug 不等於讀者要的重點，別拿它當骨幹。細節見 archive。
 - 2026-08-10: 修好全站中英切換；系列 zh/en 改共用 slug。**教訓**：掃 content 一律遞迴走訪。

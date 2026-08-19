@@ -804,3 +804,8 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   另一個 session 的 commit 把我暫存的 6 個檔案一起帶走（40b1c42 訊息與內容不符）。
   改用 `git commit -- <明確路徑>` 之後就沒再發生。
   全站另有 6xx 篇無系列，最大候選群：RAG 技法 34、技術棧 29、agent 研究 12（zh/en 對稱）。
+
+## 2026-08-16/18 Stanford CS230 導讀 9 講 x zh/en（自 progress.txt 移入）
+
+- 2026-08-16/18: post「Stanford CS230 導讀」9 講 x zh/en（18 檔），series slug `cs230`，PR #142。
+  查證教訓（同一毛病一輪犯四次、「未查證」不是可交件狀態）見 docs/progress-archive.md。

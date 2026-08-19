@@ -127,10 +127,17 @@
 | # | 主題 | 被哪些考試涵蓋 | 說明 |
 |---|---|---|---|
 | B1 ✅ | 多 agent 系統架構：編排、身分、記憶、可觀測性 | AI-500、NCP-AAI、AB-620、AB-100、CCAR-F（**不含 PMLE**，理由見 §0.5） | 已出，order 16，slug `2026-08-18-multi-agent-architecture-exam-domains` |
-| B2 | RAG 與檢索評估：從 chunking 到 LLM-as-a-judge | AIP-C01、PMLE | 站內已有 RAG 系列，本篇要連過去而不是重寫 |
-| B3 | AI 治理框架對照：EU AI Act、NIST AI RMF、ISO/IEC 42001 | AI-500 的 governance 考點、EU AI Act 對 agent 系統的要求 | 三份框架的適用範圍與互相對應 |
-| B4 | prompt 與 context engineering 的考法 | 幾乎所有 GenAI 證照 | 重點在「考試怎麼問」與實務差異 |
-| B5 | GenAI 應用的成本、延遲、可用性最佳化 | PMLE、AIP-C01、AI-103 | 與站內 LLM 推論比較文互連 |
+| B2 ✅ | RAG 與檢索評估：從 chunking 到 LLM-as-a-judge | AIP-C01（重）、NCP-AAI、AI-500、PMLE 與 CCDV-F（**兩張都不考檢索**，見下） | 已出，order 17，slug `2026-08-18-rag-evaluation-exam-domains` |
+| B3 ✅ | AI 治理框架對照：EU AI Act、NIST AI RMF、ISO/IEC 42001 | CCAR-P、CCAO-F、AB-100、AI-500、NCP-AAI、AWS 兩張 | 已出，order 18，slug `2026-08-18-ai-governance-frameworks-exam-domains` |
+| B4 ✅ | prompt 與 context engineering 的考法 | 十張證照（唯一有獨立 Prompt Engineering 領域的是 NCP-GENL，13%） | 已出，order 19，slug `2026-08-18-prompt-context-engineering-exam-domains` |
+| B5 ✅ | GenAI 應用的成本、延遲、可用性最佳化 | NCP-GENL（31%）、AIP-C01、AI-103、AI-500、PMLE、AIF-C01 | 已出，order 20，slug `2026-08-18-genai-cost-latency-exam-domains` |
+
+**B 軌收工時的兩條查證更正**（原表寫錯，2026-08-18 逐檔核對後修）：
+
+- **CCDV-F 不考 RAG／檢索。** 原 B2 那列與 §0.5 的摘要句都把它列為 RAG 評估的考點來源，實際上它的八個領域（33.1 / 16.8 / 14.7 / 11.0 / 10.6 / 8.1 / 3.1 / 2.6）沒有任何一個寫到 RAG、向量或檢索，Eval 那塊只有 2.6%。它與這主題的唯一接點是 Prompt and Context Engineering 11.0%——「檢索回來之後怎麼塞進 context」，不是怎麼檢索。
+- **PMLE 也不考檢索。** 官方 exam guide 六章的 considerations 沒有 RAG、chunking、向量庫、reranker 任何一條，只有第 2 章一條 LLM-as-a-judge。**Agent Platform Feature Store 是 ML 特徵儲存，不是向量檢索**，這組名詞最容易混。
+- 教訓：**這兩條錯誤都是從本檔的摘要表轉手傳下去的，沒有開原文。** 二手摘要要當線索用，不能當事實引；B 軌開寫前先 grep 一次源檔確認考點真的存在。
+
 
 ## 3. 分批出貨
 
