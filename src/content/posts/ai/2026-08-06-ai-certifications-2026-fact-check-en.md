@@ -64,6 +64,15 @@ Confirm which cloud your company actually runs first, then pick the certificatio
 
 If you want foundations rather than a credential, the site also has [which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide) (in Mandarin), which reorders the official OpenAI, Anthropic, and Google offerings by capability tier.
 
+**This table answers "which one", not "how to prepare".** For that the site has a whole series — [AI Certification Prep](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en), built on each vendor's official exam-guide domain weights, one post per certification. If you are undecided, the per-vendor chooser is the fastest way in:
+
+- [Which of the three AWS certifications](/posts/ai/2026-08-19-aws-certifications-which-one-en) — including the time branch created by MLA-C01 English retiring 2026-09-28
+- [Which of the four Microsoft certifications](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en) — where the code-first and low-code lines diverge
+- [Which of the four NVIDIA certifications](/posts/ai/2026-08-19-nvidia-certifications-which-one-en) — two professionals are not registrable yet, and all official training is paid
+- [Which of the four Claude certifications](/posts/ai/2026-08-19-claude-certifications-which-one-en) — individuals cannot register; Claude Partner Network organizations only
+
+Technical topics tested across several exams are pulled into five deep dives: [multi-agent architecture](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en), [RAG and retrieval evaluation](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en), [AI governance frameworks](/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains-en), [prompt and context engineering](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains-en), and [cost and latency optimization](/posts/ai/2026-08-18-genai-cost-latency-exam-domains-en).
+
 ## AWS: Three Exams Separated by Price and Expected Experience
 
 All three are open to register. [AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) is the entry point at $100, 90 minutes, 65 questions. [MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) moves up to ML engineering practice at $150, 130 minutes, 65 questions. At the top sits [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) at $300, 180 minutes, 75 questions, where AWS expects **2 years of AWS experience plus 1 year of GenAI development** — the only one of the three aimed squarely at GenAI application development.
@@ -92,6 +101,8 @@ One AIP-C01 pass therefore pushes AIF-C01, MLA-C01, and Data Engineer – Associ
 
 **Renewals come with a 50% voucher.** The Cost column for all three reads "Use the 50% discount voucher in your AWS Certification Account" — so the three-year renewal is $50 / $75 / $150, not list price.
 
+Preparation paths: [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) and [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en); the trade-offs are in [which of the three AWS certifications](/posts/ai/2026-08-19-aws-certifications-which-one-en).
+
 ## Google: PMLE Is the Only One, but the Material Must Postdate Mid-2026
 
 Google has exactly two AI certifications: [Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader) (foundational) and [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) (professional). Of the 9 professional certifications on the [official certification index](https://cloud.google.com/learn/certification), none covers GenAI or agent engineering. Google's strategy is to **fold agentic content into the existing PMLE rather than create a separate credential** — so within the Google ecosystem, **PMLE is the only way** to demonstrate GenAI or agent capability.
@@ -101,6 +112,8 @@ Generative AI Leader is not worth $99 for an engineer. Google is blunt about the
 > This certification is for anyone in any job role, with or without hands-on technical experience.
 
 Too little signal for anyone with a programming background. Exam languages are English, Japanese, Spanish, and Portuguese — no Chinese.
+
+PMLE's preparation path is in [the Google PMLE prep guide](/posts/ai/2026-08-18-google-pmle-prep-guide-en).
 
 ### Every Product Name in the Exam Guide Was Renamed
 
@@ -162,6 +175,8 @@ You must hold **AI-103 first**; the page's field reads `Prerequisites: 1 certifi
 
 Microsoft also has one advantage nobody else offers: renewal runs through a **free online renewal assessment**, rather than retaking the full exam as AWS and Google require. That extends to the [GitHub Copilot certification (GH-300)](https://learn.github.com/certification/COPILOT), which sits under the Microsoft umbrella: 100 minutes, **24-month validity**, proctored by Pearson VUE, covering responsible Copilot use, prompt crafting, agent mode and MCP, content exclusions, and audit logs. The official page says only that price depends on the country or region where the exam is proctored — it **publishes no figure**. The $99 quoted around the web is a third-party number; the registration page is what counts.
 
+Preparation paths for all four: [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en), [AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en), [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en), [AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en); the trade-offs are in [which of the four Microsoft certifications](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en).
+
 ## NVIDIA: Twelve Exams, Not Just NCA-GENL
 
 The table above lists only the entry-level one. The [official certification catalog](https://www.nvidia.com/en-us/learn/certification/) actually lists twelve:
@@ -184,6 +199,8 @@ The table above lists only the entry-level one. The [official certification cata
 Two are worth calling out. **NCP-AAI (Agentic AI)** is one of the few vendor credentials built directly around multi-agent interaction, scalability, and ethical safeguards at professional level, and $200 is an easier entry than Microsoft's expert line. **NCA-GENM (Generative AI Multimodal)** is the only one here aimed specifically at systems spanning text, image, and audio — a better match than NCA-GENL if that's what you build.
 
 One practical warning: NCP-AII, NCP-AIN, NCP-ARI, and NCP-AIO run $400–$500 and test GPU cluster deployment, monitoring, and interconnect. Those are infrastructure-team credentials, not application-engineer ones. Picking the wrong tier means paying four times as much for an exam you can't use.
+
+Preparation paths for the four generative-AI exams: [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en), [NCP-GENL](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en), [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en), [NCA-GENM](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en); the trade-offs are in [which of the four NVIDIA certifications](/posts/ai/2026-08-19-nvidia-certifications-which-one-en).
 
 ## Other Ecosystems: Snowflake, Oracle, IBM, Salesforce
 
@@ -225,7 +242,7 @@ The registration gate does have an official source. The Pearson VUE page (last u
 
 Claims online that individuals can freely register for the exams are not supported by any official source I could find — **plan on needing access through a partner organization**.
 
-For exam content details, see the site's [complete guide to the Claude Certified Architect Foundations exam](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en) 
+Preparation paths for all four: [CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en), [CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide-en), [CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide-en), [CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en); the trade-offs are in [which of the four Claude certifications](/posts/ai/2026-08-19-claude-certifications-which-one-en).
 
 ## iPAS Intermediate: Taiwan's Local Option, Valid 5 Years
 
@@ -308,6 +325,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-08-19: Added links to the 24-post AI Certification Prep series. Fifty files linked to this article; it linked back to one. The "which one" table now leads into the series and the four per-vendor choosers, and each vendor section ends with its preparation paths. No content or conclusions changed.
 - 2026-08-18: Substantially expanded coverage. NVIDIA goes from a single exam to the full twelve-exam catalog (including Agentic AI NCP-AAI and multimodal NCA-GENM), correcting the earlier claim that only Microsoft offers an expert-level agent credential; added "Other Ecosystems" (Snowflake GES-C02, Oracle's new Agentic AI track, IBM watsonx C1000-185, Salesforce Agentforce Specialist AI-201) and GitHub Copilot GH-300; added "Governance, Audit, Security" (IAPP AIGP, ISACA AAISM / AAIA, CertNexus CAIP); added iPAS beginner-level specs plus the intermediate certificate split, subject-score carry-over, and exemption rules, along with TQC and TQC+; added AI-500's hard prerequisite (AI-103 must be earned first, quoted from the official Certification prerequisites section) along with its beta and English-only status; added the MLA-C01 update notice (English retires 2026-09-28, C02 registration opens September 1 with no published guide) and the exam-language details (AIF-C01 is the only one offered in Traditional Chinese); corrected the AWS renewal section — the article said renewal meant retaking with no continuing-education option, whereas the official recertification page lists both renew and maintain paths (maintain limited to SAA, Developer, CloudOps, SAP, DOP), cross-certification renewal across the AI trio, and a 50% voucher on every renewal; added a "commonly mis-listed" section covering Google Cloud GenAI Engineer (does not exist), OpenAI (free, globally available course certificates that are explicitly not certifications, with the formal credential still in employer pilots), and CNCF Kubernetes AI Conformance (awarded to platforms, not people), kept as three distinct errors rather than one shared reason. Per the "professional AI/ML certifications only" scope, free course-completion certificates from OpenAI Academy and Claude Academy are not listed as credentials; a single note with official sources remains in the mis-listed section. A significant error in the Claude section was corrected: the article claimed Anthropic published no prices or validity, when in fact each exam guide PDF states the fee ($99 / $125 / $125 / $175), item count, 12-month validity, and domain weights; retake rules were added, and the "what a vendor doesn't publish isn't known" takeaway was rewritten as "not finding it is not the same as it not existing." Retired exams were dropped from the article so that everything listed is currently registrable. Three existing facts were re-verified: the Google certification index (2 foundational, 3 associate, 9 professional) confirms Generative AI Leader and PMLE are still the only AI credentials, so that conclusion stands; the `generative-ai-engineer` evidence was corrected — that URL is a soft 404 (404 page body, HTTP status 200), so the original "returns HTTP 404" was inaccurate; and two Google renewal changes were added, namely the 50% renewal code issued at first certification and the continuing-education path currently limited to CDL, ACE, PCA, and PDE, leaving PMLE exam-only.
 
 ## References
