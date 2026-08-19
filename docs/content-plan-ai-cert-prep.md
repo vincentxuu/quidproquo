@@ -53,6 +53,19 @@
    - **AWS 那篇的時間分支照 §1 的規則處理**：MLA-C01 合理備考時程六到八週，距 9/28 只剩 40 天 → 結論是多數人不該開始，而不是把時程壓縮。非英文（日韓簡中）考生窗口更長；**繁中不在 MLA-C01 的語言清單裡**。
    - **新查到的官方矛盾三處**：MLA-C01 官方頁同時出現 MLA-C02 與 ME1-C02 兩個代碼且未說明關係；Anthropic 公告文寫「Every path… starts with a foundation-level certification」但四份 exam guide 都沒設先修；Pearson VUE 寫 three roles（Practitioner/Architect/Developer）而公告文寫 four roles 且該張叫 Associate 不叫 Practitioner。三處都兩邊引、標不確定。
 3. **AWS MLA-C01**：等 2026/9/1 C02 規格公布再寫；C02 exam guide 網址目前 404。
+
+5. **九月的複查日（散在 34 篇的「會過期的東西」表裡，這裡集中一份）**：
+
+   | 日期 | 要看什麼 |
+   |---|---|
+   | 2026-09-01 | MLA-C02 開放報名與考綱；**順便確認 MLA-C02 與 ME1-C02 是不是同一張考試**（官方頁兩個代碼並列且未說明） |
+   | 2026-09-18 | AB-620 講師課 AB-620T00-A 開課 |
+   | 2026-09-28 | MLA-C01 英文版最後考試日（之後日韓簡中版仍在，到 C02 GA 為止） |
+   | 2026-09-30 | AI-500 講師課 AI-500T00 開課 |
+   | 2026-10 | AI-500 預計 GA（官方部落格說法，認證頁未載明）；Claude Partner Network 下次 tier 檢核 10/1 |
+   | 每月 | NCP-AAI 與 NCP-GENL 的報名狀態（兩張都還是 Coming soon） |
+
+6. **本系列實際用的驗收流程與 §4 第 3 條不一致，待對齊**：§4 寫「每篇發佈前跑 `pnpm verify` 與 `post-verify` skill」。實際上 B 軌五篇與「怎麼選」四篇只跑了 `pnpm verify` 加人工抽驗（外部 URL 重跑 curl、站內連結、數字逐條對源檔），**`post-verify` skill 一次都沒跑**。兩條路：補跑一輪，或把 §4 改成現在實際在做的事。**先決定再寫下一批。**
 4. **`.work/check-internal-links.patch` 已套用**（2026-08-19）：`scripts/check-post-references.mjs` 現在會擋「站內連結指向不存在的文章」。當初暫緩是因為 Hermes 系列的前向連結會讓 verify 變紅；那批寫完後重跑，1017 篇全綠，於是套上。**這條檢查補的正是 2026-08-18 憑印象寫 slug 而全綠放行的破口。**
 
 ### 寫作時務必沿用的紀律（今天踩過的坑）
