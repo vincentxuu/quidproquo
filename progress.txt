@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-18
+Last updated: 2026-08-19
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -26,6 +26,23 @@ Next steps
 5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
+- 2026-08-19: **五系列分組並逐篇對照上游翻新（73 篇 x zh/en = 146 檔）**：RAG 技法大全 45、
+  Cloudflare 邊緣技術棧 12、瀏覽器自動化與 MCP 7、NobodyClimb 專案紀實 4、AEO/GEO 5。
+  舊的 `rag-systems`（僅 6 篇、與同期未收錄的三十幾篇技法文重疊）併入 `rag-techniques`，舊 slug 留 301。
+  **schema 擴充**：新增 `additionalSeries`，一篇文章可從屬多個系列（主 `series` 仍是卡片徽章唯一來源）。
+  **這輪最大的錯：翻新未經獨立查證就 commit 並 push。** 五個寫作 agent 全部只發 idle、沒交回報，
+  我只抽看三個 diff 就發佈。被使用者問「內容有再次查證嗎」之後補跑五個乾淨 context verifier，修掉 31 項。
+  **四組的錯誤型態各不相同，這比個別錯誤更值得記**：
+  ①Cloudflare＝**把合理推論寫成「官方直接說了」**（最糟一條：官方原文是 not advised to rely on，
+  文章寫成官方保證）②Browser＝**查了但收斂太用力**（把 7 月的資安報告憑印象填成 8 月，
+  即 commit 前兩天）③AEO＝**把「我沒查到」寫成肯定句**，並**用狀態碼冒充營運確認**——
+  宣稱「逐家確認網站仍在運作」，實際兩家已收掉的公司都還回 HTTP 200
+  ④RAG＝**把多資料集自行平均後當成論文原文**（3.3×/1.9× 論文裡不存在）。
+  **查證員本身也會收斂太用力**：兩輪對 OpenAI reasoning 的 CoT 段落給出相反結論，我實抓頁面全文
+  才發現兩邊各讀一半（小標 Avoid…、內文 unnecessary、概述段 may not/can sometimes），
+  因此照第一輪誤改過一次再改回——**agent 的查證結論同樣要抽驗，不能照單全收**。
+  **可重用做法**：明確要求 agent 誠實回報覆蓋度有效——RAG 第一輪主動說「45 篇只深查 27 篇」，
+  才能派第二輪補完剩下 18 篇；否則會拿到一份假裝覆蓋全部的報告。
 - 2026-08-19: **各廠「怎麼選」4 篇 x zh/en（8 檔）寫完**，order 21-24，AWS／微軟／NVIDIA／Claude。
   一樣四個平行 agent，**發指令前先 grep 源檔確認每條事實存在**（上一輪的教訓），回來後我抽驗：
   43 個外部 URL 重跑 curl、1025 檔 check:references、數字逐條對源檔，全中。
@@ -51,30 +68,10 @@ Recently completed
   HIPAA、FedRAMP、AWS Security Scoping Matrix）——B3 就建在這個落差上。
   **待 commit**：verify 目前紅燈，但紅的是別的 session 正在改的 `2026-03-12-multi-query-expansion.md`
   （參考資料關鍵詞警告），不是這 10 個檔案。不動別人的 WIP，等它收工再提交。
-- 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en（30 檔）已出並全部推上 main。**
-  進度表、剩餘工作與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5（新 session 從那裡接）。
-  廠商完成度：Anthropic 4/4、微軟 4/4、NVIDIA 4/4、AWS 2/3（MLA-C01 等 9/1 的 C02 規格）、
-  Google 1/1。系列 `ai-cert-prep` 已註冊進 series.ts，order 1-15 中英共用、無重複。
-  研究走 6 個平行 agent 抓官方 exam guide，關鍵數字我逐條抽驗過官方頁面。
-  **待辦**：B 軌 5 篇技術文、各廠「怎麼選」、`.work/check-internal-links.patch` 待 Hermes
-  系列寫完再套用（現在套會讓 verify 變紅、擋到其他 session）。
-  **今天的三個可重用教訓**：
-  ①**停在第一層官方頁就下結論**——總表文因此自我修正四次（Anthropic 價格其實公開在
-  exam guide PDF、generative-ai-engineer 是狀態碼 200 的軟性 404、AWS 有 renew/maintain
-  兩條路且可互相續期、漏掉 MLA-C01 停考公告）。認證頁 → exam guide PDF → 政策頁要點到底。
-  ②**外部 URL 不可照命名規律拼**——今天拼錯三次全 404（兩次 Microsoft Learn 學習路徑、
-  一次站內 slug），正確做法是從官方頁的 learn_item uid 或內文取得並 curl 驗狀態碼。
-  ③**官方來源之間會打架**（NVIDIA 權重網頁 98% vs PDF 92%、NVIDIA 描述誤植 OpenUSD 文字、
-  AI-103 文件連結區未同步、AB-100 簡介是合規考試樣板文）——兩邊都引、標成不確定區間。
-- 2026-08-18: Hermes Agent 導讀（2026-04-05 舊文）對照上游 README／官方 docs 翻新，並擴寫成
-  十一篇系列 x zh/en（22 檔，series slug `hermes-agent`）。**改體裁**：指令清單交還官方文件，
-  每篇只留取捨與失敗點。修掉四個失真：後端 6→7（+Vercel Sandbox）、Honcho 已改為 memory
-  provider plugin、Python 93%→~76%/TS ~20%、「OpenClaw 正式繼承者」實為遷移路徑（證據：官方
-  自己連的 HermesClaw 橋接器讓兩者共存）。導讀改今日發佈並更名，舊網址在 astro.config 留 301。
-  **可重用**：官方 docs 站的 llms-full.txt（3.8MB）是一次抓完整份文件最省事的來源。
-  **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
-  站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
-  另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
+- 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en 已出並推上 main**（series `ai-cert-prep`）。
+  進度表與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5；三條查證教訓移入 progress-archive.md。
+- 2026-08-18: Hermes Agent 導讀翻新並擴寫成十一篇系列 x zh/en（series `hermes-agent`）。
+  修掉的四個失真與「外部連結沒有自動檢查、寫完要自己 curl 一輪」的教訓見 progress-archive.md。
 - 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 對照上游翻新完畢**（series `openclaw`，order 1-32）。
   修掉的實質錯誤、三條腐化教訓與「多 session 共用 git 索引會撞」的協作教訓全數移入
   docs/progress-archive.md。

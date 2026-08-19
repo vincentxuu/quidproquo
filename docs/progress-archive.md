@@ -830,3 +830,33 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 - 2026-08-17/18: post(travel) 常去日韓的外幣帳戶／海外刷卡指南（zh + en，PR #140）。雙幣卡也照收
   海外 1.5%；**「提領費＝現鈔與即期價差」是全行業設計**，繞外幣帳戶領現鈔無價格優勢——日圓帳戶
   配的是卡不是 ATM。查證教訓（二手表格混淆兩種操作、聚合站期限會錯）見 docs/progress-archive.md。
+
+## 2026-08-18 AI 證照備考系列 A 軌（自 progress.txt 移入）
+
+- 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en（30 檔）已出並全部推上 main。**
+  進度表、剩餘工作與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5（新 session 從那裡接）。
+  廠商完成度：Anthropic 4/4、微軟 4/4、NVIDIA 4/4、AWS 2/3（MLA-C01 等 9/1 的 C02 規格）、
+  Google 1/1。系列 `ai-cert-prep` 已註冊進 series.ts，order 1-15 中英共用、無重複。
+  研究走 6 個平行 agent 抓官方 exam guide，關鍵數字我逐條抽驗過官方頁面。
+  **待辦**：B 軌 5 篇技術文、各廠「怎麼選」、`.work/check-internal-links.patch` 待 Hermes
+  系列寫完再套用（現在套會讓 verify 變紅、擋到其他 session）。
+  **今天的三個可重用教訓**：
+  ①**停在第一層官方頁就下結論**——總表文因此自我修正四次（Anthropic 價格其實公開在
+  exam guide PDF、generative-ai-engineer 是狀態碼 200 的軟性 404、AWS 有 renew/maintain
+  兩條路且可互相續期、漏掉 MLA-C01 停考公告）。認證頁 → exam guide PDF → 政策頁要點到底。
+  ②**外部 URL 不可照命名規律拼**——今天拼錯三次全 404（兩次 Microsoft Learn 學習路徑、
+  一次站內 slug），正確做法是從官方頁的 learn_item uid 或內文取得並 curl 驗狀態碼。
+  ③**官方來源之間會打架**（NVIDIA 權重網頁 98% vs PDF 92%、NVIDIA 描述誤植 OpenUSD 文字、
+  AI-103 文件連結區未同步、AB-100 簡介是合規考試樣板文）——兩邊都引、標成不確定區間。
+
+## 2026-08-18 Hermes Agent 系列（自 progress.txt 移入）
+
+- 2026-08-18: Hermes Agent 導讀（2026-04-05 舊文）對照上游 README／官方 docs 翻新，並擴寫成
+  十一篇系列 x zh/en（22 檔，series slug `hermes-agent`）。**改體裁**：指令清單交還官方文件，
+  每篇只留取捨與失敗點。修掉四個失真：後端 6→7（+Vercel Sandbox）、Honcho 已改為 memory
+  provider plugin、Python 93%→~76%/TS ~20%、「OpenClaw 正式繼承者」實為遷移路徑（證據：官方
+  自己連的 HermesClaw 橋接器讓兩者共存）。導讀改今日發佈並更名，舊網址在 astro.config 留 301。
+  **可重用**：官方 docs 站的 llms-full.txt（3.8MB）是一次抓完整份文件最省事的來源。
+  **被問「內容完善嗎」才補驗外部連結，抓到 1 個 404**（自己構造的 playwright /docs/cli）——
+  站內連結有 check:references 擋，外部連結沒有任何自動檢查，寫完要自己 curl 一輪。
+  另自評時發現舊文的研究段被我砍成一條連結，已補成第 11 篇；導讀補「不涵蓋什麼」。
