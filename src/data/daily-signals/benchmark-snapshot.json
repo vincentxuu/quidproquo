@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-19",
+  "date": "2026-08-20",
   "swebench_verified_bash_only_top5": [
     { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
     { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
@@ -13,5 +13,5 @@
     { "rank": 3, "model": "Claude Opus 5 (Max)", "score": 11.95, "ci": "±1.71%" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-19：改用直接 curl（透過 proxy）抓取 swebench.com 官方 GitHub repo 的原始資料來源 https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json（swebench.com 前端本身是 JS 動態渲染，但資料實際來自這份靜態 JSON，站方 build.py 直接讀取它產生頁面）——這比透過 Tavily/Exa 抓取渲染後頁面更可靠且不受轉義字元污染（Tavily 的 markdown 轉換會把 JSON 內的底線跳脫成 \\_，需額外清洗，不如直接抓源檔案）。'Verified'（全 agent）排行榜前 5 名分數與名次與 08-17 快照完全一致，無異動。lmarena.ai/leaderboard Agent 類別前三名同樣與 08-17 快照完全一致（Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%），無異動。MorphLLM /leaderboard 持續被 Vercel Security Checkpoint 攔截，無法存取。firecrawl 額度依然用盡（insufficient credits）。額外搜尋新聞信號（Exa）發現大量第三方聚合站（BenchLM.ai、Swfte AI、CodeSOTA 等）互相矛盾且出現疑似不可信/虛構的型號名稱（如「Claude Mythos 5」非公開已知型號），未採信，僅以官方來源（swebench.com 原始 JSON、lmarena.ai 官網）為準。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-08-20：改用直接 curl（透過 proxy）抓取 swebench.com 官方 GitHub repo 原始資料 https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json（同 08-19 方法）。'Verified' 排行榜（全 agent）前 5 名分數與名次與 08-19 快照完全一致，無異動；同時檢查了 'bash-only'（LM-only mini-SWE-agent 分支）榜單，最高分為 Claude 4.5 Opus (high) 76.8%，非此快照追蹤欄位但與 CodeSOTA 第三方站台交叉核對一致。lmarena.ai/leaderboard 用 Tavily extract 抓取（firecrawl 額度依然用盡 insufficient credits，直接 curl 被 proxy 阻擋 403），Agent 類別前三名與 08-19 快照完全一致（Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%），無異動。MorphLLM /leaderboard 用 Tavily extract 抓取失敗（fetch 失敗），持續無法存取。額外用 Exa 搜尋新聞信號，發現大量第三方聚合站（BenchLM.ai、Swfte AI、CodeSOTA、reviewpublically 等）互相矛盾，且再次出現不可信/疑似虛構的型號名稱（如「Claude Mythos 5」「Claude Mythos Preview」宣稱 95%+ 分數，非任何官方已知型號），與 08-19 觀察到的同一類幻覺型號一致，未採信，僅以官方來源（swebench.com 原始 JSON、lmarena.ai 官網經 Tavily extract）為準。今日無 Benchmark 異動，未產出文章。"
 }
