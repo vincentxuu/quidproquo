@@ -2,6 +2,35 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-19 歸檔
+
+### Recently completed（原 progress.txt 條目，2026-08-19 移入）
+
+三條均已 commit 並推上 main，完整內容留此。
+
+- 2026-08-18: **AI 證照備考系列 B 軌 5 篇 x zh/en（10 檔）全數寫完**，order 16-20：多 agent 架構、
+  RAG 與檢索評估、AI 治理框架、prompt/context 考法、成本延遲可用性。B1 我自己寫，B2-B5 用四個
+  平行 agent（使用者指定），**回來後我逐檔抽驗，沒採信 agent 自述**：32 個外部 URL 重跑 curl、
+  104 條站內連結、各篇引用的權重逐條對源檔，全中。
+  **這批最重要的教訓：我把本檔與 content plan 的二手摘要當事實轉手給 agent，錯了兩條**——
+  CCDV-F 根本不考 RAG（八領域無檢索，Eval 僅 2.6%）、PMLE 也不考（六章 considerations 無
+  chunking/向量/reranker，Feature Store 是 ML 特徵不是向量檢索）。已在寫作中途攔下改正，並把
+  更正寫進 content plan §2。**摘要表當線索、不當來源；開寫前先 grep 源檔確認考點存在。**
+  另兩個可重用發現：**`iso.org/standard/42001.html` 是完全不同的標準**（ISO 12164-4 工具機
+  空心錐，已作廢），正確是不帶 `.html` 的；**iso.org 對 curl 回 403、EUR-Lex 回 202**，
+  都不是壞連結，要用抓取工具確認內容而不是看狀態碼。
+  A 軌 15 篇的官方考綱**沒有一張點名 EU AI Act／NIST AI RMF／ISO 42001**（點名的是 GDPR、
+  HIPAA、FedRAMP、AWS Security Scoping Matrix）——B3 就建在這個落差上。
+  **待 commit**：verify 目前紅燈，但紅的是別的 session 正在改的 `2026-03-12-multi-query-expansion.md`
+  （參考資料關鍵詞警告），不是這 10 個檔案。不動別人的 WIP，等它收工再提交。
+- 2026-08-18: **AI 證照備考系列 A 軌 15 篇 x zh/en 已出並推上 main**（series `ai-cert-prep`）。
+  進度表與寫作紀律見 docs/content-plan-ai-cert-prep.md §0.5；三條查證教訓移入 progress-archive.md。
+- 2026-08-18: Hermes Agent 導讀翻新並擴寫成十一篇系列 x zh/en（series `hermes-agent`）。
+  修掉的四個失真與「外部連結沒有自動檢查、寫完要自己 curl 一輪」的教訓見 progress-archive.md。
+- 2026-08-18: **OpenClaw 導讀 32 篇 x zh/en 對照上游翻新完畢**（series `openclaw`，order 1-32）。
+  修掉的實質錯誤、三條腐化教訓與「多 session 共用 git 索引會撞」的協作教訓全數移入
+  docs/progress-archive.md。
+
 ## 2026-08-18 歸檔
 
 ### post(travel) 外幣帳戶／海外刷卡指南（PR #140）的查證教訓
