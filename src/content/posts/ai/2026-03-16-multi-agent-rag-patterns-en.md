@@ -550,7 +550,7 @@ The two are not mutually exclusive. Each Agent's internals can use Modular RAG d
 
 ### vs Google's Multi-Agent Patterns
 
-Google's [Agents Companion whitepaper](https://www.kaggle.com/whitepaper-agent-companion) (February 2025) uses an in-car assistant as its case study and lists six multi-agent patterns. Four of them bear directly on RAG architecture choices:
+Google's [Agents Companion whitepaper](https://www.kaggle.com/whitepaper-agent-companion) (February 2025) lists four multi-agent patterns in its Design Patterns section (Sequential, Hierarchical, Collaborative, Competitive), and expands six concrete arrangements in the Patterns in Use section built around an in-car assistant. These bear directly on RAG architecture choices:
 
 1. **Hierarchical**: An Orchestrator Agent classifies queries and routes them to specialized agents, while maintaining conversation context across turns and handling fallbacks when a specialist can't answer. That is the Orchestrator pattern in this article; the whitepaper stresses that the orchestrator is itself an agent (it judges domain and intent, and manages conversation state), not just a routing table.
 

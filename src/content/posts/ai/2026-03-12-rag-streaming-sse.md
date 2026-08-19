@@ -246,4 +246,4 @@ SSE Streaming 對 RAG 系統的使用者體驗影響是最直接的：從「等 
 - [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
 - [OpenAI - Streaming API responses](https://platform.openai.com/docs/guides/streaming-responses)
 - [Cloudflare Workers AI - Workers Bindings（`env.AI.run()` 與 `stream` 參數）](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
-- [Cloudflare Workers AI - 模型列表（各模型的串流輸出格式）](https://developers.cloudflare.com/workers-ai/models/)
+- [Cloudflare Workers AI - 模型列表](https://developers.cloudflare.com/workers-ai/models/)——各模型的 output schema；官方模型頁只標 `text/event-stream`，逐個 chunk 的實際形狀要自己打一次來看

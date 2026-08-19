@@ -202,7 +202,7 @@ const hydeDoc = await generateHyDE(query, env);
 
 再往下一階，是把控制權整個交給模型的 Agentic 做法：不預先排步驟順序，由 LLM 在 runtime 決定要呼叫哪些模組、要不要再迭代。前面的 Registry + skipWhen 其實是它的「靜態版本」——同一批模組，差別只在誰決定順序。
 
-要不要跨過去，有幾個已經被量到的代價可以參考。ACL 2026 一份比較 Enhanced RAG（就是這篇講的固定 pipeline）與 Agentic RAG 的實驗發現，Agentic 平均需要 3.3 倍 input token、1.9 倍 output token、1.5 倍端到端延遲，跨資料集最多到 3.6 倍成本，而且那是在 agent 最多只跑三輪的限制下量的。品質上也不是全贏：Agentic 在意圖理解和查詢改寫上比較強，但挑文件不如固定的 reranking 步驟；作者的建議是把兩者混用，而不是整條換掉。
+要不要跨過去，有幾個已經被量到的代價可以參考。ACL 2026 一份比較 Enhanced RAG（就是這篇講的固定 pipeline）與 Agentic RAG 的實驗發現，Agentic 需要的 input／output token 依資料集而異（FIQA 2.7×／1.7×、CQADupStack-En 3.9×／2.0×），端到端延遲 1.5 倍，跨資料集成本最多到 3.6 倍。品質上也不是全贏：Agentic 在意圖理解和查詢改寫上比較強，但挑文件不如固定的 reranking 步驟；作者的建議是把兩者混用，而不是整條換掉。
 
 另外，模型驅動的迴圈會帶進靜態 pipeline 沒有的失效模式。2026 年一篇 Agentic RAG 的 SoK 論文把這種迴圈形式化成有限步長的 POMDP，並點名幻覺沿迴圈累積、記憶污染、檢索目標偏移、工具呼叫連鎖失效等風險——這些都不是「單次回答對不對」的評測能抓到的，你要評的是整條軌跡。
 

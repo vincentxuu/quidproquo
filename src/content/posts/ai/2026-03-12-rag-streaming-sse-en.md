@@ -246,4 +246,4 @@ The key to implementation isn't just pushing tokens, but also: event format desi
 - [Cloudflare Workers - TransformStream](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
 - [OpenAI - Streaming API responses](https://platform.openai.com/docs/guides/streaming-responses)
 - [Cloudflare Workers AI - Workers Bindings (`env.AI.run()` and the `stream` option)](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
-- [Cloudflare Workers AI - Model catalog (streaming output format per model)](https://developers.cloudflare.com/workers-ai/models/)
+- [Cloudflare Workers AI - Model catalog](https://developers.cloudflare.com/workers-ai/models/) — per-model output schemas; the model pages only declare `text/event-stream`, so the actual per-chunk shape is something you confirm by calling it once

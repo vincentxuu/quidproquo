@@ -48,7 +48,7 @@ CREATE VIRTUAL TABLE ai_documents_fts USING fts5(
 
 FTS5 內建 BM25 評分，但**中文的 tokenizer 選擇是這裡最容易踩的雷**。FTS5 預設的 `unicode61` 只把字元分成「分隔符」與「詞元字元」兩類，並不做中文斷詞——漢字屬於詞元字元，所以一整串連續漢字會被當成**單一個 token**。結果就是「龍洞」查不到「龍洞岩場」，BM25 那一路等於形同虛設，而且不會報錯，只會安靜地少召回。
 
-FTS5 內建能處理 CJK 的選項是 `trigram` tokenizer（把任意連續三個字元當成一個 token，支援子字串匹配），Cloudflare 官方在 D1 的索引最佳實務裡也是指向這個做法。代價是索引比較大、且會匹配到跨詞邊界的片段；若要真正的詞級斷詞，就得在寫入前於應用層自己斷好詞再存成空白分隔的欄位。無論選哪條路，**上線前務必用中文查詢實測 BM25 那一路的召回**。
+FTS5 內建能處理 CJK 的選項是 `trigram` tokenizer（把任意連續三個字元當成一個 token，支援子字串匹配）。Cloudflare 在 D1 的索引最佳實務裡也提到 trigram，但它給的理由是 `LIKE '%term%'` 這類子字串搜尋，全篇沒有提到 CJK——官方並沒有為中文用 trigram 背書，這是同一個機制剛好也適用。代價是索引比較大、且會匹配到跨詞邊界的片段；若要真正的詞級斷詞，就得在寫入前於應用層自己斷好詞再存成空白分隔的欄位。無論選哪條路，**上線前務必用中文查詢實測 BM25 那一路的召回**。
 
 - [SQLite FTS5：Trigram Tokenizer](https://sqlite.org/fts5.html#the_trigram_tokenizer)
 - [Cloudflare D1：Use indexes](https://developers.cloudflare.com/d1/best-practices/use-indexes/)

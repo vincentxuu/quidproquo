@@ -121,7 +121,7 @@ if (diff !== 0) {
 
 差額（正負）都校正回去，確保 token 記帳準確。
 
-**串流時 `usage` 拿不到是常態**。走 OpenAI 相容的 Chat Completions 串流介面時，預設每個 chunk 的 `usage` 都是 `null`；要拿到用量必須在請求裡加上 `stream_options: { include_usage: true }`，供應商才會在 `[DONE]` 之前多送一個 `choices: []`、只帶 `usage` 的 chunk（[OpenAI cookbook](https://developers.openai.com/cookbook/examples/how_to_stream_completions)）。而且 OpenAI 自己的文件也講明：**串流被中斷時，你可能收不到那個最後的 usage chunk**。所以事後校正必須寫成「有拿到才校正」，收不到就退回估算值記帳，不能假設它一定會來。
+**串流時 `usage` 拿不到是常態**。走 OpenAI 相容的 Chat Completions 串流介面時，預設每個 chunk 的 `usage` 都是 `null`；要拿到用量必須在請求裡加上 `stream_options: { include_usage: true }`，供應商才會在 `[DONE]` 之前多送一個 `choices: []`、只帶 `usage` 的 chunk（[OpenAI cookbook](https://developers.openai.com/cookbook/examples/how_to_stream_completions)）。而且 [Chat Completions API reference](https://developers.openai.com/api/docs/api-reference/chat/create) 也講明：**串流被中斷或取消時，你可能收不到那個最後的 usage chunk**（原文 *If the stream is interrupted or cancelled, you may not receive the final usage chunk*）。所以事後校正必須寫成「有拿到才校正」，收不到就退回估算值記帳，不能假設它一定會來。
 
 ## 斷線退還
 

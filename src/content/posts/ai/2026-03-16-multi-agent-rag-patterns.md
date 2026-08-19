@@ -545,7 +545,7 @@ Multi-Agent RAG:
 
 ### vs Google 的 Multi-Agent 模式
 
-Google 的 [Agents Companion 白皮書](https://www.kaggle.com/whitepaper-agent-companion)（2025 年 2 月）用車載助理當案例，列了六種 multi-agent 模式。跟 RAG 架構選擇最相關的是這四種：
+Google 的 [Agents Companion 白皮書](https://www.kaggle.com/whitepaper-agent-companion)（2025 年 2 月）的 Design Patterns 一節列了四種 multi-agent 模式（Sequential、Hierarchical、Collaborative、Competitive），另外在車載助理案例的 Patterns in Use 一節展開了六個具體樣式。跟 RAG 架構選擇最相關的是下面這幾種：
 
 1. **Hierarchical**：一個 Orchestrator Agent 分類查詢、路由到專業 agent，同時維持跨輪對話脈絡、並在專業 agent 答不出來時處理 fallback。這就是本文的 Orchestrator 模式；白皮書特別強調 orchestrator 本身是一個 agent（要判斷領域與意圖、管理對話狀態），不只是一張路由表。
 
@@ -705,4 +705,4 @@ Multi-Agent RAG 的核心洞察很簡單：**專業分工比萬能通才更有�
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Orchestrator 推理與行動交織模式的核心參考論文
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多面向查詢的檢索架構，與 Multi-Agent 領域劃分互補
 - [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，多 Agent 間的 context 隔離與結果融合策略
-- [Agents Companion](https://www.kaggle.com/whitepaper-agent-companion) — Google（2025 年 2 月），Hierarchical、Diamond、Peer-to-Peer、Collaborative、Response Mixer、Adaptive Loop 六種 multi-agent 模式的原始出處
+- [Agents Companion](https://www.kaggle.com/whitepaper-agent-companion) — Google（2025 年 2 月）。Design Patterns 一節是 Sequential／Hierarchical／Collaborative／Competitive 四種；Hierarchical、Diamond、Peer-to-Peer、Collaborative、Response Mixer、Adaptive Loop 這六個出自車載案例的 Patterns in Use 一節

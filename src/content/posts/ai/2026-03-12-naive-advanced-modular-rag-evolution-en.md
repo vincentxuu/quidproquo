@@ -121,7 +121,7 @@ From 2025 onward, as LLMs got better at self-reflection and tool use, a pattern 
 
 Strictly speaking this isn't a fourth generation so much as a **transfer of control** within Modular RAG: the modules are the same modules; what changes is *who decides the execution order* — a fixed pipeline configuration, or the model at runtime.
 
-**The cost is real.** An ACL 2026 study comparing Enhanced RAG (essentially the Advanced/Modular designs described above) with Agentic RAG found that the agentic setting needed on average 3.3x more input tokens, 1.9x more output tokens, and 1.5x more end-to-end latency, with cost across datasets running up to 3.6x higher — and that was with the agent capped at three turns.
+**The cost is real.** An ACL 2026 study comparing Enhanced RAG (essentially the Advanced/Modular designs described above) with Agentic RAG found that the agentic setting's token cost varied by dataset (2.7x/1.7x input/output on FIQA, 3.9x/2.0x on CQADupStack-En), with 1.5x more end-to-end latency and cost across datasets running up to 3.6x higher.
 
 More importantly, the quality findings are not one-sided:
 

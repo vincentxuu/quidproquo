@@ -169,7 +169,7 @@ Multimodal RAG 擴展了 RAG 系統的知識邊界——不只是文字知識，
 - [ColPali: Efficient Document Retrieval with Vision Language Models (2024)](https://arxiv.org/abs/2407.01449)
 - [MuRAG: Multimodal Retrieval-Augmented Generator for Open Question Answering over Images and Text (2022)](https://arxiv.org/abs/2210.02928)
 - [A Survey of Multimodal Retrieval-Augmented Generation (2025)](https://arxiv.org/abs/2504.08748)
-- [Scaling Beyond Context: A Survey of Multimodal RAG for Document Understanding (2026)](https://arxiv.org/abs/2510.15253)
+- [Scaling Beyond Context: A Survey of Multimodal RAG for Document Understanding (2025)](https://arxiv.org/abs/2510.15253)
 - [Cloudflare Workers AI - Models](https://developers.cloudflare.com/workers-ai/models/)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

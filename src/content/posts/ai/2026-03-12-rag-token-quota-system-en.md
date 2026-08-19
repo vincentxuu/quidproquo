@@ -123,7 +123,7 @@ if (diff !== 0) {
 
 The difference (positive or negative) is corrected, ensuring accurate token accounting.
 
-**Not getting `usage` while streaming is the normal case.** On an OpenAI-compatible Chat Completions stream, `usage` is `null` on every chunk by default; to receive it you must pass `stream_options: { include_usage: true }`, after which the provider emits one extra chunk before `[DONE]` carrying `choices: []` and only `usage` ([OpenAI cookbook](https://developers.openai.com/cookbook/examples/how_to_stream_completions)). OpenAI's own docs also state plainly that **if the stream is interrupted, you may never receive that final usage chunk**. So post-correction must be written as "correct only if usage arrived," falling back to the estimate when it doesn't -- never assume it will show up.
+**Not getting `usage` while streaming is the normal case.** On an OpenAI-compatible Chat Completions stream, `usage` is `null` on every chunk by default; to receive it you must pass `stream_options: { include_usage: true }`, after which the provider emits one extra chunk before `[DONE]` carrying `choices: []` and only `usage` ([OpenAI cookbook](https://developers.openai.com/cookbook/examples/how_to_stream_completions)). The [Chat Completions API reference](https://developers.openai.com/api/docs/api-reference/chat/create) also states plainly that **if the stream is interrupted or cancelled, you may not receive that final usage chunk**. So post-correction must be written as "correct only if usage arrived," falling back to the estimate when it doesn't -- never assume it will show up.
 
 ## Disconnection Refunds
 

@@ -70,8 +70,8 @@ A database with a few hundred routes can complete the initial index in minutes.
 The climbing community has public resources (8a.nu, theCrag, Mountain Project) that look scrapeable for baseline data. But **read robots.txt and the terms of service before you start**, and note that the norms now cover more than "may you crawl it" -- they also cover "may you feed it to an AI":
 
 - Mountain Project's robots.txt sets `Crawl-delay: 60` for generic crawlers and blocks a set of paths; respecting that pace makes the crawl far slower than you'd expect.
-- theCrag's robots.txt uses a [Content Signals](https://contentsignals.org/) declaration stating `search=yes, ai-train=no` -- indexing for search is fine, training a model on it is explicitly not. It takes no position on real-time retrieval (`ai-input`), which means neither granted nor refused; if you want it, ask.
-- 8a.nu sits behind a Cloudflare bot challenge -- even robots.txt requires passing a JS challenge to read, which is itself a clear "automated access not welcome" signal.
+- theCrag's robots.txt uses a [Content Signals](https://contentsignals.org/) declaration, in full `search=yes,ai-train=no,use=reference` -- indexing for search is fine, training a model on it is explicitly not, and citing it as a reference is allowed. It does not rely on the signal alone either: separate `User-agent` blocks hard-block CCBot, ClaudeBot, GPTBot, Google-Extended and others.
+- 8a.nu sits behind Cloudflare bot protection: a default curl User-Agent gets a plain 403 (`cf-mitigated: challenge`) even for robots.txt, though a browser UA reads it fine -- so no JS challenge is strictly required, but blocking automated traffic by default is itself a clear signal.
 
 These settings change; fetch robots.txt yourself before you build anything rather than trusting this paragraph. If you genuinely need bulk data, emailing for an API or a data license is both easier and safer than scraping.
 

@@ -121,7 +121,7 @@ Modular RAG 不只是重組了原有的步驟，也加入了 Advanced RAG 沒有
 
 嚴格說它不算第四個世代，比較像是 Modular RAG 的**控制權轉移**：模組還是那些模組，差別在於「誰決定執行順序」——從固定的 pipeline 設定，換成模型在 runtime 決定。
 
-**代價是實打實的**。ACL 2026 一篇比較 Enhanced RAG（也就是這裡講的 Advanced/Modular）與 Agentic RAG 的實驗研究發現，Agentic 設定平均需要 3.3 倍的 input token、1.9 倍的 output token、1.5 倍的端到端延遲，跨資料集的成本最多可以到 3.6 倍——而且那還是在限制 agent 最多跑 3 輪的前提下。
+**代價是實打實的**。ACL 2026 一篇比較 Enhanced RAG（也就是這裡講的 Advanced/Modular）與 Agentic RAG 的實驗研究發現，Agentic 設定的 token 成本依資料集而異（FIQA 2.7 倍／1.7 倍、CQADupStack-En 3.9 倍／2.0 倍 input／output），端到端延遲 1.5 倍，跨資料集的成本最多可以到 3.6 倍。
 
 更值得注意的是它的品質結論不是一面倒：
 

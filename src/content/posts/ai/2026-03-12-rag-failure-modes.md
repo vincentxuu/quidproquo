@@ -210,7 +210,7 @@ RAG 系統的問題通常不是隨機的，而是集中在幾種可識別的失�
 - [Seven Failure Points When Engineering a Retrieval Augmented Generation System (2024)](https://arxiv.org/abs/2401.05856)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey (2023)](https://arxiv.org/abs/2312.10997)
 - [RAGAS: Automated Evaluation of Retrieval Augmented Generation (2023)](https://arxiv.org/abs/2309.15217)
-- [HyDE: Precise Zero-Shot Dense Retrieval without Relevance Labels (Gao et al., 2023)](https://arxiv.org/abs/2212.10496)
+- [HyDE: Precise Zero-Shot Dense Retrieval without Relevance Labels (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
 - [Corrective Retrieval Augmented Generation / CRAG (Yan et al., 2024)](https://arxiv.org/abs/2401.15884)
 - [Anthropic — Introducing Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)

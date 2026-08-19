@@ -68,8 +68,8 @@ function formatRouteAsDocument(route: Route): string {
 攀岩社群有公開的資源（8a.nu、theCrag、Mountain Project），看起來可以爬來補基礎資料。但**先讀 robots.txt 和使用條款再動手**，而且要知道現在的規範已經不只是「能不能爬」，還包含「爬了能不能餵給 AI」：
 
 - Mountain Project 的 robots.txt 對一般 crawler 設了 `Crawl-delay: 60`，並封掉一批路徑；照這個節奏爬，速度會比你預期慢非常多。
-- theCrag 的 robots.txt 採用 [Content Signals](https://contentsignals.org/) 宣告，明示 `search=yes, ai-train=no`——它允許被搜尋引擎索引，但明確不同意拿去訓練模型。RAG 的即時檢索（`ai-input`）它沒有表態，等於既未授權也未禁止，要用就去問。
-- 8a.nu 掛了 Cloudflare 的 bot 挑戰，連 robots.txt 都要過 JS challenge 才讀得到——這本身就是「不歡迎自動化存取」的訊號。
+- theCrag 的 robots.txt 採用 [Content Signals](https://contentsignals.org/) 宣告，完整內容是 `search=yes,ai-train=no,use=reference`——允許被搜尋引擎索引、明確不同意拿去訓練模型、允許作為參考來源引用。而且它不只靠訊號宣告，還直接用 `User-agent` 區塊硬擋 CCBot、ClaudeBot、GPTBot、Google-Extended 等爬蟲。
+- 8a.nu 掛了 Cloudflare 的 bot 防護，預設的 curl User-Agent 連 robots.txt 都直接吃 403（`cf-mitigated: challenge`）；帶上瀏覽器 UA 就讀得到，所以不是非過 JS challenge 不可，但「預設就擋掉自動化流量」本身已經是明確訊號。
 
 這些設定隨時會改，動手前自己抓一次 robots.txt 看當下的值，別照抄本文。真的需要大量資料，寫信要 API 或資料授權，比爬蟲省事也安全。
 
