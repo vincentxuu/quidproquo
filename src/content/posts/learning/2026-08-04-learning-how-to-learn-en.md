@@ -41,59 +41,52 @@ glossary:
 
 There is a course on Coursera whose [official page](https://www.coursera.org/learn/learning-how-to-learn) currently shows 4,175,377 enrollments and a 4.8 rating across 93,136 reviews. It is called Learning How to Learn, taught by engineering professor Barbara Oakley and neuroscientist Terrence Sejnowski. It [launched in August 2014](https://tdlc.ucsd.edu/tdlc2/news_LHTL_MOOC.php) with 197,000 learners from 206 countries in the first session. By [the New York Times' December 2015 report](https://archive.nytimes.com/bits.blogs.nytimes.com/2015/12/29/the-most-popular-online-course-teaches-you-to-learn), it had 1.19 million enrollments — the largest MOOC in the world at the time, narrowly ahead of Andrew Ng's Machine Learning.
 
-This is not a course review. It is an audit that separates what the course teaches from what the evidence supports — because those two things overlap less than you would expect, and the gap runs in an interesting direction: **the course's most famous concept has the weakest evidence, the parts it underplays have the strongest, and the premise in its own name — that learning skills transfer — is the piece that tests worst of all.**
+This is an audit: take each component the course teaches, check it against the evidence, and return a verdict.
 
-## The short version
+# 1. What the course is
 
-If you read only one section, take this table.
-
-| What to do | Why |
-|---|---|
-| **Replace rereading with self-testing** — close the book, write it out, then check | One of only two techniques rated "high utility" in a ten-technique review |
-| **Spread review out** — come back after one to six days, don't restudy the same day | The other "high utility" entry; same-day review yields about two-thirds of the delayed benefit |
-| **Make practice look like the thing you actually want to do** | Transfer isn't free — drilling recall questions to pass application questions performs like no practice at all |
-| **Interleave only for specific materials** — math problem types and visual discrimination yes; expository text and vocabulary no | The interleaving meta-analysis is literally titled *Similarity matters* |
-| **Stop**: the learning pyramid's percentages, matching materials to "learning styles", expecting growth-mindset programs to lift grades | The evidence is, respectively, fabricated, weak, and weak |
-| **Keep as metaphor**: focused/diffuse mode, the Pomodoro Technique | Keep the behaviour; don't argue the neuroscience |
-
-The rest of the article does two things: shows how hard the evidence behind each line is, and how much to discount the numbers — because they are smaller than what you'll see in secondary write-ups.
-
-## What the course actually teaches
-
-The object first, then the audit — because every section below inspects one of this course's parts.
-
-The course runs four modules, one to two hours each:
+Four modules, one to two hours each:
 
 1. **What is learning** — switching between focused and diffuse mode, a first pass at chunking, and how sleep clears metabolic waste and consolidates memory.
 2. **Chunking and the illusion of competence** — how to compress scattered steps into a single callable unit; and *illusion of competence*: highlighting, rereading, and following along with a worked solution all leave you feeling like you've learned it.
-3. **Procrastination and memory** — procrastination framed as a habit loop (cue → routine → reward → belief), to be changed at the cue and the reward rather than by willpower. The Pomodoro Technique appears here, with the emphasis on **process over product**. The memory half covers working-memory limits, spaced repetition, and the memory palace.
+3. **Procrastination and memory** — procrastination framed as a habit loop (cue → routine → reward → belief), to be changed at the cue and the reward rather than by willpower. The Pomodoro Technique appears here, with the emphasis on process over product. The memory half covers working-memory limits, spaced repetition, and the memory palace.
 4. **Renaissance learning** — exercise and neurogenesis, metaphor as a tool for abstraction, deliberate practice, impostor syndrome, and one very concrete exam tactic: hard start–jump to easy (open with the hardest problem, and bail the moment you stall).
-
-One claim runs through all four weeks: **when you feel like you're learning, you usually aren't.** Every prescription targets the illusion of competence, and every one of them works by making the present moment harder.
 
 The narrative deserves some credit for the reach. Oakley describes herself as bad at math as a child, a linguistics major, a former army signals technician who went back to mathematics and engineering at twenty-six. "I'm not a genius, I just got the method right" persuades adult self-learners far more than any citation does.
 
-**This article audits five of those parts**: self-testing, spacing, interleaving, focused/diffuse mode, and the Pomodoro Technique — plus the transfer assumption baked into the course's name. The habit loop, sleep, memory palaces and exam tactics are out of scope, not because they're wrong but because they lack the meta-analytic base this piece needs to say anything stronger than "probably useful".
+## Its actual proposition: fluency lies
 
-## Reading effect sizes in thirty seconds
-
-What follows is full of numbers like 0.3, 0.5, 0.9 — effect sizes. Three rules cover it:
-
-1. **0.2 is not small.** By [Kraft's (2020)](https://doi.org/10.3102/0013189X20912798) benchmarks for education research, anything above 0.2 counts as large in a real classroom. Don't import lab-psychology intuitions.
-2. **Always ask "compared to what".** The same study can be both 0.51 and 0.93 — the only difference is whether the control group reread or did nothing. Secondary write-ups pick the bigger one and don't tell you.
-3. **The mean is not what you'll get.** Heterogeneity (I²) in this field routinely runs above 84%, meaning most of the variation between studies is real situational difference, not sampling error.
-
-## The problem isn't effort, it's that fluency lies
+One claim runs through all four weeks: **when you feel like you're learning, you usually aren't.**
 
 In 2009, Karpicke, Butler and Roediger [surveyed 177 college students](https://learninglab.psych.purdue.edu/downloads/2009/2009_Karpicke_Butler_Roediger.pdf) about how they study:
 
 > 84% of students reported rereading, and 55% named rereading their number one strategy; only 11% unambiguously reported testing themselves while studying, and only 1% did so because they believed practising retrieval itself enhances learning.
 
-Rereading is exactly what the review below rates as low utility. Students are not lazy — they are putting in the hours and **systematically choosing wrong**. The reason is clear enough: rereading feels effective. The second pass goes down more smoothly than the first, and the brain misreads that fluency as mastery.
+Rereading is exactly what gets rated low utility below. Students are not lazy — they are putting in the hours and **systematically choosing wrong**. The reason is clear enough: rereading feels effective. The second pass goes down more smoothly than the first, and the brain misreads that fluency as mastery.
 
-The field's core proposition is one sentence: **the subjective fluency of learning is inversely related to long-term retention.** Nearly every evidence-backed technique amounts to making the present moment harder.
+Hence the field's core proposition: **the subjective fluency of learning is inversely related to long-term retention.** Nearly every evidence-backed technique amounts to making the present moment harder.
 
-## Change one: replace rereading with self-testing
+## How to read the numbers below
+
+What follows is full of effect sizes like 0.3, 0.5, 0.9. Three rules cover it:
+
+1. **0.2 is not small.** By [Kraft's (2020)](https://doi.org/10.3102/0013189X20912798) benchmarks for education research, anything above 0.2 counts as large in a real classroom. Don't import lab-psychology intuitions.
+2. **Always ask "compared to what".** The same study can be both 0.51 and 0.93 — the only difference is whether the control group reread or did nothing. Secondary write-ups pick the bigger one and don't tell you.
+3. **The mean is not what you'll get.** Heterogeneity (I²) in this field routinely runs above 84%, meaning most of the variation between studies is real situational difference, not sampling error.
+
+## The verdicts at a glance
+
+| Component | Verdict | In one line |
+|---|---|---|
+| Self-testing | ✅ Do it | One of only two "high utility" entries; +0.51 vs rereading |
+| Spacing | ✅ Do it | The other high-utility entry; one to six days beats same-day |
+| Interleaving | ⚠️ Depends | Math problem types and visual materials yes; expository text and vocabulary no |
+| Chunking | 🔶 Concept holds | But the "7±2" attached to it is outdated; modern consensus is 4±1 |
+| Focused/diffuse mode | 🔶 Metaphor | Keep the behaviour; the neural story doesn't match the DMN literature |
+| Pomodoro | 🔶 Metaphor | Improves the experience and efficiency, not the amount learned |
+| That learning skills transfer | ❌ Doesn't hold | After bias correction, often no transfer without specific moderators |
+
+# 2. Component by component
 
 In 2013, Dunlosky and four co-authors published [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266) in *Psychological Science in the Public Interest*. They picked 10 techniques students can use on their own without supervision, and assessed whether each one's benefits generalize across learning conditions, student characteristics, materials, and criterion tasks. The result is a fairly brutal tiering:
 
@@ -107,37 +100,35 @@ The original is blunt about the top tier:
 
 > Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks and even in educational contexts.
 
-**How much will you get?** About +0.51 versus rereading ([Adesope et al. 2017](https://doi.org/10.3102/0034654316689306)). You'll see 0.93 and larger quoted elsewhere; those compare against doing nothing at all. Which to use? **The one matching your actual alternative** — if you would otherwise reread, your reference value is 0.51. (The full table of figures is in the appendix.)
+Taking them one at a time.
 
-Three counterintuitive but directly actionable details (quoted from [Pedro De Bruyckere, who read the original](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)):
+## Self-testing ✅
+
+**What the course teaches**: the assignments are literally named "Retrieval Practice". Close the book, write it out, then check.
+
+**What the evidence says**: one of the two high-utility entries. About +0.51 versus rereading ([Adesope et al. 2017](https://doi.org/10.3102/0034654316689306)). You'll see 0.93 and larger quoted elsewhere; those compare against no review at all — which figure applies depends on what you would otherwise have done. (The full reconciliation of the commonly quoted numbers is in the appendix.)
+
+**How to use it**: three counterintuitive but actionable details (quoted from [Pedro De Bruyckere, who read the original](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)):
 
 > Practice tests with a multiple-choice option have a larger weighted mean effect size (+0.70) than short-answer tests (+0.48). **A single practice test prior to the final test is more effective than when students take several practice tests.** However, the timing should be carefully considered. A gap of less than a day between the practice and final tests showed a smaller weighted effect size than when there is a gap of one to six days (+0.56 and +0.82, respectively).
 
 "One test beats several" and "multiple-choice beats short-answer" both cut against the field's usual advice — the second especially, since the Dunlosky line of work generally holds that free recall beats recognition. Treat that as **an unreconciled disagreement**, not a settled finding.
 
-## Change two: spread the review out
+## Spacing ✅
 
-Distributed practice is the other "high utility" entry, and the only one validated against real-world data at scale: [Kim et al. (2019)](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf) confirmed the spacing effect holds up outside the lab.
+**What the course teaches**: spaced repetition; don't cram.
 
-It's the same phenomenon as the "+0.82 at one to six days versus +0.56 same-day" figure above, seen from another angle: **reviewing on the day you first studied buys you roughly two-thirds of what coming back a few days later would.**
+**What the evidence says**: the other high-utility entry, and the only one validated against real-world data at scale — [Kim et al. (2019)](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf) confirmed the spacing effect holds up outside the lab.
 
-## But the effect is smaller than you've been told
+**How to use it**: it's the same phenomenon as the "+0.82 at one to six days versus +0.56 same-day" figure above, seen from another angle. **Reviewing on the day you first studied buys roughly two-thirds of what coming back a few days later would.**
 
-That tiering table now gets cited everywhere. The ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
+## Interleaving ⚠️
 
-**One, the mean hides enormous variation.** [Rowland (2014)](https://doi.org/10.1037/a0037559) reports g = 0.50 sitting on top of I² = 84.35.
+**What the course teaches**: don't do twenty of the same problem type in a row; mix them.
 
-**Two, newer and more tightly specified estimates land lower.** In March 2026, Dietrichson and colleagues published [a large systematic review](https://edworkingpapers.com/ai26-1418): 102,451 records screened, 87 studies meeting inclusion criteria, 59 in the synthesis. Where the control group received no practice test at all, the weighted effects were 0.22 (95% CI [0.09, 0.34]) for between-subject designs and 0.46 ([0.29, 0.62]) within-subject — below earlier reviews (Adesope's corresponding figures were 0.64 in primary and 0.83 in secondary school).
+**What the evidence says**: rated "moderate utility". [Brunmair and Richter's meta-analysis](https://doi.org/10.1037/bul0000209) covers 59 studies and 238 effect sizes, g ≈ 0.42 overall — but the title says it all, *Similarity matters*.
 
-But **"lower" is not "overturned"**: the authors note that inclusion criteria and analytic strategies differ across reviews, making magnitudes hard to compare directly, and by Kraft's benchmarks anything above 0.2 is large in education research. The honest phrasing is "newer estimates land lower".
-
-**Three, the more complex the material, the weaker the effect.** The same review's exploratory analysis supports this, and it is an unfinished fight: [van Gog and Sweller's 2015 title](https://link.springer.com/article/10.1007/s10648-015-9310-x) is the argument — "the testing effect decreases or even disappears as the complexity of learning materials increases"; Karpicke and Aue answered the same year with "The testing effect is alive and well with complex materials", and Rawson joined in. The dispute is stuck on the fact that "complexity" resists operationalization. Anyone declaring a winner should raise your suspicion.
-
-The practical implication isn't "stop" — it's: **revise your expected effect downward, and the harder the material, the less you can lean on self-testing alone.**
-
-## Interleaving is picky about materials
-
-[Brunmair and Richter's meta-analysis](https://doi.org/10.1037/bul0000209) covers 59 studies and 238 effect sizes, g ≈ 0.42 overall. But the title says it all — *Similarity matters*:
+**How to use it**:
 
 - **Works**: visual materials like paintings, mathematical problem types
 - **No advantage over blocking**: expository text
@@ -145,11 +136,47 @@ The practical implication isn't "stop" — it's: **revise your expected effect d
 
 Treating "interleave everything" as general advice misreads the paper.
 
-## The awkward question: does any of this transfer?
+## Chunking 🔶
 
-This is the section most write-ups skip, and it is the one that matters most.
+**What the course teaches**: compress scattered steps into one callable unit — usually paired with "working memory holds 7±2 items".
 
-The phrase "learning how to learn" has an assumption baked in: that once you have the skills, they carry over. That assumption has been tested. It does not test well.
+**What the evidence says**: the concept is fine, the number is outdated. Miller's 1956 seven-plus-or-minus-two measured capacity *after* chunking was possible; [Cowan's 4±1, proposed in 2001](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf), measures the number of chunks themselves, and modern consensus favours the latter ([the two reconcile](https://journalofcognition.org/articles/10.5334/joc.387) once you notice they depend on whether the task lets you chunk).
+
+**How to use it**: you can juggle fewer independent units than you think, so chunking isn't a bonus — it's a precondition.
+
+## Focused/diffuse mode 🔶
+
+**What the course teaches**: the brain alternates between two modes, so a problem you cannot crack should be left alone for the diffuse mode to work on in the background. Sites like [Farnam Street](https://fs.blog/focused-diffuse-thinking) have spread it widely, usually prefaced with "neuroscience shows".
+
+**What the evidence says**: the trouble is on the neuroscience side. [The standard description of the default mode network](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network) is that its activity is **suppressed** during cognitively demanding, externally focused tasks, and higher during quiet wakefulness and internally directed thought. So "both modes running at once" does not match how the DMN actually behaves. It is not working overtime in the background; it goes quiet when you concentrate.
+
+Oakley appears to have addressed this tension herself. The passage below circulates widely, attributed to an endnote in *A Mind for Numbers* — **but the only place I can find it is [a transcription on Psychology Stack Exchange](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre). There is no second independent source anywhere on the web, and I have not checked it against the printed edition. Verify against the book before citing it**:
+
+> Astute readers will notice my mention that the diffuse mode seems to sometimes work in the background while the focused mode is active. However, research findings show that the default-mode network for example (which is just one of the many resting state networks), seems to go quiet when the focused mode is active. So which is it? … In some sense, then, my use of the term diffuse mode might be thought of as "nonfocused mode activities directed toward learning" rather than simply "default-mode network."
+
+Strip the quote out entirely and the conclusion survives on the DMN literature alone.
+
+**How to use it**: keep the behavioural advice (stuck? go for a walk), drop the neural version. That advice is supported from somewhere else.
+
+## Pomodoro 🔶
+
+**What the course teaches**: 25 minutes of focus, 5 minutes off — and focus on the process, not the product, because product anxiety is what drives procrastination.
+
+**What the evidence says**: [Biwer et al.'s 2023 controlled study in the British Journal of Educational Psychology](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815) compared systematic breaks (24 minutes of study, 6-minute break) against self-regulated breaks. The systematic groups reported higher concentration and motivation, less fatigue, and finished in less time — **but the two conditions did not differ in invested mental effort or task completion.**
+
+**How to use it**: it improves the experience and the efficiency, not the amount learned. Use it; don't sell it as a learning technique.
+
+## Four components out of scope
+
+The procrastination habit loop, sleep and memory consolidation, memory palaces and mnemonics, and the hard start–jump to easy exam tactic get no verdict here. Not because anything is wrong with them, but because they lack the meta-analytic base this piece needs to say anything stronger than "probably useful".
+
+# 3. Two problems that cut across everything
+
+The verdicts above are per component. Two things cut across all of them, and both matter more than any single verdict.
+
+## A. The assumption in the course's name doesn't hold
+
+"Learning how to learn" presupposes that once you have the skills, they carry over. That assumption has been tested. It does not test well.
 
 [Pan and Rickard's 2018 Psychological Bulletin paper](https://doi.org/10.1037/bul0000151) is the first comprehensive meta-analysis of transfer in test-enhanced learning: 192 transfer effect sizes from 122 experiments and 67 articles, N = 10,382, spanning forty years. The headline is d = 0.40 (95% CI [0.31, 0.50]), which sounds fine. Unpack it:
 
@@ -167,9 +194,25 @@ The failure runs both ways — in Experiment 1, practising with higher-order que
 
 The same pattern shows up one level up. [Donker et al.'s 2014 meta-analysis of learning-strategy instruction](https://daneshyari.com/article/preview/355102.pdf) (95 interventions, 180 effect sizes) does find solid effects — writing g = 1.25, science 0.73, mathematics 0.66, reading comprehension 0.36 — but the same report states directly: **strategy instruction aimed at near transfer is more effective than instruction aimed at far transfer.**
 
-The honest conclusion: these techniques work, but **their effectiveness is bound to what you practised far more tightly than you'd like.** If you want transfer, you have to deliberately shape the practice to resemble the thing you actually want to do. Which incidentally explains why "grinding LeetCode" and "designing systems" are two different skills.
+**What this means in practice**: every technique marked ✅ above is bound to what you practised far more tightly than you'd like. If you want transfer, you have to deliberately shape the practice to resemble the thing you actually want to do. Which incidentally explains why "grinding LeetCode" and "designing systems" are two different skills.
 
-## Three things to discard
+## B. The effect sizes are being revised downward
+
+That tiering table now gets cited everywhere. The ground under it has shifted three times in the past decade, and almost nobody writing about this has kept up.
+
+**One, the mean hides enormous variation.** [Rowland (2014)](https://doi.org/10.1037/a0037559) reports g = 0.50 sitting on top of I² = 84.35.
+
+**Two, newer and more tightly specified estimates land lower.** In March 2026, Dietrichson and colleagues published [a large systematic review](https://edworkingpapers.com/ai26-1418): 102,451 records screened, 87 studies meeting inclusion criteria, 59 in the synthesis. Where the control group received no practice test at all, the weighted effects were 0.22 (95% CI [0.09, 0.34]) for between-subject designs and 0.46 ([0.29, 0.62]) within-subject — below earlier reviews (Adesope's corresponding figures were 0.64 in primary and 0.83 in secondary school).
+
+But **"lower" is not "overturned"**: the authors note that inclusion criteria and analytic strategies differ across reviews, making magnitudes hard to compare directly, and by Kraft's benchmarks anything above 0.2 is large in education research.
+
+**Three, the more complex the material, the weaker the effect.** The same review's exploratory analysis supports this, and it is an unfinished fight: [van Gog and Sweller's 2015 title](https://link.springer.com/article/10.1007/s10648-015-9310-x) is the argument — "the testing effect decreases or even disappears as the complexity of learning materials increases"; Karpicke and Aue answered the same year with "The testing effect is alive and well with complex materials", and Rawson joined in. The dispute is stuck on the fact that "complexity" resists operationalization. Anyone declaring a winner should raise your suspicion.
+
+**What this means in practice**: not "stop", but **revise your expected effect downward — and the harder the material, the less you can lean on self-testing alone.**
+
+# 4. Three dead claims in this field
+
+They are not in the course, but they show up in the same articles and the same training days.
 
 **The learning pyramid (read 10%, hear 20%, do 90%) — the numbers are fabricated.**
 [Subramony, Molenda, Betrus and Thalheimer traced it thoroughly in 2014](https://www.worklearning.com/2015/01/05/mythical-retention-data-the-corrupted-cone): Edgar Dale's Cone of Experience contained no percentages at all, and Dale intended it as a descriptive classification, not a prescriptive guide — the numbers were grafted on by persons unknown around 1970. When pressed for a source, the NTL Institute replied that they believed the figures were accurate but could no longer find the original research. A [memory researcher at the University of Strathclyde](https://www.strath.ac.uk/humanities/education/blog/remembering90percentofwhatyoudo) put it more directly: he has never seen a properly controlled experiment showing one study technique to be nine times as effective as another.
@@ -184,29 +227,9 @@ Worth noting that **not recommending it is the paper's own conclusion**: the aut
 **Growth mindset — the effect is small enough that it takes a meta-analysis to see.**
 [Sisk et al.'s two 2018 meta-analyses](https://englelab.gatech.edu/articles/2018/Sisk,%20Burgoyne%20et%20al.%20(2018)%20-%20Mindset%20and%20Academic%20Achievement.pdf): the correlation between mindset and achievement is r ≈ 0.10 across 129 studies (N = 365,915), about 1% of the variance; mindset interventions move achievement by d = 0.08 across 43 studies (N = 57,155). More awkwardly, **interventions whose manipulation checks succeeded — the ones that demonstrably changed students' mindsets — showed no significant effect on achievement.** Dweck and Yeager [responded in 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC8299535), arguing that Sisk's I² of 96.29% means the effects are real but heavily person- and context-dependent, and that low-SES and academically at-risk students do benefit (a point Sisk et al. concede). Both sides agree the effect is small and heterogeneous; they disagree about whether that makes it important.
 
-The shared structure across all three is worth memorizing: **too intuitively plausible, spreading far faster than it was verified, and an effect size small enough that it takes a meta-analysis to see.** Discount the next educational claim that fits all three.
+**The shared structure is worth memorizing**: too intuitively plausible, spreading far faster than it was verified, and an effect size small enough that it takes a meta-analysis to see. Discount the next educational claim that fits all three.
 
-## The course's most famous concept is a metaphor
-
-The most widely circulated idea is focused mode versus diffuse mode: the brain alternates between them, so a problem you cannot crack should be left alone for the diffuse mode to work on in the background. Sites like [Farnam Street](https://fs.blog/focused-diffuse-thinking) have spread it widely, usually prefaced with "neuroscience shows".
-
-The trouble is on the neuroscience side. [The standard description of the default mode network](https://neuroscientificallychallenged.com/posts/know-your-brain-default-mode-network) is that its activity is **suppressed** during cognitively demanding, externally focused tasks, and higher during quiet wakefulness and internally directed thought. So "both modes running at once" does not match how the DMN actually behaves. It is not working overtime in the background; it goes quiet when you concentrate.
-
-Oakley appears to have addressed this tension herself. The passage below circulates widely, attributed to an endnote in *A Mind for Numbers* — **but the only place I can find it is [a transcription on Psychology Stack Exchange](https://psychology.stackexchange.com/questions/18292/does-mindful-meditation-inhibit-diffuse-thinking-aka-default-mode-network-cre). There is no second independent source anywhere on the web, and I have not checked it against the printed edition. Verify against the book before citing it**:
-
-> Astute readers will notice my mention that the diffuse mode seems to sometimes work in the background while the focused mode is active. However, research findings show that the default-mode network for example (which is just one of the many resting state networks), seems to go quiet when the focused mode is active. So which is it? … In some sense, then, my use of the term diffuse mode might be thought of as "nonfocused mode activities directed toward learning" rather than simply "default-mode network."
-
-Strip the quote out entirely and the conclusion survives on the DMN literature alone: **focused/diffuse mode is a useful mental model, not a neuroscience finding.** You can reject the neural version and keep the behavioural advice (stuck? go for a walk), because that advice is supported from somewhere else.
-
-Two other components need calibrating:
-
-**Chunking** — the concept is fine; the "7±2" that usually travels with it is outdated. Miller's 1956 seven-plus-or-minus-two measured capacity *after* chunking was possible; [Cowan's 4±1, proposed in 2001](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf), measures the number of chunks themselves, and modern consensus favours the latter ([the two reconcile](https://journalofcognition.org/articles/10.5334/joc.387) once you notice they depend on whether the task lets you chunk). The practical implication: you can juggle fewer independent units than you think, so chunking isn't a bonus — it's a precondition.
-
-**The Pomodoro Technique** — [Biwer et al.'s 2023 controlled study in the British Journal of Educational Psychology](https://pmc.ncbi.nlm.nih.gov/articles/PMC12532815) compared systematic breaks (24 minutes of study, 6-minute break) against self-regulated breaks. The systematic groups reported higher concentration and motivation, less fatigue, and finished in less time — **but the two conditions did not differ in invested mental effort or task completion.** It improves the experience and the efficiency, not the amount learned. Don't sell it as a learning technique.
-
-Which is the core of my assessment: **the course's value is in turning behaviour into process, not in its brain science.** The assignments are literally named "Retrieval Practice" — that matters more than any neuroscience in it.
-
-## The 10,000 hours fight is about definitions, not numbers
+# 5. An adjacent fight: 10,000 hours
 
 [Macnamara, Hambrick and Oswald's 2014 meta-analysis](https://hhs.purdue.edu/skill-learning-and-performance-lab/wp-content/uploads/sites/43/2024/08/macnamara-et-al-2014-deliberate-practice-and-performance-in-music-games-sports-education-and-professions-a-meta-analysis.pdf) is routinely used to dismiss the 10,000-hour rule. It found deliberate practice explained 26% of performance variance in games, 21% in music, 18% in sports, 4% in education, and under 1% in professions (the last at r = .05, p = .62, not statistically significant).
 
@@ -214,19 +237,21 @@ The Ericsson camp's [rebuttal](https://www.frontiersin.org/journals/psychology/a
 
 The two sets of numbers are not comparable because they measure different things. The takeaway that survives: practice volume matters but is far from everything, and **the more structured and predictable the domain (instrument, running), the more practice explains; the more open-ended the domain (professional work), the less.** The uncomfortable implication for engineers is that software work sits in that last column.
 
-## Overall
+# 6. Overall
 
-If you take one thing: **the course's value is not its neuroscience, it is that it turns "don't trust your own sense of fluency" into a repeatable daily process.**
+If you take one thing: **the course's value is not its neuroscience, it is that it turns "don't trust your own sense of fluency" into a repeatable daily process.** The assignments are literally named "Retrieval Practice" — that matters more than any neuroscience in it.
 
 One limitation worth carrying: this field's reviews almost all use retention as the outcome, with far thinner evidence for creativity, judgment, or transfer.
 
 What happens to these principles once LLMs arrive — and why the most-cited piece of evidence in AI education was retracted in April 2026 — is [part 2](/posts/learning/2026-08-04-generative-ai-and-learning-en).
 
+# Appendix and sources
+
 ## Appendix: my reservations about these numbers
 
 The body gives one version of each figure to stay readable. This section carries the full ledger, because this article's whole thesis is "don't take secondary write-ups as fact".
 
-**Self-testing has five commonly quoted effect sizes, and most of them are correct.**
+**Self-testing has several commonly quoted effect sizes, and most of them are correct.**
 
 | Figure | What it actually is |
 |---|---|
@@ -250,7 +275,9 @@ The body gives one version of each figure to stay readable. This section carries
 
 ## Changelog
 
-- 2026-08-19: Restructured for readability, matching the Chinese edition — actionable conclusions moved up into "The short version", a new "What the course actually teaches" section (the original never described the object it was auditing), a thirty-second guide to reading effect sizes, and sections now led by claims rather than researcher names. The full effect-size ledger, publication-bias caveats and methodological disputes moved to an appendix. No evidence, figure or citation was removed.
+- 2026-08-19 (2): Rebuilt on a single spine, matching the Chinese edition. The article previously ran three competing organizing principles at once (by verdict / by component / by cross-cutting issue), which produced interruptions and orphan sections. Now: orientation (the course and the criteria) → component-by-component verdicts in a uniform format (what the course teaches / what the evidence says / how to use it) → two cross-cutting problems (transfer and downward revision, each its own part) → dead claims → adjacent fight → appendix. The transfer section moved from ninth position to a part of its own. Nothing was removed.
+- 2026-08-19 (1): Added a description of the course itself — the original never described the object it was auditing — plus an explicit statement of which five components this piece audits.
+- 2026-08-18: Restructured for readability: actionable conclusions moved up, a guide to reading effect sizes added, sections led by claims rather than researcher names, and the full effect-size ledger and methodological disputes moved to an appendix. No evidence, figure or citation was removed.
 
 ## References
 
