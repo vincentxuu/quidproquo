@@ -72,7 +72,7 @@ Prepend the same summary to every chunk:
 [Vector Store]
 ```
 
-The point of the original is that each chunk's context is written for that chunk; the simplified version trades that for cost. When a document covers a single topic (one route per document, say), the gap is small. When a document ranges widely, the original is clearly better.
+The point of the original is that each chunk's context is written for that chunk; the simplified version trades that for cost. No need to guess at the gap: [Anthropic's own post](https://www.anthropic.com/engineering/contextual-retrieval) says they tried adding generic document summaries to chunks and *saw very limited gains*. The simplified variant saves cost by giving up most of the effect.
 
 When a search retrieves a chunk, it now carries document-level context. Even when the LLM sees only a small passage, it understands where that passage came from and what broader topic it belongs to.
 
@@ -157,7 +157,7 @@ First, a correction to a number that gets miscopied everywhere: what Anthropic p
 | Contextual Embeddings + Contextual BM25 | 2.9% | 49% |
 | The above plus reranking | 1.9% | 67% |
 
-So "49%" requires hybrid retrieval with BM25, and "67%" requires a reranker on top of that. Neither figure comes from context injection alone. All of it is measured on Anthropic's own evaluation set (largely codebases) — a different corpus will give different numbers.
+So "49%" requires hybrid retrieval with BM25, and "67%" requires a reranker on top of that. Neither figure comes from context injection alone. All of it is measured on Anthropic's own evaluation set (codebases, fiction, arXiv papers and science papers) — a different corpus will give different numbers.
 
 A 2025 comparison study (arXiv:2504.19754) put Contextual Retrieval head to head with Jina's Late Chunking and found that Contextual Retrieval preserves semantic coherence better but costs considerably more compute, while Late Chunking is far more efficient at the expense of relevance and completeness. If indexing cost is a hard constraint, Late Chunking — encode the full document with a long-context embedding model, then split and pool afterwards — is worth evaluating.
 

@@ -171,6 +171,6 @@ The cost, by contrast, is certain: a substantial increase in engineering complex
 - [Microsoft GraphRAG - GitHub](https://github.com/microsoft/graphrag) — the official implementation; the README marks it as maintenance mode
 - [GraphRAG Query Engine docs](https://microsoft.github.io/graphrag/query/overview/) — Local / Global / DRIFT / Basic search modes
 - [LazyGraphRAG: Setting a new standard for quality and cost](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — Microsoft Research blog, source of the cost claims (not peer reviewed; code not released)
-- [When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690) — Zhang et al., GraphRAG-Bench; finds GraphRAG often underperforms vanilla RAG
+- [When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690) — Xiang et al., GraphRAG-Bench; finds GraphRAG often underperforms vanilla RAG
 - [NobodyClimb System Architecture: Full-Stack Climbing Platform on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)

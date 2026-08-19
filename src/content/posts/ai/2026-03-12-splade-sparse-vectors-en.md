@@ -49,7 +49,7 @@ Such sparse vectors can be efficiently searched using traditional inverted index
 | Semantic understanding | No | Partial | Yes |
 | Exact matching | Yes | Yes | Weak |
 | Index size | Small | Small to Medium | Large |
-| Search speed | Fast | Fast | Slow (ANN) |
+| Search speed | Fast | Depends on the variant (the original is slower than BM25; only the efficiency-tuned versions close the gap) | Slow (ANN) |
 | Multilingual | Requires tokenizer | Depends on training data | Yes |
 
 SPLADE is positioned as an "evolved BM25," not a "simplified dense search." It retains the speed advantage of sparse vectors while adding partial semantic expansion capability.
@@ -100,7 +100,7 @@ For CJK, the more pragmatic alternative is **BGE-M3's sparse (lexical weights) o
 
 ## Overall
 
-SPLADE is a strong evolution of BM25, but not every system needs it. The combination of Dense + BM25 + Multi-Query is already sufficient in many scenarios. SPLADE's value lies in filling a specific gap: expanding domain-specific synonyms and abbreviations, and it's fast because it uses sparse vectors.
+SPLADE is a strong evolution of BM25, but not every system needs it. The combination of Dense + BM25 + Multi-Query is already sufficient in many scenarios. SPLADE's value lies in filling a specific gap: expanding domain-specific synonyms and abbreviations, implemented over sparse vectors. Be careful with speed claims though: [the SPLADE efficiency paper](https://arxiv.org/abs/2207.03834) exists precisely to "reduce the latency gap between SPLADE and traditional retrieval" — it is the efficiency-tuned variants that catch up with BM25, not the original checkpoints.
 
 If your RAG system repeatedly encounters the problem of "not finding documents that express the same concept with different wording," SPLADE is worth serious evaluation.
 

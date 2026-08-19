@@ -72,7 +72,7 @@ Document
 [Vector Store]
 ```
 
-原版的重點是「每個 chunk 的上下文都是為它量身生成的」；簡化版則是用一段共用摘要換取成本。文件內主題單一（例如一條路線一份文件）時，兩者差距不大；文件內容跨度大時，原版明顯較好。
+原版的重點是「每個 chunk 的上下文都是為它量身生成的」；簡化版則是用一段共用摘要換取成本。這裡不必自己猜差距：[Anthropic 原文](https://www.anthropic.com/engineering/contextual-retrieval)直接寫了他們試過把通用的文件摘要加到 chunk 上，*saw very limited gains*。所以簡化版省的是成本，換掉的是主要效果。
 
 搜尋時命中的是帶有文件上下文的 chunk，LLM 就算只看到一個小段落，也能知道這段來自哪裡、說的是什麼背景下的事。
 
@@ -154,7 +154,7 @@ async function indexDocument(doc: Document, env: Env, ctx: ExecutionContext) {
 | Contextual Embeddings + Contextual BM25 | 2.9% | 49% |
 | 上述再加 Reranking | 1.9% | 67% |
 
-所以「49%」需要搭配 BM25 混合檢索才成立，「67%」需要再加上 Reranker，兩者都不是單靠注入上下文就能拿到。而且這是 Anthropic 自己的評測集（以程式碼庫為主），換個語料結果不一定相同。
+所以「49%」需要搭配 BM25 混合檢索才成立，「67%」需要再加上 Reranker，兩者都不是單靠注入上下文就能拿到。而且這是 Anthropic 自己的評測集（涵蓋 codebases、小說、arXiv 論文與科學論文），換個語料結果不一定相同。
 
 另外，2025 年有一篇比較研究（arXiv:2504.19754）把 Contextual Retrieval 和 Jina 的 Late Chunking 放在一起測，結論是：Contextual Retrieval 保留語義連貫性的效果較好，但運算成本較高；Late Chunking 效率高很多，但在相關性與完整性上有所犧牲。如果索引成本是硬限制，Late Chunking（用長上下文 embedding 模型先編碼全文、再切 chunk 做 pooling）值得評估。
 

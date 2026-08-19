@@ -72,7 +72,7 @@ Chunk B lacks the context of "why we adopted Transformer." If the user asks "Why
 
 ### Over-reliance on Retrieval Precision
 
-Small chunks mean a large number of candidate fragments. A 100,000-character document split with 512-token chunks produces roughly 400 chunks. The retrieval system must precisely find the 3–5 most relevant ones from 400 candidates.
+Small chunks mean a large number of candidate fragments. A 100,000-character Chinese document is roughly 150,000 tokens, which at 512 tokens per chunk produces about 300 chunks. The retrieval system must precisely find the 3–5 most relevant ones out of several hundred candidates.
 
 This places extremely high demands on retrieval:
 
@@ -304,8 +304,8 @@ For the same corpus:
 
 ```
 Traditional RAG (512 tokens/chunk):
-  100K-character document × 100 documents = ~80,000 chunks
-  Vector search space: 80,000 vectors
+  100K-character document × 100 documents = ~30,000 chunks
+  Vector search space: 30,000 vectors
 
 LongRAG (section-level, ~5,000 tokens/section):
   100K-character document × 100 documents = ~8,000 sections

@@ -704,5 +704,5 @@ Multi-Agent RAG 的核心洞察很簡單：**專業分工比萬能通才更有�
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，Modular RAG 的元件化設計與 Multi-Agent 演化的理論基礎
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Orchestrator 推理與行動交織模式的核心參考論文
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，多面向查詢的檢索架構，與 Multi-Agent 領域劃分互補
-- [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，多 Agent 間的 context 隔離與結果融合策略
+- [LangChain — Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) — LangChain 技術部落格，講的是 context 的 write／select／compress／isolate 四種處理（本文的結果融合另有出處，該文沒談）
 - [Agents Companion](https://www.kaggle.com/whitepaper-agent-companion) — Google（2025 年 2 月）。Design Patterns 一節是 Sequential／Hierarchical／Collaborative／Competitive 四種；Hierarchical、Diamond、Peer-to-Peer、Collaborative、Response Mixer、Adaptive Loop 這六個出自車載案例的 Patterns in Use 一節

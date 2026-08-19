@@ -689,7 +689,7 @@ console.log(`All drafts: ${result.allDrafts.length}`);
 
 **3. 需要高準確度的場景**
 
-醫療問答（PubHealth benchmark）、科學推理（ARC-Challenge）等需要高準確度的場景。多個 Drafter 的多樣性 + Verifier 的嚴格驗證，比單次生成更可靠。
+醫療主張查核（PubHealth 是 true/false 的 claim verification，不是問答）、科學推理（ARC-Challenge 為選擇題）等需要高準確度的場景。多個 Drafter 的多樣性 + Verifier 的嚴格驗證，比單次生成更可靠。
 
 **4. 有 GPU 資源支持平行推理**
 

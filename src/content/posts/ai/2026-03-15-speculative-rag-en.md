@@ -700,7 +700,7 @@ When the retriever returns many documents (10+) covering different aspects, Spec
 
 **3. Scenarios Requiring High Accuracy**
 
-Medical QA (PubHealth benchmark), scientific reasoning (ARC-Challenge), and other scenarios requiring high accuracy. The diversity of multiple Drafters plus the Verifier's strict validation is more reliable than single-pass generation.
+Medical claim verification (PubHealth is a true/false claim task, not QA), scientific reasoning (ARC-Challenge is multiple choice), and other scenarios requiring high accuracy. The diversity of multiple Drafters plus the Verifier's strict validation is more reliable than single-pass generation.
 
 **4. GPU Resources Available for Parallel Inference**
 
