@@ -63,7 +63,7 @@ data: {"type":"error","message":"配額已用完","code":"QUOTA_EXCEEDED"}\n\n
 
 ## Cloudflare Workers 的實作
 
-Workers 不支援傳統的 Node.js Stream，使用 Web Streams API：
+這裡用 Web Streams API。（[`node:stream` 在 Workers 上其實是支援的](https://developers.cloudflare.com/workers/runtime-apis/nodejs/streams/)，開 `nodejs_compat` 即可，但官方文件本身就建議能用 WHATWG 標準時優先用它，而 SSE 這條路徑用 `TransformStream` 最直接。）
 
 ```typescript
 app.post("/api/v1/ai/ask", async (c) => {
@@ -104,7 +104,7 @@ app.post("/api/v1/ai/ask", async (c) => {
 
 ## LLM 的串流生成
 
-Cloudflare Workers AI 支援串流模式，但這裡有一個很容易寫錯的地方：**`stream: true` 回傳的是一個 SSE 位元流（`text/event-stream`），不是可以 `for await` 逐個取出 token 物件的序列**。要拿到 token，得自己解析：
+Cloudflare Workers AI 支援串流模式，但這裡有一個很容易寫錯的地方：**`stream: true` 回傳的是一個 SSE 位元流（`text/event-stream`），不是可以 `for await` 逐個取出 token 物件的序列**。要拿到 token，得自己解析（不想自己解析的話，Cloudflare 有[官方文件化的 `workers-ai-provider`](https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/)，搭 Vercel AI SDK 的 `streamText` 直接給你 `textStream`；下面手刻一次是為了說明底層長什麼樣）：
 
 ```typescript
 async function streamGeneration(

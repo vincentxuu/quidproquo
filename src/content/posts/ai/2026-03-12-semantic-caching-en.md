@@ -92,9 +92,10 @@ Climbing route information is relatively stable, so 1 hour is reasonable. If a m
 Before building your own semantic cache, see how much two off-the-shelf layers already cover:
 
 - **Prompt caching / context caching**: every major API can cache a repeated prompt prefix (system prompt, fixed knowledge blocks) on the provider side and bill hits at a discounted input rate. This is **exact prefix matching**, not semantic matching, so it saves on "sending the same long context over and over," not on "the same question asked in different words" -- the two are complementary. Mechanics and pricing live in the official docs: [Anthropic prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching), [OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching), [Gemini context caching](https://ai.google.dev/gemini-api/docs/caching).
-- **Gateway-level caching**: if requests already go through [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/), you can enable caching there instead of writing it yourself.
+- **Gateway-level caching**: if requests already go through [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/), you can enable caching there instead of writing it yourself. The docs are explicit that this is an **exact match on the whole request**; semantic matching is still on their roadmap.
+- **Off-the-shelf semantic caches at the library layer**: the Python ecosystem has had these for a while — `langchain-community`'s [`RedisSemanticCache`](https://reference.langchain.com/python/langchain-community/cache/RedisSemanticCache), `CassandraSemanticCache`, `OpenSearchSemanticCache`, `AzureCosmosDBSemanticCache`, plus GPTCache. They do exactly what the rest of this post hand-rolls: embed, then match on a similarity threshold.
 
-The reason to still build semantic caching is that both of the above only recognize byte-identical input, and "How many routes are at Longdong" is not byte-identical to "How many routes does Longdong have."
+So "semantic caching has to be built from scratch" is not true. The first two layers really do only recognize byte-identical input ("How many routes are at Longdong" is not byte-identical to "How many routes does Longdong have"), but the third layer exists. **What actually forces you to build it is the stack**: those implementations all live in the Python ecosystem, so on Workers and TypeScript you fall back to writing it yourself.
 
 ## Privacy Considerations
 

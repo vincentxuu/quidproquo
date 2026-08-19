@@ -90,9 +90,10 @@ await kv.put(
 自己做 semantic cache 之前，先看兩層現成的機制能不能解掉一部分：
 
 - **Prompt caching / context caching**：主流 API 都支援把重複的 prompt 前綴（system prompt、固定的知識片段）快取在供應商那側，命中時輸入 token 以折扣計價。這是**精確前綴比對**，不是語義比對，所以它省的是「同一份長 context 反覆送」的錢，不是「同義問題重複跑」的錢——兩者互補。細節與計價看各家官方文件：[Anthropic prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching)、[OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching)、[Gemini context caching](https://ai.google.dev/gemini-api/docs/caching)。
-- **Gateway 層快取**：如果請求走 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/)，可以直接在 gateway 開快取，不必自己寫。
+- **Gateway 層快取**：如果請求走 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/)，可以直接在 gateway 開快取，不必自己寫。官方明講它是**整個請求的精確比對**，語義比對還在規劃中。
+- **函式庫層的現成語義快取**：Python 生態早就有一整排——`langchain-community` 的 [`RedisSemanticCache`](https://reference.langchain.com/python/langchain-community/cache/RedisSemanticCache)、`CassandraSemanticCache`、`OpenSearchSemanticCache`、`AzureCosmosDBSemanticCache`，以及 GPTCache。做的事跟本文下面要手刻的一樣（embedding + 相似度閾值）。
 
-語義快取要自己做的理由，是上面兩者都只認「一模一樣的輸入」，而「龍洞有幾條路線」和「龍洞共有幾條路線」在字串上並不一樣。
+所以「語義快取只能自己做」並不成立——前兩層確實只認一模一樣的輸入（「龍洞有幾條路線」和「龍洞共有幾條路線」在字串上不同），但第三層有現成品。**真正逼你自己做的是技術棧**：現成的語義快取實作都在 Python 生態，跑在 Workers / TypeScript 上就只能落回自己實作。
 
 ## Privacy 考量
 

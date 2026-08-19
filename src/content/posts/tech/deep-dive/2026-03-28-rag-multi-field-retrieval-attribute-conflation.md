@@ -130,7 +130,7 @@ embed("route_name: 美人照鏡")  // 而不是 embed("美人照鏡")
 
 ### Learned Sparse Retrieval
 
-bge-m3 本身支援 dense、sparse（learned sparse）、ColBERT 三種模式。Sparse 模式可以讓模型學習為 token 賦予適當權重，例如讓「5.11b」在難度搜尋中拿到更高權重。但 [Workers AI 上的 `@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) 只暴露 dense 輸出（丟 `text` 拿 embeddings，或丟 `query` + `contexts` 拿相似度分數），sparse 和 ColBERT 模式用不了。想用完整三模式就得自己託管模型，這在 Workers 上不成立——所以本文其餘的解法都是在「只有 dense」的前提下設計的。
+bge-m3 本身支援 dense、sparse（learned sparse）、ColBERT 三種模式。Sparse 模式可以讓模型學習為 token 賦予適當權重，例如讓「5.11b」在難度搜尋中拿到更高權重。但 [Workers AI 上的 `@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) 只暴露 dense 輸出（[input schema](https://developers.cloudflare.com/workers-ai/models/bge-m3/) 是必填的 `contexts[]` 加選填的 `query`：不給 `query` 回 embeddings，給了則回相似度分數，並沒有 `text` 這個欄位），sparse 和 ColBERT 模式用不了。想用完整三模式就得自己託管模型，這在 Workers 上不成立——所以本文其餘的解法都是在「只有 dense」的前提下設計的。
 
 ## 落地方案：分層檢索架構
 

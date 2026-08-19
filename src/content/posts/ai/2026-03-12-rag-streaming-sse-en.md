@@ -63,7 +63,7 @@ data: {"type":"error","message":"Quota exhausted","code":"QUOTA_EXCEEDED"}\n\n
 
 ## Cloudflare Workers Implementation
 
-Workers don't support traditional Node.js Streams; they use the Web Streams API:
+This uses the Web Streams API. ([`node:stream` is in fact supported on Workers](https://developers.cloudflare.com/workers/runtime-apis/nodejs/streams/) with `nodejs_compat` enabled, but the docs themselves recommend the WHATWG standard where possible, and `TransformStream` is the most direct route for SSE.) The rest of this section; they use the Web Streams API:
 
 ```typescript
 app.post("/api/v1/ai/ask", async (c) => {
@@ -104,7 +104,7 @@ app.post("/api/v1/ai/ask", async (c) => {
 
 ## LLM Streaming Generation
 
-Cloudflare Workers AI supports streaming mode, but there is one thing that is very easy to get wrong: **`stream: true` returns an SSE byte stream (`text/event-stream`), not a sequence of token objects you can `for await` over**. To get tokens, you have to parse it yourself:
+Cloudflare Workers AI supports streaming mode, but there is one thing that is very easy to get wrong: **`stream: true` returns an SSE byte stream (`text/event-stream`), not a sequence of token objects you can `for await` over**. To get tokens, you have to parse it yourself (or don't: Cloudflare ships an [officially documented `workers-ai-provider`](https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/) that pairs with the Vercel AI SDK's `streamText` to hand you a `textStream` directly. Hand-rolling it once below is to show what the layer underneath looks like):
 
 ```typescript
 async function streamGeneration(

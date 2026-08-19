@@ -130,7 +130,7 @@ A more advanced variant is **RAG-Fusion**: generate multiple query variants, ret
 
 ### Learned Sparse Retrieval
 
-bge-m3 itself supports three modes: dense, sparse (learned sparse), and ColBERT. The sparse mode lets the model learn to assign appropriate weights to tokens — for example, giving "5.11b" higher weight in a grade-focused search. But [`@cf/baai/bge-m3` on Workers AI](https://developers.cloudflare.com/workers-ai/models/bge-m3/) only exposes dense output (pass `text` to get embeddings, or `query` + `contexts` to get similarity scores); sparse and ColBERT modes are unavailable. Getting all three modes means self-hosting the model, which is not an option on Workers — so everything else in this post is designed under a dense-only constraint.
+bge-m3 itself supports three modes: dense, sparse (learned sparse), and ColBERT. The sparse mode lets the model learn to assign appropriate weights to tokens — for example, giving "5.11b" higher weight in a grade-focused search. But [`@cf/baai/bge-m3` on Workers AI](https://developers.cloudflare.com/workers-ai/models/bge-m3/) only exposes dense output (the [input schema](https://developers.cloudflare.com/workers-ai/models/bge-m3/) takes a required `contexts[]` plus an optional `query`: without `query` you get embeddings, with it you get similarity scores — there is no `text` field); sparse and ColBERT modes are unavailable. Getting all three modes means self-hosting the model, which is not an option on Workers — so everything else in this post is designed under a dense-only constraint.
 
 ## The Deployed Solution: Layered Retrieval Architecture
 
