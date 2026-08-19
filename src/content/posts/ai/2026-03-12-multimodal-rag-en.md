@@ -1,6 +1,7 @@
 ---
 title: "Multimodal RAG: Bringing Images into the Knowledge Base"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multimodal, vision, image-embedding, clip]
@@ -156,6 +157,10 @@ For a climbing community, multimodal RAG is genuinely valuable — but the engin
 Multimodal RAG expands the knowledge boundary of a RAG system beyond text to include visual knowledge. For a visually rich domain like climbing, that expansion has real value. The technology is there; the main constraints are engineering cost and whether your platform actually offers a suitable model.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

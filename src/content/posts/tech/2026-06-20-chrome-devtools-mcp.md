@@ -1,6 +1,7 @@
 ---
 title: "Chrome DevTools MCP：直連 CDP 的 MCP Server"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [chrome, cdp, mcp, browser-automation, debugging, devtools, ai-agent]
@@ -128,6 +129,10 @@ server.tool("security_state", {}, async () => {
 「Chrome DevTools MCP 沒有官方套件、得自己從 CDP 包起」這個判斷已經過期了。現在它是 Chrome 團隊維護的成品，而且定位很清楚：**它賣的不是更低階的控制，是 DevTools 的診斷能力**。
 
 所以三條路線的分工，比起兩年前更乾淨了：一般網頁自動化與跨瀏覽器走 @playwright/mcp；要診斷 Chrome 裡到底發生什麼事——慢在哪、記憶體漏在哪、擴充功能有沒有壞——走 chrome-devtools-mcp。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

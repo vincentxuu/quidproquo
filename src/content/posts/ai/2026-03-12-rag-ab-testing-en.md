@@ -1,6 +1,7 @@
 ---
 title: "RAG A/B Testing: A Scientific Approach to Comparing Pipeline Configurations"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, ab-testing, experimentation, metrics, pipeline]
@@ -183,6 +184,10 @@ RAG A/B testing doesn't require fancy tooling. The fundamentals are: clean contr
 The most important habit: **add an `experiment_id` column when the system first goes live** — don't wait until you need to run a test only to find there's no data to analyze. Design for observability upfront so every change is backed by data.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

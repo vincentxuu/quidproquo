@@ -1,6 +1,7 @@
 ---
 title: "Midscene.js：押注純視覺的跨平台 UI 自動化框架"
 date: 2026-05-23
+updated: 2026-08-19
 category: ai
 type: deep-dive
 tags: [midscene, ui-automation, vision-language-model, mcp, agent, bytedance]
@@ -134,6 +135,10 @@ browser-use DOM/截圖/混合    瀏覽器only  Python   autonomous agent
 ## 整體來說
 
 Midscene 用「純視覺 + 跨平台 + 完整開發者工具鏈」換取通用性與抗結構變動,代價是每步的延遲、token 成本,以及對 VLM 定位能力的依賴。它把「自動化能不能跑」這件事,從「DOM 結構穩不穩」轉移到「模型看不看得準」——這是它最大的賭注,也是最大的風險。如果你的需求是跨平台、或要操作非標準 DOM 的介面,它幾乎沒有同類對手;但若只是穩定瀏覽器頁面的測試,DOM-first 方案目前仍更省更穩。在 VLM 定位能力快速進步的當下,這個賭注的賠率正在變好。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

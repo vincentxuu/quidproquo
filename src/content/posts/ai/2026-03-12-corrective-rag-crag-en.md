@@ -1,6 +1,7 @@
 ---
 title: "CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, crag, corrective-rag, retrieval, fallback]
@@ -95,6 +96,10 @@ Relaxing filters stays semantically coherent with the original query; results ar
 CRAG is a safety net for your RAG pipeline. The cost is low (one extra search), but it prevents silent failures at the edges. Paired with an LLM-as-Judge groundedness score, even if the documents retrieved after relaxation are less directly relevant, the judge will penalize the groundedness score and trigger an appropriate disclaimer. Defense is multi-layered — CRAG is the first layer.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

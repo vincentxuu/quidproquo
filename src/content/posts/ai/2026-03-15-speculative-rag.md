@@ -1,6 +1,7 @@
 ---
 title: "Speculative RAG：用小模型平行打草稿，大模型一次驗證"
 date: 2026-03-15
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, speculative-rag, dual-model, latency-optimization, accuracy]
@@ -763,6 +764,10 @@ Speculative RAG 在 2024 年 7 月發表（arXiv:2407.08223），2025 年被 ICL
 2. **智慧子集分配**：不是隨機分配文件子集，而是根據文件的主題、類型進行策略性分組。
 3. **Drafter 特化**：不同 Drafter 專精不同類型的問題（事實型、推理型、比較型），根據問題類型路由。
 4. **與其他 RAG 技術組合**：CRAG + Speculative RAG、Graph RAG + Speculative RAG 等組合。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

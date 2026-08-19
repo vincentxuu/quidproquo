@@ -1,6 +1,7 @@
 ---
 title: "RAG vs Fine-tuning: It's Not Either/Or"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, fine-tuning, llm, architecture, comparison]
@@ -133,6 +134,10 @@ The inverse misconception is just as common: that once you have RAG, knowledge s
 RAG and Fine-tuning are complementary tools, not competitors. RAG is an "extension of knowledge"; Fine-tuning is "shaping of capability." A high-quality LLM application typically requires a model with strong foundational abilities (or a fine-tuned model) combined with a carefully designed RAG system -- not just one or the other.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

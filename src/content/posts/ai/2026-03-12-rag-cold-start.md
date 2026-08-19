@@ -1,6 +1,7 @@
 ---
 title: "RAG 冷啟動：沒有資料時怎麼讓系統能用"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, cold-start, bootstrapping, indexing, data]
@@ -195,6 +196,10 @@ if (searchResults.length === 0) {
 最重要的是：**不要等資料完整才上線**。系統上線 → 使用者使用 → 找到資料缺口 → 補充資料，這個迴圈比預先準備完整資料庫更有效。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

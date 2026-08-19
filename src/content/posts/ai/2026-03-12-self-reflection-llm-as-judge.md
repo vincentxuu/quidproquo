@@ -1,6 +1,7 @@
 ---
 title: "Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, llm-judge, self-reflection, groundedness, quality-assurance]
@@ -149,6 +150,10 @@ LLM-as-Judge 是 RAG 品質保證的核心機制。Groundedness 讓系統知道�
 最重要的設計原則：**不信任任何單一評估**。Judge 分數低 → 標記等待人工。使用者評分差 → 也觸發標記。兩者一致才算真正確認有問題。多重訊號比單一訊號可靠。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

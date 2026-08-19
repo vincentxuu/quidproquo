@@ -1,6 +1,7 @@
 ---
 title: "Chunking Strategies: How You Split Text Determines Whether RAG Can Find the Answer"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, chunking, indexing, text-splitting, retrieval]
@@ -242,6 +243,10 @@ Chunking is the most foundational — and most globally impactful — decision i
 The most practical starting point: Recursive Chunking + Contextual Retrieval. Then evaluate actual retrieval quality — look at the chunks that get hit in your traces and ask whether they make sense — before deciding whether to switch strategies.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

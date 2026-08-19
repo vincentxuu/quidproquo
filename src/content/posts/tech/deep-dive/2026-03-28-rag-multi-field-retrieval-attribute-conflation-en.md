@@ -1,6 +1,7 @@
 ---
 title: "When Vector Search Matches by Name Instead of Grade: Attribute Conflation in RAG Systems"
 date: 2026-03-28
+updated: 2026-08-19
 category: tech
 tags: [rag, vector-search, embedding, cloudflare-workers, recommendation-system]
 lang: en
@@ -232,6 +233,10 @@ The right approach is to pull structured attributes out of the embedding entirel
 Longer term, field-aware embeddings (with field-label prefixes) and a multi-index strategy are cleaner architecturally — but only after the basic metadata filtering is solid.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

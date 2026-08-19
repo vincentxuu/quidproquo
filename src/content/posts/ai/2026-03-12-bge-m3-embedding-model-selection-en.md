@@ -1,6 +1,7 @@
 ---
 title: "BGE-M3: Why This Embedding Model Works Well for Traditional Chinese RAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, embedding, bge-m3, multilingual, vector-search, cloudflare-workers-ai]
@@ -136,6 +137,10 @@ Choosing an embedding model isn't about finding "the most powerful one" — it's
 If you're not on Cloudflare Workers, or you need stronger English performance, commercial APIs and newer open multilingual models are both options — but go by the current MTEB multilingual leaderboard and measurements on your own corpus, not by any model name printed in an article (this one included). The key is to select based on your language requirements, deployment platform, and cost constraints — not to blindly chase the highest dimensionality or the newest model.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

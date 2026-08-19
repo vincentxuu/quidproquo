@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers AI binding 全貌：不只是 run()"
 date: 2026-04-17
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-workers-ai, cloudflare, rag, ai-gateway, tomarkdown]
@@ -124,10 +125,8 @@ await env.AI.toMarkdown(files, {
 
 ### 限制
 
-- 單檔 **10 MB**
-- URL fetch timeout **30 秒**
-- 想知道支援哪些副檔名：`await env.AI.toMarkdown().supported()`
-- 上面這幾個數字以 [Markdown Conversion 官方頁](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) 為準
+- 想知道支援哪些副檔名：`await env.AI.toMarkdown().supported()`——這是唯一該信的來源，不要背副檔名清單
+- 檔案大小與 URL 抓取的 timeout 都有上限，但[官方頁](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/)目前沒有把數字寫出來。網路上流傳的「單檔 10 MB、timeout 30 秒」查不到現行出處，**當成量級參考而不是規格**，真的貼著上限跑就自己實測
 
 ### 為什麼「省 80% Token」
 
@@ -236,7 +235,7 @@ const list = await env.AI.models();
 
 **`toMarkdown` 特有：**
 
-- 10 MB 檔案上限
+- 有檔案大小上限（官方頁未載明數字，見上）
 - 圖片描述會計費（走視覺模型）
 - PDF OCR 對掃描件效果普通，印刷版 PDF OK
 
@@ -260,6 +259,10 @@ const list = await env.AI.models();
 - 要接外部 → `gateway()`
 
 下次寫 AI 功能前先問：這件事有沒有 managed 版本？很多時候答案是有，而且就掛在 `env.AI.` 下。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

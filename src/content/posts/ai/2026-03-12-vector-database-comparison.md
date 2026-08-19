@@ -1,6 +1,7 @@
 ---
 title: "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, vector-database, pinecone, weaviate, qdrant, cloudflare-vectorize]
@@ -127,6 +128,10 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 不要在「哪個 benchmark 最高」上花太多時間，也不要相信任何一張功能對照表（包括這篇文章刪掉的那張）。先確認你的部署環境、過濾需求和規模，再去官方文件確認當下的功能狀態。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

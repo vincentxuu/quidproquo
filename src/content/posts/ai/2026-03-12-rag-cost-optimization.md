@@ -1,6 +1,7 @@
 ---
 title: "RAG 成本優化：把每次查詢的花費壓到最低"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, cost-optimization, performance, token-budget, caching]
@@ -178,6 +179,10 @@ RAG 成本優化的投資報酬率排序，通常是：先開 prompt caching 與
 其他優化（context 長度控制、步驟跳過）是微調，效益有限但累積起來也值得。品質保護（Judge）是不應該輕易犧牲的，它的成本換來的是對系統品質的持續監控，這個監控的價值遠超過省下的那點 token 費用。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

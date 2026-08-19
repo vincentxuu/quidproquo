@@ -1,6 +1,7 @@
 ---
 title: "Hybrid Search：用 BM25 + 向量搜尋彌補彼此的盲區"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, hybrid-search, bm25, vector-search, rrf, embedding]
@@ -162,6 +163,10 @@ Hybrid Search 的本質是**召回率與精確度的互補**。向量搜尋提�
 另外值得一提的是「自己組」與「用託管服務」的取捨：Cloudflare 的 AI Search 現在已內建 hybrid search，向量與 BM25 並行後用 RRF（或 max）融合，tokenizer 與融合方式都可設定。如果你的需求就是「對一批文件做混合搜尋」，託管方案省下的維運成本很可觀；本文這種自己組的做法，換來的是 filter 提取、降級策略、多路 RRF 這些環節的完全掌控權。細節見 [AI Search: Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/)。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

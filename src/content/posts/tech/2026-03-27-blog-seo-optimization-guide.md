@@ -1,6 +1,7 @@
 ---
 title: "部落格 SEO 優化完整指南 — 從 meta tags 到結構化資料"
 date: 2026-03-27
+updated: 2026-08-19
 category: tech
 tags: [seo, astro, structured-data, json-ld, open-graph, blog]
 lang: zh-TW
@@ -142,7 +143,7 @@ Google 支援的 rich result 型別這幾年一直在縮編，網路上的 SEO �
 | `HowTo` | 教學文 | **沒有**——2023 年就已停止顯示，文件也移除了 |
 | `WebSite` + `SearchAction` | 首頁 | **沒有**——Sitelinks Search Box 於 2024-10 退場 |
 
-FAQ 的退場是分三年走完的：2023-08 先限縮到「知名的政府與醫療網站」，2026-05-07 連這批也停掉，2026-06 移除文件，2026-08 移除 Search Console API 支援。詳細時間點在 Google 的[文件更新記錄](https://developers.google.com/search/updates)。
+FAQ 的退場是分三年走完的：2023-08 先限縮到「知名的政府與醫療網站」，2026-05-07 連這批也停掉，2026-06-15 移除文件。詳細時間點在 Google 的[文件更新記錄](https://developers.google.com/search/updates)。
 
 **Schema 標了沒有 rich result 就等於白做嗎？** 不完全。Google 在 2026 年 5 月發佈的[生成式 AI 最佳化指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)裡明講：結構化資料**不是**生成式 AI 搜尋的必要條件，也沒有什麼專屬的 schema.org 標記；但仍建議繼續當成整體 SEO 的一環來做，因為它決定你有沒有 rich result 資格。換句話說，把 schema 當「取得 rich result 資格」的工具，而不是「討好 AI」的工具。
 
@@ -272,6 +273,10 @@ SEO 技術面優化是一次性投資：在 Layout 和 build 流程中設定好�
 不需要追求完美——先把 `Article`/`BlogPosting`、`BreadcrumbList`、`Organization` 三個 schema 做好，就已經超過 90% 的個人部落格了。剩下的力氣別拿去追已經下架的 rich result 型別，Google 每年都在砍，砍掉的清單就在[文件更新記錄](https://developers.google.com/search/updates)裡。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「AEO / GEO 與 AI 搜尋」系列
 
 ## 參考資料
 

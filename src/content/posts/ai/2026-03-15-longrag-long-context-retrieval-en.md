@@ -1,6 +1,7 @@
 ---
 title: "LongRAG: Rethinking RAG Chunking Strategy with Long-Context Models"
 date: 2026-03-15
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, longrag, long-context, chunking, retrieval]
@@ -756,6 +757,10 @@ The most pragmatic approach is likely a **hybrid strategy**: use traditional RAG
 - [Chunking Strategies: How Splitting Methods Determine Whether RAG Can Find Answers](/posts/ai/2026-03-12-chunking-strategies-en) — Detailed comparison of traditional chunking strategies
 - [Contextual Retrieval: Giving Each Chunk Its Own Context](/posts/ai/2026-03-12-contextual-retrieval-en) — Anthropic's alternative approach to solving fragmentation
 - [Cross-Encoder Reranking: Using Precision Ranking Models to Compensate for Coarse Retrieval](/posts/ai/2026-03-12-cross-encoder-reranking-en) — Remediation strategy when retrieval isn't precise enough
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

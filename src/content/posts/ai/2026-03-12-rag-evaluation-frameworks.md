@@ -1,6 +1,7 @@
 ---
 title: "RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, evaluation, ragas, deepeval, trulens, metrics, quality]
@@ -319,6 +320,10 @@ RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個�
 先選一個框架（RAGAS 入門最快），建立一個 50-100 個測試案例的小資料集，建立基準分數，然後每次優化後對比分數變化。這個習慣建立起來，RAG 系統的迭代會有效率很多。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

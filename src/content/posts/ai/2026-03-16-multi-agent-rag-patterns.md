@@ -1,6 +1,7 @@
 ---
 title: "Multi-Agent RAG：多個專業 Agent 協作的分散式檢索架構"
 date: 2026-03-16
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multi-agent, orchestration, distributed-retrieval, agent]
@@ -690,6 +691,10 @@ Multi-Agent RAG 的核心洞察很簡單：**專業分工比萬能通才更有�
 3. **融合**：多個 Agent 的結果需要有策略地合併，而不是簡單拼接。
 
 如果你的 RAG 系統正在經歷「加更多文件反而讓回答品質下降」的問題，Multi-Agent 架構值得考慮。但在跳進來之前，先確認你已經把單一 Agent 的 retrieval quality 調到夠好了——很多時候，問題不是架構不夠複雜，而是基礎的 chunking 和 retrieval 還沒做好。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

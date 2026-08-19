@@ -1,6 +1,7 @@
 ---
 title: "RAG 的三個世代：從 Naive 到 Modular"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, naive-rag, advanced-rag, modular-rag, architecture, evolution]
@@ -165,6 +166,10 @@ Modular RAG 不只是重組了原有的步驟，也加入了 Advanced RAG 沒有
 理解每個世代解決了什麼問題、引入了什麼複雜度，才能在「夠用就好」和「過度工程」之間找到對的平衡點。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

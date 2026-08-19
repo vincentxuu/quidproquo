@@ -1,6 +1,7 @@
 ---
 title: "RAG Multi-Entity Queries: When the User Lists Five Routes and the System Only Sees the First"
 date: 2026-03-28
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [rag, ner, query-decomposition, recommendation-system, multi-hop-qa]
@@ -187,6 +188,10 @@ The core trade-off is "maximize recommendation quality improvement with minimal 
 Query Decomposition and Collaborative Filtering are deferred for now. The former overlaps with the existing LangGraph multi-tool path; the latter needs more user data. Once P0–P2 are live, the next step depends on where the recommendation quality bottleneck actually sits.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

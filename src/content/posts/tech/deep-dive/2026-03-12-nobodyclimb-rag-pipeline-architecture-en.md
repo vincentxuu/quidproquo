@@ -220,6 +220,10 @@ The node diagram above is the finished design, but every node in it was forced i
 - [RAG Multi-Entity Queries: When the User Lists Five Routes and the System Only Sees the First](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing-en)
 - [When Vector Search Matches by Name Instead of Grade: Attribute Conflation in RAG Systems](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation-en)
 
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Building NobodyClimb" series.
+
 ## References
 
 - [Cloudflare Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)

@@ -1,6 +1,7 @@
 ---
 title: "Contextual Retrieval: Giving Every Chunk Its \"What This Is About\" Context"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
@@ -181,6 +182,10 @@ The retrieval-quality gain usually justifies the indexing overhead — but measu
 Contextual Retrieval addresses a root-level problem in RAG systems: chunking destroys context. This problem is far more effectively solved at the indexing stage than patched later during search or generation — improving data quality at the source beats algorithmic workarounds downstream.
 
 "Garbage in, garbage out" is the most common cause of RAG system failures. Contextual Retrieval ensures that every chunk entering the index is a **meaningful unit of information**, not just a truncated fragment of text.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

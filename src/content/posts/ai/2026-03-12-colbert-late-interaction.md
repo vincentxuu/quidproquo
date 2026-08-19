@@ -1,6 +1,7 @@
 ---
 title: "ColBERT：向量搜尋的第三條路"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, colbert, late-interaction, retrieval, reranking]
@@ -114,6 +115,10 @@ ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。
 對大多數 RAG 系統，現有的 Bi-Encoder 搜尋 + Cross-Encoder 重排仍是更省事的選擇。如果你本來就跑 Python、而且已經卡在 Bi-Encoder 精度不夠、Cross-Encoder 又太慢的那個縫，ColBERT 當重排是目前最值得試的一步。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

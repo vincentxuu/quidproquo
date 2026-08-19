@@ -1,6 +1,7 @@
 ---
 title: "@playwright/mcp: Microsoft's Official Browser Automation MCP Server"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [playwright, mcp, browser-automation, ai-agent, e2e-testing, developer-tools]
@@ -65,6 +66,8 @@ Loaded by default: **Core automation** (navigate, click, type, forms, snapshot, 
 | `pdf` | Save the page as PDF |
 | `testing` | Assertion tools, locator generation |
 
+> One caveat on this table: **the upstream README contradicts itself.** The options row for `--caps` lists only `vision, pdf, devtools` as possible values, while the tool sections below document seven `opt-in via --caps=` groups — the seven above. The seven-group version is the likelier reading of reality (each group has its own section), but before relying on `config`, `network`, `storage` or `testing`, check that the version you installed actually accepts them.
+
 Renames that commonly break copied-from-old-posts calls:
 
 - The screenshot tool is `browser_take_screenshot`, not `browser_screenshot`.
@@ -119,6 +122,10 @@ Opening, closing, switching, and listing tabs all go through the single `browser
 ## In Summary
 
 @playwright/mcp is currently the most AI-agent-friendly browser MCP option available. Accessibility tree mode cuts token costs and removes the dependency on vision-capable models; auto-wait brings interaction reliability close to a full E2E test framework. It's the sensible default starting point unless you have a specific reason to need screenshot feedback or low-level CDP control.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

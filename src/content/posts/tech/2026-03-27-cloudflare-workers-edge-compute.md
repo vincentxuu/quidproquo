@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers：不是 Lambda，不是容器，是 V8 Isolate"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-workers, edge-compute, hono, wrangler, serverless]
@@ -184,6 +185,10 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 有兩件事**不再**是不用 Workers 的理由：長連線的 WebSocket 有 [Durable Objects](https://developers.cloudflare.com/durable-objects/)（只要 caller 連著就沒有牆鐘上限），長流程有 Workflows。它們是不同的心智模型，但不是「Workers 做不到」。
 
 跟傳統 VPS 或容器的比較：Workers 犧牲的是**單次請求能燒多少 CPU 與記憶體**，換來零 infra 管理、全球部署、以及只為實際運算付費的計費方式。你的工作單元夠小就選 Workers，不夠小就選容器。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

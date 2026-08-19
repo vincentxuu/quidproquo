@@ -1,6 +1,7 @@
 ---
 title: "Query Classification: Teaching Your RAG System How to Answer Each Question"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, query-classification, adaptive-routing, tool-selection, llm]
@@ -136,6 +137,10 @@ Key design principles for this layer:
 4. Dynamic model selection is the lowest-hanging fruit for cost optimization
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

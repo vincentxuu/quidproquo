@@ -1,6 +1,7 @@
 ---
 title: "Cross-Encoder Reranking：讓最相關的文件排到前面"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -112,6 +113,10 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 整體來說，Reranking 是 RAG pipeline 中 precision 提升最直接的環節，成本也在可接受範圍內（對 30 個候選做 cross-attention 比一次 LLM 生成便宜很多）。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

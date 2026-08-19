@@ -1,6 +1,7 @@
 ---
 title: "Semantic Caching：語義相近的問題只跑一次 RAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, semantic-cache, caching, vector-search, performance]
@@ -136,6 +137,10 @@ Semantic Caching 是 RAG 系統效能優化中成本最低、效益最高的手�
 需要注意的是三件事：privacy（個性化查詢不快取）、TTL（資料更新的頻率），以及快取本身的查詢成本——條目一多，線性掃描會反過來變成瓶頸，記得換成向量索引。這三點顧好，它就是投報率極高的優化。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

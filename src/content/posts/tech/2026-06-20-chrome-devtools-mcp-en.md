@@ -1,6 +1,7 @@
 ---
 title: "Chrome DevTools MCP: The MCP Server Wired Directly to CDP"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [chrome, cdp, mcp, browser-automation, debugging, devtools, ai-agent]
@@ -128,6 +129,10 @@ The cost of rolling your own is that connection lifecycle, timing waits, and err
 "Chrome DevTools MCP has no official package, so you'll be wrapping CDP yourself" is an out-of-date judgement. It's now a finished product maintained by the Chrome team, with a clear position: **what it sells is not lower-level control, it's DevTools' diagnostic power.**
 
 That makes the division of labour cleaner than it was two years ago. General web automation and cross-browser work go to @playwright/mcp. Working out what is actually happening inside Chrome — where the time goes, where the memory leaks, whether an extension broke — goes to chrome-devtools-mcp.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

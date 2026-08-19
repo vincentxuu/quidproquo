@@ -1,6 +1,7 @@
 ---
 title: "RAG Personalization: Learning User Preferences from Conversations"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, personalization, memory, user-profile, async]
@@ -173,6 +174,10 @@ The philosophy behind personalized RAG is **observe, don't interrupt**. No surve
 In a domain like rock climbing, where skill grades provide a clear, objective axis, personalization pays off especially well. A recommendation that actually fits both the expert and the beginner — rather than serving the statistical average — is worth far more.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

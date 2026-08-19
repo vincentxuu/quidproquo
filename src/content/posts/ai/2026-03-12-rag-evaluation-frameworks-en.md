@@ -1,6 +1,7 @@
 ---
 title: "RAG Evaluation Frameworks: How to Use RAGAS, DeepEval, and TruLens"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, evaluation, ragas, deepeval, trulens, metrics, quality]
@@ -321,6 +322,10 @@ RAG evaluation frameworks transform "feels bad" into "which metric, on which que
 Start by picking one framework (RAGAS is the quickest to get started with), build a small test dataset of 50-100 cases, establish baseline scores, then compare score changes after each optimization. Once this habit is in place, iterating on your RAG system becomes far more efficient.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

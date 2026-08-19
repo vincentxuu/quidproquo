@@ -1,6 +1,7 @@
 ---
 title: "Multi-Query Expansion: Search One Question from Multiple Angles"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multi-query, query-expansion, recall, rrf]
@@ -120,6 +121,10 @@ In the context of a climbing community, complex queries are typically the ones w
 Multi-Query Expansion is essentially using the LLM's language capabilities to compensate for the blind spots in vector search coverage. Single-query recall is bottlenecked by how the user happens to phrase their question; multi-angle rewriting breaks that constraint. Combined with RRF fusion, documents that get hits from multiple angles rank higher — and the overall result quality improves.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

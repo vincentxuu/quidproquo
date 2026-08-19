@@ -1,6 +1,7 @@
 ---
 title: "AEO 答案引擎優化指南 — 讓 AI 搜尋引擎引用你的內容"
 date: 2026-03-27
+updated: 2026-08-19
 category: tech
 tags: [aeo, seo, ai-search, structured-data, content-strategy, blog]
 lang: zh-TW
@@ -196,7 +197,7 @@ AI 搜尋引擎還在快速演進。幾個值得關注的趨勢：
 
 - **引用標準化**：各家 AI 引擎正在建立更明確的引用和歸因機制
 - **AI 爬蟲協議**：這裡當初寫的是「如 ai.txt」，兩年後回頭看，實際跑出來的是另外幾個：Cloudflare 的 [Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/)（在 robots.txt 裡加 `search` / `ai-input` / `ai-train` 三個用途訊號）、IETF 的 AIPREF 工作組，以及 llms.txt——但 llms.txt 的實際成效遠低於當年的預期，詳見本系列第 3 篇
-- **從表態走向強制**：2026-07-01 Cloudflare 宣布自 2026-09-15 起，預設封鎖「混用型」爬蟲（同時做搜尋、訓練、agent 的那種）存取有廣告的頁面，並把 Pay Per Crawl 推進成 Pay Per Use（[官方公告](https://blog.cloudflare.com/content-independence-day-ai-options/)）。robots.txt 是請求，CDN 層的封鎖才是執行
+- **從表態走向強制**：2026-07-01 Cloudflare 宣布自 2026-09-15 起，預設封鎖「混用型」爬蟲（同時做搜尋、訓練、agent 的那種）存取有廣告的頁面，並把 Pay Per Crawl 推進成 Pay Per Use（[官方公告](https://blog.cloudflare.com/content-independence-day-ai-options/)；「混用型」定義、適用範圍與 Pay Per Use 這幾項只寫在[新聞稿](https://www.cloudflare.com/press/press-releases/2026/cloudflare-allows-the-agentic-internet-to-flourish-with-a-simple-philosophy-your-content-your-rules/)裡）。robots.txt 是請求，CDN 層的封鎖才是執行
 - **內容授權**：出版商和 AI 公司之間的內容授權模式仍在摸索
 - **多模態搜尋**：AI 引擎開始理解圖片、影片，不只是文字
 
@@ -227,6 +228,10 @@ AEO 的核心邏輯很簡單：寫出 AI 最容易理解和引用的內容。具
 SEO 讓人們找到你，AEO 讓 AI 替你說話。兩者並行，才是 2025 年後的內容策略。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「AEO / GEO 與 AI 搜尋」系列
 
 ## 參考資料
 

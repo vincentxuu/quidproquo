@@ -1,6 +1,7 @@
 ---
 title: "SPLADE：比 BM25 更聰明的稀疏向量搜尋"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, splade, sparse-vector, bm25, retrieval, hybrid-search]
@@ -104,6 +105,10 @@ SPLADE 是 BM25 的有力進化，但不是每個系統都需要它。Dense + BM
 如果你的 RAG 系統在「找不到用不同說法表達同一概念的文件」這個問題上反覆出現，SPLADE 值得認真評估。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

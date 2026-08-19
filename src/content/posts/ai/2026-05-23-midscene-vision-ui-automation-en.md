@@ -1,6 +1,7 @@
 ---
 title: "Midscene.js: Betting on Pure Vision for Cross-Platform UI Automation"
 date: 2026-05-23
+updated: 2026-08-19
 category: ai
 type: deep-dive
 tags: [midscene, ui-automation, vision-language-model, mcp, agent, bytedance]
@@ -136,6 +137,10 @@ In short: Midscene's selling point is **vision-first + true cross-platform + com
 ## Overall Assessment
 
 Midscene trades "pure vision + cross-platform + complete developer toolchain" for universality and resilience to structural changes, at the cost of per-step latency, token expense, and dependence on VLM localization accuracy. It shifts the question of "can the automation run" from "is the DOM structure stable" to "can the model see accurately" -- this is both its biggest bet and its biggest risk. If your requirements involve cross-platform or operating non-standard DOM interfaces, it has virtually no competitors; but for stable browser page testing alone, DOM-first approaches are currently more efficient and stable. As VLM localization capabilities advance rapidly, the odds on this bet are improving.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

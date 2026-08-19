@@ -1,6 +1,7 @@
 ---
 title: "Multi-Agent RAG: Distributed Retrieval Architecture with Specialized Agent Collaboration"
 date: 2026-03-16
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multi-agent, orchestration, distributed-retrieval, agent]
@@ -695,6 +696,10 @@ But the value of this architecture isn't in "having multiple Agents" per se -- i
 3. **Fusion**: Results from multiple Agents need to be strategically merged, not simply concatenated.
 
 If your RAG system is experiencing the problem of "adding more documents actually degrades answer quality," the Multi-Agent architecture is worth considering. But before jumping in, make sure you've tuned your single Agent's retrieval quality well enough first -- often the problem isn't that the architecture isn't complex enough, but that basic chunking and retrieval haven't been done right.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

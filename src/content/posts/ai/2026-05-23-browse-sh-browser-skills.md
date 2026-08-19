@@ -1,6 +1,7 @@
 ---
 title: "browse.sh:把瀏覽器 Agent 學過的事存成技能目錄"
 date: 2026-05-23
+updated: 2026-08-19
 category: ai
 type: deep-dive
 tags: [browse-sh, browser-agent, agent-skills, browserbase, autobrowse]
@@ -112,6 +113,10 @@ browse skills list          # 列出已裝技能
 browse.sh 賭的是一個明確的判斷:browser agent 的未來瓶頸是**記憶**不是推理,所以把 Agent 學到的東西寫成「人能讀、Agent 能跑、可進版控」的純文字技能,才是真正的解鎖。用官方那句話總結最精準:「The bottleneck for browser agents was never intelligence. It was amnesia. Browse.sh is the cure.」
 
 代價也清楚:你買進的是 Browserbase 的 Autobrowse 與平台生態、一堆自評數據、還在收斂的品牌命名,而且只在「需要探索」的網站上才划算。如果你正在做瀏覽器 Agent 且飽受重複探索成本之苦,值得試;如果你只是要解析靜態頁面,寫個 parser 就好,別被「讓 Agent 自己想辦法」的敘事騙進去。(延伸對照:[AI 瀏覽器 Agent:Claude、Codex、Gemini 怎麼開瀏覽器](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[Agent 記憶系統](/posts/ai/2026-03-19-agent-memory-systems))
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

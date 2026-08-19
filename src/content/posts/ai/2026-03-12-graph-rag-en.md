@@ -1,6 +1,7 @@
 ---
 title: "GraphRAG: Structuring Knowledge as a Graph for Relationship-Based Reasoning"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, graphrag, knowledge-graph, multi-hop, microsoft]
@@ -159,6 +160,10 @@ GraphRAG addresses one blind spot of vector search: relationship reasoning. For 
 The cost, by contrast, is certain: a substantial increase in engineering complexity, on top of a reference implementation that has stopped evolving. For a climbing community platform, standard RAG is sufficient for now. GraphRAG is worth revisiting later, especially when recommendation systems and social graph queries become higher-priority needs — and when you do revisit, run your own multi-hop queries through both and decide on measurements, not intuition.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "Text-to-SQL Router：精確查詢不走 RAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, text-to-sql, sql, query-routing, structured-query]
@@ -148,6 +149,10 @@ Text-to-SQL Router 的本質是：**承認 LLM 的局限性，讓它做自己擅
 模板型設計也比自由 SQL 生成安全得多——SQL 注入風險、Schema 幻覺、效能問題都在模板層面解決，LLM 只做參數提取，責任邊界清晰。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

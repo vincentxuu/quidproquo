@@ -1,6 +1,7 @@
 ---
 title: "RAG 個性化：從對話中學習使用者偏好"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, personalization, memory, user-profile, async]
@@ -173,6 +174,10 @@ ctx.waitUntil(
 在攀岩這個有明確程度分級的領域，個性化的效益特別顯著——一個讓高手和初學者都滿意的推薦，比一個平均值的回答更有價值。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

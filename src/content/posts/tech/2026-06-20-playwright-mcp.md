@@ -1,6 +1,7 @@
 ---
 title: "@playwright/mcp：微軟官方的瀏覽器自動化 MCP Server"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [playwright, mcp, browser-automation, ai-agent, e2e-testing, developer-tools]
@@ -65,6 +66,8 @@ series:
 | `pdf` | 頁面輸出成 PDF |
 | `testing` | 斷言類工具、產生 locator |
 
+> 這張表要留一個但書：**上游 README 自己前後不一致**。參數表那一行寫 `--caps` 的 possible values 只有 `vision, pdf, devtools` 三個，但下面的工具章節實際列出七個 `opt-in via --caps=` 群組（上表就是那七個）。七個那版比較可能反映現況（每個群組都有自己的章節），但要用到 `config` / `network` / `storage` / `testing` 之前，建議先實測一下你裝的版本認不認。
+
 幾個容易踩的改名（舊文章常見的錯誤呼叫）：
 
 - 截圖是 `browser_take_screenshot`，不是 `browser_screenshot`。
@@ -119,6 +122,10 @@ Playwright 所有互動操作都內建 auto-wait：點擊前會等元素 visible
 ## 整體來說
 
 @playwright/mcp 是目前對 AI agent 最友善的 browser MCP 選擇。Accessibility tree 模式省 token、不依賴 vision 模型；auto-wait 讓 agent 的互動可靠性接近 E2E 測試框架的水準。如果你在為 AI agent 選瀏覽器自動化工具，這是合理的預設起點，除非你有明確需要截圖回饋或底層 CDP 控制的理由。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

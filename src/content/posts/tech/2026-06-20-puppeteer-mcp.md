@@ -1,6 +1,7 @@
 ---
 title: "@modelcontextprotocol/server-puppeteer：官方 Puppeteer MCP Server"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [puppeteer, mcp, browser-automation, ai-agent, developer-tools, chrome]
@@ -159,6 +160,10 @@ server-puppeteer 最主要的特性是用截圖（`puppeteer_screenshot`）來�
 server-puppeteer 是功能直接、上手快的選擇，`evaluate` 提供了一定的靈活性。但在 AI agent 場景，截圖導向的設計讓 token 成本成為長期限制——而它現在連「還有人維護」這個前提都沒有了。
 
 值得留下的是它示範的那條光譜：工具集愈小、agent 要靠 `evaluate` 自己寫 JS 的比例愈高；頁面狀態愈依賴截圖、token 成本愈難壓。你評估任何一個 browser MCP，都可以拿這兩軸去量。至於實際要裝哪一個：一般網頁自動化選 [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)，要 Chrome 深度除錯與效能分析選 [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp)。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

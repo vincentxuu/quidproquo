@@ -1,6 +1,7 @@
 ---
 title: "AI-Ready Content：把網站變成 AI 可讀的資料來源，完整指南"
 date: 2026-03-30
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [ai-ready-content, llms-txt, geo, rag, web-scraping, structured-data, mcp, seo, rsl, webmcp]
@@ -460,6 +461,10 @@ AI 爬蟲在 2025 年成為網站流量的重要來源——但也引發了「�
 這個領域在 2025–2026 年正在經歷類似早期 SEO 的爆發期。差別是：SEO 花了十年成熟，AI-ready content 可能只需要兩年。
 
 現在開始做，成本低、風險小、先行者優勢明確。等到變成標準配備時再追，就晚了。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「AEO / GEO 與 AI 搜尋」系列
 
 ## 參考資料
 

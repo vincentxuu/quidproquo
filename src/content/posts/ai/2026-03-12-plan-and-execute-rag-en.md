@@ -1,6 +1,7 @@
 ---
 title: "Plan-and-Execute: A RAG Pattern That Plans Before It Acts"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, plan-execute, agentic, multi-step, reasoning]
@@ -172,6 +173,10 @@ Plan-and-Execute separates thinking from doing. The Planner handles global reaso
 The tradeoff is an extra LLM call to generate the plan, plus reduced adaptability once the plan is set. For complex queries with clear structure, that cost is worth it. For open-ended exploratory queries, ReAct's flexibility is the better fit. Which strategy to choose depends on the nature of the problem — there's no universal answer.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

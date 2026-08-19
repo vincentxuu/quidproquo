@@ -1,6 +1,7 @@
 ---
 title: "Building a Legal Contract RAG in 36 Hours: Weaviate Query Agent + ColQwen Architecture Breakdown"
 date: 2026-04-23
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, weaviate, legal-ai, colqwen, muvera, vector-database, agentic-search]
@@ -200,6 +201,10 @@ The core problem this architecture combination (late-interaction visual embeddin
 The reason it could be up and running in 36 hours is that Agent Skills compressed months of engineering work into an operations manual usable from a single prompt. This is important context, not criticism -- you need to know that you are using someone else's completed homework so you can accurately assess which parts you truly understand and which parts you merely called.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

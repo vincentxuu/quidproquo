@@ -1,6 +1,7 @@
 ---
 title: '"Recommend the next route" and "Recommend something similar" are not the same thing — Intent Disambiguation in RAG Recommendation Systems'
 date: 2026-03-28
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [rag, intent-classification, nlp, recommendation-system, slot-filling]
@@ -260,6 +261,10 @@ The other trade-off is **choosing the default behavior**. When a user just says 
 Future improvements could include integrating user history (consecutive RP's at the same grade is a stronger signal for progression), the WHR probability model (recommending routes with 50–70% success probability), and LLM structured output as a fallback when regex-stage confidence is insufficient.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

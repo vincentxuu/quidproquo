@@ -1,6 +1,7 @@
 ---
 title: "BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, embedding, bge-m3, multilingual, vector-search, cloudflare-workers-ai]
@@ -136,6 +137,10 @@ Embedding 模型選型不是「找最強的」，而是「找最適合這個場�
 如果不在 Cloudflare Workers 上，或者需要更強的英文表現，商用 API 與新一代開源多語言模型都是選項——但請以當下的 MTEB 多語言榜單與自己語料的實測結果為準，不要拿任何一篇文章（包括這篇）裡的模型名稱當結論。關鍵是根據語言需求、部署平台、成本限制做選型，而不是盲目追求最高維度或最新模型。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

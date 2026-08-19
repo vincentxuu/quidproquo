@@ -1,6 +1,7 @@
 ---
 title: "Semantic Caching: Run the RAG Pipeline Only Once for Semantically Similar Queries"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, semantic-cache, caching, vector-search, performance]
@@ -138,6 +139,10 @@ Semantic Caching is one of the lowest-cost, highest-impact performance optimizat
 Three things need watching: privacy (don't cache personalized queries), TTL (how often the underlying data changes), and the cost of the cache lookup itself -- once entries pile up, a linear scan becomes the bottleneck, so move it into a vector index. Handle those three and it stays a very high-return optimization.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

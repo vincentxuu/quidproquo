@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare D1：跑在邊緣的 SQLite 關聯式資料庫"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-d1, sqlite, serverless, edge, cloudflare-workers, database]
@@ -83,7 +84,7 @@ const { success } = await env.DB.batch([
 
 `batch()` 在同一個 transaction 裡依序執行所有 statement，任一失敗就全部 rollback。
 
-有一條容易踩到的限額：**每次 Worker 呼叫能對 D1 下的查詢數有上限**，免費方案比付費方案緊很多，而且 batch 裡的每個 statement 各自計算。把 N+1 查詢改成 JOIN 或 batch 不只是效能問題，也是會不會直接撞牆的問題。
+有一條容易踩到的限額：**每次 Worker 呼叫能對 D1 下的查詢數有上限**（[limits 頁](https://developers.cloudflare.com/d1/platform/limits/)：付費 1,000、免費 50），免費方案緊很多。官方沒有說明 `batch()` 裡的多個 statement 是算一次還是逐一計數，保守假設是逐一。把 N+1 查詢改成 JOIN 不只是效能問題，也是會不會直接撞牆的問題。
 
 ## Schema 和 Migration
 
@@ -142,7 +143,7 @@ D1 的吞吐量有個很好算的心智模型，官方文件直接寫了：**每
 **什麼時候要換掉：**
 - 高並發寫入（每秒上千筆）——SQLite 單點寫入會成為瓶頸
 - 需要複雜的 SQL 功能或 PostgreSQL extension
-- 單一資料庫逼近容量上限——**這個上限不能申請調高**，只能水平切成多個資料庫（D1 的設計就是「很多個小資料庫」，per-user / per-tenant 分庫是官方推薦的做法）
+- 單一資料庫逼近容量上限——官方的答案是水平切成多個資料庫，而不是把單庫加大（[limits 頁](https://developers.cloudflare.com/d1/platform/limits/)寫 D1 的設計就是「橫向擴展成很多個較小的 10 GB 資料庫」，per-user / per-tenant 分庫是官方推薦的做法）。單庫上限能不能個案申請調高，官方目前沒有表述；[可以聯絡調高的是帳號總儲存量](https://developers.cloudflare.com/d1/observability/debug-d1/)，兩者不是同一件事
 
 ## D1 vs KV
 
@@ -192,8 +193,8 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 **缺點**
 - SQLite 單點寫入：高並發寫入場景會排隊，這是架構限制，不是 bug
 - 無 stored procedures、no triggers（SQLite 限制）
-- 單一資料庫容量有上限，而且**明確不可調高**——資料會長大的話，一開始就要想好怎麼分庫
-- 免費方案的**單一資料庫容量上限遠低於付費方案**（不是同一個數字打折，是兩個量級），開發時很容易誤判
+- 單一資料庫容量有上限，而官方給的路是分庫而非加大——資料會長大的話，一開始就要想好怎麼分庫
+- 免費方案的**單一資料庫容量上限遠低於付費方案**（500 MB vs 10 GB，差 20 倍），開發時很容易誤判
 - 大批次的 `UPDATE` / `DELETE` 會撞執行限制，官方建議切成每批一千列左右跑
 
 ## 計費的形狀
@@ -205,6 +206,10 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 3. **免費方案的每日讀寫額度是硬牆**，撞到就整個帳號的 D1 直接回錯誤，等 UTC 00:00 重置。上線前要有處理這個錯誤的路徑。
 
 沒有 egress 或頻寬費用。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

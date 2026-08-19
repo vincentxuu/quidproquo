@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare R2：零 Egress 費用的 S3 替代方案"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-r2, object-storage, s3, cloudflare-workers]
@@ -159,6 +160,10 @@ Cloudflare CDN（圖片有 cache-control，全球快取）
 - 規模中等，不需要 AWS 的企業級功能
 
 如果你沒有用 Workers，S3 可能更合適。R2 的最大價值在於跟 Cloudflare 生態的無縫整合，拆出來單獨用優勢就小很多。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

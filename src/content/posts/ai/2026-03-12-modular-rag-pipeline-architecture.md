@@ -1,6 +1,7 @@
 ---
 title: "Modular RAG Pipeline：把 RAG 設計成可組合的 DAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, pipeline, architecture, modular, dag, cloudflare-workers]
@@ -214,6 +215,10 @@ Modular Pipeline 解決的是 RAG 系統的**可維護性**問題。步驟越加
 這個架構的核心取捨：多了一層抽象（Pipeline Engine、Step Registry），換來了可測試性、可配置性、可觀測性。對一個持續演進的 RAG 系統，這個取捨是值得的。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

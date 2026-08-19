@@ -1,6 +1,7 @@
 ---
 title: "Claude、Codex、Gemini 都進瀏覽器了：三家 AI Agent 在 Chrome 的路線比較"
 date: 2026-05-09
+updated: 2026-08-19
 category: ai
 tags: [ai-agent, chrome-extension, claude, codex, chatgpt-atlas, gemini, browser-agent]
 lang: zh-TW
@@ -45,13 +46,13 @@ Anthropic 走的是「擴充功能」路線，而且到現在仍然只做擴充�
 
 Anthropic 在 **2026-05-06** 發布 v1.0.70。LayerX 的後續說法是這只是部分修補：新增的是核准 UI 層，而不是驗證訊息來源，切換到「不詢問」模式或走 side panel 初始化路徑仍可繞過。
 
-**2026-08-17，Manifold Security 又公開兩個相關問題**（合成點擊未檢查 `Event.isTrusted`、side panel 的 `skipPermissions=true` 參數），指出他們在 2026-05-21 就回報、到 v1.0.80 仍可重現，而 Anthropic 把兩份回報都關掉了。
+**2026-07-14，Manifold Security 又公開兩個相關問題**（合成點擊未檢查 `Event.isTrusted`、side panel 的 `skipPermissions=true` 參數），指出他們在 2026-05-21 就回報、到 v1.0.80 仍可重現，而 Anthropic 把兩份回報都關掉了。
 
 要不要用，這是必須自己權衡的一節：**把一個能代表你操作所有已登入服務的 agent 放進瀏覽器，攻擊面就是整個擴充功能生態**。至少該做的是：把權限模式留在 Manual、限制同一個 profile 裡還裝了什麼擴充、敏感工作用另一個 profile。
 
 ### 開發者場景：Claude Code 的瀏覽器整合
 
-Claude Code 這條線是分開的：用 `claude --chrome` 啟動或在對談中打 `/chrome`，它會接上同一個擴充功能。支援 Chrome 與 Microsoft Edge，需要直接向 Anthropic 訂閱的方案並以 `/login` 登入（用 API key 會停用這個功能），WSL 不支援。
+Claude Code 這條線是分開的：用 `claude --chrome` 啟動或在對談中打 `/chrome`，它會接上同一個擴充功能。支援 Chrome 與 Microsoft Edge，官方文件也提到 Brave、Arc、Vivaldi、Opera 等 Chromium 系瀏覽器會偵測到擴充並建立連線（跟上面「擴充本身只支援 Chrome」不衝突——那是講擴充的支援範圍，這是講 Claude Code 的連線路徑）。需要直接向 Anthropic 訂閱的方案並以 `/login` 登入（用 API key 會停用這個功能），WSL 不支援。
 
 適合：想留在 Chrome、不想換生態系、已經是 Claude 付費使用者的人。
 不適合：想要 agent 接管整個瀏覽工作流的重度使用者——Anthropic 故意把它限制在 side panel。
@@ -75,9 +76,9 @@ Claude Code 這條線是分開的：用 `claude --chrome` 啟動或在對談中�
 
 Google 是唯一不需要安裝任何東西的——**Gemini 已經內建在 Chrome 裡**。
 
-基礎的 Gemini in Chrome 側邊欄鋪得很廣，支援地區清單長達近兩百項，涵蓋北美、英國、印度、日本、台灣、澳洲、韓國、巴西、中東等；比較明顯的缺口是歐盟成員國不在清單上。2026-01-28 起在美國先上基於 Gemini 3 的新側邊欄，之後陸續擴到亞太、拉美、非洲與中東。
+基礎的 Gemini in Chrome 側邊欄鋪得很廣，支援地區清單很長，涵蓋北美、英國、印度、日本、台灣、澳洲、韓國、巴西、中東等；比較明顯的缺口是歐盟成員國不在清單上。2026-01-28 起在美國先上基於 Gemini 3 的新側邊欄，之後陸續擴到亞太、拉美、非洲與中東。
 
-重點功能 **Auto Browse**（agentic 多步操作：比價、訂房、填表）的門檻則窄得多，而且到現在都沒放寬：**限美國、限 Google AI Pro / Ultra 訂閱、限個人帳號、限英文介面**，官方頁面仍標示為實驗性功能且採逐步釋出。2026-05 之後 Android 也拿到 auto browse。實際門檻與每日用量上限會變，**以[官方支援頁](https://support.google.com/chrome/answer/16821166)為準**。
+重點功能 **Auto Browse**（agentic 多步操作：比價、訂房、填表）的門檻則窄得多，而且到現在都沒放寬：**限美國、限 Google AI Pro / Ultra 訂閱、限個人帳號、限英文介面**，官方頁面的措辭是逐步釋出（*gradually releasing*，「可能還沒輪到你」），不是標為實驗性。2026-05 之後 Android 也拿到 auto browse。實際門檻與每日用量上限會變，**以[官方支援頁](https://support.google.com/chrome/answer/16821166)為準**。
 
 設計哲學是 **first-party 整合**：Gemini 不是寄生在 Chrome 上，是 Chrome 的一部分。這帶來幾個別人做不到的事：跨 Google Apps 的深度整合、不需要額外的擴充功能授權步驟、以及像「讓 Gemini 用 Google 密碼管理員替你登入」（密碼不交給 Gemini，可隨時撤銷）這種只有瀏覽器廠商做得到的整合。安全設計上，任務開始前會先給你看一份計畫要你按「開始」，執行中可以隨時「接手／交還」。
 
@@ -92,7 +93,7 @@ Google 是唯一不需要安裝任何東西的——**Gemini 已經內建在 Chr
 |---|---|---|---|
 | Anthropic | Chrome 擴充（side panel，現為 Cowork session） | 付費方案（Pro / Max / Team / Enterprise） | 只支援 Chrome、不支援行動裝置；Enterprise 預設關閉 |
 | OpenAI | ChatGPT 桌面版 + ChatGPT / Codex 的 Chrome 擴充 | 依方案與地區而定 | **Atlas 已於 2026-08-09 終止**；Codex extension 有地區限制 |
-| Google | Chrome 內建 side panel | 側邊欄廣泛開放；Auto Browse 限美國 AI Pro / Ultra | Auto Browse 仍為實驗性、逐步釋出；歐盟不在支援清單 |
+| Google | Chrome 內建 side panel | 側邊欄廣泛開放；Auto Browse 限美國 AI Pro / Ultra | Auto Browse 逐步釋出中；歐盟不在支援清單 |
 
 精確的方案門檻、地區與配額變動頻繁，這裡只給輪廓——真要下決定前請看各家官方頁面（文末參考資料）。
 
@@ -112,6 +113,10 @@ Google 是唯一不需要安裝任何東西的——**Gemini 已經內建在 Chr
 4. **你能承受多少風險？** 瀏覽器 agent 的攻擊面（惡意擴充、頁面內的 prompt injection）是真實且仍在被揭露的。處理敏感資料時，用專屬 profile、把權限模式調到最保守。
 
 Atlas 的結局說明了一件事：這一輪競爭的勝負手不是「agent 能力多深」，而是「使用者願意改變多少習慣」。答案顯然是：很少。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

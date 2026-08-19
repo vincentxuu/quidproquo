@@ -1,6 +1,7 @@
 ---
 title: "Hono：為 Edge Runtime 而生的輕量 Web Framework"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [hono, cloudflare-workers, edge, web-framework]
@@ -161,6 +162,10 @@ Routes 只管 OpenAPI 描述和 request validation，services 放業務邏輯，
 Hono 很輕，但輕意味著你要自己組裝更多東西。Express 的生態有十幾年的 middleware 積累，很多需求有現成解法；Hono 的生態還在成長，遇到邊緣需求可能要自己寫。
 
 另一個要注意的是：Workers 環境有很多限制（沒有檔案系統、沒有 TCP socket 直接存取、CPU 時間與記憶體上限）。這些不是 Hono 的問題，是 [Workers 的限制](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)——但選了 Hono 通常意味著你也選了 Workers，所以要一起考慮。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

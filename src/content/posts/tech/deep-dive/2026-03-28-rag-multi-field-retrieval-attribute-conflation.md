@@ -1,6 +1,7 @@
 ---
 title: "當 Vector Search 把名字當難度搜：RAG 系統的 Attribute Conflation 問題"
 date: 2026-03-28
+updated: 2026-08-19
 category: tech
 tags: [rag, vector-search, embedding, cloudflare-workers, recommendation-system]
 lang: zh-TW
@@ -232,6 +233,10 @@ Dense embedding 擅長捕捉模糊的語意相似——「風格類似」、「�
 長期來看，field-aware embedding（加 prefix）和 multi-index strategy 是更乾淨的架構，但前提是先把基本的 metadata filtering 做好。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

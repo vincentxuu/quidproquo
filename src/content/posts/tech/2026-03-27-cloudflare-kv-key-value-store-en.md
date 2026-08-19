@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare KV: A Global Edge Key-Value Store"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-kv, key-value, cache, edge, cloudflare-workers]
@@ -24,7 +25,7 @@ The sentence most often written wrong about KV is "data is replicated to every P
 Two consequences follow:
 
 - **The first read of a key is always slower**, and only later reads are fast. Data with a scattered read pattern — each key read once or twice — gains nothing from KV.
-- **Post-write visibility is asymmetric.** The docs are explicit: a write is immediately visible to subsequent requests *in the same location*, but can take up to 60 seconds (or the `cacheTtl` you pass) to become visible elsewhere in the world.
+- **Post-write visibility is asymmetric.** A write is *usually* visible immediately to subsequent requests *in the same location*, but can take up to 60 seconds (or the `cacheTtl` you pass) to become visible elsewhere in the world. Note how guarded the docs are about the first half — [How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/) says changes are *usually* immediately visible but that **this is not guaranteed and therefore it is not advised to rely on this behaviour**. Same-location read-after-write explains the behaviour you observe; it is not something to design against.
 
 So "eventual consistency" here has a concrete number attached, not a vague "seconds to tens of seconds."
 
@@ -142,6 +143,10 @@ This caching strategy works in conjunction with the semantic cache step in the R
 - Your data has a clear TTL (cache, ephemeral state, sessions)
 
 If you need strong consistency or complex queries, use D1. If you need high-frequency writes to a single key or any coordination (counting, locking, rate limiting), use Durable Objects; for pub/sub, self-hosted Redis is a better fit.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare R2: An S3 Alternative with Zero Egress Fees"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-r2, object-storage, s3, cloudflare-workers]
@@ -159,6 +160,10 @@ Two things are **no longer** cons: [object lifecycle rules](https://developers.c
 - You're at a medium scale and don't need enterprise-grade AWS features
 
 If you're not using Workers, S3 is probably the better fit. R2's biggest value comes from seamless integration with the Cloudflare ecosystem — using it in isolation reduces the advantage considerably.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "「推薦下一條」和「推薦類似的」不是同一件事 — RAG 推薦系統的意圖消歧"
 date: 2026-03-28
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [rag, intent-classification, nlp, recommendation-system, slot-filling]
@@ -260,6 +261,10 @@ if (recommendResult.intent !== 'exploration' || hasCompletionTrigger(query)) {
 未來可以整合使用者歷史紀錄（連續 RP 同級路線更可能是 progression）、WHR 機率模型（推薦成功機率 50-70% 的路線），以及 LLM 結構化輸出作為 regex 階段 confidence 不足時的 fallback。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

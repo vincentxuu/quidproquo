@@ -1,6 +1,7 @@
 ---
 title: "AEO Guide: Answer Engine Optimization — Getting AI Search Engines to Cite Your Content"
 date: 2026-03-27
+updated: 2026-08-19
 category: tech
 tags: [aeo, seo, ai-search, structured-data, content-strategy, blog]
 lang: en
@@ -171,6 +172,10 @@ Include a references section in each post. For AEO, this has a dual effect:
 2. **Establishes knowledge graph connections**: your article becomes linked to authoritative sources
 
 ```markdown
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
+
 ## References
 
 - [Google Search Central - Structured Data](https://developers.google.com/search/docs/appearance/structured-data)
@@ -196,7 +201,7 @@ AI search engines are evolving quickly. A few trends worth watching:
 
 - **Citation standardization**: AI engines are developing more explicit citation and attribution mechanisms
 - **AI crawler protocols**: this originally said "such as ai.txt". Two years on, what actually emerged is a different set: Cloudflare's [Content Signals Policy](https://blog.cloudflare.com/content-signals-policy/) (adding `search` / `ai-input` / `ai-train` usage signals to robots.txt), the IETF AIPREF working group, and llms.txt — though llms.txt has landed far below expectations, as covered in part 3 of this series
-- **From stated preference to enforcement**: on 2026-07-01 Cloudflare announced that from 2026-09-15 its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, and that Pay Per Crawl is becoming Pay Per Use ([announcement](https://blog.cloudflare.com/content-independence-day-ai-options/)). robots.txt is a request; a CDN-level block is enforcement
+- **From stated preference to enforcement**: on 2026-07-01 Cloudflare announced that from 2026-09-15 its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, and that Pay Per Crawl is becoming Pay Per Use ([announcement](https://blog.cloudflare.com/content-independence-day-ai-options/); the "mixed-use" definition, the scope, and Pay Per Use appear only in the [press release](https://www.cloudflare.com/press/press-releases/2026/cloudflare-allows-the-agentic-internet-to-flourish-with-a-simple-philosophy-your-content-your-rules/)). robots.txt is a request; a CDN-level block is enforcement
 - **Content licensing**: Models for licensing content between publishers and AI companies are still being worked out
 - **Multimodal search**: AI engines are beginning to understand images and video, not just text
 

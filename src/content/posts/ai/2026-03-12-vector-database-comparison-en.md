@@ -1,6 +1,7 @@
 ---
 title: "Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, vector-database, pinecone, weaviate, qdrant, cloudflare-vectorize]
@@ -127,6 +128,10 @@ Vector database selection is 70% determined by **deployment platform, existing s
 Don't spend too much time on "which benchmark is highest" — and don't trust any feature matrix, including the one this article deleted. Confirm your deployment environment, filtering needs, and scale, then check the current feature state in the vendor's own docs.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

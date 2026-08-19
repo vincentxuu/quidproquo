@@ -1,6 +1,7 @@
 ---
 title: "RAG Guardrails: Adding a Defense Layer to Inputs and Outputs"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, guardrails, security, prompt-injection, safety, llm]
@@ -213,6 +214,10 @@ Guardrails are not "security-washing" — no system is absolutely secure, especi
 The most important design principle: **fail safe**. When Guardrails are uncertain, reject or add a disclaimer rather than let it through. Better to have one extra disclaimer than to let a hallucinated route recommendation mislead a user into making a dangerous climbing decision.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

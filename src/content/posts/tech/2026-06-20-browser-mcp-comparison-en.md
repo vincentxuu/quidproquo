@@ -1,6 +1,7 @@
 ---
 title: "Choosing a Browser MCP: CDP, Playwright MCP, or Puppeteer MCP?"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [mcp, browser-automation, playwright, puppeteer, cdp, ai-agent, developer-tools]
@@ -47,7 +48,7 @@ What actually separates them now is **purpose**:
 | Performance trace / Lighthouse | ✅ | ❌ | ❌ |
 | Heap snapshots | ✅ (`--memoryDebugging`) | ❌ | ❌ |
 | Extension / PWA management | ✅ | ❌ | ❌ |
-| Request interception | ✅ | ✅ (`--caps=network`) | Roll your own via evaluate |
+| Request interception | ❌ read-only inspection + throttling / URL blocking | ✅ (`--caps=network`, `browser_route`) | Roll your own via evaluate |
 | Assertions / locator generation | ❌ | ✅ (`--caps=testing`) | ❌ |
 | Context-size control | `--slim` | Per-group `--caps` | Only 7 tools to begin with |
 | Usage statistics by default | ✅ (disable with `--no-usage-statistics`) | ❌ | ❌ |
@@ -97,6 +98,10 @@ A minimal tool set (navigate, screenshot, click, fill, select, hover, evaluate),
 ## In Summary
 
 This question went from "pick one of three abstraction levels" to "pick one of two purposes". @playwright/mcp makes the agent get page operations right; chrome-devtools-mcp lets the agent explain why a page is slow or leaking. And server-puppeteer demonstrates a third thing: **MCP servers have shorter lifespans than you'd assume** — putting "is anyone still maintaining this" on the evaluation sheet is more useful than counting tools.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

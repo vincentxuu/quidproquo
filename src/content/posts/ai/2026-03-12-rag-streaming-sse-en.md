@@ -1,6 +1,7 @@
 ---
 title: "RAG Streaming: Using SSE to Display LLM Responses as They Generate"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, streaming, sse, server-sent-events, cloudflare-workers, ux]
@@ -232,6 +233,10 @@ SSE Streaming has the most direct impact on RAG system user experience: transfor
 The key to implementation isn't just pushing tokens, but also: event format design (`done` includes complete metadata), quota refund mechanisms (disconnections shouldn't penalize users), and frontend buffer handling (SSE events may be split across chunks). Getting these details right is what makes the streaming experience truly complete.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "RAG Cold Start: Building a Useful System When You Have No Data"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, cold-start, bootstrapping, indexing, data]
@@ -197,6 +198,10 @@ Cold start is an engineering problem, not a RAG algorithm problem. The solution 
 Most importantly: **don't wait until your data is complete before going live**. Ship → users use it → gaps surface → fill the gaps. That loop beats trying to build a complete database upfront.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers AI 模型選型指南：依用途、價格與 context 挑模型"
 date: 2026-08-18
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]

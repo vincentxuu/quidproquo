@@ -1,6 +1,7 @@
 ---
 title: "RAG Streaming：SSE 讓 LLM 回答邊生成邊顯示"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, streaming, sse, server-sent-events, cloudflare-workers, ux]
@@ -232,6 +233,10 @@ SSE Streaming 對 RAG 系統的使用者體驗影響是最直接的：從「等 
 實作的關鍵不只是推送 token，而是：事件格式設計（`done` 包含完整的 metadata）、配額退還機制（斷線不虧待使用者）、前端的 buffer 處理（SSE 事件可能被 chunk 切斷）。這些細節做好了，串流體驗才是完整的。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

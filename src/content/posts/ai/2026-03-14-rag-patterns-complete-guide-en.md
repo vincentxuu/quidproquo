@@ -1,6 +1,7 @@
 ---
 title: "The Complete Guide to RAG System Patterns: A Ten-Generation Evolution from Naive to Multi-Agent with Practical Navigation"
 date: 2026-03-14
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
@@ -624,6 +625,10 @@ RAG is not a single technology — it's an entire technology ecosystem.
 Don't try to learn everything at once. Find the problem you most urgently need to solve right now, follow the corresponding path, understand and stabilize that area, then move on to the next topic.
 
 This guide will be continuously updated. Whenever a new deep-dive article is published, links will be added here.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

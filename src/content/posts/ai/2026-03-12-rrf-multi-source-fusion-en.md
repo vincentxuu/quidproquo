@@ -1,6 +1,7 @@
 ---
 title: "RRF: How to Merge Multi-Source Results in RAG Systems"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, rrf, fusion, ranking, multi-source, retrieval]
@@ -166,6 +167,10 @@ The cost is that it throws away everything the scores encoded -- an explicit tra
 This approach of "reducing a complex problem to its core" is a common trait of many good designs.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

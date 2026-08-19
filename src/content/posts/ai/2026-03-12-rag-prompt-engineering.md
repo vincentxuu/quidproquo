@@ -1,6 +1,7 @@
 ---
 title: "RAG Prompt Engineering：System Prompt 和 Context 怎麼設計"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, prompt-engineering, system-prompt, context, llm]
@@ -213,6 +214,10 @@ Prompt Engineering 在 RAG 系統裡的地位被低估了。搜尋做得再好�
 這四點做好，不需要複雜的技術，回答品質就能明顯提升。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

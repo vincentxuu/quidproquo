@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers AI Model Picking Guide: By Use Case, Price, and Context"
 date: 2026-08-18
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]
@@ -269,6 +270,10 @@ This is an article with an expiry date, so the update rules live here:
 ## Update log
 
 - 2026-08-18: First published, checked against the 2026-08-12 catalog (84 models) and the 2026-08-18 pricing page.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

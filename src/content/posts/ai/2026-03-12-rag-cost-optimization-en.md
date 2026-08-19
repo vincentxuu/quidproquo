@@ -1,6 +1,7 @@
 ---
 title: "RAG Cost Optimization: Minimizing the Cost of Every Query"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, cost-optimization, performance, token-budget, caching]
@@ -180,6 +181,10 @@ The ROI ordering for RAG cost optimization usually runs: turn on prompt caching 
 Other optimizations (context length control, step skipping) are fine-tuning -- limited individual impact but worthwhile in aggregate. Quality protection (Judge) should not be sacrificed lightly. The cost of running a Judge buys continuous monitoring of system quality, and the value of that monitoring far exceeds the token savings from removing it.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

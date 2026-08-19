@@ -1,6 +1,7 @@
 ---
 title: "RAG 配額系統：用雙重限制控制 LLM 成本"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, quota, rate-limiting, token-budget, cost-control, cloudflare-workers]
@@ -196,6 +197,10 @@ WHERE
 這些細節都做對，配額系統才能既控制成本，又不讓使用者有被剋扣的感覺。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

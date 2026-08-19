@@ -1,6 +1,7 @@
 ---
 title: "Chunking 策略：切塊方式決定 RAG 能不能找到答案"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, chunking, indexing, text-splitting, retrieval]
@@ -242,6 +243,10 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 最務實的建議：從 Recursive Chunking + Contextual Retrieval 開始，然後根據實際的搜尋品質（查看 trace 裡命中的 chunk 是否有意義）決定要不要換策略。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

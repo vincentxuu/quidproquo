@@ -1,6 +1,7 @@
 ---
 title: "RAG Prompt Engineering: How to Design System Prompts and Context"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, prompt-engineering, system-prompt, context, llm]
@@ -213,6 +214,10 @@ The most effective prompt improvements:
 Get these four points right, and answer quality improves noticeably — no complex techniques required.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "RAG Observability Tool Landscape: Choices in 2026"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, observability, langfuse, phoenix, langsmith, tracing, monitoring]
@@ -219,6 +220,10 @@ If you haven't decided, instrumenting against OpenTelemetry's [GenAI semantic co
 NobodyClimb's system went with custom traces, mainly because it's deployed on Cloudflare Workers (which can't easily run external SDKs' flush mechanisms), and trace data needs tight integration with business data (climbing routes, user profiles). But if starting from scratch with no platform constraints, Langfuse would be the first option to try.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

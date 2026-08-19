@@ -1,6 +1,7 @@
 ---
 title: "36 小時建出法律合約 RAG：Weaviate Query Agent + ColQwen 架構拆解"
 date: 2026-04-23
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, weaviate, legal-ai, colqwen, muvera, vector-database, agentic-search]
@@ -198,6 +199,10 @@ def get_client(): return _lifespan.weaviate_client
 36 小時能跑起來，是因為 Agent Skills 把幾個月的工程成果壓進了一個 prompt 能用的操作手冊。這是重要的 context，不是批評——你要知道你在使用別人做完的功課，這樣才能準確評估哪些部分你真正理解，哪些部分你只是呼叫了而已。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

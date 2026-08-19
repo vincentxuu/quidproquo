@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Free Plan Maintenance Page: Custom Error Pages Unavailable, Use a Worker Instead"
 date: 2026-03-13
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare, workers, nginx, devops]
@@ -108,6 +109,10 @@ In April 2025, Cloudflare restructured Custom Pages into the more powerful Custo
 ## What I Learned
 
 Cloudflare Workers are incredibly versatile as a lightweight proxy layer — not just for edge functions. Whenever a platform feature is locked behind a paid tier, Workers can almost always replicate it in code. The Free Plan includes a daily request allowance in the hundred-thousand range (current figure in [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)), which is more than enough for most sites.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

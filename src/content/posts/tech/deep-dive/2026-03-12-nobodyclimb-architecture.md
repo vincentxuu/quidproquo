@@ -1,6 +1,7 @@
 ---
 title: "NobodyClimb：用 Cloudflare 全端打造攀岩社群平台"
 date: 2026-03-12
+updated: 2026-08-19
 category: tech
 tags: [cloudflare-workers, nextjs, hono, rag, react-native, monorepo]
 lang: zh-TW
@@ -128,6 +129,10 @@ data: {"message": "..."}
 這套架構的核心取捨是：**用 Cloudflare 的生態系換掉所有的 infra 管理成本**。D1 不是最強的資料庫，Workers AI 不是最豐富的 AI 平台，但對一個 side project 來說，不需要管 VPC、不需要設 auto-scaling、不需要監控 server uptime，這個換法是值得的。
 
 適合類似規模的專案：有一定的複雜度（monorepo、多平台、AI 功能），但還沒到需要獨立 infra 的量。如果 DAU 到了幾萬、寫入量變大，D1 和 Workers 的限制就會開始痛，那時候才是考慮換架構的時間點。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「NobodyClimb 專案紀實」系列
 
 ## 參考資料
 

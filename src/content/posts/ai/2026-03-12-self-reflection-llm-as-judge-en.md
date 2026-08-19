@@ -1,6 +1,7 @@
 ---
 title: "Self-Reflection + LLM-as-Judge: Having AI Evaluate Its Own Answers"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, llm-judge, self-reflection, groundedness, quality-assurance]
@@ -149,6 +150,10 @@ LLM-as-Judge is a core mechanism for RAG quality assurance. Groundedness tells t
 The most important design principle: **never trust any single evaluation**. Low Judge score → flag for manual review. Poor user rating → also triggers flagging. Only when both signals agree is a problem truly confirmed. Multiple signals are more reliable than a single one.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

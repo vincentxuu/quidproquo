@@ -1,6 +1,7 @@
 ---
 title: "Modular RAG Pipeline: Designing RAG as a Composable DAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, pipeline, architecture, modular, dag, cloudflare-workers]
@@ -214,6 +215,10 @@ The Modular Pipeline solves the **maintainability** problem in RAG systems. As y
 The core trade-off in this architecture: you add a layer of abstraction (Pipeline Engine, Step Registry), and in exchange you get testability, configurability, and observability. For a RAG system that keeps evolving, that trade-off is worth it.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

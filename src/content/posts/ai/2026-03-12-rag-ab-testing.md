@@ -1,6 +1,7 @@
 ---
 title: "RAG A/B 測試：怎麼科學地比較兩個 Pipeline 配置"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, ab-testing, experimentation, metrics, pipeline]
@@ -180,6 +181,10 @@ RAG 的 A/B 測試不需要複雜的工具，核心是：清楚的對照設計�
 最重要的習慣：**在系統上線時就埋下 experiment_id 欄位**，不要等到需要測試時才發現沒有資料可以分析。預先設計可觀測性，才能讓每次改動都有數據支撐。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

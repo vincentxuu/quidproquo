@@ -1,6 +1,7 @@
 ---
 title: "@opennextjs/cloudflare: Running Next.js on Cloudflare Workers"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [opennextjs, cloudflare-workers, nextjs, deployment]
@@ -174,7 +175,7 @@ This adapter isn't a silver bullet. It has well-defined constraints:
 
 **Workers runtime constraints:**
 - CPU time: 10 ms per request on the free plan; on paid, 30 seconds by default with a 5-minute ceiling. SSR-heavy pages hit the free-plan limit easily
-- 128 MB of memory (the old "Bundled" and "Unbound" plan names are retired — do not configure against older write-ups)
+- 128 MB of memory (new projects will not meet the old "Bundled" and "Unbound" plan names, but [the limits page still keeps a section for them](https://developers.cloudflare.com/workers/platform/limits/) and they still apply to existing Workers — Bundled means 50 ms CPU and 50 subrequests per request)
 - See [Workers limits](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
 
 **You do not have to give up `next dev` locally.**
@@ -214,6 +215,10 @@ For a community platform like NobodyClimb — moderate traffic, everything on Cl
 | Pricing model | Per-request | Usage/seat-based | Per server-hour |
 | Cold starts | Very low (edge) | Low | None (always-on) |
 | Suitable scale | Small to medium | Small to large | Medium to large |
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

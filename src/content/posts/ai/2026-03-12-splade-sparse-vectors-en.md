@@ -1,6 +1,7 @@
 ---
 title: "SPLADE: Smarter Sparse Vector Search Beyond BM25"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, splade, sparse-vector, bm25, retrieval, hybrid-search]
@@ -104,6 +105,10 @@ SPLADE is a strong evolution of BM25, but not every system needs it. The combina
 If your RAG system repeatedly encounters the problem of "not finding documents that express the same concept with different wording," SPLADE is worth serious evaluation.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

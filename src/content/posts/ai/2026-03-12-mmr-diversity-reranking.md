@@ -1,6 +1,7 @@
 ---
 title: "MMR + 熱門度加權：讓推薦結果既相關又多樣"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, mmr, diversity, reranking, popularity, recommendation]
@@ -117,6 +118,10 @@ MMR 在 RAG 系統中經常被低估。把 Top-10 相關文件直接送進 LLM�
 加上熱門度加權，推薦結果既有語義相關性（向量搜尋 + 重排序），又有社群驗證（熱門度），是一個在算法嚴謹性和使用者體驗之間找到平衡的設計。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

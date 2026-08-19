@@ -1,6 +1,7 @@
 ---
 title: "Hybrid Search: Using BM25 + Vector Search to Cover Each Other's Blind Spots"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, hybrid-search, bm25, vector-search, rrf, embedding]
@@ -162,6 +163,10 @@ The engineering overhead is also manageable: BM25 is handled by SQLite FTS5 with
 One more trade-off worth naming is build-vs-buy. Cloudflare's AI Search now ships hybrid search out of the box: vector and BM25 run in parallel and are fused with RRF (or max), with the tokenizer and fusion method configurable. If all you need is "hybrid search over a pile of documents," the managed route saves a lot of operational work. What the hand-rolled version buys you is full control over filter extraction, the degradation strategy, and how many legs go into RRF. See [AI Search: Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/).
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

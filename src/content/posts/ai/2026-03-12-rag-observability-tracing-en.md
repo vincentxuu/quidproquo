@@ -1,6 +1,7 @@
 ---
 title: "RAG Observability: 17-Step Tracing to Turn the Black Box Transparent"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, observability, tracing, debugging, pipeline, monitoring]
@@ -223,6 +224,10 @@ Observability is the critical gap between a RAG system that "runs" and one that'
 When designing traces, recording "decision rationale" is more valuable than recording "execution results." Results can often be inferred from the answer itself — rationale is the key to debugging. Why did the LLM classify the query this way? Why did CRAG trigger? Why didn't Self-Reflection adopt the new answer? The answers to all these questions live in the trace.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

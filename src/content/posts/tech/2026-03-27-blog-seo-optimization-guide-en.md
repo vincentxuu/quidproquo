@@ -1,6 +1,7 @@
 ---
 title: "A Complete Guide to Blog SEO — From Meta Tags to Structured Data"
 date: 2026-03-27
+updated: 2026-08-19
 category: tech
 tags: [seo, astro, structured-data, json-ld, open-graph, blog]
 lang: en
@@ -142,7 +143,7 @@ Google has been steadily retiring rich result types, which means a large share o
 | `HowTo` | Tutorial posts | **No** — stopped showing back in 2023; docs removed |
 | `WebSite` + `SearchAction` | Homepage | **No** — the sitelinks search box was retired in October 2024 |
 
-The FAQ removal played out over three years: in August 2023 Google restricted it to "well-known, authoritative government and health websites"; on 2026-05-07 it stopped appearing for those too; the documentation came down in June 2026, and Search Console API support goes away in August 2026. The dates are all in Google's [documentation changelog](https://developers.google.com/search/updates).
+The FAQ removal played out over three years: in August 2023 Google restricted it to "well-known, authoritative government and health websites"; on 2026-05-07 it stopped appearing for those too; and the documentation came down on 2026-06-15. The dates are all in Google's [documentation changelog](https://developers.google.com/search/updates).
 
 **So is schema without a rich result wasted effort?** Not entirely. Google's [generative AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), published in May 2026, states plainly that structured data is **not** required for generative AI search and that there is no special schema.org markup to add — while still recommending you keep using it as part of overall SEO, because it's what makes you eligible for rich results. Treat schema as a rich-result eligibility tool, not as a way to court AI systems.
 
@@ -272,6 +273,10 @@ Technical SEO is a one-time investment: set it up in your Layout and build pipel
 You don't need to chase perfection — getting the three core schemas right (`Article`/`BlogPosting`, `BreadcrumbList`, `Organization`) already puts you ahead of 90% of personal blogs out there. Don't spend the remaining effort chasing rich result types that have already been retired; Google prunes the list every year, and the pruning is logged in the [documentation changelog](https://developers.google.com/search/updates).
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
 
 ## References
 

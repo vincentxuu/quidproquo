@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare D1: SQLite Relational Database at the Edge"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-d1, sqlite, serverless, edge, cloudflare-workers, database]
@@ -142,7 +143,7 @@ D1 throughput has a mental model you can compute, and the docs state it outright
 **When to switch away:**
 - High-concurrency writes (thousands per second) — SQLite's single-writer model becomes a bottleneck
 - Complex SQL requirements or PostgreSQL extensions
-- A single database approaching the size ceiling — **that ceiling cannot be raised on request**; the only path is sharding across databases. D1 is designed for "many small databases", and per-user or per-tenant sharding is the officially recommended pattern
+- A single database approaching the size ceiling — the official answer is sharding across databases rather than growing one ([the limits page](https://developers.cloudflare.com/d1/platform/limits/) says D1 is designed to "scale out across multiple, smaller (10 GB) databases", and per-user or per-tenant sharding is the recommended pattern). Whether the per-database ceiling can be raised case by case is not something the docs currently state; [what you can ask to have raised is the account-wide storage limit](https://developers.cloudflare.com/d1/observability/debug-d1/), which is a different thing
 
 ## D1 vs KV
 
@@ -193,7 +194,7 @@ For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep
 - SQLite single-writer model: high-concurrency write scenarios will queue up — this is an architectural constraint, not a bug
 - No stored procedures or triggers (SQLite limitation)
 - A per-database size ceiling that is **explicitly not raisable** — if the data will grow, plan the sharding up front
-- The free plan's **per-database size ceiling is far below the paid one** — not a discount on the same number, but two orders of magnitude apart, which is easy to misjudge during development
+- The free plan's **per-database size ceiling is far below the paid one** — 500 MB against 10 GB, a 20x gap that is easy to misjudge during development
 - Large bulk `UPDATE` / `DELETE` statements hit execution limits; the docs recommend chunking them into batches of roughly a thousand rows
 
 ## The Shape of the Billing
@@ -205,6 +206,10 @@ Exact numbers live in [D1 Pricing](https://developers.cloudflare.com/d1/platform
 3. **The free plan's daily read/write allowances are hard walls.** Hit one and D1 returns errors account-wide until the 00:00 UTC reset. Have an error path for that before you launch.
 
 There are no egress or bandwidth charges.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

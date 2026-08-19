@@ -1,6 +1,7 @@
 ---
 title: "RAG Observability：黑盒子變透明的 17 步追蹤"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, observability, tracing, debugging, pipeline, monitoring]
@@ -221,6 +222,10 @@ WHERE created_at < unixepoch() - 30 * 86400;
 設計 trace 的時候，記錄「決策理由」比記錄「執行結果」更有價值。結果很多時候看答案就知道了，理由才是除錯的關鍵——LLM 為什麼這樣分類？CRAG 為什麼觸發？Self-Reflection 為什麼沒採用新回答？這些問題的答案都在 trace 裡。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

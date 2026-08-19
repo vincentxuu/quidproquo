@@ -1,6 +1,7 @@
 ---
 title: "RAG 多實體查詢：當使用者一次丟五條路線，系統只看到第一條"
 date: 2026-03-28
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [rag, ner, query-decomposition, recommendation-system, multi-hop-qa]
@@ -187,6 +188,10 @@ vector search   → post-filter 排除多條路線（$nin 而非 $ne）
 Query Decomposition 和 Collaborative Filtering 先放著。前者在已有 LangGraph multi-tool 路徑的前提下有重疊，後者需要更多使用者資料。等 P0-P2 上線，再看推薦品質的瓶頸在哪裡決定下一步。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

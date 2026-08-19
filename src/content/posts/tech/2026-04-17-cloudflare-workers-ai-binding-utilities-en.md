@@ -1,6 +1,7 @@
 ---
 title: "The Full Picture of Cloudflare Workers AI Binding: It's More Than Just run()"
 date: 2026-04-17
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-workers-ai, cloudflare, rag, ai-gateway, tomarkdown]
@@ -124,10 +125,8 @@ await env.AI.toMarkdown(files, {
 
 ### Limitations
 
-- Single file cap: **10 MB**
-- URL fetch timeout: **30 seconds**
-- To check supported file extensions: `await env.AI.toMarkdown().supported()`
-- Treat the [Markdown Conversion docs](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) as authoritative for these numbers
+- To check supported file extensions: `await env.AI.toMarkdown().supported()` — the only source worth trusting; do not memorize an extension list
+- There are caps on file size and on the URL fetch timeout, but [the docs](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) do not currently state the numbers. The "10 MB, 30 seconds" figures that circulate have no traceable current source, so **treat them as an order of magnitude, not a spec** — measure it yourself if you plan to run near the ceiling
 
 ### Why "80% Fewer Tokens"
 
@@ -236,7 +235,7 @@ Some natural next steps:
 
 **`toMarkdown` specific:**
 
-- 10 MB file size limit
+- A file size cap (the docs do not state the number — see above)
 - Image captioning is billed (runs through a vision model)
 - PDF OCR on scanned documents is mediocre; typeset PDFs work fine
 
@@ -260,6 +259,10 @@ Some natural next steps:
 - Connect external providers → `gateway()`
 
 Before writing AI features next time, ask: is there a managed version of this? Surprisingly often the answer is yes — and it's right there under `env.AI.`.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

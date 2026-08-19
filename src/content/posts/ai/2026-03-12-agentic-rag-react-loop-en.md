@@ -1,6 +1,7 @@
 ---
 title: "Agentic RAG: Letting the LLM Decide When to Search Again"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, agentic-rag, react, multi-hop, llm-agent]
@@ -152,6 +153,10 @@ Agentic RAG represents the evolution of RAG systems from *passive retrieval* to 
 The core design principle: **give the LLM enough information instead of making it guess**. Rather than asking the model to reason from an incomplete context, let it run a few more searches until it has what it needs. Agentic RAG hands that judgment back to the LLM.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

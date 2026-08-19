@@ -1,6 +1,7 @@
 ---
 title: "PageIndex: RAG Without Vectors — Turning Long Documents Into a Book With a Table of Contents"
 date: 2026-05-08
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, llm, pageindex, vectorless, retrieval, financebench]
@@ -123,6 +124,10 @@ The project is growing along two axes: **PageIndex File System**, a file-level t
 The truly noteworthy thing about PageIndex isn't the 98.7% number — that is a vendor self-evaluation, and the 31% it gets compared against is not even the same experiment. What matters is that it reopens the assumption that "doing RAG necessarily means doing vectors." As LLM inference gets cheaper and context windows get longer, the cost curve for "just let the model read a table of contents" will keep trending downward.
 
 It isn't trying to replace vector RAG. Rather, it carves out a domain where vectors don't perform well: finding the right section in a well-structured long document may not need vectors at all. Conversely, once you scale to thousands of documents, the current evidence says it has to invite vectors back in.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

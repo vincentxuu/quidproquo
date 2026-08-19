@@ -1,6 +1,7 @@
 ---
 title: "Is Your JSON-LD Invisible to AI Search Engines? A Pipeline Breakdown and AEO/GEO Strategy"
 date: 2026-04-18
+updated: 2026-08-19
 type: guide
 category: marketing
 tags: [aeo, geo, ai-seo, web-search, content-strategy, seo, json-ld, schema, structured-data, llms-txt, claude-code, perplexity]
@@ -138,6 +139,10 @@ Incidentally, the FAQ schema mentioned at the top of this post no longer produce
 AEO/GEO in 2026 is not a one-size-fits-all game. The pipeline differences between AI search engines are large enough that the same page can look completely different on different platforms — the gap between "full crawl with indexed structured data" and "local Axios reading body only" can't be bridged by tweaks.
 
 But one thing remains constant across all platforms: **write information-dense body content, present it with clear structure, and ensure every paragraph still makes sense after being truncated and paraphrased.** Technical additions (schema, llms.txt, JSON-LD) are multipliers, not foundations.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
 
 ## References
 

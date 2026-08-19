@@ -1,6 +1,7 @@
 ---
 title: "Claude, Codex, and Gemini Are All in the Browser Now: Comparing Three AI Agent Approaches in Chrome"
 date: 2026-05-09
+updated: 2026-08-19
 category: ai
 tags: [ai-agent, chrome-extension, claude, codex, chatgpt-atlas, gemini, browser-agent]
 lang: en
@@ -47,13 +48,13 @@ In May 2026, LayerX disclosed **ClaudeBleed**: the extension trusts the `claude.
 
 Anthropic shipped v1.0.70 on **6 May 2026**. LayerX's follow-up position is that this was a partial fix: what was added was an approval UI layer rather than validation of message senders, and switching to the no-asking mode or going through the side-panel initialisation path still bypassed it.
 
-**On 17 August 2026, Manifold Security published two related issues** (synthetic clicks not checked against `Event.isTrusted`; a `skipPermissions=true` side-panel parameter), reporting that they had disclosed them on 21 May 2026 and could still reproduce them in v1.0.80 — and that Anthropic closed both reports.
+**On 14 July 2026, Manifold Security published two related issues** (synthetic clicks not checked against `Event.isTrusted`; a `skipPermissions=true` side-panel parameter), reporting that they had disclosed them on 21 May 2026 and could still reproduce them in v1.0.80 — and that Anthropic closed both reports.
 
 This section is a judgement you have to make yourself: **putting an agent that can act as you across every signed-in service into your browser makes the whole extension ecosystem part of your attack surface.** The minimum is to leave the permission mode on Manual, control what else is installed in that profile, and use a separate profile for sensitive work.
 
 ### Developer Path: Claude Code's Browser Integration
 
-Claude Code is a separate line: launch with `claude --chrome` or type `/chrome` in a session, and it attaches to the same extension. It supports Chrome and Microsoft Edge, requires a plan billed directly by Anthropic with `/login` authentication (API keys disable the feature), and is unsupported on WSL.
+Claude Code is a separate line: launch with `claude --chrome` or type `/chrome` in a session, and it attaches to the same extension. It supports Chrome and Microsoft Edge, and the docs note that Chromium-based browsers such as Brave, Arc, Vivaldi and Opera will also detect the extension and connect (not a contradiction of "the extension itself supports only Chrome" above — that is about the extension's supported surface, this is about Claude Code's connection path). It requires a plan billed directly by Anthropic with `/login` authentication (API keys disable the feature), and is unsupported on WSL.
 
 Good fit: people who want to stay in Chrome, don't want to switch ecosystems, and already pay for Claude.
 Poor fit: heavy users who want an agent to take over the whole browsing workflow — Anthropic deliberately keeps it in the side panel.
@@ -77,9 +78,9 @@ Poor fit: anyone who came for Atlas — that product no longer exists.
 
 Google is the only one requiring no installation at all — **Gemini is already built into Chrome.**
 
-The base Gemini in Chrome side panel has broad reach, with a supported-locale list running to roughly two hundred entries covering North America, the UK, India, Japan, Taiwan, Australia, South Korea, Brazil, the Middle East and more. The conspicuous gap: EU member states are not on the list. The Gemini 3-based side panel launched in the US on 28 January 2026 and expanded to APAC, Latin America, Africa, and the Middle East over the following months.
+The base Gemini in Chrome side panel has broad reach, with a long supported-locale list covering North America, the UK, India, Japan, Taiwan, Australia, South Korea, Brazil, the Middle East and more. The conspicuous gap: EU member states are not on the list. The Gemini 3-based side panel launched in the US on 28 January 2026 and expanded to APAC, Latin America, Africa, and the Middle East over the following months.
 
-The headline capability, **Auto Browse** (agentic multi-step work: price comparison, bookings, form filling), has a far narrower gate that has not widened: **US only, Google AI Pro / Ultra subscription only, personal accounts only, English UI only**, and the official page still labels it experimental with a gradual rollout. Auto browse reached Android after May 2026. The exact gating and daily task limits shift, so treat the [official support page](https://support.google.com/chrome/answer/16821166) as the source of truth.
+The headline capability, **Auto Browse** (agentic multi-step work: price comparison, bookings, form filling), has a far narrower gate that has not widened: **US only, Google AI Pro / Ultra subscription only, personal accounts only, English UI only**, and the official page's wording is a gradual rollout (*gradually releasing*, "might not be available to you just yet") rather than an experimental label. Auto browse reached Android after May 2026. The exact gating and daily task limits shift, so treat the [official support page](https://support.google.com/chrome/answer/16821166) as the source of truth.
 
 The philosophy is **first-party integration**: Gemini isn't a guest in Chrome, it's part of Chrome. That enables things nobody else can do: deep integration across Google apps, no separate extension permission step, and features like letting Gemini sign in for you through Google Password Manager (passwords aren't shared with Gemini, and it's revocable) — only the browser vendor can build that. On safety, it shows you a plan and waits for "Start Task" before acting, and you can "take over" or "give back" a task mid-run.
 
@@ -94,7 +95,7 @@ Poor fit: anyone outside the US wanting auto browse, EU users, people working ac
 |---|---|---|---|
 | Anthropic | Chrome extension (side panel, now a Cowork session) | Paid plans (Pro / Max / Team / Enterprise) | Chrome only, no mobile; off by default for Enterprise |
 | OpenAI | ChatGPT desktop app + ChatGPT / Codex Chrome extensions | Varies by plan and region | **Atlas ended 9 August 2026**; Codex extension has regional limits |
-| Google | Built into Chrome's side panel | Side panel widely available; Auto Browse US-only, AI Pro / Ultra | Auto Browse still experimental and rolling out; EU not on the supported list |
+| Google | Built into Chrome's side panel | Side panel widely available; Auto Browse US-only, AI Pro / Ultra | Auto Browse still rolling out; EU not on the supported list |
 
 Exact plan gating, regions, and quotas change often, so this is an outline only — check each vendor's official pages (in the references) before committing.
 
@@ -115,6 +116,10 @@ Decision points:
 
 The fate of Atlas makes one thing clear: the deciding factor in this round wasn't how capable the agent was, but how much habit change users would accept. The answer was: very little.
 
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
+
 ## References
 
 - [Piloting Claude in Chrome – Anthropic](https://www.anthropic.com/news/claude-for-chrome)
@@ -125,7 +130,7 @@ The fate of Atlas makes one thing clear: the deciding factor in this round wasn'
 - [Use Claude Code with Chrome](https://code.claude.com/docs/en/chrome)
 - [ClaudeBleed – LayerX (original page removed; Wayback snapshot)](https://web.archive.org/web/20260508132614/https://layerxsecurity.com/blog/a-flaw-in-claudes-browser-extension-allows-any-extension-to-hijack-it/)
 - [Flaw in Claude's Chrome extension – CyberScoop](https://cyberscoop.com/claude-chrome-extension-allows-plugins-to-hijack-ai/)
-- [Claude for Chrome extension bypass – Manifold Security (Aug 2026)](https://www.manifold.security/blog/claude-for-chrome-extension-bypass)
+- [Claude for Chrome extension bypass – Manifold Security (Jul 2026)](https://www.manifold.security/blog/claude-for-chrome-extension-bypass)
 - [Evolving Atlas into ChatGPT for browser-based agentic work – OpenAI Help Center](https://help.openai.com/en/articles/20001371-evolving-atlas-into-chatgpt-for-browser-based-agentic-work)
 - [OpenAI is discontinuing ChatGPT Atlas – 9to5Mac](https://9to5mac.com/2026/07/09/openai-is-discontinuing-chatgpt-atlas-its-standalone-desktop-browser/)
 - [Codex Chrome extension – OpenAI Developers](https://developers.openai.com/codex/app/chrome-extension)

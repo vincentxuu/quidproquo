@@ -1,6 +1,7 @@
 ---
 title: "browse.sh: Turning What Browser Agents Learn into a Skill Catalog"
 date: 2026-05-23
+updated: 2026-08-19
 category: ai
 type: deep-dive
 tags: [browse-sh, browser-agent, agent-skills, browserbase, autobrowse]
@@ -112,6 +113,10 @@ A fair reading can't just echo the marketing page. A few things worth being hone
 browse.sh is betting on a specific judgment: that the future bottleneck for browser agents is **memory**, not reasoning. So the right unlock is turning what agents learn into plain-text skills that humans can read, agents can run, and teams can version-control. The official summary puts it well: "The bottleneck for browser agents was never intelligence. It was amnesia. Browse.sh is the cure."
 
 The trade-offs are also clear: you're buying into Browserbase's Autobrowse platform ecosystem, a body of self-reported metrics, a naming situation that's still sorting itself out, and a value proposition that only holds for sites that genuinely require exploration. If you're building browser agents and drowning in repeated discovery costs, it's worth trying. If you're just parsing static pages, write a parser — don't let the "let the agent figure it out" narrative pull you in. (Related: [AI Browser Agents: How Claude, Codex, and Gemini Open Browsers](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [Agent Memory Systems](/posts/ai/2026-03-19-agent-memory-systems-en))
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

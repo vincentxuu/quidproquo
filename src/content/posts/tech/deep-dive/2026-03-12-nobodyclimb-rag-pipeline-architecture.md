@@ -219,6 +219,10 @@ Pipeline 的 step 啟用/停用和排序都儲存在 D1 的 `ai_config` 表，�
 - [RAG 多實體查詢：當使用者一次丟五條路線，系統只看到第一條](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing)
 - [當 Vector Search 把名字當難度搜：RAG 系統的 Attribute Conflation 問題](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation)
 
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「NobodyClimb 專案紀實」系列
+
 ## 參考資料
 
 - [Cloudflare Workers AI 官方文件](https://developers.cloudflare.com/workers-ai/)

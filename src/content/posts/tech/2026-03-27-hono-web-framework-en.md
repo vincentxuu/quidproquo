@@ -1,6 +1,7 @@
 ---
 title: "Hono: The Lightweight Web Framework Built for Edge Runtimes"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [hono, cloudflare-workers, edge, web-framework]
@@ -161,6 +162,10 @@ Routes handle only OpenAPI descriptions and request validation, services contain
 Hono is lean, but lean means you assemble more yourself. Express has over a decade of middleware accumulation, with off-the-shelf solutions for most common needs. Hono's ecosystem is still growing, so edge-case requirements may require rolling your own.
 
 Another thing to keep in mind: the Workers environment has real constraints (no filesystem access, no direct TCP socket access, CPU-time and memory ceilings). These aren't Hono's problems — they're [Workers' constraints](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en). But choosing Hono usually means choosing Workers too, so they need to be considered together.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

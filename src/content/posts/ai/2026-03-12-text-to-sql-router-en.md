@@ -1,6 +1,7 @@
 ---
 title: "Text-to-SQL Router: Precise Queries That Skip RAG"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, text-to-sql, sql, query-routing, structured-query]
@@ -148,6 +149,10 @@ The essence of the Text-to-SQL Router is: **acknowledge the LLM's limitations an
 The template-based design is also far safer than free-form SQL generation — SQL injection risk, schema hallucination, and performance issues are all resolved at the template layer. The LLM only performs parameter extraction, keeping the responsibility boundary clean.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

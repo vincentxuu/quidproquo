@@ -1,6 +1,7 @@
 ---
 title: "ColBERT: The Third Way in Vector Search"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, colbert, late-interaction, retrieval, reranking]
@@ -114,6 +115,10 @@ ColBERT occupies an interesting middle ground in vector search — elegant in th
 For most RAG systems, the established Bi-Encoder retrieval + Cross-Encoder reranking pipeline remains the lower-effort choice. If you are already on Python and specifically stuck in the gap where a Bi-Encoder is not precise enough and a Cross-Encoder is too slow, ColBERT as a reranker is the most worthwhile thing to try next.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

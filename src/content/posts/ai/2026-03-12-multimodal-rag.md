@@ -1,6 +1,7 @@
 ---
 title: "Multimodal RAG：把圖片也納入知識庫"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multimodal, vision, image-embedding, clip]
@@ -156,6 +157,10 @@ generate({
 Multimodal RAG 擴展了 RAG 系統的知識邊界——不只是文字知識，也包括視覺知識。對攀岩這個視覺元素豐富的領域，這個擴展的價值是真實的。技術上已經可行，工程成本與平台上有沒有合適的模型才是主要的制約因素。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

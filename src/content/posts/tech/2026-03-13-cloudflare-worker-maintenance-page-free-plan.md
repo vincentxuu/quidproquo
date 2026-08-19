@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Free Plan 設維護頁：Custom Error Pages 不能用，改用 Worker"
 date: 2026-03-13
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare, workers, nginx, devops]
@@ -122,6 +123,10 @@ Free Plan 的 dashboard 完全不顯示這個選項，當初找了很久才發�
 Cloudflare Worker 作為輕量 proxy 用途很廣，不只是 edge function，
 遇到平台功能被鎖在付費方案時，Worker 幾乎都可以用程式碼自己實作。
 Free Plan 每天有十萬次請求的額度（實際數字見 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)），一般站台綽綽有餘。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

@@ -1,6 +1,7 @@
 ---
 title: "Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
@@ -178,6 +179,10 @@ Anthropic 指出，原版之所以在成本上可行，關鍵是 **prompt cachin
 Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割損失了上下文。這個問題在索引設計階段解決比在搜尋或生成階段補救更有效——資料品質的提升遠比演算法技巧更根本。
 
 「垃圾進，垃圾出」是 RAG 系統最常見的失敗原因。Contextual Retrieval 確保進去的每個 chunk 都是「有意義的資訊單元」，而不只是被截斷的文字片段。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

@@ -1,6 +1,7 @@
 ---
 title: "AEO / GEO Tool Landscape: Input, Traffic, and Output Layers — From isitagentready to aeo-radar to Profound"
 date: 2026-04-21
+updated: 2026-08-19
 type: project
 category: marketing
 tags: [aeo, geo, ai-visibility, brand-monitoring, open-source, self-hosted, llm, ai-seo, cloudflare, agent-readiness, llms-txt, mcp, ai-crawler, gptbot]
@@ -40,7 +41,7 @@ This is the only layer you can control 100%. Tools fall into two categories: com
 - **Bot Access Control**: AI crawler declarations (`AI-usage` directives)
 - **Capabilities**: MCP endpoint, OAuth, Agent Skills, agentic commerce
 
-The scan statistics Cloudflare published in its [launch post](https://blog.cloudflare.com/agent-readiness/) are striking — at the time, only about 4% of websites declared AI usage preferences and 3.9% supported Markdown negotiation (those are launch-date figures; Cloudflare hasn't published an update since, so cite them with a date attached). Think of it as "Lighthouse for AI agents" — free, no registration required.
+The scan statistics Cloudflare published in its [launch post](https://blog.cloudflare.com/agent-readiness/) are striking — at the time, only about 4% of the **200,000 most visited domains** declared AI usage preferences and 3.9% supported Markdown negotiation (the population is not "all websites", and redirect and ad-server categories were already filtered out). Those are launch-date figures, but the post states the chart is **updated weekly** — current values are available through Cloudflare Radar's Data Explorer or API, so cite them with a date attached. Think of it as "Lighthouse for AI agents" — free, no registration required.
 
 ### llms.txt-Specific Tools
 
@@ -61,7 +62,7 @@ The scan statistics Cloudflare published in its [launch post](https://blog.cloud
 **The original draft's judgment here has been overturned.** It argued that low adoption made this "an easy area to establish an early advantage". The evidence that has since emerged shows the problem isn't adoption — it's that **nobody reads the file**:
 
 - Ahrefs analyzed server logs across 137,000 sites and found [97% of llms.txt files were never requested](https://ahrefs.com/blog/llmstxt-study/), and that no AI bot goes looking for an llms.txt that doesn't exist
-- SE Ranking scanned 300,000 domains and found [10.13% had one](https://seranking.com/blog/llms-txt/) — adoption isn't actually low, the return is
+- SE Ranking scanned 300,000 domains in [November 2025 and found 10.13% had one](https://seranking.com/blog/llms-txt/) — note this inverts the study's own conclusion, which calls it "a niche practice with very limited adoption", with nearly nine in ten sites not adopting it. The Ahrefs study above measured about 28%; the populations and dates differ, so don't read them as the same measurement
 - In May 2026 Google put llms.txt on its ["you don't need to" list](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), and clarified on 2026-06-15 that such files "won't negatively or positively impact your visibility or rankings"
 
 The one use with evidence behind it is that AI coding assistants read it on documentation sites. So: **worth doing for documentation sites, not worth prioritizing elsewhere** — which downgrades the validators and generators above from essential to merely handy.
@@ -70,11 +71,11 @@ The one use with evidence behind it is that AI coding assistants read it on docu
 
 This is the most easily overlooked category. Traditional GA / Plausible **filters out** bot traffic by default, so even if GPTBot, ClaudeBot, and PerplexityBot are crawling thousands of your pages daily, you won't see it on your dashboard.
 
-There's a new reason this layer matters in the second half of 2026: Cloudflare [announced](https://blog.cloudflare.com/content-independence-day-ai-options/) that from **2026-09-15** its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, applying to new customers, new sites added by existing customers, and all free-tier customers. Which means **your AI bot traffic may change without you changing anything** — and you can only see that happen if you're measuring this layer.
+There's a new reason this layer matters in the second half of 2026: Cloudflare [announced](https://blog.cloudflare.com/content-independence-day-ai-options/) that from **2026-09-15** its defaults will block "mixed-use" crawlers (those combining search, training, and agent use) from ad-supported pages, applying to new customers, new sites added by existing customers, and all free-tier customers (the "mixed-use" definition and the scope live in the [press release](https://www.cloudflare.com/press/press-releases/2026/cloudflare-allows-the-agentic-internet-to-flourish-with-a-simple-philosophy-your-content-your-rules/); the blog post only covers the new-domains case). Which means **your AI bot traffic may change without you changing anything** — and you can only see that happen if you're measuring this layer.
 
 Several emerging specialized tools:
 
-- **[Matomo AI Assistants](https://matomo.org/guide/reports/ai-assistants/)** — a mainstream open-source analytics platform with built-in AI reports separating AI bot traffic from human traffic. AI Assistant referral tracking landed in 5.5.0, AI chatbot reports in [5.8.0](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/) (March 2026), and AI Chatbots Content Requests (which pages AI actually pulls) in 5.12.0. Choose this if you want self-hosted analytics
+- **[Matomo AI Assistants](https://matomo.org/guide/reports/ai-assistants/)** — a mainstream open-source analytics platform with built-in AI reports separating AI bot traffic from human traffic. AI chatbot reports landed in [5.8.0](https://matomo.org/blog/2026/03/new-feature-matomo-ai-assistants-tracking/) (March 2026), which has an official announcement; referral tracking and Content Requests (which pages AI actually pulls) also exist, but the exact versions they shipped in are not traceable in the changelog — check the [changelog](https://matomo.org/changelog/) yourself if you need to pin a version. Choose this if you want self-hosted analytics
 - **[Zerply AI Traffic Analytics](https://zerply.ai/platform/ai-traffic-analytics)** — commercial SaaS, no code to embed, connects directly to CDN/reverse proxy
 - **[aibottracker.com](https://www.aibottracker.com/)** — free, unlimited checks, lightweight option
 - **[LLM Bot Tracker](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)** — WordPress plugin version
@@ -113,7 +114,8 @@ Pure AEO/GEO vendors (each site verified live in August 2026):
 - **[AthenaHQ](https://athenahq.ai)** — YC-backed, ex-Google / DeepMind team
 - **[Evertune](https://www.evertune.ai/)** — focuses on full AI search customer journey
 - **[Scrunch](https://scrunch.com)** — **acquired by Sitecore** ([announced 2026-06-03](https://www.sitecore.com/company/newsroom/press-releases/2026/06/sitecore-acquires-scrunch-to-help-brands-influence-discovery--and-buying-decisions)). The brand and site are still up, but it's now folded into Sitecore's DXP, so future purchasing decisions attach to a Sitecore contract
-- **[Peec.ai](https://peec.ai)**, **[Goodie](https://goodie.ai)**, **[Bluefish AI](https://bluefish.ai)**, **[ZipTie](https://ziptie.ai)**, **[Knowatoa](https://knowatoa.com)** — mid-tier
+- **[Peec.ai](https://peec.ai)**, **[ZipTie](https://ziptie.ai)**, **[Knowatoa](https://knowatoa.com)** — mid-tier
+- **Goodie**, **Bluefish AI** — **both gone**. goodie.ai is now a domain-for-sale page and bluefish.ai redirects to a parking page. Both domains still return HTTP 200, so a status-code check would report them as alive — which is exactly the risk in this category: the tool is still on your dashboard after the company has stopped existing
 - **[Otterly.AI](https://otterly.ai)**, **[LLMrefs](https://llmrefs.com/)**, **[AIclicks](https://aiclicks.io/)**, **[Rankscale](https://rankscale.ai/)**, **[Sight AI](https://www.trysight.ai)** — targeting small-to-mid team subscriptions
 
 Traditional SEO platforms extending into AEO modules:
@@ -198,6 +200,10 @@ The AEO tools category was still a SaaS vendor battlefield in the first half of 
 The most interesting observation: **the input and traffic layers are actually more neglected than the output layer**. Everyone is focused on "how is my brand mentioned in AI answers," but very few are first answering "can AI even read my website" and "is AI actually crawling me" — two far more fundamental questions. Both of these layers are within your control, quantifiable, and face far less competition than the output layer.
 
 The output layer's open-source solutions, on the other hand, have matured remarkably fast over the past two years. A combination like aeo-radar — Traditional Chinese-first, Playwright keyless crawling, Claude CLI analysis — didn't even have a viable technical path two years ago. It's possible now because headless browsers, LLM CLIs, and Next.js App Router all matured simultaneously. The barrier to building your own AEO tool is much lower than it appears: the core challenge isn't "writing crawlers and dashboards" but "choosing the right prompts, the right analysis logic, and the right data presentation." The tool is just the shell.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
 
 ## References
 

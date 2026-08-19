@@ -1,6 +1,7 @@
 ---
 title: "HyDE: Boosting Vector Search Recall with Hypothetical Answers"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, hyde, embedding, vector-search, query-enhancement]
@@ -102,6 +103,10 @@ Third, there is a cost-side alternative. ReDE-RF (2024) reframes hypothetical do
 Overall, for complex or ambiguous natural language queries, and where the underlying retriever is not already a strong model for the domain, HyDE is a low-cost way to improve recall. But it is a technique **you turn on after measuring**, not a default part of the stack — run the eval, confirm the net gain is positive, then ship it.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

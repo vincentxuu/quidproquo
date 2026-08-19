@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare KV：全球邊緣的 Key-Value Store"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-kv, key-value, cache, edge, cloudflare-workers]
@@ -24,14 +25,14 @@ KV 是 Cloudflare Workers 的全球 key-value store。如果你需要一個 serv
 這個機制決定了兩件事：
 
 - **第一次讀某個 key 一定比較慢**，之後才快。讀取模式很分散（每個 key 只被讀一兩次）的資料放 KV 沒有好處
-- **寫入之後的可見性是不對稱的**：官方文件寫得很明白——寫入對**同一個地點**的後續請求立即可見，但要傳到世界其他地方可能需要最多 60 秒（或你指定的 `cacheTtl`）
+- **寫入之後的可見性是不對稱的**：寫入對**同一個地點**的後續請求「通常」立即可見，但傳到世界其他地方可能需要最多 60 秒（或你指定的 `cacheTtl`）。要注意官方對前半句講得很保留——[How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-works/) 原文是 *usually* immediately visible，並明講 **this is not guaranteed and therefore it is not advised to rely on this behaviour**。所以「同地點立即可見」可以拿來解釋現象，不能拿來當設計前提
 
 所以「最終一致性」在 KV 上有個具體數字可以抓，不是模糊的「幾秒到幾十秒」。
 
 ## 核心特性
 
 - **熱讀取極快**：命中該地點快取時通常幾毫秒
-- **最終一致性**：同地點立即可見，跨地點最多約 60 秒（可用 `cacheTtl` 調整，最低 30 秒、預設 60 秒）
+- **最終一致性**：同地點通常立即可見但官方不保證，跨地點最多約 60 秒（可用 `cacheTtl` 調整，最低 30 秒、預設 60 秒）
 - **TTL 支援**：`expiration`（指定時間點）與 `expirationTtl`（相對秒數）兩種，不用手動清理
 - **大小與數量限制**：key、value、每次 Worker 呼叫的操作數都有上限，數字見 [KV limits](https://developers.cloudflare.com/kv/platform/limits/)
 
@@ -142,6 +143,10 @@ return response;
 - 資料有明確的 TTL（快取、暫態、session）
 
 如果需要強一致性或複雜查詢，用 D1。如果需要對同一個鍵高頻寫入或做協調（計數、鎖、rate limit），用 Durable Objects；需要 pub/sub 就自架 Redis。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

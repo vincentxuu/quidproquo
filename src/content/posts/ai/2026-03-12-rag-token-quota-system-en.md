@@ -1,6 +1,7 @@
 ---
 title: "RAG Quota System: Controlling LLM Costs with Dual Limits"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, quota, rate-limiting, token-budget, cost-control, cloudflare-workers]
@@ -198,6 +199,10 @@ The hard part of a quota system isn't the limits themselves — it's handling th
 Get all these details right, and the quota system can control costs without making users feel like they're being nickel-and-dimed.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

@@ -1,6 +1,7 @@
 ---
 title: "CRAG：檢索失敗時，自動放寬條件重試"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, crag, corrective-rag, retrieval, fallback]
@@ -95,6 +96,10 @@ CRAG 解決的是「根本沒東西」的問題，Agentic RAG 解決的是「有
 CRAG 是 RAG pipeline 的安全網，成本低（多一次搜尋），卻能防止系統在邊緣情況下靜默失敗。搭配 LLM-as-Judge 的 Groundedness 評分，即使放寬後取到的文件相關性較低，Judge 也會降低 groundedness 分數，讓系統加上適當的免責聲明。防禦是多層的，CRAG 是第一層。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

@@ -1,6 +1,7 @@
 ---
 title: "AI-Ready Content: The Complete Guide to Making Your Website an AI-Readable Data Source"
 date: 2026-03-30
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [ai-ready-content, llms-txt, geo, rag, web-scraping, structured-data, mcp, seo, rsl, webmcp]
@@ -463,6 +464,10 @@ If you're making a website "AI-ready" from scratch, here's the complete checklis
 This field is experiencing an explosion similar to early SEO in 2025-2026. The difference: SEO took a decade to mature; AI-ready content might only take two years.
 
 Start now — the cost is low, the risk is small, and the first-mover advantage is clear. By the time it becomes standard practice, it'll be too late to catch up.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
 
 ## References
 

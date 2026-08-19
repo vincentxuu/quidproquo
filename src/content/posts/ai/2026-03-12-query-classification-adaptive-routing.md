@@ -1,6 +1,7 @@
 ---
 title: "Query Classification：讓 RAG 知道該怎麼回答這個問題"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, query-classification, adaptive-routing, tool-selection, llm]
@@ -136,6 +137,10 @@ Query Classification 是 adaptive RAG 的核心。不同問題有不同的最優
 4. 動態模型選擇是成本優化的低掛果實
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

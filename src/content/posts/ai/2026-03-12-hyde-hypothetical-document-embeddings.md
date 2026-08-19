@@ -1,6 +1,7 @@
 ---
 title: "HyDE：用假設答案提升向量搜尋的 Recall"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, hyde, embedding, vector-search, query-enhancement]
@@ -102,6 +103,10 @@ const [queryResults, hydeResults] = await Promise.all([
 整體來說，對複雜、模糊的自然語言查詢，而且底層檢索器並非該領域的強模型時，HyDE 是低成本的 recall 提升手段。但它是一個**需要量測才能開啟的技巧**，不是預設就該加的標配——先跑評測，確認淨增益為正再上線。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

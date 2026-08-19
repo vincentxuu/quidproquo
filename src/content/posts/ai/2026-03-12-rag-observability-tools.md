@@ -1,6 +1,7 @@
 ---
 title: "RAG 可觀測性工具全景：2026 年的選擇"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, observability, langfuse, phoenix, langsmith, tracing, monitoring]
@@ -217,6 +218,10 @@ const response = await client.chat.completions.create({
 NobodyClimb 的系統選擇了自訂 trace，主要原因是部署在 Cloudflare Workers（不能輕易跑外部 SDK 的 flush 機制），且 trace 資料需要和業務資料（攀岩路線、使用者資料）緊密整合。但如果是重新開始且沒有平台限制，Langfuse 會是第一個試的選項。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

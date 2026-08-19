@@ -1,6 +1,7 @@
 ---
 title: "MMR + Popularity Weighting: Recommendations That Are Both Relevant and Diverse"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, mmr, diversity, reranking, popularity, recommendation]
@@ -117,6 +118,10 @@ That said, the strength of the original evidence deserves an honest accounting. 
 Add popularity weighting on top, and you get recommendations that combine semantic relevance (vector search + reranking) with community validation (popularity). It's a design that finds a practical middle ground between algorithmic rigor and user experience.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

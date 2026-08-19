@@ -1,6 +1,7 @@
 ---
 title: "Multi-Query Expansion：一個問題，多個角度搜尋"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, multi-query, query-expansion, recall, rrf]
@@ -120,6 +121,10 @@ Multi-Query 的主要成本是：
 Multi-Query Expansion 本質上是在用 LLM 的語言能力來彌補向量搜尋的覆蓋盲點。單一查詢的 recall 受限於使用者的表達方式，多角度改寫打破這個限制。配合 RRF 融合，不同角度都命中的文件會排名更高，結果品質也更好。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

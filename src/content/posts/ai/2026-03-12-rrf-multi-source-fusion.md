@@ -1,6 +1,7 @@
 ---
 title: "RRF：RAG 系統裡多路結果怎麼合併"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, rrf, fusion, ranking, multi-source, retrieval]
@@ -166,6 +167,10 @@ RRF 的設計哲學是**實用主義**：與其試圖把不同系統的分數「
 這種「把複雜問題簡化到最核心」的思路，是很多好設計的共同特徵。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

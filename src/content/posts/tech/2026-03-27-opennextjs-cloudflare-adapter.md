@@ -1,6 +1,7 @@
 ---
 title: "@opennextjs/cloudflare：把 Next.js 跑在 Cloudflare Workers 上"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [opennextjs, cloudflare-workers, nextjs, deployment]
@@ -174,7 +175,7 @@ Cloudflare 邊緣節點
 
 **Workers 環境本身的限制：**
 - CPU 時間：免費方案每次請求 10 ms；付費方案預設 30 秒、上限 5 分鐘。SSR 重的頁面在免費方案上很容易撞到
-- 記憶體 128 MB（Bundled / Unbound 這兩個舊方案名稱已經停用，不要再照舊文設定）
+- 記憶體 128 MB（新專案不會再遇到 Bundled / Unbound 這兩個舊方案名稱，但[官方 limits 頁仍保留專節](https://developers.cloudflare.com/workers/platform/limits/)，既有 Worker 還適用——Bundled 是 CPU 50 ms、每請求 50 個 subrequest）
 - 詳見 [Workers 的限制](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
 
 **本地開發不需要放棄 `next dev`：**
@@ -214,6 +215,10 @@ export default { /* ... */ };
 | 定價模式 | 按請求計費 | 按用量/席位 | 按 server 小時 |
 | 冷啟動 | 極低（邊緣） | 低 | 無（always-on） |
 | 適合規模 | 小到中型 | 小到大型 | 中到大型 |
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
 
 ## 參考資料
 

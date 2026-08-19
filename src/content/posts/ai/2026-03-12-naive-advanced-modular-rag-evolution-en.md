@@ -1,6 +1,7 @@
 ---
 title: "Three Generations of RAG: From Naive to Modular"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, naive-rag, advanced-rag, modular-rag, architecture, evolution]
@@ -165,6 +166,10 @@ The three generations aren't "new replaces old" — they're **solutions at diffe
 Understanding what each generation solved — and what complexity it introduced — is what lets you find the right balance between "good enough" and over-engineering.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

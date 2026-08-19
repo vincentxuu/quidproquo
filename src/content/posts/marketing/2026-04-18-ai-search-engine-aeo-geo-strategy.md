@@ -1,6 +1,7 @@
 ---
 title: "你的 JSON-LD 和 schema 對 AI 搜尋引擎是隱形的嗎？各家管線拆解與 AEO/GEO 策略"
 date: 2026-04-18
+updated: 2026-08-19
 type: guide
 category: marketing
 tags: [aeo, geo, ai-seo, web-search, content-strategy, seo, json-ld, schema, structured-data, llms-txt, claude-code, perplexity]
@@ -140,6 +141,10 @@ Claude 欄只涵蓋 WebFetch 這條路徑。Anthropic 另有 `Claude-SearchBot` 
 2026 年的 AEO/GEO 不是「一套策略打天下」的事。各家 AI 引擎讀網頁的管線差異大到讓同一個頁面在不同平台呈現完全不同的面貌——從「完整爬取建索引」到「本地端 Axios 只讀 body」，差距不是微調能彌補的。
 
 但有一件事是跨平台恆定的：**寫有資訊密度的正文，用清楚的結構呈現，讓每個段落在被截斷和改寫之後仍然有意義。** 技術手段（schema、llms.txt、JSON-LD）是加分，不是基礎。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「AEO / GEO 與 AI 搜尋」系列
 
 ## 參考資料
 

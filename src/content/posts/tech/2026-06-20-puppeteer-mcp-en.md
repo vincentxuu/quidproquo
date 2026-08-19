@@ -1,6 +1,7 @@
 ---
 title: "@modelcontextprotocol/server-puppeteer: The Official Puppeteer MCP Server"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [puppeteer, mcp, browser-automation, ai-agent, developer-tools, chrome]
@@ -159,6 +160,10 @@ What it was never good at is unchanged: long-running agent workflows (screenshot
 server-puppeteer is a straightforward, quick-to-start option with `evaluate` providing meaningful flexibility. But in AI agent contexts, the screenshot-based design makes token costs a long-term constraint — and it no longer even clears the bar of being maintained.
 
 What's worth keeping is the spectrum it illustrates: the smaller the tool set, the more the agent has to write its own JS through `evaluate`; the more page state rides on screenshots, the harder token cost is to contain. You can measure any browser MCP against those two axes. For what to actually install: general web automation → [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en); deep Chrome debugging and performance work → [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp-en).
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
 
 ## References
 

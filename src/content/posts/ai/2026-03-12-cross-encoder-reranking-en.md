@@ -1,6 +1,7 @@
 ---
 title: "Cross-Encoder Reranking: Surfacing the Most Relevant Documents"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -112,6 +113,10 @@ Reranking has the greatest impact on final output quality in the following scena
 Overall, reranking is the most direct lever for improving precision in a RAG pipeline, and the cost is well within reason — running cross-attention over 30 candidates is much cheaper than a single LLM generation pass.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

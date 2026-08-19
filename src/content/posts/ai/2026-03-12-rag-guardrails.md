@@ -1,6 +1,7 @@
 ---
 title: "RAG Guardrails：在輸入和輸出加一道防線"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, guardrails, security, prompt-injection, safety, llm]
@@ -213,6 +214,10 @@ Guardrails 不是「安全洗白」——沒有哪個系統是絕對安全的，
 最重要的設計原則：**失敗要失敗得安全（fail safe）**。當 Guardrails 不確定時，拒絕或加上聲明，而不是放行。寧願多一條免責聲明，不願讓一條幻覺的路線資訊誤導使用者做出錯誤的攀岩決策。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

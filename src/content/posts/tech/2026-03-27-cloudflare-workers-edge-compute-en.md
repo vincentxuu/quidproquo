@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Workers: Not Lambda, Not Containers — It's V8 Isolates"
 date: 2026-03-27
+updated: 2026-08-19
 type: guide
 category: tech
 tags: [cloudflare-workers, edge-compute, hono, wrangler, serverless]
@@ -184,6 +185,10 @@ The core reasoning: a climbing community platform has unpredictable traffic. Run
 Two things are **no longer** reasons to avoid Workers: long-lived WebSocket connections have [Durable Objects](https://developers.cloudflare.com/durable-objects/) (no wall-time cap while the caller stays connected), and long-running processes have Workflows. They are a different mental model, not a capability Workers lacks.
 
 Compared to traditional VPS or container setups: what Workers gives up is **how much CPU and memory a single request may burn**. What you get back is zero infrastructure management, global deployment, and billing that charges only for actual computation. Small units of work belong on Workers; large ones belong in containers.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References
 

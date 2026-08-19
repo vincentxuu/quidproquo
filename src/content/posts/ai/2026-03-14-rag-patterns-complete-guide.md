@@ -1,6 +1,7 @@
 ---
 title: "RAG 系統模式完整指南：從 Naive 到 Multi-Agent 的十代演化與實戰導航"
 date: 2026-03-14
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
@@ -618,6 +619,10 @@ RAG 不是一個技術，是一個技術體系。
 不要試圖一次學完所有東西。找到你現在最需要解決的問題，沿著對應的路線走進去，把那一塊搞懂、搞穩，再往下一個主題前進。
 
 這篇指南會持續更新。每當有新的專文發布，這裡會同步加上連結。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

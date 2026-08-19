@@ -1,6 +1,7 @@
 ---
 title: "RAG vs Fine-tuning：不是非此即彼"
 date: 2026-03-12
+updated: 2026-08-19
 type: deep-dive
 category: ai
 tags: [rag, fine-tuning, llm, architecture, comparison]
@@ -131,6 +132,10 @@ Fine-tuning 值得投入的情況：
 RAG 和 Fine-tuning 是互補的工具，不是競爭關係。RAG 是「知識的延伸」，Fine-tuning 是「能力的塑造」。一個高品質的 LLM 應用，通常需要用基礎能力強的模型（或 fine-tuned 的模型），加上精心設計的 RAG 系統，而不是只選其中一個。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

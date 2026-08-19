@@ -1,6 +1,7 @@
 ---
 title: "Plan-and-Execute：先規劃再執行的 RAG 模式"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, plan-execute, agentic, multi-step, reasoning]
@@ -172,6 +173,10 @@ Plan-and-Execute 把「思考」和「執行」分開。Planner 做全局規劃�
 代價是多一次 LLM 呼叫（生成計畫），以及計畫一旦生成就缺乏彈性。對結構清晰的複雜查詢，這個代價是值得的；對開放性的探索查詢，ReAct 的靈活性更合適。選擇哪種策略，取決於問題的性質，而不是一概而論。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

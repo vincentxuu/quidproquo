@@ -1,6 +1,7 @@
 ---
 title: "Browser MCP 三選一：CDP、Playwright MCP、Puppeteer MCP 比較"
 date: 2026-06-20
+updated: 2026-08-19
 category: tech
 type: deep-dive
 tags: [mcp, browser-automation, playwright, puppeteer, cdp, ai-agent, developer-tools]
@@ -47,7 +48,7 @@ AI agent 要控制瀏覽器，過去常被拿出來比的是三條路線：[Chro
 | 效能 trace / Lighthouse | ✅ | ❌ | ❌ |
 | 記憶體 heap snapshot | ✅（`--memoryDebugging`） | ❌ | ❌ |
 | 擴充功能 / PWA 管理 | ✅ | ❌ | ❌ |
-| 網路攔截改寫 | ✅ | ✅（`--caps=network`） | 需自己用 evaluate 兜 |
+| 網路攔截改寫 | ❌ 只能唯讀觀測 + 節流／URL 封鎖 | ✅（`--caps=network`，`browser_route`） | 需自己用 evaluate 兜 |
 | 斷言 / locator 產生 | ❌ | ✅（`--caps=testing`） | ❌ |
 | 控制 context 大小 | `--slim` | `--caps` 逐項開 | 工具集本來就只有 7 個 |
 | 預設回報使用統計 | ✅（`--no-usage-statistics` 關閉） | ❌ | ❌ |
@@ -97,6 +98,10 @@ Playwright 本身的 auto-wait 邏輯（等元素 interactable 才操作）讓 a
 ## 整體來說
 
 這題從「三種抽象層級選一個」變成「兩種目的選一個」。@playwright/mcp 負責讓 agent 把網頁操作對；chrome-devtools-mcp 負責讓 agent 說得出網頁為什麼慢、為什麼漏。server-puppeteer 則示範了另一件事：**MCP server 的生命週期比你以為的短**——選型時把「還有沒有人維護」放進評估表，比比較工具數量有用得多。
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
 
 ## 參考資料
 

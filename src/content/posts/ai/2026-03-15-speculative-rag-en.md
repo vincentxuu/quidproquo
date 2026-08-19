@@ -1,6 +1,7 @@
 ---
 title: "Speculative RAG: Small Models Draft in Parallel, Large Model Verifies at Once"
 date: 2026-03-15
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, speculative-rag, dual-model, latency-optimization, accuracy]
@@ -774,6 +775,10 @@ Several possible directions:
 2. **Intelligent subset allocation**: Instead of random document subset assignment, use strategic grouping based on document topic or type.
 3. **Drafter specialization**: Different Drafters specialize in different question types (factual, reasoning, comparative), with routing based on question type.
 4. **Combination with other RAG techniques**: CRAG + Speculative RAG, Graph RAG + Speculative RAG, and other combinations.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 

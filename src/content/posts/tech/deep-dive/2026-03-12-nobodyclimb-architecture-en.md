@@ -1,6 +1,7 @@
 ---
 title: "NobodyClimb: Building a Climbing Community Platform Entirely on Cloudflare"
 date: 2026-03-12
+updated: 2026-08-19
 category: tech
 tags: [cloudflare-workers, nextjs, hono, rag, react-native, monorepo]
 lang: en
@@ -132,6 +133,10 @@ Quota deductions use atomic SQL `UPDATE` with dual conditions to avoid race cond
 The core tradeoff of this architecture is: **trading Cloudflare's ecosystem for zero infra management overhead**. D1 isn't the most powerful database, Workers AI isn't the richest AI platform, but for a side project, not having to manage VPCs, configure auto-scaling, or monitor server uptime makes that trade worthwhile.
 
 This approach suits projects of similar scale: meaningful complexity (monorepo, multi-platform, AI features) but not yet at a volume that demands dedicated infrastructure. If DAU reaches tens of thousands or write volume grows significantly, D1 and Workers limitations will start to hurt — that's the point to reconsider the architecture, not before.
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Building NobodyClimb" series.
 
 ## References
 
