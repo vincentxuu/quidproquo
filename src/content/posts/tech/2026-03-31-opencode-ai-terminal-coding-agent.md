@@ -7,7 +7,7 @@ tags: [opencode, ai-tools, cli, coding-agent, open-source, tui]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 8
+  order: 9
 tldr: "OpenCode 是用 TypeScript 打造的開源 AI coding agent（MIT，約 198K GitHub stars，repo 在 anomalyco/opencode），內建 TUI、支援 75+ LLM、LSP 整合、Vim 風格編輯器、SQLite session 管理，另有桌面版。免費、不需訂閱，可接本地或雲端模型。"
 description: "OpenCode 的安裝、核心功能、雙 agent 模式、GitHub 整合、與 Aider 的比較，以及適用場景。"
 draft: false

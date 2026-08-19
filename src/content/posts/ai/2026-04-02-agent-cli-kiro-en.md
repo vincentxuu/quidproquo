@@ -7,7 +7,7 @@ tags: [agent-cli, kiro, aws, pricing, auto-mode, specs, hooks, bedrock]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 12
+  order: 13
 tldr: "Kiro has five tiers: Free 50 credits, Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000, with add-on credits at $0.04. Auto mode mixes models to cut cost (the same task costs 1.3x credits via Sonnet), and the spec-driven flow turns vibe coding into traceable, structured development."
 description: "An in-depth analysis of AWS Kiro's 2026 pricing plans, Auto mode, Spec-Driven development, Agent Hooks, autonomous agents, and AWS ecosystem integration."
 draft: false

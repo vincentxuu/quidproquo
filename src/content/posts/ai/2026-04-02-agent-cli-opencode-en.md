@@ -7,7 +7,7 @@ tags: [agent-cli, opencode, open-source, terminal-agent, multi-provider, ollama]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 9
+  order: 10
 tldr: "OpenCode is a free, open-source TypeScript CLI agent (MIT, ~198K GitHub stars). It supports 75+ model providers including local Ollama, allows authentication via Copilot/ChatGPT accounts, and lets you switch models mid-session without losing context. There is also a desktop app and an official Zen gateway."
 description: "OpenCode's open-source architecture, multi-provider support, the Zen gateway, authentication options, core features, comparison with Claude Code, and who it fits."
 draft: false

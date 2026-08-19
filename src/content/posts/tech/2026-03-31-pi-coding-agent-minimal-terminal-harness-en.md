@@ -7,7 +7,7 @@ tags: [pi, coding-agent, ai-tools, cli, open-source, typescript, ollama, opencla
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 10
+  order: 11
 tldr: "Pi is a minimalist coding agent by Mario Zechner (TypeScript, MIT, ~93K stars) with just 4 core tools and a very short system prompt — everything else you add yourself via Extensions, Skills, and Prompt Templates. It deliberately omits MCP, sub-agents, plan mode, and permission popups. The repo is now earendil-works/pi and the npm scope is @earendil-works."
 description: "An overview of Pi Coding Agent's design philosophy, architecture, core features, extension system, its relationship with OpenClaw, and how it compares to other coding agents."
 draft: false

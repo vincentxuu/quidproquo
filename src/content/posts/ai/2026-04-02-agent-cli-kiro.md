@@ -7,7 +7,7 @@ tags: [agent-cli, kiro, aws, pricing, auto-mode, specs, hooks, bedrock]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 12
+  order: 13
 tldr: "Kiro 分五層：Free 50 credits、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000，加購 credit 一律 $0.04。Auto 模式混合模型省成本（同一任務走 Sonnet 要 1.3 倍 credit），Spec-Driven 流程把 vibe coding 變成可追蹤的結構化開發。"
 description: "深入分析 AWS Kiro 2026 年的定價方案、Auto 模式、Spec-Driven 開發、Agent Hooks、自主 Agent 與 AWS 生態系整合。"
 draft: false

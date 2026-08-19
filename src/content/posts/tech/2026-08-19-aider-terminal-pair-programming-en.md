@@ -7,7 +7,7 @@ tags: [aider, coding-agent, ai-tools, cli, open-source, git]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 13
+  order: 14
 tldr: "Aider is a terminal AI pair programmer dating back to 2023 (Python, Apache-2.0, ~48.3k stars), designed against the grain of today's autonomous agents: you control context by hand with /add, every edit becomes its own atomic git commit, and architect/editor mode splits planning from editing across two models. But note the maintenance cadence: the latest PyPI release is 0.86.2 from 2026-02, the last commit was 2026-05, and the site still recommends Claude 3.7 Sonnet and o1."
 description: "Aider's design philosophy, repo map, architect/editor mode, watch mode, and atomic commits — plus its actual maintenance activity measured in August 2026 and what that means for tool selection."
 draft: false

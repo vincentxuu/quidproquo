@@ -7,7 +7,7 @@ tags: [pi, coding-agent, ai-tools, cli, open-source, typescript, ollama, opencla
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 10
+  order: 11
 tldr: "Pi 是 Mario Zechner 打造的極簡 coding agent（TypeScript、MIT、約 93K stars），只有 4 個核心工具與極短 system prompt，其餘全靠 Extensions／Skills／Prompt Templates 自己疊。刻意不做 MCP、sub-agents、plan mode、權限彈窗。repo 已改名 earendil-works/pi，npm scope 換成 @earendil-works。"
 description: "Pi Coding Agent 的設計哲學、架構、核心功能、擴充機制、與 OpenClaw 的關係，以及與其他 coding agent 的差異。"
 draft: false

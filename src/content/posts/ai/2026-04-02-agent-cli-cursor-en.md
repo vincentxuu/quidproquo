@@ -7,7 +7,7 @@ tags: [agent-cli, cursor, pricing, cli-agent, cloud-handoff, plan-mode, tui]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 11
+  order: 12
 tldr: "Cursor CLI brings the IDE agent to the terminal with an interactive TUI and headless mode, Plan/Ask/Agent modes, Cloud Handoff, and CI/CD integration. Billing now runs on two separate usage pools: Cursor's own models (Grok 4.6/4.5, Composer 2.5) and third-party models (Pro includes $20, Pro+ $70, Ultra $400)."
 description: "In-depth analysis of Cursor CLI's 2026 features, three modes (Plan/Ask/Agent), Cloud Handoff, MCP integration, CI/CD automation, and pricing plans."
 draft: false

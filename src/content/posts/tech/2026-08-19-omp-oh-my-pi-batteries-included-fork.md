@@ -7,7 +7,7 @@ tags: [omp, pi, coding-agent, cli, rust, open-source, ai-tools]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 15
+  order: 16
 tldr: "omp 是 Pi 的 fork，但不只是插件層堆疊：它多了約 80,000 行 Rust，把 grep／shell／AST／PTY 全部搬進 in-process。內建工具從 Pi 的 7 個變成 31 個，外加 14 個 LSP op、28 個 DAP op、60+ 供應商。同一份 codebase，兩個相反的賭注。"
 description: "omp（Oh My Pi）與上游 Pi 的實質差異：工具數量、Rust 原生層、hashline 編輯格式的 benchmark 數據、advisor／TTSR／URI scheme 等特有機制，以及兩者的取捨與適用情境。"
 draft: false

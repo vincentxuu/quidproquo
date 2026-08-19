@@ -7,7 +7,7 @@ tags: [agent-cli, multi-model-routing, claude-code, cursor, codex, kiro, gemini-
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 20
+  order: 21
 tldr: "A comparison of six agent CLI subscriptions (Claude Code, Cursor CLI, Codex, Kiro, Antigravity/Gemini CLI, OpenCode) plus the multi-model routing pattern — cheap models for simple work, strong models for hard work. Nearly every one of these changed its billing in the first half of 2026; this version was re-verified on 8/18."
 description: "A comprehensive comparison of subscription plans and pricing strategies for six terminal-native Agent CLIs, plus an in-depth look at Multi-Model Routing pattern implementations and architecture design."
 draft: false

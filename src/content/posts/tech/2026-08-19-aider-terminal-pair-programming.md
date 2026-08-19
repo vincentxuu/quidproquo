@@ -7,7 +7,7 @@ tags: [aider, coding-agent, ai-tools, cli, open-source, git]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 13
+  order: 14
 tldr: "Aider 是 2023 年就存在的終端 AI pair programmer（Python、Apache-2.0、約 48.3k stars），設計上跟現在的自主 agent 走反方向：手動 /add 檔案控制 context、每次修改自動產生一個 atomic git commit、architect/editor 雙模型分工。但要注意維護節奏：最後一版 PyPI 發布是 2026-02 的 0.86.2，最後一筆 commit 在 2026-05，官網仍推薦 Claude 3.7 Sonnet 與 o1。"
 description: "Aider 的設計哲學、repo map、architect/editor 模式、watch mode 與 atomic commit 機制，以及 2026 年 8 月實測的維護活躍度與選型建議。"
 draft: false

@@ -7,7 +7,7 @@ tags: [agent-cli, cursor, pricing, cli-agent, cloud-handoff, plan-mode, tui]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 11
+  order: 12
 tldr: "Cursor CLI 把 IDE 的 Agent 帶進終端，支援 interactive TUI 與 headless、Plan/Ask/Agent 三種模式、Cloud Handoff、CI/CD 整合。計費改為兩個獨立額度池：Cursor 自家模型（Grok 4.6/4.5、Composer 2.5）與第三方模型（Pro 含 $20、Pro+ $70、Ultra $400）。"
 description: "深入分析 Cursor CLI 2026 年的功能特色、三種模式（Plan/Ask/Agent）、Cloud Handoff、MCP 整合、CI/CD 自動化與定價方案。"
 draft: false

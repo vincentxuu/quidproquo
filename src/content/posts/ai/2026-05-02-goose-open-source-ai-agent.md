@@ -7,7 +7,7 @@ tags: [goose, ai-agent, open-source, mcp, rust, linux-foundation, aaif, claude-c
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 18
+  order: 19
 tldr: "goose 是由 Linux Foundation 旗下 AAIF 維護的開源 AI Agent，支援 15+ LLM 供應商、70+ MCP 擴充，用 Rust 打造桌面 App + CLI + API，定位是不鎖廠商、可自架的 Claude Code 替代方案。"
 description: "介紹 goose 開源 AI Agent：從 Block 到 Linux Foundation AAIF 的遷移背景、技術架構（Rust + TypeScript）、多 LLM 支援、MCP 擴充機制、.goosehints 用法，以及與 Claude Code / Cursor 的差異。"
 draft: false

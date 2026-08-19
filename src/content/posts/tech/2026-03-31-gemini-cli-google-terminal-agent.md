@@ -1,102 +1,116 @@
 ---
-title: "Antigravity CLI：Google 終端機 AI Agent 完整介紹（Gemini CLI 的接替者）"
+title: "Gemini CLI：曾經最慷慨的免費終端 Agent，現在只剩企業路徑"
 date: 2026-03-31
 type: project
 category: tech
-tags: [gemini, google, ai-tools, cli, coding-agent, antigravity]
+tags: [gemini, google, ai-tools, cli, coding-agent, open-source, antigravity]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
   order: 6
-tldr: "Google 的終端 agent 現在是 Antigravity CLI：Go 打造，與 Antigravity 2.0 桌面版共用 server-side harness，支援非同步背景工作流，保留 Agent Skills、Hooks、Subagents，Extensions 改稱 plugins。前身 Gemini CLI 已於 2026/06/18 對個人帳號停止服務，repo 仍以 Apache-2.0 維護但只服務企業授權與付費 API key。"
-description: "Antigravity CLI 的安裝、核心功能、與 Gemini CLI 的關係與遷移方式，以及 Gemini CLI 目前殘存的企業路徑。"
+tldr: "Gemini CLI 是 Google 開源的終端機 AI agent（Apache 2.0，~106.6k stars），曾提供每分鐘 60 次、每天 1,000 次的免費額度含 1M context。個人方案已於 2026/6/18 停止服務，接替者是 Antigravity CLI。專案本身沒關閉，repo 仍在維護，但只服務 Gemini Code Assist Standard/Enterprise 授權與付費 API key。"
+description: "Gemini CLI 的設計、免費額度為何曾是業界最激進的一步、2026/6/18 個人方案停服的始末，以及現在還剩下哪些可用路徑。"
 draft: false
 ---
 
 🌏 [English version](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
 
-Google 在終端機這一格的產品是 **Antigravity CLI**。它接替的是 Gemini CLI——那個曾經每天送 1,000 次免費請求的開源終端 agent，已於 2026 年 6 月 18 日對所有個人帳號停止服務。
+Gemini CLI 是 Google 開源的終端機 AI agent，採 ReAct（Reason and Act）迴圈，結合內建工具與 MCP server 完成任務。它一度是這個賽道免費額度最誇張的選項——**然後在 2026 年 6 月 18 日對所有個人帳號停止服務**。
 
-這篇介紹現在該裝什麼、它能做什麼，以及舊的 Gemini CLI 還剩哪些路徑。
+這篇講它是什麼、那套免費策略為什麼值得記住、以及今天誰還能用它。
+
+## 現況：誰還能用
+
+先講結論，免得你照著舊文章白裝一輪：
+
+| 路徑 | 是否還能用 |
+|---|---|
+| Google 帳號免費層（Gemini Code Assist for Individuals） | ❌ 2026/06/18 起停止服務 |
+| Google AI Pro / Ultra 訂閱 | ❌ 同日停止 |
+| Gemini Code Assist Standard / Enterprise 授權 | ✅ 不受影響 |
+| 透過 Google Cloud 存取 | ✅ 不受影響 |
+| 付費 Gemini / Gemini Enterprise Agent Platform API key | ✅ 不受影響 |
+| Gemini Code Assist for GitHub（個人版） | ❌ 6/18 起停止新安裝，7/17 完全關閉 |
+
+**專案沒有被關掉**：[repo](https://github.com/google-gemini/gemini-cli) 仍以 Apache 2.0 授權維護，Google 明說會繼續跟上新模型、修 bug 與安全問題——但服務對象只剩企業。
+
+個人開發者要在終端機用 Google 的 agent，現在的答案是 **Antigravity CLI**。
+
+**→ [Antigravity CLI：Google 用一套 agent harness 收編 Gemini CLI 的終端機介面](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)**
 
 ## 安裝
 
 ```bash
-# macOS / Linux
-curl -fsSL https://antigravity.google/cli/install.sh | bash
+# 不安裝直接用
+npx @google/gemini-cli
 
-# Windows PowerShell
-irm https://antigravity.google/cli/install.ps1 | iex
+# 全域安裝
+npm install -g @google/gemini-cli
 ```
 
-安裝時會自動偵測本機的 Gemini CLI 目錄，把 skills、MCP server 設定與 agent profile 帶過去。
+用 Node 寫的（這點在接班人身上被改掉了——Antigravity CLI 用 Go 重寫）。開源授權 Apache 2.0。
 
-與 Gemini CLI 不同，Antigravity CLI **不是 Apache-2.0 開源專案**。這是社群對這次轉換反彈最大的一點。
+## 那套免費額度
+
+這是 Gemini CLI 最值得記住的部分。只要一個 Google 帳號：
+
+| 項目 | 額度 |
+|---|---|
+| 每分鐘請求 | 60 次 |
+| 每日請求 | 1,000 次 |
+| Context window | 1M tokens |
+
+不需要信用卡、不需要 API key。而且拿到的不是閹割版——包含當時最強的 Pro 模型、最大的 context window、全部核心功能。
+
+Google 怎麼定出這個數字：他們分析內部開發者的實際用量，找出**消耗最高的那批人**，再把免費上限設成那個數字的**兩倍**。意思很直白——連 Google 自己最重度的工程師都用不完，那絕大多數外部開發者永遠碰不到付費牆。
+
+它撐了大約一年。
 
 ## 核心功能
 
 | 功能 | 說明 |
 |---|---|
-| Agent Skills | 從 Gemini CLI 完整延續，全域 skills 自動匯入 |
-| Hooks | 行為一致，無需重新設定 |
-| Subagents | 並行 agent 能力保留 |
-| Plugins | 前身是 Gemini CLI 的 Extensions，需執行一次匯入指令 |
-| MCP 支援 | 設定檔改為獨立的 `mcp_config.json` |
-| 非同步背景工作流 | 官方主推的差異點，長時間任務可背景執行 |
-| 專案記憶 | 完整相容既有的 `gemini.md` |
+| Google Search grounding | 內建搜尋，回答有即時資料支撐，不需額外設定或付費 |
+| 1M token context | 大型 monorepo 可以一次載入大量程式碼 |
+| 檔案操作與 shell | 標準的 agent 工具組 |
+| MCP 支援 | 透過 Model Context Protocol 接自訂工具 |
+| GEMINI.md | 專案層級的指示檔 |
+| Skills / Hooks / Subagents | 後期補上，這幾項都遷移到了 Antigravity CLI |
 
-架構上最大的變化是**與 Antigravity 2.0 桌面版共用同一套 server-side harness**——CLI 不再是獨立實作，而是同一個 agent 平台的終端介面。Google 給的理由正是這個：與其維護兩套 CLI 加 IDE 擴充，不如集中在單一 agent-first 平台。
+其中 Search grounding 是它相對其他終端 agent 最特別的一項：agent 可以直接查即時網路資訊，而且算在免費額度裡。
 
-官方明講轉換當下**沒有 1:1 功能對等**，部分 Gemini CLI 能力沒有跟過去。
+## 與 Gemini Code Assist 的關係
 
-## 從 Gemini CLI 遷移
-
-多數設定是自動的，Extensions 需要一道手動轉換：
-
-```bash
-agy plugin import gemini
-```
-
-MCP 設定的位置與欄位有變：
-
-| | Gemini CLI | Antigravity CLI |
+| | Gemini CLI | Gemini Code Assist |
 |---|---|---|
-| 設定檔 | `settings.json` 裡的 `mcpServers` | 獨立的 `mcp_config.json` |
-| 全域路徑 | `~/.gemini/settings.json` | `~/.gemini/antigravity-cli/mcp_config.json` |
-| Workspace 路徑 | `.gemini/settings.json` | `.agents/mcp_config.json` |
-| 遠端 server 欄位 | `url` | `serverUrl` |
+| 介面 | 終端機 | VS Code 擴充套件 |
+| 底層 | 獨立 CLI | 由 Gemini CLI 驅動 |
 
-## Gemini CLI 現在還剩什麼
+VS Code 裡的 Gemini Code Assist agent mode 實際上是 Gemini CLI 功能的子集，兩者共享核心。這也是為什麼 6/18 那次停服會同時掃到 IDE 擴充與 GitHub 版本——它們是同一個東西的不同外殼。
 
-專案沒有關閉，[repo](https://github.com/google-gemini/gemini-cli) 仍以 Apache-2.0 維護，Google 也承諾繼續跟上新模型與安全修補——但只服務企業：
+## 這個案子留下的兩件事
 
-- ✅ **仍可用**：Gemini Code Assist Standard / Enterprise 授權、透過 Google Cloud 存取、付費 Gemini 或 Gemini Enterprise Agent Platform API key
-- ❌ **已終止**：個人免費層（Gemini Code Assist for Individuals）、Google AI Pro / Ultra 訂閱、個人版 Gemini Code Assist for GitHub（6/18 停止新安裝，7/17 完全關閉）
+**免費額度不是護城河，是行銷預算。** 用免費額度當選型的主要理由，等於把工具鏈押在對方的行銷決策上。這個賽道上最激進的一次免費投放，壽命大約一年。
 
-個人開發者已經沒有免費路徑。
+**開源不等於不會被抽走。** Gemini CLI 是 Apache 2.0，repo 現在也還在，但這救不了個人使用者——值錢的不是那份程式碼，是後面那個免費的推論服務。授權管的是原始碼，管不到誰能打那個 endpoint。
 
-## 典型使用場景
+## 適用場景
 
-1. **修 bug + 跑測試**：描述問題，agent 定位、修正、執行測試驗證
-2. **長時間任務背景跑**：非同步工作流是這代的主要賣點，適合大型重構或批次處理
-3. **程式碼理解**：Gemini 模型的長 context 適合一次讀入大量檔案回答問題
-4. **跨語言翻譯**：把一段 Python 改寫成 TypeScript
-
-## 與其他工具的定位差異
-
-Antigravity CLI 的優勢是與 Antigravity 桌面平台的整合、以及非同步背景 agent。代價是失去了 Gemini CLI 時代的兩個賣點：開源，以及那個近乎無上限的免費額度。
-
-要深度推理，看 Claude Code；要不綁供應商，看 OpenCode。
+- **持有 Gemini Code Assist 企業授權的團隊**：仍是受支援的路徑，不必急著搬
+- **有付費 Gemini API key 的人**：可以繼續跑，模型可用性跟著 key 走
+- **想研究 agent 實作的人**：Apache 2.0 而且還在維護，是可讀的參考實作
+- **個人開發者想找免費終端 agent**：這條路已經關了，看本系列其他選項
 
 ## 參考資料
 
-- [Google Antigravity Blog：Introducing Google Antigravity CLI](https://antigravity.google/blog/introducing-google-antigravity-cli)
-- [Google Developers Blog：Transitioning Gemini CLI to Antigravity CLI（官方公告）](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
-- [Gemini CLI Discussion #28017：正式停止服務公告與安裝指令（2026/06/18）](https://github.com/google-gemini/gemini-cli/discussions/28017)
 - [Gemini CLI GitHub：google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+- [Google Developers Blog：Transitioning Gemini CLI to Antigravity CLI（官方公告）](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
+- [Gemini CLI Discussion #28017：正式停止服務公告（2026/06/18）](https://github.com/google-gemini/gemini-cli/discussions/28017)
 - [Google 官方公告：Gemini CLI 開源終端機 AI agent 發布](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-cli-open-source-ai-agent/)
+- [Gemini CLI Hands-on Codelab](https://codelabs.developers.google.com/gemini-cli-hands-on)
 
 ## 更新紀錄
 
-- 2026-08-18：停服已成事實，全文改寫為 Antigravity CLI 介紹。移除已失效的免費方案表與 Gemini 3 Pro 段落，改為 Antigravity CLI 的安裝與功能、遷移對照表、Gemini CLI 殘存路徑；修正安裝指令網址（官方為 `antigravity.google/cli/install.sh`，原文寫成 `antigravity.google/install.sh`）；標題與 tldr 一併調整
-- 2026-05-21：補充 Gemini CLI 停用公告（2026/06/18）與 Antigravity CLI 遷移指引；更新 tldr、tags、參考資料
+- 2026-08-19：**改回以 Gemini CLI 為主題**。前一版把本文改寫成 Antigravity CLI 介紹，與站內既有的〈[Antigravity CLI：Google 用一套 agent harness 收編 Gemini CLI 的終端機介面](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)〉重複；接班人的介紹交還那篇，本文專注在 Gemini CLI 本身：它的免費額度設計、停服後殘存的企業路徑，以及這個案子留下的兩個教訓
+- 2026-08-18：停服已成事實，改寫內容並修正安裝指令網址
+- 2026-05-21：補充 Gemini CLI 停用公告（2026/06/18）與遷移指引

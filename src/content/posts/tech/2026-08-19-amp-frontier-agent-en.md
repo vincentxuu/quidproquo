@@ -7,7 +7,7 @@ tags: [amp, coding-agent, ai-tools, cli, pricing, sourcegraph]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 16
+  order: 17
 tldr: "Amp spun out of Sourcegraph in December 2025 as Amp Frontier Corporation, and its npm package moved from @sourcegraph/amp to @ampcode/cli. Its defining trait is deletion: the editor extension, Amp Tab, TODO lists, Fork, custom commands, and public threads have all been removed. Monthly subscriptions only arrived on 2026-07-18 (Megawatt $20, Gigawatt $200); before that it was pay-as-you-go only. The current focus is orbs — remote machines that keep working after you close your laptop."
 description: "Amp's design philosophy, the four-position Dial, orbs for remote execution, subscription and pay-as-you-go billing, and how its positioning changed after spinning out of Sourcegraph."
 draft: false

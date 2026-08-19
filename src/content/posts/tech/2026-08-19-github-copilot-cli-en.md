@@ -7,7 +7,7 @@ tags: [github-copilot, coding-agent, ai-tools, cli, mcp, pricing]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 14
+  order: 15
 tldr: "Copilot CLI went GA on 2026-02-25 and is included in every Copilot plan, Free included. Its differentiator isn't the agent — it's the GitHub integration: a built-in GitHub MCP server that works on issues and PRs, org policies inherited automatically, and an `&` prefix that hands work to the cloud coding agent. Billing runs on GitHub AI Credits (1 credit = $0.01): Pro $10/mo includes $15, Pro+ $39 includes $70, Max $100 includes $200."
 description: "Installing GitHub Copilot CLI, its plan and autopilot modes, /fleet parallel subagents, built-in custom agents, AI Credits billing, and how it differs from other terminal agents."
 draft: false

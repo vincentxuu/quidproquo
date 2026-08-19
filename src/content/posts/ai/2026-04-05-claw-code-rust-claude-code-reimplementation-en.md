@@ -7,7 +7,7 @@ tags: [agent-cli, claude-code, claw-code, rust, open-source, multi-agent, mcp]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 17
+  order: 18
 tldr: "Claw Code is a from-scratch Rust rewrite of the Claude Code CLI, featuring 48K lines of code, 40 tools, and MIT licensing. Most remarkably, the entire project was built by multiple AI agents collaborating over just 5 days, surpassing 170K GitHub stars within a week of launch."
 description: "An overview of Claw Code's architecture, tool system, feature-parity strategy with Claude Code, and its significance as a product of multi-agent collaboration."
 draft: false

@@ -7,7 +7,7 @@ tags: [amp, coding-agent, ai-tools, cli, pricing, sourcegraph]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 16
+  order: 17
 tldr: "Amp 已於 2025 年 12 月從 Sourcegraph 獨立為 Amp Frontier Corporation，npm 套件也從 @sourcegraph/amp 改為 @ampcode/cli。它的識別特徵是持續砍功能：editor 擴充、Amp Tab、TODO 清單、Fork、custom commands、public threads 全部刪掉。2026-07-18 才首度推出月費訂閱（Megawatt $20、Gigawatt $200），此前只有 pay-as-you-go。現在主軸是 orbs——關掉筆電也會繼續跑的遠端機器。"
 description: "Amp 的設計哲學、四段式 Dial 模式、orbs 遠端執行、訂閱與 pay-as-you-go 計費，以及它從 Sourcegraph 獨立後的定位變化。"
 draft: false

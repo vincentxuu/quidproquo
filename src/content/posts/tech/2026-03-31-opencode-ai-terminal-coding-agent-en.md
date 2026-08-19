@@ -7,7 +7,7 @@ tags: [opencode, ai-tools, cli, coding-agent, open-source, tui]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 8
+  order: 9
 tldr: "OpenCode is an open-source AI coding agent written in TypeScript (MIT, ~198K GitHub stars, repo at anomalyco/opencode) with a built-in TUI, 75+ LLM providers, LSP integration, a Vim-style editor, SQLite session management, and a desktop app. Free, no subscription, local or cloud models."
 description: "OpenCode installation, core features, dual agent modes, GitHub Actions integration, comparison with Aider, and recommended use cases."
 draft: false

@@ -7,7 +7,7 @@ tags: [agent-cli, opencode, open-source, terminal-agent, multi-provider, ollama]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 9
+  order: 10
 tldr: "OpenCode 是免費開源的 TypeScript CLI agent（MIT，約 198K GitHub stars），支援 75+ 模型供應商含本地 Ollama，可用 Copilot/ChatGPT 帳號認證，session 中途切換模型不丟上下文。另有桌面版與官方 Zen gateway。"
 description: "OpenCode 的開源架構、多供應商支援、Zen gateway、認證方式、核心功能、與 Claude Code 的比較及適用場景。"
 draft: false

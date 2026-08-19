@@ -1,5 +1,5 @@
 ---
-title: "Google's Terminal Agent, Reassessed: Gemini CLI Is Gone, Antigravity CLI Took Over"
+title: "Google's Terminal Agent Plans: The Free Individual Path Is Gone"
 date: 2026-04-02
 type: guide
 category: ai
@@ -7,88 +7,63 @@ tags: [agent-cli, gemini-cli, google, pricing, terminal-agent, antigravity]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 7
-tldr: "Gemini CLI stopped serving individual accounts on 2026/06/18. Its successor is Antigravity CLI (rewritten in Go, sharing the server-side harness with Antigravity 2.0). Gemini CLI itself isn't dead, but only two paths remain: a Gemini Code Assist Standard/Enterprise license, or a paid API key."
-description: "Where Google's terminal agent stands now: what Antigravity CLI is, the Gemini CLI paths that survive for enterprise and API-key users, how to migrate, and the lessons this transition left behind."
+  order: 8
+tldr: "The paying paths on Google's side: the individual free tier and Gemini CLI access on Google AI Pro / Ultra ended 2026/6/18, leaving individuals with Antigravity CLI or their own paid API key; enterprise licenses and Google Cloud are unaffected. The zero-cost starting option now belongs to someone else."
+description: "What the Gemini CLI shutdown actually covered, which paying paths remain for Google terminal agents, and how the plans compare with the rest of this series."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-gemini-cli)
 
-If you're picking a Google terminal agent based on articles from the first half of 2026, that information no longer applies. Gemini CLI's free tier — 1,000 requests a day, Gemini 2.5 Pro, a 1M-token context window, all for the price of a Google login — **stopped serving individual accounts on June 18, 2026**.
+If you're choosing a terminal agent on Google's side, almost everything published in the first half of 2026 is now void. This post does one thing: **lay out the paying paths that still work.**
 
-This post covers where things actually stand: what Google fields in the terminal now, which paths still work, and how to migrate.
+The product write-ups live elsewhere — [what Gemini CLI was and how its free tier ended](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en), and [its successor Antigravity CLI's installation, authentication, and features](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en).
 
-## The product is now Antigravity CLI
+## First, which path are you on
 
-On May 19, 2026, Google announced it was moving its terminal experience from Gemini CLI to **Antigravity CLI**, consolidating effort behind a single agent-first development platform rather than maintaining two CLIs and a set of IDE extensions.
+| Who you are | What to use now |
+|---|---|
+| Individual, want free | **This path is gone.** The Gemini CLI individual free tier and Google AI Pro / Ultra access both ended 2026/6/18 |
+| Individual, willing to pay | Antigravity CLI (on a Google AI plan), or keep running Gemini CLI with your own paid API key |
+| Org with Gemini Code Assist Standard / Enterprise | Gemini CLI remains fully supported; no migration needed |
+| On Google Cloud / Gemini Enterprise Agent Platform | Either works, billed per token |
 
-What actually differs:
+**Individual developers have no free path left** — that's the significant change in this slot.
 
-| Aspect | Detail |
-|--------|--------|
-| **Implementation** | Rewritten in Go (Gemini CLI was TypeScript) |
-| **Architecture** | Shares one server-side harness with the Antigravity 2.0 desktop app |
-| **Async workflows** | Supports long-running background tasks — the headline differentiator |
-| **Carried over** | Agent Skills, Hooks, Subagents; Extensions renamed to Antigravity plugins |
-| **Openness** | Not an Apache-2.0 open source project the way Gemini CLI was — the loudest community complaint |
+## What the shutdown actually covered
 
-Google explicitly said there would be **no 1:1 feature parity** at launch. Some Gemini CLI capabilities did not make the crossing, and the complaints under the announcement thread cluster around two things: shrunken usage quotas (users reporting they hit weekly limits within a few requests), and a replacement that is no longer open source.
+Announced May 19, 2026; executed June 18:
 
-Installation:
+| Affected | Detail |
+|---|---|
+| Gemini CLI individual free tier | Stopped serving |
+| Gemini CLI access on Google AI Pro / Ultra | Stopped; Antigravity CLI takes over |
+| Gemini Code Assist IDE extensions | Stopped at the same time (they were another shell over Gemini CLI) |
+| Gemini Code Assist for GitHub, individual | No new installs from 6/18, full shutdown 7/17 |
+| **Unaffected** | Gemini Code Assist Standard / Enterprise licenses, Google Cloud access, paid API keys |
 
-```bash
-# macOS / Linux
-curl -fsSL https://antigravity.google/cli/install.sh | bash
+The repo stays maintained under Apache 2.0 and Google committed to keeping pace with new models and security fixes — but the audience is enterprise only.
 
-# Windows PowerShell
-irm https://antigravity.google/cli/install.ps1 | iex
-```
+## Against the rest of this series
 
-## What's left of Gemini CLI
+Google's position here is now awkward, and worth seeing side by side:
 
-The project wasn't shut down. The repo is still maintained under Apache-2.0, and Google says it will keep pace with new models and ship bug and security fixes — but **only enterprise customers are served**.
+| | Free entry | Individual paid | Rides an existing subscription |
+|---|---|---|---|
+| **Google (Antigravity CLI)** | ❌ Ended | Per Google AI plan | Google account ecosystem |
+| Claude Code | ❌ | $20 / $100 / $200 | — |
+| Codex | Limited | $8 / $20 / $100 / $200 | ChatGPT subscription |
+| Copilot CLI | ✅ Included in Free | $10 / $39 / $100 | GitHub Copilot license |
+| OpenCode | ✅ Open source, bring your key | Per model usage | Copilot / ChatGPT account |
+| Amp | ❌ Closed to new signups | $20 / $200 | ChatGPT, X Premium+ |
 
-| Path | Still works | Notes |
-|------|-------------|-------|
-| Free Google account (Gemini Code Assist for Individuals) | ❌ Ended 2026/06/18 | The individual free tier is gone |
-| Google AI Pro / Ultra subscription | ❌ Ended the same day | Now served through Antigravity CLI |
-| Gemini Code Assist Standard / Enterprise license | ✅ Unaffected | Organizations via license or Google Cloud |
-| Paid Gemini / Gemini Enterprise Agent Platform API key | ✅ Unaffected | Billed per token |
-| Gemini Code Assist for GitHub | ❌ Individual tier ended | No new installs from 6/18, full shutdown 7/17; enterprise unaffected |
+Google used to be the one strong entry in the free column. That cell is now empty. For a zero-cost start the answer has shifted to open source, bring-your-own-key routes like OpenCode, or Copilot CLI's Free plan.
 
-In short: **individual developers have no free path left**. Either move to Antigravity CLI, or bring a paid API key and keep running Gemini CLI.
+## The selection rule this episode leaves behind
 
-## Migrating from Gemini CLI
+Neither a free tier nor an open source license is a guarantee you can plan around — [the Gemini CLI post](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en) covers both lessons in full. In selection terms it reduces to one line:
 
-Antigravity CLI detects your local Gemini CLI directory during installation and carries configuration across:
-
-- **Skills** — custom and installed skills are imported automatically
-- **MCP Servers** — all configured servers are migrated
-- **Agents** — existing agent profiles and setups are preserved
-- **Project memory** — fully compatible with existing `gemini.md` files
-
-Extensions need one manual step:
-
-```bash
-agy plugin import gemini
-```
-
-MCP configuration moved: the file goes from `settings.json` to `mcp_config.json`, and the remote-server field is renamed from `url` to `serverUrl`.
-
-## Two lessons from this transition
-
-**A free tier is not a moat; it's a marketing budget.** Gemini CLI's free tier was the most aggressive this category has seen — Google analyzed internal developer usage and set the ceiling at twice what its heaviest engineers consumed, effectively declaring that most people would never hit a paywall. It lasted about a year. Choosing a tool primarily for its free tier stakes your toolchain on somebody else's marketing decision.
-
-**Open source doesn't mean it can't be taken away.** Gemini CLI is Apache-2.0 and the repo is still there, and none of that helped individual users — because the valuable part was never the source, it was the free inference behind it. A license governs the code, not who is allowed to call the endpoint.
-
-## Who this fits
-
-- **Teams with an existing Gemini Code Assist enterprise license** — Gemini CLI remains a supported path; no need to rush
-- **Developers already in the Antigravity ecosystem** — Antigravity CLI is the official line, with async background tasks as the current draw
-- **Individuals who just want a free terminal agent** — this door is closed at Google; see the other posts in this series
-
-If you want depth of reasoning, Claude Code is still the better pick; if you want no vendor lock-in, OpenCode's multi-provider architecture fits better.
+**When evaluating a tool, be clear whether you depend on the code or on somebody's service.** A license protects the first and not the second — Gemini CLI's repo is still there today, and that did nothing for individual users after 6/18.
 
 ## References
 
@@ -96,10 +71,10 @@ If you want depth of reasoning, Claude Code is still the better pick; if you wan
 - [Gemini CLI Discussion #28017: official shutdown notice (2026/06/18)](https://github.com/google-gemini/gemini-cli/discussions/28017)
 - [Gemini CLI Discussion #27274: transition announcement and community discussion](https://github.com/google-gemini/gemini-cli/discussions/27274)
 - [Google Antigravity Blog: Introducing Google Antigravity CLI](https://antigravity.google/blog/introducing-google-antigravity-cli)
-- [Gemini CLI | GitHub](https://github.com/google-gemini/gemini-cli)
 - [The Register: Bye-bye, Gemini CLI; Google nudges devs toward Antigravity](https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605)
 
 ## Changelog
 
-- 2026-08-18: The shutdown has happened; full rewrite. Removed the now-defunct free tier, authentication, and paid plan tables in favor of Antigravity CLI's positioning, a table of surviving Gemini CLI paths, migration steps, and two lessons from the transition. Title and tldr updated accordingly
-- 2026-05-21: Added the Gemini CLI discontinuation notice (2026/06/18) and the Antigravity CLI migration section; updated tldr, tags, and references
+- 2026-08-19: **Consolidated the three posts in Google's slot to remove overlap.** This post previously also covered Antigravity CLI's features and migration steps, duplicating the site's existing [Antigravity CLI post](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en) and the [Gemini CLI post](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en) restored to its own subject. This one narrows to plans and paying paths; product coverage and migration steps go back to those two
+- 2026-08-18: The shutdown became fact; full rewrite
+- 2026-05-21: Added the discontinuation notice and migration section

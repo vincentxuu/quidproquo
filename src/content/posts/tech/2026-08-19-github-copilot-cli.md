@@ -7,7 +7,7 @@ tags: [github-copilot, coding-agent, ai-tools, cli, mcp, pricing]
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 14
+  order: 15
 tldr: "Copilot CLI 於 2026-02-25 正式 GA，所有 Copilot 方案（含 Free）都包含。差異化不在 agent 本身，而在 GitHub 平台整合：內建 GitHub MCP server 直接操作 issue 與 PR、組織政策自動繼承、`&` 前綴把工作丟給雲端 coding agent。計費走 GitHub AI Credits（1 credit = $0.01），Pro $10/mo 含 $15、Pro+ $39 含 $70、Max $100 含 $200。"
 description: "GitHub Copilot CLI 的安裝、plan/autopilot 模式、/fleet 平行 subagent、內建 custom agents、AI Credits 計費方式，以及它跟其他終端 agent 的定位差異。"
 draft: false

@@ -5,6 +5,9 @@ type: deep-dive
 category: tech
 tags: [antigravity-cli, google, cli, coding-agent, ai-tools, gemini-cli]
 lang: zh-TW
+series:
+  name: "Agent CLI 選型指南"
+  order: 7
 tldr: "Antigravity CLI 是 Google 在 2026/5/19 I/O 發表的終端機 agent，用 Go 重寫（Gemini CLI 是 Node），二進位檔叫 agy，與桌面版 Antigravity 2.0 共用同一套 agent harness。它同時是 Gemini CLI 的接班人——個人方案的 Gemini CLI 將於 2026/6/18 停止服務。"
 description: "Antigravity CLI 的定位、安裝與 SSH 認證、非同步 subagents、slash 指令、與 Gemini CLI 的遷移關係（6/18 sunset）與企業 carveout，以及與 Antigravity 2.0 / 競品的差異。"
 draft: false

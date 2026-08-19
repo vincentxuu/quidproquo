@@ -7,7 +7,7 @@ tags: [omp, pi, coding-agent, cli, rust, open-source, ai-tools]
 lang: en
 series:
   name: "Choosing an Agent CLI"
-  order: 15
+  order: 16
 tldr: "omp is a fork of Pi, but it is not just a plugin layer stacked on top: it adds roughly 80,000 lines of Rust, pulling grep, shell, AST, and PTY in-process. Built-in tools go from Pi's 7 to 31, plus 14 LSP ops, 28 DAP ops, and 60+ providers. One codebase, two opposite bets."
 description: "How omp (Oh My Pi) actually diverges from upstream Pi: tool count, the native Rust layer, benchmark numbers behind the hashline edit format, mechanisms like advisor/TTSR/URI schemes, and the trade-offs on both sides."
 draft: false

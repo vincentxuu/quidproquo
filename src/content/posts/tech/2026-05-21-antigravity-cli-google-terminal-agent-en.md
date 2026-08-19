@@ -5,6 +5,9 @@ type: deep-dive
 category: tech
 tags: [antigravity-cli, google, cli, coding-agent, ai-tools, gemini-cli]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 7
 tldr: "Antigravity CLI is a terminal agent Google announced at I/O on May 19, 2026. Written in Go (versus Gemini CLI's Node.js), its binary is called agy, and it shares the same agent harness as the desktop Antigravity 2.0. It is also Gemini CLI's successor — the personal-tier Gemini CLI service ends on June 18, 2026."
 description: "Antigravity CLI's positioning, installation and SSH auth, async subagents, slash commands, the migration story from Gemini CLI (June 18 sunset), enterprise carveout, and how it differs from Antigravity 2.0 and competing tools."
 draft: false
