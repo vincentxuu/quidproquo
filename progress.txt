@@ -62,8 +62,8 @@ Recently completed
 - 2026-08-19: **各廠「怎麼選」4 篇 x zh/en 寫完**（order 21-24）。三處官方自相矛盾與
   「死連結檢查會被自己的並行寫法週期性觸發」的協作教訓見 progress-archive.md。
   系列只剩 AWS MLA-C01（等 9/1 的 C02 規格）。
-- 2026-08-19: **Agent CLI 選型指南 14 → 21 篇**；我寫的是 omp（Oh My Pi）order 15 zh/en，
-  另一 session 同時補了 Aider／Copilot CLI／Amp／Claw Code／goose／Warp 六篇。
+- 2026-08-19: **Agent CLI 選型指南 14 → 22 篇**；我寫的是 omp（Oh My Pi）zh/en，
+  另一 session 同時補了 Aider／Copilot CLI／Amp／Claw Code／goose／Warp 六篇並收編 Antigravity 專文。
   **這輪的教訓跟 8/18 同源，但換了個面孔：使用者貼來的既有整理也是二手摘要，不是來源。**
   實抓一手資料後修掉兩處判斷失真——①把 omp 說成「差在外掛的那一大包」，實際它多 80k 行 Rust、
   是工具層重寫（TS 8.5MB/C 10KB → TS 50MB/Rust 5.2MB）②把 pi 的比較表空欄讀成「還沒做」，
@@ -74,7 +74,11 @@ Recently completed
   跟 8/18 記的 iso.org 同型，要改用 registry API 確認而不是判定死連結。
   **協作有效**：只 stage 自己的四個檔、不碰對方 WIP；對方看到我的 order 15 主動繞開，中英無重號。
   我的 commit 被對方的 push 一起帶上 main，不必自己再推。
-（已完成並合併的條目移到 docs/progress-archive.md）
+  **另一 session 的三條**：①**自己設的上限不能當完整清單**——盤點加 `head -50` 漏掉既有 Antigravity
+  專文，把 Gemini CLI 篇改寫成重複內容；②**事實對、框架錯也是錯**：「仍是可用產品」對企業成立，
+  但多數讀者是個人、個人入口已整條刪除；③**二手一致不等於正確**（Amp 三篇評測都說「沒訂閱」，
+  官方 7/18 已推出）；OpenCode 三處全錯同源於與同名早期 Go 專案混淆（語言／授權／repo 位置）。
+（已完成的條目移到 docs/progress-archive.md）
 
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
