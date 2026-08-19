@@ -85,7 +85,7 @@ A close relative of the same trick: a small reranker in front, a large generator
 
 ### 4. Context Length Control
 
-LLM cost scales linearly with context length. Longer context means more prompt tokens:
+LLM cost grows with context length. Longer context means more prompt tokens:
 
 ```typescript
 // Bad: stuffing all search results into context

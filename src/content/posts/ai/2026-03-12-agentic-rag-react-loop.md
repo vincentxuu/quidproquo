@@ -1,6 +1,7 @@
 ---
 title: "Agentic RAG：讓 LLM 自己決定要不要再搜尋一次"
 date: 2026-03-12
+updated: 2026-08-19
 type: guide
 category: ai
 tags: [rag, agentic-rag, react, multi-hop, llm-agent]
@@ -152,6 +153,10 @@ Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進
 核心設計原則：**給 LLM 充分的資訊而不是讓它猜**。與其讓 LLM 從不完整的 context 中瞎猜，不如讓它多搜幾次拿到足夠的資訊再回答。Agentic RAG 就是把這個判斷權還給 LLM。
 
 ---
+
+## 更新紀錄
+
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 

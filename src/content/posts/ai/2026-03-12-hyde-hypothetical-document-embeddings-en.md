@@ -113,5 +113,5 @@ Overall, for complex or ambiguous natural language queries, and where the underl
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
 - [When do Generative Query and Document Expansions Fail? (Weller et al., EACL 2024)](https://arxiv.org/abs/2309.08541)
 - [Zero-Shot Dense Retrieval with Embeddings from Relevance Feedback (ReDE-RF, 2024)](https://arxiv.org/abs/2410.21242)
-- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

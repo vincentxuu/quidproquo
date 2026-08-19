@@ -325,5 +325,5 @@ If your agent is performing inconsistently, don't rush to swap models. Look back
 - [Simon Willison — Context Engineering](https://simonwillison.net/2025/jun/27/context-engineering/) — Explains why context engineering more accurately describes the essence of modern AI engineering than prompt engineering
 - [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560) — Packer et al. (2023), analogizing LLM memory management to OS virtual memory, with a concrete implementation of the context window as RAM
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025), a comprehensive survey of context management and memory architectures in Agentic RAG
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024), the complete technical background on RAG as a context selection strategy
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023), the complete technical background on RAG as a context selection strategy
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023), the pioneering framework for interleaving reasoning and action within the context window

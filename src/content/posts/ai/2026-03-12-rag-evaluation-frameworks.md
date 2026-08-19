@@ -14,6 +14,8 @@ series:
   order: 37
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
+
 RAG 系統的品質評估是個難題：你能感覺到回答不好，但說不清楚是哪個環節的問題——是搜尋找錯了文件，還是 LLM 從正確的文件中提取出了錯誤的資訊？
 
 系統化的評估框架把「感覺不好」量化成具體的指標，讓優化有方向。

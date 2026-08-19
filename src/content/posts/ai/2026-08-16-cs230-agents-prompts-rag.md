@@ -21,7 +21,7 @@ draft: false
 
 這是全系列**流量最高**的一講，46 萬觀看，是第二名的三倍。而且它在 2024 年還只是 Lecture 9 的一行標題「RAG and AI Agents」、**沒有投影片**；2025 年才擴成 110 分鐘的完整一講。這個變化本身就是這幾年重心移動的縮影。
 
-（**這一講和站上既有的 [Agent 生產線](/series/agent)、[AI Agent 實戰](/series/ai-agent-systems)、[RAG 系統實戰](/series/rag-systems) 三個系列有大量重疊。** 本文照課堂內容完整寫，重疊的段落會在結尾指向站上更深的展開。）
+（**這一講和站上既有的 [Agent 生產線](/series/agent)、[AI Agent 實戰](/series/ai-agent-systems)、[RAG 技法大全](/series/rag-techniques) 三個系列有大量重疊。** 本文照課堂內容完整寫，重疊的段落會在結尾指向站上更深的展開。）
 
 ## 開場：兩個軸
 

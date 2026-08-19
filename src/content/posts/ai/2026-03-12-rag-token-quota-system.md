@@ -14,6 +14,8 @@ series:
   order: 43
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-token-quota-system-en)
+
 LLM API 是按 token 計費的，不控制用量就是讓成本自由生長。RAG 系統的配額設計看起來簡單，但細節很多。
 
 最常見的做法是「每日請求次數限制」，但這不夠：一個問題帶了很長的 context（50 條路線描述），生成 2000 tokens；另一個問題 context 很短，生成 200 tokens。請求次數一樣，token 消耗差了 10 倍。

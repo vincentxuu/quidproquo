@@ -1756,7 +1756,7 @@ Remember: **Users don't care what model you use. They care about: Is it fast? Do
 
 ## References
 
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024), comprehensive survey of RAG system design covering memory and knowledge integration patterns
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023), comprehensive survey of RAG system design covering memory and knowledge integration patterns
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023), the reasoning-and-acting interleaved agent framework, theoretical foundation for chatbot tool calling
 - [Langfuse Documentation — Tracing](https://langfuse.com/docs/tracing) — Langfuse official documentation, LLM observability and trace tracking implementation guide
 - [OpenAI Platform — Streaming](https://platform.openai.com/docs/api-reference/streaming) — OpenAI official SSE Streaming API reference

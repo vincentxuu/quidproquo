@@ -14,6 +14,8 @@ series:
   order: 38
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-ab-testing-en)
+
 RAG 系統每次改動，都應該透過 A/B 測試驗證效果。沒有對照組的改動，無法知道是改動本身帶來的效果，還是查詢分布的自然變化。
 
 ## 為什麼 RAG 的 A/B 測試很難

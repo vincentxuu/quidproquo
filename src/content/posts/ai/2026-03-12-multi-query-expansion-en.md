@@ -134,5 +134,5 @@ Multi-Query Expansion is essentially using the LLM's language capabilities to co
 - [Query Rewriting for Retrieval-Augmented Large Language Models (Ma et al., 2023)](https://arxiv.org/abs/2305.14283)
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
 - [MultiQueryRetriever — official LangChain API reference (now in `langchain-classic`)](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever)
-- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: Cloudflare Full-Stack Climbing Community Platform](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

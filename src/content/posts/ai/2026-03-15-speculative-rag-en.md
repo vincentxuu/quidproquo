@@ -166,7 +166,7 @@ The paper trains the Drafter using Knowledge Distillation:
 
 The paper repeats the data generation with GPT-4o and finds Speculative RAG keeps its advantage, so the method isn't bound to one teacher model. An ablation also confirms that **removing the rationale from the fine-tuning data drops performance noticeably on all three benchmarks** — the rationale isn't decoration, it's the key input to the verification stage.
 
-This training approach allows a 7B small model to approach large model quality on specific tasks while maintaining the speed advantage of a small model.
+This training approach allows a 7B small model to approach large model quality on specific tasks while maintaining the speed advantage of a small model. The price is that you have to run that distillation and fine-tuning round yourself — **that, not the architecture, is the real barrier to adopting Speculative RAG**.
 
 ## RAG Verifier Design
 
@@ -267,7 +267,7 @@ Two caveats: (1) every method in the table runs on the same Mistral-family backb
 
 ### Latency Comparison
 
-The paper's latency analysis samples 100 cases per dataset, processes them individually without batching, and compares against **the strongest baseline (Standard RAG: Mixtral-Instruct-8x7B)**. Actual reductions:
+The paper's latency analysis randomly samples 100 cases, processes them individually without batching, and compares against **the strongest baseline (Standard RAG: Mixtral-Instruct-8x7B)**. Actual reductions:
 
 | Benchmark | Latency reduction |
 |---|---|

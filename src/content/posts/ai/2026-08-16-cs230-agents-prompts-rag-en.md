@@ -21,7 +21,7 @@ This post covers **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com
 
 It's **the most-watched lecture in the series** at 460,000 views, three times the second place. And in 2024 it was a one-line title under Lecture 9, "RAG and AI Agents," **with no slides**; in 2025 it expanded into a full 110-minute session. That change alone is a miniature of where the center of gravity has moved.
 
-(**This lecture overlaps heavily with three existing series on this site: [The Agent Production Line](/en/series/agent), [AI Agent Systems](/en/series/ai-agent-systems), and [RAG Systems](/en/series/rag-systems).** This post covers the lecture content in full and points at the site's deeper treatments where they overlap.)
+(**This lecture overlaps heavily with three existing series on this site: [The Agent Production Line](/en/series/agent), [AI Agent Systems](/en/series/ai-agent-systems), and [The RAG Techniques Compendium](/en/series/rag-techniques).** This post covers the lecture content in full and points at the site's deeper treatments where they overlap.)
 
 ## Opening: two axes
 

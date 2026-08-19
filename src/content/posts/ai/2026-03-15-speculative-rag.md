@@ -14,6 +14,8 @@ series:
   order: 27
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-15-speculative-rag-en)
+
 標準 RAG 的流程大家都熟：檢索文件 → 拼成 context → 送給 LLM 生成。這個流程簡單有效，但有一個根本性的瓶頸：**所有文件塞進同一次 LLM 呼叫，模型必須在一次生成中處理所有資訊，而且整個流程是序列的**。
 
 文件越多，context 越長，延遲越高，而且模型在超長 context 中容易「迷路」——重要資訊被淹沒在大量文字裡。這就是 Speculative RAG 要解決的問題。

@@ -14,6 +14,8 @@ series:
   order: 42
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-cost-optimization-en)
+
 一個生產環境的 RAG 系統，成本來源很具體。把每個環節的成本來源搞清楚，才能有針對性地優化。
 
 ## 成本組成分析

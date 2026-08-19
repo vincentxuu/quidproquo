@@ -14,6 +14,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
+
 你搜尋「RAG」，會得到幾百篇文章，每篇都在講不同的東西。
 
 有人在講 Naive RAG 的三步驟，有人在講 Graph RAG 的知識圖譜，有人在講 Agentic RAG 的 ReAct loop，有人在講 Reranking 和 Embedding 模型選型。這些全部都叫 RAG，但它們解決的問題完全不同，適用的場景也天差地遠。

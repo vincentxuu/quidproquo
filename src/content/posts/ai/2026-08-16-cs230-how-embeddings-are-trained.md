@@ -265,7 +265,7 @@ Katanforoosh 把這題丟給學生，逼問得很細。有人說「讓網路找�
 
 ## 延伸：這對 RAG 意味著什麼
 
-站上 [RAG 系統實戰](/series/rag-systems)六篇都在用 embedding，但沒有一篇講它怎麼來的。把這一講的線收起來：
+站上 [RAG 技法大全](/series/rag-techniques)裡的技法幾乎都在用 embedding，但沒有一篇講它怎麼來的。把這一講的線收起來：
 
 1. embedding 不是模型的副產品，**它是被一個特定的 loss function 逼出來的**
 2. 那個 loss 決定了「什麼算接近」——FaceNet 的接近是「同一個人」，SimCLR 的接近是「同一張圖的不同變形」

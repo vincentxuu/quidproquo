@@ -14,6 +14,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
+
 「應該用 RAG 還是 Fine-tuning？」是 LLM 應用開發中最常見的問題之一。答案是：**這是兩個不同問題的解法，通常需要同時用。**
 
 ## 根本差異

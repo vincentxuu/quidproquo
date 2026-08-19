@@ -197,5 +197,5 @@ Contextual Retrieval addresses a root-level problem in RAG systems: chunking des
 - [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models (arXiv:2409.04701)](https://arxiv.org/abs/2409.04701)
 - [Full text queries (Elasticsearch / BM25 hybrid retrieval)](https://www.elastic.co/docs/reference/query-languages/query-dsl/full-text-queries)
 - [iThome — Contextual Retrieval article](https://ithelp.ithome.com.tw/articles/10389779)
-- [NobodyClimb Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

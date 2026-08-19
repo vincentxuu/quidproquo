@@ -13,6 +13,8 @@ series:
   order: 33
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-failure-modes-en)
+
 RAG 系統的問題通常不是隨機的，而是集中在幾種可識別的失敗模式。診斷清楚是哪種模式，解法也就清楚了。
 
 ## 搜尋失敗類

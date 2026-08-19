@@ -1746,7 +1746,7 @@ TypeScript 負責使用者接觸的「邊緣層」——低延遲、streaming、
 
 ## 參考資料
 
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 系統設計全面綜述，涵蓋記憶與知識整合模式
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，RAG 系統設計全面綜述，涵蓋記憶與知識整合模式
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，推理與行動交織的 Agent 框架，聊天機器人工具呼叫的理論基礎
 - [Langfuse Documentation — Tracing](https://langfuse.com/docs/tracing) — Langfuse 官方文件，LLM 可觀測性與 trace 追蹤實作指南
 - [OpenAI Platform — Streaming](https://platform.openai.com/docs/api-reference/streaming) — OpenAI 官方 SSE Streaming API 參考文件

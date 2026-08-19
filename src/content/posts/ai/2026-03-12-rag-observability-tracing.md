@@ -14,6 +14,8 @@ series:
   order: 39
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-observability-tracing-en)
+
 RAG 系統上線後，使用者回報「這個回答不對」，你要怎麼查？
 
 如果沒有可觀測性，只能猜：是向量搜尋找錯文件？是 LLM 幻覺？是過濾條件太嚴導致零結果？是 Reranker 把好文件排到後面？每個環節都可能出問題，但你不知道是哪個。

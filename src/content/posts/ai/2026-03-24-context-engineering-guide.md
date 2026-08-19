@@ -322,5 +322,5 @@ Karpathy 的比喻最到位：LLM 是 CPU，context window 是 RAM。你不會�
 - [Simon Willison — Context Engineering](https://simonwillison.net/2025/jun/27/context-engineering/) — 解釋為何 context engineering 比 prompt engineering 更準確描述現代 AI 工程的本質
 - [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560) — Packer et al. (2023)，將 LLM 記憶管理類比作業系統虛擬記憶體，context window 即 RAM 的具體實作
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，Agentic RAG 中 context 管理與記憶架構的全面綜述
-- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2024)，RAG 作為 context selection 策略的完整技術背景
+- [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，RAG 作為 context selection 策略的完整技術背景
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Agent 在 context window 中交織推理與行動的開創性框架

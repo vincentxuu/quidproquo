@@ -211,5 +211,5 @@ Most importantly: **don't wait until your data is complete before going live**. 
 - [KnowTrace: Bootstrapping Iterative Retrieval-Augmented Generation with Structured Knowledge Tracing](https://arxiv.org/abs/2505.20245)
 - [Content Signals (AI-use declarations in robots.txt)](https://contentsignals.org/)
 - [Cloudflare Workers: `ctx.waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/)
-- [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en) (zh-TW only)
-- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) (zh-TW only)
+- [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

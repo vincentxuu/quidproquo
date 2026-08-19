@@ -14,6 +14,8 @@ series:
   order: 40
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-rag-observability-tools-en)
+
 RAG 系統的可觀測性需求很明確：trace 每次查詢的執行過程、記錄 LLM 的輸入輸出、評估回答品質、找出問題集中在哪個步驟。
 
 可以自己實作（上一篇講了 pipeline trace 的設計），也可以用現有工具。工具的好處是開箱即用的 UI、內建的評估功能、團隊協作支援；代價是多了一個外部依賴。

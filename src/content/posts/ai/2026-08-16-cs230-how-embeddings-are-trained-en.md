@@ -265,7 +265,7 @@ The paper is literally called Image**Bind**. This distinction has practical cons
 
 ## Beyond the classroom: what this means for RAG
 
-The six posts in the site's [RAG systems](/en/series/rag-systems) series all use embeddings, but none of them covers where embeddings come from. Pulling this lecture's thread together:
+The posts in the site's [RAG Techniques Compendium](/en/series/rag-techniques) lean on embeddings throughout, but none of them covers where embeddings come from. Pulling this lecture's thread together:
 
 1. An embedding is not a byproduct of a model — **it is forced into existence by a specific loss function**
 2. That loss defines what "close" means — FaceNet's close is "same person," SimCLR's close is "different deformations of the same image"

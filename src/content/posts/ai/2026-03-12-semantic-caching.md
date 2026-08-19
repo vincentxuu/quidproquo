@@ -14,6 +14,8 @@ series:
   order: 41
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-12-semantic-caching-en)
+
 傳統快取比對的是精確字串：「龍洞有幾條路線」和「龍洞共有幾條路線」會被當成兩個不同的查詢，各自執行一次完整的 RAG pipeline。
 
 Semantic Caching 用向量相似度做比對：**如果兩個查詢的 embedding 足夠接近，就視為同一個問題，直接回傳快取結果**。

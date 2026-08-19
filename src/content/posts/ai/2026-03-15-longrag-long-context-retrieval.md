@@ -14,6 +14,8 @@ series:
   order: 26
 ---
 
+> 🌏 [English version](/posts/ai/2026-03-15-longrag-long-context-retrieval-en)
+
 傳統 RAG 的核心假設是：LLM 的 context window 有限，所以我們必須把文件切得很小，只送最相關的片段進去。
 
 這個假設在 2024 年之前是合理的。但主流商用模型的 context window 早已從 4K 級別跨進 10 萬 token 以上的量級（具體數字每季都在變，請直接查各家官方模型頁），當可用上下文多了兩個數量級，RAG 的設計邏輯應該跟著重新算一次帳。

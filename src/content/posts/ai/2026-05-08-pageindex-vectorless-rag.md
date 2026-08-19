@@ -14,6 +14,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/posts/ai/2026-05-08-pageindex-vectorless-rag-en)
+
 VectifyAI 開源的 PageIndex 走的是一條跟主流 RAG 不一樣的路線：不切 chunk、不做 embedding、不存向量，改用 LLM 在一份樹狀目錄上推理。它最常被引用的數字是 FinanceBench 上的 98.7% 準確率——那個數字有來源上的前提，後面會專門拆一節。先看它把「做 RAG = 做向量」這個被當成預設的假設重新打開的部分。
 
 ## 兩個前置概念
