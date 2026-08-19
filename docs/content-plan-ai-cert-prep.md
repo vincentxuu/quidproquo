@@ -51,7 +51,7 @@
    - B1 的可重用產出：**四家名詞對照表**（同一概念的微軟／NVIDIA／Anthropic 說法）與**獨有考點清單**，B2–B5 可以照同一組結構寫。
 2. **各廠「怎麼選」**：AWS 三張（含 MLA-C01 英文版 2026/9/28 停考的時間分支）、微軟四張、NVIDIA 四張、Claude 四張。Claude 與 NVIDIA 的對照表已散在各篇，可直接彙整。
 3. **AWS MLA-C01**：等 2026/9/1 C02 規格公布再寫；C02 exam guide 網址目前 404。
-4. **`.work/check-internal-links.patch` 待套用**：給 `scripts/check-post-references.mjs` 加「站內連結指向不存在文章」檢查，已寫好並驗過能擋。**暫緩提交的原因**：套用後 Hermes 系列的前向連結會讓 `pnpm verify` 變紅、擋到其他 session 的 commit。等 Hermes 那批寫完再 `git apply`。
+4. **`.work/check-internal-links.patch` 已套用**（2026-08-19）：`scripts/check-post-references.mjs` 現在會擋「站內連結指向不存在的文章」。當初暫緩是因為 Hermes 系列的前向連結會讓 verify 變紅；那批寫完後重跑，1017 篇全綠，於是套上。**這條檢查補的正是 2026-08-18 憑印象寫 slug 而全綠放行的破口。**
 
 ### 寫作時務必沿用的紀律（今天踩過的坑）
 

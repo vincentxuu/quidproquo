@@ -215,6 +215,38 @@ function checkCoverage(title, headings, referenceContent, referenceLinks) {
   return findings;
 }
 
+/**
+ * 站內連結（/posts/<category>/<slug>）必須真的存在對應的 Markdown 檔。
+ * 這條是補 2026-08-18 的破口：當時引用了一個憑印象寫出來的 slug，
+ * 檔案根本不存在，但檢查全綠。連結格式正確不代表目標存在。
+ */
+function checkInternalPostLinks(content) {
+  const findings = [];
+  const seen = new Set();
+  const pattern = /\]\((\/posts\/[^)\s#?]+)/g;
+  let match;
+
+  while ((match = pattern.exec(content)) !== null) {
+    const href = match[1].replace(/\/$/, '');
+    if (seen.has(href)) continue;
+    seen.add(href);
+
+    const relative = href.replace(/^\/posts\//, '');
+    const exists = ['.md', '.mdx'].some((ext) =>
+      fs.existsSync(path.join(POSTS_ROOT, `${relative}${ext}`))
+    );
+
+    if (!exists) {
+      findings.push({
+        severity: 'error',
+        message: `站內連結指向不存在的文章：${href}`,
+      });
+    }
+  }
+
+  return findings;
+}
+
 function lintPost(file) {
   const source = fs.readFileSync(file, 'utf8');
   const { data, content } = matter(source);
@@ -253,6 +285,8 @@ function lintPost(file) {
   if (referenceSection.exists && referenceSection.links.length > 0) {
     findings.push(...checkCoverage(title, headings, referenceSection.content, referenceSection.links));
   }
+
+  findings.push(...checkInternalPostLinks(content));
 
   return { file, findings };
 }
