@@ -16,7 +16,7 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
-RAG 系統的搜尋品質，50% 取決於 Embedding 模型的選擇。一個好的 Embedding 模型讓語義相近的查詢和文件在向量空間距離接近，差的模型讓向量搜尋變成彩票。
+RAG 系統的搜尋品質，很大一部分取決於 Embedding 模型的選擇。一個好的 Embedding 模型讓語義相近的查詢和文件在向量空間距離接近，差的模型讓向量搜尋變成彩票。
 
 選擇 Embedding 模型時，幾個關鍵問題：語言支援、向量維度、是否有配套的 Reranker、在目標平台上的可用性。
 
@@ -24,7 +24,7 @@ RAG 系統的搜尋品質，50% 取決於 Embedding 模型的選擇。一個好�
 
 BGE-M3 是北京人工智能研究院（BAAI）出品的多語言 Embedding 模型，「M3」代表 **Multi-Linguality, Multi-Granularity, Multi-Functionality**：
 
-- **Multi-Linguality**：支援 100+ 語言，包括繁體中文
+- **Multi-Linguality**：官方宣稱支援 100+ 語言（語言清單裡沒有單獨列出繁體中文）
 - **Multi-Granularity**：支援短句到長文件（最長 8192 tokens）
 - **Multi-Functionality**：同時支援 Dense retrieval、Sparse retrieval、Multi-vector retrieval
 
@@ -34,9 +34,9 @@ BGE-M3 是北京人工智能研究院（BAAI）出品的多語言 Embedding 模�
 
 ### 繁體中文效果
 
-大多數 Embedding 模型的中文訓練資料以簡體中文為主，繁體中文的語義理解較差。BGE-M3 的多語言訓練集包含大量繁體中文資料，在繁中語義搜尋上的表現明顯優於只支援英文或以簡中為主的模型。
+大多數 Embedding 模型的中文訓練資料以簡體中文為主。**要注意 BGE-M3 也是**——[M3 論文](https://arxiv.org/abs/2402.03216)全文沒有出現過 Traditional Chinese，列出的中文微調資料（DuReader、mMARCO-ZH、T²-Ranking、CMedQAv2 等）全是簡中，HuggingFace 模型卡同樣沒提繁中。所以「它對繁中特別好」是沒有依據的，簡繁共享大量字形與詞彙可能讓它堪用，但這要靠你自己的評測集證實。
 
-攀岩相關的繁體中文術語（「先鋒攀登」、「確保站」、「岩壁」、「抱石」）在 BGE-M3 的向量空間中有比較好的語義聚類，搜尋相關術語不會出現奇怪的跳號。
+在這個系統上，攀岩的繁中術語（「先鋒攀登」、「確保站」、「岩壁」、「抱石」）用起來沒有出現明顯的跳號——但這是使用觀感，沒有做過對照量測，別當成模型比較的證據。
 
 ### 1024 維向量
 

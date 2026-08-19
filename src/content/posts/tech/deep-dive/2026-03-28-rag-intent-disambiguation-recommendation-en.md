@@ -92,7 +92,7 @@ Weld et al. (2022)'s ACM Computing Surveys review traces how joint intent detect
 
 ### 3. LLM Structured Output
 
-Use prompt engineering + JSON mode to directly parse the query. Arora et al. (2024) at EMNLP Industry Track show that LLMs in zero-shot intent detection now match or exceed traditional fine-tuned models, especially in low-resource settings. Malkani (2024) proposes a Hybrid LLM + Intent Classification architecture — LLM for ambiguous queries, lightweight classifier for clear ones. Works without any labeled examples, but calling an LLM on every query introduces latency and cost.
+Use prompt engineering + JSON mode to directly parse the query. [Arora et al. (2024)](https://aclanthology.org/2024.emnlp-industry.114.pdf) at EMNLP Industry Track use adaptive in-context learning with chain-of-thought prompting — not zero-shot — and report a quality-latency trade-off: the best LLM reaches F1 0.736 against SetFit's 0.658, but SetFit is roughly 56x faster, which is why they propose an uncertainty-routed hybrid. Malkani (2024) proposes a Hybrid LLM + Intent Classification architecture — LLM for ambiguous queries, lightweight classifier for clear ones. Gets you started without training data, but calling an LLM on every query introduces latency and cost.
 
 ### 4. Conversational Clarification
 

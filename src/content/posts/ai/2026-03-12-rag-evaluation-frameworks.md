@@ -52,7 +52,7 @@ Faithfulness = 「側拉」可從 context 推導 + 「腳法」無法從 context
 ```
 搜尋結果：[路線A（相關）, 路線B（不相關）, 路線C（相關）, 路線D（不相關）]
 
-Context Precision = 2 相關 / 4 總數 = 0.5
+Context Precision（RAGAS 官方公式，排序敏感）= Σ(Precision@k × v_k) / 相關項總數
 ```
 
 低 Context Precision = 搜尋引入了太多噪音。

@@ -61,7 +61,7 @@ Q: "Which routes at Longdong are suitable for intermediate climbers?"
 → Pull route descriptions → send to LLM to generate answer
 ```
 
-**Global Search**: aggregate across the entire graph to answer "big picture" questions.
+**Global Search**: a map-reduce pass over all the **LLM-generated community reports** (not a numeric aggregation over the graph), answering "big picture" questions. [Official docs](https://microsoft.github.io/graphrag/query/overview/)
 
 ```
 Q: "What are the most popular crags in Northern Taiwan?"

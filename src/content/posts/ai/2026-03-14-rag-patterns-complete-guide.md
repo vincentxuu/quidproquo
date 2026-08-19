@@ -496,7 +496,7 @@ RAG 系統的輸入和輸出都需要防護。輸入端：防止 prompt injectio
 
 RAG pipeline 有很多環節，任何一個出問題都會影響最終答案。可觀測性的目標是讓這個黑盒子變透明：每一次查詢的每一步（query rewrite 的結果、搜尋回來的 chunks、reranking 後的順序、LLM 的完整 prompt）都要能追蹤和回放。
 
-→ [RAG Observability：黑盒子變透明的 17 步追蹤](/posts/ai/2026-03-12-rag-observability-tracing)
+→ [RAG Observability：讓黑盒子變透明的逐節點追蹤](/posts/ai/2026-03-12-rag-observability-tracing)
 → [RAG 可觀測性工具全景](/posts/ai/2026-03-12-rag-observability-tools)
 
 ### 成本優化

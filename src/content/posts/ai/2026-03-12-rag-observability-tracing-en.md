@@ -1,5 +1,5 @@
 ---
-title: "RAG Observability: 17-Step Tracing to Turn the Black Box Transparent"
+title: "RAG Observability: Per-Node Tracing to Turn the Black Box Transparent"
 date: 2026-03-12
 updated: 2026-08-19
 type: guide
@@ -7,7 +7,7 @@ category: ai
 tags: [rag, observability, tracing, debugging, pipeline, monitoring]
 lang: en
 tldr: "The hardest part of a RAG system isn't building it — it's figuring out why a particular answer went wrong. Pipeline Tracing records every step's decisions and data so debugging has a clear trail to follow."
-description: "Observability design for RAG pipelines: the data structure behind 17-step tracing, what information to record, how to use traces to pinpoint issues, and admin dashboard trace view design."
+description: "Observability design for RAG pipelines: the data structure behind per-node tracing, what information to record, how to use traces to pinpoint issues, and admin dashboard trace view design."
 draft: false
 series:
   name: "The RAG Techniques Compendium"

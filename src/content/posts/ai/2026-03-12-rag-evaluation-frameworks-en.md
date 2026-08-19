@@ -54,7 +54,7 @@ Of the retrieved context chunks, how many are actually relevant?
 ```
 Retrieved results: [Route A (relevant), Route B (irrelevant), Route C (relevant), Route D (irrelevant)]
 
-Context Precision = 2 relevant / 4 total = 0.5
+Context Precision (RAGAS official formula, rank-sensitive) = Σ(Precision@k × v_k) / total relevant items
 ```
 
 Low Context Precision = the retriever is introducing too much noise.

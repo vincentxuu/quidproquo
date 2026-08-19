@@ -1,5 +1,5 @@
 ---
-title: "RAG Observability：黑盒子變透明的 17 步追蹤"
+title: "RAG Observability：讓黑盒子變透明的逐節點追蹤"
 date: 2026-03-12
 updated: 2026-08-19
 type: guide
@@ -7,7 +7,7 @@ category: ai
 tags: [rag, observability, tracing, debugging, pipeline, monitoring]
 lang: zh-TW
 tldr: "RAG 系統最難的不是建起來，是搞清楚為什麼這次回答不好。Pipeline Tracing 把每個步驟的決策和數據記下來，讓除錯有跡可循。"
-description: "RAG Pipeline 的可觀測性設計：17 步追蹤的資料結構、記錄什麼資訊、如何用 trace 定位問題，以及管理員後台的 trace 視圖設計。"
+description: "RAG Pipeline 的可觀測性設計：逐節點追蹤的資料結構、記錄什麼資訊、如何用 trace 定位問題，以及管理員後台的 trace 視圖設計。"
 draft: false
 series:
   name: "RAG 技法大全"

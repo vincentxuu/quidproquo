@@ -99,7 +99,7 @@ LLM 會傾向更多引用「相關度：高」的文件，降低低品質 contex
 
 ## 指令的位置
 
-研究顯示，LLM 對 prompt 開頭和結尾的指令關注度更高（Lost in the Middle 問題）。重要的指令放在 system prompt 的開頭，或在 user message 的結尾重複強調：
+[Lost in the Middle](https://arxiv.org/abs/2307.03172) 量的是**相關資訊（文件、KV pair）擺在 context 什麼位置**會影響取用，並沒有研究指令的位置。下面這種「頭尾各放一次」的做法最接近論文 §4.2 的 query-aware contextualization，而論文對它的結論是在 multi-document QA 上幾乎沒有改變趨勢、多數情境甚至略降——所以這是實務習慣，不是論文結論，值得自己 A/B：
 
 ```
 [System Prompt 開頭]

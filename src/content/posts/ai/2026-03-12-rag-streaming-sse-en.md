@@ -29,7 +29,7 @@ There are several options for implementing streaming push: WebSocket, Long Polli
 RAG responses are unidirectional (server pushes, client receives), making SSE the best fit:
 - Simpler than WebSocket (no bidirectional communication needed)
 - More efficient than Long Polling (persistent connection, no repeated setup)
-- Native support for automatic reconnection
+- `EventSource` has built-in reconnection — **but that is not what this design uses**: the endpoint here is `POST ...?stream=true` consumed with `fetch()` + `getReader()`, `EventSource` cannot issue a POST, and no `id:` / `retry:` fields are sent. Automatic reconnection is therefore not available here; resuming after a drop is something you build
 - Multiplexing under HTTP/2
 
 Endpoint design: `POST /api/v1/ai/ask?stream=true`
@@ -84,11 +84,12 @@ app.post("/api/v1/ai/ask", async (c) => {
     writer.write(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
 
   // Execute pipeline in the background, return stream immediately
-  ctx.waitUntil((async () => {
+  // A Hono handler only receives c; everything else comes off it:
+  c.executionCtx.waitUntil((async () => {
     try {
-      await runPipelineStreaming(request, env, ctx, sendEvent);
+      await runPipelineStreaming(request, c.env, c.executionCtx, sendEvent);
     } finally {
-      writer.close();
+      await writer.close();
     }
   })());
 
@@ -96,7 +97,6 @@ app.post("/api/v1/ai/ask", async (c) => {
     headers: {
       "Content-Type": "text/event-stream",
       "Cache-Control": "no-cache",
-      "Connection": "keep-alive",
     },
   });
 });
@@ -164,7 +164,7 @@ async function runPipelineStreaming(
   request: AIAskRequest,
   env: Env,
   ctx: ExecutionContext,
-  sendEvent: (data: object) => void
+  sendEvent: (data: object) => Promise<void>
 ) {
   // Deduct quota upfront
   await deductQuota(request.userId, env);

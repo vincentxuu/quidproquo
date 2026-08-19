@@ -32,12 +32,15 @@ AEO / GEO 工具這兩年從「SEO 廠商延伸功能」冒出一整個獨立類
 
 ### 整體健檢
 
-**[isitagentready.com](https://isitagentready.com/)**（Cloudflare 出）是目前最完整的輸入面健檢。貼網址、選 Content Site / API / All Checks，掃出一份分數報告，檢查四個面向：
+**[isitagentready.com](https://isitagentready.com/)**（Cloudflare 出）是目前最完整的輸入面健檢。貼網址、選 Content Site / API / All Checks，掃出一份分數報告。檢查的類別它自己會調整，2026-08 是五類（llms.txt 已經不在清單上了）：
 
-- **Discoverability**：robots.txt、sitemap、llms.txt
-- **Content**：Markdown content negotiation、結構化資料
-- **Bot Access Control**：AI 爬蟲宣告（`AI-usage` directives）
-- **Capabilities**：MCP endpoint、OAuth、Agent Skills、agentic commerce
+- **Discoverability**：robots.txt、Sitemap、Link headers、DNS-AID
+- **Content Accessibility**：Markdown content negotiation、結構化資料
+- **Bot Access Control**：AI 爬蟲規則、Content Signals、Web Bot Auth
+- **Protocol Discovery**：MCP Server Card、Agent Skills、WebMCP、API Catalog、OAuth
+- **Commerce**：x402、MPP、UCP、ACP
+
+清單會變，以[官網](https://isitagentready.com/)當下顯示的為準。
 
 Cloudflare 在[發佈文章](https://blog.cloudflare.com/agent-readiness/)裡公布的掃描統計很狠——當時**造訪量前 20 萬個網域**裡只有約 4% 宣告 AI 使用偏好、3.9% 支援 Markdown 協商（母體不是「全網站」，而且已濾掉 redirect、廣告伺服器等類別）。這是發佈時點的數字，但原文寫明該圖表**每週更新**，要現值可以走 Cloudflare Radar 的 Data Explorer 或 API，引用時請帶上時間。定位類似「給 AI agent 用的 Lighthouse」，免費、不用註冊。
 
@@ -49,7 +52,6 @@ Cloudflare 在[發佈文章](https://blog.cloudflare.com/agent-readiness/)裡公
 - [RankRay LLMs.txt Checker](https://rankray.com/free-seo-tools/llms-txt-checker/)
 - [llmstxtchecker.net](https://llmstxtchecker.net/)
 - [Pixelmojo](https://www.pixelmojo.io/tools/llms-txt-validator) — 含 AI 建議
-- [indexly.ai](https://indexly.ai/llms-txt-checker)
 
 **開源產生器**（爬你網站、生出 llms.txt）：
 
@@ -78,7 +80,7 @@ Cloudflare 在[發佈文章](https://blog.cloudflare.com/agent-readiness/)裡公
 - **[aibottracker.com](https://www.aibottracker.com/)** — 免費、不限次數，輕量選項
 - **[LLM Bot Tracker](https://wordpress.org/plugins/llm-bot-tracker-by-hueston/)** — WordPress 外掛版
 
-DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agent` 特徵清單（GPTBot、ChatGPT-User、ClaudeBot、PerplexityBot、Google-Extended、CCBot...）各家官網都有文件，不難做。
+DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agent` 特徵清單（GPTBot、ChatGPT-User、ClaudeBot、Claude-User、PerplexityBot、CCBot...）各家官網都有文件，不難做。**但別把 `Google-Extended` 放進去**——[Google 明講](https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers)它沒有自己的 HTTP user agent 字串，抓取仍用既有的 Googlebot UA，這個 token 只在 robots.txt 裡當控制用，永遠不會出現在你的 log 裡。
 
 ## 輸出面：品牌在 AI 答案裡被怎麼提到
 
@@ -118,10 +120,10 @@ DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agen
 
 傳統 SEO 大廠延伸出的 AEO 模組：
 
-- **[Ahrefs Brand Radar](https://ahrefs.com/brand-radar)** — 2025/3 推出，直接併進 Ahrefs 主訂閱
+- **[Ahrefs Brand Radar](https://ahrefs.com/brand-radar)** — 注意 AI 追蹤是**獨立付費 add-on**（選定平台與全平台兩種級距），主訂閱只含基本的 web visibility，不是「訂了 Ahrefs 就有」
 - **Semrush AI Visibility Toolkit** — **Semrush 已被 Adobe 收購**，交易於 [2026-04-28 完成](https://news.adobe.com/news/2026/04/adobe-completes-semrush-acquisition)（$1.9B 全現金，2025-11 宣布）。它現在是 Adobe 客戶體驗產品線的一部分，跟 Adobe LLM Optimizer 會怎麼整併還沒定案——如果你正在評估長約，這是要問清楚的事
 - **[SE Ranking AEO Tool](https://seranking.com/answer-engine-optimization-tool.html)**
-- **[HubSpot AEO Grader](https://www.hubspot.com/aeo-grader)** — 免費的一次性健檢（試用條件會變，以官網為準）
+- **[HubSpot AI Search Grader](https://www.hubspot.com/aeo-grader)**（原名 AEO Grader，網址沒改）— 免費的一次性健檢（試用條件會變，以官網為準）
 - **[Writesonic GEO](https://writesonic.com/)** — 追蹤 + 內容生成綁一起
 
 **2026 年的兩個結構性變化**：一是**併購潮**——半年內 Adobe 吃下 Semrush、Sitecore 吃下 Scrunch，純追蹤型工具正在被大型行銷/內容平台收編；二是**競爭焦點上移**——從「有沒有追 ChatGPT」變成「引用來源分析深度」「hallucination 偵測」「跨平台 share of voice 歸因」，再進一步變成「查到問題之後能不能自動改內容」。純追蹤功能會越來越 commodity。
@@ -184,7 +186,7 @@ Chrome 擴充這類「人肉搜尋時順便記錄」的輕量工具，在還沒�
 - 重內容資產的站要開，才知道 GPTBot 有沒有在爬你
 
 **輸出面**（實際看品牌在 AI 答案裡的樣子）：
-- 只想快速看一眼：HubSpot AEO Grader 免費試、Ahrefs Brand Radar（本來就訂）、AI Citation Tracker Chrome 擴充（搜尋時 highlight）
+- 只想快速看一眼：HubSpot AI Search Grader 免費試、AI Citation Tracker Chrome 擴充（搜尋時 highlight）
 - 長期自架：aeo-radar（繁中市場最順、仍在維護）、geo-aeo-tracker（功能最滿、更新最勤，但要 Bright Data）；AiCMO 功能完整但已久未更新，當參考實作看
 - 做自己的 AEO 產品：讀 aeo-radar 和 geo-aeo-tracker 的 source code，再掃 awesome list
 - 企業級：Profound 或 AthenaHQ；已經在 Sitecore 或 Adobe 生態系裡的，先問既有合約能不能涵蓋（Scrunch → Sitecore、Semrush → Adobe）

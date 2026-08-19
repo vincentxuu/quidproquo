@@ -114,7 +114,7 @@ embed("grade: 5.11b")        // 而不是 embed("5.11b")
 embed("route_name: 美人照鏡")  // 而不是 embed("美人照鏡")
 ```
 
-E5 和 bge 系列的 instruction-tuned 版本天然支援這種用法，prefix 提示模型「這段文字的語意角色是什麼」。
+要注意這不是 E5／bge 官方支援的用法：[E5 論文](https://arxiv.org/abs/2212.03533)裡的 prefix 只有 `query:` 與 `passage:` 兩個，作用是打破 query 與 passage 的對稱性，不是任意欄位標籤。把欄位名塞進 prefix 是可以試的土法，但沒有論文背書，要自己量。
 
 ### Query Rewriting + Multi-Query
 

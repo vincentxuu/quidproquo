@@ -114,7 +114,7 @@ embed("grade: 5.11b")          // instead of embed("5.11b")
 embed("route_name: Beauty in the Mirror")  // instead of embed("Beauty in the Mirror")
 ```
 
-The instruction-tuned variants of E5 and the bge series natively support this pattern — the prefix signals to the model what semantic role the text is playing.
+Note this is not an officially supported pattern: [the E5 paper](https://arxiv.org/abs/2212.03533) defines exactly two prefixes, `query:` and `passage:`, whose purpose is to break the symmetry between queries and passages rather than to label arbitrary fields. Putting a field name in the prefix is worth trying, but no paper backs it — measure it yourself.
 
 ### Query Rewriting + Multi-Query
 

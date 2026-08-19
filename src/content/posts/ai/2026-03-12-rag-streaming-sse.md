@@ -29,7 +29,7 @@ SSE（Server-Sent Events）Streaming 解決這個問題：**LLM 每生成一個 
 RAG 回應是單向的（伺服器推，客戶端收），SSE 最合適：
 - 比 WebSocket 簡單（不需要雙向通信）
 - 比 Long Polling 高效（持久連接，不反覆建立）
-- 原生支援斷線重連
+- `EventSource` 內建斷線重連——**但本文用的不是它**：這裡走 `POST ...?stream=true` 加 `fetch()` + `getReader()`，`EventSource` 發不出 POST，也沒有送 `id:` / `retry:`，所以自動重連在這個設計下拿不到，要斷線續傳得自己做
 - HTTP/2 下可多路復用
 
 端點設計：`POST /api/v1/ai/ask?stream=true`
@@ -84,11 +84,12 @@ app.post("/api/v1/ai/ask", async (c) => {
     writer.write(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
 
   // 在背景執行 pipeline，前景立刻回傳 stream
-  ctx.waitUntil((async () => {
+  // Hono 的 handler 只拿得到 c，其餘都從 c 上取：
+  c.executionCtx.waitUntil((async () => {
     try {
-      await runPipelineStreaming(request, env, ctx, sendEvent);
+      await runPipelineStreaming(request, c.env, c.executionCtx, sendEvent);
     } finally {
-      writer.close();
+      await writer.close();
     }
   })());
 
@@ -96,7 +97,6 @@ app.post("/api/v1/ai/ask", async (c) => {
     headers: {
       "Content-Type": "text/event-stream",
       "Cache-Control": "no-cache",
-      "Connection": "keep-alive",
     },
   });
 });
@@ -164,7 +164,7 @@ async function runPipelineStreaming(
   request: AIAskRequest,
   env: Env,
   ctx: ExecutionContext,
-  sendEvent: (data: object) => void
+  sendEvent: (data: object) => Promise<void>
 ) {
   // 預先扣除配額
   await deductQuota(request.userId, env);

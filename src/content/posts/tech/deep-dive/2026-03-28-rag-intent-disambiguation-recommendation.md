@@ -92,7 +92,7 @@ Weld et al. (2022) 的 ACM Computing Surveys 綜述整理了聯合意圖偵測�
 
 ### 3. LLM 結構化輸出
 
-用 prompt engineering + JSON mode 直接解析查詢。Arora et al. (2024) 在 EMNLP Industry Track 指出 LLM 在 zero-shot 意圖偵測上已接近或超越傳統微調模型，特別是低資源場景。Malkani (2024) 提出 Hybrid LLM + Intent Classification 架構，用 LLM 處理模糊查詢、輕量分類器處理明確查詢。零樣本即可工作，但每次都呼叫 LLM 的延遲和成本是問題。
+用 prompt engineering + JSON mode 直接解析查詢。[Arora et al. (2024)](https://aclanthology.org/2024.emnlp-industry.114.pdf) 在 EMNLP Industry Track 用的是 adaptive in-context learning 加 chain-of-thought（不是 zero-shot），結論是品質與延遲的取捨：最佳 LLM F1 0.736 對上 SetFit 的 0.658，但 SetFit 快約 56 倍，所以他們提的是用 uncertainty 做路由的混合系統。Malkani (2024) 提出 Hybrid LLM + Intent Classification 架構，用 LLM 處理模糊查詢、輕量分類器處理明確查詢。不需要訓練資料就能起步，但每次都呼叫 LLM 的延遲和成本是問題。
 
 ### 4. 對話式澄清 (Conversational Clarification)
 

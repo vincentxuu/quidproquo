@@ -94,7 +94,7 @@ llms.txt 不是唯一的新標準。2025–2026 年還冒出了幾個重要的�
 
 - 定義使用類別：`ai-all`、`ai-input`、`ai-index`
 - 支援定價模式：pay-per-crawl、pay-per-inference、subscription、free with attribution
-- 1,500+ 媒體組織背書，Reddit、Yahoo、Medium、AP、Cloudflare、Stack Overflow 都支持
+- RSL 1.0 已於 2025-12-10 成為[正式規格](https://rslstandard.org/press/rsl-1-specification-2025)，1,500+ 媒體組織背書，Reddit、Yahoo、AP、Cloudflare、Stack Overflow、O'Reilly、Vox、Creative Commons 等都在名單上
 - 官方網站：[rslstandard.org](https://rslstandard.org/)
 
 #### Cloudflare Content Signals
@@ -102,7 +102,7 @@ llms.txt 不是唯一的新標準。2025–2026 年還冒出了幾個重要的�
 Cloudflare 擴展 robots.txt，新增三個訊號：
 
 ```
-Content-signal: search=yes, ai-train=no, ai-input=no
+Content-Signal: search=yes, ai-train=no, ai-input=no
 ```
 
 - `search`：傳統搜尋索引
@@ -269,7 +269,7 @@ Allow: /
 | **最適合** | RAG pipeline、LangChain 整合 | 自建、隱私優先團隊 | 快速原型 |
 | **AI 萃取** | Schema-based | 支援 local LLM | 有限 |
 | **Anti-Bot** | 付費方案支援 | 要自己處理 | 有限 |
-| **MCP Server** | ✅ | ❌ | ✅ |
+| **MCP Server** | ✅ | ✅（Docker 部署內含，見 [README](https://github.com/unclecode/crawl4ai)） | ✅ |
 
 **這裡刻意不寫價格**：三家的免費額度與價格帶在這一年內都改過不只一次，寫死只會誤導。要決策請直接看各家 pricing 頁。真正該拿來取捨的是這三件事：
 
@@ -319,7 +319,7 @@ MCP 不是爬蟲，是控制面（control plane）——標準化 AI 模型呼�
 
 **現況（2026 初）：**
 - Anthropic 2024 年 11 月推出，2025 年 12 月捐給 Linux Foundation AAIF
-- 月下載量超過 9,700 萬次（Python + TypeScript SDK）
+- 月下載量在 2025-12 捐給 Linux Foundation 時是 9,700 萬次（Python + TypeScript SDK）；這個數字只代表當時
 - Anthropic、OpenAI、Google、Microsoft、Amazon 全部採用
 
 **跟 AI-ready content 的關係：**
@@ -328,16 +328,18 @@ MCP 不是爬蟲，是控制面（control plane）——標準化 AI 模型呼�
 MCP Server（爬蟲/API）  →  AI Agent  →  使用者
      ↓
  Firecrawl MCP Server
- Apify MCP Server（4000+ Actors）
+ Apify MCP Server（Actor 數量成長很快，2026-08 已超過五萬個，實際數字看 [Apify Store](https://apify.com/store)）
  自建 MCP Server（包裝你的 API）
 ```
 
 MCP 讓 AI agent 可以即時存取網頁內容，但爬取本身仍然需要基礎設施（headless browser、proxy、rate limit）。
 
 **2026 Roadmap 重點：**
-- Streamable HTTP 讓 MCP server 可以跑在遠端
-- `.well-known` metadata 讓 server 可被發現（不需要建立連線就能知道能力）
-- 企業級：audit trail、SSO 整合、gateway 行為標準化
+- Streamable HTTP **已經交付**（官方稱它給了 MCP 一個 production-ready transport），現在的題目是往無狀態化的次世代傳輸走
+- server 探索已正名為 **MCP Server Cards**
+- 企業級：audit trail、SSO 整合、gateway 行為標準化（仍在清單上）
+
+以上以[官方 roadmap](https://modelcontextprotocol.io/development/roadmap)為準，這份文件改得很勤。
 
 ---
 
@@ -345,7 +347,7 @@ MCP 讓 AI agent 可以即時存取網頁內容，但爬取本身仍然需要基
 
 GEO（Generative Engine Optimization）是這個領域的行銷面：讓你的內容被 AI 搜尋引用。
 
-**為什麼重要：** 原稿在這裡列了一串成長率與使用者數（「AI 導流 session 年增 527%」「AI Overviews 每月觸及 20 億使用者」等）。這類數字每季都在變、來源多半是廠商報告，這次翻新拿掉了。真正該記住的只有一件事：**AI 生成的答案通常只引 2–7 個來源，而傳統搜尋給你 10 個藍色連結**——分母小了一個數量級，這才是 GEO 和 SEO 賽制的根本差異。
+**為什麼重要：** 原稿在這裡列了一串成長率與使用者數（「AI 導流 session 年增 527%」「AI Overviews 每月觸及 20 億使用者」等）。這類數字每季都在變、來源多半是廠商報告，這次翻新拿掉了。真正該記住的只有一件事：**AI 生成的答案引用的來源數，比傳統搜尋的一頁十個藍色連結少一個數量級**（各家引用數會變，別記死某個區間）——分母小了一個數量級，這才是 GEO 和 SEO 賽制的根本差異。
 
 至於「我到底有沒有被引用」，2026-06 之後 Google Search Console 有官方的[生成式 AI 曝光報表](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports)可以看自己的數字，比看別人的市場報告可靠得多。
 
@@ -353,7 +355,7 @@ GEO（Generative Engine Optimization）是這個領域的行銷面：讓你的�
 
 | | SEO | GEO |
 |---|---|---|
-| 目標 | 排進 10 個藍色連結 | 被 AI 回答引用（通常只引 2-7 個來源） |
+| 目標 | 排進 10 個藍色連結 | 被 AI 回答引用（來源數少一個數量級） |
 | 排名因素 | 反向連結、關鍵字 | 結構、可信度、新鮮度 |
 | 衰退速度 | 排名可持續數年 | AI 引用每週都在輪替 |
 | 衡量指標 | 排名、流量 | AI 引用頻率、Share of Voice、引用情感 |
@@ -365,7 +367,7 @@ GEO（Generative Engine Optimization）是這個領域的行銷面：讓你的�
 3. **技術標記**：Schema Markup（`Article`、`Organization`、`BreadcrumbList`——`FAQ`/`HowTo` 的 rich result 已經下架）+ 不擋錯 AI 爬蟲。llms.txt 從這一項降級成「可選」，理由見前面 1.1 節
 4. **作者可信度**：有名字、有經歷、有外部可驗證的存在
 5. **內容新鮮度**：AI 引用衰退比 SEO 排名快得多，持續更新是必要的
-6. **第三方背書**：Princeton 研究顯示 AI 強烈偏好 earned media 而非品牌自有內容
+6. **加來源、加引述、加數據**：[GEO 那篇論文](https://arxiv.org/abs/2311.09735)實測有效的是這三類改寫（Cite Sources、Quotation Addition、Statistics Addition），整體能把能見度提升最多 40%，且效果因領域而異。（論文**沒有**比較 earned media 與品牌自有內容，別把第三方背書的說法掛到它身上。）
 
 ---
 

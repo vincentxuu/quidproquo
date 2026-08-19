@@ -39,8 +39,8 @@ SEO（Search Engine Optimization）的技術面優化，核心目標只有一個
 <link rel="canonical" href="https://quidproquo.cc/posts/tech/2026-03-27-blog-seo-optimization-guide" />
 ```
 
-- **Title**：Google 搜尋結果的藍色標題，控制在 60 字元以內
-- **Description**：搜尋結果的灰色摘要，控制在 155 字元以內
+- **Title**：Google 搜尋結果的藍色標題，控制在 60 字元以內（這是社群慣例不是官方規則，Google 會依裝置寬度截斷）
+- **Description**：搜尋結果的灰色摘要。[官方明說長度沒有上限](https://developers.google.com/search/docs/appearance/snippet)，只是會依裝置寬度截斷，所以把重點放在前 ~155 字元最保險
 - **Canonical**：告訴搜尋引擎「這是本頁的正式 URL」，避免重複內容問題
 
 在 Astro 中，這些通常在 Layout 元件統一處理：
@@ -254,8 +254,8 @@ export default defineConfig({
 
 每篇文章發布前，確認：
 
-- [ ] 有 `<title>` 且在 60 字元以內
-- [ ] 有 `<meta name="description">` 且在 155 字元以內
+- [ ] 有 `<title>`，長度控制在 60 字元上下
+- [ ] 有 `<meta name="description">`，重點放在前 ~155 字元
 - [ ] 有 `<link rel="canonical">`
 - [ ] `og:type` 是 `article`（文章頁）或 `website`（首頁）
 - [ ] 有 OG image（1200x630）

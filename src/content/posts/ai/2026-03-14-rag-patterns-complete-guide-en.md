@@ -502,7 +502,7 @@ Both input and output of RAG systems need protection. Input side: prevent prompt
 
 RAG pipelines have many stages, and issues at any one can affect the final answer. The goal of observability is making this black box transparent: every step of every query (query rewrite results, retrieved chunks, post-reranking order, the LLM's complete prompt) should be traceable and replayable.
 
--> [RAG Observability: 17-Step Tracing to Make the Black Box Transparent](/posts/ai/2026-03-12-rag-observability-tracing-en)
+-> [RAG Observability: Per-Node Tracing to Make the Black Box Transparent](/posts/ai/2026-03-12-rag-observability-tracing-en)
 -> [RAG Observability Tools Landscape](/posts/ai/2026-03-12-rag-observability-tools-en)
 
 ### Cost Optimization

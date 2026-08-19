@@ -99,7 +99,7 @@ The LLM will tend to cite "relevance: high" documents more heavily, reducing the
 
 ## Instruction Placement
 
-Research shows that LLMs pay more attention to instructions at the beginning and end of a prompt (the Lost in the Middle problem). Place important instructions at the start of the system prompt, or repeat them at the end of the user message:
+[Lost in the Middle](https://arxiv.org/abs/2307.03172) measures where *relevant information* (documents, key-value pairs) sits in the context, not where instructions sit. The "state it at the top and again at the bottom" habit below is closest to the paper's §4.2 query-aware contextualization, which the paper found minimally changes trends on multi-document QA and slightly hurts in most settings — so treat this as practitioner habit worth A/B testing, not a finding:
 
 ```
 [System Prompt — Beginning]

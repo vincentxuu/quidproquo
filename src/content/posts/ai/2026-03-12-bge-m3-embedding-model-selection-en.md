@@ -16,7 +16,7 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
-Search quality in a RAG system is 50% determined by the embedding model you choose. A good model pulls semantically similar queries and documents close together in vector space; a bad one turns vector search into a lottery.
+Search quality in a RAG system depends heavily on the embedding model you choose. A good model pulls semantically similar queries and documents close together in vector space; a bad one turns vector search into a lottery.
 
 When picking an embedding model, a few questions matter: language support, vector dimensions, whether a matching Reranker exists, and availability on your target platform.
 
@@ -24,7 +24,7 @@ When picking an embedding model, a few questions matter: language support, vecto
 
 BGE-M3 is a multilingual embedding model from the Beijing Academy of Artificial Intelligence (BAAI). The "M3" stands for **Multi-Linguality, Multi-Granularity, Multi-Functionality**:
 
-- **Multi-Linguality**: supports 100+ languages, including Traditional Chinese
+- **Multi-Linguality**: officially 100+ languages (Traditional Chinese is not called out separately in that list)
 - **Multi-Granularity**: handles everything from short phrases to long documents (up to 8192 tokens)
 - **Multi-Functionality**: supports Dense retrieval, Sparse retrieval, and Multi-vector retrieval simultaneously
 
@@ -34,9 +34,9 @@ On Cloudflare Workers AI, the available version uses the standard Dense retrieva
 
 ### Traditional Chinese Performance
 
-Most embedding models are trained predominantly on Simplified Chinese data, which leads to weaker semantic understanding of Traditional Chinese. BGE-M3's multilingual training corpus includes substantial Traditional Chinese content, and it noticeably outperforms English-only or Simplified-Chinese-dominant models on Traditional Chinese semantic search.
+Most embedding models are trained predominantly on Simplified Chinese data. **That includes BGE-M3**: [the M3 paper](https://arxiv.org/abs/2402.03216) never uses the phrase Traditional Chinese, and the Chinese fine-tuning corpora it lists (DuReader, mMARCO-ZH, T²-Ranking, CMedQAv2 and so on) are all Simplified; the HuggingFace model card does not mention Traditional Chinese either. So "it is especially good at Traditional Chinese" has no basis. Shared characters and vocabulary may well make it serviceable, but that is something your own eval set has to establish.
 
-Traditional Chinese climbing terminology ("先鋒攀登", "確保站", "岩壁", "抱石") clusters meaningfully in BGE-M3's vector space — searching related terms doesn't produce bizarre mismatches.
+On this system, Traditional Chinese climbing terminology ("先鋒攀登", "確保站", "岩壁", "抱石") behaved without obvious mismatches — but that is an impression from use, not a controlled measurement, so do not read it as a model comparison.
 
 ### 1024-Dimensional Vectors
 
