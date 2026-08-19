@@ -3,45 +3,63 @@ title: "Claude Code 完整方案分析：終端 Agent 的深度推理之王"
 date: 2026-04-02
 type: guide
 category: ai
-tags: [agent-cli, claude-code, pricing, opus, sonnet, haiku, subagent, anthropic]
+tags: [agent-cli, claude-code, pricing, subagent, anthropic]
 lang: zh-TW
-tldr: "Claude Code 從 $20/mo Pro 到 $200/mo Max 20x，Opus 4.6 推理深度業界最強，Max 方案吃到飽定價讓重度使用者省下 90%+ 的 API 費用。"
-description: "深入分析 Claude Code 2026 年的訂閱方案、API 定價、Subagent 架構、模型選擇策略、成本優化技巧與適用場景。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 3
+tldr: "Claude Code 從 $20/mo Pro 到 $200/mo Max 20x，額度以 5 小時滾動視窗計算並疊加週上限，Claude 網頁／桌面／終端共用同一個池子。額度用完可選擇改走 API 費率的 usage credits 繼續做事，而不是硬停。"
+description: "分析 Claude Code 的訂閱方案、額度制度、API 定價與折扣機制、Subagent 架構、模型分層策略與成本優化技巧。"
 draft: false
 ---
 
-Claude Code 是 Anthropic 推出的終端機原生 AI coding agent。和其他工具不同的地方在於：它同時提供**吃到飽訂閱**和**按量 API**兩種定價路線，而且背後跑的 Opus 4.6 在深度推理場景幾乎沒有對手。
+Claude Code 是 Anthropic 推出的終端機原生 AI coding agent。和其他工具不同的地方在於：它同時提供**固定月費訂閱**和**按量 API** 兩種定價路線，而且訂閱這條路可以在額度用完時無縫切到 API 費率，不會硬停在半路。
 
-這篇拆解 Claude Code 的訂閱方案、API token 定價、模型選擇策略、Subagent 架構，以及在不同使用強度下的成本比較。
+這篇拆解 Claude Code 的訂閱方案與額度制度、API token 定價、模型分層策略、Subagent 架構，以及在不同使用強度下的成本比較。
+
+**關於模型名稱**：這篇刻意不把某個特定模型寫死成「最強」。Anthropic 的模型迭代速度以月計，任何寫進文章的型號幾個月後都會變成錯的——[官方定價頁](https://claude.com/pricing)與 [Models API](https://docs.anthropic.com/en/docs/about-claude/models) 才是可靠來源。這裡只講**分層邏輯**，那部分不會過期。
 
 ## 訂閱方案總覽
 
-Claude Code 目前提供四種訂閱層級，Max 方案是重點——它是**固定月費、不限 token** 的吃到飽模式。
+| 方案 | 月費 | 用量額度 | 備註 |
+|------|------|----------|------|
+| **Free** | $0 | 有限 | 日常問答 |
+| **Pro** | $20/mo（年繳約 $17/mo，$200 一次付清） | 每 5 小時視窗至少為 Free 的 5x | 小型 codebase、短時段開發 |
+| **Max 5x** | $100/mo | 每 5 小時視窗為 Pro 的 5x | 日常主力 |
+| **Max 20x** | $200/mo | 每 5 小時視窗為 Pro 的 20x | 重度使用者 |
+| **Team** | Standard / Premium 兩種 seat | Standard 高於 Pro；Premium 為 Standard 的 5x | 團隊管理與共用 |
+| **Enterprise** | 客製報價（僅年約） | 依約定 | 企業 |
 
-| 方案 | 月費 | 模型存取 | 用量額度 | 備註 |
-|------|------|----------|----------|------|
-| **Pro** | $20/mo | Sonnet（預設） | ~45 msg / 5hr | 基本方案，適合輕度使用 |
-| **Max 5x** | $100/mo | Opus + Sonnet | 5x Pro 用量 | 解鎖 Opus，吃到飽 |
-| **Max 20x** | $200/mo | Opus + Sonnet | 20x Pro 用量 | 重度使用者首選 |
-| **Teams** | $25/seat/mo（月繳）<br>$20/seat/mo（年繳） | Sonnet + 團隊管理 | 團隊共享額度 | 企業需求 |
+年繳只有 Pro 和 Team 有，Max 目前**只能月繳**。
 
-Max 方案的核心價值在於**固定費率**。有開發者實測紀錄：8 個月用了 Max 5x（$100/mo），累計消耗超過 **10B tokens**。同樣的量走 API 計價，費用超過 **$15,000**。換句話說，Max 讓他省下了 **95%** 的費用。
+### 額度是怎麼算的
 
-對於每天長時間使用 Claude Code 的開發者來說，Max 方案的 ROI 極高。Pro 方案則適合偶爾用來問問題或做小型修改的場景。
+這是最容易誤解的部分。Claude 的額度**不是固定的訊息則數**：
+
+- 以 **5 小時滾動視窗**計算，付費方案在此之上另有**週上限**（週上限在固定時間重置，跟你什麼時候開始用無關）
+- **Claude 網頁、桌面、手機與 Claude Code 共用同一個池子**——在終端機做的事和在對話視窗做的事扣的是同一份額度
+- 實際能做多少取決於對話長度與複雜度、選用的模型、以及用到哪些功能，所以沒有固定的則數
+- IDE（VS Code、Cursor 等 VS Code fork、JetBrains）裡的 Claude Code 也算同一份額度
+
+**額度用完時你有三個選擇**：等它重置、升級方案，或在付費方案上打開 **usage credits**——以標準 API 費率繼續工作。這是「吃到飽」這個說法需要修正的地方：固定月費買的是一個很大的額度，不是無限量，但你不會被硬卡住。
+
+想嚴格控制在訂閱額度內，就在跳出 API credit 選項時拒絕；要完全避免被問，用 `claude login` 只以訂閱身分認證即可。
+
+> ⚠️ **常見陷阱**：如果系統裡設了 `ANTHROPIC_API_KEY` 環境變數，Claude Code 會拿它去做認證，**而不是用你的訂閱**——結果是照 API 計費，訂閱額度完全沒動到。付了 Max 還收到 API 帳單，多半是這個原因。
 
 ## API Token 定價
 
-如果你選擇走 API 路線（自備 key），或需要在 CI/CD 中程式化呼叫 Claude，以下是目前的定價結構：
+如果你選擇走 API 路線（自備 key），或需要在 CI/CD 中程式化呼叫 Claude，定價按模型分層。以目前的模型世代來說：
 
-### 基礎定價
+| 層級 | Input / M tokens | Output / M tokens | Context |
+|------|-------------------|---------------------|---------|
+| **Opus 級**（深度推理） | $5 | $25 | 1M |
+| **Sonnet 級**（日常主力） | $3 | $15 | 1M |
+| **Haiku 級**（輕量派遣） | $1 | $5 | 200K |
 
-| 模型 | Input / M tokens | Output / M tokens | 說明 |
-|------|-------------------|---------------------|------|
-| **Opus 4.6** | $5 | $25 | 最強推理，複雜架構任務 |
-| **Opus 4.6（fast mode）** | $30 | $150 | 低延遲版本，6x 價格 |
-| **Sonnet 4.6** | $3 | $15 | 日常主力 |
-| **Sonnet 4.6（long context >200K）** | $6 | $22.50 | 超長上下文加價 |
-| **Haiku 4.5** | $1 | $5 | 輕量任務、Subagent |
+確切的型號與價格請以[官方定價頁](https://claude.com/pricing)為準——上面這三層的**相對關係**（大約 5:3:1 的 input 比例、output 是 input 的 5 倍）比具體型號穩定得多。
+
+另外有 **fast mode**：同一個模型跑在更高的輸出速度上（最高約 2.5 倍 tokens/秒），價格約為標準的兩倍，僅限最高階模型且屬研究預覽性質。趕時間才用。
 
 ### 成本折扣機制
 
@@ -52,23 +70,25 @@ Max 方案的核心價值在於**固定費率**。有開發者實測紀錄：8 �
 
 Prompt caching 是最容易被忽略的省錢手段。如果你的 system prompt 或 CLAUDE.md 內容固定不變，快取命中後 input token 只收原價的十分之一。在 Claude Code 的使用模式下，這幾乎是自動生效的。
 
+要注意的是 caching 吃的是**前綴完全相符**：前綴裡任何一個 byte 變了，後面全部失效。把會變動的東西（時間戳、每次不同的 ID）放在最後面，快取命中率才拉得起來。
+
 ## 模型選擇策略
 
 Claude Code 讓你在同一個 session 裡切換模型。關鍵不是選「最好的」，而是選**最適合當下任務的**。
 
 ### 三層模型分工
 
-| 層級 | 模型 | 適用場景 | 佔比 |
-|------|------|----------|------|
-| **深度推理** | Opus 4.6 | 複雜架構設計、跨系統重構、難 debug | ~10-15% |
-| **日常主力** | Sonnet 4.6 | 一般開發、code review、測試撰寫 | ~80% |
-| **輕量派遣** | Haiku 4.5 | Subagent 搜尋、格式轉換、簡單查詢 | ~5-10% |
+| 層級 | 適用場景 | 佔比 |
+|------|----------|------|
+| **深度推理**（Opus 級） | 複雜架構設計、跨系統重構、難 debug | ~10-15% |
+| **日常主力**（Sonnet 級） | 一般開發、code review、測試撰寫 | ~80% |
+| **輕量派遣**（Haiku 級） | Subagent 搜尋、格式轉換、簡單查詢 | ~5-10% |
 
-Opus 4.6 在 SWE-bench 拿下 **80.9%** 的成績，是目前公開基準中推理能力最強的模型。但它的 token 成本也最高，所以只在真正需要深度思考的場景使用。
+Opus 級模型的 token 成本最高，只在真正需要深度思考的場景使用；Sonnet 級處理 80% 以上的日常工作綽綽有餘，是速度與品質的平衡點，也是預設選擇；Haiku 級便宜且快，最適合派給 subagent 做搜集資訊的苦工。
 
-Sonnet 4.6 處理 80% 以上的日常工作綽綽有餘。它在速度和品質之間取得了很好的平衡，是 Claude Code 的預設選擇。
+**這個比例比任何型號都耐用。** 每一代新模型出來時，benchmark 數字會翻新、命名會變，但「少數任務值得用最貴的模型、多數不值得」這件事不會變。與其記住某個型號的 SWE-bench 分數，不如把分層習慣建立起來——換代時你只要換名字，策略不用重寫。
 
-值得一提的是 **Sonnet 5（代號 Fennec）**，2026 年 2 月發布，SWE-bench 達到 **82.1%**，並引入了 **Dev Team 多代理模式**——可以同時派遣多個 agent 平行處理不同子任務。這是 Sonnet 系列首次在基準測試上超越前代 Opus。
+另外一個容易被忽略的維度是 **effort / 思考深度**：新一代模型可以在同一個型號下調整推理投入，很多時候「同型號降 effort」比「換小一級的模型」更划算，因為你保留了模型的能力上限，只是讓它少想一點。
 
 ## Subagent 架構
 
@@ -98,18 +118,18 @@ Claude Code 的 subagent 架構是控制成本和上下文長度的關鍵設計�
 
 對於大型 monorepo，這種模式特別有效。讓主 session 專注在高價值推理，把搜集資訊的苦工交給便宜的 subagent。
 
-## 成本優化：Max vs API 比較
+## 成本優化：訂閱 vs API
 
-以下用實際場景比較兩種定價模式的差異：
+訂閱與 API 的取捨很單純：**只要你每天認真在用 Claude Code，訂閱幾乎一定比純 API 便宜**。API 定價合理的場景只有兩個——用量很低，或需要程式化呼叫（CI/CD、批次處理、自建服務）。
 
-| 使用強度 | 月估 token 消耗 | API 費用（Sonnet） | Max 方案費用 | 節省比例 |
-|----------|-----------------|---------------------|-------------|----------|
-| 輕度（偶爾用） | ~50M tokens | ~$150 | $20（Pro） | 87% |
-| 中度（每天用） | ~500M tokens | ~$1,500 | $100（Max 5x） | 93% |
-| 重度（整天用） | ~2B tokens | ~$6,000 | $200（Max 20x） | 97% |
-| 極端（8 個月 10B） | ~1.25B/mo | ~$1,875/mo | $100（Max 5x） | 95% |
+粗略的判斷方式：把你的月用量乘上 Sonnet 級的費率（$3 / $15 per M tokens），跟月費比。任何每天用滿數小時的使用模式，算出來都會遠超過 $200。
 
-結論很明確：**只要你每天認真在用 Claude Code，Max 方案幾乎一定比 API 便宜**。API 定價只在低用量或需要程式化呼叫的場景才合理。
+但有兩個修正，是網路上那些「省了 95%」的比較文常漏掉的：
+
+1. **訂閱額度不是無限的。** 5 小時視窗加上週上限是實際會撞到的牆，撞到之後要嘛等、要嘛升級、要嘛開 usage credits 走 API 費率。所以真實成本是「月費 + 超出部分的 API 費用」，不是純月費。
+2. **省下來的比例取決於你會不會用 caching。** 走 API 但 cache 命中率高的人，跟走 API 完全不 cache 的人，帳單可以差一個量級。拿「完全不 cache 的 API 帳單」去對比訂閱月費，會誇大節省幅度。
+
+實務上的建議：從 Pro 開始，觀察一兩個週期實際撞到上限的頻率（Settings > Usage 看得到），再決定要不要往上跳。用量的分布通常比自己想的更集中在少數幾天。
 
 ### 額外省錢技巧
 
@@ -124,11 +144,13 @@ Claude Code 的 subagent 架構是控制成本和上下文長度的關鍵設計�
 
 1. **終端機原生**——不需要 IDE，SSH 到遠端伺服器也能直接用。對 terminal-first 的開發者來說，這是最自然的工作流程。
 
-2. **深度推理能力**——Opus 4.6 的 80.9% SWE-bench 是公開模型中最高的。在需要理解複雜系統、追蹤多層 call stack 的場景中，這個差距很明顯。
+2. **深度推理能力**——Opus 級模型在需要理解複雜系統、追蹤多層 call stack 的場景中，跟中階模型的差距很明顯。這也是為什麼分層策略值得做：把這個能力留給真的需要它的 10-15%。
 
-3. **吃到飽定價**——Max 方案讓你不用擔心 token 用量，可以放心讓 agent 多探索、多嘗試。這改變了使用心態：你不再猶豫要不要讓它多讀幾個檔案。
+3. **一份訂閱涵蓋所有介面**——網頁、桌面、手機、終端機、IDE 共用同一個額度池。不必為了在不同地方用而分開付費，代價是額度也一起消耗。
 
-4. **持久記憶（Max 限定）**——跨 session 的記憶系統讓 Claude Code 記住你的偏好、專案慣例、過去的決策。用越久越好用。
+4. **額度用完不會硬停**——付費方案可以開 usage credits 以 API 費率續跑，這在趕死線時是實質差異。
+
+5. **持久記憶**——跨 session 的記憶系統讓 Claude Code 記住你的偏好、專案慣例、過去的決策。用越久越好用。
 
 ## 適用場景
 
@@ -141,16 +163,14 @@ Claude Code 特別適合以下工作模式：
 
 如果你的工作主要是在 IDE 裡做小範圍的 inline 修改，Cursor 或 Copilot 可能更順手。但如果你需要一個能理解整個 codebase 並執行多步驟任務的代理，Claude Code 是目前最強的選擇。
 
-## 系列文章
-
-這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
-
-**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
-
 ## 參考資料
 
 - [Plans & Pricing | Claude by Anthropic](https://claude.com/pricing)
-- [Claude Code Pricing Guide 2026 | LaoZhang AI](https://blog.laozhang.ai/en/posts/claude-code-pricing-guide)
-- [Claude Code Pricing in 2026: Every Plan Explained | SSD Nodes](https://www.ssdnodes.com/blog/claude-code-pricing-in-2026-every-plan-explained-pro-max-api-teams/)
-- [Claude Code Pricing Guide: Which Plan Saves You Money | ksred](https://www.ksred.com/claude-code-pricing-guide-which-plan-actually-saves-you-money/)
-- [Claude AI 2026: Complete Guide | NxCode](https://www.nxcode.io/resources/news/claude-ai-complete-guide-models-pricing-features-2026)
+- [Claude Code by Anthropic | AI Coding Agent](https://claude.com/product/claude-code)
+- [Use Claude Code with your Pro or Max plan | Claude Help Center](https://support.anthropic.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan)
+- [Choose a Claude plan | Claude Help Center](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)
+- [What is the Max plan? | Claude Help Center](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+
+## 更新紀錄
+
+- 2026-08-18：對照官方定價與說明頁翻新。①**移除所有寫死的型號與 benchmark 數字**（原文的 Opus 4.6「SWE-bench 80.9%」、Sonnet 5「代號 Fennec、82.1%、Dev Team 多代理模式」等），改以 Opus／Sonnet／Haiku 三個價格層描述，理由見文中——型號半衰期太短，寫死必錯；②補上額度的真實機制：5 小時滾動視窗 + 週上限、跨介面共用同一池、額度用完可開 usage credits 走 API 費率，並修正原文「吃到飽／不限 token」的說法；③補上 `ANTHROPIC_API_KEY` 環境變數會蓋掉訂閱認證的陷阱；④移除「Max vs API 省 95%」那張以單一使用者軼事為基礎的表，改為判斷方法與兩個常見高估來源；⑤參考資料改以官方頁為主，移除二手定價文

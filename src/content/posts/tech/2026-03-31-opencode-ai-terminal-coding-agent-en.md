@@ -5,14 +5,19 @@ type: project
 category: tech
 tags: [opencode, ai-tools, cli, coding-agent, open-source, tui]
 lang: en
-tldr: "OpenCode is an open-source AI coding agent built in Go (95K+ GitHub stars) with a built-in TUI, support for 75+ LLMs, LSP integration, Vim-style editing, and SQLite session management. Free, no subscription required — works with local or cloud models."
+series:
+  name: "Choosing an Agent CLI"
+  order: 8
+tldr: "OpenCode is an open-source AI coding agent written in TypeScript (MIT, ~198K GitHub stars, repo at anomalyco/opencode) with a built-in TUI, 75+ LLM providers, LSP integration, a Vim-style editor, SQLite session management, and a desktop app. Free, no subscription, local or cloud models."
 description: "OpenCode installation, core features, dual agent modes, GitHub Actions integration, comparison with Aider, and recommended use cases."
 draft: false
 ---
 
 🌏 [中文版](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent)
 
-OpenCode is an open-source AI coding agent built in Go by the SST/AnomalyCo team, running entirely in your terminal. No subscription required, supports 75+ LLM providers, and amassed 95K+ GitHub stars shortly after its Q4 2025 launch.
+OpenCode is an open-source AI coding agent written in **TypeScript** (MIT licensed) that runs in your terminal. No subscription, 75+ LLM providers, and around **198K GitHub stars** — the highest in this space. The repo has moved a few times and now lives at [anomalyco/opencode](https://github.com/anomalyco/opencode) (formerly `sst/opencode`).
+
+> **⚠️ Don't confuse it with the identically named Go project**: an earlier `opencode-ai/opencode` was written in Go with Bubble Tea and is not the same codebase. Most "OpenCode is written in Go" claims online trace back to that.
 
 ## Installation
 
@@ -21,10 +26,10 @@ OpenCode is an open-source AI coding agent built in Go by the SST/AnomalyCo team
 curl -fsSL https://opencode.ai/install | bash
 
 # npm
-npm install -g opencode
+npm i -g opencode-ai@latest
 
 # Homebrew
-brew install opencode
+brew install anomalyco/tap/opencode
 
 # Other options
 # Scoop / Chocolatey (Windows), pacman (Arch), Nix
@@ -34,7 +39,7 @@ brew install opencode
 
 | Feature | Description |
 |---|---|
-| TUI Interface | Interactive terminal UI built with Bubble Tea — feels close to an IDE |
+| TUI interface | Interactive terminal UI close to an IDE experience; a desktop app (beta) and IDE extension also exist |
 | 75+ LLMs | OpenAI, Anthropic, Google, AWS Bedrock, Groq, Azure, OpenRouter, local models (Ollama, LM Studio) |
 | LSP Integration | Language Server Protocol support for intelligent completions and semantic analysis |
 | Vim-style Editor | Edit files directly in the terminal using Vim keybindings |
@@ -118,3 +123,7 @@ OpenCode's core strengths: completely free and open-source, no vendor lock-in ac
 - [OpenCode Official Website: open-source AI terminal coding agent overview](https://opencode.ai/)
 - [OpenCode Official Docs: terminal coding agent CLI usage](https://opencode.ai/docs/)
 - [freeCodeCamp: Integrate AI into your terminal workflow using OpenCode](https://www.freecodecamp.org/news/integrate-ai-into-your-terminal-using-opencode/)
+
+## Changelog
+
+- 2026-08-18: Corrected three substantive errors against the official repo: the language is TypeScript not Go, the license is MIT, and the repo moved to `anomalyco/opencode`. Stars 95K → ~198K; fixed the npm package name (`opencode-ai`) and Homebrew tap; added the desktop app; added to the Choosing an Agent CLI series

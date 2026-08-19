@@ -5,26 +5,29 @@ type: project
 category: tech
 tags: [pi, coding-agent, ai-tools, cli, open-source, typescript, ollama, openclaw]
 lang: zh-TW
-tldr: "Pi 是 Mario Zechner 用 TypeScript 打造的極簡 coding agent，只有 4 個核心工具（read、write、edit、bash）和 300 字 system prompt。透過 Extensions、Skills、Prompt Templates 擴充，跑在 Bun runtime 上。Ollama 已內建 `ollama launch pi` 一鍵啟動。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 10
+tldr: "Pi 是 Mario Zechner 打造的極簡 coding agent（TypeScript、MIT、約 93K stars），只有 4 個核心工具與極短 system prompt，其餘全靠 Extensions／Skills／Prompt Templates 自己疊。刻意不做 MCP、sub-agents、plan mode、權限彈窗。repo 已改名 earendil-works/pi，npm scope 換成 @earendil-works。"
 description: "Pi Coding Agent 的設計哲學、架構、核心功能、擴充機制、與 OpenClaw 的關係，以及與其他 coding agent 的差異。"
 draft: false
 ---
 
 🌏 [English version](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en)
 
-Pi 是由 Mario Zechner（GitHub: badlogic）打造的開源 coding agent，核心理念是「極簡但可擴充」。整個系統約 4,000 行 TypeScript，只附帶 4 個工具和 300 字的 system prompt——剩下的都讓使用者自己決定。
+Pi 是由 Mario Zechner（GitHub: badlogic）打造的開源 coding agent，核心理念是「極簡但可擴充」：只附帶 4 個工具和一份極短的 system prompt——剩下的都讓使用者自己決定。官網 [pi.dev](https://pi.dev/)，repo 在 [earendil-works/pi](https://github.com/earendil-works/pi)，MIT 授權，約 93K stars。
 
 ## 安裝
 
 ```bash
+# npm 安裝
+npm install -g @earendil-works/pi-coding-agent
+
 # 透過 Ollama 一鍵啟動
 ollama launch pi
-
-# npm 安裝
-npm install -g @mariozechner/pi-coding-agent
 ```
 
-跑在 Bun runtime 上，啟動速度快。
+> **套件與 repo 都改名了**：npm scope 從 `@mariozechner` 換成 `@earendil-works`，GitHub 從 `badlogic/pi-mono` 換成 `earendil-works/pi`（舊網址會 301）。既有的全域安裝可以走 `pi update --self`，它會依版本檢查端點回傳的套件名自動換過去。
 
 ## 設計哲學
 
@@ -41,9 +44,22 @@ Pi 刻意不做的事情跟它做的事情一樣重要：
 
 沒有內建 sub-agents、沒有 plan mode、沒有 MCP——但這些都可以透過 Extensions 自己加。
 
-### 300 字 System Prompt
+官方把「不做什麼」列得比「做什麼」還清楚，每一項都附上替代做法：
 
-大多數 coding agent 的 system prompt 動輒數千字。Pi 只用 300 字，讓 prompt cache 命中率最高、token 消耗最低。
+| 不內建 | 官方建議的替代 |
+|---|---|
+| MCP | 寫成帶 README 的 CLI 工具（走 Skills），或自己寫 extension 加 MCP 支援 |
+| Sub-agents | 用 tmux 開多個 Pi instance，或用 extension 自己做 |
+| 權限彈窗 | 跑在容器裡，或用 extension 做符合自己環境的確認流程 |
+| Plan mode | 把計畫寫成檔案，或用 extension／套件補 |
+| 內建 to-do | 用 `TODO.md` |
+| 背景 bash | 用 tmux，觀察性更好也能直接互動 |
+
+這個清單本身就是 Pi 的設計主張：**與其內建所有功能然後讓你關掉不要的，不如給你 primitives 自己組。**
+
+### 極短的 System Prompt
+
+大多數 coding agent 的 system prompt 動輒數千字。Pi 刻意壓到極短，讓 prompt cache 命中率最高、token 消耗最低。也因為 system prompt 短，你才有空間做真正的 context engineering——決定什麼進 context window、怎麼管理它。
 
 ## 核心功能
 
@@ -53,8 +69,10 @@ Pi 刻意不做的事情跟它做的事情一樣重要：
 | Compaction | 接近 context limit 時自動摘要舊訊息，可透過 Extension 自訂摘要策略 |
 | Skills | 按需載入的能力包（指令 + 工具），不會佔用 prompt cache |
 | Dynamic Context | Extension 可在每個 turn 前注入訊息、過濾歷史、實作 RAG 或長期記憶 |
-| 多供應商 | Anthropic、OpenAI、Google、Azure、Bedrock、Mistral、Groq、Cerebras、xAI、Hugging Face 等 |
-| 模型切換 | Session 中途可切換模型 |
+| 多供應商 | 15+ 家：Anthropic、OpenAI、Google、Azure、Bedrock、Mistral、Groq、Cerebras、xAI、Hugging Face、Kimi For Coding、MiniMax、NVIDIA、OpenRouter、Ollama 等，API key 或 OAuth 皆可 |
+| 模型切換 | Session 中途用 `/model` 或 `Ctrl+L` 切換，`Ctrl+P` 循環常用模型 |
+| 樹狀 session | Session 以樹狀結構儲存，`/tree` 可跳回任一點續接，所有分支存在同一個檔案；`/export` 匯出 HTML、`/share` 上傳 gist |
+| 訊息插隊 | agent 工作中仍可送訊息：`Enter` 是 steering（當前工具跑完就插入），`Alt+Enter` 是 follow-up（等它做完）|
 
 ## 擴充機制
 
@@ -78,41 +96,44 @@ Pi 的 TUI 底層是 `@mariozechner/pi-tui`，特色包括：
 - 行內圖片支援（Kitty / iTerm2 協定）
 - 自動完成與 overlay 對話框
 
-## 與 OpenClaw 的關係
+## 與 OpenClaw 的關係（已經變了）
 
-| 層 | 負責者 | 功能 |
-|---|---|---|
-| Gateway | OpenClaw | 頻道管理、路由、認證、排程 |
-| Agent Runtime | Pi | 推理、工具執行、context 管理 |
-| Session | 共管 | OpenClaw 擁有 session，Pi 執行 agent loop |
-| Memory | Pi | Markdown 檔案、vector search |
+過去常見的說法是「OpenClaw 是外殼、Pi 是它的 agent runtime 核心」。**這個描述已經過期。**
 
-Pi 是 OpenClaw 的 AI 核心引擎。OpenClaw 負責外層（頻道、安全、排程），Pi 負責內層（推理、執行、記憶）。Pi 的設定透過 OpenClaw 的 `agents.defaults` 和 `agents.list[]` 傳遞。
+兩邊現在的官方說法並不一致，兩個都列出來：
 
-但 Pi 也可以完全獨立使用，不需要 OpenClaw。
+- **OpenClaw 這邊**：官方文件現在寫的是內建 runtime id 就是 `openclaw`，`pi` 是會被正規化掉的 legacy 別名，並明講「已經沒有外部 agent 框架套件」。也就是 Pi 那部分已經被吸收進 OpenClaw 自己的程式碼，不再是一個外掛的依賴。細節見 [OpenClaw 參考篇](/posts/ai/2026-03-28-openclaw-pi-reference)。
+- **Pi 這邊**：pi.dev 仍把 OpenClaw 列為 SDK 模式的實際整合案例。
+
+比較安全的理解是：**Pi 的 SDK 模式曾經（也仍被官方引用為）OpenClaw 的嵌入範例，但 OpenClaw 的內建 runtime 已經不再是「掛上去的 Pi」。** 如果你在設定檔裡看到 `pi` 這個 runtime id，那是 legacy 別名。
+
+作者本人對這段關係的公開評論也值得一讀——Pi 被放進 OpenClaw 之後，他的 issue tracker 開始湧入大量由 OpenClaw instance 自動產生的內容，最後他用「PR 一律自動關閉並要求人類用自己的話重寫 issue」當過濾器。這是開源專案被 agent 生態放大後的真實副作用。
+
+Pi 本來就可以完全獨立使用，不需要 OpenClaw。
 
 ## 資源需求
 
 Pi 可以跑在非常小的模型上：
 
-| 場景 | 模型 |
+| 場景 | 模型層級 |
 |---|---|
-| 輕量使用 | Qwen3:1.7b（本地） |
-| 一般開發 | Claude Sonnet、GPT-4o |
-| 複雜任務 | Claude Opus、GPT-5 |
+| 輕量使用 | 1.7B 級本地模型（如 Qwen3:1.7b） |
+| 一般開發 | Sonnet 級 / GPT-5 級中階模型 |
+| 複雜任務 | Opus 級 / 旗艦模型 |
 
-相比 OpenClaw 需要至少 64K context window，Pi 的彈性大得多。
+具體型號每季都在換，這裡只講層級。重點是 Pi 對小模型特別友善——極短的 system prompt 和 4 個工具，讓 1.7B 的本地模型也還跑得動，這是功能齊全的 harness 做不到的。
 
 ## 與其他 Coding Agent 的比較
 
 | | Pi | Claude Code | Codex CLI | OpenCode |
 |---|---|---|---|---|
-| 語言 | TypeScript | TypeScript | Rust | Go |
+| 語言 | TypeScript | TypeScript | Rust | TypeScript |
 | 核心工具 | 4 個 | 多個 | 多個 | 多個 |
 | 設計哲學 | 極簡可擴充 | 功能完整 | OpenAI 生態整合 | 模型自由度 |
 | 內建 sub-agents | ❌（Extension 可加） | ✅ | ✅ | ✅ |
 | 內建 MCP | ❌（Extension 可加） | ✅ | ✅ | ❌ |
 | 最小可用模型 | 1.7B | 需大型模型 | 需 OpenAI 模型 | 彈性 |
+| 內建 plan mode | ❌ | ✅ | ✅ | ✅（plan agent）|
 
 ## 典型使用場景
 
@@ -126,17 +147,14 @@ Pi 可以跑在非常小的模型上：
 
 Pi 的核心優勢：極簡設計帶來的低 token 消耗和高 prompt cache 命中率、TypeScript Extension 的無限擴充性、以及對小模型的友善支援。適合喜歡「自己動手」、想要完全掌控 agent 行為的開發者。
 
-## 參考資源
-
-- [GitHub - badlogic/pi-mono](https://github.com/badlogic/pi-mono)
-- [npm - @mariozechner/pi-coding-agent](https://www.npmjs.com/package/@mariozechner/pi-coding-agent)
-- [Pi 開發心得（作者部落格）](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
-- [Ollama 發佈 Pi 整合](https://www.sci-tech-today.com/news/ollama-pi-coding-agent-launch-openclaw-customization/)
-- [shittycodingagent.ai](https://shittycodingagent.ai/)
-
 ## 參考資料
 
-- [Pi Coding Agent GitHub：badlogic/pi-mono 極簡開源終端機 coding harness](https://github.com/badlogic/pi-mono)
-- [Claude Code GitHub：anthropics/claude-code（Pi 比較對象參考）](https://github.com/anthropics/claude-code)
-- [Pi Coding Agent 作者部落格：pi-mono 設計哲學與 TUI 引擎開發心得](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
-- [npm - @mariozechner/pi-coding-agent（Pi Coding Agent 安裝來源）](https://www.npmjs.com/package/@mariozechner/pi-coding-agent)
+- [Pi 官方網站 pi.dev](https://pi.dev/)
+- [GitHub - earendil-works/pi](https://github.com/earendil-works/pi)
+- [Pi 作者部落格：打造極簡 coding agent 的心得](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
+- [Mario Zechner 演講：Building pi in a World of Slop（AI Engineer）](https://www.youtube.com/watch?v=RjfbvDXpFls)
+- [OpenClaw 參考篇：Pi 已經被吸收掉了](/posts/ai/2026-03-28-openclaw-pi-reference)
+
+## 更新紀錄
+
+- 2026-08-18：對照 pi.dev 與 repo 翻新。①repo 已由 `badlogic/pi-mono` 改名為 `earendil-works/pi`，npm scope 換成 `@earendil-works`，安裝指令一併更新；②**改寫〈與 OpenClaw 的關係〉**——原文的「Pi 是 OpenClaw 的 AI 核心引擎」分層表已過期，OpenClaw 官方現在的內建 runtime id 就是 `openclaw`、`pi` 只是 legacy 別名，兩邊說法的不一致也一併標出；③補上官方「刻意不做什麼」的完整清單與替代做法、15+ 供應商、樹狀 session、訊息插隊機制；④比較表修正 OpenCode 的語言（Go → TypeScript）；⑤移除寫死的模型型號，改講層級；⑥合併重複的參考資料區塊，移除已 410 的外部連結

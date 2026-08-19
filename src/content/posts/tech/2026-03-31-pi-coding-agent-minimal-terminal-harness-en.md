@@ -5,14 +5,17 @@ type: project
 category: tech
 tags: [pi, coding-agent, ai-tools, cli, open-source, typescript, ollama, openclaw]
 lang: en
-tldr: "Pi is a minimalist coding agent built in TypeScript by Mario Zechner, featuring just 4 core tools (read, write, edit, bash) and a 300-word system prompt. It's extensible via Extensions, Skills, and Prompt Templates, runs on the Bun runtime, and ships with built-in Ollama support via `ollama launch pi`."
+series:
+  name: "Choosing an Agent CLI"
+  order: 10
+tldr: "Pi is a minimalist coding agent by Mario Zechner (TypeScript, MIT, ~93K stars) with just 4 core tools and a very short system prompt — everything else you add yourself via Extensions, Skills, and Prompt Templates. It deliberately omits MCP, sub-agents, plan mode, and permission popups. The repo is now earendil-works/pi and the npm scope is @earendil-works."
 description: "An overview of Pi Coding Agent's design philosophy, architecture, core features, extension system, its relationship with OpenClaw, and how it compares to other coding agents."
 draft: false
 ---
 
 🌏 [中文版](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)
 
-Pi is an open-source coding agent built by Mario Zechner (GitHub: badlogic), centered on a single principle: minimal but extensible. The entire system is roughly 4,000 lines of TypeScript, ships with just 4 tools and a 300-word system prompt — and leaves everything else up to you.
+Pi is an open-source coding agent built by Mario Zechner (GitHub: badlogic), centered on a single principle: minimal but extensible. It ships with just 4 tools and a very short system prompt — and leaves everything else up to you. Site: [pi.dev](https://pi.dev/); repo: [earendil-works/pi](https://github.com/earendil-works/pi), MIT licensed, around 93K stars.
 
 ## Installation
 
@@ -21,10 +24,8 @@ Pi is an open-source coding agent built by Mario Zechner (GitHub: badlogic), cen
 ollama launch pi
 
 # Install via npm
-npm install -g @mariozechner/pi-coding-agent
+npm install -g @earendil-works/pi-coding-agent
 ```
-
-Runs on the Bun runtime for fast startup.
 
 ## Design Philosophy
 
@@ -41,9 +42,11 @@ What Pi deliberately omits is just as important as what it includes.
 
 No built-in sub-agents, no plan mode, no MCP — but all of these can be added through Extensions.
 
-### 300-Word System Prompt
+### A very short system prompt
 
-Most coding agents have system prompts thousands of words long. Pi uses just 300 words, maximizing prompt cache hit rates and minimizing token consumption.
+Most coding agents have system prompts thousands of words long. Pi keeps its deliberately tiny, maximizing prompt cache hit rates and minimizing token consumption. The short prompt is also what leaves room for real context engineering — deciding what enters the context window and how it's managed.
+
+> **The package and repo were renamed**: the npm scope moved from `@mariozechner` to `@earendil-works`, and GitHub from `badlogic/pi-mono` to `earendil-works/pi` (the old URLs 301). Existing global installs can use `pi update --self`, which follows the package name returned by the version-check endpoint.
 
 ## Core Features
 
@@ -78,18 +81,20 @@ Pi's TUI is powered by `@mariozechner/pi-tui`, featuring:
 - Inline image support (Kitty / iTerm2 protocols)
 - Autocomplete and overlay dialogs
 
-## Relationship with OpenClaw
+## Relationship with OpenClaw (this changed)
 
-| Layer | Owner | Responsibility |
-|---|---|---|
-| Gateway | OpenClaw | Channel management, routing, authentication, scheduling |
-| Agent Runtime | Pi | Reasoning, tool execution, context management |
-| Session | Shared | OpenClaw owns the session; Pi runs the agent loop |
-| Memory | Pi | Markdown files, vector search |
+The familiar description — "OpenClaw is the shell, Pi is its agent runtime core" — **is out of date**.
 
-Pi serves as OpenClaw's AI core engine. OpenClaw handles the outer layer (channels, security, scheduling); Pi handles the inner layer (reasoning, execution, memory). Pi's configuration is passed through OpenClaw's `agents.defaults` and `agents.list[]`.
+The two projects' official positions no longer agree, so here are both:
 
-That said, Pi works perfectly fine as a standalone tool — no OpenClaw required.
+- **On the OpenClaw side**: the docs now state that the built-in runtime id is `openclaw`, that `pi` is a legacy alias that gets normalized away, and explicitly that there is "no external agent framework package" anymore. That part was absorbed into OpenClaw's own code and is no longer a plugged-in dependency. Details in [the OpenClaw reference post](/posts/ai/2026-03-28-openclaw-pi-reference-en).
+- **On the Pi side**: pi.dev still lists OpenClaw as the real-world example of its SDK mode.
+
+The safer reading: **Pi's SDK mode was (and is still cited as) OpenClaw's embedding example, but OpenClaw's built-in runtime is no longer "Pi bolted on."** If you see a `pi` runtime id in a config file, that's the legacy alias.
+
+The author's public commentary on this relationship is worth reading too — after Pi landed inside OpenClaw, his issue tracker filled with content auto-generated by OpenClaw instances, and he ended up auto-closing PRs with a request that humans rewrite the issue in their own words as a filter. It's a real side effect of an open source project being amplified by an agent ecosystem.
+
+Pi has always worked perfectly fine standalone — no OpenClaw required.
 
 ## Resource Requirements
 
@@ -101,13 +106,13 @@ Pi can run on very small models:
 | General development | Claude Sonnet, GPT-4o |
 | Complex tasks | Claude Opus, GPT-5 |
 
-Compared to OpenClaw, which requires at least a 64K context window, Pi is far more flexible.
+Specific model IDs turn over every quarter, so this table talks in tiers. The point is that Pi is unusually friendly to small models — a very short system prompt and four tools keep even a 1.7B local model viable, which a fully featured harness cannot do.
 
 ## Comparison with Other Coding Agents
 
 | | Pi | Claude Code | Codex CLI | OpenCode |
 |---|---|---|---|---|
-| Language | TypeScript | TypeScript | Rust | Go |
+| Language | TypeScript | TypeScript | Rust | TypeScript |
 | Core tools | 4 | Multiple | Multiple | Multiple |
 | Design philosophy | Minimal + extensible | Feature-complete | OpenAI ecosystem integration | Model flexibility |
 | Built-in sub-agents | ❌ (via Extension) | ✅ | ✅ | ✅ |
@@ -120,23 +125,20 @@ Compared to OpenClaw, which requires at least a 64K context window, Pi is far mo
 2. **Custom agents**: Build a fully tailored coding workflow using the Extension system
 3. **Local small models**: Connect to Ollama and run a 1.7B model in resource-constrained environments
 4. **Embedding in apps**: Use SDK mode to integrate Pi directly into your own product
-5. **OpenClaw core**: Serve as the agent runtime for an OpenClaw Gateway
+5. **Embedding**: use SDK mode to put an agent inside your own product
 
 ## Positioning vs. Other Tools
 
 Pi's core strengths are its minimalist design (low token consumption, high prompt cache hit rates), unlimited extensibility via TypeScript Extensions, and friendly support for small models. It's the right fit for developers who prefer the "build it yourself" approach and want full control over agent behavior.
 
-## Resources
-
-- [GitHub - badlogic/pi-mono](https://github.com/badlogic/pi-mono)
-- [npm - @mariozechner/pi-coding-agent](https://www.npmjs.com/package/@mariozechner/pi-coding-agent)
-- [Pi development retrospective (author's blog)](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
-- [Ollama announces Pi integration](https://www.sci-tech-today.com/news/ollama-pi-coding-agent-launch-openclaw-customization/)
-- [shittycodingagent.ai](https://shittycodingagent.ai/)
-
 ## References
 
-- [Pi Coding Agent GitHub: badlogic/pi-mono — minimalist open-source terminal coding harness](https://github.com/badlogic/pi-mono)
-- [Claude Code GitHub: anthropics/claude-code (used as a comparison reference)](https://github.com/anthropics/claude-code)
-- [Pi Coding Agent author's blog: pi-mono design philosophy and TUI engine development](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
-- [npm - @mariozechner/pi-coding-agent (Pi Coding Agent installation source)](https://www.npmjs.com/package/@mariozechner/pi-coding-agent)
+- [Pi official site, pi.dev](https://pi.dev/)
+- [GitHub - earendil-works/pi](https://github.com/earendil-works/pi)
+- [The author's retrospective on building a minimal coding agent](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
+- [Mario Zechner's talk: Building pi in a World of Slop (AI Engineer)](https://www.youtube.com/watch?v=RjfbvDXpFls)
+- [OpenClaw reference: Pi has been absorbed](/posts/ai/2026-03-28-openclaw-pi-reference-en)
+
+## Changelog
+
+- 2026-08-18: Refreshed against pi.dev and the repo. (1) The repo was renamed from `badlogic/pi-mono` to `earendil-works/pi` and the npm scope to `@earendil-works`; install commands updated. (2) **Rewrote the OpenClaw section** — the old "Pi is OpenClaw's AI core engine" layer table is out of date; OpenClaw's built-in runtime id is now `openclaw` with `pi` as a legacy alias, and the disagreement between the two projects' docs is now noted. (3) Corrected OpenCode's language in the comparison table (Go → TypeScript). (4) Replaced hardcoded model IDs with tiers

@@ -5,6 +5,9 @@ type: guide
 category: tech
 tags: [claude-code, anthropic, ai-tools, cli, coding-agent]
 lang: zh-TW
+series:
+  name: "Agent CLI 選型指南"
+  order: 2
 tldr: "Claude Code 是 Anthropic 的 agentic coding 工具，跑在終端機、IDE、Slack、GitHub 和 Web 上。核心擴充機制有六層：CLAUDE.md（永駐 context）、Skills（按需工作流程）、Hooks（確定性自動化）、Subagents（隔離委派）、MCP（外部工具連接）、Agent Teams（多 agent 協作）。"
 description: "Claude Code 的安裝方式、核心功能、六層擴充機制、運行模式、定價、與其他 AI coding agent 的定位差異，以及本站相關深度指南索引。"
 draft: false
@@ -90,7 +93,7 @@ Model Context Protocol 讓 Claude 連上你的工具鏈：資料庫、GitHub、S
 
 ### 6. Agent Teams — 多 Agent 協作
 
-2026 年 2 月隨 Opus 4.6 發佈。多個獨立 Claude session 互相傳訊、分工、平行作業。與 subagent 的差異：subagent 是上下級的委派關係，Agent Teams 是平級的協作關係。
+多個獨立 Claude session 互相傳訊、分工、平行作業。與 subagent 的差異：subagent 是上下級的委派關係，Agent Teams 是平級的協作關係。
 
 ### 擴充機制總覽
 
@@ -124,22 +127,21 @@ Model Context Protocol 讓 Claude 連上你的工具鏈：資料庫、GitHub、S
 
 ## 定價
 
-需要 Claude Pro 或 Max 訂閱（或 API 付費）。以 Claude Sonnet 4.6 為例：
+需要 Claude 付費訂閱（Pro $20/mo、Max 5x $100/mo、Max 20x $200/mo）或自備 API key。
 
-| | 價格 |
-|---|---|
-| Input | $3.00 / 1M tokens |
-| Output | $15.00 / 1M tokens |
+訂閱的額度以 **5 小時滾動視窗**計算並疊加週上限，且 Claude 網頁／桌面／手機／終端機**共用同一個池子**；額度用完可以打開 usage credits 以 API 費率續跑。API 這條路按模型分層計價，目前是 Opus 級 $5/$25、Sonnet 級 $3/$15、Haiku 級 $1/$5（每 M tokens input/output）。
+
+型號與價格會變，以[官方定價頁](https://claude.com/pricing)為準；方案取捨與額度細節見本系列的 [Claude Code 完整方案分析](/posts/ai/2026-04-02-agent-cli-claude-code)。
 
 ## 與其他 Coding Agent 的定位差異
 
 | | Claude Code | Codex CLI | Gemini CLI | OpenCode | Pi |
 |---|---|---|---|---|---|
-| 廠商 | Anthropic | OpenAI | Google | SST（開源社群） | badlogic（開源社群） |
+| 廠商 | Anthropic | OpenAI | Google | anomalyco（開源社群） | earendil-works（開源社群） |
 | 擴充層數 | 6 層 | Skills + MCP | MCP | 雙 Agent | Extension |
 | 開源 | ❌ | ✅ | ✅（Apache 2.0） | ✅ | ✅ |
-| 免費方案 | ❌（需訂閱） | 部分免費 | 1,000 次/天 | 完全免費 | 完全免費 |
-| 核心優勢 | 擴充生態最完整 | OpenAI 模型整合 | 免費 + 1M context | 75+ 模型自由度 | 極簡 + 低 token |
+| 免費方案 | ❌（需訂閱） | 部分免費 | ❌（個人免費層已於 2026/6 終止） | 完全免費 | 完全免費 |
+| 核心優勢 | 擴充生態最完整 | OpenAI 模型整合 | Antigravity 平台整合 | 75+ 模型自由度 | 極簡 + 低 token |
 | IDE 整合 | VS Code + JetBrains | VS Code | VS Code | TUI | TUI |
 
 Claude Code 的核心優勢在於六層擴充機制帶來的客製化深度——從個人開發者到企業團隊，都能逐層疊加所需的自動化和整合。缺點是不開源且需要付費。
@@ -191,5 +193,9 @@ Claude Code 的核心優勢在於六層擴充機制帶來的客製化深度—�
 
 - [Claude Code 官方文件：Anthropic coding agent 完整說明](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [Claude Code GitHub：anthropics/claude-code 開源倉庫](https://github.com/anthropics/claude-code)
-- [Anthropic 部落格：Claude Code agentic coding 工具發布](https://www.anthropic.com/news/claude-code)
+- [Claude Code 官方產品頁](https://claude.com/product/claude-code)
 - [npm - @anthropic-ai/claude-code（Claude Code CLI 安裝來源）](https://www.npmjs.com/package/@anthropic-ai/claude-code)
+
+## 更新紀錄
+
+- 2026-08-18：定價段落改寫——補上三個訂閱層級的實際價格、5 小時視窗加週上限的額度機制、跨介面共用同一池，並把單一型號報價換成 Opus／Sonnet／Haiku 三層；移除 Agent Teams 綁定特定模型版本的敘述；比較表修正 OpenCode 與 Pi 的維護者（已分別轉為 anomalyco 與 earendil-works）與 Gemini CLI 的免費方案（個人層已於 2026/6/18 終止）；納入 Agent CLI 選型指南系列

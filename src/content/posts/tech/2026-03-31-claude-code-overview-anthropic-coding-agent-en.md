@@ -5,6 +5,9 @@ type: guide
 category: tech
 tags: [claude-code, anthropic, ai-tools, cli, coding-agent]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 2
 tldr: "Claude Code is Anthropic's agentic coding tool that runs in the terminal, IDEs, Slack, GitHub, and on the web. Its core extension system has six layers: CLAUDE.md (persistent context), Skills (on-demand workflows), Hooks (deterministic automation), Subagents (isolated delegation), MCP (external tool connections), and Agent Teams (multi-agent collaboration)."
 description: "How to install Claude Code, its core capabilities, the six-layer extension system, runtime environments, pricing, how it compares to other AI coding agents, and an index of in-depth guides on this site."
 draft: false
@@ -90,7 +93,7 @@ The Model Context Protocol lets Claude connect to your toolchain: databases, Git
 
 ### 6. Agent Teams — Multi-Agent Collaboration
 
-Released in February 2026 alongside Opus 4.6. Multiple independent Claude sessions can message each other, divide work, and operate in parallel. Unlike subagents (a hierarchical delegation relationship), Agent Teams are peers collaborating as equals.
+Multiple independent Claude sessions can message each other, divide work, and operate in parallel. Unlike subagents (a hierarchical delegation relationship), Agent Teams are peers collaborating as equals.
 
 ### Extension System Summary
 
@@ -124,22 +127,21 @@ Released in February 2026 alongside Opus 4.6. Multiple independent Claude sessio
 
 ## Pricing
 
-Requires a Claude Pro or Max subscription (or API access). Using Claude Sonnet 4.6 as an example:
+Requires a paid Claude subscription (Pro $20/mo, Max 5x $100/mo, Max 20x $200/mo) or your own API key.
 
-| | Price |
-|---|---|
-| Input | $3.00 / 1M tokens |
-| Output | $15.00 / 1M tokens |
+Subscription quota runs on a **rolling five-hour window** with weekly limits on top, and Claude on web, desktop, mobile, and the terminal **all draw from the same pool**; when it runs out you can enable usage credits and continue at API rates. The API path is tiered by model — currently Opus tier at $5/$25, Sonnet tier at $3/$15, and Haiku tier at $1/$5 per M input/output tokens.
+
+Model names and prices move; the [official pricing page](https://claude.com/pricing) is authoritative. For plan trade-offs and quota detail, see [Claude Code: A Complete Plan Breakdown](/posts/ai/2026-04-02-agent-cli-claude-code-en) in this series.
 
 ## How Claude Code Compares to Other Coding Agents
 
 | | Claude Code | Codex CLI | Gemini CLI | OpenCode | Pi |
 |---|---|---|---|---|---|
-| Vendor | Anthropic | OpenAI | Google | SST (open source) | badlogic (open source) |
+| Vendor | Anthropic | OpenAI | Google | anomalyco (open source) | earendil-works (open source) |
 | Extension layers | 6 layers | Skills + MCP | MCP | Dual Agent | Extension |
 | Open source | ❌ | ✅ | ✅ (Apache 2.0) | ✅ | ✅ |
-| Free tier | ❌ (subscription required) | Partially free | 1,000 requests/day | Completely free | Completely free |
-| Core strength | Most complete extension ecosystem | OpenAI model integration | Free + 1M context | 75+ model flexibility | Minimal + low token usage |
+| Free tier | ❌ (subscription required) | Partially free | ❌ (individual free tier ended 2026/6) | Completely free | Completely free |
+| Core strength | Most complete extension ecosystem | OpenAI model integration | Antigravity platform integration | 75+ model flexibility | Minimal + low token usage |
 | IDE integration | VS Code + JetBrains | VS Code | VS Code | TUI | TUI |
 
 Claude Code's core advantage is the depth of customization enabled by its six-layer extension system — from individual developers to enterprise teams, you can layer in exactly the automation and integrations you need. The trade-offs: it's not open source and requires a paid subscription.
@@ -191,5 +193,9 @@ This site has 20+ articles dedicated to Claude Code, indexed by topic below:
 
 - [Claude Code Official Docs: Anthropic Coding Agent Overview](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [Claude Code GitHub: anthropics/claude-code repository](https://github.com/anthropics/claude-code)
-- [Anthropic Blog: Announcing Claude Code, an agentic coding tool](https://www.anthropic.com/news/claude-code)
+- [Claude Code official product page](https://claude.com/product/claude-code)
 - [npm - @anthropic-ai/claude-code (Claude Code CLI package)](https://www.npmjs.com/package/@anthropic-ai/claude-code)
+
+## Changelog
+
+- 2026-08-18: Rewrote the pricing section — added actual prices for all three subscription tiers, how quota works (rolling five-hour window plus weekly caps, one shared pool across surfaces), and replaced the single-model quote with the Opus/Sonnet/Haiku tiers. Removed the claim tying Agent Teams to a specific model release. Corrected the comparison table's maintainers for OpenCode and Pi (now anomalyco and earendil-works) and Gemini CLI's free tier (the individual tier ended 2026/6/18). Added to the Choosing an Agent CLI series

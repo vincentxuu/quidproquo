@@ -5,8 +5,11 @@ type: project
 category: tech
 tags: [codex, openai, ai-tools, cli, coding-agent, open-source]
 lang: zh-TW
-tldr: "Codex CLI 是 OpenAI 的開源終端機 coding agent，用 Rust 打造，支援 MCP、subagents、圖片輸入、code review。搭配 codex-1（o3 優化版）或 GPT-5-Codex 模型，可在本地端直接讀寫、執行程式碼。"
-description: "OpenAI Codex CLI 的安裝、核心功能、模型演進、與 Codex App 的關係，以及實際使用場景整理。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 4
+tldr: "Codex CLI 是 OpenAI 的開源終端機 coding agent（Rust，Apache-2.0，約 106.6k stars），支援 MCP、subagents、圖片輸入、code review、Skills。模型主線已換成 GPT-5.6 Sol / Terra / Luna，桌面版、CLI 與 IDE 擴充共用一份 config.toml。"
+description: "OpenAI Codex CLI 的安裝、核心功能、模型演進與現況、與 Codex App 的關係，以及實際使用場景整理。"
 draft: false
 ---
 
@@ -47,6 +50,14 @@ Codex 最早的雲端版本，以 o3 模型針對軟體工程最佳化。可平�
 
 GPT-5 進一步針對 agentic coding 最佳化的版本。同時擅長快速互動式對話和獨立執行長時間複雜任務。OpenAI 根據社群回饋，以 agentic coding workflow 為核心重新打造 Codex CLI。
 
+### GPT-5.6 三檔（現況）
+
+現在的主線是 **Sol / Terra / Luna** 三個模型：Sol 深度優先、Terra 是日常預設、Luna 走速度與成本。用 Power 設定（Smarter ↔ Faster）挑，預設是 `gpt-5.6-sol` 搭 medium reasoning。
+
+兩個要注意的時間點：**GPT-5.4 與 GPT-5.4 mini 於 2026/8/31 在 ChatGPT 登入模式下退場**（替代為 Terra 與 Luna），`gpt-5.2` 與 `gpt-5.3-codex` 則早已 deprecated。腳本或 `codex exec --model` 有寫死舊型號的要改。自備 API key 的路徑不受影響。
+
+模型與計費細節見本系列的 [OpenAI Codex 完整方案分析](/posts/ai/2026-04-02-agent-cli-openai-codex)。
+
 ## Codex App vs Codex CLI
 
 | | Codex CLI | Codex App |
@@ -66,7 +77,7 @@ Codex App 於 2026 年 3 月支援 Windows，提供更視覺化的多 agent 管�
 
 ## 與其他工具的定位差異
 
-Codex CLI 的核心優勢在於 OpenAI 自家模型的深度整合（codex-1、GPT-5-Codex），以及從雲端 Codex App 到本地 CLI 的完整生態。如果你已經在用 OpenAI API，Codex CLI 是最無縫的選擇。
+Codex CLI 的核心優勢在於 OpenAI 自家模型的深度整合，以及從桌面 Codex App 到本地 CLI 的完整生態——三個介面共用同一份 `config.toml`，設定一次到處生效。如果你已經在 ChatGPT 或 OpenAI API 生態裡，Codex CLI 是最無縫的選擇。
 
 ## 參考資源
 
@@ -80,3 +91,7 @@ Codex CLI 的核心優勢在於 OpenAI 自家模型的深度整合（codex-1、G
 
 - [OpenAI Codex CLI GitHub：openai/codex 開源終端機 coding agent](https://github.com/openai/codex)
 - [Introducing Codex：OpenAI 官方部落格發布 Codex CLI 公告](https://openai.com/index/introducing-codex/)
+
+## 更新紀錄
+
+- 2026-08-18：補上 GPT-5.6 Sol / Terra / Luna 的現況與 GPT-5.4 於 2026/8/31 的退場時程（原文停在 codex-1 與 GPT-5-Codex）；補記三個介面共用 `config.toml`；納入 Agent CLI 選型指南系列

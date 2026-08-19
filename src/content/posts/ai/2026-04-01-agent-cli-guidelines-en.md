@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [agent-cli, claude-code, codex-cli, gemini-cli, opencode, pi, kiro, aider, amp, cursor-cli, agentic-ai, developer-tools, cli, mcp, context-engineering]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 1
 tldr: "Agent CLIs are not smarter autocomplete tools -- they are AI agents that can read your codebase, execute multi-step tasks, and operate in real environments. Claude Code, Codex CLI, Gemini CLI, OpenCode, Aider, Pi, Kiro, Amp, Cursor CLI... the tools keep multiplying, but they all share a common set of design principles -- understanding these principles is how you actually get good at using them."
 description: "A comprehensive comparison of the core mechanisms behind major Agent CLI tools including Claude Code, OpenAI Codex CLI, Gemini CLI, OpenCode, Aider, Pi, Kiro (AWS), Amp, and Cursor CLI, along with best practices for context engineering, tool usage, and permission control."
 draft: false
@@ -48,7 +51,7 @@ The most feature-complete option, suitable as a primary development tool. Billed
 
 ### Codex CLI (OpenAI)
 
-OpenAI's open-source Agent CLI (Apache-2.0, 71k stars), built in Rust. Can be used with a **ChatGPT subscription plan** (Plus / Pro / Team / Enterprise) directly, or with your own API key.
+OpenAI's open-source Agent CLI (Apache-2.0, ~106.6k stars), built in Rust. Can be used with a **ChatGPT subscription plan** (Plus / Pro / Team / Enterprise) directly, or with your own API key.
 
 Core design: The **AGENTS.md system** mirrors CLAUDE.md; **three authorization modes** (suggest / auto-edit / full-auto); **sandbox isolation** (Apple Sandbox on macOS, Docker on Linux); **fully local execution** with no state uploaded.
 
@@ -58,19 +61,19 @@ Ideal for developers who need strict control over the execution environment or w
 
 ---
 
-### Gemini CLI (Google)
+### Antigravity CLI (Google)
 
-Google's open-source Agent CLI (Apache 2.0), powered by the **Gemini 3 series** models. Currently has the highest GitHub stars (~99.8k). The highlight is the **generous free tier** -- 60 requests per minute, 1,000 per day, accessible with just a Google account login.
+Google's terminal agent today. The **Gemini CLI it replaced stopped serving individual accounts on 2026/06/18** — that "1,000 free requests a day" tier no longer exists, and Gemini CLI itself is down to two paths: enterprise licenses and paid API keys (the repo is still maintained under Apache-2.0, ~106.6k stars).
 
-Core design: The **GEMINI.md system**; a **1M token context window** (currently the largest); **Google ecosystem integration** (Search, Drive, Workspace); MCP support.
+Antigravity CLI is rewritten in Go, shares a server-side harness with the Antigravity 2.0 desktop app, keeps Agent Skills, Hooks, and Subagents (Extensions are now plugins), and leads on async background workflows. The cost is that it is **no longer open source**.
 
-**-> [Gemini CLI: Google's Open-Source Terminal AI Agent -- Complete Overview](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)**
+**-> [Antigravity CLI: Google's Terminal AI Agent -- Complete Overview](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)**
 
 ---
 
 ### OpenCode
 
-An open-source AI coding agent (built in Go) with a built-in TUI interface. Its biggest feature is **support for 75+ LLMs** -- connecting to Anthropic, OpenAI, Ollama local models, and any OpenAI-compatible API.
+An open-source AI coding agent (**TypeScript**, MIT, ~198.7k stars, repo at `anomalyco/opencode`) with a built-in TUI and now a desktop app. Its biggest feature is **support for 75+ LLMs** -- connecting to Anthropic, OpenAI, Ollama local models, and any OpenAI-compatible API.
 
 Core design: LSP integration gives the agent IDE-level code understanding; a **dual-agent mode** (planning agent + execution agent division of labor); Vim-style editor; SQLite session management.
 
@@ -80,7 +83,7 @@ Core design: LSP integration gives the agent IDE-level code understanding; a **d
 
 ### Aider (Paul Gauthier)
 
-The most established terminal pair programming tool (42.7k+ GitHub stars), pure CLI, built in Python. Supports 100+ LLMs, with official recommendations for **Claude 3.7 Sonnet, DeepSeek R1, and OpenAI o1 / o3-mini**. Its standout feature is **automatic git commits** -- every AI modification automatically creates a commit, making review and rollback easy.
+The most established terminal pair programming tool (~48.3k GitHub stars, repo at `Aider-AI/aider`), pure CLI, built in Python, Apache-2.0. Supports 100+ LLMs — the officially recommended models turn over every generation, so check the repo's leaderboard. Its standout feature is **automatic git commits** -- every AI modification automatically creates a commit, making review and rollback easy.
 
 Core design: `--architect` mode (high-capability model designs the architecture, low-cost model implements it); `--watch` mode detects AI comments and triggers automatically; excellent SWE-bench scores.
 
@@ -102,7 +105,7 @@ Core design: Extensible through Extensions, Skills, and Prompt Templates; Ollama
 
 An official AWS product (formerly **Amazon Q Developer CLI**), available as both an IDE (Code OSS fork) and a standalone CLI.
 
-Core design: **Spec-driven development** -- uses EARS notation to convert natural language requirements into structured requirements + acceptance criteria, then generates architecture designs and task lists, with the agent executing step by step; **Agent Hooks** auto-trigger on events like file saves; supports multimodal input; native MCP; default model is **Claude Sonnet 4.5**, or Auto mode (dynamically switches between Sonnet 4.5 and other frontier models).
+Core design: **Spec-driven development** -- uses EARS notation to convert natural language requirements into structured requirements + acceptance criteria, then generates architecture designs and task lists, with the agent executing step by step; **Agent Hooks** auto-trigger on events like file saves; supports multimodal input; native MCP; defaults to **Auto mode** (dynamically mixing frontier and specialized models, cheaper in credits than pinning a single frontier model), with premium models selectable on paid plans.
 
 Best for teams heavily invested in the AWS ecosystem or those who prefer spec-first development workflows. Official site: [kiro.dev](https://kiro.dev)
 
@@ -141,12 +144,13 @@ Suited for developers who value transparency and want to observe the agent's dec
 | Tool | Open Source | Model | Highlights | Stars |
 |------|------------|-------|------------|-------|
 | Claude Code | No | Claude | Skills + Hooks + Sub-agent, most feature-complete | -- |
-| Codex CLI | Apache-2.0 | ChatGPT plan / API key | Sandbox isolation, three auth modes | ~71k |
-| Gemini CLI | Apache 2.0 | Gemini 3 series | Free 1,000/day, 1M context | ~99.8k |
-| OpenCode | MIT | 75+ LLMs | TUI + LSP, vendor-agnostic | -- |
-| Aider | Apache 2.0 | 100+ LLMs | Auto git commit, most established | ~42.7k |
-| Pi | MIT | Any | Minimalist 4 tools, 300-word prompt | -- |
-| Kiro CLI | No | Claude Sonnet 4.5 / Auto | Spec-first, official AWS product | -- |
+| Codex CLI | Apache-2.0 | ChatGPT plan / API key | Sandbox isolation, three auth modes | ~106.6k |
+| Antigravity CLI | No | Gemini series | Replaces Gemini CLI, async background workflows | -- |
+| Gemini CLI | Apache 2.0 | Gemini series | **Individual tier ended 2026/6**; enterprise and API key only | ~106.6k |
+| OpenCode | MIT | 75+ LLMs | TUI + LSP, vendor-agnostic | ~198.7k |
+| Aider | Apache 2.0 | 100+ LLMs | Auto git commit, most established | ~48.3k |
+| Pi | MIT | Any | Minimalist 4 tools, 300-word prompt | ~93k |
+| Kiro CLI | No | Auto / premium models | Spec-first, official AWS product | -- |
 | Cursor CLI | No | Claude / GPT-5 / Gemini | IDE extension, headless/CI | -- |
 | GitHub Copilot CLI | No | Copilot models | Bundled with Copilot subscription, GitHub ecosystem | -- |
 | Amp | No | Frontier | CLI-first, Chronicle transparency | -- |
@@ -213,7 +217,7 @@ Good: "First list all external REST endpoints, don't modify any code"
 Selection logic:
 Claude Code        -> Most feature-complete, ideal for primary daily use
 Codex CLI          -> Open-source and controllable, ideal for sandbox isolation needs
-Gemini CLI         -> Generous free tier, ideal for lightweight experimentation or long context
+Antigravity CLI    -> Google ecosystem, async background tasks (Gemini CLI's individual tier is gone)
 OpenCode           -> LLM-agnostic, ideal for multi-model mixing or local deployment
 Aider              -> Auto git commit, ideal for lightweight pair programming
 Pi                 -> Minimalist, ideal for understanding internals or custom harnesses
@@ -232,9 +236,10 @@ The core trade-off: investing the upfront cost of context engineering in exchang
 - [Claude Code Official Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [OpenAI Codex CLI GitHub](https://github.com/openai/codex)
 - [Gemini CLI GitHub](https://github.com/google-gemini/gemini-cli)
-- [OpenCode GitHub](https://github.com/opencode-ai/opencode)
-- [Aider GitHub](https://github.com/paul-gauthier/aider)
-- [Pi Coding Agent GitHub](https://github.com/badlogic/lemmy)
+- [OpenCode GitHub](https://github.com/anomalyco/opencode)
+- [Aider GitHub](https://github.com/Aider-AI/aider)
+- [Pi Coding Agent GitHub](https://github.com/earendil-works/pi)
+- [Antigravity CLI announcement](https://antigravity.google/blog/introducing-google-antigravity-cli)
 - [Kiro Official Website](https://kiro.dev)
 - [GitHub Copilot CLI Official Documentation](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)
 - [Amp](https://ampcode.com)
@@ -242,3 +247,7 @@ The core trade-off: investing the upfront cost of context engineering in exchang
 - [AGENTS.md Standard Draft](https://agentsmd.org/)
 - [Model Context Protocol (MCP) Specification](https://modelcontextprotocol.io/)
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)
+
+## Changelog
+
+- 2026-08-18: Full pass over every tool's current state. (1) **Gemini CLI's individual tier ended 2026/6/18**; that section is now Antigravity CLI, with the selection list and comparison table updated to match. (2) Corrected OpenCode's language and repo (Go → **TypeScript**, `opencode-ai/opencode` → `anomalyco/opencode`). (3) Fixed three broken or wrong repo links: Aider (`paul-gauthier` → `Aider-AI`), Pi (`badlogic/lemmy` → `earendil-works/pi`), and OpenCode. (4) Updated star counts: Codex 71k → ~106.6k, Gemini CLI ~99.8k → ~106.6k, Aider 42.7k → ~48.3k, plus OpenCode ~198.7k and Pi ~93k. (5) Removed hardcoded model IDs (Kiro's Sonnet 4.5, Cursor's Opus 4.6 / GPT-5.2 / Gemini 3 Pro, Aider's Claude 3.7 / o1) in favor of tiers or current mechanisms. (6) Added Pi's "deliberately omitted" design stance

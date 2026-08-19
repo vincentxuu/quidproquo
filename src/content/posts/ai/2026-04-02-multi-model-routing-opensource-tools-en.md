@@ -5,8 +5,11 @@ type: guide
 category: ai
 tags: [multi-model-routing, llm-router, cost-optimization, agent-router, freerouter, ruflo]
 lang: en
+series:
+  name: "Choosing an Agent CLI"
+  order: 14
 tldr: "With multi-model routing, 70% of simple tasks are directed to cheap models, and only 10-15% of complex tasks use flagship models — saving 40-85% on inference costs in practice. This article covers the architecture and implementation of five major open-source tools."
-description: "An in-depth look at open-source multi-model routing tools including ruflo, iblai-openclaw-router, freerouter, agent-router, and NVIDIA llm-router — their architecture design, scoring mechanisms, and practical deployment."
+description: "A deep look at open source multi-model routing tools — ruflo, claw-router, freerouter, agent-router, and NVIDIA llm-router — their architecture, scoring mechanisms, and deployment."
 draft: false
 ---
 
@@ -63,7 +66,7 @@ Core features:
 - **RAG Integration**: Combines knowledge base context for routing decisions
 - **Native Integration**: Embeds directly into Claude Code and Codex workflows
 
-### 2. iblai-openclaw-router
+### 2. claw-router
 
 A 14-dimension weighted scorer with classification latency <1ms. No LLM involved — pure rule engine:
 
@@ -132,7 +135,7 @@ Best suited for enterprise teams with existing NVIDIA infrastructure.
 
 ## The 14-Dimension Scorer Explained
 
-Most open-source routers (freerouter, iblai-openclaw-router) use a similar 14-dimension scoring mechanism:
+Most open-source routers (freerouter, claw-router) use a similar 14-dimension scoring mechanism:
 
 | # | Dimension | Description | High Score → Route |
 |---|-----------|-------------|-------------------|
@@ -183,6 +186,20 @@ Haiku  Son  Opus
 3. **Support manual overrides**: Let users force a specific tier with `/max` or `/quick`, preserving their control.
 4. **Monitor tier usage ratios**: If the Deep tier exceeds 20%, your thresholds are too loose and need adjustment. The ideal ratio is 70/20/10.
 
+## Check the Scale Before You Choose
+
+These five projects differ enormously in maturity. Look closely before depending on any of them (verified 2026-08-18):
+
+| Project | Stars | License | Positioning |
+|---------|-------|---------|-------------|
+| ruflo | ~68.2k | MIT | By far the largest; an orchestration platform in the Claude ecosystem |
+| NVIDIA llm-router | ~341 | Apache-2.0 | An official blueprint, mostly reference architecture (largely Jupyter notebooks) |
+| freerouter | ~98 | MIT | A small self-hosted router |
+| claw-router | ~43 | — | A reference implementation of a scorer |
+| agent-router | ~14 | — | A personal experiment |
+
+Apart from ruflo, these are all **small projects**. Treating them as reference implementations you can read and borrow from is safer than treating them as production dependencies — routing logic itself isn't complex; the real cost is maintaining the model-and-rate table, and that table expires every quarter.
+
 ## Further Resources
 
 More open-source multi-model routing projects:
@@ -196,11 +213,10 @@ More open-source multi-model routing projects:
 
 ## References
 
-- [The Multi-Model Routing Pattern: Cut AI Agent Costs by 78% | DEV Community](https://dev.to/askpatrick/the-multi-model-routing-pattern-how-to-cut-ai-agent-costs-by-78-1631)
-- [Building CostRouter — Route AI requests to the cheapest capable model | DEV Community](https://dev.to/rizzel7/building-costrouter-route-ai-requests-to-the-cheapest-capable-model-automatically-58gd)
 - [How to Optimize AI Agent Token Costs with Multi-Model Routing | MindStudio](https://www.mindstudio.ai/blog/ai-agent-token-cost-optimization-multi-model-routing)
-- [ruflo | GitHub](https://github.com/ruvnet/ruflo)
-- [iblai-openclaw-router | GitHub](https://github.com/iblai/iblai-openclaw-router)
-- [freerouter | GitHub](https://github.com/openfreerouter/freerouter)
-- [agent-router | GitHub](https://github.com/dabit3/agent-router)
-- [NVIDIA LLM Router Blueprint | GitHub](https://github.com/NVIDIA-AI-Blueprints/llm-router)
+- [ruflo: multi-model orchestration and task-analysis routing in the Claude ecosystem | GitHub](https://github.com/ruvnet/ruflo)
+- [claw-router: an open source LLM router using 14-dimension weighted scoring | GitHub](https://github.com/iblai/claw-router)
+- [freerouter: a self-hostable open source multi-model router with manual override | GitHub](https://github.com/openfreerouter/freerouter)
+- [agent-router: multi-agent intelligent routing with load balancing | GitHub](https://github.com/dabit3/agent-router)
+- [NVIDIA llm-router: the official LLM routing blueprint and intent-analysis architecture | GitHub](https://github.com/NVIDIA-AI-Blueprints/llm-router)
+- [GitHub topic: llm-router (more open source multi-model routing projects)](https://github.com/topics/llm-router)

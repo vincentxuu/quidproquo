@@ -5,8 +5,11 @@ type: project
 category: tech
 tags: [codex, openai, ai-tools, cli, coding-agent, open-source]
 lang: en
-tldr: "Codex CLI is OpenAI's open-source terminal coding agent built in Rust. It supports MCP, subagents, image input, and code review. Paired with the codex-1 (o3-optimized) or GPT-5-Codex model, it can read, write, and execute code directly on your local machine."
-description: "A comprehensive look at OpenAI Codex CLI — installation, core features, model evolution, its relationship with the Codex App, and real-world use cases."
+series:
+  name: "Choosing an Agent CLI"
+  order: 4
+tldr: "Codex CLI is OpenAI's open source terminal coding agent (Rust, Apache-2.0, ~106.6k stars) with MCP, subagents, image input, code review, and Skills. The model line is now GPT-5.6 Sol / Terra / Luna, and the desktop app, CLI, and IDE extension share one config.toml."
+description: "Installing OpenAI Codex CLI, its core features, how its models evolved and where they stand now, its relationship to the Codex App, and practical use cases."
 draft: false
 ---
 
@@ -41,11 +44,19 @@ Supports macOS and Linux; use via WSL on Windows. Codex is included with ChatGPT
 
 ### codex-1 (early 2025)
 
-The earliest cloud version of Codex, built on the o3 model and optimized for software engineering. Capable of handling multiple tasks in parallel — writing features, answering codebase questions, fixing bugs, and opening PRs.
+The earliest cloud version of Codex, an o3 model optimized for software engineering. It handled tasks in parallel — writing features, answering codebase questions, fixing bugs, opening PRs.
 
 ### GPT-5-Codex (late 2025)
 
-A version of GPT-5 further optimized for agentic coding. Excels at both fast interactive conversations and autonomous execution of long, complex tasks. OpenAI rebuilt Codex CLI from the ground up around agentic coding workflows, based on community feedback.
+GPT-5 further optimized for agentic coding, good at both fast interactive conversation and long-running autonomous work. OpenAI rebuilt Codex CLI around agentic coding workflows based on community feedback.
+
+### The three GPT-5.6 tiers (current)
+
+The main line is now **Sol / Terra / Luna**: Sol for depth, Terra as the everyday default, Luna for speed and cost. You pick via the Power setting (Smarter ↔ Faster); the default is `gpt-5.6-sol` at medium reasoning.
+
+Two dates matter: **GPT-5.4 and GPT-5.4 mini retire from ChatGPT-signed-in Codex on 2026/8/31** (replaced by Terra and Luna), and `gpt-5.2` and `gpt-5.3-codex` were deprecated earlier. Update any script or `codex exec --model` invocation that hardcodes an old model ID. The bring-your-own-API-key path is unaffected.
+
+For model and billing detail, see [OpenAI Codex: A Complete Plan Analysis](/posts/ai/2026-04-02-agent-cli-openai-codex-en) in this series.
 
 ## Codex App vs. Codex CLI
 
@@ -80,3 +91,7 @@ Codex CLI's core advantage lies in its deep integration with OpenAI's own models
 
 - [OpenAI Codex CLI GitHub: openai/codex open-source terminal coding agent](https://github.com/openai/codex)
 - [Introducing Codex: OpenAI official blog announcement for Codex CLI](https://openai.com/index/introducing-codex/)
+
+## Changelog
+
+- 2026-08-18: Added the current GPT-5.6 Sol / Terra / Luna line and the 2026/8/31 GPT-5.4 retirement date (the post previously stopped at codex-1 and GPT-5-Codex); noted that the three surfaces share one `config.toml`; added to the Choosing an Agent CLI series

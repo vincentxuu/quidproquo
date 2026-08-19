@@ -5,8 +5,11 @@ type: project
 category: ai
 tags: [agent-cli, opencode, open-source, terminal-agent, multi-provider, ollama]
 lang: zh-TW
-tldr: "OpenCode 是免費開源的 Go 語言 CLI agent，95K+ GitHub stars，支援 75+ 模型供應商含本地 Ollama，可用 Copilot/ChatGPT 帳號認證，session 中途切換模型不丟上下文。"
-description: "深入分析 OpenCode 的開源架構、多供應商支援、認證方式、核心功能、與 Claude Code 的比較及適用場景。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 9
+tldr: "OpenCode 是免費開源的 TypeScript CLI agent（MIT，約 198K GitHub stars），支援 75+ 模型供應商含本地 Ollama，可用 Copilot/ChatGPT 帳號認證，session 中途切換模型不丟上下文。另有桌面版與官方 Zen gateway。"
+description: "OpenCode 的開源架構、多供應商支援、Zen gateway、認證方式、核心功能、與 Claude Code 的比較及適用場景。"
 draft: false
 ---
 
@@ -16,11 +19,13 @@ draft: false
 
 ## 產品定位
 
-[OpenCode](https://github.com/opencode-ai/opencode) 是用 Go 語言打造的開源 CLI coding agent，Apache-2.0 授權。上線第一年就累積 **95K+ GitHub stars**，超過了 Claude Code，成為 Agent CLI 領域星數最高的專案之一。每月活躍開發者超過 **250 萬**。
+[OpenCode](https://github.com/anomalyco/opencode) 是用 **TypeScript** 打造的開源 coding agent，**MIT** 授權，目前在 [anomalyco](https://github.com/anomalyco) 這個 org 下維護。累積約 **198K GitHub stars**，是 Agent CLI 領域星數最高的專案，官方數字是 950 位貢獻者、13,000+ commits、每月 1,600 萬名開發者使用。
 
-終端介面不是簡陋的純文字——OpenCode 基於 [Bubble Tea](https://github.com/charmbracelet/bubbletea) 打造了完整的 TUI（Terminal User Interface），具備面板切換、語法高亮、互動式操作等功能。跑在終端機裡，但體驗接近 GUI。
+> **⚠️ 這裡有個常見的張冠李戴**：早期有一個叫 `opencode-ai/opencode` 的專案是用 Go + [Bubble Tea](https://github.com/charmbracelet/bubbletea) 寫的，跟現在這個 OpenCode 不是同一份程式碼。網路上（包括本文舊版）不少「OpenCode 是 Go 寫的、Apache-2.0 授權」的說法都源自這個混淆。以現在的 repo 為準：TypeScript、MIT。
 
-Go 語言的選擇也有策略意義：單一二進位檔部署、交叉編譯容易、啟動速度快。不需要 Node.js 或 Python 環境，下載就能跑。
+終端介面不是簡陋的純文字——OpenCode 有完整的 TUI，具備面板切換、語法高亮、互動式操作等功能。跑在終端機裡，但體驗接近 GUI。除了 TUI 之外，現在還有**桌面應用程式**（beta，macOS / Windows / Linux 都有）與 IDE 擴充。
+
+安裝方式很多，`curl -fsSL https://opencode.ai/install | bash`、npm、Homebrew、scoop、pacman、nix 都可以。
 
 ## 定價模式
 
@@ -28,8 +33,8 @@ OpenCode 本身完全免費，付費的是底層 LLM 的使用。提供三種取
 
 | 方案 | 費用 | 說明 |
 |------|------|------|
-| **OpenCode 本體** | 免費（開源） | Apache-2.0 授權，無使用限制 |
-| **OpenCode Zen** | Pay-as-you-go，$20 預付餘額 | 官方託管的模型路由，零加價（zero markup）直接轉發至供應商 |
+| **OpenCode 本體** | 免費（開源） | MIT 授權，無使用限制 |
+| **OpenCode Zen** | Pay-as-you-go，需儲值 | 官方策展的 AI gateway：只收經團隊實測、與供應商調校過的模型 |
 | **BYOM（Bring Your Own Model）** | 免費，按供應商費率計費 | 自備 API key，直連任何支援的供應商 |
 | **Copilot / ChatGPT 認證** | 免費（使用既有訂閱） | 用 GitHub Copilot 或 ChatGPT Plus 帳號登入即可使用 |
 
@@ -39,14 +44,20 @@ OpenCode 本身完全免費，付費的是底層 LLM 的使用。提供三種取
 
 OpenCode 支援 **75+ LLM 供應商**，涵蓋主流雲端和本地方案：
 
-- **OpenAI**（GPT-4o、o3 等）
-- **Anthropic Claude**（Sonnet、Opus）
-- **Google Gemini**（Gemini 3 系列）
+- **OpenAI**（GPT-5.x 系列）
+- **Anthropic Claude**（Opus / Sonnet / Haiku 各級）
+- **Google Gemini**
 - **AWS Bedrock**（透過 AWS 帳號存取多家模型）
 - **Azure OpenAI**（企業級部署）
 - **Groq**（超低延遲推論）
 - **OpenRouter**（聚合路由）
 - **Ollama**（本地模型，完全離線）
+
+供應商清單走 [Models.dev](https://models.dev)，所以新模型上架的速度不取決於 OpenCode 自己發版。
+
+### OpenCode Zen
+
+如果不想自己在一堆供應商之間試錯，官方另外提供 **Zen** 這個 gateway。它的賣點不是便宜，而是**策展**：團隊實測過模型、跟供應商確認過部署方式、再 benchmark 過模型與供應商的組合，才放進清單。這解決的是走聚合路由時「你永遠不確定拿到的是不是這個模型的最佳版本」的問題。Zen 是選配，不用它一樣能用 OpenCode。
 
 關鍵能力：**session 中途切換模型不丟失上下文**。你可以用 Claude Sonnet 開始一個複雜的重構任務，發現需要更強的推理能力時切換到 o3，再切回 Gemini 做文件生成——整個對話歷史和工作狀態完整保留。
 
@@ -56,7 +67,11 @@ OpenCode 支援 **75+ LLM 供應商**，涵蓋主流雲端和本地方案：
 
 ### 互動式 TUI
 
-基於 Bubble Tea 框架的全功能終端介面，支援面板分割、即時預覽、語法高亮。內建 **Vim-like 編輯器**，熟悉 Vim 鍵位的開發者可以直接上手。
+全功能終端介面，支援面板分割、即時預覽、語法高亮。內建 **Vim-like 編輯器**，熟悉 Vim 鍵位的開發者可以直接上手。
+
+### 內建雙 agent + subagent
+
+`Tab` 鍵可以在兩個內建 agent 之間切換：**build**（預設，開發用的完整權限）與 **plan**（唯讀，預設拒絕檔案編輯、跑 bash 前先問，適合探索不熟的 codebase）。另外還有一個 **general** subagent 處理複雜搜尋與多步驟任務，訊息裡打 `@general` 叫得動。
 
 ### 多 Session 支援
 
@@ -88,20 +103,21 @@ OpenCode 和 Claude Code 是定位最接近的兩個 Agent CLI，但設計哲學
 
 | 面向 | OpenCode | Claude Code |
 |------|----------|-------------|
-| **費用** | 免費（開源） | $20+/月（API 費用） |
+| **費用** | 免費（開源），只付模型費用 | $20+/月訂閱或 API 計費 |
 | **支援模型** | 75+ 供應商 | 僅 Anthropic 模型 |
-| **Agentic 能力** | 良好（SWE-bench ~71%） | 更強（SWE-bench ~80%） |
 | **上下文管理** | 良好，支援 mid-session 切換 | 更成熟，sub-agent 架構 |
 | **供應商鎖定** | 零鎖定 | 鎖定 Anthropic |
-| **授權** | Apache-2.0 開源 | 專有軟體 |
-| **TUI** | Bubble Tea 全功能 TUI | 較簡潔的終端介面 |
+| **授權** | MIT 開源 | 專有軟體 |
+| **介面** | TUI + 桌面版 + IDE 擴充 | 終端機 + IDE + 網頁 |
 | **本地模型** | 支援（Ollama） | 不支援 |
 
-結論很清楚：**如果你追求最強的 agentic 能力，Claude Code 仍然領先**。它的 sub-agent 架構、CLAUDE.md 系統、Skills 和 Hooks 生態系都更成熟。但如果你重視**供應商彈性、成本控制、或本地模型支援**，OpenCode 是目前最好的選擇。
+結論很清楚：**如果你追求最成熟的擴充生態，Claude Code 仍然領先**——sub-agent 架構、CLAUDE.md 系統、Skills 和 Hooks 都更完整。但如果你重視**供應商彈性、成本控制、或本地模型支援**，OpenCode 是目前最好的選擇。
+
+（原文這裡放了兩者的 SWE-bench 分數對比，這一版拿掉了：那組數字綁定的模型世代早已換過，而 OpenCode 的分數本來就取決於你掛哪個模型，拿它跟固定模型的工具比並不對等。）
 
 ## 模型路由的最佳搭檔
 
-OpenCode 的 75+ 供應商支援，搭配第三方模型路由器（如 [freerouter](https://github.com/freerouter-ai/freerouter) 或 ruflo）可以實現最大彈性：
+OpenCode 的 75+ 供應商支援，搭配第三方模型路由器（如 [freerouter](https://github.com/openfreerouter/freerouter) 或 [ruflo](https://github.com/ruvnet/ruflo)）可以實現最大彈性：
 
 - **成本最佳化**：簡單任務路由到便宜模型，複雜任務路由到強模型
 - **延遲最佳化**：根據回應速度動態選擇供應商
@@ -125,14 +141,14 @@ OpenCode 最適合以下類型的開發者和團隊：
 
 如果你的需求是「用最強的模型做最複雜的任務」，Claude Code 可能更適合。但如果你的需求是「用最適合的模型做每一個任務」，OpenCode 的多供應商架構提供了其他工具無法比擬的彈性。
 
-## 系列文章
-
-**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
-
 ## 參考資料
 
-- [OpenCode | GitHub](https://github.com/opencode-ai/opencode)
-- [OpenCode Docs | AI coding agent built for the terminal](https://opencode.ai/docs/)
-- [OpenCode Review: Go CLI Terminal Coding Agent | OpenAIToolsHub](https://www.openaitoolshub.org/en/blog/opencode-review-terminal-ai-coding)
-- [OpenCode vs Claude Code | OpenAIToolsHub](https://www.openaitoolshub.org/en/blog/opencode-vs-claude-code)
-- [Aider vs OpenCode: Best Open-Source AI Coding CLI in 2026 | NxCode](https://www.nxcode.io/resources/news/aider-vs-opencode-ai-coding-cli-2026)
+- [OpenCode | GitHub（anomalyco/opencode）](https://github.com/anomalyco/opencode)
+- [OpenCode 官方網站](https://opencode.ai/)
+- [OpenCode Docs](https://opencode.ai/docs/)
+- [OpenCode Zen 文件](https://opencode.ai/docs/zen/)
+- [Models.dev（供應商與模型清單來源）](https://models.dev)
+
+## 更新紀錄
+
+- 2026-08-18：對照官方 repo 與文件翻新，修掉三個實質錯誤：①**語言不是 Go，是 TypeScript**；②**授權不是 Apache-2.0，是 MIT**；③repo 早已不在 `opencode-ai/opencode`，現由 `anomalyco` 維護（前身為 `sst/opencode`）——這三點源自與一個同名的早期 Go 專案混淆，文中已加註說明。另外：stars 95K → 約 198K，補上桌面版、內建 build／plan 雙 agent 與 general subagent、Models.dev 作為供應商清單來源、Zen 的策展定位；移除失效的 freerouter 連結與已過期的 SWE-bench 對比

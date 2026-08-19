@@ -5,8 +5,11 @@ type: guide
 category: ai
 tags: [multi-model-routing, llm-router, cost-optimization, agent-router, freerouter, ruflo]
 lang: zh-TW
+series:
+  name: "Agent CLI 選型指南"
+  order: 14
 tldr: "透過多模型路由，將 70% 的簡單任務導向便宜模型，只讓 10-15% 的複雜任務使用旗艦模型，實測節省 40-85% 推論成本。本文介紹五個主要開源工具的架構與實作。"
-description: "深入介紹 ruflo、iblai-openclaw-router、freerouter、agent-router、NVIDIA llm-router 等開源多模型路由工具的架構設計、評分機制與實際部署方式。"
+description: "深入介紹 ruflo、claw-router、freerouter、agent-router、NVIDIA llm-router 等開源多模型路由工具的架構設計、評分機制與實際部署方式。"
 draft: false
 ---
 
@@ -61,7 +64,9 @@ ruflo route "design a distributed event sourcing system"
 - **RAG 整合**：結合知識庫上下文來判斷路由
 - **原生整合**：直接嵌入 Claude Code 和 Codex 的工作流程
 
-### 2. iblai-openclaw-router
+### 2. claw-router（iblai/claw-router）
+
+> 這個專案原名 `iblai-openclaw-router`，已改名為 `claw-router`（舊網址會 301）。規模不大（約 40 stars），當作評分器的參考實作看比較合適。
 
 14 維度加權評分器，分類延遲 <1ms。不靠 LLM 判斷，純規則引擎：
 
@@ -130,7 +135,7 @@ NVIDIA 官方藍圖，提供企業級的模型路由方案。分析 prompt 意�
 
 ## 14 維度評分器詳解
 
-多數開源路由器（freerouter、iblai-openclaw-router）都使用類似的 14 維度評分機制：
+多數開源路由器（freerouter、claw-router）都使用類似的 14 維度評分機制：
 
 | # | 維度 | 說明 | 高分 → 路由 |
 |---|------|------|------------|
@@ -181,6 +186,20 @@ Haiku  Son  Opus
 3. **支援手動覆寫**：讓使用者可以用 `/max` 或 `/quick` 強制指定層級，保留控制權。
 4. **監控 tier 使用比例**：如果 Deep tier 超過 20%，代表閾值太鬆，需要調整。理想比例是 70/20/10。
 
+## 選型前先看規模
+
+這五個專案的成熟度差距很大，決定要不要依賴之前先看清楚（2026-08-18 查證）：
+
+| 專案 | Stars | 授權 | 定位 |
+|------|-------|------|------|
+| ruflo | ~68.2k | MIT | 規模最大，Claude 生態的編排平台 |
+| NVIDIA llm-router | ~341 | Apache-2.0 | 官方藍圖，偏參考架構（Jupyter Notebook 為主） |
+| freerouter | ~98 | MIT | 小型自架路由器 |
+| claw-router | ~43 | — | 評分器參考實作 |
+| agent-router | ~14 | — | 個人實驗性質 |
+
+除了 ruflo 之外，其餘四個都是**小型專案**。把它們當成「可以讀懂並抄走設計」的參考實作，比當成生產依賴安全——路由邏輯本身並不複雜，真正的成本在維護那張模型與費率的對照表，而那張表每季都會過期。
+
 ## 延伸資源
 
 更多開源多模型路由專案：
@@ -188,17 +207,15 @@ Haiku  Son  Opus
 - [github.com/topics/llm-router](https://github.com/topics/llm-router)
 - [github.com/topics/ai-router](https://github.com/topics/ai-router)
 
-## 系列文章
-
-- [Agent CLI 訂閱制與多模型路由完整指南](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
-
 ## 參考資料
 
-- [The Multi-Model Routing Pattern: Cut AI Agent Costs by 78% | DEV Community](https://dev.to/askpatrick/the-multi-model-routing-pattern-how-to-cut-ai-agent-costs-by-78-1631)
-- [Building CostRouter — Route AI requests to the cheapest capable model | DEV Community](https://dev.to/rizzel7/building-costrouter-route-ai-requests-to-the-cheapest-capable-model-automatically-58gd)
-- [How to Optimize AI Agent Token Costs with Multi-Model Routing | MindStudio](https://www.mindstudio.ai/blog/ai-agent-token-cost-optimization-multi-model-routing)
-- [ruflo | GitHub](https://github.com/ruvnet/ruflo)
-- [iblai-openclaw-router | GitHub](https://github.com/iblai/iblai-openclaw-router)
-- [freerouter | GitHub](https://github.com/openfreerouter/freerouter)
-- [agent-router | GitHub](https://github.com/dabit3/agent-router)
-- [NVIDIA LLM Router Blueprint | GitHub](https://github.com/NVIDIA-AI-Blueprints/llm-router)
+- [ruflo：Claude 生態的 multi-model routing 編排平台與任務分析路由 | GitHub](https://github.com/ruvnet/ruflo)
+- [claw-router：14 維度加權評分的 open source LLM routing 路由器 | GitHub](https://github.com/iblai/claw-router)
+- [freerouter：可自架的 open source multi-model router，支援手動覆寫 | GitHub](https://github.com/openfreerouter/freerouter)
+- [agent-router：多 agent routing 智慧路由與負載均衡實作 | GitHub](https://github.com/dabit3/agent-router)
+- [NVIDIA llm-router：官方 LLM routing blueprint 與意圖分析架構 | GitHub](https://github.com/NVIDIA-AI-Blueprints/llm-router)
+- [GitHub topic：llm-router（更多開源多模型路由專案）](https://github.com/topics/llm-router)
+
+## 更新紀錄
+
+- 2026-08-18：①`iblai-openclaw-router` 已改名為 `claw-router`，全文連結與名稱更新；②修正指向 `freerouter-ai/freerouter` 的失效連結（正確為 `openfreerouter/freerouter`）；③新增〈選型前先看規模〉——五個專案的 star 數差距達四個數量級，除 ruflo 外都是小型專案，原文並列呈現容易讓人誤判成熟度；④移除兩個已 404 的參考連結

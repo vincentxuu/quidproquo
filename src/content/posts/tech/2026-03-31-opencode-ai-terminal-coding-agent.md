@@ -5,14 +5,19 @@ type: project
 category: tech
 tags: [opencode, ai-tools, cli, coding-agent, open-source, tui]
 lang: zh-TW
-tldr: "OpenCode 是用 Go 打造的開源 AI coding agent（95K+ GitHub stars），內建 TUI 介面、支援 75+ LLM、LSP 整合、Vim 風格編輯器、SQLite session 管理。免費、不需訂閱，可接本地或雲端模型。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 8
+tldr: "OpenCode 是用 TypeScript 打造的開源 AI coding agent（MIT，約 198K GitHub stars，repo 在 anomalyco/opencode），內建 TUI、支援 75+ LLM、LSP 整合、Vim 風格編輯器、SQLite session 管理，另有桌面版。免費、不需訂閱，可接本地或雲端模型。"
 description: "OpenCode 的安裝、核心功能、雙 agent 模式、GitHub 整合、與 Aider 的比較，以及適用場景。"
 draft: false
 ---
 
 🌏 [English version](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en)
 
-OpenCode 是由 SST/AnomalyCo 團隊用 Go 打造的開源 AI coding agent，跑在終端機裡。不需訂閱費，支援 75+ 個 LLM 供應商，2025 Q4 發布後迅速獲得 95K+ GitHub stars。
+OpenCode 是用 **TypeScript** 打造的開源 AI coding agent（MIT 授權），跑在終端機裡。不需訂閱費，支援 75+ 個 LLM 供應商，目前約 **198K GitHub stars**，是這個領域星數最高的專案。repo 幾經搬遷，現在在 [anomalyco/opencode](https://github.com/anomalyco/opencode)（前身 `sst/opencode`）。
+
+> **⚠️ 別跟同名的 Go 專案搞混**：早期有一個 `opencode-ai/opencode` 是 Go + Bubble Tea 寫的，跟這個不是同一份程式碼。網路上「OpenCode 是 Go 寫的」多半來自這個混淆。
 
 ## 安裝
 
@@ -21,10 +26,10 @@ OpenCode 是由 SST/AnomalyCo 團隊用 Go 打造的開源 AI coding agent，跑
 curl -fsSL https://opencode.ai/install | bash
 
 # npm
-npm install -g opencode
+npm i -g opencode-ai@latest
 
 # Homebrew
-brew install opencode
+brew install anomalyco/tap/opencode
 
 # 其他
 # Scoop / Chocolatey（Windows）、pacman（Arch）、Nix
@@ -34,7 +39,7 @@ brew install opencode
 
 | 功能 | 說明 |
 |---|---|
-| TUI 介面 | 用 Bubble Tea 打造的互動式終端機 UI，接近 IDE 體驗 |
+| TUI 介面 | 互動式終端機 UI，接近 IDE 體驗；另有桌面版（beta）與 IDE 擴充 |
 | 75+ LLM | OpenAI、Anthropic、Google、AWS Bedrock、Groq、Azure、OpenRouter、本地模型（Ollama、LM Studio） |
 | LSP 整合 | 語言伺服器協定支援，提供智慧提示與語義分析 |
 | Vim 風格編輯器 | 終端機內直接用 Vim 鍵位編輯 |
@@ -118,3 +123,7 @@ OpenCode 的核心優勢：完全免費開源、75+ 模型供應商不鎖定、T
 - [OpenCode 官方網站：開源 AI 終端機 coding agent 介紹](https://opencode.ai/)
 - [OpenCode 官方文件：opencode terminal coding agent CLI 使用說明](https://opencode.ai/docs/)
 - [freeCodeCamp：使用 opencode 整合 AI 至終端機工作流程教學](https://www.freecodecamp.org/news/integrate-ai-into-your-terminal-using-opencode/)
+
+## 更新紀錄
+
+- 2026-08-18：對照官方 repo 修正三處實質錯誤：語言是 TypeScript 不是 Go、授權是 MIT、repo 已移至 `anomalyco/opencode`；stars 95K → 約 198K；修正 npm 套件名（`opencode-ai`）與 Homebrew tap；補上桌面版；納入 Agent CLI 選型指南系列

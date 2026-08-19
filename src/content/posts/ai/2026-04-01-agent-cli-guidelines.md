@@ -5,6 +5,9 @@ type: guide
 category: ai
 tags: [agent-cli, claude-code, codex-cli, gemini-cli, opencode, pi, kiro, aider, amp, cursor-cli, agentic-ai, developer-tools, cli, mcp, context-engineering]
 lang: zh-TW
+series:
+  name: "Agent CLI 選型指南"
+  order: 1
 tldr: "Agent CLI 不是更聰明的補全工具，而是能讀懂 codebase、執行多步驟任務、操作真實環境的 AI 代理。Claude Code、Codex CLI、Gemini CLI、OpenCode、Aider、Pi、Kiro、Amp、Cursor CLI... 工具越來越多，但底層共享一套設計邏輯——理解這套邏輯，才能真正用好它們。"
 description: "完整比較 Claude Code、OpenAI Codex CLI、Gemini CLI、OpenCode、Aider、Pi、Kiro（AWS）、Amp、Cursor CLI 等主流 Agent CLI 工具的核心機制，並說明上下文工程、工具使用、權限控制等最佳實踐。"
 draft: false
@@ -46,7 +49,7 @@ Agent CLI 是跑在終端機的 AI coding agent。和傳統補全工具的根本
 
 ### Codex CLI（OpenAI）
 
-OpenAI 的開源 Agent CLI（Apache-2.0，71k stars），用 Rust 打造。可綁 **ChatGPT 訂閱方案**（Plus / Pro / Team / Enterprise）直接使用，或自備 API key。
+OpenAI 的開源 Agent CLI（Apache-2.0，~106.6k stars），用 Rust 打造。可綁 **ChatGPT 訂閱方案**（Plus / Pro / Team / Enterprise）直接使用，或自備 API key。
 
 核心設計：**AGENTS.md 系統**對應 CLAUDE.md；**三種授權模式**（suggest / auto-edit / full-auto）；**沙箱隔離**（macOS 用 Apple Sandbox，Linux 用 Docker）；**完全本地執行**，狀態不上傳。
 
@@ -56,19 +59,19 @@ OpenAI 的開源 Agent CLI（Apache-2.0，71k stars），用 Rust 打造。可�
 
 ---
 
-### Gemini CLI（Google）
+### Antigravity CLI（Google）
 
-Google 的開源 Agent CLI（Apache 2.0），模型用 **Gemini 3 系列**。目前 GitHub stars 最高（~99.8k）。亮點是**免費額度極大**——每分鐘 60 次請求、每天 1,000 次，用 Google 帳號登入即可。
+Google 現在的終端 agent。它接替的 **Gemini CLI 已於 2026/06/18 對個人帳號停止服務**——那個「每天 1,000 次免費請求」的方案不存在了，Gemini CLI 本身只剩企業授權與付費 API key 兩條路徑（repo 仍以 Apache-2.0 維護，~106.6k stars）。
 
-核心設計：**GEMINI.md 系統**；**1M token context window**（目前最大）；**Google 生態整合**（Search、Drive、Workspace）；MCP 支援。
+Antigravity CLI 以 Go 重寫，與 Antigravity 2.0 桌面版共用同一套 server-side harness，保留 Agent Skills、Hooks、Subagents（Extensions 改稱 plugins），主打非同步背景工作流。代價是**不再開源**。
 
-**→ [Gemini CLI：Google 開源終端機 AI Agent 完整介紹](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)**
+**→ [Antigravity CLI：Google 終端機 AI Agent 完整介紹](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)**
 
 ---
 
 ### OpenCode
 
-開源 AI coding agent（用 Go 打造），內建 TUI 介面。最大特色是**支援 75+ LLM**——可接 Anthropic、OpenAI、Ollama 本地模型、任何 OpenAI-compatible API。
+開源 AI coding agent（**TypeScript**，MIT，~198.7k stars，repo 在 `anomalyco/opencode`），內建 TUI 介面，另有桌面版。最大特色是**支援 75+ LLM**——可接 Anthropic、OpenAI、Ollama 本地模型、任何 OpenAI-compatible API。供應商清單走 Models.dev。
 
 核心設計：LSP 整合讓 agent 有 IDE 等級的程式碼理解；**雙 agent 模式**（planning agent + execution agent 分工）；Vim 風格編輯器；SQLite session 管理。
 
@@ -78,7 +81,7 @@ Google 的開源 Agent CLI（Apache 2.0），模型用 **Gemini 3 系列**。目
 
 ### Aider（Paul Gauthier）
 
-最老牌的 terminal pair programming 工具（42.7k+ GitHub stars），純 CLI，Python 打造。支援 100+ LLM，官方推薦 **Claude 3.7 Sonnet、DeepSeek R1、OpenAI o1 / o3-mini**。最大特色是**自動 git commit**——每次 AI 修改都自動建立 commit，方便 review 和 rollback。
+最老牌的 terminal pair programming 工具（~48.3k GitHub stars，repo 在 `Aider-AI/aider`），純 CLI，Python 打造，Apache-2.0。支援 100+ LLM——官方推薦的型號每代都在換，以 repo 的 leaderboard 為準。最大特色是**自動 git commit**——每次 AI 修改都自動建立 commit，方便 review 和 rollback。
 
 核心設計：`--architect` 模式（高能力模型出架構、低成本模型實作）；`--watch` 模式偵測 AI comment 自動觸發；SWE-bench 成績優異。
 
@@ -90,7 +93,7 @@ Google 的開源 Agent CLI（Apache 2.0），模型用 **Gemini 3 系列**。目
 
 極簡主義的開源 coding harness，用 TypeScript 打造，用 Bun runtime 跑。核心只有 **4 個工具**（read、write、edit、bash）和 300 字 system prompt——設計哲學就是「拒絕複雜度」。
 
-核心設計：透過 Extensions、Skills、Prompt Templates 擴充；Ollama 已內建 `ollama launch pi` 一鍵啟動；OpenClaw 有深度整合。
+核心設計：透過 Extensions、Skills、Prompt Templates 擴充；Ollama 已內建 `ollama launch pi` 一鍵啟動。刻意不做 MCP、sub-agents、plan mode、權限彈窗，每一項都給你自己補的做法。repo 已改名 `earendil-works/pi`（~93k stars），npm scope 是 `@earendil-works`。
 
 **→ [Pi Coding Agent：極簡主義的開源終端機 Coding Harness](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)**
 
@@ -100,7 +103,7 @@ Google 的開源 Agent CLI（Apache 2.0），模型用 **Gemini 3 系列**。目
 
 AWS 官方產品（前身是 **Amazon Q Developer CLI**），提供 IDE（Code OSS fork）和獨立 CLI 兩種形式。
 
-核心設計：**Spec 驅動開發**——用 EARS notation 把自然語言需求轉成結構化 requirements + 驗收條件，再生成架構設計和 task list，最後 agent 逐步執行；**Agent Hooks** 在存檔等事件自動觸發；支援 multimodal 輸入；原生 MCP；模型預設 **Claude Sonnet 4.5**，或 Auto 模式（混合 Sonnet 4.5 與其他 frontier models 動態切換）。
+核心設計：**Spec 驅動開發**——用 EARS notation 把自然語言需求轉成結構化 requirements + 驗收條件，再生成架構設計和 task list，最後 agent 逐步執行；**Agent Hooks** 在存檔等事件自動觸發；支援 multimodal 輸入；原生 MCP；預設走 **Auto 模式**（混合 frontier 與專用模型動態切換，比指定單一 frontier 模型省 credit），付費方案另可指定 premium 模型。
 
 適合在 AWS 生態重度使用、或偏好 spec-first 開發流程的團隊。官網：[kiro.dev](https://kiro.dev)
 
@@ -110,7 +113,7 @@ AWS 官方產品（前身是 **Amazon Q Developer CLI**），提供 IDE（Code O
 
 Cursor AI IDE 推出的獨立 CLI，一行安裝：`curl https://cursor.com/install -fsS | bash`。定位是「在任何環境交付程式碼」——不需要開 IDE，直接在 terminal 跑 agent。
 
-核心設計：支援所有 Cursor 模型（Claude Opus 4.6、GPT-5.2、Gemini 3 Pro、Grok 等）；**Shell Mode** 讓 agent 直接執行 shell 指令並顯示輸出；**Headless 模式**適合 CI pipeline 和腳本自動化；**GitHub Actions 整合**可觸發 nightly docs update、安全審查等工作流；MCP 整合。
+核心設計：支援所有 Cursor 模型——自家的 Grok 4.6 / 4.5 與 Composer 2.5，加上各家 frontier model（兩者分屬不同的額度池）；**Shell Mode** 讓 agent 直接執行 shell 指令並顯示輸出；**Headless 模式**適合 CI pipeline 和腳本自動化；**GitHub Actions 整合**可觸發 nightly docs update、安全審查等工作流；MCP 整合。
 
 可獨立使用，不需要搭配 Cursor IDE，適合 CI/CD 自動化或想在 terminal 用 Cursor 訂閱模型的開發者。官網：[cursor.com/cli](https://cursor.com/cli)
 
@@ -139,13 +142,14 @@ Sourcegraph 推出的 CLI-first agent。2026 年初**砍掉 editor extension，�
 | 工具 | 開源 | 模型 | 特色 | Stars |
 |------|------|------|------|-------|
 | Claude Code | 否 | Claude | Skills + Hooks + Sub-agent，功能最完整 | — |
-| Codex CLI | Apache-2.0 | ChatGPT 方案 / API key | 沙箱隔離，三種授權模式 | ~71k |
-| Gemini CLI | Apache 2.0 | Gemini 3 系列 | 免費 1,000 次/天，1M context | ~99.8k |
-| OpenCode | MIT | 75+ LLM | TUI + LSP，不綁供應商 | — |
-| Aider | Apache 2.0 | 100+ LLM | 自動 git commit，最老牌 | ~42.7k |
-| Pi | MIT | 任意 | 極簡 4 工具 300 字 prompt | — |
-| Kiro CLI | 否 | Claude Sonnet 4.5 / Auto | Spec-first，AWS 官方 | — |
-| Cursor CLI | 否 | Claude / GPT-5 / Gemini | IDE 延伸，headless/CI | — |
+| Codex CLI | Apache-2.0 | ChatGPT 方案 / API key | 沙箱隔離，三種授權模式 | ~106.6k |
+| Antigravity CLI | 否 | Gemini 系列 | 接替 Gemini CLI，非同步背景工作流 | — |
+| Gemini CLI | Apache 2.0 | Gemini 系列 | **個人方案已於 2026/6 終止**，只剩企業與 API key | ~106.6k |
+| OpenCode | MIT | 75+ LLM | TUI + LSP，不綁供應商 | ~198.7k |
+| Aider | Apache 2.0 | 100+ LLM | 自動 git commit，最老牌 | ~48.3k |
+| Pi | MIT | 任意 | 極簡 4 工具、極短 prompt | ~93k |
+| Kiro CLI | 否 | Auto / premium 模型 | Spec-first，AWS 官方 | — |
+| Cursor CLI | 否 | 自家模型 + 各家 frontier | IDE 延伸，headless/CI | — |
 | GitHub Copilot CLI | 否 | Copilot 模型 | 綁 Copilot 訂閱，GitHub 生態整合 | — |
 | Amp | 否 | Frontier | CLI-first，Chronicle 透明展示 | — |
 
@@ -230,9 +234,10 @@ Amp           → 透明度高，適合在意 agent 決策過程
 - [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code)
 - [OpenAI Codex CLI GitHub](https://github.com/openai/codex)
 - [Gemini CLI GitHub](https://github.com/google-gemini/gemini-cli)
-- [OpenCode GitHub](https://github.com/opencode-ai/opencode)
-- [Aider GitHub](https://github.com/paul-gauthier/aider)
-- [Pi Coding Agent GitHub](https://github.com/badlogic/lemmy)
+- [OpenCode GitHub](https://github.com/anomalyco/opencode)
+- [Aider GitHub](https://github.com/Aider-AI/aider)
+- [Pi Coding Agent GitHub](https://github.com/earendil-works/pi)
+- [Antigravity CLI 官方公告](https://antigravity.google/blog/introducing-google-antigravity-cli)
 - [Kiro 官方網站](https://kiro.dev)
 - [GitHub Copilot CLI 官方文件](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)
 - [Amp](https://ampcode.com)
@@ -240,3 +245,7 @@ Amp           → 透明度高，適合在意 agent 決策過程
 - [AGENTS.md 標準草案](https://agentsmd.org/)
 - [Model Context Protocol（MCP）規格](https://modelcontextprotocol.io/)
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)
+
+## 更新紀錄
+
+- 2026-08-18：全面校對工具現況。①**Gemini CLI 個人方案已於 2026/6/18 終止**，該節改寫為 Antigravity CLI，選型清單與對照表一併更新；②修正 OpenCode 的語言與 repo（Go → **TypeScript**、`opencode-ai/opencode` → `anomalyco/opencode`）；③修正三個失效或錯誤的 repo 連結：Aider（`paul-gauthier` → `Aider-AI`）、Pi（`badlogic/lemmy` → `earendil-works/pi`）、OpenCode；④更新 star 數：Codex 71k → ~106.6k、Gemini CLI ~99.8k → ~106.6k、Aider 42.7k → ~48.3k，補上 OpenCode ~198.7k 與 Pi ~93k；⑤移除寫死的模型型號（Kiro 的 Sonnet 4.5、Cursor 的 Opus 4.6／GPT-5.2／Gemini 3 Pro、Aider 的 Claude 3.7／o1），改以層級或現行機制描述；⑥補上 Pi「刻意不做什麼」的設計主張

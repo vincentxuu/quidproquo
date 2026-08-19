@@ -5,7 +5,10 @@ type: guide
 category: ai
 tags: [agent-cli, cursor, pricing, cli-agent, cloud-handoff, plan-mode, tui]
 lang: en
-tldr: "Cursor CLI brings the IDE Agent into the terminal, supporting interactive TUI and headless modes, Plan/Ask/Agent three modes, Cloud Handoff, CI/CD integration, $20-200/mo."
+series:
+  name: "Choosing an Agent CLI"
+  order: 11
+tldr: "Cursor CLI brings the IDE agent to the terminal with an interactive TUI and headless mode, Plan/Ask/Agent modes, Cloud Handoff, and CI/CD integration. Billing now runs on two separate usage pools: Cursor's own models (Grok 4.6/4.5, Composer 2.5) and third-party models (Pro includes $20, Pro+ $70, Ultra $400)."
 description: "In-depth analysis of Cursor CLI's 2026 features, three modes (Plan/Ask/Agent), Cloud Handoff, MCP integration, CI/CD automation, and pricing plans."
 draft: false
 ---
@@ -95,24 +98,35 @@ Three output formats are supported:
 
 You can choose to let the agent run fully autonomously or restrict it to specific operations (e.g., read-only). For critical production environment operations, using restricted mode is recommended.
 
-## Pricing Plans
+## Pricing
 
-| Plan | Monthly Fee | Main Quota | Notes |
-|------|-------------|------------|-------|
-| **Hobby** | Free | 2,000 completions + 50 slow premium requests | Getting started |
-| **Pro** | $20/mo | Unlimited Auto mode + $20 credit pool | Best for individual developers |
-| **Pro+** | $60/mo | Unlimited Auto mode + $60 credit pool | Medium to heavy users |
-| **Ultra** | $200/mo | 20x usage multiplier (~$4,000 equivalent capacity) | Heavy users |
-| **Teams** | $40/user/mo | Team management + shared quota | Team plan |
-| **Enterprise** | Contact sales | Custom | Large enterprises |
+| Plan | Monthly | Included third-party model usage | Notes |
+|------|---------|----------------------------------|-------|
+| **Hobby** | Free | None | Limited agent requests, access to Composer |
+| **Pro** | $20/mo | $20 | Entry point for individuals |
+| **Pro+** | $60/mo | $70 | Daily agent users |
+| **Ultra** | $200/mo | $400 | Agent power users |
+| **Teams Standard** | $40/user/mo | Team allowance | Team collaboration |
+| **Teams Premium** | $120/user/mo | 5x Standard | Heavy teams |
+| **Enterprise** | Contact sales | Pooled usage | SCIM, audit logs, invoicing |
+| **Start** (India only) | ₹649/mo, tax inclusive | None | Covers the Cursor Models pool only |
 
-### Credit Billing Logic
+### Two usage pools
 
-Cursor uses a **credit pool** mechanism. In Auto mode, the system selects models automatically without deducting extra credits (unlimited for Pro and above). Credits are only deducted from the credit pool when you manually specify a premium model:
+The key to the billing model is that there are **two independent pools**, each resetting with your monthly billing cycle:
 
-- **$20 credit pool** provides approximately ~225 Sonnet requests, or ~550 Gemini requests
-- Different models consume different credit amounts
-- When credits run out, speed is throttled but you won't be disconnected
+| Pool | Contents | Pricing |
+|------|----------|---------|
+| **Cursor Models** | Cursor's own models: Grok 4.6, Grok 4.5, Composer 2.5 | Generous included usage on every plan |
+| **Other Models** | Third-party frontier models | Charged at the model's API price; plans include the allowance above, with the option to buy more |
+
+The intent is clear: **using Cursor's own models barely touches your budget; using someone else's is where the money goes.** Composer 2.5 is priced at $0.50 / $2.50 per M tokens (input / output), or $3 / $15 in fast mode; Grok 4.6 is $2 / $6, or $4 / $12 fast. The Grok models are jointly trained by Cursor and SpaceXAI.
+
+Cursor's own spend guidance: daily Tab users generally stay within $20; light agent users usually stay inside the included allowance; daily agent users typically land at $60-100/mo total; power users running multiple agents or automation often exceed $200/mo.
+
+Teams and Enterprise plans also carry a **Cursor Token Rate**: $0.25 per million tokens on top of model API pricing when you select a third-party model. Cursor's own models and Auto Cost are exempt.
+
+**Cursor Router** is rolling out: Teams and Enterprise first (Enterprise starts with it off; an admin must opt in), with individual plans a few months behind. It works across the Agents window, editor, CLI, SDK, and iOS app.
 
 ## January 2026 Update
 
@@ -137,7 +151,7 @@ Background Agents are ideal for tasks you don't need to monitor in real time but
 
 ## Market Position
 
-As of February 2026, Cursor's numbers are quite impressive:
+The figures below are public information from February 2026 and have not been updated since — treat them as a snapshot of that moment:
 
 - **$2B ARR** (Annual Recurring Revenue)
 - **2 million** total users
@@ -158,17 +172,13 @@ Cursor CLI is particularly well-suited for the following groups:
 
 If you're a pure terminal user who doesn't use an IDE, Claude Code or Gemini CLI might better fit your workflow. But if your work spans both IDE and terminal, Cursor CLI offers the most complete cross-scenario integration available today.
 
-## Series Articles
-
-This article is part of the Agent CLI series. For cross-tool comparisons of multi-model routing and subscription plans, see:
-
-**→ [Agent CLI Subscription Plans and Multi-Model Routing Strategies](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)**
-
 ## References
 
-- [Cursor CLI Overview | Cursor Docs](https://cursor.com/docs/cli/overview)
-- [Using Agent in CLI | Cursor Docs](https://cursor.com/docs/cli/using)
-- [CLI Agent Modes and Cloud Handoff | Cursor Changelog](https://cursor.com/changelog/cli-jan-16-2026)
-- [Cursor Agent CLI | Cursor Blog](https://cursor.com/blog/cli)
+- [Cursor · Pricing](https://cursor.com/pricing)
 - [Models & Pricing | Cursor Docs](https://cursor.com/docs/models-and-pricing)
-- [Cursor Pricing | Cursor](https://cursor.com/pricing)
+- [Cursor Composer](https://cursor.com/composer)
+- [Cursor CLI](https://cursor.com/cli)
+
+## Changelog
+
+- 2026-08-18: Refreshed against the official pricing pages. (1) The plan table now shows Pro+'s actual included allowance ($70, not $60), Teams Premium ($120/user), and the India-only Start plan, and drops Hobby's no-longer-accurate "2,000 completions + 50 slow premium requests." (2) **Rewrote the billing mechanism** — there are now two independent pools, Cursor Models and Other Models; the old "unlimited Auto mode + credit pool" description is no longer accurate. (3) Added actual Composer 2.5 and Grok 4.6 rates, Cursor's own spend guidance, the Teams/Enterprise Cursor Token Rate, and the rolling-out Cursor Router. (4) Marked the market-position figures as a February 2026 snapshot; removed Gemini CLI as a suggested alternative since its individual service ended

@@ -5,7 +5,10 @@ type: guide
 category: ai
 tags: [agent-cli, kiro, aws, pricing, auto-mode, specs, hooks, bedrock]
 lang: en
-tldr: "Kiro's free plan includes 50 credits. Auto mode intelligently mixes models to save costs. Spec-Driven development upgrades vibe coding into traceable, structured workflows. Agent Hooks enable local CI/CD automation."
+series:
+  name: "Choosing an Agent CLI"
+  order: 12
+tldr: "Kiro has five tiers: Free 50 credits, Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000, with add-on credits at $0.04. Auto mode mixes models to cut cost (the same task costs 1.3x credits via Sonnet), and the spec-driven flow turns vibe coding into traceable, structured development."
 description: "An in-depth analysis of AWS Kiro's 2026 pricing plans, Auto mode, Spec-Driven development, Agent Hooks, autonomous agents, and AWS ecosystem integration."
 draft: false
 ---
@@ -20,21 +23,33 @@ This article starts from pricing and breaks down Kiro's core mechanisms one by o
 
 ## Pricing Plans
 
-Kiro offers four tiers, billed in credits:
+Kiro offers five tiers, billed in credits:
 
-| Plan | Monthly Fee | Credits/Month | Overage Rate | Target Audience |
-|------|-------------|---------------|-------------|-----------------|
-| **Free** | $0 | 50 (permanent) | No overage allowed | Personal exploration, light usage |
-| **Pro** | $20/user | 1,000 | $0.04/credit | Daily developers |
+| Plan | Monthly | Credits/mo | Add-on credits | Best for |
+|------|---------|-----------|----------------|----------|
+| **Free** | $0 | 50 (perpetual) | Not available | Trying it out, light use |
+| **Pro** | $20/user | 1,000 | $0.04/credit | Everyday developers |
 | **Pro+** | $40/user | 2,000 | $0.04/credit | Heavy users, autonomous agents |
-| **Power** | $200/user | 15,000 | $0.04/credit | Full team adoption |
+| **Pro Max** | $100/user | 5,000 | $0.04/credit | Intensive individual use |
+| **Power** | $200/user | 10,000 | $0.04/credit | Full team adoption |
 
 Key observations:
 
-- **500 bonus credits for the first 30 days** — effectively eliminating quota concerns during the trial period.
-- **GovCloud regions have a 20% surcharge** — a hidden cost that's easy to overlook when evaluating options.
-- **Startup plan**: Qualifying startups can receive up to one year of Pro+ for free, making it extremely attractive for early-stage teams.
-- The overage rate is a uniform **$0.04/credit**, matching GitHub Copilot's Premium Request overage rate.
+- **Credits are consumed fractionally, metered to 0.01**, so simple edits and short prompts can cost less than one credit — the headline credit count stretches further than it looks.
+- **First upgrade to a paid plan** (via social login or AWS Builder ID) earns a $20 account credit; first-time access also grants 500 bonus credits usable within 14 days.
+- **Add-on credit rules**: $5 minimum (125 credits), $100 maximum per pack, up to 5 packs at a time, expiring 12 months from purchase and rolling over month to month. Consumption order is **plan credits first, then add-ons**, earliest-expiring pack first. When both run out, usage pauses until you buy more or the cycle resets.
+- **Overage is disabled by default** and must be switched on in Settings. Once on, it stays on as long as you remain on a paid plan; dropping to Free disables it again.
+- **GovCloud regions are priced differently** — an easily missed hidden cost during evaluation.
+- **Startup program**: eligible startups can get up to a year of Pro+ free, which is compelling for early teams.
+
+## Available models
+
+| Plan | Models |
+|------|--------|
+| **Free** (social login or AWS Builder ID) | Claude Sonnet 4.5 plus open-weight models such as Qwen3 Coder Next, DeepSeek v3.2, and MiniMax 2.1, subject to rate limits |
+| **Paid plans** | The above plus premium models: Auto, Claude Sonnet 4.6, and Claude Opus 4.8 |
+
+Not every premium model is available in every country or region.
 
 ## Auto Mode: Intelligent Model Routing
 
@@ -54,15 +69,9 @@ Auto mode is Kiro's default mode and one of its most distinctive features. Rathe
 | Medium complexity | ~1 credit | Refactoring a module |
 | Complex multi-step | > 1 credit | Cross-file architectural changes |
 
-You can also manually select a specific model, bypassing Auto routing:
+You can also manually select a specific model and bypass Auto routing — but the **cost difference is real**: Amazon's own figure is that a task consuming X credits under Auto costs 1.3X when run through Sonnet. That's why Auto is the default.
 
-| Available Model | Positioning |
-|----------------|-------------|
-| **Haiku 4.5** | Fast, low-cost tasks |
-| **Sonnet 4** | Balanced everyday development |
-| **Sonnet 4.5** | Frontier reasoning |
-| **Opus 4.5** | High-complexity tasks |
-| **Opus 4.6** | Maximum reasoning capability |
+Model IDs turn over between generations (the current premium tier is Sonnet 4.6 and Opus 4.8), so pick by tier: a cheap fast model for chores, a mid-tier for daily work, the flagship reserved for genuinely complex tasks.
 
 The value of Auto mode is this: **you don't need to decide which model to use yourself**. For most developers, letting the system decide automatically actually saves more credits than manual selection.
 
@@ -158,16 +167,13 @@ Kiro is best suited for the following teams:
 - **Individual developers wanting a free plan**: 50 credits permanently free, combined with Auto mode optimization, is more than sufficient for light usage.
 - **Startups**: The Startup plan offers up to one year of Pro+ for free — a very substantial benefit.
 
-## Series Articles
-
-- [The Complete Guide to Agent CLI Subscriptions and Multi-Model Routing](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)
-
 ## References
 
-- [Kiro: Agentic AI development from prototype to production](https://kiro.dev/)
 - [Pricing - Kiro](https://kiro.dev/pricing/)
-- [Frequently Asked Questions - Kiro](https://kiro.dev/faq/)
-- [Hooks - IDE - Docs - Kiro](https://kiro.dev/docs/hooks/)
-- [Introducing Kiro - Kiro Blog](https://kiro.dev/blog/introducing-kiro/)
-- [Automate your development workflow with Kiro's AI agent hooks](https://kiro.dev/blog/automate-your-development-workflow-with-agent-hooks/)
-- [Amazon previews 3 AI agents, including 'Kiro' | TechCrunch](https://techcrunch.com/2025/12/02/amazon-previews-3-ai-agents-including-kiro-that-can-code-on-its-own-for-days/)
+- [Billing for individuals - Kiro Docs](https://kiro.dev/docs/billing/)
+- [Usage beyond plan limits - Kiro Docs](https://kiro.dev/docs/billing/add-on-credits/)
+- [Kiro FAQ](https://kiro.dev/faq/)
+
+## Changelog
+
+- 2026-08-18: Refreshed against the official pricing and billing docs. (1) Added the **Pro Max tier ($100 / 5,000 credits)** and corrected Power's allowance (15,000 → **10,000**). (2) Added the full add-on credit rules ($5 minimum, $100 per pack, 5 packs max, 12-month expiry, rollover, plan credits consumed first) and the easily missed fact that overage is off by default. (3) Added fractional billing (metered to 0.01) and the $20 first-upgrade credit. (4) Replaced the outdated manual model list with a Free/paid comparison (Free gets Sonnet 4.5 plus open-weight models; paid adds Auto / Sonnet 4.6 / Opus 4.8). (5) Added Amazon's Auto vs Sonnet cost ratio (1.3x)

@@ -5,7 +5,10 @@ type: guide
 category: ai
 tags: [agent-cli, kiro, aws, pricing, auto-mode, specs, hooks, bedrock]
 lang: zh-TW
-tldr: "Kiro 免費方案含 50 credits，Auto 模式自動混合多模型省成本，Spec-Driven 開發流程將 vibe coding 升級為可追蹤的結構化開發，Agent Hooks 實現本地 CI/CD 自動化。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 12
+tldr: "Kiro 分五層：Free 50 credits、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000，加購 credit 一律 $0.04。Auto 模式混合模型省成本（同一任務走 Sonnet 要 1.3 倍 credit），Spec-Driven 流程把 vibe coding 變成可追蹤的結構化開發。"
 description: "深入分析 AWS Kiro 2026 年的定價方案、Auto 模式、Spec-Driven 開發、Agent Hooks、自主 Agent 與 AWS 生態系整合。"
 draft: false
 ---
@@ -18,21 +21,33 @@ Kiro 是 AWS 推出的 Agentic IDE，基於 Code OSS（VS Code 的開源基底�
 
 ## 定價方案
 
-Kiro 提供四個層級，以 credit 為計費單位：
+Kiro 提供五個層級，以 credit 為計費單位：
 
-| 方案 | 月費 | Credits/月 | 超額費率 | 適用對象 |
-|------|------|-----------|---------|---------|
-| **Free** | $0 | 50（永久） | 不可超額 | 個人嘗鮮、輕度使用 |
+| 方案 | 月費 | Credits/月 | 加購 credit | 適用對象 |
+|------|------|-----------|------------|---------|
+| **Free** | $0 | 50（永久） | 不可加購 | 個人嘗鮮、輕度使用 |
 | **Pro** | $20/user | 1,000 | $0.04/credit | 日常開發者 |
 | **Pro+** | $40/user | 2,000 | $0.04/credit | 重度使用者、自主 Agent |
-| **Power** | $200/user | 15,000 | $0.04/credit | 團隊全面導入 |
+| **Pro Max** | $100/user | 5,000 | $0.04/credit | 高強度個人使用 |
+| **Power** | $200/user | 10,000 | $0.04/credit | 團隊全面導入 |
 
 幾個關鍵觀察：
 
-- **首 30 天贈送 500 bonus credits**，等於試用期內幾乎不用擔心額度問題。
-- **GovCloud 區域加價 20%**，這是選型時容易忽略的隱藏成本。
+- **Credit 以 0.01 為單位分數計費**，簡單的編輯與短 prompt 可能不到 1 credit，所以帳面的 credit 數比直覺中耐用。
+- **首次升級付費方案**（用社群帳號或 AWS Builder ID）可獲 $20 折抵；首次取得存取權時另有 500 bonus credits，14 天內有效。
+- **加購 credit 的規則**：最低 $5（125 credits）、單包上限 $100、最多同時 5 包，效期自購買日起 12 個月且可跨月結轉；扣款順序是**先用方案 credit、再用加購 credit**，最早到期的包先扣。兩者都用完就暫停，直到你再買或下個週期重置。
+- **超額（overage）預設是關閉的**，要在設定裡手動打開才會生效；打開後只要維持付費方案就會一直開著，降回 Free 會自動關閉。
+- **GovCloud 區域定價不同**，這是選型時容易忽略的隱藏成本。
 - **Startup 方案**：符合資格的新創團隊最高可獲得一年 Pro+ 免費，對早期團隊極具吸引力。
-- 超額費率統一為 **$0.04/credit**，與 GitHub Copilot 的 Premium Request 超額費率一致。
+
+## 可用模型
+
+| 方案 | 可用模型 |
+|------|---------|
+| **Free**（社群登入或 AWS Builder ID） | Claude Sonnet 4.5，以及 Qwen3 Coder Next、DeepSeek v3.2、MiniMax 2.1 等開放權重模型，有 rate limit |
+| **付費方案** | 上述再加 premium 模型：Auto、Claude Sonnet 4.6、Claude Opus 4.8 |
+
+並非所有 premium 模型在所有國家／地區都提供。
 
 ## Auto 模式：智慧模型路由
 
@@ -52,15 +67,9 @@ Auto 模式是 Kiro 的預設模式，也是其最大特色之一。它不綁定
 | 中等複雜度 | ~1 credit | 重構一個模組 |
 | 複雜多步驟 | > 1 credit | 跨檔案架構調整 |
 
-你也可以手動選擇特定模型，跳過 Auto 路由：
+你也可以手動選擇特定模型，跳過 Auto 路由——但要注意**成本差異是實打實的**：官方給的比例是，同一個任務在 Auto 下消耗 X credits，改走 Sonnet 執行要 1.3X。這就是 Auto 被設為預設的原因。
 
-| 可選模型 | 定位 |
-|---------|------|
-| **Haiku 4.5** | 快速、低成本任務 |
-| **Sonnet 4** | 平衡型日常開發 |
-| **Sonnet 4.5** | 前沿推理 |
-| **Opus 4.5** | 高複雜度任務 |
-| **Opus 4.6** | 最強推理能力 |
+型號會隨世代更換（目前 premium 檔是 Sonnet 4.6 與 Opus 4.8），選型時看層級就好：便宜快速的一檔跑瑣事，中階跑日常，旗艦留給真的複雜的任務。
 
 Auto 模式的價值在於：**你不需要自己判斷該用哪個模型**。對多數開發者而言，讓系統自動決策反而比手動選擇更省 credit。
 
@@ -153,7 +162,7 @@ Kiro 最適合以下團隊：
 - **AWS 為主的技術棧**：Lambda、CDK、CloudFormation 的原生整合無人能比。
 - **需要結構化開發流程**：Spec-Driven 開發讓 AI 輔助不再是黑箱。
 - **重視開發規範自動化**：Agent Hooks 讓團隊約定變成可執行的自動化。
-- **想要免費方案的個人開發者**：50 credits 永久免費，搭配 Auto 模式的優化，輕度使用綽綽有餘。
+- **想要免費方案的個人開發者**：50 credits 永久免費，搭配 Auto 模式的優化與分數計費，輕度使用還算堪用。
 - **新創團隊**：Startup 方案最高一年 Pro+ 免費，是非常實質的支援。
 
 ## 系列文章
@@ -169,3 +178,7 @@ Kiro 最適合以下團隊：
 - [Introducing Kiro - Kiro Blog](https://kiro.dev/blog/introducing-kiro/)
 - [Automate your development workflow with Kiro's AI agent hooks](https://kiro.dev/blog/automate-your-development-workflow-with-agent-hooks/)
 - [Amazon previews 3 AI agents, including 'Kiro' | TechCrunch](https://techcrunch.com/2025/12/02/amazon-previews-3-ai-agents-including-kiro-that-can-code-on-its-own-for-days/)
+
+## 更新紀錄
+
+- 2026-08-18：對照官方定價頁與帳務文件翻新。①方案表補上 **Pro Max（$100 / 5,000 credits）**，並修正 Power 的額度（15,000 → **10,000**）；②補上加購 credit 的完整規則（最低 $5、單包上限 $100、最多 5 包、12 個月效期、可結轉、先扣方案 credit）與「overage 預設關閉」這個容易踩的設定；③補上分數計費（0.01 為單位）與首次升級 $20 折抵；④可用模型改為 Free／付費兩檔對照（Free 為 Sonnet 4.5 加開放權重模型，付費加 Auto／Sonnet 4.6／Opus 4.8），移除已過期的手動模型清單；⑤補上官方的 Auto vs Sonnet 成本比（1.3x）

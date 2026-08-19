@@ -5,7 +5,10 @@ type: guide
 category: ai
 tags: [agent-cli, cursor, pricing, cli-agent, cloud-handoff, plan-mode, tui]
 lang: zh-TW
-tldr: "Cursor CLI 將 IDE 的 Agent 帶入終端，支援 interactive TUI 與 headless 模式、Plan/Ask/Agent 三種模式、Cloud Handoff 雲端接力、CI/CD 整合，$20-200/mo。"
+series:
+  name: "Agent CLI 選型指南"
+  order: 11
+tldr: "Cursor CLI 把 IDE 的 Agent 帶進終端，支援 interactive TUI 與 headless、Plan/Ask/Agent 三種模式、Cloud Handoff、CI/CD 整合。計費改為兩個獨立額度池：Cursor 自家模型（Grok 4.6/4.5、Composer 2.5）與第三方模型（Pro 含 $20、Pro+ $70、Ultra $400）。"
 description: "深入分析 Cursor CLI 2026 年的功能特色、三種模式（Plan/Ask/Agent）、Cloud Handoff、MCP 整合、CI/CD 自動化與定價方案。"
 draft: false
 ---
@@ -37,7 +40,7 @@ MCP（Model Context Protocol）server 整合也完整支援，agent 可以呼叫
 
 ### 多模型選擇
 
-Cursor 不綁死單一模型供應商。訂閱方案內可以使用來自 Anthropic、OpenAI、Google Gemini、Cursor 自家模型等多個 frontier model。Auto 模式下系統自動選模型，也可以手動指定。
+Cursor 不綁死單一模型供應商。訂閱方案內可以使用來自 Anthropic、OpenAI、Google、SpaceXAI 等多家的 frontier model，以及 Cursor 自家的 Grok 4.6 / 4.5 與 Composer 2.5。Auto 模式下系統自動選模型，也可以手動指定——但兩者扣的是不同的額度池（見下方定價段落）。
 
 ### 多 Agent 平行執行
 
@@ -95,22 +98,33 @@ Cursor CLI 原生支援 GitHub Actions 整合。典型的設定流程：
 
 ## 定價方案
 
-| 方案 | 月費 | 主要額度 | 備註 |
-|------|------|----------|------|
-| **Hobby** | 免費 | 2,000 completions + 50 slow premium requests | 入門體驗 |
-| **Pro** | $20/mo | Auto 模式無限 + $20 credit pool | 個人開發者首選 |
-| **Pro+** | $60/mo | Auto 模式無限 + $60 credit pool | 中重度使用者 |
-| **Ultra** | $200/mo | 20x 用量倍率（相當於 ~$4,000 容量） | 重度使用者 |
-| **Teams** | $40/user/mo | 團隊管理 + 共享額度 | 團隊方案 |
-| **Enterprise** | 洽談 | 客製化 | 大型企業 |
+| 方案 | 月費 | 內含第三方模型額度 | 備註 |
+|------|------|-------------------|------|
+| **Hobby** | 免費 | 無 | 有限的 Agent 請求，可用 Composer |
+| **Pro** | $20/mo | $20 | 個人開發者入門 |
+| **Pro+** | $60/mo | $70 | 每天用 agent 的人 |
+| **Ultra** | $200/mo | $400 | agent 重度使用者 |
+| **Teams Standard** | $40/user/mo | 團隊額度 | 團隊協作 |
+| **Teams Premium** | $120/user/mo | Standard 的 5x | 重度團隊 |
+| **Enterprise** | 洽談 | 共用額度池 | SCIM、audit log、發票 |
+| **Start**（僅印度） | ₹649/mo（含稅） | 無 | 只涵蓋 Cursor 自家模型 |
 
-### Credit 計費邏輯
+### 兩個額度池
 
-Cursor 採用 **credit pool** 機制。Auto 模式下系統自動選模型，不額外扣 credit（Pro 以上無限使用）。手動指定 premium model 時才會從 credit pool 扣款：
+計費機制的關鍵是**兩個獨立的池子**，各自隨每月帳單週期重置：
 
-- **$20 credit pool** 大約可用 ~225 次 Sonnet 請求，或 ~550 次 Gemini 請求
-- 不同模型消耗不同 credit 數量
-- Credit 用完後降速，不會斷線
+| 池子 | 內容 | 計價 |
+|------|------|------|
+| **Cursor Models** | Cursor 自家模型：Grok 4.6、Grok 4.5、Composer 2.5 | 各方案都含「大量」額度 |
+| **Other Models** | 第三方 frontier model | 按該模型的 API 價格計費，方案內含上表的額度，超出可加購 |
+
+這個設計的意思很清楚：**用 Cursor 自家模型幾乎不用擔心額度，用別人家的模型才是花錢的地方。** Composer 2.5 的定價是 $0.50 / $2.50 per M tokens（input / output），fast 模式 $3 / $15；Grok 4.6 是 $2 / $6，fast 模式 $4 / $12。Grok 系列是 Cursor 與 SpaceXAI 共同訓練的。
+
+官方給的實際花費區間：只用 Tab 補全的人通常在 $20 以內；輕度 agent 使用者多半也在內含額度裡；每天用 agent 的人總花費約 $60-100；跑多個 agent 或自動化的重度使用者常在 $200 以上。
+
+Teams 與 Enterprise 另有 **Cursor Token Rate**：選第三方模型時，在該模型 API 價格之上再加 $0.25 / M tokens；Cursor 自家模型與 Auto Cost 免收這筆。
+
+**Cursor Router** 正在推出中：先給 Teams 與 Enterprise（Enterprise 預設關閉，需管理員啟用），個人方案要晚幾個月。它可跨 Agents 視窗、編輯器、CLI、SDK 與 iOS app 使用。
 
 ## 2026 年 1 月更新
 
@@ -135,7 +149,7 @@ Background Agents 適合那些你不需要即時監看、但希望它自己跑�
 
 ## 市場地位
 
-截至 2026 年 2 月，Cursor 的數字相當驚人：
+以下數字為 2026 年 2 月的公開資訊，未再更新，請當作當時的快照看：
 
 - **$2B ARR**（年度經常性收入）
 - **200 萬**總使用者
@@ -154,19 +168,15 @@ Cursor CLI 特別適合以下族群：
 - **CI/CD 自動化需求**——原生 GitHub Actions 支援，多種輸出格式，適合整合進現有 pipeline
 - **長時間任務場景**——Cloud Handoff 讓你不必一直盯著 terminal，任務可以在背景或雲端繼續
 
-如果你是純 terminal 使用者、不用 IDE，Claude Code 或 Gemini CLI 可能更貼合你的工作流。但如果你的工作橫跨 IDE 和終端機，Cursor CLI 提供了目前最完整的跨場景整合。
-
-## 系列文章
-
-這篇是 Agent CLI 系列的一部分。關於多模型路由和訂閱方案的跨工具比較，請參考：
-
-**→ [Agent CLI 訂閱方案與多模型路由策略](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)**
+如果你是純 terminal 使用者、不用 IDE，Claude Code 可能更貼合你的工作流。但如果你的工作橫跨 IDE 和終端機，Cursor CLI 提供了目前最完整的跨場景整合。
 
 ## 參考資料
 
-- [Cursor CLI Overview | Cursor Docs](https://cursor.com/docs/cli/overview)
-- [Using Agent in CLI | Cursor Docs](https://cursor.com/docs/cli/using)
-- [CLI Agent Modes and Cloud Handoff | Cursor Changelog](https://cursor.com/changelog/cli-jan-16-2026)
-- [Cursor Agent CLI | Cursor Blog](https://cursor.com/blog/cli)
+- [Cursor · Pricing](https://cursor.com/pricing)
 - [Models & Pricing | Cursor Docs](https://cursor.com/docs/models-and-pricing)
-- [Cursor Pricing | Cursor](https://cursor.com/pricing)
+- [Cursor Composer](https://cursor.com/composer)
+- [Cursor CLI 官方頁](https://cursor.com/cli)
+
+## 更新紀錄
+
+- 2026-08-18：對照官方定價頁翻新。④「市場地位」的數字標為 2026/2 快照、不再更新；移除已停止個人服務的 Gemini CLI 作為替代建議；①方案表補上 Pro+ 的實際內含額度（$70 而非 $60）、Teams Premium（$120/user）與印度限定的 Start，並移除 Hobby 已不符現況的「2,000 completions + 50 slow premium requests」；②**改寫計費機制**——現在是 Cursor Models 與 Other Models 兩個獨立額度池，原文的「Auto 模式無限 + credit pool」描述已不準確；③補上 Composer 2.5 與 Grok 4.6 的實際費率、官方的實際花費區間、Teams/Enterprise 的 Cursor Token Rate、以及推出中的 Cursor Router
