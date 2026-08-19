@@ -1,0 +1,500 @@
+{
+  "date": "2026-08-20",
+  "generatedAt": "2026-08-20T03:30:00Z",
+  "routineId": "J",
+  "signalCount": 28,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "OpenAI offers Zero Data Retention for frontier models",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/our-commitment-to-zero-data-retention/",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 宣布為前沿模型提供零資料保留（Zero Data Retention）選項，回應企業客戶對資料隱私與合規的需求。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-002",
+      "title": "ChatGPT Ads expands across Europe",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/chatgpt-ads-expands-across-europe/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 將 ChatGPT 內的廣告功能擴展至歐洲市場，是其商業化策略的重要一步。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-003",
+      "title": "OpenAI partners with CodeAI to prepare the first AI generation",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/partnering-with-codeai/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 與 CodeAI 合作，推動教育場域的 AI 素養與程式教育計畫。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-004",
+      "title": "OpenAI details pacing model development in an era of cyber-critical capabilities",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/pacing-model-development-cyber-capabilities/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 說明其在模型資安能力快速提升下，如何調整前沿模型的發布節奏與風險評估流程。",
+      "relevance": 0.82,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "OpenAI introduces ChatGPT for Teens",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/chatgpt-for-teens/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 推出針對青少年設計的 ChatGPT 版本，內建額外的安全與內容控管機制。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "OpenAI publishes \"The Defender's Window\" on AI-era cyber defense",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/the-defenders-window/",
+      "publishedDate": "2026-08-17",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 發表資安觀點文章，討論 AI 快速發展下防禦方尚存的「機會窗口」與因應策略。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "Cursor engineering blog: \"Git at any scale\"",
+      "source": "cursor-blog",
+      "sourceUrl": "https://cursor.com/blog/git-at-any-scale",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "cursor"
+      ],
+      "section": "B1",
+      "ring": 1,
+      "summary": "Cursor 團隊分享如何在大規模程式碼庫上優化 Git 操作效能，支撐其 Agent 編碼體驗。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Mastra launches \"Improve Your Agent with Trace Intelligence\"",
+      "source": "mastra-blog",
+      "sourceUrl": "https://mastra.ai/blog",
+      "publishedDate": "2026-08-20",
+      "dateConfidence": "unverified",
+      "category": "framework-release",
+      "companies": [
+        "mastra"
+      ],
+      "section": "B2",
+      "ring": 1,
+      "summary": "Mastra 框架推出 Trace Intelligence 功能，協助開發者透過追蹤資料優化 Agent 行為與除錯。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "UiPath launches Maestro Flow for coding-agent orchestration",
+      "source": "uipath-newsroom",
+      "sourceUrl": "https://www.uipath.com/newsroom/uipath-launches-maestro-flow",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "uipath"
+      ],
+      "section": "D10",
+      "ring": 2,
+      "summary": "UiPath 推出 Maestro Flow，讓開發者可用 Claude Code、Cursor、GitHub Copilot 等編碼 Agent 直接設計並治理企業流程，無需重寫即可上線。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "LMSYS releases Miles v0.1, a production-ready post-training system",
+      "source": "lmsys-blog",
+      "sourceUrl": "https://www.lmsys.org/blog/2026-08-18-miles-v0-1/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "LMSYS 團隊發布 Miles v0.1，一套全端、可驗證的前沿模型強化學習後訓練系統，支援 Kimi-K3、DeepSeek-V4、Qwen3.8 等模型 Day-0 訓練。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "AWS Weekly Roundup: EC2 status checks, IAM role manager, OpenAI Daybreak on Bedrock",
+      "source": "aws-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/",
+      "publishedDate": "2026-08-17",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 週報彙整多項更新，包括 EC2 應用程式狀態檢查、IAM 角色管理員，以及 OpenAI Daybreak 模型登陸 Bedrock。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Exploit code for CVE-2026-40369 lets AI agents inherit browser sandbox escape",
+      "source": "forkast",
+      "sourceUrl": "https://forkast.news/cve-2026-40369-exploit-code-drops-three-months-after-patch-and-ai-agents-inherit-the-sandbox-escape/",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 1,
+      "summary": "研究者公開 Windows 核心漏洞 CVE-2026-40369 的可用利用程式碼，可從 Chrome、Edge、Firefox 的渲染沙箱逃逸，瀏覽器內的 AI Agent（含 Claude、Gemini、Copilot）因共用沙箱而一併受影響。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "voidsec"
+      ]
+    },
+    {
+      "id": "sig-013",
+      "title": "Google Mandiant's AVDH agent harness finds 100+ critical vulnerabilities in two days",
+      "source": "helpnetsecurity",
+      "sourceUrl": "https://www.helpnetsecurity.com/2026/08/19/google-mandiant-avdh-ai-vulnerability-discovery-tool",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Mandiant 揭露內部使用的 Agentic Vulnerability Discovery Harness（AVDH），以多代理鏈掃描原始碼，十個月內已產生 12 個 CVE，一次調查中兩天內找出逾百個嚴重漏洞。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "cyberpress",
+        "securitybrief"
+      ]
+    },
+    {
+      "id": "sig-014",
+      "title": "Netwrix adds AI agent discovery and expands Entra ID risk assessments",
+      "source": "petri",
+      "sourceUrl": "https://petri.com/netwrix-entra-id-risk-assessments-ai-agent-visibility",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Netwrix 更新 PingCastle 與 Threat Manager，新增 AI Agent 身分探索與 102 項 Entra ID 資安檢查，協助企業掌握非人類身分（Agent）的治理風險。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "OpenAI president urges enterprises to hasten AI security defences",
+      "source": "ai-news",
+      "sourceUrl": "https://www.artificialintelligence-news.com/news/openai-president-urges-enterprises-hasten-ai-security-defences/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 總裁公開呼籲企業加快建立 AI 資安防禦能力，以因應攻擊方採用 AI 工具帶來的威脅升級。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "Alvys launches AI agents for freight TMS workflows",
+      "source": "ai-news",
+      "sourceUrl": "https://www.artificialintelligence-news.com/news/alvys-ai-agents-freight-tms/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "物流運輸管理系統廠商 Alvys 推出 AI Agent，自動化貨運業者的排程、追蹤與文件處理工作流程。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "Reading Zhipu's GLM-5.3 benchmark results past the headline number",
+      "source": "ai-news",
+      "sourceUrl": "https://www.artificialintelligence-news.com/news/zhipu-glm-5-3-benchmarks-explained/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "zhipu"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "深入分析智譜 GLM-5.3 的 CyberGym／ExploitBench／ExploitGym 三項資安 benchmark 結果，指出其在漏洞探索上略勝 Anthropic Mythos 5，但在漏洞利用能力上仍落後，且效率明顯優於 Opus 4.8。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "physicalainews"
+      ]
+    },
+    {
+      "id": "sig-018",
+      "title": "Qwen3.8-27B scores 52 on the Artificial Analysis Intelligence Index",
+      "source": "simonwillison",
+      "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
+      "publishedDate": "2026-08-17",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里 Qwen3.8-27B 模型在 Artificial Analysis Intelligence Index 上取得 52 分，顯示開源模型在中型參數規模下持續逼近前沿水準。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "台灣AI使用強度亞洲四地唯一下滑，貿協示警「硬體巨人、應用侏儒」",
+      "source": "bnext",
+      "sourceUrl": "https://www.bnext.com.tw/article/91912/taiwan-ai-usage-intensity-decline",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 1,
+      "summary": "外貿協會董事長黃志芳指出，台灣人均 AI 使用強度由 2.29 降至 2.08，是亞洲四地（台、星、日、韓）中唯一下滑者，全球排名退至第 23 名，主因是企業「尚無明確應用需求」。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "Velaura AI raises $110M for power-efficient AI chips",
+      "source": "siliconangle",
+      "sourceUrl": "https://siliconangle.com/2026/08/18/velaura-ai-raises-110m-to-develop-power-efficient-ai-chips/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "低功耗 AI 晶片新創 Velaura AI 完成 1.1 億美元 A 輪融資，由 Seligman Ventures 領投，Samsung Catalyst Fund 等跟投，估值超過 10 億美元。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "India's Rezolv raises $12.5M Series A for AI lending platform",
+      "source": "technode-global",
+      "sourceUrl": "https://technode.global/2026/08/18/indias-software-firm-rezolv-raises-12-5m-series-a-led-by-norwest-for-ai-lending-platform/",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度 AI 債務催收平台 Rezolv 完成由 Norwest 領投的 1250 萬美元 A 輪融資，將擴展至風控、承保等放貸流程並拓展海外市場。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "Gravis Robotics raises $200M from SoftBank at $1B valuation",
+      "source": "siliconangle",
+      "sourceUrl": "https://siliconangle.com/2026/08/17/gravis-robotics-gets-200m-funding-softbank-retrofit-excavators-self-driving-ai-systems/",
+      "publishedDate": "2026-08-17",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "softbank"
+      ],
+      "section": "F3",
+      "ring": 2,
+      "summary": "ETH Zurich 衍生新創 Gravis Robotics 獲 SoftBank 投資 2 億美元，估值達 10 億美元，是建築機器人領域史上最大 A 輪，用於自動化改裝挖土機等重型機具。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "techfundingnews",
+        "robotsbeat"
+      ]
+    },
+    {
+      "id": "sig-023",
+      "title": "Korean AI chip startup iHW raises 52 billion won Series A",
+      "source": "sedaily",
+      "sourceUrl": "https://en.sedaily.com/finance/2026/08/19/low-power-ai-chip-startup-ihw-raises-52-billion-won-in",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "韓國低功耗 AI 晶片新創 iHW 完成 520 億韓元（約 3750 萬美元）A 輪融資，由 Kolon Investment 領投，韓國產業銀行首次加入。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "BNB Chain launches BNB Agent Studio v2, letting AI agents earn onchain",
+      "source": "cryptocoinbox",
+      "sourceUrl": "https://cryptocoinbox.com/news/bnb-chain-launches-bnb-agent-studio-v2-giving-ai-agents-the-ability-to-earn/",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "BNB Chain 推出 Agent Studio v2，讓鏈上 AI Agent 可透過 ERC-8183 交易流程收款營利，並新增自託管錢包 Altana 以限制 Agent 對資金的存取權限。",
+      "relevance": 0.45,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Hermes Agent v0.20.4 released",
+      "source": "github-nousresearch",
+      "sourceUrl": "https://github.com/NousResearch/hermes-agent/releases",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Nous Research 開源 Agent 框架 Hermes Agent 發布 v0.20.4，彙整約 74 個 PR 的修補釋出穩定版本。",
+      "relevance": 0.45,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "MLPerf Client v2.0 adds Agentic AI and image generation benchmarks",
+      "source": "mlcommons",
+      "sourceUrl": "https://mlcommons.org/2026/08/mlperf-client-v2-0",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "MLCommons 發布 MLPerf Client v2.0，新增 Agentic AI 與影像生成兩大測試類別，擴充個人電腦 AI 效能評測範圍。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "AWS Strands Agents harness-sdk sees active commit activity ahead of update",
+      "source": "github-strands",
+      "sourceUrl": "https://github.com/strands-agents",
+      "publishedDate": "2026-08-18",
+      "dateConfidence": "unverified",
+      "category": "open-source",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "AWS 開源 Agent 框架 Strands Agents 的 harness-sdk repo 持續有高頻率提交活動，反映其在開發者社群中的採用率持續上升。",
+      "relevance": 0.4,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "社群傳言：Anthropic 未發布的「Model 2」在 CoBench v2 取得 62.8%",
+      "source": "hackernoon",
+      "sourceUrl": "https://hackernoon.com/anthropics-model-2-scores-628percent-on-cobench-v2",
+      "publishedDate": "2026-08-19",
+      "dateConfidence": "unverified",
+      "category": "community-signal",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "社群二手消息稱 Anthropic 內部代號「Model 2」的未發布模型在 CoBench v2 基準測試取得 62.8%，優於 Mythos 5 的 50.3%，但消息來源為間接引用，尚待官方證實。",
+      "relevance": 0.45,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}
