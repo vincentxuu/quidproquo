@@ -111,6 +111,14 @@ Pi 的 TUI 底層是 `@mariozechner/pi-tui`，特色包括：
 
 Pi 本來就可以完全獨立使用，不需要 OpenClaw。
 
+## 有人把 Pi 反過來做了：omp
+
+Pi 的「刻意不做」清單，正好是另一個人的待辦清單。`can1357/oh-my-pi`（指令叫 `omp`）是 Pi 的 fork，2025-12-31 開張，八個月累積 18,392 個 commit、25,706 stars。它把 Pi 拒絕的東西全部補上：內建工具 7 個變 31 個，加上 14 個 LSP 操作、28 個 DAP 操作、subagent、advisor、權限模式。
+
+分岔不只在功能層——omp 多了約 80,000 行 Rust，把 grep、shell、AST、PTY 全部搬進 in-process，語言組成從 Pi 的「TypeScript 8.5 MB、C 10 KB」變成「TypeScript 50.1 MB、Rust 5.2 MB」。
+
+兩邊都是 MIT，omp 的 LICENSE 版權雙掛。細節見 [omp（Oh My Pi）：把 Pi 的極簡主義翻過來的 batteries-included 分支](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)。
+
 ## 資源需求
 
 Pi 可以跑在非常小的模型上：
@@ -154,7 +162,10 @@ Pi 的核心優勢：極簡設計帶來的低 token 消耗和高 prompt cache �
 - [Pi 作者部落格：打造極簡 coding agent 的心得](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
 - [Mario Zechner 演講：Building pi in a World of Slop（AI Engineer）](https://www.youtube.com/watch?v=RjfbvDXpFls)
 - [OpenClaw 參考篇：Pi 已經被吸收掉了](/posts/ai/2026-03-28-openclaw-pi-reference)
+- [omp（Oh My Pi）：把 Pi 的極簡主義翻過來的 batteries-included 分支](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)
+- [GitHub - can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
 
 ## 更新紀錄
 
 - 2026-08-18：對照 pi.dev 與 repo 翻新。①repo 已由 `badlogic/pi-mono` 改名為 `earendil-works/pi`，npm scope 換成 `@earendil-works`，安裝指令一併更新；②**改寫〈與 OpenClaw 的關係〉**——原文的「Pi 是 OpenClaw 的 AI 核心引擎」分層表已過期，OpenClaw 官方現在的內建 runtime id 就是 `openclaw`、`pi` 只是 legacy 別名，兩邊說法的不一致也一併標出；③補上官方「刻意不做什麼」的完整清單與替代做法、15+ 供應商、樹狀 session、訊息插隊機制；④比較表修正 OpenCode 的語言（Go → TypeScript）；⑤移除寫死的模型型號，改講層級；⑥合併重複的參考資料區塊，移除已 410 的外部連結
+- 2026-08-19：新增〈有人把 Pi 反過來做了：omp〉一節，補上 fork `can1357/oh-my-pi` 的存在與規模數字（31 工具、~80k 行 Rust、18,392 commits），並在參考資料互連專文。

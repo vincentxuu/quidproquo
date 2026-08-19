@@ -96,6 +96,14 @@ The author's public commentary on this relationship is worth reading too — aft
 
 Pi has always worked perfectly fine standalone — no OpenClaw required.
 
+## Someone built Pi's inverse: omp
+
+Pi's list of deliberate omissions reads like someone else's to-do list. `can1357/oh-my-pi` (the binary is `omp`) is a fork of Pi that opened 2025-12-31 and has accumulated 18,392 commits and 25,706 stars in eight months. It adds back everything Pi declined: built-in tools go from 7 to 31, plus 14 LSP operations, 28 DAP operations, subagents, an advisor model, and approval modes.
+
+The split is not only at the feature layer — omp adds roughly 80,000 lines of Rust, pulling grep, shell, AST, and PTY in-process. The language mix shifts from Pi's "TypeScript 8.5 MB, C 10 KB" to "TypeScript 50.1 MB, Rust 5.2 MB."
+
+Both remain MIT; omp's LICENSE carries joint copyright. Details in [omp (Oh My Pi): The Fork That Inverts Pi's Minimalism](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork-en).
+
 ## Resource Requirements
 
 Pi can run on very small models:
@@ -138,7 +146,10 @@ Pi's core strengths are its minimalist design (low token consumption, high promp
 - [The author's retrospective on building a minimal coding agent](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
 - [Mario Zechner's talk: Building pi in a World of Slop (AI Engineer)](https://www.youtube.com/watch?v=RjfbvDXpFls)
 - [OpenClaw reference: Pi has been absorbed](/posts/ai/2026-03-28-openclaw-pi-reference-en)
+- [omp (Oh My Pi): The Fork That Inverts Pi's Minimalism](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork-en)
+- [GitHub - can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
 
 ## Changelog
 
 - 2026-08-18: Refreshed against pi.dev and the repo. (1) The repo was renamed from `badlogic/pi-mono` to `earendil-works/pi` and the npm scope to `@earendil-works`; install commands updated. (2) **Rewrote the OpenClaw section** — the old "Pi is OpenClaw's AI core engine" layer table is out of date; OpenClaw's built-in runtime id is now `openclaw` with `pi` as a legacy alias, and the disagreement between the two projects' docs is now noted. (3) Corrected OpenCode's language in the comparison table (Go → TypeScript). (4) Replaced hardcoded model IDs with tiers
+- 2026-08-19: Added the "Someone built Pi's inverse: omp" section covering the `can1357/oh-my-pi` fork and its scale (31 tools, ~80k lines of Rust, 18,392 commits), with cross-links to the dedicated article in References.
