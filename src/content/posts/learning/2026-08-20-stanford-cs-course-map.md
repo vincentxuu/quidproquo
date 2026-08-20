@@ -11,6 +11,9 @@ tags:
   - computer-systems
 lang: zh-TW
 type: guide
+series:
+  name: "Stanford CS 課程導讀"
+  order: 1
 tldr: "Stanford CS 系的課多到會讓人不知道從哪開始，但學位的骨架只有五門：CS103、CS107、CS109、CS111、CS161。這篇按階梯排出二十幾門有公開教材的課，標出每一門實際拿得到什麼（講義？作業？影片？），並講清楚自學真正會卡住的四個地方——不是難度，是起始碼被鎖、影片不外流、GPU 要錢、沒有人改你的作業。"
 description: "以 Stanford CS 官方核心課程要求為骨架，整理 CS106A 到 CS336 共二十餘門課的公開教材現況、先後順序與自學限制，並依「轉職工程師 / 補系統底 / 追 LLM」三條路線給出選課建議。"
 draft: false

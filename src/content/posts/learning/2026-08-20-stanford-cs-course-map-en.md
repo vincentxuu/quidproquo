@@ -11,6 +11,9 @@ tags:
   - computer-systems
 lang: en
 type: guide
+series:
+  name: "Reading Stanford CS Courses"
+  order: 1
 tldr: "Stanford's CS department offers enough courses to paralyze anyone trying to start, but the degree has only five load-bearing ones: CS103, CS107, CS109, CS111, CS161. This piece lays out two dozen courses with public materials as a ladder, marks what you can actually get from each (notes? assignments? video?), and names the four things that really stop self-learners — not difficulty, but gated starter code, undistributable recordings, GPU bills, and nobody grading your work."
 description: "A ladder through Stanford CS courses from CS106A to CS336, built on the department's official core requirements: what each course teaches, what its public materials actually contain, where self-study breaks down, and three routes through the list depending on your goal."
 draft: false
