@@ -76,6 +76,12 @@
 - 為什麼現在不能做：Tier 2/3 邊界——不確定這 4 個 RAG commit 是否已經用別的方式（不同 commit hash、其他 session）重做過並存在於 origin，也不確定这批程式碼現在 apply 到當前 origin/main 樹上是否還乾淨（畢竟已經過了 61 個 commit）。貿然 cherry-pick 或強推有蓋掉他人工作或造成衝突的風險，需要人確認這批 RAG 修復是否還需要、以及要 rebase 還是重寫。
 - 接手第一步：`git log backup/local-main-962d87c --oneline -8` 看完整 8 個 commit；先確認 origin/main 現在的 RAG 相關程式碼（`src/lib` 下 embedding/翻譯/critic 邏輯）是否已經包含這些修復的等效內容——如果沒有，再評估對目前 main 重新 apply（`git cherry-pick` 或手動搬移邏輯）的可行性。這批 commit 的完整內容仍保留在 `backup/local-main-962d87c` 分支（本 session 建立，只存在於這個容器內，尚未推送，容器結束前應考慮 push 一份以防遺失）。
 
+## Q-011 Product Builder 面試日練的檔名不一致（2026-08-20 那篇）
+- 登錄：2026-08-21（來源：daily-digest-product-interview routine 執行時發現）
+- 做什麼：`daily-digest-product-interview` skill 規定檔名為 `${TODAY}-product-builder-interview-daily.md`，但 2026-08-20 那篇實際落地為 `2026-08-20-product-interview-daily.md`。今天（08-21）已依 skill 規定命名。後果：skill Step 2 的冪等檢查對 08-20 那篇失效（重跑會判定「未產出」而重複產文），且同一個 series 出現兩種 slug 樣式。要決定的是：把 08-20 那篇改名對齊 skill，還是改 skill 去容忍兩種樣式。
+- 為什麼現在不能做：Tier 2（改已發佈文章的 slug）。
+- 接手第一步：確認 `2026-08-20-product-interview-daily` 這個 URL 有沒有外部連入或已被索引；沒有的話改名成本最低，同時要檢查 `src/content/posts/` 內是否有交叉引用。
+
 ---
 
 ## Done
