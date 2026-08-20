@@ -181,6 +181,54 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'One preparation path per certification, built on the official exam guides: what each domain tests, which official material covers it, what to build, and the reasoning behind every schedule. Everything comes from official exam guides and certification pages — no exam-day accounts, no leaked questions.',
     },
   },
+  {
+    slug: 'ai-engineer-interview',
+    names: {
+      'zh-TW': 'AI Engineer 面試準備',
+      en: 'AI Engineer Interview Prep',
+    },
+    descriptions: {
+      'zh-TW':
+        '從 ML 基礎、系統設計、LLM 應用架構到行為面試，拆成十個主題逐篇準備。每篇聚焦一個面試環節，整理核心概念、常見題型與實戰策略。',
+      en: 'Preparing for AI engineer interviews across ten topics — ML fundamentals, system design, LLM application architecture, coding, paper reading, and behavioral. Each post focuses on one interview dimension with core concepts, common question patterns, and practical strategies.',
+    },
+  },
+  {
+    slug: 'product-builder-interview',
+    names: {
+      'zh-TW': 'Product Builder 面試準備',
+      en: 'Product Builder Interview Prep',
+    },
+    descriptions: {
+      'zh-TW':
+        '從產品直覺、指標設計、策略思維到 AI 產品設計，拆成十個主題準備 Product Builder 面試。每篇聚焦一個面試環節，整理框架、案例與答題策略。',
+      en: 'Preparing for product builder interviews across ten topics — product sense, metrics, strategy, execution, technical PM, growth, and AI product design. Each post focuses on one interview dimension with frameworks, case studies, and answer strategies.',
+    },
+  },
+  {
+    slug: 'ai-engineer-interview-daily',
+    names: {
+      'zh-TW': 'AI Engineer 面試日練',
+      en: 'AI Engineer Interview Daily Drill',
+    },
+    descriptions: {
+      'zh-TW':
+        '每日一篇 AI Engineer 面試練習，依星期輪替七個主題——ML 基礎、深度學習、系統設計、LLM 工程、Coding、論文閱讀、行為面試——從網路抓最新面試題與資源。',
+      en: 'A daily AI engineer interview drill rotating through seven topics by day of the week — ML fundamentals, deep learning, system design, LLM engineering, coding, paper reading, and behavioral — pulling the latest interview questions and resources from the web.',
+    },
+  },
+  {
+    slug: 'product-builder-interview-daily',
+    names: {
+      'zh-TW': 'Product Builder 面試日練',
+      en: 'Product Builder Interview Daily Drill',
+    },
+    descriptions: {
+      'zh-TW':
+        '每日一篇 Product Builder 面試練習，依星期輪替七個主題——產品直覺、指標分析、策略執行、AI 產品設計、成長實驗、技術 PM、行為面試——從網路抓最新案例與面試題。',
+      en: 'A daily product builder interview drill rotating through seven topics by day of the week — product sense, metrics, strategy, AI product design, growth, technical PM, and behavioral — pulling the latest case studies and interview questions from the web.',
+    },
+  },
 ];
 
 const DEFINITION_BY_NAME = new Map<string, SeriesDefinition>();
