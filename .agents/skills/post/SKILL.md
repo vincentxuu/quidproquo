@@ -37,21 +37,28 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - `references required`：tech / ai / learning / education / policy / design / marketing / product 預設需要。**其他 category 也不例外**——只要標題 ≥ 4 個、有 code block、inline code ≥ 3、已有外部連結、或包含引用關鍵字（「官方」「論文」「比較」等）≥ 2 個，腳本同樣觸發要求。寫前先預估文章結構，確認是否需要先備好連結。
    - `glossary needed`：標出不解釋會影響理解的專有名詞（見下方 glossary 步驟）。
 4. **抽資訊**：從對話／筆記抽出 title、date（今天）、tags、tldr/description、主體段落。資訊不夠就回去問，**不要編造**。
-5. **產生中文版檔案**：
+5. **體裁閘門（1500 字以上必過）**：長文最常見的失敗不是寫錯，是讀者讀不下去，而且**事後補救要重寫**。下筆前先定三件事，細節見 `references/writing-guide.md#長文的體裁與語域`：
+   - **對象**：文章在討論一個外部東西嗎？是的話，前三段要讓沒接觸過的人知道它是什麼。只審一部分可以，但要明講範圍與略過的理由。
+   - **主脊**：按判決／按部件／按時間／按論證——**選一個**。三套並行會產生打岔章節、同類拆散、孤兒章節。
+   - **動作**：每個「建議讀者照做」的主張，都要能寫出一句今晚就能做的動作。寫不出來就代表你還沒想清楚，不要先動筆。
+
+   另外三條在寫的當下遵守：正文每個主張最多一個數字（方法學數字進附錄）、引述只在「作者原話比轉述更有力」時用、但書換位置不要堆疊。
+
+6. **產生中文版檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>.md`
    - slug：英文 kebab-case，取關鍵詞（不是中翻英整段）
    - frontmatter 必填：`title`、`date`、`category`、`tags`、`lang`
    - 細節欄位請先讀 `references/frontmatter-schema.md`
    - 寫作風格請先讀 `references/writing-guide.md`
    - 在 frontmatter `---` 後加跨語言連結：`> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)`
-6. **產生英文版檔案**：
+7. **產生英文版檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md`
    - frontmatter：`lang: en`，title / tldr / description 翻成自然英文，其餘欄位不動
    - 在 frontmatter `---` 後加跨語言連結：`> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)`
    - 全文翻成清晰的技術英文；code block 不動（只翻中文註解）
    - URL、檔案路徑、指令範例維持原樣
    - 參考資料：翻譯描述文字；純中文來源保留原連結並標注 `(in Chinese)`
-7. **參考資料是硬要求**：`pnpm check:references` 在以下任一條件成立時就會要求參考資料（不論 category）：
+8. **參考資料是硬要求**：`pnpm check:references` 在以下任一條件成立時就會要求參考資料（不論 category）：
    - category 是 `tech` / `ai` / `learning` / `education` / `policy` / `design` / `marketing` / `product`
    - 文章 `##` 標題 ≥ 4 個
    - 有 code fence（` ``` `）
@@ -60,21 +67,27 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - 含「官方」「文件」「論文」「比較」等引用關鍵字 ≥ 2 個
 
    觸發後，文末必須有 `## 參考資料`（英文版 `## References`）段落，且包含至少一個有效 Markdown 連結 `[text](url)`——純文字書名或「待補連結」都會報 error。
-8. **補齊 glossary**：回頭看步驟 3 標出的 `glossary needed` 詞彙，逐一確認是否已有定義：
+9. **補齊 glossary**：回頭看步驟 3 標出的 `glossary needed` 詞彙，逐一確認是否已有定義：
    - 先查 `src/lib/glossary/terms.ts`（全站 glossary），看 term 和 aliases 是否已涵蓋。
    - **跨文章通用的術語**（如 ETF、再平衡、RAG）→ 補到 `src/lib/glossary/terms.ts`，格式照既有 entry（含中英雙語 definition / advanced / context / links）。
    - **僅限這篇文章的特殊詞**（如某個冷門工具的內部術語）→ 補到該篇 frontmatter 的 `glossary` 欄位，格式見 `references/frontmatter-schema.md`。
    - 判斷標準：「這個詞會不會在其他文章也出現？」→ 是就放全站，否就放 frontmatter。
    - 每個術語都要有中英雙語定義（`definition` + `definition_en`），讓英文版文章也能用。
-9. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
+10. **驗證**（按順序跑，全綠才算完成，兩個檔案都要通過）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
-10. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
-11. **commit**（取得明確同意後）：
+
+   **1500 字以上另跑語域掃描**（六項指標與閾值見 `post-polish` skill）：
+   ```bash
+   bash .agents/skills/post-polish/scripts/register-scan.sh src/content/posts/<category>/<檔名>.md
+   ```
+   超標就在交稿前自己修，不要留給 review。
+11. **請使用者 review**：把中英文草稿都丟出來，確認再 commit。
+12. **commit**（取得明確同意後）：
    ```bash
    git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md
    git commit -m "post(<category>): <title summary>"
