@@ -267,7 +267,7 @@ Two sets of numbers come from different analyses — don't mix them. **Random-ef
 
 ## Changelog
 
-- 2026-08-20: Register rewrite. The body was packed with sample sizes, confidence intervals, I² values and screening counts, plus nine block quotations of academic abstracts — it read like a literature review. Now the body keeps at most one figure per claim, with everything else moved to the appendix; block quotations are down from nine to three (kept only where the exact wording is the evidence); and every technique has a concrete "what to do". Nothing was removed, only relocated and rephrased.
+- 2026-08-20: Register rewrite. The body was packed with sample sizes, confidence intervals, I² values and screening counts, plus nine block quotations of academic abstracts — it read like a literature review. Now the body keeps at most one figure per claim, with everything else moved to the appendix; block quotations are down from nine to three (keeping only the passages where the author's own words land harder than my paraphrase); and every technique has a concrete "what to do". Nothing was removed, only relocated and rephrased.
 - 2026-08-19 (2): Rebuilt on a single spine. The article previously ran three competing organizing principles at once, producing interruptions and orphan sections. The transfer section moved from ninth position to a part of its own.
 - 2026-08-19 (1): Added a description of the course itself — the original never described the object it was auditing — plus an explicit statement of which components this piece audits.
 - 2026-08-18: Restructured for readability: actionable conclusions moved up, sections led by claims rather than researcher names, and the full effect-size ledger and methodological disputes moved to an appendix.
