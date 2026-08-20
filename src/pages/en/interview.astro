@@ -1,0 +1,158 @@
+---
+export const prerender = true;
+
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { useTranslations } from '../../i18n/utils';
+import { getSeriesHref, getSeriesSummaries } from '../../utils/series';
+import { getPublishedPosts, sortPostsByDateDesc } from '../../utils/content';
+
+const t = useTranslations('en');
+const allPosts = sortPostsByDateDesc(await getPublishedPosts('en'));
+
+const interviewTags = new Set(['ai-engineer-interview', 'product-builder-interview']);
+const interviewSeriesNames = new Set([
+  'AI Engineer Interview Prep',
+  'Product Builder Interview Prep',
+  'AI Engineer Interview Daily Drill',
+  'Product Builder Interview Daily Drill',
+]);
+
+const posts = allPosts.filter(
+  p => p.data.tags.some(tag => interviewTags.has(tag)) ||
+       (p.data.series && interviewSeriesNames.has(p.data.series.name))
+);
+
+const seriesSummaries = getSeriesSummaries(allPosts, 'en').filter(
+  s => interviewSeriesNames.has(s.name)
+);
+
+const dailyPosts = posts.filter(p => p.data.category === 'daily');
+const seriesPosts = posts.filter(p => p.data.category !== 'daily');
+---
+<PostLayout title="Interview Prep — quidproquo" lang="en" description="AI Engineer & Product Builder interview preparation: deep-dive series + daily drills" switchHref="/interview">
+  <header class="page-header">
+    <h1>Interview Prep</h1>
+    <p class="subtitle">Two tracks — AI Engineer and Product Builder — each with a deep-dive series and daily drills.</p>
+  </header>
+
+  {seriesSummaries.length > 0 && (
+    <section class="track-section">
+      <h2>Series</h2>
+      <div class="series-grid">
+        {seriesSummaries.map(series => (
+          <a href={getSeriesHref(series.name, 'en')} class="series-card">
+            <h3>{series.name}</h3>
+            <p>{series.description}</p>
+            <span class="series-count">{series.count} posts</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {dailyPosts.length > 0 && (
+    <section class="track-section">
+      <h2>Daily Drills <span class="section-count">(latest {Math.min(dailyPosts.length, 14)})</span></h2>
+      <div class="daily-list">
+        {dailyPosts.slice(0, 14).map(post => (
+          <PostCard
+            slug={post.id}
+            title={post.data.title}
+            date={post.data.date}
+            category={post.data.category}
+            tags={post.data.tags}
+            description={post.data.description}
+            tldr={post.data.tldr}
+            readingTime={post.data.readingTime}
+            lang="en"
+            type={post.data.type}
+            seriesName={post.data.series?.name}
+            seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
+          />
+        ))}
+      </div>
+      {dailyPosts.length > 14 && (
+        <p class="more-link"><a href="/en/daily?type=ai-interview">View all drills →</a></p>
+      )}
+    </section>
+  )}
+
+  {seriesPosts.length > 0 && (
+    <section class="track-section">
+      <h2>Deep Dives</h2>
+      <div class="daily-list">
+        {seriesPosts.map(post => (
+          <PostCard
+            slug={post.id}
+            title={post.data.title}
+            date={post.data.date}
+            category={post.data.category}
+            tags={post.data.tags}
+            description={post.data.description}
+            tldr={post.data.tldr}
+            readingTime={post.data.readingTime}
+            lang="en"
+            type={post.data.type}
+            seriesName={post.data.series?.name}
+            seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</PostLayout>
+
+<style>
+  .page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 { margin-bottom: 0.25rem; }
+  .subtitle { color: var(--text-secondary); font-size: 0.88rem; }
+  .track-section { margin-bottom: 2.5rem; }
+  .track-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-count { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .series-card {
+    display: block;
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .series-card:hover {
+    border-color: var(--brand-500);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  .series-card h3 { margin: 0 0 0.4rem; font-size: 0.95rem; }
+  .series-card p { margin: 0 0 0.6rem; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+  .series-count {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--brand-500);
+  }
+  .daily-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .more-link {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+  }
+  .more-link a {
+    color: var(--brand-500);
+    text-decoration: none;
+  }
+  .more-link a:hover { text-decoration: underline; }
+</style>

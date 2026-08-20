@@ -103,6 +103,7 @@ const pageTitle =
       <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
       <a href={seriesHref} class="nav-link">{t('nav.series')}</a>
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
+      <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
       <div class="nav-right">
         <a href={lang === 'en' ? '/en/search' : '/search'} class="nav-search-link" aria-label={t('nav.search')}>
           <Icons name="search" size={15} />

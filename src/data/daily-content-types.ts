@@ -1,4 +1,4 @@
-export type DailyChannelGroup = 'briefings' | 'sources' | 'watch';
+export type DailyChannelGroup = 'briefings' | 'sources' | 'watch' | 'prep';
 
 export interface DailyChannel {
   id: string;
@@ -105,6 +105,22 @@ export const DAILY_CHANNELS = [
     labelEn: 'Pricing',
     seriesNames: ['AI Pricing Watch'],
     tags: ['pricing'],
+  },
+  {
+    id: 'ai-interview',
+    group: 'prep',
+    label: 'AI Engineer 面試',
+    labelEn: 'AI Engineer Interview',
+    seriesNames: ['AI Engineer 面試日練', 'AI Engineer Interview Daily Drill'],
+    tags: ['ai-engineer-interview'],
+  },
+  {
+    id: 'product-interview',
+    group: 'prep',
+    label: 'Product Builder 面試',
+    labelEn: 'Product Builder Interview',
+    seriesNames: ['Product Builder 面試日練', 'Product Builder Interview Daily Drill'],
+    tags: ['product-builder-interview'],
   },
 ] as const satisfies readonly DailyChannel[];
 

@@ -30,13 +30,18 @@ const groups: Array<{ id: DailyChannelGroup; label: string; description: string 
     label: isEn ? 'Watch desk' : '動態追蹤',
     description: isEn ? 'Products, risk, market, and infrastructure' : '產品、風險、市場與基礎設施',
   },
+  {
+    id: 'prep',
+    label: isEn ? 'Interview prep' : '面試準備',
+    description: isEn ? 'Daily drills for AI Engineer & Product Builder' : 'AI Engineer 與 Product Builder 每日練習',
+  },
 ];
 ---
 
 <section class="channel-panel" data-daily-filter aria-labelledby="channel-filter-title">
   <div class="channel-heading">
     <div>
-      <p class="channel-kicker">{isEn ? '12 tracked streams' : '12 條觀測頻道'}</p>
+      <p class="channel-kicker">{isEn ? '14 tracked streams' : '14 條觀測頻道'}</p>
       <h2 id="channel-filter-title">{isEn ? 'Choose what to follow' : '選擇你要追的動態'}</h2>
     </div>
     <button class="all-channel active" type="button" data-filter="all" aria-pressed="true">
@@ -218,6 +223,7 @@ const groups: Array<{ id: DailyChannelGroup; label: string; description: string 
   .channel-group[data-group='briefings'] { grid-column: span 3; }
   .channel-group[data-group='sources'] { grid-column: span 3; }
   .channel-group[data-group='watch'] { grid-column: span 6; }
+  .channel-group[data-group='prep'] { grid-column: span 3; }
   legend { width: 100%; margin-bottom: 0.45rem; padding: 0; }
   legend span { display: block; color: var(--text-primary); font-size: 0.72rem; font-weight: 700; }
   legend small { display: block; margin-top: 0.08rem; color: var(--text-muted); font-size: 0.63rem; font-weight: 400; }
