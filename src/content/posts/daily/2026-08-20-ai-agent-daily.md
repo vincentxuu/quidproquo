@@ -1,6 +1,6 @@
 ---
-title: "AI 日報 — 2026-08-19"
-date: 2026-08-19
+title: "AI 日報 — 2026-08-20"
+date: 2026-08-20
 category: daily
 tags: [ai-agent, daily]
 lang: zh-TW

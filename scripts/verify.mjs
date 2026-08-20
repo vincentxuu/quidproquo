@@ -50,9 +50,36 @@ function checkProgress() {
   );
 }
 
+function checkDailySkillTimezones() {
+  const problems = [];
+  const skillDir = resolve(ROOT, '.agents/skills');
+  const dailySkills = [
+    'daily-digest-arxiv', 'daily-digest-github', 'daily-digest-model-card',
+    'daily-digest-security', 'daily-digest-benchmark', 'daily-digest-framework',
+    'daily-digest-tool', 'daily-digest-funding', 'daily-digest-pricing',
+    'daily-digest-signals', 'daily-digest-report', 'daily-digest-weekly',
+    'daily-digest-region',
+  ];
+  for (const skill of dailySkills) {
+    const p = resolve(skillDir, skill, 'SKILL.md');
+    if (!existsSync(p)) continue;
+    const content = readFileSync(p, 'utf8');
+    const todayMatch = content.match(/TODAY=\$\(([^)]+)\)/);
+    if (todayMatch && !todayMatch[1].includes('TZ=Asia/Taipei')) {
+      problems.push(`${skill}: TODAY= 缺少 TZ=Asia/Taipei（CCR 雲端是 UTC，會導致日期差一天）`);
+    }
+  }
+  results.push(
+    problems.length === 0
+      ? { name: 'daily-skill timezones', ok: true }
+      : { name: 'daily-skill timezones', ok: false, detail: problems.join('\n') }
+  );
+}
+
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
 runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs');
+checkDailySkillTimezones();
 checkProgress();
 
 let failed = 0;
