@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: en
 tldr: "CS329A is built around the generation–verification gap: models can produce the right answer but can't tell which one it is. The conclusion the course draws about itself matters more — today's methods make models more consistent, not smarter. Nine lectures are public, out of twenty."
-description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents, written after watching all nine public lectures — the central argument, how the 34-paper reading list is grouped, the narrow band where self-improvement actually works, the syllabus diff between the two offerings, and what a self-learner really gets."
+description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents, written after watching all nine public lectures plus the three guest lectures from the first offering — the central argument, how the 34-paper reading list is grouped, the narrow band where self-improvement actually works, the syllabus diff between offerings, and what a self-learner really gets."
 draft: false
 ---
 
@@ -16,7 +16,7 @@ draft: false
 
 It teaches a gap — and then, in its final lecture, says plainly how much of that gap current methods actually close.
 
-This piece was written after watching all nine public lectures. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
+This piece was written after watching all nine public lectures, plus the three guest lectures from the first offering that sit on other channels. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
 
 ## The hard facts
 
@@ -95,7 +95,21 @@ Three results from the recordings are worth more than the abstracts.
 
 **SWiRL found process-filtered data beats outcome-filtered data.** Keeping trajectories whose reasoning steps were judged good — even when the final answer was wrong — trains better than keeping only trajectories that ended correct. The explanation given in class: if you only feed the model what it already gets right, you aren't teaching it to solve anything new. The rule inverts for supervised fine-tuning, which prefers outcome-filtered data because it's imitation learning.
 
-**DeepScholar-Bench: no system exceeds 19% across all metrics.** That lands hard in 2026, with "deep research" products everywhere. **If you build research agents, here's tonight's exercise:** take verifiability, pull ten recent reports your system produced, and mark claim by claim which are actually supported by the source cited beside them. The fraction you can't mark is your starting point.
+**DeepScholar-Bench: no system exceeds 19% across all metrics.** That lands hard in 2026, with "deep research" products everywhere. The lecture adds a more embarrassing detail: even when you **hand the systems the exact papers they should be citing**, they surface only about half the key facts.
+
+**If you build research agents, here's tonight's exercise:** take verifiability, pull ten recent reports your system produced, and mark claim by claim which are actually supported by the source cited beside them. The fraction you can't mark is your starting point.
+
+## Long-horizon evaluation: three benchmarks disagree, and that's the point
+
+Lecture 17 puts three evaluations side by side and the result is divergence, not convergence — Chowdhery says outright that METR's exponential trend "gets contradicted in some ways by GDPval."
+
+**METR measures time, but the column that matters is reliability.** The 50%-success time horizon for frontier models doubles roughly every seven months, and 2025 models reach close to an hour. Raise the bar to 80% success and the same model drops to somewhere in the teens of minutes. Chowdhery's analogy: "that's like saying you gave your task to an intern, but it only completes it 50% of the time. It might come back with an answer or it might not."
+
+**The finding worth carrying is the contractor one.** On internal codebases, outside contractors without context run 5 to 18 times slower than the maintainers — and **model performance tracks the contractor end, not the maintainer end**. The model's current position isn't "expert in this domain." It's "a smart person with no context."
+
+GDPval translates the same thing into economics. Score GPT-5's output against professionals with a decade-plus of experience and roughly half the tasks land as acceptable-but-subpar, only about a fifth are genuinely better than the human, and **close to three in ten are judged bad or catastrophic**. And these are tasks deliberately written to be fully specified, delivered one-shot with no iteration — that is, the score *after* everything in the human's head has been written into the prompt.
+
+The three together point one way: **humans decide what to work on, models execute.** Chowdhery lists explicitly where the course has low confidence — tasks needing lots of context, ambiguous prompts, adversarial environments, 95%-plus reliability, and generalization beyond software and knowledge work.
 
 ## What the second offering cut
 
@@ -139,11 +153,27 @@ Stanford Online published the recordings in August 2026, free and without enroll
 
 They're worth watching, and the reason isn't the slides — it's the Q&A. Students push back in the room, and the instructors concede. When one points out that a chart's training curve sits suspiciously below its inference curve, Chowdhery's answer is: "Something suspicious is going on, OK? I copied the plot. So the graphs are not always right, as you might know from their latest release." When another argues that self-improving a small model is worse practice than distilling from a large one, she grants the point. **None of that appears in a paper abstract, and none of it appears on an AI-generated course summary site.**
 
-Not available: the memory lecture, the open-ended evolution lecture, the software-engineering agents lecture, and **all five guest lectures** — Denny Zhou on LLM reasoning, Thang Luong on AlphaProof and Gemini's IMO gold, Misha Laskin on autonomous agent systems, Danny Driess on robotics. The guests are the hardest part to reproduce on your own, and not one made it out. Slides didn't either; they live in Canvas.
+Not available: the memory lecture, the open-ended evolution lecture, the software-engineering agents lecture, and **all five guest lectures** — Denny Zhou on LLM reasoning, Thang Luong on AlphaProof and Gemini's IMO gold, Misha Laskin on autonomous agent systems, Danny Driess on robotics. Not one of the second offering's guests made it out. Slides didn't either; they live in Canvas.
 
-Recordings from the first offering sit on other channels and don't overlap: Jeff Clune on open-ended agent learning, Michele Catasta (president of Replit) on coding agents, Chi Wang on AutoGen. None have a counterpart in the second offering.
+The first offering's guests *are* public, just hidden on other channels — that's the next section.
 
 One warning: the secondhand write-ups already have it wrong. A course-aggregator page states this course has no public recordings. An AI-generated summary site lists the teaching term as autumn 2026 — that's when the videos went up, not when the class ran. **Go to the papers or the recordings for numbers. Don't cite summary sites.**
+
+## The first offering's three guest lectures cover the layer the second one cut
+
+Recordings from the first offering sit on the instructor's personal channel and the lab's channel, never entered the Stanford Online playlist, and are therefore almost never mentioned. Their content doesn't overlap the second offering at all — and it happens to fill in exactly what got cut.
+
+**Jeff Clune on open-ended evolution** (UBC, senior advisor at DeepMind). He opens on a paradox: **for genuinely hard problems, trying harder to solve them directly makes you fail, while ignoring the objective and exploring makes you far more likely to succeed.** His example is the microwave — fund only research into "cook faster over a fire" and you never invent one, because getting there required somebody working on radar who noticed a chocolate bar melting in his pocket.
+
+His POET algorithm admits a new environment only if it is **neither too easy nor too hard for the current agents, and different from what's already in the population.** That's the same principle as STaR's bootstrap precondition, GRPO's reward distribution and Absolute Zero's proposer reward in the second offering — except POET predates the LLM era. The control experiment is the sharp part: take the hard environments POET eventually evolved, try to solve them with direct optimization, and **every single one fails**; try a hand-designed linear curriculum, and every one fails too. The curriculum isn't an accelerant, it's the only route.
+
+**Michele Catasta on coding agents** (president of Replit). The whole hour is about something the second offering never touches: how to design the interface between an agent and a computer. His core claim is to **narrow the agent's available actions until they're nearly deterministic** — because the model is stochastic, asking it to "browse this filesystem" might get you depth-first one time and a recursive listing the next, and then you can't parse the output the same way twice. SWE-agent's 100-line file viewport wasn't a guess; it came out of an ablation: 50 lines loses peripheral context, the whole file eats your context window.
+
+He also gives the most useful line for anyone building agents: if you have no way to measure whether your changes point in the right direction, what you're doing is vibe-based development.
+
+**Chi Wang on AutoGen** is most interesting because his live demo fails. The voice agent keeps announcing to the user "I will repeat the question to you and then get the answer from you" — because the realtime voice API only knows about a "user," not about other agents, so they had instructed it to relay the other agents' questions, and the model spoke the system instruction out loud. He debugs it on the spot in front of the class, then says: it's easy to claim the future of software is agentic; delivering it is not.
+
+He also says something that partly explains why the second offering deleted the framework layer entirely: **if you have the right domain knowledge you usually don't need a complex multi-agent system — you just need the right decomposition and the fewest agents. Getting the decomposition right is the hard part.**
 
 ## The trade
 
@@ -158,11 +188,13 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 ## Appendix: comparison conditions for the numbers above
 
 - **Weaver's 87.7%**: generator is Llama 3.3 70B Instruct, verifiers an ensemble of judges and reward models at 70B or smaller, averaged across several reasoning and math tasks. The paper's comparison points are GPT-4o at 69.0% and o3-mini at 86.7%. Distilling to a 400M cross-encoder retains 98.7% of accuracy (the lecture said "about 97%"; the paper's figure is used here).
-- **DeepScholar-Bench's 19%**: no system exceeded a score of 19 across *all* metrics, the three axes being knowledge synthesis, retrieval quality and verifiability.
+- **DeepScholar-Bench's 19%**: no system exceeded a score of 19 across *all* metrics, the three axes being knowledge synthesis, retrieval quality and verifiability; queries come from recent arXiv papers across 22 domains and refresh monthly. The lecture adds that even when handed the exact sources, systems surface only about half the key facts.
 - **DeepSeekMath's majority@K vs pass@K**: the lecture describes a 32-sample setting where majority@K rose and pass@K did not.
 - **DAPO's ablation**: on Qwen-32B against AIME, a GRPO baseline near 30 climbs to roughly 50 as overlong filtering, asymmetric clipping, soft overlong punishment, token-level loss and dynamic sampling are added. This is the ladder as narrated in the lecture, not a cell-by-cell transcription of the paper's table.
-- **METR's time horizon**: the v4 paper is titled *Measuring AI Ability to Complete Long **Software** Tasks*. It measures the human-completion time of tasks a model finishes with 50% success, over RE-Bench, HCAST and 66 novel shorter tasks; the abstract's frontier figure is o3 at around 110 minutes. The lecture also covers the 80%-reliability comparison, but that lecture's transcript could not be retrieved — only the official video description.
-- **GDPval**: 44 occupations across the top nine sectors of US GDP, tasks from professionals averaging 14 years of experience, with an open-sourced gold subset of 220 tasks. The official video description gives a win-rate range from GPT-4o at 12.4% to Claude Opus 4.1 at 47.6%.
+- **METR's time horizon**: the v4 paper is titled *Measuring AI Ability to Complete Long **Software** Tasks*. It measures the human-completion time of tasks a model finishes with 50% success, over roughly 170 tasks in three suites: SWAA (~66 tasks, 1–30 seconds), HCAST (~97 tasks, 1 minute to 30 hours) and RE-Bench (~7 tasks, up to 8 hours). The human baseline is the geometric mean of successful completion times by professionals with about five years of experience — with the lecture's own caveat that experienced people underestimate difficulty, and not necessarily where the model finds things hard. The abstract's frontier figure is o3 at around 110 minutes; the lecture's worked example is Claude 3.7 Sonnet at about 59 minutes for 50% success and roughly 15 minutes for 80%.
+- **"Contractors run 5 to 18 times slower"**: the gap on internal codebases between outside contractors without project context and long-term maintainers, as relayed in the lecture from METR's analysis.
+- **SWE-bench caveat**: the lecture notes annotators tend to underestimate, and models have seen most of the GitHub repos, so doubling times measured on SWE-bench come out shorter than they would on a genuinely unseen repository.
+- **GDPval**: 44 occupations across the top nine sectors of US GDP, roughly 1,320 tasks with an open-sourced gold subset of 220, sourced from professionals with a decade-plus of experience. Win rates range from GPT-4o at 12.4% to Claude Opus 4.1 at 47.6%. GPT-5's output quality breaks down as roughly half acceptable-but-subpar, about a fifth where the model is genuinely better, and close to three in ten bad or catastrophic — with some disagreement among human graders. Tasks are deliberately well-specified (about 89% vetted as such), one-shot, with no iterative back-and-forth.
 - **Intelligence per Watt's 5.3×**: the improvement in intelligence per watt from 2023 to 2025, decomposed in the lecture as 3.1× from models and 1.7× from hardware. The frequently conflated 88.7% is a *query coverage* figure — the share of queries at least one local model (≤20B active parameters) answers correctly — and is a separate measurement.
 
 ## References
