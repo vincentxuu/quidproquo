@@ -82,6 +82,40 @@ RLHF 的標準流程：（1）SFT——用高品質示範資料 supervised fine-
 - 「你怎麼處理 hallucination？」——沒有通用解法。有效的做法是 RAG（讓模型基於檢索到的文件回答）、constrained generation（限制輸出格式）、和 citation verification（讓模型輸出引用來源再驗證）。
 - 「如果你要部署一個 LLM，你會選 API 服務還是自架？」——取決於 data privacy 要求、QPS、延遲需求和成本。面試時要能算出一個粗略的 TCO 比較。
 
+## 面試模擬題
+
+### 題目
+
+「你的團隊有一個 7B 參數的 base model，需要讓它學會回答客服問題。你有 10,000 筆標註好的 QA 對。你會怎麼做 fine-tuning？」
+
+**來源**：Anthropic engineering interview　**難度**：進階　**環節**：onsite ML deep dive
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——需要多高的回答品質？有沒有 GPU 預算限制（幾張 A100？）？需不需要保留 base model 的通用能力？部署環境是什麼（on-premise / cloud）？
+2. **建立框架**：Fine-tuning 的三個層次——full fine-tuning（所有參數）、parameter-efficient（LoRA/QLoRA）、prompt tuning。按資源和需求選擇。
+3. **深入核心**：10,000 筆 QA 對在 fine-tuning 領域是中等規模。Full fine-tuning 7B 需要至少 2 張 A100（80GB），可能過擬合。LoRA 只訓練 0.1-1% 的參數，1 張 A100 就夠，還能保留 base model 的能力。
+4. **收尾**：提到評估策略——用 held-out set 算 ROUGE/BERTScore 做自動評估，再用 LLM-as-judge 或人工抽查驗品質。
+
+### 範例回答（面試時可以這樣講）
+
+> **我會用 LoRA fine-tuning，rank 設 16-64，target modules 是 attention 的 Q/K/V 投影矩陣。** 理由有三個。第一，7B model 做 full fine-tuning 需要大約 56GB 的 GPU 記憶體（參數 14GB + optimizer states 42GB），至少要 2 張 A100-80GB。LoRA 只訓練低秩矩陣，記憶體降到約 20GB，1 張 A100 就夠。第二，10,000 筆 QA 對不算多，full fine-tuning 7B 參數很容易過擬合。LoRA 因為可訓練參數少（大約 10M vs. 7B），天然就有 regularization 效果。第三，LoRA adapter 可以單獨部署，base model 不動，以後加其他任務的 adapter 也方便。
+>
+> **訓練的具體做法。** 資料格式用 instruction-following 的模板（`<|system|> You are a customer service agent... <|user|> {question} <|assistant|> {answer}`）。10,000 筆拆成 8,500 train / 1,000 validation / 500 test。Training 跑 3-5 epochs，learning rate 1e-4 到 2e-4，用 cosine schedule。如果 validation loss 在第 2 epoch 就不降了就 early stop。
+>
+> **如果面試官問「QLoRA 行不行」**——QLoRA 把 base model 量化到 4-bit 再加 LoRA，記憶體再降一半，可以在消費級 GPU（24GB）上跑。Trade-off 是量化會損失一點精度，但對 7B 模型來說損失通常 < 1%。如果 GPU 預算很吃緊，我會用 QLoRA。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 比較 full fine-tuning vs LoRA 的資源需求 | |
+| LoRA 的具體設定（rank、target modules） | |
+| 資料量 10K 對 fine-tuning 策略選擇的影響 | |
+| 訓練超參數（LR、epochs、schedule） | |
+| 過擬合風險與緩解方式 | |
+| 加分：提到 QLoRA 或 adapter 部署策略 | |
+
 ## 參考資料
 
 - [Sennrich et al. — Neural Machine Translation of Rare Words with Subword Units (2016)](https://aclanthology.org/P16-1162/) — BPE tokenization 的原始論文，面試中 tokenization 問題的核心來源

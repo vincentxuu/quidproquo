@@ -116,6 +116,43 @@ ML 系統和傳統軟體最大的差別：**程式碼不變，模型也會壞**�
 
 最重要的一點：**面試官追問時不要防禦**。他們追問通常是在測試你的深度，不是在否定你的設計。「你說得對，這裡確實有 X 的風險，我可以用 Y 來緩解」比「不會有這個問題」強很多。
 
+## 面試模擬題
+
+### 題目
+
+「設計一個即時詐欺偵測系統，要能在用戶發起交易後 200ms 內回傳風險分數。」
+
+**來源**：Stripe MLE onsite　**難度**：進階　**環節**：onsite system design
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——QPS 多少？誤判（false positive）的商業成本？漏判（false negative）的商業成本？需不需要解釋風險分數的原因？歷史資料量多大？
+2. **建立框架**：用六層結構——Problem Framing → Data Pipeline → Feature Engineering → Model → Serving → Monitoring。
+3. **深入核心**：200ms 的延遲限制是最大的設計約束。這意味著特徵計算和模型推論都必須在線完成，不能走 batch pipeline。核心 trade-off 是 feature freshness vs. latency，以及 model complexity vs. inference speed。
+4. **收尾**：強調 monitoring 的重要性——詐欺模式會不斷演化（concept drift），需要持續的 retraining 策略和 adversarial monitoring。
+
+### 範例回答（面試時可以這樣講）
+
+> **Problem framing。** 商業目標是「降低詐欺損失」，ML 目標是「對每筆交易預測一個 0-1 的風險分數」。閾值之上的交易走人工審核或直接攔截。關鍵指標是 precision（誤攔正常交易會流失用戶）和 recall（漏放詐欺交易是直接損失）。根據業務需求決定偏重哪邊——通常 recall 更重要，因為一筆詐欺的損失遠大於一次誤攔的體驗損失。
+>
+> **Data + Features。** 特徵分兩類。靜態特徵（用戶帳齡、歷史交易頻率、設備指紋）預計算好存在 feature store 的 online store（Redis），lookup 延遲 < 1ms。動態特徵（過去 5 分鐘的交易金額總和、過去 1 小時的不同 IP 數）走 Flink streaming pipeline 即時計算，寫入 Redis。每個特徵設定 freshness SLA——設備指紋可以 1 小時更新一次，但「最近 5 分鐘交易次數」必須 < 5 秒。
+>
+> **Model + Serving。** 第一版用 gradient boosted tree（XGBoost/LightGBM），推論延遲 < 5ms，加上特徵 lookup 總共 < 50ms，遠在 200ms 預算內。不用 deep learning 是因為 tabular data 上 GBDT 通常不比 DNN 差，而且可解釋性更好。Serving 用 model server（Triton 或自建），水平擴展。預留 fallback：model server 掛掉時用 rule-based 系統接管（簡單規則如「金額 > 10,000 就送人工」）。
+>
+> **Monitoring。** 詐欺模式會演化，所以 monitoring 特別重要。追蹤三層：feature drift（某個特徵的分佈突然變了）、prediction drift（風險分數的分佈偏移）、label delay（詐欺標籤通常延遲 1-30 天才確認，需要設計 delayed labeling pipeline）。Retraining 頻率先設週更，觀察 drift 程度再調整。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 把業務目標翻成 ML 目標（precision/recall trade-off） | |
+| 靜態特徵 + 動態特徵的雙軌 feature 設計 | |
+| 200ms 延遲預算的分配（feature lookup + inference） | |
+| 模型選擇的理由（GBDT vs DNN 的 trade-off） | |
+| Fallback 策略（model server 掛掉怎麼辦） | |
+| Monitoring：feature drift + prediction drift + label delay | |
+| 加分：提到 adversarial adaptation（詐欺者會反向學習） | |
+
 ## 參考資料
 
 - [Chip Huyen — Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — ML 系統設計的完整框架，涵蓋 data pipeline、feature engineering、monitoring 等面試核心環節

@@ -105,6 +105,41 @@ Paper reading 是 AI-native 公司面試中最獨特的環節。大廠通常不�
 
 **不要死背，要理解脈絡。** 面試官能一眼看出你是在背 summary 還是真的理解。最好的準備方式不是一篇一篇孤立地讀，而是理解論文之間的演進關係——為什麼 DPO 出現在 InstructGPT 之後、FlashAttention 解決了原始 Transformer 的什麼問題、Chinchilla 怎麼修正了 Kaplan 的 scaling law。
 
+## 面試模擬題
+
+### 題目
+
+「這是 FlashAttention 的論文。你有 30 分鐘閱讀，然後我們會討論。請告訴我它解決了什麼問題、方法的核心 insight 是什麼、以及你認為它的 limitation 在哪裡。」
+
+**來源**：Anthropic / OpenAI 面試（典型格式）　**難度**：進階　**環節**：onsite paper discussion
+
+### 拆解思路
+
+1. **先釐清問題**：確認面試官期待什麼深度——是高層 intuition 還是要深入 IO-aware 的演算法細節？有沒有特別想聽的角度（比如在他們的 inference stack 裡的適用性）？
+2. **建立框架**：用 contribution → method → limitation → extension 的四段結構回答。
+3. **深入核心**：不要只說「它比較快」。核心 insight 是**把 attention 的瓶頸從計算搬到記憶體 IO**——標準 attention 的 O(n²) 不是慢在算，而是慢在 HBM 和 SRAM 之間搬資料。FlashAttention 用 tiling 把中間結果留在 SRAM，避免來回讀寫 HBM。
+4. **收尾**：主動提出 limitation 和你的延伸想法，展現批判性思維。
+
+### 範例回答（面試時可以這樣講）
+
+> **問題與貢獻。** 標準 Transformer self-attention 的時間和空間複雜度都是 O(n²)。之前的大部分工作（Linformer、Performer）試圖用 approximation 把複雜度降到 O(n)，但犧牲了模型品質。FlashAttention 走了一條不同的路——它不改變 attention 的數學，而是改變計算的方式，讓 exact attention 在 GPU 上跑得更快、用更少記憶體。
+>
+> **核心方法。** 關鍵 insight 是 GPU 的瓶頸不在計算（FLOPs 很便宜），而在 HBM 和 SRAM 之間的資料搬移。標準實作要把 n×n 的 attention matrix 寫入 HBM 再讀回來，FlashAttention 用 tiling 技巧把 Q、K、V 切成小塊，在 SRAM 裡算完 softmax（用 online softmax 避免需要全局 max），不把中間的 attention matrix 寫回 HBM。這帶來兩個好處：wall-clock time 因為減少 IO 而加快 2-4 倍，記憶體使用從 O(n²) 降到 O(n)。
+>
+> **Limitation 與延伸。** 我看到幾個限制：第一，它高度依賴 GPU 架構的 SRAM 大小，換硬體可能要重新 tune tile size；第二，custom CUDA kernel 增加了工程維護成本；第三，FlashAttention 2 的論文承認在 head dimension 不是 2 的冪次時效率會下降。延伸方面，我好奇 FlashAttention 的 tiling 策略能不能推廣到其他有類似 IO 瓶頸的操作，比如 cross-attention 或稀疏 attention pattern。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 問題定義：標準 attention 的 O(n²) 瓶頸 | |
+| 與之前方法的差異（exact vs approximate） | |
+| 核心 insight：IO-aware（HBM vs SRAM） | |
+| 方法：tiling + online softmax | |
+| 具體效果：2-4x speedup + O(n) memory | |
+| Limitation：至少一個有深度的觀點 | |
+| 加分：延伸想法或跟自己工作的連結 | |
+
 ## 參考資料
 
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — Transformer 原始論文，self-attention 機制的源頭

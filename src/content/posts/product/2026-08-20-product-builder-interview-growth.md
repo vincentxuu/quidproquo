@@ -83,8 +83,44 @@ Growth 面試最高階的考點是：你怎麼判斷一個成長方案值不值�
 - 實驗設計要提到 sample size 和跑多久的問題——這是區分「讀過 A/B testing 入門文章」和「實際跑過實驗」的分水嶺。
 - Retention 問題永遠先問「是所有用戶都掉還是特定 segment」——這一句話就能展現你的分析直覺。
 
+## 面試模擬題
+
+### 題目
+
+「你負責一個線上學習平台，DAU 50 萬，但 30 日留存率只有 12%。你會怎麼診斷問題並設計改善方案？」
+
+**來源**：自擬（based on Coursera/Duolingo PM 面試）　**難度**：進階　**環節**：growth / execution round
+
+### 拆解思路
+
+1. **先釐清問題**：12% 的 30 日留存是所有用戶的平均？還是區分了付費 vs 免費？目前的 aha moment 是什麼？有沒有做過 retention cohort 分析？用戶來源管道的分佈？
+2. **建立框架**：用留存曲線拆解——第 1 天掉多少（activation 問題）、第 7 天掉多少（habit 問題）、第 30 天掉多少（value 問題）。找最大的 drop-off 點。
+3. **深入核心**：核心判斷是「12% 到底低不低」——線上學習的 benchmark 大約 15-20%，所以確實偏低但不是離譜。問題更可能是 activation 到 habit 的轉換，而不是產品本身沒價值。
+4. **收尾**：提出假設 → 實驗 → 指標的完整流程，不是直接給方案。
+
+### 範例回答（面試時可以這樣講）
+
+> **先做診斷，不急著開藥方。** 我會先拉三個數據：按來源管道分的留存率（paid vs organic 差多少）、按用戶行為分的留存率（完成第一堂課 vs 沒完成）、以及留存曲線的形狀（是第 1 天就大幅掉還是緩慢流失）。我的假設是：如果 paid 用戶的留存明顯低於 organic，問題在 acquisition 端吸引了錯誤的人；如果完成第一堂課的用戶留存顯著高於沒完成的，問題在 activation。
+>
+> **假設 activation 是主要問題。** 如果數據支持，我會聚焦在「讓更多用戶完成第一堂課」。具體方案：縮短第一堂課的長度（從 30 分鐘改成 10 分鐘）、在註冊後 24 小時內發推播提醒、在 onboarding 加入興趣選擇讓推薦更精準。我不會三個都做——先跑最小的實驗（推播提醒），因為開發成本最低，2 週就能看到結果。
+>
+> **實驗設計。** A/B test 分 50/50，primary metric 是 7 日留存率，guardrail metric 是推播 opt-out 率（確保不會因為太煩而掉用戶）。sample size 按 7 日留存率目前 20% 基線、想偵測 2 個百分點的提升，需要每組約 1 萬人，以 DAU 50 萬來說 2-3 天就能收滿。跑 2 週看結果穩定，如果 7 日留存率提升 > 1.5 個百分點就全量上線。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 先診斷再開方（拉了哪些數據、為什麼） | |
+| 用留存曲線找到最大 drop-off 點 | |
+| 提出的假設可被數據驗證或推翻 | |
+| 實驗設計有 primary metric 和 guardrail metric | |
+| 提到 sample size 和實驗時長 | |
+| 加分：用 benchmark 校準 12% 到底低不低 | |
+
 ## 參考資料
 
 - [Reforge — Growth Loops](https://www.reforge.com/blog/growth-loops) — Growth loop 概念的原始出處，解釋為什麼飛輪比漏斗更適合描述成長
 - [Lenny's Newsletter — What is good retention?](https://www.lennysnewsletter.com/p/what-is-good-retention-issue-29) — 不同產品類型的 retention benchmark，面試時可以用來校準你的數字感
 - [Nir Eyal — Hooked](https://www.nirandfar.com/hooked/) — Hook Model 的原始框架，面試中 retention 和 habit 設計的經典參考
+- [Andrew Chen — The Cold Start Problem](https://andrewchen.com/the-cold-start-problem/) — 網路效應驅動的 Growth & Experimentation 策略，涵蓋 viral coefficient 與 referral 機制在面試中的應用
+- [Exponent — Growth PM Interview Guide](https://www.tryexponent.com/blog/growth-pm-interview) — Growth 面試的結構化準備指南，涵蓋 A/B testing 實驗設計與 retention 分析的常見題型

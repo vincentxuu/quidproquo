@@ -121,8 +121,44 @@ AI 產品的指標設計跟傳統產品不一樣，面試常問「你會用什�
 4. 提出評估指標，強調「人機協作效率」而非「AI 準確率」
 5. 主動提出風險（hallucination、cost、latency）和應對方案
 
+## 面試模擬題
+
+### 題目
+
+「你負責一個客服 chatbot 產品，目前能處理 60% 的客服工單不需要人工介入，但客戶抱怨 chatbot 有時會給出錯誤的退款政策資訊。你會怎麼改善？」
+
+**來源**：自擬（based on Intercom/Zendesk PM 面試）　**難度**：進階　**環節**：AI product design round
+
+### 拆解思路
+
+1. **先釐清問題**：60% 的 containment rate 在業界算好還是差？錯誤退款資訊的發生頻率和影響範圍？是退款政策本身複雜（多條件分支），還是 chatbot 的 retrieval 出問題？客戶發現錯誤後的補救流程是什麼？
+2. **建立框架**：用 AI 產品的三條件判斷——這個場景適合 AI 嗎？退款政策查詢有明確的正確答案（不是開放式對話），但錯誤成本很高（錯誤退款直接影響營收和信任）。所以需要 suggestion 模式而非 autopilot。
+3. **深入核心**：核心 trade-off 是 containment rate（自動化率）vs accuracy（準確率）。提高準確率可能降低 containment rate（更多工單轉人工），但這是值得的——一次錯誤退款資訊造成的信任損失遠大於一次人工介入的成本。
+4. **收尾**：提出分層信心度方案，用指標（accuracy rate、escalation rate、customer satisfaction）衡量改善效果。
+
+### 範例回答（面試時可以這樣講）
+
+> **先理解問題的嚴重程度。** 退款政策錯誤不是普通的「回答不夠好」——這直接影響客戶的錢和信任。我會先拉數據：過去 30 天有多少工單涉及退款政策、其中多少被 chatbot 處理、有多少後來客戶又來找人工 agent 修正。如果錯誤率超過 5%，這是要緊急處理的 P0。
+>
+> **改成分層信心度模式。** 不是所有退款查詢都一樣複雜。簡單的（「我的退款什麼時候到」）chatbot 可以直接回答。複雜的（「我買了 A 方案但用了 B 的折扣碼然後想退其中一件」）應該直接轉人工，不要猜。我會在 chatbot 裡加信心度閾值：信心度 > 90% 的直接回答；70-90% 的給答案但加一行「如果這不符合你的情況，點這裡轉接專人」；< 70% 的直接轉人工。這可能讓 containment rate 從 60% 降到 50%，但錯誤率也會從目前水準降到接近零。
+>
+> **短期修正退款政策的知識庫。** 錯誤答案很可能來自知識庫本身——退款政策文件可能有多個版本、或有條件分支沒被正確結構化。我會跟客服團隊一起審查 chatbot 的退款相關 retrieval 結果，把政策文件改成 FAQ 格式（一問一答），每個條件分支都獨立成一條，而不是讓 chatbot 從一大段文字裡自己判斷。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 判斷了 AI 在這個場景的適用性和風險 | |
+| 識別了核心 trade-off（containment rate vs accuracy） | |
+| 提出了分層信心度方案（不是全 AI 或全人工） | |
+| 有短期和長期的改善方案 | |
+| 提到了怎麼衡量改善效果（具體指標） | |
+| 加分：提到知識庫結構化是根因之一 | |
+
 ## 參考資料
 
 - [Google PAIR — People + AI Guidebook](https://pair.withgoogle.com/guidebook) — Google 的 AI 產品設計指南，涵蓋 human-in-the-loop 設計模式、信任建立策略與 AI 產品的 UX 原則
 - [Lenny's Newsletter — AI Product Management](https://www.lennysnewsletter.com/) — 多篇關於 AI 產品設計的實戰觀察，涵蓋面試中常考的 AI 產品指標設計
 - [GitHub Copilot Research — Productivity Impact](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/) — AI 產品評估指標的實際案例：acceptance rate 和開發者生產力的關係
+- [Nielsen Norman Group — AI UX Guidelines](https://www.nngroup.com/articles/ai-ux/) — AI 產品設計面試中 human-in-the-loop 介面設計的 UX 研究依據，涵蓋信任建立與 progressive disclosure
+- [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/agent-guidelines) — AI product design 面試中 AI 能力邊界與 guardrails 設計的官方指南

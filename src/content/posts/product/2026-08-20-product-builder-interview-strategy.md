@@ -93,6 +93,40 @@ Strategy 面試最大的陷阱是「什麼都要做」。當面試官問「YouTu
 
 **一個核心技巧**：面試官追問「為什麼不選 B」的時候，不要只重複「因為 A 比較好」。要從 B 的視角說清楚它的缺點——「B 看起來可行，但它的假設是 X，而我不認為 X 成立，因為 Y」。這種雙向推理能力是 strategy round 最想看到的。
 
+## 面試模擬題
+
+### 題目
+
+「你是 Notion 的 PM。Notion 該不該做一個獨立的電子郵件產品？」
+
+**來源**：自擬（based on Google strategy round 結構）　**難度**：進階　**環節**：strategy round
+
+### 拆解思路
+
+1. **先釐清問題**：是全功能的 Gmail 競品，還是整合進 Notion workspace 的輕量郵件？目標是增加現有用戶的 stickiness，還是獲取新用戶？
+2. **建立框架**：用 go/no-go 四步法——市場結構、結構性優勢、代價與機會成本、最小驗證方案。
+3. **深入核心**：關鍵 trade-off 是——email 市場極度集中（Gmail + Outlook 佔 80%+），但 Notion 的結構性優勢在於它已經是用戶的工作 hub，整合郵件可以強化鎖定效應。
+4. **收尾**：用排除法說明為什麼做輕量整合而不是做獨立產品，並定義驗證指標。
+
+### 範例回答（面試時可以這樣講）
+
+> **市場結構分析。** Email 市場高度集中——Gmail 和 Outlook 合計超過 80% 市佔率，而且兩者都是免費的。正面對決幾乎沒有機會，因為 email 的網路效應極強（你的聯絡人都在上面），轉換成本極高（遷移歷史郵件、更新所有服務的註冊 email）。但如果不是做獨立的 email client，而是把 email 整合進 Notion 的 workspace，邏輯就不同了——用戶不需要「換 email」，只需要「在 Notion 裡也能看到 email」。
+>
+> **結構性優勢與方案。** Notion 的結構性優勢是它已經是很多知識工作者的工作 hub。如果收到的 email 能直接變成 Notion 的 page 或 database item，email 就從「另一個要打開的 app」變成「工作流的一部分」。我的方案是：不做獨立 email 產品，做 Gmail/Outlook 的整合——在 Notion sidebar 加一個 inbox view，讓用戶在 Notion 裡讀信、回信、把郵件轉成 task。MVP 只做 Gmail 整合（最大用戶群），不做 Outlook。
+>
+> **排除理由與驗證。** 我排除「獨立 email 產品」，因為它的工程成本巨大（至少需要 20+ 人的團隊跑一年）、且成功機率極低（過去十年沒有任何新 email 產品成功挑戰 Gmail）。我也排除「只做 email 通知整合」，因為那太輕，不會改變用戶行為。驗證指標：整合上線後，有使用 email 整合的用戶的 weekly active 天數是否比沒使用的高 0.5 天以上。如果是，代表 email 整合確實強化了 Notion 的 stickiness，值得繼續投資。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 分析了市場結構（集中度、網路效應、轉換成本） | |
+| 指出了結構性優勢（Notion 作為工作 hub） | |
+| 用排除法說明不做什麼（獨立產品、太輕的整合） | |
+| 提出了具體方案和 MVP 範圍 | |
+| 定義了驗證指標和 go/no-go 門檻 | |
+| 加分：估算了機會成本（20+ 人團隊 vs 做其他功能） | |
+
 ## 參考資料
 
 - [Decode and Conquer](https://www.lewis-lin.com/decode-and-conquer) — Lewis C. Lin 的 PM 面試經典，Strategy 環節涵蓋市場進入決策、競爭分析框架與排除法策略思維

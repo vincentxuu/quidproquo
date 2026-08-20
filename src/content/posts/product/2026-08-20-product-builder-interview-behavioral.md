@@ -98,8 +98,44 @@ Product Builder 最核心的行為面試題型就是影響力。你不是 CEO，
 
 不管哪家公司，行為面試的核心都一樣：用具體的故事證明你有能力在複雜的環境中推動有影響力的事情。框架是工具，故事才是彈藥。
 
+## 面試模擬題
+
+### 題目
+
+「請描述一次你在沒有正式權限的情況下，說服團隊改變產品方向的經歷。」
+
+**來源**：Google Googleyness & Leadership round　**難度**：中等　**環節**：behavioral round
+
+### 拆解思路
+
+1. **先釐清問題**：面試官想聽的是「影響力」而非「權力」。選一個你不是 team lead 但推動了改變的故事。
+2. **建立框架**：用 STAR+R（Situation → Task → Action → Result → Reflection）。重點放在 Action——你具體做了什麼來說服別人。
+3. **深入核心**：核心是你的說服策略——用數據？做 prototype？找盟友？每種策略背後的判斷是什麼。
+4. **收尾**：量化結果 + 一句你學到什麼（Reflection）。
+
+### 範例回答（面試時可以這樣講）
+
+> **情境。** 我在一個教育新創擔任 PM，當時團隊正在做一個學習夥伴配對功能，roadmap 上排的是「根據學科和程度配對」。但我從用戶訪談中發現，學生不只想找「會教的人」，更想找「學習節奏合得來的人」——他們用的詞是「能一起熬夜讀書的人」。我認為配對演算法應該加入時間偏好和學習風格，而不是只看學科。
+>
+> **行動。** 我沒有直接去改 spec，因為工程師已經開始寫配對邏輯了。我做了三件事：第一，我把五個用戶訪談的錄音剪成一段 3 分鐘的 highlight reel，讓團隊聽到用戶自己說「學科不重要，重要的是有人一起」。第二，我用 Google Form 做了一個簡易版的配對問卷（加入時間偏好和學習風格），在 50 個測試用戶上跑了一週，數據顯示加入時間偏好後配對成功後的第一週互動率從 30% 提升到 55%。第三，我把數據和用戶聲音一起帶到週會，讓工程 lead 自己提出「我們應該改配對邏輯」。
+>
+> **結果。** 改版後的配對功能上線第一個月，7 日留存率從原本的 18% 提升到 32%。我學到的是：當你沒有權力直接改方向時，讓數據和用戶的聲音替你說話，比你自己講一百遍有效。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 故事有明確的「沒有正式權限」情境 | |
+| Action 部分有 2-3 個具體步驟 | |
+| 用了數據或證據來說服（不是純靠口才） | |
+| 結果有量化的指標 | |
+| 有 Reflection（你從中學到什麼） | |
+| 加分：展示了讓別人「自己提出你的想法」的技巧 | |
+
 ## 參考資料
 
 - [Cracking the PM Interview — Gayle Laakmann McDowell](https://www.crackingthepminterview.com/) — 行為面試章節涵蓋 STAR 框架運用和 PM 面試特有的故事類型
 - [Amazon Leadership Principles](https://www.amazon.jobs/content/en/our-workplace/leadership-principles) — Amazon 面試的 14 條 LP 官方說明，每條都可能出現在行為面試
 - [Decode and Conquer — Lewis C. Lin](https://www.lewis-lin.com/decode-and-conquer) — PM 行為面試的故事結構和常見追問模式
+- [Exponent — PM Behavioral Interview Guide](https://www.tryexponent.com/courses/pm-interview-course/behavioral) — Product Builder 行為面試的影響力敘事與衝突處理框架，含 Google Googleyness 準備策略
+- [Lenny's Newsletter — How to tell your career story](https://www.lennysnewsletter.com/) — Product Builder 面試中 vision 表達與 leadership 故事的實戰觀察

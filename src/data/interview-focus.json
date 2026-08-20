@@ -1,0 +1,26 @@
+{
+  "ai-engineer": {
+    "description": "AI Engineer 面試日練的主題權重。數字越大越常出現。預設全 1（均等）。把弱項調到 2-3 會讓 routine 在非固定日也抽到該主題。",
+    "weights": {
+      "ml-fundamentals": 1,
+      "deep-learning": 1,
+      "system-design": 1,
+      "llm-engineering": 1,
+      "coding": 1,
+      "paper-reading": 1,
+      "behavioral": 1
+    }
+  },
+  "product-builder": {
+    "description": "Product Builder 面試日練的主題權重。同上。",
+    "weights": {
+      "product-sense": 1,
+      "metrics": 1,
+      "strategy": 1,
+      "ai-product": 1,
+      "growth": 1,
+      "technical-pm": 1,
+      "behavioral": 1
+    }
+  }
+}

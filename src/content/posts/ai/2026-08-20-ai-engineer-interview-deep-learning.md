@@ -88,8 +88,44 @@ Self-attention 的**計算複雜度是 O(n²d)**，其中 n 是序列長度、d 
 
 下一篇進入 NLP & LLM——從 tokenization、fine-tuning 到 RLHF 和 LLM evaluation，整理面試中大語言模型相關問題的答題框架。
 
+## 面試模擬題
+
+### 題目
+
+「你要設計一個文件分類系統，輸入是長度 500-5000 字的商業文件，輸出是 20 個類別之一。你會選 CNN、RNN 還是 Transformer？為什麼？」
+
+**來源**：Meta MLE onsite　**難度**：進階　**環節**：onsite ML deep dive
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——資料量多大？推論延遲的要求？有沒有預算限制？需不需要解釋分類結果的原因？
+2. **建立框架**：從三個維度比較——序列建模能力（長距離依賴）、訓練效率、推論成本。
+3. **深入核心**：文件長度 500-5000 字是關鍵——RNN 在長序列上有梯度消失問題，CNN 靠 pooling 可以處理但會丟失順序資訊，Transformer 有 O(n²) 的瓶頸但可以用 pretrained model（BERT/RoBERTa）做 fine-tuning。
+4. **收尾**：給出具體建議並解釋 trade-off——如果有足夠資料和 GPU，用 pretrained Transformer 做 fine-tuning 是最強的；如果資源受限，distilled model 或 CNN + attention 是實用的折衷。
+
+### 範例回答（面試時可以這樣講）
+
+> **我會選 Transformer，具體來說是用 pretrained 的 RoBERTa-base 做 fine-tuning。** 原因有三個。第一，文件長度到 5000 字，需要捕捉長距離依賴——比如文件開頭提到的關鍵術語可能在結尾才出現判斷性語句。RNN 在這個長度上會有梯度衰減，LSTM 改善了但仍不如 self-attention 直接。第二，pretrained model 自帶語言理解能力，20 個類別的分類用少量標註資料就能達到不錯的效果。第三，RoBERTa-base 只有 125M 參數，fine-tuning 成本可控。
+>
+> **主要的 trade-off 是序列長度限制。** RoBERTa 的 max length 是 512 tokens，5000 字的文件 tokenize 後大約 1500-2000 tokens，會超出。處理方法有兩個：一是 truncation 加 sliding window，對每個 window 做分類再 aggregate；二是換用 Longformer，它用 sliding window attention 把複雜度降到 O(n)，max length 可以到 4096。如果延遲不是瓶頸我會選 Longformer；如果要壓延遲就用 truncation 策略。
+>
+> **如果面試官追問「CNN 行不行」**——TextCNN 速度最快、推論成本最低，在短文本（< 500 字）上表現不差，但在長文件上因為 pooling 層丟失了全局順序資訊，accuracy 通常比 Transformer 低 5-10 個百分點。如果 latency 是硬約束（< 5ms），CNN 值得考慮。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 三種架構各自的優缺點比較 | |
+| 長序列（5000 字）對架構選擇的影響 | |
+| Pretrained model 的優勢（transfer learning） | |
+| 序列長度超出限制的解法（truncation / Longformer） | |
+| 推論延遲 vs. accuracy 的 trade-off | |
+| 加分：提到具體模型參數量或 latency 數字 | |
+
 ## 參考資料
 
 - [Attention Is All You Need (Vaswani et al., 2017)](https://arxiv.org/abs/1706.03762) — Transformer 架構原始論文，self-attention 計算流程與 multi-head attention 的設計依據
 - [Deep Residual Learning for Image Recognition (He et al., 2016)](https://arxiv.org/abs/1512.03385) — ResNet 與 skip connection，解釋深層網路退化問題的根源與解法
 - [FlashAttention: Fast and Memory-Efficient Exact Attention (Dao et al., 2022)](https://arxiv.org/abs/2205.14135) — 透過分塊計算和 IO 感知設計降低 attention 的實際記憶體與計算開銷
+- [Dive into Deep Learning — CNN/RNN/Transformer Chapters](https://d2l.ai/) — 深度學習面試中 CNN、RNN、Transformer 架構的互動式教程，涵蓋 attention mechanism 的計算流程
+- [Layer Normalization (Ba et al., 2016)](https://arxiv.org/abs/1607.06450) — LayerNorm 原始論文，deep learning 面試中 BatchNorm vs LayerNorm 選擇邏輯的理論依據

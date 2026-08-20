@@ -51,6 +51,42 @@ const seriesPosts = posts.filter(p => p.data.category !== 'daily');
     </section>
   )}
 
+  <section class="track-section" id="progress-tracker">
+    <h2>Progress</h2>
+    <div class="progress-tracks">
+      <div class="progress-track" data-track="ai-engineer">
+        <h3>AI Engineer</h3>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" data-progress-bar="ai-engineer"></div>
+        </div>
+        <span class="progress-label" data-progress-label="ai-engineer">0 / 10</span>
+        <div class="checklist">
+          {['Overview', 'ML Fundamentals', 'Deep Learning', 'NLP & LLM', 'ML System Design', 'LLM Application', 'Coding', 'Paper Reading', 'MLOps', 'Behavioral'].map((topic, i) => (
+            <label class="check-item">
+              <input type="checkbox" data-check={`ai-${i}`} />
+              <span>{topic}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+      <div class="progress-track" data-track="product-builder">
+        <h3>Product Builder</h3>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" data-progress-bar="product-builder"></div>
+        </div>
+        <span class="progress-label" data-progress-label="product-builder">0 / 10</span>
+        <div class="checklist">
+          {['Overview', 'Product Sense', 'Product Design', 'Metrics', 'Strategy', 'Execution', 'Technical PM', 'Growth', 'AI Product', 'Behavioral'].map((topic, i) => (
+            <label class="check-item">
+              <input type="checkbox" data-check={`pb-${i}`} />
+              <span>{topic}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   {dailyPosts.length > 0 && (
     <section class="track-section">
       <h2>Daily Drills <span class="section-count">(latest {Math.min(dailyPosts.length, 14)})</span></h2>
@@ -155,4 +191,78 @@ const seriesPosts = posts.filter(p => p.data.category !== 'daily');
     text-decoration: none;
   }
   .more-link a:hover { text-decoration: underline; }
+  .progress-tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .progress-track h3 { margin: 0 0 0.5rem; font-size: 0.9rem; }
+  .progress-bar-wrap {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--brand-500);
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .progress-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem 1rem;
+    margin-top: 0.6rem;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .check-item input { accent-color: var(--brand-500); }
+  .check-item input:checked + span { color: var(--brand-700); text-decoration: line-through; }
+  @media (max-width: 500px) {
+    .checklist { grid-template-columns: 1fr; }
+  }
 </style>
+
+<script is:inline>
+  (() => {
+    const STORAGE_KEY = 'interview-prep-progress';
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+    document.querySelectorAll('[data-check]').forEach(cb => {
+      const key = cb.dataset.check;
+      cb.checked = !!saved[key];
+      cb.addEventListener('change', () => {
+        saved[key] = cb.checked;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+        updateBars();
+      });
+    });
+
+    function updateBars() {
+      ['ai-engineer', 'product-builder'].forEach(track => {
+        const prefix = track === 'ai-engineer' ? 'ai-' : 'pb-';
+        let done = 0;
+        for (let i = 0; i < 10; i++) if (saved[prefix + i]) done++;
+        const bar = document.querySelector(`[data-progress-bar="${track}"]`);
+        const label = document.querySelector(`[data-progress-label="${track}"]`);
+        if (bar) bar.style.width = (done / 10 * 100) + '%';
+        if (label) label.textContent = `${done} / 10`;
+      });
+    }
+    updateBars();
+  })();
+</script>

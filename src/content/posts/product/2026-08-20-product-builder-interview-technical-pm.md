@@ -119,8 +119,44 @@ Technical PM 面試的一個隱藏考點是「你和工程師合作的模式是�
 
 下一篇進入 Growth & Experimentation——怎麼設計 growth loop、跑 A/B test、做 retention 分析。
 
+## 面試模擬題
+
+### 題目
+
+「你負責一個即時通訊產品的訊息搜尋功能。工程師告訴你全文搜尋需要 3 個月才能上線，但業務說客戶下個月就要。你怎麼處理？」
+
+**來源**：自擬（based on Slack/Teams PM 面試）　**難度**：中等　**環節**：technical PM round
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——3 個月的估算是基於什麼技術方案？客戶要的「搜尋」具體是指什麼（全文搜尋？按人/日期篩選？關鍵字匹配？）？業務說的「下個月」是合約 deadline 還是口頭承諾？
+2. **建立框架**：把「搜尋」拆成技術層次——metadata filter（按人/日期/頻道，幾天可做）、關鍵字匹配（DB LIKE query，1-2 週）、全文搜尋（需要 Elasticsearch 或類似基礎設施，3 個月）。
+3. **深入核心**：核心 trade-off 是「客戶體驗完整度 vs 上線速度」。不是在「做不做」之間選，而是在「做多少」之間找到 MVP 切分線。
+4. **收尾**：提出分階段上線方案，每階段都有可衡量的客戶價值，並說明怎麼跟業務和工程分別溝通。
+
+### 範例回答（面試時可以這樣講）
+
+> **先理解真正的需求。** 我會去問業務：客戶說的「搜尋」到底是什麼場景？如果他們的痛點是「找上個月跟某個人講的那段話」，那按人+日期的 metadata filter 就能解決 80% 的需求，這個工程師幾天就能做。我不會直接接受「客戶要搜尋」這個抽象需求。
+>
+> **跟工程拆分技術方案。** 把搜尋分成三層：第一層是 metadata filter（按人/日期/頻道），用現有 DB index 就能做，大約 1 週。第二層是關鍵字匹配，在 PostgreSQL 裡加 trigram index，大約 2 週。第三層才是全文搜尋，需要引入 Elasticsearch，確實要 2-3 個月。我會問工程師：3 個月的估算是不是假設了從第三層開始做？
+>
+> **提出分階段方案給業務。** 第一階段下個月上線 metadata filter + 關鍵字匹配，覆蓋大部分使用場景。第二階段兩個月後上全文搜尋。我會帶著使用場景的數據去說服業務：「客戶 70% 的搜尋行為是找特定人的訊息，第一階段就能處理。」同時在客戶端設預期：「基礎搜尋下月上線，進階搜尋 Q2。」
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 釐清了客戶的真實需求（不只接受表面描述） | |
+| 把技術方案拆成可獨立上線的層次 | |
+| 識別了核心 trade-off（完整度 vs 速度） | |
+| 提出了分階段方案 | |
+| 說明了怎麼跟業務和工程分別溝通 | |
+| 加分：用數據（使用場景佔比）支持分階段決策 | |
+
 ## 參考資料
 
 - [Google API Design Guide](https://cloud.google.com/apis/design) — Google 的 API 設計原則，涵蓋資源導向設計、錯誤處理、版本控制等 Technical PM 面試高頻考點
 - [Stripe API Reference](https://docs.stripe.com/api) — API 設計的業界標準範例，常被面試官引用作為好 API 設計的代表
 - [Gergely Orosz — The Product-Minded Software Engineer](https://blog.pragmaticengineer.com/the-product-minded-engineer/) — 從工程師視角看 PM 協作模式，理解工程師期待什麼樣的 Technical PM
+- [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines) — Technical PM 面試中 API 設計思維的進階參考，涵蓋 versioning、error handling 等架構理解考點
+- [Exponent — Technical PM Interview Guide](https://www.tryexponent.com/blog/technical-pm-interview) — Technical PM 面試的結構化準備指南，涵蓋系統架構理解與工程師協作模式的常見題型

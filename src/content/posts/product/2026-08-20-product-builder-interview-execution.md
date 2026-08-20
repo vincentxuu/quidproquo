@@ -88,8 +88,44 @@ Stakeholder 衝突在面試中通常以情境題出現：「VP of Sales 要你�
 
 **時間管理。** Execution 面試通常 45 分鐘，花 5 分鐘釐清問題和限制條件，20 分鐘做 roadmap 和排序，15 分鐘處理追問，5 分鐘 Q&A。不要在排序上花太久——面試官想看你怎麼被挑戰，而不是你的初始排序有多完美。
 
+## 面試模擬題
+
+### 題目
+
+「你負責一款 B2B SaaS 的核心功能模組，工程團隊有 6 個人。下一季你同時面對三個需求：大客戶要求的客製 API、安全團隊要求的 SOC2 合規改造、以及 PM 團隊提出的新用戶 onboarding 流程改版。你怎麼排序？」
+
+**來源**：Exponent PM 面試題庫（改編）　**難度**：中等　**環節**：execution round
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——大客戶的合約金額和 deadline 是什麼？SOC2 有沒有外部審計日期？onboarding 的 conversion drop-off 數據是多少？6 人團隊的前後端比例？
+2. **建立框架**：用 RICE 排序三個需求，但先把有硬 deadline 的拉出來（SOC2 審計日期 > 客戶合約 deadline > 沒有 deadline 的 onboarding）。
+3. **深入核心**：核心 trade-off 是短期營收（大客戶）vs 合規風險（SOC2）vs 長期成長（onboarding）。SOC2 如果有審計 deadline 就不可能推遲；大客戶要看合約金額能不能 justify 專人投入。
+4. **收尾**：提出分階段方案——不是「三個都做」，而是「先做什麼、放棄什麼、怎麼跟 stakeholder 溝通放棄的那個」。
+
+### 範例回答（面試時可以這樣講）
+
+> **先確認硬限制。** SOC2 如果有明確的審計日期——假設是下季末——這個不能推遲，因為合規失敗會直接影響所有企業客戶的續約，不只是一個大客戶。所以第一優先是把 SOC2 的工程改造項目拆出來，估算需要多少人力、多少個 sprint。假設需要 2 個工程師 4 週，剩下的人力才能分配。
+>
+> **再看大客戶 API。** 我會先問這個客戶的 ARR 佔比和流失風險。如果是 top 5 客戶且合約續約綁著這個 API，我會安排 2 個工程師平行做，但不會做「完全客製」——而是設計成可復用的 API 擴展，讓其他客戶也能用。如果客戶不在 top 10，我會跟 CSM 一起去談延期或折衷方案。
+>
+> **Onboarding 改版推到下季。** 原因不是不重要，而是它沒有硬 deadline，而且可以在這季先做數據收集——跑 session recording 和漏斗分析，確認 drop-off 到底在哪一步，這樣下季改版的方向更精準。我會在本季末的 planning 中把分析結果帶出來，讓團隊看到數據後自然同意這是下季第一優先。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 問了硬限制（deadline、合約、審計日期） | |
+| 用了結構化框架（RICE 或類似）排序 | |
+| 有明確的「不做什麼」和放棄理由 | |
+| 提出分階段方案而非同時全做 | |
+| 提到怎麼跟 stakeholder 溝通被推遲的需求 | |
+| 加分：把客製需求設計成可復用方案 | |
+
 ## 參考資料
 
 - [Exponent — PM Execution Interview Guide](https://www.tryexponent.com/courses/pm-interview-course/execution) — Execution round 的題型分類和答題框架，含 Google、Meta 真實面試題
 - [Lenny's Newsletter — How to prioritize](https://www.lennysnewsletter.com/p/how-to-prioritize) — 產品優先序的實務框架，RICE 和 ICE 的比較與適用場景
 - [Cracking the PM Interview — Execution Chapter](https://www.crackingthepminterview.com/) — Gayle McDowell 對 execution 面試的拆解，適合從 SWE 轉 PM 的讀者
+- [Intercom — RICE Scoring Model](https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/) — Execution 面試中 roadmap 優先序辯護常用的 RICE 框架原始出處
+- [Shreyas Doshi — How to say no](https://twitter.com/shreyas) — Product Builder execution 面試中 stakeholder management 與優先序取捨的實務心法

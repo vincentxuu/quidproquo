@@ -105,8 +105,45 @@ LLM 應用的評估是面試常考的難題，因為沒有像傳統 ML 那樣清
 
 面試策略：先花兩分鐘確認需求（使用者是誰、QPS 多少、latency 預算、錯誤的代價有多高），再從 data flow 畫起（資料怎麼進來 → 怎麼處理 → 怎麼送進 LLM → 怎麼驗證 output → 怎麼監控）。不要一開始就跳進「我要用什麼 model」——面試官想看的是你的系統思維，不是你對某個 API 的熟悉程度。
 
+## 面試模擬題
+
+### 題目
+
+「設計一個 RAG-based customer support system，需要處理多語言、多產品線，並且能在回答不確定時自動 escalate 給人類客服。」
+
+**來源**：Anthropic 面試（改編）　**難度**：進階　**環節**：onsite system design
+
+### 拆解思路
+
+1. **先釐清問題**：多語言是幾種？多產品線代表知識庫要隔離還是共享？QPS 多少？「不確定」的定義是什麼——confidence score 低、還是偵測到 hallucination？
+2. **建立框架**：從 data flow 畫起——文件攝入 → chunking → embedding → retrieval → reranking → LLM generation → output validation → escalation trigger。
+3. **深入核心**：核心 trade-off 是 **precision vs recall of escalation**——太容易 escalate 會淹沒人類客服，太少會讓錯誤答案送出去。這裡要設計一個 multi-signal confidence system。
+4. **收尾**：提到 evaluation 怎麼做（golden set + LLM-as-judge + 人類客服的回饋 loop），以及 monitoring 看什麼（escalation rate、resolution rate、CSAT）。
+
+### 範例回答（面試時可以這樣講）
+
+> **架構概述。** 我會設計一個三層 pipeline。第一層是 retrieval：每個產品線有獨立的向量索引（避免跨產品污染），用 hybrid search（BM25 + dense embedding）做初檢，reranker 做精排。多語言的處理放在 query 端——用多語言 embedding model（如 BGE-M3），讓使用者用任何語言查詢都能命中英文或中文的原始文件，不做翻譯。
+>
+> **生成與驗證。** 第二層是 LLM generation，system prompt 包含產品線上下文和回答規範（例如不能編造退款政策）。第三層是 output validation——我會用三個信號來決定要不要 escalate：retrieval confidence（top-k 的相似度分數低於閾值）、LLM 自我評估（prompt 要求模型標注 confidence level）、以及 guardrail 檢查（有沒有偏離 retrieved context 的 hallucination）。三個信號用加權投票，任兩個 flag 就 escalate。
+>
+> **Escalation 與監控。** Escalation 不是簡單的「轉人工」——要把 retrieval context、LLM 的生成過程、和 confidence 信號一起傳給人類客服，讓他們不用從零開始。監控重點是 escalation rate（目標 < 15%）和 false negative rate（送出去但被使用者標記錯誤的比例）。上線後用 A/B test 調整 confidence 閾值。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 產品線知識庫隔離策略 | |
+| 多語言的處理方式（query 端 vs 文件端） | |
+| Retrieval + reranking 的雙層設計 | |
+| Escalation 的多信號判斷機制 | |
+| Escalation 時傳遞 context 給人類客服 | |
+| Monitoring 指標（escalation rate、false negative rate） | |
+| 加分：A/B test 調整 confidence 閾值 | |
+
 ## 參考資料
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/agent-guidelines) — Agent 架構的 tool-use 設計、planning loop 與 error handling 的官方建議
 - [LangChain — RAG from Scratch](https://github.com/langchain-ai/rag-from-scratch) — RAG pipeline 從 chunking 到 reranking 的實作教程，涵蓋 hybrid search 與 context engineering
 - [Chip Huyen — Building A Generative AI Platform](https://huyenchip.com/2024/07/25/genai-platform.html) — LLM 應用的系統設計全景，涵蓋 evaluation、guardrails 與生產環境監控
+- [Anthropic — Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering) — LLM 應用設計面試中 context engineering 與 prompt structure 的官方最佳實踐
+- [RAGAS — RAG Assessment Framework](https://docs.ragas.io/) — RAG pipeline evaluation 的開源框架，涵蓋 LLM application 面試中常問的 faithfulness 與 relevancy 指標

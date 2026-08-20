@@ -126,8 +126,45 @@ Product Design 面試中最能展現深度的就是 trade-off 討論。以下是
 
 下一篇進入 Metrics & Analytics——不是教你背 AARRR 框架，而是練「面試官丟一組數據給你，你怎麼讀出洞察和決策」的能力。
 
+## 面試模擬題
+
+### 題目
+
+「為 Spotify 設計一個讓用戶跟朋友一起聽歌的功能。」
+
+**來源**：Meta PM 面試（改編）　**難度**：中等　**環節**：product design round
+
+### 拆解思路
+
+1. **先釐清問題**：同步聽還是非同步？手機還是跨平台？「朋友」是 Spotify 好友還是任何人？
+2. **定義用戶**：選擇最常和朋友分享音樂的用戶群——年輕社交型用戶（18-25 歲），分享音樂是社交的一部分。
+3. **結構化分析**：列 3 個方向——同步聽歌 session、共編播放清單、音樂動態牆。從 impact × feasibility 排序。
+4. **提出方案**：深入「同步聽歌 session」做 MVP 設計——邀請流程、同步機制、溝通方式。
+5. **定義成功**：session 完成率、每次 session 平均時長、護欄是個人聽歌留存率不下降。
+
+### 範例回答（面試時可以這樣講）
+
+> **聚焦與痛點。** 我選擇聚焦 18-25 歲的社交型用戶。他們目前分享音樂的方式是截圖歌名傳給朋友，或分享 Spotify link——但這些都是非同步的，缺少「一起聽」的臨場感。核心痛點是：想跟朋友分享音樂，但現有方式無法傳達「此刻一起聽」的體驗。
+>
+> **方案設計。** MVP 是「Listen Together Session」：用戶在聽歌時點「一起聽」，生成邀請連結，朋友點進來後兩邊自動同步播放同一首歌。控制權在發起人手上，但任何人都可以在 queue 裡加歌。溝通方式 MVP 只做 emoji 反應（按一個 emoji 浮現在對方畫面上），不做語音或文字——因為用戶此刻的核心行為是聽音樂，語音會打斷這個體驗。我不在 MVP 放「共編播放清單」和「歌詞同步」，因為它們不影響核心假設的驗證：用戶是否想要同步聽歌。
+>
+> **成功與風險。** 核心指標是 session 完成率（定義：雙方都聽完至少三首歌）。護欄指標是個人聆聽時長不下降——如果用戶開始花太多時間在社交功能上而減少自己聽歌，長期會傷害 Spotify 的核心價值。最大的風險是延遲同步問題——兩邊的網路狀況不同可能導致播放位置偏移，技術上需要 fallback 機制。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 定義了用戶群和核心痛點 | |
+| 列了多個方向並做了排序 | |
+| MVP 包含什麼、不包含什麼都有說明 | |
+| 使用流程走了一遍（發現→使用→邊界情況→結束） | |
+| 核心指標 + 護欄指標 | |
+| 加分：主動暴露技術風險和 fallback 方案 | |
+
 ## 參考資料
 
 - [Decode and Conquer](https://www.lewis-lin.com/decode-and-conquer) — Product Design 面試的經典參考，CIRCLES 框架的原始出處，涵蓋 feature design 和 product improvement 兩類題型的結構化答題法
 - [Exponent — Product Design Interview Guide](https://www.tryexponent.com/blog/product-design-interview) — 涵蓋 Product Design 面試的出題模式、思考流程與 walk through 技巧，附 Google、Meta 真實題目拆解
 - [Lenny's Newsletter — How to Do a Product Critique](https://www.lennysnewsletter.com/) — 產品評論的結構化方法，直接對應「改善現有產品」類題型的分析框架
+- [Julie Zhuo — The Making of a Manager](https://www.juliezhuo.com/book/manager.html) — Product Design 決策中的 trade-off 分析與 MVP 範圍判斷，面試中展現設計思維的經典參考
+- [NNGroup — UX Research Methods](https://www.nngroup.com/articles/which-ux-research-methods/) — Product Design 面試中用戶研究方法的選擇邏輯，涵蓋質化與量化研究的取捨框架

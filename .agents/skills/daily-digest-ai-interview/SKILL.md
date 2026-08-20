@@ -23,6 +23,19 @@ description: "Routine N: daily AI Engineer interview prep article for quidproquo
 
 ---
 
+## 加權輪替
+
+除了固定的星期 → 主題對應外，routine 也會讀 `src/data/interview-focus.json` 的權重設定。使用者可以把弱項的權重調到 2-3，routine 會在該主題的固定日之外，額外加練該主題。
+
+**加權邏輯**：
+1. 先按星期決定預設主題
+2. 讀 `interview-focus.json` 的 `ai-engineer.weights`
+3. 如果預設主題的權重 > 1，照常產出
+4. 如果有其他主題的權重 > 預設主題的權重，有 50% 機率改為產出權重最高的主題（避免完全跳過固定排程）
+5. 在文章開頭標注「今日加練：{主題}（因為你把這個主題的權重設為 {N}）」
+
+---
+
 ## 執行流程
 
 ```bash
@@ -34,7 +47,11 @@ DOW=$(TZ=Asia/Taipei date +%u)  # 1=Mon, 7=Sun
 # Step 2: 冪等檢查——已產出就不重做
 [ -f "src/content/posts/daily/${TODAY}-ai-interview-daily.md" ] && echo "已產出" && exit 0
 
-# Step 3: 依星期決定主題（見「每週主題輪替」表）
+# Step 2.5: 讀加權設定
+cat src/data/interview-focus.json | 讀取 ai-engineer.weights
+# 按「加權輪替」邏輯決定今日實際主題
+
+# Step 3: 依星期決定主題（見「每週主題輪替」表），但可能被加權覆寫
 # Step 4: 執行「搜尋方法」取得今日主題的最新面試題與資源
 # Step 5: 篩選最相關的內容，組成練習題 + 核心概念
 # Step 6: 依「輸出格式」撰寫文章

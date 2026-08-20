@@ -91,8 +91,44 @@ Regularization 的核心思想是限制模型的自由度來降低 overfitting�
 
 **注意面試官的信號**。如果面試官在你講完 bias-variance 之後點頭往下走，不要自己加碼講 double descent。如果面試官追問，才展開。面試時間有限，不要在不需要深入的地方消耗時間。
 
+## 面試模擬題
+
+### 題目
+
+「你訓練了一個分類模型，在 training set 上 accuracy 98%，在 validation set 上只有 72%。你怎麼診斷和修復？」
+
+**來源**：Google MLE phone screen　**難度**：中等　**環節**：phone screen
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——資料集規模多大？類別分佈是否平衡？模型架構是什麼？有沒有用 regularization？
+2. **建立框架**：這是典型的 high variance（overfitting）問題——訓練好但泛化差。用 bias-variance 框架拆解。
+3. **深入核心**：逐步列出緩解手段——更多資料、regularization（L2/dropout）、降低模型複雜度、data augmentation、early stopping——並解釋每個手段的 trade-off。
+4. **收尾**：提到你會怎麼驗證修復有效（learning curve 分析：畫 training/validation loss vs. epoch），以及在生產環境中怎麼持續監控。
+
+### 範例回答（面試時可以這樣講）
+
+> **先判斷問題類型。** Training 98% 但 validation 72%，差距 26 個百分點，這是典型的 overfitting——模型記住了訓練資料的噪音而不是學到泛化的模式。我會先畫 learning curve 確認：如果 training loss 持續下降但 validation loss 在某個 epoch 後開始上升，就確認了 overfitting。
+>
+> **修復方向我會從三個面向切入。** 第一是資料面——增加訓練資料或做 data augmentation，讓模型看到更多變化。第二是模型面——加 L2 regularization（weight decay 設 1e-4 到 1e-2 之間 grid search）或加 dropout（0.3-0.5），如果模型太深就考慮減層。第三是訓練面——用 early stopping 在 validation loss 開始上升時停止訓練。我會先試 regularization 因為成本最低，效果不夠再加資料。
+>
+> **最後我會確認修復有效。** 重新畫 learning curve，確認 training 和 validation 的 gap 縮小到 5% 以內。同時檢查 validation 上的 precision/recall 分佈——accuracy 可能因為類別不平衡而有誤導，如果正負樣本比差很多，我會改看 AUC-PR。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 判斷 overfitting（high variance）而非 underfitting | |
+| Learning curve 診斷方法 | |
+| 至少三種緩解手段（data/model/training） | |
+| 每個手段的具體參數或做法 | |
+| 修復後的驗證方式 | |
+| 加分：提到 class imbalance 時 accuracy 的局限性 | |
+
 ## 參考資料
 
 - [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — ML 基礎面試考點的完整整理，本篇的 bias-variance、regularization、loss function 考點框架來自此書
 - [Stanford CS229 Lecture Notes](https://cs229.stanford.edu/lectures-spring2022/main_notes.pdf) — Andrew Ng 的 ML 課程筆記，涵蓋 regularization、optimization、evaluation metrics 的數學推導與直覺解釋
 - [An Overview of Gradient Descent Optimization Algorithms — Sebastian Ruder](https://arxiv.org/abs/1609.04747) — SGD、momentum、Adam 等 optimizer 的系統性比較，本篇 optimization 段落的演進邏輯參考此文
+- [Scikit-learn — Model Evaluation](https://scikit-learn.org/stable/modules/model_evaluation.html) — ML 基礎面試中 evaluation metrics（precision、recall、F1、AUC）的官方文件與計算邏輯
+- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) — bias-variance tradeoff 與 regularization 的經典教材，ML fundamentals 面試深度追問的理論依據

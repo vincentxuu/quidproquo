@@ -98,8 +98,44 @@ AI Engineer coding 面試有一個隱性評分標準：你寫的 Python 像不�
 
 **卡住時要講出來。** 面試官不會因為你卡住而直接淘汰你，但會因為你沉默五分鐘而淘汰你。卡住時說「我目前的想法是 X，但我覺得 Y 的部分可能有問題，讓我想一下有沒有其他方式」——這比沉默好一百倍，而且面試官通常會給提示。
 
+## 面試模擬題
+
+### 題目
+
+「實作一個 mini batch inference pipeline：給定一個大型 text dataset（百萬筆）和一個 embedding model（每次最多接受 32 筆），寫一個函式高效地對所有文本做 embedding，回傳 numpy array。需要考慮記憶體效率和錯誤處理。」
+
+**來源**：AI 新創面試（改編）　**難度**：中等　**環節**：onsite coding
+
+### 拆解思路
+
+1. **先釐清問題**：百萬筆的記憶體限制是什麼？embedding model 是 API call 還是本地模型？失敗的 batch 要重試還是跳過？回傳的 numpy array 要放在記憶體還是可以 memory-mapped？
+2. **建立框架**：核心是 batching + streaming——不能一次把百萬筆全載入記憶體，要用 generator 分批讀、分批處理、分批寫入。
+3. **深入核心**：trade-off 是 batch size vs latency vs memory。batch size 太小浪費 GPU 利用率，太大可能 OOM。另一個 trade-off 是同步 vs 非同步——用 asyncio 或 thread pool 可以 overlap I/O 和計算。
+4. **收尾**：提到 progress tracking（tqdm 或 logging）、checkpointing（中途失敗可以從斷點繼續）、結果驗證（抽樣檢查 embedding 維度和 norm）。
+
+### 範例回答（面試時可以這樣講）
+
+> **整體設計。** 我會用 generator pattern 避免一次把整個 dataset 載入記憶體。外層是一個 `batch_embed` 函式接受 iterable 和 batch_size 參數，內部用 `itertools.islice` 切 batch。結果寫入一個預先分配大小的 numpy array（`np.empty((n, dim), dtype=np.float32)`），用 index offset 追蹤寫入位置，避免動態 append 造成的記憶體碎片。
+>
+> **錯誤處理。** 每個 batch 的 API call 用 exponential backoff 重試最多 3 次。如果 3 次都失敗，記錄失敗的 batch index 和錯誤，在結果 array 裡用 NaN 填充那些位置，最後回傳結果的同時回傳一個 failed_indices list 讓呼叫方決定怎麼處理。我不會直接 raise exception，因為百萬筆裡掛幾個 batch 不應該讓整個 pipeline 白做。
+>
+> **效能優化。** 如果是 API call，我會用 `concurrent.futures.ThreadPoolExecutor` 開 4-8 個 worker 並行呼叫，因為這是 I/O bound。如果是本地模型，batch size 調到 GPU memory 允許的最大值，用 `torch.no_grad()` 和 `torch.cuda.amp.autocast()` 省記憶體。最後加上 tqdm progress bar 和每 1000 batch 做一次 checkpoint（用 `np.save` 存中間結果），讓中途中斷可以從斷點繼續。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| Generator/streaming 避免全量載入記憶體 | |
+| 預分配 numpy array 而非動態 append | |
+| Exponential backoff 重試 + graceful failure | |
+| 並行化策略（ThreadPool for I/O, batch size for GPU） | |
+| Checkpointing（斷點續跑） | |
+| 加分：torch.no_grad + autocast 省記憶體 | |
+
 ## 參考資料
 
 - [LeetCode Patterns for ML Engineers](https://www.techinterviewhandbook.org/algorithms/study-cheatsheet/) — Tech Interview Handbook 的演算法分類整理，適合 AI Engineer 按題型準備 coding 面試
 - [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — ML 面試準備指南中的 coding 章節，涵蓋 ML-flavored 題型分類與準備策略
 - [NumPy Documentation — Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) — numpy broadcasting 規則的官方文件，面試中向量化操作的基礎
+- [NeetCode — Roadmap](https://neetcode.io/roadmap) — LeetCode 題型分類路線圖，AI Engineer coding 面試的演算法準備策略參考
+- [Pandas Documentation — Performance](https://pandas.pydata.org/docs/user_guide/enhancingperf.html) — pandas 效能優化指南，涵蓋 ML-flavored coding 面試中資料處理 pipeline 的向量化技巧

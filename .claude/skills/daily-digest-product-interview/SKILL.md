@@ -23,6 +23,19 @@ description: "Routine O: daily Product Builder interview prep for quidproquo.cc/
 
 ---
 
+## 加權輪替
+
+除了固定的星期 → 主題對應外，routine 也會讀 `src/data/interview-focus.json` 的權重設定。使用者可以把弱項的權重調到 2-3，routine 會在該主題的固定日之外，額外加練該主題。
+
+**加權邏輯**：
+1. 先按星期決定預設主題
+2. 讀 `interview-focus.json` 的 `product-builder.weights`
+3. 如果預設主題的權重 > 1，照常產出
+4. 如果有其他主題的權重 > 預設主題的權重，有 50% 機率改為產出權重最高的主題
+5. 在文章開頭標注「今日加練：{主題}（因為你把這個主題的權重設為 {N}）」
+
+---
+
 ## 執行流程
 
 ```bash
@@ -34,7 +47,10 @@ DOW=$(TZ=Asia/Taipei date +%u)  # 1=Mon ... 7=Sun
 # Step 2: 冪等檢查——已產出就不重做
 [ -f "src/content/posts/daily/${TODAY}-product-builder-interview-daily.md" ] && echo "已產出" && exit 0
 
-# Step 3: 依星期決定主題
+# Step 2.5: 讀加權設定
+cat src/data/interview-focus.json | 讀取 product-builder.weights
+
+# Step 3: 依星期決定主題（可能被加權覆寫）
 # DOW=1 → Product Sense
 # DOW=2 → Metrics & Analytics
 # DOW=3 → Strategy & Execution

@@ -153,8 +153,44 @@ CIRCLES 是 Lewis C. Lin 提出的 Product Design 面試框架，七個步驟：
 
 下一篇進入 Product Design——從問題到方案的設計過程。Product Sense 幫你找到對的問題，Product Design 幫你把問題變成一個用戶真的會用的東西。
 
+## 面試模擬題
+
+### 題目
+
+「Google Maps 應該做什麼新功能？」
+
+**來源**：Google PM 面試　**難度**：中等　**環節**：product sense round
+
+### 拆解思路
+
+1. **先釐清問題**：問面試官——我們聚焦哪個平台（手機/車機/桌面）？有沒有特定的商業目標（提高使用頻率、增加營收、進入新市場）？
+2. **建立框架**：定義 2-3 組用戶（通勤族、旅遊者、外送司機），選一組聚焦，找到他們最大的未被滿足需求。
+3. **深入核心**：提出 2-3 個方案方向，用 impact × feasibility 排序，深入一個做 MVP 設計和成功指標。
+4. **收尾**：總結為什麼選這個方案，以及你會用什麼數據判斷它是否成功。
+
+### 範例回答（面試時可以這樣講）
+
+> **用戶選擇。** 我想聚焦「每天通勤的上班族」——他們是 Google Maps 最高頻的用戶群，每天至少開兩次 app。他們最大的痛點不是導航本身，而是「今天該幾點出門」的決策——塞車狀況每天不同，他們需要的不是更精確的 ETA，而是「提前告訴我什麼時候該走」。
+>
+> **方案設計。** 我的方案是「智慧出發提醒」——用戶設定一個目的地和到達時間（例如「九點前到公司」），Maps 根據歷史交通資料和即時路況，在最佳出發時間前 10 分鐘推送通知。核心 MVP 只需要三個元件：目的地 + 到達時間的設定介面、基於歷史數據的出發時間預測模型、push notification。我不會在 MVP 放「替代路線推薦」或「跟日曆整合」——這些可以在驗證核心假設後再加。
+>
+> **成功指標。** 核心指標是「設定提醒的用戶中，準時到達的比例」。護欄指標是「通知點擊率不低於 40%」——如果太低代表推送時機不對或用戶覺得沒用。我排除了 DAU 作為指標，因為這個功能的目標不是讓用戶多開 app，而是讓每次使用更有價值。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 定義了具體的用戶群和聚焦理由 | |
+| 從用戶痛點出發（不是從功能出發） | |
+| 提出了 2-3 個方向並排序 | |
+| 深入一個方案做了 MVP 範圍判斷（包含什麼、不包含什麼） | |
+| 定義了核心指標 + 護欄指標 | |
+| 加分：解釋了為什麼排除其他指標（如 DAU） | |
+
 ## 參考資料
 
 - [Lewis C. Lin — Decode and Conquer](https://www.lewis-lin.com/decode-and-conquer) — Product Sense 面試中 CIRCLES 框架的原始出處，涵蓋 Google、Meta 等大廠的題型拆解
 - [Lenny's Newsletter — How to develop product sense](https://www.lennysnewsletter.com/p/product-sense) — 從實務角度拆解 Product Sense 的養成路徑，包含用戶洞察和優先序判斷的具體案例
 - [Exponent — Product Sense Interview Guide](https://www.tryexponent.com/courses/product-management/product-sense-interviews) — Product Sense 面試的結構化準備指南，附 Google 和 Meta 的模擬面試影片
+- [Inspired — Marty Cagan](https://www.svpg.com/inspired-how-to-create-tech-products-customers-love/) — Product Sense 的用戶洞察與問題定義方法論，面試中 feature prioritization 判斷的底層邏輯
+- [Teresa Torres — Continuous Discovery Habits](https://www.producttalk.org/continuous-discovery-habits/) — Product Sense 面試中的用戶分群與問題拆解框架，涵蓋 opportunity solution tree 的結構化思考

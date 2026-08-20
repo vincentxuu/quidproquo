@@ -97,8 +97,44 @@ ML Engineer 的跨團隊合作有幾個其他工程角色不太會遇到的情�
 
 **忽略 AI-specific 的倫理問題**：如果面試官問了你對 AI bias 的看法而你回答「我沒想過」，在 AI-native 公司這幾乎是直接被淘汰。即使你的日常工作不直接涉及 fairness，也應該有基本的了解和立場。
 
+## 面試模擬題
+
+### 題目
+
+「請描述一次你發現你的模型對某個用戶群體表現特別差的經歷。你做了什麼？」
+
+**來源**：Anthropic AI Engineer 面試　**難度**：進階　**環節**：onsite behavioral
+
+### 拆解思路
+
+1. **先釐清問題**：面試官想聽的是你對 fairness 的敏感度和處理流程，不是技術解法的細節。
+2. **建立框架**：用 STAR + Reflection 結構，把重點放在 Action 上——你怎麼發現的、怎麼診斷的、怎麼決定處理方式的。
+3. **深入核心**：trade-off 是關鍵——提升弱勢群體的表現可能會影響整體指標，你怎麼跟團隊和 PM 溝通這個取捨。
+4. **收尾**：量化結果 + reflection——你從這件事學到了什麼，之後的開發流程做了什麼改變。
+
+### 範例回答（面試時可以這樣講）
+
+> **情境與發現。** 我在上一家公司負責一個內容推薦模型，上線三週後我在做例行的分群指標檢查時，發現西班牙語用戶的點擊率只有英語用戶的一半。模型整體 CTR 提升了 4%，所以沒人注意到這個問題——如果我沒有按語言分群看指標，這件事可能就被埋了。
+>
+> **診斷與行動。** 我先檢查了訓練資料的分佈，發現西班牙語內容只佔訓練集的 6%，但用戶群佔 18%。資料不平衡是主因，但不是唯一原因——embedding 模型本身對西班牙語的語義理解就比較弱。我提出了兩步方案：短期用 oversampling 加權重調整把資料平衡拉到 15%，同時切換到多語言 embedding 模型。關鍵的 trade-off 是——oversampling 會讓英語用戶的推薦稍微變差（預估 -0.3% CTR），我做了一份分析報告跟 PM 溝通，他同意這是值得的。
+>
+> **結果與反思。** 兩個月後西班牙語用戶的 CTR 從英語用戶的 50% 提升到 82%，英語用戶只掉了 0.1%。我從這件事學到兩件事：第一，整體指標會掩蓋分群問題，所以我後來在所有模型上線後都加上了自動分群指標告警；第二，fairness 問題不只是技術問題，你需要跟 PM 和 leadership 溝通商業上為什麼值得投資。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 具體描述怎麼發現問題的（不是別人告訴你） | |
+| 診斷了根因（資料面 + 模型面） | |
+| 提出了具體的改善方案和步驟 | |
+| 說明了 trade-off（修 fairness 可能影響整體指標） | |
+| 量化了結果（前後對比數字） | |
+| 加分：提到後續流程改變（把學到的制度化） | |
+
 ## 參考資料
 
 - [Amazon Leadership Principles](https://www.amazon.jobs/content/en/our-workplace/leadership-principles) — 14 條 leadership principles 是 Amazon 行為面試的骨架，其他大廠的行為面試也大量參考這個框架
 - [Chip Huyen — ML Interviews Book, Chapter 8: Behavioral](https://huyenchip.com/ml-interviews-book/) — AI Engineer 行為面試的專門章節，涵蓋 AI 倫理問題的回答策略
 - [Anthropic — Core Views on AI Safety](https://www.anthropic.com/research) — 面試 AI-native 公司前建議讀一遍，了解業界對 AI safety 的主流觀點和術語
+- [Google — Responsible AI Practices](https://ai.google/responsibility/responsible-ai-practices/) — AI 倫理面試中 bias、fairness 議題的業界標準參考，涵蓋 AI Engineer 行為面試常問的公平性設計
+- [Interviewing.io — Behavioral Interview Guide](https://interviewing.io/guides/behavioral-interview) — STAR 框架的進階運用與影響力敘事技巧，適用於 AI Engineer 行為面試的跨團隊合作故事準備

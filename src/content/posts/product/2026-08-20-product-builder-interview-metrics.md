@@ -122,8 +122,44 @@ Metrics 環節通常出現在大廠 PM 面試的 Execution round，也會穿插�
 - **用具體數字讓回答有重量。** 不要說「轉換率會提高」，說「我預期轉換率從 3% 提高到 3.5%，基於同業 benchmark 和我們目前的 UX friction」。
 - **承認不確定性。** 「這個假設需要跑兩週的 A/B test 才能驗證，目前是我基於用戶訪談的推測」——這比假裝確定更有說服力。
 
+## 面試模擬題
+
+### 題目
+
+「你負責的 SaaS 產品這個月的付費轉換率從 5% 掉到 3%，你會怎麼調查？」
+
+**來源**：Google PM Execution Round　**難度**：中等　**環節**：execution round
+
+### 拆解思路
+
+1. **先釐清問題**：這是突然掉的還是逐漸下降？是所有用戶群都掉了還是特定的？有沒有同時期做了什麼改動（定價、UI、行銷活動結束）？
+2. **建立框架**：用漏斗拆解——哪一步的轉換率掉了？是「試用→付費」掉了，還是「註冊→試用」掉了導致進入付費漏斗的用戶品質改變？
+3. **深入核心**：按維度分群拆——新用戶 vs 老用戶、管道來源、平台、地區。找到「是誰掉了」比「掉了多少」更重要。
+4. **收尾**：根據診斷結果提出 2-3 個假設，說明你會用什麼實驗來驗證，以及需要多久。
+
+### 範例回答（面試時可以這樣講）
+
+> **排除與分群。** 第一步我會先排除數據問題——確認 logging 沒有 bug、有沒有 bot 流量被計入、定義有沒有被改過。確認資料可靠之後，我會按時間軸看——是某一天突然掉的（可能是 bug 或事件），還是過去四週逐漸下降的（可能是結構性問題）。然後按三個維度拆分：用戶來源（Google Ads 用戶 vs 自然流量）、平台（iOS vs Android vs Web）、用戶類型（個人用戶 vs 團隊用戶）。
+>
+> **假設建立。** 假設我發現掉最多的是 Google Ads 來源的新用戶，那最可能的原因是廣告團隊最近改了投放策略，帶進了更多「看看就走」的低意向用戶。這種情況下「轉換率下降」不是產品問題，而是流量品質問題——解法是跟行銷團隊確認投放改動，看 CPA 和 LTV 的關係有沒有同步惡化。第二個假設是：如果所有管道都在掉，而且掉的是「試用 14 天→付費」這一步，那可能是最近的產品改動影響了 aha moment 的觸達率——我會去看 onboarding 完成率和核心功能使用率有沒有同步下降。
+>
+> **行動計畫。** 無論是哪個假設，我會在兩天內做完分群分析並確定主因。如果是流量品質，短期調整投放目標、長期建立 lead scoring 模型過濾低品質流量。如果是產品問題，先回滾最近的改動觀察恢復情況，再設計 A/B test 驗證改進方案。我會設一個每週追蹤的 dashboard，直到轉換率回到 4.5% 以上。
+
+### 自我核對清單
+
+| 核對項目 | 有提到？ |
+|---------|---------|
+| 先排除資料品質問題（logging/bot/定義） | |
+| 時間軸分析（突然掉 vs 逐漸下降） | |
+| 多維度分群（來源、平台、用戶類型） | |
+| 區分產品問題 vs 流量問題 | |
+| 提出具體假設和對應的驗證方式 | |
+| 加分：設定恢復目標和追蹤機制 | |
+
 ## 參考資料
 
 - [Lenny Rachitsky — How to Set Your North Star Metric](https://www.lennysnewsletter.com/p/what-is-a-north-star-metric) — 北極星指標的選擇邏輯，含 Spotify、Airbnb 等案例
 - [Amplitude — North Star Playbook](https://amplitude.com/books/north-star) — 從北極星指標到指標樹的完整操作手冊，面試前讀完 Chapter 2-4 即可
 - [Ronny Kohavi — Trustworthy Online Controlled Experiments](https://www.cambridge.org/core/books/trustworthy-online-controlled-experiments/D97B26382EB0EB2DC2019A7A7B518F59) — A/B testing 的權威參考，面試中提到的 novelty effect、Simpson's paradox、peeking problem 都出自這本書
+- [Mixpanel — Product Metrics Guide](https://mixpanel.com/blog/product-metrics/) — Metrics & Analytics 面試中常考的產品指標分類與漏斗分析實戰框架
+- [Exponent — Execution Interview Guide](https://www.tryexponent.com/blog/product-execution-interview) — 涵蓋 Metrics 面試中的指標樹拆解、數據解讀與 A/B testing 設計的結構化答題法

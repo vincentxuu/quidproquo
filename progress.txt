@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-19
+Last updated: 2026-08-20
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -26,58 +26,10 @@ Next steps
 5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
-- 2026-08-19: **五系列分組並逐篇對照上游翻新（73 篇 x zh/en = 146 檔）**：RAG 技法大全 45、
-  Cloudflare 邊緣技術棧 12、瀏覽器自動化與 MCP 7、NobodyClimb 專案紀實 4、AEO/GEO 5。
-  舊的 `rag-systems`（僅 6 篇、與同期未收錄的三十幾篇技法文重疊）併入 `rag-techniques`，舊 slug 留 301。
-  **schema 擴充**：新增 `additionalSeries`，一篇文章可從屬多個系列（主 `series` 仍是卡片徽章唯一來源）。
-  **這輪最大的錯：翻新未經獨立查證就 commit 並 push。** 五個寫作 agent 全部只發 idle、沒交回報，
-  我只抽看三個 diff 就發佈。被使用者問「內容有再次查證嗎」之後補跑五個乾淨 context verifier，修掉 31 項。
-  **四組的錯誤型態各不相同，這比個別錯誤更值得記**：
-  ①Cloudflare＝**把合理推論寫成「官方直接說了」**（最糟一條：官方原文是 not advised to rely on，
-  文章寫成官方保證）②Browser＝**查了但收斂太用力**（把 7 月的資安報告憑印象填成 8 月，
-  即 commit 前兩天）③AEO＝**把「我沒查到」寫成肯定句**，並**用狀態碼冒充營運確認**——
-  宣稱「逐家確認網站仍在運作」，實際兩家已收掉的公司都還回 HTTP 200
-  ④RAG＝**把多資料集自行平均後當成論文原文**（3.3×/1.9× 論文裡不存在）。
-  **查證員本身也會收斂太用力**：兩輪對 OpenAI reasoning 的 CoT 段落給出相反結論，我實抓頁面全文
-  才發現兩邊各讀一半（小標 Avoid…、內文 unnecessary、概述段 may not/can sometimes），
-  因此照第一輪誤改過一次再改回——**agent 的查證結論同樣要抽驗，不能照單全收**。
-  **可重用做法**：明確要求 agent 誠實回報覆蓋度有效——RAG 第一輪主動說「45 篇只深查 27 篇」，
-  才能派第二輪補完剩下 18 篇；否則會拿到一份假裝覆蓋全部的報告。
-  **後續共跑九輪、修 110+ 條**（commit dce1e59→d9c9bbc）。查證範圍分三階段推進，每階段的發現不同：
-  ①只驗翻新的**新增行** ②驗**原稿殘留內容**（錯誤密度明顯更高，因為那些從發文後就沒人再驗過）
-  ③補四個缺口（未驗的 code block、跨篇數字對表、假限制掃描、英文版獨立查證）。
-  **第②階段冒出兩個新型態**：**API 形狀腐爛**（翻新只改 frontmatter 的檔案，主體 code block
-  從沒被重對過文件——Cloudflare 有一篇四組方法裡兩組是壞的，`gateway().run()` 根本不存在）、
-  **上游能力擴張後舊「限制」變假**（文章寫「仍要自備 API key」，官方早已代管憑證）。
-  單一影響最大的錯是截圖 token 數：把 base64 的 KB 推成 token，錯一個數量級且複製在三處
-  （官方按 28×28 patch 計，1920×1080 是 1,560 個 visual token）。
-  **第③階段四組有三組推翻了我的假設**：我以為最可能出事的英文版，46 對只有 3 個問題且限定語
-  翻得比中文更保守；我點名的四個「假限制」高嫌疑檔三個是誤報，它們反而主動寫了「上游現在有 X」；
-  我以為沒對過文件的 code block，其實那三篇根本沒有函式庫 code（全是手刻示意），
-  **腐化面積被寫法本身壓住了**。真正的弱點不在 benchmark 數字（抽查全中）而在**值域與引用元資料**：
-  「分數範圍 0.0–1.0」複製到 6 處且與同系列專篇正面衝突、同一份 survey 年份 16:16 對半分裂。
-  **教訓**：①**先驗新增行、再驗原稿殘留**，後者才是主要風險區；②zh/en 機器化數字對表證實翻譯忠實，
-  但這也代表**錯誤自動加倍**，一律成對修；③**我自己也越界過一次**——補回連的 regex 動到 23 個範圍外
-  檔案（雖然改對了格式），已還原；跨 session 期間任何 repo-wide 的 sed/regex 都要先框好檔案清單。
-- 2026-08-19: **各廠「怎麼選」4 篇 x zh/en 寫完**（order 21-24）。三處官方自相矛盾與
-  「死連結檢查會被自己的並行寫法週期性觸發」的協作教訓見 progress-archive.md。
-  系列只剩 AWS MLA-C01（等 9/1 的 C02 規格）。
-- 2026-08-19: **Agent CLI 選型指南 14 → 22 篇**；我寫的是 omp（Oh My Pi）zh/en，
-  另一 session 同時補了 Aider／Copilot CLI／Amp／Claw Code／goose／Warp 六篇並收編 Antigravity 專文。
-  **這輪的教訓跟 8/18 同源，但換了個面孔：使用者貼來的既有整理也是二手摘要，不是來源。**
-  實抓一手資料後修掉兩處判斷失真——①把 omp 說成「差在外掛的那一大包」，實際它多 80k 行 Rust、
-  是工具層重寫（TS 8.5MB/C 10KB → TS 50MB/Rust 5.2MB）②把 pi 的比較表空欄讀成「還沒做」，
-  實際 README 有 Philosophy 段逐條明說拒絕（No MCP／sub-agents／plan mode／權限彈窗…）。
-  **可重用的三條**：上游 repo 會搬家（`badlogic/pi-mono` → `earendil-works/pi`，301 但舊名已過期）；
-  **專案自家文件也會自相矛盾**（omp 內建 CLI utility 數量 README 寫 58、工具說明寫 46、
-  crate 表寫 67——引 crate 表並標不確定）；**npmjs.com 對 curl 回 403 是反爬蟲**，
-  跟 8/18 記的 iso.org 同型，要改用 registry API 確認而不是判定死連結。
-  **協作有效**：只 stage 自己的四個檔、不碰對方 WIP；對方看到我的 order 15 主動繞開，中英無重號。
-  我的 commit 被對方的 push 一起帶上 main，不必自己再推。
-  **另一 session 的三條**：①**自己設的上限不能當完整清單**——盤點加 `head -50` 漏掉既有 Antigravity
-  專文，把 Gemini CLI 篇改寫成重複內容；②**事實對、框架錯也是錯**：「仍是可用產品」對企業成立，
-  但多數讀者是個人、個人入口已整條刪除；③**二手一致不等於正確**（Amp 三篇評測都說「沒訂閱」，
-  官方 7/18 已推出）；OpenCode 三處全錯同源於與同名早期 Go 專案混淆（語言／授權／repo 位置）。
+- 2026-08-20: **面試準備系列完工**：AI Engineer 面試準備 10 篇 + Product Builder 面試準備 10 篇（共 20 篇 zh-TW），
+  每日面試日練 routine 2 個（Routine N/O，台灣 2:39/2:43），`/interview` 頁面 + nav 連結 + daily channel filter。
+  日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
+- 2026-08-19: 五系列翻新 146 檔 + 各廠怎麼選 4 篇 + Agent CLI 14→22 篇。細節見 progress-archive.md。
 （已完成的條目移到 docs/progress-archive.md）
 
 Notes
