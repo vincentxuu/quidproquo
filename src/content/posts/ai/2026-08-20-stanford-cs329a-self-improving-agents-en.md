@@ -1,61 +1,85 @@
 ---
-title: "Stanford CS329A: A Course Built Around One Gap — Models Can Produce the Right Answer, but Can't Tell Which One It Is"
+title: "Stanford CS329A: A Course on Self-Improvement That Says Out Loud What It Can't Improve"
 date: 2026-08-20
 category: ai
 type: deep-dive
 tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: en
-tldr: "CS329A doesn't teach agent frameworks. It teaches the generation–verification gap: a model's chance of producing a correct answer far exceeds its chance of recognizing which one is correct. All 34 assigned papers hang off that thread, and 10 of them are the instructor's own. Nine lectures are public — out of twenty. None of the five guest lectures made it out."
-description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents — the course's central argument, how its 34-paper reading list is grouped, what got cut between the two offerings, the five public student projects, and exactly what a self-learner can and cannot get."
+tldr: "CS329A is built around the generation–verification gap: models can produce the right answer but can't tell which one it is. The conclusion the course draws about itself matters more — today's methods make models more consistent, not smarter. Nine lectures are public, out of twenty."
+description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents, written after watching all nine public lectures — the central argument, how the 34-paper reading list is grouped, the narrow band where self-improvement actually works, the syllabus diff between the two offerings, and what a self-learner really gets."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
-[CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) is a three-unit graduate seminar in Stanford's CS department about what happens to a model *after* it ships — how it keeps getting better. It doesn't teach LangGraph. It doesn't teach CrewAI. Not one session of the quarter is about wiring frameworks together.
+[CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) is a three-unit graduate seminar in Stanford's CS department about what happens to a model *after* it ships. It doesn't teach LangGraph. It doesn't teach CrewAI. Not one session of the quarter is about wiring frameworks together.
 
-What it teaches is a gap.
+It teaches a gap — and then, in its final lecture, says plainly how much of that gap current methods actually close.
 
-This piece covers the course itself: what it argues, how the 34 assigned papers are grouped, what changed between its two offerings, and how much of it someone outside Stanford can actually get. It does **not** do a paper-by-paper close reading — that's a different project entirely.
+This piece was written after watching all nine public lectures. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
 
 ## The hard facts
 
 Two instructors. [Aakanksha Chowdhery](https://www.achowdhery.com/) led the 540B PaLM model at Google, then drove pre-training and scaling for Gemini's MoE models; she's now at Reflection AI. [Azalia Mirhoseini](http://azaliamirhoseini.com/) is a Stanford assistant professor and director of the [Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/), co-creator of MoE architectures and AlphaChip, previously at Google Brain, Anthropic and Google DeepMind.
 
-The course has run twice: first in Winter 2025, then again in Autumn 2025 with 99 students enrolled. **The next offering is Winter 2026–2027**, already listed in Stanford's ExploreCourses. Note that the Stanford Online course page is stale — it still shows the 2025 autumn dates and says winter is not offered. Don't treat it as current.
+The course has run twice: Winter 2025 first, then Autumn 2025 with 99 students. **The next offering is Winter 2026–2027**, already listed in Stanford's ExploreCourses. The Stanford Online course page is stale — it still shows the 2025 autumn dates and says winter is not offered.
 
-The prerequisites are real, not decorative: CS224N or CS229S, fluent Python, and hands-on experience calling LLM APIs. **Auditing is not allowed.**
+The prerequisites are real: CS224N or CS229S, fluent Python, and hands-on experience calling LLM APIs. **Auditing is not allowed.**
 
 ## The whole course chases one gap
 
-Lecture 2 sets up the problem. The [Large Language Monkeys](https://arxiv.org/abs/2407.21787) line of work (arXiv:2407.21787) found that if you sample the same model repeatedly on one problem, the fraction of problems it solves at least once climbs with sample count following a power law. The model *does* know the answer. It just doesn't produce it on the first draw.
+Lecture 2 sets the problem up. The [Large Language Monkeys](https://arxiv.org/abs/2407.21787) line of work (arXiv:2407.21787) found that sampling one model repeatedly on a single problem makes the fraction solved at least once climb along a power law. Mirhoseini's framing in class:
 
-The problem is picking the right one out of a hundred candidates.
+> "It just seems like the models and smaller models already know the answers to these hard problems, and just by doing this repeated sampling, we are eliciting and surfacing those answers. It's just they just don't tell us that in the first trial."
 
-Mirhoseini opens Lecture 3 by naming it directly:
+The problem is picking the right one out of a hundred candidates. The same lecture gives the gap its name: plot what majority voting and reward-model ranking actually achieve against what a perfect verifier would achieve, and the distance between those two curves is the **generation–verification gap**.
 
-> "Language model seems to know the answer to many of the hard questions, and especially with methods such as repeated sampling, or other scaling test time techniques, they can generate one. But a question is, how can we automatically select which answer is correct, or guide the model throughout the process of answer generation?"
+Why can't majority voting close it? Because on the hardest problems, the correct answer might show up only two or three times across a thousand — or ten thousand — samples. **They're correct, but they're the minority.** A vote doesn't find them.
 
-That's the generation–verification gap. Everything that follows is an attempt to fill in the second half: verifiers are "how do we recognize a correct answer," reward models are "how do we turn that recognition into a training signal," RL is "how do we feed the signal back into the weights" — and the long-horizon evaluation lecture argues we haven't even solved *knowing whether the task got done*.
+So every lecture that follows fills in the second half: verifiers are "how do we recognize a correct answer," reward models are "how do we turn recognition into a training signal," RL is "how do we feed the signal back into the weights." The framing earns its keep as a measuring stick — **next time you evaluate an agent technique, ask whether it improves the generation side or the verification side.** Generation-side work runs into a verification ceiling. Only verification-side work raises it.
 
-The framing earns its keep by collapsing a pile of seemingly unrelated techniques into one coordinate system. **Next time you evaluate an agent technique, ask first whether it's improving the generation side or the verification side.** Generation-side improvements — bigger models, more samples, longer thinking — run into a verification ceiling. Only verification-side work raises the ceiling.
+## But the course says it plainly: more consistent, not smarter
 
-Lecture 3 closes on [Weaver](https://arxiv.org/abs/2506.18203) (arXiv:2506.18203), out of Mirhoseini's own lab: instead of training one strong verifier, combine a pile of weak ones (LLM judges, reward models) with learned weights. A mid-sized open model as generator, paired with an ensemble of same-tier verifiers, reaches o3-mini-level average accuracy — and o3-mini got there through extensive post-training. (Exact figures and their comparison conditions are in the appendix.)
+After covering STaR, DeepSeekMath and DAPO in Lecture 6, Chowdhery draws a conclusion. It is the most honest thing in the course and the least likely to appear in any secondhand summary:
 
-The lecture also covers a follow-up that matters more for engineers: distill the whole verifier ensemble into a single 400M cross-encoder, and accuracy barely moves. The instructor added, on the spot:
+> "All three techniques will improve, in general, the majority-at-K performance... The answer formatting generally will improve. And in general, the model will be more coherent over multiple steps. But none of these will yet improve the fundamental capability, or just teach the model to solve new problems, or generalize a lot out of domain."
 
-> "And these distilled version, and the original version — they're all open-sourced, and the checkpoints are available, if any of you are interested in working with them in your agentic or test-time scaling projects."
+Concretely, on DeepSeekMath: sampling 32 times, majority@K went up and **pass@K did not**. Her words: "the model actually became more consistent, not fundamentally smarter."
 
-**That's the part you can act on tonight.** If your best-of-N selection logic is still majority voting, drop Weaver's distilled checkpoint in as a reranker and run an A/B. Majority voting is exactly the baseline the lecture compares against, and it loses badly.
+The course lists "why does only majority@K increase, and pass@K doesn't" as the field's first open problem. Even the backtracking and self-correction behaviors demonstrated in class get a question mark: are those genuinely emerging, or were they always there and merely becoming statistically more frequent?
+
+**If you're evaluating anyone's "self-improving" claims, this is the stick to measure with.** Consistency gains are real, measurable and commercially valuable — but they are a different thing from a model learning something it couldn't do, and only the first has been demonstrated.
+
+## Self-improvement only happens in a narrow band
+
+The same constraint shows up in three guises across three lectures. It's the most practically useful pattern in the course.
+
+**In STaR (Lecture 6):** the model learns from problems it got right. If a batch is far beyond its ability, nothing is correct and there's nothing to learn from. In the other direction, Chowdhery notes that adding rationalization on GSM8K barely helped — forcing reasoning onto a problem already well within the model's range doesn't buy anything.
+
+**In GRPO and DAPO (Lecture 6):** GRPO computes its advantage from the mean and standard deviation of rewards across a group of sampled answers. If every answer in a group is right, or every one is wrong, the standard deviation is zero and the normalization dies. Chowdhery states it flatly: **"If there is not a distribution of rewards, there is nothing for the model to learn."** DAPO's fix is to oversample and then throw away the all-correct and all-wrong groups entirely, keeping only the ones carrying signal.
+
+**In Absolute Zero (Lecture 9):** the model proposes its own tasks. The proposer's reward is zero when the solver's success rate is zero, and otherwise one minus the average success rate. The system is **explicitly rewarded for generating problems the solver sometimes solves and sometimes fails.**
+
+Three levels, one principle: self-improvement happens only at the edge of what the model can already do. Too easy and there's nothing to learn; too hard and there's no signal. It also explains why this works in math and code and struggles everywhere else.
+
+## The real gate isn't verifiability — it's verification latency
+
+In Lecture 9's Q&A, Mirhoseini gives a criterion far sharper than "verifiable vs. non-verifiable domains":
+
+> "In RL fine-tuning, or in test-time scaling, we need these verifiers to be almost instant, or we can wait a little bit. Maybe we can wait minutes. Maybe we can allow one hour. But in this RL training route, we need like hundreds or thousands of steps of iteration — we can't wait like days, or someone human in the loop to collect the reward for us."
+
+By that measure the excluded set isn't just subjective work. Scientific discovery, chip design where one simulation runs for days, chemistry that needs an actual wet lab — these are **perfectly verifiable in principle**. They're just too slow, so the loop won't turn.
+
+The workaround offered in class is to train a reward model that predicts the simulation's outcome instead of running it. The cost is stated openly: that reward model's generality is a function of how much offline data you have, and when it's wrong it drags the whole loop off course.
 
 ## How the 34 papers are grouped
 
-Ten lectures carry assigned readings — 34 papers total, and the ordering is itself the argument:
+Ten lectures carry assigned readings — 34 papers, and the ordering is itself the argument:
 
 | Lecture | Topic | Representative papers |
 |---|---|---|
 | 2 | Test-Time Compute Scaling | Large Language Monkeys, [Archon](https://arxiv.org/abs/2409.15254) |
-| 3 | Robust Verification | Weaver, [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) |
+| 3 | Robust Verification | [Weaver](https://arxiv.org/abs/2506.18203), [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) |
 | 4 | Learning from tool and code feedback | [ReAct](https://arxiv.org/abs/2210.03629), [RLEF](https://arxiv.org/abs/2410.02089), [Constitutional AI](https://arxiv.org/abs/2212.08073) |
 | 5 | Multi-step reasoning and planning | [SWiRL](https://arxiv.org/abs/2504.04736), [LATS](https://arxiv.org/abs/2310.04406), [SPRINT](https://arxiv.org/abs/2506.05745) |
 | 6 | Train-Time Scaling / Scaling RL | [STaR](https://arxiv.org/abs/2203.14465), [DeepSeekMath](https://arxiv.org/abs/2402.03300), [DAPO](https://arxiv.org/abs/2503.14476) |
@@ -65,71 +89,81 @@ Ten lectures carry assigned readings — 34 papers total, and the ordering is it
 | 14 | Giving agents memory | [Cartridges](https://arxiv.org/abs/2506.06266), [MemGPT](https://arxiv.org/abs/2310.08560), [CacheBlend](https://arxiv.org/abs/2405.16444) |
 | 17 | Agentic evaluation and long-horizon tasks | [METR](https://arxiv.org/abs/2503.14499), [GDPval](https://arxiv.org/abs/2510.04374), [DeepScholar-Bench](https://arxiv.org/abs/2508.20033) |
 
-The last lecture's reading deserves singling out. [DeepScholar-Bench](https://arxiv.org/abs/2508.20033) (arXiv:2508.20033) asks systems to write the related-work section of a paper, drawing queries from recent arXiv papers to dodge contamination. The authors' finding: **no system exceeds a score of 19% across all metrics.**
+Three results from the recordings are worth more than the abstracts.
 
-That number lands hard in 2026. "Deep research" products are everywhere, but score them on knowledge synthesis, retrieval quality and verifiability and every one of them sits far below passing.
+**Archon's fusion beats oracle selection.** Hand all K candidates to a model and ask it to synthesize one new answer, and it outperforms even a perfect verifier picking the single best of the K. Selection is capped by the best candidate present; synthesis isn't. **If your best-of-N still picks one, try having the model read all of them and rewrite instead.**
 
-**If you build research agents, here's tonight's exercise.** Take verifiability — one of the three axes — pull ten recent reports your system produced, and go claim by claim marking which ones are actually supported by the source cited next to them. The fraction you can't mark is your starting point, and it will probably look worse than you expect.
+**SWiRL found process-filtered data beats outcome-filtered data.** Keeping trajectories whose reasoning steps were judged good — even when the final answer was wrong — trains better than keeping only trajectories that ended correct. The explanation given in class: if you only feed the model what it already gets right, you aren't teaching it to solve anything new. The rule inverts for supervised fine-tuning, which prefers outcome-filtered data because it's imitation learning.
+
+**DeepScholar-Bench: no system exceeds 19% across all metrics.** That lands hard in 2026, with "deep research" products everywhere. **If you build research agents, here's tonight's exercise:** take verifiability, pull ten recent reports your system produced, and mark claim by claim which are actually supported by the source cited beside them. The fraction you can't mark is your starting point.
 
 ## What the second offering cut
 
 Put the two syllabi side by side and the diff is the most informative thing about this course.
 
-**The format changed.** The first offering was a real seminar: small classroom, students took turns presenting papers, weekly discussion questions due before class — those two together were a quarter of the grade.
+**The format changed.** The first offering was a real seminar: small classroom, students presenting papers in turn, weekly discussion questions — a quarter of the grade between them.
 
-The second offering moved into a lecture hall seating over a hundred. Both of those were **dropped entirely**, and homework went from two assignments to three, now carrying a full half of the grade. On the subject of class size, the first lecture was understated: "because the class is big this quarter, we really can't make any exceptions."
+The second moved into a lecture hall seating over a hundred. Both were **dropped entirely**, and homework went from two assignments to three, now a full half of the grade. On class size, the first lecture was understated: "because the class is big this quarter, we really can't make any exceptions."
 
-**The content turned over too.** Cut: the AutoGen agent-orchestration lecture, the entire GUI and computer-use session, the benchmark tour running from SWE-bench through τ-bench to GAIA, and Toolformer. Added: a dedicated RL lecture built on DeepSeekMath and DAPO, plus Weaver, SPRINT, AlphaEvolve, the Cartridges/CacheBlend memory-systems session, and a full lecture on long-horizon evaluation.
+**The content turned over too.** Cut: the AutoGen orchestration lecture, the entire GUI and computer-use session, the benchmark tour from SWE-bench through τ-bench to GAIA, and Toolformer. Added: a dedicated RL lecture on DeepSeekMath and DAPO, plus Weaver, SPRINT, AlphaEvolve, the Cartridges/CacheBlend memory session, and a full lecture on long-horizon evaluation.
 
-The direction is unambiguous: **from "which frameworks and benchmarks exist" to "how do you feed signal back into the weights, and how do you measure long tasks."** The framework side was almost entirely cleared out. If you're weighing which orchestration framework deserves your study time, this course answered that question across an eight-month gap.
+The direction is unambiguous: **from "which frameworks and benchmarks exist" to "how do you feed signal back into the weights, and how do you measure long tasks."** The framework side was almost entirely cleared out.
 
-## Projects must be research, not artifacts
+## What the homework and projects actually are
 
-Half the grade is the project. Mirhoseini spells out the acceptable shapes in Lecture 1: a new evaluation dataset or benchmark, a reliability study of an existing agentic system, hill-climbing an existing benchmark, or questioning a design decision from one of the assigned papers and changing it.
+The course site doesn't publish assignments, but three lectures mention them and the picture assembles:
 
-What isn't accepted is equally blunt: survey papers, and "just an app you put together and show us."
+- **Homework 1**: evaluate majority voting on AIME 2024/2025, then compare other ways of combining and error-checking model outputs.
+- **Homework 2**: HumanEval, repeated sampling and pass@k.
+- **Homework 3**: deep research agents, matching the Search-o1 thread from Lecture 8. Chowdhery explicitly encourages students to try agentic RAG variants there.
 
-This isn't boilerplate. There's an easy-to-miss [Past Projects page](https://cs329a.stanford.edu/pastprojects.html) in the course site's nav, publishing five Winter 2025 student project PDFs — one per acceptable shape, as it happens. The most interesting is a negative result:
+Projects are the other half of the grade. The acceptable shapes, stated in Lecture 1: a new evaluation dataset or benchmark, a reliability study of an existing agentic system, hill-climbing an existing benchmark, or questioning a design decision from an assigned paper and changing it. What isn't accepted: survey papers, and "just an app you put together and show us."
+
+That isn't boilerplate. There's an easy-to-miss [Past Projects page](https://cs329a.stanford.edu/pastprojects.html) in the site's nav publishing five Winter 2025 student PDFs — one per acceptable shape. The most interesting is a negative result:
 
 > "We find that only in a few cases — specifically, two datasets — the overall cost of designing and deploying the agents is lower than that of human-designed agents when deployed on over 15,000 examples. In contrast, the performance gains for other datasets do not justify the design cost, regardless of scale."
 
-The same paper found that letting a meta-agent learn by stuffing every previous design into its context performs **worse than ignoring prior designs entirely**. Another team took Archon — the instructor's own lab's system — and went at it with added components. That students are allowed to attack the house papers is itself part of the course's stance.
+The same paper found that letting a meta-agent learn by stuffing every previous design into its context performs **worse than ignoring prior designs entirely**. Another team took Archon — the instructor's own lab's system — and went at it with added components. That students are allowed to attack the house papers is part of the course's stance.
 
 ## Ten of the assigned papers are the instructor's own
 
-Check all 34 assigned readings against the Scaling Intelligence Lab publication list and Mirhoseini is an author on ten: Large Language Monkeys, Archon, the Monkeys power-law follow-up, Weaver, Constitutional AI, SWiRL, SPRINT, CodeMonkeys, KernelBench, and Cartridges.
+Check the 34 readings against the Scaling Intelligence Lab publication list and Mirhoseini is an author on ten: Large Language Monkeys, Archon, the Monkeys power-law follow-up, Weaver, Constitutional AI, SWiRL, SPRINT, CodeMonkeys, KernelBench, Cartridges.
 
-How to read that depends on what you came for. Research seminars teaching their own work is normal, and her lab genuinely is one of the primary producers on this topic. But be clear that **you're getting the best version of one specific research agenda, not a survey of the field** — the list has almost no GUI agents, no multi-agent communication protocols, no production observability.
+How to read that depends on what you came for. Research seminars teaching their own work is normal, and her lab genuinely is a primary producer here. In the recordings she's noticeably more concrete on her own papers — which assumption is load-bearing, which step turned out to matter only in hindsight. But be clear that **you're getting the best version of one research agenda, not a survey**: the list has almost no GUI agents, no multi-agent protocols, no production observability.
 
-The thread continues outside the classroom. In late 2025, Mirhoseini co-founded [Ricursive Intelligence](https://www.ricursive.com/) with Anna Goldie, built on exactly this idea of recursive self-improvement — AI designs chips, those chips train better AI — and the Series A the following month valued it at $4 billion. **This course's worldview isn't an academic thought experiment. It's a roadmap somebody is betting real money on.**
+The thread continues outside the classroom. In late 2025 Mirhoseini co-founded [Ricursive Intelligence](https://www.ricursive.com/) with Anna Goldie, built on exactly this recursive premise — AI designs chips, those chips train better AI — and the Series A the following month valued it at $4 billion. **This worldview isn't an academic thought experiment. It's a roadmap somebody is betting real money on.**
 
 ## What self-learners can and cannot get
 
-Stanford Online published the recordings in August 2026, free and without enrollment. But there are **only nine**, against a twenty-session schedule.
+Stanford Online published the recordings in August 2026, free and without enrollment. But there are **only nine**, against a twenty-session schedule. Each runs roughly 70 to 75 minutes — about 11 hours for the set.
 
-Available: course overview, test-time scaling, robust verification, learning from feedback, multi-step reasoning, RL, deep research agents, long-horizon evaluation, and future directions. Each runs roughly 70 to 75 minutes — about 11 hours for the set.
+They're worth watching, and the reason isn't the slides — it's the Q&A. Students push back in the room, and the instructors concede. When one points out that a chart's training curve sits suspiciously below its inference curve, Chowdhery's answer is: "Something suspicious is going on, OK? I copied the plot. So the graphs are not always right, as you might know from their latest release." When another argues that self-improving a small model is worse practice than distilling from a large one, she grants the point. **None of that appears in a paper abstract, and none of it appears on an AI-generated course summary site.**
 
-Not available: the memory lecture, the open-ended evolution lecture, the software-engineering agents lecture, and **all five guest lectures** — Denny Zhou on LLM reasoning, Thang Luong on AlphaProof and Gemini's IMO gold medal, Misha Laskin on autonomous agent systems, Danny Driess on robotics. The guests are the hardest part of this course to reproduce on your own, and not one of them made it out. Slides didn't either; they live in Canvas.
+Not available: the memory lecture, the open-ended evolution lecture, the software-engineering agents lecture, and **all five guest lectures** — Denny Zhou on LLM reasoning, Thang Luong on AlphaProof and Gemini's IMO gold, Misha Laskin on autonomous agent systems, Danny Driess on robotics. The guests are the hardest part to reproduce on your own, and not one made it out. Slides didn't either; they live in Canvas.
 
-Recordings from the first offering are scattered on other channels and don't overlap at all: Jeff Clune on open-ended agent learning, Michele Catasta (president of Replit) on coding agents, Chi Wang on AutoGen. None of those have a counterpart in the second offering, which makes them genuinely exclusive.
+Recordings from the first offering sit on other channels and don't overlap: Jeff Clune on open-ended agent learning, Michele Catasta (president of Replit) on coding agents, Chi Wang on AutoGen. None have a counterpart in the second offering.
 
-One warning: the existing secondhand write-ups already have it wrong. One course-aggregator page states this course has no public recordings. An AI-generated summary site lists the teaching term as autumn 2026 — that's when the videos went up, not when the class ran. **Go to the papers for numbers. Don't cite summary sites.**
+One warning: the secondhand write-ups already have it wrong. A course-aggregator page states this course has no public recordings. An AI-generated summary site lists the teaching term as autumn 2026 — that's when the videos went up, not when the class ran. **Go to the papers or the recordings for numbers. Don't cite summary sites.**
 
 ## The trade
 
 What you get is a coordinate system with real internal logic, plus a reading list curated by people doing the work. What you pay is that it's partial, not neutral, and mostly not public.
 
-For a self-learner the practical move is to **treat the syllabus as a reading map and the nine recordings as a guided tour** — not to expect a complete online course. The scarce thing was never the 34 papers; they're all on arXiv. The scarce thing is *which* 34, how they're grouped, and which ones made the first offering only to get cut from the second.
+But the thing most worth carrying away is a qualifier. A whole quarter on making models improve themselves ends with the instructors saying, out loud, that today's methods make models more consistent, more coherent and better formatted — **and not yet smarter**. Coming from two people who have trained frontier models end to end, that carries more weight than any outside critique.
 
-If you only have an afternoon, watch Lecture 3 (Robust Verification) and Lecture 8 (Agentic Evaluations). One is about recognizing a correct answer; the other is about how badly we still measure "correct." The head and the tail of the whole thing.
+For a self-learner the practical move is to **treat the syllabus as a reading map and the nine recordings as a guided tour**. The scarce thing was never the 34 papers; they're all on arXiv. It's which 34, how they're grouped, and what the instructors admitted under questioning.
+
+If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and Lecture 6 (Train-Time Scaling / Scaling RL). One opens the gap; the other says how far it's been closed.
 
 ## Appendix: comparison conditions for the numbers above
 
-- **Weaver's 87.7%**: generator is Llama 3.3 70B Instruct, verifiers are an ensemble of judges and reward models at 70B or smaller, and the figure is an average across several reasoning and math tasks. The paper's stated comparison points are GPT-4o at 69.0% and o3-mini at 86.7%.
-- **The distilled model's 98.7%**: the share of the full ensemble's accuracy retained after distilling from the 70B tier down to 400M. The lecture said "about 97%" out loud; the paper's figure is used here.
-- **DeepScholar-Bench's 19%**: means no system exceeded a score of 19 across *all* metrics, the three axes being knowledge synthesis, retrieval quality and verifiability.
-- **METR's time horizon**: the v4 paper is now titled *Measuring AI Ability to Complete Long **Software** Tasks*. It measures the human-completion time of tasks a model finishes with 50% success, over a task set of RE-Bench, HCAST and 66 novel shorter tasks. The authors add their own external-validity caveat in the abstract. The syllabus still links it under the older title.
-- **GDPval**: covers 44 occupations across the top nine sectors of US GDP, with tasks built from professionals averaging 14 years of experience; the open-sourced gold subset is 220 tasks.
+- **Weaver's 87.7%**: generator is Llama 3.3 70B Instruct, verifiers an ensemble of judges and reward models at 70B or smaller, averaged across several reasoning and math tasks. The paper's comparison points are GPT-4o at 69.0% and o3-mini at 86.7%. Distilling to a 400M cross-encoder retains 98.7% of accuracy (the lecture said "about 97%"; the paper's figure is used here).
+- **DeepScholar-Bench's 19%**: no system exceeded a score of 19 across *all* metrics, the three axes being knowledge synthesis, retrieval quality and verifiability.
+- **DeepSeekMath's majority@K vs pass@K**: the lecture describes a 32-sample setting where majority@K rose and pass@K did not.
+- **DAPO's ablation**: on Qwen-32B against AIME, a GRPO baseline near 30 climbs to roughly 50 as overlong filtering, asymmetric clipping, soft overlong punishment, token-level loss and dynamic sampling are added. This is the ladder as narrated in the lecture, not a cell-by-cell transcription of the paper's table.
+- **METR's time horizon**: the v4 paper is titled *Measuring AI Ability to Complete Long **Software** Tasks*. It measures the human-completion time of tasks a model finishes with 50% success, over RE-Bench, HCAST and 66 novel shorter tasks; the abstract's frontier figure is o3 at around 110 minutes. The lecture also covers the 80%-reliability comparison, but that lecture's transcript could not be retrieved — only the official video description.
+- **GDPval**: 44 occupations across the top nine sectors of US GDP, tasks from professionals averaging 14 years of experience, with an open-sourced gold subset of 220 tasks. The official video description gives a win-rate range from GPT-4o at 12.4% to Claude Opus 4.1 at 47.6%.
+- **Intelligence per Watt's 5.3×**: the improvement in intelligence per watt from 2023 to 2025, decomposed in the lecture as 3.1× from models and 1.7× from hardware. The frequently conflated 88.7% is a *query coverage* figure — the share of queries at least one local model (≤20B active parameters) answers correctly — and is a separate measurement.
 
 ## References
 
@@ -137,6 +171,9 @@ If you only have an afternoon, watch Lecture 3 (Robust Verification) and Lecture
 - [CS329A Past Projects (Winter 2025 student work)](https://cs329a.stanford.edu/pastprojects.html)
 - [CS329A Winter 2025 syllabus (Wayback Machine snapshot)](https://web.archive.org/web/20250221002318/https://cs329a.stanford.edu/)
 - [CS329A lecture playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLangBM27OtEA)
+- [Lecture 2: Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)
+- [Lecture 6: Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)
+- [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 - [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
 - [Stanford Online: CS329A course page (SCPD non-degree entry)](https://online.stanford.edu/courses/cs329a-self-improving-ai-agents)
 - [Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers](https://arxiv.org/abs/2506.18203)
