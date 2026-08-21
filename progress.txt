@@ -18,12 +18,15 @@ In progress
   then verify the production Groq-to-Cloudflare fallback path.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
-- **「AI 時代的技術選擇」系列 7 篇 x zh/en 完成**（tech；order 1-7：選型總覽、AI Elements、
-  TanStack Router、AI SDK message parts、Zod、shadcn registry+MCP、llms.txt——末篇
-  additionalSeries 掛 AEO/GEO order 6）。全部過乾淨 context 查證（五個 verifier 共修 15+ 條：
-  元件清單過時、npm 數字兩天漂 24%、「registry 綁定 React」與官方 universal items 矛盾、
-  Zod 範例用 v4 棄用寫法、「年輕三歲」實為近十年）。系列名應使用者要求泛化，
-  之後後端等選型文可掛入。候選續篇：WebMCP、TanStack Start、查證 workflow、npm 數據陷阱。
+- **「AI 時代的技術選擇」系列 order 0-8 x zh/en 完成**（tech）。order 1-7 已發（選型總覽、
+  AI Elements、TanStack Router、AI SDK message parts、Zod、shadcn registry+MCP、llms.txt）；
+  新增 order 8 WebMCP 與 order 0 導讀。**導讀的主判準經使用者更正過**：語料存量是採用度的
+  下游，AI 讓「選多人用的」更強而非更弱，其餘五條判準降級成「採用度相近時分勝負／估算選
+  冷門的代價」。導讀含 40 層的後續 roadmap（agent 框架、RAG 框架、GPU 雲、抓取搜尋、資安、
+  訊息佇列等），逐層對照過站上 435 篇的實際覆蓋。已查證：MAF 2026-04-02 GA 收編微軟自家
+  AutoGen（autogen-agentchat 停在 2025-09-30），AG2 未合併且握有 `autogen` 套件名；
+  WebKit 對 WebMCP 表態 oppose、Mozilla neutral。
+  下一篇候選：MAF、LlamaIndex、vLLM、Exa／Pagefind（站上天天用卻零專文）。
 Next steps
 1. Finish and verify the Qwen3 embedding rollout.
 2. Backfill missing post `type` and `tldr` fields.
