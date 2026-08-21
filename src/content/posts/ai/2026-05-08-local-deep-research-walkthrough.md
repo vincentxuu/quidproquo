@@ -6,7 +6,7 @@ tags: [rag, agent, langgraph, deep-research, local-llm, langchain]
 lang: zh-TW
 series:
   name: "搜尋與爬取實戰"
-  order: 5
+  order: 6
 type: guide
 tldr: "Local Deep Research 是個本地優先、隱私導向的深度研究 Agent，用 LangChain + LangGraph 串起 20+ 搜尋引擎和 30+ 種研究策略，旗艦的 langgraph_agent_strategy 走 LLM 自主 tool-calling 路線，跟固定流程的 RAG graph 是兩種思路。"
 description: "導讀 LearningCircuit/local-deep-research：定位、架構、目錄地圖、30+ 種研究策略，以及跟一般 RAG 的差異。"

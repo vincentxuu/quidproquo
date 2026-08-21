@@ -139,6 +139,8 @@ Whether self-hosting pays off depends on which motivation you actually have:
 - **Your data cannot leave** → self-hosted search will not save you, because the queries still reach the upstream engines. Index your own corpus instead.
 - **You need to beat hard anti-bot targets and want an SLA** → pay. Exa Enterprise's ZDR plus a DPA covers most compliance requirements, whereas self-hosting means owning the proxy and blocking problems yourself.
 
+If you decide to build it, the next post is the step-by-step: [SearXNG + Crawl4AI, from zero to Claude Code](/posts/ai/2026-08-21-searxng-crawl4ai-setup-en).
+
 The trade-off in one line: **you can own the interface and you can own the fetching, but you cannot own the index.** Work out which layer you actually need before starting that docker compose.
 
 The next post returns to the tools themselves — how to choose among [34 open-source scrapers](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en); wiring all of it into a full research pipeline is covered in [the Local Deep Research walkthrough](/posts/ai/2026-05-08-local-deep-research-walkthrough-en).

@@ -7,7 +7,7 @@ tags: [cloudflare, anti-bot, playwright, nodriver, stealth, mcp, ai-agent, web-s
 lang: zh-TW
 series:
   name: "搜尋與爬取實戰"
-  order: 4
+  order: 5
 tldr: "標準 Playwright 無法通過 Cloudflare 驗證。playwright-extra + stealth 和 nodriver 都能繞過，最終包成 MCP server 讓 AI agent 自動使用。"
 description: "實測三種方案繞過 Cloudflare 反爬蟲：原生 Playwright（失敗）、playwright-extra + stealth（通過）、nodriver（1 秒通過）。並將 stealth 方案包成 MCP server，讓 Claude Code 等 AI agent 在遇到 Cloudflare 時自動切換使用。"
 draft: false

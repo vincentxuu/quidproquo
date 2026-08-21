@@ -7,7 +7,7 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: en
 series:
   name: "Search and Scraping in Practice"
-  order: 3
+  order: 4
 tldr: "From MarkItDown (175k stars, MIT) to curl_cffi (6k stars), a survey of 34 open-source tools for feeding data to AI. Categorized along five axes: whole-site crawling, AI browser agents, document conversion, smart extraction, and anti-detection infrastructure. The key to selection isn't which tool is best — it's scenario matching."
 description: "A selection guide for 34 AI web scraping and data extraction open-source tools: whole-site crawlers (Firecrawl, Crawl4AI), AI browser agents (Browser-Use, Stagehand), document converters (MarkItDown, MinerU), smart extractors (Scrapling, ScrapeGraphAI), and anti-detection infrastructure (curl_cffi). Includes GitHub API-verified star counts and licenses."
 draft: false

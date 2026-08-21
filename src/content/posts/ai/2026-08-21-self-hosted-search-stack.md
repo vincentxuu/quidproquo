@@ -139,6 +139,8 @@ Exa 真正的差異不在 API 形狀，而在它有自己爬的索引、用 embe
 - **資料不能外流** → 自架搜尋救不了你，因為查詢還是會到上游引擎。該做的是對自己的語料建索引。
 - **要打難搞的反爬站台、要穩定 SLA** → 老實付錢。Exa Enterprise 的 ZDR + DPA 對多數合規要求已經夠用，自架反而要自己扛 proxy 與封鎖。
 
+決定要架的話，下一篇是可以照著做的步驟：[SearXNG + Crawl4AI 從零到接進 Claude Code](/posts/ai/2026-08-21-searxng-crawl4ai-setup)。
+
 一句話總結這篇的取捨：**你可以擁有介面，可以擁有抓取，但擁有不了那個索引。** 想清楚自己要的是哪一層，再決定要不要開這個 docker compose。
 
 下一篇回到工具本身，看[爬蟲工具全景圖](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape)怎麼在 34 個開源專案裡選；把這些接成完整研究流程的做法，則在[Local Deep Research 導讀](/posts/ai/2026-05-08-local-deep-research-walkthrough)。

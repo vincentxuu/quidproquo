@@ -7,7 +7,7 @@ tags: [cloudflare, anti-bot, playwright, nodriver, stealth, mcp, ai-agent, web-s
 lang: en
 series:
   name: "Search and Scraping in Practice"
-  order: 4
+  order: 5
 tldr: "Standard Playwright gets blocked by Cloudflare. Both playwright-extra + stealth and nodriver can bypass it. The final step is wrapping the solution into an MCP server so AI agents can use it automatically."
 description: "A hands-on comparison of three approaches to bypass Cloudflare anti-bot protection: native Playwright (fails), playwright-extra + stealth (passes), and nodriver (passes in 1 second). Includes wrapping the stealth solution into an MCP server so Claude Code and other AI agents can automatically switch to it when Cloudflare blocks them."
 draft: false

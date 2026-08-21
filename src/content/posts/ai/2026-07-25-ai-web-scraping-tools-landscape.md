@@ -7,7 +7,7 @@ tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: zh-TW
 series:
   name: "搜尋與爬取實戰"
-  order: 3
+  order: 4
 tldr: "從 MarkItDown (175k stars, MIT) 到 curl_cffi (6k stars)，整理 34 個「爬資料餵 AI」的開源工具。沿五條軸線分類：整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建。選型關鍵不是哪個最好，是場景匹配。"
 description: "34 個 AI 爬蟲與資料擷取開源工具的分類選型指南：整站爬取（Firecrawl、Crawl4AI）、AI 瀏覽器代理（Browser-Use、Stagehand）、文件轉檔（MarkItDown、MinerU）、智慧擷取（Scrapling、ScrapeGraphAI）、反偵測基建（curl_cffi）。含 GitHub API 驗證的星數與授權資訊。"
 draft: false
