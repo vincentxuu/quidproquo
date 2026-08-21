@@ -41,7 +41,29 @@ Agent Plugins 加值的地方在於：
 | **Agent Skills** | 認知指令——agent 怎麼思考 | **本來就可攜**——SKILL.md 跨 client |
 | **Agent Plugins** | 封裝格式——把 skill 跟它需要的 MCP 設定打包 | 解決的是依賴的可攜性 |
 
-類比：skill 是使用說明書，本來就能影印給任何人看。MCP server 是工具本身。Agent Plugins 是把說明書和工具放進同一個盒子，讓收到的人打開就能用，不用自己去找工具、自己搞設定。
+用一個具體的例子解釋。這個站的 `.agents/skills/` 裡有幾十個 skill，它們對 Agent Plugins 的需求完全不同：
+
+**`post-review`**（發文前自動審稿）——SKILL.md 裡寫的是：跑 `pnpm verify`、檢查 frontmatter、比對 writing guide、回報問題清單。它依賴的全是本地指令和檔案系統操作，不需要任何 MCP server。
+
+要分享這個 skill？**直接丟 SKILL.md 就好。** 別人的 Cursor、Copilot、Claude Code 都能讀，不需要 Agent Plugin。
+
+**`deep-research`**（多源研究 + 交叉驗證）——SKILL.md 裡寫的是：拆問題、多源蒐集、交叉驗證、萃取成 research note。但它的 `references/mcp-tools.md` 裡列了一整套 MCP 工具映射：Exa 做廣域搜尋、Tavily 做深度爬取、Jina 讀取特定 URL——沒有這些 MCP server，skill 裡寫的「多源蒐集」就是空話。
+
+要分享這個 skill？SKILL.md 可以直接丟，但收到的人裝不了——他不知道要設定哪些 MCP server、設定檔長什麼樣、哪個是必要的哪個是備援。**這才是需要 Agent Plugin 的場景**：把 SKILL.md 跟 `mcp.json`（列出 Exa、Tavily、Jina 的 server 設定）包在一起，裝了就能跑。
+
+```
+deep-research-plugin/
+  plugin.json
+  skills/
+    deep-research/
+      SKILL.md
+      references/mcp-tools.md
+  mcp.json              ← Exa + Tavily + Jina 的 server 設定
+```
+
+**`post`**（寫文章）——高度綁定這個站的目錄結構、frontmatter schema、分類規則、模板。即使包成 Agent Plugin 也沒人能用，因為 skill 的前提是「`src/content/posts/` 存在且 schema 是這個站的」。這種 repo-specific 的 skill 不適合分發，不管有沒有 Agent Plugins。
+
+三個 skill，三種情況：不需要包裝、需要包裝、不適合分發。判斷標準只有一個：**skill 有沒有外部依賴需要跟著一起打包。**
 
 ## 誰在推
 

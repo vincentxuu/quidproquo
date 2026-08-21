@@ -41,7 +41,29 @@ Where Agent Plugins adds value:
 | **Agent Skills** | Cognitive instructions — how agents think | **Already portable** — SKILL.md works cross-client |
 | **Agent Plugins** | Packaging format — bundles skills with their MCP configs | Solves dependency portability |
 
-Analogy: a skill is a user manual — you can photocopy it for anyone. An MCP server is the tool itself. An Agent Plugin is the box that ships the manual and the tool together, so the recipient can start working immediately without sourcing the tool and configuring it on their own.
+A concrete example makes this clearer. This site's `.agents/skills/` directory contains dozens of skills, and they have very different relationships with Agent Plugins:
+
+**`post-review`** (pre-publish post audit) — the SKILL.md says: run `pnpm verify`, check frontmatter fields, compare against the writing guide, report issues. Everything it needs is local commands and filesystem access. No MCP server required.
+
+Want to share this skill? **Just send the SKILL.md.** Any Cursor, Copilot, or Claude Code instance can read it. No Agent Plugin needed.
+
+**`deep-research`** (multi-source research + cross-validation) — the SKILL.md describes a workflow: decompose questions, gather from multiple sources, cross-validate, extract into a research note. But its `references/mcp-tools.md` maps out a full MCP toolchain: Exa for broad search, Tavily for deep scraping, Jina for reading specific URLs. Without these MCP servers, "gather from multiple sources" is just words on a page.
+
+Want to share this skill? The SKILL.md itself transfers fine, but the recipient is stuck — they don't know which MCP servers to configure, what the config files should look like, or which are required vs. fallback. **This is where Agent Plugins matter**: bundle the SKILL.md with an `mcp.json` listing the Exa, Tavily, and Jina server configs. Install the plugin, everything works.
+
+```
+deep-research-plugin/
+  plugin.json
+  skills/
+    deep-research/
+      SKILL.md
+      references/mcp-tools.md
+  mcp.json              ← Exa + Tavily + Jina server configs
+```
+
+**`post`** (write a blog post) — tightly coupled to this site's directory structure, frontmatter schema, category rules, and templates. Even if packaged as an Agent Plugin, no one else could use it, because the skill assumes `src/content/posts/` exists with this site's specific schema. Repo-specific skills like this aren't suitable for distribution regardless of Agent Plugins.
+
+Three skills, three situations: doesn't need packaging, needs packaging, not suitable for distribution. The deciding factor is simple: **does the skill have external dependencies that need to ship alongside it?**
 
 ## Who's Behind It
 
