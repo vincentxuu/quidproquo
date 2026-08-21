@@ -13,6 +13,8 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- CMU、MIT 與 Berkeley AI／ML 課程地圖中英文草稿已完成。CMU 篇拆開 07-280／380 新學位主幹與
+  今日可執行路線，並依匿名直連重判 07-280 S26、11-785 S26 為 A3、尚未首開的 07-380 為 A0；三篇待使用者審稿。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
   Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals,
   then verify the production Groq-to-Cloudflare fallback path.
