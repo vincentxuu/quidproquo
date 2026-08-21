@@ -62,7 +62,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 幾件值得知道的事：
 
-**CS111 就是以前的 CS110。** 官方頁面自己標了「Formerly known as CS110」。網路上大量「Stanford CS110 自學指南」講的是同一門課，資源沒有失效，只是名字換了。
+**CS111 跟 CS110 的關係是替代，不是改名。** 已下線的核心要求頁確實標過「Formerly known as CS110」，本文原本據此說兩者是同一門課、CS110 的自學資源照樣可用。**那句話會誤導人。** 現行 ExploreCourses 上 CS111 的官方描述寫的是「Available as a substitute for CS110 that fulfills any requirement satisfied by CS110」——替代，不是等同；而 CS110 的課號至今還活著，2026-27 學年還掛著它的補充實驗課 CS110L。
+
+差別是實質的：CS110 的作業有 Stanford Shell、HTTP 代理與 MapReduce，講次表裡有三堂網路；今天的 CS111 一堂網路都沒有，換成虛擬記憶體、按需分頁、頁面置換與崩潰復原。兩門共有的只剩並行那一段。所以跟著 CS110 自學指南走的人會做到一批不在 CS111 裡的東西，同時錯過今天 CS111 的一半。兩份材料都有價值，但它們不是同一門課的兩個版本。
 
 **CS103 的後半段比前半段重要。** 前半是離散數學與證明技巧，後半直接進有限自動機、正規表達式、上下文無關文法、圖靈機、可判定性、停機問題，最後收在 P 對 NP。它是把「電腦能算什麼」這件事講清楚的那門課。
 
@@ -74,7 +76,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 跳過 CS109 的代價不會在下一門課出現，會在你之後修的每一門課出現：CS224W 的先修是 CS109 加任一門入門機器學習，CS234 要求基本機率，CS336 要求 CS109 等級的機率統計。
 
-**CS161 有個小陷阱。** 系上核心要求頁把它叫做「Data Structures and Algorithms」，但 ExploreCourses、暑期部、以及課程自己的網站都叫它「Design and Analysis of Algorithms」。以課程網站為準——同一所學校的兩個官方頁面對不上是常態，找資料的時候用後者才搜得到東西。
+**CS161 曾經有兩個官方課名，現在只剩一個。** 系上的核心要求頁一度把它叫做「Data Structures and Algorithms」，而 ExploreCourses、暑期部與課程自己的網站都叫「Design and Analysis of Algorithms」。那個矛盾現在消失了——不是因為兩邊談攏，是因為**掛著舊課名的那個頁面整個下線了**（見下方更新紀錄）。現行的官方來源一律寫 Design and Analysis of Algorithms，舊說法只剩 [Wayback 快照](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements)讀得到。找資料時用現行課名就對了。
 
 **怎麼做**：如果你已經會寫程式但沒修過系統課，直接下載 CS107 的第一份作業講義，把 `Assign0` 做完。它會很快告訴你，你對「一個整數在記憶體裡長什麼樣」的理解有多少是猜的。
 
@@ -176,7 +178,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 前面六階都在講「有什麼」。這一節講「拿不到什麼」，而這四個障礙沒有一個跟你的能力有關。
 
-**一、起始碼會被鎖在課堂流程後面。** CS106B 2025 年秋季那版的公告寫得很清楚：第四份作業的起始碼要先填完期中問卷才會開放。這類設計在入門課特別常見，因為助教要靠它掌握進度。自學者的解法是往回找——舊學期的封存版通常已經解鎖。
+**一、起始碼會被鎖在課堂流程後面。** CS106B 2025 年春季那版的公告寫得很清楚：第四份作業的起始碼要先填完期中問卷才會開放。這類設計在入門課特別常見，因為助教要靠它掌握進度。自學者的解法是往回找——舊學期的封存版通常已經解鎖。
 
 **二、影片是最不穩定的一項。** CS149 的課程網站直接寫了「今年無法對外散布課程錄影」，但同時附上 2023 年那版在 Stanford 官方 YouTube 頻道的連結。CS330 也是類似安排：當屆錄影在 Canvas 裡，往屆的公開。所以「這門課沒有影片」多半是錯的判斷，正確的問法是「哪一屆有影片」。
 
@@ -185,6 +187,8 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 **四、沒有人會改你的作業。** 這是最容易被低估的一項。多數課的自動評分器綁在 Gradescope 上，自學者拿不到。CS143 是少數的例外——它把考題與解答都公開了，所以你至少可以自己對答案。
 
 **怎麼做**：Stanford 的課程網站有封存機制，網址長成 `web.stanford.edu/class/archive/cs/<課號>/<課號>.<學期代碼>/` 這樣。它沒有可以瀏覽的總索引頁（我試過，那層目錄直接回 404），所以最實際的方法是從現行課程網站找「Previous offerings」那一區的連結——CS224N、CS224W、CS246 都把歷屆網址整排列在首頁上。
+
+那串學期代碼有規律，值得記：末碼 2、4、6、8 分別是秋、冬、春、夏，前面三碼是學年。所以 `1262` 是 2025 秋、`1264` 是 2026 冬、`1266` 是 2026 春、`1268` 是 2026 夏；而 `1256` 屬於上一個學年，是 **2025 春**，不是 2025 秋。這個差一格的誤讀很容易發生，本文自己就犯過（見更新紀錄）。不確定的時候別推算——封存頁自己會在最上面寫「This page is not current. It is an archive from X Quarter YYYY.」，打開看一眼最快。
 
 ## 先查有沒有開，再查先修
 
@@ -199,12 +203,27 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 | CS329D | Machine Learning Under Distributional Shifts | 2023 春 |
 | CS229S | Systems for Machine Learning | 2024 秋 |
 | CS329A | Self-Improving AI Agents | 2025 秋 |
+| CS228 | Probabilistic Graphical Models | 2024 冬 |
+| CS124 | From Languages to Information | 2026 冬 |
+| CS224U | Natural Language Understanding | 2023 春 |
 
 這裡面藏了一個小小的死結：**CS329A 指定的先修是 CS224N 或 CS229S，而 CS229S 自己已經兩年沒開。** 對校內學生來說這只是「走 CS224N 那條」，但對照著網路整理排計畫的自學者來說，這種細節就是計畫報廢的來源。
 
+表格最後三列是後來補的，而且補的過程本身就是這一節的最好例子——**它們用本節原本教的查法查不出來**。CS228 在 2026-2027 冬季有一筆條目，掛著課號，看起來就是有開；但它的上課時間顯示為空、講師欄整個空白，而切到 2024-2025 學年的分頁才會看到那行「Last offered: Winter 2024」。CS124 與 CS224U 也是同一類：現行分頁不會告訴你它們停了多久。
+
 停開不等於材料沒用。CS324 的課程網站與 CS329A 的九講錄影都還在，內容也還沒過時到不能讀。但**「這門課還開不開」和「這門課的材料還能不能學」是兩個問題，混在一起就會排出一份修不到的課表。**
 
-**怎麼做**：在 ExploreCourses 搜任何一個課號，看它顯示的是「2026-2027 Autumn/Winter/Spring」還是「Last offered: ⋯⋯」。前者代表這學年真的有開，後者就是停開，數字告訴你停了多久。這一步花不到十秒。
+**怎麼做**：在 ExploreCourses 搜課號，看它顯示「2026-2027 Autumn/Winter/Spring」還是「Last offered: ⋯⋯」。**但只做這一步會漏掉一整類課**——排了課卻沒有真的開的那類，因為現行學年的分頁上，一筆佔位條目跟一筆真的會開的課長得一模一樣。
+
+補兩步就能補起來。第一步，看那筆條目的**上課時間與講師欄**：真的要開的課會有時段和人名，佔位的兩欄都是空的。第二步，點頁面頂端的**舊學年分頁**（2024-2025、2025-2026），停開的課會在那裡露出「Last offered」那行。
+
+要一次查完，ExploreCourses 有個公開的 XML 介面比點頁面快得多：
+
+```
+https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=20252026&q=CS228&filter-departmentcode-CS=on
+```
+
+把 `academicYear` 換成各學年逐年拉一遍，看那一年的條目裡有沒有 `<term>` 元素——**沒有 `<term>` 就是那學年沒開**。這比讀網頁可靠，因為那頁是 JavaScript 算出來的，抓網頁原始碼常常只拿到「Loading…」。
 
 ## 五條路線，各挑一條走
 
@@ -231,21 +250,26 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 - **付費修習的價格**：Stanford Online 的遠距學分版本，CS107 學費 8,110 美元、CS161 與 CS336 各 7,875 美元，都是五學分。教材免費、學分很貴，這個落差是這份地圖的前提。
 - **CS231N 評分比重**：作業 45%、期中 20%、期末專案 35%。
 - **CS336 講義 repo**：GitHub 上約 3.6k 顆星、757 個 fork（2026-08-20 讀數）。
-- **2026-27 學年有開的進階課**：CS221M（春）、CS224N（冬）、CS224U（春）、CS224V（秋）、CS224W（秋）、CS228（冬）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。
+- **2026-27 學年有開的進階課**：CS221M（春）、CS224N（冬）、CS224U（春）、CS224V（秋）、CS224W（秋）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。**CS228 原本也列在這裡，現已移除**：它在 2026-2027 冬季確實有一筆條目，但上課時間與講師欄皆空，且 2024-2025 學年的分頁顯示「Last offered: Winter 2024」，屬於上一節講的佔位條目。
 - **課號慣例**：1–99 全校入門、100–199 本系大學部、200–299 高年級與研究所新生、300 以上研究生。官方明講這不是標準，只是常見慣例。
 - **CS231A 舊課號**：CS223B。**CS111 前身**：CS110。
 
 有三項未能完全確認，都不是查得不夠，是結構性拿不到：Stanford 課程封存區沒有公開的索引頁，因此無法列出「總共有幾門課保留了歷屆網站」；CS312 的課程名稱在 ExploreCourses 的搜尋結果中沒有完整渲染出標題列，但以「Deep Learning Alchemy」為關鍵字搜尋會命中該條目；CS238 的獨立條目同樣沒有渲染成功，其存在與 AA228 的合開關係是從 CS239 的先修欄位「AA 228/CS 238 or CS 221」反推的。後兩項不影響階梯的排序結論。
 
+## 更新紀錄
+
+- 2026-08-21：把主線課程逐門展開成獨立導讀之後，回頭修正本文六處。**（一）** 五學分規定原本引的 `www-cs.stanford.edu/bs-core-requirements` 已下線（301 轉址後 404），改引現行的 BS Degree Requirements 頁，舊頁補上 Wayback 快照。**（二）** CS106B 封存版誤標為 Fall 2025，實為 Spring 2025；同時補上學期代碼的解讀規律。**（三）** CS161「兩個官方課名」的矛盾已不成立——掛舊課名的頁面隨上述下線一併消失。**（四）** 停開表補上 CS228（2024 冬）、CS124（2026 冬）、CS224U（2023 春）。**（五）** CS228 自「2026-27 有開」清單移除，它那筆冬季條目沒有時段也沒有講師。**（六）** 「先查有沒有開」那節原本的查法會漏掉佔位條目，補上看時段與講師欄、切舊學年分頁、以及 ExploreCourses XML 介面三種做法。**（七）** 原本寫「CS111 就是以前的 CS110、CS110 自學資源照樣可用」，但現行官方描述寫的是「substitute for CS110」而非改名，且兩門課的作業與講次表差異很大（CS110 有 shell、HTTP 代理、MapReduce 與三堂網路，CS111 都沒有），該段已改寫。
+
 ## 參考資料
 
-- [Stanford CS BS Core Requirements](https://www-cs.stanford.edu/bs-core-requirements) — 核心五門的官方定義與五學分規定、CS111 前身為 CS110 的說明
+- [Stanford CS BS Degree Requirements](https://www.cs.stanford.edu/bs-degree-requirements) — 核心五門五學分規定的現行出處（原文：「all undergraduate students (regardless of major) enrolling in CS 103, 107, 109, 111 or 161 must take it for 5 units」）
+- [舊版 CS BS Core Requirements（Wayback 2026-05-10 快照）](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — 已下線的舊頁，「CS111 前身為 CS110」與 CS161 舊課名「Data Structures and Algorithms」唯一還讀得到的出處
 - [Understanding the Course Catalog | Stanford Academic Advising](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) — 課號慣例與「Stanford 沒有標準編號系統」的原文
 - [Stanford Explore Courses](https://explorecourses.stanford.edu/) — 本文所有先修條件、學分數與開課紀錄的來源
 - [Stanford Explore Courses: Course Catalog Numbering](https://explorecourses.stanford.edu/about) — 編號規則的第二個官方出處
 - [CS106A: Programming Methodology](https://web.stanford.edu/class/cs106a/) — Summer 2026 講次與作業列表
 - [CS106B: Programming Abstractions](https://web.stanford.edu/class/cs106b/) — Summer 2026 課程概述與講次索引
-- [CS106B Fall 2025 封存版](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1256/) — 起始碼需填問卷解鎖的公告，也是封存網址格式的實例
+- [CS106B Spring 2025 封存版](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1256/) — 起始碼需填問卷解鎖的公告，也是封存網址格式的實例（該頁自己標「an archive from Spring Quarter 2025」）
 - [CS106L: Standard C++ Programming](https://web.stanford.edu/class/cs106l/) — 一學分、七份作業、S/NC 的課程設計
 - [CS103: Mathematical Foundations of Computing](https://web.stanford.edu/class/cs103/) — 課程概述與講次表
 - [CS107: Computer Organization & Systems](https://web.stanford.edu/class/cs107/) — 作業、實驗與解答

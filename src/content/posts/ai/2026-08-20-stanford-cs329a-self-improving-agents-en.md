@@ -22,7 +22,7 @@ This piece was written after watching all nine public lectures, plus the three g
 
 Two instructors. [Aakanksha Chowdhery](https://www.achowdhery.com/) led the 540B PaLM model at Google, then drove pre-training and scaling for Gemini's MoE models; she's now at Reflection AI. [Azalia Mirhoseini](http://azaliamirhoseini.com/) is a Stanford assistant professor and director of the [Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/), co-creator of MoE architectures and AlphaChip, previously at Google Brain, Anthropic and Google DeepMind.
 
-The course has run twice: Winter 2025 first, then Autumn 2025 with 99 students. **The next offering is Winter 2026–2027**, already listed in Stanford's ExploreCourses. The Stanford Online course page is stale — it still shows the 2025 autumn dates and says winter is not offered.
+The course has run twice: Winter 2025 first, then Autumn 2025 with 99 students. **There is no next offering scheduled.** As of 2026-08-21, the [ExploreCourses entry](https://explorecourses.stanford.edu/search?q=CS329A&view=catalog) has no Terms field at all — just a single line reading "Last offered: Autumn 2025." (An earlier version of this post said the next offering was Winter 2026–2027; see the changelog at the end.) The Stanford Online course page is no more reliable — it still shows the 2025 autumn dates. Scheduling fields like this change, so check the date on whatever you are reading.
 
 The prerequisites are real: CS224N or CS229S, fluent Python, and hands-on experience calling LLM APIs. **Auditing is not allowed.**
 
@@ -196,6 +196,10 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 - **SWE-bench caveat**: the lecture notes annotators tend to underestimate, and models have seen most of the GitHub repos, so doubling times measured on SWE-bench come out shorter than they would on a genuinely unseen repository.
 - **GDPval**: 44 occupations across the top nine sectors of US GDP, roughly 1,320 tasks with an open-sourced gold subset of 220, sourced from professionals with a decade-plus of experience. Win rates range from GPT-4o at 12.4% to Claude Opus 4.1 at 47.6%. GPT-5's output quality breaks down as roughly half acceptable-but-subpar, about a fifth where the model is genuinely better, and close to three in ten bad or catastrophic — with some disagreement among human graders. Tasks are deliberately well-specified (about 89% vetted as such), one-shot, with no iterative back-and-forth.
 - **Intelligence per Watt's 5.3×**: the improvement in intelligence per watt from 2023 to 2025, decomposed in the lecture as 3.1× from models and 1.7× from hardware. The frequently conflated 88.7% is a *query coverage* figure — the share of queries at least one local model (≤20B active parameters) answers correctly — and is a separate measurement.
+
+## Changelog
+
+- 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
 
 ## References
 

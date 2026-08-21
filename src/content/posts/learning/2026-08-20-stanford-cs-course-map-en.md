@@ -62,7 +62,9 @@ What makes their status clearer is something else: **CS221's prerequisite field 
 
 Things worth knowing:
 
-**CS111 is the old CS110.** The official page flags it: "Formerly known as CS110." The many "Stanford CS110 self-study guides" out there describe the same course; those resources aren't dead, the name moved.
+**CS111 substitutes for CS110; it is not a rename.** The retired core requirements page did carry the note "Formerly known as CS110," and this post originally concluded from that the two are one course and CS110 self-study guides still apply. **That conclusion misleads.** CS111's current ExploreCourses description reads "Available as a substitute for CS110 that fulfills any requirement satisfied by CS110" — substitutes for, not equals — and the CS110 number is still live, with its supplemental lab CS110L listed for 2026-27.
+
+The difference is substantive. CS110's assignments included a Stanford Shell, an HTTP proxy, and MapReduce, and its schedule ran three lectures on networking. Today's CS111 has no networking lecture at all; in its place are virtual memory, demand paging, page replacement, and crash recovery. Concurrency is the only stretch the two share. Follow a CS110 guide and you will build things that aren't in CS111 while missing half of what is. Both bodies of material are worth having — they just aren't two editions of one course.
 
 **CS103's second half matters more than its first.** The first half is discrete math and proof technique; the second goes into finite automata, regular expressions, context-free grammars, Turing machines, decidability, the halting problem, and closes on P versus NP. It's the course that settles what a computer can compute.
 
@@ -74,7 +76,7 @@ Things worth knowing:
 
 Skipping CS109 doesn't cost you in the next course, it costs you in every course after: CS224W lists CS109 plus any introductory ML, CS234 wants basic probability, CS336 wants CS109-level probability and statistics.
 
-**CS161 comes with a small trap.** The department's core requirements page calls it "Data Structures and Algorithms," while ExploreCourses, the summer session, and the course's own site call it "Design and Analysis of Algorithms." Go with the course site — two official pages disagreeing is normal, and the latter name is the one that finds you material.
+**CS161 used to have two official names; now it has one.** The department's core requirements page once called it "Data Structures and Algorithms," while ExploreCourses, the summer session, and the course's own site all said "Design and Analysis of Algorithms." That contradiction is gone now — not because the two sides converged, but because **the page carrying the old name went offline entirely** (see the changelog). Every live official source now says Design and Analysis of Algorithms; the old wording survives only in a [Wayback snapshot](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements). Search with the current name.
 
 **What to do**: if you already program but have never taken a systems course, download the first CS107 assignment handout and finish `Assign0`. It will tell you quickly how much of your model of "what an integer looks like in memory" is guesswork.
 
@@ -176,7 +178,7 @@ One more course sits off this line but is worth knowing separately: **CS146S: Th
 
 Everything above is about what exists. This section is about what you can't get, and none of these four have anything to do with your ability.
 
-**One: starter code gets gated behind classroom process.** CS106B's fall 2025 announcements say it plainly — the fourth assignment's starter code unlocks after you complete the mid-quarter survey. Common in intro courses, because staff use it to track progress. The workaround is to go backwards: archived editions of past quarters are usually already unlocked.
+**One: starter code gets gated behind classroom process.** CS106B's spring 2025 announcements say it plainly — the fourth assignment's starter code unlocks after you complete the mid-quarter survey. Common in intro courses, because staff use it to track progress. The workaround is to go backwards: archived editions of past quarters are usually already unlocked.
 
 **Two: video is the least reliable piece.** CS149's site states outright that it can't distribute this year's recordings publicly, then links the 2023 edition on Stanford's official YouTube channel. CS330 does the same: current recordings on Canvas, previous offerings public. So "this course has no video" is usually the wrong conclusion; the right question is which edition has video.
 
@@ -185,6 +187,8 @@ Everything above is about what exists. This section is about what you can't get,
 **Four: nobody will grade your work.** This one gets underestimated. Most autograders are wired to Gradescope, which self-learners can't reach. CS143 is the rare exception: it publishes exams *and* solutions, so you can at least check yourself.
 
 **What to do**: Stanford course sites are archived at URLs shaped like `web.stanford.edu/class/archive/cs/<number>/<number>.<term code>/`. There's no browsable index (I tried; that directory returns a 404), so the practical route is the "Previous offerings" block on the current course site — CS224N, CS224W, and CS246 all list past editions on the front page.
+
+Those term codes follow a rule worth memorizing: the last digit 2, 4, 6, 8 means autumn, winter, spring, summer, and the preceding digits are the academic year. So `1262` is autumn 2025, `1264` winter 2026, `1266` spring 2026, `1268` summer 2026 — while `1256` belongs to the previous academic year and is **spring 2025**, not autumn 2025. That off-by-one is easy to make; this post made it (see the changelog). When in doubt, don't compute it — archived pages state it themselves at the top: "This page is not current. It is an archive from X Quarter YYYY."
 
 ## Check whether it runs before you check prerequisites
 
@@ -199,12 +203,27 @@ Stanford AI course maps circulating online routinely list a batch of advanced co
 | CS329D | Machine Learning Under Distributional Shifts | Spring 2023 |
 | CS229S | Systems for Machine Learning | Autumn 2024 |
 | CS329A | Self-Improving AI Agents | Autumn 2025 |
+| CS228 | Probabilistic Graphical Models | Winter 2024 |
+| CS124 | From Languages to Information | Winter 2026 |
+| CS224U | Natural Language Understanding | Spring 2023 |
 
 There's a small knot in there: **CS329A lists CS224N or CS229S as prerequisites, and CS229S hasn't run in two years.** For an enrolled student that just means "take the CS224N route," but for a self-learner building a plan off an online map, this kind of detail is where the plan quietly dies.
 
+The last three rows were added later, and how they got added is the best illustration of this section — **the method this section originally taught does not find them**. CS228 has a 2026-2027 winter entry with a class number, so it looks like it runs; but its meeting time is blank and its instructor field is empty, and only the 2024-2025 academic year tab shows the line "Last offered: Winter 2024." CS124 and CS224U are the same shape: the current-year view won't tell you how long they have been dormant.
+
 Not offered doesn't mean not useful. CS324's course site and CS329A's nine recorded lectures are still up, and the content hasn't aged out. But **"is this course still running" and "can I still learn from its materials" are two different questions, and merging them produces a plan made of courses you can't take.**
 
-**What to do**: search any course number on ExploreCourses and look at whether it shows "2026-2027 Autumn/Winter/Spring" or "Last offered: …". The first means it runs this year; the second means it doesn't, and the year tells you how long it's been. That check takes ten seconds.
+**What to do**: search a course number on ExploreCourses and look at whether it shows "2026-2027 Autumn/Winter/Spring" or "Last offered: …". **But doing only that misses a whole category** — courses that are scheduled but don't actually run, because on the current-year view a placeholder entry looks identical to a real one.
+
+Two extra steps close the gap. First, check that entry's **meeting time and instructor fields**: a course that will really run has a time slot and a name; a placeholder has neither. Second, click the **earlier academic year tabs** (2024-2025, 2025-2026), where a dormant course reveals its "Last offered" line.
+
+To check every year at once, ExploreCourses has a public XML interface that beats clicking through pages:
+
+```
+https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=20252026&q=CS228&filter-departmentcode-CS=on
+```
+
+Swap `academicYear` and pull each year in turn, then look for a `<term>` element in that year's entry — **no `<term>` means it didn't run that year**. This is more reliable than reading the web page, which is rendered by JavaScript and often yields nothing but "Loading…" when fetched.
 
 ## Five routes — pick one
 
@@ -231,21 +250,26 @@ Course information comes from official course sites and Stanford ExploreCourses 
 - **Paying for credit**: in Stanford Online's remote-credit versions, CS107 is $8,110 and CS161 and CS336 are $7,875 each, all five units. Free materials, expensive credit — that gap is the premise of this map.
 - **CS231N grade breakdown**: assignments 45%, midterm 20%, final project 35%.
 - **CS336 lecture repo**: roughly 3.6k stars and 757 forks on GitHub (read 2026-08-20).
-- **Advanced courses offered in 2026-27**: CS221M (spring), CS224N (winter), CS224U (spring), CS224V (autumn), CS224W (autumn), CS228 (winter), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required).
+- **Advanced courses offered in 2026-27**: CS221M (spring), CS224N (winter), CS224U (spring), CS224V (autumn), CS224W (autumn), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required). **CS228 was originally listed here and has been removed**: it does have a 2026-2027 winter entry, but with no meeting time and no instructor, and the 2024-2025 tab shows "Last offered: Winter 2024" — the placeholder pattern described in the section above.
 - **Numbering convention**: 1–99 introductory for all students, 100–199 primarily for majors, 200–299 for advanced undergraduates and beginning graduate students, 300 and above for graduate students. The university states explicitly that this is a common guideline, not a standard.
 - **CS231A's old number**: CS223B. **CS111's former name**: CS110.
 
 Three items could not be fully confirmed, and none for lack of searching. Stanford's course archive has no public index page, so there's no way to say how many courses keep past editions online. CS312's title did not render as a heading in ExploreCourses search results, though searching the exact phrase "Deep Learning Alchemy" returns that entry. CS238's own entry likewise failed to render; its existence and the AA228 cross-listing are inferred from CS239's prerequisite field, "AA 228/CS 238 or CS 221." The latter two don't affect the ordering conclusions.
 
+## Changelog
+
+- 2026-08-21: After expanding the main-line courses into individual deep dives, six corrections came back to this post. **(1)** The five-unit rule cited `www-cs.stanford.edu/bs-core-requirements`, which is now offline (301, then 404); it now cites the live BS Degree Requirements page, with a Wayback snapshot for the retired one. **(2)** The CS106B archive was labelled Fall 2025 but is Spring 2025; the term-code rule is now spelled out. **(3)** CS161's "two official names" contradiction no longer holds — the page carrying the old name vanished with the retirement above. **(4)** The dormant-courses table gained CS228 (Winter 2024), CS124 (Winter 2026), and CS224U (Spring 2023). **(5)** CS228 was removed from the "offered in 2026-27" list; its winter entry has neither a time slot nor an instructor. **(6)** The check taught in "Check whether it runs before you check prerequisites" missed placeholder entries, so it now covers the instructor/time fields, the earlier academic year tabs, and the ExploreCourses XML interface. **(7)** The post said "CS111 is the old CS110" and that CS110 self-study resources still apply; the live official description says "substitute for CS110" rather than a rename, and the two differ substantially in assignments and lectures (CS110 had a shell, an HTTP proxy, MapReduce, and three networking lectures; CS111 has none of these), so that passage was rewritten.
+
 ## References
 
-- [Stanford CS BS Core Requirements](https://www-cs.stanford.edu/bs-core-requirements) — the five-course core, the five-unit rule, and the note that CS111 was formerly CS110
+- [Stanford CS BS Degree Requirements](https://www.cs.stanford.edu/bs-degree-requirements) — the live source for the five-unit rule ("all undergraduate students (regardless of major) enrolling in CS 103, 107, 109, 111 or 161 must take it for 5 units")
+- [Former CS BS Core Requirements (Wayback snapshot, 2026-05-10)](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — the retired page, and the only remaining source for "CS111 was formerly CS110" and CS161's old name "Data Structures and Algorithms"
 - [Understanding the Course Catalog | Stanford Academic Advising](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) — the numbering convention and the "no standardized numbering system" statement
 - [Stanford Explore Courses](https://explorecourses.stanford.edu/) — source for every prerequisite, unit count, and offering record here
 - [Stanford Explore Courses: Course Catalog Numbering](https://explorecourses.stanford.edu/about) — a second official source on the numbering ranges
 - [CS106A: Programming Methodology](https://web.stanford.edu/class/cs106a/) — Summer 2026 lectures and assignments
 - [CS106B: Programming Abstractions](https://web.stanford.edu/class/cs106b/) — Summer 2026 overview and lecture index
-- [CS106B Fall 2025 archive](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1256/) — the survey-gated starter code announcement, and a working example of the archive URL format
+- [CS106B Spring 2025 archive](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1256/) — the survey-gated starter code announcement, and a working example of the archive URL format (the page labels itself "an archive from Spring Quarter 2025")
 - [CS106L: Standard C++ Programming](https://web.stanford.edu/class/cs106l/) — one unit, seven assignments, S/NC
 - [CS103: Mathematical Foundations of Computing](https://web.stanford.edu/class/cs103/) — overview and lecture list
 - [CS107: Computer Organization & Systems](https://web.stanford.edu/class/cs107/) — assignments, labs, and lab solutions

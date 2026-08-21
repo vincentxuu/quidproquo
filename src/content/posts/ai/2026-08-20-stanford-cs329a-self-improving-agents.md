@@ -22,7 +22,7 @@ draft: false
 
 授課者兩位。[Aakanksha Chowdhery](https://www.achowdhery.com/) 在 Google 主導過 540B 的 PaLM，後來推動 Gemini 的 MoE 預訓練，現在在 Reflection AI。[Azalia Mirhoseini](http://azaliamirhoseini.com/) 是 Stanford 助理教授、[Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/) 主持人，MoE 與 AlphaChip 的共同作者，待過 Google Brain、Anthropic、Google DeepMind。
 
-課開過兩次：Winter 2025 首開，Autumn 2025 第二次，選課 99 人。**下一次是 2026–2027 Winter**，已經掛在 Stanford 的 ExploreCourses 上。Stanford Online 那頁的資訊已經過期（還停在 2025 年秋季、且寫著冬季不開），別拿它當準。
+課開過兩次：Winter 2025 首開，Autumn 2025 第二次，選課 99 人。**下一次沒有排。** [ExploreCourses 的條目](https://explorecourses.stanford.edu/search?q=CS329A&view=catalog)在 2026-08-21 這天已經沒有 Terms 欄位，只剩一行「Last offered: Autumn 2025」（本文初稿寫的是「下一次是 2026–2027 Winter」，見文末更新紀錄）。Stanford Online 那頁的資訊同樣不可靠，還停在 2025 年秋季。開課欄位本來就會變，看的時候記得對一下你查的日期。
 
 先備條件寫得很硬：CS224N 或 CS229S 其中之一、Python 流利、要有實際呼叫 LLM API 的經驗。**不接受旁聽。**
 
@@ -196,6 +196,10 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 - **SWE-bench 的但書**：課堂指出標註者傾向低估，且模型多半看過那些 GitHub repo，所以 SWE-bench 上量到的翻倍速度會比在完全沒見過的 repo 上短。
 - **GDPval**：涵蓋美國 GDP 前九大部門的 44 種職業，共約 1,320 題，開源的 gold subset 為 220 題，任務出自十年以上年資的產業專家。勝率區間是 GPT-4o 的 12.4% 到 Claude Opus 4.1 的 47.6%。GPT-5 的產出品質拆解為：約一半「可接受但不如專家」、約兩成「模型確實更好」、將近三成「糟糕或災難性」——人類評分者之間對此也有一定歧見。任務刻意寫得清楚（約 89% 被專家認定為規格良好）、一次交件、不給來回修改。
 - **Intelligence per Watt 的 5.3×**：指 2023 到 2025 年間每瓦智能的改善，課堂拆解為模型端 3.1 倍、硬體端 1.7 倍。另一個常被混用的 88.7% 是「查詢覆蓋率」，條件是「至少有一個 20B active 參數以下的本地模型能答對」，與 5.3× 是兩個獨立量測。
+
+## 更新紀錄
+
+- 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
 
 ## 參考資料
 
