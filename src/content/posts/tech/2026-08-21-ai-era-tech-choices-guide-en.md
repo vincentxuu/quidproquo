@@ -180,7 +180,7 @@ Every point it lists next is really a selection criterion. Builds have to be fas
 
 Before the other layers, one set of terms needs pulling apart, because they get used as synonyms: **task queues, event streams, and durable execution are three different things**. A queue (BullMQ, Celery) guarantees a message gets consumed. A stream (Kafka, NATS) guarantees events stay ordered and can be replayed. Durable execution guarantees that **a process spanning many external calls finishes even if it dies halfway through**. Agents mostly need the third, and this site has only ever written about the first.
 
-Of those three, durable execution shows most clearly what "AI changed the answer" means. Its two camps split over determinism — replay engines demand it of your workflow code, checkpoint engines do not — and since LLM calls are inherently non-deterministic, that one fact settles most of the decision for you.
+Of those three, durable execution shows most clearly what "AI changed the answer" means. The split inside it is not about vocabulary — DBOS and Hatchet both say checkpoint and still require your orchestration code to be deterministic. The real dividing line is **whether recovery re-runs the code you wrote**: Temporal-style engines do, so workflow code must be deterministic; Trigger.dev restores an OS-level process snapshot and re-runs none of it, so it does not. And since LLM calls are inherently non-deterministic, that one fact settles most of the decision for you.
 
 Data access asks something else entirely: can you review what the agent wrote? SQL-first output sits in the diff where you can read it. A DSL plus a generated client does not.
 
