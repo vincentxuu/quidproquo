@@ -94,7 +94,7 @@ Having gone through the four hundred-plus posts already here, the gaps are clear
 |---|---|---|
 | **Agent frameworks** | Microsoft Agent Framework and AG2, LangChain, CrewAI, Mastra, Pydantic AI, DSPy | A LangGraph post and one 15-framework map, but the map is out of date |
 | **RAG frameworks** | LlamaIndex, Haystack, RAGFlow, Dify, R2R | Thirty-plus technique posts, zero on frameworks |
-| **Self-hosted inference** | vLLM, SGLang, Triton, Ray | Only Ollama has a post |
+| **Self-hosted inference** | SGLang, Triton, Ray | vLLM and Ollama both have posts |
 | **Cloud LLM APIs and routing** | OpenRouter, Bedrock, Vertex AI, Together, Fireworks, LiteLLM, Portkey | Posts on Groq Console, 9Router, and a 40-plus provider pricing roundup |
 | **Fetch and search APIs** | Exa, Tavily, Jina Reader, Serper, SerpAPI, Linkup, Brave Search API | A Firecrawl post and one crawler landscape post |
 | **Self-hosted crawling and anti-bot** | Crawl4AI, Scrapy, Selenium, Bright Data, Zyte, Apify | One hands-on post about getting past Cloudflare's bot defences |
@@ -148,6 +148,7 @@ One of them lands very close to home. On 2026-08-06 Cloudflare launched **Kitesu
 | **Backend-as-a-Service** | Supabase, Firebase, Appwrite, Convex, PocketBase, Nhost | Entirely empty |
 | **Orchestration and infrastructure as code** | Kubernetes, Terraform, Pulumi, SST | Docker and nginx are covered; above that, nothing |
 | **Backend frameworks** | NestJS, Fastify, Elysia, Django | Hono, Express, and FastAPI have posts |
+| **Private networking and remote access** | Tailscale, WireGuard, ngrok, ZeroTier, Twingate, Teleport | One Cloudflare Tunnel post, otherwise empty |
 | **Realtime transport and collaboration** | Socket.IO, WebSocket, SSE, PartyKit, Ably, Liveblocks, Yjs / CRDT, Cloudflare Durable Objects | One RAG Streaming post, otherwise empty |
 | **Supply chain and code security** | Socket.dev, Snyk, Semgrep, CodeQL, Renovate, gitleaks, zizmor, Sigstore / SLSA | Only Trivy has a post |
 | **Agent security** | Prompt injection classifiers (Model Armor), red-team tooling (Promptfoo), sandbox escape and permission boundaries | A concept post, no tool posts |
@@ -161,9 +162,9 @@ Two gaps are glaring enough that they have to be named.
 
 There is a third kind of gap, and it is the embarrassing one: **the tools this site uses every day and has never written about**.
 
-This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages, and every post here gets written using them. Exa appears thirty-nine times on this site. Dedicated posts: zero. The full-text search runs on Pagefind — also zero. Hugging Face, thirty-six mentions, also zero.
+This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages, and every post here gets written using them — sixteen of thirty-eight skills reference Exa directly. Dedicated posts: zero. The full-text search runs on Pagefind — also zero. Hugging Face is named in thirty-eight posts, also zero.
 
-The clouds are a differently shaped hole. Five certification-prep posts for AWS and Microsoft AI exams sit here, and nothing at all on how to choose the platforms themselves. Harder to explain are the GPU and inference-specific clouds — CoreWeave, Lambda Labs, RunPod, Nebius — not one mention, on a site whose content is mostly AI. The cost and latency of self-hosted inference all land in that layer. Skip it and "should we self-host" is only half answered.
+The clouds are a differently shaped hole. Five certification-prep posts for AWS and Microsoft AI exams sit here, and nothing at all on how to choose the platforms themselves. Harder to explain are the GPU and inference-specific clouds — CoreWeave, Lambda Labs, RunPod, Nebius — not one mention, on a site whose content is mostly AI. There are posts here on vLLM and Ollama, which means **the inference engines are covered and the places you run them are not**. The cost and latency of self-hosting land in the latter. Skip it and "should we self-host" is only half answered.
 
 ### Why the last group counts
 
@@ -186,6 +187,8 @@ Data access asks something else entirely: can you review what the agent wrote? S
 Auth is the mess WebMCP leaves behind. Tools run in a tab where the user is already signed in, so the agent inherits full human privileges, and no existing auth product was designed for that.
 
 Deployment comes back to something unglamorous: whether your CLI is consistent. An agent runs its own deploys and rollbacks, and scattered command shapes send it on detours. Part of why self-hosted PaaS has warmed up again is exactly this — a one-command deploy serves humans and agents better than a Kubernetes manifest.
+
+Private networking is a layer I missed on the first pass and added afterwards, and it has a clear AI-era criterion: **self-hosting a long-running agent means putting something on your network that has to be reachable from outside and must not sit on the public internet**. Tailscale comes up eleven times across the posts here on OpenClaw's threat model, Hermes's security model, and the self-hosted personal agent comparison — always in passing, never explained. Agents reaching internal resources such as databases without exposing them publicly is the same layer's problem.
 
 Realtime deals with streaming and shared state. Agent output arrives token by token; a human and an agent editing the same document is an old CRDT problem in a new setting; and where a long-running agent parks its state belongs to this layer too.
 

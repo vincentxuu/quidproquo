@@ -94,7 +94,7 @@ draft: false
 |---|---|---|
 | **Agent 框架** | Microsoft Agent Framework 與 AG2、LangChain、CrewAI、Mastra、Pydantic AI、DSPy | 有 LangGraph 專文與一篇 15 框架地圖，但地圖已過時 |
 | **RAG 框架** | LlamaIndex、Haystack、RAGFlow、Dify、R2R | 技法三十餘篇，框架零篇 |
-| **自架推論服務** | vLLM、SGLang、Triton、Ray | 只有 Ollama 有專文 |
+| **自架推論服務** | SGLang、Triton、Ray | 有 vLLM 與 Ollama 兩篇 |
 | **雲端 LLM API 與路由** | OpenRouter、Bedrock、Vertex AI、Together、Fireworks、LiteLLM、Portkey | 有 Groq Console、9Router 與一篇 40+ 家定價整理 |
 | **抓取與搜尋 API** | Exa、Tavily、Jina Reader、Serper、SerpAPI、Linkup、Brave Search API | 有 Firecrawl 專文與一篇爬蟲工具全景圖 |
 | **自架爬蟲與反爬蟲** | Crawl4AI、Scrapy、Selenium、Bright Data、Zyte、Apify | 有一篇繞過 Cloudflare 反爬蟲的實戰文 |
@@ -148,6 +148,7 @@ draft: false
 | **Backend-as-a-Service** | Supabase、Firebase、Appwrite、Convex、PocketBase、Nhost | 完全空白 |
 | **編排與基礎設施即程式碼** | Kubernetes、Terraform、Pulumi、SST | 有 Docker 與 nginx，再上去就空了 |
 | **後端框架** | NestJS、Fastify、Elysia、Django | 有 Hono、Express、FastAPI |
+| **私有網路與遠端存取** | Tailscale、WireGuard、ngrok、ZeroTier、Twingate、Teleport | 有一篇 Cloudflare Tunnel，其餘空白 |
 | **即時傳輸與協作** | Socket.IO、WebSocket、SSE、PartyKit、Ably、Liveblocks、Yjs / CRDT、Cloudflare Durable Objects | 有一篇 RAG Streaming，其餘空白 |
 | **供應鏈與程式碼資安** | Socket.dev、Snyk、Semgrep、CodeQL、Renovate、gitleaks、zizmor、Sigstore / SLSA | 只有 Trivy 有專文 |
 | **Agent 的資安** | prompt injection 分類器（Model Armor）、red-team 工具（Promptfoo）、沙箱逃逸與權限邊界 | 有概念文，無工具專文 |
@@ -161,9 +162,9 @@ draft: false
 
 還有一種缺口比較難堪，是**自己天天在用卻從沒寫過的東西**。
 
-這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina，我寫每一篇文章都在用它們。Exa 在站上出現過三十九次，專文零篇。本站的全文搜尋跑的是 Pagefind，也是零篇。Hugging Face 三十六次，同樣零篇。
+這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina，我寫每一篇文章都在用它們——三十八支 skill 裡有十六支直接引用 Exa，專文卻是零篇。本站的全文搜尋跑的是 Pagefind，也是零篇。Hugging Face 被三十八篇文章提到，同樣零篇。
 
-雲那邊是另一種形狀的空白。站上躺著五篇 AWS 與微軟的 AI 證照備考路徑，卻沒有一篇談這些平台本身怎麼選。更難解釋的是 GPU 與推論專用雲——CoreWeave、Lambda Labs、RunPod、Nebius，一次提及都沒有，而這是一個內容以 AI 為主的站。自架推論的成本與延遲全都落在這層，跳過它，「要不要自架」這個問題就只回答了一半。
+雲那邊是另一種形狀的空白。站上躺著五篇 AWS 與微軟的 AI 證照備考路徑，卻沒有一篇談這些平台本身怎麼選。更難解釋的是 GPU 與推論專用雲——CoreWeave、Lambda Labs、RunPod、Nebius，一次提及都沒有，而這是一個內容以 AI 為主的站。站上寫過 vLLM 與 Ollama，也就是**推論引擎寫了、跑引擎的地方沒寫**；自架的成本與延遲其實都落在後者，缺了它，「要不要自架」就只回答了一半。
 
 ### 第二組為什麼算數
 
@@ -186,6 +187,8 @@ draft: false
 授權層則是 WebMCP 那篇留下的爛攤子。工具跑在使用者已經登入的分頁裡，agent 繼承的是完整的人類權限，而現有的認證方案沒有一套是為這種情境設計的。
 
 部署層最後回到一件很土的事：CLI 一不一致。agent 要自己跑部署跟回滾，指令長得七零八落，它就會繞遠路。自架 PaaS 這幾年重新變熱，多少也是這個原因——一鍵部署對人、對 agent 都比一份 Kubernetes manifest 好用。
+
+私有網路這層是我盤點時漏掉、後來才補上的，而它其實有明確的 AI 判準：**自架一個常駐的 agent，等於在自己的網路裡開了一個需要從外面連得到、又不能開在公網上的東西**。站上寫 OpenClaw 威脅模型、Hermes 安全模型、自架常駐 agent 橫向對照的時候，Tailscale 出現過十一次——每一次都是順帶提及，從來沒有一篇解釋過它。agent 要碰內網資源（資料庫、內部服務）而不開公網，也是同一層的問題。
 
 即時傳輸那層要處理的是串流與共享狀態。agent 的輸出是逐字吐出來的；人跟 agent 同時改同一份文件，是 CRDT 那類工具的老題目換了新場景；至於一個跑很久的 agent，它的狀態該放哪，也是這層的問題。
 
