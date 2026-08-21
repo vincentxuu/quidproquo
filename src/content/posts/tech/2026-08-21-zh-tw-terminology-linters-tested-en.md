@@ -182,9 +182,66 @@ Concretely:
 
 One last thing: I finished the first version of this post, ran every validator, and even checked the external links before noticing the sampling was wrong — and after fixing that, discovered the ground-truth list was wrong too. **All-green formatting says nothing about whether the method was sound, and a sound method says nothing about whether your criteria are right.**
 
-## The version you can copy
+## If you don't write code
 
-The above is my set of trade-offs; your style guide differs. Abstracted, the process is:
+Everything above is commands and config files, but most people bothered by an AI writing 軟件, 視頻, 用戶 into their drafts are working in ChatGPT, Word, or Notion — not in a repo. This section is for them.
+
+### Easiest: install a browser extension
+
+[中國用語雷達 (Chinese Vocabulary Radar)](https://chromewebstore.google.com/detail/lecgchakaccigfbbaeialhjplbmgipge) for Chrome highlights Mainland vocabulary in yellow on any page you view — including what you type into Google Docs, Notion, or a ChatGPT prompt box. No configuration, no commands.
+
+It highlights but never edits. That's the right behaviour: **no tool can decide for you whether 質量 in this particular sentence means physics.**
+
+### Paste and go: online converters
+
+- [繁化姬 (Fanhuaji)](https://zhconvert.org/): paste text, pick the Taiwan localization mode, and it converts both characters and vocabulary
+- [Taiwan.md terminology converter](https://taiwan.md/terminology/converter/): 3,901 conversion rules, and it shows you what changed
+
+Neither requires an account. The downside is manual copy-paste, which gets tedious for long pieces.
+
+### Just ask the AI to check
+
+If you already draft in ChatGPT or Claude, hand it the wordlist:
+
+```
+Check the following text against this Taiwan/Mainland vocabulary list
+and list what you find — do NOT rewrite it:
+https://raw.githubusercontent.com/aronhack/Chinese-Vocabulary-Radar/refs/heads/main/chrome-extension/taiwan_china_vocabs.json
+
+(your text)
+```
+
+**"Do not rewrite it" matters.** Let it edit directly and you lose the chance to judge — and it will get a few wrong.
+
+### Four things hold regardless of tool
+
+These came out of this test and have nothing to do with tooling:
+
+**1. Tools will flag ordinary words from your field.** I write about drones, so every 質量 in those posts is mass in the physics sense; I write about AI, so every 激活 is a neural network activation. Every tool flagged them. You have to recognize your own domain vocabulary.
+
+**2. Never change quoted speech.** If you quote a Mainland interviewee saying 「這個視頻的質量真的不行」, not one of those characters may move. Changing it falsifies the quote.
+
+**3. Never change proper nouns.** 北京人工智能研究院 is an institution's name. 博客來 is a Taiwanese bookstore, not "部落格來".
+
+**4. Look before you bulk-replace.** I changed 419 places programmatically, but ran a preview first — and it caught three things that would have caused damage: 激活 would have wrecked every AI passage, 貼標 would have produced 貼上標籤籤, and the script rewrote this very article, because this article discusses those words.
+
+Point 4 applies just as much to Word's Replace All. **Hit "Find" and read every result before you hit "Replace All."**
+
+### A more fundamental suggestion
+
+Rather than catching it afterwards, **say it before the AI writes**. Add this to your ChatGPT custom instructions or Claude Project instructions:
+
+```
+Write in Taiwanese Mandarin. Never use: 軟件, 視頻, 用戶, 質量, 默認,
+插件, 兼容, 屏幕, 鼠標, 賦能, 抓手, 閉環, 對標, 復盤.
+Use instead: 軟體, 影片, 使用者, 品質, 預設, 外掛, 相容, 螢幕, 滑鼠.
+```
+
+Far less work than proofreading afterwards — and listing the specific words works much better than "please use Taiwanese Chinese," which is too abstract for the model to act on.
+
+## If you have a repo (for engineers)
+
+To make the above a CI check, the order is:
 
 ### 1. Start from your own narrow list
 
@@ -193,38 +250,30 @@ Don't start from someone else's 1,000-entry dictionary. Start from the dozen or 
 - **Tier A**: no legitimate Taiwan usage — block the commit (用戶, 視頻, 軟件, 插件…)
 - **Tier B**: context-dependent — report only (質量, 智能, 信號, 反饋…)
 
-The test is whether the word has a legitimate use *in your subject matter*. Every 質量 in my drone posts is physics; every 激活 in my AI posts is "activation." On someone else's blog both might be pure Mainland vocabulary.
-
 ### 2. Exclude four regions, or you will corrupt text
 
 | Region | Why |
 |---|---|
 | Code blocks and inline code | Variable names aren't Chinese prose |
 | Link URLs | You didn't write the characters in a URL |
-| Blockquotes | Quoting a Mainland interviewee saying 「這個視頻的質量真的不行」 — not one character may change |
+| Blockquotes | Not one character of a quote may change |
 | External article titles in reference lists | Someone else's title isn't yours to correct |
 
-You also need word-level carve-outs: 用戶 matches inside the legitimate Taiwan term 用戶端, 對標 matches inside 針**對標**註, 博客 matches inside 博客來 (a Taiwanese bookstore).
+You also need word-level carve-outs: 用戶 matches inside the legitimate 用戶端, 對標 inside 針**對標**註, 博客 inside 博客來.
+
+You also need to **exempt whole articles** — a post like this one, which discusses the words, will always false-positive.
 
 ### 3. Use zhtw-mcp to calibrate the list, not to replace it
 
-Run it, read the report, and ask of each term: does this belong in my list? Its value is surfacing **the words you didn't know you were using** — all four of my additions (激活, 插件, 反饋, 兼容) came from it.
-
-Before running, disable the words you deliberately use in `overrides.json`, or noise will bury the signal.
+Run it, read the report, ask which terms belong in your list. Disable the words you deliberately use in `overrides.json` first.
 
 ### 4. Always dry-run a bulk replacement
 
-My dry run caught three changes that would have damaged content:
-
-- `激活 → 啟用` would wreck every machine-learning passage (activation)
-- `貼標 → 貼上標籤` collides with 貼標籤, producing 貼上標籤籤
-- **it rewrote this very article** — this post discusses those words, so the table became "外掛 | 19 | 19 | 外掛"
-
-The third is the easiest to miss: **exempt articles that discuss terminology**, or your checker will corrupt its own documentation.
+Reasons in point 4 of the previous section.
 
 ### 5. Only make it a gate once it's green
 
-My order was: write the check (report-only) → fix 419 occurrences → hand-fix the remaining 8 → Tier A at zero → *then* wire it into `pnpm verify`. Doing it the other way round locks everyone out.
+My order: write the check (report-only) → fix 419 occurrences → hand-fix the remaining 8 → Tier A at zero → *then* wire it into `pnpm verify`. The other way round locks everyone out.
 
 ## References
 
