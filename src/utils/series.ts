@@ -82,6 +82,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    // 文件解析實戰的上游：那個系列從「已經拿到檔案」開始，這個系列談怎麼先把東西弄到手。
+    slug: 'search-and-scraping',
+    names: { 'zh-TW': '搜尋與爬取實戰', en: 'Search and Scraping in Practice' },
+    descriptions: {
+      'zh-TW': '把資料從外面弄進來的整條路：搜尋要租雲端 API 還是自己架、爬取工具怎麼選、被反爬擋住怎麼辦，最後怎麼把這些接成一條研究流程。每篇談一個決定，讀完能拼出一套自己的取得管道。',
+      en: 'The full path for getting data in from outside: renting a cloud search API versus self-hosting one, choosing among the scraping tools, what to do when anti-bot defenses block you, and how to wire it all into a research pipeline. One decision per post.',
+    },
+  },
+  {
     slug: 'ai-agent-systems',
     names: { 'zh-TW': 'AI Agent 實戰', en: 'AI Agent Systems in Practice' },
     descriptions: {

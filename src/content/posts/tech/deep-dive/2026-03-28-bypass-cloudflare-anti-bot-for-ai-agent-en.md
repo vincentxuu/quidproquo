@@ -5,6 +5,9 @@ type: guide
 category: tech
 tags: [cloudflare, anti-bot, playwright, nodriver, stealth, mcp, ai-agent, web-scraping]
 lang: en
+series:
+  name: "Search and Scraping in Practice"
+  order: 4
 tldr: "Standard Playwright gets blocked by Cloudflare. Both playwright-extra + stealth and nodriver can bypass it. The final step is wrapping the solution into an MCP server so AI agents can use it automatically."
 description: "A hands-on comparison of three approaches to bypass Cloudflare anti-bot protection: native Playwright (fails), playwright-extra + stealth (passes), and nodriver (passes in 1 second). Includes wrapping the stealth solution into an MCP server so Claude Code and other AI agents can automatically switch to it when Cloudflare blocks them."
 draft: false
@@ -213,15 +216,19 @@ For AI agents, the most practical combination is:
 - **Hard cases**: nodriver HTTP API as a fallback — highest bypass rate
 - **Automatic tool selection**: Document in CLAUDE.md so the agent switches tools automatically when hitting Cloudflare
 
-This isn't a permanent fix. Cloudflare continuously updates its detection rules, and stealth plugin and nodriver both keep pace. In the long run, keeping your tools up to date matters more than which approach you pick.
+This isn't a permanent fix. Cloudflare continuously updates its detection rules and the bypass tools have to keep pace — which is exactly what to watch here: `berstend/puppeteer-extra`, home of the stealth plugin, last pushed on 2024-07-18 and has been dormant for two years, while `ultrafunkamsterdam/nodriver` remains active (2026-05-13). For anything long-running, the nodriver route is the safer bet.
 
 ---
 
+## Update log
+
+- 2026-08-21: Fixed three dead GitHub links — the original text pointed at a nonexistent `nicedayfor` account (404). playwright-extra and the stealth plugin both live under the `berstend/puppeteer-extra` monorepo, and nodriver lives at `ultrafunkamsterdam/nodriver`. Also added the maintenance status of both projects: puppeteer-extra has been dormant since 2024-07-18 (7,394 stars), while nodriver is still updated (4,675 stars, 2026-05-13). The benchmark numbers in this post are still from 2026-03-28 and have not been re-measured.
+
 ## References
 
-- [playwright-extra](https://github.com/nicedayfor/playwright-extra) — Plugin framework for Playwright
-- [puppeteer-extra-plugin-stealth](https://github.com/nicedayfor/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) — Stealth plugin that hides automation traces
-- [nodriver](https://github.com/nicedayfor/nodriver) — Next-generation solution from the author of undetected-chromedriver
+- [playwright-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/playwright-extra) — Plugin framework for Playwright
+- [puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) — Stealth plugin that hides automation traces
+- [nodriver](https://github.com/ultrafunkamsterdam/nodriver) — Next-generation solution from the author of undetected-chromedriver
 - [nowsecure.nl](https://nowsecure.nl) — Cloudflare Turnstile detection test site
 - [Model Context Protocol](https://modelcontextprotocol.io/) — Official MCP documentation
 - [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) — Cloudflare's CAPTCHA alternative

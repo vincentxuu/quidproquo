@@ -4,6 +4,9 @@ date: 2026-05-07
 category: ai
 tags: [mcp, search, web-search, tavily, firecrawl, exa, bocha, claude-code, agent]
 lang: zh-TW
+series:
+  name: "搜尋與爬取實戰"
+  order: 1
 type: guide
 tldr: "用 Claude Code、Cursor 等 AI agent 時，內建 WebFetch / WebSearch 常被 Cloudflare、地理限制或 rate limit 擋住。接一個 search MCP server 是最直接的解法，這篇比較 2026 年實際能用的選項。"
 description: "比較 AI agent 可以接的搜尋類 MCP server：Tavily、Firecrawl、Exa、Linkup、Brave、博查、Bright Data 等，標註各自的場景與限制。"
@@ -48,9 +51,22 @@ Search MCP server 補的就是這幾塊：專業反爬、結構化 SERP、引用
 
 Exa 強在 neural / similarity search，「給我跟這個 URL 或這段文字語意相近的網頁」。其他家多半是 keyword + ranker，沒有 Exa 那種以 embedding 索引整個網頁的能力。官方 `exa-mcp-server` 暴露 search、find similar、get contents 三種工具，agent 可以做 hybrid 用法。
 
-定價在 keyword 部分有點貴，但語義搜尋目前沒人能取代。
+2026 年它已經不只是「語意搜尋那一家」，而是把深度攤成六段延遲讓你自己挑：
 
-適合：找關聯內容、競品研究、語意推薦、相似 case study。
+| type | 延遲 | 適用 |
+|---|---|---|
+| `instant` | ~250ms | 對話、語音等即時場景 |
+| `fast` | ~450ms | 使用者面向的搜尋 |
+| `auto` | ~1s | 預設，品質與速度平衡 |
+| `deep-lite` | 4s | 輕量綜整輸出 |
+| `deep` | 4-15s | 多步推理 + 結構化輸出 |
+| `deep-reasoning` | 12-40s | 最難的研究任務 |
+
+另外 `output_schema` 可以搭配任一 search type 直接吐符合 JSON Schema 的結構化結果，`category` 能鎖定 company（5,000 萬筆公司頁）、people（10 億筆）、publication（3.5 億筆學術出版品）等垂直領域。
+
+定價（2026-08-21 查詢）：標準搜尋 $7 / 1,000 次、`instant` $5、`deep` $12、`deep-reasoning` $15，頁面內容與 AI 摘要各 $1 / 1,000 頁。新帳號送 $20 credit（約 2,800 次搜尋），免費層每月再加 $10。
+
+適合：找關聯內容、競品研究、語意推薦、需要結構化輸出的研究任務。
 不適合：純 keyword SERP、預算敏感的高頻 query。
 
 ## Linkup
@@ -136,13 +152,21 @@ Exa 強在 neural / similarity search，「給我跟這個 URL 或這段文字�
 
 押單一供應商在 2026 年這個市場速度下風險偏高，多串一家備援花不了多少時間。
 
+這篇談的全部是雲端 API——每次查詢都經過對方伺服器、按次計費。如果你的考量是不想被限額，或查詢內容不能外流，同系列下一篇處理另一半：[Tavily 和 Exa 沒有地端版：自己組一套搜尋堆疊要付出什麼](/posts/ai/2026-08-21-self-hosted-search-stack)。
+
+## 更新紀錄
+
+- 2026-08-21：重寫 Exa 一節。原文只把它描述成「語意搜尋那一家、keyword 有點貴」，但 Exa 現在提供六種 search type（`instant` ~250ms 到 `deep-reasoning` 12-40s）、`output_schema` 結構化輸出與 company / people / publication 等垂直分類，定價也已公開到單項費率，原本的描述不足以拿來選型。另修正 Firecrawl MCP server 的 GitHub org（`mendableai` → `firecrawl`）。其餘各家的定價仍為 2026-05-07 查詢值，未重新驗證。
+
 ## 參考資料
 
 - [Model Context Protocol 官方文件](https://modelcontextprotocol.io/)
 - [Anthropic: Claude Code MCP 設定](https://docs.claude.com/en/docs/claude-code/mcp)
 - [Tavily MCP server](https://github.com/tavily-ai/tavily-mcp)
-- [Firecrawl MCP server](https://github.com/mendableai/firecrawl-mcp-server)
+- [Firecrawl MCP server](https://github.com/firecrawl/firecrawl-mcp-server)
 - [Exa MCP server](https://github.com/exa-labs/exa-mcp-server)
+- [Exa Pricing](https://exa.ai/pricing) — 2026-08-21 查詢的費率
+- [Exa Search API Guide](https://exa.ai/docs/reference/search-api-guide) — 六種 search type 與 output_schema
 - [Brave Search MCP server](https://github.com/brave/brave-search-mcp-server)
 - [Bocha Search MCP](https://github.com/BochaAI/bocha-search-mcp)
 - [Bright Data MCP](https://github.com/luminati-io/brightdata-mcp)
