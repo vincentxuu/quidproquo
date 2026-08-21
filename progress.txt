@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-20
+Last updated: 2026-08-21
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -26,6 +26,9 @@ Next steps
 5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
+- 2026-08-21: Stanford CS25 V6 導讀（zh + en）。九集裡六集讀完整逐字稿，三集（4/23、5/7、5/14）
+  抓取工具全數受限、只有官方摘要，已在文中標明。glossary 補 SSM / JEPA / 投機解碼三條。
+  研究筆記在 .research/（不入版控），若要再補那三集需要 jina API key 或 firecrawl 額度。
 - 2026-08-20: **面試準備系列完工**：AI Engineer 面試準備 10 篇 + Product Builder 面試準備 10 篇（共 20 篇 zh-TW），
   每日面試日練 routine 2 個（Routine N/O，台灣 2:39/2:43），`/interview` 頁面 + nav 連結 + daily channel filter。
   日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
