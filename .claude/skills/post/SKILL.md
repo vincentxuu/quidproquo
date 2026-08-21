@@ -81,6 +81,11 @@ description: Convert a conversation, notes, or experience into a structured Mark
    ```
    有 error 先修，不要當作 warning 略過。
 
+   **`lang: zh-TW` 另跑台灣用語檢查**（A 級一定要清乾淨）：
+   ```bash
+   pnpm check:tw src/content/posts/<category>/<檔名>.md
+   ```
+
    **1500 字以上另跑語域掃描**（六項指標與閾值見 `post-polish` skill）：
    ```bash
    bash .agents/skills/post-polish/scripts/register-scan.sh src/content/posts/<category>/<檔名>.md

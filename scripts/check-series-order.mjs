@@ -28,6 +28,7 @@ function groupBySeries(files) {
 
 function findProblems(groups) {
   const problems = [];
+  const warnings = [];
   for (const [key, items] of [...groups].sort()) {
     const [name, lang] = key.split('\t');
     const label = `${name} [${lang}]`;
@@ -57,19 +58,23 @@ function findProblems(groups) {
         if (!byOrder.has(n)) gaps.push(n);
       }
       if (gaps.length > 0) {
-        problems.push({ label, kind: `order 有缺號：${gaps.join(', ')}`, files: [] });
+        // 缺號常常只是系列還沒寫完（多 session 同時在寫時尤其常見），
+        // 所以只提示不擋。重複編號才是一定錯的。
+        warnings.push({ label, kind: `order 有缺號：${gaps.join(', ')}（若系列尚未寫完可忽略）` });
       }
     }
   }
-  return problems;
+  return { problems, warnings };
 }
 
 function main() {
   const groups = groupBySeries(walk(POSTS_ROOT));
-  const problems = findProblems(groups);
+  const { problems, warnings } = findProblems(groups);
+
+  for (const w of warnings) console.log(`[warn] ${w.label} — ${w.kind}`);
 
   if (problems.length === 0) {
-    console.log(`OK: checked ${groups.size} series group(s), no order issues found.`);
+    console.log(`OK: checked ${groups.size} series group(s), ${warnings.length} warning(s), no blocking order issues.`);
     return;
   }
 
@@ -79,7 +84,7 @@ function main() {
       console.log(`  ${path.relative(process.cwd(), file)}`);
     }
   }
-  console.log(`\nSummary: ${problems.length} series order issue(s).`);
+  console.log(`\nSummary: ${problems.length} blocking series order issue(s).`);
   process.exitCode = 1;
 }
 

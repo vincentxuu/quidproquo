@@ -100,11 +100,46 @@
 - 金額用「4,000 萬美元」，不要「$4,000 萬」——幣別跟在單位後面
 - 法條、報告名稱第一次出現給原文，不要自創中譯後就再也不附原文
 
-**掃描指令**（寫完跑一次，命中不代表一定要改，但每一個都要看過）：
+### 兩層檢查
+
+**每篇寫完跑**（快、零依賴、可以進 CI）：
 
 ```bash
-grep -nP "(?<!產)品類(?!別)|貼標|機構記憶|視頻|網絡|信號|界面|用戶|質量|默認|技術棧|博客(?!來)|審計|(?<!確)保安(?!全)|賦能|抓手|(?<!封)閉環|對標|復盤|顆粒度" src/content/posts/<category>/<file>.md
+pnpm check:tw src/content/posts/<category>/<file>.md
 ```
+
+分兩級：**A 級**是台灣沒有正當用法的詞（用戶、視頻、激活、插件…），一定要改；**B 級**看語境（物理的「質量」、專有名詞裡的「智能」、控制理論的「反饋」），自己判斷。詞表刻意窄——寧可漏抓也不要有噪音，紅燈才能被信任。要加詞改 `scripts/check-tw-terms.mjs` 頂端的 `BLOCK` / `WARN` 兩張表。
+
+**定期健檢**（廣度，找出清單漏掉的詞）：
+
+```bash
+zhtw-mcp lint src/content/posts/<category>/<file>.md
+```
+
+[zhtw-mcp](https://github.com/sysprog21/zhtw-mcp)（MIT，Rust）有 1,882 條規則，依教育部標點與國字標準字體。它**不進 CI**——噪音散在 187 個詞上，每篇平均報 2.7 次你不打算改的東西。
+
+正確用法是**當候選詞來源**：定期跑一次，看它報的詞裡有哪些該進 A/B 級清單。本站的 `激活`、`插件`、`反饋`、`兼容` 就是這樣補進來的；`審計` 則是被它擋下才發現原本列錯（審計部是中華民國機關）。
+
+安裝：
+
+```bash
+git clone https://github.com/sysprog21/zhtw-mcp.git && cd zhtw-mcp
+python3 scripts/gen-s2t-tables.py   # 產生字元轉換表，會連 GitHub 抓 OpenCC 資料
+cargo build --release
+```
+
+跑之前先在 `~/Library/Application Support/zhtw-mcp/overrides.json` 關掉本站刻意使用的詞，否則噪音蓋掉訊號：
+
+```json
+[
+  {"from": "優化", "to": ["最佳化"], "type": "cross_strait", "disabled": true},
+  {"from": "數據", "to": ["資料"], "type": "cross_strait", "disabled": true},
+  {"from": "場景", "to": ["情境"], "type": "cross_strait", "disabled": true},
+  {"from": "開源", "to": ["開放原始碼"], "type": "cross_strait", "disabled": true}
+]
+```
+
+**不要跑 `--fix`**，除非已經讀完整份報告。實測數據見[繁中用語檢查工具比較](/posts/tech/2026-08-21-zh-tw-terminology-linters-tested)。
 
 ## 長文的體裁與語域（1500 字以上必讀）
 
@@ -240,7 +275,7 @@ bash .agents/skills/post-polish/scripts/register-scan.sh <post.md>
 
 寫後：
 - [ ] frontmatter 必填欄位齊全
-- [ ] `lang: zh-TW` 的文章跑過台灣用語掃描，翻譯腔四型也逐句看過
+- [ ] `lang: zh-TW` 的文章跑過 `pnpm check:tw`（A 級全清），翻譯腔四型也逐句看過
 - [ ] tldr / description 有具體名詞與數字
 - [ ] 引用的外部資源都在 `## 參考資料` 列出
 - [ ] **參考資料每一條都完整讀過**（搜尋摘要不算；沒讀就別列）
