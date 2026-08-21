@@ -19,6 +19,8 @@ description: "2026 年 AI 課程總覽，依不懂 AI、vibe coding、上 produc
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-07-10-ai-courses-2026-guide-en)
+
 2026 年上半年，三家前沿模型公司不約而同把「教你用 AI」變成產品的一部分。OpenAI Academy 在 6 月上線了三門核心課程，Anthropic 把整個 Academy 重組成按產品分艙的 Claude Academy，Google 推出了新的 AI Professional Certificate。同一時間，Stanford 開了一門專門教「怎麼指揮 coding agent」的正式學分課，講者名單包含 Claude Code 的創造者本人。
 
 這篇把這些資源實際逐頁抓過一遍，記錄下費用、時長、對象與先修條件，並按四層重新排過：
@@ -62,7 +64,7 @@ draft: false
 
 ### Claude Academy（原 Anthropic Academy）
 
-**這塊在 2026 年 8 月 20 日整個換掉了。** 原本掛在 `anthropic.skilljar.com` 的 Anthropic Academy 改組成 [**Claude Academy**](https://www.anthropic.com/learn)，課程搬到 `academy.claude.com`，目錄不再是一份平坦的課程清單，而是按**產品**分艙：Claude.ai、Claude Cowork、Claude Code、Claude Tag、Claude Platform 各一條線，再加一條跨產品的 AI Fluency。全部免費，多數有完成證書。
+**這塊在 2026 年 8 月 20 日整個換掉了。** 原本掛在 `anthropic.skilljar.com` 的 Anthropic Academy 改組成 [**Claude Academy**](https://academy.claude.com/)，目錄不再是一份平坦的課程清單，而是按**產品**分艙：Claude.ai、Claude Cowork、Claude Code、Claude Tag、Claude Platform 各一條線，再加一條跨產品的 AI Fluency。站上「All resources」現在列出 **286 筆資源**——課程、教學與 use case 全算進去，跟改版前那種「幾門課」的數法已經不是同一個單位。全部免費，多數有完成證書。
 
 改版同時**時數整個重編**，而且是往上加而不是往下砍。兩門入門課現在長這樣：
 
@@ -148,7 +150,7 @@ Claude Academy 把這些收在 [Build with Claude](https://academy.claude.com/co
 | Introduction to agent skills | 6 課 / 1 小時 | 可重用的 markdown 指令，從第一個 skill 到團隊散佈 |
 | Introduction to subagents | 4 課 / 45 分鐘 | 把複雜任務拆給平行 subagent，並確定性地編排 |
 
-需要 code editor 與命令列基礎。Claude Platform 101 是改版後新增的，先前沒有。
+需要 code editor 與命令列基礎。Claude Platform 101 是改版後新增的，先前沒有。Claude Code 這一艙目前共 **6 門課與 11 份 tutorial**，另外大量外連到 `code.claude.com` 的官方文件——改版後 Academy 比較像入口而不是封閉的課程平台。
 
 實際上完的人給的建議相當一致：Claude Code 101 有不少填充內容，真正該看的是 CLAUDE.md、skills、MCP 與 context 管理那幾段。有位 reviewer 花 20 分鐘上完 subagents 那門，覺得對 subagent 與主 agent 的 context window 差異講得清楚，但沒教「subagent 跑到一半卡住怎麼辦」——而那恰好是實務上最常遇到的問題。
 
@@ -206,8 +208,8 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 同一個平台，跨過第二層之後份量差距非常明顯——從一小時的短課，跳到九小時的硬課：
 
 - [**Building with the Claude API**](https://academy.claude.com/collections/build-with-claude)：**67 課、8 份 quiz、9 小時**。涵蓋 prompting、tool use、RAG、agents、MCP 與 production patterns。需 Python + JSON + API key。
-- **Claude with Amazon Bedrock**（65 課 / 8 份 quiz）與 **Claude with Google Cloud**（66 課 / 9 份 quiz）：結構與 API 課高度重疊，差在雲端平台。
-- **Introduction to Model Context Protocol**（10 課 + 1 quiz）與 **MCP: Advanced Topics**（sampling、notifications、transports）。
+- **Claude with Amazon Bedrock**（65 課 / 8 份 quiz / 8 小時）與 **Claude with Google Cloud's Vertex AI**（66 課 / 9 份 quiz / 8.5 小時）：結構與 API 課高度重疊，差在雲端平台。
+- **Introduction to Model Context Protocol**（10 課 + 1 quiz / 1 小時，用 Python SDK 從零建 server 與 client，涵蓋 tools、resources、prompts 三個核心原語）與 **MCP: Advanced Topics**（sampling、notifications 與 roots，每個協定流程都有互動式走查）。
 
 （這批數字在 8 月改版後全部重編過，跟外面轉載的舊清單對不上——第三方整理站至今仍在寫「84 課」。以官方頁為準。）
 
@@ -450,8 +452,10 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 - [OpenAI Academy](https://academy.openai.com/)
 - [New OpenAI Academy courses for the next era of work](https://openai.com/index/academy-courses-applying-ai-at-work/)
 - [OpenAI Academy 課程說明（繁中）](https://help.openai.com/zh-hant/articles/20001270-openai-academy-courses)
-- [Claude Academy（原 Anthropic Academy，2026-08-20 改版）](https://www.anthropic.com/learn)
+- [Claude Academy（原 Anthropic Academy，2026-08-20 改版）](https://academy.claude.com/)
+- [Claude Academy All resources（286 筆）](https://academy.claude.com/all)
 - [Build with Claude 課程目錄（含現行課數與時數）](https://academy.claude.com/collections/build-with-claude)
+- [Claude Academy — Claude Code 產品線](https://academy.claude.com/products/code)
 - [Anthropic's approach to teaching and learning AI（官方改版說明，2026-08-20）](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)
 - [Claude Certified Architect – Foundations](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)
 - [anthropics/courses（GitHub）](https://github.com/anthropics/courses)
