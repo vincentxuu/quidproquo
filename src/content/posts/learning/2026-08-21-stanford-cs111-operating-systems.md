@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs111, ai-course, stanford, operating-systems, self-study, c-language]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 5
+  name: "Stanford CS111 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 5
 tldr: "CS111 的九份作業從 lambda 一路做到日誌式檔案系統的崩潰復原，但把官網逐頁讀完會看到三件課綱不寫的事：第三份作業是分水嶺，因為第四份會直接編譯你第三份的程式碼；期末考有一整塊在考倫理學名詞，公開的練習卷連解答都在；還有，把自己的程式碼貼給 AI 問問題，這門課白紙黑字寫成違反榮譽準則。"
 description: "讀完 Stanford CS111 Spring 2026 官網的九份作業說明、28 份講義、公開考古題與榮譽準則頁，整理這門課真正的難度曲線、CS110 改名背後的內容落差，以及沒有 SUNet ID 的人逐項拿得到什麼。"
 draft: false

@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs107, ai-course, stanford, c-language, systems-programming, self-study]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 3
+  name: "Reading Stanford CS107"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 3
 tldr: "CS107 runs from Unix and C all the way to x86-64 and writing your own malloc, across seven assignments. But line up four archived syllabi and the course stops looking like one course: assignments are worth 40% in three quarters and 20% in Summer 2026, where in-class quizzes take 40%. The resubmission policy exists only in the quarters Cain taught; Troccoli's quarter has none. The one assignment that accepts no late days is the final heap allocator. And what blocks a self-learner isn't the autograder — it's that every starter repo lives on AFS."
 description: "A walkthrough of Stanford CS107 built from the public site: seven assignment specs, seven lab handouts with published solutions, four archived syllabi and their announcement pages. Covers how grading and assignment policy shift between quarters, what each assignment actually asks for, where the real rule break is, and exactly what a self-learner can and cannot get."
 draft: false

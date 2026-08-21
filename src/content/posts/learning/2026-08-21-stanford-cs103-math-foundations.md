@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs103, ai-course, stanford, discrete-math, theory-of-computation, self-study]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 2
+  name: "Stanford CS103 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 2
 tldr: "CS103 前半教怎麼寫證明、後半教什麼證不出來，但外界最少提到的是它有 C++ 程式作業：PS0 就是裝 Qt Creator。它的真正資產是一整排自製的『Guide to X』講義與一份會拿來扣分的 Proofwriting Checklist，全部公開；解答與練習考題全部鎖在 Stanford 登入後面，而且鎖的理由寫在 Honor Code 裡。"
 description: "Stanford CS103: Mathematical Foundations of Computing 完整導讀，讀完現行課程網站、八份 problem set、二十多份自製講義與封存學期版：課程軸心、程式作業的存在、難度轉折落在哪一份作業、暑期版與正規學期版的差距，以及自學者實際拿得到與拿不到什麼。"
 draft: false

@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs221, ai-course, stanford, search, logic, reinforcement-learning]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 7
+  name: "Reading Stanford CS221"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 7
 tldr: "CS221 lays AI out along one axis, and reflex models — deep learning — sit in the lowest slot, with states, variables and logic above them. When Percy Liang took over in Autumn 2025 he replaced the slides with runnable Python and wrote 'Cut constraint satisfaction problems :(' into the source of the first lecture — yet ExploreCourses and Stanford Online both still advertise constraint satisfaction as a course topic. The project has gone from 20% of the grade in 2019 to extra credit only."
 description: "A full walkthrough of Stanford CS221: Artificial Intelligence: Principles and Techniques — three official pages that disagree about the prerequisites, the course's own definition of AI in terms of resource limits, the reflex/states/variables/logic spine, what Autumn 2025 cut and what it replaced the slides with, where the eight assignments turn, and exactly which primary materials a self-learner can get."
 draft: false

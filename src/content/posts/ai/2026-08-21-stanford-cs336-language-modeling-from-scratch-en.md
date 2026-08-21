@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs336, ai-course, stanford, llm, gpu, self-study]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 16
+  name: "Reading Stanford CS336"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 17
 tldr: "Of the seventeen regular CS336 lectures, only nine are executable Python programs; the other eight are PDF slide decks — and the split falls exactly along the two instructors. Assignment 1's handout carries eight 'Low-Resource Tips' for finishing it on a laptop. Assignments 2 through 5 carry none. The course page lists the hourly price of a B200; the handouts list how many B200 hours each problem needs."
 description: "A deep read of Stanford CS336: Language Modeling from Scratch, based on the Spring 2026 course site, the lecture_01.py source, five assignment repos with their PDF handouts, the leaderboard repos and the course AI policy: what an executable lecture actually looks like, where the five assignments break in two, how to compute the GPU bill yourself, and what a self-learner gets from a course that requires an application."
 draft: false

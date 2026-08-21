@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs224u, ai-course, stanford, nlp, evaluation, dspy]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 12
+  name: "Reading Stanford CS224U"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 13
 tldr: "CS224U's teaching material isn't a slide deck — it's an Apache-2.0 GitHub repo holding the lecture notebooks, all three assignments, and the grading document for the final project. But the on-campus course has skipped three straight academic years since Spring 2023, and ExploreCourses has it back on the books for Spring 2026-27. The official description still lists relation extraction and semantic parsing; the 2023 syllabus covers neither. And the data-loading cell in the first assignment breaks in a fresh environment today, on a Hugging Face compatibility change."
 description: "A full walkthrough of Stanford CS224U: Natural Language Understanding, built from the course site, the GitHub repo, the slide PDFs, and ExploreCourses' raw data: how it splits work with CS224N, what the three assignments actually ask for, what the final-project grading document demands, and what a self-learner can get hold of and run today."
 draft: false
