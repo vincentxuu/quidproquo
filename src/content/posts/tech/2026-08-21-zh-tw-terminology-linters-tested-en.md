@@ -14,7 +14,7 @@ draft: false
 
 LLM training data skews heavily toward Mainland Chinese content, so the "Traditional Chinese" these models write is often **correct in glyphs but wrong in vocabulary**: 軟件 for 軟體, 視頻 for 影片, 用戶 for 使用者. I wanted to replace this site's hand-maintained 18-term grep pattern with a maintained tool, found five candidates, and tested all of them.
 
-I got the measurement wrong once, and nearly published the wrong conclusion from it. That part is worth more than the tool comparison, so it goes first.
+I got three things wrong along the way: the sampling, the ground-truth list, and a bulk replacement that nearly corrupted content. I caught all three myself, and all three are written up below — they are worth more than the tool comparison.
 
 ## The five candidates
 
@@ -62,17 +62,19 @@ Both recall above 80%. That is a completely different conclusion from "0.3%" —
 
 Computing precision requires ground truth. Mine was the site's existing 18-term pattern — and that list turned out to be wrong in two directions, both of which zhtw-mcp surfaced.
 
-**Five genuine Mainland terms my list had missed:**
+**Five terms my list had missed:**
 
-| Term | In corpus | zhtw-mcp flagged | Taiwan form |
-|---|---|---|---|
-| 激活 | 23 | 23 | 啟用 |
-| 插件 | 19 | 19 | 外掛 |
-| 反饋 | 17 | 17 | 回饋 |
-| 智能 | 21 | 8 | 智慧 |
-| 兼容 | 1 | 1 | 相容 |
+| Term | In corpus | zhtw-mcp flagged | Taiwan form | What I decided |
+|---|---|---|---|---|
+| 插件 | 19 | 19 | 外掛 | promoted to blocking |
+| 反饋 | 17 | 17 | 回饋 | promoted to blocking |
+| 兼容 | 1 | 1 | 相容 | promoted to blocking |
+| 智能 | 21 | 8 | 智慧 | report-only — nearly all proper nouns here |
+| 激活 | 23 | 23 | 啟用 | report-only — see below |
 
 智能 was flagged only 8 times out of 21 because the rule is context-gated and left 人工智慧 alone. Likewise 質量: 14 occurrences, 3 flagged — physics contexts excluded.
+
+**I reversed myself on 激活.** I had promoted it to the blocking list, and only the bulk-replacement preview revealed that **all 23** occurrences are machine-learning activations (激活空間, 激活量化, 非線性激活, 激活監控) — not one means "enable." Replacing it would have wrecked every AI passage. zhtw-mcp was right; my adoption of its finding was wrong. **A tool hands you candidates; whether to accept one still depends on your own corpus.**
 
 **And one entry it correctly refused to flag.** My pattern treats 審計 as Mainland vocabulary; it appears 36 times. zhtw-mcp never flagged it, and it is right: all 36 are "SOC2 審計" contexts, and 審計部 is an ROC government institution. The word is standard in Taiwan.
 
@@ -157,7 +159,7 @@ Not a bug — a different goal. Theirs is "make a Simplified article readable in
 
 I did not wire zhtw-mcp into CI after testing, because its noise is spread across **187 distinct terms** — disabling the 50 loudest still only removes 79%, leaving 294 findings across 109 posts, about 2.7 per file. Too chatty for a hard pre-commit gate.
 
-But it did something more valuable: **it caught both errors in my hand-maintained list** — five terms to add, one to remove.
+But it did something more valuable: **it caught the errors in my hand-maintained list** — three terms promoted to blocking, one removed (審計), two downgraded to report-only (激活, 智能).
 
 So the division of labour is:
 
