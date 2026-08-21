@@ -3,7 +3,7 @@ title: "常去日韓該不該開外幣帳戶：拆解海外刷卡 1.5% 與日圓
 date: 2026-08-17
 type: guide
 category: travel
-tags: [外幣帳戶, 海外刷卡, 換匯, travel, japan, korea]
+tags: [foreign-currency-account, overseas-card-payment, currency-exchange, travel, japan, korea]
 lang: zh-TW
 tldr: "海外刷卡 1.5% ＝ 國際組織 1% ＋ 發卡行 0.5%，雙幣卡照收。台銀韓元只有現鈔匯率、來回價差 15.7%，日圓即期只有 2.45%——所以日圓值得開外幣帳戶，韓元不值得。"
 description: "常去日本韓國的人到底要不要開外幣帳戶？拆解海外刷卡 1.5% 手續費的組成、雙幣卡的誤解、DCC 陷阱，以及台銀牌告上日圓與韓元的真實換匯成本差距。"

@@ -267,13 +267,10 @@ This is an article with an expiry date, so the update rules live here:
 - A new model only enters the tables when it **changes the best answer for some use case**. The goal is not to mirror every entry in the catalog.
 - Removed models stay in the migration section rather than being deleted — readers still have code calling them.
 
-## Update log
-
-- 2026-08-18: First published, checked against the 2026-08-12 catalog (84 models) and the 2026-08-18 pricing page.
-
 ## Changelog
 
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
+- 2026-08-18: First published, checked against the 2026-08-12 catalog (84 models) and the 2026-08-18 pricing page.
 
 ## References
 

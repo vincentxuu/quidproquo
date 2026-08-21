@@ -3,7 +3,7 @@ title: "Kimi：月之暗面的長文本 AI 模型，憑什麼挑戰 GPT 和 Clau
 date: 2026-03-26
 type: project
 category: ai
-tags: [kimi, moonshot-ai, llm, long-context, reasoning, 月之暗面, ai-model, moe, open-source]
+tags: [kimi, moonshot-ai, llm, long-context, reasoning, ai-model, moe, open-source]
 lang: zh-TW
 tldr: "Kimi 是中國 AI 新創月之暗面（Moonshot AI）推出的大型語言模型，以超長 context window、開源策略和極具競爭力的定價聞名。從 2023 年的 200K context 到 2026 年的 K2.5 Agent Swarm，Kimi 已成為全球 AI 市場不可忽視的力量。"
 description: "深入介紹 Moonshot AI 月之暗面旗下的 Kimi 模型系列，涵蓋公司背景、技術特色、模型演進（K1.5 → K2 → K2.5）、MoE 架構、Agent Swarm、定價比較，以及與 GPT-5、Claude、Gemini 的競爭態勢。"

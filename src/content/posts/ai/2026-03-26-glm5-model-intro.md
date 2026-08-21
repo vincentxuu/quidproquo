@@ -3,7 +3,7 @@ title: "GLM-5：智譜 AI 的 744B 開源模型，用華為晶片訓出來的前
 date: 2026-03-26
 type: project
 category: ai
-tags: [glm-5, zhipu-ai, 智譜ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
+tags: [glm-5, zhipu-ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
 lang: zh-TW
 tldr: "GLM-5 是智譜 AI（Z.ai）於 2026 年 2 月發布的 744B MoE 開源模型，完全在華為昇騰晶片上訓練，以 MIT 授權開源。它是目前開源模型中排名最高的，在 Humanity's Last Exam 等基準上甚至超越 Claude 和 GPT-5，而 API 定價只有它們的 1/5 到 1/8。"
 description: "深入介紹智譜 AI 旗下的 GLM-5 模型，涵蓋公司背景（清華系 AI 六小虎之首）、技術架構（744B MoE、Slime RL 框架）、模型演進、基準測試比較、API 定價，以及它作為首個非美國硬體訓練的前沿模型的意義。"

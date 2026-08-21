@@ -10,7 +10,7 @@ description: "Extract the complete list of 185 spinner verbs and 8 completion ve
 draft: false
 series:
   name: "Claude Code Automation Guide"
-  order: 10
+  order: 28
 ---
 
 🌏 [中文版](/posts/tech/2026-03-30-claude-code-spinner-verbs)

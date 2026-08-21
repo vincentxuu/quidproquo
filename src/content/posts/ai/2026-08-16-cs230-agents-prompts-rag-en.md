@@ -7,7 +7,7 @@ tags: [ai-agent, rag, prompt-engineering, evaluation, stanford-cs230]
 lang: en
 series:
   name: "Reading Stanford CS230"
-  order: 8
+  order: 7
 tldr: "A BCG experiment found a jagged frontier: inside it, AI substantially improved consultants' work; outside it, AI made results worse — and people fell asleep at the wheel. The lecture also takes a strong position: avoid fine-tuning wherever possible, because by the time you're done tuning, the next model already beats your fine-tuned version."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 8: the full vertical axis from prompt to chain to RAG to agentic workflow to multi-agent, including BCG's jagged frontier, four forms of LLM-as-judge, the deterministic-to-fuzzy paradigm shift, three axes for slicing evals, and why the course only teaches breadth."
 draft: false

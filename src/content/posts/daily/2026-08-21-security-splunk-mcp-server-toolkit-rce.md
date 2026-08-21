@@ -2,6 +2,7 @@
 title: "資安警報｜Splunk MCP Server 出現 CVSS 9.1 反序列化 RCE，AI Toolkit 同批再爆模型載入 RCE"
 date: 2026-08-21
 category: daily
+lang: zh-TW
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 description: "Splunk 一次修補 17 個漏洞，其中 Splunk MCP Server app 的憑證管理元件反序列化漏洞可讓管理員角色使用者達成主機層級任意指令執行，AI Toolkit 的模型載入 API 也有同類反序列化 RCE"
 tldr: "Splunk 於 2026/8/19 發布 SVD-2026-0808，一次修補 Cisco Talos 附加元件、AI Toolkit、Connect for Kafka、MCP Server app、On-Call 共 17 個漏洞。最嚴重的 CVE-2026-76404（CVSS 9.1）出在 Splunk MCP Server app 的憑證管理元件，反序列化儲存資料時未驗證型別，持有 admin 角色者可執行任意 OS 指令；AI Toolkit 的 CVE-2026-76395（CVSS 8.8）則是載入夾帶 pickle 內容的模型檔案時觸發同類 RCE。官方未觀察到在野利用。防禦：立即升級 MCP Server app 至 1.2.1、AI Toolkit 至 6.0.1，無法立即升級則停用該 app。"

@@ -211,6 +211,10 @@ More open-source multi-model routing projects:
 
 - [Agent CLI Subscriptions & Multi-Model Routing Complete Guide](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing-en)
 
+## Changelog
+
+- 2026-08-18: (1) `iblai-openclaw-router` has been renamed `claw-router`; links and names updated throughout. (2) Fixed a dead link to `freerouter-ai/freerouter` (the correct repo is `openfreerouter/freerouter`). (3) Added "Check the Scale Before You Choose" — star counts across the five projects span four orders of magnitude, and listing them side by side without that context invites misreading their maturity. (4) Removed two reference links that now 404.
+
 ## References
 
 - [How to Optimize AI Agent Token Costs with Multi-Model Routing | MindStudio](https://www.mindstudio.ai/blog/ai-agent-token-cost-optimization-multi-model-routing)

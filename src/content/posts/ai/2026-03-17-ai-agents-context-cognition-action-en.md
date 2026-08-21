@@ -3,7 +3,7 @@ title: "The Three Core Pillars of AI Agents: Context, Cognition, Action"
 date: 2026-03-17
 type: guide
 category: ai
-tags: [ai-agent, context-engineering, llm, reasoning, ReAct, agentic-ai, memory, mcp]
+tags: [ai-agent, context-engineering, llm, reasoning, react-agent, agentic-ai, memory, mcp]
 lang: en
 tldr: "An AI agent is not a black box — it is built from three layers: what it knows (Context), how it thinks (Cognition), and what it can do (Action). Understanding these three layers is the key to grasping why agents are sometimes brilliant and sometimes go off the rails, and how to design a truly effective agent system."
 description: "A deep dive into the three core pillars of AI agents: Context (situation management), Cognition (reasoning and planning), and Action (execution), covering context engineering, memory architecture, ReAct/ToT reasoning frameworks, MCP tool protocol, and other implementation details."

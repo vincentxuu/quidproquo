@@ -172,10 +172,6 @@ Include a references section in each post. For AEO, this has a dual effect:
 2. **Establishes knowledge graph connections**: your article becomes linked to authoritative sources
 
 ```markdown
-## Changelog
-
-- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
-
 ## References
 
 - [Google Search Central - Structured Data](https://developers.google.com/search/docs/appearance/structured-data)
@@ -232,6 +228,10 @@ The core logic of AEO is straightforward: write content that's easy for AI to un
 SEO helps people find you. AEO makes AI speak for you. Running both in parallel is the content strategy for the post-2025 era.
 
 ---
+
+## Changelog
+
+- 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "AEO, GEO, and AI Search" series.
 
 ## References
 

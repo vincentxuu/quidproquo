@@ -8,7 +8,7 @@ description: "今天三篇都在問同一件事：Agent 能不能從自己的執
 tldr: "DART-SD 用互動狀態圖只監督修復步驟，讓工具呼叫 agent 自蒸餾不再誤殺有效探索；SkillForge 讓 agent 先解合成題把 repo 知識蒸成技能，SWE-bench Verified +5.8%；Post-Training AI 分析發現頂尖 agent 開場就鎖死訓練策略，之後十小時只做局部微調"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 6
+  order: 89
 ---
 
 ## 今日總覽

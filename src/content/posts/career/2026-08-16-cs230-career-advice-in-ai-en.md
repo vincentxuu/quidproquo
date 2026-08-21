@@ -7,7 +7,7 @@ tags: [career, ai-engineering, technical-debt, hiring, stanford-cs230]
 lang: en
 series:
   name: "Reading Stanford CS230"
-  order: 9
+  order: 8
 tldr: "An elite-level engineer applied to over 300 jobs and failed every one, because the interview guides told him to stand his ground and have a backbone, and he read that as being hard-nosed. The interviewers' read: this is the 10x engineer, and I don't want him anywhere near my team. This lecture also gives the best criterion anyone has offered for vibe coding — technical debt."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 9: Andrew Ng on the product management bottleneck and the people around you; guest speaker Laurence Moroney on three cycles in the job market, three pillars of success, technical debt as the criterion for vibe coding, an anatomy of hype, and the big-AI / small-AI fork."
 draft: false

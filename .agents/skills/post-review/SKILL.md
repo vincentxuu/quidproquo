@@ -16,12 +16,19 @@ description: Self-review a Markdown post draft under src/content/posts/<category
 ### 2. 機械檢查（先跑命令）
 
 ```bash
-pnpm check:references
-pnpm lint
+pnpm verify        # lint + references + post-quality + glossary + series-order + lang-parity + skills-sync
 pnpm astro check
 ```
 
 任何一項紅，先列在報告開頭，**這些是必修**。
+
+外部連結要另外跑（會打網路，所以不在 `verify` 裡）：
+
+```bash
+pnpm check:links src/content/posts/<category>/<檔名>.md
+```
+
+它分兩欄輸出：「壞掉的連結」（404/410/逾時）要修；「需人工確認」多半是出版社與社群網站擋機器人（403/429），開瀏覽器看一眼即可。
 
 ### 3. frontmatter 檢查
 

@@ -8,7 +8,7 @@ description: "今天三篇論文都在拷問 Agent 記憶系統的可信度—�
 tldr: "D2ACCI 用雙迴圈診斷協議把記憶失敗定位到管線的哪一階段，診斷成功率從 0% 提升到 98–100%；Salesforce 重新評測記憶型自我進化 Agent，任務順序一打亂，表現從預期的進步 1.5% 反而退步 4.5%；GraphWake 證明只要污染 10% Agent 的記憶，就能讓群體意見極化程度大幅上升"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 5
+  order: 88
 ---
 
 ## 今日總覽

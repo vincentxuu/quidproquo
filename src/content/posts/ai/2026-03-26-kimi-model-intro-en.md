@@ -3,7 +3,7 @@ title: "Kimi: How Moonshot AI's Long-Context Model Challenges GPT and Claude"
 date: 2026-03-26
 type: project
 category: ai
-tags: [kimi, moonshot-ai, llm, long-context, reasoning, 月之暗面, ai-model, moe, open-source]
+tags: [kimi, moonshot-ai, llm, long-context, reasoning, ai-model, moe, open-source]
 lang: en
 tldr: "Kimi is a large language model from Chinese AI startup Moonshot AI, known for its ultra-long context window, open-source strategy, and highly competitive pricing. From 200K context in 2023 to K2.5 Agent Swarm in 2026, Kimi has become a force that the global AI market cannot ignore."
 description: "An in-depth introduction to the Kimi model series from Moonshot AI, covering company background, technical highlights, model evolution (K1.5 → K2 → K2.5), MoE architecture, Agent Swarm, pricing comparison, and competitive positioning against GPT-5, Claude, and Gemini."

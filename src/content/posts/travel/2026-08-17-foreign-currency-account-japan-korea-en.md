@@ -3,7 +3,7 @@ title: "Do Frequent Japan/Korea Travellers Need a Foreign Currency Account? Brea
 date: 2026-08-17
 type: guide
 category: travel
-tags: [外幣帳戶, 海外刷卡, 換匯, travel, japan, korea]
+tags: [foreign-currency-account, overseas-card-payment, currency-exchange, travel, japan, korea]
 lang: en
 tldr: "The 1.5% overseas card fee is 1% network + 0.5% issuer, and dual-currency cards pay it too. Bank of Taiwan quotes KRW only as cash with a 15.7% round-trip spread, versus 2.45% for JPY spot — so a JPY account is worth it, a KRW one isn't (and mostly can't be opened)."
 description: "Should frequent travellers to Japan and Korea open a foreign currency account? A breakdown of what the 1.5% overseas transaction fee is made of, the dual-currency card misconception, the DCC trap, and the real gap between JPY and KRW exchange costs in Taiwan."

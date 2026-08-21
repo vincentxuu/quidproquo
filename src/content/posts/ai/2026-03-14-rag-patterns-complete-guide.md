@@ -312,7 +312,7 @@ Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：�
 
 檢索是 RAG 系統的心臟。用錯策略，後面的 LLM 再強也救不回來。以下是主要的檢索策略，以及它們各自解決的問題。
 
-### 檢索策略快速選型
+## 檢索策略快速選型
 
 | 你的問題 | 該用什麼 | 為什麼 |
 |---------|---------|-------|
@@ -329,73 +329,73 @@ Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：�
 | 重複問題太多 | Semantic Caching | 語義快取 |
 | 答案在結構化資料中 | Text-to-SQL Router | SQL 比搜尋準 |
 
-### Hybrid Search：BM25 + Vector + RRF
+## Hybrid Search：BM25 + Vector + RRF
 
 向量搜尋擅長語義匹配，但會漏掉精確的關鍵字。BM25 擅長關鍵字匹配，但不懂語義。Hybrid Search 兩者並用，再透過 RRF（Reciprocal Rank Fusion）合併排名。這是目前生產系統最常見的搜尋架構。
 
 → [Hybrid Search：用 BM25 + 向量搜尋彌補彼此的盲區](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
 
-### HyDE：假設答案搜尋
+## HyDE：假設答案搜尋
 
 使用者的問題和文件的語言風格不同，導致向量搜尋的 recall 不高。HyDE 先讓 LLM 生成一個「假設的答案」，再用這個假設答案去搜尋。因為假設答案和真實文件的語言風格更接近，recall 通常會改善——但提升幅度高度依賴領域和 base retriever（原論文是在零樣本、無標註資料的設定下和 Contriever 比較），在有標註資料可以微調 retriever 的場景，HyDE 的優勢會縮小。
 
 → [HyDE：用假設答案提升向量搜尋的 Recall](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
 
-### Multi-Query Expansion
+## Multi-Query Expansion
 
 一個問題可能有多種問法。Multi-Query 讓 LLM 把原始問題改寫成 3-5 個不同角度的 query，每個都去搜尋，最後合併結果。這能覆蓋到單一 query 漏掉的文件。
 
 → [Multi-Query Expansion：一個問題，多個角度搜尋](/posts/ai/2026-03-12-multi-query-expansion)
 
-### Cross-Encoder Reranking
+## Cross-Encoder Reranking
 
 向量搜尋用的是 bi-encoder——query 和 document 各自算 embedding 再比較，快但不精準。Cross-Encoder 把 query 和 document 拼在一起送進模型，精準度高很多，但慢。通常的做法：先用向量搜尋拉回 top-50，再用 Cross-Encoder rerank 取 top-5。
 
 → [Cross-Encoder Reranking：讓最相關的文件排到前面](/posts/ai/2026-03-12-cross-encoder-reranking)
 
-### ColBERT：Late Interaction
+## ColBERT：Late Interaction
 
 ColBERT 是 bi-encoder 和 cross-encoder 之間的折衷。它為 query 和 document 的每個 token 都算一個 embedding，在搜尋時做 token-level 的交互比對。比 bi-encoder 精準，比 cross-encoder 快。
 
 → [ColBERT：向量搜尋的第三條路](/posts/ai/2026-03-12-colbert-late-interaction)
 
-### SPLADE：學習型稀疏向量
+## SPLADE：學習型稀疏向量
 
 BM25 靠的是 term frequency，SPLADE 用 BERT 學出每個 token 的權重，產生稀疏向量。它同時具備關鍵字匹配（稀疏）和語義理解（學習型）的優點。
 
 → [SPLADE：比 BM25 更聰明的稀疏向量搜尋](/posts/ai/2026-03-12-splade-sparse-vectors)
 
-### RRF：多路結果融合
+## RRF：多路結果融合
 
 當你有多個搜尋結果列表（例如 BM25 的結果和向量搜尋的結果），RRF 用一個簡單的公式根據排名位置合併它們。不需要分數標準化，不需要訓練，即插即用。
 
 → [RRF：RAG 系統裡多路結果怎麼合併](/posts/ai/2026-03-12-rrf-multi-source-fusion)
 
-### MMR：多樣性重排
+## MMR：多樣性重排
 
 如果搜尋結果的 top-5 都在講同一件事，你等於浪費了 4 個 context slot。MMR（Maximal Marginal Relevance）在排名時同時考慮相關性和多樣性，確保結果覆蓋不同面向。
 
 → [MMR + 熱門度加權：讓推薦結果既相關又多樣](/posts/ai/2026-03-12-mmr-diversity-reranking)
 
-### Contextual Retrieval
+## Contextual Retrieval
 
 Anthropic 提出的方法：在 indexing 階段，對每個 chunk 加上一段 context（「這段出自某份文件的某個章節，在講某個主題」）。搜尋時這段 context 一起被比對，大幅提升 chunk 的可定位性。
 
 → [Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
 
-### Query Classification
+## Query Classification
 
 不是所有問題都該走同一條路。事實型問題用精確搜尋，分析型問題用深度搜尋，閒聊直接回覆不搜尋。Query Classification 在 pipeline 入口做分類，根據問題類型選擇不同策略。
 
 → [Query Classification：讓 RAG 知道該怎麼回答這個問題](/posts/ai/2026-03-12-query-classification-adaptive-routing)
 
-### Semantic Caching
+## Semantic Caching
 
 語義相近的問題（「台北天氣如何」和「現在台北氣溫多少」）不需要跑兩次完整 pipeline。Semantic Cache 用向量相似度判斷新 query 是否和之前的某個 query 足夠接近，如果是，直接返回快取的答案。
 
 → [Semantic Caching：語義相近的問題只跑一次 RAG](/posts/ai/2026-03-12-semantic-caching)
 
-### Text-to-SQL Router
+## Text-to-SQL Router
 
 有些問題的答案在結構化資料中（資料庫），用向量搜尋反而不如直接寫 SQL。Text-to-SQL Router 判斷問題是否適合轉成 SQL query，如果是，走資料庫路線而不是 RAG。
 
@@ -407,7 +407,7 @@ Anthropic 提出的方法：在 indexing 階段，對每個 chunk 加上一段 c
 
 RAG 的效果有一半取決於基礎設施的選擇——chunk 怎麼切、embedding 用哪個、向量資料庫怎麼選。這些決定在專案初期就會做出，之後要改的成本很高。
 
-### 基礎設施決策順序
+## 基礎設施決策順序
 
 建 RAG 系統時，基礎設施的決策有先後順序。先決定 Chunking 策略（因為它影響後面所有環節），然後選 Embedding 模型（因為一旦選了就很難換——換模型意味著重新 embed 所有文件），接著選向量資料庫，最後設計 prompt。
 
@@ -417,37 +417,37 @@ Chunking → Embedding → Vector DB → Prompt Design → Streaming
    └──── 如果效果不好，通常要從這裡開始改 ────────────────┘
 ```
 
-### Chunking 策略
+## Chunking 策略
 
 切塊方式直接決定 RAG 能不能找到答案。切太小會失去上下文，切太大會混入噪音。常見策略包括：固定大小、基於段落/句子、遞迴切分、語義切分（根據 embedding 相似度判斷分界點）。沒有「最佳大小」——要根據你的文件類型和問題類型實驗。
 
 → [Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies)
 
-### Embedding 模型選型
+## Embedding 模型選型
 
 繁體中文的 RAG 系統，embedding 模型的選擇特別重要。BGE-M3 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。
 
 → [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
-### 向量資料庫選型
+## 向量資料庫選型
 
 向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件確認當下的功能與定價。
 
 → [Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選](/posts/ai/2026-03-12-vector-database-comparison)
 
-### Prompt 設計
+## Prompt 設計
 
 RAG 的 prompt 設計不只是「把 context 塞進去」。要注意：context 和 instruction 的位置安排、引用格式、如何指示 LLM 在 context 不足時說「我不知道」、以及如何讓 LLM 標註答案來源。好的 prompt 設計能讓同一批 retrieved chunks 產出品質差異巨大的答案。
 
 → [RAG Prompt Engineering：System Prompt 和 Context 怎麼設計](/posts/ai/2026-03-12-rag-prompt-engineering)
 
-### Streaming
+## Streaming
 
 使用者不想等 10 秒才看到完整答案。SSE（Server-Sent Events）讓 LLM 的回答邊生成邊顯示，大幅改善使用者體驗。實作時要注意 streaming 狀態下的 citation 處理、error handling、以及 abort 機制。
 
 → [RAG Streaming：SSE 讓 LLM 回答邊生成邊顯示](/posts/ai/2026-03-12-rag-streaming-sse)
 
-### 個性化與記憶
+## 個性化與記憶
 
 讓 RAG 系統記住使用者的偏好——語言風格、常問的主題、上次對話的脈絡。這不只是 chat history，而是從對話中抽取結構化的偏好資料，在下次搜尋和生成時作為額外的 context。
 
@@ -459,7 +459,7 @@ RAG 的 prompt 設計不只是「把 context 塞進去」。要注意：context 
 
 RAG 系統上線只是開始。真正的挑戰是：怎麼知道它表現好不好？怎麼防止它出包？怎麼在控制成本的同時持續改進？
 
-### 品質營運的優先順序
+## 品質營運的優先順序
 
 如果你剛上線，建議按這個順序建立品質基礎設施：
 
@@ -470,57 +470,57 @@ RAG 系統上線只是開始。真正的挑戰是：怎麼知道它表現好不�
 5. **Cost Optimization**（在品質穩定後再省錢）
 6. **A/B Testing**（有了基線後才能比較）
 
-### 評估框架
+## 評估框架
 
 你不能改善你不能衡量的東西。RAGAS、DeepEval、TruLens 是三個主流的 RAG 評估框架，各自提供不同的指標：Faithfulness（答案是否忠於 context）、Relevance（檢索結果是否相關）、Answer Correctness（答案是否正確）。建議在 CI 中跑自動化評估，每次 pipeline 變更都有數字。
 
 → [RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 
-### LLM-as-Judge
+## LLM-as-Judge
 
 當你沒有大量 human-labeled 測試資料時，可以用另一個 LLM 來評估 RAG 的輸出。Self-Reflection 讓生成答案的 LLM 自己評分，LLM-as-Judge 用一個獨立的 LLM 評分。兩者都有偏差，但作為快速迭代的訊號已經夠用。
 
 → [Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 
-### 常見失敗模式
+## 常見失敗模式
 
 RAG 系統有十種以上的常見失敗模式：chunk 切錯位導致答案不完整、embedding 語義偏移、reranking 反而把對的結果排掉、LLM 無視 context 自己幻覺、context window 塞太滿反而降低品質。知道這些 failure mode 才能針對性地修。
 
 → [RAG 常見失敗模式：10 種問題和對應的解法](/posts/ai/2026-03-12-rag-failure-modes)
 
-### Guardrails
+## Guardrails
 
 RAG 系統的輸入和輸出都需要防護。輸入端：防止 prompt injection、過濾敏感查詢。輸出端：檢查 hallucination、過濾有害內容、確保答案有 citation 支持。Guardrails 不是 nice-to-have，是生產系統的必要條件。
 
 → [RAG Guardrails：在輸入和輸出加一道防線](/posts/ai/2026-03-12-rag-guardrails)
 
-### 可觀測性
+## 可觀測性
 
 RAG pipeline 有很多環節，任何一個出問題都會影響最終答案。可觀測性的目標是讓這個黑盒子變透明：每一次查詢的每一步（query rewrite 的結果、搜尋回來的 chunks、reranking 後的順序、LLM 的完整 prompt）都要能追蹤和回放。
 
 → [RAG Observability：讓黑盒子變透明的逐節點追蹤](/posts/ai/2026-03-12-rag-observability-tracing)
 → [RAG 可觀測性工具全景](/posts/ai/2026-03-12-rag-observability-tools)
 
-### 成本優化
+## 成本優化
 
 RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM 生成。每一個都有優化空間——embedding cache、chunk 壓縮、小模型 + 大模型分層、semantic caching、token quota 系統。目標是在不犧牲品質的前提下，把每次查詢的成本壓到最低。
 
 → [RAG 成本優化：把每次查詢的花費壓到最低](/posts/ai/2026-03-12-rag-cost-optimization)
 → [RAG 配額系統](/posts/ai/2026-03-12-rag-token-quota-system)
 
-### A/B 測試
+## A/B 測試
 
 你換了一個 reranking 模型，品質變好了還是變差了？你把 chunk size 從 512 改成 1024，效果如何？RAG 的 A/B 測試比 web A/B 測試複雜得多——你要比較的是兩個完整 pipeline 的表現，指標是語義層面的（答案品質），不是點擊率。
 
 → [RAG A/B 測試：怎麼科學地比較兩個 Pipeline 配置](/posts/ai/2026-03-12-rag-ab-testing)
 
-### 冷啟動
+## 冷啟動
 
 新系統上線時，知識庫是空的或很少。怎麼讓系統在這個階段也能用？常見策略：預載公開知識、用 LLM 自身知識做 fallback、引導使用者上傳文件、用 few-shot 範例展示系統能力。
 
 → [RAG 冷啟動：沒有資料時怎麼讓系統能用](/posts/ai/2026-03-12-rag-cold-start)
 
-### RAG vs Fine-tuning
+## RAG vs Fine-tuning
 
 不是所有問題都該用 RAG 解決。如果知識是靜態的、query pattern 是固定的、而且你有足夠的訓練資料，fine-tuning 可能更適合。實務上最強的做法是兩者結合：fine-tune 讓模型學會「怎麼用 context」，RAG 提供最新的 context。
 
@@ -565,7 +565,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 
 根據你的目標，選一條路線走：
 
-### MVP 路線：最快把 RAG 跑起來
+## MVP 路線：最快把 RAG 跑起來
 
 如果你要在最短時間內建一個能用的 RAG 系統：
 
@@ -575,7 +575,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 4. [Vector Database 選型](/posts/ai/2026-03-12-vector-database-comparison) — 選一個向量資料庫
 5. [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering) — 寫好 prompt
 
-### 品質提升路線：讓答案更準確
+## 品質提升路線：讓答案更準確
 
 如果你的 RAG 已經在跑，但答案品質不夠好：
 
@@ -585,7 +585,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 4. [RAG 評估框架](/posts/ai/2026-03-12-rag-evaluation-frameworks) — 用數字衡量改進
 5. [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes) — 找到具體問題點
 
-### 進階架構路線：處理更複雜的問題
+## 進階架構路線：處理更複雜的問題
 
 如果你需要的不只是簡單的問答：
 
@@ -594,7 +594,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 3. [GraphRAG](/posts/ai/2026-03-12-graph-rag) — 關係推理
 4. [Speculative RAG](/posts/ai/2026-03-15-speculative-rag) — 低延遲高吞吐
 
-### 生產營運路線：穩定地跑在線上
+## 生產營運路線：穩定地跑在線上
 
 如果你要把 RAG 系統上生產：
 
@@ -603,7 +603,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 3. [RAG 成本優化](/posts/ai/2026-03-12-rag-cost-optimization) — 控制花費
 4. [RAG A/B 測試](/posts/ai/2026-03-12-rag-ab-testing) — 科學地比較配置
 
-### 前沿探索路線：看看未來
+## 前沿探索路線：看看未來
 
 如果你想了解 RAG 的最新發展：
 

@@ -7,7 +7,7 @@ tags: [interpretability, scaling-laws, benchmark, evaluation, stanford-cs230]
 lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
-  order: 10
+  order: 9
 tldr: "問模型「你心目中的鵝長什麼樣」，它畫出一大群鵝——因為標註資料把一群鵝標成 goose，它以為整群才是那個標籤。這一講給了七種打開 CNN 看內部的方法，然後誠實地說：這套方法到 transformer 上，最前沿的研究也只解釋得了兩層。"
 description: "Stanford CS230（2025 秋季）Lecture 10 完整導讀：從一個 2000 億參數模型的 checkpoint 退步案例開始，走過 saliency map、occlusion sensitivity、class activation map、梯度上升、dataset search 與 deconvolution，再到 scaling law、benchmark 汙染偵測與資料診斷。"
 draft: false

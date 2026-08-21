@@ -3,7 +3,7 @@ title: "GLM-5: Zhipu AI's 744B Open-Source Model Trained Entirely on Huawei Chip
 date: 2026-03-26
 type: project
 category: ai
-tags: [glm-5, zhipu-ai, 智譜ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
+tags: [glm-5, zhipu-ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
 lang: en
 tldr: "GLM-5 is a 744B MoE open-source model released by Zhipu AI (Z.ai) in February 2026, trained entirely on Huawei Ascend chips and released under the MIT license. It currently ranks as the top open-source model, surpassing Claude and GPT-5 on benchmarks like Humanity's Last Exam, while its API pricing is 1/5 to 1/8 of theirs."
 description: "An in-depth look at Zhipu AI's GLM-5 model, covering the company's background (a Tsinghua-born AI unicorn), technical architecture (744B MoE, Slime RL framework), model evolution, benchmark comparisons, API pricing, and its significance as the first frontier model trained without any American hardware."

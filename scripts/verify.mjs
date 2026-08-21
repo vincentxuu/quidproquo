@@ -78,7 +78,12 @@ function checkDailySkillTimezones() {
 
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
+runStep('check:post-quality', 'pnpm check:post-quality');
+runStep('check:glossary', 'pnpm check:glossary');
+runStep('check:series-order', 'pnpm check:series-order');
+runStep('check:lang-parity', 'pnpm check:lang-parity');
 runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs');
+// check:links 故意不放這裡：它會打外網，pre-commit 不該依賴網路。手動或排程跑 `pnpm check:links`。
 checkDailySkillTimezones();
 checkProgress();
 

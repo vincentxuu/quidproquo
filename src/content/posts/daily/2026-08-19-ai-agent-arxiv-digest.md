@@ -8,7 +8,7 @@ description: "今天三篇論文圍繞同一個問題——Agent 的記憶與檢
 tldr: "QUMem 用情節切分加三階段 agent 推斷使用者狀態，在 KnowU-Bench 整體成功率贏最強 baseline 4.6 個百分點；LENS 免索引邊查邊定位證據，證據召回率 84.8% 遠勝 ReAct 基線的 50.4%，索引過期情境下完全不掉分；Intent-Guided Decoding 在解碼期仲裁檢索內容與模型記憶，事實衝突基準最高帶來 65.4 個百分點的準確率增益"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 4
+  order: 87
 ---
 
 ## 今日總覽

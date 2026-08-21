@@ -6,6 +6,7 @@ const POSTS_ROOT = path.resolve('src/content/posts');
 const VALID_CATEGORIES = new Set([
   'tech', 'climbing', 'surf', 'film', 'life', 'coffee', 'learning', 'ai',
   'product', 'marketing', 'travel', 'design', 'education', 'policy', 'anime', 'career', 'investing',
+  'daily',
 ]);
 const VALID_LANGS = new Set(['zh-TW', 'en']);
 const TAG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -128,7 +129,8 @@ function getFrontmatterFindings(file, data) {
   }
 
   const basename = path.basename(file);
-  if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.md$/.test(basename)) {
+  // slug 允許小數點：daily-digest 會把版本號寫進 slug（framework-ag2-1.0.2）
+  if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9.-]+\.md$/.test(basename)) {
     findings.push({ severity: 'error', message: '檔名必須符合 `YYYY-MM-DD-<slug>.md`' });
   }
 
@@ -140,7 +142,8 @@ function getInternalLinkFindings(content, knownRoutes) {
   const matches = [...content.matchAll(/\[[^\]]+\]\((\/(?:en\/)?posts\/[^)#?\s]+)(?:#[^)]+)?\)/g)];
 
   for (const match of matches) {
-    const route = match[1];
+    // 站內連結寫不寫尾斜線都算對，比對前先正規化
+    const route = match[1].replace(/\/+$/, '');
     if (!knownRoutes.has(route)) {
       findings.push({ severity: 'error', message: `內部文章連結不存在：${route}` });
     }
@@ -187,7 +190,10 @@ function getHeadingStructureFindings(data, content) {
     const level = trimmed.match(/^#+/)[0].length;
 
     if (level === 1) {
-      findings.push({ severity: 'error', message: `第 ${index} 行不應在內文使用 H1（\`#\`）` });
+      // 頁面標題已經是 H1（src/pages/posts/[...slug].astro），內文再用會出現第二個 H1。
+      // 但長文用 `#` 分部是本站既有慣例（177 篇在用，PostLayout 也為 .content h1 定了樣式），
+      // 所以只警告不擋。要不要全站改成 H2 分部，見 docs/governance/escalation-queue.md。
+      findings.push({ severity: 'warn', message: `第 ${index} 行在內文使用 H1（\`#\`）——頁面標題已是 H1，這會產生第二個` });
     }
 
     if (level === 2) {
