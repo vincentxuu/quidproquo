@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: en
+series:
+  name: "Reading Stanford's Main-Line CS Courses"
+  order: 17
 tldr: "CS329A is built around the generation–verification gap: models can produce the right answer but can't tell which one it is. The conclusion the course draws about itself matters more — today's methods make models more consistent, not smarter. Nine lectures are public, out of twenty."
 description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents, written after watching all nine public lectures plus the three guest lectures from the first offering — the central argument, how the 34-paper reading list is grouped, the narrow band where self-improvement actually works, the syllabus diff between offerings, and what a self-learner really gets."
 draft: false

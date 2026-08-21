@@ -7,11 +7,13 @@ tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 14
+  order: 15
 tldr: "CS329Z 是 Stanford 2026 年秋季新開的三學分 agent 工程課，第一份作業要求先用 litellm 從零刻出 RAG、工具呼叫與 ReAct 迴圈，再用 DSPy 把同一批元件重寫一次並交出對照。課程網站架在公開的 GitHub repo 上，commit 紀錄顯示 8 月中作業從三份砍成兩份，被砍掉的那份是「Data for Agents」。"
 description: "Stanford CS329Z: Engineering AI Agents 完整導讀——授課者、先修、22 個上課時段與 49 篇閱讀的分組、兩份作業的實際內容、課程網站 git 紀錄裡的課綱變動，以及 CS329Z / CS329A / CS224V 三門 agent 課在 2026-27 學年的開課狀態與分工。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 
 [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) 是 Stanford 電腦科學系 2026 年秋季第一次開的三學分課。名字裡的關鍵字是 **Engineering**。它不是把最新的 agent 論文排成十週讀完，而是要學生把一套 agentic 系統從零做出來、量出來，然後在 Demo Day 上把它演一遍。
 

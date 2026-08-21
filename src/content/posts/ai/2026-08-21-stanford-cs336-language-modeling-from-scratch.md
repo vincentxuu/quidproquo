@@ -7,11 +7,13 @@ tags: [cs336, ai-course, stanford, llm, gpu, self-study]
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 15
+  order: 16
 tldr: "CS336 的十七堂正課裡，只有九堂是可以執行的 Python 程式，另外八堂是 PDF 投影片——分界線剛好是兩位授課者。第一份作業的講義有八個「低資源提示」教你怎麼在筆電上做完，第二到第五份一個都沒有。課程頁自己列了 B200 的每小時單價，作業講義自己列了每題要幾個 B200 小時。"
 description: "Stanford CS336: Language Modeling from Scratch 深度導讀，讀過 Spring 2026 課程官網、lecture_01.py 原始碼、五份作業的 GitHub repo 與 PDF 講義、排行榜 repo 與課程 AI 政策：可執行講義的真實形態、五份作業的分水嶺在哪、GPU 預算怎麼自己算、需申請的課自學者拿得到什麼。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 
 [CS336: Language Modeling from Scratch](https://cs336.stanford.edu/) 是 [Tatsunori Hashimoto](https://thashim.github.io/) 與 [Percy Liang](https://cs.stanford.edu/~pliang/) 開的五學分課。你要從一堆位元組開始，自己把 tokenizer、Transformer、GPU kernel、多機平行、scaling law、資料清理、後訓練整條做出來。它的自我定位寫在課程頁上：仿照那種「整學期自己寫一個作業系統」的系統課，只是對象換成語言模型。
 
@@ -196,7 +198,7 @@ Stanford Online 那頁把「為什麼要申請」寫得很直接：「Due to hig
 - [edtrace](https://github.com/percyliang/edtrace) — 追蹤器本身的用途說明與正確的執行指令
 - [CS336 AI Policy Spring 2025-2026](https://docs.google.com/document/d/1SZAlExB1qAc9izHt54gwunNpjKE6wXb8Y7yA_e-baK8) — 「All your code should be handcrafted by you directly」、AGENTS.md 的要求、office hour 判準
 - [Assignment 5 的 `AGENTS.md`](https://github.com/stanford-cs336/assignment5-alignment/blob/main/AGENTS.md) — 寫給 coding agent 的角色設定與 SHOULD NOT 清單
-- [Assignment 1 講義 PDF](https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf) — 十個 Low-Resource Tip、逐題 B200 小時預算、M4 Max 五分鐘的數字
+- [Assignment 1 講義 PDF](https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf) — 八個 Low-Resource Tip、逐題 B200 小時預算、M4 Max 五分鐘的數字
 - [Assignment 2 講義 PDF](https://github.com/stanford-cs336/assignment2-systems/blob/main/cs336_assignment2_systems.pdf) — 六項實作清單、「Up to 6 GPUs」、1 node 2 GPUs 的設定
 - [Assignment 3 講義 PDF](https://github.com/stanford-cs336/assignment3-scaling/blob/main/cs336_assignment3_scaling.pdf) — 12 小時額度的動態結算規則、48 B200 小時的目標大跑
 - [Assignment 4 講義 PDF](https://github.com/stanford-cs336/assignment4-data/blob/main/cs336_assignment4_data.pdf) — 8 張 B200 跑約 2 小時的訓練設定

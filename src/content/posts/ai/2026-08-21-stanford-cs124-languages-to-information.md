@@ -7,11 +7,13 @@ tags: [cs124, ai-course, stanford, nlp, retrieval, llm]
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 7
+  order: 8
 tldr: "CS124 是 Stanford NLP 分支的第一門課，教科書是 Jurafsky 自己免費放在網路上的《Speech and Language Processing》，九個作業 repo 全部公開。但課程網站首頁掛著一行公告：2026–27 學年整年不開。而且那份課綱指定的章號，已經跟 2026 年 8 月版的教科書對不上了。"
 description: "Stanford CS124: From Languages to Information 完整導讀。逐項核對先修原文、十週課表、九個作業 repo 與評分配比，比對 Winter 2026 課綱與 SLP 第三版 2026 年 8 月版的章號落差，並確認自學者實際拿得到哪些材料、拿不到哪些。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
 
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/) 是 Stanford 電腦科學系的語言與資訊入門課，由 [Dan Jurafsky](https://web.stanford.edu/~jurafsky/) 開，同時掛在語言學系底下（LINGUIST 180／280）。它教的是怎麼把一堆非結構化的文字、語音和社群連結變成可以計算的東西：斷詞、分類、檢索、推薦、轉寫。課程自己的定位寫得很白——它是 CS224N、CS246、CS276、CS336 這一整排研究所課的**大學部總入口**。
 

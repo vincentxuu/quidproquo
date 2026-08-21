@@ -7,11 +7,13 @@ tags: [cs228, ai-course, stanford, probabilistic-graphical-models, bayesian-netw
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 9
+  order: 10
 tldr: "CS228 的官方先修就一句『basic probability theory and algorithm design and analysis』，沒有指定任何前置課程。但 ExploreCourses 顯示它最後一次開課是 Winter 2024，下一次排在 2026-27 冬季、講師欄還空著。自學者真正拿得到的是那份公開講義 cs228-notes：16 章寫完，最後一次改動停在 2025 年 6 月。"
 description: "Stanford CS228: Probabilistic Graphical Models 導讀。實際讀過 ExploreCourses 條目、凍結在 Winter 2024 的課程官網、以及公開講義 cs228-notes 的每一章，整理先修門檻、五份作業的節奏、講義的真實完整度與維護狀態，以及它跟 CS236 的關係。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs228-graphical-models-en)
 
 [CS 228: Probabilistic Graphical Models: Principles and Techniques](https://explorecourses.stanford.edu/search?q=CS+228&view=catalog) 教的是一件在 2026 年很不流行的事：把一個大到不可能寫下來的機率分布，用一張圖壓成可以計算的東西。貝氏網路、馬可夫隨機場、變數消除、信念傳播、取樣、變分推論、參數與結構學習——一個學期十週走完表示、推論、學習三塊。
 

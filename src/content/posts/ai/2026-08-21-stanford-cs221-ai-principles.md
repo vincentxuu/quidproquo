@@ -7,11 +7,13 @@ tags: [cs221, ai-course, stanford, search, logic, reinforcement-learning]
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 6
+  order: 7
 tldr: "CS221 把 AI 排成一條軸：反射式模型（也就是深度學習）在最低階那一格，往上是狀態、變數、邏輯。2025 年秋季 Percy Liang 接手後把講義換成可執行的 Python，並在第一堂的原始碼裡寫下『Cut constraint satisfaction problems :(』——但 ExploreCourses 與 Stanford Online 兩個官方頁面到現在還把約束滿足列為課程主題。專案已經從 2019 年的兩成成績掉到只剩加分。"
 description: "Stanford CS221: Artificial Intelligence: Principles and Techniques 完整導讀。從三份互相打架的官方先修條件、課程自己用「資源限制」定義 AI 的方式、反射／狀態／變數／邏輯四層主脊，到 2025 年秋季砍掉約束滿足與改用可執行講義的變動、八份作業的分水嶺，以及自學者實際拿得到哪些一手材料。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en)
 
 [CS221: Artificial Intelligence: Principles and Techniques](https://stanford-cs221.github.io/) 是 Stanford 電腦科學系的 AI 入門課，一年開兩次，掛在 200 系列卻是整條 AI 路線的起點。它教搜尋、馬可夫決策過程、賽局、貝氏網路與邏輯，深度學習只是其中一節。
 

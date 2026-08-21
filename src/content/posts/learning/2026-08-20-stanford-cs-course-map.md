@@ -10,6 +10,9 @@ tags:
   - self-study
   - llm
 lang: zh-TW
+series:
+  name: "Stanford CS 主線課程導讀"
+  order: 1
 type: guide
 tldr: "Stanford CS 一年開三百多門課，但骨架只有五門：CS103、CS107、CS109、CS111、CS161——CS221 的先修欄位直接把其中四門列出來。這篇按官方先修關係排出從入門到研究級的階梯，五條分支各走一段，並處理兩件課表通常不講的事：自學會卡在哪四個地方（起始碼被鎖、錄影不外流、GPU 要錢、沒人改作業），以及有哪些被廣泛引用的進階課其實已經停開好幾年。"
 description: "以 Stanford 官方核心課程要求與 ExploreCourses 先修條件為依據，排出 CS106A 到 CS336、CS329A 的完整修課階梯，涵蓋 NLP/LLM、視覺、強化學習、圖學、系統五條分支，並附上公開教材現況、自學限制與最近開課紀錄。"

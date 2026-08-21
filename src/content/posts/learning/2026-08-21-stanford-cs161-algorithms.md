@@ -7,11 +7,13 @@ tags: [cs161, ai-course, stanford, algorithms, self-study, cs-course]
 lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
-  order: 5
+  order: 6
 tldr: "CS161 第一堂投影片寫下的課程目標有三個：設計、分析、溝通。第三個才是作業不准手寫、要求寫得像給同事的備忘錄的原因。八份作業裡 HW2 是分水嶺，講義的 Python notebook 用來示範「量時間看不出誰比較快」，而暑期班是同課號、同課名、完全另寫一套的另一門課。"
 description: "逐份讀完 Stanford CS161 Winter 2026 的十八講講義、八份作業與課程政策後的完整導讀：課名矛盾的來龍去脈、notebook 在演算法課裡的真實用途、嵌入式倫理題、LLM 政策原文，以及自學者實際拿得到與拿不到的東西。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
 
 [CS 161](https://stanford-cs161.github.io/winter2026/) 是 Stanford 電腦科學系大學部的演算法必修。它也是這個系裡最常被當成先修條件的一門。從 AI 入門的 [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog) 到資料庫、組合最佳化、隨機演算法，先修欄位都指向它（清單見附錄）。本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)把它放在「學位骨架五門」那一格。這篇要回答的是進去之後會發生什麼事。
 
