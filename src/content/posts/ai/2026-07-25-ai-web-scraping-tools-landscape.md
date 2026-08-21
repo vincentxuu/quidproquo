@@ -68,15 +68,11 @@ Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接�
 
 ## 文件轉檔：不爬取，只轉格式
 
-這類工具不負責爬取，專把 PDF / Office / HTML 轉成 LLM 友善格式。
+這類工具不負責爬取，吃的是你已經有的檔案。放進這篇是因為「爬資料餵 AI」的第一個核心問題就是格式轉換——但**這一層的選型邏輯不在爬蟲脈絡裡**，而且內部差異比看起來大。
 
-[MarkItDown](https://github.com/microsoft/markitdown)（175k stars, MIT）是微軟出品，格式支援最廣——PDF、Word、Excel、PowerPoint、HTML、圖片都能轉 Markdown，是目前這個賽道星數最高的專案。
+[MarkItDown](https://github.com/microsoft/markitdown)（175k stars, MIT）與 [anydoc](https://github.com/firecrawl/anydoc)（746 stars, MIT）是**純轉換**：讀檔案裡既有的結構、對映成 Markdown，不需要模型也不需要 GPU，中位耗時在毫秒級。[MinerU](https://github.com/opendatalab/MinerU)（78k stars）、[Marker](https://github.com/datalab-to/marker)（39k stars）、[Docling](https://github.com/docling-project/docling)（65k stars）則是**要跑模型做 OCR 的解析工具**，處理掃描件與複雜版面，慢兩到三個數量級，而且真正的選型軸是授權而不是準確度。
 
-**但要注意這一節其實混了兩種東西。** MarkItDown 是純轉換——讀檔案裡既有的結構、對映成 Markdown，不需要模型也不需要 GPU。而 [MinerU](https://github.com/opendatalab/MinerU)（78k stars）、[Marker](https://github.com/datalab-to/marker)（39k stars, Apache-2.0）、[Docling](https://github.com/docling-project/docling)（65k stars, MIT）**是會做 OCR 的解析工具**：Marker 底層跑 surya（同為 Datalab 出品的 OCR 模型），Docling 有 OCR backend 也新增了 VlmPipeline，它們處理的是「連文字都要靠模型推斷」的掃描件與複雜版面。效能差距因此是數量級的——同一份 benchmark 裡 anydoc 中位 4.7ms、Docling 513.6ms，差 109 倍。
-
-分工上：MinerU 表格與數學公式擷取最強，學術 PDF 首選；Marker 速度快、含 LaTeX 輸出；Docling 強調結構化 JSON schema，而且是三個裡唯一乾淨的 MIT（Marker 的模型權重另有 OpenRAIL-M 授權，MinerU 過營收門檻要另談）。這一層的完整選型邏輯與實測，見[文件解析三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)與[掃描件 OCR 實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)。
-
-[anydoc](https://github.com/firecrawl/anydoc)（746 stars, MIT，2026-08-06 查詢）是 Firecrawl 出品的 Rust 函式庫，2026-08-03 才開源，走的路線跟上面幾個都不同：只做辦公文件、完全不碰 OCR，但 14 種格式全支援（含 `.doc` / `.ppt` / `.xls` 老格式），中位耗時 4.7ms。值得注意的是它跟 Firecrawl 主專案的授權不同——主專案是 AGPL-3.0，anydoc 是 MIT，商業整合沒有 copyleft 顧慮。詳細比較見[〈anydoc：14 種辦公格式轉 Markdown〉](/posts/ai/2026-08-06-anydoc-rust-document-markdown)。
+這一層的完整取捨站上另有專門系列，不在這篇重複：[「文件解析實戰」](/series/document-parsing)的[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)講怎麼選層、[解析層那篇](/posts/ai/2026-08-06-document-parsing-layout-ocr)講三家的授權陷阱、[掃描考古題實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)是 10 種工具的實際數字。
 
 輕量選項：[Trafilatura](https://github.com/adbar/trafilatura)（~6k stars）專攻「從網頁抽正文、濾廣告」，做前處理穩定好用。[Jina Reader](https://github.com/jina-ai/reader)（12k stars, Apache-2.0）零設定——URL 前加 `r.jina.ai/` 就拿到 Markdown。Readability（~9k stars）是 Firefox 閱讀模式的引擎，常被當成前處理步驟嵌在其他工具裡。
 
@@ -137,7 +133,7 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 
 ## 更新紀錄
 
-- 2026-08-21：全表星數重新以 GitHub API 查證，並修正三個已改名的 org——Firecrawl `mendableai` → `firecrawl`、Docling `DS4SD` → `docling-project`、Marker `VikParuchuri` → `datalab-to`（舊網址靠 301 還能通，但寫著舊名不對）。一個月內漂動最大的是 Firecrawl（155k → 170k）與 Scrapling（71k → 76k）。另外把反偵測那節停更兩年的 curl-impersonate（最後 push 2024-07-18）整條移除，換成仍在維護的 [curl_cffi](https://github.com/lexiforest/curl_cffi)。另外釐清「文件轉檔」一節混了兩層：MarkItDown 是純轉換，而 MinerU / Marker / Docling 其實是會做 OCR 的解析工具（Marker 底層跑 surya、Docling 有 OCR backend 與 VlmPipeline），效能差到 109 倍，已分開說明並接到文件解析實戰系列。
+- 2026-08-21：全表星數重新以 GitHub API 查證，並修正三個已改名的 org——Firecrawl `mendableai` → `firecrawl`、Docling `DS4SD` → `docling-project`、Marker `VikParuchuri` → `datalab-to`（舊網址靠 301 還能通，但寫著舊名不對）。一個月內漂動最大的是 Firecrawl（155k → 170k）與 Scrapling（71k → 76k）。另外把反偵測那節停更兩年的 curl-impersonate（最後 push 2024-07-18）整條移除，換成仍在維護的 [curl_cffi](https://github.com/lexiforest/curl_cffi)。另外「文件轉檔」一節縮短：原本把純轉換（MarkItDown、anydoc）與會做 OCR 的解析工具（MinerU / Marker / Docling）混在一起講，兩者差兩到三個數量級。現在只留分界說明與轉手連結——這一層的完整選型、授權陷阱與實測歸[「文件解析實戰」系列](/series/document-parsing)管，本篇不重複。
 - 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.7ms 中位耗時、746 stars、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異。文件轉檔這一層的完整選型脈絡另見[「文件解析實戰」系列](/series/document-parsing)。本篇其餘工具的星數仍為 2026-07-24 查詢值，未重新驗證。
 
 ## 參考資料
