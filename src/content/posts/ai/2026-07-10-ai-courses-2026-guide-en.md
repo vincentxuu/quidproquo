@@ -367,6 +367,27 @@ Below is the same list filtered by the same rule: **still being updated in 2026*
 
 One borderline case: [`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) has 81.9k stars and tops many lists, but its last update was 2026-02 — six months quiet. Not dormant yet, but worth watching.
 
+### Not material, an index: csdiy.wiki
+
+One last entry, separate because it's a different species from everything above. [**csdiy.wiki**](https://csdiy.wiki/) ([`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning), **75.1k stars, 7,988 forks, 100+ contributors**, last updated 2026-08) teaches you nothing. What it does is **turn public university courses into comparable entries**: institution, prerequisites, programming language, a difficulty rating, estimated hours, and working links to the actual materials and assignments. Bilingual, with an `.en` page for every entry.
+
+Its AI coverage fills this article's biggest blind spot — **university courses outside Stanford**:
+
+| Category | Courses indexed |
+|---|---|
+| Artificial intelligence | Berkeley CS188, Harvard CS50 AI |
+| Machine learning | Berkeley CS189, Stanford CS229, Hung-yi Lee |
+| Deep learning | CMU 11-785, CS224n, CS224w, CS230, CS231n, **Berkeley CS285**, Michigan EECS498-007, MIT 6.7960, NYU DLSP21 |
+| ML systems | **CMU 10-414**, CMU 15-442, UCSD CSE234, MLC, EML |
+| Advanced ML | CMU 10-708, CS229M, STA4273 |
+| Deep generative models | MIT 6.S184, large language models |
+
+But the reason it belongs here isn't the length of that list — it's that **somebody fixes the broken links**. Recent commits include `[Fix] update MIT calculus course links` and `Update web links`, alongside a steady stream of additions (CMU 15-442, CMU 11-785, MIT 6.7960, NYU DLSP21, UCSD CSE234).
+
+Which closes this section neatly: **star count can't tell you whether material is still alive, and an index whose maintainers repair dead links is precisely the thing that keeps answering "is this course still there?"** This article can only give you an August 2026 snapshot. An index is the thing that moves with time.
+
+The right way to use it is as **a table of contents, not a textbook** — pick a course from it, then go read that course's own site.
+
 **One structural point about the Chinese-language material above deserves calling out**: three of those four repos come from Datawhale, a live community organization rather than a single maintainer, which is why updates keep coming. That's exactly what D2L lacks — D2L has more than double happy-llm's stars, but one stopped in 2024 and the other shipped last month. Maintainer structure predicts freshness better than popularity does.
 
 ## Interactive platforms: the no-setup category
@@ -442,6 +463,7 @@ The bottleneck was never access. It's whether you're willing to actually finish 
   - **Two new sections**: "Beyond courses: self-study repos still being updated" and "Interactive platforms." The inclusion criterion is **last-updated date, not star count** — hence `rasbt/LLMs-from-scratch`, `microsoft/ai-agents-for-beginners`, `openai/openai-cookbook`, `NirDiamant/RAG_Techniques`, `stas00/ml-engineering`, and `DataTalksClub/llm-zoomcamp` are in, while high-star repos frozen in 2024 (`d2l-zh` at 79.8k, `karpathy/LLM101n` at 37.5k, `nn-zero-to-hero` at 24.0k, `fastai/course22`) are explicitly excluded. Kaggle Learn and Scrimba were added under interactive platforms.
   - **Verified and left unchanged**: AWS ($29/month, $449/year, 500+ free courses, 17 languages), Google ($49/month, $29/month, GEAR's 35 credits), Elements of AI (2M learners, 30 country sites all in Europe), Harvard CS50 AI (edX $299), CS336 (Spring 2026, Hashimoto and Liang), Microsoft (50+ languages), and OpenAI Academy's three courses and durations.
   - **Still unverified**: DeepLearning.AI's total course count (the catalog page moved to dynamic loading), Google's Introduction to Generative AI enrollment and rating figures, and Hugging Face course details.
+  - Also added [csdiy.wiki](https://csdiy.wiki/) as a separate entry under "an index, not material" — it fills this article's largest blind spot (university courses outside Stanford: Berkeley CS188/CS189/CS285, CMU 10-414/11-785/10-708, MIT 6.7960, NYU DLSP21, and others), and its maintainers actively repair dead links.
 
 ## References
 
@@ -490,6 +512,8 @@ The bottleneck was never access. It's whether you're willing to actually finish 
 - [Google AI Essentials Review (Amanda Claypool)](https://productivitystack.substack.com/p/google-ai-essentials-review)
 - [What I learned from Anthropic's "Building with the Claude API" course (Erica Pisani)](https://www.ericapisani.dev/what-i-learned-from-anthropics-building-with-the-claude-api-course)
 - [How to learn Claude Code for free with Anthropic's AI courses (ZDNET)](https://www.zdnet.com/article/how-to-learn-claude-code-with-free-anthropic-ai-courses-online)
+- [csdiy.wiki — a bilingual index of public university CS courses](https://csdiy.wiki/)
+- [PKUFlyingPig/cs-self-learning (the source and course entries behind csdiy.wiki)](https://github.com/PKUFlyingPig/cs-self-learning)
 - [Kaggle Learn (16 free micro-courses)](https://www.kaggle.com/learn)
 - [Scrimba AI Engineer Path](https://scrimba.com/)
 - [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch)

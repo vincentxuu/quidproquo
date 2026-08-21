@@ -371,6 +371,27 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 一個邊緣案例：[`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) 星數 81.9k，很多清單把它排第一，但最後更新是 2026-02，已經半年沒動——還沒到「停更」，但要留意。
 
+### 不是教材，是索引：csdiy.wiki
+
+最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**⭐75.1k、7,988 forks、100+ 貢獻者**，最後更新 2026-08）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
+
+它在 AI 這塊的覆蓋，剛好補上本文最大的空白——**Stanford 以外的大學課**：
+
+| 分類 | 收錄的課 |
+|---|---|
+| 人工智慧 | Berkeley CS188、Harvard CS50 AI |
+| 機器學習 | Berkeley CS189、Stanford CS229、李宏毅 |
+| 深度學習 | CMU 11-785、CS224n、CS224w、CS230、CS231n、**Berkeley CS285**、Michigan EECS498-007、MIT 6.7960、NYU DLSP21 |
+| 機器學習系統 | **CMU 10-414**、CMU 15-442、UCSD CSE234、MLC、EML |
+| 機器學習進階 | CMU 10-708、CS229M、STA4273 |
+| 深度生成模型 | MIT 6.S184、大型語言模型 |
+
+但它值得收的真正理由不是清單長度，而是**它有人在修壞掉的連結**。近幾個月的 commit 包含 `[Fix] update MIT calculus course links`、`Update web links`，以及持續新增課程（CMU 15-442、CMU 11-785、MIT 6.7960、NYU DLSP21、UCSD CSE234）。
+
+這剛好替這一節收尾：**星數不能證明一份教材還活著，而一份會修壞連結的索引，正是幫你持續回答「這門課還在不在」的東西。** 本文只能給你 2026 年 8 月的快照；索引是那個會跟著時間走的東西。
+
+用它的正確方式是當**目錄而非教材**——從裡面挑一門課，然後直接去讀那門課的官網。
+
 **簡中這邊有個結構性優勢值得單獨指出**：上面四份简中教材有三份出自 Datawhale，那是個活的社群組織而不是單人維護，所以更新是持續的。這正是 D2L 缺的東西——D2L 星數是 happy-llm 的兩倍多，但一個停在 2024、一個上個月還在動。繁中讀者直接讀简中版本沒有障礙，用語差異遠小於內容落差。
 
 ## 互動式平台：不用裝環境的那一類
@@ -445,6 +466,7 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
   - 另補：OpenAI Codex 系列 6 月更新過並新增 Codex Bootcamp、Kaggle 2026 年 6 月 15–19 日重跑一梯直播版、Anthropic 五門 AI Fluency 上架 Coursera。
   - 複查中**確認無誤、未更動**的項目：AWS（$29/月、$449/年、500+ 免費課、17 種語言含繁中）、Google（$49/月、$29/月、GEAR 35 點）、Elements of AI（200 萬人、30 個站點全在歐洲）、Harvard CS50 AI（edX $299）、CS336（Spring 2026、Hashimoto + Liang）、Microsoft（50+ 語言含繁中）、OpenAI Academy 三門課與時長。
   - **仍未複驗**：DeepLearning.AI 課程總數（目錄頁改為動態載入，抓不到）、Google Introduction to Generative AI 的註冊與評分數字、Hugging Face 課程細節。
+  - 另補 [csdiy.wiki](https://csdiy.wiki/) 作為「索引而非教材」的獨立條目——它補上本文最大的空白（Stanford 以外的大學課：Berkeley CS188/CS189/CS285、CMU 10-414/11-785/10-708、MIT 6.7960、NYU DLSP21 等），而且有人在持續修壞掉的連結。
   - **新增兩節**：「課程以外：還在更新的自學倉庫」與「互動式平台」。收錄標準是**最後更新日期而非星數**——因此收了 `rasbt/LLMs-from-scratch`、`microsoft/ai-agents-for-beginners`、`openai/openai-cookbook`、`NirDiamant/RAG_Techniques`、`stas00/ml-engineering`、`DataTalksClub/llm-zoomcamp` 等 2026 年仍在更新的倉庫，简中收了 Datawhale 的 `happy-llm`、`llm-universe` 與 `liguodongiot/llm-action`；並明確排除星數很高但停在 2024 的 `d2l-zh`（79.8k）、`karpathy/LLM101n`（37.5k）、`nn-zero-to-hero`（24.0k）、`fastai/course22`。互動式平台補上 Kaggle Learn（16 門 micro-course、免費發證）與 Scrimba（JavaScript 路線）。星數與更新日期為 2026-08-21 查得。
 
 ## 參考資料
@@ -496,6 +518,8 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 - [李宏毅課程總覽（含 Machine Learning 2026 Spring）](https://speech.ee.ntu.edu.tw/~hylee/)
 - [GitHub Models is now retired（GitHub Changelog，2026-07-30）](https://github.blog/changelog/2026-07-30-github-models-is-now-retired)
 - [CS50 AI 課程頁（Harvard PLL，官方時數與 $299 驗證證書）](https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python)
+- [csdiy.wiki 计算机自学指南（各校公開課索引，中英雙語）](https://csdiy.wiki/)
+- [PKUFlyingPig/cs-self-learning（csdiy.wiki 的原始碼與課程條目）](https://github.com/PKUFlyingPig/cs-self-learning)
 - [Kaggle Learn（16 門免費 micro-course）](https://www.kaggle.com/learn)
 - [Scrimba AI Engineer Path](https://scrimba.com/)
 - [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch)
