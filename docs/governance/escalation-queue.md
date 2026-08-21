@@ -76,6 +76,18 @@
 - 為什麼現在不能做：Tier 2/3 邊界——不確定這 4 個 RAG commit 是否已經用別的方式（不同 commit hash、其他 session）重做過並存在於 origin，也不確定这批程式碼現在 apply 到當前 origin/main 樹上是否還乾淨（畢竟已經過了 61 個 commit）。貿然 cherry-pick 或強推有蓋掉他人工作或造成衝突的風險，需要人確認這批 RAG 修復是否還需要、以及要 rebase 還是重寫。
 - 接手第一步：`git log backup/local-main-962d87c --oneline -8` 看完整 8 個 commit；先確認 origin/main 現在的 RAG 相關程式碼（`src/lib` 下 embedding/翻譯/critic 邏輯）是否已經包含這些修復的等效內容——如果沒有，再評估對目前 main 重新 apply（`git cherry-pick` 或手動搬移邏輯）的可行性。這批 commit 的完整內容仍保留在 `backup/local-main-962d87c` 分支（本 session 建立，只存在於這個容器內，尚未推送，容器結束前應考慮 push 一份以防遺失）。
 
+## Q-011 Product Builder 面試日練的檔名不一致（2026-08-20 那篇）
+- 登錄：2026-08-21（來源：daily-digest-product-interview routine 執行時發現）
+- 做什麼：`daily-digest-product-interview` skill 規定檔名為 `${TODAY}-product-builder-interview-daily.md`，但 2026-08-20 那篇實際落地為 `2026-08-20-product-interview-daily.md`。今天（08-21）已依 skill 規定命名。後果：skill Step 2 的冪等檢查對 08-20 那篇失效（重跑會判定「未產出」而重複產文），且同一個 series 出現兩種 slug 樣式。要決定的是：把 08-20 那篇改名對齊 skill，還是改 skill 去容忍兩種樣式。
+- 為什麼現在不能做：Tier 2（改已發佈文章的 slug）。
+- 接手第一步：確認 `2026-08-20-product-interview-daily` 這個 URL 有沒有外部連入或已被索引；沒有的話改名成本最低，同時要檢查 `src/content/posts/` 內是否有交叉引用。
+
+## Q-012 CCR 雲端環境的 WebFetch 被 egress proxy 全面封鎖，daily-digest 系列 skill 的第二層失效
+- 登錄：2026-08-21（來源：daily-digest-signals routine 執行時發現）
+- 做什麼：這次 routine 執行時，所有 `WebFetch` 呼叫都回 `EGRESS_BLOCKED`（`www.anthropic.com`、`openai.com`、`deepmind.google`、`ai.meta.com`、`blogs.nvidia.com`、`x.ai`、`blog.cloudflare.com`、`huggingface.co`、`devblogs.microsoft.com`、`techcrunch.com` 全數被擋），`curl $HTTPS_PROXY/__agentproxy/status` 顯示 proxy 正常運作、`selective: false`，代表是組織層級的 egress policy 不允許這些網域，不是設定錯誤。後果：`daily-digest-signals` SKILL.md 的「第二層：官方 blog 直讀」（67 個 WebFetch/firecrawl 目標，佔全部 86 個來源的 78%，且是唯一 0 搜尋配額的來源）整層失效，只剩第一層 Tivily 廣域查詢與第三層社群/區域來源可用。同樣的封鎖也會影響 `daily-digest-arxiv`、`daily-digest-github`、`daily-digest-model-card` 等所有依賴直讀官方頁面的 routine。今天以額外 14 個 Tavily/Exa 定向查詢補齊到 34 則信號通過品質閘門，但覆蓋面與時效性都比 skill 設計的路徑差（unverified 日期比例 38%，接近 50% 上限）。另外 skill 列為優先的 `stealth_fetch` 與 firecrawl MCP tool 在此環境中也不存在（`ToolSearch` 查無）。
+- 為什麼現在不能做：Tier 2/3 邊界——要嘛改環境的 network policy（改權限，Tier 2，且是 Claude Code on the web 的 environment 設定，不在 repo 內），要嘛改 skill 的來源策略（等於重寫 daily-digest 系列多支 skill 的核心蒐集流程，屬 >20 檔批次改動）。兩條路都需要人拍板。
+- 接手第一步：先決定走哪條路。若走放行網域：到 Claude Code on the web 的 environment 設定調整 network policy（文件見 https://code.claude.com/docs/en/claude-code-on-the-web ），把 skill 第二層的 67 個網域加進允許清單，最低限度先放 A1 大廠那 26 個。若走改 skill：在 `.agents/skills/daily-digest-*/SKILL.md` 為第二層加上「WebFetch 被擋時改用 Tavily `include_domains` 定向查該網域」的 fallback，改完跑 `pnpm skills:sync` + `pnpm verify`。無論哪條路，都建議在 skill 裡加一句「若第二層整層失效，在輸出中記錄降級狀態」，避免下游 Stage 3 日報誤以為覆蓋完整。
+
 ---
 
 ## Done

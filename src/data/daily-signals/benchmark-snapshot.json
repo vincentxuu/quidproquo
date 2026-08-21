@@ -1,17 +1,27 @@
 {
-  "date": "2026-08-20",
-  "swebench_verified_bash_only_top5": [
-    { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
-    { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
-    { "rank": 3, "model": "Doubao-Seed-Code", "agent": "TRAE", "score": 78.80 },
-    { "rank": 4, "model": "Gemini 3 Pro Preview", "agent": "live-SWE-agent", "score": 77.40 },
-    { "rank": 5, "model": "Multiple (Claude Sonnet 4 + GPT-5)", "agent": "Atlassian Rovo Dev", "score": 76.80 }
+  "date": "2026-08-21",
+  "swebench_verified_top5": [
+    { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
+    { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
+    { "rank": 3, "model": "TRAE", "org": "ByteDance", "score": 78.80 },
+    { "rank": 4, "model": "live-SWE-agent", "org": "UIUC", "score": 77.40 },
+    { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
-  "lmsys_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.19, "ci": "±1.45%" },
-    { "rank": 2, "model": "Claude Fable 5 (High)", "score": 12.01, "ci": "±2.57%" },
-    { "rank": 3, "model": "Claude Opus 5 (Max)", "score": 11.95, "ci": "±1.71%" }
+  "lmsys_agent_top3": [
+    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.47, "ci": "±1.54%" },
+    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.00, "ci": "±1.80%" },
+    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.57, "ci": "±1.70%" }
+  ],
+  "aa_agentic_index_top3": [
+    { "rank": 1, "model": "Claude Opus 5", "org": "Anthropic", "score": 59.2 },
+    { "rank": 2, "model": "Grok 4.6", "org": "xAI", "score": 58.7 },
+    { "rank": 3, "model": "Qwen3.8 Max Preview", "org": "Alibaba", "score": 58.4 }
+  ],
+  "cursorbench_top3": [
+    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "BenchLM mirror; xAI 自報 69.9%；BenchLM 標註 Grok 4.5 contamination caveat" },
+    { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5 },
+    { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-20：改用直接 curl（透過 proxy）抓取 swebench.com 官方 GitHub repo 原始資料 https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json（同 08-19 方法）。'Verified' 排行榜（全 agent）前 5 名分數與名次與 08-19 快照完全一致，無異動；同時檢查了 'bash-only'（LM-only mini-SWE-agent 分支）榜單，最高分為 Claude 4.5 Opus (high) 76.8%，非此快照追蹤欄位但與 CodeSOTA 第三方站台交叉核對一致。lmarena.ai/leaderboard 用 Tavily extract 抓取（firecrawl 額度依然用盡 insufficient credits，直接 curl 被 proxy 阻擋 403），Agent 類別前三名與 08-19 快照完全一致（Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%），無異動。MorphLLM /leaderboard 用 Tavily extract 抓取失敗（fetch 失敗），持續無法存取。額外用 Exa 搜尋新聞信號，發現大量第三方聚合站（BenchLM.ai、Swfte AI、CodeSOTA、reviewpublically 等）互相矛盾，且再次出現不可信/疑似虛構的型號名稱（如「Claude Mythos 5」「Claude Mythos Preview」宣稱 95%+ 分數，非任何官方已知型號），與 08-19 觀察到的同一類幻覺型號一致，未採信，僅以官方來源（swebench.com 原始 JSON、lmarena.ai 官網經 Tavily extract）為準。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-08-21：curl（透過 proxy）抓 swebench.com 官方 raw JSON https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json，'Verified' 全 agent 榜前 5 名分數與名次與 08-20 快照完全一致，無異動。lmarena.ai/leaderboard/agent 用 Exa/Tavily extract 抓取（firecrawl/直接 curl 仍不可用），Agent 榜 #1 仍為 Claude Opus 5 (High)，僅 #2/#3 在 CI 內互換（Opus 5 Max ↔ Fable 5 High，差距 <0.5pp），依篩選規則跳過。MorphLLM /leaderboard 仍被 Vercel Security Checkpoint 擋，無法存取。Exa 新聞信號：Grok 4.6（xAI，08-12 發佈，已於 08-20 出過模型卡）在 Artificial Analysis Agentic Index 升至 #2（58.7%），距 #1 Claude Opus 5（59.2%）僅 0.5pp；Musk 於 08-20 在 X 放大『Grok 4.6 tie Claude Opus 5 at 59』——但那是整數四捨五入下的並列，獨立資料（BenchLM 鏡像 AA 指數）顯示 Anthropic 仍居 #1。CursorBench 上 BenchLM 鏡像顯示 Grok 4.6 #1（70.8%），但 xAI 自報僅 69.9%（落後 Fable 5 的 70.5%），且 BenchLM 標註該榜有 Grok 4.5 contamination caveat、屬 Cursor 第一方 benchmark（Grok 經 Cursor 分發，利益衝突）。綜合判斷：所有追蹤中的 agentic benchmark #1 仍為 Anthropic（Claude Opus 5），未發生『第 1 名易主』；Grok 4.6 的前沿級 agentic 定位昨日模型卡已報導；AA Agentic Index 的『並列』實為 <0.5pp 波動 + PR 放大，CursorBench #1 為自報/第一方且受污染疑慮，皆不符合顯著變動門檻。今日無 Benchmark 異動，未產出文章。仍出現不可信/疑似虛構型號（如聚合站的『Claude Mythos 5』宣稱 95%+），一律未採信，僅以官方來源與 Artificial Analysis 獨立評測為準。"
 }
