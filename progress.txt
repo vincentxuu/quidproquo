@@ -18,11 +18,14 @@ In progress
   then verify the production Groq-to-Cloudflare fallback path.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
-- **「AI 時代的技術選擇」系列 order 0-12 已發佈**（zh/en 各 13 篇）。order 0 導讀含 41 層
+- **「AI 時代的技術選擇」系列 order 0-16 已發佈**（zh/en 各 17 篇）。order 0 導讀含 41 層
   roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。**主判準經使用者更正**：語料存量是採用度
   的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選
-  冷門的代價」。order 9-12 為 MAF、LlamaIndex、vLLM 自架決策、Exa（後三篇平行 agent 寫、
-  我打 API 獨立複查後才收）。order 13-16 進行中：Modal、Composio、Tailscale、Temporal。
+  冷門的代價」。order 9-16：MAF、LlamaIndex、vLLM 自架決策、Exa、Modal、Composio、
+  Tailscale、Temporal——除 MAF 外皆平行 agent 寫，數字由我打 API／抓定價頁獨立複查後才收。
+  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
+  （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，
+  已於 2d9a562 修正。平行寫稿的教訓：agent 抓錯我兩次、我抓錯 agent 兩次，雙向查證有效。
 - **稽核方法的教訓（重要，別再犯）**：計數一律用字界比對。`grep -i exa` 會命中 example、
   `grep -i modal` 會命中 multimodal——導讀曾因此寫錯「Exa 提及 39 次」（實際既有文章 4 篇），
   已於 c0459e2 更正。另有幾輪 cd 到錯目錄導致 grep 靜默回零，誤判「vLLM 無專文」（實際
