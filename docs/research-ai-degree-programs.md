@@ -2,7 +2,8 @@
 
 > 交接文件：本 session 的查證結果，供下一個 agent 接手寫文章用。
 > 撰寫日期：2026-08-21
-> 查證工具：tavily_search / tavily_extract / firecrawl_scrape / GitHub API
+> 最近補查：2026-08-21（HKUST / TUM / 東京大學 / Edinburgh / 清華 / Tübingen）
+> 查證工具：tavily_search / tavily_extract / firecrawl_scrape / GitHub API / web.run
 
 ## 文章目標
 
@@ -37,6 +38,28 @@
 - 🟢 逐頁查過官方來源，可直接引用
 - 🟡 有輪廓但缺細節，寫進文章時要標明或補查
 - 🔴 只知道名字和排名，需要補查才能寫具體內容
+
+### 2026-08-21 補查批次：來源讀取盤點
+
+| 學校 | 主要一手來源 | 讀取層級 | 阻礙 / 備註 |
+|---|---|---|---|
+| HKUST | 工學院 MSc AI 課程頁 + CSE 研究所學程清單 | ✅ 一手 | 無；兩頁都確認是獨立 MSc |
+| TUM | Informatics MSc 學程頁 + 非 EU 學費規則 | ✅ 一手 | 無；舊資料的「免學費」已被 2024/25 起的新制推翻 |
+| 東京大學 | 資訊理工研究科組織、招生、English Program 頁 | ✅ 一手 | 無；AI Center 是研究中心，不是授予 AI 學位的專攻 |
+| Edinburgh | MSc AI 課程頁 + School of Informatics handbook + Registry 學費表 | ✅ 一手 | 課程主頁直接抓取回 403，改讀官方搜尋索引全文；另兩頁可直接抓取並交叉確認 |
+| 清華 | 2026 國際研究生招生頁 + 人工智能學院學程清單 | ✅ 一手 | 2026 對國際生只列博士學程，不能寫成獨立 AI 碩士 |
+| Tübingen | MSc ML 學程頁 + 2026/27 申請頁 | ✅ 一手 | 無；學程頁與申請頁對資格、截止日、語言一致 |
+
+### 補查事實交叉表
+
+| 事實 | 來源 A | 來源 B | 狀態 |
+|---|---|---|---|
+| HKUST 有獨立 MSc in Artificial Intelligence | 工學院 MSc AI 課程頁 | CSE 研究所學程清單 | ✅ |
+| TUM Informatics MSc 對一般新入學非 EU/EEA 生收 €6,000/學期 | Informatics MSc 學程頁 | TUM 非 EU 學費規則 | ✅；原筆記「免學費」錯誤 |
+| 東京大學沒有獨立 AI 碩士；AI 是資訊理工研究科內的研究與課程方向 | 六專攻組織頁 | English Program / 招生頁 | ✅ |
+| Edinburgh 有獨立 MSc AI，2026/27 全職一年 | Degree Finder | MSc handbook | ✅ |
+| 清華人工智能學院 2026 對國際生只列四個博士學程 | 國際招生學院頁 | 人工智能學院 graduate programs 頁 | ✅ |
+| Tübingen MSc ML 2026/27 截止日為 4/30 | 學程頁 | 申請頁 | ✅ |
 
 ---
 
@@ -245,22 +268,31 @@
 - **MSc Machine Learning and Data Science**。Gatsby Computational Neuroscience Unit
 - 來源：edubrain.ai（🟡 未查官方頁）
 
-### Edinburgh 🟡
+### Edinburgh 🟢
 
-- **MSc AI（獨立學位）**。全球最老 AI 系之一，NLP 傳統
-- 來源：edubrain.ai + gabble.ai（🟡 未查官方頁）
+- **MSc Artificial Intelligence（獨立學位）**。全職 1 年，也可兼職 2–3 年；2026 年 9 月入學
+- 180 credits：20-credit Informatics Project Proposal + 60-credit dissertation + 100 credits 選修，其中至少 60 credits 必須來自 AI / Cognitive Science
+- 典型 AI 選修涵蓋 NLP、computer vision、speech、probabilistic modelling、reinforcement and robot learning、AI ethics；選修不保證每年開，熱門課可能限額
+- 2026/27 學費：英國本地全職 £18,000；International/EU £45,410。校方估計生活費 £18,504/年
+- 入學底線是相關領域 UK 2:1；官方明說競爭激烈，典型 offer 通常要 first-class。須有 programming 課與約 30 ECTS 數學背景；IELTS 7.0、各項至少 6.5
+- 來源：https://study.ed.ac.uk/programmes/postgraduate-taught/107-artificial-intelligence + https://informatics.ed.ac.uk/taught-students/msc-students/taught-msc-handbook-202526/degree-programmes-and-courses/artificial + https://registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/2026-2027/taught-masters
 
-### TUM（慕尼黑工大）🟡
+### TUM（慕尼黑工大）🟢
 
-- MSc Informatics（英語授課）。**號稱免學費（~€148/學期）**
-- 🔴 **未確認非歐盟學生是否同價**——德國多數邦公立大學對非歐盟收學費（Baden-Württemberg €1,500/學期），Bavaria（TUM 所在邦）目前不收但政策討論中
-- 來源：study-abroad.org（🟡 未查官方頁）
+- MSc Informatics，120 ECTS / 4 學期，通常以英語授課；可自由組合專長，AI 是可選方向之一，不是獨立 AI 學位
+- **原筆記「非歐盟也免學費」錯誤。** 自 2024/25 冬季起，多數新入學的非 EU/EEA 學士與碩士生要付 tuition；Informatics MSc 是 **€6,000/學期**，另加 2026 年 München/Garching semester fee €97
+- EU/EEA 生、已在德國教育系統取得至少六學期學位者、博士生、協議交換生等通常免 tuition；另有 waiver 與 scholarship，但不能把例外寫成一般價格
+- 冬季班申請 2/1–5/31，夏季班 10/1–11/30；須通過 aptitude assessment，英語能力證明要在截止日前交
+- 來源：https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc + https://www.tum.de/en/studies/fees/tuition + https://www.tum.de/en/studies/fees
 
-### Tübingen 🟡
+### Tübingen 🟢
 
-- MSc ML。**Tübingen AI Center + Max Planck Institute for Intelligent Systems**，300+ PhD 學生。Bernhard Schölkopf（kernel methods）在此
-- ELLIS unit
-- 來源：studying-in-germany.org（🟡 未查官方頁）
+- International MSc Machine Learning，英語授課、4 學期，只在冬季入學；研究環境連到 Tübingen AI Center、Max Planck Institute for Intelligent Systems 與 ELLIS
+- 2026/27 申請 2026-02 開放，**4/30 截止**，EU 與非 EU 同一天；走 ALMA 線上申請，無申請費、不用郵寄紙本
+- 先修硬門檻：CS / 數學 / 物理或相關自然科學學士，換算德國成績至少 2.0；數學至少 27 ECTS，CS 至少 18 ECTS，其中 algorithms and data structures 至少 6 ECTS
+- 英語：IELTS 7.0、TOEFL iBT 100（舊制）/ 5.0（2026 新制）或 Cambridge 180；「學士全英授課」本身通常不能免成績。GRE 與推薦信都不要求
+- 非 EU 生一般另付 €1,500/學期 tuition，加約 €200 semester fee；官方申請頁表示目前學程本身不提供 scholarship
+- 來源：https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/ + https://uni-tuebingen.de/en/166353
 
 ### Amsterdam 🟡
 
@@ -294,11 +326,14 @@
 
 ## 亞洲（17 間）
 
-### 清華大學 🔴
+### 清華大學 🟢
 
-- US News 全球 AI **#1**、THE 亞洲 #1
-- 智能科學學院——但**課程結構、國際生申請、英語授課與否均未查證**
-- 來源：排名站引用
+- 2024 年成立**人工智能學院（College of AI）**，研究分 AI Core 與 AI+；但學院名稱不能直接等同於「AI 學位」
+- **2026 國際生目錄只列四個博士學程**：Electronic Science and Technology、Information and Communication Engineering、Control Science and Engineering、Computer Science and Technology；沒有列獨立 AI 碩士
+- 碩士替代路徑分散在其他院系：自動化系對國際生列 Electronic and Information Engineering 碩士；交叉信息研究院列 Computer Science and Technology 碩士，AI 是其培養與研究方向之一
+- 國際研究生一般申請期為 9 月到隔年 2 月，但各院系截止日不同；語言條件也依院系目錄決定。碩士須有學士學位，國際學位須在 2026 註冊前完成 CSCSE 認證
+- US News 全球 AI **#1**是研究產出排名，不能拿來推論有英語授課 AI 碩士
+- 來源：https://yz.tsinghua.edu.cn/en/info/1014/1471.htm + https://yz.tsinghua.edu.cn/en/info/1035/1523.htm + https://yz.tsinghua.edu.cn/en/info/1014/1107.htm + https://yz.tsinghua.edu.cn/en/info/1014/1147.htm
 
 ### 北京大學 🔴
 
@@ -343,15 +378,22 @@
 - 你 HackMD 的方案 D
 - 來源：你的 HackMD 文件
 
-### 東京大學 🔴
+### 東京大學 🟢
 
-- THE 亞洲 #5。被 5W AI Index 評為「Legacy, not velocity」（Composite 47.0）
-- **具體 AI 學程未查證**
+- **沒有獨立 AI 碩士。** 最直接的入口是 Graduate School of Information Science and Technology（IST）的碩士，學位由六個專攻之一授予：Computer Science、Mathematical Informatics、Information Physics & Computing、Information & Communication Engineering、Mechano-Informatics、Creative Informatics
+- AI / ML 分布在 Computer Science、Creative Informatics 等專攻與 Next Generation Artificial Intelligence Research Center；AI Center 是跨校研究中心，不是第七個授予學位的專攻
+- IST 的 English Program 也不是另一個學位：先考進一般 master / doctoral course，再註冊全英語課程；畢業證仍由所屬專攻授予。2026-04 起研究科多數課程改以英語授課
+- 舊的 English Program on Intelligent Information Processing 特別招生已自 AY2026 廢止；2027 夏季碩士招生採一般入試，2026-05-29 至 6/4 線上申請，並用 TOEFL 評估英語
+- 來源：https://www.i.u-tokyo.ac.jp/edu/intro/index_e.shtml + https://www.i.u-tokyo.ac.jp/edu/entra/entra_e.shtml + https://www.i.u-tokyo.ac.jp/ist_en/en-course/prg.shtml
 
-### HKUST 🔴
+### HKUST 🟢
 
-- **MSc AI（獨立）** 出現在搜尋結果——但**未進官方頁確認**
-- QS Engineering 亞洲 #8
+- **MSc in Artificial Intelligence（獨立學位）**；CSE 學程清單與工學院課程頁都已確認
+- 30 credits：12 core + 12 elective + 6-credit compulsory Capstone；平日晚間與週六在校上課
+- CS / Computer Engineering 或相關學士可申請；其他科系須至少兩年相關畢業後工作經驗
+- 2026/27 nominal program fee **HK$400,000**；全職分兩期、兼職分四期。英語門檻依研究院通則，IELTS 6.5 且各項 5.5，或對應 TOEFL 成績；英語母語／全英授課學位可免
+- 2026 年 9 月入學採 rolling admission；三輪截止日為 2025-11-01、2026-01-01、2026-03-01
+- 來源：https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-ai + https://cse.hkust.edu.hk/pg/ + https://fytgs.hkust.edu.hk/adm-req
 
 ### CUHK（中文大學）🔴
 
@@ -505,16 +547,8 @@ MIT #1 / Stanford #3 / Oxford #4 / ETH #7 / NUS #8 / UPenn #15
 
 ---
 
-## 待 commit 的檔案
-
-1. `src/content/posts/learning/2026-08-21-cmu-ai-degree.md` — CMU AI 學位 deep-dive，pnpm verify 綠
-2. `~/Work/posts/learning/2026-08-21-cmu-ai-degree.md` — 同上備份
-
----
-
 ## 下一步建議
 
 1. **寫地圖文時，按查證分級處理**：🟢 直接引用、🟡 標明「未逐校查證」、🔴 放在「其他值得注意」的簡表裡不展開
-2. **補查優先順序**（如果要把 🟡/🔴 升級）：HKUST（MSc AI 獨立學位）> TUM（免學費條件）> 東京大學（AI 學程）> Edinburgh（MSc AI）> 清華（國際生條件）> Tübingen（申請方式）
-3. **CMU deep-dive 先 commit**，它不依賴地圖文，可以獨立存在
-4. **地圖文建議用 `post` skill 走完整流程**：分類 `learning`，type `guide`，series 可掛在 Stanford 課程導讀同一個系列或另開
+2. **下一批補查優先順序**：EPFL > Cambridge > Imperial > UCL > Amsterdam > KU Leuven；這六間仍只有二手輪廓
+3. **地圖文建議用 `post` skill 走完整流程**：分類 `learning`，type `guide`，series 可掛在 Stanford 課程導讀同一個系列或另開
