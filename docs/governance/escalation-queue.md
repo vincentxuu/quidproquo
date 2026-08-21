@@ -88,6 +88,17 @@
 - 為什麼現在不能做：Tier 2/3 邊界——要嘛改環境的 network policy（改權限，Tier 2，且是 Claude Code on the web 的 environment 設定，不在 repo 內），要嘛改 skill 的來源策略（等於重寫 daily-digest 系列多支 skill 的核心蒐集流程，屬 >20 檔批次改動）。兩條路都需要人拍板。
 - 接手第一步：先決定走哪條路。若走放行網域：到 Claude Code on the web 的 environment 設定調整 network policy（文件見 https://code.claude.com/docs/en/claude-code-on-the-web ），把 skill 第二層的 67 個網域加進允許清單，最低限度先放 A1 大廠那 26 個。若走改 skill：在 `.agents/skills/daily-digest-*/SKILL.md` 為第二層加上「WebFetch 被擋時改用 Tavily `include_domains` 定向查該網域」的 fallback，改完跑 `pnpm skills:sync` + `pnpm verify`。無論哪條路，都建議在 skill 裡加一句「若第二層整層失效，在輸出中記錄降級狀態」，避免下游 Stage 3 日報誤以為覆蓋完整。
 
+## Q-013 5 個從未進過 git 的孤兒檔案，stop hook 一直要求 commit
+
+- 登錄：2026-08-22（來源：daily-digest-tool routine 執行時 stop hook 發現）
+- 做什麼：`git status` 顯示 5 個 untracked 檔案，`git log --all -- <path>` 對每個都查無任何歷史記錄（不是被 checkout 到舊分支帶出來的，是從未進過 git 的全新檔案），檔案 mtime 全部是 `Aug 21 18:31`：
+  - `src/content/posts/ai/2026-03-20-claude-certified-architect-foundations-guide.md` + `-en.md`（Claude Certified Architect Foundations 考試指南，zh/en 各一篇，477/479 行，frontmatter 完整、`draft: false`，看起來是寫完的稿）
+  - `src/content/posts/ai/2026-04-05-hermes-agent-intro.md` + `-en.md`（Hermes Agent／Nous Research 介紹，zh/en 各一篇，203/205 行，同樣看起來寫完）
+  - `src/content/posts/daily/2026-08-16-ai-agent-daily.md`（`draft: true`、description 明寫「測試用日報」，用來驗證 `/daily` 頁面時間軸 UI，不是真內容）
+  - `progress.txt` 與 `docs/progress-archive.md` 都沒有任何一篇的記錄，代表不是本 session 或近期已知 session 的產出留痕。
+- 為什麼現在不能做：這批檔案沒有經過 `post-review` / `post-verify`，也不知道是不是另一個並行 session 還在寫的半成品（mtime 集中在同一分鐘，像是一次性寫入而非逐步累積）。daily-digest-tool routine 的職責只是產出當日工具推薦文，沒有 mandate 去審查、發布或刪除別的 category 的草稿。測試日報那篇更不該直接 commit（會把測試內容發布上站）。
+- 接手第一步：先確認有沒有其他 session 正在處理這 4 篇非測試草稿（問使用者，或查有沒有對應的 `.work/` 計畫檔）；若確認是完成品且無人在寫，對 Claude Certified Architect 與 Hermes Agent 兩組稿跑 `post-review` + `post-verify` 再決定是否收錄；`2026-08-16-ai-agent-daily.md` 測試檔案建議直接刪除或移出 `src/content/posts/`，不要 commit。
+
 ---
 
 ## Done
