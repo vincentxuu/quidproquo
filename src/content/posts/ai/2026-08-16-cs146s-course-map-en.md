@@ -14,6 +14,9 @@ type: deep-dive
 series:
   name: "CS146S: Ten Weeks of AI-Native Development"
   order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 19
 tldr: "Stanford CS146S's Fall 2026 syllabus compresses prompting from a full week into a single bullet, drops the terminal and UI-generation weeks, and adds Agent Skills, Agent-Ready Codebases, Background Agents, and AI-Native Team. Grading moved too: the final project fell from 80% to 50%, with 30% now on open source contributions. This series reads all ten weeks."
 description: "A side-by-side comparison of Stanford CS146S: The Modern Software Developer for Fall 2025 and Fall 2026 — week-by-week topics, guest speakers, and grading weights, plus how to study it without a Fall 2026 reading list."
 draft: false

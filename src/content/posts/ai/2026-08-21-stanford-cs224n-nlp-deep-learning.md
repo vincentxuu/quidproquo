@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs224n, ai-course, stanford, nlp, transformer, llm]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 11
+  name: "Stanford CS224N 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 12
 tldr: "CS224N 把 2000 年以來每一屆的課程網站都留在線上。2019 冬季那版，Transformer 是第 14 堂的客座講題；2026 冬季那版，它是第 5 堂，之後每一堂都預設你已經懂它。機器翻譯作業整個消失了，第三份作業改成自己刻一個 decoder-only Transformer，附 pytest 可以在筆電上跑。"
 description: "Stanford CS224N: Natural Language Processing with Deep Learning 完整導讀。逐屆比對 2019、2022、2023、2024、2025、2026 六個版本的課表與作業清單，看同一門課在七年裡砍掉什麼、補進什麼，並逐項確認自學者實際拿得到哪些材料。"
 draft: false

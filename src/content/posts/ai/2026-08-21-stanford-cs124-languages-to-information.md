@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs124, ai-course, stanford, nlp, retrieval, llm]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 8
+  name: "Stanford CS124 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 8
 tldr: "CS124 是 Stanford NLP 分支的第一門課，教科書是 Jurafsky 自己免費放在網路上的《Speech and Language Processing》，九個作業 repo 全部公開。但課程網站首頁掛著一行公告：2026–27 學年整年不開。而且那份課綱指定的章號，已經跟 2026 年 8 月版的教科書對不上了。"
 description: "Stanford CS124: From Languages to Information 完整導讀。逐項核對先修原文、十週課表、九個作業 repo 與評分配比，比對 Winter 2026 課綱與 SLP 第三版 2026 年 8 月版的章號落差，並確認自學者實際拿得到哪些材料、拿不到哪些。"
 draft: false

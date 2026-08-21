@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs109, ai-course, stanford, probability, machine-learning, self-study]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 4
+  name: "Stanford CS109 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 4
 tldr: "CS109 在 2026 年夏季的每一講旁邊，掛了一份官方寫的 LLM Learning Guide——六個概念、每個概念一組 Learn 與 Test me 提示詞，逐週產出共 23 份 PDF。同一門課的榮譽守則第 4 條卻明文禁止拿 LLM 解作業，而成績有 65% 壓在現場考試。這兩件事是同一套設計的兩半。"
 description: "Stanford CS109: Probability for Computer Scientists 深度導讀，讀完官方的 LLM Learning Guide、榮譽守則、課程大綱與講次頁面：這門課的硬規定、官方 AI 教材實際長什麼樣、它禁止什麼、作業的難度曲線落在哪一份，以及自學者哪些材料拿得到、哪些連結是壞的。"
 draft: false

@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs107, ai-course, stanford, c-language, systems-programming, self-study]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 3
+  name: "Stanford CS107 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 3
 tldr: "CS107 從 Unix 與 C 一路做到 x86-64 與自己寫 malloc，七份作業。但翻四個學期的封存 syllabus 會發現同一門課差很多：作業在三個學期占 40%，在 Summer 2026 只占 20%（多了 40% 的隨堂小考）；重交政策只出現在 Cain 開的學期，Troccoli 那學期完全沒有。唯一不收遲交的是最後那份 heap allocator。而擋住自學者的不是評分器，是起始碼全在 AFS 上。"
 description: "讀完 Stanford CS107 官網七份作業說明、七份 lab 講義與解答，以及四個學期的封存 syllabus 與公告頁，整理計分方式與作業政策在學期之間的落差、七份作業的內容與規則斷點，以及自學者逐項拿得到與拿不到什麼。"
 draft: false

@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading Stanford CS230"
   order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 10
 tldr: "CS230's first lecture is a course overview, but Andrew Ng spends most of it on three things: why scaling works, when prompting stops being enough, and why he thinks 'don't learn to code' is one of the worst pieces of career advice ever given."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 1: the flipped-classroom design, the scaling narrative, the abstraction-layer map and its two drill-down triggers, the five online modules, the two buckets of AI-assisted coding, and Ng's four-tier productivity ranking."
 draft: false
