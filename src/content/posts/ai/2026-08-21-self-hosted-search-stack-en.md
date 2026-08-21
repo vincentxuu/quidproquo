@@ -96,6 +96,8 @@ The shared hard limit is **freshness**. Common Crawl is a snapshot; crawling you
 
 **SearXNG has no index of its own.** It is a metasearch layer that still hits Google and Bing. So what "self-hosted" buys you is that queries do not pass through Tavily or Exa, are not metered, and are not rate-limited — **the upstream engines still see your query strings**. If your motivation is that query contents must not leave, this does not solve it; that requirement calls for indexing your own corpus.
 
+**Nobody filters what you fetch.** A cloud API at least applies a layer of cleaning; once you self-host, what SearXNG returns and what Crawl4AI fetches lands in your agent's context as raw external content — and instructions hidden in a page get executed as instructions. This is not unique to self-hosting, but self-hosting makes you the only layer of defense. For where to draw that line, see [the same crack running through agent security](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en) — especially the lethal trifecta screen: private data, untrusted content, and outbound communication in one session means trouble.
+
 **Datacenter IPs get shut out.** This is where most deployments fail. Someone who ran both variants wrote:
 
 > Search engines treat datacenter IPs as presumed-guilty. From a hyperscaler range (AWS, GCP, the big Hetzner/OVH pools) SearXNG starts handing back empty results within a handful of queries; from a residential IP you look like a person.

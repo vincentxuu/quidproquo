@@ -96,6 +96,8 @@ Exa 真正的差異不在 API 形狀，而在它有自己爬的索引、用 embe
 
 **SearXNG 沒有自己的索引。** 它是元搜尋，實際上還是去打 Google 和 Bing。所以「地端」保證的是：查詢不經過 Tavily / Exa、不計費、不限量——**上游搜尋引擎還是看得到你的查詢字串**。如果你的動機是「查詢內容不能外流」，這套解不了，那種需求要走的是自建語料庫。
 
+**沒有人幫你過濾抓回來的東西。** 雲端 API 至少會做一層清洗；自架之後，SearXNG 回的結果與 Crawl4AI 抓的頁面是直接進 agent context 的原始外部內容，而頁面裡藏的指令會被模型當指令執行。這不是自架才有的問題，但自架讓你成為唯一那層防護。這條線怎麼畫見[〈Agent 安全的同一條裂縫〉](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries)——尤其是 lethal trifecta 那個快篩：私密資料、不可信內容、可對外通訊，三者同時出現在一個 session 就危險。
+
 **機房 IP 會被打死。** 這是實務上最常翻車的地方。有人把兩種部署都跑過之後寫下這段：
 
 > Search engines treat datacenter IPs as presumed-guilty. From a hyperscaler range (AWS, GCP, the big Hetzner/OVH pools) SearXNG starts handing back empty results within a handful of queries; from a residential IP you look like a person.

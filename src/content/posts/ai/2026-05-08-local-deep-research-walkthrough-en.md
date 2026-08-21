@@ -160,6 +160,10 @@ The most worth stealing:
 
 Compared to a typical RAG graph: fixed pipelines remain the right choice for most production scenarios (observable, testable, cheap), but when you encounter scenarios that "require deep exploration, can't predict the number of steps in advance, and need dynamic tool composition," LDR's langgraph_agent mode is an excellent reference.
 
+Once search, fetching, and multi-step reasoning are wired into an automated loop, there is one thing none of the other posts in this series expands on: **what you fetch is untrusted input**, and a multi-step agent like LDR maximizes the blast radius of an injection. That thread runs through [the same crack in agent security](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en).
+
+As for which search layer to plug in underneath, the first two posts in this series cover [choosing a cloud search MCP](/posts/ai/2026-05-07-ai-search-mcp-tools-en) and [what a self-hosted SearXNG stack costs](/posts/ai/2026-08-21-self-hosted-search-stack-en) — LDR handles either route.
+
 ## References
 
 - [LearningCircuit/local-deep-research (GitHub)](https://github.com/LearningCircuit/local-deep-research)
