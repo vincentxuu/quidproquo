@@ -24,6 +24,14 @@ export interface SeriesSummary {
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'private-corpus-pipeline',
+    names: { 'zh-TW': '私有語料管線', en: 'Private Corpus Pipeline' },
+    descriptions: {
+      'zh-TW': '私有資料如何安全且持續地進入索引、通過查詢權限被找到，並在來源更新或刪除後維持一致；重點是資料生命週期，不重複介紹 RAG 檢索技法。',
+      en: 'How private data enters indexes safely and continuously, remains subject to query-time authorization, and stays consistent when sources change or disappear—focused on the data lifecycle rather than RAG retrieval techniques.',
+    },
+  },
+  {
     slug: 'claude-code-automation',
     names: { 'zh-TW': 'Claude Code 自動化指南', en: 'Claude Code Automation Guide' },
     descriptions: {
@@ -184,8 +192,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs229',
     names: { 'zh-TW': 'Stanford CS229 導讀', en: 'Reading Stanford CS229' },
     descriptions: {
-      'zh-TW': '逐講讀 Stanford CS229 的明確學期版本：監督學習、生成模型、學習理論與強化學習；不混用不同年份教材。',
-      en: 'A lecture-by-lecture reading of one explicitly versioned Stanford CS229 offering: supervised learning, generative models, learning theory, and reinforcement learning without mixing terms.',
+      'zh-TW': '逐講讀 Stanford CS229 Spring 2021：從監督式學習、神經網路與非監督式學習走到強化學習，十八講只使用該學期公開材料，不混用其他年份。',
+      en: 'A lecture-by-lecture reading of Stanford CS229, Spring 2021, from supervised learning and neural networks through unsupervised learning and reinforcement learning, using only public materials assigned to these eighteen lectures.',
     },
   },
   {

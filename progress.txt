@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-21
+Last updated: 2026-08-22
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -13,6 +13,11 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- Stanford CS229 Spring 2021 逐講雙語系列：L1–L18 共 36 檔已獲使用者批准，依同學期官方 syllabus、slides 與 live notes 分三批撰寫；L19 `Societal impact` 因無公開逐講材料維持 blocked，不跨年份補洞。
+- 「私有語料管線」4 篇中英文草稿已完成：邊界與架構、來源到索引、查詢權限／刪除／freshness，
+  以及 Retrieval Eval 評估契約。前三篇可進 review；第 4 篇盤點出現有 20 題 golden dataset 缺
+  document-level qrels、runner、raw ranked results、latency 與 corpus manifest，因此未捏造實測分數，
+  要補齊這些 artifact 並實際跑 lexical／vector／hybrid 後才能把結果表改成正式實測。
 - CMU、MIT 與 Berkeley AI／ML 課程地圖中英文草稿已完成。CMU 篇拆開 07-280／380 新學位主幹與
   今日可執行路線，並依匿名直連重判 07-280 S26、11-785 S26 為 A3、尚未首開的 07-380 為 A0；三篇待使用者審稿。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
