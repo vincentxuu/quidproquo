@@ -15,33 +15,33 @@ draft: false
 
 🌏 [English version](/posts/ai/2026-08-21-agent-plugins-open-standard-en)
 
-你寫了一個 MCP server，接上公司內部的知識庫。又寫了一份 skill，教 agent 怎麼用這個知識庫回答客戶問題。
+你寫了一份 SKILL.md，教 agent 怎麼查公司內部知識庫回答客戶問題。
 
-在 Cursor 裡跑得很好。
+分享給同事，不管他用 Cursor、Copilot 還是 Claude Code，都能讀——因為 [Agent Skills](https://agentskills.io/) 規格本身就是跨 client 的開放標準，SKILL.md 天生可攜。
 
-然後同事問：「我用 Copilot，能裝嗎？」
+但問題來了：這份 skill 要搭一個 MCP server 才能跑，那個 MCP server 接的是內部知識庫的 API。同事拿到 SKILL.md 之後問你：「MCP server 怎麼設定？」你傳了一份文件。他照著設定，發現 Copilot 的 MCP 設定格式跟你在 Cursor 裡用的不一樣。另一個用 ChatGPT 的同事也卡住了。
 
-你看了一下 Copilot 的 plugin 結構，嘆了口氣，把同樣的 MCP 設定和 skill 搬到另一個目錄格式。再來一個用 ChatGPT 的同事，再搬一次。
-
-這就是 2026 年 8 月 6 日之前，AI agent 擴充的現實。
+**Skill 可攜，但 skill 的依賴不可攜。** 這才是問題所在。
 
 ---
 
 ## 這個標準在做什麼
 
-[Agent Plugins 1.0.0](https://agent-plugins.org/) 是一個**封裝格式**（packaging format），不是新協議、不是新 runtime。它定義一個目錄結構，把兩個已經存在的東西——[Agent Skills](https://agentskills.io/)（Markdown 指令集）和 [MCP](https://modelcontextprotocol.io/) server 設定——包成一個可移植的單位。
+[Agent Plugins 1.0.0](https://agent-plugins.org/) 解決的就是這個依賴打包的問題。它是一個**封裝格式**（packaging format），不是新協議、不是新 runtime。它定義一個目錄結構，把兩個已經存在的東西——[Agent Skills](https://agentskills.io/)（Markdown 指令集）和 [MCP](https://modelcontextprotocol.io/) server 設定——包成一個可安裝的單位。
 
-打包一次，ChatGPT、Cursor、GitHub Copilot、VS Code、Kiro 都能載入。
+裝了 plugin，skill 跟它需要的工具一起到位。
 
-如果你讀過本站的 [MCP 介紹](/posts/ai/2026-03-22-mcp-model-context-protocol)，這裡有個分層類比可以幫助理解：
+這裡要先釐清一個常見的誤解：**Agent Skills 的可攜性不是 Agent Plugins 帶來的。** SKILL.md 本身遵循的是獨立的 Agent Skills 規格，Cursor、Copilot、Claude Code、Kiro、ChatGPT 本來就都能讀。如果你的 skill 不依賴任何 MCP server，直接分享 SKILL.md 就夠了，不需要 Agent Plugins。
 
-| 層級 | 角色 | 類比 |
+Agent Plugins 加值的地方在於：
+
+| 層級 | 角色 | 可攜性 |
 |---|---|---|
-| **MCP** | 通訊協議——agent 怎麼呼叫工具 | USB-C 介面 |
-| **Agent Skills** | 認知指令——agent 怎麼思考 | 使用說明書 |
-| **Agent Plugins** | 封裝格式——把上面兩者打包 | 把線材和說明書放進同一個盒子 |
+| **MCP** | 通訊協議——agent 怎麼呼叫工具 | 協議可攜，但各 client 的設定格式不同 |
+| **Agent Skills** | 認知指令——agent 怎麼思考 | **本來就可攜**——SKILL.md 跨 client |
+| **Agent Plugins** | 封裝格式——把 skill 跟它需要的 MCP 設定打包 | 解決的是依賴的可攜性 |
 
-Agent Plugins 不取代 MCP，它包裝 MCP。以前一個依賴特定 MCP server 的 skill，安裝流程全靠各 client 各自的文件；現在一個目錄搞定。
+類比：skill 是使用說明書，本來就能影印給任何人看。MCP server 是工具本身。Agent Plugins 是把說明書和工具放進同一個盒子，讓收到的人打開就能用，不用自己去找工具、自己搞設定。
 
 ## 誰在推
 
@@ -156,23 +156,22 @@ my-plugin/
 
 ## 它真正解決的問題
 
-回到開頭的場景。你有一個 MCP server + 一份 skill，要給三個 client 用。
+不是 skill 的可攜性——那本來就有。是**依賴打包**。
 
-以前：
+回到開頭的場景。你有一份 skill，它需要一個 MCP server 才能跑。你想讓三個用不同 client 的同事都能用。
+
+以前：SKILL.md 直接丟給同事就能讀，但 MCP server 的設定各 client 格式不同。你要寫三份設定文件，或者寫一份很長的安裝說明教他們各自怎麼設定。
 
 ```
-cursor-plugin/
-  .cursor/mcp.json
-  .cursor/skills/my-skill/SKILL.md
+# 給 Cursor 用的人
+把 mcp.json 放到 .cursor/mcp.json，格式是 ...
 
-copilot-plugin/
-  ... (Copilot 的格式)
+# 給 Copilot 用的人
+在 settings.json 裡加 mcpServers，格式是 ...
 
-chatgpt-plugin/
-  ... (ChatGPT 的格式)
+# 給 ChatGPT 用的人
+到 Plugin 設定裡手動填 ...
 ```
-
-三份目錄，內容一樣，結構不一樣。維護的時候改了一邊忘了另一邊。
 
 現在：
 
@@ -183,9 +182,11 @@ my-plugin/
   mcp.json
 ```
 
-一份。三個 client 都能讀。
+一個目錄，三個 client 都知道怎麼讀。Skill 跟它需要的 MCP server 設定在同一個地方，安裝時一起載入。
 
-這聽起來簡單，但在 AI agent 生態系裡，這是第一次有人坐下來把這件事標準化，而且坐下來的不是一家公司，是六家。
+換句話說，Agent Plugins 解決的是一個**分發問題**，不是格式問題。Skill 的格式本來就統一了，MCP 的協議也統一了，但「怎麼把一個 skill 連同它依賴的 MCP server 打包成一個東西讓人安裝」——這件事以前沒有標準，每個 client 各做各的。
+
+這是第一次有人坐下來把這件事標準化，而且坐下來的不是一家公司，是六家。
 
 ## 它沒有解決的問題
 
@@ -205,9 +206,11 @@ my-plugin/
 
 ## 對開發者的意義
 
-如果你正在寫 MCP server 或 agent skill，**現在就值得把它包成 Agent Plugin 格式**。成本極低——你只需要加一個 `plugin.json` 和調整一下目錄結構。收益是你的工具不再綁定單一 client。
+如果你的 skill 不依賴 MCP server，直接分享 SKILL.md 就好，不用多包一層。Agent Skills 規格本身就是跨 client 的。
 
-如果你是在選 agent client，這個標準的存在意味著 plugin 生態系統不再是鎖定使用者的護城河。以前你選了 Cursor 就只能用 Cursor 的 plugin，現在至少基礎層是通的。選 client 回到它該比的東西：模型能力、UI、回應速度、價格。
+**當你的 skill 依賴特定的 MCP server 時，才值得包成 Agent Plugin。** 加一個 `plugin.json` 和 `mcp.json`，成本極低，但收到的人裝了就能用——不用自己去搞 MCP 設定。
+
+如果你是在選 agent client，這個標準的存在意味著 plugin 生態系統不再是鎖定使用者的護城河。以前你選了 Cursor 就只能用 Cursor 的 plugin 設定方式，現在至少基礎層是通的。選 client 回到它該比的東西：模型能力、UI、回應速度、價格。
 
 如果你是在觀察產業動態，這可能是 2026 年最重要的標準化事件之一。不是因為技術上多創新——一個目錄結構加兩個 JSON schema，就這樣。而是因為**誰坐在桌上**。OpenAI 和 Google 在模型競爭的同時同意共用 plugin 格式，這在一年前是不可想像的。它暗示了一件事：agent 生態系的競爭重心正在從「誰的工具能力更強」移向「誰的 agent 用工具用得更聰明」。工具本身變成公共建設，怎麼用工具才是差異化的戰場。
 

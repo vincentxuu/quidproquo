@@ -15,33 +15,33 @@ draft: false
 
 🌏 [中文版](/posts/ai/2026-08-21-agent-plugins-open-standard)
 
-You wrote an MCP server that connects to your company's internal knowledge base. You wrote a skill that teaches agents how to use it for customer Q&A.
+You wrote a SKILL.md that teaches agents how to query your company's internal knowledge base and answer customer questions.
 
-It works great in Cursor.
+You share it with colleagues. Whether they use Cursor, Copilot, or Claude Code, they can all read it — because the [Agent Skills](https://agentskills.io/) spec is already a cross-client open standard. SKILL.md files are natively portable.
 
-Then a colleague asks: "I use Copilot — can I install it?"
+But here's the catch: this skill needs an MCP server to work — one that connects to your internal KB's API. After your colleague gets the SKILL.md, they ask: "How do I set up the MCP server?" You send instructions. They follow them, only to discover that Copilot's MCP configuration format differs from Cursor's. Another colleague using ChatGPT hits the same wall.
 
-You look at Copilot's plugin structure, sigh, and rearrange the same MCP config and skill into a different directory layout. Another colleague uses ChatGPT. You do it again.
-
-That was the reality of AI agent extensions before August 6, 2026.
+**Skills are portable, but skill dependencies are not.** That's the real problem.
 
 ---
 
 ## What This Standard Does
 
-[Agent Plugins 1.0.0](https://agent-plugins.org/) is a **packaging format** — not a new protocol, not a new runtime. It defines a directory structure that bundles two existing things — [Agent Skills](https://agentskills.io/) (markdown instruction sets) and [MCP](https://modelcontextprotocol.io/) server configurations — into a single portable unit.
+[Agent Plugins 1.0.0](https://agent-plugins.org/) solves this dependency-packaging problem. It's a **packaging format** — not a new protocol, not a new runtime. It defines a directory structure that bundles two existing things — [Agent Skills](https://agentskills.io/) (markdown instruction sets) and [MCP](https://modelcontextprotocol.io/) server configurations — into a single installable unit.
 
-Package once, and ChatGPT, Cursor, GitHub Copilot, VS Code, and Kiro can all load it.
+Install the plugin, and the skill and its required tools arrive together.
 
-If you've read the site's [MCP overview](/posts/ai/2026-03-22-mcp-model-context-protocol), here's a layering analogy:
+A common misconception worth clearing up: **Agent Skills portability is not something Agent Plugins introduced.** SKILL.md follows the independent Agent Skills spec, and Cursor, Copilot, Claude Code, Kiro, and ChatGPT can all already read it. If your skill doesn't depend on any MCP server, sharing the SKILL.md directly is sufficient — no Agent Plugin needed.
 
-| Layer | Role | Analogy |
+Where Agent Plugins adds value:
+
+| Layer | Role | Portability |
 |---|---|---|
-| **MCP** | Wire protocol — how agents call tools | USB-C interface |
-| **Agent Skills** | Cognitive instructions — how agents think | User manual |
-| **Agent Plugins** | Packaging format — bundles both | The box that holds the cable and the manual |
+| **MCP** | Wire protocol — how agents call tools | Protocol is portable, but config formats differ per client |
+| **Agent Skills** | Cognitive instructions — how agents think | **Already portable** — SKILL.md works cross-client |
+| **Agent Plugins** | Packaging format — bundles skills with their MCP configs | Solves dependency portability |
 
-Agent Plugins doesn't replace MCP. It wraps MCP. Before this, a skill that depended on a specific MCP server required separate, undocumented setup steps for each client. Now one directory handles it.
+Analogy: a skill is a user manual — you can photocopy it for anyone. An MCP server is the tool itself. An Agent Plugin is the box that ships the manual and the tool together, so the recipient can start working immediately without sourcing the tool and configuring it on their own.
 
 ## Who's Behind It
 
@@ -156,23 +156,22 @@ Incremental adoption is explicitly allowed: a skills-only client can skip MCP en
 
 ## What It Actually Solves
 
-Back to the opening scenario. You have an MCP server and a skill. Three clients need them.
+Not skill portability — that already exists. **Dependency packaging.**
 
-Before:
+Back to the opening scenario. You have a skill that needs an MCP server to work. You want three colleagues using different clients to be able to use it.
+
+Before: the SKILL.md itself is fine — you can send it to anyone and their client can read it. But the MCP server config differs per client. You end up writing three sets of setup instructions, or one long doc explaining each client's format:
 
 ```
-cursor-plugin/
-  .cursor/mcp.json
-  .cursor/skills/my-skill/SKILL.md
+# For Cursor users
+Put mcp.json in .cursor/mcp.json, format is ...
 
-copilot-plugin/
-  ... (Copilot's format)
+# For Copilot users
+Add mcpServers to settings.json, format is ...
 
-chatgpt-plugin/
-  ... (ChatGPT's format)
+# For ChatGPT users
+Go to Plugin settings and manually fill in ...
 ```
-
-Three directories, same content, different structures. Change one, forget to update the others.
 
 After:
 
@@ -183,9 +182,11 @@ my-plugin/
   mcp.json
 ```
 
-One directory. All three clients can read it.
+One directory. All three clients know how to read it. The skill and its required MCP server config live in the same place, loaded together at install time.
 
-This sounds simple, but it's the first time anyone in the AI agent ecosystem has sat down to standardize this — and "anyone" is six companies that compete on almost everything else.
+In other words, Agent Plugins solves a **distribution problem**, not a format problem. The skill format was already unified. The MCP protocol was already unified. But "how to package a skill together with its MCP server dependency as one installable thing" — that had no standard before. Every client did it differently.
+
+This is the first time anyone sat down to standardize that — and "anyone" is six companies that compete on almost everything else.
 
 ## What It Doesn't Solve
 
@@ -205,9 +206,11 @@ These limitations are deliberate. Vercel's announcement is direct: "The format i
 
 ## What It Means for Developers
 
-If you're writing MCP servers or agent skills, **it's worth packaging them as Agent Plugins now.** The cost is minimal — add a `plugin.json` and adjust your directory structure. The benefit is that your tools are no longer locked to a single client.
+If your skill doesn't depend on an MCP server, just share the SKILL.md directly. The Agent Skills spec is already cross-client on its own.
 
-If you're choosing an agent client, this standard means plugin ecosystems are no longer a user lock-in moat. Before, choosing Cursor meant only Cursor's plugins; now at least the base layer is interoperable. Client selection returns to what it should compare: model capabilities, UX, response speed, pricing.
+**When your skill depends on a specific MCP server, that's when packaging it as an Agent Plugin is worth it.** Adding a `plugin.json` and `mcp.json` is minimal effort, but the recipient can install it and have everything working — no manual MCP setup needed.
+
+If you're choosing an agent client, this standard means plugin ecosystems are no longer a user lock-in moat. Before, choosing Cursor meant being locked into Cursor's plugin config format; now at least the base layer is interoperable. Client selection returns to what it should compare: model capabilities, UX, response speed, pricing.
 
 If you're watching industry dynamics, this may be one of 2026's most significant standardization events. Not because the technology is innovative — a directory structure plus two JSON schemas, that's it. But because of **who sat at the table.** OpenAI and Google agreeing on a shared plugin format while competing on models was unimaginable a year ago. It signals that competition in the agent ecosystem is shifting from "who has better tool capabilities" to "who uses tools more intelligently." The tools themselves are becoming shared infrastructure; how agents use them is the new differentiator.
 
