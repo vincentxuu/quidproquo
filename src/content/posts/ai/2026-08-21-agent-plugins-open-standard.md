@@ -1,0 +1,230 @@
+---
+title: "Agent Plugins 1.0：OpenAI、Google、AWS 罕見聯手，統一 AI Agent 擴充的封裝標準"
+date: 2026-08-21
+type: deep-dive
+category: ai
+tags: [agent-plugins, mcp, agent-skills, open-standard, openai, google, aws, cursor, vercel]
+lang: zh-TW
+tldr: "Agent Plugins 1.0 是一個封裝格式標準，把 Agent Skills（Markdown 指令）和 MCP server 設定包成一個目錄，讓同一個 plugin 能被 ChatGPT、Cursor、GitHub Copilot、Kiro、VS Code 直接載入。它不是新的協議，是協議之上的包裝紙。Vercel 發起，OpenAI、AWS、Microsoft、Cursor 共同制定，Google 發佈當天加入——Anthropic 不在治理名單上，但 MCP 團隊正面回應。"
+description: "Agent Plugins 1.0 的技術規格、plugin.json 與 mcp.json 結構、與 MCP 的分層關係、六家 launch client 的支援範圍，以及這個標準真正解決與沒有解決的問題。"
+series:
+  name: "AI 時代的技術選擇"
+  order: 21
+draft: false
+---
+
+🌏 [English version](/posts/ai/2026-08-21-agent-plugins-open-standard-en)
+
+你寫了一個 MCP server，接上公司內部的知識庫。又寫了一份 skill，教 agent 怎麼用這個知識庫回答客戶問題。
+
+在 Cursor 裡跑得很好。
+
+然後同事問：「我用 Copilot，能裝嗎？」
+
+你看了一下 Copilot 的 plugin 結構，嘆了口氣，把同樣的 MCP 設定和 skill 搬到另一個目錄格式。再來一個用 ChatGPT 的同事，再搬一次。
+
+這就是 2026 年 8 月 6 日之前，AI agent 擴充的現實。
+
+---
+
+## 這個標準在做什麼
+
+[Agent Plugins 1.0.0](https://agent-plugins.org/) 是一個**封裝格式**（packaging format），不是新協議、不是新 runtime。它定義一個目錄結構，把兩個已經存在的東西——[Agent Skills](https://agentskills.io/)（Markdown 指令集）和 [MCP](https://modelcontextprotocol.io/) server 設定——包成一個可移植的單位。
+
+打包一次，ChatGPT、Cursor、GitHub Copilot、VS Code、Kiro 都能載入。
+
+如果你讀過本站的 [MCP 介紹](/posts/ai/2026-03-22-mcp-model-context-protocol)，這裡有個分層類比可以幫助理解：
+
+| 層級 | 角色 | 類比 |
+|---|---|---|
+| **MCP** | 通訊協議——agent 怎麼呼叫工具 | USB-C 介面 |
+| **Agent Skills** | 認知指令——agent 怎麼思考 | 使用說明書 |
+| **Agent Plugins** | 封裝格式——把上面兩者打包 | 把線材和說明書放進同一個盒子 |
+
+Agent Plugins 不取代 MCP，它包裝 MCP。以前一個依賴特定 MCP server 的 skill，安裝流程全靠各 client 各自的文件；現在一個目錄搞定。
+
+## 誰在推
+
+[Vercel 發起](https://vercel.com/blog/introducing-agent-plugins)，2026 年 8 月 6 日公開。Technical Steering Committee 的 Core Maintainer：
+
+| 公司 | 身份 | Launch Client |
+|---|---|---|
+| Vercel | 發起者、Core Maintainer | — |
+| OpenAI | Core Maintainer | ChatGPT、Codex |
+| AWS | Core Maintainer | Kiro |
+| Microsoft | Core Maintainer | GitHub Copilot、VS Code |
+| Anysphere（Cursor） | Core Maintainer | Cursor |
+| Google | 發佈當天加入 Core Maintainer | Agents CLI、Data Agent Kit |
+
+這個名單的意義在於**罕見的跨陣營合作**。OpenAI 和 Google 在模型層打得你死我活，AWS 和 Microsoft 在雲端互為最大對手，Cursor 正在搶 Copilot 的 IDE 市場——但他們在「plugin 應該長什麼樣」這一題上坐下來了。
+
+**Anthropic 不在 TSC 名單上。** 但 MCP 團隊的 Tobin South 在 X 上正面回應，說 plugins「很可能成為預設的封裝機制」，且 Claude Code 的 plugin 結構已經相容。考慮到 Agent Plugins 把 MCP 當作核心原語之一，Anthropic 是最大的間接受益者。
+
+發佈後也有更多 client 加入支援，包括 Nous Research 的 Hermes Agent、x.ai 的 Grok Bot、OpenClaw、NanoClaw。
+
+## 技術規格
+
+### 目錄結構
+
+一個 plugin 就是一個檔案系統目錄：
+
+```
+my-plugin/
+  plugin.json              # 清單（必要）
+  skills/                  # Agent Skills
+    summarize/
+      SKILL.md
+      references/
+  mcp.json                 # MCP server 設定
+  com.example.client/      # client 專屬擴充（reverse-domain 命名）
+```
+
+沒有壓縮檔格式，沒有 registry，沒有 package manager。用 `ls` 就能看、用 `git` 就能版控。規格書自己寫了設計理由：「Plugins use filesystem directories as the package unit... This keeps plugins inspectable with standard tools.」
+
+### plugin.json
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "knowledge-base",
+  "version": "1.0.0",
+  "description": "Internal KB search and Q&A",
+  "author": { "name": "Acme Corp" },
+  "keywords": ["search", "qa"],
+  "extensions": {
+    "com.cursor": { "shortcut": "kb" }
+  }
+}
+```
+
+只有 `$schema` 和 `name` 是必填。Schema 是 closed 的——未知的頂層欄位會觸發警告但不會讓 plugin 失效，型別不對則直接拒絕。
+
+`name` 的規則很嚴：1–64 字元，只能用小寫字母、數字、`-` 和 `.`，不能連續 `--` 或 `..`，頭尾必須是字母或數字。
+
+`extensions` 是留給各 client 的命名空間，用 reverse-domain 命名，不認識的 client 會忽略它。這是規格裡最聰明的設計之一——它承認不同 client 有不同需求，但把差異關在一個隔間裡，不汙染可移植的部分。
+
+### mcp.json
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "local-tools": {
+      "type": "stdio",
+      "command": "./bin/server",
+      "args": ["--data", "${PLUGIN_DATA}"]
+    },
+    "remote-api": {
+      "type": "streamable-http",
+      "url": "https://tools.example.com/mcp"
+    }
+  }
+}
+```
+
+三種傳輸方式：`stdio`（本地子行程）、`streamable-http`（目前的 MCP HTTP 傳輸）、`sse`（舊版，optional）。Client 至少要支援 stdio 或 streamable-http 其中一個。
+
+兩個佔位變數：`${PLUGIN_ROOT}`（plugin 目錄的絕對路徑）和 `${PLUGIN_DATA}`（client 管理的持久化目錄，更新時保留，解安裝時可以刪）。展開是單次的，不遞迴。
+
+安全規則：`command` 必須是單一可執行檔 token，不是 shell string；plugin 不能在 `headers` 或 `env` 裡嵌入憑證；v1 沒有定義任何 OAuth 或 credential-reference 欄位——認證完全由 client 管理。
+
+### Skills 探索
+
+`skills/` 目錄下的每個直屬子目錄如果包含 `SKILL.md`，就是一個 skill。不遞迴搜尋。Skill 的格式遵循 [Agent Skills 規格](https://agentskills.io/specification)，本質上就是一個 Markdown 檔案加上可選的 `references/` 和 `scripts/`。
+
+### 容錯模型
+
+這是規格裡最務實的設計：
+
+- 必填欄位的 schema violation → 拒絕整個 plugin
+- 單一元件無效（例如某個 skill 的 SKILL.md 語法錯誤）→ 只跳過那個元件，其他照常載入
+- 缺少的選填檔案 → 不是錯誤
+
+「A plugin that provides skills and an MCP server should not become entirely unusable because one server is unavailable.」
+
+### Client 合規要求
+
+一個合規的 client 必須：
+
+1. 能從目錄路徑載入 plugin
+2. 解析和驗證 `plugin.json`
+3. 忽略不認識的 `extensions` 命名空間
+4. 在固定位置探索支援的元件類型
+5. 至少支援一種元件類型（skills 或 MCP）
+
+增量採用是被允許的：一個只支援 skills 的 client 可以完全不實作 MCP 的部分，仍然算合規。
+
+## 它真正解決的問題
+
+回到開頭的場景。你有一個 MCP server + 一份 skill，要給三個 client 用。
+
+以前：
+
+```
+cursor-plugin/
+  .cursor/mcp.json
+  .cursor/skills/my-skill/SKILL.md
+
+copilot-plugin/
+  ... (Copilot 的格式)
+
+chatgpt-plugin/
+  ... (ChatGPT 的格式)
+```
+
+三份目錄，內容一樣，結構不一樣。維護的時候改了一邊忘了另一邊。
+
+現在：
+
+```
+my-plugin/
+  plugin.json
+  skills/my-skill/SKILL.md
+  mcp.json
+```
+
+一份。三個 client 都能讀。
+
+這聽起來簡單，但在 AI agent 生態系裡，這是第一次有人坐下來把這件事標準化，而且坐下來的不是一家公司，是六家。
+
+## 它沒有解決的問題
+
+標準的邊界跟標準本身一樣重要。v1 明確不管這些事：
+
+**沒有 registry 或 package manager。** 沒有 `npm install @acme/kb-plugin` 這種東西。怎麼安裝 plugin 完全由各 client 自己決定——Cursor 可能用 UI 按鈕，Copilot 可能用 CLI，ChatGPT 可能用 store。
+
+**沒有認證標準。** v1 不定義 OAuth 流程或 credential reference。如果你的 MCP server 需要 API key，怎麼讓使用者安全地提供這個 key，是 client 的事。
+
+**沒有壓縮檔或傳輸格式。** Plugin 是目錄，不是 `.zip`。怎麼從 A 傳到 B，不在規格範圍內。
+
+**Skill 的解讀仍然因 client 而異。** 同一份 SKILL.md 在不同 client 裡的行為不保證一致——不同的模型、不同的 system prompt 組裝方式、不同的 context window 管理。
+
+**v1 只有兩種元件。** 規格書明確說其他提案——commands、hooks、agents、rules、LSP servers——「too client-specific for a stable portable contract」，留待未來版本。
+
+這些限制是刻意的。Vercel 的公告寫得很直白：「The format is intentionally small and easy to implement.」先把所有人都能同意的最小交集標準化，剩下的讓各 client 自己競爭——這跟 MCP 早期只定義最小可行協定的策略很像。
+
+## 對開發者的意義
+
+如果你正在寫 MCP server 或 agent skill，**現在就值得把它包成 Agent Plugin 格式**。成本極低——你只需要加一個 `plugin.json` 和調整一下目錄結構。收益是你的工具不再綁定單一 client。
+
+如果你是在選 agent client，這個標準的存在意味著 plugin 生態系統不再是鎖定使用者的護城河。以前你選了 Cursor 就只能用 Cursor 的 plugin，現在至少基礎層是通的。選 client 回到它該比的東西：模型能力、UI、回應速度、價格。
+
+如果你是在觀察產業動態，這可能是 2026 年最重要的標準化事件之一。不是因為技術上多創新——一個目錄結構加兩個 JSON schema，就這樣。而是因為**誰坐在桌上**。OpenAI 和 Google 在模型競爭的同時同意共用 plugin 格式，這在一年前是不可想像的。它暗示了一件事：agent 生態系的競爭重心正在從「誰的工具能力更強」移向「誰的 agent 用工具用得更聰明」。工具本身變成公共建設，怎麼用工具才是差異化的戰場。
+
+## 值得追蹤的事
+
+1. **Anthropic 會不會正式加入 TSC。** Claude Code 的 plugin 結構已經相容，但「結構相容」和「正式加入治理」是兩回事。
+2. **v1.1 會加什麼。** GitHub 上已有工作草案，社群討論最多的是認證標準化和某種形式的 plugin registry。
+3. **Skill 可移植性的實際表現。** 格式統一不等於行為統一，同一份 SKILL.md 在六個 client 裡的表現差異會是生態系成熟度的試金石。
+
+---
+
+## 參考資料
+
+| 資料 | 來源 | 日期 |
+|---|---|---|
+| Agent Plugins 1.0.0 規格 | [agent-plugins.org/specification](https://agent-plugins.org/specification) | 2026-08-11 |
+| Vercel 公告 | [vercel.com/blog/introducing-agent-plugins](https://vercel.com/blog/introducing-agent-plugins) | 2026-08-06 |
+| Google 加入 | [developers.googleblog.com](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/) | 2026-08-06 |
+| GitHub 規格庫 | [github.com/agentplugins/agent-plugins-spec](https://github.com/agentplugins/agent-plugins-spec) | 截至 2026-08-21，1.1k stars |
+| Compatible clients 清單 | [agent-plugins.org](https://agent-plugins.org/) compatible clients 頁面 | 2026-08-21 查 |
