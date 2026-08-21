@@ -26,6 +26,8 @@ Chroma's [Context Rot](https://www.trychroma.com/research/context-rot) study, pu
 
 Eighteen models all degraded with length. And not only on hard tasks. They built a "reproduce this text exactly" task with a single odd word inserted into a run of repeated ones. Something this trivial ought to be as reliable as a program, but as length grew, models started refusing, started asking the user whether they'd like the discrepancy corrected, started emitting garbage.
 
+A more counterintuitive finding: even the *arrangement* of the irrelevant content matters. Shuffle the sentences of the background text so the topic stays the same but the logical flow disappears, and how the models handle the long input changes with it.
+
 Their conclusion is the foundation for this whole topic:
 
 > Whether relevant information is present in a model's context is not all that matters; what matters more is **how that information is presented**.
@@ -55,6 +57,8 @@ Claude Code's `/compact`, Cline's `/smol`, Kilo Code, and the OpenHands condense
 The bet is that the summary is good enough. Anthropic adds a cost argument: summarizing costs money, but **it's cheap while the cache is still warm**. So compacting before you step away beats compacting when you come back tomorrow.
 
 The cost is that it's lossy, and it accumulates — summaries stacked on summaries.
+
+OpenHands is one of the few in this camp to have run a comparison. On a subset of SWE-bench Verified, the condensed version solved slightly more instances than the uncondensed baseline (54% against 53%) at less than half the per-turn API cost. Their point is that the savings matter less than the growth curve: without condensation, context cost scales quadratically with conversation length; with it, the scaling becomes linear.
 
 **What to do**: run `/compact` before you leave your desk, and say in the same command what to keep (for example, "keep the API design decisions and the three unfixed bugs").
 
@@ -108,17 +112,21 @@ But this camp has a public opponent. Cognition's [Don't Build Multi-Agents](http
 
 Their example is easy to follow. You want a Flappy Bird clone, split into "build the background with pipes" and "build a bird that moves up and down." Subagent 1 misunderstands and builds a Super Mario-style background; subagent 2 builds a bird that doesn't look like a game asset. Copying the original task to every subagent isn't enough either — they **can't see what the others are doing**, so the styles still clash.
 
-There's also a bill. Per Anthropic's own report on their multi-agent research system, this architecture can use up to fifteen times the tokens of ordinary chat.
+There's also a bill. LangChain cites Anthropic's engineering report on their multi-agent research system: this architecture can use up to fifteen times the tokens of ordinary chat.
 
 Date this one. The article says "Claude Code never does work in parallel with the subtask agent, and the subtask agent is usually only tasked with answering a question, not writing any code," which no longer holds in 2026. The two principles still stand.
+
+Cognition later offered a fix for this. The retrieval subagent they trained, [SWE-grep](https://cognition.com/blog/swe-grep), deliberately **reports file paths and line ranges rather than a summary**. The reasoning: a fast model's summary can draw the wrong conclusion and mislead the smart model, whereas a file list has a ground truth and can be scored. Constrain the subagent's output to a verifiable form and the "you only get what it chose to report" problem goes away.
 
 **What to do**: before running two things in parallel, ask whether they need to be stylistically consistent. If yes, don't parallelize.
 
 ### 6. Train it into the model: this shouldn't be the user's job
 
-Cursor [trained self-summarization into Composer](https://cursor.com/blog/self-summarization), and Cognition trained [SWE-grep](https://cognition.com/blog/swe-grep) specifically for fast retrieval. Meta's [Code World Model](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/) goes further, mid-training on observation-action trajectories from Python interpreters and agentic Docker environments so the model can simulate code execution step by step. No need to read it to know what happens.
+Cursor [trained self-summarization into Composer](https://cursor.com/blog/self-summarization) by folding compaction into the reinforcement learning loop, so the summaries themselves get rewarded or penalized. Meta's [Code World Model](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/) goes further, mid-training on observation-action trajectories from Python interpreters and agentic Docker environments so the model can simulate code execution step by step. No need to read it to know what happens.
 
 The claim here is that the previous five all require users to learn context management, and that requirement is itself a design failure.
+
+Cursor published a comparison, and the gap is not small. The control was a heavily tuned prompt-based compaction whose summarization prompt alone ran to thousands of tokens across a dozen carefully worded sections. A trained Composer needs roughly "Please summarize the conversation," and **cut compaction error in half while using a fifth of the tokens**.
 
 The cost is that you can't wait for it. This moves at the pace of model generations, not tonight's settings.
 
@@ -188,7 +196,13 @@ Until then, the most honest description may be Manus's. They call their own proc
 
 The body keeps one number per claim. The rest of the methodology sits here.
 
-**Chroma Context Rot**: 18 models (closed-source and open-weights), 8 input lengths, 11 needle positions, temperature=0, scored by an aligned GPT-4.1 judge (>99% agreement with human judgment). The LongMemEval portion filtered down to 306 prompts, averaging ~113k tokens for the full version and ~300 tokens for the focused one. Needle-question similarity was averaged across five embedding models for robustness. The [full codebase is open source](https://github.com/chroma-core/context-rot).
+**Chroma Context Rot**: 18 models (closed-source and open-weights), 8 input lengths, 11 needle positions, temperature=0, scored by an aligned GPT-4.1 judge (>99% agreement with human judgment), across 194,480 total LLM calls with a 0.035% refusal rate. The LongMemEval portion filtered down to 306 prompts, averaging ~113k tokens for the full version and ~300 tokens for the focused one. Needle-question similarity was averaged across five embedding models for robustness. Across the four controlled experiments: lower needle-question similarity accelerates degradation, distractors have non-uniform impact, needle-haystack similarity shows no uniform effect, and haystack structure consistently does. The [full codebase is open source](https://github.com/chroma-core/context-rot).
+
+**OpenHands**: on a subset of SWE-bench Verified, the condensed agent averaged 54% solved against the baseline's 53%. Condensation only fires once context reaches a set size, so the cost of rebuilding the cache is amortized across turns. They report per-turn cost settling below half the baseline, at the cost of occasionally spending a turn on condensation itself.
+
+**Cursor self-summarization**: the control was prompt-based compaction with a summarization prompt of several thousand tokens producing summaries averaging over 5,000 tokens; Composer's self-summaries average around 1,000 tokens, halve compaction error, and reuse the KV cache. Tested at both 80k and 40k trigger thresholds with consistent results. Case study: solving Terminal-Bench 2.0's make-doom-for-mips took 170 turns, compressing over 100,000 tokens down to roughly one thousand.
+
+**SWE-grep**: 4 serial turns with up to 8 parallel tool calls each, against the 10–20 serial turns typical of agentic search. On Cerebras, SWE-grep-mini serves at 2,800 tokens/second and SWE-grep at 650, against Haiku 4.5's 140. Scoring uses a weighted F1 favoring precision, because they found polluting the main agent's context more damaging than omitting some. Windsurf and Devin observed agent trajectories spending over 60% of the first turn on retrieval alone.
 
 **Cursor**: an A/B test of dynamic MCP loading reduced total agent tokens by 46.9% in runs that called an MCP tool, noted as statistically significant with high variance depending on the number of MCP servers installed.
 

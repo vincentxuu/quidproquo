@@ -26,6 +26,8 @@ Chroma 在 2025 年 7 月發表的 [Context Rot](https://www.trychroma.com/resea
 
 結果是十八個模型全部隨長度衰退。而且不只在困難任務上：他們設計了一個「把這段文字原樣複製一遍」的任務，重複詞裡插一個不一樣的詞。這種瑣事本該像程式一樣可靠，但隨著長度增加，模型開始拒答、開始反問使用者要不要順便修正、開始輸出亂碼。
 
+還有一個更反直覺的發現：連無關內容的**排列方式**都有影響。把背景文本的句子隨機打散、主題不變但邏輯連貫性消失，模型處理長輸入的表現就會跟著變。
+
 他們的結論是這個題目的地基：
 
 > 相關資訊是否存在於模型的 context 中並不是全部；更重要的是那些資訊**如何被呈現**。
@@ -55,6 +57,8 @@ Claude Code 的 `/compact`、Cline 的 `/smol`、Kilo Code、OpenHands 的 conde
 賭注是摘要夠好。Anthropic 補了一個成本上的理由：摘要這件事本身要花錢，但**趁快取還熱的時候做很便宜**。所以離開鍵盤前先壓一次，比隔天回來再壓划算。
 
 代價是有損，而且會累積——摘要之上再疊摘要。
+
+OpenHands 是這派少數做過對照的。在 SWE-bench Verified 的子集上，開壓縮的版本解掉的題目比不壓縮的基準還多一點（54% 對 53%），每輪 API 成本卻降到不到一半。他們點出關鍵不在省了多少，而在成長曲線：不壓縮的話 context 成本隨對話長度平方成長，壓縮之後變成線性。
 
 **怎麼做**：離座前先 `/compact`，並在指令後面直接講要保留什麼（例如「保留 API 的設計決定和還沒修的三個 bug」）。
 
@@ -108,17 +112,21 @@ subagent 的邏輯是：髒活在另一個 context 窗口裡進行，主對話�
 
 他們的例子很好懂：你要複製一個 Flappy Bird，拆成「做背景和水管」跟「做一隻能上下移動的鳥」。subagent 1 誤會了，做出超級瑪利歐風格的背景；subagent 2 做了隻不像遊戲素材的鳥。就算你把原始任務複製給每一個 subagent 也不夠——它們**看不見彼此在做什麼**，風格還是會撞。
 
-代價還有帳單。依 Anthropic 自己的多 agent 研究系統報告，這種架構的 token 用量可以到一般對話的十五倍。
+代價還有帳單。LangChain 轉引 Anthropic 多 agent 研究系統的工程報告，這種架構的 token 用量可以到一般對話的十五倍。
 
 這篇要標日期。文中說「Claude Code 從不與 subtask agent 平行工作，subtask agent 通常只負責回答問題、不寫程式」，這個觀察在 2026 年已經不成立了。但兩條原則本身還站得住。
+
+Cognition 後來給了這個問題一個解法。他們訓練的檢索 subagent [SWE-grep](https://cognition.com/blog/swe-grep) 刻意**不回報摘要，只回報檔案路徑和行號範圍**。理由是快模型寫的摘要可能下錯結論、反而誤導主模型，而檔案清單有標準答案、可以打分。把 subagent 的輸出限制成可驗證的形式，「主 session 只拿得到它願意回報的東西」這個問題就繞開了。
 
 **怎麼做**：兩件事要不要平行跑，先問一句「它們需不需要風格一致」。需要就不要平行。
 
 ### 六、進模型：這不該是使用者的工作
 
-Cursor 把自我摘要[訓練進 Composer](https://cursor.com/blog/self-summarization)，Cognition 訓了一個專門做快速檢索的 [SWE-grep](https://cognition.com/blog/swe-grep)。Meta 的 [Code World Model](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/) 更激進，用 Python 直譯器和 Docker 環境的觀察-動作軌跡做中期訓練，目標是讓模型能逐步模擬程式執行。不用讀，就知道會發生什麼。
+Cursor 把自我摘要[訓練進 Composer](https://cursor.com/blog/self-summarization)，做法是在強化學習的過程中就讓模型自己壓縮上下文，摘要本身也會被獎勵或懲罰。Meta 的 [Code World Model](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/) 更激進，用 Python 直譯器和 Docker 環境的觀察-動作軌跡做中期訓練，目標是讓模型能逐步模擬程式執行。不用讀，就知道會發生什麼。
 
 這一派的主張是：前面五種都在要求使用者學會管理 context，但這件事本身就是設計失敗。
+
+Cursor 公開了對照結果，而且差距不小。對照組是一個高度調校的提示式壓縮，光摘要提示就數千 token，十幾個章節仔細交代該保留什麼。訓練過的 Composer 只需要一句「請摘要這段對話」，結果**壓縮造成的錯誤少了一半，用掉的 token 只有五分之一**。
 
 代價是你等不到。這是模型世代的事，不是你今晚能調的設定。
 
@@ -188,7 +196,13 @@ Chroma 測的是「長 context 會不會壞」，答案是會。各家測的是�
 
 正文每個主張只留一個數字，其餘方法學細節收在這裡。
 
-**Chroma Context Rot**：18 個模型（含閉源與開放權重）、8 種輸入長度、11 個 needle 位置、temperature=0，用對齊過的 GPT-4.1 當評分者（與人類判斷一致率 >99%）。LongMemEval 部分篩選出 306 題，完整版平均約 113k token，精簡版平均約 300 token。needle-question 相似度用五個 embedding 模型取平均以求穩健。全部程式碼[開源](https://github.com/chroma-core/context-rot)。
+**Chroma Context Rot**：18 個模型（含閉源與開放權重）、8 種輸入長度、11 個 needle 位置、temperature=0，用對齊過的 GPT-4.1 當評分者（與人類判斷一致率 >99%），全程共 194,480 次 LLM 呼叫、拒答率 0.035%。LongMemEval 部分篩選出 306 題，完整版平均約 113k token，精簡版平均約 300 token。needle-question 相似度用五個 embedding 模型取平均以求穩健。四項受控實驗的結論：needle 與問題相似度越低、衰退越快；干擾項的影響不均勻；needle 與背景文本的相似度沒有一致效果；背景文本的結構則一致有影響。全部程式碼[開源](https://github.com/chroma-core/context-rot)。
+
+**OpenHands**：SWE-bench Verified 的子集，壓縮版平均解掉 54%、基準 53%。壓縮只在 context 達到一定大小才觸發，為的是把快取重建的成本攤到多輪上。他們宣稱每輪成本降到基準的一半以下，代價是偶爾多花一輪去做壓縮。
+
+**Cursor 自我摘要**：對照組是提示式壓縮，摘要提示數千 token、輸出平均超過 5,000 token；Composer 的自我摘要平均約 1,000 token，壓縮誤差減半且可重用 KV 快取。測了 80k 和 40k 兩種觸發門檻，結論一致。案例：解 Terminal-Bench 2.0 的 make-doom-for-mips 花了 170 輪，把十萬多 token 摘要成約一千。
+
+**SWE-grep**：4 輪序列、每輪最多 8 個平行工具呼叫，對比一般 agentic search 的 10–20 輪。在 Cerebras 上 SWE-grep-mini 每秒 2,800 token、SWE-grep 每秒 650，對照 Haiku 4.5 的每秒 140。評分用偏重 precision 的加權 F1，因為他們發現污染主 agent 的 context 比漏掉一些更傷。Windsurf 與 Devin 的觀察是：agent 第一輪常有超過六成時間花在檢索上。
 
 **Cursor**：MCP 動態載入的 A/B 測試，在有呼叫 MCP 工具的執行中總 token 降 46.9%，官方註明統計顯著但變異數大，取決於安裝的 MCP 數量。
 
