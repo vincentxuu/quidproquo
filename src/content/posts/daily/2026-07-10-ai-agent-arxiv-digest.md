@@ -71,7 +71,7 @@ SOP 機制相當於幫 Agent 建了一個「可增長的 skill library」，且�
 - **核心概念**：SOP = callable higher-order tool，封裝多步驟邏輯，對 Agent 的上層規劃器來說就像呼叫一個普通工具
 - **實驗結果**：在 ACEBench 的兩個子集上，EvoSOP 相較 base method 提升 **2.5%～13.4%**（視 backbone model 而異），且顯著減少 interaction rounds
 - **AgentLens benchmark**：論文同時引入一個以真實 coding agent production trace 建構的評測集，強調實際部署環境而非人工合成任務
-- **與 EvoTool（2603.04900）的差異**：EvoTool 改優化工具呼叫策略（policy），EvoSOP 改變的是工具本身的顆粒度（granularity）
+- **與 EvoTool（2603.04900）的差異**：EvoTool 改優化工具呼叫策略（policy），EvoSOP 改變的是工具本身的粒度（granularity）
 - **框架關聯**：LangGraph 的 subgraph 機制、AutoGen 的 ConversableAgent tool registry 都可以直接承接 SOP 概念；MCP 的 tool discovery 未來若支援動態工具版本，EvoSOP 邏輯可以無縫嵌入
 - **Limitation**：SOP 品質依賴歷史軌跡的多樣性——若 training distribution 窄，萃取出的 SOP 可能過度特化，在新任務上反而帶來干擾
 - **落地門檻**：需要保存結構化執行軌跡（trace），對沒有 trace logging 基礎設施的系統需要補建；SOP 版本管理機制尚未完整討論
@@ -205,7 +205,7 @@ AI-native SQL 代表資料基礎設施層正在發生的典範轉移——分析
 
 ### 給你的 take-away
 
-- 如果你的 Agent 要對接 Snowflake，現在就把 Snowflake Cortex AI Functions 的語法和參數格式加進 system prompt 或工具說明，因為模型默認不知道這些函式——這是一個今天就能做的改進
+- 如果你的 Agent 要對接 Snowflake，現在就把 Snowflake Cortex AI Functions 的語法和參數格式加進 system prompt 或工具說明，因為模型預設不知道這些函式——這是一個今天就能做的改進
 - 在評估資料 Agent 能力時，把 Spider 2.0-AIFunc 加進評測矩陣；如果你的用例涉及 AI-native SQL，傳統 Spider 2.0 分數無法反映真實能力
 
 

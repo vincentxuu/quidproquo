@@ -92,7 +92,7 @@ AIF-C01 是 AWS 認證體系裡最便宜的一張 AI 證照（$100），也是**
 
 ### 第 1 章：AI 與 ML 基礎（20%）
 
-**官方考什麼**：AI／ML／深度學習／神經網路／CV／NLP／模型／演算法／訓練與推論／偏誤／公平性／擬合／LLM／GenAI／**agentic AI** 的定義與彼此差異；推論型態（批次、即時、**非同步、serverless**）；資料型態與學習方式；AI 適合與不適合的場景；**傳統 ML 與 FM 的取捨**；AWS 託管 AI 服務的能力（SageMaker AI、Transcribe、Translate、Comprehend、Lex、Polly）；AI/ML pipeline 各階段對應的服務（Bedrock、Amazon Q、Amazon Quick、**Kiro**、SageMaker AI）；MLOps 概念；模型指標（accuracy、**precision、recall**、F1）與商業指標（每用戶成本、開發成本、ROI）。
+**官方考什麼**：AI／ML／深度學習／神經網路／CV／NLP／模型／演算法／訓練與推論／偏誤／公平性／擬合／LLM／GenAI／**agentic AI** 的定義與彼此差異；推論型態（批次、即時、**非同步、serverless**）；資料型態與學習方式；AI 適合與不適合的場景；**傳統 ML 與 FM 的取捨**；AWS 託管 AI 服務的能力（SageMaker AI、Transcribe、Translate、Comprehend、Lex、Polly）；AI/ML pipeline 各階段對應的服務（Bedrock、Amazon Q、Amazon Quick、**Kiro**、SageMaker AI）；MLOps 概念；模型指標（accuracy、**precision、recall**、F1）與商業指標（每使用者成本、開發成本、ROI）。
 
 **怎麼準備**：這章是純概念，把官方 guide 的名詞逐個能用一句話解釋就夠。**重點不是深度而是分界** —— 題目常問「這個情境該用 AI 嗎」「該用傳統 ML 還是 FM」，答案取決於法規、可解釋性、營運限制，不是取決於技術先進度。
 

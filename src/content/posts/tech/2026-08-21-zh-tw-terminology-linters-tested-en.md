@@ -182,6 +182,50 @@ Concretely:
 
 One last thing: I finished the first version of this post, ran every validator, and even checked the external links before noticing the sampling was wrong — and after fixing that, discovered the ground-truth list was wrong too. **All-green formatting says nothing about whether the method was sound, and a sound method says nothing about whether your criteria are right.**
 
+## The version you can copy
+
+The above is my set of trade-offs; your style guide differs. Abstracted, the process is:
+
+### 1. Start from your own narrow list
+
+Don't start from someone else's 1,000-entry dictionary. Start from the dozen or so terms **you are certain about**, in two tiers:
+
+- **Tier A**: no legitimate Taiwan usage — block the commit (用戶, 視頻, 軟件, 插件…)
+- **Tier B**: context-dependent — report only (質量, 智能, 信號, 反饋…)
+
+The test is whether the word has a legitimate use *in your subject matter*. Every 質量 in my drone posts is physics; every 激活 in my AI posts is "activation." On someone else's blog both might be pure Mainland vocabulary.
+
+### 2. Exclude four regions, or you will corrupt text
+
+| Region | Why |
+|---|---|
+| Code blocks and inline code | Variable names aren't Chinese prose |
+| Link URLs | You didn't write the characters in a URL |
+| Blockquotes | Quoting a Mainland interviewee saying 「這個視頻的質量真的不行」 — not one character may change |
+| External article titles in reference lists | Someone else's title isn't yours to correct |
+
+You also need word-level carve-outs: 用戶 matches inside the legitimate Taiwan term 用戶端, 對標 matches inside 針**對標**註, 博客 matches inside 博客來 (a Taiwanese bookstore).
+
+### 3. Use zhtw-mcp to calibrate the list, not to replace it
+
+Run it, read the report, and ask of each term: does this belong in my list? Its value is surfacing **the words you didn't know you were using** — all four of my additions (激活, 插件, 反饋, 兼容) came from it.
+
+Before running, disable the words you deliberately use in `overrides.json`, or noise will bury the signal.
+
+### 4. Always dry-run a bulk replacement
+
+My dry run caught three changes that would have damaged content:
+
+- `激活 → 啟用` would wreck every machine-learning passage (activation)
+- `貼標 → 貼上標籤` collides with 貼標籤, producing 貼上標籤籤
+- **it rewrote this very article** — this post discusses those words, so the table became "外掛 | 19 | 19 | 外掛"
+
+The third is the easiest to miss: **exempt articles that discuss terminology**, or your checker will corrupt its own documentation.
+
+### 5. Only make it a gate once it's green
+
+My order was: write the check (report-only) → fix 419 occurrences → hand-fix the remaining 8 → Tier A at zero → *then* wire it into `pnpm verify`. Doing it the other way round locks everyone out.
+
 ## References
 
 - [sysprog21/zhtw-mcp](https://github.com/sysprog21/zhtw-mcp) — zh-TW linguistic linter, MIT, Rust; MoE punctuation and character standards, 1,882 vocabulary rules (tested against the May 2026 main branch, built locally with `cargo build --release`)

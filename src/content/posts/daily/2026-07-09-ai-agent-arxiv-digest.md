@@ -12,7 +12,7 @@ series:
 ---
 ## 今日總覽
 
-今天三篇論文從不同維度敲響「Agent 安全警報」：FARMA 能以 100% 成功率悄悄竄改 Agent 的推理記憶，繞過現有所有防禦機制；Vera 框架對 4 套生產級 Agent 系統（含 Claude Code）做系統化安全測試，平均攻擊成功率高達 93.9%；PiSAs 則揭示在多用戶共享 Agent 環境中，資訊跨用戶洩露是個未被充分關注的嚴重問題。三篇合看，是任何正在部署 Agent 平台的工程師與 PM 必須面對的安全現實。
+今天三篇論文從不同維度敲響「Agent 安全警報」：FARMA 能以 100% 成功率悄悄竄改 Agent 的推理記憶，繞過現有所有防禦機制；Vera 框架對 4 套生產級 Agent 系統（含 Claude Code）做系統化安全測試，平均攻擊成功率高達 93.9%；PiSAs 則揭示在多使用者共享 Agent 環境中，資訊跨使用者洩露是個未被充分關注的嚴重問題。三篇合看，是任何正在部署 Agent 平台的工程師與 PM 必須面對的安全現實。
 
 ## 讀這篇前該知道的詞
 
@@ -153,16 +153,16 @@ Vera-Bench——1,600 個可執行 safety case、124 個風險類別——是目
 
 ### TL;DR
 
-當多個用戶共用同一個 Agent 時，Agent 很容易把 A 用戶的私人資訊洩露給 B 用戶。PiSAs 提出針對這個場景的 benchmark，揭示現有 SOTA 模型在多用戶隱私保護上仍有嚴重缺陷。
+當多個使用者共用同一個 Agent 時，Agent 很容易把 A 使用者的私人資訊洩露給 B 使用者。PiSAs 提出針對這個場景的 benchmark，揭示現有 SOTA 模型在多使用者隱私保護上仍有嚴重缺陷。
 
 ### Read Priority
 
 必讀
-企業 Agent 平台幾乎都有多用戶場景（不同員工、不同權限）。如果你在做 B2B SaaS Agent 或內部工具 Agent，這篇定義的問題就是你的產品必須解決的。
+企業 Agent 平台幾乎都有多使用者場景（不同員工、不同權限）。如果你在做 B2B SaaS Agent 或內部工具 Agent，這篇定義的問題就是你的產品必須解決的。
 
 ### 領域背景
 
-「情境完整性（Contextual Integrity）」是隱私學者 Helen Nissenbaum 提出的框架：資訊流動是否違反隱私，取決於它是否符合社會脈絡下的規範流向。例如 HR 系統的薪資資料在 HR 部門內流通正常，但若 Agent 在回答其他員工問題時洩露就違反了情境完整性。現有 Agent 隱私研究大多關注單用戶場景，多用戶共享 Agent 下的資訊隔離問題是近一年才被系統性關注的新課題。
+「情境完整性（Contextual Integrity）」是隱私學者 Helen Nissenbaum 提出的框架：資訊流動是否違反隱私，取決於它是否符合社會脈絡下的規範流向。例如 HR 系統的薪資資料在 HR 部門內流通正常，但若 Agent 在回答其他員工問題時洩露就違反了情境完整性。現有 Agent 隱私研究大多關注單使用者場景，多使用者共享 Agent 下的資訊隔離問題是近一年才被系統性關注的新課題。
 
 ### 中階導讀
 
@@ -173,20 +173,20 @@ Vera-Bench——1,600 個可執行 safety case、124 個風險類別——是目
 
 #### 方法
 
-PiSAs（Private information in Shared Agentic Systems）設計了一套涵蓋多種企業常見多用戶情境的 benchmark，評測 Agent 在面對跨用戶資訊請求時，是否能正確判斷「這個資訊在這個情境下是否應該分享」。benchmark 以 Nissenbaum 的情境完整性框架為評測標準，為每個場景建立「資訊流動規範」作為 ground truth。
+PiSAs（Private information in Shared Agentic Systems）設計了一套涵蓋多種企業常見多使用者情境的 benchmark，評測 Agent 在面對跨使用者資訊請求時，是否能正確判斷「這個資訊在這個情境下是否應該分享」。benchmark 以 Nissenbaum 的情境完整性框架為評測標準，為每個場景建立「資訊流動規範」作為 ground truth。
 
 #### 為什麼重要
 
-多用戶 Agent 場景在企業部署中極為普遍——Slack bot、HR 助手、程式碼審查 Agent、客服系統都屬此類。PiSAs 的出現讓平台開發者有了量化評估工具，也讓模型選型多了一個新維度：不只問「這個模型聰不聰明」，還要問「它在多用戶環境下有多安全」。
+多使用者 Agent 場景在企業部署中極為普遍——Slack bot、HR 助手、程式碼審查 Agent、客服系統都屬此類。PiSAs 的出現讓平台開發者有了量化評估工具，也讓模型選型多了一個新維度：不只問「這個模型聰不聰明」，還要問「它在多使用者環境下有多安全」。
 
 ### 深入要點
 
 - PiSAs 由 Meta AI 與 Université Laval 團隊提出，背景來自企業 Agent 實際部署需求，可信度較高
 - 情境完整性框架評估四個維度：資訊**發送方**、**接收方**、**資訊類型**、**傳輸原則**是否符合脈絡規範——比「隱私/非隱私」二元判斷複雜得多
 - 同領域相關工作 MAGPIE 顯示：GPT-5 在多 Agent 隱私場景的洩露率高達 **50.7%**，Gemini 2.5-Pro 達 **35.1%** ⚠️（數據來自 MAGPIE 論文，非本論文直接結果）
-- 與同期 CI-Work（2604.21308）、MuPPET 等 benchmark 相比，PiSAs 專注在「多用戶共享 Agent」這個尚未被充分覆蓋的設定
-- 落地門檻：解決此問題需要在 Agent 設計層加入「用戶身份 + 情境感知」，這對現有大多數 Agent 框架是架構層改動——缺乏原生 multi-user context isolation 的框架需要應用層自行補充
-- 與 MCP 的關聯：MCP 目前工具呼叫設計沒有內建 per-user context scope，多用戶隱私隔離需要框架或應用層自行處理
+- 與同期 CI-Work（2604.21308）、MuPPET 等 benchmark 相比，PiSAs 專注在「多使用者共享 Agent」這個尚未被充分覆蓋的設定
+- 落地門檻：解決此問題需要在 Agent 設計層加入「使用者身份 + 情境感知」，這對現有大多數 Agent 框架是架構層改動——缺乏原生 multi-user context isolation 的框架需要應用層自行補充
+- 與 MCP 的關聯：MCP 目前工具呼叫設計沒有內建 per-user context scope，多使用者隱私隔離需要框架或應用層自行處理
 - Limitation：情境完整性的「脈絡規範」在不同文化/組織中差異大，benchmark 規範設定主要反映西方企業情境，跨文化泛化性需留意
 
 ### Reviewer 一句話評
@@ -195,8 +195,8 @@ PiSAs（Private information in Shared Agentic Systems）設計了一套涵蓋多
 
 ### 給你的 take-away
 
-- 如果你在做多用戶 Agent（B2B、企業工具、共用 chatbot），現在就應在產品需求文件加上「User Context Isolation」這個需求——PiSAs 的情境完整性框架四維度可以直接當作設計原則的參考語言
-- 在評估底層模型時，多用戶隱私合規性應成為評測矩陣的一個維度——先問「你有沒有跑過 PiSAs 類型的測試」，可以快速篩掉不合格的供應商
+- 如果你在做多使用者 Agent（B2B、企業工具、共用 chatbot），現在就應在產品需求文件加上「User Context Isolation」這個需求——PiSAs 的情境完整性框架四維度可以直接當作設計原則的參考語言
+- 在評估底層模型時，多使用者隱私合規性應成為評測矩陣的一個維度——先問「你有沒有跑過 PiSAs 類型的測試」，可以快速篩掉不合格的供應商
 
 
 ## 參考資料

@@ -123,7 +123,7 @@ FlowBank 的三階段框架：
 
 #### 為什麼重要
 
-對多租戶 agent 平台（不同用戶、不同查詢類型）是實用的成本優化方案：一次預計算，反覆低成本路由，可顯著降低 per-query 的推論花費。
+對多租戶 agent 平台（不同使用者、不同查詢類型）是實用的成本優化方案：一次預計算，反覆低成本路由，可顯著降低 per-query 的推論花費。
 
 ### 深入要點
 
@@ -141,7 +141,7 @@ FlowBank 的三階段框架：
 
 ### 給你的 take-away
 
-- 正在設計 multi-tenant agent 平台，不同用戶查詢類型差異大？→ FlowBank 的「portfolio + routing」架構比「一個萬用 workflow」更值得投資，尤其成本敏感的場景
+- 正在設計 multi-tenant agent 平台，不同使用者查詢類型差異大？→ FlowBank 的「portfolio + routing」架構比「一個萬用 workflow」更值得投資，尤其成本敏感的場景
 - 已在跑 AFlow/EvoFlow 等 workflow 搜尋？→ FlowBank 的 DiverseFlow + CuraFlow 可以作為搜尋策略的直接替代或上游 diversity 強化層
 
 ---
@@ -184,7 +184,7 @@ Agent memory 是當紅話題——Vector DB、Knowledge Graph、Episodic memory 
 
 - **Copyability threshold ~0.8**：retrieved case 與 current query 相似度 > 0.8 時，accuracy 急升；< 0.8 時，5 種基底均無統計顯著提升——記憶幫的是「直接抄答案」，不是「遷移解法」
 - **4.5x 更大的模型**：near-duplicate payoff 翻倍，但仍然無法從 non-duplicate 案例中提取可遷移方法；模型變大不能解決根本問題
-- **新穎問題上，記憶無用**：這是對大多數實際部署場景的警示——用戶問的通常是新問題，不是歷史問題的翻版
+- **新穎問題上，記憶無用**：這是對大多數實際部署場景的警示——使用者問的通常是新問題，不是歷史問題的翻版
 - **Git-as-substrate 的工程價值**：每個 thought = commit，每個分數 = note，每個結果 = tag，檢索 = `git log`；幾乎零工程成本，但獲得版本控制的全部好處
 - **Multi-agent mergeability**：不同 agent 的推理記憶可以 `git merge` 合併——這是向量資料庫做不到的
 - **Pre-registered replication**：方法論嚴謹加分，提高發現的可信度
@@ -197,7 +197,7 @@ Agent memory 是當紅話題——Vector DB、Knowledge Graph、Episodic memory 
 
 ### 給你的 take-away
 
-- 正在說服老闆投資 agent memory 基礎設施？→ 先評估你的用戶查詢與歷史案例的 copyability 分布；如果大部分查詢都是全新問題（copyability < 0.8），memory ROI 可能遠低於預期
+- 正在說服老闆投資 agent memory 基礎設施？→ 先評估你的使用者查詢與歷史案例的 copyability 分布；如果大部分查詢都是全新問題（copyability < 0.8），memory ROI 可能遠低於預期
 - 在做 multi-agent 系統的 reasoning trace 管理？→ git-as-substrate 是幾乎零成本的稽核基礎設施，不依賴準確度提升就能說服得了工程師——先從這個角度切入
 
 

@@ -79,6 +79,7 @@ function checkDailySkillTimezones() {
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
 runStep('check:post-quality', 'pnpm check:post-quality');
+runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw');
 runStep('check:glossary', 'pnpm check:glossary');
 runStep('check:series-order', 'pnpm check:series-order');
 runStep('check:lang-parity', 'pnpm check:lang-parity');

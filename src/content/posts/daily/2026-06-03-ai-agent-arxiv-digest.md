@@ -52,7 +52,7 @@ Agent 記憶框架百花齊放——mem0、Letta/MemGPT、Cognee、Zep/Graphiti�
 
 #### 問題
 
-你的 agent pipeline 用 mem0 存語意記憶（用戶喜好）、用 Letta 存事件記憶（過去對話紀錄）。現在你想把 Letta 換成 Cognee——但兩者 API 介面完全不同，必須重寫所有記憶讀寫程式碼。沒有「recall」、「forget」的共同定義，換個後端等於全部重來。
+你的 agent pipeline 用 mem0 存語意記憶（使用者喜好）、用 Letta 存事件記憶（過去對話紀錄）。現在你想把 Letta 換成 Cognee——但兩者 API 介面完全不同，必須重寫所有記憶讀寫程式碼。沒有「recall」、「forget」的共同定義，換個後端等於全部重來。
 
 #### 方法
 
@@ -136,8 +136,8 @@ ExpWeaver 的核心轉換：**不把經驗存成文字，而是存成 LLM 自己
 - Cross-attention 整合讓 experience retrieval 和 token generation 緊耦合，需要 fine-tune 才能使用，**無法直接套用 closed-source LLM API**
 - 對比 text-based RAG 的優勢：不佔 context window、retrieval 隱式整合而非顯式拼接文字
 - SOTA 所測試的具體 benchmark 名稱在摘要層未完整列出 **⚠️**
-- 限制：訓練成本未量化；需要 model weight access，GPT-4o/Claude API 用戶暫時無法使用
-- 與 LangGraph/AutoGen 的關係：屬於 model 層面的修改，不是 framework 插件——需要有自訓練能力的團隊才能落地
+- 限制：訓練成本未量化；需要 model weight access，GPT-4o/Claude API 使用者暫時無法使用
+- 與 LangGraph/AutoGen 的關係：屬於 model 層面的修改，不是 framework 外掛——需要有自訓練能力的團隊才能落地
 
 ### Reviewer 一句話評
 
@@ -174,7 +174,7 @@ ExpWeaver 的核心轉換：**不把經驗存成文字，而是存成 LLM 自己
 
 #### 問題
 
-你部署了一個研究 agent，設定每次任務最多 50 次 tool call。任務進行到第 40 次，agent 幾乎沒找到有用資訊。一個有預算感知的 agent 應該說：「我已用 80% 預算，目前進度不足以完成任務，建議中止並通知用戶。」但現在的 frontier 模型會繼續執行到第 50 次才停，剩餘 10 次費用全部浪費。
+你部署了一個研究 agent，設定每次任務最多 50 次 tool call。任務進行到第 40 次，agent 幾乎沒找到有用資訊。一個有預算感知的 agent 應該說：「我已用 80% 預算，目前進度不足以完成任務，建議中止並通知使用者。」但現在的 frontier 模型會繼續執行到第 50 次才停，剩餘 10 次費用全部浪費。
 
 #### 方法
 
@@ -206,7 +206,7 @@ BAGEN 把「預算感知」形式化為**漸進區間估計（progressive interv
 ### 給你的 take-away
 
 - 你的 agent 框架現在應該主動在每個決策步驟注入「剩餘預算提示」（例如在 system message 加 `[Remaining budget: 10/50 tool calls]`），不要期待 LLM 自己追蹤——這篇數據說明那行不通
-- 用 BAGEN 的 progressive interval estimation 概念設計你的 agent stopping criterion：不只是「超過最大步數就停」，而是「當 agent 預估完成率低於 threshold 時主動通知用戶或切換策略」
+- 用 BAGEN 的 progressive interval estimation 概念設計你的 agent stopping criterion：不只是「超過最大步數就停」，而是「當 agent 預估完成率低於 threshold 時主動通知使用者或切換策略」
 
 
 ## 參考資料

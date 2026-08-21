@@ -20,7 +20,7 @@ series:
 | 詞 | 白話解釋 |
 |---|---|
 | ADK（Agent Development Kit） | SDK 等級的 agent 開發框架，如 LangGraph、AutoGen、CrewAI，提供工具呼叫、工作流程管理、multi-agent 協調等開箱即用功能 |
-| τ²-bench（Tau-squared bench） | 評測 agent 處理客服、零售等真實對話場景的 benchmark，強調需要多輪互動、工具呼叫、應對用戶模糊輸入的能力 |
+| τ²-bench（Tau-squared bench） | 評測 agent 處理客服、零售等真實對話場景的 benchmark，強調需要多輪互動、工具呼叫、應對使用者模糊輸入的能力 |
 | MCP-Atlas | 基於 MCP（Model Context Protocol）生態系的 benchmark，測試 agent 如何整合使用各種外部 MCP 工具與服務 |
 | Memory Mutability（記憶可變性） | agent 記憶能否被更新和修改的程度；高可變性代表記憶會隨任務推進持續演化，低可變性則是寫入後不再改變的靜態存儲 |
 | Search-Time Contamination（STC） | deep research agent 在推理時透過搜尋引擎取得 benchmark 答案，使測出的分數高於真實推理能力的現象，俗稱「邊考試邊查答案」 |
@@ -101,14 +101,14 @@ LangGraph、AutoGen、CrewAI、OpenAI Agents SDK……ADK 框架在 2025-2026 �
 
 ### 領域背景
 
-LLM agent 的 context window 有上限，但真正有用的 agent 需要跨 session 記住：上週的決策、用戶偏好、已蒐集的資料、之前的執行狀態。各種記憶方案（向量資料庫、LLM 萃取摘要、圖結構、事實庫……）在過去兩年爆炸性出現，但比較幾乎都停在「哪個方案在某個 benchmark 上 accuracy 高」，缺乏對延遲、頻寬、擴展性的系統工程分析——而這些才是生產環境決定記憶方案的關鍵。
+LLM agent 的 context window 有上限，但真正有用的 agent 需要跨 session 記住：上週的決策、使用者偏好、已蒐集的資料、之前的執行狀態。各種記憶方案（向量資料庫、LLM 萃取摘要、圖結構、事實庫……）在過去兩年爆炸性出現，但比較幾乎都停在「哪個方案在某個 benchmark 上 accuracy 高」，缺乏對延遲、頻寬、擴展性的系統工程分析——而這些才是生產環境決定記憶方案的關鍵。
 
 ### 中階導讀
 
 
 #### 問題
 
-你的 agent 需要記住一個月前跟用戶說了什麼，以及任務的執行歷史。方案一：把所有歷史存入向量資料庫，每次查詢時用語意搜尋找相關片段。方案二：每次對話後讓 LLM 萃取重點存成結構化事實。方案三：讓 agent 自己決定要記什麼，用 tool call 讀寫記憶。三個方案的 accuracy 差異有人研究，但延遲多少？100 個 concurrent users 時擴展性如何？記憶需要更新時的 overhead 是多少？這些問題幾乎沒有系統性的答案——直到這篇。
+你的 agent 需要記住一個月前跟使用者說了什麼，以及任務的執行歷史。方案一：把所有歷史存入向量資料庫，每次查詢時用語意搜尋找相關片段。方案二：每次對話後讓 LLM 萃取重點存成結構化事實。方案三：讓 agent 自己決定要記什麼，用 tool call 讀寫記憶。三個方案的 accuracy 差異有人研究，但延遲多少？100 個 concurrent users 時擴展性如何？記憶需要更新時的 overhead 是多少？這些問題幾乎沒有系統性的答案——直到這篇。
 
 #### 方法
 
@@ -136,7 +136,7 @@ LLM agent 的 context window 有上限，但真正有用的 agent 需要跨 sess
 ### 給你的 take-away
 
 - 下次評估記憶方案時，把 4 axes（Construction / Storage / Retrieval / Mutability）作為 evaluation rubric：先確認你的 agent 任務對哪個 axis 最敏感（低延遲優先？記憶需要頻繁更新？），再選對應的設計類型，比直接問「用向量庫還是 Mem0」更有結構
-- 如果你的 agent 需要記住會隨時間改變的資訊（用戶偏好更新、專案狀態推進），優先測試 high-mutability 設計，而非預設「向量庫最好用」
+- 如果你的 agent 需要記住會隨時間改變的資訊（使用者偏好更新、專案狀態推進），優先測試 high-mutability 設計，而非預設「向量庫最好用」
 
 ---
 

@@ -58,7 +58,7 @@ Yuxi Qian, Yuxiang Ren　·　arxiv: 2608.11248
 - 消融實驗證明：去掉圖譜編輯後效能顯著下降，證明 append-only 不夠
 - 效用感知檢索比純語意相似度檢索效果更好
 - 落地門檻：需要在每次任務後跑圖譜更新邏輯，小型部署的額外延遲可接受
-- 與 LangGraph / CrewAI 相容——可作為記憶層插件
+- 與 LangGraph / CrewAI 相容——可作為記憶層外掛
 - Limitation：目前測試場景是結構化任務，開放式對話場景的效果待驗證
 
 ### Reviewer 一句話評

@@ -57,8 +57,8 @@ ML 系統的品質天花板是資料品質，不是模型架構。面試時提�
 
 | 類型 | 範例 | 更新頻率 | 計算方式 |
 |------|------|----------|----------|
-| 靜態特徵 | 用戶年齡、國家 | 天/週 | Batch |
-| 緩慢變化 | 用戶偏好 embedding | 小時 | Batch + backfill |
+| 靜態特徵 | 使用者年齡、國家 | 天/週 | Batch |
+| 緩慢變化 | 使用者偏好 embedding | 小時 | Batch + backfill |
 | 即時特徵 | 最近 5 分鐘點擊數 | 秒 | Streaming (Flink/Kafka) |
 
 面試時能畫出這個分類並解釋每類的計算路徑，就已經超過大多數候選人了。
@@ -95,7 +95,7 @@ ML 系統和傳統軟體最大的差別：**程式碼不變，模型也會壞**�
 
 **Retraining trigger**：不是固定排程（「每週重訓一次」），而是基於監控指標的 trigger——data drift 超過閾值、離線 metrics 下降超過 X%、或商業指標連續三天下降。面試時能說出這個邏輯，比說「我會用 Kubeflow 做自動 retraining」更有說服力。
 
-**A/B Testing**：新模型上線前必須做 A/B test。要能說出 sample size 怎麼估算（power analysis）、跑多久（至少一個 business cycle，通常一到兩週）、以及怎麼處理 network effect（如果用戶之間有互動，簡單的隨機分組會有 interference）。
+**A/B Testing**：新模型上線前必須做 A/B test。要能說出 sample size 怎麼估算（power analysis）、跑多久（至少一個 business cycle，通常一到兩週）、以及怎麼處理 network effect（如果使用者之間有互動，簡單的隨機分組會有 interference）。
 
 ## 常見題型與答題節奏
 
@@ -120,7 +120,7 @@ ML 系統和傳統軟體最大的差別：**程式碼不變，模型也會壞**�
 
 ### 題目
 
-「設計一個即時詐欺偵測系統，要能在用戶發起交易後 200ms 內回傳風險分數。」
+「設計一個即時詐欺偵測系統，要能在使用者發起交易後 200ms 內回傳風險分數。」
 
 **來源**：Stripe MLE onsite　**難度**：進階　**環節**：onsite system design
 

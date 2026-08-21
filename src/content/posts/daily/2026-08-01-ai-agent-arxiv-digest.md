@@ -45,14 +45,14 @@ series:
 
 ### 領域背景
 
-LLM 在程式碼生成上表現亮眼，業界開始期待它能自動處理 on-call 告警。但 on-call 的根因分析（RCA）跟「寫 code」非常不同：拿到的是一份模糊的用戶投訴，要在幾小時甚至幾天後的 metrics 和 traces 中找出原因，還可能有多個故障同時發生。現有的 agent benchmark 大多使用合成資料或靜態日誌，無法反映生產系統的真實複雜度，這篇填補了這個缺口。
+LLM 在程式碼生成上表現亮眼，業界開始期待它能自動處理 on-call 告警。但 on-call 的根因分析（RCA）跟「寫 code」非常不同：拿到的是一份模糊的使用者投訴，要在幾小時甚至幾天後的 metrics 和 traces 中找出原因，還可能有多個故障同時發生。現有的 agent benchmark 大多使用合成資料或靜態日誌，無法反映生產系統的真實複雜度，這篇填補了這個缺口。
 
 ### 中階導讀
 
 
 #### 問題
 
-假設你半夜收到告警：「用戶說結帳流程出錯，五分鐘前開始」——你要查 Prometheus 的 latency 指標、Jaeger 的 distributed trace、OpenSearch 裡的 error log，還要翻源碼看是哪段邏輯出問題。這是 SRE 每天的日常，AI Agent 能做到嗎？
+假設你半夜收到告警：「使用者說結帳流程出錯，五分鐘前開始」——你要查 Prometheus 的 latency 指標、Jaeger 的 distributed trace、OpenSearch 裡的 error log，還要翻源碼看是哪段邏輯出問題。這是 SRE 每天的日常，AI Agent 能做到嗎？
 
 #### 方法
 

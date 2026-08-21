@@ -68,7 +68,7 @@ draft: false
 
 這個「一套框架 × 六個族群」的做法在其他平台沒看到，如果你要在組織內推 AI 教育，這系列的分眾程度是目前最細的。
 
-平台上唯一要付錢的是認證考試 [**Claude Certified Architect – Foundations**](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)**，$125 USD**，60 題、120 分鐘、線上監考或 Pearson 考場。它的考試範圍權重很能說明 Anthropic 認為什麼重要：Agentic Architecture & Orchestration 27%、Claude Code Configuration & Workflows 20%、Prompt Engineering & Structured Output 20%、Tool Design & MCP Integration 18%、Context Management & Reliability 15%。
+平台上要付錢的是認證考試。抓取當天只有一張 [**Claude Certified Architect – Foundations**](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)**，$125 USD**，60 題、120 分鐘、線上監考或 Pearson 考場；**2026 年 8 月複查時已擴為四張**——Associate、Architect、Developer 三張 Foundations，加上一張 Architect – Professional，另闢了 Prep Courses 專區，價格與題數細節改放在要下載的 Exam Guide PDF 裡，網頁上看不到。以下是 Architect – Foundations 在抓取當天的考試範圍權重，很能說明 Anthropic 認為什麼重要：Agentic Architecture & Orchestration 27%、Claude Code Configuration & Workflows 20%、Prompt Engineering & Structured Output 20%、Tool Design & MCP Integration 18%、Context Management & Reliability 15%。
 
 有意思的是，**所有課程頁面都沒有難度標籤，也都沒有顯示最近更新時間**。唯一標了 Level 的地方是這張認證的備考頁。
 
@@ -160,7 +160,7 @@ Kaggle 在 2026 年 6 月也開過一梯 [**Vibe Coding 版的 5-Day Intensive**
 
 ### Stanford CS146S：唯一廠商中立的實戰全景
 
-[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**（Fall 2025）：3 學分、10 週，每週投入約 10–12 小時，先修要求是 CS111 等同程度的程式經驗。
+[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**（Fall 2025）：3 學分、10 週，每週投入約 10–12 小時，先修要求是 CS111 等同程度的程式經驗。本站有這門課的[逐週拆解系列](/posts/ai/2026-08-16-cs146s-course-map)。
 
 主講 Mihail Eric：Stanford NLP Group 出身（指導教授含 Manning、Percy Liang、Potts），前 Amazon Alexa AI 科學家，YC 新創 Storia AI 共同創辦人。
 
@@ -231,7 +231,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 它有兩個其他資源少見的優點。第一，**README 提供 50 多種語言的翻譯，其中包含繁體中文（台灣）**——在這份清單裡，明確確認有繁中的只有它和李宏毅。第二，它在 2026 年仍然活躍更新，最新的 commit 正在做 Azure OpenAI 到 Responses API 的遷移，不是一份放著長灰塵的教材。
 
-兩個要注意的點：課程需要搭配 Azure OpenAI、Microsoft Foundry Models 或 OpenAI API 才能跑，本身不含額度；另外頁面明確提到 **GitHub Models 將於 2026 年 7 月底退役**，如果你照著範例走，這部分要換掉。沒有結業證書。
+兩個要注意的點：課程需要搭配 Azure OpenAI、Microsoft Foundry Models 或 OpenAI API 才能跑，本身不含額度；另外 **GitHub Models 已於 2026-07-30 完成退役**（playground、model catalog、inference API 與 BYOK 全關，含既有付費使用者），官方導向 Microsoft Foundry 或 GitHub Copilot；如果你照著範例走，這部分一定要換掉。沒有結業證書。
 
 如果你要的是正式認證而非開源教材，[Microsoft Learn 的 AI learning hub](https://learn.microsoft.com/en-us/ai/) 免費，並依角色分成八條路徑（商業/技術主管、一般使用者、資料科學家、開發者、IT、資安等）。它的正式認證是 **Azure AI Fundamentals（Exam AI-901）**，主打用 Microsoft Foundry 與 Python 建構 AI 解決方案。
 
@@ -267,7 +267,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 如果你讀中文比讀英文快，這一段比後面三段都重要。
 
-台大李宏毅[《生成式人工智慧與機器學習導論 2025 Fall》](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)，**全繁體中文、免費、投影片與影片全公開**，2025 Fall 共 10 講，2026 年 1 月學期剛結束，內容已完整上架。他每年開新版。無正式證書（旁聽無學分）。
+台大李宏毅[《生成式人工智慧與機器學習導論 2025 Fall》](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)，**全繁體中文、免費、投影片與影片全公開**，2025 Fall 共 10 講，2026 年 1 月學期剛結束，內容已完整上架。他每年開新版：2026 年 8 月複查時，[Machine Learning **2026 Spring**](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 已經上架，GenAI-ML 系列則仍停在 2025 Fall。值得注意的是 2026 Spring 那版的重心明顯往 agent 移動——前兩講直接講 AI agent 運作原理與 context engineering，十份作業裡有 AI Agent as an AI Engineer、LLM Fast Inference、Test-Time Scaling——所以它其實橫跨本文的第三層與第四層，不只是「底層 AI」。無正式證書（旁聽無學分）。
 
 課程 FAQ 明講目標受眾是初學者，甚至說「即使沒有程式經驗，按助教指示至少可及格」。**但別被「初學者」三個字騙了。** 這裡的初學者是大學課程語境下的初學者——預設你是理工科系學生，只是還沒碰過機器學習。作業清單長這樣：HW2 建 RAG 系統、HW4 做 LLM 惡意指令防禦、HW7 finetuning LLM、HW9 Diffusion、HW10 語音生成，全部在 Colab 免費 GPU 上跑。
 
@@ -279,7 +279,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 先修門檻是三門裡最低的：微積分與線性代數，**Python 有經驗有幫助但非必要**，其他的課程會邊講邊補。
 
-[2026 版](https://introtodeeplearning.com/)從 3 月 30 日開始，每週一釋出新的 lecture、slides 與 lab，全部開源，實驗跑在 Google Colab 上。內容從神經網路基礎、深度序列模型、電腦視覺、生成模型、強化學習，一路到大型語言模型與 AI for science。它每年更新，2026 版加強了 LLM 與 agentic AI 的篇幅。
+[2026 版](https://introtodeeplearning.com/)從 3 月 30 日開始，每週一釋出一講，全部開源，實驗跑在 Google Colab 上。**該季已於 5 月 25 日結束**，9 講的 slides 與影片都已完整上架，現在點進去是一次拿到全部，不必等。內容從神經網路基礎、深度序列模型、電腦視覺、生成模型、強化學習，一路到大型語言模型與 AI for science。它每年更新，2026 版加強了 LLM 與 agentic AI 的篇幅。
 
 如果你想理解「模型為什麼會這樣」但不想一開始就手刻 kernel，這是最合理的第一站。
 
@@ -289,11 +289,11 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 在一個所有課程都在教 prompt 和 agent 的年份，補一門講 search 與 logic 的課，反而會讓你對「什麼問題該用 LLM、什麼問題根本不該用」有判斷力。
 
-[Harvard OpenCourseWare 上**免費且含證書**](https://www.classcentral.com/report/harvard-cs50-guide)；edX 上的驗證證書要 $299。課程頁標示約 7 週、每週 20 小時。
+[Harvard OpenCourseWare 上**免費且含證書**](https://www.classcentral.com/report/harvard-cs50-guide)；edX 上的驗證證書要 $299。課程頁標示 7 週；每週時數兩邊口徑不同——Harvard 官方頁寫 10–30 小時，Class Central 取 20 小時。
 
 ### Stanford CS336：最硬的一門
 
-如果 DeepLearning.AI 是廣度標竿，CS336: Language Modeling from Scratch 就是深度標竿的另一端。
+如果 DeepLearning.AI 是廣度標竿，CS336: Language Modeling from Scratch 就是深度標竿的另一端。它在 Stanford 整條先修階梯上的位置，見本站的 [Stanford CS 課程導讀](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
 [網站](https://cs336.stanford.edu/)、投影片、作業說明與 YouTube 錄影全部免費公開（正式學分與 Gradescope 批改限 Stanford 學生）。官網現已更新到 **Spring 2026 版**，主講 Tatsunori Hashimoto 與 Percy Liang，19 講，搭配 5 個大型 assignment：從手刻 tokenizer、model、optimizer，到 FlashAttention2 與 Triton kernel，再到 scaling law、資料處理，最後是 SFT + RL。
 
@@ -338,7 +338,7 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
   想要一張證書   → Hugging Face Agents Course（免費發證）
 ```
 
-**第四層**（底層 AI）：讀中文就從李宏毅開始；讀英文從 MIT 6.S191 入門，CS50 AI 補上 LLM 以外的視野，CS336 收尾。全部免費公開。
+**第四層**（底層 AI）：讀中文就從李宏毅開始；讀英文從 MIT 6.S191 入門，CS50 AI 補上 LLM 以外的視野，CS336 收尾。全部免費公開。想走「深度學習專案怎麼做」而不是「模型怎麼刻」，本站另有 [CS230 系列](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)。
 
 最後提醒一次那個方向感：**第四層不會解決第三層的問題。** 卡在「AI 寫的東西不敢上線」的人，需要的是 evals、guardrails 與 observability，那些在 Kaggle 那五天和 CS146S 裡，不在 FlashAttention kernel 裡。
 
@@ -347,6 +347,17 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 瓶頸從來不在取得管道。是在你願不願意真的把作業寫完。
 
 ---
+
+## 更新紀錄
+
+- **2026-08-21**：發文六週後重新查證 18 條定價／課數／期別宣告，9 條完全吻合、0 條被推翻，改了這些：
+  - Anthropic 認證從一張擴為四張，原文的「唯一要付錢的」已不成立
+  - GitHub Models 已於 2026-07-30 完成退役（原文寫「將於 7 月底」）
+  - 李宏毅 Machine Learning 2026 Spring 已上架
+  - MIT 6.S191 2026 季已於 5 月 25 日結束，教材全數上架
+  - CS50 AI 每週時數改採 Harvard 官方口徑（10–30 小時）
+  - 另補上本站 CS146S、CS230、Stanford 課程地圖三條站內連結
+  尚未複驗的部分：各課「幾課／幾小時」、Kaggle 與 Google 的學習者統計、DeepLearning.AI 課程總數（目錄頁改為動態載入，抓不到）。
 
 ## 參考資料
 
@@ -390,5 +401,8 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 - [How to learn Claude Code for free with Anthropic's AI courses（ZDNET）](https://www.zdnet.com/article/how-to-learn-claude-code-with-free-anthropic-ai-courses-online)
 - [Hugging Face MCP Course](https://huggingface.co/learn/mcp-course/en/unit0/introduction)
 - [李宏毅《生成式人工智慧與機器學習導論 2025 Fall》](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [李宏毅課程總覽（含 Machine Learning 2026 Spring）](https://speech.ee.ntu.edu.tw/~hylee/)
+- [GitHub Models is now retired（GitHub Changelog，2026-07-30）](https://github.blog/changelog/2026-07-30-github-models-is-now-retired)
+- [CS50 AI 課程頁（Harvard PLL，官方時數與 $299 驗證證書）](https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python)
 - [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/)
 - [AWS Skill Builder](https://skillbuilder.aws/)

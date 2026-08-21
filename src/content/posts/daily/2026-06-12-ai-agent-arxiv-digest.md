@@ -79,7 +79,7 @@ Capital One 用自家業務資料造 benchmark，真實性可信，「交叉場�
 ### 給你的 take-away
 
 - 你在選 LLM 做多領域客服 agent：用 T1-Bench 的 25 個領域分類當你自己模型選型測試的設計框架，比只看單一領域的 benchmark 更能預測生產表現
-- 你在建 agent 評估體系：「交叉場景」設計思路可直接移植——從真實用戶對話裡挑出「多需求穿插的 session」做成 regression test case
+- 你在建 agent 評估體系：「交叉場景」設計思路可直接移植——從真實使用者對話裡挑出「多需求穿插的 session」做成 regression test case
 
 ---
 
@@ -136,7 +136,7 @@ VISTA 的貢獻在 meta 層次：不只是測 agent，還測「你的測試方�
 ### 給你的 take-away
 
 - 你在建 agent 的自動化 QA 流程：VISTA 的 6 個評估指標可作為設計測試覆蓋率 checklist 的框架，尤其「能力覆蓋率」這個維度是多數團隊容易忽略的
-- 你的 agent 同時有 UI 和 API 介面：hybrid simulator 的設計直接對應這個場景，比只測 API 的工具更能反映真實用戶行為
+- 你的 agent 同時有 UI 和 API 介面：hybrid simulator 的設計直接對應這個場景，比只測 API 的工具更能反映真實使用者行為
 
 ---
 

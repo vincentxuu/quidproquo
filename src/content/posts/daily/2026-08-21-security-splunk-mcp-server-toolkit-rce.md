@@ -49,7 +49,7 @@ Splunk MCP Server app 的角色值得特別點出：它是 Splunk 官方提供�
 
 ## 影響範圍
 
-Splunk 未公開安裝量估計，但 MCP Server app 與 AI Toolkit 都是近年才推出、鎖定「把 AI／Agent 能力接進 Splunk」的新附加元件，用戶群相對集中在已導入 AI 維運或 SOC 自動化的組織。官方與多家資安媒體（securityonline.info、gbhackers.com）均確認目前沒有在野利用證據，但 17 個 CVE 一次揭露、其中 1 個 Critical、8 個 High，代表這兩個 app 在資安審查上明顯落後於 Splunk 核心產品的成熟度。對於任何把 MCP Server 當成 AI Agent 存取企業系統橋樑的團隊，這起事件是一個具體提醒：MCP 伺服器本身的程式碼品質與修補紀律，和它所保護的後端系統一樣重要。
+Splunk 未公開安裝量估計，但 MCP Server app 與 AI Toolkit 都是近年才推出、鎖定「把 AI／Agent 能力接進 Splunk」的新附加元件，使用者群相對集中在已導入 AI 維運或 SOC 自動化的組織。官方與多家資安媒體（securityonline.info、gbhackers.com）均確認目前沒有在野利用證據，但 17 個 CVE 一次揭露、其中 1 個 Critical、8 個 High，代表這兩個 app 在資安審查上明顯落後於 Splunk 核心產品的成熟度。對於任何把 MCP Server 當成 AI Agent 存取企業系統橋樑的團隊，這起事件是一個具體提醒：MCP 伺服器本身的程式碼品質與修補紀律，和它所保護的後端系統一樣重要。
 
 ## 今日收穫
 

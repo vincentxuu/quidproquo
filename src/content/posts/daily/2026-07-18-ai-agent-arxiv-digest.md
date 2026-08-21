@@ -74,7 +74,7 @@ MemCon 是 backend-agnostic——把任何既有的記憶體實作（graph memor
 - **GPT-4.1-mini 增益較低**：弱模型受本身能力限制，記憶體調度的邊際效益較小
 - **學習速度快**：tabular bandit 在幾十個任務內收斂，適合線上部署環境
 - **Limitation**：MDP 狀態靠手工特徵，換到差異極大的新任務類型需確認特徵仍有效；multi-agent 場景的記憶體協調尚未涉及
-- **LangGraph / AutoGen 關聯**：可直接包住這些框架原生的 memory 實作，插件式整合
+- **LangGraph / AutoGen 關聯**：可直接包住這些框架原生的 memory 實作，外掛式整合
 
 ### Reviewer 一句話評
 

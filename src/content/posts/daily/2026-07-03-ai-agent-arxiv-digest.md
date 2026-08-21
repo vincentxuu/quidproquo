@@ -74,7 +74,7 @@ Tool-use agent（工具呼叫 agent）在 ToolBench 等靜態 benchmark 上表�
 - 實驗涵蓋多個主流工具 agent 設定，具體量化數字需讀原文表格 **⚠️**
 - ICML 2026 收錄，同期相關工作：ToolOmni (2604.13787)、ToolGym (2601.06328) 提供開放世界工具環境
 - **Limitation**：沙盒仍是合成環境，真實部署偏移的種類可能更多樣；目前只測工具呼叫任務，不涵蓋 computer-use 等類型
-- 對 LangGraph / AutoGen 用戶的啟示：框架本身不會抵抗 distributional shift，需在 workflow 設計層加入 fallback 機制和環境感知的 retry 策略
+- 對 LangGraph / AutoGen 使用者的啟示：框架本身不會抵抗 distributional shift，需在 workflow 設計層加入 fallback 機制和環境感知的 retry 策略
 
 ### Reviewer 一句話評
 

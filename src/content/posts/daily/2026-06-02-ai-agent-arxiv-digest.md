@@ -52,7 +52,7 @@ LangGraph、CrewAI、OpenAI Agents SDK 等框架的主流做法是：在 LLM 上
 
 #### 問題
 
-想像你用 LangGraph 寫了一套旅遊訂票 agent，流程有 14 個步驟——每次用戶說「我要訂東京的機票」，agent 背後要把整個 14 步流程圖塞進 GPT-4o 的 system prompt，每回合都要重算一次，成本驚人。規模更大的保險理賠流程有 55 個決策節點，在客服量大的情況下成本問題更嚴重。
+想像你用 LangGraph 寫了一套旅遊訂票 agent，流程有 14 個步驟——每次使用者說「我要訂東京的機票」，agent 背後要把整個 14 步流程圖塞進 GPT-4o 的 system prompt，每回合都要重算一次，成本驚人。規模更大的保險理賠流程有 55 個決策節點，在客服量大的情況下成本問題更嚴重。
 
 #### 方法
 
@@ -108,7 +108,7 @@ Agent 壞了很難 debug：可能是第 3 步拿到錯誤的工具結果、可�
 
 #### 問題
 
-你部署了一個 RAG + tool-use 的客服 agent，用戶反映「有時回答很奇怪」。你有 LangSmith 的 trace，但要看懂幾千條 trace 找出共同失敗模式需要大量人力。現有的評估工具要不是只告訴你「task success rate 70%」，要不就是需要你手工定義十幾個 error type——換個任務就得重來。
+你部署了一個 RAG + tool-use 的客服 agent，使用者反映「有時回答很奇怪」。你有 LangSmith 的 trace，但要看懂幾千條 trace 找出共同失敗模式需要大量人力。現有的評估工具要不是只告訴你「task success rate 70%」，要不就是需要你手工定義十幾個 error type——換個任務就得重來。
 
 #### 方法
 

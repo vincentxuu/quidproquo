@@ -19,7 +19,7 @@ series:
 
 ### 2. 模型公司集體往「harness 層」卡位
 
-DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 2 萬星、寫下 GitHub 史上最快星數紀錄，本週累積約 15.8 萬星，社群兩天湧入 2,000+ 外掛提案。這件事改變了「harness 只是套在模型外一層薄薄的 loop」的認知——它的核心是「一切皆插件」架構，甚至能把 Claude Code、Codex 當子 agent 呼叫。模型公司開始意識到：誰掌握 harness，誰就掌握 agent 的預設行為與插件生態，這是比模型權重更難被追平的入口。（[GitHub](https://github.com/deepseek-ai/deepseek-harness)、[MarkTechPost](https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview)）
+DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 2 萬星、寫下 GitHub 史上最快星數紀錄，本週累積約 15.8 萬星，社群兩天湧入 2,000+ 外掛提案。這件事改變了「harness 只是套在模型外一層薄薄的 loop」的認知——它的核心是「一切皆外掛」架構，甚至能把 Claude Code、Codex 當子 agent 呼叫。模型公司開始意識到：誰掌握 harness，誰就掌握 agent 的預設行為與外掛生態，這是比模型權重更難被追平的入口。（[GitHub](https://github.com/deepseek-ai/deepseek-harness)、[MarkTechPost](https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview)）
 
 ### 3. Agent 記憶同時變成了互補資產與新攻擊面
 
@@ -35,7 +35,7 @@ DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 
 
 ## 本週認知更新
 
-- 之前以為 harness 只是套在模型外一層薄薄的 loop，現在知道模型公司把它當戰略入口——DeepSeek dsh 一小時破 2 萬星、模型公司集體往 harness 層卡位，因為誰掌握 harness 誰就掌握 agent 的預設行為與插件生態，而這比模型權重更難被追平
+- 之前以為 harness 只是套在模型外一層薄薄的 loop，現在知道模型公司把它當戰略入口——DeepSeek dsh 一小時破 2 萬星、模型公司集體往 harness 層卡位，因為誰掌握 harness 誰就掌握 agent 的預設行為與外掛生態，而這比模型權重更難被追平
 - 之前以為 Agent 記憶的瓶頸是「查得準不準」，現在知道記憶一旦成為互補資產就同時是攻擊面——GraphWake 只要污染 10% 的 agent 就能操縱群體立場，CoSnitch 在 Copilot 上做到清不掉的永久記憶污染
 - 之前以為 Agent 框架的資安風險主要是 prompt injection（想辦法騙模型），現在知道最危險的一類根本不碰模型——CoreBreak 的派發層繞過讓工具呼叫在模型完全沒被呼叫的情況下直接執行，system prompt、內容過濾、拒絕訓練這些模型層防禦全部形同虛設
 - 之前以為這波 AI 併購是在買使用者或營收，現在看清買的是互補資產——SpaceX 換 GPU 叢集與 Grok 整合、Stripe 補模型選擇層、Anthropic 收特定能力團隊
@@ -50,7 +50,7 @@ DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 
 
 ## 下週值得追蹤的
 
-- **DeepSeek dsh 的插件生態會不會形成事實標準**：兩天 2,000+ 外掛提案，下週若出現殺手級插件或被主流 coding agent 採用為預設 harness，harness 層的競爭會正式開打
+- **DeepSeek dsh 的外掛生態會不會形成事實標準**：兩天 2,000+ 外掛提案，下週若出現殺手級外掛或被主流 coding agent 採用為預設 harness，harness 層的競爭會正式開打
 - **阿里 Qwen3.8 Max 開源權重的社群衍生生態**：本週剛開源旗艦權重，下週值得看社群 fine-tune 與本地部署案例的增速，這決定開源陣營能不能在應用層咬住閉源
 - **本週爆出的框架漏洞修補落地速度**：Check Point 六框架 11 漏洞、Splunk MCP CVSS 9.1、Flowise 第四次 RCE，下週要看的是企業實際升級率——資安警報的價值在於有沒有人真的動手補
 
@@ -78,7 +78,7 @@ DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 
 
 ## 我這週學到什麼
 
-這週最大的認知更新是「AI 的價值正在同時往兩個方向逃離模型層」：往上，價值移向整併層（誰能把算力、路由、能力團隊併成一條完整價值鏈）；往下，價值移向 harness 層（誰掌握 agent 的預設行為與插件生態）。夾在中間的「模型本身」反而越來越同質、越來越容易被追平。而這週的資安訊號補上了一個殘酷的註腳：當記憶、路由、harness 這些互補資產一個個長出來，它們每一個也都立刻變成了新的攻擊面——能力的護城河和攻擊的入口，往往是同一道牆。
+這週最大的認知更新是「AI 的價值正在同時往兩個方向逃離模型層」：往上，價值移向整併層（誰能把算力、路由、能力團隊併成一條完整價值鏈）；往下，價值移向 harness 層（誰掌握 agent 的預設行為與外掛生態）。夾在中間的「模型本身」反而越來越同質、越來越容易被追平。而這週的資安訊號補上了一個殘酷的註腳：當記憶、路由、harness 這些互補資產一個個長出來，它們每一個也都立刻變成了新的攻擊面——能力的護城河和攻擊的入口，往往是同一道牆。
 
 ## 參考資料
 

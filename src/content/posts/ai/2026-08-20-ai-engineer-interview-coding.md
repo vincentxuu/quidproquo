@@ -52,7 +52,7 @@ series:
 
 ### Feature Processing
 
-「給你一個 user event log（CSV，十億行），計算每個用戶過去 7 天的活躍天數。」這類題考的是你能不能用 pandas 或 SQL 風格的操作高效處理大量資料。面試官會追問：如果資料大到放不進記憶體怎麼辦？（答案：chunked reading、Dask、或 streaming processing。）
+「給你一個 user event log（CSV，十億行），計算每個使用者過去 7 天的活躍天數。」這類題考的是你能不能用 pandas 或 SQL 風格的操作高效處理大量資料。面試官會追問：如果資料大到放不進記憶體怎麼辦？（答案：chunked reading、Dask、或 streaming processing。）
 
 ## numpy/pandas 實作技巧
 

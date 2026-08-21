@@ -11,9 +11,9 @@ const POSTS_ROOT = path.resolve('src/content/posts');
 // A 級：查證過站內零誤判
 const BLOCK = {
   視頻: '影片', 網絡: '網路', 用戶: '使用者', 默認: '預設', 軟件: '軟體', 硬件: '硬體',
-  激活: '啟用', 插件: '外掛', 兼容: '相容', 屏幕: '螢幕', 鼠標: '滑鼠', 硬盤: '硬碟',
+  插件: '外掛', 兼容: '相容', 屏幕: '螢幕', 鼠標: '滑鼠', 硬盤: '硬碟',
   賦能: '（重寫整句）', 抓手: '（重寫整句）', 對標: '對照、比較', 復盤: '檢討、回顧',
-  顆粒度: '粒度、細緻度', 品類: '類別', 貼標: '貼上標籤', 機構記憶: '組織記憶',
+  顆粒度: '粒度、細緻度', 品類: '類別', 機構記憶: '組織記憶',
 };
 
 // B 級：站內有正當用法，只提示
@@ -25,10 +25,14 @@ const WARN = {
   反饋: '回饋（控制理論的「反饋」不用改）',
   博客: '部落格（「博客來」不用改）',
   保安: '保全（「確保安全」不用改）',
+  激活: '啟用（機器學習的 activation 不用改）',
+  貼標: '貼上標籤（「貼標籤」本身沒問題）',
 };
 
-// 註：「審計」曾在 A 級，2026-08-21 移除——站內 36 次全是 SOC2 審計，
-// 且審計部是中華民國機關，這個詞在台灣是正規用語。
+// 註：以下三條曾在 A 級，2026-08-21 依站內實際語境降級或移除：
+//   審計 — 移除。36 次全是 SOC2 審計，且審計部是中華民國機關。
+//   激活 — 降 B。23 次全是機器學習的 activation（激活空間、激活量化、非線性激活）。
+//   貼標 — 降 B。站內唯一一次是「貼標籤」，改成「貼上標籤」會變「貼上標籤籤」。
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -43,14 +47,20 @@ function scannable(source) {
     .replace(/^---\n[\s\S]*?\n---\n/, '')
     .replace(/```[\s\S]*?```/g, '')
     .replace(/`[^`]*`/g, '')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .split('\n')
+    // 這兩條必須在「把連結扁平成純文字」之前跑，否則行首特徵已經被抹掉
+    // 參考資料那種「- [外部文章標題](url)」的行不檢查——別人的標題不該被我們改
+    .map((line) => (/^\s*[-*] \[[^\]]*\]\(/.test(line) ? '' : line))
     .map((line) => (line.startsWith('>') ? '' : line))
-    .join('\n');
+    .join('\n')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
 }
 
 // 台灣正規用語，但字面上包含 A 級詞（例：「用戶端」含「用戶」）
-const CARVE_OUTS = ['用戶端', '博客來', '確保安全'];
+const CARVE_OUTS = ['用戶端', '博客來', '確保安全', '針對標', '相對標'];
+
+// 以「這些詞本身」為題的文章——詞是被討論的對象，不是被使用的
+const EXEMPT = ['2026-08-21-zh-tw-terminology-linters-tested.md'];
 
 function scan(file) {
   let text = scannable(fs.readFileSync(file, 'utf8'));
@@ -70,12 +80,13 @@ function main() {
   const files = args.length > 0
     ? args.flatMap((p) => (fs.statSync(p).isDirectory() ? walk(path.resolve(p)) : [path.resolve(p)]))
     : walk(POSTS_ROOT).filter((f) => !f.endsWith('-en.md'));
+  const scanned = files.filter((f) => !EXEMPT.includes(path.basename(f)));
 
   let blockTotal = 0;
   let warnTotal = 0;
   const report = [];
 
-  for (const file of files) {
+  for (const file of scanned) {
     const { block, warn } = scan(file);
     if (block.length === 0 && warn.length === 0) continue;
     blockTotal += block.reduce((s, x) => s + x.count, 0);
@@ -90,7 +101,7 @@ function main() {
   }
 
   console.log(
-    `\nchecked ${files.length} zh-TW post file(s): ${blockTotal} blocking, ${warnTotal} to review.`,
+    `\nchecked ${scanned.length} zh-TW post file(s): ${blockTotal} blocking, ${warnTotal} to review.`,
   );
 
   if (blockTotal > 0) {

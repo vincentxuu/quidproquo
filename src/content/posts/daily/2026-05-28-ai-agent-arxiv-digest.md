@@ -124,7 +124,7 @@ Agent benchmark（如 WebArena、SWE-bench）通常用「outcome check（結果�
 
 ### 深入要點
 
-- **方法設計**：Evidence layer 是插件式的，不需重新跑 agent，只需重新分析現有 run 的 artifacts（保存的截圖、狀態檔等）
+- **方法設計**：Evidence layer 是外掛式的，不需重新跑 agent，只需重新分析現有 run 的 artifacts（保存的截圖、狀態檔等）
 - **三種標籤**：Evidence Pass = 有足夠 artifact 確認成功；Evidence Fail = artifact 顯示失敗；Unknown = artifact 不足以判斷
 - **結果多樣性**：evidence-supported score 可能低於原本（揭露假陽性）、相同（原本就有足夠佐證）、或「模糊化」（部分 case 無法確認）
 - **影響範圍**：直接影響任何使用 interactive benchmark 評估 agent 的場景，尤其是 WebArena、τ-bench 這類用 GUI 或 API 做複雜操作的 benchmark

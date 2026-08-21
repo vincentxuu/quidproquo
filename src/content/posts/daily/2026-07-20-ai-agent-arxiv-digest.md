@@ -20,7 +20,7 @@ series:
 | 詞 | 白話解釋 |
 |---|---|
 | Coding Agent（程式代理） | 能讀文件、寫程式、執行指令、安裝套件的 AI agent，例如 Claude Code、Cursor、GitHub Copilot |
-| Supply-chain attack（供應鏈攻擊） | 攻擊者污染上游套件或倉庫，讓下游用戶在安裝「看起來正常」的東西時不小心裝了惡意程式 |
+| Supply-chain attack（供應鏈攻擊） | 攻擊者污染上游套件或倉庫，讓下游使用者在安裝「看起來正常」的東西時不小心裝了惡意程式 |
 | Harness（代理框架） | 包裝 LLM 讓它能使用工具、執行多步任務的外層系統；不同 harness 決定 agent 能做什麼、怎麼做 |
 | BPO（分支策略優化） | 本次介紹的 RL 演算法：在關鍵決策點快照 sandbox 並多路展開比較，比傳統從頭重跑更有效率 |
 | MCP（Model Context Protocol） | Anthropic 提出的標準協議，讓 AI agent 能統一連接各種外部工具與資料來源，無需為每個工具客製整合 |

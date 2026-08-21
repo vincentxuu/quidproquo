@@ -43,7 +43,7 @@ Twin1 的切入點正好戳在當前企業 Agent 部署的空缺上。Liu 講的
 
 ### 投資人在賭什麼
 
-三家共同領投的組合本身就是通路設計，不是財務配置。Bessemer 提供企業 SaaS 的成長方法論；Tribeca Venture Partners 是紐約在地網絡；Aramco Ventures 則直接對應能源業這個垂直。跟投名單同樣照垂直切：法律有 Antiportfolio Ventures（創辦人是前 Kirkland & Ellis 管理合夥人 David Fox）與 Orrick 律所的策略投資，金融服務有 Fidelity 的策略創投臂 F-Prime、EJF Ventures 與 BTech Consortium。對一家產品需要進入律所與銀行這類治理最嚴、採購最慢的客戶的公司來說，這種「投資人即通路」的名單比估值數字更能說明這輪的邏輯。
+三家共同領投的組合本身就是通路設計，不是財務配置。Bessemer 提供企業 SaaS 的成長方法論；Tribeca Venture Partners 是紐約在地網路；Aramco Ventures 則直接對應能源業這個垂直。跟投名單同樣照垂直切：法律有 Antiportfolio Ventures（創辦人是前 Kirkland & Ellis 管理合夥人 David Fox）與 Orrick 律所的策略投資，金融服務有 Fidelity 的策略創投臂 F-Prime、EJF Ventures 與 BTech Consortium。對一家產品需要進入律所與銀行這類治理最嚴、採購最慢的客戶的公司來說，這種「投資人即通路」的名單比估值數字更能說明這輪的邏輯。
 
 另一層是團隊 pattern-matching：多位 Eigen 的原始投資人再投一次。Eigen 曾是第一家獲聯準會與 FDIC 核准在無人介入下處理金融合約的 AI 公司——這個資歷在合規敏感的客戶面前是可交易的資產，也是一支 5 人團隊能在種子輪拿到 $20M 的主因。
 

@@ -96,11 +96,11 @@ SR²AM（Self-Regulated Simulative Reasoning Agentic LLM）把 agent 決策拆�
 ### Read Priority
 
 必讀
-任何在做多用戶 agent 助理、工作協作 bot、企業客服 agent 的人：你的記憶系統幾乎可以確定沒有處理這篇發現的問題。
+任何在做多使用者 agent 助理、工作協作 bot、企業客服 agent 的人：你的記憶系統幾乎可以確定沒有處理這篇發現的問題。
 
 ### 領域背景
 
-幾乎所有記憶系統和評估 benchmark 都是針對一對一對話設計的：一個用戶和一個 agent 聊天。但真實企業部署是多用戶群組、頻道、工作群，「張三說過 X」和「李四說過 X」對 agent 的意涵可能完全不同。這個差距在 GroupMemBench 之前沒有人系統性量化過。
+幾乎所有記憶系統和評估 benchmark 都是針對一對一對話設計的：一個使用者和一個 agent 聊天。但真實企業部署是多使用者群組、頻道、工作群，「張三說過 X」和「李四說過 X」對 agent 的意涵可能完全不同。這個差距在 GroupMemBench 之前沒有人系統性量化過。
 
 ### 中階導讀
 
@@ -111,17 +111,17 @@ SR²AM（Self-Regulated Simulative Reasoning Agentic LLM）把 agent 決策拆�
 
 #### 方法
 
-GroupMemBench 設計三類評估維度：**Group Dynamics**（群組動態）——能不能追蹤跨越多個用戶的信息流，而不只是拼接對話；**Speaker-Grounded Belief Tracking**（說話者信念追蹤）——能不能分別追蹤每個用戶的信念狀態（張三相信 A，李四相信 B）；**Audience-Adapted Language**（閱聽者適應語言）——Theory of Mind 要求 agent 根據「要回應的是誰」調整答覆的語彙和細節層次。
+GroupMemBench 設計三類評估維度：**Group Dynamics**（群組動態）——能不能追蹤跨越多個使用者的信息流，而不只是拼接對話；**Speaker-Grounded Belief Tracking**（說話者信念追蹤）——能不能分別追蹤每個使用者的信念狀態（張三相信 A，李四相信 B）；**Audience-Adapted Language**（閱聽者適應語言）——Theory of Mind 要求 agent 根據「要回應的是誰」調整答覆的語彙和細節層次。
 
 #### 為什麼重要
 
-數字說明一切：最強記憶系統整體只有 46.0% 準確率，知識更新類題型更只有 27.1%。更刺激的是：完全沒有語意理解的 BM25 關鍵字搜尋，在許多子任務上與甚至超過了新型語意記憶系統。這說明問題不在演算法精度，而在系統設計根本沒把「多用戶」當成基本假設。
+數字說明一切：最強記憶系統整體只有 46.0% 準確率，知識更新類題型更只有 27.1%。更刺激的是：完全沒有語意理解的 BM25 關鍵字搜尋，在許多子任務上與甚至超過了新型語意記憶系統。這說明問題不在演算法精度，而在系統設計根本沒把「多使用者」當成基本假設。
 
 ### 深入要點
 
 - 核心數據：最強記憶系統整體 46.0%；知識更新（knowledge update）27.1%；詞彙歧義（term ambiguity）37.7%——三個向度全線偏低（來源：論文實驗結果）
 - BM25 baseline 在多項子任務上「匹敵或超過」大多數 agent 記憶系統 **⚠️**（可能反映 benchmark 部分子任務偏向 retrieval 精確匹配，而非需要深度語意推理；建議讀論文確認各子任務設計）
-- LangGraph / AutoGen 關聯：兩者的 memory 模組預設單用戶，要加 speaker identity 追蹤需要手動擴展 memory schema
+- LangGraph / AutoGen 關聯：兩者的 memory 模組預設單使用者，要加 speaker identity 追蹤需要手動擴展 memory schema
 - MCP 關聯：目前 MCP memory server 規格沒有 speaker-attributed memory slot 的標準定義，GroupMemBench 可作為未來規格設計的需求文件
 - Limitation：benchmark 的對話規模、語言覆蓋度、真實 vs 合成對話比例從現有資料未能確認，需直接讀論文；BM25 超越語意系統的情況是否普遍或特定於 benchmark 設計，需要更多驗證
 - 落地門檻：修正需要在記憶系統底層加 speaker_id 欄位和 belief update 邏輯——這不是 prompt 能解決的，需要 memory schema 的架構改動
@@ -133,7 +133,7 @@ GroupMemBench 設計三類評估維度：**Group Dynamics**（群組動態）—
 ### 給你的 take-away
 
 - 你在做 multi-user agent 或工作區 bot → 現在就去檢查你的 memory schema：每條記憶有沒有 speaker_id？有沒有 belief_update_history？沒有的話就是 GroupMemBench 說的那個問題
-- 你在選擇記憶系統 → 先問供應商「你在多用戶對話場景上的 benchmark 是什麼」，沒有具體答案的幾乎可以確定沒有處理這個問題
+- 你在選擇記憶系統 → 先問供應商「你在多使用者對話場景上的 benchmark 是什麼」，沒有具體答案的幾乎可以確定沒有處理這個問題
 
 ---
 

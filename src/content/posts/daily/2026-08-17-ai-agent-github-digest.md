@@ -44,7 +44,7 @@ series:
 [GitHub](https://github.com/zouyuxuan122/Deepseek-Harness-EAC)　·　JavaScript (Electron)　·　MIT
 
 - **是什麼**：DeepSeek 官方 CLI harness `@deepseek-ai/dsh`（一套 plugin-based agent 框架，性質類似 Claude Code／Codex 的終端機 harness）的社群桌面包裝版，用 Electron 把它包成內建 10 種 UI 皮膚、外掛市集、系統匣、內建終端機的圖形介面，不用自己裝 Node.js。
-- **為什麼值得看**：過去一週至少五個中文開發團隊各自做了 dsh 的桌面 wrapper——除了 EAC，還有 [dsh_desktop](https://github.com/myYangyunfan/dsh_desktop)（376 星）、[oh-dsh](https://github.com/hust-open-atom-club/oh-dsh)（215 星）、[deepseek-harness-desktop-app](https://github.com/vibeinging/deepseek-harness-desktop-app)（215 星）、[deepseek-harness-studio](https://github.com/fufankeji/deepseek-harness-studio)（152 星），五個 repo 合計逼近 1,500 星，全部在 8/11 到 8/15 之間建立；擴散的第一波不是插件生態，而是「先把 CLI 包成 GUI」，反映不少使用者還是想要圖形介面而非純終端機操作。
+- **為什麼值得看**：過去一週至少五個中文開發團隊各自做了 dsh 的桌面 wrapper——除了 EAC，還有 [dsh_desktop](https://github.com/myYangyunfan/dsh_desktop)（376 星）、[oh-dsh](https://github.com/hust-open-atom-club/oh-dsh)（215 星）、[deepseek-harness-desktop-app](https://github.com/vibeinging/deepseek-harness-desktop-app)（215 星）、[deepseek-harness-studio](https://github.com/fufankeji/deepseek-harness-studio)（152 星），五個 repo 合計逼近 1,500 星，全部在 8/11 到 8/15 之間建立；擴散的第一波不是外掛生態，而是「先把 CLI 包成 GUI」，反映不少使用者還是想要圖形介面而非純終端機操作。
 - **技術棧**：Electron + Node.js，包裝官方 `@deepseek-ai/dsh` CLI
 - **上手難度**：低——下載安裝檔或 portable 版即可執行，不用自己處理 Node.js 環境。
 

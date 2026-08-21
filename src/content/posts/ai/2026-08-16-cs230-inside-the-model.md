@@ -186,7 +186,7 @@ maximize  S_dog(X)  +  正則項
 | **CNN** | 局部化資訊 | 邊緣、紋理、形狀 |
 | **LLM** | **關係** | **概念與 token 之間的關係與意義** |
 
-兩個可視化的抓手：
+兩個可視化的切入點：
 
 1. **attention pattern**——看某個 token 和其他 token 的關係。「每個 attention head 學到不同的模式：**把代名詞連到名詞、追蹤結構、強制某種順序**。」出處是 [Vig 的視覺化工作](https://arxiv.org/abs/1904.02679)。他的定位很好記：**這就是 CNN 的 saliency map 在 transformer 上的對應物。**
 2. **embedding + 降維**——用 t-SNE 看語意相近的 token 有沒有靠在一起，**檢查模型是否真的學到有意義的表示**。
