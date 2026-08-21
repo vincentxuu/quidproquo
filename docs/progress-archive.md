@@ -902,3 +902,22 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   verify 就紅，擋到另一個 session 的 commit。對方來問我回了時程、綠燈後通知，雙方都沒動對方的檔案。
   **下次跑 zh/en 並行批次：讓 agent 先建好兩個檔案骨架再填內容。**
   系列現在只剩 AWS MLA-C01（等 9/1 的 C02 規格；C02 exam guide 網址今天仍 404）。
+
+## 2026-08-21 搜尋與爬取內容四篇（自 progress.txt 移入）
+
+- 完成 SearXNG、Crawl4AI、Web Retrieval Fallback 與免費搜尋／爬取工具選型四篇中英草稿（8 檔）。
+  以官方文件核對 API 與價格語意，補齊站內分工與交叉連結；51 個外部連結、繁中用語、引用、語言配對、
+  系列順序、lint 與 Astro schema 均納入驗證。未執行實際 Docker 部署與外部網站爬取。
+
+## 2026-08-21 搜尋／爬取 canonical 工具文第二批（自 progress.txt 移入）
+
+- 先盤點站內既有文章，排除已完成的 Exa、Qdrant 與私有語料搜尋，再完成 AgentQL、Linkup、
+  changedetection.io、Apify 四篇中英工具指南（8 檔）。四篇均以官方文件界定功能與費率邊界，
+  並通過整站 verify、Astro check、繁中用語及 80 個外部連結檢查；未呼叫付費 API 或執行大規模爬取。
+
+## 2026-08-21 搜尋／爬取 canonical 工具文第三批（自 progress.txt 移入）
+
+- 完成 Firecrawl、Scrapling、Tavily、Browser Use 四篇中英工具指南（8 檔），各自承接 cloud crawler、
+  adaptive selector、agent search API 與自主 browser agent 的 canonical 定位。官方文件、費率與授權邊界
+  已逐篇核對；整站 verify、Astro check、繁中語域及 78 個外部連結均通過。未呼叫需憑證 API，
+  未執行受保護網站成功率或跨工具 benchmark。

@@ -20,11 +20,13 @@ In progress
   then verify the production Groq-to-Cloudflare fallback path.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
-- **「AI 時代的技術選擇」系列 order 0-16 已發佈**（zh/en 各 17 篇）。order 0 導讀含 41 層
+- **「AI 時代的技術選擇」系列 order 0-20 已發佈**（zh/en 各 21 篇）。order 0 導讀含 41 層
   roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。**主判準經使用者更正**：語料存量是採用度
   的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選
   冷門的代價」。order 9-16：MAF、LlamaIndex、vLLM 自架決策、Exa、Modal、Composio、
-  Tailscale、Temporal——除 MAF 外皆平行 agent 寫，數字由我打 API／抓定價頁獨立複查後才收。
+  Tailscale、Temporal；order 17-20：Drizzle、Trigger.dev、CrewAI、Supabase。導讀已同步補入 order 9-20
+  的閱讀路徑，並修正 roadmap 中已覆蓋與未覆蓋項目。除 MAF 外，order 9-16 皆平行 agent 寫，
+  數字由我打 API／抓定價頁獨立複查後才收。
   **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
   （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，
   已於 2d9a562 修正。平行寫稿的教訓：agent 抓錯我兩次、我抓錯 agent 兩次，雙向查證有效。
@@ -40,6 +42,26 @@ Next steps
 5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 
 Recently completed
+- 2026-08-21: 完成並提交 MIT 6.S191 2026 單課導讀中英文文章（commit `ed05184`）。官方課站確認九講影片／投影片與三個 labs
+  全公開，GitHub audit 確認 solution notebooks 也公開；但官方完整執行路線需要 Google／Colab GPU、
+  Comet 與 Lab 3 的 OpenRouter，校外讀者拿不到 MIT 學分、專案回饋與現場 API credit。主版採 2026，
+  2025 作為完整替代版，不混用年度 notebook。兩篇 targeted checks、lint、Astro check 均通過；總閘門只被
+  其他進行中草稿的「搜尋與爬取實戰 order 7 重複」擋住；其後已修正並通過完整閘門。
+- 2026-08-21: 完成「世界名校 AI／CS 課程地圖」全球入口中英文初稿，建立 2025–2026 latest-complete
+  收錄窗與 A0–A3 公開程度標籤，先納入 Stanford、CMU、MIT、Berkeley，並明確區分當期官方教材、
+  LMS 受限錄影、歷史 YouTube 與 CSDIY 社群路線。下一篇依規劃進入 MIT 6.S191 單課導讀。
+- 2026-08-21: 完成 Stanford／CMU／MIT／Berkeley 課程公開程度與 CSDIY 雙軌盤點，並確立 latest-first：
+  單課預設採最近一個完整公開學期，CSDIY 只補歷史資源。第二輪補回 MIT 6.S191 2026（A3）、
+  Berkeley CS288 Spring 2026（A3）、CMU 11-785 Spring 2026（暫 A2）、MIT 6.7960 Fall 2025（A2）
+  與 CMU 10-414/714 Fall 2026（待開課換料）。YouTube 直查確認 CS288 當期 playlist 為 `UNPLAYABLE`，
+  並發現 CMU 15-281／10-315 已由 07-280／07-380 取代；15-281 改列歷史／改制題，07-280 等 Fall 2026
+  材料發布後重判。收錄窗依使用者決定擴為 2025–2026：2025 官方完整版本可正式列入，不只當附錄；
+  已補 MIT 6.S191 2025、Stanford CS336 Spring 2025、CMU 11-785 Spring／Fall 2025 影音證據。先前四門只是首批 audit，不是完整名單。CS189、MIT 6.390、
+  Berkeley CS180/280A 等 Fall 2026 核心材料真正發布後再重判；CMU 10-708 Spring 2019 移至經典課支線。研究矩陣在
+  `.research/2026-08-21-ai-cs-course-access-inventory.md`，並已回填世界名校課程系列計畫。
+- 2026-08-21: AI 學位全球地圖補查六校：HKUST、TUM、東京大學、Edinburgh、清華、Tübingen 均回官方頁升級為 🟢。
+  重要修正：TUM Informatics 對一般新入學非 EU/EEA 生為 €6,000/學期，不是免學費；東京大學與清華
+  人工智能學院目前都不能寫成「獨立 AI 碩士」。下一批：EPFL > Cambridge > Imperial > UCL > Amsterdam > KU Leuven。
 - 2026-08-20: **Stanford CS 課程導讀**（learning，中英各一篇）。原本寫成兩篇（公開教材版 + AI 先修版），
   使用者要求合併，改以「官方先修關係」為單一主脊重寫：地基五門 → 三個入口 → 主幹 → 五條分支
   （NLP/視覺/RL/圖學/系統）→ 研究級，自學四卡點與「先查有沒有開課」升格成獨立章節。逐門對過
