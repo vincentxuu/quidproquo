@@ -38,6 +38,10 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 ### 2. 蒐集（每子問題 ≥ 2 來源）
 
+**蒐集量和閱讀量是兩件事。** 搜尋會撈回幾十上百個 URL，那是候選池不是來源。**凡是最後會進文章、會被列進參考資料、或會被拿來下任何判斷的，都要完整抓下來讀過。** 只看過搜尋摘要就寫進 research note 的，一律標 `[摘要層級]`，交接時明講哪些是深讀、哪些不是。
+
+判準很簡單：**這條會不會影響讀者的判斷？** 會，就去讀原文。不會，那它本來也不該進文章。
+
 對每個子問題：
 
 1. 搜尋候選 URL（Claude：`tavily_search` / `exa_web_search`；Codex：`web.run`），拿前 5-8 個
