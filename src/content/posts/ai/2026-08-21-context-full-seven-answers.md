@@ -122,13 +122,13 @@ Cognition 後來給了這個問題一個解法。他們訓練的檢索 subagent 
 
 ### 六、進模型：這不該是使用者的工作
 
-Cursor 把自我摘要[訓練進 Composer](https://cursor.com/blog/self-summarization)，做法是在強化學習的過程中就讓模型自己壓縮上下文，摘要本身也會被獎勵或懲罰。Meta 的 [Code World Model](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/) 更激進，用 Python 直譯器和 Docker 環境的觀察-動作軌跡做中期訓練，目標是讓模型能逐步模擬程式執行。不用讀，就知道會發生什麼。
-
 這一派的主張是：前面五種都在要求使用者學會管理 context，但這件事本身就是設計失敗。
 
-Cursor 公開了對照結果，而且差距不小。對照組是一個高度調校的提示式壓縮，光摘要提示就數千 token，十幾個章節仔細交代該保留什麼。訓練過的 Composer 只需要一句「請摘要這段對話」，結果**壓縮造成的錯誤少了一半，用掉的 token 只有五分之一**。
+Cursor 把自我摘要[訓練進 Composer](https://cursor.com/blog/self-summarization)，做法是在強化學習的過程中就讓模型自己壓縮上下文，摘要本身也會被獎勵或懲罰。對照結果差距不小。對照組是一個高度調校的提示式壓縮，光摘要提示就數千 token，十幾個章節交代該保留什麼。訓練過的 Composer 只需要一句「請摘要這段對話」，**壓縮造成的錯誤少了一半，用掉的 token 只有五分之一**。前一節那個只回報檔案路徑的 SWE-grep 也屬於這條路線——把檢索本身訓練成一個模型。
 
-代價是你等不到。這是模型世代的事，不是你今晚能調的設定。
+Meta 的 [Code World Model](https://arxiv.org/abs/2510.02387) 走得更遠。它在中期訓練階段就餵進 Python 執行軌跡：**動作是一行 Python 敘述，觀察是執行後區域變數的內容**。用他們的話說，這是教模型程式的語意而不只是語法。論文主張執行軌跡預測讓模型能對程式碼做「有依據的推理，而不需要接觸真實的執行環境」——不用真的跑，就知道會發生什麼。不過他們自己把這定位成早期原型，還不是能拿來用的東西。
+
+代價是你選不了。這條路綁在特定的模型和 harness 上，不是你今晚能調的設定，換一家就沒有。
 
 **怎麼做**：沒有。但它會影響你要不要花力氣建立一套手動流程——如果半年後這些技巧被內建掉，投資就浪費了。
 
@@ -202,6 +202,8 @@ Chroma 測的是「長 context 會不會壞」，答案是會。各家測的是�
 
 **Cursor 自我摘要**：對照組是提示式壓縮，摘要提示數千 token、輸出平均超過 5,000 token；Composer 的自我摘要平均約 1,000 token，壓縮誤差減半且可重用 KV 快取。測了 80k 和 40k 兩種觸發門檻，結論一致。案例：解 Terminal-Bench 2.0 的 make-doom-for-mips 花了 170 輪，把十萬多 token 摘要成約一千。
 
+**Meta CWM**：32B、dense decoder-only，交錯滑動視窗注意力支援到 131k context，量化後單張 80GB H100 可推論。中期訓練吃兩種軌跡：Python 執行軌跡（stack frame 以 JSON 格式記錄區域變數），以及由 ForagerAgent 產生的 Docker 環境互動。他們特別指出，別家做類似的 agentic 資料多半是在 post-training 階段、規模也小，CWM 是在中期訓練就大規模餵入。SWE-bench Verified pass@1 65.8%（含 test-time scaling）、CruxEval Output 94.3%。論文對世界模型的部分反覆用「first steps」「early results」定調。
+
 **SWE-grep**：4 輪序列、每輪最多 8 個平行工具呼叫，對比一般 agentic search 的 10–20 輪。在 Cerebras 上 SWE-grep-mini 每秒 2,800 token、SWE-grep 每秒 650，對照 Haiku 4.5 的每秒 140。評分用偏重 precision 的加權 F1，因為他們發現污染主 agent 的 context 比漏掉一些更傷。Windsurf 與 Devin 的觀察是：agent 第一輪常有超過六成時間花在檢索上。
 
 **Cursor**：MCP 動態載入的 A/B 測試，在有呼叫 MCP 工具的執行中總 token 降 46.9%，官方註明統計顯著但變異數大，取決於安裝的 MCP 數量。
@@ -229,7 +231,7 @@ Chroma 測的是「長 context 會不會壞」，答案是會。各家測的是�
 - [Context Engineering for AI Agents: Lessons from Building Manus — Manus（繁中版）](https://manus.im/zh-tw/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus)
 - [Context Engineering — LangChain](https://www.langchain.com/blog/context-engineering-for-agents)
 - [Conversation Management — AWS Strands Agents SDK](https://strandsagents.com/docs/user-guide/concepts/agents/conversation-management/)
-- [CWM: An Open-Weights LLM for Research on Code Generation with World Models — Meta AI](https://ai.meta.com/research/publications/cwm-an-open-weights-llm-for-research-on-code-generation-with-world-models/)
+- [CWM: An Open-Weights LLM for Research on Code Generation with World Models — Meta FAIR](https://arxiv.org/abs/2510.02387)（arXiv:2510.02387）
 - [How to Think about Context Engineering in Cline](https://cline.bot/blog/how-to-think-about-context-engineering-in-cline)
 - [Context Condensation for More Efficient AI Agents — OpenHands](https://www.openhands.dev/blog/openhands-context-condensensation-for-more-efficient-ai-agents)
 - 站內：[Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型](/posts/ai/2026-03-24-context-engineering-guide)
