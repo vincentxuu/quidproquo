@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-20
+Last updated: 2026-08-21
 
 協定（完整版見 docs/governance/operating-charter.md）：
 - 這是 working memory，不是日誌。上限 90 行，`pnpm verify` 會擋。
@@ -18,6 +18,12 @@ In progress
   then verify the production Groq-to-Cloudflare fallback path.
 - Align actual implementation status with `docs/TODO.md`.
 - Finish low-risk P1 items: RSS author metadata and font preload.
+- **「AI 時代的技術選擇」系列 7 篇 x zh/en 完成**（tech；order 1-7：選型總覽、AI Elements、
+  TanStack Router、AI SDK message parts、Zod、shadcn registry+MCP、llms.txt——末篇
+  additionalSeries 掛 AEO/GEO order 6）。全部過乾淨 context 查證（五個 verifier 共修 15+ 條：
+  元件清單過時、npm 數字兩天漂 24%、「registry 綁定 React」與官方 universal items 矛盾、
+  Zod 範例用 v4 棄用寫法、「年輕三歲」實為近十年）。系列名應使用者要求泛化，
+  之後後端等選型文可掛入。候選續篇：WebMCP、TanStack Start、查證 workflow、npm 數據陷阱。
 Next steps
 1. Finish and verify the Qwen3 embedding rollout.
 2. Backfill missing post `type` and `tldr` fields.
