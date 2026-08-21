@@ -1,5 +1,5 @@
 ---
-title: "Tavily and Exa Have No Self-Hosted Version: What Building Your Own Search Stack Actually Costs"
+title: "Tavily and Exa Can't Be Self-Hosted: How to Build Your Own"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Search and Scraping in Practice"
   order: 2
-tldr: "Tavily and Exa are cloud-only APIs with no self-hosted option. What you can assemble instead is SearXNG (269 upstream engines, 82 on by default) plus Crawl4AI (78.8k stars, Apache-2.0), and the ready-made Tavily-compatible wrappers are all still double-digit-star solo projects you should not depend on. But SearXNG has no index of its own, and running it from a datacenter IP gets you empty results — those two facts decide whether self-hosting is worth it."
-description: "Why Tavily and Exa offer no on-premises deployment, what a SearXNG + Crawl4AI self-hosted stack actually consists of, why the ready-made wrappers are not usable yet, the state of open-source attempts at Exa-style owned indexes, and the datacenter-IP problem that sinks most deployments."
+tldr: "Tavily and Exa are cloud-only APIs and can't be self-hosted. What you can assemble instead is SearXNG (269 upstream engines, 82 on by default) plus Crawl4AI (78.8k stars, Apache-2.0), and the ready-made Tavily-compatible wrappers are all still double-digit-star solo projects you should not depend on. But SearXNG has no index of its own, and running it from a datacenter IP gets you empty results — those two facts decide whether self-hosting is worth it."
+description: "Why Tavily and Exa can't be self-hosted, what a SearXNG + Crawl4AI self-hosted stack actually consists of, why the ready-made wrappers are not usable yet, the state of open-source attempts at Exa-style owned indexes, and the datacenter-IP problem that sinks most deployments."
 draft: false
 ---
 

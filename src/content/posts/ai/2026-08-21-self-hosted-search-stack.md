@@ -1,5 +1,5 @@
 ---
-title: "Tavily 和 Exa 沒有地端版：自己組一套搜尋堆疊要付出什麼"
+title: "Tavily 和 Exa 不能自己架：要怎麼自己組一套"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "搜尋與爬取實戰"
   order: 2
-tldr: "Tavily 和 Exa 都是純雲端 API，沒有自架版本。能自己組的是 SearXNG（269 個上游引擎、82 個預設開啟）+ Crawl4AI（78.8k stars、Apache-2.0），現成的 Tavily 相容 wrapper 都還是幾十顆星的個人專案，不建議直接用。但 SearXNG 沒有自己的索引，而且從機房 IP 跑會被搜尋引擎打成空結果——這兩件事決定了自架划不划算。"
-description: "為什麼 Tavily / Exa 沒有地端部署選項，以及 SearXNG + Crawl4AI 這套自架替代方案的實際組成、現成 wrapper 為什麼還不能用、想複製 Exa 自建索引的開源專案現況，還有機房 IP 被封這個最常翻車的坑。"
+tldr: "Tavily 和 Exa 都是純雲端 API，不能自己架。能自己組的是 SearXNG（269 個上游引擎、82 個預設開啟）+ Crawl4AI（78.8k stars、Apache-2.0），現成的 Tavily 相容 wrapper 都還是幾十顆星的個人專案，不建議直接用。但 SearXNG 沒有自己的索引，而且從機房 IP 跑會被搜尋引擎打成空結果——這兩件事決定了自架划不划算。"
+description: "為什麼 Tavily 和 Exa 不能自己架，以及 SearXNG + Crawl4AI 這套自架替代方案的實際組成、現成 wrapper 為什麼還不能用、想複製 Exa 自建索引的開源專案現況，還有機房 IP 被封這個最常翻車的坑。"
 draft: false
 ---
 
