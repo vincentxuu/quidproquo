@@ -27,7 +27,7 @@ That is not the agent being stupid. It is that **the agent has read far more Rea
 
 Weekly downloads, maintenance activity, community size, documentation quality: you still check all of them. What they measure is whether a project will die halfway through and whether anyone will help when it breaks. None of those questions went away in the AI era.
 
-Where they fall short is that every one of them assumes **a human reads the docs, writes the code, and debugs it**. Once a meaningful share of that work goes to an agent, properties of a library that used to be irrelevant start deciding the quality of what you ship. Across eight posts, those properties settled into a few.
+Where they fall short is that every one of them assumes **a human reads the docs, writes the code, and debugs it**. Once a meaningful share of that work goes to an agent, properties of a library that used to be irrelevant start deciding the quality of what you ship. Across twenty posts, those properties settled into a few.
 
 ## What the divergence produced
 
@@ -55,7 +55,7 @@ One thing needs saying plainly here, or this series will read as an advertisemen
 
 Training-corpus volume is not an independent criterion. It is **downstream of adoption** — more users means more code in public, which means more the model has read, which means higher accuracy when an agent writes it. And adoption was always the primary criterion anyway: more users means the potholes have been hit, your problem has a searchable answer, you can hire people who know it, and the project is less likely to die.
 
-So AI did not weaken "pick what most people use." **It added a second mechanism that supports the same old conclusion.** That is the most counterintuitive thing I took away from writing these eight posts: the thing most worth holding onto in the agent era is the most traditional criterion there is.
+So AI did not weaken "pick what most people use." **It added a second mechanism that supports the same old conclusion.** That is the most counterintuitive thing I took away from writing these twenty posts: the thing most worth holding onto in the agent era is the most traditional criterion there is.
 
 So what are the other five for? Two things.
 
@@ -67,7 +67,7 @@ But remediation is not free, and it is certainly not permission. **Without one o
 
 Back to the router problem at the top, the honest answer is this: if your team has no specific reason to need it, React Router remains the safe default. TanStack Router earns its place because its type safety solves a concrete pain — refactoring routes in a large codebase — not because it is newer and cleaner.
 
-## What the eight posts cover
+## What the twenty posts cover
 
 | # | Subject | Where it sits on this line |
 |---|---|---|
@@ -79,6 +79,18 @@ Back to the router problem at the top, the honest answer is this: if your team h
 | 6 | [shadcn registry and MCP](/posts/tech/2026-08-21-shadcn-registry-mcp-en) | Copy-in standardized into distribution |
 | 7 | [llms.txt](/posts/tech/2026-08-21-llms-txt-en) | The remediation itself |
 | 8 | [WebMCP](/posts/tech/2026-08-21-webmcp-browser-tools-en) | From machine-readable to machine-callable |
+| 9 | [Microsoft Agent Framework](/posts/ai/2026-08-21-microsoft-agent-framework-en) | Framework boundaries after AutoGen and Semantic Kernel merged |
+| 10 | [LlamaIndex](/posts/ai/2026-08-21-llamaindex-rag-framework-en) | From RAG framework to agent data layer |
+| 11 | [The vLLM self-hosting decision](/posts/ai/2026-08-21-vllm-self-host-decision-en) | The default for self-hosted inference and the over-engineering line |
+| 12 | [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents-en) | A search API designed for agents |
+| 13 | [Modal](/posts/ai/2026-08-21-modal-serverless-gpu-en) | The serverless GPU execution layer below the inference engine |
+| 14 | [Composio](/posts/ai/2026-08-21-composio-agent-tool-integration-en) | Authentication and tool integration when agents connect to SaaS |
+| 15 | [Tailscale](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents-en) | Private networking and permission boundaries for self-hosted agents |
+| 16 | [Temporal](/posts/tech/2026-08-21-temporal-durable-execution-en) | Durable execution through deterministic replay |
+| 17 | [Drizzle ORM](/posts/tech/2026-08-21-drizzle-orm-sql-first-en) | A reviewable, SQL-first data access layer |
+| 18 | [Trigger.dev](/posts/tech/2026-08-21-trigger-dev-durable-tasks-en) | Process snapshots that avoid determinism constraints |
+| 19 | [CrewAI](/posts/ai/2026-08-21-crewai-multi-agent-framework-en) | Organizing multi-agent work through roles and tasks |
+| 20 | [Supabase](/posts/tech/2026-08-21-supabase-postgres-platform-en) | The tradeoffs of a PostgreSQL-centred BaaS |
 
 Deciding on a specific library? Jump straight to its post; each ends with a good-fit / bad-fit call. Building your own criteria? Read post 1 (the map) and post 7. Curious what the web becomes in the agent era? Posts 7 and 8 are two segments of one axis.
 
@@ -92,19 +104,19 @@ Having gone through the four hundred-plus posts already here, the gaps are clear
 
 | Layer | Not yet written | Current state of this site |
 |---|---|---|
-| **Agent frameworks** | Microsoft Agent Framework and AG2, LangChain, CrewAI, Mastra, Pydantic AI, DSPy | A LangGraph post and one 15-framework map, but the map is out of date |
-| **RAG frameworks** | LlamaIndex, Haystack, RAGFlow, Dify, R2R | Thirty-plus technique posts, zero on frameworks |
+| **Agent frameworks** | AG2, LangChain, Mastra, Pydantic AI, DSPy | Microsoft Agent Framework, CrewAI, and LangGraph have dedicated posts, plus an outdated 15-framework map; a current cross-framework comparison is still missing |
+| **RAG frameworks** | Haystack, RAGFlow, Dify, R2R | LlamaIndex now has a dedicated post and RAG techniques have thirty-plus; a cross-framework selection guide is still missing |
 | **Self-hosted inference** | SGLang, Triton, Ray | vLLM and Ollama both have posts |
 | **Cloud LLM APIs and routing** | OpenRouter, Bedrock, Vertex AI, Together, Fireworks, LiteLLM, Portkey | Posts on Groq Console, 9Router, and a 40-plus provider pricing roundup |
-| **Fetch and search APIs** | Exa, Tavily, Jina Reader, Serper, SerpAPI, Linkup, Brave Search API | A Firecrawl post and one crawler landscape post |
-| **Self-hosted crawling and anti-bot** | Crawl4AI, Scrapy, Selenium, Bright Data, Zyte, Apify | One hands-on post about getting past Cloudflare's bot defences |
-| **Full-text and on-site search** | Pagefind, Meilisearch, Typesense, Algolia, Elasticsearch / OpenSearch | Entirely empty — and this site's own search runs on Pagefind |
-| **Vector databases** | Qdrant, Chroma, Weaviate, Milvus, LanceDB, pgvector | A selection comparison, no single deep dive |
+| **Fetch and search APIs** | — | Exa, Tavily, Linkup, Jina Reader, Firecrawl, Serper, SerpAPI, and Brave Search API all have dedicated posts, plus one crawler landscape post |
+| **Self-hosted crawling and anti-bot** | Scrapy, Selenium, Bright Data, Zyte | Crawl4AI and Apify have dedicated posts, plus one hands-on post about getting past Cloudflare's bot defences |
+| **Full-text and on-site search** | Typesense, Algolia, Elasticsearch / OpenSearch | Pagefind and Meilisearch have dedicated posts; this site uses Pagefind on its 404 page while the main search uses D1 and hybrid retrieval |
+| **Vector databases** | Chroma, Weaviate, Milvus, LanceDB, pgvector | A selection comparison and a dedicated Qdrant deep dive already exist |
 | **Agent memory services** | Mem0, Zep, Cognee, Letta / MemGPT | A concept post, no tool post |
 | **Agent protocols** | AP2 and UCP (agent payments and commerce) | The best-covered layer here: MCP, A2A, A2UI, AGENTS.md, and WebMCP all have posts |
-| **Tool-connection platforms for agents** | Composio, Arcade, Pipedream, Toolhouse, Zapier MCP | Entirely empty |
+| **Tool-connection platforms for agents** | Arcade, Pipedream, Toolhouse, Zapier MCP | Composio now has a dedicated post |
 | **Agent hosting and SDKs** | OpenAI Agents SDK, Cloudflare Agents SDK | Posts on Vercel Open Agents, Claude Managed Agents, OpenAI Workspace Agents |
-| **Agent interface components** | CopilotKit, assistant-ui | AI Elements and A2UI have posts |
+| **Agent interface components** | — | CopilotKit, assistant-ui, AI Elements, and A2UI all have dedicated posts |
 | **LLM gateways and tracing** | LiteLLM, Portkey, Helicone, LangSmith | Langfuse and 9Router have posts |
 | **Low-code agent platforms** | Dify, n8n, Flowise | Entirely empty |
 
@@ -114,9 +126,9 @@ This layer turns over a fresh batch of names every few months, and the site has 
 
 | Layer | Representative players | Current state of this site |
 |---|---|---|
-| **Agent sandboxes and execution** | Modal, E2B, Daytona, Runloop, Vercel Sandbox, Cloudflare Sandboxes | Entirely empty |
+| **Agent sandboxes and execution** | Modal, E2B, Daytona, Runloop, Vercel Sandbox, Cloudflare Sandboxes | Modal now has a dedicated post; the rest remain uncovered |
 | **Browser infrastructure for agents** | Browserbase, Steel, Hyperbrowser, Cloudflare Kitesurf | Only Stagehand has a post |
-| **Web access for agents** | Parallel, Exa, Bright Data | Entirely empty |
+| **Web access for agents** | Parallel, Exa, Bright Data | Exa now has a dedicated post; Parallel and Bright Data remain uncovered |
 | **Eval and simulation** | Patronus, Braintrust, Promptfoo, Arize Phoenix, Galileo | Only Langfuse has a post |
 | **Agent-oriented inference** | Baseten, Sail, Fireworks, Together, Cerebras | Entirely empty |
 | **Voice agents** | LiveKit, Vapi, Cartesia, Deepgram, ElevenLabs | Entirely empty |
@@ -136,35 +148,37 @@ One of them lands very close to home. On 2026-08-06 Cloudflare launched **Kitesu
 |---|---|---|
 | **Build and toolchain** | Vite 8 and Rolldown, Vitest, oxlint / Oxc, TypeScript 7 | Entirely empty |
 | **Message queues and event streaming** | Kafka, RabbitMQ, NATS, Redpanda, Pulsar, Redis Streams, AWS SQS / SNS, Cloudflare Queues | Two task-queue posts, BullMQ and Celery |
-| **Durable execution** | Temporal, Trigger.dev, Inngest, Restate, Hatchet | Entirely empty |
+| **Durable execution** | Inngest, Restate, Hatchet | Temporal and Trigger.dev now have dedicated posts |
 | **The backend contract layer** | tRPC, oRPC, ts-rest, Zodios, Hono RPC; on the OpenAPI side openapi-typescript, Stainless, Speakeasy; cross-language gRPC / Connect, Protobuf / Buf, GraphQL and Codegen | Entirely empty |
-| **Data access** | Drizzle, Kysely | A Prisma post exists |
+| **Data access** | Kysely | Drizzle and Prisma now have dedicated posts |
 | **Auth and authorization** | Better Auth, plus the authorization model for an agent acting on a user's behalf | Entirely empty |
 | **Compute on the big three clouds** | AWS Lambda / Fargate / App Runner, Google Cloud Run / GKE, Azure Container Apps / App Service | Only AI certification prep posts, nothing on choosing the platforms |
 | **GPU and inference-specific clouds** | CoreWeave, Lambda Labs, RunPod, Nebius, Crusoe, Replicate, Hugging Face | Entirely empty |
 | **Second-tier clouds and on-prem** | DigitalOcean, Hetzner, Vultr, Linode, Scaleway, OVHcloud, Oracle OCI; on-prem Proxmox, OpenStack | Entirely empty |
 | **Managed PaaS** | Vercel, Netlify, Render, Railway, Fly.io, Koyeb, Deno Deploy, DigitalOcean App Platform | The Cloudflare line is covered thoroughly, the rest is empty |
 | **Self-hosted PaaS** | Coolify, Dokploy, CapRover, Dokku, Kamal | Entirely empty |
-| **Backend-as-a-Service** | Supabase, Firebase, Appwrite, Convex, PocketBase, Nhost | Entirely empty |
+| **Backend-as-a-Service** | Firebase, Appwrite, Convex, PocketBase, Nhost | Supabase now has a dedicated post |
 | **Orchestration and infrastructure as code** | Kubernetes, Terraform, Pulumi, SST | Docker and nginx are covered; above that, nothing |
 | **Backend frameworks** | NestJS, Fastify, Elysia, Django | Hono, Express, and FastAPI have posts |
-| **Private networking and remote access** | Tailscale, WireGuard, ngrok, ZeroTier, Twingate, Teleport | One Cloudflare Tunnel post, otherwise empty |
+| **Private networking and remote access** | WireGuard, ngrok, ZeroTier, Twingate, Teleport | Tailscale and Cloudflare Tunnel now have dedicated posts |
 | **Realtime transport and collaboration** | Socket.IO, WebSocket, SSE, PartyKit, Ably, Liveblocks, Yjs / CRDT, Cloudflare Durable Objects | One RAG Streaming post, otherwise empty |
 | **Supply chain and code security** | Socket.dev, Snyk, Semgrep, CodeQL, Renovate, gitleaks, zizmor, Sigstore / SLSA | Only Trivy has a post |
 | **Agent security** | Prompt injection classifiers (Model Armor), red-team tooling (Promptfoo), sandbox escape and permission boundaries | A concept post, no tool posts |
-| **General databases** | MySQL, MongoDB, DuckDB, managed Postgres (Supabase / Neon / Turso) | PostgreSQL, Redis, ClickHouse, and D1 have posts |
+| **General databases** | MySQL, MongoDB, DuckDB, managed Postgres (Neon / Turso) | PostgreSQL, Supabase, Redis, ClickHouse, and D1 have posts |
 
 Two gaps are glaring enough that they have to be named.
 
-**Agent frameworks** look covered at first glance: there is a post here called "15 Agent Frameworks Worth Watching in 2026." But it is dated 2026-04-01, a full day before Microsoft Agent Framework reached 1.0 GA, and it never once says AutoGen, Semantic Kernel, or anything about Microsoft's line. The part of this layer that most needs explaining is precisely the part that map does not draw.
+**Agent frameworks** now have dedicated posts on Microsoft Agent Framework and CrewAI, so two directions omitted by the old "15 Agent Frameworks Worth Watching in 2026" map have their own explanations. Individual posts are not a selection map, though: AG2, LangChain, Mastra, Pydantic AI, and DSPy remain uncovered, and the site still lacks a current comparison built on one shared set of criteria.
 
-**RAG frameworks** fail differently. There are thirty-odd technique posts here — chunking, HyDE, CRAG, GraphRAG, ColBERT — probably the densest cluster on the whole site. And the first question a reader has after all of that, which framework should I actually use, has never been answered.
+**RAG frameworks** fail differently. There are thirty-odd technique posts here — chunking, HyDE, CRAG, GraphRAG, ColBERT — probably the densest cluster on the whole site, and LlamaIndex now has its own post. The first question a reader has afterwards still stands: which of LlamaIndex, Haystack, RAGFlow, Dify, and R2R should I actually use? A cross-framework comparison has not answered it yet.
 
 There is a third kind of gap, and it is the embarrassing one: **the tools this site uses every day and has never written about**.
 
-This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages, and every post here gets written using them — sixteen of thirty-eight skills reference Exa directly. Dedicated posts: zero. The full-text search runs on Pagefind — also zero. Hugging Face is named in thirty-eight posts, also zero.
+This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages, and all three now have dedicated posts. [Pagefind](/posts/tech/2026-08-22-pagefind-static-search-en) and [Hugging Face](/posts/ai/2026-08-22-hugging-face-hub-guide-en) are covered too: the former uses this site's real boundary between a build-time Pagefind index on the 404 page and D1 plus hybrid retrieval on the main search page; the latter separates Hub repositories from Datasets, Spaces, Inference Providers, and Endpoints. The [Jina Reader guide](/posts/ai/2026-08-22-jina-reader-guide-en) fills the step from a known URL to model-readable Markdown. [Serper](/posts/ai/2026-08-22-serper-search-api-guide-en), [SerpAPI](/posts/ai/2026-08-22-serpapi-search-api-guide-en), and [Brave Search API](/posts/ai/2026-08-22-brave-search-api-guide-en) then separate the Google SERP, multi-engine SERP, and independent-index paths.
 
-The clouds are a differently shaped hole. Five certification-prep posts for AWS and Microsoft AI exams sit here, and nothing at all on how to choose the platforms themselves. Harder to explain are the GPU and inference-specific clouds — CoreWeave, Lambda Labs, RunPod, Nebius — not one mention, on a site whose content is mostly AI. There are posts here on vLLM and Ollama, which means **the inference engines are covered and the places you run them are not**. The cost and latency of self-hosting land in the latter. Skip it and "should we self-host" is only half answered.
+The agent-interface layer is now covered too. [CopilotKit](/posts/tech/2026-08-22-copilotkit-agent-ui-en) starts from application state, tools, and human approval. [assistant-ui](/posts/tech/2026-08-22-assistant-ui-runtime-en) starts from chat primitives, Runtime ownership, and backend adapters. Their organizing spines remain separate instead of turning overlap into one feature checklist.
+
+The clouds are a differently shaped hole. Five certification-prep posts for AWS and Microsoft AI exams sit here, and nothing at all on how to choose the platforms themselves. Modal now covers one corner of serverless GPU, but CoreWeave, Lambda Labs, RunPod, and Nebius still lack a horizontal comparison. There are posts here on vLLM and Ollama, which means **the inference engines are covered while the places you run them have only one shape represented**. A complete cost-and-latency map for the self-hosting decision is still missing.
 
 ### Why the last group counts
 
@@ -178,7 +192,7 @@ For the toolchain layer, Cloudflare put the case better than I can, in its annou
 
 Every point it lists next is really a selection criterion. Builds have to be fast, because agents iterate far more often than people do. Tests have to be fast, because an agent re-runs them constantly to check what it just wrote. Linting and formatting have to be fast, because inside that loop they become guardrails. Errors have to be clear and structured, because the thing reading them and acting on them is a machine. That is a different question from which bundler wins a benchmark.
 
-Before the other layers, one set of terms needs pulling apart, because they get used as synonyms: **task queues, event streams, and durable execution are three different things**. A queue (BullMQ, Celery) guarantees a message gets consumed. A stream (Kafka, NATS) guarantees events stay ordered and can be replayed. Durable execution guarantees that **a process spanning many external calls finishes even if it dies halfway through**. Agents mostly need the third, and this site has only ever written about the first.
+Before the other layers, one set of terms needs pulling apart, because they get used as synonyms: **task queues, event streams, and durable execution are three different things**. A queue (BullMQ, Celery) guarantees a message gets consumed. A stream (Kafka, NATS) guarantees events stay ordered and can be replayed. Durable execution guarantees that **a process spanning many external calls finishes even if it dies halfway through**. Agents mostly need the third, and the site now has dedicated posts on two different recovery models: Temporal and Trigger.dev.
 
 Of those three, durable execution shows most clearly what "AI changed the answer" means. The split inside it is not about vocabulary — DBOS and Hatchet both say checkpoint and still require your orchestration code to be deterministic. The real dividing line is **whether recovery re-runs the code you wrote**: Temporal-style engines do, so workflow code must be deterministic; Trigger.dev restores an OS-level process snapshot and re-runs none of it, so it does not. And since LLM calls are inherently non-deterministic, that one fact settles most of the decision for you.
 
@@ -188,7 +202,7 @@ Auth is the mess WebMCP leaves behind. Tools run in a tab where the user is alre
 
 Deployment comes back to something unglamorous: whether your CLI is consistent. An agent runs its own deploys and rollbacks, and scattered command shapes send it on detours. Part of why self-hosted PaaS has warmed up again is exactly this — a one-command deploy serves humans and agents better than a Kubernetes manifest.
 
-Private networking is a layer I missed on the first pass and added afterwards, and it has a clear AI-era criterion: **self-hosting a long-running agent means putting something on your network that has to be reachable from outside and must not sit on the public internet**. Tailscale comes up eleven times across the posts here on OpenClaw's threat model, Hermes's security model, and the self-hosted personal agent comparison — always in passing, never explained. Agents reaching internal resources such as databases without exposing them publicly is the same layer's problem.
+Private networking is a layer I missed on the first pass and added afterwards, and it has a clear AI-era criterion: **self-hosting a long-running agent means putting something on your network that has to be reachable from outside and must not sit on the public internet**. The Tailscale post now covers tailnets, subnet routers, tags, and ACL boundaries. How to choose among WireGuard, ngrok, ZeroTier, Twingate, and Teleport remains the next gap.
 
 Realtime deals with streaming and shared state. Agent output arrives token by token; a human and an agent editing the same document is an old CRDT problem in a new setting; and where a long-running agent parks its state belongs to this layer too.
 
@@ -199,6 +213,11 @@ About the last two layers I should be straight: backend frameworks and general d
 ## One last thing
 
 These criteria exist to support a decision, not to replace one. A library can score full marks on every one of them and still be the wrong choice if your team doesn't know it, the ecosystem doesn't fit, or it solves a problem you don't have. What this series is trying to give you is not a list of recommendations — it is **a few questions you would not otherwise have thought to ask**.
+
+## Update history
+
+- 2026-08-22: Re-audited the roadmap against the actual post inventory and marked Tavily, Linkup, Crawl4AI, Apify, Meilisearch, Qdrant, Pagefind, Jina Reader, Hugging Face, Serper, SerpAPI, Brave Search API, CopilotKit, and assistant-ui as covered by dedicated posts.
+- 2026-08-21: Updated the series through order 20, added the twelve later reading paths, and reconciled the roadmap's covered and uncovered items.
 
 ## References
 

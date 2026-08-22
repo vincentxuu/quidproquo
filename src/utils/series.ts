@@ -24,6 +24,14 @@ export interface SeriesSummary {
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'private-corpus-pipeline',
+    names: { 'zh-TW': '私有語料管線', en: 'Private Corpus Pipeline' },
+    descriptions: {
+      'zh-TW': '私有資料如何安全且持續地進入索引、通過查詢權限被找到，並在來源更新或刪除後維持一致；重點是資料生命週期，不重複介紹 RAG 檢索技法。',
+      en: 'How private data enters indexes safely and continuously, remains subject to query-time authorization, and stays consistent when sources change or disappear—focused on the data lifecycle rather than RAG retrieval techniques.',
+    },
+  },
+  {
     slug: 'claude-code-automation',
     names: { 'zh-TW': 'Claude Code 自動化指南', en: 'Claude Code Automation Guide' },
     descriptions: {
@@ -122,6 +130,142 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW':
         '把 Stanford CS230（2025 秋季）九講逐講讀完：不只記錄課堂講了什麼，也補上課後到現在這領域變了什麼，以及它和站上既有實戰系列的對照。',
       en: 'A lecture-by-lecture reading of Stanford CS230, Autumn 2025 — what was taught, what has changed since, and where it agrees or disagrees with the practice written up elsewhere on this site.',
+    },
+  },
+  {
+    slug: 'stanford-cs',
+    names: { 'zh-TW': 'Stanford CS 主線課程導讀', en: "Reading Stanford's Main-Line CS Courses" },
+    descriptions: {
+      'zh-TW': '從學位骨架到 AI、NLP、圖學習與 agent，整理 Stanford CS 主線課程的版本、先修關係與逐課導讀入口。',
+      en: 'A map of Stanford CS core courses, from the degree foundations through AI, NLP, graph learning, and agents, with versioned course guides and prerequisites.',
+    },
+  },
+  {
+    slug: 'stanford-cs103',
+    names: { 'zh-TW': 'Stanford CS103 導讀', en: 'Reading Stanford CS103' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS103：離散數學、邏輯、證明、集合、可計算性，以及它們如何成為後續 CS 課程的共同語言。',
+      en: 'A lecture-by-lecture reading of Stanford CS103: discrete mathematics, logic, proofs, sets, computability, and the shared language they provide for later CS courses.',
+    },
+  },
+  {
+    slug: 'stanford-cs107',
+    names: { 'zh-TW': 'Stanford CS107 導讀', en: 'Reading Stanford CS107' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS107：C、記憶體、組合語言、資料表示與系統除錯，從高階語言一路往機器底層走。',
+      en: 'A lecture-by-lecture reading of Stanford CS107: C, memory, assembly, data representation, and systems debugging from high-level code down to the machine.',
+    },
+  },
+  {
+    slug: 'stanford-cs109',
+    names: { 'zh-TW': 'Stanford CS109 導讀', en: 'Reading Stanford CS109' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS109：機率、隨機變數、推論與模擬，補齊機器學習與資料科學真正會用到的機率底座。',
+      en: 'A lecture-by-lecture reading of Stanford CS109: probability, random variables, inference, and simulation as the foundation used by machine learning and data science.',
+    },
+  },
+  {
+    slug: 'stanford-cs111',
+    names: { 'zh-TW': 'Stanford CS111 導讀', en: 'Reading Stanford CS111' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS111：程序、執行緒、同步、虛擬記憶體、檔案系統與作業系統設計取捨。',
+      en: 'A lecture-by-lecture reading of Stanford CS111: processes, threads, synchronization, virtual memory, file systems, and operating-system design trade-offs.',
+    },
+  },
+  {
+    slug: 'stanford-cs161',
+    names: { 'zh-TW': 'Stanford CS161 導讀', en: 'Reading Stanford CS161' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS161 Winter 2026：演算法設計、正確性證明與複雜度分析，完整對齊十八講公開教材。',
+      en: 'A lecture-by-lecture reading of Stanford CS161, Winter 2026: algorithm design, correctness proofs, and complexity analysis across all eighteen public lecture units.',
+    },
+  },
+  {
+    slug: 'stanford-cs221',
+    names: { 'zh-TW': 'Stanford CS221 導讀', en: 'Reading Stanford CS221' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS221：搜尋、馬可夫決策、機器學習、約束滿足與機率模型，建立人工智慧的共同骨架。',
+      en: 'A lecture-by-lecture reading of Stanford CS221: search, Markov decision processes, machine learning, constraint satisfaction, and probabilistic models.',
+    },
+  },
+  {
+    slug: 'stanford-cs229',
+    names: { 'zh-TW': 'Stanford CS229 導讀', en: 'Reading Stanford CS229' },
+    descriptions: {
+      'zh-TW': '逐章讀 Stanford CS229 的 2026 官方主講義：從監督式學習與深度學習，走到基礎模型、LLM 推理與強化學習，共二十一章，不假裝對應單一學期的逐講進度。',
+      en: 'A chapter-by-chapter reading of Stanford CS229’s official 2026 notes, spanning supervised and deep learning, foundation models, LLM reasoning, and reinforcement learning across twenty-one chapters without pretending to reconstruct a single quarter’s lecture schedule.',
+    },
+  },
+  {
+    slug: 'stanford-cs336',
+    names: { 'zh-TW': 'Stanford CS336 導讀', en: 'Reading Stanford CS336' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS336：從 tokenizer、資料與 scaling，到訓練、平行化、評估與 alignment，拆開語言模型的完整製作流程。',
+      en: 'A lecture-by-lecture reading of Stanford CS336: tokenizers, data, scaling, training, parallelism, evaluation, and alignment across the full language-model pipeline.',
+    },
+  },
+  {
+    slug: 'stanford-cs124',
+    names: { 'zh-TW': 'Stanford CS124 導讀', en: 'Reading Stanford CS124' },
+    descriptions: {
+      'zh-TW': '逐週讀 Stanford CS124：從語言模型與文字分類，到資訊抽取、問答與語音，追蹤自然語言處理的完整管線。',
+      en: 'A week-by-week reading of Stanford CS124: language models, text classification, information extraction, question answering, speech, and the full NLP pipeline.',
+    },
+  },
+  {
+    slug: 'stanford-cs228',
+    names: { 'zh-TW': 'Stanford CS228 導讀', en: 'Reading Stanford CS228' },
+    descriptions: {
+      'zh-TW': '逐週讀一個明確版本的 Stanford CS228：機率圖模型、精確與近似推論、參數學習及結構學習。',
+      en: 'A week-by-week reading of one explicitly versioned Stanford CS228 offering: probabilistic graphical models, exact and approximate inference, and parameter and structure learning.',
+    },
+  },
+  {
+    slug: 'stanford-cs224n',
+    names: { 'zh-TW': 'Stanford CS224N 導讀', en: 'Reading Stanford CS224N' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS224N：從詞向量、序列模型與 Transformer，到大型語言模型、評估與責任議題。',
+      en: 'A lecture-by-lecture reading of Stanford CS224N: word vectors, sequence models, Transformers, large language models, evaluation, and responsible NLP.',
+    },
+  },
+  {
+    slug: 'stanford-cs224u',
+    names: { 'zh-TW': 'Stanford CS224U 導讀', en: 'Reading Stanford CS224U' },
+    descriptions: {
+      'zh-TW': '逐單元讀 Stanford CS224U：語意表示、自然語言推論、問答與互動式語言系統，明確標示所採歷史學期。',
+      en: 'A unit-by-unit reading of a versioned Stanford CS224U offering: semantic representations, natural-language inference, question answering, and interactive language systems.',
+    },
+  },
+  {
+    slug: 'stanford-cs224v',
+    names: { 'zh-TW': 'Stanford CS224V 導讀', en: 'Reading Stanford CS224V' },
+    descriptions: {
+      'zh-TW': '逐單元讀 Stanford CS224V 的明確學期版本：對話式虛擬助理的理解、對話管理、生成、評估與部署。',
+      en: 'A unit-by-unit reading of one explicitly versioned Stanford CS224V offering: understanding, dialogue management, generation, evaluation, and deployment for conversational assistants.',
+    },
+  },
+  {
+    slug: 'stanford-cs224w',
+    names: { 'zh-TW': 'Stanford CS224W 導讀', en: 'Reading Stanford CS224W' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CS224W：圖的表示、網路科學、圖神經網路、知識圖譜與可擴展圖學習。',
+      en: 'A lecture-by-lecture reading of Stanford CS224W: graph representation, network science, graph neural networks, knowledge graphs, and scalable graph learning.',
+    },
+  },
+  {
+    slug: 'stanford-cs329z',
+    names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
+    descriptions: {
+      'zh-TW': '逐講追蹤 Stanford CS329Z 的 agent engineering 課程；只在當期官方材料公開後撰寫，不用預告大綱代替實際講授。',
+      en: 'A lecture-by-lecture reading of Stanford CS329Z on agent engineering, written only as current official materials appear rather than treating a tentative syllabus as delivered instruction.',
+    },
+  },
+  {
+    slug: 'stanford-cs329a',
+    names: { 'zh-TW': 'Stanford CS329A 導讀', en: 'Reading Stanford CS329A' },
+    descriptions: {
+      'zh-TW': '逐講追蹤 Stanford CS329A 的自我改進式 AI 系統；每篇以可對應官方 session 的材料為準，缺料時明列等待。',
+      en: 'A lecture-by-lecture reading of Stanford CS329A on self-improving AI systems, grounded in materials attributable to each official session and paused where evidence is missing.',
     },
   },
   {
@@ -240,6 +384,34 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
 ];
 
+export function validateSeriesDefinitions(
+  definitions: ReadonlyArray<Pick<SeriesDefinition, 'slug' | 'names'>> = SERIES_DEFINITIONS,
+): string[] {
+  const errors: string[] = [];
+  const slugs = new Set<string>();
+  const slugByName = new Map<string, string>();
+
+  for (const definition of definitions) {
+    if (slugs.has(definition.slug)) errors.push(`Duplicate series slug: ${definition.slug}`);
+    slugs.add(definition.slug);
+
+    for (const name of Object.values(definition.names)) {
+      const existingSlug = slugByName.get(name);
+      if (slugByName.has(name) && existingSlug !== definition.slug) {
+        errors.push(`Duplicate series name: ${name}`);
+      }
+      slugByName.set(name, definition.slug);
+    }
+  }
+
+  return errors;
+}
+
+const definitionErrors = validateSeriesDefinitions();
+if (definitionErrors.length > 0) {
+  throw new Error(`Invalid series registry:\n${definitionErrors.join('\n')}`);
+}
+
 const DEFINITION_BY_NAME = new Map<string, SeriesDefinition>();
 for (const definition of SERIES_DEFINITIONS) {
   for (const name of Object.values(definition.names)) {
@@ -305,13 +477,17 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
         return a.data.date.getTime() - b.data.date.getTime();
       });
       const meta = getSeriesMeta(name);
+      const latestDate = orderedPosts.reduce(
+        (latest, post) => post.data.date.getTime() > latest.getTime() ? post.data.date : latest,
+        new Date(0),
+      );
       return {
         name,
         slug: meta.slug,
         description: meta.descriptions[lang],
         posts: orderedPosts,
         count: orderedPosts.length,
-        latestDate: orderedPosts[orderedPosts.length - 1]?.data.date ?? new Date(0),
+        latestDate,
       };
     })
     .sort((a, b) => b.latestDate.getTime() - a.latestDate.getTime());

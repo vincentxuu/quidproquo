@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 17
+  name: "Stanford CS329A 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 18
 tldr: "CS329A 的軸心是 generation–verification gap：模型答得出來，卻認不出哪個對。但課程自己下的結論更值得記——目前這些方法讓模型變得更穩定，不是更聰明。錄影公開 9 支，只涵蓋 20 堂中的 9 堂。"
 description: "Stanford CS329A: Self-Improving AI Agents 完整導讀，讀完公開的九支錄影與第一次開課的三場客座：課程主軸、34 篇閱讀清單的分組邏輯、自我改進只在哪條窄帶裡發生、兩次開課的課綱 diff，以及自學者實際拿得到什麼。"
 draft: false

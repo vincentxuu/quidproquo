@@ -2,6 +2,13 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-22 歸檔
+
+- 2026-08-22: 完成 LLM Gateway 與追蹤工具專文盤點及補稿。LiteLLM、Portkey 原有中英文 deep-dive 已符合個別專文範圍；新增 Helicone、LangSmith 中英文稿，分別聚焦 proxy-first request observability 與 trace-to-evaluation workflow。四組文章通過台灣用語、references、語言對照、Astro 與完整 `pnpm verify`，待使用者 review。
+- 2026-08-22: 完成 Haystack、RAGFlow、Dify、R2R 與 Scrapy、Selenium、Bright Data、Zyte 共八組中英文工具專文草稿；均先確認無既有個別專文，依官方一手文件撰寫並通過內容品質閘門，待使用者 review。
+- 2026-08-22: 完成 Chroma、Milvus、LanceDB、pgvector 四組向量資料庫中英文 deep-dive 草稿；Weaviate 因已有法律 RAG 架構專文不重複。八檔均以官方一手文件查證，`check:tw`、references、lint、Astro 與完整 `pnpm verify` 通過，待使用者 review 後提交。
+- 2026-08-21: MIT 6.S191 2026 單課導讀中英文文章已完成並提交（`ed05184`）；官方課站、九講教材、三個 labs、校外執行限制與 2025 替代版均已核對，完整品質閘門通過。
+
 ## 2026-08-19 歸檔
 
 ### Recently completed（原 progress.txt 條目，2026-08-19 移入）
@@ -902,3 +909,22 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   verify 就紅，擋到另一個 session 的 commit。對方來問我回了時程、綠燈後通知，雙方都沒動對方的檔案。
   **下次跑 zh/en 並行批次：讓 agent 先建好兩個檔案骨架再填內容。**
   系列現在只剩 AWS MLA-C01（等 9/1 的 C02 規格；C02 exam guide 網址今天仍 404）。
+
+## 2026-08-21 搜尋與爬取內容四篇（自 progress.txt 移入）
+
+- 完成 SearXNG、Crawl4AI、Web Retrieval Fallback 與免費搜尋／爬取工具選型四篇中英草稿（8 檔）。
+  以官方文件核對 API 與價格語意，補齊站內分工與交叉連結；51 個外部連結、繁中用語、引用、語言配對、
+  系列順序、lint 與 Astro schema 均納入驗證。未執行實際 Docker 部署與外部網站爬取。
+
+## 2026-08-21 搜尋／爬取 canonical 工具文第二批（自 progress.txt 移入）
+
+- 先盤點站內既有文章，排除已完成的 Exa、Qdrant 與私有語料搜尋，再完成 AgentQL、Linkup、
+  changedetection.io、Apify 四篇中英工具指南（8 檔）。四篇均以官方文件界定功能與費率邊界，
+  並通過整站 verify、Astro check、繁中用語及 80 個外部連結檢查；未呼叫付費 API 或執行大規模爬取。
+
+## 2026-08-21 搜尋／爬取 canonical 工具文第三批（自 progress.txt 移入）
+
+- 完成 Firecrawl、Scrapling、Tavily、Browser Use 四篇中英工具指南（8 檔），各自承接 cloud crawler、
+  adaptive selector、agent search API 與自主 browser agent 的 canonical 定位。官方文件、費率與授權邊界
+  已逐篇核對；整站 verify、Astro check、繁中語域及 78 個外部連結均通過。未呼叫需憑證 API，
+  未執行受保護網站成功率或跨工具 benchmark。

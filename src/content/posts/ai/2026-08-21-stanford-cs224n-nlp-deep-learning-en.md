@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs224n, ai-course, stanford, nlp, transformer, llm]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 11
+  name: "Reading Stanford CS224N"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 12
 tldr: "CS224N has kept every course website since 2000 online. In Winter 2019, Transformers were lecture 14, taught by a guest. In Winter 2026 they are lecture 5, and every lecture after that assumes you already know them. The machine translation assignment is gone; assignment 3 now has you code a decoder-only Transformer from scratch, with pytest suites that run on your laptop."
 description: "A full walkthrough of Stanford CS224N: Natural Language Processing with Deep Learning. Six archived offerings — Winter 2019, 2022, 2023, 2024, Spring 2024, Winter 2025 — compared lecture by lecture and assignment by assignment against the current Winter 2026 syllabus, plus an item-by-item account of what a self-learner can actually get."
 draft: false

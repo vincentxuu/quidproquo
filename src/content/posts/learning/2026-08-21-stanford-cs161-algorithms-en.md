@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs161, ai-course, stanford, algorithms, self-study, cs-course]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 6
+  name: "Reading Stanford CS161"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 6
 tldr: "The first slide of CS161 names three goals: design, analysis, communication. The third one is why handwritten homework scores zero and why solutions have to read like a memo to a colleague. Of the eight problem sets, HW2 is the wall. The lecture notebooks exist to show that timing runs can't tell you which algorithm is faster. And the summer offering is a completely different course wearing the same number."
 description: "A full walkthrough of Stanford CS161 Winter 2026 after reading all eighteen lecture notes, the eight problem sets and the course policies: where the course-title contradiction came from, what a Python notebook is actually for in an algorithms class, the embedded ethics problems, the LLM policy in full, and what a self-learner can and cannot get."
 draft: false

@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
   order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 10
 tldr: "CS230 第一講是課程總覽，但 Andrew Ng 花最多時間講的是三件事：為什麼 scaling 有效、什麼時候 prompt 就不夠用了、以及他認為「不要學寫程式」是史上最糟的職涯建議之一。"
 description: "Stanford CS230（2025 秋季）Lecture 1 完整導讀：flipped classroom 的設計、scaling 敘事、抽象層地圖與兩個下鑽觸發條件、五個線上模組、AI 輔助寫程式的兩個 bucket，以及 Ng 的四級生產力排序。"
 draft: false

@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs229, ai-course, stanford, machine-learning, deep-learning, self-study]
 lang: zh-TW
 series:
-  name: "Stanford CS 主線課程導讀"
-  order: 9
+  name: "Stanford CS229 導讀"
+  order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 9
 tldr: "CS229 的自學三件套不在同一個時鐘上：講義 278 頁、2026 年 8 月才重編過；公開拿得到的作業是 2020 年夏季那批；Stanford Online 叫你入學前先做的自測題，PDF 建立於 2008 年。2026 春季錄影公開 17 支，最後三支的標題跟內容對不上。"
 description: "Stanford CS229: Machine Learning 完整導讀——講義 278 頁的實際涵蓋範圍與第一章難在哪、2018 版與 2026 版課綱的落差、還拿得到的三份 problem set、CS229 與 CS230 官方怎麼定位，以及自學者實際拿得到什麼。"
 draft: false

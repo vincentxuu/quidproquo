@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 15
+  name: "Reading Stanford CS329Z"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 16
 tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework asks you to build RAG, tool calling and a ReAct loop from scratch with litellm, then rewrite the same components in DSPy and hand in the comparison. The course site lives in a public GitHub repo, and the commit log shows the assignment count dropping from three to two in mid-August — the one that got cut was 'Data for Agents'."
 description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — the instructors, the prerequisites, how 22 sessions and 49 readings are grouped, what the two assignments actually ask for, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
 draft: false

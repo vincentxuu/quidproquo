@@ -27,7 +27,7 @@ draft: false
 
 週下載、維護活躍度、社群規模、文件品質——這些該看的還是要看，它們衡量的是「這個東西會不會半路死掉、出事有沒有人救」。這些問題在 AI 時代一個都沒消失。
 
-不夠用的地方在於，它們全都預設**讀文件、寫程式、除錯的是人**。當這幾件事有相當比例交給 agent，工具的一些從前無關緊要的性質，突然開始決定產出品質。八篇寫下來，這些性質收斂成幾條。
+不夠用的地方在於，它們全都預設**讀文件、寫程式、除錯的是人**。當這幾件事有相當比例交給 agent，工具的一些從前無關緊要的性質，突然開始決定產出品質。二十篇寫下來，這些性質收斂成幾條。
 
 ## 分岔出來的判準
 
@@ -55,7 +55,7 @@ draft: false
 
 語料存量不是一條獨立的判準，它是**採用度的下游**——用的人多，網路上的程式碼就多，模型讀到的就多，agent 寫出來的正確率就高。而採用度本來就是選型的主判準：用的人多代表坑被踩過、問題搜得到答案、找得到會的人、專案比較不會死。
 
-所以 AI 沒有削弱「選多人用的」這條，**它多給了一個機制去支持同一個老結論**。這是我寫完八篇之後最反直覺的一個收穫：agent 時代最該堅持的，反而是最傳統的那條。
+所以 AI 沒有削弱「選多人用的」這條，**它多給了一個機制去支持同一個老結論**。這是我寫完二十篇之後最反直覺的一個收穫：agent 時代最該堅持的，反而是最傳統的那條。
 
 那前面五條判準是幹嘛的？兩個用途。
 
@@ -67,7 +67,7 @@ draft: false
 
 回到開頭那個 TanStack Router 的難題，誠實的答案是：如果你的團隊沒有非用它不可的理由，React Router 仍然是安全的預設值。TanStack Router 值得選，是因為它的型別安全解決了一個具體的痛（大型專案的路由重構），而不是因為它比較新、比較乾淨。
 
-## 八篇分別在講什麼
+## 二十篇分別在講什麼
 
 | # | 主題 | 在這條線上的位置 |
 |---|---|---|
@@ -79,6 +79,18 @@ draft: false
 | 6 | [shadcn registry 與 MCP](/posts/tech/2026-08-21-shadcn-registry-mcp) | 把 copy-in 標準化成分發機制 |
 | 7 | [llms.txt](/posts/tech/2026-08-21-llms-txt) | 補救手段本身 |
 | 8 | [WebMCP](/posts/tech/2026-08-21-webmcp-browser-tools) | 從機器讀得懂，到機器叫得動 |
+| 9 | [Microsoft Agent Framework](/posts/ai/2026-08-21-microsoft-agent-framework) | AutoGen 與 Semantic Kernel 合併後的框架邊界 |
+| 10 | [LlamaIndex](/posts/ai/2026-08-21-llamaindex-rag-framework) | 從 RAG 框架走向 agent 資料層 |
+| 11 | [vLLM 自架決策](/posts/ai/2026-08-21-vllm-self-host-decision) | 自架推論的預設選擇與過度工程界線 |
+| 12 | [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents) | 為 agent 設計的搜尋 API |
+| 13 | [Modal](/posts/ai/2026-08-21-modal-serverless-gpu) | 推論引擎下面的 serverless GPU 執行層 |
+| 14 | [Composio](/posts/ai/2026-08-21-composio-agent-tool-integration) | agent 連接 SaaS 時的認證與工具整合層 |
+| 15 | [Tailscale](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents) | 自架 agent 的私有網路與權限邊界 |
+| 16 | [Temporal](/posts/tech/2026-08-21-temporal-durable-execution) | 以決定性 replay 實作 durable execution |
+| 17 | [Drizzle ORM](/posts/tech/2026-08-21-drizzle-orm-sql-first) | SQL-first 的可審查資料存取層 |
+| 18 | [Trigger.dev](/posts/tech/2026-08-21-trigger-dev-durable-tasks) | 以行程快照避開決定性限制 |
+| 19 | [CrewAI](/posts/ai/2026-08-21-crewai-multi-agent-framework) | 用角色與任務組織多 agent 協作 |
+| 20 | [Supabase](/posts/tech/2026-08-21-supabase-postgres-platform) | 以 PostgreSQL 為核心的 BaaS 取捨 |
 
 要決定一個具體套件就直接跳該篇，每篇末尾都有適合與不適合的收斂。想建立自己的判準，讀第 1 篇的地圖和第 7 篇；想知道 agent 時代的網頁會變成什麼樣，第 7、8 篇是同一條軸的兩段。
 
@@ -92,19 +104,19 @@ draft: false
 
 | 層 | 還沒寫的 | 站上現況 |
 |---|---|---|
-| **Agent 框架** | Microsoft Agent Framework 與 AG2、LangChain、CrewAI、Mastra、Pydantic AI、DSPy | 有 LangGraph 專文與一篇 15 框架地圖，但地圖已過時 |
-| **RAG 框架** | LlamaIndex、Haystack、RAGFlow、Dify、R2R | 技法三十餘篇，框架零篇 |
+| **Agent 框架** | AG2、LangChain、Mastra、Pydantic AI、DSPy | 已有 Microsoft Agent Framework、CrewAI、LangGraph 專文與一篇 15 框架地圖，但缺跨框架的新選型比較 |
+| **RAG 框架** | Haystack、RAGFlow、Dify、R2R | 已有 LlamaIndex 專文與三十餘篇 RAG 技法文，仍缺跨框架選型 |
 | **自架推論服務** | SGLang、Triton、Ray | 有 vLLM 與 Ollama 兩篇 |
 | **雲端 LLM API 與路由** | OpenRouter、Bedrock、Vertex AI、Together、Fireworks、LiteLLM、Portkey | 有 Groq Console、9Router 與一篇 40+ 家定價整理 |
-| **抓取與搜尋 API** | Exa、Tavily、Jina Reader、Serper、SerpAPI、Linkup、Brave Search API | 有 Firecrawl 專文與一篇爬蟲工具全景圖 |
-| **自架爬蟲與反爬蟲** | Crawl4AI、Scrapy、Selenium、Bright Data、Zyte、Apify | 有一篇繞過 Cloudflare 反爬蟲的實戰文 |
-| **全文檢索與站內搜尋** | Pagefind、Meilisearch、Typesense、Algolia、Elasticsearch / OpenSearch | 完全空白——而本站自己的搜尋就是 Pagefind |
-| **向量資料庫** | Qdrant、Chroma、Weaviate、Milvus、LanceDB、pgvector | 有選型比較，無單品深入 |
+| **抓取與搜尋 API** | — | Exa、Tavily、Linkup、Jina Reader、Firecrawl、Serper、SerpAPI、Brave Search API 均已有專文，另有一篇爬蟲工具全景圖 |
+| **自架爬蟲與反爬蟲** | Scrapy、Selenium、Bright Data、Zyte | 已有 Crawl4AI、Apify 專文與一篇繞過 Cloudflare 反爬蟲的實戰文 |
+| **全文檢索與站內搜尋** | Typesense、Algolia、Elasticsearch / OpenSearch | 已有 Pagefind、Meilisearch 專文；本站以 Pagefind 支援 404 搜尋，主要搜尋頁另走 D1 與混合檢索 |
+| **向量資料庫** | Chroma、Weaviate、Milvus、LanceDB、pgvector | 已有選型比較與 Qdrant 單品深入 |
 | **Agent 記憶服務** | Mem0、Zep、Cognee、Letta / MemGPT | 有概念文，無工具專文 |
 | **Agent 協定** | AP2 與 UCP（代理支付與商務） | 覆蓋最好的一層：MCP、A2A、A2UI、AGENTS.md、WebMCP 各有專文 |
-| **Agent 的工具連接平台** | Composio、Arcade、Pipedream、Toolhouse、Zapier MCP | 完全空白 |
+| **Agent 的工具連接平台** | Arcade、Pipedream、Toolhouse、Zapier MCP | 已有 Composio 專文 |
 | **Agent 託管與 SDK** | OpenAI Agents SDK、Cloudflare Agents SDK | 有 Vercel Open Agents、Claude Managed Agents、OpenAI Workspace Agents |
-| **Agent 介面元件** | CopilotKit、assistant-ui | 有 AI Elements 與 A2UI |
+| **Agent 介面元件** | — | CopilotKit、assistant-ui、AI Elements 與 A2UI 均已有專文 |
 | **LLM gateway 與追蹤** | LiteLLM、Portkey、Helicone、LangSmith | 有 Langfuse 與 9Router |
 | **低程式碼 agent 平台** | Dify、n8n、Flowise | 完全空白 |
 
@@ -114,9 +126,9 @@ draft: false
 
 | 層 | 代表玩家 | 站上現況 |
 |---|---|---|
-| **Agent 沙箱與執行環境** | Modal、E2B、Daytona、Runloop、Vercel Sandbox、Cloudflare Sandboxes | 完全空白 |
+| **Agent 沙箱與執行環境** | Modal、E2B、Daytona、Runloop、Vercel Sandbox、Cloudflare Sandboxes | 已有 Modal 專文，其餘仍空白 |
 | **Agent 的瀏覽器基建** | Browserbase、Steel、Hyperbrowser、Cloudflare Kitesurf | 只有 Stagehand 有專文 |
-| **Agent 的網路存取層** | Parallel、Exa、Bright Data | 完全空白 |
+| **Agent 的網路存取層** | Parallel、Exa、Bright Data | 已有 Exa 專文，Parallel 與 Bright Data 仍空白 |
 | **Eval 與模擬環境** | Patronus、Braintrust、Promptfoo、Arize Phoenix、Galileo | 只有 Langfuse 有專文 |
 | **Agent 導向的推論** | Baseten、Sail、Fireworks、Together、Cerebras | 完全空白 |
 | **語音 agent** | LiveKit、Vapi、Cartesia、Deepgram、ElevenLabs | 完全空白 |
@@ -136,35 +148,37 @@ draft: false
 |---|---|---|
 | **建置與工具鏈** | Vite 8 與 Rolldown、Vitest、oxlint / Oxc、TypeScript 7 | 完全空白 |
 | **訊息佇列與事件串流** | Kafka、RabbitMQ、NATS、Redpanda、Pulsar、Redis Streams、AWS SQS / SNS、Cloudflare Queues | 有 BullMQ 與 Celery 兩篇任務佇列 |
-| **Durable execution** | Temporal、Trigger.dev、Inngest、Restate、Hatchet | 完全空白 |
+| **Durable execution** | Inngest、Restate、Hatchet | 已有 Temporal 與 Trigger.dev 專文 |
 | **後端的合約層** | tRPC、oRPC、ts-rest、Zodios、Hono RPC；OpenAPI 那側的 openapi-typescript、Stainless、Speakeasy；跨語言的 gRPC / Connect、Protobuf / Buf、GraphQL 與 Codegen | 完全空白 |
-| **資料存取** | Drizzle、Kysely | 有 Prisma 專文 |
+| **資料存取** | Kysely | 已有 Drizzle 與 Prisma 專文 |
 | **認證與授權** | Better Auth，以及 agent 代表使用者行動時的授權模型 | 完全空白 |
 | **三大雲的運算層** | AWS Lambda / Fargate / App Runner、Google Cloud Run / GKE、Azure Container Apps / App Service | 只有 AI 證照備考文，沒有平台選型文 |
 | **GPU 與推論專用雲** | CoreWeave、Lambda Labs、RunPod、Nebius、Crusoe、Replicate、Hugging Face | 完全空白 |
 | **二線雲與地端** | DigitalOcean、Hetzner、Vultr、Linode、Scaleway、OVHcloud、Oracle OCI；地端的 Proxmox、OpenStack | 完全空白 |
 | **託管 PaaS** | Vercel、Netlify、Render、Railway、Fly.io、Koyeb、Deno Deploy、DigitalOcean App Platform | Cloudflare 那條線覆蓋得厚，其餘空白 |
 | **自架 PaaS** | Coolify、Dokploy、CapRover、Dokku、Kamal | 完全空白 |
-| **Backend-as-a-Service** | Supabase、Firebase、Appwrite、Convex、PocketBase、Nhost | 完全空白 |
+| **Backend-as-a-Service** | Firebase、Appwrite、Convex、PocketBase、Nhost | 已有 Supabase 專文 |
 | **編排與基礎設施即程式碼** | Kubernetes、Terraform、Pulumi、SST | 有 Docker 與 nginx，再上去就空了 |
 | **後端框架** | NestJS、Fastify、Elysia、Django | 有 Hono、Express、FastAPI |
-| **私有網路與遠端存取** | Tailscale、WireGuard、ngrok、ZeroTier、Twingate、Teleport | 有一篇 Cloudflare Tunnel，其餘空白 |
+| **私有網路與遠端存取** | WireGuard、ngrok、ZeroTier、Twingate、Teleport | 已有 Tailscale 與 Cloudflare Tunnel 專文 |
 | **即時傳輸與協作** | Socket.IO、WebSocket、SSE、PartyKit、Ably、Liveblocks、Yjs / CRDT、Cloudflare Durable Objects | 有一篇 RAG Streaming，其餘空白 |
 | **供應鏈與程式碼資安** | Socket.dev、Snyk、Semgrep、CodeQL、Renovate、gitleaks、zizmor、Sigstore / SLSA | 只有 Trivy 有專文 |
 | **Agent 的資安** | prompt injection 分類器（Model Armor）、red-team 工具（Promptfoo）、沙箱逃逸與權限邊界 | 有概念文，無工具專文 |
-| **一般資料庫** | MySQL、MongoDB、DuckDB、託管 Postgres（Supabase / Neon / Turso） | 有 PostgreSQL、Redis、ClickHouse、D1 |
+| **一般資料庫** | MySQL、MongoDB、DuckDB、託管 Postgres（Neon / Turso） | 已有 PostgreSQL、Supabase、Redis、ClickHouse、D1 |
 
 有兩個缺口刺眼到不列不行。
 
-**agent 框架**這層看起來有寫過：站上確實有一篇〈2026 年 15 個值得關注的 Agent 框架〉。但它的日期是 2026-04-01，比 Microsoft Agent Framework 的 1.0 GA 早了整整一天，全篇也沒出現過 AutoGen、Semantic Kernel 或微軟那條線。換句話說，這層現在最需要有人講清楚的部分，那張地圖剛好一格都沒畫到。
+**agent 框架**這層現在補了 Microsoft Agent Framework 與 CrewAI，原本那篇〈2026 年 15 個值得關注的 Agent 框架〉漏掉的兩個方向都有了單篇解釋。但單品文不等於選型地圖：AG2、LangChain、Mastra、Pydantic AI、DSPy 仍未補齊，也還缺一篇用同一組判準重新比較它們的文章。
 
-**RAG 框架**則是另一種漏法。站上的 RAG 技法寫了三十幾篇——Chunking、HyDE、CRAG、GraphRAG、ColBERT——密度大概是全站之最。可是讀完這些之後，讀者會問的第一個問題是「那我到底該用哪個框架」。這題一次都沒回答過。
+**RAG 框架**則是另一種漏法。站上的 RAG 技法寫了三十幾篇——Chunking、HyDE、CRAG、GraphRAG、ColBERT——密度大概是全站之最，現在也有了 LlamaIndex 專文。可是讀完之後，讀者仍會問「LlamaIndex、Haystack、RAGFlow、Dify、R2R 到底該用哪個」。跨框架的比較還沒回答這題。
 
 還有一種缺口比較難堪，是**自己天天在用卻從沒寫過的東西**。
 
-這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina，我寫每一篇文章都在用它們——三十八支 skill 裡有十六支直接引用 Exa，專文卻是零篇。本站的全文搜尋跑的是 Pagefind，也是零篇。Hugging Face 被三十八篇文章提到，同樣零篇。
+這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina，現在三個都有自己的專文。[Pagefind](/posts/tech/2026-08-22-pagefind-static-search) 與 [Hugging Face](/posts/ai/2026-08-22-hugging-face-hub-guide) 也已補上：前者直接拆本站 Astro build 後產生索引、404 頁使用 Pagefind UI，而主要搜尋頁另走 D1 與混合檢索的實際邊界；後者則從 Hub 的 repository 一路分清 Datasets、Spaces、Inference Providers 與 Endpoints。[Jina Reader 專文](/posts/ai/2026-08-22-jina-reader-guide)補齊已知 URL 到模型可讀 Markdown 的那一段；[Serper](/posts/ai/2026-08-22-serper-search-api-guide)、[SerpAPI](/posts/ai/2026-08-22-serpapi-search-api-guide)與 [Brave Search API](/posts/ai/2026-08-22-brave-search-api-guide)則把 Google SERP、多引擎 SERP 與自有搜尋索引三條路分開。
 
-雲那邊是另一種形狀的空白。站上躺著五篇 AWS 與微軟的 AI 證照備考路徑，卻沒有一篇談這些平台本身怎麼選。更難解釋的是 GPU 與推論專用雲——CoreWeave、Lambda Labs、RunPod、Nebius，一次提及都沒有，而這是一個內容以 AI 為主的站。站上寫過 vLLM 與 Ollama，也就是**推論引擎寫了、跑引擎的地方沒寫**；自架的成本與延遲其實都落在後者，缺了它，「要不要自架」就只回答了一半。
+Agent 介面元件也補齊了。[CopilotKit](/posts/tech/2026-08-22-copilotkit-agent-ui)從應用程式狀態、工具與 Human-in-the-Loop 出發；[assistant-ui](/posts/tech/2026-08-22-assistant-ui-runtime)則從 chat primitives、Runtime ownership 與後端 adapter 出發。兩篇刻意保留不同主脊，不把功能重疊寫成同一份清單。
+
+雲那邊是另一種形狀的空白。站上躺著五篇 AWS 與微軟的 AI 證照備考路徑，卻沒有一篇談這些平台本身怎麼選。Modal 補上了 serverless GPU 的一角，但 CoreWeave、Lambda Labs、RunPod、Nebius 這些 GPU 與推論專用雲仍沒有橫向比較。站上寫過 vLLM 與 Ollama，也就是**推論引擎寫了，跑引擎的地方只回答了一種形狀**；要不要自架仍缺完整的成本與延遲地圖。
 
 ### 第二組為什麼算數
 
@@ -178,7 +192,7 @@ draft: false
 
 它接著列的每一點其實都是選型判準。建置要快，因為 agent 迭代的次數遠比人多。測試要快，因為它會反覆重跑來驗證自己剛寫的東西。lint 與格式化要快，因為它們在這個迴圈裡變成了護欄。錯誤訊息要結構清楚，因為讀它、據此修正的是機器。這跟「哪個打包器跑分比較高」根本是兩個問題。
 
-在講其他層之前，得先拆開一組經常被當成同義詞的東西：**任務佇列、事件串流、durable execution 是三件不同的事**。佇列（BullMQ、Celery）保證訊息會被消費掉；串流（Kafka、NATS）保證事件有序、而且能重播；durable execution 保證的則是**一段橫跨多次外部呼叫的流程，中途崩了也能接著走完**。agent 要的多半是第三種，而站上只寫過第一種。
+在講其他層之前，得先拆開一組經常被當成同義詞的東西：**任務佇列、事件串流、durable execution 是三件不同的事**。佇列（BullMQ、Celery）保證訊息會被消費掉；串流（Kafka、NATS）保證事件有序、而且能重播；durable execution 保證的則是**一段橫跨多次外部呼叫的流程，中途崩了也能接著走完**。agent 要的多半是第三種，現在站上已有 Temporal 與 Trigger.dev 兩種不同復原模型的專文。
 
 這三者裡，durable execution 的判準最能說明「AI 改變了答案」是什麼意思。它內部的分歧不在名詞上——DBOS 與 Hatchet 都用 checkpoint 這個詞，卻同樣要求你的編排碼是決定性的。真正的分界線是**復原時要不要重跑你寫的那段程式碼**：Temporal 這類重跑，所以工作流程碼必須決定性；Trigger.dev 用作業系統層級的行程快照還原，一行都不重跑，所以不要求。而 LLM 呼叫本質上就是非決定性的——這一條就把答案定死了大半。
 
@@ -188,7 +202,7 @@ draft: false
 
 部署層最後回到一件很土的事：CLI 一不一致。agent 要自己跑部署跟回滾，指令長得七零八落，它就會繞遠路。自架 PaaS 這幾年重新變熱，多少也是這個原因——一鍵部署對人、對 agent 都比一份 Kubernetes manifest 好用。
 
-私有網路這層是我盤點時漏掉、後來才補上的，而它其實有明確的 AI 判準：**自架一個常駐的 agent，等於在自己的網路裡開了一個需要從外面連得到、又不能開在公網上的東西**。站上寫 OpenClaw 威脅模型、Hermes 安全模型、自架常駐 agent 橫向對照的時候，Tailscale 出現過十一次——每一次都是順帶提及，從來沒有一篇解釋過它。agent 要碰內網資源（資料庫、內部服務）而不開公網，也是同一層的問題。
+私有網路這層是我盤點時漏掉、後來才補上的，而它其實有明確的 AI 判準：**自架一個常駐的 agent，等於在自己的網路裡開了一個需要從外面連得到、又不能開在公網上的東西**。Tailscale 專文已經補上 tailnet、subnet router、tag 與 ACL 的邊界；WireGuard、ngrok、ZeroTier、Twingate、Teleport 之間怎麼選，仍是下一個缺口。
 
 即時傳輸那層要處理的是串流與共享狀態。agent 的輸出是逐字吐出來的；人跟 agent 同時改同一份文件，是 CRDT 那類工具的老題目換了新場景；至於一個跑很久的 agent，它的狀態該放哪，也是這層的問題。
 
@@ -199,6 +213,11 @@ draft: false
 ## 最後一句
 
 這些判準是用來輔助決定的，不是用來取代它的。一個套件在每一條上都拿滿分，如果你的團隊不熟、生態不合、或者它解的根本不是你的問題，那還是不該選。這個系列想給的不是一份推薦清單，是**幾條你原本不會想到要問的問題**。
+
+## 更新紀錄
+
+- 2026-08-22：依站內實際文章重新盤點 roadmap，將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 改列為已有專文。
+- 2026-08-21：系列更新至 order 20，補入後續十二篇閱讀路徑，並同步修正 roadmap 的已覆蓋與未覆蓋項目。
 
 ## 參考資料
 

@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs224w, ai-course, stanford, graph, knowledge-graph, graphrag]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 14
+  name: "Reading Stanford CS224W"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 15
 tldr: "All six CS224W Colabs download and run today, and the first one needs only NetworkX — no PyG install at all. But the exam is 35% of the grade, the largest single piece, and it's an in-person closed-book sitting. The public recordings stop at 2021 and cover none of the current syllabus's second half: graph transformers, relational deep learning, LLM+GNN."
 description: "A full walkthrough of Stanford CS224W: Machine Learning with Graphs — two official pages that state different prerequisites, a course blurb eight years behind the actual syllabus, what the six Colabs really depend on and what hardware they want, why student projects end up as public Medium posts, and item by item what a self-learner can get."
 draft: false

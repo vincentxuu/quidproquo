@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs228, ai-course, stanford, probabilistic-graphical-models, bayesian-network, variational-inference]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 10
+  name: "Reading Stanford CS228"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 11
 tldr: "CS228's official prerequisite is a single line — 'basic probability theory and algorithm design and analysis' — with no named course. But ExploreCourses shows it was last offered in Winter 2024, and the next slot, Winter 2027, still has a blank instructor field. What a self-learner can actually get is cs228-notes: 16 chapters, complete, last touched in June 2025."
 description: "A walkthrough of Stanford CS228: Probabilistic Graphical Models, written after reading the ExploreCourses entries, the course site frozen at Winter 2024, and every chapter of the public cs228-notes — the real entry bar, the rhythm of the five assignments, how complete and how maintained the notes are, and where CS236 fits."
 draft: false

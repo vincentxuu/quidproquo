@@ -6,8 +6,11 @@ type: deep-dive
 tags: [cs229, ai-course, stanford, machine-learning, deep-learning, self-study]
 lang: en
 series:
-  name: "Reading Stanford's Main-Line CS Courses"
-  order: 9
+  name: "Reading Stanford CS229"
+  order: 1
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 9
 tldr: "The three things you need to self-study CS229 run on three different clocks. The lecture notes are 278 pages and were recompiled in August 2026. The newest problem sets you can download are from summer 2020. The self-assessment Stanford Online tells you to attempt before enrolling is a PDF created in 2008. Seventeen lectures from spring 2026 are public, and the last three are mislabeled."
 description: "A full walkthrough of Stanford CS229: Machine Learning — what the 278-page notes actually cover and where chapter 1 gets hard, how the 2018 and 2026 syllabi diverge, the three problem sets still downloadable, how Stanford itself positions CS229 against CS230, and exactly what a self-learner can get."
 draft: false
