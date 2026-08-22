@@ -62,18 +62,18 @@ Recently completed
 - 2026-08-21: 完成「世界名校 AI／CS 課程地圖」全球入口中英文初稿，建立 2025–2026 latest-complete
   收錄窗與 A0–A3 公開程度標籤，先納入 Stanford、CMU、MIT、Berkeley，並明確區分當期官方教材、
   LMS 受限錄影、歷史 YouTube 與 CSDIY 社群路線。下一篇依規劃進入 MIT 6.S191 單課導讀。
-- 2026-08-21: 完成 Stanford／CMU／MIT／Berkeley 課程公開程度與 CSDIY 雙軌盤點，並確立 latest-first：
-  單課預設採最近一個完整公開學期，CSDIY 只補歷史資源。第二輪補回 MIT 6.S191 2026（A3）、
-  Berkeley CS288 Spring 2026（A3）、CMU 11-785 Spring 2026（暫 A2）、MIT 6.7960 Fall 2025（A2）
-  與 CMU 10-414/714 Fall 2026（待開課換料）。YouTube 直查確認 CS288 當期 playlist 為 `UNPLAYABLE`，
-  並發現 CMU 15-281／10-315 已由 07-280／07-380 取代；15-281 改列歷史／改制題，07-280 等 Fall 2026
-  材料發布後重判。收錄窗依使用者決定擴為 2025–2026：2025 官方完整版本可正式列入，不只當附錄；
-  已補 MIT 6.S191 2025、Stanford CS336 Spring 2025、CMU 11-785 Spring／Fall 2025 影音證據。先前四門只是首批 audit，不是完整名單。CS189、MIT 6.390、
-  Berkeley CS180/280A 等 Fall 2026 核心材料真正發布後再重判；CMU 10-708 Spring 2019 移至經典課支線。研究矩陣在
-  `.research/2026-08-21-ai-cs-course-access-inventory.md`，並已回填世界名校課程系列計畫。
 - 2026-08-21: AI 學位全球地圖補查六校：HKUST、TUM、東京大學、Edinburgh、清華、Tübingen 均回官方頁升級為 🟢。
   重要修正：TUM Informatics 對一般新入學非 EU/EEA 生為 €6,000/學期，不是免學費；東京大學與清華
   人工智能學院目前都不能寫成「獨立 AI 碩士」。下一批：EPFL > Cambridge > Imperial > UCL > Amsterdam > KU Leuven。
+<<<<<<< HEAD
+=======
+- 2026-08-20: Hardened `stealth_fetch`: public-only pinned-IP proxy closes file/SSRF and DNS-rebinding
+  paths; added total deadlines, cancellation, bounded concurrency/output, explicit readiness errors,
+  structured MCP metadata, lifecycle cleanup, and 17 regression tests.
+- 2026-08-20: **面試準備系列完工**：AI Engineer 面試準備 10 篇 + Product Builder 面試準備 10 篇（共 20 篇 zh-TW），
+  每日面試日練 routine 2 個（Routine N/O，台灣 2:39/2:43），`/interview` 頁面 + nav 連結 + daily channel filter。
+  日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
+>>>>>>> de830e9 (feat(anti-cf): 強化 stealth_fetch MCP server 安全防護)
 （已完成的條目移到 docs/progress-archive.md）
 Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG
