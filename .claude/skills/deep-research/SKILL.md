@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Multi-source research for tools, frameworks, papers, models, products, or trends. Plans sub-questions, fetches primary sources, cross-validates facts, then outputs a structured research note ready to feed into the `post` skill as a deep-dive draft. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼. Skip for single-fact lookups (no synthesis needed) or implementation tasks (use ai-expert instead).
+description: Portable multi-source research for tools, frameworks, papers, models, products, or trends. Uses Groundlane plus specialized and platform-native research tools, distinguishes computer/local clients from Web-hosted agents, verifies primary sources, and outputs a structured research note. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼. Skip for single-fact lookups or implementation tasks.
 ---
 
 # deep-research skill
@@ -26,8 +26,8 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 | 執行環境 | Groundlane 用法 | 不可假設 |
 |---|---|---|
-| 電腦／本機 agent | 使用已註冊的 localhost 或 remote HTTPS MCP endpoint | clone 位於特定路徑、token 可直接讀取 |
-| Web-hosted agent | 使用平台已附加的 remote MCP／custom connector | 可連使用者 localhost、讀取本機檔案或 shell env |
+| 電腦／本機 agent | 使用已註冊的 `http://localhost:8080/mcp`，或已註冊的 remote HTTPS endpoint | clone 位於特定路徑、token 可直接讀取 |
+| Web-hosted agent | 使用平台已附加的 `https://<deployment>/mcp` remote MCP／custom connector | 可連使用者的 localhost、讀取本機檔案或 shell env |
 
 成功連線後，兩種環境都使用相同的 `web_search`、`web_fetch`、`web_extract` contract。若 tool list 沒有 Groundlane：
 
@@ -50,7 +50,7 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 
 子問題範例 → `references/research-note-template.md`
 
-### 2. 蒐集（每子問題 ≥ 2 來源）
+### 2. 蒐集（每子問題建立 ≥ 2 個候選來源）
 
 **蒐集量和閱讀量是兩件事。** 搜尋會撈回幾十上百個 URL，那是候選池不是來源。**凡是最後會進文章、會被列進參考資料、或會被拿來下任何判斷的，都要完整抓下來讀過。** 只看過搜尋摘要就寫進 research note 的，一律標 `[摘要層級]`，交接時明講哪些是深讀、哪些不是。
 
@@ -69,7 +69,7 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
    - 搜尋工具回傳的片段是為關鍵字匹配最佳化的，不是為忠實呈現原文最佳化的。看到值得引用的東西，就去打**該文件本身**。
    - 主要來源（結論會依賴它的論文 / 官方頁 / 定價頁）：Groundlane `web_fetch`、`tavily_extract` **不帶 `query`**，或 `firecrawl_scrape`（PDF 要加 `parsers: ["pdf"]`）。
    - `query` 會依相關性重排並**只回傳片段**。它省的是 context，賠的是你看不到數字旁邊的但書。只有「純粹交叉印證方向、不會被單獨引用」的次要來源才可以帶。
-   - 輸出太大被存成檔案是**正常的**，用 `python3` 切片或 `grep` 讀完即可，不要因為嫌大就改用會截斷的方式。
+   - 有 filesystem 時，輸出太大被存成檔案是**正常的**，用 `python3` 切片或 `grep` 讀完即可。Web 端改用 pagination、section open 或較小範圍重新抓取；仍無法證明完整就降級為 🟡，不要因為嫌大就改用會截斷的方式並假裝全文已讀。
 5. **搜尋摘要不算讀過來源。** 片段裡看到的數字只能當「候選事實」；要寫進結論，就得對那份來源真正抽取一次。
 6. 依下表標註**取用層級**，寫進 note 與文章的參考資料：
 
@@ -80,8 +80,9 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
    | 轉引 | 經他人論文或可靠二手轉述，未取得原文 |
    | 未驗證 | 找不到獨立出處 |
 
-7. **兩個二手來源引用同一個誤讀，不算兩個來源。** 湊數量沒有意義，要湊的是**層級**：
-   - 能拿到一手 → 直接用，不必再湊
+7. **兩個二手來源引用同一個誤讀，不算兩個來源。** 候選蒐集每個子問題至少兩源，但單一事實是否需要兩個證據要看 claim 類型：
+   - 權威一手可直接支持它明確陳述的窄事實（例如官方 release date 或 API contract），標明是單一一手來源，不把它外推成效果或比較結論
+   - 效果、因果、比較、爭議或跨來源綜合結論 → 至少 2 個真正獨立的證據
    - 拿不到一手（付費牆等）→ 至少找 **2 份「確實讀過原文」的紀錄**交叉比對，並在書目明說「我沒讀到原文」
    - 只有一般二手 → 標 `⚠️ unverified`，不要寫成定論
 8. **遇到付費牆 / 抓不到，先跑完繞路清單再放棄** → `references/mcp-tools.md`〈取不到全文時的繞路順序〉。「付費牆」通常只擋正文，不擋摘要、section snippets、機構典藏版或引用它的開放取用論文。
@@ -131,11 +132,16 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 
 ### 6. 產出 research note
 
-存成暫存檔 `.research/<YYYY-MM-DD>-<slug>.md`（**不是直接發文**）。
+依執行環境輸出（**不是直接發文**）：
+
+| 執行環境 | 輸出方式 |
+|---|---|
+| 有 filesystem 的電腦／coding agent | 存成 `.research/<YYYY-MM-DD>-<slug>.md` |
+| 無 filesystem 的 Web-hosted agent | 優先建立 Markdown artifact；否則在回覆中完整輸出 research note |
 
 完整 note 格式 → `references/research-note-template.md`
 
-`.research/` 不入版控；若 `.gitignore` 還沒收錄就提醒使用者加上。
+本機 `.research/` 不入版控；若 `.gitignore` 還沒收錄就提醒使用者加上。Web 端不得聲稱已寫入不存在的本機路徑。
 
 ### 7. 交接
 
@@ -150,7 +156,7 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 | 想偷懶 | 為什麼不行 |
 |---|---|
 | 跳過拆子問題，直接搜題目 | 廣搜回來都是 SEO 內容，沒結構，最後寫不出導讀 |
-| 用一個來源就下結論 | 一手來源也會錯版本 / 講未公開細節；至少兩源是底線 |
+| 把單一來源外推成效果、比較或爭議結論 | 權威一手只足以支持其直接陳述的窄事實；跨來源結論至少需要兩個獨立證據 |
 | 搜尋摘要看起來夠清楚，不用再開原文 | 摘要是為關鍵字匹配切的，數字常被切掉對照條件。**這條是本 skill 歷史上最大的錯誤來源** |
 | 湊到兩個來源就當查證過 | 兩份二手引用同一個誤讀還是錯的。要升的是層級，不是數量 |
 | 只記數字不記對照條件 | 「0.51」和「0.93」可以出自同一篇。沒有對照條件的效果量不能用 |
@@ -159,6 +165,7 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 | 這句改過好幾輪都沒被動到，應該沒問題 | 存活 ≠ 查證。沒被檢查的句子只是沒被檢查 |
 | 直接 `firecrawl_crawl` 整站 | 多數題目 search + 單頁 scrape 就夠，整站爬慢、貴、易被 rate limit |
 | Groundlane 沒連線時回退到 legacy fetch tools | `stealth_fetch` 與 `fetch_page` 已退役；使用實際可用的專用 MCP 或平台原生工具並記錄原因 |
+| 不分環境一律使用或禁用平台原生 Web 工具 | 電腦端優先已配置 MCP；Web 端沒有 remote MCP 時才使用平台原生工具 |
 | 省略事實交叉表 | 沒這步就會把 LLM 幻覺當事實寫進文章 |
 | Research note 跟發文一起做 | 兩件事混在一起，材料還沒齊就在套句子，最後事實對不上 |
 | 抽取主要來源時帶 `query` 省 context | 回傳的是重排後的片段，你會以為讀了全文其實沒有。省下的 context 之後要用三倍去補 |
@@ -176,8 +183,8 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 
 ## 跟其他 skill 的關係
 
-- **deep-research → post**：研究完，把草稿骨架丟給 `post` skill，套 `tech-deep-dive.md` 模板發成導讀文
-- **deep-research → post-update**：原本有相關文章 → 研究完用 `post-update` 補進去（例如版本更新）
+- **deep-research → post**：若環境已安裝 `post` skill，研究完可把草稿骨架交給它；未安裝時直接交付 research note
+- **deep-research → post-update**：若環境已安裝 `post-update` 且原本有相關文章，可用它補進去
 - **deep-research vs ai-expert**：`ai-expert` 是「用我會的知識回答你」；`deep-research` 是「先去查清楚再回」。新工具 / 新論文一律從 `deep-research` 開頭
 
 ## 詳細參考
@@ -185,5 +192,4 @@ Groundlane 不可用或專用工具更適合時可直接切換，不必等使用
 - MCP 工具完整映射：`references/mcp-tools.md`
 - 電腦／Web 使用模式：`references/usage-modes.md`
 - Research note 模板與範例：`references/research-note-template.md`
-- 導讀文模板：`../post/templates/tech-deep-dive.md`
-- 寫作風格（包含導讀展開原則）：`../post/references/writing-guide.md`
+- 發文交接：若已安裝 `post` skill，載入並遵循該 skill 自己公開的流程；不要假設其內部檔案結構

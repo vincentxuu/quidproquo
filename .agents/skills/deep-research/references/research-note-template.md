@@ -1,6 +1,6 @@
 # Research Note 模板
 
-研究完成後存成 `.research/<YYYY-MM-DD>-<slug>.md`，**不是直接發文**。`.research/` 不入版控。
+研究完成後依環境輸出，**不是直接發文**：有 filesystem 時存成 `.research/<YYYY-MM-DD>-<slug>.md` 且不入版控；Web-hosted agent 優先建立 Markdown artifact，無 artifact 能力時在回覆中完整輸出，不聲稱寫入本機路徑。
 
 ## 完整格式
 
@@ -12,7 +12,7 @@
 2. ...
 
 ## 來源清單
-- [標題](URL) — 官方 / 一手 / 二手；訪問日：YYYY-MM-DD
+- [標題](URL) — 來源角色：官方 / 一手 / 二手；取用層級：全文 / 摘要 / 轉引 / 未驗證；訪問日：YYYY-MM-DD
 - ...
 
 ## 讀取完整度盤點
@@ -70,7 +70,7 @@
 | 事實 | 來源 1 | 來源 2 | 驗證狀態 |
 |---|---|---|---|
 | LangGraph 1.0 release date | 官方 blog 2025-10 | GitHub release v1.0.0 | ✅ |
-| 預設 checkpointer 改 Postgres | 官方文件 | （只此一源） | ⚠️ unverified |
+| 官方 release date 為 2025-10 | 官方 release note | （只此一源） | ✅ 單一權威一手（窄事實） |
 | 移除 `StateGraph.add_edge` | 官方 changelog | HN 討論 | ❌ conflict — 官方說 deprecated，HN 說已移除 |
 ```
 
