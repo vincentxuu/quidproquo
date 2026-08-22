@@ -11,7 +11,7 @@
 
 ### 1. 「搜尋與爬取實戰」已是完整主幹
 
-系列定義本來就涵蓋「雲端或自架搜尋、爬取選型、反爬與研究流程」，不是純工具選型（`src/utils/series.ts:85-90`）。目前有 6 個中英雙語主題、order 1–6 無缺號：
+系列定義本來就涵蓋「雲端或自架搜尋、爬取選型、反爬與研究流程」，不是純工具選型（`src/utils/series.ts:93-100`）。目前 order 1–13 的中英雙語文章均已建立；order 1–7、9、11–13 已發布，order 8、10 因缺完整 raw benchmark 維持 draft：
 
 1. 搜尋 MCP 選型（`src/content/posts/ai/2026-05-07-ai-search-mcp-tools.md:2-12`）
 2. 自架搜尋方案決策（`src/content/posts/ai/2026-08-21-self-hosted-search-stack.md:2-20`）
@@ -19,6 +19,15 @@
 4. 34 個爬蟲工具選型（`src/content/posts/ai/2026-07-25-ai-web-scraping-tools-landscape.md:2-10`）
 5. Cloudflare 反爬 fallback（`src/content/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent.md:2-24`）
 6. Local Deep Research 工具與流程（`src/content/posts/ai/2026-05-08-local-deep-research-walkthrough.md:2-20`）
+7. Search／Fetch／Crawler／Browser fallback 路由（`src/content/posts/ai/2026-08-21-web-retrieval-fallback-routing.md`）
+8. Web Retrieval Benchmark（draft；`src/content/posts/ai/2026-08-21-web-retrieval-benchmark.md`）
+9. Agent 搜尋 query 改寫（`src/content/posts/ai/2026-08-22-agent-search-query-writing.md`）
+10. 網頁抽取品質實測（draft；`src/content/posts/ai/2026-08-22-web-extraction-quality-benchmark.md`）
+11. 搜尋結果到可靠引用（`src/content/posts/ai/2026-08-22-search-results-reliable-citations.md`）
+12. 學術搜尋管線（`src/content/posts/ai/2026-08-22-academic-search-pipeline.md`）
+13. 登入網站的 session 與權限邊界（`src/content/posts/ai/2026-08-22-authenticated-web-agent-safety.md`）
+
+接下來的主系列工作不是再增加 order，而是補齊 order 8、10 的可重跑實測證據，再決定是否將兩篇解除 draft。
 
 ### 2. 工具介紹已有健康的獨立文章模式
 
@@ -52,11 +61,11 @@
 
 | 工具 | 主要定位 | 站內狀態 | 內容決策 |
 |---|---|---|---|
-| SearXNG | 自架元搜尋 | 有選型與組合實作，缺單品文 | 已排完整介紹 |
+| SearXNG | 自架元搜尋 | 已有完整介紹與組合實作 | 維護既有專文 |
 | Exa | 神經搜尋與內容 API | 已有專文 | 擴寫原文，不新增 |
-| Tavily | agent-oriented search API | 搜尋 MCP 比較文已涵蓋 | 候選完整介紹 |
-| Firecrawl Search | 搜尋加抓取 | 搜尋 MCP／爬蟲全景已涵蓋 | 與 Firecrawl crawler 合併成一篇候選工具文 |
-| Linkup | agent search API | 比較文已涵蓋 | 暫留比較文 |
+| Tavily | agent-oriented search API | 已有完整指南 | 維護既有專文 |
+| Firecrawl Search | 搜尋加抓取 | 已與 crawler 能力合併成完整指南 | 維護既有專文 |
+| Linkup | agent search API | 已有完整指南 | 維護既有專文 |
 | Brave Search | 自有索引搜尋 API | 比較文已涵蓋 | 暫留比較文 |
 | Bocha | 中文／中國網路搜尋 | 比較文已涵蓋 | 除非有中文實測，否則留比較文 |
 | Serper／SerpAPI | Google SERP 包裝 | 比較文已涵蓋 | 合併在 SERP API 類型，不各寫一篇 |
@@ -66,11 +75,11 @@
 
 | 工具 | 主要定位 | 站內狀態 | 內容決策 |
 |---|---|---|---|
-| Crawl4AI | LLM-oriented crawler／Markdown／extraction | 有組合實作，缺單品文 | 已排完整介紹 |
-| Firecrawl | 託管＋自架的 scrape／crawl／map／extract | 全景與比較文已涵蓋 | 高優先候選完整介紹 |
+| Crawl4AI | LLM-oriented crawler／Markdown／extraction | 已有完整介紹與組合實作 | 維護既有專文 |
+| Firecrawl | 託管＋自架的 scrape／crawl／map／extract | 已有完整指南 | 維護既有專文 |
 | Scrapy | 大規模規則式 crawler | 全景文已涵蓋 | 留在類型比較，除非有大型專案案例 |
 | Crawlee | JS／TS crawler framework | 全景文已涵蓋 | 留在類型比較，或和 Scrapy 做實測比較 |
-| Apify | crawler runtime／actor platform | 零散提及 | 適合平台介紹，不併入 Crawlee 工具文 |
+| Apify | crawler runtime／actor platform | 已有 Actor 平台完整指南 | 維護既有專文 |
 | Maxun | no-code web extraction | 全景文已涵蓋 | 暫留比較文 |
 | AnyCrawl／Craw4LLM | 新興 LLM crawler | 研究筆記收錄 | 觀察成熟度，不排文 |
 
@@ -78,7 +87,7 @@
 
 | 工具 | 主要定位 | 站內狀態 | 內容決策 |
 |---|---|---|---|
-| Browser Use | autonomous browser agent | 全景文已涵蓋 | 高優先候選完整介紹 |
+| Browser Use | autonomous browser agent | 已有完整指南 | 維護既有專文 |
 | Stagehand | `act`／`extract`／`observe` browser API | 全景與 E2E 文提及 | 候選完整介紹或與 Browser Use 實測 |
 | Skyvern | 視覺優先 browser agent | 全景文已涵蓋 | 暫留比較文 |
 | Midscene.js | 視覺 UI automation | 已有專文 | 維護原文 |
@@ -91,9 +100,9 @@
 
 | 工具 | 主要定位 | 站內狀態 | 內容決策 |
 |---|---|---|---|
-| Scrapling | 自適應 selector、反爬與抓取 | 全景文已涵蓋 | 高優先候選完整介紹 |
+| Scrapling | 自適應 selector、反爬與抓取 | 已有完整指南 | 維護既有專文 |
 | ScrapeGraphAI | 自然語言生成抽取 pipeline | 全景文已涵蓋 | 候選，先看可重現案例 |
-| AgentQL | 語意式頁面查詢 | 全景文已涵蓋 | 暫留比較文 |
+| AgentQL | 語意式頁面查詢 | 已有完整指南 | 維護既有專文 |
 | AutoScraper | 範例驅動 selector | 全景文已涵蓋 | 暫留比較文 |
 | Parsera | 輕量 LLM extraction | 全景文已涵蓋 | 暫留比較文 |
 | Trafilatura | 規則式正文抽取 | 全景／文件解析脈絡已提及 | 放進抽取 benchmark，不單寫 |
@@ -116,7 +125,7 @@
 
 | 工具 | 主要定位 | 站內狀態 | 內容決策 |
 |---|---|---|---|
-| changedetection.io | 網頁差異監控 | 全景文已涵蓋 | 候選完整介紹，需實際監控案例 |
+| changedetection.io | 網頁差異監控 | 已有完整指南 | 維護既有專文 |
 | sitemap／RSS／Webhook-based watcher | 來源更新訊號 | 私有語料規劃已涵蓋概念 | 放入增量同步方法文 |
 
 ### B. 私有語料與自建搜尋
@@ -125,8 +134,8 @@
 
 | 工具群 | 代表工具 | 站內決策 |
 |---|---|---|
-| 全文搜尋 | Meilisearch、Typesense、Elasticsearch、OpenSearch、Pagefind、Tantivy | Meilisearch 候選完整介紹；其餘先做比較或依案例 |
-| 向量資料庫 | Qdrant、Weaviate、Milvus、LanceDB、Chroma、pgvector、Vectorize、Pinecone | 已有選型文；單品文由私有語料案例決定 |
+| 全文搜尋 | Meilisearch、Typesense、Elasticsearch、OpenSearch、Pagefind、Tantivy | Meilisearch 已有完整介紹；其餘先做比較或依案例 |
+| 向量資料庫 | Qdrant、Weaviate、Milvus、LanceDB、Chroma、pgvector、Vectorize、Pinecone | 已有選型文與 Qdrant 完整介紹；其餘由私有語料案例決定 |
 | Embedding runtime | Ollama、TEI、Infinity、FastEmbed | Ollama 擴寫原文；其他適合 runtime 比較 |
 | RAG framework | LlamaIndex、LangChain、Haystack | 不放搜尋與爬取工具池，各自依 framework 內容線處理 |
 
@@ -136,17 +145,13 @@ MarkItDown、anydoc、pandoc、PyMuPDF、pdfplumber、MinerU、Marker、Docling�
 
 ### Canonical Tool Article Priority
 
-#### 已排定
+#### 已完成 canonical 專文
 
-1. SearXNG
-2. Crawl4AI
+1. SearXNG、Crawl4AI、Firecrawl、Scrapling、Browser Use。
+2. Tavily、Linkup、AgentQL、Apify、changedetection.io。
+3. Meilisearch、Qdrant。
 
-#### 下一批高優先候選
-
-3. Firecrawl
-4. Scrapling
-5. Browser Use
-6. Tavily
+下一輪不按工具名稱繼續擴張；只有出現可重現案例、既有文章無法吸收，而且能明確回答獨立問題時，才新增 canonical 專文。
 
 #### 適合比較／benchmark，暫不逐一成文
 
@@ -194,9 +199,11 @@ MarkItDown、anydoc、pandoc、PyMuPDF、pdfplumber、MinerU、Marker、Docling�
 3. 將搜尋 MCP 比較文的 Exa 段落維持為短版比較，詳細機制導向 Exa 專文，避免兩邊同步維護價格與 API 細節（重疊起點：`src/content/posts/ai/2026-05-07-ai-search-mcp-tools.md:50`）。
 4. 另開維護任務修正系列首頁 `latestDate`：目前先按 series order 排，再拿最後一篇日期，會把 order 6 的 2026-05-08 誤當成本系列最新日期（`src/utils/series.ts:298-317`）。這是程式 bug，不和文章批次混做。
 
-### Phase 1 — 完成「搜尋與爬取實戰」主系列
+### Phase 1 — 收尾「搜尋與爬取實戰」主系列
 
 #### 7. AI Agent 上網取資料的 fallback 路由
+
+**狀態**：中英文已發布。
 
 暫定題名：**AI Agent 上網查資料的完整路由：Search、Fetch、Crawler、Browser 怎麼切換**
 
@@ -210,6 +217,8 @@ MarkItDown、anydoc、pandoc、PyMuPDF、pdfplumber、MinerU、Marker、Docling�
 不得重複：Browser MCP 工具橫向比較、Cloudflare bypass 細節、Deep Research 的規劃／停止／證據仲裁。
 
 #### 8. Web Retrieval Eval 實測
+
+**狀態**：中英文骨架已完成，維持 draft；尚未保存三條管道的完整 raw results、provider 參數、延遲與成本紀錄。
 
 暫定題名：**Agent 搜尋品質怎麼驗收：Web Retrieval Benchmark 實作**
 
@@ -229,25 +238,27 @@ MarkItDown、anydoc、pandoc、PyMuPDF、pdfplumber、MinerU、Marker、Docling�
 2. **Exa**：擴寫既有 [Exa 專文](../../src/content/posts/ai/2026-08-21-exa-neural-search-for-agents.md)。原文已有機制、成本、本站用法與限制（20–124 行），補上 SDK payload、search depth、contents／highlights、`output_schema`、429 retry 與成本控制；不新增「Exa API 實戰」。
 3. **Ollama**：擴寫既有 [Ollama 完整指南](../../src/content/posts/ai/2026-03-14-ollama-local-llm-guide.md)。原文已有安裝、CLI、API 與 `/api/embed` 範例（185–383 行），在同篇補 batch、embedding 模型選擇、normalization、維度、吞吐與向量庫串接；不新增「Ollama Embedding 實戰」。
 
-#### 真正需要新增的完整工具介紹
+#### 已完成的完整工具介紹
 
-4. **SearXNG 完整介紹**：定位為元搜尋引擎，不混入 Crawl4AI。一次涵蓋架構、安裝、`settings.yml`、引擎分類、語言／category、timeout、weight、disabled／suspended、JSON API、機房限制、維運與失敗診斷。
-5. **Crawl4AI 完整介紹**：定位為抓取與抽取工具，不混入 SearXNG。一次涵蓋安裝、async crawler、Markdown 輸出、`JsonCssExtractionStrategy`、`LLMExtractionStrategy`、schema、Ollama provider、deep crawl、cache、CSS-first／LLM-fallback 與錯誤處理。
-6. **Qdrant 完整介紹**：目前只有 Vector DB 選型文中的定位、filterable HNSW 與選擇條件（`src/content/posts/ai/2026-03-12-vector-database-comparison.md:29-77`），尚無 canonical 工具文。新文一次涵蓋定位、安裝、collection／payload index、dense＋sparse、查詢、備份、多租戶與限制。
-7. **Meilisearch 完整介紹**：目前只在技術選擇缺口表被點名（`src/content/posts/tech/2026-08-21-ai-era-tech-choices-guide.md:101`）。新文一次涵蓋定位、安裝、index settings、filterable／sortable attributes、typo tolerance、繁中斷詞、更新／刪除與 agent tool 介面。
+4. **SearXNG 完整介紹**：已發布於 [SearXNG 完整介紹](../../src/content/posts/ai/2026-08-21-searxng-complete-guide.md)，定位為元搜尋引擎，不混入 Crawl4AI。
+5. **Crawl4AI 完整介紹**：已發布於 [Crawl4AI 完整介紹](../../src/content/posts/ai/2026-08-21-crawl4ai-complete-guide.md)，定位為抓取與抽取工具，不混入 SearXNG。
+6. **Qdrant 完整介紹**：已發布於 [Qdrant 完整指南](../../src/content/posts/ai/2026-08-21-qdrant-complete-guide.md)，涵蓋 collection、payload index、dense＋sparse、備份與多租戶邊界。
+7. **Meilisearch 完整介紹**：已發布於 [Meilisearch 完整介紹](../../src/content/posts/ai/2026-08-21-meilisearch-complete-guide.md)，涵蓋索引設定、繁中搜尋、非同步 task 與多租戶安全。
 
-Phase 2 因此是 **2 篇既有工具文擴寫＋1 篇整合文補連結＋4 篇新增完整工具介紹**。SearXNG 與 Crawl4AI 各自成文，原組合文繼續負責系統整合。
+Phase 2 的 canonical 工具文已完成；目前剩下 **既有文章擴寫、組合文去重補鏈與實測稿收尾**。
 
-#### 有缺口，但暫不排入的工具
+#### 其他已完成的工具文
 
-- **Tavily**：目前只有搜尋 MCP 比較文中的橫向介紹，沒有完整工具文。只有在能一次補齊 API、extract／crawl、參數、成本控制、retry 與實際案例時才新增；不要把既有比較段落放大成文章。
-- **Firecrawl**：目前分散在搜尋 MCP 與爬蟲全景文。若新增，應一次涵蓋 cloud／self-host、scrape／crawl／map／extract、AGPL 邊界、配額與錯誤處理；沒有實際案例前不排優先。
-
-兩者都符合「未來可有一篇完整工具介紹」，但不是目前內容主線的必要前置。
+- **Tavily**：[Search API 完整指南](../../src/content/posts/ai/2026-08-21-tavily-search-api-guide.md)。
+- **Linkup**：[Search API 完整指南](../../src/content/posts/ai/2026-08-21-linkup-search-api-guide.md)。
+- **Firecrawl**：[完整指南](../../src/content/posts/ai/2026-08-21-firecrawl-complete-guide.md)。
+- **Apify**：[Actor 平台完整介紹](../../src/content/posts/ai/2026-08-21-apify-actor-platform-guide.md)。
 
 ## Detailed Article Briefs
 
 ### Tool 1 — SearXNG 完整介紹
+
+**狀態**：已發布；以下保留為維護驗收基準。
 
 **暫定標題**：`SearXNG 完整介紹：引擎調校、JSON API 與自架維運`
 
@@ -297,6 +308,8 @@ Phase 2 因此是 **2 篇既有工具文擴寫＋1 篇整合文補連結＋4 篇
 **主要證據**：SearXNG 官方 installation／settings／search API／engine docs，以及 repo 中的預設 `settings.yml`、engine definitions。版本與查證日期必須入文。
 
 ### Tool 2 — Crawl4AI 完整介紹
+
+**狀態**：已發布；以下保留為維護驗收基準。
 
 **暫定標題**：`Crawl4AI 完整介紹：從 Markdown 抓取到結構化資料抽取`
 
@@ -491,13 +504,13 @@ Phase 2 因此是 **2 篇既有工具文擴寫＋1 篇整合文補連結＋4 篇
 
 ### Backlog Priority
 
-在目前已排定的 SearXNG、Crawl4AI 與組合文整理完成後，建議順序：
+原定五篇已全部建立中英文版本，狀態如下：
 
-1. Agent 搜尋 query 怎麼寫。
-2. 網頁抽取品質實測。
-3. 搜尋結果到可靠引用。
-4. 學術搜尋管線。
-5. 需要登入的網站與 agent 權限邊界。
+1. Agent 搜尋 query 怎麼寫：已發布（order 9）。
+2. 網頁抽取品質實測：骨架已完成，待同 corpus 四工具 raw run（order 10，draft）。
+3. 搜尋結果到可靠引用：已發布（order 11）。
+4. 學術搜尋管線：已發布；實例明示為 fixture，尚未宣稱 live entity-resolution benchmark（order 12）。
+5. 需要登入的網站與 agent 權限邊界：已發布（order 13）。
 
 前三篇把取得流程補成「問對 → 抓對 → 引對」；後兩篇再處理專門場景。
 
@@ -516,22 +529,19 @@ Phase 2 因此是 **2 篇既有工具文擴寫＋1 篇整合文補連結＋4 篇
 
 ## New Articles — Recommended Publishing Order
 
-1. **SearXNG 完整介紹**（工具文）。
-2. **Crawl4AI 完整介紹**（工具文）。
-3. **AI Agent 上網取資料的 fallback 路由**（方法文）：回答已知 URL 直接抓、search API、crawler、browser、stealth browser 各在什麼失敗訊號下切換；不是 SearXNG／Crawl4AI 的第三篇工具文。
-4. **Web Retrieval Eval**（實測方法文）：前面幾條取得管道具備後再比較。
-5. **私有語料管線第 1 篇**，確立實際案例與系統邊界。
-6. **Qdrant 完整介紹**與**Meilisearch 完整介紹**，依私有語料案例需要各自發佈。
-7. **私有語料管線第 2–4 篇**，最後以 Retrieval Eval 收尾。
+1. **Web Retrieval Eval**（order 8）：先補三條管道的同批 raw run，再決定是否發布。
+2. **網頁抽取品質實測**（order 10）：補 Crawl4AI、Firecrawl、Jina Reader、Readability 的同 corpus raw run，再決定是否發布。
+3. **SearXNG + Crawl4AI 組合指南維護**：兩篇 canonical 工具文均已發布，現在刪除重複內容並補雙向連結。
+4. **私有語料管線**：四篇中英文草稿已建立；前三篇進 review，第 4 篇待 corpus manifest、qrels、runner 與 raw results。
 
 ## Existing Articles — Maintenance, Not New Posts
 
-1. **SearXNG + Crawl4AI 組合指南**：等兩篇 canonical 工具文完成後，刪掉重複的進階說明、補雙向連結；維持原 slug、series order 3，不新增文章。
+1. **SearXNG + Crawl4AI 組合指南**：兩篇 canonical 工具文已完成；下一步刪掉重複的進階說明、補雙向連結，維持原 slug、series order 3，不新增文章。
 2. **Exa 專文**：在原文補 API 使用章節，不另開「Exa API 實戰」。
 3. **Ollama 完整指南**：在原文補 embedding 章節，不另開新文。
 4. **閱讀地圖**：修正 Local Deep Research 的過期連結敘述。
 
-依賴順序只有一條：SearXNG 文＋Crawl4AI 文完成後，才能整理組合指南；完成三者後再寫 fallback 與 benchmark，引用邊界才會穩定。
+SearXNG 與 Crawl4AI canonical 文、fallback 文均已完成。現在可直接整理組合指南；兩篇 benchmark 仍須等同批 raw run，不能用工具專文取代實測。
 
 ## Acceptance Criteria
 

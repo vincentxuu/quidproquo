@@ -33,6 +33,24 @@ Search 和 Fetch 是兩個入口，不是固定前後關係：使用者給了 UR
 
 這也解釋了為什麼 [SearXNG 和 Crawl4AI](/posts/ai/2026-08-21-searxng-crawl4ai-setup) 不互相取代：前者回答「哪裡可能有答案」，後者回答「已知網站裡有哪些可讀內容」。
 
+## 七個常見工具，先按層級選
+
+下面的分類取每個工具在 router 裡的**主要身份**，不是列出它的全部功能。先決定現在缺的是候選 URL、單頁正文、站內遍歷，還是受管的網站自動化，再選產品；不要把七個名字排成一條固定 fallback 鏈。
+
+| 工具 | 主要層級 | 交給它的輸入 | 何時轉手或停止 |
+|---|---|---|---|
+| [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents) | Search API | 問題、主題、候選來源需求 | 找到足夠候選 URL 就轉 Reader／Crawler；搜尋結果已滿足來源門檻就停 |
+| [Tavily](/posts/ai/2026-08-21-tavily-search-api-guide) | Search API | 研究問題與搜尋查詢 | 候選來源足夠就停止 discovery；不要因為同一產品也有 Extract／Crawl API，就跳過 route 分層 |
+| [Linkup](/posts/ai/2026-08-21-linkup-search-api-guide) | Search API | 搜尋查詢，或要求結構化答案的 discovery 任務 | URL 與來源已足夠就轉下一層；缺少可信來源時換 query 或 search provider，不直接啟動全站 crawl |
+| [Jina Reader](/posts/ai/2026-08-22-jina-reader-guide) | URL Reader | 一個已知、可公開讀取的 URL | Markdown 通過內容驗收就停；需要跨頁、登入或站內遍歷時轉 Crawler／Browser |
+| [Firecrawl](/posts/ai/2026-08-21-firecrawl-complete-guide) | 受管爬取與抽取 API | 已知 URL、網站入口或多頁抓取工作 | 覆蓋範圍與必要欄位達標就停；遇授權邊界、challenge 或 budget 上限就退出 |
+| [Crawl4AI](/posts/ai/2026-08-21-crawl4ai-complete-guide) | 自架 Crawler | 已知網站、瀏覽器設定與抽取規則 | 達到 `maxPages`／`maxDepth` 或內容門檻就停；需要代管排程與網站專用流程時再評估平台層 |
+| [Apify](/posts/ai/2026-08-21-apify-actor-platform-guide) | 受管自動化平台 | 可重複的網站工作、Actor／Task 與執行設定 | Actor 產出符合 schema 就停；沒有合適且合規的流程時，不要為了「一定抓到」無限換 Actor |
+
+有效組合通常是跨層串接。`Exa／Tavily／Linkup → Jina Reader` 適合「先找來源，再讀少量公開頁面」。Search API 後接 Firecrawl 或 Crawl4AI，適合「候選站點已知，但答案散在多頁」。Apify 則放在工作已經網站化、需要重複執行與受管運行的分支。
+
+每一層都沿用本文的退出條件：內容已通過就停；授權或政策不允許就停；剩餘 budget 不足以完成下一步也停。
+
 ## 先判斷任務，再判斷失敗
 
 Router 的第一個判斷不是工具，而是任務形狀：
@@ -185,6 +203,10 @@ challenge／明確禁止 → 停止或換公開來源
 
 這套路由的重點不是讓 Agent「什麼網站都能進」，而是讓每次升級都有可解釋的失敗訊號、成本和政策理由。下一篇會把這些 contract 變成固定 corpus 與 regression gate：[Agent 搜尋品質怎麼驗收：Web Retrieval Benchmark 實作](/posts/ai/2026-08-21-web-retrieval-benchmark)。
 
+## 更新紀錄
+
+- 2026-08-22：補上 Exa、Tavily、Linkup、Jina Reader、Firecrawl、Crawl4AI 與 Apify 的跨層選型矩陣、有效組合與退出條件。
+
 ## 參考資料
 
 - [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html)
@@ -193,4 +215,11 @@ challenge／明確禁止 → 停止或換公開來源
 - [RFC 9309: Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html)
 - [Playwright Browser：Auto-waiting](https://playwright.dev/docs/actionability)
 - [W3C PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/)
+- [Exa Search API Guide](https://exa.ai/docs/reference/search-api-guide)
+- [Tavily Search API](https://docs.tavily.com/documentation/api-reference/endpoint/search)
+- [Linkup Search Overview](https://docs.linkup.so/pages/documentation/endpoints/search/overview)
+- [Jina AI Reader API](https://jina.ai/reader/)
+- [Firecrawl Advanced Scraping Guide](https://docs.firecrawl.dev/advanced-scraping-guide)
+- [Crawl4AI Quick Start](https://docs.crawl4ai.com/core/quickstart/)
+- [Apify Actors](https://docs.apify.com/actors)
 - [站內：Agent 搜尋品質怎麼驗收](/posts/ai/2026-08-21-web-retrieval-benchmark)
