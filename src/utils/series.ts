@@ -192,8 +192,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs229',
     names: { 'zh-TW': 'Stanford CS229 導讀', en: 'Reading Stanford CS229' },
     descriptions: {
-      'zh-TW': '逐講讀 Stanford CS229 Spring 2021：從監督式學習、神經網路與非監督式學習走到強化學習，十八講只使用該學期公開材料，不混用其他年份。',
-      en: 'A lecture-by-lecture reading of Stanford CS229, Spring 2021, from supervised learning and neural networks through unsupervised learning and reinforcement learning, using only public materials assigned to these eighteen lectures.',
+      'zh-TW': '逐章讀 Stanford CS229 的 2026 官方主講義：從監督式學習與深度學習，走到基礎模型、LLM 推理與強化學習，共二十一章，不假裝對應單一學期的逐講進度。',
+      en: 'A chapter-by-chapter reading of Stanford CS229’s official 2026 notes, spanning supervised and deep learning, foundation models, LLM reasoning, and reinforcement learning across twenty-one chapters without pretending to reconstruct a single quarter’s lecture schedule.',
     },
   },
   {
