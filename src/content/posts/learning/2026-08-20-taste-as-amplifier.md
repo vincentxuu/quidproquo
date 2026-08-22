@@ -109,7 +109,7 @@ Paul Graham 在 2002 年寫了 [Taste for Makers](https://paulgraham.com/taste.h
 | **心智可得性** | 人需要的時候會不會想到你？ |
 | **定位判斷** | 你該選擇在哪個賽場打？哪個框架讓你的價值最明顯？ |
 
-Rory Sutherland 在[《Alchemy》](https://www.harriman-house.com/alchemy)裡的核心論點：你可以用改變現實 10% 的成本，達到改變感知 100% 的效果。Uber 的地圖不縮短等待時間，縮短的是等待的焦慮。Byron Sharp 在[《How Brands Grow》](https://www.marketingscience.info/how-brands-grow/)裡證明：品牌成長靠的是 mental availability（記憶結構的質與量），不是差異化。April Dunford 的[《Obviously Awesome》](https://www.aprildunford.com/obviously-awesome)則指出：同一個產品放在不同品類，觸發完全不同的期待——定位不是行銷的最後一步，是第一步。
+Rory Sutherland 在[《Alchemy》](https://www.harriman-house.com/alchemy)裡的核心論點：你可以用改變現實 10% 的成本，達到改變感知 100% 的效果。Uber 的地圖不縮短等待時間，縮短的是等待的焦慮。Byron Sharp 在[《How Brands Grow》](https://www.marketingscience.info/how-brands-grow/)裡證明：品牌成長靠的是 mental availability（記憶結構的質與量），不是差異化。April Dunford 的[《Obviously Awesome》](https://www.aprildunford.com/obviously-awesome)則指出：同一個產品放在不同類別，觸發完全不同的期待——定位不是行銷的最後一步，是第一步。
 
 ### AI 時代——新的盲區
 
