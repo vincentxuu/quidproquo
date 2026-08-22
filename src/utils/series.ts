@@ -269,6 +269,60 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'mit-6s191',
+    names: { 'zh-TW': 'MIT 6.S191 導讀', en: 'Reading MIT 6.S191' },
+    descriptions: {
+      'zh-TW': '依 2026 官方影片、投影片與實驗程式，讀完 MIT 6.S191 的九講與三個實驗，不混用歷史版本。',
+      en: 'Reading all nine lectures and three labs of MIT 6.S191 from the official 2026 videos, slides, and lab code without mixing in earlier offerings.',
+    },
+  },
+  {
+    slug: 'berkeley-cs188-spring-2026',
+    names: { 'zh-TW': 'Berkeley CS188 Spring 2026', en: 'Berkeley CS188 Spring 2026' },
+    descriptions: {
+      'zh-TW': '以 P0–P5 六個 projects 為主線，讀 Berkeley CS188 Spring 2026 的搜尋、決策、機率推論、強化學習與機器學習。',
+      en: 'Reading Berkeley CS188 Spring 2026 through Projects P0–P5, from search and decision making to probabilistic inference, reinforcement learning, and machine learning.',
+    },
+  },
+  {
+    slug: 'berkeley-cs288-spring-2026',
+    names: { 'zh-TW': 'Berkeley CS288 Spring 2026', en: 'Berkeley CS288 Spring 2026' },
+    descriptions: {
+      'zh-TW': '依 18 組公開教材與三份作業，讀 Berkeley CS288 Spring 2026 從 n-gram 到 RAG、reasoning 與 agents 的進階 NLP 路線。',
+      en: 'Reading Berkeley CS288 Spring 2026 from n-grams through RAG, reasoning, and agents using its 18 public slide units and three assignments.',
+    },
+  },
+  {
+    slug: 'berkeley-cs285-spring-2026',
+    names: { 'zh-TW': 'Berkeley CS285 Spring 2026 導讀', en: 'Reading Berkeley CS285 Spring 2026' },
+    descriptions: {
+      'zh-TW': '依 25 講投影片、九組討論與五份作業，讀 Berkeley CS285 Spring 2026 的深度強化學習路線與算力邊界。',
+      en: 'Reading Berkeley CS285 Spring 2026 in deep reinforcement learning through 25 lectures, nine discussions, five assignments, and their compute constraints.',
+    },
+  },
+  {
+    slug: 'cmu-10301-machine-learning',
+    names: {
+      'zh-TW': 'CMU 10-301 機器學習完整課程導讀',
+      en: 'Reading CMU 10-301 Machine Learning',
+    },
+    descriptions: {
+      'zh-TW': '以 Spring 2026 九份公開作業為主線，讀 CMU 10-301／601 的 27 講機器學習內容與校外實作邊界。',
+      en: 'Reading the 27 lectures of CMU 10-301/601 through its nine public Spring 2026 homework bundles and the practical limits for independent learners.',
+    },
+  },
+  {
+    slug: 'cmu-11785-deep-learning',
+    names: {
+      'zh-TW': 'CMU 11-785 深度學習完整課程導讀',
+      en: 'Reading CMU 11-785 Deep Learning',
+    },
+    descriptions: {
+      'zh-TW': '逐講讀 CMU 11-785 Spring 2026 的 28 講深度學習教材，並清楚區分公開講授鏈與受限的正式作業鏈。',
+      en: 'A lecture-by-lecture reading of CMU 11-785 Spring 2026 that separates its public 28-lecture teaching sequence from the restricted assignment workflow.',
+    },
+  },
+  {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
