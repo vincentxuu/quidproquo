@@ -60,7 +60,7 @@ done
 | 用途 | 工具 | 說明 |
 |---|---|---|
 | **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | stealth_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
 ---

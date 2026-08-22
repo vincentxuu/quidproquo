@@ -47,7 +47,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 用途 | 工具 | 說明 |
 |---|---|---|
 | **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | stealth_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
 ---
@@ -59,7 +59,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 三層策略，總共約 56 個查詢（但搜尋 API 只用 15 次）：
 
 1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
-2. **官方 blog 直讀**（41 個 WebFetch/firecrawl）— 直接抓 blog 列表頁讀日期，0 搜尋配額
+2. **官方 blog 直讀**（41 個 Groundlane `web_fetch`/firecrawl）— 直接抓 blog 列表頁讀日期，0 搜尋配額
 3. **社群 + 區域來源**（Exa + Tavily 各幾個）— HN、Reddit、中文、台灣
 
 所有結果在 Step 6b 用 watchlist 293 家公司名比對，未在第二層的公司靠廣域查詢兜底。
@@ -84,12 +84,12 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
 
-### 第二層：官方 blog 直讀（WebFetch / firecrawl，0 搜尋配額）
+### 第二層：官方 blog 直讀（Groundlane `web_fetch` / firecrawl，0 搜尋配額）
 
 直接抓每家的 blog 列表頁，讀日期判斷有沒有新文章。不用搜尋 API。
 
 ```
-工具：WebFetch（優先）→ firecrawl（WebFetch 被擋時 fallback）
+工具：Groundlane `web_fetch`（優先）→ firecrawl（Groundlane `web_fetch` 被擋時 fallback）
 prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
 ```
 
@@ -97,33 +97,33 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| 1 | `https://www.anthropic.com/news` | Anthropic | WebFetch |
-| 2 | `https://www.anthropic.com/research` | Anthropic | WebFetch |
+| 1 | `https://www.anthropic.com/news` | Anthropic | Groundlane `web_fetch` |
+| 2 | `https://www.anthropic.com/research` | Anthropic | Groundlane `web_fetch` |
 | 3 | `https://openai.com/news` | OpenAI | firecrawl |
 | 4 | `https://openai.com/research/index` | OpenAI | firecrawl |
-| 5 | `https://deepmind.google/blog` | Google DeepMind | WebFetch |
-| 5b | `https://research.google/blog` | Google Research | WebFetch |
-| 6 | `https://devblogs.microsoft.com/ai` | Microsoft | WebFetch |
-| 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | WebFetch |
-| 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | WebFetch |
-| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft Azure | WebFetch |
-| 9b | `https://www.microsoft.com/en-us/research/blog` | Microsoft Research | WebFetch |
-| 10 | `https://about.fb.com/news` | Meta | WebFetch |
-| 11 | `https://ai.meta.com/blog` | Meta | WebFetch |
-| 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | WebFetch |
-| 13 | `https://aws.amazon.com/blogs/aws` | AWS | WebFetch |
-| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS ML | WebFetch |
-| 14b | `https://www.amazon.science/blog` | Amazon Science | WebFetch |
-| 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | WebFetch |
-| 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | WebFetch |
-| 16b | `https://research.nvidia.com/publications` | NVIDIA Research | WebFetch |
+| 5 | `https://deepmind.google/blog` | Google DeepMind | Groundlane `web_fetch` |
+| 5b | `https://research.google/blog` | Google Research | Groundlane `web_fetch` |
+| 6 | `https://devblogs.microsoft.com/ai` | Microsoft | Groundlane `web_fetch` |
+| 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | Groundlane `web_fetch` |
+| 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | Groundlane `web_fetch` |
+| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft Azure | Groundlane `web_fetch` |
+| 9b | `https://www.microsoft.com/en-us/research/blog` | Microsoft Research | Groundlane `web_fetch` |
+| 10 | `https://about.fb.com/news` | Meta | Groundlane `web_fetch` |
+| 11 | `https://ai.meta.com/blog` | Meta | Groundlane `web_fetch` |
+| 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | Groundlane `web_fetch` |
+| 13 | `https://aws.amazon.com/blogs/aws` | AWS | Groundlane `web_fetch` |
+| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS ML | Groundlane `web_fetch` |
+| 14b | `https://www.amazon.science/blog` | Amazon Science | Groundlane `web_fetch` |
+| 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | Groundlane `web_fetch` |
+| 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | Groundlane `web_fetch` |
+| 16b | `https://research.nvidia.com/publications` | NVIDIA Research | Groundlane `web_fetch` |
 | 17 | `https://x.ai/news` | xAI/SpaceXAI | firecrawl |
-| 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | WebFetch |
-| 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | WebFetch |
-| 20 | `https://www.snowflake.com/blog` | Snowflake | WebFetch |
-| 21 | `https://www.databricks.com/blog` | Databricks | WebFetch |
-| 22 | `https://research.ibm.com/blog` | IBM | WebFetch |
-| 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | WebFetch |
+| 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | Groundlane `web_fetch` |
+| 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | Groundlane `web_fetch` |
+| 20 | `https://www.snowflake.com/blog` | Snowflake | Groundlane `web_fetch` |
+| 21 | `https://www.databricks.com/blog` | Databricks | Groundlane `web_fetch` |
+| 22 | `https://research.ibm.com/blog` | IBM | Groundlane `web_fetch` |
+| 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | Groundlane `web_fetch` |
 | 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | firecrawl |
 | 25 | `https://writer.com/blog` | Writer | firecrawl |
 | 26 | `https://blog.palantir.com` | Palantir | firecrawl |
@@ -132,96 +132,96 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 
 | # | URL | 說明 | 工具 |
 |---|-----|------|------|
-| HF0a | `https://huggingface.co/blog` | HF 官方 blog（每日更新） | WebFetch |
-| HF0b | `https://huggingface.co/models?sort=trending` | 模型 trending 排行 | WebFetch |
+| HF0a | `https://huggingface.co/blog` | HF 官方 blog（每日更新） | Groundlane `web_fetch` |
+| HF0b | `https://huggingface.co/models?sort=trending` | 模型 trending 排行 | Groundlane `web_fetch` |
 
 **HuggingFace + GitHub 模型/repo 動態追蹤**
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| HF1 | `https://huggingface.co/google` | Google | WebFetch |
-| HF2 | `https://huggingface.co/microsoft` | Microsoft | WebFetch |
-| HF3 | `https://huggingface.co/nvidia` | NVIDIA | WebFetch |
-| HF4 | `https://huggingface.co/mistralai` | Mistral | WebFetch |
-| HF5 | `https://huggingface.co/MiniMaxAI` | MiniMax | WebFetch |
-| GH1 | `https://github.com/anthropics` | Anthropic | WebFetch |
-| GH2 | `https://github.com/openai` | OpenAI | WebFetch |
-| GH3 | `https://github.com/google-deepmind` | Google DeepMind | WebFetch |
-| GH4 | `https://github.com/meta-llama` | Meta Llama | WebFetch |
-| GH5 | `https://github.com/microsoft` | Microsoft | WebFetch |
-| GH6 | `https://github.com/NVIDIA` | NVIDIA | WebFetch |
-| GH7 | `https://github.com/mistralai` | Mistral | WebFetch |
-| GH8 | `https://github.com/MiniMax-AI` | MiniMax | WebFetch |
-| HF6 | `https://huggingface.co/meta-llama` | Meta Llama | WebFetch |
-| HF7 | `https://huggingface.co/openai` | OpenAI | WebFetch |
-| HF8 | `https://huggingface.co/ibm-granite` | IBM Granite | WebFetch |
-| HF9 | `https://huggingface.co/Snowflake` | Snowflake | WebFetch |
-| HF10 | `https://huggingface.co/apple` | Apple | WebFetch |
-| HF11 | `https://huggingface.co/amazon` | Amazon | WebFetch |
-| HF12 | `https://huggingface.co/Salesforce` | Salesforce | WebFetch |
-| HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | WebFetch |
-| GH9 | `https://github.com/cohere-ai` | Cohere | WebFetch |
-| GH10 | `https://github.com/aws` | AWS | WebFetch |
-| GH11 | `https://github.com/apple` | Apple | WebFetch |
-| GH12 | `https://github.com/cloudflare` | Cloudflare | WebFetch |
-| GH13 | `https://github.com/IBM` | IBM | WebFetch |
-| GH14 | `https://github.com/salesforce` | Salesforce | WebFetch |
-| GH15 | `https://github.com/snowflakedb` | Snowflake | WebFetch |
-| GH16 | `https://github.com/databricks` | Databricks | WebFetch |
-| GH17 | `https://github.com/xai-org` | xAI | WebFetch |
-| GH18 | `https://github.com/palantir` | Palantir | WebFetch |
-| GH19 | `https://github.com/SAP` | SAP | WebFetch |
-| HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | WebFetch |
-| HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | WebFetch |
+| HF1 | `https://huggingface.co/google` | Google | Groundlane `web_fetch` |
+| HF2 | `https://huggingface.co/microsoft` | Microsoft | Groundlane `web_fetch` |
+| HF3 | `https://huggingface.co/nvidia` | NVIDIA | Groundlane `web_fetch` |
+| HF4 | `https://huggingface.co/mistralai` | Mistral | Groundlane `web_fetch` |
+| HF5 | `https://huggingface.co/MiniMaxAI` | MiniMax | Groundlane `web_fetch` |
+| GH1 | `https://github.com/anthropics` | Anthropic | Groundlane `web_fetch` |
+| GH2 | `https://github.com/openai` | OpenAI | Groundlane `web_fetch` |
+| GH3 | `https://github.com/google-deepmind` | Google DeepMind | Groundlane `web_fetch` |
+| GH4 | `https://github.com/meta-llama` | Meta Llama | Groundlane `web_fetch` |
+| GH5 | `https://github.com/microsoft` | Microsoft | Groundlane `web_fetch` |
+| GH6 | `https://github.com/NVIDIA` | NVIDIA | Groundlane `web_fetch` |
+| GH7 | `https://github.com/mistralai` | Mistral | Groundlane `web_fetch` |
+| GH8 | `https://github.com/MiniMax-AI` | MiniMax | Groundlane `web_fetch` |
+| HF6 | `https://huggingface.co/meta-llama` | Meta Llama | Groundlane `web_fetch` |
+| HF7 | `https://huggingface.co/openai` | OpenAI | Groundlane `web_fetch` |
+| HF8 | `https://huggingface.co/ibm-granite` | IBM Granite | Groundlane `web_fetch` |
+| HF9 | `https://huggingface.co/Snowflake` | Snowflake | Groundlane `web_fetch` |
+| HF10 | `https://huggingface.co/apple` | Apple | Groundlane `web_fetch` |
+| HF11 | `https://huggingface.co/amazon` | Amazon | Groundlane `web_fetch` |
+| HF12 | `https://huggingface.co/Salesforce` | Salesforce | Groundlane `web_fetch` |
+| HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | Groundlane `web_fetch` |
+| GH9 | `https://github.com/cohere-ai` | Cohere | Groundlane `web_fetch` |
+| GH10 | `https://github.com/aws` | AWS | Groundlane `web_fetch` |
+| GH11 | `https://github.com/apple` | Apple | Groundlane `web_fetch` |
+| GH12 | `https://github.com/cloudflare` | Cloudflare | Groundlane `web_fetch` |
+| GH13 | `https://github.com/IBM` | IBM | Groundlane `web_fetch` |
+| GH14 | `https://github.com/salesforce` | Salesforce | Groundlane `web_fetch` |
+| GH15 | `https://github.com/snowflakedb` | Snowflake | Groundlane `web_fetch` |
+| GH16 | `https://github.com/databricks` | Databricks | Groundlane `web_fetch` |
+| GH17 | `https://github.com/xai-org` | xAI | Groundlane `web_fetch` |
+| GH18 | `https://github.com/palantir` | Palantir | Groundlane `web_fetch` |
+| GH19 | `https://github.com/SAP` | SAP | Groundlane `web_fetch` |
+| HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | Groundlane `web_fetch` |
+| HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | Groundlane `web_fetch` |
 
 **A2 模型公司**
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| 22 | `https://mistral.ai/news` | Mistral | WebFetch |
-| 23 | `https://cohere.com/blog` | Cohere | WebFetch |
-| 24 | `https://www.ai21.com/blog` | AI21 Labs | WebFetch |
-| 25 | `https://www.reka.ai/news` | Reka AI | WebFetch |
-| 26 | `https://www.upstage.ai/blog` | Upstage | WebFetch |
-| 27 | `https://sakana.ai/blog` | Sakana AI | WebFetch |
-| 28 | `https://allenai.org/blog` | AI2 | WebFetch |
+| 22 | `https://mistral.ai/news` | Mistral | Groundlane `web_fetch` |
+| 23 | `https://cohere.com/blog` | Cohere | Groundlane `web_fetch` |
+| 24 | `https://www.ai21.com/blog` | AI21 Labs | Groundlane `web_fetch` |
+| 25 | `https://www.reka.ai/news` | Reka AI | Groundlane `web_fetch` |
+| 26 | `https://www.upstage.ai/blog` | Upstage | Groundlane `web_fetch` |
+| 27 | `https://sakana.ai/blog` | Sakana AI | Groundlane `web_fetch` |
+| 28 | `https://allenai.org/blog` | AI2 | Groundlane `web_fetch` |
 
 **B1/B2 開發工具與框架**
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| 29 | `https://cursor.com/changelog` | Cursor | WebFetch |
-| 30 | `https://cursor.com/blog` | Cursor | WebFetch |
-| 31 | `https://www.langchain.com/blog` | LangChain | WebFetch |
-| 32 | `https://cognition.com/blog` | Cognition/Devin | WebFetch |
-| 33 | `https://replit.com/blog` | Replit | WebFetch |
-| 34 | `https://vercel.com/blog` | Vercel | WebFetch |
-| 35 | `https://mastra.ai/blog` | Mastra | WebFetch |
-| 36 | `https://sourcegraph.com/blog` | Sourcegraph | WebFetch |
-| 37 | `https://www.pydantic.dev/articles` | Pydantic AI | WebFetch |
-| 38 | `https://agno.com/blog` | Agno | WebFetch |
+| 29 | `https://cursor.com/changelog` | Cursor | Groundlane `web_fetch` |
+| 30 | `https://cursor.com/blog` | Cursor | Groundlane `web_fetch` |
+| 31 | `https://www.langchain.com/blog` | LangChain | Groundlane `web_fetch` |
+| 32 | `https://cognition.com/blog` | Cognition/Devin | Groundlane `web_fetch` |
+| 33 | `https://replit.com/blog` | Replit | Groundlane `web_fetch` |
+| 34 | `https://vercel.com/blog` | Vercel | Groundlane `web_fetch` |
+| 35 | `https://mastra.ai/blog` | Mastra | Groundlane `web_fetch` |
+| 36 | `https://sourcegraph.com/blog` | Sourcegraph | Groundlane `web_fetch` |
+| 37 | `https://www.pydantic.dev/articles` | Pydantic AI | Groundlane `web_fetch` |
+| 38 | `https://agno.com/blog` | Agno | Groundlane `web_fetch` |
 
 **中國大廠**
 
 | # | URL | 公司 | 工具 |
 |---|-----|------|------|
-| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud（技術） | WebFetch |
-| 39b | `https://www.alibabagroup.com/en-US/news-and-resource` | Alibaba Group（集團公告） | WebFetch |
-| 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | WebFetch |
-| 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | WebFetch |
-| 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | WebFetch |
-| 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | WebFetch |
+| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud（技術） | Groundlane `web_fetch` |
+| 39b | `https://www.alibabagroup.com/en-US/news-and-resource` | Alibaba Group（集團公告） | Groundlane `web_fetch` |
+| 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | Groundlane `web_fetch` |
+| 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | Groundlane `web_fetch` |
+| 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | Groundlane `web_fetch` |
+| 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | Groundlane `web_fetch` |
 | 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
-| 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | WebFetch |
+| 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | Groundlane `web_fetch` |
 | 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
-| 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | WebFetch |
-| 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | WebFetch |
-| 48 | `https://manus.im/blog` | Manus | WebFetch |
-| 49 | `https://www.tencent.com/zh-cn/newsroom` | 騰訊（集團公告） | WebFetch |
-| 50 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | WebFetch |
-| 50b | `https://github.com/Tencent` | 騰訊（repo 動態） | WebFetch |
-| 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | WebFetch |
-| 52 | `https://github.com/baidu` | 百度（repo 動態） | WebFetch |
+| 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | Groundlane `web_fetch` |
+| 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | Groundlane `web_fetch` |
+| 48 | `https://manus.im/blog` | Manus | Groundlane `web_fetch` |
+| 49 | `https://www.tencent.com/zh-cn/newsroom` | 騰訊（集團公告） | Groundlane `web_fetch` |
+| 50 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | Groundlane `web_fetch` |
+| 50b | `https://github.com/Tencent` | 騰訊（repo 動態） | Groundlane `web_fetch` |
+| 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | Groundlane `web_fetch` |
+| 52 | `https://github.com/baidu` | 百度（repo 動態） | Groundlane `web_fetch` |
 
 **AI 生態 / VC / 獨立媒體**
 
@@ -229,13 +229,13 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 |---|-----|------|------|
 | M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | firecrawl |
 | M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | firecrawl |
-| M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | WebFetch |
-| M1d | `https://lsvp.com/stories` | Lightspeed Stories | WebFetch |
-| M2 | `https://the-decoder.com` | AI 新聞（每日更新） | WebFetch |
-| M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | WebFetch |
-| M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | WebFetch |
-| M5 | `https://simonwillison.net` | AI 開發者生態 blogger | WebFetch |
-| M6 | `https://www.latent.space/archive` | Latent Space（AI 深度分析） | WebFetch |
+| M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | Groundlane `web_fetch` |
+| M1d | `https://lsvp.com/stories` | Lightspeed Stories | Groundlane `web_fetch` |
+| M2 | `https://the-decoder.com` | AI 新聞（每日更新） | Groundlane `web_fetch` |
+| M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | Groundlane `web_fetch` |
+| M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | Groundlane `web_fetch` |
+| M5 | `https://simonwillison.net` | AI 開發者生態 blogger | Groundlane `web_fetch` |
+| M6 | `https://www.latent.space/archive` | Latent Space（AI 深度分析） | Groundlane `web_fetch` |
 
 處理方式：
 1. 抓回最近 5 篇的日期和標題
@@ -278,7 +278,7 @@ max_results: 5, time_range: "day"
 |------|--------|------|
 | Tavily | 12 | 8 廣域 + 4 中文台灣 |
 | Exa | 3 | 社群（HN + Reddit） |
-| WebFetch | 67 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
+| Groundlane `web_fetch` | 67 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
 | firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
 | **總計** | **86** | 搜尋 API 只用 15 次 |
 

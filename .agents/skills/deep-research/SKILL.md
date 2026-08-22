@@ -5,6 +5,9 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 # deep-research skill
 
+> **工具邊界**
+> Groundlane 取代舊 `stealth_fetch` 與舊 `web-fetch/fetch_page`。其他 Tavily、Exa、Firecrawl、Jina、GitHub 與來源專用工具保留。不要假設任何個人檔案路徑、部署 URL、帳號或 token。
+
 把「研究 + 導讀新工具 / 論文 / 趨勢」結構化：拆問題 → 多源蒐集 → 交叉驗證 → 萃取 → 產出可發文的 research note。
 
 ## 何時用
@@ -19,14 +22,25 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 ## 工具選擇原則
 
-用當前 agent 可用的搜尋與抓取工具：
+先檢查當前 tool list，再依執行環境選 Groundlane 連線方式：
 
-- Codex：優先用 `web.run` search/open；需要官方文件或最新資訊時必須查網路。
-- Claude：一律用 MCP search/scrape 工具，**不要用**內建 `WebFetch` / `Playwright`；依 `references/mcp-tools.md` 選工具。
+| 執行環境 | Groundlane 用法 | 不可假設 |
+|---|---|---|
+| 電腦／本機 agent | 使用已註冊的 localhost 或 remote HTTPS MCP endpoint | clone 位於特定路徑、token 可直接讀取 |
+| Web-hosted agent | 使用平台已附加的 remote MCP／custom connector | 可連使用者 localhost、讀取本機檔案或 shell env |
+
+成功連線後，兩種環境都使用相同的 `web_search`、`web_fetch`、`web_extract` contract。若 tool list 沒有 Groundlane：
+
+- Codex／一般 Web agent：使用平台現有的 search/open/fetch 工具。
+- Claude 或有專用 MCP 的 agent：使用 Tavily、Exa、Firecrawl、Jina、GitHub 等實際可用工具。
+- 完全沒有網路研究工具：使用已提供材料；仍不足時回報 blocker，不假裝工具存在。
+
+Groundlane 不可用或專用工具更適合時可直接切換，不必等使用者批准，但要記錄 fallback 原因與工具。永遠不回退到已淘汰的 `stealth_fetch` 或 `web-fetch/fetch_page`。
 
 **能搜就不用爬、能爬單頁就不用整站、能整站就不用瀏覽器**。每升一階成本與失敗率都升一階。
 
 完整工具映射、備援、常見失敗對應 → `references/mcp-tools.md`
+電腦／Web 連線方式 → `references/usage-modes.md`
 
 ## 執行步驟
 
@@ -44,7 +58,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 
 對每個子問題：
 
-1. 搜尋候選 URL（Claude：`tavily_search` / `exa_web_search`；Codex：`web.run`），拿前 5-8 個
+1. 搜尋候選 URL（Groundlane：`web_search`；專用 MCP：Tavily / Exa；平台原生：search），拿前 5-8 個
 2. **GitHub topics 掃描**：研究工具 / 框架 / library 類題目時，用相關關鍵字查 `github.com/topics/<keyword>?o=desc&s=stars`（按星數排序）。一個子問題通常對應 2-4 個 topic（例如研究爬蟲就查 `web-scraping`、`ai-scraping`、`web-crawling`）。這條線能撈到搜尋引擎和推薦文漏掉的高星但低曝光專案。
 3. 按來源品質排序：**官方 > 一手作者 > 高品質二手 > 內容農場**
    - 官方文件、release notes、論文、官方 blog、官方 GitHub repo
@@ -53,7 +67,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
    - 內容農場（Medium 抄稿、SEO blog）通常跳過
 4. **抓內容時打文件本身，而且主要來源不要帶 `query`。**
    - 搜尋工具回傳的片段是為關鍵字匹配最佳化的，不是為忠實呈現原文最佳化的。看到值得引用的東西，就去打**該文件本身**。
-   - 主要來源（結論會依賴它的論文 / 官方頁 / 定價頁）：`tavily_extract` **不帶 `query`**，或 `firecrawl_scrape`（PDF 要加 `parsers: ["pdf"]`）。
+   - 主要來源（結論會依賴它的論文 / 官方頁 / 定價頁）：Groundlane `web_fetch`、`tavily_extract` **不帶 `query`**，或 `firecrawl_scrape`（PDF 要加 `parsers: ["pdf"]`）。
    - `query` 會依相關性重排並**只回傳片段**。它省的是 context，賠的是你看不到數字旁邊的但書。只有「純粹交叉印證方向、不會被單獨引用」的次要來源才可以帶。
    - 輸出太大被存成檔案是**正常的**，用 `python3` 切片或 `grep` 讀完即可，不要因為嫌大就改用會截斷的方式。
 5. **搜尋摘要不算讀過來源。** 片段裡看到的數字只能當「候選事實」；要寫進結論，就得對那份來源真正抽取一次。
@@ -144,7 +158,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 | 寫 tldr / FAQ / glossary 時直接從自己正文濃縮 | 改寫是重新宣稱。要回原始來源對，不是回自己的正文對——不然只是把錯誤複製到更容易被引用的地方 |
 | 這句改過好幾輪都沒被動到，應該沒問題 | 存活 ≠ 查證。沒被檢查的句子只是沒被檢查 |
 | 直接 `firecrawl_crawl` 整站 | 多數題目 search + 單頁 scrape 就夠，整站爬慢、貴、易被 rate limit |
-| （Claude）用內建 `WebFetch` 比較快 | CLAUDE.md 明確禁用，只用 MCP 工具；Codex 改用 `web.run` |
+| Groundlane 沒連線時回退到 legacy fetch tools | `stealth_fetch` 與 `fetch_page` 已退役；使用實際可用的專用 MCP 或平台原生工具並記錄原因 |
 | 省略事實交叉表 | 沒這步就會把 LLM 幻覺當事實寫進文章 |
 | Research note 跟發文一起做 | 兩件事混在一起，材料還沒齊就在套句子，最後事實對不上 |
 | 抽取主要來源時帶 `query` 省 context | 回傳的是重排後的片段，你會以為讀了全文其實沒有。省下的 context 之後要用三倍去補 |
@@ -169,6 +183,7 @@ description: Multi-source research for tools, frameworks, papers, models, produc
 ## 詳細參考
 
 - MCP 工具完整映射：`references/mcp-tools.md`
+- 電腦／Web 使用模式：`references/usage-modes.md`
 - Research note 模板與範例：`references/research-note-template.md`
 - 導讀文模板：`../post/templates/tech-deep-dive.md`
 - 寫作風格（包含導讀展開原則）：`../post/references/writing-guide.md`

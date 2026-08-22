@@ -36,7 +36,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 用途 | 工具 | 說明 |
 |---|---|---|
 | **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | stealth_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
 ---
@@ -47,10 +47,10 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ### Step 3a：直接抓取排行榜頁面（主要方法）
 
-用 firecrawl 抓取以下排行榜的最新狀態：
+優先用 Groundlane `web_fetch`，必要時以 firecrawl 備援抓取以下排行榜的最新狀態：
 
 ```
-工具（優先）：mcp stealth_fetch → stealth_fetch (extract: "text", timeout: 15)
+工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
 工具（備援）：mcp firecrawl → firecrawl_scrape
 formats: ["markdown"]
 onlyMainContent: true
