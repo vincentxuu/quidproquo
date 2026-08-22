@@ -4,6 +4,7 @@
 
 ## 2026-08-22 歸檔
 
+- 修正「世界名校 AI／CS 課程地圖」傘狀系列：Stanford 中英文地圖加入 additionalSeries order 1，系列檢查器納入額外系列並補回歸測試；全球入口至 Harvard 現為 order 0–5，無缺號警告。
 - 2026-08-22: 完成 LLM Gateway 與追蹤工具專文盤點及補稿。LiteLLM、Portkey 原有中英文 deep-dive 已符合個別專文範圍；新增 Helicone、LangSmith 中英文稿，分別聚焦 proxy-first request observability 與 trace-to-evaluation workflow。四組文章通過台灣用語、references、語言對照、Astro 與完整 `pnpm verify`，待使用者 review。
 - 2026-08-22: 完成 Haystack、RAGFlow、Dify、R2R 與 Scrapy、Selenium、Bright Data、Zyte 共八組中英文工具專文草稿；均先確認無既有個別專文，依官方一手文件撰寫並通過內容品質閘門，待使用者 review。
 - 2026-08-22: 完成 Chroma、Milvus、LanceDB、pgvector 四組向量資料庫中英文 deep-dive 草稿；Weaviate 因已有法律 RAG 架構專文不重複。八檔均以官方一手文件查證，`check:tw`、references、lint、Astro 與完整 `pnpm verify` 通過，待使用者 review 後提交。

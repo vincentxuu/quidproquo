@@ -13,6 +13,9 @@ lang: en
 series:
   name: "Reading Stanford's Main-Line CS Courses"
   order: 1
+additionalSeries:
+  - name: "Global AI and CS Course Maps"
+    order: 1
 type: guide
 tldr: "Stanford CS runs three hundred-plus courses a year, but the skeleton is five: CS103, CS107, CS109, CS111, CS161 — and CS221's prerequisite field names four of them outright. This guide orders the whole ladder by official prerequisites, from intro programming to research-level seminars, across five branches, and handles two things course maps usually skip: the four places self-study actually breaks down (gated starter code, undistributable video, GPU bills, nobody grading you), and which widely cited advanced courses haven't been offered in years."
 description: "A prerequisite-ordered ladder through Stanford CS from CS106A to CS336 and CS329A, built on the department's official core requirements and ExploreCourses entries, covering NLP/LLM, vision, reinforcement learning, graphs, and systems, with public-material status, self-study limits, and recent offering records."
