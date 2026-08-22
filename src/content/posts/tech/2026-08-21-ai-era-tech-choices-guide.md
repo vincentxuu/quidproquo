@@ -108,15 +108,15 @@ draft: false
 | **RAG 框架** | Haystack、RAGFlow、Dify、R2R | 已有 LlamaIndex 專文與三十餘篇 RAG 技法文，仍缺跨框架選型 |
 | **自架推論服務** | SGLang、Triton、Ray | 有 vLLM 與 Ollama 兩篇 |
 | **雲端 LLM API 與路由** | OpenRouter、Bedrock、Vertex AI、Together、Fireworks、LiteLLM、Portkey | 有 Groq Console、9Router 與一篇 40+ 家定價整理 |
-| **抓取與搜尋 API** | Tavily、Jina Reader、Serper、SerpAPI、Linkup、Brave Search API | 已有 Exa、Firecrawl 專文與一篇爬蟲工具全景圖 |
-| **自架爬蟲與反爬蟲** | Crawl4AI、Scrapy、Selenium、Bright Data、Zyte、Apify | 有一篇繞過 Cloudflare 反爬蟲的實戰文 |
-| **全文檢索與站內搜尋** | Pagefind、Meilisearch、Typesense、Algolia、Elasticsearch / OpenSearch | 完全空白——而本站自己的搜尋就是 Pagefind |
-| **向量資料庫** | Qdrant、Chroma、Weaviate、Milvus、LanceDB、pgvector | 有選型比較，無單品深入 |
+| **抓取與搜尋 API** | — | Exa、Tavily、Linkup、Jina Reader、Firecrawl、Serper、SerpAPI、Brave Search API 均已有專文，另有一篇爬蟲工具全景圖 |
+| **自架爬蟲與反爬蟲** | Scrapy、Selenium、Bright Data、Zyte | 已有 Crawl4AI、Apify 專文與一篇繞過 Cloudflare 反爬蟲的實戰文 |
+| **全文檢索與站內搜尋** | Typesense、Algolia、Elasticsearch / OpenSearch | 已有 Pagefind、Meilisearch 專文；本站以 Pagefind 支援 404 搜尋，主要搜尋頁另走 D1 與混合檢索 |
+| **向量資料庫** | Chroma、Weaviate、Milvus、LanceDB、pgvector | 已有選型比較與 Qdrant 單品深入 |
 | **Agent 記憶服務** | Mem0、Zep、Cognee、Letta / MemGPT | 有概念文，無工具專文 |
 | **Agent 協定** | AP2 與 UCP（代理支付與商務） | 覆蓋最好的一層：MCP、A2A、A2UI、AGENTS.md、WebMCP 各有專文 |
 | **Agent 的工具連接平台** | Arcade、Pipedream、Toolhouse、Zapier MCP | 已有 Composio 專文 |
 | **Agent 託管與 SDK** | OpenAI Agents SDK、Cloudflare Agents SDK | 有 Vercel Open Agents、Claude Managed Agents、OpenAI Workspace Agents |
-| **Agent 介面元件** | CopilotKit、assistant-ui | 有 AI Elements 與 A2UI |
+| **Agent 介面元件** | — | CopilotKit、assistant-ui、AI Elements 與 A2UI 均已有專文 |
 | **LLM gateway 與追蹤** | LiteLLM、Portkey、Helicone、LangSmith | 有 Langfuse 與 9Router |
 | **低程式碼 agent 平台** | Dify、n8n、Flowise | 完全空白 |
 
@@ -174,7 +174,9 @@ draft: false
 
 還有一種缺口比較難堪，是**自己天天在用卻從沒寫過的東西**。
 
-這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina。Exa 已經補成專文，但 Tavily 與 Jina 仍只活在工作流和比較文裡。本站的全文搜尋跑的是 Pagefind，仍然零篇；Hugging Face 被大量文章引用，也還沒有自己的工具文。
+這個 repo 的規範白紙黑字寫著抓網頁要優先走 Exa、Tavily、Jina，現在三個都有自己的專文。[Pagefind](/posts/tech/2026-08-22-pagefind-static-search) 與 [Hugging Face](/posts/ai/2026-08-22-hugging-face-hub-guide) 也已補上：前者直接拆本站 Astro build 後產生索引、404 頁使用 Pagefind UI，而主要搜尋頁另走 D1 與混合檢索的實際邊界；後者則從 Hub 的 repository 一路分清 Datasets、Spaces、Inference Providers 與 Endpoints。[Jina Reader 專文](/posts/ai/2026-08-22-jina-reader-guide)補齊已知 URL 到模型可讀 Markdown 的那一段；[Serper](/posts/ai/2026-08-22-serper-search-api-guide)、[SerpAPI](/posts/ai/2026-08-22-serpapi-search-api-guide)與 [Brave Search API](/posts/ai/2026-08-22-brave-search-api-guide)則把 Google SERP、多引擎 SERP 與自有搜尋索引三條路分開。
+
+Agent 介面元件也補齊了。[CopilotKit](/posts/tech/2026-08-22-copilotkit-agent-ui)從應用程式狀態、工具與 Human-in-the-Loop 出發；[assistant-ui](/posts/tech/2026-08-22-assistant-ui-runtime)則從 chat primitives、Runtime ownership 與後端 adapter 出發。兩篇刻意保留不同主脊，不把功能重疊寫成同一份清單。
 
 雲那邊是另一種形狀的空白。站上躺著五篇 AWS 與微軟的 AI 證照備考路徑，卻沒有一篇談這些平台本身怎麼選。Modal 補上了 serverless GPU 的一角，但 CoreWeave、Lambda Labs、RunPod、Nebius 這些 GPU 與推論專用雲仍沒有橫向比較。站上寫過 vLLM 與 Ollama，也就是**推論引擎寫了，跑引擎的地方只回答了一種形狀**；要不要自架仍缺完整的成本與延遲地圖。
 
@@ -214,6 +216,7 @@ draft: false
 
 ## 更新紀錄
 
+- 2026-08-22：依站內實際文章重新盤點 roadmap，將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 改列為已有專文。
 - 2026-08-21：系列更新至 order 20，補入後續十二篇閱讀路徑，並同步修正 roadmap 的已覆蓋與未覆蓋項目。
 
 ## 參考資料
