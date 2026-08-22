@@ -59,19 +59,19 @@ draft: false
 
 ### Lab 1：從 tensor 一路做到音樂生成
 
-[Lab 1](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab1) 先補 PyTorch 基本操作，再用 RNN／LSTM 讀 ABC notation、產生愛爾蘭民謠。這個題目不只是展示模型會生成東西：你會碰到字元表示、序列切片、hidden state、loss、訓練迴圈與 sampling。
+[Lab 1](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) 先補 PyTorch 基本操作，再用 RNN／LSTM 讀 ABC notation、產生愛爾蘭民謠。這個題目不只是展示模型會生成東西：你會碰到字元表示、序列切片、hidden state、loss、訓練迴圈與 sampling。
 
 它也是最適合拿來試水溫的一份。若你連 Part 1 都需要大量補課，先停在這裡整理 Python、tensor shape 與反向傳播，比直接跳到 LLM 微調有效。
 
 ### Lab 2：分類準確率之外，資料偏差怎麼進模型
 
-[Lab 2](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab2) 的 Part 1 用 MNIST 做 fully connected network 與 CNN；Part 2 進到 facial detection 與 debiasing，以 DB-VAE 學習臉部資料的 latent distribution，再調整取樣。
+[Lab 2](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) 的 Part 1 用 MNIST 做 fully connected network 與 CNN；Part 2 進到 facial detection 與 debiasing，以 DB-VAE 學習臉部資料的 latent distribution，再調整取樣。
 
 它的價值是把「生成模型」與「公平性」接在同一個實驗裡。你不是只讀一段 AI bias 的倫理說明，而是要觀察資料分布如何影響訓練、模型在哪些臉上表現較差，以及重新取樣能修正什麼、不能修正什麼。
 
 ### Lab 3：LoRA 微調，再用另一個 LLM 當裁判
 
-[Lab 3](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab3) 使用 Liquid AI 的 LFM2-1.2B。先建立 chat template、tokenize 與 generate，再用 LoRA 只更新少量參數，把模型調成特定說話風格。最後用較大的模型做 LLM-as-a-judge，配合 Comet 的 Opik 建立評估指標。
+[Lab 3](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) 使用 Liquid AI 的 LFM2-1.2B。先建立 chat template、tokenize 與 generate，再用 LoRA 只更新少量參數，把模型調成特定說話風格。最後用較大的模型做 LLM-as-a-judge，配合 Comet 的 Opik 建立評估指標。
 
 這份 lab 很像 2026 年的 AI prototype：底模從 Hugging Face 載入、微調用 PEFT、judge 經 API 呼叫、評估另有 observability 工具。好處是接近真實工作流；代價是依賴也最多。
 
@@ -139,17 +139,21 @@ Labs 的概念延續，但檔案不是完全相同。最明顯的是 Lab 3：202
 
 ## 最小開始方式
 
-不要先把九支影片加入稍後觀看。打開官方 GitHub 的 [Lab 1 PyTorch Part 1](https://github.com/MITDeepLearning/introtodeeplearning/blob/master/lab1/PT_Part1_PyTorch.ipynb)，按 Run in Colab，確認三件事：Google 帳號能進、GPU runtime 能選、第一組 TODO 能在不看 solution 的情況下完成。
+不要先把九支影片加入稍後觀看。打開官方 GitHub 的 [Lab 1 PyTorch Part 1](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part1_Intro.ipynb)，按 Run in Colab，確認三件事：Google 帳號能進、GPU runtime 能選、第一組 TODO 能在不看 solution 的情況下完成。
 
 給自己九十分鐘。九十分鐘後如果你能說清楚 tensor shape、gradient 與下一個 TODO 在做什麼，就接 Lecture 2 與音樂生成；如果時間都花在 Python syntax，先補 Python／NumPy，再回來。這個小測試比「我有沒有數學天分」更能預測你是否適合現在開始。
+
+## 更新紀錄
+
+- 2026-08-22：新增九講與三個 labs 的雙語系列，並將所有 lab 連結固定到官方 `2026` branch。
 
 ## 參考資料
 
 - [MIT 6.S191 2026 課程官網](https://introtodeeplearning.com/) — 日期、九講影片與投影片、三個 labs、先修、學分、評量與公開授權
 - [MIT 6.S191 2025 封存站](https://introtodeeplearning.com/2025/index.html) — 十講結構與年度比較
 - [MITDeepLearning/introtodeeplearning](https://github.com/MITDeepLearning/introtodeeplearning) — 2026 labs、Colab／Google 帳號與 GPU runtime 說明、MIT License
-- [Lab 1：PyTorch 與 Music Generation](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab1) — RNN／LSTM、Comet 與公開解答
-- [Lab 2：MNIST 與 Debiasing](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab2) — CNN、DB-VAE、Comet 與公開解答
-- [Lab 3：LLM Fine-tuning](https://github.com/MITDeepLearning/introtodeeplearning/blob/master/lab3/LLM_Finetuning.ipynb) — LFM2-1.2B、LoRA、OpenRouter、Gemini 2.5 與 Opik 的執行要求
+- [Lab 1：PyTorch 與 Music Generation](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) — RNN／LSTM、Comet 與公開解答
+- [Lab 2：MNIST 與 Debiasing](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) — CNN、DB-VAE、Comet 與公開解答
+- [Lab 3：LLM Fine-tuning](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab3/LLM_Finetuning.ipynb) — LFM2-1.2B、LoRA、OpenRouter、Gemini 2.5 與 Opik 的執行要求
 - [CSDIY CS 學習規劃](https://csdiy.wiki/CS%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92/) — 社群深度學習路線對照；目前未列獨立 6.S191 頁面
 - 站內：[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)

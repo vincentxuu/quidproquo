@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
 
-先更正一個最容易從舊資料得到的錯誤：**MIT 有正式的 AI 學位。**Course 6-4 的全名是 **Artificial Intelligence and Decision Making**，學生自 2022 年秋季起就能申報。它不是在 Computer Science 學位裡偷偷塞幾門機器學習選修，而是一套獨立的學士學位要求。
+先更正一個最容易從舊資料得到的錯誤：[**MIT 有正式的 AI 學位。**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)Course 6-4 的全名是 **Artificial Intelligence and Decision Making**，學生自 2022 年秋季起就能申報。它不是在 Computer Science 學位裡偷偷塞幾門機器學習選修，而是一套獨立的學士學位要求。
 
 但這不代表打開 MIT 網站，就會看到一條從第一堂 Python 到最新大型模型的完整公開課。實際盤點後，MIT 的 AI／ML 資源分成三層，而且經常對不起來：
 
@@ -80,7 +80,7 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 
 | 課程與版本 | 等級 | 匿名讀者實際拿得到什麼 | 缺口 |
 |---|---:|---|---|
-| **6.S191, IAP 2026** | **A3** | 九講影片與投影片、三個 labs、官方 GitHub | 沒有 MIT 回饋、學分與雲端額度 |
+| **6.S191, Spring 2026** | **A3** | 3 月 30 日至 5 月 25 日的九講影片與投影片、三個 labs、官方 GitHub | 沒有 MIT 回饋、學分與雲端額度 |
 | **6.3900, Spring 2026** | **A2** | 部分靜態講義仍可開 | 學期結束後首頁與作業封存；錄影、Shimmer、Piazza 受限 |
 | **6.4110, Spring 2026** | **A2** | info、calendar、slides、多份 CAT-SOOP 作業與 code stubs | Panopto 錄影在 Canvas，沒有完整公開解答 |
 | **6.7960, Fall 2025** | **A2** | schedule、投影片、閱讀、部分 PyTorch Colab | 錄影與解答在 Canvas，作業透過 Gradescope |
@@ -105,11 +105,11 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 
 ```text
 6.3900 公開 notes
-  ├─ 6.S191 2026：一週式現代深度學習入口
+  ├─ 6.S191 Spring 2026：九週現代深度學習入口
   └─ 6.7960 Fall 2024 OCW：一學期進階深度學習
 ```
 
-6.S191 適合快速看見卷積網路、Transformer、生成模型與 AI for science 如何串起來；它是一週 bootcamp，不是 6.7960 的前身或等價替代。要練理論、讀二十四講並完成較長作業，走 6.7960 OCW。
+[6.S191 Spring 2026](https://introtodeeplearning.com/)適合快速看見卷積網路、Transformer、生成模型與 AI for science 如何串起來；它從 3 月 30 日到 5 月 25 日每週上課，不是 IAP 一週 bootcamp，也不是 6.7960 的前身或等價替代。要練理論、讀二十四講並完成較長作業，走 6.7960 OCW。
 
 ### 2. AI 不只神經網路
 
@@ -149,6 +149,10 @@ CSDIY 很適合回答「自學社群曾把哪個版本整理成可走的路線�
 3. 寫下缺的先修：Python、演算法、線代或機率。缺哪一個，就先回去補哪一個。
 
 MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：資料、模型、決策、計算與人，缺一塊都不完整。公開教材能讓你借到其中很大一部分；學分、回饋、同儕、受管制平台與研究環境，仍然借不到。
+
+## 更新紀錄
+
+- 2026-08-22：修正 6.S191 2026 為 Spring 九週課程，不再誤標成 IAP 一週 bootcamp。
 
 ## 參考資料
 
