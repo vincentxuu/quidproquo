@@ -59,19 +59,19 @@ The repository provides both PyTorch and TensorFlow variants for the first two l
 
 ### Lab 1: from tensors to music generation
 
-[Lab 1](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab1) introduces PyTorch and then uses an RNN/LSTM to read ABC notation and generate Irish folk music. The task covers character representation, sequence slicing, hidden state, loss, the training loop, and sampling.
+[Lab 1](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) introduces PyTorch and then uses an RNN/LSTM to read ABC notation and generate Irish folk music. The task covers character representation, sequence slicing, hidden state, loss, the training loop, and sampling.
 
 It is also the best readiness test. If Part 1 requires extensive remediation, pause and strengthen Python, tensor shapes, and backpropagation before jumping to LLM fine-tuning.
 
 ### Lab 2: move beyond aggregate classification accuracy
 
-[Lab 2](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab2) uses MNIST for a fully connected network and CNN, then moves to facial detection and debiasing. A DB-VAE learns the latent distribution of face data and adjusts sampling.
+[Lab 2](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) uses MNIST for a fully connected network and CNN, then moves to facial detection and debiasing. A DB-VAE learns the latent distribution of face data and adjusts sampling.
 
 The useful move is joining generative modeling and fairness in one experiment. You do not merely read an ethics paragraph about AI bias. You observe how the data distribution affects training, where the detector performs poorly, and what resampling can and cannot repair.
 
 ### Lab 3: LoRA fine-tuning followed by an LLM judge
 
-[Lab 3](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab3) uses Liquid AI's LFM2-1.2B. It builds chat templates, tokenizes and generates, then applies LoRA to adapt a small subset of parameters to a speaking style. A larger model becomes an LLM-as-a-judge, with Comet's Opik used to define the evaluation workflow.
+[Lab 3](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) uses Liquid AI's LFM2-1.2B. It builds chat templates, tokenizes and generates, then applies LoRA to adapt a small subset of parameters to a speaking style. A larger model becomes an LLM-as-a-judge, with Comet's Opik used to define the evaluation workflow.
 
 This resembles a 2026 AI prototype: the base model comes from Hugging Face, PEFT handles adaptation, the judge arrives through an API, and evaluation has a separate observability layer. That realism is useful, but it also gives this lab the most dependencies.
 
@@ -139,17 +139,21 @@ This is exactly why community guides and official sources serve different purpos
 
 ## The smallest useful start
 
-Do not add all nine videos to a watch-later queue. Open the official [Lab 1 PyTorch Part 1 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/master/lab1/PT_Part1_PyTorch.ipynb), launch it in Colab, and check three things: your Google account can enter, a GPU runtime is available, and you can complete the first TODO block without opening the solution.
+Do not add all nine videos to a watch-later queue. Open the official [Lab 1 PyTorch Part 1 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part1_Intro.ipynb), launch it in Colab, and check three things: your Google account can enter, a GPU runtime is available, and you can complete the first TODO block without opening the solution.
 
 Give it ninety minutes. If you can explain the tensor shapes, gradients, and purpose of the next TODO, continue to Lecture 2 and music generation. If the time disappears into Python syntax, strengthen Python and NumPy first. That small test predicts readiness better than asking whether you are “good at math.”
+
+## Changelog
+
+- 2026-08-22: Added the bilingual nine-lecture and three-lab series, and pinned all lab links to the official `2026` branch.
 
 ## References
 
 - [MIT 6.S191 2026 course site](https://introtodeeplearning.com/) — dates, nine videos and slide decks, three labs, prerequisites, credit, assessment, and open-source statement
 - [MIT 6.S191 2025 archive](https://introtodeeplearning.com/2025/index.html) — ten-lecture structure and edition comparison
 - [MITDeepLearning/introtodeeplearning](https://github.com/MITDeepLearning/introtodeeplearning) — 2026 labs, Colab/Google-account and GPU-runtime instructions, MIT License
-- [Lab 1: PyTorch and Music Generation](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab1) — RNN/LSTM, Comet, and public solutions
-- [Lab 2: MNIST and Debiasing](https://github.com/MITDeepLearning/introtodeeplearning/tree/master/lab2) — CNN, DB-VAE, Comet, and public solutions
-- [Lab 3: LLM Fine-tuning](https://github.com/MITDeepLearning/introtodeeplearning/blob/master/lab3/LLM_Finetuning.ipynb) — LFM2-1.2B, LoRA, OpenRouter, Gemini 2.5, and Opik requirements
+- [Lab 1: PyTorch and Music Generation](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) — RNN/LSTM, Comet, and public solutions
+- [Lab 2: MNIST and Debiasing](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) — CNN, DB-VAE, Comet, and public solutions
+- [Lab 3: LLM Fine-tuning](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab3/LLM_Finetuning.ipynb) — LFM2-1.2B, LoRA, OpenRouter, Gemini 2.5, and Opik requirements
 - [CSDIY CS learning roadmap](https://csdiy.wiki/en/CS%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92/) — community deep-learning path comparison; no dedicated 6.S191 page at audit time
 - On this site: [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
