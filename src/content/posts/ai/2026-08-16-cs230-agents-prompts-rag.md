@@ -7,7 +7,7 @@ tags: [ai-agent, rag, prompt-engineering, evaluation, stanford-cs230]
 lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
-  order: 8
+  order: 7
 tldr: "BCG 的實驗發現一條「鋸齒狀邊界」：邊界內 AI 大幅提升顧問表現，邊界外 AI 讓結果更差，而人們會在方向盤上睡著。這一講也給了一個很有立場的判斷——盡可能避開 fine-tuning，因為等你調完，下一代模型已經打敗你 fine-tune 過的版本了。"
 description: "Stanford CS230（2025 秋季）Lecture 8 完整導讀：從 prompt 到 chain 到 RAG 到 agentic workflow 到 multi-agent 的完整縱軸，含 BCG 鋸齒狀邊界、LLM-as-judge 四種形態、決定論到模糊的典範轉移、eval 的三軸切法，以及為什麼這門課只給廣度。"
 draft: false

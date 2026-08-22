@@ -69,7 +69,7 @@ Fugu Ultra 在 SWE-Bench Pro 達到 73.7%，同時在 Terminal Bench、LiveCodeB
 - 建構在 ICLR 2026 兩篇論文之上：「Trinity: An Evolved LLM Coordinator」和「Learning to Orchestrate Agents」
 - SWE-Bench Pro 73.7% 為 Sakana 官方自報數字，尚無第三方獨立複測 **⚠️**
 - 完全閉源，只能透過 Sakana API 使用，無法自部署 **⚠️**
-- 有用戶回報複雜任務需 30 分鐘以上，延遲問題未解決 **⚠️**
+- 有使用者回報複雜任務需 30 分鐘以上，延遲問題未解決 **⚠️**
 - 與 LangGraph/AutoGen 的關係：Fugu 是「學習如何 orchestrate」，前兩者是「被程式設計 orchestrate」，是更高層次的抽象
 - 和 MCP 的關聯：Fugu 可作為上層協調者，由它決定哪個 worker 呼叫哪些 MCP 工具
 Learned orchestration 是真正的新方向，但 SWE-Bench Pro 73.7% 只是 Sakana 自報數字、完全閉源、延遲問題仍在，現在宣稱「超越所有公開模型」要打折扣——等第三方獨立複測再下結論。**⚠️**

@@ -1,17 +1,27 @@
 {
-  "date": "2026-08-20",
-  "swebench_verified_bash_only_top5": [
-    { "rank": 1, "model": "Claude 4.5 Opus (medium)", "agent": "live-SWE-agent", "score": 79.20 },
-    { "rank": 2, "model": "Claude 4.5 Opus", "agent": "Sonar Foundation Agent", "score": 79.20 },
-    { "rank": 3, "model": "Doubao-Seed-Code", "agent": "TRAE", "score": 78.80 },
-    { "rank": 4, "model": "Gemini 3 Pro Preview", "agent": "live-SWE-agent", "score": 77.40 },
-    { "rank": 5, "model": "Multiple (Claude Sonnet 4 + GPT-5)", "agent": "Atlassian Rovo Dev", "score": 76.80 }
+  "date": "2026-08-22",
+  "swebench_verified_top5": [
+    { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
+    { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
+    { "rank": 3, "model": "TRAE", "org": "ByteDance", "score": 78.80 },
+    { "rank": 4, "model": "live-SWE-agent", "org": "UIUC", "score": 77.40 },
+    { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
-  "lmsys_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.19, "ci": "±1.45%" },
-    { "rank": 2, "model": "Claude Fable 5 (High)", "score": 12.01, "ci": "±2.57%" },
-    { "rank": 3, "model": "Claude Opus 5 (Max)", "score": 11.95, "ci": "±1.71%" }
+  "lmsys_agent_top3": [
+    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.47, "ci": "±1.54%" },
+    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.00, "ci": "±1.80%" },
+    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.57, "ci": "±1.70%" }
+  ],
+  "aa_agentic_index_top3": [
+    { "rank": 1, "model": "Claude Opus 5", "org": "Anthropic", "score": 59.2 },
+    { "rank": 2, "model": "GLM-5.3", "org": "Z.ai", "score": 59.1 },
+    { "rank": 3, "model": "Grok 4.6", "org": "xAI", "score": 58.7 }
+  ],
+  "cursorbench_top3": [
+    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "BenchLM mirror；xAI 自報僅 69.9%（Grok 4.6 High）；Grok 4.6 Extra High 70.8% 為 Cursor 第一方 CursorBench 3.2 官方數字" },
+    { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5 },
+    { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-20：改用直接 curl（透過 proxy）抓取 swebench.com 官方 GitHub repo 原始資料 https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json（同 08-19 方法）。'Verified' 排行榜（全 agent）前 5 名分數與名次與 08-19 快照完全一致，無異動；同時檢查了 'bash-only'（LM-only mini-SWE-agent 分支）榜單，最高分為 Claude 4.5 Opus (high) 76.8%，非此快照追蹤欄位但與 CodeSOTA 第三方站台交叉核對一致。lmarena.ai/leaderboard 用 Tavily extract 抓取（firecrawl 額度依然用盡 insufficient credits，直接 curl 被 proxy 阻擋 403），Agent 類別前三名與 08-19 快照完全一致（Claude Opus 5 (High) 12.19%、Claude Fable 5 (High) 12.01%、Claude Opus 5 (Max) 11.95%），無異動。MorphLLM /leaderboard 用 Tavily extract 抓取失敗（fetch 失敗），持續無法存取。額外用 Exa 搜尋新聞信號，發現大量第三方聚合站（BenchLM.ai、Swfte AI、CodeSOTA、reviewpublically 等）互相矛盾，且再次出現不可信/疑似虛構的型號名稱（如「Claude Mythos 5」「Claude Mythos Preview」宣稱 95%+ 分數，非任何官方已知型號），與 08-19 觀察到的同一類幻覺型號一致，未採信，僅以官方來源（swebench.com 原始 JSON、lmarena.ai 官網經 Tavily extract）為準。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-08-22：curl（透過 proxy）直接抓 swebench.com 官方 raw JSON leaderboards.json，'Verified' 全 agent 榜前 5 名分數與名次（79.2/79.2/78.8/77.4/76.8）與 08-21 快照完全一致，無異動。lmarena.ai/leaderboard/agent（Exa fetch + Tavily extract 雙重確認，firecrawl 因 credits 用盡不可用）Agent Arena 榜前 3 名（12.47/12.00/11.57，Claude Opus 5 High → Max → Fable 5 High）與 08-21 快照完全一致。CursorBench（Exa 搜尋 cursor.com/cursorbench 官方頁 + BenchLM 鏡像雙重確認）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-21 快照一致，無異動。MorphLLM /leaderboard 仍被擋（Exa CRAWL_LIVECRAWL_TIMEOUT、Tavily fetch 失敗），連續多日無法存取。AA Agentic Index 唯一疑似變動：BenchLM 鏡像顯示第 3 名由 Qwen3.8 Max Preview（58.4%）換成 GLM-5.3（59.1%），官方 artificialanalysis.ai/models/capabilities/agentic FAQ 亦確認 GLM-5.3 現與 Claude Opus 5、Grok 4.6 並列『top-performing』（三者官方頁面四捨五入後皆顯示 59 分）。但判斷不觸發之理由：(1) 第 1 名仍為 Claude Opus 5（Anthropic），未易主；(2) Opus 5 59.2 / GLM-5.3 59.1 / Grok 4.6 58.7 三者差距均 <1pp，官方頁面本身四捨五入後三者並列 59，屬於接近雜訊等級的排序抖動而非實質反超；(3) GLM-5.3 本身（8/14 發佈）已於 08-18、08-20、08-21 三篇文章分別報導過其 DeepSWE、Terminal-Bench 3.0、CyberGym 資安等分數與『意外湧現』資安能力爭議，此處的 AA Agentic Index 排名只是同一模型已知能力的再一次展示，不構成新資訊。今日無 Benchmark 異動，未產出文章。仍出現不可信/疑似虛構型號（如聚合站的『Claude Mythos 5』宣稱 95%+、部分聚合站將受限存取型號當作可比較數字），一律未採信，僅以官方來源與 Artificial Analysis／SWE-bench 獨立評測為準。"
 }

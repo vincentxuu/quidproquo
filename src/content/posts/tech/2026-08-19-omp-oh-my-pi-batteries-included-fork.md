@@ -55,7 +55,7 @@ omp 的 README 自述得很清楚：
 
 Pi 賭的是：核心越小，你越能塑形，而且極短的 system prompt 讓 1.7B 的本地模型也跑得動。
 
-## omp 的分岔點不在插件層
+## omp 的分岔點不在外掛層
 
 最容易誤解 omp 的地方，是以為它只是「在 Pi 上外掛了一大包功能」。看語言組成就知道不是：Pi 幾乎純 TypeScript，omp 多出六個 Rust crate 加一份 vendored 的 brush bash fork。
 
@@ -72,7 +72,7 @@ README 對這件事的說法是：
 
 > Other agents shell out to rg, grep, find, and bash. On many machines those binaries don't exist, and on the ones where they do, every call costs a fork-exec round-trip. omp links the real implementations into the process.
 
-這是**工具層的重寫**，不是插件層的堆疊。也因此才有兩個推論成立：熱路徑上沒有 fork/exec；同一顆 binary 在 macOS、Linux、Windows 上跑，Windows 不需要 WSL 橋接。
+這是**工具層的重寫**，不是外掛層的堆疊。也因此才有兩個推論成立：熱路徑上沒有 fork/exec；同一顆 binary 在 macOS、Linux、Windows 上跑，Windows 不需要 WSL 橋接。
 
 （一個引用時要小心的坑：omp 自己的文件對內建 CLI utility 數量有三個互相打架的數字——README 正文寫 58 個、`bash` 工具說明寫「46 in-process coreutils」、crate 表的 `pi-builtins` 寫「67 in-process command-line utilities」。要引就引 crate 表，或標明不確定。）
 

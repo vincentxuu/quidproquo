@@ -4,6 +4,9 @@ date: 2026-05-08
 category: ai
 tags: [rag, agent, langgraph, deep-research, local-llm, langchain]
 lang: en
+series:
+  name: "Search and Scraping in Practice"
+  order: 6
 type: guide
 tldr: "Local Deep Research is a privacy-first deep research agent built on LangChain + LangGraph, integrating 20+ search engines and 30+ research strategies. Its flagship langgraph_agent_strategy takes the LLM-autonomous tool-calling approach, offering a fundamentally different paradigm from fixed-pipeline RAG graphs."
 description: "A walkthrough of LearningCircuit/local-deep-research: positioning, architecture, directory map, 30+ research strategies, and how it differs from typical RAG systems."
@@ -156,6 +159,10 @@ The most worth stealing:
 4. **The `journal_quality/` dataset** -- 210K+ journal reputation scores, valuable in its own right
 
 Compared to a typical RAG graph: fixed pipelines remain the right choice for most production scenarios (observable, testable, cheap), but when you encounter scenarios that "require deep exploration, can't predict the number of steps in advance, and need dynamic tool composition," LDR's langgraph_agent mode is an excellent reference.
+
+Once search, fetching, and multi-step reasoning are wired into an automated loop, there is one thing none of the other posts in this series expands on: **what you fetch is untrusted input**, and a multi-step agent like LDR maximizes the blast radius of an injection. That thread runs through [the same crack in agent security](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en).
+
+As for which search layer to plug in underneath, the first two posts in this series cover [choosing a cloud search MCP](/posts/ai/2026-05-07-ai-search-mcp-tools-en) and [what a self-hosted SearXNG stack costs](/posts/ai/2026-08-21-self-hosted-search-stack-en) — LDR handles either route.
 
 ## References
 

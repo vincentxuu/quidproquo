@@ -19,7 +19,7 @@ series:
 
 | 白話解釋 | 詞 |
 |---|---|
-| 讓 Agent 記住用戶跨對話的偏好與歷史；不是對話視窗本身，而是「另外存起來、下次用得到」的持久儲存 | Agent 記憶（Memory） |
+| 讓 Agent 記住使用者跨對話的偏好與歷史；不是對話視窗本身，而是「另外存起來、下次用得到」的持久儲存 | Agent 記憶（Memory） |
 | 把記憶「撈回來」的方式；最常見是用語意相似度搜尋，類似 Google 搜尋的感覺 | Retrieval（語意檢索） |
 | 多個 AI 分工合作完成任務的系統；想像成一個專案團隊，每個 agent 負責不同子任務 | Multi-Agent System（MAS） |
 | MAS 裡負責分派任務、整合結果的「主管」；DeLM 的核心主張是去掉這個單點 | Orchestrator（協調者） |
@@ -36,7 +36,7 @@ series:
 
 ### TL;DR
 
-把「用戶模型」從一堆文字筆記，升級成可以直接執行的 Python 程式碼，讓 Agent 不只能「查詢事實」，還能對用戶狀態做計算與邏輯推理。
+把「使用者模型」從一堆文字筆記，升級成可以直接執行的 Python 程式碼，讓 Agent 不只能「查詢事實」，還能對使用者狀態做計算與邏輯推理。
 
 ### Read Priority
 
@@ -45,7 +45,7 @@ Agent 個人化是 2026 最熱需求之一；這篇從根本重新定義「記�
 
 ### 領域背景
 
-AI Agent 需要記住用戶跨越多個對話的偏好——例如你告訴 Agent「我不吃堅果」，下週訂餐時還要記得。現有系統幾乎都把這些偏好存成純文字或知識圖譜，再用語意搜尋撈回來。問題在於：「撈相似的記憶」和「推理用戶狀態」是兩件事，文字記憶很難處理邏輯衝突、跨多筆彙總統計，以及複雜的「如果…則…」規則。
+AI Agent 需要記住使用者跨越多個對話的偏好——例如你告訴 Agent「我不吃堅果」，下週訂餐時還要記得。現有系統幾乎都把這些偏好存成純文字或知識圖譜，再用語意搜尋撈回來。問題在於：「撈相似的記憶」和「推理使用者狀態」是兩件事，文字記憶很難處理邏輯衝突、跨多筆彙總統計，以及複雜的「如果…則…」規則。
 
 ### 中階導讀
 
@@ -56,30 +56,30 @@ AI Agent 需要記住用戶跨越多個對話的偏好——例如你告訴 Agen
 
 #### 方法
 
-User as Code（UaC）把用戶模型存成 Python 程式碼：用 typed Python objects 描述用戶的「狀態」（例如 `user.monthly_food_budget`），再用 Python functions 描述「規則」（例如「如果訂單含花生，標記為 reject」）。這段程式碼是活的，每次對話後 Agent 把新資訊 append 進 event log，並定期 checkpoint 成整理過的結構化程式碼。要回答問題時，直接執行這段程式碼算出答案。
+User as Code（UaC）把使用者模型存成 Python 程式碼：用 typed Python objects 描述使用者的「狀態」（例如 `user.monthly_food_budget`），再用 Python functions 描述「規則」（例如「如果訂單含花生，標記為 reject」）。這段程式碼是活的，每次對話後 Agent 把新資訊 append 進 event log，並定期 checkpoint 成整理過的結構化程式碼。要回答問題時，直接執行這段程式碼算出答案。
 
 #### 為什麼重要
 
-對平台開發者而言，UaC 意味著「用戶記憶」從 blob storage + vector search，變成一個版本控管的程式碼庫。記憶邏輯可測試、可審計、可 diff。對 PM 而言，個人化功能的精度可以從「大概對」躍升到「精確計算」。
+對平台開發者而言，UaC 意味著「使用者記憶」從 blob storage + vector search，變成一個版本控管的程式碼庫。記憶邏輯可測試、可審計、可 diff。對 PM 而言，個人化功能的精度可以從「大概對」躍升到「精確計算」。
 
 ### 深入要點
 
 - **兩段式 pipeline**：append-only event log（永不刪記錄）→ 定期 checkpoint 成結構化 Python code；靈感來自資料庫的 event sourcing 設計模式
 - **LOCOMO benchmark**：一般事實問題 78.8%，與 full-context 上限和最強 retrieval-based 系統相當
 - **彙總問題的斷崖**：retrieval-based memory 在彙總問題（aggregate questions）只有 6–43%，UaC 達到 **99%**；這個差距是論文最核心的論點
-- **與 MemGPT / Mem0 的對比**：現有主流系統仍以文字 + 檢索為核心；UaC 是首篇把用戶模型整體存成可執行程式碼的論文（作者自稱）
+- **與 MemGPT / Mem0 的對比**：現有主流系統仍以文字 + 檢索為核心；UaC 是首篇把使用者模型整體存成可執行程式碼的論文（作者自稱）
 - **Limitation**：程式碼生成依賴 LLM，若 LLM 產出有 bug 會靜默出錯；LOCOMO 規模偏小，大型部署穩定性尚待驗證
-- **落地門檻**：需要底層 LLM 能穩定輸出正確 Python；複雜用戶邏輯的 code 品質強烈依賴 model 能力
+- **落地門檻**：需要底層 LLM 能穩定輸出正確 Python；複雜使用者邏輯的 code 品質強烈依賴 model 能力
 - **作者**：Bojie Li，Pine AI；單作者論文，獨立研究機構，學術根基較淺但工程實踐導向
 
 ### Reviewer 一句話評
 
-想法新穎，99% vs 6–43% 的彙總問題差距說服力強。但 LOCOMO 是個偏小且偏乾淨的 benchmark；真實用戶行為更雜亂矛盾，code checkpoint 在 edge case 的品質是最大疑問。值得追蹤，但別在壓測前搬進 production。
+想法新穎，99% vs 6–43% 的彙總問題差距說服力強。但 LOCOMO 是個偏小且偏乾淨的 benchmark；真實使用者行為更雜亂矛盾，code checkpoint 在 edge case 的品質是最大疑問。值得追蹤，但別在壓測前搬進 production。
 
 ### 給你的 take-away
 
 - 你在做 Agent 個人化 → 先看 Section 3（two-phase pipeline 架構），對比你現在的記憶方案是否有同樣的「彙總盲點」
-- 你在設計記憶層 schema → 問自己：用戶問的是「哪筆最相關」還是「跨多筆統計」？前者 RAG 夠用，後者應該考慮 UaC 或混合方案
+- 你在設計記憶層 schema → 問自己：使用者問的是「哪筆最相關」還是「跨多筆統計」？前者 RAG 夠用，後者應該考慮 UaC 或混合方案
 
 ---
 
@@ -150,16 +150,16 @@ Agent 之間不需直接通訊，只需讀/寫共享狀態。每個 agent 的 co
 
 ### TL;DR
 
-Web Agent 執行完任務後，HANSEL 自動從瀏覽歷史中抽出「最關鍵的幾頁」讓用戶點進去驗證，比起讓人看完整 log 省了 61% 的軌跡量。
+Web Agent 執行完任務後，HANSEL 自動從瀏覽歷史中抽出「最關鍵的幾頁」讓使用者點進去驗證，比起讓人看完整 log 省了 61% 的軌跡量。
 
 ### Read Priority
 
 📖 略讀
-對「Agent 可解釋性 / 用戶信任」有興趣的人值得快讀；如果你現在最大痛點不是 Web Agent observability，可以先存著。
+對「Agent 可解釋性 / 使用者信任」有興趣的人值得快讀；如果你現在最大痛點不是 Web Agent observability，可以先存著。
 
 ### 領域背景
 
-Web Agent（如 OpenAI Operator、Claude Computer Use）可以自動幫用戶做線上任務：比價、訂票、填表。但用戶怎麼知道 agent 有沒有做錯？現在要麼「完整回放軌跡」（幾十步截圖，沒人看完），要麼讓 LLM 自動總結（可能幻覺）。
+Web Agent（如 OpenAI Operator、Claude Computer Use）可以自動幫使用者做線上任務：比價、訂票、填表。但使用者怎麼知道 agent 有沒有做錯？現在要麼「完整回放軌跡」（幾十步截圖，沒人看完），要麼讓 LLM 自動總結（可能幻覺）。
 
 ### 中階導讀
 
@@ -170,11 +170,11 @@ Web Agent（如 OpenAI Operator、Claude Computer Use）可以自動幫用戶做
 
 #### 方法
 
-HANSEL（Highlighting Agent Navigation Steps as Evidence Links）從軌跡中自動識別「提供了最終答案依據」的關鍵頁面，保留它們的互動狀態（當時套用的 filter、搜尋詞、捲動位置），讓用戶直接點進那幾頁重新操作確認。如果答案無法對應到任何拜訪過的頁面，HANSEL 明確標出「這個 gap」。
+HANSEL（Highlighting Agent Navigation Steps as Evidence Links）從軌跡中自動識別「提供了最終答案依據」的關鍵頁面，保留它們的互動狀態（當時套用的 filter、搜尋詞、捲動位置），讓使用者直接點進那幾頁重新操作確認。如果答案無法對應到任何拜訪過的頁面，HANSEL 明確標出「這個 gap」。
 
 #### 為什麼重要
 
-Web Agent 的信任問題是部署最大障礙。HANSEL 提供了一個輕量的「audit trail」解法，不需要完全回放，只看關鍵的幾頁。對平台商而言，這是提升用戶信任、降低人工審核成本的實用方向。
+Web Agent 的信任問題是部署最大障礙。HANSEL 提供了一個輕量的「audit trail」解法，不需要完全回放，只看關鍵的幾頁。對平台商而言，這是提升使用者信任、降低人工審核成本的實用方向。
 
 ### 深入要點
 
@@ -192,7 +192,7 @@ Web Agent 的信任問題是部署最大障礙。HANSEL 提供了一個輕量的
 
 ### 給你的 take-away
 
-- 你在做 Web Agent 產品 → 把「evidence page extraction」列入 UX 路線圖；即使不用 HANSEL 本身，「讓用戶一鍵查證 agent 的來源」這個 UX pattern 值得現在就設計進去
+- 你在做 Web Agent 產品 → 把「evidence page extraction」列入 UX 路線圖；即使不用 HANSEL 本身，「讓使用者一鍵查證 agent 的來源」這個 UX pattern 值得現在就設計進去
 - 你在做 agent observability 平台 → HANSEL 的 gap detection 邏輯（答案是否有 trajectory 支撐）可以成為你 alerting 的一個監控訊號
 
 

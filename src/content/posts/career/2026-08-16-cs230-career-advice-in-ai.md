@@ -7,7 +7,7 @@ tags: [career, ai-engineering, technical-debt, hiring, stanford-cs230]
 lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
-  order: 9
+  order: 8
 tldr: "一個菁英等級的工程師投了 300 多份工作全部失敗，原因是求職手冊教他「站穩立場、要有骨氣」，而他詮釋成強硬。面試官的判斷是：這人就是那個 10x 工程師，但我不想讓他靠近我的團隊。這一講也給了 vibe coding 最好的判準——技術債。"
 description: "Stanford CS230（2025 秋季）Lecture 9 完整導讀：Andrew Ng 談產品管理瓶頸與「你身邊的人」，客座講者 Laurence Moroney 談就業市場的三個週期、三根成功支柱、技術債作為 vibe coding 的判準、炒作的解剖，以及大 AI 與小 AI 的分岔。"
 draft: false

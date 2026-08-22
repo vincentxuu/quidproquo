@@ -10,7 +10,7 @@ description: "從 Claude Code v2.1.42 原始碼中提取完整的 185 個 spinne
 draft: false
 series:
   name: "Claude Code 自動化指南"
-  order: 10
+  order: 28
 ---
 
 🌏 [English version](/posts/tech/2026-03-30-claude-code-spinner-verbs-en)

@@ -20,7 +20,7 @@ series:
 | 白話解釋 | 詞 |
 |---|---|
 | 在對話過程中會自己決定呼叫哪些外部 API 或函式的 AI agent；例如：查訂單、退款、更新帳戶——每一步都是一次「工具呼叫」 | 工具呼叫 agent（Tool-calling agent） |
-| 把 agent 執行過程中收集到的事實（如：用戶帳號 ID、訂單狀態、已通過的驗證步驟）存進一個獨立的型別字典，而非全部塞在 prompt 文字裡讓 LLM 每次重新解讀 | 結構化狀態 / 帳本（Structured State / Ledger） |
+| 把 agent 執行過程中收集到的事實（如：使用者帳號 ID、訂單狀態、已通過的驗證步驟）存進一個獨立的型別字典，而非全部塞在 prompt 文字裡讓 LLM 每次重新解讀 | 結構化狀態 / 帳本（Structured State / Ledger） |
 | 部署後持續運行數週到數月的 agent，需要在跨任務之間記住並更新對環境的認識，而非每次任務都從零開始 | 長生命週期 agent（Long-lifecycle agent） |
 | 讓 agent 在環境裡跑很長的互動序列（solve-task + update-context 交替），根據最終結果反向調整整個過程的決策——比單步訓練更適合需要跨步驟學習的任務 | 強化學習滾動（RL rollout） |
 | 負責管理 agent 的執行權限、資源調用、動作稽核的基礎設施層；就像 Kubernetes 的 control plane 管理工作負載，agentic control plane 管理的是 agent 能做什麼、記錄它做了什麼 | Agent 控制平面（Agentic Control Plane） |
@@ -45,18 +45,18 @@ series:
 
 ### 領域背景
 
-客服 agent 的典型流程：詢問用戶帳號 → 查訂單 → 核對退款政策 → 執行退款。每一步的結果都要「記住」才能做下一步。目前 LangGraph、AutoGen 等框架的主流做法是把工具回傳值全部 append 到 prompt，讓 LLM 在下一步推理時自行從歷史文字重建「現在已知什麼」——這個隱式重建在長 session 或政策規則複雜時容易出錯。這篇把這個問題系統化命名，並提出 inference-time（推論期，不需重新訓練）的解法。
+客服 agent 的典型流程：詢問使用者帳號 → 查訂單 → 核對退款政策 → 執行退款。每一步的結果都要「記住」才能做下一步。目前 LangGraph、AutoGen 等框架的主流做法是把工具回傳值全部 append 到 prompt，讓 LLM 在下一步推理時自行從歷史文字重建「現在已知什麼」——這個隱式重建在長 session 或政策規則複雜時容易出錯。這篇把這個問題系統化命名，並提出 inference-time（推論期，不需重新訓練）的解法。
 
 ### 中階導讀
 
 
 #### 問題
 
-想像一個客服 agent：它查到「用戶 A 的訂單狀態是已出貨」，幾步之後要決定要不要退款。在標準 prompt-based 設計裡，這個事實埋在幾百 token 前的工具回傳文字裡，LLM 需要自己從上下文重建「現在訂單狀態是什麼」。在長 session 或規則複雜時，LLM 可能拿到陳舊狀態、忽略政策條件、或做出語法正確但違反政策的工具呼叫。
+想像一個客服 agent：它查到「使用者 A 的訂單狀態是已出貨」，幾步之後要決定要不要退款。在標準 prompt-based 設計裡，這個事實埋在幾百 token 前的工具回傳文字裡，LLM 需要自己從上下文重建「現在訂單狀態是什麼」。在長 session 或規則複雜時，LLM 可能拿到陳舊狀態、忽略政策條件、或做出語法正確但違反政策的工具呼叫。
 
 #### 方法
 
-LedgerAgent 在 agent 迴圈中加入一個「帳本（ledger）」：每次工具成功回傳後，把結果 parse 成 schema-anchored（錨定綱要）的型別字典，以 canonical path（正規化路徑，如 `order.status`、`user.tier`）為 key，保持明確型別。Agent 在每次決策時，直接讀帳本取得當前確定的事實，而非靠 LLM 從 prompt 文字重建。整個機制是 inference-time 的插件，不需要重新訓練任何模型。
+LedgerAgent 在 agent 迴圈中加入一個「帳本（ledger）」：每次工具成功回傳後，把結果 parse 成 schema-anchored（錨定綱要）的型別字典，以 canonical path（正規化路徑，如 `order.status`、`user.tier`）為 key，保持明確型別。Agent 在每次決策時，直接讀帳本取得當前確定的事實，而非靠 LLM 從 prompt 文字重建。整個機制是 inference-time 的外掛，不需要重新訓練任何模型。
 
 #### 為什麼重要
 

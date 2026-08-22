@@ -21,10 +21,10 @@ series:
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
-- **是什麼**：DeepSeek 官方開源的 agent harness（`dsh`），隨 V4 Pro 模型同步推出，核心理念是「一切皆插件」——model、tool、session、sandbox、loop、UI 全部是可替換插件。
-- **為什麼值得看**：8 月 13 日發布，一小時內破 2 萬星，寫下 GitHub 史上最快星數紀錄（打破 xAI Grok-1 的 1.2 天紀錄）；短短幾天累積到約 15.8 萬星，社群兩天內湧入超過 2000 個外掛提案。它由自研的 Cordis 插件核心驅動，甚至能把 Claude Code、Codex 當成子 agent 呼叫進 DeepSeek 自己的工作流裡，代表 DeepSeek 從純模型供應商轉向「harness 產品公司」，走的是 Anthropic 做 Claude Code、OpenAI 做 Codex 的同一條路。
-- **技術棧**：TypeScript + Cordis 插件框架（自研，論文描述為「時空可組合性的程式設計典範」），MIT License。
-- **上手難度**：低——`npx @deepseek-ai/dsh web` 一行指令即可啟動 Web UI；但目前是 developer preview 階段，插件 API 仍會有 breaking changes。
+- **是什麼**：DeepSeek 官方開源的 agent harness（`dsh`），隨 V4 Pro 模型同步推出，核心理念是「一切皆外掛」——model、tool、session、sandbox、loop、UI 全部是可替換外掛。
+- **為什麼值得看**：8 月 13 日發布，一小時內破 2 萬星，寫下 GitHub 史上最快星數紀錄（打破 xAI Grok-1 的 1.2 天紀錄）；短短幾天累積到約 15.8 萬星，社群兩天內湧入超過 2000 個外掛提案。它由自研的 Cordis 外掛核心驅動，甚至能把 Claude Code、Codex 當成子 agent 呼叫進 DeepSeek 自己的工作流裡，代表 DeepSeek 從純模型供應商轉向「harness 產品公司」，走的是 Anthropic 做 Claude Code、OpenAI 做 Codex 的同一條路。
+- **技術棧**：TypeScript + Cordis 外掛框架（自研，論文描述為「時空可組合性的程式設計典範」），MIT License。
+- **上手難度**：低——`npx @deepseek-ai/dsh web` 一行指令即可啟動 Web UI；但目前是 developer preview 階段，外掛 API 仍會有 breaking changes。
 
 ---
 
@@ -71,7 +71,7 @@ series:
 
 ## 今日收穫
 
-以前以為模型公司做 agent 工具只是順便做個 demo 撐場面，但 DeepSeek 這次直接開源一整套 Cordis 插件架構、投入到「基礎設施等級」的程度,加上 openfang 選擇從 Rust OS 層重新定義 agent,說明真正的戰場已經不在模型好壞,而在「誰的 harness 更可組合、更能被其他 agent 呼叫」——這一層一旦收斂,可能比模型排行榜更決定生態走向。
+以前以為模型公司做 agent 工具只是順便做個 demo 撐場面，但 DeepSeek 這次直接開源一整套 Cordis 外掛架構、投入到「基礎設施等級」的程度,加上 openfang 選擇從 Rust OS 層重新定義 agent,說明真正的戰場已經不在模型好壞,而在「誰的 harness 更可組合、更能被其他 agent 呼叫」——這一層一旦收斂,可能比模型排行榜更決定生態走向。
 
 ## 參考資料
 

@@ -7,7 +7,7 @@ tags: [interpretability, scaling-laws, benchmark, evaluation, stanford-cs230]
 lang: en
 series:
   name: "Reading Stanford CS230"
-  order: 10
+  order: 9
 tldr: "Ask a model what a goose looks like to it and it draws a whole flock — because the labeled data tagged a flock as 'goose,' so it thinks the flock is the label. This lecture gives seven ways to open a CNN up, then says honestly: applied to transformers, even the frontier of this research only explains two layers."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 10: starting from a 200-billion-parameter checkpoint regression, working through saliency maps, occlusion sensitivity, class activation maps, gradient ascent, dataset search and deconvolution, then scaling laws, benchmark contamination detection and data diagnostics."
 draft: false

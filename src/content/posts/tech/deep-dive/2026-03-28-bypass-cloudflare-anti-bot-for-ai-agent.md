@@ -5,6 +5,9 @@ type: guide
 category: tech
 tags: [cloudflare, anti-bot, playwright, nodriver, stealth, mcp, ai-agent, web-scraping]
 lang: zh-TW
+series:
+  name: "搜尋與爬取實戰"
+  order: 5
 tldr: "標準 Playwright 無法通過 Cloudflare 驗證。playwright-extra + stealth 和 nodriver 都能繞過，最終包成 MCP server 讓 AI agent 自動使用。"
 description: "實測三種方案繞過 Cloudflare 反爬蟲：原生 Playwright（失敗）、playwright-extra + stealth（通過）、nodriver（1 秒通過）。並將 stealth 方案包成 MCP server，讓 Claude Code 等 AI agent 在遇到 Cloudflare 時自動切換使用。"
 draft: false
@@ -213,15 +216,21 @@ Cloudflare 反爬蟲的核心是偵測瀏覽器自動化特徵。解法不是「
 - **遇到硬站**：nodriver HTTP API 當備案，繞過率最高
 - **讓 agent 自動選擇**：寫在 CLAUDE.md，遇到 Cloudflare 時自動切換工具
 
-這不是一勞永逸的方案。Cloudflare 會持續更新偵測規則，stealth plugin 和 nodriver 也會持續更新。長期來看，維持工具版本更新比選哪個方案更重要。
+這不是一勞永逸的方案。Cloudflare 會持續更新偵測規則，繞過工具也得跟著更新——而這正是要留意的地方：`berstend/puppeteer-extra`（stealth plugin 的家）最後一次 push 停在 2024-07-18，已經兩年沒動；`ultrafunkamsterdam/nodriver` 相對活躍（2026-05-13）。長期跑的話，nodriver 那條線比較安全。
+
+反爬蟲不只擋抓取，也擋搜尋——自架 SearXNG 從機房 IP 出去同樣會被打成空結果，那一層的處理見[自架搜尋堆疊那篇](/posts/ai/2026-08-21-self-hosted-search-stack)。
 
 ---
 
+## 更新紀錄
+
+- 2026-08-21：修正三個失效的 GitHub 連結——原文指向不存在的 `nicedayfor` 帳號（404）。playwright-extra 與 stealth plugin 實際都在 `berstend/puppeteer-extra` monorepo 底下，nodriver 在 `ultrafunkamsterdam/nodriver`。同時補上兩個專案的維護現況：puppeteer-extra 停更於 2024-07-18（7,394 stars），nodriver 仍在更新（4,675 stars、2026-05-13）。本篇的實測數據仍為 2026-03-28 的結果，未重新測試。
+
 ## 參考資料
 
-- [playwright-extra](https://github.com/nicedayfor/playwright-extra) — Playwright 的 plugin 框架
-- [puppeteer-extra-plugin-stealth](https://github.com/nicedayfor/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) — 隱藏自動化痕跡的 stealth plugin
-- [nodriver](https://github.com/nicedayfor/nodriver) — undetected-chromedriver 作者的下一代方案
+- [playwright-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/playwright-extra) — Playwright 的 plugin 框架
+- [puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) — 隱藏自動化痕跡的 stealth plugin
+- [nodriver](https://github.com/ultrafunkamsterdam/nodriver) — undetected-chromedriver 作者的下一代方案
 - [nowsecure.nl](https://nowsecure.nl) — Cloudflare Turnstile 偵測測試站
 - [Model Context Protocol](https://modelcontextprotocol.io/) — MCP 官方文件
 - [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) — Cloudflare 的 CAPTCHA 替代方案

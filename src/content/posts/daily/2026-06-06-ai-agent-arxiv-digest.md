@@ -19,7 +19,7 @@ series:
 
 | 白話解釋 | 詞 |
 |---|---|
-| 讓 agent 記住過去對話、任務、用戶偏好的機制，解決對話超出 context window 後「記憶失效」的問題 | Memory System（記憶系統） |
+| 讓 agent 記住過去對話、任務、使用者偏好的機制，解決對話超出 context window 後「記憶失效」的問題 | Memory System（記憶系統） |
 | 一套設計在多種不同情境（單輪 QA、多輪對話、長任務等）下都表現良好的能力，而非只在特定設定下才有效 | Cross-Scenario Generality（跨場景通用性） |
 | 被賦予「自主開發其他 agent」任務的 AI——不是執行任務，而是寫程式碼來建立能執行任務的 agent | Meta-Agent（元代理人） |
 | 能操控電腦介面（瀏覽器、桌面應用）執行任務的 agent，例如 Claude Computer Use 或 OpenAI Operator | CUA（Computer-Using Agent） |
@@ -87,7 +87,7 @@ LLM agent 的 context window 是有限的，但真正有用的 agent 需要記�
 
 ## 論文二｜The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?
 
-**作者**: Xinyu Lu, Tianshu Wang, Pengbo Wang, Zujie Wen, Zhiqiang Zhang, Jun Zhou, Boxi Cao, Yaojie Lu, Hongyu Lin, Xianpei Han, Le Sun（中國科學院軟件研究所 · 螞蟻集團）　·　**arxiv**: 2606.04455
+**作者**: Xinyu Lu, Tianshu Wang, Pengbo Wang, Zujie Wen, Zhiqiang Zhang, Jun Zhou, Boxi Cao, Yaojie Lu, Hongyu Lin, Xianpei Han, Le Sun（中國科學院軟體研究所 · 螞蟻集團）　·　**arxiv**: 2606.04455
 **連結**: [arxiv](https://arxiv.org/abs/2606.04455) · [alphaxiv](https://www.alphaxiv.org/abs/2606.04455)
 
 ### TL;DR
@@ -128,7 +128,7 @@ Meta-Agent Challenge（MAC）給一個「元代理人」（code agent）一個�
 - 與現有 agent 框架的關聯：LangGraph/AutoGen 的 code-based agent 定義是 meta-agent 操作的基礎——MAC 實際上在測「能不能自己寫出好的 LangGraph/AutoGen 程式碼」
 - **Limitation 1**：時間限制下的迭代次數有限，實際更長時間的 meta-agent 表現不在評測範圍
 - **Limitation 2**：reward API 的精確度直接影響 meta-agent 能否有效學習，API 設計偏差可能影響整體評測公正性
-- 機構背景：CAS 軟件所（Xianpei Han、Le Sun 組）有豐富 NLP 研究背景；螞蟻集團有實際大規模 agent 部署需求，理論與落地需求結合讓這個 benchmark 設計更務實
+- 機構背景：CAS 軟體所（Xianpei Han、Le Sun 組）有豐富 NLP 研究背景；螞蟻集團有實際大規模 agent 部署需求，理論與落地需求結合讓這個 benchmark 設計更務實
 
 ### Reviewer 一句話評
 

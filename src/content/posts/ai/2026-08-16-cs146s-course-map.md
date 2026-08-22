@@ -14,6 +14,9 @@ type: deep-dive
 series:
   name: "CS146S：AI 原生開發十週"
   order: 1
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 19
 tldr: "Stanford CS146S 的 Fall 2026 大綱把 prompting 從整整一週壓成一節，砍掉終端機與 UI 生成兩週，換上 Agent Skills、Agent-Ready Codebases、Background Agents、AI-Native Team。評分也動了：Final Project 從 80% 降到 50%，多出 30% 的 open source 貢獻。這個系列照十週逐篇讀。"
 description: "對照 Stanford CS146S: The Modern Software Developer 的 Fall 2025 與 Fall 2026 大綱，逐項列出十週主題、客座講者與評分比重的差異，並說明沒有 Fall 2026 reading list 時要怎麼自學。"
 draft: false

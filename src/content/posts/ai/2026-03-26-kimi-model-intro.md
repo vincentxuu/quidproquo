@@ -3,7 +3,7 @@ title: "Kimi：月之暗面的長文本 AI 模型，憑什麼挑戰 GPT 和 Clau
 date: 2026-03-26
 type: project
 category: ai
-tags: [kimi, moonshot-ai, llm, long-context, reasoning, 月之暗面, ai-model, moe, open-source]
+tags: [kimi, moonshot-ai, llm, long-context, reasoning, ai-model, moe, open-source]
 lang: zh-TW
 tldr: "Kimi 是中國 AI 新創月之暗面（Moonshot AI）推出的大型語言模型，以超長 context window、開源策略和極具競爭力的定價聞名。從 2023 年的 200K context 到 2026 年的 K2.5 Agent Swarm，Kimi 已成為全球 AI 市場不可忽視的力量。"
 description: "深入介紹 Moonshot AI 月之暗面旗下的 Kimi 模型系列，涵蓋公司背景、技術特色、模型演進（K1.5 → K2 → K2.5）、MoE 架構、Agent Swarm、定價比較，以及與 GPT-5、Claude、Gemini 的競爭態勢。"
@@ -186,7 +186,7 @@ K2.5 不是把視覺模組「接上去」的——它在 ~15T 混合視覺和文
 
 ## API 與定價
 
-月之暗面提供 **Moonshot API**（`platform.moonshot.ai`），兼容 OpenAI SDK，可直接替換 base URL。
+月之暗面提供 **Moonshot API**（`platform.moonshot.ai`），相容 OpenAI SDK，可直接替換 base URL。
 
 ### K2.5 定價
 
@@ -232,7 +232,7 @@ Anthropic 表示透過請求 metadata 追溯到月之暗面高層員工的公開
 
 Kimi 不是「又一個中國版 ChatGPT」。它從長文本出發，經歷了推理、多模態、agent 的完整演進，在三年內成為全球 AI 市場中少數能在多個維度同時競爭的開源模型。
 
-對開發者來說，K2.5 的 OpenAI 兼容 API、極具競爭力的定價、以及開源部署選項，讓它成為一個值得認真考慮的選項——特別是在 agentic 工作流和中文場景中。
+對開發者來說，K2.5 的 OpenAI 相容 API、極具競爭力的定價、以及開源部署選項，讓它成為一個值得認真考慮的選項——特別是在 agentic 工作流和中文場景中。
 
 如果你還沒試過 Kimi，建議從一個需要大量工具調用的 agent 任務開始，或者丟一份超長文件進去。這兩個方向是 Kimi 目前最有說服力的地方。
 

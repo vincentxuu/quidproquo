@@ -74,7 +74,7 @@ Regularization 的核心思想是限制模型的自由度來降低 overfitting�
 
 **Precision vs Recall**：Precision 是「你說是的裡面有多少真的是」，recall 是「真的是的裡面你抓到多少」。面試最愛問的場景題：
 
-- 「你在做垃圾郵件偵測，重 precision 還是 recall？」——重 precision。把正常郵件標成垃圾的代價很高（用戶可能漏掉重要信），漏掉一些垃圾郵件的代價相對低。
+- 「你在做垃圾郵件偵測，重 precision 還是 recall？」——重 precision。把正常郵件標成垃圾的代價很高（使用者可能漏掉重要信），漏掉一些垃圾郵件的代價相對低。
 - 「你在做癌症篩檢，重 precision 還是 recall？」——重 recall。漏掉一個真正的癌症患者的代價遠高於把健康的人標成可疑（後者只是多做一次確認檢查）。
 
 **F1 Score**：Precision 和 recall 的調和平均。當兩者都重要且資料不平衡時用。但面試時不要預設用 F1——先問清楚業務場景再決定。

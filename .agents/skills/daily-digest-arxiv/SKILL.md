@@ -39,7 +39,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 用途 | 工具 | 說明 |
 |---|---|---|
 | **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | stealth_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
 ---
@@ -145,9 +145,9 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 
 ### Step 6：取得論文詳情
 
-**雲端環境（CCR routine）的 egress proxy 封鎖 arxiv.org 直連**，curl 和 WebFetch 都不通。依站內 Web Fetch 優先順序取得論文資料：
+**雲端環境（CCR routine）的 egress proxy 封鎖 arxiv.org 直連**，curl 和內建 WebFetch 都不通。依下列工具優先順序取得論文資料：
 
-1. **stealth_fetch**（CLI 環境才有，雲端自動跳過）
+1. **Groundlane `web_fetch`**（本機或雲端只要已連接 Groundlane 都可用）
 2. **Exa** — `web_search_exa` 搜尋 `arxiv.org/abs/{arxiv_id}` 並取得內容
 3. **Tavily** — `tavily_search` 搜尋同上
 4. **firecrawl** — `firecrawl_scrape` 抓 `https://arxiv.org/abs/{arxiv_id}`（`onlyMainContent: true`）
@@ -184,7 +184,7 @@ series:
 ---
 ```
 
-`order` 計算：距離 2026-08-16 的天數 + 1（2026-08-16 = 1, 2026-08-17 = 2, ...）。
+`order` 計算：距離**系列起點 2026-05-25** 的天數 + 1（2026-05-25 = 1, 2026-08-16 = 84, ...）。起點不可更動——改起點會讓新文章跟舊文章撞號，`pnpm check:series-order` 會擋。
 
 ### 內容結構（嚴格按以下順序和格式）
 
@@ -360,5 +360,5 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 - [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y），不是摘要
 - [ ] 全文 < 3000 字
 - [ ] description 和 tldr 已填寫
-- [ ] series order 正確（距離 2026-08-16 的天數 + 1）
+- [ ] series order 正確（距離 2026-05-25 的天數 + 1）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

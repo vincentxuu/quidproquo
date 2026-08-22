@@ -118,6 +118,21 @@
 
 Summary 用改動的實際語言寫（中文內容用中文），一行說清楚做了什麼。
 
+### 8.1 多 session 共用工作目錄
+
+這個 repo 常有多個 agent session 同時開著，而 **git 的暫存區是整個工作目錄共用的一份**。`git add` 到 pre-commit 跑完之間有一段空窗，另一個 session 在那段時間 commit，就會把你暫存的檔案一起帶走——它的 commit message 跟內容對不上，而你的 commit 顯示「nothing added to commit」。
+
+規則：
+
+1. **一律用 `git commit -- <明確路徑>`**，不要用 `git commit -a` 或先 `git add .`。
+2. **commit 後立刻 `git log --oneline -1` 確認是自己的那筆**。不是的話，先驗內容有沒有進 HEAD（`git cat-file -e HEAD:<path>`），再決定要不要補一筆說明。
+3. **push 被拒就 `git pull --rebase` 再 push**，不要 force。
+4. 只提交自己動過的檔案。`git status` 裡的其他改動可能是別的 session 正在寫的半成品，連帶提交會送出未完成的內容。
+5. **驗證器偶爾會出現假紅燈**（例如 `skills-sync` 或 `progress.txt` 行數），因為別的 session 正在寫同一個檔。重跑一次；連續兩次同樣的紅燈才當真。
+
+已知會被掃走的檔案：`progress.txt`、`src/lib/glossary/terms.ts`、`.agents/skills/` 與其 `.claude/` 鏡像——這幾個多數 session 都會動。
+
+
 ## 9. 修改本憲章
 
 本憲章的修改是 Tier 2：先問使用者，同意後修改，並留一份 ADR。憲章與機制衝突時（例如 verify 檢查了憲章沒寫的東西），以憲章為準並修正機制——或者修憲。

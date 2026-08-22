@@ -14,12 +14,14 @@ tags:
   - prompt-engineering
 lang: zh-TW
 type: guide
-tldr: "把 OpenAI、Anthropic、Google 三家官方課程平台，加上 Stanford CS146S/CS336、Elements of AI、Hugging Face、MIT 6.S191、李宏毅等資源實際逐頁抓過一遍，按「不懂 AI / vibe coding / 讓它能上 production / 底層 AI」四層重排。結論：課幾乎全部免費，稀缺的不是課，是選課的判斷力；而第四層不會解決第三層的問題。"
-description: "2026 年 AI 課程總覽，依不懂 AI、vibe coding、上 production、底層 AI 四層分類：OpenAI Academy、Anthropic Academy、Google 免費與付費課、Elements of AI、Stanford CS146S 與 CS336、MIT 6.S191、Hugging Face、李宏毅課程的實際內容、費用、時長與適用對象"
+tldr: "把 OpenAI、Anthropic、Google 三家官方課程平台，加上 Stanford CS146S/CS336、Elements of AI、Hugging Face、MIT 6.S191、李宏毅等資源實際逐頁抓過一遍，按「不懂 AI / vibe coding / 讓它能上 production / 底層 AI」四層重排。另收 2026 年仍在更新的自學倉庫與免裝環境的互動式平台，並用「最後更新日期」篩掉星數很高但停在 2024 的名教材。結論：課幾乎全部免費，稀缺的不是課，是選課的判斷力；而第四層不會解決第三層的問題。"
+description: "2026 年 AI 課程總覽，依不懂 AI、vibe coding、上 production、底層 AI 四層分類：OpenAI Academy、Claude Academy、Google 免費與付費課、Elements of AI、Stanford CS146S 與 CS336、MIT 6.S191、Hugging Face、李宏毅課程的實際內容、費用、時長與適用對象，另含 Kaggle Learn、Scrimba 等互動式平台與 2026 年仍在更新的 GitHub 自學倉庫（含简中）"
 draft: false
 ---
 
-2026 年上半年，三家前沿模型公司不約而同把「教你用 AI」變成產品的一部分。OpenAI Academy 在 6 月上線了三門核心課程，Anthropic Academy 累積了 21 門免費課，Google 推出了新的 AI Professional Certificate。同一時間，Stanford 開了一門專門教「怎麼指揮 coding agent」的正式學分課，講者名單包含 Claude Code 的創造者本人。
+> 🌏 [English version](/posts/ai/2026-07-10-ai-courses-2026-guide-en)
+
+2026 年上半年，三家前沿模型公司不約而同把「教你用 AI」變成產品的一部分。OpenAI Academy 在 6 月上線了三門核心課程，Anthropic 把整個 Academy 重組成按產品分艙的 Claude Academy，Google 推出了新的 AI Professional Certificate。同一時間，Stanford 開了一門專門教「怎麼指揮 coding agent」的正式學分課，講者名單包含 Claude Code 的創造者本人。
 
 這篇把這些資源實際逐頁抓過一遍，記錄下費用、時長、對象與先修條件，並按四層重新排過：
 
@@ -32,7 +34,7 @@ draft: false
 
 先講結論：**課程幾乎全部免費，真正稀缺的不是課，是選課的判斷力。**
 
-寫作方法上先說清楚：以下數字都來自 2026-07-10 當天實際抓取的官方頁面，不用印象或既有知識補完。有幾處官方頁面自己前後矛盾，我照實記下來，沒有自行「修正」成看起來合理的版本。
+寫作方法上先說清楚：以下數字都來自實際抓取的官方頁面，不用印象或既有知識補完——首次抓取是 2026-07-10，2026-08-21 針對定價、課數與開課期別做過一輪複查，過期的直接改掉。有幾處官方頁面自己前後矛盾，我照實記下來，沒有自行「修正」成看起來合理的版本。
 
 價格與語言一律以**現行官方頁面**為準，不採信舊部落格。這件事比想像中重要：AWS 那篇宣布訂閱制的官方公告寫著年繳 $299、支援 12 種語言，但那是 2022 年的文章——現行定價頁是 $449，現行 FAQ 是 17 種語言。Google Cloud 那篇廣為流傳的「免費徽章」公告，則發布於 2023 年。**引用官方來源不等於引用到現況**，日期一定要看。
 
@@ -60,17 +62,24 @@ draft: false
 
 課程內容是否有中文版：**未能確認**。只確認了說明文件有繁中與港繁版本，Academy 站本體與所有公開課程頁都是英文。逐課大綱需登入 Gradual 才看得到，我沒有抓到。
 
-### Anthropic Academy
+### Claude Academy（原 Anthropic Academy）
 
-[`anthropic.skilljar.com`](https://anthropic.skilljar.com/)。21 門課，**逐頁確認全部免費**，幾乎都有完成證書。
+**這塊在 2026 年 8 月 20 日整個換掉了。** 原本掛在 `anthropic.skilljar.com` 的 Anthropic Academy 改組成 [**Claude Academy**](https://academy.claude.com/)，目錄不再是一份平坦的課程清單，而是按**產品**分艙：Claude.ai、Claude Cowork、Claude Code、Claude Tag、Claude Platform 各一條線，再加一條跨產品的 AI Fluency。站上「All resources」現在列出 **286 筆資源**——課程、教學與 use case 全算進去，跟改版前那種「幾門課」的數法已經不是同一個單位。全部免費，多數有完成證書。
 
-非技術向的部分分兩塊。一塊是 Claude 使用基礎：Claude 101、Introduction to Claude Cowork（0.5 小時）、AI Capabilities and Limitations（0.25 小時）。另一塊是 **AI Fluency 系列共 9 門**，圍繞一個叫 4D 的框架（Delegation、Description、Discernment、Diligence），並且切成族群版：教育工作者、學生、非營利、小型企業、pK-12 教師、builders 各有一門，都建議先修總綱那門 Framework & Foundations（1.1 小時）。
+改版同時**時數整個重編**，而且是往上加而不是往下砍。兩門入門課現在長這樣：
 
-這個「一套框架 × 六個族群」的做法在其他平台沒看到，如果你要在組織內推 AI 教育，這系列的分眾程度是目前最細的。
+| 課程 | 現行規格 |
+|---|---|
+| AI Fluency: Framework & Foundations | 14 課 + 1 quiz，**4 小時** |
+| AI Capabilities and Limitations | 13 課 + 1 quiz，**3.5 小時** |
 
-平台上唯一要付錢的是認證考試 [**Claude Certified Architect – Foundations**](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)**，$125 USD**，60 題、120 分鐘、線上監考或 Pearson 考場。它的考試範圍權重很能說明 Anthropic 認為什麼重要：Agentic Architecture & Orchestration 27%、Claude Code Configuration & Workflows 20%、Prompt Engineering & Structured Output 20%、Tool Design & MCP Integration 18%、Context Management & Reliability 15%。
+AI Fluency 仍圍繞 4D 框架（Delegation、Description、Discernment、Diligence），仍切成族群版——教育工作者、學生、非營利、小型企業、pK-12 教師、builders 各一門，都建議先修上面那門總綱。這個「一套框架 × 六個族群」的做法在其他平台沒看到，如果你要在組織內推 AI 教育，這系列的分眾程度是目前最細的。Anthropic 另外在 2026 年 5 月把其中五門 AI Fluency 課上架到 Coursera，列為 Community Impact 課程，同樣免費，內容重疊，選你順手的平台即可。
 
-有意思的是，**所有課程頁面都沒有難度標籤，也都沒有顯示最近更新時間**。唯一標了 Level 的地方是這張認證的備考頁。
+改版也新增了一種「Tutorial」格式——3 到 15 分鐘的單點說明（例如 The 4 Properties of AI 7 分鐘、Choosing the right effort level in Claude Code 15 分鐘），夾在課程之間當補充。
+
+要付錢的只有認證考試，而且從一張長成一整條線：[**Claude Certified**](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request) 目前有 Associate、Architect、Developer 三張 Foundations，加上一張 Architect – Professional，另闢了 Prep Courses 專區。認證這塊仍留在 skilljar 上，沒有跟著課程搬家。價格與題數細節改放進要下載的 Exam Guide PDF，網頁上看不到——先前 Architect – Foundations 是 $125 USD、60 題、120 分鐘、線上監考或 Pearson 考場。
+
+它的考試範圍權重很能說明 Anthropic 認為什麼重要：Agentic Architecture & Orchestration 27%、Claude Code Configuration & Workflows 20%、Prompt Engineering & Structured Output 20%、Tool Design & MCP Integration 18%、Context Management & Reliability 15%。
 
 ### Google：有付費證書，也有免費入門課
 
@@ -129,18 +138,25 @@ Google 是這篇裡唯一有訂閱制付費課程的一家。它的官方頁面�
 
 這一層的課有個共同特徵——**都很短**，一到兩小時。也因為短，它們的內容重疊度很高，挑一家的上完就好。
 
-### Anthropic：Claude Code 的四門課
+### Anthropic：Claude Code 那一艙
 
-- [**Claude Code 101**](https://anthropic.skilljar.com/claude-code-101)（12 課 / 1.5 小時）：新手與資深工程師都可上，需要 code editor 與命令列基礎。
-- [**Claude Code in Action**](https://anthropic.skilljar.com/claude-code-in-action)（15 課 / 1 小時）：給想加速開發流程的工程師，涵蓋 context 管理、hooks、custom commands 與 Agent SDK。
-- [**Introduction to agent skills**](https://anthropic.skilljar.com/introduction-to-agent-skills)：在 Claude Code 裡建立與分享可重用的 markdown 指令。
-- [**Introduction to subagents**](https://anthropic.skilljar.com/introduction-to-subagents)：用 subagent 管理 context、委派任務。
+Claude Academy 把這些收在 [Build with Claude](https://academy.claude.com/collections/build-with-claude) 底下：
+
+| 課程 | 規格 | 內容 |
+|---|---|---|
+| Claude Code 101 | 12 課 + 1 quiz / 1 小時 | Claude Code 是什麼、怎麼運作、核心工作流 |
+| Claude Code in Action | 9 課 + 1 quiz / 1 小時 | 跑得久又信得過的 session：steer、configure、automate、verify |
+| Claude Platform 101 | 13 課 + 1 quiz / 1.5 小時 | 從零建在 Claude Platform 上，給只打過幾次 API 的人 |
+| Introduction to agent skills | 6 課 / 1 小時 | 可重用的 markdown 指令，從第一個 skill 到團隊散佈 |
+| Introduction to subagents | 4 課 / 45 分鐘 | 把複雜任務拆給平行 subagent，並確定性地編排 |
+
+需要 code editor 與命令列基礎。Claude Platform 101 是改版後新增的，先前沒有。Claude Code 這一艙目前共 **6 門課與 11 份 tutorial**，另外大量外連到 `code.claude.com` 的官方文件——改版後 Academy 比較像入口而不是封閉的課程平台。
 
 實際上完的人給的建議相當一致：Claude Code 101 有不少填充內容，真正該看的是 CLAUDE.md、skills、MCP 與 context 管理那幾段。有位 reviewer 花 20 分鐘上完 subagents 那門，覺得對 subagent 與主 agent 的 context window 差異講得清楚，但沒教「subagent 跑到一半卡住怎麼辦」——而那恰好是實務上最常遇到的問題。
 
 ### OpenAI：Codex 系列
 
-OpenAI Academy 的三門正式課都是非技術向，真正的 Codex 內容在 [Builders 社群](https://academy.openai.com/public/clubs/builders-etkn1/overview)（27,030 名成員）裡：**Codex 101（入門）、102（實務工作流）、103（進階工作流與自動化）**，另有 Codex for Everyday Use、Building Websites with Codex Sites 等。
+OpenAI Academy 的三門正式課都是非技術向，真正的 Codex 內容在 [Builders 社群](https://academy.openai.com/public/clubs/builders-etkn1/overview)（27,030 名成員）裡：**Codex 101（入門）、102（實務工作流）、103（進階工作流與自動化）**，三門都在 2026 年 6 月更新過；7 月另外加了一份 Codex Bootcamp，還有 Codex for Everyday Use、Building Websites with Codex Sites 等。
 
 2026 上半年 OpenAI 的兩條主軸很明顯：**agent 與 Codex**。這些內容多數需登入才能完整存取，公開頁只看得到標題。
 
@@ -160,7 +176,7 @@ Kaggle 在 2026 年 6 月也開過一梯 [**Vibe Coding 版的 5-Day Intensive**
 
 ### Stanford CS146S：唯一廠商中立的實戰全景
 
-[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**（Fall 2025）：3 學分、10 週，每週投入約 10–12 小時，先修要求是 CS111 等同程度的程式經驗。
+[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**（Fall 2025）：3 學分、10 週，每週投入約 10–12 小時，先修要求是 CS111 等同程度的程式經驗。本站有這門課的[逐週拆解系列](/posts/ai/2026-08-16-cs146s-course-map)。
 
 主講 Mihail Eric：Stanford NLP Group 出身（指導教授含 Manning、Percy Liang、Potts），前 Amazon Alexa AI 科學家，YC 新創 Storia AI 共同創辦人。
 
@@ -181,7 +197,7 @@ Kaggle 在 2026 年 6 月也開過一梯 [**Vibe Coding 版的 5-Day Intensive**
 
 Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**、Silas Alberti（Cognition/Devin 研究主管）、Zach Lloyd（Warp CEO）、Isaac Evans（Semgrep CEO）、Gaspar Garcia（Vercel AI 研究主管）、Martin Casado（a16z GP）。
 
-它跟 OpenAI Academy、Anthropic Academy 最大的差異是**廠商中立**：同一門課裡同時教 Cursor、Claude Code、Windsurf、Warp，而不是只教自家產品。作業裡包含從零手刻一個 coding agent 和一個 MCP server。
+它跟 OpenAI Academy、Claude Academy 最大的差異是**廠商中立**：同一門課裡同時教 Cursor、Claude Code、Windsurf、Warp，而不是只教自家產品。作業裡包含從零手刻一個 coding agent 和一個 MCP server。
 
 同一套內容另有 [Maven 上的付費 cohort 版](https://maven.com/the-modern-software-developer/ai-course)「AI Software Development: From First Prompt to Production Code」：4 週、8 場 live session、14 堂課、4 個專案，附私人 Discord 社群與結業證書，已辦到第三梯。**價格未能確認**——頁面顯示 Sold out，未列金額。
 
@@ -189,11 +205,13 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 ### Anthropic：API 與 MCP，份量突然變重
 
-同一個 Academy 平台，跨過第二層之後份量差距非常明顯——從一小時的短課，跳到八小時的硬課：
+同一個平台，跨過第二層之後份量差距非常明顯——從一小時的短課，跳到九小時的硬課：
 
-- [**Building with the Claude API**](https://anthropic.skilljar.com/claude-with-the-anthropic-api)：84 課、8.1 小時、10 份 quiz。涵蓋 prompt engineering & evaluation、tool use、RAG、MCP、Computer Use、agents and workflows。需 Python + JSON + API key。
-- [**Claude with Amazon Bedrock**](https://anthropic.skilljar.com/claude-in-amazon-bedrock) / [**Claude with Google Vertex AI**](https://anthropic.skilljar.com/claude-with-google-vertex)：各 85 課、8 小時，結構與 API 課高度重疊，差在雲端平台。
-- [**Introduction to MCP**](https://anthropic.skilljar.com/introduction-to-model-context-protocol)（16 課 / 1 小時）與 [**MCP: Advanced Topics**](https://anthropic.skilljar.com/model-context-protocol-advanced-topics)（15 課 / 1.1 小時，涵蓋 sampling、notifications、transports）。
+- [**Building with the Claude API**](https://academy.claude.com/collections/build-with-claude)：**67 課、8 份 quiz、9 小時**。涵蓋 prompting、tool use、RAG、agents、MCP 與 production patterns。需 Python + JSON + API key。
+- **Claude with Amazon Bedrock**（65 課 / 8 份 quiz / 8 小時）與 **Claude with Google Cloud's Vertex AI**（66 課 / 9 份 quiz / 8.5 小時）：結構與 API 課高度重疊，差在雲端平台。
+- **Introduction to Model Context Protocol**（10 課 + 1 quiz / 1 小時，用 Python SDK 從零建 server 與 client，涵蓋 tools、resources、prompts 三個核心原語）與 **MCP: Advanced Topics**（sampling、notifications 與 roots，每個協定流程都有互動式走查）。
+
+（這批數字在 8 月改版後全部重編過，跟外面轉載的舊清單對不上——第三方整理站至今仍在寫「84 課」。以官方頁為準。）
 
 [上過 API 那門的人](https://www.youtube.com/watch?v=qUQbU7h4RoE)說它是整個平台「最完整的技術課」，而且值得——但也提醒，如果你已經上過 AI Fluency，prompt engineering 那段可以跳過；如果你本來就讀得懂程式碼，看影片逐行講解不會比自己讀快。[另一位工程師](https://www.ericapisani.dev/what-i-learned-from-anthropics-building-with-the-claude-api-course)的具體收穫是用 XML tag 分隔 prompt 裡的範例與資料，以及 Claude Code 搭配 git worktree 平行開發。她的批評也很具體：agent 那段只講到高層概念，沒有深入 evaluation framework 該長什麼樣。
 
@@ -203,7 +221,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 ### Kaggle 5-Day AI Agents Intensive
 
-這門課的課綱幾乎就是這一層的定義，而且免費。由 Google ML 研究員與工程師設計，原為 2025 年 11 月的線上直播（首梯觸及超過 150 萬名學習者），現已改為 self-paced 的 [Kaggle Learn Guide](https://www.kaggle.com/learn-guide/5-day-agents)，隨時可上：
+這門課的課綱幾乎就是這一層的定義，而且免費。由 Google ML 研究員與工程師設計，原為 2025 年 11 月的線上直播（首梯觸及超過 150 萬名學習者），2026 年 6 月 15–19 日又跑過一梯直播版，平時則是 self-paced 的 [Kaggle Learn Guide](https://www.kaggle.com/learn-guide/5-day-agents)，隨時可上：
 
 - Day 1 Introduction to Agents（ADK + Gemini 建 multi-agent）
 - Day 2 Agent Tools & Interoperability with MCP
@@ -231,7 +249,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 它有兩個其他資源少見的優點。第一，**README 提供 50 多種語言的翻譯，其中包含繁體中文（台灣）**——在這份清單裡，明確確認有繁中的只有它和李宏毅。第二，它在 2026 年仍然活躍更新，最新的 commit 正在做 Azure OpenAI 到 Responses API 的遷移，不是一份放著長灰塵的教材。
 
-兩個要注意的點：課程需要搭配 Azure OpenAI、Microsoft Foundry Models 或 OpenAI API 才能跑，本身不含額度；另外頁面明確提到 **GitHub Models 將於 2026 年 7 月底退役**，如果你照著範例走，這部分要換掉。沒有結業證書。
+兩個要注意的點：課程需要搭配 Azure OpenAI、Microsoft Foundry Models 或 OpenAI API 才能跑，本身不含額度；另外 **GitHub Models 已於 2026-07-30 完成退役**（playground、model catalog、inference API 與 BYOK 全關，含既有付費使用者），官方導向 Microsoft Foundry 或 GitHub Copilot；如果你照著範例走，這部分一定要換掉。沒有結業證書。
 
 如果你要的是正式認證而非開源教材，[Microsoft Learn 的 AI learning hub](https://learn.microsoft.com/en-us/ai/) 免費，並依角色分成八條路徑（商業/技術主管、一般使用者、資料科學家、開發者、IT、資安等）。它的正式認證是 **Azure AI Fundamentals（Exam AI-901）**，主打用 Microsoft Foundry 與 Python 建構 AI 解決方案。
 
@@ -267,7 +285,10 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 如果你讀中文比讀英文快，這一段比後面三段都重要。
 
-台大李宏毅[《生成式人工智慧與機器學習導論 2025 Fall》](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)，**全繁體中文、免費、投影片與影片全公開**，2025 Fall 共 10 講，2026 年 1 月學期剛結束，內容已完整上架。他每年開新版。無正式證書（旁聽無學分）。
+台大李宏毅的課**全繁體中文、免費、投影片與影片全公開**，無正式證書（旁聽無學分）。他每年開新版，目前手上有兩門值得分開看：
+
+- [**Machine Learning 2026 Spring**](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)——最新的一版，重心明顯往 agent 移動：前兩講直接講 AI agent 運作原理與 context engineering，中段是 Flash Attention、KV Cache、Positional Embedding 這些推論內功，十份作業裡有 AI Agent as an AI Engineer、LLM Fast Inference、Test-Time Scaling、Model Merging。**它其實橫跨本文的第三層與第四層**，不只是「底層 AI」——想補 agent 工程又讀中文的人，這門的性價比目前沒有對手。
+- [**生成式人工智慧與機器學習導論 2025 Fall**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)——10 講，走的是「模型怎麼被訓練出來」這條線：訓練訣竅、後訓練與災難性遺忘、影像生成、語音語言模型。要打地基選這門。
 
 課程 FAQ 明講目標受眾是初學者，甚至說「即使沒有程式經驗，按助教指示至少可及格」。**但別被「初學者」三個字騙了。** 這裡的初學者是大學課程語境下的初學者——預設你是理工科系學生，只是還沒碰過機器學習。作業清單長這樣：HW2 建 RAG 系統、HW4 做 LLM 惡意指令防禦、HW7 finetuning LLM、HW9 Diffusion、HW10 語音生成，全部在 Colab 免費 GPU 上跑。
 
@@ -279,7 +300,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 先修門檻是三門裡最低的：微積分與線性代數，**Python 有經驗有幫助但非必要**，其他的課程會邊講邊補。
 
-[2026 版](https://introtodeeplearning.com/)從 3 月 30 日開始，每週一釋出新的 lecture、slides 與 lab，全部開源，實驗跑在 Google Colab 上。內容從神經網路基礎、深度序列模型、電腦視覺、生成模型、強化學習，一路到大型語言模型與 AI for science。它每年更新，2026 版加強了 LLM 與 agentic AI 的篇幅。
+[2026 版](https://introtodeeplearning.com/)已於 5 月 25 日跑完，**9 講的 slides、影片與 lab 全部開源上架**，點進去一次拿到全部，不必等更新。實驗跑在 Google Colab 上。內容從神經網路基礎、深度序列模型、電腦視覺、生成模型、強化學習，一路到大型語言模型、AI for science，最後兩講是 The Three Laws of AI 與 Secrets to Massively Parallel Training。它每年更新，2026 版加強了 LLM 與 agentic AI 的篇幅。
 
 如果你想理解「模型為什麼會這樣」但不想一開始就手刻 kernel，這是最合理的第一站。
 
@@ -289,11 +310,11 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 在一個所有課程都在教 prompt 和 agent 的年份，補一門講 search 與 logic 的課，反而會讓你對「什麼問題該用 LLM、什麼問題根本不該用」有判斷力。
 
-[Harvard OpenCourseWare 上**免費且含證書**](https://www.classcentral.com/report/harvard-cs50-guide)；edX 上的驗證證書要 $299。課程頁標示約 7 週、每週 20 小時。
+[Harvard OpenCourseWare 上**免費且含證書**](https://www.classcentral.com/report/harvard-cs50-guide)；edX 上的驗證證書要 $299。課程頁標示 7 週；每週時數兩邊口徑不同——Harvard 官方頁寫 10–30 小時，Class Central 取 20 小時。
 
 ### Stanford CS336：最硬的一門
 
-如果 DeepLearning.AI 是廣度標竿，CS336: Language Modeling from Scratch 就是深度標竿的另一端。
+如果 DeepLearning.AI 是廣度標竿，CS336: Language Modeling from Scratch 就是深度標竿的另一端。它在 Stanford 整條先修階梯上的位置，見本站的 [Stanford CS 課程導讀](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
 [網站](https://cs336.stanford.edu/)、投影片、作業說明與 YouTube 錄影全部免費公開（正式學分與 Gradescope 批改限 Stanford 學生）。官網現已更新到 **Spring 2026 版**，主講 Tatsunori Hashimoto 與 Percy Liang，19 講，搭配 5 個大型 assignment：從手刻 tokenizer、model、optimizer，到 FlashAttention2 與 Triton kernel，再到 scaling law、資料處理，最後是 SFT + RL。
 
@@ -301,13 +322,95 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 它跟李宏毅的差異在於深度而非方向：李宏毅讓你理解模型在做什麼，CS336 要你把它整個做出來。合理的順序是先李宏毅、再 CS336，中間隔一段真的動手寫過東西的時間。
 
+## 課程以外：還在更新的自學倉庫
+
+到這裡為止談的都是「課」——有平台、有進度、有證書。但這個領域有一大塊教材是以 GitHub repo 的形式存在的，而且品質常常在課之上。收進來之前要先講一條**篩選規則，它比星數重要得多**：
+
+> **星數只證明它紅過，不證明它還活著。**
+
+這條規則不是理論。下面這幾份都是被廣泛推薦、星數極高、而且**停更快兩年**的教材：
+
+| 教材 | 星數 | 最後更新 |
+|---|---|---|
+| `d2l-ai/d2l-zh`《動手學深度學習》 | 79.8k | **2024-07** |
+| `karpathy/LLM101n` | 37.5k | **2024-08**（講義始終沒寫完） |
+| `karpathy/nn-zero-to-hero` | 24.0k | **2024-08** |
+| `fastai/course22` | 3.7k | **2024-10** |
+
+它們教的 CNN、RNN、反向傳播、from-scratch 實作不會過期，當地基仍然可用；但 2024 年之後的東西——現代 LLM 訓練配方、agent、推論優化、evals——它們一概沒有，而且不會再有。**拿它們當「現況教材」會有兩年的認知落差。**
+
+以下是同一把尺篩過、**2026 年仍在更新**的清單（星數與最後更新日期為 2026-08-21 查得）：
+
+### 從零手刻模型
+
+| repo | 星數 | 最後更新 | 定位 |
+|---|---|---|---|
+| [`rasbt/LLMs-from-scratch`](https://github.com/rasbt/LLMs-from-scratch) | **103.1k** | 2026-08 | Sebastian Raschka 的逐步手刻 LLM。星數全場最高，而且還在動——**Karpathy 空出來的那個位置，現任者是它** |
+| [`karpathy/nanochat`](https://github.com/karpathy/nanochat) | 57.4k | 2026-08 | 「$100 能買到的最好 ChatGPT」。嚴格說是專案不是課，但讀 code 的學習密度很高 |
+| [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) | 33.1k | 2026-08 | 简中，从零开始构建大模型。基本上是 D2L 想做但沒做完的那件事的 2026 版 |
+
+### Agent 與 RAG（對應第三層）
+
+| repo | 星數 | 最後更新 | 定位 |
+|---|---|---|---|
+| [`microsoft/ai-agents-for-beginners`](https://github.com/microsoft/ai-agents-for-beginners) | 72.9k | 2026-08 | 微軟出品，與前面提過的 generative-ai-for-beginners 同系列 |
+| [`NirDiamant/RAG_Techniques`](https://github.com/NirDiamant/RAG_Techniques) | 29.1k | 2026-08 | RAG 各種技法的可執行實作合集 |
+| [`NirDiamant/GenAI_Agents`](https://github.com/NirDiamant/GenAI_Agents) | 23.9k | 2026-08 | 同作者的 agent 版 |
+| [`DataTalksClub/llm-zoomcamp`](https://github.com/DataTalksClub/llm-zoomcamp) | 7.1k | 2026-08 | **免費的 cohort 制課程**——有梯次、有同學、有 deadline，是這份清單裡唯一不孤單的選項 |
+
+### 工程與落地
+
+| repo | 星數 | 最後更新 | 定位 |
+|---|---|---|---|
+| [`openai/openai-cookbook`](https://github.com/openai/openai-cookbook) | 75.4k | 2026-08 | 官方 cookbook，更新頻率以天計 |
+| [`google-gemini/cookbook`](https://github.com/google-gemini/cookbook) | 17.7k | 2026-08 | Gemini 版 |
+| [`liguodongiot/llm-action`](https://github.com/liguodongiot/llm-action) | 24.9k | 2026-07 | 简中，大模型工程化與落地實戰 |
+| [`stas00/ml-engineering`](https://github.com/stas00/ml-engineering) | 18.7k | 2026-08 | 訓練大模型的工程實務——硬體、平行化、除錯。這個角度幾乎沒有課在教 |
+| [`datawhalechina/llm-universe`](https://github.com/datawhalechina/llm-universe) | 13.8k | 2026-07 | 简中，面向小白的大模型應用開發 |
+| [`huggingface/smol-course`](https://github.com/huggingface/smol-course) | 6.7k | 2026-08 | 小模型對齊 |
+
+一個邊緣案例：[`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) 星數 81.9k，很多清單把它排第一，但最後更新是 2026-02，已經半年沒動——還沒到「停更」，但要留意。
+
+### 不是教材，是索引：csdiy.wiki
+
+最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**⭐75.1k、7,988 forks、100+ 貢獻者**，最後更新 2026-08）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
+
+它在 AI 這塊的覆蓋，剛好補上本文最大的空白——**Stanford 以外的大學課**：
+
+| 分類 | 收錄的課 |
+|---|---|
+| 人工智慧 | Berkeley CS188、Harvard CS50 AI |
+| 機器學習 | Berkeley CS189、Stanford CS229、李宏毅 |
+| 深度學習 | CMU 11-785、CS224n、CS224w、CS230、CS231n、**Berkeley CS285**、Michigan EECS498-007、MIT 6.7960、NYU DLSP21 |
+| 機器學習系統 | **CMU 10-414**、CMU 15-442、UCSD CSE234、MLC、EML |
+| 機器學習進階 | CMU 10-708、CS229M、STA4273 |
+| 深度生成模型 | MIT 6.S184、大型語言模型 |
+
+但它值得收的真正理由不是清單長度，而是**它有人在修壞掉的連結**。近幾個月的 commit 包含 `[Fix] update MIT calculus course links`、`Update web links`，以及持續新增課程（CMU 15-442、CMU 11-785、MIT 6.7960、NYU DLSP21、UCSD CSE234）。
+
+這剛好替這一節收尾：**星數不能證明一份教材還活著，而一份會修壞連結的索引，正是幫你持續回答「這門課還在不在」的東西。** 本文只能給你 2026 年 8 月的快照；索引是那個會跟著時間走的東西。
+
+用它的正確方式是當**目錄而非教材**——從裡面挑一門課，然後直接去讀那門課的官網。
+
+**簡中這邊有個結構性優勢值得單獨指出**：上面四份简中教材有三份出自 Datawhale，那是個活的社群組織而不是單人維護，所以更新是持續的。這正是 D2L 缺的東西——D2L 星數是 happy-llm 的兩倍多，但一個停在 2024、一個上個月還在動。繁中讀者直接讀简中版本沒有障礙，用語差異遠小於內容落差。
+
+## 互動式平台：不用裝環境的那一類
+
+前面所有選項都預設你會自己弄環境。有一類平台把這件事整個拿掉——程式直接跑在瀏覽器裡。
+
+**[Kaggle Learn](https://www.kaggle.com/learn)** 是這類裡最該優先考慮的：**16 門 micro-course，各 3–5 小時，全免費、全發證書**，notebook 直接在瀏覽器跑。涵蓋 Python、Intro to ML、Intermediate ML、Feature Engineering、Intro to Deep Learning、Computer Vision、Time Series、Intro to AI Ethics、Machine Learning Explainability、Game AI and RL。它跟前面那個 5-Day Intensive 是同一個 Kaggle，但完全不同的東西——Intensive 是硬課，Learn 是階梯。**卡在第一層想往第二層走、又不想先花一晚裝 Python 的人，這是最短的路。**
+
+**[Scrimba](https://scrimba.com/)** 值得提一個特殊理由：**它是 JavaScript 路線**。這份清單裡幾乎所有東西都預設 Python，前端出身的人第一步就被卡住，Scrimba 的 AI Engineer Path（11.4 小時、12 個模組，涵蓋 agents、RAG、MCP、context engineering、Vercel AI SDK、multimodality）整條用 JS 走完。它跟 Mistral、LangChain、Hugging Face 有課程合作。代價是付費：Pro 年繳 $24.50/月（$294/年）或月繳 $49——不過免費層有約 25 門完整課，其中 Build Serverless AI Agents（49 分鐘）免費且發證，可以先試。（提醒：Scrimba 的課程比較文章都發在自家網站上，定價與課表可信，排名結論請自行打折。）
+
+**DataCamp** 上有 Anthropic 官方改編的 Claude Code in Action 免費版——如果你偏好那種「一格一格填答案」的介面，可以走這條。
+
 ## 上過的人怎麼說
 
 上面全是官方頁面的說法。真正上完的人怎麼講，參考價值更高，而且不太好聽。
 
-**「課不是最好的學法。」** 一位[把 Anthropic 全部 18 門課在一個週末刷完](https://www.youtube.com/watch?v=T-3bE2IIK4M)的 reviewer 說得最直接：真正有用的只有其中少數幾門，「none of these courses are the best way to learn Claude — 最好的學法不是看課，是自己去用」。他點名 Claude Code 101「有很多 fluff」，真正有價值的是 CLAUDE.md、skills、MCP 與 context 管理那幾段，其餘是填充。他也提到自己把所有認證都考完，拿了 99 分——這對「證書值多少」是個相當清楚的答案。
+**「課不是最好的學法。」** 一位[把 Anthropic 當時整個目錄在一個週末刷完](https://www.youtube.com/watch?v=T-3bE2IIK4M)的 reviewer 說得最直接：真正有用的只有其中少數幾門，「none of these courses are the best way to learn Claude — 最好的學法不是看課，是自己去用」。他點名 Claude Code 101「有很多 fluff」，真正有價值的是 CLAUDE.md、skills、MCP 與 context 管理那幾段，其餘是填充。他也提到自己把所有認證都考完，拿了 99 分——這對「證書值多少」是個相當清楚的答案。
 
-**官方課的共同盲點是不教你判斷。** 有 reviewer 直接指出 Anthropic Academy 的內容是 Claude-specific、「zero cross-platform transferability」；Google 的課則教你在 Workspace 裡用 Gemini。這不是陰謀，是商業合理性——但它解釋了為什麼 CS146S 那種同時教 Cursor、Claude Code、Windsurf、Warp 的廠商中立課特別值錢。
+**官方課的共同盲點是不教你判斷。** 有 reviewer 直接指出 Anthropic 的課是 Claude-specific、「zero cross-platform transferability」；Google 的課則教你在 Workspace 裡用 Gemini。這不是陰謀，是商業合理性——但它解釋了為什麼 CS146S 那種同時教 Cursor、Claude Code、Windsurf、Warp 的廠商中立課特別值錢。
 
 **Google AI Essentials 的評價高度一致：新手很好，老手太淺。** [一位完課者](https://productivitystack.substack.com/p/google-ai-essentials-review)（2025 年 5 月）寫「這門課對我來說太簡單了……它沒教我任何新技能，只是讓我意識到我還缺哪些技能」，並認為 $49 對這個內容量「有點貴」。另一位在 [LinkedIn](https://www.linkedin.com/posts/automatewithjames_i-took-a-google-ai-essentials-course-today-activity-7392604986662244352-tUnK) 上（2025 年 11 月）更不留情：內容基本、教得不錯，但「以這個難度來說課太長了」，而且「上次更新是五月——以 AI 的時間尺度這是幾十年前」。[較新的評測](https://blog.theinterviewguys.com/google-ai-essentials-review)（2026 年 2 月）結論類似：對完全沒碰過 AI 的人 8/10，對已經天天用 ChatGPT 的技術工作者 5/10。
 
@@ -319,11 +422,11 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 ## 怎麼選
 
-**第一層**（不懂 AI）：挑 OpenAI Academy 三門課走完就夠，免費、有證書、三小時內。只想花 45 分鐘搞懂生成式 AI 是什麼，就上 Google 的 Introduction to Generative AI，免費而且有 29 種語言。想要不綁廠商的視角，Elements of AI，但只有英文。需要在組織內推 AI 教育，才換成 Anthropic 的 AI Fluency 分眾系列。這一層不要碰李宏毅。
+**第一層**（不懂 AI）：挑 OpenAI Academy 三門課走完就夠，免費、有證書、三小時內。只想花 45 分鐘搞懂生成式 AI 是什麼，就上 Google 的 Introduction to Generative AI，免費而且有 29 種語言。想要不綁廠商的視角，Elements of AI，但只有英文。需要在組織內推 AI 教育，才換成 Anthropic 的 AI Fluency 分眾系列。這一層不要碰李宏毅。想直接開始寫 code 又不想裝環境，跳去 Kaggle Learn 的 Python 與 Intro to ML，各 3–5 小時、免費發證。
 
 至於 Google 那 $49/月：**先用 audit 模式把影片看完，確定你真的想要那張證書，再付錢。** 課程內容本來就免費開放，付費買的只是評分作業與證書。
 
-**第二層**（vibe coding）：Anthropic Claude Code 101（1.5 小時）加 Claude Code in Action（1 小時）就足以讓工具跑順。用 Codex 的話換 OpenAI 的 Codex 101/102/103。這一層很短，別在這裡待太久——它的天花板很低。
+**第二層**（vibe coding）：Claude Code 101（1 小時）加 Claude Code in Action（1 小時）就足以讓工具跑順，再加 Introduction to agent skills（1 小時）與 subagents（45 分鐘）就到頂。用 Codex 的話換 OpenAI 的 Codex 101/102/103。這一層很短，別在這裡待太久——它的天花板很低。
 
 **第三層**（讓它能上 production）：這是大多數人真正該投資的地方。
 
@@ -333,12 +436,16 @@ Kaggle 5-Day AI Agents Intensive     ← 免費，evals / context / 部署一次
 Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含安全與多 agent
         ↓
 分岔：
-  想深入 protocol → Anthropic MCP 兩門 (2.1h)
-  想深入 API     → Building with the Claude API (8.1h)
+  想深入 protocol → Claude Academy 的 MCP 兩門
+  想深入 API     → Building with the Claude API (67 課 / 9h)
   想要一張證書   → Hugging Face Agents Course（免費發證）
+  想要同學與梯次 → LLM Zoomcamp（免費 cohort 制）
+  想直接讀實作   → RAG_Techniques / GenAI_Agents（可執行範例合集）
 ```
 
-**第四層**（底層 AI）：讀中文就從李宏毅開始；讀英文從 MIT 6.S191 入門，CS50 AI 補上 LLM 以外的視野，CS336 收尾。全部免費公開。
+**第四層**（底層 AI）：讀中文就從李宏毅開始；讀英文從 MIT 6.S191 入門，CS50 AI 補上 LLM 以外的視野，CS336 收尾。全部免費公開。想走「深度學習專案怎麼做」而不是「模型怎麼刻」，本站另有 [CS230 系列](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)。
+
+真的要手刻的話，課不是唯一路徑——`rasbt/LLMs-from-scratch` 是目前這條線上最活躍也最多人用的教材，讀简中沒障礙的話 `datawhalechina/happy-llm` 是同類。**但別碰停在 2024 的那幾份**，理由見上一節。
 
 最後提醒一次那個方向感：**第四層不會解決第三層的問題。** 卡在「AI 寫的東西不敢上線」的人，需要的是 evals、guardrails 與 observability，那些在 Kaggle 那五天和 CS146S 裡，不在 FlashAttention kernel 裡。
 
@@ -348,12 +455,30 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 
 ---
 
+## 更新紀錄
+
+- **2026-08-21**：發文六週後重新查證定價、課數與開課期別，**過期內容直接改寫，不保留舊版數字**。
+  - **Anthropic 整塊重寫**：Anthropic Academy 已於 2026-08-20 改組為 **Claude Academy**，課程從 `anthropic.skilljar.com` 搬到 `academy.claude.com`，目錄改為按產品分艙。時數與課數全部重編——AI Fluency 總綱從 1.1 小時變 4 小時、AI Capabilities and Limitations 從 0.25 小時變 3.5 小時、Building with the Claude API 從 84 課/8.1 小時變 67 課/9 小時、Claude Code in Action 從 15 課變 9 課；新增 Claude Platform 101 與 Tutorial 格式。認證從一張擴為四張（Associate / Architect / Developer Foundations + Architect Professional），仍留在 skilljar。
+  - **GitHub Models 已於 2026-07-30 完成退役**，原文的「將於 7 月底退役」改為已完成，並補上官方替代路徑。
+  - **李宏毅改推 Machine Learning 2026 Spring**：該版重心明顯移向 agent 與推論優化，橫跨本文第三、四層；原本的 GenAI-ML 2025 Fall 改列為打地基用。
+  - **MIT 6.S191 2026 季已於 5 月 25 日結束**，9 講教材全數上架，移除「每週釋出、要等」的敘述。
+  - **CS50 AI 每週時數**改採 Harvard 官方口徑（10–30 小時），不再單引二手的 20 小時。
+  - 另補：OpenAI Codex 系列 6 月更新過並新增 Codex Bootcamp、Kaggle 2026 年 6 月 15–19 日重跑一梯直播版、Anthropic 五門 AI Fluency 上架 Coursera。
+  - 複查中**確認無誤、未更動**的項目：AWS（$29/月、$449/年、500+ 免費課、17 種語言含繁中）、Google（$49/月、$29/月、GEAR 35 點）、Elements of AI（200 萬人、30 個站點全在歐洲）、Harvard CS50 AI（edX $299）、CS336（Spring 2026、Hashimoto + Liang）、Microsoft（50+ 語言含繁中）、OpenAI Academy 三門課與時長。
+  - **仍未複驗**：DeepLearning.AI 課程總數（目錄頁改為動態載入，抓不到）、Google Introduction to Generative AI 的註冊與評分數字、Hugging Face 課程細節。
+  - 另補 [csdiy.wiki](https://csdiy.wiki/) 作為「索引而非教材」的獨立條目——它補上本文最大的空白（Stanford 以外的大學課：Berkeley CS188/CS189/CS285、CMU 10-414/11-785/10-708、MIT 6.7960、NYU DLSP21 等），而且有人在持續修壞掉的連結。
+  - **新增兩節**：「課程以外：還在更新的自學倉庫」與「互動式平台」。收錄標準是**最後更新日期而非星數**——因此收了 `rasbt/LLMs-from-scratch`、`microsoft/ai-agents-for-beginners`、`openai/openai-cookbook`、`NirDiamant/RAG_Techniques`、`stas00/ml-engineering`、`DataTalksClub/llm-zoomcamp` 等 2026 年仍在更新的倉庫，简中收了 Datawhale 的 `happy-llm`、`llm-universe` 與 `liguodongiot/llm-action`；並明確排除星數很高但停在 2024 的 `d2l-zh`（79.8k）、`karpathy/LLM101n`（37.5k）、`nn-zero-to-hero`（24.0k）、`fastai/course22`。互動式平台補上 Kaggle Learn（16 門 micro-course、免費發證）與 Scrimba（JavaScript 路線）。星數與更新日期為 2026-08-21 查得。
+
 ## 參考資料
 
 - [OpenAI Academy](https://academy.openai.com/)
 - [New OpenAI Academy courses for the next era of work](https://openai.com/index/academy-courses-applying-ai-at-work/)
 - [OpenAI Academy 課程說明（繁中）](https://help.openai.com/zh-hant/articles/20001270-openai-academy-courses)
-- [Anthropic Academy](https://anthropic.skilljar.com/)
+- [Claude Academy（原 Anthropic Academy，2026-08-20 改版）](https://academy.claude.com/)
+- [Claude Academy All resources（286 筆）](https://academy.claude.com/all)
+- [Build with Claude 課程目錄（含現行課數與時數）](https://academy.claude.com/collections/build-with-claude)
+- [Claude Academy — Claude Code 產品線](https://academy.claude.com/products/code)
+- [Anthropic's approach to teaching and learning AI（官方改版說明，2026-08-20）](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)
 - [Claude Certified Architect – Foundations](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)
 - [anthropics/courses（GitHub）](https://github.com/anthropics/courses)
 - [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial)
@@ -390,5 +515,19 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 - [How to learn Claude Code for free with Anthropic's AI courses（ZDNET）](https://www.zdnet.com/article/how-to-learn-claude-code-with-free-anthropic-ai-courses-online)
 - [Hugging Face MCP Course](https://huggingface.co/learn/mcp-course/en/unit0/introduction)
 - [李宏毅《生成式人工智慧與機器學習導論 2025 Fall》](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [李宏毅課程總覽（含 Machine Learning 2026 Spring）](https://speech.ee.ntu.edu.tw/~hylee/)
+- [GitHub Models is now retired（GitHub Changelog，2026-07-30）](https://github.blog/changelog/2026-07-30-github-models-is-now-retired)
+- [CS50 AI 課程頁（Harvard PLL，官方時數與 $299 驗證證書）](https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python)
+- [csdiy.wiki 计算机自学指南（各校公開課索引，中英雙語）](https://csdiy.wiki/)
+- [PKUFlyingPig/cs-self-learning（csdiy.wiki 的原始碼與課程條目）](https://github.com/PKUFlyingPig/cs-self-learning)
+- [Kaggle Learn（16 門免費 micro-course）](https://www.kaggle.com/learn)
+- [Scrimba AI Engineer Path](https://scrimba.com/)
+- [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch)
+- [microsoft/ai-agents-for-beginners](https://github.com/microsoft/ai-agents-for-beginners)
+- [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques)
+- [stas00/ml-engineering](https://github.com/stas00/ml-engineering)
+- [DataTalksClub/llm-zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp)
+- [datawhalechina/happy-llm（简中，从零开始构建大模型）](https://github.com/datawhalechina/happy-llm)
+- [liguodongiot/llm-action（简中，大模型工程化）](https://github.com/liguodongiot/llm-action)
 - [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/)
 - [AWS Skill Builder](https://skillbuilder.aws/)

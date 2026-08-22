@@ -140,8 +140,8 @@ goose 支援打包「發行版」——預設好特定 provider、extensions、�
 |--|-----------|-----------------|------------|
 | 授權 | Apache 2.0 開源 | 商業（Anthropic） | 商業 |
 | LLM | 15+ 供應商，可切換 | 僅 Claude | 多供應商，但 IDE 綁定 |
-| 平台 | Desktop + CLI + API | CLI | IDE 插件 |
-| 擴充 | MCP 標準，70+ servers | MCP（持續擴充中） | 插件市集 |
+| 平台 | Desktop + CLI + API | CLI | IDE 外掛 |
+| 擴充 | MCP 標準，70+ servers | MCP（持續擴充中） | 外掛市集 |
 | 治理 | Linux Foundation AAIF | Anthropic | Anysphere |
 | 自架 | 可以 | 不行 | 不行 |
 

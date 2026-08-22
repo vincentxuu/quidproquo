@@ -7,7 +7,7 @@ tags: [interpretability, scaling-laws, benchmark, evaluation, stanford-cs230]
 lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
-  order: 10
+  order: 9
 tldr: "問模型「你心目中的鵝長什麼樣」，它畫出一大群鵝——因為標註資料把一群鵝標成 goose，它以為整群才是那個標籤。這一講給了七種打開 CNN 看內部的方法，然後誠實地說：這套方法到 transformer 上，最前沿的研究也只解釋得了兩層。"
 description: "Stanford CS230（2025 秋季）Lecture 10 完整導讀：從一個 2000 億參數模型的 checkpoint 退步案例開始，走過 saliency map、occlusion sensitivity、class activation map、梯度上升、dataset search 與 deconvolution，再到 scaling law、benchmark 汙染偵測與資料診斷。"
 draft: false
@@ -186,7 +186,7 @@ maximize  S_dog(X)  +  正則項
 | **CNN** | 局部化資訊 | 邊緣、紋理、形狀 |
 | **LLM** | **關係** | **概念與 token 之間的關係與意義** |
 
-兩個可視化的抓手：
+兩個可視化的切入點：
 
 1. **attention pattern**——看某個 token 和其他 token 的關係。「每個 attention head 學到不同的模式：**把代名詞連到名詞、追蹤結構、強制某種順序**。」出處是 [Vig 的視覺化工作](https://arxiv.org/abs/1904.02679)。他的定位很好記：**這就是 CNN 的 saliency map 在 transformer 上的對應物。**
 2. **embedding + 降維**——用 t-SNE 看語意相近的 token 有沒有靠在一起，**檢查模型是否真的學到有意義的表示**。

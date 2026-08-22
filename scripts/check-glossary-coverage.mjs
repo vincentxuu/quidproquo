@@ -43,7 +43,14 @@ function readDefaultGlossaryTerms() {
 
   return [...new Set([...terms, ...aliases])]
     .sort((a, b) => b.length - a.length)
-    .map((term) => ({ term, pattern: new RegExp(`(^|[^\\p{L}\\p{N}_-])${escapeRegExp(term)}([^\\p{L}\\p{N}_-]|$)`, 'iu') }));
+    .map((term) => ({
+      term,
+      // 中日韓文字之間沒有空白，用拉丁式的詞邊界會把「無人機反制系統」這種
+      // 內嵌情況判成不match（前一個字 `機` 也算 \p{L}）。CJK 術語改用直接比對。
+      pattern: /[\u3400-\u9fff\uf900-\ufaff]/u.test(term)
+        ? new RegExp(escapeRegExp(term), 'iu')
+        : new RegExp(`(^|[^\\p{L}\\p{N}_-])${escapeRegExp(term)}([^\\p{L}\\p{N}_-]|$)`, 'iu'),
+    }));
 }
 
 function getGlossaryCoverage(file, defaultTerms) {

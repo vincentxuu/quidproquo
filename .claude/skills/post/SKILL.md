@@ -42,7 +42,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
    - **主脊**：按判決／按部件／按時間／按論證——**選一個**。三套並行會產生打岔章節、同類拆散、孤兒章節。
    - **動作**：每個「建議讀者照做」的主張，都要能寫出一句今晚就能做的動作。寫不出來就代表你還沒想清楚，不要先動筆。
 
-   另外三條在寫的當下遵守：正文每個主張最多一個數字（方法學數字進附錄）、引述只在「作者原話比轉述更有力」時用、但書換位置不要堆疊。
+   另外四條在寫的當下遵守：正文每個主張最多一個數字（方法學數字進附錄）、引述只在「作者原話比轉述更有力」時用、但書換位置不要堆疊、**不要替來源加上它沒有的主張**（不自立計分表、不推測動機）。
 
 6. **產生中文版檔案**：
    - 路徑：`src/content/posts/<category>/YYYY-MM-DD-<slug>.md`
@@ -80,6 +80,11 @@ description: Convert a conversation, notes, or experience into a structured Mark
    pnpm astro check
    ```
    有 error 先修，不要當作 warning 略過。
+
+   **`lang: zh-TW` 另跑台灣用語檢查**（A 級一定要清乾淨）：
+   ```bash
+   pnpm check:tw src/content/posts/<category>/<檔名>.md
+   ```
 
    **1500 字以上另跑語域掃描**（六項指標與閾值見 `post-polish` skill）：
    ```bash
@@ -140,6 +145,8 @@ series:                # 選填，多篇連載用
 | 「參考資料先放泛用首頁」 | 比較多個工具就要對應到該工具的官方頁，不是放一條 anthropic.com |
 | 「論文連結只放在文末」 | 論文 / 工具名稱第一次出現就要是可點擊超連結；讀者在文章中間就想點，等到文末才能點會流失 |
 | 「數據 / 引述沒附 inline link」 | 每個外部數據、研究結論、人物引言，都必須在該句或該段附上 inline source link。讀者不會去文末參考資料自己對——看到數字就要能直接點進來源。commit 前逐段掃一遍：有數字或引述但沒超連結 → 補上 |
+| 「搜尋摘要講的夠清楚了，不用打開原文」 | 摘要是為關鍵字匹配最佳化的，不是為忠實呈現最佳化的。列進參考資料就代表你查證過 |
+| 「這篇只讀 abstract 就好，反正我的主張沒超出摘要」 | 這句永遠成立，因為主張本來就照你讀到的寫——沒讀的部分不會提醒你它該被寫進去。abstract 是行銷，limitations 才是分寸 |
 | 「跳過 pnpm check:references」 | 內部連結壞了使用者點到 404，沒人會幫你抓 |
 | 「直接 commit 不給 review」 | post 是公開內容，發出去前必須使用者點頭 |
 | 「沒參考資料就算了」 | 引用就一定要附來源，這是站規 |

@@ -59,7 +59,7 @@ Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 - 對「罕見工具」（訓練時出現次數最少的 20%）提升最大，FWG 讓經驗跨工具共享
 - 使用 Qwen2.5-7B 和 Llama-3.1-8B 兩個骨幹模型驗證
 - 落地門檻：需要歷史工具呼叫軌跡來建構 FWG，冷啟動場景需要先累積資料
-- 與 LangGraph / CrewAI 的關聯：FWG 可以作為規劃層插件，不改變執行層
+- 與 LangGraph / CrewAI 的關聯：FWG 可以作為規劃層外掛，不改變執行層
 - Limitation：假設每個參數只有單一資訊來源，多來源融合的情況尚未處理
 
 ### Reviewer 一句話評

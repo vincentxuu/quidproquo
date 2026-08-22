@@ -4,7 +4,7 @@ date: 2026-04-21
 type: guide
 tldr: "2026/4/1 new rules: max 2 policies per trip (different insurers), flat-rate payout cap lowered to NT$6,000. Covers six key areas including flight delays and lost luggage, with a breakdown of where to buy."
 category: travel
-tags: [insurance, travel, 不便險, 旅平險]
+tags: [travel-inconvenience-insurance, insurance, travel, travel-accident-insurance]
 lang: en
 description: "Taiwan's travel inconvenience insurance overhaul took effect in April 2026. This guide covers coverage types, provider comparisons, the new restrictions, and how to find standalone policies."
 draft: false

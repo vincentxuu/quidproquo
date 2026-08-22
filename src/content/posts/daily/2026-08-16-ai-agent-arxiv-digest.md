@@ -8,7 +8,7 @@ description: "今天三篇圍繞同一個問題——Agent 的技能與擴充模
 tldr: "PIMiner 用可跨模型轉移的策略庫，以約 20 美元查詢成本讓提示注入攻擊成功率衝上 76-87%；Agent Skills Can Be Harmful 從 307 個技能誘發失敗中發現看似相關的技能比明顯無關的技能更容易搞砸任務，過度流程占效率退化六成以上；Order 66 情境分析用組合式威脅模型證明休眠植入、事後記憶投毒與對等擴散單獨看都不致命，疊加後可能自我維持傳播"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 1
+  order: 84
 ---
 
 ## 今日總覽

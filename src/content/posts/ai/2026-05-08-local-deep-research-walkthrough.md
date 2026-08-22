@@ -4,6 +4,9 @@ date: 2026-05-08
 category: ai
 tags: [rag, agent, langgraph, deep-research, local-llm, langchain]
 lang: zh-TW
+series:
+  name: "搜尋與爬取實戰"
+  order: 6
 type: guide
 tldr: "Local Deep Research 是個本地優先、隱私導向的深度研究 Agent，用 LangChain + LangGraph 串起 20+ 搜尋引擎和 30+ 種研究策略，旗艦的 langgraph_agent_strategy 走 LLM 自主 tool-calling 路線，跟固定流程的 RAG graph 是兩種思路。"
 description: "導讀 LearningCircuit/local-deep-research：定位、架構、目錄地圖、30+ 種研究策略，以及跟一般 RAG 的差異。"
@@ -154,6 +157,10 @@ LDR 適合三類人：想做本地研究 Agent 的工程師、需要對研究流
 4. **`journal_quality/` 資料集**——21 萬筆期刊聲譽評分，本身就值錢
 
 對照一般 RAG graph：固定流程仍然是大多數產品場景的對的選擇（可觀測、可測試、便宜），但如果遇到「需要深入挖掘、無法事先預知幾步、需要動態組合工具」的場景，LDR 的 langgraph_agent 模式是個很好的 reference。
+
+把搜尋、抓取、多步推理串成自動流程之後，還有一件系列各篇都沒展開的事：**抓回來的內容是不可信輸入**，而 LDR 這種多步 agent 正好把注入的影響面放到最大。這條線見[〈Agent 安全的同一條裂縫〉](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries)。
+
+至於下面那層搜尋要接誰，同系列前面兩篇分別談了[雲端 search MCP 的選擇](/posts/ai/2026-05-07-ai-search-mcp-tools)與[自架 SearXNG 堆疊的代價](/posts/ai/2026-08-21-self-hosted-search-stack)——LDR 本身兩條路都吃得下。
 
 ## 參考資料
 

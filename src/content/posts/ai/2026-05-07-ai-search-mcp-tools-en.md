@@ -4,6 +4,9 @@ date: 2026-05-07
 category: ai
 tags: [mcp, search, web-search, tavily, firecrawl, exa, bocha, claude-code, agent]
 lang: en
+series:
+  name: "Search and Scraping in Practice"
+  order: 1
 type: guide
 tldr: "When using AI agents like Claude Code or Cursor, built-in WebFetch / WebSearch often gets blocked by Cloudflare, geo-restrictions, or rate limits. Connecting a search MCP server is the most direct fix. This post compares the options actually available in 2026."
 description: "Comparing search MCP servers for AI agents: Tavily, Firecrawl, Exa, Linkup, Brave, Bocha, Bright Data, and more, with use cases and limitations for each."
@@ -50,9 +53,22 @@ Not ideal for: Real-time SERP results, semantic search.
 
 Exa's strength is neural / similarity search: "find me web pages semantically similar to this URL or this text." Most other providers rely on keyword + ranker approaches and lack Exa's ability to index entire web pages via embeddings. The official `exa-mcp-server` exposes three tools -- search, find similar, and get contents -- so agents can use a hybrid approach.
 
-Pricing is a bit steep for keyword searches, but no one else can match Exa's semantic search capabilities right now.
+By 2026 it is no longer just "the semantic search one" — it now spreads depth across six latency tiers you pick from:
 
-Good for: Finding related content, competitive research, semantic recommendations, similar case studies.
+| type | Latency | Use for |
+|---|---|---|
+| `instant` | ~250ms | Real-time chat and voice |
+| `fast` | ~450ms | User-facing search |
+| `auto` | ~1s | Default, balances quality and speed |
+| `deep-lite` | 4s | Lightweight synthesized output |
+| `deep` | 4-15s | Multi-step reasoning with structured output |
+| `deep-reasoning` | 12-40s | The hardest research tasks |
+
+On top of that, `output_schema` works with any search type to return JSON matching your schema directly, and `category` targets verticals such as company (50M+ company pages), people (1B+), and publication (350M+ scholarly works).
+
+Pricing (checked 2026-08-21): $7 per 1,000 standard searches, $5 for `instant`, $12 for `deep`, $15 for `deep-reasoning`, and $1 per 1,000 pages for contents and AI summaries. New accounts get $20 in credits (roughly 2,800 searches), and the free tier adds $10 per month.
+
+Good for: Finding related content, competitive research, semantic recommendations, research tasks that need structured output.
 Not ideal for: Pure keyword SERP, budget-sensitive high-frequency queries.
 
 ## Linkup
@@ -138,13 +154,19 @@ In practice, the most sensible setup is **one primary + one backup**, toggled vi
 
 Betting on a single vendor carries elevated risk given the pace of this market in 2026. Adding a backup takes minimal effort.
 
+## Update log
+
+- 2026-08-21: Rewrote the Exa section. The original described it only as "the semantic search one, a bit steep for keywords", but Exa now offers six search types (`instant` at ~250ms through `deep-reasoning` at 12-40s), `output_schema` structured output, and company / people / publication verticals, with per-item pricing published — the old description was no longer enough to choose on. Also fixed the Firecrawl MCP server's GitHub org (`mendableai` → `firecrawl`). Pricing for the other providers is still as queried on 2026-05-07 and has not been re-verified.
+
 ## References
 
 - [Model Context Protocol Official Documentation](https://modelcontextprotocol.io/)
 - [Anthropic: Claude Code MCP Configuration](https://docs.claude.com/en/docs/claude-code/mcp)
 - [Tavily MCP server](https://github.com/tavily-ai/tavily-mcp)
-- [Firecrawl MCP server](https://github.com/mendableai/firecrawl-mcp-server)
+- [Firecrawl MCP server](https://github.com/firecrawl/firecrawl-mcp-server)
 - [Exa MCP server](https://github.com/exa-labs/exa-mcp-server)
+- [Exa Pricing](https://exa.ai/pricing) — rates as checked 2026-08-21
+- [Exa Search API Guide](https://exa.ai/docs/reference/search-api-guide) — the six search types and output_schema
 - [Brave Search MCP server](https://github.com/brave/brave-search-mcp-server)
 - [Bocha Search MCP](https://github.com/BochaAI/bocha-search-mcp)
 - [Bright Data MCP](https://github.com/luminati-io/brightdata-mcp)

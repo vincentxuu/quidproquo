@@ -5,8 +5,11 @@ category: ai
 type: deep-dive
 tags: [web-scraping, ai-agent, browser-automation, llm, open-source]
 lang: zh-TW
-tldr: "從 MarkItDown (169k stars, MIT) 到 curl-impersonate (7k stars)，整理 34 個「爬資料餵 AI」的開源工具。沿五條軸線分類：整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建。選型關鍵不是哪個最好，是場景匹配。"
-description: "34 個 AI 爬蟲與資料擷取開源工具的分類選型指南：整站爬取（Firecrawl、Crawl4AI）、AI 瀏覽器代理（Browser-Use、Stagehand）、文件轉檔（MarkItDown、MinerU）、智慧擷取（Scrapling、ScrapeGraphAI）、反偵測基建（curl-impersonate）。含 GitHub API 驗證的星數與授權資訊。"
+series:
+  name: "搜尋與爬取實戰"
+  order: 4
+tldr: "從 MarkItDown (175k stars, MIT) 到 curl_cffi (6k stars)，整理 34 個「爬資料餵 AI」的開源工具。沿五條軸線分類：整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建。選型關鍵不是哪個最好，是場景匹配。"
+description: "34 個 AI 爬蟲與資料擷取開源工具的分類選型指南：整站爬取（Firecrawl、Crawl4AI）、AI 瀏覽器代理（Browser-Use、Stagehand）、文件轉檔（MarkItDown、MinerU）、智慧擷取（Scrapling、ScrapeGraphAI）、反偵測基建（curl_cffi）。含 GitHub API 驗證的星數與授權資訊。"
 draft: false
 glossary:
   - term: "AGPL"
@@ -16,12 +19,12 @@ glossary:
   - term: "TLS 指紋"
     aliases: ["TLS fingerprint", "JA3 fingerprint"]
     definition: "瀏覽器建立 HTTPS 連線時的握手參數組合。反爬蟲系統用它判斷請求是否來自真實瀏覽器。"
-    context: "curl-impersonate 和 CloakBrowser 透過偽裝 TLS 指紋來繞過反爬蟲偵測。"
+    context: "curl_cffi 和 CloakBrowser 透過偽裝 TLS 指紋來繞過反爬蟲偵測。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en)
 
-「爬資料餵 AI」已經催生出一整個工具生態。從 [MarkItDown](https://github.com/microsoft/markitdown) 的 169k stars 到各種千星級的利基工具，GitHub 上至少有 34 個活躍專案在處理這件事。這篇把它們沿五條軸線分類——整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建——幫你根據場景選對工具，不用再自己刻爬蟲。
+「爬資料餵 AI」已經催生出一整個工具生態。從 [MarkItDown](https://github.com/microsoft/markitdown) 的 175k stars 到各種千星級的利基工具，GitHub 上至少有 34 個活躍專案在處理這件事。這篇把它們沿五條軸線分類——整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建——幫你根據場景選對工具，不用再自己刻爬蟲。
 
 ## 不只是「把網頁抓下來」
 
@@ -41,15 +44,15 @@ glossary:
 | AI 驅動（DOM） | [ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)、[Stagehand](https://github.com/browserbase/stagehand) | LLM 看 DOM 決定 | Token 成本、延遲 |
 | AI 驅動（視覺） | [Skyvern](https://github.com/Skyvern-AI/skyvern)、[Browser-Use](https://github.com/browser-use/browser-use) | LLM 看截圖決定 | 更慢更貴，但跨平台 |
 | 自適應 | [Scrapling](https://github.com/D4Vinci/Scrapling)、AgentQL | 智慧選擇器自動修復 | 不靠 AI 但有學習曲線 |
-| 格式轉換 | [MarkItDown](https://github.com/microsoft/markitdown)、[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/VikParuchuri/marker) | 不做爬取，只做轉檔 | 需搭配上游爬蟲 |
+| 格式轉換 | [MarkItDown](https://github.com/microsoft/markitdown)、[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/datalab-to/marker) | 不做爬取，只做轉檔 | 需搭配上游爬蟲 |
 
 以下五大分類就沿這些取向展開。
 
 ## 整站爬取：Firecrawl 領跑，但注意授權
 
-首選 [Firecrawl](https://github.com/mendableai/firecrawl)（155k stars, AGPL-3.0）——功能最全、生態最大，自帶 JS 渲染、Markdown 輸出、sitemap 掃描，API 設計直接面向 LLM 輸入場景。代價是 AGPL 授權：你的整合程式碼若對外提供服務，也必須開源。
+首選 [Firecrawl](https://github.com/firecrawl/firecrawl)（170k stars, AGPL-3.0）——功能最全、生態最大，自帶 JS 渲染、Markdown 輸出、sitemap 掃描，API 設計直接面向 LLM 輸入場景。代價是 AGPL 授權：你的整合程式碼若對外提供服務，也必須開源。
 
-如果授權不能接受，[Crawl4AI](https://github.com/unclecode/crawl4ai)（75k stars, Apache-2.0）是最接近的替代，Python 寫的、更輕量，社群成長很快。
+如果授權不能接受，[Crawl4AI](https://github.com/unclecode/crawl4ai)（79k stars, Apache-2.0）是最接近的替代，Python 寫的、更輕量，社群成長很快。
 
 百萬頁規模用 [Scrapy](https://github.com/scrapy/scrapy)（63k stars, BSD-3）——Python 生態的老牌框架，分散式架構成熟，但要自己寫解析器。JS/TS 團隊用 [Crawlee](https://github.com/apify/crawlee)（25k stars, Apache-2.0），Apify 出品，API 乾淨，支援 Playwright 和 Cheerio。非工程背景可以看 Maxun（~17k stars），no-code 介面直接在瀏覽器裡標記要爬的元素。
 
@@ -57,7 +60,7 @@ glossary:
 
 這類工具讓 AI 像真人一樣操作瀏覽器——點擊、填表、滾動、截圖，全程自主決策。
 
-[Browser-Use](https://github.com/browser-use/browser-use)（106k stars, MIT）社群最大，Python 寫的 autonomous agent loop，每步都靠 LLM 推理決定下一動，適合「讓 AI 自己上網完成任務」的場景。[Stagehand](https://github.com/browserbase/stagehand)（24k stars, MIT）API 最乾淨——三個原語 `act` / `extract` / `observe` 就涵蓋操作和資料擷取，建在 Playwright 上，TypeScript，適合寫成穩定的自動化腳本。[Skyvern](https://github.com/Skyvern-AI/skyvern)（23k stars, AGPL-3.0）走視覺優先路線，不解析 DOM，純靠截圖做決策，跨平台性最好但每步最慢。
+[Browser-Use](https://github.com/browser-use/browser-use)（110k stars, MIT）社群最大，Python 寫的 autonomous agent loop，每步都靠 LLM 推理決定下一動，適合「讓 AI 自己上網完成任務」的場景。[Stagehand](https://github.com/browserbase/stagehand)（24k stars, MIT）API 最乾淨——三個原語 `act` / `extract` / `observe` 就涵蓋操作和資料擷取，建在 Playwright 上，TypeScript，適合寫成穩定的自動化腳本。[Skyvern](https://github.com/Skyvern-AI/skyvern)（23k stars, AGPL-3.0）走視覺優先路線，不解析 DOM，純靠截圖做決策，跨平台性最好但每步最慢。
 
 Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接接進 Claude 或 LLM agent 的工作流程。
 
@@ -65,11 +68,11 @@ Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接�
 
 ## 文件轉檔：不爬取，只轉格式
 
-這類工具不負責爬取，專把 PDF / Office / HTML 轉成 LLM 友善格式。
+這類工具不負責爬取，吃的是你已經有的檔案。放進這篇是因為「爬資料餵 AI」的第一個核心問題就是格式轉換——但**這一層的選型邏輯不在爬蟲脈絡裡**，而且內部差異比看起來大。
 
-[MarkItDown](https://github.com/microsoft/markitdown)（169k stars, MIT）是微軟出品，格式支援最廣——PDF、Word、Excel、PowerPoint、HTML、圖片都能轉 Markdown，是目前這個賽道星數最高的專案。[MinerU](https://github.com/opendatalab/MinerU)（76k stars）表格與數學公式擷取最強，學術 PDF 首選。[Marker](https://github.com/VikParuchuri/marker)（38k stars, Apache-2.0）速度快、GPU 需求低，適合批量轉換。[Docling](https://github.com/DS4SD/docling)（64k stars, MIT）IBM Research 出品，強調結構化輸出（JSON schema），適合需要精確保留文件結構的場景。
+[MarkItDown](https://github.com/microsoft/markitdown)（175k stars, MIT）與 [anydoc](https://github.com/firecrawl/anydoc)（746 stars, MIT）是**純轉換**：讀檔案裡既有的結構、對映成 Markdown，不需要模型也不需要 GPU，中位耗時在毫秒級。[MinerU](https://github.com/opendatalab/MinerU)（78k stars）、[Marker](https://github.com/datalab-to/marker)（39k stars）、[Docling](https://github.com/docling-project/docling)（65k stars）則是**要跑模型做 OCR 的解析工具**，處理掃描件與複雜版面，慢兩到三個數量級，而且真正的選型軸是授權而不是準確度。
 
-[anydoc](https://github.com/firecrawl/anydoc)（746 stars, MIT，2026-08-06 查詢）是 Firecrawl 出品的 Rust 函式庫，2026-08-03 才開源，走的路線跟上面幾個都不同：只做辦公文件、完全不碰 OCR，但 14 種格式全支援（含 `.doc` / `.ppt` / `.xls` 老格式），中位耗時 4.7ms。值得注意的是它跟 Firecrawl 主專案的授權不同——主專案是 AGPL-3.0，anydoc 是 MIT，商業整合沒有 copyleft 顧慮。詳細比較見[〈anydoc：14 種辦公格式轉 Markdown〉](/posts/ai/2026-08-06-anydoc-rust-document-markdown)。
+這一層的完整取捨站上另有專門系列，不在這篇重複：[「文件解析實戰」](/series/document-parsing)的[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)講怎麼選層、[解析層那篇](/posts/ai/2026-08-06-document-parsing-layout-ocr)講三家的授權陷阱、[掃描考古題實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)是 10 種工具的實際數字。
 
 輕量選項：[Trafilatura](https://github.com/adbar/trafilatura)（~6k stars）專攻「從網頁抽正文、濾廣告」，做前處理穩定好用。[Jina Reader](https://github.com/jina-ai/reader)（12k stars, Apache-2.0）零設定——URL 前加 `r.jina.ai/` 就拿到 Markdown。Readability（~9k stars）是 Firefox 閱讀模式的引擎，常被當成前處理步驟嵌在其他工具裡。
 
@@ -77,41 +80,41 @@ Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接�
 
 規則驅動的爬蟲碰到網站改版就壞。這類工具用 AI 或自適應機制讓擷取更穩。
 
-[Scrapling](https://github.com/D4Vinci/Scrapling)（71k stars, BSD-3）是自適應選擇器——不靠 LLM，而是用智慧演算法在網站改版後自動修復失效的選擇器，速度快、不花 token。[ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)（29k stars, MIT）走另一條路：你用自然語言描述要什麼資料，它用 LLM 自動建爬蟲管線，適合一次性擷取任務。[AutoScraper](https://github.com/alirezamika/autoscraper)（8k stars, MIT）更簡單——給一個範例頁面和你要的資料，它自動學會選擇器。
+[Scrapling](https://github.com/D4Vinci/Scrapling)（76k stars, BSD-3）是自適應選擇器——不靠 LLM，而是用智慧演算法在網站改版後自動修復失效的選擇器，速度快、不花 token。[ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)（29k stars, MIT）走另一條路：你用自然語言描述要什麼資料，它用 LLM 自動建爬蟲管線，適合一次性擷取任務。[AutoScraper](https://github.com/alirezamika/autoscraper)（8k stars, MIT）更簡單——給一個範例頁面和你要的資料，它自動學會選擇器。
 
 AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM 擷取 library，ferret（~6k stars, Go）提供宣告式擷取語言。
 
 ## 反偵測與基建：穩定取得資料的基礎設施
 
-[curl-impersonate](https://github.com/lwthiker/curl-impersonate)（7k stars, MIT）偽裝 TLS 指紋，讓 HTTP 請求看起來像真實瀏覽器發出的。CloakBrowser（~29k stars）是隱身版 Chromium，可以直接 drop-in 替換 Playwright 的瀏覽器實例。botasaurus（~6k stars）是 Python 反偵測爬蟲框架，SeleniumBase（~13k stars）是 Selenium 的加強版，內建 stealth 模式。
+[curl_cffi](https://github.com/lexiforest/curl_cffi)（6k stars, MIT）偽裝 TLS 指紋，讓 HTTP 請求看起來像真實瀏覽器發出的。CloakBrowser（~29k stars）是隱身版 Chromium，可以直接 drop-in 替換 Playwright 的瀏覽器實例。botasaurus（~6k stars）是 Python 反偵測爬蟲框架，SeleniumBase（~13k stars）是 Selenium 的加強版，內建 stealth 模式。
 
-[changedetection.io](https://github.com/dgtlmoon/changedetection.io)（~33k stars）做另一件事——不爬取，而是監控網頁變更並通知你，適合追蹤價格、庫存或政策變動。[scrcpy](https://github.com/Genymobile/scrcpy)（146k stars, Apache-2.0）嚴格來說不是爬蟲，而是 Android 螢幕鏡像工具，用在需要從 App 擷取資料的場景。brightdata-mcp（~3k stars）是商業級 MCP server，讓 AI agent 透過 Bright Data 的基礎設施取得資料。
+[changedetection.io](https://github.com/dgtlmoon/changedetection.io)（~33k stars）做另一件事——不爬取，而是監控網頁變更並通知你，適合追蹤價格、庫存或政策變動。[scrcpy](https://github.com/Genymobile/scrcpy)（148k stars, Apache-2.0）嚴格來說不是爬蟲，而是 Android 螢幕鏡像工具，用在需要從 App 擷取資料的場景。brightdata-mcp（~3k stars）是商業級 MCP server，讓 AI agent 透過 Bright Data 的基礎設施取得資料。
 
 更多反偵測細節，參考站內的[繞過 Cloudflare 反爬蟲指南](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)（nodriver / stealth / camoufox 的比較）。MCP 串接爬蟲的實作範例，見[把爬蟲腳本做成 MCP Server](/posts/tech/2026-03-20-mcp-server-job-scraper)。
 
 ## 選型速查表
 
-以下是經 GitHub API 驗證的主要工具（2026-07-24 查詢），按星數排序：
+以下是經 GitHub API 驗證的主要工具（2026-08-21 重新查詢），按星數排序：
 
 | 工具 | Stars | 授權 | 語言 | 定位 |
 |---|---|---|---|---|
-| [MarkItDown](https://github.com/microsoft/markitdown) | 169k | MIT | Python | 文件轉 Markdown |
-| [Firecrawl](https://github.com/mendableai/firecrawl) | 155k | AGPL-3.0 | TS | 整站爬取 + LLM 輸出 |
-| [scrcpy](https://github.com/Genymobile/scrcpy) | 146k | Apache-2.0 | C | Android 螢幕鏡像 |
-| [Browser-Use](https://github.com/browser-use/browser-use) | 106k | MIT | Python | AI 瀏覽器代理 |
-| [MinerU](https://github.com/opendatalab/MinerU) | 76k | — | Python | PDF 表格/公式擷取 |
-| [Crawl4AI](https://github.com/unclecode/crawl4ai) | 75k | Apache-2.0 | Python | 輕量整站爬取 |
-| [Scrapling](https://github.com/D4Vinci/Scrapling) | 71k | BSD-3 | Python | 自適應選擇器 |
-| [Docling](https://github.com/DS4SD/docling) | 64k | MIT | Python | 結構化文件轉換 |
-| [Scrapy](https://github.com/scrapy/scrapy) | 63k | BSD-3 | Python | 大規模爬蟲框架 |
-| [Marker](https://github.com/VikParuchuri/marker) | 38k | Apache-2.0 | Python | 快速 PDF 轉換 |
+| [MarkItDown](https://github.com/microsoft/markitdown) | 175k | MIT | Python | 文件轉 Markdown |
+| [Firecrawl](https://github.com/firecrawl/firecrawl) | 170k | AGPL-3.0 | TS | 整站爬取 + LLM 輸出 |
+| [scrcpy](https://github.com/Genymobile/scrcpy) | 148k | Apache-2.0 | C | Android 螢幕鏡像 |
+| [Browser-Use](https://github.com/browser-use/browser-use) | 110k | MIT | Python | AI 瀏覽器代理 |
+| [MinerU](https://github.com/opendatalab/MinerU) | 78k | — | Python | PDF 表格/公式擷取 |
+| [Crawl4AI](https://github.com/unclecode/crawl4ai) | 79k | Apache-2.0 | Python | 輕量整站爬取 |
+| [Scrapling](https://github.com/D4Vinci/Scrapling) | 76k | BSD-3 | Python | 自適應選擇器 |
+| [Docling](https://github.com/docling-project/docling) | 65k | MIT | Python | 結構化文件轉換 |
+| [Scrapy](https://github.com/scrapy/scrapy) | 64k | BSD-3 | Python | 大規模爬蟲框架 |
+| [Marker](https://github.com/datalab-to/marker) | 39k | Apache-2.0 | Python | 快速 PDF 轉換 |
 | [ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai) | 29k | MIT | Python | 自然語言 → 爬蟲 |
 | [Crawlee](https://github.com/apify/crawlee) | 25k | Apache-2.0 | TS | JS/TS 爬蟲框架 |
 | [Stagehand](https://github.com/browserbase/stagehand) | 24k | MIT | TS | 乾淨 API 瀏覽器代理 |
 | [Skyvern](https://github.com/Skyvern-AI/skyvern) | 23k | AGPL-3.0 | Python | 視覺優先瀏覽器代理 |
 | [Jina Reader](https://github.com/jina-ai/reader) | 12k | Apache-2.0 | TS | URL → Markdown |
 | [AutoScraper](https://github.com/alirezamika/autoscraper) | 8k | MIT | Python | 範例驅動擷取 |
-| [curl-impersonate](https://github.com/lwthiker/curl-impersonate) | 7k | MIT | C | TLS 指紋偽裝 |
+| [curl_cffi](https://github.com/lexiforest/curl_cffi) | 6k | MIT | Python | TLS 指紋偽裝（維護中） |
 
 另有 changedetection.io、CloakBrowser、Maxun、SeleniumBase、Readability、Browser-MCP、Trafilatura、ferret、botasaurus、AnyCrawl、Markdowner、CyberScraper-2077、brightdata-mcp、webclaw、Parsera、AgentQL、Craw4LLM 等 17 個工具收錄在研究筆記中，多數星數在千至萬級。
 
@@ -125,15 +128,17 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 - **登入 / 複雜互動** → Browser-Use 或 Stagehand
 - **PDF / Office 轉檔** → MarkItDown（通用）或 MinerU（學術 PDF）
 - **網站常改版、選擇器一直壞** → Scrapling
-- **被 Cloudflare 擋** → curl-impersonate + [繞過 Cloudflare 指南](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)
+- **被 Cloudflare 擋** → curl_cffi + [繞過 Cloudflare 指南](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)
+- **想把爬取接成自己的搜尋 API**（取代 Tavily / Exa）→ Crawl4AI + SearXNG，組法與代價見[自架搜尋堆疊那篇](/posts/ai/2026-08-21-self-hosted-search-stack)
 
 ## 更新紀錄
 
+- 2026-08-21：全表星數重新以 GitHub API 查證，並修正三個已改名的 org——Firecrawl `mendableai` → `firecrawl`、Docling `DS4SD` → `docling-project`、Marker `VikParuchuri` → `datalab-to`（舊網址靠 301 還能通，但寫著舊名不對）。一個月內漂動最大的是 Firecrawl（155k → 170k）與 Scrapling（71k → 76k）。另外把反偵測那節停更兩年的 curl-impersonate（最後 push 2024-07-18）整條移除，換成仍在維護的 [curl_cffi](https://github.com/lexiforest/curl_cffi)。另外「文件轉檔」一節縮短：原本把純轉換（MarkItDown、anydoc）與會做 OCR 的解析工具（MinerU / Marker / Docling）混在一起講，兩者差兩到三個數量級。現在只留分界說明與轉手連結——這一層的完整選型、授權陷阱與實測歸[「文件解析實戰」系列](/series/document-parsing)管，本篇不重複。
 - 2026-08-06：「文件轉檔」一節補上 anydoc（Firecrawl 的 Rust 轉檔函式庫，14/14 格式、4.7ms 中位耗時、746 stars、MIT 授權），並標注它與 Firecrawl 主專案 AGPL-3.0 的授權差異。文件轉檔這一層的完整選型脈絡另見[「文件解析實戰」系列](/series/document-parsing)。本篇其餘工具的星數仍為 2026-07-24 查詢值，未重新驗證。
 
 ## 參考資料
 
-- [Firecrawl (GitHub)](https://github.com/mendableai/firecrawl)
+- [Firecrawl (GitHub)](https://github.com/firecrawl/firecrawl)
 - [Crawl4AI (GitHub)](https://github.com/unclecode/crawl4ai)
 - [Browser-Use (GitHub)](https://github.com/browser-use/browser-use)
 - [Crawlee (GitHub)](https://github.com/apify/crawlee)
@@ -144,13 +149,13 @@ AgentQL（~1k stars）用語意查詢取代 CSS/XPath，Parsera 是輕量的 LLM
 - [Stagehand (GitHub)](https://github.com/browserbase/stagehand)
 - [Skyvern (GitHub)](https://github.com/Skyvern-AI/skyvern)
 - [MinerU (GitHub)](https://github.com/opendatalab/MinerU)
-- [Marker (GitHub)](https://github.com/VikParuchuri/marker)
-- [Docling (GitHub)](https://github.com/DS4SD/docling)
+- [Marker (GitHub)](https://github.com/datalab-to/marker)
+- [Docling (GitHub)](https://github.com/docling-project/docling)
 - [anydoc (GitHub)](https://github.com/firecrawl/anydoc)
 - [Jina Reader (GitHub)](https://github.com/jina-ai/reader)
 - [Trafilatura (GitHub)](https://github.com/adbar/trafilatura)
 - [AutoScraper (GitHub)](https://github.com/alirezamika/autoscraper)
-- [curl-impersonate (GitHub)](https://github.com/lwthiker/curl-impersonate)
+- [curl_cffi (GitHub)](https://github.com/lexiforest/curl_cffi) — 維護中的 TLS 指紋偽裝方案
 - [changedetection.io (GitHub)](https://github.com/dgtlmoon/changedetection.io)
 - [scrcpy (GitHub)](https://github.com/Genymobile/scrcpy)
 - [Midscene.js：純視覺 UI 自動化](/posts/ai/2026-05-23-midscene-vision-ui-automation)（站內）

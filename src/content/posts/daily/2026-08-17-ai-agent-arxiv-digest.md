@@ -8,7 +8,7 @@ description: "今天三篇圍繞同一個問題——Agent 記憶系統要顧的
 tldr: "RippleMem 靠聯想式記憶擴散讓 LongMemEval-S 準確率最高提升 11.87%，同時把記憶圖建構成本壓到 1/30；Total Recall at What Cost? 量出記憶系統的服務成本誤差可達 18–69%，且沒有一套系統同時贏成本和準確率；MESA 用動態選記憶結構在 AMA-Bench 上準確率高 8.5%，還省下 41% 證據 token"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 2
+  order: 85
 ---
 
 ## 今日總覽

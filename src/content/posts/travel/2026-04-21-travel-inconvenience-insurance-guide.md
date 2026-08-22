@@ -4,7 +4,7 @@ date: 2026-04-21
 type: guide
 tldr: "2026/4/1 不便險新制：同行程最多 2 張、不同家、定額賠付上限降至 6000 元。整理班機延誤、行李遺失等六大保障項目及購買管道。"
 category: travel
-tags: [insurance, travel, 不便險, 旅平險]
+tags: [travel-inconvenience-insurance, insurance, travel, travel-accident-insurance]
 lang: zh-TW
 description: "2026 年 4 月不便險新制上路，整理保障項目、各家比較、新制限制，以及怎麼找到單買管道。"
 draft: false

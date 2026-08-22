@@ -48,7 +48,7 @@ xAI 完成收購 Cursor 是今天最直接的賽道變化（詳見廠商動態�
 
 ## 工具與生態
 
-**DeepSeek Harness（dsh）**：8/13 發布一小時內破 2 萬星，打破 xAI Grok-1 的 1.2 天紀錄，社群兩天內湧入超過 2000 個外掛提案，核心理念是「一切皆插件」，由自研 Cordis 插件核心驅動。（[來源](https://github.com/deepseek-ai/deepseek-harness)）
+**DeepSeek Harness（dsh）**：8/13 發布一小時內破 2 萬星，打破 xAI Grok-1 的 1.2 天紀錄，社群兩天內湧入超過 2000 個外掛提案，核心理念是「一切皆外掛」，由自研 Cordis 外掛核心驅動。（[來源](https://github.com/deepseek-ai/deepseek-harness)）
 
 其他值得關注的 GitHub trending repo：**openfang**（RightNow-AI，全 Rust 打造的「Agent 作業系統」，137K 行、零 clippy 警告、單一 binary 部署）、**LobsterAI**（網易有道，建立在 OpenClaw 之上的桌面級 Agent，是中國主要科技公司中第一個開源的桌面 Agent）、**prime-agent**（PrimeIntellect，主打自我改進推理迴路的 RLM coding agent）。CrewAI 1.15.16 補強 execution context 追蹤與 flow 錯誤記錄，無 breaking changes。（[GitHub Digest 全文](/posts/daily/2026-08-19-ai-agent-github-digest)）
 
@@ -98,7 +98,7 @@ Mastra @mastra/core 1.60.0 讓已儲存的 Agent 可直接以 `durable: true` �
 
 ## 觀察與洞察
 
-我認為今天最重要的訊號，是從互補資產的角度看模型公司的競爭焦點正在轉移。DeepSeek Harness 一小時破兩萬星、xAI 直接買下 Cursor、Anthropic 一邊衝 IPO 一邊控訴中國業者蒸餾——三件事合起來說明：當底層模型的能力差距逐漸收斂，真正能鎖住開發者的互補資產不再是「模型好不好」，而是「誰的 harness／IDE 層被開發者每天打開」。DeepSeek 選擇自己開源一整套 Cordis 插件架構把 Claude Code、Codex 都能當子 agent 呼叫進來，xAI 則選擇直接買下入口本身——兩條路徑不同，但賭的是同一件事：模型可以被抄，但工作流的黏著度抄不走。
+我認為今天最重要的訊號，是從互補資產的角度看模型公司的競爭焦點正在轉移。DeepSeek Harness 一小時破兩萬星、xAI 直接買下 Cursor、Anthropic 一邊衝 IPO 一邊控訴中國業者蒸餾——三件事合起來說明：當底層模型的能力差距逐漸收斂，真正能鎖住開發者的互補資產不再是「模型好不好」，而是「誰的 harness／IDE 層被開發者每天打開」。DeepSeek 選擇自己開源一整套 Cordis 外掛架構把 Claude Code、Codex 都能當子 agent 呼叫進來，xAI 則選擇直接買下入口本身——兩條路徑不同，但賭的是同一件事：模型可以被抄，但工作流的黏著度抄不走。
 
 從五力分析的角度看，xAI 收購 Cursor 也是一次典型的向下游整合：把原本要跟其他模型供應商競爭「誰能被 Cursor 整合」的位置，變成「我自己就是 Cursor」，直接消除了買家（Cursor）議價力這個變數，也提高了其他模型公司要進入 coding agent 賽道的門檻。
 

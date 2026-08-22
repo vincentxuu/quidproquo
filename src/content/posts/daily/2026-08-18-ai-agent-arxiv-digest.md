@@ -8,7 +8,7 @@ description: "今天三篇論文合起來戳破「多一層防護就等於安全
 tldr: "ActBench 用執行軌跡紅隊測試協作 agent，固定 harness 下攻擊成功率仍達 73.7%–94.4%；Agent Behavioral Contracts II 證明同模型兩階段 pipeline 共同失敗率高達 90%，「條件獨立」假設不成立；Graph-Based RL Drift Diagnosis 用小模型外掛復原圖，在不重訓主力 agent 下偵測漂移並自動回滾"
 series:
   name: "AI Agent Arxiv Digest"
-  order: 3
+  order: 86
 ---
 
 ## 今日總覽
