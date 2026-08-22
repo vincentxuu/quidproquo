@@ -92,6 +92,30 @@ describe('Stanford course series registry', () => {
     expect(getSeriesHref(enName, 'en')).toBe(`/en/series/${slug}`);
   });
 
+  it('registers 品味修煉 with one stable cross-language slug', () => {
+    expect(getSeriesMeta('品味修煉').slug).toBe('taste-cultivation');
+    expect(getSeriesMeta('Cultivating Taste').slug).toBe('taste-cultivation');
+    expect(getSeriesMetaBySlug('taste-cultivation')?.names).toEqual({
+      'zh-TW': '品味修煉',
+      en: 'Cultivating Taste',
+    });
+    expect(getSeriesHref('品味修煉', 'zh-TW')).toBe('/series/taste-cultivation');
+    expect(getSeriesHref('Cultivating Taste', 'en')).toBe('/en/series/taste-cultivation');
+  });
+
+  it('keeps an unregistered Chinese fallback slug decoded for Astro', () => {
+    const name = '尚未登錄系列';
+    const summary = getSeriesSummaries([
+      post('learning/unregistered-series', 'zh-TW', { name, order: 1 }),
+    ], 'zh-TW', new Date('2026-08-22'))[0];
+
+    expect(getSeriesMeta(name).slug).toBe(name);
+    expect(summary.slug).toBe(name);
+    expect(getSeriesHref(name, 'zh-TW')).toBe(`/series/${name}`);
+    expect(encodeURI(getSeriesHref(name, 'zh-TW')))
+      .toBe(`/series/${encodeURIComponent(name)}`);
+  });
+
   it('keeps the umbrella series limited to representative memberships', () => {
     const guide = post(
       'learning/stanford-cs161-guide',
