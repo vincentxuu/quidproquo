@@ -323,6 +323,14 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'taste-cultivation',
+    names: { 'zh-TW': '品味修煉', en: 'Cultivating Taste' },
+    descriptions: {
+      'zh-TW': '把品味拆成可以觀察、辯護與反覆校準的判斷力，系統性記錄在 AI 放大執行力之後，如何訓練選擇什麼值得做、怎樣才算做好的能力。',
+      en: 'Treating taste as judgment that can be observed, defended, and recalibrated, with a systematic practice for deciding what is worth making and what good work looks like when AI amplifies execution.',
+    },
+  },
+  {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
@@ -479,7 +487,10 @@ function slugifySeriesName(name: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
-  return asciiSlug || encodeURIComponent(name).toLowerCase();
+  // Dynamic-route params must stay decoded. Astro serializes the segment when
+  // it builds the URL; pre-encoding here turns `%` into `%25` and produces a
+  // static path that cannot match the browser's decoded request path.
+  return asciiSlug || name.toLowerCase();
 }
 
 function seriesBasePath(lang: Lang): string {

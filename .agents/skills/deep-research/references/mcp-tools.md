@@ -1,6 +1,18 @@
 # Research 工具映射
 
-依當前 agent 可用工具選擇，不綁定單一平台。
+依當前 tool list 與執行環境選擇，不綁定單一平台。Groundlane 取代舊 `stealth_fetch` 與舊 `web-fetch/fetch_page`，但不取代 Tavily、Exa、Firecrawl、Jina、GitHub、來源專用 MCP 或 Web 平台必要的原生工具。
+
+## Groundlane
+
+連線成功時，Groundlane 提供固定的 remote MCP contract：
+
+| 用途 | 工具 |
+|---|---|
+| 廣域搜尋 | `web_search` |
+| 抓單一頁面 | `web_fetch` |
+| 固定欄位抽取 | `web_extract` |
+
+工具 namespace 與完整 schema 才是 runtime truth；名稱相似的平台原生工具不算 Groundlane。Web-hosted agent 沒有 Groundlane connector 時，使用平台實際提供的專用 MCP 或原生 Web 工具，不可嘗試連使用者 localhost。
 
 ## Codex
 
@@ -21,14 +33,15 @@ Claude 的規則（`CLAUDE.md`）：**不要用**內建 `WebFetch` / `Playwright
 
 | 用途 | 首選 | 備援 |
 |---|---|---|
-| 廣域搜尋（找候選來源） | `tavily_search`、`exa_web_search` | `linkup-search` |
+| 廣域搜尋（找候選來源） | Groundlane `web_search` | `tavily_search`、`exa_web_search`、`linkup-search` |
 | 學術 / GitHub / 程式碼導向 | `exa_web_search`、`exa_web_fetch` | `tavily_search` |
-| 抓單一頁面（轉 markdown） | `firecrawl_scrape`、`tavily_extract` | `get_url_markdown` |
+| 抓單一頁面（轉 Markdown） | Groundlane `web_fetch` | `firecrawl_scrape`、`tavily_extract`、平台原生 open/fetch |
+| 固定欄位抽取 | Groundlane `web_extract` | 來源本身的結構化 API／專用 MCP |
 | 整站爬（多頁文件） | `firecrawl_crawl`、`tavily_crawl` | — |
 | 站點地圖（找有哪些頁可讀） | `firecrawl_map`、`tavily_map` | — |
 | 互動取資料（需要 JS render） | `firecrawl_browser_*`、`firecrawl_interact` | — |
 | 整合式深研（黑箱多步） | `tavily_research` | — |
-| 反爬蟲被擋 | `stealth_fetch` | — |
+| 普通 HTTP 被擋 | Groundlane configured rendering 或其他現役 provider | 保留 status/warnings，不宣稱保證繞過 CAPTCHA |
 
 ## 抽取完整度（最容易踩的坑）
 
@@ -36,7 +49,7 @@ Claude 的規則（`CLAUDE.md`）：**不要用**內建 `WebFetch` / `Playwright
 
 | 情境 | 怎麼抓 |
 |---|---|
-| 結論會依賴的論文 / 官方頁 / 定價頁 | `tavily_extract`（**不帶 `query`**）或 `firecrawl_scrape` |
+| 結論會依賴的論文 / 官方頁 / 定價頁 | Groundlane `web_fetch`、`tavily_extract`（**不帶 `query`**）或 `firecrawl_scrape` |
 | 只用來交叉印證方向的次要來源 | 可以帶 `query` 省 context |
 | 回傳超過限制被存成檔案 | **正常**。用 `python3 -c 'print(open(f).read()[A:B])'` 或 `grep -o -E '.{200}關鍵字.{400}'` 讀完，不要改用會截斷的方式 |
 
@@ -72,7 +85,8 @@ Claude 的規則（`CLAUDE.md`）：**不要用**內建 `WebFetch` / `Playwright
 
 | 失敗 | 對應 |
 |---|---|
-| `firecrawl_scrape` 403 / Cloudflare | 改 `stealth_fetch` |
+| 普通 HTTP 或 Firecrawl 403 / challenge | 嘗試 Groundlane configured rendering 或另一個現役 provider；保留 status/warnings，不宣稱一定能繞過 CAPTCHA |
+| Groundlane 沒連線 | 使用實際可用的專用 MCP 或平台原生工具並記錄 fallback；不回退 legacy fetch tools |
 | 搜尋結果都是 SEO 農場 | 加 `site:` 限定官方域名，或改用 `exa_web_search`（語義搜尋更乾淨） |
 | 整站爬卡住 | 先用 `firecrawl_map` 拿站點地圖，挑頁面後逐個 `scrape` |
 | 需要 JS render 但 `firecrawl_browser_*` 太慢 | 確認真的需要 JS；很多 SPA 其實有 SSR fallback |
