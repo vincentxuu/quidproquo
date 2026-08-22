@@ -2,6 +2,13 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-22 歸檔
+
+- 2026-08-22: 完成 LLM Gateway 與追蹤工具專文盤點及補稿。LiteLLM、Portkey 原有中英文 deep-dive 已符合個別專文範圍；新增 Helicone、LangSmith 中英文稿，分別聚焦 proxy-first request observability 與 trace-to-evaluation workflow。四組文章通過台灣用語、references、語言對照、Astro 與完整 `pnpm verify`，待使用者 review。
+- 2026-08-22: 完成 Haystack、RAGFlow、Dify、R2R 與 Scrapy、Selenium、Bright Data、Zyte 共八組中英文工具專文草稿；均先確認無既有個別專文，依官方一手文件撰寫並通過內容品質閘門，待使用者 review。
+- 2026-08-22: 完成 Chroma、Milvus、LanceDB、pgvector 四組向量資料庫中英文 deep-dive 草稿；Weaviate 因已有法律 RAG 架構專文不重複。八檔均以官方一手文件查證，`check:tw`、references、lint、Astro 與完整 `pnpm verify` 通過，待使用者 review 後提交。
+- 2026-08-21: MIT 6.S191 2026 單課導讀中英文文章已完成並提交（`ed05184`）；官方課站、九講教材、三個 labs、校外執行限制與 2025 替代版均已核對，完整品質閘門通過。
+
 ## 2026-08-19 歸檔
 
 ### Recently completed（原 progress.txt 條目，2026-08-19 移入）

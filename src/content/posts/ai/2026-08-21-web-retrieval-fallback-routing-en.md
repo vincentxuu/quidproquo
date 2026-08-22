@@ -33,6 +33,24 @@ Search and Fetch are alternative entry points, not fixed consecutive steps. If t
 
 This is also why [SearXNG and Crawl4AI](/posts/ai/2026-08-21-searxng-crawl4ai-setup-en) do not replace each other. The former answers “where might the answer be?” while the latter answers “what readable material exists inside this known site?”
 
+## Place seven common tools in the right layer first
+
+The table assigns each tool its **primary identity** in the router; it is not an inventory of every feature the product offers. Decide whether the missing capability is candidate discovery, single-page reading, site traversal, or managed website automation before choosing a product. Do not arrange all seven names into one fixed fallback chain.
+
+| Tool | Primary layer | Input to give it | Handoff or exit condition |
+|---|---|---|---|
+| [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents-en) | Search API | A question, topic, or need for candidate sources | Hand URLs to a Reader or Crawler once enough candidates exist; stop if search results already satisfy the source contract |
+| [Tavily](/posts/ai/2026-08-21-tavily-search-api-guide-en) | Search API | A research question and search query | End discovery when candidate coverage passes; the presence of separate Extract and Crawl APIs does not remove the route boundaries |
+| [Linkup](/posts/ai/2026-08-21-linkup-search-api-guide-en) | Search API | A query or discovery task that requests structured output | Move on when URLs and sources are sufficient; if credible sources are missing, revise the query or provider before starting a site-wide crawl |
+| [Jina Reader](/posts/ai/2026-08-22-jina-reader-guide-en) | URL Reader | One known, publicly readable URL | Stop when the Markdown passes content acceptance; move to a Crawler or Browser for traversal, authentication, or cross-page work |
+| [Firecrawl](/posts/ai/2026-08-21-firecrawl-complete-guide-en) | Managed crawl and extraction API | A known URL, site seed, or multipage retrieval job | Stop when coverage and required fields pass; exit at an authorization boundary, challenge, or budget limit |
+| [Crawl4AI](/posts/ai/2026-08-21-crawl4ai-complete-guide-en) | Self-hosted Crawler | A known site, browser configuration, and extraction rules | Stop at `maxPages`, `maxDepth`, or the content threshold; evaluate a platform layer only when managed scheduling or site-specific workflows are required |
+| [Apify](/posts/ai/2026-08-21-apify-actor-platform-guide-en) | Managed automation platform | A repeatable website job, Actor or Task, and run configuration | Stop when the Actor output satisfies the schema; if no suitable compliant workflow exists, do not rotate Actors indefinitely just to force a result |
+
+Valid combinations usually cross layers. `Exa/Tavily/Linkup → Jina Reader` fits “discover sources, then read a small set of public pages.” A Search API followed by Firecrawl or Crawl4AI fits “the candidate sites are known, but the answer spans pages.” Apify belongs on the branch where the work has become site-specific, repeatable, and suited to managed execution.
+
+Every layer inherits this article's exit conditions: stop when content passes, when authorization or policy denies access, or when the remaining budget cannot finish the next stage.
+
 ## Classify the task before classifying the failure
 
 The router's first decision is the task shape, not the tool:
@@ -185,6 +203,10 @@ Every stage → Stop when content passes; also stop when budget is exhausted
 
 The goal is not to make an agent “get into every site.” The goal is to give every escalation an explainable failure signal, cost, and policy reason. The next article turns these contracts into a fixed corpus and regression gates: [How to Evaluate Agent Search Quality: Building a Web Retrieval Benchmark](/posts/ai/2026-08-21-web-retrieval-benchmark-en).
 
+## Update record
+
+- 2026-08-22: Added a cross-layer selection matrix, valid combinations, and exit conditions for Exa, Tavily, Linkup, Jina Reader, Firecrawl, Crawl4AI, and Apify.
+
 ## References
 
 - [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html)
@@ -193,4 +215,11 @@ The goal is not to make an agent “get into every site.” The goal is to give 
 - [RFC 9309: Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html)
 - [Playwright: Auto-waiting](https://playwright.dev/docs/actionability)
 - [W3C PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/)
+- [Exa Search API Guide](https://exa.ai/docs/reference/search-api-guide)
+- [Tavily Search API](https://docs.tavily.com/documentation/api-reference/endpoint/search)
+- [Linkup Search Overview](https://docs.linkup.so/pages/documentation/endpoints/search/overview)
+- [Jina AI Reader API](https://jina.ai/reader/)
+- [Firecrawl Advanced Scraping Guide](https://docs.firecrawl.dev/advanced-scraping-guide)
+- [Crawl4AI Quick Start](https://docs.crawl4ai.com/core/quickstart/)
+- [Apify Actors](https://docs.apify.com/actors)
 - [On this site: Building a Web Retrieval Benchmark](/posts/ai/2026-08-21-web-retrieval-benchmark-en)

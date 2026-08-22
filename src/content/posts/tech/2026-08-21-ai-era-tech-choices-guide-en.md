@@ -108,15 +108,15 @@ Having gone through the four hundred-plus posts already here, the gaps are clear
 | **RAG frameworks** | Haystack, RAGFlow, Dify, R2R | LlamaIndex now has a dedicated post and RAG techniques have thirty-plus; a cross-framework selection guide is still missing |
 | **Self-hosted inference** | SGLang, Triton, Ray | vLLM and Ollama both have posts |
 | **Cloud LLM APIs and routing** | OpenRouter, Bedrock, Vertex AI, Together, Fireworks, LiteLLM, Portkey | Posts on Groq Console, 9Router, and a 40-plus provider pricing roundup |
-| **Fetch and search APIs** | Tavily, Jina Reader, Serper, SerpAPI, Linkup, Brave Search API | Exa and Firecrawl have dedicated posts, plus one crawler landscape post |
-| **Self-hosted crawling and anti-bot** | Crawl4AI, Scrapy, Selenium, Bright Data, Zyte, Apify | One hands-on post about getting past Cloudflare's bot defences |
-| **Full-text and on-site search** | Pagefind, Meilisearch, Typesense, Algolia, Elasticsearch / OpenSearch | Entirely empty — and this site's own search runs on Pagefind |
-| **Vector databases** | Qdrant, Chroma, Weaviate, Milvus, LanceDB, pgvector | A selection comparison, no single deep dive |
+| **Fetch and search APIs** | — | Exa, Tavily, Linkup, Jina Reader, Firecrawl, Serper, SerpAPI, and Brave Search API all have dedicated posts, plus one crawler landscape post |
+| **Self-hosted crawling and anti-bot** | Scrapy, Selenium, Bright Data, Zyte | Crawl4AI and Apify have dedicated posts, plus one hands-on post about getting past Cloudflare's bot defences |
+| **Full-text and on-site search** | Typesense, Algolia, Elasticsearch / OpenSearch | Pagefind and Meilisearch have dedicated posts; this site uses Pagefind on its 404 page while the main search uses D1 and hybrid retrieval |
+| **Vector databases** | Chroma, Weaviate, Milvus, LanceDB, pgvector | A selection comparison and a dedicated Qdrant deep dive already exist |
 | **Agent memory services** | Mem0, Zep, Cognee, Letta / MemGPT | A concept post, no tool post |
 | **Agent protocols** | AP2 and UCP (agent payments and commerce) | The best-covered layer here: MCP, A2A, A2UI, AGENTS.md, and WebMCP all have posts |
 | **Tool-connection platforms for agents** | Arcade, Pipedream, Toolhouse, Zapier MCP | Composio now has a dedicated post |
 | **Agent hosting and SDKs** | OpenAI Agents SDK, Cloudflare Agents SDK | Posts on Vercel Open Agents, Claude Managed Agents, OpenAI Workspace Agents |
-| **Agent interface components** | CopilotKit, assistant-ui | AI Elements and A2UI have posts |
+| **Agent interface components** | — | CopilotKit, assistant-ui, AI Elements, and A2UI all have dedicated posts |
 | **LLM gateways and tracing** | LiteLLM, Portkey, Helicone, LangSmith | Langfuse and 9Router have posts |
 | **Low-code agent platforms** | Dify, n8n, Flowise | Entirely empty |
 
@@ -174,7 +174,9 @@ Two gaps are glaring enough that they have to be named.
 
 There is a third kind of gap, and it is the embarrassing one: **the tools this site uses every day and has never written about**.
 
-This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages. Exa now has a dedicated post, while Tavily and Jina still live only in workflows and comparison posts. The full-text search runs on Pagefind — still zero dedicated posts. Hugging Face appears throughout the site and likewise still has no tool post of its own.
+This repository's own guidelines say in plain text to reach for Exa, Tavily, and Jina when fetching pages, and all three now have dedicated posts. [Pagefind](/posts/tech/2026-08-22-pagefind-static-search-en) and [Hugging Face](/posts/ai/2026-08-22-hugging-face-hub-guide-en) are covered too: the former uses this site's real boundary between a build-time Pagefind index on the 404 page and D1 plus hybrid retrieval on the main search page; the latter separates Hub repositories from Datasets, Spaces, Inference Providers, and Endpoints. The [Jina Reader guide](/posts/ai/2026-08-22-jina-reader-guide-en) fills the step from a known URL to model-readable Markdown. [Serper](/posts/ai/2026-08-22-serper-search-api-guide-en), [SerpAPI](/posts/ai/2026-08-22-serpapi-search-api-guide-en), and [Brave Search API](/posts/ai/2026-08-22-brave-search-api-guide-en) then separate the Google SERP, multi-engine SERP, and independent-index paths.
+
+The agent-interface layer is now covered too. [CopilotKit](/posts/tech/2026-08-22-copilotkit-agent-ui-en) starts from application state, tools, and human approval. [assistant-ui](/posts/tech/2026-08-22-assistant-ui-runtime-en) starts from chat primitives, Runtime ownership, and backend adapters. Their organizing spines remain separate instead of turning overlap into one feature checklist.
 
 The clouds are a differently shaped hole. Five certification-prep posts for AWS and Microsoft AI exams sit here, and nothing at all on how to choose the platforms themselves. Modal now covers one corner of serverless GPU, but CoreWeave, Lambda Labs, RunPod, and Nebius still lack a horizontal comparison. There are posts here on vLLM and Ollama, which means **the inference engines are covered while the places you run them have only one shape represented**. A complete cost-and-latency map for the self-hosting decision is still missing.
 
@@ -214,6 +216,7 @@ These criteria exist to support a decision, not to replace one. A library can sc
 
 ## Update history
 
+- 2026-08-22: Re-audited the roadmap against the actual post inventory and marked Tavily, Linkup, Crawl4AI, Apify, Meilisearch, Qdrant, Pagefind, Jina Reader, Hugging Face, Serper, SerpAPI, Brave Search API, CopilotKit, and assistant-ui as covered by dedicated posts.
 - 2026-08-21: Updated the series through order 20, added the twelve later reading paths, and reconciled the roadmap's covered and uncovered items.
 
 ## References
