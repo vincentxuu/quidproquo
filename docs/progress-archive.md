@@ -4,6 +4,15 @@
 
 ## 2026-08-22 歸檔
 
+- 2026-08-20: **Stanford CS 課程導讀**（learning，中英各一篇）。原本寫成兩篇（公開教材版 + AI 先修版），
+  使用者要求合併，改以「官方先修關係」為單一主脊重寫：地基五門 → 三個入口 → 主幹 → 五條分支
+  （NLP/視覺/RL/圖學/系統）→ 研究級，自學四卡點與「先查有沒有開課」升格成獨立章節。逐門對過
+  ExploreCourses，抓到 CS324/CS329S/CS329D/CS329A 停開（2023/2022/2023/2025）與「CS329A 先修 CS229S
+  但 CS229S 已停開」的死結。串接站上既有的 CS146S / CS230 兩個系列。
+- 2026-08-20: **面試準備系列完工**：AI Engineer 面試準備 10 篇 + Product Builder 面試準備 10 篇（共 20 篇 zh-TW），
+  每日面試日練 routine 2 個（Routine N/O，台灣 2:39/2:43），`/interview` 頁面 + nav 連結 + daily channel filter。
+  日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
+
 - 2026-08-22: 完成 LLM Gateway 與追蹤工具專文盤點及補稿。LiteLLM、Portkey 原有中英文 deep-dive 已符合個別專文範圍；新增 Helicone、LangSmith 中英文稿，分別聚焦 proxy-first request observability 與 trace-to-evaluation workflow。四組文章通過台灣用語、references、語言對照、Astro 與完整 `pnpm verify`，待使用者 review。
 - 2026-08-22: 完成 Haystack、RAGFlow、Dify、R2R 與 Scrapy、Selenium、Bright Data、Zyte 共八組中英文工具專文草稿；均先確認無既有個別專文，依官方一手文件撰寫並通過內容品質閘門，待使用者 review。
 - 2026-08-22: 完成 Chroma、Milvus、LanceDB、pgvector 四組向量資料庫中英文 deep-dive 草稿；Weaviate 因已有法律 RAG 架構專文不重複。八檔均以官方一手文件查證，`check:tw`、references、lint、Astro 與完整 `pnpm verify` 通過，待使用者 review 後提交。
