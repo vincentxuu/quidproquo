@@ -929,3 +929,12 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   adaptive selector、agent search API 與自主 browser agent 的 canonical 定位。官方文件、費率與授權邊界
   已逐篇核對；整站 verify、Astro check、繁中語域及 78 個外部連結均通過。未呼叫需憑證 API，
   未執行受保護網站成功率或跨工具 benchmark。
+
+## 2026-08-22 Stanford CS103／CS107／CS109／CS111／CS221 逐講雙語導讀
+
+- 完成五門課的 canonical offering、manifest、content plan、逐講研究筆記與雙語導讀：CS103 28 講、
+  CS107 26 講、CS109 22 講、CS111 28 講、CS221 20 講，共 124 組／248 篇；CS109 Lecture 23–28
+  因 Summer 2026 官方材料尚未公開而維持阻塞，未以舊學期材料冒充。
+- 五門課均完成 clean-context 內容審查與查證；修正重複 PDF 分工、數式破損、模板殘留、雙語結構、
+  台灣用語、失效連結與量化主張原位來源。`pnpm verify` 與 `pnpm astro check` 通過；CS111、CS221
+  仍維持 `draft: true` 等使用者最終 review，未部署、未修改既有 slug/date 或治理腳本。

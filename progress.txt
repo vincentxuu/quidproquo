@@ -10,24 +10,24 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
 - 快速成長新創 27 組雙語個別專文已完成（沙箱、瀏覽器、網路、Eval、推論、語音、認證），
   共 54 檔通過逐篇檢查、`pnpm verify` 與 Astro check，待使用者 review。
 - Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成初稿與必要驗證，待使用者 review。
 - Agent 框架 5 組中英文個別介紹已完成（AG2、LangChain、Mastra、Pydantic AI、DSPy），待 review。
 - 雲端 LLM API 與路由 7 組中英文個別介紹已完成（OpenRouter、Bedrock、Vertex、Together、Fireworks、LiteLLM、Portkey），待 review。
 - Stanford CS229 已改為 2026 官方主講義逐章雙語導讀：依 278 頁 PDF 完成 21 章／42 檔（orders 2–22），逐章頁碼、來源、雙語互鏈與交叉審稿修正已完成，待使用者 review；原 Spring 2021 L1–L18 共 36 份未追蹤草稿可復原地封存於 `.research/archived-drafts/cs229-spring2021/`，不進站、不混用。
+- Stanford CS336 Spring 2026 的 17 講主課逐講雙語導讀已完成 34 個中英文草稿（orders 2–18）：官方 manifest、逐講 artifact、雙語互鏈與系列順序已核對，Daniel Selsam／Dan Fu guest sessions 未混入主系列；待最終全站閘門與使用者 review。
 - 「私有語料管線」4 篇中英文草稿已完成：邊界與架構、來源到索引、查詢權限／刪除／freshness，
   以及 Retrieval Eval 評估契約。前三篇可進 review；第 4 篇盤點出現有 20 題 golden dataset 缺
   document-level qrels、runner、raw ranked results、latency 與 corpus manifest，因此未捏造實測分數，
   要補齊這些 artifact 並實際跑 lexical／vector／hybrid 後才能把結果表改成正式實測。
-- CMU、MIT 與 Berkeley AI／ML 課程地圖中英文草稿已完成。CMU 篇拆開 07-280／380 新學位主幹與
-  今日可執行路線，並依匿名直連重判 07-280 S26、11-785 S26 為 A3、尚未首開的 07-380 為 A0；三篇待使用者審稿。
+- 非 Stanford 名校課程系列已完成雙語初稿與交叉查證：MIT 6.S191 13 篇／語言、Berkeley CS188 7 篇、
+  CS288 6 篇、CS285 6 篇、CMU 10-301/601 10 篇、11-785 29 篇，另有 CMU 核心改制與 Pacman 血統比較各 1 篇；
+  共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制，待使用者 review。
 - CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest，待使用者審稿；Harvard 地圖亦待審。
-- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles
-  Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals,
-  then verify the production Groq-to-Cloudflare fallback path.
-- Align actual implementation status with `docs/TODO.md`.
-- Finish low-risk P1 items: RSS author metadata and font preload.
+- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
+- Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
 - **「AI 時代的技術選擇」系列 order 0-20 已發佈**（zh/en 各 21 篇）。order 0 導讀含 41 層
   roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。**主判準經使用者更正**：語料存量是採用度
   的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選
@@ -45,11 +45,10 @@ In progress
   已於 c0459e2 更正。另有幾輪 cd 到錯目錄導致 grep 靜默回零，誤判「vLLM 無專文」（實際
   ai/2026-03-14-vllm-inference-engine.md 早就存在）。跑稽核前先確認路徑存在。
 Next steps
-1. Finish and verify the Qwen3 embedding rollout.
-2. Backfill missing post `type` and `tldr` fields.
-3. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
-4. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
-5. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
+1. Finish and verify the Qwen3 embedding rollout; backfill missing post `type` and `tldr` fields.
+2. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
+3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
+4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
 - 2026-08-22: 完成技術選擇缺口 105 組雙語專文：建置工具鏈 4 組、訊息佇列／事件串流 8 組、durable execution 3 組、backend contract 11 組、資料存取 1 組、認證授權 2 組、三大雲運算層 7 組、GPU／推論專用雲 6 組、二線雲與地端 9 組、託管 PaaS 8 組、自架 PaaS 5 組、BaaS 5 組、編排／IaC 4 組、後端框架 4 組、私有網路／遠端存取 5 組、即時傳輸／協作 8 組、供應鏈／程式碼資安 8 組、Agent 資安 3 組、通用資料庫 4 組；Hugging Face 已有專文不重複，文章檢查全綠。
 - 2026-08-22: 完成自架推論服務三篇雙語專文：SGLang、NVIDIA Triton Inference Server、Ray Serve；
@@ -81,8 +80,8 @@ Recently completed
   日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
 （已完成的條目移到 docs/progress-archive.md）
 Notes
-- Some TODO entries are stale: English home about, Pagefind integration, OG
-  image generation, and part of the redesign already exist in the repo.
+- Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.
+- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
 - agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/
   console/providers/os): code complete, pending production observation windows.
   Status snapshots in docs/progress-archive.md; pending decisions in
