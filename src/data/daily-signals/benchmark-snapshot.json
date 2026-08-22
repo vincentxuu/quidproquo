@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-22",
+  "date": "2026-08-23",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -13,15 +13,15 @@
     { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.57, "ci": "±1.70%" }
   ],
   "aa_agentic_index_top3": [
-    { "rank": 1, "model": "Claude Opus 5", "org": "Anthropic", "score": 59.2 },
-    { "rank": 2, "model": "GLM-5.3", "org": "Z.ai", "score": 59.1 },
-    { "rank": 3, "model": "Grok 4.6", "org": "xAI", "score": 58.7 }
+    { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59 },
+    { "rank": 1, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59 },
+    { "rank": 1, "model": "Grok 4.6 (high)", "org": "xAI", "score": 59 }
   ],
   "cursorbench_top3": [
-    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "BenchLM mirror；xAI 自報僅 69.9%（Grok 4.6 High）；Grok 4.6 Extra High 70.8% 為 Cursor 第一方 CursorBench 3.2 官方數字" },
+    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "BenchLM mirror；Cursor 第一方 CursorBench 3.2 官方數字" },
     { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5 },
     { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-22：curl（透過 proxy）直接抓 swebench.com 官方 raw JSON leaderboards.json，'Verified' 全 agent 榜前 5 名分數與名次（79.2/79.2/78.8/77.4/76.8）與 08-21 快照完全一致，無異動。lmarena.ai/leaderboard/agent（Exa fetch + Tavily extract 雙重確認，firecrawl 因 credits 用盡不可用）Agent Arena 榜前 3 名（12.47/12.00/11.57，Claude Opus 5 High → Max → Fable 5 High）與 08-21 快照完全一致。CursorBench（Exa 搜尋 cursor.com/cursorbench 官方頁 + BenchLM 鏡像雙重確認）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-21 快照一致，無異動。MorphLLM /leaderboard 仍被擋（Exa CRAWL_LIVECRAWL_TIMEOUT、Tavily fetch 失敗），連續多日無法存取。AA Agentic Index 唯一疑似變動：BenchLM 鏡像顯示第 3 名由 Qwen3.8 Max Preview（58.4%）換成 GLM-5.3（59.1%），官方 artificialanalysis.ai/models/capabilities/agentic FAQ 亦確認 GLM-5.3 現與 Claude Opus 5、Grok 4.6 並列『top-performing』（三者官方頁面四捨五入後皆顯示 59 分）。但判斷不觸發之理由：(1) 第 1 名仍為 Claude Opus 5（Anthropic），未易主；(2) Opus 5 59.2 / GLM-5.3 59.1 / Grok 4.6 58.7 三者差距均 <1pp，官方頁面本身四捨五入後三者並列 59，屬於接近雜訊等級的排序抖動而非實質反超；(3) GLM-5.3 本身（8/14 發佈）已於 08-18、08-20、08-21 三篇文章分別報導過其 DeepSWE、Terminal-Bench 3.0、CyberGym 資安等分數與『意外湧現』資安能力爭議，此處的 AA Agentic Index 排名只是同一模型已知能力的再一次展示，不構成新資訊。今日無 Benchmark 異動，未產出文章。仍出現不可信/疑似虛構型號（如聚合站的『Claude Mythos 5』宣稱 95%+、部分聚合站將受限存取型號當作可比較數字），一律未採信，僅以官方來源與 Artificial Analysis／SWE-bench 獨立評測為準。"
+  "notes": "2026-08-23：swebench.com 首頁本身仍走 SPA（leaderboards.json 404、直連被 proxy gateway 403），改抓其資料來源 repo github.com/SWE-bench/swe-bench.github.io（master 分支）raw data/leaderboards.json 成功，Verified 全 agent 榜前 5 名分數與名次（79.2/79.2/78.8/77.4/76.8，live-SWE-agent → Sonar Foundation Agent → TRAE → live-SWE-agent → Atlassian Rovo Dev）與 08-22 快照完全一致，無異動。lmarena.ai/leaderboard/agent（Exa fetch，2026-08-19 資料截止）Agent Arena 前 3 名（12.47/12.00/11.57，Claude Opus 5 High → Max → Fable 5 High）與 08-22 快照完全一致。CursorBench（Exa 搜尋 BenchLM 鏡像確認，08-22 更新版）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-22 快照一致，無異動。AA Agentic Index（Tavily extract artificialanalysis.ai 官方頁）FAQ 仍維持『top-performing models 目前為 Claude Opus 5 (Adaptive Reasoning, Max Effort)、GLM-5.3 (max)、Grok 4.6 (high)』三者官方頁面四捨五入後皆顯示 59 分，第 1 名仍為 Claude Opus 5，與 08-22 判斷一致（接近雜訊等級的並列，非實質排名異動）。MorphLLM /leaderboard 今日回傳 Vercel Security Checkpoint（bot 驗證頁面），與過去多日一樣無法直接存取；改以 morphllm.com 自家部落格文章（best-ai-coding-agents-2026、ai-coding-agent、swe-bench-pro）交叉確認 Terminal-Bench 2.1／SWE-bench Pro 數字，內容與 08-21 前次確認的排序（GPT-5.6 Sol 89.5% > Claude Opus 5 89.1% > Grok 4.6 88.4% on TB2.1；Fable 5 80.0-80.3% 仍居 SWE-bench Pro 冠軍）一致，非新變動。今日無 Benchmark 異動，未產出文章。多個第三方聚合站（anotherwrapper、ctrlaltdebrief、benchlm）彼此數字互相矛盾（同一 SWE-bench Verified 榜單分別給出 96.4%／81%／96% 等不同數字），且持續出現不可信/疑似虛構型號（如『Claude Mythos 5』宣稱 95%+，Anthropic 官方或 swebench.com 官方榜單均無此型號的可驗證公開分數），一律未採信，僅以官方來源（swebench.com/github repo、lmarena.ai、artificialanalysis.ai、cursor 官方 CursorBench）為準。"
 }
