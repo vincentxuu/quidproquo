@@ -236,6 +236,42 @@ If you're choosing an agent client, this standard means plugin ecosystems are no
 
 If you're watching industry dynamics, this may be one of 2026's most significant standardization events. Not because the technology is innovative — a directory structure plus two JSON schemas, that's it. But because of **who sat at the table.** OpenAI and Google agreeing on a shared plugin format while competing on models was unimaginable a year ago. It signals that competition in the agent ecosystem is shifting from "who has better tool capabilities" to "who uses tools more intelligently." The tools themselves are becoming shared infrastructure; how agents use them is the new differentiator.
 
+## Current Ecosystem
+
+Two weeks after the spec launched, the ecosystem grew faster than expected. [agentpluginsdirectory.com](https://agentpluginsdirectory.com/) fetched 2,002 manifests from 613 GitHub repos, schema-validated and deduplicated them, and currently lists 999 verified plugins.
+
+### Notable Plugins
+
+**AWS Agent Toolkit** ([awslabs/agent-plugins](https://github.com/awslabs/agent-plugins), 867 stars) is the largest official plugin collection, containing 9 plugins: deploy-on-aws, aws-serverless, aws-amplify, databases-on-aws, amazon-location-service, migration-to-aws, sagemaker-ai, aws-transform, and codebase-documentor-for-aws. Supported by Claude Code, Codex, and Cursor.
+
+**OpenAI** migrated ChatGPT's former App Directory into a Plugin Directory (July 9, 2026), now listing 12 official plugins (GitHub, Gmail, Drive, Slack, etc.) plus role-specific Business plugins (sales, data analytics, investment banking, etc.), with 90+ total integrations in the marketplace.
+
+On the community side, several curated lists are worth watching: [awesome-codex-plugins](https://github.com/hashgraph-online/awesome-codex-plugins) lists 12 official + ~20 community plugins, [awesome-codex-cli](https://github.com/RoggeOhta/awesome-codex-cli) covers 150+ ecosystem tools (including skill packs and MCP servers), and [awesome-ai-plugins](https://github.com/hashgraph-online/awesome-ai-plugins) aggregates across clients.
+
+### Installation Is Still Fragmented
+
+The spec doesn't cover installation — and in practice, this is the most visible fragmentation:
+
+| Client | Installation |
+|---|---|
+| ChatGPT | Sidebar > Plugins → browse Plugin Directory → one-click install (Plus/Pro/Team) |
+| Codex | `/plugins` opens marketplace browser, or `/plugin install <name>@<marketplace>` |
+| Cursor | Customize page or built-in Marketplace sidebar |
+| Copilot | `copilot plugin install <name>@<marketplace>` CLI, or VS Code sidebar Agent Plugins view |
+| Kiro | `/plugin install <name>@<marketplace>`, native support via Kiro Powers |
+
+The plugin format is unified, but the experience of "how to find and install a plugin" is completely different across clients. This is by design — v1 deliberately left installation and discovery as competitive differentiators for each client.
+
+### Enterprise Governance
+
+Copilot Business/Enterprise can manage plugins via `managed-settings.json`:
+
+- `enabledPlugins`: auto-install specified plugins for all org members
+- `strictKnownMarketplaces`: restrict installation to approved marketplaces only, blocking untrusted sources
+- `extraKnownMarketplaces`: add additional approved sources
+
+Covers VS Code, Copilot CLI, JetBrains (as of 2026-08-18), and the Copilot cloud agent (as of 2026-07-27). Enterprise management for other clients is still early, but the direction is consistent: IT admins don't want to ban plugins — they want to control where plugins come from.
+
 ## What to Watch
 
 1. **Whether Anthropic formally joins the TSC.** Claude Code's plugin structure is already compatible, but "structurally compatible" and "formally participating in governance" are different things.
@@ -253,3 +289,5 @@ If you're watching industry dynamics, this may be one of 2026's most significant
 | Google joining | [developers.googleblog.com](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/) | 2026-08-06 |
 | GitHub spec repo | [github.com/agentplugins/agent-plugins-spec](https://github.com/agentplugins/agent-plugins-spec) | As of 2026-08-21, 1.1k stars |
 | Compatible clients list | [agent-plugins.org](https://agent-plugins.org/) compatible clients page | Checked 2026-08-21 |
+| Plugin directory (999 verified) | [agentpluginsdirectory.com](https://agentpluginsdirectory.com/) | Updated 2026-08-18 |
+| AWS Agent Toolkit | [awslabs/agent-plugins](https://github.com/awslabs/agent-plugins) | As of 2026-08-21, 867 stars |

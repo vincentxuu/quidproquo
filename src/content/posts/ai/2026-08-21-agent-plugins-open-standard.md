@@ -236,6 +236,42 @@ my-plugin/
 
 如果你是在觀察產業動態，這可能是 2026 年最重要的標準化事件之一。不是因為技術上多創新——一個目錄結構加兩個 JSON schema，就這樣。而是因為**誰坐在桌上**。OpenAI 和 Google 在模型競爭的同時同意共用 plugin 格式，這在一年前是不可想像的。它暗示了一件事：agent 生態系的競爭重心正在從「誰的工具能力更強」移向「誰的 agent 用工具用得更聰明」。工具本身變成公共建設，怎麼用工具才是差異化的戰場。
 
+## 現有生態系
+
+規格發佈兩週，生態系長得比預期快。[agentpluginsdirectory.com](https://agentpluginsdirectory.com/) 從 613 個 GitHub repo 中抓到 2,002 個 manifest，schema 驗證後去重，目前列出 999 個 verified plugin。
+
+### 代表性 plugin
+
+**AWS Agent Toolkit**（[awslabs/agent-plugins](https://github.com/awslabs/agent-plugins)，867 stars）是目前最大的官方 plugin 集合，包含 9 個 plugin：deploy-on-aws、aws-serverless、aws-amplify、databases-on-aws、amazon-location-service、migration-to-aws、sagemaker-ai、aws-transform、codebase-documentor-for-aws。Claude Code、Codex、Cursor 都支援。
+
+**OpenAI** 把 ChatGPT 原本的 App Directory 轉型成 Plugin Directory（2026 年 7 月 9 日），目前有 12 個官方 plugin（GitHub、Gmail、Drive、Slack 等）加上按角色分的 Business plugin（銷售、數據分析、投資銀行等），marketplace 總計 90+ 個整合。
+
+社群面有幾個聚合清單值得關注：[awesome-codex-plugins](https://github.com/hashgraph-online/awesome-codex-plugins) 列了 12 個官方 + 約 20 個社群 plugin，[awesome-codex-cli](https://github.com/RoggeOhta/awesome-codex-cli) 收錄了 150+ 個生態系工具（含 skill pack 和 MCP server），[awesome-ai-plugins](https://github.com/hashgraph-online/awesome-ai-plugins) 則跨 client 整理。
+
+### 安裝方式仍然各做各的
+
+規格不管安裝——這在實作中變成最明顯的碎片化：
+
+| Client | 安裝方式 |
+|---|---|
+| ChatGPT | 側邊欄 Plugins → 瀏覽 Plugin Directory → 一鍵安裝（Plus/Pro/Team） |
+| Codex | `/plugins` 開 marketplace 瀏覽，或 `/plugin install <name>@<marketplace>` |
+| Cursor | Customize 頁面 或 內建 Marketplace 側邊欄 |
+| Copilot | `copilot plugin install <name>@<marketplace>` CLI，或 VS Code 側邊欄的 Agent Plugins 檢視 |
+| Kiro | `/plugin install <name>@<marketplace>`，透過 Kiro Powers 原生支援 |
+
+Plugin 的格式統一了，但使用者「怎麼找到 plugin、怎麼裝 plugin」的體驗完全不同。這正是 v1 留白的設計——讓安裝和發現機制成為各 client 的差異化競爭點。
+
+### 企業治理
+
+Copilot Business/Enterprise 已經可以用 `managed-settings.json` 管理 plugin：
+
+- `enabledPlugins`：替全組織自動安裝指定 plugin
+- `strictKnownMarketplaces`：限制只能從核准的 marketplace 安裝，阻擋未知來源
+- `extraKnownMarketplaces`：加入額外的核准來源
+
+覆蓋 VS Code、Copilot CLI、JetBrains（2026-08-18 起）和 Copilot 雲端 agent（2026-07-27 起）。其他 client 的企業管理功能還在早期，但方向一致：IT 管理員需要的不是禁止 plugin，而是控制 plugin 從哪裡來。
+
 ## 值得追蹤的事
 
 1. **Anthropic 會不會正式加入 TSC。** Claude Code 的 plugin 結構已經相容，但「結構相容」和「正式加入治理」是兩回事。
@@ -253,3 +289,5 @@ my-plugin/
 | Google 加入 | [developers.googleblog.com](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/) | 2026-08-06 |
 | GitHub 規格庫 | [github.com/agentplugins/agent-plugins-spec](https://github.com/agentplugins/agent-plugins-spec) | 截至 2026-08-21，1.1k stars |
 | Compatible clients 清單 | [agent-plugins.org](https://agent-plugins.org/) compatible clients 頁面 | 2026-08-21 查 |
+| Plugin 目錄（999 verified） | [agentpluginsdirectory.com](https://agentpluginsdirectory.com/) | 2026-08-18 更新 |
+| AWS Agent Toolkit | [awslabs/agent-plugins](https://github.com/awslabs/agent-plugins) | 截至 2026-08-21，867 stars |
