@@ -9,7 +9,7 @@ tldr: "Agent Plugins 1.0 是一個封裝格式標準，把 Agent Skills（Markdo
 description: "Agent Plugins 1.0 的技術規格、plugin.json 與 mcp.json 結構、與 MCP 的分層關係、六家 launch client 的支援範圍，以及這個標準真正解決與沒有解決的問題。"
 series:
   name: "AI 時代的技術選擇"
-  order: 21
+  order: 126
 draft: false
 ---
 

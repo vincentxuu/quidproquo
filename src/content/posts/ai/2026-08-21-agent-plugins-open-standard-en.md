@@ -9,7 +9,7 @@ tldr: "Agent Plugins 1.0 is a packaging format that bundles Agent Skills (markdo
 description: "The Agent Plugins 1.0 technical spec, plugin.json and mcp.json structure, how it layers on top of MCP, which clients support it at launch, and what this standard actually solves versus what it doesn't."
 series:
   name: "Technology Choices in the AI Era"
-  order: 21
+  order: 126
 draft: false
 ---
 
