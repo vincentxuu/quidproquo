@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 
-First, correct the assumption hidden inside the phrase “Berkeley AI curriculum”: **Berkeley does not offer a standalone undergraduate AI degree.** Its relevant undergraduate degrees are the BA in Computer Science and the BS in Electrical Engineering and Computer Sciences. Students build an AI/ML path from upper-division courses on top of a shared programming, theory, and mathematics foundation.
+First, correct the assumption hidden inside the phrase “Berkeley AI curriculum”: according to [Berkeley EECS's undergraduate-program comparison](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/), **Berkeley does not offer a standalone undergraduate AI degree.** Its relevant undergraduate degrees are the BA in Computer Science and the BS in Electrical Engineering and Computer Sciences. Students build an AI/ML path from upper-division courses on top of a shared programming, theory, and mathematics foundation.
 
 That differs sharply from MIT's Course 6-4. MIT defines a formal degree in Artificial Intelligence and Decision Making. Berkeley offers something closer to a network that students assemble: enter through CS188 for search, reasoning, and planning, or through CS189 for mathematically intensive machine learning, then branch into deep learning, natural language processing, computer vision, or reinforcement learning.
 
@@ -130,11 +130,11 @@ CS189 is the spine of this route. For current NLP, Spring 2026 CS288 publishes t
 
 ```text
 CS189
-  ├─ CS180/280A Fall 2025 → CS C280 Spring 2026
+  ├─ CS C182 + CS180/280A Fall 2025 → CS C280 Spring 2026
   └─ CS185/285 Spring 2026
 ```
 
-CS180/280A is a strong project-first introduction to vision; its five projects are more valuable than a passive recording archive would be. Continue to CS C280 only when you want advanced vision. For control, robotics, or embodied AI, the five CS185/285 homeworks and public starter code form another A3 route.
+CS180/280A is a strong project-first introduction to vision; its five projects are more valuable than a passive recording archive would be. The [official CS C280 site](https://cs280-berkeley.github.io/) expects command of CS189, CS C182, and CS180/280A material. That is recommended background, not a claim that registration enforces three formal prerequisites. For control, robotics, or embodied AI, the five CS185/285 homeworks and public starter code form another A3 route.
 
 Enrolled CS185/285 students receive course-provided compute support; outside learners do not. That is a real cost, not a footnote. Read the compute requirements for each homework before starting and decide whether to scale down the experiments, rent a GPU, or complete only the lighter components.
 
@@ -162,6 +162,10 @@ Do not bookmark eleven courses. Spend ninety minutes identifying your entrance:
 Berkeley's reusable lesson is not an official AI checklist. It is a structure with two entrances and several advanced branches. Decide whether you first need to learn how intelligent systems reason or how models learn from data, then select a version by public completeness. That is more useful than sorting course numbers from smallest to largest.
 
 For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-ml-course-map-en) starts from a different structure: a formal AI degree defines capability centers, and the outside learner then searches for public editions. Reading the two together makes the difference between a degree curriculum and an executable public route much clearer.
+
+## Changelog
+
+- 2026-08-22: Restored CS C182 to the advanced-vision route based on CS C280's official expected background.
 
 ## References
 

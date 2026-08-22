@@ -17,7 +17,7 @@ additionalSeries:
   - name: "Global AI and CS Course Maps"
     order: 1
 type: guide
-tldr: "Stanford CS runs three hundred-plus courses a year, but the skeleton is five: CS103, CS107, CS109, CS111, CS161 — and CS221's prerequisite field names four of them outright. This guide orders the whole ladder by official prerequisites, from intro programming to research-level seminars, across five branches, and handles two things course maps usually skip: the four places self-study actually breaks down (gated starter code, undistributable video, GPU bills, nobody grading you), and which widely cited advanced courses haven't been offered in years."
+tldr: "Stanford CS rests on CS103, CS107, CS109, CS111, and CS161; CS221 names three of those plus CS106B as preparation. This guide combines official prerequisites with an explicitly editorial reading order and marks public-material and offering risks."
 description: "A prerequisite-ordered ladder through Stanford CS from CS106A to CS336 and CS329A, built on the department's official core requirements and ExploreCourses entries, covering NLP/LLM, vision, reinforcement learning, graphs, and systems, with public-material status, self-study limits, and recent offering records."
 draft: false
 ---
@@ -28,11 +28,11 @@ Stanford's computer science department runs more than three hundred courses a ye
 
 This is that map. It's ordered by **official prerequisites**, from the first programming class to an LLM course you have to apply to take, and each rung marks what the course teaches and what its public materials actually contain. The second half handles two things course maps usually skip: where someone not enrolled for credit hits a wall, and the fact that **several widely cited advanced courses haven't run in years.**
 
-Scope first: **this only covers courses whose materials are public enough to learn from**. Stanford CS also runs many seminar-style, lab-style, and cross-listed courses — HCI, graphics, biocomputation, computational law each have a whole row — that publish a syllabus and keep everything else behind Canvas, so they're not on the list. This site also has two series that walk single courses week by week — [CS146S](/posts/ai/2026-08-16-cs146s-course-map-en) and [CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en) — and this piece sits one layer above them.
+Scope first: **this only covers courses whose materials are public enough to learn from**. On the [global map's scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), A0 is a catalog entry, A1 adds a syllabus, A2 exposes substantive partial material, and A3 supports a continuous self-study course. Versions on the main route meet the A3 threshold; catalog-only, Canvas-only, dormant, and placeholder subjects are excluded or called out separately. This measures access, not teaching quality or difficulty.
 
 ## First, kill one assumption: the number is not the difficulty
 
-Plenty of people read CS106B as easier than CS103, or CS336 as harder than CS229, because of the digits. That inference doesn't hold at Stanford, and it's the university that says so. The academic advising handbook's page on the course catalog puts it flatly:
+Plenty of people read CS106B as easier than CS103, or CS336 as harder than CS229, because of the digits. That inference doesn't hold at Stanford, and it's the university that says so. The [academic advising handbook's page on the course catalog](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) puts it flatly:
 
 > Stanford does not have a standardized course numbering system. This means that each department is free to number its courses in its own way.
 
@@ -54,9 +54,9 @@ Wedged between them is **CS106L: Standard C++ Programming** — one unit, seven 
 
 ## Rung two: the degree's skeleton is these five
 
-This is the most important section here. Stanford CS's official core requirements page pins the undergraduate skeleton to five courses, with one hard rule: **CS103, CS107, CS109, CS111, and CS161 must be taken for five units**. Not recommended — the reduced-unit version isn't accepted.
+This is the most important section here. Stanford's [BS degree requirements](https://www.cs.stanford.edu/bs-degree-requirements) pin the undergraduate skeleton to five courses, with one hard rule: **CS103, CS107, CS109, CS111, and CS161 must be taken for five units**. Not recommended — the reduced-unit version isn't accepted.
 
-What makes their status clearer is something else: **CS221's prerequisite field names four of them outright** — CS103, CS106B, CS109, CS161 — adding that the staff highly recommend comfort with these concepts first. People heading for AI often want to skip this rung, but the AI entry course disagrees.
+What makes their status clearer is something else: [CS221's prerequisite field](https://bulletin.stanford.edu/courses/1057301) names three of the five — CS103, CS109, and CS161 — plus CS106B, adding that the staff highly recommend comfort with these concepts first. People heading for AI often want to skip this rung, but the AI entry course disagrees.
 
 | Number | Title | The intuition it replaces |
 |---|---|---|
@@ -239,7 +239,7 @@ Swap `academicYear` and pull each year in turn, then look for a `<term>` element
 
 **If you're going for general AI research**: the five base courses → CS221 → CS229 → CS230 → CS228 → one branch → CS312 or CS221M. The closest thing to full foundations before going research-directed.
 
-**If the goal is LLMs and agents**: the five base courses → CS124 → CS221 → CS229 → CS224N → CS224U or CS224V → CS329X → CS329Z → CS336. Every step is backed by an official prerequisite relationship — the most complete dependency chain of the five routes. You can skip courses in the middle, but be honest about CS336's prerequisites: what it asks isn't a list of completed courses, it's whether you can write a large amount of PyTorch with no scaffolding. If you're unsure, finish the CS231N assignments first — their scaffolding density is precisely the opposite of CS336's.
+**If the goal is LLMs and agents**: the five base courses → CS124/CS221/CS229 → CS224N → CS224U or CS224V → CS329X/CS329Z → CS336. This is an **editorial self-study order based on capability gaps**, not a claim that every arrow is an official prerequisite. CS224N to CS224U is explicit; CS336 accepts several forms of ML preparation and does not require CS329Z. Courses in the middle can be skipped when your background covers them, but CS336's Python, PyTorch, systems, mathematics, and probability expectations remain real.
 
 **If you're going for vision or robotics**: vision is the five base courses → CS229 → CS230 → CS231A → CS231N; robotics is the five base courses → CS221 → CS238 → CS234 → CS223A → CS333.
 
@@ -256,20 +256,22 @@ Course information comes from official course sites and Stanford ExploreCourses 
 - **Paying for credit**: in Stanford Online's remote-credit versions, CS107 is $8,110 and CS161 and CS336 are $7,875 each, all five units. Free materials, expensive credit — that gap is the premise of this map.
 - **CS231N grade breakdown**: assignments 45%, midterm 20%, final project 35%.
 - **CS336 lecture repo**: roughly 3.6k stars and 757 forks on GitHub (read 2026-08-20).
-- **Advanced courses offered in 2026-27**: CS221M (spring), CS224N (winter), CS224U (spring), CS224V (autumn), CS224W (autumn), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required). **CS228 was originally listed here and has been removed**: it does have a 2026-2027 winter entry, but with no meeting time and no instructor, and the 2024-2025 tab shows "Last offered: Winter 2024" — the placeholder pattern described in the section above.
+- **Advanced courses with concrete 2026-27 offering details**: CS221M (spring), CS224N (winter), CS224V (autumn), CS224W (autumn), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required). **CS224U and CS228 are excluded** because their entries lack complete time or instructor details. The latest complete public CS224U edition is Spring 2023; an older-year view says CS228 was last offered in Winter 2024.
 - **Numbering convention**: 1–99 introductory for all students, 100–199 primarily for majors, 200–299 for advanced undergraduates and beginning graduate students, 300 and above for graduate students. The university states explicitly that this is a common guideline, not a standard.
-- **CS231A's old number**: CS223B. **CS111's former name**: CS110.
+- **CS231A's old number**: CS223B. **CS111 and CS110**: the current description says CS111 substitutes for CS110; it is not a rename or former-name relationship.
 
 Three items could not be fully confirmed, and none for lack of searching. Stanford's course archive has no public index page, so there's no way to say how many courses keep past editions online. CS312's title did not render as a heading in ExploreCourses search results, though searching the exact phrase "Deep Learning Alchemy" returns that entry. CS238's own entry likewise failed to render; its existence and the AA228 cross-listing are inferred from CS239's prerequisite field, "AA 228/CS 238 or CS 221." The latter two don't affect the ordering conclusions.
 
 ## Changelog
 
-- 2026-08-21: After expanding the main-line courses into individual deep dives, six corrections came back to this post. **(1)** The five-unit rule cited `www-cs.stanford.edu/bs-core-requirements`, which is now offline (301, then 404); it now cites the live BS Degree Requirements page, with a Wayback snapshot for the retired one. **(2)** The CS106B archive was labelled Fall 2025 but is Spring 2025; the term-code rule is now spelled out. **(3)** CS161's "two official names" contradiction no longer holds — the page carrying the old name vanished with the retirement above. **(4)** The dormant-courses table gained CS228 (Winter 2024), CS124 (Winter 2026), and CS224U (Spring 2023). **(5)** CS228 was removed from the "offered in 2026-27" list; its winter entry has neither a time slot nor an instructor. **(6)** The check taught in "Check whether it runs before you check prerequisites" missed placeholder entries, so it now covers the instructor/time fields, the earlier academic year tabs, and the ExploreCourses XML interface. **(7)** The post said "CS111 is the old CS110" and that CS110 self-study resources still apply; the live official description says "substitute for CS110" rather than a rename, and the two differ substantially in assignments and lectures (CS110 had a shell, an HTTP proxy, MapReduce, and three networking lectures; CS111 has none of these), so that passage was rewritten.
+- 2026-08-22: Standardized the A0–A3 access language and corrected the CS221 core-course count, the editorial LLM/agent route, the CS224U placeholder, and the CS111/CS110 relationship.
+
+- 2026-08-21: After expanding the main-line courses into individual deep dives, seven corrections came back to this post. **(1)** The five-unit rule cited `www-cs.stanford.edu/bs-core-requirements`, which is now offline (301, then 404); it now cites the live BS Degree Requirements page, with a Wayback snapshot for the retired one. **(2)** The CS106B archive was labelled Fall 2025 but is Spring 2025; the term-code rule is now spelled out. **(3)** CS161's "two official names" contradiction no longer holds — the page carrying the old name vanished with the retirement above. **(4)** The dormant-courses table gained CS228 (Winter 2024), CS124 (Winter 2026), and CS224U (Spring 2023). **(5)** CS228 was removed from the "offered in 2026-27" list; its winter entry has neither a time slot nor an instructor. **(6)** The check taught in "Check whether it runs before you check prerequisites" missed placeholder entries, so it now covers the instructor/time fields, the earlier academic year tabs, and the ExploreCourses XML interface. **(7)** The post said "CS111 is the old CS110" and that CS110 self-study resources still apply; the live official description says "substitute for CS110" rather than a rename, and the two differ substantially in assignments and lectures (CS110 had a shell, an HTTP proxy, MapReduce, and three networking lectures; CS111 has none of these), so that passage was rewritten.
 
 ## References
 
 - [Stanford CS BS Degree Requirements](https://www.cs.stanford.edu/bs-degree-requirements) — the live source for the five-unit rule ("all undergraduate students (regardless of major) enrolling in CS 103, 107, 109, 111 or 161 must take it for 5 units")
-- [Former CS BS Core Requirements (Wayback snapshot, 2026-05-10)](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — the retired page, and the only remaining source for "CS111 was formerly CS110" and CS161's old name "Data Structures and Algorithms"
+- [Former CS BS Core Requirements (Wayback snapshot, 2026-05-10)](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — preserves the retired "formerly known as CS110" wording and CS161's old title; this post does not treat the former as a current rename claim
 - [Understanding the Course Catalog | Stanford Academic Advising](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) — the numbering convention and the "no standardized numbering system" statement
 - [Stanford Explore Courses](https://explorecourses.stanford.edu/) — source for every prerequisite, unit count, and offering record here
 - [Stanford Explore Courses: Course Catalog Numbering](https://explorecourses.stanford.edu/about) — a second official source on the numbering ranges

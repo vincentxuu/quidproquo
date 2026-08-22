@@ -46,12 +46,12 @@ CS50／CS32 → CS51／CS61
 | **CS50 AI OCW，rolling edition** | **A3** | 七週影片、audio、slides、transcript、notes、project specs、distribution、部分 `check50`／提交路線 | 影片與作業跨年份；不是 Harvard College 當期修課 |
 | **CSCI S-80, Summer 2026** | **A3*** | 正式七週節奏、2020 錄影、2020 project distribution、公開規格 | `*` 教材可自學，但 Gradescope、section、quiz、office hours 與正式回饋需修課身分 |
 | **CS1810, Spring 2026** | **A3** | 當期 syllabus、七份 homework tree、course notes、section materials | 官方明寫 all learning in-person；無當期完整公開錄影，Gradescope／Ed 受限 |
-| **CS1820, Fall 2026** | **A1** | catalog、主題範圍、教師與課程預覽站 | 9 月 2 日才開課，尚不能判斷完整影片或作業鏈 |
+| **CS1820, Fall 2026** | **A0** | catalog、主題範圍、教師與課程預覽站 | 9 月 2 日才開課，尚無 syllabus 或實際教材 |
 | **CS182, Fall 2022 archive** | **A2** | 多份 lecture／section notes、exam 等歷史材料 | 非現行版本，沒有完整公開影音與一致的 starter／grader 鏈 |
-| **CS1840 RL, Fall 2026** | **A1** | catalog 與完整主題描述 | 當期課尚未完成，不能預先判 A3 |
-| **CS2831 Advanced Computer Vision, Fall 2026** | **A1** | catalog、教師與主題描述 | 當期教材尚未形成可稽核的完整公開課 |
+| **CS1840 RL, Fall 2026** | **A0** | catalog 與主題描述 | 當期課尚未完成，不能預先判 A3 |
+| **CS2831 Advanced Computer Vision, Fall 2026** | **A0** | catalog、教師與主題描述 | 當期教材尚未形成可稽核的公開課 |
 
-A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的編輯分級：A0 只有 catalog，A1 有 syllabus 或完整課程規格，A2 有部分實質教材，A3 才表示材料足以排成連貫自學路線。這不是 Harvard 的教學評等，也不代表有學分、教師回饋或免費算力。
+A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的編輯分級：A0 是 catalog、開課資訊或主題描述，A1 要有可取得的 syllabus，A2 有部分實質教材，A3 才表示材料足以排成連貫自學路線。這不是 Harvard 的教學評等，也不代表有學分、教師回饋或免費算力。
 
 ## CS50 AI：能完整自學，但不能說是「2026 全新版本」
 
@@ -91,9 +91,13 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 ### 3. 最後補廣義 AI 或專題分支
 
-想補 planning／games／multiagent systems，先用 CS182 Fall 2022 archive，等 Fall 2026 完課再換料。想往 sequential decision making 走，追蹤 CS1840；想往視覺走，追蹤 CS2831。兩門 Fall 2026 課目前都只能算已公告，不要預約它們尚未公開的完整教材。
+想補 planning／games／multiagent systems，現在就從 CS182 Fall 2022 archive 的第一組 problem-solving notes 開始，等 Fall 2026 完課再換料。CS1840 與 CS2831 目前只是未來追蹤項，不是現行自學路線；在 syllabus 與作業公開前，不要預約它們尚不存在的完整教材。
 
 Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮，仍要查看底層資產年份**。CS50 AI 告訴你影片和作業可能跨版；CS1810 告訴你沒有影片仍可形成 A3；CS1820 則提醒最新課表不等於已存在的公開課。把這三種狀態分開，才有一條今天能走、未來也容易更新的路線。
+
+## 更新紀錄
+
+- 2026-08-22：統一 A0／A1 邊界，將只有 catalog 的 Fall 2026 課程重評為 A0，並把未來追蹤與現行自學路線分開。
 
 ## 參考資料
 

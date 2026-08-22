@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en)
 
-CMU 的情況和前幾站都不一樣：它不只有正式的人工智慧學士（BSAI），還正在改寫這個學位的基礎課。Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Learning I**；Fall 2026 才會首次開出下集 **07-380**。舊的 15-281 Artificial Intelligence 與 10-315 Introduction to Machine Learning for SCS，則逐步退出常規路徑。
+CMU 的情況和前幾站都不一樣：它不只有[正式的人工智慧學士（BSAI）](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)，還正在改寫這個學位的基礎課。Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Learning I**；Fall 2026 才會首次開出下集 **07-380**。舊的 15-281 Artificial Intelligence 與 10-315 Introduction to Machine Learning for SCS，則逐步退出常規路徑。
 
 這會產生一個看似矛盾、其實很重要的答案：**想知道 CMU 現在認為 AI 學生該學什麼，要看 07-280／380；想在校外今天就完成一條公開課，要用已完成的 07-280 Spring 2026 殘留教材或持續開課的 10-301/601，不能直接照著尚未開學的 Fall 2026 頁面走。**
 
@@ -82,7 +82,7 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 | **10-414/714, current site** | **A3*** | 26 講 slides／notebooks、2022 官方影片與 implementation notebooks | `*` 是跨版組合；2025 HW0–3 repo 現為 404，`mugrade` 只供校內學生 |
 | **10-708, Spring 2026** | **A2** | 約 25 組 slides 與 readings | 錄影限修課者；四份 HW 只在 Piazza |
 
-07-280 必須拆成兩個版本看。網站首頁現在已切到 Fall 2026，當期課程要四天後才開始，lecture material 欄與多數作業尚未上線，所以只能算 A2 預覽；不過 Spring 2026 已完成班次的 lecture PDFs、notes、recitation worksheets／solutions、書面 HW，以及 AlexNet、GPT-2、AlphaZero 等部分 notebooks 仍能從 CMU 官方網址直接匿名取得，足以判 A3。問題是官方沒有保留穩定的 Spring 2026 學期首頁，這些直連未來可能失效。
+07-280 必須拆成兩個版本看。網站首頁現在已切到 Fall 2026，當期課程要四天後才開始，lecture material 欄與多數作業尚未上線，所以只能算 A2 預覽；不過 Spring 2026 的[第一講](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[第一份 recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)與[第一份作業](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf)等官方直連仍可匿名取得，後續講義、解答與部分 notebooks 足以排成 A3 路線。問題是官方沒有保留穩定的 Spring 2026 學期首頁，這些直連未來可能失效。
 
 07-380 更明確：目前有一份很有價值的課綱，能看到 ML theory、game theory、probabilistic graphical models、planning、distributed deep learning、generative AI、RLHF、vision transformers、diffusion 與 VAE 等範圍；但第一堂課都還沒發生，不能因為主題表很完整就判 A3。
 
@@ -141,6 +141,10 @@ CSDIY 目前有 CMU **10-414/714、11-785、10-708** 的獨立頁面；沒有獨
 CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制暴露出的兩層：**學位用新課定義未來，自學用已公開的材料完成今天。**把兩層分開，你就能追最新，也不必等最新課程全部釋出才開始。
 
 延伸閱讀：[MIT AI／ML 課程導讀](/posts/learning/2026-08-21-mit-ai-ml-course-map)有一條較穩定的正式學位主幹；[Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)則是沒有獨立 AI 學士、由平行入口自行組路。三校放在一起看，會更清楚「學位結構」和「公開課可用性」是兩套不同問題。
+
+## 更新紀錄
+
+- 2026-08-22：補上 07-280 Spring 2026 官方教材直連，讓 A3 判定可由匿名讀者重現。
 
 ## 參考資料
 
