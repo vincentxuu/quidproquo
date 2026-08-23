@@ -8,6 +8,9 @@ lang: en
 tldr: "There's no official certificate for being an 'AI top conference.' It's a community consensus built from four independent signals — CCF-A, CORE-A*, a high Google Scholar h5-index, and a low acceptance rate — and those four signals frequently disagree. ICLR being completely absent from CCF's list is a live example."
 description: "Breaking down how 'AI top conference' status actually gets decided: the methodological differences and contradictions between CCF, CORE, and Google Scholar Metrics h5-index; five-year submission and acceptance trends across nine major conferences; the submission-to-decision review pipeline; what it means for academic tenure and industry hiring; and the latest controversy over reviewer-pool strain and AI-generated reviews."
 draft: false
+series:
+  name: "AI 頂會導讀"
+  order: 1
 glossary:
   - term: "h5-index"
     definition: "Google Scholar Metrics' citation measure: a venue's h5-index is h if h of its papers published in the last 5 complete years have each been cited at least h times. It measures citation velocity only, ignoring acceptance rate or review rigor."

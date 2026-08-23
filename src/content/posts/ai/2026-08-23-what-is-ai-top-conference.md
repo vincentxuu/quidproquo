@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "「AI 頂會」不是任何機構的官方認證，而是 CCF-A、CORE-A*、Google Scholar 高 h5-index、低接受率四套獨立訊號的社群共識交集——而這四套訊號經常互相矛盾，ICLR 完全不在 CCF 名單裡就是活生生的例子。"
 description: "拆解「AI 頂會」怎麼被認定：CCF、CORE、Google Scholar Metrics h5-index 三套排名系統的方法論差異與矛盾實例，九大會議近五年投稿與接受率趨勢，投稿到見刊的審稿機制，對學術升等與業界招募的實際意義，以及審稿規模壓力與 AI 生成審稿意見的最新爭議。"
 draft: false
+series:
+  name: "AI 頂會導讀"
+  order: 1
 glossary:
   - term: "h5-index"
     definition: "Google Scholar Metrics 用的引用指標：過去 5 年發表的論文裡，至少被引用 h 次的論文有 h 篇。純看引用速度，不考慮接受率或審稿嚴謹度。"

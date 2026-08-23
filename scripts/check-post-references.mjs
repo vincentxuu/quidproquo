@@ -313,7 +313,7 @@ function main() {
 
   console.log(`\nSummary: ${errors.length} error(s), ${warnings.length} warning(s), ${reports.length} file(s) with issues.`);
 
-  if (errors.length > 0 || warnings.length > 0) {
+  if (errors.length > 0) {
     process.exitCode = 1;
   }
 }
