@@ -40,7 +40,9 @@ series:
 
 **Cohere Labs**：研究指出後訓練資料混合正在稀釋模型的文化多樣性。（[來源](https://cohere.com/research)）
 
-**IBM**：發表低溫系統模組化新架構。（[來源](https://research.ibm.com)）　**Microsoft Research**：更新數學推理模型 Skala 至 1.1 版。（[來源](https://www.microsoft.com/research)）
+**IBM**：發表低溫系統模組化新架構。（[來源](https://research.ibm.com)）
+
+**Microsoft Research**：更新數學推理模型 Skala 至 1.1 版。（[來源](https://www.microsoft.com/research)）
 
 ### Coding Agent 賽道
 
@@ -48,7 +50,9 @@ series:
 
 **Sourcegraph**：指出 Claude Code 的 @ 檔案選取器以路徑字元比對而非符號索引，導致找不到函式實際所在檔案，提出依符號排序的修正方案。（[來源](https://sourcegraph.com/blog)）
 
-**Replit**：與 OpenAI 合作推出 Free Mode。（[來源](https://replit.com/blog)）　**Vercel**：Agent 進駐 Slack，可直接診斷事故與審查 PR；同時為 Sandbox 推出百萬美元駭客挑戰。（[來源](https://vercel.com/blog)）
+**Replit**：與 OpenAI 合作推出 Free Mode。（[來源](https://replit.com/blog)）
+
+**Vercel**：Agent 進駐 Slack，可直接診斷事故與審查 PR；同時為 Sandbox 推出百萬美元駭客挑戰。（[來源](https://vercel.com/blog)）
 
 今天的 [AI Agent GitHub Digest](/posts/daily/2026-08-23-ai-agent-github-digest) 補充了這條線的另一半：opencode 星數反超 Claude Code、Bruno 社群版 MCP server 早官方兩個月上線，細節見該篇。
 
