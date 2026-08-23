@@ -21,7 +21,7 @@ glossary:
 
 > **台股研究 Agent 實戰系列（篇 9 / 9）**：[上一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
-前八篇拆的都是「agent 內部怎麼跑」——graph 拓樸、LLM 分層、回測問責、citation 護欄、copilot loop、執行合約。這篇回答最後一個問題：**這些東西怎麼讓別人用？** 從本機 `uv run` 到 Docker 到 Cloudflare Containers 的公開 API，三層部署各解決什麼問題、secret 住在哪裡、為什麼公開服務刻意關掉 LLM、以及一個 side project 怎麼做到「沒人用時不花錢」。
+前八篇拆的都是「agent 內部怎麼跑」——graph 拓樸、LLM 分層、回測查核、citation 護欄、copilot loop、執行合約。這篇回答最後一個問題：**這些東西怎麼讓別人用？** 從本機 `uv run` 到 Docker 到 Cloudflare Containers 的公開 API，三層部署各解決什麼問題、secret 住在哪裡、為什麼公開服務刻意關掉 LLM、以及一個 side project 怎麼做到「沒人用時不花錢」。
 
 ## 三層部署，同一份程式碼
 
@@ -287,7 +287,7 @@ Worker 本身也開了 Cloudflare 原生的 observability：logs 100% 取樣（�
 
 ## 九篇下來的一句話
 
-這個系列從「為什麼做」講到「怎麼讓別人用」。九篇加起來，核心命題只有一個：**LLM 應該解釋已存在的證據，而不是產生證據**。graph 拓樸是為了讓回測排在 synthesis 前面（篇 2）、LLM 分層是為了只在必要時才叫（篇 3）、回測問責是為了讓歷史說話（篇 4）、walk-forward 是為了讓參數誠實（篇 5）、citation 護欄是為了讓數字可信（篇 6）、copilot loop 是為了讓人類留在迴圈裡（篇 7）、執行合約是為了讓 agent 永遠摸不到真錢（篇 8），而部署邊界是為了讓這些保證在公開 API 上也成立（本篇）。
+這個系列從「為什麼做」講到「怎麼讓別人用」。九篇加起來，核心命題只有一個：**LLM 應該解釋已存在的證據，而不是產生證據**。graph 拓樸是為了讓回測排在 synthesis 前面（篇 2）、LLM 分層是為了只在必要時才叫（篇 3）、回測查核是為了讓歷史說話（篇 4）、walk-forward 是為了讓參數誠實（篇 5）、citation 護欄是為了讓數字可信（篇 6）、copilot loop 是為了讓人類留在迴圈裡（篇 7）、執行合約是為了讓 agent 永遠摸不到真錢（篇 8），而部署邊界是為了讓這些保證在公開 API 上也成立（本篇）。
 
 專案還在演進中。golden eval 的 50% baseline 很難看，公開 API 還沒開 LLM，QuantConnect 的 paper 流程還在手動 walkthrough 階段。但這些都是可以量化、可以追蹤、可以改善的已知問題——不是藏在漂亮數字後面的未知風險。我寧可公開承認 5/10，也不想靠 cherry-picking 假裝 9/10。
 

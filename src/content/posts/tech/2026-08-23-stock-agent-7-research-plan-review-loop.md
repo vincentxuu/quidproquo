@@ -19,7 +19,7 @@ glossary:
 
 > **台股研究 Agent 實戰系列（篇 7 / 9）**：[上一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [下一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
-篇 1 到篇 6 講的是「一次研究怎麼不被幻覺污染」。篇 7 開始講另一個維度：這個系統不是給你一個問題就悶著頭跑到底的黑盒子，而是一個 **Copilot loop**——研究請求 → 計畫批准 → 可驗證來源 → 回測問責 → 人類審查回饋。M5 的核心是：花錢之前要先批准、證據進報告之前要先驗證、人的評語進系統之前要先消毒。
+篇 1 到篇 6 講的是「一次研究怎麼不被幻覺污染」。篇 7 開始講另一個維度：這個系統不是給你一個問題就悶著頭跑到底的黑盒子，而是一個 **Copilot loop**——研究請求 → 計畫批准 → 可驗證來源 → 回測查核 → 人類審查回饋。M5 的核心是：花錢之前要先批准、證據進報告之前要先驗證、人的評語進系統之前要先消毒。
 
 ## 計畫合約：未核准的計畫一毛錢都不花
 
@@ -69,7 +69,7 @@ uv run stock-agent reviews <run_id>
 
 光有人審還不夠，agent 本身要有自己的考試。Golden cases 從單純的「方向有沒有猜對」擴充成五類：tool routing、citation validity、number groundedness、failure recovery、usefulness。
 
-規矩很硬：**citation、權限、負期望值這三條不變式必須 100% 通過。** 不是「average 過了就好」——這三類有一條 regress 就是 regress，不能靠其他維度的高分把它平均掉。這跟篇 4 的回測問責、篇 6 的引用護欄是同一路哲學：有些錯誤是資格問題，資格問題沒有「瑕不掩瑜」。
+規矩很硬：**citation、權限、負期望值這三條不變式必須 100% 通過。** 不是「average 過了就好」——這三類有一條 regress 就是 regress，不能靠其他維度的高分把它平均掉。這跟篇 4 的回測查核、篇 6 的引用護欄是同一路哲學：有些錯誤是資格問題，資格問題沒有「瑕不掩瑜」。
 
 ## 整體來說
 

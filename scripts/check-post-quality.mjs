@@ -128,6 +128,10 @@ function getFrontmatterFindings(file, data) {
     findings.push({ severity: 'error', message: 'frontmatter `lang` 必須是 `zh-TW` 或 `en`' });
   }
 
+  if ('glossary' in data && !Array.isArray(data.glossary)) {
+    findings.push({ severity: 'error', message: 'frontmatter `glossary` 必須是陣列（`- term: ...`），不是物件' });
+  }
+
   const basename = path.basename(file);
   // slug 允許小數點：daily-digest 會把版本號寫進 slug（framework-ag2-1.0.2）
   if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9.-]+\.md$/.test(basename)) {

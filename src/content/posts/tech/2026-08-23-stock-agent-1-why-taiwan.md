@@ -6,12 +6,12 @@ type: deep-dive
 tags: [stock-research-agent, langgraph, ai-agent, taiwan-stock, backtest, llm]
 lang: zh-TW
 tldr: "美股 LLM agent 已經捲到近十萬星，台股在 GitHub 上卻連一個破 10 星的都沒有；我把三個 side project 收斂成一個「每個結論都要先過回測」的台股研究 agent，這篇講為什麼。"
-description: "為什麼我要做一個台股專用的 LLM 研究 agent：從 TradingAgents 的缺口、三個 side project 的匯流，到「回測問責」這個核心命題。"
+description: "為什麼我要做一個台股專用的 LLM 研究 agent：從 TradingAgents 的缺口、三個 side project 的匯流，到「回測查核」這個核心命題。"
 draft: false
 glossary:
   - term: "point-in-time"
     definition: "只用訊號當下拿得到的資料做決策與驗證，禁用未來資料（PIT）。"
-  - term: "回測問責"
+  - term: "回測查核"
     definition: "LLM 的每個結論必須先通過同一組訊號的歷史回測，期望值為負時禁止給出樂觀結論。"
   - term: "golden eval"
     definition: "用固定歷史切點標注正確答案、用來衡量 agent 輸出品質的基準測試集。"
@@ -75,7 +75,7 @@ pool / Signal Lottery（自寫回測引擎）──▶ tools/backtest.py
 1. **本篇**：[為什麼台股需要自己的研究 Agent](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 2. [LangGraph 並行架構：五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture)
 3. [LLM 分層與降級鏈：API、本地 CLI、詞典三層 fallback](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback)
-4. [回測問責：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability)
+4. [回測查核：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability)
 5. [評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval)
 6. [讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations)
 7. [Copilot loop：計畫合約、可驗證來源與人類審查](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop)

@@ -21,7 +21,7 @@ glossary:
     definition: "以 SHA-256 對當次輸入資料表計算的指紋，只能辨識同一份資料，不能重建第三方資料源已變動的歷史版本。"
 ---
 
-> **台股研究 Agent 實戰系列（篇 5 / 9）**：[上一篇：回測問責：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability) ｜ [下一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
+> **台股研究 Agent 實戰系列（篇 5 / 9）**：[上一篇：回測查核：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability) ｜ [下一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 這篇講這個專案怎麼「量測自己」：walk-forward 驗證、run card 紀錄、golden eval baseline，以及舊決策的實現報酬反思。讀完你會知道為什麼我把 5/10 = 50% 這種難看的數字寫在 README 第一頁，以及為什麼那是我覺得整個專案最贵的部分。
 

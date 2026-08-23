@@ -1,12 +1,12 @@
 ---
-title: "台股研究 Agent 實戰系列（篇 4）：回測問責——為什麼回測會說謊"
+title: "台股研究 Agent 實戰系列（篇 4）：回測查核——為什麼回測會說謊"
 date: 2026-08-23
 category: tech
 type: deep-dive
 tags: [stock-research-agent, langgraph, ai-agent, backtest, point-in-time, quant]
 lang: zh-TW
 tldr: "這個專案的核心規矩：任何 LLM 結論必須先通過同一組訊號的歷史回測，期望值為負時 synthesis 禁止樂觀；四個讓回測說謊的坑各有程式化對策。"
-description: "為什麼回測看起來很美、上線卻賠錢？這個台股研究 Agent 用 causal 因子、次日開盤進場、台灣成本模型、不重疊持倉與小樣本警告四道防線，把回測問責做成結構而不是口號。"
+description: "為什麼回測看起來很美、上線卻賠錢？這個台股研究 Agent 用 causal 因子、次日開盤進場、台灣成本模型、不重疊持倉與小樣本警告四道防線，把回測查核做成結構而不是口號。"
 draft: false
 glossary:
   - term: "point-in-time"
@@ -51,7 +51,7 @@ glossary:
 
 統計上 10 筆以下的結果幾乎沒有顯著性，但報告上寫個百分比看起來就很像一回事。專案的處理：回測**少於 10 筆交易就產生明確警告，並且壓低 decision 的 confidence 上限**。這不是寫在文件裡的良心建議，是 deterministic 的 `build_decision` 規則——樣本不夠，信心就是會被 cap，不管你訊號多漂亮。
 
-## 問責的整合點：期望值是負的，LLM 就不能說好話
+## 查核的整合點：期望值是負的，LLM 就不能說好話
 
 四道防線攔的是回測引擎本身；下一層是「回測結果怎麼約束 LLM 的嘴」。這是整個專案我最得意的一刀：
 
