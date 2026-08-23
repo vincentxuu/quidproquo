@@ -9,10 +9,14 @@ tldr: "LLM 寫報告時最容易幻覺的不是觀點而是數字，所以我把
 description: "stock-research-agent 如何用工程式 evidence snapshot + citation guard，讓研究報告裡的每個數字都能回溯到來源欄位，違規零容忍。"
 draft: false
 glossary:
-  content-addressing: "用內容的 SHA-256 雜湊當作識別碼，內容一改 ID 就變，可用來驗證資料沒被偷換。"
-  sha-256: "一種密碼學雜湊函數，可把任意資料壓成固定長度指紋，常用來驗證完整性。"
-  opencc: "開放中文轉換工具，這裡用 s2twp 設定把簡體字與用詞轉成台灣正體。"
-  fail-closed: "驗證不通過時預設拒絕，而不是預設放行。"
+  - term: "content-addressing"
+    definition: "用內容的 SHA-256 雜湊當作識別碼，內容一改 ID 就變，可用來驗證資料沒被偷換。"
+  - term: "sha-256"
+    definition: "一種密碼學雜湊函數，可把任意資料壓成固定長度指紋，常用來驗證完整性。"
+  - term: "opencc"
+    definition: "開放中文轉換工具，這裡用 s2twp 設定把簡體字與用詞轉成台灣正體。"
+  - term: "fail-closed"
+    definition: "驗證不通過時預設拒絕，而不是預設放行。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 6 / 9）**：[上一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [下一篇：Copilot loop：計畫合約、可驗證來源與人類審查](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

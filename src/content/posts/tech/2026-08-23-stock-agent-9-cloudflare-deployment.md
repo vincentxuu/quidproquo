@@ -9,10 +9,14 @@ tldr: "一個 Python agent 從本機 uv run 到 Docker 到 Cloudflare Containers
 description: "stock-research-agent 的部署架構：Dockerfile 怎麼切、Worker 為什麼是認證邊界而不是容器、secret 管理的三層分離、Cloudflare Containers 的 sleep-after 與 scale-to-zero，以及為什麼公開服務刻意關掉 LLM。"
 draft: false
 glossary:
-  timing-safe comparison: "比對兩個字串時無論在哪個位元不同都花一樣的時間，防止攻擊者透過回應時間猜出正確 token 的長度或內容。"
-  scale-to-zero: "沒有請求時自動關閉運算資源、不產生費用，有請求進來再冷啟動的部署模式。"
-  healthcheck: "定期對服務發送探測請求，確認它還活著；不通過就重啟或標記不健康。"
-  binding: "Cloudflare Workers 裡把服務（KV、D1、Durable Objects、Containers）掛載到 Worker 執行環境的機制，不經網路、零延遲。"
+  - term: "timing-safe comparison"
+    definition: "比對兩個字串時無論在哪個位元不同都花一樣的時間，防止攻擊者透過回應時間猜出正確 token 的長度或內容。"
+  - term: "scale-to-zero"
+    definition: "沒有請求時自動關閉運算資源、不產生費用，有請求進來再冷啟動的部署模式。"
+  - term: "healthcheck"
+    definition: "定期對服務發送探測請求，確認它還活著；不通過就重啟或標記不健康。"
+  - term: "binding"
+    definition: "Cloudflare Workers 裡把服務（KV、D1、Durable Objects、Containers）掛載到 Worker 執行環境的機制，不經網路、零延遲。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 9 / 9）**：[上一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

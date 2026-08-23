@@ -9,9 +9,12 @@ tldr: "只有兩個 role 會叫 LLM，其餘分析師全程程式化；每個 ca
 description: "台股研究 agent 的 LLM 分層設計：為什麼五個分析師裡只有一個會叫 LLM、三層 provider fallback 怎麼排、成本怎麼記才不會自己騙自己。"
 draft: false
 glossary:
-  role: "LLM 呼叫的邏輯角色（analyst / synthesis），各自綁定預設模型與用途"
-  provider chain: "同一個邏輯呼叫依序嘗試多個 LLM 提供者，失敗就往下一層降級"
-  sanitized trace: "寫入本地 artifact 的呼叫紀錄，只保留 role、model、latency、token 與成本，不含 prompt、error message 或 credential"
+  - term: "role"
+    definition: "LLM 呼叫的邏輯角色（analyst / synthesis），各自綁定預設模型與用途"
+  - term: "provider chain"
+    definition: "同一個邏輯呼叫依序嘗試多個 LLM 提供者，失敗就往下一層降級"
+  - term: "sanitized trace"
+    definition: "寫入本地 artifact 的呼叫紀錄，只保留 role、model、latency、token 與成本，不含 prompt、error message 或 credential"
 ---
 
 > **台股研究 Agent 實戰系列（篇 3 / 9）**：[上一篇：LangGraph 並行架構——五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture) ｜ [下一篇：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

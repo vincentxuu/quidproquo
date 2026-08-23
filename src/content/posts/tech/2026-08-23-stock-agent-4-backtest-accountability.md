@@ -9,10 +9,14 @@ tldr: "這個專案的核心規矩：任何 LLM 結論必須先通過同一組�
 description: "為什麼回測看起來很美、上線卻賠錢？這個台股研究 Agent 用 causal 因子、次日開盤進場、台灣成本模型、不重疊持倉與小樣本警告四道防線，把回測問責做成結構而不是口號。"
 draft: false
 glossary:
-  point-in-time: "評估歷史時只使用當時已知的資料，不用到未來資訊的紀律"
-  look-ahead bias: "回測用了訊號發生時還不可能知道的資料，導致績效被灌水的偏差"
-  期望值 (expectancy): "平均每筆交易扣除成本後的淨報酬，是策略能不能活的核心指標"
-  ATR: "Average True Range，衡量近期波動幅度的技術指標，用來定義停損距離"
+  - term: "point-in-time"
+    definition: "評估歷史時只使用當時已知的資料，不用到未來資訊的紀律"
+  - term: "look-ahead bias"
+    definition: "回測用了訊號發生時還不可能知道的資料，導致績效被灌水的偏差"
+  - term: "期望值 (expectancy)"
+    definition: "平均每筆交易扣除成本後的淨報酬，是策略能不能活的核心指標"
+  - term: "ATR"
+    definition: "Average True Range，衡量近期波動幅度的技術指標，用來定義停損距離"
 ---
 
 > **台股研究 Agent 實戰系列（篇 4 / 9）**：[上一篇：LLM 分層與降級鏈](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback) ｜ [下一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

@@ -9,9 +9,12 @@ tldr: "美股 LLM agent 已經捲到近十萬星，台股在 GitHub 上卻連一
 description: "為什麼我要做一個台股專用的 LLM 研究 agent：從 TradingAgents 的缺口、三個 side project 的匯流，到「回測問責」這個核心命題。"
 draft: false
 glossary:
-  point-in-time: "只用訊號當下拿得到的資料做決策與驗證，禁用未來資料（PIT）。"
-  回測問責: "LLM 的每個結論必須先通過同一組訊號的歷史回測，期望值為負時禁止給出樂觀結論。"
-  golden eval: "用固定歷史切點標注正確答案、用來衡量 agent 輸出品質的基準測試集。"
+  - term: "point-in-time"
+    definition: "只用訊號當下拿得到的資料做決策與驗證，禁用未來資料（PIT）。"
+  - term: "回測問責"
+    definition: "LLM 的每個結論必須先通過同一組訊號的歷史回測，期望值為負時禁止給出樂觀結論。"
+  - term: "golden eval"
+    definition: "用固定歷史切點標注正確答案、用來衡量 agent 輸出品質的基準測試集。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 1 / 9）**：本篇為系列開端 ｜ [下一篇：LangGraph 並行架構——五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture) ｜ 完整目錄就在本篇下方

@@ -9,11 +9,16 @@ tldr: "用三個 frozen Pydantic 合約把「研究成果」和「下單權限�
 description: "stock-research-agent 的 M7 執行邊界設計：content-addressed StrategyArtifact、八道 hard gate 的 fail-closed 評估、結構性禁止 live 的 ApprovalDecision，以及憑證永不進 agent context 的 capability matrix。"
 draft: false
 glossary:
-  content-addressing: "用內容的雜湊值（SHA-256）當作物件 ID，內容一改 ID 就變，天然防竄改。"
-  fail-closed: "出錯或證據不足時預設拒絕，而不是放行。"
-  frozen: "Pydantic 模型的不可變設定，實例建立後欄位不能再改。"
-  hard gate: "不通過就直接擋下的強制檢查，沒有人工覆核可以繞過。"
-  capability: "權限能力清單，角色能進行哪些操作明確定義。"
+  - term: "content-addressing"
+    definition: "用內容的雜湊值（SHA-256）當作物件 ID，內容一改 ID 就變，天然防竄改。"
+  - term: "fail-closed"
+    definition: "出錯或證據不足時預設拒絕，而不是放行。"
+  - term: "frozen"
+    definition: "Pydantic 模型的不可變設定，實例建立後欄位不能再改。"
+  - term: "hard gate"
+    definition: "不通過就直接擋下的強制檢查，沒有人工覆核可以繞過。"
+  - term: "capability"
+    definition: "權限能力清單，角色能進行哪些操作明確定義。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 8 / 9）**：[上一篇：Copilot loop：計畫合約、可驗證來源與人類審查](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [下一篇：部署邊界：Docker 到 Cloudflare Containers 的公開 API](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment) ｜ [完整目錄在篇 1](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

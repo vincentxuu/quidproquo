@@ -9,9 +9,12 @@ tldr: "研究請求先變成一份要人批准的 ResearchPlan，外部文件必
 description: "拆 stock-research-agent 的 M5 Copilot loop：為什麼計畫要先批准才准花錢、文件來源怎麼做到可驗證、審查迴圈為什麼是 append-only 且只用 sanitized aggregate。"
 draft: false
 glossary:
-  fail-closed: "出錯或證據不足時預設拒絕而不是放行的設計原則。"
-  content-addressed: "用內容的 SHA-256 雜湊當識別碼，內容一改 ID 就變，可防止偷換。"
-  prompt injection: "把惡意指令藏在被餵給 LLM 的文字裡、讓模型聽它的而不是聽你的攻擊手法。"
+  - term: "fail-closed"
+    definition: "出錯或證據不足時預設拒絕而不是放行的設計原則。"
+  - term: "content-addressed"
+    definition: "用內容的 SHA-256 雜湊當識別碼，內容一改 ID 就變，可防止偷換。"
+  - term: "prompt injection"
+    definition: "把惡意指令藏在被餵給 LLM 的文字裡、讓模型聽它的而不是聽你的攻擊手法。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 7 / 9）**：[上一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [下一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

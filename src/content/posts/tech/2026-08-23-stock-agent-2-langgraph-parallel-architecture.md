@@ -9,10 +9,14 @@ tldr: "五個 analyst 在同一個 superstep 並行 fan-out，延遲是 max 不�
 description: "拆解 stock-research-agent 的 LangGraph graph 拓樸：並行 fan-out、fan-in barrier、typed state reducer，以及為什麼回測必須排在 synthesis 之前。"
 draft: false
 glossary:
-  superstep: "LangGraph 的一次執行步驟；同一步驟內的節點並行執行，下一步驟等全部完成才開始。"
-  fan-in: "等待多個並行分支全部完成後才往下執行的匯合點（barrier）。"
-  reducer: "決定並行節點寫回同一個 state 欄位時如何合併（例如 append）的函式。"
-  point-in-time: "只看到歷史當下能看到的資料，不用事後資訊回答歷史問題。"
+  - term: "superstep"
+    definition: "LangGraph 的一次執行步驟；同一步驟內的節點並行執行，下一步驟等全部完成才開始。"
+  - term: "fan-in"
+    definition: "等待多個並行分支全部完成後才往下執行的匯合點（barrier）。"
+  - term: "reducer"
+    definition: "決定並行節點寫回同一個 state 欄位時如何合併（例如 append）的函式。"
+  - term: "point-in-time"
+    definition: "只看到歷史當下能看到的資料，不用事後資訊回答歷史問題。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 2 / 9）**：[上一篇：為什麼台股需要自己的研究 Agent](/posts/tech/2026-08-23-stock-agent-1-why-taiwan) ｜ [下一篇：LLM 分層與降級鏈](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)

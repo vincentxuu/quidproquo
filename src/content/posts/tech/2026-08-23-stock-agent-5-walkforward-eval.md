@@ -9,11 +9,16 @@ tldr: "我不量測『感覺很準』，我用 walk-forward 凍結參數跑 OOS�
 description: "介紹 stock-research-agent 的評估三支柱：rolling walk-forward 驗證、附 SHA-256 的 run card、10 case 只對 5 個的 golden eval baseline，以及實現報酬反思——為什麼承認不準比假裝準有價值。"
 draft: false
 glossary:
-  walk-forward: "滾動式的策略驗證法：只用過去的 train 窗選參數，凍結後在未來的 out-of-sample 窗測試，不斷向前推進。"
-  point-in-time: "指資料只使用某時間點以前可得的部分，不使用未來資料，避免回測作弊。"
-  run card: "每次評估跑完後留下的 JSON 紀錄，包含參數、每個 fold 的結果、資料雜湊與警告，用來辨識『這次用的是哪一份資料』。"
-  golden eval: "固定歷史切點組成的評估集，用一致性標準重新跑決策並算正確率，作為長期追蹤的 baseline。"
-  run-card hash: "以 SHA-256 對當次輸入資料表計算的指紋，只能辨識同一份資料，不能重建第三方資料源已變動的歷史版本。"
+  - term: "walk-forward"
+    definition: "滾動式的策略驗證法：只用過去的 train 窗選參數，凍結後在未來的 out-of-sample 窗測試，不斷向前推進。"
+  - term: "point-in-time"
+    definition: "指資料只使用某時間點以前可得的部分，不使用未來資料，避免回測作弊。"
+  - term: "run card"
+    definition: "每次評估跑完後留下的 JSON 紀錄，包含參數、每個 fold 的結果、資料雜湊與警告，用來辨識『這次用的是哪一份資料』。"
+  - term: "golden eval"
+    definition: "固定歷史切點組成的評估集，用一致性標準重新跑決策並算正確率，作為長期追蹤的 baseline。"
+  - term: "run-card hash"
+    definition: "以 SHA-256 對當次輸入資料表計算的指紋，只能辨識同一份資料，不能重建第三方資料源已變動的歷史版本。"
 ---
 
 > **台股研究 Agent 實戰系列（篇 5 / 9）**：[上一篇：回測問責：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability) ｜ [下一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
