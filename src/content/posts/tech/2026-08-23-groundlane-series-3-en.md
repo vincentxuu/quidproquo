@@ -9,8 +9,10 @@ tldr: "A four-dimension comparison (determinism, replaceability, identity bounda
 description: "Part 3 is the comparison layer: where Groundlane's remote contract differs from in-site local tools, not as a replacement verdict but as a verifiable boundary and responsibility mapping (all against v0.1.0 observable behavior)."
 draft: false
 glossary:
-  webfetch: "In-site built-in web retrieval tool (not Groundlane's web_fetch); differs in lacking a unified MCP contract, dual-auth boundary, and provider-replacement mechanism."
-  stealth_fetch: "In-site stealth retrieval tool; lacks structured selector extraction and deterministic provenance fields (engine/backend) compared to Groundlane."
+  - term: "webfetch"
+    definition: "In-site built-in web retrieval tool (not Groundlane's web_fetch); differs in lacking a unified MCP contract, dual-auth boundary, and provider-replacement mechanism."
+  - term: "stealth_fetch"
+    definition: "In-site stealth retrieval tool; lacks structured selector extraction and deterministic provenance fields (engine/backend) compared to Groundlane."
 ---
 
 > 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-3)

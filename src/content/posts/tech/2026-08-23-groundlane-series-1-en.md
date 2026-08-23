@@ -9,8 +9,10 @@ tldr: "Groundlane is an open-source TypeScript remote MCP server (v0.1.0) giving
 description: "From Groundlane's product positioning (why a controlled access layer matters), three-tool contracts, ten search adapters, dual-auth mechanism, and Cloudflare deployment — the shared baseline for the five-part series."
 draft: false
 glossary:
-  groundlane: "Open-source TypeScript remote MCP server (v0.1.0 early preview) providing web_search, web_fetch, web_extract through a single controlled contract."
-  ssrf: "Server-Side Request Forgery; Groundlane treats URLs, redirects, DNS answers, and browser subresources as untrusted inputs to reduce this risk."
+  - term: "groundlane"
+    definition: "Open-source TypeScript remote MCP server (v0.1.0 early preview) providing web_search, web_fetch, web_extract through a single controlled contract."
+  - term: "ssrf"
+    definition: "Server-Side Request Forgery; Groundlane treats URLs, redirects, DNS answers, and browser subresources as untrusted inputs to reduce this risk."
 ---
 > 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-1)
 

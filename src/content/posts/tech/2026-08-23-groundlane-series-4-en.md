@@ -9,8 +9,10 @@ tldr: "Based on the in-site groundlane skill (mcp__groundlane__*) and usage-mode
 description: "Part 4 is the in-site application layer: how to integrate the verified Groundlane contract into existing site workflows (reference verification, digest collection) using only observable skills and documented constraints."
 draft: false
 glossary:
-  provenance: "Retrieval provenance fields (engine, backend, finalUrl) in Groundlane responses; verifiable evidence of the retrieval path for audit and reproducibility."
-  usage-modes: "In-site groundlane skill judgment flow: check tool provenance → confirm three tools → call directly; if unavailable, use environment's actual tools and label fallback; never use deprecated stealth_fetch."
+  - term: "provenance"
+    definition: "Retrieval provenance fields (engine, backend, finalUrl) in Groundlane responses; verifiable evidence of the retrieval path for audit and reproducibility."
+  - term: "usage-modes"
+    definition: "In-site groundlane skill judgment flow: check tool provenance → confirm three tools → call directly; if unavailable, use environment's actual tools and label fallback; never use deprecated stealth_fetch."
 ---
 
 > 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-4)

@@ -9,8 +9,10 @@ tldr: "以實際呼叫範例說明 web_search（十適配器、RRF 合併、雙�
 description: "篇 2 為實戰層：三工具參數選擇、回傳結構解讀、錯誤模式與確定性來源，全部以 Groundlane v0.1.0 自述與文件為依據，不引入假設功能。"
 draft: false
 glossary:
-  rrf: "Reciprocal Rank Fusion；Groundlane 自動搜尋合併時對多提供者結果的排名融合方法，保留各來源原始排名證據。"
-  selector: "CSS selector 結構，用於 web_extract 的確定性擷取；結果可逐節點解釋，無隱式模型推論。"
+  - term: "rrf"
+    definition: "Reciprocal Rank Fusion；Groundlane 自動搜尋合併時對多提供者結果的排名融合方法，保留各來源原始排名證據。"
+  - term: "selector"
+    definition: "CSS selector 結構，用於 web_extract 的確定性擷取；結果可逐節點解釋，無隱式模型推論。"
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-2-en)

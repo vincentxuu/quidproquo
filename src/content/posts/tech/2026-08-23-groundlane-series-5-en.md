@@ -9,8 +9,10 @@ tldr: "A reproducible checklist of the most common operational pitfalls: truncat
 description: "Part 5 closes the series with verifiable best practices: each recommendation ties back to observable v0.1.0 behavior, names the fixed security boundaries that cannot be bypassed, and provides an executable audit pattern for reproducibility across version updates."
 draft: false
 glossary:
-  truncated: "Groundlane web_fetch response field; true when content exceeds the fixed byte/output cap, indicating a partial (not complete) retrieval."
-  render-mode: "web_fetch render parameter (never / auto / always); controls whether browser rendering is invoked, directly affecting provenance fields (engine/backend) and determinism risk."
+  - term: "truncated"
+    definition: "Groundlane web_fetch response field; true when content exceeds the fixed byte/output cap, indicating a partial (not complete) retrieval."
+  - term: "render-mode"
+    definition: "web_fetch render parameter (never / auto / always); controls whether browser rendering is invoked, directly affecting provenance fields (engine/backend) and determinism risk."
 ---
 
 > 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-5)

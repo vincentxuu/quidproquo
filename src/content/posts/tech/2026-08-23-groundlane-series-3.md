@@ -9,8 +9,10 @@ tldr: "從確定性、可替換性、身份邊界、維運成本四維度比較 
 description: "篇 3 為比較層：Groundlane 的受控遠端 MCP 合約與傳統本機腳本（WebFetch、stealth_fetch、puppeteer、requests）的差異，不是取代判斷，而是邊界與責任的對照。"
 draft: false
 glossary:
-  webfetch: "站內內建的網頁擷取工具（非 Groundlane 的 web_fetch）；與 Groundlane 的差異在於：無統一 MCP 合約、無雙認證邊界、無提供者替換機制。"
-  stealth_fetch: "站內使用的隱匿式網頁擷取工具；與 Groundlane 的差異在於：無結構化 selector 擷取、無確定性來源證據欄位（engine/backend）。"
+  - term: "webfetch"
+    definition: "站內內建的網頁擷取工具（非 Groundlane 的 web_fetch）；與 Groundlane 的差異在於：無統一 MCP 合約、無雙認證邊界、無提供者替換機制。"
+  - term: "stealth_fetch"
+    definition: "站內使用的隱匿式網頁擷取工具；與 Groundlane 的差異在於：無結構化 selector 擷取、無確定性來源證據欄位（engine/backend）。"
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-3-en)

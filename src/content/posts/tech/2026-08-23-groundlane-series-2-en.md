@@ -9,8 +9,10 @@ tldr: "Hands-on parameter choices and response structures for web_search (ten ad
 description: "Part 2 is the practical layer: how each tool behaves under different parameter combinations, what fields prove retrieval provenance, and which limits are fixed security boundaries rather than tunable options (all verified against Groundlane v0.1.0 docs)."
 draft: false
 glossary:
-  rrf: "Reciprocal Rank Fusion; the ranking merge method Groundlane uses for automatic search across multiple providers, retaining per-source rank provenance."
-  selector: "CSS selector structure for deterministic web_extract; each result maps to a node and can be explained line-by-line without hidden model inference."
+  - term: "rrf"
+    definition: "Reciprocal Rank Fusion; the ranking merge method Groundlane uses for automatic search across multiple providers, retaining per-source rank provenance."
+  - term: "selector"
+    definition: "CSS selector structure for deterministic web_extract; each result maps to a node and can be explained line-by-line without hidden model inference."
 ---
 
 > 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-2)

@@ -9,8 +9,10 @@ tldr: "以站內 .claude/skills/groundlane 的 usage-modes 流程為事實，說
 description: "篇 4 為站內應用層：依據現有 groundlane 技能（mcp__groundlane__* 工具路由）與 usage-modes 判斷流程，設計參考資料驗證與 digest 資料收集的可執行步驟，並明確標註「不使用已淘汰的 stealth_fetch」的邊界。"
 draft: false
 glossary:
-  provenance: "檢索來源證據（engine、backend、finalUrl）；Groundlane 回傳結構的確定性欄位，用於驗證結果是否來自預期路徑。"
-  usage-modes: "站內 groundlane 技能的判斷流程：檢查 tool provenance → 確認三工具存在 → 直接呼叫；若不存在則使用環境實際工具，永遠不使用已淘汰的 stealth_fetch。"
+  - term: "provenance"
+    definition: "檢索來源證據（engine、backend、finalUrl）；Groundlane 回傳結構的確定性欄位，用於驗證結果是否來自預期路徑。"
+  - term: "usage-modes"
+    definition: "站內 groundlane 技能的判斷流程：檢查 tool provenance → 確認三工具存在 → 直接呼叫；若不存在則使用環境實際工具，永遠不使用已淘汰的 stealth_fetch。"
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-4-en)

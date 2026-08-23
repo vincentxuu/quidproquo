@@ -9,8 +9,10 @@ tldr: "Groundlane 是一個開源 TypeScript 遠端 MCP 伺服器（v0.1.0），
 description: "從 Groundlane 的產品定位（為什麼需要受控的網路存取層）、三工具合約、十個搜尋適配器、雙認證機制與 Cloudflare 部署，建立實戰系列的共同基線。"
 draft: false
 glossary:
-  groundlane: "開源 TypeScript 遠端 MCP 伺服器（v0.1.0 早期預覽），提供 web_search、web_fetch、web_extract 三種受控網路存取能力，身份與提供者替換邊界明確。"
-  ssrf: "Server-Side Request Forgery；Groundlane 將 URL、重導向、DNS 與瀏覽器子資源視為不可信輸入，以降低此風險。"
+  - term: "groundlane"
+    definition: "開源 TypeScript 遠端 MCP 伺服器（v0.1.0 早期預覽），提供 web_search、web_fetch、web_extract 三種受控網路存取能力，身份與提供者替換邊界明確。"
+  - term: "ssrf"
+    definition: "Server-Side Request Forgery；Groundlane 將 URL、重導向、DNS 與瀏覽器子資源視為不可信輸入，以降低此風險。"
 ---
 > 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-1-en)
 

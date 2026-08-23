@@ -9,8 +9,10 @@ tldr: "整理實戰中最常見的操作陷阱：timeout 與位元組上限導�
 description: "篇 5 為收尾層：將前四篇的操作步驟轉化為可重現的最佳實踐清單，明確標示哪些限制是可驗證的安全邊界（不可繞過），哪些是操作選擇（可依場景調整）。"
 draft: false
 glossary:
-  truncated: "Groundlane web_fetch 回傳的確定性欄位；當內容超出預設位元組或輸出上限時為 true，表示結果為部分內容而非完整擷取。"
-  render-mode: "web_fetch 的 render 參數（auto / never / always）；決定是否啟用瀏覽器渲染，直接影響來源證據（engine/backend）與操作成本。"
+  - term: "truncated"
+    definition: "Groundlane web_fetch 回傳的確定性欄位；當內容超出預設位元組或輸出上限時為 true，表示結果為部分內容而非完整擷取。"
+  - term: "render-mode"
+    definition: "web_fetch 的 render 參數（auto / never / always）；決定是否啟用瀏覽器渲染，直接影響來源證據（engine/backend）與操作成本。"
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-5-en)
