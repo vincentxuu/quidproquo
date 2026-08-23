@@ -86,6 +86,8 @@ This checklist closes the series with the same principle established in Part 1: 
 
 ## References
 
-- [Groundlane GitHub source (`v0.1.0` self-description, docs, `SECURITY.md`)](https://github.com/vincentxuu/groundlane) — observable contracts, provenance fields (`finalUrl`, `engine`, `backend`), default limits described as safeguards, version preview warning
+- [Groundlane GitHub source (`v0.1.0` self-description)](https://github.com/vincentxuu/groundlane) — observable contracts, provenance fields (`finalUrl`, `engine`, `backend`), version preview warning
+- [`docs/configuration.md`](https://github.com/vincentxuu/groundlane/blob/main/docs/configuration.md) — the fixed environment-variable limits behind Pitfalls 1, 6, and 8 (`REQUEST_TIMEOUT_MS`, `MAX_RESPONSE_BYTES`, `MAX_OUTPUT_CHARS`, `MAX_CONCURRENCY`, `MAX_QUEUE`)
+- [`SECURITY.md`](https://github.com/vincentxuu/groundlane/blob/main/SECURITY.md) — the URL policy, DNS/redirect inspection, and auth boundaries cited as safeguards, not tunable parameters
 - [.claude/skills/groundlane skill and `usage-modes.md`](.claude/skills/) — judgment flow, deprecated-path exclusion, identity boundary rules, shareability requirements
 - [Previous series parts (Parts 1-4)](/posts/tech/2026-08-23-groundlane-series-1) — shared verifiable baseline, contract definitions, comparison dimensions, in-site workflow steps
