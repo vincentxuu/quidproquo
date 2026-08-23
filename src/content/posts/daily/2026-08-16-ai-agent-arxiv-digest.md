@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜Agent Against Agent：用 Agent 對打 Agent，紅隊測試成本砍到 20 美元
 
-**Agent Against Agent: An Agentic System for Automatic Prompt Injection Red Teaming**
+### Agent Against Agent: An Agentic System for Automatic Prompt Injection Red Teaming
 Yanting Wang, Chenlong Yin, Runpeng Geng, Jinyuan Jia（Pennsylvania State University）　·　arxiv: 2608.05108
 
 連結: [arxiv](https://arxiv.org/abs/2608.05108) · [alphaxiv](https://www.alphaxiv.org/abs/2608.05108)
@@ -75,7 +75,7 @@ PIMiner 把過去的攻擊經驗蒸餾成一份可讀、可跨模型轉移的策
 
 ## 論文二｜Agent Skills Can Be Harmful：一個「看起來很相關」的技能，比明顯無關的技能更危險
 
-**Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents**
+### Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents
 Gen Dong, Yanjie Gao, Liqun Li et al.（Microsoft Research；Gen Dong 為實習期間完成本研究）　·　arxiv: 2608.11888
 
 連結: [arxiv](https://arxiv.org/abs/2608.11888) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11888)
@@ -120,7 +120,7 @@ Agent skill（如 SKILL.md）已成為擴充 agent 能力的標準做法，但�
 
 ## 論文三｜Order 66 情境分析：沒有一個機制致命，疊加起來呢？
 
-**Compositional Threat Analysis of Latent Compromise in LLM Agent Systems: The Order 66 Scenario**
+### Compositional Threat Analysis of Latent Compromise in LLM Agent Systems: The Order 66 Scenario
 Satoshi Matsuoka（單一作者，論文未標註機構）　·　arxiv: 2608.08131
 
 連結: [arxiv](https://arxiv.org/abs/2608.08131) · [alphaxiv](https://www.alphaxiv.org/abs/2608.08131)

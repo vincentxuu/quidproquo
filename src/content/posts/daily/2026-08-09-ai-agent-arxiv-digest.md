@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜OneDayAgent：一個鷹架打天下的長程 Agent
 
-**OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents**
+### OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents
 Jingsheng Zheng, Xinyuan Fang, Jintian Zhang et al.（Zhejiang University）　·　arxiv: 2608.05013
 
 連結: [arxiv](https://arxiv.org/abs/2608.05013) · [alphaxiv](https://www.alphaxiv.org/abs/2608.05013)
@@ -74,7 +74,7 @@ Jingsheng Zheng, Xinyuan Fang, Jintian Zhang et al.（Zhejiang University）　�
 
 ## 論文二｜The Horizon Gap：長程 Agent 的 1,547 篇文獻全景
 
-**The Horizon Gap: Planning, Memory, Execution, Training, and Evaluation for Long-Horizon LLM Agents**
+### The Horizon Gap: Planning, Memory, Execution, Training, and Evaluation for Long-Horizon LLM Agents
 Mingguang Chen, Licheng Wang, Bo Qu　·　arxiv: 2608.06663
 
 連結: [arxiv](https://arxiv.org/abs/2608.06663) · [alphaxiv](https://www.alphaxiv.org/abs/2608.06663)
@@ -118,7 +118,7 @@ Mingguang Chen, Licheng Wang, Bo Qu　·　arxiv: 2608.06663
 
 ## 論文三｜Evo-Bench：Agent 能自己進化鷹架嗎？
 
-**Evo-Bench: Can Language Models Improve Agent Harness?**
+### Evo-Bench: Can Language Models Improve Agent Harness?
 Lisheng Huang, Chen Yang, Hao Zhou et al.（Renmin University / BOSS Zhipin）　·　arxiv: 2608.09096
 
 連結: [arxiv](https://arxiv.org/abs/2608.09096) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09096)

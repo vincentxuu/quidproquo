@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜RippleMem：讓 Agent 記憶從「查一次就好」變成「順藤摸瓜」
 
-**RippleMem: From Isolated Retrieval to Associative Recollection for Long-Term Agent Memory**
+### RippleMem: From Isolated Retrieval to Associative Recollection for Long-Term Agent Memory
 Jingbo Ji, Lingyi Li, Xilong Cheng et al.（Communication University of China, Beijing）　·　arxiv: 2608.13334
 
 連結: [arxiv](https://arxiv.org/abs/2608.13334) · [alphaxiv](https://www.alphaxiv.org/abs/2608.13334)
@@ -75,7 +75,7 @@ Jingbo Ji, Lingyi Li, Xilong Cheng et al.（Communication University of China, B
 
 ## 論文二｜全都記得，代價是什麼？幫 Agent 記憶系統的服務成本做基準測試
 
-**Total Recall at What Cost? Benchmarking the Serving Cost of Agentic Memory Systems**
+### Total Recall at What Cost? Benchmarking the Serving Cost of Agentic Memory Systems
 Natchanon Pollertlam, Witchayut Kornsuwannawit（Bricks Technology, Thailand）　·　arxiv: 2608.11879
 
 連結: [arxiv](https://arxiv.org/abs/2608.11879) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11879)
@@ -120,7 +120,7 @@ Natchanon Pollertlam, Witchayut Kornsuwannawit（Bricks Technology, Thailand）�
 
 ## 論文三｜MESA：讓 Agent 依任務動態挑選該用哪種記憶結構
 
-**MESA: Task-Adaptive Multi-Structure Evidence Selection for Long-Horizon Agent Memory**
+### MESA: Task-Adaptive Multi-Structure Evidence Selection for Long-Horizon Agent Memory
 Beidi Zhao, Yaoqi Chen, Yuru Feng et al.（Microsoft Research Asia）　·　arxiv: 2608.10108
 
 連結: [arxiv](https://arxiv.org/abs/2608.10108) · [alphaxiv](https://www.alphaxiv.org/abs/2608.10108)

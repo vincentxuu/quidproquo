@@ -15,7 +15,7 @@ export function translatePipelineToFlowInput(
   // Derive synthetic flow id per D6-synthetic-flow-id
   const flowId = `pipeline-${pipelineId}`
   const input: Record<string, unknown> = {
-    ...(body.inputs ?? {}),
+    ...body.inputs,
     ...(body.options ? { _options: body.options } : {}),
   }
   return { flowId, input }

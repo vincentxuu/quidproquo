@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜Evo-Bench：你的模型能自己改好自己的鷹架嗎？
 
-**Evo-Bench: Can Language Models Improve Agent Harness?**
+### Evo-Bench: Can Language Models Improve Agent Harness?
 Lisheng Huang, Chen Yang, Hao Zhou et al.（Renmin University of China / BOSS Zhipin）　·　arxiv: 2608.09096
 
 連結: [arxiv](https://arxiv.org/abs/2608.09096) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09096)
@@ -75,7 +75,7 @@ Agent 的表現越來越取決於鷹架而非模型本身。之前的做法是�
 
 ## 論文二｜MEGA：讓 Agent 的優化知識自己長大
 
-**MEGA: Self-Evolving Agent Optimization Infrastructure via Wisdom Graph**
+### MEGA: Self-Evolving Agent Optimization Infrastructure via Wisdom Graph
 Jung Hwan Lee, Kyu Ho Lee, Gwang Hoon Yoo　·　arxiv: 2608.10504
 
 連結: [arxiv](https://arxiv.org/abs/2608.10504) · [alphaxiv](https://www.alphaxiv.org/abs/2608.10504)
@@ -119,7 +119,7 @@ Jung Hwan Lee, Kyu Ho Lee, Gwang Hoon Yoo　·　arxiv: 2608.10504
 
 ## 論文三｜SHE：讓安全護欄從失敗中學會進化
 
-**SHE: Trajectory-driven Safety Harness Evolution for LLM Agents**
+### SHE: Trajectory-driven Safety Harness Evolution for LLM Agents
 Wanying Qu, Qinghua Mao, Yu Li et al.（Shanghai AI Lab / Fudan / SJTU / HKUST）　·　arxiv: 2608.09885
 
 連結: [arxiv](https://arxiv.org/abs/2608.09885) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09885)

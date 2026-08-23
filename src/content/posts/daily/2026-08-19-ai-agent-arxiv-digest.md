@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜QUMem：讓 Agent 依查詢動態拼湊「這個使用者現在是誰」
 
-**QUMem: Personalized Memory for Query-Conditioned User-State Inference in LLM Agents**
+### QUMem: Personalized Memory for Query-Conditioned User-State Inference in LLM Agents
 Heng Wang, Yifei Li, Lingling Zhang et al.　·　arxiv: 2608.16168
 
 連結: [arxiv](https://arxiv.org/abs/2608.16168) · [alphaxiv](https://www.alphaxiv.org/abs/2608.16168)
@@ -74,7 +74,7 @@ Heng Wang, Yifei Li, Lingling Zhang et al.　·　arxiv: 2608.16168
 
 ## 論文二｜LENS：不先建索引，邊查邊縮小範圍的免索引檢索
 
-**LENS: In-Context Search via Latent Evidence Exploration over Dynamic Raw Documents**
+### LENS: In-Context Search via Latent Evidence Exploration over Dynamic Raw Documents
 Xingjun Wang, Gongsheng Li, Qi Fan et al.　·　arxiv: 2608.16185
 
 連結: [arxiv](https://arxiv.org/abs/2608.16185) · [alphaxiv](https://www.alphaxiv.org/abs/2608.16185)
@@ -118,7 +118,7 @@ Xingjun Wang, Gongsheng Li, Qi Fan et al.　·　arxiv: 2608.16185
 
 ## 論文三｜當檢索內容誤導你：用意圖仲裁決定該信檢索還是信模型自己
 
-**When Context Misleads: Intent-Guided Decoding for Robust Retrieval-Augmented Generation**
+### When Context Misleads: Intent-Guided Decoding for Robust Retrieval-Augmented Generation
 Haolin Jin, Pengyue Yang, Huaming Chen（The University of Sydney）　·　arxiv: 2608.16515
 
 連結: [arxiv](https://arxiv.org/abs/2608.16515) · [alphaxiv](https://www.alphaxiv.org/abs/2608.16515)

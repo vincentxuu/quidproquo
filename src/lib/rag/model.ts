@@ -5,8 +5,7 @@ import { ChatGoogleGenerativeAI } from '@langchain/google-genai'
 import { AIMessage } from '@langchain/core/messages'
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
-import type { BaseMessageLike, MessageStructure } from '@langchain/core/messages'
-import type { RagProvider } from './providers'
+import type { BaseMessageLike } from '@langchain/core/messages'
 
 /**
  * Structural response type for chat model invocations.

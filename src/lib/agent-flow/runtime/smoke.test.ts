@@ -3,7 +3,7 @@ import { flowCancelKey, isCancelled, cancelFlow } from './cancel'
 import { withRetry } from './retry'
 import { compile } from './compile'
 import { createFlowState, setState, getState } from './state'
-import { executeStep, registerStepExecutor } from './step-executor'
+import { executeStep } from './step-executor'
 
 // ── cancel ────────────────────────────────────────────────────────────────────
 
@@ -133,7 +133,7 @@ describe('agent-flow/runtime/step-executor', () => {
     }
 
     for (const type of expectedTypes) {
-      const step = { id: `s-${type}`, type, ...(stepShapes[type] ?? {}) }
+      const step = { id: `s-${type}`, type, ...stepShapes[type] }
       const result = await executeStep(step, ctx, state)
       // Must NOT return unknown_step_type — executor must exist for this type
       expect(result.errorJson?.kind).not.toBe('unknown_step_type')

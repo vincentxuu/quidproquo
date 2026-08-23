@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜魔鬼藏在介面裡：工具架構如何決定 Coding Agent 行為
 
-**The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior**
+### The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior
 Xiangzhe Xu, Hamidreza Saghir, Qianhui Wu et al.（Purdue / Microsoft Research）　·　arxiv: 2608.11386
 
 連結: [arxiv](https://arxiv.org/abs/2608.11386) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11386)
@@ -74,7 +74,7 @@ Agent 工具設計過去主要在擴展「能做什麼」——加更多工具�
 
 ## 論文二｜記憶蒸餾：讓 4B 小模型靠大模型的經驗直逼頂級水準
 
-**Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory**
+### Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory
 Taeil Kim, Kangsan Kim, Sung Ju Hwang（KAIST）　·　arxiv: 2608.07169
 
 連結: [arxiv](https://arxiv.org/abs/2608.07169) · [alphaxiv](https://www.alphaxiv.org/abs/2608.07169)
@@ -119,7 +119,7 @@ Taeil Kim, Kangsan Kim, Sung Ju Hwang（KAIST）　·　arxiv: 2608.07169
 
 ## 論文三｜多 Agent 安全是制度設計問題
 
-**Multi-Agent AI Safety as an Institutional Design Problem**
+### Multi-Agent AI Safety as an Institutional Design Problem
 Abdullah X（POLIS Research Programme / Project AWARE）　·　arxiv: 2608.09828
 
 連結: [arxiv](https://arxiv.org/abs/2608.09828) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09828)

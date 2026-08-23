@@ -29,7 +29,7 @@ Agent 技能（skill）正在從「一次寫完就不動」演變成「會自我
 
 ## 論文一｜SkillEvo：用多輪互動回饋讓技能進化不停滯
 
-**SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback**
+### SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback
 Qianxi Yan, Chunrong Chen, Jiuzhou Zhao et al.（Tencent Cloud Andon / Zhejiang University）　·　arxiv: 2608.13120
 
 連結: [arxiv](https://arxiv.org/abs/2608.13120) · [alphaxiv](https://www.alphaxiv.org/abs/2608.13120)
@@ -74,7 +74,7 @@ Qianxi Yan, Chunrong Chen, Jiuzhou Zhao et al.（Tencent Cloud Andon / Zhejiang 
 
 ## 論文二｜SkillShapley：用賽局論告訴你技能裡哪些步驟值錢
 
-**SkillShapley: Boundary-Adaptive Shapley Valuation for Skill Step Attribution in LLM Agents**
+### SkillShapley: Boundary-Adaptive Shapley Valuation for Skill Step Attribution in LLM Agents
 Chang Liu, Yuqi Zhang, Yiman Zhong et al.（Beihang University / Shandong University）　·　arxiv: 2608.13173
 
 連結: [arxiv](https://arxiv.org/abs/2608.13173) · [alphaxiv](https://www.alphaxiv.org/abs/2608.13173)
@@ -119,7 +119,7 @@ Chang Liu, Yuqi Zhang, Yiman Zhong et al.（Beihang University / Shandong Univer
 
 ## 論文三｜MindMemOS：讓記憶與技能在同一個作業系統層裡共同進化
 
-**MindMemOS: A Portable and Self-Evolving Memory Operating Layer for AI Agents**
+### MindMemOS: A Portable and Self-Evolving Memory Operating Layer for AI Agents
 Kaichao Liang, Yuqi Cui, Hao Kong et al.（Noah's Ark Lab, Huawei Technologies）　·　arxiv: 2608.12428
 
 連結: [arxiv](https://arxiv.org/abs/2608.12428) · [alphaxiv](https://www.alphaxiv.org/abs/2608.12428)

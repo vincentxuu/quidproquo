@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜ToolLIFT：把工具軌跡抽象成函數級工作流圖，讓規劃泛化到沒見過的工具
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
+### ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning
 Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 
 連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)
@@ -75,7 +75,7 @@ Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 
 ## 論文二｜HyperAgent：用工具-Schema 超圖做參數級依賴的動態規劃
 
-**HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents**
+### HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents
 Zian Zhai, Xingyu Tan, Gaowang Zou et al.　·　arxiv: 2608.02650
 
 連結: [arxiv](https://arxiv.org/abs/2608.02650) · [alphaxiv](https://www.alphaxiv.org/abs/2608.02650)
@@ -121,7 +121,7 @@ Zian Zhai, Xingyu Tan, Gaowang Zou et al.　·　arxiv: 2608.02650
 
 ## 論文三｜非英語 Agent 的規劃為什麼會壞掉——五類失敗模式與修正方案
 
-**An Actionable Diagnosis of Multilingual, Multi-Agent Planning Failures**
+### An Actionable Diagnosis of Multilingual, Multi-Agent Planning Failures
 Vikas Pahuja, Jonathan Brokman, Omer Hofman et al.（Fujitsu Research of Europe / Cohere）　·　arxiv: 2608.03735
 
 連結: [arxiv](https://arxiv.org/abs/2608.03735) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03735)

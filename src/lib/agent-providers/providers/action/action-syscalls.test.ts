@@ -14,7 +14,7 @@ describe('action syscall definitions', () => {
     for (const mod of defs) {
       if (!mod) continue
       // Find the exported syscall definition(s)
-      for (const [key, val] of Object.entries(mod)) {
+      for (const [_key, val] of Object.entries(mod)) {
         if (val && typeof val === 'object' && 'requiresApproval' in val) {
           expect((val as { requiresApproval: boolean }).requiresApproval).toBe(true)
         }

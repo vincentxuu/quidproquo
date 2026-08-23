@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜ActBench：協作 Agent 到底有多容易被攻破？
 
-**ActBench: Self-Evolving Benchmark of Behavioral Safety in Cowork Agents**
+### ActBench: Self-Evolving Benchmark of Behavioral Safety in Cowork Agents
 Hongwei Yao, Yiming Liu, Meihui Chen et al.（City University of Hong Kong / Zhejiang University）　·　arxiv: 2608.09476
 
 連結: [arxiv](https://arxiv.org/abs/2608.09476) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09476)
@@ -76,7 +76,7 @@ Hongwei Yao, Yiming Liu, Meihui Chen et al.（City University of Hong Kong / Zhe
 
 ## 論文二｜Agent Behavioral Contracts II：疊加 Agent 真的比較可靠嗎？
 
-**Agent Behavioral Contracts II: Certifying Compositional Reliability Without Assuming Independence**
+### Agent Behavioral Contracts II: Certifying Compositional Reliability Without Assuming Independence
 Varun Pratap Bhardwaj, Garima Singh, Arun Pratap Bhardwaj（Qualixar / Independent Researchers, India）　·　arxiv: 2608.12895
 
 連結: [arxiv](https://arxiv.org/abs/2608.12895) · [alphaxiv](https://www.alphaxiv.org/abs/2608.12895)
@@ -122,7 +122,7 @@ Varun Pratap Bhardwaj, Garima Singh, Arun Pratap Bhardwaj（Qualixar / Independe
 
 ## 論文三｜用小模型外掛「復原圖」，幫 Agent 偵測漂移並自動回滾
 
-**A Graph-Based Reinforcement Learning Framework for Structured Drift Diagnosis and Recovery in Autonomous LLM Agents**
+### A Graph-Based Reinforcement Learning Framework for Structured Drift Diagnosis and Recovery in Autonomous LLM Agents
 Ismail El Hamraoui, Sagar Jose, Nicolas Bureau, Robert Plana（Assystem）　·　arxiv: 2608.14109
 
 連結: [arxiv](https://arxiv.org/abs/2608.14109) · [alphaxiv](https://www.alphaxiv.org/abs/2608.14109)

@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜可驗證記憶：用局部與全域驗證器學習統一記憶管理
 
-**Verifiable Memory: Learning Unified Memory Management with Local and Global Verifiers for Large Language Model Agents**
+### Verifiable Memory: Learning Unified Memory Management with Local and Global Verifiers for Large Language Model Agents
 Xiaolong Sun, Qichao Wang, Hangyu Li, Liang Chen　·　arxiv: 2608.03137
 
 連結: [arxiv](https://arxiv.org/abs/2608.03137) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03137)
@@ -76,7 +76,7 @@ Agent 記憶研究長期被分成兩條線：長期記憶（怎麼存）和短�
 
 ## 論文二｜SafeCommit：認證記憶驅動的 Agent 何時可以安全行動
 
-**SafeCommit: Certifying When Memory-Grounded Agents May Safely Act**
+### SafeCommit: Certifying When Memory-Grounded Agents May Safely Act
 Mayur Akewar, Ravi Ranjan（Florida International University）　·　arxiv: 2608.04289
 
 連結: [arxiv](https://arxiv.org/abs/2608.04289) · [alphaxiv](https://www.alphaxiv.org/abs/2608.04289)
@@ -123,7 +123,7 @@ Mayur Akewar, Ravi Ranjan（Florida International University）　·　arxiv: 26
 
 ## 論文三｜ToolLIFT：把工具軌跡抽象成函數級工作流圖實現可遷移的工具規劃
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
+### ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning
 Xiuhui You, Jiayi Luo, Zichao Shen, Qingyun Sun, Ziwei Zhang　·　arxiv: 2608.03468
 
 連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)

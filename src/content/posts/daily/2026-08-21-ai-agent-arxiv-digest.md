@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜DART-SD：別逼 Agent 照抄整條軌跡
 
-**DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents**
+### DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents
 Hangrui Xu, Jiarui Wang, Yang Yang et al.（ByteDance）　·　arxiv: 2608.18524
 
 連結: [arxiv](https://arxiv.org/abs/2608.18524) · [alphaxiv](https://www.alphaxiv.org/abs/2608.18524)
@@ -75,7 +75,7 @@ Hangrui Xu, Jiarui Wang, Yang Yang et al.（ByteDance）　·　arxiv: 2608.1852
 
 ## 論文二｜SkillForge：讓 Agent 進 repo 前先自修一遍
 
-**SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution**
+### SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution
 Silin Chen, Han Li, Xiaodong Gu et al.（Shanghai Jiao Tong University）　·　arxiv: 2608.18933
 
 連結: [arxiv](https://arxiv.org/abs/2608.18933) · [alphaxiv](https://www.alphaxiv.org/abs/2608.18933)
@@ -121,7 +121,7 @@ LLM agent 在自動修 bug 上已經很強，但有個結構性弱點：它們�
 
 ## 論文三｜Post-Training AI：Agent 會執行，但不會改主意
 
-**What is Missing from AI Post-Training AI: An Empirical Analysis**
+### What is Missing from AI Post-Training AI: An Empirical Analysis
 Joy Jia Yin Lim, Xin Huang, Hao Peng et al.（Tsinghua University · Renmin University of China）　·　arxiv: 2608.19072
 
 連結: [arxiv](https://arxiv.org/abs/2608.19072) · [alphaxiv](https://www.alphaxiv.org/abs/2608.19072)

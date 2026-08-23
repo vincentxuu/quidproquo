@@ -43,7 +43,7 @@ const parallelExecutor: StepExecutor = async (step, ctx, state) => {
     outputs: {
       branches: branchResults.map(r => r.result?.outputs ?? {}),
       merged: branchResults.reduce(
-        (acc, r) => ({ ...acc, ...(r.result?.outputs ?? {}) }),
+        (acc, r) => ({ ...acc, ...r.result?.outputs }),
         {} as Record<string, unknown>
       ),
     },

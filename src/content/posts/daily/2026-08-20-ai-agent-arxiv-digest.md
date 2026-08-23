@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜D2ACCI：讓 Agent 記憶失敗無所遁形的雙迴圈診斷協議
 
-**D²ACCI: A Dual-Loop Diagnostic Protocol for Evidence-Preserving Agent Memory**
+### D²ACCI: A Dual-Loop Diagnostic Protocol for Evidence-Preserving Agent Memory
 Xule Liu, Yijun Liu, Chao Li, Shao Kun　·　arxiv: 2608.17756
 
 連結: [arxiv](https://arxiv.org/abs/2608.17756) · [alphaxiv](https://www.alphaxiv.org/abs/2608.17756)
@@ -75,7 +75,7 @@ Xule Liu, Yijun Liu, Chao Li, Shao Kun　·　arxiv: 2608.17756
 
 ## 論文二｜自我進化 Agent 真的在進步，還是雜訊在說話？
 
-**On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification**
+### On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification
 Qinyuan Ye, Yu Li, Yada Pruksachatkun, Jiaxin Zhang, Chien-Sheng Wu（Salesforce AI Research）　·　arxiv: 2608.18066
 
 連結: [arxiv](https://arxiv.org/abs/2608.18066) · [alphaxiv](https://www.alphaxiv.org/abs/2608.18066)
@@ -119,7 +119,7 @@ Qinyuan Ye, Yu Li, Yada Pruksachatkun, Jiaxin Zhang, Chien-Sheng Wu（Salesforce
 
 ## 論文三｜GraphWake：污染一成 Agent 的記憶，就能操縱整個 Agent 社群的立場
 
-**GraphWake: Group Polarization via Memory-Mediated Polarization Cascade in LLM-Agent Communities**
+### GraphWake: Group Polarization via Memory-Mediated Polarization Cascade in LLM-Agent Communities
 Haoran Bu, Zejian Chen, Litian Zhang, Xi Zhang　·　arxiv: 2608.17665
 
 連結: [arxiv](https://arxiv.org/abs/2608.17665) · [alphaxiv](https://www.alphaxiv.org/abs/2608.17665)

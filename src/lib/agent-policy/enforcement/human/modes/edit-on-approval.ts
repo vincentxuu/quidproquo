@@ -33,7 +33,7 @@ function patchKernelForEdit(kernel: unknown, currentPayload: unknown): unknown {
     access: {
       ...base.access,
       requestApproval: async (args: Record<string, unknown>) =>
-        base.access!.requestApproval!({ ...args, context: { ...((args.context as Record<string, unknown>) ?? {}), mode: 'edit_on_approval', currentPayload } }),
+        base.access!.requestApproval!({ ...args, context: { ...(args.context as Record<string, unknown>), mode: 'edit_on_approval', currentPayload } }),
     },
   }
 }

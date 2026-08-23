@@ -48,7 +48,7 @@ export function validatePipelineInput(definition: PipelineDefinition, input: Rec
   for (const field of definition.inputs.filter((item) => FILE_PATH_STYLE_FIELDS.has(item.id))) {
     const value = input[field.id]
     if (value === undefined || value === null || value === '') continue
-    const normalized = normalizeSlug(value)
+    const _normalized = normalizeSlug(value)
     const isFilePath = typeof value === 'string' && (value.includes('src/content/posts/') || value.endsWith('.md'))
     const valid = isValidCloudSlug(value) || isFilePath
     const isDeprecatedPath = isFilePath

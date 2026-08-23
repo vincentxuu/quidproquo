@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜MidTool:用「中期訓練」教會模型用工具,而不是全丟給後訓練
 
-**MidTool: Mid-training Data Synthesis for Agentic Tool Use**
+### MidTool: Mid-training Data Synthesis for Agentic Tool Use
 Fengqing Jiang, Yite Wang, Boyi Liu et al.(University of Washington, Snowflake)　·　arxiv: 2608.20314
 
 連結: [arxiv](https://arxiv.org/abs/2608.20314) · [alphaxiv](https://www.alphaxiv.org/abs/2608.20314)
@@ -75,7 +75,7 @@ Fengqing Jiang, Yite Wang, Boyi Liu et al.(University of Washington, Snowflake)�
 
 ## 論文二｜Break It Down, Pass It On:技能歸納歸錯粒度,Agent 反而變更笨
 
-**Break It Down, Pass It On: Cross-Task Skill Transfer in LLM Agents**
+### Break It Down, Pass It On: Cross-Task Skill Transfer in LLM Agents
 Yiyang Feng, Biddut Sarker Bijoy, Niranjan Balasubramanian, Jiawei Zhou(Stony Brook University)　·　arxiv: 2608.20274
 
 連結: [arxiv](https://arxiv.org/abs/2608.20274) · [alphaxiv](https://www.alphaxiv.org/abs/2608.20274)
@@ -121,7 +121,7 @@ Agent 把做過的任務歸納成「技能」存起來重用,聽起來理所當�
 
 ## 論文三｜Optimal Skill Selection:技能選擇也能有數學保證,不只是拚語意相似度
 
-**Optimal Skill Selection for LLM Agents with Provable Bicriteria Guarantees**
+### Optimal Skill Selection for LLM Agents with Provable Bicriteria Guarantees
 Yu Chen, Ruishuo Chen, Xun Wang, Zhuoran Li, Longbo Huang(Tsinghua University, IIIS)　·　arxiv: 2608.19993
 
 連結: [arxiv](https://arxiv.org/abs/2608.19993) · [alphaxiv](https://www.alphaxiv.org/abs/2608.19993)

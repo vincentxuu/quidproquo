@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜ToolLIFT：把工具軌跡提升到功能層，讓規劃不再綁定特定工具
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
+### ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning
 Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 
 連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)
@@ -75,7 +75,7 @@ LLM Agent 用工具時，現有方法多從歷史軌跡中建立「工具層圖�
 
 ## 論文二｜SkillTV-Bench：要評判 Agent 做得好不好，裁判也得懂技能
 
-**SkillTV-Bench: Benchmarking How Well Judges Perform on Skill-Augmented Agentic Execution**
+### SkillTV-Bench: Benchmarking How Well Judges Perform on Skill-Augmented Agentic Execution
 Zhi Han, Chenxi Zeng, Liuhaichen Yang et al.　·　arxiv: 2608.05573
 
 連結: [arxiv](https://arxiv.org/abs/2608.05573) · [alphaxiv](https://www.alphaxiv.org/abs/2608.05573)
@@ -121,7 +121,7 @@ Zhi Han, Chenxi Zeng, Liuhaichen Yang et al.　·　arxiv: 2608.05573
 
 ## 論文三｜TRIO-20：讓 Agent 想更久，它會越權嗎？
 
-**Test-time reasoning effort and unauthorized tool use in language-model agents: a prespecified equivalence study**
+### Test-time reasoning effort and unauthorized tool use in language-model agents: a prespecified equivalence study
 Xiaonan Xu, Wenjing Wu　·　arxiv: 2608.03169
 
 連結: [arxiv](https://arxiv.org/abs/2608.03169) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03169)

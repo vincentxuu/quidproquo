@@ -147,7 +147,7 @@ export function buildResearchBriefDraft(result: ResearchBriefResult, context: Dr
       'brief',
       'ai',
       slugify(context.language),
-    ].filter(Boolean).join('\", \"')}"]`,
+    ].filter(Boolean).join('", "')}"]`,
     `lang: ${context.language}`,
     'description: "研究主題預備稿，先保留可執行的研究問題、主張與人工作業清單。"',
     `tldr: "${escapeYamlString(`對 ${formatTitle(result.topic)} 進行結構化研究、主張核對與可引用查證佈局。`) }"`,

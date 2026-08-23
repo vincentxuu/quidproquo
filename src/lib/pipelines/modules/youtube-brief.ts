@@ -148,7 +148,7 @@ export function buildYouTubeBriefDraft(result: YouTubeBriefResult, context: Draf
       'brief',
       'video',
       slugify(context.language),
-    ].filter(Boolean).join('\", \"')}"]`,
+    ].filter(Boolean).join('", "')}"]`,
     `lang: ${context.language}`,
     `description: "${escapeYamlString(`基於 ${result.source.url} 的 YouTube 草稿，保留人工補充與逐段驗證清單。`)}`,
     `tldr: "先完成影片主張拆解後再補齊引用與邏輯鏈接。"`,

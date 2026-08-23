@@ -19,7 +19,7 @@ export function resolvePreset(
   const resolved: FlowDefinition = { ...def }
 
   if (overrides.retry) {
-    resolved.retry = { ...(def.retry ?? {}), ...overrides.retry }
+    resolved.retry = { ...def.retry, ...overrides.retry }
   }
 
   if (overrides.timeout !== undefined) {

@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜Harness-IF：你的 Coding Agent 真的在聽指令嗎？
 
-**Harness-IF: Evaluating Instruction Following Across Instruction Surfaces in Coding Agents**
+### Harness-IF: Evaluating Instruction Following Across Instruction Surfaces in Coding Agents
 Zining Huang, Haoran Que, Hong Zeng et al.　·　arxiv: 2608.11727
 
 連結: [arxiv](https://arxiv.org/abs/2608.11727) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11727)
@@ -74,7 +74,7 @@ Coding Agent 的指令遵從率被系統性高估——模型「本來就會做�
 
 ## 論文二｜SHE：讓安全 Harness 從失敗中自動演化
 
-**SHE: Trajectory-driven Safety Harness Evolution for LLM Agents**
+### SHE: Trajectory-driven Safety Harness Evolution for LLM Agents
 Wanying Qu, Qinghua Mao, Yu Li et al.（上海 AI Lab / 復旦 / 上交 / 港科大）　·　arxiv: 2608.09885
 
 連結: [arxiv](https://arxiv.org/abs/2608.09885) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09885)
@@ -120,7 +120,7 @@ Wanying Qu, Qinghua Mao, Yu Li et al.（上海 AI Lab / 復旦 / 上交 / 港科
 
 ## 論文三｜SBCO：讓規劃 Agent 的 Harness 自動變強，成本降 5 倍
 
-**SBCO: Self-Supervised, Verifier-Grounded Harness Optimization For Planning Agents**
+### SBCO: Self-Supervised, Verifier-Grounded Harness Optimization For Planning Agents
 Vivek Kulkarni, Sudipta Paul, Aounon Kumar et al.　·　arxiv: 2608.10157
 
 連結: [arxiv](https://arxiv.org/abs/2608.10157) · [alphaxiv](https://www.alphaxiv.org/abs/2608.10157)

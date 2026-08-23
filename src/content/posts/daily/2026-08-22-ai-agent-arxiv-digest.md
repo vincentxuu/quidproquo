@@ -30,7 +30,7 @@ series:
 
 ## 論文一｜LEDGER：Agent 做完事，你憑什麼相信牠？
 
-**LEDGER: Claim-to-Evidence Trace Graphs for Auditing LLM Agents**
+### LEDGER: Claim-to-Evidence Trace Graphs for Auditing LLM Agents
 Daehong Kim, Haichao Miao, Shusen Liu（Lawrence Livermore National Laboratory）　·　arxiv: 2608.18398
 
 連結: [arxiv](https://arxiv.org/abs/2608.18398) · [alphaxiv](https://www.alphaxiv.org/abs/2608.18398)
@@ -74,7 +74,7 @@ LLM agent 已經能獨立跑完涉及複雜工具呼叫、程式執行、檔案�
 
 ## 論文二｜StateMemBench：Agent 記得住事實，但追不上「事實正在改變」
 
-**Can Agent Memory Systems Track Evolving State?**
+### Can Agent Memory Systems Track Evolving State?
 Xinyi Fan, Miri Liu, Ruozhen Yang, Siru Ouyang, Jiawei Han（University of Illinois Urbana-Champaign）　·　arxiv: 2608.19652
 
 連結: [arxiv](https://arxiv.org/abs/2608.19652) · [alphaxiv](https://www.alphaxiv.org/abs/2608.19652)
@@ -119,7 +119,7 @@ Xinyi Fan, Miri Liu, Ruozhen Yang, Siru Ouyang, Jiawei Han（University of Illin
 
 ## 論文三｜AI4AI-Bench：讓 Agent 改良訓練演算法，六套系統平均只拿 0.166 分
 
-**AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement**
+### AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement
 Yizhe Chi, Wenyi Li, Deyao Hong et al.（Navers Lab, Einsia.AI · Tsinghua University）　·　arxiv: 2608.20318
 
 連結: [arxiv](https://arxiv.org/abs/2608.20318) · [alphaxiv](https://www.alphaxiv.org/abs/2608.20318)

@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜Agent 的肌肉記憶：編譯而非檢索
 
-**Muscle Memory for Agents: Compile not Merely Retrieve**
+### Muscle Memory for Agents: Compile not Merely Retrieve
 Pouya Ghiasnezhad Omran, Soujanya Lanka, Qin Zhang et al.　·　arxiv: 2608.08995
 
 連結: [arxiv](https://arxiv.org/abs/2608.08995) · [alphaxiv](https://www.alphaxiv.org/abs/2608.08995)
@@ -75,7 +75,7 @@ Agent 記憶目前幾乎收斂到單一模式：把經驗存成文字/嵌入/反
 
 ## 論文二｜MoRSE：用角色×子任務專家讓多 Agent 真正特化
 
-**MoRSE: Task-Oriented Multi-Agent System with Mixture of Role-Subtask Experts**
+### MoRSE: Task-Oriented Multi-Agent System with Mixture of Role-Subtask Experts
 Peiwen Li, Shiyang Zhang, Yangtian Zhang, Sizhuang He et al.（Yale University）　·　arxiv: 2608.09251
 
 連結: [arxiv](https://arxiv.org/abs/2608.09251) · [alphaxiv](https://www.alphaxiv.org/abs/2608.09251)
@@ -121,7 +121,7 @@ Peiwen Li, Shiyang Zhang, Yangtian Zhang, Sizhuang He et al.（Yale University�
 
 ## 論文三｜ASCon：多 Agent 系統壞了，統一找出誰的錯
 
-**ASCon: A Direction-Aware Reciprocal Agent–Step Contextualization Model for Failure Attribution in Multi-Agent Systems**
+### ASCon: A Direction-Aware Reciprocal Agent–Step Contextualization Model for Failure Attribution in Multi-Agent Systems
 Shuyu Jiang, Yue Ran, Kaiyu Xu, Xingshu Chen et al.　·　arxiv: 2608.10646
 
 連結: [arxiv](https://arxiv.org/abs/2608.10646) · [alphaxiv](https://www.alphaxiv.org/abs/2608.10646)

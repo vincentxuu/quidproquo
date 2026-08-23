@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜記憶獎勵膨脹：自我改善 Agent 的隱性退化
 
-**Memory Reward Inflation in Self-Improving LLM Agents**
+### Memory Reward Inflation in Self-Improving LLM Agents
 Mohammad Asadolahi, Amir Amini, Samira Talebi et al.（University of Isfahan）　·　arxiv: 2608.00017
 
 連結: [arxiv](https://arxiv.org/abs/2608.00017) · [alphaxiv](https://www.alphaxiv.org/abs/2608.00017)
@@ -74,7 +74,7 @@ Mohammad Asadolahi, Amir Amini, Samira Talebi et al.（University of Isfahan）�
 
 ## 論文二｜RoMeRL：用固定維度座標壓縮 Agent 記憶狀態空間
 
-**RoMeRL: Balancing Feedback Coverage and the Memory-Reward Trap in Self-Evolving Agent Memory via Reduced-Order Utility States**
+### RoMeRL: Balancing Feedback Coverage and the Memory-Reward Trap in Self-Evolving Agent Memory via Reduced-Order Utility States
 Yi Yang, Zhennan Chen, Yihong Zhuang et al.　·　arxiv: 2608.02508
 
 連結: [arxiv](https://arxiv.org/abs/2608.02508) · [alphaxiv](https://www.alphaxiv.org/abs/2608.02508)
@@ -121,7 +121,7 @@ Agent 記憶系統的主流做法是：每次互動存一條軌跡，用強化�
 
 ## 論文三｜ToolLIFT：把工具經驗抽象成可遷移的功能工作流
 
-**ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning**
+### ToolLIFT: Lifting Tool-Specific Trajectories into Function-Level Graphs for Generalizable Tool Planning
 Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 
 連結: [arxiv](https://arxiv.org/abs/2608.03468) · [alphaxiv](https://www.alphaxiv.org/abs/2608.03468)

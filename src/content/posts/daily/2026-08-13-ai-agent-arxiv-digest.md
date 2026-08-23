@@ -29,7 +29,7 @@ series:
 
 ## 論文一｜EvoGraph-Mem：讓 Agent 記憶能自我修正的失敗感知圖譜
 
-**EvoGraph-Mem: Failure-Aware Editable Graph Memory for Long-Term Language Agents**
+### EvoGraph-Mem: Failure-Aware Editable Graph Memory for Long-Term Language Agents
 Yuxi Qian, Yuxiang Ren　·　arxiv: 2608.11248
 
 連結: [arxiv](https://arxiv.org/abs/2608.11248) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11248)
@@ -74,7 +74,7 @@ Yuxi Qian, Yuxiang Ren　·　arxiv: 2608.11248
 
 ## 論文二｜MAP-Graph：用出處追蹤做即時存取控制的多 Agent 共用記憶
 
-**MAP-Graph: Provenance-Aware Shared Memory for Multi-Agent Workflows**
+### MAP-Graph: Provenance-Aware Shared Memory for Multi-Agent Workflows
 Yiqi Wang, Zihao Yan, Jiaqi Zhang et al.　·　arxiv: 2608.10509
 
 連結: [arxiv](https://arxiv.org/abs/2608.10509) · [alphaxiv](https://www.alphaxiv.org/abs/2608.10509)
@@ -120,7 +120,7 @@ Yiqi Wang, Zihao Yan, Jiaqi Zhang et al.　·　arxiv: 2608.10509
 
 ## 論文三｜MaSRead：讓多 Agent 共用 KV Cache 片段作為記憶
 
-**MaSRead: Content-Addressed Reading of Replicated Latent Stores**
+### MaSRead: Content-Addressed Reading of Replicated Latent Stores
 Carlos Baquero, Luís Brito, João Resende　·　arxiv: 2608.11218
 
 連結: [arxiv](https://arxiv.org/abs/2608.11218) · [alphaxiv](https://www.alphaxiv.org/abs/2608.11218)

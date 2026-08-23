@@ -9,7 +9,7 @@ export interface ParityReport {
   diffs: ParityDiff[]
 }
 
-export async function runPipelineParity(opts: {
+export async function runPipelineParity(_opts: {
   pipelineId: string
   flowId: string
   input: Record<string, unknown>

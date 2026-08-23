@@ -224,7 +224,7 @@ ${post.content}`
   }
 }
 
-function hasSectionSignal(section: FreshnessSection, text: string): boolean {
+function hasSectionSignal(section: FreshnessSection, _text: string): boolean {
   const combined = `${section.heading} ${section.snippets.join(' ')}`.toLowerCase()
   if (VERSION_RE.test(combined)) return true
   if (YEAR_CH_RE.test(combined) || DATE_RE.test(combined)) return true
