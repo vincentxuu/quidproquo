@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 
-先處理最容易被「名校 AI 課程」這個標題帶歪的地方：**Berkeley 大學部沒有一個獨立的 AI 學士。**官方列出的相關學位是 Computer Science BA 與 Electrical Engineering and Computer Sciences BS；學生在共同的程式、理論與數學基礎上，用高年級選修組出 AI／ML 路線。
+先處理最容易被「名校 AI 課程」這個標題帶歪的地方：依 [Berkeley EECS 的學士方案比較](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)，**Berkeley 大學部沒有一個獨立的 AI 學士。**官方列出的相關學位是 Computer Science BA 與 Electrical Engineering and Computer Sciences BS；學生在共同的程式、理論與數學基礎上，用高年級選修組出 AI／ML 路線。
 
 這和 MIT 的 Course 6-4 很不一樣。MIT 有正式的 Artificial Intelligence and Decision Making 學位；Berkeley 比較像一張可自行組合的網。你可以從 CS188 進入搜尋、推理與規劃，也可以從 CS189 進入數學較重的機器學習，之後再接深度學習、自然語言處理、電腦視覺或強化學習。
 
@@ -130,11 +130,11 @@ CS189 是這條路的主幹。想讀最新 NLP，Spring 2026 CS288 已公開三�
 
 ```text
 CS189
-  ├─ CS180/280A Fall 2025 → CS C280 Spring 2026
+  ├─ CS C182 + CS180/280A Fall 2025 → CS C280 Spring 2026
   └─ CS185/285 Spring 2026
 ```
 
-CS180/280A 是很好的 project-first 視覺入口，五個專案比錄影更有價值。要再往進階視覺走，才接 CS C280。若目標是 control、robotics 或 embodied AI，CS185/285 的五份 homework 與公開 starter code 能形成另一條 A3 路線。
+CS180/280A 是很好的 project-first 視覺入口，五個專案比錄影更有價值。[CS C280 官方頁](https://cs280-berkeley.github.io/)要求讀者已掌握 CS189、CS C182 與 CS180/280A 的內容；這是建議背景，不是本文聲稱的註冊系統強制先修。若目標是 control、robotics 或 embodied AI，CS185/285 的五份 homework 與公開 starter code 能形成另一條 A3 路線。
 
 但 CS185/285 的 enrolled students 有課程提供的 compute support，校外讀者沒有。這是實際成本，不是教材頁腳的小字。開始前應先閱讀每份 homework 的運算需求，決定要縮小實驗、租 GPU，或只完成較輕的部分。
 
@@ -162,6 +162,10 @@ CSDIY 目前有 Berkeley **CS188、CS189、CS285** 的獨立頁面。它很適�
 Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口加多條專題分支的結構。先決定你要補的是「智慧系統如何推理」還是「模型如何從資料學習」，再用公開程度挑版本，會比照著課號由小排到大有效得多。
 
 延伸閱讀：[MIT AI／ML 課程導讀](/posts/learning/2026-08-21-mit-ai-ml-course-map)採的是另一種結構——正式 AI 學位先定義能力中心，再去找可公開自學的版本。兩篇對照著看，能更清楚分辨「學位課綱」與「校外可執行路線」不是同一件事。
+
+## 更新紀錄
+
+- 2026-08-22：依 CS C280 官方背景要求，把 CS C182 補回進階視覺自學路線。
 
 ## 參考資料
 

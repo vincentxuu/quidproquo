@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-cmu-ai-ml-course-map)
 
-CMU differs from the previous stops in this series. It has a formal Bachelor of Science in Artificial Intelligence, and it is actively rewriting that degree's foundation. **07-280 Artificial Intelligence and Machine Learning I** debuted in Spring 2026. Its sequel, **07-380**, will not be taught for the first time until Fall 2026. The old 15-281 Artificial Intelligence and 10-315 Introduction to Machine Learning for SCS are leaving the regular path.
+CMU differs from the previous stops in this series. It has a formal [Bachelor of Science in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum), and it is actively rewriting that degree's foundation. **07-280 Artificial Intelligence and Machine Learning I** debuted in Spring 2026. Its sequel, **07-380**, will not be taught for the first time until Fall 2026. The old 15-281 Artificial Intelligence and 10-315 Introduction to Machine Learning for SCS are leaving the regular path.
 
 That produces an apparent contradiction with a useful answer: **look at 07-280/380 to understand what CMU now believes an AI undergraduate should study, but use the completed Spring 2026 remains of 07-280 or the continuing 10-301/601 course if you want something executable outside CMU today.** A future Fall 2026 page is not yet a completed public course.
 
@@ -82,7 +82,7 @@ The table uses the editorial scale from the [Global AI and CS Course Map](/posts
 | **10-414/714, current site** | **A3*** | 26 lectures of slides/notebooks, official 2022 video, and implementation notebooks | `*` mixes editions; the 2025 HW0–3 repositories currently return 404, and `mugrade` is enrollment-only |
 | **10-708, Spring 2026** | **A2** | Roughly 25 sets of slides and readings | Recordings are enrollment-only; four homework sets are available only through Piazza |
 
-07-280 must be split by edition. Its home page now points to Fall 2026, which starts four days after this audit; the lecture-material column and most assignments are not yet populated, so the current offering is only an A2 preview. However, the completed Spring 2026 lecture PDFs, notes, recitation worksheets and solutions, written homework, and some AlexNet, GPT-2, and AlphaZero notebooks remain anonymously available at official CMU URLs. That is enough for A3. The problem is preservation: CMU did not retain a stable Spring 2026 semester home page, so those direct links may disappear.
+07-280 must be split by edition. Its home page now points to Fall 2026, which starts four days after this audit; the lecture-material column and most assignments are not yet populated, so the current offering is only an A2 preview. Spring 2026's [first lecture](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [first recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf), and [first homework](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf) remain anonymously accessible, with later notes, solutions, and selected notebooks forming an A3 route. The preservation risk remains: CMU did not retain a stable Spring 2026 semester index.
 
 07-380 is clearer. Its page usefully previews ML theory, game theory, probabilistic graphical models, planning, distributed deep learning, generative AI, RLHF, vision transformers, diffusion, and VAEs. But the first class has not happened, and the page has no syllabus or schedule. A detailed topic paragraph is not a completed public course.
 
@@ -141,6 +141,10 @@ Use ninety minutes to choose a lane instead of waiting for Fall 2026 to fill in:
 CMU's redesign exposes two layers that every course guide should separate: **a degree uses new courses to define the future; self-study uses material that is executable today.** Keeping both layers visible lets you follow the latest curriculum without waiting for every new course to finish publishing.
 
 For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-ml-course-map-en) follows a more stable formal degree spine. The [Berkeley AI/ML Course Guide](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) builds parallel entrances without a standalone AI bachelor's degree. Together, the three schools make it clear that degree structure and public-course availability are separate questions.
+
+## Changelog
+
+- 2026-08-22: Added direct official Spring 2026 assets so an anonymous reader can reproduce the 07-280 A3 rating.
 
 ## References
 

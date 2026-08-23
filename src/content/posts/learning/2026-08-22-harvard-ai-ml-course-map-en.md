@@ -46,12 +46,12 @@ CS50/CS32 → CS51/CS61
 | **CS50 AI OCW, rolling edition** | **A3** | Seven weeks of video, audio, slides, transcripts, notes, project specs, distributions, and parts of the `check50` workflow | Lecture and project assets span editions; this is not current Harvard College enrollment |
 | **CSCI S-80, Summer 2026** | **A3*** | A formal seven-week schedule, 2020 recordings, 2020 project distributions, and public specifications | `*` The material is usable, but Gradescope, sections, quizzes, office hours, and formal feedback require enrollment |
 | **CS1810, Spring 2026** | **A3** | Current syllabus, seven homework directories, course notes, and section material | The syllabus says all learning is in person; current complete recordings are not public, while Gradescope and Ed are restricted |
-| **CS1820, Fall 2026** | **A1** | Catalog entry, topic scope, instructor, and preview site | The course begins September 2, so a complete video or assignment chain cannot yet be assessed |
+| **CS1820, Fall 2026** | **A0** | Catalog entry, topic scope, instructor, and preview site | The course begins September 2; no public syllabus or delivered material yet |
 | **CS182, Fall 2022 archive** | **A2** | Historical lecture and section notes plus exams | Not the current edition; no complete, consistent video/starter/grader chain |
-| **CS1840 RL, Fall 2026** | **A1** | Catalog and detailed topic description | The offering is not complete yet |
-| **CS2831 Advanced Computer Vision, Fall 2026** | **A1** | Catalog, instructor, and topic description | The current material set is not yet a complete auditable public course |
+| **CS1840 RL, Fall 2026** | **A0** | Catalog and topic description | The offering is not complete yet |
+| **CS2831 Advanced Computer Vision, Fall 2026** | **A0** | Catalog, instructor, and topic description | The current material set is not yet an auditable public course |
 
-The A0–A3 scale comes from the [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 exposes only a catalog entry, A1 adds a syllabus or complete specification, A2 exposes substantive partial material, and A3 is coherent enough for self-study. These are not Harvard ratings and do not promise credit, instructor feedback, or free compute.
+The A0–A3 scale comes from the [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 covers catalog, offering, or topic descriptions; A1 requires an accessible syllabus; A2 exposes substantive partial material; and A3 is coherent enough for self-study. These are not Harvard ratings and do not promise credit, instructor feedback, or free compute.
 
 ## CS50 AI: complete enough to study, not a wholly new 2026 edition
 
@@ -91,9 +91,13 @@ Attempt HW0 first. Repair only the gaps it exposes, then use the six main homewo
 
 ### 3. Add broad AI or a specialist branch
 
-For planning, games, and multi-agent systems, use the dated CS182 Fall 2022 archive until Fall 2026 is complete. Track CS1840 for sequential decision making and CS2831 for vision. Both Fall 2026 offerings are currently announcements, not complete public courses.
+For planning, games, and multi-agent systems, start now with the first problem-solving notes in the dated CS182 Fall 2022 archive. CS1840 and CS2831 are future tracking items, not current self-study routes; do not promise their material before a syllabus and assignments exist.
 
 Harvard's clearest lesson is that a polished public page still needs an asset-level version audit. CS50 AI shows how lecture and assignment years can diverge; CS1810 shows that a course without public recordings can still be A3; CS1820 shows that the newest catalog entry is not yet a public course. Separating those states produces a route learners can start now and update honestly later.
+
+## Changelog
+
+- 2026-08-22: Standardized the A0/A1 boundary, re-rated catalog-only Fall 2026 courses as A0, and separated future tracking from current self-study routes.
 
 ## References
 

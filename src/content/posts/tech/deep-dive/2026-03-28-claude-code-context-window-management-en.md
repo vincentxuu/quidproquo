@@ -5,7 +5,7 @@ type: guide
 category: tech
 tags: [claude-code, context-window, optimization, token, dx]
 lang: en
-tldr: "Each Claude Code feature consumes context differently: CLAUDE.md is present on every request, Skills load on demand, MCP only loads tool names, Sub-agents are fully isolated, and Hooks cost zero context. Understanding these differences is key to managing your context window and preventing erratic AI behavior."
+tldr: "Each Claude Code feature consumes context differently: the root CLAUDE.md is present on every request (nested ones load on demand), Skills load only their descriptions, MCP only loads tool names, and Sub-agents are fully isolated. Understanding these differences is key to managing your context window and preventing erratic AI behavior."
 description: "A guide to Claude Code's context window management: when each feature loads and how much context it costs, the auto-compaction mechanism, symptoms and remedies when context fills up, and optimization strategies for CLAUDE.md, Skills, MCP, Sub-agents, and Hooks."
 draft: true
 series:
@@ -30,20 +30,20 @@ series:
 
 | Feature | When Loaded | What's Loaded | Context Cost |
 |---------|-------------|---------------|--------------|
-| CLAUDE.md | Session start | Full content | Present on every request |
+| CLAUDE.md | Session start | Full content of root and ancestor files | Present on every request; nested CLAUDE.md files load only when Claude reads files in that directory |
 | Skills | Session start + invocation | Description (start) → full content (invocation) | Low (description always present) |
-| MCP servers | Session start | Tool names only | Low, until a tool is used |
+| MCP servers | Session start | Tool names only (full schemas stay deferred and load via tool search when needed) | Low, until a tool is used |
 | Sub-agents | On launch | Fresh context | Fully isolated from main conversation |
-| Hooks | On trigger | Nothing (external execution) | Zero |
+| Hooks | On trigger | Nothing (external execution) | Zero (unverified: not stated in official docs; hook stdout injected into context still costs tokens) |
 
 ### CLAUDE.md Context Strategy
-- Keep it under 200 lines (official recommendation caps at 500 lines)
+- Keep it under 200 lines (official recommendation; the hard limit is 4 MiB, beyond which the file is skipped)
 - Move reference material to Skills
 - Split rules using `.claude/rules/`
-- Path-specific rules only load when the relevant files are touched
+- Path-scoped rules in `.claude/rules/` load only when Claude reads files matching the pattern, not on every tool use
 
 ### Skills Context Optimization
-- `disable-model-invocation: true`: hidden until manually invoked
+- `disable-model-invocation: true`: hidden until manually invoked (unverified: the official skills docs say frontmatter controls who invokes a skill but do not list this field name)
 - Precise descriptions help Claude delegate correctly
 - Avoid overlapping descriptions across multiple skills
 
@@ -53,8 +53,7 @@ series:
 - Agent Teams go further: each teammate has a fully independent context
 
 ### Auto-compaction Mechanism
-- Automatically triggers compression when context approaches 95% capacity
-- `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` adjusts the trigger threshold
+- Automatically triggers compression as context nears its limit (unverified: the 95% threshold and `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` were not found in official docs)
 - Sub-agents also support auto-compaction
 
 ### Symptoms of a Full Context
@@ -63,7 +62,13 @@ series:
 - Degraded response quality
 - Remedies: start a new session, use sub-agents, trim CLAUDE.md
 
+## Changelog
+
+- 2026-08-22: Verified outline claims against official docs — CLAUDE.md limit corrected to 4 MiB, added on-demand loading of nested CLAUDE.md and path-scoped rules, noted deferred MCP schemas; unverified claims marked as such
+
 ## References
+
+- [Manage costs effectively](https://code.claude.com/docs/en/costs) — official guidance to keep CLAUDE.md under 200 lines and move specialized instructions into skills
 
 - [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — Anthropic's official interactive context simulator, visually showing token consumption per feature across a session
 - [Claude Code Best Practices — Manage Context Aggressively](https://docs.anthropic.com/en/docs/claude-code/best-practices#manage-context-aggressively) — Official context management best practices, including `/compact`, `/clear`, and subagent usage strategies

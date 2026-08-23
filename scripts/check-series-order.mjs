@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 
 const POSTS_ROOT = path.resolve('src/content/posts');
@@ -12,21 +13,23 @@ function walk(dir) {
 }
 
 // zh 與 en 是同一個系列的兩個語面，各自從 1 開始編號，所以分開檢查。
-function groupBySeries(files) {
+export function groupBySeries(files) {
   const groups = new Map();
   for (const file of files) {
     const { data } = matter(fs.readFileSync(file, 'utf8'));
-    const series = data.series;
-    if (!series || typeof series.name !== 'string') continue;
     const lang = data.lang === 'en' ? 'en' : 'zh-TW';
-    const key = `${series.name}\t${lang}`;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push({ file, order: series.order });
+    const memberships = [data.series, ...(data.additionalSeries ?? [])]
+      .filter((series) => series && typeof series.name === 'string');
+    for (const series of memberships) {
+      const key = `${series.name}\t${lang}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push({ file, order: series.order });
+    }
   }
   return groups;
 }
 
-function findProblems(groups) {
+export function findProblems(groups) {
   const problems = [];
   const warnings = [];
   for (const [key, items] of [...groups].sort()) {
@@ -88,4 +91,6 @@ function main() {
   process.exitCode = 1;
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
+}

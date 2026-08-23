@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-mit-ai-ml-course-map)
 
-First, a correction to an error that is easy to inherit from old guides: **MIT has a formal AI degree.** Course 6-4 is the Bachelor of Science in **Artificial Intelligence and Decision Making**, and students have been able to declare it since Fall 2022. It is not merely a few machine-learning electives hidden inside the computer science degree.
+First, a correction to an error that is easy to inherit from old guides: [**MIT has a formal AI degree.**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/) Course 6-4 is the Bachelor of Science in **Artificial Intelligence and Decision Making**, and students have been able to declare it since Fall 2022. It is not merely a few machine-learning electives hidden inside the computer science degree.
 
 That does not mean MIT publishes a seamless online path from a first Python lesson to its latest work on large models. The resources split into three layers that often fail to align:
 
@@ -80,7 +80,7 @@ The ratings below use the editorial scale defined in the [Global AI and CS Cours
 
 | Subject and edition | Rating | What opens anonymously | What is missing |
 |---|---:|---|---|
-| **6.S191, IAP 2026** | **A3** | Nine videos and slide decks, three labs, official GitHub repository | MIT feedback, credit, and cloud credits |
+| **6.S191, Spring 2026** | **A3** | Nine weekly videos and slide decks from March 30 to May 25, three labs, official GitHub repository | MIT feedback, credit, and cloud credits |
 | **6.3900, Spring 2026** | **A2** | Some static lecture material remains accessible | Home page and homework archived after the term; video, Shimmer, and Piazza restricted |
 | **6.4110, Spring 2026** | **A2** | Info, calendar, slides, several CAT-SOOP assignments, and code stubs | Panopto video in Canvas; no complete public solutions |
 | **6.7960, Fall 2025** | **A2** | Schedule, slides, readings, and some PyTorch Colabs | Video and solutions in Canvas; assignments released through Gradescope |
@@ -105,11 +105,11 @@ Build the Python, linear algebra, and probability prerequisites, then use the pu
 
 ```text
 6.3900 public notes
-  ├─ 6.S191 2026: a one-week introduction to modern deep learning
+  ├─ 6.S191 Spring 2026: a nine-week introduction to modern deep learning
   └─ 6.7960 Fall 2024 OCW: a semester of advanced deep learning
 ```
 
-6.S191 quickly connects convolutional networks, Transformers, generative models, and AI for science. It is a one-week bootcamp, not the predecessor or equivalent of 6.7960. For a theory-oriented route with 24 lectures and longer assignments, use the 6.7960 OCW edition.
+[6.S191 Spring 2026](https://introtodeeplearning.com/) quickly connects convolutional networks, Transformers, generative models, and AI for science. It met weekly from March 30 through May 25; it was not a one-week IAP bootcamp, nor is it the predecessor or equivalent of 6.7960. For a theory-oriented route with 24 lectures and longer assignments, use the 6.7960 OCW edition.
 
 ### 2. AI beyond neural networks
 
@@ -149,6 +149,10 @@ Do not bookmark ten courses. Spend half an hour on three steps:
 3. Write down the missing prerequisite: Python, algorithms, linear algebra, or probability. Go back and fill that one first.
 
 The most valuable thing to borrow from MIT is not a list of famous subjects. It is the way Course 6-4 divides AI capability into data, models, decisions, computation, and people. Public material lets an outside learner borrow much of that structure. Credit, feedback, peers, gated platforms, and the research environment remain outside the package.
+
+## Changelog
+
+- 2026-08-22: Corrected 6.S191 2026 to a nine-week spring course rather than a one-week IAP bootcamp.
 
 ## References
 

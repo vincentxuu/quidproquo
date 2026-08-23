@@ -13,8 +13,11 @@ lang: zh-TW
 series:
   name: "Stanford CS 主線課程導讀"
   order: 1
+additionalSeries:
+  - name: "世界名校 AI／CS 課程地圖"
+    order: 1
 type: guide
-tldr: "Stanford CS 一年開三百多門課，但骨架只有五門：CS103、CS107、CS109、CS111、CS161——CS221 的先修欄位直接把其中四門列出來。這篇按官方先修關係排出從入門到研究級的階梯，五條分支各走一段，並處理兩件課表通常不講的事：自學會卡在哪四個地方（起始碼被鎖、錄影不外流、GPU 要錢、沒人改作業），以及有哪些被廣泛引用的進階課其實已經停開好幾年。"
+tldr: "Stanford CS 的骨架是 CS103、CS107、CS109、CS111、CS161；CS221 先修列出其中三門，另加 CS106B。本文依官方先修與編輯者建議順序排出主線，並標明公開教材與停開風險。"
 description: "以 Stanford 官方核心課程要求與 ExploreCourses 先修條件為依據，排出 CS106A 到 CS336、CS329A 的完整修課階梯，涵蓋 NLP/LLM、視覺、強化學習、圖學、系統五條分支，並附上公開教材現況、自學限制與最近開課紀錄。"
 draft: false
 ---
@@ -25,11 +28,11 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 這篇是那份地圖。它按**官方先修關係**排，從第一門程式課排到需要申請才修得到的 LLM 課，每一階標出這門課在教什麼、公開教材實際拿得到什麼。文章後半處理兩件課表通常不講的事：不修學分的人會在哪裡碰壁，以及**有些被廣泛引用的進階課，其實已經好幾年沒開了。**
 
-範圍先講清楚：**這篇只收「教材公開到足以自學」的課**。Stanford CS 還有大量研討會型、實驗室型、跨系合開的課（HCI、圖學、生物計算、計算法律都各有一整排），它們或者只放一份 syllabus，或者材料全在 Canvas 後面，所以不進這份清單。另外，本站已經有兩個系列逐週拆解單一課程——[CS146S](/posts/ai/2026-08-16-cs146s-course-map) 和 [CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)——這篇是它們上一層的入口，不重複那些內容。
+範圍先講清楚：**這篇只收「教材公開到足以自學」的課**。沿用[全球入口](/posts/learning/2026-08-21-global-ai-cs-course-map)的標準，A0 是 catalog，A1 是 syllabus，A2 是部分實質教材，A3 才是能排成連續自學課。本篇主路線納入的版本均以 A3 為門檻；只剩課表或 Canvas 內材料的課不列入路線，停開與佔位條目則另表揭露。這是教材公開度，不是教學品質或難度評分。
 
 ## 先破一個誤會：課號不是難度
 
-很多人以為 CS106B 比 CS103 簡單、CS336 比 CS229 難，因為數字比較小或比較大。這個推論在 Stanford 不成立，而且不成立是官方講的。學術輔導處的課程目錄說明頁寫得很直接：
+很多人以為 CS106B 比 CS103 簡單、CS336 比 CS229 難，因為數字比較小或比較大。這個推論在 Stanford 不成立，而且不成立是官方講的。[學術輔導處的課程目錄說明頁](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog)寫得很直接：
 
 > Stanford does not have a standardized course numbering system. This means that each department is free to number its courses in its own way.
 
@@ -51,9 +54,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 ## 第二階：學位的骨架，是這五門
 
-這是整篇最重要的一節。Stanford CS 系官網的核心要求頁把大學部的骨架寫死成五門課，而且附了一條硬規定：**CS103、CS107、CS109、CS111、CS161 必須以五學分修習**。不是「建議」，是不接受降學分的版本。
+這是整篇最重要的一節。[Stanford CS 學位要求](https://www.cs.stanford.edu/bs-degree-requirements)把大學部的骨架寫成五門課，而且附了一條硬規定：**CS103、CS107、CS109、CS111、CS161 必須以五學分修習**。不是「建議」，是不接受降學分的版本。
 
-更能說明它們地位的是另一件事：**CS221 的先修欄位，直接把其中四門列了出來**——CS103、CS106B、CS109、CS161，後面還補一句「我們強烈建議在修課前先熟悉這些概念」。想走 AI 的人常常想跳過這一階，但 AI 的入門課自己不同意。
+更能說明它們地位的是另一件事：[CS221 的先修欄位](https://bulletin.stanford.edu/courses/1057301)列出核心五門中的三門——CS103、CS109、CS161——另加 CS106B，並強烈建議修課前熟悉這些概念。想走 AI 的人常常想跳過這一階，但 AI 的入門課自己不同意。
 
 | 課號 | 課名 | 這門課換掉你哪個直覺 |
 |---|---|---|
@@ -236,7 +239,7 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 
 **如果你要走通用 AI 研究**：地基五門 → CS221 → CS229 → CS230 → CS228 → 挑一條分支 → CS312 或 CS221M。這條最像先打全科底再走研究導向。
 
-**如果你的目標是 LLM 與 agent**：地基五門 → CS124 → CS221 → CS229 → CS224N → CS224U 或 CS224V → CS329X → CS329Z → CS336。每一步都有官方先修關係撐著，是五條裡依賴鏈最完整的一條。中間那些課想跳可以，但 CS336 的先修條件要老實面對——它要求的不是修過幾門課，是你能不能在沒有鷹架的情況下寫出大量 PyTorch。如果對這一點沒把握，先把 CS231N 的作業做完，那份作業的鷹架密度剛好是 CS336 的相反面。
+**如果你的目標是 LLM 與 agent**：地基五門 → CS124／CS221／CS229 → CS224N → CS224U 或 CS224V → CS329X／CS329Z → CS336。這是本文依能力缺口排出的**建議自學順序**，不是每一個箭頭都代表官方 prerequisite；例如 CS224N → CS224U 是明列先修，但 CS336 接受多種 ML 背景，並不要求先修 CS329Z。中間課程可以依背景跳過，但 CS336 對 Python、PyTorch、系統、數學與機率的要求仍要老實面對。
 
 **如果你走視覺或機器人**：視覺是地基五門 → CS229 → CS230 → CS231A → CS231N；機器人是地基五門 → CS221 → CS238 → CS234 → CS223A → CS333。
 
@@ -253,20 +256,22 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - **付費修習的價格**：Stanford Online 的遠距學分版本，CS107 學費 8,110 美元、CS161 與 CS336 各 7,875 美元，都是五學分。教材免費、學分很貴，這個落差是這份地圖的前提。
 - **CS231N 評分比重**：作業 45%、期中 20%、期末專案 35%。
 - **CS336 講義 repo**：GitHub 上約 3.6k 顆星、757 個 fork（2026-08-20 讀數）。
-- **2026-27 學年有開的進階課**：CS221M（春）、CS224N（冬）、CS224U（春）、CS224V（秋）、CS224W（秋）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。**CS228 原本也列在這裡，現已移除**：它在 2026-2027 冬季確實有一筆條目，但上課時間與講師欄皆空，且 2024-2025 學年的分頁顯示「Last offered: Winter 2024」，屬於上一節講的佔位條目。
+- **2026-27 學年有明確開課資訊的進階課**：CS221M（春）、CS224N（冬）、CS224V（秋）、CS224W（秋）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。**CS224U 與 CS228 不列入**：兩者雖有條目，但時間或講師資訊不完整；CS224U 最近完整公開版本為 2023 春，CS228 的舊學年頁則寫最後開於 2024 冬。
 - **課號慣例**：1–99 全校入門、100–199 本系大學部、200–299 高年級與研究所新生、300 以上研究生。官方明講這不是標準，只是常見慣例。
-- **CS231A 舊課號**：CS223B。**CS111 前身**：CS110。
+- **CS231A 舊課號**：CS223B。**CS111 與 CS110**：現行描述是 CS111 可替代 CS110，不是改名或前身關係。
 
 有三項未能完全確認，都不是查得不夠，是結構性拿不到：Stanford 課程封存區沒有公開的索引頁，因此無法列出「總共有幾門課保留了歷屆網站」；CS312 的課程名稱在 ExploreCourses 的搜尋結果中沒有完整渲染出標題列，但以「Deep Learning Alchemy」為關鍵字搜尋會命中該條目；CS238 的獨立條目同樣沒有渲染成功，其存在與 AA228 的合開關係是從 CS239 的先修欄位「AA 228/CS 238 or CS 221」反推的。後兩項不影響階梯的排序結論。
 
 ## 更新紀錄
 
-- 2026-08-21：把主線課程逐門展開成獨立導讀之後，回頭修正本文六處。**（一）** 五學分規定原本引的 `www-cs.stanford.edu/bs-core-requirements` 已下線（301 轉址後 404），改引現行的 BS Degree Requirements 頁，舊頁補上 Wayback 快照。**（二）** CS106B 封存版誤標為 Fall 2025，實為 Spring 2025；同時補上學期代碼的解讀規律。**（三）** CS161「兩個官方課名」的矛盾已不成立——掛舊課名的頁面隨上述下線一併消失。**（四）** 停開表補上 CS228（2024 冬）、CS124（2026 冬）、CS224U（2023 春）。**（五）** CS228 自「2026-27 有開」清單移除，它那筆冬季條目沒有時段也沒有講師。**（六）** 「先查有沒有開」那節原本的查法會漏掉佔位條目，補上看時段與講師欄、切舊學年分頁、以及 ExploreCourses XML 介面三種做法。**（七）** 原本寫「CS111 就是以前的 CS110、CS110 自學資源照樣可用」，但現行官方描述寫的是「substitute for CS110」而非改名，且兩門課的作業與講次表差異很大（CS110 有 shell、HTTP 代理、MapReduce 與三堂網路，CS111 都沒有），該段已改寫。
+- 2026-08-22：統一 A0–A3 公開度說明，修正 CS221 核心課計數、LLM／agent 建議路線、CS224U 佔位狀態與 CS111／CS110 關係。
+
+- 2026-08-21：把主線課程逐門展開成獨立導讀之後，回頭修正本文七處。**（一）** 五學分規定原本引的 `www-cs.stanford.edu/bs-core-requirements` 已下線（301 轉址後 404），改引現行的 BS Degree Requirements 頁，舊頁補上 Wayback 快照。**（二）** CS106B 封存版誤標為 Fall 2025，實為 Spring 2025；同時補上學期代碼的解讀規律。**（三）** CS161「兩個官方課名」的矛盾已不成立——掛舊課名的頁面隨上述下線一併消失。**（四）** 停開表補上 CS228（2024 冬）、CS124（2026 冬）、CS224U（2023 春）。**（五）** CS228 自「2026-27 有開」清單移除，它那筆冬季條目沒有時段也沒有講師。**（六）** 「先查有沒有開」那節原本的查法會漏掉佔位條目，補上看時段與講師欄、切舊學年分頁、以及 ExploreCourses XML 介面三種做法。**（七）** 原本寫「CS111 就是以前的 CS110、CS110 自學資源照樣可用」，但現行官方描述寫的是「substitute for CS110」而非改名，且兩門課的作業與講次表差異很大（CS110 有 shell、HTTP 代理、MapReduce 與三堂網路，CS111 都沒有），該段已改寫。
 
 ## 參考資料
 
 - [Stanford CS BS Degree Requirements](https://www.cs.stanford.edu/bs-degree-requirements) — 核心五門五學分規定的現行出處（原文：「all undergraduate students (regardless of major) enrolling in CS 103, 107, 109, 111 or 161 must take it for 5 units」）
-- [舊版 CS BS Core Requirements（Wayback 2026-05-10 快照）](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — 已下線的舊頁，「CS111 前身為 CS110」與 CS161 舊課名「Data Structures and Algorithms」唯一還讀得到的出處
+- [舊版 CS BS Core Requirements（Wayback 2026-05-10 快照）](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements) — 已下線的舊頁，保存了曾把 CS111 寫成「Formerly known as CS110」及 CS161 舊課名的歷史文字；本文依現行條目不採用前者作改名結論
 - [Understanding the Course Catalog | Stanford Academic Advising](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) — 課號慣例與「Stanford 沒有標準編號系統」的原文
 - [Stanford Explore Courses](https://explorecourses.stanford.edu/) — 本文所有先修條件、學分數與開課紀錄的來源
 - [Stanford Explore Courses: Course Catalog Numbering](https://explorecourses.stanford.edu/about) — 編號規則的第二個官方出處

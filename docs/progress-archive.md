@@ -4,6 +4,7 @@
 
 ## 2026-08-22 歸檔
 
+- 2026-08-22: 修正「世界名校 AI／CS 課程地圖」傘狀系列：Stanford 中英文地圖加入 additionalSeries order 1，系列檢查器納入額外系列並補回歸測試；全球入口至 Harvard 現為 order 0–5，無缺號警告。
 - 2026-08-20: **Stanford CS 課程導讀**（learning，中英各一篇）。原本寫成兩篇（公開教材版 + AI 先修版），
   使用者要求合併，改以「官方先修關係」為單一主脊重寫：地基五門 → 三個入口 → 主幹 → 五條分支
   （NLP/視覺/RL/圖學/系統）→ 研究級，自學四卡點與「先查有沒有開課」升格成獨立章節。逐門對過
@@ -12,7 +13,6 @@
 - 2026-08-20: **面試準備系列完工**：AI Engineer 面試準備 10 篇 + Product Builder 面試準備 10 篇（共 20 篇 zh-TW），
   每日面試日練 routine 2 個（Routine N/O，台灣 2:39/2:43），`/interview` 頁面 + nav 連結 + daily channel filter。
   日練格式含「範例回答」（面試口語 blockquote）+ 「自我核對清單」（表格），使用者反饋原本的 bullet points 無法核對。
-
 - 2026-08-22: 完成 LLM Gateway 與追蹤工具專文盤點及補稿。LiteLLM、Portkey 原有中英文 deep-dive 已符合個別專文範圍；新增 Helicone、LangSmith 中英文稿，分別聚焦 proxy-first request observability 與 trace-to-evaluation workflow。四組文章通過台灣用語、references、語言對照、Astro 與完整 `pnpm verify`，待使用者 review。
 - 2026-08-22: 完成 Haystack、RAGFlow、Dify、R2R 與 Scrapy、Selenium、Bright Data、Zyte 共八組中英文工具專文草稿；均先確認無既有個別專文，依官方一手文件撰寫並通過內容品質閘門，待使用者 review。
 - 2026-08-22: 完成 Chroma、Milvus、LanceDB、pgvector 四組向量資料庫中英文 deep-dive 草稿；Weaviate 因已有法律 RAG 架構專文不重複。八檔均以官方一手文件查證，`check:tw`、references、lint、Astro 與完整 `pnpm verify` 通過，待使用者 review 後提交。
@@ -937,3 +937,12 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
   adaptive selector、agent search API 與自主 browser agent 的 canonical 定位。官方文件、費率與授權邊界
   已逐篇核對；整站 verify、Astro check、繁中語域及 78 個外部連結均通過。未呼叫需憑證 API，
   未執行受保護網站成功率或跨工具 benchmark。
+
+## 2026-08-22 Stanford CS103／CS107／CS109／CS111／CS221 逐講雙語導讀
+
+- 完成五門課的 canonical offering、manifest、content plan、逐講研究筆記與雙語導讀：CS103 28 講、
+  CS107 26 講、CS109 22 講、CS111 28 講、CS221 20 講，共 124 組／248 篇；CS109 Lecture 23–28
+  因 Summer 2026 官方材料尚未公開而維持阻塞，未以舊學期材料冒充。
+- 五門課均完成 clean-context 內容審查與查證；修正重複 PDF 分工、數式破損、模板殘留、雙語結構、
+  台灣用語、失效連結與量化主張原位來源。`pnpm verify` 與 `pnpm astro check` 通過；CS111、CS221
+  仍維持 `draft: true` 等使用者最終 review，未部署、未修改既有 slug/date 或治理腳本。
