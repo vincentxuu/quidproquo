@@ -77,7 +77,7 @@ pool / Signal Lottery（自寫回測引擎）──▶ tools/backtest.py
 6. [讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations)
 7. [Copilot loop：計畫合約、可驗證來源與人類審查](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop)
 8. [研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts)
-9. 部署邊界：Docker 到 Cloudflare Containers 的公開 API（即將推出）
+9. [部署邊界：Docker 到 Cloudflare Containers 的公開 API](/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment)
 
 ---
 
