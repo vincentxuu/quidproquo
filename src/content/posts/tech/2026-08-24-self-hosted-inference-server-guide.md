@@ -24,7 +24,7 @@ draft: false
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  模型管理平台                                            │
-│  Ollama ╱ Xinference ╱ Triton Inference Server          │
+│  Ollama ╱ LM Studio ╱ Xinference ╱ Triton               │
 │  ─ 模型下載、版本、API 路由、多模型並存、Web UI          │
 ├─────────────────────────────────────────────────────────┤
 │  服務引擎（Serving Engine）                              │
@@ -61,7 +61,9 @@ draft: false
 
 適合場景：個人開發、原型驗證、只需要 `localhost` 上跑一兩個模型的情境。它的價值在於「三分鐘內從零到一個能用的本地 LLM」。
 
-不適合場景：多人共用的推論服務。Ollama 的排程是單一行程等級的，沒有 KV cache paging、沒有分散式部署，GPU 記憶體管理依賴 llama.cpp 的基本配置。當你開始需要「同時服務十個人、每秒處理五個請求」，就該往服務引擎移動。
+同一層級的替代選項是 [LM Studio](https://lmstudio.ai/)——同樣底層用 llama.cpp，但提供桌面 GUI 和內建的 OpenAI 相容 local server。偏好圖形介面、或想在 GUI 裡直接切換模型和調參數的人會選它。
+
+不適合場景：多人共用的推論服務。Ollama 和 LM Studio 的排程都是單一行程等級的，沒有 KV cache paging、沒有分散式部署，GPU 記憶體管理依賴 llama.cpp 的基本配置。當你開始需要「同時服務十個人、每秒處理五個請求」，就該往服務引擎移動。
 
 ### vLLM — 服務引擎
 
@@ -118,7 +120,7 @@ draft: false
 不要從工具出發，從你的問題出發：
 
 **「我想在自己電腦上試用開源模型」**
-→ [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide)。三分鐘內完成。如果想要更細的量化控制或非標準硬體，考慮 [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)。硬體規格可參考 [AI 硬體選購指南](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)。
+→ [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide)。三分鐘內完成。偏好圖形介面的話，[LM Studio](https://lmstudio.ai/) 提供桌面 GUI 和 OpenAI 相容 local server，底層同樣是 llama.cpp。如果想要更細的量化控制或非標準硬體，考慮 [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)。硬體規格可參考 [AI 硬體選購指南](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)。
 
 **「我要把一個 LLM 部署成生產服務」**
 → [vLLM](/posts/ai/2026-03-14-vllm-inference-engine)。如果你的場景有大量 prefix 重複（多輪對話、agent loop），評估 [SGLang](/posts/tech/2026-08-22-sglang-inference-server)。兩者都提供 OpenAI 相容 API，切換成本低。
@@ -162,4 +164,5 @@ draft: false
 - [Xinference GitHub](https://github.com/xorbitsai/inference)
 - [NVIDIA Triton Inference Server User Guide](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/)
 - [CS336 Spring 2026 Lecture 10 可執行講義](https://github.com/stanford-cs336/lectures/blob/main/lecture_10.py)
+- [LM Studio](https://lmstudio.ai/)
 - 站內系列：[vLLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)、[vLLM 自架推論決策](/posts/ai/2026-08-21-vllm-self-host-decision)、[SGLang](/posts/tech/2026-08-22-sglang-inference-server)、[Triton Inference Server](/posts/tech/2026-08-22-triton-inference-server)、[Ray Serve](/posts/tech/2026-08-22-ray-serve-inference)、[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide)、[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)、[AI 硬體選購指南](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)

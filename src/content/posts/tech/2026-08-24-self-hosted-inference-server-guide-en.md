@@ -24,7 +24,7 @@ Self-hosted inference tools roughly fall into three layers. Some cover only one;
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Model Management Platform                              │
-│  Ollama / Xinference / Triton Inference Server           │
+│  Ollama / LM Studio / Xinference / Triton                │
 │  — model download, versioning, API routing, multi-model  │
 ├─────────────────────────────────────────────────────────┤
 │  Serving Engine                                          │
@@ -61,7 +61,9 @@ Not for: high-concurrency production serving. llama.cpp's built-in HTTP server s
 
 Good for: personal development, prototyping, single-user localhost scenarios. Its value is "from zero to a working local LLM in three minutes."
 
-Not for: shared inference services. Ollama's scheduling is single-process level — no KV cache paging, no distributed deployment, and GPU memory management relies on llama.cpp's basic configuration. When you need to serve ten concurrent users at five requests per second, it's time to move to a serving engine.
+An alternative at the same layer is [LM Studio](https://lmstudio.ai/) — also built on llama.cpp, but with a desktop GUI and a built-in OpenAI-compatible local server. Choose it if you prefer a graphical interface for switching models and tweaking parameters.
+
+Not for: shared inference services. Both Ollama and LM Studio operate at single-process scheduling — no KV cache paging, no distributed deployment, and GPU memory management relies on llama.cpp's basic configuration. When you need to serve ten concurrent users at five requests per second, it's time to move to a serving engine.
 
 ### vLLM — Serving Engine
 
@@ -118,7 +120,7 @@ Not for: if you only need one LLM, vLLM or SGLang is simpler. Xinference's value
 Don't start from tools. Start from your problem:
 
 **"I want to try open-source models on my own machine"**
-→ [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide). Done in three minutes. For finer quantization control or non-standard hardware, consider [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference). Hardware specs are covered in the [AI hardware buying guide](/posts/ai/2026-04-02-ai-hardware-local-inference-guide).
+→ [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide). Done in three minutes. If you prefer a GUI, [LM Studio](https://lmstudio.ai/) offers a desktop interface with a built-in OpenAI-compatible local server, also powered by llama.cpp. For finer quantization control or non-standard hardware, consider [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference). Hardware specs are covered in the [AI hardware buying guide](/posts/ai/2026-04-02-ai-hardware-local-inference-guide).
 
 **"I need to deploy one LLM as a production service"**
 → [vLLM](/posts/ai/2026-03-14-vllm-inference-engine). If your workload has heavy prefix reuse (multi-turn chat, agent loops), evaluate [SGLang](/posts/tech/2026-08-22-sglang-inference-server). Both offer OpenAI-compatible APIs, so switching cost is low.
@@ -162,4 +164,5 @@ On the security side, the [Xinference CVE-2026-61539 analysis](/posts/daily/2026
 - [Xinference GitHub](https://github.com/xorbitsai/inference)
 - [NVIDIA Triton Inference Server User Guide](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/)
 - [CS336 Spring 2026 Lecture 10 executable lecture notes](https://github.com/stanford-cs336/lectures/blob/main/lecture_10.py)
+- [LM Studio](https://lmstudio.ai/)
 - In-site series: [vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine), [vLLM self-hosting decision](/posts/ai/2026-08-21-vllm-self-host-decision), [SGLang](/posts/tech/2026-08-22-sglang-inference-server), [Triton Inference Server](/posts/tech/2026-08-22-triton-inference-server), [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference), [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide), [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference), [AI hardware buying guide](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)
