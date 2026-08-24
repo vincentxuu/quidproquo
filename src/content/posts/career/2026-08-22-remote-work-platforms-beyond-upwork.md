@@ -186,17 +186,34 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 
 ## 怎麼判斷一篇推薦文是真心還是業配
 
-讀到任何推薦平台的文章（包括這一篇），先做四個檢查：
+網路上推薦遠端工作平台的文章多如牛毛，很多藏著推薦連結。怎麼判斷你讀到的是真心分享還是收了錢的業配？這裡提供一套來自資訊素養研究的框架，讓你自己判斷。
 
-**一、看連結有沒有追蹤參數。** 網址裡帶 `?ref=`、`?via=`、`?aff=` 或 UTM 參數的，推薦者每一筆註冊都能抽成。這不代表推薦一定不實——但代表推薦者有經濟動機，你應該用更高的標準去審視內容。美國 [FTC 在 2023 年更新的《背書指南》](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements)明確要求：只要推薦者與被推薦方之間有利害關係（收費、免費帳號、佣金），就必須「清楚且顯著」揭露。台灣[公平交易委員會的《網路廣告案件處理原則》](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165)同樣要求揭露，違者罰 5 萬到 2,500 萬台幣。
+### 先離開原文去查：側向閱讀
 
-**二、看內容有沒有提缺點。** 學術上對消費者如何判斷評論真偽的[系統性文獻回顧](https://www.researchgate.net/publication/368855021)指出，人們判斷資訊可信度時會用五類線索：感知線索、情感線索、細節線索、相關性線索、認知線索。其中最關鍵的是「細節線索」——**具體的描述比籠統的讚美更容易被驗證**。一篇只說「這個平台很好用」的文章，比一篇說「我在上面投了 23 個職缺、收到 4 個面試、最後拿到一個 offer、但客服回信平均要等三天」的文章難判斷真偽。同理，完全不提缺點的推薦，可信度本身就該打折。
+Stanford 的 [Sam Wineburg 研究團隊](https://libguides.mnsu.edu/sourcecredibility/lateralreading)發現，專業事實查核員跟一般讀者最大的差異不是「讀得更仔細」，而是**讀到可疑資訊時馬上離開原文，去別的地方交叉比對**——他們稱之為「側向閱讀」（lateral reading）。在實驗中，專業查核員判斷資訊來源可信度的準確率是歷史學博士的兩倍、大學生的五倍。
+
+數位素養專家 Mike Caulfield 把這個習慣整理成 [SIFT 四步驟](https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082322)：
+
+1. **Stop**——停下來，不要立刻相信也不要立刻分享
+2. **Investigate the source**——查一下這個作者或網站是誰、有沒有利害關係
+3. **Find better coverage**——同一件事有沒有其他獨立來源也這樣說
+4. **Trace claims**——文章裡的數字和宣稱，追溯到原始出處
+
+把這四步套到遠端工作平台的推薦文上，就變成：這個推薦者是誰？有沒有在其他平台查到一致的評價？文章裡的數字（「平台上有 20 萬筆職缺」）是來自官網還是推薦者自己編的？
+
+### 辨識業配的四個具體訊號
+
+**一、看連結有沒有追蹤參數。** 網址裡帶 `?ref=`、`?via=`、`?aff=` 或 UTM 參數的，推薦者每一筆註冊都能抽成。這不代表推薦一定不實——但代表推薦者有經濟動機，你應該用更高的標準去審視內容。廣告心理學中的[說服知識模型](https://www.researchgate.net/publication/366914541)（Persuasion Knowledge Model）指出，人們一旦意識到「這是廣告」，就會自動啟動防禦性的批判思維。追蹤參數就是啟動你防禦機制的那個訊號。
+
+**二、看內容有沒有提缺點。** 一篇對消費者如何判斷評論真偽的[系統性文獻回顧](https://www.researchgate.net/publication/368855021)指出，人們判斷資訊可信度時會用五類線索：感知線索、情感線索、細節線索、相關性線索、認知線索。其中最關鍵的是「細節線索」——**具體的描述比籠統的讚美更容易被驗證**。一篇只說「這個平台很好用」的文章，比一篇說「我在上面投了 23 個職缺、收到 4 個面試、最後拿到一個 offer、但客服回信平均要等三天」的文章難判斷真偽。同理，完全不提缺點的推薦，可信度本身就該打折。
 
 **三、看推薦者有沒有比較多家。** 業配文通常只推一家，因為只跟一家簽了約。真正用過多個平台的人會講「A 適合我但 B 不適合，因為⋯⋯」——這種比較本身就是真實體驗的副產品，很難無中生有。
 
 **四、看揭露聲明。** 有良心的推薦者會主動標明「本文含推薦連結」或「本文為合作推廣」。沒有揭露不代表沒有利害關係——但有揭露至少代表推薦者願意讓你帶著這個資訊去判斷。
 
-這篇文章裡的所有連結都是各平台官網首頁，不含任何推薦連結或追蹤參數。文章內容來自各平台的公開資訊，不是個人使用體驗。
+### 這篇文章本身的利益揭露
+
+這篇文章裡的所有連結都是各平台官網首頁，不含任何推薦連結或追蹤參數。文章內容來自各平台的公開資訊，不是個人使用體驗——所以文章裡寫的是各平台「宣稱」的數字，不是實測結果。
 
 ## 參考資料
 
@@ -211,7 +228,7 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 - [Working Nomads 進階方案](https://www.workingnomads.com/premium)
 - [Toptal 官網](https://www.toptal.com/)
 - [Toptal 篩選流程](https://www.toptal.com/top-3-percent)
-- [FTC — Updated Endorsement Guides（2023 年更新的背書指南）](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements)
-- [公平交易委員會 — 網路廣告案件處理原則](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165)
-- [公平交易委員會 — 薦證廣告規範說明](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=13021)
-- [Systematic literature review: Which cues do consumers use to determine the veracity of online user reviews?（消費者如何判斷評論真偽——系統性文獻回顧，2023）](https://www.researchgate.net/publication/368855021)
+- [SIFT Method — UChicago Library Guide](https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082322)
+- [Lateral Reading — Minnesota State University Library Guide](https://libguides.mnsu.edu/sourcecredibility/lateralreading)
+- [Disclosure-Driven Recognition of Native Advertising: A Test of Two Competing Mechanisms（說服知識與原生廣告辨識，2023）](https://www.researchgate.net/publication/366914541)
+- [Systematic literature review: Which cues do consumers use to determine the veracity of online user reviews?（消費者如何判斷評論真偽，2023）](https://www.researchgate.net/publication/368855021)

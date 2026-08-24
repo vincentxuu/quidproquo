@@ -186,17 +186,34 @@ Applying across multiple platforms gets messy fast. Two approaches:
 
 ## How to Tell If a Recommendation Is Genuine or Sponsored
 
-When you read any article recommending platforms (including this one), run four checks:
+The internet is full of articles recommending remote work platforms, and many contain hidden affiliate links. How do you tell genuine sharing from paid promotion? Here's a framework drawn from information literacy research.
 
-**One: Look for tracking parameters in the links.** URLs containing `?ref=`, `?via=`, `?aff=`, or UTM parameters mean the recommender earns a commission on every signup. This doesn't automatically make the recommendation false — but it does mean the recommender has a financial incentive, and you should scrutinize the content more carefully. The [FTC's 2023 updated Endorsement Guides](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements) require that any material connection between a recommender and a recommended company (payment, free accounts, commissions) must be disclosed "clearly and conspicuously." Taiwan's [Fair Trade Commission](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165) has similar disclosure rules, with penalties ranging from TWD 50,000 to TWD 25 million.
+### Leave the page first: lateral reading
 
-**Two: Check whether the content mentions drawbacks.** A [systematic literature review](https://www.researchgate.net/publication/368855021) on how consumers assess review veracity identified five categories of cues people use: perceptual, affective, detail, relevance, and cognitive. The most critical is the "detail cue" — **specific descriptions are easier to verify than vague praise.** An article that says "this platform is great" is harder to evaluate than one saying "I submitted 23 applications, got 4 interviews, landed one offer, but customer support took an average of three days to reply." By the same logic, a recommendation that mentions zero downsides should be treated with a discount.
+[Sam Wineburg's research team at Stanford](https://libguides.mnsu.edu/sourcecredibility/lateralreading) found that what separates professional fact-checkers from ordinary readers isn't reading more carefully — it's **immediately leaving the source to cross-reference elsewhere** when they encounter a claim. They call this "lateral reading." In experiments, professional fact-checkers were twice as accurate as PhD historians and five times more accurate than college students at evaluating source credibility.
+
+Digital literacy expert Mike Caulfield distilled this habit into the [SIFT framework](https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082322):
+
+1. **Stop** — don't immediately believe or share
+2. **Investigate the source** — who is this author or site, and do they have a financial interest?
+3. **Find better coverage** — do independent sources say the same thing?
+4. **Trace claims** — follow numbers and assertions back to their original source
+
+Applied to remote work platform recommendations: Who is the recommender? Do reviews on other sites match? Are the numbers ("200,000 verified listings") from the official site or made up?
+
+### Four concrete signals to spot sponsored content
+
+**One: Look for tracking parameters in the links.** URLs containing `?ref=`, `?via=`, `?aff=`, or UTM parameters mean the recommender earns a commission on every signup. This doesn't automatically make the recommendation false — but it does mean the recommender has a financial incentive, and you should scrutinize the content more carefully. In advertising psychology, the [Persuasion Knowledge Model](https://www.researchgate.net/publication/366914541) shows that once people recognize content as advertising, they automatically activate critical, defensive thinking. Tracking parameters are your signal to flip that switch.
+
+**Two: Check whether the content mentions drawbacks.** A [systematic literature review](https://www.researchgate.net/publication/368855021) on how consumers assess review veracity identified five categories of cues: perceptual, affective, detail, relevance, and cognitive. The most critical is the "detail cue" — **specific descriptions are easier to verify than vague praise.** An article that says "this platform is great" is harder to evaluate than one saying "I submitted 23 applications, got 4 interviews, landed one offer, but customer support took an average of three days to reply." By the same logic, a recommendation that mentions zero downsides should be treated with a discount.
 
 **Three: See if the recommender compares multiple platforms.** Sponsored posts typically promote only one platform, because the deal is with one company. Someone who has genuinely used multiple platforms will say "A worked for me but B didn't, because..." — that kind of comparison is a natural byproduct of real experience and is hard to fabricate.
 
 **Four: Look for a disclosure statement.** Honest recommenders proactively label their content with "this post contains affiliate links" or "this is a paid collaboration." The absence of disclosure doesn't prove there's no financial relationship — but its presence at least means the recommender is letting you factor that information into your judgment.
 
-Every link in this article points directly to each platform's official homepage. There are no affiliate links or tracking parameters. The content is based on publicly available information from each platform, not personal usage experience.
+### Disclosure for this article
+
+Every link in this article points directly to each platform's official homepage. There are no affiliate links or tracking parameters. The content is based on publicly available information from each platform, not personal usage experience — so the numbers cited are what each platform claims, not independently verified figures.
 
 ## References
 
@@ -211,7 +228,7 @@ Every link in this article points directly to each platform's official homepage.
 - [Working Nomads premium plans](https://www.workingnomads.com/premium)
 - [Toptal official site](https://www.toptal.com/)
 - [Toptal screening process](https://www.toptal.com/top-3-percent)
-- [FTC — Updated Endorsement Guides (2023)](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements)
-- [Taiwan Fair Trade Commission — Handling Principles for Internet Advertising Cases](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165)
-- [Taiwan Fair Trade Commission — Endorsement Advertising Guidelines](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=13021)
+- [SIFT Method — UChicago Library Guide](https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082322)
+- [Lateral Reading — Minnesota State University Library Guide](https://libguides.mnsu.edu/sourcecredibility/lateralreading)
+- [Disclosure-Driven Recognition of Native Advertising: A Test of Two Competing Mechanisms (2023)](https://www.researchgate.net/publication/366914541)
 - [Systematic literature review: Which cues do consumers use to determine the veracity of online user reviews? (2023)](https://www.researchgate.net/publication/368855021)
