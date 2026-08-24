@@ -16,7 +16,7 @@ draft: false
 
 但 Upwork 和 Fiverr 是「接案市集」，你賣的是單次服務。如果你要找的是遠端正職、兼職、或品質較高的合約工作，有不少平台的門檻更友善、職缺品質更高，而且競爭沒那麼極端。
 
-這篇介紹七個值得放進書籤的平台。前六個是求職導向——你去找工作；最後一個是菁英接案導向——通過篩選後工作來找你。
+這篇介紹七個值得放進書籤的英語系國際平台，資訊來自各平台官網公開資料（截至 2026 年 8 月查詢）。前六個是求職導向——你去找工作；最後一個是菁英接案導向——通過篩選後工作來找你。
 
 ---
 
@@ -24,7 +24,7 @@ draft: false
 
 [FlexJobs](https://www.flexjobs.com/) 從 2007 年開始營運，核心賣點是「每一筆職缺都經過人工審核」。他們宣稱每天花超過 200 小時，用 AI 加人工團隊篩選職缺，過濾掉詐騙、純佣金制、和多層次傳銷的案子。
 
-目前平台上有接近 20 萬筆經過驗證的遠端與彈性職缺，涵蓋超過 50 個職類，從軟體開發、行銷、客服到財務、行政、資料輸入都有。合作企業包括 Spotify、Amazon、Google 等。在 Trustpilot 上有超過 7,000 則評價，BBB（美國商業改進局）評等 A+。
+據其官網，平台上有接近 20 萬筆經過驗證的遠端與彈性職缺，涵蓋超過 50 個職類，從軟體開發、行銷、客服到財務、行政、資料輸入都有。合作企業包括 Spotify、Amazon、Google 等。在 [Trustpilot](https://www.trustpilot.com/review/flexjobs.com) 上有超過 7,000 則評價，BBB（美國商業改進局）評等 A+。
 
 **費用**：FlexJobs 是少數向求職者收費的平台。目前有三種方案：
 
@@ -40,7 +40,7 @@ draft: false
 
 ## We Work Remotely：最大的免費遠端職缺板
 
-[We Work Remotely](https://weworkremotely.com/)（簡稱 WWR）自稱是全球最大的遠端工作職缺板，每月有超過 600 萬次瀏覽，累計刊登超過 41,800 筆職缺。上面的企業包括 NVIDIA、Stripe、Zoom、Webflow 等。
+[We Work Remotely](https://weworkremotely.com/)（簡稱 WWR）自稱是全球最大的遠端工作職缺板，據其官網，每月有超過 600 萬次瀏覽，累計刊登超過 41,800 筆職缺。上面的企業包括 NVIDIA、Stripe、Zoom、Webflow 等。
 
 跟 FlexJobs 不同的是，WWR 對求職者完全免費，由企業端付費刊登（每筆職缺 299 美元）。職缺分類涵蓋全端開發、前後端、設計、DevOps、產品、行銷、客服、管理與財務。很多職缺會直接標出薪資範圍。
 
@@ -52,7 +52,7 @@ draft: false
 
 ## Wellfound：直接對接新創公司創辦人
 
-[Wellfound](https://www.wellfound.com/) 的前身是 AngelList Talent，2022 年 11 月獨立拆分後改名。它是全球最大的新創公司人才媒合平台，目前有超過 27,000 家新創公司在上面徵才。
+[Wellfound](https://www.wellfound.com/) 的前身是 AngelList Talent，2022 年 11 月獨立拆分後改名。它是全球最大的新創公司人才媒合平台，據其官網，目前有超過 27,000 家新創公司在上面徵才。
 
 Wellfound 跟其他求職網站最大的差異是：**你直接跟創辦人或用人主管對話，不是跟第三方獵頭**。這是平台從第一天就定下的規則。對求職者來說，這代表回覆速度更快、溝通更直接，不用經過層層轉介。
 
@@ -66,13 +66,13 @@ Wellfound 跟其他求職網站最大的差異是：**你直接跟創辦人或�
 
 ## Remote OK：獨立開發者打造的薪資透明職缺板
 
-[Remote OK](https://remoteok.com/) 由荷蘭獨立開發者 Pieter Levels 在 2015 年創立，目前觸及超過 1,240 萬名遠端工作者，是規模最大的獨立遠端職缺平台之一。
+[Remote OK](https://remoteok.com/) 由荷蘭獨立開發者 Pieter Levels 在 2015 年創立，據其官網，目前觸及超過 1,240 萬名遠端工作者，是規模最大的獨立遠端職缺平台之一。
 
 Remote OK 的特色是薪資透明——很多職缺會直接標出薪資範圍，進階會員還能看到薪資分析數據。職缺標籤也很細，會標出福利項目（401(k)、牙醫保險、無限假期、四天工作週、居家辦公津貼等），讓你在投遞前就能快速篩選。
 
 **費用**：基本瀏覽和投遞免費。進階方案每月 14.95 美元起，解鎖優先投遞、進階篩選、薪資洞察和無廣告體驗。
 
-**適合誰**：重視薪資透明度、想快速比較不同職缺條件的人。Remote OK 偏科技領域，但涵蓋的福利標籤在同類平台中最細，適合拿來做薪資和福利的 benchmark。在 Trustpilot 上有超過 10,000 則評價，評分 4.8/5。
+**適合誰**：重視薪資透明度、想快速比較不同職缺條件的人。Remote OK 偏科技領域，但涵蓋的福利標籤在同類平台中最細，適合拿來做薪資和福利的 benchmark。在 [Trustpilot](https://www.trustpilot.com/review/remoteok.com) 上有超過 10,000 則評價，評分 4.8/5。
 
 **注意**：跟 WWR 一樣，Remote OK 不做求職者篩選。它是單人開發的獨立產品，技術架構極簡（整個網站是一個 PHP 檔案），優點是更新快、沒有臃腫的企業功能，缺點是介面比較陽春。
 
@@ -80,7 +80,7 @@ Remote OK 的特色是薪資透明——很多職缺會直接標出薪資範圍�
 
 [Remotive](https://remotive.com/) 從 2014 年營運至今，定位是「職缺板 + 社群」的組合。創辦人 Rodolphe Dutel 曾在 Google 工作，2011 年就開始推廣遠端工作。
 
-Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。但它額外提供一個付費會員才能進的 Slack 社群，讓遠端工作者交流經驗、分享機會。電子報訂閱者超過 30 萬人。
+Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。但它額外提供一個付費會員才能進的 Slack 社群，讓遠端工作者交流經驗、分享機會。據其官網，電子報訂閱者超過 30 萬人。
 
 **費用**：免費版可以瀏覽部分職缺。付費會員（Remotive Accelerator）每月 29 美元或年繳 89 美元，解鎖超過 15 萬筆職缺、進階搜尋、以及 Slack 社群。
 
@@ -90,7 +90,7 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 
 ## Working Nomads：每天更新的遠端職缺聚合站
 
-[Working Nomads](https://www.workingnomads.com/) 從 2014 年營運至今，定位是「每天更新的全球遠端職缺策展」。它從各處彙整遠端職缺，加上自己的篩選，每個月彙整超過 30,000 筆遠端工作機會，來自超過 8,000 家公司。
+[Working Nomads](https://www.workingnomads.com/) 從 2014 年營運至今，定位是「每天更新的全球遠端職缺策展」。它從各處彙整遠端職缺，加上自己的篩選，據其官網，每個月彙整超過 30,000 筆遠端工作機會，來自超過 8,000 家公司。
 
 免費版就能瀏覽職缺，介面乾淨，不像某些求職網站滿版廣告。職缺依 15 種以上的類別分類——開發、設計、行銷、業務、行政、諮詢、教育、財務、法務、醫療都有，而且全部都是 100% 遠端。可以按地區（北美、歐洲、亞太、拉美、全球皆可）、薪資、經驗等級篩選。
 
@@ -102,7 +102,7 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 
 隨時可以取消，沒有綁約。也可以免費訂閱 email 通知，每天收到新職缺。
 
-**適合誰**：剛開始關注海外遠端市場、想做 market research 的人。免費版就夠用來了解「國際市場到底在找什麼技能」，每週花半小時刷一下，比漫無目的地逛 LinkedIn 有效率得多。曾被 Forbes、紐約時報、Fast Company 報導過。
+**適合誰**：剛開始關注海外遠端市場、想做 market research 的人。免費版就夠用來了解「國際市場到底在找什麼技能」，每週花半小時刷一下，比漫無目的地逛 LinkedIn 有效率得多。官網標示曾被 Forbes、紐約時報、Fast Company 報導。
 
 **注意**：Working Nomads 本質上是聚合站——有些職缺你在其他求職網站也看得到。它的使用者規模（3,000 多名付費會員）比其他平台小很多，社群效應較弱。
 
@@ -110,7 +110,7 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 
 [Toptal](https://www.toptal.com/) 跟前面六個平台完全不同——它不是求職板，是菁英人才網。Toptal 只接受前 3% 的申請者，通過後由平台幫你媒合客戶，平均 24 小時內就能配對。
 
-篩選流程分五關，通常需要 3 到 8 週：
+據 [Toptal 篩選頁面](https://www.toptal.com/top-3-percent)，篩選流程分五關，通常需要 3 到 8 週：
 
 1. 語言與溝通評估（26.4% 通過）
 2. 深度技能測驗（累計 7.4% 通過）
@@ -118,7 +118,7 @@ Remotive 的每一筆職缺都經過人工篩選，這點跟 FlexJobs 類似。�
 4. 實戰專案測驗（累計 3.2% 通過）
 5. 持續品質追蹤
 
-累計至 2025 年底，Toptal 收到超過 360 萬份申請，完成超過 91,000 次人才媒合，服務超過 35,000 家客戶，人才來自 155 個以上國家。2026 年被 Newsweek 評為美國最可靠專業服務公司第一名。
+據 Toptal 官網，截至 2025 年底，平台收到超過 360 萬份申請，完成超過 91,000 次人才媒合，服務超過 35,000 家客戶，人才來自 155 個以上國家，並於 2026 年被 Newsweek 評為美國最可靠專業服務公司第一名。
 
 **費用**：申請和加入完全免費。Toptal 從客戶端收費，不從人才的收入中抽成。時薪通常落在 60 到 200 美元以上。
 
@@ -228,6 +228,8 @@ Stanford 的 [Sam Wineburg 研究團隊](https://libguides.mnsu.edu/sourcecredib
 - [Working Nomads 進階方案](https://www.workingnomads.com/premium)
 - [Toptal 官網](https://www.toptal.com/)
 - [Toptal 篩選流程](https://www.toptal.com/top-3-percent)
+- [FlexJobs — Trustpilot 評價](https://www.trustpilot.com/review/flexjobs.com)
+- [Remote OK — Trustpilot 評價](https://www.trustpilot.com/review/remoteok.com)
 - [SIFT Method — UChicago Library Guide](https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082322)
 - [Lateral Reading — Minnesota State University Library Guide](https://libguides.mnsu.edu/sourcecredibility/lateralreading)
 - [Disclosure-Driven Recognition of Native Advertising: A Test of Two Competing Mechanisms（說服知識與原生廣告辨識，2023）](https://www.researchgate.net/publication/366914541)
