@@ -140,15 +140,49 @@ Through the end of 2025, Toptal received over 3.6 million applications, complete
 | **[Working Nomads](https://www.workingnomads.com/)** | Free (premium $6.67–17.95/mo) | 100% remote, 15+ categories | Daily updates, clean interface | Market exploration beginners |
 | **[Toptal](https://www.toptal.com/)** | Free (client-side fees) | Elite freelance: dev/design/finance/PM | 3% acceptance, platform-matched | Senior talent seeking stable premium work |
 
-**Practical approach**: These platforms aren't mutually exclusive — combine them for the best results.
+These platforms aren't mutually exclusive — combine them for the best results. Here's the workflow most people actually follow.
 
-1. **Explore**: Use Working Nomads or Remote OK's free tier to understand market demand and salary ranges
-2. **Apply broadly**: Use We Work Remotely (free, high volume) and Wellfound (startup direct access) for active applications
-3. **Filter precisely**: Spend coffee money on FlexJobs to save time filtering out scams
-4. **Build connections**: Join Remotive's community to meet other remote workers
-5. **Level up**: If you have the skills, take the Toptal challenge — once you're in, work comes to you
+## How to Actually Use These Platforms
 
-Spend 30 minutes each weekend browsing these sites. Knowing what skills the international market demands and where salaries fall is far more useful than grinding on Upwork competing on price.
+### Step 1: Scout First, Don't Rush to Apply
+
+Before submitting anything, spend one to two weekends just browsing. Answer three questions:
+
+- **What skills does the market want?** Open [Working Nomads](https://www.workingnomads.com/) or [Remote OK](https://remoteok.com/), filter by your field, and note which keywords keep appearing in listings from the past two weeks. Make a list of the most common skills — that's your upskilling roadmap.
+- **Where do salaries fall?** Remote OK's premium tier has salary analytics, but even free listings show enough to gauge ranges. Note the median salary for your target role across North America, Europe, and global-remote postings — you'll need this baseline when negotiating.
+- **Which companies keep hiring?** The same company posting the same role week after week usually means the need is real — or retention is tough. Bookmark these and apply to them first when you're ready.
+
+### Step 2: Build a "Remote-Ready" Resume
+
+Remote hiring managers care about different things than office-based ones. When updating your resume and platform profiles, make sure you cover:
+
+- **Async communication experience**: Have you worked across time zones? Which tools (Slack, Notion, Linear, Loom)? Be specific — e.g., "Collaborated with a four-person team spanning UTC-8 to UTC+8 for six months; replaced daily standups with async written updates."
+- **Evidence of self-direction**: No one watches over you in remote work. Hiring managers need to trust you can manage your own time. Side projects, open-source contributions, and self-study records all count.
+- **English communication ability**: If English isn't your first language, include at least one fluent English paragraph in your profile on Wellfound or Toptal. It doesn't need to be perfect — just enough to confirm you can work in English.
+
+### Step 3: Pick Platforms Based on Your Stage
+
+| Your situation | Recommended approach |
+|---|---|
+| Just starting to explore, unsure of direction | Browse [Working Nomads](https://www.workingnomads.com/) and [Remote OK](https://remoteok.com/) free tiers weekly to build market intuition |
+| Direction set, ready to apply broadly | Use [We Work Remotely](https://weworkremotely.com/) (free, high volume) and [Wellfound](https://www.wellfound.com/) (startup direct access) |
+| Want to save time, avoid scam listings | Spend coffee money on [FlexJobs](https://www.flexjobs.com/) ($5.95/mo and up) |
+| Want to connect with other remote workers | Join [Remotive](https://remotive.com/)'s paid community ($89/year) |
+| Senior, want stable premium freelancing | Take the [Toptal](https://www.toptal.com/) five-stage screening challenge |
+
+### Step 4: Track Your Applications
+
+Applying across multiple platforms gets messy fast. Two approaches:
+
+1. **Use Remotive's built-in tracker**: It has status columns for "Applied → Follow-Up Sent → Interview Scheduled" — if you have a paid account, just use it.
+2. **Keep your own spreadsheet**: Columns for company name, position, platform, application date, current status, and next action date. Follow up once after one week of silence. If another week passes with no response, mark it "No Reply" and move on.
+
+### Common Mistakes
+
+- **Using the same resume everywhere**: Startups on Wellfound want to see your side projects and product thinking. Traditional companies on FlexJobs want stable track records and certifications. Prepare at least two versions.
+- **Applying without tracking**: Sending 50 applications with no follow-up is less effective than sending 15 with a customized cover letter each and following up after one week.
+- **Ignoring time zones**: Seeing "remote" and applying, only to discover they need you online during EST business hours. Check timezone requirements before applying — make sure you can accommodate them.
+- **Not setting up alerts**: Every platform offers email alerts or RSS feeds. Set them up so new listings come to your inbox automatically. Working Nomads and Remote OK both have solid free email notifications.
 
 ## References
 
