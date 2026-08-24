@@ -107,6 +107,14 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai',
+    names: { 'zh-TW': 'AI 模型家族', en: 'AI Model Families' },
+    descriptions: {
+      'zh-TW': '從演化脈絡、架構、授權陷阱到版本選型，逐一拆開 Qwen、DeepSeek、Claude、GPT、Gemini、Llama、Mistral、GLM、Kimi 等主流模型家族，並附 Agent 開發者的選型建議。',
+      en: 'Tracing the evolution, architecture, licensing traps, and version selection of mainstream model families — Qwen, DeepSeek, Claude, GPT, Gemini, Llama, Mistral, GLM, Kimi — with pick guidance for agent developers.',
+    },
+  },
+  {
     // slug 沿用先前 fallback 產生的 'agent'，改名會動到已發佈的 URL
     slug: 'agent',
     names: { 'zh-TW': 'Agent 生產線', en: 'The Agent Production Line' },

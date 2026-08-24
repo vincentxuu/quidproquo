@@ -28,7 +28,7 @@ In August 2026, Alibaba did two seemingly contradictory things. It launched [Qwe
 
 This family has been the most-downloaded on HuggingFace for years (see the [series overview](/posts/tech/2026-08-24-ai-model-landscape-overview), zh-TW). That lead doesn't come from any single winning model — it comes from coverage, from phone-sized small models all the way up to datacenter flagships. This post traces the family's evolution, its strategic pivot between two tracks, and how to choose the right model today.
 
-For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources) (zh-TW). An earlier version of this family profile, covering up to Qwen3.6, is [also available](/posts/ai/2026-04-28-qwen-model-intro) (zh-TW).
+For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources) (zh-TW).
 
 ## Family Evolution Timeline
 
@@ -193,4 +193,3 @@ What deserves watching is the stratification of licensing: Apache 2.0 for small 
 - [Qwen3 Technical Report (arXiv:2505.09388)](https://huggingface.co/papers/2505.09388)
 - [The AI Model Landscape overview — this site, series introduction (zh-TW)](/posts/tech/2026-08-24-ai-model-landscape-overview)
 - [AI model evaluation sources guide — this site (zh-TW)](/posts/tech/2026-08-24-ai-model-evaluation-sources)
-- [Earlier Qwen deep dive (through 3.6) — this site (zh-TW)](/posts/ai/2026-04-28-qwen-model-intro)

@@ -28,7 +28,7 @@ glossary:
 
 這個家族的 HuggingFace 下載量長年是所有模型家族之冠（見[系列導讀](/posts/tech/2026-08-24-ai-model-landscape-overview)）。它靠的不是單一模型的勝利，而是覆蓋——從手機端的小模型一路到資料中心旗艦。這篇追蹤它的演化路徑、雙軌策略的轉向，以及現在該怎麼選。
 
-怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。家族背景的更早版本介紹，可讀[四月版的 Qwen 深度介紹](/posts/ai/2026-04-28-qwen-model-intro)（寫到 Qwen3.6 為止）。
+怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。
 
 ## 家族演化時間線
 
@@ -193,4 +193,3 @@ Qwen 的賭注是「全家桶」。單項冠軍不一定拿：agentic coding 的
 - [Qwen3 技術報告（arXiv:2505.09388）](https://huggingface.co/papers/2505.09388)
 - [AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview) — 本站，系列導讀
 - [AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources) — 本站
-- [Qwen（通義千問）深入介紹（寫至 3.6）](/posts/ai/2026-04-28-qwen-model-intro) — 本站，前一版家族介紹

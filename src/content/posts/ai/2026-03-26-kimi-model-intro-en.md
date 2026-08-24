@@ -1,250 +1,167 @@
 ---
-title: "Kimi: How Moonshot AI's Long-Context Model Challenges GPT and Claude"
-date: 2026-03-26
+title: "Kimi——From a 200K Long-Context Tool to a 2.8T Open-Source Frontier, and K3's Architectural Leap"
+date: 2026-08-24
 type: project
 category: ai
 tags: [kimi, moonshot-ai, llm, long-context, reasoning, ai-model, moe, open-source]
 lang: en
-tldr: "Kimi is a large language model from Chinese AI startup Moonshot AI, known for its ultra-long context window, open-source strategy, and highly competitive pricing. From 200K context in 2023 to K2.5 Agent Swarm in 2026, Kimi has become a force that the global AI market cannot ignore."
-description: "An in-depth introduction to the Kimi model series from Moonshot AI, covering company background, technical highlights, model evolution (K1.5 → K2 → K2.5), MoE architecture, Agent Swarm, pricing comparison, and competitive positioning against GPT-5, Claude, and Gemini."
+series:
+  name: "AI 模型家族"
+  order: 9
 draft: false
+glossary:
+  - term: "Agent Swarm"
+    definition: "Kimi K2.5's architecture: a router dispatches up to 100 sub-agents in parallel on different subtasks, then another router merges the results"
+  - term: "Kimi Delta Attention"
+    aliases: ["KDA"]
+    definition: "The attention mechanism adopted in Kimi K3, providing efficient long-sequence mixing with periodically interleaved Gated MLA layers to preserve global interaction"
+  - term: "Attention Residuals"
+    aliases: ["AttnRes"]
+    definition: "Lets each layer selectively attend to representations of all preceding layers, improving information flow across model depth"
+  - term: "Stable LatentMoE"
+    definition: "K3's sparse MoE framework, expanding the routed expert space to 896 with 16 activated per token, stabilized at extreme sparsity via normalization and SiTU-GLU"
+  - term: "MoonViT-V2"
+    definition: "K3's vision encoder, trained from scratch with next-token prediction (no SigLIP initialization), 401M parameters"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-26-kimi-model-intro)
+In 2023, while the world chased OpenAI, a Chinese startup called Moonshot AI (月之暗面) made a different bet — instead of rushing a "Chinese ChatGPT," it wagered on the **ultra-long context window**. In July 2026 that path reached its extreme: **Kimi K3** — the world's first open-source 3T-class model, 2.8T parameters, 104B active, 1M context, scoring 60 on the Artificial Analysis Intelligence Index, tied with GLM-5.3 for open-source #1. This post traces Kimi's full evolution from long-context tool to open-source frontier, and K3's architectural leap.
 
-In 2023, while the rest of the world was scrambling to catch up with OpenAI, a Chinese startup called Moonshot AI made a different bet -- instead of rushing to build "China's ChatGPT," they wagered everything on a technical direction that few were paying attention to at the time: **ultra-long context windows**.
+For how to read the benchmark numbers cited here, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is the ninth family deep-dive in the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-That choice made Kimi one of the most recognizable AI products in the Chinese market. By 2026, it's no longer just a "long-text tool" -- it's one of the few open-source models in the global AI race that can simultaneously challenge GPT, Claude, and Gemini across multiple dimensions.
+## Family Evolution Timeline
 
----
+| Version | Released | Key facts |
+|---|---|---|
+| Kimi Chat | 2023-10 | 200K Chinese-character context, long-context origin |
+| Kimi K1.5 | 2025-01 | RL reasoning, Long CoT, multimodal reasoning |
+| Kimi-VL | 2025-04 | 16B MoE (3B active) open vision-language model |
+| Kimi-Dev | 2025-06 | 72B code-specialized model, SWE-bench Verified open SOTA |
+| Kimi K2 | 2025-07 | 1T MoE (32B active), 384 experts, MuonClip optimizer |
+| K2 Thinking | 2025-11 | 256K context, 200–300 consecutive tool calls |
+| Kimi K2.5 | 2026-01 | native multimodal, Agent Swarm (100 sub-agents), Modified MIT |
+| **Kimi K3** | 2026-07 | **2.8T MoE (104B active), 1M context, KDA + AttnRes, first open 3T-class** |
 
-## Who Is Moonshot AI?
+Three years, eight generations. The first act was "long-context differentiation"; the second is **scale and architecture advancing on two tracks at once** — K3 pushed total params to 2.8T while lifting efficiency 2.5x with a new architecture.
 
-Moonshot AI was founded by **Yang Zhilin** in March 2023. The company's Chinese name literally translates to "The Dark Side of the Moon," taken from Pink Floyd's classic album *The Dark Side of the Moon*, and it was established on the album's 50th anniversary. Born in 1993, Yang Zhilin graduated from Tsinghua University and went on to pursue his PhD at Carnegie Mellon University, where he contributed to research on **Transformer-XL** and **XLNet** -- two projects that directly advanced long-sequence modeling techniques.
+## Two Product Lines: Open Weights and API
 
-Co-founders include **Zhou Xinyu** and **Wu Yuxin**, both Tsinghua alumni.
+To read Kimi's 2026 moves, split it into two lines:
 
-Yang Zhilin once laid out three milestones on the path to AGI: (1) long context length, (2) multimodal world models, and (3) a general architecture capable of continuous self-improvement. Kimi's product evolution has essentially been tackling these three objectives in sequence.
+**Open-source line** (HuggingFace `MoonshotAI`): K2.5 under Modified MIT, K3 under the **Kimi K3 License** (custom, see License Trap below). Weights fully open for download, fine-tune, self-host. This line owns ecosystem and research influence — K3 is the first open 3T-class model ever, meaningful for opening frontier scale to the community.
 
-### Funding History
+**Commercial line** (platform.kimi.ai API): K3 API priced at $3.00 / $15.00 per 1M tokens (cache-hit input $0.30), backed by the Mooncake disaggregated inference architecture with >90% cache hit on coding workloads. This line owns revenue.
 
-Moonshot AI is one of the fastest-funded AI companies in China, with cumulative funding exceeding **$1.7 billion**:
+One important date: **K2.5 and the moonshot-v1 series sunset entirely on 2026-08-31**, and new registrations can no longer select them. Kimi's product重心 has fully shifted to K3.
 
-| Time | Amount | Valuation | Investors |
-|------|--------|-----------|-----------|
-| 2023 | $60M | $300M | Early-stage investors |
-| Feb 2024 | $1B | $2.5B | Led by Alibaba |
-| Aug 2024 | $300M | $3.3B | Tencent, Gaorong Capital |
-| Jan 2026 | $500M (Series C) | $4.3B | IDG, Alibaba, Tencent |
-| Feb 2026 | $700M+ | Target $10B | Alibaba, Tencent, Wuyuan Capital |
+## Architecture: Why 2.8T Achieves 2.5x Efficiency
 
----
+### Kimi Delta Attention (KDA)
 
-## Kimi's Starting Point: Ultra-Long Context Window
+K3's core architectural innovation. KDA provides efficient long-sequence mixing with periodically interleaved Gated MLA layers to preserve global interaction. It solves the fundamental problem of "how information flows effectively across 1M context" — traditional attention dilutes information at that length; KDA keeps the model effective on both sequence length and model depth.
 
-### From 200K to Millions of Tokens
+### Attention Residuals (AttnRes)
 
-In October 2023, Kimi debuted with support for a **200,000 Chinese character** context window -- at the time, one of the longest context windows among consumer-facing AI products. For comparison, GPT-4 offered 8K/32K tokens, and Claude 2 had 100K tokens.
+Lets each layer selectively attend to representations of all preceding layers, not just the previous one. This improves information flow across model depth — a key reason K3 stays stable at 93 layers.
 
-By March 2024, Kimi extended its context window further to **2,000,000 Chinese characters**, enabling users to upload entire books, lengthy research papers, and complete codebases for analysis and Q&A.
+### Stable LatentMoE
 
-The name "Kimi" actually comes from Yang Zhilin's English nickname.
+K3 expands the routed expert space to **896**, activating 16 + 2 shared per token. With normalization, SiTU-GLU, and Quantile Balancing, it stabilizes optimization at extreme sparsity (~56:1). Versus K2's 384 experts / 8 active, K3 doubles both expert count and active ratio.
 
-### Why Does Long Context Matter?
+### MoonViT-V2: Vision Encoder Trained From Scratch
 
-A long context window isn't just a number to brag about -- it fundamentally changes how you use the model:
+K3's vision encoder MoonViT-V2 (401M params) is trained entirely from scratch with next-token prediction, no SigLIP initialization. Moonshot found that pretrained vision encoders (e.g., SigLIP) attached to an LLM show unstable gradients and frequent spikes; MoonViT-V2 stays stable throughout and matches the baseline on vision eval — proving large multimodal models "don't need contrastive pretraining for initialization."
 
-- **Whole-book analysis**: No need to chunk or summarize -- just feed the entire text and ask questions
-- **Long document comparison**: Cross-referencing contracts, legal documents, and technical documentation
-- **Codebase comprehension**: Understanding large codebases without RAG
-- **Research synthesis**: Feeding a dozen papers at once for comprehensive analysis
+## Kimi K3: How to Choose
 
-This doesn't conflict with RAG (Retrieval-Augmented Generation) -- they're complementary. Long context reduces dependence on external retrieval, while RAG handles knowledge at scales that exceed the context window.
+The K3 generation offers open weights and API; K2.5 is retiring:
 
----
+| Item | Kimi K3 (API) | Kimi K3 (open weights) | Kimi K2.5 (old gen) |
+|---|---|---|---|
+| Total params | 2.8T | 2.8T | 1T |
+| Active params | 104B | 104B | 32B |
+| Context | 1M | 1M | 256K |
+| Multimodal | text + image | text + image | text + image |
+| License | closed API | **Kimi K3 License (custom)** | Modified MIT |
+| Pricing | $3.00 / $15.00 (cache-hit $0.30) | free, needs multi-node cluster | retired (2026-08-31) |
+| Recommended framework | Kimi Code CLI | vLLM / SGLang / TokenSpeed | — |
 
-## Model Evolution: From Chatbot to Frontier Model
+Pricing and specs from the [Kimi K3 official blog](https://www.kimi.ai/blog/kimi-k3) and [Kimi API model list](https://platform.kimi.ai/docs/models).
 
-### Kimi Chat (2023-2024)
+### License Trap: Kimi K3 License Is Not MIT
 
-The original Kimi Chat was a consumer-facing chat product focused on long-text comprehension and Chinese conversation. It quickly gained traction in the Chinese market, particularly among students, researchers, and knowledge workers.
+K2.5 shipped under Modified MIT (relatively permissive), but **K3 switched to the custom Kimi K3 License** — the same signal as Qwen3.8-Max's custom terms: flagship open weights, but the license is no longer the most permissive tier. Specific restrictions on commercial deployment and redistribution need line-by-line confirmation.
 
-### Kimi K1.5 (January 2025)
+The but: **"open 3T-class" is real, but "freely commercial" depends on license details.** If your deployment needs license certainty, K3's Kimi K3 License is less clean than GLM's MIT or most of Qwen's Apache 2.0. For the most permissive license at large scale, GLM-5.3 (MIT) remains the safer pick.
 
-**K1.5** marked the pivotal shift from "long-text tool" to "reasoning model":
+### Performance Position
 
-- **RL-driven reasoning**: Using large-scale reinforcement learning to boost reasoning capabilities, similar to the OpenAI o1 approach
-- **Long chain-of-thought (Long CoT)**: The model can engage in deeper, longer reasoning processes
-- **Multimodal reasoning**: Not just text -- it can reason over images as well
-- **Math and code**: Competitive with OpenAI o1 on benchmarks like AIME, MATH-500, and LiveCodeBench
+| Metric | Kimi K3 | Comparison |
+|---|---|---|
+| Artificial Analysis Intelligence Index | **60** (open-source #1, tied) | tied with GLM-5.3; Claude Fable 5 / GPT-5.6 Sol tier |
+| Reasoning / Knowledge | 93.5 | Claude Fable 5 92.6 / GPT-5.6 Sol 94.1 |
+| HLE (Humanity's Last Exam) | 43.5 / 56.0 | trails closed flagships |
+| Coding: DeepSWE | 67.5 | Claude Fable 5 70.0 / GPT-5.6 Sol 67.0 |
+| ProgramBench | 7x | near closed |
+| Context | 1M tokens | among the largest open contexts |
 
-K1.5's technical report emphasized a compelling argument: **you don't need complex frameworks like Monte Carlo Tree Search -- pure RL scaling alone can achieve top-tier reasoning performance**.
+Three honest buts: K3 ties GLM-5.3 at 60 on the Intelligence Index (open-source #1), but **overall still trails Claude Fable 5 and GPT-5.6 Sol**; the gap is clear on HLE-level difficulty; even quantized, 2.8T weights need a multi-node datacenter — individual developers can't actually run it without the API.
 
-### Kimi-VL (April 2025)
+## Sub-lines and Ecosystem: A Table of Kimi's Model Range
 
-A **16B MoE (3B active parameters)** open-source vision-language model focused on image understanding tasks.
+Beyond the general line, Moonshot runs several sub-lines:
 
-### Kimi-Dev (June 2025)
+| Sub-line | Representative | Latest status (2026-08) |
+|---|---|---|
+| General mainline | K1.5 → K2 → K2.5 → **K3** | K3 flagship; K2.5 retires end of month |
+| Vision-language | Kimi-VL (16B MoE) | open VL model |
+| Code | Kimi-Dev (72B) | SWE-bench Verified open SOTA |
+| Lightweight | Kimi Linear (48B MoE, 3B active) | KDA efficient inference |
+| Reasoning | K2 Thinking | 256K context, long tool-call chains |
+| Agent framework | Kimi Code CLI | terminal coding agent, pairs with K3 |
+| Consumer products | Kimi.com / Kimi Work / Kimi App | multi-platform agent entry |
 
-A **72B** code-specialized model (based on Qwen2.5-72B) that achieved open-source model SOTA on SWE-bench Verified.
+Two trends:
 
-### Kimi K2 (July 2025)
+**Capability consolidates into the mainline.** Same script as Qwen, DeepSeek, GLM — Moonshot folds specialist lines back into K: K3 is natively multimodal, natively coding, no separate sub-line needed.
 
-**K2** was Moonshot AI's landmark open-source model, establishing the architectural direction:
+**Open license stratifies.** K2.5 was Modified MIT; K3 switched to the custom Kimi K3 License. Like Qwen and Llama 4, "open-source" is becoming different things at different model tiers — small models permissive, flagship conditional.
 
-- **1T total parameters, 32B active** -- MoE architecture with 384 experts, activating 8 per inference
-- **MuonClip optimizer**: Combining the Muon algorithm with QK-Clip stabilization, achieving zero loss spikes across 15.5T tokens of pre-training
-- **128K context window**
-- **Modified MIT license** open-source
+## Position Against Competitors
 
-### K2 Follow-up Versions
+Place K3 in the August 2026 open-source landscape:
 
-- **K2-Instruct-0905** (September 2025): Improved code capabilities, context extended to 256K
-- **Kimi Linear** (October 2025): 48B MoE (3B active), using "Kimi Delta Attention" for more efficient inference
-- **K2 Thinking** (November 2025): 256K context, supporting 200-300 consecutive tool calls, training cost of only ~$4.6M
+- **vs GLM-5.3 (744B MIT)**: both tied at 60 on the Intelligence Index (open-source #1). K3 is bigger (2.8T vs 744B), but GLM's MIT license is cleaner; Kimi's edge is 1M context and architectural efficiency
+- **vs Qwen3.8-Max (2.4T)**: Qwen spans a wider size spectrum (0.8B–2.4T), but K3 is the only open 3T-class option; both flagships use custom licenses
+- **vs DeepSeek V4**: DeepSeek's price ($0.28/$0.42) is an order of magnitude below K3's $3/$15, and MIT-licensed; K3's edge is scale and long context
+- **vs Claude / GPT frontier**: K3 still trails Fable 5 and GPT-5.6 Sol overall, but open deployment and 1M context are what closed models can't offer
 
-### Kimi K2.5 (January 2026) 🔥
+## What This Means for Agent Developers
 
-**K2.5** is the current flagship of the Kimi series and the biggest leap yet:
+- **Need open 3T-class model** → Kimi K3: world's first, 2.8T params + 1M context, currently the only option
+- **Complex coding agent** → K3: DeepSWE 67.5, ProgramBench near closed, with Kimi Code CLI
+- **Ultra-long docs / knowledge work** → K3's 1M context, fits research reports, long-doc analysis, multi-step reasoning
+- **Need cheapest open API** → DeepSeek V4 Flash ($0.28/$0.42) is an order of magnitude cheaper than K3 ($3/$15)
+- **Need license certainty** → GLM-5.3 (MIT) is cleaner than K3's Kimi K3 License
+- **Need strongest coding** → Claude Opus 5 still leads SWE-bench
 
-- **Native multimodal**: Trained from scratch on ~15 trillion mixed vision and text tokens, using MoonViT (a 400M-parameter vision encoder) -- not a bolted-on vision module
-- **Agent Swarm**: Can autonomously dispatch up to **100 sub-agents** working in parallel, executing up to 1,500 tool calls, 4.5x more efficient than a single agent
-- **1T MoE / 32B active**, 256K context
-- **Modified MIT license** open-source
+## Overall
 
----
+Kimi's story is "an overlooked direction grew an open-source frontier." From the 200K long-context chatbot of 2023 to K3 of July 2026 — 2.8T params, 104B active, 1M context, the world's first open 3T-class model. In three years it went from "Chinese long-context tool" to "open-source scale benchmark."
 
-## Technical Deep Dive
+K3's architectural upgrades (KDA + AttnRes + Stable LatentMoE) delivered a 2.5x scaling-efficiency gain. At 60 on the Intelligence Index, tied with GLM-5.3 for open-source #1, it reaches frontier level on coding, knowledge work, and reasoning.
 
-### MoE Architecture
-
-Architectural details of K2/K2.5's MoE:
-
-```
-Total parameters:     1.04T
-Active parameters:    32B
-Number of experts:    384 (8 activated per inference)
-Sparsity ratio:       48:1
-Attention heads:      64 (Multi-head Latent Attention)
-Hidden dimension:     7168
-MoE hidden dimension: 2048
-Layers:               61 (including 1 dense layer)
-```
-
-Compared to DeepSeek-V3, K2 has more experts (384 vs 256) but fewer attention heads (64 vs 128), making different trade-offs across dimensions.
-
-### MuonClip Optimizer
-
-This is one of Kimi's key innovations in training stability. In traditional large model training, loss spikes (sudden surges in training loss) are a common and thorny problem. MuonClip combines:
-
-- **Muon algorithm**: A token-efficient optimization method
-- **QK-Clip**: Stabilizes gradients in the attention mechanism
-
-Result: **Zero loss spikes** across the full 15.5T-token pre-training run.
-
-### The RL Path for Reasoning
-
-Starting from K1.5, Kimi's reasoning improvement strategy:
-
-1. Supervised learning to train the base model
-2. Large-scale agentic data synthesis pipelines to generate training data
-3. Joint RL stage: combining **RLVR** (Reinforcement Learning with Verifiable Rewards) and **Self-Critique Rubric Reward** mechanisms
-4. Continuous quality improvement through scaling RL compute
-
-### K2.5's Native Multimodal
-
-K2.5 isn't a model with vision "bolted on" -- it underwent continued pre-training on ~15T mixed vision and text tokens. MoonViT (400M parameters) is a purpose-built vision encoder that enables the model to truly "understand" images rather than merely describe them.
-
----
-
-## Kimi vs Current Mainstream Models (Early 2026)
-
-| Dimension | Kimi K2.5 | GPT-5.x | Claude Opus 4.5/4.6 | Gemini 3 Pro |
-|-----------|-----------|---------|---------------------|--------------|
-| Architecture | MoE (1T/32B) | Undisclosed | Undisclosed | MoE (rumored) |
-| Context | 256K | 128K+ | 200K | 1M+ |
-| Agent / Tool Use | ✅ Agent Swarm | ✅ | ✅ | ✅ |
-| Multimodal | ✅ Native | ✅ | ✅ | ✅ |
-| Open Source | ✅ Modified MIT | ❌ | ❌ | ❌ |
-| Chinese | ✅ Native advantage | Good | Good | Good |
-| SWE-bench | 76.8% | ~80% | 80.9% | 80.6% |
-| Math (AIME 2025) | 96.1% | — | — | — |
-| HLE (with tools) | 44.9 | 41.7 | — | — |
-
-### Where Kimi Wins
-
-- **Agentic tasks**: HLE with tools (44.9 vs GPT-5's 41.7), BrowseComp (60.2 vs GPT-5's 54.9 vs Claude's 24.1)
-- **Cost-effectiveness**: API pricing 4-17x cheaper than GPT-5.4, 5-6x cheaper than Claude Sonnet 4.6
-- **Math**: AIME 2025 (96.1%), HMMT 2025 (95.4%)
-- **Open source**: 1T-parameter model released under Modified MIT license
-
-### Where Other Models Win
-
-- **GPT-5.x**: Pure reasoning, abstract problems, English writing, general knowledge (MMLU-Pro 87.1 vs K2's 84.6)
-- **Claude Opus**: Software engineering (SWE-bench ~80.9%), safety, writing quality (79.8 vs K2's 73.8)
-- **Gemini 3 Pro**: Document-intensive tasks, Google ecosystem integration, ultra-large context
-
----
-
-## API and Pricing
-
-Moonshot AI provides the **Moonshot API** (`platform.moonshot.ai`), which is compatible with the OpenAI SDK -- you can use it by simply swapping the base URL.
-
-### K2.5 Pricing
-
-| Type | Input | Output |
-|------|-------|--------|
-| Standard | $0.60/M tokens | $2.50/M tokens |
-| Cache hit | $0.15/M tokens (75% discount) | — |
-| K2 Turbo | $1.15/M tokens | $8.00/M tokens |
-| Web search tool | $0.005/call | — |
-
-**Consumer subscription**: ~$8-19/month (compared to ChatGPT Plus $20/month, Claude Pro $20/month).
-
-The model is also available through **OpenRouter**, **Together AI**, **NVIDIA NIM**, **Hugging Face**, and other platforms. The open-source version supports local deployment, with weights stored in block-FP8 format. K2 Thinking supports native INT4 quantization.
-
----
-
-## Controversy: The Distillation Incident
-
-In February 2026, Anthropic publicly accused Moonshot AI (along with DeepSeek and MiniMax) of using approximately 24,000 fake accounts to conduct over 16 million conversations with Claude for model distillation. Moonshot AI was alleged to have conducted around 3.4 million conversations, primarily targeting agentic reasoning, tool use, code, and computer vision capabilities.
-
-Anthropic stated that request metadata was traced back to public profiles of senior Moonshot AI employees. The incident sparked widespread debate in the industry -- some viewed it as a serious intellectual property issue, while others saw it as reflecting the gray areas in AI competition.
-
----
-
-## Key Takeaways
-
-### Strengths
-- **Cost killer**: API pricing is 1/4 to 1/17 of GPT and Claude
-- **Open-source strategy**: 1T-parameter model released under MIT license -- rare among top-tier Chinese models
-- **Agent Swarm**: 100 parallel sub-agents is one of the most aggressive agentic architectures to date
-- **Native Chinese**: Chinese is at the core of everything from training data to product design
-- **Growth velocity**: K2.5's revenue in its first 20 days exceeded all of 2025; overseas revenue has surpassed domestic; global paid users growing 170% month-over-month
-
-### Challenges
-- English writing quality and software engineering benchmarks like SWE-bench still lag behind Claude and GPT
-- The long-term brand reputation impact of the distillation controversy remains uncertain
-- The Chinese AI market is extremely competitive -- DeepSeek, Zhipu AI, and Baichuan are all fighting for the same space
-- International compliance and data sovereignty concerns
-
----
-
-## Conclusion
-
-Kimi is not "yet another Chinese ChatGPT." Starting from long-text processing, it has undergone a complete evolution through reasoning, multimodal, and agent capabilities, becoming one of the few open-source models in the global AI market that can compete across multiple dimensions within just three years.
-
-For developers, K2.5's OpenAI-compatible API, highly competitive pricing, and open-source deployment options make it a seriously worth-considering choice -- especially for agentic workflows and Chinese-language scenarios.
-
-If you haven't tried Kimi yet, I'd recommend starting with an agent task that requires extensive tool calls, or feeding it an extremely long document. These two directions are where Kimi is most compelling right now.
+What's worth remembering is the license: on the "open-source" spectrum, K3 sits in the "downloadable but conditional" middle — the Kimi K3 License is less clean than GLM's MIT or most of Qwen's Apache 2.0. For developers needing 3T-class scale and able to accept a custom license, K3 is currently the only open option; for those needing license certainty, GLM-5.3 remains the safer pick.
 
 ---
 
 ## References
 
+- [Kimi K3: Open Frontier Intelligence — Official Blog](https://www.kimi.ai/blog/kimi-k3)
+- [Kimi K3 — arXiv:2607.24653](https://arxiv.org/html/2607.24653v2)
+- [MoonshotAI/Kimi-K3 — Hugging Face](https://github.com/MoonshotAI/Kimi-K3)
+- [Kimi API Model List](https://platform.kimi.ai/docs/models)
 - [Kimi K1.5 Technical Report](https://arxiv.org/abs/2501.12599)
 - [Kimi K2 Technical Report](https://arxiv.org/abs/2507.20534)
-- [Kimi K2.5 Technical Blog](https://www.kimi.com/blog/kimi-k2-5)
-- [Moonshot AI Official Platform](https://kimi.moonshot.cn/)
-- [Kimi K2 GitHub](https://github.com/MoonshotAI/Kimi-K2)
-- [Moonshot API Platform](https://platform.moonshot.ai/)
+- [Kimi K3 — kimi.ai/ai-models](https://www.kimi.ai/ai-models/kimi-k3)
+- [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources) — this site
+- [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) — this site

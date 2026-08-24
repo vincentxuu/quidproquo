@@ -1,284 +1,171 @@
 ---
-title: "GLM-5：智譜 AI 的 744B 開源模型，用華為晶片訓出來的前沿 AI"
-date: 2026-03-26
-type: project
-category: ai
-tags: [glm-5, zhipu-ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
+title: "GLM——從清華實驗室到 744B 開源旗艦，以及 GLM-5.3 的資安突襲"
+date: 2026-08-24
+category: tech
+tags: [ai-agent, llm, glm, zhipu-ai, model-family-glm, moe, open-source, huawei-ascend, model-selection]
 lang: zh-TW
-tldr: "GLM-5 是智譜 AI（Z.ai）於 2026 年 2 月發布的 744B MoE 開源模型，完全在華為昇騰晶片上訓練，以 MIT 授權開源。它是目前開源模型中排名最高的，在 Humanity's Last Exam 等基準上甚至超越 Claude 和 GPT-5，而 API 定價只有它們的 1/5 到 1/8。"
-description: "深入介紹智譜 AI 旗下的 GLM-5 模型，涵蓋公司背景（清華系 AI 六小虎之首）、技術架構（744B MoE、Slime RL 框架）、模型演進、基準測試比較、API 定價，以及它作為首個非美國硬體訓練的前沿模型的意義。"
+type: deep-dive
+tldr: "GLM 是智譜 AI（Z.ai）推出的開源 LLM 家族，源自清華大學 KEG 實驗室。GLM-5.3（2026/08）在 coding benchmark 比前代提升 50%，CyberGym 84.5% 超過 Anthropic Mythos 5 與 OpenAI GPT-5.6 Sol，在 Artificial Analysis Intelligence Index 得分 60 與 Kimi K3 並列開源第一。它是目前唯一完全在華為昇騰晶片上訓練出的前沿開源模型。"
+description: "GLM（智譜 AI / Z.ai）模型家族完整介紹：2022→2026 演化時間線、開源權重與商用 API 雙軌策略、GLM 自迴歸填空架構與 744B MoE、Slime RL agent 訓練框架、華為昇騰訓練、GLM-5.3 資安能力與選型指南、MIT 授權分析，以及 Agent 開發者的選型建議"
+series:
+  name: "AI 模型家族"
+  order: 8
 draft: false
+glossary:
+  - term: "GLM"
+    aliases: ["General Language Model"]
+    definition: "清華大學 KEG 實驗室設計的自迴歸填空架構，用「填空」目標統一理解與生成，是 ChatGLM 與 GLM-5 系列的基礎"
+  - term: "Slime RL"
+    definition: "智譜 AI 自研的強化學習框架，用於 agent 訓練，核心創新是「過程驗證器」逐步追蹤工具呼叫是否正確，而非只看最終答案"
+  - term: "OpenClaw"
+    definition: "智譜 AI 的 Claude Code 等效工具，終端機式 AI 程式設計助理，對應 GLM-5-Turbo 最佳化"
+  - term: "Huawei Ascend"
+    aliases: ["華為昇騰"]
+    definition: "華為的自研 AI 加速器，GLM-5 完全在此硬體上訓練，未使用任何 NVIDIA GPU"
 ---
 
-2026 年 2 月 11 日，智譜 AI 發布了 **GLM-5**。
+2026 年 8 月，智譜 AI 發布了 **GLM-5.3**——同一個底座，純靠後訓練（post-training）把 coding 能力拉高 50%，並在資安基準 CyberGym 上以 84.5% 超過了 Anthropic 的 Mythos 5（83.8%）與 OpenAI 的 GPT-5.6 Sol（83.6%）。這個家族源自清華大學的實驗室，從 2022 年的 GLM-130B 走到今天的 744B 開源旗艦，並且是**目前唯一完全在華為昇騰晶片上訓練出的前沿開源模型**。這篇追蹤 GLM 從學術原型到開源前沿的完整演化，以及它在 2026 年的定位。
 
-這本身不算特別新聞——中國每個月都有新模型發布。但 GLM-5 有三個特點讓它值得認真看待：
+怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的第八篇家族深度介紹。
 
-1. 它是目前**開源模型中排名最高的**（LMArena 和 Artificial Analysis 雙料第一）
-2. 它完全在**華為昇騰晶片**上訓練，沒用一張 NVIDIA GPU
-3. 它以 **MIT 授權**開源——這是前沿級模型中最寬鬆的授權條款
+## 家族演化時間線
 
-智譜 AI 是中國「AI 六小虎」中第一家上市的公司。GLM-5 發布當天，股價暴漲 28.7%。
+| 版本 | 發佈 | 關鍵事實 |
+|---|---|---|
+| GLM-130B | 2022-07 | 130B 密集模型，ICLR 2023 論文，開源起點 |
+| ChatGLM / ChatGLM-6B | 2023-03 | 對齊版本，6B 開源版引爆社群 |
+| ChatGLM2 / 3 | 2023 下半年 | context 擴展、function calling、agent 能力 |
+| GLM-4 系列 | 2024 | 10T+ tokens 預訓練，All Tools 自主工具選擇 |
+| GLM-4.5 | 2025-07 | 355B MoE（32B 活躍），當時開源 MoE SOTA |
+| **GLM-5** | 2026-02 | **744B MoE（40B 活躍），華為昇騰訓練，MIT 授權** |
+| GLM-5.1 | 2026-05 | 為長時間 agent 任務設計，可獨立運行 8 小時 |
+| GLM-5.2 | 2026-06 | 1M lossless context，open-source SOTA on coding |
+| **GLM-5.3** | 2026-08 | **same base as 5.2，coding +50%，CyberGym 84.5%** |
 
----
+四年、八個世代。前半段的劇本是「學術累積轉產品」，後半段則是**開源權重與商用 API 正式分家**——和 Qwen 走的是同一條雙軌路，但 GLM 的開源權重一直維持 MIT 這種最寬鬆授權。
 
-## 智譜 AI 是誰？
+## 兩條產品線：開源權重收生態，商用 API 收營收
 
-智譜 AI（國際品牌名 **Z.ai**）成立於 **2019 年**，是從**清華大學知識工程實驗室（KEG）**孵化出來的 AI 公司，總部位於北京清華科技園。
+看懂 GLM 在 2026 年的動作，關鍵是把它拆成兩條平行線：
 
-### 核心團隊
+**開源線**（HuggingFace 上的 `zai-org` / `ZhipuAI`）：從 GLM-4.5 到 GLM-5.3 的各代開源檢查點，絕大多數掛 **MIT 授權**，商用不受限、可微調、可自架。這條線負責生態位——vLLM、llama.cpp、SGLang 全支援，微調社群把它當可信賴的開源基底。
 
-- **唐杰** — 聯合創辦人暨首席科學家。清華大學教授，IEEE/ACM/AAAI Fellow，GLM 架構的設計者
-- **李娟子** — 聯合創辦人。清華大學教授，KEG 實驗室主任
-- **張鵬** — CEO。清華博士，負責商業化策略
-- **劉德兵** — 董事長暨聯合創辦人。前 Technicolor 中國區高管
+**商用線**（Z.ai / BigModel.cn 的 API）：GLM-5.3 的 API 在 2026-08-19 上線，定價沿用 GLM-5.2 世代。這條線負責營收——ZCode、GLM Coding Plan（點數制，離峰時段消耗 50% 點數）都跑在商用 API 上。
 
-智譜的學術根基非常深。GLM（General Language Model）的架構設計源自清華的研究，從 2022 年的 GLM-130B 開始就在國際學術界有影響力（ICLR 2023 論文）。
+中間有一個關鍵差異：GLM-5.3 的**權重在 API 上線後兩週才開源**（預計 2026-08-22 左右），且開源前要先做安全評估與硬化。這和 Qwen3.8-Max「先發布再開源」的節奏類似，但 GLM 的開源授權是乾淨的 MIT，不像 Qwen 旗艦換成自訂條款。
 
-### 融資與上市
+## 架構：為什麼華為晶片訓得出前沿模型
 
-- 累計融資超過 **14 億美元**，投資方包括阿里巴巴、騰訊、美團、小米、沙烏地 Aramco 旗下 Prosperity7
-- **2026 年 1 月 8 日**在香港交易所上市（股票代號：2513），IPO 募資約 **5.58 億美元**，公開認購超額 1,159 倍
-- 上市後市值一度突破 **190 億美元**，股價較上市價漲幅超過 250%
+### GLM 自迴歸填空架構
 
----
+GLM 從一開始就不是標準的 left-to-right 語言模型，而是用**填空目標**（span corruption / blank infilling）統一理解與生成。這讓同一個模型既能做 cloze 式理解，也能做生成。2022 年的 GLM-130B 就是靠這個架構在 ICLR 上拿到關注，之後的 ChatGLM、GLM-5 都繼承了這條設計哲學。
 
-## GLM 的演進：從 130B 到 744B
+### MoE：744B 裡每次只用 40B
 
-| 時間 | 模型 | 關鍵特點 |
-|------|------|----------|
-| 2022/07 | **GLM-130B** | 130B 密集模型，超越 GPT-3 175B，ICLR 2023 論文 |
-| 2023/03 | **ChatGLM / ChatGLM-6B** | 對齊版本，6B 開源版引爆社群 |
-| 2023/06 | **ChatGLM2-6B** | MMLU +23%，context 2K→32K |
-| 2023 下半年 | **ChatGLM3-6B** | 新增 function calling、code interpreter、agent 能力 |
-| 2024 | **GLM-4 系列** | 10T+ tokens 預訓練，GLM-4 All Tools 支持自主工具選擇 |
-| 2025/07 | **GLM-4.5** | 355B MoE（32B 活躍），23T tokens，當時開源 MoE SOTA |
-| **2026/02** | **GLM-5** | **744B MoE（40B 活躍），28.5T tokens，MIT 授權** |
-| 2026/03 | **GLM-5-Turbo** | 針對 OpenClaw agent 場景優化，工具調用錯誤率降至 0.67% |
+GLM-5 是 744B 總參數的 MoE，每次推理只啟動 40B 活躍參數。這讓它在單台高階主機上就能服務前沿品質，同時把推論成本壓到閉源模型的 1/5–1/8。GLM-5.2/5.3 沿用同一個底座，所有能力躍進都來自後訓練，而非擴大模型。
 
-從 ChatGLM-6B 到 GLM-5，智譜走了一條清晰的路線：**先用小模型開源搶開發者心智，再逐步推出更大、更強的模型**。這跟 Meta 的 LLaMA 策略類似，但智譜做得更早（在中國市場）。
+### Slime RL：讓 Agent 會用工具
 
----
+智譜的 agent 能力核心是 **Slime RL**——一個過程驗證（process verification）框架。它不只看最終答案對不對，而是逐步追蹤模型在 agent 循環中的工具呼叫是否正確。這讓 GLM-5-Turbo 的工具呼叫準確率達到 99.32%，是 agentic 場景的強選項。
 
-## GLM-5 的五個核心能力
+### 華為昇騰：沒有 NVIDIA 也能訓
 
-### 1. 創意寫作
+GLM-5 完全在**華為昇騰**晶片上訓練，沒用一張 NVIDIA GPU。這在地緣政治與供應鏈的脈絡下是個訊號：中國前沿模型的訓練基礎設施正在脫鉤。昇騰的訓練效率是否能長期跟上 NVIDIA 的迭代，仍是個開放問題，但 GLM-5 已經證明「非美系硬體也能訓出前沿模型」。
 
-GLM-5 在文學風格的多樣性和中文表達品質上有明顯提升，能處理不同文體和語境。
+## GLM-5.3：怎麼選
 
-### 2. 程式碼生成：從 Vibe Coding 到 Agentic Engineering
+GLM-5.3 是同一底座的後訓練升級，但智譜同時維持多個 SKU：
 
-智譜在技術報告中用了一個有趣的說法：GLM-5 要實現從「vibe coding」（隨意寫寫）到「agentic engineering」（系統性工程）的轉變。在 SWE-bench Verified 上得分 **77.8%**，是開源模型第一。
+| 項目 | GLM-5.3（API）| GLM-5.2 | GLM-5.1 | GLM-5-Turbo |
+|---|---|---|---|---|
+| 底座 | 744B MoE（40B 活躍）| 同左 | 同左 | 同左（agent 優化）|
+| Context | 1M | 1M | 1M | 1M |
+| 定位 | 最強通用 + coding + 資安 | 上一代最強 | 長時間 agent | 高穩定 agent / 低成本 |
+| 授權 | 商用 API | 商用 API | 商用 API | 商用 API |
+| 開源權重 | MIT（兩週後釋出）| MIT（已釋出）| MIT（已釋出）| MIT（已釋出）|
+| 定價 | ~$0.42 / $2.10 每 1M tokens（沿用 5.2）| 同左 | 同左 | 更低 |
 
-### 3. 多步推理
+定價為 GLM-5 世代商用 API 參考價，5.3 明確沿用 5.2 定價。
 
-在 Humanity's Last Exam（帶工具）上拿到 **50.4 分**，超越 Claude Opus 4.5 和 GPT-5.2，是目前公開報告中的最高分。
+### 授權陷阱：MIT 是真開源，但前沿能力在 API 與時差
 
-### 4. Agentic 智能
+GLM 的開源授權是系列裡最乾淨的之一——**MIT**，比 Llama 4 的 Community License（7 億 MAU 條款）和 Qwen3.8-Max 的自訂條款都寬鬆。這點對需要授權確定性的部署是實質優勢。
 
-GLM-5 支持自主規劃、工具使用、文件生成（Word、PDF、Excel），能端到端完成 PRD 撰寫、財務報告、教案設計等任務。
+但有兩個但書：
 
-### 5. 長文本處理
+- **權重釋出時差**：GLM-5.3 的權重在 API 上線後約兩週才開源，且要先做安全硬化。想「今天用最新能力 + 自己掌握權重」做不到——要嘛用 API，要嘛等兩週。
+- **資安能力的部署責任**：GLM-5.3 的 CyberGym 能力被用於實際程式碼庫掃描（據稱發現 2,436 個漏洞），這類能力一旦開源，雙面刃效應由部署方承擔。如果你的應用涉及紅隊 / 漏洞發掘，需自行評估合規風險。
 
-- 輸入：**200K tokens**
-- 輸出：**128K tokens**
+### 效能位置
 
-128K 的輸出上限在目前的模型中是非常高的——大多數模型的輸出上限遠低於輸入上限。
+| 指標 | GLM-5.3 | 對照 |
+|---|---|---|
+| Artificial Analysis Intelligence Index | **60**（開源第一，並列）| 與 Kimi K3 並列開源第一；Claude Fable 5 / GPT-5.6 Sol 級別 |
+| CyberGym | **84.5%** | Mythos 5 83.8% / GPT-5.6 Sol 83.6%（Z.ai 自報）|
+| ExploitBench | 54.4% | Mythos 5 78% / GPT-5.6 Sol 76.5%（落後）|
+| Terminal-Bench 3.0 | open-source SOTA | 開源模型第一 |
+| Agents' Last Exam | open-source SOTA | 開源模型第一 |
+| Z.ai Code Bench | 比 5.2 +50% | 內部基準 |
 
-### 幻覺控制
+三個誠實的但書：CyberGym / ExploitBench 是 Z.ai 自報數字，待獨立複驗；在 ExploitBench 這種「往後段利用鏈」走深的指標上，GLM-5.3 仍明顯落後閉源旗艦；Intelligence Index 的 60 分與 Kimi K3 並列，但兩者都仍落後 Claude Fable 5 與 GPT-5.6 Sol 的綜合水位。
 
-透過 **Slime RL 框架**，GLM-5 將幻覺率從 GLM-4.7 的 90% 降到 **34%**，據稱低於 Claude Sonnet 4.5 的先前紀錄。
+## 子線與生態系：一張表看懂 GLM 有多少模型
 
----
+除了通用主線，智譜同時經營多條子線：
 
-## 技術架構
+| 子線 | 代表模型 | 最新狀態（2026-08）|
+|---|---|---|
+| 通用主線 | GLM-4.5 → GLM-5 → 5.1 → 5.2 → 5.3 | MIT 開源 + 商用 API 雙軌 |
+| 視覺語言 | GLM-4.5V / GLM-5V-Turbo | 原生多模態，視覺 agent 工作流 |
+| 輕量 | GLM-4.7-Flash（免費層）/ GLM-4.6 | 寫作、翻譯、長文 |
+| OCR | GLM-OCR | CogViT + GLM-0.5B 編碼器，跨模態對齊 |
+| Agent 框架 | OpenClaw | 終端機式 coding agent，對應 GLM-5-Turbo |
+| 商用 API | Z.ai / BigModel.cn / GLM Coding Plan | 點數制，離峰 50% 優惠 |
 
-### MoE 設計
+兩個趨勢：
 
-```
-總參數：    744B
-Expert 數： 256
-每次啟動：  top-8（約 40-44B 活躍參數）
-稀疏率：    ~5.9%
-預訓練資料：28.5T tokens
-Context：   200K 輸入 / 128K 輸出
-```
+**能力往主線收編。** 和 Qwen、DeepSeek 收編 Coder/Math 子線的劇本相同，智譜把專項能力併回 GLM 主線——視覺變成原生能力，coding 由主線旗艦承擔。這降低維護成本，也讓「一個底座打多場景」成為現實。
 
-### 關鍵技術創新
+**開源授權始終寬鬆。** 不像 Qwen 旗艦轉自訂條款、Llama 4 用 Community License，GLM 的開源權重一路維持 MIT。這讓它在需要授權確定性的企業部署中特別有說服力——尤其是對地緣敏感、必須自架的場景。
 
-**DeepSeek Sparse Attention（DSA）**
-根據 token 重要性動態分配注意力資源，降低不必要的計算開銷。
+## 跟競品的位置
 
-**Multi-head Latent Attention（MLA）**
-相比標準 multi-head attention，記憶體開銷降低 33%。
+把 GLM-5.3 放回 2026 年 8 月的開源格局：
 
-**Context 漸進擴展**
-不是一開始就在 200K 上訓練，而是分階段擴展：
-- 32K（前 1T tokens）→ 128K（500B tokens）→ 200K（50B tokens）
+- **對上 Kimi K3（2.8T 開放權重）**：兩家在 Intelligence Index 並列 60（開源第一）。K3 總參數更大（2.8T vs 744B），但 GLM 的 MIT 授權更乾淨，且中文與 agent 生態更成熟
+- **對上 Qwen3.8-Max（2.4T）**：Qwen 尺寸光譜更廣（0.8B–2.4T），但 GLM 的 MIT 比 Qwen 旗艦的自訂條款確定性更高；兩家在開源榜首位置互有領先
+- **對上 DeepSeek V4**：DeepSeek 的價格（$0.28/$0.42）與 MLA 成本結構更激進；GLM 的優勢是 agent 工具呼叫準確率（99.32%）與資安基準
+- **對上 Claude / GPT 前沿**：GLM-5.3 在 CyberGym 局部超越，但綜合水位（SWE-bench、ExploitBench）仍落後，定價則便宜 7–10 倍
 
-### Slime：非同步 RL 基礎設施
+## 對 Agent 開發者的意義
 
-Slime 是 GLM-5 後訓練階段的核心，有幾個值得注意的設計：
+- **複雜 coding agent** → GLM-5.3：Terminal-Bench 3.0 / Agents' Last Exam 開源 SOTA，Z.ai Code Bench 比 5.2 +50%
+- **資安 / 漏洞掃描** → GLM-5.3：CyberGym 84.5% 開源第一，但需自評紅隊合規
+- **高穩定工具呼叫** → GLM-5-Turbo：工具呼叫 99.32%，中文原生，適合長鏈 agent
+- **需要 MIT 授權自架** → GLM 全系列開源權重掛 MIT，比 Llama 4 / Qwen 旗艦更乾淨
+- **需要最便宜的 API** → DeepSeek V4 Flash 更便宜；GLM 的優勢在 agent 穩定性而非純價格
+- **需要超長 context** → Kimi K3 的 1M context 與 2.8T 參數更大，但 GLM 的 1M lossless 已夠多數場景
 
-- **完全非同步**：推理、評估、參數更新三個管線獨立運行
-- **TITO 閘道**（Token-in-Token-out）：消除 re-tokenization 的不一致問題
-- **FP8 推理**：加速 rollout 速度
-- **心跳驅動的容錯**：自動處理訓練中的節點故障
-- 每次 RL 運行產生 3,000-6,000 條訊息，專門磨練長程規劃和工具使用能力
-- 優化目標是**端到端延遲**而非聚合吞吐量
+## 整體來說
 
-### 華為昇騰：零 NVIDIA 依賴
+GLM 的故事是「學術實驗室長出的開源前沿」。從清華 KEG 的 GLM-130B，到今天完全在華為昇騰上訓出的 744B 開源旗艦，智譜走出了一條和矽谷不同的路——不是靠 NVIDIA 堆算力，而是靠架構（GLM 填空）、訓練框架（Slime RL）與授權（MIT）建立護城河。
 
-這可能是 GLM-5 最具戰略意義的技術細節。
+2026 年 8 月的 GLM-5.3 是個轉折點：它證明**後訓練可以讓同一個底座的前沿能力大幅躍進**，而不必每次都擴大模型。CyberGym 84.5% 超過 Mythos 5 和 GPT-5.6 Sol，則讓「開源模型做資安」從口號變成可測的指標。
 
-2025 年 1 月，美國商務部將智譜列入實體清單。智譜隨即全面轉向華為昇騰 910B 晶片和 MindSpore 框架。GLM-5 的訓練使用了約 **100,000 張昇騰 910B**。
-
-這證明了一件事：**前沿級模型的訓練不再必須依賴 NVIDIA**。雖然效率上可能仍有差距，但「能不能做到」這個問題的答案已經是肯定的。
-
----
-
-## 基準測試比較
-
-### 與閉源模型的對比
-
-| 基準 | GLM-5 | Claude Opus 4.5 | GPT-5.2 | Gemini 3 Pro |
-|------|-------|-----------------|---------|-------------|
-| HLE（帶工具）| **50.4** | < 50.4 | < 50.4 | — |
-| HLE（無工具）| 30.5 | — | — | — |
-| AIME 2026 I | 92.7 | 93.3 | — | — |
-| GPQA-Diamond | 86.0 | — | — | — |
-| SWE-bench Verified | 77.8 | **80.9** | 80.0 | 63.8 |
-| SWE-bench 多語言 | 73.3（9 種語言）| — | — | — |
-
-### 開源模型排名（2026 年 3 月）
-
-**Artificial Analysis Intelligence Index：**
-- Gemini 3.1 Pro Preview：57
-- GPT-5.4：57
-- Claude Opus 4.6：53
-- **GLM-5（推理模式）：50** ← 開源第一
-- Kimi K2.5：47
-- Qwen3.5：45
-
-**LMArena Text Arena：**
-- GLM-5：1452 分，總排名 #11，**開源第一**
-
-簡單來說：GLM-5 是目前**最強的開源模型**，在部分基準上甚至超越了 Claude 和 GPT。
-
----
-
-## API 與定價
-
-### 官方 API（Z.ai / BigModel.cn）
-
-| 模型 | 輸入（/1M tokens）| Cache 命中 | 輸出（/1M tokens）|
-|------|-------------------|------------|-------------------|
-| GLM-5 | $1.00 | $0.20 | $3.20 |
-| GLM-5-Code | $1.20 | $0.30 | $5.00 |
-| GLM-5-Turbo | $1.20 | — | $4.00 |
-
-### 與競品定價比較
-
-| 模型 | 輸入 | 輸出 | 倍率（vs GLM-5）|
-|------|------|------|------------------|
-| GLM-5 | $1.00 | $3.20 | 1x |
-| Kimi K2.5 | $0.60 | $2.50 | 更便宜 |
-| Claude Opus 4.6 | $5.00 | $25.00 | 5-8x 更貴 |
-| GPT-5.2 | — | — | 顯著更貴 |
-
-GLM-5 的定位很清楚：**接近前沿閉源模型的能力，開源模型的定價**。
-
-### 部署選項
-
-- **雲端 API**：BigModel.cn、OpenRouter、NVIDIA NIM
-- **本地部署**：支持 vLLM、SGLang、KTransformers、xLLM
-- **MIT 授權**：商用無限制
-
----
-
-## OpenClaw 與 Agent 生態
-
-智譜圍繞 GLM-5 建立了一套完整的 agent 生態：
-
-### OpenClaw
-
-OpenClaw 是智譜的 agent 框架，GLM-5-Turbo 是為它專門優化的模型。覆蓋六大場景：
-
-1. **資訊搜尋** — 網路搜尋和資料彙整
-2. **辦公自動化** — 文件生成、報告撰寫
-3. **日常任務** — 排程、提醒、生活管理
-4. **資料分析** — 數據處理和視覺化
-5. **軟體開發** — 程式碼生成、除錯、重構
-6. **多 Agent 協作** — 多個 agent 協同完成複雜任務
-
-GLM-5-Turbo 的工具調用錯誤率僅 **0.67%**，遠低於其他模型的 2-6%。
-
-### AutoGLM
-
-AutoGLM 是一個獨立的手機 agent 應用，用語音指令操作手機完成各種任務。智譜稱其為「中國最早的 agent 模型」。
-
-### CodeGeeX
-
-智譜的 AI 程式碼助手，類似 GitHub Copilot，基於 GLM 系列模型。
-
----
-
-## 市場定位
-
-### 在中國
-
-- **AI 六小虎之首**：智譜是六家中國 AI 新創（智譜、月之暗面、MiniMax、百川、零一萬物、階躍星辰）中第一家上市的
-- **政府市場龍頭**：中國政府 AI 支出的 70% 必須使用「首批」國產模型，智譜佔最大份額
-- 服務超過 50% 的中國前十大互聯網公司，290 萬使用者（15% 付費），12,000 家企業客戶
-
-### 在全球
-
-- **開源第一**：LMArena 和 Artificial Analysis 雙料開源冠軍
-- **主權 AI**：為東南亞和中東國家提供「AI-in-a-Box」解決方案（印尼、越南、馬來西亞、新加坡、阿聯酋、沙烏地、肯亞）
-- 在新加坡、英國、馬來西亞設有辦公室
-
-### 戰略意義
-
-GLM-5 最大的故事可能不是基準分數，而是它證明了：
-
-> **一個被列入美國實體清單的中國公司，用純國產硬體訓練出了前沿級模型，然後以 MIT 授權開源。**
-
-這對全球 AI 格局的影響，可能比任何單一基準分數都更深遠。
-
----
-
-## 值得關注的點
-
-### 優勢
-- **開源最強**：MIT 授權 + 開源第一的排名，對開發者極具吸引力
-- **成本效益**：接近閉源前沿的能力，1/5 到 1/8 的價格
-- **Agent 生態完整**：從底層模型到 OpenClaw 框架到終端應用（AutoGLM、CodeGeeX）
-- **非美國硬體**：對受出口管制影響的國家和企業有戰略價值
-- **幻覺控制**：Slime RL 框架的 34% 幻覺率是顯著進步
-
-### 挑戰
-- SWE-bench 等軟體工程基準仍落後 Claude 和 GPT 約 3 個百分點
-- 英文寫作品質和 MMLU-Pro 等通用知識基準仍有差距
-- 華為昇騰的訓練效率是否能跟上 NVIDIA 的迭代速度仍是未知數
-- 國際品牌知名度不如 OpenAI、Anthropic、Google
-- 地緣政治因素可能影響國際市場的採用意願
-
----
-
-## 結語
-
-GLM-5 代表了中國 AI 發展的一個重要里程碑：它不只是「又一個追趕者」，而是在多個維度（開源排名、agent 能力、成本效益、硬體獨立性）上展現了差異化的競爭力。
-
-對於開發者來說，GLM-5 的 MIT 授權和有競爭力的 API 定價讓它成為一個認真的選項——特別是如果你在做 agent 應用、需要中文能力、或者對供應商多元化有需求。
-
-對於觀察 AI 產業的人來說，智譜從清華實驗室到港交所上市、從 NVIDIA GPU 到華為昇騰的歷程，本身就是一個值得深入了解的故事。
+真正值得記住的是授權：在「開源」的光譜上，GLM 站在最乾淨的一端——MIT，可商用、可微調、可自架，沒有 MAU 條款也沒有自訂限制。對需要授權確定性的企業（特別是受地緣與合規約束的場景），GLM 目前是開源陣營裡最省心的選項之一。
 
 ---
 
 ## 參考資料
 
-- [GLM-5 技術報告：from Vibe Coding to Agentic Engineering](https://arxiv.org/html/2602.15763v1)
+- [GLM-5.3: Frontier Coding with Emergent Cyber Capabilities — Z.ai Blog](https://z.ai/blog/glm-5.3)
+- [Z.ai 模型發布說明（GLM-5.3）](https://docs.z.ai/release-notes/new-released)
+- [Zhipu launches GLM-5.3 — South China Morning Post](https://www.scmp.com/tech/big-tech/article/3364077/zhipu-launches-flagship-model-glm-53-china-seeks-mythos-level-edge-cyber-defence)
+- [Zhipu's GLM-5.3 API Goes Live — Gate News](https://www.gate.com/news/detail/zhipus-glm-53-api-goes-live-tying-kimi-k3-for-the-top-spot-among-open-23548151)
+- [GLM-5 技術報告](https://arxiv.org/html/2602.15763v1)
 - [ChatGLM 模型家族論文](https://arxiv.org/abs/2406.12793)
 - [GLM-5 Hugging Face](https://huggingface.co/zai-org/GLM-5)
 - [Z.ai 官方網站](https://www.zhipuai.cn/en)
 - [BigModel.cn API 平台](https://bigmodel.cn/)
+- [AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources) — 本站
+- [AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview) — 本站
