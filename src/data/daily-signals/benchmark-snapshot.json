@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-23",
+  "date": "2026-08-24",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -18,10 +18,10 @@
     { "rank": 1, "model": "Grok 4.6 (high)", "org": "xAI", "score": 59 }
   ],
   "cursorbench_top3": [
-    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "BenchLM mirror；Cursor 第一方 CursorBench 3.2 官方數字" },
-    { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5 },
-    { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0 }
+    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "Extra High config；Cursor 官方 cursor.com/cursorbench CursorBench 3.2" },
+    { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5, "note": "Max config" },
+    { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0, "note": "Max config" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-23：swebench.com 首頁本身仍走 SPA（leaderboards.json 404、直連被 proxy gateway 403），改抓其資料來源 repo github.com/SWE-bench/swe-bench.github.io（master 分支）raw data/leaderboards.json 成功，Verified 全 agent 榜前 5 名分數與名次（79.2/79.2/78.8/77.4/76.8，live-SWE-agent → Sonar Foundation Agent → TRAE → live-SWE-agent → Atlassian Rovo Dev）與 08-22 快照完全一致，無異動。lmarena.ai/leaderboard/agent（Exa fetch，2026-08-19 資料截止）Agent Arena 前 3 名（12.47/12.00/11.57，Claude Opus 5 High → Max → Fable 5 High）與 08-22 快照完全一致。CursorBench（Exa 搜尋 BenchLM 鏡像確認，08-22 更新版）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-22 快照一致，無異動。AA Agentic Index（Tavily extract artificialanalysis.ai 官方頁）FAQ 仍維持『top-performing models 目前為 Claude Opus 5 (Adaptive Reasoning, Max Effort)、GLM-5.3 (max)、Grok 4.6 (high)』三者官方頁面四捨五入後皆顯示 59 分，第 1 名仍為 Claude Opus 5，與 08-22 判斷一致（接近雜訊等級的並列，非實質排名異動）。MorphLLM /leaderboard 今日回傳 Vercel Security Checkpoint（bot 驗證頁面），與過去多日一樣無法直接存取；改以 morphllm.com 自家部落格文章（best-ai-coding-agents-2026、ai-coding-agent、swe-bench-pro）交叉確認 Terminal-Bench 2.1／SWE-bench Pro 數字，內容與 08-21 前次確認的排序（GPT-5.6 Sol 89.5% > Claude Opus 5 89.1% > Grok 4.6 88.4% on TB2.1；Fable 5 80.0-80.3% 仍居 SWE-bench Pro 冠軍）一致，非新變動。今日無 Benchmark 異動，未產出文章。多個第三方聚合站（anotherwrapper、ctrlaltdebrief、benchlm）彼此數字互相矛盾（同一 SWE-bench Verified 榜單分別給出 96.4%／81%／96% 等不同數字），且持續出現不可信/疑似虛構型號（如『Claude Mythos 5』宣稱 95%+，Anthropic 官方或 swebench.com 官方榜單均無此型號的可驗證公開分數），一律未採信，僅以官方來源（swebench.com/github repo、lmarena.ai、artificialanalysis.ai、cursor 官方 CursorBench）為準。"
+  "notes": "2026-08-24：swebench.com 首頁本身仍為 SPA 不可直抓（WebFetch 對 www.swebench.com 被 egress proxy 擋），改以第三方獨立鏡像 awesomepapers.io/ai-agents/leaderboards/SWE-bench Verified 交叉確認官方 live-SWE-agent 榜單原始數字（score date 2026-08-13，標記『Independently verified』），Verified 全 agent 榜前 5 名分數與名次（79.20/79.20/78.80/77.40/76.80，live-SWE-agent → Sonar Foundation Agent → TRAE → live-SWE-agent → Atlassian Rovo Dev）與 08-23 快照完全一致，無異動。LMArena Agent 官方頁（Exa 搜尋命中 arena.ai/leaderboard/agent，即 lmarena.ai 現行網域）Agent Arena 前 3 名（12.47%±1.54 / 12.00%±1.80 / 11.57%±1.70，Claude Opus 5 High → Max → Claude Fable 5 High）與 08-23 快照完全一致，無異動。CursorBench（Exa 命中 cursor.com/cursorbench 官方頁）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-23 快照一致，無異動。AA Agentic Index（Exa 命中 artificialanalysis.ai/models/capabilities/agentic 官方頁 FAQ）『top-performing models 目前為 Claude Opus 5 (Adaptive Reasoning, Max Effort)、GLM-5.3 (max)、Grok 4.6 (high)』三者官方頁面四捨五入後皆顯示 59 分，與 08-23 判斷一致（並列，非實質排名異動）。MorphLLM /leaderboard 今日未直接嘗試（firecrawl 額度已耗盡、Vercel bot 驗證頁過去多日皆擋），改以 morphllm.com 自家部落格文章（best-ai-coding-agents-2026、ai-coding-agent、swe-bench-pro，皆標註 2026-08-02～08-21 更新）交叉確認 Terminal-Bench 2.1／SWE-bench Pro 數字（GPT-5.6 Sol 89.5% > Claude Opus 5 89.1% > Grok 4.6 88.4% on TB2.1；Fable 5 80.0-80.3% 仍居 SWE-bench Pro 冠軍），與前次確認一致，非新變動。今日無 Benchmark 異動，未產出文章。Tavily extract 額度今日已超過方案上限（432 錯誤），改用 Exa 搜尋補位，未影響覆蓋。多個不可信第三方聚合站（anotherwrapper、benchlm、modelcap、modelgauntlet）數字彼此矛盾且與官方源不一致（如 CursorBench 另給出 72.9%、LMArena Agent 另給出 12.5%/11.6%/10.4% 或不同 IPS 量表），一律不採信，僅以官方來源（swebench.com 資料鏡像、lmarena.ai/arena.ai 官方頁、artificialanalysis.ai 官方頁、cursor.com 官方頁）為準。"
 }
