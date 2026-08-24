@@ -184,6 +184,20 @@ Applying across multiple platforms gets messy fast. Two approaches:
 - **Ignoring time zones**: Seeing "remote" and applying, only to discover they need you online during EST business hours. Check timezone requirements before applying — make sure you can accommodate them.
 - **Not setting up alerts**: Every platform offers email alerts or RSS feeds. Set them up so new listings come to your inbox automatically. Working Nomads and Remote OK both have solid free email notifications.
 
+## How to Tell If a Recommendation Is Genuine or Sponsored
+
+When you read any article recommending platforms (including this one), run four checks:
+
+**One: Look for tracking parameters in the links.** URLs containing `?ref=`, `?via=`, `?aff=`, or UTM parameters mean the recommender earns a commission on every signup. This doesn't automatically make the recommendation false — but it does mean the recommender has a financial incentive, and you should scrutinize the content more carefully. The [FTC's 2023 updated Endorsement Guides](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements) require that any material connection between a recommender and a recommended company (payment, free accounts, commissions) must be disclosed "clearly and conspicuously." Taiwan's [Fair Trade Commission](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165) has similar disclosure rules, with penalties ranging from TWD 50,000 to TWD 25 million.
+
+**Two: Check whether the content mentions drawbacks.** A [systematic literature review](https://www.researchgate.net/publication/368855021) on how consumers assess review veracity identified five categories of cues people use: perceptual, affective, detail, relevance, and cognitive. The most critical is the "detail cue" — **specific descriptions are easier to verify than vague praise.** An article that says "this platform is great" is harder to evaluate than one saying "I submitted 23 applications, got 4 interviews, landed one offer, but customer support took an average of three days to reply." By the same logic, a recommendation that mentions zero downsides should be treated with a discount.
+
+**Three: See if the recommender compares multiple platforms.** Sponsored posts typically promote only one platform, because the deal is with one company. Someone who has genuinely used multiple platforms will say "A worked for me but B didn't, because..." — that kind of comparison is a natural byproduct of real experience and is hard to fabricate.
+
+**Four: Look for a disclosure statement.** Honest recommenders proactively label their content with "this post contains affiliate links" or "this is a paid collaboration." The absence of disclosure doesn't prove there's no financial relationship — but its presence at least means the recommender is letting you factor that information into your judgment.
+
+Every link in this article points directly to each platform's official homepage. There are no affiliate links or tracking parameters. The content is based on publicly available information from each platform, not personal usage experience.
+
 ## References
 
 - [FlexJobs official site](https://www.flexjobs.com/)
@@ -197,3 +211,7 @@ Applying across multiple platforms gets messy fast. Two approaches:
 - [Working Nomads premium plans](https://www.workingnomads.com/premium)
 - [Toptal official site](https://www.toptal.com/)
 - [Toptal screening process](https://www.toptal.com/top-3-percent)
+- [FTC — Updated Endorsement Guides (2023)](https://www.ftc.gov/news-events/news/press-releases/2023/06/federal-trade-commission-announces-updated-advertising-guides-combat-deceptive-reviews-endorsements)
+- [Taiwan Fair Trade Commission — Handling Principles for Internet Advertising Cases](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=12231&mid=165)
+- [Taiwan Fair Trade Commission — Endorsement Advertising Guidelines](https://www.ftc.gov.tw/internet/main/doc/docDetail.aspx?uid=165&docid=13021)
+- [Systematic literature review: Which cues do consumers use to determine the veracity of online user reviews? (2023)](https://www.researchgate.net/publication/368855021)
