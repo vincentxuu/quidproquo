@@ -19,8 +19,8 @@ TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 # Step 2: 讀 watchlist 找出 A1/A2 的模型廠商清單
 cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" or .section == "A2") | .name'
 
-# Step 3: 執行「搜尋方法」偵測新模型
-# Step 4: 判斷：若無新模型 → 輸出「今日無新模型」&& exit 0
+# Step 3: 執行「搜尋方法」偵測新模型（3a HF API + 3b 搜尋引擎 + 3c 官方 blog）
+# Step 4: 兩層過濾 → 判斷是否有值得寫的新模型
 # Step 5: 對每個新模型執行「詳情抓取」
 # Step 6: 依「輸出格式」撰寫模型卡
 # Step 7: 提交
@@ -35,17 +35,36 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
+| **HuggingFace 趨勢** | Groundlane web_fetch 打 HF API | 結構化 JSON，最精確 |
 | **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
 | **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
 ---
 
-
-
 ## 搜尋方法
 
-### Step 3a：用 Exa + Tavily 合併搜尋新模型公告（，跑 3 組查詢）
+### Step 3a：HuggingFace API 掃描（首要訊號源）
+
+直接打 HuggingFace REST API，取得結構化 trending 資料。比搜尋引擎 `site:huggingface.co` 精確且不吃搜尋額度。
+
+```
+工具：Groundlane MCP → web_fetch
+format: "text"（回傳 JSON）
+```
+
+| 查詢 | URL | 目標 |
+|---|---|---|
+| T1 | `https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=30&filter=text-generation` | 文字生成模型 7 日 trending |
+| T2 | `https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=15&filter=image-text-to-text` | 多模態模型 7 日 trending |
+| T3 | `https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=10&filter=text-to-image` | 圖像生成模型 7 日 trending |
+| T4 | `https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=10&filter=text-to-video` | 影片生成模型 7 日 trending |
+
+回傳 JSON 包含：`id`、`likes`、`trendingScore`、`downloads`、`tags`（含 `base_model`）、`createdAt`、`pipeline_tag`。
+
+### Step 3b：搜尋引擎掃描（補充訊號）
+
+用 Exa + Tavily 合併搜尋，捕捉 HF API 漏掉的閉源模型和官方公告。
 
 ```
 工具：mcp Exa → web_search_exa
@@ -57,9 +76,8 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 查詢編號 | query | 目標 |
 |---|---|---|
-| Q1 | `"new AI model" OR "model release" OR "model announcement" Claude OR GPT OR Gemini OR Llama` | 大廠模型發佈 |
-| Q2 | `site:huggingface.co "new model" OR "trending" agent OR reasoning OR coding 2026` | HuggingFace 新模型/trending |
-| Q3 | `"AI model launch" OR "foundation model" Mistral OR Cohere OR DeepSeek OR Qwen` | 非美國大廠（歐洲/中國） |
+| Q1 | `"new AI model" OR "model release" OR "model announcement" Claude OR GPT OR Gemini OR Llama` | 大廠閉源模型發佈 |
+| Q2 | `"AI model launch" OR "foundation model" OR "open source model" Mistral OR Cohere OR DeepSeek OR Qwen OR GLM OR Yi OR MiniMax OR Phi` | 開源生態重要廠商 |
 
 ### 注意：Tavily 與 Exa 平行執行
 
@@ -70,9 +88,9 @@ days: 1
 maxResults: 5
 ```
 
-### Step 3c：檢查大廠官方 blog（Groundlane 優先，firecrawl 備援）
+### Step 3c：檢查官方 blog（Groundlane 優先，firecrawl 備援）
 
-只有在 Step 3a/3b 有初步信號時才做（避免每天空跑 20 個 blog）。
+只有在 Step 3a/3b 有初步信號時才做（避免每天空跑）。
 針對信號中提到的廠商，抓其官方 blog 確認是否有正式公告：
 
 ```
@@ -91,18 +109,56 @@ onlyMainContent: true
 | Meta | https://ai.meta.com/blog/ |
 | Mistral | https://mistral.ai/news/ |
 | DeepSeek | https://api-docs.deepseek.com/news |
+| Qwen (阿里) | https://qwenlm.github.io/blog/ |
+| 智譜 Zhipu | https://zhipuai.cn/news |
+| MiniMax | https://www.minimax.io/news |
+| 01.AI (Yi) | https://01.ai/blog |
+| Microsoft (Phi) | https://www.microsoft.com/en-us/research/blog/ |
+| Stability AI | https://stability.ai/news |
+| xAI (Grok) | https://x.ai/blog |
 
-### Step 3d：判斷是否有新模型
+---
 
-**觸發條件**（符合任一）：
-- 搜尋結果中出現 watchlist A1/A2 廠商的新模型名稱
-- HuggingFace 出現新的 foundation model（> 1B 參數）
-- 官方 blog 有模型公告文章
+## 兩層過濾（Step 4）
+
+### 第一層：去重到 base model
+
+HF API 回傳的 `tags` 裡包含 `base_model:Qwen/Qwen3.8-27B` 之類的 tag。
+所有帶 `base_model:*` tag 的衍生版歸到同一個 base model，只保留 base 本身或 trendingScore 最高的那個。
+
+**直接排除**（不進第二層）：
+- 純量化重新打包（GGUF / MLX / FP8 / AWQ / GPTQ），辨識方式：model ID 包含量化格式詞且上傳者非官方 org
+- uncensored / abliterated 衍生版
+- 同一 base model 的多個量化帳戶版本（unsloth、bartowski、TheBloke 等量化專戶）
+
+### 第二層：判斷值不值得寫模型卡
+
+去重後的候選，符合**任一條件**即觸發：
+
+**A. 新 base model（最重要）**：
+- `createdAt` 在 7 天內
+- 沒有 `base_model:*` tag（自己就是原創 base）
+- likes > 50
+- 來自任何 org，不限 A1/A2 watchlist
+
+**B. 官方公告確認的新模型**：
+- 搜尋結果或 blog 掃描發現正式公告
+- 不論開源或閉源
+
+**C. 技術突破型衍生**：
+- 有具體新方法（如投機解碼、新量化演算法、架構改良）
+- 不是單純重新打包，而是有論文或技術文章支撐
+- 在 model card 中以「技術突破」角度寫，而非當成新模型
+
+**D. 社群爆量訊號**：
+- 7 日 trendingScore 前 3
+- 且 downloads > 100k
+- 且不屬於上面排除的類別
 
 **不觸發**（跳過）：
-- 模型微調版本（fine-tune、adapter）——除非有重大性能提升
 - API 功能更新但不是新模型（如新增 function calling 支援）
-- 開源權重但架構未變（如 Llama 3 的 GGUF 轉換版）
+- 已經寫過模型卡的 base model 的後續衍生版（除非符合條件 C）
+- 模型微調版本（fine-tune、adapter）——除非有重大性能提升且被廣泛採用
 
 ---
 
@@ -110,26 +166,39 @@ onlyMainContent: true
 
 ### Step 5：取得模型完整資訊
 
-**官方公告頁**（firecrawl）——提取：
+**官方公告頁**（Groundlane 優先）——提取：
 - 模型名稱 / Model ID（API 呼叫用的 ID，如 `claude-4-opus-20260815`）
 - 參數量
 - Context Window
 - 支援的模態（text / vision / audio / code）
+- 授權條款（Apache-2.0 / MIT / custom 等）
 
-**定價頁**（firecrawl 或 curl）——提取精確定價：
+**HuggingFace 模型頁**（開源模型必抓）：
+```
+工具：Groundlane MCP → web_fetch
+url: "https://huggingface.co/{model_id}"
+format: "markdown"
+```
+提取 README 中的架構描述、benchmark 數據、使用方式。
+
+**定價頁**（閉源模型或提供 API 的開源模型）——提取精確定價：
 
 ```
 # Anthropic
-firecrawl_scrape url: "https://www.anthropic.com/pricing"
+web_fetch url: "https://www.anthropic.com/pricing"
 
 # OpenAI
-firecrawl_scrape url: "https://openai.com/api/pricing/"
+web_fetch url: "https://openai.com/api/pricing/"
 
 # Google
-firecrawl_scrape url: "https://ai.google.dev/pricing"
+web_fetch url: "https://ai.google.dev/pricing"
+
+# DeepSeek
+web_fetch url: "https://api-docs.deepseek.com/quick_start/pricing"
 ```
 
 定價必須精確到小數（如 `$3.00 / 1M input tokens`），**不可寫「約」**。
+開源模型若無官方 API 定價，可附第三方推論服務定價（Together、Fireworks 等）並標明來源。
 
 **Benchmark 數據**——從公告中提取，或搜尋：
 ```
@@ -146,7 +215,7 @@ numResults: 5
 
 `src/content/posts/daily/${TODAY}-model-{model-slug}.md`
 
-model-slug 規則：廠商-模型名稱，kebab-case（如 `anthropic-claude-4-5`、`openai-gpt-5`）
+model-slug 規則：廠商-模型名稱，kebab-case（如 `anthropic-claude-4-5`、`openai-gpt-5`、`ornith-ai-ornith-1-5`）
 
 ### Frontmatter
 
@@ -162,8 +231,18 @@ tldr: "模型名稱、核心數字（context window、定價、關鍵 benchmark�
 series:
   name: "AI Model Tracker"
   order: N
+glossary:
+  - term: "{model family name}"
+    def: "{一句話定義，如 Qwen：阿里通義千問開源模型家族}"
 ---
 ```
+
+#### family tag（橋接家族系列文章）
+
+在 frontmatter 的 `tags` 裡加入家族 tag，格式為 `model-family-{family-slug}`。
+例如：`model-family-qwen`、`model-family-deepseek`、`model-family-llama`。
+
+用途：週回顧 Routine L 可以查詢某家族累積了多少模型卡，判斷是否需要更新對應的 tech 家族系列文章。
 
 ### 內容結構（嚴格按以下順序和格式）
 
@@ -181,6 +260,8 @@ series:
 | 開源 | {是（授權名稱）/ 否} |
 | 發布日 | {YYYY-MM-DD} |
 | 官方公告 | [{廠商} Blog]({url}) |
+| HuggingFace | [{model_id}]({url})（開源模型才填）|
+| 家族 | {家族名稱}（如 Qwen 3.x、DeepSeek V4）|
 
 ## 能力亮點
 
@@ -224,13 +305,16 @@ series:
 title: "模型卡｜Claude 4.5 Sonnet"
 date: 2026-08-15
 category: daily
-tags: [ai-agent, model-release, daily, anthropic]
+tags: [ai-agent, model-release, daily, anthropic, model-family-claude]
 lang: zh-TW
 description: "Anthropic 發佈 Claude 4.5 Sonnet——1M context、$3/$15 定價、SWE-bench 72.3%，首次原生支援 MCP server 端執行"
 tldr: "Claude 4.5 Sonnet：1M context window、input $3/output $15 per 1M tokens、SWE-bench Verified 72.3%（前代 4 Sonnet 為 64.1%）、首次支援 MCP server 端執行讓 Agent 可以作為 MCP tool provider"
 series:
   name: "AI Model Tracker"
   order: 12
+glossary:
+  - term: "Claude"
+    def: "Anthropic 開發的大型語言模型家族"
 ---
 
 ## 模型資訊
@@ -246,6 +330,7 @@ series:
 | 開源 | 否 |
 | 發布日 | 2026-08-15 |
 | 官方公告 | [Anthropic Blog](https://www.anthropic.com/news/claude-4-5-sonnet) |
+| 家族 | Claude 4.x |
 
 ## 能力亮點
 
@@ -297,4 +382,6 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] 官方公告有完整 URL
 - [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
+- [ ] `tags` 包含 `model-family-{family-slug}` 家族 tag
+- [ ] 模型資訊表包含「家族」和「HuggingFace」欄位（開源模型）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
