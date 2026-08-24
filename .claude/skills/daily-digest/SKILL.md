@@ -15,7 +15,7 @@ description: Produce daily digest content for quidproquo.cc/daily. Invoked by Cl
 |---|---|---|---|
 | A | `daily-digest-arxiv` | 每日 | Arxiv cs.AI/cs.CL/cs.MA digest |
 | B | `daily-digest-github` | 每日 | GitHub Trending AI/Agent digest |
-| C | `daily-digest-model-card` | 事件驅動 | 新模型偵測 + 模型卡 |
+| C | `daily-digest-model-card` | 事件驅動 | 新模型偵測 + 模型卡（HF API + 搜尋引擎雙訊號源，兩層過濾去重） |
 | D | `daily-digest-security` | 事件驅動 | AI 資安警報 |
 | E | `daily-digest-benchmark` | 事件驅動 | Benchmark 排行榜異動 |
 | F | `daily-digest-framework` | 事件驅動 | 框架版本更新 |
