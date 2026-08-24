@@ -7,7 +7,7 @@ tags: [harness-engineering, coding-agent, omp, pi, opencode, deepseek, claude-co
 lang: en
 series:
   name: "Agent CLI 選型指南"
-  order: 27
+  order: 30
 tldr: "In August 2026, OMP 2 rewrites entirely in Rust, Pi v2 swaps its engine, Opencode 2 replaces three layers at once, DeepSeek Harness launches from scratch, and Claude Code keeps iterating — five coding agents moving simultaneously. This article lays them side by side, not to rank them, but to identify three distinct architectural approaches and one shared direction."
 description: "The five-way competition in H2 2026 coding agent frameworks: full Rust rewrite, minimalist upgrade, runtime migration, plugin kernel, continuous iteration. Three architectural approaches and one shared direction."
 draft: false

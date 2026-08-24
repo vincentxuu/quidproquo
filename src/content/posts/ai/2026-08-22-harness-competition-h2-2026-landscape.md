@@ -7,7 +7,7 @@ tags: [harness-engineering, coding-agent, omp, pi, opencode, deepseek, claude-co
 lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
-  order: 27
+  order: 30
 tldr: "2026 年 8 月，OMP 2 全 Rust 重寫、Pi v2 底層換引擎、Opencode 2 三層替換、DeepSeek Harness 從零發布、Claude Code 持續迭代——五個 coding agent 同時在動。這篇把它們攤開比，不是為了排名次，而是看出三條不同的架構路線和一個共同方向。"
 description: "2026 下半年 coding agent 框架的五路競爭態勢：全 Rust 重寫、極簡主義升級、runtime 遷移、plugin kernel、持續迭代。三條架構路線與一個共同方向。"
 draft: false
