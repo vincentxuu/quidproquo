@@ -1,0 +1,126 @@
+{
+  "data": {
+    "project": {
+      "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+      "entityName": "marin-community",
+      "name": "marin_moe",
+      "runs": {
+        "deltas": {
+          "order": [
+            "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk="
+          ],
+          "incomplete": null,
+          "delta": [
+            {
+              "op": "INSERT",
+              "run": {
+                "commit": null,
+                "createdAt": "2026-08-20T02:04:58Z",
+                "heartbeatAt": "2026-08-24T15:02:57Z",
+                "defaultColorIndex": 0,
+                "displayName": "hero-12d8b6f0-dee637",
+                "group": "moe-hero-ep-scaling-ladder",
+                "groupCounts": null,
+                "host": null,
+                "jobType": null,
+                "project": {
+                  "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+                  "entityName": "marin-community",
+                  "name": "marin_moe",
+                  "__typename": "Project"
+                },
+                "projectId": "44203225",
+                "state": "running",
+                "stopped": false,
+                "sweep": null,
+                "user": {
+                  "id": "VXNlcjoyODgyOTA5",
+                  "username": "ravwojdyla",
+                  "photoUrl": "https://avatars.githubusercontent.com/u/1419010?v=4",
+                  "__typename": "User"
+                },
+                "__typename": "Run",
+                "bucketedHistory": [
+                  [
+                    {
+                      "bucketSize": 1,
+                      "eval/paloma/macro_bpbMin": 4.181232452392578,
+                      "eval/paloma/macro_bpbMax": 4.181232452392578,
+                      "eval/paloma/macro_bpbAvg": 4.181232452392578,
+                      "eval/paloma/macro_bpbLast": 4.181232452392578,
+                      "eval/paloma/macro_bpbHasNaN": false,
+                      "_stepAvg": 0,
+                      "_stepLast": 0,
+                      "_stepHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 2999,
+                      "_stepLast": 2999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/macro_bpbMin": 1.085202693939209,
+                      "eval/paloma/macro_bpbMax": 1.085202693939209,
+                      "eval/paloma/macro_bpbXAtMin": 2999,
+                      "eval/paloma/macro_bpbXAtMax": 2999,
+                      "eval/paloma/macro_bpbAvg": 1.085202693939209,
+                      "eval/paloma/macro_bpbLast": 1.085202693939209,
+                      "eval/paloma/macro_bpbHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 5999,
+                      "_stepLast": 5999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/macro_bpbMin": 0.9903517961502075,
+                      "eval/paloma/macro_bpbMax": 0.9903517961502075,
+                      "eval/paloma/macro_bpbXAtMin": 5999,
+                      "eval/paloma/macro_bpbXAtMax": 5999,
+                      "eval/paloma/macro_bpbAvg": 0.9903517961502075,
+                      "eval/paloma/macro_bpbLast": 0.9903517961502075,
+                      "eval/paloma/macro_bpbHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 8999,
+                      "_stepLast": 8999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/macro_bpbMin": 0.9497454166412354,
+                      "eval/paloma/macro_bpbMax": 0.9497454166412354,
+                      "eval/paloma/macro_bpbXAtMin": 8999,
+                      "eval/paloma/macro_bpbXAtMax": 8999,
+                      "eval/paloma/macro_bpbAvg": 0.9497454166412354,
+                      "eval/paloma/macro_bpbLast": 0.9497454166412354,
+                      "eval/paloma/macro_bpbHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 11999,
+                      "_stepLast": 11999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/macro_bpbMin": 0.9320967793464661,
+                      "eval/paloma/macro_bpbMax": 0.9320967793464661,
+                      "eval/paloma/macro_bpbXAtMin": 11999,
+                      "eval/paloma/macro_bpbXAtMax": 11999,
+                      "eval/paloma/macro_bpbAvg": 0.9320967793464661,
+                      "eval/paloma/macro_bpbLast": 0.9320967793464661,
+                      "eval/paloma/macro_bpbHasNaN": false
+                    }
+                  ]
+                ],
+                "config": "{}",
+                "id": "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk=",
+                "name": "hero-12d8b6f0-dee637",
+                "summaryMetrics": "{}",
+                "updatedAt": "2026-08-24T15:02:57Z"
+              },
+              "__typename": "BucketDiff"
+            }
+          ],
+          "__typename": "BucketDiffs"
+        },
+        "__typename": "RunConnection"
+      },
+      "__typename": "Project"
+    }
+  }
+}

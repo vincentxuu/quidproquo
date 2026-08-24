@@ -1,0 +1,126 @@
+{
+  "data": {
+    "project": {
+      "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+      "entityName": "marin-community",
+      "name": "marin_moe",
+      "runs": {
+        "deltas": {
+          "order": [
+            "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk="
+          ],
+          "incomplete": null,
+          "delta": [
+            {
+              "op": "INSERT",
+              "run": {
+                "commit": null,
+                "createdAt": "2026-08-20T02:04:58Z",
+                "heartbeatAt": "2026-08-24T15:02:57Z",
+                "defaultColorIndex": 0,
+                "displayName": "hero-12d8b6f0-dee637",
+                "group": "moe-hero-ep-scaling-ladder",
+                "groupCounts": null,
+                "host": null,
+                "jobType": null,
+                "project": {
+                  "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+                  "entityName": "marin-community",
+                  "name": "marin_moe",
+                  "__typename": "Project"
+                },
+                "projectId": "44203225",
+                "state": "running",
+                "stopped": false,
+                "sweep": null,
+                "user": {
+                  "id": "VXNlcjoyODgyOTA5",
+                  "username": "ravwojdyla",
+                  "photoUrl": "https://avatars.githubusercontent.com/u/1419010?v=4",
+                  "__typename": "User"
+                },
+                "__typename": "Run",
+                "bucketedHistory": [
+                  [
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 0,
+                      "_stepLast": 0,
+                      "_stepHasNaN": false,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMin": 11.779890060424805,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMax": 11.779890060424805,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossAvg": 11.779890060424805,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossLast": 11.779890060424805,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 2999,
+                      "_stepLast": 2999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMin": 2.6049346923828125,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMax": 2.6049346923828125,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMin": 2999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMax": 2999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossAvg": 2.6049346923828125,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossLast": 2.6049346923828125,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 5999,
+                      "_stepLast": 5999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMin": 2.3414971828460693,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMax": 2.3414971828460693,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMin": 5999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMax": 5999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossAvg": 2.3414971828460693,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossLast": 2.3414971828460693,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 8999,
+                      "_stepLast": 8999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMin": 2.2428433895111084,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMax": 2.2428433895111084,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMin": 8999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMax": 8999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossAvg": 2.2428433895111084,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossLast": 2.2428433895111084,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 11999,
+                      "_stepLast": 11999,
+                      "_stepHasNaN": false,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMin": 2.198105812072754,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossMax": 2.198105812072754,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMin": 11999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossXAtMax": 11999,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossAvg": 2.198105812072754,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossLast": 2.198105812072754,
+                      "eval/paloma/m2d2_s2orc_unsplit-llama3/lossHasNaN": false
+                    }
+                  ]
+                ],
+                "config": "{}",
+                "id": "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk=",
+                "name": "hero-12d8b6f0-dee637",
+                "summaryMetrics": "{}",
+                "updatedAt": "2026-08-24T15:02:57Z"
+              },
+              "__typename": "BucketDiff"
+            }
+          ],
+          "__typename": "BucketDiffs"
+        },
+        "__typename": "RunConnection"
+      },
+      "__typename": "Project"
+    }
+  }
+}

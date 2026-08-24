@@ -38,8 +38,8 @@ pnpm-debug.log*
 .omc/state/hud-stdin-cache.json
 .omc/state/sessions/
 
-# deep-research scratch notes (not version-controlled)
-.research/
+# deep-research scratch notes (version-controlled per user request 2026-08-24)
+# .research/  # removed to allow commit of marin hero run research
 
 # claude code personal overrides (connector UUIDs etc.)
 .claude/settings.local.json

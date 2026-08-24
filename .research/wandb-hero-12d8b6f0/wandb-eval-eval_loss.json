@@ -1,0 +1,126 @@
+{
+  "data": {
+    "project": {
+      "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+      "entityName": "marin-community",
+      "name": "marin_moe",
+      "runs": {
+        "deltas": {
+          "order": [
+            "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk="
+          ],
+          "incomplete": null,
+          "delta": [
+            {
+              "op": "INSERT",
+              "run": {
+                "commit": null,
+                "createdAt": "2026-08-20T02:04:58Z",
+                "heartbeatAt": "2026-08-24T15:02:57Z",
+                "defaultColorIndex": 0,
+                "displayName": "hero-12d8b6f0-dee637",
+                "group": "moe-hero-ep-scaling-ladder",
+                "groupCounts": null,
+                "host": null,
+                "jobType": null,
+                "project": {
+                  "id": "UHJvamVjdDp2MTptYXJpbl9tb2U6bWFyaW4tY29tbXVuaXR5",
+                  "entityName": "marin-community",
+                  "name": "marin_moe",
+                  "__typename": "Project"
+                },
+                "projectId": "44203225",
+                "state": "running",
+                "stopped": false,
+                "sweep": null,
+                "user": {
+                  "id": "VXNlcjoyODgyOTA5",
+                  "username": "ravwojdyla",
+                  "photoUrl": "https://avatars.githubusercontent.com/u/1419010?v=4",
+                  "__typename": "User"
+                },
+                "__typename": "Run",
+                "bucketedHistory": [
+                  [
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 0,
+                      "_stepLast": 0,
+                      "_stepHasNaN": false,
+                      "eval/lossMin": 11.784061431884766,
+                      "eval/lossMax": 11.784061431884766,
+                      "eval/lossAvg": 11.784061431884766,
+                      "eval/lossLast": 11.784061431884766,
+                      "eval/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 2999,
+                      "_stepLast": 2999,
+                      "_stepHasNaN": false,
+                      "eval/lossMin": 2.711589813232422,
+                      "eval/lossMax": 2.711589813232422,
+                      "eval/lossXAtMin": 2999,
+                      "eval/lossXAtMax": 2999,
+                      "eval/lossAvg": 2.711589813232422,
+                      "eval/lossLast": 2.711589813232422,
+                      "eval/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 5999,
+                      "_stepLast": 5999,
+                      "_stepHasNaN": false,
+                      "eval/lossMin": 2.4510371685028076,
+                      "eval/lossMax": 2.4510371685028076,
+                      "eval/lossXAtMin": 5999,
+                      "eval/lossXAtMax": 5999,
+                      "eval/lossAvg": 2.4510371685028076,
+                      "eval/lossLast": 2.4510371685028076,
+                      "eval/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 8999,
+                      "_stepLast": 8999,
+                      "_stepHasNaN": false,
+                      "eval/lossMin": 2.3475654125213623,
+                      "eval/lossMax": 2.3475654125213623,
+                      "eval/lossXAtMin": 8999,
+                      "eval/lossXAtMax": 8999,
+                      "eval/lossAvg": 2.3475654125213623,
+                      "eval/lossLast": 2.3475654125213623,
+                      "eval/lossHasNaN": false
+                    },
+                    {
+                      "bucketSize": 1,
+                      "_stepAvg": 11999,
+                      "_stepLast": 11999,
+                      "_stepHasNaN": false,
+                      "eval/lossMin": 2.3008036613464355,
+                      "eval/lossMax": 2.3008036613464355,
+                      "eval/lossXAtMin": 11999,
+                      "eval/lossXAtMax": 11999,
+                      "eval/lossAvg": 2.3008036613464355,
+                      "eval/lossLast": 2.3008036613464355,
+                      "eval/lossHasNaN": false
+                    }
+                  ]
+                ],
+                "config": "{}",
+                "id": "UnVuOnYxOmhlcm8tMTJkOGI2ZjAtZGVlNjM3Om1hcmluX21vZTptYXJpbi1jb21tdW5pdHk=",
+                "name": "hero-12d8b6f0-dee637",
+                "summaryMetrics": "{}",
+                "updatedAt": "2026-08-24T15:02:57Z"
+              },
+              "__typename": "BucketDiff"
+            }
+          ],
+          "__typename": "BucketDiffs"
+        },
+        "__typename": "RunConnection"
+      },
+      "__typename": "Project"
+    }
+  }
+}
