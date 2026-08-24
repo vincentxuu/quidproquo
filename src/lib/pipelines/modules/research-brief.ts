@@ -1,5 +1,6 @@
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { createModel } from '../../rag/model'
+import { searchExternalTools } from '../../tools/definitions/external-search'
 
 const RESEARCH_BRIEF_SYSTEM_PROMPT = `You are a senior editor in a multilingual technical newsletter team.
 Return JSON only. No markdown fences.
@@ -46,6 +47,12 @@ export interface ResearchBriefResult {
   requiresHumanInput: boolean
   model: string
   modelUsage: string[]
+  searchResults?: Array<{
+    title: string
+    claim: string
+    source_url: string
+    relevance_score: number
+  }>
 }
 
 export interface ResearchBriefDraftResult {
@@ -71,10 +78,38 @@ export async function runResearchBrief(
   const researchDepth = input.researchDepth ?? 'standard'
   const includeExternalSources = input.includeExternalSources !== false
 
+  // Step 1: Search external sources for context
+  let searchContext = ''
+  let searchResultsData: ResearchBriefResult['searchResults'] = []
+  if (includeExternalSources) {
+    try {
+      const searchResults = await searchExternalTools({
+        query: topic,
+        limit: 5,
+        providers: ['jina', 'exa'],
+      })
+      
+      if (searchResults.length > 0) {
+        searchContext = '\n\nSearch Results Context:\n' + searchResults
+          .map((result, i) => `[${i + 1}] ${result.title}: ${result.claim}`)
+          .join('\n')
+        searchResultsData = searchResults.map(result => ({
+          title: result.title ?? '',
+          claim: result.claim,
+          source_url: result.source_url,
+          relevance_score: result.relevance_score,
+        }))
+      }
+    } catch (error) {
+      console.warn('[research-brief] Search failed, continuing without search context:', error)
+    }
+  }
+
   const scopeInstruction = includeExternalSources
-    ? 'Source suggestions can include public official sources, docs, RFCs, changelogs, and benchmark pages.'
+    ? 'Source suggestions can include public official sources, docs, RFCs, changelogs, and benchmark pages. Use search results as reference points.'
     : 'Do not propose internet source names as hard evidence; provide verification checkpoints and internal source classes only.'
 
+  // Step 2: Generate research brief with search context
   const run = await runModel(
     'research_brief',
     RESEARCH_BRIEF_SYSTEM_PROMPT,
@@ -82,6 +117,7 @@ export async function runResearchBrief(
 Language: ${language}
 Depth: ${researchDepth}
 ${scopeInstruction}
+${searchContext}
 
 Return a JSON object in strict format.`,
     options.onExternalCall,
@@ -117,6 +153,7 @@ Return a JSON object in strict format.`,
     requiresHumanInput: safeManualChecks.length > 0 || risks.length > 0 || keyQuestions.length === 0,
     model,
     modelUsage: [model],
+    searchResults: searchResultsData,
   }
 }
 

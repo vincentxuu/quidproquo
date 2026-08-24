@@ -639,6 +639,45 @@ async function runResearchBriefJob(
   const language = typeof input.language === 'string' ? input.language : 'zh-TW'
   const includeExternalSources = input.includeExternalSources === undefined ? true : toBoolean(input.includeExternalSources)
 
+  // Step 1: External search
+  const searchStepId = await createStep(db, jobId, 'external-search', 'api', 'Search external sources')
+  const searchStartedAt = Date.now()
+  
+  let searchResults: Array<{ title: string; claim: string; source_url: string; relevance_score: number }> = []
+  if (includeExternalSources) {
+    try {
+      const { searchExternalTools } = await import('../tools/definitions/external-search')
+      const results = await searchExternalTools({
+        query: topic,
+        limit: 5,
+        providers: ['jina', 'exa'],
+      })
+      searchResults = results.map((r: { title?: string; claim: string; source_url: string; relevance_score: number }) => ({
+        title: r.title ?? '',
+        claim: r.claim,
+        source_url: r.source_url,
+        relevance_score: r.relevance_score,
+      }))
+      recordExternalCall(executionContext, 'external-search')
+    } catch (error) {
+      console.warn('[research-brief] External search failed:', error)
+    }
+  }
+  
+  const searchArtifactId = await createArtifact(
+    db,
+    jobId,
+    searchStepId,
+    'json_report',
+    'External search results',
+    { topic, searchResults }
+  )
+  await finishStep(db, searchStepId, 'succeeded', searchStartedAt, {
+    artifactId: searchArtifactId,
+    output: `Found ${searchResults.length} external results for "${topic}".`,
+  })
+
+  // Step 2: Generate research brief with search context
   const generateStepId = await createStep(db, jobId, 'research-brief', 'llm', 'Generate research brief')
   const generateStartedAt = Date.now()
   const brief = await runResearchBrief(
@@ -654,8 +693,12 @@ async function runResearchBriefJob(
       },
     },
   )
+  // Merge search results into brief
+  if (searchResults.length > 0 && (!brief.searchResults || brief.searchResults.length === 0)) {
+    brief.searchResults = searchResults
+  }
   await finishStep(db, generateStepId, 'succeeded', generateStartedAt, {
-    output: `Generated research brief for ${topic}`,
+    output: `Generated research brief for ${topic} with ${brief.searchResults?.length ?? 0} search results`,
   })
 
   const draftContext = {
@@ -742,6 +785,7 @@ async function runResearchBriefJob(
       requiresHumanInput: needsHumanInput,
       qualityErrorCount: countFindings(qualityReports, 'error'),
       referenceErrorCount: countFindings(referenceReports, 'error'),
+      searchResultsCount: brief.searchResults?.length ?? 0,
     },
     brief,
     draft,

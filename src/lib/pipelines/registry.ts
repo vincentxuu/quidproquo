@@ -175,9 +175,10 @@ export const pipelineDefinitions: PipelineDefinition[] = [
         defaultValue: true,
       },
     ],
-    tools: ['write_draft_artifact', 'run_post_quality_check', 'run_reference_check', 'write_artifact'],
+    tools: ['search.external', 'write_draft_artifact', 'run_post_quality_check', 'run_reference_check', 'write_artifact'],
     stages: [
-      { id: 'research-brief', title: 'Generate research brief', kind: 'llm' },
+      { id: 'external-search', title: 'Search external sources', kind: 'api', tool: 'search.external' },
+      { id: 'research-brief', title: 'Generate research brief with search context', kind: 'llm' },
       { id: 'research-quality', title: 'Run research draft quality check', kind: 'module', tool: 'run_post_quality_check' },
       { id: 'research-reference', title: 'Run research draft reference check', kind: 'module', tool: 'run_reference_check' },
       { id: 'research-review', title: 'Research review gate', kind: 'human_review' },
@@ -187,12 +188,13 @@ export const pipelineDefinitions: PipelineDefinition[] = [
     artifacts: [
       { id: 'research-brief-draft', type: 'markdown_draft', title: 'Research brief draft markdown' },
       { id: 'research-brief-report', type: 'json_report', title: 'Research brief report' },
+      { id: 'search-results', type: 'json_report', title: 'External search results' },
     ],
     guards: ['admin_required', 'reviewer_never_auto_fix', 'no_fabrication', 'tool_allowlist', 'budget_limit'],
-    budget: { maxRetries: 0, maxRuntimeMs: 360_000, maxExternalCalls: 1 },
+    budget: { maxRetries: 0, maxRuntimeMs: 600_000, maxExternalCalls: 5 },
     requiresAdmin: true,
     writesMarkdown: true,
-    usesExternalResearch: false,
+    usesExternalResearch: true,
   },
   {
     id: 'arxiv-reading',
