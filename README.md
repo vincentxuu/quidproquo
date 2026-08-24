@@ -27,6 +27,7 @@ quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal b
 | RAG search & chat | Post chunks embedded into Vectorize; semantic search, related posts, and a chat API | `src/pages/api/search.ts`, `src/pages/api/chat.ts` |
 | Deep research | Multi-step research workflow with evidence tracking and queued agent runs | `src/pages/api/deep-research.ts`, `flows/` |
 | Content pipelines | Crawlers, YouTube-to-post, translation, and daily digest routines | `src/lib/crawl/`, `scripts/`, `docs/yt-to-post-pipeline.md` |
+| Agent ecosystem | Skills, MCP Servers, Plugins management with D1 persistence and admin UI | `src/lib/agent-skills/`, `src/pages/admin/agent-ecosystem.astro` |
 | Admin console | Session-authenticated admin UI for jobs, providers, and policies | `src/pages/admin/` |
 | Quality gates | Lint plus post-reference, terminology, language-parity, glossary, and link checks | `scripts/check-*.mjs`, `pnpm verify` |
 
@@ -94,15 +95,16 @@ digests, and retention) are defined in [`wrangler.jsonc`](wrangler.jsonc).
 | `SESSION` | KV | Session storage |
 | `RATE` | KV | Rate limiting |
 | `DEEP_RESEARCH_KV` | KV | Deep-research state |
-| `DB` | D1 | Posts, chunks, and glossary data (`quidproquo-db`) |
+| `DB` | D1 | Posts, chunks, glossary, **skills, MCP servers, plugins** (`quidproquo-db`) |
 | `VECTORIZE_INDEX` | Vectorize | Embedding search (`quidproquo-vectors`) |
 | `AI` | Workers AI | Embeddings and inference |
 | `R2_IMAGES` | R2 | Image storage |
 | `AGENT_QUEUE` | Queues | Queued agent runs (with DLQ) |
 
-Database migrations live in [`migrations/`](migrations/) and define three core
-tables: `posts` (articles), `post_chunks` (RAG chunks), and `doc_chunks`
-(chunks from crawled external documents).
+Database migrations live in [`migrations/`](migrations/) and define core
+tables: `posts` (articles), `post_chunks` (RAG chunks), `doc_chunks`
+(crawled documents), `user_skills` (agent skills), `mcp_servers` (MCP configs),
+and `plugins` (skill packages).
 
 ## Why quidproquo?
 
@@ -136,8 +138,24 @@ stay in lockstep.
 ## Project status
 
 - Live at [quidproquo.cc](https://quidproquo.cc); deployed automatically from `main`.
-- Implemented: bilingual SSR blog, RAG search and chat, deep-research workflow, agent queue console, content QA suite, RAG evaluation harness.
+- Implemented: bilingual SSR blog, RAG search and chat, deep-research workflow, agent queue console, content QA suite, RAG evaluation harness, **agent skills/MCP/plugins ecosystem**.
 - In progress: agent flow/policy/artifact expansion, glossary analytics, and publishing automation — see [`docs/TODO.md`](docs/TODO.md) and [`docs/content-pipeline-roadmap.md`](docs/content-pipeline-roadmap.md).
+
+## Agent ecosystem
+
+The project includes a built-in agent extensibility system:
+
+| Component | Purpose | API |
+| --- | --- | --- |
+| **Skills** | Reusable workflow definitions (SKILL.md format) for agents | `GET/POST/PUT/DELETE /api/skills` |
+| **MCP Servers** | External tool providers (GitHub, Notion, Slack, etc.) via Model Context Protocol | `GET/POST/PUT/DELETE /api/mcp-servers` |
+| **Plugins** | Distributable packages bundling skills + MCP servers | `GET/POST/PUT/DELETE /api/plugins` |
+
+- **Admin UI**: `/admin/agent-ecosystem` — searchable tables, modal editors, import/export JSON
+- **Storage**: Project skills (`.agents/skills/`, git-managed) + user skills (D1) merged at runtime
+- **Compatibility**: Exposes `SUPPORTED_AGENT_SKILLS` for existing deep-research pipelines
+
+See [`docs/skill-package-development-guide.md`](docs/skill-package-development-guide.md) for authoring skills.
 
 ## Documentation
 
