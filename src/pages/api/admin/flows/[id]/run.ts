@@ -153,7 +153,10 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
     try {
       await workflows.create({
         id: flowRunId,
-        params: { flowId, flowRunId, input },
+        params: {
+          flowId, flowRunId, input,
+          model: typeof input.model === 'string' ? input.model : undefined,
+        },
       })
     } catch (err) {
       console.error('[flow-run] Failed to create Workflow instance:', err)

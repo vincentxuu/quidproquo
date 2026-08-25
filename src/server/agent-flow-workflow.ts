@@ -10,6 +10,7 @@ interface FlowWorkflowParams {
   flowId: string
   flowRunId: string
   input: Record<string, unknown>
+  model?: string
 }
 
 interface ParsedStep {
@@ -99,7 +100,7 @@ const STEP_RETRY = {
 
 export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParams> {
   async run(event: WorkflowEvent<FlowWorkflowParams>, step: WorkflowStep): Promise<void> {
-    const { flowId, flowRunId, input } = event.payload
+    const { flowId, flowRunId, input, model: modelOverride } = event.payload
     const db = this.env.DB
     const envRecord = this.env as unknown as Record<string, string>
 
@@ -144,7 +145,7 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
         retries: STEP_RETRY,
         timeout: '2 minutes',
       }, async () => {
-        return executeFlowStep(s, envRecord, input, stepResults)
+        return executeFlowStep(s, envRecord, input, stepResults, modelOverride)
       })
       stepResults[s.id] = result
 
@@ -176,13 +177,14 @@ async function executeFlowStep(
   env: Record<string, string>,
   _input: Record<string, unknown>,
   _prevResults: Record<string, unknown>,
+  modelOverride?: string,
 ): Promise<unknown> {
   if (s.type === 'parallel' && s.branches) {
     const results = []
     for (const branch of s.branches) {
-      if (branch.type === 'agent' && branch.prompt && branch.model) {
+      if (branch.type === 'agent' && branch.prompt && (branch.model || modelOverride)) {
         try {
-          const r = await callLlm(env, branch.model, branch.prompt, branch.maxTokens ?? 2000)
+          const r = await callLlm(env, modelOverride ?? branch.model!, branch.prompt, branch.maxTokens ?? 2000)
           results.push({ id: branch.id, ...r })
         } catch (err) {
           results.push({ id: branch.id, error: String(err) })
@@ -194,8 +196,8 @@ async function executeFlowStep(
     return { branches: results }
   }
 
-  if (s.type === 'agent' && s.prompt && s.model) {
-    return callLlm(env, s.model, s.prompt, s.maxTokens ?? 2000)
+  if (s.type === 'agent' && s.prompt && (s.model || modelOverride)) {
+    return callLlm(env, modelOverride ?? s.model!, s.prompt, s.maxTokens ?? 2000)
   }
 
   if (s.type === 'tool_group') {
