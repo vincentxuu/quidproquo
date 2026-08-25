@@ -289,9 +289,11 @@ async function executeFlowStep(
           }
           const prompt = searchContext ? `${branch.prompt}\n\n--- Web search results ---\n${searchContext}` : branch.prompt
           const r = await callLlm(env, modelOverride ?? branch.model!, prompt, branch.maxTokens ?? 2000)
-          results.push({ id: branch.id, ...r })
+          const isEmpty = !r.content || r.content.trim() === '' || r.content.trim() === '[]' || r.content.trim() === '{}'
+            || r.content.trim() === '```json\n[]\n```' || r.content.trim() === '```json\n{}\n```'
+          results.push({ id: branch.id, status: isEmpty ? 'empty' : 'ok', ...r })
         } catch (err) {
-          results.push({ id: branch.id, error: String(err) })
+          results.push({ id: branch.id, status: 'error', error: String(err) })
         }
       } else {
         results.push({ id: branch.id, stubbed: true })
