@@ -173,6 +173,15 @@ if (existsSync(SERVER_WRANGLER)) {
   wranglerConfig.rules = [
     { type: 'ESModule', globs: ['**/*.js', '**/*.mjs', '**/*.ts'] },
   ]
+  // Inject Workflows binding (can't be in wrangler.jsonc because Astro's miniflare
+  // validates it at build time before cron-entry.js exports the class)
+  wranglerConfig.workflows = [
+    {
+      binding: 'AGENT_FLOW_WORKFLOWS',
+      name: 'agent-flow-durable',
+      class_name: 'AgentFlowWorkflow',
+    },
+  ]
   writeFileSync(SERVER_WRANGLER, JSON.stringify(wranglerConfig, null, 2))
   console.log('✅ Patched dist/server/wrangler.json main -> ../cron-entry.js')
 }

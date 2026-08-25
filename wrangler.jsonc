@@ -59,13 +59,6 @@
 	"ai": {
 		"binding": "AI"
 	},
-	"workflows": [
-		{
-			"binding": "AGENT_FLOW_WORKFLOWS",
-			"name": "agent-flow-durable",
-			"class_name": "AgentFlowWorkflow"
-		}
-	],
 	"queues": {
 		"producers": [
 			{
