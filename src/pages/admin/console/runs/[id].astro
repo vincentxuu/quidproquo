@@ -1174,37 +1174,43 @@ const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c')
       }
     }
 
-    const eventSource = new EventSource(`/api/admin/console/runs/${runId}/events`);
-    eventSource.addEventListener('timeline', (message) => {
-      const data = parsePayload(message.data);
-      if (!data) return;
-      if (!data.run || !data.run.status || !Array.isArray(data.steps)) return;
+    // Skip SSE live-update when run is already terminal — server-rendered HTML
+    // includes rich step output (branch cards, agent content) that renderTimeline
+    // would destroy by replacing with a plain table.
+    const isTerminal = currentRunStatus === 'done' || currentRunStatus === 'failed' || currentRunStatus === 'cancelled';
+    const eventSource = isTerminal ? null : new EventSource(`/api/admin/console/runs/${runId}/events`);
+    if (eventSource) {
+      eventSource.addEventListener('timeline', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        if (!data.run || !data.run.status || !Array.isArray(data.steps)) return;
 
-      renderTimeline(data.steps);
-      setRunStatus(data.run.status);
-      if (Array.isArray(data.approvals)) {
-        renderApprovals(data.approvals);
-      }
-
-      if (data.terminal) {
-        setStatusText(`執行完成：${data.run.status}`, 'success');
-        eventSource.close();
-      }
-    });
-
-    eventSource.addEventListener('terminal', (message) => {
-      const data = parsePayload(message.data);
-      if (!data) return;
-      if (data.run?.status) {
+        renderTimeline(data.steps);
         setRunStatus(data.run.status);
-        renderApprovals(data.approvals || []);
-        eventSource.close();
-      }
-    });
+        if (Array.isArray(data.approvals)) {
+          renderApprovals(data.approvals);
+        }
 
-    eventSource.onerror = () => {
-      // keep retrying by browser EventSource
-    };
+        if (data.terminal) {
+          setStatusText(`執行完成：${data.run.status}`, 'success');
+          eventSource.close();
+        }
+      });
+
+      eventSource.addEventListener('terminal', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        if (data.run?.status) {
+          setRunStatus(data.run.status);
+          renderApprovals(data.approvals || []);
+          eventSource.close();
+        }
+      });
+
+      eventSource.onerror = () => {
+        // keep retrying by browser EventSource
+      };
+    }
 
     if (cancelBtn) {
       cancelBtn.addEventListener('click', (event) => {
