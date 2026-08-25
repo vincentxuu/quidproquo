@@ -35,14 +35,14 @@ steps:
         prompt: >
           Scan arxiv cs.AI/cs.CL/cs.MA for today's papers relevant to AI Agents.
           Return structured JSON with paper title, authors, abstract summary, relevance score.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 2000
       - id: scan-github
         type: agent
         prompt: >
           Scan GitHub Trending for AI/Agent repos and notable framework releases.
           Return structured JSON with repo name, stars, description, why it matters.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 2000
       - id: scan-model-card
         type: agent
@@ -50,7 +50,7 @@ steps:
           Detect newly announced AI models in the last 24 hours.
           Return structured JSON with model name, provider, key capabilities, pricing if available.
           Return empty array if no new model detected.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1500
       - id: scan-security
         type: agent
@@ -58,7 +58,7 @@ steps:
           Scan for AI security incidents, vulnerabilities, and advisories in the last 24 hours.
           Return structured JSON with incident summary, severity, affected systems.
           Return empty array if no significant incident.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1500
       - id: scan-benchmark
         type: agent
@@ -66,7 +66,7 @@ steps:
           Check for leaderboard shifts on major AI benchmarks (SWE-bench, Arena, MMLU, etc).
           Return structured JSON with benchmark name, old leader, new leader, score delta.
           Return empty array if no ranking change detected.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1200
       - id: scan-framework
         type: agent
@@ -74,7 +74,7 @@ steps:
           Detect important AI Agent framework releases (LangChain, CrewAI, Agents SDK, etc) in the last 24 hours.
           Return structured JSON with framework, version, key changes.
           Return empty array if no important release.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1200
       - id: scan-tool
         type: agent
@@ -82,7 +82,7 @@ steps:
           Find noteworthy new AI developer tools or MCP servers released in the last 24 hours.
           Return structured JSON with tool name, what it does, why it matters.
           Return empty array if nothing noteworthy.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1200
       - id: scan-funding
         type: agent
@@ -90,7 +90,7 @@ steps:
           Detect AI/Agent startup funding rounds (Series A+) announced in the last 24 hours.
           Return structured JSON with company, round, amount, investors, what they do.
           Return empty array if no qualifying funding.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1200
       - id: scan-pricing
         type: agent
@@ -98,7 +98,7 @@ steps:
           Track AI API pricing changes or sunset announcements in the last 24 hours.
           Return structured JSON with provider, model, old price, new price, effective date.
           Return empty array if no pricing change.
-        model: openrouter
+        model: openrouter/qwen/qwen3.8-27b
         maxTokens: 1000
 
   # ── Stage 2: synthesise signals ───────────────────────────────────────────
@@ -108,7 +108,7 @@ steps:
       Given the stage 1 scan results, extract cross-cutting signals and themes.
       Identify connections between findings (e.g. a new model + benchmark shift + pricing change).
       Output a signals JSON with themes array and per-source highlight picks.
-    model: openrouter
+    model: openrouter/qwen/qwen3.8-27b
     maxTokens: 2500
 
   # ── Stage 3: assemble daily report ────────────────────────────────────────
@@ -118,7 +118,7 @@ steps:
       Using the signals and raw stage 1 data, draft the daily digest report in Markdown.
       Follow the four-circle model: core (Agent), second (AI infra), third (applications/business), fourth (IT management).
       End with a "今天學到什麼" reflection section.
-    model: openrouter
+    model: openrouter/qwen/qwen3.8-27b
     maxTokens: 4000
 
   # ── Quality gate ──────────────────────────────────────────────────────────

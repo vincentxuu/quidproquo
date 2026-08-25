@@ -10,19 +10,28 @@ interface AgentStepFields {
 interface ProviderConfig {
   baseUrl: string
   envKey: string
-  defaultModel: string
 }
 
 const PROVIDERS: Record<string, ProviderConfig> = {
-  openrouter: { baseUrl: 'https://openrouter.ai/api/v1', envKey: 'OPENROUTER_API_KEY', defaultModel: 'stealth/ox-alpha' },
-  opencode: { baseUrl: 'https://opencode.ai/zen/v1', envKey: 'OPENCODE_API_KEY', defaultModel: 'anthropic/claude-sonnet-4-20250514' },
-  groq: { baseUrl: 'https://api.groq.com/openai/v1', envKey: 'GROQ_API_KEY', defaultModel: 'llama-3.3-70b-versatile' },
-  openai: { baseUrl: 'https://api.openai.com/v1', envKey: 'OPENAI_API_KEY', defaultModel: 'gpt-4o' },
+  openrouter: { baseUrl: 'https://openrouter.ai/api/v1', envKey: 'OPENROUTER_API_KEY' },
+  opencode: { baseUrl: 'https://opencode.ai/zen/v1', envKey: 'OPENCODE_API_KEY' },
+  groq: { baseUrl: 'https://api.groq.com/openai/v1', envKey: 'GROQ_API_KEY' },
+  openai: { baseUrl: 'https://api.openai.com/v1', envKey: 'OPENAI_API_KEY' },
 }
 
-async function callLlm(provider: string, prompt: string, maxTokens: number): Promise<{ content: string; model: string; tokens?: unknown }> {
+function parseModelSpec(spec: string): { provider: string; model: string } {
+  const slash = spec.indexOf('/')
+  if (slash === -1) return { provider: spec, model: '' }
+  const provider = spec.slice(0, slash)
+  if (PROVIDERS[provider]) return { provider, model: spec.slice(slash + 1) }
+  return { provider: 'openrouter', model: spec }
+}
+
+async function callLlm(modelSpec: string, prompt: string, maxTokens: number): Promise<{ content: string; model: string; tokens?: unknown }> {
+  const { provider, model } = parseModelSpec(modelSpec)
   const config = PROVIDERS[provider]
-  if (!config) throw new Error(`Unknown provider: ${provider}`)
+  if (!config) throw new Error(`Unknown provider: ${provider}. Use: provider/model`)
+  if (!model) throw new Error(`No model specified. Use: provider/model`)
 
   const { env } = await import('cloudflare:workers')
   const apiKey = (env as Record<string, string>)[config.envKey]
@@ -35,7 +44,7 @@ async function callLlm(provider: string, prompt: string, maxTokens: number): Pro
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: config.defaultModel,
+      model,
       messages: [
         { role: 'system', content: 'You are a research assistant. Return structured JSON when asked.' },
         { role: 'user', content: prompt },
@@ -76,7 +85,7 @@ const agentStepExecutor: StepExecutor = async (step, ctx, _state) => {
   }
 
   const fields = step as unknown as AgentStepFields
-  if (fields.model && fields.prompt && PROVIDERS[fields.model]) {
+  if (fields.model && fields.prompt && fields.model.includes('/')) {
     try {
       const result = await callLlm(fields.model, fields.prompt, fields.maxTokens ?? 2000)
       return {
