@@ -10,7 +10,7 @@ series:
   order: 29
 tldr: "第 28 講把整學期收斂成並行、記憶體、儲存三條主線，再用 virtualization、atomicity、locality、layering 四個觀念解釋作業系統如何管理共享資源。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 28：從 processes、paging、file systems 回顧整門課，整理 virtualization、atomicity、locality 與 layering。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-28-course-review-en)

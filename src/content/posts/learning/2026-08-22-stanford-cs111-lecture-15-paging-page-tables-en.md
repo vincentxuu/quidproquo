@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "Lecture 15 uses fixed pages to remove inter-process external fragmentation, then connects x86-64's four-level walk, sharing and aliasing, and the TLB to trade-offs among translation speed, sparse tables, context switches, and page size."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 15 on pages and frames, PTE protection, four-level tables, sparse spaces, TLBs, user-memory access, aliasing, and fragmentation."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables)

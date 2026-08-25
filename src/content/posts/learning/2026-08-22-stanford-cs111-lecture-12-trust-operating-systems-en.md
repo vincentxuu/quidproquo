@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "Lecture 12 defines trust as voluntary vulnerability, separates over-trust from untrustworthiness, and applies assumption, inference, and substitution to the Linux TCB, the xz attack, and AI-code policy."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 12 on trust, agency, over-trust, software verification, the trusted computing base, xz, Linux AI policy, and agent guardrails."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems)

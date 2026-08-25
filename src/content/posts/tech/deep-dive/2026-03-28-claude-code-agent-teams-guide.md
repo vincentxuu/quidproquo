@@ -7,7 +7,7 @@ tags: [claude-code, agent-teams, multi-agent, parallel-execution, ai-agent, dx]
 lang: zh-TW
 tldr: "Agent Teams 讓你啟動多個 Claude Code 實例同時工作——一個當 team lead 分配任務，其他 teammates 各自獨立執行、互相溝通、共享任務清單。適合平行 code review、競爭假設除錯、跨層開發。目前是實驗性功能。"
 description: "深入介紹 Claude Code 的 Agent Teams 功能：多代理協作架構、Team Lead 與 Teammate 的角色、共享任務清單、inter-agent messaging、顯示模式（in-process vs tmux split panes），以及與 Sub-agent 的比較和實際使用案例。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 12

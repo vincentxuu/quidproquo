@@ -10,7 +10,7 @@ series:
   order: 18
 tldr: "第 17 講把 demand paging 分成 fetching 與 replacement：MIN 無法預知未來，精確 LRU 成本過高，Clock 只靠 reference／dirty bits 找夠舊的 page；active working sets 放不進 RAM 時，1% fault rate 就可能帶來約 1,000 倍 slowdown。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 17：page fault、demand fetching、prefetching、FIFO/MIN/LRU、Clock、global replacement 與 thrashing。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement-en)

@@ -7,7 +7,7 @@ tags: [claude-code, troubleshooting, debugging, dx, skills, hooks, settings]
 lang: en
 tldr: "A curated collection of the most common Claude Code issues: Skills not found, Hooks not triggering, settings not taking effect, permission blocks, MCP connection failures. Each problem includes root cause analysis and step-by-step fixes."
 description: "A comprehensive troubleshooting reference for Claude Code covering Skill discovery failures, Hook not triggering, settings.json conflicts, permission mode issues, MCP server connection failures, and more — each with symptoms, root cause analysis, and resolution steps."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 27

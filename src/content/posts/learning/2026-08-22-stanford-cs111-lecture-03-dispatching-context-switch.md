@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "第 3 講沿 running、blocked、ready 狀態轉移，拆解 PCB、context save/restore 與 dispatcher 如何完成一次 CPU 控制權交接。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 3，以一次 CPU handoff 串起執行緒狀態、PCB、context switch 與 dispatcher。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch-en)

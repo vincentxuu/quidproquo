@@ -7,7 +7,7 @@ tags: [claude-code, slack, team-collaboration, ai-agent, automation, dx]
 lang: en
 tldr: "@Claude in Slack to describe a task, automatically kicks off a Claude Code web session → analyzes code → opens a PR. Turn a bug report into a fix without ever leaving Slack. Supports two routing modes: Code only and Code + Chat."
 description: "An introduction to Claude Code's Slack integration: installation and setup, routing modes (Code only / Code + Chat), context collection from Slack threads, session flow, repository selection, and how it works alongside Claude Code on the web."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 20

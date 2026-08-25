@@ -7,7 +7,7 @@ tags: [n8n, automation, low-code, ai-agent, workflow, human-in-the-loop]
 lang: en
 tldr: "n8n is automation-first: a webhook, schedule, or application event starts a workflow, then an AI Agent may choose tools inside it; production still requires deliberate memory, approvals, credentials, execution data, and scaling architecture."
 description: "A lifecycle guide to n8n triggers, AI Agents, tools, memory, human review, Webhook APIs, self-hosting licenses, security, and production operations."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-n8n-agent-automation)

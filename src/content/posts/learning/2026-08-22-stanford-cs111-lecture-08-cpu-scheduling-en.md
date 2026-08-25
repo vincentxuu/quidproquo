@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "Lecture 8 moves from FIFO and round robin through the unimplementable SRPT ideal to adaptive priority queues and the multicore conflict among queue contention, core affinity, and work conservation."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 8 on CPU scheduling metrics, time slices, SRPT, priority queues, the BSD scheduler, Unix nice, and multicore scheduling."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)

@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "Python coding agent 第三個里程碑：把小模型的 malformed unified diff 分類成 harness 問題，加入受限 replace_text，並以完整 CLI 跑五次真實 Ollama eval。"
 tldr: "模型已找到正確修改卻寫不出合法 diff 時，不一定要先換更大的模型；把常見操作改成可驗證的窄工具，能在不放寬 path、patch、approval 與 verification 的前提下提升成功率。"
-draft: true
+draft: false
 ---
 
 M2 結束時，`pca` 已有自己的 agent loop、互動 approval、session、resume 與 provider adapter，但真實 coding eval 沒過。

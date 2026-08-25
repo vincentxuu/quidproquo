@@ -6,7 +6,7 @@ tags: [coding-agent, python, tui, claude-code, codex, agent-sdk]
 lang: zh-TW
 tldr: "要做出 Claude Code 或 Codex 的 TUI，關鍵不是滿版配色，而是長生命期 session、typed transcript 與 tool-boundary approval。"
 description: "從一次性 CLI 子程序改成 Codex app-server 與 Claude Agent SDK 長生命期 session，並以 Python 建立可持久、可審計的 coding-agent 對話。"
-draft: true
+draft: false
 glossary:
   - term: "typed transcript"
     definition: "以明確事件型別與關聯 ID 表示文字、工具、結果、diff 與核准，而非直接印出供應商原始 log。"

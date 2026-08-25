@@ -7,7 +7,7 @@ tags: [ai-agent, framework, orchestration, multi-agent, langgraph, pydantic-ai, 
 lang: en
 tldr: "These seven tools are not one product category: LangGraph, MAF, and Mastra emphasize durable workflows; CrewAI and AG2 emphasize multi-agent collaboration; Pydantic AI emphasizes typed Python agents; DSPy optimizes AI programs against data and metrics. Choose the control model first."
 description: "Compare seven 2026 agent frameworks by orchestration primitive, durable state, multi-agent model, typing, runtime, observability, and migration cost."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-agent-framework-selection-guide)

@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "Lecture 13 starts from the failures of single-tasking and load-time relocation, uses an MMU with base/bound to create isolated virtual and physical address spaces and traps, then introduces segmentation to escape one contiguous region."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 13 on memory-sharing goals, relocation, MMUs, base/bound, trap transitions, segmentation, sharing, and fragmentation."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-13-virtual-memory)

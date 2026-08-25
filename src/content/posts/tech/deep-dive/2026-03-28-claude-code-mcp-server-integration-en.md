@@ -7,7 +7,7 @@ tags: [claude-code, mcp, mcp-server, ai-agent, integration, dx]
 lang: en
 tldr: "MCP (Model Context Protocol) lets Claude Code connect to external tools — GitHub, Slack, databases, custom APIs — through a standardized protocol. This guide covers how MCP works, how to configure servers, real-world integration examples, and security considerations."
 description: "Starting from MCP protocol fundamentals, this guide walks through how to set up and use MCP Servers in Claude Code — covering official vs. community servers, building your own server, and practical examples of integrating MCP into automated workflows."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 10

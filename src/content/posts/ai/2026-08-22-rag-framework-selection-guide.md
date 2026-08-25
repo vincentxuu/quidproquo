@@ -7,7 +7,7 @@ tags: [rag, framework, llamaindex, haystack, ragflow, dify, r2r]
 lang: zh-TW
 tldr: "LlamaIndex、Haystack 是以程式碼為主的框架；RAGFlow、Dify 是帶管理介面的平台；R2R 則把檢索系統包成 API 服務。先決定團隊要保留多少 ingestion、retrieval 與營運控制權，再選工具。"
 description: "用共同決策主脊比較 LlamaIndex、Haystack、RAGFlow、Dify、R2R：產品層級、資料匯入、檢索客製、工作流程、管理介面、部署邊界、評估與退出成本。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-rag-framework-selection-guide-en)

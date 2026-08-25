@@ -7,7 +7,7 @@ tags: [ai-agent, framework, orchestration, multi-agent, langgraph, pydantic-ai, 
 lang: zh-TW
 tldr: "七套工具不是同一類產品：LangGraph、MAF 與 Mastra偏耐久工作流，CrewAI 與 AG2 偏多 agent 協作，Pydantic AI 偏型別化 Python agent，DSPy 則用資料與 metric 最佳化整個 AI 程式。先選控制模型，再選框架。"
 description: "用編排原語、狀態耐久性、多 agent 模型、型別、語言、可觀測性與遷移成本，比較七套 2026 Agent 框架。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-agent-framework-selection-guide-en)

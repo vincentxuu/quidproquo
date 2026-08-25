@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "Python coding agent 的第七個里程碑：positional prompt、cwd 預設、exec/resume 慣例與不保存 secrets 的 provider config。"
 tldr: "Agent core 能跑還不代表每天會想用；CLI 要把常用路徑縮成 pca [PROMPT]，同時保留 approval、sandbox 與 verification 邊界。"
-draft: true
+draft: false
 glossary:
   - term: "positional prompt"
     definition: "不用先寫 --task，直接放在指令位置上的任務文字，例如 pca \"fix tests\"。"

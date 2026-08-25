@@ -10,7 +10,7 @@ series:
   order: 27
 tldr: "Flash programs pages but erases whole units; an FTL hides the asymmetry with out-of-place mapping, then manages amplification through garbage collection, temperature segregation, wear leveling, and TRIM."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 26: flash cells, erase units, FTL maps, crash states, garbage collection, write amplification, wear leveling, and TRIM."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-26-flash-memory)

@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "實作 Python coding agent 的第一個里程碑：provider-neutral loop、disposable Git workspace、硬限制、unsafe local execution 與可審查 artifact。"
 tldr: "M1 不追求做出另一個完整 IDE agent，而是先證明一個 Python harness 能在固定 Git commit 上產生 patch、重跑確定性檢查並留下證據；但 disposable clone 不是 OS sandbox，本機執行必須明確 opt in。"
-draft: true
+draft: false
 ---
 
 我想做自己的 coding agent，但第一個問題不是「要接哪個模型」，而是：**當模型犯錯、repository 裡藏著惡意指令，或測試本身會執行任意程式碼時，哪一層真的能限制損害？**

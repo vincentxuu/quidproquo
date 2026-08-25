@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "第 15 講以固定大小 pages 消除跨 process external fragmentation，再拆解 x86-64 四層 page-table walk、sharing/aliasing 與 TLB，說明 translation speed、table sparsity、context switch 和 page size 的連動取捨。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 15：pages/frames、PTE protection、四層 page tables、sparse address spaces、TLB、OS user-memory access、aliasing 與 fragmentation。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables-en)

@@ -7,7 +7,7 @@ tags: [n8n, automation, low-code, ai-agent, workflow, human-in-the-loop]
 lang: zh-TW
 tldr: "n8n 是 automation-first 平台：先由 webhook、排程或應用事件啟動 workflow，再把 AI Agent 放進其中選工具；真正上線前還要處理 memory、人工核准、credentials、執行紀錄與擴充架構。"
 description: "沿一條自動化的生命週期介紹 n8n：Trigger、AI Agent、tool、memory、human review、Webhook API、自架授權與 production 營運邊界。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-n8n-agent-automation-en)

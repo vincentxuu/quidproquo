@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "Lecture 6 evolves a one-core interrupt-masking lock through multicore version 5, tracking guard, lock, and wait-queue state to prevent races and lost wakeups."
 description: "A guide to Stanford CS111 Spring 2026 Lecture 6, following interrupt masking, atomic exchange, spinlocks, and blocking locks version by version."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)

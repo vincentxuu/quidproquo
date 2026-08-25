@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "第 7 講用 request/ownership graph 拆出 deadlock 的四個必要條件，再比較 detection、prevention 與 lock ranking；實務上最常破壞 circular wait，但代價是所有模組必須遵守同一個全域順序。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 7：多鎖動機、deadlock 四條件、資源圖、偵測、預防、全域 lock ordering 與 mv 案例。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en)

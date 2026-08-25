@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "第 9 講沿著 source→assembly→object→executable→process，拆解 linker 的三次掃描、symbol relocation，以及 dynamic loader 如何用 jump table 把 shared library 位址延後到啟動時解決。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 9：process memory layout、object sections、symbol table、unresolved references、linker 三個 passes、static linking 與 jump-table dynamic linking。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-09-linkers-dynamic-linking-en)

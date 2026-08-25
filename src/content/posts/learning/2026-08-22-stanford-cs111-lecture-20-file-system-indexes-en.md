@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "The 4.3BSD inode uses direct, single-indirect, and double-indirect tiers so lookup depth scales with file size; FIFO, SPTF, SCAN, and CSCAN then trade seek cost, fairness, and wait time."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 20: multilevel inodes, index walks for blocks 5, 23, and 1040, the double-fault problem, and disk scheduling."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes)

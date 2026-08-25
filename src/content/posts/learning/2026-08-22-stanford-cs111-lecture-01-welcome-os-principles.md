@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "第 1 講沿 1940 年代共用 I/O 卡片、batch processing、multiprogramming 與個人電腦的演變，解釋 OS 的功能如何隨硬體成本與使用者需求逐層增加。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 1，從作業系統歷史讀懂抽象化、保護、資源共享與課程三條主線。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-01-welcome-os-principles-en)

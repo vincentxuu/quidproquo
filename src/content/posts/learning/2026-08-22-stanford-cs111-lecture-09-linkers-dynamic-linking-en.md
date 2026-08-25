@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "Lecture 9 follows source through assembly, object, executable, and process, explaining the linker's three passes and how a dynamic loader resolves shared-library addresses through a jump table at startup."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 9 on process memory layout, object sections, symbols, unresolved references, linker passes, static linking, and jump-table dynamic linking."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-09-linkers-dynamic-linking)

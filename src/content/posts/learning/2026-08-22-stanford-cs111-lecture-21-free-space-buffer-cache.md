@@ -10,7 +10,7 @@ series:
   order: 22
 tldr: "Block cache 把熱索引留在 DRAM，bitmap 與保留空間維持配置選擇，fragments 和 delayed allocation 則用較晚、較完整的資訊換取 locality。"
 description: "聚焦導讀 Stanford CS111 Spring 2026 Lecture 21：block cache、同步與延遲寫入、free bitmap、block fragments、repacking 與 delayed allocation。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache-en)

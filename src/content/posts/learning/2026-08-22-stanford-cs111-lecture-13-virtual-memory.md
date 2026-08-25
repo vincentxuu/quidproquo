@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "第 13 講從 single-tasking 與 load-time relocation 的失敗出發，以 MMU 的 base/bound 建立 virtual/physical address spaces、透明隔離與 traps，再用 segmentation 解開單一連續區域的限制。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 13：memory-sharing goals、load-time relocation、MMU、base/bound、trap transitions、segmentation、sharing 與 fragmentation。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-13-virtual-memory-en)

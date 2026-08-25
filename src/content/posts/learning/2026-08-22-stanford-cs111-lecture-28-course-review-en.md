@@ -10,7 +10,7 @@ series:
   order: 29
 tldr: "Lecture 28 reduces the semester to concurrency, memory, and storage, then uses four ideas—virtualization, atomicity, locality, and layering—to explain how operating systems manage shared resources."
 description: "A page-by-page reading of Stanford CS111 Spring 2026 Lecture 28, connecting processes, paging, and file systems through virtualization, atomicity, locality, and layering."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-28-course-review)

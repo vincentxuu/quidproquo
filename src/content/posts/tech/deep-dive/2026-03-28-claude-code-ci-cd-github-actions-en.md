@@ -7,7 +7,7 @@ tags: [claude-code, ci-cd, github-actions, code-review, ai-agent, automation, dx
 lang: en
 tldr: "Use claude-code-action to run Claude Code inside GitHub Actions — @claude auto-responds to PR/Issue comments, AI code review triggers on PR open, and release notes generate automatically after merge. Supports Anthropic API, AWS Bedrock, and Google Vertex AI. Define team standards with CLAUDE.md."
 description: "A complete guide to setting up and using Claude Code GitHub Actions: from quick install with /install-github-app, @claude interactive mode, and automated prompt mode, to enterprise-grade integrations with AWS Bedrock and Google Vertex AI, plus the built-in Code Review feature."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 17

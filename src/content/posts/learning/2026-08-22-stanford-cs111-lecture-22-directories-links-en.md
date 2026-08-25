@@ -10,7 +10,7 @@ series:
   order: 23
 tldr: "Directories map text names to file-system-local inode numbers; hard links share inode identity and reference counts, while symlinks store paths and permit cross-filesystem references with loops and dangling targets."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 22: inode arrays, hierarchical directories, pathname traversal, working directories, hard links, and symbolic links."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-22-directories-links)

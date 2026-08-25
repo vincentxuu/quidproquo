@@ -7,7 +7,7 @@ tags: [rag, framework, llamaindex, haystack, ragflow, dify, r2r]
 lang: en
 tldr: "LlamaIndex and Haystack are code-first frameworks; RAGFlow and Dify are managed application platforms; R2R packages retrieval as an API service. Choose how much control your team needs over ingestion, retrieval, and operations before choosing a tool."
 description: "A shared decision framework for LlamaIndex, Haystack, RAGFlow, Dify, and R2R across product layer, ingestion, retrieval customization, workflows, UI, deployment, evaluation, and exit cost."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-rag-framework-selection-guide)

@@ -10,7 +10,7 @@ series:
   order: 12
 tldr: "Lecture 11's official PDF is byte-identical to Lecture 10; this article preserves that artifact gap and focuses on reachability, dangling pointers, leaks, reference-count cycles, and mark/compact garbage collection."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 11 on its duplicated official PDF, pointer reachability, reference counting, cycles, garbage collection, compaction, and reclamation costs."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-11-storage-reclamation)

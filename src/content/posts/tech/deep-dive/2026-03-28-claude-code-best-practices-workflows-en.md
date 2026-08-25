@@ -7,7 +7,7 @@ tags: [claude-code, best-practices, workflows, tips, productivity, dx]
 lang: en
 tldr: "A comprehensive guide to Anthropic's officially recommended Claude Code usage patterns: how to write effective prompts, leverage plan mode for upfront planning, use git worktrees for parallel development, manage context windows, handle large codebases, and grow from beginner to power user."
 description: "A curated collection of Claude Code best practices and common workflows: prompt techniques, the plan → implement → review cycle, parallel sessions with git worktree, context management strategies, large codebase handling, and progressive trust from default to auto mode."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 26

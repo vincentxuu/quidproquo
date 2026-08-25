@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "Lecture 2 defines shared and private process/thread state, then uses fork, execvp, waitpid, and thread creation to show how the kernel creates execution units."
 description: "A guide to Stanford CS111 Spring 2026 Lecture 2, covering processes, threads, system calls, and the fork/exec execution model."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-02-threads-processes-dispatching)

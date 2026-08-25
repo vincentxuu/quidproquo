@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "Demand paging 只在需要時載入頁面；present bit、精確例外與可重啟指令讓核心能從 executable、zero-fill 或 backing store 安全補頁。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 16：page-fault mechanism、restartable instructions、demand fetching、page sources 與 prefetch。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging-en)

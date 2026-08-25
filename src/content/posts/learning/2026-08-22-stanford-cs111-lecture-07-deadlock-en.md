@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "Lecture 7 extracts four necessary deadlock conditions from request/ownership graphs, then compares detection, prevention, and lock ranking; breaking circular wait is common in practice, but every module must obey one global order."
 description: "A lecture-by-lecture reading of Stanford CS111 Spring 2026 Lecture 7: multiple-lock motivation, four deadlock conditions, resource graphs, detection, prevention, global lock ordering, and the mv case study."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)

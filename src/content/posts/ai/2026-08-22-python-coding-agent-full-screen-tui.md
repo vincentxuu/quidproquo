@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "Python coding agent 的第九個里程碑：用 Textual 組合 onboarding、live events、approval、safe stop 與結果畫面。"
 tldr: "全螢幕不難，難的是讓 UI 不破壞 agent harness；事件、核准與取消都必須沿用 durable core contract。"
-draft: true
+draft: false
 glossary:
   - term: "TUI"
     definition: "在終端機中以全螢幕元件呈現的文字使用者介面。"

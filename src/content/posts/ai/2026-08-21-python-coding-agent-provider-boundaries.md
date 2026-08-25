@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 tldr: "M4 證明 PCA 自己的 AgentRunner 能透過 Groq 遠端 API、互動 TTY 與 current-schema resume 完成 coding run；同時把 Claude Code 留在 local-only ExternalAgentBackend，並誠實保留仍待使用者瀏覽器授權的 Codex OAuth 缺口。"
 description: "Python coding agent M4 實戰：如何區分模型 transport、完整外部 agent 與消費者訂閱，並用 Groq、TTY、resume、Claude Code sentinel 和 Codex OAuth 缺口建立可審查證據。"
-draft: true
+draft: false
 glossary:
   - term: ModelProvider
     definition: "把特定模型 API 的訊息、工具呼叫、用量與錯誤轉成 agent core 共用契約的 transport adapter；它不擁有 agent loop。"

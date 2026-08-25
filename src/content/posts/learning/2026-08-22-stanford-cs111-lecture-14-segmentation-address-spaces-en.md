@@ -10,7 +10,7 @@ series:
   order: 15
 tldr: "Lecture 14's official PDF is byte-identical to Lecture 13; this article records the gap and focuses on how multiple base/bound/protection entries enable growth, sharing, and compaction while retaining fixed-count, fragmentation, and rigid-layout limits."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 14 on its duplicated official PDF, segmented address spaces, descriptor selection, protection, sharing, compaction, and mmap limits."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-14-segmentation-address-spaces)

@@ -10,7 +10,7 @@ series:
   order: 28
 tldr: "A VM expands the process interface into a machine interface; the hypervisor directly executes ordinary instructions, traps privileged operations, and virtualizes interrupts, I/O, and two-stage address translation."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 27: VM abstractions, simulation, direct execution, trap-and-emulate, virtual I/O, shadow/nested page tables, and VM uses."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines)

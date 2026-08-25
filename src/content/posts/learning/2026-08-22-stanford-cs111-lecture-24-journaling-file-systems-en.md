@@ -10,7 +10,7 @@ series:
   order: 25
 tldr: "Lecture 24 continues from the WAL entry point into transactions, idempotent replay, and checkpoints, showing why consistency is not durability and why a journal does not replace fsync or backups."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 24, covering journal entries, transactions, idempotent replay, checkpoints, and the boundary between consistency and durability."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems)

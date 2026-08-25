@@ -10,7 +10,7 @@ series:
   order: 25
 tldr: "第 24 講從 WAL 入口往下拆 transaction、idempotent replay 與 checkpoint，說明一致性不等於 durability，journal 也不能取代 fsync 與備份。"
 description: "導讀 Stanford CS111 Spring 2026 Lecture 24：journaling entry、transaction、idempotent replay、checkpoint，以及 consistency 與 durability 的分界。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems-en)

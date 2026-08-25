@@ -10,7 +10,7 @@ series:
   order: 26
 tldr: "第 25 講把 trust 拆成假設、推論與替代三種建立方式，再檢視社群推薦、生成式 AI 與合成媒體如何放大過度信任；實務答案是保留來源、交叉驗證並協調責任。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 25，涵蓋 trust、confirmation bias、社群推薦、AI hallucination、deepfake 與來源驗證。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology-en)

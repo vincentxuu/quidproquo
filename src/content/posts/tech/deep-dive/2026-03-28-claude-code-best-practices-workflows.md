@@ -7,7 +7,7 @@ tags: [claude-code, best-practices, workflows, tips, productivity, dx]
 lang: zh-TW
 tldr: "整理 Claude Code 官方推薦的使用模式：如何寫好 prompt、善用 plan mode 規劃、用 git worktree 平行開發、管理 context window、處理大型 codebase，以及從初學到進階的成長路徑。"
 description: "彙整 Claude Code 的最佳實踐和常見工作流程：prompt 技巧、plan → implement → review 循環、git worktree 平行 session、context 管理策略、大型 codebase 處理、從 default 到 auto mode 的漸進式信任。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 26

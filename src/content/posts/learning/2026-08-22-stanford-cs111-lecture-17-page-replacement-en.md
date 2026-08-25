@@ -10,7 +10,7 @@ series:
   order: 18
 tldr: "Lecture 17 separates demand paging into fetching and replacement: MIN cannot know the future, exact LRU is too expensive, and Clock uses reference/dirty bits to find a page old enough to evict; when active working sets exceed RAM, even a 1% fault rate can cause an approximately 1,000-fold slowdown."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 17: page faults, demand fetching, prefetching, FIFO/MIN/LRU, Clock, global replacement, and thrashing."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement)

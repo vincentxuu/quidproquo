@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "磁碟把機械式 seek 與 rotation 隱藏成線性 block API；現代 I/O 再用 memory-mapped registers、DMA queues 與 interrupts，讓 CPU 只負責下命令和收完成通知。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 18：HDD 幾何、seek／rotation／transfer、線性 block API、MMIO、polling、interrupt、PIO 與 DMA queue。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-18-magnetic-disks-en)

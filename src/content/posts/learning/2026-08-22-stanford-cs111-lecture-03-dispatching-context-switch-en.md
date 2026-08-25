@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "Lecture 3 follows running, blocked, and ready transitions to show how PCBs, context save/restore, and the dispatcher complete one CPU-control handoff."
 description: "A guide to Stanford CS111 Spring 2026 Lecture 3, connecting thread states, PCBs, context switching, and dispatch through one CPU handoff."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch)

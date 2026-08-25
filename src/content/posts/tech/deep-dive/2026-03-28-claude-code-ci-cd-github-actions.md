@@ -7,7 +7,7 @@ tags: [claude-code, ci-cd, github-actions, code-review, ai-agent, automation, dx
 lang: zh-TW
 tldr: "用 claude-code-action 在 GitHub Actions 中跑 Claude Code——@claude 在 PR/Issue 留言自動回應、開 PR 觸發 AI code review、merge 後自動產生 release notes。支援 Anthropic API、AWS Bedrock、Google Vertex AI。搭配 CLAUDE.md 定義團隊標準。"
 description: "完整介紹 Claude Code GitHub Actions 的設定與使用：從 /install-github-app 快速安裝、@claude 互動模式、自動化 prompt 模式，到 AWS Bedrock / Google Vertex AI 的企業級整合，以及 Code Review 自動審查功能。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 17

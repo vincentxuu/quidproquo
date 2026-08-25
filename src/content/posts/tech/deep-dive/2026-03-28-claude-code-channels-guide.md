@@ -7,7 +7,7 @@ tags: [claude-code, channels, telegram, discord, imessage, webhooks, dx]
 lang: zh-TW
 tldr: "Channels 把外部事件推送到正在跑的 Claude Code session——從手機用 Telegram 問問題、CI webhook 通知失敗、Discord 接收指令。雙向溝通：Claude 讀取事件後直接在同一個 channel 回覆。目前是 Research Preview。"
 description: "介紹 Claude Code Channels 功能：透過 MCP 協議把外部事件（Telegram、Discord、iMessage、自製 webhook）推送到本地 session，讓 Claude 在你離開鍵盤時也能即時回應。涵蓋安裝設定、安全機制、Enterprise 控制，以及與 Remote Control / Web / Slack 的比較。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 18

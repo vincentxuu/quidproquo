@@ -7,7 +7,7 @@ tags: [flowise, low-code, ai-agent, workflow, mcp]
 lang: en
 tldr: "Flowise uses Assistant, Chatflow, and Agentflow to cover simple assistants, single-agent systems, and multi-agent orchestration; however, its repository was archived in August 2026 and official EOL is scheduled for August 31, so new projects should not adopt it without a maintained fork and migration plan."
 description: "An application-lifecycle guide to Flowise's three visual builders, nodes, tools, memory, Prediction API, embeddings, deployment, Custom MCP security boundary, and post-EOL selection decision."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-flowise-ai-agent-builder)

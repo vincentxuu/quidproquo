@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "第 8 講從 FIFO、round robin 與不可實作的 SRPT，推到自適應 priority queues、BSD scheduler，再處理多核心 queue contention、core affinity 與 work-conserving 的衝突。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 8：CPU scheduling 的回應時間、公平性、time slice、SRPT、priority queues、BSD scheduler、Unix nice 與多核心排程。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en)

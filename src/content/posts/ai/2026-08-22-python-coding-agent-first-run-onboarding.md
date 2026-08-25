@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "Python coding agent 的第八個里程碑：把 raw Model 輸入改成 provider-aware onboarding，並保持 headless 與 credential 邊界。"
 tldr: "第一次執行不是一般 task state；先完成可理解、可取消、可重跑的 provider/model setup，才把任務交給 agent loop。"
-draft: true
+draft: false
 glossary:
   - term: "onboarding"
     definition: "工具第一次使用時，協助完成必要設定並說明下一步的引導流程。"

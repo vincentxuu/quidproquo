@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "Lecture 4 defeats each Too Much Milk attempt with an explicit schedule, deriving race condition, atomicity, critical section, and synchronization requirements from concrete interleavings."
 description: "A guide to Stanford CS111 Spring 2026 Lecture 4, using Too Much Milk counterexamples to explain interleavings, races, atomicity, and critical sections."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)

@@ -10,7 +10,7 @@ series:
   order: 27
 tldr: "Flash 只能逐頁 program、整個 erase unit 清除；FTL 以 out-of-place mapping 隱藏不對稱，再用 garbage collection、temperature segregation、wear leveling 與 TRIM 管理放大成本。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 26：flash cells、erase units、FTL mapping、crash-safe page states、garbage collection、write amplification、wear leveling 與 TRIM。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-26-flash-memory-en)

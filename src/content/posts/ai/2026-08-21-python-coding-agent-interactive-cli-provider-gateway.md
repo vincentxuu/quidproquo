@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 description: "Python coding agent 的第二個里程碑：互動 approval、可恢復 session、明確 provider protocol、ChatGPT/Codex OAuth 與 OMP-style model gateway。"
 tldr: "真正的 coding-agent CLI 不能只是啟動別人的 CLI；它要自己擁有 loop、approval、session 與 verification，再把 Ollama、API、Codex OAuth 和 model gateway 放在可替換的 transport 層。"
-draft: true
+draft: false
 ---
 
 M1 做完後，我手上有一個會產生 patch、重跑測試、留下 artifact 的 Python harness。但執行方式仍是 demo script 與 headless command。它證明核心 loop 能工作，卻還不是我每天會打開來用的 coding agent。

@@ -10,7 +10,7 @@ series:
   order: 15
 tldr: "Lecture 14 的官方 PDF 與 Lecture 13 逐位元組相同；本文明示此缺口，聚焦 segmentation 如何以多組 base/bound/protection 支援 growth、sharing、compaction，以及 fixed-count、fragmentation、rigid layout 限制。"
 description: "導讀 Stanford CS111 Spring 2026 Lecture 14：官方 PDF 重複狀況、segmented address spaces、descriptor selection、protection、sharing、compaction 與 mmap 限制。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-14-segmentation-address-spaces-en)

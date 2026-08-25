@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "Lecture 1 follows shared I/O cards in the 1940s, batch processing, multiprogramming, and personal computers to explain how OS responsibilities accumulated as hardware costs and user needs changed."
 description: "A guide to Stanford CS111 Spring 2026 Lecture 1, reading operating-system history as the origin of abstraction, protection, resource sharing, and the course’s three threads."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-01-welcome-os-principles)

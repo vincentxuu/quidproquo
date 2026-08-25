@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "第 2 講先定義行程與執行緒的共享／私有狀態，再用 fork、execvp、waitpid 與 thread creation 說明核心如何建立執行單位。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 2，整理行程、執行緒、system call 與 fork/exec 的執行抽象。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-02-threads-processes-dispatching-en)

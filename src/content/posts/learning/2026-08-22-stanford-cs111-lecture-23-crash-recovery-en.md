@@ -10,7 +10,7 @@ series:
   order: 24
 tldr: "A single file-system operation updates several blocks, but a crash can occur between any two writes; this lecture compares how fsck, ordered writes, and write-ahead logging trade recovery time, performance, durability, and consistency."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 23: file-system crash models, fsck repair, ordered writes, and the entry point to write-ahead logging."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-23-crash-recovery)

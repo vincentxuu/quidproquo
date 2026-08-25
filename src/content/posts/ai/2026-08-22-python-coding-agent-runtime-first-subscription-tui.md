@@ -6,7 +6,7 @@ tags: [coding-agent, python, tui, claude-code, codex, harness-engineering]
 lang: zh-TW
 tldr: "Claude/Codex 訂閱不是另一個 API provider；先選 runtime，再明確區分只讀 Ask 與改碼 Agent，模型沿用官方 Automatic。"
 description: "PCA M10 實作 runtime-first TUI：使用本機 Claude Code、Codex 登入，以 Ask/Agent 雙模式分開對話與安全改碼。"
-draft: true
+draft: false
 glossary:
   - term: "agent runtime"
     definition: "真正持有模型迴圈、工具執行與 session 行為的程式；它不等於模型 API provider。"

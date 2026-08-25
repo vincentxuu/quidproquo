@@ -7,7 +7,7 @@ tags: [claude-code, plugins, marketplace, skills, agents, hooks, dx]
 lang: en
 tldr: "Plugins bundle skills, agents, hooks, and MCP servers into a single installable unit. Distribute them to your team or community via Marketplaces. Migrating from a standalone .claude/ setup to a plugin is as simple as moving directories and adding a manifest."
 description: "A comprehensive guide to the Claude Code Plugin system: plugin structure (manifest + skills + agents + hooks + MCP), how to create and test plugins, migrating from standalone settings to a plugin, building and distributing through Plugin Marketplaces, and LSP server integration."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 13

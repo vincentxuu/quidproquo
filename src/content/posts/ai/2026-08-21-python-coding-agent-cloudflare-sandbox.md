@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 tldr: "Worker 不必重寫 agent loop；讓它負責驗證、能力憑證與 provider secret，Python AgentRunner 留在一次性 Sandbox，才能同時保留既有 harness 與雲端邊界。"
 description: "Python coding agent M6 實戰：用 Cloudflare Worker、Sandbox 與 Durable Object 部署既有 agent loop，並從真實 E2E 找出 SSE file stream 與 stale wheel 問題。"
-draft: true
+draft: false
 glossary:
   - term: run capability
     definition: "只允許單一 run、單一 model、有限次數且短時間有效的模型代理憑證；它不是 provider API key。"

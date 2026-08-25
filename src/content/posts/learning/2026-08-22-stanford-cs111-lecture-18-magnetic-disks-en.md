@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "A disk hides mechanical seek and rotation behind a linear block API; modern I/O then uses memory-mapped registers, DMA queues, and interrupts so the CPU mainly issues commands and receives completions."
 description: "A lecture-by-lecture reading of Stanford CS111 Spring 2026 Lecture 18: HDD geometry, seek/rotation/transfer, linear blocks, MMIO, polling, interrupts, PIO, and DMA queues."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-18-magnetic-disks)

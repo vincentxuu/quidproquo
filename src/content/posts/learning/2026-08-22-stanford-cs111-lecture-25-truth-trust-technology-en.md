@@ -10,7 +10,7 @@ series:
   order: 26
 tldr: "Lecture 25 separates assumption, inference, and substitution as ways to establish trust, then examines how social recommendations, generative AI, and synthetic media amplify over-trust; the response is preserved provenance, independent validation, and coordinated responsibility."
 description: "A page-by-page guide to Stanford CS111 Spring 2026 Lecture 25, covering trust, confirmation bias, social recommendation, AI hallucination, deepfakes, and source validation."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology)

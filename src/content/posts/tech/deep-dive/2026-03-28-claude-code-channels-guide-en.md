@@ -7,7 +7,7 @@ tags: [claude-code, channels, telegram, discord, imessage, webhooks, dx]
 lang: en
 tldr: "Channels pushes external events into a running Claude Code session — ask questions from your phone via Telegram, get notified of CI failures via webhook, or send commands through Discord. It's bidirectional: Claude reads the incoming event and replies back in the same channel. Currently in Research Preview."
 description: "An introduction to Claude Code Channels: using the MCP protocol to push external events (Telegram, Discord, iMessage, custom webhooks) into a local session, so Claude can respond in real time even when you step away from the keyboard. Covers installation, security mechanisms, Enterprise controls, and comparisons with Remote Control, Web, and Slack."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 18

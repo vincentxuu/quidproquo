@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "Lecture 10 moves from predictable LIFO stacks to heap free lists, first/best fit, and slabs, then compares reference counting with mark-and-sweep across dangling pointers, leaks, cycles, and fragmentation."
 description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 10 on dynamic allocation, stacks and heaps, fragmentation, free lists, slabs, bitmaps, reference counting, and garbage collection."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-10-dynamic-storage-allocation)

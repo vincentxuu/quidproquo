@@ -7,7 +7,7 @@ lang: zh-TW
 type: project
 tldr: "不要把已經有 agent loop 的 Codex／Claude CLI 硬塞成 ModelProvider；讓它們只改 disposable working copy，再由自己的 Python harness 驗路徑、patch、來源完整性與測試。"
 description: "Python coding agent M5 實戰：如何善用既有 Codex 與 Claude 訂閱，同時保留自己的 harness、source isolation、patch review 與 verification 邊界。"
-draft: true
+draft: false
 glossary:
   - term: disposable working copy
     definition: "從固定 Git commit 建立、任務結束後只保留 patch 與稽核 artifact 的一次性工作副本；不直接修改來源 repository。"

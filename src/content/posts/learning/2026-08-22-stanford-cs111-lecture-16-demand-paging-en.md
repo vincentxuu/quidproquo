@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "Demand paging loads pages only when needed; present bits, precise exceptions, and restartable instructions let the kernel safely fill them from executables, zero-fill, or backing store."
 description: "A reading of Stanford CS111 Spring 2026 Lecture 16: page-fault mechanism, restartable instructions, demand fetching, page sources, and prefetch."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging)

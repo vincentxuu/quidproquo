@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "A file system maps durable byte collections onto disk blocks; contiguous, linked, and FAT allocation trade locality, growth, random access, and metadata cost."
 description: "A lecture-by-lecture reading of Stanford CS111 Spring 2026 Lecture 19: file abstractions, access patterns, inodes, contiguous/linked allocation, and FAT."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-19-file-systems)

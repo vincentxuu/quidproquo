@@ -10,7 +10,7 @@ series:
   order: 24
 tldr: "檔案系統一次操作會改動多個 block，崩潰卻可能發生在任兩次寫入之間；本講比較 fsck、ordered writes 與 write-ahead logging 如何交換復原時間、效能、耐久性與一致性。"
 description: "導讀 Stanford CS111 Spring 2026 Lecture 23：檔案系統崩潰模型、fsck 修復、ordered writes，以及 write-ahead logging 的入口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-23-crash-recovery-en)

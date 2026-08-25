@@ -7,7 +7,7 @@ tags: [flowise, low-code, ai-agent, workflow, mcp]
 lang: zh-TW
 tldr: "Flowise 用 Assistant、Chatflow 與 Agentflow 三個入口涵蓋簡易助理、單一 Agent 和多 Agent 編排；但官方已在 2026 年 8 月封存 repository，並排定 8 月 31 日 EOL，新案不應在沒有維護 fork 與遷移方案時採用。"
 description: "沿產品生命週期介紹 Flowise 的三種視覺化 builder、nodes、tools、memory、Prediction API、embedding、部署與 Custom MCP 安全邊界，並說明 EOL 後的選型判斷。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-flowise-ai-agent-builder-en)

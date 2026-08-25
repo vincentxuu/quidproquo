@@ -7,7 +7,7 @@ tags: [claude-code, agent-teams, multi-agent, parallel-execution, ai-agent, dx]
 lang: en
 tldr: "Agent Teams lets you spin up multiple Claude Code instances working simultaneously — one acts as team lead to delegate tasks, while teammates execute independently, communicate with each other, and share a task list. Great for parallel code review, competing-hypothesis debugging, and cross-layer development. Currently an experimental feature."
 description: "A deep dive into Claude Code's Agent Teams feature: multi-agent collaboration architecture, Team Lead and Teammate roles, shared task lists, inter-agent messaging, display modes (in-process vs tmux split panes), comparison with sub-agents, and real-world use cases."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 12

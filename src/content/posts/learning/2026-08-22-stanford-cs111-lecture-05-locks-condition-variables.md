@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "第 5 講用容量為 8 的環形 Pipe 證明：mutex 只提供互斥；condition variable 才能在 predicate 不成立時原子地釋放鎖並阻塞；Mesa semantics 下，wait 返回後必須用 while 重查條件。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 5：鎖的擁有權、環形緩衝區不變量、四版錯誤 Pipe、condition variable、Mesa semantics 與 monitor。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en)

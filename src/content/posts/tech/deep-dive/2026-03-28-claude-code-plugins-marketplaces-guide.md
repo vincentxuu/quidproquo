@@ -7,7 +7,7 @@ tags: [claude-code, plugins, marketplace, skills, agents, hooks, dx]
 lang: zh-TW
 tldr: "Plugin 把 skills、agents、hooks、MCP servers 打包成一個可安裝的單位。透過 Marketplace 分發給團隊或社群。從 .claude/ 單檔設定到 plugin 只需要搬目錄加 manifest。"
 description: "完整介紹 Claude Code 的 Plugin 系統：plugin 結構（manifest + skills + agents + hooks + MCP）、建立與測試方式、從 standalone 設定遷移到 plugin、Plugin Marketplace 的建立與分發，以及 LSP server 整合。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 13

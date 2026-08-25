@@ -7,7 +7,7 @@ tags: [claude-code, troubleshooting, debugging, dx, skills, hooks, settings]
 lang: zh-TW
 tldr: "整理 Claude Code 使用中最常遇到的問題：Skills 找不到、Hook 不觸發、設定不生效、權限卡住、MCP 連不上。每個問題附原因分析和解法，省下你翻文件的時間。"
 description: "彙整 Claude Code 常見的疑難排解情境，包含 Skill discovery 失敗、Hook 不觸發、settings.json 設定衝突、權限模式問題、MCP server 連線失敗等，每個問題提供症狀、原因分析與解決步驟。"
-draft: true
+draft: false
 series:
   name: "Claude Code 自動化指南"
   order: 27

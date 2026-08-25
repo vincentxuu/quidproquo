@@ -10,7 +10,7 @@ series:
   order: 22
 tldr: "Block cache retains hot indexes, bitmap slack preserves placement choices, and fragments plus delayed allocation trade later, better information for locality."
 description: "A focused reading of Stanford CS111 Spring 2026 Lecture 21: block cache, write policy, free bitmaps, fragments, repacking, and delayed allocation."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)

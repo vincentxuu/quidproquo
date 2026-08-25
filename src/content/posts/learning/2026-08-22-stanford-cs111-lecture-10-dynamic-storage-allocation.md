@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "第 10 講從 stack 的可預測 LIFO，推到 heap 的 free lists、first/best fit 與 slabs，再比較 reference counting 和 mark-and-sweep 如何在 dangling pointers、leaks、cycles、fragmentation 間取捨。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 10：dynamic allocation、stack/heap、fragmentation、free lists、slabs、bitmaps、reference counting 與 garbage collection。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-10-dynamic-storage-allocation-en)

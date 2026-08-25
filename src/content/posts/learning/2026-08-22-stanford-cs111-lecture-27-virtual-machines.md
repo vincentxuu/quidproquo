@@ -10,7 +10,7 @@ series:
   order: 28
 tldr: "VM 把 process interface 擴成完整硬體介面；hypervisor 讓普通指令直接執行、攔截 privileged operations，並虛擬化 interrupts、I/O 與兩層位址轉譯。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 27：VM abstraction、simulation、direct execution、trap-and-emulate、virtual I/O、shadow/nested page tables 與 VM usage。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines-en)

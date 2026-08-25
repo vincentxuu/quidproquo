@@ -7,7 +7,7 @@ tags: [claude-code, sub-agent, parallel-execution, worktree, ai-agent, dx, plugi
 lang: en
 tldr: "Sub-agents are specialized AI assistants that run in isolated context windows. Define their system prompt, tool permissions, and model choice via Markdown files — Claude automatically delegates tasks at the right moment. Three built-in types are available (Explore, Plan, General-purpose), and you can create custom ones. Pair with persistent memory to accumulate knowledge across sessions."
 description: "A deep dive into Claude Code's Sub-agent system: built-in agent types, full custom agent configuration (frontmatter fields, tool control, MCP integration, hooks, persistent memory), foreground vs. background execution, comparison with Agent Teams, and real-world examples."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 11

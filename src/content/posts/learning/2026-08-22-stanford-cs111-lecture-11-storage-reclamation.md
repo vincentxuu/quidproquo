@@ -10,7 +10,7 @@ series:
   order: 12
 tldr: "第 11 講的官方 PDF 與 Lecture 10 逐位元組相同；本文誠實保留此 artifact 缺口，聚焦後半的 reachability、dangling pointers、leaks、reference-count cycles 與 mark/compact GC。"
 description: "導讀 Stanford CS111 Spring 2026 Lecture 11 的 storage reclamation：官方 PDF 重複狀況、pointer reachability、reference counting、cycles、garbage collection 與成本。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-11-storage-reclamation-en)

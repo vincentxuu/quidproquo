@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "第 6 講從單核心關中斷一路修到多核心 v5，追蹤 guard、lock 與 wait queue，說明 atomic exchange、spin、block 與 wakeup 如何避免 race 和 lost wakeup。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 6，逐版拆解 interrupt masking、atomic exchange、spinlock 與阻塞式 lock。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en)

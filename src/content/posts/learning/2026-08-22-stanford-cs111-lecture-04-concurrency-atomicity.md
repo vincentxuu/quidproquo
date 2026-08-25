@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "第 4 講逐步拆解 Too Much Milk 的失敗排程，從具體 interleaving 推導 race condition、atomicity、critical section 與正確同步條件。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 4，以 Too Much Milk 反例理解 interleaving、race、atomicity 與 critical section。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity-en)

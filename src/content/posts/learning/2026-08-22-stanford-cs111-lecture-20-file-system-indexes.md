@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "4.3BSD inode 用 direct、single-indirect 與 double-indirect pointers 讓 lookup depth 隨檔案大小分級；FIFO、SPTF、SCAN 與 CSCAN 則交換 seek cost、公平性與等待時間。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 20：multilevel inode、block 5／23／1040 的 index walk、double-fault 問題與 disk scheduling。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes-en)

@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "第 12 講把 trust 定義為自願承受 vulnerability，區分 over-trust 與 untrustworthiness，再用 assumption、inference、substitution 分析 Linux TCB、xz attack 與 AI code policy。"
 description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 12：trust、agency、over-trust、software verification、trusted computing base、xz attack、Linux AI policy 與 agent guardrails。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems-en)

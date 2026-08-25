@@ -7,7 +7,7 @@ tags: [claude-code, remote-control, mobile, cross-device, dx]
 lang: en
 tldr: "Remote Control lets you pick up a locally running Claude Code session from your phone, tablet, or any browser. Code executes on your own machine — MCP servers and local tools are all available. Supports QR code quick-connect and multi-device conversation sync."
 description: "A guide to Claude Code's Remote Control feature: connection methods (server mode / interactive / existing session), security model, differences from Claude Code on the web, and a comparison of remote workflows including Dispatch, Channels, and Slack."
-draft: true
+draft: false
 series:
   name: "Claude Code Automation Guide"
   order: 22

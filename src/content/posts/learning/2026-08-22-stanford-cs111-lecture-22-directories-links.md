@@ -10,7 +10,7 @@ series:
   order: 23
 tldr: "Directory 把文字名稱映射到 file-system-local i-number；hard link 共享 inode 與 reference count，symbolic link 則保存 pathname，換得跨檔案系統能力但可能形成 loop 或 dangling link。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 22：inode array、hierarchical directories、pathname traversal、working directory、hard links 與 symbolic links。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-22-directories-links-en)

@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "Lecture 5 uses an eight-slot circular Pipe to prove that a mutex supplies exclusion, while a condition variable atomically releases the lock and blocks when a predicate is false; under Mesa semantics, wait must return to a while loop that rechecks the predicate."
 description: "A lecture-by-lecture reading of Stanford CS111 Spring 2026 Lecture 5: lock ownership, circular-buffer invariants, four broken Pipes, condition variables, Mesa semantics, and monitors."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)

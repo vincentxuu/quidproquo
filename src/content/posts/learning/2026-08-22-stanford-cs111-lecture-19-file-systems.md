@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "檔案系統把耐久 byte collection 映射到磁碟 blocks；contiguous、linked 與 FAT 分別交換 locality、成長彈性、random access 與 metadata 成本。"
 description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 19：檔案抽象、access patterns、inode、contiguous／linked allocation 與 FAT。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-19-file-systems-en)
