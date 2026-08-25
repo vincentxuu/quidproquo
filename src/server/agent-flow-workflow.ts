@@ -172,11 +172,29 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
   }
 }
 
+function buildContext(prevResults: Record<string, unknown>): string {
+  const parts: string[] = []
+  for (const [stepId, result] of Object.entries(prevResults)) {
+    if (!result || typeof result !== 'object') continue
+    const r = result as Record<string, unknown>
+    if (r.branches) {
+      const branches = r.branches as Array<Record<string, unknown>>
+      const contents = branches
+        .filter(b => b.content)
+        .map(b => `[${b.id}]\n${String(b.content).slice(0, 1500)}`)
+      if (contents.length) parts.push(`## ${stepId}\n${contents.join('\n\n')}`)
+    } else if (r.content) {
+      parts.push(`## ${stepId}\n${String(r.content).slice(0, 2000)}`)
+    }
+  }
+  return parts.length ? `\n\n--- Previous step results ---\n${parts.join('\n\n')}` : ''
+}
+
 async function executeFlowStep(
   s: ParsedStep,
   env: Record<string, string>,
   _input: Record<string, unknown>,
-  _prevResults: Record<string, unknown>,
+  prevResults: Record<string, unknown>,
   modelOverride?: string,
 ): Promise<unknown> {
   if (s.type === 'parallel' && s.branches) {
@@ -197,7 +215,9 @@ async function executeFlowStep(
   }
 
   if (s.type === 'agent' && s.prompt && (s.model || modelOverride)) {
-    return callLlm(env, modelOverride ?? s.model!, s.prompt, s.maxTokens ?? 2000)
+    const context = buildContext(prevResults)
+    const prompt = context ? `${s.prompt}\n${context}` : s.prompt
+    return callLlm(env, modelOverride ?? s.model!, prompt, s.maxTokens ?? 2000)
   }
 
   if (s.type === 'tool_group') {
