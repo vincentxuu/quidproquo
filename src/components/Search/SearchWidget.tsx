@@ -14,6 +14,10 @@ interface SearchResponse {
   mode: string
   query: string
   results: SearchResult[]
+  total?: number
+  offset?: number
+  limit?: number
+  hasMore?: boolean
   error?: string
   message?: string
 }
@@ -33,7 +37,10 @@ const POPULAR_SEARCHES: Record<'zh-TW' | 'en', string[]> = {
 export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [results, setResults] = useState<SearchResult[]>([])
+  const [total, setTotal] = useState<number | null>(null)
+  const [hasMore, setHasMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [searchAttempted, setSearchAttempted] = useState(false)
   const [searchHistory, setSearchHistory] = useState<string[]>([])
@@ -41,6 +48,9 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const [showSuggestions, setShowSuggestions] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const initialUrlSearchRan = useRef(false)
+  const currentQueryRef = useRef('')
+
+  const PAGE_SIZE = 20
 
   const t = {
     placeholder: lang === 'en' ? 'Search posts, topics, questions...' : '搜尋文章、主題、問題...',
@@ -53,6 +63,8 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     popularSearches: lang === 'en' ? 'Popular' : '熱門搜尋',
     clearHistory: lang === 'en' ? 'Clear history' : '清除記錄',
     resultsTitle: lang === 'en' ? 'Results' : '搜尋結果',
+    loadMore: lang === 'en' ? 'Load more' : '載入更多',
+    loadingMore: lang === 'en' ? 'Loading...' : '載入中...',
   }
 
   useEffect(() => {
@@ -87,37 +99,55 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }, [])
 
-  const runSearch = useCallback(async (searchQuery: string) => {
+  const runSearch = useCallback(async (searchQuery: string, append = false) => {
     if (searchQuery.length < 2) {
       setResults([])
+      setTotal(null)
+      setHasMore(false)
       setSearchAttempted(false)
       return
     }
 
-    setIsLoading(true)
+    const offset = append ? results.length : 0
+    if (append) {
+      setIsLoadingMore(true)
+    } else {
+      setIsLoading(true)
+      setResults([])
+      setTotal(null)
+      setHasMore(false)
+    }
     setError(null)
     setSearchAttempted(true)
     setShowSuggestions(false)
     setFocusedIndex(-1)
+    currentQueryRef.current = searchQuery
 
     try {
       const res: SearchResponse = await fetch(
-        `/api/search?q=${encodeURIComponent(searchQuery)}&mode=hybrid&limit=12`
+        `/api/search?q=${encodeURIComponent(searchQuery)}&mode=hybrid&limit=${PAGE_SIZE}&offset=${offset}`
       ).then(r => r.json())
 
       if (res.error === 'rate_limit') {
         setError(t.rateLimited)
       }
 
-      setResults(res.results || [])
-      saveToHistory(searchQuery)
+      if (append) {
+        setResults(prev => [...prev, ...(res.results || [])])
+      } else {
+        setResults(res.results || [])
+      }
+      setTotal(res.total ?? (res.results?.length ?? 0))
+      setHasMore(Boolean(res.hasMore))
+      if (!append) saveToHistory(searchQuery)
     } catch (err) {
       console.error('Search error:', err)
       setError(t.error)
     } finally {
       setIsLoading(false)
+      setIsLoadingMore(false)
     }
-  }, [t.error, t.rateLimited, saveToHistory])
+  }, [t.error, t.rateLimited, saveToHistory, results.length])
 
   useEffect(() => {
     if (initialUrlSearchRan.current) return
@@ -290,17 +320,37 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
           <section className="results-section">
             <h3 className="section-title">
               {t.resultsTitle}
-              <span className="section-count">{results.length}</span>
+              <span className="section-count">{total ?? results.length}</span>
             </h3>
             <div className="results-grid">
               {results.map((result, i) => (
                 <ResultCard
-                  key={result.slug}
+                  key={`${result.slug}-${i}`}
                   result={result}
                   isFocused={focusedIndex === i}
                 />
               ))}
             </div>
+            {hasMore && (
+              <div className="load-more-wrapper" style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button
+                  type="button"
+                  className="load-more-btn"
+                  onClick={() => runSearch(currentQueryRef.current, true)}
+                  disabled={isLoadingMore}
+                  style={{
+                    padding: '0.5rem 1.5rem',
+                    borderRadius: '9999px',
+                    border: '1px solid var(--color-border, #e5e7eb)',
+                    background: 'var(--color-bg, #fff)',
+                    cursor: isLoadingMore ? 'not-allowed' : 'pointer',
+                    opacity: isLoadingMore ? 0.6 : 1,
+                  }}
+                >
+                  {isLoadingMore ? t.loadingMore : `${t.loadMore} (${results.length}/${total})`}
+                </button>
+              </div>
+            )}
           </section>
         </div>
       )}

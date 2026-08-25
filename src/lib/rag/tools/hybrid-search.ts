@@ -64,7 +64,16 @@ export function buildFtsQuery(query: string): string | null {
   const tokens = Array.from(new Set(rawTokens.map(token => token.trim()).filter(token => token.length >= 2)))
   if (tokens.length === 0) return null
 
-  return tokens
+  const expanded = new Set<string>(tokens)
+  for (const token of tokens) {
+    if (/^[\p{Script=Han}]+$/u.test(token) && token.length === 2) {
+      for (const ch of token) {
+        expanded.add(ch)
+      }
+    }
+  }
+
+  return [...expanded]
     .map(token => `"${token.replace(/"/g, '""')}"`)
     .join(' OR ')
 }

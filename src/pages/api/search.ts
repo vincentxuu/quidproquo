@@ -15,10 +15,11 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
   const url = new URL(request.url)
   const query = url.searchParams.get('q')?.trim() ?? ''
   const mode = url.searchParams.get('mode') ?? 'keyword'
-  const limit = Math.min(20, Math.max(1, Number(url.searchParams.get('limit') ?? '10')))
+  const limit = Math.min(50, Math.max(1, Number(url.searchParams.get('limit') ?? '10')))
+  const offset = Math.max(0, Number(url.searchParams.get('offset') ?? '0'))
 
   if (!query) {
-    return json({ mode, query, results: [] })
+    return json({ mode, query, results: [], total: 0, offset, limit, hasMore: false })
   }
 
   if (mode === 'hybrid' || mode === 'rag') {
@@ -33,17 +34,20 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       )
     }
 
+    const fetchLimit = Math.min(50, limit + offset)
     const [posts, docs] = await Promise.all([
-      searchBlogPosts({ query, limit, shortCircuit: false }).catch(() => []),
+      searchBlogPosts({ query, limit: fetchLimit, shortCircuit: false }).catch(() => []),
       mode === 'rag' ? searchDocs({ query, limit: 5, shortCircuit: false }).catch(() => []) : Promise.resolve([]),
     ])
     const metrics = [getSearchMetrics(posts), getSearchMetrics(docs)]
       .filter((metric): metric is SearchMetrics => Boolean(metric))
 
-    const results = dedupeSearchResultsByUrl([...posts, ...docs])
+    const merged = dedupeSearchResultsByUrl([...posts, ...docs])
       .sort((a, b) => b.relevance_score - a.relevance_score)
-      .slice(0, limit)
-      .map(result => ({
+    const total = merged.length
+    const paged = merged.slice(offset, offset + limit)
+
+    const results = paged.map(result => ({
         title: result.title ?? result.source_url,
         category: result.type,
         url: result.source_url,
@@ -53,18 +57,24 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         reason: buildReason(query, result.evidence_excerpt),
       }))
 
-    return json({ mode, query, results, metrics: summarizeRetrievalMetrics(metrics) })
+    return json({ mode, query, results, total, offset, limit, hasMore: offset + limit < total, metrics: summarizeRetrievalMetrics(metrics) })
   }
 
   const db = (env as unknown as Env).DB
   const like = `%${query}%`
+  const countRow = await db.prepare(
+    `SELECT count(*) as total FROM posts
+     WHERE title LIKE ? OR description LIKE ? OR tldr LIKE ? OR content LIKE ?`
+  ).bind(like, like, like, like).first<{ total: number }>()
+  const total = countRow?.total ?? 0
+
   const rows = await db.prepare(
     `SELECT slug, title, category, description, tldr
      FROM posts
      WHERE title LIKE ? OR description LIKE ? OR tldr LIKE ? OR content LIKE ?
      ORDER BY created_at DESC
-     LIMIT ?`
-  ).bind(like, like, like, like, limit).all<{
+     LIMIT ? OFFSET ?`
+  ).bind(like, like, like, like, limit, offset).all<{
     slug: string
     title: string
     category: string
@@ -75,6 +85,10 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
   return json({
     mode: 'keyword',
     query,
+    total,
+    offset,
+    limit,
+    hasMore: offset + limit < total,
     results: rows.results.map(row => ({
       title: row.title,
       category: row.category,

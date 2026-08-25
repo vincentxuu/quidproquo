@@ -23,6 +23,10 @@ function parseJsonArray(s: string): unknown[] {
   try { return JSON.parse(s) } catch { return [] }
 }
 
+function containsHan(text: string): boolean {
+  return /\p{Script=Han}/u.test(text)
+}
+
 function rowToResult(row: {
   chunk_id: string
   content: string
@@ -48,6 +52,58 @@ function rowToResult(row: {
     slug: row.slug,
     title: row.title,
   }
+}
+
+async function searchLikePosts(
+  query: string,
+  limit: number,
+  category?: string,
+  lang?: string
+): Promise<PostSearchRow[]> {
+  const { DB } = env as unknown as Env
+  const like = `%${query}%`
+  const rows = await DB.prepare(
+    `SELECT
+      pc.id AS chunk_id,
+      COALESCE(pc.sentence_window, pc.content) AS content,
+      p.slug,
+      p.title,
+      p.category,
+      p.lang,
+      substr(p.created_at, 1, 10) AS date,
+      '[]' AS images,
+      '[]' AS links
+    FROM post_chunks pc
+    JOIN posts p ON p.id = pc.post_id
+    WHERE pc.content LIKE ?
+      ${category ? 'AND p.category = ?' : ''}
+      ${lang ? 'AND p.lang = ?' : ''}
+    ORDER BY p.created_at DESC
+    LIMIT ?`
+  )
+    .bind(
+      like,
+      ...(category ? [category] : []),
+      ...(lang ? [lang] : []),
+      Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD)
+    )
+    .all<{
+      chunk_id: string
+      content: string
+      slug: string
+      title: string
+      category: string
+      lang: string
+      date: string
+      images: string
+      links: string
+    }>()
+
+  const mapped = rows.results.map(rowToResult)
+  if (mapped.length === 0 && (category || lang)) {
+    return searchLikePosts(query, limit)
+  }
+  return mapped
 }
 
 async function fetchPostRowsByChunkIds(
@@ -131,7 +187,12 @@ async function searchBm25Posts(
   lang?: string
 ): Promise<PostSearchRow[]> {
   const ftsQuery = buildFtsQuery(query)
-  if (!ftsQuery) return []
+  if (!ftsQuery) {
+    if (containsHan(query) && query.trim().length >= 2) {
+      return searchLikePosts(query, limit, category, lang)
+    }
+    return []
+  }
 
   const { DB } = env as unknown as Env
   const rows = await DB.prepare(
@@ -174,8 +235,13 @@ async function searchBm25Posts(
     }>()
 
   const mapped = rows.results.map(rowToResult)
-  if (mapped.length === 0 && (category || lang)) {
-    return searchBm25Posts(query, limit)
+  if (mapped.length === 0) {
+    if (containsHan(query) && query.trim().length >= 2) {
+      return searchLikePosts(query, limit, category, lang)
+    }
+    if (category || lang) {
+      return searchBm25Posts(query, limit)
+    }
   }
   return mapped
 }

@@ -3,10 +3,29 @@
 > 2026-08-25 規劃。依據：`code.claude.com/docs` 全索引（llms.txt）、whats-new W13–W34、大綱查證報告（`.research/cc-outline-verify/`）、Academy 課程結構、platform.claude.com 邊界確認。寫作前必讀 `docs/claude-code-series-guide.md`。
 > 原則：既有空殼保留檔名身份（slug 不動、只改內容方向）；拆分與新增用新檔；全系列中英雙語同步；每篇完成才翻 `draft: false`。
 
-## 系列命名
+## 系列命名與整併
 
-- 中文：**Claude Code 深入介紹**
-- 英文：**Claude Code Deep Dives**
+- 中文：**Claude Code 深入介紹**／英文：**Claude Code Deep Dives**
+- **整併決定**：既有系列「Claude Code 自動化指南」（34 檔骨架＋11 篇已發佈文）全數改名歸入本系列——統一批次改 frontmatter series name（機械替換，slug/date 不動）。新名稱反映範圍已從自動化擴大到完整深入介紹。
+- 已發佈文章合併後依下方映射取得 order；內容過時者走 post-update 刷新事實，不重寫。
+
+## 既有已發佈文章併入映射
+
+| 既有文章（皆已發佈） | 歸入 | 動作 |
+|----------------------|------|------|
+| ai/2026-08-22-claude-code-startup-guide | A0 入門安裝 | 改 series＋order；與 A1 分工：startup 是零基礎路徑，A1 是機制 |
+| deep-dive/2026-03-27-claude-code-hooks-guide | **D1 Hooks 主篇** | 改 order；post-update 刷新（schema／exit code／async/HTTP/prompt hooks 官方有新增），原構想的進階參考**併入這篇更新而非新開檔** |
+| deep-dive/2026-03-26-claude-code-hooks-skills-agents-md | D 附錄：三件套協作視角 | 改 order；與 D1/D2/D3 互鏈 |
+| deep-dive/2026-03-27-claude-code-skill-design-guide | **D2 Skills 主篇** | 改 order；ai/2026-05-08-anthropic-claude-skills-guide 併為其延伸閱讀 |
+| deep-dive/2026-05-09-claude-code-scheduled-tasks-guide | **E4a 排程主篇** | 改 order；補 goal mode 一節（post-update） |
+| tech/2026-05-09-claude-code-loop-scheduling | **E4b `/loop` 實作篇** | 改 order；與 E4a 互鏈分工 |
+| tech/2026-03-16-claude-code-dangerously-skip-permissions | **B2b bypass 權限風險** | 改 order；與 B2（permissions/auto mode 新篇）互鏈成對：B2 講正規分級、B2b 講繞過的代價 |
+| deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy | A5 工作流案例 | 改 order；標註為實戰案例 |
+| deep-dive/2026-03-27-remote-agent-auto-dev-pipeline | E 叢集案例 | 改 order |
+| deep-dive/2026-03-27-file-bug-issue-skill-remote-agent | D/E 案例短文 | 改 order |
+| tech/2026-03-27-claude-code-global-skills-not-found、tech/2026-03-30-claude-code-spinner-verbs | H8 設定診斷案例素材 | 改 order 歸 troubleshooting 案例線 |
+
+站外系列但需互鏈：tech/2026-03-31-claude-code-overview（留 Agent CLI 選型指南，A1 開頭分工連結）、tech/2026-04-05-symlink-agents-md-claude-md（B3 引用解法）。
 
 ## 叢集 A：核心運作
 
@@ -23,9 +42,10 @@
 | # | 主題 | 檔案處理 | 大綱要點 |
 |---|------|----------|----------|
 | B1 | settings.json 設定大全 | **既有骨架** `settings-json-guide`（已修正） | 四層合併規則、permissions.allow/deny/ask、settings-reference 全欄位索引 |
-| B2 | Permissions 與 auto mode：讓 Claude 自主到什麼程度 | **新增** `claude-code-permissions-auto-mode` | 四種 permission mode、Shift+Tab 切換、auto mode 分類器與 hard deny、組織層 trust config（auto-mode-config） |
+| B2 | Permissions 與 auto mode：讓 Claude 自主到什麼程度 | **新增** `claude-code-permissions-auto-mode` | 四種 permission mode、Shift+Tab 切換、auto mode 分類器與 hard deny、組織層 trust config（auto-mode-config）；**與 B2b bypass 風險篇成對** |
+| B2b | `--dangerously-skip-permissions` 的代價 | **既有已發佈** tech/2026-03-16 文（併入映射） | 改 order＋post-update 刷新（auto mode 成為預設後的對比基礎變了） |
 | B3 | CLAUDE.md 與 Memory 體系 | **既有骨架** `claude-md-agents-md-guide` 改題聚焦 memory | CLAUDE.md 層級串接、imports、auto memory、`.claude/rules/` 條件載入、monorepo nested CLAUDE.md（承接官方 large-codebases 要點）；AGENTS.md 降為一節（跨工具 import/symlink），**解法細節互鏈已發佈的 symlink 文，不重講** |
-| ~~B4~~ | 終端機體驗設定 | **移出本輪**：官方頁面薄、需求未證實；output styles 要點併入 A5 一節即可 | — |
+| B4 | 終端機體驗設定：讓 CLI 用起來順手 | **新增（P2）** `claude-code-terminal-config` | terminal-config（Shift+Enter、bell、tmux、配色）、keybindings 自訂、statusline（context/cost/git 狀態）、fullscreen rendering、vim mode；output styles 要點併入本篇一節 |
 
 ## 叢集 C：Context 管理
 
@@ -38,7 +58,7 @@
 
 | # | 主題 | 檔案處理 | 大綱要點 |
 |---|------|----------|----------|
-| D1 | Hooks 進階參考：schema、exit code 與非同步模式 | **差異化改題**（站上已有已發佈的 `2026-03-27-claude-code-hooks-guide` 概念指南與 `2026-03-26-hooks-skills-agents-md` 入門視角） | 聚焦 hooks-reference 層級：完整設定 schema、exit code 語意、async/HTTP/prompt hooks、MCP tool hooks；開頭互鏈舊文並定位「進階參考」，入門概念不重講 |
+| D1 | Hooks：事件驅動自動化 | **既有已發佈** `2026-03-27-claude-code-hooks-guide` 為主篇（併入映射） | 不新開檔；post-update 補 hooks-reference 層級增量：完整 schema、exit code 語意、async/HTTP/prompt/MCP tool hooks |
 | D2 | Skills 與自訂指令 | **互鏈不重寫**：站上已有 `2026-03-27-claude-code-skill-design-guide`（已發佈），本篇僅在系列導覽連結 |
 | D3 | MCP Server 整合 | **既有骨架** `mcp-server-integration`（已修正） | 三種 scope（`.mcp.json`／`~/.claude.json`／managed）、transport 現狀（SSE deprecated）、`claude mcp add/login` |
 | D4 | Sub-agents：獨立 context 的專業助手 | **既有骨架** `sub-agent-parallel-execution`（已修正） | frontmatter schema、委派機制、背景執行、巢狀 spawn、permission 繼承 |
@@ -52,7 +72,7 @@
 | E2 | GitHub Actions 與 GitLab CI/CD | **既有骨架** `ci-cd-github-actions` 擴充 | @claude 觸發、`/install-github-app`、Bedrock/Vertex/Foundry 後端、GitLab MR。**Code Review 拆出**（見 E2b） |
 | E2b | GitHub Code Review 與 ultrareview | **新增（P2）** `claude-code-code-review` | multi-agent PR 審查、`/code-review ultra`；官方自成一頁且主題獨立 |
 | E3 | Channels：把外部事件推進 session | **既有骨架** `channels-guide`（已修正） | channel contract、reply tools、sender gating、channel plugins 需 Bun |
-| E4 | ~~排程自動化~~ **取消獨立篇**：站上已有已發佈的 `2026-05-09-claude-code-scheduled-tasks-guide`（Routines 三種觸發＋與 Desktop scheduled tasks／`/loop` 差異），與原構想幾乎重複 | **互鏈不重寫**；goal mode 若要寫併入 A5 或 H 叢集小節 | — |
+| E4 | 排程自動化 | **既有已發佈兩篇併入**：E4a scheduled-tasks-guide（主篇，補 goal mode）＋E4b loop-scheduling（`/loop` 實作） | 不新開檔；兩篇 post-update 刷新並互鏈分工 |
 
 ## 叢集 F：多代理
 
@@ -92,7 +112,8 @@
   - `devcontainer-sandboxing` 2 檔 → 拆成 H1（改寫骨架）＋H2（新檔）
   - troubleshooting 合集 2 檔 → H6/H7/H8 三篇共用素材，原檔轉索引
 - **本輪實際寫作量**：既有展開 15 組 ＋ 新增 8 組（A1/A2/A3/B2/C2/D1 改題/E2b/F1/F3/F4 中 P1 部分）≈ **23–26 組 zh+en**
-- **取消／延後**：E4 排程（已有已發佈文）、D1 改差異化改題、F5 併 F1、G 叢集僅留 G1/G3、B4/E5/G6/H4/H5 全部移出
+- **取消／延後**：F5 併 F1、G 叢集僅留 G1/G3、E5/G6/H4/H5 移出（B4 終端機體驗設定保留，P2）
+- **合併回系列**：既有「Claude Code 自動化指南」11 篇已發佈文全數歸入新架構（見映射表），其中 hooks-guide、scheduled-tasks-guide、loop-scheduling、dangerously-skip-permissions 四篇需 post-update 刷新事實；全部 34 檔骨架＋11 篇＋en 對應版批次改 series name 為「Claude Code 深入介紹」/ "Claude Code Deep Dives"
 - **優先序**：
   - **P0-1：A1 入口篇＋A2 目錄導覽**（入口先立）
   - **P0-2：既有骨架展開**，內部按 A→B→C→D→E→F→G→H 順序（讀者價值排序，非生產便利排序）

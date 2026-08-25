@@ -17,8 +17,52 @@ interface DocSearchRow extends SearchResult {
   type: 'doc' | 'custom'
 }
 
+function containsHan(text: string): boolean {
+  return /\p{Script=Han}/u.test(text)
+}
+
 function parseJsonArray(s: string): unknown[] {
   try { return JSON.parse(s) } catch { return [] }
+}
+
+async function searchLikeDocs(
+  query: string,
+  limit: number,
+  sourceName?: string
+): Promise<DocSearchRow[]> {
+  const { DB } = env as unknown as Env
+  const like = `%${query}%`
+  const rows = await DB.prepare(
+    `SELECT
+      dc.id AS chunk_id,
+      COALESCE(dc.sentence_window, dc.content) AS content,
+      dc.source_url,
+      dc.source_name,
+      'doc' AS type,
+      '[]' AS images,
+      '[]' AS links
+    FROM doc_chunks dc
+    WHERE dc.content LIKE ?
+      ${sourceName ? 'AND dc.source_name = ?' : ''}
+    ORDER BY dc.chunk_index ASC
+    LIMIT ?`
+  )
+    .bind(like, ...(sourceName ? [sourceName] : []), Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD))
+    .all<{
+      chunk_id: string
+      content: string
+      source_url: string
+      source_name: string
+      type: 'doc'
+      images: string
+      links: string
+    }>()
+
+  const mapped = rows.results.map(rowToResult)
+  if (mapped.length === 0 && sourceName) {
+    return searchLikeDocs(query, limit)
+  }
+  return mapped
 }
 
 function rowToResult(row: {
@@ -104,7 +148,12 @@ async function searchVectorDocs(query: string, limit: number, sourceName?: strin
 
 async function searchBm25Docs(query: string, limit: number, sourceName?: string): Promise<DocSearchRow[]> {
   const ftsQuery = buildFtsQuery(query)
-  if (!ftsQuery) return []
+  if (!ftsQuery) {
+    if (containsHan(query) && query.trim().length >= 2) {
+      return searchLikeDocs(query, limit, sourceName)
+    }
+    return []
+  }
 
   const { DB } = env as unknown as Env
   const rows = await DB.prepare(
@@ -136,8 +185,13 @@ async function searchBm25Docs(query: string, limit: number, sourceName?: string)
     }>()
 
   const mapped = rows.results.map(rowToResult)
-  if (mapped.length === 0 && sourceName) {
-    return searchBm25Docs(query, limit)
+  if (mapped.length === 0) {
+    if (containsHan(query) && query.trim().length >= 2) {
+      return searchLikeDocs(query, limit, sourceName)
+    }
+    if (sourceName) {
+      return searchBm25Docs(query, limit)
+    }
   }
   return mapped
 }
