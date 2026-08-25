@@ -278,7 +278,9 @@ async function executeFlowStep(
 ): Promise<unknown> {
   if (s.type === 'parallel' && s.branches) {
     const results = []
-    for (const branch of s.branches) {
+    for (let i = 0; i < s.branches.length; i++) {
+      if (i > 0) await new Promise(r => setTimeout(r, 4000))
+      const branch = s.branches[i]
       if (branch.type === 'agent' && branch.prompt && (branch.model || modelOverride)) {
         try {
           let searchContext = ''
