@@ -378,6 +378,54 @@ function auditPayloadLabel(raw: string | null): string {
   }
 }
 
+function renderStepOutput(kind: string, outputsJson: string | null): string {
+  if (!outputsJson) return '<p class="detail-empty">無輸出</p>';
+  try {
+    const data = JSON.parse(outputsJson);
+
+    if (kind === 'parallel' && Array.isArray(data.branches)) {
+      const cards = data.branches.map((b: Record<string, unknown>) => {
+        const id = String(b.id ?? '?');
+        const status = String(b.status ?? (b.error ? 'error' : b.content ? 'ok' : 'empty'));
+        const model = String(b.model ?? '');
+        const content = String(b.content ?? '');
+        const error = String(b.error ?? '');
+        const badge = status === 'ok' ? 'badge-success' : status === 'empty' ? 'badge-muted' : 'badge-error';
+        const body = error
+          ? `<pre class="branch-error">${escHtml(error.slice(0, 300))}</pre>`
+          : content
+            ? `<pre class="branch-content">${escHtml(content.slice(0, 800))}${content.length > 800 ? '\n…' : ''}</pre>`
+            : '<p class="detail-empty">無內容</p>';
+        return `<div class="branch-card">
+          <div class="branch-header">
+            <strong>${escHtml(id)}</strong>
+            <span class="badge ${badge}">${escHtml(status)}</span>
+            ${model ? `<code>${escHtml(model)}</code>` : ''}
+          </div>
+          ${body}
+        </div>`;
+      });
+      return `<div class="branch-grid">${cards.join('')}</div>`;
+    }
+
+    if ((kind === 'agent') && typeof data.content === 'string' && data.content.length > 0) {
+      const model = typeof data.model === 'string' ? data.model : '';
+      return `<div class="agent-output">
+        ${model ? `<div class="agent-model"><code>${escHtml(model)}</code></div>` : ''}
+        <pre class="agent-content">${escHtml(data.content)}</pre>
+      </div>`;
+    }
+
+    return `<pre>${escHtml(JSON.stringify(data, null, 2).slice(0, 2000))}</pre>`;
+  } catch {
+    return `<pre>${escHtml(outputsJson.slice(0, 2000))}</pre>`;
+  }
+}
+
+function escHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 const flowName = run?.display_name ?? run?.flow_id ?? runId;
 const latestStepAttempts = latestAttemptsByStep(steps);
 const retryableStepCount = steps.filter((step) => canRetryStepAttempt(step, latestStepAttempts)).length;
@@ -644,16 +692,18 @@ const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c')
                     </tr>
                     <tr class="step-detail-row">
                       <td colspan="6">
-                        <details class="step-detail">
+                        <details class="step-detail" open={step.kind === 'agent' || step.kind === 'parallel'}>
                           <summary>步驟詳情</summary>
                           <div class="step-detail-grid">
-                            <div>
-                              <h4>輸入</h4>
-                              <pre>{prettyJson(step.inputs_json)}</pre>
-                            </div>
-                            <div>
+                            {step.inputs_json && (
+                              <div>
+                                <h4>輸入</h4>
+                                <pre>{prettyJson(step.inputs_json)}</pre>
+                              </div>
+                            )}
+                            <div class="detail-wide">
                               <h4>輸出</h4>
-                              <pre>{prettyJson(step.outputs_json)}</pre>
+                              <Fragment set:html={renderStepOutput(step.kind, step.outputs_json)} />
                             </div>
                             {step.error_json && (
                               <div class="detail-wide">
@@ -1630,6 +1680,84 @@ const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c')
     padding: 0.35rem 0.45rem;
     border-bottom: 1px solid var(--admin-border);
     text-align: left;
+  }
+
+  .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.65rem;
+  }
+
+  .branch-card {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    padding: 0.65rem;
+    background: var(--admin-surface, #fff);
+  }
+
+  .branch-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .branch-header strong {
+    font-size: 0.85rem;
+  }
+
+  .branch-header code {
+    font-size: 0.72rem;
+    color: var(--admin-text-muted);
+  }
+
+  .branch-content,
+  .branch-error {
+    margin: 0;
+    max-height: 200px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.76rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+
+  .branch-content {
+    background: var(--admin-muted, #f8fafc);
+    border: 1px solid var(--admin-border, #e2e8f0);
+  }
+
+  .branch-error {
+    background: var(--admin-error-bg, #fee2e2);
+    color: var(--admin-error, #991b1b);
+    border: 1px solid var(--admin-error, #fca5a5);
+  }
+
+  .agent-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .agent-model {
+    font-size: 0.78rem;
+    color: var(--admin-text-muted);
+  }
+
+  .agent-content {
+    margin: 0;
+    max-height: 400px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.82rem;
+    padding: 0.75rem;
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-muted, #f8fafc);
+    border: 1px solid var(--admin-border, #e2e8f0);
+    line-height: 1.6;
   }
 
   @media (max-width: 760px) {
