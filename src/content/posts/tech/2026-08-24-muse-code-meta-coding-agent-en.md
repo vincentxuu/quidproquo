@@ -6,7 +6,7 @@ type: deep-dive
 tags: [muse-code, coding-agent, cli, meta, ai-tools, harness-engineering, llm-pricing]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 28
 tldr: "In August 2026, Meta Superintelligence Labs released Muse Code beta. Closed-source static binary, Muse Spark 1.2 model, parallel persistent sub-agents with worktree isolation. The biggest controversy is pricing: Standard at $1.25/$4.25 per M tokens, or Contributor at $0.10/$0.20 — 20x cheaper, but your code enters Meta's training pipeline."
 description: "Meta Muse Code technical architecture: Muse Spark 1.2 model co-trained with harness, persistent sub-agents, worktree isolation, event log crash recovery, and the Contributor pricing training-rights trade-off."

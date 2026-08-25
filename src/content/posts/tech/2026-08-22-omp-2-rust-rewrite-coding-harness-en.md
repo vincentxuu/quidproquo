@@ -6,7 +6,7 @@ type: deep-dive
 tags: [omp, rust, coding-agent, cli, open-source, ai-tools, harness-engineering]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 23
 tldr: "OMP 2 is no longer a Pi fork. The entire codebase has been rewritten from scratch in Rust, with ~41 crates covering a custom bash engine, GPU-accelerated GUI, embedded CPython 3.14t, gRPC transport, and Kokoro-82M TTS. Currently in pre-release with no stable version yet."
 description: "OMP 2 evolved from a Pi fork into a fully independent Rust codebase. This article analyzes its crate architecture, substantive differences from v1, design trade-offs, and pre-release risks."

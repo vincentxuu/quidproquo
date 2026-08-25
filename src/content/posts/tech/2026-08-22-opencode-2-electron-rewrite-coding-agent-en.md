@@ -6,7 +6,7 @@ type: deep-dive
 tags: [opencode, coding-agent, cli, open-source, ai-tools, harness-engineering, electron]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 25
 tldr: "Opencode 2 is a major rewrite led by Anomaly (Dax Raad). Runtime migrated from Bun to Node.js (memory issues), desktop from Tauri to Electron (WebKit perf and Node integration), v1 API intentionally incompatible. New: multi-tab parallel sessions, persistent backend service, HTTP API + SDK. Currently beta, stable estimated ~September 2026. ~200K stars."
 description: "Opencode 2's technical reasons for migrating from Bun/Tauri to Node.js/Electron, three API breaking points, multi-tab parallel session architecture, cross-tool skill portability, and beta-stage risks."

@@ -6,7 +6,7 @@ type: deep-dive
 tags: [pi, coding-agent, cli, open-source, ai-tools, harness-engineering, typescript]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 24
 tldr: "Pi v0.84.0 (2026-08-06) promotes the AgentHarness v2 API to stable. Lane-based v4 Session model makes operations durable and interruptible. CBOR replaces JSON, Unix sockets replace HTTP. Earendil Inc. (Armin Ronacher's PBC) behind it has secured initial funding. 95.4K stars, still MIT, still minimal."
 description: "Pi v2's AgentHarness v2 API, lane-based v4 Session, CBOR protocol, Unix socket transport, RemoteSession, Earendil incorporation, and how these changes affect the minimalist positioning."

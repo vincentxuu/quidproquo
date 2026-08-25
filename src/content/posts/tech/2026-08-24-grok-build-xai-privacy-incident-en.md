@@ -6,7 +6,7 @@ type: deep-dive
 tags: [grok-build, coding-agent, cli, xai, rust, ai-tools, harness-engineering, privacy]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 29
 tldr: "Grok Build is xAI's Rust coding agent — 845K LOC, 8 parallel sub-agents, Arena Mode. May 2026 beta, July open-sourced (Apache 2.0) — but the direct trigger for open-sourcing was a privacy incident: it silently uploaded entire repos (including SSH keys, .env files) to Google Cloud Storage at a 27,800x traffic ratio. The exfiltration code remains in the binary, disabled only by a server-side flag."
 description: "xAI Grok Build's Rust architecture, Arena Mode, 8 parallel sub-agents, and the privacy incident that led to open-sourcing: silent repo uploads, community response, and trust implications."

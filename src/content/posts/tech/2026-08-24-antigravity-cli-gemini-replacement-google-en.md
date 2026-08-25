@@ -6,7 +6,7 @@ type: deep-dive
 tags: [antigravity-cli, coding-agent, cli, google, ai-tools, harness-engineering, gemini]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 27
 tldr: "At Google I/O 2026, Antigravity CLI (agy) replaced Apache 2.0 Gemini CLI with a closed-source Go binary. Technical upgrades — multi-agent orchestration, native sandbox, millisecond startup — but free tier cut 98%, open-to-closed source, 28-day transition window. Community reaction was sharp."
 description: "Antigravity CLI replacing Gemini CLI: Go rewrite, multi-agent orchestration, native sandbox architecture, and the open-to-closed source controversy with 98% free tier reduction."

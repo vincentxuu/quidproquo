@@ -6,7 +6,7 @@ type: deep-dive
 tags: [deepseek, coding-agent, cli, open-source, ai-tools, harness-engineering, plugin]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 26
 tldr: "DeepSeek Harness (dsh) is DeepSeek's official open-source coding agent framework, released as a v0.1 developer preview on 2026-08-13, accumulating 184,000+ stars in 9 days. Its core is the Cordis plugin kernel — model adapters, tools, agent loop, and UI are all swappable plugins. Four runtime modes, with the ability to use Claude Code and Codex as sub-agents. Web UI first, no native CLI."
 description: "DeepSeek Harness (dsh) Cordis plugin kernel architecture, four runtime modes, sub-agent integration, Web UI first strategy, and developer preview risks."

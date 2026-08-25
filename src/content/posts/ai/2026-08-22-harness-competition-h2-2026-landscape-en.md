@@ -6,7 +6,7 @@ type: deep-dive
 tags: [harness-engineering, coding-agent, omp, pi, opencode, deepseek, claude-code, open-source, grok-build, muse-code, antigravity-cli, amp, codex-cli]
 lang: en
 series:
-  name: "Agent CLI 選型指南"
+  name: "Choosing an Agent CLI"
   order: 30
 tldr: "In August 2026, it's not just five frameworks moving. Beyond OMP 2, Pi v2, Opencode 2, dsh, and Claude Code, three model makers — Google (Antigravity CLI), Meta (Muse Code), and xAI (Grok Build) — are building coding agents directly. Add Amp, Cline 2.0, and the Codex CLI Rust rewrite, and eight-plus frameworks are undergoing architecture-level changes simultaneously. Factor in 110+ total CLI tools, and H2 2026 is a divergence period for harness methodology. This article analyzes four architectural approaches, one shared direction, and one emerging trust crisis."
 description: "The eight-way competition in H2 2026 coding agent frameworks: full Rust rewrite, minimalist upgrade, plugin kernel, model maker builds the agent. Four architectural approaches, one shared direction, one trust crisis, 110+ CLIs."
