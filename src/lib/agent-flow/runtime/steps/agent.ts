@@ -59,7 +59,7 @@ const agentStepExecutor: StepExecutor = async (step, ctx, _state) => {
 function getDefaultModel(provider: string): string {
   const defaults: Record<string, string> = {
     groq: 'llama-3.3-70b-versatile',
-    openrouter: 'openrouter/auto',
+    openrouter: 'stealth/ox-alpha',
     opencode: 'anthropic/claude-sonnet-4-20250514',
     openai: 'gpt-4o',
     cloudflare: '@cf/meta/llama-3.1-8b-instruct',
