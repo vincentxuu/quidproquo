@@ -1,7 +1,7 @@
 ---
 title: "The Complete Guide to RAG System Patterns: A Ten-Generation Evolution from Naive to Multi-Agent with Practical Navigation"
 date: 2026-03-14
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
@@ -199,7 +199,7 @@ Graph RAG extracts entities and relationships from documents, builds them into a
 
 Architecture in one sentence: `Query -> [Vector Search + Graph Traversal] -> Merge Context -> Generate`
 
-Microsoft's GraphRAG paper further proposed the concept of Community Summary: pre-generating summaries for communities (highly interconnected node clusters) in the graph, enabling the system to answer questions requiring "global understanding."
+Microsoft's [GraphRAG paper](https://arxiv.org/abs/2404.16130) further proposed the concept of Community Summary: pre-generating summaries for communities (highly interconnected node clusters) in the graph, enabling the system to answer questions requiring "global understanding."
 
 Building Graph RAG costs significantly more than pure vector search — you need entity extraction, relationship modeling, and graph maintenance. But in "relationship-dense" domains like regulatory compliance, healthcare knowledge, and enterprise organizational relationships, the investment is worthwhile.
 
@@ -382,7 +382,7 @@ If your top-5 search results all talk about the same thing, you've effectively w
 
 ## Contextual Retrieval
 
-A method proposed by Anthropic: during the indexing phase, add a context segment to each chunk ("This passage is from a certain document's certain section, discussing a certain topic"). During search, this context is matched together, dramatically improving chunk discoverability.
+A method proposed by Anthropic — [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval): during the indexing phase, add a context segment to each chunk ("This passage is from a certain document's certain section, discussing a certain topic"). During search, this context is matched together, dramatically improving chunk discoverability.
 
 -> [Contextual Retrieval: Adding "What This Passage Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en)
 
@@ -429,13 +429,13 @@ Chunking method directly determines whether RAG can find the answer. Too small l
 
 ## Embedding Model Selection
 
-For Traditional Chinese RAG systems, embedding model selection is particularly important. BGE-M3 is a common starting point — it supports dense, sparse, and multi-vector retrieval in one model and does reasonably well on Traditional Chinese. But embedding leaderboards turn over quickly, so treat no model as settled: weigh language coverage, dimensionality, maximum token length, and above all the benchmark you run on your own data.
+For Traditional Chinese RAG systems, embedding model selection is particularly important. [BGE-M3](https://huggingface.co/BAAI/bge-m3) is a common starting point — it supports dense, sparse, and multi-vector retrieval in one model and does reasonably well on Traditional Chinese. But embedding leaderboards turn over quickly, so treat no model as settled: weigh language coverage, dimensionality, maximum token length, and above all the benchmark you run on your own data.
 
 -> [BGE-M3: Why This Embedding Model Suits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
 ## Vector Database Selection
 
-Vector database feature matrices move fast enough that any table written down here would be stale within months, so there isn't one. What stays stable are the tradeoff axes: fully managed versus self-hosted, single-node versus distributed, native hybrid search and metadata filtering or not, and where it deploys (a cloud region or the edge). Narrow the field to two or three candidates on those axes, then check each vendor's official docs for current features and pricing.
+Vector database feature matrices move fast enough that any table written down here would be stale within months, so there isn't one. What stays stable are the tradeoff axes: fully managed versus self-hosted, single-node versus distributed, native hybrid search and metadata filtering or not, and where it deploys (a cloud region or the edge). Narrow the field to two or three candidates on those axes, then check each vendor's official docs ([Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), [Qdrant](https://qdrant.tech/), [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)) for current features and pricing.
 
 -> [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison-en)
 
@@ -476,7 +476,7 @@ If you've just launched, build quality infrastructure in this order:
 
 ## Evaluation Frameworks
 
-You can't improve what you can't measure. RAGAS, DeepEval, and TruLens are three mainstream RAG evaluation frameworks, each providing different metrics: Faithfulness (whether the answer is faithful to context), Relevance (whether retrieved results are relevant), and Answer Correctness (whether the answer is correct). Recommend running automated evaluations in CI, so every pipeline change has numbers.
+You can't improve what you can't measure. [RAGAS](https://docs.ragas.io/), [DeepEval](https://deepeval.com/), and [TruLens](https://www.trulens.org/) are three mainstream RAG evaluation frameworks, each providing different metrics: Faithfulness (whether the answer is faithful to context), Relevance (whether retrieved results are relevant), and Answer Correctness (whether the answer is correct). Recommend running automated evaluations in CI, so every pipeline change has numbers.
 
 -> [RAG Evaluation Frameworks: How to Use RAGAS, DeepEval, and TruLens](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 
@@ -628,6 +628,7 @@ This guide will be continuously updated. Whenever a new deep-dive article is pub
 
 ## Changelog
 
+- 2026-08-25: Added inline official-source links (BGE-M3 / four vector DB vendors / Anthropic Contextual Retrieval / RAGAS, DeepEval, TruLens) and a GraphRAG inline paper link for traceability.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References

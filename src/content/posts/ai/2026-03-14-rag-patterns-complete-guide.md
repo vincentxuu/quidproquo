@@ -1,7 +1,7 @@
 ---
 title: "RAG 系統模式完整指南：從 Naive 到 Multi-Agent 的十代演化與實戰導航"
 date: 2026-03-14
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
@@ -196,7 +196,7 @@ Graph RAG 把文件中的實體和關係抽取出來，建成知識圖譜（Know
 
 架構一句話：`Query → [Vector Search + Graph Traversal] → Merge Context → Generate`
 
-Microsoft 的 GraphRAG 論文進一步提出了 Community Summary 的概念：對圖譜中的社群（高度互連的節點群）預先生成摘要，讓系統能回答那些需要「全局理解」的問題。
+Microsoft 的 [GraphRAG 論文](https://arxiv.org/abs/2404.16130)進一步提出了 Community Summary 的概念：對圖譜中的社群（高度互連的節點群）預先生成摘要，讓系統能回答那些需要「全局理解」的問題。
 
 Graph RAG 的建置成本比純向量搜尋高得多——你需要做實體抽取、關係建模、圖譜維護。但在法規遵循、醫療知識、企業組織關係等「關係密集」的領域，這個投資是值得的。
 
@@ -379,7 +379,7 @@ BM25 靠的是 term frequency，SPLADE 用 BERT 學出每個 token 的權重，�
 
 ## Contextual Retrieval
 
-Anthropic 提出的方法：在 indexing 階段，對每個 chunk 加上一段 context（「這段出自某份文件的某個章節，在講某個主題」）。搜尋時這段 context 一起被比對，大幅提升 chunk 的可定位性。
+Anthropic 提出的 [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) 方法：在 indexing 階段，對每個 chunk 加上一段 context（「這段出自某份文件的某個章節，在講某個主題」）。搜尋時這段 context 一起被比對，大幅提升 chunk 的可定位性。
 
 → [Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
 
@@ -425,13 +425,13 @@ Chunking → Embedding → Vector DB → Prompt Design → Streaming
 
 ## Embedding 模型選型
 
-繁體中文的 RAG 系統，embedding 模型的選擇特別重要。BGE-M3 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。
+繁體中文的 RAG 系統，embedding 模型的選擇特別重要。[BGE-M3](https://huggingface.co/BAAI/bge-m3) 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。
 
 → [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
 ## 向量資料庫選型
 
-向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件確認當下的功能與定價。
+向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件（[Pinecone](https://www.pinecone.io/)、[Weaviate](https://weaviate.io/)、[Qdrant](https://qdrant.tech/)、[Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)）確認當下的功能與定價。
 
 → [Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選](/posts/ai/2026-03-12-vector-database-comparison)
 
@@ -472,7 +472,7 @@ RAG 系統上線只是開始。真正的挑戰是：怎麼知道它表現好不�
 
 ## 評估框架
 
-你不能改善你不能衡量的東西。RAGAS、DeepEval、TruLens 是三個主流的 RAG 評估框架，各自提供不同的指標：Faithfulness（答案是否忠於 context）、Relevance（檢索結果是否相關）、Answer Correctness（答案是否正確）。建議在 CI 中跑自動化評估，每次 pipeline 變更都有數字。
+你不能改善你不能衡量的東西。[RAGAS](https://docs.ragas.io/)、[DeepEval](https://deepeval.com/)、[TruLens](https://www.trulens.org/) 是三個主流的 RAG 評估框架，各自提供不同的指標：Faithfulness（答案是否忠於 context）、Relevance（檢索結果是否相關）、Answer Correctness（答案是否正確）。建議在 CI 中跑自動化評估，每次 pipeline 變更都有數字。
 
 → [RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 
@@ -624,6 +624,7 @@ RAG 不是一個技術，是一個技術體系。
 
 ## 更新紀錄
 
+- 2026-08-25：補上句內官方來源連結（BGE-M3 / Vector DB 四家 / Anthropic Contextual Retrieval / RAGAS·DeepEval·TruLens）與 GraphRAG 內鏈，利於溯源
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
