@@ -6,8 +6,8 @@ type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
 lang: zh-TW
-tldr: "RAG 已經從簡單的「搜尋+生成」演化成涵蓋十個世代的技術體系。本文是系統化導航：從 Naive RAG 到 Multi-Agent RAG 的十代演化、檢索策略、Chunking、Embedding、Reranking、評估框架、可觀測性、成本優化。每個主題都有對應專文深入。"
-description: "RAG 系統的完整導航指南：十代 RAG 演化（Naive → Advanced → Modular → Self-RAG → CRAG → Graph RAG → Speculative → Agentic → Multi-Agent → LongRAG）、檢索策略、Chunking、Embedding、向量資料庫、Reranking、評估框架、Guardrails、可觀測性和成本優化。"
+tldr: "RAG 已經從簡單的「搜尋+生成」演化成涵蓋十個世代的技術體系，2025 年後更進入 Agentic/Reasoning RAG 新階段。本文是系統化導航：從 Naive RAG 到 Multi-Agent/LongRAG 的十代演化、後十代 Agentic Era（Search-R1/RL 搜索、MCP 協議、GraphRAG 3.x、視覺直嵌）、檢索策略、Chunking、Embedding、Reranking、評估框架、可觀測性、成本優化。每個主題都有對應專文深入。"
+description: "RAG 系統的完整導航指南：十代 RAG 演化（Naive → Advanced → Modular → Self-RAG → CRAG → Graph RAG → Speculative → Agentic → Multi-Agent → LongRAG）與後十代 Agentic/Reasoning RAG、檢索策略（含 Late Chunking）、Chunking、Embedding、向量資料庫、Reranking、評估框架、Guardrails、可觀測性和成本優化。"
 draft: false
 series:
   name: "RAG 技法大全"
@@ -40,7 +40,7 @@ series:
 ## 全域架構圖
 
 ```
-                        RAG 技術體系全景
+                         RAG 技術體系全景
     ┌─────────────────────────────────────────────────────┐
     │                                                     │
     │  ┌─────────── 十代演化 ──────────────────────────┐  │
@@ -66,6 +66,11 @@ series:
     │  │  Gen 10: LongRAG (長上下文取代細切)           │  │
     │  │                                               │  │
     │  └───────────────────────────────────────────────┘  │
+    │  ┌────── 後十代：Agentic Era（2025-） ────────┐  │
+    │  │ 推理×檢索交織 + RL 訓練 + 多輪工具調用        │  │
+    │  │ Search-R1 / REX-RAG / AlignRAG / GTA-RAG      │  │
+    │  │ Deep Research（產品化）+ MCP（協議層）        │  │
+    │  └───────────────────────────────────────────┘  │
     │                                                     │
     │  ┌─── 檢索策略 ───┐  ┌─── 基礎設施 ───┐           │
     │  │ BM25 + Vector   │  │ Chunking       │           │
@@ -76,8 +81,8 @@ series:
     │  │ RRF / MMR       │  │ Memory         │           │
     │  │ Semantic Cache   │  └────────────────┘           │
     │  │ Text-to-SQL     │                                │
-    │  └─────────────────┘  ┌─── 品質與營運 ───┐         │
-    │                       │ Evaluation       │         │
+    │  │ Late Chunking   │  ┌─── 品質與營運 ───┐         │
+    │  └─────────────────┘  │ Evaluation       │         │
     │  ┌─── 前沿 ────────┐ │ Guardrails       │         │
     │  │ Agent Memory    │ │ Observability    │         │
     │  │ Multimodal RAG  │ │ Cost / A/B Test  │         │
@@ -102,14 +107,18 @@ series:
 | Gen 8: Agentic | 自主 Agent + ReAct loop | 多步推理 | 複雜研究型問題 |
 | Gen 9: Multi-Agent | 多個專業 Agent 分工協作 | 規模化、專業化 | 企業級多領域系統 |
 | Gen 10: LongRAG | 大 chunk + 長上下文模型 | 保留完整語境 | 長文件、法律合約 |
+| 後十代：Agentic Era | 推理×檢索交織 + RL 訓練 + 多輪工具調用 | 自主研究、跨工具整合 | 複雜研究、企業深度問答 |
+
+> 後十代目前沒有共識的 Gen 11 編號，建議視為「Agentic Era」新階段而非線性續編。命名與世代劃界可參考兩份 2025 年綜述：[Towards Agentic RAG with Deep Reasoning](https://arxiv.org/abs/2507.09477) 與 [Reasoning RAG via System 1 or System 2](https://arxiv.org/abs/2506.10408)。
 
 ### 成熟度光譜
 
 不是每一代都同樣成熟。在選擇時，你也要考慮技術的生產就緒程度：
 
 - **已驗證**（大量生產案例）：Gen 1 Naive、Gen 2 Advanced、Gen 3 Modular
-- **漸趨成熟**（有生產案例但仍在快速演化）：Gen 5 CRAG、Gen 6 Graph RAG、Gen 8 Agentic RAG、Gen 9 Multi-Agent（主流 agent 框架都已內建 supervisor / orchestrator 模式）
+- **漸趨成熟**（有生產案例但仍在快速演化）：Gen 5 CRAG、Gen 6 Graph RAG（[GraphRAG 已至 v3.1.2](https://github.com/microsoft/graphrag/releases)）、Gen 8 Agentic RAG、Gen 9 Multi-Agent（主流 agent 框架都已內建 supervisor / orchestrator 模式）
 - **早期採用**（主要停留在論文與實驗，通用框架支援有限）：Gen 4 Self-RAG（需要特製訓練）、Gen 7 Speculative（需要自備 draft 小模型）、Gen 10 LongRAG
+- **前沿驗證中**（2025-）：Agentic/Reasoning RAG（如 [Search-R1](https://arxiv.org/abs/2503.09516) 的 RL 多輪搜索、[AlignRAG](https://arxiv.org/abs/2504.14858) 的 test-time critique）與 [MCP 協議](https://modelcontextprotocol.io/specification/2025-06-18) 工具整合，已有產品化案例（[OpenAI Deep Research](https://openai.com/index/introducing-deep-research/)），但仍在快速演化，不建議視為穩定基線
 
 ---
 
@@ -284,6 +293,24 @@ LongRAG 的做法是用大 chunk（甚至整份文件），搭配長上下文模
 
 ---
 
+## 後十代：Agentic / Reasoning RAG（2025-）
+
+如果說 Gen 1-10 是「檢索→生成」單次管線的逐步增強，2025 年後的集群則是**推理與檢索的雙向交織**：模型在逐步推理中自主產生多次搜索查詢，並用 RL 訓練出「何時搜、搜什麼、怎麼用結果」的能力。這不是某一個 Gen 的細分，兩份獨立綜述把它定義為新範式（[Towards Agentic RAG with Deep Reasoning](https://arxiv.org/abs/2507.09477) 的 *Synergized RAG-Reasoning*、[Reasoning RAG via System 1/2](https://arxiv.org/abs/2506.10408) 的 *Reasoning Agentic RAG*）。
+
+技術起點是 [Search-R1](https://arxiv.org/abs/2503.09516)（2025-03）：用 RL（retrieved token masking + outcome reward）訓練 LLM 在推理中自主多輪搜索，Qwen2.5-7B 較 RAG baseline 提升顯著。其後分支包括 [REX-RAG](https://arxiv.org/abs/2508.08149)（policy correction 解決 RL dead-end）、[GTA-RAG](https://arxiv.org/abs/2608.22479)（graph-trajectory 蒸餾）、[Interact-RAG](https://arxiv.org/abs/2510.27566)（把檢索從黑盒查詢變成可操縱的語料庫交互）、[AlignRAG](https://arxiv.org/abs/2504.14858)（test-time critique 對齊推理與證據）。本節不列論文細節，細節交由專文展開，這裡只做分界與轉手。
+
+產品與協議層的落地同樣重要：[OpenAI Deep Research](https://openai.com/index/introducing-deep-research/)（2025-02-02，基於 o3 優化版的多步瀏覽 + Python 工具 agent）把 Agentic RAG 推向端到端研究產品；[MCP（Model Context Protocol）](https://modelcontextprotocol.io/specification/2025-06-18)（Anthropic 2024-11-25 開源）把「檢索」從向量庫查詢泛化為統一的工具/數據源調用（Resources / Tools / Prompts），2025 年已被 ChatGPT、Claude、VS Code、Cursor 等採納，並被 [LangGraph 1.2.11](https://github.com/langchain-ai/langgraph/releases) 等編排框架整合。在十代分類中，這屬於基礎設施的世代躍遷，而非單一技巧。
+
+務實提醒：Agentic tricks 並非無條件更強。[Agent-Orchestrated Adaptive RAG 的對比研究](https://arxiv.org/abs/2606.05658)顯示，query decomposition 在結構化域有提升但在多跳任務上可能降 ranking precision，reflection 提 citation 精度但伴隨高延遲。是否採用此世代，取決於你的問題是否真的需要多輪推理與跨工具調用。
+
+---
+
+## 前沿：MCP 工具整合（2025 協議層）
+
+2024-11 Anthropic 開源的 [MCP](https://modelcontextprotocol.io/specification/2025-06-18) 把 RAG 的「檢索」從向量庫查詢泛化為統一的工具/數據源調用。Host / Client / Server 三件套 + Resources / Tools / Prompts 三能力 + Sampling / Roots / Elicitation 能力協商，讓一個 MCP server 可被多個 agent 框架復用。2025 年已被 ChatGPT、Claude、VS Code、Cursor 採納，[LangGraph](https://docs.langchain.com/oss/python/langgraph/overview)（1.2.11 持久化/ human-in-the-loop / streaming 的 *orchestration runtime*）、[CrewAI](https://github.com/crewAIInc/crewAI/releases) 與 [AutoGen 0.7](https://github.com/microsoft/autogen/releases) 均已整合。導航建議：新系統以 MCP 為主、自製 tool-use 為輔，注意宿主授權與工具描述不可信的風險。
+
+---
+
 ## 前沿：Agent Memory
 
 RAG 本質上是**唯讀**的——系統從知識庫裡讀資料，但不會寫回去。Agent Memory 把 RAG 升級成**讀寫系統**。
@@ -300,9 +327,9 @@ Agent 在與使用者互動的過程中，會把學到的偏好、事實、決�
 
 文字只是知識的一種形式。很多企業的知識散佈在 PDF 裡的圖表、簡報裡的架構圖、產品照片、甚至影片和錄音中。
 
-Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：一是用視覺模型把圖片轉成文字描述再索引（text-centric），二是直接用 multimodal embedding 把圖片和文字映射到同一個向量空間（native multimodal）。
+2025 年後的主線已從「OCR→文字再索引」轉向**視覺直嵌**：[ColPali](https://arxiv.org/abs/2407.01449)（ICLR 2025）用 VLM 直嵌頁面圖 + ColBERT late interaction 做文檔檢索，[Qwen2.5-VL](https://qwenlm.github.io/blog/qwen2.5-vl/)（2025-01-26，3B/7B/72B，動態解析度 + 1hr 影片理解）可作 backbone；舊的 `colpali-engine` 已棄用，官方建議遷至 [Sentence Transformers v6 的 MultiVectorEncoder](https://github.com/illuin-tech/colpali)。評估建議用 [ViDoRe V2](https://arxiv.org/abs/2505.17166)（V1 已飽和 >90% nDCG@5，新版含盲上下文 / 長跨文檔查詢）。
 
-實務上，multimodal RAG 最大的挑戰不是模型能力，而是 pipeline 的複雜度——PDF 解析、表格抽取、圖片 OCR、影片逐幀分析，每一步都可能出錯。
+實務上，multimodal RAG 最大的挑戰不是模型能力，而是 pipeline 的複雜度——PDF 解析、表格抽取、圖片 OCR、影片逐幀分析，每一步都可能出錯；視覺直嵌雖保真，但多向量儲存膨脹，[token pooling（pool factor 3 降 66.7% 向量保 97.8% 性能）](https://arxiv.org/abs/2505.17166)等壓縮是必備配套。
 
 → 深入閱讀：[Multimodal RAG：把圖片也納入知識庫](/posts/ai/2026-03-12-multimodal-rag)
 
@@ -319,12 +346,12 @@ Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：�
 | 向量搜尋漏掉精確關鍵字 | Hybrid Search (BM25 + Vector) | 兩種搜尋互補 |
 | Query 和文件的用詞不同 | HyDE | 用假設答案橋接語義差距 |
 | 單一 query 覆蓋面不足 | Multi-Query Expansion | 多角度搜尋 |
-| Top-K 結果排序不準 | Cross-Encoder Reranking | 精準重排 |
+| Top-K 結果排序不準 | Cross-Encoder / Listwise Reranking | 精準重排；2025 後可試 jina-reranker-v3.5 |
 | 需要速度又要精準度 | ColBERT | Late interaction 折衷 |
-| BM25 太笨但需要稀疏向量 | SPLADE | 學習型稀疏向量 |
-| 多路結果要合併 | RRF | 排名融合，免訓練 |
+| BM25 太笨但需要稀疏向量 | SPLADE | 學習型稀疏向量（v3 為新基線） |
+| 多路結果要合併 | RRF / DBSF | 排名融合，免訓練；Qdrant Hybrid 實測二者皆勝單路 |
 | 結果太同質化 | MMR | 相關性 + 多樣性 |
-| Chunk 脫離上下文 | Contextual Retrieval | 加 context 前綴 |
+| Chunk 脫離上下文 | Contextual Retrieval / Late Chunking | 加 context 前綴 vs 先編碼後切塊（零 LLM 成本） |
 | 不同問題要走不同路徑 | Query Classification | 入口分流 |
 | 重複問題太多 | Semantic Caching | 語義快取 |
 | 答案在結構化資料中 | Text-to-SQL Router | SQL 比搜尋準 |
@@ -347,9 +374,9 @@ Multimodal RAG 把這些非文字內容也納入知識庫。做法有兩種：�
 
 → [Multi-Query Expansion：一個問題，多個角度搜尋](/posts/ai/2026-03-12-multi-query-expansion)
 
-## Cross-Encoder Reranking
+## Cross-Encoder Reranking（含 Listwise 新線）
 
-向量搜尋用的是 bi-encoder——query 和 document 各自算 embedding 再比較，快但不精準。Cross-Encoder 把 query 和 document 拼在一起送進模型，精準度高很多，但慢。通常的做法：先用向量搜尋拉回 top-50，再用 Cross-Encoder rerank 取 top-5。
+向量搜尋用的是 bi-encoder——query 和 document 各自算 embedding 再比較，快但不精準。Cross-Encoder 把 query 和 document 拼在一起送進模型，精準度高很多，但慢。通常的做法：先用向量搜尋拉回 top-50，再用 Cross-Encoder rerank 取 top-5。2025 年後出現 [jina-reranker-v3/v3.5](https://arxiv.org/abs/2509.25085)（0.6B listwise，BEIR 63.20 相當於 4B 水準，半結構化 +9.6，延遲進一步優化）：把 query 與多個候選放同一上下文窗口做 causal attention，在候選間直接比大小，適合半結構化與需跨文檔比較的場景；請在自家標註集上對照驗證，不要照抄榜單數字。
 
 → [Cross-Encoder Reranking：讓最相關的文件排到前面](/posts/ai/2026-03-12-cross-encoder-reranking)
 
@@ -361,13 +388,13 @@ ColBERT 是 bi-encoder 和 cross-encoder 之間的折衷。它為 query 和 docu
 
 ## SPLADE：學習型稀疏向量
 
-BM25 靠的是 term frequency，SPLADE 用 BERT 學出每個 token 的權重，產生稀疏向量。它同時具備關鍵字匹配（稀疏）和語義理解（學習型）的優點。
+BM25 靠的是 term frequency，SPLADE 用 BERT 學出每個 token 的權重，產生稀疏向量。它同時具備關鍵字匹配（稀疏）和語義理解（學習型）的優點。2024 年的 [SPLADE-v3](https://arxiv.org/abs/2403.06789) 在 MS MARCO 上取得更強的稀疏基線，可作為 Hybrid 段中「BM25 之後的可量化升級選項」，先量 BM25 收益再決定是否上 learned sparse。
 
 → [SPLADE：比 BM25 更聰明的稀疏向量搜尋](/posts/ai/2026-03-12-splade-sparse-vectors)
 
 ## RRF：多路結果融合
 
-當你有多個搜尋結果列表（例如 BM25 的結果和向量搜尋的結果），RRF 用一個簡單的公式根據排名位置合併它們。不需要分數標準化，不需要訓練，即插即用。
+當你有多個搜尋結果列表（例如 BM25 的結果和向量搜尋的結果），RRF 用一個簡單的公式根據排名位置合併它們。不需要分數標準化，不需要訓練，即插即用。2025 年 [Qdrant 的 Hybrid 實測](https://qdrant.tech/articles/hybrid-search/)顯示，dense+sparse 雙路 + RRF/DBSF 在 5 數據集上多數勝單路，額外延遲約 0.6–1.47ms（單容器單併發基準，供參考，實際需自測）——「先量再上 learned sparse」仍是穩健決策流。
 
 → [RRF：RAG 系統裡多路結果怎麼合併](/posts/ai/2026-03-12-rrf-multi-source-fusion)
 
@@ -379,7 +406,9 @@ BM25 靠的是 term frequency，SPLADE 用 BERT 學出每個 token 的權重，�
 
 ## Contextual Retrieval
 
-Anthropic 提出的 [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) 方法：在 indexing 階段，對每個 chunk 加上一段 context（「這段出自某份文件的某個章節，在講某個主題」）。搜尋時這段 context 一起被比對，大幅提升 chunk 的可定位性。
+Anthropic 提出的 [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) 方法：在 indexing 階段，對每個 chunk 加上一段 context（「這段出自某份文件的某個章節，在講某個主題」）。搜尋時這段 context 一起被比對，大幅提升 chunk 的可定位性。2024-09 的官方數據顯示，Contextual Embeddings + Contextual BM25 可將失敗率從 5.7% 降至 1.9%（含 rerank），前置成本約 $1.02/1M tokens（僅作基準，實際依 chunk 大小與模型而異）。
+
+零 LLM 成本的替代是 [Late Chunking](https://arxiv.org/abs/2409.04701)：先對整份文件做一次 transformer 編碼，再切 chunk 再 mean-pool，讓每個 chunk 向量天然帶有跨 chunk 的上下文，無需對每塊調用 LLM 生成前置語句，適合長上下文 embedding 模型（32K 窗口）與預算有限的場景；超長文件或語意高度獨立的 chunk 則收益遞減。兩者不是互斥，導航建議按成本與窗口大小二選一或對照實測。
 
 → [Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
 
@@ -425,13 +454,13 @@ Chunking → Embedding → Vector DB → Prompt Design → Streaming
 
 ## Embedding 模型選型
 
-繁體中文的 RAG 系統，embedding 模型的選擇特別重要。[BGE-M3](https://huggingface.co/BAAI/bge-m3) 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。
+繁體中文的 RAG 系統，embedding 模型的選擇特別重要。[BGE-M3](https://huggingface.co/BAAI/bge-m3) 是常見的起點——它同時支援 dense、sparse 和 multi-vector 檢索，繁中表現也不錯。但 embedding 模型的排行榜換得很快，別把任何一個模型當定論：選型要看語言覆蓋、維度大小、最大 token 長度、以及最重要的——在你自己的資料上跑出來的 benchmark。2025-2026 年值得對照的新線包括 [jina-embeddings-v5-text](https://arxiv.org/abs/2602.15547)（蒸餾+任務對比，sub-1B 小模型 32K 上下文）、[jina-embeddings-v4](https://arxiv.org/abs/2506.18902)（3.8B 多模雙模式，圖表/表格 SOTA）與 [Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672)（late interaction 多向量），建議以「小/高效 vs 多模/視覺 vs 多向量」三分支對照 BGE-M3 的選型表，而非單點替換。
 
 → [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
 ## 向量資料庫選型
 
-向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件（[Pinecone](https://www.pinecone.io/)、[Weaviate](https://weaviate.io/)、[Qdrant](https://qdrant.tech/)、[Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)）確認當下的功能與定價。
+向量資料庫的功能矩陣變動很快，任何寫死的比較表都會在幾個月內過期，所以這裡不列表。真正穩定的是取捨軸：全託管還是自架、單機還是分散式、是否原生支援 hybrid search 與 metadata filtering、以及部署位置（雲端 region 還是邊緣）。先用這幾個軸把候選收斂到兩三個，再去各家官方文件（[Pinecone](https://www.pinecone.io/)、[Weaviate](https://weaviate.io/)、[Qdrant](https://qdrant.tech/)、[Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)）確認當下的功能與定價。2025-2026 值得關注的增量：[Qdrant 1.19 的 Turbo4](https://qdrant.tech/blog/qdrant-1.19.x/)（4-bit 純量化、9× 儲存降、三級 memory tiers pinned/cached/cold）與 [Weaviate 1.30 的 BlockMax WAND](https://weaviate.io/blog/weaviate-1-30-release)（詞彙搜尋最高 10× 加速、multi-vector GA + 量化），以及 [Qdrant Hybrid RRF/DBSF 實測](https://qdrant.tech/articles/hybrid-search/)的前述延遲數據——量化與混合檢索已成預設值，不是選配。
 
 → [Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選](/posts/ai/2026-03-12-vector-database-comparison)
 
@@ -472,7 +501,7 @@ RAG 系統上線只是開始。真正的挑戰是：怎麼知道它表現好不�
 
 ## 評估框架
 
-你不能改善你不能衡量的東西。[RAGAS](https://docs.ragas.io/)、[DeepEval](https://deepeval.com/)、[TruLens](https://www.trulens.org/) 是三個主流的 RAG 評估框架，各自提供不同的指標：Faithfulness（答案是否忠於 context）、Relevance（檢索結果是否相關）、Answer Correctness（答案是否正確）。建議在 CI 中跑自動化評估，每次 pipeline 變更都有數字。
+你不能改善你不能衡量的東西。[RAGAS](https://docs.ragas.io/)（最新 [v0.4.3（2025-01-13）](https://github.com/explodinggradients/ragas/releases)，不存在所謂 2.0；0.4 為 collections API + BasePrompt 的破壞性遷移）、[DeepEval](https://deepeval.com/)、[TruLens](https://www.trulens.org/) 是三個主流的 RAG 評估框架，各自提供不同的指標：Faithfulness（答案是否忠於 context）、Relevance（檢索結果是否相關）、Answer Correctness（答案是否正確）。建議在 CI 中跑自動化評估，每次 pipeline 變更都有數字，並用 [RAGTruth](https://arxiv.org/abs/2401.00396)（~18k word-level 幻覺語料）與 [FinanceBench](https://huggingface.co/datasets/PatronusAI/financebench)（金融領域基準）作幻覺分類與領域矩陣補充。
 
 → [RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 
@@ -555,6 +584,8 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 多個專業領域 ──→ Gen 9 Multi-Agent RAG
     │
 文件很長且不能切碎 ──→ Gen 10 LongRAG
+    │
+需要推理×檢索交織/跨工具整合 ──→ 後十代 Agentic Era（Search-R1 / MCP / Deep Research）
 ```
 
 重要提醒：**世代不是線性升級**。Gen 10 不一定比 Gen 2 好——它們解決不同的問題。一個設計良好的 Advanced RAG（Gen 2）在大多數場景下會比一個設計糟糕的 Agentic RAG（Gen 8）表現更好。選擇世代的依據是你的問題特性，不是越新越好。
@@ -610,7 +641,9 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 1. [Multi-Agent RAG](/posts/ai/2026-03-16-multi-agent-rag-patterns) — 多 Agent 協作
 2. [LongRAG](/posts/ai/2026-03-15-longrag-long-context-retrieval) — 長上下文新思路
 3. [Agent Memory](/posts/ai/2026-03-19-agent-memory-systems) — 讀寫記憶系統
-4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag) — 多模態知識庫
+4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag) — 多模態知識庫（含 ColPali 視覺直嵌與 ViDoRe V2 評估）
+
+> 2025-：後十代 Agentic Era（推理×檢索交織 + RL，多輪工具調用）與協議層 [MCP](https://modelcontextprotocol.io/specification/2025-06-18) 正在形成中，專文將陸續補上（Search-R1 / Interact-RAG / GraphRAG 3.x 選型），本導航屆時回填 `→ 深入閱讀` 連結。
 
 ---
 
@@ -624,6 +657,7 @@ RAG 不是一個技術，是一個技術體系。
 
 ## 更新紀錄
 
+- 2026-08-25：新增「後十代：Agentic Era（2025-）」全域框與專節（Search-R1/REX-RAG/AlignRAG、Deep Research、MCP）、補 Late Chunking vs Contextual Retrieval 對比與 listwise reranker（jina v3.5）、重寫 Embedding/Vector DB 2025 增量（jina-v5/v4、Qdrant Turbo4、Weaviate BlockMax WAND、Hybrid 實測）、重寫 Multimodal 為視覺直嵌（ColPali/Qwen2.5-VL/ViDoRe V2）並新增 MCP 前沿節、闢謠 RAGAS 版本
 - 2026-08-25：補上句內官方來源連結（BGE-M3 / Vector DB 四家 / Anthropic Contextual Retrieval / RAGAS·DeepEval·TruLens）與 GraphRAG 內鏈，利於溯源
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
@@ -638,3 +672,17 @@ RAG 不是一個技術，是一個技術體系。
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024)，利用多頭注意力機制提升多面向查詢的檢索準確率
 - [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting](https://arxiv.org/abs/2407.08223) — Wang et al. (2024)，小模型平行打草稿、大模型一次驗證的加速架構
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) — Gao et al. (2022)，HyDE 原始論文，用假設文件橋接 query 與 document 的語義差距
+- [Towards Agentic RAG with Deep Reasoning: A Survey](https://arxiv.org/abs/2507.09477) (2025) — 後十代 Agentic/Reasoning RAG 世代劃界與 Synergized RAG-Reasoning 分類
+- [Reasoning RAG via System 1 or System 2: A Survey](https://arxiv.org/abs/2506.10408) (2025) — 以 System 1/2 區分 predefined vs agentic reasoning，佐證 Agentic Era 劃界
+- [Search-R1: Training LLMs to Reason and Leverage Search Engines with RL](https://arxiv.org/abs/2503.09516) (2025) — RL 訓練的自主多輪搜索，Agentic Era 技術起點
+- [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) — Anthropic (2024-09-19)，Contextual Embeddings + BM25 與成本基準
+- [Late Chunking: Contextual Chunk Embeddings](https://arxiv.org/abs/2409.04701) — Jina AI (2024)，先編碼後切塊的零 LLM 成本替代
+- [Qdrant 1.19 — TurboQuant Datatype & Memory Tiers](https://qdrant.tech/blog/qdrant-1.19.x/) (2026-08-05) — 量化與 memory tiers
+- [Hybrid Search in Qdrant](https://qdrant.tech/articles/hybrid-search/) (2026-08-24) — RRF/DBSF 混合檢索實測
+- [Weaviate 1.30 Release](https://weaviate.io/blog/weaviate-1-30-release) (2025-04-08) — BlockMax WAND 與 multi-vector GA
+- [GraphRAG Releases v3.1.2](https://github.com/microsoft/graphrag/releases) / [GraphRAG Docs](https://microsoft.github.io/graphrag/) — Microsoft (2025-08-21 現行 3.1.x，四查詢 Global/Local/DRIFT/Basic)
+- [Model Context Protocol Specification 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18) / [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — 協議層官方來源
+- [ColPali: Efficient Document Retrieval with Vision Language Models](https://arxiv.org/abs/2407.01449) (ICLR 2025) / [colpali GitHub](https://github.com/illuin-tech/colpali) — 視覺直嵌路線與棄用遷移
+- [Qwen2.5 VL](https://qwenlm.github.io/blog/qwen2.5-vl/) (2025-01-26) / [ViDoRe V2](https://arxiv.org/abs/2505.17166) — 多模態 backbone 與評估基準
+- [RAGTruth: A Hallucination Corpus](https://arxiv.org/abs/2401.00396) / [FinanceBench](https://huggingface.co/datasets/PatronusAI/financebench) — 幻覺分類與金融領域補充
+- [BGE-M3 — BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) / [jina-embeddings-v3/v4/v5-text](https://arxiv.org/abs/2409.10173) / [Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672) / [SPLADE-v3](https://arxiv.org/abs/2403.06789) — Embedding 與稀疏檢索官方/論文來源

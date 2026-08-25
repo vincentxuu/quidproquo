@@ -6,8 +6,8 @@ type: guide
 category: ai
 tags: [rag, guide, retrieval, embedding, reranking, evaluation, agent]
 lang: en
-tldr: "RAG has evolved far beyond simple 'search + generate' into a technology ecosystem spanning ten generations. This article is a systematic navigation guide: from Naive RAG to Multi-Agent RAG across ten generations, covering retrieval strategies, chunking, embedding, reranking, evaluation frameworks, observability, and cost optimization. Each topic has a dedicated deep-dive article."
-description: "A complete navigation guide for RAG systems: ten generations of RAG evolution (Naive -> Advanced -> Modular -> Self-RAG -> CRAG -> Graph RAG -> Speculative -> Agentic -> Multi-Agent -> LongRAG), retrieval strategies, chunking, embedding, vector databases, reranking, evaluation frameworks, guardrails, observability, and cost optimization."
+tldr: "RAG has evolved far beyond simple 'search + generate' into a technology ecosystem spanning ten generations — and since 2025 into an Agentic/Reasoning era. This article is a systematic navigation guide: from Naive RAG to Multi-Agent/LongRAG across ten generations, the post-ten Agentic Era (Search-R1/RL search, MCP, GraphRAG 3.x, vision-native retrieval), retrieval strategies, chunking, embedding, reranking, evaluation frameworks, observability, and cost optimization. Each topic has a dedicated deep-dive article."
+description: "A complete navigation guide for RAG systems: ten generations of RAG evolution (Naive -> Advanced -> Modular -> Self-RAG -> CRAG -> Graph RAG -> Speculative -> Agentic -> Multi-Agent -> LongRAG) plus the post-ten Agentic/Reasoning RAG era, retrieval strategies (incl. Late Chunking), chunking, embedding, vector databases, reranking, evaluation frameworks, guardrails, observability, and cost optimization."
 draft: false
 series:
   name: "The RAG Techniques Compendium"
@@ -40,7 +40,7 @@ This article is a map. It won't dive deep into any single topic — each topic h
 ## Global Architecture Diagram
 
 ```
-                    RAG Technology Landscape
+                     RAG Technology Landscape
     ┌─────────────────────────────────────────────────────┐
     │                                                     │
     │  ┌────────── Ten Generations ─────────────────────┐ │
@@ -69,6 +69,11 @@ This article is a map. It won't dive deep into any single topic — each topic h
     │  │          fine chunking)                       │  │
     │  │                                               │  │
     │  └───────────────────────────────────────────────┘  │
+    │  ┌────── Post-Ten: Agentic Era (2025-) ──────┐  │
+    │  │ Reasoning × Retrieval + RL + Multi-tool     │  │
+    │  │ Search-R1 / REX-RAG / AlignRAG / GTA-RAG    │  │
+    │  │ Deep Research (product) + MCP (protocol)    │  │
+    │  └───────────────────────────────────────────┘  │
     │                                                     │
     │  ┌─ Retrieval Strategies ─┐ ┌─── Infrastructure ──┐ │
     │  │ BM25 + Vector          │ │ Chunking            │ │
@@ -79,8 +84,8 @@ This article is a map. It won't dive deep into any single topic — each topic h
     │  │ RRF / MMR              │ │ Memory              │ │
     │  │ Semantic Cache          │ └─────────────────────┘ │
     │  │ Text-to-SQL            │                         │
-    │  └────────────────────────┘ ┌─ Quality & Ops ─────┐ │
-    │                             │ Evaluation          │ │
+    │  │ Late Chunking          │ ┌─ Quality & Ops ─────┐ │
+    │  └────────────────────────┘ │ Evaluation          │ │
     │  ┌─── Frontier ──────────┐  │ Guardrails          │ │
     │  │ Agent Memory          │  │ Observability       │ │
     │  │ Multimodal RAG        │  │ Cost / A/B Test     │ │
@@ -105,14 +110,18 @@ This article is a map. It won't dive deep into any single topic — each topic h
 | Gen 8: Agentic | Autonomous Agent + ReAct loop | Multi-step reasoning | Complex research-type questions |
 | Gen 9: Multi-Agent | Multiple specialized Agents collaborate | Scalability, specialization | Enterprise multi-domain systems |
 | Gen 10: LongRAG | Large chunks + long-context models | Preserves full context | Long documents, legal contracts |
+| Post-Ten: Agentic Era | Reasoning × Retrieval + RL + multi-tool | Autonomous research, cross-tool integration | Complex research, enterprise deep Q&A |
+
+> Post-ten has no consensus Gen 11 number — treat it as an *Agentic Era* rather than a linear continuation. For generation boundaries, see the two 2025 surveys: [Towards Agentic RAG with Deep Reasoning](https://arxiv.org/abs/2507.09477) and [Reasoning RAG via System 1 or System 2](https://arxiv.org/abs/2506.10408).
 
 ### Maturity Spectrum
 
 Not every generation is equally mature. When choosing, consider the production-readiness of the technology:
 
 - **Proven** (extensive production use cases): Gen 1 Naive, Gen 2 Advanced, Gen 3 Modular
-- **Maturing** (production use cases exist but still rapidly evolving): Gen 5 CRAG, Gen 6 Graph RAG, Gen 8 Agentic RAG, Gen 9 Multi-Agent (supervisor/orchestrator patterns now ship with the mainstream agent frameworks)
+- **Maturing** (production use cases exist but still rapidly evolving): Gen 5 CRAG, Gen 6 Graph RAG ([GraphRAG now at v3.1.2](https://github.com/microsoft/graphrag/releases)), Gen 8 Agentic RAG, Gen 9 Multi-Agent (supervisor/orchestrator patterns now ship with the mainstream agent frameworks)
 - **Early adoption** (mostly papers and experiments, limited general framework support): Gen 4 Self-RAG (needs purpose-built training), Gen 7 Speculative (needs your own distilled drafter), Gen 10 LongRAG
+- **Frontier validation** (2025-): Agentic/Reasoning RAG (e.g., [Search-R1](https://arxiv.org/abs/2503.09516) RL multi-turn search, [AlignRAG](https://arxiv.org/abs/2504.14858) test-time critique) and [MCP](https://modelcontextprotocol.io/specification/2025-06-18) tool integration — productized ([OpenAI Deep Research](https://openai.com/index/introducing-deep-research/)) but fast-moving, not a stable baseline yet
 
 ---
 
@@ -287,6 +296,24 @@ But "more context" does not mean "better answers." Long-context models still suf
 
 ---
 
+## Post-Ten: Agentic / Reasoning RAG (2025-)
+
+If Gen 1-10 progressively enhanced the single-pass "retrieve → generate" pipeline, the 2025 cluster **interleaves reasoning and retrieval**: the model autonomously emits multiple search queries mid-reasoning, trained with RL to learn *when* to search, *what* to search, and *how* to use results. This is not a subdivision of a single Gen — two independent surveys define it as a new paradigm ([Towards Agentic RAG with Deep Reasoning](https://arxiv.org/abs/2507.09477)'s *Synergized RAG-Reasoning* and [Reasoning RAG via System 1/2](https://arxiv.org/abs/2506.10408)'s *Reasoning Agentic RAG*).
+
+The technical起点 is [Search-R1](https://arxiv.org/abs/2503.09516) (2025-03): RL (retrieved token masking + outcome reward) trains an LLM to search autonomously in multiple turns while reasoning, with significant gains over RAG baselines on Qwen2.5. Branches include [REX-RAG](https://arxiv.org/abs/2508.08149) (policy correction for RL dead-ends), [GTA-RAG](https://arxiv.org/abs/2608.22479) (graph-trajectory distillation), [Interact-RAG](https://arxiv.org/abs/2510.27566) (turning retrieval from a black-box query into steerable corpus interaction), and [AlignRAG](https://arxiv.org/abs/2504.14858) (test-time critique to align reasoning with evidence). Details are deferred to dedicated deep dives; this section only sets the boundary and hands off.
+
+Product and protocol落地 matter as much: [OpenAI Deep Research](https://openai.com/index/introducing-deep-research/) (2025-02-02, o3-optimized multi-step browsing + Python tool agent) productizes Agentic RAG end-to-end; [MCP (Model Context Protocol)](https://modelcontextprotocol.io/specification/2025-06-18) (open-sourced by Anthropic 2024-11-25) generalizes "retrieval" from vector-store lookup to unified tool/data-source invocation (Resources / Tools / Prompts), now adopted by ChatGPT, Claude, VS Code, Cursor and integrated into orchestration runtimes like [LangGraph 1.2.11](https://github.com/langchain-ai/langgraph/releases). In the ten-generation taxonomy, this is an infrastructure generation jump, not a single trick.
+
+Pragmatic note: Agentic tricks are not universally better. An [Agent-Orchestrated Adaptive RAG comparative study](https://arxiv.org/abs/2606.05658) shows query decomposition helps on structured domains but can hurt ranking precision on multi-hop tasks, and reflection improves citation precision at higher latency. Whether to adopt this era depends on whether your problems truly need multi-turn reasoning and cross-tool orchestration.
+
+---
+
+## Frontier: MCP Tool Integration (2025 Protocol Layer)
+
+Open-sourced by Anthropic in Nov 2024, [MCP](https://modelcontextprotocol.io/specification/2025-06-18) generalizes RAG "retrieval" from vector-store lookup to unified tool/data-source invocation. Host / Client / Server plus Resources / Tools / Prompts and Sampling / Roots / Elicitation negotiation let one MCP server serve multiple agent frameworks. Adopted in 2025 by ChatGPT, Claude, VS Code and Cursor, and integrated into [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) (1.2.11 durable execution / human-in-the-loop / streaming *orchestration runtime*), [CrewAI](https://github.com/crewAIInc/crewAI/releases) and [AutoGen 0.7](https://github.com/microsoft/autogen/releases). For new systems, prefer MCP-first with custom tool-use as fallback, minding host authorization and untrusted tool descriptions.
+
+---
+
 ## Frontier: Agent Memory
 
 RAG is fundamentally **read-only** — the system reads data from the knowledge base but never writes back. Agent Memory upgrades RAG into a **read-write system**.
@@ -303,9 +330,9 @@ Memory systems typically have three layers: Working Memory (context of the curre
 
 Text is just one form of knowledge. Much of an enterprise's knowledge is scattered across charts in PDFs, architecture diagrams in presentations, product photos, and even videos and recordings.
 
-Multimodal RAG incorporates this non-text content into the knowledge base. There are two approaches: using vision models to convert images into text descriptions for indexing (text-centric), or directly mapping images and text into the same vector space using multimodal embeddings (native multimodal).
+Since 2025 the main line has shifted from "OCR → text → index" to **vision-native retrieval**: [ColPali](https://arxiv.org/abs/2407.01449) (ICLR 2025) embeds page images directly with a VLM plus ColBERT late interaction, [Qwen2.5-VL](https://qwenlm.github.io/blog/qwen2.5-vl/) (2025-01-26, 3B/7B/72B, dynamic resolution + 1hr video understanding) works as a backbone; the old `colpali-engine` is deprecated in favor of [Sentence Transformers v6 MultiVectorEncoder](https://github.com/illuin-tech/colpali). For evaluation, use [ViDoRe V2](https://arxiv.org/abs/2505.17166) (V1 saturated at >90% nDCG@5, new version adds blind contextual / long cross-doc queries).
 
-In practice, the biggest challenge of multimodal RAG isn't model capability but pipeline complexity — PDF parsing, table extraction, image OCR, frame-by-frame video analysis — each step can fail.
+In practice, the biggest challenge of multimodal RAG isn't model capability but pipeline complexity — PDF parsing, table extraction, image OCR, frame-by-frame video analysis — each step can fail; vision-native retrieval preserves fidelity but multi-vector storage bloat requires compression such as [token pooling (pool factor 3 → -66.7% vectors at 97.8% performance)](https://arxiv.org/abs/2505.17166).
 
 -> Deep dive: [Multimodal RAG: Bringing Images into the Knowledge Base](/posts/ai/2026-03-12-multimodal-rag-en)
 
@@ -322,12 +349,12 @@ Retrieval is the heart of a RAG system. Use the wrong strategy, and no amount of
 | Vector search misses exact keywords | Hybrid Search (BM25 + Vector) | Two search types complement each other |
 | Query and document use different wording | HyDE | Hypothetical answer bridges the semantic gap |
 | Single query has insufficient coverage | Multi-Query Expansion | Search from multiple angles |
-| Top-K results are poorly ranked | Cross-Encoder Reranking | Precise re-ranking |
+| Top-K results are poorly ranked | Cross-Encoder / Listwise Reranking | Precise re-ranking; since 2025 try jina-reranker-v3.5 |
 | Need both speed and precision | ColBERT | Late interaction compromise |
-| BM25 is too dumb but need sparse vectors | SPLADE | Learned sparse vectors |
-| Multiple result lists need merging | RRF | Rank fusion, no training required |
+| BM25 is too dumb but need sparse vectors | SPLADE | Learned sparse vectors (v3 is the new baseline) |
+| Multiple result lists need merging | RRF / DBSF | Rank fusion, no training; Qdrant Hybrid shows both beat single-path |
 | Results are too homogeneous | MMR | Relevance + diversity |
-| Chunks lack context | Contextual Retrieval | Add context prefix |
+| Chunks lack context | Contextual Retrieval / Late Chunking | Add context prefix vs encode-then-chunk (zero LLM cost) |
 | Different questions need different paths | Query Classification | Route at the entry point |
 | Too many repeated questions | Semantic Caching | Semantic cache |
 | Answer is in structured data | Text-to-SQL Router | SQL is more accurate than search |
@@ -350,9 +377,9 @@ One question can be phrased in many ways. Multi-Query has the LLM rewrite the or
 
 -> [Multi-Query Expansion: One Question, Multiple Search Angles](/posts/ai/2026-03-12-multi-query-expansion-en)
 
-## Cross-Encoder Reranking
+## Cross-Encoder Reranking (incl. Listwise)
 
-Vector search uses bi-encoders — query and document each get their own embedding, then compared. Fast but imprecise. Cross-Encoders concatenate query and document and feed them into the model together, yielding much higher precision but slower speed. The typical approach: use vector search to pull back top-50, then Cross-Encoder reranks to top-5.
+Vector search uses bi-encoders — query and document each get their own embedding, then compared. Fast but imprecise. Cross-Encoders concatenate query and document and feed them into the model together, yielding much higher precision but slower speed. The typical approach: use vector search to pull back top-50, then Cross-Encoder reranks to top-5. Since 2025, [jina-reranker-v3/v3.5](https://arxiv.org/abs/2509.25085) (0.6B listwise, BEIR 63.20 matching a 4B model, +9.6 on semi-structured, with further latency cuts) places the query with multiple candidates in one context window with causal attention to compare candidates directly — suitable for semi-structured and cross-document comparison; validate on your own labeled set rather than copying leaderboard numbers.
 
 -> [Cross-Encoder Reranking: Getting the Most Relevant Documents to the Top](/posts/ai/2026-03-12-cross-encoder-reranking-en)
 
@@ -364,13 +391,13 @@ ColBERT is a compromise between bi-encoders and cross-encoders. It computes an e
 
 ## SPLADE: Learned Sparse Vectors
 
-BM25 relies on term frequency; SPLADE uses BERT to learn weights for each token, producing sparse vectors. It combines the advantages of keyword matching (sparse) and semantic understanding (learned).
+BM25 relies on term frequency; SPLADE uses BERT to learn weights for each token, producing sparse vectors. It combines the advantages of keyword matching (sparse) and semantic understanding (learned). The 2024 [SPLADE-v3](https://arxiv.org/abs/2403.06789) is a stronger sparse baseline on MS MARCO and can serve as a quantifiable upgrade after BM25 in the Hybrid section — measure BM25 gains first before adding learned sparse.
 
 -> [SPLADE: Smarter Sparse Vector Search than BM25](/posts/ai/2026-03-12-splade-sparse-vectors-en)
 
 ## RRF: Multi-Source Result Fusion
 
-When you have multiple search result lists (e.g., BM25 results and vector search results), RRF uses a simple formula to merge them based on rank position. No score normalization needed, no training needed — plug and play.
+When you have multiple search result lists (e.g., BM25 results and vector search results), RRF uses a simple formula to merge them based on rank position. No score normalization needed, no training needed — plug and play. A 2025 [Qdrant Hybrid study](https://qdrant.tech/articles/hybrid-search/) shows dense+sparse dual prefetch + RRF/DBSF beats single-path on 5 datasets with ~0.6–1.47ms extra (single-container single-concurrency baseline; re-measure in your setup) — "measure first, then add learned sparse" remains a robust flow.
 
 -> [RRF: How to Merge Multi-Source Results in RAG Systems](/posts/ai/2026-03-12-rrf-multi-source-fusion-en)
 
@@ -382,7 +409,9 @@ If your top-5 search results all talk about the same thing, you've effectively w
 
 ## Contextual Retrieval
 
-A method proposed by Anthropic — [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval): during the indexing phase, add a context segment to each chunk ("This passage is from a certain document's certain section, discussing a certain topic"). During search, this context is matched together, dramatically improving chunk discoverability.
+A method proposed by Anthropic — [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval): during the indexing phase, add a context segment to each chunk ("This passage is from a certain document's certain section, discussing a certain topic"). During search, this context is matched together, dramatically improving chunk discoverability. The Sep 2024 official numbers show Contextual Embeddings + Contextual BM25 cutting failure from 5.7% to 1.9% (with rerank) at ~$1.02/1M tokens (benchmark assumption; varies by chunk size/model).
+
+A zero-LLM-cost alternative is [Late Chunking](https://arxiv.org/abs/2409.04701): encode the whole document with a transformer once, then split into chunks and mean-pool so each chunk vector naturally carries cross-chunk context, needing no per-chunk LLM call for prefix generation — suitable for long-context embedding models (32K window) and budget-constrained scenarios; benefits diminish on super-long documents or highly independent chunks. The two are not mutually exclusive; choose by cost and window size or measure head-to-head.
 
 -> [Contextual Retrieval: Adding "What This Passage Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en)
 
@@ -429,13 +458,13 @@ Chunking method directly determines whether RAG can find the answer. Too small l
 
 ## Embedding Model Selection
 
-For Traditional Chinese RAG systems, embedding model selection is particularly important. [BGE-M3](https://huggingface.co/BAAI/bge-m3) is a common starting point — it supports dense, sparse, and multi-vector retrieval in one model and does reasonably well on Traditional Chinese. But embedding leaderboards turn over quickly, so treat no model as settled: weigh language coverage, dimensionality, maximum token length, and above all the benchmark you run on your own data.
+For Traditional Chinese RAG systems, embedding model selection is particularly important. [BGE-M3](https://huggingface.co/BAAI/bge-m3) is a common starting point — it supports dense, sparse, and multi-vector retrieval in one model and does reasonably well on Traditional Chinese. But embedding leaderboards turn over quickly, so treat no model as settled: weigh language coverage, dimensionality, maximum token length, and above all the benchmark you run on your own data. New lines to benchmark in 2025-2026 include [jina-embeddings-v5-text](https://arxiv.org/abs/2602.15547) (distillation + task contrastive, sub-1B small at 32K context), [jina-embeddings-v4](https://arxiv.org/abs/2506.18902) (3.8B multimodal dual-mode, chart/table SOTA) and [Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672) (late-interaction multi-vector) — compare as three branches (small/efficient vs multimodal/vision vs multi-vector) against BGE-M3 rather than a single swap.
 
 -> [BGE-M3: Why This Embedding Model Suits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
 ## Vector Database Selection
 
-Vector database feature matrices move fast enough that any table written down here would be stale within months, so there isn't one. What stays stable are the tradeoff axes: fully managed versus self-hosted, single-node versus distributed, native hybrid search and metadata filtering or not, and where it deploys (a cloud region or the edge). Narrow the field to two or three candidates on those axes, then check each vendor's official docs ([Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), [Qdrant](https://qdrant.tech/), [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)) for current features and pricing.
+Vector database feature matrices move fast enough that any table written down here would be stale within months, so there isn't one. What stays stable are the tradeoff axes: fully managed versus self-hosted, single-node versus distributed, native hybrid search and metadata filtering or not, and where it deploys (a cloud region or the edge). Narrow the field to two or three candidates on those axes, then check each vendor's official docs ([Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), [Qdrant](https://qdrant.tech/), [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)) for current features and pricing. Notable 2025-2026 increments: [Qdrant 1.19 Turbo4](https://qdrant.tech/blog/qdrant-1.19.x/) (pure 4-bit quantization, 9× storage cut, three memory tiers pinned/cached/cold) and [Weaviate 1.30 BlockMax WAND](https://weaviate.io/blog/weaviate-1-30-release) (up to 10× lexical search speedup, multi-vector GA + quantization), plus the [Qdrant Hybrid RRF/DBSF measurements](https://qdrant.tech/articles/hybrid-search/) noted above — quantization and hybrid retrieval are now defaults, not add-ons.
 
 -> [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison-en)
 
@@ -476,7 +505,7 @@ If you've just launched, build quality infrastructure in this order:
 
 ## Evaluation Frameworks
 
-You can't improve what you can't measure. [RAGAS](https://docs.ragas.io/), [DeepEval](https://deepeval.com/), and [TruLens](https://www.trulens.org/) are three mainstream RAG evaluation frameworks, each providing different metrics: Faithfulness (whether the answer is faithful to context), Relevance (whether retrieved results are relevant), and Answer Correctness (whether the answer is correct). Recommend running automated evaluations in CI, so every pipeline change has numbers.
+You can't improve what you can't measure. [RAGAS](https://docs.ragas.io/) (latest [v0.4.3 (2025-01-13)](https://github.com/explodinggradients/ragas/releases) — there is no 2.0; 0.4 is a breaking collections API + BasePrompt migration), [DeepEval](https://deepeval.com/), and [TruLens](https://www.trulens.org/) are three mainstream RAG evaluation frameworks, each providing different metrics: Faithfulness (whether the answer is faithful to context), Relevance (whether retrieved results are relevant), and Answer Correctness (whether the answer is correct). Recommend running automated evaluations in CI, so every pipeline change has numbers, supplemented by [RAGTruth](https://arxiv.org/abs/2401.00396) (~18k word-level hallucination corpus) and [FinanceBench](https://huggingface.co/datasets/PatronusAI/financebench) (finance-domain benchmark) for hallucination taxonomy and domain matrices.
 
 -> [RAG Evaluation Frameworks: How to Use RAGAS, DeepEval, and TruLens](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 
@@ -559,6 +588,8 @@ Need multi-step reasoning ──→ Gen 8 Agentic RAG
 Multiple specialized domains ──→ Gen 9 Multi-Agent RAG
     │
 Documents are long and can't be fragmented ──→ Gen 10 LongRAG
+    │
+Need reasoning × retrieval / cross-tool integration ──→ Post-Ten Agentic Era (Search-R1 / MCP / Deep Research)
 ```
 
 Important reminder: **Generations are not linear upgrades**. Gen 10 isn't necessarily better than Gen 2 — they solve different problems. A well-designed Advanced RAG (Gen 2) will outperform a poorly designed Agentic RAG (Gen 8) in most scenarios. Choose based on your problem characteristics, not by chasing the newest generation.
@@ -614,7 +645,9 @@ If you want to learn about the latest RAG developments:
 1. [Multi-Agent RAG](/posts/ai/2026-03-16-multi-agent-rag-patterns-en) — Multi-Agent collaboration
 2. [LongRAG](/posts/ai/2026-03-15-longrag-long-context-retrieval-en) — New thinking with long context
 3. [Agent Memory](/posts/ai/2026-03-19-agent-memory-systems-en) — Read-write memory systems
-4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag-en) — Multimodal knowledge bases
+4. [Multimodal RAG](/posts/ai/2026-03-12-multimodal-rag-en) — Multimodal knowledge bases (incl. ColPali vision-native + ViDoRe V2)
+
+> 2025-: the post-ten Agentic Era (reasoning × retrieval + RL, multi-tool) and the [MCP](https://modelcontextprotocol.io/specification/2025-06-18) protocol layer are forming; dedicated deep dives are coming (Search-R1 / Interact-RAG / GraphRAG 3.x) and this guide will fill in `-> Deep dive` links when they ship.
 
 ---
 
@@ -628,6 +661,7 @@ This guide will be continuously updated. Whenever a new deep-dive article is pub
 
 ## Changelog
 
+- 2026-08-25: Added post-ten *Agentic Era (2025-)* frame + dedicated section (Search-R1/REX-RAG/AlignRAG, Deep Research, MCP), Late Chunking vs Contextual Retrieval comparison + listwise reranker (jina v3.5), 2025 increments for embeddings/vector DBs (jina-v5/v4, Qdrant Turbo4, Weaviate BlockMax WAND, Hybrid RRF/DBSF), vision-native Multimodal rewrite (ColPali/Qwen2.5-VL/ViDoRe V2) plus new MCP frontier section, and RAGAS version correction.
 - 2026-08-25: Added inline official-source links (BGE-M3 / four vector DB vendors / Anthropic Contextual Retrieval / RAGAS, DeepEval, TruLens) and a GraphRAG inline paper link for traceability.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
@@ -642,3 +676,17 @@ This guide will be continuously updated. Whenever a new deep-dive article is pub
 - [Multi-Head RAG: Solving Multi-Aspect Problems with LLMs](https://arxiv.org/abs/2406.05085) — Besta et al. (2024), using multi-head attention mechanisms to improve retrieval accuracy for multi-aspect queries
 - [Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting](https://arxiv.org/abs/2407.08223) — Wang et al. (2024), the drafting-plus-single-verification architecture behind Gen 7
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels](https://arxiv.org/abs/2212.10496) — Gao et al. (2022), the original HyDE paper on bridging the query-document semantic gap with hypothetical documents
+- [Towards Agentic RAG with Deep Reasoning: A Survey](https://arxiv.org/abs/2507.09477) (2025) — post-ten Agentic/Reasoning RAG boundaries and Synergized RAG-Reasoning taxonomy
+- [Reasoning RAG via System 1 or System 2: A Survey](https://arxiv.org/abs/2506.10408) (2025) — System 1/2 distinction for predefined vs agentic reasoning
+- [Search-R1: Training LLMs to Reason and Leverage Search Engines with RL](https://arxiv.org/abs/2503.09516) (2025) — RL-trained autonomous multi-turn search as the Agentic Era entry point
+- [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) — Anthropic (Sep 19, 2024), Contextual Embeddings + BM25 and cost baseline
+- [Late Chunking: Contextual Chunk Embeddings](https://arxiv.org/abs/2409.04701) — Jina AI (2024), encode-then-chunk zero-LLM-cost alternative
+- [Qdrant 1.19 — TurboQuant Datatype & Memory Tiers](https://qdrant.tech/blog/qdrant-1.19.x/) (Aug 5, 2026) — quantization and memory tiers
+- [Hybrid Search in Qdrant](https://qdrant.tech/articles/hybrid-search/) (Aug 24, 2026) — RRF/DBSF hybrid measurements
+- [Weaviate 1.30 Release](https://weaviate.io/blog/weaviate-1-30-release) (Apr 8, 2025) — BlockMax WAND and multi-vector GA
+- [GraphRAG Releases v3.1.2](https://github.com/microsoft/graphrag/releases) / [GraphRAG Docs](https://microsoft.github.io/graphrag/) — Microsoft (Aug 21, 2025 — current 3.1.x, four queries Global/Local/DRIFT/Basic)
+- [Model Context Protocol Specification 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18) / [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — official protocol sources
+- [ColPali: Efficient Document Retrieval with Vision Language Models](https://arxiv.org/abs/2407.01449) (ICLR 2025) / [colpali GitHub](https://github.com/illuin-tech/colpali) — vision-native route and deprecation migration
+- [Qwen2.5 VL](https://qwenlm.github.io/blog/qwen2.5-vl/) (Jan 26, 2025) / [ViDoRe V2](https://arxiv.org/abs/2505.17166) — multimodal backbone and benchmark
+- [RAGTruth: A Hallucination Corpus](https://arxiv.org/abs/2401.00396) / [FinanceBench](https://huggingface.co/datasets/PatronusAI/financebench) — hallucination taxonomy and finance-domain supplement
+- [BGE-M3 — BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) / [jina-embeddings-v3/v4/v5-text](https://arxiv.org/abs/2409.10173) / [Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672) / [SPLADE-v3](https://arxiv.org/abs/2403.06789) — embedding and sparse retrieval official/paper sources
