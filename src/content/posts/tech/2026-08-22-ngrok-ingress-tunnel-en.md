@@ -8,7 +8,7 @@ lang: en
 tldr: "ngrok is an agent-initiated reverse proxy and ingress, not a VPN for the whole machine; public endpoints still need explicit authentication, traffic policy, and data boundaries."
 description: "ngrok Agent Endpoints, outbound tunnels, webhook development, Traffic Policy, OAuth and OIDC, production ingress, and security boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 99
 draft: false
 ---

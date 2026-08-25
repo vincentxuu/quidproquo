@@ -8,7 +8,7 @@ lang: en
 tldr: "ZeroTier places devices on a managed virtual L2/L3 network, attempts peer-to-peer transport, and uses a controller to publish membership and policy; it resembles software-defined networking more than a single tunnel."
 description: "ZeroTier identities, controllers, roots, managed routes, bridging, Flow Rules, NAT traversal, and operating boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 100
 draft: false
 ---

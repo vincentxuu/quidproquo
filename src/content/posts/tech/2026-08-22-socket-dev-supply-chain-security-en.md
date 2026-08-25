@@ -8,7 +8,7 @@ lang: en
 tldr: "Socket.dev goes beyond CVEs by analyzing install scripts, obfuscation, network and shell access, and ownership changes when packages enter a dependency diff."
 description: "Socket.dev package behavior analysis, PR alerts, Socket Firewall, policy tuning, lockfiles, malware response, and SCA boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 111
 draft: false
 ---

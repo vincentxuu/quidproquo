@@ -8,7 +8,7 @@ lang: en
 tldr: "Snyk maps code, open-source, container, and IaC findings to projects, remediation paths, and developer workflows; successful adoption depends on baselines, ownership, and executable policy."
 description: "Snyk Code, Open Source, Container, IaC, reachability, monitoring, fix PRs, policy, CI gates, and data boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 112
 draft: false
 ---

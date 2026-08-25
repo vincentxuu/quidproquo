@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, transformer, self-attention, nlp, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 6
 tldr: "Lecture 5 moves from the long-range and sequential bottlenecks of RNNs to self-attention and the Transformer. It shortens information paths and enables parallel computation, at the price of quadratic attention and separately encoded position."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 5: attention, self-attention, the Transformer architecture, results, and limitations."

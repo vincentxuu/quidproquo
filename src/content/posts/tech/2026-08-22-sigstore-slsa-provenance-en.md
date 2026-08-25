@@ -8,7 +8,7 @@ lang: en
 tldr: "Sigstore provides identity-bound signing, short-lived certificates, and transparency logs; SLSA describes trustworthy build provenance. They protect only when admission verifies identity, issuer, digest, and build expectations."
 description: "Cosign, Fulcio, Rekor, keyless signing, artifact bundles, attestations, SLSA provenance, Build levels, verification policy, and CI hardening."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 118
 draft: false
 ---

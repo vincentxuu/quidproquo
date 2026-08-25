@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 5
 tldr: "Propositional logic abstracts English statements into Boolean variables, then uses truth tables to check connectives, translation direction, and equivalences."
 description: "A deck-aligned guide to propositional variables, seven logical symbols, truth tables, English translation, precedence, De Morgan's laws, and implication equivalences."

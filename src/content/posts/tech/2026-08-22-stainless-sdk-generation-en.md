@@ -8,7 +8,7 @@ lang: en
 tldr: "Stainless uses OpenAPI plus its configuration to generate multi-language SDKs, docs, CLIs, and MCP servers. Its value is a continuous preview, publishing, and upgrade pipeline rather than one-off codegen."
 description: "Stainless specifications, configuration, resource models, preview builds, generated repositories, and vendor boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 42
 draft: false
 ---

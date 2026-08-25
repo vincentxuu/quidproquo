@@ -8,7 +8,7 @@ lang: en
 tldr: "Vitest's advantage is not merely a familiar Jest-style API. Tests share Vite transforms, aliases, and plugins with the application; Browser Mode adds real-browser confidence but does not replace full E2E testing."
 description: "Vitest's Vite-native design, mocking and coverage, the boundary of Browser Mode, and how to choose between Vitest, Jest, and Playwright."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 22
 draft: false
 ---

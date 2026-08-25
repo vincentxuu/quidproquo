@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, multimodal-ai, vision-language-model, foundation-model, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 18
 tldr: "Lecture 17 is Luke Zettlemoyer's multimodality guest session, but the site publishes no slides or agenda. Its official readings establish three routes: visual reasoning workspaces, early-fusion token models, and text autoregression with image diffusion."
 description: "A material-gap record and official reading map for CS224N Winter 2026 Lecture 17: Visual Sketchpad, Chameleon, Transfusion, and multimodal evaluation."

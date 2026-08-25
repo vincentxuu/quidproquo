@@ -8,7 +8,7 @@ lang: en
 tldr: "Liveblocks packages rooms, presence, conflict-free storage, comments, and notifications as managed product primitives; adoption still requires alignment with existing auth, canonical databases, and data lifecycle."
 description: "Liveblocks Rooms, Presence, Broadcast, Storage, Yjs, Threads, permissions, authentication, webhooks, retention, and AI agents."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 108
 draft: false
 ---

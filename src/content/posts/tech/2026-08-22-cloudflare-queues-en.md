@@ -8,7 +8,7 @@ lang: en
 tldr: "Cloudflare Queues provides at-least-once delivery, batched consumers, retries, delays, and DLQs. It fits background work around Workers, while consumers still require per-message acknowledgment and idempotency."
 description: "Cloudflare Queues producers, consumers, batches, retries, DLQs, pull consumers, platform limits, and boundaries against SQS and durable execution."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 32
 draft: false
 ---

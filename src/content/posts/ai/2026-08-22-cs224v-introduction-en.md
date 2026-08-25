@@ -6,7 +6,7 @@ tags: [cs224v, stanford, conversational-ai, llm, computational-thinking]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 2
 tldr: "Fall 2025 opens with computational thinking: reliability comes from decomposing retrieval, formal representation, verification, and generation into testable algorithms, not from one heroic prompt."
 description: "A lecture-by-lecture guide to Stanford CS224V Fall 2025 Introduction: hallucination, computational thinking, the two research stages, semantic parsing, and the course map."

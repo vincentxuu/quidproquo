@@ -8,7 +8,7 @@ lang: en
 tldr: "Azure Container Apps hides Kubernetes while exposing HTTP/TCP ingress, revisions, KEDA scaling, jobs, and Dapr; replica concurrency, event idempotency, VNet design, and identity remain yours."
 description: "Azure Container Apps environments, revisions, traffic splitting, KEDA scaling, jobs, Dapr, networking, and AKS/App Service tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 55
 draft: false
 ---

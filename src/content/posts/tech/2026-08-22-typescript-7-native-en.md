@@ -8,7 +8,7 @@ lang: en
 tldr: "TypeScript 7 rewrites the compiler and language service in Go. The order-of-magnitude gains come from native execution and shared-memory parallelism, while old APIs and compiler options define the migration cost."
 description: "TypeScript 7's native compiler architecture, performance and compatibility boundaries, and a dual-run migration strategy from TypeScript 6."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 24
 draft: false
 ---

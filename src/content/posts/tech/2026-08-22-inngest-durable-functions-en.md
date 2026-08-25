@@ -8,7 +8,7 @@ lang: en
 tldr: "Inngest makes steps the persistence boundary for ordinary TypeScript, Python, and Go functions. Recovery re-executes the function while memoized steps avoid repeating completed side effects."
 description: "Inngest durable functions: step memoization, retries, waits, flow control, deployment, and boundaries for AI agents."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 33
 draft: false
 ---

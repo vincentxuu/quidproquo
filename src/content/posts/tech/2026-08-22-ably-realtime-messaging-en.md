@@ -8,7 +8,7 @@ lang: en
 tldr: "Ably manages global realtime connections, channels, presence, and short-window recovery; applications still own idempotency, durable business state, token capabilities, and offline resynchronization."
 description: "Ably channels, message ordering and delivery, presence, history, connection recovery, token authentication, capabilities, and managed realtime selection."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 107
 draft: false
 ---

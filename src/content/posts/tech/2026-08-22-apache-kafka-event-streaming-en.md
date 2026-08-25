@@ -8,7 +8,7 @@ lang: en
 tldr: "Kafka is a distributed log ordered by partition and retained by policy. Consumer groups divide work through offsets, while exactly-once processing holds only inside boundaries covered by Kafka transactions."
 description: "Apache Kafka through partitions, consumer groups, offsets, replication, and transactions, with practical boundaries against queues and Redpanda."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 25
 draft: false
 ---

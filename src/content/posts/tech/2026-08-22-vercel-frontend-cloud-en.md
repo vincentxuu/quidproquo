@@ -8,7 +8,7 @@ lang: en
 tldr: "Vercel binds framework build output, previews, CDN caching, and Functions into deployments; deep integration adds speed while defining runtime, locality, cost, and portability boundaries."
 description: "Vercel deployments, previews, Functions, Fluid compute, regions, caching, state, and tradeoffs against general PaaS."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 72
 draft: false
 ---

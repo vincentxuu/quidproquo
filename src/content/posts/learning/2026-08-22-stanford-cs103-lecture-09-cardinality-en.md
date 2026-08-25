@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 10
 tldr: "Two sets have equal cardinality when a bijection pairs their elements; Cantor's diagonal set defeats every function from S to its power set by constructing a value it misses."
 description: "A deck-aligned guide to Stanford CS103 Spring 2026 Lecture 8 on bijections, equal cardinality, equinumerous intervals, and Cantor's theorem."

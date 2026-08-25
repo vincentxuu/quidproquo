@@ -6,7 +6,7 @@ tags: [cs224v, stanford, long-context, information-extraction, sliders]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 9
 tldr: "SLIDERS induces a question-specific schema, applies semantic chunking and contextualized extraction, reconciles duplicate rows, and answers with SUQL instead of feeding every long document directly to one model."
 description: "CS224V Long-Document QA: training versus chunking, SLIDERS schematization, semantic chunking, contextualized extraction, reconciliation, and preliminary evaluation."

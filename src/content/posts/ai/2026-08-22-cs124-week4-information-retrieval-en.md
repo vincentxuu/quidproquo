@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, information-retrieval, rag, nlp]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 5 }
+series: { name: "Reading Stanford CS124", order: 5 }
 tldr: "Week 4 builds candidates with an inverted index, ranks them with tf-idf and cosine similarity, and then connects retrieved evidence to generation; PA3 exposes RAG's inspectable retrieval half."
 description: "Stanford CS124 Winter 2026 Week 4: information retrieval, inverted indexes, tf-idf, cosine ranking, RAG, Lab 3, and PA3."
 draft: false

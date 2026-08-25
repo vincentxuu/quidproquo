@@ -8,7 +8,7 @@ lang: en
 tldr: "Fly.io places fast-starting Machines in chosen regions and connects them through Fly Proxy and private 6PN; cross-region state consistency remains your hard problem."
 description: "Fly.io Machines, Fly Proxy, regions, 6PN, Volumes, autostop and autostart, and multi-region tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 76
 draft: false
 ---

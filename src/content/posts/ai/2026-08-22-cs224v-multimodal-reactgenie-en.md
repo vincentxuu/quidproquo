@@ -6,7 +6,7 @@ tags: [cs224v, stanford, multimodal, react, conversational-ui]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 14
 tldr: "ReactGenie annotates React components to expose data, actions, and views, parses composite voice commands into a DSL, and renders native graphical output against shared UI context."
 description: "CS224V Multimodal Applications: command composition, API exposure, simultaneous input/output, ReactGenie architecture, runtime, and evaluation."

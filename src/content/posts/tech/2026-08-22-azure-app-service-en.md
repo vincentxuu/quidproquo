@@ -8,7 +8,7 @@ lang: en
 tldr: "App Service manages web runtimes, TLS, deployment, and scaling, while capacity, cost, and isolation live in the shared App Service Plan rather than one app."
 description: "Azure App Service runtimes and containers, plans, deployment slots, scaling, networking, and Container Apps tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 56
 draft: false
 ---

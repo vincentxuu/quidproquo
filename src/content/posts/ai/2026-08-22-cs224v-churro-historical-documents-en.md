@@ -6,7 +6,7 @@ tags: [cs224v, stanford, vision-language-model, ocr, historical-documents]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 13
 tldr: "CHURRO represents full-page text, layout, and metadata in HDML, unifies multilingual historical data for a page-level VLM, and connects extraction to HistoryGenie for searchable, conversational archives."
 description: "CS224V NLP Building Blocks: historical OCR gaps, HDML, CHURRO-DS, the CHURRO VLM, benchmarking, and HistoryGenie."

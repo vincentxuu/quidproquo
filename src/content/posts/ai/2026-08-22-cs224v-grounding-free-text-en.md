@@ -6,7 +6,7 @@ tags: [cs224v, stanford, rag, hallucination, wikichat]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 6
 tldr: "The [WikiChat paper](https://aclanthology.org/2023.findings-emnlp.157/) expands RAG into query formulation, retrieval, filtering, generation, claim extraction, renewed retrieval and verification, and removal of unsupported content—and evaluates retrieval separately from factuality."
 description: "CS224V Grounding Conversational Agents on Free Text: RAG baselines, WikiChat's seven-stage pipeline, claim verification, and dynamic evaluation."

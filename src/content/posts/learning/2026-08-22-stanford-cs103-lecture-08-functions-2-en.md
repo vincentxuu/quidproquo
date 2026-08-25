@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 9
 tldr: "This lecture uses surjections and a proof about birds to separate assuming from proving, then shows that involutions are injective and surjective and carries those ideas into function composition."
 description: "A deck-aligned guide to CS103 Functions Part II: surjective proofs, quantifiers as assumptions versus goals, involutions, and composition preserving injections and surjections."

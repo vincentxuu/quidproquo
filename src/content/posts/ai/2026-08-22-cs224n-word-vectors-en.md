@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, nlp, word2vec, embeddings, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 3
 tldr: "Lecture 2 moves from word2vec's prediction task, objective, and gradients to count-based vectors and evaluation. Meaning becomes a high-dimensional position learned from context, not a label retrieved from a dictionary."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 2: word2vec, negative sampling, co-occurrence matrices, and embedding evaluation."

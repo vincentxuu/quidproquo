@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, llm-evaluation, benchmark, nlp, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 12
 tldr: "Lecture 11 divides evaluation into what to test, how to measure it, and when the result stops being trustworthy. Benchmarks saturate or leak, prompts change scores, and an LLM judge remains a biased model."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 11: benchmark design, dynamic and adversarial evaluation, metrics, LLM judges, and contamination."

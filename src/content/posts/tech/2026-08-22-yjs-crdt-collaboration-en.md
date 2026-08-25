@@ -8,7 +8,7 @@ lang: en
 tldr: "Yjs uses shared types and commutative, associative, idempotent binary updates to converge concurrent edits; it does not prescribe transport or include authorization, persistence, or domain conflict resolution."
 description: "Y.Doc, shared types, updates, state vectors, providers, awareness, offline persistence, garbage collection, schema evolution, and CRDT boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 109
 draft: false
 ---

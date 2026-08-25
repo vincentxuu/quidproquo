@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, neural-network, llm, nlp]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 7 }
+series: { name: "Reading Stanford CS124", order: 7 }
 tldr: "Week 6 uses public neural-network slides for weighted sums, nonlinearities, loss, and backpropagation, then a public LLM/Transformer deck labeled 2025 for decoder-only architecture without treating it as the 2026 live transcript."
 description: "Stanford CS124 Winter 2026 Week 6: neural units, multilayer networks, backpropagation, neural language models, LLM architectures, and PA5."
 draft: false

@@ -8,7 +8,7 @@ lang: en
 tldr: "Fargate removes container-host operations, but task definitions, ECS services, VPCs, IAM, scaling, deployment, and observability remain your system."
 description: "AWS Fargate and ECS responsibility boundaries, tasks, services, networking, IAM, storage, scaling, and Lambda/App Runner tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 51
 draft: false
 ---

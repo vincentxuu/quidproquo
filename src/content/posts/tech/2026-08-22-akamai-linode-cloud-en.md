@@ -8,7 +8,7 @@ lang: en
 tldr: "Linode is now the compute foundation of Akamai Cloud Computing; VMs, LKE, storage, and databases retain regional and network boundaries, so the Akamai brand does not imply complete integration."
 description: "Akamai Cloud Linode compute, LKE, VPCs, storage, managed databases, edge relationships, and simplified-IaaS decisions."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 66
 draft: false
 ---

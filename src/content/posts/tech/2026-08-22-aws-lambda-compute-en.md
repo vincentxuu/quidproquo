@@ -8,7 +8,7 @@ lang: en
 tldr: "Lambda fits short-lived, event-driven, bursty work; its design center is invocation, retries, idempotency, and downstream capacity—not merely smaller containers."
 description: "AWS Lambda invocation, event source mappings, retries, concurrency, cold starts, packaging, and Lambda-versus-Fargate decisions."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 50
 draft: false
 ---

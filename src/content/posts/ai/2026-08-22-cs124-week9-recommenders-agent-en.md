@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, recommender-system, ai-agent, llm]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 10 }
+series: { name: "Reading Stanford CS124", order: 10 }
 tldr: "Week 9 builds movie recommendations with item-item collaborative filtering, then packages recommendation, web search, databases, and memory as agent tools under API-budget and team constraints."
 description: "Stanford CS124 Winter 2026 Week 9: recommender systems, collaborative filtering, cosine similarity, LLM tools, search, memory, Lab 5 ethics, and PA7."
 draft: false

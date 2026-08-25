@@ -8,7 +8,7 @@ lang: en
 tldr: "Lambda Cloud provides on-demand GPU VMs and 1-Click Clusters; it offers direct AI compute environments rather than automatically solving training, serving, and MLOps."
 description: "Lambda Cloud on-demand instances, 1-Click Clusters, Managed Kubernetes, Slurm, storage, and GPU-cloud selection."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 58
 draft: false
 ---

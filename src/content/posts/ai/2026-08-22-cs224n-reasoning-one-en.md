@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, reasoning, deepseek-r1, reinforcement-learning, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 13
 tldr: "Lecture 12 shows that output policy is not a detail: greedy, beam, and sampling produce different text. It then moves from R1-Zero/R1 into PPO, GRPO, and DAPO, asking when longer reasoning actually helps."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 12: decoding, DeepSeek-R1, PPO/GRPO/DAPO, and reasoning limitations."

@@ -8,7 +8,7 @@ lang: en
 tldr: "Durable Objects route a name or ID to a globally unique, single-threaded actor with strongly consistent storage, WebSockets, and alarms; correctness depends on the object key and explicit lifecycle handling."
 description: "Cloudflare Durable Object identity, single-threaded coordination, storage, RPC, WebSocket hibernation, alarms, sharding, location, and migration."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 110
 draft: false
 ---

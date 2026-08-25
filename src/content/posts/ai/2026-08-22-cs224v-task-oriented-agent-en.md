@@ -6,7 +6,7 @@ tags: [cs224v, stanford, task-oriented-dialogue, semantic-parsing, genie]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 4
 tldr: "Genie Worksheets declare task capability as a form-like specification. A contextual semantic parser updates formal dialogue state while the runtime controls queries, actions, and responses."
 description: "CS224V Building a Task-Oriented Agent, from dialogue state and the Worksheet language to semantic parsing, runtime composition, and evaluation."

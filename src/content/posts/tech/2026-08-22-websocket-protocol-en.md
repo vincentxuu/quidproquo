@@ -8,7 +8,7 @@ lang: en
 tldr: "WebSocket supplies a duplex message transport, not auth renewal, schemas, acknowledgements, replay, rooms, or backpressure policy; those layers determine production correctness."
 description: "WebSocket handshakes, frames, subprotocols, origin and auth, heartbeats, backpressure, reconnects, horizontal scaling, and deployment boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 104
 draft: false
 ---

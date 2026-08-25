@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 2
 tldr: "Starting with elements, subsets, and power sets, this lecture culminates in Cantor's diagonal proof that no set is as large as its own power set."
 description: "A deck-aligned guide to Stanford CS103 Lecture 0: set notation, set-builder notation, subsets, power sets, cardinality, and Cantor's theorem."

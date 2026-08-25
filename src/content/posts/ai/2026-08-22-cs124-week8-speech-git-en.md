@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, speech-recognition, text-to-speech, nlp]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 9 }
+series: { name: "Reading Stanford CS124", order: 9 }
 tldr: "Week 8 sends text through TTS and back through STT, requiring error classification, formatting-loss analysis, and accent stress tests, while Lab 4 prepares Git collaboration for the team agent project."
 description: "Stanford CS124 Winter 2026 Week 8: speech readings, TTS/STT, error analysis, accessibility, dialect testing, Git, and the PA7 lab."
 draft: false

@@ -8,7 +8,7 @@ lang: en
 tldr: "MySQL offers a mature ecosystem, InnoDB transactions, and predictable operations, but teams must still own indexes, isolation, replication lag, and migrations."
 description: "An introduction to MySQL, InnoDB, indexing, transactions, replication, and high-availability boundaries, with comparisons to PostgreSQL, MongoDB, and DuckDB."
 series:
-  name: "AI-Era Technology Choices"
+  name: "Technology Choices in the AI Era"
   order: 122
 draft: false
 ---

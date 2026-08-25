@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, tokenization, multilingual-nlp, bpe, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 15
 tldr: "Lecture 14 moves from word, character/byte, and subword segmentation to BPE failures and cross-lingual fairness. A tokenizer determines sequence length, compute cost, and the units a model sees; it is not neutral preprocessing."
 description: "A lecture-by-lecture reading of Julie Kallini's CS224N Winter 2026 Lecture 14: BPE, glitch tokens, cross-lingual transfer, and fairness."

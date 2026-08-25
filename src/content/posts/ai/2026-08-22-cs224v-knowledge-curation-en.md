@@ -6,7 +6,7 @@ tags: [cs224v, stanford, deep-research, rag, storm]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 3
 tldr: "STORM uses perspective-guided questions, simulated interviews, and outlines to broaden research; Co-STORM keeps a person in the loop so discovering unknown questions and co-editing become part of the system."
 description: "The complete CS224V Knowledge Curation lecture: RAG, STORM pre-writing research and evaluation, Co-STORM discourse, and the DataSTORM assignment."

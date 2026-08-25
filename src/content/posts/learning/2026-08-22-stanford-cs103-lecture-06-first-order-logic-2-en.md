@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, first-order-logic]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 7
 tldr: "Translate natural language one layer at a time: identify universal and existential forms, then handle quantifier order, negation, restricted quantifiers, and uniqueness."
 description: "A deck-aligned guide to nested quantifiers, set translations, quantifier negation, restricted quantifiers, and uniqueness in Stanford CS103 First-Order Logic Part II."

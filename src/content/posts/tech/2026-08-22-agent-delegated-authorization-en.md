@@ -8,7 +8,7 @@ lang: en
 tldr: "An agent should execute one task with a short-lived, audience- and permission-restricted credential while preserving user and agent identities, execution-time authorization, confirmation, and audit lineage."
 description: "Designing authorization for agents acting on behalf of users with OAuth Token Exchange, Resource Indicators, RAR, DPoP, and AuthZEN."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 49
 draft: false
 ---

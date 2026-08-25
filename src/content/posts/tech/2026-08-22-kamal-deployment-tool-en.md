@@ -8,7 +8,7 @@ lang: en
 tldr: "Kamal deploys immutable images from an operator over SSH and switches traffic through kamal-proxy; it is not a scheduler and does not operate hosts or data."
 description: "Kamal deploy.yml, SSH, registries, roles, kamal-proxy, accessories, secrets, rollback, and multi-host boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 84
 draft: false
 ---

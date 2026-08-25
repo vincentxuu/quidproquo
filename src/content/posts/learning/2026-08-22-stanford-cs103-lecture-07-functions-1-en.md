@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, functions]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 8
 tldr: "A function is more than a formula: domain, codomain, totality, and determinism are essential, while the quantifiers defining involutions, injections, and surjections dictate their proofs."
 description: "A deck-aligned guide to Stanford CS103 Spring 2026 Functions, Part I: formal definitions, piecewise rules, involutions, injections, surjections, and proofs."

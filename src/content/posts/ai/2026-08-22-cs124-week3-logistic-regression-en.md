@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, nlp, logistic-regression, text-classification]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 4 }
+series: { name: "Reading Stanford CS124", order: 4 }
 tldr: "Week 3 connects text features, sigmoid probabilities, cross-entropy loss, and gradient descent, producing a classifier whose feature contributions remain inspectable."
 description: "Stanford CS124 Winter 2026 Week 3: logistic regression, text classification, features, loss, gradient updates, Lab 2, and PA2."
 draft: false

@@ -8,7 +8,7 @@ lang: en
 tldr: "PocketBase packages SQLite, collections, Auth, file storage, SSE realtime, and an admin UI into a small executable; deployment is easy, but single-host and pre-v1 compatibility limits matter."
 description: "PocketBase collections, API rules, Auth, Realtime, Go and JavaScript hooks, backups, production, and scaling boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 88
 draft: false
 ---

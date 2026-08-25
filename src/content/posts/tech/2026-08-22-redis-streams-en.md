@@ -8,7 +8,7 @@ lang: en
 tldr: "Redis Streams stores replayable entries with `XADD`; consumer groups add a Pending Entries List and `XACK`. It is more durable than Pub/Sub, but it does not automatically become Kafka."
 description: "Redis Streams IDs, range queries, consumer groups, pending entries, claiming, and trimming, compared with Redis Pub/Sub, Kafka, and job queues."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 30
 draft: false
 ---

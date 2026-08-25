@@ -8,7 +8,7 @@ lang: en
 tldr: "Socket.IO is an event protocol and runtime over WebSocket or long-polling, not a native WebSocket compatibility layer; ordering, arrival, recovery, and horizontal scaling need separate designs."
 description: "Socket.IO events, acknowledgements, rooms, namespaces, delivery guarantees, connection recovery, adapters, and production scaling."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 103
 draft: false
 ---

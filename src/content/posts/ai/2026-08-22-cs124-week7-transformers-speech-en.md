@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, transformer, speech-processing, llm]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 8 }
+series: { name: "Reading Stanford CS124", order: 8 }
 tldr: "Week 7's public path is PA6a: implement causal self-attention, train a small Shakespeare Transformer, sample text, and compute perplexity; the live speech lecture remains an explicit source gap."
 description: "Stanford CS124 Winter 2026 Week 7: Transformers, causal self-attention, sampling, perplexity, PA6a, and the evidence boundary around the unrecorded speech lecture."
 draft: false

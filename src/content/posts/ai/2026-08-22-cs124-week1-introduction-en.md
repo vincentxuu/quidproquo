@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs124, stanford, nlp, llm, ai-course]
 lang: en
 series:
-  name: "Stanford CS124 導讀"
+  name: "Reading Stanford CS124"
   order: 2
 tldr: "CS124 Winter 2026 opens by mapping a ten-week path from tokenization and classification to retrieval, speech, networks, and LLMs, while PA0 establishes the Jupyter environment used throughout the quarter."
 description: "A week-by-week reading of Stanford CS124 Winter 2026 Week 1: scope, flipped-classroom design, the NLP component map, and PA0 setup."

@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 17
 tldr: "This lecture connects the dfa definition connects the first half of cs103 to regular means that some dfa exists, following the official examples and proof obligations."
 description: "A deck-aligned CS103 guide to the dfa definition connects the first half of cs103, regular means that some dfa exists, and the limits of the public lecture materials."

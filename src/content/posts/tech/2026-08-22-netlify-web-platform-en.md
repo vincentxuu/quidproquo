@@ -8,7 +8,7 @@ lang: en
 tldr: "Netlify centers on atomic deploys and previews, then adds Functions, Edge Functions, Blobs, and Database; each runtime and state layer has distinct consistency and limits."
 description: "Netlify atomic deploys, previews, Functions, Edge and Background Functions, Blobs, caches, and Vercel or Render tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 73
 draft: false
 ---

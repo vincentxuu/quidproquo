@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, pretraining, language-model, tokenization, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 8
 tldr: "Lecture 7 decomposes pretraining into scalable data, subword tokenization, three model objectives, and in-context learning. A general self-supervised objective yields reusable representations; downstream signals specify their use."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 7: BPE, decoder/encoder/encoder-decoder pretraining, and large models."

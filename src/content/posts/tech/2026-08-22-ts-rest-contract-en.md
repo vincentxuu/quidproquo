@@ -8,7 +8,7 @@ lang: en
 tldr: "ts-rest describes methods, paths, status codes, and schemas in a shared contract, providing end-to-end server and client types without a code-generation step."
 description: "ts-rest contracts, runtime validation, strict status codes, server adapters, clients, OpenAPI, and adoption boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 38
 draft: false
 ---

@@ -9,7 +9,7 @@ tldr: "There's no official certificate for being an 'AI top conference.' It's a 
 description: "Breaking down how 'AI top conference' status actually gets decided: the methodological differences and contradictions between CCF, CORE, and Google Scholar Metrics h5-index; five-year submission and acceptance trends across nine major conferences; the submission-to-decision review pipeline; what it means for academic tenure and industry hiring; and the latest controversy over reviewer-pool strain and AI-generated reviews."
 draft: false
 series:
-  name: "AI 頂會導讀"
+  name: "Reading AI Top Conferences"
   order: 1
 glossary:
   - term: "h5-index"

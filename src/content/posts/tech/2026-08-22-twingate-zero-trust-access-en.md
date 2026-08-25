@@ -8,7 +8,7 @@ lang: en
 tldr: "Twingate uses clients, connectors, a controller, and relays to narrow user authorization to specific resources; it is managed ZTNA rather than a general peer-to-peer overlay."
 description: "Twingate Resources, Remote Networks, Connectors, identity policies, peer-to-peer paths, relays, service access, and high availability."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 101
 draft: false
 ---

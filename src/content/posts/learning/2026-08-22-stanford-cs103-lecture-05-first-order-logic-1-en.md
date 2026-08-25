@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, first-order-logic]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 6
 tldr: "This lecture extends propositional logic into a language about objects: distinguish constants, predicates, functions, and propositions, then express some and every with existential and universal quantifiers."
 description: "A deck-aligned guide to constants, predicates, functions, equality, quantifiers, scope, precedence, and English-to-FOL translation in Stanford CS103 Spring 2026 Lecture 4."

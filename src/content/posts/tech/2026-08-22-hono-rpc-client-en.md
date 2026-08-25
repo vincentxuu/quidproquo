@@ -8,7 +8,7 @@ lang: en
 tldr: "Hono RPC exports a route's `typeof AppType` so `hc` can infer inputs, response bodies, and status codes. The shared artifact is a TypeScript type, not an independent wire schema."
 description: "Hono RPC route inference, validators, status unions, large-router performance, and OpenAPI and cross-language boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 40
 draft: false
 ---

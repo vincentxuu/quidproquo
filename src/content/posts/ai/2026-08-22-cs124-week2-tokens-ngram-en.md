@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, nlp, tokenization, language-model]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 3 }
+series: { name: "Reading Stanford CS124", order: 3 }
 tldr: "Week 2 builds three layers: a token vocabulary with BPE, sequence comparison with dynamic-programming edit distance, and probability approximation with n-grams; PA1 turns regex and BPE into executable work."
 description: "Stanford CS124 Winter 2026 Week 2: tokenization, BPE, minimum edit distance, n-gram language models, Lab 1, and PA1."
 draft: false

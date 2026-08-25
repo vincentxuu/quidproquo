@@ -8,7 +8,7 @@ lang: en
 tldr: "Fastify is more than benchmarks: plugin scopes, hooks, decorators, and compiled JSON Schema build composable Node.js APIs with explicit request and response contracts."
 description: "Fastify plugins, encapsulation, route schemas, validation, serialization, hooks, decorators, TypeScript, testing, and production boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 95
 draft: false
 ---

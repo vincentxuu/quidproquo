@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 29
 tldr: "The final deck reconnects proofs, graphs, automata, and computability, then maps those foundations to Stanford courses that use them."
 description: "A deck-specific CS103 wrap-up covering Spring 2026 logistics, the four course through-lines, and official next-course recommendations."

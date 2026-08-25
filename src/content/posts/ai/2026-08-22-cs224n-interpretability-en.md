@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, interpretability, human-centered-ai, ai-agent, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 16
 tldr: "Lecture 15 is Been Kim's interpretability guest session, but the Winter 2026 site publishes no slides or agenda. This article does not invent lecture content; it maps the five official readings across concept discovery, agentic investigation, and new vocabulary."
 description: "A material-gap record and official reading map for CS224N Winter 2026 Lecture 15: agentic interpretability, human-centered AI, concept discovery, and neologism learning."

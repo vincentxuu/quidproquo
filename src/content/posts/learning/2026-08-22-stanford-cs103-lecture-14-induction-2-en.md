@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 15
 tldr: "This lecture connects starting from ordinary induction to induction may start later, following the official examples and proof obligations."
 description: "A deck-aligned CS103 guide to starting from ordinary induction, induction may start later, and the limits of the public lecture materials."

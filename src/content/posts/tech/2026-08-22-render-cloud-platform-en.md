@@ -8,7 +8,7 @@ lang: en
 tldr: "Render's value exceeds turning a repository into a URL: distinct service types model public HTTP, private listeners, queue workers, cron, data stores, and Blueprint infrastructure."
 description: "Render Web and Private Services, Background Workers, Cron, Postgres and Key Value, persistent disks, Blueprints, networking, and deployment."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 74
 draft: false
 ---

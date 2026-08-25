@@ -8,7 +8,7 @@ lang: en
 tldr: "Nebius combines GPU VMs and clusters, Kubernetes, Slurm, storage, and Serverless AI; choose the responsibility layer before comparing hardware and price."
 description: "Nebius AI Cloud GPU compute, Managed Kubernetes, Soperator, storage, Serverless AI, identity, and portability."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 60
 draft: false
 ---

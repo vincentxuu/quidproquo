@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 11
 tldr: "This lecture moves from the formal definitions of graphs and digraphs to independent sets, vertex covers, and their complement relationship."
 description: "A deck-aligned guide to graphs, digraphs, independent sets, vertex covers, and the complement equivalence theorem."

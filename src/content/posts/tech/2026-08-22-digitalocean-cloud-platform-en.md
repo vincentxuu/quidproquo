@@ -8,7 +8,7 @@ lang: en
 tldr: "DigitalOcean covers common product architectures with Droplets, DOKS, Managed Databases, and App Platform; simplicity comes from a smaller surface, not from eliminating OS, network, backup, or HA design."
 description: "DigitalOcean Droplets, App Platform, DOKS, Managed Databases, VPCs, storage, and hyperscaler/PaaS tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 63
 draft: false
 ---

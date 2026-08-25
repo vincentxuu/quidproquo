@@ -8,7 +8,7 @@ lang: en
 tldr: "Railway is not merely one-click deployment; it puts container services, environments, variables, and private networking into one operable application project."
 description: "Railway Projects, Services, Environments, private networking, volumes, health checks, and their operational boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 75
 draft: false
 ---

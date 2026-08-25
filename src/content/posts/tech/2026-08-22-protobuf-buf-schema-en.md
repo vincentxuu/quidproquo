@@ -8,7 +8,7 @@ lang: en
 tldr: "Protobuf defines binary messages with stable field numbers; Buf adds modules, linting, remote plugins, generation, and breaking-change checks to govern those schemas."
 description: "Protobuf wire compatibility, presence, enums, Buf linting, generation, breaking rules, and registry boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 45
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Neon is serverless PostgreSQL; Turso Cloud currently follows the libSQL and SQLite-compatible path. Their compatibility boundaries are fundamentally different."
 description: "A comparison of Neon serverless Postgres and Turso Cloud's libSQL and SQLite path, covering branching, scale-to-zero, embedded replicas, database density, and Turso's 2026 Postgres project."
 series:
-  name: "AI-Era Technology Choices"
+  name: "Technology Choices in the AI Era"
   order: 125
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Kysely derives query results from database types while preserving SQL and escape hatches, but teams must still keep migrations, the live schema, and generated types aligned."
 description: "Kysely's type model, query composition, transactions, migrations, raw SQL boundaries, and tradeoffs against an ORM."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 47
 draft: false
 ---

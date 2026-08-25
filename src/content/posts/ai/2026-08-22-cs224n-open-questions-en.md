@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, reasoning, small-language-model, synthetic-data, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 20
 tldr: "The final lecture frames Open Questions in NLP 2026 as smart scaling: prolonged RL, Prismatic synthetic data, RL as pretraining, and open collaboration seek reasoning gains beyond adding parameters."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 19: ProRL, Prismatic Synthesis, RL as pretraining, OpenThoughts, and open reasoning questions."

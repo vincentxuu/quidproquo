@@ -6,7 +6,7 @@ type: guide
 tags: [cs224n, nlp, research-project, transformer, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 7
 tldr: "Lecture 6 completes the Transformer picture with encoders, decoders, and cross-attention, then breaks the final project into formats, assessment, research topics, and data. A viable topic needs one explicit baseline and metric."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 6: Transformer review, custom/default projects, and choosing a topic and dataset."

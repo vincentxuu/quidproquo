@@ -8,7 +8,7 @@ lang: en
 tldr: "Django combines data models, migrations, authentication, admin, forms, and security defaults into one system; using it well still requires understanding QuerySets, middleware, async boundaries, and production settings."
 description: "Django projects and apps, ORM and migrations, admin, auth, middleware, ASGI async, secure deployment, and API-first framework trade-offs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 97
 draft: false
 ---

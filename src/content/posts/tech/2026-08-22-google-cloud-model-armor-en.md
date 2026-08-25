@@ -8,7 +8,7 @@ lang: en
 tldr: "Model Armor can inspect prompt injection, jailbreaks, sensitive data, malicious URLs, and unsafe content at runtime; it is a probabilistic detector, not an authorization or sandbox boundary."
 description: "Google Cloud Model Armor templates, input and output filters, confidence thresholds, Sensitive Data Protection, floor settings, logging, failure modes, and agent boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 119
 draft: false
 ---

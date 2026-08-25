@@ -8,7 +8,7 @@ lang: en
 tldr: "Vite 8 replaces the esbuild-for-development and Rollup-for-production split with Rolldown. Speed is the visible result; consistent bundler semantics across development and production are the deeper change."
 description: "How Vite 8's Rolldown architecture works, what to verify during migration, and what the unified pipeline means for frontend teams and coding agents."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 21
 draft: false
 ---

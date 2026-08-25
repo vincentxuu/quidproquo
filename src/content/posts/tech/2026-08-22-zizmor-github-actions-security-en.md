@@ -8,7 +8,7 @@ lang: en
 tldr: "zizmor performs domain-specific static analysis on workflow and action YAML for template injection, broad permissions, artifact credential leaks, and unpinned uses; it does not analyze called shell scripts."
 description: "zizmor audits, GitHub Actions expression injection, permissions, SHA pinning, artipacked, online and offline modes, autofix, and CI integration."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 117
 draft: false
 ---

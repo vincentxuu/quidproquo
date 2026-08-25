@@ -8,7 +8,7 @@ lang: en
 tldr: "OVHcloud combines Public Cloud, OpenStack APIs, Managed Kubernetes, vRack, and dedicated or private cloud; that flexibility also creates more networking and responsibility boundaries."
 description: "OVHcloud Public Cloud instances, OpenStack, MKS, vRack, storage, databases, dedicated servers, and European-cloud decisions."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 68
 draft: false
 ---

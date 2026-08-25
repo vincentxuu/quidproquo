@@ -8,7 +8,7 @@ lang: en
 tldr: "DigitalOcean App Platform composes Services, Workers, Jobs, Static Sites, and Functions into an App, with an App Spec as the reviewable deployment contract."
 description: "DigitalOcean App Platform components, App Specs, builds, routing, health checks, autoscaling, and state boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 79
 draft: false
 ---

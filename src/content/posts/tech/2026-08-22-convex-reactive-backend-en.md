@@ -8,7 +8,7 @@ lang: en
 tldr: "Convex combines typed backend functions, a transactional document database, and reactive query subscriptions; correctness depends on separating deterministic mutations from side-effecting actions."
 description: "Convex schemas, queries, mutations, actions, reactive subscriptions, authorization, scheduling, and self-hosting boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 87
 draft: false
 ---

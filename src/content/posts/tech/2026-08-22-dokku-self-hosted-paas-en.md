@@ -8,7 +8,7 @@ lang: en
 tldr: "Dokku combines a Git receiver, buildpacks or Dockerfiles, process models, Nginx, and plugins for a single-host Heroku workflow; simplicity comes from narrow orchestration scope."
 description: "Dokku application deployment, buildpacks, process scaling, proxies, plugins, storage, backups, and single-host responsibility."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 83
 draft: false
 ---

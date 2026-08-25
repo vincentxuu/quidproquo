@@ -8,7 +8,7 @@ lang: en
 tldr: "SSE sends text/event-stream over ordinary HTTP, with browser reconnection and Last-Event-ID; simple transport is not durable unless the server retains events behind that cursor."
 description: "EventSource, text/event-stream, event IDs, retry, replay, authentication, proxy buffering, heartbeats, and SSE versus WebSocket."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 105
 draft: false
 ---

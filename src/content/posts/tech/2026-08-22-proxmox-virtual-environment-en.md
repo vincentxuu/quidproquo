@@ -8,7 +8,7 @@ lang: en
 tldr: "Proxmox VE integrates VMs, containers, clusters, HA, storage, and backup; it simplifies virtualization management while hardware, quorum, networks, capacity, and DR remain yours."
 description: "Proxmox VE KVM and LXC, cluster quorum, HA, Ceph, storage, backups, networking, and homelab or enterprise on-premises decisions."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 70
 draft: false
 ---

@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, embeddings, social-nlp, nlp]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 6 }
+series: { name: "Reading Stanford CS124", order: 6 }
 tldr: "Week 5's public materials support the distributional hypothesis, word embeddings, and cosine similarity; the paired Social NLP lecture is unrecorded and restricted, so concrete audit methods are labeled as author extensions."
 description: "Stanford CS124 Winter 2026 Week 5: distributional hypothesis, word embeddings, cosine similarity, representation learning, Social NLP, and PA4."
 draft: false

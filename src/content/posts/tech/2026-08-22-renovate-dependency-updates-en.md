@@ -8,7 +8,7 @@ lang: en
 tldr: "Renovate is more than an update-PR bot: packageRules, grouping, schedules, minimum release age, and automerge policy determine update speed, review noise, and supply-chain exposure."
 description: "Renovate managers, datasources, packageRules, presets, Dependency Dashboard, grouping, automerge, lockfile maintenance, and secure update strategy."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 115
 draft: false
 ---

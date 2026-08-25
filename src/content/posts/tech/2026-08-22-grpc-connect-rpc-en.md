@@ -8,7 +8,7 @@ lang: en
 tldr: "gRPC generates cross-language stubs from Protobuf services. A Connect server can support gRPC, gRPC-Web, and the Connect protocol together, avoiding a translating proxy for browsers."
 description: "gRPC and Connect IDLs, transports, streaming, browsers, HTTP infrastructure, errors, and selection boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 44
 draft: false
 ---

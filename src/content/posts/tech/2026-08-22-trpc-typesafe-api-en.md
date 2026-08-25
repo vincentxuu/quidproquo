@@ -8,7 +8,7 @@ lang: en
 tldr: "tRPC lets a client reference the server router type without a separate schema or code generation. Version 11 also has an official, alpha-stage OpenAPI 3.1 generator."
 description: "tRPC procedures, routers, validators, client links, HTTP wire format, and the boundary between TypeScript monorepos and cross-language APIs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 36
 draft: false
 ---

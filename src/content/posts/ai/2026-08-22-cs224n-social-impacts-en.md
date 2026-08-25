@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, ai-safety, hallucination, alignment, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 17
 tldr: "Lecture 16 divides NLP's social impact into four questions: why models hallucinate, why AI-assisted creativity may homogenize output, how work is reorganized, and why value alignment cannot be reduced to one reward."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 16: hallucination, AI-assisted creativity, workforce effects, and value alignment."

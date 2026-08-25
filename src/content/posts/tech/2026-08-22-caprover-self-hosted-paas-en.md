@@ -8,7 +8,7 @@ lang: en
 tldr: "CapRover wraps Docker Swarm, Nginx, and captain-definition in a simpler PaaS; stateless apps scale, while local persistent apps remain pinned to one node."
 description: "CapRover deployment, Docker Swarm, Nginx, scaling, persistent apps, registries, backups, and recovery limitations."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 82
 draft: false
 ---

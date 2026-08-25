@@ -6,7 +6,7 @@ tags: [cs224v, stanford, agent-evaluation, task-oriented-dialogue, genie]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 5
 tldr: "CS224V splits task-agent evaluation into state updates and complete interaction: isolate the semantic parser, then test task completion, grounded queries, and valid actions with real users."
 description: "CS224V Evaluation of Task-Oriented Agents: architecture comparison, Worksheets versus state machines, two-part evaluation, STARv2, and real-user testing."

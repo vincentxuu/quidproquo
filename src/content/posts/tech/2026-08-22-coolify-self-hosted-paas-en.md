@@ -8,7 +8,7 @@ lang: en
 tldr: "Coolify controls Docker, proxies, and resources on your servers over SSH; deployment gets easier, but OS, security, capacity, data backup, and recovery remain yours."
 description: "Coolify's control plane, connected servers, resources, reverse proxy, builds, backups, availability, and self-hosting responsibility."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 80
 draft: false
 ---

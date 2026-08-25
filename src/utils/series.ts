@@ -115,6 +115,30 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai-era-tech-choices',
+    names: { 'zh-TW': 'AI 時代的技術選擇', en: 'Technology Choices in the AI Era' },
+    descriptions: {
+      'zh-TW': '以採用度為主判準，輔以 AI 時代新增的五條判準（文件機器可讀性、型別、原始碼在不在 repo、資料骨架、機器可呼叫性），整理從前端到後端、從雲端到自架的技術選型。',
+      en: 'Adoption remains the primary criterion, augmented by five AI-era criteria — machine-readable docs, types, source-in-repo, data skeleton, and machine-callability — from frontend to backend, cloud to self-hosted.',
+    },
+  },
+  {
+    slug: 'ai-top-conferences',
+    names: { 'zh-TW': 'AI 頂會導讀', en: 'Reading AI Top Conferences' },
+    descriptions: {
+      'zh-TW': '拆解「AI 頂會」怎麼被認定、投稿與審稿如何運作，以及各領域頂會的定位與爭議。',
+      en: 'How AI top conferences are recognized, how submissions and review work, and how the flagship venues differ.',
+    },
+  },
+  {
+    slug: 'ai-daily',
+    names: { 'zh-TW': 'AI 日報', en: 'AI Daily' },
+    descriptions: {
+      'zh-TW': '每日 AI 動態速覽。',
+      en: 'A daily digest of AI developments.',
+    },
+  },
+  {
     // slug 沿用先前 fallback 產生的 'agent'，改名會動到已發佈的 URL
     slug: 'agent',
     names: { 'zh-TW': 'Agent 生產線', en: 'The Agent Production Line' },

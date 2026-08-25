@@ -8,7 +8,7 @@ lang: en
 tldr: "Teleport is a protocol-aware infrastructure access platform: its Auth Service signs short-lived credentials, while Proxies and Agents mediate SSH, Kubernetes, database, and app access with audit evidence."
 description: "Teleport Auth and Proxy Services, Agents, short-lived certificates, RBAC, access requests, session recording, and workload identity."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 102
 draft: false
 ---

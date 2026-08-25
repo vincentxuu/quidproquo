@@ -8,7 +8,7 @@ lang: en
 tldr: "Xinference wraps vLLM, SGLang, llama.cpp, Transformers, and MLX under a single management layer, using a Web UI and OpenAI-compatible API to manage LLMs, embedding, rerank, speech, and image models — suited for self-hosted deployments that need multiple model types to coexist. But the management layer's parsing logic also creates a larger attack surface than pure serving engines (CVE-2026-61539 is a case study)."
 description: "A deep dive into Xinference (Xorbits Inference) architecture: multi-backend engine selection, built-in model registry, supervisor-worker distributed deployment, API compatibility layer, and how it compares to vLLM, Ollama, and Triton."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 128
 draft: false
 ---

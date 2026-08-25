@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, rag, ai-agent, tool-use, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 11
 tldr: "Lecture 10 moves from question answering and RAG into language agents, then decomposes them into reasoning and planning, memory, tools, data, and evaluation. An agent is an inspectable loop between a model and external state."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 10: QA/RAG, language agents, planning, memory, tools, and evaluation."

@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cs124, stanford, pagerank, social-network, graph]
 lang: en
-series: { name: "Stanford CS124 導讀", order: 11 }
+series: { name: "Reading Stanford CS124", order: 11 }
 tldr: "Week 10 models the Web with anchor text, PageRank, and centrality; post-training, multilinguality, and speech belong only to a public final-deck outline labeled 2025, not the 2026 live narration."
 description: "Stanford CS124 Winter 2026 Week 10: web graphs, anchor text, PageRank, centrality, clustering, power laws, and the public final-lecture agenda."
 draft: false

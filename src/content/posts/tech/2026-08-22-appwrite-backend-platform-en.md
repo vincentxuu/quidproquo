@@ -8,7 +8,7 @@ lang: en
 tldr: "Appwrite combines Auth, TablesDB, Storage, Functions, Realtime, and Messaging behind consistent APIs; Cloud and self-hosted products resemble each other but have different operational ownership."
 description: "Appwrite Auth, permissions, TablesDB, Storage, Functions, Realtime, Cloud, and self-hosting boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 86
 draft: false
 ---

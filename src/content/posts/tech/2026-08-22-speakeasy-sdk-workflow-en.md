@@ -8,7 +8,7 @@ lang: en
 tldr: "Speakeasy records OpenAPI, Overlays, targets, and generator versions in `.speakeasy/workflow.yaml`, enabling local or CI generation, compilation, and publishing of multi-language SDKs."
 description: "Speakeasy sources, Overlays, workflows, targets, customization, MCP generation, and governance boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 43
 draft: false
 ---

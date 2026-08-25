@@ -6,7 +6,7 @@ tags: [cs224v, stanford, knowledge-graph, sparql, agentic-ai]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 11
 tldr: "SPINACH does not guess complete SPARQL in one shot. It searches entities and properties, inspects Wikidata entries and examples, executes small queries, and composes a final query under explicit action and stopping rules."
 description: "CS224V Agentic AI for Knowledge Base Queries: Wikidata and SPARQL challenges, parsing baselines, SPINACH actions, loop control, datasets, and evaluation."

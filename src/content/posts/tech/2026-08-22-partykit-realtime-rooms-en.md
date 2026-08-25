@@ -8,7 +8,7 @@ lang: en
 tldr: "PartyKit concentrates WebSocket coordination in room-keyed stateful servers for multiplayer and presence, while durable documents, authorization, hibernation, and platform ownership still need explicit design."
 description: "PartyKit parties, rooms, WebSocket servers, broadcast, storage, hibernation, Yjs integration, authentication, and deployment boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 106
 draft: false
 ---

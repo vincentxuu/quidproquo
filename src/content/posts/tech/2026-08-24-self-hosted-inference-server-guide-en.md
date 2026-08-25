@@ -8,7 +8,7 @@ lang: en
 tldr: "Self-hosted inference servers fall into three layers: execution engine (llama.cpp), serving engine (vLLM, SGLang), and model management platform (Ollama, Xinference, Triton). Picking the right layer matters more than picking the right tool — ask where your bottleneck is before deciding where to add complexity."
 description: "A three-layer framework for choosing among llama.cpp, Ollama, vLLM, SGLang, Triton Inference Server, Ray Serve, and Xinference — helping you locate your actual needs and avoid common mis-layering mistakes."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 127
 draft: false
 ---

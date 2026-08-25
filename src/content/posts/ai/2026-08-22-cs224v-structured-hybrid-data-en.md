@@ -6,7 +6,7 @@ tags: [cs224v, stanford, semantic-parsing, database, hybrid-retrieval]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 7
 tldr: "Reliable database agents map language to executable queries, resolve schemas and enumerated values, and evaluate execution separately from answer generation; hybrid questions additionally require explicit source routing."
 description: "CS224V Structured and Hybrid Data: NL-to-SQL, schemas, enumerated values, execution evaluation, and retrieval across text, tables, and knowledge graphs."

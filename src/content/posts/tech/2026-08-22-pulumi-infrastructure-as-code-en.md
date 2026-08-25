@@ -8,7 +8,7 @@ lang: en
 tldr: "Pulumi lets general-purpose programs register cloud resources for a deployment engine, providers, and stack state to preview and update; greater language power demands stronger abstraction discipline."
 description: "Pulumi projects, stacks, providers, Inputs and Outputs, components, preview and up, state backends, secrets, drift, and Automation API."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 92
 draft: false
 ---

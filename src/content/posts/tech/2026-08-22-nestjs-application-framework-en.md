@@ -8,7 +8,7 @@ lang: en
 tldr: "NestJS is valuable not for decorators alone, but for Modules, Providers, DI, and a predictable pipeline across HTTP, GraphQL, WebSocket, and microservice architectures."
 description: "NestJS controllers, providers, modules, DI scopes, pipes, guards, interceptors, filters, adapters, testing, and selection boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 94
 draft: false
 ---

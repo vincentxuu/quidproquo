@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, graph-theory, pigeonhole-principle, ramsey-theory]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 13
 tldr: "Use the generalized pigeonhole principle to force a monochromatic triangle at a six-person party, then solve a movie-preference puzzle through average load and contradiction."
 description: "A deck-faithful guide to Stanford CS103 Graph Theory Part Three: generalized pigeonhole, Ramsey theory, Sim, and average-load proofs."

@@ -8,7 +8,7 @@ lang: en
 tldr: "App Runner packages build, deployment, TLS, load balancing, and autoscaling as a web service, trading orchestration control for a simpler platform with explicit VPC, instance, and health boundaries."
 description: "AWS App Runner source and image deployment, autoscaling, health checks, VPC connectivity, observability, and tradeoffs against Fargate and Lambda."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 52
 draft: false
 ---

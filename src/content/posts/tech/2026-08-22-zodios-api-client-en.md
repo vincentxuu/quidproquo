@@ -8,7 +8,7 @@ lang: en
 tldr: "Zodios uses a central Zod endpoint definition for Axios client types, runtime validation, and aliases, with optional Express and OpenAPI packages."
 description: "Zodios definitions, client validation, plugins, server and OpenAPI support, and maintenance tradeoffs against ts-rest and oRPC."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 39
 draft: false
 ---

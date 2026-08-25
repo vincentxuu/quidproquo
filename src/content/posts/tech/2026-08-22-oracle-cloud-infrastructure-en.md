@@ -8,7 +8,7 @@ lang: en
 tldr: "OCI is a full hyperscale cloud; architecture starts with tenancy and compartment IAM, region/AD/fault domains, and VCNs before selecting Compute, OKE, databases, and storage."
 description: "Oracle OCI tenancy, compartments, IAM policies, regions and availability and fault domains, VCNs, Compute, OKE, databases, and HA."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 69
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Cloud Run is more than an HTTP container platform: choose request-serving, run-to-completion, or always-on pull work first, then design concurrency, identity, and scaling."
 description: "Google Cloud Run services, jobs, worker pools, container contracts, concurrency, revisions, networking, and GKE tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 53
 draft: false
 ---

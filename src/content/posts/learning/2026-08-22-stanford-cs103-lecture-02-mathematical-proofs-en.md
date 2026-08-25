@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 3
 tldr: "The even-square and odd-sum examples show how arbitrary choices, assumptions, witnesses, and a want-to-show become a checkable direct proof."
 description: "A deck-aligned guide to CS103 Mathematical Proofs: even and odd definitions, universal implications, algebraic witnesses, and proof-writing discipline."

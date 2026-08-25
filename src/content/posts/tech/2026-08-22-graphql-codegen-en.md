@@ -8,7 +8,7 @@ lang: en
 tldr: "A GraphQL schema defines available capabilities; GraphQL Code Generator combines it with actual queries, mutations, and fragments to emit precise results, variables, and typed documents."
 description: "GraphQL schemas, operation-level codegen, client preset, resolver types, schema evolution, authorization, and AI-agent boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 46
 draft: false
 ---

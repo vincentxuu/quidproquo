@@ -8,7 +8,7 @@ lang: en
 tldr: "Hatchet unifies regular tasks, DAGs, and durable tasks behind a Postgres-backed control plane. Durable tasks checkpoint at waits and child tasks, then replay deterministic orchestration code on recovery."
 description: "Hatchet task queues, DAGs, durable tasks, checkpoints, workers, self-hosting, and boundaries for AI agents."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 35
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "WireGuard is a small, explicit layer-3 encrypted tunnel that binds public keys, peers, and AllowedIPs, but it does not supply identity, device management, or a policy control plane."
 description: "WireGuard cryptokey routing, AllowedIPs, roaming, NAT, key distribution, routing, and enterprise access boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 98
 draft: false
 ---

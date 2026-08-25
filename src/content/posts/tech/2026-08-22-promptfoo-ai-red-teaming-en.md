@@ -8,7 +8,7 @@ lang: en
 tldr: "Promptfoo plugins generate risk probes, strategies transform attacks, targets execute the system, and graders judge outcomes; useful red teams exercise the full agent application rather than only a foundation model."
 description: "Promptfoo red-team plugins, strategies, targets, graders, agent, RAG and MCP testing, remote generation, CI baselines, false positives, and secure data handling."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 120
 draft: false
 ---

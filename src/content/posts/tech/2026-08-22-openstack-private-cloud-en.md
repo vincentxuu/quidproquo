@@ -8,7 +8,7 @@ lang: en
 tldr: "OpenStack combines Keystone, Nova, Neutron, Glance, Placement, Cinder, and other services into multi-tenant IaaS; adopting it means staffing a cloud platform team, not finishing an installation."
 description: "OpenStack core services, control and data planes, deployment tooling, multi-tenancy, HA, upgrades, and Proxmox or hyperscaler tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 71
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Firebase moves quickly because client SDKs directly access managed Auth, Firestore, and Storage; the real backend contract lives in data models, Security Rules, Functions, and cost limits."
 description: "Firebase Authentication, Firestore, Realtime Database, Cloud Functions, Security Rules, Emulator Suite, and selection tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 85
 draft: false
 ---

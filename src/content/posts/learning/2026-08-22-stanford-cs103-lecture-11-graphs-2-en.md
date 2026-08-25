@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, graph-theory, pigeonhole-principle, discrete-mathematics]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 12
 tldr: "Starting with walks, paths, cycles, and components, this lecture proves that a graph or its complement is connected and develops the pigeonhole principle through degrees and monochromatic triangles."
 description: "A deck-faithful guide to Stanford CS103 Graph Theory Part Two: reachability, graph complements, pigeonhole arguments, and an introduction to Ramsey theory."

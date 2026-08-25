@@ -8,7 +8,7 @@ lang: en
 tldr: "Elysia connects runtime schemas, TypeScript inference, OpenAPI, and Eden clients into one contract pipeline, but Bun-first performance, plugin scope, and cross-runtime compatibility still require separate verification."
 description: "Elysia schemas, lifecycle, plugin scope, macros, Eden Treaty, OpenAPI, Bun and Node adapters, and production selection boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 96
 draft: false
 ---

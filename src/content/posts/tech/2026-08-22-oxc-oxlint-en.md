@@ -8,7 +8,7 @@ lang: en
 tldr: "Oxlint has grown from a fast ESLint companion into a standalone linter with type-aware rules and JavaScript plugins. Migration depends on rule, framework-file, and plugin compatibility—not only a 50–100x benchmark."
 description: "The Oxc compiler stack, Oxlint's type-aware architecture, a staged ESLint migration, and the cases where ESLint should remain."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 23
 draft: false
 ---

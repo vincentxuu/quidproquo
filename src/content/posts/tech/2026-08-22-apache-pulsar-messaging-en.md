@@ -8,7 +8,7 @@ lang: en
 tldr: "Pulsar separates serving from storage: stateless brokers handle connections while BookKeeper stores ledgers and subscription cursors. Elasticity and multi-tenancy come with more operational components."
 description: "Apache Pulsar's broker/BookKeeper architecture, subscriptions, geo-replication, tiered storage, and selection against Kafka."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 29
 draft: false
 ---

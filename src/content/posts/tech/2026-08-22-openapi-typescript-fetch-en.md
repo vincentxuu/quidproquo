@@ -8,7 +8,7 @@ lang: en
 tldr: "openapi-typescript converts OpenAPI 3.0 and 3.1 into pure TypeScript types; openapi-fetch then infers methods, literal paths, parameters, and response unions from that schema."
 description: "openapi-typescript, openapi-fetch, runtime-validation boundaries, CI schema diffs, and appropriate use cases."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 41
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Replicate abstracts GPUs behind versioned models, predictions, Cog, and deployments; integrators still own version pinning, async workflows, webhook verification, data persistence, and spending limits."
 description: "Replicate public and custom models, Cog, prediction lifecycle, deployments, webhooks, data retention, and self-hosted inference tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 62
 draft: false
 ---

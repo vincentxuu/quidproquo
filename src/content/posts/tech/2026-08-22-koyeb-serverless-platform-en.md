@@ -8,7 +8,7 @@ lang: en
 tldr: "Koyeb groups Services in Apps, runs revisions as Instances in selected regions, and integrates global routing, autoscaling, private discovery, and CPU or GPU compute."
 description: "Koyeb Apps, Services, Instances, deployments, regions, autoscaling, scale-to-zero, networking, and storage boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 77
 draft: false
 ---

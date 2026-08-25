@@ -8,7 +8,7 @@ lang: en
 tldr: "oRPC supports implementation-first and contract-first APIs, offers an RPC client, and can expose the same router through OpenAPI 3.1.1 HTTP endpoints."
 description: "oRPC procedures, Standard Schema, RPCHandler, OpenAPIHandler, contract-first development, and cross-runtime tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 37
 draft: false
 ---

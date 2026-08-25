@@ -8,7 +8,7 @@ lang: en
 tldr: "The new Deno Deploy runs application revisions on Deno 2; understand it through timelines, contexts, databases, and telemetry rather than Deploy Classic assumptions."
 description: "The new Deno Deploy Application, Revision, Timeline, Context, Cron, database, region model, and Classic migration boundary."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 78
 draft: false
 ---

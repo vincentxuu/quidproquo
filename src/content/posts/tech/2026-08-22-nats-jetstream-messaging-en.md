@@ -8,7 +8,7 @@ lang: en
 tldr: "Core NATS is storage-free, at-most-once pub/sub. JetStream adds streams, consumers, acknowledgments, retention, and replay. They share subjects but expose fundamentally different reliability contracts."
 description: "Core NATS subjects, queue groups, and request-reply; JetStream persistence and consumers; and practical selection against Kafka and RabbitMQ."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 27
 draft: false
 ---

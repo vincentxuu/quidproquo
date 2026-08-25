@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, nlp, stanford, deep-learning]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 2
 tldr: "Winter 2026 Lecture 1 divides NLP into four eras: early exploration, symbolic systems, statistical machine learning, and deep/self-supervised learning. The point is not the dates but how each era redefined the language problem."
 description: "A lecture-by-lecture reading of Stanford CS224N Winter 2026 Lecture 1: course goals, four eras of NLP, and the limits of the public material."

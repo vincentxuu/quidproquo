@@ -8,7 +8,7 @@ lang: en
 tldr: "Semgrep lets teams express SAST policy with source-like patterns and taint rules; rule quality depends on positive and negative tests, framework modeling, and exception lifecycle."
 description: "Semgrep pattern rules, metavariables, taint mode, SAST, SCA, secrets, diff-aware CI, custom rules, nosemgrep, and rollout."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 113
 draft: false
 ---

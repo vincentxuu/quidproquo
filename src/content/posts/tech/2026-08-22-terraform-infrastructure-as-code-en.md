@@ -8,7 +8,7 @@ lang: en
 tldr: "Terraform compares provider schemas, configuration, state, and real APIs to create a plan and apply it; controlled state and change workflow matter more than HCL itself."
 description: "Terraform providers, resources, modules, plan and apply, state backends, locking, drift, import, secrets, and team workflows."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 91
 draft: false
 ---

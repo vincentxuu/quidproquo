@@ -8,7 +8,7 @@ lang: en
 tldr: "CoreWeave is more than rented GPUs: it combines Kubernetes, GPU networking, storage, and inference into AI infrastructure, while platform engineering and capacity governance remain yours."
 description: "CoreWeave Kubernetes Service, Slurm, storage, serverless and dedicated inference, and tradeoffs against hyperscalers and model APIs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 57
 draft: false
 ---

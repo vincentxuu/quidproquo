@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, peft, lora, prompting, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 10
 tldr: "Lecture 9 compares prompting, pruning, LoRA, prompt tuning, and adapters. Each asks the same question: how many parameters must change, and how much task-specific state must be stored, to adapt a large pretrained model?"
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 9: DPO wrap-up, prompting, PEFT, pruning, LoRA, prompt tuning, and adapters."

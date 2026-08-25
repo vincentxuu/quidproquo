@@ -8,7 +8,7 @@ lang: en
 tldr: "SST v3 composes cloud resources through TypeScript, high-level app components, Pulumi and Terraform providers, and resource linking; it is application-first IaC, not a hosted PaaS."
 description: "SST v3 components, providers, resource linking, stages, dev mode, state home, secrets, removal, and v2 migration boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 93
 draft: false
 ---

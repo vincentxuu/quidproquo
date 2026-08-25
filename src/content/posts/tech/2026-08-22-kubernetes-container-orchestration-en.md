@@ -8,7 +8,7 @@ lang: en
 tldr: "Kubernetes is fundamentally API objects, controllers, and reconciliation loops—not YAML; it manages workload lifecycles without solving application state, data consistency, or organizational governance."
 description: "Kubernetes control planes, Pods, Deployments, Services, ConfigMaps, Secrets, probes, autoscaling, storage, and selection boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 90
 draft: false
 ---

@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 26
 tldr: "This lecture connects defining and locating halt to why halt is recognizable, following the official examples and proof obligations."
 description: "A deck-aligned CS103 guide to defining and locating halt, why halt is recognizable, and the limits of the public lecture materials."

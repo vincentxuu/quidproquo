@@ -8,7 +8,7 @@ lang: en
 tldr: "Hetzner Cloud offers lean IaaS through servers, networks, volumes, load balancers, and firewalls; its price advantage is real only after patches, HA, backups, egress, and on-call are counted."
 description: "Hetzner Cloud Servers, private networks, volumes, load balancers, firewalls, backups, placement groups, and self-hosting responsibilities."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 64
 draft: false
 ---

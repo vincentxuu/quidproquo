@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, neural-network, backpropagation, nlp, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 4
 tldr: "Lecture 3 decomposes neural-network training into computation graphs, local derivatives, and the chain rule: the forward pass computes a result; backprop accumulates gradients from the output so every parameter knows how to move."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 3: neurons, matrix calculus, computation graphs, and backpropagation."

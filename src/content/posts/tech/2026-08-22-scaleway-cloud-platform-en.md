@@ -8,7 +8,7 @@ lang: en
 tldr: "Scaleway now spans compute, Kapsule, serverless, databases, storage, AI, and IAM rather than only low-cost VMs; maturity and integration still require per-region verification."
 description: "Scaleway Instances, Elastic Metal, Kapsule and Kosmos, Serverless Containers and Jobs, databases, VPCs, IAM, and European data governance."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 67
 draft: false
 ---

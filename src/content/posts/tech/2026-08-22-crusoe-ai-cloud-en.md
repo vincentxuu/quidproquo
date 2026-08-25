@@ -8,7 +8,7 @@ lang: en
 tldr: "Crusoe offers both Infrastructure Cloud and Managed AI: GPU VMs and clusters provide control, while serverless and dedicated inference provide higher abstractions with different responsibilities."
 description: "Crusoe GPU VMs, CMK, Slurm, InfiniBand, ephemeral storage, Managed AI inference, and AI-cloud selection."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 61
 draft: false
 ---

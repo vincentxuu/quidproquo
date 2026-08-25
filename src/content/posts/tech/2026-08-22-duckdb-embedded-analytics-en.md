@@ -8,7 +8,7 @@ lang: en
 tldr: "DuckDB is an in-process columnar OLAP database for Parquet, CSV, and DataFrames, not a conventional multi-user OLTP server for web applications."
 description: "An introduction to DuckDB's embedded, vectorized, columnar design, Parquet pushdown, ingestion, and concurrency boundaries, compared with SQLite and warehouses."
 series:
-  name: "AI-Era Technology Choices"
+  name: "Technology Choices in the AI Era"
   order: 124
 draft: false
 ---

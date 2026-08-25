@@ -8,7 +8,7 @@ lang: en
 tldr: "gitleaks scans files or Git patches with rules, regexes, entropy, and allowlists; after a finding, revoke and rotate first rather than merely deleting a file or rewriting history."
 description: "gitleaks git, dir, and stdin modes, rules, allowlists, baselines, pre-commit, CI, redaction, history scanning, and incident response."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 116
 draft: false
 ---

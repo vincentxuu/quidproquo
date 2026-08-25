@@ -8,7 +8,7 @@ lang: en
 tldr: "RunPod Pods fit interactive and persistent GPU work, while Serverless fits queued or load-balanced inference; choosing incorrectly mixes persistence, cold starts, and retry semantics."
 description: "RunPod Pods, network volumes, Serverless queue and load-balancing endpoints, worker scaling, cold starts, and production boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 59
 draft: false
 ---

@@ -8,7 +8,7 @@ lang: en
 tldr: "Redpanda reimplements a Kafka-compatible event log with C++/Seastar, thread-per-core execution, and a Raft group per partition. Client compatibility is broad, but operational and edge semantics still require testing."
 description: "Redpanda's Kafka API, Raft, thread-per-core model, tiered storage, and migration boundaries, including when to replace or retain Kafka."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 28
 draft: false
 ---

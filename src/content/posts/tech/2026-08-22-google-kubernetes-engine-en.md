@@ -8,7 +8,7 @@ lang: en
 tldr: "GKE manages the Kubernetes control plane and Autopilot manages most node infrastructure, while workloads, policy, networking, upgrade compatibility, and cost governance remain yours."
 description: "GKE Autopilot and Standard, shared responsibility, Workload Identity, requests and limits, upgrades, and Cloud Run tradeoffs."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 54
 draft: false
 ---

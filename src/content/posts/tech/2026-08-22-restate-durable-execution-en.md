@@ -8,7 +8,7 @@ lang: en
 tldr: "Restate journals operations and results, then re-executes handlers while skipping completed work. Virtual Objects and Workflows add keyed state, single-writer semantics, and long-lived coordination."
 description: "Restate journal replay, durable steps, Services, Virtual Objects, Workflows, deployment, and boundaries for AI agents."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 34
 draft: false
 ---

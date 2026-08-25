@@ -8,7 +8,7 @@ lang: en
 tldr: "MongoDB fits aggregate-oriented data and evolving documents; the hard decisions are embedding, transaction boundaries, indexes, and shard keys."
 description: "An introduction to MongoDB documents, embedding, references, transactions, indexes, replica sets, and sharding, including when not to choose NoSQL."
 series:
-  name: "AI-Era Technology Choices"
+  name: "Technology Choices in the AI Era"
   order: 123
 draft: false
 ---

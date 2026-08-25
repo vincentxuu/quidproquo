@@ -6,7 +6,7 @@ tags: [cs224v, stanford, language-model, data-efficiency, synthetic-data]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 15
 tldr: "The final lecture is not a complete LLM-training tutorial. It studies data efficiency under fixed data and abundant compute, revisiting epochs, batches, ensembles, self-training, and conditions for synthetic continued pretraining."
 description: "CS224V Training LLMs and Data-Efficient Language Modeling: data bottlenecks, finite-data pretraining, ensembles, self-training, synthetic continued pretraining, and limits."

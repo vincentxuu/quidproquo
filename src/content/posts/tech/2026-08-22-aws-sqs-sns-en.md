@@ -8,7 +8,7 @@ lang: en
 tldr: "SQS is a pull-based durable queue and SNS is a push-based topic. Reliable fan-out commonly connects one SNS topic to multiple SQS queues rather than sharing one queue across services."
 description: "SQS Standard and FIFO queues, visibility timeouts and DLQs, plus SNS fan-out, filtering, and the correct composition of both services."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 31
 draft: false
 ---

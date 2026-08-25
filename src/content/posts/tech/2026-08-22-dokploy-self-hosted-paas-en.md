@@ -8,7 +8,7 @@ lang: en
 tldr: "Dokploy supports single-container Applications and Compose or Stack, while treating one host, independent remote servers, and a Swarm cluster as distinct topologies."
 description: "Dokploy Applications, Docker Compose, Traefik, previews, remote and build servers, Swarm, volume backups, and security boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 81
 draft: false
 ---

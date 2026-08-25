@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 16
 tldr: "This lecture connects why begin with a weak computer to from device behavior to a state machine, following the official examples and proof obligations."
 description: "A deck-aligned CS103 guide to why begin with a weak computer, from device behavior to a state machine, and the limits of the public lecture materials."

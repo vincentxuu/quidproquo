@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, mathematical-induction]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 14
 tldr: "Induction is not a list of checked examples: establish a true starting point, prove that an arbitrary true case transmits truth to the next case, and invoke the induction principle."
 description: "A deck-aligned guide to Stanford CS103 Lecture 12 covering induction, sums of powers of two, counterfeit coins, a missing-base-case error, and the MU puzzle invariant."

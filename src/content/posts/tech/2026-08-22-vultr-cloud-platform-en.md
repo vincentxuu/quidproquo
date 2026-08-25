@@ -8,7 +8,7 @@ lang: en
 tldr: "Vultr spans VMs, bare metal, GPUs, VKE, databases, and storage; breadth and regional choice help, but product availability alone does not create an integrated architecture."
 description: "Vultr Cloud Compute, bare metal, GPUs, VKE, managed databases, storage, VPCs, and multi-region decisions."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 65
 draft: false
 ---

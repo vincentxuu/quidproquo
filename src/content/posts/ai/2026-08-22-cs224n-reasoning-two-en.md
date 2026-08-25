@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, reasoning, inference, speculative-decoding, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 14
 tldr: "Lecture 13 moves from inference efficiency to inference capability: speculative decoding drafts with a small model and verifies with a large one; on-policy distillation addresses drift; long context and test-time scaling spend inference resources."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 13: speculative decoding, policy drift, long context, and inference-time scaling."

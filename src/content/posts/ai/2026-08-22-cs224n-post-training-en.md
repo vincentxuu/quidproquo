@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, post-training, rlhf, dpo, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 9
 tldr: "Lecture 8 explains how instruction tuning, preference data, and RLHF turn a pretrained model into an assistant, then derives DPO from winner–loser pairs. Every step converts human judgment into signal—and imports its biases."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 8: SFT, RLHF, reward models, DPO, and human versus AI feedback."

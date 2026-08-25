@@ -6,7 +6,7 @@ tags: [cs224v, stanford, formal-methods, smt, semantic-parsing]
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 12
 tldr: "The lecture parses patient records and trial criteria into SMT, retrieves candidates through a weaker propositional projection, and runs a solver on the reduced set. Reasoning is inspectable, but NL-to-SMT remains the main error boundary."
 description: "CS224V Natural Language Constraints with SMT: clinical-trial matching, SMT representation, propositional projection, candidate retrieval, solver matching, and limits."

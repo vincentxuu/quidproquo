@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, language-model, rnn, nlp, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 5
 tldr: "Lecture 4 defines a language model as a next-word probability distribution, then uses an RNN to compress an arbitrarily long prefix. It also exposes recurrence's central cost: information and gradients travel one time step at a time."
 description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 4: language models, RNNs, exploding and vanishing gradients, and machine translation."

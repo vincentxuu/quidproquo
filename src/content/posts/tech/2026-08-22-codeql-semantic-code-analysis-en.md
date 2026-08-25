@@ -8,7 +8,7 @@ lang: en
 tldr: "CodeQL builds a code database with language extractors, then queries syntax, types, calls, control flow, and data flow; its depth depends on models and carries extraction and query-maintenance costs."
 description: "CodeQL databases, extractors, query suites, path queries, taint tracking, custom packs, SARIF, GitHub code scanning, and CI boundaries."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 114
 draft: false
 ---

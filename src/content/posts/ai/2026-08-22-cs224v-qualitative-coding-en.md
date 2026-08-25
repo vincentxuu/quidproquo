@@ -6,7 +6,7 @@ tags: [cs224v, stanford, qualitative-coding, event-extraction, structured-output
 lang: en
 type: deep-dive
 series:
-  name: "Stanford CS224V 導讀"
+  name: "Reading Stanford CS224V"
   order: 10
 tldr: "Automated qualitative coding defines event types and arguments in a codebook, then separates document classification, structured extraction, and entity linking. Constrained JSON fixes form, not expert judgment."
 description: "CS224V Document Set Analysis: qualitative coding, ACLED codebooks, abstractive event detection, Python and JSON schemas, entity linking, and end-to-end limits."

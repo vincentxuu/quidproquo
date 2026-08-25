@@ -8,7 +8,7 @@ lang: en
 tldr: "Better Auth unifies login, sessions, providers, and plugins; applications still own resource authorization, revocation latency, and policy for agent actions."
 description: "Better Auth sessions, cookie caching, CSRF, OAuth, the organization plugin, and the boundary between authentication and authorization."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 48
 draft: false
 ---

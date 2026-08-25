@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 4
 tldr: "This lecture identifies exactly when an implication is false, then turns quantified negation, contraposition, and contradiction into checkable proof tools."
 description: "A deck-aligned guide to implication, quantified negation, contraposition, biconditionals, and the parity and no-largest-set contradiction proofs."

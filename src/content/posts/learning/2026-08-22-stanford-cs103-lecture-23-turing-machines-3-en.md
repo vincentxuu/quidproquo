@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs103, discrete-mathematics, stanford, theory-of-computation]
 lang: en
 series:
-  name: "Stanford CS103 導讀"
+  name: "Reading Stanford CS103"
   order: 24
 tldr: "This lecture connects a quick quantifier audit for recognizers and deciders to why every decision problem can be represented as a language, following the official examples and proof obligations."
 description: "A deck-aligned CS103 guide to a quick quantifier audit for recognizers and deciders, why every decision problem can be represented as a language, and the limits of the public lecture materials."

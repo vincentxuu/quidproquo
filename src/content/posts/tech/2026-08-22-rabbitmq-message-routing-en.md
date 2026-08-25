@@ -8,7 +8,7 @@ lang: en
 tldr: "RabbitMQ's strength is routing through exchanges, bindings, and queues. For replicated work, default to quorum queues and combine publisher confirms, manual acknowledgments, and idempotent consumers."
 description: "RabbitMQ's exchange model, quorum queues, acknowledgments and confirms, stream boundaries, and selection against Kafka and NATS."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 26
 draft: false
 ---

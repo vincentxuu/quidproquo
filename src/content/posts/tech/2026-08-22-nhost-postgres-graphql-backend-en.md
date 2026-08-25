@@ -8,7 +8,7 @@ lang: en
 tldr: "Nhost uses PostgreSQL as the source of truth, Hasura to generate GraphQL, and connects Auth claims, role permissions, Storage, and Functions into one platform."
 description: "Nhost PostgreSQL, Hasura GraphQL, Auth, permissions, Storage, Functions, migrations, metadata, and local development."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 89
 draft: false
 ---

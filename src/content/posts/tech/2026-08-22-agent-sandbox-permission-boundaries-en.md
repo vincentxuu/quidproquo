@@ -8,7 +8,7 @@ lang: en
 tldr: "Agent execution must constrain kernels, filesystems, processes, networks, credentials, and tool authorization; sandbox escape is only one path, and an overpowered API token is often more direct."
 description: "AI agent sandbox threat models, container, VM, and isolate boundaries, Linux capabilities, seccomp, filesystems, egress, ephemeral credentials, tool permissions, approval, and escape testing."
 series:
-  name: "AI 時代的技術選擇"
+  name: "Technology Choices in the AI Era"
   order: 121
 draft: false
 ---

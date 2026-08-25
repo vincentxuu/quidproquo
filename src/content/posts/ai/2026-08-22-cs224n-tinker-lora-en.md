@@ -6,7 +6,7 @@ type: deep-dive
 tags: [cs224n, lora, model-adaptation, guest-lecture, stanford]
 lang: en
 series:
-  name: "Stanford CS224N 導讀"
+  name: "Reading Stanford CS224N"
   order: 19
 tldr: "Lecture 18 is a John Schulman guest session. The official page gives only the title Tinker and LoRA Without Regret, date, and speaker—no slides, agenda, or readings—so this article records confirmed facts and unknowns only."
 description: "A strict material-gap record for CS224N Winter 2026 Lecture 18; external product material and unrelated LoRA papers are not used to reconstruct the session."
