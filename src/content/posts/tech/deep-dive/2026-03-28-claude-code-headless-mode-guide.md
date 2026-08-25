@@ -7,7 +7,7 @@ tags: [claude-code, headless, agent-sdk, cli, automation, scripting, ci-cd, dx]
 lang: zh-TW
 tldr: "claude -p 是 Claude Code 的程式化執行模式。一行指令跑完任務、pipe 資料進去、拿 JSON 結構化輸出。搭配 --bare 跳過所有自動載入，適合 CI/CD 和腳本。也可以用 --json-schema 強制輸出符合 schema 的結構化資料。"
 description: "完整介紹 Claude Code 的 Headless Mode（claude -p）：基本用法、--bare 快速模式、structured output、streaming、auto-approve tools、continue conversations，以及與 Agent SDK（Python/TypeScript）的關係。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 2

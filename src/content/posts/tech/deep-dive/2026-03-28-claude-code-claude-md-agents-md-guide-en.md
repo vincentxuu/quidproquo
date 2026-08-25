@@ -7,7 +7,7 @@ tags: [claude-code, claude-md, agents-md, ai-agent, dx, configuration]
 lang: en
 tldr: "CLAUDE.md is a project-level behavioral guide for AI. AGENTS.md is a task template for sub-agents. Both are plain Markdown — no code required — yet they dramatically shape the quality of AI behavior. This guide covers syntax, file placement, inheritance rules, and real-world examples."
 description: "A deep dive into Claude Code's instruction file system: the syntax, file structure, inheritance rules, and how CLAUDE.md and AGENTS.md integrate with Hooks and Skills to establish a shared AI development standard across your team."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 3

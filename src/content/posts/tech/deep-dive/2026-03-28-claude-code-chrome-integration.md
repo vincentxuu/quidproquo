@@ -7,7 +7,7 @@ tags: [claude-code, chrome, browser-automation, frontend, testing, dx]
 lang: zh-TW
 tldr: "claude --chrome 讓 Claude Code 連上你的 Chrome 瀏覽器——讀 console log、點按鈕、填表單、截圖、錄 GIF。寫完 code 直接在瀏覽器驗證，不用切換 context。共享你的登入狀態，能操作 Google Docs、Notion 等已登入的 app。"
 description: "介紹 Claude Code 的 Chrome 整合（beta）：安裝設定、browser automation 能力、實際使用案例（live debugging、設計驗證、表單自動化、資料擷取），以及在 VS Code 中的整合方式。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 21

@@ -7,7 +7,7 @@ tags: [claude-code, checkpointing, git, safety, undo, dx]
 lang: en
 tldr: "Claude Code has a built-in git checkpoint mechanism — it automatically creates a commit before each major operation so you can roll back with a single command if anything goes wrong. Combined with /undo, /rewind, and git worktree isolation, every AI-driven change stays fully reversible."
 description: "A guide to Claude Code's Checkpointing safety mechanism: when auto-checkpoints trigger, how to use the /undo and /rewind commands, manual checkpoint strategies, integrating with git worktree, and how checkpoints act as a last line of defense in bypassPermissions mode."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 24

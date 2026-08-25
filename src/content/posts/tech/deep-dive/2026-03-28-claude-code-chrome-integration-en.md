@@ -7,7 +7,7 @@ tags: [claude-code, chrome, browser-automation, frontend, testing, dx]
 lang: en
 tldr: "`claude --chrome` connects Claude Code to your Chrome browser — read console logs, click buttons, fill forms, take screenshots, and record GIFs. Verify your code changes directly in the browser without switching context. It shares your login session, so it works with Google Docs, Notion, and any app you're already signed into."
 description: "An introduction to Claude Code's Chrome integration (beta): installation, browser automation capabilities, real-world use cases (live debugging, design verification, form automation, data extraction), and how to use it within VS Code."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 21

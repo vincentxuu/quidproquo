@@ -7,7 +7,7 @@ tags: [claude-code, mcp, mcp-server, ai-agent, integration, dx]
 lang: zh-TW
 tldr: "MCP（Model Context Protocol）讓 Claude Code 透過標準協議連上外部工具——GitHub、Slack、資料庫、自製 API 都行。本文介紹 MCP 的運作原理、如何設定 server、實際串接案例，以及安全考量。"
 description: "從 MCP 協議基礎開始，介紹如何在 Claude Code 中設定和使用 MCP Server，包含官方與社群 server 的比較、自製 server 的開發方式、以及在自動化流程中整合 MCP 的實際案例。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 10

@@ -7,7 +7,7 @@ tags: [claude-code, checkpointing, git, safety, undo, dx]
 lang: zh-TW
 tldr: "Claude Code 內建 git checkpoint 機制——每次重大操作前自動建立 commit，出問題可以一鍵還原。搭配 /undo 指令和 git worktree 隔離，讓 AI 的修改永遠可逆。"
 description: "介紹 Claude Code 的 Checkpointing 安全機制：自動 checkpoint 的觸發時機、/undo 和 /rewind 指令、手動 checkpoint 策略、與 git worktree 的搭配使用，以及在 bypassPermissions 模式下的安全保障。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 24

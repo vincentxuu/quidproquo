@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "A web retrieval benchmark must evaluate complete tasks, not HTTP 200s: 30 fixed cases across five failure strata and three live channels, measuring answers, citations, freshness, latency, cost, and unnecessary escalation. This article delivers the harness and gates, but no fabricated ranking while the three live channels remain unconfigured."
 description: "Build a Web Retrieval Benchmark from a 30-case corpus: ground truth, freshness windows, outcome labels, content and citation grading, latency/cost/escalation metrics, deterministic fixtures, live probes, failure injection, and regression gates."
-draft: false
+draft: true
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-21-web-retrieval-benchmark)

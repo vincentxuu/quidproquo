@@ -7,7 +7,7 @@ tags: [claude-code, configuration, settings, dx, hooks, permissions]
 lang: en
 tldr: "settings.json is the control center for all Claude Code behavior. Hooks, permissions, model selection, MCP servers, and tool blocklists are all configured here. This guide covers every available field, the difference between global and project-level settings, and recommended configuration combinations."
 description: "A comprehensive reference for all Claude Code settings.json fields, global vs. project-level inheritance rules, the purpose of settings.local.json, and recommended configuration combinations for different development scenarios."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 4

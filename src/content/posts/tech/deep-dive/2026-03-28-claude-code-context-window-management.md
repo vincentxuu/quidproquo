@@ -7,7 +7,7 @@ tags: [claude-code, context-window, optimization, token, dx]
 lang: zh-TW
 tldr: "Claude Code 每個功能消耗不同的 context：根目錄 CLAUDE.md 每次請求都在（子目錄的按需載入）、Skills 只載描述、MCP 只載 tool name、Sub-agent 完全隔離。理解這些差異才能有效管理你的 context window，避免 AI 行為異常。"
 description: "介紹 Claude Code 的 context window 管理：各功能的載入時機和 context 成本、auto-compaction 機制、context 用滿時的症狀與對策，以及 CLAUDE.md / Skills / MCP / Sub-agents / Hooks 的 context 最佳化策略。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 23

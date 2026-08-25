@@ -7,7 +7,7 @@ tags: [claude-code, claude-md, agents-md, ai-agent, dx, configuration]
 lang: zh-TW
 tldr: "CLAUDE.md 是專案層級的 AI 行為指引，AGENTS.md 是給子代理的任務範本。兩者都是 markdown，不用寫程式，但能大幅改變 AI 的行為品質。本文介紹語法、放置位置、繼承規則，以及實際案例。"
 description: "深入介紹 Claude Code 的指令檔系統：CLAUDE.md 與 AGENTS.md 的語法、檔案結構、繼承規則、與 Hook/Skill 的搭配方式，以及如何用指令檔打造團隊共用的 AI 開發規範。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 3

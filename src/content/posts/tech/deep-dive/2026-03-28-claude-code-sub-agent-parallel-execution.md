@@ -7,7 +7,7 @@ tags: [claude-code, sub-agent, parallel-execution, worktree, ai-agent, dx, plugi
 lang: zh-TW
 tldr: "Sub-agent 是在獨立 context window 中執行的專業 AI 助手。用 markdown 檔案定義 system prompt、工具權限、模型選擇，Claude 自動在適當時機委派任務。內建 Explore、Plan、general-purpose 三種，也可以自訂。搭配 persistent memory 跨 session 累積知識。"
 description: "深入介紹 Claude Code 的 Sub-agent 系統：內建子代理類型、自訂子代理的完整設定（frontmatter 欄位、工具控制、MCP 整合、hooks、persistent memory）、前台 vs 背景執行、與 Agent Teams 的比較，以及實際案例。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 11

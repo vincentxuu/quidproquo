@@ -77,7 +77,7 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 - 第 3 頁：process、thread、dispatch、synchronization、scheduling、deadlock。
 - 第 4–5 頁：linking、allocation、relocation、segmentation、paging、TLB、demand paging、replacement、thrashing。
 - 第 6–7 頁：disk I/O、file access、inode、block layout、free space、cache、scheduling、links、crash recovery、FTL。
-- 第 8 頁：virtualization、concurrency、atomicity、locality、layering。
+- 第 8 頁：virtualization、atomicity、locality、layering。
 - 第 9–10 頁：後續課程方向與結語。
 
 ## 參考資料

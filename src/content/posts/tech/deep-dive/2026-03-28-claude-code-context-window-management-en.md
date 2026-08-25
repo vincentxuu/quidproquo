@@ -7,7 +7,7 @@ tags: [claude-code, context-window, optimization, token, dx]
 lang: en
 tldr: "Each Claude Code feature consumes context differently: the root CLAUDE.md is present on every request (nested ones load on demand), Skills load only their descriptions, MCP only loads tool names, and Sub-agents are fully isolated. Understanding these differences is key to managing your context window and preventing erratic AI behavior."
 description: "A guide to Claude Code's context window management: when each feature loads and how much context it costs, the auto-compaction mechanism, symptoms and remedies when context fills up, and optimization strategies for CLAUDE.md, Skills, MCP, Sub-agents, and Hooks."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 23

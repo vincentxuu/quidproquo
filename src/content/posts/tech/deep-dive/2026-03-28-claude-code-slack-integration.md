@@ -7,7 +7,7 @@ tags: [claude-code, slack, team-collaboration, ai-agent, automation, dx]
 lang: zh-TW
 tldr: "在 Slack 裡 @Claude 描述任務，自動啟動 Claude Code web session → 分析 code → 開 PR。不用離開 Slack 就能把 bug report 變成修復。支援 Code only 和 Code + Chat 兩種路由模式。"
 description: "介紹 Claude Code 的 Slack 整合：安裝設定、路由模式（Code only / Code + Chat）、從 Slack thread 收集 context、session 流程、repo 選擇機制，以及與 Claude Code on the web 的搭配使用。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 20

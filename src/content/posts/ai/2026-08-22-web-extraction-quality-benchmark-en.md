@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "Extraction tools cannot be compared by HTTP 200s. The same 20 URLs must be scored for body text, headings, tables, code, links, metadata, noise, latency, and cost. This draft publishes the corpus, adapter contract, and gates, but no winner without a same-version raw run across all four paths."
 description: "A reproducible web extraction benchmark for Crawl4AI, Firecrawl, Jina Reader, and Mozilla Readability, using 20 fixed URLs and separate quality, structure, latency, and cost metrics."
-draft: false
+draft: true
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-web-extraction-quality-benchmark)

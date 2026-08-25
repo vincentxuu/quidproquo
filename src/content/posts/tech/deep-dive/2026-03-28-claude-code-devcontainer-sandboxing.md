@@ -7,7 +7,7 @@ tags: [claude-code, devcontainer, sandboxing, docker, security, dx]
 lang: zh-TW
 tldr: "DevContainer 讓 Claude Code 跑在標準化的容器環境中——依賴、工具、設定全部一致。Sandboxing 限制 Bash 指令的檔案系統和網路存取。兩者搭配是 YOLO 模式最安全的用法。"
 description: "介紹 Claude Code 的 DevContainer 支援和 Sandboxing 機制：devcontainer.json 設定、在 GitHub Codespaces 中使用、Sandbox 的檔案系統和網路限制、與 bypassPermissions 模式的搭配，以及企業環境中的安全部署策略。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 25

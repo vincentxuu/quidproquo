@@ -7,7 +7,7 @@ tags: [claude-code, configuration, settings, dx, hooks, permissions]
 lang: zh-TW
 tldr: "settings.json 是 Claude Code 所有行為的控制中心。Hook、權限、模型選擇、MCP server、工具黑名單全部在這裡設定。本文整理所有可用欄位、全域 vs 專案層級的差異，以及常見設定組合。"
 description: "完整整理 Claude Code settings.json 的所有設定欄位、全域與專案層級的繼承規則、settings.local.json 的用途，以及針對不同開發場景的推薦設定組合。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 4

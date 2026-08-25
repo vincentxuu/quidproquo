@@ -7,7 +7,7 @@ tags: [claude-code, remote-control, mobile, cross-device, dx]
 lang: zh-TW
 tldr: "Remote Control 讓你從手機、平板或任何瀏覽器繼續本地跑的 Claude Code session。程式碼在你的電腦上執行，MCP servers 和本地工具全都可用。支援 QR code 快速連線，多裝置同步對話。"
 description: "介紹 Claude Code 的 Remote Control 功能：連線方式（server mode / interactive / 既有 session）、安全機制、與 Claude Code on the web 的差異，以及 Dispatch、Channels、Slack 等遠端工作方式的比較。"
-draft: false
+draft: true
 series:
   name: "Claude Code 自動化指南"
   order: 22

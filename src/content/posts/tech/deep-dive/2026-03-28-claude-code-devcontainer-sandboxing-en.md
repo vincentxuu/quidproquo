@@ -7,7 +7,7 @@ tags: [claude-code, devcontainer, sandboxing, docker, security, dx]
 lang: en
 tldr: "DevContainer runs Claude Code in a standardized container environment — consistent dependencies, tools, and settings. Sandboxing restricts Bash commands' filesystem and network access. Together, they make YOLO mode as safe as it can get."
 description: "An overview of Claude Code's DevContainer support and Sandboxing mechanism: devcontainer.json configuration, usage in GitHub Codespaces, filesystem and network restrictions in Sandbox mode, combining with bypassPermissions mode, and enterprise security deployment strategies."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 25

@@ -7,7 +7,7 @@ tags: [claude-code, headless, agent-sdk, cli, automation, scripting, ci-cd, dx]
 lang: en
 tldr: "claude -p is Claude Code's programmatic execution mode. Run tasks with a single command, pipe data in, and get structured JSON output. Use --bare to skip all auto-loading for CI/CD and scripts. You can also use --json-schema to enforce structured output that conforms to a schema."
 description: "A complete guide to Claude Code's Headless Mode (claude -p): basic usage, --bare fast mode, structured output, streaming, auto-approve tools, continue conversations, and its relationship to the Agent SDK (Python/TypeScript)."
-draft: false
+draft: true
 series:
   name: "Claude Code Automation Guide"
   order: 2
