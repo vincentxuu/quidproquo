@@ -5,6 +5,8 @@
 import { WorkflowEntrypoint } from 'cloudflare:workers'
 import type { WorkflowEvent, WorkflowStep } from 'cloudflare:workers'
 import type { Env } from '../lib/config/env'
+import { UNIQUE_PROVIDER_KEYS } from '../lib/rag/provider-key-store'
+import { PROVIDER_KEY_PREFIX } from '../lib/config/settings-keys'
 
 interface FlowWorkflowParams {
   flowId: string
@@ -193,8 +195,22 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
     const db = this.env.DB
 
     const apiKeys = await step.do('resolve-keys', { retries: STEP_RETRY }, async () => {
-      const { resolveProviderApiKeys } = await import('../lib/rag/provider-key-store')
-      return resolveProviderApiKeys(db)
+      const envRecord = this.env as unknown as Record<string, string>
+      const merged: Record<string, string> = {}
+      for (const key of UNIQUE_PROVIDER_KEYS) {
+        if (envRecord[key]) merged[key] = envRecord[key]
+      }
+      try {
+        const dbKeys = UNIQUE_PROVIDER_KEYS.map(k => `${PROVIDER_KEY_PREFIX}${k}`)
+        const rows = await db.prepare(
+          `SELECT key, value FROM settings WHERE key IN (${dbKeys.map(() => '?').join(',')})`
+        ).bind(...dbKeys).all<{ key: string; value: string }>()
+        for (const row of rows.results || []) {
+          const envKey = row.key.replace(PROVIDER_KEY_PREFIX, '')
+          if (envKey && row.value) merged[envKey] = row.value
+        }
+      } catch { /* D1 settings table may not exist */ }
+      return merged
     })
 
     const envRecord = apiKeys as Record<string, string>
