@@ -9,10 +9,10 @@ export async function beginStep(
   const now = nowMs()
   await db
     .prepare(
-      `INSERT INTO flow_step_runs (step_run_id, flow_run_id, step_id, step_order, kind, status, started_at, created_at)
-     VALUES (?, ?, ?, ?, ?, 'running', ?, ?)`
+      `INSERT INTO flow_step_runs (step_run_id, flow_run_id, step_id, step_order, step_type, status, started_at, created_at, updated_at)
+     VALUES (?, ?, ?, ?, ?, 'running', ?, ?, ?)`
     )
-    .bind(stepRunId, opts.flowRunId, opts.stepId, opts.stepOrder, opts.kind, now, now)
+    .bind(stepRunId, opts.flowRunId, opts.stepId, opts.stepOrder, opts.kind, now, now, now)
     .run()
   return stepRunId
 }
@@ -26,9 +26,9 @@ export async function endStep(
   await db
     .prepare(
       `UPDATE flow_step_runs
-     SET status=?, finished_at=?, latency_ms=?, outputs_json=?, error_json=?
+     SET status=?, finished_at=?, latency_ms=?, outputs_json=?, error_json=?, updated_at=?
      WHERE step_run_id=?`
     )
-    .bind(opts.status, now, now - opts.startedAt, opts.outputsJson ?? null, opts.errorJson ?? null, stepRunId)
+    .bind(opts.status, now, now - opts.startedAt, opts.outputsJson ?? null, opts.errorJson ?? null, now, stepRunId)
     .run()
 }
