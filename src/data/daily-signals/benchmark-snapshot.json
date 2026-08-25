@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-25",
+  "date": "2026-08-26",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -8,9 +8,9 @@
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.47, "ci": "±1.54%" },
-    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.00, "ci": "±1.80%" },
-    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.57, "ci": "±1.70%" }
+    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.73, "ci": "±1.63%" },
+    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.41, "ci": "±1.91%" },
+    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.62, "ci": "±1.63%" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59 },
@@ -23,5 +23,5 @@
     { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0, "note": "Max config" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-25：swebench.com 首頁仍為 SPA 不可直抓；改用 Exa 交叉搜尋（含 morphllm.com best-ai-coding-agents-2026 / swe-bench-pro 系列文章，最新更新日期仍為 2026-08-02～08-21）與 awesomepapers.io/ai-agents/leaderboards（該站前端為 tab 切換元件，靜態抓取只回傳預設 arc-agi-1 分頁，swe-bench-verified 分頁兩次嘗試皆 CRAWL_LIVECRAWL_TIMEOUT，無法取得該分頁最新數字，改依 Morph/Vals AI 交叉確認的 Verified/Pro 數字判斷）。LMArena Agent Arena（lmarena.ai/leaderboard/agent 官方頁，snapshot 標示 Aug 19, 2026）前 3 名（12.47%±1.54 / 12.00%±1.80 / 11.57%±1.70，Claude Opus 5 High → Max → Claude Fable 5 High）與 08-24 快照完全一致，無異動。CursorBench（cursor.com/cursorbench 官方頁）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與 08-24 快照一致，無異動。AA Agentic Index 官方頁未見排名重排跡象（頁面本身為互動式圖表，靜態抓取拿不到明確前三名分數，沿用 08-24 已確認的 Claude Opus 5 / GLM-5.3 / Grok 4.6 並列 59 分，未見反證顯示已變動）。SWE-bench Pro／Terminal-Bench 2.1（Morph 官方部落格交叉確認）：Fable 5 仍居 SWE-bench Pro 冠軍（80.0-80.3%），Terminal-Bench 2.1 仍為 GPT-5.6 Sol 89.5% > Claude Opus 5 89.1% > Grok 4.6 88.4%，與前次確認一致，非新變動。Vals AI 獨立 harness 上 SWE-bench Verified 仍為 GPT-5.6 Sol 96.2% > Fable 5 95.0% > Kimi K3 93.4%，與先前確認一致。今日無 Benchmark 異動，未產出文章。Tavily search/extract 今日額度已達方案上限（432 錯誤），全程改用 Exa 搜尋與抓取補位，未實質影響覆蓋，但 awesomepapers.io 的 swe-bench-verified 分頁因此少一個交叉確認來源。多個不可信第三方聚合站（如 benchlm.ai 宣稱 Claude Opus 5 96% SWE-bench Verified、Claude Mythos 5 95.5%、Claude Fable 5 95%，與官方/Morph/Vals AI 數字不一致且模型命名可疑）一律不採信，僅以官方來源（lmarena.ai、cursor.com、artificialanalysis.ai、morphllm.com 交叉確認）為準。"
+  "notes": "2026-08-26：swebench.com 首頁／verified 頁仍為 SPA，無法直接抓到排行表格靜態內容（沿用先前結論）。LMArena Agent Arena（lmarena.ai/leaderboard/agent 官方頁，頁面標示快照日 Aug 24, 2026）前 3 名順序與模型完全不變（Claude Opus 5 High → Max → Claude Fable 5 High），分數 12.47%→12.73%／12.00%→12.41%／11.57%→11.62%，三者變動皆 <0.5 個百分點，遠低於 2pp 觸發門檻。CursorBench（cursor.com/cursorbench 官方頁）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與昨日快照逐位數字完全一致，無異動。AA Agentic Index（artificialanalysis.ai/models/capabilities/agentic 官方頁，直接確認文字敘述）前 3 名維持 Claude Opus 5 (Max Effort) / GLM-5.3 (max) / Grok 4.6 (high) 並列 59 分，與昨日快照一致。SWE-bench Verified 官方頁本身無法靜態抓取；morphllm.com/leaderboard 與 morphllm.com/blog 系列頁面本次抓取皆逾時或無法連線（CRAWL_UNKNOWN_ERROR / CRAWL_LIVECRAWL_TIMEOUT），Vals AI 官方頁 www.vals.ai/benchmarks/swe_bench_verified 本次回傳 CRAWL_NOT_FOUND，均未取得比昨日更新的獨立複現數字；僅找到一篇 2026-08-12 舊文（oracore.dev）引用的 Vals 數字（Opus 5 97.0%、GPT-5.6 Sol 95%+、Kimi K3 93.4%、Opus 4.8 88.6%、Grok 4.5 86.6%），其 Kimi K3 93.4% 與昨日已確認數字吻合，判斷為同一批舊資料而非新變動，不視為異動訊號。第三方聚合站 benchlm.ai（Opus 5 96%／Claude Mythos 5 95.5%／Fable 5 95%）本次 Aug 25 更新頁與 Aug 21 舊頁數字完全相同，且沿用昨日已確立的「模型命名可疑、與官方數字不一致，不採信」判斷。今日無 Benchmark 異動，未產出文章。Tavily search 今日仍為 432（額度上限）錯誤，全程改用 Exa 搜尋與抓取補位，未實質影響覆蓋。"
 }
