@@ -101,6 +101,18 @@
 - 為什麼現在不能做：這批檔案沒有經過 `post-review` / `post-verify`，也不知道是不是另一個並行 session 還在寫的半成品（mtime 集中在同一分鐘，像是一次性寫入而非逐步累積）。daily-digest-tool routine 的職責只是產出當日工具推薦文，沒有 mandate 去審查、發布或刪除別的 category 的草稿。測試日報那篇更不該直接 commit（會把測試內容發布上站）。
 - 接手第一步：先確認有沒有其他 session 正在處理這 4 篇非測試草稿（問使用者，或查有沒有對應的 `.work/` 計畫檔）；若確認是完成品且無人在寫，對 Claude Certified Architect 與 Hermes Agent 兩組稿跑 `post-review` + `post-verify` 再決定是否收錄；`2026-08-16-ai-agent-daily.md` 測試檔案建議直接刪除或移出 `src/content/posts/`，不要 commit。
 
+## Q-014 GitHub `main` 疑似被 force-push 改寫，遺失 105 個 commit（72 篇文章 + 3 個已合併 PR）
+- 登錄：2026-08-25（來源：daily-digest-ai-interview routine 執行前 `git pull` 發現 `main -> origin/main` 為 forced update）
+- 做什麼：本 session container 本地 `main` 分支（tip `3773ce7`）與目前 GitHub `origin/main`（tip 已推進到 `611c16c`）在 commit `2aebd010`（約 2026-08-21）之後完全分岔：
+  - 本地獨有 105 個 commit（2026-08-21 12:21 ～ 2026-08-24 01:52），其中 72 個是 `post(...)` 文章 commit，含三個已合併 PR 的 merge commit：**#147**、**#148**（`feature/ai-degree-programs-followup-research`）、**#154**（`bugfix/global-course-series-order`，10 commits、587 檔、+171431/-7737）。
+  - 用 GitHub API 查證：PR #154 在 GitHub 上顯示 `merged: true`（2026-08-23T02:41:13Z merge），但 `git merge-base --is-ancestor <PR154 merge commit> origin/main` 回傳 **not an ancestor**——代表這個「已合併」的 PR 的 merge commit **不在**目前 `origin/main` 的歷史裡。這只有在 `main` 於合併之後被 force-push／改寫（例如重置回 `2aebd010` 附近再長出一條新的 57-commit 歷史）才會發生。
+  - origin/main 獨有 58 個 commit（2026-08-22 ～ 2026-08-25），主要是 daily-digest routine 產出（含今天 `funding alert 2026-08-26` 這種日期怪異的 commit，另需留意）。
+  - 兩邊的 `progress.txt` 內容也各自記著對方沒有的條目，互相不知道對方存在，佐證是兩條真的各自演進過的歷史，不是單純本地快取過期。
+- 為什麼現在不能做：這是 main branch 的歷史完整性事故，牽涉「哪 57 篇日更文章 vs 哪 72 篇（含兩組 AI 學位／Stanford CS 系列研究）才是要保留的真內容」，只有使用者能判斷、而且牽涉是否要在 GitHub 上做 branch protection / 復原動作（Tier 2/3：改寫 published 內容、可能要改 branch 保護設定）。
+- **已採取的保護動作（Tier 0，未動 main）**：把本地舊歷史整支 push 成新分支保存，未 rebase／未 force-push／未觸碰 `origin/main`：
+  `origin/backup/main-pre-rewrite-20260825`（tip `3773ce7`，https://github.com/vincentxuu/quidproquo/tree/backup/main-pre-rewrite-20260825）。今天的 daily-digest 工作改在從目前 `origin/main` 切出的 `main-work` 分支上進行，沒有動本地 `main` 分支本身。
+- 接手第一步：使用者先看 `backup/main-pre-rewrite-20260825` 分支上那 72 篇文章／3 個 PR 是否還需要（尤其是「世界名校 AI／CS 課程地圖」與 Stanford CS 系列 15 篇），決定要不要把缺的部分 cherry-pick 或合併回目前的 `origin/main`；同時查一下是誰／哪個 session／哪個自動化在什麼時候對 `main` 做了 force-push（GitHub repo 的 Settings → Branches 若無 protection，建議這次事故後補上 protect `main` 禁止 force-push）。
+
 ---
 
 ## Done
