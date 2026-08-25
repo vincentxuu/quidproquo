@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-25
+Last updated: 2026-08-26
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -10,14 +10,22 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **「跟成熟 coding agent 學設計」系列 37 篇雙語（74 檔）已完成**（docs/content-plan-coding-agent-design-series.md）：
+  第一部 25 篇已實作對照＋第二部 12 篇改善路線圖，五家參考專案 file#symbol 取證，
+  references/lint/check:tw 全綠；舊 python-coding-agent M1–M10 十篇標 draft 待整併下架決策。
+  待使用者 review 與抽樣事實複查（decompiled claude-code 免責、rivumi 數字未重跑、外部連結未逐一驗證）。
 - Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
 - **發佈狀態盤點＋內容審讀（2026-08-25）**：CS124／CS224N／CS224V／CS224W／CS229／CS336、
   CMU 07-280／11-785 等「待 review」系列皆已 `draft: false` 上線。本日新上線：Stanford CS221
   逐講 20 講中英（40 檔）、CS111 逐講 28 講中英（56 檔）、Python coding agent M1–M10（10 檔純中文，
   無英文版；M11 不存在）、Agent／RAG 框架選型指南、Flowise／n8n 深入介紹。審稿修正：
   CS111 L25-en series name、L28 逐頁清單筆誤。
-- **仍為草稿，不可誤翻**：(1) Claude Code 深入介紹系列 34 檔是空殼大綱（`<!-- TODO: 待撰寫 -->`，
-  只有 Planned Outline 無正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
+- **Claude Code 深入介紹系列開工（docs/content-plan-claude-code-series-v2.md）**：P0-1 入口篇
+  A1 `claude-code-how-it-works`＋A2 `claude-code-claude-directory` 中英四檔已完成正文（tech/deep-dive/，
+  series name 改用新名「Claude Code 深入介紹」order 1/2，draft: true），事實依 code.claude.com/docs
+  2026-08 版核對，references/lint/check:tw 全綠；後續依 plan 優先序推進。
+- **仍為草稿，不可誤翻**：(1) Claude Code 深入介紹系列其餘骨架檔仍是空殼大綱（`<!-- TODO: 待撰寫 -->`，
+  只有 Planned Outline 無正文；A1/A2 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
   中英 4 檔——正文自我宣告要等 live channel 實測與 raw artifacts 入庫才能發。
   另 CS221 待使用者審稿。
 - 快速成長新創 27 組雙語個別專文已完成（沙箱、瀏覽器、網路、Eval、推論、語音、認證），
@@ -59,7 +67,6 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- 2026-08-22: 完成技術選擇缺口 105 組雙語專文：建置工具鏈 4 組、訊息佇列／事件串流 8 組、durable execution 3 組、backend contract 11 組、資料存取 1 組、認證授權 2 組、三大雲運算層 7 組、GPU／推論專用雲 6 組、二線雲與地端 9 組、託管 PaaS 8 組、自架 PaaS 5 組、BaaS 5 組、編排／IaC 4 組、後端框架 4 組、私有網路／遠端存取 5 組、即時傳輸／協作 8 組、供應鏈／程式碼資安 8 組、Agent 資安 3 組、通用資料庫 4 組；Hugging Face 已有專文不重複，文章檢查全綠。
 - 2026-08-22: 完成自架推論服務三篇雙語專文：SGLang、NVIDIA Triton Inference Server、Ray Serve；
   分別釐清 LLM serving engine、多框架模型伺服器與分散式服務編排的能力邊界，待使用者 review。
 - 2026-08-22: 完成全文檢索與站內搜尋三篇雙語介紹：Typesense、Algolia、Elasticsearch／OpenSearch；
@@ -69,13 +76,7 @@ Recently completed
   研究筆記在 .research/（不入版控），若要再補那三集需要 jina API key 或 firecrawl 額度。
 - 2026-08-21: 完成「世界名校 AI／CS 課程地圖」全球入口中英文初稿，建立 2025–2026 latest-complete
   收錄窗與 A0–A3 公開程度標籤，先納入 Stanford、CMU、MIT、Berkeley，並明確區分當期官方教材、
-  LMS 受限錄影、歷史 YouTube 與 CSDIY 社群路線。下一篇依規劃進入 MIT 6.S191 單課導讀。
-- 2026-08-21: AI 學位全球地圖補查六校：HKUST、TUM、東京大學、Edinburgh、清華、Tübingen 均回官方頁升級為 🟢。
-  重要修正：TUM Informatics 對一般新入學非 EU/EEA 生為 €6,000/學期，不是免學費；東京大學與清華
-  人工智能學院目前都不能寫成「獨立 AI 碩士」。下一批：EPFL > Cambridge > Imperial > UCL > Amsterdam > KU Leuven。
-- 2026-08-20: Hardened `stealth_fetch`: public-only pinned-IP proxy closes file/SSRF and DNS-rebinding
-  paths; added total deadlines, cancellation, bounded concurrency/output, explicit readiness errors,
-  structured MCP metadata, lifecycle cleanup, and 17 regression tests.
+  LMS 受限錄影、歷史 YouTube 與 CSDIY 社群路線。下一篇依規劃進入 MIT 6.S191 單課導讀。（已移 archive）
 （已完成的條目移到 docs/progress-archive.md）
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。

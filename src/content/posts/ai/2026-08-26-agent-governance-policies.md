@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-08-26-agent-governance-policies-en)
 
-前兩篇把 [Omnigent](https://github.com/omnigent-ai/omnigent) 的位置排開了：[第一篇談 Runner/Server/Omnibox 與 Polly 範例](/posts/ai/2026-08-26-omnigent-meta-harness)，[第二篇用四層模型對照 ACP、HarnessAgent 與 Flue](/posts/ai/2026-08-27-meta-harness-layers)。這篇往下鑽一層，談最容易被當成「再加一個 allowlist 就好」的治理——為什麼 [Omnigent](https://omnigent.ai/) 要用 Python 函式做 Policy、錢與次數怎麼控、以及 [Omnibox](https://omnigent.ai/docs/policies/os-sandbox) 為何不直接用 Docker 就好。最後用一張決策表對照五套同場方案：[FailproofAI](https://github.com/FailproofAI/failproofai)、[DashClaw](https://github.com/dashclaw/dashclaw)、[custodian-kernel](https://github.com/custodian-kernel/custodian-kernel)、[Microsoft agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit) 與 [herdr](https://github.com/herdrdev/herdr)。
+前兩篇把 [Omnigent](https://github.com/omnigent-ai/omnigent) 的位置排開了：[第一篇談 Runner/Server/Omnibox 與 Polly 範例](/posts/ai/2026-08-26-omnigent-meta-harness)，[第二篇用四層模型對照 ACP、HarnessAgent 與 Flue](/posts/ai/2026-08-26-meta-harness-layers)。這篇往下鑽一層，談最容易被當成「再加一個 allowlist 就好」的治理——為什麼 [Omnigent](https://omnigent.ai/) 要用 Python 函式做 Policy、錢與次數怎麼控、以及 [Omnibox](https://omnigent.ai/docs/policies/os-sandbox) 為何不直接用 Docker 就好。最後用一張決策表對照五套同場方案：[FailproofAI](https://github.com/FailproofAI/failproofai)、[DashClaw](https://github.com/dashclaw/dashclaw)、[custodian-kernel](https://github.com/custodian-kernel/custodian-kernel)、[Microsoft agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit) 與 [herdr](https://github.com/herdrdev/herdr)。
 
 ## 為什麼治理不能只寫在提示詞裡
 

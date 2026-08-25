@@ -946,3 +946,19 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 - 五門課均完成 clean-context 內容審查與查證；修正重複 PDF 分工、數式破損、模板殘留、雙語結構、
   台灣用語、失效連結與量化主張原位來源。`pnpm verify` 與 `pnpm astro check` 通過；CS111、CS221
   仍維持 `draft: true` 等使用者最終 review，未部署、未修改既有 slug/date 或治理腳本。
+
+## 2026-08-21 世界名校 AI／CS 課程地圖補查（自 progress.txt 移入）
+
+- AI 學位全球地圖補查六校：HKUST、TUM、東京大學、Edinburgh、清華、Tübingen 均回官方頁升級為 🟢。
+  重要修正：TUM Informatics 對一般新入學非 EU/EEA 生為 €6,000/學期，不是免學費；東京大學與清華
+  人工智能學院目前都不能寫成「獨立 AI 碩士」。下一批：EPFL > Cambridge > Imperial > UCL > Amsterdam > KU Leuven。
+
+## 2026-08-20 stealth_fetch 強化（自 progress.txt 移入）
+
+- Hardened `stealth_fetch`: public-only pinned-IP proxy closes file/SSRF and DNS-rebinding
+  paths; added total deadlines, cancellation, bounded concurrency/output, explicit readiness errors,
+  structured MCP metadata, lifecycle cleanup, and 17 regression tests.
+
+## 2026-08-22 技術選擇缺口 105 組雙語專文
+
+完成技術選擇缺口 105 組雙語專文：建置工具鏈 4 組、訊息佇列／事件串流 8 組、durable execution 3 組、backend contract 11 組、資料存取 1 組、認證授權 2 組、三大雲運算層 7 組、GPU／推論專用雲 6 組、二線雲與地端 9 組、託管 PaaS 8 組、自架 PaaS 5 組、BaaS 5 組、編排／IaC 4 組、後端框架 4 組、私有網路／遠端存取 5 組、即時傳輸／協作 8 組、供應鏈／程式碼資安 8 組、Agent 資安 3 組、通用資料庫 4 組；Hugging Face 已有專文不重複，文章檢查全綠。
