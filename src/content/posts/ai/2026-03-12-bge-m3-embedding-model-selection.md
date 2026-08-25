@@ -1,7 +1,7 @@
 ---
 title: "BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, embedding, bge-m3, multilingual, vector-search, cloudflare-workers-ai]
@@ -22,7 +22,7 @@ RAG 系統的搜尋品質，很大一部分取決於 Embedding 模型的選擇�
 
 ## BGE-M3 是什麼
 
-BGE-M3 是北京人工智能研究院（BAAI）出品的多語言 Embedding 模型，「M3」代表 **Multi-Linguality, Multi-Granularity, Multi-Functionality**：
+[BGE-M3](https://huggingface.co/BAAI/bge-m3) 是北京人工智能研究院（BAAI）出品的多語言 Embedding 模型，「M3」代表 **Multi-Linguality, Multi-Granularity, Multi-Functionality**：
 
 - **Multi-Linguality**：官方宣稱支援 100+ 語言（語言清單裡沒有單獨列出繁體中文）
 - **Multi-Granularity**：支援短句到長文件（最長 8192 tokens）
@@ -118,7 +118,15 @@ BGE-M3 原生支援到 8192 tokens，這是最常被拿來當賣點的數字。�
 
 ## 與其他選項怎麼比
 
-原本這裡有一張列出各家模型維度、多語言能力與價格的比較表。那張表現在拿掉了——模型清單、維度、單價每季都在變，寫死在文章裡只會誤導人。留下的是判準：
+原本這裡有一張列出各家模型維度、多語言能力與價格的比較表。那張表現在拿掉了——模型清單、維度、單價每季都在變，寫死在文章裡只會誤導人。以 [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) 為基線，2025-2026 有三條值得對照的分支：
+
+- **小而高效：[jina-embeddings-v5-text](https://arxiv.org/abs/2602.15547)（2026-02-17）** — sub-1B 參數、支援到 32K 上下文，透過蒸餾加上任務導向對比訓練達到同級領先的檢索品質，截斷與二值量化也很穩。適合預算或延遲敏感、純文字檢索為主的場景。
+- **多模雙模式：[jina-embeddings-v4](https://arxiv.org/abs/2506.18902)（2025-06-23）** — 3.8B 參數、單向量與多向量雙模式，文字與圖表/表格等視覺豐富內容同吃，在圖表與表格檢索上達到 SOTA。適合要同時檢索影片截圖、掃描檔、圖表，或做跨模態搜尋的場景。
+- **多向量：[Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672)** — late interaction 多向量檢索，把 single-vector 訓練技巧移植到 ColBERT，在多語檢索上表現強。適合需要 token 級細粒度比對、可解釋性或高召回的場景，但儲存與查詢成本高於單向量。
+
+怎麼選：純文字、成本/速度優先 → v5-text 這類小模型；要吃圖表與版面、或影片/掃描等多模內容 → v4 多模；要極致召回或做可解釋比對 → ColBERT-v2 多向量。但不論選哪條，**排行榜換很快、要在自家資料上量**——用自己的查詢集與語料做 MTEB 多語言分頁對照與 A/B，重排與量化前後也要一起量，而不是拿任何一篇文章的結論當答案。
+
+判準仍維持五點：
 
 1. **語言優先於分數**：先確認候選模型的訓練資料涵蓋你的目標語言。繁中要特別小心「支援中文」通常指簡體；看模型卡有沒有明確列出多語言訓練，再用自己的術語做實測。
 2. **平台可用性是硬限制**：跑在 Workers 上而只能用外部 API 的模型，等於每次查詢多一趟跨網路請求。先看目標平台原生支援哪些。
@@ -140,6 +148,7 @@ Embedding 模型選型不是「找最強的」，而是「找最適合這個場�
 
 ## 更新紀錄
 
+- 2026-08-25：補充 2025-2026 Embedding 三分支選型對照（jina-embeddings-v5-text / v4 / Jina-ColBERT-v2），以 BGE-M3 為基線說明小/高效、多模/視覺、多向量何時適用
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -149,6 +158,9 @@ Embedding 模型選型不是「找最強的」，而是「找最適合這個場�
 - [MTEB Leaderboard（Hugging Face，含多語言分頁）](https://huggingface.co/spaces/mteb/leaderboard)
 - [BAAI/bge-m3 模型卡](https://huggingface.co/BAAI/bge-m3)
 - [BAAI/bge-reranker-v2-m3 模型卡](https://huggingface.co/BAAI/bge-reranker-v2-m3)
+- [jina-embeddings-v5-text: Task-Targeted Embedding Distillation (2026-02-17)](https://arxiv.org/abs/2602.15547)
+- [jina-embeddings-v4: Universal Embeddings for Multimodal Multilingual Retrieval (2025-06-23)](https://arxiv.org/abs/2506.18902)
+- [Jina-ColBERT-v2: A General-Purpose Multilingual Late Interaction Retriever (2024-08-29)](https://arxiv.org/abs/2408.16672)
 - [Cloudflare Workers AI — bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/)
 - [Cloudflare Workers AI — 模型列表](https://developers.cloudflare.com/workers-ai/models/)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)

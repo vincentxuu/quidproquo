@@ -9,6 +9,7 @@
 - **重大發佈** → news/blog 官方公告頁是唯一可引用的第一手來源
 - **API 故障與降速** → status page
 - **X 帳號**只用於發現線索，引用一律回到官方 blog/docs 頁
+- OpenAI／Meta／x.ai／Palantir／TSMC／Perplexity 等站對 curl 回 403/400 是 bot 防擋，瀏覽器可開即有效；Groundlane `web_fetch` 抓不到再換 firecrawl
 - 多數文件站支援 `llms.txt` 或 RSS——寫 routine 抓取前先試這兩個，比解析 HTML 穩
 
 ---
@@ -67,7 +68,7 @@
 | Azure AI blog | https://azure.microsoft.com/en-us/blog/category/ai-machine-learning |
 | AI devblogs | https://devblogs.microsoft.com/ai |
 | Research blog | https://www.microsoft.com/en-us/research/blog |
-| Foundry release notes | https://learn.microsoft.com/en-us/azure/ai-foundry/release-notes |
+| Azure OpenAI What's New | https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new |
 | 狀態頁 | https://status.azure.com |
 | X | @Microsoft、@Azure |
 | GitHub org | https://github.com/microsoft |
@@ -131,7 +132,7 @@
 | Mistral | https://mistral.ai/news | https://docs.mistral.ai | GH github.com/mistralai、HF mistralai |
 | Cohere | https://cohere.com/blog | https://docs.cohere.com/changelog | GH github.com/cohere-ai、HF CohereLabs |
 | AI21 Labs | https://www.ai21.com/blog | https://docs.ai21.com | GH github.com/AI21Labs |
-| Reka AI | https://www.reka.ai/news | https://docs.reka.ai | HF rekaai |
+| Reka AI | https://reka.ai/news | https://docs.reka.ai | HF rekaai |
 | Sakana AI | https://sakana.ai/blog | — | GH github.com/SakanaAI |
 | AI2 (Allen) | https://allenai.org/blog | — | GH github.com/allenai、HF allenai |
 | Twelve Labs | https://twelvelabs.io/blog | https://docs.twelvelabs.io | GH github.com/twelvelabs-io |
@@ -143,15 +144,15 @@
 | 公司 | 公告/Blog | Docs | Status |
 |---|---|---|---|
 | Groq | https://groq.com/newsroom | https://console.groq.com/docs | https://groqstatus.com |
-| Cerebras | https://www.cerebras.ai/blog | https://inference-docs.cerebras.ai | https://cerebrasstatus.com |
+| Cerebras | https://www.cerebras.ai/blog | https://inference-docs.cerebras.ai | https://status.cerebras.ai |
 | Together AI | https://www.together.ai/blog | https://docs.together.ai | https://status.together.ai |
 | Fireworks | https://fireworks.ai/blog | https://docs.fireworks.ai | https://status.fireworks.ai |
 | Modal | https://modal.com/blog | https://modal.com/docs | https://status.modal.com |
 | Lambda | https://lambda.ai/blog | https://docs.lambda.ai | https://status.lambda.ai |
-| RunPod | https://www.runpod.io/articles | https://docs.runpod.io | https://status.runpod.io |
+| RunPod | https://www.runpod.io/articles | https://docs.runpod.io | — |
 | CoreWeave | https://www.coreweave.com/blog | https://docs.coreweave.com | — |
 | Nebius | https://nebius.com/blog | https://docs.nebius.com | — |
-| Crusoe | https://crusoe.ai/blog | https://docs.crusoe.cloud | — |
+| Crusoe | https://crusoe.ai/blog | https://docs.crusoecloud.com | — |
 
 ## C 開發平台 / Agent 工具（framework routine 高頻）
 
@@ -168,8 +169,8 @@
 | LlamaIndex | https://www.llamaindex.ai/blog | — | github.com/run-llama |
 | vLLM | — | releases 頁 | github.com/vllm-project |
 | Pydantic AI | https://pydantic.dev/articles | — | github.com/pydantic/pydantic-ai |
-| Mastra | https://mastra.ai/blog | https://mastra.ai/changelog | github.com/mastra-ai |
-| OpenRouter | https://openrouter.ai/blog | — | github.com/OpenRouterKit? 以官網為準 |
+| Mastra | https://mastra.ai/blog | github.com/mastra-ai/mastra/releases | github.com/mastra-ai |
+| OpenRouter | https://openrouter.ai/blog | — | github.com/OpenRouter |
 
 ## D 資料平台 / 企业软件
 
@@ -195,13 +196,13 @@
 | DeepSeek | https://api-docs.deepseek.com/news | HF: huggingface.co/deepseek-ai、GH: github.com/deepseek-ai |
 | ByteDance Seed | https://seed.bytedance.com/en/research | GH: github.com/bytedance |
 | Moonshot／Kimi | https://moonshotai.github.io/ | HF: huggingface.co/moonshotai |
-| 智譜 GLM | https://zhipuai.cn/news（國內）／z.ai blog | GH: github.com/zai-org |
+| 智譜 GLM | https://www.zhipuai.cn/news（國內）／z.ai blog | GH: github.com/zai-org |
 | MiniMax | https://www.minimaxi.com/news | HF: huggingface.co/MiniMaxAI |
 | 騰訊 | https://www.tencent.com/zh-cn/newsroom | HF: huggingface.co/tencent |
 | 百度 | https://ir.baidu.com/news-releases | HF: huggingface.co/baidu |
 | 商湯 | https://www.sensetime.com/cn/news | — |
 | Manus | https://manus.im/blog | — |
-| StepFun 階躍 | https://www.stepfun.com/news | HF: huggingface.co/stepfun-ai |
+| StepFun 階躍 | https://www.stepfun.com（公告在官網） | HF: huggingface.co/stepfun-ai |
 | 01.AI 零一 | https://www.01.ai/blog | HF: huggingface.co/01-ai |
 | Huawei | https://www.huawei.com/en/news | GH: github.com/Ascend |
 
@@ -209,8 +210,8 @@
 
 | 公司 | 公告 |
 |---|---|
-| AMD | https://www.amd.com/en/newsroom |
+| AMD | https://newsroom.amd.com |
 | Intel | https://www.intc.com/news-events/press-releases、https://community.intel.com |
 | Qualcomm | https://www.qualcomm.com/news |
-| Broadcom | https://investors.broadcom.com/news-releases |
+| Broadcom | https://www.broadcom.com/company/news |
 | TSMC | https://pr.tsmc.com/english/news |

@@ -1,7 +1,7 @@
 ---
 title: "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, vector-database, pinecone, weaviate, qdrant, cloudflare-vectorize]
@@ -68,6 +68,18 @@ BM25 或 SPLADE 這類詞彙訊號要不要進資料庫，有三種擺法：
 - 要不要 quantization（向量量化）才塞得下記憶體？Qdrant、Weaviate、pgvector（`halfvec`、binary）都有，設定方式各不相同。
 - 多租戶怎麼隔離？namespace、collection、還是 metadata 欄位？改起來成本差很多。
 
+## 2025-2026 補記：量化與混合檢索已成預設值
+
+選型上最大的變化不是多一兩個功能，而是「量化」與「混合檢索」從加分項變成預設值——不開反而要說明理由。
+
+**Qdrant 1.19 Turbo4（2026-08-05）** 引入 [Turbo4 純量化資料型別](https://qdrant.tech/blog/qdrant-1.19.x/)：僅存 4-bit、不保留全精度拷貝，相較原始儲存可達約 9× 儲存下降，適合成本敏感、召回可容些微損失的場景；同時把 memory tiers 收斂為 `pinned` / `cached` / `cold` 三級，依熱度把索引放在 RAM、磁碟快取或冷儲存。同一版本亦加入 per-tenant IDF，多租戶的詞彙權重更準。
+
+**Weaviate 1.30（2025-04-08）** 把 [BlockMax WAND 設為詞彙搜尋預設](https://weaviate.io/blog/weaviate-1-30-release)，官方稱詞彙搜尋最高可達 10× 加速；multi-vector（ColBERT 式 late interaction）進入 GA 並支援量化，BM25 亦提供語言中立模式。對選型而言，Weaviate 的 hybrid 已不再是實驗功能，可直接作為主路徑評估。
+
+**混合檢索的代價與收益已有實測可依**：[Qdrant 的 hybrid 實測](https://qdrant.tech/articles/hybrid-search/)以 5 個數據集對比 dense-only / sparse-only，dense+sparse 經 RRF / DBSF 融合後有 4 次勝過單一路，額外延遲在單容器單併發基準下僅 0.6–1.47 ms。實務決策流因此變成：**先量 BM25 的確實收益，再決定是否升級到 SPLADE / learned sparse**——不要為了看起來先進就直接上 learned sparse。量化亦同理：先確認是否需要量化才塞得下記憶體，再選 Turbo4 這類純量化或保留全精度的雙拷貝，兩者的召回/成本取捨不同。
+
+Pinecone 與 Cloudflare Vectorize 的官方文件（[Pinecone docs](https://docs.pinecone.io/) / [Vectorize docs](https://developers.cloudflare.com/vectorize/)）仍作為對照保留；本次未取到兩者 2025 年一手更新（官方 blog 路徑變更導致 404），故不強行寫入新功能細節，選型時請以官方文件現況為準。
+
 ## 各家的一句話定位
 
 功能細節查文件，這裡只講「什麼情況下它是自然選擇」：
@@ -131,6 +143,7 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 
 ## 更新紀錄
 
+- 2026-08-25：增補 Qdrant 1.19 Turbo4、Weaviate 1.30 BlockMax WAND 與 Qdrant Hybrid RRF/DBSF 實測；說明量化與混合檢索已成預設值的選型含義與「先量 BM25 再上 learned sparse」決策流
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -152,5 +165,8 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 - [Cloudflare Vectorize - Metadata filtering](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/)
 - [Cloudflare Vectorize - Limits](https://developers.cloudflare.com/vectorize/platform/limits/)
 - [Cloudflare AI Search - Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/)
+- [Qdrant 1.19 — Turbo4 & Memory Tiers（2026-08-05）](https://qdrant.tech/blog/qdrant-1.19.x/)
+- [Qdrant — Hybrid Search: RRF vs DBSF 實測（2026-08-24）](https://qdrant.tech/articles/hybrid-search/)
+- [Weaviate 1.30 Release — BlockMax WAND 預設 10× 詞彙搜尋加速（2025-04-08）](https://weaviate.io/blog/weaviate-1-30-release)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

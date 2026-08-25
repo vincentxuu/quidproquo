@@ -1,7 +1,7 @@
 ---
 title: "Cross-Encoder Reranking: Surfacing the Most Relevant Documents"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -98,7 +98,21 @@ If you want a stronger model, the trade-off comes down to three paths:
 
 What actually deserves measuring is three things: whether the model supports your languages, how long a document a single request can take before truncation (truncation quietly wrecks relevance judgements on long documents), and how many extra milliseconds of latency you can absorb. All three are documented by the vendors, and all three change between versions — so re-checking at swap time beats memorizing a model name.
 
-## Impact on the Overall System
+## What's New in 2025: From Pointwise to Listwise (jina-reranker-v3 / v3.5)
+
+The baseline paradigm remains the classic two-stage stack: a Bi-Encoder for large-scale recall (e.g., top-50) followed by a Cross-Encoder for precision reranking (e.g., top-5). The Top-100 → Top-10 and the 20–30 post-RRF setup described above is just this paradigm instantiated at this site's scale.
+
+The notable 2025 branch is the **listwise reranker**. Jina released **jina-reranker-v3** on 2025-09-29 and **v3.5** on 2026-07-20, both **0.6B** listwise models: self-reported BEIR nDCG@10 rises from **61.94 to 63.20**, which the authors describe as comparable to 4B-class models, with about **+9.6** on semi-structured (tables, JSON) splits.
+
+The architectural shift is in attention. A classic Cross-Encoder is pointwise — `[Query; Doc_i] → score`, each candidate scored in isolation. A listwise reranker places the **query and multiple candidates in the same context window** and uses **causal attention** so the model sees all candidates in one forward pass, emitting a per-candidate score that reflects its relevance *within that set* (read out from the final token). This enables **cross-document comparison** — judging which document answers the question more completely rather than scoring each in a vacuum — and is particularly useful for **semi-structured documents and queries that benefit from comparing candidates against each other**.
+
+The v3.5 engineering change is **hybrid attention**: three sliding-window layers plus two global layers, preserving cross-document comparison while pushing latency down further — the paper reports roughly **1.56× lower latency** than v3, making it more practical for batched reranking of 20–150 candidates.
+
+Trade-offs and adoption notes:
+
+- **Do not copy leaderboard numbers at face value.** The 61.94 → 63.20 and "comparable to 4B" claims come from the authors' own BEIR/MIRACL/RTEB runs, without a side-by-side table against Cohere / Voyage / bge-reranker-v2 and without validation on your domain.
+- **Validate on your own labelled set**: run a batch of your labelled queries, inspect the score distribution, then decide thresholds and whether to replace the current BGE reranker. A leaderboard lead does not imply a lead on your data.
+- With few candidates (< 5) or a semantically clear query the listwise gain is limited; it is worth trying when you have many candidates and a good share of tabular or semi-structured content.
 
 Reranking has the greatest impact on final output quality in the following scenarios:
 
@@ -116,6 +130,7 @@ Overall, reranking is the most direct lever for improving precision in a RAG pip
 
 ## Changelog
 
+- 2026-08-25: Added 2025 update (jina-reranker-v3 / v3.5, 0.6B listwise, BEIR 61.94→63.20, +9.6 on semi-structured, hybrid attention). Explained same-window causal attention and when it helps; noted that results must be validated on your own labelled set.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -126,3 +141,5 @@ Overall, reranking is the most direct lever for improving precision in a RAG pip
 - [Workers AI model catalog (to check which rerankers exist today)](https://developers.cloudflare.com/workers-ai/models/)
 - [Cohere Reranking Best Practices (on how to read reranker scores)](https://docs.cohere.com/docs/reranking-best-practices)
 - [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)
+- [jina-reranker-v3: Last but Not Late Interaction for Document Reranking (2025-09-29)](https://arxiv.org/abs/2509.25085)
+- [jina-reranker-v3.5: Efficient Listwise Reranker with Hybrid Attention and Self-Distillation (2026-07-20)](https://arxiv.org/abs/2607.18152)

@@ -1,7 +1,7 @@
 ---
 title: "BGE-M3: Why This Embedding Model Works Well for Traditional Chinese RAG"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, embedding, bge-m3, multilingual, vector-search, cloudflare-workers-ai]
@@ -22,7 +22,7 @@ When picking an embedding model, a few questions matter: language support, vecto
 
 ## What Is BGE-M3
 
-BGE-M3 is a multilingual embedding model from the Beijing Academy of Artificial Intelligence (BAAI). The "M3" stands for **Multi-Linguality, Multi-Granularity, Multi-Functionality**:
+[BGE-M3](https://huggingface.co/BAAI/bge-m3) is a multilingual embedding model from the Beijing Academy of Artificial Intelligence (BAAI). The "M3" stands for **Multi-Linguality, Multi-Granularity, Multi-Functionality**:
 
 - **Multi-Linguality**: officially 100+ languages (Traditional Chinese is not called out separately in that list)
 - **Multi-Granularity**: handles everything from short phrases to long documents (up to 8192 tokens)
@@ -118,7 +118,15 @@ Whatever the limit turns out to be, long documents must be chunked before indexi
 
 ## How to Compare Against Other Options
 
-This section used to hold a table of model dimensions, multilingual ratings, and prices. It's gone — model catalogs, dimensions, and unit prices shift every quarter, and freezing them into an article only misleads. What remains is the decision criteria:
+This section used to hold a table of model dimensions, multilingual ratings, and prices. It's gone — model catalogs, dimensions, and unit prices shift every quarter, and freezing them into an article only misleads. Using [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) as the baseline, three branches from 2025–2026 are worth comparing:
+
+- **Small and efficient: [jina-embeddings-v5-text](https://arxiv.org/abs/2602.15547) (2026-02-17)** — sub-1B parameters, up to 32K context, trained with distillation plus task-targeted contrastive learning to reach best-in-class retrieval quality at this size, robust to truncation and binary quantization. Best when you need pure text retrieval on a budget or with tight latency.
+- **Multimodal dual-mode: [jina-embeddings-v4](https://arxiv.org/abs/2506.18902) (2025-06-23)** — 3.8B parameters, single- and multi-vector dual modes that handle plain text and visually rich content (charts, tables, layouts) together, with SOTA on chart and table retrieval. Best when your corpus includes screenshots, scanned documents, charts, or you need cross-modal search.
+- **Multi-vector: [Jina-ColBERT-v2](https://arxiv.org/abs/2408.16672)** — late-interaction multi-vector retrieval that ports single-vector training tricks to ColBERT, strong on multilingual retrieval. Best when you need token-level fine-grained matching, interpretability, or maximum recall, at higher storage and query cost than single-vector.
+
+How to choose: pure text, cost or speed first → a small model like v5-text; charts, layouts, and multimodal content such as video stills or scans → v4 multimodal; maximum recall or explainable matching → ColBERT-v2 multi-vector. Whichever branch you consider, **leaderboards move fast — measure on your own data**: compare the MTEB multilingual tab and run A/B on your own query set and corpus, and measure before and after reranking and quantization rather than taking any article's conclusion as the answer.
+
+What remains as decision criteria:
 
 1. **Language coverage beats leaderboard scores.** Confirm the candidate's training data covers your target language. For Traditional Chinese specifically, "supports Chinese" usually means Simplified; check whether the model card explicitly documents multilingual training, then test with your own domain terms.
 2. **Platform availability is a hard constraint.** A model you can only reach through an external API adds a cross-network hop to every query when you run on Workers. Start from what your target platform hosts natively.
@@ -140,6 +148,7 @@ If you're not on Cloudflare Workers, or you need stronger English performance, c
 
 ## Changelog
 
+- 2026-08-25: Added 2025-2026 three-branch embedding comparison (jina-embeddings-v5-text / v4 / Jina-ColBERT-v2) with BGE-M3 as baseline, clarifying when to choose small/efficient vs multimodal/visual vs multi-vector
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -149,6 +158,9 @@ If you're not on Cloudflare Workers, or you need stronger English performance, c
 - [MTEB Leaderboard (Hugging Face, includes a multilingual tab)](https://huggingface.co/spaces/mteb/leaderboard)
 - [BAAI/bge-m3 model card](https://huggingface.co/BAAI/bge-m3)
 - [BAAI/bge-reranker-v2-m3 model card](https://huggingface.co/BAAI/bge-reranker-v2-m3)
+- [jina-embeddings-v5-text: Task-Targeted Embedding Distillation (2026-02-17)](https://arxiv.org/abs/2602.15547)
+- [jina-embeddings-v4: Universal Embeddings for Multimodal Multilingual Retrieval (2025-06-23)](https://arxiv.org/abs/2506.18902)
+- [Jina-ColBERT-v2: A General-Purpose Multilingual Late Interaction Retriever (2024-08-29)](https://arxiv.org/abs/2408.16672)
 - [Cloudflare Workers AI — bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/)
 - [Cloudflare Workers AI — model catalog](https://developers.cloudflare.com/workers-ai/models/)
 - [NobodyClimb Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)

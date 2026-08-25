@@ -1,7 +1,7 @@
 ---
 title: "Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, vector-database, pinecone, weaviate, qdrant, cloudflare-vectorize]
@@ -68,6 +68,18 @@ Three questions:
 - Do you need quantization to fit in memory? Qdrant, Weaviate, and pgvector (`halfvec`, binary) all have it, and they configure it very differently.
 - How is multi-tenancy isolated — namespace, collection, or a metadata field? Changing your mind later is expensive.
 
+## 2025-2026 Addendum: Quantization and Hybrid Search Are Now Defaults
+
+The biggest shift since 2025 is not one more feature — "quantization" and "hybrid retrieval" moved from nice-to-have to default. You now need a reason *not* to use them.
+
+**Qdrant 1.19 Turbo4 (2026-08-05)** introduced the [Turbo4 pure-quantization datatype](https://qdrant.tech/blog/qdrant-1.19.x/): 4-bit only with no full-precision copy, roughly 9× storage reduction versus the original footprint, suited to cost-sensitive workloads where a small recall trade-off is acceptable. The same release unified memory tiers into `pinned` / `cached` / `cold` so hot indexes stay in RAM while colder ones sit in disk cache or cold storage. It also added per-tenant IDF, which improves lexical weighting under multi-tenancy.
+
+**Weaviate 1.30 (2025-04-08)** made [BlockMax WAND the default for lexical search](https://weaviate.io/blog/weaviate-1-30-release), with the release notes claiming up to 10× speed-up for keyword search; multi-vector (ColBERT-style late interaction) reached GA with quantization support, and BM25 gained a language-neutral mode. For selection, Weaviate's hybrid is no longer experimental — evaluate it as a primary path.
+
+**Cost and payoff for hybrid now have measured numbers**: [Qdrant's hybrid study](https://qdrant.tech/articles/hybrid-search/) compared dense-only vs sparse-only across 5 datasets; dense+sparse fused with RRF / DBSF beat the single-path baseline in 4 out of 5 cases, with only 0.6–1.47 ms of extra latency under a single-container, single-concurrency benchmark. The practical decision flow is therefore: **measure the real gain from BM25 first, then decide whether to upgrade to SPLADE / learned sparse** — don't jump straight to learned sparse for the sake of looking advanced. The same applies to quantization: confirm whether you need it to fit in memory, then choose between a pure-quantization option like Turbo4 and a dual-copy setup that keeps full precision, trading recall for cost differently.
+
+Pinecone and Cloudflare Vectorize are still retained as controls via their official docs ([Pinecone docs](https://docs.pinecone.io/) / [Vectorize docs](https://developers.cloudflare.com/vectorize/)), but no 2025 first-hand updates were captured for either in this pass (official blog paths returned 404), so no new feature details are asserted here — check the vendor docs for the current state.
+
 ## One Line Each
 
 Check the docs for feature details; here's only "when is it the natural choice":
@@ -131,6 +143,7 @@ Don't spend too much time on "which benchmark is highest" — and don't trust an
 
 ## Changelog
 
+- 2026-08-25: Added Qdrant 1.19 Turbo4, Weaviate 1.30 BlockMax WAND, and Qdrant Hybrid RRF/DBSF measurements; clarified quantization and hybrid as defaults and the "measure BM25 before learned sparse" decision flow.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -152,5 +165,8 @@ Don't spend too much time on "which benchmark is highest" — and don't trust an
 - [Cloudflare Vectorize - Metadata filtering](https://developers.cloudflare.com/vectorize/reference/metadata-filtering/)
 - [Cloudflare Vectorize - Limits](https://developers.cloudflare.com/vectorize/platform/limits/)
 - [Cloudflare AI Search - Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/)
+- [Qdrant 1.19 — Turbo4 & Memory Tiers (2026-08-05)](https://qdrant.tech/blog/qdrant-1.19.x/)
+- [Qdrant — Hybrid Search: RRF vs DBSF benchmark (2026-08-24)](https://qdrant.tech/articles/hybrid-search/)
+- [Weaviate 1.30 Release — BlockMax WAND default, up to 10× lexical speed-up (2025-04-08)](https://weaviate.io/blog/weaviate-1-30-release)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

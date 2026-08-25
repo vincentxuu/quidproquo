@@ -1,7 +1,7 @@
 ---
 title: "Cross-Encoder Reranking：讓最相關的文件排到前面"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-25
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -98,6 +98,22 @@ skipWhen: (ctx) => ctx.candidateMatches.length <= 1
 
 決策上真正該量的是三件事：這顆模型支不支援你的語言、單次請求能吃多長的文件（超過就會被截斷，長文件的相關性判斷會失真）、以及你能容忍多少毫秒的額外延遲。這三項在官方文件上都查得到，也都會隨版本改變，所以每次要換模型時重查一次，比記住某個型號有用。
 
+## 2025 進展：從 Pointwise 到 Listwise（jina-reranker-v3 / v3.5）
+
+既有基線仍是典型的兩階段範式：Bi-Encoder 先做大規模召回（例如 top-50）、Cross-Encoder 再對候選做精排（例如 top-5）；上述 Top-100→Top-10 與 RRF 後 20–30 取精排的配置，只是這個範式在本站規模下的具體參數。
+
+2025 年值得關注的新分支是 **listwise reranker**。Jina 在 2025-09-29 發表 **jina-reranker-v3**、2026-07-20 再發 **v3.5**，兩者皆為 **0.6B** 參數的 listwise 架構：論文自報 BEIR 上 nDCG@10 從 **61.94 提升至 63.20**，作者稱已相當於 4B 參數等級模型的表現；半結構化（表格、JSON）場景相對提升約 **+9.6**。
+
+關鍵差異在注意力機制。傳統 Cross-Encoder 是 pointwise 的 `[Query; Doc_i] → score`，每對候選獨立打分；listwise 則把 **query 與多個候選文件放進同一個上下文窗口**，以 **causal attention** 讓模型在一次前向中同時看到所有候選、輸出每個候選在「這個候選集內」的相對相關性，並以末 token 讀出分數。這讓模型能做**跨文檔比較**（例如「哪一份更完整回答了問題」而非各自獨立給分），在**半結構化文件與需要比較多份候選優劣**的查詢上特別有優勢。
+
+v3.5 的工程改動是**混合注意力**：以 3 個滑動窗口注意力搭配 2 個全域注意力層，在保留跨文檔比較能力的同時把延遲進一步壓低，論文稱相較 v3 延遲降低約 **1.56×**，更適合 20–150 候選的批量重排。
+
+取捨與落地提醒：
+
+- **不要照抄榜單數字**。61.94→63.20 與 4B 相當的說法來自作者自家在 BEIR/MIRACL/RTEB 的報告，未與 Cohere / Voyage / bge-reranker-v2 等做同表對照，也未在你的領域資料上驗證過。
+- **務必在自家標註集上對照驗證**：拿一批已標註的查詢跑一次，看分數分布再決定 threshold 與是否汰換現有 BGE reranker；榜單領先不代表在你的資料上也會領先。
+- 若候選本來就少（< 5）或查詢語義清晰，listwise 的增益有限；候選多、且含表格或半結構化欄位時較值得試。
+
 ## 對系統的影響
 
 Reranking 對最終結果品質的影響集中在幾種場景：
@@ -116,6 +132,7 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 
 ## 更新紀錄
 
+- 2026-08-25：增補 2025 進展（jina-reranker-v3 / v3.5，0.6B listwise、BEIR 61.94→63.20、半結構化 +9.6、混合注意力），說明 listwise 同窗 causal attention 與適用情境，提醒需以自家標註集對照驗證
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -126,3 +143,5 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 - [Workers AI 模型目錄（查目前有哪些 reranker）](https://developers.cloudflare.com/workers-ai/models/)
 - [Cohere Reranking Best Practices（hosted reranker 的分數解讀說明）](https://docs.cohere.com/docs/reranking-best-practices)
 - [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)
+- [jina-reranker-v3: Last but Not Late Interaction for Document Reranking (2025-09-29)](https://arxiv.org/abs/2509.25085)
+- [jina-reranker-v3.5: Efficient Listwise Reranker with Hybrid Attention and Self-Distillation (2026-07-20)](https://arxiv.org/abs/2607.18152)
