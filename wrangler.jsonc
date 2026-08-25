@@ -59,6 +59,13 @@
 	"ai": {
 		"binding": "AI"
 	},
+	"workflows": [
+		{
+			"binding": "AGENT_FLOW_WORKFLOWS",
+			"name": "agent-flow-durable",
+			"class_name": "AgentFlowWorkflow"
+		}
+	],
 	"queues": {
 		"producers": [
 			{
@@ -132,7 +139,7 @@
 		"AGENT_POLICY_SECURITY_ENFORCE": "false",
 		"AGENT_POLICY_HUMAN_GATES": "false",
 		"AGENT_FLOW_ENABLED": "true",
-		"AGENT_FLOW_DURABLE_EXECUTION": "false",
+		"AGENT_FLOW_DURABLE_EXECUTION": "true",
 		"AGENT_FLOW_DEEP_RESEARCH": "false",
 		"PIPELINES_PORTED_TO_FLOW": "false",
 		"ADMIN_PIPELINES_REDIRECT_TO_FLOW": "false",

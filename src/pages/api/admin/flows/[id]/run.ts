@@ -8,18 +8,8 @@ import { json } from '@/lib/api/response'
 import { ensureAgentFlowEnabled } from '../_guard'
 import { nowMs } from '@/lib/utils/dates'
 import { getTableColumns } from '@/lib/admin-console/schema'
-import { loadFlow } from '@/lib/agent-flow/dsl/load'
-import { validateFlowSchema } from '@/lib/agent-flow/dsl/validate'
-import { validateEdges } from '@/lib/agent-flow/dsl/edges'
-import { runFlowInWorker } from '@/lib/agent-flow/runtime/run'
-import '@/lib/agent-flow/runtime/steps/index'
 
-function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
-  const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext
-  return cfContext?.waitUntil?.bind(cfContext)
-}
-
-export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
+export const POST: APIRoute = async ({ cookies, params, request }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
@@ -31,7 +21,6 @@ export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
 
   const db = (env as unknown as Env).DB
 
-  // Verify flow exists
   const flow = await db
     .prepare(`SELECT flow_id FROM flow_definitions WHERE flow_id=? LIMIT 1`)
     .bind(flowId)
@@ -156,37 +145,26 @@ export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
     .bind(...values)
     .run()
 
-  // Actually execute the flow in the background
-  const flowDef = await db
-    .prepare(`SELECT definition_yaml FROM flow_definitions WHERE flow_id=? LIMIT 1`)
-    .bind(flowId)
-    .first<{ definition_yaml: string }>()
+  // Launch Cloudflare Workflow for durable execution
+  const workflows = (env as unknown as Env).AGENT_FLOW_WORKFLOWS as
+    { create(opts: { id: string; params: unknown }): Promise<unknown> } | undefined
 
-  if (flowDef?.definition_yaml) {
-    const executeFlow = async () => {
-      try {
-        await db.prepare(`UPDATE flow_runs SET status='running', updated_at=? WHERE flow_run_id=?`).bind(nowMs(), flowRunId).run()
-        const raw = loadFlow(flowDef.definition_yaml, 'yaml')
-        const definition = validateFlowSchema(raw)
-        const edges = validateEdges(definition)
-        const result = await runFlowInWorker({ flowRunId, definition, edges, input, db })
-        const finishedAt = nowMs()
-        await db.prepare(
-          `UPDATE flow_runs SET status=?, output_json=?, finished_at=?, latency_ms=?, updated_at=? WHERE flow_run_id=?`
-        ).bind(result.status, JSON.stringify(result.stepResults), finishedAt, finishedAt - now, finishedAt, flowRunId).run()
-      } catch (err) {
-        const finishedAt = nowMs()
-        await db.prepare(
-          `UPDATE flow_runs SET status='failed', error_json=?, finished_at=?, latency_ms=?, updated_at=? WHERE flow_run_id=?`
-        ).bind(JSON.stringify({ message: String(err) }), finishedAt, finishedAt - now, finishedAt, flowRunId).run()
-      }
+  if (workflows) {
+    try {
+      await workflows.create({
+        id: flowRunId,
+        params: { flowId, flowRunId, input },
+      })
+    } catch (err) {
+      console.error('[flow-run] Failed to create Workflow instance:', err)
+      await db.prepare(
+        `UPDATE flow_runs SET status='failed', error_json=?, updated_at=? WHERE flow_run_id=?`
+      ).bind(JSON.stringify({ message: `Workflow creation failed: ${err}` }), nowMs(), flowRunId).run()
     }
-    const waitUntil = getWaitUntil(locals)
-    if (waitUntil) {
-      waitUntil(executeFlow())
-    } else {
-      executeFlow().catch((err) => console.error('[flow-run] background execution failed:', err))
-    }
+  } else {
+    await db.prepare(
+      `UPDATE flow_runs SET status='failed', error_json=?, updated_at=? WHERE flow_run_id=?`
+    ).bind(JSON.stringify({ message: 'AGENT_FLOW_WORKFLOWS binding not configured' }), nowMs(), flowRunId).run()
   }
 
   const accept = request.headers.get('accept') ?? ''

@@ -20,6 +20,7 @@ export interface Env {
   LLM_PROVIDER?: string
   URL?: string
   AGENT_QUEUE?: Queue<AgentQueueMessage>
+  AGENT_FLOW_WORKFLOWS?: Workflow
   R2_AGENT_MEMORY?: R2Bucket
   R2_AGENT_ARTIFACT?: R2Bucket
   AGENT_OS_ENABLED?: string

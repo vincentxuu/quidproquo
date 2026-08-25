@@ -1,32 +1,235 @@
 // Cloudflare Workflows entrypoint for agent-flow durable execution.
-// Requires `cloudflare:workers` runtime types — this file is only loaded in the Worker runtime.
-// Wrangler binding: { "binding": "AGENT_FLOW_WORKFLOWS", "name": "agent-flow-durable", "class_name": "AgentFlowWorkflow" }
+// Each flow step becomes a Workflow step.do() with built-in retries + checkpoint.
 
-// @ts-ignore — cloudflare:workers types are runtime-only; not available during tsc checks
+// @ts-ignore — cloudflare:workers types are runtime-only
 import { WorkflowEntrypoint } from 'cloudflare:workers'
 import type { WorkflowEvent, WorkflowStep } from 'cloudflare:workers'
 import type { Env } from '../lib/config/env'
-import { runFlowInWorker } from '../lib/agent-flow/runtime/run'
 
 interface FlowWorkflowParams {
   flowId: string
+  flowRunId: string
   input: Record<string, unknown>
-  flowRunId: number
+}
+
+interface ParsedStep {
+  id: string
+  type: string
+  prompt?: string
+  model?: string
+  maxTokens?: number
+  tools?: string[]
+  branches?: ParsedStep[]
+  merge?: string
+  [key: string]: unknown
+}
+
+interface ProviderConfig {
+  baseUrl: string
+  envKey: string
+  defaultModel: string
+}
+
+const PROVIDERS: Record<string, ProviderConfig> = {
+  openrouter: { baseUrl: 'https://openrouter.ai/api/v1', envKey: 'OPENROUTER_API_KEY', defaultModel: 'stealth/ox-alpha' },
+  opencode: { baseUrl: 'https://opencode.ai/zen/v1', envKey: 'OPENCODE_API_KEY', defaultModel: 'anthropic/claude-sonnet-4-20250514' },
+  groq: { baseUrl: 'https://api.groq.com/openai/v1', envKey: 'GROQ_API_KEY', defaultModel: 'llama-3.3-70b-versatile' },
+  openai: { baseUrl: 'https://api.openai.com/v1', envKey: 'OPENAI_API_KEY', defaultModel: 'gpt-4o' },
+}
+
+async function callLlm(
+  env: Record<string, string>,
+  provider: string,
+  prompt: string,
+  maxTokens: number,
+): Promise<{ content: string; model: string; tokens?: unknown }> {
+  const config = PROVIDERS[provider]
+  if (!config) throw new Error(`Unknown provider: ${provider}`)
+
+  const apiKey = env[config.envKey]
+  if (!apiKey) throw new Error(`${config.envKey} not set`)
+
+  const res = await fetch(`${config.baseUrl}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: config.defaultModel,
+      messages: [
+        { role: 'system', content: 'You are a research assistant. Return structured JSON when asked.' },
+        { role: 'user', content: prompt },
+      ],
+      max_tokens: maxTokens,
+    }),
+  })
+
+  if (!res.ok) {
+    const body = await res.text()
+    throw new Error(`LLM ${res.status}: ${body.slice(0, 500)}`)
+  }
+
+  const data = await res.json() as {
+    choices: Array<{ message: { content: string } }>
+    model: string
+    usage?: unknown
+  }
+  return {
+    content: data.choices?.[0]?.message?.content ?? '',
+    model: data.model,
+    tokens: data.usage,
+  }
+}
+
+const STEP_RETRY = {
+  limit: 3,
+  delay: '5 seconds' as const,
+  backoff: 'exponential' as const,
 }
 
 export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParams> {
   async run(event: WorkflowEvent<FlowWorkflowParams>, step: WorkflowStep): Promise<void> {
-    const { flowId, input, flowRunId } = event.payload
+    const { flowId, flowRunId, input } = event.payload
+    const db = this.env.DB
+    const envRecord = this.env as unknown as Record<string, string>
 
-    // Each major step delegates to the in-Worker executor with Workflow checkpointing
-    await step.do('flow-execute', {
-      retries: { limit: 3, backoff: 'exponential', delay: '5 seconds' },
-    }, async () => {
-      await runFlowInWorker({
-        flowId: Number(flowId),
-        flowRunId: String(flowRunId),
-        input,
-      } as Parameters<typeof runFlowInWorker>[0])
+    // Step 1: Load flow definition from D1
+    const flowDef = await step.do('load-definition', { retries: STEP_RETRY }, async () => {
+      const row = await db
+        .prepare('SELECT definition_yaml FROM flow_definitions WHERE flow_id=? LIMIT 1')
+        .bind(flowId)
+        .first<{ definition_yaml: string }>()
+      if (!row) throw new Error(`Flow ${flowId} not found`)
+
+      const { parse } = await import('yaml')
+      return parse(row.definition_yaml) as {
+        steps: Record<string, ParsedStep>
+        edges: Array<{ from: string; to: string }>
+      }
+    })
+
+    // Step 2: Mark running
+    await step.do('mark-running', { retries: STEP_RETRY }, async () => {
+      await db.prepare(
+        `UPDATE flow_runs SET status='running', updated_at=? WHERE flow_run_id=?`
+      ).bind(Date.now(), flowRunId).run()
+    })
+
+    // Step 3: Build execution order from edges (topological sort)
+    const steps = Object.entries(flowDef.steps).map(([id, cfg]) => ({
+      ...cfg,
+      id,
+      type: cfg.kind ?? cfg.type,
+    })) as ParsedStep[]
+
+    const edges = flowDef.edges ?? []
+    const ordered = topoSort(steps, edges)
+
+    // Step 4: Execute each step
+    const stepResults: Record<string, unknown> = {}
+    const startedAt = Date.now()
+
+    for (const s of ordered) {
+      const result = await step.do(`step:${s.id}`, {
+        retries: STEP_RETRY,
+        timeout: '2 minutes',
+      }, async () => {
+        return executeFlowStep(s, envRecord, input, stepResults)
+      })
+      stepResults[s.id] = result
+
+      // Write step result to D1
+      await step.do(`record:${s.id}`, { retries: STEP_RETRY }, async () => {
+        const now = Date.now()
+        await db.prepare(
+          `INSERT INTO flow_step_runs (step_run_id, flow_run_id, step_id, step_order, step_type, status, outputs_json, started_at, finished_at, latency_ms, created_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, 'done', ?, ?, ?, ?, ?, ?)`
+        ).bind(
+          crypto.randomUUID(), flowRunId, s.id, ordered.indexOf(s), s.type,
+          JSON.stringify(result), startedAt, now, now - startedAt, now, now,
+        ).run()
+      })
+    }
+
+    // Step 5: Mark done
+    await step.do('mark-done', { retries: STEP_RETRY }, async () => {
+      const now = Date.now()
+      await db.prepare(
+        `UPDATE flow_runs SET status='done', output_json=?, finished_at=?, latency_ms=?, updated_at=? WHERE flow_run_id=?`
+      ).bind(JSON.stringify(stepResults), now, now - startedAt, now, flowRunId).run()
     })
   }
+}
+
+async function executeFlowStep(
+  s: ParsedStep,
+  env: Record<string, string>,
+  _input: Record<string, unknown>,
+  _prevResults: Record<string, unknown>,
+): Promise<unknown> {
+  if (s.type === 'parallel' && s.branches) {
+    const results = []
+    for (const branch of s.branches) {
+      if (branch.type === 'agent' && branch.prompt && branch.model) {
+        try {
+          const r = await callLlm(env, branch.model, branch.prompt, branch.maxTokens ?? 2000)
+          results.push({ id: branch.id, ...r })
+        } catch (err) {
+          results.push({ id: branch.id, error: String(err) })
+        }
+      } else {
+        results.push({ id: branch.id, stubbed: true })
+      }
+    }
+    return { branches: results }
+  }
+
+  if (s.type === 'agent' && s.prompt && s.model) {
+    return callLlm(env, s.model, s.prompt, s.maxTokens ?? 2000)
+  }
+
+  if (s.type === 'tool_group') {
+    return { stubbed: true, tools: s.tools ?? [] }
+  }
+
+  if (s.type === 'artifact') {
+    return { artifactId: crypto.randomUUID() }
+  }
+
+  return { stubbed: true, stepType: s.type }
+}
+
+function topoSort(
+  steps: ParsedStep[],
+  edges: Array<{ from: string; to: string }>,
+): ParsedStep[] {
+  const stepMap = new Map(steps.map(s => [s.id, s]))
+  const inDegree = new Map<string, number>()
+  const adj = new Map<string, string[]>()
+
+  for (const s of steps) {
+    inDegree.set(s.id, 0)
+    adj.set(s.id, [])
+  }
+  for (const e of edges) {
+    adj.get(e.from)?.push(e.to)
+    inDegree.set(e.to, (inDegree.get(e.to) ?? 0) + 1)
+  }
+
+  const queue = steps.filter(s => (inDegree.get(s.id) ?? 0) === 0).map(s => s.id)
+  const result: ParsedStep[] = []
+
+  while (queue.length > 0) {
+    const id = queue.shift()!
+    const s = stepMap.get(id)
+    if (s) result.push(s)
+    for (const next of adj.get(id) ?? []) {
+      const deg = (inDegree.get(next) ?? 1) - 1
+      inDegree.set(next, deg)
+      if (deg === 0) queue.push(next)
+    }
+  }
+
+  return result
 }

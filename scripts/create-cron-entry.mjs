@@ -49,6 +49,7 @@ import { checkKernelHealth } from '../src/lib/agent-os/observability/alerts.ts';
 import { handleQueueBatch } from '../src/server/queue.ts';
 import { runConsoleRollupDaily } from '../src/lib/agent-console/cost/rollup.ts';
 import { checkCostThresholds } from '../src/lib/agent-console/cost/threshold.ts';
+export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
