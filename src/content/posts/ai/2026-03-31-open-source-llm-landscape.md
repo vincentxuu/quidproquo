@@ -43,13 +43,13 @@ draft: false
 
 3 月 27 日發布的 **GLM-5.1** 進一步提升，程式碼能力逼近 Claude Opus 4.6。
 
-**→ [GLM-5 完整介紹：智譜 AI 的 744B 開源模型](/posts/ai/2026-03-26-glm5-model-intro)**
+**→ [GLM 完整介紹：智譜 AI 的 GLM 家族（GLM-5.3、744B 開源旗艦）](/posts/tech/2026-08-24-ai-model-family-glm)**
 
 ### Kimi K2.5（月之暗面）— 1T 參數 + Agent Swarm
 
 1T 總參數、32B 啟用參數的 MoE 模型，MIT 授權（超過 1 億 MAU 或 $20M 月營收需標註 Kimi K2.5）。原生多模態，最大亮點是 **Agent Swarm**——可以同時協調 100 個 sub-agent、發出 1,500 次工具呼叫。程式碼和數學在部分基準上是開源最強。
 
-**→ [Kimi 完整介紹：月之暗面的長文本 AI 模型](/posts/ai/2026-03-26-kimi-model-intro)**
+**→ [Kimi 完整介紹：月之暗面的 Kimi 家族（K3、2.8T 開源前沿）](/posts/tech/2026-08-24-ai-model-family-kimi)**
 
 ### Qwen3.5-397B-A17B（阿里巴巴）— 多模態旗艦
 
@@ -376,8 +376,8 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 
 站內專文：
 
-- [GLM-5：智譜 AI 的 744B 開源模型](/posts/ai/2026-03-26-glm5-model-intro)
-- [Kimi：月之暗面的長文本 AI 模型](/posts/ai/2026-03-26-kimi-model-intro)
+- [GLM：智譜 AI 的 GLM 家族（GLM-5.3、744B 開源旗艦）](/posts/tech/2026-08-24-ai-model-family-glm)
+- [Kimi：月之暗面的 Kimi 家族（K3、2.8T 開源前沿）](/posts/tech/2026-08-24-ai-model-family-kimi)
 - [能在手機上跑的小模型：2026 年的選擇與限制](/posts/ai/2026-03-31-mobile-small-models)
 - [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 - [Ollama 完整指南：一行指令在本地跑 LLM](/posts/ai/2026-03-14-ollama-local-llm-guide)

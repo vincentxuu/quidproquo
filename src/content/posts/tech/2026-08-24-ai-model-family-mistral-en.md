@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Mistral is Europe's most successful AI startup, cutting through the market with a 'smaller, faster, cheaper' strategy and European data-sovereignty positioning. Mistral Large 3 is Europe's strongest commercial LLM, Small 4 is the 24B efficiency king, and Medium 3.5 is the open Modified-MIT model optimized for agentic coding. Its moat is not technical scale but the 'European compliance' card."
 description: "Complete Mistral AI model family guide: evolution 2023→2026, Mixtral's MoE efficiency breakthrough, European sovereignty positioning, open vs commercial licensing, Small/Medium/Large/Devstral sub-lines, and selection guide for agent developers"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 6
 draft: false
 glossary:

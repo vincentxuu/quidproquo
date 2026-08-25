@@ -45,13 +45,13 @@ Nearly all frontier open-source models in 2026 use the **Mixture of Experts (MoE
 
 **GLM-5.1**, released on March 27, further improved performance, with code ability approaching Claude Opus 4.6.
 
-**-> [GLM-5 Deep Dive: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro-en)**
+**-> [GLM Deep Dive: Zhipu AI's GLM Family (GLM-5.3, 744B Open-Source Flagship)](/posts/tech/2026-08-24-ai-model-family-glm-en)**
 
 ### Kimi K2.5 (Moonshot AI) -- 1T Parameters + Agent Swarm
 
 A 1T total / 32B active parameter MoE model, MIT license (attribution required for >100M MAU or >$20M monthly revenue). Native multimodal, with the biggest highlight being **Agent Swarm** -- capable of coordinating 100 sub-agents simultaneously and issuing 1,500 tool calls. Code and math are open-source strongest on some benchmarks.
 
-**-> [Kimi Deep Dive: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro-en)**
+**-> [Kimi Deep Dive: Moonshot AI's Kimi Family (K3, 2.8T Open-Source Frontier)](/posts/tech/2026-08-24-ai-model-family-kimi-en)**
 
 ### Qwen3.5-397B-A17B (Alibaba) -- Multimodal Flagship
 
@@ -378,8 +378,8 @@ The biggest structural shift: Model selection decisions are moving from "open-so
 
 In-site articles:
 
-- [GLM-5: Zhipu AI's 744B Open-Source Model](/posts/ai/2026-03-26-glm5-model-intro-en)
-- [Kimi: Moonshot AI's Long-Context AI Model](/posts/ai/2026-03-26-kimi-model-intro-en)
+- [GLM: Zhipu AI's GLM Family (GLM-5.3, 744B Open-Source Flagship)](/posts/tech/2026-08-24-ai-model-family-glm-en)
+- [Kimi: Moonshot AI's Kimi Family (K3, 2.8T Open-Source Frontier)](/posts/tech/2026-08-24-ai-model-family-kimi-en)
 - [Mobile Small Models: Choices and Constraints in 2026](/posts/ai/2026-03-31-mobile-small-models-en)
 - [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 - [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide-en)

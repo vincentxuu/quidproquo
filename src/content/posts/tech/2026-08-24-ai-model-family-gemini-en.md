@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Gemini is Google DeepMind's native multimodal LLM family, famed for a 1M-token context window and native video/speech input plus scientific reasoning. 3.1 Pro tops GPQA Diamond 94.1% and ARC-AGI-2 77.1% to claim science-reasoning dual crowns, at $2/$12—1/6 of Claude. 3.7 Flash delivers near-Pro agent capability for $0.75/$3.75."
 description: "Complete Gemini model family guide: evolution from Gemini 1.0 (2023) to 3.1 Pro / 3.7 Flash (2026), native multimodal architecture, 1M context, pricing comparison, benchmarks, and selection guide for agent developers"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 4
 draft: false
 glossary:

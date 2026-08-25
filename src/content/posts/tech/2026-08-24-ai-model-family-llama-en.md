@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Llama is Meta's open-source LLM family, with the largest enterprise deployment footprint and the most mature ecosystem. Llama 4 Scout (10M context) and Maverick (17B active / 400B total MoE) are the current open multimodal benchmarks, but Meta pivoted to closed-source Muse Spark in April 2026—Llama 4 is likely the last major open Llama, and its license is not truly open (Llama 4 Community License, separate license required above 700M MAU)."
 description: "Complete Llama model family guide: evolution 2023→2026, Llama 4 MoE architecture & 10M context, Community License trap, Scout/Maverick/Behemoth sub-lines, Meta's Muse Spark pivot, and selection guide for agent developers"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 5
 draft: false
 glossary:

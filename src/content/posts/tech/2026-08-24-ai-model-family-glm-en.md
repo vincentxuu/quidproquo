@@ -1,12 +1,14 @@
 ---
 title: "GLM——From a Tsinghua Lab to a 744B Open-Source Flagship, and GLM-5.3's Cybersecurity Surge"
 date: 2026-08-24
-type: project
-category: ai
-tags: [glm, zhipu-ai, llm, moe, open-source, huawei-ascend, ai-model, agent]
+category: tech
+tags: [ai-agent, llm, glm, zhipu-ai, model-family-glm, moe, open-source, huawei-ascend, model-selection]
 lang: en
+type: deep-dive
+tldr: "GLM is Zhipu AI (Z.ai)'s open LLM family from Tsinghua's KEG Lab. GLM-5.3 (2026/08) lifts coding +50% over the previous generation, hits 84.5% on CyberGym ahead of Anthropic Mythos 5 and OpenAI GPT-5.6 Sol, and scores 60 on the Artificial Analysis Intelligence Index tied with Kimi K3 for open-source #1. The only frontier open model trained entirely on Huawei Ascend."
+description: "Complete GLM (Zhipu AI / Z.ai) model family guide: 2022→2026 evolution, dual-track open-weights vs commercial API, GLM autoregressive blank-infilling, 744B MoE, Slime RL, Huawei Ascend, GLM-5.3 security and selection guide, MIT licensing, and agent advice"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 8
 draft: false
 glossary:
@@ -21,6 +23,8 @@ glossary:
     aliases: ["Ascend"]
     definition: "Huawei's self-developed AI accelerators; GLM-5 was trained entirely on Ascend chips, with zero NVIDIA GPUs"
 ---
+
+> 🌏 [繁體中文版](/posts/tech/2026-08-24-ai-model-family-glm)
 
 In August 2026, Zhipu AI released **GLM-5.3** — same base model, but pure post-training lifted coding ability by 50% and pushed CyberGym to 84.5%, beating Anthropic's Mythos 5 (83.8%) and OpenAI's GPT-5.6 Sol (83.6%). This family traces back to a Tsinghua University lab: from the 2022 GLM-130B to today's 744B open-source flagship, it is **the only frontier open-source model trained entirely on Huawei Ascend accelerators**. This post traces GLM's full evolution from academic prototype to open-source frontier, and where it stands in 2026.
 

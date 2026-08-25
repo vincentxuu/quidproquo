@@ -1,12 +1,14 @@
 ---
 title: "Kimi——From a 200K Long-Context Tool to a 2.8T Open-Source Frontier, and K3's Architectural Leap"
 date: 2026-08-24
-type: project
-category: ai
-tags: [kimi, moonshot-ai, llm, long-context, reasoning, ai-model, moe, open-source]
+category: tech
+tags: [ai-agent, llm, kimi, moonshot-ai, model-family-kimi, long-context, reasoning, moe, open-source, model-selection]
 lang: en
+type: deep-dive
+tldr: "Kimi is Moonshot AI's LLM family, born from ultra-long context. Kimi K3 (2026/07) is the world's first open 3T-class model—2.8T params, 104B active, 1M context, scoring 60 on the Artificial Analysis Intelligence Index tied with GLM-5.3 for open-source #1. Its Kimi Delta Attention brings a 2.5× scaling efficiency gain."
+description: "Complete Kimi (Moonshot AI) model family guide: 2023→2026 evolution, dual-track open-weights vs API, Kimi Delta Attention, Attention Residuals, Stable LatentMoE, K3 selection guide, Kimi K3 License, and agent advice"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 9
 draft: false
 glossary:
@@ -23,6 +25,8 @@ glossary:
   - term: "MoonViT-V2"
     definition: "K3's vision encoder, trained from scratch with next-token prediction (no SigLIP initialization), 401M parameters"
 ---
+
+> 🌏 [繁體中文版](/posts/tech/2026-08-24-ai-model-family-kimi)
 
 In 2023, while the world chased OpenAI, a Chinese startup called Moonshot AI (月之暗面) made a different bet — instead of rushing a "Chinese ChatGPT," it wagered on the **ultra-long context window**. In July 2026 that path reached its extreme: **Kimi K3** — the world's first open-source 3T-class model, 2.8T parameters, 104B active, 1M context, scoring 60 on the Artificial Analysis Intelligence Index, tied with GLM-5.3 for open-source #1. This post traces Kimi's full evolution from long-context tool to open-source frontier, and K3's architectural leap.
 

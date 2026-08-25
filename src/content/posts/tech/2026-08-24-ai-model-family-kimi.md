@@ -26,6 +26,8 @@ glossary:
     definition: "K3 的視覺編碼器，從頭以 next-token prediction 訓練（不依賴 SigLIP 初始化），參數 401M"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-kimi-en)
+
 2023 年，當全世界都在追趕 OpenAI 時，一家叫「月之暗面」（Moonshot AI）的中國新創做了一個不太一樣的選擇——它沒有急著推出「中國版 ChatGPT」，而是把賭注押在**超長 context window**。2026 年 7 月，這條路走到極致：**Kimi K3**——全球首個開源 3T 級模型，2.8T 參數、104B 活躍、1M context，在 Artificial Analysis Intelligence Index 得分 60 與 GLM-5.3 並列開源第一。這篇追蹤 Kimi 從長文本工具到開源前沿的完整演化，以及 K3 的架構躍進。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的第九篇家族深度介紹。

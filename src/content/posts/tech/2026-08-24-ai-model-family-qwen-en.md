@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Qwen is the most-downloaded model family on HuggingFace, spanning sizes from 0.8B to 2.4T. In August 2026, Alibaba open-sourced a Max-tier flagship for the first time (Qwen3.8-2.4T-A95B) — but swapped the customary Apache 2.0 license for custom terms. Meanwhile the other new release, Qwen3.8-27B, runs native vision on laptop-class hardware and is the only one shipping under Apache 2.0. This post traces the family from 2023 through generation 3.8, explains how the open line and the commercial line split apart, and helps you pick the right model at each tier."
 description: "A complete guide to the Qwen (Tongyi Qianwen) model family: evolution timeline 2023→2026, the dual-track strategy of open vs. commercial lines, Gated DeltaNet and fine-grained MoE architecture, a Qwen3.8 Max/27B selection guide, and DashScope pricing and licensing tiers."
 series:
-  name: "AI Model Family"
+  name: "AI Model Families"
   order: 2
 draft: false
 glossary:

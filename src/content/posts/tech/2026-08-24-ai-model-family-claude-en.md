@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Claude is Anthropic's closed-source LLM family, known for Constitutional AI training, agent capabilities, and coding performance. In July 2026, Opus 5 scored 96% on SWE-bench Verified to claim the coding crown, while Fable 5 led general capability at 83% on LiveBench. Four tiers (Fable / Opus / Sonnet / Haiku) span $1–$10, making this the only family in the series with zero open weights."
 description: "Complete Claude model family guide: evolution from Claude 1 (2023) to Fable 5 (2026), API platform vs consumer app split, Constitutional AI & agent architecture, four-tier pricing comparison, SWE-bench/LiveBench benchmarks, and selection guide for agent developers"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 7
 draft: false
 glossary:

@@ -57,6 +57,11 @@ export default defineConfig({
       '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en',
     '/posts/ai/2026-04-05-hermes-agent-intro': '/posts/ai/2026-08-18-hermes-agent-intro',
     '/posts/ai/2026-04-05-hermes-agent-intro-en': '/posts/ai/2026-08-18-hermes-agent-intro-en',
+    // GLM / Kimi family deep-dives moved from ai/2026-03-26 to tech/2026-08-24-ai-model-family
+    '/posts/ai/2026-03-26-glm5-model-intro': '/posts/tech/2026-08-24-ai-model-family-glm',
+    '/posts/ai/2026-03-26-glm5-model-intro-en': '/posts/tech/2026-08-24-ai-model-family-glm-en',
+    '/posts/ai/2026-03-26-kimi-model-intro': '/posts/tech/2026-08-24-ai-model-family-kimi',
+    '/posts/ai/2026-03-26-kimi-model-intro-en': '/posts/tech/2026-08-24-ai-model-family-kimi-en',
     // 'RAG 系統實戰' 併入 'RAG 技法大全'
     '/series/rag-systems': '/series/rag-techniques',
     '/en/series/rag-systems': '/en/series/rag-techniques',

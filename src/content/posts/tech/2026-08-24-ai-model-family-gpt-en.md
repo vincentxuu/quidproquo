@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "GPT is OpenAI's LLM family, from 117M parameters in 2018 to the three-tier GPT-5.6 Sol/Terra/Luna lineup in 2026, serving 1B+ users and 2M enterprise customers. GPT-5.6 Sol leads LiveBench 81.1%, Terminal-Bench 2.1 88.8%, and Artificial Analysis Coding Agent Index 80 across multiple agentic benchmarks, while OpenAI's first open-weight model GPT-OSS ships under Apache 2.0."
 description: "Complete GPT model family guide: evolution from GPT-1 (2018) to GPT-5.6 (2026), closed API vs open GPT-OSS strategy, unified routing architecture, Sol/Terra/Luna pricing comparison, benchmarks, and selection guide for agent developers"
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 3
 draft: false
 glossary:
