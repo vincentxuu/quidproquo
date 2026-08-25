@@ -3,10 +3,9 @@ name: Daily Digest Pipeline
 version: 1
 description: >
   Orchestrate daily content generation through the agent-flow pipeline.
-  Stage 1 routines (arxiv, github, model-card, security, benchmark, framework, tool, funding, pricing)
-  run in parallel; stage 2 (signals) synthesises stage 1 outputs; stage 3 (report) assembles the daily post.
-  Mirrors the existing Claude Code skill routines but executes inside the flow runtime
-  with D1 tracking, budget enforcement, and artifact versioning.
+  Stage 1 routines run in parallel with web search grounding;
+  stage 2 synthesises cross-cutting signals; stage 3 assembles the daily post.
+  Model and search provider are overridable via API input.
 
 inputs:
   date:
@@ -18,87 +17,95 @@ inputs:
     required: false
     default: zh-TW
     description: Language for generated content
-  stage1Only:
-    type: boolean
+  model:
+    type: string
     required: false
-    default: false
-    description: Stop after stage 1 parallel routines (skip signals + report)
+    description: "Override model for all agent steps (format: provider/model, e.g. openrouter/qwen/qwen3.8-27b)"
 
 steps:
-  # ── Stage 1: parallel source scans ────────────────────────────────────────
+  # ── Stage 1: parallel source scans (with web search) ──────────────────────
   stage1-parallel:
     kind: parallel
     merge: all
     branches:
       - id: scan-arxiv
         type: agent
+        search: true
         prompt: >
           Scan arxiv cs.AI/cs.CL/cs.MA for today's papers relevant to AI Agents.
           Return structured JSON with paper title, authors, abstract summary, relevance score.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 2000
       - id: scan-github
         type: agent
+        search: true
         prompt: >
           Scan GitHub Trending for AI/Agent repos and notable framework releases.
           Return structured JSON with repo name, stars, description, why it matters.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 2000
       - id: scan-model-card
         type: agent
+        search: true
         prompt: >
           Detect newly announced AI models in the last 24 hours.
           Return structured JSON with model name, provider, key capabilities, pricing if available.
           Return empty array if no new model detected.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1500
       - id: scan-security
         type: agent
+        search: true
         prompt: >
           Scan for AI security incidents, vulnerabilities, and advisories in the last 24 hours.
           Return structured JSON with incident summary, severity, affected systems.
           Return empty array if no significant incident.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1500
       - id: scan-benchmark
         type: agent
+        search: true
         prompt: >
           Check for leaderboard shifts on major AI benchmarks (SWE-bench, Arena, MMLU, etc).
           Return structured JSON with benchmark name, old leader, new leader, score delta.
           Return empty array if no ranking change detected.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1200
       - id: scan-framework
         type: agent
+        search: true
         prompt: >
           Detect important AI Agent framework releases (LangChain, CrewAI, Agents SDK, etc) in the last 24 hours.
           Return structured JSON with framework, version, key changes.
           Return empty array if no important release.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1200
       - id: scan-tool
         type: agent
+        search: true
         prompt: >
           Find noteworthy new AI developer tools or MCP servers released in the last 24 hours.
           Return structured JSON with tool name, what it does, why it matters.
           Return empty array if nothing noteworthy.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1200
       - id: scan-funding
         type: agent
+        search: true
         prompt: >
           Detect AI/Agent startup funding rounds (Series A+) announced in the last 24 hours.
           Return structured JSON with company, round, amount, investors, what they do.
           Return empty array if no qualifying funding.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1200
       - id: scan-pricing
         type: agent
+        search: true
         prompt: >
           Track AI API pricing changes or sunset announcements in the last 24 hours.
           Return structured JSON with provider, model, old price, new price, effective date.
           Return empty array if no pricing change.
-        model: openrouter/qwen/qwen3.8-27b
+        model: openrouter/dots-studio/dots-3-note-preview:free
         maxTokens: 1000
 
   # ── Stage 2: synthesise signals ───────────────────────────────────────────
@@ -108,7 +115,7 @@ steps:
       Given the stage 1 scan results, extract cross-cutting signals and themes.
       Identify connections between findings (e.g. a new model + benchmark shift + pricing change).
       Output a signals JSON with themes array and per-source highlight picks.
-    model: openrouter/qwen/qwen3.8-27b
+    model: openrouter/dots-studio/dots-3-note-preview:free
     maxTokens: 2500
 
   # ── Stage 3: assemble daily report ────────────────────────────────────────
@@ -118,7 +125,7 @@ steps:
       Using the signals and raw stage 1 data, draft the daily digest report in Markdown.
       Follow the four-circle model: core (Agent), second (AI infra), third (applications/business), fourth (IT management).
       End with a "今天學到什麼" reflection section.
-    model: openrouter/qwen/qwen3.8-27b
+    model: openrouter/dots-studio/dots-3-note-preview:free
     maxTokens: 4000
 
   # ── Quality gate ──────────────────────────────────────────────────────────
@@ -163,4 +170,4 @@ artifacts:
 budget:
   maxRetries: 1
   maxRuntimeMs: 600000
-  maxExternalCalls: 18
+  maxExternalCalls: 30
