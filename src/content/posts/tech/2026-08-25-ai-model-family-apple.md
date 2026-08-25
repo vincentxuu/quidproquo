@@ -9,7 +9,7 @@ tldr: "Apple Foundation Models（AFM）是 Apple 自研的封閉生態 AI 家族
 description: "Apple Foundation Models 家族完整介紹：從 2024 年 AFM 第一代到 2026 年 AFM 3 的三代演化脈絡、IFP 稀疏架構與 LoRA adapter 技術、Private Cloud Compute 安全架構、Gemini 蒸餾關係、Foundation Models framework 開發者 API、以及與其他 LLM 家族的根本差異"
 series:
   name: "AI 模型家族"
-  order: 11
+  order: 12
 draft: false
 glossary:
   - term: "IFP"
