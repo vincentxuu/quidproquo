@@ -213,6 +213,7 @@ Microsoft's [GraphRAG paper](https://arxiv.org/abs/2404.16130) further proposed 
 Building Graph RAG costs significantly more than pure vector search — you need entity extraction, relationship modeling, and graph maintenance. But in "relationship-dense" domains like regulatory compliance, healthcare knowledge, and enterprise organizational relationships, the investment is worthwhile.
 
 -> Deep dive: [GraphRAG: Building Knowledge Graphs for LLM Relationship Reasoning](/posts/ai/2026-03-12-graph-rag-en)
+-> Deep dive: [GraphRAG 3.x vs LightRAG vs HippoRAG 2: Three-Axis Selection on Index Cost, Incrementality and Memory](/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en)
 
 ---
 
@@ -305,6 +306,8 @@ The technical起点 is [Search-R1](https://arxiv.org/abs/2503.09516) (2025-03): 
 Product and protocol落地 matter as much: [OpenAI Deep Research](https://openai.com/index/introducing-deep-research/) (2025-02-02, o3-optimized multi-step browsing + Python tool agent) productizes Agentic RAG end-to-end; [MCP (Model Context Protocol)](https://modelcontextprotocol.io/specification/2025-06-18) (open-sourced by Anthropic 2024-11-25) generalizes "retrieval" from vector-store lookup to unified tool/data-source invocation (Resources / Tools / Prompts), now adopted by ChatGPT, Claude, VS Code, Cursor and integrated into orchestration runtimes like [LangGraph 1.2.11](https://github.com/langchain-ai/langgraph/releases). In the ten-generation taxonomy, this is an infrastructure generation jump, not a single trick.
 
 Pragmatic note: Agentic tricks are not universally better. An [Agent-Orchestrated Adaptive RAG comparative study](https://arxiv.org/abs/2606.05658) shows query decomposition helps on structured domains but can hurt ranking precision on multi-hop tasks, and reflection improves citation precision at higher latency. Whether to adopt this era depends on whether your problems truly need multi-turn reasoning and cross-tool orchestration.
+
+-> Deep dive: [Agentic / Reasoning RAG: From Search-R1 to Deep Research and MCP](/posts/ai/2026-08-25-agentic-reasoning-rag-en)
 
 ---
 
@@ -414,6 +417,7 @@ A method proposed by Anthropic — [Contextual Retrieval](https://www.anthropic.
 A zero-LLM-cost alternative is [Late Chunking](https://arxiv.org/abs/2409.04701): encode the whole document with a transformer once, then split into chunks and mean-pool so each chunk vector naturally carries cross-chunk context, needing no per-chunk LLM call for prefix generation — suitable for long-context embedding models (32K window) and budget-constrained scenarios; benefits diminish on super-long documents or highly independent chunks. The two are not mutually exclusive; choose by cost and window size or measure head-to-head.
 
 -> [Contextual Retrieval: Adding "What This Passage Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en)
+-> Deep dive: [Late Chunking vs Contextual Retrieval: Zero-Cost Alternative and Implementation](/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en)
 
 ## Query Classification
 

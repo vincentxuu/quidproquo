@@ -210,6 +210,7 @@ Microsoft 的 [GraphRAG 論文](https://arxiv.org/abs/2404.16130)進一步提出
 Graph RAG 的建置成本比純向量搜尋高得多——你需要做實體抽取、關係建模、圖譜維護。但在法規遵循、醫療知識、企業組織關係等「關係密集」的領域，這個投資是值得的。
 
 → 深入閱讀：[GraphRAG：把知識做成圖，讓 LLM 沿著關係推理](/posts/ai/2026-03-12-graph-rag)
+→ 深入閱讀：[GraphRAG 3.x vs LightRAG vs HippoRAG 2：索引成本、增量與記憶的三軸選型](/posts/ai/2026-08-25-graphrag-lightrag-hipporag)
 
 ---
 
@@ -302,6 +303,8 @@ LongRAG 的做法是用大 chunk（甚至整份文件），搭配長上下文模
 產品與協議層的落地同樣重要：[OpenAI Deep Research](https://openai.com/index/introducing-deep-research/)（2025-02-02，基於 o3 優化版的多步瀏覽 + Python 工具 agent）把 Agentic RAG 推向端到端研究產品；[MCP（Model Context Protocol）](https://modelcontextprotocol.io/specification/2025-06-18)（Anthropic 2024-11-25 開源）把「檢索」從向量庫查詢泛化為統一的工具/數據源調用（Resources / Tools / Prompts），2025 年已被 ChatGPT、Claude、VS Code、Cursor 等採納，並被 [LangGraph 1.2.11](https://github.com/langchain-ai/langgraph/releases) 等編排框架整合。在十代分類中，這屬於基礎設施的世代躍遷，而非單一技巧。
 
 務實提醒：Agentic tricks 並非無條件更強。[Agent-Orchestrated Adaptive RAG 的對比研究](https://arxiv.org/abs/2606.05658)顯示，query decomposition 在結構化域有提升但在多跳任務上可能降 ranking precision，reflection 提 citation 精度但伴隨高延遲。是否採用此世代，取決於你的問題是否真的需要多輪推理與跨工具調用。
+
+→ 深入閱讀：[Agentic / Reasoning RAG：從 Search-R1 到 Deep Research 與 MCP 的推理×檢索新範式](/posts/ai/2026-08-25-agentic-reasoning-rag)
 
 ---
 
@@ -411,6 +414,7 @@ Anthropic 提出的 [Contextual Retrieval](https://www.anthropic.com/news/contex
 零 LLM 成本的替代是 [Late Chunking](https://arxiv.org/abs/2409.04701)：先對整份文件做一次 transformer 編碼，再切 chunk 再 mean-pool，讓每個 chunk 向量天然帶有跨 chunk 的上下文，無需對每塊調用 LLM 生成前置語句，適合長上下文 embedding 模型（32K 窗口）與預算有限的場景；超長文件或語意高度獨立的 chunk 則收益遞減。兩者不是互斥，導航建議按成本與窗口大小二選一或對照實測。
 
 → [Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
+→ 深入閱讀：[Late Chunking vs Contextual Retrieval：先編碼後切塊的零成本替代與實作對比](/posts/ai/2026-08-25-late-chunking-contextual-retrieval)
 
 ## Query Classification
 
