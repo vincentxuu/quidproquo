@@ -47,8 +47,9 @@ const agentStepExecutor: StepExecutor = async (step, ctx, _state) => {
         },
         status: 'done',
       }
-    } catch {
-      // LLM unavailable (missing API key, network error) — fall through to stub
+    } catch (llmErr) {
+      console.error('[agent-step] LLM invocation failed, falling back to stub:', String(llmErr))
+      return { outputs: { stubbed: true, stepType: 'agent', llmError: String(llmErr) }, status: 'done' }
     }
   }
 
