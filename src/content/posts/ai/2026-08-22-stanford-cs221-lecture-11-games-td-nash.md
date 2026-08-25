@@ -10,7 +10,7 @@ series:
   order: 12
 tldr: "第 11 講先用 temporal-difference updates 從遊戲經驗學 value，再從 sequential play 轉向 simultaneous games，以 mixed strategies、minimax guarantee 與 Nash equilibrium 描述穩定策略。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 11：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-11-games-td-nash-en)

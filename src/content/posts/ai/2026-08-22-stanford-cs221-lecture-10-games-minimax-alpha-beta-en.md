@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "Lecture 10 extends single-agent search into adversarial game trees: expectimax averages chance outcomes, minimax takes the opponent's worst case, and alpha-beta removes irrelevant branches without changing the answer."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 10: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta)

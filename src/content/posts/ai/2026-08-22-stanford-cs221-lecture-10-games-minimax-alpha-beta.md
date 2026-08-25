@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "第 10 講把單一 agent 搜尋擴成 adversarial game tree：expectimax 對 chance 求期望、minimax 對對手取最差結果，alpha-beta 則在不改答案下剪掉無關分支。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 10：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta-en)

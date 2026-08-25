@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "第 13 講在 exact inference 太昂貴時改用 Gibbs sampling：每次只重抽一個變數，僅依 Markov blanket 計算 conditional distribution，並以樣本頻率近似查詢機率。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 13：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling-en)

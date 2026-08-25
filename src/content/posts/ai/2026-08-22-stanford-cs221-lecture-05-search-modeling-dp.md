@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "第 5 講把搜尋問題寫成 state、action、successor 與 cost，並用 acyclic dynamic programming 說明：狀態若遺漏未來所需資訊，再快的演算法也只會解錯問題。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 5，依官方可執行講義整理核心 agenda、例子與限制。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp-en)

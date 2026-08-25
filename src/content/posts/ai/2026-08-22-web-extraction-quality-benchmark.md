@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "抽取工具不能只比 HTTP 200；同一組 20 個 URL 要分別量正文、heading、table、code、link、metadata、雜訊、延遲與成本。本文先公開 corpus、adapter contract 與評分 gate，但因目前缺 Firecrawl credential 與四條同版本 raw run，尚不發佈勝負。"
 description: "建立 Crawl4AI、Firecrawl、Jina Reader 與 Mozilla Readability 的可重跑網頁抽取 benchmark，涵蓋 20 個固定 URL、結構保存、雜訊、metadata、延遲與成本。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-web-extraction-quality-benchmark-en)

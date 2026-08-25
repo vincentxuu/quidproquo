@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "Lecture 20 is Percy Liang's fireside chat on career and research, CS221 and Stanford, and AI's future, with every attribution tied to the official video and editorial synthesis kept separate from auto-caption uncertainty."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 20: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion)

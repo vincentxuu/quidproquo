@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "Lecture 15 separates propositional syntax from semantics: model checking defines entailment through satisfying assignments, SAT finds witnesses, and inference rules must be judged for both soundness and completeness."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 15: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-15-logic-propositional-sat)

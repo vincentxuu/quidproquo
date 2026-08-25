@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "Lecture 5 models search with states, actions, successors, and costs, then uses acyclic dynamic programming to show that an efficient algorithm still solves the wrong problem when state omits information needed by the future."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 5, following the official executable artifact, examples, and limitations."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp)

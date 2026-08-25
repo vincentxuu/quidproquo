@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "Lecture 18 classifies AI's social effects as benefits, misuse, accidents, and structural harms, then connects fairness audits, research ethics, copyright, and platform terms to accountable institutional choices."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 18: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society)

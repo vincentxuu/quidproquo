@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "Web retrieval 要測的是完整 task，不是 HTTP 200：固定 30 題、五種失敗層、三條 live channel，同時量答案、引用、freshness、延遲、成本與不必要升級。本文交付可執行 harness 與 gate，但因目前沒有三條 live channel 設定，不提供虛構排名。"
 description: "用 30-case corpus 建立 Web Retrieval Benchmark：ground truth、freshness window、outcome labels、內容與引用評分、latency/cost/escalation metrics、deterministic fixtures、live probes、failure injection 與 regression gates。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-21-web-retrieval-benchmark-en)

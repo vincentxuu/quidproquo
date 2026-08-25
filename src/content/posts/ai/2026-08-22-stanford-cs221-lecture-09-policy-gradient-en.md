@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "Lecture 9 moves from tabular RL to function approximation, derives REINFORCE with the log-derivative identity, and connects the derivation to the executable PyTorch implementation."
 description: "A source-faithful reading of Stanford CS221 Autumn 2025 Lecture 9: RL review, function approximation, policy-gradient derivation, REINFORCE mechanics, and variance reduction."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient)

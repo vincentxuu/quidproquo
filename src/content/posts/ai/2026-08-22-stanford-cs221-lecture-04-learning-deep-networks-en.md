@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "Lecture 4 of Stanford CS221 Autumn 2025 develops operational representations and algorithmic intuition through Learning III: Deep Networks as Composable Computation Graphs."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 4, following the official executable artifact, examples, and limitations."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks)

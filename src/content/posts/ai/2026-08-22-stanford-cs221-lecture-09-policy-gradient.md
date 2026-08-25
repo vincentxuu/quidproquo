@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "Stanford CS221 Autumn 2025 第 9 講從 tabular RL 走到 function approximation，再用 log-derivative identity 推出 REINFORCE，最後落到可執行的 PyTorch 更新。"
 description: "依 Stanford CS221 Autumn 2025 Lecture 9 的 policy_gradient.py，逐步拆解 RL review、function approximation、policy gradient 推導、REINFORCE 實作與 variance reduction。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient-en)

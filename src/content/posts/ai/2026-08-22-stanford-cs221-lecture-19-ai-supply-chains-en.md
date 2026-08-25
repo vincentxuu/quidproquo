@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "Lecture 19 uses the Economics of AI deck to connect compute, data, distribution, and organizational complements to GDP, labor, and ideas-driven growth."
 description: "A source-bounded reading of Stanford CS221 Lecture 19: the official Economics of AI deck’s supply chain, data transactions, and GDP-B figures, separated from claims about economic outcomes."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains)

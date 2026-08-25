@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "第 18 講用 benefits、misuse、accidents 與 structural harms 分類 AI 社會影響，再把 fairness audits、研究倫理、著作權與平台條款接回可追責的制度選擇。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 18：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society-en)

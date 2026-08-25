@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "第 20 講是 Percy Liang 談職涯研究、CS221/Stanford 與 AI 未來的 fireside chat；每項歸因都連回官方影片，編者整理則與自動字幕的不確定性分開。"
 description: "以官方 Stanford Online 影片整理 CS221 Lecture 20 的三段 fireside chat：職涯與研究建議、課程與 Stanford 雜談、AI 的未來；不把字幕之外的材料補成事實。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion-en)

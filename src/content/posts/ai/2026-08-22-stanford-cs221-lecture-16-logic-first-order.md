@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "第 16 講用 predicates、quantifiers 與 functions 壓縮跨物件知識，再以 substitution、unification 與 definite-clause forward inference 推導結論，同時標出 termination 與 completeness 限制。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 16：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order-en)

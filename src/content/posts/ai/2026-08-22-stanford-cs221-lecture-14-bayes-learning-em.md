@@ -10,7 +10,7 @@ series:
   order: 15
 tldr: "第 14 講從 complete data 的 maximum-likelihood counts 與 Laplace smoothing，走到 latent variables 下交替計算 posterior responsibilities 和更新參數的 EM。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 14：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en)

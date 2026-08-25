@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "Lecture 13 replaces costly exact inference with Gibbs sampling: resample one variable at a time from a conditional determined by its Markov blanket, then approximate query probabilities with sample frequencies."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 13: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling)

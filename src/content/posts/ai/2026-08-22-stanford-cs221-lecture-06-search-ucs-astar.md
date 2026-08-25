@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "Stanford CS221 Autumn 2025 第 6 講依官方材料拆解 Search II：UCS 與 A* 的優先順序，並標出方法成立的假設與限制。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 6：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-06-search-ucs-astar-en)

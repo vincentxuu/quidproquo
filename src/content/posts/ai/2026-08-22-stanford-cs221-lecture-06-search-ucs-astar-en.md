@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "Lecture 6 of Stanford CS221 Autumn 2025 follows the official material on Search II: Priorities in UCS and A* and makes its assumptions and limits explicit."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 6: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-06-search-ucs-astar)

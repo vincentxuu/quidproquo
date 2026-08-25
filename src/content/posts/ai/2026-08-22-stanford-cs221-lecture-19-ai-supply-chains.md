@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "Lecture 19 用 Economics of AI deck 把 AI 的 compute、data、distribution 與組織互補品接到 GDP、勞動與 ideas 的成長路徑。"
 description: "Stanford CS221 Lecture 19 的 AI Supply Chains 閱讀：從官方 Economics of AI deck 的供應鏈、資料交易與 GDP-B 數字，拆開模型能力與經濟結果之間的中間層。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains-en)

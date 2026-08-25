@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "Lecture 16 compresses knowledge across objects with predicates, quantifiers, and functions, then derives conclusions through substitution, unification, and definite-clause forward inference while exposing termination and completeness limits."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 16: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order)

@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "第 12 講用 random variables 與 factors 建 joint distribution，再以 Bayesian-network factorization 表達 conditional independence，讓 conditioning 與 marginalization 成為可執行的 probabilistic inference。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 12：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-12-bayes-joint-inference-en)

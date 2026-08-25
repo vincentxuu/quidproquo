@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "Lecture 8 of Stanford CS221 Autumn 2025 follows the official material on MDPs II: Learning Q-Values Without a Transition Model and makes its assumptions and limits explicit."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 8: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)

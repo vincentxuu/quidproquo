@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "Lecture 12 builds a joint distribution from random variables and factors, then uses Bayesian-network factorization to express conditional independence and make conditioning and marginalization executable."
 description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture 12: official agenda, core development, implementation connection, and material gaps."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-12-bayes-joint-inference)

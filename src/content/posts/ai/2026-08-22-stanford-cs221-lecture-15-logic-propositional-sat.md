@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "第 15 講分開 propositional logic 的 syntax 與 semantics：model checking 用 satisfying assignments 定義 entailment，SAT solver 找見證，inference rules 則必須同時檢查 soundness 與 completeness。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 15：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-15-logic-propositional-sat-en)

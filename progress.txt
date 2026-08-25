@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-22
+Last updated: 2026-08-25
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -11,6 +11,12 @@ Current focus
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
 - Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
+- **發佈狀態盤點（2026-08-25）**：上述待 review 系列（CS124／CS224N／CS224V／CS224W／CS229／
+  CS336、CMU 07-280／11-785 等）皆已 commit 且 `draft: false`——是線上正式文章，「待 review」指
+  內容審稿不是未發佈。真正 `draft: true` 的只有兩批共 44 檔：
+  (1) Stanford CS221 導讀逐講 20 講中英文全系列（lecture-01 至 lecture-20，40 檔）；
+  (2) web-retrieval-benchmark、web-extraction-quality-benchmark 中英文 4 檔。
+  CS221 待使用者審稿後才翻 `draft: false`。
 - 快速成長新創 27 組雙語個別專文已完成（沙箱、瀏覽器、網路、Eval、推論、語音、認證），
   共 54 檔通過逐篇檢查、`pnpm verify` 與 Astro check，待使用者 review。
 - Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成初稿與必要驗證，待使用者 review。
@@ -35,7 +41,7 @@ In progress
   Tailscale、Temporal；order 17-20：Drizzle、Trigger.dev、CrewAI、Supabase。導讀已同步補入 order 9-20
   的閱讀路徑。2026-08-22 再次依實際檔案盤點，已將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、
   Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 從待寫清單移到已有專文；
-  Typesense、Algolia 等缺口仍待補。除 MAF 外，order 9-16 皆平行 agent 寫，
+  Typesense、Algolia 已於 2026-08-22 完成專文（見 Recently completed），缺口清單再縮。除 MAF 外，order 9-16 皆平行 agent 寫，
   數字由我打 API／抓定價頁獨立複查後才收。
   **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
   （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，

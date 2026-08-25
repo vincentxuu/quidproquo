@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "Stanford CS221 Autumn 2025 第 2 講，從 Learning I：從計算圖到線性迴歸 建立可操作的 AI 問題表示與演算法直覺。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 2，依官方可執行講義整理核心 agenda、例子與限制。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression-en)

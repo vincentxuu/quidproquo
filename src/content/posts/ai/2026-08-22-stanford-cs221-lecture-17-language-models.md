@@ -10,7 +10,7 @@ series:
   order: 18
 tldr: "第 17 講把 language model 定義為 sequence probability 的 chain-rule factorization，對照 n-gram 與 neural conditional models，並說明 sampling、temperature 與 evaluation 如何改變生成結果。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 17：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-17-language-models-en)

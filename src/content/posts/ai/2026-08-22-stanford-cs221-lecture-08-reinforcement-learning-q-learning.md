@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "Stanford CS221 Autumn 2025 第 8 講依官方材料拆解 MDPs II：不知道轉移模型時如何學 Q 值，並標出方法成立的假設與限制。"
 description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 8：官方 agenda、核心推導、實作連接與材料缺口。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
