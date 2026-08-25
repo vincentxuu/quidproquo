@@ -189,7 +189,13 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
   async run(event: WorkflowEvent<FlowWorkflowParams>, step: WorkflowStep): Promise<void> {
     const { flowId, flowRunId, input, model: modelOverride } = event.payload
     const db = this.env.DB
-    const envRecord = this.env as unknown as Record<string, string>
+
+    const apiKeys = await step.do('resolve-keys', { retries: STEP_RETRY }, async () => {
+      const { resolveProviderApiKeys } = await import('../lib/rag/provider-key-store')
+      return resolveProviderApiKeys(db)
+    })
+
+    const envRecord = apiKeys as Record<string, string>
 
     const flowDef = await step.do('load-definition', { retries: STEP_RETRY }, async () => {
       const row = await db
