@@ -132,6 +132,13 @@ Summary 用改動的實際語言寫（中文內容用中文），一行說清楚
 
 已知會被掃走的檔案：`progress.txt`、`src/lib/glossary/terms.ts`、`.agents/skills/` 與其 `.claude/` 鏡像——這幾個多數 session 都會動。
 
+#### 防護機制
+
+- **pre-push hook**（`.git/hooks/pre-push`）：push 前自動 `git fetch`，若 remote main 不是本地 commit 的 ancestor 就擋住，要求先 `git pull --rebase`。每個 clone 需裝一次。
+- **GitHub branch protection**：在 main 上禁止 force push（Settings → Branches → 取消 "Allow force pushes"）。server 端擋，換 clone 也有效。
+
+2026-08-25 事故：cloud session 推了 daily posts 後，另一個 session 從較舊的 base push 上去，把 10 篇 daily 文章覆寫。靠 cherry-pick 恢復，並加裝上述兩層防護。
+
 
 ## 9. 修改本憲章
 
