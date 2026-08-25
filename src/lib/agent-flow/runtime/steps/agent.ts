@@ -32,7 +32,7 @@ const agentStepExecutor: StepExecutor = async (step, ctx, _state) => {
     try {
       const { createModel } = await import('../../../rag/model')
       const { HumanMessage, SystemMessage } = await import('@langchain/core/messages')
-      const route = { provider: fields.model as 'groq' | 'openai' | 'openrouter' | 'cloudflare' | 'google', model: getDefaultModel(fields.model), fallback: false }
+      const route = { provider: fields.model as 'groq' | 'openai' | 'openrouter' | 'opencode' | 'cloudflare' | 'google', model: getDefaultModel(fields.model), fallback: false }
       const model = createModel(fields.maxTokens ?? 2000, { route })
       const response = await model.invoke([
         new SystemMessage('You are a research assistant. Return structured JSON when asked.'),
@@ -60,6 +60,7 @@ function getDefaultModel(provider: string): string {
   const defaults: Record<string, string> = {
     groq: 'llama-3.3-70b-versatile',
     openrouter: 'openrouter/auto',
+    opencode: 'anthropic/claude-sonnet-4-20250514',
     openai: 'gpt-4o',
     cloudflare: '@cf/meta/llama-3.1-8b-instruct',
     google: 'gemini-2.0-flash',

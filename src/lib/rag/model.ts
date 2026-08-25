@@ -48,6 +48,7 @@ type Env = {
   GOOGLE_API_KEY?: string
   GEMINI_API_KEY?: string
   OPENROUTER_API_KEY?: string
+  OPENCODE_API_KEY?: string
   NVIDIA_API_KEY?: string
   CEREBRAS_API_KEY?: string
   OLLAMA_API_KEY?: string
@@ -158,6 +159,11 @@ export function createModel(
   if (route.provider === 'openrouter') {
     const apiKey = apiKeys.openrouter || apiKeys.OPENROUTER_API_KEY || e.OPENROUTER_API_KEY
     return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://openrouter.ai/api/v1')
+  }
+
+  if (route.provider === 'opencode') {
+    const apiKey = apiKeys.opencode || apiKeys.OPENCODE_API_KEY || e.OPENCODE_API_KEY
+    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://opencode.ai/zen/v1')
   }
 
   if (route.provider === 'nvidia') {
