@@ -8,8 +8,8 @@ lang: en
 tldr: "vLLM is the de facto standard for self-hosted LLM inference (89,470 GitHub stars, verified 2026-08-21), built on managing the KV cache the way an OS manages paged memory. But the selection question isn't how fast it is — it's your GPU utilization. Using Red Hat's measured 793 output tokens/second, a fully saturated A100 costs roughly $0.70 per million output tokens; at 10% utilization that becomes $7, more than most cloud APIs."
 description: "vLLM from a technology-selection angle: what problems PagedAttention and continuous batching actually solve, how to compute the cost threshold between self-hosting and a cloud API, how SGLang compares in the same layer, and when running your own inference server is over-engineering."
 series:
-  name: "Technology Choices in the AI Era"
-  order: 11
+  name: "Self-Hosted Inference"
+  order: 2
 draft: false
 ---
 

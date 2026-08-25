@@ -7,6 +7,9 @@ tags: [vllm, llm-inference, pagedattention, model-serving, gpu]
 lang: en
 tldr: "vLLM uses PagedAttention to eliminate KV cache memory waste, combining continuous batching and prefix caching to become the most widely adopted open-source LLM inference engine today."
 description: "An overview of vLLM's core technologies (PagedAttention, continuous batching, prefix caching), comparisons with other inference engines, basic usage, and the latest developments in 2026."
+series:
+  name: "Self-Hosted Inference"
+  order: 1
 draft: false
 ---
 

@@ -7,6 +7,9 @@ tags: [sglang, llm-serving, inference, gpu, self-hosted, openai-api]
 lang: zh-TW
 tldr: "SGLang 是專攻生成式模型的推論引擎：用 RadixAttention 重用共同前綴的 KV cache，提供 OpenAI 相容 API、結構化輸出與多 GPU 平行化；它解決的是高吞吐 LLM serving，不是完整的產品後端。"
 description: "介紹 SGLang 的推論執行模型、RadixAttention、OpenAI 相容伺服器、結構化輸出、多 GPU 部署方式，以及和 vLLM、Triton、Ray Serve 的分工。"
+series:
+  name: "自架推論服務"
+  order: 3
 draft: false
 ---
 

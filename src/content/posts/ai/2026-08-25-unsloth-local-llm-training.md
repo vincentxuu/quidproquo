@@ -10,6 +10,8 @@ description: "Unsloth 完整介紹：核心微調能力（SFT、RL、GRPO）、D
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-25-unsloth-local-llm-training-en)
+
 想在自己的硬體上微調 LLM，最常遇到的問題是：VRAM 不夠、訓練速度太慢、設定環境太複雜。Unsloth 用手寫的 Triton kernel 把這些問題壓下來——同樣的硬體能訓練更大的模型，而且速度快一倍以上。
 
 2026 年它不只是一個微調庫了。加入 Desktop 桌面應用和 Studio Web UI 後，Unsloth 變成一個整合推論、訓練、圖片影片生成、web search 和 agent 連接的本地 AI 工作站。這篇從核心微調能力、平台支援、實際使用方式到與其他工具的比較，完整介紹 Unsloth。

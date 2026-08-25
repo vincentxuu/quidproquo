@@ -7,6 +7,9 @@ tags: [ray-serve, ray, inference, distributed-systems, gpu, self-hosted]
 lang: zh-TW
 tldr: "Ray Serve 是建立在 Ray 上的分散式 serving layer：用 deployment 與 handle 組合 Python 服務圖，配置 CPU／GPU replica、自動擴縮與模型多工；它負責編排，不取代 vLLM 或 SGLang 的 LLM 執行引擎。"
 description: "介紹 Ray Serve 的 deployment、replica、handle、動態批次、自動擴縮與 LLM serving，並說明它和 SGLang、vLLM、Triton 及 Kubernetes 的分工。"
+series:
+  name: "自架推論服務"
+  order: 5
 draft: false
 ---
 

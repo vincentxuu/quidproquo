@@ -7,6 +7,9 @@ tags: [ray-serve, ray, inference, distributed-systems, gpu, self-hosted]
 lang: en
 tldr: "Ray Serve is a distributed serving layer on Ray. Deployments and handles compose Python service graphs, while replicas, CPU/GPU scheduling, autoscaling, and model multiplexing handle orchestration; it complements rather than replaces vLLM or SGLang."
 description: "A practical guide to Ray Serve deployments, replicas, handles, dynamic batching, autoscaling, and LLM serving, including its boundaries with SGLang, vLLM, Triton, and Kubernetes."
+series:
+  name: "Self-Hosted Inference"
+  order: 5
 draft: false
 ---
 

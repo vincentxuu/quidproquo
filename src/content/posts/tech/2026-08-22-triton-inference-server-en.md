@@ -7,6 +7,9 @@ tags: [triton-inference-server, nvidia, inference, model-serving, gpu, self-host
 lang: en
 tldr: "Triton Inference Server serves TensorRT, ONNX, PyTorch, and other models through consistent HTTP and gRPC APIs. Its defining tools are the model repository, dynamic batching, instance groups, and ensembles—not LLM-specific KV-cache scheduling."
 description: "A practical guide to NVIDIA Triton Inference Server model repositories, config.pbtxt, dynamic batching, model instances, ensembles, monitoring, and its boundary with SGLang, vLLM, and Ray Serve."
+series:
+  name: "Self-Hosted Inference"
+  order: 4
 draft: false
 ---
 

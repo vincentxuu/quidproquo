@@ -8,8 +8,8 @@ lang: zh-TW
 tldr: "vLLM 是自架 LLM 推論的事實標準（GitHub 89,470 stars，2026-08-21 實查），核心是把 KV cache 當作業系統的分頁來管。但選型的關鍵不在它多快，在你的 GPU 使用率：以 Red Hat 實測的每秒 793 個輸出 token 換算，一張打滿的 A100 約 $0.70 / 百萬輸出 token，使用率掉到一成就變 $7——比多數雲端 API 貴。"
 description: "從選型角度介紹 vLLM：PagedAttention 與 continuous batching 解決的是什麼問題、自架與雲端 API 的成本門檻怎麼算、同一層的 SGLang 怎麼比，以及什麼情況下自架推論服務是過度工程。"
 series:
-  name: "AI 時代的技術選擇"
-  order: 11
+  name: "自架推論服務"
+  order: 2
 draft: false
 ---
 

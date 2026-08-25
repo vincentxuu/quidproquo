@@ -7,6 +7,9 @@ tags: [vllm, llm-inference, pagedattention, model-serving, gpu]
 lang: zh-TW
 tldr: "vLLM 用 PagedAttention 解決 KV cache 記憶體浪費問題，搭配 continuous batching 和 prefix caching，成為目前最主流的開源 LLM 推論引擎。"
 description: "介紹 vLLM 的核心技術（PagedAttention、continuous batching、prefix caching）、與其他推論引擎的比較、基本使用方式，以及 2026 年的最新發展。"
+series:
+  name: "自架推論服務"
+  order: 1
 draft: false
 ---
 

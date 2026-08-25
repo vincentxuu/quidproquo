@@ -7,6 +7,9 @@ tags: [triton-inference-server, nvidia, inference, model-serving, gpu, self-host
 lang: zh-TW
 tldr: "Triton Inference Server 用統一的 HTTP／gRPC 介面服務 TensorRT、ONNX、PyTorch 等模型，核心能力是 model repository、動態批次、instance group 與 ensemble；它適合異質模型平台，不是專為 LLM KV cache 打造的引擎。"
 description: "深入介紹 NVIDIA Triton Inference Server 的 model repository、config.pbtxt、動態批次、模型實例、ensemble 與監控，以及它和 SGLang、vLLM、Ray Serve 的邊界。"
+series:
+  name: "自架推論服務"
+  order: 4
 draft: false
 ---
 

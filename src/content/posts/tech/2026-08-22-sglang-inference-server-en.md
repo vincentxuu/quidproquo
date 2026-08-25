@@ -7,6 +7,9 @@ tags: [sglang, llm-serving, inference, gpu, self-hosted, openai-api]
 lang: en
 tldr: "SGLang is an inference engine for generative models. RadixAttention reuses KV cache across shared prefixes, while OpenAI-compatible APIs, structured output, and multi-GPU parallelism support production LLM serving; it is not a complete product backend."
 description: "A practical guide to SGLang's execution model, RadixAttention, OpenAI-compatible server, structured outputs, multi-GPU deployment, and its boundaries with vLLM, Triton, and Ray Serve."
+series:
+  name: "Self-Hosted Inference"
+  order: 3
 draft: false
 ---
 
