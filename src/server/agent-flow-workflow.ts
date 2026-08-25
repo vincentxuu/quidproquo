@@ -5,8 +5,15 @@
 import { WorkflowEntrypoint } from 'cloudflare:workers'
 import type { WorkflowEvent, WorkflowStep } from 'cloudflare:workers'
 import type { Env } from '../lib/config/env'
-import { UNIQUE_PROVIDER_KEYS } from '../lib/rag/provider-key-store'
-import { PROVIDER_KEY_PREFIX } from '../lib/config/settings-keys'
+
+const PROVIDER_KEY_PREFIX = 'provider_key:'
+const PROVIDER_ENV_KEYS = [
+  'GROQ_API_KEY', 'OPENAI_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY',
+  'CEREBRAS_API_KEY', 'ANTHROPIC_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
+  'OPENCODE_ZEN_API_KEY', 'OLLAMA_API_KEY', 'OLLAMA_CLOUD_API_KEY',
+  'TAVILY_API_KEY', 'EXA_API_KEY', 'JINA_API_KEY', 'JINA_SEARCH_API_KEY',
+  'FIRECRAWL_API_KEY', 'LINKUP_API_KEY', 'BRAVE_SEARCH_API_KEY', 'SERPER_API_KEY',
+]
 
 interface FlowWorkflowParams {
   flowId: string
@@ -197,11 +204,11 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
     const apiKeys = await step.do('resolve-keys', { retries: STEP_RETRY }, async () => {
       const envRecord = this.env as unknown as Record<string, string>
       const merged: Record<string, string> = {}
-      for (const key of UNIQUE_PROVIDER_KEYS) {
+      for (const key of PROVIDER_ENV_KEYS) {
         if (envRecord[key]) merged[key] = envRecord[key]
       }
       try {
-        const dbKeys = UNIQUE_PROVIDER_KEYS.map(k => `${PROVIDER_KEY_PREFIX}${k}`)
+        const dbKeys = PROVIDER_ENV_KEYS.map(k => `${PROVIDER_KEY_PREFIX}${k}`)
         const rows = await db.prepare(
           `SELECT key, value FROM settings WHERE key IN (${dbKeys.map(() => '?').join(',')})`
         ).bind(...dbKeys).all<{ key: string; value: string }>()
