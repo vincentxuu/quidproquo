@@ -86,12 +86,17 @@ function resolveRoute(
  * All providers accept `BaseMessageLike[]` at runtime; we only need to relax
  * TS' view so it unifies them behind one type.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type InvokableModel = { invoke: (...args: any[]) => Promise<unknown> }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- langchain's invoke/bindTools signatures use any
+type InvokableModel = { invoke: (...args: any[]) => Promise<unknown>; bindTools?: (...args: any[]) => unknown }
 function adapt(model: InvokableModel): ChatModel {
-  return {
+  const adapted: ChatModel & Record<string, unknown> = {
     invoke: (input) => (model.invoke as (i: BaseMessageLike[]) => Promise<ChatModelResponse>).call(model, input),
   }
+  if (typeof model.bindTools === 'function') {
+    // [skip-harness] langchain's bindTools returns a model with the same shape
+    adapted.bindTools = (...args: unknown[]) => adapt((model as Required<InvokableModel>).bindTools.apply(model, args) as InvokableModel)
+  }
+  return adapted
 }
 
 /**
