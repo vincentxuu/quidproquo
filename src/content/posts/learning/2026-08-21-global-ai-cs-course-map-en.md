@@ -97,14 +97,19 @@ Four school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cou
 - [Berkeley CS285 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en), with guides from imitation learning and policy gradients through offline RL
 - [Berkeley CS288 overview](/posts/learning/2026-08-22-berkeley-cs288-overview-en), from foundations and transformers to agents
 - [CMU 10-301/601 overview](/posts/learning/2026-08-22-cmu-10301-overview-en), walking the whole course through nine assignments
+- [Complete CMU 07-280 course guide](/posts/ai/2026-08-22-cmu-07280-course-overview-en): all 24 lectures, plus a [wrap-up with a route to the next course](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
+- [Complete CMU 11-785 deep learning guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en): all 28 lectures, with the incomplete assignment chain flagged
+- [MIT 6.S191 guide](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en): how to actually run the nine lectures and three labs that are fully public
+- Stanford CS336 and CS221 also have series: [CS336 topic deep dives starting from tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en) and a 20-lecture CS221 walkthrough
 
-Still unwritten: single-course guides for MIT 6.S191, CMU 11-785, and MIT 6.7960.
+Still unwritten: single-course guides for MIT 6.7960, Berkeley CS189, and Harvard's CS50 AI / CS181 / CS182; CMU 07-380 gets audited once its materials go public.
 
 If you want one course to start tonight, run a small test: open MIT 6.S191's first lab or Berkeley CS188's first project and give yourself ninety minutes. If you can still state what the environment is missing and what you would do next, the course belongs on your learning plan. Saving a playlist is not a start.
 
 ## Update log
 
-- 2026-08-26: The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
+- 2026-08-26: An audit found that the MIT 6.S191, CMU 11-785, CMU 07-280, CS336, and CS221 guides are already live on this site under the `ai` category. The "still unwritten" list now correctly names 6.7960, CS189, and Harvard's three courses.
+- 2026-08-26 (earlier): The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
 
 ## References
 
@@ -121,6 +126,11 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [Berkeley CS285 Spring 2026 guide series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - [Berkeley CS288 Spring 2026 guide series overview](/posts/learning/2026-08-22-berkeley-cs288-overview-en)
 - [CMU 10-301/601 machine learning guide overview](/posts/learning/2026-08-22-cmu-10301-overview-en)
+- [Complete CMU 07-280 course guide](/posts/ai/2026-08-22-cmu-07280-course-overview-en)
+- [Completing CMU 07-280 wrap-up](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
+- [Complete CMU 11-785 deep learning guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
+- [MIT 6.S191 guide](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en)
+- [Stanford CS336 topic deep-dive series](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 
 ### Official course sites and external resources
 

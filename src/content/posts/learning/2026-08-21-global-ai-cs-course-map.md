@@ -97,14 +97,19 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 - [Berkeley CS285 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)，含模仿學習、policy gradient 到 offline RL 的分段導讀
 - [Berkeley CS288 總覽](/posts/learning/2026-08-22-berkeley-cs288-overview)，從 foundations、transformers 到 agents
 - [CMU 10-301／601 總覽](/posts/learning/2026-08-22-cmu-10301-overview)，用九份作業走完整門機器學習
+- [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)：24 講逐講深拆，另有[全課總結與選課路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)
+- [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：28 講全覆蓋，並標出作業鏈不完整的缺口
+- [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)：九講與三個 labs 全公開的實際跑法
+- Stanford CS336 與 CS221 也各有系列：[CS336 從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)、CS221 的 20 講逐講導讀
 
-還沒寫的是 MIT 6.S191、CMU 11-785 與 MIT 6.7960 的單課導讀。
+還沒寫的是 MIT 6.7960、Berkeley CS189，以及 Harvard CS50 AI／CS181／CS182 的單課深讀；CMU 07-380 則等材料公開後再稽核。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
 
 ## 更新紀錄
 
-- 2026-08-26：系列後續文章（四篇學校地圖、Harvard、CS188／CS285／CS288／10-301 導讀、CMU 改制與 Pacman 血統）已上線，補上內文連結，並把「接下來怎麼走」改寫為現況清單。
+- 2026-08-26：查核後發現 MIT 6.S191、CMU 11-785、07-280、CS336、CS221 的導讀已在本站 `ai` 分類上線，把「還沒寫」清單修正為 6.7960、CS189 與 Harvard 三門課。
+- 2026-08-26（稍早）：系列後續文章（四篇學校地圖、Harvard、CS188／CS285／CS288／10-301 導讀、CMU 改制與 Pacman 血統）已上線，補上內文連結，並把「接下來怎麼走」改寫為現況清單。
 
 ## 參考資料
 
@@ -121,6 +126,11 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 - [Berkeley CS285 Spring 2026 導讀總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - [Berkeley CS288 Spring 2026 導讀總覽](/posts/learning/2026-08-22-berkeley-cs288-overview)
 - [CMU 10-301／601 機器學習導讀總覽](/posts/learning/2026-08-22-cmu-10301-overview)
+- [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)
+- [CMU 07-280 全課總結](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)
+- [CMU 11-785 深度學習完整課程導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+- [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)
+- [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
 
 ### 官方課程網站與外部資源
 
