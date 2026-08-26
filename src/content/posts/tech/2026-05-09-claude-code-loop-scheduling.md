@@ -9,11 +9,13 @@ tldr: "/loop 是 Claude Code 的原生 cron 功能，自然語言設定排程，
 description: "介紹 Claude Code 的 /loop 排程功能，包含動態間隔、loop.md 自訂預設 prompt、cron 表達式、以及與 Routines、Desktop scheduled tasks 的差異。"
 draft: false
 series:
-  name: "Claude Code 自動化指南"
-  order: 7
+  name: "Claude Code 深入介紹"
+  order: 23
 ---
 
 🌏 [English version](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
+
+> 這篇是 `/loop` 的實作篇，聚焦指令語法與實際用法。排程全景（Routines／Desktop scheduled tasks／`/loop` 三兄弟怎麼分工）與 goal mode 見主篇：[Claude Code Routines 全攻略](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)。
 
 ## TL;DR
 
@@ -61,7 +63,9 @@ Claude 每跑完一次就根據看到的狀況挑下一次間隔（1 分鐘到 1
 
 值得注意的是，動態 `/loop` 可能會直接改用 [Monitor 工具](https://code.claude.com/docs/en/tools-reference#monitor-tool) 監聽背景腳本輸出，避免不必要的輪詢，比定期 re-run prompt 更省 token、回應更快。
 
-> 在 Bedrock、Vertex AI、Microsoft Foundry 上，沒給間隔會 fallback 到固定 10 分鐘。
+另外，self-paced 的 loop 不只能一直跑——Claude 判斷任務完成時可以自行結束：呼叫 `ScheduleWakeup` 工具帶 `stop: true` 立刻取消下一次觸發（需 v2.1.202+）。如果某一輪結束既沒排下次、也沒停，Claude Code 會在約 20 分鐘後排一次 fallback wakeup，那一輪再沒動作就結束 loop。
+
+> 在 Amazon Bedrock、Claude Platform on AWS、Google Cloud's Agent Platform、Microsoft Foundry 上，沒給間隔會 fallback 到固定 10 分鐘。
 
 ### 3. 內建 maintenance prompt
 
@@ -78,6 +82,8 @@ Claude 跑內建的維護 prompt，依序處理：
 - 沒事做的時候做清理工作（bug hunt、簡化）
 
 預設用動態間隔。加上時間（如 `/loop 15m`）就改成固定排程。
+
+> 上面這段在 Amazon Bedrock、Claude Platform on AWS、Google Cloud's Agent Platform、Microsoft Foundry 上不成立：裸 `/loop` 只會印使用說明，不會跑 maintenance prompt、也不讀 `loop.md`。
 
 #### 用 `loop.md` 自訂預設 prompt
 
@@ -129,6 +135,8 @@ Claude 會排成單次觸發任務，跑完自動刪除。
 ```bash
 /loop 2h /review-pr 1234
 ```
+
+可以把 skill 當成 prompt 傳進去，每次 iteration 重跑。但有個前提：排程觸發時，只有 Claude 有權自己 invoke 的 skill 會真的執行。內建指令（`/permissions`、`/model`、`/clear`）、frontmatter 標 `disable-model-invocation: true` 的 skill、被 `skillOverrides` 或 Skill deny rule 擋掉的 skill、以及 MCP prompts，都只會以純文字傳給 Claude，不會執行。
 
 ### 早上 Slack 摘要
 
@@ -199,6 +207,7 @@ cancel task abc12345
 - **不打斷對話**：Claude 忙的時候到期任務排隊等
 - **不補跑**：閒置時錯過的觸發只會跑一次，不會把錯過的次數補滿
 - **新 session 清空**：開新對話舊任務全消失
+- **存放位置**：任務清單存在專案的 `.claude` 目錄；該目錄或裡面的任務檔是 symlink 時，排程會直接失敗報錯
 
 ## Cron 表達式參考
 
@@ -252,3 +261,7 @@ Ralph Loop 適合「跑到成功為止」的工作，例如反覆修 bug 直到�
 - [Desktop Scheduled Tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks)
 - [Channels：事件推送替代輪詢](https://code.claude.com/docs/en/channels)
 - [Monitor 工具：背景腳本串流輸出](https://code.claude.com/docs/en/tools-reference#monitor-tool)
+
+## 更新紀錄
+
+- 2026-08-26：刷新事實＋與主篇互鏈（排程全景與 goal mode）。

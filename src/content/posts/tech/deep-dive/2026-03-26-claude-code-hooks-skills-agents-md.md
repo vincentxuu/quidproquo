@@ -9,8 +9,8 @@ tldr: "Hook 是自動化安全網（擋住壞 commit），Skill 是互動式工�
 description: "介紹 Claude Code 的 Hook、Skill、指令檔（CLAUDE.md / AGENTS.md）三種機制如何各司其職，組合成 commit 前的自動化品質檢查流程，包含實際設定範例與設計取捨。"
 draft: false
 series:
-  name: "Claude Code 自動化指南"
-  order: 9
+  name: "Claude Code 深入介紹"
+  order: 17
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)

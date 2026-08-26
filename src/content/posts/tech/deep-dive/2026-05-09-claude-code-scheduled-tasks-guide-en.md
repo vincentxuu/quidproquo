@@ -9,8 +9,8 @@ tldr: "Routines is Claude Code's cloud automation system (formerly Cloud Schedul
 description: "A complete guide to Claude Code Routines' three trigger types (Schedule / API / GitHub), how it differs from Desktop scheduled tasks and /loop, and a real-world example with the daodao-auto-dev setup."
 draft: false
 series:
-  name: "Claude Code Automation Guide"
-  order: 8
+  name: "Claude Code Deep Dives"
+  order: 22
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)
@@ -47,13 +47,13 @@ Claude Code offers three scheduling mechanisms suited to different scenarios:
 
 **`/loop`**: The lightest option — quick scheduling within a session. Best for short-term monitoring like "notify me when the deploy is done." Disappears when the session ends; use `--resume` to restore it.
 
-This post focuses on Routines. For `/loop`, see [/loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling-en). For the full Remote Agent pipeline, see [Remote Agent Auto-Dev](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en).
+This post focuses on Routines. For `/loop` syntax details, see the implementation post [/loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling-en). For the full Remote Agent pipeline, see [Remote Agent Auto-Dev](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en). Beyond scheduling, if you want Claude to keep working until a condition is met, there's a section on [goal mode](#beyond-scheduling-goal-mode-goal) near the end.
 
 ## What Is a Routine
 
 A routine is a packaged Claude Code configuration: **prompt + one or more GitHub repos + connectors + one or more triggers**. Set it up once, run it automatically as many times as you want.
 
-Available on: Pro, Max, Team, and Enterprise plans with Claude Code on the web enabled. Team / Enterprise admins can disable it globally from admin settings.
+Available on: Pro, Max, Team, and Enterprise plans with Claude Code on the web enabled. On Team / Enterprise, an Owner needs to enable the Routines toggle from admin settings — when it's off, existing routines stop running too.
 
 Each routine run is equivalent to a full Claude Code cloud session: **autonomous execution, no permission prompts, can run shell commands, use skills, and call connectors**. What it can access is entirely determined by the repos, environment, and connectors you configure — so lock those down carefully.
 
@@ -62,10 +62,10 @@ Each routine run is equivalent to a full Claude Code cloud session: **autonomous
 Three entry points, all writing to the same cloud account:
 
 - **Web**: Go to [claude.ai/code/routines](https://claude.ai/code/routines) and click **New routine**
-- **Desktop App**: Routines page → **New routine** → choose **Remote** (choosing Local creates a Desktop scheduled task instead)
+- **Desktop App**: Routines page → **New routine** → choose **Cloud** (choosing Local creates a Desktop scheduled task instead)
 - **CLI**: Type `/schedule` in a session; Claude will walk you through setup conversationally
 
-The CLI `/schedule` command can only create schedule-type routines. To add API or GitHub triggers, you need to edit in the Web UI.
+The CLI `/schedule` command (alias `/routines`, requires v2.1.225+) can only create schedule-type routines. To add an API trigger, you need to edit in the Web UI; a GitHub trigger can be added from either the Web or the CLI.
 
 You can also manage existing routines from the CLI: `/schedule list`, `/schedule update`, `/schedule run`.
 
@@ -157,16 +157,18 @@ Response:
 
 The `text` field is a freeform string (not parsed as structured data) and is fed to Claude alongside the routine's original prompt. If you pass JSON in `text`, Claude sees it as a literal string.
 
+> Security detail worth knowing: `text` doesn't arrive as a bare message — it's wrapped in a `<routine-fire-payload>` block and labeled as untrusted data. The routine's prompt must explicitly opt in to acting on the payload (e.g. "Investigate the alert described in the routine-fire-payload block"), or Claude treats it as inert context. Text supplied with **Run now** in the Web UI goes through the same wrapper — anyone holding the bearer token can send `text`, so this ensures a leaked token delivers data labeled untrusted rather than direct instructions to your routine.
+
 > The beta header is `experimental-cc-routine-2026-04-01`. This may change during research preview, but Anthropic commits to supporting the previous two header versions to allow migration time. The `/fire` endpoint is only available to claude.ai accounts and is not part of the Claude Platform API surface.
 
 ### GitHub Event Trigger (New)
 
 GitHub events directly trigger a run. Each event opens a new independent session — **no session reuse**.
 
-Setup (Web only):
+Setup (from the Web or the CLI; the CLI path requires v2.1.225+):
 
-1. Edit routine → **Add another trigger** → **GitHub event**
-2. **The Claude GitHub App must be installed first** (the CLI's `/web-setup` only grants clone access — it does not install the App or enable webhooks)
+1. Edit routine → **Add another trigger** → **GitHub event** (from the CLI, install the App from the [GitHub App page](https://github.com/apps/claude) first, then ask Claude to attach the trigger, e.g. `/schedule add a GitHub trigger to my nightly review for pull requests opened in acme/webapp`)
+2. **Either way, the Claude GitHub App must be installed first** (the CLI's `/web-setup` only grants clone access — it does not install the App or enable webhooks)
 3. Select repo, event type, and filters
 
 Supported events:
@@ -299,6 +301,31 @@ The biggest challenge with Routines is prompt quality. They run fully autonomous
 
 **API still in beta.** The `/fire` endpoint uses the beta header `experimental-cc-routine-2026-04-01`, and the request/response shape may still change.
 
+## Beyond Scheduling: Goal Mode (`/goal`)
+
+The three scheduling options solve "when to run". Goal mode solves a different problem: **how to keep Claude working without stopping until a condition is met**. It's not scheduling — no intervals, no waiting for time — each turn starts as soon as the previous one finishes.
+
+Usage: `/goal` followed by a completion condition:
+
+```bash
+/goal all tests in test/auth pass and the lint step is clean
+```
+
+Claude starts working immediately (no separate prompt needed). After every turn, a small fast model checks the condition against the conversation and returns one of three verdicts: **not yet met** (Claude keeps working, using the reason as guidance), **met** (the goal clears and an achieved entry is recorded), or **impossible** (the evaluator judged the condition can never be satisfied — the goal clears with the failure reason recorded). Errors you have to fix yourself — authentication failure, exhausted credits, context overflow that auto-compaction couldn't clear, model unavailable — also clear the goal and prompt you to fix the cause then run `/goal` again; ordinary transient errors like rate limits don't interrupt the goal.
+
+It fits substantial work with a verifiable end state: migrating a module until every call site compiles, implementing a design doc until all acceptance criteria hold, working a labeled issue backlog down to empty. The difference from `/loop` is the driving signal: `/loop` fires on a time interval, `/goal` fires when the previous turn ends — and completion is decided by a fresh evaluator model, not by the model doing the work.
+
+Key points from the [official docs](https://code.claude.com/docs/en/goal):
+
+- One active goal per session. Bare `/goal` shows status (runtime, turns evaluated, token spend), `/goal clear` cancels (`stop` / `off` / `reset` / `none` / `cancel` are aliases), and `/clear` removes it too
+- Conditions can be up to 4,000 characters and must be provable from Claude's own conversation output — the evaluator doesn't run commands or read files, it only sees the transcript. "All tests in test/auth pass" works because Claude runs the tests and the result lands in the transcript
+- To bound how long it runs, write the bound into the condition, e.g. `or stop after 20 turns`
+- It's a wrapper around a session-scoped prompt-based Stop hook, so disabled hooks or missing workspace trust disable it too
+- A goal still active when the session ends is restored by `--resume` / `--continue`
+- Non-interactive mode works too: `claude -p "/goal ..."` runs to completion; add `--output-format stream-json --verbose` to see progress
+
+Note that setting a goal doesn't change your permission mode. For unattended operation, pair it with auto mode; in Manual mode, tool calls that need approval will still ask.
+
 ## The Big Picture
 
 Routines transform Claude Code from a "you ask, it answers" interactive tool into an "set it and forget it" automation system.
@@ -319,7 +346,12 @@ Start simple: auto-review yesterday's PRs every morning, run a dependency audit 
 - [Trigger a routine via API (Platform docs)](https://platform.claude.com/docs/en/api/claude-code/routines-fire)
 - [GitHub Actions integration](https://code.claude.com/docs/en/github-actions)
 - [Claude Code on the web: cloud environment settings](https://code.claude.com/docs/en/claude-code-on-the-web)
+- [/goal: Keep Claude working toward a goal](https://code.claude.com/docs/en/goal)
 - [Claude Code /loop Scheduling](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
 - [Remote Agent Auto-Dev Pipeline](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en)
 - [/file-bug-issue Skill and Remote Agent Integration](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)
 - [Daodao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en)
+
+## Update Log
+
+- 2026-08-26: Fact refresh + new goal mode section / cross-linked with the implementation post.

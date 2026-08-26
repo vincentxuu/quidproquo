@@ -9,11 +9,13 @@ tldr: "/loop is Claude Code's native cron feature — set schedules in plain Eng
 description: "A guide to Claude Code's /loop scheduling feature, covering dynamic intervals, custom default prompts via loop.md, cron expressions, and how it compares to Routines and Desktop scheduled tasks."
 draft: false
 series:
-  name: "Claude Code Automation Guide"
-  order: 7
+  name: "Claude Code Deep Dives"
+  order: 23
 ---
 
 🌏 [中文版](/posts/tech/2026-05-09-claude-code-loop-scheduling)
+
+> This is the `/loop` implementation post, focused on command syntax and hands-on usage. For the scheduling landscape (how Routines / Desktop scheduled tasks / `/loop` divide the work) and goal mode, see the main post: [Claude Code Routines: Complete Guide](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en).
 
 ## TL;DR
 
@@ -61,7 +63,9 @@ After each run, Claude picks the next interval (between 1 minute and 1 hour) bas
 
 Notably, dynamic `/loop` may switch to using the [Monitor tool](https://code.claude.com/docs/en/tools-reference#monitor-tool) to stream output from background scripts — avoiding unnecessary polling, saving tokens, and responding faster than repeated prompt re-runs.
 
-> On Bedrock, Vertex AI, and Microsoft Foundry, omitting the interval falls back to a fixed 10-minute schedule.
+A self-paced loop doesn't have to run forever, either — Claude can end it on its own once it judges the task complete: it calls the `ScheduleWakeup` tool with `stop: true`, which cancels the pending wakeup immediately (requires v2.1.202+). If an iteration ends without either rescheduling or stopping, Claude Code schedules one fallback wakeup about 20 minutes later; if that iteration doesn't reschedule either, the loop ends.
+
+> On Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry, omitting the interval falls back to a fixed 10-minute schedule.
 
 ### 3. Built-in Maintenance Prompt
 
@@ -78,6 +82,8 @@ Claude runs the built-in maintenance prompt, working through tasks in order:
 - When there's nothing else to do, perform housekeeping (bug hunting, simplification)
 
 Uses dynamic intervals by default. Add a time (e.g. `/loop 15m`) to switch to a fixed schedule.
+
+> The above doesn't hold on Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry: a bare `/loop` just prints the usage message — it doesn't run the maintenance prompt or read `loop.md`.
 
 #### Customize the Default Prompt with `loop.md`
 
@@ -129,6 +135,8 @@ Claude schedules these as single-fire tasks that are automatically deleted after
 ```bash
 /loop 2h /review-pr 1234
 ```
+
+You can pass a skill as the prompt and it re-runs each iteration. One prerequisite: on a scheduled fire, only skills Claude is allowed to invoke on its own actually execute. Built-in commands (`/permissions`, `/model`, `/clear`), skills marked `disable-model-invocation: true` in their frontmatter, skills withheld by `skillOverrides` or a Skill deny rule, and MCP prompts all reach Claude as plain text instead of executing.
 
 ### Morning Slack Summary
 
@@ -199,6 +207,7 @@ Repeating tasks **expire automatically after 7 days**. They run once more just b
 - **Non-interrupting**: tasks queue up while Claude is busy
 - **No catch-up**: missed triggers while idle run only once — missed occurrences are not replayed
 - **New sessions start clean**: opening a new conversation clears all tasks
+- **Storage location**: the task list lives in the project's `.claude` directory; scheduling fails with an error if that directory — or the task file inside it — is a symlink
 
 ## Cron Expression Reference
 
@@ -252,3 +261,7 @@ They solve different problems and aren't substitutes for each other. Choose base
 - [Desktop Scheduled Tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks)
 - [Channels: event-driven alternatives to polling](https://code.claude.com/docs/en/channels)
 - [Monitor tool: streaming output from background scripts](https://code.claude.com/docs/en/tools-reference#monitor-tool)
+
+## Update Log
+
+- 2026-08-26: Fact refresh + cross-linked with the main post (scheduling landscape and goal mode).

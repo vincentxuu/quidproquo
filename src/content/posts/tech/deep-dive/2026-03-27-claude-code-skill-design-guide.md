@@ -9,8 +9,8 @@ tldr: "Skill 是寫給 AI 看的 SOP。一個 markdown 檔案定義步驟，Clau
 description: "從零開始介紹 Claude Code Skill 的設計哲學、檔案結構、實作方式，以及四個實際案例（format-commit、post、job-filter、file-bug-issue）的設計取捨。"
 draft: false
 series:
-  name: "Claude Code 自動化指南"
-  order: 6
+  name: "Claude Code 深入介紹"
+  order: 13
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)

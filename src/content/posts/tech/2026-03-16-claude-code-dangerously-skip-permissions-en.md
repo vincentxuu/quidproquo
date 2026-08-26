@@ -9,15 +9,17 @@ tldr: "Claude Code has five permission modes: default (confirm each step), accep
 description: "A complete guide to Claude Code's five permission modes: default, acceptEdits, plan, auto, bypassPermissions (YOLO), and dontAsk — covering how each works, when to use it, how to configure it, and how the auto mode classifier and custom rules operate."
 draft: false
 series:
-  name: "Claude Code Automation Guide"
-  order: 1
+  name: "Claude Code Deep Dives"
+  order: 8
 ---
 
 🌏 [中文版](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions)
 
+> For the proper tiered approach (each permission mode and auto mode configuration), read [Permissions and Auto Mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode-en); this post covers what it costs when you still decide to bypass it all.
+
 ## TL;DR
 
-Claude Code has five permission modes, from most restrictive to most permissive: `plan` (read-only) → `default` (confirm each step) → `acceptEdits` (auto-accept edits) → `auto` (AI classifier review) → `bypassPermissions` (YOLO, skip everything). For most workflows, **auto mode** is all you need — it uses a background classifier to assess safety automatically and only blocks genuinely dangerous operations.
+Claude Code has five permission modes, from most restrictive to most permissive: `plan` (read-only) → `default` (confirm each step) → `acceptEdits` (auto-accept edits) → `auto` (AI classifier review) → `bypassPermissions` (YOLO, skip everything). For most workflows, **auto mode** is all you need — it uses a background classifier to assess safety automatically and only blocks genuinely dangerous operations. As of week 32 of 2026, interactive sessions on Pro, Max, and Team plans start in auto mode by default.
 
 ---
 
@@ -36,7 +38,7 @@ Claude Code has five permission modes, from most restrictive to most permissive:
 
 ### During a Session
 
-In the CLI, press **Shift+Tab** to cycle through: `default` → `acceptEdits` → `plan` → `auto`.
+In the CLI, press **Shift+Tab** to cycle through: `default` → `acceptEdits` → `plan`. When your account meets the requirements, `auto` joins the cycle right after `plan`; `bypassPermissions` only appears after you've started with its flag, and `dontAsk` is never in the cycle — set it with `--permission-mode dontAsk`.
 
 In VS Code and Claude Desktop, click the mode selector next to the input box.
 
@@ -44,7 +46,7 @@ In VS Code and Claude Desktop, click the mode selector next to the input box.
 
 ```bash
 claude --permission-mode plan
-claude --permission-mode auto --enable-auto-mode
+claude --permission-mode auto
 ```
 
 ### Set as Default
@@ -77,10 +79,9 @@ claude --permission-mode plan
 ### After Planning
 
 Once Claude presents a plan, it will ask how to proceed:
-- **Approve and start in auto mode** — let Claude execute using auto mode immediately
-- **Approve and accept edits** — auto-accept edits, manually confirm commands
-- **Approve and manually review** — confirm each step individually
-- **Keep planning** — continue refining the plan
+- **Yes, and use auto mode** — approve the plan and execute in auto mode immediately (falls back to auto-accepting edits when auto mode is unavailable)
+- **Yes, manually approve edits** — approve, then review each edit individually
+- **No, keep planning** — stay in plan mode and refine the plan
 
 Great for getting the full picture before committing to a multi-step implementation:
 
@@ -95,7 +96,7 @@ Analyze the current implementation and give me a complete migration plan.
 
 Auto mode is the safe alternative to `bypassPermissions` (YOLO). It uses a separate **classifier model** running in the background to evaluate each operation and determine whether it is safe.
 
-> Currently requires a Team plan + Claude Sonnet 4.6 or Opus 4.6. Admins must enable it in the claude.ai admin settings.
+> Now available on all plans (requires Opus 4.6 / Sonnet 4.6 or later, or Fable 5). It's on by default for Team and Enterprise; admins can turn it off via `disableAutoMode` in managed settings. As of week 32 of 2026, interactive sessions on Pro, Max, and Team plans start in auto mode by default (CLI v2.1.228+; `claude -p` and Agent SDK sessions still start in default mode).
 
 ### How It Works
 
@@ -115,14 +116,15 @@ Each operation is evaluated in a fixed order:
 - Bulk deletion from cloud storage
 - Granting IAM / repo permissions
 - Modifying shared infrastructure
-- Force push, direct push to main
+- Force push, rewriting remote history
+- Destructive git operations: `git reset --hard`, `git checkout -- .`, `git clean -fd`, dropping stashes (treated as discarding uncommitted changes)
 
 **Allowed**:
 - File operations within the working directory
 - Installing dependencies declared in lock files
 - Reading `.env` and sending credentials to the corresponding API
 - Read-only HTTP requests
-- Pushing to your working branch
+- Pushing to any branch of the repository you're working in (including the default branch as of v2.1.211; branches named as deploy targets like `production` or `gh-pages` are judged separately)
 
 ### Customizing Classifier Rules
 
@@ -148,6 +150,10 @@ If the classifier blocks 3 consecutive operations or 20 total → auto mode paus
 claude --dangerously-skip-permissions "Fix all lint errors"
 claude --permission-mode bypassPermissions "Fix all lint errors"
 ```
+
+### The Risk Calculus Has Changed
+
+When this post was first written, manual approval was the only line of defense; auto mode is now the default for interactive sessions on Pro, Max, and Team plans, so an ordinary session already has a background classifier watching it. `bypassPermissions` therefore no longer means "a few fewer confirmations" — it means skipping that classifier entirely. What you're removing is a safety net that's on by default.
 
 ### What Gets Bypassed
 
@@ -197,7 +203,7 @@ docker run --rm \
 | Safety checks | Background classifier review | None |
 | Prompt injection protection | Yes (classifier is independent of main conversation) | None |
 | Token consumption | Higher (classifier calls) | Standard |
-| Requires | Team plan + Sonnet/Opus 4.6 | Any plan |
+| Requires | All plans (model restrictions apply) | Any plan |
 | Sub-agent control | Yes (reviewed before and after spawn) | None |
 
 **Bottom line: use auto mode when you can, and only fall back to YOLO in Docker.** If you genuinely need YOLO, run it inside a container.
@@ -271,7 +277,12 @@ This configuration can be committed to the repo so the whole team shares the sam
 ## References
 
 - [Claude Code - Permission modes](https://code.claude.com/docs/en/permission-modes)
+- [Claude Code - Configure auto mode](https://code.claude.com/docs/en/auto-mode-config)
 - [Claude Code - Permissions](https://code.claude.com/docs/en/permissions)
 - [Auto Mode Announcement](https://claude.com/blog/auto-mode)
 - [claude --dangerously-skip-permissions - PromptLayer](https://blog.promptlayer.com/claude-dangerously-skip-permissions/)
 - [YOLO Mode Hidden Risks | UpGuard](https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions/)
+
+## Changelog
+
+- 2026-08-26: Fact refresh — updated the risk comparison now that auto mode is the default permission mode on Pro/Max/Team, and added series cross-links.

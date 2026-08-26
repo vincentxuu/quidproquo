@@ -9,8 +9,8 @@ tldr: "Routines 是 Claude Code 的雲端自動化系統（前身 Cloud Schedule
 description: "完整介紹 Claude Code Routines 的三種觸發方式（Schedule / API / GitHub），與 Desktop scheduled tasks、/loop 的差異，以及實際案例 daodao-auto-dev 的設計。"
 draft: false
 series:
-  name: "Claude Code 自動化指南"
-  order: 8
+  name: "Claude Code 深入介紹"
+  order: 22
 ---
 
 🌏 [English version](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en)
@@ -47,13 +47,13 @@ Claude Code 提供三種排程機制，適合不同場景：
 
 **`/loop`**：最輕量，session 內的快速排程。適合「部署完通知我」這種短期監控。新 session 就消失，開了 `--resume` 才會還原。
 
-這篇專注介紹 Routines。`/loop` 的介紹見 [/loop 排程功能](/posts/tech/2026-05-09-claude-code-loop-scheduling)，Remote Agent 的完整流水線見 [Remote Agent 自動開發](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)。
+這篇專注介紹 Routines。`/loop` 的語法細節見實作篇 [/loop 排程功能](/posts/tech/2026-05-09-claude-code-loop-scheduling)，Remote Agent 的完整流水線見 [Remote Agent 自動開發](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)。排程之外，想讓 Claude 不停工直到條件達成，文末另有一節介紹 [goal mode](#排程之外goal-modegoal)。
 
 ## Routines 是什麼
 
 一個 routine 就是一份打包好的 Claude Code 設定：**prompt + 一或多個 GitHub repo + connectors + 一或多個 trigger**。打包一次，自動跑無數次。
 
-可用方案：Pro、Max、Team、Enterprise 並啟用 Claude Code on the web。Team / Enterprise 管理員可以從 admin settings 全域關閉。
+可用方案：Pro、Max、Team、Enterprise 並啟用 Claude Code on the web。Team / Enterprise 需 Owner 從 admin settings 開啟 Routines toggle——關閉時既有 routine 也會停跑。
 
 每個 routine 跑起來等於一個完整的 Claude Code cloud session：**自主執行、沒有權限提示、可以跑 shell、用 skills、呼叫 connectors**。能碰到什麼完全由你選的 repo、environment、connectors 決定，所以這三項一定要設緊一點。
 
@@ -62,10 +62,10 @@ Claude Code 提供三種排程機制，適合不同場景：
 三個入口寫到同一個雲端帳號，介面互通：
 
 - **Web**：到 [claude.ai/code/routines](https://claude.ai/code/routines) 點 **New routine**
-- **Desktop App**：Routines 頁面 → **New routine** → 選 **Remote**（選 Local 就變成 Desktop scheduled task）
+- **Desktop App**：Routines 頁面 → **New routine** → 選 **Cloud**（選 Local 就變成 Desktop scheduled task）
 - **CLI**：在 session 中打 `/schedule`，Claude 會用對話引導你設定
 
-CLI 的 `/schedule` 只能建立排程型 routine。要加 API 或 GitHub trigger，必須回 Web 編輯。
+CLI 的 `/schedule`（別名 `/routines`，需 v2.1.225+）只能建立排程型 routine。要加 API trigger 必須回 Web 編輯；GitHub trigger 則 Web 和 CLI 都能加。
 
 CLI 也能管理現有的：`/schedule list`、`/schedule update`、`/schedule run`。
 
@@ -157,16 +157,18 @@ curl -X POST https://api.anthropic.com/v1/claude_code/routines/trig_01ABCDEFGHJK
 
 `text` 欄位是 freeform 字串（不會 parse 結構），會跟 routine 原本的 prompt 一起餵給 Claude。傳 JSON 進去 Claude 會看到字面字串。
 
+> 安全設計要知道：`text` 不是以裸訊息送達，而是包在 `<routine-fire-payload>` 區塊裡，標記為不可信任資料。routine 的 prompt 必須明確寫出要處理這個 payload（例如「調查 routine-fire-payload 區塊中描述的告警」），否則 Claude 會把它當惰性上下文不動作。Web UI 用 **Run now** 附帶的文字也走同樣的包裝——任何人拿到 bearer token 都能送 `text`，這層包裝確保洩漏的 token 只會送進「標了不可信任」的資料，而不是直接對你的 routine 下指令。
+
 > Beta header 是 `experimental-cc-routine-2026-04-01`。research preview 期間可能改變，但 Anthropic 承諾舊 header 還會支援前兩個版本給時間遷移。`/fire` 端點只給 claude.ai 帳號用，不在 Claude Platform API 表面。
 
 ### GitHub event trigger（新）
 
 GitHub 事件直接觸發一次 run，每個事件獨立開新 session（**沒有 session reuse**）。
 
-設定步驟（**只能在 Web 設**）：
+設定步驟（Web 或 CLI 都能設，CLI 路徑需 v2.1.225+）：
 
-1. 編輯 routine → **Add another trigger** → **GitHub event**
-2. **必須先安裝 Claude GitHub App**（CLI 的 `/web-setup` 只給 clone 權限，不會裝 App，也不會啟用 webhook）
+1. 編輯 routine → **Add another trigger** → **GitHub event**（CLI 則先從 [GitHub App 頁面](https://github.com/apps/claude)裝 App，再叫 Claude 加 trigger，例如 `/schedule add a GitHub trigger to my nightly review for pull requests opened in acme/webapp`）
+2. **無論哪條路，都必須先安裝 Claude GitHub App**（CLI 的 `/web-setup` 只給 clone 權限，不會裝 App，也不會啟用 webhook）
 3. 選 repo、選事件、選 filter
 
 支援事件：
@@ -299,6 +301,31 @@ Routines 最大的挑戰是 prompt 品質。它完全自主執行，**run 中沒
 
 **API 還在 beta。** `/fire` endpoint 帶的 beta header 是 `experimental-cc-routine-2026-04-01`，request/response shape 還可能變。
 
+## 排程之外：goal mode（`/goal`）
+
+排程三兄弟解決「什麼時候跑」。goal mode 解決的是另一個問題：**怎麼讓 Claude 不停工，直到條件達成為止**。它不是排程——沒有間隔、不用等時間——每一輪做完立刻接下一輪。
+
+用法是 `/goal` 後面接完成條件：
+
+```bash
+/goal all tests in test/auth pass and the lint step is clean
+```
+
+設定後 Claude 立刻開工（不用再另外下 prompt）。之後每一輪結束，一個小型快速模型會根據對話內容檢查條件，回傳三種判決之一：**還沒到**（Claude 參考評估理由繼續做）、**已達成**（清除目標並記錄成果）、**不可能**（判定條件永遠無法滿足，清除目標並記錄失敗原因）。出現你必須親自修的錯誤——認證失敗、額度用盡、auto-compaction 救不回的 context 溢出、模型不可用——也會清除目標並提示你修好後重新 `/goal`；一般的暫時性錯誤（rate limit、server overload）不會中斷目標。
+
+適合的是有可驗證終點的大塊工作：模組遷移到所有 call site 都編譯過、照設計文件做到所有 acceptance criteria 成立、把一批 labeled issue 清到空。跟 `/loop` 的差別在驅動訊號：`/loop` 按時間間隔觸發下一輪，`/goal` 按「上一輪結束」觸發，完成與否由一個獨立的評估模型判斷，不是做工作本身的那個模型說了算。
+
+幾個使用要點（依[官方文件](https://code.claude.com/docs/en/goal)）：
+
+- 一個 session 只能有一個 active goal。`/goal` 不帶參數看狀態（跑了多久、評估了幾輪、token 花費），`/goal clear` 取消（`stop` / `off` / `reset` / `none` / `cancel` 都是別名），`/clear` 開新對話也會一併清掉
+- 條件最多 4,000 字元，要寫成 Claude 的對話輸出能證明的形式——評估模型自己不跑指令、不讀檔案，只看 transcript。「test/auth 的測試全過」有效，因為 Claude 跑完測試，結果就在對話裡
+- 想限制跑多久，把條款寫進條件，例如 `or stop after 20 turns`
+- 本質上是 session-scoped 的 prompt-based Stop hook 包裝，所以 hooks 被關閉或 workspace trust 未建立時會連帶停用
+- goal 在 session 結束時還 active 的話，`--resume` / `--continue` 會把它還原回來
+- 非互動模式也能用：`claude -p "/goal ..."` 會一路跑到完成或清除，配 `--output-format stream-json --verbose` 才看得到進度
+
+注意：設 goal 不會改變權限模式。要讓它無人值守地跑，搭配 auto mode 使用；Manual mode 下該問的工具呼叫還是會問。
+
 ## 整體來說
 
 Routines 把 Claude Code 從「你問它答」的互動模式，變成了「設定好就自己跑」的自動化系統。
@@ -319,7 +346,12 @@ Routines 把 Claude Code 從「你問它答」的互動模式，變成了「設�
 - [Trigger a routine via API（Platform docs）](https://platform.claude.com/docs/en/api/claude-code/routines-fire)
 - [GitHub Actions 整合](https://code.claude.com/docs/en/github-actions)
 - [Claude Code on the web：cloud environment 設定](https://code.claude.com/docs/en/claude-code-on-the-web)
+- [/goal：Keep Claude working toward a goal](https://code.claude.com/docs/en/goal)
 - [Claude Code /loop 排程功能](/posts/tech/2026-05-09-claude-code-loop-scheduling)
 - [Remote Agent 自動開發流水線](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)
 - [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent)
 - [島島阿學技術架構全覽](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+
+## 更新紀錄
+
+- 2026-08-26：刷新事實＋補 goal mode／與實作篇互鏈。

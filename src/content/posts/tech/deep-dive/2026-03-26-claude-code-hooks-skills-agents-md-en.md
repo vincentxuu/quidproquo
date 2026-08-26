@@ -9,8 +9,8 @@ tldr: "Hooks are automated safety nets (blocking bad commits), Skills are intera
 description: "A deep dive into how Claude Code's three mechanisms — Hooks, Skills, and instruction files (CLAUDE.md / AGENTS.md) — each serve a distinct role and combine into an automated pre-commit quality pipeline, with real configuration examples and design tradeoffs."
 draft: false
 series:
-  name: "Claude Code Automation Guide"
-  order: 9
+  name: "Claude Code Deep Dives"
+  order: 17
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)

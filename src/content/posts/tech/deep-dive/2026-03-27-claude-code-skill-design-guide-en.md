@@ -9,8 +9,8 @@ tldr: "A Skill is an SOP written for AI. Define the steps in a Markdown file and
 description: "A ground-up introduction to Claude Code Skills: the design philosophy, file structure, implementation patterns, and the trade-offs behind four real-world examples — format-commit, post, job-filter, and file-bug-issue."
 draft: false
 series:
-  name: "Claude Code Automation Guide"
-  order: 6
+  name: "Claude Code Deep Dives"
+  order: 13
 ---
 
 🌏 [中文版](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)

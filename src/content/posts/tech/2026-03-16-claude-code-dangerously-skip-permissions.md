@@ -9,15 +9,17 @@ tldr: "Claude Code 有五種權限模式：default（逐步確認）、acceptEdi
 description: "完整介紹 Claude Code 的五種權限模式：default、acceptEdits、plan、auto、bypassPermissions（YOLO）和 dontAsk，包含每種模式的運作原理、適用場景、設定方式，以及 auto mode 的 classifier 機制和自訂規則。"
 draft: false
 series:
-  name: "Claude Code 自動化指南"
-  order: 1
+  name: "Claude Code 深入介紹"
+  order: 8
 ---
 
 🌏 [English version](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en)
 
+> 正規的分級做法（各種權限模式與 auto mode 設定）看 [Permissions 與 auto mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode) 那篇；這篇講的是你還是決定繞過時的代價。
+
 ## TL;DR
 
-Claude Code 有五種權限模式，從最安全到最自由：`plan`（唯讀）→ `default`（逐步確認）→ `acceptEdits`（自動接受編輯）→ `auto`（AI classifier 審查）→ `bypassPermissions`（YOLO 全跳過）。大多數場景用 **auto mode** 就夠了——它用背景 classifier 自動判斷安全性，遇到危險操作才阻擋。
+Claude Code 有五種權限模式，從最安全到最自由：`plan`（唯讀）→ `default`（逐步確認）→ `acceptEdits`（自動接受編輯）→ `auto`（AI classifier 審查）→ `bypassPermissions`（YOLO 全跳過）。大多數場景用 **auto mode** 就夠了——它用背景 classifier 自動判斷安全性，遇到危險操作才阻擋。自 2026 年 W32 起，Pro/Max/Team 方案的互動 session 預設就從 auto mode 開始。
 
 ---
 
@@ -36,7 +38,7 @@ Claude Code 有五種權限模式，從最安全到最自由：`plan`（唯讀�
 
 ### 在 session 中切換
 
-CLI 裡按 **Shift+Tab** 循環切換：`default` → `acceptEdits` → `plan` → `auto`。
+CLI 裡按 **Shift+Tab** 循環切換：`default` → `acceptEdits` → `plan`。`auto` 在你的帳號符合資格時會排在 `plan` 後面一起循環；`bypassPermissions` 要用旗標啟動過才會出現在循環裡，`dontAsk` 則永遠不在循環中，只能用 `--permission-mode dontAsk` 指定。
 
 VS Code 和 Desktop 直接點擊輸入框旁的模式選擇器。
 
@@ -44,7 +46,7 @@ VS Code 和 Desktop 直接點擊輸入框旁的模式選擇器。
 
 ```bash
 claude --permission-mode plan
-claude --permission-mode auto --enable-auto-mode
+claude --permission-mode auto
 ```
 
 ### 設為預設
@@ -77,10 +79,9 @@ claude --permission-mode plan
 ### 規劃完成後
 
 Claude 提出計畫後會問你怎麼做：
-- **Approve and start in auto mode** — 直接讓 Claude 用 auto mode 執行
-- **Approve and accept edits** — 自動接受編輯，手動確認指令
-- **Approve and manually review** — 每步都確認
-- **Keep planning** — 繼續修改計畫
+- **Yes, and use auto mode** — 核准計畫，直接用 auto mode 執行（auto mode 不可用時這個選項變成自動接受編輯）
+- **Yes, manually approve edits** — 核准後逐步審查每個編輯
+- **No, keep planning** — 留在 plan mode 繼續修改計畫
 
 適合多步驟實作前先看清全貌：
 
@@ -95,7 +96,7 @@ Claude 提出計畫後會問你怎麼做：
 
 Auto mode 是 `bypassPermissions`（YOLO）的安全替代方案。它用一個獨立的 **classifier 模型**在背景審查每個操作，判斷是否安全。
 
-> 目前需要 Team plan + Claude Sonnet 4.6 或 Opus 4.6。Admin 需在 claude.ai 管理設定中啟用。
+> 現在所有方案都能用（模型需 Opus 4.6 / Sonnet 4.6 以上，或 Fable 5）。Team/Enterprise 預設開啟，Admin 可在 managed settings 用 `disableAutoMode` 關閉。自 W32 起，Pro/Max/Team 的互動 session 預設就從 auto mode 起始（CLI v2.1.228+；`claude -p` 與 Agent SDK 不受影響，仍從 default 開始）。
 
 ### 運作原理
 
@@ -115,14 +116,15 @@ Auto mode 是 `bypassPermissions`（YOLO）的安全替代方案。它用一個�
 - 雲端儲存的大量刪除
 - 授予 IAM / repo 權限
 - 修改共享基礎設施
-- Force push、直接 push 到 main
+- Force push、改寫遠端歷史
+- 破壞性 git 操作：`git reset --hard`、`git checkout -- .`、`git clean -fd`、刪除 stash（視為丟棄未 commit 的變更）
 
 **會放行**：
 - 工作目錄內的檔案操作
 - 安裝 lock file 中已宣告的依賴
 - 讀取 `.env` 並發送 credentials 到對應 API
 - 唯讀 HTTP 請求
-- Push 到你的工作分支
+- Push 到你工作 repo 的任何分支（v2.1.211 起含 default branch；名稱指向部署目標的分支如 `production`、`gh-pages` 除外）
 
 ### 自訂 Classifier 規則
 
@@ -148,6 +150,10 @@ Classifier 連續阻擋 3 次或累計阻擋 20 次 → auto mode 暫停，恢�
 claude --dangerously-skip-permissions "Fix all lint errors"
 claude --permission-mode bypassPermissions "Fix all lint errors"
 ```
+
+### 風險定位變了
+
+寫這篇時，手動核准還是唯一的防線；現在 auto mode 是 Pro/Max/Team 互動 session 的預設模式，一般 session 本來就有背景 classifier 把關。`bypassPermissions` 的意義因此從「少掉幾次確認」變成「連這層分類器都整個跳過」——你拿掉的是預設就在的那道安全網。
 
 ### 繞過什麼
 
@@ -197,7 +203,7 @@ docker run --rm \
 | 安全檢查 | Classifier 背景審查 | 無 |
 | Prompt injection 防護 | 有（classifier 獨立於主對話）| 無 |
 | Token 消耗 | 較高（classifier 呼叫）| 標準 |
-| 需要 | Team plan + Sonnet/Opus 4.6 | 任何 plan |
+| 需要 | 所有方案（模型有限制）| 任何 plan |
 | 子代理控制 | 有（spawn 前/後都審查）| 無 |
 
 **結論：能用 auto mode 就別用 YOLO。** 真的需要 YOLO，跑在 Docker 裡。
@@ -271,7 +277,12 @@ claude --permission-mode dontAsk
 ## 參考資料
 
 - [Claude Code - Permission modes](https://code.claude.com/docs/en/permission-modes)
+- [Claude Code - Configure auto mode](https://code.claude.com/docs/en/auto-mode-config)
 - [Claude Code - Permissions](https://code.claude.com/docs/en/permissions)
 - [Auto Mode Announcement](https://claude.com/blog/auto-mode)
 - [claude --dangerously-skip-permissions - PromptLayer](https://blog.promptlayer.com/claude-dangerously-skip-permissions/)
 - [YOLO Mode Hidden Risks | UpGuard](https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions/)
+
+## 更新紀錄
+
+- 2026-08-26：刷新——補 auto mode（現為 Pro/Max/Team 預設權限模式）後的風險對比與系列互鏈。
