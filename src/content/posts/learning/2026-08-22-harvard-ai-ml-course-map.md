@@ -59,7 +59,7 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 但檔案版本不同。Summer 2026 的 [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)直接連到 `cdn.cs50.net/ai/2020/spring/`；正式班的 Degrees project 也下載 `2020/spring` distribution。OCW 的 [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)則下載 `2023/x` distribution，並執行 `check50 ai50/projects/2024/x/degrees`。
 
-正確講法是：**Summer 2026 是新的正式班次，使用經典錄影與指定作業快照；OCW 是持續更新的公開版本。**兩邊概念高度對齊，但不要把 OCW starter 和 Summer 2026 Gradescope 規格混著提交。校外自學直接選 OCW；正式修 CSCI S-80 就只用該班連出的檔案。
+正確講法是：**Summer 2026 是新的正式班次，使用經典錄影與指定作業快照；OCW 是持續更新的公開版本。**兩邊概念高度對齊，但不要把 OCW starter 和 Summer 2026 Gradescope 規格混著提交。校外自學直接選 OCW；正式修 CSCI S-80 就只用該班連出的檔案。本站已寫了這門課的[完整導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)，版本差異與自學路線在那邊展開。
 
 今晚可以做的檢查很簡單：打開每個 project 的 download URL 和 `check50` 指令，把路徑中的年份記在筆記頂端。只要兩者不同，就把它視為「概念相同、執行版本不同」。
 
@@ -96,6 +96,8 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮，仍要查看底層資產年份**。CS50 AI 告訴你影片和作業可能跨版；CS1810 告訴你沒有影片仍可形成 A3；CS1820 則提醒最新課表不等於已存在的公開課。把這三種狀態分開，才有一條今天能走、未來也容易更新的路線。
 
 ## 更新紀錄
+
+- 2026-08-26：回補站內連結——[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)上線，版本比較段落加上連結。
 
 - 2026-08-22：統一 A0／A1 邊界，將只有 catalog 的 Fall 2026 課程重評為 A0，並把未來追蹤與現行自學路線分開。
 

@@ -59,7 +59,7 @@ The A0–A3 scale comes from the [Global AI and CS Course Map](/posts/learning/2
 
 At the file level, editions diverge. Summer 2026 [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/) links directly into `cdn.cs50.net/ai/2020/spring/`; the enrolled Degrees project also downloads a `2020/spring` distribution. The OCW [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/) downloads `2023/x` and runs `check50 ai50/projects/2024/x/degrees`.
 
-The accurate description is: **Summer 2026 is a new formal offering built from classic recordings and a pinned assignment snapshot; OCW is a rolling public edition.** The concepts align closely, but learners should not mix OCW starter files with Summer 2026 Gradescope instructions. Use OCW end to end for independent study; use only the linked files for enrolled CSCI S-80 work.
+The accurate description is: **Summer 2026 is a new formal offering built from classic recordings and a pinned assignment snapshot; OCW is a rolling public edition.** The concepts align closely, but learners should not mix OCW starter files with Summer 2026 Gradescope instructions. Use OCW end to end for independent study; use only the linked files for enrolled CSCI S-80 work. This site now has a [full deep dive](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) on the course, expanding the version differences and self-study routes there.
 
 The quickest version check is to open every project's download URL and `check50` command and record the embedded years. If they differ, treat the assets as conceptually aligned but operationally distinct.
 
@@ -96,6 +96,8 @@ For planning, games, and multi-agent systems, start now with the first problem-s
 Harvard's clearest lesson is that a polished public page still needs an asset-level version audit. CS50 AI shows how lecture and assignment years can diverge; CS1810 shows that a course without public recordings can still be A3; CS1820 shows that the newest catalog entry is not yet a public course. Separating those states produces a route learners can start now and update honestly later.
 
 ## Changelog
+
+- 2026-08-26: Backfilled an internal link — the [CS50 AI deep dive](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) is now live; linked it from the version-comparison passage.
 
 - 2026-08-22: Standardized the A0/A1 boundary, re-rated catalog-only Fall 2026 courses as A0, and separated future tracking from current self-study routes.
 
