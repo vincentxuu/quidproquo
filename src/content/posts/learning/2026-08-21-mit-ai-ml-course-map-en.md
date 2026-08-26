@@ -95,7 +95,7 @@ The ratings below use the editorial scale defined in the [Global AI and CS Cours
 
 The important lesson is not which subject receives the highest score. It is that **the same course can become less public over time**. The Fall 2026 preview for 6.3900 says most materials will be open, yet the completed Spring 2026 home page and assignments are now staff-only. If a page used to open and no longer does, the old search result may not have been wrong; the archive policy changed.
 
-The reverse also happens: the newest class is only partly public while the previous edition is complete. Fall 2025 6.7960 keeps recordings and solutions in Canvas. MIT OCW's Fall 2024 edition publishes the videos, notes, five assignments, and final project. For self-study, **choosing 2024 OCW is more honest than forcing the 2025 site into a course it cannot provide**. Check the newest edition first, but do not let the year outrank completeness.
+The reverse also happens: the newest class is only partly public while the previous edition is complete. Fall 2025 6.7960 keeps recordings and solutions in Canvas. MIT OCW's Fall 2024 edition publishes the videos, notes, five assignments, and final project. For self-study, **choosing 2024 OCW is more honest than forcing the 2025 site into a course it cannot provide**. Check the newest edition first, but do not let the year outrank completeness. For how to combine the two editions and which route to take for which goal, this site's [6.7960 deep dive](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en) breaks both down edition by edition.
 
 ## Three routes that an outside learner can finish
 
@@ -151,6 +151,8 @@ Do not bookmark ten courses. Spend half an hour on three steps:
 The most valuable thing to borrow from MIT is not a list of famous subjects. It is the way Course 6-4 divides AI capability into data, models, decisions, computation, and people. Public material lets an outside learner borrow much of that structure. Credit, feedback, peers, gated platforms, and the research environment remain outside the package.
 
 ## Changelog
+
+- 2026-08-26: Backfilled an internal link — the [6.7960 deep dive](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en) is now live; linked it from the two-edition comparison passage.
 
 - 2026-08-22: Corrected 6.S191 2026 to a nine-week spring course rather than a one-week IAP bootcamp.
 
