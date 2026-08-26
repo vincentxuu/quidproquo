@@ -1,4 +1,5 @@
 import { defineSyscall } from '../../agent-os/tools/define'
+import { getEnv } from '../../config/env'
 
 export interface SkillReadInput {
   name: string
@@ -20,12 +21,18 @@ export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; de
       content: { type: 'string' },
     },
   },
-  async handler(ctx, input) {
-    // ctx.backends is not typed here; fall back to D1 via env injection — keep minimal for now
-    // Real impl will query D1 user_skills in handler via syscall context
+  async handler(_ctx, input) {
     const { name } = input
-    // stub: frontend will seed via build-time glob; runtime lookup placeholder
-    void ctx
-    return { name, description: `skill ${name}`, content: `# ${name}\nstub` }
+    try {
+      const env = getEnv() as unknown as { DB?: D1Database }
+      if (!env.DB) return { name, description: `skill ${name}`, content: `# ${name}\nstub (no DB)` }
+      const row = await env.DB.prepare('SELECT description, content FROM user_skills WHERE name = ?')
+        .bind(name)
+        .first<{ description: string; content: string }>()
+      if (!row) return null
+      return { name, description: row.description, content: row.content }
+    } catch {
+      return { name, description: `skill ${name}`, content: `# ${name}\nstub` }
+    }
   },
 })

@@ -6,14 +6,18 @@ import { searchAbstractIndexSyscall } from '../../rag/tools/search-abstract-inde
 import { searchDocsSyscall } from '../../rag/tools/search-docs'
 import { searchPageIndexSyscall } from '../../rag/tools/pageindex'
 import { searchPostsSyscall } from '../../rag/tools/search-posts'
+import { skillReadSyscall } from '../../tools/definitions/skill-read'
+import { readUrlSyscall } from '../../tools/definitions/read-url'
 import { registerSyscall } from './syscall'
 import { syscallToToolDefinition } from './define'
 import type { AnySyscallDefinition } from './types'
 
 const defaultSyscalls: AnySyscallDefinition[] = [
   searchExternalSyscall,
+  readUrlSyscall,
   postGetDetailSyscall,
   modelInvokeSyscall,
+  skillReadSyscall,
   searchPostsSyscall,
   searchDocsSyscall,
   searchAbstractIndexSyscall,

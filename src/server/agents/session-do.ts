@@ -1,6 +1,8 @@
 import { DurableObject } from 'cloudflare:workers'
 import type { Env } from '../../lib/config/env'
 import { runLoop, type LoopMessage } from '../../lib/agent-os/durable-agent'
+import { createKernel } from '../../lib/agent-os/kernel'
+import { humanMessage, systemMessage } from '../../lib/rag/messages'
 
 export class AgentSessionDO extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
@@ -80,7 +82,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
   }
 
-  private async startRun(sessionId: string, prompt: string, _skill?: string): Promise<void> {
+  private async startRun(sessionId: string, prompt: string, skill?: string): Promise<void> {
     const now = Date.now()
     await this.env.DB.prepare(
       'INSERT OR IGNORE INTO agent_sessions (id, agent_id, trigger, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
@@ -91,15 +93,57 @@ export class AgentSessionDO extends DurableObject<Env> {
     const userMsg: LoopMessage = { role: 'user', content: prompt }
     await this.persistMessage(sessionId, userMsg)
 
-    // stub model: echo + no tools — real provider wiring in S3
+    let skillContext = ''
+    if (skill) {
+      const row = await this.env.DB.prepare('SELECT content FROM user_skills WHERE name = ?')
+        .bind(skill)
+        .first<{ content: string }>()
+      if (row?.content) skillContext = row.content.slice(0, 8000)
+    }
+
+    const kernel = createKernel(this.env)
+    const toBaseMessage = (m: LoopMessage) =>
+      m.role === 'user' ? humanMessage(m.content) : systemMessage(m.content)
+
     await runLoop(
       [userMsg],
       {
-        modelInvoke: async (msgs) => ({
-          content: `Echo: ${msgs[msgs.length - 1]?.content ?? ''} (skill: ${_skill ?? 'none'})`,
-          stopReason: 'stop',
-        }),
-        syscall: async (name, input) => `tool:${name} ${JSON.stringify(input)}`,
+        modelInvoke: async (msgs) => {
+          try {
+            const lcMessages = [
+              ...(skillContext ? [systemMessage(`Skill ${skill}:\n${skillContext}`)] : []),
+              ...msgs.map(toBaseMessage),
+            ]
+            // minimal RagRuntimeConfig stub — reuse env provider routing via kernel syscall
+            const res = (await kernel.tools.syscall(
+              // @ts-expect-error syscall helper typed with run context; call underlying invoke via registry
+              { agentId: 'console', runId: sessionId } as unknown as Parameters<typeof kernel.tools.syscall>[1],
+              'model.invoke',
+              {
+                config: { model: 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
+                stage: 'console',
+                messages: lcMessages,
+              } as never,
+            )) as unknown as { response?: { content?: string }; content?: string }
+            const content = res?.response?.content ?? res?.content ?? JSON.stringify(res)
+            return { content: String(content), stopReason: 'stop' }
+          } catch (e) {
+            const msg = e instanceof Error ? e.message : String(e)
+            return { content: `model error: ${msg} (skill: ${skill ?? 'none'})`, stopReason: 'stop' }
+          }
+        },
+        syscall: async (name, input) => {
+          try {
+            const r = await kernel.tools.syscall(
+              { agentId: 'console', runId: sessionId } as unknown as never,
+              name as never,
+              input as never,
+            )
+            return r
+          } catch (e) {
+            return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
+          }
+        },
         persistMessage: (m) => this.persistMessage(sessionId, m),
         persistEvent: (type, payload) => this.persistEvent(sessionId, type, payload),
         broadcast: (e) => this.broadcast(e),
