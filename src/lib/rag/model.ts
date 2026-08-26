@@ -195,6 +195,81 @@ export function createModel(
   throw new Error(`Unsupported provider: ${route.provider}`)
 }
 
+// [skip-harness] Returns the raw LangChain model without the adapt() wrapper.
+// Use this when the consumer needs the full BaseChatModel interface (e.g. createReactAgent needs bindTools).
+export function createRawModel(
+  maxTokens = 512,
+  options?: {
+    config?: RagRuntimeConfig
+    stage?: string
+    route?: ModelRoute
+    apiKeys?: ProviderApiKeys
+  }
+): InvokableModel {
+  const e = env as unknown as Env
+  const route = options?.route ?? resolveRoute(options?.config, options?.stage)
+  const apiKeys = options?.apiKeys ?? {}
+
+  if (route.provider === 'openai') {
+    const apiKey = apiKeys.openai || e.OPENAI_API_KEY
+    const fields: OpenAIConstructorFields = { apiKey, maxTokens }
+    return new ChatOpenAI(route.model, asOpenAIFields(fields)) as unknown as InvokableModel
+  }
+
+  if (route.provider === 'google' || route.provider === 'gemini') {
+    const apiKey = apiKeys.google || apiKeys.gemini || apiKeys.GOOGLE_API_KEY || apiKeys.GEMINI_API_KEY || e.GOOGLE_API_KEY || e.GEMINI_API_KEY
+    return new ChatGoogleGenerativeAI(route.model, { apiKey, maxOutputTokens: maxTokens }) as unknown as InvokableModel
+  }
+
+  if (route.provider === 'groq') {
+    const apiKey = apiKeys.groq || e.GROQ_API_KEY
+    return new ChatGroq(route.model, {
+      apiKey,
+      maxTokens,
+      maxRetries: 0,
+    } as unknown as import('@langchain/groq').ChatGroqInput) as unknown as InvokableModel
+  }
+
+  if (route.provider === 'openrouter') {
+    const apiKey = apiKeys.openrouter || apiKeys.OPENROUTER_API_KEY || e.OPENROUTER_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://openrouter.ai/api/v1')
+  }
+
+  if (route.provider === 'opencode') {
+    const apiKey = apiKeys.opencode || apiKeys.OPENCODE_API_KEY || e.OPENCODE_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://opencode.ai/zen/v1')
+  }
+
+  if (route.provider === 'nvidia') {
+    const apiKey = apiKeys.nvidia || apiKeys.NVIDIA_API_KEY || e.NVIDIA_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://integrate.api.nvidia.com/v1')
+  }
+
+  if (route.provider === 'cerebras') {
+    const apiKey = apiKeys.cerebras || apiKeys.CEREBRAS_API_KEY || e.CEREBRAS_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.cerebras.ai/v1')
+  }
+
+  if (route.provider === 'ollama_cloud') {
+    const apiKey = apiKeys.ollama_cloud || apiKeys.OLLAMA_API_KEY || apiKeys.OLLAMA_CLOUD_API_KEY || e.OLLAMA_API_KEY || e.OLLAMA_CLOUD_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://ollama.com/v1')
+  }
+
+  if (route.provider === 'ollama') {
+    const baseURL = apiKeys.OLLAMA_API_BASE || apiKeys.OLLAMA_HOST || apiKeys.OLLAMA_URL
+      || e.OLLAMA_API_BASE || e.OLLAMA_HOST || e.OLLAMA_URL || 'http://localhost:11434/v1'
+    return createRawOpenAiCompatibleModel(route.model, apiKeys.ollama || apiKeys.OLLAMA_API_KEY || e.OLLAMA_API_KEY || 'ollama', maxTokens, normalizeOpenAiBaseUrl(baseURL))
+  }
+
+  throw new Error(`Unsupported provider: ${route.provider}`)
+}
+
+function createRawOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): InvokableModel {
+  if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
+  const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
+  return new ChatOpenAI(model, asOpenAIFields(fields)) as unknown as InvokableModel
+}
+
 function createOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): ChatModel {
   if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
   const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
