@@ -28,7 +28,7 @@ The nine V6 sessions ran on Thursday afternoons, sponsored by AGI House, [Modal]
 
 # The nine V6 talks
 
-I read the full transcripts for six of the nine. For the other three I only have the official abstracts — those transcripts were unreachable with every extraction tool I had. They're marked 🟡 below; don't read them as sessions I watched.
+I read the full transcripts for all nine sessions.
 
 ## Apr 2 — Overview (instructors)
 
@@ -58,9 +58,9 @@ A database writes down every token verbatim, so it can retrieve precisely. A bra
 
 The strongest evidence is an H-Net ablation. Even when the entire pipeline runs on BPE tokens — data that's already been compressed — swapping the outer encoder to Mamba still beats an all-Transformer variant. His reading: compression isn't just cheaper, it *is* an inductive bias toward building abstractions.
 
-## Apr 23 — Ultra-Scale: training on thousands of GPUs (Nouamane Tazi, Hugging Face) 🟡 abstract only
+## Apr 23 — Ultra-Scale: training on thousands of GPUs (Nouamane Tazi, Hugging Face)
 
-The official abstract covers how 5D parallelism stretches a single run across large clusters and how Mixture-of-Experts introduces new scaling dimensions and stability problems, drawing on the Ultra-Scale Playbook. **I did not read this transcript; the above is a paraphrase of the abstract.**
+The opening framing is problem scale: a trillion parameters, fifteen trillion tokens, every step squeezed into about one second. He covers five dimensions of parallelism with deliberate asymmetry — data and tensor parallelism in depth, pipeline/context/expert quickly. The one trick used everywhere: split an all-reduce into reduce-scatter plus all-gather, same communication volume but far less memory, which is what all three ZeRO stages and sequence parallelism rest on. The criterion for tensor parallelism is one sentence: after splitting, activations must look exactly like the unsplit case — so attention splits along heads, never along the hidden dim. The two most memorable warnings: if ZeRO-1 fits, don't reflexively reach for FSDP, because "ZeRO-3 is just trading communication for memory"; and MoE's all-to-all dispatch has a hard CPU-GPU sync bottleneck — "most labs doing MoE trainings have very slow trainings just because of this hardware problem." One reassuring Q&A answer: as long as the implementation is correct, your choice of parallelism doesn't change the scaling-law curve.
 
 ## Apr 30 — The future of pretraining ([Shrimai Prabhumoye](https://www.youtube.com/watch?v=e_H_tkpCAK4), Mistral AI)
 
@@ -70,13 +70,13 @@ RLP is the newest piece: let the model generate an explicit thought before predi
 
 She also gives the counter-examples: swapping the two phases (quality first, then diversity) performs worse, and RLP's tokens are chosen at random, with no entropy-based selection.
 
-## May 7 — Distinct modes of generalization from parameters and context (Andrew Lampinen, Anthropic) 🟡 abstract only
+## May 7 — Distinct modes of generalization from parameters and context (Andrew Lampinen, Anthropic)
 
-The official abstract: teaching a model the same information by updating parameters versus placing it in context produces strikingly different generalization, with the in-context route generally more flexible; he proposes three strategies to close the gap and links the findings to complementary learning systems in cognitive neuroscience. **Transcript not obtained.**
+The experimental design is clean: take one dataset, either fine-tune it into parameters or stuff the whole thing into context, then ask the same generalization questions. The starkest gap is on a reversal-curse dataset — a fine-tuned model answers reversed questions *below* chance, while the same data placed in context gets them right 99% of the time. The control makes it structural: a small model trained from scratch on 20,000 relations with 1% held-out reversals generalizes to those reversals from its parameters at exactly zero. So this isn't a fine-tuning artifact; it's a structural flaw of next-token prediction on relational data. He offers three ways to close the gap: offline augmentation (place the dataset in context, generate reasoning traces per document, add them back to training — on syllogism tasks this even beats in-context learning); online episodic memory attached at test time (he admits his oracle retrieval is "totally cheating"); and RL-trained implicit retrieval — the only route that generalized to non-overlapping datasets. He closes by mapping the two systems onto complementary learning systems in neuroscience: cortex learns statistical structure slowly, the hippocampus stores single experiences quickly, and replay connects them.
 
-## May 14 — Collaborative AI agents for science and medicine (Vivek Natarajan, DeepMind) 🟡 abstract only
+## May 14 — Collaborative AI agents for science (Vivek Natarajan, DeepMind)
 
-The official abstract covers the AI co-scientist (a multi-agent hypothesis-generation system with lab-validated results) and AMIE (which outperformed primary care physicians across several clinical evaluation axes in simulated settings). **Transcript not obtained.** Worth noting: he also gave the "Biomedical Transformers" talk in V2 back in 2023, making him one of the few repeat speakers.
+In practice this talk has one subject: the AI co-scientist — AMIE, which the abstract lists alongside it, comes up once, by name only. The origin story runs through Stanford: when he came to speak about Med-PaLM in 2023, Stanford's Gary Peltz approached him afterwards asking whether LLMs could generate scientific hypotheses, and that conversation became this project. The architecture is a while loop around four asynchronous functions — generate, critique, rank, evolve — all running on Gemini models with division of labour done purely through system prompts; the ranking agent stages hypothesis-vs-hypothesis debates scored like a chess tournament with Elo. The validation cases are beyond demo grade: the system reproduced Imperial College's unpublished antibiotic-resistance findings in two days (the PI suspected they had read his email), and on Alzheimer's it not only recapitulated a nine-step mechanism cascade but filled in a bradykinin–B2R step the scientists had missed — the same question put to Claude and GPT-5 produced only a first-step hypothesis. He's candid about limits: good hypotheses will soon outnumber validation capacity, and asked what happens to peer review, his answer was "honestly, I don't have a good answer to that." Worth noting: he also gave the "Biomedical Transformers" talk in V2 back in 2023, making him one of the few repeat speakers.
 
 ## May 21 — From language models to native multimodal intelligence ([Victoria Lin](https://www.youtube.com/watch?v=NDdc39KYqDU), Thinking Machines)
 
@@ -139,7 +139,7 @@ Hot topics clear a hundred thousand; engineering topics don't reach two thousand
 Seasons so far: V1 (Fall 2021), V2 (Winter 2023), V3 (Fall 2023), V4 (Spring 2024), V5 (Spring 2025), V6 (Spring 2026). V7 is scheduled for Spring 2027.
 
 - Course structure, history, schedule and speakers: all from the [official course page](https://web.stanford.edu/class/cs25/), the [archived season pages](https://web.stanford.edu/class/cs25/past/cs25-v5), and [Stanford ExploreCourses](https://explorecourses.stanford.edu/search?view=catalog&filter-coursestatus-Active=on&page=0&q=CS25) — primary sources.
-- Session content: full transcripts read for Apr 2, Apr 9, Apr 16, Apr 30, May 21, May 28. Only official abstracts for Apr 23, May 7, May 14, marked inline.
+- Session content: full transcripts read for all nine sessions (Apr 23, May 7 and May 14 completed on 26 August 2026 via YouTube auto-generated captions; occasional transcription errors restored from context).
 - Numbers speakers stated on stage (hybrid layer ratios, RLP's 35%, the planning-time gap) come from a single source each; I did not cross-check them against the underlying papers or technical reports.
 - View counts are a single snapshot from 21 August 2026.
 

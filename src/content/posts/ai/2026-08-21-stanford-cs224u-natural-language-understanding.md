@@ -24,7 +24,7 @@ draft: false
 
 這篇要回答的是「進去之後會發生什麼事」。它跟 CS224N 到底怎麼分工、三份作業各要你做什麼、期末專案那份評分文件寫死了哪些要求，以及**今天** clone 下來還跑不跑得動。
 
-**不包含**逐篇論文精讀，也不包含 XCS224U 這個付費線上版的課內材料——那些在登入牆後面，我沒有存取權。
+**不包含**逐篇論文精讀，也不包含 XCS224U 這個付費線上版的課內材料——那些在登入牆後面，我沒有存取權。（2026-08-26 更新：Stanford Online 頁面已標明此課程自 2025 年 5 月 19 日起停止提供，YouTube 上的 Spring 2023 免費錄影成為唯一公開的授課紀錄。）
 
 ## 這門課的硬事實
 
@@ -38,7 +38,7 @@ Potts 自己的[授課紀錄頁](https://web.stanford.edu/~cgpotts/teaching.html
 
 其餘硬事實：3 到 4 學分，Letter 或 Credit/No Credit 皆可。課程頁開宗明義寫著這門課可以全線上、非同步修完，[第一堂投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-intro-2023-handout.pdf)也寫每一堂都會錄影、不強制出席。但那是給選課學生的，錄影在 Canvas 與 Panopto 後面。
 
-官方頁面完全沒有提校外旁聽。唯一的付費入口是 [XCS224U](https://online.stanford.edu/courses/xcs224u-natural-language-understanding)，最近一梯在 2025 年春天，目前顯示「不開放報名」。
+官方頁面完全沒有提校外旁聽。唯一的付費入口是 [XCS224U](https://online.stanford.edu/courses/xcs224u-natural-language-understanding)，最近一梯在 2025 年春天——而 Stanford Online 已於 2025 年 5 月 19 日將這門課整個下架（2026-08-26 重查確認），付費入口也消失了。
 
 ## 官方課程描述講的是另一門課
 
@@ -134,7 +134,7 @@ ExploreCourses 上 CS 224U 的[課程描述](https://explorecourses.stanford.edu
 
 **拿不到：教室錄影、Canvas 上的 quiz、往年的優秀期末論文範例。** 課程頁面明講範例論文「link restricted to enrolled students」。
 
-**拿不到：XCS224U 的課內材料與助教。** 那是付費的，而且目前不開放報名。
+**拿不到：XCS224U 的課內材料與助教。** 那是付費的，而且 2026-08-26 重查時 Stanford Online 頁面已明寫「as of May 19, 2025, this course is no longer available」——連付費這條路也關了。
 
 **要注意：repo 現在是別人在維護，而且第一份作業照原樣跑不起來。** 最近一批 commit 集中在 2025 年初，作者是 XCS224U 線上梯次的助教，訊息寫著更新 torch 版本、更新 openai 套件。三份作業 notebook 內嵌的版本字串也對不上課程網站，最新的一份標的是 Fall 2024（逐份對照見附錄）。
 
@@ -167,7 +167,7 @@ cd cs224u
 - **COGS 那張表的對照條件**：投影片標註該表轉引自 ReCOGS（Wu, Manning & Potts 2023）。表上三列另標了「結果引自 Yao and Koller (2022)」，最高分那一列標了「該模型使用預訓練權重，並以泛化集抽樣做過超參數調整」。
 - **作業配分**：三份作業都是 9 + 1（bake-off 參賽 1 分），原創系統那題在三份裡都是 3 分。bake-off 榜首另有 0.5 分加分，遲交的參賽項目可以收但拿不到加分。
 - **檔案大小**：ColBERTv2 checkpoint 約 406 MB、課程的預建索引約 600 MB，兩個連結在 2026-08-21 都還可下載（HTTP 200）。
-- **未能確認的項目**：(1) 2026-27 春季由誰授課——ExploreCourses 講師欄位是空的，Potts 的授課頁最新只寫到 2024-25；(2) 停開三年的原因——沒有任何官方頁面說明；(3) 校外人士能否旁聽校內班——所有公開頁面都沒有提到這件事；(4) 上述那個資料載入問題我沒有實際建環境執行，結論是由三份公開文件推得的。
+- **未能確認的項目**：(1) 2026-27 春季由誰授課——ExploreCourses 講師欄位是空的（2026-08-26 重查仍空白；對照同季的 CS224N 與 CS336 講師都已填上，確認是未指派而非資料缺欄），Potts 的授課頁最新只寫到 2024-25，GitHub repo 也沒有任何新學期準備的跡象。間接線索偏向 Potts 回鍋：他的 Linguistics 系主任任期到 2025 年 8 月屆滿，Amazon Scholar 的兼任也在 2024 年 12 月結束——卸任後隔一個學年，課就排回來了。但不能寫死。(2) 停開三年的原因——沒有任何官方頁面說明，但背景拼圖在 2026-08-26 補齊了大半：個人層面，系主任任期（2020-09 至 2025-08）與 Amazon Scholar 兼任（2022-10 至 2024-12）正好覆蓋停開的兩年，且他 2025 年 1 月起共同創辦 AI agent 監控新創 [Bigspin AI](https://bigspin.ai) 任 Chief Scientist，2025–26 年的公開活動全是外部演講與 webinar、零教學紀錄——「重心移轉」證據很強，「不回鍋」則只是推測。校級層面，XCS224U 的下架也不是孤立事件：Stanford 因預算砍 $140M 並裁員，[2026 年 1 月直接裁撤了數位教育副教務長辦公室](https://stanforddaily.com/2026/01/18/stanford-digital-education-shuts-doors/)（Stanford Daily 報導），付費自學課程線批量 sunset——收的是低量產品線，同期 XCS224N 等熱門課仍在招生。他停開期間仍有教其他課，「太忙所以不教書」不成立；最後一堂校內課（2023 春）經 ExploreCourses XML 反查確認是他本人 PI。(3) 校外人士能否旁聽校內班——Stanford Bulletin 的 [auditing 政策](https://bulletin.stanford.edu/academic-polices/enrollment/auditing)明文只開放已註冊學生、postdoc、訪問學者與教職員；校外一般人要走付費的 Permit to Attend 且需講師、系所、註冊組三層核准，實務上等於不能免費坐進去。付費遠端的部分見下一節：XCS224U 已於 2025 年 5 月正式停開（同一波 Stanford Online 還收了 XCS330，但 XCS224N 仍在招生），官方只有一句通用的「periodically sunset」說法，沒有逐門理由。(4) 上述那個資料載入問題我沒有實際建環境執行，結論是由三份公開文件推得的。
 
 ## 參考資料
 

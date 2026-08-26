@@ -234,7 +234,7 @@ Oakley 本人似乎處理過這個張力。以下段落流傳很廣，出處被�
 |---|---|
 | +0.51 | vs **重讀** 的加權平均效果量 |
 | +0.93 | vs **填充活動或完全不做** |
-| g = 0.61 | [跨所有對照條件合併](http://www.lscp.net/persons/ramus/docs/EPR20.pdf) |
+| g = 0.61 | 跨所有對照條件合併（[WSU 自存檔 PDF](https://education.wsu.edu/documents/2018/01/rethinking-use-tests.pdf/)；固定效果模型，隨機效果為 0.70 [0.63, 0.78]） |
 | 0.64 / 0.83 | 小學 / 中學的分齡數字 |
 | +0.70 vs +0.48 | 選擇題 vs 簡答題的練習測驗格式差異 |
 | g = 0.50 | [Rowland (2014)](https://doi.org/10.1037/a0037559) 的獨立估計，I² = 84.35 |
@@ -244,7 +244,7 @@ Oakley 本人似乎處理過這個張力。以下段落流傳很廣，出處被�
 
 > 含選擇題選項的練習測驗，其加權平均效果量（+0.70）大於簡答題（+0.48）。**在最終測驗前做一次練習測驗，比做好幾次更有效。** 不過時機需要仔細考量：練習與最終測驗間隔不到一天的效果量，小於間隔一到六天者（分別為 +0.56 與 +0.82）。
 
-**Adesope 那份 meta-analysis 用 Fail-safe N 檢驗發表偏誤，而這個指標早就被認為會嚴重高估穩健性。** 這點由兩位獨立讀過原文的人分別指出——[Learning Scientists 的 Yana Weinstein 說要「打點折扣看」](https://www.learningscientists.org/blog/2017/2/9-1)，De Bruyckere 文章下的討論則直接援引 Fergusson & Heene (2012)。上面那些數字該當成有偏誤風險的估計，不是定值。
+**Adesope 那份 meta-analysis 用 Fail-safe N 檢驗發表偏誤，而這個指標早就被認為會嚴重高估穩健性。** 原文確實報了 classic fail-safe N = 3,608、Orwin's N = 2,604，且作者自己承認未收錄未出版研究是限制（2026-08-26 已核對原文）；「這指標會高估穩健性」的批評由兩位獨立讀者分別提出——[Learning Scientists 的 Yana Weinstein 說要「打點折扣看」](https://www.learningscientists.org/blog/2017/2/9-1)，De Bruyckere 文章下的討論則直接援引 Fergusson & Heene (2012)。上面那些數字該當成有偏誤風險的估計，不是定值。
 
 **回饋的作用尚未調和。** Rowland 發現回饋會放大 testing effect，Adesope 的結果卻是有回饋只比沒回饋「略好」。這由 [Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1) 與 [Dietrichson 等人的系統性回顧](https://edworkingpapers.com/ai26-1418)兩處獨立確認。
 
@@ -300,13 +300,8 @@ Oakley 本人似乎處理過這個張力。以下段落流傳很廣，出處被�
 ### 學習技術的效果量
 
 - 【一手·PDF】Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving Students' Learning With Effective Learning Techniques](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. DOI: 10.1177/1529100612453266（[全文 PDF](https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf)）
-- 【摘要】Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559
-- 【摘要 + 轉引】Adesope, O. O., Trevisan, D. A., & Sundararajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306 — 文中「vs 重讀 +0.51、vs 無活動 +0.93」轉引自[該文結果之二手整理](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)；「合併 g = 0.61 [0.58, 0.65]」轉引自 [Educational Psychology Review 的後續 meta 綜述](http://www.lscp.net/persons/ramus/docs/EPR20.pdf)；「回饋只略優於無回饋」轉引自 [The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)。**我未讀 Adesope 原文全文——SAGE 為付費牆，ResearchGate 與 academia.edu 皆無法取得內文。** 為降低風險，改以三位獨立、確實讀過原文者的紀錄交叉比對：
-    - [Pedro De Bruyckere, *Important new meta-analysis on the testing effect — with some surprises*](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)（教育研究者；直接引述原文段落，文中格式／次數／時機的引文出自此處；其留言區指出該文以 Fail-safe N 檢驗發表偏誤之缺陷，援引 Fergusson & Heene 2012）
-    - [Yana Weinstein, *New Meta-analysis of 217 Retrieval Practice Studies*, The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)（認知心理學家；回饋效果、中學生效果最大、fail-safe 需打折）
-    - [Wing Institute, *How Effective Are Practice Tests?*](https://www.winginstitute.org/news/effective-practice-tests)（獨立確認 0.51 / 0.93）
-    - 另有 Dietrichson et al. (2026) 系統性回顧對該文的詳細轉述（回饋、測驗次數、格式匹配）。
-    **研究數量的計數彼此不一致**：De Bruyckere 引原文為「272 個獨立效果、188 個實驗」，Learning Scientists 標題作「217 個研究」。此差異我無法排解。
+- 【一手·PDF】Rowland, C. A. (2014). [The effect of testing versus restudy on retention: A meta-analytic review of the testing effect](https://doi.org/10.1037/a0037559). *Psychological Bulletin*, 140(6), 1432–1463. DOI: 10.1037/a0037559（[全文 PDF 鏡像](https://courseware.epfl.ch/assets/courseware/v1/fdde2f0aa590bf3b1324077a6bf1540c/asset-v1%3AEPFL%2BDEMO%2B2020%2Btype%40asset%2Bblock/Rowland2014-meta-analysis.pdf)，EPFL 課程頁轉存作者自傳版）— **2026-08-26 已取得全文核對**：隨機效果 g = 0.50 [0.42, 0.58]、I² = 84.35%、有回饋 g = 0.73 vs 無回饋 g = 0.39（異質顯著），皆與原文一致。原文另載：無回饋時初始提取成功率 ≤50% 的研究 testing effect 不顯著（g = 0.03），與 Pan & Rickard 的「初次測驗表現」調節變項呼應。
+- 【一手·PDF】Adesope, O. O., Trevisan, D. A., & Sundarajan, N. (2017). [Rethinking the Use of Tests: A Meta-Analysis of Practice Testing](https://doi.org/10.3102/0034654316689306). *Review of Educational Research*, 87(3), 659–701. DOI: 10.3102/0034654316689306（[WSU 官方自存檔 PDF](https://education.wsu.edu/documents/2018/01/rethinking-use-tests.pdf/)）— **2026-08-26 已取得全文核對**，文中引用的四組數字全部與原文 Table 1 一致：「vs 重讀 g = 0.51 [0.47, 0.55]」「vs 無活動 g = 0.93 [0.86, 1.01]」「合併 g = 0.61 [0.58, 0.65]」（注意：**這是固定效果模型**；同表的隨機效果估計是 g = 0.70 [0.63, 0.78]，異質性 Q(271) = 1405、I² = 81%）「回饋 g = 0.63 (k=119) vs 無回饋 g = 0.60 (k=153)，差異不顯著」。研究數量以原文為準：**118 篇文獻、272 個獨立效果量、N = 15,427**——二手來源的「188 個實驗」與「217 個研究」均不精確。其他但書：83% 樣本是大學生、k = 223 實驗室 vs 僅 30 個教室情境、5 個極端值經 winsorize 後才進分析、Fail-safe N（classic = 3,608）作者自承未收錄未出版研究是限制。另有一篇 [Corrigendum](https://doi.org/10.3102/0034654317700823)（2017-03-15），僅修正導論一處調節變項列舉，不影響任何數字。初稿時未能取得原文，曾以三位二手來源交叉比對（[De Bruyckere](https://theeconomyofmeaning.com/2017/03/21/important-new-meta-analysis-on-the-testing-effect-with-some-surprises)、[Weinstein / The Learning Scientists](https://www.learningscientists.org/blog/2017/2/9-1)、[Wing Institute](https://www.winginstitute.org/news/effective-practice-tests)）；現已升級為一手，該比對紀錄留此存查。
 - 【一手·PDF】Dietrichson, J., Seerup, J. K., Bondebjerg Mølgaard, A., Kildemoes, M. W., Schytt, F. L. W., Vembye, M., Bengtsen, E., Viinholt, B. C. A., & Thomsen, M. K. (2026). [Testing frequency and student achievement: A systematic review](https://edworkingpapers.com/ai26-1418). EdWorkingPaper No. 26-1418, Annenberg Institute at Brown University. DOI: 10.26300/jas3-2b83 — **尚未經同儕審查的工作論文。** 0.22 / 0.46 兩個數字與「材料愈複雜效果愈差」已對照 PDF 本文確認；作者同時指出各回顧量值難以直接比較，且以 Kraft (2020) 標準衡量其效果量並不小。
 - 【摘要】van Gog, T., & Sweller, J. (2015). [Not New, but Nearly Forgotten: The Testing Effect Decreases or even Disappears as the Complexity of Learning Materials Increases](https://link.springer.com/article/10.1007/s10648-015-9310-x). *Educational Psychology Review*, 27(2), 247–264. DOI: 10.1007/s10648-015-9310-x
 - 【摘要】Karpicke, J. D., & Aue, W. R. (2015). [The Testing Effect Is Alive and Well with Complex Materials](https://eric.ed.gov/?id=EJ1062040). *Educational Psychology Review*, 27(2), 317–326. — 對上一篇的正面反駁。

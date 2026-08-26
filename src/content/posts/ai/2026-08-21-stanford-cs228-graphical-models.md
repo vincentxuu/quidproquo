@@ -120,14 +120,14 @@ draft: false
 逐項講，拿得到與拿不到分開：
 
 - **講義**：拿得到。16 章全公開、MIT 授權、可以 fork。這是本篇的重點，也是這門課對自學者最大的價值。
-- **教科書**：拿不到（免費的話）。指定書是 Koller 與 Friedman 的 *Probabilistic Graphical Models: Principles and Techniques*（MIT Press），要買。官網列的六本延伸閱讀裡，只有 [MacKay 的 *Information Theory, Inference, and Learning Algorithms*](http://www.inference.org.uk/mackay/itila/book.html) 是作者自己放的免費線上版。Bishop、Murphy、Darwiche 三本走 Stanford 圖書館入口，校外進不去。**而 Wainwright 與 Jordan 那份 *Graphical Models, Exponential Families, and Variational Inference* 的 PDF 連結現在回 404**——那是第九週指定要配著讀的材料。
+- **教科書**：拿不到（免費的話）。指定書是 Koller 與 Friedman 的 *Probabilistic Graphical Models: Principles and Techniques*（MIT Press），要買。官網列的六本延伸閱讀裡，只有 [MacKay 的 *Information Theory, Inference, and Learning Algorithms*](http://www.inference.org.uk/mackay/itila/book.html) 是作者自己放的免費線上版。Bishop、Murphy、Darwiche 三本走 Stanford 圖書館入口，校外進不去。**而 Wainwright 與 Jordan 那份 *Graphical Models, Exponential Families, and Variational Inference* 的官方連結現在回 404**——那是第九週指定要配著讀的材料。穩定的公開版本在 [Princeton 課程檔案庫](https://www.cs.princeton.edu/courses/archive/fall11/cos597C/reading/WainwrightJordan2008.pdf)（2026-08-26 實測 200）。
 - **講次投影片**：拿不到。官網的 syllabus 只有主題與課本章節，沒有掛任何 PDF。
-- **錄影**：拿不到。官網的 Lecture Videos 指向 `canvas.stanford.edu` 的一個外部工具，要登入。
-- **作業**：拿不到。全部在 Ed 上。公開的只有一份 [LaTeX 作答模板](https://cs.stanford.edu/~ermon/cs228/hwtemplate.tex)。
+- **錄影**：拿不到。官網的 Lecture Videos 指向 `canvas.stanford.edu` 的一個外部工具，要登入。等價替代有兩層：CMU 10-708 Probabilistic Graphical Models 的 [Eric Xing Spring 2020 完整錄影](https://www.cs.cmu.edu/~epxing/Class/10708-20/)（同主題、更進階，[Spring 2019 版](https://www.youtube.com/@CMU-10-708-PGM)共 55 支）；以及 Ermon 與 Kuleshov 本人在 2025 年 7 月出的官方教程 [*Probabilistic Graphical Models: A Concise Tutorial*](https://arxiv.org/abs/2507.17116)——直接以 CS228 notes 為基底改寫，是「當季內容」最權威的公開版本。
+- **作業**：官方版拿不到——近年全部發在 Ed 上，公開的只有一份 [LaTeX 作答模板](https://cs.stanford.edu/~ermon/cs228/hwtemplate.tex)。但歷屆題目有社群 mirror：[florist-notes/CS228_PGM](https://github.com/florist-notes/CS228_PGM) 收了 hw1–hw5 的題目 PDF 與 programming 部分，外加 2006–2016 五份期末考（2016 年那份含解答），自述收集自公開資源。題目年代與當前版本有落差，練習取向夠用、對答案不行。
 - **自動評分器**：拿不到，Gradescope 需要課程邀請。
 - **往年課程網站**：拿不到。這門課的網站不在 `web.stanford.edu/class/archive/` 底下（那個路徑回 404），它是 GitHub Pages，所以只有一個版本——最新的那個。要看歷史只能翻 git commit 或 Wayback Machine。
 
-所以自學路徑其實很清楚，也很受限：**你有一份完整的教材，但沒有作業、沒有錄影、沒有評分器。** 官網那句「能舒服地做完 HW1 就代表你的背景夠了」對校外的人是失效的，因為 HW1 你拿不到。
+所以自學路徑其實很清楚，也很受限：**你有一份完整的教材，沒有錄影、沒有評分器；作業只能靠年代有落差的歷屆 mirror。** 官網那句「能舒服地做完 HW1 就代表你的背景夠了」對校外的人是半失效的——當季的 HW1 你拿不到。
 
 順帶一提，網路上關於這門課的二手介紹要小心。連 Ermon 自己的 [Stanford 首頁](https://cs.stanford.edu/~ermon/)也不準——那份教學列表最新只到 Winter 2022/2023，但 ExploreCourses 與課程官網都記錄了 Winter 2024 那次開課，講師是他本人。
 
@@ -135,7 +135,7 @@ draft: false
 
 CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io/) 出自同一個人。很多人以為 CS228 是 CS236 的前置，這件事**在官方頁面上不成立**。CS236 的先修原文是「Basic knowledge about machine learning from at least one of CS 221, 228, 229 or 230」。CS228 只是四選一的其中一個，不是必經。
 
-比較有訊息量的是兩門課現在的狀態。ExploreCourses 上 CS236 的狀態是 `Last offered: Autumn 2023`，它的課程官網標題也還寫著「CS236 - Fall 2023」——跟 CS228 官網凍結在 Winter 2023-24 是同一種樣子。兩門課現在都不在開課中，差別在於前者已經排進了下一個冬季，後者在最新學年的頁面上沒有排程。**沒有任何官方頁面說明原因**，這裡列的是兩張課表的狀態，不是解釋。
+比較有訊息量的是兩門課現在的狀態。ExploreCourses 上 CS236 的狀態是 `Last offered: Autumn 2023`，它的課程官網標題也還寫著「CS236 - Fall 2023」——跟 CS228 官網凍結在 Winter 2023-24 是同一種樣子。兩門課現在都不在開課中，差別在於前者已經排進了下一個冬季，後者在 2025-26 學年完全沒有開（ExploreCourses 的 sections 為空），但 2026-27 學年已排進冬季學期的 catalog——enrollStatus 是 Open，講師與時間地點欄位空白，屬於「系上有意開、講師未指派」的狀態而非確認開課（2026-08-26 查）。至於停開的原因，官方從未解釋，但時間軸自己會說話：兩門課最後一次都是 Ermon 本人教，而他在 2024 年 7 月起出任 diffusion LLM 新創 [Inception Labs](https://techcrunch.com/2025/02/26/inception-emerges-from-stealth-with-a-new-type-of-ai-model/) 的 CEO——停開期與創業期完全重疊（詳見文末附錄）。CS236 已排進 Spring 2027 且 PI 就是 Ermon 本人，這兩門課是暫停，不是取消。
 
 分工倒是清楚的：CS228 教怎麼用圖寫下獨立假設、怎麼在圖上做推論與學習，結束在 VAE；CS236 從 VAE 開始，往 GAN、normalizing flow、autoregressive、energy-based 與 score-based 展開。所以講義最後那章，剛好就是兩門課的接縫。另外一個實務差異：CS236 官網明寫歡迎校內旁聽（「we are very open to sitting-in guests if you are a member of the Stanford community」），CS228 官網沒有對應的說法。
 
@@ -160,7 +160,7 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 - **死連結**（皆為 2026-08-21 實測）：結構學習章節的 K3 互動模擬 `pgmlearning.herokuapp.com/k3LearningApp` 回 HTTP 404；d-separation 與變數消除兩章的同系列連結已改指 Wayback 封存版，可開。課程官網延伸閱讀清單裡的 Wainwright & Jordan PDF `www.eecs.berkeley.edu/~wainwrig/Papers/WaiJor08_FTML.pdf` 回 HTTP 404，`people.eecs.berkeley.edu` 的常見替代路徑同樣 404，本篇未能找到該檔的官方有效鏡像。
 - **課程官網位置**：`cs228.stanford.edu` 實際導向 `ermongroup.github.io/cs228`，頁首標示 Winter 2023-24。`web.stanford.edu/class/archive/cs/cs228/` 回 404，這門課沒有 Stanford 封存區的歷屆版本。
 
-**未能確認的項目**：(1) CS228 為何連續兩個學年停開、CS236 為何自 Autumn 2023 後未再開課——所有官方頁面都沒有說明，本篇只列狀態；(2) Winter 2027 的授課者是誰，ExploreCourses 的講師欄目前空白；(3) 五份作業的實際題目與難度分布，作業內容鎖在 Ed 上，本篇對作業的描述全部來自公開的時程表與評分政策，不是作業本身。
+**未能確認的項目**：(1) CS228 為何連續兩個學年停開、CS236 為何自 Autumn 2023 後未再開課——官方從未說明，但 2026-08-26 的查核把時間軸對上了：ExploreCourses XML 確認最後一次開課兩門都是 Ermon 本人教（Winter 2024 的 CS228 有 133 人、Autumn 2023 的 CS236 有 321 人），而他 **2024 年 7 月起擔任 diffusion LLM 新創 Inception Labs 的 CEO**，2025 年 2 月出 stealth、11 月拿 $50M seed（Menlo Ventures 領投），投資方訪談裡直接說三位創辦人「walk away from tenure」——停開期與創業期完全重疊。Stanford 的 faculty startup 政策也明文要求教授接管理職應休假（leave of absence）。這是間接證據最強的解釋，但沒有任何官方來源明文連結兩者。課程本身沒有死掉：CS236 已排進 Spring 2027 且 PI 就是 Ermon，CS228 排 Winter 2027 但講師 TBD。(2) Winter 2027 的授課者是誰，ExploreCourses 的講師欄目前空白。(3) 五份作業的實際題目與難度分布，作業內容鎖在 Ed 上，本篇對作業的描述全部來自公開的時程表與評分政策，不是作業本身。
 
 ## 參考資料
 
@@ -178,5 +178,7 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 - [講義：The variational autoencoder](https://ermongroup.github.io/cs228-notes/extras/vae/) — 課程收尾章節，從課堂方法推導到 AEVB
 - [CS236: Deep Generative Models 課程官網](https://deepgenerativemodels.github.io/) — 凍結於 Fall 2023，先修原文與旁聽政策
 - [Stefano Ermon 個人首頁](https://cs.stanford.edu/~ermon/) — 教學列表僅到 Winter 2022/2023，與課表不一致
+- [Inception emerges from stealth — TechCrunch](https://techcrunch.com/2025/02/26/inception-emerges-from-stealth-with-a-new-type-of-ai-model/) — Ermon 共同創立的 diffusion LLM 新創，停開時間軸的關鍵
+- [From the Lab to the Frontier — Menlo Ventures](https://menlovc.com/perspective/from-the-lab-to-the-frontier-the-story-behind-inception/) — 投資方訪談，三位創辦人「walk away from tenure」的原話出處
 - 站內：[Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
 - 站內：[Stanford CS329A 深度導讀](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)

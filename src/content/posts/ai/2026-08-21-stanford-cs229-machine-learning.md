@@ -81,9 +81,9 @@ draft: false
 
 ### 那份 2026 錄影有兩個坑
 
-第一，**它不完整**。播放清單只有 17 支，標題編號是 1 到 14，然後跳成 16、18、20。中間那幾堂沒有公開。
+第一，**它看起來缺了三堂，但正課一堂都沒少**。播放清單只有 17 支，標題編號是 1 到 14，然後跳成 16、18、20。追下去的結果（2026-08-26 查核）：Spring 2026 是 Mon/Wed 課，全季 20 個時段扣掉 Memorial Day 共 19 堂；Lecture 14 的開場白裡講師親口說「the rest of the lecture, except **two guest lectures**——upcoming Monday, we'll have Simran to give us a lecture on system ML」。19 堂減 17 支影片，差的兩支就是那兩場客座講座——客座場沒有放進播放清單。所以自學者實際上沒有漏掉任何正課內容，缺的只是兩場未必授權公開的客座演講。
 
-第二，**最後三支的標題跟內容對不上**。清單裡有三支同名「GMM (EM), PCA」——第 10 支確實是講 GMM 與 PCA，另外兩支不是。點開標成「Lecture 18: GMM (EM), PCA」的那支，開場第一句是「Starting from this week, we're going to talk about reinforcement learning」。點開標成「[Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)」的那支，講者說這是這學期最後一堂，內容是 PPO 加上用強化學習訓練長思維鏈。而標成「Lecture 16: Basic Concept in RL, Policy Gradient」的那支，開場在複習上週的 attention。標題整體往後滑了一格左右。Stanford Online 沒有說明為什麼會這樣。
+第二，**最後三支的標題跟內容對不上**。清單裡有三支同名「GMM (EM), PCA」——第 10 支確實是講 GMM 與 PCA，另外兩支不是。點開標成「Lecture 18: GMM (EM), PCA」的那支，開場第一句是「Starting from this week, we're going to talk about reinforcement learning」。點開標成「[Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)」的那支，講者說這是這學期最後一堂，內容是 PPO 加上用強化學習訓練長思維鏈。而標成「Lecture 16: Basic Concept in RL, Policy Gradient」的那支，開場在複習上週的 attention。標題像是從舊年份課表的模板抄來的殘跡。Stanford Online 沒有說明為什麼會這樣。
 
 實務上的意思是：**這份清單不能照標題排讀書計畫，要點進去聽開場三十秒確認。** 另外值得知道的是觀看數的分布：transformer 那堂快十萬次，k-means 那堂連零頭都不到。同一門課、同一批人上傳、同一週發佈。
 
@@ -134,15 +134,16 @@ draft: false
 | 主講義 PDF | ✅ 公開，278 頁 | 2026（持續更新） |
 | 線性代數／機率／凸優化／高斯複習講義 | ✅ 公開 | 舊版，但內容不會過期 |
 | 2018 年 Andrew Ng 版錄影 | ✅ 完整 | 2018 |
-| 2026 春季錄影 | ⚠️ 只有 17 支，後段標題錯置 | 2026 |
+| 2026 春季錄影 | ⚠️ 只有 17 支且 #16/#18/#20 標題錯植；但正課無缺——少的兩場是未上傳的客座講座 | 2026 |
 | Problem set 1–3＋起始碼＋資料集 | ✅ 公開 | 2020 |
 | Problem set 4 與期中考 | ❌ | — |
-| 官方解答 | ❌ | — |
+| 官方解答 | ⚠️ 2008 公開課版有（SEE 附 ps1–4 解答與資料），近年無 | 2008 |
 | 自動評分器 | ❌ 當年跑在 Gradescope 的私有測試集上 | — |
 | 當期課綱、進度表、專案說明 | ❌ 鎖 Stanford 帳號 | — |
-| 期末專案的學生作品集 | ❌ 找不到公開的當期入口 | — |
+| 期末專案的學生作品集 | ⚠️ 有歷屆入口（proj2017／proj2018／proj2021spr），近兩三年無公開索引 | — |
+| 成績配比 | ⚠️ 各學期不同且近年不公開；可考錨點：2008 公開課＝作業×4 各 10%＋期中 20%＋專案 40%；Fall 2020＝作業 45%＋期中 15%＋專案 40%；Summer 2026＝HW 50%＋期末考 50%（暑期無專案） | — |
 
-最痛的一項是**沒有解答也沒有評分器**。CS229 的作業有大量推導題，而推導題最需要的就是「我這一步對不對」的回饋。你能拿到題目和資料，但你的證明沒有人會看。實作題還好一點——資料集裡有 valid 和 test 的切分，起始碼會把預測結果寫檔，你至少能看見自己的準確率是不是合理。
+最痛的一項是**沒有解答也沒有評分器**（唯一例外是 [SEE](https://see.stanford.edu/Course/CS229) 上 2008 公開課那一批——四份 pset 都附官方解答，但題目與現行版本差了一個世代）。CS229 的作業有大量推導題，而推導題最需要的就是「我這一步對不對」的回饋。你能拿到題目和資料，但你的證明沒有人會看。實作題還好一點——資料集裡有 valid 和 test 的切分，起始碼會把預測結果寫檔，你至少能看見自己的準確率是不是合理。
 
 第二痛的是**課程的另一半整個不在**。期末專案佔的分量在課綱裡從來不小，而且是 CS229 真正把知識變成能力的地方。自學者拿到的是講義加作業，等於這門課的一半。
 
@@ -165,7 +166,7 @@ draft: false
 - **作業可得性**：`summer2019/ps1–ps3.pdf`、`summer2020/ps1–ps3.pdf` 與同名 `.zip` 皆回 200；`ps0`、`ps4`、`ps5` 回 404。PS1 14 頁 / 5 題 / 135 分，PS2 13 頁 / 6 題 / 120 分，PS3 14 頁 / 6 題 / 125 分。`environment.yml` 內容為 python=3.6.6、numpy=1.15.0、matplotlib=2.2.2、scipy、pillow。MNIST 那題的資料切分是 50,000 訓練／10,000 dev，另有 10,000 測試。
 - **仍可下載的複習講義**：`section/cs229-linalg.pdf`、`section/cs229-prob.pdf`、`section/cs229-cvxopt.pdf`、`section/cs229-gaussians.pdf` 皆回 200；`notes/cs229-notes1.pdf` 等 2018 課綱上的舊分冊講義已全部 404。
 - **自測題**：`https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`，4 頁，PDF `CreationDate` 為 2008-10-06。標頭寫「CS 229, Public Course」。
-- **未能確認的項目**：(1) 2026 春季錄影為何缺 15、17、19 三堂，以及後三支標題錯置的原因，Stanford Online 頁面與播放清單說明都沒有交代；(2) CS229 各季的成績配比（作業／期中／專案）——當期課綱鎖在 Stanford 帳號後，本篇未取得任何一季的正式配比，因此全篇不談分數比重；(3) 是否有公開的近期期末專案作品集入口，未找到；(4) 2019 與 2020 兩批作業以外，是否還有其他年份的 pset 留在伺服器上，本篇只逐一測試了 summer2019 與 summer2020 兩個路徑。
+- **未能確認的項目**：(1) ~~2026 春季錄影為何缺 15、17、19 三堂~~ **2026-08-26 已解開**：Spring 2026 為 Mon/Wed 上課，全季 20 個時段扣掉 Memorial Day（5/25）共 19 堂；播放清單只有 17 支，差的兩支就是 Lecture 14 裡講師親口宣布的兩場**客座講座**（其中一場確認為 Simran Arora 講 systems ML）——客座場未放進播放清單。三支錯植標題（自稱 Lecture 16/18/20）是上傳模板的殘跡，不是內容缺漏：17 支影片經字幕逐支比對內容完全連續，最後一支明講「the last lecture of this quarter」。自學者沒有漏掉任何正課。(2) 近年各季的精確成績配比——2020 年秋季起公開頁一律寫 Grading TBD，百分比移入登入限定文件。可考的錨點：2008 公開課 Handout 寫「作業四份各 10%、期中 20%、專案 40%、參與加給最多 3%」；[Fall 2020 的 logistics PDF](http://web.archive.org/web/20201031193539/http://cs229.stanford.edu/logistics_fall2020.pdf)（Wayback 存檔）寫「作業 45%、期中 15%、專案 40%」；現行的 project FAQ 只確認專案佔最終成績 40%，內部分配不公布；Summer 2026 的官方 FAQ 則是 HW 50%＋期末考 50%，暑期沒有專案。(3) 期末專案作品集——2026-08-26 系統性枚舉了 proj2005 到 proj2026 的所有路徑變體：仍在線上的公開作品集到 [proj2021spr](https://cs229.stanford.edu/proj2021spr/) 為止（含 Best Project Award 名單），2022 年起 live 全部 404 且 Wayback 零收錄；網站首頁現在明寫 course documents only shared with Stanford affiliates。(4) 其他年份 pset——CDX 全量列表顯示舊站年代（≤2017）曾有 ps0–ps4 含解答版與多屆期中考卷，但 Fall 2020 的 logistics PDF 第 8 節明文「assignments will only be posted on Ed」，Summer 2026 FAQ 重申同政策：**2020 年秋之後的 pset 不是沒找到，是從未存在於公開網路**。社群 mirror（如 maxim5/cs229-2018-autumn）覆蓋止於 2019 年代教材。
 
 ## 參考資料
 
