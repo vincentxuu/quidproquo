@@ -33,7 +33,7 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 當題目是「整理 N 個案例」「橫向比較」「系列文」時，在拆子問題之前先跑步驟零。單一主題研究跳過。
 
-判斷時機、母群掃描方法、覆蓋矩陣格式、偏誤標註規則 → `references/case-selection.md`
+**呼叫 `research-selection` skill** 取得完整流程（定義母群、覆蓋矩陣、標註偏誤）。
 
 核心紀律：**先定義邊界再搜尋，先掃完母群再選案，選完標偏誤。** 從「我知道的」直接挑是這個 skill 歷史上第二大的錯誤來源（第一大是搜尋摘要當全文）。
 
@@ -106,4 +106,4 @@ description: Portable multi-source research for tools, frameworks, papers, model
 - 電腦／Web 使用模式：`references/usage-modes.md`
 - Research note 模板：`references/research-note-template.md`
 - 反合理化清單：`references/anti-shortcuts.md`
-- 多案例選取標準：`references/case-selection.md`
+- 多案例選取標準：`research-selection` skill（獨立 skill，非本 skill 內部檔案）
