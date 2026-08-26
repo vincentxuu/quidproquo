@@ -15,6 +15,7 @@ description: Update an existing Markdown post under src/content/posts/<category>
 | 工具版本變了，更新 API / 用法 | ✅ |  |
 | 補一段、補參考資料、修壞掉的連結 | ✅ |  |
 | 重組段落順序、換 tldr | ✅ |  |
+| 系列回填：同 series 新文章上線，舊文章的「接下來會寫 X」過期 | ✅ |  |
 | 主題、結論、立場大幅改變 |  | ✅（用 post） |
 | 同一主題年度回顧 / 重新評估 |  | ✅（兩篇互相連結） |
 
@@ -63,22 +64,24 @@ description: Update an existing Markdown post under src/content/posts/<category>
    - 動到內容引用的工具 / 文件 → 同步檢查 `## 參考資料` 是否要新增或更新連結
    - 修壞掉的連結 → 一併補上
 
-7. **查證觸發條件**：
+7. **系列同步**（該文屬於 series 時）：掃同系列其他文章有沒有對本篇主題的過期承諾——「接下來會寫 X」「第一批優先順序是…」、對照表裡提到 X 卻沒連結。有的話一併回填成現況清單＋連結，中英版都改，各加 `## 更新紀錄`。實例：`2026-08-21-global-ai-cs-course-map` 寫了「系列會先完成 CMU、MIT、Berkeley 三篇學校地圖」，但這些地圖與 CS188／CS285／CS288／10-301 導讀上線後總覽一直沒回補連結。發新文章時的預防流程見 `../post/SKILL.md` 步驟 8。
+
+8. **查證觸發條件**：
    - 如果更新內容包含價格、版本號、release 日期、API 名稱、命令旗標、統計數字、benchmark、法律/政策、研究結論，先提醒使用者這屬於 fact-layer update，建議跑 `post-verify`。
    - 若使用者要求直接更新，不要憑記憶改；至少用官方文件 / release note / 論文 / 官方 blog 作為來源。
    - 高風險資訊（價格、版本、日期、統計、研究結論）應在文中或 `## 參考資料` 明確留下來源。
    - 找不到可靠來源時，不要把不確定內容寫成肯定句；改成「待確認」或停下請使用者決定。
 
-8. **驗證**（按順序跑，全綠才算完成）：
+9. **驗證**（按順序跑，全綠才算完成）：
    ```bash
    pnpm check:references
    pnpm lint
    pnpm astro check
    ```
 
-9. **diff review**：把 `git diff` 給使用者看，**得到明確 OK 才 commit**。
+10. **diff review**：把 `git diff` 給使用者看，**得到明確 OK 才 commit**。
 
-10. **commit**：
+11. **commit**：
    ```bash
    git add src/content/posts/<category>/<檔名>.md
    git commit -m "post(<category>): update <精簡描述更新內容>"
@@ -99,6 +102,7 @@ description: Update an existing Markdown post under src/content/posts/<category>
 | 「補一段進去就好，體裁不用管」 | 新段落套的是舊習慣。補進去的段落常常是全篇數字最密、但書最多的一段——因為它是「剛查完資料」的狀態 |
 | 「改完跑過 verify 就好」 | verify 驗的是格式。**改過兩輪以上就要從頭讀一遍**——開頭的承諾跟內文對不對得上、跨節指代還指不指得到、前後結論有沒有打架、同一個數字全篇一致嗎。本站踩過：一篇改了三輪，機械檢查全綠，讀一遍才發現開頭寫「錯了一次」但內文三次、某節說「這五個詞要收」後面卻說「推翻了一個」、還有一處混進西里爾字母。檢查清單見 `post-review` 步驟 6.7 |
 | 「這節分類講錯了，補一段解釋清楚」 | 站上若已有系列在管那個主題，補充就是把它的內容複製一份過來，之後兩處各自過期。正確的修法是縮短該節、只留分界與轉手連結——修完應該**變短**。檢查清單見 `post-review` 步驟 6.8 |
+| 「新文章發了，同系列的舊總覽不用動」 | 連載的早期文章常寫「接下來會寫 X」。X 上線那天，那些承諾就過期了，讀者卻以為東西還不存在。本站踩過：`global-ai-cs-course-map` 承諾的四篇學校地圖與四門單課導讀全部上線後，總覽仍停在「之後會寫」，一條連結都沒有。屬於 series 就跑步驟 7 的系列同步 |
 | 「不跑驗證，反正只改一段」 | 改一段也可能弄壞參考資料連結，每次都要跑 |
 | 「commit 不給 diff review 直接送」 | 公開內容，使用者要看過才能送 |
 

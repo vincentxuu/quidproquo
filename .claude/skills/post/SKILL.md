@@ -67,6 +67,8 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 文末必須有 `## 參考資料`（英文版 `## References`），含至少一個有效 `[text](url)` 連結。
 
+**內文連結閘門**：文末清單不能取代內文連結。commit 前逐段掃一遍，每個第一次出現的專名——課號、課程官網、工具、論文、同系列的站上文章——都要是 inline 超連結。對照表、清單裡的專名也一樣。反例與規則見 `references/anti-shortcuts.md` 的「連結以後再補」條目。
+
 ### 5. 補齊 glossary
 
 - 先查 `src/lib/glossary/terms.ts` 是否已有定義
@@ -95,6 +97,15 @@ pnpm astro check
 git add src/content/posts/<category>/YYYY-MM-DD-<slug>.md src/content/posts/<category>/YYYY-MM-DD-<slug>-en.md
 git commit -m "post(<category>): <title summary>"
 ```
+
+### 8. 系列回填（新文章屬於既有 series 時必做）
+
+新文章帶著 `series` 進到一個已經有其他篇目的連載時，較早發佈的文章很可能寫著「接下來會寫 X」「第一批優先順序是…」這類對本篇的承諾。本篇上線那一刻，那些承諾就過期了。
+
+1. 用 `rg -l '<series 名稱>' src/content/posts/` 或逐篇查 frontmatter，列出同 series 的所有文章
+2. 掃每篇的「接下來」類段落、學校／課程對照表與 `## 參考資料`，找指向本篇主題但沒有連結的地方
+3. 把過期承諾改寫成現況清單＋連結（不要用「更新：…」補丁式寫法），中英版一起
+4. 這些修改走 `post-update` 流程：加 `## 更新紀錄`、跑驗證、diff review 後一起或分開 commit
 
 ## 詳細參考
 
