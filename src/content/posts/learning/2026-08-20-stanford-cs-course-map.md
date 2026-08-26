@@ -68,21 +68,21 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 幾件值得知道的事：
 
-**CS111 跟 CS110 的關係是替代，不是改名。** 已下線的核心要求頁確實標過「Formerly known as CS110」，本文原本據此說兩者是同一門課、CS110 的自學資源照樣可用。**那句話會誤導人。** 現行 ExploreCourses 上 CS111 的官方描述寫的是「Available as a substitute for CS110 that fulfills any requirement satisfied by CS110」——替代，不是等同；而 CS110 的課號至今還活著，2026-27 學年還掛著它的補充實驗課 CS110L。
+**[CS111](/posts/learning/2026-08-21-stanford-cs111-operating-systems) 跟 CS110 的關係是替代，不是改名。** 已下線的核心要求頁確實標過「Formerly known as CS110」，本文原本據此說兩者是同一門課、CS110 的自學資源照樣可用。**那句話會誤導人。** 現行 ExploreCourses 上 CS111 的官方描述寫的是「Available as a substitute for CS110 that fulfills any requirement satisfied by CS110」——替代，不是等同；而 CS110 的課號至今還活著，2026-27 學年還掛著它的補充實驗課 CS110L。
 
 差別是實質的：CS110 的作業有 Stanford Shell、HTTP 代理與 MapReduce，講次表裡有三堂網路；今天的 CS111 一堂網路都沒有，換成虛擬記憶體、按需分頁、頁面置換與崩潰復原。兩門共有的只剩並行那一段。所以跟著 CS110 自學指南走的人會做到一批不在 CS111 裡的東西，同時錯過今天 CS111 的一半。兩份材料都有價值，但它們不是同一門課的兩個版本。
 
-**CS103 的後半段比前半段重要。** 前半是離散數學與證明技巧，後半直接進有限自動機、正規表達式、上下文無關文法、圖靈機、可判定性、停機問題，最後收在 P 對 NP。它是把「電腦能算什麼」這件事講清楚的那門課。
+**[CS103](/posts/learning/2026-08-21-stanford-cs103-math-foundations) 的後半段比前半段重要。** 前半是離散數學與證明技巧，後半直接進有限自動機、正規表達式、上下文無關文法、圖靈機、可判定性、停機問題，最後收在 P 對 NP。它是把「電腦能算什麼」這件事講清楚的那門課。
 
-**CS107 是最痛也最值得的一門。** 作業從 Unix 與 C 入門，一路做到 C 字串、堆積、`void *` 泛型操作、函式指標、x86-64 組合語言，最後一份是自己寫一個記憶體配置器。它的實驗課講義連解答都公開。
+**[CS107](/posts/learning/2026-08-21-stanford-cs107-computer-systems) 是最痛也最值得的一門。** 作業從 Unix 與 C 入門，一路做到 C 字串、堆積、`void *` 泛型操作、函式指標、x86-64 組合語言，最後一份是自己寫一個記憶體配置器。它的實驗課講義連解答都公開。
 
 **CS111 的作業表就是一部作業系統。** 從 lambda 與執行緒開始，做同步、執行緒排程器、自己實作 lock 與 condition variable、記憶體映射的加密檔案、時鐘演算法的分頁替換、讀 Unix v6 檔案系統、最後是日誌式檔案系統。
 
-**CS109 是這一階裡最不能跳的一門。** 它的 2026 年版本還多了一個東西：每一講的「課外」欄位除了投影片，還掛著一份「LLM Learning Guide」。一門機率課把「怎麼用語言模型讀這一講」做成官方教材的一部分，這件事本身就是訊號。
+**[CS109](/posts/learning/2026-08-21-stanford-cs109-probability) 是這一階裡最不能跳的一門。** 它的 2026 年版本還多了一個東西：每一講的「課外」欄位除了投影片，還掛著一份「LLM Learning Guide」。一門機率課把「怎麼用語言模型讀這一講」做成官方教材的一部分，這件事本身就是訊號。
 
 跳過 CS109 的代價不會在下一門課出現，會在你之後修的每一門課出現：CS224W 的先修是 CS109 加任一門入門機器學習，CS234 要求基本機率，CS336 要求 CS109 等級的機率統計。
 
-**CS161 曾經有兩個官方課名，現在只剩一個。** 系上的核心要求頁一度把它叫做「Data Structures and Algorithms」，而 ExploreCourses、暑期部與課程自己的網站都叫「Design and Analysis of Algorithms」。那個矛盾現在消失了——不是因為兩邊談攏，是因為**掛著舊課名的那個頁面整個下線了**（見下方更新紀錄）。現行的官方來源一律寫 Design and Analysis of Algorithms，舊說法只剩 [Wayback 快照](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements)讀得到。找資料時用現行課名就對了。
+**[CS161](/posts/learning/2026-08-21-stanford-cs161-algorithms) 曾經有兩個官方課名，現在只剩一個。** 系上的核心要求頁一度把它叫做「Data Structures and Algorithms」，而 ExploreCourses、暑期部與課程自己的網站都叫「Design and Analysis of Algorithms」。那個矛盾現在消失了——不是因為兩邊談攏，是因為**掛著舊課名的那個頁面整個下線了**（見下方更新紀錄）。現行的官方來源一律寫 Design and Analysis of Algorithms，舊說法只剩 [Wayback 快照](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements)讀得到。找資料時用現行課名就對了。
 
 **怎麼做**：如果你已經會寫程式但沒修過系統課，直接下載 CS107 的第一份作業講義，把 `Assign0` 做完。它會很快告訴你，你對「一個整數在記憶體裡長什麼樣」的理解有多少是猜的。
 
@@ -90,9 +90,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 過了地基，AI 這條線的入口不是單一一門課，是三個方向不同的門。
 
-**CS221: Artificial Intelligence: Principles and Techniques** 是最標準的那個。它把 AI 定義成「在資訊不完整（所以需要機率）與計算有限（所以需要演算法）的情況下做出好決策」，涵蓋搜尋、約束滿足、賽局、馬可夫決策過程、圖模型、機器學習與邏輯。這是唯一一門會讓你看見「深度學習以外的 AI」的入門課。
+[**CS221: Artificial Intelligence: Principles and Techniques**](/posts/ai/2026-08-21-stanford-cs221-ai-principles) 是最標準的那個。它把 AI 定義成「在資訊不完整（所以需要機率）與計算有限（所以需要演算法）的情況下做出好決策」，涵蓋搜尋、約束滿足、賽局、馬可夫決策過程、圖模型、機器學習與邏輯。這是唯一一門會讓你看見「深度學習以外的 AI」的入門課。
 
-**CS124: From Languages to Information** 是語言與資訊的入口，也是 NLP 線的正式起點。官方描述已經把方法從正規表達式、邏輯迴歸、梯度下降一路寫到 transformer 與大型語言模型，應用涵蓋聊天機器人、資訊檢索、社群運算與推薦系統。它的先修比課號看起來嚴格得多：CS106B、CS106A 等級的 Python、CS109，外加 CS107 等級的 UNIX 與程式成熟度。
+[**CS124: From Languages to Information**](/posts/ai/2026-08-21-stanford-cs124-languages-to-information) 是語言與資訊的入口，也是 NLP 線的正式起點。官方描述已經把方法從正規表達式、邏輯迴歸、梯度下降一路寫到 transformer 與大型語言模型，應用涵蓋聊天機器人、資訊檢索、社群運算與推薦系統。它的先修比課號看起來嚴格得多：CS106B、CS106A 等級的 Python、CS109，外加 CS107 等級的 UNIX 與程式成熟度。
 
 **CS238: Decision Making under Uncertainty**（與 AA228 合開）是決策與不確定性的入口，走強化學習、規劃、自主系統的人從這裡進去最順。
 
@@ -100,13 +100,13 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 過了入口就是建立模型能力的主幹。
 
-**CS229** 是理論那一側，把統計假設攤開來推。它有一份幾百頁的公開講義 PDF，從線性迴歸一路寫到自監督學習與基礎模型；Stanford Online 的 YouTube 頻道除了長年掛著 Andrew Ng 在 2018 年那版，2026 年春季那一版也已經整批上架。想要「有講義、有影片、有作業」三件套的人，這門最完整。
+[**CS229**](/posts/ai/2026-08-21-stanford-cs229-machine-learning) 是理論那一側，把統計假設攤開來推。它有一份幾百頁的公開講義 PDF，從線性迴歸一路寫到自監督學習與基礎模型；Stanford Online 的 YouTube 頻道除了長年掛著 Andrew Ng 在 2018 年那版，2026 年春季那一版也已經整批上架。想要「有講義、有影片、有作業」三件套的人，這門最完整。
 
 **CS230** 是實作那一側，走翻轉教室：影片與程式作業在 Coursera 的深度學習專項課程上，實體課堂只留下講座與專案討論。這代表兩件事——自學者能拿到的核心教材反而最齊全（因為本來就在 Coursera 上），但你拿不到那個真正的差異化部分，也就是課堂上的專案回饋。本站的 [CS230 導讀系列](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)逐講拆解了那些講座內容。
 
 兩門的關係不是二選一，是互補。
 
-**CS228: Probabilistic Graphical Models** 補的是機率推理那條線：貝氏網路、馬可夫網路、隱藏馬可夫模型、動態貝氏網路、精確與近似推論。它的先修只寫「基本機率理論與演算法設計分析」，比大多數人以為的低。
+[**CS228: Probabilistic Graphical Models**](/posts/ai/2026-08-21-stanford-cs228-graphical-models) 補的是機率推理那條線：貝氏網路、馬可夫網路、隱藏馬可夫模型、動態貝氏網路、精確與近似推論。它的先修只寫「基本機率理論與演算法設計分析」，比大多數人以為的低。
 
 **怎麼做**：如果你不確定該從 CS229 還是 CS230 開始，去讀 CS229 的公開講義 PDF 第一章，讀不動就先修 CS230。這比任何自我評估都準。
 
@@ -119,12 +119,12 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 | 課號 | 課名 | 官方先修 |
 |---|---|---|
 | CS124 | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
-| CS224N | Natural Language Processing with Deep Learning | 微積分與線性代數；CS124、CS221 或 CS229 |
-| CS224U | Natural Language Understanding | CS224N 或 CS224S |
-| CS224V | Agentic AI | LINGUIST 180/280、CS124、CS224N、CS224S、CS224U 擇一 |
+| [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) | Natural Language Processing with Deep Learning | 微積分與線性代數；CS124、CS221 或 CS229 |
+| [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding) | Natural Language Understanding | CS224N 或 CS224S |
+| [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai) | Agentic AI | LINGUIST 180/280、CS124、CS224N、CS224S、CS224U 擇一 |
 | CS329X | Human Centered NLP | — |
-| CS329A | Self-Improving AI Agents | CS224N 或 CS229S |
-| CS336 | Language Modeling from Scratch | Python、PyTorch、系統概念、微積分與線性代數、CS109 等級機率 |
+| [CS329A](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents) | Self-Improving AI Agents | CS224N 或 CS229S |
+| [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) | Language Modeling from Scratch | Python、PyTorch、系統概念、微積分與線性代數、CS109 等級機率 |
 
 **CS224N 的網站有個少見的價值**：它把 2000 年以來每一屆的課程網站都留著。你可以打開 2019 年那版，看看 Transformer 剛出現時這門課怎麼教它，再對照現在的版本——同一門課、同一群人，教法差多少一目了然。
 
@@ -148,7 +148,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 ### D. 圖與網路
 
-**CS224W: Machine Learning with Graphs** 的先修是 CS109 加任一門入門機器學習，門檻在這一階裡算低的。內容涵蓋表示學習與圖神經網路、Web 演算法、知識圖譜推理、影響力最大化、社群網路分析。旁邊的 **CS246: Mining Massive Data Sets** 處理的是資料大到單機放不下的情況。
+[**CS224W: Machine Learning with Graphs**](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs) 的先修是 CS109 加任一門入門機器學習，門檻在這一階裡算低的。內容涵蓋表示學習與圖神經網路、Web 演算法、知識圖譜推理、影響力最大化、社群網路分析。旁邊的 **CS246: Mining Massive Data Sets** 處理的是資料大到單機放不下的情況。
 
 ### E. 系統與效能
 
@@ -164,7 +164,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 這一層的共同點不是「再教一次模型」，是要求你能做研究、建系統，或從零把整條流程走完。
 
-**CS336: Language Modeling from Scratch**（Tatsunori Hashimoto、Percy Liang）是唯一標注 **Application required**（需要申請）的一門。五份作業，你會自己實作 tokenizer、寫 Transformer、寫 Triton kernel、做多機平行、跑 scaling law、做評測、處理資料、最後做 SFT 與 RLVR 的後訓練。課程網站對先修條件講得毫不客氣：
+[**CS336: Language Modeling from Scratch**](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（Tatsunori Hashimoto、Percy Liang）是唯一標注 **Application required**（需要申請）的一門。五份作業，你會自己實作 tokenizer、寫 Transformer、寫 Triton kernel、做多機平行、跑 scaling law、做評測、處理資料、最後做 SFT 與 RLVR 的後訓練。課程網站對先修條件講得毫不客氣：
 
 > The amount of code you will write will be at least an order of magnitude greater than for other classes.
 
@@ -172,9 +172,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS312** 走的是另一條路：它主張光有知識與數學能力不夠，發明下一代架構需要的是跑過非常多次實驗，所以整門課帶學生在可計算的領域裡練「高效實驗與預測實驗結果」的能力。授課的是 Hashimoto——也就是 CS336 的講師之一。
 
-**CS329A: Self-Improving AI Agents** 是研究所研討課，主題涵蓋 constitutional AI、學習型驗證器、擴展測試時計算、把搜尋與 LLM 結合、工具使用與檢索、多模態網頁互動、多步推理與規劃，以及評估與編排框架。九講的錄影已經公開在 Stanford Online 的 YouTube 頻道上。
+[**CS329A: Self-Improving AI Agents**](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents) 是研究所研討課，主題涵蓋 constitutional AI、學習型驗證器、擴展測試時計算、把搜尋與 LLM 結合、工具使用與檢索、多模態網頁互動、多步推理與規劃，以及評估與編排框架。九講的錄影已經公開在 Stanford Online 的 YouTube 頻道上。
 
-**CS329Z: Engineering AI Agents** 教複合式 AI 系統：學生先從零手刻 RAG、工具使用、agent loop 這些核心元件，再學 DSPy 這類框架怎麼把這些模式抽象掉。
+[**CS329Z: Engineering AI Agents**](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 教複合式 AI 系統：學生先從零手刻 RAG、工具使用、agent loop 這些核心元件，再學 DSPy 這類框架怎麼把這些模式抽象掉。
 
 安全與可靠性那一組是這一層裡最值得注意的變化，因為它們已經不是外圍：**CS221M: Mechanistic Interpretability** 講探測、steering、因果抽象與稀疏自編碼器，特別強調因果方法與大型語言模型；**CS329H: Machine Learning from Human Preferences** 處理偏好異質性、偏好聚合、人類回饋的詮釋與隱私；**CS329T** 則從基礎模型、prompting、RAG 講到 agent 架構與評估。
 
@@ -256,13 +256,15 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - **付費修習的價格**：Stanford Online 的遠距學分版本，CS107 學費 8,110 美元、CS161 與 CS336 各 7,875 美元，都是五學分。教材免費、學分很貴，這個落差是這份地圖的前提。
 - **CS231N 評分比重**：作業 45%、期中 20%、期末專案 35%。
 - **CS336 講義 repo**：GitHub 上約 3.6k 顆星、757 個 fork（2026-08-20 讀數）。
-- **2026-27 學年有明確開課資訊的進階課**：CS221M（春）、CS224N（冬）、CS224V（秋）、CS224W（秋）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。**CS224U 與 CS228 不列入**：兩者雖有條目，但時間或講師資訊不完整；CS224U 最近完整公開版本為 2023 春，CS228 的舊學年頁則寫最後開於 2024 冬。
+- **2026-27 學年有明確開課資訊的進階課**：CS224N（冬）、CS224V（秋）、CS224W（秋）、CS223A（冬）、CS231A（冬）、CS329H（秋）、CS329T（春）、CS329X（秋）、CS329Z（秋）、CS312（秋）、CS333（冬）、CS336（春，需申請）。**CS221M、CS224U 與 CS228 不列入**：CS221M 的 2026-27 條目已無任何開課學期，最後一筆為 2026 春；CS224U 與 CS228 雖有條目，但時間或講師資訊不完整，CS224U 最近完整公開版本為 2023 春，CS228 的舊學年頁則寫最後開於 2024 冬。
 - **課號慣例**：1–99 全校入門、100–199 本系大學部、200–299 高年級與研究所新生、300 以上研究生。官方明講這不是標準，只是常見慣例。
 - **CS231A 舊課號**：CS223B。**CS111 與 CS110**：現行描述是 CS111 可替代 CS110，不是改名或前身關係。
 
 有三項未能完全確認，都不是查得不夠，是結構性拿不到：Stanford 課程封存區沒有公開的索引頁，因此無法列出「總共有幾門課保留了歷屆網站」；CS312 的課程名稱在 ExploreCourses 的搜尋結果中沒有完整渲染出標題列，但以「Deep Learning Alchemy」為關鍵字搜尋會命中該條目；CS238 的獨立條目同樣沒有渲染成功，其存在與 AA228 的合開關係是從 CS239 的先修欄位「AA 228/CS 238 or CS 221」反推的。後兩項不影響階梯的排序結論。
 
 ## 更新紀錄
+
+- 2026-08-26：回補站內連結——核心五門（CS103、CS107、CS109、CS111、CS161）與 CS221、CS124、CS229、CS228、CS224N、CS224U、CS224V、CS224W、CS329A、CS329Z、CS336 的單課總覽導讀已陸續上線，正文與先修表補上對應站內連結。另重查 ExploreCourses（2026-08-26）：附錄「2026-27 有明確開課資訊」清單移除 CS221M——其 2026-27 條目已無任何開課學期，最後一筆為 2026 春；停開表其餘七門與清單其餘十二門複核無變動。
 
 - 2026-08-22：統一 A0–A3 公開度說明，修正 CS221 核心課計數、LLM／agent 建議路線、CS224U 佔位狀態與 CS111／CS110 關係。
 

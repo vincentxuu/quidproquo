@@ -68,21 +68,21 @@ What makes their status clearer is something else: [CS221's prerequisite field](
 
 Things worth knowing:
 
-**CS111 substitutes for CS110; it is not a rename.** The retired core requirements page did carry the note "Formerly known as CS110," and this post originally concluded from that the two are one course and CS110 self-study guides still apply. **That conclusion misleads.** CS111's current ExploreCourses description reads "Available as a substitute for CS110 that fulfills any requirement satisfied by CS110" — substitutes for, not equals — and the CS110 number is still live, with its supplemental lab CS110L listed for 2026-27.
+**[CS111](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en) substitutes for CS110; it is not a rename.** The retired core requirements page did carry the note "Formerly known as CS110," and this post originally concluded from that the two are one course and CS110 self-study guides still apply. **That conclusion misleads.** CS111's current ExploreCourses description reads "Available as a substitute for CS110 that fulfills any requirement satisfied by CS110" — substitutes for, not equals — and the CS110 number is still live, with its supplemental lab CS110L listed for 2026-27.
 
 The difference is substantive. CS110's assignments included a Stanford Shell, an HTTP proxy, and MapReduce, and its schedule ran three lectures on networking. Today's CS111 has no networking lecture at all; in its place are virtual memory, demand paging, page replacement, and crash recovery. Concurrency is the only stretch the two share. Follow a CS110 guide and you will build things that aren't in CS111 while missing half of what is. Both bodies of material are worth having — they just aren't two editions of one course.
 
-**CS103's second half matters more than its first.** The first half is discrete math and proof technique; the second goes into finite automata, regular expressions, context-free grammars, Turing machines, decidability, the halting problem, and closes on P versus NP. It's the course that settles what a computer can compute.
+**[CS103](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en)'s second half matters more than its first.** The first half is discrete math and proof technique; the second goes into finite automata, regular expressions, context-free grammars, Turing machines, decidability, the halting problem, and closes on P versus NP. It's the course that settles what a computer can compute.
 
-**CS107 is the most painful and the most worthwhile.** The assignments start at Unix and C and work up through C strings, the heap, generic operations with `void *`, function pointers, x86-64 assembly, and end with writing your own memory allocator. Even the lab handouts ship with solutions.
+**[CS107](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en) is the most painful and the most worthwhile.** The assignments start at Unix and C and work up through C strings, the heap, generic operations with `void *`, function pointers, x86-64 assembly, and end with writing your own memory allocator. Even the lab handouts ship with solutions.
 
 **CS111's assignment list is an operating system.** Lambdas, threads and processes; synchronization; a thread dispatcher; implementing locks and condition variables; memory-mapped encrypted files; page replacement with the clock algorithm; reading Unix v6 filesystems; a journaling filesystem.
 
-**CS109 is the one you can least afford to skip.** Its 2026 edition also carries something new: next to the slides, each lecture's "outside class" column has an *LLM Learning Guide*. A probability course shipping official guidance on studying a lecture with a language model is a signal in itself.
+**[CS109](/posts/learning/2026-08-21-stanford-cs109-probability-en) is the one you can least afford to skip.** Its 2026 edition also carries something new: next to the slides, each lecture's "outside class" column has an *LLM Learning Guide*. A probability course shipping official guidance on studying a lecture with a language model is a signal in itself.
 
 Skipping CS109 doesn't cost you in the next course, it costs you in every course after: CS224W lists CS109 plus any introductory ML, CS234 wants basic probability, CS336 wants CS109-level probability and statistics.
 
-**CS161 used to have two official names; now it has one.** The department's core requirements page once called it "Data Structures and Algorithms," while ExploreCourses, the summer session, and the course's own site all said "Design and Analysis of Algorithms." That contradiction is gone now — not because the two sides converged, but because **the page carrying the old name went offline entirely** (see the changelog). Every live official source now says Design and Analysis of Algorithms; the old wording survives only in a [Wayback snapshot](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements). Search with the current name.
+**[CS161](/posts/learning/2026-08-21-stanford-cs161-algorithms-en) used to have two official names; now it has one.** The department's core requirements page once called it "Data Structures and Algorithms," while ExploreCourses, the summer session, and the course's own site all said "Design and Analysis of Algorithms." That contradiction is gone now — not because the two sides converged, but because **the page carrying the old name went offline entirely** (see the changelog). Every live official source now says Design and Analysis of Algorithms; the old wording survives only in a [Wayback snapshot](https://web.archive.org/web/20260510054742/https://www.cs.stanford.edu/bs-core-requirements). Search with the current name.
 
 **What to do**: if you already program but have never taken a systems course, download the first CS107 assignment handout and finish `Assign0`. It will tell you quickly how much of your model of "what an integer looks like in memory" is guesswork.
 
@@ -90,9 +90,9 @@ Skipping CS109 doesn't cost you in the next course, it costs you in every course
 
 Past the base, the way into AI isn't one course — it's three doors facing different directions.
 
-**CS221: Artificial Intelligence: Principles and Techniques** is the standard one. It frames AI as making good decisions given incomplete information (hence probability) and limited computation (hence algorithms), covering search, constraint satisfaction, game playing, Markov decision processes, graphical models, machine learning, and logic. It's the only entry course that shows you the AI that isn't deep learning.
+[**CS221: Artificial Intelligence: Principles and Techniques**](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en) is the standard one. It frames AI as making good decisions given incomplete information (hence probability) and limited computation (hence algorithms), covering search, constraint satisfaction, game playing, Markov decision processes, graphical models, machine learning, and logic. It's the only entry course that shows you the AI that isn't deep learning.
 
-**CS124: From Languages to Information** is the language-and-information door and the formal start of the NLP line. The official description runs from regular expressions through logistic regression and gradient descent to transformers and large language models, with applications in chatbots, information retrieval, social computing, and recommender systems. Its prerequisites are stiffer than the number suggests: CS106B, Python at CS106A level, CS109, plus CS107-level UNIX and programming maturity.
+[**CS124: From Languages to Information**](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en) is the language-and-information door and the formal start of the NLP line. The official description runs from regular expressions through logistic regression and gradient descent to transformers and large language models, with applications in chatbots, information retrieval, social computing, and recommender systems. Its prerequisites are stiffer than the number suggests: CS106B, Python at CS106A level, CS109, plus CS107-level UNIX and programming maturity.
 
 **CS238: Decision Making under Uncertainty** (cross-listed as AA228) is the decision-and-uncertainty door — the smoothest way in for reinforcement learning, planning, or autonomous systems.
 
@@ -100,13 +100,13 @@ Past the base, the way into AI isn't one course — it's three doors facing diff
 
 Past the entry courses comes the work of building modelling ability.
 
-**CS229** is the theory side, laying the statistical assumptions bare. It publishes a several-hundred-page set of notes as a single PDF, from linear regression through self-supervised learning and foundation models; Stanford Online's YouTube channel has long carried Andrew Ng's 2018 edition, and the spring 2026 edition is now up too. If you want notes, video, and assignments as a set, this one is most complete.
+[**CS229**](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) is the theory side, laying the statistical assumptions bare. It publishes a several-hundred-page set of notes as a single PDF, from linear regression through self-supervised learning and foundation models; Stanford Online's YouTube channel has long carried Andrew Ng's 2018 edition, and the spring 2026 edition is now up too. If you want notes, video, and assignments as a set, this one is most complete.
 
 **CS230** is the practice side, run as a flipped classroom: videos and programming assignments on the deeplearning.ai Coursera specialization, with only lectures and project meetings in the room. That cuts two ways — the core material is unusually available to self-learners, because it was always on Coursera, but the differentiated part, the project feedback, is exactly what you can't get. This site's [CS230 series](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en) unpacks those lectures one by one.
 
 They aren't either/or; they're complementary.
 
-**CS228: Probabilistic Graphical Models** fills in probabilistic reasoning: Bayesian and Markov networks, hidden Markov models, dynamic Bayesian networks, exact and approximate inference. Its stated prerequisites are only "basic probability theory and algorithm design and analysis" — lower than most people assume.
+[**CS228: Probabilistic Graphical Models**](/posts/ai/2026-08-21-stanford-cs228-graphical-models-en) fills in probabilistic reasoning: Bayesian and Markov networks, hidden Markov models, dynamic Bayesian networks, exact and approximate inference. Its stated prerequisites are only "basic probability theory and algorithm design and analysis" — lower than most people assume.
 
 **What to do**: if you can't decide between CS229 and CS230, read chapter one of CS229's public notes PDF. If it doesn't go down, start with CS230. That beats any self-assessment.
 
@@ -119,12 +119,12 @@ This branch has the most complete prerequisite chain of the five — you can fol
 | Number | Title | Official prerequisites |
 |---|---|---|
 | CS124 | From Languages to Information | CS106B, Python, CS109, CS107-level |
-| CS224N | Natural Language Processing with Deep Learning | calculus and linear algebra; CS124, CS221, or CS229 |
-| CS224U | Natural Language Understanding | CS224N or CS224S |
-| CS224V | Agentic AI | one of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U |
+| [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) | Natural Language Processing with Deep Learning | calculus and linear algebra; CS124, CS221, or CS229 |
+| [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Natural Language Understanding | CS224N or CS224S |
+| [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en) | Agentic AI | one of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U |
 | CS329X | Human Centered NLP | — |
-| CS329A | Self-Improving AI Agents | CS224N or CS229S |
-| CS336 | Language Modeling from Scratch | Python, PyTorch, systems concepts, calculus and linear algebra, CS109-level probability |
+| [CS329A](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) | Self-Improving AI Agents | CS224N or CS229S |
+| [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) | Language Modeling from Scratch | Python, PyTorch, systems concepts, calculus and linear algebra, CS109-level probability |
 
 **CS224N's site does something unusual**: it keeps every edition back to 2000. Open the 2019 version, see how the course taught the Transformer when it was new, and set it against today's — same course, same people, and the difference in framing is right there.
 
@@ -148,7 +148,7 @@ On ordering, having CS229 or CS230 before CS231N makes it much smoother; CS231A 
 
 ### D. Graphs and networks
 
-**CS224W: Machine Learning with Graphs** asks for CS109 plus any introductory machine learning course — a low bar for this tier. It covers representation learning and graph neural networks, web algorithms, reasoning over knowledge graphs, influence maximization, and social network analysis. Next to it, **CS246: Mining Massive Data Sets** handles the case where the data doesn't fit on one machine.
+[**CS224W: Machine Learning with Graphs**](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en) asks for CS109 plus any introductory machine learning course — a low bar for this tier. It covers representation learning and graph neural networks, web algorithms, reasoning over knowledge graphs, influence maximization, and social network analysis. Next to it, **CS246: Mining Massive Data Sets** handles the case where the data doesn't fit on one machine.
 
 ### E. Systems and performance
 
@@ -164,7 +164,7 @@ This branch doesn't grow out of AI, it grows out of CS107 — but anyone doing A
 
 What these have in common isn't teaching models again, it's demanding that you do research, build systems, or run a whole pipeline from zero.
 
-**CS336: Language Modeling from Scratch** (Tatsunori Hashimoto, Percy Liang) is the only one flagged **Application required**. Across five assignments you implement a tokenizer, write a Transformer, write Triton kernels, do multi-machine parallelism, run scaling laws, build evaluation, handle data, and finish with SFT and RLVR post-training. The site is blunt about prerequisites:
+[**CS336: Language Modeling from Scratch**](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) (Tatsunori Hashimoto, Percy Liang) is the only one flagged **Application required**. Across five assignments you implement a tokenizer, write a Transformer, write Triton kernels, do multi-machine parallelism, run scaling laws, build evaluation, handle data, and finish with SFT and RLVR post-training. The site is blunt about prerequisites:
 
 > The amount of code you will write will be at least an order of magnitude greater than for other classes.
 
@@ -172,9 +172,9 @@ Its lectures ship in an unusual form — **executable lectures**. In the GitHub 
 
 **CS312** takes a different line. It argues that knowledge and math ability alone aren't enough — inventing the next generation of architectures takes running very many experiments — so the course walks students through gaining mastery in computationally tractable domains via efficient experimentation and predicting experiment outcomes. It's taught by Hashimoto, who also co-teaches CS336.
 
-**CS329A: Self-Improving AI Agents** is a graduate seminar covering constitutional AI, learned verifiers, scaling test-time compute, combining search with LLMs, tool use and retrieval, multimodal web interaction, multi-step reasoning and planning, and robust evaluation and orchestration frameworks. All nine lectures are public on Stanford Online's YouTube channel.
+[**CS329A: Self-Improving AI Agents**](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) is a graduate seminar covering constitutional AI, learned verifiers, scaling test-time compute, combining search with LLMs, tool use and retrieval, multimodal web interaction, multi-step reasoning and planning, and robust evaluation and orchestration frameworks. All nine lectures are public on Stanford Online's YouTube channel.
 
-**CS329Z: Engineering AI Agents** teaches compound AI systems: students first build the core components — RAG, tool use, agent loops — from scratch, then learn how frameworks like DSPy abstract those patterns.
+[**CS329Z: Engineering AI Agents**](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) teaches compound AI systems: students first build the core components — RAG, tool use, agent loops — from scratch, then learn how frameworks like DSPy abstract those patterns.
 
 The safety and reliability group is the most notable shift in this tier, because it has stopped being peripheral. **CS221M: Mechanistic Interpretability** covers probing, steering, causal abstraction, and sparse autoencoders, with emphasis on causal methods and large language models. **CS329H: Machine Learning from Human Preferences** handles preference heterogeneity and aggregation, interpretation of human feedback, and privacy. **CS329T** runs from foundation models, prompting, and RAG through agent architectures and evaluation.
 
@@ -256,13 +256,15 @@ Course information comes from official course sites and Stanford ExploreCourses 
 - **Paying for credit**: in Stanford Online's remote-credit versions, CS107 is $8,110 and CS161 and CS336 are $7,875 each, all five units. Free materials, expensive credit — that gap is the premise of this map.
 - **CS231N grade breakdown**: assignments 45%, midterm 20%, final project 35%.
 - **CS336 lecture repo**: roughly 3.6k stars and 757 forks on GitHub (read 2026-08-20).
-- **Advanced courses with concrete 2026-27 offering details**: CS221M (spring), CS224N (winter), CS224V (autumn), CS224W (autumn), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required). **CS224U and CS228 are excluded** because their entries lack complete time or instructor details. The latest complete public CS224U edition is Spring 2023; an older-year view says CS228 was last offered in Winter 2024.
+- **Advanced courses with concrete 2026-27 offering details**: CS224N (winter), CS224V (autumn), CS224W (autumn), CS223A (winter), CS231A (winter), CS329H (autumn), CS329T (spring), CS329X (autumn), CS329Z (autumn), CS312 (autumn), CS333 (winter), CS336 (spring, application required). **CS221M, CS224U, and CS228 are excluded**: CS221M's 2026-27 entry no longer lists any offering term — its last was Spring 2026; CS224U and CS228 have entries but lack complete time or instructor details. The latest complete public CS224U edition is Spring 2023; an older-year view says CS228 was last offered in Winter 2024.
 - **Numbering convention**: 1–99 introductory for all students, 100–199 primarily for majors, 200–299 for advanced undergraduates and beginning graduate students, 300 and above for graduate students. The university states explicitly that this is a common guideline, not a standard.
 - **CS231A's old number**: CS223B. **CS111 and CS110**: the current description says CS111 substitutes for CS110; it is not a rename or former-name relationship.
 
 Three items could not be fully confirmed, and none for lack of searching. Stanford's course archive has no public index page, so there's no way to say how many courses keep past editions online. CS312's title did not render as a heading in ExploreCourses search results, though searching the exact phrase "Deep Learning Alchemy" returns that entry. CS238's own entry likewise failed to render; its existence and the AA228 cross-listing are inferred from CS239's prerequisite field, "AA 228/CS 238 or CS 221." The latter two don't affect the ordering conclusions.
 
 ## Changelog
+
+- 2026-08-26: Backfilled internal links — the per-course overview deep dives for the five core courses (CS103, CS107, CS109, CS111, CS161) plus CS221, CS124, CS229, CS228, CS224N, CS224U, CS224V, CS224W, CS329A, CS329Z, and CS336 are now live; the body text and the prerequisite table now link to them. Also re-checked ExploreCourses (2026-08-26): CS221M was removed from the appendix's "concrete 2026-27 offering details" list — its 2026-27 entry no longer lists any term, with Spring 2026 as its last; the other seven dormant courses and twelve listed courses were re-verified unchanged.
 
 - 2026-08-22: Standardized the A0–A3 access language and corrected the CS221 core-course count, the editorial LLM/agent route, the CS224U placeholder, and the CS111/CS110 relationship.
 
