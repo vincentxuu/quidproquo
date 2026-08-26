@@ -5,6 +5,9 @@ category: ai
 type: guide
 tags: [self-hosting, vllm, sglang, ollama, llama-cpp, gpu, quantization, llm-inference]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 17
 tldr: "2026 年開源模型在 coding benchmark 追平閉源，但自架不只是選模型——vLLM 適合高併發生產服務、SGLang 在前綴重用場景快 29%、Ollama 是本地開發首選、llama.cpp 吃最少資源。A100 雲端租金約 $1.4-2.2/hr，自架損益兩平點大約在每月 100M tokens。"
 description: "開源 LLM 自架完整決策指南：vLLM / SGLang / Ollama / llama.cpp 框架比較、GPU 硬體需求對照表、量化格式選擇、成本損益兩平分析，以及接入 agentic coding CLI 的實際做法。"
 draft: false

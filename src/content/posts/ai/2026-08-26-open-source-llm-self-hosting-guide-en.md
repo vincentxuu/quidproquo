@@ -5,6 +5,9 @@ category: ai
 type: guide
 tags: [self-hosting, vllm, sglang, ollama, llama-cpp, gpu, quantization, llm-inference]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 17
 tldr: "Open-source models now match closed-source on coding benchmarks, but self-hosting isn't just picking a model — vLLM handles high-concurrency production serving, SGLang is 29% faster on prefix-heavy workloads, Ollama is the local dev default, and llama.cpp runs on the least hardware. A100 cloud rentals run ~$1.4-2.2/hr; self-hosting breaks even at roughly 100M tokens/month."
 description: "Complete decision guide for self-hosting open-source LLMs: vLLM / SGLang / Ollama / llama.cpp comparison, GPU hardware requirements, quantization format choices, cost breakeven analysis, and practical setup for agentic coding CLIs."
 draft: false

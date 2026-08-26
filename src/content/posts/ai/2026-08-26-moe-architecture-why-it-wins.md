@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [moe, architecture, inference, code-model, open-source, benchmark, deployment]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 9
 tldr: "2026 年幾乎所有前沿開源模型都是 MoE 架構：Ornith 35B 只啟用 3B 打贏 31B dense、MiniMax M3 用 456B 總量但 45.9B 啟用拿下 SWE-bench Pro 59%、DeepSeek V4 用 1.6T 總量但 49B 啟用。這篇用四個案例解釋 MoE 為什麼在 coding 和 agentic 任務上佔據主流。"
 description: "MoE 架構深入介紹：稀疏啟用原理、推論成本與品質的取捨、Ornith / MiniMax / DeepSeek / Qwen 四個案例拆解，以及 dense vs MoE 的實際選擇指南。"
 draft: false

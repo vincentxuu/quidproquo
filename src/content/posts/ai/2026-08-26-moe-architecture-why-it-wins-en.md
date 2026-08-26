@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [moe, architecture, inference, code-model, open-source, benchmark, deployment]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 9
 tldr: "Nearly every frontier open-source model in 2026 is MoE: Ornith 35B activates only 3B to beat 31B dense models, MiniMax M3 uses 456B total but 45.9B active to hit SWE-bench Pro 59%, DeepSeek V4 runs 1.6T total with 49B active. This post explains why MoE dominates coding and agentic benchmarks using four case studies."
 description: "MoE architecture deep dive: sparse activation mechanics, inference cost vs quality tradeoffs, four case studies (Ornith, MiniMax, DeepSeek, Qwen), and practical guidance on when to choose dense vs MoE."
 draft: false

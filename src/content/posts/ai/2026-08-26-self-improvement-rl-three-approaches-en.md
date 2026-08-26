@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [reinforcement-learning, grpo, post-training, self-improvement, open-source, agentic-coding, fine-tuning]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 12
 tldr: "Three non-big-lab teams used different RL post-training strategies to produce benchmark dark horses in 2026: Ornith's self-improvement loop (GRPO), Nous Research's DataForge + Atropos execution-reward RL, and MiniMax's massive-scale RL across 200K real environments. Different strengths, but one shared proof point: post-training RL matters more than pretraining scale."
 description: "Comparing three RL post-training methodologies — Ornith's self-scaffolding, Nous Research's DataForge/Atropos, and MiniMax's large-scale environment RL — their results, limitations, and implications for the open-source ecosystem."
 draft: false

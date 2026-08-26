@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [open-source, mit, licensing, llama, qwen, gemma, code-model]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 15
 tldr: "AI 的「開源」不等於軟體的開源。MIT 和 Apache 2.0 真的隨便用；Llama License 超過 7 億月活要另外談；舊版 Gemma 授權 Google 可以片面修改（Gemma 4 已改 Apache 2.0）。這篇按授權類型整理你能做什麼、不能做什麼。"
 description: "AI 模型授權實務指南：MIT、Apache 2.0、Llama Community License、Gemma 授權的差異比較，以及 OSI 對『開源 AI』的正式定義為什麼排除大多數模型。"
 draft: false

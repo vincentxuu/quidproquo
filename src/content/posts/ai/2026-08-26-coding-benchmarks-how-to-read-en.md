@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [benchmark, agentic-coding, code-model, llm-evaluation, open-source]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 11
 tldr: "The same model can score 20 points apart on different harnesses, 32% of SWE-bench Pro verifier judgments were found to be wrong, and DeepSWE's 113 tasks make most models score zero. This guide decodes six major coding benchmarks — what they test, which are easy to game, and which ones you should care about."
 description: "A 2026 decoder guide for six major coding benchmarks: SWE-bench Verified/Pro, Terminal-Bench 2.1, DeepSWE, Aider Polyglot, LiveCodeBench, and HumanEval — covering harness differences, gaming techniques, and practical selection advice."
 draft: false

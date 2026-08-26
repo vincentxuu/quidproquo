@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [open-source, mit, licensing, llama, qwen, gemma, code-model]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 15
 tldr: "'Open-source' in AI doesn't mean what it means in software. MIT and Apache 2.0 let you do almost anything; the Llama License requires a separate deal above 700M MAU; old Gemma terms let Google change rules unilaterally (Gemma 4 switched to Apache 2.0). This guide maps what you can and can't do by license type."
 description: "A practical guide to AI model licensing: differences between MIT, Apache 2.0, Llama Community License, and Gemma terms, plus why OSI's formal 'open-source AI' definition excludes most models."
 draft: false

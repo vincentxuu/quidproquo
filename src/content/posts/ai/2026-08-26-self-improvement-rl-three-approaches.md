@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [reinforcement-learning, grpo, post-training, self-improvement, open-source, agentic-coding, fine-tuning]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 12
 tldr: "2026 年三個非大廠團隊用不同的 RL 後訓練路線做出 benchmark 黑馬：Ornith 讓模型自己出題自己改進（GRPO self-improvement loop），Nous Research 用 DataForge 合成資料 + Atropos 執行獎勵 RL，MiniMax 在 20 萬個真實環境裡大規模 RL。三條路各有強項，但共同證明了一件事：後訓練 RL 比預訓練規模更重要。"
 description: "比較 Ornith、Nous Research、MiniMax 三個團隊的 RL 後訓練方法論：self-scaffolding、DataForge/Atropos、大規模環境 RL，以及各自的成績、限制與對開源生態的影響。"
 draft: false

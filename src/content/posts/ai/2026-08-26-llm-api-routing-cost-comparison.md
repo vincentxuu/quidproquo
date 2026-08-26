@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [llm, api, pricing, openrouter, bedrock, together-ai, fireworks-ai, cost-optimization]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 16
 tldr: "同一個模型透過不同管道存取，價差可以到 2-5 倍。直連最簡單、聚合器（OpenRouter）最靈活、雲端平台（Bedrock/Vertex）最適合企業。這篇用 2026 年 8 月實際價格做橫向比較，附選擇決策樹。"
 description: "LLM API 路由比價指南：直連 vs OpenRouter vs Bedrock vs Vertex vs Together AI vs Fireworks AI，用 Claude Sonnet 5、GPT-5.6 Sol、DeepSeek V4 的實際價格做橫向對比。"
 draft: false

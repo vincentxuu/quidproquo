@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [llm, api, pricing, openrouter, bedrock, together-ai, fireworks-ai, cost-optimization]
 lang: en
+series:
+  name: "認識 AI 模型"
+  order: 16
 tldr: "The same model can cost 2-5× more depending on the channel. Direct API is simplest, aggregators (OpenRouter) are most flexible, cloud platforms (Bedrock/Vertex) suit enterprises. This post compares actual August 2026 prices across six channels with a decision tree."
 description: "LLM API routing comparison guide: Direct vs OpenRouter vs Bedrock vs Vertex vs Together AI vs Fireworks AI, with real prices for Claude Sonnet 5, GPT-5.6 Sol, and DeepSeek V4."
 draft: false

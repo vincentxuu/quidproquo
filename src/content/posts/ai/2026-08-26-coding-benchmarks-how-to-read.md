@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [benchmark, agentic-coding, code-model, llm-evaluation, open-source]
 lang: zh-TW
+series:
+  name: "認識 AI 模型"
+  order: 11
 tldr: "每個模型發布都帶 benchmark 數字，但同一個模型在不同 harness 上可以差 20 分、SWE-bench Verified 的 32% 驗證器判斷有誤、DeepSWE 113 題讓多數模型掛零。這篇拆解六個主要 coding benchmark 各自測什麼、哪些容易灌水、讀者該看哪個。"
 description: "2026 年六大 coding benchmark 解讀指南：SWE-bench Verified/Pro、Terminal-Bench 2.1、DeepSWE、Aider Polyglot、LiveCodeBench、HumanEval，含 harness 差異、灌水手法與選型建議。"
 draft: false
