@@ -5,6 +5,9 @@ category: career
 type: deep-dive
 tags: [newsletter, creator-economy, data-science, substack, content-creation]
 lang: zh-TW
+series:
+  name: "一個人的媒體公司"
+  order: 1
 tldr: "IIT 畢業的前 Mastercard AI 工程師 Avi Chawla，因家庭因素取消赴美碩士後，在 Substack 用「每天 150 字圖文」切入 Data Science 電子報，5 個月破萬訂閱、收入超過全職，四年做到 20 萬+訂閱與付費課程平台。"
 description: "Daily Dose of Data Science 創辦人 Avi Chawla 的完整成長歷程：從被迫放棄 UMD 碩士、Substack 創刊到 20 萬訂閱的時間線、內容策略、商業模式演進與可持續產出的方法論。"
 draft: false

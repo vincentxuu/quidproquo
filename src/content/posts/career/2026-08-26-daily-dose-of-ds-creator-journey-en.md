@@ -5,6 +5,9 @@ category: career
 type: deep-dive
 tags: [newsletter, creator-economy, data-science, substack, content-creation]
 lang: en
+series:
+  name: "一個人的媒體公司"
+  order: 1
 tldr: "Former Mastercard AI engineer Avi Chawla turned a cancelled US master's admission into a daily Substack newsletter — 150-word visual posts on data science. 10K subscribers in 5 months, income exceeding his full-time job, 200K+ subscribers and a paid course platform four years later."
 description: "The complete growth story of Avi Chawla and Daily Dose of Data Science: from losing a UMD master's admission to building a 200K-subscriber AI learning platform through daily curation, content strategy pivots, and creator economy monetization."
 draft: false

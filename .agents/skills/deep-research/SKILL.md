@@ -29,6 +29,14 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 ## 執行步驟
 
+### 0. 多案例研究：定義母群 → 覆蓋矩陣 → 標註偏誤
+
+當題目是「整理 N 個案例」「橫向比較」「系列文」時，在拆子問題之前先跑步驟零。單一主題研究跳過。
+
+判斷時機、母群掃描方法、覆蓋矩陣格式、偏誤標註規則 → `references/case-selection.md`
+
+核心紀律：**先定義邊界再搜尋，先掃完母群再選案，選完標偏誤。** 從「我知道的」直接挑是這個 skill 歷史上第二大的錯誤來源（第一大是搜尋摘要當全文）。
+
 ### 1. 拆研究子問題
 
 把使用者的題目轉成 3-6 個可獨立查證的子問題。**列給使用者看一眼，確認問對方向再開始搜**——錯題比錯答更貴。
@@ -98,3 +106,4 @@ description: Portable multi-source research for tools, frameworks, papers, model
 - 電腦／Web 使用模式：`references/usage-modes.md`
 - Research note 模板：`references/research-note-template.md`
 - 反合理化清單：`references/anti-shortcuts.md`
+- 多案例選取標準：`references/case-selection.md`
