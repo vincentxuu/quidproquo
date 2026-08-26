@@ -264,6 +264,120 @@ export function createRawModel(
   throw new Error(`Unsupported provider: ${route.provider}`)
 }
 
+const RETRYABLE_STATUS_CODES = [429, 500, 502, 503, 504]
+const DEFAULT_FALLBACK_CHAIN: ModelProvider[] = ['groq', 'openrouter', 'opencode', 'nvidia']
+const CLOUDFLARE_FALLBACK_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
+
+export function createResilientModel(
+  maxTokens = 512,
+  options?: {
+    config?: RagRuntimeConfig
+    stage?: string
+    route?: ModelRoute
+    apiKeys?: ProviderApiKeys
+    fallbackProviders?: ModelProvider[]
+    maxRetries?: number
+  }
+): InvokableModel {
+  const e = env as unknown as Env
+  const route = options?.route ?? resolveRoute(options?.config, options?.stage)
+  const fallbackProviders = options?.fallbackProviders ?? DEFAULT_FALLBACK_CHAIN.filter(p => p !== route.provider)
+  const maxRetries = options?.maxRetries ?? 2
+
+  const primary = createRawModelSafe(route.provider, route.model, maxTokens, { ...options, apiKeys: options?.apiKeys ?? {} })
+
+  const fallbacks: InvokableModel[] = []
+  for (const provider of fallbackProviders) {
+    const fb = createRawModelSafe(provider, undefined, maxTokens, { ...options, apiKeys: options?.apiKeys ?? {} })
+    if (fb) fallbacks.push(fb)
+  }
+
+  if (e.AI) {
+    fallbacks.push(createRawCloudflareAiModel(e.AI, CLOUDFLARE_FALLBACK_MODEL, maxTokens))
+  }
+
+  if (!primary) {
+    if (fallbacks.length === 0) throw new Error(`No working provider available (tried ${route.provider} + ${fallbackProviders.join(', ')})`)
+    return attachFallbackChain(fallbacks[0], fallbacks.slice(1), maxRetries)
+  }
+
+  return attachFallbackChain(primary, fallbacks, maxRetries)
+}
+
+function createRawModelSafe(
+  provider: ModelProvider,
+  model: string | undefined,
+  maxTokens: number,
+  options: { config?: RagRuntimeConfig; stage?: string; apiKeys: ProviderApiKeys }
+): InvokableModel | null {
+  try {
+    const resolvedModel = model ?? defaultModelForProvider(provider)
+    return createRawModel(maxTokens, { ...options, route: { provider, model: resolvedModel, fallback: true } })
+  } catch {
+    return null
+  }
+}
+
+function defaultModelForProvider(provider: ModelProvider): string {
+  const defaults: Partial<Record<ModelProvider, string>> = {
+    groq: 'llama-3.3-70b-versatile',
+    openai: 'gpt-4.1-mini',
+    google: 'gemini-3.7-flash',
+    gemini: 'gemini-3.7-flash',
+    openrouter: 'meta-llama/llama-3.3-70b-instruct',
+    opencode: 'llama-3.3-70b-instruct',
+    nvidia: 'meta/llama-3.3-70b-instruct',
+    cerebras: 'llama-3.3-70b',
+  }
+  return defaults[provider] ?? 'llama-3.3-70b-versatile'
+}
+
+// [skip-harness] LangChain's withRetry/withFallbacks returns Runnable which has invoke+bindTools
+function attachFallbackChain(primary: InvokableModel, fallbacks: InvokableModel[], maxRetries: number): InvokableModel {
+  const retryFilter = (error: unknown) => {
+    if (error && typeof error === 'object' && 'status' in error) {
+      return RETRYABLE_STATUS_CODES.includes((error as { status: number }).status)
+    }
+    const msg = error instanceof Error ? error.message : String(error)
+    return /429|500|502|503|504|rate.limit|timeout|ECONNRESET|ETIMEDOUT/i.test(msg)
+  }
+
+  const withRetry = (m: InvokableModel) => {
+    if (typeof (m as Record<string, unknown>).withRetry === 'function') {
+      return (m as Record<string, unknown>).withRetry.call(m, {
+        stopAfterAttempt: maxRetries,
+        retryIf: retryFilter,
+      }) as InvokableModel
+    }
+    return m
+  }
+
+  const retriedPrimary = withRetry(primary)
+  if (fallbacks.length === 0) return retriedPrimary
+
+  const retriedFallbacks = fallbacks.map(withRetry)
+
+  if (typeof (retriedPrimary as Record<string, unknown>).withFallbacks === 'function') {
+    return (retriedPrimary as Record<string, unknown>).withFallbacks.call(retriedPrimary, {
+      fallbacks: retriedFallbacks,
+    }) as InvokableModel
+  }
+
+  return retriedPrimary
+}
+
+function createRawCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, maxTokens: number): InvokableModel {
+  return {
+    async invoke(messages: BaseMessageLike[]): Promise<unknown> {
+      const result = await ai.run(model, {
+        messages: toCloudflareMessages(messages),
+        max_tokens: maxTokens,
+      })
+      return new AIMessage(extractCloudflareText(result))
+    },
+  } as InvokableModel
+}
+
 function createRawOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): InvokableModel {
   if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
   const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
