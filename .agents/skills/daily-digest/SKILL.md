@@ -85,9 +85,20 @@ Stage 4（每週五）
 
 所有類型共用：
 - `category: daily`
-- `lang: zh-TW`
 - `series.name` 依上方對應表
 - 結尾必寫「我今天學到什麼」
+
+## 雙語要求
+
+每篇 daily 文章必須同時產出 zh-TW 和 en 兩個版本：
+
+1. 先寫 zh-TW 版（`lang: zh-TW`），檔名 `YYYY-MM-DD-<slug>.md`
+2. 接著寫 en 版（`lang: en`），檔名 `YYYY-MM-DD-<slug>-en.md`
+3. 兩篇加雙向語言連結（同 `post-translate` skill 的格式）
+4. en 版是改寫不是機翻——技術名詞保留原文，行文語氣自然
+5. 兩篇同時 commit
+
+這是站規，不是選配。英文版 daily 頁面 (`/en/daily`) 靠 `lang: en` 過濾文章，沒有英文版就是空頁面。
 
 ## 參考資料
 

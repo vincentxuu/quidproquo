@@ -10,7 +10,9 @@ import { TOPIC_TAXONOMY } from '../../data/topic-taxonomy';
 import { DAILY_CHANNELS, getDailyChannelId } from '../../data/daily-content-types';
 
 const t = useTranslations('en');
-const posts = await getDailyPosts('en');
+let posts = await getDailyPosts('en');
+const fallback = posts.length === 0;
+if (fallback) posts = await getDailyPosts('zh-TW');
 
 const grouped = new Map<string, typeof posts>();
 for (const post of posts) {
@@ -41,6 +43,12 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     </div>
   </header>
 
+  {fallback && (
+    <div class="fallback-banner" role="status">
+      Daily digest is currently available in Chinese only. Showing Chinese articles below.
+      <a href="/daily">View Chinese daily page →</a>
+    </div>
+  )}
   {posts.length === 0 && <p class="empty">{t('daily.empty')}</p>}
 
   {[...grouped.entries()].map(([dateStr, dayPosts]) => {
@@ -142,6 +150,22 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   .day-weekday { font-size: 0.75rem; color: var(--text-muted); }
   .day-line { flex: 1; height: 1px; background: var(--border); }
   .day-cards { display: flex; flex-direction: column; gap: 0.4rem; padding-left: 0.4rem; }
+  .fallback-banner {
+    margin-bottom: 1.5rem;
+    padding: 0.7rem 1rem;
+    background: var(--info-bg);
+    border: 1px solid var(--info-border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+  }
+  .fallback-banner a {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: var(--brand-500);
+    text-decoration: none;
+  }
+  .fallback-banner a:hover { color: var(--brand-900); }
   .empty { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 3rem 0; }
   .rss-badge {
     font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
