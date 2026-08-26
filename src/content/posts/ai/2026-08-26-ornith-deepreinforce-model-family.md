@@ -17,6 +17,8 @@ glossary:
     def: "Software Engineering Benchmark，用真實 GitHub issue 測量模型解決軟體工程問題能力的標準測試集"
 ---
 
+> 🌏 [English version](/en/posts/ai/2026-08-26-ornith-deepreinforce-model-family-en)
+
 DeepReinforce 不是大廠。不是阿里、不是 Meta、不是 Google——是一個專注在 agentic coding 和強化學習的小團隊。但他們在 2026 年 8 月發布的 Ornith 1.5 家族，在多個 coding benchmark 上追平甚至超越了 Claude Opus 4.8，而且全部 MIT 授權開源。這篇整理他們怎麼做到的、值不值得關注。
 
 ## 團隊與定位
