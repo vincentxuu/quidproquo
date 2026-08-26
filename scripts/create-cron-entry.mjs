@@ -50,6 +50,7 @@ import { handleQueueBatch } from '../src/server/queue.ts';
 import { runConsoleRollupDaily } from '../src/lib/agent-console/cost/rollup.ts';
 import { checkCostThresholds } from '../src/lib/agent-console/cost/threshold.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
+export { AgentSessionDO } from '../src/server/agents/session-do.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
@@ -164,6 +165,8 @@ if (existsSync(SERVER_WRANGLER)) {
   const wranglerConfig = JSON.parse(readFileSync(SERVER_WRANGLER, 'utf-8'))
   if (existsSync(SOURCE_WRANGLER)) {
     const sourceConfig = JSON.parse(readFileSync(SOURCE_WRANGLER, 'utf-8'))
+    if (sourceConfig.durable_objects) wranglerConfig.durable_objects = clone(sourceConfig.durable_objects)
+    if (sourceConfig.migrations) wranglerConfig.migrations = clone(sourceConfig.migrations)
     if (sourceConfig.env) {
       wranglerConfig.env = hydrateEnvConfig(wranglerConfig, sourceConfig.env)
     }
