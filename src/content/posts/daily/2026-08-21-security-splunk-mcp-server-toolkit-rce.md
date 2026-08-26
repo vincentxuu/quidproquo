@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce-en)
+
 ## 事件概述
 
 Splunk 於 2026 年 8 月 19 日發布安全加固公告 SVD-2026-0808，一次修補橫跨五個 app／add-on 的 17 個漏洞：Cisco Talos Intelligence for Enterprise Security Cloud、Splunk AI Toolkit、Splunk Connect for Kafka、Splunk MCP Server app、Splunk On-Call（VictorOps）。其中最嚴重的一項是 Splunk MCP Server app 的 CVE-2026-76404，CVSS 3.1 評分 9.1（Critical）：持有 admin 角色的使用者可透過憑證管理元件的反序列化缺陷，在 Splunk 主機的作業系統層級執行任意指令。同一批公告裡，AI Toolkit 的模型載入 API 也有一個手法幾乎相同的 RCE（CVE-2026-76395，CVSS 8.8）。Splunk 官方與多家資安媒體均未發現在野利用證據。

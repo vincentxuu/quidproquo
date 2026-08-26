@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 44
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-07-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文都圍繞「讓 agent 系統更安全、更可預測、不出包」這個主軸。前兩篇出自同一研究團隊，以靜態分析角度出發：一篇系統性揭露 agent 陷入無限循環的成因與規模，另一篇則為整個 agent 程式碼建立依賴圖，讓安全審計和元件盤點成為可能。第三篇針對 multi-agent 軟體開發，把 LLM 輸出的信心分數引入協作流程，防止早期幻覺向下游蔓延。

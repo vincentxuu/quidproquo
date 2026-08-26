@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天成長最快的兩個 trending 專案，方向剛好相反——genspark-ai/genoffice 把 AI agent 塞進最傳統的 Office 文件格式，HKUDS/nanobot 則把 agent runtime 包成人人能自架的個人助理；中間還夾著 NVIDIA 一個把 agent 狀態收進單一 class 的學術框架，和一個專治「agent 讀不懂你的 repo」的 MCP server。框架端則有個提醒——pydantic-ai v2.33.0 因為上游 anthropic SDK 換底層 HTTP client 而丟出 breaking change，agent 框架的穩定性有一半得看上游 SDK 賞不賞臉。

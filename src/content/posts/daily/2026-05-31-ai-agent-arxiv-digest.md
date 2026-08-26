@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 7
 ---
+> 🌏 [English version](/en/posts/daily/2026-05-31-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文切入三個不同層次：BenchTrace 跑了 1,821 個 agent 失敗片段，發現 GPT-4.1 和 Qwen3-32B 連「讀懂自己哪裡錯了」都不到三成通過——反思能力遠比想像差；Beyond Autonomy 從企業 SaaS 生產環境萃取出三層治理架構，是現有 agent framework 缺的那塊「治理」拼圖；Insuring Every Action 則用保險精算概念替每個 agent 動作定價與設定保證金，開創了全新的 runtime 風險語言。共同主軸：agent 走向企業部署的核心挑戰，已從「能不能做」演變成「做錯了怎麼辦、誰負責審查、損害怎麼量化」。

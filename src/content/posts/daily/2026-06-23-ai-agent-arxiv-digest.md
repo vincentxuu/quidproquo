@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 30
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-23-ai-agent-arxiv-digest-en)
+
 [!blue_background]
 📌 **今日總覽**
 今天三篇從不同角度切入 agent 平台的核心工程挑戰：**H-RePlan** 提出「跨設備 agent 分層故障恢復」，解決 agent 跨多台設備執行時失敗粒度太粗的老問題；**Multi-Agent Transactive Memory** 把 RAG 從人類文字延伸到 agent 軌跡，讓整個 agent 群體能累積並共享執行知識；**LLM+RL 階層控制** 則驗證「LLM 做高層策略選擇、RL 負責低層執行」的混合分工在多 agent 環境的可行性。三篇合在一起，勾勒出 2026 年 agent 平台設計的三個核心問題：如何優雅地處理跨設備執行失敗、如何讓 agent 的過去行為成為可重用的群體資產、以及大腦（規劃）和手腳（執行）之間應該怎麼分工。

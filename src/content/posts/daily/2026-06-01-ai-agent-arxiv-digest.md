@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 8
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-01-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文聚焦「agent 規模化部署的成本-能力邊界」：SR²AM 重新設計規劃架構，讓 30B 模型少用九成 token 就能競爭 685B-1T 系統；GroupMemBench 揭示現有記憶系統在多人群組對話中徹底崩潰（最強系統只有 46% 準確率，1990 年代的 BM25 關鍵字搜尋反而打贏它）；AgentFloor 用 16,542 次測試確認，agent pipeline 大量的短程 tool use 根本不需要大模型。共同主軸：在算力成本壓力下，精確判斷「哪個環節需要多少智慧」已成為 agent 平台設計的核心課題。

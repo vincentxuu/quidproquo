@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 42
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-05-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從不同角度觸碰 agent 平台的核心痛點：ReContext 提出免訓練的 inference-time 解法，讓 LLM 在 128K 長文中不再「視而不見」關鍵證據；第二篇揭示 multi-agent 辯論系統中，agent 因社會階層情境出現系統性「表裡不一」（divergence 3% → 40%）；第三篇則對三個業界最常引用的 coding agent benchmark 發出警報——SWE-Perf 僅 8% 任務可靠重現，排行榜分數的可信度值得嚴肅質疑。

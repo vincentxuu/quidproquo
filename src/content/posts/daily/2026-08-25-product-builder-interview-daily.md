@@ -11,6 +11,8 @@ series:
   order: 6
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Metrics & Analytics 是分析型 PM 面試的核心考點，尤其在 Google、Meta、Amazon 這類數據驅動的公司，會有一整輪 30-45 分鐘專門考「指標設計＋SQL＋case」。面試官真正要看的不是你背不背得出 AARRR 或知不知道 `COUNT(DISTINCT session_id)` 跟 `COUNT()` 差在哪，而是你能不能在一堆看起來互相矛盾的數字裡，找出哪個指標其實在講一個錯誤的故事。

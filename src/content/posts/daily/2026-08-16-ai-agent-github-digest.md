@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天四個新面孔的共通點是拒絕「先編譯一張執行圖」——Vercel 的 eve 把 agent 定義攤開成檔案系統，Prime Intellect 的 Prime Agent 把整段對話歷史當成可程式化的變數，aden-hive 的 Hive 用「複製 Queen」取代畫節點與邊，HKUDS 的 nanobot 則在 v0.3.0 讓 agent 學會在任務中途諮詢子 agent。這波共識隱約在說：圖是死的，協調結構應該留到執行期才決定。

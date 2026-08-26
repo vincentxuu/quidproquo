@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-20-product-interview-daily-en)
+
 ## 今日主題
 
 Strategy & Execution 是 PM 面試中最容易「講很多卻沒講到重點」的環節。面試官不是要聽你分析整個市場——他們要看你能不能在資訊不完整的情況下做出有根據的取捨，並清楚解釋為什麼排除其他選項。

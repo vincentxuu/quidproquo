@@ -11,6 +11,8 @@ series:
   order: 6
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天 trending 榜上四個 AI Agent 專案，主題出奇一致——都在把 agent 從「雲端黑盒 + 抽象 API」搬回「本機 + 檔案系統」。Cursor 開源官方外掛市集把生態標準化、apache/maka 用事件日誌讓每一步都可稽核、magnitude 把本機模型做到開箱即用、vercel/eve 乾脆讓檔案系統本身當介面。看起來 2026 下半年的競爭焦點，正從「agent 能做多少事」轉向「你能不能看懂、稽核、離線跑它」。

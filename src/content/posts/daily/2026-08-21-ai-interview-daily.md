@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-ai-interview-daily-en)
+
 ## 今日主題
 
 ML coding round 是 ML engineer 面試和一般軟體工程師面試最大的分岔點。你拿到的不是 LRU cache 或 rate limiter 這類通用資料結構題，而是「不准用 `torch.nn`、不准用 autograd，只用 NumPy 把這個 ML 元件寫出來」。面試官在乎的不只是最終能不能跑，而是你有沒有向量化的直覺、有沒有踩過數值穩定性的坑、以及能不能邊寫邊講出每一步的 tensor shape。

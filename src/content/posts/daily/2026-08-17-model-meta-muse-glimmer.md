@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-model-meta-muse-glimmer-en)
+
 ## 模型資訊
 
 | 項目 | 值 |

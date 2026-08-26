@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 16
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-09-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇都圍繞 **coding agents 的安全邊界與能力優化**：SABER 用第一個「可執行工作區」benchmark 發現即使最好的模型也有超過 54% 的危險操作率；第二篇讓 100 多位真人開發者跟「暗中破壞」的 AI agent 共事五小時，94% 的人沒抓到；SePO 則展示了只靠自動優化 system prompt（不改模型），就能在五個 benchmark 平均提升 4.49 分。三篇合起來提醒平台開發者：agent 的安全問題比想像中更難量測、更難被人察覺，但也存在低成本的改善路徑。

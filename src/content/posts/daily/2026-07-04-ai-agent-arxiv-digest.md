@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 41
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-04-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇各自揭露了 agent 系統的一個評估盲點：記憶讓 agent 更「諂媚」卻少被測試（MemSyco-Bench）；現有安全 benchmark 把所有失敗壓成 pass/fail，分不清真正原因（Adversarial Pragmatics）；多個 LLM agent 組成的集群，因為以自然語言溝通，反而比黑箱神經網路更容易解讀（Conversable Complexity）。三篇合起來的訊息：我們評估 agent 系統的方式，需要全面升級。

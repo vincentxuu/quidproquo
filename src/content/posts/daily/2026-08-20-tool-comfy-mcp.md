@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-20-tool-comfy-mcp-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

@@ -11,6 +11,8 @@ series:
   order: 6
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-tool-claude-scope-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

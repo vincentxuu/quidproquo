@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 31
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-24-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從工具可靠性、協定選型、多 Agent 協作三個角度切入 Agent 平台的痛點：PlanBench-XL 揭露頂尖 LLM 在真實大型工具環境下一遇到工具失效就崩潰（GPT-5.4 從 52% 跌至 11%）；TU Munich 給出第一份 MCP/A2A/ACP/ANP 等 9 個協定的技術分類法，讓選型有系統依據；AMD 的 Arbor 提出以樹狀搜尋作為多 Agent 的共享認知空間，讓失敗也成為有用的探索訊號。三篇合在一起，恰好描繪出 2026 年 Agent 平台的三塊基礎設施缺口。

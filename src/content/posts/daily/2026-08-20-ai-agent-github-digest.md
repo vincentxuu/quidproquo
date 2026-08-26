@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> [English version](/en/posts/daily/2026-08-20-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的主軸是「Agent 記憶層」——Volcengine 開源的 OpenViking 空降 trending 榜首，用虛擬檔案系統取代黑盒向量資料庫來管理 Agent 記憶，同一天 munder-difflin 和 ai-memory 又分別從「多 agent 協作」和「跨 CLI 交接」兩個完全不同的角度處理同一個問題,讓人感覺到 2026 年的競爭已經從「要不要有記憶」變成「用什麼介面存取記憶」。

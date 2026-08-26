@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 14
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-07-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇都在問 agent 平台的「基礎建設怎麼選」：ADK Arena 首度量化比較 LangGraph、AutoGen、CrewAI 等多個主流框架的真實任務完成率與成本差距，讓框架選型終於有量化依據；Agent Memory 提供第一個從電腦系統視角分析 10 種記憶方案的 taxonomy，幫工程師評估延遲、頻寬、可擴展性的取捨；Search-Time Contamination 則質疑 deep research agent 的 benchmark 分數可信度——agent 在評測時可以直接搜到答案，分數最多虛高 4%。三篇合看，agent 平台的三個核心決策點（框架選型、記憶架構、評測可信度）都有了新的量化工具。

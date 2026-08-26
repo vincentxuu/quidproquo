@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 62
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-25-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從三個互補角度探索「讓 Agent 更可靠地解決複雜任務」。NVIDIA 提出把 Agent 寫成普通的 Python class，讓開發、測試、追蹤都像一般軟體一樣進行；BAAI 的 AREX 展示了能遞迴驗證並改良自身研究結論的深度研究 Agent，在 BrowseComp、HLE 等基準上超越同量級模型；第三篇爬梳 1,250 篇論文，為「AI 自我改良」這個混亂詞彙建立清楚的分類地圖，幫你分辨哪些技術已可落地、哪些還在研究階段。

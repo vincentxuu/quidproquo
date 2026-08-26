@@ -12,6 +12,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **AI 基礎設施正在進入「用併購取代談合作」的階段——SpaceX 買下 Cursor、Stripe 買下 OpenRouter、Anthropic 買下 Decart，三筆同週交易買的都不是技術，而是自己缺的那塊互補資產。**

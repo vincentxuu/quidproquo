@@ -12,6 +12,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **今天最有意義的數字不是誰的模型分數最高，而是誰的「鷹架」最好——Jefferies 的真實辦公任務測試證明同一顆模型換套鷹架分數能差 18 分以上，這條線索同時解釋了 Anthropic 為何營收暴衝卻多數客戶仍用舊模型，也解釋了為什麼 AISI 這次抓到的資安事故發生在 harness 沒設好邊界的地方。**

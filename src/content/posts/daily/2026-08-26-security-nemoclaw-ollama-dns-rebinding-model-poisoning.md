@@ -11,6 +11,8 @@ series:
   order: 12
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
+
 ## 事件概述
 
 資安公司 Oasis Security（現為 Cyera 旗下研究團隊，也是被 Cyera 以約 10 億美元收購後的首篇研究）在 8 月 25 日揭露一個影響 NVIDIA NemoClaw 的漏洞（CVE-2026-65105）。NemoClaw 是 NVIDIA 在今年 3 月 GTC 大會推出、用來在 OpenShell 沙箱裡部署 OpenClaw agent 的官方工具，主打「比直接跑 agent 更安全」。問題出在它為了讓沙箱容器連到本機的 Ollama 推理服務，把 Ollama 綁定在 `0.0.0.0` 而非預設的 loopback，這個決定意外關掉了 Ollama 防禦 DNS rebinding 攻擊的核心機制。開發者只要瀏覽一個惡意網頁，攻擊者就能取得 Ollama API 的完整未授權存取，並悄悄竄改 agent 所用模型的 chat template，植入永久生效、連 agent 自己送出的 system prompt 都蓋不掉的隱藏指令。

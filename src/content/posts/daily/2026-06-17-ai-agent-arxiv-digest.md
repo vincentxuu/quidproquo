@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 24
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-17-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從不同角度挑戰「agent 工具使用與記憶」的基本假設：Evoflux 揭示小模型在 MCP 工具目錄前幾乎失能（執行成功率僅 3%），並用推論時演化搜尋把數字拉到 17-24%；FlowBank 指出 agent workflow 不必每次重新生成，預計算多樣化 workflow 倉庫再智慧路由，比手工設計高出近 15%；GitOfThoughts 則帶來最反直覺的發現：記憶對 agent 只在「問題幾乎一樣」時才有用，但 git 版本控制提供了一條以稽核性換取的工程之路。

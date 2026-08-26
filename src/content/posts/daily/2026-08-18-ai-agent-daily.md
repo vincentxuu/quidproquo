@@ -12,6 +12,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-18-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **當 Agent 框架的安全漏洞被逐一點名、開源治理工具開始搶著補洞，「誰能把 Agent 的風險收斂成一個可信賴關卡」正在取代「誰的模型最強」，成為這個生態下一階段的價值戰場。**

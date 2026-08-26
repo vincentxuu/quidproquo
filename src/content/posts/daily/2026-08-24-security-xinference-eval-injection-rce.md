@@ -11,6 +11,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-24-security-xinference-eval-injection-rce-en)
+
 ## 事件概述
 
 開源推論伺服器 Xinference（Xorbits Inference，用來自架部署 LLM、語音與多模態模型的 OpenAI 相容 API 伺服器）被揭露一個嚴重程度滿分的遠端程式碼執行漏洞，追蹤編號 **CVE-2026-61539**。問題出在解析 Llama3 模型工具呼叫（tool call）輸出的程式碼裡：模型產生的字串被直接丟進 Python 的 `eval()`。由於模型輸出可以被攻擊者透過 prompt 影響，而 Xinference 的測試部署預設不開身份驗證，這代表任何打得到 `/v1/chat/completions` 端點的人，理論上都能在伺服器行程裡執行任意指令。漏洞已在 2.7.0 版修補。

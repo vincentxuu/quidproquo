@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 69
 ---
+> 🌏 [English version](/en/posts/daily/2026-08-01-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同角度逼問「AI Agent 在現實任務中的真實極限」：ORCA-bench 把 LLM Agent 丟進 SRE on-call 的生產環境做根因分析，最強模型也只答對 40%；AgentS4D 揭露工作區 Agent 的安全黑箱——66% 的「成功執行」背後仍觸發了危險行為，任務完成不等於安全；Context Files 研究則以 288 次對照實驗發現，開發者普遍維護的 [AGENTS.md](http://AGENTS.md) / [CLAUDE.md](http://CLAUDE.md) 對 coding agent 的正確率幾乎沒有可量測的提升。三篇合讀，讓你對「Agent 能做什麼、不能做什麼」有更實際的認識。

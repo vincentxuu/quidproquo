@@ -14,6 +14,8 @@ glossary:
     def: "阿里雲通義萬相（Tongyi Wan）開發的影片生成模型家族"
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
+
 ## 模型資訊
 
 | 項目 | 值 |

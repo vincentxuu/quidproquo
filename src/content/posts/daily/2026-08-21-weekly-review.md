@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-weekly-review-en)
+
 ## 本週最重要的 5 件事
 
 ### 1. 一週三筆併購，買的都是「互補資產」而非營收

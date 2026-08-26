@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 52
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-15-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個截然不同的角度照亮 AI Agent 平台的現況：第一篇 LHTB 用 46 道長程終端機任務測出目前最強模型也只能解決約 28%，揭示 agent 距離真正自主作業仍有很長一段路；第二篇從安全角度發現多 agent 系統裡的「碎片化效應」讓傳統每個 agent 逐一監控的防禦策略幾乎失效；第三篇則從記憶體架構切入，用 3 個數量級的延遲差距，論證把記憶體放進 agent 推理迴圈本身才能有效消除冗餘行為。

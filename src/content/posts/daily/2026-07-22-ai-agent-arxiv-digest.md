@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 59
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-22-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 三篇論文從基礎設施、可觀測性、評估三個角度切入同一個核心問題：「如何打造真正可靠的 agent 系統？」Dyserve 用數學最佳化在 60ms 內決定 agent workflow 每個節點要用哪個 LLM，在精準度和延遲上同步超越所有 baseline；AgentLocate 解決 multi-agent pipeline 出錯時「不知道哪個 agent 搞的鬼」這個 ops 噩夢，自動定位責任 agent 和出錯時間點（COLM 2026 accepted）；PolyWorkBench 則給出一記警告：現有頂尖 LLM agent 在多語言工作流中表現大幅劣化，全球化產品場景還有很長的路要走。三篇合看，分別對應 agent 平台的 runtime 最佳化、ops 可觀測性、以及能力邊界評估三個關鍵層次。

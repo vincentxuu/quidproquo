@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-tool-mcp-memory-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

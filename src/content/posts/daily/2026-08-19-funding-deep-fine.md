@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-19-funding-deep-fine-en)
+
 ## 融資資訊
 
 | 項目 | 值 |

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 22
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-15-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從不同角度描繪「2026 年的 agent 現實」：UC Berkeley 用 1,000+ 個真實職場任務做成的 benchmark 顯示，當前最強 agent 在最難任務上平均只通過 2.6%；Microsoft 研究者訪談 17 位開發者後發現，他們都在無意識地發展出 4 種即興「監督工作」，但現有工具幾乎沒有支援；Reins AI 的工坊論文則指出，在 agent 系統還不夠成熟的部署期，傳統任務層監控根本看不到最嚴重的結構性故障。

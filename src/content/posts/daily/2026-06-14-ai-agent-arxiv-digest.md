@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 21
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-14-ai-agent-arxiv-digest-en)
+
 [!callout|📌|blue_background]
 ## 今日總覽
 

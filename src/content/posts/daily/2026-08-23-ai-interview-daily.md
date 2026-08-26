@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-ai-interview-daily-en)
+
 ## 本週行為面試練習
 
 ### 故事框架：AI 專案上線後出包，你怎麼定位問題並重建信任

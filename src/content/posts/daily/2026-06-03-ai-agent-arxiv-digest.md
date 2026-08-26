@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 10
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-03-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從 agent 記憶的「互通標準化」、「隱層效率化」、到「預算感知缺失」三個維度切入：第一篇獨立研究者提出跨框架記憶電線格式，試圖解決 mem0、Letta、Cognee 各自為政的碎片化；第二篇把過去經驗的「文字塞 context」改成在 LLM 隱層空間做向量檢索，12/13 benchmark 最佳；第三篇是多機構大型評測，揭露五大 frontier 模型全都過度樂觀、無法在中途感知「這任務預算不夠用」，任務強≠預算感知強（r=0.35）。三篇合看：記憶標準化難題 → 記憶效率新架構 → 部署成本的系統性盲點。

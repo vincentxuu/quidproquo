@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 45
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-08-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文聚焦同一個核心問題：現有 AI Agent 系統在「理想實驗室」與「真實部署」之間存在巨大落差。AgentGym2（ACL 2026）用新 benchmark 量化了評測的失真；Agentic RL 系統提出讓 agent 在生產環境持續自我進化的工程架構；ComfyClaw 則展示在圖像生成工作流中落地「技能自我進化」的完整範例。三篇合看，正是一張從「評測 → 部署 → 運行中進化」的完整地圖。

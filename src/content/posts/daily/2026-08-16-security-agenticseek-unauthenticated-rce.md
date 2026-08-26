@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-security-agenticseek-unauthenticated-rce-en)
+
 ## 事件概述
 
 開源本地 AI Agent 專案 [AgenticSeek](https://github.com/Fosowl/agenticSeek)（號稱「不用付 $200/月 API 費的本地版 Manus AI」，GitHub 上有 2.6 萬顆星）被揭露存在一個未授權遠端程式碼執行（RCE）漏洞。問題出在後端的 `POST /query` API 端點：這個端點完全沒有身份驗證，預設又綁定在 `0.0.0.0:7777`（等於對外部網路開放）並將 CORS 設為允許任何來源（`allow_origins=["*"]`）。任何能連到這個連接埠的人，只要送出一段構造過的查詢，就能驅動 Agent 內建的 `BashInterpreter` 用 `subprocess.Popen(shell=True, safety=False)` 執行任意 shell 指令，繞過原本就不完整的指令黑名單，取得主機層級的完整控制權。

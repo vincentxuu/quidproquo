@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天最顯眼的不是新框架，是「幫既有工具補強」這條路線——forge 給自架 LLM 的 tool-calling 加可靠性層，repo-context-mcp 用 MCP 幫 agent 打包不浪費 token 的 repo context，兩個都假設你已經有一個能跑的 agent loop，只是想讓它更穩、更省。另一條線是 DeepSeek 官方 CLI harness `dsh` 過去一週在中文開發者社群炸出至少五個獨立的桌面包裝專案，顯示這套工具的擴散速度已經追上英文社群對 Claude Code / Codex 的追新速度。

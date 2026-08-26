@@ -11,6 +11,8 @@ series:
   order: 81
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-13-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從三個層次拆解 Agent 記憶的難題。EvoGraph-Mem 發現「只加不刪」的記憶會隨時間腐爛——過時的洞見被反覆調用，變成決策毒藥——於是設計了一套可編輯的圖譜記憶，讓 Agent 自己辨識哪些記憶該留、該改、該封存。MAP-Graph 把問題往上推一層：多 Agent 共用記憶時，語意相關不等於有權存取，摘要會掩蓋私有或被污染的來源，於是用出處追蹤作為即時存取控制而非事後稽核。MaSRead 再往下推到基礎設施層：Agent 之間可以直接共用 KV cache 片段而非文字，但合併後的 cache 不能靠位置讀取，必須按內容定址。三篇合起來畫出一條清楚的技術棧：記憶要能自我修正（EvoGraph-Mem）、要有權限管控（MAP-Graph）、底層要能高效共用（MaSRead）。

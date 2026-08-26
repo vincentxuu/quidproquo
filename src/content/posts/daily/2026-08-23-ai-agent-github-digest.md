@@ -11,6 +11,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的主線是「誰跑得比官方快」——Bruno 的社群版 MCP server 比官方版早兩個月上線，原本掛在 SST 底下的 opencode 搬到 Anomaly 之後，星數已經超車 Anthropic 自家的 Claude Code；同時 MCP 的 TypeScript SDK 也在月中悄悄把單一套件拆成八個子套件，跟進協定本身從「session-based」轉向「完全無狀態」的改版。

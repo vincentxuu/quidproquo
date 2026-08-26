@@ -11,6 +11,8 @@ series:
   order: 6
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration-en)
+
 ## 事件概述
 
 Varonis Threat Labs 揭露了一條代號 CoSnitch 的攻擊鏈，鎖定 Microsoft Copilot Personal。研究人員沒有逆向工程程式碼，而是反覆「盤問」Copilot 為什麼某個自動執行的想法不可行——每一次拒絕都附帶技術理由，最終 Copilot 自己說出了一個未公開的 URL 參數 `?autorun=1`。研究團隊把它稱為「meta-hacking」：不是攻破模型，而是社交工程模型的推理過程,讓它自己配合。串上這個參數後，攻擊者只要送出一個連結，受害者點擊即在已登入的 session 中無感執行任意 prompt，可外洩 Gmail、Google Drive、Google Calendar 等已連接服務的資料，並能把攻擊者指令寫進 Copilot 的永久記憶體。Microsoft 已於 2026 年 8 月 18 日發布修補，並確認官方未觀察到在野利用。

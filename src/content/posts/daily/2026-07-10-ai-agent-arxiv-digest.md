@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 47
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-10-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文共同描繪 Agent 平台的「進化前線」：EvoSOP 讓 Agent 不再每次從零重組工具，而是從過去執行歷程中自動萃取可重用的 SOP，讓工作效率顯著提升；AgenticSTS 對長任務記憶提出嚴格的「有界合約」設計，用五層結構化提取取代無止盡的 context 堆疊；Spider 2.0-AIFunc 則揭示 AI 函式已被直接嵌入雲端 SQL 語法，但最強模型準確率僅約 67%，是資料 Agent 必須面對的新挑戰。三篇合看：從工具效率、記憶架構到資料能力，勾勒出 2026 年 Agent 平台亟需補強的三個關鍵短板。

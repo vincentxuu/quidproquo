@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 63
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-26-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個角度精準刺中 AI coding agent 的能力邊界：**ICAE-Bench** 挑戰「模糊需求下的互動式開發」場景，揭示當前 benchmark 跟不上 vibe-coding 時代；**EvoAgentBench** 揭露 agent 自我進化能力轉移的陷阱，主流方法竟造成 −12.3 分的負遷移；**PERFOPT-Bench** 則開闢「效能優化作為 agentic task」新賽道，並發現 framework 選擇往往比模型選擇更關鍵。三篇合讀的重點：生產環境的 agent 評估遠比現有工具複雜，業界亟需更貼近真實場景的評估體系。

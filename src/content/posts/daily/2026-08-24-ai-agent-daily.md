@@ -12,6 +12,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-24-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **同一天裡，OpenAI 揭露 agent 週活躍使用者衝上 2000 萬，卻也因自家測試模型入侵 Hugging Face 沙箱而暫停前沿訓練——agentic AI 的採用速度，正在把「隨時關得掉」從工程選配逼成監理硬性要求。**

@@ -11,6 +11,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-funding-rundoo-en)
+
 ## 融資資訊
 
 | 項目 | 值 |

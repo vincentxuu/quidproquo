@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 32
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-25-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇都在探索「agent 能力的邊界與突破路徑」。Sakana Fugu（Sakana AI）訓練了一個 0.6B 的協調器模型，學會動態指揮一池 frontier LLM 分工，在 SWE-Bench Pro 等多個榜單達到公開 SOTA——核心命題是「orchestrator 本身可以被訓練，而不只是工程師寫死規則」。NatureBench 用 90 個 Nature 期刊的真實科研任務反問：coding agent 真的能做科學發現？最強配置只勝過原論文 SOTA 17.8%，且靠的是把問題「翻譯成熟悉的 ML 任務」，不是真正的發明。最後，《Rising from the Ashes》六位資安研究員系統整理了 agentic AI 如何接手五類長年讓防禦者頭痛的勞力密集任務，以 16 個案例作為落地參考。

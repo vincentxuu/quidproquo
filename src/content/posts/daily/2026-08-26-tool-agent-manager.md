@@ -11,6 +11,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-tool-agent-manager-en)
+
 ## 工具資訊
 
 | 項目 | 值 |
@@ -25,7 +27,7 @@ series:
 
 ## 解決什麼問題
 
-你是否同時開了三、四個 terminal tab，每個都跑著一個 Claude Code 或 Codex session，然後每隔幾分鐘就要一個一個切過去看「這個做完了嗎」「那個是不是卡在問我問題」？tab 一多,状态就全靠記憶,而 agent 生成的 diff 也只能在自己那個 pane 裡逐行看,想留評論還得手動複製貼上再重講一次。
+你是否同時開了三、四個 terminal tab，每個都跑著一個 Claude Code 或 Codex session，然後每隔幾分鐘就要一個一個切過去看「這個做完了嗎」「那個是不是卡在問我問題」？tab 一多，狀態就全靠記憶,而 agent 生成的 diff 也只能在自己那個 pane 裡逐行看,想留評論還得手動複製貼上再重講一次。
 
 agent-manager 把每個 agent session 包成一個 tmux session（放在獨立的 `agentmgr` tmux server 上,不會跟你自己開的 tmux 混在一起）,然後在單一畫面上用一棵可摺疊的專案樹列出所有 session 的即時狀態。`space` 鍵可以在不 attach 的情況下直接把一句話送進選中的 session；同一顆鍵按在群組列上,就是「用這句話生一個新 agent」,而且輸入框按下 enter 之後不會關閉,可以連續分派好幾個任務給不同 agent。真正的殺手級功能是 `ctrl+r` 的 review mode：整檔 diff、語法高亮、改動行標色,在上面按 `c` 留行內註解,按 `C` 就把所有註解打包成一則訊息送回該 agent 的 pane,agent 立刻開始處理,畫面同時即時更新。它同時註冊了自己的 MCP server 到每個啟動的 session 裡,讓 agent 本身也能呼叫 `create_session`、`send_session` 去開子任務、傳訊息給另一個 agent。
 

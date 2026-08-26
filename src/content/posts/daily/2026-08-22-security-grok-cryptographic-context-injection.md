@@ -11,6 +11,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-security-grok-cryptographic-context-injection-en)
+
 ## 事件概述
 
 資安新創 Adversa AI 的研究者 Rony Utevsky 於 2026 年 8 月 20 日揭露一種名為 **Cryptographic Context Injection**（加密情境注入）的新型攻擊技術：把惡意指令用 AES-256-GCM 加密後藏在一般網頁上，讓輸入/輸出過濾器完全看不懂內容，再誘導 AI agent 在自己的程式碼執行環境裡把它解密、當成合法指令執行。研究團隊在 xAI 的 Grok（測試對象為 Grok 4.5 Fast）上完整重現了一次零點擊資料竊取：使用者只要請 Grok 摘要一個惡意頁面，Grok 就會把使用者姓名、概略位置、訂閱等級與完整對話紀錄，包裝成偽裝的「解密金鑰」，經由自己的瀏覽工具送到攻擊者伺服器。同一技術套用在 Google Gemini 上，則能繞過安全過濾器產生原本會被拒絕的違禁內容（如武器製造說明）。此漏洞自 2026 年 6 月 3 日透過 HackerOne 通報 xAI 至今，仍未獲得實質回應、修補或 CVE 編號。

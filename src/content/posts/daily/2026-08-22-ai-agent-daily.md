@@ -12,6 +12,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **AI 巨頭正在把自己嵌進資本與支付基礎設施——Stripe 收購 OpenRouter 把模型路由變成計費層的一部分，Anthropic 同時在推 IPO、晶片融資與供應鏈估值三條資本線，說明這輪競爭的護城河已經從「模型多強」移向「資本結構多深」。**

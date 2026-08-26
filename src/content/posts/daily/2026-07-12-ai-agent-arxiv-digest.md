@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 49
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-12-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文圍繞兩大主軸：**安全**與**評測**。Prismata 在頁面層阻止跨站提示注入攻擊；aiAuthZ 在工具呼叫層建立加密身份授權閘道——兩篇合力說明 LLM 本身不該是安全邊界，平台必須在架構層設防。第三篇 UniClawBench 則把 agent 評測從沙箱搬進真實世界，用「能力維度」取代「任務情境」做診斷，給平台工程師一把更好用的選模型與排查失敗的尺。

@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-tool-cairn-incident-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

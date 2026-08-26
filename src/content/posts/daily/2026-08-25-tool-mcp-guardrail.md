@@ -11,6 +11,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-tool-mcp-guardrail-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

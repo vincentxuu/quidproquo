@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 25
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-18-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文圍繞 Agent 平台的三個關鍵基礎設施層：HarnessX 提出一套「Harness 即可進化元件」的框架，讓 Agent 執行環境從靜態腳架變成自我最佳化系統，在 5 個 benchmark 上平均提升 +14.5%；第二篇研究多 Agent 協作中的「技能條件信任」路由問題，揭露什麼條件下細分信任真的有用、以及如何被攻擊者劫持；OCELOT 則從資安角度切入，提出「後驗洩漏預算」機制，防止 Agent 一步步把使用者隱私累積洩漏給外部服務。三篇合起來覆蓋框架設計、多 Agent 治理、隱私安全——恰好是落地 Agent 平台時最常踩到的三條坑。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 70
 ---
+> 🌏 [English version](/en/posts/daily/2026-08-02-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇各從不同角度逼視「Agent 在真實環境裡出事了怎麼辦」：ProACT 問的是多人協作中 Agent 應何時開口（Agent UX 設計問題）；第二篇用真實 GitHub 資料揭露 Coding Agent 和自己開的 PR 互衝（平台 ops 痛點）；第三篇從安全視角整理 Cyber-capable Agent 五大漏洞類別，以今年七月的 HuggingFace/OpenAI 事件為 case study。三篇合起來是一堂「Agent 上線後，你沒想到的麻煩都在這裡」速成課。

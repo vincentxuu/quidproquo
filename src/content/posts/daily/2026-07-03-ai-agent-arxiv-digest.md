@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 40
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-03-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今日三篇共同揭示一個核心張力：現有 agent 系統在封閉環境下表現亮眼，但只要環境稍有偏移就會出現嚴重退化。ICML 2026 論文從工具使用角度系統化量化了這個問題；第二篇展示如何用 6 個專精 agent 的流水線完成跨域複雜任務；第三篇則從 UX 角度提醒：agent 的「個性表達強度」不是越強越好，中等才是甜蜜點。

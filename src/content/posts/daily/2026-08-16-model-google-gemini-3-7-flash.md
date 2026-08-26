@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-model-google-gemini-3-7-flash-en)
+
 ## 模型資訊
 
 | 項目 | 值 |

@@ -11,6 +11,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的熱門專案剛好落在 agent 能力擴張的兩端——Agent-Reach 讓 agent 長出一雙看得到整個網路的眼睛，opensre 則讓 agent 直接下場處理正式環境事故；同時 LangChain 官方推出 deepagents，把「開箱即用的 agent harness」標準化，Anthropic 的社群外掛市集也在把「哪些外掛值得信任」這件事做成有審核流程的基礎設施。能力擴張得越快，把關的基礎設施就跟得越緊。

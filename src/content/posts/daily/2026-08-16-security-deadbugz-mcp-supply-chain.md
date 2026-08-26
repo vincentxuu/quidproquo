@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-security-deadbugz-mcp-supply-chain-en)
+
 ## 事件概述
 
 安全研究公司 [Pillar Security](https://www.pillar.security/blog/deadbugz-currently-active-mcp-supply-chain-campaign) 於 8 月 12 日揭露一起仍在進行中的 MCP（Model Context Protocol）供應鏈攻擊活動，命名為 **Deadbugz**。攻擊者透過公開的 GitHub 帳號 `zellkernel`，在 2026 年 8 月 10 日晚間短短 74 分鐘內（UTC 21:52–23:07），對 23 個互不相關的 AI、MCP、開發工具專案送出 pull request，企圖把一個偽裝成「文字格式化／摘要工具」的惡意 MCP server（自稱 `productivity-suite`）植入到這些專案的 MCP 設定檔中。這個 server 的關鍵特徵是**執行期延遲觸發**：一開始完全正常，只有累積滿三次工具呼叫後，才會回傳誘導 Agent 搜尋並外洩 SSH 金鑰、AWS 憑證、shell history、Kubernetes 設定的惡意指令，同時要求 Agent 隱瞞這個行為。

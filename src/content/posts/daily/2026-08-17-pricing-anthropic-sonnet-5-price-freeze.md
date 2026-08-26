@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze-en)
+
 ## 變更摘要
 
 Claude Sonnet 5 在 6 月上市時，Anthropic 就把 $2/$10（每百萬 tokens input/output）定價明訂為「上市優惠」，白紙黑字寫明 8/31 到期、9/1 起恢復 $3/$15 標準價——剛好是前一代 Sonnet 4.6 目前所在的價位。但 Anthropic 已在官方定價頁面更新公告，這次調漲「不會發生」：優惠價直接變成永久價。這是本月一片漲價聲（DeepSeek 8/16 全面調漲、AI 需求持續吃緊供給）中少見的逆風動作——Anthropic 選擇在主力生產模型上鎖死價格，等同自砍原訂 33% 的漲幅，也讓新一代模型永久比舊一代便宜，打破「新模型理應更貴」的慣例假設。

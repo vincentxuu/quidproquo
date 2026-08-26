@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 58
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-21-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同層面回答同一個問題：「怎樣才算一個真正能用的 agent 系統？」SearchOS-V1 給出架構答案——把搜尋進度外顯成結構化狀態、記錄失敗路徑，讓 multi-agent 協作搜尋更可靠；AutoSynthesis 展示高度結構化的學術任務（系統性文獻統合分析）可以被 multi-agent 流水線全自動化；Digital Pantheon 則解決「如何讓 agent 在壓力下維持既定人設」的角色工程問題，並引入可審計的多 agent 協商架構。三篇合看，分別對應 agent runtime 設計、workflow 編排、與人設工程三個核心挑戰的最新解法。

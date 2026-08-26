@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 28
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-21-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從不同切面拼出「agent 在真實世界怎麼落地」的全貌：Perplexity + 哈佛商學院用生產數據首次量化 agent 對比對話助理的差距——完成時間縮短 87%，而且 agent 吸引了認知複雜度更高的工作類型；Self-Harness 示範 agent scaffolding 如何不靠人工自動挖弱點、自動修，三個主流模型各獲 33-60% 相對提升；The Consistency Illusion 拆穿多 agent 辯論的核心陷阱——輸出層共識可能掩蓋底層推理根本不一致。三篇合讀的訊號：agent 真正的競爭力不在於模型更強，而在於「生產數據驅動的 scaffolding 自動改善」和「對集體決策可靠性的嚴謹校驗」。

@@ -11,6 +11,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-funding-twin1-ai-en)
+
 ## 融資資訊
 
 | 項目 | 值 |

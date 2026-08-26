@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-tool-pbx-mcp-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

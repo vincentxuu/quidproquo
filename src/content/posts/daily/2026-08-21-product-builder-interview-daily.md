@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Growth & Experimentation 是最容易「講得很忙但沒說到重點」的面試環節。候選人常花十分鐘描述 A/B test 怎麼跑——隨機分流、跑兩週、看 p-value——但這些是入場券，不是加分項。

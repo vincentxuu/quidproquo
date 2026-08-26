@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 12
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-05-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別從「評測診斷」、「工具進化」、「安全對齊」三個角度補強 Agent 平台的核心短板：APB 提出一套 4,209 道題的診斷型 benchmark，首次能把「規劃失敗」和「執行失敗」分開來看；MetaForge 讓 agent 能在運行時「自行鍛造」沒有的工具，打破靜態工具庫的天花板；RUBAS 把 agent 安全問題細分成四個評分維度，用強化學習讓模型學會在實用性和安全性間找到平衡。三篇合看：你的 agent 系統能不能被診斷、能不能自我擴展、能不能安全上線——這三道關卡今天同時被研究者正面回應。

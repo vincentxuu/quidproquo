@@ -11,6 +11,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Technical PM 面試最容易踩的陷阱，是把它當成弱化版的工程師面試——聽到「設計一個系統」就急著畫方框和箭頭。但面試官要看的從來不是架構完不完整，是候選人有沒有先框出限制條件再動筆。Google 的內部數據顯示，78% 沒過系統設計環節的 PM 候選人,問題不是技術深度不夠，而是跳過釐清需求直接畫圖。

@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection-en)
+
 ## 事件概述
 
 資安研究機構 elttam 向 FlowiseAI 揭露 Flowise 開源 AI Agent／工作流建構平台的 Custom MCP 節點存在命令注入漏洞，追蹤編號 **CVE-2026-73601**。當部署採用預設的 `CUSTOM_MCP_PROTOCOL=stdio` 設定時，已通過身份驗證的使用者可以透過操縱 MCP server 設定中的環境變數與路徑，繞過 Flowise 既有的指令與參數驗證機制，在跑 Flowise 的主機上執行任意作業系統指令。GitHub Security Advisory（GHSA-g98q-rm45-q9h8）已於 7 月底發佈，CVE 於 8 月 13 日正式登錄 NVD 與 CVE.org，修補版本為 3.1.3。這是 Flowise 的 Custom MCP 功能在過去一年內第四次被公開回報 RCE 等級漏洞。

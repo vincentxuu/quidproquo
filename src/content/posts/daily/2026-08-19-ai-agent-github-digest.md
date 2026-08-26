@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> [English version](/en/posts/daily/2026-08-19-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的絕對主角是 DeepSeek 開源的 agent harness「dsh」——一小時衝破兩萬星，寫下 GitHub 史上最快星數紀錄，這件事本身比任何單一功能都更值得注意：它證明模型公司正集體把差異化戰場從「模型本身」移到「harness 層」，openfang 選擇用 Rust 從 OS 層級重新定義 agent，其實是在跟 DeepSeek 搶同一塊地。

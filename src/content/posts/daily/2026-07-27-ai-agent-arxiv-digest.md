@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 64
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-27-ai-agent-arxiv-digest-en)
+
 [!info] 📌 **今日總覽**
 今天三篇的核心主軸是「Agent 的可靠性危機」——從記憶架構、安全攻擊到技能生命週期，分別揭露了目前 Agent 系統在長期記憶設計、資料注入漏洞和可重用技能管控上的根本性痛點。NapMem（Alibaba/Qwen）把記憶從「被動查詢」升級為「主動導航行動空間」，為個人化 Agent 提供新設計範式；ADI 攻擊論文現場示範如何繞過 Claude Code、Codex 的既有防禦，直接 RCE；SkillSec-Eval 則系統化地點名 MCP-like 技能生態的全鏈路安全漏洞，327 個真實技能中多個階段都有弱點。三篇合看，Agent 平台在往下挖功能的同時，安全與記憶基礎設施已到不得不認真對待的時間點。
 

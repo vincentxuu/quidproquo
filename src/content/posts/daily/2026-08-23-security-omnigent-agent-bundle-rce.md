@@ -11,6 +11,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce-en)
+
 ## 事件概述
 
 開源專案 [Omnigent](https://github.com/omnigent-ai/omnigent) 是一個定位為「meta-harness」的 AI agent 編排框架，讓使用者用同一個伺服器統一包裝、調度 Claude Code、Codex、Cursor、OpenCode 等各家 coding agent，並提供多人共用 session、policy 與 sandbox 控管。專案上線僅兩個多月（2026 年 6 月 11 日建立），GitHub 星數已突破 9,100，成長速度極快。2026 年 8 月 21 日，Omnigent 官方一次公告了三個嚴重漏洞（CVE-2026-62674、CVE-2026-62675、CVE-2026-62677），全部圍繞同一個問題：agent bundle 上傳端點對「租戶自己上傳的內容」信任過頭，讓任何已登入、只有一般 session 編輯權限的使用者，都能在共用或公司自架的 Omnigent runner 主機上執行任意指令、讀寫整個檔案系統，或竊取 runner 環境裡的憑證。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 53
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-16-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 三篇論文不約而同都在問同一個問題：agent 的每一步執行單元，到底應該怎麼設計才能讓它可稽核、可重用、出了錯能最小範圍修復？ATG 把任務分解成有向無環圖（DAG）讓子任務並行、中間結果可複用；PalmClaw 把手機原生 API 直接包成結構化工具，甩掉難以追蹤的 GUI 點擊序列；IoAT 則把 agent 網路延伸到 IoT 物理世界，從智慧建築到邊緣設備，畫出跨雲端、邊緣、感測器層的協調藍圖。共同主軸：執行邊界要清楚、動作要可稽核、失敗要能局部恢復。

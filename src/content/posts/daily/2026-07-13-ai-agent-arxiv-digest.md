@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 50
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-13-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文共同呼應一個趨勢：生產環境 agent 的瓶頸已不在模型能力，而在「狀態管理」。第一篇（Amazon）展示把重複步驟預先編譯成工具，可讓 p50 延遲降 42%、錯誤率降 53%；第二篇提出讓獨立記憶 agent 主動把關鍵狀態「推送」給行動 agent，解決長程任務中資訊遺失（behavioral state decay）的問題；第三篇以遞迴多 agent 架構克服單一 agent 無法同時廣又深的 web 研究限制。三篇合看：**工具化（tool compilation）、主動記憶（proactive memory）、遞迴分工（recursive orchestration）**，是 2026 年 agent 平台工程的三個核心方向。

@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-16-pricing-deepseek-v4-peak-off-peak-hike-en)
+
 ## 變更摘要
 
 DeepSeek 在發布 V4-Pro 正式版的同時，宣布 V4 全系列調漲 API 定價，並首次導入「尖峰／離峰」雙軌計費——這是它自 2025 年低價策略以來最大幅度的一次漲價。以漲幅最誇張的項目來看，V4-Pro 的 Cache Hit Input 尖峰時段從 $0.003625 漲到 $0.044/1M tokens，漲幅達 1,114%，這也是多家外媒下標「漲價超過 1,100%」的依據；但真正影響多數應用成本的 Output 定價，漲幅落在 355%（V4-Pro）到 371%（V4-Flash）之間。漲價後 DeepSeek 仍比 GPT-5.6 和 Claude 便宜，但「用中國模型幾乎零成本」的敘事正式終結。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 23
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-16-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從「訓練 → 架構 → 環境」三個層次，一起回答同一個問題：怎麼讓 Agent 在真實系統裡更可靠？RefGRPO 找出 Agent RL 訓練中被忽略的反思校準問題，讓 Agent 成為自己的驗證器；「Agents All the Way Down」給出從 LLM substrate 到上線部署的完整 custom agent 方法論，強調地基穩固比框架選擇更重要；EurekAgent 則以自主科研任務為場景，證明「環境工程」比「流程工程」更決定 agent 的可靠性上限。

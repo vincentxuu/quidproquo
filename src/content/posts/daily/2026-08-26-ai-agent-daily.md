@@ -12,6 +12,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **OpenAI 與 Anthropic 今天不約而同用真金白銀證明：控制自己的晶片供應鏈，已經比訓練更強的模型更急迫。**

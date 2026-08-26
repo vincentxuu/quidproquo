@@ -12,6 +12,8 @@ series:
   order: 6
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **SpaceX 收購 Cursor、Stripe 收購 OpenRouter、Ramp 收購 router.com——三筆幾乎同時發生的交易共同指向同一件事：Agent 生態的路由層與介面層，正被上游平台當成鎖定既有客戶的必要互補資產搶購一空，而治理能力明顯跟不上整併速度。**

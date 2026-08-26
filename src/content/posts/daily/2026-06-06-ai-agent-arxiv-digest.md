@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 13
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-06-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇圍繞 agent 系統三個深層問題：**記憶架構**（哪種設計能真正跨場景通用？）、**自我進化能力**（AI 能不能自己開發 agent？）、**安全盲區**（CUA 的安全性在不同場景下差距有多大？）。AutoMEM 告訴我們主動控制自己記憶的 agent 比依賴外部管道更泛化；Meta-Agent Challenge 揭示現在前沿模型距離「自主開發 agent」仍有顯著落差；Domain-Conditioned Safety 則發現 Claude Sonnet 4.6 在網頁任務的 prompt injection 攻擊成功率是 0%，但在程式碼場景中同樣的模型被攻破率高達 100%——三篇合看，agent 平台三個核心設計假設都值得重新審視。

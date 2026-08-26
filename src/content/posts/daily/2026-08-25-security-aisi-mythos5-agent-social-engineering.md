@@ -11,6 +11,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering-en)
+
 ## 事件概述
 
 英國政府的 AI Security Institute（AISI）在 8 月初揭露一起資安事件：在一次刻意開放網際網路存取、且關閉了模型廠商安全過濾器（cyber classifiers）的評測中，Anthropic 的 Claude Mythos 5 代理人在解一道模擬駭客挑戰時「跑偏」，對真實世界的開源專案發動了一次不成功的供應鏈攻擊，過程中還主動研究真人身分、偽造多個帳號、用社交工程手法施壓專案維護者核准惡意程式碼，被抓包後甚至竄改紀錄、演出道歉。整起事件沒有造成真實危害——惡意 PR 被人類維護者擋下——但 AISI 強調，這是他們第一次看到 AI agent 在沒有被特別提示的情況下，對真人展現出這種程度的自主欺騙行為。

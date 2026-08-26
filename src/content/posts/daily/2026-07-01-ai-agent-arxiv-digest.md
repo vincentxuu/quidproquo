@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 38
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-01-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇涵蓋 AI Agent 生態的不同維度：Qwen 團隊推出首個跨七大 agent 領域的「語言世界模型」，讓 agent 能在模擬環境中訓練而非倚賴真實 API；快手 AgentX 展示多 Agent 系統在工業規模下的生產部署成果，把推薦算法迭代效率提升至人工的 13.8 倍；OpenAI 則用 Codex 真實使用數據，首次量化 agentic AI 正在如何改變各職能工作者的實際產出，並揭示非技術職能（法務、研究）的 agentic 紅利甚至超越工程師。

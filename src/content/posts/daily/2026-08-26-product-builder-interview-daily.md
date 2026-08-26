@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Strategy & Execution 面試考的是「大局判斷力」——面試官丟出一個開放式的市場或競爭問題，看你能不能在資訊不完整的情況下，快速框出關鍵變數並做出有取捨的建議。這類題目在資深 PM 或 PgM 面試中權重很高，因為它模擬的是真實工作情境：老闆不會給你完整數據，只會問「我們該怎麼辦」。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 61
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-24-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別從生態、失敗、記憶三個角度切入：哪些開源 Agent 框架真正值得長期下注（不只看 star 數）、Agent 在哪六類問題上反覆翻車、以及如何讓 Agent 的長期記憶跨越多個人物做串聯推理。三篇合在一起，像是給 Agent 平台開發者的「框架選型依據 + 失敗防護清單 + 記憶系統升級方向」。

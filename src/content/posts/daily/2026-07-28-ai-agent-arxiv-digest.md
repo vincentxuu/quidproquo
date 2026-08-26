@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 65
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-28-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個角度直擊 Agent 平台核心挑戰：**AgentCompass** 提出可組合的開源評測基礎設施，終結 agent 評測各自為政的碎片化亂象；**Agents in the Wild** 是少見的生產落地報告，從藥物研發與金融系統的真實部署歸納出可複用的設計模式；**Nanbeige4.2-3B** 則証明 3B 小模型配上 Looped Transformer 與大規模 agentic RL，在 agent 任務上可以壓過 9B 甚至 12B 的競爭對手——對邊端部署或成本敏感場景有直接啟示。

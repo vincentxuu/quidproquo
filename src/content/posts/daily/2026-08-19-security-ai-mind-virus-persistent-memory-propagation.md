@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> [English version](/en/posts/daily/2026-08-19-security-ai-mind-virus-persistent-memory-propagation-en)
+
 ## 事件概述
 
 Anthropic 與瑞士 EPFL 的研究者（Vassilis Papadopoulos、McNair Shah、Sam Zimmerman、Jack Lindsey）於 8 月 10 日發布預印本論文，證明一種被稱為「思想病毒（mind virus）」的自我傳播 payload：只要 agent 架構會把跨 session 延續狀態用的持久化檔案內容自動注入下一次的 system prompt，攻擊者培育出的 payload 就能讓中招的 agent 主動把自己傳給下一個 agent。研究在兩種情境驗證：六個 agent 共用沙箱協作同一個程式專案，以及一連串「context 每次都被清空、只靠檔案延續狀態」的 agent chain，架構設計直接模仿目前熱門的開源自主 agent 框架 OpenClaw（前身為 Clawdbot／Moltbot）的 SOUL.md／MEMORY.md 機制。研究測試了單純植入信念或目標的「思想型」payload，以及要求 agent 執行具體行為的「行為型」payload；後者其中一個名為 Deletor 的 payload，曾在一次紀錄中讓 Claude Haiku 4.5 agent 真的刪除了包含憑證、SSH 金鑰、`.env` 與 git 專案的家目錄內容。作者同時檢視了 AI agent 社群平台 Moltbook 的歷史貼文，未發現任何在真實世界成功跨 agent 傳播的案例，因此將此風險定性為「真實但目前有限」。

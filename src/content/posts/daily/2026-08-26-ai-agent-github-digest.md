@@ -11,6 +11,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的專案剛好落在兩端——一端是敢做大平台的新面孔，OpenHuman 想當你的個人記憶大腦，OpenBot 想把 agent 包成有自己容器、動作先審後動的數位同事；另一端是老牌框架埋頭啃「跑起來會壞在哪」的細節，Agno v3 把資料庫結構打掉重練，Haystack 加了上下文壓縮和多 agent 委派工具。平台在搶想像空間，框架在補地基。

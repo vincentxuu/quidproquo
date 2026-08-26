@@ -11,6 +11,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-24-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的 MCP 生態呈現兩端拉扯——官方 GitHub MCP Server 忙著補資安洞（v1.10.0 一口氣修了符號連結寫入、bearer token 授權範圍、request lockdown 繞過等問題），社群這邊反而在往超細分領域鑽：x64dbg-mcp-server 把逆向工程／惡意程式分析包成 MCP 工具，mediagen 則把「AI 生成內容要打歐盟 AI 法案標記」這種法遵細節直接做進 CLI；框架層面，Qwen Code 和 gitagent 分別用「SWE-bench 77% 全量公開驗證」和「agent 狀態整個搬進 git repo」，示範多代理工具正往「可驗證、可審計」的方向收斂。

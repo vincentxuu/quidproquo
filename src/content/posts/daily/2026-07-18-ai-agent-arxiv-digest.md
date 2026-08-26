@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 55
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-18-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個維度切入「生產等級 Agent 可靠性」：MemCon 把記憶體操作建模為強化學習問題，讓 agent 自學何時存、取、忘，在 6 個 benchmark 上任務成功率最高提升 15.2 分；AgentCheck 把 MCP 伺服器變成除錯介面，開發者可重現工具故障、注入修復並驗證效果，填補了 MCP 生態長期缺乏「測試工具」的空缺；AgentAbstain 則用 263 個配對任務揭露：即便是最強的 frontier 模型，在「應拒絕行動」情境下正確率不到 60%，且棄動能力與任務解決能力幾乎無關——光靠換更強的模型無法解決這個問題。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 3
 ---
+> 🌏 [English version](/en/posts/daily/2026-05-27-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文共同指向 Agent 從 demo 走向真實部署的三道關卡：AgentTrust 在 tool call 執行前加入即時攔截層，填補靜態黑名單與事後 benchmark 之間的空白；Hermes 掃描 600 個生產 endpoint，發現現有 REST API 文件對 MCP agent 來說幾乎全部不合格（平均每個 endpoint 4 個問題）；PARPO 則從 RL 訓練切入，讓 agent 的行為真正因人而異而非「對所有人都還好」。三篇合在一起，勾勒出 production-grade Agent 系統在安全閘、API 整備、個人化三條線上還有多少硬仗要打。

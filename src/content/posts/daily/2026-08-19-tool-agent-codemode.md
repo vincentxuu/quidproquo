@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-19-tool-agent-codemode-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

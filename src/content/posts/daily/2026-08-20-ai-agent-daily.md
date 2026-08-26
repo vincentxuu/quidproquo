@@ -12,6 +12,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-20-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **Agent 記憶已經從「用了會更好」變成「不用不行」的互補資產——但今天學術界（GraphWake）和產業界（CoSnitch）在同一天各自證明，這個互補資產本身就是新的攻擊面。**

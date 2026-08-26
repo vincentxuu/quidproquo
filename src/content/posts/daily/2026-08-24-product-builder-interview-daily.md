@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-24-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Product Sense（又稱 product design）題型出現在超過 40% 的 PM 面試裡，是拉開「還不錯」和「很強」候選人差距的關鍵環節。它跟行為題不一樣：沒有公式能救你，考的是你能不能把「改善 XX 產品」這種開放式提示，收斂成有根據的診斷,再走到可驗證的方案。

@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-26-ai-interview-daily-en)
+
 ## 今日主題
 
 ML System Design 跟一般軟體 system design 最大的不同，是多了訓練資料怎麼來、feature 在訓練和線上推論時是不是同一套邏輯、模型上線後怎麼知道它「悄悄變差」這三層，光講得出 API gateway、load balancer、cache 這些通用元件是不夠的。面試官在意的是你能不能把一個商業問題（例如「提升推薦點擊率」）拆成明確的 ML 目標、資料管線、serving 架構跟監控策略,而且每個技術選擇都能連回最前面那個商業指標。

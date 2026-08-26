@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 33
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-26-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇各攻一個角度：第一篇 **RigorBench** 問的是「AI coding agent 怎麼解題」而非只看答對率，提出五維流程紀律指標；第二篇來自產業實踐，教你如何把大型 LLM multi-agent 系統客製化、加速，讓企業真的用得起（實測 4.48 倍吞吐量提升）；第三篇則從治理角度出發，為 AI 融入軟體開發生命週期提出一套正式協議語言，讓「哪些決定讓 AI 做、哪些要人工審核」從 prompt 裡的一句話，變成可機器驗證的規格。三篇合起來覆蓋「怎麼評估、怎麼部署、怎麼治理」。

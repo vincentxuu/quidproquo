@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 72
 ---
+> 🌏 [English version](/en/posts/daily/2026-08-04-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇各從不同角度審視 AI Agent 的能力與極限：AutoMem 告訴你「記憶管理」是可以自動學習的獨立技能，光優化記憶就讓 32B 開源模型達到頂級商用模型水準；Shadow Evaluation 用真實 NeurIPS 投稿測試頂尖 Agent 能否做開放式 AI 研究——答案是否定的，Agent 能工程但不會研究；Adaptive Adversaries 揭示現有安全評測嚴重低估威脅：加上自適應多輪攻擊者，攻擊成功率從 0–1% 跳到 14%。三篇合起來是一堂清醒課：知道 Agent 能自動變強在哪、不能在哪、以及你的安全測試可能根本不夠。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 54
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-17-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇各從不同角度解決 agent 平台的核心痛點：第一篇從「前端 UX 設計」切入，提出讓電商網站對 AI 瀏覽器 agent 友善的框架，成功率從 49% 提升至 89%；第二篇攻的是「搜尋型 agent 亂猜答案」問題，用動態棄答 RL 訓練讓 agent 知道何時該說「我不確定」；第三篇則帶來具身機器人的 agent OS 架構，其多模態圖記憶與技能隔離設計對通用 agent 平台有直接啟發性。三篇合起來覆蓋了 agent 的「前端 UI 介面設計」→「推理可靠性訓練」→「執行層記憶架構」完整鏈路。

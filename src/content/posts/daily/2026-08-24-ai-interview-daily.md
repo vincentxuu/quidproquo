@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-24-ai-interview-daily-en)
+
 ## 今日主題
 
 ML Fundamentals 是每一輪 ML 面試的地基，不管後面考不考 system design 或 LLM，面試官都會先確認你對 bias-variance、正則化、loss function 這些基本功有沒有紮實理解。junior 候選人能背出定義，senior 候選人能在拿到一個具體的 train/val 數字落差時，馬上說出診斷步驟和下一步要調的旋鈕。

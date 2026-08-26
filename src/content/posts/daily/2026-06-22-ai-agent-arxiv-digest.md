@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 29
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-22-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從「agent 在生產環境的可靠性與安全性」出發，覆蓋推論期、訓練期、基礎設施三個層次。LedgerAgent 用推論期的輕量「帳本」結構，讓工具呼叫 agent 不再把所有狀態塞進 prompt 靠 LLM 重建——直接降低政策違反與狀態錯誤；Alibaba 的 Connect the Dots (CoD) 則往更遠看，以強化學習訓練 agent 在長期部署中邊執行任務邊更新對環境的認識，跨任務越跑越準；Sovereign Execution Brokers 從安全基礎設施切入，在 agent 每次「動生產系統」的那一刻插入憑證驗證，把「授權的動作」和「實際執行的動作」嚴格綁定。三篇的共同訊號：現在 agent 平台的短板不只是模型智力，而是狀態管理、知識積累、以及執行層的可稽核性。

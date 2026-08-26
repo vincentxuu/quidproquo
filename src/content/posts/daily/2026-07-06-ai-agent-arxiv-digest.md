@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 43
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-06-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同角度同攻一個核心問題：**如何讓 Agent 工作流程在生產環境中真正可靠**。Mnemosyne 把資料庫的「交易（Transaction）」概念搬進 Agent 工作流程，讓 LLM 每個輸出都要先通過准入審核才能生效；PaperPilot 展示如何訓練 9B 小模型學會以 DAG（有向無環圖）規劃多輪搜尋工作流程，並根據使用者回饋動態修正整個流程；SEA 讓 Agent 邊跑邊改善自己，同時發出可被稽核的安全憑證。三篇合在一起幾乎覆蓋了 Agent 系統可靠性的完整棧：執行層保護、訓練層工作流程學習、更新層安全演化。

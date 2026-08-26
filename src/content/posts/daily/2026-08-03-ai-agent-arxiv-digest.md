@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 71
 ---
+> 🌏 [English version](/en/posts/daily/2026-08-03-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文分別從多 Agent 的「組織設計」、「安全隔離」與「使用者授權」三個維度切入平台建設難題。IMACS 把 multi-agent 系統拆成三個可獨立替換的層（組織、協調、協作演算法），讓框架設計者能像換積木一樣調整 Agent 角色或協作策略；APPA 用「分支上下文」打破 IFC（資訊流控制）的可用性瓶頸，在 4 個模型上把 prompt injection 外洩率從 31–50% 壓低至 0–7%；UW 的調查在 21 個 Agent 授權方案中發現，絕大多數系統只提供「開發者定義的全局策略」，使用者個人化授權幾乎付之闕如。三篇合在一起，勾勒出 agent 平台從原型走向生產環境必須補齊的三道門檻。

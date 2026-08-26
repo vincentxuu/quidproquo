@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 27
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-20-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇由三個不同角度探問「讓 Agent 更可靠」：EinsteinArena 提出讓多個 AI agents 彼此共享解題思路與失敗記錄的持久化平台，已在數學難題上集體找到 12 個人類從未發現的新最佳解；APEX 把 agent 自我演化從「只改 prompt」擴展到同時演化行為原則（principles）和工作流拓撲（topology）三層並進；AI Economist Agent 則示範如何用知識圖譜 + 正式計量模型替 LLM 的每一個定量聲明上鎖，讓報告每個數字都能追溯到具體計算。三篇合讀的訊號：Agent 系統的下一個競爭維度，是如何設計讓 agents 集體共享知識的基礎設施，以及如何讓 agent 的自我演化與精確定量輸出落地在有真實資料的生產環境。

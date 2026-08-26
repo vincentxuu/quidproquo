@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 4
 ---
+> 🌏 [English version](/en/posts/daily/2026-05-28-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個角度補齊 agent 平台知識：AgentFugue 展示多個 peer agent 共享「推理暫存筆記」可突破長任務協作瓶頸；Can Agent Benchmarks Support Their Scores? 揭露當前 agent benchmark 的評分機制存在系統性漏洞，排行榜數字需重新審視；VibeServe 則讓 agent 自動生成整套 LLM serving stack，在特殊部署場景下超越手工優化的 vLLM。三篇合起來分別回答了「agent 怎麼協作更強」、「我們信任的評測數字是否可靠」以及「agent 能幫工程師做基礎設施嗎」。

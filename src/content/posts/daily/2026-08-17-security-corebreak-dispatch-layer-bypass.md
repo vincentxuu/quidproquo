@@ -11,6 +11,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass-en)
+
 ## 事件概述
 
 資安新創 Stealth 的共同創辦人 Hedi Ingber 與 Aviyam Ivgi 於 2026 年 8 月 6 日在 Black Hat USA 2026 發表研究 **CoreBreak**，揭露一個橫跨三大 AI Agent 基礎設施供應商的結構性漏洞模式：Amazon Bedrock AgentCore、Google Agent Development Kit（ADK）、Vercel AI SDK 的 harness 套件，都存在同一種設計缺陷——負責「派發」工具呼叫的執行層（dispatch layer），只檢查一份資料「長得像不像」模型產生的 tool call，卻沒有驗證它是否真的來自模型這一輪推論。攻擊者只要能把格式正確的工具呼叫資料塞進這個派發流程，就能讓工具直接執行，而模型本身完全沒被呼叫過。這意味著 system prompt、內容過濾器、拒絕訓練這些疊在模型上的防禦，因為根本沒有機會介入這次「決策」，而全部失效。

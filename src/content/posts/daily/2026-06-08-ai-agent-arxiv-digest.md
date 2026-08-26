@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 15
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-08-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別對應 agent 平台堆疊的三個層次：AgentJet（訓練層）提出讓多個異質 LLM 同步做強化學習訓練的分散式框架，解決現有工具只能單模型訓練的根本痛點；AdaPlanBench（評測層）用 67.75% 的成績上限揭示 LLM agent 在「規則邊走邊揭露」的現實場景中遠未成熟，是第一個系統量化這種適應性規劃能力的 benchmark；Beyond Tokens（通訊層）整理了 multi-agent 系統改用「傳 embedding 而非傳文字」的研究現狀，提供分類框架評估這條新通訊路徑的工程取捨。

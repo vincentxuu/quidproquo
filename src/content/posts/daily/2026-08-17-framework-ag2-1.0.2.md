@@ -11,6 +11,8 @@ series:
   order: 2
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-17-framework-ag2-1.0.2-en)
+
 ## 版本資訊
 
 | 項目 | 值 |

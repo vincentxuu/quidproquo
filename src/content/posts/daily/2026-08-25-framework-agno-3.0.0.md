@@ -11,6 +11,8 @@ series:
   order: 5
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-25-framework-agno-3.0.0-en)
+
 ## 版本資訊
 
 | 項目 | 值 |

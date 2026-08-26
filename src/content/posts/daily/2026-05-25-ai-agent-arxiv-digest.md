@@ -11,6 +11,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 1
 ---
+> 🌏 [English version](/en/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇圍繞 2026 年 agent 平台最迫切的問題：**多代理系統的安全規範，在執行過程中能維持住嗎？**

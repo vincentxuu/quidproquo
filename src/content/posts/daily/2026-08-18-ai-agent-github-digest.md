@@ -11,6 +11,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-18-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天最有意思的不是新框架，是兩個「context engineering」工具同時衝上數萬星——headroom 專攻壓縮，把送進 LLM 前的 tool output、log、RAG chunk 先瘦身；agentmemory 專攻跨會話記憶，讓換個 coding agent 也不用重新解釋一次專案架構。加上 Andrew Ng 團隊的桌面 agent OpenWorker 把目標使用者從工程師擴大到一般知識工作者，這個產業的下一步戰場看起來不在「誰的框架圖畫得漂亮」，而在「context 夠不夠聰明」。

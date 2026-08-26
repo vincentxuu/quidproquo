@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 39
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-02-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今日三篇分別瞄準 Agent 平台的三大核心難題：**記憶如何從「撈資料」升級成「推理狀態」**（User as Code）、**多 Agent 如何去掉中央協調者卻更省成本**（DeLM），以及**Web Agent 執行後如何讓人快速驗證結果**（HANSEL）。三篇合在一起，幾乎就是一張高信任 Agent 平台的技術地圖——記憶層、協調層、可解釋層各攻一塊。

@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 18
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-11-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同層次探索「agent-native 基礎設施」的設計：第一篇從 API 界面出發，提出讓 API 在出錯時主動給 agent 結構化修復建議，大幅提升工具呼叫成功率；第二篇拉高到系統架構層，主張 Agent OS 才是讓 agent 長期穩定運行的正確抽象；第三篇直擊推理服務底層，建出針對多輪 agent 的 hardware-aware 模擬器，讓 KV cache 排程優化得以量化驗證。從 API 到 OS 到硬體，agent 運行的每一層都需要重新設計。

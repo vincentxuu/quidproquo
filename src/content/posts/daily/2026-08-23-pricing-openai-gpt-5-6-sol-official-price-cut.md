@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut-en)
+
 ## 變更摘要
 
 昨天才記錄過 OpenRouter 與 Cloudflare AI Gateway 對 GPT-5.6 Sol 祭出平台端五折促銷、而 OpenAI 自家標準費率當時仍是 $5/$30 未動；結果就在同一天（8/21），OpenAI 自己也出手了——官方將 Sol 的標準費率從 $5.00/$30.00 砍到 $4.00/$20.00，input 降 20%、output 降 33%，這是 OpenAI 自己的定價表變動，不是中間層平台貼錢促銷。Reuters 引述 OpenAI 說法，直指這次降價是為了應付來自 Anthropic 與中國模型的競爭壓力。降價後，先前已經在跑的 OpenRouter 五折折扣自動疊加在新的官方價格上，讓透過 OpenRouter 呼叫 Sol 的實際價格進一步降到 $2.00/$10.00。

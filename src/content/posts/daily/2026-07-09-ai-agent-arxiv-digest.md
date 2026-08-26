@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 46
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-09-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同維度敲響「Agent 安全警報」：FARMA 能以 100% 成功率悄悄竄改 Agent 的推理記憶，繞過現有所有防禦機制；Vera 框架對 4 套生產級 Agent 系統（含 Claude Code）做系統化安全測試，平均攻擊成功率高達 93.9%；PiSAs 則揭示在多使用者共享 Agent 環境中，資訊跨使用者洩露是個未被充分關注的嚴重問題。三篇合看，是任何正在部署 Agent 平台的工程師與 PM 必須面對的安全現實。

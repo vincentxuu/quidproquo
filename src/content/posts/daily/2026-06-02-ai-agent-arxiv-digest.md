@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 9
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-02-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從不同角度解決 Agent 平台的核心痛點：第一篇提出把 LangGraph 那種「外掛 orchestrator」邏輯直接燒進小模型 weights，讓每對話成本降低 128–462 倍；第二篇來自 IBM Research，打造自動分析 agent 執行行為的三層評估框架，解決「agent 出了問題不知道哪個環節壞掉」的困境；第三篇來自 Microsoft，提出 agent 記憶的跨平台可攜帶協議，讓 Claude / GPT-4 / Gemini 之間可以交接記憶而不丟失狀態。三篇合看，恰好覆蓋 agent 平台的部署效率 → 行為評估 → 記憶可攜性三個關鍵面向。

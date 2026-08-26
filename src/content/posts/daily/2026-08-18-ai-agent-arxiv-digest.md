@@ -11,6 +11,8 @@ series:
   order: 86
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-18-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文合起來戳破一個共同的迷思：以為「Agent 能力夠強」或「多加一層防護」就等於安全可靠。ActBench 從執行軌跡（而非最終回應）紅隊測試協作型 agent，發現不管換哪種開源框架，攻擊成功率都還能衝到 73.7%–94.4%；Agent Behavioral Contracts II 用 18,000 個任務的預註冊實驗證明，業界常用來估算多 agent 系統可靠度的「條件獨立假設」根本不成立——同模型組成的兩階段 pipeline，共同失敗率高達 90%；Graph-Based RL Drift Diagnosis 則提供了一個相對務實的解方，外掛一個由小模型專精的復原圖，在不重訓主力 agent 的前提下偵測漂移並決定回滾。三篇合起來是一堂清醒課：Agent 的安全防線不能只看最終輸出、也不能只靠「多加一層 agent」，真正該投資的是執行軌跡層級的監督與可回滾的復原機制。

@@ -11,6 +11,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-tool-mcp-anything-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

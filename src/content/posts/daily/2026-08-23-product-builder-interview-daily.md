@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-product-builder-interview-daily-en)
+
 ## 今日主題
 
 Behavioral 面試常被低估，但往往是決定 offer 的最後一關。多數候選人不是沒有故事，是選錯了故事、講錯了層次——把「我很努力」講成重點,而不是「我怎麼判斷、怎麼取捨」。Amazon 的一場真實 debrief 裡，一位 L5 候選人明明有 ownership，卻因為講不出「如何在沒有直接權限的情況下說服跨部門對象」，委員會討論了 18 分鐘後決定不推進——問題不是經驗不夠，是故事沒揭露出候選人怎麼在有阻力的跨部門情境下走出一條路。

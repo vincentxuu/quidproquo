@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 51
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-14-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文從三個實戰角度切入 AI Agent 平台：第一篇揭露多 Agent 系統在生產環境中面臨的隱蔽安全威脅，並提出以「激活空間」偵測惡意 agent 的新框架（非同步環境下 F1 比現有方法高出 +0.55）；第二篇改善 coding agent 的 retrieval 策略，引入「程序相似性」讓 AI 能找到解題步驟相近但表面不同的程式碼；第三篇則是重磅提醒——同一個 LLM 放進不同 harness，agent 的中途判斷就會出現顯著偏差，harness 設計根本不是中性的工具。

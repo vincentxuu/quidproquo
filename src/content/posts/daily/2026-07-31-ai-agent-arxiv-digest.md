@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 68
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-31-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文都在問同一個核心問題：**現在的 AI Agent 真的能用嗎？** 答案出奇地一致——還差得遠。[HANDBOOK.md](http://HANDBOOK.md) 揭露把最強前沿模型丟進虛擬公司後，企業政策合規通過率最高只有 **36.2%**；LangGraph 論文給出三份可落地的有狀態工作流食譜，並附上「什麼時候不要用 LangGraph」的決策指南；MM-ToolSandBox 則首次量化了「看圖＋叫工具」這個多模態組合技的困難程度——12 個主流模型中最強的成功率也不到一半。三個維度：合規評估、框架設計、視覺工具，串起一張「Agent 離真正落地還有多遠」的完整地圖。

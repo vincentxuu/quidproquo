@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 48
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-11-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文都在追問同一件事：Agent 系統如何才能「可靠地」運作？STRACE 解決的是優化輸入太雜——從大量噪音失敗軌跡中精準找出真正的根因，讓 Agent 的自動優化不再被冗餘案例帶偏；The Blind Curator 揭示一個令人不安的靜默失效模式——自我進化 Agent 的技能淘汰機制會因為 LLM 評審偏差在某個閾值後徹底停擺，光靠增加數據救不回來；Severity Scale 則把「Agent 被攻擊後到底有多嚴重」從二元的成功/失敗，變成七段式的行動傷害評分，讓安全評測終於有細緻度。三篇合看：優化品質、自我進化健全性、安全評測精度——三個不同層面，共同指向 Agent 可信賴性這個 2026 年最燙手的議題。

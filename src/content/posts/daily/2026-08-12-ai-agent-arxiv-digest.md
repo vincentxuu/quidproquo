@@ -11,6 +11,8 @@ series:
   order: 80
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-12-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從三個完全不同的角度收斂到同一個結論：Agent 的效能與安全瓶頸不在模型本身，而在模型周圍的架構設計。The Devil Is in the Interface 用 11,700 條軌跡證明，相同能力的工具換個介面包裝，coding agent 的行為一致性最多差 4.7 倍；Agent Memory Distillation 讓 4B 參數的小模型透過結構化記憶蒸餾，在工具呼叫基準上跳升 27 個百分點，直逼 GPT-5-mini 本尊；Multi-Agent AI Safety as an Institutional Design Problem 最激進——它說安全甚至不是技術問題，而是制度設計問題，同一條安全規則搭不同的權限驗證機制，違規率從 0% 到 23% 天差地別。三篇合起來的訊號很清楚：要讓 Agent 更強更安全，先別急著換模型——重新設計它的工具介面、記憶結構和治理規則，投報率更高。

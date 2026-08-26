@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 37
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-30-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇論文共同聚焦在一個核心問題：**我們到底怎麼評估 agent 夠不夠好？** SWE-Explore 把 coding agent 最被忽視的中間步驟——讀懂程式庫——單獨拿出來測；Claw-SWE-Bench 揭示框架設計（harness adapter）才是讓 coding agent 分數暴漲的真正槓桿，同一模型換個 adapter 就能從 19% 跳到 73%；Red Queen Gödel Machine（Cambridge × NVIDIA）則走得更遠，讓評測者本身也跟著 agent 一起進化，打破靜態 benchmark 的天花板。三篇合看：**evaluation infrastructure 正在成為 agent 平台最核心的競爭壁壘**。

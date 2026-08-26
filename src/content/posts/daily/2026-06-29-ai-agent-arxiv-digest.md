@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 36
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-29-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇從不同角度剖析「Agent 走向生產級基礎設施」的挑戰：Agent libOS 回答「agent 的 runtime 底層該長什麼樣子」；Autodata（Meta FAIR）示範「agent 如何自己製造並持續優化訓練資料」；GAIE 則提出「企業在法規約束下如何分級監督 coding agent」。三者合看，描繪出 agent 平台從架構、資料到治理都需要重新設計的完整藍圖。

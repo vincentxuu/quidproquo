@@ -12,6 +12,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **Agent 生態系正在以「規模」取代「官方光環」成為新的信任指標——但今天同時證明，規模本身現在也是最大的攻擊面，沒人幫你把星數跟安全性畫上等號。**

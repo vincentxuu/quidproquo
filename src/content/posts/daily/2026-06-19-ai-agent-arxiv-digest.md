@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 26
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-19-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇都在動搖 Agent 領域的「常識」：ACCORD 實驗揭示 agent 普遍犯的「自以為了解指令」問題（靠假設而非觀察行動），提出主動接地框架讓 AppWorld 成功率從 42% 跳到 62.6%；《多智能體的幻覺》以嚴格評測證明，自動生成的多智能體架構在計算成本高出 10 倍的情況下反而比不過單 agent + CoT-SC；《非常非常 Agentic》則用 GitHub 大規模實證資料揭示，AI 程式碼 Agent 在新建專案的採用率已是一年前的兩倍多。三個訊號合起來：Agent 工具快速普及，但「多 agent 必然更強」和「agent 理解你的指令」這兩個核心假設，正在被資料動搖。

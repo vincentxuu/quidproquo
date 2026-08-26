@@ -12,6 +12,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-19-ai-agent-daily-en)
+
 ## 今日重點摘要
 
 - DeepSeek 開源 agent harness「[dsh](https://github.com/deepseek-ai/deepseek-harness)」8/13 發布一小時內破 2 萬星，寫下 GitHub 史上最快星數紀錄，目前累積約 15.8 萬星

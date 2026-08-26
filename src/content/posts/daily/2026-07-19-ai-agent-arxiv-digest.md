@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 56
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-19-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別對應 agent 平台的三個核心課題：MyAG 用圖論視角重新拆解「如何組裝 agent 系統」，提出 component / workflow / search 三層圖分離關注點；自我改進綜述用統一公式框架整理「agent 如何從經驗進化」的整個研究方向；MemPoison 則揭示「持久記憶是 agent 最脆弱的攻擊面」，並建立首個涵蓋 1,227 個攻擊案例的 benchmark。三篇合起來剛好是：怎麼搭架構 → 怎麼讓系統演化 → 怎麼不被攻破。

@@ -11,6 +11,8 @@ series:
   order: 1
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-20-ai-interview-daily-en)
+
 ## 今日主題
 
 ML System Design 是 senior AI engineer 面試的分水嶺。它和傳統 software system design 的差別在於：你不只要設計一個能跑的系統，還要處理訓練與服務之間的一致性、模型品質隨時間退化的問題，以及離線指標和線上商業指標之間的落差。

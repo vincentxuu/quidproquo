@@ -11,6 +11,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount-en)
+
 ## 變更摘要
 
 過去三天內，兩個獨立的推理路由平台——OpenRouter 與 Cloudflare AI Gateway——幾乎同步對 OpenAI 旗艦模型 GPT-5.6 Sol 祭出五折優惠，把標準費率從 $5.00/$30.00 砍到 $2.50/$15.00（每百萬 tokens input/output），Flex 層甚至低到 $1.25/$7.50。這不是 OpenAI 自己降價——直接呼叫 OpenAI API 的價格仍是 $5/$30 沒變——而是兩個中間層平台各自貼錢促銷，且時間點高度重疊（OpenRouter 8/17 宣布、Cloudflare 8/20 跟進），促銷都設在 9/18 到期。折扣只適用平台代管計費（非 BYOK）流量，值得注意的是 OpenRouter 這次降價恰好卡在 Stripe 以逾 70 億美元收購 OpenRouter 的交易期間，時機本身就是一個訊號。

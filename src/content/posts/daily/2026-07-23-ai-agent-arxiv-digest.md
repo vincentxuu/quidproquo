@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 60
 ---
+> 🌏 [English version](/en/posts/daily/2026-07-23-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇的共同主題是：**我們測 agent 的方式，本身就有問題**。第一篇直接審計主流工具呼叫 benchmark，發現近兩成的分數是評錯的；第二篇用重播分析告訴你哪些 benchmark 不用跑完就能得出可靠結論（SWE-bench 是反例）；第三篇推出首個將「執行任務」與「生成操作教學」合二為一的多模態 web agent benchmark，截圖輸入、雙目標評測，最強模型也只完成不到四成。三篇合讀能讓你對 agent 評測的現況有完整的危機感與應對方向。

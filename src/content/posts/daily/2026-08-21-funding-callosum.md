@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-21-funding-callosum-en)
+
 ## 融資資訊
 
 | 項目 | 值 |

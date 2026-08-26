@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 2
 ---
+> 🌏 [English version](/en/posts/daily/2026-05-26-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別從三個基礎設施層面深挖 Agent 平台：微軟提出仿人腦六機制的記憶管理架構，在大型 codebase 資料上讓記憶庫壓縮 58% 還保住 97.2% 精確率；Megagon Labs 的研究顛覆「逐步推理」慣例，證明先生成完整計劃再批次執行工具可省 2–4.7x token；最後一篇借用神經科學工具，讓 multi-agent 通訊拓撲（Chain / Star / Mesh）的架構選擇從猜測變成可計算的診斷。

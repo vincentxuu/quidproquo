@@ -10,6 +10,8 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 20
 ---
+> 🌏 [English version](/en/posts/daily/2026-06-13-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 今天三篇分別從「記憶架構」、「訓練效率」、「可靠度評估」三個角度切入 Agent 平台的核心挑戰。HORMA 提出階層式檔案系統記憶架構，讓 Agent 在長工作流程中不再因 context 暴漲而崩潰；TRACE 重新設計 Agent RL 訓練的 rollout 分配邏輯，同樣算力讓 Multi-Hop QA 多學 2.8 個百分點；τ-Rec 則揭露多輪對話推薦 Agent 的「可靠度斷崖」——連最強模型連跑四次的可靠度也只剩 38%，這個數字對任何計劃上線 Agent 產品的團隊都是當頭棒喝。

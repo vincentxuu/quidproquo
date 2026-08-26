@@ -11,6 +11,8 @@ series:
   order: 4
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-22-framework-crewai-1.15.17-en)
+
 ## 版本資訊
 
 | 項目 | 值 |

@@ -11,6 +11,8 @@ series:
   order: 91
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
+
 ## 今日總覽
 
 三篇論文剛好覆蓋 Agent「技能系統」的三個階段:怎麼教會模型用工具(MidTool 用中期訓練補課,而不是把重擔全丟給後訓練)、技能該怎麼歸納才會遷移得好而不是幫倒忙(Break It Down 發現整段任務式歸納反而讓 agent 表現掉到沒有記憶的基線之下)、以及技能庫變大之後怎麼選才不會浪費 token 又選錯(Optimal Skill Selection 給出第一個可證明保證的演算法)。三篇合起來勾勒出一條「技能生命週期」:訓練期打地基 → 使用期歸納 → 檢索期挑選,而且第三篇直接點名 Codex、Claude Code 這類正在生產環境跑的系統作為現況參照——這正是我們每天在用的 skill 機制背後的研究問題。
