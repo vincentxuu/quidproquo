@@ -87,3 +87,4 @@ Notes
   console/providers/os): code complete, pending production observation windows.
   Status snapshots in docs/progress-archive.md; pending decisions in
   docs/governance/escalation-queue.md.
+- **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。

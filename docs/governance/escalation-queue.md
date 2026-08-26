@@ -114,6 +114,16 @@
   `origin/backup/main-pre-rewrite-20260825`（tip `3773ce7`，https://github.com/vincentxuu/quidproquo/tree/backup/main-pre-rewrite-20260825）。今天的 daily-digest 工作改在從目前 `origin/main` 切出的 `main-work` 分支上進行，沒有動本地 `main` 分支本身。
 - 接手第一步：使用者先看 `backup/main-pre-rewrite-20260825` 分支上那 72 篇文章／3 個 PR 是否還需要（尤其是「世界名校 AI／CS 課程地圖」與 Stanford CS 系列 15 篇），決定要不要把缺的部分 cherry-pick 或合併回目前的 `origin/main`；同時查一下是誰／哪個 session／哪個自動化在什麼時候對 `main` 做了 force-push（GitHub repo 的 Settings → Branches 若無 protection，建議這次事故後補上 protect `main` 禁止 force-push）。
 
+## Q-015 Tavily API 額度完全用盡，daily-digest-signals 第一/三層與所有依賴 Tavily 的 routine 全面失效
+
+- 登錄：2026-08-27（來源：daily-digest-signals routine 執行時發現）
+- 做什麼：本次 routine 執行時，所有 `mcp__Tavily__tavily_search` 呼叫（含第一層 8 個廣域查詢、第三層 4 個中文/台灣查詢，共 20+ 次嘗試）全數回傳 HTTP 432 `"This request exceeds your plan's set usage limit. Please upgrade your plan or contact support@tavily.com"`——不是單一查詢失敗，是帳號額度整個被用盡，同一時間疊加 Q-012 已知的 WebFetch egress 全面封鎖（`www.anthropic.com` 等網域仍為 `EGRESS_BLOCKED`），代表 skill 設計的三層搜尋策略中，第一層（8 Tavily）、第二層（67 WebFetch/firecrawl，Q-012 已封鎖）、第三層中文部分（4 Tavily）**同時失效**，只剩 Exa（3 查詢）與 `mcp__linkup__linkup-search`（非 skill 原設計工具，本次臨時替代）還能用。
+  - 影響範圍不只本 routine：`.agents/skills/daily-digest-*` 系列多數 routine（arxiv、github、benchmark、security、funding、tool、pricing 等）的搜尋方法章節都指定 Tavily 為主要或輔助搜尋工具，Tavily 額度歸零代表這些 routine 今天起執行時都會遇到同樣的 432 錯誤，而非只有 signals 這支。
+  - 本次臨時改用 `mcp__linkup__linkup-search`（帶 `fromDate`/`includeDomains`）加上既有 Exa 查詢做補償，但 linkup 的 `fromDate` 篩選跟 Q-012 記載的 Exa `startPublishedDate` 一樣不可靠（實測回傳大量數月前甚至 2025 年的舊文章），且很多結果來自 LinkedIn 貼文（非一手新聞來源、無法驗證數字），扣掉重複/過舊/來源不可信的候選後，能同時滿足「48 小時內＋relevance ≥ 0.5＋有可信一手來源」三個條件的信號遠低於 skill 要求的 30-50 則下限，且用掉的搜尋呼叫數已遠超 skill 原設計的「總計 86 個來源、只用 15 次搜尋 API」預算。
+  - 品質檢查清單的第 2 項（`n>=30&&n<=50`）與第 3 項（`relevance>=0.5` 硬門檻）在目前工具狀況下無法誠實達成——放寬篩選勉強湊數會違反「不可跳過失敗項」與「無來源寫事實」的紅線（Tier 3 禁止事項），所以本次 routine 選擇不產出 `${TODAY}.json`，而不是產出一份灌水或低品質的信號檔。
+- 為什麼現在不能做：Tavily 帳號額度／方案是外部服務的計費設定，不是 repo 內能改的東西（Tier 2：需要人決定要不要加值/換方案，或找到其他免費配額重置時間）；同時是否要把 skill 的搜尋策略改成以 linkup/Exa 為主、Tavily 為輔的容錯設計，屬於改多支 skill 核心邏輯的批次改動（>20 檔，Tier 2）。
+- 接手第一步：先確認 Tavily 帳號的方案與額度重置時間（是否只是本月用盡、幾號重置），若短期內無法恢復，需要人決定：(a) 升級 Tavily 方案，或 (b) 在 `.agents/skills/daily-digest-*/SKILL.md` 把 linkup-search 正式列為 fallback（並註明其 `fromDate` 不可信、需要手動時間過濾，這點應該比照 Q-012 對 Exa 的處理方式寫進 skill），跑 `pnpm skills:sync` + `pnpm verify`。在此之前，建議所有依賴 Tavily 的 daily-digest routine 執行時比照本次做法：搜尋工具全滅時寧可不產出，也不要放寬品質門檻硬湊數字。
+
 ---
 
 ## Done
