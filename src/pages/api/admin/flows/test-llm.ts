@@ -75,10 +75,11 @@ export const POST: APIRoute = async ({ cookies, request }) => {
     })
 
     const latency = Date.now() - started
+    const rateLimitHeaders = extractRateLimitHeaders(res.headers)
 
     if (!res.ok) {
       const errBody = await res.text()
-      return json({ ok: false, provider: providerKey, model, status: res.status, latency, error: errBody.slice(0, 500) })
+      return json({ ok: false, provider: providerKey, model, status: res.status, latency, error: errBody.slice(0, 500), rateLimit: rateLimitHeaders })
     }
 
     const data = await res.json() as {
@@ -94,10 +95,24 @@ export const POST: APIRoute = async ({ cookies, request }) => {
       latency,
       content: data.choices?.[0]?.message?.content ?? '',
       usage: data.usage,
+      rateLimit: rateLimitHeaders,
     })
   } catch (err) {
     return json({ ok: false, provider: providerKey, model, latency: Date.now() - started, error: String(err) })
   }
+}
+
+const RATE_LIMIT_HEADER_PREFIXES = ['x-ratelimit', 'retry-after', 'x-rate-limit', 'ratelimit']
+
+function extractRateLimitHeaders(headers: Headers): Record<string, string> | undefined {
+  const result: Record<string, string> = {}
+  headers.forEach((value, key) => {
+    const lower = key.toLowerCase()
+    if (RATE_LIMIT_HEADER_PREFIXES.some(p => lower.startsWith(p) || lower === p)) {
+      result[key] = value
+    }
+  })
+  return Object.keys(result).length > 0 ? result : undefined
 }
 
 export const GET: APIRoute = async ({ cookies }) => {
