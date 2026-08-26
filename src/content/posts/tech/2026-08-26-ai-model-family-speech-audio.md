@@ -9,7 +9,7 @@ tldr: "語音模型分兩條線：ASR 線由 Whisper 主導——2022/09 以 MIT
 description: "AI 語音模型家族深拆：Whisper v1/v2/v3/turbo 演化與 WER 表現、OpenAI 轉閉源後的 gpt-4o-transcribe、ElevenLabs v3/Flash/Scribe 模型線與定價融資、Kokoro/XTTS/Chatterbox 開源 TTS 格局、Realtime API 與 Gemini Live 即時對話趨勢。"
 series:
   name: "AI 模型家族"
-  order: 14
+  order: 17
 draft: false
 glossary:
   - term: "WER"

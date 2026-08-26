@@ -13,7 +13,6 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-pragmatic-engineer-big-tech-to-newsletter-en)
 
 2021 年 8 月，Gergely Orosz 在阿姆斯特丹的家中按下 Substack 的「發佈」按鈕。六週後，他有了 1,000 個付費訂閱者。四個月後，The Pragmatic Engineer 登上 Substack 科技類第一名。
 

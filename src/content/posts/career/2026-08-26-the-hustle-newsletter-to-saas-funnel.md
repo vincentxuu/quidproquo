@@ -13,7 +13,6 @@ description: "The Hustle 創辦人 Sam Parr 的完整成長歷程：從熱狗攤
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel-en)
 
 Sam Parr 的創業故事不是「工程師寫技術文」或「前主管分享經驗」——他是一個在納許維爾街頭賣熱狗的人，靠著文案直覺和不怕出醜的性格，把一份免費電子報做成被 SaaS 巨頭收購的媒體資產。
 

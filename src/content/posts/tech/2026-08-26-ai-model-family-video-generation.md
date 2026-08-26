@@ -9,7 +9,7 @@ tldr: "2024 年 2 月 Sora 預覽震撼業界，兩年半後格局翻轉：OpenA
 description: "影片生成模型家族深度介紹：Sora 1→2 退場時間線、Veo 2→3.1 原生音訊與 Flow、Kling 1.0→3.0 商業化、Runway Gen-3→Gen-4.5 企業定位，規格定價對照表與行銷／影視／批次生成選型指南。"
 series:
   name: "AI 模型家族"
-  order: 15
+  order: 18
 draft: false
 glossary:
   - term: "Diffusion Transformer（DiT）"

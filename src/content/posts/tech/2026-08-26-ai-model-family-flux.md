@@ -9,7 +9,7 @@ tldr: "FLUX 是 Black Forest Labs 的圖像模型家族——2024 年 8 月由 S
 description: "FLUX（Black Forest Labs）模型家族完整介紹：2024→2026 演化時間線、rectified flow transformer 架構、schnell/dev/pro 到 FLUX.2 klein/max 五層定位、非商用授權陷阱、每張圖定價與 Midjourney/Imagen 競品對照、FLUX 3 影片與機器人佈局。"
 series:
   name: "AI 模型家族"
-  order: 13
+  order: 16
 draft: false
 glossary:
   - term: "Rectified Flow Transformer"

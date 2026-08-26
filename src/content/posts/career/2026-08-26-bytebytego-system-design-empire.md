@@ -13,7 +13,6 @@ description: "ByteByteGo 創辦人 Alex Xu 的完整成長歷程：從自費出�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-bytebytego-system-design-empire-en)
 
 Alex Xu 用一本自費出版的面試書，撬動了一個年營收 $3.5M 的技術教育帝國。他沒有創投、沒有媒體背景、沒有團隊——起點就是一個矽谷工程師覺得「市面上的系統設計資源不夠好」。
 
