@@ -1,61 +1,34 @@
 ---
-title: "Claude Code 除錯與疑難排解合集：常見問題一次解決"
+title: "Claude Code Troubleshooting 索引：安裝、執行期與設定診斷三篇"
 date: 2026-03-28
 type: debug
 category: tech
 tags: [claude-code, troubleshooting, debugging, dx, skills, hooks, settings]
 lang: zh-TW
-tldr: "整理 Claude Code 使用中最常遇到的問題：Skills 找不到、Hook 不觸發、設定不生效、權限卡住、MCP 連不上。每個問題附原因分析和解法，省下你翻文件的時間。"
-description: "彙整 Claude Code 常見的疑難排解情境，包含 Skill discovery 失敗、Hook 不觸發、settings.json 設定衝突、權限模式問題、MCP server 連線失敗等，每個問題提供症狀、原因分析與解決步驟。"
+tldr: "原 Claude Code 除錯合集已拆分為三篇專文：安裝與登入、執行期問題、設定診斷。本頁是三篇的索引。"
+description: "Claude Code troubleshooting 系列索引：安裝登入問題、執行期錯誤與效能問題、設定不生效的診斷，三篇專文的入口頁。"
 draft: true
 series:
-  name: "Claude Code 自動化指南"
-  order: 27
+  name: "Claude Code 深入介紹"
+  order: 36
 ---
 
 🌏 [English version](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
 
-<!-- TODO: 待撰寫 -->
+原本這一頁預計收錄 Claude Code 的所有疑難排解情境，寫作時發現三類問題的排查路徑差太多——裝不起來要看安裝日誌、跑到一半掛掉要看網路與 API 錯誤、設定了沒生效要比對各層設定檔——硬塞在同一頁只會互相干擾。所以拆成三篇專文，每篇各自展開症狀、診斷工具與修法：
 
-## 預計大綱
+- **[安裝與登入疑難排解](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install)**：`command not found`、PATH 問題、認證失敗、連不上 API——還沒能用起來的都看這篇（[English](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en)）
+- **[執行期問題](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime)**：回應中斷、效能異常、搜尋與 context 相關的卡關——用得起來但跑不順的看這篇（[English](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime-en)）
+- **[設定診斷與 error reference](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config)**：CLAUDE.md 沒被遵守、hook 不觸發、MCP 連不上、設定被覆蓋——「設定了但沒生效」看這篇，附 `/context`、`/doctor`、`/mcp` 用法與常見錯誤訊息對照表（[English](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config-en)）
 
-### Skills 相關
-- Global skills 在新 session 找不到（→ 連結到 order 15 的專題文章）
-- Skill 執行到一半中斷
-- Skill 的步驟被 AI 跳過
-
-### Hooks 相關
-- Hook 沒有被觸發
-- Hook matcher 語法錯誤
-- Hook command 執行失敗但沒有阻擋
-- PreToolUse vs PostToolUse 選錯時機
-
-### 設定相關
-- settings.json 語法錯誤導致全部失效
-- 全域 vs 專案設定衝突
-- settings.local.json 沒被讀取
-
-### 權限相關
-- --dangerously-skip-permissions 開了但工具還是被擋
-- allowedTools 在 bypass 模式下的已知 bug
-- 子代理權限繼承問題
-
-### MCP Server 相關
-- MCP server 連線逾時
-- 認證 token 過期
-- Tool schema 不符預期
-
-### 效能相關
-- Context window 用滿導致行為異常
-- 大型 repo 的啟動慢問題
-- Token 用量異常高的排查
+系列全貌與底層機制從[入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)開始。
 
 ## 參考資料
 
-- [Claude Code Troubleshooting](https://docs.anthropic.com/en/docs/claude-code/troubleshooting) — Anthropic 官方疑難排解文件，涵蓋常見安裝與執行問題
-- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — settings.json 完整設定參考，包含 hooks、permissions、env 等欄位說明
-- [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) — Hook 事件類型、matcher 語法與 exit code 行為的官方說明
-- [Claude Code Permission Modes](https://docs.anthropic.com/en/docs/claude-code/permission-modes) — 各種權限模式（default、acceptEdits、auto、bypassPermissions）的行為差異
-- [Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) — MCP server 連線設定與 tool schema 說明
-- [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — 互動式 context 消耗模擬，理解各功能對 token 的影響
-- [Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/best-practices) — 官方推薦的使用模式，含 context 管理與除錯策略
+- [Debug your configuration — Claude Code Docs](https://code.claude.com/docs/en/debug-your-config) — 設定診斷篇的主要依據：診斷指令、safe mode 與常見設定地雷
+- [Error reference — Claude Code Docs](https://code.claude.com/docs/en/errors) — 執行期錯誤對照表的來源：每條錯誤訊息的意思與復原步驟
+- [Troubleshooting 索引（英文版）](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
+
+## 更新紀錄
+
+- 2026-08-26：合集拆分為三篇專文，本頁轉為索引。
