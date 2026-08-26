@@ -1,6 +1,5 @@
 import { createReactAgent } from '@langchain/langgraph/prebuilt'
-import { searchBlogPosts } from '../../rag/tools/search-posts'
-import { searchDocs } from '../../rag/tools/search-docs'
+import { searchBlogPostsTool, searchDocsTool } from '../tools/langchain-tools'
 import { getPostDetail } from '../tools/get-post-detail'
 import type { GraphState, SearchResult } from '../../rag/state'
 import { HumanMessage } from '@langchain/core/messages'
@@ -38,7 +37,7 @@ export async function researchNode(
   })
   const agent = createReactAgent({
     llm: model as any, // [skip-harness] langchain's createReactAgent expects BaseChatModel with bindTools
-    tools: [searchBlogPosts, searchDocs, getPostDetail] as any, // [skip-harness] langchain tool type mismatch
+    tools: [searchBlogPostsTool, searchDocsTool, getPostDetail] as any, // [skip-harness] langchain tool type mismatch
     stateModifier: SYSTEM_PROMPT,
   })
 
