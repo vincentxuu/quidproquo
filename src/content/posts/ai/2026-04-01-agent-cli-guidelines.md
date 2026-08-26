@@ -171,7 +171,7 @@ Agent CLI 好不好用，30% 取決於模型能力，70% 取決於你給它的�
 
 ```markdown
 # Project Context
-這個專案是 ... 用 ... 技術棧，部署在 ...
+這個專案是 ... 用 ... tech stack，部署在 ...
 
 # Commit 規範
 每次 commit 使用 conventional commits 格式：feat / fix / docs / refactor

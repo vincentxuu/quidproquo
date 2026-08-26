@@ -386,7 +386,7 @@ const EXTRACTION_PROMPT = `你是記憶提取系統。分析對話，提取長�
 分三類：
 1. **Procedural**: 偏好、規則、行為模式
 2. **Episodic**: 具體事件、計畫、經歷（帶有時間性）
-3. **Semantic**: 事實知識（技術棧、個人資訊、專案資訊）
+3. **Semantic**: 事實知識（tech stack、個人資訊、專案資訊）
 
 規則：
 - 只提取有長期價值的資訊，忽略瑣碎對話
@@ -859,10 +859,10 @@ const contextBuilder = new MemoryAwareContextBuilder();
 const agent = new MemoryEnabledAgent(memory, contextBuilder, llm);
 
 // 第一次對話
-await agent.chat('user_123', [], '我是 Kevin，技術棧是 Next.js + TypeScript');
+await agent.chat('user_123', [], '我是 Kevin，tech stack是 Next.js + TypeScript');
 // → Agent 回覆，同時背景記住：
 //   [semantic] 使用者名字是 Kevin
-//   [semantic] 技術棧：Next.js + TypeScript
+//   [semantic] tech stack：Next.js + TypeScript
 
 // 第二次對話（新 session）
 await agent.chat('user_123', [], '幫我寫一個 API route');
@@ -892,7 +892,7 @@ await agent.chat('user_123', [], '幫我準備一下出差的東西');
 | 風險 | 說明 | 解法 |
 |------|------|------|
 | 幻覺記憶 | LLM 推斷出錯誤偏好 | Confidence 門檻 + 主動確認 |
-| 過時資訊 | 使用者換了技術棧 | 衰減機制 + supersede |
+| 過時資訊 | 使用者換了tech stack | 衰減機制 + supersede |
 | 隱私問題 | 記住不該記的 | 使用者控制面板 |
 | 偏見放大 | 錯誤推斷自我強化 | 定期審查 + 低信心度不儲存 |
 

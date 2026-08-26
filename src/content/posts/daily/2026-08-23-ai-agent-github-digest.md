@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：CopilotKit 團隊做的開源 AI coworker 框架——每個 agent 分配到自己的瀏覽器、檔案系統和工具集，透過 AG-UI 協定接上任何前端。
 - **為什麼值得看**：多數 agent 框架把「使用者互動」當成聊天視窗外掛，OpenBot 反過來把它做成協定層——每個動作在執行前先決策、執行後留記錄，讓 agent 的每一步都可回放稽核；只要前端說 AG-UI（CopilotKit 自家的 Agent-User Interaction Protocol），就能接上任何符合協定的 agent backend，不綁死特定框架。上線一週衝上 2,289 星，成長速度顯示「AI coworker」這個定位有市場在等。
-- **技術棧**：TypeScript + AG-UI 協定（雙向事件流，涵蓋訊息、工具呼叫、狀態 patch、生命週期訊號）
+- **tech stack**：TypeScript + AG-UI 協定（雙向事件流，涵蓋訊息、工具呼叫、狀態 patch、生命週期訊號）
 - **上手難度**：中——alpha 階段，協定文件齊全但範例還在補齊。
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：讓 AI agent 直接讀寫、執行 Bruno（開源 API client）的 `.bru` collection 的 MCP server——但今天同時看到兩個版本：Bruno 官方團隊本月中剛發布的 `usebruno/bruno-mcp`，以及兩個月前就上線、由社群開發者 Ostico 寫的 `bruno-mcp-studio`。
 - **為什麼值得看**：這是一個具體案例，說明「MCP server」這種周邊工具的開發速度，社群常常比官方本尊還快——`bruno-mcp-studio` 早在 2026-06-07 就做出「不需要 bru CLI、與 Bruno 本體行為對等」的版本，官方版本兩個月後才補上，且目前 star 數（2 顆）還低於社群版（5 顆）。對讀者的實務意義是：選 MCP server 別只看是不是「官方出品」，先比對誰先解決了你的問題。
-- **技術棧**：兩者皆為 TypeScript；官方版強調「資料不離開本機」，社群版走 `.bru`/`.yml` 檔案直接解析、不依賴 CLI。
+- **tech stack**：兩者皆為 TypeScript；官方版強調「資料不離開本機」，社群版走 `.bru`/`.yml` 檔案直接解析、不依賴 CLI。
 - **上手難度**：低——兩者都是標準 MCP server，任何 MCP client 皆可接上。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：browser-use 共同創辦人 Gregor Žunič 另開的新專案——一個「盡量薄」的 harness，只給 LLM 六個原語（`mac.see/key/type/click/ax/script`）就能直接控制 Mac 桌面，遇到瀏覽器工作再退回原本的 Browser Harness。
 - **為什麼值得看**：跟坊間「電腦操控 agent」多半用截圖 + 座標點擊的做法不同，這個 harness 優先走 accessibility tree 和 AppleScript，只有必要時才退回螢幕截圖，理論上更穩定也更省 token。8/17 剛發布，目前才 8 顆星、1 個 fork，規模遠不到「trending」的門檻，但設計思路值得先記一筆——如果驗證有效，可能會被搬回主專案。
-- **技術棧**：Python，accessibility API + AppleScript，退回時複用 browser-use 的 Browser Harness
+- **tech stack**：Python，accessibility API + AppleScript，退回時複用 browser-use 的 Browser Harness
 - **上手難度**：中——僅支援 macOS，且需要開放輔助使用權限。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：原本掛在 SST 底下的開源終端機 coding agent opencode，近期搬到新組織 Anomaly 名下（`sst/opencode` 現在會導向 `anomalyco/opencode`）。
 - **為什麼值得看**：搬家之後直接查星數，opencode（約 19.9 萬）已經超過 Anthropic 自家的 Claude Code（約 14.2 萬）——一個非官方、社群驅動的終端機 coding agent，在開源熱度上贏過原廠工具本身，是這波「終端機 agent」大戰裡值得記住的一個里程碑。（注意：星數持續變動快，此為查證當下的即時數字。）
-- **技術棧**：TypeScript，終端機原生 UI
+- **tech stack**：TypeScript，終端機原生 UI
 - **上手難度**：低——單一 CLI 安裝即可用。
 
 ## Notable Releases

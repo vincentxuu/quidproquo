@@ -166,7 +166,7 @@ Monorepo 不是預設選項，適合的情境：
 
 - 只有一個 app，沒有實際共享需求
 - 團隊不熟悉 workspace 的 link 機制，debug 成本高
-- 有大量不同技術棧的專案混在一起（比如同時有 Python 和 JS）
+- 有大量不同tech stack的專案混在一起（比如同時有 Python 和 JS）
 
 ## 取捨
 

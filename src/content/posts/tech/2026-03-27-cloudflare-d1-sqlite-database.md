@@ -10,7 +10,7 @@ tldr: "D1 是 Cloudflare 的 serverless SQLite 資料庫，直接綁定 Workers�
 description: "Cloudflare D1 介紹：SQLite-based serverless 關聯式資料庫，Workers binding 基本 CRUD、wrangler migration 流程、與 PostgreSQL/MySQL 的比較，以及 D1 vs KV 的選擇邏輯。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 2
 ---
 
@@ -209,7 +209,7 @@ WHERE id = ? AND ai_quota_used < ai_quota_limit
 
 ## 更新紀錄
 
-- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料
 

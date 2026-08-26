@@ -10,7 +10,7 @@ tldr: "Workers AI 目錄目前 84 個模型。通用對話選 glm-4.7-flash（$0
 description: "依 Cloudflare 官方模型目錄與定價頁整理的 Workers AI 選型表：文字生成分層比較、embedding 與 rerank、圖片與語音模型、Neurons 計費、2026-05-30 那波模型汰換的遷移建議。持續更新。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 8
 ---
 
@@ -269,7 +269,7 @@ const answer = await env.AI.run(MODELS.chat, { messages, stream: true })
 
 ## 更新紀錄
 
-- 2026-08-19：對照官方文件逐項查證翻新，易腐內容交還官方連結，並收進「Cloudflare 邊緣技術棧」系列。
+- 2026-08-19：對照官方文件逐項查證翻新，易腐內容交還官方連結，並收進「Cloudflare 邊緣tech stack」系列。
 - 2026-08-18：首次發布。對照 2026-08-12 版目錄（84 個模型）與 2026-08-18 版定價頁。
 
 ## 參考資料

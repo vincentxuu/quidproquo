@@ -291,7 +291,7 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 核心取捨很清楚：
 
 - **速度 vs. 控制**：Coinbase 選擇 auto-merge 追求極致速度；其他三家保留人工 review 作為最後防線
-- **自研 vs. 開源基底**：Coinbase 完全自研，Stripe fork Goose，Ramp 用 OpenCode，Spotify 用 Claude SDK——沒有標準答案，取決於現有技術棧和內部需求
+- **自研 vs. 開源基底**：Coinbase 完全自研，Stripe fork Goose，Ramp 用 OpenCode，Spotify 用 Claude SDK——沒有標準答案，取決於現有tech stack和內部需求
 - **通用 vs. 專精**：所有系統都從「well-defined、mechanical tasks」開始（遷移、dependency 升級、bug 修復），再逐步擴展到更複雜的場景
 
 對於想打造類似系統的團隊，LangChain 的 Open SWE 框架是一個起點，它把 Stripe/Ramp/Coinbase 獨立收斂出的架構模式做成了開箱即用的開源方案。

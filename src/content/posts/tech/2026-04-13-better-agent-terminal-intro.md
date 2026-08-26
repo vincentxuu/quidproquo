@@ -76,7 +76,7 @@ BAT 還內建了一個實驗性的 WebSocket server：開啟後會產生連線 t
 
 這個功能目前還是實驗性的，適合「在外面想 debug 家裡那台 build server」之類的情境，正式的 production remote pairing 還是建議走其他更成熟的方案。
 
-## 技術棧
+## tech stack
 
 整個 app 走的是很典型的 Electron + React 組合：
 

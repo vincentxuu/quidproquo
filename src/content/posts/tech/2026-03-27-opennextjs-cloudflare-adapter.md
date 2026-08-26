@@ -10,7 +10,7 @@ tldr: "@opennextjs/cloudflare 讓 Next.js App Router 部署到 Cloudflare Worker
 description: "@opennextjs/cloudflare adapter 的工作原理：如何把 Next.js 的 SSR 和靜態資源拆開部署到 Cloudflare 的邊緣網路。以 NobodyClimb 為例說明實際限制與適用情境。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 6
 ---
 
@@ -218,7 +218,7 @@ export default { /* ... */ };
 
 ## 更新紀錄
 
-- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料
 

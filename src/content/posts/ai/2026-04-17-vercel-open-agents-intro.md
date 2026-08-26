@@ -10,7 +10,7 @@ description: "Open Agents 的架構設計、與現成 coding agent 的取捨、�
 draft: false
 ---
 
-Claude Code 跟 Cursor Background Agent 這類產品紅起來之後,很多團隊的問題不是「要不要導入 coding agent」,而是「現成的 agent 在我們 monorepo 跑起來很痛苦」。Vercel Labs 最近開源的 **Open Agents** 直接給了一個 reference 實作,讓團隊可以 fork 下來改成符合自己 workflow 的版本。這篇介紹它的架構、技術棧、以及實際跑起來的成本考量。
+Claude Code 跟 Cursor Background Agent 這類產品紅起來之後,很多團隊的問題不是「要不要導入 coding agent」,而是「現成的 agent 在我們 monorepo 跑起來很痛苦」。Vercel Labs 最近開源的 **Open Agents** 直接給了一個 reference 實作,讓團隊可以 fork 下來改成符合自己 workflow 的版本。這篇介紹它的架構、tech stack、以及實際跑起來的成本考量。
 
 ## 為什麼要有 Open Agents
 
@@ -44,7 +44,7 @@ Open Agents 的核心設計是三層分離:
 
 關鍵設計決策:**agent 跑在 VM 外部**,透過工具介面與 sandbox 互動,而不是在 VM 內執行。這個設計跟 Claude Code 的「直接在 user 機器跑」完全相反,好處是 agent 掛掉不會毀掉 sandbox 狀態、可以 snapshot 後切斷再恢復、同一個 agent 可以操作多個 sandbox。
 
-## 技術棧
+## tech stack
 
 整個 repo 99.3% 是 TypeScript:
 

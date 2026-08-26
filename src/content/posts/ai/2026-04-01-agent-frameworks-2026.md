@@ -186,7 +186,7 @@ LangChain 團隊的 agent 編排引擎。2025 年底達到 v1.0，成為 LangCha
 
 **Repo:** [mastra-ai/mastra](https://github.com/mastra-ai/mastra)｜**語言:** TypeScript｜**授權:** MIT｜**npm 週下載:** 300k+
 
-TypeScript 原生的 agent 框架，由 Gatsby 團隊打造。2026 年 1 月從 Y Combinator W25 畢業，拿了 $13M。如果你的技術棧是 TypeScript，這是目前最成熟的選擇。
+TypeScript 原生的 agent 框架，由 Gatsby 團隊打造。2026 年 1 月從 Y Combinator W25 畢業，拿了 $13M。如果你的tech stack是 TypeScript，這是目前最成熟的選擇。
 
 **核心特色：**
 - TypeScript 從頭設計（不是 Python port）
@@ -195,7 +195,7 @@ TypeScript 原生的 agent 框架，由 Gatsby 團隊打造。2026 年 1 月從 
 - 互動式 playground 測試 agent
 - 可部署到 Vercel、Cloudflare、Netlify
 
-**適用場景：** TypeScript/Node.js 技術棧的 agent 開發、Next.js 應用整合 AI、全端 JS 專案。
+**適用場景：** TypeScript/Node.js tech stack的 agent 開發、Next.js 應用整合 AI、全端 JS 專案。
 
 ---
 
@@ -294,7 +294,7 @@ Anthropic 官方 SDK，驅動 Claude Code 的同一個 agent harness。2026 年 
 
 | 你的情況 | 建議 |
 |---|---|
-| TypeScript 技術棧 | Mastra |
+| TypeScript tech stack | Mastra |
 | 已經用 OpenAI | OpenAI Agents SDK |
 | 已經用 Claude | Claude Agent SDK |
 | Google Cloud 生態 | Google ADK |

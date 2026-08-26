@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：本地優先的個人 AI 「記憶大腦」，每 20 分鐘把信件、文件、訊息壓縮進一棵 Memory Tree，再用它指揮多個 agent 幫你辦事。
 - **為什麼值得看**：多數 agent 框架處理的是單次任務，這個專案賭的是長期個人 context——先把你的數位生活壓成可查詢的記憶，才談派工給 agent。早期 beta 已衝上 3.7 萬星，值得觀察穩定性問題會不會拖垮熱度（早前有媒體誤傳它「連續 9 天登上 GitHub Trending 第一名」，經查證後已被更正，本文不重複這個未經證實的說法）。
-- **技術棧**：Rust 核心 + TypeScript 前端，用 Signal 協定加密連結多個 agent
+- **tech stack**：Rust 核心 + TypeScript 前端，用 Signal 協定加密連結多個 agent
 - **上手難度**：中——需要跑本機安裝程式並設定 `config.toml`，才能接上 Claude Code / Cursor / Codex
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：Vercel Labs 寫的極簡 coding agent CLI，編成不到 8 MiB 的原生二進位檔，號稱 10 微秒冷啟動。
 - **為什麼值得看**：跟 Claude Code、Codex CLI 這類 Node/Python 起家的工具不同，fx 賭的是「嵌入性」——單一二進位檔可以塞進 CI sandbox、瀏覽器 WebAssembly，甚至編進別人的程式裡當元件用，而不是獨立跑的終端機工具。
-- **技術棧**：Zig 編譯原生二進位，支援 CLI / ACP / WebAssembly 三種嵌入方式
+- **tech stack**：Zig 編譯原生二進位，支援 CLI / ACP / WebAssembly 三種嵌入方式
 - **上手難度**：低——下載單一二進位檔即可執行，但目前仍標示為 Experimental
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：NVIDIA 官方開源的「物件導向」agent 框架，把 prompt、工具、callback、workflow 全部收進一個 Python class。
 - **為什麼值得看**：多數框架把 prompt/tool/workflow 拆成分開的抽象層，這個框架反過來，讓 agent 的狀態和能力用一個型別化的 class 表達，寫起來更接近寫一般 Python 物件，而不是拼 YAML/DSL。
-- **技術棧**：LiteLLM（相容 Claude / GPT / Ollama / vLLM）+ Jupyter 風格 REPL 執行環境
+- **tech stack**：LiteLLM（相容 Claude / GPT / Ollama / vLLM）+ Jupyter 風格 REPL 執行環境
 - **上手難度**：中——需要熟悉 Python async/await 和型別註記的寫法
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：把任意 AG-UI 相容的 agent 包成「有自己容器、瀏覽器、檔案系統的數位同事」，每個動作先過治理閘門審核才會執行。
 - **為什麼值得看**：這是少數把「治理」當一等公民的 agent 平台——不是先跑再說，而是把每個動作攔下來稽核。對想把 agent 放進正式流程、又怕失控的團隊，這種「先審後動」的架構比事後補救更實際。
-- **技術棧**：Hono + React/Vite 前端、PostgreSQL + pgvector、Docker/Docker Compose 容器隔離、Better Auth
+- **tech stack**：Hono + React/Vite 前端、PostgreSQL + pgvector、Docker/Docker Compose 容器隔離、Better Auth
 - **上手難度**：中——需要跑 Docker Compose 起多個服務，並接上 AG-UI 相容的 agent 後端
 
 ## Notable Releases

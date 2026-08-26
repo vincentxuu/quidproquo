@@ -88,7 +88,7 @@ DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agen
 
 ### 開源自架
 
-核心賣點都一樣：**不付 SaaS 訂閱，資料和 prompt 留在自己機器上**。差異在技術棧和資料取得方式。
+核心賣點都一樣：**不付 SaaS 訂閱，資料和 prompt 留在自己機器上**。差異在tech stack和資料取得方式。
 
 自架要付的隱藏成本有三筆，決定之前先算清楚：反爬蟲維護（AI 介面的登入牆和 Cloudflare 挑戰會變）、分析用的 LLM token、以及你自己的時間。當追蹤的 prompt 數量少時，自架通常划算；規模上去之後，前兩筆會逼近 SaaS 的訂閱費。
 
@@ -98,7 +98,7 @@ DIY 派可以直接從 access log 撈，搭 ELK / Grafana / Datadog。`User-Agen
 
 **[AICMO/ai-cmo](https://github.com/AICMO/ai-cmo)**（最後更新 2025-10，已久未更新）是完成度更高的開源選項，Vue + Python + TypeScript，Docker 一鍵起，明確支援 ChatGPT / Gemini / Perplexity / Claude 四家。定位接近「開源版 Profound」，但需要自己帶 OpenAI + Vertex AI 憑證。
 
-**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)**（最後更新 2026-08，這幾個月成長最快，星數已破 200）技術棧跟 aeo-radar 最像（Next.js 16、TypeScript、Recharts），功能面比較滿——13 個分頁、6 個 AI 模型同追蹤、6 階段 SRO 分析、引用機會掃描、競品 battlecard。資料面用的是 Bright Data 的 Web Scraper API，優點是不用自己維護反爬策略，缺點是 Bright Data 不免費。
+**[danishashko/geo-aeo-tracker](https://github.com/danishashko/geo-aeo-tracker)**（最後更新 2026-08，這幾個月成長最快，星數已破 200）tech stack跟 aeo-radar 最像（Next.js 16、TypeScript、Recharts），功能面比較滿——13 個分頁、6 個 AI 模型同追蹤、6 階段 SRO 分析、引用機會掃描、競品 battlecard。資料面用的是 Bright Data 的 Web Scraper API，優點是不用自己維護反爬策略，缺點是 Bright Data 不免費。
 
 **[sarahkb125/llm-brand-tracker](https://github.com/sarahkb125/llm-brand-tracker)**（最後更新 2025-07，已久未更新）走的是另一條路——不直接爬 AI 介面，而是呼叫 OpenAI API，自動爬你的品牌網站、用網站內容產生一批 prompt 去問 ChatGPT。優點是合法乾淨、不擔心反爬；缺點是你拿到的是「API 版 ChatGPT 怎麼看你」，跟網頁版使用者看到的有落差——網頁版有即時搜尋、API 沒有。
 

@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：超輕量、自架的個人 AI agent 框架，內建 WebUI、長期記憶、原生 MCP 整合、多 agent 協作與排程自動化，包一個 OpenAI 相容 API。
 - **為什麼值得看**：近期的 v0.3.0「The Agency Release」把 nanobot 從「跑得動的工作台」升級成「能協調 subagent、切模型、把授權工作做完」的 agent runtime——新增顯式 `/goal` 指令避免隱性長跑、inline subagent 諮詢，還補了鏈式指令白名單繞過防護、SSRF 校驗與 MCP URL 憑證遮罩等安全強化。7 個月從 0 衝到 4.7 萬星，是這波「個人 agent runtime」熱潮裡漲最快的專案之一。
-- **技術棧**：Python + WebUI，OpenAI 相容 API，原生 MCP 整合，支援 OpenCode、Kimi Coding、Grok 等多家 model provider。
+- **tech stack**：Python + WebUI，OpenAI 相容 API，原生 MCP 整合，支援 OpenCode、Kimi Coding、Grok 等多家 model provider。
 - **上手難度**：低——`nanobot webui` 一行指令就有導引式初始設定。
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：開源、跨平台（macOS / Windows / Linux）的 AI 辦公套件，內建 AI agent 編輯 Word（.docx）、Excel（.xlsx）、PowerPoint（.pptx）、PDF 和 Markdown。
 - **為什麼值得看**：市面上多數「AI 辦公室」是雲端 SaaS（Notion AI、Google Workspace AI），genoffice 反過來做本機桌面應用，相容原生 Office 檔案格式，把 AI agent 直接接進試算表計算引擎和文件編輯器，而不是外面包一層聊天視窗。三週內破 3,400 星，成長速度顯示「本機 Office 替代品 + AI」這個組合有真實需求。
-- **技術棧**：Electron 桌面殼 + TypeScript 核心引擎，Rust 處理試算表計算，Tiptap/ProseMirror 做文件編輯，Univer 做試算表 UI，PDFium 處理 PDF。
+- **tech stack**：Electron 桌面殼 + TypeScript 核心引擎，Rust 處理試算表計算，Tiptap/ProseMirror 做文件編輯，Univer 做試算表 UI，PDFium 處理 PDF。
 - **上手難度**：中——npm 裝依賴即可跑開發環境，但要碰 Rust 試算表模組得另外裝 Rust 工具鏈。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：NVIDIA 團隊發表的「物件導向 AI agent」框架（論文簡稱 NOOA），把 prompt、工具、callback、workflow 這些原本分散的抽象，收進單一 Python class 統一表達。
 - **為什麼值得看**：多數 agent 框架把狀態、能力、prompt 拆成好幾層抽象，NOOA 主張用一個 class 講完 agent 的狀態和型別化介面，重構、版本控管都更直覺。附帶的論文列出 SWE-bench Verified 和 Terminal-Bench 2.0 的評測結果，不是純空想架構。
-- **技術棧**：純 Python，model-agnostic，支援 MCP、sandbox 執行、progressive disclosure 文件揭露。
+- **tech stack**：純 Python，model-agnostic，支援 MCP、sandbox 執行、progressive disclosure 文件揭露。
 - **上手難度**：中——概念單一，但要理解「agent as a class」的設計哲學才能上手；官方提供 notebook tutorial 做漸進式教學。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：一個 MCP server，幫 coding agent（Claude Code、Codex、Cursor、Cline）理解 repo 結構，不用把整個 monorepo 塞進 prompt。
 - **為什麼值得看**：解決一個具體、每天在發生的問題——agent 常浪費 token 亂逛 `node_modules`、找不到入口點，或貼一堆不相關檔案進 context。這個 server 提供三個聚焦工具：`repo_map`（輕量目錄樹）、`search_code`（帶行號的字串搜尋）、`pack_context`（token 預算控制的 markdown context 包），還附一個 GitHub Action 可以在每次 PR 自動打包 context。
-- **技術棧**：TypeScript，遵循 `.gitignore` 規則，CLI + MCP server 雙介面。
+- **tech stack**：TypeScript，遵循 `.gitignore` 規則，CLI + MCP server 雙介面。
 - **上手難度**：低——支援任何講 MCP 的 client，CLI 也能單獨用。
 
 ## Notable Releases

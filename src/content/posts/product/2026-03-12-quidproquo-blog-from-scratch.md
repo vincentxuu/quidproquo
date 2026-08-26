@@ -6,7 +6,7 @@ tldr: "為了集中散落筆記、展示多元興趣，選用 Astro + Cloudflare
 category: product
 tags: [astro, cloudflare, d1, claude-code, blog]
 lang: zh-TW
-description: "為什麼建 quidproquo.cc、怎麼選技術棧、post skill 如何讓寫作零阻力"
+description: "為什麼建 quidproquo.cc、怎麼選tech stack、post skill 如何讓寫作零阻力"
 draft: false
 pinned: true
 ---

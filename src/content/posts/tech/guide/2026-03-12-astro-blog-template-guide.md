@@ -123,4 +123,4 @@ Astro 5 + Tailwind v4，依賴都是最新的，維護不會有過時包的問�
 - [Pagefind 全文檢索](https://pagefind.app/)
 - [Fuse.js 模糊搜尋](https://www.fusejs.io/)
 - [TailwindCSS 官方文件](https://tailwindcss.com/docs)
-- [這個部落格用了哪些工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — 本站的完整技術棧介紹
+- [這個部落格用了哪些工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — 本站的完整tech stack介紹

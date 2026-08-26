@@ -1,12 +1,12 @@
 ---
-title: "聊天機器人開發完整指南：狀態管理、記憶策略與技術棧選型"
+title: "聊天機器人開發完整指南：狀態管理、記憶策略與tech stack選型"
 date: 2026-03-13
 type: guide
 category: ai
 tags: [chatbot, state-management, memory, streaming, guardrails, langfuse]
 lang: zh-TW
-tldr: "聊天機器人不只是接 API。對話狀態管理、記憶機制、Streaming、Guardrails、可觀測性、技術棧選型，每一層都影響使用者體驗。"
-description: "從對話狀態架構（Session/User/Global State）、記憶策略（Sliding Window/Summary+Recent/Selective）、SSE Streaming、三層 Guardrails、Langfuse 可觀測性到 TypeScript vs Python 技術棧選型的完整開發指南。"
+tldr: "聊天機器人不只是接 API。對話狀態管理、記憶機制、Streaming、Guardrails、可觀測性、tech stack選型，每一層都影響使用者體驗。"
+description: "從對話狀態架構（Session/User/Global State）、記憶策略（Sliding Window/Summary+Recent/Selective）、SSE Streaming、三層 Guardrails、Langfuse 可觀測性到 TypeScript vs Python tech stack選型的完整開發指南。"
 draft: false
 ---
 
@@ -1530,7 +1530,7 @@ const alertRules: AlertRule[] = [
 
 ---
 
-## 7. 技術棧選型
+## 7. tech stack選型
 
 ### TypeScript / Cloudflare Workers
 

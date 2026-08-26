@@ -6,7 +6,7 @@ category: tech
 tags: [code-review, knowledge-graph, tree-sitter, mcp, ai-tools]
 lang: zh-TW
 tldr: "code-review-graph 用 Tree-sitter 解析 codebase 建立持久化知識圖譜，追蹤變更的爆炸半徑，只把真正相關的 context 餵給 AI，號稱平均省下 8.2 倍 token。"
-description: "code-review-graph 的核心概念、架構設計、技術棧、效能數據，以及它適合和不適合的場景。"
+description: "code-review-graph 的核心概念、架構設計、tech stack、效能數據，以及它適合和不適合的場景。"
 draft: false
 ---
 
@@ -60,7 +60,7 @@ MCP 工具 ──→ Claude Code / Cursor / Windsurf / Zed
 | `search.py` | 語意搜尋（可選 embedding） |
 | `visualization.py` | D3.js 互動式視覺化 |
 
-## 技術棧
+## tech stack
 
 - **Python 3.10+**（82.5%）+ **TypeScript**（17.3%，VSCode 擴充套件）
 - **Tree-sitter** + tree-sitter-language-pack：多語言 AST 解析的事實標準

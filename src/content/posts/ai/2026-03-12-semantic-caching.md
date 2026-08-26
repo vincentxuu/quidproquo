@@ -95,7 +95,7 @@ await kv.put(
 - **Gateway 層快取**：如果請求走 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/features/caching/)，可以直接在 gateway 開快取，不必自己寫。官方明講它是**整個請求的精確比對**，語義比對還在規劃中。
 - **函式庫層的現成語義快取**：Python 生態早就有一整排——`langchain-community` 的 [`RedisSemanticCache`](https://reference.langchain.com/python/langchain-community/cache/RedisSemanticCache)、`CassandraSemanticCache`、`OpenSearchSemanticCache`、`AzureCosmosDBSemanticCache`，以及 GPTCache。做的事跟本文下面要手刻的一樣（embedding + 相似度閾值）。
 
-所以「語義快取只能自己做」並不成立——前兩層確實只認一模一樣的輸入（「龍洞有幾條路線」和「龍洞共有幾條路線」在字串上不同），但第三層有現成品。**真正逼你自己做的是技術棧**：現成的語義快取實作都在 Python 生態，跑在 Workers / TypeScript 上就只能落回自己實作。
+所以「語義快取只能自己做」並不成立——前兩層確實只認一模一樣的輸入（「龍洞有幾條路線」和「龍洞共有幾條路線」在字串上不同），但第三層有現成品。**真正逼你自己做的是tech stack**：現成的語義快取實作都在 Python 生態，跑在 Workers / TypeScript 上就只能落回自己實作。
 
 ## Privacy 考量
 

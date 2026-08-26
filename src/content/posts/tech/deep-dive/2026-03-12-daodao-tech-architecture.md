@@ -4,7 +4,7 @@ date: 2026-03-12
 category: tech
 tags: [turborepo, nextjs, fastapi, postgresql, qdrant, monorepo, typescript, bullmq, notification, celery]
 lang: zh-TW
-tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、PostgreSQL + Redis 核心架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代技術棧打造學習社群平台。"
+tldr: "Next.js + Expo 前端、Node.js + Python 雙後端、PostgreSQL + Redis 核心架構，加上社交通知系統與 LLM 推薦引擎，島島如何用現代tech stack打造學習社群平台。"
 description: "深入介紹島島（DaoDao）學習平台的技術架構：Turborepo monorepo、Node.js TypeScript 後端、社交系統與 BullMQ 通知架構、Python FastAPI + Celery AI 服務，以及 PostgreSQL + Redis + Qdrant + ClickHouse 的多資料庫策略。"
 draft: false
 type: deep-dive

@@ -89,4 +89,4 @@ pinned: true
 - [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
 - [/file-bug-issue Skill 與 Remote Agent 串接](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent) — 另一個從對話萃取資訊的 Skill 設計
 - [Claude Code 的三層品質防線：Hook、Skill、指令檔](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md) — Skill 機制的完整介紹
-- [這個部落格用了哪些工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — 本站技術棧，文章就是存在這個架構裡
+- [這個部落格用了哪些工具](/posts/tech/guide/2026-03-12-tools-behind-this-blog) — 本站tech stack，文章就是存在這個架構裡

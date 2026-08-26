@@ -72,7 +72,7 @@ SpaceX 收購 Cursor（詳見上方深度分析）加上 Claude Code 2.1.233 補
 
 **Databricks Smart Routing**：Unity AI Gateway 新功能，能以匹配前沿模型品質的表現，將任務成本降低 30% 以上。（[來源](https://www.databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task)）
 
-**MCP 生態**：npm SDK 月下載量突破 1.959 億次，超越 OpenAI SDK（1.31 億）與 Anthropic SDK（1.159 億），顯示 MCP 已成為 agent 技術棧的標準連接層。（[來源](https://buttondown.com/Builder-Radar/archive/builder-radar-week-of-august-16-2026)）
+**MCP 生態**：npm SDK 月下載量突破 1.959 億次，超越 OpenAI SDK（1.31 億）與 Anthropic SDK（1.159 億），顯示 MCP 已成為 agent tech stack的標準連接層。（[來源](https://buttondown.com/Builder-Radar/archive/builder-radar-week-of-august-16-2026)）
 
 今天 GitHub Digest 聚焦兩個「幫既有工具補強」的專案，詳見 [GitHub Digest](/posts/daily/2026-08-17-ai-agent-github-digest)；本地記憶 MCP server [mcp-memory](/posts/daily/2026-08-17-tool-mcp-memory) 用 Google OKF 標準讓記憶跨 Agent 共用，也值得參考。
 

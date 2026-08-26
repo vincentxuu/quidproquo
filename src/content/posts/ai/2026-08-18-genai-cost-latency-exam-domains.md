@@ -205,7 +205,7 @@ AIP-C01 的 4.1 列的是同一組再加兩個機制：**語意快取、結果�
 
 ## 不能互相取代的部分
 
-**NCP-GENL 獨有**：整個模型壓縮技術棧（剪枝、稀疏化、PTQ／QAT／激活量化、知識蒸餾），六種平行策略的分界，**Tensor Core 與混合精度最佳化**，**分散並最佳化 self-attention head 的 GEMM 運算**，**用 CUDA profiling 找瓶頸**與 kernel 效率排錯，TensorRT，sliding-window／streaming attention，**Dynamo-Triton 部署與動態批次**，encoder／decoder／encoder-decoder 的運算取捨。先修條件官方寫**「Python 之外還要 C++」**——這條精準說明了這塊為什麼轉移不過去。
+**NCP-GENL 獨有**：整個模型壓縮tech stack（剪枝、稀疏化、PTQ／QAT／激活量化、知識蒸餾），六種平行策略的分界，**Tensor Core 與混合精度最佳化**，**分散並最佳化 self-attention head 的 GEMM 運算**，**用 CUDA profiling 找瓶頸**與 kernel 效率排錯，TensorRT，sliding-window／streaming attention，**Dynamo-Triton 部署與動態批次**，encoder／decoder／encoder-decoder 的運算取捨。先修條件官方寫**「Python 之外還要 C++」**——這條精準說明了這塊為什麼轉移不過去。
 
 **AIP-C01 獨有**：**結果指紋與確定性請求雜湊**（回應快取的具體實作）、**邊緣快取**、**prompt 壓縮與 context pruning**、**Bedrock provisioned throughput 最佳化**、**Bedrock Cross-Region Inference**、**Step Functions circuit breaker**、**Bedrock Model Invocation Logs**、**成本異常偵測**、**temperature 與 top-k／top-p 的選擇與 A/B 測試**、**token 效率與延遲品質比**（5.1 的評估指標）。這些幾乎全部綁 AWS 服務名。
 

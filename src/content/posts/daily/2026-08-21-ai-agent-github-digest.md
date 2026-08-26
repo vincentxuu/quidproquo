@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：Cursor 官方開源的外掛市集，一個 monorepo 裝了 30+ 個 plugin，每個 plugin 用自己的 `plugin.json` manifest 加上 agent skills、Cursor rules 和 MCP server 定義組成，根目錄再有一份 marketplace manifest 列出全部。
 - **為什麼值得看**：這是繼 Claude Code plugins 之後，第二個主流 coding agent 把「外掛生態」用開源標準檔案格式攤開來的動作。分成開發工具（agent workflow、code review、CLI 設計）、生產力（Gmail、Google Drive、Calendar）、整合（GitHub、Salesforce、HubSpot、Zoom、Playwright）三類——等於把 agent 的能力擴充從各家私有格式，往「一份 manifest 到處跑」推進。
-- **技術棧**：TypeScript，`plugin.json` manifest + `SKILL.md` + MCP server 定義。
+- **tech stack**：TypeScript，`plugin.json` manifest + `SKILL.md` + MCP server 定義。
 - **上手難度**：低——照 manifest 格式放進對應目錄即可，跟 Claude Code / Codex 的 plugin 結構高度相似。
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：進了 Apache 孵化器的「local-first AI agent 工作台」，把 model 訊息、工具呼叫、工具結果、權限決策、終止事件全部記成 append-only 事件日誌，提供 Desktop / 終端機 / CLI 三種介面。
 - **為什麼值得看**：它把「可稽核」當成第一公民——event-sourcing 架構讓每一次 agent 動作都留痕，可回放、可回復，對需要交代「agent 到底做了什麼、誰批准的」的團隊很有用。工具是本機檔案操作（Read / Write / Edit / Bash / Glob / Grep），model 可接雲端 API、本機模型或相容 gateway，資料留在自己機器上。
-- **技術棧**：Electron + React 前端；Node.js 22+ + SQLite + TypeScript 後端，Runtime Host / AgentRun / model adapter / tool runtime 的 event-sourcing 架構。
+- **tech stack**：Electron + React 前端；Node.js 22+ + SQLite + TypeScript 後端，Runtime Host / AgentRun / model adapter / tool runtime 的 event-sourcing 架構。
 - **上手難度**：中——概念不難，但 event-sourcing 工作台要理解 session / 權限 / 回放模型才能發揮價值。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：一個「內建推論」的開源 agent 框架——自動側寫你的硬體、推薦合適的本機模型、下載、然後全在本機跑，不用另外裝 Ollama 或設定推論伺服器。
 - **為什麼值得看**：它砍掉的是本機 agent 的入門門檻。以前要跑離線 agent 得自己串 Ollama、配 inference server，這個把「偵測硬體 → 選模型 → 下載 → 跑」打包成開箱即用，首次設定後可完全離線、無 API 成本、無隱私外洩。對想在本機資料上跑 agent 又不想上雲的人是實際選項。
-- **技術棧**：Bun runtime + TypeScript monorepo（Turbo），含 CLI、桌面 app、web 元件，支援 skills 擴充。
+- **tech stack**：Bun runtime + TypeScript monorepo（Turbo），含 CLI、桌面 app、web 元件，支援 skills 擴充。
 - **上手難度**：低——主打開箱即用，硬體側寫和模型下載都自動化。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：Vercel 出的「檔案系統優先」durable agent 框架——把 agent 的核心能力放進慣例目錄（`tools/`、`skills/`、`channels/`、`schedules/`），agent 行為透過 `instructions.md`、工具檔、skill 程序這些看得懂的檔案結構定義，而不是抽象 API。
 - **為什麼值得看**：跟強調 code-centric 或 config-driven 的框架相反，eve 讓檔案系統本身當介面——你用一般的檔案瀏覽就能看懂、修改 agent 在做什麼，不用鑽 API 文件。加上 durable execution，agent 可長時間運行、失敗後恢復。跟 munder-difflin、apache/maka 對照，「檔案系統即介面」正在變成一個明確的設計流派。
-- **技術棧**：TypeScript / JavaScript + Zod schema 驗證，透過 AI gateway 接 Claude / OpenAI 等模型。
+- **tech stack**：TypeScript / JavaScript + Zod schema 驗證，透過 AI gateway 接 Claude / OpenAI 等模型。
 - **上手難度**：低——慣例目錄結構直覺，但目前是 Vercel beta，API 和行為在 GA 前可能變動。
 
 ## Notable Releases

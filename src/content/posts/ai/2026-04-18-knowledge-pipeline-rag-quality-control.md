@@ -6,7 +6,7 @@ category: ai
 tags: [rag, knowledge-management, pipeline, embedding, bge-m3, sqlite, quality-control]
 lang: zh-TW
 tldr: "一個六層確定性管線，從 URL 擷取到向量嵌入全自動處理，透過八維度評分系統在資料進 RAG 之前就篩掉垃圾。"
-description: "knowledge-pipeline 介紹：六層處理架構、八維度 LLM 評分、混合向量檢索、極簡技術棧，以及它適合與不適合的場景。"
+description: "knowledge-pipeline 介紹：六層處理架構、八維度 LLM 評分、混合向量檢索、極簡tech stack，以及它適合與不適合的場景。"
 draft: false
 ---
 
@@ -97,7 +97,7 @@ Embed 層使用 BAAI/bge-m3 同時產生 dense 和 sparse 向量，查詢時以 
 
 可選用 BAAI/bge-reranker-v2-m3 做二階段重排序，進一步提升精準度。這個混合策略跟純 dense 或純 sparse 相比，在技術文件類的檢索上通常有明顯提升。
 
-## 技術棧
+## tech stack
 
 整個專案的技術選型非常克制：
 
@@ -123,7 +123,7 @@ Embed 層使用 BAAI/bge-m3 同時產生 dense 和 sparse 向量，查詢時以 
 
 ## 整體來說
 
-knowledge-pipeline 解決的是 RAG 系統中常被忽略的「資料品質」問題。六層管線的設計讓每個環節可以獨立調整，八維度評分讓品質判斷有跡可循而非黑箱。技術棧極簡是優點也是限制——容易上手，但要用在生產環境需要自己補強基礎設施。
+knowledge-pipeline 解決的是 RAG 系統中常被忽略的「資料品質」問題。六層管線的設計讓每個環節可以獨立調整，八維度評分讓品質判斷有跡可循而非黑箱。tech stack極簡是優點也是限制——容易上手，但要用在生產環境需要自己補強基礎設施。
 
 這個專案源自作者管理 1,600+ 筆知識條目的實戰經驗，不是紙上談兵的架構設計。對正在建構個人知識庫或 RAG 系統的開發者來說，即使不直接使用，六層管線和八維度評分的設計思路也值得參考。
 

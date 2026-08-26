@@ -4,7 +4,7 @@ date: 2026-03-12
 category: tech
 tags: [astro, cloudflare, blog, tools]
 lang: zh-TW
-description: 介紹這個部落格的完整技術棧，從框架選擇、Cloudflare 生態系到整體架構設計
+description: 介紹這個部落格的完整tech stack，從框架選擇、Cloudflare 生態系到整體架構設計
 tldr: Astro + Cloudflare 全家桶，靜態優先、邊緣運算、零維運成本
 draft: false
 type: guide

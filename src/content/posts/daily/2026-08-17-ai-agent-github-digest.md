@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：給自架 LLM 的 tool-calling 加一層可靠性 middleware——你給 forge 一組工具，模型自己決定呼叫順序，forge 負責重試提示、修復格式錯誤的 tool call、驗證回應是否符合預期。
 - **為什麼值得看**：多數 agent 框架解決「怎麼協調多個 agent」，forge 反過來假設你已經有一個能跑的 loop，只想讓工具呼叫本身不要壞掉；它的 proxy mode 能直接代理 opencode、aider、甚至 Claude Code（用 Anthropic Messages API），讓既有 coding harness 免改程式就套上 guardrails。
-- **技術棧**：Python，支援 Ollama、llama-server、Llamafile、vLLM、Anthropic 當 backend
+- **tech stack**：Python，支援 Ollama、llama-server、Llamafile、vLLM、Anthropic 當 backend
 - **上手難度**：低——`python -m forge.proxy` 一行指令啟動代理模式；要直接用 WorkflowRunner 自己管理 loop 則需要多寫一些程式。
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：一個 MCP server，開放 `repo_map`（輕量目錄樹＋入口點）、`search_code`（帶行號的字串搜尋）、`pack_context`（token 預算化的 Markdown context 包）三個工具，讓 coding agent 不用把整個 monorepo 塞進 prompt。
 - **為什麼值得看**：這類「context 打包」的 MCP server 解決一個具體且常見的痛點——agent 在大型 repo 裡亂逛 `node_modules`、漏掉入口點、或直接貼整個檔案浪費 token；8/12 才建立，5 天內就加上 GitHub Action，能在每個 PR 自動打包 context，作者顯然是邊用邊往 CI workflow 補功能。
-- **技術棧**：TypeScript + MCP SDK
+- **tech stack**：TypeScript + MCP SDK
 - **上手難度**：低——`npm install` 後 CLI 提供 `map`／`search`／`pack` 三個子指令，也支援 `--json` 輸出。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：DeepSeek 官方 CLI harness `@deepseek-ai/dsh`（一套 plugin-based agent 框架，性質類似 Claude Code／Codex 的終端機 harness）的社群桌面包裝版，用 Electron 把它包成內建 10 種 UI 皮膚、外掛市集、系統匣、內建終端機的圖形介面，不用自己裝 Node.js。
 - **為什麼值得看**：過去一週至少五個中文開發團隊各自做了 dsh 的桌面 wrapper——除了 EAC，還有 [dsh_desktop](https://github.com/myYangyunfan/dsh_desktop)（376 星）、[oh-dsh](https://github.com/hust-open-atom-club/oh-dsh)（215 星）、[deepseek-harness-desktop-app](https://github.com/vibeinging/deepseek-harness-desktop-app)（215 星）、[deepseek-harness-studio](https://github.com/fufankeji/deepseek-harness-studio)（152 星），五個 repo 合計逼近 1,500 星，全部在 8/11 到 8/15 之間建立；擴散的第一波不是外掛生態，而是「先把 CLI 包成 GUI」，反映不少使用者還是想要圖形介面而非純終端機操作。
-- **技術棧**：Electron + Node.js，包裝官方 `@deepseek-ai/dsh` CLI
+- **tech stack**：Electron + Node.js，包裝官方 `@deepseek-ai/dsh` CLI
 - **上手難度**：低——下載安裝檔或 portable 版即可執行，不用自己處理 Node.js 環境。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：微軟研究院的瀏覽器 agent 框架，核心主張「終端機就夠了」——LLM 在終端機裡開多個瀏覽器 session 觀察頁面，把整個網頁任務寫成一支可重跑的 Python script，沒有多 agent 系統、沒有圖引擎、沒有隱藏的 orchestration。
 - **為什麼值得看**：7/21 上線的 Skill Factory 把每次解過的任務留下腳本，蒸餾成可重複使用、參數化、不用再呼叫模型的 code skill（約 40 秒、零 token），在 WebArena 上把重用後的準確率從 55% 拉到 70%（+15 個百分點）；概念上跟「把模型的探索過程快取成確定性程式」這波趨勢相呼應，而不是每次都重新推理一遍。
-- **技術棧**：Python + Playwright，支援 OpenAI／Anthropic／OpenRouter backend
+- **tech stack**：Python + Playwright，支援 OpenAI／Anthropic／OpenRouter backend
 - **上手難度**：中——需要架設 Playwright 環境；已提供 Claude Code 與 OpenAI Codex 的 plugin manifest，可用 `/plugin install webwright@webwright` 直接安裝。
 
 ## Notable Releases

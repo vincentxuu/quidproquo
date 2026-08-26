@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：字節跳動旗下 Volcengine 開源的「Agent 專用情境資料庫」，把記憶、知識 RAG、技能都塞進一個用 `viking://` URI 定址的虛擬檔案系統，用 `ls`、`tree`、`find` 瀏覽,而不是查詢黑盒向量庫。
 - **為什麼值得看**：內容寫入時自動處理成 L0（摘要）/L1（概覽）/L2（詳細）三層,依任務深度按需載入來省 token；檢索先用向量鎖定高分目錄,再逐層往下鑽,還會留下完整的目錄瀏覽軌跡方便除錯。官方在 LoCoMo 長對話記憶和 tau2-bench 多輪任務上測出三種 agent 整合的準確率從原生記憶的 24–57% 拉到 80–83%,輸入 token 省 34.3–91.0%。
-- **技術棧**：Rust 核心（`crates/ov_cli`）+ Python 服務層,`viking://` 虛擬檔案系統協定,內建 Claude Code / Codex / Cursor / Trae / OpenCode 整合精靈。
+- **tech stack**：Rust 核心（`crates/ov_cli`）+ Python 服務層,`viking://` 虛擬檔案系統協定,內建 Claude Code / Codex / Cursor / Trae / OpenCode 整合精靈。
 - **上手難度**：中——URI 定址 + 分層載入是新概念,但有視覺化 CLI 設置精靈自動偵測並串接主流 coding agent。
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：把你已經在用的終端機 coding CLI（Claude Code、Codex、Grok、Kimi Code、GitHub Copilot CLI 等十種）包裝成一個桌面 app,用 2D 辦公室畫面呈現多個 agent 互相收發郵件、共享記憶的過程。
 - **為什麼值得看**：跟雲端編排的 multi-agent 框架不同,它堅持本機優先——每個 agent 是真實的終端機 process（`node-pty`）,透過檔案系統郵箱（`outbox/`／`inbox/`）通訊,並用「單一 committer」設計避免多個 agent 同時碰 git 造成 `index.lock` 損毀。內建的 MemPalace 記憶層號稱可在約 12ms 內完成跨 session 的語意召回。
-- **技術棧**：Electron + React + TypeScript + Pixi.js + xterm.js + node-pty。
+- **tech stack**：Electron + React + TypeScript + Pixi.js + xterm.js + node-pty。
 - **上手難度**：中——需先裝好至少一個支援的 CLI（如 Claude Code）,`npm install` 會重新編譯 `node-pty` 對齊 Electron 的 ABI。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：一個用 Rust 寫的 MCP server,幫不同 coding agent CLI 之間做長期記憶與「交接」——中途從 Claude Code 切到 Codex,下一個 session 開頭就會看到「上次做到哪」的摘要。
 - **為什麼值得看**：解決一個很實際的痛點——現在人人都在混用多個 coding CLI,換工具等於失憶重來。它用 SQLite 當索引、markdown wiki 當真理來源,還有排程器會從已完成的 session 自動學習並寫進 wiki；跨 agent handoff 用工作目錄邊界匹配,避免記憶污染到不相關的專案。
-- **技術棧**：Rust + SQLite + MCP（stdio / HTTP）。
+- **tech stack**：Rust + SQLite + MCP（stdio / HTTP）。
 - **上手難度**：中——支援 Claude Code、Codex、Cursor、Gemini CLI 等十幾種 client,但每個 client 的生命週期 hook 不同,需要照文件個別註冊。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：817 個結構化的資安技能包,對應 MITRE ATT&CK、NIST CSF 2.0、MITRE ATLAS、D3FEND、NIST AI RMF、MITRE F3 等 6 大框架,用 agentskills.io 標準封裝,可直接被 Claude Code、GitHub Copilot、Codex CLI、Cursor、Gemini CLI 等 20+ 平台載入。
 - **為什麼值得看**：跟一般純連結清單的 awesome-list 不同,這是可以被 agent 直接載入執行的 `SKILL.md` 技能包,涵蓋 29 個資安領域,還附 ATT&CK Navigator 視覺化對應層——等於讓 agent 做威脅建模或滲透測試時,不用每次重新解釋框架知識。
-- **技術棧**：PowerShell + Python 腳本,`SKILL.md` 結構化格式。
+- **tech stack**：PowerShell + Python 腳本,`SKILL.md` 結構化格式。
 - **上手難度**：低——照 agentskills.io 標準放進 `.claude/skills` 或對應目錄即可用。
 
 ## Notable Releases

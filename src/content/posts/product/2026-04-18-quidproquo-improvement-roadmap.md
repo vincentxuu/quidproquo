@@ -59,7 +59,7 @@ draft: false
 
 **建立根目錄 CLAUDE.md**
 - 你的 Harness 文章核心原則：「Repository as Single Source of Truth」
-- 內容：技術棧、目錄結構、開發流程、命名規範、決策理由
+- 內容：tech stack、目錄結構、開發流程、命名規範、決策理由
 - 沒有這份文件，每個新 session 的 agent 都得重新摸索整個專案
 
 ### 網站技術

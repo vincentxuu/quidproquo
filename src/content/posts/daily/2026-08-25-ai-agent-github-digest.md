@@ -25,7 +25,7 @@ series:
 
 - **是什麼**：一支統一 CLI，讓 Claude Code、OpenClaw、Cursor 這類 coding agent 可以直接讀取、搜尋 Twitter、Reddit、YouTube、GitHub、Bilibili、小紅書等平台內容。
 - **為什麼值得看**：它不是自己重寫一套爬蟲，而是把 yt-dlp、twitter-cli、bili-cli 這些既有開源工具包成一層路由介面，優先用官方／公開 API（GitHub CLI、Exa），登入牆平台才退回瀏覽器自動化；README 也老實列出風險——cookie 登入的帳號有被平台封鎖的可能，建議用小號而非主帳號，而非包裝成「零風險零成本抓全網」。今天單日新增 365 星，把它推上 GitHub Python 榜前列。
-- **技術棧**：Python 3.10+ ＋ Node.js（MCP 支援），透過 mcporter 整合 MCP，底層拼接 yt-dlp／twitter-cli／bili-cli／rdt-cli 等 CLI 工具
+- **tech stack**：Python 3.10+ ＋ Node.js（MCP 支援），透過 mcporter 整合 MCP，底層拼接 yt-dlp／twitter-cli／bili-cli／rdt-cli 等 CLI 工具
 - **上手難度**：低——對著 agent 說一句「幫我安裝 Agent Reach」，agent 自己跑完安裝與 `agent-reach doctor` 診斷
 
 ---
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：LangChain 官方推出的「開箱即用 agent harness」，內建檔案系統存取、上下文管理、sub-agent 委派、shell 執行等生產環境常用能力。
 - **為什麼值得看**：LangChain 生態系原本的分層是 LangGraph（底層 graph runtime）加上 `create_agent`（最小化 harness），deepagents 補上中間這層「有主見的預設值」——把過去開發者得自己兜的檔案系統、sub-agent、skills 直接打包好，同時保留每個元件可替換的彈性。跟 LangGraph 本體持續打磨底層 runtime 相比，這代表 LangChain 官方也開始往「更高階、更快上手」補產品線，跟 CrewAI、Mastra 這類主打易用性的框架正面競爭。
-- **技術棧**：Python（另有 TypeScript 版 deepagents.js），底層跑在 LangGraph 之上，模型無關（支援 OpenAI／Anthropic／開源模型），可接 LangSmith 做追蹤與評估
+- **tech stack**：Python（另有 TypeScript 版 deepagents.js），底層跑在 LangGraph 之上，模型無關（支援 OpenAI／Anthropic／開源模型），可接 LangSmith 做追蹤與評估
 - **上手難度**：低——`uv add deepagents` 裝完，指定模型、工具、system prompt 就能跑
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：讓你打造「AI SRE agent」的開源框架，定位是 agentic 版的事故應變工程師——自動串起日誌、指標、trace、runbook 做根因分析。
 - **為什麼值得看**：它同時把自己定位成 benchmark——用合成、可評分的 RCA（root cause analysis）題庫訓練與評測 SRE agent，類比 SWE-bench 之於 coding agent。這代表「AI agent 處理正式環境事故」正在從單一工具走向有標準化評測的子領域，跟今天另一個熱門專案 deepagents 代表的「agent harness 標準化」是同一個成熟化敘事的兩面：一個做通用底座，一個做垂直評測基礎設施。內建 60+ 整合（Kubernetes、AWS、Datadog、Grafana、PagerDuty、Slack）顯示它瞄準的是真正跑在 on-call 輪值裡的場景，不是玩具 demo。
-- **技術棧**：Python，支援 Claude／OpenAI／Ollama／Gemini 多家模型，Docker／systemd／AWS EC2 部署選項
+- **tech stack**：Python，支援 Claude／OpenAI／Ollama／Gemini 多家模型，Docker／systemd／AWS EC2 部署選項
 - **上手難度**：中——一行安裝指令（curl 腳本或 Homebrew），但要接上 Kubernetes、Datadog 等既有基礎設施才能發揮完整效果，專案本身仍在 public alpha
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：Claude Cowork 與 Claude Code 的社群外掛市集——一個唯讀鏡像 repo，收錄通過 Anthropic 自動安全掃描與人工審核的社群外掛。
 - **為什麼值得看**：這是「MCP／外掛生態要不要有信任層」這個問題的一個具體答案——開發者不能直接對這個 repo 開 PR（會被自動關閉），所有外掛都得先走 clau.de 的提交流程，通過安全掃描和人工審核後才每晚同步進 marketplace.json。對比社群裡「隨便一個 repo 都能自稱 MCP server」的現況，這種「官方策展、社群貢獻」的模式，可能是接下來其他生態系會複製的形狀。單日 +490 星（相對僅 1,275 總星數）的成長速度，顯示這個市集剛推出就吸引大量關注。
-- **技術棧**：Python 工具鏈（`.claude-plugin/marketplace.json` 索引），CLI 安裝走 `claude plugin marketplace add`
+- **tech stack**：Python 工具鏈（`.claude-plugin/marketplace.json` 索引），CLI 安裝走 `claude plugin marketplace add`
 - **上手難度**：低——`claude plugin marketplace add anthropics/claude-plugins-community` 加市集，再 `claude plugin install <name>@claude-community` 裝外掛
 
 ## Notable Releases

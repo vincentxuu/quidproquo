@@ -110,7 +110,7 @@ scores = retriever.retrieve(
 
 ## 整體來說
 
-ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。Python 這側的生態系這兩年其實補得不錯——PyLate 有人維護，索引後端也從 PLAID 長出了 WARP、TACHIOM 等選擇，其中部分主打 CPU 上就能跑。真正還沒解的是兩件事：**索引仍然是每 token 一個向量**（壓縮只是把倍率壓下來，不是消掉），以及 **TypeScript / edge runtime 幾乎沒有原生支援**，非 Python 的技術棧要用就得多養一個服務。
+ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。Python 這側的生態系這兩年其實補得不錯——PyLate 有人維護，索引後端也從 PLAID 長出了 WARP、TACHIOM 等選擇，其中部分主打 CPU 上就能跑。真正還沒解的是兩件事：**索引仍然是每 token 一個向量**（壓縮只是把倍率壓下來，不是消掉），以及 **TypeScript / edge runtime 幾乎沒有原生支援**，非 Python 的tech stack要用就得多養一個服務。
 
 對大多數 RAG 系統，現有的 Bi-Encoder 搜尋 + Cross-Encoder 重排仍是更省事的選擇。如果你本來就跑 Python、而且已經卡在 Bi-Encoder 精度不夠、Cross-Encoder 又太慢的那個縫，ColBERT 當重排是目前最值得試的一步。
 

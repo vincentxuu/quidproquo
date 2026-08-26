@@ -297,7 +297,7 @@ npm create astro@latest -- --template starlight
 
 1. **先問：對外還是對內？** 對內用 Confluence 或 Notion。對外繼續往下看。
 2. **再問：願不願意自己 build/deploy？** 不願意選 GitBook 或 Mintlify。願意繼續往下看。
-3. **再問：你的技術棧是什麼？** React → Docusaurus、Vue → VitePress、Next.js → Nextra、Astro → Starlight。
+3. **再問：你的tech stack是什麼？** React → Docusaurus、Vue → VitePress、Next.js → Nextra、Astro → Starlight。
 4. **最後問：API 文件是不是核心需求？** 是的話選 Mintlify 或 ReadMe。
 
 不用想太多。文件最重要的事情是「有人願意寫」，工具只是降低摩擦力。選一個你的團隊最不會抗拒的，比選功能最強的更重要。

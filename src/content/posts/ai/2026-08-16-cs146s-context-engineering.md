@@ -59,7 +59,7 @@ Fall 2026 這週的第一條主題是「Advanced prompting techniques and **when
 
 最後一條最值得注意：課程把 Reflexion（又叫 self-critique）擺在「為什麼 IDE 裡的 agent 看起來會自己反覆修正」的解釋位置上。它不是一個進階技巧，是那個行為的來源。
 
-課程給的 prompt 檢查法也很省事：**「Give prompt to someone with minimal context and if they're confused an LLM will be too.」** 其餘幾條是用 `<log>`、`<error>` 這類標籤把 prompt 結構化、明講語言與技術棧、積極用 role prompting、以及把任務拆開。
+課程給的 prompt 檢查法也很省事：**「Give prompt to someone with minimal context and if they're confused an LLM will be too.」** 其餘幾條是用 `<log>`、`<error>` 這類標籤把 prompt 結構化、明講語言與tech stack、積極用 role prompting、以及把任務拆開。
 
 ## RePPIT：把一次 prompt 拆成五個里程碑
 

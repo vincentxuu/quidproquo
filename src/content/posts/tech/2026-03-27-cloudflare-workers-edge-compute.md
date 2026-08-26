@@ -10,7 +10,7 @@ tldr: "Cloudflare Workers 用 V8 Isolate 取代容器，沒有 cold start，全�
 description: "Cloudflare Workers 的核心原理、Bindings 系統、wrangler 工具、定價，以及什麼時候該用、什麼時候不該用的實際判斷。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 1
 ---
 
@@ -188,7 +188,7 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 
 ## 更新紀錄
 
-- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料
 

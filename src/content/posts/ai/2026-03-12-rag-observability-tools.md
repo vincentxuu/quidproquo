@@ -121,7 +121,7 @@ await startActiveObservation("rag-query", async (root) => {
 - Prompt 管理較弱
 - 授權限制如上
 
-**適合**：Python 技術棧、想用 OTel/OpenInference 慣例埋點、評估與 experiment 是主要需求的場景。
+**適合**：Python tech stack、想用 OTel/OpenInference 慣例埋點、評估與 experiment 是主要需求的場景。
 
 ---
 
@@ -160,11 +160,11 @@ def rag_pipeline(query: str):
 （原稿那段 `new RetrievalQAChain({...})` 的範例已經拿掉：那是舊版 LangChain JS 的類別，現在的建議寫法是 LCEL / `createRetrievalChain`，照抄舊寫法會找不到這個 export。）
 
 **取捨**：
-- 用 LangChain 技術棧時設定成本最低，Playground 和 annotation queue 對 prompt 迭代與人工標記很方便
+- 用 LangChain tech stack時設定成本最低，Playground 和 annotation queue 對 prompt 迭代與人工標記很方便
 - 閉源、資料在 LangChain 的伺服器（有自架方案但屬於企業合約範圍）
 - 定價分級會變，這裡不列數字——要評估成本請直接看[官方定價頁](https://www.langchain.com/pricing)，並注意計費單位通常是 trace/span 數而不是使用者數，量大的 RAG pipeline 一次查詢可能就產生十幾個 span
 
-**適合**：LangChain 技術棧、需要完整評估框架與人工標記流程的團隊。
+**適合**：LangChain tech stack、需要完整評估框架與人工標記流程的團隊。
 
 ---
 
@@ -207,7 +207,7 @@ const response = await client.chat.completions.create({
 
 **資料不能離開自家機房** → Langfuse。自架是一等公民，功能也最完整；代價是那套多元件部署要有人維護。
 
-**Python 技術棧、重點在評估與 experiment** → Phoenix。OTel 原生、跟 LlamaIndex/LangChain 的自動 instrumentation 最順；注意授權是 Elastic 2.0，而且 embedding 視覺化已經沒有了。
+**Python tech stack、重點在評估與 experiment** → Phoenix。OTel 原生、跟 LlamaIndex/LangChain 的自動 instrumentation 最順；注意授權是 Elastic 2.0，而且 embedding 視覺化已經沒有了。
 
 **用 LangChain / LangGraph** → LangSmith。設定成本最低，annotation queue 對人工標記很順；閉源且按 trace 計費，量大要先算過。
 

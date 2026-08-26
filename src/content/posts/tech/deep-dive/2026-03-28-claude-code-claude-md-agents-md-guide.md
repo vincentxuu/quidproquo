@@ -29,6 +29,11 @@ series:
 
 關鍵分野是**強制與否**：這三種都是 context，不是 enforced configuration。Claude 讀了會盡量照做，但不保證——要保證每次 commit 前都跑 lint，那要寫 hook，不是寫進 CLAUDE.md。
 
+### CLAUDE.md 語法與最佳實踐
+- 基本結構：專案描述、tech stack、慣例
+- 常見指令模式：commit message 格式、命名規範、測試策略
+- 反模式：過長、過於模糊、與 Hook 職責重疊
+
 Auto memory 預設開啟，Claude 把學到的東西記在 `~/.claude/projects/<project>/memory/` 下：`MEMORY.md` 是索引，每個 session 開頭只載前 200 行或 25KB；細節拆成主題檔（`user_role.md`、`feedback_testing.md`），需要時才讀。它記四種東西——你的角色與偏好、你給過的修正、code 裡看不出來的專案脈絡、外部資源在哪——而 codebase 本身能推導出來的架構、路徑一律不記。用 `/memory` 可以瀏覽、編輯、刪除，也可以整個關掉。
 
 ## 層級與串接：全部進 context，不是覆蓋

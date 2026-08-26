@@ -9,7 +9,7 @@ tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨�
 description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 標為退場後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 9
 ---
 

@@ -16,7 +16,7 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-03-12-vector-database-comparison-en)
 
-向量資料庫是 RAG 系統的核心基礎設施。選型時，大多數人先看 benchmark（ANN 搜尋速度、recall@K），但實際上決定選哪個的通常是：**部署平台、規模需求、已有的技術棧**。
+向量資料庫是 RAG 系統的核心基礎設施。選型時，大多數人先看 benchmark（ANN 搜尋速度、recall@K），但實際上決定選哪個的通常是：**部署平台、規模需求、已有的tech stack**。
 
 ## 先說一件事：功能對照表不要看
 
@@ -135,7 +135,7 @@ NobodyClimb 選擇 Cloudflare Vectorize 的原因很簡單：系統部署在 Clo
 
 ## 整體來說
 
-向量資料庫的選型，70% 是由**部署平台、既有技術棧和維運人力**決定的，30% 才是功能特性的比較。在 Cloudflare Workers 上，Vectorize 是自然選擇；已經有 Postgres 的團隊，pgvector 通常是最省事的起點；需要自架完全控制、過濾條件又複雜，Qdrant 是最成熟的開源選項。
+向量資料庫的選型，70% 是由**部署平台、既有tech stack和維運人力**決定的，30% 才是功能特性的比較。在 Cloudflare Workers 上，Vectorize 是自然選擇；已經有 Postgres 的團隊，pgvector 通常是最省事的起點；需要自架完全控制、過濾條件又複雜，Qdrant 是最成熟的開源選項。
 
 不要在「哪個 benchmark 最高」上花太多時間，也不要相信任何一張功能對照表（包括這篇文章刪掉的那張）。先確認你的部署環境、過濾需求和規模，再去官方文件確認當下的功能狀態。
 

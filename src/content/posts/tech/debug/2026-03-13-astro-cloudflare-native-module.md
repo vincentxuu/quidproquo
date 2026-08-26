@@ -9,7 +9,7 @@ description: "記錄在 Astro + Cloudflare Workers 環境下使用 @resvg/resvg-
 draft: false
 type: debug
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 12
 ---
 

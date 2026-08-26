@@ -14,11 +14,11 @@ draft: false
 
 一篇在講 prompt 怎麼寫，一篇在講 tool calling 的 JSON schema，另一篇在講 multi-agent 的拓撲結構。它們都叫「AI Agent 教學」，但彼此之間幾乎沒有交集。你看完三篇，對 AI Agent 的理解反而更碎片化了。
 
-這就是 2026 年 AI Agent 領域的現狀：**技術棧太深、概念太多、層次太多，很容易迷失。**
+這就是 2026 年 AI Agent 領域的現狀：**tech stack太深、概念太多、層次太多，很容易迷失。**
 
 從 Prompt Engineering 到 Context Engineering 到 Harness Engineering，從 RAG 到 Agent Memory，從 Tool Calling 到 MCP，從 Single Agent 到 Multi-Agent——每一個都是一個大主題，每一個都有自己的框架、最佳實踐、和陷阱。更麻煩的是，它們之間有複雜的依賴關係，但很少有人把這張依賴圖畫出來。
 
-這篇文章不是另一篇深入教學。這是一張地圖——一張展示整個 AI Agent 技術棧的全景圖，讓你知道每個主題是什麼、為什麼重要、跟其他主題的關係、以及從哪裡深入。
+這篇文章不是另一篇深入教學。這是一張地圖——一張展示整個 AI Agent tech stack的全景圖，讓你知道每個主題是什麼、為什麼重要、跟其他主題的關係、以及從哪裡深入。
 
 ---
 
@@ -339,7 +339,7 @@ Memory 也是 Agent 和 Chatbot 最大的差異之一。Chatbot 通常只有 ses
 - **記憶策略**：跨 session 的使用者記憶怎麼存取？
 - **串流回應**：怎麼做到 token-by-token 的串流輸出，而不是等全部生成完才顯示？
 - **Guardrails**：怎麼防止 prompt injection？怎麼過濾不安全的輸出？
-- **技術棧選型**：Vercel AI SDK vs LangChain vs 自己刻？各有什麼取捨？
+- **tech stack選型**：Vercel AI SDK vs LangChain vs 自己刻？各有什麼取捨？
 
 這些問題每一個都有坑，而且它們之間會互相影響。例如，串流回應和 guardrails 之間有天然的衝突——你要在輸出完成前就開始串流，但 guardrails 需要看到完整輸出才能判斷。
 
@@ -353,7 +353,7 @@ Memory 也是 Agent 和 Chatbot 最大的差異之一。Chatbot 通常只有 ses
 
 如果你能建造一個穩定的生產級聊天機器人，你對 Agent 架構的理解就已經很紮實了。
 
-→ **專文深入**：[聊天機器人開發完整指南：狀態管理、記憶策略與技術棧選型](/posts/ai/2026-03-13-chatbot-development-guide)
+→ **專文深入**：[聊天機器人開發完整指南：狀態管理、記憶策略與tech stack選型](/posts/ai/2026-03-13-chatbot-development-guide)
 
 ---
 
@@ -477,7 +477,7 @@ Agent 設計原則 → 可觀測性 → Harness Engineering（Guard System）→
 
 ## 結語
 
-AI Agent 的技術棧在 2026 年已經發展成一個完整的工程體系。它不再是「會寫 prompt 就好」的事情——你需要理解 context 管理、harness 設計、工具標準化、記憶系統、可觀測性，才能建造出可靠的 Agent。
+AI Agent 的tech stack在 2026 年已經發展成一個完整的工程體系。它不再是「會寫 prompt 就好」的事情——你需要理解 context 管理、harness 設計、工具標準化、記憶系統、可觀測性，才能建造出可靠的 Agent。
 
 但好消息是：這些技術之間有清晰的邏輯關係和學習順序。你不需要一次學會全部，只要知道自己在地圖上的哪個位置，下一步該往哪走就好。
 

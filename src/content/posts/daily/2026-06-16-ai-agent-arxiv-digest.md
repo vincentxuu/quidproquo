@@ -189,7 +189,7 @@ EurekAgent 的核心是「問題定義介面 + 容器隔離」：
 - Kernel engineering（TriMul 矩陣乘法）：2247.78 μs → 2005.03 μs（降約 10.8%）⚠️（單一 micro-benchmark）
 - ML（MLE-Bench subset）：85.71% vs. 71.43% 先前最佳（+14.28pp）⚠️（subset，非完整 MLE-Bench 全集）
 - **成本**：數學最佳化每次執行 API cost 低於 **$17**
-- **技術棧**：Python 3.12 + Claude Code + Docker，未用傳統 orchestration 框架
+- **tech stack**：Python 3.12 + Claude Code + Docker，未用傳統 orchestration 框架
 - **Reward hacking 防制**：Grader container 隔離是核心；評分邏輯完全不暴露給 agent
 - **Limitation**：評測任務為精心挑選的場景；⚠️ 數字均來自 subset 或 micro-benchmark；$17/run 在規模化使用時成本顯著；泛化到「環境未事先為 agent 設計的任務」尚無驗證
 

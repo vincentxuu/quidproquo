@@ -10,7 +10,7 @@ tldr: "KV 是 Cloudflare 的全球分散式 key-value store，讀取從最近的
 description: "Cloudflare KV 介紹：全球分散式 key-value store，邊緣讀取低延遲，TTL 原生支援。包含 Workers binding 用法、type 轉換技巧、與 D1 的選擇矩陣，以及 NobodyClimb 的 AI 問答快取實作。"
 draft: false
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 3
 ---
 
@@ -146,7 +146,7 @@ return response;
 
 ## 更新紀錄
 
-- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣技術棧」系列
+- 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料
 

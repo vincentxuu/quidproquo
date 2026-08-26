@@ -9,7 +9,7 @@ description: "在 wrangler.jsonc 設定 custom domain 時的格式坑：不能�
 draft: false
 type: debug
 series:
-  name: "Cloudflare 邊緣技術棧"
+  name: "Cloudflare 邊緣tech stack"
   order: 11
 ---
 

@@ -159,7 +159,7 @@ Kiro 的 CLI 實作了 **Agent Client Protocol (ACP)**，這是一個標準化�
 
 Kiro 最適合以下團隊：
 
-- **AWS 為主的技術棧**：Lambda、CDK、CloudFormation 的原生整合無人能比。
+- **AWS 為主的tech stack**：Lambda、CDK、CloudFormation 的原生整合無人能比。
 - **需要結構化開發流程**：Spec-Driven 開發讓 AI 輔助不再是黑箱。
 - **重視開發規範自動化**：Agent Hooks 讓團隊約定變成可執行的自動化。
 - **想要免費方案的個人開發者**：50 credits 永久免費，搭配 Auto 模式的優化與分數計費，輕度使用還算堪用。

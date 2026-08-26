@@ -224,7 +224,7 @@ prompt 告訴 Claude：
 3. 按優先順序實作：建 branch → 寫 code → 跑測試 → 開 PR
 4. 檢查已開的 PR 有沒有 review feedback，有的話自動修
 
-這個 prompt 大概 200 行，包含每個 repo 的技術棧說明、coding convention、PR 格式規範。寫得越具體，AI 的產出品質越好。
+這個 prompt 大概 200 行，包含每個 repo 的tech stack說明、coding convention、PR 格式規範。寫得越具體，AI 的產出品質越好。
 
 ### 運作結果
 

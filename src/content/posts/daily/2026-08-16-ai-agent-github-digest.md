@@ -25,8 +25,8 @@ series:
 
 - **是什麼**：filesystem-first 的 durable AI agent 框架，agent 的工具、技能、排程都是專案目錄底下的一般檔案（`agent/tools/*.ts`、`agent/agent.ts`），而不是藏在框架的設定物件裡。
 - **為什麼值得看**：Vercel 這種規模的基礎設施公司親自下場做 agent 框架，還選了跟 Mastra 相近的「TypeScript 原生」路線，但用檔案系統取代 DSL 當 authoring interface；框架直接綁定 Vercel AI Gateway、Sandboxes、Workflows、Connect，等於把「agent 框架」和「agent 部署平台」焊在一起賣。
-- **技術棧**：TypeScript + Vercel AI Gateway + Vercel Sandboxes + Workflows
-- **上手難度**：低——`npx eve@latest init my-agent` 一行指令起手，但深度使用需要綁定完整 Vercel 技術棧。
+- **tech stack**：TypeScript + Vercel AI Gateway + Vercel Sandboxes + Workflows
+- **上手難度**：低——`npx eve@latest init my-agent` 一行指令起手，但深度使用需要綁定完整 Vercel tech stack。
 
 ---
 
@@ -36,7 +36,7 @@ series:
 
 - **是什麼**：Prime Intellect（以分散式訓練、Prime-RL 聞名的團隊）推出的自我改進 coding agent，核心是 Recursive Language Model（RLM）+ Continual Harness 兩個抽象。
 - **為什麼值得看**：多數 agent 框架把 tool-calling schema 寫死，Prime Agent 反其道而行，把整個對話 context 當成持久 IPython kernel 裡的「變數」，呼叫子 agent 變成普通的非同步函式呼叫；更特別的是 `/refine` 能讓 agent 自己修改「補充版」的 harness 狀態（但碰不了不可變的 base system prompt），官方展示它能在 EmulatorBench 上從零手刻出一個可過診斷測試的 Sega Genesis 模擬器。
-- **技術棧**：Python + 持久 IPython kernel + agent-to-agent 訊息傳遞
+- **tech stack**：Python + 持久 IPython kernel + agent-to-agent 訊息傳遞
 - **上手難度**：中——CLI 工具，需先 `/login` 選訂閱或 API key 供應商，官方建議在拋棄式 clone 或乾淨 worktree 裡跑，避免直接動到正式專案。
 
 ---
@@ -47,7 +47,7 @@ series:
 
 - **是什麼**：一個「多 agent 群落（colony）」執行環境——一個常駐、面向使用者的 Queen agent，依需求動態複製出 worker clone 去做子任務。
 - **為什麼值得看**：跟 LangGraph 那種「先編譯一張圖」的思路完全相反，Hive 只有一個執行原語：Queen 本身就是 agent loop，每個 worker 都是它的複製體，彼此透過共享的 tracker ledger 協調，不用預先定義節點與邊；同時內建 crash-safe 的 park/resume、成本管控、人工介入（Sentinel）等生產環境要件。
-- **技術棧**：Python + LiteLLM 相容多供應商路由 + MCP 工具整合
+- **tech stack**：Python + LiteLLM 相容多供應商路由 + MCP 工具整合
 - **上手難度**：中——號稱零設定即可跑起來，但要用到成本管控、稽核軌跡等生產級功能仍需要理解它的 ledger 架構。
 
 ---
@@ -58,7 +58,7 @@ series:
 
 - **是什麼**：香港大學資料科學實驗室（HKUDS）出品的超輕量、自架個人 AI agent 框架，可以跑在 WebUI、終端機，或直接接進 Telegram / Discord / Slack / 微信等聊天工具。
 - **為什麼值得看**：上個月的 v0.3.0（260 個 PR、38 位新貢獻者合併）把 nanobot 從「耐用工作台」升級成「能協調幫手的 agent runtime」——新增行內子 agent 諮詢（不用跳出當前任務就能問子 agent 意見）、每個 session 可即時切換模型、更清楚的執行控管；從 2026 年 2 月建 repo 到現在半年出頭衝到 4.7 萬星，成長曲線相當誇張。
-- **技術棧**：Python + OpenAI 相容 API + MCP 整合
+- **tech stack**：Python + OpenAI 相容 API + MCP 整合
 - **上手難度**：低——一行 `nanobot webui` 就能跑起本地 WebUI。
 
 ## Notable Releases

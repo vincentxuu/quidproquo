@@ -6,7 +6,7 @@ category: tech
 tags: [nextjs, react, server-components, app-router]
 lang: zh-TW
 tldr: "Next.js 15 + React 19 的 App Router 把渲染責任從客戶端移到伺服器，use cache 讓快取邏輯直接跟資料綁在一起而不是散在 fetch 選項裡。島島和 NobodyClimb 都選它，原因很務實。"
-description: "介紹 Next.js 15 App Router 的核心概念：Server Components、use cache directive、以及為什麼島島和 NobodyClimb 這兩個真實專案都選擇了這個技術棧。"
+description: "介紹 Next.js 15 App Router 的核心概念：Server Components、use cache directive、以及為什麼島島和 NobodyClimb 這兩個真實專案都選擇了這個tech stack。"
 draft: false
 ---
 
@@ -14,7 +14,7 @@ draft: false
 
 Next.js 15 + App Router 不是 Next.js 的微調版本，它是一次架構方向的轉移：從「客戶端先渲染」到「伺服器先渲染，客戶端只負責互動」。這個轉移帶來的不只是效能差異，而是整個思考資料流的方式。
 
-島島（DaoDao）和 NobodyClimb 都選了 Next.js 15 App Router，一個跑在傳統 VPS，一個透過 `@opennextjs/cloudflare` 跑在 Cloudflare Workers，兩者的需求差異不小，但前端技術棧的選擇一樣。
+島島（DaoDao）和 NobodyClimb 都選了 Next.js 15 App Router，一個跑在傳統 VPS，一個透過 `@opennextjs/cloudflare` 跑在 Cloudflare Workers，兩者的需求差異不小，但前端tech stack的選擇一樣。
 
 ## Server Components 在解決什麼問題
 
