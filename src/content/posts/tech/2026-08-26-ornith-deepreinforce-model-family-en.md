@@ -1,10 +1,13 @@
 ---
 title: "Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [open-source, reinforcement-learning, agentic-coding, moe, code-model, benchmark, qwen, gemma]
 lang: en
+series:
+  name: "AI 模型家族"
+  order: 13
 tldr: "DeepReinforce's Ornith 1.5 family, trained with self-improvement RL: the 397B flagship scores 86.0 on SWE-bench Verified, matching Claude Opus 4.8; the 35B-A3B activates only 3B parameters per token yet leads every coding benchmark in its class; the 9B runs on phones. MIT-licensed, fully open-source."
 description: "A deep dive into the Ornith model family: DeepReinforce's background, the self-scaffolding training methodology, benchmark comparisons across three scales, deployment options, and what it means for the open-source ecosystem."
 draft: false
@@ -17,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standardized test that measures a model's ability to solve real GitHub issues"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)
+> 🌏 [中文版](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
 
 DeepReinforce is not a big lab. Not Alibaba, not Meta, not Google — it's a small team focused on agentic coding and reinforcement learning. Yet their Ornith 1.5 family, released in August 2026, matches or beats Claude Opus 4.8 on multiple coding benchmarks, all under an MIT license. Here's how they did it and whether it's worth paying attention to.
 

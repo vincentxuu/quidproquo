@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide)
 
-[Ornith 35B-A3B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) scores 79.0 on SWE-bench, [MiniMax M2.5](/posts/ai/2026-08-26-minimax-model-family) hits 80.2% — open-source models now match closed-source on coding tasks. But "the model is strong enough" and "I can actually run it" are separated by real decisions: which serving framework, what GPU, how much quantization, and when self-hosting beats API calls. This is the decision guide.
+[Ornith 35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) scores 79.0 on SWE-bench, [MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family) hits 80.2% — open-source models now match closed-source on coding tasks. But "the model is strong enough" and "I can actually run it" are separated by real decisions: which serving framework, what GPU, how much quantization, and when self-hosting beats API calls. This is the decision guide.
 
 This site already has individual deep-dives on [vLLM](/posts/ai/2026-08-21-vllm-self-host-decision) (in Chinese), [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) (in Chinese), and [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) (in Chinese). This post doesn't repeat their content — it covers the cross-framework comparison and cost math.
 
@@ -143,5 +143,5 @@ vLLM and SGLang both natively support tool calling (function calling), which is 
 - [vLLM Self-Hosting Decision Guide — this site](/posts/ai/2026-08-21-vllm-self-host-decision) (in Chinese)
 - [Ollama Complete Guide — this site](/posts/ai/2026-03-14-ollama-local-llm-guide) (in Chinese)
 - [llama.cpp Inference Engine — this site](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) (in Chinese)
-- [Ornith Model Family — this site](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)
-- [MiniMax Model Family — this site](/posts/ai/2026-08-26-minimax-model-family)
+- [Ornith Model Family — this site](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
+- [MiniMax Model Family — this site](/posts/tech/2026-08-26-minimax-model-family)

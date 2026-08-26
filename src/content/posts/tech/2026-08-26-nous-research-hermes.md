@@ -1,10 +1,13 @@
 ---
 title: "Nous Research：從研究社群到開源 AI 生態系的反叛者"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [nous-research, open-source, reinforcement-learning, fine-tuning, hermes-agent, llama, code-model]
 lang: zh-TW
+series:
+  name: "AI 模型家族"
+  order: 15
 tldr: "Nous Research 不預訓練，只做 fine-tuning 和 RL——Hermes 4 在 MATH-500 拿 96.3%，NousCoder-14B 只用 24K 樣本就把 Qwen3-14B 的 coding 能力拉高 7%。但真正的護城河是 Hermes Agent 框架：236K GitHub stars，全球第 19 名，3,000 位貢獻者。"
 description: "Nous Research 深入介紹：團隊背景、Hermes 4 與 NousCoder 模型、DataForge + Atropos 訓練方法論、Hermes Agent 框架生態，以及 uncensored AI 哲學的爭議與影響。"
 draft: false
@@ -15,13 +18,13 @@ glossary:
     def: "測量模型拒絕回答合理請求頻率的 benchmark——分數越高代表模型越少不必要地拒答"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-nous-research-hermes-en)
+> 🌏 [English version](/en/posts/tech/2026-08-26-nous-research-hermes-en)
 
 Nous Research 的起源不是某個創辦人的車庫，而是一群開源 LLM 社群的研究者自發聚在一起。2023 年由 Jeffrey Quesnelle、Karan Malhotra、Shivani Mitra 和社群暱稱 Teknium 的研究者共同成立，從鬆散的研究社群變成一間公司。他們的主張很明確：AI 不應該有過度的安全護欄，使用者有權決定模型該回答什麼。這個哲學讓他們在開源社群有了忠實追隨者，也讓他們成為爭議的焦點。
 
 ## 不預訓練的策略
 
-跟 [Ornith（DeepReinforce）](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)一樣，Nous Research 不自己從頭預訓練基礎模型。他們站在 Meta 的 Llama 和阿里的 Qwen 肩膀上，把資源集中在 fine-tuning 和強化學習。
+跟 [Ornith（DeepReinforce）](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)一樣，Nous Research 不自己從頭預訓練基礎模型。他們站在 Meta 的 Llama 和阿里的 Qwen 肩膀上，把資源集中在 fine-tuning 和強化學習。
 
 但他們的 fine-tuning 不是一般的 SFT。Nous 自研了兩套工具：
 
@@ -103,4 +106,4 @@ Hermes Agent 的設計哲學：
 - [DataForge — GitHub](https://github.com/NousResearch/DataForge)
 - [NousCoder-14B — Hugging Face](https://huggingface.co/NousResearch/NousCoder-14B)
 - [Hermes 4 — Hugging Face](https://huggingface.co/NousResearch)
-- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)
+- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)

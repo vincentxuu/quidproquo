@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
 
-2026 年的前沿開源模型有一個共同點：幾乎都是 MoE。[Ornith 1.5-35B-A3B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 用 3B 啟用量打贏 31B dense 模型、[MiniMax M3](/posts/ai/2026-08-26-minimax-model-family) 用 456B 總量但只啟用 45.9B、DeepSeek V4 Pro 是 1.6T 總量但 49B 啟用、Qwen3.8 最大版本是 2.4T 總量但 95B 啟用。依 [DeepInfra 的分析](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop)，MoE 已經「從研究好奇心變成前沿模型的主流架構」。這篇用實際案例拆解 MoE 為什麼贏、什麼時候不該用。
+2026 年的前沿開源模型有一個共同點：幾乎都是 MoE。[Ornith 1.5-35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 用 3B 啟用量打贏 31B dense 模型、[MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) 用 456B 總量但只啟用 45.9B、DeepSeek V4 Pro 是 1.6T 總量但 49B 啟用、Qwen3.8 最大版本是 2.4T 總量但 95B 啟用。依 [DeepInfra 的分析](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop)，MoE 已經「從研究好奇心變成前沿模型的主流架構」。這篇用實際案例拆解 MoE 為什麼贏、什麼時候不該用。
 
 ## MoE 是什麼
 
@@ -37,7 +37,7 @@ Token → Gating Network → 選出 top-k experts → 只跑這 k 個 → 合併
 
 ### Ornith 1.5-35B-A3B：3B 啟用打贏 31B Dense
 
-[Ornith](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 的 35B-A3B 是最極端的效率案例。總參數 35B、每 token 啟用約 3B，但在 [SWE-bench Verified 拿到 79.0](https://ornith.ai/ornith_1_5.html)——同量級唯一破 79 的模型，甚至超越 11 倍大的 Qwen3.5-397B（76.4）。
+[Ornith](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 的 35B-A3B 是最極端的效率案例。總參數 35B、每 token 啟用約 3B，但在 [SWE-bench Verified 拿到 79.0](https://ornith.ai/ornith_1_5.html)——同量級唯一破 79 的模型，甚至超越 11 倍大的 Qwen3.5-397B（76.4）。
 
 更驚人的對比是 Gemma 4-31B（dense，31B 全啟用）：SWE-bench Verified 只有 52.0。Ornith 用 3B 的推論成本做到 79 分，Gemma 用 31B 的推論成本做到 52 分。
 
@@ -45,7 +45,7 @@ Token → Gating Network → 選出 top-k experts → 只跑這 k 個 → 合併
 
 ### MiniMax M3：MSA + MoE 做到 1M Context
 
-[MiniMax M3](/posts/ai/2026-08-26-minimax-model-family) 是 456B 總量、45.9B 啟用的 MoE。它的技術亮點不只是 MoE，還有自研的 MiniMax Sparse Attention（MSA）——用 KV-block 選擇取代全注意力，讓長上下文推論成本降到約 1/20。
+[MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) 是 456B 總量、45.9B 啟用的 MoE。它的技術亮點不只是 MoE，還有自研的 MiniMax Sparse Attention（MSA）——用 KV-block 選擇取代全注意力，讓長上下文推論成本降到約 1/20。
 
 M3 在 [SWE-bench Pro 拿到 59.0%](https://www.mindstudio.ai/blog/ornith-1-5-35b-a3b-benchmarks)，是首個在此 benchmark 突破 59% 的開源權重模型。MoE + 稀疏注意力的組合讓 1M context window 在推論成本上變得可行。
 
@@ -106,5 +106,5 @@ MoE 省的是計算（FLOP），不是記憶體。一個 35B MoE 模型每 token
 - [DeepSeek-V4 技術報告 (arXiv:2606.19348)](https://arxiv.org/abs/2606.19348)
 - [Mixture-of-Experts (MoE) LLMs — Cameron R. Wolfe](https://cameronrwolfe.substack.com/p/moe-llms)
 - [Ornith 1.5 官方技術報告](https://ornith.ai/ornith_1_5.html)
-- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) — 站內
-- [MiniMax：聊天機器人公司做出的 Coding 模型，性價比碾壓閉源](/posts/ai/2026-08-26-minimax-model-family) — 站內
+- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) — 站內
+- [MiniMax：聊天機器人公司做出的 Coding 模型，性價比碾壓閉源](/posts/tech/2026-08-26-minimax-model-family) — 站內

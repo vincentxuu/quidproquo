@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-08-26-self-improvement-rl-three-approaches)
 
-There's a counterintuitive pattern in 2026: the models matching or beating top closed-source models on coding benchmarks aren't the ones with the biggest pretraining budgets. They're the ones that got creative with reinforcement learning during post-training. [Ornith](/en/posts/ai/2026-08-26-ornith-deepreinforce-model-family-en), [Nous Research](/en/posts/ai/2026-08-26-nous-research-hermes-en), and [MiniMax](/en/posts/ai/2026-08-26-minimax-model-family-en) took three very different RL paths and each produced results that surprised the field. This post compares their design philosophies, concrete methods, and respective strengths.
+There's a counterintuitive pattern in 2026: the models matching or beating top closed-source models on coding benchmarks aren't the ones with the biggest pretraining budgets. They're the ones that got creative with reinforcement learning during post-training. [Ornith](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en), [Nous Research](/en/posts/tech/2026-08-26-nous-research-hermes-en), and [MiniMax](/en/posts/tech/2026-08-26-minimax-model-family-en) took three very different RL paths and each produced results that surprised the field. This post compares their design philosophies, concrete methods, and respective strengths.
 
 ## The Shared Premise: Pretraining Isn't Your Battlefield
 
@@ -35,7 +35,7 @@ Research from [ACL 2026](https://aclanthology.org/2026.acl-long.1444) on RL post
 
 ## Approach 1: Ornith's Self-Improvement Loop
 
-[Ornith (DeepReinforce)](/en/posts/ai/2026-08-26-ornith-deepreinforce-model-family-en) asks: **what if the model generates its own training data and improves itself?**
+[Ornith (DeepReinforce)](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) asks: **what if the model generates its own training data and improves itself?**
 
 ### How It Works
 
@@ -63,7 +63,7 @@ GRPO doesn't need a separate value model (critic). Instead, it computes advantag
 
 ## Approach 2: Nous Research's DataForge + Atropos
 
-[Nous Research](/en/posts/ai/2026-08-26-nous-research-hermes-en) takes a different path: **use purpose-built tooling to synthesize high-quality training data, then apply execution-reward RL**.
+[Nous Research](/en/posts/tech/2026-08-26-nous-research-hermes-en) takes a different path: **use purpose-built tooling to synthesize high-quality training data, then apply execution-reward RL**.
 
 ### How It Works
 
@@ -92,7 +92,7 @@ NousCoder-14B goes further with **execution-reward RL**: the model's code is act
 
 ## Approach 3: MiniMax's Massive-Scale Environment RL
 
-[MiniMax](/en/posts/ai/2026-08-26-minimax-model-family-en) takes the most "brute force" yet distinct approach: **large-scale RL in 200,000+ real environments, without self-generation or synthetic data**.
+[MiniMax](/en/posts/tech/2026-08-26-minimax-model-family-en) takes the most "brute force" yet distinct approach: **large-scale RL in 200,000+ real environments, without self-generation or synthetic data**.
 
 ### How It Works
 
@@ -148,6 +148,6 @@ If this trend holds, the open-source model ecosystem will shift from "who pretra
 - [What Is GRPO in LLM Reinforcement Learning? — FutureAGI](https://futureagi.com/blog/what-is-grpo-llm-reinforcement-learning-2026)
 - [Scaling Behaviors of LLM RL Post-Training — ACL 2026](https://aclanthology.org/2026.acl-long.1444)
 - [How Agentic RL Trains Autonomous Agents in 2026 — FutureAGI](https://futureagi.com/blog/how-agentic-rl-trains-autonomous-agents-2026)
-- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/en/posts/ai/2026-08-26-ornith-deepreinforce-model-family-en) — this site
-- [Nous Research: From Research Collective to Open-Source AI Ecosystem Rebel](/en/posts/ai/2026-08-26-nous-research-hermes-en) — this site
-- [MiniMax: The Chatbot Company That Built a Coding Model Crushing Closed-Source on Cost](/en/posts/ai/2026-08-26-minimax-model-family-en) — this site
+- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) — this site
+- [Nous Research: From Research Collective to Open-Source AI Ecosystem Rebel](/en/posts/tech/2026-08-26-nous-research-hermes-en) — this site
+- [MiniMax: The Chatbot Company That Built a Coding Model Crushing Closed-Source on Cost](/en/posts/tech/2026-08-26-minimax-model-family-en) — this site

@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-08-26-self-improvement-rl-three-approaches-en)
 
-2026 年有一個反直覺的現象：在 coding benchmark 上追平甚至超越閉源頂尖模型的，不是花最多錢預訓練的團隊，而是在後訓練階段把強化學習玩出花的小團隊。[Ornith](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)、[Nous Research](/posts/ai/2026-08-26-nous-research-hermes) 和 [MiniMax](/posts/ai/2026-08-26-minimax-model-family) 走了三條截然不同的 RL 路線，各自做出讓人意外的成績。這篇比較這三條路線的設計哲學、實際做法和各自的強弱。
+2026 年有一個反直覺的現象：在 coding benchmark 上追平甚至超越閉源頂尖模型的，不是花最多錢預訓練的團隊，而是在後訓練階段把強化學習玩出花的小團隊。[Ornith](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)、[Nous Research](/posts/tech/2026-08-26-nous-research-hermes) 和 [MiniMax](/posts/tech/2026-08-26-minimax-model-family) 走了三條截然不同的 RL 路線，各自做出讓人意外的成績。這篇比較這三條路線的設計哲學、實際做法和各自的強弱。
 
 ## 共同前提：預訓練不是你的戰場
 
@@ -35,7 +35,7 @@ glossary:
 
 ## 路線一：Ornith 的 Self-Improvement Loop
 
-[Ornith（DeepReinforce）](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)的核心想法是：**讓模型自己產出訓練資料、自己改進**。
+[Ornith（DeepReinforce）](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)的核心想法是：**讓模型自己產出訓練資料、自己改進**。
 
 ### 怎麼運作
 
@@ -63,7 +63,7 @@ GRPO 不需要獨立的 value model（critic），而是在同一組 rollout 裡
 
 ## 路線二：Nous Research 的 DataForge + Atropos
 
-[Nous Research](/posts/ai/2026-08-26-nous-research-hermes) 的策略不同：**用專門的工具鏈合成高品質訓練資料，再用執行獎勵做 RL**。
+[Nous Research](/posts/tech/2026-08-26-nous-research-hermes) 的策略不同：**用專門的工具鏈合成高品質訓練資料，再用執行獎勵做 RL**。
 
 ### 怎麼運作
 
@@ -94,7 +94,7 @@ Ornith 讓模型自己生成訓練任務；Nous 用外部工具（DataForge）�
 
 ## 路線三：MiniMax 的大規模環境 RL
 
-[MiniMax](/posts/ai/2026-08-26-minimax-model-family) 的做法最「暴力」也最不同：**在 20 萬個真實環境裡做大規模 RL，不靠自我生成也不靠合成資料**。
+[MiniMax](/posts/tech/2026-08-26-minimax-model-family) 的做法最「暴力」也最不同：**在 20 萬個真實環境裡做大規模 RL，不靠自我生成也不靠合成資料**。
 
 ### 怎麼運作
 
@@ -150,6 +150,6 @@ Nous 和 MiniMax 的路線迴避了這個問題——它們的訓練資料來自
 - [What Is GRPO in LLM Reinforcement Learning? — FutureAGI](https://futureagi.com/blog/what-is-grpo-llm-reinforcement-learning-2026)
 - [Scaling Behaviors of LLM RL Post-Training — ACL 2026](https://aclanthology.org/2026.acl-long.1444)
 - [How Agentic RL Trains Autonomous Agents in 2026 — FutureAGI](https://futureagi.com/blog/how-agentic-rl-trains-autonomous-agents-2026)
-- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) — 本站
-- [Nous Research：從研究社群到開源 AI 生態系的反叛者](/posts/ai/2026-08-26-nous-research-hermes) — 本站
-- [MiniMax：聊天機器人公司做出的 Coding 模型，性價比碾壓閉源](/posts/ai/2026-08-26-minimax-model-family) — 本站
+- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) — 本站
+- [Nous Research：從研究社群到開源 AI 生態系的反叛者](/posts/tech/2026-08-26-nous-research-hermes) — 本站
+- [MiniMax：聊天機器人公司做出的 Coding 模型，性價比碾壓閉源](/posts/tech/2026-08-26-minimax-model-family) — 本站

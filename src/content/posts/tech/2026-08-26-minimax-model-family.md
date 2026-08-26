@@ -1,10 +1,13 @@
 ---
 title: "MiniMax：聊天機器人公司做出的 Coding 模型，性價比碾壓閉源"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [open-source, moe, code-model, benchmark, pricing, china-ai, agentic-coding]
 lang: zh-TW
+series:
+  name: "AI 模型家族"
+  order: 14
 tldr: "MiniMax 從消費級聊天 App 起家，M2.5 在 SWE-bench Verified 拿 80.2% 但 API 價格只有 Claude Opus 的 1/10-1/20；M3（456B 總量 / 45.9B 啟用）是首個在 SWE-bench Pro 突破 59% 的開源權重模型，還有 1M context。"
 description: "MiniMax 模型家族深入介紹：從消費 AI 到 coding 黑馬的轉型故事、M2.5/M2.7/M3 規格與 benchmark 對比、MiniMax Sparse Attention 技術解析、定價策略與開源生態定位。"
 draft: false
@@ -17,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark，用真實 GitHub issue 測量模型解決軟體工程問題能力的標準測試集"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-minimax-model-family-en)
+> 🌏 [English version](/en/posts/tech/2026-08-26-minimax-model-family-en)
 
 MiniMax 不是一家模型公司——至少一開始不是。它做的是角色聊天 App（[Talkie](https://www.talkie-ai.com/)）和影片生成（[Hailuo AI](https://hailuoai.video/)），是中國「AI 六小虎」之一。但在 2026 年 2 月，它發布的 M2.5 在 [SWE-bench Verified](https://www.swebench.com/) 拿到 80.2%，跟當時的 Claude Opus 4.6 只差 0.6 個百分點——API 價格卻只有十分之一到二十分之一。這篇整理 MiniMax 怎麼從聊天機器人跨到 coding 前沿的。
 
@@ -82,7 +85,7 @@ M2.5 的表現只比當時最強的 Opus 4.6 低 0.6 個百分點，但成本低
 | GPQA Diamond | **92.9%** | — | 92.8 |
 | HLE | **39.0%** | — | 44.6 |
 
-M3 是首個在 SWE-bench Pro 超越 GPT-5.5 的開源權重模型。跟同為 MoE 的 [Ornith 1.5-397B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 相比，兩者在 GPQA Diamond 上幾乎打平，但走的技術路線完全不同：Ornith 靠 self-improvement RL，MiniMax 靠大規模環境 RL。
+M3 是首個在 SWE-bench Pro 超越 GPT-5.5 的開源權重模型。跟同為 MoE 的 [Ornith 1.5-397B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 相比，兩者在 GPQA Diamond 上幾乎打平，但走的技術路線完全不同：Ornith 靠 self-improvement RL，MiniMax 靠大規模環境 RL。
 
 ### M2.7：被忽略的效率選手
 
@@ -129,4 +132,4 @@ MiniMax 的定價是它最鮮明的差異化。
 - [MiniMax M3 技術報告](https://www.minimaxi.com/m3)
 - [MiniMax HuggingFace](https://huggingface.co/MiniMaxAI)
 - [SWE-bench 排行榜](https://www.swebench.com/)
-- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) — 本站
+- [Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) — 本站

@@ -45,7 +45,7 @@ glossary:
 
 ### harness 造成的分數差異
 
-這是最容易讓人誤讀的部分。以 [Ornith 1.5-35B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 為例：
+這是最容易讓人誤讀的部分。以 [Ornith 1.5-35B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 為例：
 
 | Harness | Terminal-Bench 2.1 分數 |
 |---|---|
@@ -64,7 +64,7 @@ glossary:
 - **真的難**：問題描述長度只有 SWE-bench Pro 的一半，但解法需要 5.5 倍的程式碼量和 2 倍的輸出 token
 - **行為驗證**：測試檢查軟體行為而非實作細節
 
-依 DeepSWE 官方排行榜（2026-08-20），頂尖分數是 Claude Opus 5 的 74%，而 [MiniMax M2.5](/posts/ai/2026-08-26-minimax-model-family) 拿 22%、[Ornith 1.5-35B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 也是 22%——同量級的 Qwen3.6-35B 和 Gemma 4-31B 直接掛零。這個 benchmark 的區分度遠高於已經飽和的 SWE-bench Verified。
+依 DeepSWE 官方排行榜（2026-08-20），頂尖分數是 Claude Opus 5 的 74%，而 [MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family) 拿 22%、[Ornith 1.5-35B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 也是 22%——同量級的 Qwen3.6-35B 和 Gemma 4-31B 直接掛零。這個 benchmark 的區分度遠高於已經飽和的 SWE-bench Verified。
 
 ## Aider Polyglot：最貼近真實使用的 benchmark
 
@@ -78,7 +78,7 @@ SWE-bench 測的是「給你一個 bug report，修好它」。Aider 測的是�
 
 ## LiveCodeBench：競程能力 ≠ 軟體工程能力
 
-[LiveCodeBench](https://livecodebench.github.io/) 用 LeetCode / Codeforces 等級的競程題測試模型。[Nous Research 的 NousCoder-14B](/posts/ai/2026-08-26-nous-research-hermes) 在 LiveCodeBench v6 拿到 67.87% Pass@1。
+[LiveCodeBench](https://livecodebench.github.io/) 用 LeetCode / Codeforces 等級的競程題測試模型。[Nous Research 的 NousCoder-14B](/posts/tech/2026-08-26-nous-research-hermes) 在 LiveCodeBench v6 拿到 67.87% Pass@1。
 
 **要注意的**：競程能力和軟體工程能力是兩回事。競程測的是演算法設計和邊界條件處理，軟體工程測的是理解大型程式碼庫、跨檔案修改、與測試框架互動。一個模型在 LiveCodeBench 很強但 SWE-bench 很弱，完全有可能。
 
@@ -122,6 +122,6 @@ HumanEval（164 題）和 MBPP（974 題）是最早的 coding benchmark。頂�
 - [DeepSWE 論文 — arXiv:2607.07946](https://arxiv.org/abs/2607.07946)
 - [Aider Polyglot 排行榜](https://aider.chat/docs/leaderboards)
 - [Artificial Analysis Terminal-Bench 2.1 評測](https://artificialanalysis.ai/evaluations/terminalbench-v2-1)
-- [Ornith 模型家族介紹](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)
-- [MiniMax 模型家族介紹](/posts/ai/2026-08-26-minimax-model-family)
-- [Nous Research 模型家族介紹](/posts/ai/2026-08-26-nous-research-hermes)
+- [Ornith 模型家族介紹](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
+- [MiniMax 模型家族介紹](/posts/tech/2026-08-26-minimax-model-family)
+- [Nous Research 模型家族介紹](/posts/tech/2026-08-26-nous-research-hermes)

@@ -1,10 +1,13 @@
 ---
 title: "MiniMax: The Chat App Company That Built a Coding Model to Rival Frontier Labs"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [open-source, moe, code-model, benchmark, pricing, china-ai, agentic-coding]
 lang: en
+series:
+  name: "AI 模型家族"
+  order: 14
 tldr: "MiniMax started as a consumer chat app company, then M2.5 scored 80.2% on SWE-bench Verified at 1/10-1/20 the cost of Claude Opus; M3 (456B total / 45.9B active) became the first open-weight model to clear 59% on SWE-bench Pro, with 1M context powered by their novel Sparse Attention mechanism."
 description: "A deep dive into the MiniMax model family: the consumer-AI-to-coding-frontier pivot, M2.5/M2.7/M3 specs and benchmarks, MiniMax Sparse Attention explained, pricing strategy, and where it fits in the open-source ecosystem."
 draft: false
@@ -17,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standardized test that measures a model's ability to solve real GitHub issues"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-minimax-model-family)
+> 🌏 [中文版](/posts/tech/2026-08-26-minimax-model-family)
 
 MiniMax didn't start as a model company. It built character chat apps ([Talkie](https://www.talkie-ai.com/)) and video generation tools ([Hailuo AI](https://hailuoai.video/)), earning its spot as one of China's "Six AI Tigers." Then in February 2026, its M2.5 scored 80.2% on [SWE-bench Verified](https://www.swebench.com/) — just 0.6 points behind Claude Opus 4.6 at the time — at one-tenth to one-twentieth the API price. Here's how a chat app company ended up on the coding frontier.
 
@@ -82,7 +85,7 @@ M2.5 trailed Opus 4.6 by just 0.6 percentage points, at an order-of-magnitude lo
 | GPQA Diamond | **92.9%** | — | 92.8 |
 | HLE | **39.0%** | — | 44.6 |
 
-M3 was the first open-weight model to surpass GPT-5.5 on SWE-bench Pro. Compared to fellow MoE model [Ornith 1.5-397B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family), the two trade blows on GPQA Diamond but take entirely different technical paths: Ornith uses self-improvement RL, while MiniMax uses massive-scale environment RL.
+M3 was the first open-weight model to surpass GPT-5.5 on SWE-bench Pro. Compared to fellow MoE model [Ornith 1.5-397B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family), the two trade blows on GPQA Diamond but take entirely different technical paths: Ornith uses self-improvement RL, while MiniMax uses massive-scale environment RL.
 
 ### M2.7: The Overlooked Efficiency Play
 
@@ -129,4 +132,4 @@ The gap versus closed-source flagships ranges from 10× to 60×. This pricing ma
 - [MiniMax M3 Technical Report](https://www.minimaxi.com/m3)
 - [MiniMax on HuggingFace](https://huggingface.co/MiniMaxAI)
 - [SWE-bench Leaderboard](https://www.swebench.com/)
-- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) — this site (in Chinese)
+- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) — this site (in Chinese)

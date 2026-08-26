@@ -1,10 +1,13 @@
 ---
 title: "Ornith：小團隊用自我改進 RL 做出的開源 Coding 黑馬"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [open-source, reinforcement-learning, agentic-coding, moe, code-model, benchmark, qwen, gemma]
 lang: zh-TW
+series:
+  name: "AI 模型家族"
+  order: 13
 tldr: "DeepReinforce 用 self-improvement RL 訓練的 Ornith 1.5 家族：397B 旗艦在 SWE-bench Verified 拿 86.0 追平 Claude Opus 4.8，35B-A3B 每 token 只啟用 3B 參數卻在同量級 coding benchmark 全面領先，9B 版本可以跑在手機上。MIT 授權、完全開源。"
 description: "Ornith 模型家族深入介紹：DeepReinforce 團隊背景、self-scaffolding 訓練方法論、三個規模的 benchmark 對比、實際部署方式與開源生態意義。"
 draft: false
@@ -17,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark，用真實 GitHub issue 測量模型解決軟體工程問題能力的標準測試集"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-ornith-deepreinforce-model-family-en)
+> 🌏 [English version](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en)
 
 DeepReinforce 不是大廠。不是阿里、不是 Meta、不是 Google——是一個專注在 agentic coding 和強化學習的小團隊。但他們在 2026 年 8 月發布的 Ornith 1.5 家族，在多個 coding benchmark 上追平甚至超越了 Claude Opus 4.8，而且全部 MIT 授權開源。這篇整理他們怎麼做到的、值不值得關注。
 

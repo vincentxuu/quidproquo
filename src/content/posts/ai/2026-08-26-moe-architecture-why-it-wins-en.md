@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-08-26-moe-architecture-why-it-wins)
 
-Frontier open-source models in 2026 share one thing in common: nearly all of them are MoE. [Ornith 1.5-35B-A3B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) activates 3B parameters to beat 31B dense models. [MiniMax M3](/posts/ai/2026-08-26-minimax-model-family) has 456B total but activates only 45.9B. DeepSeek V4 Pro is 1.6T total with 49B active. Qwen3.8's largest variant is 2.4T total with 95B active. According to [DeepInfra's analysis](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop), MoE has "transitioned from a research curiosity to the dominant architecture for frontier models." This post uses real case studies to explain why MoE wins and when it doesn't.
+Frontier open-source models in 2026 share one thing in common: nearly all of them are MoE. [Ornith 1.5-35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) activates 3B parameters to beat 31B dense models. [MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) has 456B total but activates only 45.9B. DeepSeek V4 Pro is 1.6T total with 49B active. Qwen3.8's largest variant is 2.4T total with 95B active. According to [DeepInfra's analysis](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop), MoE has "transitioned from a research curiosity to the dominant architecture for frontier models." This post uses real case studies to explain why MoE wins and when it doesn't.
 
 ## What MoE Is
 
@@ -37,7 +37,7 @@ Google's [GLaM research](https://arxiv.org/abs/2112.06905) showed that a 1.2-tri
 
 ### Ornith 1.5-35B-A3B: 3B Active Beats 31B Dense
 
-[Ornith](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)'s 35B-A3B is the most extreme efficiency story. 35B total, ~3B active per token, yet it scores [79.0 on SWE-bench Verified](https://ornith.ai/ornith_1_5.html) — the only model in its class to clear 79, surpassing even the 11× larger Qwen3.5-397B (76.4).
+[Ornith](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)'s 35B-A3B is the most extreme efficiency story. 35B total, ~3B active per token, yet it scores [79.0 on SWE-bench Verified](https://ornith.ai/ornith_1_5.html) — the only model in its class to clear 79, surpassing even the 11× larger Qwen3.5-397B (76.4).
 
 The contrast with Gemma 4-31B (dense, all 31B active) is stark: SWE-bench Verified 52.0. Ornith achieves 79 at 3B inference cost; Gemma achieves 52 at 31B inference cost.
 
@@ -45,7 +45,7 @@ This isn't MoE magic alone — Ornith's self-improvement RL training deserves cr
 
 ### MiniMax M3: MSA + MoE for 1M Context
 
-[MiniMax M3](/posts/ai/2026-08-26-minimax-model-family) is a 456B total, 45.9B active MoE. Its technical highlight isn't just MoE but also MiniMax Sparse Attention (MSA) — replacing full attention with KV-block selection, cutting long-context inference cost to roughly 1/20th.
+[MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) is a 456B total, 45.9B active MoE. Its technical highlight isn't just MoE but also MiniMax Sparse Attention (MSA) — replacing full attention with KV-block selection, cutting long-context inference cost to roughly 1/20th.
 
 M3 scores [59.0% on SWE-bench Pro](https://www.mindstudio.ai/blog/ornith-1-5-35b-a3b-benchmarks), the first open-weight model to clear 59% on this benchmark. The MoE + sparse attention combination makes a 1M context window economically viable at inference time.
 
@@ -106,5 +106,5 @@ This is also why dark horses like Ornith, MiniMax, and DeepSeek can match or bea
 - [DeepSeek-V4 Technical Report (arXiv:2606.19348)](https://arxiv.org/abs/2606.19348)
 - [Mixture-of-Experts (MoE) LLMs — Cameron R. Wolfe](https://cameronrwolfe.substack.com/p/moe-llms)
 - [Ornith 1.5 Official Technical Report](https://ornith.ai/ornith_1_5.html)
-- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) — on this site
-- [MiniMax: Consumer AI Company Turned Coding Benchmark Leader](/posts/ai/2026-08-26-minimax-model-family) — on this site
+- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) — on this site
+- [MiniMax: Consumer AI Company Turned Coding Benchmark Leader](/posts/tech/2026-08-26-minimax-model-family) — on this site

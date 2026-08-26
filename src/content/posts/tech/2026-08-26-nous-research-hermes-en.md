@@ -1,10 +1,13 @@
 ---
 title: "Nous Research: From Research Collective to Open-Source AI Ecosystem Rebel"
 date: 2026-08-26
-category: ai
+category: tech
 type: deep-dive
 tags: [nous-research, open-source, reinforcement-learning, fine-tuning, hermes-agent, llama, code-model]
 lang: en
+series:
+  name: "AI 模型家族"
+  order: 15
 tldr: "Nous Research doesn't pretrain — they fine-tune and do RL. Hermes 4 scores 96.3% on MATH-500, NousCoder-14B improves Qwen3-14B's coding ability by 7% using only 24K training samples. But the real moat is Hermes Agent: 236K GitHub stars, #19 globally, 3,000 contributors."
 description: "A deep dive into Nous Research: team background, Hermes 4 and NousCoder models, the DataForge + Atropos training methodology, the Hermes Agent ecosystem, and the controversy and impact of their uncensored AI philosophy."
 draft: false
@@ -15,13 +18,13 @@ glossary:
     def: "A benchmark measuring how often models refuse reasonable requests — higher scores mean fewer unnecessary refusals"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-nous-research-hermes)
+> 🌏 [中文版](/posts/tech/2026-08-26-nous-research-hermes)
 
 Nous Research didn't start in someone's garage — it started as a loose collective of open-source LLM researchers who decided to form a company. Founded in 2023 by Jeffrey Quesnelle, Karan Malhotra, Shivani Mitra, and the researcher known as Teknium, they went from informal collaboration to a funded startup. Their position is clear: AI shouldn't have excessive safety guardrails, and users should decide what models can answer. This philosophy earned them a loyal following in the open-source community — and made them a lightning rod for controversy.
 
 ## The No-Pretraining Strategy
 
-Like [Ornith (DeepReinforce)](/posts/ai/2026-08-26-ornith-deepreinforce-model-family), Nous Research doesn't pretrain base models from scratch. They build on Meta's Llama and Alibaba's Qwen, focusing their resources on fine-tuning and reinforcement learning.
+Like [Ornith (DeepReinforce)](/posts/tech/2026-08-26-ornith-deepreinforce-model-family), Nous Research doesn't pretrain base models from scratch. They build on Meta's Llama and Alibaba's Qwen, focusing their resources on fine-tuning and reinforcement learning.
 
 But their fine-tuning isn't standard SFT. Nous built two proprietary tools:
 
@@ -103,4 +106,4 @@ Compared to Ornith's full MIT license, Hermes 4's restrictions (from Llama 3.1) 
 - [DataForge — GitHub](https://github.com/NousResearch/DataForge)
 - [NousCoder-14B — Hugging Face](https://huggingface.co/NousResearch/NousCoder-14B)
 - [Hermes 4 — Hugging Face](https://huggingface.co/NousResearch)
-- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) (in Chinese)
+- [Ornith: The Open-Source Coding Dark Horse Built on Self-Improvement RL](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) (in Chinese)

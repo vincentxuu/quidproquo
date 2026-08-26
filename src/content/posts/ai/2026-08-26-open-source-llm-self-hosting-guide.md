@@ -19,7 +19,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en)
 
-[Ornith 35B-A3B](/posts/ai/2026-08-26-ornith-deepreinforce-model-family) 在 SWE-bench 拿 79.0、[MiniMax M2.5](/posts/ai/2026-08-26-minimax-model-family) 拿 80.2%——開源模型在 coding 任務上已經追平閉源。但「模型夠強」跟「我能跑起來」之間還有一段路：選什麼框架、需要什麼 GPU、量化到什麼程度、什麼時候自架比叫 API 划算。這篇是決策指南。
+[Ornith 35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 在 SWE-bench 拿 79.0、[MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family) 拿 80.2%——開源模型在 coding 任務上已經追平閉源。但「模型夠強」跟「我能跑起來」之間還有一段路：選什麼框架、需要什麼 GPU、量化到什麼程度、什麼時候自架比叫 API 划算。這篇是決策指南。
 
 站上已有 [vLLM](/posts/ai/2026-08-21-vllm-self-host-decision)、[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide)、[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) 的個別深入介紹，這篇不重複它們的內容，只做跨框架的選型比較和成本計算。
 
@@ -143,5 +143,5 @@ vLLM 和 SGLang 都原生支援 tool calling（function calling），這是 agen
 - [vLLM 自架決策指南 — 站內](/posts/ai/2026-08-21-vllm-self-host-decision)
 - [Ollama 完整指南 — 站內](/posts/ai/2026-03-14-ollama-local-llm-guide)
 - [llama.cpp 推論引擎介紹 — 站內](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)
-- [Ornith 模型家族 — 站內](/posts/ai/2026-08-26-ornith-deepreinforce-model-family)
-- [MiniMax 模型家族 — 站內](/posts/ai/2026-08-26-minimax-model-family)
+- [Ornith 模型家族 — 站內](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
+- [MiniMax 模型家族 — 站內](/posts/tech/2026-08-26-minimax-model-family)
