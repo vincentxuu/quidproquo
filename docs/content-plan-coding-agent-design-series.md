@@ -69,6 +69,9 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 | 35 | model-catalog-routing | Model catalog 與 per-role 路由 | omp catalog、40+ providers routing |
 | 36 | lsp-integration | LSP 整合 | omp crates lsp/dap、cc services/lsp |
 | 37 | code-mode | Code mode：工具呼叫編譯成程式批次執行 | codex code-mode-*、opencode codemode |
+| 38 | agent-as-service | Agent as a Service：把 loop 包成服務 | pi server、omp collab-web+wire、opencode server+sdk、codex app-server、cc src/remote |
+
+> 編號對照：實際系列由總覽佔 `order: 1`，上表 #N 對應實際 order N+1（第一部表列 1–24 → order 2–25，第二部 26–38 維持原號）。2026-08-26 複查確認實際 order 1–38 無缺號；cli-ergonomics 標題編號（12→13）已同步修正。
 
 ## 執行狀態
 
@@ -78,6 +81,7 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 - [x] pnpm check:references：0 error（14 條關鍵詞重疊 WARN，屬系列格式已知誤報）
 - [x] pnpm lint：0 error；check:tw：37 篇 zh 全數 0 blocking
 - [x] astro check：內容檔 0 error（src/server/agent-flow-workflow.ts 9 個 + src/lib/rag/model.ts 1 個為既有錯誤）
+- [x] 收尾篇 order 38 `agent-as-service` 雙語（2 檔，2026-08-26）：五家 server API 取證＋rivumi 草案，系列補足「38 篇」定案數
 - [ ] 使用者 review＋抽樣事實複查（各 agent 回報的待複查主張清單見 session 紀錄）
 - [ ] commit（等使用者點頭）
 

@@ -1,5 +1,5 @@
 ---
-title: "Learning from Mature Coding Agents (12): CLI Ergonomics — Make New Tools Feel Already Familiar"
+title: "Learning from Mature Coding Agents (13): CLI Ergonomics — Make New Tools Feel Already Familiar"
 date: 2026-08-25
 category: ai
 tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, rivumi]

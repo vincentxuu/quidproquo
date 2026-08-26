@@ -1,5 +1,5 @@
 ---
-title: "跟成熟 coding agent 學設計（12）：CLI 人體工學——讓新工具長得像使用者已經會用的工具"
+title: "跟成熟 coding agent 學設計（13）：CLI 人體工學——讓新工具長得像使用者已經會用的工具"
 date: 2026-08-25
 category: ai
 tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, rivumi]

@@ -10,26 +10,34 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **「跟成熟 coding agent 學設計」系列 37 篇雙語（74 檔）已 commit**（0126e687，docs/content-plan-coding-agent-design-series.md）：
-  第一部 25 篇已實作對照＋第二部 12 篇改善路線圖，五家參考專案 file#symbol 取證，
-  verify 全綠；舊 python-coding-agent M1–M10 十篇已刪（5247d6cc）。
-  待使用者 review 與抽樣事實複查後 push＋deploy。
+- **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
+  docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
+  第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
+  複查修正：cli-ergonomics zh/en 標題編號 12→13。五家 server API 取證與 rivumi 草案見 order 38；
+  抽樣事實複查結論：74 檔 frontmatter/互鏈/參考資料全過，rivumi 數字主張未重跑、外部連結未線上
+  驗證兩項仍開放。舊 python-coding-agent M1–M10 十篇已刪（5247d6cc）。
+  待使用者 review 後 push＋deploy。
 - Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
 - **發佈狀態盤點＋內容審讀（2026-08-25）**：CS124／CS224N／CS224V／CS224W／CS229／CS336、
   CMU 07-280／11-785 等「待 review」系列皆已 `draft: false` 上線。本日新上線：Stanford CS221
   逐講 20 講中英（40 檔）、CS111 逐講 28 講中英（56 檔）、Python coding agent M1–M10（10 檔純中文，
   無英文版；M11 不存在）、Agent／RAG 框架選型指南、Flowise／n8n 深入介紹。審稿修正：
   CS111 L25-en series name、L28 逐頁清單筆誤。
-- **Claude Code 深入介紹系列開工（docs/content-plan-claude-code-series-v2.md）**：P0-1 入口篇
-  A1 `claude-code-how-it-works`＋A2 `claude-code-claude-directory` 中英四檔已完成正文（tech/deep-dive/，
-  series name 改用新名「Claude Code 深入介紹」order 1/2，draft: true），事實依 code.claude.com/docs
-  2026-08 版核對，references/lint/check:tw 全綠；後續依 plan 優先序推進。
+- **Claude Code 深入介紹系列開工（docs/content-plan-claude-code-series-v2.md）**：叢集 A–C 完成——
+  A1 how-it-works、A2 claude-directory、A3 sessions、B2 permissions-auto-mode、C2 prompt-caching
+  五篇新檔；A4 checkpointing、A5 best-practices、B1 settings-json、B3 claude-md→memory 改題、
+  C1 context-window 五篇骨架展開；B2b bypass 已發佈文 post-update 刷新（補 auto mode 預設後
+  風險對比＋與 B2 互鏈）。中英共 22 檔（tech/deep-dive/，draft: true；order 1–11）。
+  事實依 code.claude.com/docs 2026-08 版核對，pnpm verify 全綠；下一步叢集 D。
 - **仍為草稿，不可誤翻**：(1) Claude Code 深入介紹系列其餘骨架檔仍是空殼大綱（`<!-- TODO: 待撰寫 -->`，
-  只有 Planned Outline 無正文；A1/A2 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
+  只有 Planned Outline 無正文；A1–A5、B1–B3、C1–C2 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
   中英 4 檔——正文自我宣告要等 live channel 實測與 raw artifacts 入庫才能發。
   另 CS221 待使用者審稿。
-- 快速成長新創 27 組雙語個別專文已完成（沙箱、瀏覽器、網路、Eval、推論、語音、認證），
-  共 54 檔通過逐篇檢查、`pnpm verify` 與 Astro check，待使用者 review。
+- **AI 模型家族系列新增三篇非文字家族深拆（2026-08-26）**：FLUX/BFL（order 13）、語音
+  Whisper×ElevenLabs（order 14）、影片生成 Sora/Veo/Kling/Runway（order 15），tech/deep-dive，
+  未 commit。三篇並行 post-verify 子代理查證＋post-review：修掉 FLUX 授權誤解（dev 輸出可商用、
+  限制在自架部署）、Fish Speech 授權已改 Research License、多處 Elo/定價快照錨點與死連結。
+  pnpm verify 全綠；待使用者 review 後 commit。
 - Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成初稿與必要驗證，待使用者 review。
 - Agent 框架 5 組中英文個別介紹已完成（AG2、LangChain、Mastra、Pydantic AI、DSPy），待 review。
 - 雲端 LLM API 與路由 7 組中英文個別介紹已完成（OpenRouter、Bedrock、Vertex、Together、Fireworks、LiteLLM、Portkey），待 review。
@@ -67,16 +75,8 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- 2026-08-22: 完成自架推論服務三篇雙語專文：SGLang、NVIDIA Triton Inference Server、Ray Serve；
-  分別釐清 LLM serving engine、多框架模型伺服器與分散式服務編排的能力邊界，待使用者 review。
 - 2026-08-22: 完成全文檢索與站內搜尋三篇雙語介紹：Typesense、Algolia、Elasticsearch／OpenSearch；
-  各篇涵蓋索引與排名模型、可執行查詢範例、中文搜尋注意、部署／安全界線及適用情境，`pnpm verify` 全綠，待使用者 review。
-- 2026-08-21: Stanford CS25 V6 導讀（zh + en）。九集裡六集讀完整逐字稿，三集（4/23、5/7、5/14）
-  抓取工具全數受限、只有官方摘要，已在文中標明。glossary 補 SSM / JEPA / 投機解碼三條。
-  研究筆記在 .research/（不入版控），若要再補那三集需要 jina API key 或 firecrawl 額度。
-- 2026-08-21: 完成「世界名校 AI／CS 課程地圖」全球入口中英文初稿，建立 2025–2026 latest-complete
-  收錄窗與 A0–A3 公開程度標籤，先納入 Stanford、CMU、MIT、Berkeley，並明確區分當期官方教材、
-  LMS 受限錄影、歷史 YouTube 與 CSDIY 社群路線。下一篇依規劃進入 MIT 6.S191 單課導讀。（已移 archive）
+  各篇涵蓋索引與排名模型、可執行查詢範例、中文搜尋注意、部署／安全界線及適用情境，`pnpm verify` 全綠，待使用者 review。（已移 archive）
 （已完成的條目移到 docs/progress-archive.md）
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
