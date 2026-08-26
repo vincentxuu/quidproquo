@@ -58,7 +58,7 @@ const LLM_PROVIDERS: ProviderDefinition[] = [
       maxContextTokens: 32768,
       supportsStreaming: true,
       supportsTools: true,
-      models: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'mixtral-8x7b-32768'],
+      models: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3.6-27b'],
     },
     costModelJson: { kind: 'token', inputPer1MUsd: 0.59, outputPer1MUsd: 0.79 },
     outboundDomains: ['api.groq.com'],

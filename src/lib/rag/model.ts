@@ -74,7 +74,7 @@ function resolveRoute(
   const stageConfig = stage && config?.stageOverrides ? config.stageOverrides[stage] : undefined
   return {
     provider: stageConfig?.provider ?? config?.defaultProvider ?? 'groq',
-    model: stageConfig?.model ?? config?.defaultModel ?? 'llama-3.3-70b-versatile',
+    model: stageConfig?.model ?? config?.defaultModel ?? 'openai/gpt-oss-120b',
     fallback: false,
   }
 }
@@ -265,7 +265,7 @@ export function createRawModel(
 }
 
 const RETRYABLE_STATUS_CODES = [429, 500, 502, 503, 504]
-const DEFAULT_FALLBACK_CHAIN: ModelProvider[] = ['groq', 'openrouter', 'opencode', 'nvidia']
+const DEFAULT_FALLBACK_CHAIN: ModelProvider[] = ['opencode', 'openrouter', 'nvidia']
 const CLOUDFLARE_FALLBACK_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
 
 export function createResilientModel(
@@ -320,16 +320,16 @@ function createRawModelSafe(
 
 function defaultModelForProvider(provider: ModelProvider): string {
   const defaults: Partial<Record<ModelProvider, string>> = {
-    groq: 'llama-3.3-70b-versatile',
+    groq: 'openai/gpt-oss-120b',
     openai: 'gpt-4.1-mini',
-    google: 'gemini-3.7-flash',
-    gemini: 'gemini-3.7-flash',
-    openrouter: 'meta-llama/llama-3.3-70b-instruct',
-    opencode: 'llama-3.3-70b-instruct',
-    nvidia: 'meta/llama-3.3-70b-instruct',
-    cerebras: 'llama-3.3-70b',
+    google: 'gemini-3.6-flash',
+    gemini: 'gemini-3.6-flash',
+    openrouter: 'meta-llama/llama-4-maverick:free',
+    opencode: 'deepseek-v4-flash',
+    nvidia: 'deepseek-ai/deepseek-r1',
+    cerebras: 'gpt-oss-120b',
   }
-  return defaults[provider] ?? 'llama-3.3-70b-versatile'
+  return defaults[provider] ?? 'deepseek-v4-flash'
 }
 
 // [skip-harness] LangChain's withRetry/withFallbacks returns Runnable which has invoke+bindTools

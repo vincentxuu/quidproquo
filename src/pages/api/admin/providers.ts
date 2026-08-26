@@ -60,7 +60,7 @@ const DEFAULT_CATALOG: ProviderCatalog = {
   models: [
     {
       provider: 'groq',
-      model: 'llama-3.3-70b-versatile',
+      model: 'openai/gpt-oss-120b',
       displayName: 'Llama 3.3 70B Versatile',
       enabled: true,
       notes: 'Default RAG model',

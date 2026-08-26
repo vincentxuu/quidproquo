@@ -14,7 +14,7 @@ const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 const DEFAULT_SETTINGS: Record<string, string> = {
   rag_pipeline_engine: 'langgraph',
   rag_default_provider: 'groq',
-  rag_default_model: 'llama-3.3-70b-versatile',
+  rag_default_model: 'openai/gpt-oss-120b',
   rag_stage_overrides: '{}',
   rag_fallback_provider: '',
   rag_fallback_model: '',

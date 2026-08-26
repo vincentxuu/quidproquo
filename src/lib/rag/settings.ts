@@ -10,7 +10,7 @@ interface SettingsEnv {
 const DEFAULTS: RagRuntimeConfig = {
   pipelineEngine: 'langgraph',
   defaultProvider: 'groq',
-  defaultModel: 'llama-3.3-70b-versatile',
+  defaultModel: 'openai/gpt-oss-120b',
   stageOverrides: {},
   fallbackProvider: null,
   fallbackModel: null,
