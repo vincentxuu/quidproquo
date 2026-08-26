@@ -10,6 +10,11 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **Claude Code 深入介紹系列 H8＋troubleshooting 索引頁完成（2026-08-26）**：新增
+  deep-dive/claude-code-debug-config{,-en}.md（order 35，guide，依官方 debug-your-config 與
+  errors 兩頁實抓撰寫）；原 troubleshooting-collection{,-en} 正文改為三篇索引（order 36，
+  slug/date 未動）。H6/H7 由並行任務產出。check:references／lint 全綠；astro check 的
+  10 個 error 為 src/lib・src/server 既有 TS 問題。待使用者 review。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
@@ -23,14 +28,22 @@ In progress
   逐講 20 講中英（40 檔）、CS111 逐講 28 講中英（56 檔）、Python coding agent M1–M10（10 檔純中文，
   無英文版；M11 不存在）、Agent／RAG 框架選型指南、Flowise／n8n 深入介紹。審稿修正：
   CS111 L25-en series name、L28 逐頁清單筆誤。
-- **Claude Code 深入介紹系列開工（docs/content-plan-claude-code-series-v2.md）**：叢集 A–C 完成——
-  A1 how-it-works、A2 claude-directory、A3 sessions、B2 permissions-auto-mode、C2 prompt-caching
-  五篇新檔；A4 checkpointing、A5 best-practices、B1 settings-json、B3 claude-md→memory 改題、
-  C1 context-window 五篇骨架展開；B2b bypass 已發佈文 post-update 刷新（補 auto mode 預設後
-  風險對比＋與 B2 互鏈）。中英共 22 檔（tech/deep-dive/，draft: true；order 1–11）。
-  事實依 code.claude.com/docs 2026-08 版核對，pnpm verify 全綠；下一步叢集 D。
+- **Claude Code 深入介紹系列（docs/content-plan-claude-code-series-v2.md）本輪完成**：叢集 A–F＋G/H。
+  新檔 9 篇：A1 how-it-works、A2 claude-directory、A3 sessions、B2 permissions-auto-mode、
+  C2 prompt-caching、E2b code-review、F1 multi-agent-overview、F3 agent-view、F4 dynamic-workflows
+  （互鏈 ai/ harness 三篇）；骨架展開 13 篇：A4/A5、B1、B3 memory 改題、C1、D3/D4/D5、E1 headless→SDK、
+  E2 github-actions+gitlab、E3 channels、G1 chrome、G3 slack+claude-tag；拆分改題 H1 sandboxing
+  （原合集檔）＋新檔 H2 devcontainer、H3 costs-usage；troubleshooting 拆三篇 H6 install／H7 runtime／
+  H8 debug-config，原合集轉索引頁。已發佈文刷新：B2b bypass、D1 hooks 增量、E4a 排程補 goal mode＋
+  E4b loop 互鏈；D2 skill-design-guide 與三件套附錄歸隊。G4 remote-control-guide 骨架展開
+  （order 37，僅本地接續範圍，雲端 web/mobile 依 plan 暫緩）。**G5 雲端篇補齊**：經查證
+  claude-code-on-the-web／web-quickstart／mobile 三頁官方文檔現已夠厚（推翻 plan「頁面薄」假設），
+  新增 on-the-web 中英（order 38：--cloud/--teleport 單向性、GitHub App≠存取控制、auto-fix PR、
+  安全隔離、手機三入口），G4 暫緩聲明改為互鏈。order 1–38 全數有正文，
+  空殼清零，全部 draft: true，pnpm verify 全綠。
+  待使用者 review 與抽樣事實複查後再決定翻 draft。
 - **仍為草稿，不可誤翻**：(1) Claude Code 深入介紹系列其餘骨架檔仍是空殼大綱（`<!-- TODO: 待撰寫 -->`，
-  只有 Planned Outline 無正文；A1–A5、B1–B3、C1–C2 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
+  只有 Planned Outline 無正文；A–E 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
   中英 4 檔——正文自我宣告要等 live channel 實測與 raw artifacts 入庫才能發。
   另 CS221 待使用者審稿。
 - **AI 模型家族系列新增三篇非文字家族深拆（2026-08-26）**：FLUX/BFL（order 13）、語音
@@ -52,17 +65,8 @@ In progress
   共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制，待使用者 review。
 - CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest，待使用者審稿；Harvard 地圖亦待審。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
-- Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
-- **「AI 時代的技術選擇」系列 order 0-20 已發佈**（zh/en 各 21 篇）。order 0 導讀含 41 層
-  roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。**主判準經使用者更正**：語料存量是採用度
-  的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選
-  冷門的代價」。order 9-16：MAF、LlamaIndex、vLLM 自架決策、Exa、Modal、Composio、
-  Tailscale、Temporal；order 17-20：Drizzle、Trigger.dev、CrewAI、Supabase。導讀已同步補入 order 9-20
-  的閱讀路徑。2026-08-22 再次依實際檔案盤點，已將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、
-  Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 從待寫清單移到已有專文；
-  Typesense、Algolia 已於 2026-08-22 完成專文（見 Recently completed），缺口清單再縮。除 MAF 外，order 9-16 皆平行 agent 寫，
-  數字由我打 API／抓定價頁獨立複查後才收。
-  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
+- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
+- Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
   （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，
   已於 2d9a562 修正。平行寫稿的教訓：agent 抓錯我兩次、我抓錯 agent 兩次，雙向查證有效。
 - **稽核方法的教訓（重要，別再犯）**：計數一律用字界比對。`grep -i exa` 會命中 example、
@@ -75,13 +79,10 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- 2026-08-22: 完成全文檢索與站內搜尋三篇雙語介紹：Typesense、Algolia、Elasticsearch／OpenSearch；
-  各篇涵蓋索引與排名模型、可執行查詢範例、中文搜尋注意、部署／安全界線及適用情境，`pnpm verify` 全綠，待使用者 review。（已移 archive）
 （已完成的條目移到 docs/progress-archive.md）
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
-- Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.
-- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
+- Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
 - agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/
   console/providers/os): code complete, pending production observation windows.
   Status snapshots in docs/progress-archive.md; pending decisions in

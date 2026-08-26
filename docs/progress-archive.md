@@ -962,3 +962,39 @@ actuator_motors，tensor arena 10 KB，Kconfig default n），ArduPilot 沒有�
 ## 2026-08-22 技術選擇缺口 105 組雙語專文
 
 完成技術選擇缺口 105 組雙語專文：建置工具鏈 4 組、訊息佇列／事件串流 8 組、durable execution 3 組、backend contract 11 組、資料存取 1 組、認證授權 2 組、三大雲運算層 7 組、GPU／推論專用雲 6 組、二線雲與地端 9 組、託管 PaaS 8 組、自架 PaaS 5 組、BaaS 5 組、編排／IaC 4 組、後端框架 4 組、私有網路／遠端存取 5 組、即時傳輸／協作 8 組、供應鏈／程式碼資安 8 組、Agent 資安 3 組、通用資料庫 4 組；Hugging Face 已有專文不重複，文章檢查全綠。
+
+## 2026-08-22 快速成長新創 27 組雙語個別專文（自 progress.txt 移入）
+
+快速成長新創 27 組雙語個別專文已完成（沙箱、瀏覽器、網路、Eval、推論、語音、認證），
+共 54 檔通過逐篇檢查、`pnpm verify` 與 Astro check，待使用者 review。
+
+## 2026-08-22 自架推論服務三篇雙語專文（自 progress.txt 移入）
+
+完成自架推論服務三篇雙語專文：SGLang、NVIDIA Triton Inference Server、Ray Serve；
+分別釐清 LLM serving engine、多框架模型伺服器與分散式服務編排的能力邊界，待使用者 review。
+
+## 2026-08-21 Stanford CS25 V6 導讀（自 progress.txt 移入）
+
+- Stanford CS25 V6 導讀（zh + en）。九集裡六集讀完整逐字稿，三集（4/23、5/7、5/14）
+  抓取工具全數受限、只有官方摘要，已在文中標明。glossary 補 SSM / JEPA / 投機解碼三條。
+  研究筆記在 .research/（不入版控），若要再補那三集需要 jina API key 或 firecrawl 額度。
+
+## 2026-08-22 全文檢索與站內搜尋三篇（自 progress.txt 移入）
+
+- 完成全文檢索與站內搜尋三篇雙語介紹：Typesense、Algolia、Elasticsearch／OpenSearch；
+  各篇涵蓋索引與排名模型、可執行查詢範例、中文搜尋注意、部署／安全界線及適用情境，
+  `pnpm verify` 全綠，待使用者 review。
+
+## 2026-08-26 CS25 V6 三場補齊逐字稿（更新 2026-08-21 條目）
+
+原本三場（4/23 Ultra-Scale、5/7 Lampinen、5/14 Natarajan）只有官方摘要。實測 `yt-dlp --write-auto-sub`
+可直接取得 YouTube 自動字幕（`en-orig` 變體），不需要 jina/firecrawl。已讀完並重寫中英文版對應段落；
+重要修正：5/14 場全場只講 AI co-scientist，AMIE 僅開場被提一次，原段落照官方摘要寫成有講 AMIE 是錯的。
+
+## 2026-08-26 課程文章限制深掘（第二輪）
+
+CS229：缺的三支錄影**已解開**——Spring 2026 Mon/Wed 共 19 堂（扣 Memorial Day），17 支影片＋L14 宣布的兩場客座講座（Simran Arora systems ML）恰好對上，正課無缺；#16/18/20 標題是舊模板殘跡；成績配比新錨點 Fall 2020＝45/15/40、Summer 2026＝50/50；作品集最後一屆 proj2021spr；Fall 2020 起 pset 政策性只發 Ed。CS228：CMU 10-708 S2020 錄影＋Ermon/Kuleshov 2025 arXiv 教程可當替代；Wainwright & Jordan 穩定版在 Princeton 課程檔案庫；**停開原因解開（間接證據最強級）**：Ermon 2024-07 起任 Inception Labs CEO（$50M seed、walk away from tenure），停開期與創業期完全重疊，CS236 已排 Spring 2027 PI=Ermon、CS228 排 Winter 2027 TBD——暫停不是取消。CS224U：Potts 系主任任期至 2025-08＋Amazon Scholar 至 2024-12，**另確認 2025-01 起 co-founder Bigspin AI Chief Scientist（零教學紀錄）**；校級層面 Stanford 預算砍 $140M、2026-01 裁撤數位教育副教務長辦公室，付費自學線批量 sunset（XCS330 同批、XCS224N 仍在招生）——XCS224U 下架主因是校級緊縮而非針對 NLU；audit 政策明文排除校外一般人。Learning how to learn：Adesope/Rowland 升級一手（WSU 自存檔），計數歧義已排解（118 studies/272 effects/N=15,427），0.61 為固定效果模型。
+
+## 2026-08-26「AI 時代的技術選擇」系列 order 0-20 已發佈（自 progress.txt 歸檔）
+
+zh/en 各 21 篇。order 0 導讀含 41 層 roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。主判準經使用者更正：語料存量是採用度的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選冷門的代價」。order 9-16：MAF、LlamaIndex、vLLM 自架決策、Exa、Modal、Composio、Tailscale、Temporal；order 17-20：Drizzle、Trigger.dev、CrewAI、Supabase。導讀已同步補入 order 9-20 的閱讀路徑。2026-08-22 再次依實際檔案盤點，已將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 從待寫清單移到已有專文；Typesense、Algolia 已於 2026-08-22 完成專文，缺口清單再縮。除 MAF 外，order 9-16 皆平行 agent 寫，數字由我打 API／抓定價頁獨立複查後才收。
