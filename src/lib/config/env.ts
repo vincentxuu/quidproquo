@@ -9,6 +9,7 @@ export interface AgentQueueMessage {
 export interface Env {
   DB: D1Database
   SESSION: KVNamespace
+  AGENT_SESSION_DO: DurableObjectNamespace
   RATE: KVNamespace
   DEEP_RESEARCH_KV?: KVNamespace
   VECTORIZE_INDEX: VectorizeIndex

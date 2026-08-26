@@ -1,0 +1,87 @@
+---
+export const prerender = false
+import AdminLayout from '../../../layouts/AdminLayout.astro'
+---
+
+<AdminLayout title="CCR Console">
+  <p class="page-desc">站內 CCR console — 自寫 raw DO + WS（無外部 agents SDK）。</p>
+  <section class="admin-panel">
+    <div class="admin-panel-header"><h2>Session</h2><span id="console-status" class="admin-section-desc">idle</span></div>
+    <div style="display:flex; gap:8px; margin:12px 0;">
+      <input id="prompt" class="input" placeholder="prompt" style="flex:1" />
+      <input id="skill" class="input" placeholder="skill (optional)" style="width:200px" />
+      <button id="run" class="btn" type="button">Run</button>
+    </div>
+    <pre id="transcript" style="min-height:300px; max-height:60vh; overflow:auto; background:var(--admin-surface-subtle); padding:12px; white-space:pre-wrap; font-size:0.88rem;"></pre>
+    <div id="approvals"></div>
+  </section>
+</AdminLayout>
+
+<script is:inline>
+  const promptEl = document.getElementById('prompt')
+  const skillEl = document.getElementById('skill')
+  const runBtn = document.getElementById('run')
+  const statusEl = document.getElementById('console-status')
+  const transcriptEl = document.getElementById('transcript')
+  const approvalsEl = document.getElementById('approvals')
+  let ws = null
+  let sessionId = null
+
+  function log(obj) {
+    transcriptEl.textContent += (typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2)) + '\n'
+    transcriptEl.scrollTop = transcriptEl.scrollHeight
+  }
+
+  function connectWs(id) {
+    const proto = location.protocol === 'https:' ? 'wss:' : 'ws:'
+    const url = `${proto}//${location.host}/api/admin/agents/sessions?id=${encodeURIComponent(id)}`
+    ws = new WebSocket(url)
+    ws.onopen = () => { statusEl.textContent = `connected ${id}`; log(`[ws open ${id}]`) }
+    ws.onmessage = (e) => {
+      try {
+        const data = JSON.parse(e.data)
+        log(data)
+        if (data.type === 'control_request') {
+          const row = document.createElement('div')
+          row.style.cssText = 'border:1px solid var(--admin-border); padding:8px; margin:8px 0; display:flex; gap:8px; align-items:center;'
+          row.textContent = `Approval: ${data.toolName} `
+          const btn = document.createElement('button')
+          btn.textContent = 'Allow'
+          btn.className = 'btn-secondary'
+          btn.onclick = () => {
+            ws.send(JSON.stringify({ type: 'approve', requestId: data.requestId }))
+            row.remove()
+          }
+          row.appendChild(btn)
+          approvalsEl.appendChild(row)
+        }
+      } catch { log(e.data) }
+    }
+    ws.onclose = () => { statusEl.textContent = 'closed'; log('[ws close]') }
+    ws.onerror = () => { statusEl.textContent = 'error' }
+  }
+
+  runBtn.addEventListener('click', async () => {
+    const prompt = promptEl.value.trim()
+    if (!prompt) return
+    runBtn.disabled = true
+    statusEl.textContent = 'starting...'
+    try {
+      const res = await fetch('/api/admin/agents/sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, skill: skillEl.value.trim() || undefined }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'failed')
+      sessionId = data.id || data.sessionId
+      log(`[session ${sessionId}]`)
+      if (sessionId) connectWs(sessionId)
+    } catch (e) {
+      statusEl.textContent = 'error'
+      log(String(e))
+    } finally {
+      runBtn.disabled = false
+    }
+  })
+</script>
