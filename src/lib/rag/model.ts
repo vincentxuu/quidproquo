@@ -324,7 +324,7 @@ function defaultModelForProvider(provider: ModelProvider): string {
     openai: 'gpt-4.1-mini',
     google: 'gemini-3.6-flash',
     gemini: 'gemini-3.6-flash',
-    openrouter: 'meta-llama/llama-4-maverick:free',
+    openrouter: 'nvidia/nemotron-3-super-120b-a12b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'deepseek-ai/deepseek-r1',
     cerebras: 'gpt-oss-120b',
