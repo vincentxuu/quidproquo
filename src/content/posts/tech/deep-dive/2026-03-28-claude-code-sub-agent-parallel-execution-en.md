@@ -1,124 +1,117 @@
 ---
-title: "Claude Code Sub-agents Complete Guide: Custom AI Sub-agents and Parallel Execution"
+title: "How Claude Code Sub-agents Work: Context Isolation, Frontmatter Definitions, Background Execution, and Permission Inheritance"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: tech
-tags: [claude-code, sub-agent, parallel-execution, worktree, ai-agent, dx, plugins]
+tags: [claude-code, sub-agent, ai-agent, dx]
 lang: en
-tldr: "Sub-agents are specialized AI assistants that run in isolated context windows. Define their system prompt, tool permissions, and model choice via Markdown files — Claude automatically delegates tasks at the right moment. Three built-in types are available (Explore, Plan, General-purpose), and you can create custom ones. Pair with persistent memory to accumulate knowledge across sessions."
-description: "A deep dive into Claude Code's Sub-agent system: built-in agent types, full custom agent configuration (frontmatter fields, tool control, MCP integration, hooks, persistent memory), foreground vs. background execution, comparison with Agent Teams, and real-world examples."
+tldr: "Sub-agents are specialized assistants that work in their own context window: a single Markdown file defines their system prompt, tools, and model. Claude delegates automatically based on the description field, or you can @-mention to force one. This post breaks down the frontmatter schema, background execution and nested spawning, permission inheritance rules, and when not to use them."
+description: "A deep dive into Claude Code's sub-agent mechanism: built-in agent list, custom frontmatter fields, delegation triggers, background execution and three-layer nesting, permission inheritance, and cost considerations — based on the official docs."
 draft: true
 series:
-  name: "Claude Code Automation Guide"
-  order: 11
+  name: "Claude Code Deep Dives"
+  order: 15
 ---
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)
 
-<!-- TODO: Pending write-up -->
-<!-- Reference official docs: https://code.claude.com/docs/en/sub-agents.md -->
+The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) dispatched subagents in one line: "open a new context window to share the workload." This post unpacks the machinery behind that sentence — how they're defined, how they get triggered, where they run, and what tools they can use.
 
-## Planned Outline
+## The problem it solves: context isolation
 
-### What Is a Sub-agent?
-- A specialized AI assistant running in an isolated context window
-- Has its own system prompt, tool permissions, and model configuration
-- Claude automatically delegates tasks based on the `description` field
-- Protects the main conversation's context window from being filled up
+The scarcest resource in an agent session is the context window. Tasks like searching a codebase, fetching documentation, or digging through logs produce large volumes of intermediate output that you'll never reference again — yet it permanently occupies space in the main conversation.
 
-### Built-in Sub-agents
-| Type | Model | Tools | Purpose |
-|------|-------|-------|---------|
-| **Explore** | Haiku (fast) | Read-only | Search and analyze the codebase |
-| **Plan** | Inherited from main | Read-only | Research during Plan mode |
-| **General-purpose** | Inherited from main | All | Complex multi-step tasks |
-| **Bash** | Inherited | Terminal commands | Run commands in an isolated context |
-| **Claude Code Guide** | Haiku | — | Answer Claude Code questions |
+A sub-agent's approach is to throw this kind of work into a **brand-new context window**: it receives its own system prompt plus a task description, reads files and runs commands on its own, and all intermediate output stays in its window. Only the final summary returns to the main conversation. The official context window visualization page puts a concrete number on it: the subagent read 6,100 tokens of file contents, and only a 420-token result came back.
 
-### Creating Custom Sub-agents
+Not everything is isolated. On startup, a non-fork subagent loads: its own system prompt, the task message Claude wrote, every level of CLAUDE.md, and a git status snapshot taken at the start of the parent session. The built-in Explore and Plan agents are the exception — for fast, cheap research, both skip CLAUDE.md and git status. If a rule must reach Explore (say, "ignore the vendor/ directory"), restate it in the delegation prompt. Pair this with [context window management](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management) for the bigger picture.
 
-#### Using the /agents UI
-- `/agents` — create, edit, or delete agents
-- Choose scope: Personal vs. Project
-- Auto-generate configuration with Claude
+## Built-in list and how to define your own
 
-#### Writing a Markdown File Manually
+There aren't many built-in subagents:
+
+| Agent | Model | Tools | Purpose |
+|-------|-------|-------|---------|
+| **Explore** | Inherits main conversation (capped at Opus on the Claude API) | Read-only | Search and analyze the codebase |
+| **Plan** | Inherits main conversation | Read-only | Research during plan mode |
+| **General-purpose** | Inherits main conversation | All | Multi-step tasks needing exploration plus modification |
+| Other helpers | Varies | Restricted | `claude` (catch-all), `statusline-setup`, `claude-code-guide` |
+
+Two common misconceptions first: as of v2.1.198, Explore **no longer always runs Haiku** — it inherits the main conversation's model (on the Claude API, at most Opus); and Bash is **not** in the built-in agent list — to run commands in an isolated context, use general-purpose or a custom agent.
+
+A custom subagent is just a Markdown file dropped into `.claude/agents/` (project scope) or `~/.claude/agents/` (user scope):
+
 ```markdown
 ---
 name: code-reviewer
-description: Expert code review specialist
-tools: Read, Glob, Grep, Bash
+description: Reviews code for quality and best practices. Use proactively after code changes.
+tools: Read, Glob, Grep
 model: sonnet
 ---
-You are a senior code reviewer...
+
+You are a code reviewer. Analyze the code and provide specific,
+actionable feedback on quality, security, and best practices.
 ```
 
-#### Scope and Priority Order
-| Location | Scope | Priority |
-|----------|-------|----------|
-| `--agents` CLI flag | Current session | Highest |
-| `.claude/agents/` | Current project | 2 |
-| `~/.claude/agents/` | All projects | 3 |
-| Plugin's `agents/` | Where plugin is enabled | Lowest |
+Only `name` and `description` are required; every other field has a sensible default. The commonly used ones:
 
-### Full Configuration Fields (Frontmatter)
-- `name`, `description` (required)
-- `tools` / `disallowedTools`: tool allowlist / denylist
-- `model`: `sonnet` / `opus` / `haiku` / `inherit` / full model ID
-- `permissionMode`: `default` / `acceptEdits` / `dontAsk` / `bypassPermissions` / `plan`
-- `maxTurns`: maximum number of agentic turns
-- `skills`: pre-loaded skills
-- `mcpServers`: MCP server configuration (inline or by reference)
-- `hooks`: lifecycle hooks
-- `memory`: persistent memory scope (`user` / `project` / `local`)
-- `background`: whether to run in the background
-- `effort`: effort level
-- `isolation`: worktree isolation
+| Field | What it does |
+|-------|--------------|
+| `tools` / `disallowedTools` | Allowlist or denylist; supports server-level patterns like `mcp__<server>` |
+| `model` | `sonnet` / `opus` / `haiku` / `fable` / full model ID / `inherit`; omitted means inherit |
+| `permissionMode` | Overrides this agent's permission mode (see the limits below) |
+| `memory` | Persistent memory scope: `user` / `project` / `local` |
+| `background` | Forces background execution |
+| `isolation` | Set to `worktree` to run inside a temporary git worktree instead of your checkout |
+| `skills` / `mcpServers` / `hooks` / `maxTurns` / `effort` | Preloaded skills, scoped MCP servers, lifecycle hooks, turn limit, effort level |
 
-### Persistent Memory
-- `memory: user` → `~/.claude/agent-memory/<name>/`
-- `memory: project` → `.claude/agent-memory/<name>/`
-- `memory: local` → `.claude/agent-memory-local/<name>/`
-- Accumulates knowledge across sessions: codebase patterns, debug insights
-- `MEMORY.md` is managed automatically
+Name conflicts resolve by source priority: managed settings > `--agents` CLI flag > `.claude/agents/` > `~/.claude/agents/` > plugin. Project-level agents should be checked into version control so the whole team shares them.
 
-### Tool and Permission Control
-- `tools` allowlist vs. `disallowedTools` denylist
-- `Agent(worker, researcher)` restricts which sub-agents can be spawned
-- MCP servers scoped to a specific sub-agent
-- `PreToolUse` hooks for conditional validation
+By the way: if you remember an interactive `/agents` creation wizard — it's gone. As of v2.1.198, `/agents` just reminds you to ask Claude to write the file or edit `.claude/agents/` directly. The directory structure and frontmatter format are unchanged.
 
-### Foreground vs. Background Execution
-- Foreground: blocks the main conversation until complete
-- Background: runs in parallel; press Ctrl+B to move to background
-- Pre-approved permissions for background mode
+## How delegation gets triggered
 
-### How to Invoke Sub-agents
-- Natural language: Claude auto-delegates based on `description`
-- @-mention: guarantees a specific sub-agent is used
-- `--agent <name>`: runs the entire session as that sub-agent
-- Set `"agent": "name"` as the project default in settings
+Three ways, from automatic to manual:
 
-### Sub-agents vs. Agent Teams
-| | Sub-agents | Agent Teams |
-|---|---|---|
-| Context | Isolated; results returned to caller | Fully independent |
-| Communication | Reports back to the main agent only | Agents communicate directly with each other |
-| Best for | Focused tasks where only the result matters | Complex work requiring collaboration |
-| Token cost | Lower | Higher |
+- **Automatic delegation**: Claude matches your task against each subagent's `description` field and decides whether to hand work off. That makes description the highest-leverage required field — to encourage proactive use, the docs suggest adding "use proactively" to it.
+- **@-mention**: type `@` and pick from the typeahead (e.g., `@"code-reviewer (agent)"`) to guarantee that specific subagent runs for this task. Note the @-mention only decides *who* does the work; Claude still writes the task prompt based on your full message.
+- **Whole-session takeover**: `claude --agent code-reviewer` applies that subagent's system prompt, tool restrictions, and model to the main thread itself. You can also set `"agent": "code-reviewer"` in `.claude/settings.json` as the project default.
 
-### Real-world Examples
-- **Code Reviewer**: read-only sub-agent with checklist-style review
-- **Debugger**: write-enabled, root cause → fix → verify workflow
-- **Data Scientist**: SQL analysis specialist
-- **DB Reader**: paired with a `PreToolUse` hook to enforce read-only queries
+## Background execution and nested spawning
+
+In interactive sessions, subagents Claude spawns **run in the background by default** (since W27): you keep typing while the result arrives later. Foreground mode blocks the main conversation until completion. Press `Ctrl+B` to move a running task to the background.
+
+Background has a price: fewer tools. A background subagent keeps every MCP tool but only a whitelist of built-in ones (Read, Edit, Bash, WebFetch, etc.) — everything else is removed without an error, so the same definition can resolve to different tool sets in the foreground versus the background. Permission prompts don't disappear either: when a background subagent hits a call needing approval, the prompt surfaces in your main session for you to decide.
+
+On nesting: since W24, subagents can spawn their own subagents — currently up to **three layers** deep by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` to adjust; set it to 1 to disable). Concurrently running subagents are capped at 20 by default (`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`). At the depth limit, the Agent tool is withheld so the deepest subagent finishes the work itself and returns one summary. The canonical pattern is a reviewer subagent dispatching a verifier per finding, keeping intermediate output out of your main conversation entirely.
+
+## Permission inheritance
+
+A subagent's `permissionMode` doesn't take effect unconditionally:
+
+- Unset → inherits the main conversation's mode.
+- Parent session uses `bypassPermissions` or `acceptEdits` → **takes precedence and can't be overridden**.
+- Parent session uses auto mode → the subagent runs in auto mode too, and any frontmatter `permissionMode` is ignored; the same classifier rules review the subagent's tool calls.
+- Managed settings disabled bypass mode → writing `bypassPermissions` in the frontmatter has no effect.
+
+In other words, tightening always wins from the parent side — you can relax things within a child definition, but you can't cross a boundary the parent session has already granted or revoked. One more security detail: since v2.1.210, each subagent's final report is scanned before Claude reads it. Text imitating formats like `<system-reminder>` gets backslashes inserted or a marker line prepended, so instruction-shaped text isn't mistaken for a system message. The scan never rewrites content; the real defenses remain permission checks and sandboxing.
+
+One rule that's easy to miss: no message from any agent counts as your approval for a pending permission prompt, and no agent message can change a subagent's permission settings or CLAUDE.md — approval can only come from you or the permission system.
+
+## When not to use one
+
+Sub-agents aren't free. Each one is a full model invocation that rebuilds context from scratch, with higher latency than the main conversation; multiple subagents each returning detailed results still eat your context in aggregate. The official guidance is practical:
+
+Frequent back-and-forth needed, multiple phases sharing significant context, or a quick targeted change — stay in the main conversation. Verbose output you won't reference again, enforced tool restrictions, self-contained work that returns a summary — delegate to a subagent. Reusable prompts or workflows that don't need context isolation — that's Skills, not subagents.
+
+## Takeaways
+
+A sub-agent boils down to one trade: **pay the cost of rebuilding context in exchange for a clean main conversation**. Whether it's worth it depends on how much intermediate output the task produces and whether you need tool isolation. Definitions are lightweight — one Markdown file — so the sensible move is to extract a subagent when you notice yourself repeating the same kind of instruction, not to design an agent hierarchy up front. As for scenarios where multiple agents talk to each other and collaborate, that's agent teams and the F cluster — this post's subagent only ever "does the work and reports back."
 
 ## References
 
-- [Claude Code Create Custom Subagents — Official Docs](https://docs.anthropic.com/en/docs/claude-code/sub-agents) — Full sub-agent configuration reference, including frontmatter fields, tool control, and persistent memory
-- [Claude Code Run Agent Teams — Official Docs](https://docs.anthropic.com/en/docs/claude-code/agent-teams) — Differences between Agent Teams and Sub-agents, and parallel multi-agent architecture
-- [Claude Code Hooks — Official Docs](https://docs.anthropic.com/en/docs/claude-code/hooks) — Complete guide to PreToolUse/PostToolUse hooks for conditional validation
-- [Claude Code Programmatic Usage & SDK](https://docs.anthropic.com/en/docs/claude-code/programmatic-usage) — Controlling sub-agent parallel execution via the SDK
-- [Claude Code MCP Scoped to Subagent](https://docs.anthropic.com/en/docs/claude-code/sub-agents#scope-mcp-servers-to-a-subagent) — How to scope an MCP server to a specific sub-agent
-- [Claude Code Settings — Subagent Configuration](https://docs.anthropic.com/en/docs/claude-code/settings#subagent-configuration) — Sub-agent configuration fields in `settings.json`
-- [Anthropic Blog — Multi-agent Frameworks](https://www.anthropic.com/research/building-effective-agents) — Design patterns and best practices for multi-agent systems
+- [Create custom subagents — Claude Code Docs](https://code.claude.com/docs/en/sub-agents) — Primary source for this post: frontmatter schema, built-in agent list, background execution and nesting rules, permission inheritance, persistent memory
+- [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — Interactive simulation of subagent isolation (6,100 tokens read vs. 420 returned) and a breakdown of context consumption
+
+## Changelog
+
+- 2026-08-26: Initial version, written against the August 2026 official docs (Explore now inherits the main conversation's model, `/agents` wizard removed, subagents run in the background by default and nest up to three layers).

@@ -1,78 +1,80 @@
 ---
-title: "Claude Code × Slack: Launch AI Development Tasks Directly from Team Conversations"
+title: "Delegating Coding Tasks from Slack: Claude Code in Slack and Claude Tag"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: tech
-tags: [claude-code, slack, team-collaboration, ai-agent, automation, dx]
+tags: [claude-code, slack, team-collaboration, ai-agent, automation]
 lang: en
-tldr: "@Claude in Slack to describe a task, automatically kicks off a Claude Code web session → analyzes code → opens a PR. Turn a bug report into a fix without ever leaving Slack. Supports two routing modes: Code only and Code + Chat."
-description: "An introduction to Claude Code's Slack integration: installation and setup, routing modes (Code only / Code + Chat), context collection from Slack threads, session flow, repository selection, and how it works alongside Claude Code on the web."
+tldr: "A single @Claude in Slack turns a bug report into a cloud-run Claude Code session. But since 2026 there are two paths: Pro/Max stays on the original Claude Code in Slack (each session runs under an individual account), while Team/Enterprise moves to Claude Tag (shared org identity, admin-configured access). Check your plan before setting anything up."
+description: "A guide to Claude Code's Slack integration: setup, routing modes, and session flow for the original Claude Code in Slack, plus Claude Tag for Team/Enterprise workspaces — with a side-by-side comparison of both paths and their limitations."
 draft: true
 series:
-  name: "Claude Code Automation Guide"
-  order: 20
+  name: "Claude Code Deep Dives"
+  order: 29
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
+> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
 
-<!-- TODO: To be written -->
-<!-- Reference official docs: https://code.claude.com/docs/en/slack.md -->
+Bug reports don't arrive in a terminal — they arrive in a Slack channel: a teammate pastes reproduction steps, error screenshots pile up, half a day of context accumulates in a thread. The highest-value move at that moment isn't copying it all into your terminal; it's typing `@Claude` right in that thread with "investigate and fix this," and letting it spin up a Claude Code session in the cloud and report back. This is the same agentic loop from the [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) with a different entry point — same loop, new trigger: team conversation instead of terminal.
 
-## Planned Outline
+But this got more complicated in 2026: Anthropic is retiring the original Claude Code in Slack for Team and Enterprise workspaces in favor of a separate product line, **Claude Tag**. Before you configure anything, figure out which plan you're on — the two paths have completely different setup procedures and permission models.
 
-### What is Claude Code in Slack
-- @Claude a message in a Slack channel → automatically detects coding intent
-- Launches a Claude Code web session → reports back to Slack when done
-- Requires a Pro/Max/Teams/Enterprise plan + Claude Code on the web access
+## First, which plan are you on?
 
-### Setup Steps
-1. Install the Claude app from the Slack App Marketplace
-2. Link your Claude account in App Home
-3. Configure Claude Code on the web + GitHub
-4. Choose a routing mode (Code only / Code + Chat)
-5. `/invite @Claude` to add it to a channel
+The official docs draw the line clearly:
 
-### Routing Modes
-- **Code only**: All @mentions route through Claude Code
-- **Code + Chat**: AI automatically determines whether the request is a coding task or a general Q&A
-- If it routes incorrectly, you can "Retry as Code" or switch modes
+- **Pro / Max** (individual plans): Claude Tag isn't available, so the original Claude Code in Slack **remains the current setup path**.
+- **Team / Enterprise**: the earlier version is being retired; use [Claude Tag](https://claude.com/docs/claude-tag/overview) instead. Your existing Slack app and `@Claude` handle stay in place, and your Anthropic account team can tell you the exact cutover date.
 
-### How It Works
-1. @mention Claude with a coding request
-2. Claude detects coding intent
-3. Creates a Claude Code web session
-4. Reports progress back in the Slack thread
-5. @mentions you when done, with a summary and action buttons
-6. Options: View Session / Create PR / Change Repo
+The quickest check is your plan page on claude.ai. If the "setup steps" below keep failing, first confirm whether your workspace has already been switched to Claude Tag.
 
-### Context Collection
-- Thread: reads all messages in the thread
-- Channel: reads recent channel messages
-- Automatically selects the appropriate repository
+## Path one: Claude Code in Slack (Pro/Max)
 
-### Use Cases
-- Bug investigation: reported in Slack → fixed directly
-- Quick code review: revisions based on team feedback
-- Collaborative debugging: uses context from Slack discussions to debug
-- Parallel tasking: kick off a task in Slack and continue with other work
+### Five setup steps
 
-### Security & Permissions
-- Each user authenticates with their own Claude account
-- Sessions count against individual plan quotas
-- Can only access repositories linked to your account
-- Channel-based access control
+1. **Install the app**: a workspace administrator goes to the [Slack App Marketplace](https://slack.com/marketplace/A08SF47R6P4) (app ID `A08SF47R6P4`) and clicks "Add to Slack".
+2. **Connect your account**: open Claude from the Apps section in Slack, go to the App Home tab, click "Connect", and complete authentication in your browser.
+3. **Configure Claude Code on the web**: sign in at [claude.ai/code](https://claude.ai/code) with the same account, connect GitHub, and authenticate at least one repository. Skipping this step gets you "Claude Code is not enabled for your account" — that's not a permissions issue; your account just has no cloud environment yet, and one sign-in creates it.
+4. **Choose a routing mode**: Routing Mode in App Home has two options — **Code only** sends every @mention to Claude Code; **Code + Chat** lets Claude decide whether each message is a coding task or general Q&A, and if it guesses wrong you can hit "Retry as Code" in that thread.
+5. **Invite it to channels**: installing the app adds Claude to no channels automatically. Type `/invite @Claude` in the channel you want. It only works in channels (public or private), not DMs.
 
-### Best Practices
-- Be specific (include file names, function names, error messages)
-- Define a completion criterion (should it write tests? update docs? open a PR?)
-- Use threads to accumulate context
+### What it looks like in practice
+
+After you @Claude with a coding task in a channel or thread: it gathers context (the whole thread when mentioned inside one; recent channel messages otherwise), picks a repository automatically, opens a session on claude.ai/code, and posts progress back to Slack. When done it @mentions you with a summary and action buttons: "View Session" for the full transcript, "Create PR" to open a pull request directly, "Change Repo" if it picked the wrong repository.
+
+The security model is **user-level**: every session runs under your own Claude account, counts against your individual plan limits, and can only touch repositories you personally connected.
+
+## Path two: Claude Tag (Team/Enterprise)
+
+[Claude Tag](https://claude.com/product/tag) is a separate Slack product line: `@Claude` works in channels as your **organization's shared identity**, not anyone's personal account; access is configured centrally by admins; and anyone in a channel can tag it into a thread and assign it a task.
+
+For workspaces already using the earlier version, the migration doc lives on claude.com ("Migrate from the earlier Claude in Slack"). One pitfall to know upfront: if sessions in a Claude Tag channel keep failing, the channel's cloud environment was probably created under someone's **personal** account — Claude Code fails the session immediately and retrying doesn't help. The fix is for an Owner to recreate it as an **organization-shared environment** on the Cloud environments page in admin settings, then set it as the org default or assign it to that channel.
+
+## How the two paths differ
+
+| | Claude Code in Slack | Claude Tag |
+|---|---|---|
+| Plans | Pro / Max | Team / Enterprise |
+| Identity behind @Claude | Individual user account | Organization shared identity |
+| Access control | Each user connects repos, pays own quota | Admin-configured |
+| Session ownership | Personal history (claude.ai/code) | Visible to the organization |
+| Status | Current path for individual plans | Current approach for Team/Enterprise |
+
+One-line summary: individuals take path one, teams with centralized management take path two. The difference isn't feature count — it's **who owns the identity and permissions**.
+
+## Limitations and caveats
+
+Three hard limits: repositories must be on GitHub; each session can create one PR; and users need Claude Code on the web access, without which Claude falls back to standard chat replies.
+
+One warning worth remembering comes from the docs themselves: when invoked, Claude reads the conversation context to understand the task and may follow directions from other messages in it — so only use it in trusted Slack conversations. It's the same risk every agent entry point carries: the easier the entry point, the larger the prompt injection surface.
+
+Slack is one of Claude Code's surfaces; its browser-side sibling is covered in the [Chrome integration post](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration). For comparing other automation triggers (GitHub Actions, scheduling), see the upcoming automation cluster in this series.
 
 ## References
 
-- [Claude Code in Slack — Official Docs](https://docs.anthropic.com/en/docs/claude-code/slack) — Complete guide to installation, routing modes, session flow, and security settings
-- [Claude App — Slack App Marketplace](https://slack.com/marketplace/A07DNBDB84N-claude) — Official page to install the Claude app from the Slack App Marketplace
-- [Claude Code on the Web — Official Docs](https://docs.anthropic.com/en/docs/claude-code/claude-code-on-the-web) — Explains the cloud session infrastructure that the Slack integration depends on
-- [Claude for Slack — General Usage Docs](https://www.anthropic.com/news/claude-for-slack) — Feature overview and use cases for Claude for Slack
-- [Claude Code GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions) — Another way to trigger Claude Code tasks from external tools (CI/CD integration)
-- [Claude Code Permissions — Official Docs](https://docs.anthropic.com/en/docs/claude-code/permissions) — Understanding session permission controls
-- [Claude Plans & Pricing](https://claude.ai/upgrade) — Check which plans (Pro/Max/Teams/Enterprise) are required for the Slack integration
+- [Claude Code in Slack — Claude Code Docs](https://code.claude.com/docs/en/slack) — Setup steps, routing modes, session flow, permission model, plus the Team/Enterprise retirement notice and troubleshooting
+- [Claude Tag — Claude Code Docs](https://code.claude.com/docs/en/claude-tag) — Claude Tag product positioning, eligible plans, and entry point to the full claude.com documentation
+
+## Changelog
+
+- 2026-08-26: Initial version, written against the August 2026 official docs (Team/Enterprise now directed to Claude Tag; Pro/Max keeps the original path).

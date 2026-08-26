@@ -1,89 +1,125 @@
 ---
-title: "Claude Code Channels: Push Events from Telegram, Discord, and iMessage into Your AI Dev Environment"
+title: "Claude Code Channels: External Events, Reply Tools, and Sender Gating"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: tech
-tags: [claude-code, channels, telegram, discord, imessage, webhooks, dx]
+tags: [claude-code, channels, mcp, webhooks]
 lang: en
-tldr: "Channels pushes external events into a running Claude Code session — ask questions from your phone via Telegram, get notified of CI failures via webhook, or send commands through Discord. It's bidirectional: Claude reads the incoming event and replies back in the same channel. Currently in Research Preview."
-description: "An introduction to Claude Code Channels: using the MCP protocol to push external events (Telegram, Discord, iMessage, custom webhooks) into a local session, so Claude can respond in real time even when you step away from the keyboard. Covers installation, security mechanisms, Enterprise controls, and comparisons with Remote Control, Web, and Slack."
+tldr: "Channels are a special kind of MCP server that push CI failures, monitoring alerts, and Telegram messages directly into a running Claude Code session — and Claude can answer back through the same channel via a reply tool. This post breaks down the channel contract, two-way replies, security gates, and install requirements."
+description: "A deep dive into Claude Code Channels: how an MCP server declares a channel capability, pushes notification events, lets Claude reply, and how sender gating and permission relay keep the session secure."
 draft: true
 series:
-  name: "Claude Code Automation Guide"
-  order: 18
+  name: "Claude Code Deep Dives"
+  order: 21
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide)
+> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide)
 
-<!-- TODO: Draft in progress -->
-<!-- Reference: https://code.claude.com/docs/en/channels.md -->
-<!-- Reference: https://code.claude.com/docs/en/channels-reference.md -->
+This is part of the automation cluster of the [Claude Code Deep Dives series](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works). Earlier posts covered hooks — scripts injected at specific points in the agentic loop. But those points are all events the loop generates itself. If you're away from the terminal and something happens outside the loop — a build fails, a monitor fires an alert, you think of a new instruction on your phone — Claude has no way to know. Channels fill exactly that gap.
 
-## Planned Outline
+## What Problem Do Channels Solve?
 
-### What Are Channels?
-- Push external events into a running Claude Code session
-- Built on the MCP server protocol
-- Bidirectional: Claude reads events + replies in the same channel
-- Currently in Research Preview; requires v2.1.80+
+From the official docs:
 
-### Comparison with Other Features
+> A channel is an MCP server that pushes events into your running Claude Code session, so Claude can react to things that happen while you're not at the terminal.
 
-| Feature | What It Does | Best For |
-|---|---|---|
-| Claude Code on the web | Run tasks in a cloud sandbox | Async, self-contained work |
-| Claude in Slack | @Claude starts a web session | Kicking off tasks from team chat |
-| MCP server | Claude actively queries external sources | On-demand reads from external systems |
-| Remote Control | Drive a local session from your phone | Remotely controlling work in progress |
-| **Channels** | Push external events into a session | Receiving and responding to external events in real time |
+The keyword is "push". A standard MCP server is passive: Claude queries it during a task. A channel works the other way around — the moment an external system produces an event, the message is pushed into the session you **already have open**, and Claude reads it and acts on its next turn. Events arrive in Claude's context wrapped in a `<channel>` tag:
 
-### Supported Channels
+```text
+<channel source="webhook" path="/" method="POST">build failed on main</channel>
+```
 
-#### Telegram
-- Create a bot via BotFather
-- Install the plugin: `/plugin install telegram@claude-plugins-official`
-- Configure the token: `/telegram:configure <token>`
-- Start with: `claude --channels plugin:telegram@claude-plugins-official`
-- Pair your account and configure the allowlist
+Note the catch: events only arrive while the session is open. For an always-on setup, run Claude Code in a background process or a persistent terminal.
 
-#### Discord
-- Create a Discord bot and enable the Message Content Intent
-- Configure bot permissions
-- Install the plugin and set the token
-- Pair and configure security settings
+## How Channels Differ from Hooks and MCP
 
-#### iMessage (macOS only)
-- No bot token required — reads directly from the Messages database
-- Requires Full Disk Access permission
-- Send a message to yourself to get started
+All three extend a session, but they point in different directions:
 
-### Security Mechanisms
-- Sender allowlist: only approved IDs can push messages
-- Pairing code mechanism
-- Permission relay: channels can forward permission prompts
-- `--channels` flag controls which channels are enabled per session
+| Feature | Event source | Direction |
+|---------|--------------|-----------|
+| [Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide) | Built-in agentic loop events | The loop triggers your script |
+| [MCP server](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration) | Claude actively queries | Claude pulls |
+| **Channels** | External systems | The outside pushes in |
 
-### Enterprise Controls
-- `channelsEnabled`: master switch (disabled by default for Team/Enterprise)
-- `allowedChannelPlugins`: restrict which channel plugins are available
-- Pro/Max users are not restricted
+In one sentence: hooks handle events the loop itself generates; channels handle events from the world outside the loop — and outside you — that come looking for the agent. They also differ from Claude Code on the web or Claude in Slack: those spawn a fresh cloud session, while channels deliver events into your local session that already has your files loaded and conversation history in context.
 
-### Building a Custom Channel
-- Create your own Channel server
-- Webhook receiver mode: receive events from CI, error trackers, deploy pipelines
-- Use `--dangerously-load-development-channels` for testing
+## The Channel Contract: Capability Declaration and Notification Events
 
-### Real-World Use Cases
-- Ask Claude questions from your phone via Telegram while it operates on local files
-- CI failures trigger a webhook push to the session; Claude automatically analyzes and fixes the issue
-- Discord receives team commands; Claude executes them and replies with results
+A channel is a regular MCP server plus three things:
+
+1. Declare `claude/channel` in the Server constructor's capabilities — this key is what makes Claude Code register a notification listener.
+2. Emit events with the `notifications/claude/channel` method; `content` is the body, and each key in `meta` becomes an attribute on the `<channel>` tag.
+3. Connect over stdio transport — Claude Code spawns it as a subprocess.
+
+A minimal channel server looks like this:
+
+```ts
+const mcp = new Server(
+  { name: 'webhook', version: '0.0.1' },
+  {
+    capabilities: { experimental: { 'claude/channel': {} } },
+    instructions: 'Events arrive as <channel source="webhook" ...>. One-way: read them and act.',
+  },
+)
+await mcp.connect(new StdioServerTransport())
+
+Bun.serve({
+  port: 8788,
+  hostname: '127.0.0.1',
+  async fetch(req) {
+    await mcp.notification({
+      method: 'notifications/claude/channel',
+      params: { content: await req.text(), meta: { path: new URL(req.url).pathname } },
+    })
+    return new Response('ok')
+  },
+})
+```
+
+The `instructions` string goes into Claude's system prompt, telling it what events look like, whether to reply, and how. The docs also flag an easy pitfall: being listed in `.mcp.json` isn't enough — the server must also be named in the `--channels` flag for messages to get through.
+
+## Letting Claude Reply: Reply Tools
+
+Push-only is a one-way channel (an alert forwarder). To build a chat bridge, add a standard MCP tool: put `tools: {}` in capabilities and register a `reply` tool with `setRequestHandler`. When Claude wants to respond, it calls the tool and the server POSTs the text back to your chat platform. Nothing about the tool registration is channel-specific — it's just a regular MCP tool.
+
+One usage detail: when Claude replies through a channel, your terminal shows only the tool call and a "sent" confirmation — the actual reply appears on the other platform.
+
+## Security: Sender Gating and Permission Relay
+
+An ungated channel is a prompt injection vector — anyone who can reach your endpoint can put text in front of Claude. So the contract requires the server to check a **sender allowlist** before emitting any notification, and to gate on the sender's identity, not the room's: gating on the chat room in a group would let anyone in that group inject messages.
+
+Telegram and Discord bootstrap the allowlist with pairing codes: DM the bot, it replies with a code, you approve it in the session, and your account joins the list — everyone else is silently dropped. iMessage works differently: texting yourself bypasses the gate automatically, and other contacts are added one by one by handle.
+
+The second layer is **permission relay**: when Claude calls a tool that needs approval, the session pauses at the local dialog. A two-way channel declaring the `claude/channel/permission` capability can forward that same prompt to your phone; replying `yes <id>` approves it remotely. Both ends stay live, and whichever answer arrives first wins. Because anyone who can reply through the channel can approve tool use, the docs state plainly: only declare the capability if your channel authenticates senders.
+
+Enterprises get a master switch on top: Team/Enterprise orgs block channels by default until an Owner enables `channelsEnabled`, and can restrict which channel plugins may run with `allowedChannelPlugins`. Pro/Max users without an organization skip these checks entirely and opt in per session with `--channels`.
+
+## Installation: Channel Plugins Require Bun
+
+The research preview ships official channel plugins for Telegram, Discord, and iMessage, plus a fakechat demo that runs in a local browser. Each plugin is a Bun script, so install [Bun](https://bun.sh) first. Using Telegram as an example:
+
+```
+/plugin install telegram@claude-plugins-official
+/telegram:configure <token>
+```
+
+Exit, restart with `claude --channels plugin:telegram@claude-plugins-official`, complete pairing, done.
+
+For your own channels, the runtime isn't restricted — the hard requirement is just the MCP SDK and a Node-compatible environment; Bun, Node, and Deno all work. Custom channels test through the `--dangerously-load-development-channels` development flag, which bypasses the allowlist locally.
+
+## Typical Scenarios
+
+- **CI result forwarding**: a build fails and a webhook pushes straight into the session where Claude already has your repo open — it can dig into logs, fix code, and rerun tests immediately.
+- **Phone chat bridge**: ask Claude questions from Telegram while it works on your machine against your real files, with answers coming back to the same chat window.
+- **Monitoring events**: error tracker or deploy pipeline events pushed as a one-way channel — Claude reads them and acts, no reply needed.
+
+Channels are currently in research preview, and both the flag syntax and protocol contract may change. But the position they occupy — letting the outside world reach a running agent — is a slot that neither scheduled polling nor Remote Control fills.
 
 ## References
 
-- [Claude Code Overview — Platforms and Integrations](https://docs.anthropic.com/en/docs/claude-code/overview) — Official platform integration overview covering Channels' role in the broader ecosystem
-- [Claude Code Remote Control](https://docs.anthropic.com/en/docs/claude-code/remote-control) — Documentation for Remote Control, a complementary mechanism for remotely driving local sessions
-- [Telegram BotFather Documentation](https://core.telegram.org/bots#botfather) — Official guide to creating a Telegram Bot, the prerequisite for the Channels Telegram integration
-- [Discord Developer Portal — Bot Setup](https://discord.com/developers/docs/intro) — Official docs for creating a Discord Bot and enabling the Message Content Intent
-- [Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) — MCP server protocol reference; Channels is built on top of MCP
-- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — Settings fields related to Channels: `channelsEnabled`, `allowedChannelPlugins`, etc.
-- [Model Context Protocol Specification](https://modelcontextprotocol.io/introduction) — The official MCP spec; foundational reading for understanding Channels' underlying communication architecture
+- [Push events into a running session with channels — Claude Code Docs](https://code.claude.com/docs/en/channels.md) — Channels positioning, Telegram/Discord/iMessage setup flows, security and Enterprise controls, comparison with other integrations
+- [Channels reference — Claude Code Docs](https://code.claude.com/docs/en/channels-reference.md) — Full channel contract spec: capability declaration, notification format, reply tools, sender gating, permission relay, with a complete webhook receiver example
+
+## Changelog
+
+- 2026-08-26: Initial version, based on current code.claude.com documentation (research preview).

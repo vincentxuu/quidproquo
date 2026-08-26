@@ -1,88 +1,125 @@
 ---
-title: "Claude Code Channels：讓 Telegram、Discord、iMessage 推送事件到你的 AI 開發環境"
+title: "Claude Code Channels 怎麼運作：外部事件、reply tools 與 sender gating"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: tech
-tags: [claude-code, channels, telegram, discord, imessage, webhooks, dx]
+tags: [claude-code, channels, mcp, webhooks]
 lang: zh-TW
-tldr: "Channels 把外部事件推送到正在跑的 Claude Code session——從手機用 Telegram 問問題、CI webhook 通知失敗、Discord 接收指令。雙向溝通：Claude 讀取事件後直接在同一個 channel 回覆。目前是 Research Preview。"
-description: "介紹 Claude Code Channels 功能：透過 MCP 協議把外部事件（Telegram、Discord、iMessage、自製 webhook）推送到本地 session，讓 Claude 在你離開鍵盤時也能即時回應。涵蓋安裝設定、安全機制、Enterprise 控制，以及與 Remote Control / Web / Slack 的比較。"
+tldr: "Channels 是一種特殊的 MCP server，能把 CI 失敗、監控告警、Telegram 訊息這類外部事件直接推進正在跑的 Claude Code session，Claude 讀完事件還能透過 reply tool 從同一條通道回話。本文拆解 channel contract、雙向回覆、安全閘門與安裝需求。"
+description: "深入介紹 Claude Code Channels：MCP server 如何宣告 channel capability、推送 notification events、讓 Claude 回話，以及 sender gating 和 permission relay 的安全設計。"
 draft: true
 series:
-  name: "Claude Code 自動化指南"
-  order: 18
+  name: "Claude Code 深入介紹"
+  order: 21
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide-en)
+> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide-en)
 
-<!-- TODO: 待撰寫 -->
-<!-- 參考官方文件：https://code.claude.com/docs/en/channels.md -->
-<!-- 參考官方文件：https://code.claude.com/docs/en/channels-reference.md -->
+這是「Claude Code 深入介紹」系列的[自動化篇之一](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)。系列前面講過 hooks 是在 agentic loop 的特定時點插你的腳本——但那些時點全是 loop 內建的事件。如果你人在外面，而 loop 外的世界發生了事：CI 掛了、監控系統跳告警、你在手機上想到一個新指示，Claude 都不會知道。Channels 補的就是這一塊。
 
-## 預計大綱
+## Channels 解決什麼問題
 
-### Channels 是什麼
-- 把外部事件推送到正在跑的 Claude Code session
-- 基於 MCP server 協議
-- 雙向溝通：Claude 讀取事件 + 在同一 channel 回覆
-- Research Preview 狀態，需要 v2.1.80+
+依官方文件的定義：
 
-### 與其他功能的比較
-| 功能 | 做什麼 | 適合 |
-|---|---|---|
-| Claude Code on the web | 在雲端 sandbox 跑任務 | 非同步自包含工作 |
-| Claude in Slack | @Claude 啟動 web session | 從團隊對話開始任務 |
-| MCP server | Claude 主動查詢 | 按需讀取外部系統 |
-| Remote Control | 從手機驅動本地 session | 遠端操控進行中的工作 |
-| **Channels** | 外部事件推送到 session | 即時接收和回應外部事件 |
+> A channel is an MCP server that pushes events into your running Claude Code session, so Claude can react to things that happen while you're not at the terminal.
 
-### 支援的 Channels
+關鍵字是「push」。一般 MCP server 是被動的：Claude 做任務時主動去查它。Channel 反過來——外部系統發生事件的瞬間，訊息就被推進你**已經開著的那個 session**，Claude 在下一輪就會讀到並行動。事件以 `<channel>` 標籤的形式進到 Claude 的 context，例如：
 
-#### Telegram
-- 建立 BotFather bot
-- 安裝 plugin：`/plugin install telegram@claude-plugins-official`
-- 設定 token：`/telegram:configure <token>`
-- 啟動：`claude --channels plugin:telegram@claude-plugins-official`
-- 配對帳號與 allowlist
+```text
+<channel source="webhook" path="/" method="POST">build failed on main</channel>
+```
 
-#### Discord
-- 建立 Discord bot + 啟用 Message Content Intent
-- 設定 bot 權限
-- 安裝 plugin 與設定 token
-- 配對與安全設定
+要注意的是，事件只在 session 開著的時候會送達。要做成全天候接收，得讓 Claude Code 跑在背景程序或常駐終端機裡。
 
-#### iMessage（macOS only）
-- 不需要 bot token，直接讀取 Messages 資料庫
-- 需要 Full Disk Access 權限
-- 自己傳訊息給自己即可開始
+## 跟 hooks、MCP 有什麼不同
 
-### 安全機制
-- Sender allowlist：只有允許的 ID 可以推送訊息
-- Pairing code 機制
-- Permission relay：channel 可以轉發權限提示
-- `--channels` flag 控制每個 session 啟用哪些 channel
+三者都在擴充 session，但方向不一樣：
 
-### Enterprise 控制
-- `channelsEnabled`：master switch（Team/Enterprise 預設關閉）
-- `allowedChannelPlugins`：限制可用的 channel plugins
-- Pro/Max 使用者不受限制
+| 功能 | 事件來源 | 方向 |
+|------|----------|------|
+| [Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide) | agentic loop 內建事件 | loop 內部觸發你的腳本 |
+| [MCP server](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration) | Claude 主動查詢 | Claude 拉 |
+| **Channels** | 外部系統 | 外部推進 session |
 
-### 自製 Channel
-- 建立自己的 Channel server
-- Webhook receiver 模式：接收 CI、error tracker、deploy pipeline 事件
-- 測試用 `--dangerously-load-development-channels`
+一句話區分：hooks 處理的是 loop 自己會產生的事件，channels 處理的是 loop 之外、你之外的世界主動找上門的事件。跟 Claude Code on the web 或 Claude in Slack 也不同——那些是開一個新的雲端 session，channels 是把事件送進你本地已經開著、已經載入專案檔案和對話記憶的 session。
 
-### 實際案例
-- 用手機 Telegram 問 Claude 問題，在本機檔案上操作
-- CI 失敗時 webhook 推送到 session，Claude 自動分析修復
-- Discord 接收團隊指令，Claude 執行後回覆結果
+## Channel contract：capability 宣告與 notification events
+
+一個 channel 就是一般的 MCP server 加上三件事：
+
+1. 在 Server constructor 的 capabilities 裡宣告 `claude/channel`——Claude Code 看到這個 key 才會把通知監聽器掛上來。
+2. 用 `notifications/claude/channel` 方法推事件，`content` 是內文，`meta` 的每個 key 變成 `<channel>` 標籤的屬性。
+3. 走 stdio transport——Claude Code 把它當子程序啟動。
+
+最小的一個 channel server 大概長這樣：
+
+```ts
+const mcp = new Server(
+  { name: 'webhook', version: '0.0.1' },
+  {
+    capabilities: { experimental: { 'claude/channel': {} } },
+    instructions: 'Events arrive as <channel source="webhook" ...>. One-way: read them and act.',
+  },
+)
+await mcp.connect(new StdioServerTransport())
+
+Bun.serve({
+  port: 8788,
+  hostname: '127.0.0.1',
+  async fetch(req) {
+    await mcp.notification({
+      method: 'notifications/claude/channel',
+      params: { content: await req.text(), meta: { path: new URL(req.url).pathname } },
+    })
+    return new Response('ok')
+  },
+})
+```
+
+`instructions` 字串會進 Claude 的 system prompt，告訴它事件長什麼樣、要不要回、怎麼回。官方文件也提醒了一個容易踩的坑：光出現在 `.mcp.json` 不夠，server 必須再被 `--channels` flag 點名才會真的收得到訊息。
+
+## 讓 Claude 回話：reply tools
+
+只推不回的是單向 channel（警報轉發器）。要做聊天橋接器，就再加一個標準 MCP tool：capabilities 加 `tools: {}`，用 `setRequestHandler` 註冊一個 `reply` 工具，Claude 收完事件想回話時呼叫它，由 server 把文字 POST 回聊天平台。工具註冊本身沒有任何 channel 專屬的東西，就是[一般的 MCP tool](https://modelcontextprotocol.io/docs/concepts/tools)。
+
+有個使用上的細節：Claude 透過 channel 回話時，你的終端機只顯示工具呼叫和「sent」確認，實際回覆內容出現在另一頭的平台。
+
+## 安全設計：sender gating 與 permission relay
+
+沒有閘門的 channel 就是 prompt injection 的入口——任何碰得到端點的人都能塞文字給 Claude。所以 contract 要求 server 在發 notification 前先比對 **sender allowlist**，而且要比對「傳訊者本人」的身分，不是聊天室身分：在群組裡 gate 房間的話，群裡任何人都能注入。
+
+Telegram 和 Discord 用配對碼 bootstrap 白名單：你私訊 bot，bot 回配對碼，在 session 裡核可後你的帳號才進名單，之後其他人一律靜默丟棄。iMessage 不一樣，自己傳訊息給自己自動放行，其他聯絡人用 handle 一個個加。
+
+第二層是 **permission relay**：Claude 要跑需要核可的工具時，session 會停在終端機的對話框等答案。宣告了 `claude/channel/permission` capability 的雙向 channel 可以把同一個提示轉發到你手機，遠端回 `yes <id>` 就放行。兩邊同時活著，先到的答案生效。因為「能透過 channel 回話的人」等於「能核准工具的人」，官方明講：只有驗證過 sender 的 channel 才該宣告這個 capability。
+
+企業還有一層總開關：Team／Enterprise 預設封鎖，要 Owner 在管理設定打開 `channelsEnabled`，還能用 `allowedChannelPlugins` 限定哪些 channel plugins 可用。Pro／Max 使用者不受限，每個 session 用 `--channels` 自行選擇開啟。
+
+## 安裝：channel plugins 需要 Bun
+
+Research preview 隨附 Telegram、Discord、iMessage 三個官方 channel plugins，外加一個跑在本機瀏覽器的 fakechat demo。每個 plugin 都是 Bun script，所以要先裝 [Bun](https://bun.sh)。流程以 Telegram 為例：
+
+```
+/plugin install telegram@claude-plugins-official
+/telegram:configure <token>
+```
+
+退出後用 `claude --channels plugin:telegram@claude-plugins-official` 重啟，完成配對即通。
+
+自己寫 channel 的話 runtime 不受限——硬性需求只有 MCP SDK 和 Node 相容環境，Bun、Node、Deno 都行；自製 channel 測試時要走 `--dangerously-load-development-channels` 開發旗標繞過 allowlist。
+
+## 典型場景
+
+- **CI 結果轉發**：build 掛了，webhook 直接推進 session，Claude 已經開著你的 repo，當下就能查 log、改 code、重跑測試。
+- **手機聊天橋接**：從 Telegram 問 Claude 問題，它在你的機器上、對你的真實檔案操作，答案回到同一個聊天視窗。
+- **監控事件**：error tracker 或 deploy pipeline 的事件推進來，單向 channel 即可——Claude 讀了採取行動，不需要回話。
+
+Channels 目前是 research preview，flag 語法和 protocol contract 都可能變。但「讓外部世界找到正在跑的 agent」這個位置，在整個自動化拼圖裡是排程（定時拉）和 Remote Control（你自己推）都補不上的一塊。
 
 ## 參考資料
 
-- [Claude Code Overview — Platforms and Integrations](https://docs.anthropic.com/en/docs/claude-code/overview) — 官方平台整合概覽，介紹 Channels 在整體生態中的定位
-- [Claude Code Remote Control](https://docs.anthropic.com/en/docs/claude-code/remote-control) — Remote Control 功能說明，與 Channels 互補的遠端操控機制
-- [Telegram BotFather 文件](https://core.telegram.org/bots#botfather) — 建立 Telegram Bot 的官方指南，Channels Telegram 整合的前置步驟
-- [Discord Developer Portal — Bot 設定](https://discord.com/developers/docs/intro) — Discord Bot 建立與 Message Content Intent 設定的官方文件
-- [Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) — MCP server 協議說明，Channels 底層基於 MCP 實作
-- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — channelsEnabled、allowedChannelPlugins 等 Channels 相關設定欄位
-- [Model Context Protocol 規範](https://modelcontextprotocol.io/introduction) — MCP 協議官方規範，理解 Channels 底層通訊架構的基礎
+- [Push events into a running session with channels — Claude Code Docs](https://code.claude.com/docs/en/channels.md) — Channels 定位、Telegram／Discord／iMessage 安裝流程、安全與 Enterprise 控制、與其他整合方式的比較
+- [Channels reference — Claude Code Docs](https://code.claude.com/docs/en/channels-reference.md) — channel contract 完整規格：capability declaration、notification 格式、reply tools、sender gating、permission relay，含完整 webhook receiver 範例
+
+## 更新紀錄
+
+- 2026-08-26：初版，依 code.claude.com 官方文件撰寫（research preview 現狀）。

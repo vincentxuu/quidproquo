@@ -1,84 +1,92 @@
 ---
-title: "Claude Code Best Practices and Common Workflows: Official Recommended Usage Patterns"
+title: "Claude Code Workflows in Practice: Official Best Practices from Explore to Commit"
 date: 2026-03-28
-type: guide
+type: deep-dive
 category: tech
-tags: [claude-code, best-practices, workflows, tips, productivity, dx]
+tags: [claude-code, best-practices, workflows, tips, productivity]
 lang: en
-tldr: "A comprehensive guide to Anthropic's officially recommended Claude Code usage patterns: how to write effective prompts, leverage plan mode for upfront planning, use git worktrees for parallel development, manage context windows, handle large codebases, and grow from beginner to power user."
-description: "A curated collection of Claude Code best practices and common workflows: prompt techniques, the plan → implement → review cycle, parallel sessions with git worktree, context management strategies, large codebase handling, and progressive trust from default to auto mode."
+tldr: "Anthropic's official Claude Code best practices boil down to one constraint: manage the context window. This post reorganizes their guidance into a working loop — explore, plan mode, implement with a runnable check, verify, commit — plus prompt techniques, when to /clear vs rewind, and the five failure patterns they call out."
+description: "A workflow-first tour of official Claude Code best practices: exploring codebases, planning in plan mode, verifiable implementation, subagent review, parallel sessions and commit hygiene, with prompt techniques and common anti-patterns."
 draft: true
 series:
-  name: "Claude Code Automation Guide"
-  order: 26
+  name: "Claude Code Deep Dives"
+  order: 5
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows)
+> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows)
 
-<!-- TODO: Pending write-up -->
-<!-- Reference: https://code.claude.com/docs/en/best-practices.md -->
-<!-- Reference: https://code.claude.com/docs/en/common-workflows.md -->
+This is part 5 of the "Claude Code Deep Dives" series. The [series entry](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) broke down the agentic loop's mechanics, and the [.claude directory tour](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory) covered where the config lives; this one is about how you **operate** that loop. The material comes from three official docs pages — best practices, common workflows, and the prompt library — rearranged into one full working cycle: explore, plan, implement, verify, wrap up. To see this cycle running on a real project, pair it with [my earlier write-up of an OpenSpec-to-deploy workflow](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy).
 
-## Planned Outline
+## Where every recommendation starts: the context window
 
-### Prompt Techniques
-- Be specific over vague: include filenames, function names, error messages
-- Define completion criteria: "run tests after the fix" or "open a PR when done"
-- Staged instructions vs. front-loading everything at once
+The [official best practices](https://code.claude.com/docs/en/best-practices) open with the constraint behind most of their advice: the context window fills up fast, and performance degrades as it fills. It holds your entire conversation — every message, every file Claude reads, every command output. A single debugging session or codebase exploration can consume tens of thousands of tokens.
 
-### Plan → Implement → Review Cycle
-1. `/plan` — let Claude analyze and plan the approach
-2. Confirm direction, then switch to auto mode or acceptEdits
-3. Review the diff; use `/undo` if needed
+So every technique below is really doing the same thing: keeping limited context focused on the task at hand.
 
-### Parallel Development with Git Worktree
-```bash
-# Create a worktree
-git worktree add ../feature-auth -b feature/auth
-cd ../feature-auth
-claude
+## Explore first, don't rush to code
+
+When picking up an unfamiliar codebase, start broad, then narrow: "give me an overview of this codebase", followed by architecture patterns, key data models, how authentication works. Search by behavior instead of filename — "where do we validate uploaded file types?" — and before deleting anything, ask "what would break if I deleted X?"
+
+Delegate large investigations to subagents. "Use subagents to investigate how our auth system handles token refresh" runs in its own context window, reads dozens of files there, and reports back only a summary — your main conversation stays clean for implementation. This is the most powerful context-management move available.
+
+## Plan mode: separate thinking from doing
+
+Press `Shift+Tab` until plan mode is on (or start with `claude --permission-mode plan`), and Claude reads files and proposes a plan without touching source files. The officially recommended four phases build on this: **explore** the current state, **plan** the implementation (press `Ctrl+G` to edit the plan directly in your editor), **implement** against the plan, then **commit** with a descriptive message and open a PR.
+
+But plan mode has overhead. The docs are explicit: if you could describe the diff in one sentence (fixing a typo, adding a log line), just do it directly. Planning earns its keep when the change spans multiple files, you're unsure of the approach, or you're unfamiliar with the code.
+
+## Implement: give it a check that produces pass/fail
+
+This is, to me, the single most important item in the best practices. Without a runnable check, "looks done" is the only signal available — and you become the verification loop, with every mistake waiting for you to notice. With tests, build exit codes, a linter, or a screenshot comparison, the loop closes on its own: do the work, run the check, read the result, iterate until it passes.
+
+Write the check into the prompt. Two official patterns:
+
+```text
+write tests for the password reset flow first,
+then implement it until they pass
 ```
-- Run multiple Claude sessions simultaneously on separate branches
-- Avoid sessions stepping on each other
 
-### Context Management Strategies
-- Open a new session periodically during long conversations
-- Break large tasks into smaller sessions
-- Use sub-agents to isolate context
-- `/compact` for manual context compression
-- Keep CLAUDE.md concise (< 200 lines)
+```text
+here is a build error. fix the root cause
+and verify the build succeeds
+```
 
-### Handling Large Codebases
-- Describe the project structure in CLAUDE.md
-- Encapsulate common query patterns in Skills
-- Use sub-agents for exploration
-- Avoid loading too many files at once
+The first is the TDD variant — the tests define what "done" means, and Claude iterates until they're green. The second demands root cause plus verification, preventing surface patches that merely suppress the error message.
 
-### Progressive Trust
-1. Start new projects in `default` mode → confirm steps gradually
-2. Once comfortable, switch to `acceptEdits` → only confirm shell commands
-3. When confident, use `auto` → classifier enforces safety
-4. Reserve `bypassPermissions` for fully isolated environments
+## Verify and course-correct: you're part of the loop
 
-### Team Collaboration Patterns
-- Check CLAUDE.md into version control
-- Standardize team conventions via `.claude/settings.json`
-- Encode team SOPs as Skills
-- Distribute shared Skills across repos via plugins
+`Esc` interrupts whatever is running at any time; context is preserved so you can redirect immediately. Double-tap `Esc` (or `/rewind`) opens the rewind menu to restore conversation, code state, or both. Checkpoints are not a git replacement — bash-driven changes aren't captured — but they make "try a risky approach; rewind and pick another if it fails" nearly free.
 
-### Common Anti-Patterns
-- Bloating context (overly long CLAUDE.md)
-- Accepting diffs without reviewing them
-- Running YOLO mode without checkpoints
-- Cramming too many unrelated tasks into a single session
+A stronger safeguard is adversarial review: spin up a fresh subagent that sees only the diff and your criteria, not the reasoning that produced the change. "Use a subagent to review the rate limiter diff against PLAN.md. Report gaps, not style preferences." The built-in [`/code-review`](https://code.claude.com/docs/en/best-practices) does the same in one command. One caveat: a reviewer asked to find gaps will always find some — tell it to flag only issues affecting correctness or stated requirements, and treat the rest as optional.
+
+## When to /clear, and wrapping up
+
+If you've corrected Claude more than twice on the same issue, the context is cluttered with failed approaches — `/clear` and restart with a better initial prompt incorporating what you learned. The docs put it bluntly: a clean session with a better prompt almost always outperforms a long session with accumulated corrections. Also `/clear` between unrelated tasks.
+
+For wrapping up: ask Claude to "commit with a descriptive message and open a PR". For tasks spanning multiple sittings, use `--continue` / `--resume`, and name sessions with `/rename`. To work in parallel, `claude --worktree feature-auth` starts an isolated session in its own checkout — run it again with a different name in a second terminal. For large migrations, [`/batch`](https://code.claude.com/docs/en/common-workflows) splits the work across up to 30 subagents, each in its own worktree opening its own PR.
+
+## The five failure patterns Anthropic calls out
+
+Each maps to a fix covered above:
+
+| Failure pattern | Fix |
+|---|---|
+| Kitchen sink session: unrelated tasks in one session | `/clear` between tasks |
+| Correcting over and over | After two failures, `/clear` with a better prompt |
+| Over-specified CLAUDE.md drowning key rules | Prune ruthlessly; delete what Claude already does |
+| Trust-then-verify gap: plausible-looking but untested | Always provide tests, scripts, or screenshots |
+| Infinite exploration filling context with file reads | Scope narrowly or delegate to a subagent |
+
+## What I took away
+
+These patterns aren't laws. The final section of the official guide is literally titled "Develop your intuition": sometimes you *should* let context accumulate (deep in one complex problem), skip planning (exploratory tasks), or even give a vague prompt on purpose to see how Claude interprets it. A workable practice: whenever Claude does notably well or badly, trace it back to what you did — prompt structure, context provided, mode you were in. The judgment you build over a few cycles beats any guide.
 
 ## References
 
-- [Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic's official best practices guide covering prompt techniques, context management, and automation at scale
-- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) — Official common workflows including Plan Mode, git worktree, and sub-agent usage
-- [Store Instructions and Memories](https://docs.anthropic.com/en/docs/claude-code/memory) — How to write and optimize CLAUDE.md, including the auto-memory mechanism
-- [Claude Code Permission Modes](https://docs.anthropic.com/en/docs/claude-code/permission-modes) — Behavior and appropriate use cases for default, acceptEdits, auto, and bypassPermissions modes
-- [Explore the Context Window](https://docs.anthropic.com/en/docs/claude-code/context-window) — Interactive simulation breaking down how much of the context window each feature consumes per session
-- [Claude Code Settings](https://docs.anthropic.com/en/docs/claude-code/settings) — Complete settings.json reference including hooks, permissions, and environment fields
-- [Git Worktree Official Docs](https://git-scm.com/docs/git-worktree) — Full git worktree command reference for understanding the mechanics of parallel development
-- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Feature overview and platform integration guide for Claude Code
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Official guidance on context management, verifiable tasks, plan-mode workflows, scaling in parallel, and failure patterns
+- [Common workflows](https://code.claude.com/docs/en/common-workflows) — Official everyday recipes: codebase exploration, debugging, testing, PRs, worktree-based parallel sessions, and script integration
+- [Prompt library](https://code.claude.com/docs/en/prompt-library) — Official copy-paste prompts tagged by task and role, each with a "why this works" note
+
+## Changelog
+
+- 2026-08-26: Expanded from outline skeleton into full prose, based on the August 2026 official docs (best-practices / common-workflows / prompt-library on the new domain).
