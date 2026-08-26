@@ -9,8 +9,8 @@ import { json } from '@/lib/api/response'
 const PRESET_MODELS: Record<string, string[]> = {
   groq: ['llama-3.3-70b-versatile', 'llama-3.3-70b-specdec', 'llama-3.1-70b-versatile', 'llama-3.2-90b-text-preview'],
   openai: ['gpt-4.1-mini', 'gpt-4.1', 'gpt-4.1-nano', 'gpt-4o-mini', 'gpt-4o'],
-  google: ['gemini-2.0-flash', 'gemini-1.5-pro'],
-  gemini: ['gemini-2.0-flash', 'gemini-1.5-pro'],
+  google: ['gemini-3.7-flash', 'gemini-1.5-pro'],
+  gemini: ['gemini-3.7-flash', 'gemini-1.5-pro'],
   anthropic: ['claude-3.5-sonnet', 'claude-3.5-haiku', 'claude-3.7-sonnet'],
   cloudflare: [
     '@cf/zai-org/glm-4.7-flash',

@@ -503,7 +503,7 @@ function normalizeModel(
 
 function defaultModelForProvider(provider: Provider): string {
   if (provider === 'openai') return 'gpt-4.1-mini'
-  if (provider === 'google') return 'gemini-2.0-flash'
+  if (provider === 'google') return 'gemini-3.7-flash'
   return 'llama-3.3-70b-versatile'
 }
 

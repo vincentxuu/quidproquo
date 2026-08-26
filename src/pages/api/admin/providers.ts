@@ -73,7 +73,7 @@ const DEFAULT_CATALOG: ProviderCatalog = {
     },
     {
       provider: 'google',
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.7-flash',
       displayName: 'Gemini 2.0 Flash',
       enabled: true,
     },

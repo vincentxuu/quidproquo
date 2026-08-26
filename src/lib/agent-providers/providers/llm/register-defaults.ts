@@ -42,7 +42,7 @@ const LLM_PROVIDERS: ProviderDefinition[] = [
       maxContextTokens: 1000000,
       supportsStreaming: true,
       supportsTools: true,
-      models: ['gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-1.5-flash'],
+      models: ['gemini-3.7-flash', 'gemini-1.5-pro', 'gemini-1.5-flash'],
     },
     costModelJson: { kind: 'token', inputPer1MUsd: 0.075, outputPer1MUsd: 0.3 },
     outboundDomains: ['generativelanguage.googleapis.com'],
