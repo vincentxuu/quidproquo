@@ -42,17 +42,17 @@ Video is not required for A3. Complete notes, assignments, starter files, and a 
 
 One of the cleanest examples is [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/). Its official 2026 site publishes nine videos, slides, and three software labs. The [2025 archive](https://introtodeeplearning.com/2025/index.html) keeps ten videos and three labs. It is highly usable for self-study, with one important qualifier: this is an intensive bootcamp, not a semester-long deep learning course.
 
-[Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) is also close to fully public. Its site exposes slides, textbook chapters, discussion material, six Pacman projects, and lecture videos. Ed, official grades, and staff support remain for enrolled students, but outsiders can still follow the main learning path.
+[Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) is also close to fully public. Its site exposes slides, textbook chapters, discussion material, six Pacman projects, and lecture videos. Ed, official grades, and staff support remain for enrolled students, but outsiders can still follow the main learning path. The site's [CS188 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en) already maps all six projects and a suggested study order.
 
-Stanford is not a collection of isolated recordings either. The existing [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) orders the route from CS106A through CS336 by official prerequisites. [CS336 Spring 2026](https://cs336.stanford.edu/) publishes lecture material and five GitHub assignments, while Stanford Online carries official Spring 2025 recordings. Its constraint is compute rather than URLs: open materials do not make every assignment free to run.
+Stanford is not a collection of isolated recordings either. The [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) orders the route from CS106A through CS336 by official prerequisites. [CS336 Spring 2026](https://cs336.stanford.edu/) publishes lecture material and five GitHub assignments, while Stanford Online carries official Spring 2025 recordings. Its constraint is compute rather than URLs: open materials do not make every assignment free to run.
 
 Courses in this tier are the best candidates for single-course guides because an article can connect what to learn, what to build, and where to begin into one path that works.
 
 ## Tier two: current material with one missing piece
 
-[Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) publishes slides on post-training, RAG, reasoning, and agents, along with three assignments and a project brief. The missing piece is video. The semester's YouTube playlist exists, but anonymous access returns `UNPLAYABLE`, matching the course site's Berkeley-login notice. The material supports a reading guide; it does not support the claim that the current recordings are public.
+[Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) publishes slides on post-training, RAG, reasoning, and agents, along with three assignments and a project brief. The missing piece is video. The semester's YouTube playlist exists, but anonymous access returns `UNPLAYABLE`, matching the course site's Berkeley-login notice. The material supports a reading guide; it does not support the claim that the current recordings are public. The [CS288 guide series](/posts/learning/2026-08-22-berkeley-cs288-overview-en) was written within exactly that boundary.
 
-[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) publishes slides for twenty-five lectures, five assignments, and GitHub starter code. Current recordings sit in bCourses. The official site also links older public recordings, so a defensible guide should analyze the 2026 material and place historical video in a separate alternative-resources box with the year shown.
+[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) publishes slides for twenty-five lectures, five assignments, and GitHub starter code. Current recordings sit in bCourses. The official site also links older public recordings, so a defensible guide should analyze the 2026 material and place historical video in a separate alternative-resources box with the year shown. The [CS285 guide series](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) follows that principle.
 
 [MIT 6.7960 Fall 2025](https://deeplearning6-7960.github.io/) publishes a complete schedule, slides, readings, and PyTorch Colabs, while problem sets live in Gradescope and solutions in Canvas. This series labels it A2: enough for a deep reading of course design, not enough to promise the enrolled experience.
 
@@ -60,7 +60,7 @@ Courses in this tier are the best candidates for single-course guides because an
 
 ## Tier three: a curriculum in transition, or a semester not yet released
 
-CMU is the school where old course numbers are most misleading. The new [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/) integrates search, machine learning, LLMs, and reinforcement learning, followed by 07-380 AI & ML II. Its official FAQ explains that the sequence replaces 15-281 and 10-315. Spring 2026 materials for 15-281 remain useful, but the retired course no longer represents CMU's current AI trunk.
+CMU is the school where old course numbers are most misleading. The new [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/) integrates search, machine learning, LLMs, and reinforcement learning, followed by 07-380 AI & ML II. Its official FAQ explains that the sequence replaces 15-281 and 10-315. Spring 2026 materials for 15-281 remain useful, but the retired course no longer represents CMU's current AI trunk. The [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) lays out a self-study route under the new curriculum, and the transition itself is covered in ["CMU's AI core redesign"](/posts/learning/2026-08-22-cmu-ai-core-redesign-en).
 
 As of August 21, 2026, the Fall 2026 schedule for 07-280 is online, but most lecture material and assignment links have not been released. The honest move is to explain the transition in the CMU map and audit the course again after teaching starts—not race to publish a “complete guide” to an empty shell.
 
@@ -72,10 +72,12 @@ A future or in-progress semester does not become the “latest public course” 
 
 | School | The map's central question | Best current public entry points |
 |---|---|---|
-| Stanford | How do systems and mathematical foundations lead into research-level AI? | CS221, CS336, and the existing Stanford map |
-| CMU | How does the new 07-280/07-380 sequence connect to ML, DL, NLP, and systems? | 10-301/601 and 11-785; recheck 07-280 after Fall 2026 material appears |
-| MIT | How do current numbers, semester sites, and historical OCW editions line up? | 6.S191; 6.7960 as an A2 material guide |
-| Berkeley | How do CS188 and CS189 branch into NLP, RL, and vision? | CS188; material-focused guides to CS288 and CS285 |
+| [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map-en) | How do systems and mathematical foundations lead into research-level AI? | CS221, CS336 |
+| [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) | How does the new 07-280/07-380 sequence connect to ML, DL, NLP, and systems? | 10-301/601 and 11-785; recheck 07-280 after Fall 2026 material appears |
+| [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map-en) | How do current numbers, semester sites, and historical OCW editions line up? | 6.S191; 6.7960 as an A2 material guide |
+| [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) | How do CS188 and CS189 branch into NLP, RL, and vision? | CS188; material-focused guides to CS288 and CS285 |
+
+The series later added a fifth school: the [Harvard AI/ML course guide](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) checks which recordings CS50 AI actually reuses and how much of CS181 and CS182 is open.
 
 A school map and a single-course guide make different promises. Even when every learning asset is locked in an LMS, current catalogs, program requirements, and schedules may still support a course map. That article can explain how to choose courses; it cannot promise that a reader can complete them without enrolling.
 
@@ -85,17 +87,43 @@ A school map and a single-course guide make different promises. Even when every 
 
 It cannot by itself prove that a course still runs in 2026, that the current link allows anonymous access, or that a third-party video is official or openly licensed. Conversely, a course missing from CSDIY may still have enough official material for self-study.
 
-The series therefore uses two evidence tracks: official sources establish current offerings and access; CSDIY adds historical versions and community experience. Neither replaces the other.
+The series therefore uses two evidence tracks: official sources establish current offerings and access; CSDIY adds historical versions and community experience. Neither replaces the other. How Berkeley CS188 and CMU 15-281 ended up sharing one set of Pacman projects can only be reconstructed from community records — that lineage gets its own article, ["The Pacman AI project lineage"](/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
 
-## What comes next
+## Where this series stands
 
-The series will build school maps for CMU, MIT, and Berkeley, then select A2 and A3 courses for individual guides. The first candidates are MIT 6.S191, Berkeley CS188, Berkeley CS288, CMU 10-301/601, CMU 11-785, Berkeley CS285, and MIT 6.7960.
+Four school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map-en), [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en), [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map-en), and [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en), plus a Harvard edition. Single-course guides have started too:
+
+- [Berkeley CS188 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en), with guides covering search, MDPs, Bayes nets, and machine learning
+- [Berkeley CS285 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en), with guides from imitation learning and policy gradients through offline RL
+- [Berkeley CS288 overview](/posts/learning/2026-08-22-berkeley-cs288-overview-en), from foundations and transformers to agents
+- [CMU 10-301/601 overview](/posts/learning/2026-08-22-cmu-10301-overview-en), walking the whole course through nine assignments
+
+Still unwritten: single-course guides for MIT 6.S191, CMU 11-785, and MIT 6.7960.
 
 If you want one course to start tonight, run a small test: open MIT 6.S191's first lab or Berkeley CS188's first project and give yourself ninety minutes. If you can still state what the environment is missing and what you would do next, the course belongs on your learning plan. Saving a playlist is not a start.
 
+## Update log
+
+- 2026-08-26: The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
+
 ## References
 
+### Site series articles
+
 - [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en)
+- [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en)
+- [MIT AI/ML course map](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
+- [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
+- [Harvard AI/ML course guide](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
+- [CMU's AI core redesign: from 15-281 + 10-315 to 07-280 + 07-380](/posts/learning/2026-08-22-cmu-ai-core-redesign-en)
+- [The Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en)
+- [Berkeley CS188 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
+- [Berkeley CS285 Spring 2026 guide series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+- [Berkeley CS288 Spring 2026 guide series overview](/posts/learning/2026-08-22-berkeley-cs288-overview-en)
+- [CMU 10-301/601 machine learning guide overview](/posts/learning/2026-08-22-cmu-10301-overview-en)
+
+### Official course sites and external resources
+
 - [Stanford CS336 Spring 2026](https://cs336.stanford.edu/)
 - [CMU 07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
 - [CMU 11-785 Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)
