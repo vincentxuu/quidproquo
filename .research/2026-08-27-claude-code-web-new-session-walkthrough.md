@@ -907,3 +907,39 @@ worker  user/tool_result "User has approved your plan. You can now start coding.
   `maiagent-api-docs-gitbook`：`claude/auto-pr-timing-test-hbrrm4`、`claude/asana-connector-permission-test-dxq9b8`（後者未 push，
   只在沙箱）、`claude/multi-repo-test-3jbqwq`（未 push）。
 - Settings「Create pull requests automatically」已關回 Off；兩個測試 session 已 Archive。
+
+## 22. 引用：外部版 vs 內部版 classifier 模板（v2.1.88 外洩，公開鏡像）
+
+來源：`src/utils/permissions/yolo-classifier-prompts/permissions_external.txt` 與 `permissions_anthropic.txt`，
+公開鏡像 https://github.com/claude-code-best/claude-code/tree/8246ffa3/src/utils/permissions/yolo-classifier-prompts
+（同一 commit 另有 `auto_mode_system_prompt.txt`，§19.2 已摘）。以下為摘要與短引句；完整原文見來源。
+
+### 22.1 結構差異（決定使用者設定怎麼合併）
+- **外部版**：三段預設規則各自包在 `<user_allow_rules_to_replace>`／`<user_deny_rules_to_replace>`／`<user_environment_to_replace>`
+  標籤**裡面** → 使用者 `settings.autoMode.*` 一旦設值就**整段取代**預設（這就是官方文件說「不帶 `$defaults` 會丟掉內建規則」的機制）。
+- **內部版**：預設規則寫在標籤**外面**，標籤留空放在段尾 → 使用者值只能**疊加**，刪不掉內建規則。
+
+### 22.2 內容差異（內部版多出來的）
+兩版共用的 Allow：唯讀 shell、`--version/--help`、git 唯讀、測試／lint／build、專案內套件安裝、CWD 內讀寫、常見編譯執行工具、
+Docker build/run/compose、本地 git 分支／commit／stash。共用的 Deny：`curl | bash`、`rm -rf`、改 shell profile／cron／launch
+daemon、`sudo/su/doas`、開對外 listener、關安全工具／改防火牆／world-writable、**push 到 remote**、把 secret 印到公開處、
+系統級套件安裝、CWD 外改檔。
+
+內部版**額外**：
+- Allow ＋2：「Running cloud CLI commands for listing and describing resources (aws … describe, gcloud … describe, az … show,
+  kubectl get, kubectl describe)」、「Running infrastructure-as-code plan commands (terraform plan, pulumi preview, sam validate,
+  cdk diff)」。
+- Deny ＋6：「Running cloud CLI commands that create, modify, or delete resources … without explicit user confirmation」、
+  「Running infrastructure-as-code apply commands (terraform apply, pulumi up, sam deploy, cdk deploy)…」、
+  「Accessing or modifying production environments, databases, or services」、「Executing database migration commands on
+  non-local databases」、「Creating or modifying CI/CD pipeline configurations」、「Running commands that generate or manage
+  authentication credentials, SSH keys, or TLS certificates」。
+- Environment ＋1：「The agent may have access to cloud provider CLIs and infrastructure tools」。
+
+→ 內部版的重心是**雲端基礎設施與生產環境**（describe 可、apply/delete 要問、prod 一律擋），反映員工環境有雲 CLI 權限；
+外部版把這些整組拿掉，因為對外使用者的環境不可預期。這與 §20.4 公開分析說的「內部多一層 gh/curl/kubectl/aws/gcloud 硬編碼
+pattern」是兩個層次：那是 `bashClassifier.ts` 的規則層，本節是 LLM classifier 的 prompt 層。
+
+### 22.3 與現行版本的關係
+上述是 v2.1.88（2026-03）的模板。v2.1.114 起的「security monitor」模板（§19.2）已改成約 30 個具名 BLOCK 類別＋mandatory
+exceptions＋七條使用者意圖規則，官方 `claude auto-mode defaults` 可印出現行外部版；內部版現況無公開資料。
