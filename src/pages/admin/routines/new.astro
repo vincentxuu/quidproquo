@@ -7,7 +7,13 @@ import AdminLayout from '../../../layouts/AdminLayout.astro'
   <h2>⚡ Routines / New routine</h2>
   <div class="admin-panel" style="padding:16px; max-width:800px;">
     <label class="admin-field"><span class="admin-field-label">Name *</span><input id="name" class="input" placeholder="e.g., Daily code review" /></label>
-    <label class="admin-field"><span class="admin-field-label">Instructions</span><textarea id="instructions" class="textarea" rows="8" placeholder="Describe what Claude should do in each session"></textarea></label>
+    <label class="admin-field"><span class="admin-field-label">Instructions</span>
+      <div style="display:flex; gap:8px; margin-bottom:8px;">
+        <select id="skillSelect" class="select" style="flex:1"><option value="">— 直接填寫或選 Skill 自動帶入 —</option></select>
+        <button id="loadSkill" class="btn-secondary" type="button">帶入</button>
+      </div>
+      <textarea id="instructions" class="textarea" rows="8" placeholder="Describe what Claude should do in each session"></textarea>
+    </label>
     <label class="admin-field"><span class="admin-field-label">Repository</span><select id="repo" class="select"><option value="">Select a repository</option><option value="vincentxuu/quidproquo" selected>vincentxuu/quidproquo</option></select></label>
     <div style="margin:12px 0;"><strong>Select a trigger</strong>
       <div style="display:grid; gap:8px; margin-top:8px;">
@@ -16,11 +22,9 @@ import AdminLayout from '../../../layouts/AdminLayout.astro'
         <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px;"><input type="radio" name="trigger" value="api" /> API — Trigger from your own code by sending a POST request</label>
       </div>
     </div>
-    <div><strong>Connectors</strong> <span class="page-desc">Integrations available to Claude during each run.</span>
+    <div><strong>Connectors</strong> <span class="page-desc">Integrations available to Claude during each run.（接 providers 真實開關）</span>
       <div id="connectors" style="display:flex; gap:8px; flex-wrap:wrap; margin:8px 0;">
-        {['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize'].map(n => (
-          <label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value={n} checked /> {n}</label>
-        ))}
+        <span class="page-desc">載入中…</span>
       </div>
       <p style="background:#7a3a00; color:#fff; padding:8px; border-radius:6px; font-size:0.85rem;">⚠️ Claude can use all tools from these connectors — including writes — without asking for permission during runs.</p>
     </div>
@@ -28,6 +32,34 @@ import AdminLayout from '../../../layouts/AdminLayout.astro'
   </div>
 </AdminLayout>
 <script is:inline>
+  // Skill catalog → dropdown
+  fetch('/api/skills').then(r => r.json()).then(data => {
+    const sel = document.getElementById('skillSelect')
+    const skills = data.skills ?? []
+    skills.forEach(s => {
+      const opt = document.createElement('option')
+      opt.value = s.name
+      opt.textContent = `${s.name} — ${s.description?.slice(0,40) ?? ''}`
+      sel.appendChild(opt)
+    })
+  }).catch(() => {})
+  document.getElementById('loadSkill').onclick = () => {
+    const v = document.getElementById('skillSelect').value
+    if (!v) return
+    const cur = document.getElementById('instructions').value
+    const tmpl = `git pull origin main\n讀 .agents/skills/${v}/SKILL.md，依照步驟執行。`
+    document.getElementById('instructions').value = cur ? cur + '\n\n' + tmpl : tmpl
+  }
+  // Connectors from real providers
+  fetch('/api/admin/providers/registry').then(r => r.json()).then(data => {
+    const c = document.getElementById('connectors')
+    const providers = data.providers ?? []
+    const names = providers.length ? providers.map(p => p.providerId) : ['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize']
+    c.innerHTML = names.map(n => `<label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value="${n}" checked /> ${n}</label>`).join('')
+  }).catch(() => {
+    const c = document.getElementById('connectors')
+    c.innerHTML = ['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize'].map(n => `<label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value="${n}" checked /> ${n}</label>`).join('')
+  })
   document.getElementById('cancel').onclick = () => history.back()
   document.getElementById('create').onclick = async () => {
     const name = document.getElementById('name').value.trim()

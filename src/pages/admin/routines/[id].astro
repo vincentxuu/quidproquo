@@ -14,7 +14,9 @@ const { id } = Astro.params
       <h3>Configuration</h3>
       <div id="config"></div>
       <h3 style="margin-top:12px;">Instructions</h3><pre id="instr" style="white-space:pre-wrap; background:var(--admin-surface-subtle); padding:12px; border-radius:6px;"></pre>
-      <h3>Runs</h3><div id="runs"></div>
+      <h3>Runs</h3>
+      <div style="display:flex; gap:8px; margin:8px 0;"><input id="runFilter" class="input" placeholder="Filter" style="width:100px;" /><input id="runSearch" class="input" placeholder="Search runs" style="flex:1;" /></div>
+      <div id="runs"></div>
     </div>
     <div class="admin-panel" style="padding:12px;">
       <h3>Session</h3><p class="page-desc">Continues in the same session across runs.</p>
@@ -38,8 +40,26 @@ const { id } = Astro.params
     `
     document.getElementById('instr').textContent = r.instructions || '(none)'
     const runsEl = document.getElementById('runs')
-    const runs = data.runs ?? []
-    runsEl.innerHTML = runs.length ? runs.map(x => `<div style="border:1px solid var(--admin-border); padding:8px; margin:6px 0; border-radius:6px;">${x.id} · ${x.status} · ${new Date(x.created_at).toLocaleString()}</div>`).join('') : '<p class="empty">No fires yet</p>'
+    let allRuns = data.runs ?? []
+    function renderRuns() {
+      const f = document.getElementById('runFilter').value
+      const q = document.getElementById('runSearch').value.toLowerCase()
+      let filtered = allRuns
+      if (f) filtered = filtered.filter(r => r.status === f)
+      if (q) filtered = filtered.filter(r => r.id.toLowerCase().includes(q))
+      runsEl.innerHTML = filtered.length ? filtered.map(x => `<div class="run-row" data-id="${x.id}" style="border:1px solid var(--admin-border); padding:8px; margin:6px 0; border-radius:6px; cursor:pointer;">${x.id} · ${x.status} · ${new Date(x.created_at).toLocaleString()} <span style="float:right;">›</span></div>`).join('') : '<p class="empty">No fires yet</p>'
+      runsEl.querySelectorAll('.run-row').forEach(el => el.addEventListener('click', () => loadTranscript(el.dataset.id)))
+    }
+    document.getElementById('runFilter').addEventListener('input', renderRuns)
+    document.getElementById('runSearch').addEventListener('input', renderRuns)
+    renderRuns()
+    async function loadTranscript(sid) {
+      const r = await fetch(`/api/admin/agents/sessions/${sid}`)
+      const d = await r.json()
+      if (!r.ok) { document.getElementById('transcript').textContent = d.error || 'not found'; return }
+      const msgs = d.messages ?? []
+      document.getElementById('transcript').textContent = msgs.map(m => `[${m.role}] ${JSON.parse(m.content_json)}${m.tool_name ? ' ('+m.tool_name+')' : ''}`).join('\n\n') || '(no messages)'
+    }
   }
   document.getElementById('runnow').onclick = async () => {
     const res = await fetch(`/api/admin/routines/${id}`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({action:'run'}) })
