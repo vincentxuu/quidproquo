@@ -2,7 +2,7 @@
 
 > 這份文件同步到目前實作版：
 > - 主要開關：`AGENT_CONSOLE_ENABLED=true`。
-> - 可選頁面旗標：`AGENT_CONSOLE_RBAC`、`AGENT_CONSOLE_COST_DASHBOARD`、`AGENT_CONSOLE_FLOW_EDITOR`。
+> - 各頁旗標（`AGENT_CONSOLE_RBAC`、`AGENT_CONSOLE_COST_DASHBOARD`、`AGENT_CONSOLE_FLOW_EDITOR`）已於 2026-05-23 退役；umbrella 開啟即全頁可用。下文提到這些旗標處皆為歷史脈絡。路由總表見 `docs/admin-route-map.md`。
 >   未設定時會沿用 `AGENT_CONSOLE_ENABLED` 的既有行為，不會額外關閉管理頁。
 
 ## 操作流程圖
