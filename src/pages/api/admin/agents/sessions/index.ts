@@ -3,7 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest, forbidden } from '@/lib/api/response'
-import { ensureAgentOsEnabled } from './_guard'
+import { ensureAgentOsEnabled } from '../_guard'
 import type { Env } from '@/lib/config/env'
 import { env } from 'cloudflare:workers'
 
