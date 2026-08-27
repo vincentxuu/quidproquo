@@ -6,7 +6,7 @@ tags: [mit, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 3
+  order: 93
 type: guide
 tldr: "MIT 自 2022 年已有正式的 6-4 Artificial Intelligence and Decision Making 學位；但校外自學時，現行學位要求、2025–2026 課站與最好用的 OCW 版本往往不是同一套。真正可行的路線，是先照 6-4 的程式、演算法、線代與機率骨架打底，再依公開程度選 6.S191、6.3900、6.4110、6.7960、電腦視覺或機器人分支。"
 description: "以 MIT Course 6-4 正式學位要求、2025–2026 實際開課紀錄與匿名教材測試，整理 AI／ML 先修路線、新舊課號、CSDIY 收錄與 A0–A3 公開程度。"

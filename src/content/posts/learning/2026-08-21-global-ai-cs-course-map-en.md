@@ -104,7 +104,7 @@ Five school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cou
 - Stanford CS336 and CS221 also have series: [CS336 topic deep dives starting from tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en) (Spring 2026 completed) and a 20-lecture CS221 walkthrough
 - Stanford foundations lecture series, all with bilingual guides: [CS103 28 lectures](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en), [CS107 30 lectures](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en), [CS109 22 lectures](/posts/learning/2026-08-21-stanford-cs109-probability-en), [CS111 28 lectures](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en), [CS161 18 lectures](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
 
-Still unwritten: single-course guides for MIT 6.7960, Berkeley CS189, and Harvard's CS50 AI / CS181 / CS182; CMU 07-380 (first offered Fall 2026, offered every semester per official FAQ) gets audited once its site goes live.
+Still unwritten: single-course guides for Harvard's CS181 / CS182; CMU 07-380 (first offered Fall 2026, offered every semester per official FAQ) gets audited once its site goes live. The MIT 6.7960 and Harvard CS50 AI single-course guides are now live on this site in the `ai`/`tech` categories (see References).
 
 If you want one course to start tonight, run a small test: open MIT 6.S191's first lab or Berkeley CS188's first project and give yourself ninety minutes. If you can still state what the environment is missing and what you would do next, the course belongs on your learning plan. Saving a playlist is not a start.
 
@@ -113,6 +113,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - 2026-08-27: Re-audited Spring 2026 as completed: MIT 6.S191 (Mar 30–May 25), Stanford CS336 (Mar 30–Jun 3), Berkeley CS188 sp26 (archived, now su26), and CMU 11-785 S26 (F26 online) now marked as completed; CMU 07-280 Fall 2026 updated from "most materials not yet released" to 24 lectures / 12 assignments / weekly checkpoints all online, matching this site's 07-280 lecture guides; table expanded to five schools and Stanford CS103 / CS107 / CS109 / CS111 / CS161 completion noted; 07-380 now "first offered Fall 2026" per FAQ.
 - 2026-08-26: An audit found that the MIT 6.S191, CMU 11-785, CMU 07-280, CS336, and CS221 guides are already live on this site under the `ai` category. The "still unwritten" list now correctly names 6.7960, CS189, and Harvard's three courses.
 - 2026-08-26 (earlier): The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
+- 2026-08-27 (2): Added [Berkeley CS189 Spring 2025 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview) (HW1–7 A3, compared with Fall 2026 eecs189.org/fa26 27-lecture calendar); removed CS189 and MIT 6.7960 / Harvard CS50 AI from the "still unwritten" list (the latter two are now live in `ai`/`tech`); original 2026-08-27 entry retained.
 
 ## References
 

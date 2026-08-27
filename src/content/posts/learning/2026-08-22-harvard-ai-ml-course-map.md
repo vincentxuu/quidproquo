@@ -6,7 +6,7 @@ tags: [harvard, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 5
+  order: 95
 type: guide
 tldr: "Harvard 校外最完整的入口是 CS50 AI，但 Summer 2026 實際沿用 2020 錄影與作業資產，OCW 作業又已更新到不同版本；CS181 Spring 2026 公開當期作業與講義、沒有當期錄影，CS182 Fall 2026 則尚未完成開課。"
 description: "盤點 Harvard CS50 AI、CS1810、CS1820 與後續 RL／視覺課程的實際開課、先修、影片、作業、程式碼和匿名存取狀態。"

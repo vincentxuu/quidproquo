@@ -6,7 +6,7 @@ tags: [cmu, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 2
+  order: 92
 type: guide
 tldr: "CMU 現行 BSAI 已改成 07-280 → 07-380，再從 NLP／視覺核心與四個 AI clusters 延伸；但 07-380 要到 Fall 2026 才首開。07-280 Spring 2026 的殘留教材與 10-301/601 已能完整自學，15-281 則是仍有價值的退休舊路線。"
 description: "以 CMU 官方 BSAI 要求、2026 課號改制、實際開課與匿名存取測試，整理 07-280、07-380、15-281、10-301、10-414、11-785 與 16-385 的自學路線。"

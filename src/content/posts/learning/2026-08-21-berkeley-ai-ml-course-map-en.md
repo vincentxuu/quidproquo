@@ -6,7 +6,7 @@ tags: [berkeley, ai-course, machine-learning, learning-path, open-course]
 lang: en
 series:
   name: "Global AI and CS Course Maps"
-  order: 4
+  order: 94
 type: guide
 tldr: "Berkeley has no standalone undergraduate AI degree. A workable path builds on the CS BA or EECS BS foundation, enters through either CS188's broad AI curriculum or CS189's mathematical machine learning curriculum, then branches into deep learning, NLP, vision, or reinforcement learning. Many 2025–2026 courses are A3, but the newest class, the newest stable URL, and the best self-study edition are not always the same."
 description: "A guide to Berkeley's AI and ML curriculum based on official degree requirements, prerequisites, 2025–2026 offerings, anonymous access tests, and public versions of CS188, CS189, CS182, CS285, CS288, and computer vision."

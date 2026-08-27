@@ -15,7 +15,7 @@ series:
   order: 1
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"
-    order: 1
+    order: 91
 type: guide
 tldr: "Stanford CS 的骨架是 CS103、CS107、CS109、CS111、CS161；CS221 先修列出其中三門，另加 CS106B。本文依官方先修與編輯者建議順序排出主線，並標明公開教材與停開風險。"
 description: "以 Stanford 官方核心課程要求與 ExploreCourses 先修條件為依據，排出 CS106A 到 CS336、CS329A 的完整修課階梯，涵蓋 NLP/LLM、視覺、強化學習、圖學、系統五條分支，並附上公開教材現況、自學限制與最近開課紀錄。"

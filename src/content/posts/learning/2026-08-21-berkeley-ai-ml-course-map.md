@@ -6,7 +6,7 @@ tags: [berkeley, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 4
+  order: 94
 type: guide
 tldr: "Berkeley 沒有獨立的大學部 AI 學位；可行路線是在 CS BA 或 EECS BS 的共同基礎上，從 CS188 的廣義 AI 或 CS189 的數學型 ML 入口，再分流到深度學習、NLP、視覺與強化學習。2025–2026 有不少 A3 公開課，但最新班次、最新穩定網址與最好用的自學版本並不總是同一個。"
 description: "以 Berkeley 官方學位要求、課程先修、2025–2026 實際開課與匿名存取測試，整理 CS188、CS189、CS182、CS285、CS288 與電腦視覺的自學路線。"
@@ -61,7 +61,7 @@ CS61C 是完整 CS 學位的重要基礎，但不是本文多數 AI 課的直接
 
 CS188 Spring 2026 是這次盤點中最完整的當期課之一：slides、線上教材、影片、討論解答，以及 P0 到 P5 六個 projects 都能匿名取得，projects 還附 local autograder。Gradescope homework、Ed 與人工回饋仍然受限，但不妨礙把它排成一門完整的 A3 自學課。
 
-CS189 的情況比較能說明「最新」為什麼不能只看年份。Fall 2025 與 Spring 2026 確實都有開課，但輪替課站的舊網址目前已回傳 404。仍穩定公開的 Spring 2025 版本則有完整 lecture notes、影片、HW1–7、code、data 與歷屆考題，因此本文把它列為**最新完整且目前可用的自學版**。搜尋結果曾經看得到，不等於今天仍然看得到。
+CS189 的情況比較能說明「最新」為什麼不能只看年份。Fall 2025 與 Spring 2026 確實都有開課，但輪替課站的舊網址目前已回傳 404。仍穩定公開的 Spring 2025 版本則有完整 lecture notes、影片、HW1–7、code、data 與歷屆考題，因此本文把它列為**最新完整且目前可用的自學版**（詳見[CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)，對照 Fall 2026 `eecs189.org/fa26` 27 講行事曆）。搜尋結果曾經看得到，不等於今天仍然看得到。
 
 ## 先解開配對課號，才不會修錯課
 
