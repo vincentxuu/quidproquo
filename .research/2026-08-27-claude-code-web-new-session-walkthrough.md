@@ -627,3 +627,99 @@ worker  assistant tool_use mcp__github__pull_request_read (get / get_status) →
   `-p`（非互動）模式下靜默無輸出。本機 clone 該公司 repo 的步驟被使用者中止，未做接手後的觀察。
 - 對照 §11：沙箱 env 有 `CLAUDE_CODE_MESSAGING_SOCKET`／`WEBSOCKET_AUTH_FILE_DESCRIPTOR`，teleport 接手後推測走同一條
   session ingress（`--sdk-url`）拉 transcript 續跑，未驗證。
+
+## 18. B 類：靠官方文件補齊的部分（2026-08-27 查證）
+
+來源皆為 code.claude.com／platform.claude.com／claude.com 官方頁，以 Exa 擷取；jina 對 code.claude.com 回 402 不可用。
+
+### 18.1 Worker 對 Messages API 的請求：system prompt、prompt cache、thinking
+- **快取結構**（[prompt-caching](https://code.claude.com/docs/en/prompt-caching)）：每回合重送全部上下文，API 以 prefix 精確比對；
+  Claude Code 把「很少變的內容排前面」：system prompt（含工具定義）→ 專案上下文（CLAUDE.md、memory）→ 對話。
+  system prompt 任何變動＝全部失效；tool 定義集合改變也在 system 層（`ToolSearch` 延遲載入的 MCP 工具不在 prefix，所以
+  §6.2 看到 worker 先 `ToolSearch select:` 再叫 MCP 工具，正是為了不破快取）。cache 以 **model × effort** 分別建立，
+  中途換模型或 effort 就整段重算——這解釋了 §5.2 `POST /sessions` 一開始就固定 `model`／`effort_level`。
+- **compact 的成本**：`/compact` 是另一個請求，帶同樣 system prompt＋tools＋history，末尾附摘要指令；快取熱的時候便宜、
+  冷的時候要重讀全部。之後那一回合只為短摘要重建快取（對應 §9.4 的 `compact_boundary` 40 秒、71k→6k）。
+- **快取 TTL**（[costs](https://code.claude.com/docs/en/costs)）：訂閱帳號 **1 小時**，用到 usage credits 後降為 5 分鐘；
+  API key 預設 5 分鐘。所以 Routine run 若是 `resume-cached` 且距上次 < 1 小時，第一回合的 `cache_read_input_tokens ~70k`
+  （§5.5）就是這個。
+- **Thinking**（[thinking-steering-and-cost](https://platform.claude.com/docs/en/build-with-claude/thinking-steering-and-cost)、
+  [effort](https://platform.claude.com/docs/en/build-with-claude/effort)）：Claude 5 系列是 **adaptive thinking**，沒有 budget 參數，
+  由 `output_config.effort`（low／medium／high／xhigh／max）決定「多常想、想多深」，`max_tokens` 是硬上限。
+  沙箱 env 的 `MAX_THINKING_TOKENS=31999` 只對「固定 thinking 預算」的舊模型有效，adaptive 模型忽略非零值
+  （[costs § Adjust extended thinking](https://code.claude.com/docs/en/costs)）；Fable 5 不能關 thinking。
+  effort 值會渲染進 prompt，所以換 effort 同樣破快取。
+- **system prompt 全文**仍無官方公開；已知組成：Claude Code 內建 system prompt ＋ `--append-system-prompt-file`
+  （§5.2 看到的 PR 連結規則）＋ 專案 CLAUDE.md／server-managed CLAUDE.md（[admin-setup](https://code.claude.com/docs/en/admin-setup)）。
+
+### 18.2 Auto mode 的判斷邏輯（[engineering blog](https://www.anthropic.com/engineering/claude-code-auto-mode)、
+[permission-modes](https://code.claude.com/docs/en/permission-modes)、[auto-mode-config](https://code.claude.com/docs/en/auto-mode-config)）
+- 兩層防禦：**輸入層** server-side prompt-injection probe 掃每個 tool output（檔案、網頁、shell、MCP 回傳），疑似注入就在
+  結果前加警告；**輸出層** transcript classifier（Sonnet 4.6）在每個動作執行前評估。
+- Classifier 兩階段：stage 1 單 token yes/no（偏向 block，接受 8.5% FPR），flag 了才進 stage 2 chain-of-thought。
+  它**只看 user 訊息與 tool call，不看 Claude 自己的話與 tool 輸出**（reasoning-blind，結構性防注入）。
+- 決策順序（官方）：1. allow／ask／deny 規則先解（protected paths 的寫入與 critical path 的 rm 仍送 classifier；
+  org 設 ask 的 connector 工具與 `requiresUserInteraction` 的 MCP 工具一律問人）→ 2. 唯讀動作與工作目錄內的檔案編輯直接放行
+  → 3. 其餘全送 classifier → 4. 被擋時 Claude 收到「Blocked by classifier」並改走替代路徑。
+  → **解釋 §9.1**：Asana `get_me` 是唯讀 MCP 工具，`always_ask` 只是 permission_policy 宣告，不是 org 級 ask 規則，
+  所以在 auto 下走第 2／3 步被放行、不彈窗。
+- 進 auto mode 時會**卸掉**能執行任意程式碼的寬鬆 allow 規則（`Bash(*)`、`Bash(python*)`、套件管理 run、`Agent`、`Monitor`）。
+- Classifier 規則四層：`hard_deny`（無條件，例：外洩資料到外部）→ `soft_deny`（使用者明確意圖可解）→ `allow` 例外 →
+  明確意圖。「clean up the repo」不算授權 force-push；「force-push this branch」才算。組織可用 `autoMode.environment`
+  宣告可信 repo／bucket／網域，`classifyAllShell` 可強制所有 shell 都過 classifier。
+- 熔斷：連續 3 次或累計 20 次被擋 → 退回手動提示；headless 則直接終止。
+- 2026-08-14 起 Pro／Max／Team 新 session **預設 auto**，classifier 額外 token 不計費；第三方評測 720 次注入攻擊 0 成功。
+- 對照 §11.1：UI「Accept edits」= `default` mode 下 `simple_expansion` 會彈窗，是因為 default 模式沒有 classifier，
+  含變數展開的 Bash 不在唯讀集合就得問人。
+
+### 18.3 Anthropic 端：sandbox 分配、快取、Routine 上限與 stagger
+- **資源上限**（[cloud-environments § Resource limits](https://code.claude.com/docs/en/cloud-environments)）：官方寫「約 4 vCPU、
+  16 GB RAM、30 GB disk，可能隨時間調整」，超量會被停；實測 §11.3 的 4 vCPU／15 GiB／`df` 30 GB avail 吻合
+  （`/dev/vda` 252 GB 是映像大小，可用空間才是配額）。VM 為 Ubuntu 24.04 x86_64；provision 失敗時官方說法是
+  「could not allocate a VM… capacity is provisioned on demand，retry after a minute」——沒有排程細節。
+- **環境快取**：setup script 第一次成功後 Anthropic **對檔案系統做快照**，之後新 session 從快照起跑並跳過 setup
+  （＝§5.5 的 `session_mode: resume-cached`＋「Fetching repository」）。只存檔案、不存執行中程序；
+  **失效條件**：setup script 內容或 allowed network hosts 改變、或 **約 7 天**到期；改 env vars 不會失效；resume 既有
+  session 永不重跑 setup。setup script 要在 **5 分鐘**內跑完否則快照建不起來。
+- **Routine 上限**（[routines](https://code.claude.com/docs/en/routines)、[launch blog](https://claude.com/blog/introducing-routines-in-claude-code)）：
+  每帳號每日可啟動的 run 數 **Pro 5／Max 15／Team＆Enterprise 25**，one-off run 不計入；超過可用 usage credits 走計量。
+  最短間隔 1 小時。**stagger**：「Runs may start a few minutes after the scheduled time… the offset is consistent for each
+  routine」——每個 routine 的偏移固定（§7 看到的 01:00Z → 01:06:32Z 即該 routine 的固定偏移），演算法未公開。
+- Cloud session 沒有另計 VM 費用，與帳號其他用量共用 rate limit。
+
+### 18.4 代理端的憑證注入（[secure-deployment](https://code.claude.com/docs/en/agent-sdk/secure-deployment)、
+[claude-code-on-the-web](https://code.claude.com/docs/en/claude-code-on-the-web)、[sandboxing blog](https://www.anthropic.com/engineering/claude-code-sandboxing)）
+- 官方明說：Anthropic-hosted 環境「sensitive credentials such as git credentials or signing keys are **never inside the sandbox**；
+  authentication is handled through a **secure proxy using scoped credentials**」。
+- 架構（secure-deployment 頁描述的即是 CCR 用的模式）：agent VM **沒有對外網卡**，所有流量走 **vsock** 到 host 端代理；
+  代理做 allowlist、**注入憑證**、記錄。要改寫 HTTPS 內容就得 TLS-terminating proxy＋把代理 CA 裝進 trust store＋設
+  `HTTPS_PROXY`——完全對應 §11.3 看到的 `127.0.0.1:<port>` 代理、`/root/.ccr/ccr-agent-proxy.pem` 注入十幾個 CA 變數、
+  `GH_TOKEN=proxy-inject…` 佔位。
+- 本機 sandbox 也有同款「credential masking」：沙箱看到的是 per-session sentinel，離開時代理依 `injectHosts` 換成真值
+  （[settings `sandbox.credentials`](https://code.claude.com/docs/en/sandboxing)；第三方整理 tim-schipper.nl 2026-08-13）。
+  → §6.3 「能 push 不能刪 ref」= 代理端 scoped credential 的權限範圍。
+- 已知邊界：allowlist 依 client 給的 hostname 判斷、不解密的模式可能被 domain fronting 繞過；官方建議把真正的 egress 控制
+  放在網路／hypervisor 層。
+
+### 18.5 Team／Enterprise admin 面與 org-service-key session
+- **admin 面**（[admin-setup](https://code.claude.com/docs/en/admin-setup)、[server-managed-settings](https://code.claude.com/docs/en/server-managed-settings)）：
+  `claude.ai/admin-settings/claude-code` 有 **Routines toggle**（關掉＝既有 routine 停跑、`/schedule` 隱藏）、
+  `allow_remote_sessions`（cloud session 開關）、Quick web setup（`/web-setup`）、組織預設環境；
+  **Cloud environments** admin 頁可建 **organization-shared environments**（網路等級、env vars、setup script）與自架環境
+  （runner，`ccpool_…`）；模型限制／預設模型／effort 上限為 Enterprise 伺服器端強制。
+  只有 **server-managed settings** 會進 cloud session；MDM／本機 managed-settings.json 不會（VM 不在你裝置上）。
+  cloud session 只讀 repo 的 `.claude/settings.json`，不讀 `~/.claude/settings.json`；`defaultMode: bypassPermissions／dontAsk`
+  在 web 被靜默忽略。Team／Enterprise 的分享選項是 Private／**Team**（非 Public）。ZDR 組織不能用 cloud session。
+- **org-service-key session**：hook 註解裡的「org-service-key sessions（`CCR_SESSION_ACCOUNT_EMAIL` unset）」對應
+  [Claude Tag](https://claude.com/docs/claude-tag/concepts/agent-identity)：Slack **頻道**裡的 session 以組織佈建的
+  **service account 身分**跑（Claude GitHub App 開 PR、每個工具一個 service account、帳單記組織的 service key），
+  DM 則跑在個人 claude.ai 帳號（＝一般 Claude Code on the web）。自架環境文件更明確：session JWT `sk-ant-cc-…` 的 `act` claim
+  對 bot／agent session 是 `agent:` 而非 `user:` subject，email 可能缺席——即 `session-start-git-identity.sh` 說的
+  「strict rule accepts a bot」分支。Claude Tag 要求組織已開 Routines，且憑證同樣由 **Agent Proxy** 在網路邊界附加。
+- **Claude Code in Slack** 與 Claude Tag 是兩套：前者用你的帳號（PR 掛你），後者用 agent 身分（PR 掛 Claude GitHub App）。
+
+### 18.6 仍無法從文件得到的
+- system prompt 全文與 classifier 的固定模板原文。
+- stagger 演算法、沙箱排程／容量策略、`resume-cached` 快照的儲存位置與加密。
+- Trusted 網域的完整清單（文件只說「common package registries including npm, PyPI, RubyGems, crates.io」，
+  自架環境文件另有 default allowed domains 節可對照，未逐一抄錄）。
