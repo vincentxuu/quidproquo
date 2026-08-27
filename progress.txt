@@ -12,11 +12,6 @@ Current focus
 In progress
 - **Admin v2 規格定案（2026-08-27）**：後台重定義為自製 coding agent 操作台，完整對齊 Claude Code web；
   13 題＋5 未決項全部拍板，分期 6 期，見 docs/admin-v2-spec.md。第一輪路由整理已 commit（b0f8f88），總表 docs/admin-route-map.md。
-- **Claude Code 深入介紹系列 H8＋troubleshooting 索引頁完成（2026-08-26）**：新增
-  deep-dive/claude-code-debug-config{,-en}.md（order 35，guide，依官方 debug-your-config 與
-  errors 兩頁實抓撰寫）；原 troubleshooting-collection{,-en} 正文改為三篇索引（order 36，
-  slug/date 未動）。H6/H7 由並行任務產出。check:references／lint 全綠；astro check 的
-  10 個 error 為 src/lib・src/server 既有 TS 問題。待使用者 review。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。

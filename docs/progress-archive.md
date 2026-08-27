@@ -998,3 +998,11 @@ CS229：缺的三支錄影**已解開**——Spring 2026 Mon/Wed 共 19 堂（�
 ## 2026-08-26「AI 時代的技術選擇」系列 order 0-20 已發佈（自 progress.txt 歸檔）
 
 zh/en 各 21 篇。order 0 導讀含 41 層 roadmap，逐層對照過站上 1,142 個檔案的實際覆蓋。主判準經使用者更正：語料存量是採用度的下游，AI 讓「選多人用的」更強而非更弱；其餘五條判準降級為「採用度相近時分勝負／估算選冷門的代價」。order 9-16：MAF、LlamaIndex、vLLM 自架決策、Exa、Modal、Composio、Tailscale、Temporal；order 17-20：Drizzle、Trigger.dev、CrewAI、Supabase。導讀已同步補入 order 9-20 的閱讀路徑。2026-08-22 再次依實際檔案盤點，已將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 從待寫清單移到已有專文；Typesense、Algolia 已於 2026-08-22 完成專文，缺口清單再縮。除 MAF 外，order 9-16 皆平行 agent 寫，數字由我打 API／抓定價頁獨立複查後才收。
+
+## 2026-08-27 歸檔
+
+- **Claude Code 深入介紹系列 H8＋troubleshooting 索引頁完成（2026-08-26）**：新增
+  deep-dive/claude-code-debug-config{,-en}.md（order 35，guide，依官方 debug-your-config 與
+  errors 兩頁實抓撰寫）；原 troubleshooting-collection{,-en} 正文改為三篇索引（order 36，
+  slug/date 未動）。H6/H7 由並行任務產出。check:references／lint 全綠；astro check 的
+  10 個 error 為 src/lib・src/server 既有 TS 問題。待使用者 review。
