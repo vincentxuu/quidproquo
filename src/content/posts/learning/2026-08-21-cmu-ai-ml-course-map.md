@@ -74,7 +74,7 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 |---|---:|---|---|
 | **07-280, Spring 2026** | **A3** | lecture PDFs／notes、recitation 與解答、書面 HW、部分 programming notebooks | 首頁已切到 Fall 2026，缺穩定學期索引；無完整公開影片／autograder |
 | **07-280, Fall 2026** | **A2** | 完整課綱、24 講主題、部分公開 notes | 8/25 才開課；當期 slides、作業與錄影尚未發布完整 |
-| **07-380, Fall 2026** | **A0** | 11 行課程規格：描述、主題、先修與評量 | 首次開課；尚無 syllabus、schedule 或實際教材 |
+| **07-380, Fall 2026** | **A2→A3** | syllabus、26 講行事曆、Lec01、Prop Logic、Checkpoint、Quiz×6、HW1-7 日期 | 首開；HW starter 多未釋出、Canvas/Gradescope/Piazza 限校內 |
 | **15-281, Spring 2026** | **A3** | slides、course notes、recitation、P0–P5、書面作業、考試練習與解答 | 部分 Panopto、Canvas、Gradescope 功能需校內身分 |
 | **10-301/601, Spring 2026** | **A3** | 27 講 slides／inked slides、readings、recitation 與解答、9 份 HW 與 starter、考試練習與解答 | Panopto、Piazza、Gradescope 與正式作業解答受限 |
 | **16-385, Spring 2026** | **A2** | 26 講 slides／readings、notebooks、7 份 programming assignment 規格 | 帳號、提交、評分與部分 starter access 受限 |
@@ -84,7 +84,7 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 
 07-280 必須拆成兩個版本看。網站首頁現在已切到 Fall 2026，當期課程要四天後才開始，lecture material 欄與多數作業尚未上線，所以只能算 A2 預覽；不過 Spring 2026 的[第一講](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[第一份 recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)與[第一份作業](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf)等官方直連仍可匿名取得，後續講義、解答與部分 notebooks 足以排成 A3 路線。問題是官方沒有保留穩定的 Spring 2026 學期首頁，這些直連未來可能失效。
 
-07-380 更明確：目前有一份很有價值的課綱，能看到 ML theory、game theory、probabilistic graphical models、planning、distributed deep learning、generative AI、RLHF、vision transformers、diffusion 與 VAE 等範圍；但第一堂課都還沒發生，不能因為主題表很完整就判 A3。
+07-380 Fall 2026 已是完整課站（[詳見總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)）：26 講 `Lec01 Introduction` 到 `Lec26 AI Ethics`、Lec01 pptx/pdf (inked)、Prop Logic.pdf、6 次 Quiz、7 份 HW 日期與 Final Project 皆已公開；HW starter 多數仍為 TBD、Gradescope/Canvas/Piazza 限校內，故判 A2→A3 過渡。待 HW1-2 釋出即可同 07-280 判 A3。
 
 ## 校外真正走得下去的三條路
 
@@ -101,7 +101,7 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 這門課與 07-280 是平行入口，不是上下集：
 
 ```text
-想建立廣義 AI + ML 新主幹：07-280 → 07-380
+想建立廣義 AI + ML 新主幹：07-280 → 07-380（[07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)）
 想集中補統計式 ML：       10-301/601
 ```
 

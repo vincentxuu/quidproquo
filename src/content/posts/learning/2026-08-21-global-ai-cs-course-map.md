@@ -104,13 +104,15 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 - Stanford CS336 與 CS221 也各有系列：[CS336 從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)（對應 Spring 2026 已結課）、CS221 的 20 講逐講導讀
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：HW1–7、code/data 與歷屆考題皆公開的 A3 自學版，對照 Fall 2026（eecs189.org/fa26）27 講行事曆
+- [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：首開 26 講 A2→A3 過渡版，對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
 
-還沒寫的是 Harvard CS181／CS182 的單課深讀；CMU 07-380 Fall 2026 首開，待課站上線後再稽核（依官方 FAQ，07-380 自 Fall 2026 起每學期開設）。MIT 6.7960 與 Harvard CS50 AI 的單課深讀已在本站 `ai`/`tech` 分類上線（見參考資料）。
+還沒寫的是 Harvard CS181／CS182 的單課深讀。MIT 6.7960 與 Harvard CS50 AI 的單課深讀已在本站 `ai`/`tech` 分類上線（見參考資料）。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
 
 ## 更新紀錄
 
+- 2026-08-27（3）：新增 [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)（首開 26 講 A2→A3 過渡版，Lec01 已公開，對照 07-280），「還沒寫」清單移除 07-380。
 - 2026-08-27（2）：新增 [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)（HW1–7 A3，對照 Fall 2026 eecs189.org/fa26 27 講行事曆），「還沒寫」清單移除 CS189 與 MIT 6.7960／Harvard CS50 AI（後兩者已在 `ai`/`tech` 上線）；原 2026-08-27 條目保留。
 - 2026-08-27：複核 Spring 2026 學期已結束：MIT 6.S191（3/30–5/25）、Stanford CS336（3/30–6/3）、Berkeley CS188 sp26（已封存，現為 su26）、CMU 11-785 S26（F26 已上線）皆改為「已結課」表述；CMU 07-280 Fall 2026 從「多數材料尚未發布」更新為 24 講／12 份作業／每週 checkpoint 皆已上線，並對應本站 07-280 逐講導讀；表格補上 Harvard 第五列並補齊 Stanford CS103／CS107／CS109／CS111／CS161 逐講完成狀態；07-380 改為「Fall 2026 首開」待稽核。
 - 2026-08-26：查核後發現 MIT 6.S191、CMU 11-785、07-280、CS336、CS221 的導讀已在本站 `ai` 分類上線，把「還沒寫」清單修正為 6.7960、CS189 與 Harvard 三門課。
@@ -138,12 +140,14 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 - [MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
 - [Harvard CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)（[逐週 W00–W06 與綜合篇](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)）
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
+- [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
 - [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
 
 ### 官方課程網站與外部資源
 
 - [Stanford CS336 Spring 2026](https://cs336.stanford.edu/)（[YouTube 完整播放清單](https://www.youtube.com/watch?v=JuoVZkPBiKk&list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)）
 - [CMU 07-280 AI & ML I Fall 2026](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-380 AI & ML II Fall 2026](https://www.cs.cmu.edu/~07380/)
 - [CMU 11-785 Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)（[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) 已上線）／[Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)
 - [MIT 6.S191 Introduction to Deep Learning](https://introtodeeplearning.com/)（[2025 archive](https://introtodeeplearning.com/2025/index.html)）
 - [MIT 6.7960 Deep Learning Fall 2025](https://deeplearning6-7960.github.io/)

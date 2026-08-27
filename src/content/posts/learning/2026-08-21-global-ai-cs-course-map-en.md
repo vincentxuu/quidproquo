@@ -110,6 +110,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 ## Update log
 
+- 2026-08-27 (3): Added [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview) (first offering, 26 lectures A2→A3 transition, Lec01 public, compared with 07-280); removed 07-380 from "still unwritten" list.
 - 2026-08-27: Re-audited Spring 2026 as completed: MIT 6.S191 (Mar 30–May 25), Stanford CS336 (Mar 30–Jun 3), Berkeley CS188 sp26 (archived, now su26), and CMU 11-785 S26 (F26 online) now marked as completed; CMU 07-280 Fall 2026 updated from "most materials not yet released" to 24 lectures / 12 assignments / weekly checkpoints all online, matching this site's 07-280 lecture guides; table expanded to five schools and Stanford CS103 / CS107 / CS109 / CS111 / CS161 completion noted; 07-380 now "first offered Fall 2026" per FAQ.
 - 2026-08-26: An audit found that the MIT 6.S191, CMU 11-785, CMU 07-280, CS336, and CS221 guides are already live on this site under the `ai` category. The "still unwritten" list now correctly names 6.7960, CS189, and Harvard's three courses.
 - 2026-08-26 (earlier): The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
@@ -134,12 +135,17 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [Completing CMU 07-280 wrap-up](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
 - [Complete CMU 11-785 deep learning guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
 - [MIT 6.S191 guide](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en)
+- [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+- [Harvard CS50 AI guide](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) ([weekly W00–W06 + synthesis](/posts/tech/2026-08-27-harvard-cs50ai-w00-search-en))
+- [Berkeley CS189 Spring 2025 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
+- [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 - [Stanford CS336 topic deep-dive series](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 
 ### Official course sites and external resources
 
 - [Stanford CS336 Spring 2026](https://cs336.stanford.edu/) ([full YouTube playlist](https://www.youtube.com/watch?v=JuoVZkPBiKk&list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV))
 - [CMU 07-280 AI & ML I Fall 2026](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-380 AI & ML II Fall 2026](https://www.cs.cmu.edu/~07380/)
 - [CMU 11-785 Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html) ([Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) online) / [Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)
 - [MIT 6.S191 Introduction to Deep Learning](https://introtodeeplearning.com/) ([2025 archive](https://introtodeeplearning.com/2025/index.html))
 - [MIT 6.7960 Deep Learning Fall 2025](https://deeplearning6-7960.github.io/)
