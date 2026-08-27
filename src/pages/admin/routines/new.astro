@@ -1,0 +1,51 @@
+---
+export const prerender = false
+import AdminLayout from '../../../layouts/AdminLayout.astro'
+---
+
+<AdminLayout title="New routine">
+  <h2>⚡ Routines / New routine</h2>
+  <div class="admin-panel" style="padding:16px; max-width:800px;">
+    <label class="admin-field"><span class="admin-field-label">Name *</span><input id="name" class="input" placeholder="e.g., Daily code review" /></label>
+    <label class="admin-field"><span class="admin-field-label">Instructions</span><textarea id="instructions" class="textarea" rows="8" placeholder="Describe what Claude should do in each session"></textarea></label>
+    <label class="admin-field"><span class="admin-field-label">Repository</span><select id="repo" class="select"><option value="">Select a repository</option><option value="vincentxuu/quidproquo" selected>vincentxuu/quidproquo</option></select></label>
+    <div style="margin:12px 0;"><strong>Select a trigger</strong>
+      <div style="display:grid; gap:8px; margin-top:8px;">
+        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px;"><input type="radio" name="trigger" value="schedule" checked /> Schedule — Run on a recurring cron schedule or once at a future time <input id="cron" class="input" placeholder="0 2 * * *" style="margin-top:8px; width:200px;" /></label>
+        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px; opacity:0.6;"><input type="radio" name="trigger" value="github" disabled /> GitHub event — Run when a GitHub webhook event fires</label>
+        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px;"><input type="radio" name="trigger" value="api" /> API — Trigger from your own code by sending a POST request</label>
+      </div>
+    </div>
+    <div><strong>Connectors</strong> <span class="page-desc">Integrations available to Claude during each run.</span>
+      <div id="connectors" style="display:flex; gap:8px; flex-wrap:wrap; margin:8px 0;">
+        {['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize'].map(n => (
+          <label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value={n} checked /> {n}</label>
+        ))}
+      </div>
+      <p style="background:#7a3a00; color:#fff; padding:8px; border-radius:6px; font-size:0.85rem;">⚠️ Claude can use all tools from these connectors — including writes — without asking for permission during runs.</p>
+    </div>
+    <div style="display:flex; gap:8px; margin-top:16px;"><button id="cancel" class="btn-secondary">Cancel</button><button id="create" class="btn">Create</button></div>
+  </div>
+</AdminLayout>
+<script is:inline>
+  document.getElementById('cancel').onclick = () => history.back()
+  document.getElementById('create').onclick = async () => {
+    const name = document.getElementById('name').value.trim()
+    if (!name) { alert('Name required'); return }
+    const trigger = document.querySelector('input[name="trigger"]:checked').value
+    const connectors = [...document.querySelectorAll('#connectors input:checked')].map(i => i.value)
+    const body = {
+      name,
+      instructions: document.getElementById('instructions').value,
+      repo: document.getElementById('repo').value,
+      trigger_type: trigger,
+      cron: document.getElementById('cron').value.trim() || null,
+      connectors,
+      model: 'sonnet-5',
+    }
+    const res = await fetch('/api/admin/routines', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) })
+    const data = await res.json()
+    if (!res.ok) { alert(data.error || 'failed'); return }
+    location.href = `/admin/routines/${data.routine.id}`
+  }
+</script>

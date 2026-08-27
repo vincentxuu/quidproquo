@@ -1,0 +1,41 @@
+---
+export const prerender = false
+import AdminLayout from '../../layouts/AdminLayout.astro'
+---
+
+<AdminLayout title="Routines">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+    <div><h2 style="display:flex; gap:8px; align-items:center;">⚡ Routines</h2><p class="page-desc">Create templated routines that can be kicked off on schedule, by API, or webhook. (CCR parity)</p></div>
+    <a href="/admin/routines/new" class="btn">＋ New routine</a>
+  </div>
+  <div class="admin-panel" style="padding:12px;">
+    <input id="q" class="input" placeholder="What do you want automated?" style="width:100%;" />
+    <div style="display:flex; gap:8px; margin:10px 0; flex-wrap:wrap;">
+      <button class="btn-secondary quick" data-tmpl="Summarize my open PRs every weekday morning">Summarize my open PRs every weekday morning</button>
+      <button class="btn-secondary quick" data-tmpl="Triage new issues and flag duplicates each morning">Triage new issues and flag duplicates each morning</button>
+      <button class="btn-secondary quick" data-tmpl="Draft release notes whenever a PR merges">Draft release notes whenever a PR merges</button>
+    </div>
+    <div style="display:flex; gap:8px; align-items:center; justify-content:space-between; margin:12px 0;">
+      <div style="display:flex; gap:8px;"><button class="btn-secondary">All</button><button class="btn-secondary">Calendar</button></div>
+      <div style="display:flex; gap:8px;"><input id="search" class="input" placeholder="Search routines" style="width:200px;" /><select id="filter" class="select"><option>Filter</option></select></div>
+    </div>
+    <div id="list"></div>
+  </div>
+</AdminLayout>
+<script is:inline>
+  async function load() {
+    const res = await fetch('/api/admin/routines')
+    const data = await res.json()
+    const listEl = document.getElementById('list')
+    const routines = data.routines ?? []
+    if (!routines.length) { listEl.innerHTML = '<p class="empty">No routines yet. Click New routine.</p>'; return }
+    listEl.innerHTML = routines.map(r => `
+      <a href="/admin/routines/${r.id}" style="display:flex; justify-content:space-between; border:1px solid var(--admin-border); border-radius:8px; padding:12px; margin:8px 0; text-decoration:none; color:inherit; background:var(--admin-surface);">
+        <div><strong>${r.name}</strong><div class="page-desc">${r.trigger_type === 'schedule' ? (r.cron ? 'Every day at ' + r.cron : 'Schedule') : r.trigger_type} ${r.enabled ? '' : '· Paused'}</div></div>
+        <span class="btn-secondary" style="align-self:center;">${r.enabled ? 'Active' : 'Paused'}</span>
+      </a>
+    `).join('')
+  }
+  document.querySelectorAll('.quick').forEach(b => b.addEventListener('click', () => { document.getElementById('q').value = b.dataset.tmpl }))
+  load()
+</script>

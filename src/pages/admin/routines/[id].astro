@@ -1,0 +1,50 @@
+---
+export const prerender = false
+import AdminLayout from '../../../layouts/AdminLayout.astro'
+const { id } = Astro.params
+---
+
+<AdminLayout title="Routine">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h2>⚡ Routines / <span id="rname"></span></h2>
+    <div style="display:flex; gap:8px;"><button id="edit" class="btn-secondary">Edit</button><button id="runnow" class="btn">▶ Run now</button></div>
+  </div>
+  <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:16px; margin-top:12px;">
+    <div class="admin-panel" style="padding:12px;">
+      <h3>Configuration</h3>
+      <div id="config"></div>
+      <h3 style="margin-top:12px;">Instructions</h3><pre id="instr" style="white-space:pre-wrap; background:var(--admin-surface-subtle); padding:12px; border-radius:6px;"></pre>
+      <h3>Runs</h3><div id="runs"></div>
+    </div>
+    <div class="admin-panel" style="padding:12px;">
+      <h3>Session</h3><p class="page-desc">Continues in the same session across runs.</p>
+      <pre id="transcript" style="min-height:300px; max-height:50vh; overflow:auto; background:var(--admin-surface-subtle); padding:12px;"></pre>
+    </div>
+  </div>
+</AdminLayout>
+<script is:inline define:vars={{ id }}>
+  async function load() {
+    const res = await fetch(`/api/admin/routines/${id}`)
+    const data = await res.json()
+    if (!res.ok) { document.getElementById('config').textContent = data.error || 'not found'; return }
+    const r = data.routine
+    document.getElementById('rname').textContent = r.name
+    document.getElementById('config').innerHTML = `
+      <div>Enabled: ${r.enabled ? 'On' : 'Off'}</div>
+      <div>Triggers: ${r.trigger_type} ${r.cron ? '· ' + r.cron : ''}</div>
+      <div>Repo: ${r.repo ?? '—'}</div>
+      <div>Model: ${r.model ?? '—'}</div>
+      <div>Connectors: ${(JSON.parse(r.connectors || '[]')).join(', ') || '—'}</div>
+    `
+    document.getElementById('instr').textContent = r.instructions || '(none)'
+    const runsEl = document.getElementById('runs')
+    const runs = data.runs ?? []
+    runsEl.innerHTML = runs.length ? runs.map(x => `<div style="border:1px solid var(--admin-border); padding:8px; margin:6px 0; border-radius:6px;">${x.id} · ${x.status} · ${new Date(x.created_at).toLocaleString()}</div>`).join('') : '<p class="empty">No fires yet</p>'
+  }
+  document.getElementById('runnow').onclick = async () => {
+    const res = await fetch(`/api/admin/routines/${id}`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({action:'run'}) })
+    const data = await res.json()
+    if (!res.ok) alert(data.error || 'failed'); else document.getElementById('transcript').textContent = 'Started session ' + data.sessionId + ' — open /admin/agents/console to view WS'
+  }
+  load()
+</script>
