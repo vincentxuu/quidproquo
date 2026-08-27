@@ -75,9 +75,9 @@ CS1810 therefore earns A3 because its current notes, sections, textbook, and ass
 
 The [Harvard SEAS course listing](https://seas.harvard.edu/computer-science/courses) schedules CS1820 for Fall 2026 with Stephanie Gil. It covers search and planning, optimization and games, uncertainty and learning, plus AI ethics and social applications. That is the current official design, but the first class is still eleven days away on this article's audit date.
 
-The catalog and preview site are not enough to judge a semester's recordings, assignments, starter code, or solutions, so the current course remains A1. Ariel Procaccia's [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/) preserves notes on problem solving, multi-agent systems, uncertainty, machine learning, and ethics. It can fill classical-AI gaps left by CS50 AI, but it is a historical A2 resource, not a substitute labeled Fall 2026.
+The catalog and preview site are not enough to judge a semester's recordings, assignments, starter code, or solutions, so the current course remains **A0** ([Locator 2026 Fall](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315) says `This Canvas course site has not been published yet`; [Locator 2025 Spring](https://locator.tlt.harvard.edu/course/colgsas-110661) is a bare listing without a public syllabus or homework repo). Ariel Procaccia's [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/) preserves **22 lectures + pset0–4 + section1–12 + midterm/final** (60+ PDFs) on problem solving, multi-agent systems, uncertainty, machine learning, and ethics, and the [Fall 2018 syllabus](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf) (Procaccia / Radanovic / Xu) plus `Harvard-CS182-F18` P0–P5 are from the same lineage. They are a historical **A2**, not a Fall 2026 substitute. 2023/2024 show the same gap (only `Embedded EthiCS` snapshots; no public pset repo — and Berkeley's `CS182` with the same number is a different course).
 
-This is a case where “latest only” prevents study. Use dated historical notes when you want to learn today; reassess Fall 2026 after its materials exist when describing Harvard's current delivery. Do not compress both claims into “CS182 is public.”
+> **Series disclaimer**: A weekly CS182 guide cannot be promised as A3 for the current 2026/2025 offering (A0). The site will use the **Fall 2022 (or Fall 2018) historical A2** as the dated source and publish a separate current-edition comparison once Fall 2026 material exists. CS181 will use the **2026 hw0–6 A3** as the weekly clock (`all learning will be in-person`, no public recordings, Google Sheet schedule deleted — week = homework number), with 2025 `practical` as the backup for the missing practical.
 
 ## The most stable external route
 
@@ -97,8 +97,8 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 
 ## Changelog
 
+- 2026-08-27: Added a six-round audit disclaimer — CS182 2026/2025/2024/2023 are all A0 for the current offering (Locator Canvas unpublished, no public homework repo; only F22 22-lecture + F18 P0–5 as historical A2); CS181 four-year comparison (two midterms vs midterm+final, hw3–5 reshuffle, practical lifecycle) and the deleted Google Sheet note; weekly guides will use homework numbers as the clock.
 - 2026-08-26: Backfilled an internal link — the [CS50 AI deep dive](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) is now live; linked it from the version-comparison passage.
-
 - 2026-08-22: Standardized the A0/A1 boundary, re-rated catalog-only Fall 2026 courses as A0, and separated future tracking from current self-study routes.
 
 ## References
@@ -113,4 +113,8 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 - [Harvard CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
 - [Harvard CS course tags](https://csadvising.seas.harvard.edu/concentration/courses/tags/)
 - [Harvard SEAS computer science course listing](https://seas.harvard.edu/computer-science/courses)
+- [COMPSCI 1820 Locator 2026 Fall — Canvas unpublished](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315)
+- [COMPSCI 1820 Locator 2025 Spring](https://locator.tlt.harvard.edu/course/colgsas-110661)
 - [CS182 Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)
+- [CS182 Fall 2018 syllabus (A. Procaccia / H. Xu)](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)
+- [Harvard-CS182-F18 psets P0–P5](https://github.com/Harvard-CS182-F18/cs182-f18-psets)
