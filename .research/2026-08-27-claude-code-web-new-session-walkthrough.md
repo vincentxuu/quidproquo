@@ -943,3 +943,54 @@ pattern」是兩個層次：那是 `bashClassifier.ts` 的規則層，本節是 
 ### 22.3 與現行版本的關係
 上述是 v2.1.88（2026-03）的模板。v2.1.114 起的「security monitor」模板（§19.2）已改成約 30 個具名 BLOCK 類別＋mandatory
 exceptions＋七條使用者意圖規則，官方 `claude auto-mode defaults` 可印出現行外部版；內部版現況無公開資料。
+
+## 23. Web session vs 本機 session：工具與 slash command 逐項對照（C-11）
+
+基準：web 端 `system/init`（§8，Claude Code 2.1.247 on web）vs 本機同版本 2.1.247 的這個 session（含本 repo 與 plugin skills）。
+
+### 23.1 內建工具
+| | 名稱 |
+|---|---|
+| 共同（33） | Artifact、AskUserQuestion、Bash、Cron{Create,Delete,List}、DesignSync、Edit、Enter/ExitPlanMode、Enter/ExitWorktree、Glob、Grep、ListAgents、ListMcpResourcesTool、ReadMcpResource{,Dir}Tool、Monitor、NotebookEdit、PushNotification、Read、ReportFindings、ScheduleWakeup、SendMessage、Skill、TaskOutput、TaskStop、ToolSearch、WebFetch、WebSearch、Workflow、Write |
+| **web 才有（17）** | **Directory 探索**：ListConnectors、ListPlugins、ListSkills、SearchMcpRegistry、SearchPlugins、SearchSkills、SuggestConnectors、SuggestPluginInstall、SuggestSkills、ShowOnboardingRolePicker；**通知／檔案**：ReadNotifications（§14.2 的喚醒機制）、SendUserFile；**子代理與任務**：Task（＝本機的 Agent）、TaskCreate、TaskGet、TaskList、TaskUpdate |
+| **本機才有（5）** | Agent（web 叫 Task）、LSP（web 沒有語言伺服器）、EndConversation、SendFeedback、RemoteTrigger |
+
+→ 差異都是「介面」層：web 多了 claude.ai Directory／通知／檔案回傳的工具，少了本機才有意義的 LSP 與回饋工具；核心工具集完全相同。
+（worker 命令列 `--tools preset:default,…,Tmux,REPL` 裡的 Tmux／REPL 沒出現在 init 的 tools 清單，推測被 feature flag 關閉。）
+
+### 23.2 Slash commands
+- web 62 個 ＝ 內建指令（clear／compact／config／context／effort／fast／model／usage／mcp／init／rename／recap／insights／
+  autocompact／color／debug／doctor／heapdump／import／agents／list-agents／reload-skills…）＋ **官方 skills 27**＋ 8 個 MCP prompt
+  （`mcp__github__AssignCodingAgent`、`mcp__github__issue_to_fix_workflow`、`mcp__Notion__make-this-a-notion-page`…）。
+- 官方 skills 中本機也有的：artifact-*（3）、claude-api、code-review、dataviz、deep-research（**官方同名，不是本 repo 的**）、design、
+  fewer-permission-prompts、init、loop、run、security-review、simplify、update-config。
+- **web 才有的官方 skills**：docx／pdf／pptx／xlsx（文件產生）、morning、import-memory、skill-creator、run-skill-generator、batch、
+  goal、session-start-hook、team-onboarding、workflow-launch-exec、`__remote-workflow`、verify、design-consent／design-revoke／
+  design-sync。
+- **本機才有的**：本 repo `.agents/skills` 全部（post、post-translate、post-verify、research-selection…）、plugin 的 dev:*／
+  pr-review-toolkit／commit-commands／slack／sentry／hookify／openspec 等——**web session 一個都沒載入**（§8 已註明；官方文件
+  §18.5 說 cloud session 只讀 repo 的 `.claude/settings.json`，skills 要靠 Directory 安裝或 `CLAUDE_CODE_SYNC_SKILLS`）。
+
+→ 實務結論：要在 web／Routine 用本 repo 的寫稿流程，得把 skill 發佈到 Directory（Customize › Skills › Upload）或改成 repo 內
+`.claude/skills`（但 §8 實測 repo 內的也沒載入——待確認是路徑還是 sync 開關的問題）。
+
+## 23. Web session vs 本機 session：工具與 slash command 逐項對照（C-11）
+
+基準：web 端 `system/init`（§8，Claude Code 2.1.247 on web）vs 本機同版本 2.1.247 的這個 session（含本 repo 與 plugin skills）。
+
+### 23.1 內建工具
+| | 名稱 |
+|---|---|
+| 共同（33） | Artifact、AskUserQuestion、Bash、Cron{Create,Delete,List}、DesignSync、Edit、Enter/ExitPlanMode、Enter/ExitWorktree、Glob、Grep、ListAgents、ListMcpResourcesTool、ReadMcpResource{,Dir}Tool、Monitor、NotebookEdit、PushNotification、Read、ReportFindings、ScheduleWakeup、SendMessage、Skill、TaskOutput、TaskStop、ToolSearch、WebFetch、WebSearch、Workflow、Write |
+| **web 才有（17）** | Directory 探索：ListConnectors、ListPlugins、ListSkills、SearchMcpRegistry、SearchPlugins、SearchSkills、SuggestConnectors、SuggestPluginInstall、SuggestSkills、ShowOnboardingRolePicker；通知／檔案：ReadNotifications（§14.2 喚醒機制）、SendUserFile；子代理與任務：Task（＝本機 Agent）、TaskCreate、TaskGet、TaskList、TaskUpdate |
+| **本機才有（5）** | Agent、LSP、EndConversation、SendFeedback、RemoteTrigger |
+
+→ 差異全在介面層；核心工具集相同。worker 命令列的 Tmux／REPL 未出現在 init 清單，推測被 feature flag 關閉。
+
+### 23.2 Slash commands
+- web 62 個 ＝ 內建指令（clear／compact／config／context／effort／fast／model／usage／mcp／init／rename／recap／insights／autocompact／color／debug／doctor／heapdump／import／agents／list-agents／reload-skills…）＋ 官方 skills 27 ＋ 8 個 MCP prompt。
+- 本機也有的官方 skills：artifact-*（3）、claude-api、code-review、dataviz、deep-research（官方同名，非本 repo 的）、design、fewer-permission-prompts、init、loop、run、security-review、simplify、update-config。
+- web 才有的官方 skills：docx／pdf／pptx／xlsx、morning、import-memory、skill-creator、run-skill-generator、batch、goal、session-start-hook、team-onboarding、workflow-launch-exec、`__remote-workflow`、verify、design-consent／design-revoke／design-sync。
+- 本機才有：本 repo `.agents/skills` 全部與所有 plugin skills——web session 一個都沒載入（§8、§18.5）。
+
+→ 要在 web／Routine 用本 repo 的寫稿流程，得把 skill 發佈到 Directory（Customize › Skills › Upload）或確認 repo 內 `.claude/skills` 的載入條件（§8 實測未載入，原因待確認）。
