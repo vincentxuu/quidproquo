@@ -10,8 +10,8 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **/admin 路由整理第一輪（2026-08-27）**：刪 9 支死 API、/admin/providers 301 → console、導覽重排＋補孤兒頁；
-  總表與待拍板項（agent-os API 去留、evidence namespace、雙 skill 頁）在 docs/admin-route-map.md。
+- **Admin v2 規格定案（2026-08-27）**：後台重定義為自製 coding agent 操作台，完整對齊 Claude Code web；
+  13 題＋5 未決項全部拍板，分期 6 期，見 docs/admin-v2-spec.md。第一輪路由整理已 commit（b0f8f88），總表 docs/admin-route-map.md。
 - **Claude Code 深入介紹系列 H8＋troubleshooting 索引頁完成（2026-08-26）**：新增
   deep-dive/claude-code-debug-config{,-en}.md（order 35，guide，依官方 debug-your-config 與
   errors 兩頁實抓撰寫）；原 troubleshooting-collection{,-en} 正文改為三篇索引（order 36，
