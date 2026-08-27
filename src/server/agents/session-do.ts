@@ -2,7 +2,7 @@ import { DurableObject } from 'cloudflare:workers'
 import type { Env } from '../../lib/config/env'
 import { runLoop, type LoopMessage } from '../../lib/agent-os/durable-agent'
 import { createKernel } from '../../lib/agent-os/kernel'
-import { humanMessage, systemMessage } from '../../lib/rag/messages'
+import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 
 export class AgentSessionDO extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
@@ -103,7 +103,7 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const kernel = createKernel(this.env)
     const toBaseMessage = (m: LoopMessage) =>
-      m.role === 'user' ? humanMessage(m.content) : systemMessage(m.content)
+      m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
 
     await runLoop(
       [userMsg],
@@ -111,7 +111,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         modelInvoke: async (msgs) => {
           try {
             const lcMessages = [
-              ...(skillContext ? [systemMessage(`Skill ${skill}:\n${skillContext}`)] : []),
+              ...(skillContext ? [new SystemMessage(`Skill ${skill}:\n${skillContext}`)] : []),
               ...msgs.map(toBaseMessage),
             ]
             // minimal RagRuntimeConfig stub — reuse env provider routing via kernel syscall
