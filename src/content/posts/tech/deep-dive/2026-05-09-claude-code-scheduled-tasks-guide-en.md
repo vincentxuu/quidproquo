@@ -99,6 +99,23 @@ Connect to MCP services (Slack, Linear, Google Drive, etc.). By default all your
 
 Detailed in the next section.
 
+### What the web form actually looks like (hands-on, 2026-08-27)
+
+Opening [claude.ai/code/routines/new](https://claude.ai/code/routines/new) shows a few details the docs don't spell out:
+
+- **Natural-language drafting**: the list page has a "What do you want automated?" box — type one sentence, hit **Draft routine**, and the form is pre-filled. Below it are 8 templates (Briefing, Email triage, System health check, Issue triage, PR review digest, Dependency update check, Release notes drafter, Flaky test tracker). Template times are UTC converted to your zone — Briefing shows "weekdays 8:30 PM GMT+8" — so adjust them to your morning.
+- **Schedule trigger** has six quick buttons: Once / Hourly / Daily / Weekdays / Weekly / Custom, plus a time field, with the note "Runs are staggered by a few minutes to spread server load."
+- **GitHub event trigger** is disabled until you pick a repo; the button literally says "Select a repository first".
+- Three settings tabs at the bottom: **Connectors** (pre-loads every connector on your account — 12 in my case), **Behavior** (a single **Auto-fix pull requests** switch, off by default), **Notifications** (finish notification on by default; channels Push / Email / Slack, only Push checked).
+
+Full item-by-item notes: `.research/2026-08-27-claude-code-routines-web-ui-walkthrough.md`.
+
+After actually creating a read-only test routine and running it once, three more things:
+
+- **The repository list only shows orgs where the Claude GitHub App is installed.** Mine listed 16 repos from my company org; my personal repos didn't appear and search found nothing — install the App first. The Model dropdown offers Default / Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 / Opus 4.8–4.6 / Sonnet 4.6; choosing Custom under Schedule reveals a cron field, and 09:00 GMT+8 is stored as `0 1 * * *` — cron is UTC.
+- **Connectors have a load-order trap**: the form initially showed one connector, I removed it and hit Create, and the detail page had 13 attached (the rest loaded afterwards and were auto-added). After creating, always check the **Runs with** block on the detail page and Edit them away if needed.
+- **Notifications are decided by the model**: the run transcript opened with "This was a routine, no-op verification — no anomalies to report, so no notification needed.", so there's a layer of instructions letting Claude decide whether to notify. The session page also shows Effort: High, Fast mode off, and runs are tagged Manual / Cloud.
+
 ## Three Trigger Types
 
 A single routine can have multiple triggers attached simultaneously. For example: "run nightly + trigger from a deploy script + run whenever a new PR is opened" can all be bound to the same routine.
@@ -354,4 +371,5 @@ Start simple: auto-review yesterday's PRs every morning, run a dependency audit 
 
 ## Update Log
 
+- 2026-08-27: Added hands-on notes on the web form (drafting box, templates, Behavior/Notifications tabs) plus observations from creating and running one (repo list, connector load order, notification decision).
 - 2026-08-26: Fact refresh + new goal mode section / cross-linked with the implementation post.

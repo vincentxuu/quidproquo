@@ -99,6 +99,23 @@ prompt 是核心，`Routines` 完全自主執行、沒有人類互動，所以 p
 
 下一節詳述。
 
+### Web 表單實際長什麼樣（2026-08-27 實測）
+
+實際打開 [claude.ai/code/routines/new](https://claude.ai/code/routines/new) 看到的，比官方文件多幾個細節：
+
+- **自然語言草擬入口**：列表頁有一個「What do you want automated?」輸入框，打一句話按 **Draft routine** 就幫你把表單填好；下面另有 8 個模板（Briefing、Email triage、System health check、Issue triage、PR review digest、Dependency update check、Release notes drafter、Flaky test tracker）。模板預設時間是 UTC 換算過來的，例如 Briefing 顯示「平日 20:30 GMT+8」，要自己改成早上。
+- **Schedule trigger** 有六個快捷鈕：Once / Hourly / Daily / Weekdays / Weekly / Custom，加一個時間框；旁邊直接寫「Runs are staggered by a few minutes to spread server load」。
+- **GitHub event trigger** 在你選 repo 之前是灰的，按鈕上寫「Select a repository first」。
+- 表單下方三個分頁：**Connectors**（預設塞進你所有已連接的 connector，實測一口氣帶了 12 個）、**Behavior**（只有一個 **Auto-fix pull requests** 開關，預設關）、**Notifications**（完成通知預設開，通道 Push／Email／Slack，預設只勾 Push）。
+
+完整逐項紀錄見 `.research/2026-08-27-claude-code-routines-web-ui-walkthrough.md`。
+
+實際建一個唯讀測試 routine 跑一次之後，再補三件事：
+
+- **Repository 清單只列裝了 Claude GitHub App 的 org**。我的清單只有公司 org 的 16 個 repo，個人帳號的 repo 搜不到——要先去 GitHub 裝 App。Model 下拉有 Default／Fable 5／Opus 5／Sonnet 5／Haiku 4.5／Opus 4.8～4.6／Sonnet 4.6；Schedule 選 Custom 會看到 cron 框，而且 09:00 GMT+8 存成 `0 1 * * *`——cron 是 UTC。
+- **Connector 有載入時序陷阱**：表單剛開時只顯示 1 個 connector，我移除後按 Create，細節頁卻掛了 13 個（其餘是之後才載入並自動附上的）。建立後務必回細節頁看 **Runs with** 區塊，不對就 Edit 清掉。
+- **通知是模型判斷的**：run 的 transcript 開頭是「This was a routine, no-op verification — no anomalies to report, so no notification needed.」，表示 run 內有一層指示讓 Claude 決定要不要推播；session 頁還會顯示 Effort: High、Fast mode off，run 列表標 Manual／Cloud。
+
 ## 三種 Trigger
 
 一個 routine 可以同時掛多種 trigger。例如「每晚跑一次 + 部署腳本叫一次 + 新 PR 開了就跑一次」可以全綁在同一個 routine 上。
@@ -354,4 +371,5 @@ Routines 把 Claude Code 從「你問它答」的互動模式，變成了「設�
 
 ## 更新紀錄
 
+- 2026-08-27：補 Web 表單實測（草擬入口、模板、Behavior／Notifications 分頁）＋實際建立與跑一次的觀察（repo 清單、connector 時序、通知判斷）。
 - 2026-08-26：刷新事實＋補 goal mode／與實作篇互鏈。
