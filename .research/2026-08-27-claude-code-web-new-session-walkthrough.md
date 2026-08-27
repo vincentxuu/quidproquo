@@ -723,3 +723,74 @@ worker  assistant tool_use mcp__github__pull_request_read (get / get_status) →
 - stagger 演算法、沙箱排程／容量策略、`resume-cached` 快照的儲存位置與加密。
 - Trusted 網域的完整清單（文件只說「common package registries including npm, PyPI, RubyGems, crates.io」，
   自架環境文件另有 default allowed domains 節可對照，未逐一抄錄）。
+
+## 19. 最後三題：官方清單＋外洩原始碼能補到哪（2026-08-27）
+
+> 資料來源分兩類：官方文件（可直接引用）與 2026-03-31 `@anthropic-ai/claude-code@2.1.88` npm source map 外洩
+> （`cli.js.map` 59.8 MB、1,906 檔、51 萬行；Anthropic 已對鏡像發 DMCA）。本節只摘結構與公開分析，不搬程式碼；
+> Zscaler 報告有假「leaked Claude」repo 夾帶 Vidar／GhostSocks 惡意程式，勿下載來路不明的鏡像。
+
+### 19.1 Trusted 網域完整清單——**在官方文件，不用 leak**
+[cloud-environments § Default allowed domains](https://code.claude.com/docs/en/cloud-environments#default-allowed-domains)
+逐條列出，分十幾組：Anthropic（api.anthropic.com、statsig.anthropic.com、docs/platform/code.claude.com、claude.ai）、
+GitHub／GitLab／Bitbucket 全系列、容器 registry（docker.io、gcr.io、ghcr.io、mcr、public.ecr.aws）、雲 SDK
+（`*.googleapis.com`、`*.amazonaws.com`、`*.api.aws`、azure／microsoft、oracle／java）、npm／yarn、PyPI、RubyGems、
+crates.io／rustup、Go proxy、Maven／Gradle／Kotlin／Spring、Packagist／NuGet／pub.dev／hex.pm／CPAN／CocoaPods／
+Haskell／Swift、Ubuntu／launchpad／`*.nixos.org`、k8s／HashiCorp／Anaconda／Apache／Eclipse／nodejs.org／
+developer.apple／android、stainless、prisma、可觀測性（statsig.com、`*.sentry.io`、`*.datadoghq.com`、honeycomb）、
+sourceforge／packagecloud／Google Fonts、json-schema／schemastore、`*.modelcontextprotocol.io`。
+→ 與 §11.3 實測一致：example.com／google.com 不在表上所以 403；四個等級 None／Trusted／Full／Custom，
+Custom 可勾「include defaults」。GitHub 流量與 MCP connector 流量不走這份名單（各有專用代理）。
+
+### 19.2 Classifier 模板——外洩原始碼裡有，且有兩代
+- 檔案：`src/utils/permissions/yoloClassifier.ts`（約 1,500 行）＋ `yolo-classifier-prompts/auto_mode_system_prompt.txt`、
+  `permissions_external.txt`、`permissions_anthropic.txt`（`USER_TYPE=ant` 用內部版）。組裝：`<permissions_template>` 換成
+  外部／內部模板，再把 `settings.autoMode` 的 `allow／soft_deny／environment` 填進 `<user_*_to_replace>` 標籤
+  （外部模板：使用者值**取代**預設；內部模板：**疊加**）。
+- **v2.1.88 版模板**（tool_use 協定，`classify_result {thinking, shouldBlock, reason}`）結構：三步（理解動作 → 檢查使用者意圖 →
+  評估風險）；**BLOCK—不論意圖**：Code from External（`curl | bash`、未知 `npx`）、Irreversible Local Destruction、
+  Unauthorized Persistence（.bashrc／cron／systemd）、Security Weaken、Privilege Escalation（sudo）、Network Services；
+  **BLOCK—除非明確意圖**：File Write Outside CWD、Package Management（系統級）、Git Push／Remote、Large-Scale Changes（>~20 檔）；
+  **ALLOW**：讀／搜／唯讀指令／CWD 內編輯／測試 lint build／task 工具／本地 git。啟發式：不確定就擋、看累積效果、
+  **不採信 agent 自己的文字**、「Make it work」不等於授權 `curl | bash`。
+- **v2.1.114 起的「security monitor」模板**（wasnotwas 2026-04-20 從 Bun 單檔二進位抽出）：開頭改為「You are a security
+  monitor for autonomous AI coding agents」，威脅模型三項（prompt injection／scope creep／accidental damage），
+  **預設 ALLOW**、只擋 security-relevant harm（「looping, repeating commands, or wasting tokens is not a security threat and
+  must never be blocked」），約 30 個 BLOCK 類別（含 Memory Poisoning、External System Writes、Content Integrity／
+  Impersonation），使用者意圖七條規則：「high bar to authorize danger, low bar to honor a boundary」。
+  兩階段：stage 1 `max_tokens 64`、`stop_sequences ["</block>"]`、無 thinking，附強化句「Stage 1 does NOT apply user intent
+  or ALLOW exceptions… Block if ANY rule could apply」；stage 2 `max_tokens 4096`＋thinking。system prompt 以 1 小時
+  ephemeral cache。被擋時注入主 agent 的 tool_result 原文：「Permission for this action has been denied. Reason: … You *may*
+  attempt to accomplish this action using other tools… must not try to work around the denial」。
+- 在 classifier 之前的 fast-path 白名單 `R31`：Read、Grep、Glob、LSP、ToolSearch、ListMcpResources、ReadMcpResource、
+  TodoWrite、Task*（Create/Get/Update/List/Stop/Output）、AskUserQuestion、Enter/ExitPlanMode、Team*、SendMessage、
+  classify_result——**不含 Bash／Edit／Write／WebFetch／任何會寫的 MCP 工具**。
+- 官方文件現況（§18.2）與外洩版一致，且說明 v2.1.208 起理由固定為「Blocked by classifier」（內部改為嚴重度評分）。
+  另有 issue #88891（v2.1.240）回報自訂 `hard_deny／soft_deny` 載入但**未生效**、`allow` 有效——自訂 deny 別當保證。
+
+### 19.3 System prompt——外洩原始碼裡有結構，全文散在多個 repo
+- `src/utils/systemPrompt.ts → buildEffectiveSystemPrompt()` 五層優先：Override（loop／測試）> Coordinator > Agent >
+  Custom（`--system-prompt`）> Default；`appendSystemPrompt` 永遠附加（§5.2 的 `--append-system-prompt-file` 就是這層）。
+- Default 九段（`src/constants/prompts.ts`）：Identity（「You are an interactive agent that helps users with software
+  engineering tasks」＋ `CYBER_RISK_INSTRUCTION`）→ System rules（工具外文字會顯示給使用者、權限模式、system-reminder、
+  可疑注入要告知、hook 回饋視同使用者）→ Doing tasks（先讀再改、不加未要求的功能、三行重複勝過過早抽象、OWASP）→
+  Careful actions（破壞性／難逆／影響他人／上傳）→ Using tools（專用工具優於 Bash、平行呼叫）→ Tone（無 emoji、
+  `file_path:line`、`owner/repo#123`）→ Output efficiency（「一句能說完別用三句」）→ **`__SYSTEM_PROMPT_DYNAMIC_BOUNDARY__`**
+  快取邊界 → Environment（cwd、git、platform、shell、OS、model、knowledge cutoff）。
+- 邊界之後的動態段（`systemPromptSections.ts`）：Session guidance、Memory、Environment info、Language、Output style、
+  **MCP instructions（會破快取）**、Scratchpad、Token budget、Brief……——與本 session 自己收到的 system prompt 段落順序完全吻合，
+  可互相印證。`promptCacheBreakDetection.ts` 追蹤 14 種破快取向量（sticky latch）。
+- 其他外洩細節：Undercover mode（內部員工在公開 repo 隱藏 AI 身分與代號，無 force-off）、anti-distillation 假工具注入
+  （`tengu_anti_distill_fake_tool_injection`）、`cch=00000` 由 Bun Zig 層改寫的請求驗證 header、`tengu_*` 旗標命名
+  （§11.3 看到的 GrowthBook 旗標即此）、bashSecurity.ts 23 條檢查、frustration regex。
+- **CCR（web 端）注入的 system prompt 全文**仍無：`/tmp/claude-append-system-prompt.txt` 是伺服器端產生、外洩的是 CLI 端。
+
+### 19.4 stagger 與容量演算法——不在任何公開資料裡
+- 外洩的是 **client**（CLI）原始碼；Routines／CCR 排程、sandbox 分配、快照儲存都在伺服器端（hook 註解提到的 `api-go/ccr`、
+  `antique`），從未外洩。官方只說「offset is consistent for each routine」、「capacity is provisioned on demand」。
+- 唯一可觀察的是 §7 的實測：cron 01:00Z → `next_run_at` 01:06:32Z，偏移 6.5 分鐘且固定。要推演算法得建多個 routine 比對偏移
+  是否與 trigger id／建立時間相關——可做但價值低。
+
+### 19.5 結論
+三題中兩題有答案（網域清單＝官方文件；classifier 與 system prompt 結構＝外洩原始碼＋公開分析），一題仍黑盒（伺服器端演算法）。
+引用外洩內容時只用結構描述與已被廣泛轉載的片段，不把程式碼帶進 repo。
