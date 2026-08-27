@@ -794,3 +794,116 @@ Custom 可勾「include defaults」。GitHub 流量與 MCP connector 流量不�
 ### 19.5 結論
 三題中兩題有答案（網域清單＝官方文件；classifier 與 system prompt 結構＝外洩原始碼＋公開分析），一題仍黑盒（伺服器端演算法）。
 引用外洩內容時只用結構描述與已被廣泛轉載的片段，不把程式碼帶進 repo。
+
+## 20. 四個「黑盒」在公開資料裡能補到的（2026-08-27 第二輪查證）
+
+### 20.1 Web 端注入的 system prompt（`/tmp/claude-append-system-prompt.txt`）
+- 全文仍無公開來源。但機制清楚了：AprilNEA 對 `environment-manager`（Go 1.25.7、未 strip、依賴 `anthropics/anthropic/api-go`
+  `(devel)`）的逆向顯示，session 啟動 JSON（stdin）欄位含 `custom_system_prompt`、`append_system_prompt`、`model`、
+  `mcp_config`、`allowed_tools`／`disallowed_tools`／`enabled_tools`、`claude_code_args`、`entrypoint`、`environment_variables`、
+  `environment_sub_type`（`antspace`／`baku`）、`use_code_sessions`——**append 文字由平台 API 下發，runner 寫成檔案再以
+  `--append-system-prompt-file` 傳給 CLI**。§5.2 抓到的 `POST /v1/code/sessions` body 裡 `append_system_prompt` 只有一段
+  PR 連結規則，推測 web session 的注入內容就是那段＋平台加的少量文字；PR 訂閱守則（§14.5）則是走通知而非 system prompt。
+- 對照本機：Agent SDK 文件說 `--append-system-prompt` 會接在 `claude_code` preset 之後（issue #4523 曾回報早期版本其實是塞成
+  user message，後已修）。
+- genisisiq 的「Prompt assembly scenarios」把 2.1.215 的組裝流程列成 M2（預設片段）→ `fetchSystemPromptParts()`（user／system
+  context map）→ `vne()` 選 branch → `appendSystemPrompt` 最後接上，與 §19.3 的五層優先一致。
+
+### 20.2 沙箱／排程／快照——沙箱端全被逆向了，排程端仍無
+- **AprilNEA/reverse-engineering-claude-code-antspace**（2026-03-19，從沙箱內部做）：
+  - PID 1 `/process_api`：Rust／tokio，3.1 MB，Firecracker init＋supervisor；WebSocket API 在 port 2024（JWT auth →
+    `ProcessConnection` → `CreateProcess`／stdin-stdout 二進位框架／`SendSignal`／`Resize`／`Detach`／`KeepAlive`），
+    HTTP control `/status`、`/fs_sync`、`/shutdown`、`/auth_public_key`、`/mount_root`（snapstart）、`/container_name`；
+    模組含 cgroup、oom_killer、pid_tree、adopter；build path `sandboxing/sandboxing/server/process_api/src/`。
+  - **Snapshot 架構**：「snapstart」模式——極簡 template VM（只有 proc/sys/dev/net）先 snapshot，restore 時熱插 block device
+    （`vda`=ext4 rw rootfs、`vdb`=squashfs claude-code、`vdc`=squashfs env-runner），restore 後 drop caches、remount devtmpfs、
+    mount ext4+squashfs、pivot_root、`clock_settime`；dmesg 證明 template 開機（03-16）與 session restore（03-18）差 48.5 小時，
+    ext4 mount count=11 表示同一 template 被 11 個 session 用過。安全設定：`init_on_free=1`、drop `CAP_SYS_RESOURCE`、fork 後
+    CRNG reseed、auth token scrubbing。→ 解釋 §5.5 為何 `session_mode: resume-cached` 的 provision 只要 1–2 秒。
+  - `environment-manager` 內部套件：`api／auth／claude／config／envtype{anthropic,byoc}／gitproxy／manager／mcp/servers{codesign,
+    supabase}／o11y／orchestrator／podmonitor／process／sandbox／session／sources／tunnel/actions{deploy,snapshot,status}`。
+    session mode 四種：`new`／`resume`／`resume-cached`／`setup-only`。內嵌資源：預設 settings JSON（Stop hook＋`permissions.allow:
+    ["Skill"]`，與 §11.2 實測完全一致）、`stop-hook-git-check.sh`、Baku 版 stop hook、`session-start-hook` skill。
+  - Runner 端 API：`GET /v1/environments/whoami`、`POST /v1/environments/{id}/work/poll`、`…/work/{id}/ack`、
+    `GET /v1/code/sessions/{id}`、`POST /v1/code/sessions/{id}/sign`（code signing）、`WS /v1/code/sessions/{id}/worker/`；
+    session ingress 走 gRPC/ConnectRPC，token 在 `/home/claude/.claude/remote/.session_ingress_token`。
+  - 另揭露兩個內部平台：**Antspace**（Anthropic 內部部署平台，NDJSON deploy 協定）與 **Baku**（claude.ai web app builder 的
+    執行環境，Vite、Supabase MCP）。
+- **Remote Control 協定**（Origin 2026-04-01、claude-code-from-source ch16、y-agent）：`--sdk-url` 進 `getTransportForURL()`，
+  `CLAUDE_CODE_USE_CCR_V2` 為真時把 URL 改成 `/worker/events/stream` 走 SSE（讀）＋ `CCRClient` POST（寫）；否則 ws/wss 走 v1
+  WebSocket 或 `POST_FOR_SESSION_INGRESS_V2`。v2 bridge 三步：`POST /v1/code/sessions` → `POST …/{id}/bridge`（回 `worker_jwt`、
+  `api_base_url`、`worker_epoch`，每次呼叫 epoch+1）→ 開 transport；401 時用新 `/bridge` 重建並保留 sequence cursor；
+  `FlushGate` 處理 history flush 與即時寫入的排序；JWT 到期前主動更新；server 模式最多 32 個子 session。
+  → 與 §5.5 env 的 `CLAUDE_CODE_WORKER_EPOCH=2`、`CLAUDE_CODE_USE_CCR_V2=true`、`POST_FOR_SESSION_INGRESS_V2=true` 對上。
+- **排程（stagger）與容量分配**：所有逆向都止於 runner／VM；`orchestrator`／`podmonitor` 只看到 K8s lease 與 poll 節奏
+  （v1 bridge 每 100 次空 poll 才記一次 log）。Routine 的 cron 派工在 `api-go/ccr` 伺服器端，**仍無任何公開資料**。
+
+### 20.3 代理端憑證注入——實作細節有了（genisisiq 對 2.1.215 的分析＋ issue #73273）
+- `initAgentProxy()` 啟用條件：`CLAUDE_CODE_REMOTE`＋`CCR_AGENT_PROXY_ENABLED`＋`CLAUDE_CODE_REMOTE_SESSION_ID`＋ session token
+  （`/run/ccr/session_token` 或 ingress credential 或 `AGENT_PROXY_AUTH_TOKEN`）。`AGENT_PROXY_URL`／`AGENT_PROXY_AUTH_TOKEN`
+  讀完即從 env 刪除，token 檔用完 unlink。
+- 先 `GET /v1/code/agent-proxy/ca-cert`（最多 3 次、5 秒），合併 system＋customer＋relay CA 成 bundle
+  （＝§11.3 的 `/root/.ccr/ccr-agent-proxy.pem`），在 `127.0.0.1` 起只接受 **HTTPS CONNECT** 的 listener（純 HTTP 回 405——
+  §5.2 那些 405 是同類）。每條 CONNECT 走 **WebSocket `/v1/code/agent-proxy/ws`**（protocol v2、framed data、pool 4 條、
+  idle 10 秒、最長 45 分鐘、32 MiB pending、512 KiB chunk），relay 端做 policy 與注入；4xx/5xx 記為 policy denial／upstream failure。
+  不支援純 HTTP、gRPC/HTTP2-only、WebSocket upgrade、client mTLS、pinning、非 443、raw DB。
+- `getAgentProxyEnv()` 給子程序：`HTTPS_PROXY`＋`NO_PROXY`、各 CA 變數、`JAVA_TOOL_OPTIONS`、非互動 git 預設、
+  **placeholder 的 GitHub／AWS／Google 憑證變數**（＝`proxy-inject…`）——由 relay 在出口換成真值；使用者若自己設了
+  `GH_TOKEN`／`GITHUB_TOKEN` 就不放 placeholder。信任鏈整合：系統 trust dir、JDK cacerts→PKCS#12、NSS、Boto config、profile。
+- **`gh` shim**：包一層 wrapper 放進 PATH；遇到真憑證、非 github.com 的 `GH_HOST`、非 GitHub remote 就**繞過** relay
+  （企業 GHE 憑證不會經 Anthropic）；github.com 呼叫則清 `NO_PROXY`、套本地代理與 placeholder token。
+- 另有 **git credential proxy**（environment-manager `internal/gitproxy/`：HTTP server 代理 git 操作、支援 GitHub App token、
+  設定後自我驗證重試）——§6.3 「push 可、刪 ref 403」的裁決點。issue #73273 記錄它故障時回 502「builtin injection failed」，
+  且沙箱裡有 `/root/.ccr/README.md` 說明「403 是 org policy 拒絕，不要重試」。
+- 「哪個 host 換哪把 token」的對照表仍在 relay 端；能確定的只有三組（GitHub／AWS／Google）與觸發條件。
+
+### 20.4 `permissions_anthropic.txt`（內部版 classifier 模板）——只看公開分析
+- 差異（Medium／Ringmast4r／dev.to 綜合）：內部版規則**疊加**（外部版是取代）；外部 build 的 Bash 語意分類器
+  （`bashClassifier.ts`）整個 stub 掉，只靠 LLM classifier；內部使用者多一層硬編碼危險 pattern，涵蓋 `gh`、`curl`、`wget`、
+  `git`、`kubectl`、`aws`、`gcloud`、`gsutil` 與內部工具 `coo`、`fa run`（註解說依內部沙箱遙測而來）；進 auto mode 時內部版
+  卸掉的 allow 規則清單也更長。`CLAUDE_CODE_DUMP_AUTO_MODE=1` 可把送給 classifier 的 prompt 落地（除錯用）。
+- 公開分析指出的結構性盲點：`Read`／`Grep`／`Glob` 走白名單不過 classifier（但 Bash `cat` 會過）；CWD 內 `Write`／`Edit`
+  走 acceptEdits fast path 也不過；classifier 看不到 tool output 所以無法判內容——這正是官方「輸入層 probe」要補的洞。
+- 本文不引用 `permissions_anthropic.txt` 原文。
+
+## 21. B5／B6 補測（`session_01NvbeK4JqtKeSvHVcwyxZKY`、`session_014agPM1Cu9gRgtroyawEn8C`）
+
+### 21.1 `default`（UI「Accept edits」）模式下的 `always_ask` MCP 工具
+```
+worker  control_request/can_use_tool {tool_name:"mcp__Asana__get_me", display_name:"Get Me",
+                                      decision_reason_type:"rule", input:{}}
+        UI：「Permission requested: use Get me (Asana) — Deny (1/Esc) / Allow once (2/⌘⏎)」
+client  control_response {behavior:"deny", message:"Denied by user"}    ← 送兩次，冪等
+worker  user/tool_result "Denied by user" is_error=true
+worker  assistant "The get_me call was denied…"
+worker  system/post_turn_summary {status_category:"blocked", needs_action:"grant permission to Asana connector or adjust access scope"}
+```
+→ 對照 §9.1：同一個工具在 **auto** 不問（classifier 判唯讀放行），在 **default** 依 `permission_policy: always_ask` 規則問人
+（`decision_reason_type: "rule"`，與 §11.1 Bash 的 `"other"`／`simple_expansion` 不同）。三種 mode 的對照表到此補齊。
+
+### 21.2 Plan → 「Accept and auto mode」
+```
+worker  control_request/can_use_tool {tool_name:"ExitPlanMode", requires_user_interaction:true, input:{plan}}
+client  control_response {behavior:"allow", updatedInput:{_targetMode:"auto", plan}}
+worker  user/tool_result "User has approved your plan. You can now start coding. Start with updating your todo list if applicable\n\nYour plan has been saved to: /root/.claude/plans/…"
+```
+- `_targetMode` 三值確認：Reject→無、Accept→`"default"`（回到進 Plan 前的模式）、Accept and auto mode→`"auto"`；
+  UI 的 Mode 按鈕隨之切成 Auto，接續執行不再有權限卡。這次沒有 §11.1 的 worker 重啟／`SessionStart:resume`
+  （上次是連點兩次造成），流程乾淨：approve → `Bash pwd && ls` → `Write`。
+- `ExitPlanMode` 請求帶 `requires_user_interaction: true`——與官方「`requiresUserInteraction` 的工具在任何 mode 都問人」一致。
+- 多 repo 陷阱：composer 還留著兩個 repo，Claude 自行選了 `maiagent-api-docs-gitbook` 建檔（沒問我）；平台在兩個 repo 都建了
+  `claude/asana-connector-permission-test-<6碼>` 分支。多 repo 時指令要明講目標 repo。
+
+### 21.3 「Create pull requests automatically」的真相（B5）
+- 開關 On，session 指令「push 後停止、不要開 PR、不要查」，push 於 04:25:37Z；**04:36:52Z（11 分鐘後）仍無 PR**、
+  分支卡仍顯示 Create PR 按鈕、session 沒有被喚醒。
+- 結論：這個開關**不是平台端非同步作業**，而是注入給 session 內 Claude 的行為指示（「it automatically opens a pull request
+  without asking first」的主詞是 Claude）；使用者的明確指令可壓過。真正由平台開 PR 的路徑只有 UI 的 **Create PR** 按鈕（§14.2）。
+- 附帶：因 composer 殘留兩個 repo，這次 push 到兩個 repo 各一支 `claude/auto-pr-timing-test-hbrrm4`。
+
+### 21.4 本輪清理狀態
+- 待手動刪的遠端分支（沙箱憑證不能刪 ref）：`maiagent-api-examples`：`claude/pr-walkthrough-test-y9ysuo`、
+  `claude/auto-pr-test-nb6cn4`、`claude/auto-pr-timing-test-hbrrm4`、`claude/asana-connector-permission-test-dxq9b8`；
+  `maiagent-api-docs-gitbook`：`claude/auto-pr-timing-test-hbrrm4`、`claude/asana-connector-permission-test-dxq9b8`（後者未 push，
+  只在沙箱）、`claude/multi-repo-test-3jbqwq`（未 push）。
+- Settings「Create pull requests automatically」已關回 Off；兩個測試 session 已 Archive。
